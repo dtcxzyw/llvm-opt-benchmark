@@ -72,7 +72,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb32, %if.end23, %sw.bb7, %sw.bb4, %sw.bb17, %sw.bb15, %sw.bb13
-  %certflst.0.be = phi ptr [ %certflst.0, %sw.bb32 ], [ %certflst.1, %if.end23 ], [ %certflst.0, %sw.bb17 ], [ %certflst.0, %sw.bb15 ], [ %certflst.0, %sw.bb13 ], [ %certflst.0, %sw.bb7 ], [ %certflst.0, %sw.bb4 ], [ %certflst.0, %while.cond ]
+  %certflst.0.be = phi ptr [ %certflst.0, %sw.bb32 ], [ %certflst.3, %if.end23 ], [ %certflst.0, %sw.bb17 ], [ %certflst.0, %sw.bb15 ], [ %certflst.0, %sw.bb13 ], [ %certflst.0, %sw.bb7 ], [ %certflst.0, %sw.bb4 ], [ %certflst.0, %while.cond ]
   %infile.0.be = phi ptr [ %infile.0, %sw.bb32 ], [ %infile.0, %if.end23 ], [ %infile.0, %sw.bb17 ], [ %infile.0, %sw.bb15 ], [ %call14, %sw.bb13 ], [ %infile.0, %sw.bb7 ], [ %infile.0, %sw.bb4 ], [ %infile.0, %while.cond ]
   %outfile.0.be = phi ptr [ %outfile.0, %sw.bb32 ], [ %outfile.0, %if.end23 ], [ %outfile.0, %sw.bb17 ], [ %call16, %sw.bb15 ], [ %outfile.0, %sw.bb13 ], [ %outfile.0, %sw.bb7 ], [ %outfile.0, %sw.bb4 ], [ %outfile.0, %while.cond ]
   %nocrl.0.be = phi i32 [ %nocrl.0, %sw.bb32 ], [ %nocrl.0, %if.end23 ], [ 1, %sw.bb17 ], [ %nocrl.0, %sw.bb15 ], [ %nocrl.0, %sw.bb13 ], [ %nocrl.0, %sw.bb7 ], [ %nocrl.0, %sw.bb4 ], [ %nocrl.0, %while.cond ]
@@ -120,9 +120,9 @@ land.lhs.true:                                    ; preds = %sw.bb18
   br i1 %cmp21, label %end, label %if.end23
 
 if.end23:                                         ; preds = %land.lhs.true, %sw.bb18
-  %certflst.1 = phi ptr [ %call20, %land.lhs.true ], [ %certflst.0, %sw.bb18 ]
+  %certflst.3 = phi ptr [ %call20, %land.lhs.true ], [ %certflst.0, %sw.bb18 ]
   %call25 = call ptr @opt_arg() #2
-  %call27 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %certflst.1, ptr noundef %call25) #2
+  %call27 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %certflst.3, ptr noundef %call25) #2
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %end, label %while.cond.backedge
 
@@ -162,8 +162,8 @@ if.then51:                                        ; preds = %if.end46
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then51, %if.then48
-  %crl.0 = phi ptr [ %call49, %if.then48 ], [ %call52, %if.then51 ]
-  %cmp55 = icmp eq ptr %crl.0, null
+  %crl.2 = phi ptr [ %call49, %if.then48 ], [ %call52, %if.then51 ]
+  %cmp55 = icmp eq ptr %crl.2, null
   br i1 %cmp55, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %if.end46, %if.end54
@@ -174,8 +174,8 @@ if.then56:                                        ; preds = %if.end46, %if.end54
   br label %end
 
 if.end59:                                         ; preds = %if.end54, %if.end40
-  %crl.1 = phi ptr [ null, %if.end40 ], [ %crl.0, %if.end54 ]
-  %in.0 = phi ptr [ null, %if.end40 ], [ %call43, %if.end54 ]
+  %crl.1 = phi ptr [ null, %if.end40 ], [ %crl.2, %if.end54 ]
+  %in.1 = phi ptr [ null, %if.end40 ], [ %call43, %if.end54 ]
   %call60 = call ptr @PKCS7_new() #2
   %cmp61 = icmp eq ptr %call60, null
   br i1 %cmp61, label %end, label %if.end63
@@ -233,8 +233,8 @@ if.end91:                                         ; preds = %if.then87
   br i1 %cmp9447, label %for.body, label %if.end102
 
 for.body:                                         ; preds = %if.end91, %for.inc
-  %i.048 = phi i32 [ %inc, %for.inc ], [ 0, %if.end91 ]
-  %call96 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certflst.0, i32 noundef %i.048) #2
+  %i.148 = phi i32 [ %inc, %for.inc ], [ 0, %if.end91 ]
+  %call96 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certflst.0, i32 noundef %i.148) #2
   %call.i = call ptr @BIO_new_file(ptr noundef %call96, ptr noundef nonnull @.str.28) #2
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %end.sink.split.i, label %if.end.i
@@ -291,13 +291,13 @@ if.then99:                                        ; preds = %add_certs_from_file
   br label %end
 
 for.inc:                                          ; preds = %add_certs_from_file.exit
-  %inc = add nuw nsw i32 %i.048, 1
+  %inc = add nuw nsw i32 %i.148, 1
   %call93 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certflst.0) #2
   %cmp94 = icmp slt i32 %inc, %call93
   br i1 %cmp94, label %for.body, label %if.end102, !llvm.loop !8
 
 if.end102:                                        ; preds = %for.inc, %if.end91, %if.end85
-  %i.1 = phi i32 [ 0, %if.end85 ], [ 0, %if.end91 ], [ %inc, %for.inc ]
+  %i.0 = phi i32 [ 0, %if.end85 ], [ 0, %if.end91 ], [ %inc, %for.inc ]
   %11 = load i32, ptr %outformat, align 4
   %call103 = call ptr @bio_open_default(ptr noundef %outfile.0, i8 noundef signext 119, i32 noundef %11) #2
   %cmp104 = icmp eq ptr %call103, null
@@ -319,7 +319,7 @@ if.then112:                                       ; preds = %if.end106
   br label %if.end115
 
 if.end115:                                        ; preds = %if.end106, %if.then112, %if.then108
-  %i.2 = phi i32 [ %call109, %if.then108 ], [ %call113, %if.then112 ], [ %i.1, %if.end106 ]
+  %i.2 = phi i32 [ %call109, %if.then108 ], [ %call113, %if.then112 ], [ %i.0, %if.end106 ]
   %tobool116.not = icmp eq i32 %i.2, 0
   br i1 %tobool116.not, label %if.then117, label %end
 
@@ -331,17 +331,17 @@ if.then117:                                       ; preds = %if.end115
   br label %end
 
 end:                                              ; preds = %sw.bb32, %if.end23, %land.lhs.true, %if.end115, %if.end102, %if.then87, %if.then76, %if.end67, %if.end63, %if.end59, %if.then42, %if.then117, %if.then99, %if.then56, %sw.bb3, %opthelp
-  %certflst.3 = phi ptr [ %certflst.0, %opthelp ], [ %certflst.0, %sw.bb3 ], [ %certflst.0, %if.end59 ], [ %certflst.0, %if.end63 ], [ %certflst.0, %if.then76 ], [ %certflst.0, %if.then87 ], [ %certflst.0, %if.then99 ], [ %certflst.0, %if.end102 ], [ %certflst.0, %if.then117 ], [ %certflst.0, %if.end67 ], [ %certflst.0, %if.then42 ], [ %certflst.0, %if.then56 ], [ %certflst.0, %if.end115 ], [ %certflst.1, %if.end23 ], [ null, %land.lhs.true ], [ %certflst.0, %sw.bb32 ]
-  %crl.3 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ %crl.1, %if.end59 ], [ %crl.1, %if.end63 ], [ %crl.1, %if.then76 ], [ null, %if.then87 ], [ null, %if.then99 ], [ null, %if.end102 ], [ null, %if.then117 ], [ %crl.1, %if.end67 ], [ null, %if.then42 ], [ null, %if.then56 ], [ null, %if.end115 ], [ null, %land.lhs.true ], [ null, %if.end23 ], [ null, %sw.bb32 ]
+  %certflst.2 = phi ptr [ %certflst.0, %opthelp ], [ %certflst.0, %sw.bb3 ], [ %certflst.0, %if.end59 ], [ %certflst.0, %if.end63 ], [ %certflst.0, %if.then76 ], [ %certflst.0, %if.then87 ], [ %certflst.0, %if.then99 ], [ %certflst.0, %if.end102 ], [ %certflst.0, %if.then117 ], [ %certflst.0, %if.end67 ], [ %certflst.0, %if.then42 ], [ %certflst.0, %if.then56 ], [ %certflst.0, %if.end115 ], [ %certflst.3, %if.end23 ], [ null, %land.lhs.true ], [ %certflst.0, %sw.bb32 ]
+  %crl.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ %crl.1, %if.end59 ], [ %crl.1, %if.end63 ], [ %crl.1, %if.then76 ], [ null, %if.then87 ], [ null, %if.then99 ], [ null, %if.end102 ], [ null, %if.then117 ], [ %crl.1, %if.end67 ], [ null, %if.then42 ], [ null, %if.then56 ], [ null, %if.end115 ], [ null, %land.lhs.true ], [ null, %if.end23 ], [ null, %sw.bb32 ]
   %p7.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end59 ], [ %call60, %if.end63 ], [ %call60, %if.then76 ], [ %call60, %if.then87 ], [ %call60, %if.then99 ], [ %call60, %if.end102 ], [ %call60, %if.then117 ], [ %call60, %if.end67 ], [ null, %if.then42 ], [ null, %if.then56 ], [ %call60, %if.end115 ], [ null, %land.lhs.true ], [ null, %if.end23 ], [ null, %sw.bb32 ]
   %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end59 ], [ null, %if.end63 ], [ null, %if.then76 ], [ null, %if.then87 ], [ null, %if.then99 ], [ null, %if.end102 ], [ %call103, %if.then117 ], [ null, %if.end67 ], [ null, %if.then42 ], [ null, %if.then56 ], [ %call103, %if.end115 ], [ null, %land.lhs.true ], [ null, %if.end23 ], [ null, %sw.bb32 ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.end59 ], [ 1, %if.end63 ], [ 1, %if.then76 ], [ 1, %if.then87 ], [ 1, %if.then99 ], [ 1, %if.end102 ], [ 1, %if.then117 ], [ 1, %if.end67 ], [ 1, %if.then42 ], [ 1, %if.then56 ], [ 0, %if.end115 ], [ 1, %land.lhs.true ], [ 1, %if.end23 ], [ 1, %sw.bb32 ]
-  %in.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ %in.0, %if.end59 ], [ %in.0, %if.end63 ], [ %in.0, %if.then76 ], [ %in.0, %if.then87 ], [ %in.0, %if.then99 ], [ %in.0, %if.end102 ], [ %in.0, %if.then117 ], [ %in.0, %if.end67 ], [ null, %if.then42 ], [ %call43, %if.then56 ], [ %in.0, %if.end115 ], [ null, %land.lhs.true ], [ null, %if.end23 ], [ null, %sw.bb32 ]
-  call void @OPENSSL_sk_free(ptr noundef %certflst.3) #2
-  %call121 = call i32 @BIO_free(ptr noundef %in.1) #2
+  %in.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ %in.1, %if.end59 ], [ %in.1, %if.end63 ], [ %in.1, %if.then76 ], [ %in.1, %if.then87 ], [ %in.1, %if.then99 ], [ %in.1, %if.end102 ], [ %in.1, %if.then117 ], [ %in.1, %if.end67 ], [ null, %if.then42 ], [ %call43, %if.then56 ], [ %in.1, %if.end115 ], [ null, %land.lhs.true ], [ null, %if.end23 ], [ null, %sw.bb32 ]
+  call void @OPENSSL_sk_free(ptr noundef %certflst.2) #2
+  %call121 = call i32 @BIO_free(ptr noundef %in.0) #2
   call void @BIO_free_all(ptr noundef %out.0) #2
   call void @PKCS7_free(ptr noundef %p7.0) #2
-  call void @X509_CRL_free(ptr noundef %crl.3) #2
+  call void @X509_CRL_free(ptr noundef %crl.0) #2
   ret i32 %ret.0
 }
 

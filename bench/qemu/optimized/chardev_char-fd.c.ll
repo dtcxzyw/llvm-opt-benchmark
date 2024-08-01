@@ -115,7 +115,7 @@ if.then16:                                        ; preds = %if.end14
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then16, %if.end14
-  %name.0 = phi ptr [ %call21, %if.then16 ], [ null, %if.end14 ]
+  %name.1 = phi ptr [ %call21, %if.then16 ], [ null, %if.end14 ]
   br i1 %cmp, label %if.then26, label %cleanup
 
 if.then26:                                        ; preds = %if.end24
@@ -123,7 +123,7 @@ if.then26:                                        ; preds = %if.end24
   %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #7
   %ioc_out29 = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %call.i24, ptr %ioc_out29, align 8
-  tail call void @g_free(ptr noundef %name.0) #7
+  tail call void @g_free(ptr noundef %name.1) #7
   %label30 = getelementptr inbounds i8, ptr %chr, i64 96
   %5 = load ptr, ptr %label30, align 8
   %call31 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, ptr noundef %5) #7
@@ -133,8 +133,8 @@ if.then26:                                        ; preds = %if.end24
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end24, %if.then26, %if.then5
-  %name.1 = phi ptr [ %call8, %if.then5 ], [ %call31, %if.then26 ], [ %name.0, %if.end24 ]
-  tail call void @g_free(ptr noundef %name.1) #7
+  %name.0 = phi ptr [ %call8, %if.then5 ], [ %call31, %if.then26 ], [ %name.1, %if.end24 ]
+  tail call void @g_free(ptr noundef %name.0) #7
   ret void
 }
 

@@ -2126,7 +2126,7 @@ lpad22:                                           ; preds = %_ZN3zmq13scoped_loc
   br label %eh.resume
 
 cleanup:                                          ; preds = %invoke.cont23, %if.then26
-  %retval.0 = phi i32 [ -1, %if.then26 ], [ 0, %invoke.cont23 ]
+  %retval.1 = phi i32 [ -1, %if.then26 ], [ 0, %invoke.cont23 ]
   %call.i.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #19
   %tobool.not.i.i48 = icmp eq i32 %call.i.i47, 0
   br i1 %tobool.not.i.i48, label %return, label %if.then.i.i49
@@ -2318,8 +2318,8 @@ sw.epilog:                                        ; preds = %if.else, %sw.bb30, 
   br label %return
 
 return:                                           ; preds = %if.then.i.i94, %invoke.cont61, %if.then.i.i64, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit61, %if.then.i.i49, %cleanup, %if.then.i.i33, %invoke.cont, %if.then.i.i18, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, %sw.epilog, %_ZN3zmq13scoped_lock_tD2Ev.exit84
-  %retval.1 = phi i32 [ -1, %sw.epilog ], [ 0, %_ZN3zmq13scoped_lock_tD2Ev.exit84 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit ], [ 0, %if.then.i.i18 ], [ 0, %invoke.cont ], [ 0, %if.then.i.i33 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i49 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit61 ], [ 0, %if.then.i.i64 ], [ 0, %invoke.cont61 ], [ 0, %if.then.i.i94 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %sw.epilog ], [ 0, %_ZN3zmq13scoped_lock_tD2Ev.exit84 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit ], [ 0, %if.then.i.i18 ], [ 0, %invoke.cont ], [ 0, %if.then.i.i33 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i49 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit61 ], [ 0, %if.then.i.i64 ], [ 0, %invoke.cont61 ], [ 0, %if.then.i.i94 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad60, %ehcleanup, %lpad22, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %49, %lpad60 ], [ %23, %lpad22 ], [ %20, %lpad ]

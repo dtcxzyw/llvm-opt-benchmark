@@ -764,7 +764,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %339 = load i32, ptr %7, align 4
   %340 = icmp eq i32 %339, 6
   %. = select i1 %340, i32 3, i32 0
-  %.3 = select i1 %338, i32 %., i32 %.0206.lcssa
+  %.4 = select i1 %338, i32 %., i32 %.0206.lcssa
   %341 = load i32, ptr %4, align 4
   %342 = load i32, ptr %5, align 4
   %343 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef %341, i32 noundef %342)
@@ -775,8 +775,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 344:                                              ; preds = %337, %329
   %345 = phi i32 [ %.pre336, %337 ], [ %311, %329 ]
   %346 = phi i32 [ %.pre, %337 ], [ %308, %329 ]
-  %.0215 = phi ptr [ %332, %337 ], [ %316, %329 ]
-  %.4 = phi i32 [ %.3, %337 ], [ %spec.select274, %329 ]
+  %.1216 = phi ptr [ %332, %337 ], [ %316, %329 ]
+  %.3 = phi i32 [ %.4, %337 ], [ %spec.select274, %329 ]
   %347 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef nonnull %164, i32 noundef %346, i32 noundef %345)
   %348 = call i32 @strcasecmp(ptr noundef nonnull %164, ptr noundef nonnull @.str.26) #14
   %.not242 = icmp eq i32 %348, 0
@@ -787,11 +787,11 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   store ptr null, ptr %6, align 8
   %350 = icmp slt i32 %.0207.lcssa, 0
   %spec.store.select = select i1 %350, i32 95, i32 %.0207.lcssa
-  %351 = sext i32 %.4 to i64
+  %351 = sext i32 %.3 to i64
   %352 = getelementptr inbounds [7 x ptr], ptr @subsampName, i64 0, i64 %351
   %353 = load ptr, ptr %352, align 8
   %354 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %353, i32 noundef %spec.store.select)
-  %355 = call i32 @tj3Set(ptr noundef nonnull %165, i32 noundef 4, i32 noundef %.4) #13
+  %355 = call i32 @tj3Set(ptr noundef nonnull %165, i32 noundef 4, i32 noundef %.3) #13
   %356 = icmp slt i32 %355, 0
   br i1 %356, label %357, label %360
 
@@ -824,7 +824,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %373 = load i32, ptr %4, align 4
   %374 = load i32, ptr %5, align 4
   %375 = load i32, ptr %7, align 4
-  %376 = call i32 @tj3Compress8(ptr noundef nonnull %165, ptr noundef nonnull %.0215, i32 noundef %373, i32 noundef 0, i32 noundef %374, i32 noundef %375, ptr noundef nonnull %6, ptr noundef nonnull %12) #13
+  %376 = call i32 @tj3Compress8(ptr noundef nonnull %165, ptr noundef nonnull %.1216, i32 noundef %373, i32 noundef 0, i32 noundef %374, i32 noundef %375, ptr noundef nonnull %6, ptr noundef nonnull %12) #13
   %377 = icmp slt i32 %376, 0
   br i1 %377, label %378, label %381
 
@@ -866,7 +866,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %402 = load i32, ptr %4, align 4
   %403 = load i32, ptr %5, align 4
   %404 = load i32, ptr %7, align 4
-  %405 = call i32 @tj3SaveImage8(ptr noundef nonnull %165, ptr noundef %401, ptr noundef nonnull %.0215, i32 noundef %402, i32 noundef 0, i32 noundef %403, i32 noundef %404) #13
+  %405 = call i32 @tj3SaveImage8(ptr noundef nonnull %165, ptr noundef %401, ptr noundef nonnull %.1216, i32 noundef %402, i32 noundef 0, i32 noundef %403, i32 noundef %404) #13
   %406 = icmp slt i32 %405, 0
   br i1 %406, label %407, label %410
 
@@ -876,19 +876,19 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br label %410
 
 410:                                              ; preds = %390, %400, %290, %407, %395, %385, %378, %369, %363, %357, %334, %326, %318, %301, %293, %285, %258, %252, %246, %235, %223, %215, %210, %203, %189, %167, %15
-  %.1218 = phi ptr [ null, %15 ], [ null, %167 ], [ null, %334 ], [ null, %407 ], [ null, %400 ], [ null, %357 ], [ null, %363 ], [ null, %369 ], [ null, %378 ], [ null, %385 ], [ %383, %395 ], [ %383, %390 ], [ null, %189 ], [ %187, %203 ], [ %187, %210 ], [ %187, %215 ], [ %187, %223 ], [ null, %235 ], [ null, %246 ], [ null, %252 ], [ null, %258 ], [ null, %285 ], [ %283, %293 ], [ %283, %290 ], [ null, %301 ], [ null, %318 ], [ null, %326 ]
-  %.1216 = phi ptr [ null, %15 ], [ null, %167 ], [ null, %334 ], [ %.0215, %407 ], [ %.0215, %400 ], [ %.0215, %357 ], [ %.0215, %363 ], [ %.0215, %369 ], [ %.0215, %378 ], [ %.0215, %385 ], [ %.0215, %395 ], [ %.0215, %390 ], [ null, %189 ], [ null, %203 ], [ null, %210 ], [ null, %215 ], [ null, %223 ], [ null, %235 ], [ null, %246 ], [ null, %252 ], [ null, %258 ], [ null, %285 ], [ null, %293 ], [ null, %290 ], [ null, %301 ], [ null, %318 ], [ %316, %326 ]
+  %.0217 = phi ptr [ null, %15 ], [ null, %167 ], [ null, %334 ], [ null, %407 ], [ null, %400 ], [ null, %357 ], [ null, %363 ], [ null, %369 ], [ null, %378 ], [ null, %385 ], [ %383, %395 ], [ %383, %390 ], [ null, %189 ], [ %187, %203 ], [ %187, %210 ], [ %187, %215 ], [ %187, %223 ], [ null, %235 ], [ null, %246 ], [ null, %252 ], [ null, %258 ], [ null, %285 ], [ %283, %293 ], [ %283, %290 ], [ null, %301 ], [ null, %318 ], [ null, %326 ]
+  %.0215 = phi ptr [ null, %15 ], [ null, %167 ], [ null, %334 ], [ %.1216, %407 ], [ %.1216, %400 ], [ %.1216, %357 ], [ %.1216, %363 ], [ %.1216, %369 ], [ %.1216, %378 ], [ %.1216, %385 ], [ %.1216, %395 ], [ %.1216, %390 ], [ null, %189 ], [ null, %203 ], [ null, %210 ], [ null, %215 ], [ null, %223 ], [ null, %235 ], [ null, %246 ], [ null, %252 ], [ null, %258 ], [ null, %285 ], [ null, %293 ], [ null, %290 ], [ null, %301 ], [ null, %318 ], [ %316, %326 ]
   %.0214 = phi i32 [ -1, %15 ], [ -1, %167 ], [ -1, %334 ], [ -1, %407 ], [ 0, %400 ], [ -1, %357 ], [ -1, %363 ], [ -1, %369 ], [ -1, %378 ], [ -1, %385 ], [ -1, %395 ], [ 0, %390 ], [ -1, %189 ], [ -1, %203 ], [ -1, %210 ], [ -1, %215 ], [ -1, %223 ], [ -1, %235 ], [ -1, %246 ], [ -1, %252 ], [ -1, %258 ], [ -1, %285 ], [ -1, %293 ], [ 0, %290 ], [ -1, %301 ], [ -1, %318 ], [ -1, %326 ]
   %.0211 = phi ptr [ null, %15 ], [ null, %167 ], [ %165, %334 ], [ %165, %407 ], [ %165, %400 ], [ %165, %357 ], [ %165, %363 ], [ %165, %369 ], [ %165, %378 ], [ %165, %385 ], [ %165, %395 ], [ %165, %390 ], [ %165, %189 ], [ %165, %203 ], [ %165, %210 ], [ %165, %215 ], [ %165, %223 ], [ %165, %235 ], [ %165, %246 ], [ %165, %252 ], [ %165, %258 ], [ %165, %285 ], [ %165, %293 ], [ %165, %290 ], [ %165, %301 ], [ %165, %318 ], [ %165, %326 ]
-  call void @tj3Free(ptr noundef %.1216) #13
+  call void @tj3Free(ptr noundef %.0215) #13
   call void @tj3Destroy(ptr noundef %.0211) #13
   %411 = load ptr, ptr %6, align 8
   call void @tj3Free(ptr noundef %411) #13
-  %.not264 = icmp eq ptr %.1218, null
+  %.not264 = icmp eq ptr %.0217, null
   br i1 %.not264, label %414, label %412
 
 412:                                              ; preds = %410
-  %413 = call i32 @fclose(ptr noundef nonnull %.1218)
+  %413 = call i32 @fclose(ptr noundef nonnull %.0217)
   br label %414
 
 414:                                              ; preds = %412, %410

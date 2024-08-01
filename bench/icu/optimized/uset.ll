@@ -1092,22 +1092,22 @@ if.else13.preheader:                              ; preds = %for.cond.preheader
 if.else13:                                        ; preds = %if.else13.preheader, %if.else13
   %shr65 = phi i32 [ %shr, %if.else13 ], [ %shr61, %if.else13.preheader ]
   %lo.064 = phi i32 [ %lo.0.shr, %if.else13 ], [ 0, %if.else13.preheader ]
-  %hi.063 = phi i32 [ %shr.hi.0, %if.else13 ], [ %sub, %if.else13.preheader ]
+  %hi.163 = phi i32 [ %shr.hi.1, %if.else13 ], [ %sub, %if.else13.preheader ]
   %idxprom14 = sext i32 %shr65 to i64
   %arrayidx15 = getelementptr inbounds i16, ptr %0, i64 %idxprom14
   %4 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %4 to i32
   %cmp17 = icmp sgt i32 %conv16, %c
-  %shr.hi.0 = select i1 %cmp17, i32 %shr65, i32 %hi.063
+  %shr.hi.1 = select i1 %cmp17, i32 %shr65, i32 %hi.163
   %lo.0.shr = select i1 %cmp17, i32 %lo.064, i32 %shr65
-  %add = add nsw i32 %lo.0.shr, %shr.hi.0
+  %add = add nsw i32 %lo.0.shr, %shr.hi.1
   %shr = ashr i32 %add, 1
   %cmp11 = icmp eq i32 %shr, %lo.0.shr
   br i1 %cmp11, label %if.end25, label %if.else13, !llvm.loop !6
 
 if.end25:                                         ; preds = %if.else13, %for.cond.preheader, %if.else, %if.then4
-  %hi.2 = phi i32 [ 0, %if.then4 ], [ %2, %if.else ], [ %sub, %for.cond.preheader ], [ %shr.hi.0, %if.else13 ]
-  %5 = trunc i32 %hi.2 to i8
+  %hi.0 = phi i32 [ 0, %if.then4 ], [ %2, %if.else ], [ %sub, %for.cond.preheader ], [ %shr.hi.1, %if.else13 ]
+  %5 = trunc i32 %hi.0 to i8
   %conv26 = and i8 %5, 1
   br label %return
 
@@ -1172,7 +1172,7 @@ if.else85.lr.ph:                                  ; preds = %if.then76
 
 if.else85:                                        ; preds = %if.else85.lr.ph, %if.end107
   %and8160 = phi i32 [ %and8156, %if.else85.lr.ph ], [ %and81, %if.end107 ]
-  %hi33.059 = phi i32 [ %sub35, %if.else85.lr.ph ], [ %hi33.1, %if.end107 ]
+  %hi33.159 = phi i32 [ %sub35, %if.else85.lr.ph ], [ %hi33.2, %if.end107 ]
   %lo32.058 = phi i32 [ 0, %if.else85.lr.ph ], [ %lo32.1, %if.end107 ]
   %add82 = add nsw i32 %and8160, %6
   %idxprom87 = sext i32 %add82 to i64
@@ -1198,8 +1198,8 @@ if.else105:                                       ; preds = %land.lhs.true97, %l
 
 if.end107:                                        ; preds = %if.else85, %land.lhs.true97, %if.else105
   %lo32.1 = phi i32 [ %and8160, %if.else105 ], [ %lo32.058, %land.lhs.true97 ], [ %lo32.058, %if.else85 ]
-  %hi33.1 = phi i32 [ %hi33.059, %if.else105 ], [ %and8160, %land.lhs.true97 ], [ %and8160, %if.else85 ]
-  %add79 = add nsw i32 %hi33.1, %lo32.1
+  %hi33.2 = phi i32 [ %hi33.159, %if.else105 ], [ %and8160, %land.lhs.true97 ], [ %and8160, %if.else85 ]
+  %add79 = add nsw i32 %hi33.2, %lo32.1
   %shr80 = ashr i32 %add79, 1
   %and81 = and i32 %shr80, -2
   %cmp83 = icmp eq i32 %and81, %lo32.1
@@ -1210,8 +1210,8 @@ if.else109:                                       ; preds = %land.lhs.true68, %l
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end107, %if.then76, %if.else27, %land.lhs.true, %if.else109
-  %hi33.2 = phi i32 [ %add110, %if.else109 ], [ 0, %land.lhs.true ], [ 0, %if.else27 ], [ %sub35, %if.then76 ], [ %hi33.1, %if.end107 ]
-  %16 = lshr i32 %hi33.2, 1
+  %hi33.0 = phi i32 [ %add110, %if.else109 ], [ 0, %land.lhs.true ], [ 0, %if.else27 ], [ %sub35, %if.then76 ], [ %hi33.2, %if.end107 ]
+  %16 = lshr i32 %hi33.0, 1
   %17 = add i32 %16, %6
   %18 = trunc i32 %17 to i8
   %conv116 = and i8 %18, 1

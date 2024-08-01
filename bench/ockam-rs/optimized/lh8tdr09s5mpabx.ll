@@ -8562,7 +8562,7 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
   unreachable
 
 70:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53bacb2df2d730eaE.exit", %54
-  %.1 = phi i8 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53bacb2df2d730eaE.exit" ], [ 1, %54 ]
+  %.3 = phi i8 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53bacb2df2d730eaE.exit" ], [ 1, %54 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -8653,7 +8653,7 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
   %93 = load ptr, ptr %2, align 8, !noundef !5
   %.not48 = icmp eq ptr %93, null
-  %.pre114 = trunc nuw i8 %.1 to i1
+  %.pre114 = trunc nuw i8 %.3 to i1
   br i1 %.not48, label %95, label %94
 
 94:                                               ; preds = %92
@@ -8786,7 +8786,7 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
           to label %.thread101 unwind label %90
 
 .thread101:                                       ; preds = %136, %132, %.thread74
-  %.4100 = phi i8 [ 0, %.thread74 ], [ 1, %132 ], [ 1, %136 ]
+  %.1100 = phi i8 [ 0, %.thread74 ], [ 1, %132 ], [ 1, %136 ]
   %.pn42.pn.pn99 = phi { ptr, i32 } [ %.pn4279, %.thread74 ], [ %133, %132 ], [ %.pn, %136 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..mailbox..Mailbox$GT$17h5e9db354f4486aafE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20) #19
           to label %.thread106 unwind label %90
@@ -8798,7 +8798,7 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
           to label %140 unwind label %90
 
 .thread106:                                       ; preds = %130, %.thread101, %140
-  %.5113 = phi i8 [ 1, %140 ], [ %.1, %130 ], [ %.4100, %.thread101 ]
+  %.0113 = phi i8 [ 1, %140 ], [ %.3, %130 ], [ %.1100, %.thread101 ]
   %.pn42.pn.pn.pn111 = phi { ptr, i32 } [ %138, %140 ], [ %131, %130 ], [ %.pn42.pn.pn99, %.thread101 ]
   %139 = load ptr, ptr %2, align 8, !noundef !5
   %.not47 = icmp eq ptr %139, null
@@ -8809,7 +8809,7 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
           to label %.thread106 unwind label %90
 
 141:                                              ; preds = %.thread106
-  %142 = trunc nuw i8 %.5113 to i1
+  %142 = trunc nuw i8 %.0113 to i1
   br i1 %142, label %143, label %105
 
 143:                                              ; preds = %141
@@ -8817,9 +8817,9 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
           to label %105 unwind label %90
 
 144:                                              ; preds = %.thread88, %146, %105
-  %.41893 = phi i8 [ %.1, %.thread88 ], [ %.5113, %146 ], [ %.5113, %105 ]
+  %.693 = phi i8 [ %.3, %.thread88 ], [ %.0113, %146 ], [ %.0113, %105 ]
   %.pn4992 = phi { ptr, i32 } [ %106, %.thread88 ], [ %.pn42.pn.pn.pn111, %146 ], [ %.pn42.pn.pn.pn111, %105 ]
-  %145 = trunc nuw i8 %.41893 to i1
+  %145 = trunc nuw i8 %.693 to i1
   br i1 %145, label %149, label %147
 
 146:                                              ; preds = %105
@@ -10522,7 +10522,7 @@ default.unreachable1028:                          ; preds = %2117, %1890, %1226,
   br label %438
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit558": ; preds = %2459, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i555", %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit597"
-  %.2 = phi ptr [ %.8, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit597" ], [ %477, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i555" ], [ %.fca.1.extract246, %2459 ]
+  %.5 = phi ptr [ %.8, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit597" ], [ %477, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i555" ], [ %.fca.1.extract246, %2459 ]
   %480 = getelementptr inbounds i8, ptr %0, i64 760
   %481 = load i8, ptr %480, align 8, !range !75, !noundef !5
   %482 = trunc nuw i8 %481 to i1
@@ -10943,7 +10943,7 @@ default.unreachable1028:                          ; preds = %2117, %1890, %1226,
   br label %840
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit606": ; preds = %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i603", %835
-  %.4 = phi ptr [ %.7, %835 ], [ %618, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i603" ]
+  %.7 = phi ptr [ %.11, %835 ], [ %618, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i603" ]
   %621 = getelementptr inbounds i8, ptr %0, i64 488
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %140), !noalias !1478
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hce8b4509a7e37250E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %621)
@@ -11358,7 +11358,7 @@ default.unreachable1028:                          ; preds = %2117, %1890, %1226,
   br label %751
 
 754:                                              ; preds = %731, %750
-  %.6 = phi ptr [ %744, %750 ], [ %729, %731 ]
+  %.10 = phi ptr [ %744, %750 ], [ %729, %731 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %168)
   br label %835
@@ -11633,7 +11633,7 @@ default.unreachable1028:                          ; preds = %2117, %1890, %1226,
   br i1 %834, label %1876, label %837
 
 835:                                              ; preds = %1853, %754
-  %.7 = phi ptr [ %.6, %754 ], [ %.fca.1.extract220, %1853 ]
+  %.11 = phi ptr [ %.10, %754 ], [ %.fca.1.extract220, %1853 ]
   %836 = getelementptr inbounds i8, ptr %0, i64 764
   store i8 0, ptr %836, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %169)
@@ -11664,7 +11664,7 @@ default.unreachable1028:                          ; preds = %2117, %1890, %1226,
   br label %846
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit597": ; preds = %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i589", %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i594", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6c2ca407bd2dc64eE.exit"
-  %.8 = phi ptr [ %.4, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6c2ca407bd2dc64eE.exit" ], [ %601, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i594" ], [ %589, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i589" ]
+  %.8 = phi ptr [ %.7, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6c2ca407bd2dc64eE.exit" ], [ %601, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i594" ], [ %589, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i589" ]
   %844 = getelementptr inbounds i8, ptr %0, i64 765
   store i8 0, ptr %844, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %187)
@@ -11970,7 +11970,7 @@ common.ret:                                       ; preds = %2537, %2456, %1850,
   br label %943
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit": ; preds = %929, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i", %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hbe8e1fe2e241e472E.exit726", %864
-  %.9 = phi ptr [ %.2, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hbe8e1fe2e241e472E.exit726" ], [ %345, %864 ], [ %302, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i" ], [ %.fca.1.extract, %929 ]
+  %.3 = phi ptr [ %.5, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17hbe8e1fe2e241e472E.exit726" ], [ %345, %864 ], [ %302, %"_ZN5ockam5error106_$LT$impl$u20$core..convert..From$LT$ockam..error..OckamError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2f004fbae61c4944E.exit.i" ], [ %.fca.1.extract, %929 ]
   %940 = getelementptr inbounds i8, ptr %0, i64 762
   %941 = load i8, ptr %940, align 2, !range !75, !noundef !5
   %942 = trunc nuw i8 %941 to i1
@@ -16722,9 +16722,9 @@ common.ret:                                       ; preds = %2537, %2456, %1850,
   br label %912
 
 2537:                                             ; preds = %2590, %2532, %2584
-  %.12 = phi ptr [ null, %2532 ], [ %.9, %2590 ], [ %.9, %2584 ]
+  %.1 = phi ptr [ null, %2532 ], [ %.3, %2590 ], [ %.3, %2584 ]
   store i8 1, ptr %205, align 2
-  %2538 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.12, 1
+  %2538 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 2539:                                             ; preds = %2543, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4a259011df333f06E.exit558"

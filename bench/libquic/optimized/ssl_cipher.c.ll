@@ -562,8 +562,8 @@ ssl_cipher_collect_ciphers.exit:                  ; preds = %if.then9.i, %for.en
 
 if.end29.lr.ph.i:                                 ; preds = %ssl_cipher_collect_ciphers.exit, %if.end139.i
   %next.1.ph171.i = phi ptr [ %cond.us.i, %if.end139.i ], [ %call, %ssl_cipher_collect_ciphers.exit ]
-  %tail.0.ph168.i = phi ptr [ %tail.6.i, %if.end139.i ], [ %arrayidx37.i, %ssl_cipher_collect_ciphers.exit ]
-  %head.0.ph165.i = phi ptr [ %head.7.i, %if.end139.i ], [ %call, %ssl_cipher_collect_ciphers.exit ]
+  %tail.0.ph168.i = phi ptr [ %tail.1.i, %if.end139.i ], [ %arrayidx37.i, %ssl_cipher_collect_ciphers.exit ]
+  %head.0.ph165.i = phi ptr [ %head.1.i, %if.end139.i ], [ %call, %ssl_cipher_collect_ciphers.exit ]
   br label %if.end29.us.i
 
 if.end29.us.i:                                    ; preds = %if.then68.us.i, %if.end29.lr.ph.i
@@ -644,24 +644,24 @@ if.end16.i.i:                                     ; preds = %if.then12.i.i, %if.
   br label %ll_append_tail.exit.i
 
 ll_append_tail.exit.i:                            ; preds = %if.end16.i.i, %if.then76.i
-  %head.2.i = phi ptr [ %head.0.ph165.i, %if.then76.i ], [ %.head.0.ph165.i, %if.end16.i.i ]
-  %tail.1.i = phi ptr [ %tail.0.ph168.i, %if.then76.i ], [ %next.1116.us.i, %if.end16.i.i ]
+  %head.4.i = phi ptr [ %head.0.ph165.i, %if.then76.i ], [ %.head.0.ph165.i, %if.end16.i.i ]
+  %tail.3.i = phi ptr [ %tail.0.ph168.i, %if.then76.i ], [ %next.1116.us.i, %if.end16.i.i ]
   store i32 1, ptr %active.i46, align 8
   %in_group78.i = getelementptr inbounds i8, ptr %next.1116.us.i, i64 12
   store i32 0, ptr %in_group78.i, align 4
   br label %if.end139.i
 
 if.end139.i:                                      ; preds = %ll_append_tail.exit.i, %lor.lhs.false58.us.i
-  %head.7.i = phi ptr [ %head.2.i, %ll_append_tail.exit.i ], [ %head.0.ph165.i, %lor.lhs.false58.us.i ]
-  %tail.6.i = phi ptr [ %tail.1.i, %ll_append_tail.exit.i ], [ %tail.0.ph168.i, %lor.lhs.false58.us.i ]
+  %head.1.i = phi ptr [ %head.4.i, %ll_append_tail.exit.i ], [ %head.0.ph165.i, %lor.lhs.false58.us.i ]
+  %tail.1.i = phi ptr [ %tail.3.i, %ll_append_tail.exit.i ], [ %tail.0.ph168.i, %lor.lhs.false58.us.i ]
   %cmp22113.i = icmp eq ptr %next.1116.us.i, %arrayidx37.i
   %cmp26114.i = icmp eq ptr %cond.us.i, null
   %or.cond59115.i = select i1 %cmp22113.i, i1 true, i1 %cmp26114.i
   br i1 %or.cond59115.i, label %ssl_cipher_apply_rule.exit, label %if.end29.lr.ph.i
 
 ssl_cipher_apply_rule.exit:                       ; preds = %if.end139.i, %if.then68.us.i, %ssl_cipher_collect_ciphers.exit
-  %head.0.ph.lcssa.i = phi ptr [ %call, %ssl_cipher_collect_ciphers.exit ], [ %head.0.ph165.i, %if.then68.us.i ], [ %head.7.i, %if.end139.i ]
-  %tail.0.ph.lcssa.i = phi ptr [ %arrayidx37.i, %ssl_cipher_collect_ciphers.exit ], [ %tail.0.ph168.i, %if.then68.us.i ], [ %tail.6.i, %if.end139.i ]
+  %head.0.ph.lcssa.i = phi ptr [ %call, %ssl_cipher_collect_ciphers.exit ], [ %head.0.ph165.i, %if.then68.us.i ], [ %head.1.i, %if.end139.i ]
+  %tail.0.ph.lcssa.i = phi ptr [ %arrayidx37.i, %ssl_cipher_collect_ciphers.exit ], [ %tail.0.ph168.i, %if.then68.us.i ], [ %tail.1.i, %if.end139.i ]
   store ptr %head.0.ph.lcssa.i, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i, ptr %tail, align 8
   %cmp22113162.i48 = icmp eq ptr %tail.0.ph.lcssa.i, null
@@ -671,8 +671,8 @@ ssl_cipher_apply_rule.exit:                       ; preds = %if.end139.i, %if.th
 
 if.end29.lr.ph.i52:                               ; preds = %ssl_cipher_apply_rule.exit, %if.end139.i77
   %next.1.ph171.i53 = phi ptr [ %cond.us.i60, %if.end139.i77 ], [ %head.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ]
-  %tail.0.ph168.i54 = phi ptr [ %tail.6.i79, %if.end139.i77 ], [ %tail.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ]
-  %head.0.ph165.i55 = phi ptr [ %head.7.i78, %if.end139.i77 ], [ %head.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ]
+  %tail.0.ph168.i54 = phi ptr [ %tail.1.i79, %if.end139.i77 ], [ %tail.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ]
+  %head.0.ph165.i55 = phi ptr [ %head.1.i78, %if.end139.i77 ], [ %head.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ]
   br label %if.end29.us.i56
 
 if.end29.us.i56:                                  ; preds = %if.then68.us.i104, %if.end29.lr.ph.i52
@@ -752,24 +752,24 @@ if.end16.i.i98:                                   ; preds = %if.then12.i.i96, %i
   br label %ll_append_tail.exit.i100
 
 ll_append_tail.exit.i100:                         ; preds = %if.end16.i.i98, %if.then76.i86
-  %head.2.i101 = phi ptr [ %head.0.ph165.i55, %if.then76.i86 ], [ %.head.0.ph165.i90, %if.end16.i.i98 ]
-  %tail.1.i102 = phi ptr [ %tail.0.ph168.i54, %if.then76.i86 ], [ %next.1116.us.i57, %if.end16.i.i98 ]
+  %head.4.i101 = phi ptr [ %head.0.ph165.i55, %if.then76.i86 ], [ %.head.0.ph165.i90, %if.end16.i.i98 ]
+  %tail.3.i102 = phi ptr [ %tail.0.ph168.i54, %if.then76.i86 ], [ %next.1116.us.i57, %if.end16.i.i98 ]
   store i32 1, ptr %active.i75, align 8
   %in_group78.i103 = getelementptr inbounds i8, ptr %next.1116.us.i57, i64 12
   store i32 0, ptr %in_group78.i103, align 4
   br label %if.end139.i77
 
 if.end139.i77:                                    ; preds = %ll_append_tail.exit.i100, %lor.lhs.false58.us.i74
-  %head.7.i78 = phi ptr [ %head.2.i101, %ll_append_tail.exit.i100 ], [ %head.0.ph165.i55, %lor.lhs.false58.us.i74 ]
-  %tail.6.i79 = phi ptr [ %tail.1.i102, %ll_append_tail.exit.i100 ], [ %tail.0.ph168.i54, %lor.lhs.false58.us.i74 ]
+  %head.1.i78 = phi ptr [ %head.4.i101, %ll_append_tail.exit.i100 ], [ %head.0.ph165.i55, %lor.lhs.false58.us.i74 ]
+  %tail.1.i79 = phi ptr [ %tail.3.i102, %ll_append_tail.exit.i100 ], [ %tail.0.ph168.i54, %lor.lhs.false58.us.i74 ]
   %cmp22113.i80 = icmp eq ptr %next.1116.us.i57, %tail.0.ph.lcssa.i
   %cmp26114.i81 = icmp eq ptr %cond.us.i60, null
   %or.cond59115.i82 = select i1 %cmp22113.i80, i1 true, i1 %cmp26114.i81
   br i1 %or.cond59115.i82, label %ssl_cipher_apply_rule.exit108, label %if.end29.lr.ph.i52
 
 ssl_cipher_apply_rule.exit108:                    ; preds = %if.end139.i77, %if.then68.us.i104, %ssl_cipher_apply_rule.exit
-  %head.0.ph.lcssa.i84 = phi ptr [ %head.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ], [ %head.0.ph165.i55, %if.then68.us.i104 ], [ %head.7.i78, %if.end139.i77 ]
-  %tail.0.ph.lcssa.i85 = phi ptr [ %tail.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ], [ %tail.0.ph168.i54, %if.then68.us.i104 ], [ %tail.6.i79, %if.end139.i77 ]
+  %head.0.ph.lcssa.i84 = phi ptr [ %head.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ], [ %head.0.ph165.i55, %if.then68.us.i104 ], [ %head.1.i78, %if.end139.i77 ]
+  %tail.0.ph.lcssa.i85 = phi ptr [ %tail.0.ph.lcssa.i, %ssl_cipher_apply_rule.exit ], [ %tail.0.ph168.i54, %if.then68.us.i104 ], [ %tail.1.i79, %if.end139.i77 ]
   store ptr %head.0.ph.lcssa.i84, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i85, ptr %tail, align 8
   %cmp22113162.i109 = icmp eq ptr %head.0.ph.lcssa.i84, null
@@ -779,8 +779,8 @@ ssl_cipher_apply_rule.exit108:                    ; preds = %if.end139.i77, %if.
 
 if.end29.lr.ph.i113:                              ; preds = %ssl_cipher_apply_rule.exit108, %if.end139.i136
   %next.1.ph171.i114 = phi ptr [ %cond.us.i121, %if.end139.i136 ], [ %tail.0.ph.lcssa.i85, %ssl_cipher_apply_rule.exit108 ]
-  %tail.0.ph168.i115 = phi ptr [ %tail.6.i138, %if.end139.i136 ], [ %tail.0.ph.lcssa.i85, %ssl_cipher_apply_rule.exit108 ]
-  %head.0.ph165.i116 = phi ptr [ %head.7.i137, %if.end139.i136 ], [ %head.0.ph.lcssa.i84, %ssl_cipher_apply_rule.exit108 ]
+  %tail.0.ph168.i115 = phi ptr [ %tail.1.i138, %if.end139.i136 ], [ %tail.0.ph.lcssa.i85, %ssl_cipher_apply_rule.exit108 ]
+  %head.0.ph165.i116 = phi ptr [ %head.1.i137, %if.end139.i136 ], [ %head.0.ph.lcssa.i84, %ssl_cipher_apply_rule.exit108 ]
   br label %if.end29.us.i117
 
 if.end29.us.i117:                                 ; preds = %if.then68.us.i145, %if.end29.lr.ph.i113
@@ -860,24 +860,24 @@ if.end16.i93.i:                                   ; preds = %if.then12.i92.i, %i
   br label %ll_append_head.exit.i
 
 ll_append_head.exit.i:                            ; preds = %if.end16.i93.i, %if.then95.i
-  %head.5.i = phi ptr [ %head.0.ph165.i116, %if.then95.i ], [ %next.1116.us.i118, %if.end16.i93.i ]
-  %tail.4.i = phi ptr [ %tail.0.ph168.i115, %if.then95.i ], [ %.tail.0.ph168.i, %if.end16.i93.i ]
+  %head.7.i = phi ptr [ %head.0.ph165.i116, %if.then95.i ], [ %next.1116.us.i118, %if.end16.i93.i ]
+  %tail.6.i = phi ptr [ %tail.0.ph168.i115, %if.then95.i ], [ %.tail.0.ph168.i, %if.end16.i93.i ]
   store i32 0, ptr %active93.i, align 8
   %in_group97.i = getelementptr inbounds i8, ptr %next.1116.us.i118, i64 12
   store i32 0, ptr %in_group97.i, align 4
   br label %if.end139.i136
 
 if.end139.i136:                                   ; preds = %ll_append_head.exit.i, %lor.lhs.false58.us.i135
-  %head.7.i137 = phi ptr [ %head.0.ph165.i116, %lor.lhs.false58.us.i135 ], [ %head.5.i, %ll_append_head.exit.i ]
-  %tail.6.i138 = phi ptr [ %tail.0.ph168.i115, %lor.lhs.false58.us.i135 ], [ %tail.4.i, %ll_append_head.exit.i ]
+  %head.1.i137 = phi ptr [ %head.0.ph165.i116, %lor.lhs.false58.us.i135 ], [ %head.7.i, %ll_append_head.exit.i ]
+  %tail.1.i138 = phi ptr [ %tail.0.ph168.i115, %lor.lhs.false58.us.i135 ], [ %tail.6.i, %ll_append_head.exit.i ]
   %cmp22113.i139 = icmp eq ptr %next.1116.us.i118, %head.0.ph.lcssa.i84
   %cmp26114.i140 = icmp eq ptr %cond.us.i121, null
   %or.cond59115.i141 = select i1 %cmp22113.i139, i1 true, i1 %cmp26114.i140
   br i1 %or.cond59115.i141, label %ssl_cipher_apply_rule.exit149, label %if.end29.lr.ph.i113
 
 ssl_cipher_apply_rule.exit149:                    ; preds = %if.end139.i136, %if.then68.us.i145, %for.end.i, %ssl_cipher_apply_rule.exit108
-  %head.0.ph.lcssa.i143 = phi ptr [ %head.0.ph.lcssa.i84, %ssl_cipher_apply_rule.exit108 ], [ null, %for.end.i ], [ %head.0.ph165.i116, %if.then68.us.i145 ], [ %head.7.i137, %if.end139.i136 ]
-  %tail.0.ph.lcssa.i144 = phi ptr [ %tail.0.ph.lcssa.i85, %ssl_cipher_apply_rule.exit108 ], [ null, %for.end.i ], [ %tail.0.ph168.i115, %if.then68.us.i145 ], [ %tail.6.i138, %if.end139.i136 ]
+  %head.0.ph.lcssa.i143 = phi ptr [ %head.0.ph.lcssa.i84, %ssl_cipher_apply_rule.exit108 ], [ null, %for.end.i ], [ %head.0.ph165.i116, %if.then68.us.i145 ], [ %head.1.i137, %if.end139.i136 ]
+  %tail.0.ph.lcssa.i144 = phi ptr [ %tail.0.ph.lcssa.i85, %ssl_cipher_apply_rule.exit108 ], [ null, %for.end.i ], [ %tail.0.ph168.i115, %if.then68.us.i145 ], [ %tail.1.i138, %if.end139.i136 ]
   store ptr %head.0.ph.lcssa.i143, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i144, ptr %tail, align 8
   %call5 = tail call i32 @EVP_has_aes_hardware() #14
@@ -892,8 +892,8 @@ if.then6:                                         ; preds = %ssl_cipher_apply_ru
 
 if.end29.lr.ph.i154:                              ; preds = %if.then6, %if.end139.i179
   %next.1.ph171.i155 = phi ptr [ %cond.us.i162, %if.end139.i179 ], [ %head.0.ph.lcssa.i143, %if.then6 ]
-  %tail.0.ph168.i156 = phi ptr [ %tail.6.i181, %if.end139.i179 ], [ %tail.0.ph.lcssa.i144, %if.then6 ]
-  %head.0.ph165.i157 = phi ptr [ %head.7.i180, %if.end139.i179 ], [ %head.0.ph.lcssa.i143, %if.then6 ]
+  %tail.0.ph168.i156 = phi ptr [ %tail.1.i181, %if.end139.i179 ], [ %tail.0.ph.lcssa.i144, %if.then6 ]
+  %head.0.ph165.i157 = phi ptr [ %head.1.i180, %if.end139.i179 ], [ %head.0.ph.lcssa.i143, %if.then6 ]
   br label %if.end29.us.i158
 
 if.end29.us.i158:                                 ; preds = %if.then68.us.i206, %if.end29.lr.ph.i154
@@ -973,24 +973,24 @@ if.end16.i.i200:                                  ; preds = %if.then12.i.i198, %
   br label %ll_append_tail.exit.i202
 
 ll_append_tail.exit.i202:                         ; preds = %if.end16.i.i200, %if.then76.i188
-  %head.2.i203 = phi ptr [ %head.0.ph165.i157, %if.then76.i188 ], [ %.head.0.ph165.i192, %if.end16.i.i200 ]
-  %tail.1.i204 = phi ptr [ %tail.0.ph168.i156, %if.then76.i188 ], [ %next.1116.us.i159, %if.end16.i.i200 ]
+  %head.4.i203 = phi ptr [ %head.0.ph165.i157, %if.then76.i188 ], [ %.head.0.ph165.i192, %if.end16.i.i200 ]
+  %tail.3.i204 = phi ptr [ %tail.0.ph168.i156, %if.then76.i188 ], [ %next.1116.us.i159, %if.end16.i.i200 ]
   store i32 1, ptr %active.i177, align 8
   %in_group78.i205 = getelementptr inbounds i8, ptr %next.1116.us.i159, i64 12
   store i32 0, ptr %in_group78.i205, align 4
   br label %if.end139.i179
 
 if.end139.i179:                                   ; preds = %ll_append_tail.exit.i202, %lor.lhs.false58.us.i176
-  %head.7.i180 = phi ptr [ %head.2.i203, %ll_append_tail.exit.i202 ], [ %head.0.ph165.i157, %lor.lhs.false58.us.i176 ]
-  %tail.6.i181 = phi ptr [ %tail.1.i204, %ll_append_tail.exit.i202 ], [ %tail.0.ph168.i156, %lor.lhs.false58.us.i176 ]
+  %head.1.i180 = phi ptr [ %head.4.i203, %ll_append_tail.exit.i202 ], [ %head.0.ph165.i157, %lor.lhs.false58.us.i176 ]
+  %tail.1.i181 = phi ptr [ %tail.3.i204, %ll_append_tail.exit.i202 ], [ %tail.0.ph168.i156, %lor.lhs.false58.us.i176 ]
   %cmp22113.i182 = icmp eq ptr %next.1116.us.i159, %tail.0.ph.lcssa.i144
   %cmp26114.i183 = icmp eq ptr %cond.us.i162, null
   %or.cond59115.i184 = select i1 %cmp22113.i182, i1 true, i1 %cmp26114.i183
   br i1 %or.cond59115.i184, label %ssl_cipher_apply_rule.exit210, label %if.end29.lr.ph.i154
 
 ssl_cipher_apply_rule.exit210:                    ; preds = %if.end139.i179, %if.then68.us.i206, %if.then6
-  %head.0.ph.lcssa.i186 = phi ptr [ %head.0.ph.lcssa.i143, %if.then6 ], [ %head.0.ph165.i157, %if.then68.us.i206 ], [ %head.7.i180, %if.end139.i179 ]
-  %tail.0.ph.lcssa.i187 = phi ptr [ %tail.0.ph.lcssa.i144, %if.then6 ], [ %tail.0.ph168.i156, %if.then68.us.i206 ], [ %tail.6.i181, %if.end139.i179 ]
+  %head.0.ph.lcssa.i186 = phi ptr [ %head.0.ph.lcssa.i143, %if.then6 ], [ %head.0.ph165.i157, %if.then68.us.i206 ], [ %head.1.i180, %if.end139.i179 ]
+  %tail.0.ph.lcssa.i187 = phi ptr [ %tail.0.ph.lcssa.i144, %if.then6 ], [ %tail.0.ph168.i156, %if.then68.us.i206 ], [ %tail.1.i181, %if.end139.i179 ]
   store ptr %head.0.ph.lcssa.i186, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i187, ptr %tail, align 8
   %cmp22113162.i211 = icmp eq ptr %tail.0.ph.lcssa.i187, null
@@ -1000,8 +1000,8 @@ ssl_cipher_apply_rule.exit210:                    ; preds = %if.end139.i179, %if
 
 if.end29.lr.ph.i215:                              ; preds = %ssl_cipher_apply_rule.exit210, %if.end139.i241
   %next.1.ph171.i216 = phi ptr [ %cond.us.i223, %if.end139.i241 ], [ %head.0.ph.lcssa.i186, %ssl_cipher_apply_rule.exit210 ]
-  %tail.0.ph168.i217 = phi ptr [ %tail.6.i243, %if.end139.i241 ], [ %tail.0.ph.lcssa.i187, %ssl_cipher_apply_rule.exit210 ]
-  %head.0.ph165.i218 = phi ptr [ %head.7.i242, %if.end139.i241 ], [ %head.0.ph.lcssa.i186, %ssl_cipher_apply_rule.exit210 ]
+  %tail.0.ph168.i217 = phi ptr [ %tail.1.i243, %if.end139.i241 ], [ %tail.0.ph.lcssa.i187, %ssl_cipher_apply_rule.exit210 ]
+  %head.0.ph165.i218 = phi ptr [ %head.1.i242, %if.end139.i241 ], [ %head.0.ph.lcssa.i186, %ssl_cipher_apply_rule.exit210 ]
   br label %if.end29.us.i219
 
 if.end29.us.i219:                                 ; preds = %if.then68.us.i268, %if.end29.lr.ph.i215
@@ -1081,24 +1081,24 @@ if.end16.i.i262:                                  ; preds = %if.then12.i.i260, %
   br label %ll_append_tail.exit.i264
 
 ll_append_tail.exit.i264:                         ; preds = %if.end16.i.i262, %if.then76.i250
-  %head.2.i265 = phi ptr [ %head.0.ph165.i218, %if.then76.i250 ], [ %.head.0.ph165.i254, %if.end16.i.i262 ]
-  %tail.1.i266 = phi ptr [ %tail.0.ph168.i217, %if.then76.i250 ], [ %next.1116.us.i220, %if.end16.i.i262 ]
+  %head.4.i265 = phi ptr [ %head.0.ph165.i218, %if.then76.i250 ], [ %.head.0.ph165.i254, %if.end16.i.i262 ]
+  %tail.3.i266 = phi ptr [ %tail.0.ph168.i217, %if.then76.i250 ], [ %next.1116.us.i220, %if.end16.i.i262 ]
   store i32 1, ptr %active.i239, align 8
   %in_group78.i267 = getelementptr inbounds i8, ptr %next.1116.us.i220, i64 12
   store i32 0, ptr %in_group78.i267, align 4
   br label %if.end139.i241
 
 if.end139.i241:                                   ; preds = %ll_append_tail.exit.i264, %lor.lhs.false58.us.i238
-  %head.7.i242 = phi ptr [ %head.2.i265, %ll_append_tail.exit.i264 ], [ %head.0.ph165.i218, %lor.lhs.false58.us.i238 ]
-  %tail.6.i243 = phi ptr [ %tail.1.i266, %ll_append_tail.exit.i264 ], [ %tail.0.ph168.i217, %lor.lhs.false58.us.i238 ]
+  %head.1.i242 = phi ptr [ %head.4.i265, %ll_append_tail.exit.i264 ], [ %head.0.ph165.i218, %lor.lhs.false58.us.i238 ]
+  %tail.1.i243 = phi ptr [ %tail.3.i266, %ll_append_tail.exit.i264 ], [ %tail.0.ph168.i217, %lor.lhs.false58.us.i238 ]
   %cmp22113.i244 = icmp eq ptr %next.1116.us.i220, %tail.0.ph.lcssa.i187
   %cmp26114.i245 = icmp eq ptr %cond.us.i223, null
   %or.cond59115.i246 = select i1 %cmp22113.i244, i1 true, i1 %cmp26114.i245
   br i1 %or.cond59115.i246, label %ssl_cipher_apply_rule.exit272, label %if.end29.lr.ph.i215
 
 ssl_cipher_apply_rule.exit272:                    ; preds = %if.end139.i241, %if.then68.us.i268, %ssl_cipher_apply_rule.exit210
-  %head.0.ph.lcssa.i248 = phi ptr [ %head.0.ph.lcssa.i186, %ssl_cipher_apply_rule.exit210 ], [ %head.0.ph165.i218, %if.then68.us.i268 ], [ %head.7.i242, %if.end139.i241 ]
-  %tail.0.ph.lcssa.i249 = phi ptr [ %tail.0.ph.lcssa.i187, %ssl_cipher_apply_rule.exit210 ], [ %tail.0.ph168.i217, %if.then68.us.i268 ], [ %tail.6.i243, %if.end139.i241 ]
+  %head.0.ph.lcssa.i248 = phi ptr [ %head.0.ph.lcssa.i186, %ssl_cipher_apply_rule.exit210 ], [ %head.0.ph165.i218, %if.then68.us.i268 ], [ %head.1.i242, %if.end139.i241 ]
+  %tail.0.ph.lcssa.i249 = phi ptr [ %tail.0.ph.lcssa.i187, %ssl_cipher_apply_rule.exit210 ], [ %tail.0.ph168.i217, %if.then68.us.i268 ], [ %tail.1.i243, %if.end139.i241 ]
   store ptr %head.0.ph.lcssa.i248, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i249, ptr %tail, align 8
   %cmp22113162.i273 = icmp eq ptr %tail.0.ph.lcssa.i249, null
@@ -1108,8 +1108,8 @@ ssl_cipher_apply_rule.exit272:                    ; preds = %if.end139.i241, %if
 
 if.end29.lr.ph.i277:                              ; preds = %ssl_cipher_apply_rule.exit272, %if.end139.i303
   %next.1.ph171.i278 = phi ptr [ %cond.us.i285, %if.end139.i303 ], [ %head.0.ph.lcssa.i248, %ssl_cipher_apply_rule.exit272 ]
-  %tail.0.ph168.i279 = phi ptr [ %tail.6.i305, %if.end139.i303 ], [ %tail.0.ph.lcssa.i249, %ssl_cipher_apply_rule.exit272 ]
-  %head.0.ph165.i280 = phi ptr [ %head.7.i304, %if.end139.i303 ], [ %head.0.ph.lcssa.i248, %ssl_cipher_apply_rule.exit272 ]
+  %tail.0.ph168.i279 = phi ptr [ %tail.1.i305, %if.end139.i303 ], [ %tail.0.ph.lcssa.i249, %ssl_cipher_apply_rule.exit272 ]
+  %head.0.ph165.i280 = phi ptr [ %head.1.i304, %if.end139.i303 ], [ %head.0.ph.lcssa.i248, %ssl_cipher_apply_rule.exit272 ]
   br label %if.end29.us.i281
 
 if.end29.us.i281:                                 ; preds = %if.then68.us.i330, %if.end29.lr.ph.i277
@@ -1189,24 +1189,24 @@ if.end16.i.i324:                                  ; preds = %if.then12.i.i322, %
   br label %ll_append_tail.exit.i326
 
 ll_append_tail.exit.i326:                         ; preds = %if.end16.i.i324, %if.then76.i312
-  %head.2.i327 = phi ptr [ %head.0.ph165.i280, %if.then76.i312 ], [ %.head.0.ph165.i316, %if.end16.i.i324 ]
-  %tail.1.i328 = phi ptr [ %tail.0.ph168.i279, %if.then76.i312 ], [ %next.1116.us.i282, %if.end16.i.i324 ]
+  %head.4.i327 = phi ptr [ %head.0.ph165.i280, %if.then76.i312 ], [ %.head.0.ph165.i316, %if.end16.i.i324 ]
+  %tail.3.i328 = phi ptr [ %tail.0.ph168.i279, %if.then76.i312 ], [ %next.1116.us.i282, %if.end16.i.i324 ]
   store i32 1, ptr %active.i301, align 8
   %in_group78.i329 = getelementptr inbounds i8, ptr %next.1116.us.i282, i64 12
   store i32 0, ptr %in_group78.i329, align 4
   br label %if.end139.i303
 
 if.end139.i303:                                   ; preds = %ll_append_tail.exit.i326, %lor.lhs.false58.us.i300
-  %head.7.i304 = phi ptr [ %head.2.i327, %ll_append_tail.exit.i326 ], [ %head.0.ph165.i280, %lor.lhs.false58.us.i300 ]
-  %tail.6.i305 = phi ptr [ %tail.1.i328, %ll_append_tail.exit.i326 ], [ %tail.0.ph168.i279, %lor.lhs.false58.us.i300 ]
+  %head.1.i304 = phi ptr [ %head.4.i327, %ll_append_tail.exit.i326 ], [ %head.0.ph165.i280, %lor.lhs.false58.us.i300 ]
+  %tail.1.i305 = phi ptr [ %tail.3.i328, %ll_append_tail.exit.i326 ], [ %tail.0.ph168.i279, %lor.lhs.false58.us.i300 ]
   %cmp22113.i306 = icmp eq ptr %next.1116.us.i282, %tail.0.ph.lcssa.i249
   %cmp26114.i307 = icmp eq ptr %cond.us.i285, null
   %or.cond59115.i308 = select i1 %cmp22113.i306, i1 true, i1 %cmp26114.i307
   br i1 %or.cond59115.i308, label %ssl_cipher_apply_rule.exit334, label %if.end29.lr.ph.i277
 
 ssl_cipher_apply_rule.exit334:                    ; preds = %if.end139.i303, %if.then68.us.i330, %ssl_cipher_apply_rule.exit272
-  %head.0.ph.lcssa.i310 = phi ptr [ %head.0.ph.lcssa.i248, %ssl_cipher_apply_rule.exit272 ], [ %head.0.ph165.i280, %if.then68.us.i330 ], [ %head.7.i304, %if.end139.i303 ]
-  %tail.0.ph.lcssa.i311 = phi ptr [ %tail.0.ph.lcssa.i249, %ssl_cipher_apply_rule.exit272 ], [ %tail.0.ph168.i279, %if.then68.us.i330 ], [ %tail.6.i305, %if.end139.i303 ]
+  %head.0.ph.lcssa.i310 = phi ptr [ %head.0.ph.lcssa.i248, %ssl_cipher_apply_rule.exit272 ], [ %head.0.ph165.i280, %if.then68.us.i330 ], [ %head.1.i304, %if.end139.i303 ]
+  %tail.0.ph.lcssa.i311 = phi ptr [ %tail.0.ph.lcssa.i249, %ssl_cipher_apply_rule.exit272 ], [ %tail.0.ph168.i279, %if.then68.us.i330 ], [ %tail.1.i305, %if.end139.i303 ]
   store ptr %head.0.ph.lcssa.i310, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i311, ptr %tail, align 8
   %cmp22113162.i335 = icmp eq ptr %tail.0.ph.lcssa.i311, null
@@ -1216,8 +1216,8 @@ ssl_cipher_apply_rule.exit334:                    ; preds = %if.end139.i303, %if
 
 if.end29.lr.ph.i339:                              ; preds = %ssl_cipher_apply_rule.exit334, %if.end139.i365
   %next.1.ph171.i340 = phi ptr [ %cond.us.i347, %if.end139.i365 ], [ %head.0.ph.lcssa.i310, %ssl_cipher_apply_rule.exit334 ]
-  %tail.0.ph168.i341 = phi ptr [ %tail.6.i367, %if.end139.i365 ], [ %tail.0.ph.lcssa.i311, %ssl_cipher_apply_rule.exit334 ]
-  %head.0.ph165.i342 = phi ptr [ %head.7.i366, %if.end139.i365 ], [ %head.0.ph.lcssa.i310, %ssl_cipher_apply_rule.exit334 ]
+  %tail.0.ph168.i341 = phi ptr [ %tail.1.i367, %if.end139.i365 ], [ %tail.0.ph.lcssa.i311, %ssl_cipher_apply_rule.exit334 ]
+  %head.0.ph165.i342 = phi ptr [ %head.1.i366, %if.end139.i365 ], [ %head.0.ph.lcssa.i310, %ssl_cipher_apply_rule.exit334 ]
   br label %if.end29.us.i343
 
 if.end29.us.i343:                                 ; preds = %if.then68.us.i392, %if.end29.lr.ph.i339
@@ -1297,16 +1297,16 @@ if.end16.i.i386:                                  ; preds = %if.then12.i.i384, %
   br label %ll_append_tail.exit.i388
 
 ll_append_tail.exit.i388:                         ; preds = %if.end16.i.i386, %if.then76.i374
-  %head.2.i389 = phi ptr [ %head.0.ph165.i342, %if.then76.i374 ], [ %.head.0.ph165.i378, %if.end16.i.i386 ]
-  %tail.1.i390 = phi ptr [ %tail.0.ph168.i341, %if.then76.i374 ], [ %next.1116.us.i344, %if.end16.i.i386 ]
+  %head.4.i389 = phi ptr [ %head.0.ph165.i342, %if.then76.i374 ], [ %.head.0.ph165.i378, %if.end16.i.i386 ]
+  %tail.3.i390 = phi ptr [ %tail.0.ph168.i341, %if.then76.i374 ], [ %next.1116.us.i344, %if.end16.i.i386 ]
   store i32 1, ptr %active.i363, align 8
   %in_group78.i391 = getelementptr inbounds i8, ptr %next.1116.us.i344, i64 12
   store i32 0, ptr %in_group78.i391, align 4
   br label %if.end139.i365
 
 if.end139.i365:                                   ; preds = %ll_append_tail.exit.i388, %lor.lhs.false58.us.i362
-  %head.7.i366 = phi ptr [ %head.2.i389, %ll_append_tail.exit.i388 ], [ %head.0.ph165.i342, %lor.lhs.false58.us.i362 ]
-  %tail.6.i367 = phi ptr [ %tail.1.i390, %ll_append_tail.exit.i388 ], [ %tail.0.ph168.i341, %lor.lhs.false58.us.i362 ]
+  %head.1.i366 = phi ptr [ %head.4.i389, %ll_append_tail.exit.i388 ], [ %head.0.ph165.i342, %lor.lhs.false58.us.i362 ]
+  %tail.1.i367 = phi ptr [ %tail.3.i390, %ll_append_tail.exit.i388 ], [ %tail.0.ph168.i341, %lor.lhs.false58.us.i362 ]
   %cmp22113.i368 = icmp eq ptr %next.1116.us.i344, %tail.0.ph.lcssa.i311
   %cmp26114.i369 = icmp eq ptr %cond.us.i347, null
   %or.cond59115.i370 = select i1 %cmp22113.i368, i1 true, i1 %cmp26114.i369
@@ -1317,8 +1317,8 @@ if.else:                                          ; preds = %ssl_cipher_apply_ru
 
 if.end29.lr.ph.i401:                              ; preds = %if.else, %if.end139.i427
   %next.1.ph171.i402 = phi ptr [ %cond.us.i409, %if.end139.i427 ], [ %head.0.ph.lcssa.i143, %if.else ]
-  %tail.0.ph168.i403 = phi ptr [ %tail.6.i429, %if.end139.i427 ], [ %tail.0.ph.lcssa.i144, %if.else ]
-  %head.0.ph165.i404 = phi ptr [ %head.7.i428, %if.end139.i427 ], [ %head.0.ph.lcssa.i143, %if.else ]
+  %tail.0.ph168.i403 = phi ptr [ %tail.1.i429, %if.end139.i427 ], [ %tail.0.ph.lcssa.i144, %if.else ]
+  %head.0.ph165.i404 = phi ptr [ %head.1.i428, %if.end139.i427 ], [ %head.0.ph.lcssa.i143, %if.else ]
   br label %if.end29.us.i405
 
 if.end29.us.i405:                                 ; preds = %if.then68.us.i454, %if.end29.lr.ph.i401
@@ -1398,24 +1398,24 @@ if.end16.i.i448:                                  ; preds = %if.then12.i.i446, %
   br label %ll_append_tail.exit.i450
 
 ll_append_tail.exit.i450:                         ; preds = %if.end16.i.i448, %if.then76.i436
-  %head.2.i451 = phi ptr [ %head.0.ph165.i404, %if.then76.i436 ], [ %.head.0.ph165.i440, %if.end16.i.i448 ]
-  %tail.1.i452 = phi ptr [ %tail.0.ph168.i403, %if.then76.i436 ], [ %next.1116.us.i406, %if.end16.i.i448 ]
+  %head.4.i451 = phi ptr [ %head.0.ph165.i404, %if.then76.i436 ], [ %.head.0.ph165.i440, %if.end16.i.i448 ]
+  %tail.3.i452 = phi ptr [ %tail.0.ph168.i403, %if.then76.i436 ], [ %next.1116.us.i406, %if.end16.i.i448 ]
   store i32 1, ptr %active.i425, align 8
   %in_group78.i453 = getelementptr inbounds i8, ptr %next.1116.us.i406, i64 12
   store i32 0, ptr %in_group78.i453, align 4
   br label %if.end139.i427
 
 if.end139.i427:                                   ; preds = %ll_append_tail.exit.i450, %lor.lhs.false58.us.i424
-  %head.7.i428 = phi ptr [ %head.2.i451, %ll_append_tail.exit.i450 ], [ %head.0.ph165.i404, %lor.lhs.false58.us.i424 ]
-  %tail.6.i429 = phi ptr [ %tail.1.i452, %ll_append_tail.exit.i450 ], [ %tail.0.ph168.i403, %lor.lhs.false58.us.i424 ]
+  %head.1.i428 = phi ptr [ %head.4.i451, %ll_append_tail.exit.i450 ], [ %head.0.ph165.i404, %lor.lhs.false58.us.i424 ]
+  %tail.1.i429 = phi ptr [ %tail.3.i452, %ll_append_tail.exit.i450 ], [ %tail.0.ph168.i403, %lor.lhs.false58.us.i424 ]
   %cmp22113.i430 = icmp eq ptr %next.1116.us.i406, %tail.0.ph.lcssa.i144
   %cmp26114.i431 = icmp eq ptr %cond.us.i409, null
   %or.cond59115.i432 = select i1 %cmp22113.i430, i1 true, i1 %cmp26114.i431
   br i1 %or.cond59115.i432, label %ssl_cipher_apply_rule.exit458, label %if.end29.lr.ph.i401
 
 ssl_cipher_apply_rule.exit458:                    ; preds = %if.end139.i427, %if.then68.us.i454, %if.else
-  %head.0.ph.lcssa.i434 = phi ptr [ %head.0.ph.lcssa.i143, %if.else ], [ %head.0.ph165.i404, %if.then68.us.i454 ], [ %head.7.i428, %if.end139.i427 ]
-  %tail.0.ph.lcssa.i435 = phi ptr [ %tail.0.ph.lcssa.i144, %if.else ], [ %tail.0.ph168.i403, %if.then68.us.i454 ], [ %tail.6.i429, %if.end139.i427 ]
+  %head.0.ph.lcssa.i434 = phi ptr [ %head.0.ph.lcssa.i143, %if.else ], [ %head.0.ph165.i404, %if.then68.us.i454 ], [ %head.1.i428, %if.end139.i427 ]
+  %tail.0.ph.lcssa.i435 = phi ptr [ %tail.0.ph.lcssa.i144, %if.else ], [ %tail.0.ph168.i403, %if.then68.us.i454 ], [ %tail.1.i429, %if.end139.i427 ]
   store ptr %head.0.ph.lcssa.i434, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i435, ptr %tail, align 8
   %cmp22113162.i459 = icmp eq ptr %tail.0.ph.lcssa.i435, null
@@ -1425,8 +1425,8 @@ ssl_cipher_apply_rule.exit458:                    ; preds = %if.end139.i427, %if
 
 if.end29.lr.ph.i463:                              ; preds = %ssl_cipher_apply_rule.exit458, %if.end139.i489
   %next.1.ph171.i464 = phi ptr [ %cond.us.i471, %if.end139.i489 ], [ %head.0.ph.lcssa.i434, %ssl_cipher_apply_rule.exit458 ]
-  %tail.0.ph168.i465 = phi ptr [ %tail.6.i491, %if.end139.i489 ], [ %tail.0.ph.lcssa.i435, %ssl_cipher_apply_rule.exit458 ]
-  %head.0.ph165.i466 = phi ptr [ %head.7.i490, %if.end139.i489 ], [ %head.0.ph.lcssa.i434, %ssl_cipher_apply_rule.exit458 ]
+  %tail.0.ph168.i465 = phi ptr [ %tail.1.i491, %if.end139.i489 ], [ %tail.0.ph.lcssa.i435, %ssl_cipher_apply_rule.exit458 ]
+  %head.0.ph165.i466 = phi ptr [ %head.1.i490, %if.end139.i489 ], [ %head.0.ph.lcssa.i434, %ssl_cipher_apply_rule.exit458 ]
   br label %if.end29.us.i467
 
 if.end29.us.i467:                                 ; preds = %if.then68.us.i516, %if.end29.lr.ph.i463
@@ -1506,24 +1506,24 @@ if.end16.i.i510:                                  ; preds = %if.then12.i.i508, %
   br label %ll_append_tail.exit.i512
 
 ll_append_tail.exit.i512:                         ; preds = %if.end16.i.i510, %if.then76.i498
-  %head.2.i513 = phi ptr [ %head.0.ph165.i466, %if.then76.i498 ], [ %.head.0.ph165.i502, %if.end16.i.i510 ]
-  %tail.1.i514 = phi ptr [ %tail.0.ph168.i465, %if.then76.i498 ], [ %next.1116.us.i468, %if.end16.i.i510 ]
+  %head.4.i513 = phi ptr [ %head.0.ph165.i466, %if.then76.i498 ], [ %.head.0.ph165.i502, %if.end16.i.i510 ]
+  %tail.3.i514 = phi ptr [ %tail.0.ph168.i465, %if.then76.i498 ], [ %next.1116.us.i468, %if.end16.i.i510 ]
   store i32 1, ptr %active.i487, align 8
   %in_group78.i515 = getelementptr inbounds i8, ptr %next.1116.us.i468, i64 12
   store i32 0, ptr %in_group78.i515, align 4
   br label %if.end139.i489
 
 if.end139.i489:                                   ; preds = %ll_append_tail.exit.i512, %lor.lhs.false58.us.i486
-  %head.7.i490 = phi ptr [ %head.2.i513, %ll_append_tail.exit.i512 ], [ %head.0.ph165.i466, %lor.lhs.false58.us.i486 ]
-  %tail.6.i491 = phi ptr [ %tail.1.i514, %ll_append_tail.exit.i512 ], [ %tail.0.ph168.i465, %lor.lhs.false58.us.i486 ]
+  %head.1.i490 = phi ptr [ %head.4.i513, %ll_append_tail.exit.i512 ], [ %head.0.ph165.i466, %lor.lhs.false58.us.i486 ]
+  %tail.1.i491 = phi ptr [ %tail.3.i514, %ll_append_tail.exit.i512 ], [ %tail.0.ph168.i465, %lor.lhs.false58.us.i486 ]
   %cmp22113.i492 = icmp eq ptr %next.1116.us.i468, %tail.0.ph.lcssa.i435
   %cmp26114.i493 = icmp eq ptr %cond.us.i471, null
   %or.cond59115.i494 = select i1 %cmp22113.i492, i1 true, i1 %cmp26114.i493
   br i1 %or.cond59115.i494, label %ssl_cipher_apply_rule.exit520, label %if.end29.lr.ph.i463
 
 ssl_cipher_apply_rule.exit520:                    ; preds = %if.end139.i489, %if.then68.us.i516, %ssl_cipher_apply_rule.exit458
-  %head.0.ph.lcssa.i496 = phi ptr [ %head.0.ph.lcssa.i434, %ssl_cipher_apply_rule.exit458 ], [ %head.0.ph165.i466, %if.then68.us.i516 ], [ %head.7.i490, %if.end139.i489 ]
-  %tail.0.ph.lcssa.i497 = phi ptr [ %tail.0.ph.lcssa.i435, %ssl_cipher_apply_rule.exit458 ], [ %tail.0.ph168.i465, %if.then68.us.i516 ], [ %tail.6.i491, %if.end139.i489 ]
+  %head.0.ph.lcssa.i496 = phi ptr [ %head.0.ph.lcssa.i434, %ssl_cipher_apply_rule.exit458 ], [ %head.0.ph165.i466, %if.then68.us.i516 ], [ %head.1.i490, %if.end139.i489 ]
+  %tail.0.ph.lcssa.i497 = phi ptr [ %tail.0.ph.lcssa.i435, %ssl_cipher_apply_rule.exit458 ], [ %tail.0.ph168.i465, %if.then68.us.i516 ], [ %tail.1.i491, %if.end139.i489 ]
   store ptr %head.0.ph.lcssa.i496, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i497, ptr %tail, align 8
   %cmp22113162.i521 = icmp eq ptr %tail.0.ph.lcssa.i497, null
@@ -1533,8 +1533,8 @@ ssl_cipher_apply_rule.exit520:                    ; preds = %if.end139.i489, %if
 
 if.end29.lr.ph.i525:                              ; preds = %ssl_cipher_apply_rule.exit520, %if.end139.i551
   %next.1.ph171.i526 = phi ptr [ %cond.us.i533, %if.end139.i551 ], [ %head.0.ph.lcssa.i496, %ssl_cipher_apply_rule.exit520 ]
-  %tail.0.ph168.i527 = phi ptr [ %tail.6.i553, %if.end139.i551 ], [ %tail.0.ph.lcssa.i497, %ssl_cipher_apply_rule.exit520 ]
-  %head.0.ph165.i528 = phi ptr [ %head.7.i552, %if.end139.i551 ], [ %head.0.ph.lcssa.i496, %ssl_cipher_apply_rule.exit520 ]
+  %tail.0.ph168.i527 = phi ptr [ %tail.1.i553, %if.end139.i551 ], [ %tail.0.ph.lcssa.i497, %ssl_cipher_apply_rule.exit520 ]
+  %head.0.ph165.i528 = phi ptr [ %head.1.i552, %if.end139.i551 ], [ %head.0.ph.lcssa.i496, %ssl_cipher_apply_rule.exit520 ]
   br label %if.end29.us.i529
 
 if.end29.us.i529:                                 ; preds = %if.then68.us.i578, %if.end29.lr.ph.i525
@@ -1614,24 +1614,24 @@ if.end16.i.i572:                                  ; preds = %if.then12.i.i570, %
   br label %ll_append_tail.exit.i574
 
 ll_append_tail.exit.i574:                         ; preds = %if.end16.i.i572, %if.then76.i560
-  %head.2.i575 = phi ptr [ %head.0.ph165.i528, %if.then76.i560 ], [ %.head.0.ph165.i564, %if.end16.i.i572 ]
-  %tail.1.i576 = phi ptr [ %tail.0.ph168.i527, %if.then76.i560 ], [ %next.1116.us.i530, %if.end16.i.i572 ]
+  %head.4.i575 = phi ptr [ %head.0.ph165.i528, %if.then76.i560 ], [ %.head.0.ph165.i564, %if.end16.i.i572 ]
+  %tail.3.i576 = phi ptr [ %tail.0.ph168.i527, %if.then76.i560 ], [ %next.1116.us.i530, %if.end16.i.i572 ]
   store i32 1, ptr %active.i549, align 8
   %in_group78.i577 = getelementptr inbounds i8, ptr %next.1116.us.i530, i64 12
   store i32 0, ptr %in_group78.i577, align 4
   br label %if.end139.i551
 
 if.end139.i551:                                   ; preds = %ll_append_tail.exit.i574, %lor.lhs.false58.us.i548
-  %head.7.i552 = phi ptr [ %head.2.i575, %ll_append_tail.exit.i574 ], [ %head.0.ph165.i528, %lor.lhs.false58.us.i548 ]
-  %tail.6.i553 = phi ptr [ %tail.1.i576, %ll_append_tail.exit.i574 ], [ %tail.0.ph168.i527, %lor.lhs.false58.us.i548 ]
+  %head.1.i552 = phi ptr [ %head.4.i575, %ll_append_tail.exit.i574 ], [ %head.0.ph165.i528, %lor.lhs.false58.us.i548 ]
+  %tail.1.i553 = phi ptr [ %tail.3.i576, %ll_append_tail.exit.i574 ], [ %tail.0.ph168.i527, %lor.lhs.false58.us.i548 ]
   %cmp22113.i554 = icmp eq ptr %next.1116.us.i530, %tail.0.ph.lcssa.i497
   %cmp26114.i555 = icmp eq ptr %cond.us.i533, null
   %or.cond59115.i556 = select i1 %cmp22113.i554, i1 true, i1 %cmp26114.i555
   br i1 %or.cond59115.i556, label %ssl_cipher_apply_rule.exit582, label %if.end29.lr.ph.i525
 
 ssl_cipher_apply_rule.exit582:                    ; preds = %if.end139.i551, %if.then68.us.i578, %ssl_cipher_apply_rule.exit520
-  %head.0.ph.lcssa.i558 = phi ptr [ %head.0.ph.lcssa.i496, %ssl_cipher_apply_rule.exit520 ], [ %head.0.ph165.i528, %if.then68.us.i578 ], [ %head.7.i552, %if.end139.i551 ]
-  %tail.0.ph.lcssa.i559 = phi ptr [ %tail.0.ph.lcssa.i497, %ssl_cipher_apply_rule.exit520 ], [ %tail.0.ph168.i527, %if.then68.us.i578 ], [ %tail.6.i553, %if.end139.i551 ]
+  %head.0.ph.lcssa.i558 = phi ptr [ %head.0.ph.lcssa.i496, %ssl_cipher_apply_rule.exit520 ], [ %head.0.ph165.i528, %if.then68.us.i578 ], [ %head.1.i552, %if.end139.i551 ]
+  %tail.0.ph.lcssa.i559 = phi ptr [ %tail.0.ph.lcssa.i497, %ssl_cipher_apply_rule.exit520 ], [ %tail.0.ph168.i527, %if.then68.us.i578 ], [ %tail.1.i553, %if.end139.i551 ]
   store ptr %head.0.ph.lcssa.i558, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i559, ptr %tail, align 8
   %cmp22113162.i583 = icmp eq ptr %tail.0.ph.lcssa.i559, null
@@ -1641,8 +1641,8 @@ ssl_cipher_apply_rule.exit582:                    ; preds = %if.end139.i551, %if
 
 if.end29.lr.ph.i587:                              ; preds = %ssl_cipher_apply_rule.exit582, %if.end139.i613
   %next.1.ph171.i588 = phi ptr [ %cond.us.i595, %if.end139.i613 ], [ %head.0.ph.lcssa.i558, %ssl_cipher_apply_rule.exit582 ]
-  %tail.0.ph168.i589 = phi ptr [ %tail.6.i615, %if.end139.i613 ], [ %tail.0.ph.lcssa.i559, %ssl_cipher_apply_rule.exit582 ]
-  %head.0.ph165.i590 = phi ptr [ %head.7.i614, %if.end139.i613 ], [ %head.0.ph.lcssa.i558, %ssl_cipher_apply_rule.exit582 ]
+  %tail.0.ph168.i589 = phi ptr [ %tail.1.i615, %if.end139.i613 ], [ %tail.0.ph.lcssa.i559, %ssl_cipher_apply_rule.exit582 ]
+  %head.0.ph165.i590 = phi ptr [ %head.1.i614, %if.end139.i613 ], [ %head.0.ph.lcssa.i558, %ssl_cipher_apply_rule.exit582 ]
   br label %if.end29.us.i591
 
 if.end29.us.i591:                                 ; preds = %if.then68.us.i640, %if.end29.lr.ph.i587
@@ -1722,24 +1722,24 @@ if.end16.i.i634:                                  ; preds = %if.then12.i.i632, %
   br label %ll_append_tail.exit.i636
 
 ll_append_tail.exit.i636:                         ; preds = %if.end16.i.i634, %if.then76.i622
-  %head.2.i637 = phi ptr [ %head.0.ph165.i590, %if.then76.i622 ], [ %.head.0.ph165.i626, %if.end16.i.i634 ]
-  %tail.1.i638 = phi ptr [ %tail.0.ph168.i589, %if.then76.i622 ], [ %next.1116.us.i592, %if.end16.i.i634 ]
+  %head.4.i637 = phi ptr [ %head.0.ph165.i590, %if.then76.i622 ], [ %.head.0.ph165.i626, %if.end16.i.i634 ]
+  %tail.3.i638 = phi ptr [ %tail.0.ph168.i589, %if.then76.i622 ], [ %next.1116.us.i592, %if.end16.i.i634 ]
   store i32 1, ptr %active.i611, align 8
   %in_group78.i639 = getelementptr inbounds i8, ptr %next.1116.us.i592, i64 12
   store i32 0, ptr %in_group78.i639, align 4
   br label %if.end139.i613
 
 if.end139.i613:                                   ; preds = %ll_append_tail.exit.i636, %lor.lhs.false58.us.i610
-  %head.7.i614 = phi ptr [ %head.2.i637, %ll_append_tail.exit.i636 ], [ %head.0.ph165.i590, %lor.lhs.false58.us.i610 ]
-  %tail.6.i615 = phi ptr [ %tail.1.i638, %ll_append_tail.exit.i636 ], [ %tail.0.ph168.i589, %lor.lhs.false58.us.i610 ]
+  %head.1.i614 = phi ptr [ %head.4.i637, %ll_append_tail.exit.i636 ], [ %head.0.ph165.i590, %lor.lhs.false58.us.i610 ]
+  %tail.1.i615 = phi ptr [ %tail.3.i638, %ll_append_tail.exit.i636 ], [ %tail.0.ph168.i589, %lor.lhs.false58.us.i610 ]
   %cmp22113.i616 = icmp eq ptr %next.1116.us.i592, %tail.0.ph.lcssa.i559
   %cmp26114.i617 = icmp eq ptr %cond.us.i595, null
   %or.cond59115.i618 = select i1 %cmp22113.i616, i1 true, i1 %cmp26114.i617
   br i1 %or.cond59115.i618, label %if.end7, label %if.end29.lr.ph.i587
 
 if.end7:                                          ; preds = %if.end139.i365, %if.then68.us.i392, %if.end139.i613, %if.then68.us.i640, %ssl_cipher_apply_rule.exit582, %ssl_cipher_apply_rule.exit334
-  %storemerge1129 = phi ptr [ %head.0.ph.lcssa.i310, %ssl_cipher_apply_rule.exit334 ], [ %head.0.ph.lcssa.i558, %ssl_cipher_apply_rule.exit582 ], [ %head.0.ph165.i590, %if.then68.us.i640 ], [ %head.7.i614, %if.end139.i613 ], [ %head.0.ph165.i342, %if.then68.us.i392 ], [ %head.7.i366, %if.end139.i365 ]
-  %storemerge = phi ptr [ %tail.0.ph.lcssa.i311, %ssl_cipher_apply_rule.exit334 ], [ %tail.0.ph.lcssa.i559, %ssl_cipher_apply_rule.exit582 ], [ %tail.0.ph168.i589, %if.then68.us.i640 ], [ %tail.6.i615, %if.end139.i613 ], [ %tail.0.ph168.i341, %if.then68.us.i392 ], [ %tail.6.i367, %if.end139.i365 ]
+  %storemerge1129 = phi ptr [ %head.0.ph.lcssa.i310, %ssl_cipher_apply_rule.exit334 ], [ %head.0.ph.lcssa.i558, %ssl_cipher_apply_rule.exit582 ], [ %head.0.ph165.i590, %if.then68.us.i640 ], [ %head.1.i614, %if.end139.i613 ], [ %head.0.ph165.i342, %if.then68.us.i392 ], [ %head.1.i366, %if.end139.i365 ]
+  %storemerge = phi ptr [ %tail.0.ph.lcssa.i311, %ssl_cipher_apply_rule.exit334 ], [ %tail.0.ph.lcssa.i559, %ssl_cipher_apply_rule.exit582 ], [ %tail.0.ph168.i589, %if.then68.us.i640 ], [ %tail.1.i615, %if.end139.i613 ], [ %tail.0.ph168.i341, %if.then68.us.i392 ], [ %tail.1.i367, %if.end139.i365 ]
   store ptr %storemerge1129, ptr %head, align 8
   store ptr %storemerge, ptr %tail, align 8
   %cmp22113162.i645 = icmp eq ptr %storemerge, null
@@ -1749,8 +1749,8 @@ if.end7:                                          ; preds = %if.end139.i365, %if
 
 if.end29.lr.ph.i649:                              ; preds = %if.end7, %if.end139.i675
   %next.1.ph171.i650 = phi ptr [ %cond.us.i657, %if.end139.i675 ], [ %storemerge1129, %if.end7 ]
-  %tail.0.ph168.i651 = phi ptr [ %tail.6.i677, %if.end139.i675 ], [ %storemerge, %if.end7 ]
-  %head.0.ph165.i652 = phi ptr [ %head.7.i676, %if.end139.i675 ], [ %storemerge1129, %if.end7 ]
+  %tail.0.ph168.i651 = phi ptr [ %tail.1.i677, %if.end139.i675 ], [ %storemerge, %if.end7 ]
+  %head.0.ph165.i652 = phi ptr [ %head.1.i676, %if.end139.i675 ], [ %storemerge1129, %if.end7 ]
   br label %if.end29.us.i653
 
 if.end29.us.i653:                                 ; preds = %if.then68.us.i702, %if.end29.lr.ph.i649
@@ -1830,24 +1830,24 @@ if.end16.i.i696:                                  ; preds = %if.then12.i.i694, %
   br label %ll_append_tail.exit.i698
 
 ll_append_tail.exit.i698:                         ; preds = %if.end16.i.i696, %if.then76.i684
-  %head.2.i699 = phi ptr [ %head.0.ph165.i652, %if.then76.i684 ], [ %.head.0.ph165.i688, %if.end16.i.i696 ]
-  %tail.1.i700 = phi ptr [ %tail.0.ph168.i651, %if.then76.i684 ], [ %next.1116.us.i654, %if.end16.i.i696 ]
+  %head.4.i699 = phi ptr [ %head.0.ph165.i652, %if.then76.i684 ], [ %.head.0.ph165.i688, %if.end16.i.i696 ]
+  %tail.3.i700 = phi ptr [ %tail.0.ph168.i651, %if.then76.i684 ], [ %next.1116.us.i654, %if.end16.i.i696 ]
   store i32 1, ptr %active.i673, align 8
   %in_group78.i701 = getelementptr inbounds i8, ptr %next.1116.us.i654, i64 12
   store i32 0, ptr %in_group78.i701, align 4
   br label %if.end139.i675
 
 if.end139.i675:                                   ; preds = %ll_append_tail.exit.i698, %lor.lhs.false58.us.i672
-  %head.7.i676 = phi ptr [ %head.2.i699, %ll_append_tail.exit.i698 ], [ %head.0.ph165.i652, %lor.lhs.false58.us.i672 ]
-  %tail.6.i677 = phi ptr [ %tail.1.i700, %ll_append_tail.exit.i698 ], [ %tail.0.ph168.i651, %lor.lhs.false58.us.i672 ]
+  %head.1.i676 = phi ptr [ %head.4.i699, %ll_append_tail.exit.i698 ], [ %head.0.ph165.i652, %lor.lhs.false58.us.i672 ]
+  %tail.1.i677 = phi ptr [ %tail.3.i700, %ll_append_tail.exit.i698 ], [ %tail.0.ph168.i651, %lor.lhs.false58.us.i672 ]
   %cmp22113.i678 = icmp eq ptr %next.1116.us.i654, %storemerge
   %cmp26114.i679 = icmp eq ptr %cond.us.i657, null
   %or.cond59115.i680 = select i1 %cmp22113.i678, i1 true, i1 %cmp26114.i679
   br i1 %or.cond59115.i680, label %ssl_cipher_apply_rule.exit706, label %if.end29.lr.ph.i649
 
 ssl_cipher_apply_rule.exit706:                    ; preds = %if.end139.i675, %if.then68.us.i702, %if.end7
-  %head.0.ph.lcssa.i682 = phi ptr [ %storemerge1129, %if.end7 ], [ %head.0.ph165.i652, %if.then68.us.i702 ], [ %head.7.i676, %if.end139.i675 ]
-  %tail.0.ph.lcssa.i683 = phi ptr [ %storemerge, %if.end7 ], [ %tail.0.ph168.i651, %if.then68.us.i702 ], [ %tail.6.i677, %if.end139.i675 ]
+  %head.0.ph.lcssa.i682 = phi ptr [ %storemerge1129, %if.end7 ], [ %head.0.ph165.i652, %if.then68.us.i702 ], [ %head.1.i676, %if.end139.i675 ]
+  %tail.0.ph.lcssa.i683 = phi ptr [ %storemerge, %if.end7 ], [ %tail.0.ph168.i651, %if.then68.us.i702 ], [ %tail.1.i677, %if.end139.i675 ]
   store ptr %head.0.ph.lcssa.i682, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i683, ptr %tail, align 8
   %cmp22113162.i707 = icmp eq ptr %tail.0.ph.lcssa.i683, null
@@ -1857,8 +1857,8 @@ ssl_cipher_apply_rule.exit706:                    ; preds = %if.end139.i675, %if
 
 if.end29.lr.ph.i711:                              ; preds = %ssl_cipher_apply_rule.exit706, %if.end139.i737
   %next.1.ph171.i712 = phi ptr [ %cond.us.i719, %if.end139.i737 ], [ %head.0.ph.lcssa.i682, %ssl_cipher_apply_rule.exit706 ]
-  %tail.0.ph168.i713 = phi ptr [ %tail.6.i739, %if.end139.i737 ], [ %tail.0.ph.lcssa.i683, %ssl_cipher_apply_rule.exit706 ]
-  %head.0.ph165.i714 = phi ptr [ %head.7.i738, %if.end139.i737 ], [ %head.0.ph.lcssa.i682, %ssl_cipher_apply_rule.exit706 ]
+  %tail.0.ph168.i713 = phi ptr [ %tail.1.i739, %if.end139.i737 ], [ %tail.0.ph.lcssa.i683, %ssl_cipher_apply_rule.exit706 ]
+  %head.0.ph165.i714 = phi ptr [ %head.1.i738, %if.end139.i737 ], [ %head.0.ph.lcssa.i682, %ssl_cipher_apply_rule.exit706 ]
   br label %if.end29.us.i715
 
 if.end29.us.i715:                                 ; preds = %if.then68.us.i764, %if.end29.lr.ph.i711
@@ -1938,24 +1938,24 @@ if.end16.i.i758:                                  ; preds = %if.then12.i.i756, %
   br label %ll_append_tail.exit.i760
 
 ll_append_tail.exit.i760:                         ; preds = %if.end16.i.i758, %if.then76.i746
-  %head.2.i761 = phi ptr [ %head.0.ph165.i714, %if.then76.i746 ], [ %.head.0.ph165.i750, %if.end16.i.i758 ]
-  %tail.1.i762 = phi ptr [ %tail.0.ph168.i713, %if.then76.i746 ], [ %next.1116.us.i716, %if.end16.i.i758 ]
+  %head.4.i761 = phi ptr [ %head.0.ph165.i714, %if.then76.i746 ], [ %.head.0.ph165.i750, %if.end16.i.i758 ]
+  %tail.3.i762 = phi ptr [ %tail.0.ph168.i713, %if.then76.i746 ], [ %next.1116.us.i716, %if.end16.i.i758 ]
   store i32 1, ptr %active.i735, align 8
   %in_group78.i763 = getelementptr inbounds i8, ptr %next.1116.us.i716, i64 12
   store i32 0, ptr %in_group78.i763, align 4
   br label %if.end139.i737
 
 if.end139.i737:                                   ; preds = %ll_append_tail.exit.i760, %lor.lhs.false58.us.i734
-  %head.7.i738 = phi ptr [ %head.2.i761, %ll_append_tail.exit.i760 ], [ %head.0.ph165.i714, %lor.lhs.false58.us.i734 ]
-  %tail.6.i739 = phi ptr [ %tail.1.i762, %ll_append_tail.exit.i760 ], [ %tail.0.ph168.i713, %lor.lhs.false58.us.i734 ]
+  %head.1.i738 = phi ptr [ %head.4.i761, %ll_append_tail.exit.i760 ], [ %head.0.ph165.i714, %lor.lhs.false58.us.i734 ]
+  %tail.1.i739 = phi ptr [ %tail.3.i762, %ll_append_tail.exit.i760 ], [ %tail.0.ph168.i713, %lor.lhs.false58.us.i734 ]
   %cmp22113.i740 = icmp eq ptr %next.1116.us.i716, %tail.0.ph.lcssa.i683
   %cmp26114.i741 = icmp eq ptr %cond.us.i719, null
   %or.cond59115.i742 = select i1 %cmp22113.i740, i1 true, i1 %cmp26114.i741
   br i1 %or.cond59115.i742, label %ssl_cipher_apply_rule.exit768, label %if.end29.lr.ph.i711
 
 ssl_cipher_apply_rule.exit768:                    ; preds = %if.end139.i737, %if.then68.us.i764, %ssl_cipher_apply_rule.exit706
-  %head.0.ph.lcssa.i744 = phi ptr [ %head.0.ph.lcssa.i682, %ssl_cipher_apply_rule.exit706 ], [ %head.0.ph165.i714, %if.then68.us.i764 ], [ %head.7.i738, %if.end139.i737 ]
-  %tail.0.ph.lcssa.i745 = phi ptr [ %tail.0.ph.lcssa.i683, %ssl_cipher_apply_rule.exit706 ], [ %tail.0.ph168.i713, %if.then68.us.i764 ], [ %tail.6.i739, %if.end139.i737 ]
+  %head.0.ph.lcssa.i744 = phi ptr [ %head.0.ph.lcssa.i682, %ssl_cipher_apply_rule.exit706 ], [ %head.0.ph165.i714, %if.then68.us.i764 ], [ %head.1.i738, %if.end139.i737 ]
+  %tail.0.ph.lcssa.i745 = phi ptr [ %tail.0.ph.lcssa.i683, %ssl_cipher_apply_rule.exit706 ], [ %tail.0.ph168.i713, %if.then68.us.i764 ], [ %tail.1.i739, %if.end139.i737 ]
   store ptr %head.0.ph.lcssa.i744, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i745, ptr %tail, align 8
   %cmp22113162.i769 = icmp eq ptr %tail.0.ph.lcssa.i745, null
@@ -1965,8 +1965,8 @@ ssl_cipher_apply_rule.exit768:                    ; preds = %if.end139.i737, %if
 
 if.end29.lr.ph.i773:                              ; preds = %ssl_cipher_apply_rule.exit768, %if.end139.i799
   %next.1.ph171.i774 = phi ptr [ %cond.us.i781, %if.end139.i799 ], [ %head.0.ph.lcssa.i744, %ssl_cipher_apply_rule.exit768 ]
-  %tail.0.ph168.i775 = phi ptr [ %tail.6.i801, %if.end139.i799 ], [ %tail.0.ph.lcssa.i745, %ssl_cipher_apply_rule.exit768 ]
-  %head.0.ph165.i776 = phi ptr [ %head.7.i800, %if.end139.i799 ], [ %head.0.ph.lcssa.i744, %ssl_cipher_apply_rule.exit768 ]
+  %tail.0.ph168.i775 = phi ptr [ %tail.1.i801, %if.end139.i799 ], [ %tail.0.ph.lcssa.i745, %ssl_cipher_apply_rule.exit768 ]
+  %head.0.ph165.i776 = phi ptr [ %head.1.i800, %if.end139.i799 ], [ %head.0.ph.lcssa.i744, %ssl_cipher_apply_rule.exit768 ]
   br label %if.end29.us.i777
 
 if.end29.us.i777:                                 ; preds = %if.then68.us.i826, %if.end29.lr.ph.i773
@@ -2046,24 +2046,24 @@ if.end16.i.i820:                                  ; preds = %if.then12.i.i818, %
   br label %ll_append_tail.exit.i822
 
 ll_append_tail.exit.i822:                         ; preds = %if.end16.i.i820, %if.then76.i808
-  %head.2.i823 = phi ptr [ %head.0.ph165.i776, %if.then76.i808 ], [ %.head.0.ph165.i812, %if.end16.i.i820 ]
-  %tail.1.i824 = phi ptr [ %tail.0.ph168.i775, %if.then76.i808 ], [ %next.1116.us.i778, %if.end16.i.i820 ]
+  %head.4.i823 = phi ptr [ %head.0.ph165.i776, %if.then76.i808 ], [ %.head.0.ph165.i812, %if.end16.i.i820 ]
+  %tail.3.i824 = phi ptr [ %tail.0.ph168.i775, %if.then76.i808 ], [ %next.1116.us.i778, %if.end16.i.i820 ]
   store i32 1, ptr %active.i797, align 8
   %in_group78.i825 = getelementptr inbounds i8, ptr %next.1116.us.i778, i64 12
   store i32 0, ptr %in_group78.i825, align 4
   br label %if.end139.i799
 
 if.end139.i799:                                   ; preds = %ll_append_tail.exit.i822, %lor.lhs.false58.us.i796
-  %head.7.i800 = phi ptr [ %head.2.i823, %ll_append_tail.exit.i822 ], [ %head.0.ph165.i776, %lor.lhs.false58.us.i796 ]
-  %tail.6.i801 = phi ptr [ %tail.1.i824, %ll_append_tail.exit.i822 ], [ %tail.0.ph168.i775, %lor.lhs.false58.us.i796 ]
+  %head.1.i800 = phi ptr [ %head.4.i823, %ll_append_tail.exit.i822 ], [ %head.0.ph165.i776, %lor.lhs.false58.us.i796 ]
+  %tail.1.i801 = phi ptr [ %tail.3.i824, %ll_append_tail.exit.i822 ], [ %tail.0.ph168.i775, %lor.lhs.false58.us.i796 ]
   %cmp22113.i802 = icmp eq ptr %next.1116.us.i778, %tail.0.ph.lcssa.i745
   %cmp26114.i803 = icmp eq ptr %cond.us.i781, null
   %or.cond59115.i804 = select i1 %cmp22113.i802, i1 true, i1 %cmp26114.i803
   br i1 %or.cond59115.i804, label %ssl_cipher_apply_rule.exit830, label %if.end29.lr.ph.i773
 
 ssl_cipher_apply_rule.exit830:                    ; preds = %if.end139.i799, %if.then68.us.i826, %ssl_cipher_apply_rule.exit768
-  %head.0.ph.lcssa.i806 = phi ptr [ %head.0.ph.lcssa.i744, %ssl_cipher_apply_rule.exit768 ], [ %head.0.ph165.i776, %if.then68.us.i826 ], [ %head.7.i800, %if.end139.i799 ]
-  %tail.0.ph.lcssa.i807 = phi ptr [ %tail.0.ph.lcssa.i745, %ssl_cipher_apply_rule.exit768 ], [ %tail.0.ph168.i775, %if.then68.us.i826 ], [ %tail.6.i801, %if.end139.i799 ]
+  %head.0.ph.lcssa.i806 = phi ptr [ %head.0.ph.lcssa.i744, %ssl_cipher_apply_rule.exit768 ], [ %head.0.ph165.i776, %if.then68.us.i826 ], [ %head.1.i800, %if.end139.i799 ]
+  %tail.0.ph.lcssa.i807 = phi ptr [ %tail.0.ph.lcssa.i745, %ssl_cipher_apply_rule.exit768 ], [ %tail.0.ph168.i775, %if.then68.us.i826 ], [ %tail.1.i801, %if.end139.i799 ]
   store ptr %head.0.ph.lcssa.i806, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i807, ptr %tail, align 8
   %cmp22113162.i831 = icmp eq ptr %tail.0.ph.lcssa.i807, null
@@ -2073,8 +2073,8 @@ ssl_cipher_apply_rule.exit830:                    ; preds = %if.end139.i799, %if
 
 if.end29.lr.ph.i835:                              ; preds = %ssl_cipher_apply_rule.exit830, %if.end139.i861
   %next.1.ph171.i836 = phi ptr [ %cond.us.i843, %if.end139.i861 ], [ %head.0.ph.lcssa.i806, %ssl_cipher_apply_rule.exit830 ]
-  %tail.0.ph168.i837 = phi ptr [ %tail.6.i863, %if.end139.i861 ], [ %tail.0.ph.lcssa.i807, %ssl_cipher_apply_rule.exit830 ]
-  %head.0.ph165.i838 = phi ptr [ %head.7.i862, %if.end139.i861 ], [ %head.0.ph.lcssa.i806, %ssl_cipher_apply_rule.exit830 ]
+  %tail.0.ph168.i837 = phi ptr [ %tail.1.i863, %if.end139.i861 ], [ %tail.0.ph.lcssa.i807, %ssl_cipher_apply_rule.exit830 ]
+  %head.0.ph165.i838 = phi ptr [ %head.1.i862, %if.end139.i861 ], [ %head.0.ph.lcssa.i806, %ssl_cipher_apply_rule.exit830 ]
   br label %if.end29.us.i839
 
 if.end29.us.i839:                                 ; preds = %if.then68.us.i888, %if.end29.lr.ph.i835
@@ -2154,24 +2154,24 @@ if.end16.i.i882:                                  ; preds = %if.then12.i.i880, %
   br label %ll_append_tail.exit.i884
 
 ll_append_tail.exit.i884:                         ; preds = %if.end16.i.i882, %if.then76.i870
-  %head.2.i885 = phi ptr [ %head.0.ph165.i838, %if.then76.i870 ], [ %.head.0.ph165.i874, %if.end16.i.i882 ]
-  %tail.1.i886 = phi ptr [ %tail.0.ph168.i837, %if.then76.i870 ], [ %next.1116.us.i840, %if.end16.i.i882 ]
+  %head.4.i885 = phi ptr [ %head.0.ph165.i838, %if.then76.i870 ], [ %.head.0.ph165.i874, %if.end16.i.i882 ]
+  %tail.3.i886 = phi ptr [ %tail.0.ph168.i837, %if.then76.i870 ], [ %next.1116.us.i840, %if.end16.i.i882 ]
   store i32 1, ptr %active.i859, align 8
   %in_group78.i887 = getelementptr inbounds i8, ptr %next.1116.us.i840, i64 12
   store i32 0, ptr %in_group78.i887, align 4
   br label %if.end139.i861
 
 if.end139.i861:                                   ; preds = %ll_append_tail.exit.i884, %lor.lhs.false58.us.i858
-  %head.7.i862 = phi ptr [ %head.2.i885, %ll_append_tail.exit.i884 ], [ %head.0.ph165.i838, %lor.lhs.false58.us.i858 ]
-  %tail.6.i863 = phi ptr [ %tail.1.i886, %ll_append_tail.exit.i884 ], [ %tail.0.ph168.i837, %lor.lhs.false58.us.i858 ]
+  %head.1.i862 = phi ptr [ %head.4.i885, %ll_append_tail.exit.i884 ], [ %head.0.ph165.i838, %lor.lhs.false58.us.i858 ]
+  %tail.1.i863 = phi ptr [ %tail.3.i886, %ll_append_tail.exit.i884 ], [ %tail.0.ph168.i837, %lor.lhs.false58.us.i858 ]
   %cmp22113.i864 = icmp eq ptr %next.1116.us.i840, %tail.0.ph.lcssa.i807
   %cmp26114.i865 = icmp eq ptr %cond.us.i843, null
   %or.cond59115.i866 = select i1 %cmp22113.i864, i1 true, i1 %cmp26114.i865
   br i1 %or.cond59115.i866, label %ssl_cipher_apply_rule.exit892, label %if.end29.lr.ph.i835
 
 ssl_cipher_apply_rule.exit892:                    ; preds = %if.end139.i861, %if.then68.us.i888, %ssl_cipher_apply_rule.exit830
-  %head.0.ph.lcssa.i868 = phi ptr [ %head.0.ph.lcssa.i806, %ssl_cipher_apply_rule.exit830 ], [ %head.0.ph165.i838, %if.then68.us.i888 ], [ %head.7.i862, %if.end139.i861 ]
-  %tail.0.ph.lcssa.i869 = phi ptr [ %tail.0.ph.lcssa.i807, %ssl_cipher_apply_rule.exit830 ], [ %tail.0.ph168.i837, %if.then68.us.i888 ], [ %tail.6.i863, %if.end139.i861 ]
+  %head.0.ph.lcssa.i868 = phi ptr [ %head.0.ph.lcssa.i806, %ssl_cipher_apply_rule.exit830 ], [ %head.0.ph165.i838, %if.then68.us.i888 ], [ %head.1.i862, %if.end139.i861 ]
+  %tail.0.ph.lcssa.i869 = phi ptr [ %tail.0.ph.lcssa.i807, %ssl_cipher_apply_rule.exit830 ], [ %tail.0.ph168.i837, %if.then68.us.i888 ], [ %tail.1.i863, %if.end139.i861 ]
   store ptr %head.0.ph.lcssa.i868, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i869, ptr %tail, align 8
   %cmp22113162.i893 = icmp eq ptr %tail.0.ph.lcssa.i869, null
@@ -2181,8 +2181,8 @@ ssl_cipher_apply_rule.exit892:                    ; preds = %if.end139.i861, %if
 
 if.end29.lr.ph.i897:                              ; preds = %ssl_cipher_apply_rule.exit892, %if.end139.i924
   %next.1.ph171.i898 = phi ptr [ %cond.us.i905, %if.end139.i924 ], [ %head.0.ph.lcssa.i868, %ssl_cipher_apply_rule.exit892 ]
-  %tail.0.ph168.i899 = phi ptr [ %tail.6.i926, %if.end139.i924 ], [ %tail.0.ph.lcssa.i869, %ssl_cipher_apply_rule.exit892 ]
-  %head.0.ph165.i900 = phi ptr [ %head.7.i925, %if.end139.i924 ], [ %head.0.ph.lcssa.i868, %ssl_cipher_apply_rule.exit892 ]
+  %tail.0.ph168.i899 = phi ptr [ %tail.1.i926, %if.end139.i924 ], [ %tail.0.ph.lcssa.i869, %ssl_cipher_apply_rule.exit892 ]
+  %head.0.ph165.i900 = phi ptr [ %head.1.i925, %if.end139.i924 ], [ %head.0.ph.lcssa.i868, %ssl_cipher_apply_rule.exit892 ]
   br label %if.end29.us.i901
 
 if.end29.us.i901:                                 ; preds = %if.then68.us.i951, %if.end29.lr.ph.i897
@@ -2263,24 +2263,24 @@ if.end16.i.i945:                                  ; preds = %if.then12.i.i943, %
   br label %ll_append_tail.exit.i947
 
 ll_append_tail.exit.i947:                         ; preds = %if.end16.i.i945, %if.then76.i933
-  %head.2.i948 = phi ptr [ %head.0.ph165.i900, %if.then76.i933 ], [ %.head.0.ph165.i937, %if.end16.i.i945 ]
-  %tail.1.i949 = phi ptr [ %tail.0.ph168.i899, %if.then76.i933 ], [ %next.1116.us.i902, %if.end16.i.i945 ]
+  %head.4.i948 = phi ptr [ %head.0.ph165.i900, %if.then76.i933 ], [ %.head.0.ph165.i937, %if.end16.i.i945 ]
+  %tail.3.i949 = phi ptr [ %tail.0.ph168.i899, %if.then76.i933 ], [ %next.1116.us.i902, %if.end16.i.i945 ]
   store i32 1, ptr %active.i922, align 8
   %in_group78.i950 = getelementptr inbounds i8, ptr %next.1116.us.i902, i64 12
   store i32 0, ptr %in_group78.i950, align 4
   br label %if.end139.i924
 
 if.end139.i924:                                   ; preds = %ll_append_tail.exit.i947, %lor.lhs.false58.us.i921
-  %head.7.i925 = phi ptr [ %head.2.i948, %ll_append_tail.exit.i947 ], [ %head.0.ph165.i900, %lor.lhs.false58.us.i921 ]
-  %tail.6.i926 = phi ptr [ %tail.1.i949, %ll_append_tail.exit.i947 ], [ %tail.0.ph168.i899, %lor.lhs.false58.us.i921 ]
+  %head.1.i925 = phi ptr [ %head.4.i948, %ll_append_tail.exit.i947 ], [ %head.0.ph165.i900, %lor.lhs.false58.us.i921 ]
+  %tail.1.i926 = phi ptr [ %tail.3.i949, %ll_append_tail.exit.i947 ], [ %tail.0.ph168.i899, %lor.lhs.false58.us.i921 ]
   %cmp22113.i927 = icmp eq ptr %next.1116.us.i902, %tail.0.ph.lcssa.i869
   %cmp26114.i928 = icmp eq ptr %cond.us.i905, null
   %or.cond59115.i929 = select i1 %cmp22113.i927, i1 true, i1 %cmp26114.i928
   br i1 %or.cond59115.i929, label %ssl_cipher_apply_rule.exit955, label %if.end29.lr.ph.i897
 
 ssl_cipher_apply_rule.exit955:                    ; preds = %if.end139.i924, %if.then68.us.i951, %ssl_cipher_apply_rule.exit892
-  %head.0.ph.lcssa.i931 = phi ptr [ %head.0.ph.lcssa.i868, %ssl_cipher_apply_rule.exit892 ], [ %head.0.ph165.i900, %if.then68.us.i951 ], [ %head.7.i925, %if.end139.i924 ]
-  %tail.0.ph.lcssa.i932 = phi ptr [ %tail.0.ph.lcssa.i869, %ssl_cipher_apply_rule.exit892 ], [ %tail.0.ph168.i899, %if.then68.us.i951 ], [ %tail.6.i926, %if.end139.i924 ]
+  %head.0.ph.lcssa.i931 = phi ptr [ %head.0.ph.lcssa.i868, %ssl_cipher_apply_rule.exit892 ], [ %head.0.ph165.i900, %if.then68.us.i951 ], [ %head.1.i925, %if.end139.i924 ]
+  %tail.0.ph.lcssa.i932 = phi ptr [ %tail.0.ph.lcssa.i869, %ssl_cipher_apply_rule.exit892 ], [ %tail.0.ph168.i899, %if.then68.us.i951 ], [ %tail.1.i926, %if.end139.i924 ]
   store ptr %head.0.ph.lcssa.i931, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i932, ptr %tail, align 8
   %cmp22113162.i956 = icmp eq ptr %tail.0.ph.lcssa.i932, null
@@ -2290,8 +2290,8 @@ ssl_cipher_apply_rule.exit955:                    ; preds = %if.end139.i924, %if
 
 if.end29.lr.ph.i960:                              ; preds = %ssl_cipher_apply_rule.exit955, %if.end139.i987
   %next.1.ph171.i961 = phi ptr [ %cond.us.i968, %if.end139.i987 ], [ %head.0.ph.lcssa.i931, %ssl_cipher_apply_rule.exit955 ]
-  %tail.0.ph168.i962 = phi ptr [ %tail.6.i989, %if.end139.i987 ], [ %tail.0.ph.lcssa.i932, %ssl_cipher_apply_rule.exit955 ]
-  %head.0.ph165.i963 = phi ptr [ %head.7.i988, %if.end139.i987 ], [ %head.0.ph.lcssa.i931, %ssl_cipher_apply_rule.exit955 ]
+  %tail.0.ph168.i962 = phi ptr [ %tail.1.i989, %if.end139.i987 ], [ %tail.0.ph.lcssa.i932, %ssl_cipher_apply_rule.exit955 ]
+  %head.0.ph165.i963 = phi ptr [ %head.1.i988, %if.end139.i987 ], [ %head.0.ph.lcssa.i931, %ssl_cipher_apply_rule.exit955 ]
   br label %if.end29.us.i964
 
 if.end29.us.i964:                                 ; preds = %if.then68.us.i1014, %if.end29.lr.ph.i960
@@ -2370,24 +2370,24 @@ if.end16.i.i1008:                                 ; preds = %if.then12.i.i1006, 
   br label %ll_append_tail.exit.i1010
 
 ll_append_tail.exit.i1010:                        ; preds = %if.end16.i.i1008, %if.then76.i996
-  %head.2.i1011 = phi ptr [ %head.0.ph165.i963, %if.then76.i996 ], [ %.head.0.ph165.i1000, %if.end16.i.i1008 ]
-  %tail.1.i1012 = phi ptr [ %tail.0.ph168.i962, %if.then76.i996 ], [ %next.1116.us.i965, %if.end16.i.i1008 ]
+  %head.4.i1011 = phi ptr [ %head.0.ph165.i963, %if.then76.i996 ], [ %.head.0.ph165.i1000, %if.end16.i.i1008 ]
+  %tail.3.i1012 = phi ptr [ %tail.0.ph168.i962, %if.then76.i996 ], [ %next.1116.us.i965, %if.end16.i.i1008 ]
   store i32 1, ptr %active.i985, align 8
   %in_group78.i1013 = getelementptr inbounds i8, ptr %next.1116.us.i965, i64 12
   store i32 0, ptr %in_group78.i1013, align 4
   br label %if.end139.i987
 
 if.end139.i987:                                   ; preds = %ll_append_tail.exit.i1010, %lor.lhs.false58.us.i984
-  %head.7.i988 = phi ptr [ %head.2.i1011, %ll_append_tail.exit.i1010 ], [ %head.0.ph165.i963, %lor.lhs.false58.us.i984 ]
-  %tail.6.i989 = phi ptr [ %tail.1.i1012, %ll_append_tail.exit.i1010 ], [ %tail.0.ph168.i962, %lor.lhs.false58.us.i984 ]
+  %head.1.i988 = phi ptr [ %head.4.i1011, %ll_append_tail.exit.i1010 ], [ %head.0.ph165.i963, %lor.lhs.false58.us.i984 ]
+  %tail.1.i989 = phi ptr [ %tail.3.i1012, %ll_append_tail.exit.i1010 ], [ %tail.0.ph168.i962, %lor.lhs.false58.us.i984 ]
   %cmp22113.i990 = icmp eq ptr %next.1116.us.i965, %tail.0.ph.lcssa.i932
   %cmp26114.i991 = icmp eq ptr %cond.us.i968, null
   %or.cond59115.i992 = select i1 %cmp22113.i990, i1 true, i1 %cmp26114.i991
   br i1 %or.cond59115.i992, label %ssl_cipher_apply_rule.exit1018, label %if.end29.lr.ph.i960
 
 ssl_cipher_apply_rule.exit1018:                   ; preds = %if.end139.i987, %if.then68.us.i1014, %ssl_cipher_apply_rule.exit955
-  %head.0.ph.lcssa.i994 = phi ptr [ %head.0.ph.lcssa.i931, %ssl_cipher_apply_rule.exit955 ], [ %head.0.ph165.i963, %if.then68.us.i1014 ], [ %head.7.i988, %if.end139.i987 ]
-  %tail.0.ph.lcssa.i995 = phi ptr [ %tail.0.ph.lcssa.i932, %ssl_cipher_apply_rule.exit955 ], [ %tail.0.ph168.i962, %if.then68.us.i1014 ], [ %tail.6.i989, %if.end139.i987 ]
+  %head.0.ph.lcssa.i994 = phi ptr [ %head.0.ph.lcssa.i931, %ssl_cipher_apply_rule.exit955 ], [ %head.0.ph165.i963, %if.then68.us.i1014 ], [ %head.1.i988, %if.end139.i987 ]
+  %tail.0.ph.lcssa.i995 = phi ptr [ %tail.0.ph.lcssa.i932, %ssl_cipher_apply_rule.exit955 ], [ %tail.0.ph168.i962, %if.then68.us.i1014 ], [ %tail.1.i989, %if.end139.i987 ]
   store ptr %head.0.ph.lcssa.i994, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i995, ptr %tail, align 8
   %cmp22113162.i1019 = icmp eq ptr %tail.0.ph.lcssa.i995, null
@@ -2397,8 +2397,8 @@ ssl_cipher_apply_rule.exit1018:                   ; preds = %if.end139.i987, %if
 
 if.end29.lr.ph.i1023:                             ; preds = %ssl_cipher_apply_rule.exit1018, %if.end139.i1048
   %next.1.ph171.i1024 = phi ptr [ %cond.us.i1031, %if.end139.i1048 ], [ %head.0.ph.lcssa.i994, %ssl_cipher_apply_rule.exit1018 ]
-  %tail.0.ph168.i1025 = phi ptr [ %tail.6.i1050, %if.end139.i1048 ], [ %tail.0.ph.lcssa.i995, %ssl_cipher_apply_rule.exit1018 ]
-  %head.0.ph165.i1026 = phi ptr [ %head.7.i1049, %if.end139.i1048 ], [ %head.0.ph.lcssa.i994, %ssl_cipher_apply_rule.exit1018 ]
+  %tail.0.ph168.i1025 = phi ptr [ %tail.1.i1050, %if.end139.i1048 ], [ %tail.0.ph.lcssa.i995, %ssl_cipher_apply_rule.exit1018 ]
+  %head.0.ph165.i1026 = phi ptr [ %head.1.i1049, %if.end139.i1048 ], [ %head.0.ph.lcssa.i994, %ssl_cipher_apply_rule.exit1018 ]
   br label %if.end29.us.i1027
 
 if.end29.us.i1027:                                ; preds = %if.then68.us.i1057, %if.end29.lr.ph.i1023
@@ -2478,23 +2478,23 @@ if.end16.i77.i:                                   ; preds = %if.then12.i75.i, %i
   br label %ll_append_tail.exit81.i
 
 ll_append_tail.exit81.i:                          ; preds = %if.end16.i77.i, %if.then86.i
-  %head.4.i = phi ptr [ %head.0.ph165.i1026, %if.then86.i ], [ %.head.0.ph165228.i, %if.end16.i77.i ]
-  %tail.2.i = phi ptr [ %tail.0.ph168.i1025, %if.then86.i ], [ %next.1116.us.i1028, %if.end16.i77.i ]
+  %head.6.i = phi ptr [ %head.0.ph165.i1026, %if.then86.i ], [ %.head.0.ph165228.i, %if.end16.i77.i ]
+  %tail.4.i = phi ptr [ %tail.0.ph168.i1025, %if.then86.i ], [ %next.1116.us.i1028, %if.end16.i77.i ]
   %in_group87.i = getelementptr inbounds i8, ptr %next.1116.us.i1028, i64 12
   store i32 0, ptr %in_group87.i, align 4
   br label %if.end139.i1048
 
 if.end139.i1048:                                  ; preds = %ll_append_tail.exit81.i, %lor.lhs.false58.us.i1047
-  %head.7.i1049 = phi ptr [ %head.0.ph165.i1026, %lor.lhs.false58.us.i1047 ], [ %head.4.i, %ll_append_tail.exit81.i ]
-  %tail.6.i1050 = phi ptr [ %tail.0.ph168.i1025, %lor.lhs.false58.us.i1047 ], [ %tail.2.i, %ll_append_tail.exit81.i ]
+  %head.1.i1049 = phi ptr [ %head.0.ph165.i1026, %lor.lhs.false58.us.i1047 ], [ %head.6.i, %ll_append_tail.exit81.i ]
+  %tail.1.i1050 = phi ptr [ %tail.0.ph168.i1025, %lor.lhs.false58.us.i1047 ], [ %tail.4.i, %ll_append_tail.exit81.i ]
   %cmp22113.i1051 = icmp eq ptr %next.1116.us.i1028, %tail.0.ph.lcssa.i995
   %cmp26114.i1052 = icmp eq ptr %cond.us.i1031, null
   %or.cond59115.i1053 = select i1 %cmp22113.i1051, i1 true, i1 %cmp26114.i1052
   br i1 %or.cond59115.i1053, label %ssl_cipher_apply_rule.exit1061, label %if.end29.lr.ph.i1023
 
 ssl_cipher_apply_rule.exit1061:                   ; preds = %if.end139.i1048, %if.then68.us.i1057, %ssl_cipher_apply_rule.exit1018
-  %head.0.ph.lcssa.i1055 = phi ptr [ %head.0.ph.lcssa.i994, %ssl_cipher_apply_rule.exit1018 ], [ %head.0.ph165.i1026, %if.then68.us.i1057 ], [ %head.7.i1049, %if.end139.i1048 ]
-  %tail.0.ph.lcssa.i1056 = phi ptr [ %tail.0.ph.lcssa.i995, %ssl_cipher_apply_rule.exit1018 ], [ %tail.0.ph168.i1025, %if.then68.us.i1057 ], [ %tail.6.i1050, %if.end139.i1048 ]
+  %head.0.ph.lcssa.i1055 = phi ptr [ %head.0.ph.lcssa.i994, %ssl_cipher_apply_rule.exit1018 ], [ %head.0.ph165.i1026, %if.then68.us.i1057 ], [ %head.1.i1049, %if.end139.i1048 ]
+  %tail.0.ph.lcssa.i1056 = phi ptr [ %tail.0.ph.lcssa.i995, %ssl_cipher_apply_rule.exit1018 ], [ %tail.0.ph168.i1025, %if.then68.us.i1057 ], [ %tail.1.i1050, %if.end139.i1048 ]
   store ptr %head.0.ph.lcssa.i1055, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i1056, ptr %tail, align 8
   %cmp22113162.i1062 = icmp eq ptr %head.0.ph.lcssa.i1055, null
@@ -2504,8 +2504,8 @@ ssl_cipher_apply_rule.exit1061:                   ; preds = %if.end139.i1048, %i
 
 if.end29.lr.ph.i1066:                             ; preds = %ssl_cipher_apply_rule.exit1061, %if.end139.i1111
   %next.1.ph171.i1067 = phi ptr [ %cond.us.i1074, %if.end139.i1111 ], [ %tail.0.ph.lcssa.i1056, %ssl_cipher_apply_rule.exit1061 ]
-  %tail.0.ph168.i1068 = phi ptr [ %tail.6.i1113, %if.end139.i1111 ], [ %tail.0.ph.lcssa.i1056, %ssl_cipher_apply_rule.exit1061 ]
-  %head.0.ph165.i1069 = phi ptr [ %head.7.i1112, %if.end139.i1111 ], [ %head.0.ph.lcssa.i1055, %ssl_cipher_apply_rule.exit1061 ]
+  %tail.0.ph168.i1068 = phi ptr [ %tail.1.i1113, %if.end139.i1111 ], [ %tail.0.ph.lcssa.i1056, %ssl_cipher_apply_rule.exit1061 ]
+  %head.0.ph165.i1069 = phi ptr [ %head.1.i1112, %if.end139.i1111 ], [ %head.0.ph.lcssa.i1055, %ssl_cipher_apply_rule.exit1061 ]
   br label %if.end29.us.i1070
 
 if.end29.us.i1070:                                ; preds = %if.then68.us.i1120, %if.end29.lr.ph.i1066
@@ -2584,24 +2584,24 @@ if.end16.i93.i1105:                               ; preds = %if.then12.i92.i1103
   br label %ll_append_head.exit.i1107
 
 ll_append_head.exit.i1107:                        ; preds = %if.end16.i93.i1105, %if.then95.i1093
-  %head.5.i1108 = phi ptr [ %head.0.ph165.i1069, %if.then95.i1093 ], [ %next.1116.us.i1071, %if.end16.i93.i1105 ]
-  %tail.4.i1109 = phi ptr [ %tail.0.ph168.i1068, %if.then95.i1093 ], [ %.tail.0.ph168.i1097, %if.end16.i93.i1105 ]
+  %head.7.i1108 = phi ptr [ %head.0.ph165.i1069, %if.then95.i1093 ], [ %next.1116.us.i1071, %if.end16.i93.i1105 ]
+  %tail.6.i1109 = phi ptr [ %tail.0.ph168.i1068, %if.then95.i1093 ], [ %.tail.0.ph168.i1097, %if.end16.i93.i1105 ]
   store i32 0, ptr %active93.i1091, align 8
   %in_group97.i1110 = getelementptr inbounds i8, ptr %next.1116.us.i1071, i64 12
   store i32 0, ptr %in_group97.i1110, align 4
   br label %if.end139.i1111
 
 if.end139.i1111:                                  ; preds = %ll_append_head.exit.i1107, %lor.lhs.false58.us.i1090
-  %head.7.i1112 = phi ptr [ %head.0.ph165.i1069, %lor.lhs.false58.us.i1090 ], [ %head.5.i1108, %ll_append_head.exit.i1107 ]
-  %tail.6.i1113 = phi ptr [ %tail.0.ph168.i1068, %lor.lhs.false58.us.i1090 ], [ %tail.4.i1109, %ll_append_head.exit.i1107 ]
+  %head.1.i1112 = phi ptr [ %head.0.ph165.i1069, %lor.lhs.false58.us.i1090 ], [ %head.7.i1108, %ll_append_head.exit.i1107 ]
+  %tail.1.i1113 = phi ptr [ %tail.0.ph168.i1068, %lor.lhs.false58.us.i1090 ], [ %tail.6.i1109, %ll_append_head.exit.i1107 ]
   %cmp22113.i1114 = icmp eq ptr %next.1116.us.i1071, %head.0.ph.lcssa.i1055
   %cmp26114.i1115 = icmp eq ptr %cond.us.i1074, null
   %or.cond59115.i1116 = select i1 %cmp22113.i1114, i1 true, i1 %cmp26114.i1115
   br i1 %or.cond59115.i1116, label %ssl_cipher_apply_rule.exit1124, label %if.end29.lr.ph.i1066
 
 ssl_cipher_apply_rule.exit1124:                   ; preds = %if.end139.i1111, %if.then68.us.i1120, %ssl_cipher_apply_rule.exit1061
-  %head.0.ph.lcssa.i1118 = phi ptr [ %head.0.ph.lcssa.i1055, %ssl_cipher_apply_rule.exit1061 ], [ %head.0.ph165.i1069, %if.then68.us.i1120 ], [ %head.7.i1112, %if.end139.i1111 ]
-  %tail.0.ph.lcssa.i1119 = phi ptr [ %tail.0.ph.lcssa.i1056, %ssl_cipher_apply_rule.exit1061 ], [ %tail.0.ph168.i1068, %if.then68.us.i1120 ], [ %tail.6.i1113, %if.end139.i1111 ]
+  %head.0.ph.lcssa.i1118 = phi ptr [ %head.0.ph.lcssa.i1055, %ssl_cipher_apply_rule.exit1061 ], [ %head.0.ph165.i1069, %if.then68.us.i1120 ], [ %head.1.i1112, %if.end139.i1111 ]
+  %tail.0.ph.lcssa.i1119 = phi ptr [ %tail.0.ph.lcssa.i1056, %ssl_cipher_apply_rule.exit1061 ], [ %tail.0.ph168.i1068, %if.then68.us.i1120 ], [ %tail.1.i1113, %if.end139.i1111 ]
   store ptr %head.0.ph.lcssa.i1118, ptr %head, align 8
   store ptr %tail.0.ph.lcssa.i1119, ptr %tail, align 8
   %call8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %rule_str, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #16
@@ -2799,8 +2799,8 @@ if.end29.lr.ph.lr.ph:                             ; preds = %if.end
 
 if.end29.lr.ph:                                   ; preds = %if.end29.lr.ph.lr.ph, %if.end139
   %next.1.ph171 = phi ptr [ %next.0, %if.end29.lr.ph.lr.ph ], [ %.us-phi121, %if.end139 ]
-  %tail.0.ph168 = phi ptr [ %1, %if.end29.lr.ph.lr.ph ], [ %tail.6, %if.end139 ]
-  %head.0.ph165 = phi ptr [ %0, %if.end29.lr.ph.lr.ph ], [ %head.7, %if.end139 ]
+  %tail.0.ph168 = phi ptr [ %1, %if.end29.lr.ph.lr.ph ], [ %tail.1, %if.end139 ]
+  %head.0.ph165 = phi ptr [ %0, %if.end29.lr.ph.lr.ph ], [ %head.1, %if.end139 ]
   br i1 %cmp, label %if.end29.lr.ph.split.us, label %if.end29.lr.ph.split
 
 if.end29.lr.ph.split.us:                          ; preds = %if.end29.lr.ph
@@ -3001,8 +3001,8 @@ if.end16.i:                                       ; preds = %if.then12.i, %if.en
   br label %ll_append_tail.exit
 
 ll_append_tail.exit:                              ; preds = %if.then76, %if.end16.i
-  %head.2 = phi ptr [ %head.0.ph165, %if.then76 ], [ %.head.0.ph165, %if.end16.i ]
-  %tail.1 = phi ptr [ %tail.0.ph168, %if.then76 ], [ %.us-phi122, %if.end16.i ]
+  %head.4 = phi ptr [ %head.0.ph165, %if.then76 ], [ %.head.0.ph165, %if.end16.i ]
+  %tail.3 = phi ptr [ %tail.0.ph168, %if.then76 ], [ %.us-phi122, %if.end16.i ]
   store i32 1, ptr %active, align 8
   %in_group78 = getelementptr inbounds i8, ptr %.us-phi122, i64 12
   store i32 %in_group, ptr %in_group78, align 4
@@ -3049,8 +3049,8 @@ if.end16.i77:                                     ; preds = %if.then12.i75, %if.
   br label %ll_append_tail.exit81
 
 ll_append_tail.exit81:                            ; preds = %if.then86, %if.end16.i77
-  %head.4 = phi ptr [ %head.0.ph165, %if.then86 ], [ %.head.0.ph165228, %if.end16.i77 ]
-  %tail.2 = phi ptr [ %tail.0.ph168, %if.then86 ], [ %.us-phi122, %if.end16.i77 ]
+  %head.6 = phi ptr [ %head.0.ph165, %if.then86 ], [ %.head.0.ph165228, %if.end16.i77 ]
+  %tail.4 = phi ptr [ %tail.0.ph168, %if.then86 ], [ %.us-phi122, %if.end16.i77 ]
   %in_group87 = getelementptr inbounds i8, ptr %.us-phi122, i64 12
   store i32 0, ptr %in_group87, align 4
   br label %if.end139
@@ -3099,8 +3099,8 @@ if.end16.i93:                                     ; preds = %if.then12.i92, %if.
   br label %ll_append_head.exit
 
 ll_append_head.exit:                              ; preds = %if.then95, %if.end16.i93
-  %head.5 = phi ptr [ %head.0.ph165, %if.then95 ], [ %.us-phi122, %if.end16.i93 ]
-  %tail.4 = phi ptr [ %tail.0.ph168, %if.then95 ], [ %.tail.0.ph168, %if.end16.i93 ]
+  %head.7 = phi ptr [ %head.0.ph165, %if.then95 ], [ %.us-phi122, %if.end16.i93 ]
+  %tail.6 = phi ptr [ %tail.0.ph168, %if.then95 ], [ %.tail.0.ph168, %if.end16.i93 ]
   store i32 0, ptr %active93, align 8
   %in_group97 = getelementptr inbounds i8, ptr %.us-phi122, i64 12
   store i32 0, ptr %in_group97, align 4
@@ -3121,7 +3121,7 @@ if.else107:                                       ; preds = %if.then102
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then102, %if.else107
-  %head.6 = phi ptr [ %head.0.ph165, %if.else107 ], [ %26, %if.then102 ]
+  %head.2 = phi ptr [ %head.0.ph165, %if.else107 ], [ %26, %if.then102 ]
   %cmp112 = icmp eq ptr %tail.0.ph168, %.us-phi122
   br i1 %cmp112, label %if.then114, label %if.end116
 
@@ -3130,7 +3130,7 @@ if.then114:                                       ; preds = %if.end111
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then114, %if.end111
-  %tail.5 = phi ptr [ %28, %if.then114 ], [ %tail.0.ph168, %if.end111 ]
+  %tail.2 = phi ptr [ %28, %if.then114 ], [ %tail.0.ph168, %if.end111 ]
   %active117 = getelementptr inbounds i8, ptr %.us-phi122, i64 8
   store i32 0, ptr %active117, align 8
   %29 = load ptr, ptr %.us-phi120, align 8
@@ -3159,16 +3159,16 @@ if.end133:                                        ; preds = %if.then129, %if.end
   br label %if.end139
 
 if.end139:                                        ; preds = %ll_append_tail.exit81, %if.then83, %if.else99, %if.end133, %if.then92, %ll_append_head.exit, %if.then74, %ll_append_tail.exit
-  %head.7 = phi ptr [ %head.0.ph165, %if.then92 ], [ %head.5, %ll_append_head.exit ], [ %head.6, %if.end133 ], [ %head.0.ph165, %if.else99 ], [ %head.0.ph165, %if.then83 ], [ %head.4, %ll_append_tail.exit81 ], [ %head.2, %ll_append_tail.exit ], [ %head.0.ph165, %if.then74 ]
-  %tail.6 = phi ptr [ %tail.0.ph168, %if.then92 ], [ %tail.4, %ll_append_head.exit ], [ %tail.5, %if.end133 ], [ %tail.0.ph168, %if.else99 ], [ %tail.0.ph168, %if.then83 ], [ %tail.2, %ll_append_tail.exit81 ], [ %tail.1, %ll_append_tail.exit ], [ %tail.0.ph168, %if.then74 ]
+  %head.1 = phi ptr [ %head.0.ph165, %if.then92 ], [ %head.7, %ll_append_head.exit ], [ %head.2, %if.end133 ], [ %head.0.ph165, %if.else99 ], [ %head.0.ph165, %if.then83 ], [ %head.6, %ll_append_tail.exit81 ], [ %head.4, %ll_append_tail.exit ], [ %head.0.ph165, %if.then74 ]
+  %tail.1 = phi ptr [ %tail.0.ph168, %if.then92 ], [ %tail.6, %ll_append_head.exit ], [ %tail.2, %if.end133 ], [ %tail.0.ph168, %if.else99 ], [ %tail.0.ph168, %if.then83 ], [ %tail.4, %ll_append_tail.exit81 ], [ %tail.3, %ll_append_tail.exit ], [ %tail.0.ph168, %if.then74 ]
   %cmp22113 = icmp eq ptr %.us-phi122, %last.0
   %cmp26114 = icmp eq ptr %.us-phi121, null
   %or.cond59115 = select i1 %cmp22113, i1 true, i1 %cmp26114
   br i1 %or.cond59115, label %for.end, label %if.end29.lr.ph
 
 for.end:                                          ; preds = %if.end139, %for.cond.backedge, %for.cond.backedge.us133, %if.then68.us, %for.cond.backedge.us.us, %if.end
-  %head.0.ph.lcssa = phi ptr [ %0, %if.end ], [ %head.0.ph165, %for.cond.backedge.us.us ], [ %head.0.ph165, %if.then68.us ], [ %head.0.ph165, %for.cond.backedge.us133 ], [ %head.0.ph165, %for.cond.backedge ], [ %head.7, %if.end139 ]
-  %tail.0.ph.lcssa = phi ptr [ %1, %if.end ], [ %tail.0.ph168, %for.cond.backedge.us.us ], [ %tail.0.ph168, %if.then68.us ], [ %tail.0.ph168, %for.cond.backedge.us133 ], [ %tail.0.ph168, %for.cond.backedge ], [ %tail.6, %if.end139 ]
+  %head.0.ph.lcssa = phi ptr [ %0, %if.end ], [ %head.0.ph165, %for.cond.backedge.us.us ], [ %head.0.ph165, %if.then68.us ], [ %head.0.ph165, %for.cond.backedge.us133 ], [ %head.0.ph165, %for.cond.backedge ], [ %head.1, %if.end139 ]
+  %tail.0.ph.lcssa = phi ptr [ %1, %if.end ], [ %tail.0.ph168, %for.cond.backedge.us.us ], [ %tail.0.ph168, %if.then68.us ], [ %tail.0.ph168, %for.cond.backedge.us133 ], [ %tail.0.ph168, %for.cond.backedge ], [ %tail.1, %if.end139 ]
   store ptr %head.0.ph.lcssa, ptr %head_p, align 8
   store ptr %tail.0.ph.lcssa, ptr %tail_p, align 8
   br label %return
@@ -3192,8 +3192,8 @@ entry:
 if.end.lr.ph.lr.ph.lr.ph:                         ; preds = %entry, %if.end270
   %1 = phi i8 [ %47, %if.end270 ], [ %0, %entry ]
   %has_group.0.ph120 = phi i32 [ %has_group.0.ph22.ph89, %if.end270 ], [ 0, %entry ]
-  %in_group.0.ph119 = phi i32 [ %in_group.1248253, %if.end270 ], [ 0, %entry ]
-  %retval1.0.ph118 = phi i32 [ %retval1.3, %if.end270 ], [ 1, %entry ]
+  %in_group.0.ph119 = phi i32 [ %in_group.2248253, %if.end270 ], [ 0, %entry ]
+  %retval1.0.ph118 = phi i32 [ %retval1.4, %if.end270 ], [ 1, %entry ]
   %l.0.ph117 = phi ptr [ %l.6, %if.end270 ], [ %rule_str, %entry ]
   br label %if.end.lr.ph.lr.ph
 
@@ -3368,7 +3368,7 @@ for.cond107:                                      ; preds = %for.cond107.prehead
   %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end209 ], [ -1, %for.cond107.preheader126 ]
   %tobool148 = phi i1 [ false, %if.end209 ], [ true, %for.cond107.preheader126 ]
   %skip_rule.0 = phi i32 [ %skip_rule.2, %if.end209 ], [ 0, %for.cond107.preheader126 ]
-  %cipher_id.0 = phi i32 [ %cipher_id.1, %if.end209 ], [ 0, %for.cond107.preheader126 ]
+  %cipher_id.0 = phi i32 [ %cipher_id.2, %if.end209 ], [ 0, %for.cond107.preheader126 ]
   %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end209 ], [ -1, %for.cond107.preheader126 ]
   br label %while.cond
 
@@ -3446,8 +3446,8 @@ for.inc:                                          ; preds = %for.body, %rule_equ
   br i1 %exitcond.not, label %if.end161, label %for.body, !llvm.loop !12
 
 if.end161:                                        ; preds = %for.inc, %if.then158, %if.end143
-  %cipher_id.1 = phi i32 [ %26, %if.then158 ], [ %cipher_id.0, %if.end143 ], [ %cipher_id.0, %for.inc ]
-  %cmp162 = icmp eq i32 %cipher_id.1, 0
+  %cipher_id.2 = phi i32 [ %26, %if.then158 ], [ %cipher_id.0, %if.end143 ], [ %cipher_id.0, %for.inc ]
+  %cmp162 = icmp eq i32 %cipher_id.2, 0
   br i1 %cmp162, label %for.body168, label %if.end204
 
 for.body168:                                      ; preds = %if.end161, %for.inc197
@@ -3481,11 +3481,11 @@ if.then173:                                       ; preds = %rule_equals.exit111
   %min_version194.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx169, i64 24
   %.pre = load i16, ptr %min_version194.phi.trans.insert, align 8
   %cmp189.not = icmp eq i16 %min_version.0, %.pre
-  %min_version.1 = select i1 %cmp182.not, i16 %.pre, i16 %min_version.0
+  %min_version.3 = select i1 %cmp182.not, i16 %.pre, i16 %min_version.0
   %33 = select i1 %cmp182.not, i1 true, i1 %cmp189.not
-  %skip_rule.1 = select i1 %33, i32 %skip_rule.0, i32 1
+  %skip_rule.3 = select i1 %33, i32 %skip_rule.0, i32 1
   %cmp200 = icmp eq i64 %j.195, 37
-  %spec.select358 = select i1 %cmp200, i32 1, i32 %skip_rule.1
+  %spec.select358 = select i1 %cmp200, i32 1, i32 %skip_rule.3
   br label %if.end204
 
 for.inc197:                                       ; preds = %for.body168, %rule_equals.exit111
@@ -3496,7 +3496,7 @@ for.inc197:                                       ; preds = %for.body168, %rule_
 if.end204:                                        ; preds = %for.inc197, %if.then173, %if.end161
   %alg_enc.2 = phi i32 [ %alg_enc.0, %if.end161 ], [ %and178, %if.then173 ], [ %alg_enc.0, %for.inc197 ]
   %alg_mac.2 = phi i32 [ %alg_mac.0, %if.end161 ], [ %and180, %if.then173 ], [ %alg_mac.0, %for.inc197 ]
-  %min_version.2 = phi i16 [ %min_version.0, %if.end161 ], [ %min_version.1, %if.then173 ], [ %min_version.0, %for.inc197 ]
+  %min_version.2 = phi i16 [ %min_version.0, %if.end161 ], [ %min_version.3, %if.then173 ], [ %min_version.0, %for.inc197 ]
   %alg_auth.2 = phi i32 [ %alg_auth.0, %if.end161 ], [ %and176, %if.then173 ], [ %alg_auth.0, %for.inc197 ]
   %skip_rule.2 = phi i32 [ %skip_rule.0, %if.end161 ], [ %spec.select358, %if.then173 ], [ 1, %for.inc197 ]
   %alg_mkey.2 = phi i32 [ %alg_mkey.0, %if.end161 ], [ %and, %if.then173 ], [ %alg_mkey.0, %for.inc197 ]
@@ -3511,17 +3511,17 @@ for.end211:                                       ; preds = %if.end204, %if.then
   %.us-phi59189 = phi i32 [ %.us-phi59190, %if.then141 ], [ %.us-phi59191, %if.end204 ]
   %l.246 = phi ptr [ %.us-phi99, %if.then141 ], [ %l.2, %if.end204 ]
   %buf_len.0.lcssa37 = phi i64 [ 0, %if.then141 ], [ %buf_len.0, %if.end204 ]
-  %alg_enc.3 = phi i32 [ %.us-phi, %if.then141 ], [ %alg_enc.2, %if.end204 ]
-  %alg_mac.3 = phi i32 [ %.us-phi97, %if.then141 ], [ %alg_mac.2, %if.end204 ]
-  %min_version.3 = phi i16 [ %.us-phi98, %if.then141 ], [ %min_version.2, %if.end204 ]
+  %alg_enc.1 = phi i32 [ %.us-phi, %if.then141 ], [ %alg_enc.2, %if.end204 ]
+  %alg_mac.1 = phi i32 [ %.us-phi97, %if.then141 ], [ %alg_mac.2, %if.end204 ]
+  %min_version.1 = phi i16 [ %.us-phi98, %if.then141 ], [ %min_version.2, %if.end204 ]
   %l.4 = phi ptr [ %incdec.ptr142, %if.then141 ], [ %l.3, %if.end204 ]
-  %alg_auth.3 = phi i32 [ %.us-phi100, %if.then141 ], [ %alg_auth.2, %if.end204 ]
-  %skip_rule.3 = phi i32 [ %.us-phi101, %if.then141 ], [ %skip_rule.2, %if.end204 ]
-  %retval1.1 = phi i32 [ 0, %if.then141 ], [ %retval1.0.ph118, %if.end204 ]
-  %in_group.1 = phi i32 [ 0, %if.then141 ], [ %in_group.0.ph2181142188, %if.end204 ]
-  %cipher_id.2 = phi i32 [ %.us-phi102, %if.then141 ], [ %cipher_id.1, %if.end204 ]
-  %alg_mkey.3 = phi i32 [ %.us-phi103, %if.then141 ], [ %alg_mkey.2, %if.end204 ]
-  switch i32 %cipher_id.2, label %if.end226.fold.split [
+  %alg_auth.1 = phi i32 [ %.us-phi100, %if.then141 ], [ %alg_auth.2, %if.end204 ]
+  %skip_rule.1 = phi i32 [ %.us-phi101, %if.then141 ], [ %skip_rule.2, %if.end204 ]
+  %retval1.2 = phi i32 [ 0, %if.then141 ], [ %retval1.0.ph118, %if.end204 ]
+  %in_group.2 = phi i32 [ 0, %if.then141 ], [ %in_group.0.ph2181142188, %if.end204 ]
+  %cipher_id.1 = phi i32 [ %.us-phi102, %if.then141 ], [ %cipher_id.2, %if.end204 ]
+  %alg_mkey.1 = phi i32 [ %.us-phi103, %if.then141 ], [ %alg_mkey.2, %if.end204 ]
+  switch i32 %cipher_id.1, label %if.end226.fold.split [
     i32 50384040, label %if.end226
     i32 50383891, label %if.end226
     i32 50384041, label %if.then224
@@ -3541,8 +3541,8 @@ if.then229:                                       ; preds = %if.end226.fold.spli
   %l.246233262 = phi ptr [ %l.246, %if.then224 ], [ %l.246, %if.end226 ], [ %l.17.us, %for.end211.thread ], [ %l.246, %if.end226.fold.split ]
   %buf_len.0.lcssa37235261 = phi i64 [ %buf_len.0.lcssa37, %if.then224 ], [ %buf_len.0.lcssa37, %if.end226 ], [ %buf_len.0.us, %for.end211.thread ], [ %buf_len.0.lcssa37, %if.end226.fold.split ]
   %l.4241258 = phi ptr [ %l.4, %if.then224 ], [ %l.4, %if.end226 ], [ %l.3.us, %for.end211.thread ], [ %l.4, %if.end226.fold.split ]
-  %retval1.1246255 = phi i32 [ %retval1.1, %if.then224 ], [ %retval1.1, %if.end226 ], [ %retval1.0.ph118, %for.end211.thread ], [ %retval1.1, %if.end226.fold.split ]
-  %in_group.1248254 = phi i32 [ %in_group.1, %if.then224 ], [ %in_group.1, %if.end226 ], [ 0, %for.end211.thread ], [ %in_group.1, %if.end226.fold.split ]
+  %retval1.2246255 = phi i32 [ %retval1.2, %if.then224 ], [ %retval1.2, %if.end226 ], [ %retval1.0.ph118, %for.end211.thread ], [ %retval1.2, %if.end226.fold.split ]
+  %in_group.2248254 = phi i32 [ %in_group.2, %if.then224 ], [ %in_group.2, %if.end226 ], [ 0, %for.end211.thread ], [ %in_group.2, %if.end226.fold.split ]
   %cmp230 = icmp eq i64 %buf_len.0.lcssa37235261, 8
   br i1 %cmp230, label %land.lhs.true232, label %if.else237
 
@@ -3736,7 +3736,7 @@ if.end238:                                        ; preds = %for.inc.i
   br label %44
 
 44:                                               ; preds = %if.then6.i, %if.else237, %if.end238
-  %45 = phi i32 [ %retval1.1246255, %if.end238 ], [ 0, %if.else237 ], [ 0, %if.then6.i ]
+  %45 = phi i32 [ %retval1.2246255, %if.end238 ], [ 0, %if.else237 ], [ 0, %if.then6.i ]
   br label %while.cond243
 
 while.cond243:                                    ; preds = %lor.rhs258, %44
@@ -3755,46 +3755,46 @@ lor.rhs258:                                       ; preds = %while.cond243
   br label %while.cond243, !llvm.loop !17
 
 if.else266:                                       ; preds = %if.end226.fold.split, %if.then224, %if.end226
-  %alg_mkey.4268 = phi i32 [ 4, %if.then224 ], [ 4, %if.end226 ], [ %alg_mkey.3, %if.end226.fold.split ]
-  %cipher_id.3267 = phi i32 [ 0, %if.then224 ], [ 0, %if.end226 ], [ %cipher_id.2, %if.end226.fold.split ]
-  %alg_auth.4266 = phi i32 [ 2, %if.then224 ], [ 1, %if.end226 ], [ %alg_auth.3, %if.end226.fold.split ]
-  %alg_mac.4265 = phi i32 [ 16, %if.then224 ], [ 16, %if.end226 ], [ %alg_mac.3, %if.end226.fold.split ]
-  %alg_enc.4264 = phi i32 [ 320, %if.then224 ], [ 320, %if.end226 ], [ %alg_enc.3, %if.end226.fold.split ]
-  %tobool267.not = icmp eq i32 %skip_rule.3, 0
+  %alg_mkey.4268 = phi i32 [ 4, %if.then224 ], [ 4, %if.end226 ], [ %alg_mkey.1, %if.end226.fold.split ]
+  %cipher_id.3267 = phi i32 [ 0, %if.then224 ], [ 0, %if.end226 ], [ %cipher_id.1, %if.end226.fold.split ]
+  %alg_auth.4266 = phi i32 [ 2, %if.then224 ], [ 1, %if.end226 ], [ %alg_auth.1, %if.end226.fold.split ]
+  %alg_mac.4265 = phi i32 [ 16, %if.then224 ], [ 16, %if.end226 ], [ %alg_mac.1, %if.end226.fold.split ]
+  %alg_enc.4264 = phi i32 [ 320, %if.then224 ], [ 320, %if.end226 ], [ %alg_enc.1, %if.end226.fold.split ]
+  %tobool267.not = icmp eq i32 %skip_rule.1, 0
   br i1 %tobool267.not, label %if.then268, label %if.end270thread-pre-split
 
 if.then268:                                       ; preds = %for.end211.thread, %if.else266
-  %in_group.1248252290 = phi i32 [ %in_group.1, %if.else266 ], [ 0, %for.end211.thread ]
-  %retval1.1246256289 = phi i32 [ %retval1.1, %if.else266 ], [ %retval1.0.ph118, %for.end211.thread ]
+  %in_group.2248252290 = phi i32 [ %in_group.2, %if.else266 ], [ 0, %for.end211.thread ]
+  %retval1.2246256289 = phi i32 [ %retval1.2, %if.else266 ], [ %retval1.0.ph118, %for.end211.thread ]
   %l.4241259288 = phi ptr [ %l.4, %if.else266 ], [ %l.3.us, %for.end211.thread ]
-  %min_version.3239260287 = phi i16 [ %min_version.3, %if.else266 ], [ 0, %for.end211.thread ]
+  %min_version.1239260287 = phi i16 [ %min_version.1, %if.else266 ], [ 0, %for.end211.thread ]
   %.us-phi59189231263286 = phi i32 [ %.us-phi59189, %if.else266 ], [ %rule.09.us, %for.end211.thread ]
   %alg_enc.4264285 = phi i32 [ %alg_enc.4264, %if.else266 ], [ -1, %for.end211.thread ]
   %alg_mac.4265284 = phi i32 [ %alg_mac.4265, %if.else266 ], [ -1, %for.end211.thread ]
   %alg_auth.4266283 = phi i32 [ %alg_auth.4266, %if.else266 ], [ -1, %for.end211.thread ]
   %cipher_id.3267282 = phi i32 [ %cipher_id.3267, %if.else266 ], [ 0, %for.end211.thread ]
   %alg_mkey.4268281 = phi i32 [ %alg_mkey.4268, %if.else266 ], [ -1, %for.end211.thread ]
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3267282, i32 noundef %alg_mkey.4268281, i32 noundef %alg_auth.4266283, i32 noundef %alg_enc.4264285, i32 noundef %alg_mac.4265284, i16 noundef zeroext %min_version.3239260287, i32 noundef %.us-phi59189231263286, i32 noundef -1, i32 noundef %in_group.1248252290, ptr noundef %head_p, ptr noundef %tail_p)
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3267282, i32 noundef %alg_mkey.4268281, i32 noundef %alg_auth.4266283, i32 noundef %alg_enc.4264285, i32 noundef %alg_mac.4265284, i16 noundef zeroext %min_version.1239260287, i32 noundef %.us-phi59189231263286, i32 noundef -1, i32 noundef %in_group.2248252290, ptr noundef %head_p, ptr noundef %tail_p)
   br label %if.end270thread-pre-split
 
 if.end270thread-pre-split:                        ; preds = %if.then268, %if.else266
-  %in_group.1248253.ph = phi i32 [ %in_group.1248252290, %if.then268 ], [ %in_group.1, %if.else266 ]
+  %in_group.2248253.ph = phi i32 [ %in_group.2248252290, %if.then268 ], [ %in_group.2, %if.else266 ]
   %l.6.ph = phi ptr [ %l.4241259288, %if.then268 ], [ %l.4, %if.else266 ]
-  %retval1.3.ph = phi i32 [ %retval1.1246256289, %if.then268 ], [ %retval1.1, %if.else266 ]
+  %retval1.4.ph = phi i32 [ %retval1.2246256289, %if.then268 ], [ %retval1.2, %if.else266 ]
   %.pr = load i8, ptr %l.6.ph, align 1
   br label %if.end270
 
 if.end270:                                        ; preds = %while.cond243, %while.cond243, %while.cond243, %while.cond243, %while.cond243, %if.end270thread-pre-split
   %47 = phi i8 [ %.pr, %if.end270thread-pre-split ], [ %46, %while.cond243 ], [ %46, %while.cond243 ], [ %46, %while.cond243 ], [ %46, %while.cond243 ], [ %46, %while.cond243 ]
-  %in_group.1248253 = phi i32 [ %in_group.1248253.ph, %if.end270thread-pre-split ], [ %in_group.1248254, %while.cond243 ], [ %in_group.1248254, %while.cond243 ], [ %in_group.1248254, %while.cond243 ], [ %in_group.1248254, %while.cond243 ], [ %in_group.1248254, %while.cond243 ]
+  %in_group.2248253 = phi i32 [ %in_group.2248253.ph, %if.end270thread-pre-split ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ], [ %in_group.2248254, %while.cond243 ]
   %l.6 = phi ptr [ %l.6.ph, %if.end270thread-pre-split ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ], [ %l.5, %while.cond243 ]
-  %retval1.3 = phi i32 [ %retval1.3.ph, %if.end270thread-pre-split ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ]
+  %retval1.4 = phi i32 [ %retval1.4.ph, %if.end270thread-pre-split ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ], [ %45, %while.cond243 ]
   %cmp527986 = icmp eq i8 %47, 0
   br i1 %cmp527986, label %for.end271, label %if.end.lr.ph.lr.ph.lr.ph
 
 for.end271:                                       ; preds = %if.end270, %for.cond.outer19.backedge
-  %retval1.0.ph.lcssa51 = phi i32 [ %retval1.0.ph118, %for.cond.outer19.backedge ], [ %retval1.3, %if.end270 ]
-  %in_group.0.ph21.lcssa32 = phi i32 [ %in_group.0.ph21.be, %for.cond.outer19.backedge ], [ %in_group.1248253, %if.end270 ]
+  %retval1.0.ph.lcssa51 = phi i32 [ %retval1.0.ph118, %for.cond.outer19.backedge ], [ %retval1.4, %if.end270 ]
+  %in_group.0.ph21.lcssa32 = phi i32 [ %in_group.0.ph21.be, %for.cond.outer19.backedge ], [ %in_group.2248253, %if.end270 ]
   %tobool272.not = icmp eq i32 %in_group.0.ph21.lcssa32, 0
   br i1 %tobool272.not, label %if.end274, label %if.then273
 

@@ -2478,7 +2478,7 @@ lpad71:                                           ; preds = %if.then.i106
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then14.i, %if.end21.i, %if.then37.i, %if.end48.i, %invoke.cont62
-  %position.1 = phi i32 [ %42, %invoke.cont62 ], [ %retval.0.i72295, %if.end48.i ], [ %retval.0.i72295, %if.then37.i ], [ %retval.0.i72295, %if.end21.i ], [ %retval.0.i72295, %if.then14.i ]
+  %position.0 = phi i32 [ %42, %invoke.cont62 ], [ %retval.0.i72295, %if.end48.i ], [ %retval.0.i72295, %if.then37.i ], [ %retval.0.i72295, %if.end21.i ], [ %retval.0.i72295, %if.then14.i ]
   %79 = load ptr, ptr %steps, align 8
   %m_refs = getelementptr inbounds %"struct.datalog::boogie_proof::step", ptr %79, i64 %indvars.iv345, i32 4
   %80 = load ptr, ptr %m_refs, align 8
@@ -2581,7 +2581,7 @@ for.inc:                                          ; preds = %.noexc149, %lor.lhs
   %87 = phi ptr [ %.pre.i146, %.noexc149 ], [ %80, %lor.lhs.false.i136 ]
   %idx.ext.i141 = zext i32 %86 to i64
   %add.ptr.i142 = getelementptr inbounds i32, ptr %87, i64 %idx.ext.i141
-  store i32 %position.1, ptr %add.ptr.i142, align 4
+  store i32 %position.0, ptr %add.ptr.i142, align 4
   %88 = load ptr, ptr %m_refs, align 8
   %arrayidx10.i143 = getelementptr inbounds i8, ptr %88, i64 -4
   %89 = load i32, ptr %arrayidx10.i143, align 4

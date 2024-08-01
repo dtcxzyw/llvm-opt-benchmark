@@ -331,9 +331,9 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
   br label %20
 
 20:                                               ; preds = %17, %15
-  %.0 = phi ptr [ %19, %17 ], [ %11, %15 ]
-  %21 = getelementptr i8, ptr %.0, i64 1
-  store i8 32, ptr %.0, align 1
+  %.1 = phi ptr [ %19, %17 ], [ %11, %15 ]
+  %21 = getelementptr i8, ptr %.1, i64 1
+  store i8 32, ptr %.1, align 1
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 @pg_ulltoa_n(i64 noundef %23, ptr noundef %21) #5
@@ -342,9 +342,9 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr noc
   br label %27
 
 27:                                               ; preds = %3, %20
-  %.1 = phi ptr [ %26, %20 ], [ %11, %3 ]
-  store i8 0, ptr %.1, align 1
-  %28 = ptrtoint ptr %.1 to i64
+  %.0 = phi ptr [ %26, %20 ], [ %11, %3 ]
+  store i8 0, ptr %.0, align 1
+  %28 = ptrtoint ptr %.0 to i64
   %29 = ptrtoint ptr %0 to i64
   %30 = sub i64 %28, %29
   ret i64 %30

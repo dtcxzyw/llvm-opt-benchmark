@@ -439,14 +439,14 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph418.i:                                      ; preds = %.lr.ph410.i, %.lr.ph418.i
   %indvars.iv488.i = phi i64 [ %indvars.iv.next489.i, %.lr.ph418.i ], [ 0, %.lr.ph410.i ]
-  %.1409416.i = phi ptr [ %89, %.lr.ph418.i ], [ null, %.lr.ph410.i ]
+  %.2409416.i = phi ptr [ %89, %.lr.ph418.i ], [ null, %.lr.ph410.i ]
   %83 = load ptr, ptr %67, align 8
   %84 = getelementptr %union.ListCell, ptr %83, i64 %indvars.iv488.i
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 @get_database_oid(ptr noundef %87, i1 noundef zeroext false) #8
-  %89 = tail call ptr @lappend_oid(ptr noundef %.1409416.i, i32 noundef %88) #8
+  %89 = tail call ptr @lappend_oid(ptr noundef %.2409416.i, i32 noundef %88) #8
   %indvars.iv.next489.i = add nuw nsw i64 %indvars.iv488.i, 1
   %90 = load i32, ptr %66, align 4
   %91 = sext i32 %90 to i64
@@ -466,13 +466,13 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph406.i:                                      ; preds = %.lr.ph398.i, %.lr.ph406.i
   %indvars.iv485.i = phi i64 [ %indvars.iv.next486.i, %.lr.ph406.i ], [ 0, %.lr.ph398.i ]
-  %.2397404.i = phi ptr [ %103, %.lr.ph406.i ], [ null, %.lr.ph398.i ]
+  %.3397404.i = phi ptr [ %103, %.lr.ph406.i ], [ null, %.lr.ph398.i ]
   %98 = load ptr, ptr %95, align 8
   %99 = getelementptr %union.ListCell, ptr %98, i64 %indvars.iv485.i
   %100 = load ptr, ptr %99, align 8
   %101 = tail call ptr @makeTypeNameFromNameList(ptr noundef %100) #8
   %102 = tail call i32 @typenameTypeId(ptr noundef null, ptr noundef %101) #8
-  %103 = tail call ptr @lappend_oid(ptr noundef %.2397404.i, i32 noundef %102) #8
+  %103 = tail call ptr @lappend_oid(ptr noundef %.3397404.i, i32 noundef %102) #8
   %indvars.iv.next486.i = add nuw nsw i64 %indvars.iv485.i, 1
   %104 = load i32, ptr %94, align 4
   %105 = sext i32 %104 to i64
@@ -481,12 +481,12 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph394.i:                                      ; preds = %.lr.ph386.i, %.lr.ph394.i
   %indvars.iv482.i = phi i64 [ %indvars.iv.next483.i, %.lr.ph394.i ], [ 0, %.lr.ph386.i ]
-  %.3385392.i = phi ptr [ %111, %.lr.ph394.i ], [ null, %.lr.ph386.i ]
+  %.4385392.i = phi ptr [ %111, %.lr.ph394.i ], [ null, %.lr.ph386.i ]
   %107 = load ptr, ptr %63, align 8
   %108 = getelementptr %union.ListCell, ptr %107, i64 %indvars.iv482.i
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i32 @LookupFuncWithArgs(i32 noundef 19, ptr noundef %109, i1 noundef zeroext false) #8
-  %111 = tail call ptr @lappend_oid(ptr noundef %.3385392.i, i32 noundef %110) #8
+  %111 = tail call ptr @lappend_oid(ptr noundef %.4385392.i, i32 noundef %110) #8
   %indvars.iv.next483.i = add nuw nsw i64 %indvars.iv482.i, 1
   %112 = load i32, ptr %62, align 4
   %113 = sext i32 %112 to i64
@@ -495,14 +495,14 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph382.i:                                      ; preds = %.lr.ph374.i, %.lr.ph382.i
   %indvars.iv479.i = phi i64 [ %indvars.iv.next480.i, %.lr.ph382.i ], [ 0, %.lr.ph374.i ]
-  %.4373380.i = phi ptr [ %121, %.lr.ph382.i ], [ null, %.lr.ph374.i ]
+  %.5373380.i = phi ptr [ %121, %.lr.ph382.i ], [ null, %.lr.ph374.i ]
   %115 = load ptr, ptr %59, align 8
   %116 = getelementptr %union.ListCell, ptr %115, i64 %indvars.iv479.i
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = tail call i32 @get_language_oid(ptr noundef %119, i1 noundef zeroext false) #8
-  %121 = tail call ptr @lappend_oid(ptr noundef %.4373380.i, i32 noundef %120) #8
+  %121 = tail call ptr @lappend_oid(ptr noundef %.5373380.i, i32 noundef %120) #8
   %indvars.iv.next480.i = add nuw nsw i64 %indvars.iv479.i, 1
   %122 = load i32, ptr %58, align 4
   %123 = sext i32 %122 to i64
@@ -511,7 +511,7 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph370.i:                                      ; preds = %.lr.ph361.i, %133
   %indvars.iv476.i = phi i64 [ %indvars.iv.next477.i, %133 ], [ 0, %.lr.ph361.i ]
-  %.5360368.i = phi ptr [ %134, %133 ], [ null, %.lr.ph361.i ]
+  %.6360368.i = phi ptr [ %134, %133 ], [ null, %.lr.ph361.i ]
   %125 = load ptr, ptr %55, align 8
   %126 = getelementptr %union.ListCell, ptr %125, i64 %indvars.iv476.i
   %127 = load ptr, ptr %126, align 8
@@ -528,7 +528,7 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
   unreachable
 
 133:                                              ; preds = %.lr.ph370.i
-  %134 = tail call ptr @lappend_oid(ptr noundef %.5360368.i, i32 noundef %128) #8
+  %134 = tail call ptr @lappend_oid(ptr noundef %.6360368.i, i32 noundef %128) #8
   %indvars.iv.next477.i = add nuw nsw i64 %indvars.iv476.i, 1
   %135 = load i32, ptr %54, align 4
   %136 = sext i32 %135 to i64
@@ -537,14 +537,14 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph357.i:                                      ; preds = %.lr.ph349.i, %.lr.ph357.i
   %indvars.iv473.i = phi i64 [ %indvars.iv.next474.i, %.lr.ph357.i ], [ 0, %.lr.ph349.i ]
-  %.6348355.i = phi ptr [ %144, %.lr.ph357.i ], [ null, %.lr.ph349.i ]
+  %.7348355.i = phi ptr [ %144, %.lr.ph357.i ], [ null, %.lr.ph349.i ]
   %138 = load ptr, ptr %51, align 8
   %139 = getelementptr %union.ListCell, ptr %138, i64 %indvars.iv473.i
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = tail call i32 @get_namespace_oid(ptr noundef %142, i1 noundef zeroext false) #8
-  %144 = tail call ptr @lappend_oid(ptr noundef %.6348355.i, i32 noundef %143) #8
+  %144 = tail call ptr @lappend_oid(ptr noundef %.7348355.i, i32 noundef %143) #8
   %indvars.iv.next474.i = add nuw nsw i64 %indvars.iv473.i, 1
   %145 = load i32, ptr %50, align 4
   %146 = sext i32 %145 to i64
@@ -553,12 +553,12 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph345.i:                                      ; preds = %.lr.ph337.i, %.lr.ph345.i
   %indvars.iv470.i = phi i64 [ %indvars.iv.next471.i, %.lr.ph345.i ], [ 0, %.lr.ph337.i ]
-  %.7336343.i = phi ptr [ %152, %.lr.ph345.i ], [ null, %.lr.ph337.i ]
+  %.8336343.i = phi ptr [ %152, %.lr.ph345.i ], [ null, %.lr.ph337.i ]
   %148 = load ptr, ptr %47, align 8
   %149 = getelementptr %union.ListCell, ptr %148, i64 %indvars.iv470.i
   %150 = load ptr, ptr %149, align 8
   %151 = tail call i32 @LookupFuncWithArgs(i32 noundef 29, ptr noundef %150, i1 noundef zeroext false) #8
-  %152 = tail call ptr @lappend_oid(ptr noundef %.7336343.i, i32 noundef %151) #8
+  %152 = tail call ptr @lappend_oid(ptr noundef %.8336343.i, i32 noundef %151) #8
   %indvars.iv.next471.i = add nuw nsw i64 %indvars.iv470.i, 1
   %153 = load i32, ptr %46, align 4
   %154 = sext i32 %153 to i64
@@ -567,12 +567,12 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph333.i:                                      ; preds = %.lr.ph325.i, %.lr.ph333.i
   %indvars.iv467.i = phi i64 [ %indvars.iv.next468.i, %.lr.ph333.i ], [ 0, %.lr.ph325.i ]
-  %.8324331.i = phi ptr [ %160, %.lr.ph333.i ], [ null, %.lr.ph325.i ]
+  %.9324331.i = phi ptr [ %160, %.lr.ph333.i ], [ null, %.lr.ph325.i ]
   %156 = load ptr, ptr %43, align 8
   %157 = getelementptr %union.ListCell, ptr %156, i64 %indvars.iv467.i
   %158 = load ptr, ptr %157, align 8
   %159 = tail call i32 @LookupFuncWithArgs(i32 noundef 34, ptr noundef %158, i1 noundef zeroext false) #8
-  %160 = tail call ptr @lappend_oid(ptr noundef %.8324331.i, i32 noundef %159) #8
+  %160 = tail call ptr @lappend_oid(ptr noundef %.9324331.i, i32 noundef %159) #8
   %indvars.iv.next468.i = add nuw nsw i64 %indvars.iv467.i, 1
   %161 = load i32, ptr %42, align 4
   %162 = sext i32 %161 to i64
@@ -581,14 +581,14 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph321.i:                                      ; preds = %.lr.ph313.i, %.lr.ph321.i
   %indvars.iv464.i = phi i64 [ %indvars.iv.next465.i, %.lr.ph321.i ], [ 0, %.lr.ph313.i ]
-  %.9312319.i = phi ptr [ %170, %.lr.ph321.i ], [ null, %.lr.ph313.i ]
+  %.10312319.i = phi ptr [ %170, %.lr.ph321.i ], [ null, %.lr.ph313.i ]
   %164 = load ptr, ptr %39, align 8
   %165 = getelementptr %union.ListCell, ptr %164, i64 %indvars.iv464.i
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = tail call i32 @get_tablespace_oid(ptr noundef %168, i1 noundef zeroext false) #8
-  %170 = tail call ptr @lappend_oid(ptr noundef %.9312319.i, i32 noundef %169) #8
+  %170 = tail call ptr @lappend_oid(ptr noundef %.10312319.i, i32 noundef %169) #8
   %indvars.iv.next465.i = add nuw nsw i64 %indvars.iv464.i, 1
   %171 = load i32, ptr %38, align 4
   %172 = sext i32 %171 to i64
@@ -597,14 +597,14 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph309.i:                                      ; preds = %.lr.ph301.i, %.lr.ph309.i
   %indvars.iv461.i = phi i64 [ %indvars.iv.next462.i, %.lr.ph309.i ], [ 0, %.lr.ph301.i ]
-  %.10300307.i = phi ptr [ %180, %.lr.ph309.i ], [ null, %.lr.ph301.i ]
+  %.11300307.i = phi ptr [ %180, %.lr.ph309.i ], [ null, %.lr.ph301.i ]
   %174 = load ptr, ptr %35, align 8
   %175 = getelementptr %union.ListCell, ptr %174, i64 %indvars.iv461.i
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = tail call i32 @get_foreign_data_wrapper_oid(ptr noundef %178, i1 noundef zeroext false) #8
-  %180 = tail call ptr @lappend_oid(ptr noundef %.10300307.i, i32 noundef %179) #8
+  %180 = tail call ptr @lappend_oid(ptr noundef %.11300307.i, i32 noundef %179) #8
   %indvars.iv.next462.i = add nuw nsw i64 %indvars.iv461.i, 1
   %181 = load i32, ptr %34, align 4
   %182 = sext i32 %181 to i64
@@ -613,14 +613,14 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph297.i:                                      ; preds = %.lr.ph289.i, %.lr.ph297.i
   %indvars.iv458.i = phi i64 [ %indvars.iv.next459.i, %.lr.ph297.i ], [ 0, %.lr.ph289.i ]
-  %.11288295.i = phi ptr [ %190, %.lr.ph297.i ], [ null, %.lr.ph289.i ]
+  %.12288295.i = phi ptr [ %190, %.lr.ph297.i ], [ null, %.lr.ph289.i ]
   %184 = load ptr, ptr %31, align 8
   %185 = getelementptr %union.ListCell, ptr %184, i64 %indvars.iv458.i
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = tail call i32 @get_foreign_server_oid(ptr noundef %188, i1 noundef zeroext false) #8
-  %190 = tail call ptr @lappend_oid(ptr noundef %.11288295.i, i32 noundef %189) #8
+  %190 = tail call ptr @lappend_oid(ptr noundef %.12288295.i, i32 noundef %189) #8
   %indvars.iv.next459.i = add nuw nsw i64 %indvars.iv458.i, 1
   %191 = load i32, ptr %30, align 4
   %192 = sext i32 %191 to i64
@@ -629,7 +629,7 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
 
 .lr.ph285.i:                                      ; preds = %.lr.ph.i, %205
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %205 ], [ 0, %.lr.ph.i ]
-  %.12279283.i = phi ptr [ %.13.i, %205 ], [ null, %.lr.ph.i ]
+  %.13279283.i = phi ptr [ %.14.i, %205 ], [ null, %.lr.ph.i ]
   %194 = load ptr, ptr %27, align 8
   %195 = getelementptr %union.ListCell, ptr %194, i64 %indvars.iv.i
   %196 = load ptr, ptr %195, align 8
@@ -651,11 +651,11 @@ define dso_local void @ExecuteGrantStmt(ptr nocapture noundef readonly %0) local
   br i1 %.not179.i, label %205, label %203
 
 203:                                              ; preds = %202
-  %204 = tail call ptr @lappend_oid(ptr noundef %.12279283.i, i32 noundef %.0.i) #8
+  %204 = tail call ptr @lappend_oid(ptr noundef %.13279283.i, i32 noundef %.0.i) #8
   br label %205
 
 205:                                              ; preds = %203, %202
-  %.13.i = phi ptr [ %204, %203 ], [ %.12279283.i, %202 ]
+  %.14.i = phi ptr [ %204, %203 ], [ %.13279283.i, %202 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %206 = load i32, ptr %26, align 4
   %207 = sext i32 %206 to i64
@@ -838,7 +838,7 @@ objectsInSchemaToOids.exit:                       ; preds = %._crit_edge.us.i, %
   unreachable
 
 objectNamesToOids.exit:                           ; preds = %205, %.lr.ph297.i, %.lr.ph309.i, %.lr.ph321.i, %.lr.ph333.i, %.lr.ph345.i, %.lr.ph357.i, %133, %.lr.ph382.i, %.lr.ph394.i, %.lr.ph406.i, %.lr.ph418.i, %.lr.ph430.i, %.lr.ph398.i, %93, %.lr.ph422.i, %70, %.lr.ph410.i, %.preheader.i, %.lr.ph386.i, %.preheader257.i, %.lr.ph374.i, %.preheader259.i, %.lr.ph361.i, %.preheader261.i, %.lr.ph349.i, %.preheader263.i, %.lr.ph337.i, %.preheader265.i, %.lr.ph325.i, %.preheader267.i, %.lr.ph313.i, %.preheader269.i, %.lr.ph301.i, %.preheader271.i, %.lr.ph289.i, %.preheader273.i, %.lr.ph.i, %.preheader275.i, %objectsInSchemaToOids.exit
-  %.0.lcssa.i.sink = phi ptr [ %.0.lcssa.i, %objectsInSchemaToOids.exit ], [ null, %70 ], [ null, %.lr.ph422.i ], [ null, %.preheader.i ], [ null, %.lr.ph410.i ], [ null, %93 ], [ null, %.lr.ph398.i ], [ null, %.preheader257.i ], [ null, %.lr.ph386.i ], [ null, %.preheader259.i ], [ null, %.lr.ph374.i ], [ null, %.preheader261.i ], [ null, %.lr.ph361.i ], [ null, %.preheader263.i ], [ null, %.lr.ph349.i ], [ null, %.preheader265.i ], [ null, %.lr.ph337.i ], [ null, %.preheader267.i ], [ null, %.lr.ph325.i ], [ null, %.preheader269.i ], [ null, %.lr.ph313.i ], [ null, %.preheader271.i ], [ null, %.lr.ph301.i ], [ null, %.preheader273.i ], [ null, %.lr.ph289.i ], [ null, %.preheader275.i ], [ null, %.lr.ph.i ], [ %79, %.lr.ph430.i ], [ %89, %.lr.ph418.i ], [ %103, %.lr.ph406.i ], [ %111, %.lr.ph394.i ], [ %121, %.lr.ph382.i ], [ %134, %133 ], [ %144, %.lr.ph357.i ], [ %152, %.lr.ph345.i ], [ %160, %.lr.ph333.i ], [ %170, %.lr.ph321.i ], [ %180, %.lr.ph309.i ], [ %190, %.lr.ph297.i ], [ %.13.i, %205 ]
+  %.0.lcssa.i.sink = phi ptr [ %.0.lcssa.i, %objectsInSchemaToOids.exit ], [ null, %70 ], [ null, %.lr.ph422.i ], [ null, %.preheader.i ], [ null, %.lr.ph410.i ], [ null, %93 ], [ null, %.lr.ph398.i ], [ null, %.preheader257.i ], [ null, %.lr.ph386.i ], [ null, %.preheader259.i ], [ null, %.lr.ph374.i ], [ null, %.preheader261.i ], [ null, %.lr.ph361.i ], [ null, %.preheader263.i ], [ null, %.lr.ph349.i ], [ null, %.preheader265.i ], [ null, %.lr.ph337.i ], [ null, %.preheader267.i ], [ null, %.lr.ph325.i ], [ null, %.preheader269.i ], [ null, %.lr.ph313.i ], [ null, %.preheader271.i ], [ null, %.lr.ph301.i ], [ null, %.preheader273.i ], [ null, %.lr.ph289.i ], [ null, %.preheader275.i ], [ null, %.lr.ph.i ], [ %79, %.lr.ph430.i ], [ %89, %.lr.ph418.i ], [ %103, %.lr.ph406.i ], [ %111, %.lr.ph394.i ], [ %121, %.lr.ph382.i ], [ %134, %133 ], [ %144, %.lr.ph357.i ], [ %152, %.lr.ph345.i ], [ %160, %.lr.ph333.i ], [ %170, %.lr.ph321.i ], [ %180, %.lr.ph309.i ], [ %190, %.lr.ph297.i ], [ %.14.i, %205 ]
   %298 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.0.lcssa.i.sink, ptr %298, align 8
   %299 = getelementptr inbounds i8, ptr %3, i64 32
@@ -4373,7 +4373,7 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   br i1 %.not41.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !13
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %73
-  %.03449.us56 = phi i32 [ %.1.us62, %73 ], [ 1, %.lr.ph ]
+  %.03449.us56 = phi i32 [ %.2.us62, %73 ], [ 1, %.lr.ph ]
   %.03548.us57 = phi i16 [ %74, %73 ], [ 1, %.lr.ph ]
   %50 = sext i16 %.03548.us57 to i64
   %51 = call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %7, i64 noundef %50) #8
@@ -4423,13 +4423,13 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   br label %73
 
 73:                                               ; preds = %71, %72, %.lr.ph.split.split.us
-  %.1.us62 = phi i32 [ %.03449.us56, %72 ], [ %.03449.us56, %.lr.ph.split.split.us ], [ 0, %71 ]
+  %.2.us62 = phi i32 [ %.03449.us56, %72 ], [ %.03449.us56, %.lr.ph.split.split.us ], [ 0, %71 ]
   %74 = add i16 %.03548.us57, 1
   %.not41.us63 = icmp sgt i16 %74, %25
   br i1 %.not41.us63, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %99
-  %.03449 = phi i32 [ %.1, %99 ], [ 1, %.lr.ph ]
+  %.03449 = phi i32 [ %.2, %99 ], [ 1, %.lr.ph ]
   %.03548 = phi i16 [ %100, %99 ], [ 1, %.lr.ph ]
   %75 = sext i16 %.03548 to i64
   %76 = call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %7, i64 noundef %75) #8
@@ -4482,13 +4482,13 @@ define dso_local range(i32 0, 2) i32 @pg_attribute_aclcheck_all_ext(i32 noundef 
   br label %99
 
 99:                                               ; preds = %97, %98, %.lr.ph.split.split, %87
-  %.1 = phi i32 [ %.03449, %87 ], [ 1, %98 ], [ %.03449, %.lr.ph.split.split ], [ 0, %97 ]
+  %.2 = phi i32 [ %.03449, %87 ], [ 1, %98 ], [ %.03449, %.lr.ph.split.split ], [ 0, %97 ]
   %100 = add i16 %.03548, 1
   %.not41 = icmp sgt i16 %100, %25
   br i1 %.not41, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %71, %73, %47, %48, %99, %15, %.thread.us61, %10
-  %.033 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %.thread.us61 ], [ %.1, %99 ], [ 0, %47 ], [ 1, %48 ], [ 1, %71 ], [ %.1.us62, %73 ]
+  %.033 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 1, %.thread.us61 ], [ %.2, %99 ], [ 0, %47 ], [ 1, %48 ], [ 1, %71 ], [ %.2.us62, %73 ]
   ret i32 %.033
 }
 
@@ -4986,12 +4986,12 @@ define dso_local ptr @get_user_default_acl(i32 noundef %0, i32 noundef %1, i32 n
   br label %23
 
 23:                                               ; preds = %20, %16
-  %.0.i = phi ptr [ null, %16 ], [ %22, %20 ]
+  %.1.i = phi ptr [ null, %16 ], [ %22, %20 ]
   call void @ReleaseSysCache(ptr noundef nonnull %15) #8
   br label %get_default_acl_internal.exit
 
 get_default_acl_internal.exit:                    ; preds = %13, %23
-  %.1.i = phi ptr [ %.0.i, %23 ], [ null, %13 ]
+  %.0.i = phi ptr [ %.1.i, %23 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %24 = zext i32 %2 to i64
@@ -5011,22 +5011,22 @@ get_default_acl_internal.exit:                    ; preds = %13, %23
   br label %33
 
 33:                                               ; preds = %30, %26
-  %.0.i26 = phi ptr [ null, %26 ], [ %32, %30 ]
+  %.1.i26 = phi ptr [ null, %26 ], [ %32, %30 ]
   call void @ReleaseSysCache(ptr noundef nonnull %25) #8
   br label %get_default_acl_internal.exit28
 
 get_default_acl_internal.exit28:                  ; preds = %get_default_acl_internal.exit, %33
-  %.1.i27 = phi ptr [ %.0.i26, %33 ], [ null, %get_default_acl_internal.exit ]
+  %.0.i27 = phi ptr [ %.1.i26, %33 ], [ null, %get_default_acl_internal.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %34 = icmp eq ptr %.1.i, null
-  %35 = icmp eq ptr %.1.i27, null
+  %34 = icmp eq ptr %.0.i, null
+  %35 = icmp eq ptr %.0.i27, null
   %or.cond = select i1 %34, i1 %35, i1 false
   br i1 %or.cond, label %40, label %36
 
 36:                                               ; preds = %get_default_acl_internal.exit28
   %37 = call ptr @acldefault(i32 noundef %0, i32 noundef %1) #8
-  %spec.select = select i1 %34, ptr %37, ptr %.1.i
-  %38 = call ptr @aclmerge(ptr noundef %spec.select, ptr noundef %.1.i27, i32 noundef %1) #8
+  %spec.select = select i1 %34, ptr %37, ptr %.0.i
+  %38 = call ptr @aclmerge(ptr noundef %spec.select, ptr noundef %.0.i27, i32 noundef %1) #8
   call void @aclitemsort(ptr noundef %38) #8
   call void @aclitemsort(ptr noundef %37) #8
   %39 = call zeroext i1 @aclequal(ptr noundef %38, ptr noundef %37) #8

@@ -209,7 +209,7 @@ thread-pre-split:                                 ; preds = %29
   br label %127
 
 .thread:                                          ; preds = %36, %.critedge, %15, %37
-  %.1.ph = phi ptr [ null, %37 ], [ null, %15 ], [ null, %36 ], [ %31, %.critedge ]
+  %.0178.ph = phi ptr [ null, %37 ], [ null, %15 ], [ null, %36 ], [ %31, %.critedge ]
   %46 = call i32 @zend_is_true(ptr noundef nonnull %16) #8
   %.not190 = icmp eq i32 %46, 0
   br i1 %.not190, label %49, label %47
@@ -220,14 +220,14 @@ thread-pre-split:                                 ; preds = %29
   br label %127
 
 49:                                               ; preds = %.thread
-  %.not191 = icmp eq ptr %.1.ph, null
+  %.not191 = icmp eq ptr %.0178.ph, null
   br i1 %.not191, label %55, label %50
 
 50:                                               ; preds = %49
-  %51 = load i32, ptr %.1.ph, align 4
+  %51 = load i32, ptr %.0178.ph, align 4
   %52 = add i32 %51, 1
-  store i32 %52, ptr %.1.ph, align 4
-  call void @zend_throw_exception_internal(ptr noundef nonnull %.1.ph) #8
+  store i32 %52, ptr %.0178.ph, align 4
+  call void @zend_throw_exception_internal(ptr noundef nonnull %.0178.ph) #8
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %54 = icmp ne ptr %53, null
   call void @llvm.assume(i1 %54)

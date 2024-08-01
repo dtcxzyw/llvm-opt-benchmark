@@ -377,7 +377,7 @@ cli_nsis_unpack.exit:                             ; preds = %37, %nsis_headers.e
   br label %171
 
 171:                                              ; preds = %169, %167
-  %.0 = phi i32 [ %168, %167 ], [ %170, %169 ]
+  %.1 = phi i32 [ %168, %167 ], [ %170, %169 ]
   %172 = load i32, ptr %33, align 8
   %173 = call i32 @close(i32 noundef %172) #10
   %174 = load ptr, ptr %17, align 8
@@ -401,21 +401,21 @@ cli_nsis_unpack.exit:                             ; preds = %37, %nsis_headers.e
   br i1 %.not23, label %select.unfold, label %.thread.thread
 
 select.unfold:                                    ; preds = %177, %181, %171, %cli_nsis_unpack.exit
-  %.1 = phi i32 [ 0, %cli_nsis_unpack.exit ], [ %.0, %171 ], [ 0, %181 ], [ %.0, %177 ]
-  %183 = icmp eq i32 %.1, 0
+  %.0 = phi i32 [ 0, %cli_nsis_unpack.exit ], [ %.1, %171 ], [ 0, %181 ], [ %.1, %177 ]
+  %183 = icmp eq i32 %.0, 0
   br i1 %183, label %35, label %.thread
 
 .thread:                                          ; preds = %179, %select.unfold
-  %.130 = phi i32 [ %.1, %select.unfold ], [ %151, %179 ]
-  %.130.fr = freeze i32 %.130
-  %184 = icmp eq i32 %.130.fr, 22
+  %.030 = phi i32 [ %.0, %select.unfold ], [ %151, %179 ]
+  %.030.fr = freeze i32 %.030
+  %184 = icmp eq i32 %.030.fr, 22
   br i1 %184, label %.thread.thread, label %.thread.thread33
 
 .thread.thread:                                   ; preds = %181, %.thread
   br label %.thread.thread33
 
 .thread.thread33:                                 ; preds = %177, %.thread, %.thread.thread
-  %185 = phi i32 [ 0, %.thread.thread ], [ %.130.fr, %.thread ], [ 10, %177 ]
+  %185 = phi i32 [ 0, %.thread.thread ], [ %.030.fr, %.thread ], [ 10, %177 ]
   %186 = getelementptr inbounds i8, ptr %4, i64 54
   %187 = load i8, ptr %186, align 2
   %.not.i27 = icmp eq i8 %187, 0
@@ -1273,14 +1273,14 @@ define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef %0) unnamed
 .sink.split:                                      ; preds = %4, %21, %43
   %.sink63 = phi ptr [ %55, %43 ], [ %36, %21 ], [ %16, %4 ]
   %.sink62 = phi ptr [ %53, %43 ], [ %34, %21 ], [ %14, %4 ]
-  %.3.ph = phi i32 [ %switch.select61, %43 ], [ %switch.select57, %21 ], [ %switch.select53, %4 ]
+  %.0.ph = phi i32 [ %switch.select61, %43 ], [ %switch.select57, %21 ], [ %switch.select53, %4 ]
   %60 = load ptr, ptr %.sink63, align 8
   store ptr %60, ptr %.sink62, align 8
   br label %61
 
 61:                                               ; preds = %.sink.split, %1
-  %.3 = phi i32 [ 26, %1 ], [ %.3.ph, %.sink.split ]
-  ret i32 %.3
+  %.0 = phi i32 [ 26, %1 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

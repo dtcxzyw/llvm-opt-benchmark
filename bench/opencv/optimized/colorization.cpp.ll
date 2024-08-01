@@ -1236,7 +1236,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit136: ; preds = %_ZN2cv3PtrINS
   br label %451
 
 450:                                              ; preds = %147, %_ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit136
-  %.09 = phi i32 [ 0, %_ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit136 ], [ 2, %147 ]
+  %.2 = phi i32 [ 0, %_ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit136 ], [ 2, %147 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #15
   br label %452
 
@@ -1246,7 +1246,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit136: ; preds = %_ZN2cv3PtrINS
   br label %453
 
 452:                                              ; preds = %116, %450
-  %.1 = phi i32 [ %.09, %450 ], [ 1, %116 ]
+  %.1 = phi i32 [ %.2, %450 ], [ 1, %116 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
@@ -1268,11 +1268,11 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit136: ; preds = %_ZN2cv3PtrINS
   br label %457
 
 456:                                              ; preds = %84, %452
-  %.2 = phi i32 [ %.1, %452 ], [ 0, %84 ]
+  %.09 = phi i32 [ %.1, %452 ], [ 0, %84 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  ret i32 %.2
+  ret i32 %.09
 
 457:                                              ; preds = %455, %121, %97, %91
   %.pn106 = phi { ptr, i32 } [ %92, %91 ], [ %.pn101.pn.pn.pn, %455 ], [ %.pn54.pn, %121 ], [ %.pn, %97 ]

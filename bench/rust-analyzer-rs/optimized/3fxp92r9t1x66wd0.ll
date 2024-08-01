@@ -226,8 +226,8 @@ _ZN4core3ops8function6FnOnce9call_once17h44cd8803fdd5d925E.exit.thread.i6: ; pre
           to label %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$project_model..workspace..PackageRoot$GT$$GT$$GT$17h96530afded7185daE.exit.i5" unwind label %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$project_model..workspace..PackageRoot$GT$$GT$17h87bec85b12a46d37E.exit.i4", !noalias !53
 
 34:                                               ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$project_model..workspace..PackageRoot$GT$$GT$$GT$17h96530afded7185daE.exit.i5", %_ZN4core3ops8function6FnOnce9call_once17h44cd8803fdd5d925E.exit.i1
-  %.sroa.027.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$project_model..workspace..PackageRoot$GT$$GT$$GT$17h96530afded7185daE.exit.i5" ], [ %.sroa.027.0.copyload, %_ZN4core3ops8function6FnOnce9call_once17h44cd8803fdd5d925E.exit.i1 ]
-  store i64 %.sroa.027.1, ptr %0, align 8, !noalias !56
+  %.sroa.027.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$project_model..workspace..PackageRoot$GT$$GT$$GT$17h96530afded7185daE.exit.i5" ], [ %.sroa.027.0.copyload, %_ZN4core3ops8function6FnOnce9call_once17h44cd8803fdd5d925E.exit.i1 ]
+  store i64 %.sroa.027.0, ptr %0, align 8, !noalias !56
   %.sroa.729.0..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.729.0..sroa_idx30, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.729, i64 48, i1 false), !noalias !56
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.729)

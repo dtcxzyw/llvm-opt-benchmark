@@ -2022,8 +2022,8 @@ if.else:                                          ; preds = %if.end24
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else, %if.then26
-  %val.0 = phi ptr [ %call27, %if.then26 ], [ %call28, %if.else ]
-  %tobool30.not = icmp eq ptr %val.0, null
+  %val.1 = phi ptr [ %call27, %if.then26 ], [ %call28, %if.else ]
+  %tobool30.not = icmp eq ptr %val.1, null
   br i1 %tobool30.not, label %do.body32, label %if.end54
 
 do.body32:                                        ; preds = %if.end29
@@ -2111,7 +2111,7 @@ if.end12.i:                                       ; preds = %if.then10.i, %if.en
   br i1 %tobool1.not.i, label %if.end61, label %while.body.i, !llvm.loop !7
 
 if.end61:                                         ; preds = %if.end12.i, %while.cond.preheader.i
-  %call62 = tail call i64 @lzf_decompress(ptr noundef nonnull %call6, i64 noundef %0, ptr noundef nonnull %val.0, i64 noundef %1) #22
+  %call62 = tail call i64 @lzf_decompress(ptr noundef nonnull %call6, i64 noundef %0, ptr noundef nonnull %val.1, i64 noundef %1) #22
   %cmp63.not = icmp eq i64 %call62, %1
   br i1 %cmp63.not, label %if.end65, label %if.then64
 
@@ -2126,25 +2126,25 @@ if.end65:                                         ; preds = %if.end61
   br i1 %or.cond.not, label %if.else69, label %return
 
 if.else69:                                        ; preds = %if.end65
-  %call70 = tail call ptr @createObject(i32 noundef 0, ptr noundef nonnull %val.0) #22
+  %call70 = tail call ptr @createObject(i32 noundef 0, ptr noundef nonnull %val.1) #22
   br label %return
 
 err:                                              ; preds = %if.end57, %if.then6.i, %lor.end37.thread, %lor.end.thread, %lor.end49, %lor.end37, %lor.end20, %lor.end, %if.then64
-  %val.1 = phi ptr [ null, %lor.end ], [ null, %lor.end20 ], [ %val.0, %if.then64 ], [ null, %lor.end37 ], [ null, %lor.end49 ], [ null, %lor.end.thread ], [ null, %lor.end37.thread ], [ %val.0, %if.then6.i ], [ %val.0, %if.end57 ]
+  %val.0 = phi ptr [ null, %lor.end ], [ null, %lor.end20 ], [ %val.1, %if.then64 ], [ null, %lor.end37 ], [ null, %lor.end49 ], [ null, %lor.end.thread ], [ null, %lor.end37.thread ], [ %val.1, %if.then6.i ], [ %val.1, %if.end57 ]
   tail call void @zfree(ptr noundef %call6) #22
   %tobool71.not = icmp eq i32 %and, 0
   br i1 %tobool71.not, label %if.else73, label %if.then72
 
 if.then72:                                        ; preds = %err
-  tail call void @zfree(ptr noundef %val.1) #22
+  tail call void @zfree(ptr noundef %val.0) #22
   br label %return
 
 if.else73:                                        ; preds = %err
-  tail call void @sdsfree(ptr noundef %val.1) #22
+  tail call void @sdsfree(ptr noundef %val.0) #22
   br label %return
 
 return:                                           ; preds = %if.then72, %if.else73, %if.end65, %if.end, %entry, %if.else69
-  %retval.0 = phi ptr [ %call70, %if.else69 ], [ null, %entry ], [ null, %if.end ], [ %val.0, %if.end65 ], [ null, %if.else73 ], [ null, %if.then72 ]
+  %retval.0 = phi ptr [ %call70, %if.else69 ], [ null, %entry ], [ null, %if.end ], [ %val.1, %if.end65 ], [ null, %if.else73 ], [ null, %if.then72 ]
   ret ptr %retval.0
 }
 
@@ -4809,7 +4809,7 @@ if.end15:                                         ; preds = %if.then10
   br i1 %tobool.not397, label %if.end509, label %while.body
 
 while.body:                                       ; preds = %if.end15, %if.end50
-  %nwritten.0399 = phi i64 [ %nwritten.1, %if.end50 ], [ %conv, %if.end15 ]
+  %nwritten.1399 = phi i64 [ %nwritten.2, %if.end50 ], [ %conv, %if.end15 ]
   %node.0398 = phi ptr [ %8, %if.end50 ], [ %1, %if.end15 ]
   %container = getelementptr inbounds i8, ptr %node.0398, i64 32
   %bf.load17 = load i32, ptr %container, align 8
@@ -4822,7 +4822,7 @@ while.body:                                       ; preds = %if.end15, %if.end50
 
 if.end26:                                         ; preds = %while.body
   %conv22 = zext nneg i32 %call21 to i64
-  %add27 = add nsw i64 %nwritten.0399, %conv22
+  %add27 = add nsw i64 %nwritten.1399, %conv22
   %bf.load28 = load i32, ptr %container, align 8
   %3 = and i32 %bf.load28, 196608
   %cmp31 = icmp eq i32 %3, 131072
@@ -4847,7 +4847,7 @@ if.else41:                                        ; preds = %if.end26
 
 if.end50:                                         ; preds = %if.else41, %if.then33
   %call35.pn = phi i64 [ %call35, %if.then33 ], [ %call44, %if.else41 ]
-  %nwritten.1 = add nsw i64 %add27, %call35.pn
+  %nwritten.2 = add nsw i64 %add27, %call35.pn
   %next = getelementptr inbounds i8, ptr %node.0398, i64 8
   %8 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %8, null
@@ -5018,14 +5018,14 @@ if.end105:                                        ; preds = %if.then94
   br i1 %cmp109.not393, label %while.end120, label %while.body111
 
 while.cond107:                                    ; preds = %sdslen.exit
-  %add119 = add nsw i64 %call114, %nwritten.2394
+  %add119 = add nsw i64 %call114, %nwritten.3394
   %call108 = tail call ptr @dictNext(ptr noundef %call96) #22
   %cmp109.not = icmp eq ptr %call108, null
   br i1 %cmp109.not, label %while.end120, label %while.body111, !llvm.loop !11
 
 while.body111:                                    ; preds = %if.end105, %while.cond107
   %call108395 = phi ptr [ %call108, %while.cond107 ], [ %call108392, %if.end105 ]
-  %nwritten.2394 = phi i64 [ %add119, %while.cond107 ], [ %conv101, %if.end105 ]
+  %nwritten.3394 = phi i64 [ %add119, %while.cond107 ], [ %conv101, %if.end105 ]
   %call112 = tail call ptr @dictGetKey(ptr noundef nonnull %call108395) #22
   %arrayidx.i = getelementptr inbounds i8, ptr %call112, i64 -1
   %27 = load i8, ptr %arrayidx.i, align 1
@@ -5078,7 +5078,7 @@ if.then117:                                       ; preds = %sdslen.exit
   br label %return
 
 while.end120:                                     ; preds = %while.cond107, %if.end105
-  %nwritten.2.lcssa = phi i64 [ %conv101, %if.end105 ], [ %add119, %while.cond107 ]
+  %nwritten.3.lcssa = phi i64 [ %conv101, %if.end105 ], [ %add119, %while.cond107 ]
   tail call void @dictReleaseIterator(ptr noundef %call96) #22
   br label %if.end509
 
@@ -5151,7 +5151,7 @@ while.body199.lr.ph:                              ; preds = %if.end194
 
 while.body199:                                    ; preds = %while.body199.lr.ph, %if.end214
   %zn.0390 = phi ptr [ %zn.0387, %while.body199.lr.ph ], [ %zn.0, %if.end214 ]
-  %nwritten.3389 = phi i64 [ %conv190, %while.body199.lr.ph ], [ %add215, %if.end214 ]
+  %nwritten.4389 = phi i64 [ %conv190, %while.body199.lr.ph ], [ %add215, %if.end214 ]
   %41 = load ptr, ptr %zn.0390, align 8
   %arrayidx.i232 = getelementptr inbounds i8, ptr %41, i64 -1
   %42 = load i8, ptr %arrayidx.i232, align 1
@@ -5254,7 +5254,7 @@ rdbSaveBinaryDoubleValue.exit.thread:             ; preds = %land.lhs.true.i.i25
 
 if.end214:                                        ; preds = %if.end12.i.i.i271, %if.end207
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.addr.i)
-  %add208 = add i64 %nwritten.3389, 8
+  %add208 = add i64 %nwritten.4389, 8
   %add215 = add i64 %add208, %call203
   %backward = getelementptr inbounds i8, ptr %zn.0390, i64 16
   %zn.0 = load ptr, ptr %backward, align 8
@@ -5309,7 +5309,7 @@ if.end265:                                        ; preds = %if.then248
 
 while.body271:                                    ; preds = %if.end265, %if.end286
   %call268385 = phi ptr [ %call268, %if.end286 ], [ %call268382, %if.end265 ]
-  %nwritten.4384 = phi i64 [ %add287, %if.end286 ], [ %conv261, %if.end265 ]
+  %nwritten.5384 = phi i64 [ %add287, %if.end286 ], [ %conv261, %if.end265 ]
   %call272 = tail call ptr @dictGetKey(ptr noundef nonnull %call268385) #22
   %call273 = tail call ptr @dictGetVal(ptr noundef nonnull %call268385) #22
   %arrayidx.i278 = getelementptr inbounds i8, ptr %call272, i64 -1
@@ -5414,14 +5414,14 @@ if.then285:                                       ; preds = %sdslen.exit315
   br label %return
 
 if.end286:                                        ; preds = %sdslen.exit315
-  %add280 = add nsw i64 %call275, %nwritten.4384
+  %add280 = add nsw i64 %call275, %nwritten.5384
   %add287 = add nsw i64 %add280, %call282
   %call268 = tail call ptr @dictNext(ptr noundef %call251) #22
   %cmp269.not = icmp eq ptr %call268, null
   br i1 %cmp269.not, label %while.end288, label %while.body271, !llvm.loop !13
 
 while.end288:                                     ; preds = %if.end286, %if.end265
-  %nwritten.4.lcssa = phi i64 [ %conv261, %if.end265 ], [ %add287, %if.end286 ]
+  %nwritten.5.lcssa = phi i64 [ %conv261, %if.end265 ], [ %add287, %if.end286 ]
   tail call void @dictReleaseIterator(ptr noundef %call251) #22
   br label %if.end509
 
@@ -5454,7 +5454,7 @@ while.body312.lr.ph:                              ; preds = %if.end306
   br label %while.body312
 
 while.body312:                                    ; preds = %while.body312.lr.ph, %if.end327
-  %nwritten.5377 = phi i64 [ %conv302, %while.body312.lr.ph ], [ %add328, %if.end327 ]
+  %nwritten.6377 = phi i64 [ %conv302, %while.body312.lr.ph ], [ %add328, %if.end327 ]
   %73 = load ptr, ptr %data314, align 8
   %call315 = call i64 @lpBytes(ptr noundef %73) #22
   %74 = load ptr, ptr %key316, align 8
@@ -5477,14 +5477,14 @@ if.then326:                                       ; preds = %if.end321
   br label %return
 
 if.end327:                                        ; preds = %if.end321
-  %add322 = add nsw i64 %call317, %nwritten.5377
+  %add322 = add nsw i64 %call317, %nwritten.6377
   %add328 = add nsw i64 %add322, %call323
   %call310 = call i32 @raxNext(ptr noundef nonnull %ri) #22
   %tobool311.not = icmp eq i32 %call310, 0
   br i1 %tobool311.not, label %while.end329, label %while.body312, !llvm.loop !14
 
 while.end329:                                     ; preds = %if.end327, %if.end306
-  %nwritten.5.lcssa = phi i64 [ %conv302, %if.end306 ], [ %add328, %if.end327 ]
+  %nwritten.6.lcssa = phi i64 [ %conv302, %if.end306 ], [ %add328, %if.end327 ]
   call void @raxStop(ptr noundef nonnull %ri) #22
   %length330 = getelementptr inbounds i8, ptr %71, i64 8
   %76 = load i64, ptr %length330, align 8
@@ -5544,7 +5544,7 @@ if.end385:                                        ; preds = %if.end376
 if.end392:                                        ; preds = %if.end385
   %conv388 = zext nneg i32 %call387 to i64
   %conv332 = zext nneg i32 %call331 to i64
-  %add337 = add nsw i64 %nwritten.5.lcssa, %conv332
+  %add337 = add nsw i64 %nwritten.6.lcssa, %conv332
   %conv339 = zext nneg i32 %call338 to i64
   %add344 = add nsw i64 %add337, %conv339
   %conv347 = zext nneg i32 %call346 to i64
@@ -5594,7 +5594,7 @@ while.body411.lr.ph:                              ; preds = %if.then405
   br label %while.body411
 
 while.body411:                                    ; preds = %while.body411.lr.ph, %if.end456
-  %nwritten.6380 = phi i64 [ %add403, %while.body411.lr.ph ], [ %add457, %if.end456 ]
+  %nwritten.7380 = phi i64 [ %add403, %while.body411.lr.ph ], [ %add457, %if.end456 ]
   %86 = load ptr, ptr %data412, align 8
   %87 = load ptr, ptr %key413, align 8
   %88 = load i64, ptr %key_len414, align 8
@@ -5659,7 +5659,7 @@ if.then455:                                       ; preds = %if.end450
   br label %return
 
 if.end456:                                        ; preds = %if.end450
-  %add420 = add nsw i64 %call415, %nwritten.6380
+  %add420 = add nsw i64 %call415, %nwritten.7380
   %conv424 = zext nneg i32 %call423 to i64
   %add429 = add nsw i64 %add420, %conv424
   %conv433 = zext nneg i32 %call432 to i64
@@ -5673,7 +5673,7 @@ if.end456:                                        ; preds = %if.end450
   br i1 %tobool410.not, label %while.end458, label %while.body411, !llvm.loop !15
 
 while.end458:                                     ; preds = %if.end456, %if.then405
-  %nwritten.6.lcssa = phi i64 [ %add403, %if.then405 ], [ %add457, %if.end456 ]
+  %nwritten.7.lcssa = phi i64 [ %add403, %if.then405 ], [ %add457, %if.end456 ]
   call void @raxStop(ptr noundef nonnull %ri) #22
   br label %if.end509
 
@@ -5799,11 +5799,11 @@ if.else503:                                       ; preds = %entry
   unreachable
 
 if.end509:                                        ; preds = %if.end214, %if.end50, %if.end194, %if.end15, %if.then231, %if.then169, %if.then143, %if.then127, %if.then, %if.end78, %while.end458, %if.end402, %while.end288, %while.end120
-  %nwritten.7 = phi i64 [ %add79, %if.end78 ], [ %nwritten.2.lcssa, %while.end120 ], [ %nwritten.4.lcssa, %while.end288 ], [ %nwritten.6.lcssa, %while.end458 ], [ %add403, %if.end402 ], [ %call, %if.then ], [ %call131, %if.then127 ], [ %call148, %if.then143 ], [ %call174, %if.then169 ], [ %call236, %if.then231 ], [ %conv, %if.end15 ], [ %conv190, %if.end194 ], [ %nwritten.1, %if.end50 ], [ %add215, %if.end214 ]
+  %nwritten.0 = phi i64 [ %add79, %if.end78 ], [ %nwritten.3.lcssa, %while.end120 ], [ %nwritten.5.lcssa, %while.end288 ], [ %nwritten.7.lcssa, %while.end458 ], [ %add403, %if.end402 ], [ %call, %if.then ], [ %call131, %if.then127 ], [ %call148, %if.then143 ], [ %call174, %if.then169 ], [ %call236, %if.then231 ], [ %conv, %if.end15 ], [ %conv190, %if.end194 ], [ %nwritten.2, %if.end50 ], [ %add215, %if.end214 ]
   br label %return
 
 return:                                           ; preds = %sdslen.exit250, %if.else41, %if.then33, %while.body, %rdbSaveBinaryDoubleValue.exit.thread, %rdbSaveLen.exit230.thread, %rdbSaveLen.exit.thread, %if.then465, %cond.end, %if.end385, %if.end376, %if.end368, %if.end359, %if.end351, %if.end343, %if.end336, %while.end329, %if.then297, %if.then231, %if.then186, %if.then169, %if.then143, %if.then127, %if.end71, %if.then10, %if.then, %if.end509, %if.end495, %if.then455, %if.then449, %if.then443, %if.then436, %if.then427, %if.then418, %if.then326, %if.then320, %if.then285, %if.then278, %if.then264, %if.then117, %if.then104
-  %retval.0 = phi i64 [ %nwritten.7, %if.end509 ], [ -1, %if.then104 ], [ -1, %if.then117 ], [ -1, %if.then264 ], [ -1, %if.then278 ], [ -1, %if.then285 ], [ -1, %if.then320 ], [ -1, %if.then326 ], [ -1, %if.then418 ], [ -1, %if.then427 ], [ -1, %if.then436 ], [ -1, %if.then443 ], [ -1, %if.then449 ], [ -1, %if.then455 ], [ %cond502, %if.end495 ], [ -1, %if.then ], [ -1, %if.then10 ], [ -1, %if.end71 ], [ -1, %if.then127 ], [ -1, %if.then143 ], [ -1, %if.then169 ], [ -1, %if.then186 ], [ -1, %if.then231 ], [ -1, %if.then297 ], [ -1, %while.end329 ], [ -1, %if.end336 ], [ -1, %if.end343 ], [ -1, %if.end351 ], [ -1, %if.end359 ], [ -1, %if.end368 ], [ -1, %if.end376 ], [ -1, %if.end385 ], [ -1, %cond.end ], [ -1, %if.then465 ], [ -1, %rdbSaveLen.exit.thread ], [ -1, %rdbSaveLen.exit230.thread ], [ -1, %rdbSaveBinaryDoubleValue.exit.thread ], [ -1, %while.body ], [ -1, %if.then33 ], [ -1, %if.else41 ], [ -1, %sdslen.exit250 ]
+  %retval.0 = phi i64 [ %nwritten.0, %if.end509 ], [ -1, %if.then104 ], [ -1, %if.then117 ], [ -1, %if.then264 ], [ -1, %if.then278 ], [ -1, %if.then285 ], [ -1, %if.then320 ], [ -1, %if.then326 ], [ -1, %if.then418 ], [ -1, %if.then427 ], [ -1, %if.then436 ], [ -1, %if.then443 ], [ -1, %if.then449 ], [ -1, %if.then455 ], [ %cond502, %if.end495 ], [ -1, %if.then ], [ -1, %if.then10 ], [ -1, %if.end71 ], [ -1, %if.then127 ], [ -1, %if.then143 ], [ -1, %if.then169 ], [ -1, %if.then186 ], [ -1, %if.then231 ], [ -1, %if.then297 ], [ -1, %while.end329 ], [ -1, %if.end336 ], [ -1, %if.end343 ], [ -1, %if.end351 ], [ -1, %if.end359 ], [ -1, %if.end368 ], [ -1, %if.end376 ], [ -1, %if.end385 ], [ -1, %cond.end ], [ -1, %if.then465 ], [ -1, %rdbSaveLen.exit.thread ], [ -1, %rdbSaveLen.exit230.thread ], [ -1, %rdbSaveBinaryDoubleValue.exit.thread ], [ -1, %while.body ], [ -1, %if.then33 ], [ -1, %if.else41 ], [ -1, %sdslen.exit250 ]
   ret i64 %retval.0
 }
 
@@ -8971,8 +8971,8 @@ if.else87:                                        ; preds = %if.end69
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else87, %land.lhs.true80, %if.then76
-  %o.0 = phi ptr [ %call77, %land.lhs.true80 ], [ %call77, %if.then76 ], [ %call88, %if.else87 ]
-  %ptr110 = getelementptr inbounds i8, ptr %o.0, i64 8
+  %o.1 = phi ptr [ %call77, %land.lhs.true80 ], [ %call77, %if.then76 ], [ %call88, %if.else87 ]
+  %ptr110 = getelementptr inbounds i8, ptr %o.1, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -8984,7 +8984,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp94, label %if.then96, label %if.end97
 
 if.then96:                                        ; preds = %for.body
-  call void @decrRefCount(ptr noundef %o.0) #22
+  call void @decrRefCount(ptr noundef %o.1) #22
   br label %return
 
 if.end97:                                         ; preds = %for.body
@@ -9032,7 +9032,7 @@ sdslen.exit554:                                   ; preds = %if.end97, %sw.bb.i5
   %retval.0.i541 = phi i64 [ %24, %sw.bb13.i539 ], [ %conv12.i544, %sw.bb9.i542 ], [ %conv8.i547, %sw.bb5.i545 ], [ %conv4.i550, %sw.bb3.i548 ], [ %conv2.i553, %sw.bb.i551 ], [ 0, %if.end97 ]
   %add = add i64 %retval.0.i541, %sumelelen.0971
   %spec.select = call i64 @llvm.umax.i64(i64 %retval.0.i541, i64 %maxelelen.0972)
-  %bf.load = load i32, ptr %o.0, align 8
+  %bf.load = load i32, ptr %o.1, align 8
   %25 = and i32 %bf.load, 240
   %cmp103 = icmp eq i32 %25, 96
   br i1 %cmp103, label %if.then105, label %if.end135
@@ -9053,12 +9053,12 @@ if.then109:                                       ; preds = %if.then105
 
 if.then114:                                       ; preds = %if.then109
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1923, ptr noundef nonnull @.str.55)
-  call void @decrRefCount(ptr noundef nonnull %o.0) #22
+  call void @decrRefCount(ptr noundef nonnull %o.1) #22
   call void @sdsfree(ptr noundef nonnull %call93) #22
   br label %return
 
 if.else116:                                       ; preds = %if.then105
-  %call117 = call i64 @setTypeSize(ptr noundef nonnull %o.0) #22
+  %call117 = call i64 @setTypeSize(ptr noundef nonnull %o.1) #22
   %29 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5008), align 8
   %cmp118 = icmp uge i64 %call117, %29
   %30 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5016), align 8
@@ -9072,28 +9072,28 @@ land.lhs.true123:                                 ; preds = %if.else116
   br i1 %tobool125.not, label %if.else127, label %if.then126
 
 if.then126:                                       ; preds = %land.lhs.true123
-  call void @setTypeConvert(ptr noundef nonnull %o.0, i32 noundef 11) #22
+  call void @setTypeConvert(ptr noundef nonnull %o.1, i32 noundef 11) #22
   br label %if.end135
 
 if.else127:                                       ; preds = %land.lhs.true123, %if.else116
-  %call128 = call i32 @setTypeConvertAndExpand(ptr noundef nonnull %o.0, i32 noundef 2, i64 noundef %retval.0.i535, i32 noundef 0) #22
+  %call128 = call i32 @setTypeConvertAndExpand(ptr noundef nonnull %o.1, i32 noundef 2, i64 noundef %retval.0.i535, i32 noundef 0) #22
   %cmp129.not = icmp eq i32 %call128, 0
   br i1 %cmp129.not, label %if.end135, label %if.then131
 
 if.then131:                                       ; preds = %if.else127
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1937, ptr noundef nonnull @.str.54, i64 noundef %retval.0.i535)
   call void @sdsfree(ptr noundef nonnull %call93) #22
-  call void @decrRefCount(ptr noundef nonnull %o.0) #22
+  call void @decrRefCount(ptr noundef nonnull %o.1) #22
   br label %return
 
 if.end135:                                        ; preds = %if.then109, %if.else127, %if.then126, %sdslen.exit554
-  %bf.load136 = load i32, ptr %o.0, align 8
+  %bf.load136 = load i32, ptr %o.1, align 8
   %31 = and i32 %bf.load136, 240
   %cmp139 = icmp eq i32 %31, 176
   br i1 %cmp139, label %if.then141, label %if.end174
 
 if.then141:                                       ; preds = %if.end135
-  %call142 = call i64 @setTypeSize(ptr noundef nonnull %o.0) #22
+  %call142 = call i64 @setTypeSize(ptr noundef nonnull %o.1) #22
   %32 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5008), align 8
   %cmp143 = icmp uge i64 %call142, %32
   %33 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5016), align 8
@@ -9126,7 +9126,7 @@ land.lhs.true156:                                 ; preds = %if.then152
 
 if.then161:                                       ; preds = %land.lhs.true156
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1953, ptr noundef nonnull @.str.55)
-  call void @decrRefCount(ptr noundef nonnull %o.0) #22
+  call void @decrRefCount(ptr noundef nonnull %o.1) #22
   call void @sdsfree(ptr noundef nonnull %call93) #22
   br label %return
 
@@ -9138,18 +9138,18 @@ if.end162:                                        ; preds = %if.then152.if.end16
   br label %if.end174
 
 if.else167:                                       ; preds = %land.lhs.true148, %if.then141
-  %call168 = call i32 @setTypeConvertAndExpand(ptr noundef nonnull %o.0, i32 noundef 2, i64 noundef %retval.0.i535, i32 noundef 0) #22
+  %call168 = call i32 @setTypeConvertAndExpand(ptr noundef nonnull %o.1, i32 noundef 2, i64 noundef %retval.0.i535, i32 noundef 0) #22
   %cmp169.not = icmp eq i32 %call168, 0
   br i1 %cmp169.not, label %if.end174, label %if.then171
 
 if.then171:                                       ; preds = %if.else167
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1961, ptr noundef nonnull @.str.54, i64 noundef %retval.0.i535)
   call void @sdsfree(ptr noundef nonnull %call93) #22
-  call void @decrRefCount(ptr noundef nonnull %o.0) #22
+  call void @decrRefCount(ptr noundef nonnull %o.1) #22
   br label %return
 
 if.end174:                                        ; preds = %if.end162, %if.else167, %if.end135
-  %bf.load175 = load i32, ptr %o.0, align 8
+  %bf.load175 = load i32, ptr %o.1, align 8
   %38 = and i32 %bf.load175, 240
   %cmp178 = icmp eq i32 %38, 32
   br i1 %cmp178, label %if.then180, label %if.else187
@@ -9162,7 +9162,7 @@ if.then180:                                       ; preds = %if.end174
 
 if.then185:                                       ; preds = %if.then180
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 1972, ptr noundef nonnull @.str.55)
-  call void @decrRefCount(ptr noundef nonnull %o.0) #22
+  call void @decrRefCount(ptr noundef nonnull %o.1) #22
   call void @sdsfree(ptr noundef nonnull %call93) #22
   br label %return
 
@@ -11338,7 +11338,7 @@ if.else1099:                                      ; preds = %if.else423
   br label %return
 
 if.end1109:                                       ; preds = %for.inc, %if.end1024, %while.cond881.preheader, %while.end582, %while.end, %if.then268, %land.lhs.true265, %while.end258, %if.end506, %if.end1097, %if.end611, %sw.default, %if.then597, %if.then640, %if.end628, %if.then667, %if.end663, %if.else694, %if.then693, %if.then723, %if.end719, %if.else750, %if.then749, %if.then779, %if.end775, %while.end414, %if.end28
-  %o.1 = phi ptr [ %call29, %if.end28 ], [ %call42, %while.end ], [ %call205, %if.then268 ], [ %call205, %land.lhs.true265 ], [ %call205, %while.end258 ], [ %call284, %while.end414 ], [ %call439, %if.end506 ], [ %call538, %sw.default ], [ %call538, %if.then779 ], [ %call538, %if.end775 ], [ %call538, %if.then749 ], [ %call538, %if.else750 ], [ %call538, %if.then723 ], [ %call538, %if.end719 ], [ %call538, %if.then693 ], [ %call538, %if.else694 ], [ %call538, %if.then667 ], [ %call538, %if.end663 ], [ %call538, %if.then640 ], [ %call538, %if.end628 ], [ %call538, %if.end611 ], [ %call538, %if.then597 ], [ %call1098, %if.end1097 ], [ %call538, %while.end582 ], [ %call791, %while.cond881.preheader ], [ %call791, %if.end1024 ], [ %o.0, %for.inc ]
+  %o.0 = phi ptr [ %call29, %if.end28 ], [ %call42, %while.end ], [ %call205, %if.then268 ], [ %call205, %land.lhs.true265 ], [ %call205, %while.end258 ], [ %call284, %while.end414 ], [ %call439, %if.end506 ], [ %call538, %sw.default ], [ %call538, %if.then779 ], [ %call538, %if.end775 ], [ %call538, %if.then749 ], [ %call538, %if.else750 ], [ %call538, %if.then723 ], [ %call538, %if.end719 ], [ %call538, %if.then693 ], [ %call538, %if.else694 ], [ %call538, %if.then667 ], [ %call538, %if.end663 ], [ %call538, %if.then640 ], [ %call538, %if.end628 ], [ %call538, %if.end611 ], [ %call538, %if.then597 ], [ %call1098, %if.end1097 ], [ %call538, %while.end582 ], [ %call791, %while.cond881.preheader ], [ %call791, %if.end1024 ], [ %o.1, %for.inc ]
   br i1 %tobool.not, label %return, label %if.then1111
 
 if.then1111:                                      ; preds = %if.end1109
@@ -11353,7 +11353,7 @@ if.then1114:                                      ; preds = %emptykey
   br label %return
 
 return:                                           ; preds = %emptykey, %if.then1114, %if.end1109, %if.then1111, %if.then1086, %if.then1089, %if.then1078, %if.then1080, %if.then531, %if.then429, %if.then317, %if.then319, %if.then309, %if.then311, %if.then273, %if.then194, %if.then60, %if.then32, %if.then24, %if.else1099, %if.then1095, %if.then1048, %if.then1041, %if.then1037, %if.then1029, %if.then1021, %if.then1005, %if.then997, %if.then991, %if.then980, %if.then971, %if.then963, %if.then958, %if.then954, %if.then945, %if.then939, %if.then934, %if.then927, %if.then918, %if.then913, %if.then904, %if.then896, %if.then888, %if.then879, %if.then874, %if.then866, %if.then834, %if.then829, %if.then824, %if.then816, %if.then810, %if.then805, %if.then796, %if.then762, %if.then730, %if.then706, %if.then674, %if.then649, %if.then626, %if.then603, %if.then577, %if.then541, %if.then489, %if.then483, %if.then467, %if.then458, %if.then451, %if.then412, %if.then406, %if.then401, %if.then383, %if.end353, %if.then328, %if.then256, %if.then240, %if.then237, %if.then231, %if.then223, %if.then213, %if.then185, %if.then171, %if.then161, %if.then131, %if.then114, %if.then96, %if.then85, %if.then48
-  %retval.0 = phi ptr [ null, %if.then48 ], [ null, %if.then85 ], [ null, %if.then96 ], [ null, %if.then161 ], [ null, %if.then185 ], [ null, %if.then171 ], [ null, %if.then114 ], [ null, %if.then131 ], [ null, %if.then213 ], [ null, %if.then223 ], [ null, %if.then231 ], [ null, %if.then240 ], [ null, %if.then256 ], [ null, %if.then237 ], [ null, %if.then328 ], [ null, %if.end353 ], [ null, %if.then383 ], [ null, %if.then401 ], [ null, %if.then406 ], [ null, %if.then412 ], [ null, %if.then451 ], [ null, %if.then458 ], [ null, %if.then467 ], [ null, %if.then483 ], [ null, %if.then489 ], [ null, %if.then762 ], [ null, %if.then730 ], [ null, %if.then706 ], [ null, %if.then674 ], [ null, %if.then649 ], [ null, %if.then626 ], [ null, %if.then603 ], [ null, %if.then577 ], [ null, %if.then541 ], [ null, %if.then796 ], [ null, %if.then805 ], [ null, %if.then810 ], [ null, %if.then816 ], [ null, %if.then829 ], [ null, %if.then834 ], [ null, %if.then824 ], [ null, %if.then866 ], [ null, %if.then879 ], [ null, %if.then888 ], [ null, %if.then896 ], [ null, %if.then904 ], [ null, %if.then913 ], [ null, %if.then918 ], [ null, %if.then927 ], [ null, %if.then934 ], [ null, %if.then939 ], [ null, %if.then945 ], [ null, %if.then954 ], [ null, %if.then963 ], [ null, %if.then971 ], [ null, %if.then980 ], [ null, %if.then991 ], [ null, %if.then1005 ], [ null, %if.then997 ], [ null, %if.then958 ], [ null, %if.then1021 ], [ null, %if.then874 ], [ null, %if.then1029 ], [ null, %if.then1037 ], [ %call1044, %if.then1041 ], [ null, %if.then1048 ], [ null, %if.then1095 ], [ null, %if.else1099 ], [ null, %if.then24 ], [ null, %if.then32 ], [ null, %if.then60 ], [ null, %if.then194 ], [ null, %if.then273 ], [ null, %if.then311 ], [ null, %if.then309 ], [ null, %if.then319 ], [ null, %if.then317 ], [ null, %if.then429 ], [ null, %if.then531 ], [ null, %if.then1080 ], [ null, %if.then1078 ], [ null, %if.then1089 ], [ null, %if.then1086 ], [ %o.1, %if.then1111 ], [ %o.1, %if.end1109 ], [ null, %if.then1114 ], [ null, %emptykey ]
+  %retval.0 = phi ptr [ null, %if.then48 ], [ null, %if.then85 ], [ null, %if.then96 ], [ null, %if.then161 ], [ null, %if.then185 ], [ null, %if.then171 ], [ null, %if.then114 ], [ null, %if.then131 ], [ null, %if.then213 ], [ null, %if.then223 ], [ null, %if.then231 ], [ null, %if.then240 ], [ null, %if.then256 ], [ null, %if.then237 ], [ null, %if.then328 ], [ null, %if.end353 ], [ null, %if.then383 ], [ null, %if.then401 ], [ null, %if.then406 ], [ null, %if.then412 ], [ null, %if.then451 ], [ null, %if.then458 ], [ null, %if.then467 ], [ null, %if.then483 ], [ null, %if.then489 ], [ null, %if.then762 ], [ null, %if.then730 ], [ null, %if.then706 ], [ null, %if.then674 ], [ null, %if.then649 ], [ null, %if.then626 ], [ null, %if.then603 ], [ null, %if.then577 ], [ null, %if.then541 ], [ null, %if.then796 ], [ null, %if.then805 ], [ null, %if.then810 ], [ null, %if.then816 ], [ null, %if.then829 ], [ null, %if.then834 ], [ null, %if.then824 ], [ null, %if.then866 ], [ null, %if.then879 ], [ null, %if.then888 ], [ null, %if.then896 ], [ null, %if.then904 ], [ null, %if.then913 ], [ null, %if.then918 ], [ null, %if.then927 ], [ null, %if.then934 ], [ null, %if.then939 ], [ null, %if.then945 ], [ null, %if.then954 ], [ null, %if.then963 ], [ null, %if.then971 ], [ null, %if.then980 ], [ null, %if.then991 ], [ null, %if.then1005 ], [ null, %if.then997 ], [ null, %if.then958 ], [ null, %if.then1021 ], [ null, %if.then874 ], [ null, %if.then1029 ], [ null, %if.then1037 ], [ %call1044, %if.then1041 ], [ null, %if.then1048 ], [ null, %if.then1095 ], [ null, %if.else1099 ], [ null, %if.then24 ], [ null, %if.then32 ], [ null, %if.then60 ], [ null, %if.then194 ], [ null, %if.then273 ], [ null, %if.then311 ], [ null, %if.then309 ], [ null, %if.then319 ], [ null, %if.then317 ], [ null, %if.then429 ], [ null, %if.then531 ], [ null, %if.then1080 ], [ null, %if.then1078 ], [ null, %if.then1089 ], [ null, %if.then1086 ], [ %o.0, %if.then1111 ], [ %o.0, %if.end1109 ], [ null, %if.then1114 ], [ null, %emptykey ]
   ret ptr %retval.0
 }
 

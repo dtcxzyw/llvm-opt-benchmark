@@ -1782,7 +1782,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_bt2_cb(ptr nounde
   br label %83
 
 52:                                               ; preds = %46, %16
-  %.0 = phi ptr [ %40, %46 ], [ null, %16 ]
+  %.1 = phi ptr [ %40, %46 ], [ null, %16 ]
   %53 = load ptr, ptr %1, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 32
   %55 = load ptr, ptr %54, align 8
@@ -1826,13 +1826,13 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_bt2_cb(ptr nounde
 
 82:                                               ; preds = %72, %78, %68, %59
   %.031 = phi i32 [ -1, %59 ], [ -1, %68 ], [ -1, %78 ], [ 0, %72 ]
-  %.not35 = icmp eq ptr %.0, null
+  %.not35 = icmp eq ptr %.1, null
   br i1 %.not35, label %.thread, label %83
 
 83:                                               ; preds = %.thread39, %82
-  %.144 = phi ptr [ %40, %.thread39 ], [ %.0, %82 ]
+  %.044 = phi ptr [ %40, %.thread39 ], [ %.1, %82 ]
   %.03143 = phi i32 [ -1, %.thread39 ], [ %.031, %82 ]
-  %84 = call i32 @H5B2_close(ptr noundef nonnull %.144) #8
+  %84 = call i32 @H5B2_close(ptr noundef nonnull %.044) #8
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %.thread
 
@@ -2126,7 +2126,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_fh_cb(ptr noundef %0, i6
   br label %50
 
 27:                                               ; preds = %18, %11
-  %.025 = phi ptr [ %16, %18 ], [ null, %11 ]
+  %.126 = phi ptr [ %16, %18 ], [ null, %11 ]
   %28 = getelementptr inbounds i8, ptr %2, i64 24
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
@@ -2160,13 +2160,13 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_fh_cb(ptr noundef %0, i6
 
 49:                                               ; preds = %41, %45, %37
   %.0 = phi i32 [ -1, %37 ], [ -1, %45 ], [ 0, %41 ]
-  %.not32 = icmp eq ptr %.025, null
+  %.not32 = icmp eq ptr %.126, null
   br i1 %.not32, label %.thread44, label %50
 
 50:                                               ; preds = %.thread37, %49
   %.042 = phi i32 [ -1, %.thread37 ], [ %.0, %49 ]
-  %.12641 = phi ptr [ %16, %.thread37 ], [ %.025, %49 ]
-  %51 = call i32 @H5B2_close(ptr noundef nonnull %.12641) #8
+  %.02541 = phi ptr [ %16, %.thread37 ], [ %.126, %49 ]
+  %51 = call i32 @H5B2_close(ptr noundef nonnull %.02541) #8
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %.thread44
 

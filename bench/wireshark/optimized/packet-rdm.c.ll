@@ -2996,15 +2996,15 @@ define internal fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noun
   br i1 %cond, label %18, label %22
 
 18:                                               ; preds = %13, %8
-  %.0 = phi i32 [ 26, %8 ], [ 30, %13 ]
+  %.1 = phi i32 [ 26, %8 ], [ 30, %13 ]
   %19 = load i32, ptr @hf_rdm_pd_sensor_value_rec, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0) #2
-  %21 = add nuw nsw i32 %.0, 2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %21 = add nuw nsw i32 %.1, 2
   br label %22
 
 22:                                               ; preds = %13, %8, %18, %5, %4
-  %.1 = phi i32 [ 23, %4 ], [ 26, %8 ], [ %21, %18 ], [ 30, %13 ], [ 24, %5 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 23, %4 ], [ 26, %8 ], [ %21, %18 ], [ 30, %13 ], [ 24, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3039,8 +3039,8 @@ define internal fastcc noundef i32 @dissect_rdm_pd_device_info(ptr noundef %0, p
   br label %26
 
 26:                                               ; preds = %4, %5
-  %.1 = phi i32 [ 42, %5 ], [ 23, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 42, %5 ], [ 23, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3172,18 +3172,18 @@ define internal fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr n
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.09 = phi i32 [ %8, %.preheader ], [ 23, %4 ]
+  %.1 = phi i32 [ %8, %.preheader ], [ 23, %4 ]
   %.0 = phi i8 [ %9, %.preheader ], [ %3, %4 ]
   %6 = load i32, ptr @hf_rdm_pd_proxied_devices_uid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.09, i32 noundef 6, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.09, 6
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 6, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.1, 6
   %9 = add i8 %.0, -6
   %.old2 = icmp ugt i8 %9, 5
   br i1 %.old2, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.1 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
-  ret i32 %.1
+  %.09 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3240,29 +3240,29 @@ define internal fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.029 = phi i8 [ %24, %.lr.ph ], [ %3, %.preheader ]
-  %.02728 = phi i32 [ %23, %.lr.ph ], [ 23, %.preheader ]
+  %.128 = phi i32 [ %23, %.lr.ph ], [ 23, %.preheader ]
   %9 = load i32, ptr @hf_rdm_pd_status_messages_sub_device_id, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.02728, i32 noundef 2, i32 noundef 0) #2
-  %11 = add nuw nsw i32 %.02728, 2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.128, i32 noundef 2, i32 noundef 0) #2
+  %11 = add nuw nsw i32 %.128, 2
   %12 = load i32, ptr @hf_rdm_pd_status_messages_type, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #2
-  %14 = add nuw nsw i32 %.02728, 3
+  %14 = add nuw nsw i32 %.128, 3
   %15 = load i32, ptr @hf_rdm_pd_status_messages_id, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #2
-  %17 = add nuw nsw i32 %.02728, 5
+  %17 = add nuw nsw i32 %.128, 5
   %18 = load i32, ptr @hf_rdm_pd_status_messages_data_value_1, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef 0) #2
-  %20 = add nuw nsw i32 %.02728, 7
+  %20 = add nuw nsw i32 %.128, 7
   %21 = load i32, ptr @hf_rdm_pd_status_messages_data_value_2, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0) #2
-  %23 = add nuw nsw i32 %.02728, 9
+  %23 = add nuw nsw i32 %.128, 9
   %24 = add i8 %.029, -9
   %25 = icmp ugt i8 %24, 8
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %6, %4
-  %.1 = phi i32 [ 23, %4 ], [ 24, %6 ], [ 23, %.preheader ], [ %23, %.lr.ph ]
-  ret i32 %.1
+  %.027 = phi i32 [ 23, %4 ], [ 24, %6 ], [ 23, %.preheader ], [ %23, %.lr.ph ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3301,33 +3301,33 @@ define internal fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, 
   br i1 %cond.i, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %.013.us = phi i32 [ %9, %.preheader.split.us ], [ 23, %.preheader ]
+  %.1.us = phi i32 [ %9, %.preheader.split.us ], [ 23, %.preheader ]
   %.0.us = phi i8 [ %10, %.preheader.split.us ], [ %3, %.preheader ]
-  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.013.us) #2
+  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.us) #2
   %hf_rdm_pd_parameter_id.val.i.us = load i32, ptr @hf_rdm_pd_parameter_id, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %hf_rdm_pd_parameter_id.val.i.us, ptr noundef %0, i32 noundef %.013.us, i32 noundef 2, i32 noundef 0) #2
-  %9 = add nuw nsw i32 %.013.us, 2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %hf_rdm_pd_parameter_id.val.i.us, ptr noundef %0, i32 noundef %.1.us, i32 noundef 2, i32 noundef 0) #2
+  %9 = add nuw nsw i32 %.1.us, 2
   %10 = add i8 %.0.us, -2
   %.old2.us = icmp ugt i8 %10, 1
   br i1 %.old2.us, label %.preheader.split.us, label %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
-  %.013 = phi i32 [ %14, %.preheader.split ], [ 23, %.preheader ]
+  %.1 = phi i32 [ %14, %.preheader.split ], [ 23, %.preheader ]
   %.0 = phi i8 [ %15, %.preheader.split ], [ %3, %.preheader ]
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.013) #2
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1) #2
   %hf_rdm_pd_parameter_id.val.i = load i32, ptr @hf_rdm_pd_parameter_id, align 4
   %hf_etc_pd_parameter_id.val.i = load i32, ptr @hf_etc_pd_parameter_id, align 4
   %12 = icmp slt i16 %11, 0
   %spec.select = select i1 %12, i32 %hf_etc_pd_parameter_id.val.i, i32 %hf_rdm_pd_parameter_id.val.i
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %spec.select, ptr noundef %0, i32 noundef %.013, i32 noundef 2, i32 noundef 0) #2
-  %14 = add nuw nsw i32 %.013, 2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %spec.select, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %14 = add nuw nsw i32 %.1, 2
   %15 = add i8 %.0, -2
   %.old2 = icmp ugt i8 %15, 1
   br i1 %.old2, label %.preheader.split, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.split.us, %.preheader.split, %5
-  %.1 = phi i32 [ 23, %5 ], [ %14, %.preheader.split ], [ %9, %.preheader.split.us ]
-  ret i32 %.1
+  %.013 = phi i32 [ 23, %5 ], [ %14, %.preheader.split ], [ %9, %.preheader.split.us ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3395,18 +3395,18 @@ define internal fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.09 = phi i32 [ %8, %.preheader ], [ 23, %4 ]
+  %.1 = phi i32 [ %8, %.preheader ], [ 23, %4 ]
   %.0 = phi i8 [ %9, %.preheader ], [ %3, %4 ]
   %6 = load i32, ptr @hf_rdm_pd_product_detail_id_list, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.09, i32 noundef 2, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.09, 2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.1, 2
   %9 = add i8 %.0, -2
   %.old2 = icmp ugt i8 %9, 1
   br i1 %.old2, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.1 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
-  ret i32 %.1
+  %.09 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3417,18 +3417,18 @@ define internal fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0,
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.09 = phi i32 [ %8, %.preheader ], [ 23, %4 ]
+  %.1 = phi i32 [ %8, %.preheader ], [ 23, %4 ]
   %.0 = phi i8 [ %9, %.preheader ], [ %3, %4 ]
   %6 = load i32, ptr @hf_rdm_pd_language_code, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.09, i32 noundef 2, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.09, 2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.1, 2
   %9 = add i8 %.0, -2
   %.old2 = icmp ugt i8 %9, 1
   br i1 %.old2, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.1 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
-  ret i32 %.1
+  %.09 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3493,24 +3493,24 @@ define internal fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.017 = phi i32 [ %14, %.preheader ], [ 23, %4 ]
+  %.1 = phi i32 [ %14, %.preheader ], [ 23, %4 ]
   %.0 = phi i8 [ %15, %.preheader ], [ %3, %4 ]
   %6 = load i32, ptr @hf_rdm_pd_slot_offset, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.017, i32 noundef 2, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.017, 2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.1, 2
   %9 = load i32, ptr @hf_rdm_pd_slot_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #2
-  %11 = add nuw nsw i32 %.017, 3
+  %11 = add nuw nsw i32 %.1, 3
   %12 = load i32, ptr @hf_rdm_pd_slot_label_id, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0) #2
-  %14 = add nuw nsw i32 %.017, 5
+  %14 = add nuw nsw i32 %.1, 5
   %15 = add i8 %.0, -5
   %.old2 = icmp ugt i8 %15, 4
   br i1 %.old2, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.1 = phi i32 [ 23, %4 ], [ %14, %.preheader ]
-  ret i32 %.1
+  %.017 = phi i32 [ 23, %4 ], [ %14, %.preheader ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3548,21 +3548,21 @@ define internal fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr nounde
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.013 = phi i32 [ %11, %.preheader ], [ 23, %4 ]
+  %.1 = phi i32 [ %11, %.preheader ], [ 23, %4 ]
   %.0 = phi i8 [ %12, %.preheader ], [ %3, %4 ]
   %6 = load i32, ptr @hf_rdm_pd_slot_offset, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.013, i32 noundef 2, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.013, 2
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.1, 2
   %9 = load i32, ptr @hf_rdm_pd_slot_value, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #2
-  %11 = add nuw nsw i32 %.013, 3
+  %11 = add nuw nsw i32 %.1, 3
   %12 = add i8 %.0, -3
   %.old2 = icmp ugt i8 %12, 2
   br i1 %.old2, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.1 = phi i32 [ 23, %4 ], [ %11, %.preheader ]
-  ret i32 %.1
+  %.013 = phi i32 [ 23, %4 ], [ %11, %.preheader ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3995,21 +3995,21 @@ define internal fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr n
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.013 = phi i32 [ %11, %.preheader ], [ 23, %4 ]
+  %.1 = phi i32 [ %11, %.preheader ], [ 23, %4 ]
   %.0 = phi i8 [ %12, %.preheader ], [ %3, %4 ]
   %6 = load i32, ptr @hf_rdm_pd_list_interfaces_interface_identifier, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.013, i32 noundef 4, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.013, 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.1, 4
   %9 = load i32, ptr @hf_rdm_pd_list_interfaces_interface_hardware_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #2
-  %11 = add nuw nsw i32 %.013, 6
+  %11 = add nuw nsw i32 %.1, 6
   %12 = add i8 %.0, -6
   %.old2 = icmp ugt i8 %12, 5
   br i1 %.old2, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.1 = phi i32 [ 23, %4 ], [ %11, %.preheader ]
-  ret i32 %.1
+  %.013 = phi i32 [ 23, %4 ], [ %11, %.preheader ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4478,20 +4478,20 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.018 = phi i8 [ %16, %.lr.ph ], [ %8, %5 ]
-  %.01617 = phi i32 [ %15, %.lr.ph ], [ 27, %5 ]
+  %.117 = phi i32 [ %15, %.lr.ph ], [ 27, %5 ]
   %10 = load i32, ptr @hf_rdm_pd_endpoint_list_endpoint_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %.01617, i32 noundef 2, i32 noundef 0) #2
-  %12 = add nuw nsw i32 %.01617, 2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %.117, i32 noundef 2, i32 noundef 0) #2
+  %12 = add nuw nsw i32 %.117, 2
   %13 = load i32, ptr @hf_rdm_pd_endpoint_list_endpoint_type, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0) #2
-  %15 = add nuw nsw i32 %.01617, 3
+  %15 = add nuw nsw i32 %.117, 3
   %16 = add i8 %.018, -3
   %17 = icmp ugt i8 %16, 2
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %4
-  %.1 = phi i32 [ 23, %4 ], [ 27, %5 ], [ %15, %.lr.ph ]
-  ret i32 %.1
+  %.016 = phi i32 [ 23, %4 ], [ 27, %5 ], [ %15, %.lr.ph ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4847,17 +4847,17 @@ define internal fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.023 = phi i8 [ %.0, %.lr.ph ], [ %.021, %8 ]
-  %.02022 = phi i32 [ %16, %.lr.ph ], [ 29, %8 ]
+  %.122 = phi i32 [ %16, %.lr.ph ], [ 29, %8 ]
   %14 = load i32, ptr @hf_rdm_pd_endpoint_responders_uid, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %.02022, i32 noundef 6, i32 noundef 0) #2
-  %16 = add nuw nsw i32 %.02022, 6
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %.122, i32 noundef 6, i32 noundef 0) #2
+  %16 = add nuw nsw i32 %.122, 6
   %.0 = add i8 %.023, -6
   %17 = icmp ugt i8 %.0, 5
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %5, %4
-  %.1 = phi i32 [ 23, %4 ], [ 25, %5 ], [ 29, %8 ], [ %16, %.lr.ph ]
-  ret i32 %.1
+  %.020 = phi i32 [ 23, %4 ], [ 25, %5 ], [ 29, %8 ], [ %16, %.lr.ph ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4873,22 +4873,22 @@ define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.029 = phi i8 [ %21, %.lr.ph ], [ %3, %.preheader ]
-  %.02728 = phi i32 [ %20, %.lr.ph ], [ 23, %.preheader ]
+  %.128 = phi i32 [ %20, %.lr.ph ], [ 23, %.preheader ]
   %6 = load i32, ptr @hf_rdm_pd_tcp_comms_status_scope_string, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.02728, i32 noundef 63, i32 noundef 0) #2
-  %8 = add nuw nsw i32 %.02728, 63
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %.128, i32 noundef 63, i32 noundef 0) #2
+  %8 = add nuw nsw i32 %.128, 63
   %9 = load i32, ptr @hf_rdm_pd_tcp_comms_status_broker_ipv4_address, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef 0) #2
-  %11 = add nuw nsw i32 %.02728, 67
+  %11 = add nuw nsw i32 %.128, 67
   %12 = load i32, ptr @hf_rdm_pd_tcp_comms_status_broker_ipv6_address, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 16, i32 noundef 0) #2
-  %14 = add nuw nsw i32 %.02728, 83
+  %14 = add nuw nsw i32 %.128, 83
   %15 = load i32, ptr @hf_rdm_pd_tcp_comms_status_broker_port, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #2
-  %17 = add nuw nsw i32 %.02728, 85
+  %17 = add nuw nsw i32 %.128, 85
   %18 = load i32, ptr @hf_rdm_pd_tcp_comms_status_unhealthy_tcp_events, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef 0) #2
-  %20 = add nuw nsw i32 %.02728, 87
+  %20 = add nuw nsw i32 %.128, 87
   %21 = add i8 %.029, -87
   %22 = icmp ugt i8 %21, 86
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !9
@@ -4899,8 +4899,8 @@ define internal fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %23, %4
-  %.1 = phi i32 [ 23, %4 ], [ 86, %23 ], [ 23, %.preheader ], [ %20, %.lr.ph ]
-  ret i32 %.1
+  %.027 = phi i32 [ 23, %4 ], [ 86, %23 ], [ 23, %.preheader ], [ %20, %.lr.ph ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5408,10 +5408,10 @@ define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %
   br label %14
 
 14:                                               ; preds = %7, %14
-  %.03638 = phi i32 [ 25, %7 ], [ %17, %14 ]
+  %.13738 = phi i32 [ 25, %7 ], [ %17, %14 ]
   %15 = load i32, ptr @hf_etc_pd_sequence_config_preset_step, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef %.03638, i32 noundef 1, i32 noundef 0) #2
-  %17 = add nuw nsw i32 %.03638, 1
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef %.13738, i32 noundef 1, i32 noundef 0) #2
+  %17 = add nuw nsw i32 %.13738, 1
   %exitcond.not = icmp eq i32 %17, 49
   br i1 %exitcond.not, label %18, label %14, !llvm.loop !10
 
@@ -5424,10 +5424,10 @@ define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %
 
 23:                                               ; preds = %18, %23
   %.141 = phi i32 [ 0, %18 ], [ %27, %23 ]
-  %.13740 = phi i32 [ 49, %18 ], [ %26, %23 ]
+  %.240 = phi i32 [ 49, %18 ], [ %26, %23 ]
   %24 = load i32, ptr @hf_etc_pd_sequence_config_step_link_time, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %24, ptr noundef %0, i32 noundef %.13740, i32 noundef 2, i32 noundef 0) #2
-  %26 = add nuw nsw i32 %.13740, 2
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %24, ptr noundef %0, i32 noundef %.240, i32 noundef 2, i32 noundef 0) #2
+  %26 = add nuw nsw i32 %.240, 2
   %27 = add nuw nsw i32 %.141, 1
   %exitcond43.not = icmp eq i32 %27, 24
   br i1 %exitcond43.not, label %28, label %23, !llvm.loop !11
@@ -5440,8 +5440,8 @@ define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %
   br label %33
 
 33:                                               ; preds = %28, %4, %3
-  %.2 = phi i32 [ 23, %3 ], [ 100, %28 ], [ 25, %4 ]
-  ret i32 %.2
+  %.036 = phi i32 [ 23, %3 ], [ 100, %28 ], [ 25, %4 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable

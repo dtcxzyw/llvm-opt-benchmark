@@ -277,13 +277,13 @@ percpu_arena_update.exit.i.i:                     ; preds = %if.then10.i.i.i, %a
   br label %if.end63.i.i
 
 if.end63.i.i:                                     ; preds = %percpu_arena_update.exit.i.i, %percpu_arena_choose.exit.i.i
-  %ret.1.i.i = phi ptr [ %24, %percpu_arena_update.exit.i.i ], [ %call23.i.i, %percpu_arena_choose.exit.i.i ]
-  %last_thd65.i.i = getelementptr inbounds i8, ptr %ret.1.i.i, i64 16
+  %ret.2.i.i = phi ptr [ %24, %percpu_arena_update.exit.i.i ], [ %call23.i.i, %percpu_arena_choose.exit.i.i ]
+  %last_thd65.i.i = getelementptr inbounds i8, ptr %ret.2.i.i, i64 16
   store ptr %tsdn, ptr %last_thd65.i.i, align 16
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end63.i.i, %land.lhs.true52.i.i, %land.lhs.true47.i.i, %if.end43.i.i, %if.then3.i.i.i, %if.then5.i.i, %if.end.i39
-  %tsd_arena.i.0 = phi ptr [ %7, %if.end.i39 ], [ %ret.1.i.i, %if.end63.i.i ], [ %call23.i.i, %land.lhs.true52.i.i ], [ %call23.i.i, %land.lhs.true47.i.i ], [ %call23.i.i, %if.end43.i.i ], [ %call4.i.i.i, %if.then3.i.i.i ], [ %10, %if.then5.i.i ]
+  %tsd_arena.i.0 = phi ptr [ %7, %if.end.i39 ], [ %ret.2.i.i, %if.end63.i.i ], [ %call23.i.i, %land.lhs.true52.i.i ], [ %call23.i.i, %land.lhs.true47.i.i ], [ %call23.i.i, %if.end43.i.i ], [ %call4.i.i.i, %if.then3.i.i.i ], [ %10, %if.then5.i.i ]
   %oversize_threshold.i = getelementptr inbounds i8, ptr %tsd_arena.i.0, i64 69328
   %25 = load atomic i64, ptr %oversize_threshold.i monotonic, align 8
   %cmp6.i42.not = icmp ugt i64 %25, %usize

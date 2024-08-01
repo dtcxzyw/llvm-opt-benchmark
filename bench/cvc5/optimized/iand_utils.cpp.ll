@@ -2268,15 +2268,15 @@ entry:
   br i1 %cmp, label %if.end, label %while.cond
 
 while.cond:                                       ; preds = %entry, %while.cond
-  %granularity.addr.0 = phi i32 [ %sub, %while.cond ], [ %granularity, %entry ]
-  %rem = urem i32 %bvsize, %granularity.addr.0
+  %granularity.addr.1 = phi i32 [ %sub, %while.cond ], [ %granularity, %entry ]
+  %rem = urem i32 %bvsize, %granularity.addr.1
   %cmp2.not = icmp eq i32 %rem, 0
-  %sub = add i32 %granularity.addr.0, -1
+  %sub = add i32 %granularity.addr.1, -1
   br i1 %cmp2.not, label %if.end, label %while.cond, !llvm.loop !30
 
 if.end:                                           ; preds = %while.cond, %entry
-  %granularity.addr.1 = phi i32 [ %bvsize, %entry ], [ %granularity.addr.0, %while.cond ]
-  %div = udiv i32 %bvsize, %granularity.addr.1
+  %granularity.addr.0 = phi i32 [ %bvsize, %entry ], [ %granularity.addr.1, %while.cond ]
+  %div = udiv i32 %bvsize, %granularity.addr.0
   call void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0)
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2293,7 +2293,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont
-  %conv = zext i32 %granularity.addr.1 to i64
+  %conv = zext i32 %granularity.addr.0 to i64
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2324,7 +2324,7 @@ invoke.cont6:                                     ; preds = %_ZNSt8_Rb_treeImSt4
   br i1 %cmp.i4.i.i, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %invoke.cont6
-  invoke void @_ZN4cvc58internal6theory5arith2nl9IAndUtils15computeAndTableEj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %granularity.addr.1)
+  invoke void @_ZN4cvc58internal6theory5arith2nl9IAndUtils15computeAndTableEj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %granularity.addr.0)
           to label %if.then13.if.end15_crit_edge unwind label %lpad5.loopexit.split-lp
 
 if.then13.if.end15_crit_edge:                     ; preds = %if.then13
@@ -2396,7 +2396,7 @@ _ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEEixEOm.
   %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %cmp21220.not = icmp ugt i32 %granularity.addr.1, %bvsize
+  %cmp21220.not = icmp ugt i32 %granularity.addr.0, %bvsize
   br i1 %cmp21220.not, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEEixEOm.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit217
@@ -2429,7 +2429,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
           to label %invoke.cont22 unwind label %lpad5.loopexit
 
 invoke.cont22:                                    ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
-  invoke void @_ZN4cvc58internal6theory5arith2nl10intExtractENS0_12NodeTemplateILb1EEEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %xExtract, ptr noundef nonnull %agg.tmp, i32 noundef %i.0221, i32 noundef %granularity.addr.1)
+  invoke void @_ZN4cvc58internal6theory5arith2nl10intExtractENS0_12NodeTemplateILb1EEEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %xExtract, ptr noundef nonnull %agg.tmp, i32 noundef %i.0221, i32 noundef %granularity.addr.0)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -2487,7 +2487,7 @@ if.then13.i.i47:                                  ; preds = %if.else.i.i45
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %if.else.i.i45, %if.then.i.i49, %if.then13.i.i47
-  invoke void @_ZN4cvc58internal6theory5arith2nl10intExtractENS0_12NodeTemplateILb1EEEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %yExtract, ptr noundef nonnull %agg.tmp25, i32 noundef %i.0221, i32 noundef %granularity.addr.1)
+  invoke void @_ZN4cvc58internal6theory5arith2nl10intExtractENS0_12NodeTemplateILb1EEEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %yExtract, ptr noundef nonnull %agg.tmp25, i32 noundef %i.0221, i32 noundef %granularity.addr.0)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
@@ -2573,7 +2573,7 @@ if.then13.i.i88:                                  ; preds = %if.else.i.i86
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %if.else.i.i86, %if.then.i.i90, %if.then13.i.i88
-  invoke void @_ZN4cvc58internal6theory5arith2nl9IAndUtils18createITEFromTableENS0_12NodeTemplateILb1EEES6_jRKSt3mapISt4pairIllEmSt4lessIS9_ESaIS8_IKS9_mEEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %sumPart, ptr nonnull align 8 poison, ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp33, i32 noundef %granularity.addr.1, ptr noundef nonnull align 8 dereferenceable(48) %second.i)
+  invoke void @_ZN4cvc58internal6theory5arith2nl9IAndUtils18createITEFromTableENS0_12NodeTemplateILb1EEES6_jRKSt3mapISt4pairIllEmSt4lessIS9_ESaIS8_IKS9_mEEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %sumPart, ptr nonnull align 8 poison, ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp33, i32 noundef %granularity.addr.0, ptr noundef nonnull align 8 dereferenceable(48) %second.i)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont35
@@ -2630,7 +2630,7 @@ terminate.lpad.i117:                              ; preds = %if.then13.i.i116
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit118: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit107, %if.then.i.i110, %if.then13.i.i116
   %31 = load ptr, ptr %agg.result, align 8
-  %mul = mul i32 %i.0221, %granularity.addr.1
+  %mul = mul i32 %i.0221, %granularity.addr.0
   invoke void @_ZN4cvc58internal6theory5arith2nl4pow2Ej(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp45, i32 noundef %mul)
           to label %invoke.cont47 unwind label %lpad46
 

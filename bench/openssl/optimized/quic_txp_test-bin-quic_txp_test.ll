@@ -498,7 +498,7 @@ helper_init.exit:                                 ; preds = %if.end142.i
   br label %for.cond
 
 for.cond:                                         ; preds = %helper_init.exit, %for.inc
-  %opn.0 = phi i64 [ %inc, %for.inc ], [ 0, %helper_init.exit ]
+  %opn.1 = phi i64 [ %inc, %for.inc ], [ 0, %helper_init.exit ]
   %op.0 = phi ptr [ %incdec.ptr, %for.inc ], [ %script, %helper_init.exit ]
   %11 = load i32, ptr %op.0, align 8
   switch i32 %11, label %sw.default461 [
@@ -1317,12 +1317,12 @@ sw.default461:                                    ; preds = %for.cond
 
 for.inc:                                          ; preds = %for.cond, %if.end9, %if.end46, %if.end58, %if.then111, %if.end351, %if.end363, %if.end455, %sw.bb458, %land.lhs.true20, %sw.bb13, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb219, %sw.bb209, %sw.bb199, %sw.bb189, %sw.bb179, %sw.bb165, %sw.bb152, %sw.bb142, %sw.bb133, %sw.bb124, %sw.bb115, %skip_padding.exit69, %if.end250, %sw.bb265, %if.end287, %lor.lhs.false316, %if.end384, %if.end412, %sw.bb426
   %incdec.ptr = getelementptr inbounds i8, ptr %op.0, i64 48
-  %inc = add i64 %opn.0, 1
+  %inc = add i64 %opn.1, 1
   br label %for.cond, !llvm.loop !7
 
 if.end466.thread86:                               ; preds = %land.lhs.true, %land.lhs.true20, %sw.bb26, %PACKET_buf_init.exit, %sw.bb47, %sw.bb60, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb115, %sw.bb124, %sw.bb133, %sw.bb142, %sw.bb152, %sw.bb165, %sw.bb179, %sw.bb189, %sw.bb199, %sw.bb209, %sw.bb219, %skip_padding.exit69, %sw.bb236, %if.end250, %sw.bb265, %sw.bb276, %if.end287, %sw.bb293, %sw.bb326, %if.end336, %if.end346, %sw.bb354, %sw.bb365, %if.end374, %if.end384, %sw.bb393, %if.end402, %if.end412, %sw.bb426, %sw.bb437, %if.end446, %sw.default, %if.then321, %sw.default461
   %add89 = add nsw i32 %script_idx, 1
-  %add46590 = add i64 %opn.0, 1
+  %add46590 = add i64 %opn.1, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1594, ptr noundef nonnull @.str.50, i32 noundef %add89, i64 noundef %add46590) #8
   br label %if.then468
 

@@ -1104,7 +1104,7 @@ if.else.i70:                                      ; preds = %while.end
           to label %cleanup unwind label %lpad26.loopexit.split-lp.loopexit
 
 cleanup:                                          ; preds = %invoke.cont50, %if.else.i70
-  %cleanup.dest.slot.0.ph = phi i32 [ 1, %invoke.cont50 ], [ 0, %if.else.i70 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 1, %invoke.cont50 ], [ 0, %if.else.i70 ]
   %.pr = load ptr, ptr %params, align 16
   %tobool.not.i.i.i73 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i73, label %cleanup56, label %if.then.i.i.i74
@@ -1114,7 +1114,7 @@ if.then.i.i.i74:                                  ; preds = %cleanup
   br label %cleanup56
 
 cleanup56:                                        ; preds = %cleanup.thread, %invoke.cont13, %invoke.cont23, %if.then.i.i.i74, %cleanup
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont13 ], [ 1, %invoke.cont23 ], [ %cleanup.dest.slot.0.ph, %cleanup ], [ %cleanup.dest.slot.0.ph, %if.then.i.i.i74 ], [ 0, %cleanup.thread ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont13 ], [ 1, %invoke.cont23 ], [ %cleanup.dest.slot.1.ph, %cleanup ], [ %cleanup.dest.slot.1.ph, %if.then.i.i.i74 ], [ 0, %cleanup.thread ]
   %40 = load ptr, ptr %secondLevelTokens, align 8
   %tobool.not.i.i.i76 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i76, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit, label %if.then.i.i.i77
@@ -1124,7 +1124,7 @@ if.then.i.i.i77:                                  ; preds = %cleanup56
   br label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EED2Ev.exit: ; preds = %cleanup56, %if.then.i.i.i77
-  %cond = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond, label %for.cond, label %cleanup59
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad26, %lpad8
@@ -1374,15 +1374,15 @@ if.end10:                                         ; preds = %if.else
   br i1 %or.cond.not.i11, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end10, %if.end6
-  %curs.2 = phi ptr [ %incdec.ptr, %if.end6 ], [ %3, %if.end10 ]
-  %firstByte.1 = phi i64 [ 0, %if.end6 ], [ %call.i, %if.end10 ]
-  %lastByte.1 = phi i64 [ -1, %if.end6 ], [ %call.i8, %if.end10 ]
-  %4 = load i8, ptr %curs.2, align 1
+  %curs.0 = phi ptr [ %incdec.ptr, %if.end6 ], [ %3, %if.end10 ]
+  %firstByte.0 = phi i64 [ 0, %if.end6 ], [ %call.i, %if.end10 ]
+  %lastByte.0 = phi i64 [ -1, %if.end6 ], [ %call.i8, %if.end10 ]
+  %4 = load i8, ptr %curs.0, align 1
   %cmp17.not = icmp eq i8 %4, 47
   br i1 %cmp17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end15
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %curs.2, i64 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %curs.0, i64 1
   %5 = load i8, ptr %incdec.ptr20, align 1
   %cmp22.not = icmp eq i8 %5, 42
   br i1 %cmp22.not, label %if.else27, label %if.then23
@@ -1399,36 +1399,36 @@ if.then23:                                        ; preds = %if.end19
   br i1 %or.cond.not.i18, label %if.end29, label %return
 
 if.else27:                                        ; preds = %if.end19
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %curs.2, i64 2
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %curs.0, i64 2
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then23, %if.else27
-  %curs.4 = phi ptr [ %incdec.ptr28, %if.else27 ], [ %6, %if.then23 ]
-  %instanceLength.1 = phi i64 [ -1, %if.else27 ], [ %call.i15, %if.then23 ]
-  %cmp30 = icmp ult ptr %curs.4, %value.coerce1
+  %curs.1 = phi ptr [ %incdec.ptr28, %if.else27 ], [ %6, %if.then23 ]
+  %instanceLength.0 = phi i64 [ -1, %if.else27 ], [ %call.i15, %if.then23 ]
+  %cmp30 = icmp ult ptr %curs.1, %value.coerce1
   br i1 %cmp30, label %land.lhs.true, label %if.end34
 
 land.lhs.true:                                    ; preds = %if.end29
-  %7 = load i8, ptr %curs.4, align 1
+  %7 = load i8, ptr %curs.1, align 1
   %cmp32.not = icmp ne i8 %7, 0
-  %cmp35 = icmp ult i64 %lastByte.1, %firstByte.1
+  %cmp35 = icmp ult i64 %lastByte.0, %firstByte.0
   %or.cond = select i1 %cmp32.not, i1 true, i1 %cmp35
   br i1 %or.cond, label %return, label %if.end37
 
 if.end34:                                         ; preds = %if.end29
-  %cmp35.old = icmp ult i64 %lastByte.1, %firstByte.1
+  %cmp35.old = icmp ult i64 %lastByte.0, %firstByte.0
   br i1 %cmp35.old, label %return, label %if.end37
 
 if.end37:                                         ; preds = %land.lhs.true, %if.end34
-  %reass.sub = sub i64 %lastByte.1, %firstByte.1
+  %reass.sub = sub i64 %lastByte.0, %firstByte.0
   %add = add i64 %reass.sub, 1
-  %cmp38 = icmp ugt i64 %add, %instanceLength.1
+  %cmp38 = icmp ugt i64 %add, %instanceLength.0
   br i1 %cmp38, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.end37
-  store i64 %firstByte.1, ptr %outFirstByte, align 8
-  store i64 %lastByte.1, ptr %outLastByte, align 8
-  store i64 %instanceLength.1, ptr %outInstanceLength, align 8
+  store i64 %firstByte.0, ptr %outFirstByte, align 8
+  store i64 %lastByte.0, ptr %outLastByte, align 8
+  store i64 %instanceLength.0, ptr %outInstanceLength, align 8
   br label %return
 
 return:                                           ; preds = %if.then23, %if.end10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %entry, %if.end37, %if.end34, %land.lhs.true, %if.end15, %if.else, %if.then4, %if.end40

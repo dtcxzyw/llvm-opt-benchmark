@@ -421,7 +421,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
 
 29:                                               ; preds = %.lr.ph, %46
   %30 = phi i32 [ %26, %.lr.ph ], [ %48, %46 ]
-  %.03038 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
+  %.03038 = phi i32 [ 0, %.lr.ph ], [ %.2, %46 ]
   %.03137 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
   %31 = load i32, ptr @resv_port_alloc.last_port_alloc, align 4
   %32 = add nsw i32 %31, 1
@@ -449,17 +449,17 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   br i1 %.not36, label %46, label %._crit_edge
 
 46:                                               ; preds = %39, %29
-  %.1 = phi i32 [ %.03038, %29 ], [ %41, %39 ]
+  %.2 = phi i32 [ %.03038, %29 ], [ %41, %39 ]
   %47 = add nuw nsw i32 %.03137, 1
   %48 = load i32, ptr @port_resv_cnt, align 4
   %49 = icmp slt i32 %47, %48
   br i1 %49, label %29, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %46, %39, %22
-  %.2 = phi i32 [ 0, %22 ], [ %41, %39 ], [ %.1, %46 ]
+  %.1 = phi i32 [ 0, %22 ], [ %41, %39 ], [ %.2, %46 ]
   %50 = load i16, ptr %10, align 8
   %51 = zext i16 %50 to i32
-  %52 = icmp slt i32 %.2, %51
+  %52 = icmp slt i32 %.1, %51
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %._crit_edge
@@ -470,7 +470,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
 56:                                               ; preds = %53
   %57 = load i16, ptr %10, align 8
   %58 = zext i16 %57 to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, i32 noundef %.2, i32 noundef %58) #9
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %58) #9
   br label %59
 
 59:                                               ; preds = %56, %53
@@ -479,12 +479,12 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
 
 60:                                               ; preds = %._crit_edge
   %61 = tail call ptr @hostlist_create(ptr noundef null) #9
-  %.not46 = icmp eq i32 %.2, 0
+  %.not46 = icmp eq i32 %.1, 0
   br i1 %.not46, label %._crit_edge44, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %60
   %62 = getelementptr inbounds i8, ptr %0, i64 312
-  %wide.trip.count = zext nneg i32 %.2 to i64
+  %wide.trip.count = zext nneg i32 %.1 to i64
   br label %63
 
 63:                                               ; preds = %.lr.ph43, %63

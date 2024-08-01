@@ -974,9 +974,9 @@ define i32 @FT_Stroker_ConicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   br label %ft_conic_is_small_enough.exit
 
 ft_conic_is_small_enough.exit:                    ; preds = %76, %73, %74, %78
-  %.0159 = phi i64 [ %49, %73 ], [ %75, %74 ], [ %77, %78 ], [ %77, %76 ]
-  %.0 = phi i64 [ %49, %73 ], [ %75, %74 ], [ %79, %78 ], [ %77, %76 ]
-  %80 = call i64 @FT_Angle_Diff(i64 noundef %.0159, i64 noundef %.0) #11
+  %.1160 = phi i64 [ %49, %73 ], [ %75, %74 ], [ %77, %78 ], [ %77, %76 ]
+  %.1 = phi i64 [ %49, %73 ], [ %75, %74 ], [ %79, %78 ], [ %77, %76 ]
+  %80 = call i64 @FT_Angle_Diff(i64 noundef %.1160, i64 noundef %.1) #11
   %81 = call i64 @llvm.abs.i64(i64 %80, i1 true)
   %82 = icmp ugt i64 %81, 1966079
   br i1 %82, label %83, label %ft_conic_is_small_enough.exit._crit_edge
@@ -987,7 +987,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %76, %73, %74, %78
   br i1 %.not132, label %86, label %85
 
 85:                                               ; preds = %83
-  store i64 %.0159, ptr %0, align 8
+  store i64 %.1160, ptr %0, align 8
   br label %86
 
 86:                                               ; preds = %85, %83
@@ -1024,8 +1024,8 @@ ft_conic_is_small_enough.exit:                    ; preds = %76, %73, %74, %78
 ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_small_enough.exit, %.lr.ph
   %.0109.ptr172.lcssa = phi ptr [ %.0109.ptr169177, %.lr.ph ], [ %.0109.ptr, %86 ], [ %.0109.ptr172186, %ft_conic_is_small_enough.exit ]
   %.0109.idx171.lcssa = phi i64 [ %.0109.idx.ph176, %.lr.ph ], [ %.0109.add, %86 ], [ %.0109.idx171187, %ft_conic_is_small_enough.exit ]
-  %.1160 = phi i64 [ %47, %.lr.ph ], [ %103, %86 ], [ %.0159, %ft_conic_is_small_enough.exit ]
-  %.1158 = phi i64 [ %47, %.lr.ph ], [ %103, %86 ], [ %.0, %ft_conic_is_small_enough.exit ]
+  %.0159 = phi i64 [ %47, %.lr.ph ], [ %103, %86 ], [ %.1160, %ft_conic_is_small_enough.exit ]
+  %.0158 = phi i64 [ %47, %.lr.ph ], [ %103, %86 ], [ %.1, %ft_conic_is_small_enough.exit ]
   br i1 %.not133, label %111, label %105
 
 105:                                              ; preds = %ft_conic_is_small_enough.exit._crit_edge
@@ -1034,17 +1034,17 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   br i1 %.not134, label %109, label %107
 
 107:                                              ; preds = %105
-  %108 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %.1160, i64 noundef 0)
+  %108 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %.0159, i64 noundef 0)
   br label %120
 
 109:                                              ; preds = %105
-  store i64 %.1160, ptr %40, align 8
+  store i64 %.0159, ptr %40, align 8
   %110 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
   br label %120
 
 111:                                              ; preds = %ft_conic_is_small_enough.exit._crit_edge
   %112 = load i64, ptr %0, align 8
-  %113 = call i64 @FT_Angle_Diff(i64 noundef %112, i64 noundef %.1160) #11
+  %113 = call i64 @FT_Angle_Diff(i64 noundef %112, i64 noundef %.0159) #11
   %114 = call i64 @llvm.abs.i64(i64 %113, i1 true)
   %115 = icmp ugt i64 %114, 491520
   br i1 %115, label %116, label %.thread
@@ -1052,7 +1052,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
 116:                                              ; preds = %111
   %117 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %117, i64 16, i1 false)
-  store i64 %.1160, ptr %40, align 8
+  store i64 %.0159, ptr %40, align 8
   store i32 0, ptr %41, align 8
   %118 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
   %119 = load i32, ptr %42, align 4
@@ -1060,14 +1060,14 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   br label %120
 
 120:                                              ; preds = %116, %107, %109
-  %.1 = phi i32 [ %108, %107 ], [ %110, %109 ], [ %118, %116 ]
-  %.not135 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %108, %107 ], [ %110, %109 ], [ %118, %116 ]
+  %.not135 = icmp eq i32 %.2, 0
   br i1 %.not135, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %111, %120
-  %121 = call i64 @FT_Angle_Diff(i64 noundef %.1160, i64 noundef %.1158) #11
+  %121 = call i64 @FT_Angle_Diff(i64 noundef %.0159, i64 noundef %.0158) #11
   %122 = sdiv i64 %121, 2
-  %123 = add nsw i64 %122, %.1160
+  %123 = add nsw i64 %122, %.0159
   %124 = load i64, ptr %43, align 8
   %125 = call i64 @FT_Cos(i64 noundef %122) #11
   %126 = call i64 @FT_DivFix(i64 noundef %124, i64 noundef %125) #11
@@ -1094,7 +1094,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   %141 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 8
   %142 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 32
   %143 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 40
-  %invariant.op = add i64 %.1158, 5898240
+  %invariant.op = add i64 %.0158, 5898240
   br label %144
 
 144:                                              ; preds = %139, %208
@@ -1200,7 +1200,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
 
 .outer:                                           ; preds = %208
   %.0109.add129 = add nsw i64 %.0109.idx171.lcssa, -32
-  store i64 %.1158, ptr %0, align 8
+  store i64 %.0158, ptr %0, align 8
   %.0109.ptr169 = getelementptr inbounds i8, ptr %4, i64 %.0109.add129
   %.not170 = icmp slt i64 %.0109.idx171.lcssa, 32
   br i1 %.not170, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -1212,8 +1212,8 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   br label %.loopexit
 
 .loopexit:                                        ; preds = %120, %206, %204, %202, %200, %175, %3, %.outer._crit_edge, %35
-  %.4 = phi i32 [ 0, %35 ], [ 0, %.outer._crit_edge ], [ 6, %3 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %175 ], [ %.1, %120 ]
-  ret i32 %.4
+  %.0 = phi i32 [ 0, %35 ], [ 0, %.outer._crit_edge ], [ 6, %3 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %175 ], [ %.2, %120 ]
+  ret i32 %.0
 }
 
 declare i64 @FT_Angle_Diff(i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -1493,12 +1493,12 @@ define i32 @FT_Stroker_CubicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   br label %ft_cubic_is_small_enough.exit
 
 ft_cubic_is_small_enough.exit:                    ; preds = %115, %109, %103, %100, %101, %105, %110, %117
-  %.0193 = phi i64 [ %65, %100 ], [ %102, %101 ], [ %104, %105 ], [ %108, %110 ], [ %108, %117 ], [ %104, %103 ], [ %108, %109 ], [ %108, %115 ]
-  %.0191 = phi i64 [ %65, %100 ], [ %102, %101 ], [ %104, %105 ], [ %114, %110 ], [ %116, %117 ], [ %104, %103 ], [ %108, %109 ], [ %116, %115 ]
-  %.0 = phi i64 [ %65, %100 ], [ %102, %101 ], [ %106, %105 ], [ %111, %110 ], [ %118, %117 ], [ %104, %103 ], [ %108, %109 ], [ %116, %115 ]
-  %119 = call i64 @FT_Angle_Diff(i64 noundef %.0193, i64 noundef %.0191) #11
+  %.1194 = phi i64 [ %65, %100 ], [ %102, %101 ], [ %104, %105 ], [ %108, %110 ], [ %108, %117 ], [ %104, %103 ], [ %108, %109 ], [ %108, %115 ]
+  %.1192 = phi i64 [ %65, %100 ], [ %102, %101 ], [ %104, %105 ], [ %114, %110 ], [ %116, %117 ], [ %104, %103 ], [ %108, %109 ], [ %116, %115 ]
+  %.1 = phi i64 [ %65, %100 ], [ %102, %101 ], [ %106, %105 ], [ %111, %110 ], [ %118, %117 ], [ %104, %103 ], [ %108, %109 ], [ %116, %115 ]
+  %119 = call i64 @FT_Angle_Diff(i64 noundef %.1194, i64 noundef %.1192) #11
   %120 = call i64 @llvm.abs.i64(i64 %119, i1 true)
-  %121 = call i64 @FT_Angle_Diff(i64 noundef %.0191, i64 noundef %.0) #11
+  %121 = call i64 @FT_Angle_Diff(i64 noundef %.1192, i64 noundef %.1) #11
   %122 = call i64 @llvm.abs.i64(i64 %121, i1 true)
   %123 = icmp ugt i64 %120, 1474559
   %124 = icmp ugt i64 %122, 1474559
@@ -1511,7 +1511,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %115, %109, %103, %1
   br i1 %.not154, label %128, label %127
 
 127:                                              ; preds = %125
-  store i64 %.0193, ptr %0, align 8
+  store i64 %.1194, ptr %0, align 8
   br label %128
 
 128:                                              ; preds = %127, %125
@@ -1564,9 +1564,9 @@ ft_cubic_is_small_enough.exit:                    ; preds = %115, %109, %103, %1
 ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_small_enough.exit, %.lr.ph
   %.0128.ptr211.lcssa = phi ptr [ %.0128.ptr208216, %.lr.ph ], [ %.0128.ptr, %128 ], [ %.0128.ptr211225, %ft_cubic_is_small_enough.exit ]
   %.0128.idx210.lcssa = phi i64 [ %.0128.idx.ph215, %.lr.ph ], [ %.0128.add, %128 ], [ %.0128.idx210226, %ft_cubic_is_small_enough.exit ]
-  %.1194 = phi i64 [ %63, %.lr.ph ], [ %157, %128 ], [ %.0193, %ft_cubic_is_small_enough.exit ]
-  %.1192 = phi i64 [ %63, %.lr.ph ], [ %157, %128 ], [ %.0191, %ft_cubic_is_small_enough.exit ]
-  %.1190 = phi i64 [ %63, %.lr.ph ], [ %157, %128 ], [ %.0, %ft_cubic_is_small_enough.exit ]
+  %.0193 = phi i64 [ %63, %.lr.ph ], [ %157, %128 ], [ %.1194, %ft_cubic_is_small_enough.exit ]
+  %.0191 = phi i64 [ %63, %.lr.ph ], [ %157, %128 ], [ %.1192, %ft_cubic_is_small_enough.exit ]
+  %.0190 = phi i64 [ %63, %.lr.ph ], [ %157, %128 ], [ %.1, %ft_cubic_is_small_enough.exit ]
   br i1 %.not155, label %165, label %159
 
 159:                                              ; preds = %ft_cubic_is_small_enough.exit._crit_edge
@@ -1575,17 +1575,17 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   br i1 %.not156, label %163, label %161
 
 161:                                              ; preds = %159
-  %162 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %.1194, i64 noundef 0)
+  %162 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %.0193, i64 noundef 0)
   br label %174
 
 163:                                              ; preds = %159
-  store i64 %.1194, ptr %56, align 8
+  store i64 %.0193, ptr %56, align 8
   %164 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
   br label %174
 
 165:                                              ; preds = %ft_cubic_is_small_enough.exit._crit_edge
   %166 = load i64, ptr %0, align 8
-  %167 = call i64 @FT_Angle_Diff(i64 noundef %166, i64 noundef %.1194) #11
+  %167 = call i64 @FT_Angle_Diff(i64 noundef %166, i64 noundef %.0193) #11
   %168 = call i64 @llvm.abs.i64(i64 %167, i1 true)
   %169 = icmp ugt i64 %168, 368640
   br i1 %169, label %170, label %.thread
@@ -1593,7 +1593,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
 170:                                              ; preds = %165
   %171 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false)
-  store i64 %.1194, ptr %56, align 8
+  store i64 %.0193, ptr %56, align 8
   store i32 0, ptr %57, align 8
   %172 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
   %173 = load i32, ptr %58, align 4
@@ -1601,21 +1601,21 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   br label %174
 
 174:                                              ; preds = %170, %161, %163
-  %.1 = phi i32 [ %162, %161 ], [ %164, %163 ], [ %172, %170 ]
-  %.not157 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %162, %161 ], [ %164, %163 ], [ %172, %170 ]
+  %.not157 = icmp eq i32 %.2, 0
   br i1 %.not157, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %165, %174
-  %175 = call i64 @FT_Angle_Diff(i64 noundef %.1194, i64 noundef %.1192) #11
+  %175 = call i64 @FT_Angle_Diff(i64 noundef %.0193, i64 noundef %.0191) #11
   %176 = sdiv i64 %175, 2
-  %177 = call i64 @FT_Angle_Diff(i64 noundef %.1192, i64 noundef %.1190) #11
+  %177 = call i64 @FT_Angle_Diff(i64 noundef %.0191, i64 noundef %.0190) #11
   %178 = sdiv i64 %177, 2
-  %179 = call i64 @FT_Angle_Diff(i64 noundef %.1194, i64 noundef %.1192) #11
+  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0193, i64 noundef %.0191) #11
   %180 = sdiv i64 %179, 2
-  %181 = add nsw i64 %180, %.1194
-  %182 = call i64 @FT_Angle_Diff(i64 noundef %.1192, i64 noundef %.1190) #11
+  %181 = add nsw i64 %180, %.0193
+  %182 = call i64 @FT_Angle_Diff(i64 noundef %.0191, i64 noundef %.0190) #11
   %183 = sdiv i64 %182, 2
-  %184 = add nsw i64 %183, %.1192
+  %184 = add nsw i64 %183, %.0191
   %185 = load i64, ptr %59, align 8
   %186 = call i64 @FT_Cos(i64 noundef %176) #11
   %187 = call i64 @FT_DivFix(i64 noundef %185, i64 noundef %186) #11
@@ -1646,7 +1646,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   %206 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 8
   %207 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 48
   %208 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 56
-  %invariant.op = add i64 %.1190, 5898240
+  %invariant.op = add i64 %.0190, 5898240
   br label %209
 
 209:                                              ; preds = %203, %277
@@ -1758,7 +1758,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
 
 .outer:                                           ; preds = %277
   %.0128.add151 = add nsw i64 %.0128.idx210.lcssa, -48
-  store i64 %.1190, ptr %0, align 8
+  store i64 %.0190, ptr %0, align 8
   %.0128.ptr208 = getelementptr inbounds i8, ptr %5, i64 %.0128.add151
   %.not209 = icmp slt i64 %.0128.idx210.lcssa, 48
   br i1 %.not209, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1770,8 +1770,8 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   br label %.loopexit
 
 .loopexit:                                        ; preds = %174, %275, %273, %271, %269, %244, %4, %.outer._crit_edge, %50
-  %.4 = phi i32 [ 0, %50 ], [ 0, %.outer._crit_edge ], [ 6, %4 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %244 ], [ %.1, %174 ]
-  ret i32 %.4
+  %.0 = phi i32 [ 0, %50 ], [ 0, %.outer._crit_edge ], [ 6, %4 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %244 ], [ %.2, %174 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3052,14 +3052,14 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   br label %61
 
 61:                                               ; preds = %57, %53
-  %.084 = phi ptr [ %56, %53 ], [ %40, %57 ]
+  %.185 = phi ptr [ %56, %53 ], [ %40, %57 ]
   %62 = getelementptr inbounds i8, ptr %42, i64 -16
   %63 = getelementptr inbounds i8, ptr %45, i64 -1
   br label %64
 
 64:                                               ; preds = %37, %61
   %.086 = phi ptr [ %62, %61 ], [ %42, %37 ]
-  %.185 = phi ptr [ %.084, %61 ], [ %40, %37 ]
+  %.084 = phi ptr [ %.185, %61 ], [ %40, %37 ]
   %.081 = phi ptr [ %63, %61 ], [ %45, %37 ]
   store i8 1, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, i64 16, i1 false)
@@ -3080,7 +3080,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   store i8 %69, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, i64 16, i1 false)
   store i64 0, ptr %0, align 8
-  %70 = icmp ult ptr %.086, %.185
+  %70 = icmp ult ptr %.086, %.084
   br i1 %70, label %.lr.ph137, label %.thread
 
 .lr.ph137:                                        ; preds = %FT_Stroker_BeginSubPath.exit, %.backedge
@@ -3105,13 +3105,13 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
 .backedge:                                        ; preds = %75, %86, %106
   %.187.be = phi ptr [ %105, %106 ], [ %82, %86 ], [ %71, %75 ]
   %.182.be = phi ptr [ %107, %106 ], [ %83, %86 ], [ %72, %75 ]
-  %78 = icmp ult ptr %.187.be, %.185
+  %78 = icmp ult ptr %.187.be, %.084
   br i1 %78, label %.lr.ph137, label %.thread, !llvm.loop !17
 
 79:                                               ; preds = %.lr.ph137
   %80 = load <2 x i64>, ptr %71, align 8
   store <2 x i64> %80, ptr %4, align 16
-  %81 = icmp ult ptr %71, %.185
+  %81 = icmp ult ptr %71, %.084
   br i1 %81, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %79, %94
@@ -3144,7 +3144,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
 
 94:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %95 = icmp ult ptr %82, %.185
+  %95 = icmp ult ptr %82, %.084
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %79, %94
@@ -3153,7 +3153,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
 
 97:                                               ; preds = %.lr.ph137
   %98 = getelementptr inbounds i8, ptr %.187135, i64 32
-  %99 = icmp ugt ptr %98, %.185
+  %99 = icmp ugt ptr %98, %.084
   br i1 %99, label %FT_Stroker_BeginSubPath.exit.thread, label %100
 
 100:                                              ; preds = %97
@@ -3167,7 +3167,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   %105 = getelementptr inbounds i8, ptr %.187135, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false)
-  %.not114 = icmp ugt ptr %105, %.185
+  %.not114 = icmp ugt ptr %105, %.084
   br i1 %.not114, label %109, label %106
 
 106:                                              ; preds = %104
@@ -3182,8 +3182,8 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   br label %111
 
 111:                                              ; preds = %109, %._crit_edge
-  %.1 = phi i32 [ %110, %109 ], [ %96, %._crit_edge ]
-  %.not115 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %110, %109 ], [ %96, %._crit_edge ]
+  %.not115 = icmp eq i32 %.2, 0
   br i1 %.not115, label %.thread, label %FT_Stroker_BeginSubPath.exit.thread
 
 .thread:                                          ; preds = %.backedge, %FT_Stroker_BeginSubPath.exit, %111
@@ -3204,7 +3204,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   br i1 %118, label %31, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !18
 
 FT_Stroker_BeginSubPath.exit.thread:              ; preds = %115, %113, %111, %37, %100, %97, %75, %86, %106, %.lr.ph, %88, %FT_Stroker_Rewind.exit, %12, %3
-  %.078 = phi i32 [ 20, %3 ], [ 6, %12 ], [ 0, %FT_Stroker_Rewind.exit ], [ 20, %.lr.ph ], [ %93, %88 ], [ 20, %100 ], [ 20, %97 ], [ %77, %75 ], [ %87, %86 ], [ %108, %106 ], [ 0, %115 ], [ %114, %113 ], [ %.1, %111 ], [ 20, %37 ]
+  %.078 = phi i32 [ 20, %3 ], [ 6, %12 ], [ 0, %FT_Stroker_Rewind.exit ], [ 20, %.lr.ph ], [ %93, %88 ], [ 20, %100 ], [ 20, %97 ], [ %77, %75 ], [ %87, %86 ], [ %108, %106 ], [ 0, %115 ], [ %114, %113 ], [ %.2, %111 ], [ 20, %37 ]
   ret i32 %.078
 }
 
@@ -3362,20 +3362,20 @@ FT_Stroker_GetCounts.exit:                        ; preds = %16, %ft_stroke_bord
   br label %.sink.split
 
 56:                                               ; preds = %FT_Stroker_GetCounts.exit, %12
-  %.0 = phi i32 [ %15, %12 ], [ %51, %FT_Stroker_GetCounts.exit ]
+  %.1 = phi i32 [ %15, %12 ], [ %51, %FT_Stroker_GetCounts.exit ]
   call void @FT_Done_Glyph(ptr noundef %13) #11
   %.not40 = icmp eq i8 %2, 0
   br i1 %.not40, label %.sink.split, label %57
 
 .sink.split:                                      ; preds = %56, %52, %54
   %.sink = phi ptr [ %13, %54 ], [ %13, %52 ], [ null, %56 ]
-  %.1.ph = phi i32 [ 0, %54 ], [ 0, %52 ], [ %.0, %56 ]
+  %.0.ph = phi i32 [ 0, %54 ], [ 0, %52 ], [ %.1, %56 ]
   store ptr %.sink, ptr %0, align 8
   br label %57
 
 57:                                               ; preds = %.sink.split, %56, %10, %5, %7, %3
-  %.1 = phi i32 [ 6, %7 ], [ %11, %10 ], [ %.0, %56 ], [ 6, %5 ], [ 6, %3 ], [ %.1.ph, %.sink.split ]
-  ret i32 %.1
+  %.0 = phi i32 [ 6, %7 ], [ %11, %10 ], [ %.1, %56 ], [ 6, %5 ], [ 6, %3 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 declare i32 @FT_Glyph_Copy(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3494,20 +3494,20 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
   br label %.sink.split
 
 46:                                               ; preds = %FT_Stroker_GetBorderCounts.exit, %13
-  %.0 = phi i32 [ %18, %13 ], [ %41, %FT_Stroker_GetBorderCounts.exit ]
+  %.1 = phi i32 [ %18, %13 ], [ %41, %FT_Stroker_GetBorderCounts.exit ]
   call void @FT_Done_Glyph(ptr noundef %14) #11
   %.not47 = icmp eq i8 %3, 0
   br i1 %.not47, label %.sink.split, label %47
 
 .sink.split:                                      ; preds = %46, %42, %44
   %.sink = phi ptr [ %14, %44 ], [ %14, %42 ], [ null, %46 ]
-  %.1.ph = phi i32 [ 0, %44 ], [ 0, %42 ], [ %.0, %46 ]
+  %.0.ph = phi i32 [ 0, %44 ], [ 0, %42 ], [ %.1, %46 ]
   store ptr %.sink, ptr %0, align 8
   br label %47
 
 47:                                               ; preds = %.sink.split, %46, %11, %6, %8, %4
-  %.1 = phi i32 [ 6, %8 ], [ %12, %11 ], [ %.0, %46 ], [ 6, %6 ], [ 6, %4 ], [ %.1.ph, %.sink.split ]
-  ret i32 %.1
+  %.0 = phi i32 [ 6, %8 ], [ %12, %11 ], [ %.1, %46 ], [ 6, %6 ], [ 6, %4 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

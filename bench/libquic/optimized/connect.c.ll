@@ -694,33 +694,33 @@ if.else68:                                        ; preds = %if.then62
   br label %exit_loop
 
 sw.epilog:                                        ; preds = %sw.bb58, %if.end41
-  %ret.1 = phi i32 [ %call45, %if.end41 ], [ %ret.0, %sw.bb58 ]
+  %ret.2 = phi i32 [ %call45, %if.end41 ], [ %ret.0, %sw.bb58 ]
   store i32 2, ptr %c, align 8
   br i1 %cmp.not, label %for.cond.backedge, label %if.then77
 
 if.then77:                                        ; preds = %sw.epilog
-  %call79 = call i32 %0(ptr noundef nonnull %bio, i32 noundef 2, i32 noundef %ret.1) #9
+  %call79 = call i32 %0(ptr noundef nonnull %bio, i32 noundef 2, i32 noundef %ret.2) #9
   %cmp80 = icmp eq i32 %call79, 0
   br i1 %cmp80, label %end, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then77, %sw.epilog
-  %ret.0.be = phi i32 [ %call79, %if.then77 ], [ %ret.1, %sw.epilog ]
+  %ret.0.be = phi i32 [ %call79, %if.then77 ], [ %ret.2, %sw.epilog ]
   br label %for.cond
 
 exit_loop.loopexit:                               ; preds = %for.cond
   br label %exit_loop
 
 exit_loop:                                        ; preds = %for.cond, %exit_loop.loopexit, %if.then65, %if.else68, %if.then50, %if.else, %if.then38, %if.then30, %if.then21, %if.then9, %if.then3
-  %ret.3 = phi i32 [ -1, %if.then65 ], [ 0, %if.else68 ], [ %ret.0, %if.then3 ], [ %ret.0, %if.then9 ], [ %call36, %if.then38 ], [ %call45, %if.then50 ], [ %call45, %if.else ], [ %ret.0, %if.then30 ], [ %ret.0, %if.then21 ], [ %ret.0, %exit_loop.loopexit ], [ 1, %for.cond ]
+  %ret.1 = phi i32 [ -1, %if.then65 ], [ 0, %if.else68 ], [ %ret.0, %if.then3 ], [ %ret.0, %if.then9 ], [ %call36, %if.then38 ], [ %call45, %if.then50 ], [ %call45, %if.else ], [ %ret.0, %if.then30 ], [ %ret.0, %if.then21 ], [ %ret.0, %exit_loop.loopexit ], [ 1, %for.cond ]
   br i1 %cmp.not, label %end, label %if.then85
 
 if.then85:                                        ; preds = %exit_loop
   %27 = load i32, ptr %c, align 8
-  %call87 = call i32 %0(ptr noundef %bio, i32 noundef %27, i32 noundef %ret.3) #9
+  %call87 = call i32 %0(ptr noundef %bio, i32 noundef %27, i32 noundef %ret.1) #9
   br label %end
 
 end:                                              ; preds = %if.then77, %exit_loop, %if.then85
-  %ret.4 = phi i32 [ %call87, %if.then85 ], [ %ret.3, %exit_loop ], [ 0, %if.then77 ]
+  %ret.4 = phi i32 [ %call87, %if.then85 ], [ %ret.1, %exit_loop ], [ 0, %if.then77 ]
   ret i32 %ret.4
 }
 

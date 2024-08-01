@@ -477,7 +477,7 @@ _ZN19cmListFileBacktraceD2Ev.exit.i:              ; preds = %_ZNSt16_Sp_counted_
   br label %123
 
 123:                                              ; preds = %.noexc19, %.lr.ph.i
-  %.025.i = phi i1 [ true, %.lr.ph.i ], [ %.2.i, %.noexc19 ]
+  %.025.i = phi i1 [ true, %.lr.ph.i ], [ %.1.i, %.noexc19 ]
   %124 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZNK12cmConstStackI17cmListFileContext19cmListFileBacktraceE3TopEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
           to label %.noexc16 unwind label %.loopexit
 
@@ -572,7 +572,7 @@ _ZN17cmListFileContextC2ERKS_.exit.i:             ; preds = %.noexc.i.i, %126
           to label %158 unwind label %144
 
 158:                                              ; preds = %156, %_ZN17cmListFileContextC2ERKS_.exit.i
-  %.2.i = phi i1 [ %.025.i, %_ZN17cmListFileContextC2ERKS_.exit.i ], [ false, %156 ]
+  %.1.i = phi i1 [ %.025.i, %_ZN17cmListFileContextC2ERKS_.exit.i ], [ false, %156 ]
   %159 = load i8, ptr %119, align 8
   %160 = trunc i8 %159 to i1
   br i1 %160, label %161, label %_ZN17cmListFileContextD2Ev.exit.i

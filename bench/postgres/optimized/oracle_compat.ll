@@ -744,9 +744,9 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 .lr.ph222.us:                                     ; preds = %.lr.ph222.us.preheader, %57
   %indvars.iv275 = phi i64 [ 0, %.lr.ph222.us.preheader ], [ %indvars.iv.next276, %57 ]
-  %.0138.us = phi i32 [ %21, %.lr.ph222.us.preheader ], [ %60, %57 ]
-  %.0129.us = phi i32 [ %1, %.lr.ph222.us.preheader ], [ %59, %57 ]
-  %.0.us = phi ptr [ %0, %.lr.ph222.us.preheader ], [ %58, %57 ]
+  %.1139.us = phi i32 [ %21, %.lr.ph222.us.preheader ], [ %60, %57 ]
+  %.2131.us = phi i32 [ %1, %.lr.ph222.us.preheader ], [ %59, %57 ]
+  %.2.us = phi ptr [ %0, %.lr.ph222.us.preheader ], [ %58, %57 ]
   %43 = getelementptr ptr, ptr %14, i64 %indvars.iv275
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i32, ptr %16, i64 %indvars.iv275
@@ -774,10 +774,10 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %exitcond274.not, label %.loopexit.loopexit, label %48, !llvm.loop !12
 
 57:                                               ; preds = %52
-  %58 = getelementptr i8, ptr %.0.us, i64 %47
-  %59 = sub i32 %.0129.us, %46
+  %58 = getelementptr i8, ptr %.2.us, i64 %47
+  %59 = sub i32 %.2131.us, %46
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
-  %60 = add nsw i32 %.0138.us, -1
+  %60 = add nsw i32 %.1139.us, -1
   %exitcond279.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count278
   br i1 %exitcond279.not, label %.thread164, label %.lr.ph222.us
 
@@ -786,25 +786,25 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge218
-  %.1142 = phi i64 [ -1, %._crit_edge218 ], [ %61, %.loopexit.loopexit ]
-  %.1139 = phi i32 [ %21, %._crit_edge218 ], [ %.0138.us, %.loopexit.loopexit ]
-  %.1130 = phi i32 [ %1, %._crit_edge218 ], [ %.0129.us, %.loopexit.loopexit ]
-  %.1 = phi ptr [ %0, %._crit_edge218 ], [ %.0.us, %.loopexit.loopexit ]
-  %62 = icmp sgt i32 %.1139, 0
+  %.0141 = phi i64 [ -1, %._crit_edge218 ], [ %61, %.loopexit.loopexit ]
+  %.0138 = phi i32 [ %21, %._crit_edge218 ], [ %.1139.us, %.loopexit.loopexit ]
+  %.1130 = phi i32 [ %1, %._crit_edge218 ], [ %.2131.us, %.loopexit.loopexit ]
+  %.1 = phi ptr [ %0, %._crit_edge218 ], [ %.2.us, %.loopexit.loopexit ]
+  %62 = icmp sgt i32 %.0138, 0
   %or.cond6 = select i1 %5, i1 %62, i1 false
   %63 = icmp ult i32 %.0143213, 2147483647
   %or.cond305 = and i1 %or.cond6, %63
   br i1 %or.cond305, label %.lr.ph239.us.preheader, label %.thread164
 
 .lr.ph239.us.preheader:                           ; preds = %.loopexit
-  %64 = zext nneg i32 %.1139 to i64
+  %64 = zext nneg i32 %.0138 to i64
   %wide.trip.count283 = zext i32 %35 to i64
   br label %.lr.ph239.us
 
 .lr.ph239.us:                                     ; preds = %.lr.ph239.us.preheader, %81
   %indvars.iv285 = phi i64 [ %64, %.lr.ph239.us.preheader ], [ %indvars.iv.next286, %81 ]
-  %.2131.us = phi i32 [ %.1130, %.lr.ph239.us.preheader ], [ %82, %81 ]
-  %65 = add i64 %.1142, %indvars.iv285
+  %.4133.us = phi i32 [ %.1130, %.lr.ph239.us.preheader ], [ %82, %81 ]
+  %65 = add i64 %.0141, %indvars.iv285
   %sext = shl i64 %65, 32
   %66 = ashr exact i64 %sext, 32
   %67 = getelementptr ptr, ptr %14, i64 %66
@@ -834,14 +834,14 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %exitcond284.not, label %.thread164, label %72, !llvm.loop !13
 
 81:                                               ; preds = %76
-  %82 = sub i32 %.2131.us, %70
+  %82 = sub i32 %.4133.us, %70
   %indvars.iv.next286 = add nsw i64 %indvars.iv285, -1
   %.old5.us = icmp sgt i64 %indvars.iv285, 1
   br i1 %.old5.us, label %.lr.ph239.us, label %.thread164
 
 .thread164:                                       ; preds = %57, %81, %80, %.loopexit
   %.1170 = phi ptr [ %.1, %.loopexit ], [ %.1, %80 ], [ %.1, %81 ], [ %58, %57 ]
-  %.3132 = phi i32 [ %.1130, %.loopexit ], [ %.2131.us, %80 ], [ %82, %81 ], [ %59, %57 ]
+  %.3132 = phi i32 [ %.1130, %.loopexit ], [ %.4133.us, %80 ], [ %82, %81 ], [ %59, %57 ]
   tail call void @pfree(ptr noundef %14) #8
   tail call void @pfree(ptr noundef %16) #8
   tail call void @pfree(ptr noundef %28) #8
@@ -858,9 +858,9 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %91
-  %.4133.us = phi i32 [ %93, %91 ], [ %1, %.lr.ph.us.preheader ]
-  %.2.us = phi ptr [ %92, %91 ], [ %0, %.lr.ph.us.preheader ]
-  %85 = load i8, ptr %.2.us, align 1
+  %.6.us = phi i32 [ %93, %91 ], [ %1, %.lr.ph.us.preheader ]
+  %.4.us = phi ptr [ %92, %91 ], [ %0, %.lr.ph.us.preheader ]
+  %85 = load i8, ptr %.4.us, align 1
   br label %87
 
 86:                                               ; preds = %87
@@ -876,14 +876,14 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %90, label %91, label %86
 
 91:                                               ; preds = %87
-  %92 = getelementptr i8, ptr %.2.us, i64 1
-  %93 = add nsw i32 %.4133.us, -1
-  %.old8.us = icmp sgt i32 %.4133.us, 1
+  %92 = getelementptr i8, ptr %.4.us, i64 1
+  %93 = add nsw i32 %.6.us, -1
+  %.old8.us = icmp sgt i32 %.6.us, 1
   br i1 %.old8.us, label %.lr.ph.us, label %.thread173
 
 .loopexit183:                                     ; preds = %86, %83
-  %.5 = phi i32 [ %1, %83 ], [ %.4133.us, %86 ]
-  %.3 = phi ptr [ %0, %83 ], [ %.2.us, %86 ]
+  %.5 = phi i32 [ %1, %83 ], [ %.6.us, %86 ]
+  %.3 = phi ptr [ %0, %83 ], [ %.4.us, %86 ]
   %94 = icmp sgt i32 %.5, 0
   %or.cond12 = select i1 %5, i1 %94, i1 false
   br i1 %or.cond12, label %.lr.ph.us208.preheader, label %.thread173
@@ -922,9 +922,9 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %.thread173
 
 .thread173:                                       ; preds = %91, %103, %.thread173.loopexit, %.thread164, %.loopexit183, %6
-  %.7 = phi i32 [ %.3132, %.thread164 ], [ %.5, %.loopexit183 ], [ %1, %6 ], [ %104, %.thread173.loopexit ], [ 0, %103 ], [ 0, %91 ]
-  %.4 = phi ptr [ %.1170, %.thread164 ], [ %.3, %.loopexit183 ], [ %0, %6 ], [ %.3, %.thread173.loopexit ], [ %.3, %103 ], [ %scevgep, %91 ]
-  %105 = tail call ptr @cstring_to_text_with_len(ptr noundef %.4, i32 noundef %.7) #8
+  %.0129 = phi i32 [ %.3132, %.thread164 ], [ %.5, %.loopexit183 ], [ %1, %6 ], [ %104, %.thread173.loopexit ], [ 0, %103 ], [ 0, %91 ]
+  %.0 = phi ptr [ %.1170, %.thread164 ], [ %.3, %.loopexit183 ], [ %0, %6 ], [ %.3, %.thread173.loopexit ], [ %.3, %103 ], [ %scevgep, %91 ]
+  %105 = tail call ptr @cstring_to_text_with_len(ptr noundef %.0, i32 noundef %.0129) #8
   ret ptr %105
 }
 
@@ -1093,9 +1093,9 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly %0, ptr nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %72
-  %.068 = phi i32 [ %74, %72 ], [ %27, %.lr.ph.preheader ]
-  %.067 = phi ptr [ %73, %72 ], [ %55, %.lr.ph.preheader ]
-  %66 = load i8, ptr %.067, align 1
+  %.169 = phi i32 [ %74, %72 ], [ %27, %.lr.ph.preheader ]
+  %.1 = phi ptr [ %73, %72 ], [ %55, %.lr.ph.preheader ]
+  %66 = load i8, ptr %.1, align 1
   br label %69
 
 67:                                               ; preds = %69
@@ -1110,15 +1110,15 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly %0, ptr nou
   br i1 %71, label %72, label %67
 
 72:                                               ; preds = %69
-  %73 = getelementptr i8, ptr %.067, i64 1
-  %74 = add nsw i32 %.068, -1
-  %.old2 = icmp sgt i32 %.068, 1
+  %73 = getelementptr i8, ptr %.1, i64 1
+  %74 = add nsw i32 %.169, -1
+  %.old2 = icmp sgt i32 %.169, 1
   br i1 %.old2, label %.lr.ph, label %.thread93
 
 .thread:                                          ; preds = %67, %53
-  %.169 = phi i32 [ %27, %53 ], [ %.068, %67 ]
-  %.1 = phi ptr [ %55, %53 ], [ %.067, %67 ]
-  %75 = icmp slt i32 %.169, 1
+  %.068 = phi i32 [ %27, %53 ], [ %.169, %67 ]
+  %.067 = phi ptr [ %55, %53 ], [ %.1, %67 ]
+  %75 = icmp slt i32 %.068, 1
   %not. = xor i1 %3, true
   %or.cond6 = select i1 %not., i1 true, i1 %75
   %.not88112 = icmp ugt ptr %59, %62
@@ -1127,7 +1127,7 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly %0, ptr nou
 
 .lr.ph114:                                        ; preds = %.thread, %82
   %.pn = phi ptr [ %.070, %82 ], [ %57, %.thread ]
-  %.2 = phi i32 [ %83, %82 ], [ %.169, %.thread ]
+  %.3 = phi i32 [ %83, %82 ], [ %.068, %.thread ]
   %.070 = getelementptr i8, ptr %.pn, i64 -1
   %76 = load i8, ptr %.070, align 1
   br label %79
@@ -1144,21 +1144,21 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly %0, ptr nou
   br i1 %81, label %82, label %77
 
 82:                                               ; preds = %79
-  %83 = add nsw i32 %.2, -1
-  %.old5 = icmp sgt i32 %.2, 1
+  %83 = add nsw i32 %.3, -1
+  %.old5 = icmp sgt i32 %.3, 1
   br i1 %.old5, label %.lr.ph114, label %.thread93
 
 .thread93:                                        ; preds = %72, %82, %77, %.thread
-  %.197 = phi ptr [ %.1, %.thread ], [ %.1, %77 ], [ %.1, %82 ], [ %65, %72 ]
-  %.3 = phi i32 [ %.169, %.thread ], [ %.2, %77 ], [ 0, %82 ], [ 0, %72 ]
-  %84 = add nuw i32 %.3, 4
+  %.06797 = phi ptr [ %.067, %.thread ], [ %.067, %77 ], [ %.067, %82 ], [ %65, %72 ]
+  %.2 = phi i32 [ %.068, %.thread ], [ %.3, %77 ], [ 0, %82 ], [ 0, %72 ]
+  %84 = add nuw i32 %.2, 4
   %85 = sext i32 %84 to i64
   %86 = tail call ptr @palloc(i64 noundef %85) #8
   %87 = shl i32 %84, 2
   store i32 %87, ptr %86, align 4
   %88 = getelementptr inbounds i8, ptr %86, i64 4
-  %89 = zext nneg i32 %.3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %88, ptr align 1 %.197, i64 %89, i1 false)
+  %89 = zext nneg i32 %.2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %88, ptr align 1 %.06797, i64 %89, i1 false)
   br label %90
 
 90:                                               ; preds = %49, %.thread93

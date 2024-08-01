@@ -3532,8 +3532,8 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi0EEEbNS_3MatERN
   br label %46
 
 46:                                               ; preds = %4, %.loopexit, %12
-  %.1 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3627,8 +3627,8 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi1EEEbNS_3MatERN
   br label %46
 
 46:                                               ; preds = %4, %.loopexit, %12
-  %.1 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3722,8 +3722,8 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi2EEEbNS_3MatERN
   br label %46
 
 46:                                               ; preds = %4, %.loopexit, %12
-  %.1 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3817,8 +3817,8 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi3EEEbNS_3MatERN
   br label %46
 
 46:                                               ; preds = %4, %.loopexit, %12
-  %.1 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %12 ], [ %45, %.loopexit ], [ true, %4 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3901,8 +3901,8 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi4EEEbNS_3MatERN
   br label %40
 
 40:                                               ; preds = %.loopexit, %7
-  %.1 = phi i1 [ false, %7 ], [ %39, %.loopexit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %7 ], [ %39, %.loopexit ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6059,7 +6059,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %166
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %166, %_ZN2cv3Mat2atIdEERT_i.exit
-  %.1124 = phi double [ %169, %_ZN2cv3Mat2atIdEERT_i.exit ], [ 1.000000e+00, %166 ]
+  %.2125 = phi double [ %169, %_ZN2cv3Mat2atIdEERT_i.exit ], [ 1.000000e+00, %166 ]
   %.1121 = phi i32 [ 0, %_ZN2cv3Mat2atIdEERT_i.exit ], [ -1, %166 ]
   %170 = add nsw i32 %.1121, 1
   %.not.i191 = icmp eq i32 %67, 0
@@ -6195,8 +6195,8 @@ _ZN2cv3Mat2atIdEERT_i.exit199:                    ; preds = %_ZN2cv3Mat2atIdEERT
   %.0128 = phi double [ %165, %_ZN2cv3Mat2atIfEERT_i.exit188 ], [ %262, %_ZN2cv3Mat2atIdEERT_i.exit199 ]
   %.0127 = phi double [ %163, %_ZN2cv3Mat2atIfEERT_i.exit188 ], [ %260, %_ZN2cv3Mat2atIdEERT_i.exit199 ]
   %.0126 = phi double [ %162, %_ZN2cv3Mat2atIfEERT_i.exit188 ], [ %261, %_ZN2cv3Mat2atIdEERT_i.exit199 ]
-  %.2125 = phi double [ %.0123, %_ZN2cv3Mat2atIfEERT_i.exit188 ], [ %.1124, %_ZN2cv3Mat2atIdEERT_i.exit199 ]
-  %264 = fcmp oeq double %.2125, 0.000000e+00
+  %.1124 = phi double [ %.0123, %_ZN2cv3Mat2atIfEERT_i.exit188 ], [ %.2125, %_ZN2cv3Mat2atIdEERT_i.exit199 ]
+  %264 = fcmp oeq double %.1124, 0.000000e+00
   br i1 %264, label %265, label %298
 
 265:                                              ; preds = %263
@@ -6248,7 +6248,7 @@ _ZN2cv3Mat2atIdEERT_i.exit199:                    ; preds = %_ZN2cv3Mat2atIdEERT
   br label %366
 
 298:                                              ; preds = %263
-  %299 = fdiv double 1.000000e+00, %.2125
+  %299 = fdiv double 1.000000e+00, %.1124
   %300 = fmul double %.0126, %299
   %301 = fmul double %.0127, %299
   %302 = fmul double %.0128, %299
@@ -6312,9 +6312,9 @@ _ZN2cv3Mat2atIdEERT_i.exit199:                    ; preds = %_ZN2cv3Mat2atIdEERT
 
 349:                                              ; preds = %344, %340
   %.sink262 = phi double [ %348, %344 ], [ %343, %340 ]
-  %.1130 = phi double [ %346, %344 ], [ %342, %340 ]
+  %.2131 = phi double [ %346, %344 ], [ %342, %340 ]
   %350 = fsub double %.sink262, %338
-  %351 = fcmp oeq double %.1130, %350
+  %351 = fcmp oeq double %.2131, %350
   %352 = select i1 %351, i32 1, i32 2
   %353 = select i1 %351, double 0.000000e+00, double %350
   br label %366
@@ -6336,8 +6336,8 @@ _ZN2cv3Mat2atIdEERT_i.exit199:                    ; preds = %_ZN2cv3Mat2atIdEERT
 
 366:                                              ; preds = %318, %354, %349, %272, %269, %280, %275
   %.0135 = phi double [ 0.000000e+00, %269 ], [ 0.000000e+00, %272 ], [ 0.000000e+00, %280 ], [ 0.000000e+00, %275 ], [ %333, %318 ], [ 0.000000e+00, %349 ], [ 0.000000e+00, %354 ]
-  %.2134 = phi double [ 0.000000e+00, %269 ], [ 0.000000e+00, %272 ], [ %.0132, %280 ], [ 0.000000e+00, %275 ], [ %330, %318 ], [ %353, %349 ], [ 0.000000e+00, %354 ]
-  %.2131 = phi double [ 0.000000e+00, %269 ], [ %274, %272 ], [ %.0129, %280 ], [ 0.000000e+00, %275 ], [ %327, %318 ], [ %.1130, %349 ], [ %365, %354 ]
+  %.1133 = phi double [ 0.000000e+00, %269 ], [ 0.000000e+00, %272 ], [ %.0132, %280 ], [ 0.000000e+00, %275 ], [ %330, %318 ], [ %353, %349 ], [ 0.000000e+00, %354 ]
+  %.1130 = phi double [ 0.000000e+00, %269 ], [ %274, %272 ], [ %.0129, %280 ], [ 0.000000e+00, %275 ], [ %327, %318 ], [ %.2131, %349 ], [ %365, %354 ]
   %.0122 = phi i32 [ %271, %269 ], [ 1, %272 ], [ %297, %280 ], [ 0, %275 ], [ 3, %318 ], [ %352, %349 ], [ 1, %354 ]
   %367 = load i32, ptr %9, align 8
   %368 = and i32 %367, 4095
@@ -6347,7 +6347,7 @@ _ZN2cv3Mat2atIdEERT_i.exit199:                    ; preds = %_ZN2cv3Mat2atIdEERT
   br i1 %369, label %_ZN2cv3Mat2atIfEERT_i.exit202, label %_ZN2cv3Mat2atIdEERT_i.exit211
 
 _ZN2cv3Mat2atIfEERT_i.exit202:                    ; preds = %366
-  %372 = fptrunc double %.2131 to float
+  %372 = fptrunc double %.1130 to float
   store float %372, ptr %371, align 4
   %373 = load i32, ptr %9, align 8
   %374 = and i32 %373, 16384
@@ -6405,7 +6405,7 @@ _ZN2cv3Mat2atIfEERT_i.exit202:                    ; preds = %366
 
 _ZN2cv3Mat2atIfEERT_i.exit205:                    ; preds = %395, %388, %380
   %.0.i204 = phi ptr [ %383, %380 ], [ %394, %388 ], [ %412, %395 ]
-  %413 = fptrunc double %.2134 to float
+  %413 = fptrunc double %.1133 to float
   store float %413, ptr %.0.i204, align 4
   %414 = load i32, ptr %9, align 8
   %415 = and i32 %414, 16384
@@ -6466,7 +6466,7 @@ _ZN2cv3Mat2atIfEERT_i.exit208:                    ; preds = %437, %429, %421
   br label %531
 
 _ZN2cv3Mat2atIdEERT_i.exit211:                    ; preds = %366
-  store double %.2131, ptr %371, align 8
+  store double %.1130, ptr %371, align 8
   %453 = load i32, ptr %9, align 8
   %454 = and i32 %453, 16384
   %.not.i212 = icmp eq i32 %454, 0
@@ -6523,7 +6523,7 @@ _ZN2cv3Mat2atIdEERT_i.exit211:                    ; preds = %366
 
 _ZN2cv3Mat2atIdEERT_i.exit214:                    ; preds = %460, %468, %475
   %.0.i213 = phi ptr [ %463, %460 ], [ %474, %468 ], [ %492, %475 ]
-  store double %.2134, ptr %.0.i213, align 8
+  store double %.1133, ptr %.0.i213, align 8
   %493 = load i32, ptr %9, align 8
   %494 = and i32 %493, 16384
   %.not.i215 = icmp eq i32 %494, 0
@@ -6961,7 +6961,7 @@ _ZNK2cv11_InputArray6getMatEi.exit197:            ; preds = %66, %69
 
 .lr.ph289.us:                                     ; preds = %.preheader263.us, %288
   %indvars.iv347 = phi i64 [ 0, %.preheader263.us ], [ %indvars.iv.next348, %288 ]
-  %.1258305.us = phi double [ 0.000000e+00, %.preheader263.us ], [ %.sroa.speculated.us, %288 ]
+  %.2259305.us = phi double [ 0.000000e+00, %.preheader263.us ], [ %.sroa.speculated.us, %288 ]
   %150 = getelementptr inbounds %"class.cv::Complex", ptr %83, i64 %indvars.iv347
   %151 = load <2 x double>, ptr %150, align 8
   %152 = load <2 x double>, ptr %139, align 8
@@ -7201,8 +7201,8 @@ _ZN2cv3Mat2atIdEERT_i.exit228.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
   %293 = extractelement <2 x double> %289, i64 0
   %294 = call double @llvm.fmuladd.f64(double %293, double %293, double %292)
   %sqrt.i.us = call noundef double @llvm.sqrt.f64(double %294)
-  %295 = fcmp olt double %.1258305.us, %sqrt.i.us
-  %.sroa.speculated.us = select i1 %295, double %sqrt.i.us, double %.1258305.us
+  %295 = fcmp olt double %.2259305.us, %sqrt.i.us
+  %.sroa.speculated.us = select i1 %295, double %sqrt.i.us, double %.2259305.us
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count350
   br i1 %exitcond351.not, label %._crit_edge308.us, label %.lr.ph289.us, !llvm.loop !134

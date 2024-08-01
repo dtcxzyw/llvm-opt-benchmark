@@ -595,7 +595,7 @@ do.body:                                          ; preds = %if.then.i, %land.lh
   br label %land.rhs23
 
 land.rhs23:                                       ; preds = %do.body, %uv__run_pending.exit69
-  %r.199 = phi i32 [ 0, %do.body ], [ %inc29, %uv__run_pending.exit69 ]
+  %r.299 = phi i32 [ 0, %do.body ], [ %inc29, %uv__run_pending.exit69 ]
   %27 = load ptr, ptr %pending_queue, align 8
   %cmp.i53.not = icmp eq ptr %27, %pending_queue
   br i1 %cmp.i53.not, label %for.end, label %for.body
@@ -635,7 +635,7 @@ while.body.i64:                                   ; preds = %for.body, %while.bo
 
 uv__run_pending.exit69:                           ; preds = %while.body.i64, %for.body
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pq.i55)
-  %inc29 = add nuw nsw i32 %r.199, 1
+  %inc29 = add nuw nsw i32 %r.299, 1
   %exitcond.not = icmp eq i32 %inc29, 8
   br i1 %exitcond.not, label %for.end, label %land.rhs23
 
@@ -768,7 +768,7 @@ uv__loop_alive.exit88:                            ; preds = %uv__run_closing_han
   br i1 %or.cond4, label %land.rhs, label %while.end
 
 while.end:                                        ; preds = %uv__loop_alive.exit88, %land.rhs, %if.end5.thread
-  %r.2 = phi i32 [ 0, %if.end5.thread ], [ 1, %land.rhs ], [ %lor.ext.i78, %uv__loop_alive.exit88 ]
+  %r.1 = phi i32 [ 0, %if.end5.thread ], [ 1, %land.rhs ], [ %lor.ext.i78, %uv__loop_alive.exit88 ]
   %stop_flag36 = getelementptr inbounds i8, ptr %loop, i64 48
   %57 = load i32, ptr %stop_flag36, align 8
   %cmp37.not = icmp eq i32 %57, 0
@@ -779,7 +779,7 @@ if.then38:                                        ; preds = %while.end
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %while.end
-  ret i32 %r.2
+  ret i32 %r.1
 }
 
 declare void @uv__run_timers(ptr noundef) local_unnamed_addr #3

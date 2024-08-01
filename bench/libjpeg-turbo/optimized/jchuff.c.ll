@@ -2031,7 +2031,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %227
 
 227:                                              ; preds = %205, %176
-  %.610920 = phi ptr [ %204, %176 ], [ %226, %205 ]
+  %.710921 = phi ptr [ %204, %176 ], [ %226, %205 ]
   %228 = add nsw i32 %162, 64
   %229 = sext i32 %156 to i64
   br label %235
@@ -2044,17 +2044,17 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %235
 
 235:                                              ; preds = %227, %230, %127
-  %.411298 = phi i32 [ %.011294, %127 ], [ %228, %227 ], [ %162, %230 ]
-  %.411044 = phi i64 [ %.011040, %127 ], [ %229, %227 ], [ %234, %230 ]
-  %.810922 = phi ptr [ %.210916, %127 ], [ %.610920, %227 ], [ %.210916, %230 ]
-  %.1 = phi i32 [ 16, %127 ], [ 0, %227 ], [ 0, %230 ]
+  %.111295 = phi i32 [ %.011294, %127 ], [ %228, %227 ], [ %162, %230 ]
+  %.111041 = phi i64 [ %.011040, %127 ], [ %229, %227 ], [ %234, %230 ]
+  %.310917 = phi ptr [ %.210916, %127 ], [ %.710921, %227 ], [ %.210916, %230 ]
+  %.010912 = phi i32 [ 16, %127 ], [ 0, %227 ], [ 0, %230 ]
   %236 = getelementptr inbounds i8, ptr %1, i64 16
   %237 = load i16, ptr %236, align 2
   %238 = icmp eq i16 %237, 0
   br i1 %238, label %239, label %241
 
 239:                                              ; preds = %235
-  %240 = add nuw nsw i32 %.1, 16
+  %240 = add nuw nsw i32 %.010912, 16
   br label %347
 
 241:                                              ; preds = %235
@@ -2081,7 +2081,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %258
 
 258:                                              ; preds = %251, %241
-  %259 = add nuw nsw i32 %.1, %249
+  %259 = add nuw nsw i32 %.010912, %249
   %260 = zext nneg i8 %248 to i64
   %notmask11901 = shl nsw i64 -1, %260
   %261 = trunc i64 %notmask11901 to i32
@@ -2097,13 +2097,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %271 = load i8, ptr %270, align 1
   %272 = sext i8 %271 to i32
   %273 = add nsw i32 %272, %249
-  %274 = sub nsw i32 %.411298, %273
+  %274 = sub nsw i32 %.111295, %273
   %275 = icmp slt i32 %274, 0
   br i1 %275, label %276, label %342
 
 276:                                              ; preds = %258
-  %277 = zext nneg i32 %.411298 to i64
-  %278 = shl i64 %.411044, %277
+  %277 = zext nneg i32 %.111295 to i64
+  %278 = shl i64 %.111041, %277
   %279 = sub nsw i32 0, %274
   %280 = ashr i32 %268, %279
   %281 = sext i32 %280 to i64
@@ -2114,19 +2114,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not11902 = icmp eq i64 %285, 0
   %286 = lshr i64 %282, 56
   %287 = trunc nuw i64 %286 to i8
-  store i8 %287, ptr %.810922, align 1
+  store i8 %287, ptr %.310917, align 1
   br i1 %.not11902, label %317, label %288
 
 288:                                              ; preds = %276
-  %289 = getelementptr inbounds i8, ptr %.810922, i64 1
+  %289 = getelementptr inbounds i8, ptr %.310917, i64 1
   store i8 0, ptr %289, align 1
   %.not11903 = icmp eq i64 %286, 255
-  %.sroa.gep13852 = getelementptr inbounds i8, ptr %.810922, i64 2
+  %.sroa.gep13852 = getelementptr inbounds i8, ptr %.310917, i64 2
   %.neg11904.sroa.sel = select i1 %.not11903, ptr %.sroa.gep13852, ptr %289
   %290 = lshr i64 %282, 48
   %291 = trunc i64 %290 to i8
   store i8 %291, ptr %.neg11904.sroa.sel, align 1
-  %.sroa.gep16193 = getelementptr inbounds i8, ptr %.810922, i64 3
+  %.sroa.gep16193 = getelementptr inbounds i8, ptr %.310917, i64 3
   %.neg11904.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11903, ptr %.sroa.gep16193, ptr %.sroa.gep13852
   store i8 0, ptr %.neg11904.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %292 = and i64 %282, 71776119061217280
@@ -2194,59 +2194,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 317:                                              ; preds = %276
   %318 = lshr i64 %282, 48
   %319 = trunc i64 %318 to i8
-  %320 = getelementptr inbounds i8, ptr %.810922, i64 1
+  %320 = getelementptr inbounds i8, ptr %.310917, i64 1
   store i8 %319, ptr %320, align 1
   %321 = lshr i64 %282, 40
   %322 = trunc i64 %321 to i8
-  %323 = getelementptr inbounds i8, ptr %.810922, i64 2
+  %323 = getelementptr inbounds i8, ptr %.310917, i64 2
   store i8 %322, ptr %323, align 1
   %324 = lshr i64 %282, 32
   %325 = trunc i64 %324 to i8
-  %326 = getelementptr inbounds i8, ptr %.810922, i64 3
+  %326 = getelementptr inbounds i8, ptr %.310917, i64 3
   store i8 %325, ptr %326, align 1
   %327 = lshr i64 %282, 24
   %328 = trunc i64 %327 to i8
-  %329 = getelementptr inbounds i8, ptr %.810922, i64 4
+  %329 = getelementptr inbounds i8, ptr %.310917, i64 4
   store i8 %328, ptr %329, align 1
   %330 = lshr i64 %282, 16
   %331 = trunc i64 %330 to i8
-  %332 = getelementptr inbounds i8, ptr %.810922, i64 5
+  %332 = getelementptr inbounds i8, ptr %.310917, i64 5
   store i8 %331, ptr %332, align 1
   %333 = lshr i64 %282, 8
   %334 = trunc i64 %333 to i8
-  %335 = getelementptr inbounds i8, ptr %.810922, i64 6
+  %335 = getelementptr inbounds i8, ptr %.310917, i64 6
   store i8 %334, ptr %335, align 1
   %336 = trunc i64 %282 to i8
-  %337 = getelementptr inbounds i8, ptr %.810922, i64 7
+  %337 = getelementptr inbounds i8, ptr %.310917, i64 7
   store i8 %336, ptr %337, align 1
-  %338 = getelementptr inbounds i8, ptr %.810922, i64 8
+  %338 = getelementptr inbounds i8, ptr %.310917, i64 8
   br label %339
 
 339:                                              ; preds = %317, %288
-  %.1210926 = phi ptr [ %316, %288 ], [ %338, %317 ]
+  %.1310927 = phi ptr [ %316, %288 ], [ %338, %317 ]
   %340 = add nsw i32 %274, 64
   %341 = sext i32 %268 to i64
   br label %347
 
 342:                                              ; preds = %258
   %343 = zext nneg i32 %273 to i64
-  %344 = shl i64 %.411044, %343
+  %344 = shl i64 %.111041, %343
   %345 = sext i32 %268 to i64
   %346 = or i64 %344, %345
   br label %347
 
 347:                                              ; preds = %339, %342, %239
-  %.811302 = phi i32 [ %.411298, %239 ], [ %340, %339 ], [ %274, %342 ]
-  %.811048 = phi i64 [ %.411044, %239 ], [ %341, %339 ], [ %346, %342 ]
-  %.1410928 = phi ptr [ %.810922, %239 ], [ %.1210926, %339 ], [ %.810922, %342 ]
-  %.3 = phi i32 [ %240, %239 ], [ 0, %339 ], [ 0, %342 ]
+  %.511299 = phi i32 [ %.111295, %239 ], [ %340, %339 ], [ %274, %342 ]
+  %.511045 = phi i64 [ %.111041, %239 ], [ %341, %339 ], [ %346, %342 ]
+  %.910923 = phi ptr [ %.310917, %239 ], [ %.1310927, %339 ], [ %.310917, %342 ]
+  %.2 = phi i32 [ %240, %239 ], [ 0, %339 ], [ 0, %342 ]
   %348 = getelementptr inbounds i8, ptr %1, i64 32
   %349 = load i16, ptr %348, align 2
   %350 = icmp eq i16 %349, 0
   br i1 %350, label %351, label %353
 
 351:                                              ; preds = %347
-  %352 = add nuw nsw i32 %.3, 16
+  %352 = add nuw nsw i32 %.2, 16
   br label %459
 
 353:                                              ; preds = %347
@@ -2273,7 +2273,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %370
 
 370:                                              ; preds = %363, %353
-  %371 = add nuw nsw i32 %.3, %361
+  %371 = add nuw nsw i32 %.2, %361
   %372 = zext nneg i8 %360 to i64
   %notmask11919 = shl nsw i64 -1, %372
   %373 = trunc i64 %notmask11919 to i32
@@ -2289,13 +2289,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %383 = load i8, ptr %382, align 1
   %384 = sext i8 %383 to i32
   %385 = add nsw i32 %384, %361
-  %386 = sub nsw i32 %.811302, %385
+  %386 = sub nsw i32 %.511299, %385
   %387 = icmp slt i32 %386, 0
   br i1 %387, label %388, label %454
 
 388:                                              ; preds = %370
-  %389 = zext nneg i32 %.811302 to i64
-  %390 = shl i64 %.811048, %389
+  %389 = zext nneg i32 %.511299 to i64
+  %390 = shl i64 %.511045, %389
   %391 = sub nsw i32 0, %386
   %392 = ashr i32 %380, %391
   %393 = sext i32 %392 to i64
@@ -2306,19 +2306,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not11920 = icmp eq i64 %397, 0
   %398 = lshr i64 %394, 56
   %399 = trunc nuw i64 %398 to i8
-  store i8 %399, ptr %.1410928, align 1
+  store i8 %399, ptr %.910923, align 1
   br i1 %.not11920, label %429, label %400
 
 400:                                              ; preds = %388
-  %401 = getelementptr inbounds i8, ptr %.1410928, i64 1
+  %401 = getelementptr inbounds i8, ptr %.910923, i64 1
   store i8 0, ptr %401, align 1
   %.not11921 = icmp eq i64 %398, 255
-  %.sroa.gep13860 = getelementptr inbounds i8, ptr %.1410928, i64 2
+  %.sroa.gep13860 = getelementptr inbounds i8, ptr %.910923, i64 2
   %.neg11922.sroa.sel = select i1 %.not11921, ptr %.sroa.gep13860, ptr %401
   %402 = lshr i64 %394, 48
   %403 = trunc i64 %402 to i8
   store i8 %403, ptr %.neg11922.sroa.sel, align 1
-  %.sroa.gep16191 = getelementptr inbounds i8, ptr %.1410928, i64 3
+  %.sroa.gep16191 = getelementptr inbounds i8, ptr %.910923, i64 3
   %.neg11922.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11921, ptr %.sroa.gep16191, ptr %.sroa.gep13860
   store i8 0, ptr %.neg11922.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %404 = and i64 %394, 71776119061217280
@@ -2386,59 +2386,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 429:                                              ; preds = %388
   %430 = lshr i64 %394, 48
   %431 = trunc i64 %430 to i8
-  %432 = getelementptr inbounds i8, ptr %.1410928, i64 1
+  %432 = getelementptr inbounds i8, ptr %.910923, i64 1
   store i8 %431, ptr %432, align 1
   %433 = lshr i64 %394, 40
   %434 = trunc i64 %433 to i8
-  %435 = getelementptr inbounds i8, ptr %.1410928, i64 2
+  %435 = getelementptr inbounds i8, ptr %.910923, i64 2
   store i8 %434, ptr %435, align 1
   %436 = lshr i64 %394, 32
   %437 = trunc i64 %436 to i8
-  %438 = getelementptr inbounds i8, ptr %.1410928, i64 3
+  %438 = getelementptr inbounds i8, ptr %.910923, i64 3
   store i8 %437, ptr %438, align 1
   %439 = lshr i64 %394, 24
   %440 = trunc i64 %439 to i8
-  %441 = getelementptr inbounds i8, ptr %.1410928, i64 4
+  %441 = getelementptr inbounds i8, ptr %.910923, i64 4
   store i8 %440, ptr %441, align 1
   %442 = lshr i64 %394, 16
   %443 = trunc i64 %442 to i8
-  %444 = getelementptr inbounds i8, ptr %.1410928, i64 5
+  %444 = getelementptr inbounds i8, ptr %.910923, i64 5
   store i8 %443, ptr %444, align 1
   %445 = lshr i64 %394, 8
   %446 = trunc i64 %445 to i8
-  %447 = getelementptr inbounds i8, ptr %.1410928, i64 6
+  %447 = getelementptr inbounds i8, ptr %.910923, i64 6
   store i8 %446, ptr %447, align 1
   %448 = trunc i64 %394 to i8
-  %449 = getelementptr inbounds i8, ptr %.1410928, i64 7
+  %449 = getelementptr inbounds i8, ptr %.910923, i64 7
   store i8 %448, ptr %449, align 1
-  %450 = getelementptr inbounds i8, ptr %.1410928, i64 8
+  %450 = getelementptr inbounds i8, ptr %.910923, i64 8
   br label %451
 
 451:                                              ; preds = %429, %400
-  %.1810932 = phi ptr [ %428, %400 ], [ %450, %429 ]
+  %.1910933 = phi ptr [ %428, %400 ], [ %450, %429 ]
   %452 = add nsw i32 %386, 64
   %453 = sext i32 %380 to i64
   br label %459
 
 454:                                              ; preds = %370
   %455 = zext nneg i32 %385 to i64
-  %456 = shl i64 %.811048, %455
+  %456 = shl i64 %.511045, %455
   %457 = sext i32 %380 to i64
   %458 = or i64 %456, %457
   br label %459
 
 459:                                              ; preds = %451, %454, %351
-  %.1211306 = phi i32 [ %.811302, %351 ], [ %452, %451 ], [ %386, %454 ]
-  %.1211052 = phi i64 [ %.811048, %351 ], [ %453, %451 ], [ %458, %454 ]
-  %.2010934 = phi ptr [ %.1410928, %351 ], [ %.1810932, %451 ], [ %.1410928, %454 ]
-  %.5 = phi i32 [ %352, %351 ], [ 0, %451 ], [ 0, %454 ]
+  %.911303 = phi i32 [ %.511299, %351 ], [ %452, %451 ], [ %386, %454 ]
+  %.911049 = phi i64 [ %.511045, %351 ], [ %453, %451 ], [ %458, %454 ]
+  %.1510929 = phi ptr [ %.910923, %351 ], [ %.1910933, %451 ], [ %.910923, %454 ]
+  %.4 = phi i32 [ %352, %351 ], [ 0, %451 ], [ 0, %454 ]
   %460 = getelementptr inbounds i8, ptr %1, i64 18
   %461 = load i16, ptr %460, align 2
   %462 = icmp eq i16 %461, 0
   br i1 %462, label %463, label %465
 
 463:                                              ; preds = %459
-  %464 = add nuw nsw i32 %.5, 16
+  %464 = add nuw nsw i32 %.4, 16
   br label %571
 
 465:                                              ; preds = %459
@@ -2465,7 +2465,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %482
 
 482:                                              ; preds = %475, %465
-  %483 = add nuw nsw i32 %.5, %473
+  %483 = add nuw nsw i32 %.4, %473
   %484 = zext nneg i8 %472 to i64
   %notmask11937 = shl nsw i64 -1, %484
   %485 = trunc i64 %notmask11937 to i32
@@ -2481,13 +2481,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %495 = load i8, ptr %494, align 1
   %496 = sext i8 %495 to i32
   %497 = add nsw i32 %496, %473
-  %498 = sub nsw i32 %.1211306, %497
+  %498 = sub nsw i32 %.911303, %497
   %499 = icmp slt i32 %498, 0
   br i1 %499, label %500, label %566
 
 500:                                              ; preds = %482
-  %501 = zext nneg i32 %.1211306 to i64
-  %502 = shl i64 %.1211052, %501
+  %501 = zext nneg i32 %.911303 to i64
+  %502 = shl i64 %.911049, %501
   %503 = sub nsw i32 0, %498
   %504 = ashr i32 %492, %503
   %505 = sext i32 %504 to i64
@@ -2498,19 +2498,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not11938 = icmp eq i64 %509, 0
   %510 = lshr i64 %506, 56
   %511 = trunc nuw i64 %510 to i8
-  store i8 %511, ptr %.2010934, align 1
+  store i8 %511, ptr %.1510929, align 1
   br i1 %.not11938, label %541, label %512
 
 512:                                              ; preds = %500
-  %513 = getelementptr inbounds i8, ptr %.2010934, i64 1
+  %513 = getelementptr inbounds i8, ptr %.1510929, i64 1
   store i8 0, ptr %513, align 1
   %.not11939 = icmp eq i64 %510, 255
-  %.sroa.gep13868 = getelementptr inbounds i8, ptr %.2010934, i64 2
+  %.sroa.gep13868 = getelementptr inbounds i8, ptr %.1510929, i64 2
   %.neg11940.sroa.sel = select i1 %.not11939, ptr %.sroa.gep13868, ptr %513
   %514 = lshr i64 %506, 48
   %515 = trunc i64 %514 to i8
   store i8 %515, ptr %.neg11940.sroa.sel, align 1
-  %.sroa.gep16189 = getelementptr inbounds i8, ptr %.2010934, i64 3
+  %.sroa.gep16189 = getelementptr inbounds i8, ptr %.1510929, i64 3
   %.neg11940.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11939, ptr %.sroa.gep16189, ptr %.sroa.gep13868
   store i8 0, ptr %.neg11940.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %516 = and i64 %506, 71776119061217280
@@ -2578,59 +2578,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 541:                                              ; preds = %500
   %542 = lshr i64 %506, 48
   %543 = trunc i64 %542 to i8
-  %544 = getelementptr inbounds i8, ptr %.2010934, i64 1
+  %544 = getelementptr inbounds i8, ptr %.1510929, i64 1
   store i8 %543, ptr %544, align 1
   %545 = lshr i64 %506, 40
   %546 = trunc i64 %545 to i8
-  %547 = getelementptr inbounds i8, ptr %.2010934, i64 2
+  %547 = getelementptr inbounds i8, ptr %.1510929, i64 2
   store i8 %546, ptr %547, align 1
   %548 = lshr i64 %506, 32
   %549 = trunc i64 %548 to i8
-  %550 = getelementptr inbounds i8, ptr %.2010934, i64 3
+  %550 = getelementptr inbounds i8, ptr %.1510929, i64 3
   store i8 %549, ptr %550, align 1
   %551 = lshr i64 %506, 24
   %552 = trunc i64 %551 to i8
-  %553 = getelementptr inbounds i8, ptr %.2010934, i64 4
+  %553 = getelementptr inbounds i8, ptr %.1510929, i64 4
   store i8 %552, ptr %553, align 1
   %554 = lshr i64 %506, 16
   %555 = trunc i64 %554 to i8
-  %556 = getelementptr inbounds i8, ptr %.2010934, i64 5
+  %556 = getelementptr inbounds i8, ptr %.1510929, i64 5
   store i8 %555, ptr %556, align 1
   %557 = lshr i64 %506, 8
   %558 = trunc i64 %557 to i8
-  %559 = getelementptr inbounds i8, ptr %.2010934, i64 6
+  %559 = getelementptr inbounds i8, ptr %.1510929, i64 6
   store i8 %558, ptr %559, align 1
   %560 = trunc i64 %506 to i8
-  %561 = getelementptr inbounds i8, ptr %.2010934, i64 7
+  %561 = getelementptr inbounds i8, ptr %.1510929, i64 7
   store i8 %560, ptr %561, align 1
-  %562 = getelementptr inbounds i8, ptr %.2010934, i64 8
+  %562 = getelementptr inbounds i8, ptr %.1510929, i64 8
   br label %563
 
 563:                                              ; preds = %541, %512
-  %.2410938 = phi ptr [ %540, %512 ], [ %562, %541 ]
+  %.2510939 = phi ptr [ %540, %512 ], [ %562, %541 ]
   %564 = add nsw i32 %498, 64
   %565 = sext i32 %492 to i64
   br label %571
 
 566:                                              ; preds = %482
   %567 = zext nneg i32 %497 to i64
-  %568 = shl i64 %.1211052, %567
+  %568 = shl i64 %.911049, %567
   %569 = sext i32 %492 to i64
   %570 = or i64 %568, %569
   br label %571
 
 571:                                              ; preds = %563, %566, %463
-  %.1611310 = phi i32 [ %.1211306, %463 ], [ %564, %563 ], [ %498, %566 ]
-  %.1611056 = phi i64 [ %.1211052, %463 ], [ %565, %563 ], [ %570, %566 ]
-  %.2610940 = phi ptr [ %.2010934, %463 ], [ %.2410938, %563 ], [ %.2010934, %566 ]
-  %.7 = phi i32 [ %464, %463 ], [ 0, %563 ], [ 0, %566 ]
+  %.1311307 = phi i32 [ %.911303, %463 ], [ %564, %563 ], [ %498, %566 ]
+  %.1311053 = phi i64 [ %.911049, %463 ], [ %565, %563 ], [ %570, %566 ]
+  %.2110935 = phi ptr [ %.1510929, %463 ], [ %.2510939, %563 ], [ %.1510929, %566 ]
+  %.6 = phi i32 [ %464, %463 ], [ 0, %563 ], [ 0, %566 ]
   %572 = getelementptr inbounds i8, ptr %1, i64 4
   %573 = load i16, ptr %572, align 2
   %574 = icmp eq i16 %573, 0
   br i1 %574, label %575, label %577
 
 575:                                              ; preds = %571
-  %576 = add nuw nsw i32 %.7, 16
+  %576 = add nuw nsw i32 %.6, 16
   br label %683
 
 577:                                              ; preds = %571
@@ -2657,7 +2657,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %594
 
 594:                                              ; preds = %587, %577
-  %595 = add nuw nsw i32 %.7, %585
+  %595 = add nuw nsw i32 %.6, %585
   %596 = zext nneg i8 %584 to i64
   %notmask11955 = shl nsw i64 -1, %596
   %597 = trunc i64 %notmask11955 to i32
@@ -2673,13 +2673,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %607 = load i8, ptr %606, align 1
   %608 = sext i8 %607 to i32
   %609 = add nsw i32 %608, %585
-  %610 = sub nsw i32 %.1611310, %609
+  %610 = sub nsw i32 %.1311307, %609
   %611 = icmp slt i32 %610, 0
   br i1 %611, label %612, label %678
 
 612:                                              ; preds = %594
-  %613 = zext nneg i32 %.1611310 to i64
-  %614 = shl i64 %.1611056, %613
+  %613 = zext nneg i32 %.1311307 to i64
+  %614 = shl i64 %.1311053, %613
   %615 = sub nsw i32 0, %610
   %616 = ashr i32 %604, %615
   %617 = sext i32 %616 to i64
@@ -2690,19 +2690,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not11956 = icmp eq i64 %621, 0
   %622 = lshr i64 %618, 56
   %623 = trunc nuw i64 %622 to i8
-  store i8 %623, ptr %.2610940, align 1
+  store i8 %623, ptr %.2110935, align 1
   br i1 %.not11956, label %653, label %624
 
 624:                                              ; preds = %612
-  %625 = getelementptr inbounds i8, ptr %.2610940, i64 1
+  %625 = getelementptr inbounds i8, ptr %.2110935, i64 1
   store i8 0, ptr %625, align 1
   %.not11957 = icmp eq i64 %622, 255
-  %.sroa.gep13876 = getelementptr inbounds i8, ptr %.2610940, i64 2
+  %.sroa.gep13876 = getelementptr inbounds i8, ptr %.2110935, i64 2
   %.neg11958.sroa.sel = select i1 %.not11957, ptr %.sroa.gep13876, ptr %625
   %626 = lshr i64 %618, 48
   %627 = trunc i64 %626 to i8
   store i8 %627, ptr %.neg11958.sroa.sel, align 1
-  %.sroa.gep16187 = getelementptr inbounds i8, ptr %.2610940, i64 3
+  %.sroa.gep16187 = getelementptr inbounds i8, ptr %.2110935, i64 3
   %.neg11958.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11957, ptr %.sroa.gep16187, ptr %.sroa.gep13876
   store i8 0, ptr %.neg11958.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %628 = and i64 %618, 71776119061217280
@@ -2770,59 +2770,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 653:                                              ; preds = %612
   %654 = lshr i64 %618, 48
   %655 = trunc i64 %654 to i8
-  %656 = getelementptr inbounds i8, ptr %.2610940, i64 1
+  %656 = getelementptr inbounds i8, ptr %.2110935, i64 1
   store i8 %655, ptr %656, align 1
   %657 = lshr i64 %618, 40
   %658 = trunc i64 %657 to i8
-  %659 = getelementptr inbounds i8, ptr %.2610940, i64 2
+  %659 = getelementptr inbounds i8, ptr %.2110935, i64 2
   store i8 %658, ptr %659, align 1
   %660 = lshr i64 %618, 32
   %661 = trunc i64 %660 to i8
-  %662 = getelementptr inbounds i8, ptr %.2610940, i64 3
+  %662 = getelementptr inbounds i8, ptr %.2110935, i64 3
   store i8 %661, ptr %662, align 1
   %663 = lshr i64 %618, 24
   %664 = trunc i64 %663 to i8
-  %665 = getelementptr inbounds i8, ptr %.2610940, i64 4
+  %665 = getelementptr inbounds i8, ptr %.2110935, i64 4
   store i8 %664, ptr %665, align 1
   %666 = lshr i64 %618, 16
   %667 = trunc i64 %666 to i8
-  %668 = getelementptr inbounds i8, ptr %.2610940, i64 5
+  %668 = getelementptr inbounds i8, ptr %.2110935, i64 5
   store i8 %667, ptr %668, align 1
   %669 = lshr i64 %618, 8
   %670 = trunc i64 %669 to i8
-  %671 = getelementptr inbounds i8, ptr %.2610940, i64 6
+  %671 = getelementptr inbounds i8, ptr %.2110935, i64 6
   store i8 %670, ptr %671, align 1
   %672 = trunc i64 %618 to i8
-  %673 = getelementptr inbounds i8, ptr %.2610940, i64 7
+  %673 = getelementptr inbounds i8, ptr %.2110935, i64 7
   store i8 %672, ptr %673, align 1
-  %674 = getelementptr inbounds i8, ptr %.2610940, i64 8
+  %674 = getelementptr inbounds i8, ptr %.2110935, i64 8
   br label %675
 
 675:                                              ; preds = %653, %624
-  %.3010944 = phi ptr [ %652, %624 ], [ %674, %653 ]
+  %.3110945 = phi ptr [ %652, %624 ], [ %674, %653 ]
   %676 = add nsw i32 %610, 64
   %677 = sext i32 %604 to i64
   br label %683
 
 678:                                              ; preds = %594
   %679 = zext nneg i32 %609 to i64
-  %680 = shl i64 %.1611056, %679
+  %680 = shl i64 %.1311053, %679
   %681 = sext i32 %604 to i64
   %682 = or i64 %680, %681
   br label %683
 
 683:                                              ; preds = %675, %678, %575
-  %.2011314 = phi i32 [ %.1611310, %575 ], [ %676, %675 ], [ %610, %678 ]
-  %.2011060 = phi i64 [ %.1611056, %575 ], [ %677, %675 ], [ %682, %678 ]
-  %.3210946 = phi ptr [ %.2610940, %575 ], [ %.3010944, %675 ], [ %.2610940, %678 ]
-  %.9 = phi i32 [ %576, %575 ], [ 0, %675 ], [ 0, %678 ]
+  %.1711311 = phi i32 [ %.1311307, %575 ], [ %676, %675 ], [ %610, %678 ]
+  %.1711057 = phi i64 [ %.1311053, %575 ], [ %677, %675 ], [ %682, %678 ]
+  %.2710941 = phi ptr [ %.2110935, %575 ], [ %.3110945, %675 ], [ %.2110935, %678 ]
+  %.8 = phi i32 [ %576, %575 ], [ 0, %675 ], [ 0, %678 ]
   %684 = getelementptr inbounds i8, ptr %1, i64 6
   %685 = load i16, ptr %684, align 2
   %686 = icmp eq i16 %685, 0
   br i1 %686, label %687, label %689
 
 687:                                              ; preds = %683
-  %688 = add nuw nsw i32 %.9, 16
+  %688 = add nuw nsw i32 %.8, 16
   br label %795
 
 689:                                              ; preds = %683
@@ -2849,7 +2849,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %706
 
 706:                                              ; preds = %699, %689
-  %707 = add nuw nsw i32 %.9, %697
+  %707 = add nuw nsw i32 %.8, %697
   %708 = zext nneg i8 %696 to i64
   %notmask11973 = shl nsw i64 -1, %708
   %709 = trunc i64 %notmask11973 to i32
@@ -2865,13 +2865,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %719 = load i8, ptr %718, align 1
   %720 = sext i8 %719 to i32
   %721 = add nsw i32 %720, %697
-  %722 = sub nsw i32 %.2011314, %721
+  %722 = sub nsw i32 %.1711311, %721
   %723 = icmp slt i32 %722, 0
   br i1 %723, label %724, label %790
 
 724:                                              ; preds = %706
-  %725 = zext nneg i32 %.2011314 to i64
-  %726 = shl i64 %.2011060, %725
+  %725 = zext nneg i32 %.1711311 to i64
+  %726 = shl i64 %.1711057, %725
   %727 = sub nsw i32 0, %722
   %728 = ashr i32 %716, %727
   %729 = sext i32 %728 to i64
@@ -2882,19 +2882,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not11974 = icmp eq i64 %733, 0
   %734 = lshr i64 %730, 56
   %735 = trunc nuw i64 %734 to i8
-  store i8 %735, ptr %.3210946, align 1
+  store i8 %735, ptr %.2710941, align 1
   br i1 %.not11974, label %765, label %736
 
 736:                                              ; preds = %724
-  %737 = getelementptr inbounds i8, ptr %.3210946, i64 1
+  %737 = getelementptr inbounds i8, ptr %.2710941, i64 1
   store i8 0, ptr %737, align 1
   %.not11975 = icmp eq i64 %734, 255
-  %.sroa.gep13884 = getelementptr inbounds i8, ptr %.3210946, i64 2
+  %.sroa.gep13884 = getelementptr inbounds i8, ptr %.2710941, i64 2
   %.neg11976.sroa.sel = select i1 %.not11975, ptr %.sroa.gep13884, ptr %737
   %738 = lshr i64 %730, 48
   %739 = trunc i64 %738 to i8
   store i8 %739, ptr %.neg11976.sroa.sel, align 1
-  %.sroa.gep16185 = getelementptr inbounds i8, ptr %.3210946, i64 3
+  %.sroa.gep16185 = getelementptr inbounds i8, ptr %.2710941, i64 3
   %.neg11976.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11975, ptr %.sroa.gep16185, ptr %.sroa.gep13884
   store i8 0, ptr %.neg11976.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %740 = and i64 %730, 71776119061217280
@@ -2962,59 +2962,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 765:                                              ; preds = %724
   %766 = lshr i64 %730, 48
   %767 = trunc i64 %766 to i8
-  %768 = getelementptr inbounds i8, ptr %.3210946, i64 1
+  %768 = getelementptr inbounds i8, ptr %.2710941, i64 1
   store i8 %767, ptr %768, align 1
   %769 = lshr i64 %730, 40
   %770 = trunc i64 %769 to i8
-  %771 = getelementptr inbounds i8, ptr %.3210946, i64 2
+  %771 = getelementptr inbounds i8, ptr %.2710941, i64 2
   store i8 %770, ptr %771, align 1
   %772 = lshr i64 %730, 32
   %773 = trunc i64 %772 to i8
-  %774 = getelementptr inbounds i8, ptr %.3210946, i64 3
+  %774 = getelementptr inbounds i8, ptr %.2710941, i64 3
   store i8 %773, ptr %774, align 1
   %775 = lshr i64 %730, 24
   %776 = trunc i64 %775 to i8
-  %777 = getelementptr inbounds i8, ptr %.3210946, i64 4
+  %777 = getelementptr inbounds i8, ptr %.2710941, i64 4
   store i8 %776, ptr %777, align 1
   %778 = lshr i64 %730, 16
   %779 = trunc i64 %778 to i8
-  %780 = getelementptr inbounds i8, ptr %.3210946, i64 5
+  %780 = getelementptr inbounds i8, ptr %.2710941, i64 5
   store i8 %779, ptr %780, align 1
   %781 = lshr i64 %730, 8
   %782 = trunc i64 %781 to i8
-  %783 = getelementptr inbounds i8, ptr %.3210946, i64 6
+  %783 = getelementptr inbounds i8, ptr %.2710941, i64 6
   store i8 %782, ptr %783, align 1
   %784 = trunc i64 %730 to i8
-  %785 = getelementptr inbounds i8, ptr %.3210946, i64 7
+  %785 = getelementptr inbounds i8, ptr %.2710941, i64 7
   store i8 %784, ptr %785, align 1
-  %786 = getelementptr inbounds i8, ptr %.3210946, i64 8
+  %786 = getelementptr inbounds i8, ptr %.2710941, i64 8
   br label %787
 
 787:                                              ; preds = %765, %736
-  %.3610950 = phi ptr [ %764, %736 ], [ %786, %765 ]
+  %.3710951 = phi ptr [ %764, %736 ], [ %786, %765 ]
   %788 = add nsw i32 %722, 64
   %789 = sext i32 %716 to i64
   br label %795
 
 790:                                              ; preds = %706
   %791 = zext nneg i32 %721 to i64
-  %792 = shl i64 %.2011060, %791
+  %792 = shl i64 %.1711057, %791
   %793 = sext i32 %716 to i64
   %794 = or i64 %792, %793
   br label %795
 
 795:                                              ; preds = %787, %790, %687
-  %.2411318 = phi i32 [ %.2011314, %687 ], [ %788, %787 ], [ %722, %790 ]
-  %.2411064 = phi i64 [ %.2011060, %687 ], [ %789, %787 ], [ %794, %790 ]
-  %.3810952 = phi ptr [ %.3210946, %687 ], [ %.3610950, %787 ], [ %.3210946, %790 ]
-  %.11 = phi i32 [ %688, %687 ], [ 0, %787 ], [ 0, %790 ]
+  %.2111315 = phi i32 [ %.1711311, %687 ], [ %788, %787 ], [ %722, %790 ]
+  %.2111061 = phi i64 [ %.1711057, %687 ], [ %789, %787 ], [ %794, %790 ]
+  %.3310947 = phi ptr [ %.2710941, %687 ], [ %.3710951, %787 ], [ %.2710941, %790 ]
+  %.10 = phi i32 [ %688, %687 ], [ 0, %787 ], [ 0, %790 ]
   %796 = getelementptr inbounds i8, ptr %1, i64 20
   %797 = load i16, ptr %796, align 2
   %798 = icmp eq i16 %797, 0
   br i1 %798, label %799, label %801
 
 799:                                              ; preds = %795
-  %800 = add nuw nsw i32 %.11, 16
+  %800 = add nuw nsw i32 %.10, 16
   br label %907
 
 801:                                              ; preds = %795
@@ -3041,7 +3041,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %818
 
 818:                                              ; preds = %811, %801
-  %819 = add nuw nsw i32 %.11, %809
+  %819 = add nuw nsw i32 %.10, %809
   %820 = zext nneg i8 %808 to i64
   %notmask11991 = shl nsw i64 -1, %820
   %821 = trunc i64 %notmask11991 to i32
@@ -3057,13 +3057,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %831 = load i8, ptr %830, align 1
   %832 = sext i8 %831 to i32
   %833 = add nsw i32 %832, %809
-  %834 = sub nsw i32 %.2411318, %833
+  %834 = sub nsw i32 %.2111315, %833
   %835 = icmp slt i32 %834, 0
   br i1 %835, label %836, label %902
 
 836:                                              ; preds = %818
-  %837 = zext nneg i32 %.2411318 to i64
-  %838 = shl i64 %.2411064, %837
+  %837 = zext nneg i32 %.2111315 to i64
+  %838 = shl i64 %.2111061, %837
   %839 = sub nsw i32 0, %834
   %840 = ashr i32 %828, %839
   %841 = sext i32 %840 to i64
@@ -3074,19 +3074,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not11992 = icmp eq i64 %845, 0
   %846 = lshr i64 %842, 56
   %847 = trunc nuw i64 %846 to i8
-  store i8 %847, ptr %.3810952, align 1
+  store i8 %847, ptr %.3310947, align 1
   br i1 %.not11992, label %877, label %848
 
 848:                                              ; preds = %836
-  %849 = getelementptr inbounds i8, ptr %.3810952, i64 1
+  %849 = getelementptr inbounds i8, ptr %.3310947, i64 1
   store i8 0, ptr %849, align 1
   %.not11993 = icmp eq i64 %846, 255
-  %.sroa.gep13892 = getelementptr inbounds i8, ptr %.3810952, i64 2
+  %.sroa.gep13892 = getelementptr inbounds i8, ptr %.3310947, i64 2
   %.neg11994.sroa.sel = select i1 %.not11993, ptr %.sroa.gep13892, ptr %849
   %850 = lshr i64 %842, 48
   %851 = trunc i64 %850 to i8
   store i8 %851, ptr %.neg11994.sroa.sel, align 1
-  %.sroa.gep16183 = getelementptr inbounds i8, ptr %.3810952, i64 3
+  %.sroa.gep16183 = getelementptr inbounds i8, ptr %.3310947, i64 3
   %.neg11994.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11993, ptr %.sroa.gep16183, ptr %.sroa.gep13892
   store i8 0, ptr %.neg11994.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %852 = and i64 %842, 71776119061217280
@@ -3154,59 +3154,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 877:                                              ; preds = %836
   %878 = lshr i64 %842, 48
   %879 = trunc i64 %878 to i8
-  %880 = getelementptr inbounds i8, ptr %.3810952, i64 1
+  %880 = getelementptr inbounds i8, ptr %.3310947, i64 1
   store i8 %879, ptr %880, align 1
   %881 = lshr i64 %842, 40
   %882 = trunc i64 %881 to i8
-  %883 = getelementptr inbounds i8, ptr %.3810952, i64 2
+  %883 = getelementptr inbounds i8, ptr %.3310947, i64 2
   store i8 %882, ptr %883, align 1
   %884 = lshr i64 %842, 32
   %885 = trunc i64 %884 to i8
-  %886 = getelementptr inbounds i8, ptr %.3810952, i64 3
+  %886 = getelementptr inbounds i8, ptr %.3310947, i64 3
   store i8 %885, ptr %886, align 1
   %887 = lshr i64 %842, 24
   %888 = trunc i64 %887 to i8
-  %889 = getelementptr inbounds i8, ptr %.3810952, i64 4
+  %889 = getelementptr inbounds i8, ptr %.3310947, i64 4
   store i8 %888, ptr %889, align 1
   %890 = lshr i64 %842, 16
   %891 = trunc i64 %890 to i8
-  %892 = getelementptr inbounds i8, ptr %.3810952, i64 5
+  %892 = getelementptr inbounds i8, ptr %.3310947, i64 5
   store i8 %891, ptr %892, align 1
   %893 = lshr i64 %842, 8
   %894 = trunc i64 %893 to i8
-  %895 = getelementptr inbounds i8, ptr %.3810952, i64 6
+  %895 = getelementptr inbounds i8, ptr %.3310947, i64 6
   store i8 %894, ptr %895, align 1
   %896 = trunc i64 %842 to i8
-  %897 = getelementptr inbounds i8, ptr %.3810952, i64 7
+  %897 = getelementptr inbounds i8, ptr %.3310947, i64 7
   store i8 %896, ptr %897, align 1
-  %898 = getelementptr inbounds i8, ptr %.3810952, i64 8
+  %898 = getelementptr inbounds i8, ptr %.3310947, i64 8
   br label %899
 
 899:                                              ; preds = %877, %848
-  %.4210956 = phi ptr [ %876, %848 ], [ %898, %877 ]
+  %.4310957 = phi ptr [ %876, %848 ], [ %898, %877 ]
   %900 = add nsw i32 %834, 64
   %901 = sext i32 %828 to i64
   br label %907
 
 902:                                              ; preds = %818
   %903 = zext nneg i32 %833 to i64
-  %904 = shl i64 %.2411064, %903
+  %904 = shl i64 %.2111061, %903
   %905 = sext i32 %828 to i64
   %906 = or i64 %904, %905
   br label %907
 
 907:                                              ; preds = %899, %902, %799
-  %.2811322 = phi i32 [ %.2411318, %799 ], [ %900, %899 ], [ %834, %902 ]
-  %.2811068 = phi i64 [ %.2411064, %799 ], [ %901, %899 ], [ %906, %902 ]
-  %.4410958 = phi ptr [ %.3810952, %799 ], [ %.4210956, %899 ], [ %.3810952, %902 ]
-  %.13 = phi i32 [ %800, %799 ], [ 0, %899 ], [ 0, %902 ]
+  %.2511319 = phi i32 [ %.2111315, %799 ], [ %900, %899 ], [ %834, %902 ]
+  %.2511065 = phi i64 [ %.2111061, %799 ], [ %901, %899 ], [ %906, %902 ]
+  %.3910953 = phi ptr [ %.3310947, %799 ], [ %.4310957, %899 ], [ %.3310947, %902 ]
+  %.12 = phi i32 [ %800, %799 ], [ 0, %899 ], [ 0, %902 ]
   %908 = getelementptr inbounds i8, ptr %1, i64 34
   %909 = load i16, ptr %908, align 2
   %910 = icmp eq i16 %909, 0
   br i1 %910, label %911, label %913
 
 911:                                              ; preds = %907
-  %912 = add nuw nsw i32 %.13, 16
+  %912 = add nuw nsw i32 %.12, 16
   br label %1019
 
 913:                                              ; preds = %907
@@ -3233,7 +3233,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %930
 
 930:                                              ; preds = %923, %913
-  %931 = add nuw nsw i32 %.13, %921
+  %931 = add nuw nsw i32 %.12, %921
   %932 = zext nneg i8 %920 to i64
   %notmask12009 = shl nsw i64 -1, %932
   %933 = trunc i64 %notmask12009 to i32
@@ -3249,13 +3249,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %943 = load i8, ptr %942, align 1
   %944 = sext i8 %943 to i32
   %945 = add nsw i32 %944, %921
-  %946 = sub nsw i32 %.2811322, %945
+  %946 = sub nsw i32 %.2511319, %945
   %947 = icmp slt i32 %946, 0
   br i1 %947, label %948, label %1014
 
 948:                                              ; preds = %930
-  %949 = zext nneg i32 %.2811322 to i64
-  %950 = shl i64 %.2811068, %949
+  %949 = zext nneg i32 %.2511319 to i64
+  %950 = shl i64 %.2511065, %949
   %951 = sub nsw i32 0, %946
   %952 = ashr i32 %940, %951
   %953 = sext i32 %952 to i64
@@ -3266,19 +3266,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12010 = icmp eq i64 %957, 0
   %958 = lshr i64 %954, 56
   %959 = trunc nuw i64 %958 to i8
-  store i8 %959, ptr %.4410958, align 1
+  store i8 %959, ptr %.3910953, align 1
   br i1 %.not12010, label %989, label %960
 
 960:                                              ; preds = %948
-  %961 = getelementptr inbounds i8, ptr %.4410958, i64 1
+  %961 = getelementptr inbounds i8, ptr %.3910953, i64 1
   store i8 0, ptr %961, align 1
   %.not12011 = icmp eq i64 %958, 255
-  %.sroa.gep13900 = getelementptr inbounds i8, ptr %.4410958, i64 2
+  %.sroa.gep13900 = getelementptr inbounds i8, ptr %.3910953, i64 2
   %.neg12012.sroa.sel = select i1 %.not12011, ptr %.sroa.gep13900, ptr %961
   %962 = lshr i64 %954, 48
   %963 = trunc i64 %962 to i8
   store i8 %963, ptr %.neg12012.sroa.sel, align 1
-  %.sroa.gep16181 = getelementptr inbounds i8, ptr %.4410958, i64 3
+  %.sroa.gep16181 = getelementptr inbounds i8, ptr %.3910953, i64 3
   %.neg12012.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12011, ptr %.sroa.gep16181, ptr %.sroa.gep13900
   store i8 0, ptr %.neg12012.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %964 = and i64 %954, 71776119061217280
@@ -3346,59 +3346,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 989:                                              ; preds = %948
   %990 = lshr i64 %954, 48
   %991 = trunc i64 %990 to i8
-  %992 = getelementptr inbounds i8, ptr %.4410958, i64 1
+  %992 = getelementptr inbounds i8, ptr %.3910953, i64 1
   store i8 %991, ptr %992, align 1
   %993 = lshr i64 %954, 40
   %994 = trunc i64 %993 to i8
-  %995 = getelementptr inbounds i8, ptr %.4410958, i64 2
+  %995 = getelementptr inbounds i8, ptr %.3910953, i64 2
   store i8 %994, ptr %995, align 1
   %996 = lshr i64 %954, 32
   %997 = trunc i64 %996 to i8
-  %998 = getelementptr inbounds i8, ptr %.4410958, i64 3
+  %998 = getelementptr inbounds i8, ptr %.3910953, i64 3
   store i8 %997, ptr %998, align 1
   %999 = lshr i64 %954, 24
   %1000 = trunc i64 %999 to i8
-  %1001 = getelementptr inbounds i8, ptr %.4410958, i64 4
+  %1001 = getelementptr inbounds i8, ptr %.3910953, i64 4
   store i8 %1000, ptr %1001, align 1
   %1002 = lshr i64 %954, 16
   %1003 = trunc i64 %1002 to i8
-  %1004 = getelementptr inbounds i8, ptr %.4410958, i64 5
+  %1004 = getelementptr inbounds i8, ptr %.3910953, i64 5
   store i8 %1003, ptr %1004, align 1
   %1005 = lshr i64 %954, 8
   %1006 = trunc i64 %1005 to i8
-  %1007 = getelementptr inbounds i8, ptr %.4410958, i64 6
+  %1007 = getelementptr inbounds i8, ptr %.3910953, i64 6
   store i8 %1006, ptr %1007, align 1
   %1008 = trunc i64 %954 to i8
-  %1009 = getelementptr inbounds i8, ptr %.4410958, i64 7
+  %1009 = getelementptr inbounds i8, ptr %.3910953, i64 7
   store i8 %1008, ptr %1009, align 1
-  %1010 = getelementptr inbounds i8, ptr %.4410958, i64 8
+  %1010 = getelementptr inbounds i8, ptr %.3910953, i64 8
   br label %1011
 
 1011:                                             ; preds = %989, %960
-  %.4810962 = phi ptr [ %988, %960 ], [ %1010, %989 ]
+  %.4910963 = phi ptr [ %988, %960 ], [ %1010, %989 ]
   %1012 = add nsw i32 %946, 64
   %1013 = sext i32 %940 to i64
   br label %1019
 
 1014:                                             ; preds = %930
   %1015 = zext nneg i32 %945 to i64
-  %1016 = shl i64 %.2811068, %1015
+  %1016 = shl i64 %.2511065, %1015
   %1017 = sext i32 %940 to i64
   %1018 = or i64 %1016, %1017
   br label %1019
 
 1019:                                             ; preds = %1011, %1014, %911
-  %.3211326 = phi i32 [ %.2811322, %911 ], [ %1012, %1011 ], [ %946, %1014 ]
-  %.3211072 = phi i64 [ %.2811068, %911 ], [ %1013, %1011 ], [ %1018, %1014 ]
-  %.5010964 = phi ptr [ %.4410958, %911 ], [ %.4810962, %1011 ], [ %.4410958, %1014 ]
-  %.15 = phi i32 [ %912, %911 ], [ 0, %1011 ], [ 0, %1014 ]
+  %.2911323 = phi i32 [ %.2511319, %911 ], [ %1012, %1011 ], [ %946, %1014 ]
+  %.2911069 = phi i64 [ %.2511065, %911 ], [ %1013, %1011 ], [ %1018, %1014 ]
+  %.4510959 = phi ptr [ %.3910953, %911 ], [ %.4910963, %1011 ], [ %.3910953, %1014 ]
+  %.14 = phi i32 [ %912, %911 ], [ 0, %1011 ], [ 0, %1014 ]
   %1020 = getelementptr inbounds i8, ptr %1, i64 48
   %1021 = load i16, ptr %1020, align 2
   %1022 = icmp eq i16 %1021, 0
   br i1 %1022, label %1023, label %1025
 
 1023:                                             ; preds = %1019
-  %1024 = add nuw nsw i32 %.15, 16
+  %1024 = add nuw nsw i32 %.14, 16
   br label %1131
 
 1025:                                             ; preds = %1019
@@ -3425,7 +3425,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1042
 
 1042:                                             ; preds = %1035, %1025
-  %1043 = add nuw nsw i32 %.15, %1033
+  %1043 = add nuw nsw i32 %.14, %1033
   %1044 = zext nneg i8 %1032 to i64
   %notmask12027 = shl nsw i64 -1, %1044
   %1045 = trunc i64 %notmask12027 to i32
@@ -3441,13 +3441,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1055 = load i8, ptr %1054, align 1
   %1056 = sext i8 %1055 to i32
   %1057 = add nsw i32 %1056, %1033
-  %1058 = sub nsw i32 %.3211326, %1057
+  %1058 = sub nsw i32 %.2911323, %1057
   %1059 = icmp slt i32 %1058, 0
   br i1 %1059, label %1060, label %1126
 
 1060:                                             ; preds = %1042
-  %1061 = zext nneg i32 %.3211326 to i64
-  %1062 = shl i64 %.3211072, %1061
+  %1061 = zext nneg i32 %.2911323 to i64
+  %1062 = shl i64 %.2911069, %1061
   %1063 = sub nsw i32 0, %1058
   %1064 = ashr i32 %1052, %1063
   %1065 = sext i32 %1064 to i64
@@ -3458,19 +3458,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12028 = icmp eq i64 %1069, 0
   %1070 = lshr i64 %1066, 56
   %1071 = trunc nuw i64 %1070 to i8
-  store i8 %1071, ptr %.5010964, align 1
+  store i8 %1071, ptr %.4510959, align 1
   br i1 %.not12028, label %1101, label %1072
 
 1072:                                             ; preds = %1060
-  %1073 = getelementptr inbounds i8, ptr %.5010964, i64 1
+  %1073 = getelementptr inbounds i8, ptr %.4510959, i64 1
   store i8 0, ptr %1073, align 1
   %.not12029 = icmp eq i64 %1070, 255
-  %.sroa.gep13908 = getelementptr inbounds i8, ptr %.5010964, i64 2
+  %.sroa.gep13908 = getelementptr inbounds i8, ptr %.4510959, i64 2
   %.neg12030.sroa.sel = select i1 %.not12029, ptr %.sroa.gep13908, ptr %1073
   %1074 = lshr i64 %1066, 48
   %1075 = trunc i64 %1074 to i8
   store i8 %1075, ptr %.neg12030.sroa.sel, align 1
-  %.sroa.gep16179 = getelementptr inbounds i8, ptr %.5010964, i64 3
+  %.sroa.gep16179 = getelementptr inbounds i8, ptr %.4510959, i64 3
   %.neg12030.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12029, ptr %.sroa.gep16179, ptr %.sroa.gep13908
   store i8 0, ptr %.neg12030.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1076 = and i64 %1066, 71776119061217280
@@ -3538,59 +3538,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1101:                                             ; preds = %1060
   %1102 = lshr i64 %1066, 48
   %1103 = trunc i64 %1102 to i8
-  %1104 = getelementptr inbounds i8, ptr %.5010964, i64 1
+  %1104 = getelementptr inbounds i8, ptr %.4510959, i64 1
   store i8 %1103, ptr %1104, align 1
   %1105 = lshr i64 %1066, 40
   %1106 = trunc i64 %1105 to i8
-  %1107 = getelementptr inbounds i8, ptr %.5010964, i64 2
+  %1107 = getelementptr inbounds i8, ptr %.4510959, i64 2
   store i8 %1106, ptr %1107, align 1
   %1108 = lshr i64 %1066, 32
   %1109 = trunc i64 %1108 to i8
-  %1110 = getelementptr inbounds i8, ptr %.5010964, i64 3
+  %1110 = getelementptr inbounds i8, ptr %.4510959, i64 3
   store i8 %1109, ptr %1110, align 1
   %1111 = lshr i64 %1066, 24
   %1112 = trunc i64 %1111 to i8
-  %1113 = getelementptr inbounds i8, ptr %.5010964, i64 4
+  %1113 = getelementptr inbounds i8, ptr %.4510959, i64 4
   store i8 %1112, ptr %1113, align 1
   %1114 = lshr i64 %1066, 16
   %1115 = trunc i64 %1114 to i8
-  %1116 = getelementptr inbounds i8, ptr %.5010964, i64 5
+  %1116 = getelementptr inbounds i8, ptr %.4510959, i64 5
   store i8 %1115, ptr %1116, align 1
   %1117 = lshr i64 %1066, 8
   %1118 = trunc i64 %1117 to i8
-  %1119 = getelementptr inbounds i8, ptr %.5010964, i64 6
+  %1119 = getelementptr inbounds i8, ptr %.4510959, i64 6
   store i8 %1118, ptr %1119, align 1
   %1120 = trunc i64 %1066 to i8
-  %1121 = getelementptr inbounds i8, ptr %.5010964, i64 7
+  %1121 = getelementptr inbounds i8, ptr %.4510959, i64 7
   store i8 %1120, ptr %1121, align 1
-  %1122 = getelementptr inbounds i8, ptr %.5010964, i64 8
+  %1122 = getelementptr inbounds i8, ptr %.4510959, i64 8
   br label %1123
 
 1123:                                             ; preds = %1101, %1072
-  %.5410968 = phi ptr [ %1100, %1072 ], [ %1122, %1101 ]
+  %.5510969 = phi ptr [ %1100, %1072 ], [ %1122, %1101 ]
   %1124 = add nsw i32 %1058, 64
   %1125 = sext i32 %1052 to i64
   br label %1131
 
 1126:                                             ; preds = %1042
   %1127 = zext nneg i32 %1057 to i64
-  %1128 = shl i64 %.3211072, %1127
+  %1128 = shl i64 %.2911069, %1127
   %1129 = sext i32 %1052 to i64
   %1130 = or i64 %1128, %1129
   br label %1131
 
 1131:                                             ; preds = %1123, %1126, %1023
-  %.3611330 = phi i32 [ %.3211326, %1023 ], [ %1124, %1123 ], [ %1058, %1126 ]
-  %.3611076 = phi i64 [ %.3211072, %1023 ], [ %1125, %1123 ], [ %1130, %1126 ]
-  %.5610970 = phi ptr [ %.5010964, %1023 ], [ %.5410968, %1123 ], [ %.5010964, %1126 ]
-  %.17 = phi i32 [ %1024, %1023 ], [ 0, %1123 ], [ 0, %1126 ]
+  %.3311327 = phi i32 [ %.2911323, %1023 ], [ %1124, %1123 ], [ %1058, %1126 ]
+  %.3311073 = phi i64 [ %.2911069, %1023 ], [ %1125, %1123 ], [ %1130, %1126 ]
+  %.5110965 = phi ptr [ %.4510959, %1023 ], [ %.5510969, %1123 ], [ %.4510959, %1126 ]
+  %.16 = phi i32 [ %1024, %1023 ], [ 0, %1123 ], [ 0, %1126 ]
   %1132 = getelementptr inbounds i8, ptr %1, i64 64
   %1133 = load i16, ptr %1132, align 2
   %1134 = icmp eq i16 %1133, 0
   br i1 %1134, label %1135, label %1137
 
 1135:                                             ; preds = %1131
-  %1136 = add nuw nsw i32 %.17, 16
+  %1136 = add nuw nsw i32 %.16, 16
   br label %1243
 
 1137:                                             ; preds = %1131
@@ -3617,7 +3617,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1154
 
 1154:                                             ; preds = %1147, %1137
-  %1155 = add nuw nsw i32 %.17, %1145
+  %1155 = add nuw nsw i32 %.16, %1145
   %1156 = zext nneg i8 %1144 to i64
   %notmask12045 = shl nsw i64 -1, %1156
   %1157 = trunc i64 %notmask12045 to i32
@@ -3633,13 +3633,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1167 = load i8, ptr %1166, align 1
   %1168 = sext i8 %1167 to i32
   %1169 = add nsw i32 %1168, %1145
-  %1170 = sub nsw i32 %.3611330, %1169
+  %1170 = sub nsw i32 %.3311327, %1169
   %1171 = icmp slt i32 %1170, 0
   br i1 %1171, label %1172, label %1238
 
 1172:                                             ; preds = %1154
-  %1173 = zext nneg i32 %.3611330 to i64
-  %1174 = shl i64 %.3611076, %1173
+  %1173 = zext nneg i32 %.3311327 to i64
+  %1174 = shl i64 %.3311073, %1173
   %1175 = sub nsw i32 0, %1170
   %1176 = ashr i32 %1164, %1175
   %1177 = sext i32 %1176 to i64
@@ -3650,19 +3650,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12046 = icmp eq i64 %1181, 0
   %1182 = lshr i64 %1178, 56
   %1183 = trunc nuw i64 %1182 to i8
-  store i8 %1183, ptr %.5610970, align 1
+  store i8 %1183, ptr %.5110965, align 1
   br i1 %.not12046, label %1213, label %1184
 
 1184:                                             ; preds = %1172
-  %1185 = getelementptr inbounds i8, ptr %.5610970, i64 1
+  %1185 = getelementptr inbounds i8, ptr %.5110965, i64 1
   store i8 0, ptr %1185, align 1
   %.not12047 = icmp eq i64 %1182, 255
-  %.sroa.gep13916 = getelementptr inbounds i8, ptr %.5610970, i64 2
+  %.sroa.gep13916 = getelementptr inbounds i8, ptr %.5110965, i64 2
   %.neg12048.sroa.sel = select i1 %.not12047, ptr %.sroa.gep13916, ptr %1185
   %1186 = lshr i64 %1178, 48
   %1187 = trunc i64 %1186 to i8
   store i8 %1187, ptr %.neg12048.sroa.sel, align 1
-  %.sroa.gep16177 = getelementptr inbounds i8, ptr %.5610970, i64 3
+  %.sroa.gep16177 = getelementptr inbounds i8, ptr %.5110965, i64 3
   %.neg12048.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12047, ptr %.sroa.gep16177, ptr %.sroa.gep13916
   store i8 0, ptr %.neg12048.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1188 = and i64 %1178, 71776119061217280
@@ -3730,59 +3730,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1213:                                             ; preds = %1172
   %1214 = lshr i64 %1178, 48
   %1215 = trunc i64 %1214 to i8
-  %1216 = getelementptr inbounds i8, ptr %.5610970, i64 1
+  %1216 = getelementptr inbounds i8, ptr %.5110965, i64 1
   store i8 %1215, ptr %1216, align 1
   %1217 = lshr i64 %1178, 40
   %1218 = trunc i64 %1217 to i8
-  %1219 = getelementptr inbounds i8, ptr %.5610970, i64 2
+  %1219 = getelementptr inbounds i8, ptr %.5110965, i64 2
   store i8 %1218, ptr %1219, align 1
   %1220 = lshr i64 %1178, 32
   %1221 = trunc i64 %1220 to i8
-  %1222 = getelementptr inbounds i8, ptr %.5610970, i64 3
+  %1222 = getelementptr inbounds i8, ptr %.5110965, i64 3
   store i8 %1221, ptr %1222, align 1
   %1223 = lshr i64 %1178, 24
   %1224 = trunc i64 %1223 to i8
-  %1225 = getelementptr inbounds i8, ptr %.5610970, i64 4
+  %1225 = getelementptr inbounds i8, ptr %.5110965, i64 4
   store i8 %1224, ptr %1225, align 1
   %1226 = lshr i64 %1178, 16
   %1227 = trunc i64 %1226 to i8
-  %1228 = getelementptr inbounds i8, ptr %.5610970, i64 5
+  %1228 = getelementptr inbounds i8, ptr %.5110965, i64 5
   store i8 %1227, ptr %1228, align 1
   %1229 = lshr i64 %1178, 8
   %1230 = trunc i64 %1229 to i8
-  %1231 = getelementptr inbounds i8, ptr %.5610970, i64 6
+  %1231 = getelementptr inbounds i8, ptr %.5110965, i64 6
   store i8 %1230, ptr %1231, align 1
   %1232 = trunc i64 %1178 to i8
-  %1233 = getelementptr inbounds i8, ptr %.5610970, i64 7
+  %1233 = getelementptr inbounds i8, ptr %.5110965, i64 7
   store i8 %1232, ptr %1233, align 1
-  %1234 = getelementptr inbounds i8, ptr %.5610970, i64 8
+  %1234 = getelementptr inbounds i8, ptr %.5110965, i64 8
   br label %1235
 
 1235:                                             ; preds = %1213, %1184
-  %.6010974 = phi ptr [ %1212, %1184 ], [ %1234, %1213 ]
+  %.6110975 = phi ptr [ %1212, %1184 ], [ %1234, %1213 ]
   %1236 = add nsw i32 %1170, 64
   %1237 = sext i32 %1164 to i64
   br label %1243
 
 1238:                                             ; preds = %1154
   %1239 = zext nneg i32 %1169 to i64
-  %1240 = shl i64 %.3611076, %1239
+  %1240 = shl i64 %.3311073, %1239
   %1241 = sext i32 %1164 to i64
   %1242 = or i64 %1240, %1241
   br label %1243
 
 1243:                                             ; preds = %1235, %1238, %1135
-  %.4011334 = phi i32 [ %.3611330, %1135 ], [ %1236, %1235 ], [ %1170, %1238 ]
-  %.4011080 = phi i64 [ %.3611076, %1135 ], [ %1237, %1235 ], [ %1242, %1238 ]
-  %.6210976 = phi ptr [ %.5610970, %1135 ], [ %.6010974, %1235 ], [ %.5610970, %1238 ]
-  %.19 = phi i32 [ %1136, %1135 ], [ 0, %1235 ], [ 0, %1238 ]
+  %.3711331 = phi i32 [ %.3311327, %1135 ], [ %1236, %1235 ], [ %1170, %1238 ]
+  %.3711077 = phi i64 [ %.3311073, %1135 ], [ %1237, %1235 ], [ %1242, %1238 ]
+  %.5710971 = phi ptr [ %.5110965, %1135 ], [ %.6110975, %1235 ], [ %.5110965, %1238 ]
+  %.18 = phi i32 [ %1136, %1135 ], [ 0, %1235 ], [ 0, %1238 ]
   %1244 = getelementptr inbounds i8, ptr %1, i64 50
   %1245 = load i16, ptr %1244, align 2
   %1246 = icmp eq i16 %1245, 0
   br i1 %1246, label %1247, label %1249
 
 1247:                                             ; preds = %1243
-  %1248 = add nuw nsw i32 %.19, 16
+  %1248 = add nuw nsw i32 %.18, 16
   br label %1355
 
 1249:                                             ; preds = %1243
@@ -3809,7 +3809,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1266
 
 1266:                                             ; preds = %1259, %1249
-  %1267 = add nuw nsw i32 %.19, %1257
+  %1267 = add nuw nsw i32 %.18, %1257
   %1268 = zext nneg i8 %1256 to i64
   %notmask12063 = shl nsw i64 -1, %1268
   %1269 = trunc i64 %notmask12063 to i32
@@ -3825,13 +3825,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1279 = load i8, ptr %1278, align 1
   %1280 = sext i8 %1279 to i32
   %1281 = add nsw i32 %1280, %1257
-  %1282 = sub nsw i32 %.4011334, %1281
+  %1282 = sub nsw i32 %.3711331, %1281
   %1283 = icmp slt i32 %1282, 0
   br i1 %1283, label %1284, label %1350
 
 1284:                                             ; preds = %1266
-  %1285 = zext nneg i32 %.4011334 to i64
-  %1286 = shl i64 %.4011080, %1285
+  %1285 = zext nneg i32 %.3711331 to i64
+  %1286 = shl i64 %.3711077, %1285
   %1287 = sub nsw i32 0, %1282
   %1288 = ashr i32 %1276, %1287
   %1289 = sext i32 %1288 to i64
@@ -3842,19 +3842,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12064 = icmp eq i64 %1293, 0
   %1294 = lshr i64 %1290, 56
   %1295 = trunc nuw i64 %1294 to i8
-  store i8 %1295, ptr %.6210976, align 1
+  store i8 %1295, ptr %.5710971, align 1
   br i1 %.not12064, label %1325, label %1296
 
 1296:                                             ; preds = %1284
-  %1297 = getelementptr inbounds i8, ptr %.6210976, i64 1
+  %1297 = getelementptr inbounds i8, ptr %.5710971, i64 1
   store i8 0, ptr %1297, align 1
   %.not12065 = icmp eq i64 %1294, 255
-  %.sroa.gep13924 = getelementptr inbounds i8, ptr %.6210976, i64 2
+  %.sroa.gep13924 = getelementptr inbounds i8, ptr %.5710971, i64 2
   %.neg12066.sroa.sel = select i1 %.not12065, ptr %.sroa.gep13924, ptr %1297
   %1298 = lshr i64 %1290, 48
   %1299 = trunc i64 %1298 to i8
   store i8 %1299, ptr %.neg12066.sroa.sel, align 1
-  %.sroa.gep16175 = getelementptr inbounds i8, ptr %.6210976, i64 3
+  %.sroa.gep16175 = getelementptr inbounds i8, ptr %.5710971, i64 3
   %.neg12066.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12065, ptr %.sroa.gep16175, ptr %.sroa.gep13924
   store i8 0, ptr %.neg12066.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1300 = and i64 %1290, 71776119061217280
@@ -3922,59 +3922,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1325:                                             ; preds = %1284
   %1326 = lshr i64 %1290, 48
   %1327 = trunc i64 %1326 to i8
-  %1328 = getelementptr inbounds i8, ptr %.6210976, i64 1
+  %1328 = getelementptr inbounds i8, ptr %.5710971, i64 1
   store i8 %1327, ptr %1328, align 1
   %1329 = lshr i64 %1290, 40
   %1330 = trunc i64 %1329 to i8
-  %1331 = getelementptr inbounds i8, ptr %.6210976, i64 2
+  %1331 = getelementptr inbounds i8, ptr %.5710971, i64 2
   store i8 %1330, ptr %1331, align 1
   %1332 = lshr i64 %1290, 32
   %1333 = trunc i64 %1332 to i8
-  %1334 = getelementptr inbounds i8, ptr %.6210976, i64 3
+  %1334 = getelementptr inbounds i8, ptr %.5710971, i64 3
   store i8 %1333, ptr %1334, align 1
   %1335 = lshr i64 %1290, 24
   %1336 = trunc i64 %1335 to i8
-  %1337 = getelementptr inbounds i8, ptr %.6210976, i64 4
+  %1337 = getelementptr inbounds i8, ptr %.5710971, i64 4
   store i8 %1336, ptr %1337, align 1
   %1338 = lshr i64 %1290, 16
   %1339 = trunc i64 %1338 to i8
-  %1340 = getelementptr inbounds i8, ptr %.6210976, i64 5
+  %1340 = getelementptr inbounds i8, ptr %.5710971, i64 5
   store i8 %1339, ptr %1340, align 1
   %1341 = lshr i64 %1290, 8
   %1342 = trunc i64 %1341 to i8
-  %1343 = getelementptr inbounds i8, ptr %.6210976, i64 6
+  %1343 = getelementptr inbounds i8, ptr %.5710971, i64 6
   store i8 %1342, ptr %1343, align 1
   %1344 = trunc i64 %1290 to i8
-  %1345 = getelementptr inbounds i8, ptr %.6210976, i64 7
+  %1345 = getelementptr inbounds i8, ptr %.5710971, i64 7
   store i8 %1344, ptr %1345, align 1
-  %1346 = getelementptr inbounds i8, ptr %.6210976, i64 8
+  %1346 = getelementptr inbounds i8, ptr %.5710971, i64 8
   br label %1347
 
 1347:                                             ; preds = %1325, %1296
-  %.6610980 = phi ptr [ %1324, %1296 ], [ %1346, %1325 ]
+  %.6710981 = phi ptr [ %1324, %1296 ], [ %1346, %1325 ]
   %1348 = add nsw i32 %1282, 64
   %1349 = sext i32 %1276 to i64
   br label %1355
 
 1350:                                             ; preds = %1266
   %1351 = zext nneg i32 %1281 to i64
-  %1352 = shl i64 %.4011080, %1351
+  %1352 = shl i64 %.3711077, %1351
   %1353 = sext i32 %1276 to i64
   %1354 = or i64 %1352, %1353
   br label %1355
 
 1355:                                             ; preds = %1347, %1350, %1247
-  %.4411338 = phi i32 [ %.4011334, %1247 ], [ %1348, %1347 ], [ %1282, %1350 ]
-  %.4411084 = phi i64 [ %.4011080, %1247 ], [ %1349, %1347 ], [ %1354, %1350 ]
-  %.6810982 = phi ptr [ %.6210976, %1247 ], [ %.6610980, %1347 ], [ %.6210976, %1350 ]
-  %.21 = phi i32 [ %1248, %1247 ], [ 0, %1347 ], [ 0, %1350 ]
+  %.4111335 = phi i32 [ %.3711331, %1247 ], [ %1348, %1347 ], [ %1282, %1350 ]
+  %.4111081 = phi i64 [ %.3711077, %1247 ], [ %1349, %1347 ], [ %1354, %1350 ]
+  %.6310977 = phi ptr [ %.5710971, %1247 ], [ %.6710981, %1347 ], [ %.5710971, %1350 ]
+  %.20 = phi i32 [ %1248, %1247 ], [ 0, %1347 ], [ 0, %1350 ]
   %1356 = getelementptr inbounds i8, ptr %1, i64 36
   %1357 = load i16, ptr %1356, align 2
   %1358 = icmp eq i16 %1357, 0
   br i1 %1358, label %1359, label %1361
 
 1359:                                             ; preds = %1355
-  %1360 = add nuw nsw i32 %.21, 16
+  %1360 = add nuw nsw i32 %.20, 16
   br label %1467
 
 1361:                                             ; preds = %1355
@@ -4001,7 +4001,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1378
 
 1378:                                             ; preds = %1371, %1361
-  %1379 = add nuw nsw i32 %.21, %1369
+  %1379 = add nuw nsw i32 %.20, %1369
   %1380 = zext nneg i8 %1368 to i64
   %notmask12081 = shl nsw i64 -1, %1380
   %1381 = trunc i64 %notmask12081 to i32
@@ -4017,13 +4017,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1391 = load i8, ptr %1390, align 1
   %1392 = sext i8 %1391 to i32
   %1393 = add nsw i32 %1392, %1369
-  %1394 = sub nsw i32 %.4411338, %1393
+  %1394 = sub nsw i32 %.4111335, %1393
   %1395 = icmp slt i32 %1394, 0
   br i1 %1395, label %1396, label %1462
 
 1396:                                             ; preds = %1378
-  %1397 = zext nneg i32 %.4411338 to i64
-  %1398 = shl i64 %.4411084, %1397
+  %1397 = zext nneg i32 %.4111335 to i64
+  %1398 = shl i64 %.4111081, %1397
   %1399 = sub nsw i32 0, %1394
   %1400 = ashr i32 %1388, %1399
   %1401 = sext i32 %1400 to i64
@@ -4034,19 +4034,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12082 = icmp eq i64 %1405, 0
   %1406 = lshr i64 %1402, 56
   %1407 = trunc nuw i64 %1406 to i8
-  store i8 %1407, ptr %.6810982, align 1
+  store i8 %1407, ptr %.6310977, align 1
   br i1 %.not12082, label %1437, label %1408
 
 1408:                                             ; preds = %1396
-  %1409 = getelementptr inbounds i8, ptr %.6810982, i64 1
+  %1409 = getelementptr inbounds i8, ptr %.6310977, i64 1
   store i8 0, ptr %1409, align 1
   %.not12083 = icmp eq i64 %1406, 255
-  %.sroa.gep13932 = getelementptr inbounds i8, ptr %.6810982, i64 2
+  %.sroa.gep13932 = getelementptr inbounds i8, ptr %.6310977, i64 2
   %.neg12084.sroa.sel = select i1 %.not12083, ptr %.sroa.gep13932, ptr %1409
   %1410 = lshr i64 %1402, 48
   %1411 = trunc i64 %1410 to i8
   store i8 %1411, ptr %.neg12084.sroa.sel, align 1
-  %.sroa.gep16173 = getelementptr inbounds i8, ptr %.6810982, i64 3
+  %.sroa.gep16173 = getelementptr inbounds i8, ptr %.6310977, i64 3
   %.neg12084.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12083, ptr %.sroa.gep16173, ptr %.sroa.gep13932
   store i8 0, ptr %.neg12084.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1412 = and i64 %1402, 71776119061217280
@@ -4114,59 +4114,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1437:                                             ; preds = %1396
   %1438 = lshr i64 %1402, 48
   %1439 = trunc i64 %1438 to i8
-  %1440 = getelementptr inbounds i8, ptr %.6810982, i64 1
+  %1440 = getelementptr inbounds i8, ptr %.6310977, i64 1
   store i8 %1439, ptr %1440, align 1
   %1441 = lshr i64 %1402, 40
   %1442 = trunc i64 %1441 to i8
-  %1443 = getelementptr inbounds i8, ptr %.6810982, i64 2
+  %1443 = getelementptr inbounds i8, ptr %.6310977, i64 2
   store i8 %1442, ptr %1443, align 1
   %1444 = lshr i64 %1402, 32
   %1445 = trunc i64 %1444 to i8
-  %1446 = getelementptr inbounds i8, ptr %.6810982, i64 3
+  %1446 = getelementptr inbounds i8, ptr %.6310977, i64 3
   store i8 %1445, ptr %1446, align 1
   %1447 = lshr i64 %1402, 24
   %1448 = trunc i64 %1447 to i8
-  %1449 = getelementptr inbounds i8, ptr %.6810982, i64 4
+  %1449 = getelementptr inbounds i8, ptr %.6310977, i64 4
   store i8 %1448, ptr %1449, align 1
   %1450 = lshr i64 %1402, 16
   %1451 = trunc i64 %1450 to i8
-  %1452 = getelementptr inbounds i8, ptr %.6810982, i64 5
+  %1452 = getelementptr inbounds i8, ptr %.6310977, i64 5
   store i8 %1451, ptr %1452, align 1
   %1453 = lshr i64 %1402, 8
   %1454 = trunc i64 %1453 to i8
-  %1455 = getelementptr inbounds i8, ptr %.6810982, i64 6
+  %1455 = getelementptr inbounds i8, ptr %.6310977, i64 6
   store i8 %1454, ptr %1455, align 1
   %1456 = trunc i64 %1402 to i8
-  %1457 = getelementptr inbounds i8, ptr %.6810982, i64 7
+  %1457 = getelementptr inbounds i8, ptr %.6310977, i64 7
   store i8 %1456, ptr %1457, align 1
-  %1458 = getelementptr inbounds i8, ptr %.6810982, i64 8
+  %1458 = getelementptr inbounds i8, ptr %.6310977, i64 8
   br label %1459
 
 1459:                                             ; preds = %1437, %1408
-  %.7210986 = phi ptr [ %1436, %1408 ], [ %1458, %1437 ]
+  %.7310987 = phi ptr [ %1436, %1408 ], [ %1458, %1437 ]
   %1460 = add nsw i32 %1394, 64
   %1461 = sext i32 %1388 to i64
   br label %1467
 
 1462:                                             ; preds = %1378
   %1463 = zext nneg i32 %1393 to i64
-  %1464 = shl i64 %.4411084, %1463
+  %1464 = shl i64 %.4111081, %1463
   %1465 = sext i32 %1388 to i64
   %1466 = or i64 %1464, %1465
   br label %1467
 
 1467:                                             ; preds = %1459, %1462, %1359
-  %.4811342 = phi i32 [ %.4411338, %1359 ], [ %1460, %1459 ], [ %1394, %1462 ]
-  %.4811088 = phi i64 [ %.4411084, %1359 ], [ %1461, %1459 ], [ %1466, %1462 ]
-  %.7410988 = phi ptr [ %.6810982, %1359 ], [ %.7210986, %1459 ], [ %.6810982, %1462 ]
-  %.23 = phi i32 [ %1360, %1359 ], [ 0, %1459 ], [ 0, %1462 ]
+  %.4511339 = phi i32 [ %.4111335, %1359 ], [ %1460, %1459 ], [ %1394, %1462 ]
+  %.4511085 = phi i64 [ %.4111081, %1359 ], [ %1461, %1459 ], [ %1466, %1462 ]
+  %.6910983 = phi ptr [ %.6310977, %1359 ], [ %.7310987, %1459 ], [ %.6310977, %1462 ]
+  %.22 = phi i32 [ %1360, %1359 ], [ 0, %1459 ], [ 0, %1462 ]
   %1468 = getelementptr inbounds i8, ptr %1, i64 22
   %1469 = load i16, ptr %1468, align 2
   %1470 = icmp eq i16 %1469, 0
   br i1 %1470, label %1471, label %1473
 
 1471:                                             ; preds = %1467
-  %1472 = add nuw nsw i32 %.23, 16
+  %1472 = add nuw nsw i32 %.22, 16
   br label %1579
 
 1473:                                             ; preds = %1467
@@ -4193,7 +4193,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1490
 
 1490:                                             ; preds = %1483, %1473
-  %1491 = add nuw nsw i32 %.23, %1481
+  %1491 = add nuw nsw i32 %.22, %1481
   %1492 = zext nneg i8 %1480 to i64
   %notmask12099 = shl nsw i64 -1, %1492
   %1493 = trunc i64 %notmask12099 to i32
@@ -4209,13 +4209,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1503 = load i8, ptr %1502, align 1
   %1504 = sext i8 %1503 to i32
   %1505 = add nsw i32 %1504, %1481
-  %1506 = sub nsw i32 %.4811342, %1505
+  %1506 = sub nsw i32 %.4511339, %1505
   %1507 = icmp slt i32 %1506, 0
   br i1 %1507, label %1508, label %1574
 
 1508:                                             ; preds = %1490
-  %1509 = zext nneg i32 %.4811342 to i64
-  %1510 = shl i64 %.4811088, %1509
+  %1509 = zext nneg i32 %.4511339 to i64
+  %1510 = shl i64 %.4511085, %1509
   %1511 = sub nsw i32 0, %1506
   %1512 = ashr i32 %1500, %1511
   %1513 = sext i32 %1512 to i64
@@ -4226,19 +4226,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12100 = icmp eq i64 %1517, 0
   %1518 = lshr i64 %1514, 56
   %1519 = trunc nuw i64 %1518 to i8
-  store i8 %1519, ptr %.7410988, align 1
+  store i8 %1519, ptr %.6910983, align 1
   br i1 %.not12100, label %1549, label %1520
 
 1520:                                             ; preds = %1508
-  %1521 = getelementptr inbounds i8, ptr %.7410988, i64 1
+  %1521 = getelementptr inbounds i8, ptr %.6910983, i64 1
   store i8 0, ptr %1521, align 1
   %.not12101 = icmp eq i64 %1518, 255
-  %.sroa.gep13940 = getelementptr inbounds i8, ptr %.7410988, i64 2
+  %.sroa.gep13940 = getelementptr inbounds i8, ptr %.6910983, i64 2
   %.neg12102.sroa.sel = select i1 %.not12101, ptr %.sroa.gep13940, ptr %1521
   %1522 = lshr i64 %1514, 48
   %1523 = trunc i64 %1522 to i8
   store i8 %1523, ptr %.neg12102.sroa.sel, align 1
-  %.sroa.gep16171 = getelementptr inbounds i8, ptr %.7410988, i64 3
+  %.sroa.gep16171 = getelementptr inbounds i8, ptr %.6910983, i64 3
   %.neg12102.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12101, ptr %.sroa.gep16171, ptr %.sroa.gep13940
   store i8 0, ptr %.neg12102.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1524 = and i64 %1514, 71776119061217280
@@ -4306,59 +4306,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1549:                                             ; preds = %1508
   %1550 = lshr i64 %1514, 48
   %1551 = trunc i64 %1550 to i8
-  %1552 = getelementptr inbounds i8, ptr %.7410988, i64 1
+  %1552 = getelementptr inbounds i8, ptr %.6910983, i64 1
   store i8 %1551, ptr %1552, align 1
   %1553 = lshr i64 %1514, 40
   %1554 = trunc i64 %1553 to i8
-  %1555 = getelementptr inbounds i8, ptr %.7410988, i64 2
+  %1555 = getelementptr inbounds i8, ptr %.6910983, i64 2
   store i8 %1554, ptr %1555, align 1
   %1556 = lshr i64 %1514, 32
   %1557 = trunc i64 %1556 to i8
-  %1558 = getelementptr inbounds i8, ptr %.7410988, i64 3
+  %1558 = getelementptr inbounds i8, ptr %.6910983, i64 3
   store i8 %1557, ptr %1558, align 1
   %1559 = lshr i64 %1514, 24
   %1560 = trunc i64 %1559 to i8
-  %1561 = getelementptr inbounds i8, ptr %.7410988, i64 4
+  %1561 = getelementptr inbounds i8, ptr %.6910983, i64 4
   store i8 %1560, ptr %1561, align 1
   %1562 = lshr i64 %1514, 16
   %1563 = trunc i64 %1562 to i8
-  %1564 = getelementptr inbounds i8, ptr %.7410988, i64 5
+  %1564 = getelementptr inbounds i8, ptr %.6910983, i64 5
   store i8 %1563, ptr %1564, align 1
   %1565 = lshr i64 %1514, 8
   %1566 = trunc i64 %1565 to i8
-  %1567 = getelementptr inbounds i8, ptr %.7410988, i64 6
+  %1567 = getelementptr inbounds i8, ptr %.6910983, i64 6
   store i8 %1566, ptr %1567, align 1
   %1568 = trunc i64 %1514 to i8
-  %1569 = getelementptr inbounds i8, ptr %.7410988, i64 7
+  %1569 = getelementptr inbounds i8, ptr %.6910983, i64 7
   store i8 %1568, ptr %1569, align 1
-  %1570 = getelementptr inbounds i8, ptr %.7410988, i64 8
+  %1570 = getelementptr inbounds i8, ptr %.6910983, i64 8
   br label %1571
 
 1571:                                             ; preds = %1549, %1520
-  %.7810992 = phi ptr [ %1548, %1520 ], [ %1570, %1549 ]
+  %.7910993 = phi ptr [ %1548, %1520 ], [ %1570, %1549 ]
   %1572 = add nsw i32 %1506, 64
   %1573 = sext i32 %1500 to i64
   br label %1579
 
 1574:                                             ; preds = %1490
   %1575 = zext nneg i32 %1505 to i64
-  %1576 = shl i64 %.4811088, %1575
+  %1576 = shl i64 %.4511085, %1575
   %1577 = sext i32 %1500 to i64
   %1578 = or i64 %1576, %1577
   br label %1579
 
 1579:                                             ; preds = %1571, %1574, %1471
-  %.5211346 = phi i32 [ %.4811342, %1471 ], [ %1572, %1571 ], [ %1506, %1574 ]
-  %.5211092 = phi i64 [ %.4811088, %1471 ], [ %1573, %1571 ], [ %1578, %1574 ]
-  %.8010994 = phi ptr [ %.7410988, %1471 ], [ %.7810992, %1571 ], [ %.7410988, %1574 ]
-  %.25 = phi i32 [ %1472, %1471 ], [ 0, %1571 ], [ 0, %1574 ]
+  %.4911343 = phi i32 [ %.4511339, %1471 ], [ %1572, %1571 ], [ %1506, %1574 ]
+  %.4911089 = phi i64 [ %.4511085, %1471 ], [ %1573, %1571 ], [ %1578, %1574 ]
+  %.7510989 = phi ptr [ %.6910983, %1471 ], [ %.7910993, %1571 ], [ %.6910983, %1574 ]
+  %.24 = phi i32 [ %1472, %1471 ], [ 0, %1571 ], [ 0, %1574 ]
   %1580 = getelementptr inbounds i8, ptr %1, i64 8
   %1581 = load i16, ptr %1580, align 2
   %1582 = icmp eq i16 %1581, 0
   br i1 %1582, label %1583, label %1585
 
 1583:                                             ; preds = %1579
-  %1584 = add nuw nsw i32 %.25, 16
+  %1584 = add nuw nsw i32 %.24, 16
   br label %1691
 
 1585:                                             ; preds = %1579
@@ -4385,7 +4385,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1602
 
 1602:                                             ; preds = %1595, %1585
-  %1603 = add nuw nsw i32 %.25, %1593
+  %1603 = add nuw nsw i32 %.24, %1593
   %1604 = zext nneg i8 %1592 to i64
   %notmask12117 = shl nsw i64 -1, %1604
   %1605 = trunc i64 %notmask12117 to i32
@@ -4401,13 +4401,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1615 = load i8, ptr %1614, align 1
   %1616 = sext i8 %1615 to i32
   %1617 = add nsw i32 %1616, %1593
-  %1618 = sub nsw i32 %.5211346, %1617
+  %1618 = sub nsw i32 %.4911343, %1617
   %1619 = icmp slt i32 %1618, 0
   br i1 %1619, label %1620, label %1686
 
 1620:                                             ; preds = %1602
-  %1621 = zext nneg i32 %.5211346 to i64
-  %1622 = shl i64 %.5211092, %1621
+  %1621 = zext nneg i32 %.4911343 to i64
+  %1622 = shl i64 %.4911089, %1621
   %1623 = sub nsw i32 0, %1618
   %1624 = ashr i32 %1612, %1623
   %1625 = sext i32 %1624 to i64
@@ -4418,19 +4418,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12118 = icmp eq i64 %1629, 0
   %1630 = lshr i64 %1626, 56
   %1631 = trunc nuw i64 %1630 to i8
-  store i8 %1631, ptr %.8010994, align 1
+  store i8 %1631, ptr %.7510989, align 1
   br i1 %.not12118, label %1661, label %1632
 
 1632:                                             ; preds = %1620
-  %1633 = getelementptr inbounds i8, ptr %.8010994, i64 1
+  %1633 = getelementptr inbounds i8, ptr %.7510989, i64 1
   store i8 0, ptr %1633, align 1
   %.not12119 = icmp eq i64 %1630, 255
-  %.sroa.gep13948 = getelementptr inbounds i8, ptr %.8010994, i64 2
+  %.sroa.gep13948 = getelementptr inbounds i8, ptr %.7510989, i64 2
   %.neg12120.sroa.sel = select i1 %.not12119, ptr %.sroa.gep13948, ptr %1633
   %1634 = lshr i64 %1626, 48
   %1635 = trunc i64 %1634 to i8
   store i8 %1635, ptr %.neg12120.sroa.sel, align 1
-  %.sroa.gep16169 = getelementptr inbounds i8, ptr %.8010994, i64 3
+  %.sroa.gep16169 = getelementptr inbounds i8, ptr %.7510989, i64 3
   %.neg12120.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12119, ptr %.sroa.gep16169, ptr %.sroa.gep13948
   store i8 0, ptr %.neg12120.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1636 = and i64 %1626, 71776119061217280
@@ -4498,59 +4498,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1661:                                             ; preds = %1620
   %1662 = lshr i64 %1626, 48
   %1663 = trunc i64 %1662 to i8
-  %1664 = getelementptr inbounds i8, ptr %.8010994, i64 1
+  %1664 = getelementptr inbounds i8, ptr %.7510989, i64 1
   store i8 %1663, ptr %1664, align 1
   %1665 = lshr i64 %1626, 40
   %1666 = trunc i64 %1665 to i8
-  %1667 = getelementptr inbounds i8, ptr %.8010994, i64 2
+  %1667 = getelementptr inbounds i8, ptr %.7510989, i64 2
   store i8 %1666, ptr %1667, align 1
   %1668 = lshr i64 %1626, 32
   %1669 = trunc i64 %1668 to i8
-  %1670 = getelementptr inbounds i8, ptr %.8010994, i64 3
+  %1670 = getelementptr inbounds i8, ptr %.7510989, i64 3
   store i8 %1669, ptr %1670, align 1
   %1671 = lshr i64 %1626, 24
   %1672 = trunc i64 %1671 to i8
-  %1673 = getelementptr inbounds i8, ptr %.8010994, i64 4
+  %1673 = getelementptr inbounds i8, ptr %.7510989, i64 4
   store i8 %1672, ptr %1673, align 1
   %1674 = lshr i64 %1626, 16
   %1675 = trunc i64 %1674 to i8
-  %1676 = getelementptr inbounds i8, ptr %.8010994, i64 5
+  %1676 = getelementptr inbounds i8, ptr %.7510989, i64 5
   store i8 %1675, ptr %1676, align 1
   %1677 = lshr i64 %1626, 8
   %1678 = trunc i64 %1677 to i8
-  %1679 = getelementptr inbounds i8, ptr %.8010994, i64 6
+  %1679 = getelementptr inbounds i8, ptr %.7510989, i64 6
   store i8 %1678, ptr %1679, align 1
   %1680 = trunc i64 %1626 to i8
-  %1681 = getelementptr inbounds i8, ptr %.8010994, i64 7
+  %1681 = getelementptr inbounds i8, ptr %.7510989, i64 7
   store i8 %1680, ptr %1681, align 1
-  %1682 = getelementptr inbounds i8, ptr %.8010994, i64 8
+  %1682 = getelementptr inbounds i8, ptr %.7510989, i64 8
   br label %1683
 
 1683:                                             ; preds = %1661, %1632
-  %.8410998 = phi ptr [ %1660, %1632 ], [ %1682, %1661 ]
+  %.8510999 = phi ptr [ %1660, %1632 ], [ %1682, %1661 ]
   %1684 = add nsw i32 %1618, 64
   %1685 = sext i32 %1612 to i64
   br label %1691
 
 1686:                                             ; preds = %1602
   %1687 = zext nneg i32 %1617 to i64
-  %1688 = shl i64 %.5211092, %1687
+  %1688 = shl i64 %.4911089, %1687
   %1689 = sext i32 %1612 to i64
   %1690 = or i64 %1688, %1689
   br label %1691
 
 1691:                                             ; preds = %1683, %1686, %1583
-  %.5611350 = phi i32 [ %.5211346, %1583 ], [ %1684, %1683 ], [ %1618, %1686 ]
-  %.5611096 = phi i64 [ %.5211092, %1583 ], [ %1685, %1683 ], [ %1690, %1686 ]
-  %.8611000 = phi ptr [ %.8010994, %1583 ], [ %.8410998, %1683 ], [ %.8010994, %1686 ]
-  %.27 = phi i32 [ %1584, %1583 ], [ 0, %1683 ], [ 0, %1686 ]
+  %.5311347 = phi i32 [ %.4911343, %1583 ], [ %1684, %1683 ], [ %1618, %1686 ]
+  %.5311093 = phi i64 [ %.4911089, %1583 ], [ %1685, %1683 ], [ %1690, %1686 ]
+  %.8110995 = phi ptr [ %.7510989, %1583 ], [ %.8510999, %1683 ], [ %.7510989, %1686 ]
+  %.26 = phi i32 [ %1584, %1583 ], [ 0, %1683 ], [ 0, %1686 ]
   %1692 = getelementptr inbounds i8, ptr %1, i64 10
   %1693 = load i16, ptr %1692, align 2
   %1694 = icmp eq i16 %1693, 0
   br i1 %1694, label %1695, label %1697
 
 1695:                                             ; preds = %1691
-  %1696 = add nuw nsw i32 %.27, 16
+  %1696 = add nuw nsw i32 %.26, 16
   br label %1803
 
 1697:                                             ; preds = %1691
@@ -4577,7 +4577,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1714
 
 1714:                                             ; preds = %1707, %1697
-  %1715 = add nuw nsw i32 %.27, %1705
+  %1715 = add nuw nsw i32 %.26, %1705
   %1716 = zext nneg i8 %1704 to i64
   %notmask12135 = shl nsw i64 -1, %1716
   %1717 = trunc i64 %notmask12135 to i32
@@ -4593,13 +4593,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1727 = load i8, ptr %1726, align 1
   %1728 = sext i8 %1727 to i32
   %1729 = add nsw i32 %1728, %1705
-  %1730 = sub nsw i32 %.5611350, %1729
+  %1730 = sub nsw i32 %.5311347, %1729
   %1731 = icmp slt i32 %1730, 0
   br i1 %1731, label %1732, label %1798
 
 1732:                                             ; preds = %1714
-  %1733 = zext nneg i32 %.5611350 to i64
-  %1734 = shl i64 %.5611096, %1733
+  %1733 = zext nneg i32 %.5311347 to i64
+  %1734 = shl i64 %.5311093, %1733
   %1735 = sub nsw i32 0, %1730
   %1736 = ashr i32 %1724, %1735
   %1737 = sext i32 %1736 to i64
@@ -4610,19 +4610,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12136 = icmp eq i64 %1741, 0
   %1742 = lshr i64 %1738, 56
   %1743 = trunc nuw i64 %1742 to i8
-  store i8 %1743, ptr %.8611000, align 1
+  store i8 %1743, ptr %.8110995, align 1
   br i1 %.not12136, label %1773, label %1744
 
 1744:                                             ; preds = %1732
-  %1745 = getelementptr inbounds i8, ptr %.8611000, i64 1
+  %1745 = getelementptr inbounds i8, ptr %.8110995, i64 1
   store i8 0, ptr %1745, align 1
   %.not12137 = icmp eq i64 %1742, 255
-  %.sroa.gep13956 = getelementptr inbounds i8, ptr %.8611000, i64 2
+  %.sroa.gep13956 = getelementptr inbounds i8, ptr %.8110995, i64 2
   %.neg12138.sroa.sel = select i1 %.not12137, ptr %.sroa.gep13956, ptr %1745
   %1746 = lshr i64 %1738, 48
   %1747 = trunc i64 %1746 to i8
   store i8 %1747, ptr %.neg12138.sroa.sel, align 1
-  %.sroa.gep16167 = getelementptr inbounds i8, ptr %.8611000, i64 3
+  %.sroa.gep16167 = getelementptr inbounds i8, ptr %.8110995, i64 3
   %.neg12138.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12137, ptr %.sroa.gep16167, ptr %.sroa.gep13956
   store i8 0, ptr %.neg12138.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1748 = and i64 %1738, 71776119061217280
@@ -4690,59 +4690,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1773:                                             ; preds = %1732
   %1774 = lshr i64 %1738, 48
   %1775 = trunc i64 %1774 to i8
-  %1776 = getelementptr inbounds i8, ptr %.8611000, i64 1
+  %1776 = getelementptr inbounds i8, ptr %.8110995, i64 1
   store i8 %1775, ptr %1776, align 1
   %1777 = lshr i64 %1738, 40
   %1778 = trunc i64 %1777 to i8
-  %1779 = getelementptr inbounds i8, ptr %.8611000, i64 2
+  %1779 = getelementptr inbounds i8, ptr %.8110995, i64 2
   store i8 %1778, ptr %1779, align 1
   %1780 = lshr i64 %1738, 32
   %1781 = trunc i64 %1780 to i8
-  %1782 = getelementptr inbounds i8, ptr %.8611000, i64 3
+  %1782 = getelementptr inbounds i8, ptr %.8110995, i64 3
   store i8 %1781, ptr %1782, align 1
   %1783 = lshr i64 %1738, 24
   %1784 = trunc i64 %1783 to i8
-  %1785 = getelementptr inbounds i8, ptr %.8611000, i64 4
+  %1785 = getelementptr inbounds i8, ptr %.8110995, i64 4
   store i8 %1784, ptr %1785, align 1
   %1786 = lshr i64 %1738, 16
   %1787 = trunc i64 %1786 to i8
-  %1788 = getelementptr inbounds i8, ptr %.8611000, i64 5
+  %1788 = getelementptr inbounds i8, ptr %.8110995, i64 5
   store i8 %1787, ptr %1788, align 1
   %1789 = lshr i64 %1738, 8
   %1790 = trunc i64 %1789 to i8
-  %1791 = getelementptr inbounds i8, ptr %.8611000, i64 6
+  %1791 = getelementptr inbounds i8, ptr %.8110995, i64 6
   store i8 %1790, ptr %1791, align 1
   %1792 = trunc i64 %1738 to i8
-  %1793 = getelementptr inbounds i8, ptr %.8611000, i64 7
+  %1793 = getelementptr inbounds i8, ptr %.8110995, i64 7
   store i8 %1792, ptr %1793, align 1
-  %1794 = getelementptr inbounds i8, ptr %.8611000, i64 8
+  %1794 = getelementptr inbounds i8, ptr %.8110995, i64 8
   br label %1795
 
 1795:                                             ; preds = %1773, %1744
-  %.9011004 = phi ptr [ %1772, %1744 ], [ %1794, %1773 ]
+  %.9111005 = phi ptr [ %1772, %1744 ], [ %1794, %1773 ]
   %1796 = add nsw i32 %1730, 64
   %1797 = sext i32 %1724 to i64
   br label %1803
 
 1798:                                             ; preds = %1714
   %1799 = zext nneg i32 %1729 to i64
-  %1800 = shl i64 %.5611096, %1799
+  %1800 = shl i64 %.5311093, %1799
   %1801 = sext i32 %1724 to i64
   %1802 = or i64 %1800, %1801
   br label %1803
 
 1803:                                             ; preds = %1795, %1798, %1695
-  %.6011354 = phi i32 [ %.5611350, %1695 ], [ %1796, %1795 ], [ %1730, %1798 ]
-  %.6011100 = phi i64 [ %.5611096, %1695 ], [ %1797, %1795 ], [ %1802, %1798 ]
-  %.9211006 = phi ptr [ %.8611000, %1695 ], [ %.9011004, %1795 ], [ %.8611000, %1798 ]
-  %.29 = phi i32 [ %1696, %1695 ], [ 0, %1795 ], [ 0, %1798 ]
+  %.5711351 = phi i32 [ %.5311347, %1695 ], [ %1796, %1795 ], [ %1730, %1798 ]
+  %.5711097 = phi i64 [ %.5311093, %1695 ], [ %1797, %1795 ], [ %1802, %1798 ]
+  %.8711001 = phi ptr [ %.8110995, %1695 ], [ %.9111005, %1795 ], [ %.8110995, %1798 ]
+  %.28 = phi i32 [ %1696, %1695 ], [ 0, %1795 ], [ 0, %1798 ]
   %1804 = getelementptr inbounds i8, ptr %1, i64 24
   %1805 = load i16, ptr %1804, align 2
   %1806 = icmp eq i16 %1805, 0
   br i1 %1806, label %1807, label %1809
 
 1807:                                             ; preds = %1803
-  %1808 = add nuw nsw i32 %.29, 16
+  %1808 = add nuw nsw i32 %.28, 16
   br label %1915
 
 1809:                                             ; preds = %1803
@@ -4769,7 +4769,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1826
 
 1826:                                             ; preds = %1819, %1809
-  %1827 = add nuw nsw i32 %.29, %1817
+  %1827 = add nuw nsw i32 %.28, %1817
   %1828 = zext nneg i8 %1816 to i64
   %notmask12153 = shl nsw i64 -1, %1828
   %1829 = trunc i64 %notmask12153 to i32
@@ -4785,13 +4785,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1839 = load i8, ptr %1838, align 1
   %1840 = sext i8 %1839 to i32
   %1841 = add nsw i32 %1840, %1817
-  %1842 = sub nsw i32 %.6011354, %1841
+  %1842 = sub nsw i32 %.5711351, %1841
   %1843 = icmp slt i32 %1842, 0
   br i1 %1843, label %1844, label %1910
 
 1844:                                             ; preds = %1826
-  %1845 = zext nneg i32 %.6011354 to i64
-  %1846 = shl i64 %.6011100, %1845
+  %1845 = zext nneg i32 %.5711351 to i64
+  %1846 = shl i64 %.5711097, %1845
   %1847 = sub nsw i32 0, %1842
   %1848 = ashr i32 %1836, %1847
   %1849 = sext i32 %1848 to i64
@@ -4802,19 +4802,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12154 = icmp eq i64 %1853, 0
   %1854 = lshr i64 %1850, 56
   %1855 = trunc nuw i64 %1854 to i8
-  store i8 %1855, ptr %.9211006, align 1
+  store i8 %1855, ptr %.8711001, align 1
   br i1 %.not12154, label %1885, label %1856
 
 1856:                                             ; preds = %1844
-  %1857 = getelementptr inbounds i8, ptr %.9211006, i64 1
+  %1857 = getelementptr inbounds i8, ptr %.8711001, i64 1
   store i8 0, ptr %1857, align 1
   %.not12155 = icmp eq i64 %1854, 255
-  %.sroa.gep13964 = getelementptr inbounds i8, ptr %.9211006, i64 2
+  %.sroa.gep13964 = getelementptr inbounds i8, ptr %.8711001, i64 2
   %.neg12156.sroa.sel = select i1 %.not12155, ptr %.sroa.gep13964, ptr %1857
   %1858 = lshr i64 %1850, 48
   %1859 = trunc i64 %1858 to i8
   store i8 %1859, ptr %.neg12156.sroa.sel, align 1
-  %.sroa.gep16165 = getelementptr inbounds i8, ptr %.9211006, i64 3
+  %.sroa.gep16165 = getelementptr inbounds i8, ptr %.8711001, i64 3
   %.neg12156.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12155, ptr %.sroa.gep16165, ptr %.sroa.gep13964
   store i8 0, ptr %.neg12156.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1860 = and i64 %1850, 71776119061217280
@@ -4882,59 +4882,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1885:                                             ; preds = %1844
   %1886 = lshr i64 %1850, 48
   %1887 = trunc i64 %1886 to i8
-  %1888 = getelementptr inbounds i8, ptr %.9211006, i64 1
+  %1888 = getelementptr inbounds i8, ptr %.8711001, i64 1
   store i8 %1887, ptr %1888, align 1
   %1889 = lshr i64 %1850, 40
   %1890 = trunc i64 %1889 to i8
-  %1891 = getelementptr inbounds i8, ptr %.9211006, i64 2
+  %1891 = getelementptr inbounds i8, ptr %.8711001, i64 2
   store i8 %1890, ptr %1891, align 1
   %1892 = lshr i64 %1850, 32
   %1893 = trunc i64 %1892 to i8
-  %1894 = getelementptr inbounds i8, ptr %.9211006, i64 3
+  %1894 = getelementptr inbounds i8, ptr %.8711001, i64 3
   store i8 %1893, ptr %1894, align 1
   %1895 = lshr i64 %1850, 24
   %1896 = trunc i64 %1895 to i8
-  %1897 = getelementptr inbounds i8, ptr %.9211006, i64 4
+  %1897 = getelementptr inbounds i8, ptr %.8711001, i64 4
   store i8 %1896, ptr %1897, align 1
   %1898 = lshr i64 %1850, 16
   %1899 = trunc i64 %1898 to i8
-  %1900 = getelementptr inbounds i8, ptr %.9211006, i64 5
+  %1900 = getelementptr inbounds i8, ptr %.8711001, i64 5
   store i8 %1899, ptr %1900, align 1
   %1901 = lshr i64 %1850, 8
   %1902 = trunc i64 %1901 to i8
-  %1903 = getelementptr inbounds i8, ptr %.9211006, i64 6
+  %1903 = getelementptr inbounds i8, ptr %.8711001, i64 6
   store i8 %1902, ptr %1903, align 1
   %1904 = trunc i64 %1850 to i8
-  %1905 = getelementptr inbounds i8, ptr %.9211006, i64 7
+  %1905 = getelementptr inbounds i8, ptr %.8711001, i64 7
   store i8 %1904, ptr %1905, align 1
-  %1906 = getelementptr inbounds i8, ptr %.9211006, i64 8
+  %1906 = getelementptr inbounds i8, ptr %.8711001, i64 8
   br label %1907
 
 1907:                                             ; preds = %1885, %1856
-  %.9611010 = phi ptr [ %1884, %1856 ], [ %1906, %1885 ]
+  %.9711011 = phi ptr [ %1884, %1856 ], [ %1906, %1885 ]
   %1908 = add nsw i32 %1842, 64
   %1909 = sext i32 %1836 to i64
   br label %1915
 
 1910:                                             ; preds = %1826
   %1911 = zext nneg i32 %1841 to i64
-  %1912 = shl i64 %.6011100, %1911
+  %1912 = shl i64 %.5711097, %1911
   %1913 = sext i32 %1836 to i64
   %1914 = or i64 %1912, %1913
   br label %1915
 
 1915:                                             ; preds = %1907, %1910, %1807
-  %.6411358 = phi i32 [ %.6011354, %1807 ], [ %1908, %1907 ], [ %1842, %1910 ]
-  %.6411104 = phi i64 [ %.6011100, %1807 ], [ %1909, %1907 ], [ %1914, %1910 ]
-  %.9811012 = phi ptr [ %.9211006, %1807 ], [ %.9611010, %1907 ], [ %.9211006, %1910 ]
-  %.31 = phi i32 [ %1808, %1807 ], [ 0, %1907 ], [ 0, %1910 ]
+  %.6111355 = phi i32 [ %.5711351, %1807 ], [ %1908, %1907 ], [ %1842, %1910 ]
+  %.6111101 = phi i64 [ %.5711097, %1807 ], [ %1909, %1907 ], [ %1914, %1910 ]
+  %.9311007 = phi ptr [ %.8711001, %1807 ], [ %.9711011, %1907 ], [ %.8711001, %1910 ]
+  %.30 = phi i32 [ %1808, %1807 ], [ 0, %1907 ], [ 0, %1910 ]
   %1916 = getelementptr inbounds i8, ptr %1, i64 38
   %1917 = load i16, ptr %1916, align 2
   %1918 = icmp eq i16 %1917, 0
   br i1 %1918, label %1919, label %1921
 
 1919:                                             ; preds = %1915
-  %1920 = add nuw nsw i32 %.31, 16
+  %1920 = add nuw nsw i32 %.30, 16
   br label %2107
 
 1921:                                             ; preds = %1915
@@ -4961,7 +4961,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %1938
 
 1938:                                             ; preds = %1931, %1921
-  %1939 = icmp ugt i32 %.31, 255
+  %1939 = icmp ugt i32 %.30, 255
   br i1 %1939, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1938
@@ -4969,14 +4969,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %1941 = getelementptr inbounds i8, ptr %4, i64 960
   %1942 = load i8, ptr %1940, align 4
   %1943 = sext i8 %1942 to i32
-  %1944 = sub nsw i32 %.6411358, %1943
+  %1944 = sub nsw i32 %.6111355, %1943
   %1945 = icmp slt i32 %1944, 0
   %1946 = load i32, ptr %1941, align 4
   br i1 %1945, label %1947, label %2014
 
 1947:                                             ; preds = %.lr.ph
-  %1948 = zext nneg i32 %.6411358 to i64
-  %1949 = shl i64 %.6411104, %1948
+  %1948 = zext nneg i32 %.6111355 to i64
+  %1949 = shl i64 %.6111101, %1948
   %1950 = sub nsw i32 0, %1944
   %1951 = lshr i32 %1946, %1950
   %1952 = zext nneg i32 %1951 to i64
@@ -4987,19 +4987,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12189 = icmp eq i64 %1956, 0
   %1957 = lshr i64 %1949, 56
   %1958 = trunc nuw i64 %1957 to i8
-  store i8 %1958, ptr %.9811012, align 1
+  store i8 %1958, ptr %.9311007, align 1
   br i1 %.not12189, label %1988, label %1959
 
 1959:                                             ; preds = %1947
-  %1960 = getelementptr inbounds i8, ptr %.9811012, i64 1
+  %1960 = getelementptr inbounds i8, ptr %.9311007, i64 1
   store i8 0, ptr %1960, align 1
   %.not12190 = icmp eq i64 %1957, 255
-  %.sroa.gep13972 = getelementptr inbounds i8, ptr %.9811012, i64 2
+  %.sroa.gep13972 = getelementptr inbounds i8, ptr %.9311007, i64 2
   %.neg12191.sroa.sel = select i1 %.not12190, ptr %.sroa.gep13972, ptr %1960
   %1961 = lshr i64 %1949, 48
   %1962 = trunc i64 %1961 to i8
   store i8 %1962, ptr %.neg12191.sroa.sel, align 1
-  %.sroa.gep16163 = getelementptr inbounds i8, ptr %.9811012, i64 3
+  %.sroa.gep16163 = getelementptr inbounds i8, ptr %.9311007, i64 3
   %.neg12191.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12190, ptr %.sroa.gep16163, ptr %.sroa.gep13972
   store i8 0, ptr %.neg12191.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1963 = and i64 %1949, 71776119061217280
@@ -5067,36 +5067,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 1988:                                             ; preds = %1947
   %1989 = lshr i64 %1949, 48
   %1990 = trunc i64 %1989 to i8
-  %1991 = getelementptr inbounds i8, ptr %.9811012, i64 1
+  %1991 = getelementptr inbounds i8, ptr %.9311007, i64 1
   store i8 %1990, ptr %1991, align 1
   %1992 = lshr i64 %1949, 40
   %1993 = trunc i64 %1992 to i8
-  %1994 = getelementptr inbounds i8, ptr %.9811012, i64 2
+  %1994 = getelementptr inbounds i8, ptr %.9311007, i64 2
   store i8 %1993, ptr %1994, align 1
   %1995 = lshr i64 %1949, 32
   %1996 = trunc i64 %1995 to i8
-  %1997 = getelementptr inbounds i8, ptr %.9811012, i64 3
+  %1997 = getelementptr inbounds i8, ptr %.9311007, i64 3
   store i8 %1996, ptr %1997, align 1
   %1998 = lshr i64 %1953, 24
   %1999 = trunc i64 %1998 to i8
-  %2000 = getelementptr inbounds i8, ptr %.9811012, i64 4
+  %2000 = getelementptr inbounds i8, ptr %.9311007, i64 4
   store i8 %1999, ptr %2000, align 1
   %2001 = lshr i64 %1953, 16
   %2002 = trunc i64 %2001 to i8
-  %2003 = getelementptr inbounds i8, ptr %.9811012, i64 5
+  %2003 = getelementptr inbounds i8, ptr %.9311007, i64 5
   store i8 %2002, ptr %2003, align 1
   %2004 = lshr i64 %1953, 8
   %2005 = trunc i64 %2004 to i8
-  %2006 = getelementptr inbounds i8, ptr %.9811012, i64 6
+  %2006 = getelementptr inbounds i8, ptr %.9311007, i64 6
   store i8 %2005, ptr %2006, align 1
   %2007 = trunc i64 %1953 to i8
-  %2008 = getelementptr inbounds i8, ptr %.9811012, i64 7
+  %2008 = getelementptr inbounds i8, ptr %.9311007, i64 7
   store i8 %2007, ptr %2008, align 1
-  %2009 = getelementptr inbounds i8, ptr %.9811012, i64 8
+  %2009 = getelementptr inbounds i8, ptr %.9311007, i64 8
   br label %2010
 
 2010:                                             ; preds = %1988, %1959
-  %.10011014 = phi ptr [ %1987, %1959 ], [ %2009, %1988 ]
+  %.10111015 = phi ptr [ %1987, %1959 ], [ %2009, %1988 ]
   %2011 = add nsw i32 %1944, 64
   %2012 = load i32, ptr %1941, align 4
   %2013 = zext i32 %2012 to i64
@@ -5104,17 +5104,17 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 2014:                                             ; preds = %.lr.ph
   %2015 = zext nneg i32 %1943 to i64
-  %2016 = shl i64 %.6411104, %2015
+  %2016 = shl i64 %.6111101, %2015
   %2017 = zext i32 %1946 to i64
   %2018 = or i64 %2016, %2017
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2010, %2014, %1938
-  %.6511359.lcssa = phi i32 [ %.6411358, %1938 ], [ %2011, %2010 ], [ %1944, %2014 ]
-  %.6511105.lcssa = phi i64 [ %.6411104, %1938 ], [ %2013, %2010 ], [ %2018, %2014 ]
-  %.9911013.lcssa = phi ptr [ %.9811012, %1938 ], [ %.10011014, %2010 ], [ %.9811012, %2014 ]
-  %.32.lcssa = phi i32 [ %.31, %1938 ], [ 0, %2010 ], [ 0, %2014 ]
-  %2019 = add nuw nsw i32 %.32.lcssa, %1929
+  %.6611360.lcssa = phi i32 [ %.6111355, %1938 ], [ %2011, %2010 ], [ %1944, %2014 ]
+  %.6611106.lcssa = phi i64 [ %.6111101, %1938 ], [ %2013, %2010 ], [ %2018, %2014 ]
+  %.10011014.lcssa = phi ptr [ %.9311007, %1938 ], [ %.10111015, %2010 ], [ %.9311007, %2014 ]
+  %.33.lcssa = phi i32 [ %.30, %1938 ], [ 0, %2010 ], [ 0, %2014 ]
+  %2019 = add nuw nsw i32 %.33.lcssa, %1929
   %2020 = zext nneg i8 %1928 to i64
   %notmask12171 = shl nsw i64 -1, %2020
   %2021 = trunc i64 %notmask12171 to i32
@@ -5130,13 +5130,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2031 = load i8, ptr %2030, align 1
   %2032 = sext i8 %2031 to i32
   %2033 = add nsw i32 %2032, %1929
-  %2034 = sub nsw i32 %.6511359.lcssa, %2033
+  %2034 = sub nsw i32 %.6611360.lcssa, %2033
   %2035 = icmp slt i32 %2034, 0
   br i1 %2035, label %2036, label %2102
 
 2036:                                             ; preds = %._crit_edge
-  %2037 = zext nneg i32 %.6511359.lcssa to i64
-  %2038 = shl i64 %.6511105.lcssa, %2037
+  %2037 = zext nneg i32 %.6611360.lcssa to i64
+  %2038 = shl i64 %.6611106.lcssa, %2037
   %2039 = sub nsw i32 0, %2034
   %2040 = ashr i32 %2028, %2039
   %2041 = sext i32 %2040 to i64
@@ -5147,19 +5147,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12172 = icmp eq i64 %2045, 0
   %2046 = lshr i64 %2042, 56
   %2047 = trunc nuw i64 %2046 to i8
-  store i8 %2047, ptr %.9911013.lcssa, align 1
+  store i8 %2047, ptr %.10011014.lcssa, align 1
   br i1 %.not12172, label %2077, label %2048
 
 2048:                                             ; preds = %2036
-  %2049 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 1
+  %2049 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 1
   store i8 0, ptr %2049, align 1
   %.not12173 = icmp eq i64 %2046, 255
-  %.sroa.gep13980 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 2
+  %.sroa.gep13980 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 2
   %.neg12174.sroa.sel = select i1 %.not12173, ptr %.sroa.gep13980, ptr %2049
   %2050 = lshr i64 %2042, 48
   %2051 = trunc i64 %2050 to i8
   store i8 %2051, ptr %.neg12174.sroa.sel, align 1
-  %.sroa.gep16149 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 3
+  %.sroa.gep16149 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 3
   %.neg12174.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12173, ptr %.sroa.gep16149, ptr %.sroa.gep13980
   store i8 0, ptr %.neg12174.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2052 = and i64 %2042, 71776119061217280
@@ -5227,59 +5227,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2077:                                             ; preds = %2036
   %2078 = lshr i64 %2042, 48
   %2079 = trunc i64 %2078 to i8
-  %2080 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 1
+  %2080 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 1
   store i8 %2079, ptr %2080, align 1
   %2081 = lshr i64 %2042, 40
   %2082 = trunc i64 %2081 to i8
-  %2083 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 2
+  %2083 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 2
   store i8 %2082, ptr %2083, align 1
   %2084 = lshr i64 %2042, 32
   %2085 = trunc i64 %2084 to i8
-  %2086 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 3
+  %2086 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 3
   store i8 %2085, ptr %2086, align 1
   %2087 = lshr i64 %2042, 24
   %2088 = trunc i64 %2087 to i8
-  %2089 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 4
+  %2089 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 4
   store i8 %2088, ptr %2089, align 1
   %2090 = lshr i64 %2042, 16
   %2091 = trunc i64 %2090 to i8
-  %2092 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 5
+  %2092 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 5
   store i8 %2091, ptr %2092, align 1
   %2093 = lshr i64 %2042, 8
   %2094 = trunc i64 %2093 to i8
-  %2095 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 6
+  %2095 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 6
   store i8 %2094, ptr %2095, align 1
   %2096 = trunc i64 %2042 to i8
-  %2097 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 7
+  %2097 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 7
   store i8 %2096, ptr %2097, align 1
-  %2098 = getelementptr inbounds i8, ptr %.9911013.lcssa, i64 8
+  %2098 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 8
   br label %2099
 
 2099:                                             ; preds = %2077, %2048
-  %.10211016 = phi ptr [ %2076, %2048 ], [ %2098, %2077 ]
+  %.10311017 = phi ptr [ %2076, %2048 ], [ %2098, %2077 ]
   %2100 = add nsw i32 %2034, 64
   %2101 = sext i32 %2028 to i64
   br label %2107
 
 2102:                                             ; preds = %._crit_edge
   %2103 = zext nneg i32 %2033 to i64
-  %2104 = shl i64 %.6511105.lcssa, %2103
+  %2104 = shl i64 %.6611106.lcssa, %2103
   %2105 = sext i32 %2028 to i64
   %2106 = or i64 %2104, %2105
   br label %2107
 
 2107:                                             ; preds = %2099, %2102, %1919
-  %.6811362 = phi i32 [ %.6411358, %1919 ], [ %2100, %2099 ], [ %2034, %2102 ]
-  %.6811108 = phi i64 [ %.6411104, %1919 ], [ %2101, %2099 ], [ %2106, %2102 ]
-  %.10411018 = phi ptr [ %.9811012, %1919 ], [ %.10211016, %2099 ], [ %.9911013.lcssa, %2102 ]
-  %.33 = phi i32 [ %1920, %1919 ], [ 0, %2099 ], [ 0, %2102 ]
+  %.6511359 = phi i32 [ %.6111355, %1919 ], [ %2100, %2099 ], [ %2034, %2102 ]
+  %.6511105 = phi i64 [ %.6111101, %1919 ], [ %2101, %2099 ], [ %2106, %2102 ]
+  %.9911013 = phi ptr [ %.9311007, %1919 ], [ %.10311017, %2099 ], [ %.10011014.lcssa, %2102 ]
+  %.32 = phi i32 [ %1920, %1919 ], [ 0, %2099 ], [ 0, %2102 ]
   %2108 = getelementptr inbounds i8, ptr %1, i64 52
   %2109 = load i16, ptr %2108, align 2
   %2110 = icmp eq i16 %2109, 0
   br i1 %2110, label %2111, label %2113
 
 2111:                                             ; preds = %2107
-  %2112 = add nuw nsw i32 %.33, 16
+  %2112 = add nuw nsw i32 %.32, 16
   br label %2300
 
 2113:                                             ; preds = %2107
@@ -5306,7 +5306,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %2130
 
 2130:                                             ; preds = %2123, %2113
-  %2131 = icmp ugt i32 %.33, 255
+  %2131 = icmp ugt i32 %.32, 255
   br i1 %2131, label %.lr.ph14749, label %._crit_edge14750
 
 .lr.ph14749:                                      ; preds = %2130
@@ -5314,14 +5314,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2133 = getelementptr inbounds i8, ptr %4, i64 960
   %2134 = load i8, ptr %2132, align 4
   %2135 = sext i8 %2134 to i32
-  %2136 = sub nsw i32 %.6811362, %2135
+  %2136 = sub nsw i32 %.6511359, %2135
   %2137 = icmp slt i32 %2136, 0
   %2138 = load i32, ptr %2133, align 4
   br i1 %2137, label %2139, label %2206
 
 2139:                                             ; preds = %.lr.ph14749
-  %2140 = zext nneg i32 %.6811362 to i64
-  %2141 = shl i64 %.6811108, %2140
+  %2140 = zext nneg i32 %.6511359 to i64
+  %2141 = shl i64 %.6511105, %2140
   %2142 = sub nsw i32 0, %2136
   %2143 = lshr i32 %2138, %2142
   %2144 = zext nneg i32 %2143 to i64
@@ -5332,19 +5332,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12224 = icmp eq i64 %2148, 0
   %2149 = lshr i64 %2141, 56
   %2150 = trunc nuw i64 %2149 to i8
-  store i8 %2150, ptr %.10411018, align 1
+  store i8 %2150, ptr %.9911013, align 1
   br i1 %.not12224, label %2180, label %2151
 
 2151:                                             ; preds = %2139
-  %2152 = getelementptr inbounds i8, ptr %.10411018, i64 1
+  %2152 = getelementptr inbounds i8, ptr %.9911013, i64 1
   store i8 0, ptr %2152, align 1
   %.not12225 = icmp eq i64 %2149, 255
-  %.sroa.gep13988 = getelementptr inbounds i8, ptr %.10411018, i64 2
+  %.sroa.gep13988 = getelementptr inbounds i8, ptr %.9911013, i64 2
   %.neg12226.sroa.sel = select i1 %.not12225, ptr %.sroa.gep13988, ptr %2152
   %2153 = lshr i64 %2141, 48
   %2154 = trunc i64 %2153 to i8
   store i8 %2154, ptr %.neg12226.sroa.sel, align 1
-  %.sroa.gep16147 = getelementptr inbounds i8, ptr %.10411018, i64 3
+  %.sroa.gep16147 = getelementptr inbounds i8, ptr %.9911013, i64 3
   %.neg12226.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12225, ptr %.sroa.gep16147, ptr %.sroa.gep13988
   store i8 0, ptr %.neg12226.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2155 = and i64 %2141, 71776119061217280
@@ -5412,36 +5412,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2180:                                             ; preds = %2139
   %2181 = lshr i64 %2141, 48
   %2182 = trunc i64 %2181 to i8
-  %2183 = getelementptr inbounds i8, ptr %.10411018, i64 1
+  %2183 = getelementptr inbounds i8, ptr %.9911013, i64 1
   store i8 %2182, ptr %2183, align 1
   %2184 = lshr i64 %2141, 40
   %2185 = trunc i64 %2184 to i8
-  %2186 = getelementptr inbounds i8, ptr %.10411018, i64 2
+  %2186 = getelementptr inbounds i8, ptr %.9911013, i64 2
   store i8 %2185, ptr %2186, align 1
   %2187 = lshr i64 %2141, 32
   %2188 = trunc i64 %2187 to i8
-  %2189 = getelementptr inbounds i8, ptr %.10411018, i64 3
+  %2189 = getelementptr inbounds i8, ptr %.9911013, i64 3
   store i8 %2188, ptr %2189, align 1
   %2190 = lshr i64 %2145, 24
   %2191 = trunc i64 %2190 to i8
-  %2192 = getelementptr inbounds i8, ptr %.10411018, i64 4
+  %2192 = getelementptr inbounds i8, ptr %.9911013, i64 4
   store i8 %2191, ptr %2192, align 1
   %2193 = lshr i64 %2145, 16
   %2194 = trunc i64 %2193 to i8
-  %2195 = getelementptr inbounds i8, ptr %.10411018, i64 5
+  %2195 = getelementptr inbounds i8, ptr %.9911013, i64 5
   store i8 %2194, ptr %2195, align 1
   %2196 = lshr i64 %2145, 8
   %2197 = trunc i64 %2196 to i8
-  %2198 = getelementptr inbounds i8, ptr %.10411018, i64 6
+  %2198 = getelementptr inbounds i8, ptr %.9911013, i64 6
   store i8 %2197, ptr %2198, align 1
   %2199 = trunc i64 %2145 to i8
-  %2200 = getelementptr inbounds i8, ptr %.10411018, i64 7
+  %2200 = getelementptr inbounds i8, ptr %.9911013, i64 7
   store i8 %2199, ptr %2200, align 1
-  %2201 = getelementptr inbounds i8, ptr %.10411018, i64 8
+  %2201 = getelementptr inbounds i8, ptr %.9911013, i64 8
   br label %2202
 
 2202:                                             ; preds = %2180, %2151
-  %.10611020 = phi ptr [ %2179, %2151 ], [ %2201, %2180 ]
+  %.10711021 = phi ptr [ %2179, %2151 ], [ %2201, %2180 ]
   %2203 = add nsw i32 %2136, 64
   %2204 = load i32, ptr %2133, align 4
   %2205 = zext i32 %2204 to i64
@@ -5449,24 +5449,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 2206:                                             ; preds = %.lr.ph14749
   %2207 = zext nneg i32 %2135 to i64
-  %2208 = shl i64 %.6811108, %2207
+  %2208 = shl i64 %.6511105, %2207
   %2209 = zext i32 %2138 to i64
   %2210 = or i64 %2208, %2209
   br label %._crit_edge14750.loopexit
 
 ._crit_edge14750.loopexit:                        ; preds = %2206, %2202
-  %.7011364 = phi i32 [ %2203, %2202 ], [ %2136, %2206 ]
-  %.7011110 = phi i64 [ %2205, %2202 ], [ %2210, %2206 ]
-  %.10711021 = phi ptr [ %.10611020, %2202 ], [ %.10411018, %2206 ]
-  %2211 = add nsw i32 %.33, -256
+  %.7111365 = phi i32 [ %2203, %2202 ], [ %2136, %2206 ]
+  %.7111111 = phi i64 [ %2205, %2202 ], [ %2210, %2206 ]
+  %.10811022 = phi ptr [ %.10711021, %2202 ], [ %.9911013, %2206 ]
+  %2211 = add nsw i32 %.32, -256
   br label %._crit_edge14750
 
 ._crit_edge14750:                                 ; preds = %._crit_edge14750.loopexit, %2130
-  %.6911363.lcssa = phi i32 [ %.6811362, %2130 ], [ %.7011364, %._crit_edge14750.loopexit ]
-  %.6911109.lcssa = phi i64 [ %.6811108, %2130 ], [ %.7011110, %._crit_edge14750.loopexit ]
-  %.10511019.lcssa = phi ptr [ %.10411018, %2130 ], [ %.10711021, %._crit_edge14750.loopexit ]
-  %.34.lcssa = phi i32 [ %.33, %2130 ], [ %2211, %._crit_edge14750.loopexit ]
-  %2212 = add nuw nsw i32 %.34.lcssa, %2121
+  %.7011364.lcssa = phi i32 [ %.6511359, %2130 ], [ %.7111365, %._crit_edge14750.loopexit ]
+  %.7011110.lcssa = phi i64 [ %.6511105, %2130 ], [ %.7111111, %._crit_edge14750.loopexit ]
+  %.10611020.lcssa = phi ptr [ %.9911013, %2130 ], [ %.10811022, %._crit_edge14750.loopexit ]
+  %.35.lcssa = phi i32 [ %.32, %2130 ], [ %2211, %._crit_edge14750.loopexit ]
+  %2212 = add nuw nsw i32 %.35.lcssa, %2121
   %2213 = zext nneg i8 %2120 to i64
   %notmask12206 = shl nsw i64 -1, %2213
   %2214 = trunc i64 %notmask12206 to i32
@@ -5482,13 +5482,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2224 = load i8, ptr %2223, align 1
   %2225 = sext i8 %2224 to i32
   %2226 = add nsw i32 %2225, %2121
-  %2227 = sub nsw i32 %.6911363.lcssa, %2226
+  %2227 = sub nsw i32 %.7011364.lcssa, %2226
   %2228 = icmp slt i32 %2227, 0
   br i1 %2228, label %2229, label %2295
 
 2229:                                             ; preds = %._crit_edge14750
-  %2230 = zext nneg i32 %.6911363.lcssa to i64
-  %2231 = shl i64 %.6911109.lcssa, %2230
+  %2230 = zext nneg i32 %.7011364.lcssa to i64
+  %2231 = shl i64 %.7011110.lcssa, %2230
   %2232 = sub nsw i32 0, %2227
   %2233 = ashr i32 %2221, %2232
   %2234 = sext i32 %2233 to i64
@@ -5499,19 +5499,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12207 = icmp eq i64 %2238, 0
   %2239 = lshr i64 %2235, 56
   %2240 = trunc nuw i64 %2239 to i8
-  store i8 %2240, ptr %.10511019.lcssa, align 1
+  store i8 %2240, ptr %.10611020.lcssa, align 1
   br i1 %.not12207, label %2270, label %2241
 
 2241:                                             ; preds = %2229
-  %2242 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 1
+  %2242 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 1
   store i8 0, ptr %2242, align 1
   %.not12208 = icmp eq i64 %2239, 255
-  %.sroa.gep13996 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 2
+  %.sroa.gep13996 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 2
   %.neg12209.sroa.sel = select i1 %.not12208, ptr %.sroa.gep13996, ptr %2242
   %2243 = lshr i64 %2235, 48
   %2244 = trunc i64 %2243 to i8
   store i8 %2244, ptr %.neg12209.sroa.sel, align 1
-  %.sroa.gep16133 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 3
+  %.sroa.gep16133 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 3
   %.neg12209.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12208, ptr %.sroa.gep16133, ptr %.sroa.gep13996
   store i8 0, ptr %.neg12209.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2245 = and i64 %2235, 71776119061217280
@@ -5579,59 +5579,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2270:                                             ; preds = %2229
   %2271 = lshr i64 %2235, 48
   %2272 = trunc i64 %2271 to i8
-  %2273 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 1
+  %2273 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 1
   store i8 %2272, ptr %2273, align 1
   %2274 = lshr i64 %2235, 40
   %2275 = trunc i64 %2274 to i8
-  %2276 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 2
+  %2276 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 2
   store i8 %2275, ptr %2276, align 1
   %2277 = lshr i64 %2235, 32
   %2278 = trunc i64 %2277 to i8
-  %2279 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 3
+  %2279 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 3
   store i8 %2278, ptr %2279, align 1
   %2280 = lshr i64 %2235, 24
   %2281 = trunc i64 %2280 to i8
-  %2282 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 4
+  %2282 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 4
   store i8 %2281, ptr %2282, align 1
   %2283 = lshr i64 %2235, 16
   %2284 = trunc i64 %2283 to i8
-  %2285 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 5
+  %2285 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 5
   store i8 %2284, ptr %2285, align 1
   %2286 = lshr i64 %2235, 8
   %2287 = trunc i64 %2286 to i8
-  %2288 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 6
+  %2288 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 6
   store i8 %2287, ptr %2288, align 1
   %2289 = trunc i64 %2235 to i8
-  %2290 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 7
+  %2290 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 7
   store i8 %2289, ptr %2290, align 1
-  %2291 = getelementptr inbounds i8, ptr %.10511019.lcssa, i64 8
+  %2291 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 8
   br label %2292
 
 2292:                                             ; preds = %2270, %2241
-  %.10811022 = phi ptr [ %2269, %2241 ], [ %2291, %2270 ]
+  %.10911023 = phi ptr [ %2269, %2241 ], [ %2291, %2270 ]
   %2293 = add nsw i32 %2227, 64
   %2294 = sext i32 %2221 to i64
   br label %2300
 
 2295:                                             ; preds = %._crit_edge14750
   %2296 = zext nneg i32 %2226 to i64
-  %2297 = shl i64 %.6911109.lcssa, %2296
+  %2297 = shl i64 %.7011110.lcssa, %2296
   %2298 = sext i32 %2221 to i64
   %2299 = or i64 %2297, %2298
   br label %2300
 
 2300:                                             ; preds = %2292, %2295, %2111
-  %.7211366 = phi i32 [ %.6811362, %2111 ], [ %2293, %2292 ], [ %2227, %2295 ]
-  %.7211112 = phi i64 [ %.6811108, %2111 ], [ %2294, %2292 ], [ %2299, %2295 ]
-  %.11011024 = phi ptr [ %.10411018, %2111 ], [ %.10811022, %2292 ], [ %.10511019.lcssa, %2295 ]
-  %.35 = phi i32 [ %2112, %2111 ], [ 0, %2292 ], [ 0, %2295 ]
+  %.6911363 = phi i32 [ %.6511359, %2111 ], [ %2293, %2292 ], [ %2227, %2295 ]
+  %.6911109 = phi i64 [ %.6511105, %2111 ], [ %2294, %2292 ], [ %2299, %2295 ]
+  %.10511019 = phi ptr [ %.9911013, %2111 ], [ %.10911023, %2292 ], [ %.10611020.lcssa, %2295 ]
+  %.34 = phi i32 [ %2112, %2111 ], [ 0, %2292 ], [ 0, %2295 ]
   %2301 = getelementptr inbounds i8, ptr %1, i64 66
   %2302 = load i16, ptr %2301, align 2
   %2303 = icmp eq i16 %2302, 0
   br i1 %2303, label %2304, label %2306
 
 2304:                                             ; preds = %2300
-  %2305 = add nuw nsw i32 %.35, 16
+  %2305 = add nuw nsw i32 %.34, 16
   br label %2493
 
 2306:                                             ; preds = %2300
@@ -5658,7 +5658,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %2323
 
 2323:                                             ; preds = %2316, %2306
-  %2324 = icmp ugt i32 %.35, 255
+  %2324 = icmp ugt i32 %.34, 255
   br i1 %2324, label %.lr.ph14760, label %._crit_edge14761
 
 .lr.ph14760:                                      ; preds = %2323
@@ -5666,14 +5666,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2326 = getelementptr inbounds i8, ptr %4, i64 960
   %2327 = load i8, ptr %2325, align 4
   %2328 = sext i8 %2327 to i32
-  %2329 = sub nsw i32 %.7211366, %2328
+  %2329 = sub nsw i32 %.6911363, %2328
   %2330 = icmp slt i32 %2329, 0
   %2331 = load i32, ptr %2326, align 4
   br i1 %2330, label %2332, label %2399
 
 2332:                                             ; preds = %.lr.ph14760
-  %2333 = zext nneg i32 %.7211366 to i64
-  %2334 = shl i64 %.7211112, %2333
+  %2333 = zext nneg i32 %.6911363 to i64
+  %2334 = shl i64 %.6911109, %2333
   %2335 = sub nsw i32 0, %2329
   %2336 = lshr i32 %2331, %2335
   %2337 = zext nneg i32 %2336 to i64
@@ -5684,19 +5684,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12259 = icmp eq i64 %2341, 0
   %2342 = lshr i64 %2334, 56
   %2343 = trunc nuw i64 %2342 to i8
-  store i8 %2343, ptr %.11011024, align 1
+  store i8 %2343, ptr %.10511019, align 1
   br i1 %.not12259, label %2373, label %2344
 
 2344:                                             ; preds = %2332
-  %2345 = getelementptr inbounds i8, ptr %.11011024, i64 1
+  %2345 = getelementptr inbounds i8, ptr %.10511019, i64 1
   store i8 0, ptr %2345, align 1
   %.not12260 = icmp eq i64 %2342, 255
-  %.sroa.gep14004 = getelementptr inbounds i8, ptr %.11011024, i64 2
+  %.sroa.gep14004 = getelementptr inbounds i8, ptr %.10511019, i64 2
   %.neg12261.sroa.sel = select i1 %.not12260, ptr %.sroa.gep14004, ptr %2345
   %2346 = lshr i64 %2334, 48
   %2347 = trunc i64 %2346 to i8
   store i8 %2347, ptr %.neg12261.sroa.sel, align 1
-  %.sroa.gep16131 = getelementptr inbounds i8, ptr %.11011024, i64 3
+  %.sroa.gep16131 = getelementptr inbounds i8, ptr %.10511019, i64 3
   %.neg12261.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12260, ptr %.sroa.gep16131, ptr %.sroa.gep14004
   store i8 0, ptr %.neg12261.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2348 = and i64 %2334, 71776119061217280
@@ -5764,36 +5764,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2373:                                             ; preds = %2332
   %2374 = lshr i64 %2334, 48
   %2375 = trunc i64 %2374 to i8
-  %2376 = getelementptr inbounds i8, ptr %.11011024, i64 1
+  %2376 = getelementptr inbounds i8, ptr %.10511019, i64 1
   store i8 %2375, ptr %2376, align 1
   %2377 = lshr i64 %2334, 40
   %2378 = trunc i64 %2377 to i8
-  %2379 = getelementptr inbounds i8, ptr %.11011024, i64 2
+  %2379 = getelementptr inbounds i8, ptr %.10511019, i64 2
   store i8 %2378, ptr %2379, align 1
   %2380 = lshr i64 %2334, 32
   %2381 = trunc i64 %2380 to i8
-  %2382 = getelementptr inbounds i8, ptr %.11011024, i64 3
+  %2382 = getelementptr inbounds i8, ptr %.10511019, i64 3
   store i8 %2381, ptr %2382, align 1
   %2383 = lshr i64 %2338, 24
   %2384 = trunc i64 %2383 to i8
-  %2385 = getelementptr inbounds i8, ptr %.11011024, i64 4
+  %2385 = getelementptr inbounds i8, ptr %.10511019, i64 4
   store i8 %2384, ptr %2385, align 1
   %2386 = lshr i64 %2338, 16
   %2387 = trunc i64 %2386 to i8
-  %2388 = getelementptr inbounds i8, ptr %.11011024, i64 5
+  %2388 = getelementptr inbounds i8, ptr %.10511019, i64 5
   store i8 %2387, ptr %2388, align 1
   %2389 = lshr i64 %2338, 8
   %2390 = trunc i64 %2389 to i8
-  %2391 = getelementptr inbounds i8, ptr %.11011024, i64 6
+  %2391 = getelementptr inbounds i8, ptr %.10511019, i64 6
   store i8 %2390, ptr %2391, align 1
   %2392 = trunc i64 %2338 to i8
-  %2393 = getelementptr inbounds i8, ptr %.11011024, i64 7
+  %2393 = getelementptr inbounds i8, ptr %.10511019, i64 7
   store i8 %2392, ptr %2393, align 1
-  %2394 = getelementptr inbounds i8, ptr %.11011024, i64 8
+  %2394 = getelementptr inbounds i8, ptr %.10511019, i64 8
   br label %2395
 
 2395:                                             ; preds = %2373, %2344
-  %.11211026 = phi ptr [ %2372, %2344 ], [ %2394, %2373 ]
+  %.11311027 = phi ptr [ %2372, %2344 ], [ %2394, %2373 ]
   %2396 = add nsw i32 %2329, 64
   %2397 = load i32, ptr %2326, align 4
   %2398 = zext i32 %2397 to i64
@@ -5801,24 +5801,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 2399:                                             ; preds = %.lr.ph14760
   %2400 = zext nneg i32 %2328 to i64
-  %2401 = shl i64 %.7211112, %2400
+  %2401 = shl i64 %.6911109, %2400
   %2402 = zext i32 %2331 to i64
   %2403 = or i64 %2401, %2402
   br label %._crit_edge14761.loopexit
 
 ._crit_edge14761.loopexit:                        ; preds = %2399, %2395
-  %.7411368 = phi i32 [ %2396, %2395 ], [ %2329, %2399 ]
-  %.7411114 = phi i64 [ %2398, %2395 ], [ %2403, %2399 ]
-  %.11311027 = phi ptr [ %.11211026, %2395 ], [ %.11011024, %2399 ]
-  %2404 = add nsw i32 %.35, -256
+  %.7511369 = phi i32 [ %2396, %2395 ], [ %2329, %2399 ]
+  %.7511115 = phi i64 [ %2398, %2395 ], [ %2403, %2399 ]
+  %.11411028 = phi ptr [ %.11311027, %2395 ], [ %.10511019, %2399 ]
+  %2404 = add nsw i32 %.34, -256
   br label %._crit_edge14761
 
 ._crit_edge14761:                                 ; preds = %._crit_edge14761.loopexit, %2323
-  %.7311367.lcssa = phi i32 [ %.7211366, %2323 ], [ %.7411368, %._crit_edge14761.loopexit ]
-  %.7311113.lcssa = phi i64 [ %.7211112, %2323 ], [ %.7411114, %._crit_edge14761.loopexit ]
-  %.11111025.lcssa = phi ptr [ %.11011024, %2323 ], [ %.11311027, %._crit_edge14761.loopexit ]
-  %.36.lcssa = phi i32 [ %.35, %2323 ], [ %2404, %._crit_edge14761.loopexit ]
-  %2405 = add nuw nsw i32 %.36.lcssa, %2314
+  %.7411368.lcssa = phi i32 [ %.6911363, %2323 ], [ %.7511369, %._crit_edge14761.loopexit ]
+  %.7411114.lcssa = phi i64 [ %.6911109, %2323 ], [ %.7511115, %._crit_edge14761.loopexit ]
+  %.11211026.lcssa = phi ptr [ %.10511019, %2323 ], [ %.11411028, %._crit_edge14761.loopexit ]
+  %.37.lcssa = phi i32 [ %.34, %2323 ], [ %2404, %._crit_edge14761.loopexit ]
+  %2405 = add nuw nsw i32 %.37.lcssa, %2314
   %2406 = zext nneg i8 %2313 to i64
   %notmask12241 = shl nsw i64 -1, %2406
   %2407 = trunc i64 %notmask12241 to i32
@@ -5834,13 +5834,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2417 = load i8, ptr %2416, align 1
   %2418 = sext i8 %2417 to i32
   %2419 = add nsw i32 %2418, %2314
-  %2420 = sub nsw i32 %.7311367.lcssa, %2419
+  %2420 = sub nsw i32 %.7411368.lcssa, %2419
   %2421 = icmp slt i32 %2420, 0
   br i1 %2421, label %2422, label %2488
 
 2422:                                             ; preds = %._crit_edge14761
-  %2423 = zext nneg i32 %.7311367.lcssa to i64
-  %2424 = shl i64 %.7311113.lcssa, %2423
+  %2423 = zext nneg i32 %.7411368.lcssa to i64
+  %2424 = shl i64 %.7411114.lcssa, %2423
   %2425 = sub nsw i32 0, %2420
   %2426 = ashr i32 %2414, %2425
   %2427 = sext i32 %2426 to i64
@@ -5851,19 +5851,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12242 = icmp eq i64 %2431, 0
   %2432 = lshr i64 %2428, 56
   %2433 = trunc nuw i64 %2432 to i8
-  store i8 %2433, ptr %.11111025.lcssa, align 1
+  store i8 %2433, ptr %.11211026.lcssa, align 1
   br i1 %.not12242, label %2463, label %2434
 
 2434:                                             ; preds = %2422
-  %2435 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 1
+  %2435 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 1
   store i8 0, ptr %2435, align 1
   %.not12243 = icmp eq i64 %2432, 255
-  %.sroa.gep14012 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 2
+  %.sroa.gep14012 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 2
   %.neg12244.sroa.sel = select i1 %.not12243, ptr %.sroa.gep14012, ptr %2435
   %2436 = lshr i64 %2428, 48
   %2437 = trunc i64 %2436 to i8
   store i8 %2437, ptr %.neg12244.sroa.sel, align 1
-  %.sroa.gep16117 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 3
+  %.sroa.gep16117 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 3
   %.neg12244.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12243, ptr %.sroa.gep16117, ptr %.sroa.gep14012
   store i8 0, ptr %.neg12244.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2438 = and i64 %2428, 71776119061217280
@@ -5931,59 +5931,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2463:                                             ; preds = %2422
   %2464 = lshr i64 %2428, 48
   %2465 = trunc i64 %2464 to i8
-  %2466 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 1
+  %2466 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 1
   store i8 %2465, ptr %2466, align 1
   %2467 = lshr i64 %2428, 40
   %2468 = trunc i64 %2467 to i8
-  %2469 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 2
+  %2469 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 2
   store i8 %2468, ptr %2469, align 1
   %2470 = lshr i64 %2428, 32
   %2471 = trunc i64 %2470 to i8
-  %2472 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 3
+  %2472 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 3
   store i8 %2471, ptr %2472, align 1
   %2473 = lshr i64 %2428, 24
   %2474 = trunc i64 %2473 to i8
-  %2475 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 4
+  %2475 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 4
   store i8 %2474, ptr %2475, align 1
   %2476 = lshr i64 %2428, 16
   %2477 = trunc i64 %2476 to i8
-  %2478 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 5
+  %2478 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 5
   store i8 %2477, ptr %2478, align 1
   %2479 = lshr i64 %2428, 8
   %2480 = trunc i64 %2479 to i8
-  %2481 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 6
+  %2481 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 6
   store i8 %2480, ptr %2481, align 1
   %2482 = trunc i64 %2428 to i8
-  %2483 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 7
+  %2483 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 7
   store i8 %2482, ptr %2483, align 1
-  %2484 = getelementptr inbounds i8, ptr %.11111025.lcssa, i64 8
+  %2484 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 8
   br label %2485
 
 2485:                                             ; preds = %2463, %2434
-  %.11411028 = phi ptr [ %2462, %2434 ], [ %2484, %2463 ]
+  %.11511029 = phi ptr [ %2462, %2434 ], [ %2484, %2463 ]
   %2486 = add nsw i32 %2420, 64
   %2487 = sext i32 %2414 to i64
   br label %2493
 
 2488:                                             ; preds = %._crit_edge14761
   %2489 = zext nneg i32 %2419 to i64
-  %2490 = shl i64 %.7311113.lcssa, %2489
+  %2490 = shl i64 %.7411114.lcssa, %2489
   %2491 = sext i32 %2414 to i64
   %2492 = or i64 %2490, %2491
   br label %2493
 
 2493:                                             ; preds = %2485, %2488, %2304
-  %.7611370 = phi i32 [ %.7211366, %2304 ], [ %2486, %2485 ], [ %2420, %2488 ]
-  %.7611116 = phi i64 [ %.7211112, %2304 ], [ %2487, %2485 ], [ %2492, %2488 ]
-  %.11611030 = phi ptr [ %.11011024, %2304 ], [ %.11411028, %2485 ], [ %.11111025.lcssa, %2488 ]
-  %.37 = phi i32 [ %2305, %2304 ], [ 0, %2485 ], [ 0, %2488 ]
+  %.7311367 = phi i32 [ %.6911363, %2304 ], [ %2486, %2485 ], [ %2420, %2488 ]
+  %.7311113 = phi i64 [ %.6911109, %2304 ], [ %2487, %2485 ], [ %2492, %2488 ]
+  %.11111025 = phi ptr [ %.10511019, %2304 ], [ %.11511029, %2485 ], [ %.11211026.lcssa, %2488 ]
+  %.36 = phi i32 [ %2305, %2304 ], [ 0, %2485 ], [ 0, %2488 ]
   %2494 = getelementptr inbounds i8, ptr %1, i64 80
   %2495 = load i16, ptr %2494, align 2
   %2496 = icmp eq i16 %2495, 0
   br i1 %2496, label %2497, label %2499
 
 2497:                                             ; preds = %2493
-  %2498 = add nuw nsw i32 %.37, 16
+  %2498 = add nuw nsw i32 %.36, 16
   br label %2686
 
 2499:                                             ; preds = %2493
@@ -6010,7 +6010,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %2516
 
 2516:                                             ; preds = %2509, %2499
-  %2517 = icmp ugt i32 %.37, 255
+  %2517 = icmp ugt i32 %.36, 255
   br i1 %2517, label %.lr.ph14771, label %._crit_edge14772
 
 .lr.ph14771:                                      ; preds = %2516
@@ -6018,14 +6018,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2519 = getelementptr inbounds i8, ptr %4, i64 960
   %2520 = load i8, ptr %2518, align 4
   %2521 = sext i8 %2520 to i32
-  %2522 = sub nsw i32 %.7611370, %2521
+  %2522 = sub nsw i32 %.7311367, %2521
   %2523 = icmp slt i32 %2522, 0
   %2524 = load i32, ptr %2519, align 4
   br i1 %2523, label %2525, label %2592
 
 2525:                                             ; preds = %.lr.ph14771
-  %2526 = zext nneg i32 %.7611370 to i64
-  %2527 = shl i64 %.7611116, %2526
+  %2526 = zext nneg i32 %.7311367 to i64
+  %2527 = shl i64 %.7311113, %2526
   %2528 = sub nsw i32 0, %2522
   %2529 = lshr i32 %2524, %2528
   %2530 = zext nneg i32 %2529 to i64
@@ -6036,19 +6036,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12294 = icmp eq i64 %2534, 0
   %2535 = lshr i64 %2527, 56
   %2536 = trunc nuw i64 %2535 to i8
-  store i8 %2536, ptr %.11611030, align 1
+  store i8 %2536, ptr %.11111025, align 1
   br i1 %.not12294, label %2566, label %2537
 
 2537:                                             ; preds = %2525
-  %2538 = getelementptr inbounds i8, ptr %.11611030, i64 1
+  %2538 = getelementptr inbounds i8, ptr %.11111025, i64 1
   store i8 0, ptr %2538, align 1
   %.not12295 = icmp eq i64 %2535, 255
-  %.sroa.gep14020 = getelementptr inbounds i8, ptr %.11611030, i64 2
+  %.sroa.gep14020 = getelementptr inbounds i8, ptr %.11111025, i64 2
   %.neg12296.sroa.sel = select i1 %.not12295, ptr %.sroa.gep14020, ptr %2538
   %2539 = lshr i64 %2527, 48
   %2540 = trunc i64 %2539 to i8
   store i8 %2540, ptr %.neg12296.sroa.sel, align 1
-  %.sroa.gep16115 = getelementptr inbounds i8, ptr %.11611030, i64 3
+  %.sroa.gep16115 = getelementptr inbounds i8, ptr %.11111025, i64 3
   %.neg12296.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12295, ptr %.sroa.gep16115, ptr %.sroa.gep14020
   store i8 0, ptr %.neg12296.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2541 = and i64 %2527, 71776119061217280
@@ -6116,36 +6116,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2566:                                             ; preds = %2525
   %2567 = lshr i64 %2527, 48
   %2568 = trunc i64 %2567 to i8
-  %2569 = getelementptr inbounds i8, ptr %.11611030, i64 1
+  %2569 = getelementptr inbounds i8, ptr %.11111025, i64 1
   store i8 %2568, ptr %2569, align 1
   %2570 = lshr i64 %2527, 40
   %2571 = trunc i64 %2570 to i8
-  %2572 = getelementptr inbounds i8, ptr %.11611030, i64 2
+  %2572 = getelementptr inbounds i8, ptr %.11111025, i64 2
   store i8 %2571, ptr %2572, align 1
   %2573 = lshr i64 %2527, 32
   %2574 = trunc i64 %2573 to i8
-  %2575 = getelementptr inbounds i8, ptr %.11611030, i64 3
+  %2575 = getelementptr inbounds i8, ptr %.11111025, i64 3
   store i8 %2574, ptr %2575, align 1
   %2576 = lshr i64 %2531, 24
   %2577 = trunc i64 %2576 to i8
-  %2578 = getelementptr inbounds i8, ptr %.11611030, i64 4
+  %2578 = getelementptr inbounds i8, ptr %.11111025, i64 4
   store i8 %2577, ptr %2578, align 1
   %2579 = lshr i64 %2531, 16
   %2580 = trunc i64 %2579 to i8
-  %2581 = getelementptr inbounds i8, ptr %.11611030, i64 5
+  %2581 = getelementptr inbounds i8, ptr %.11111025, i64 5
   store i8 %2580, ptr %2581, align 1
   %2582 = lshr i64 %2531, 8
   %2583 = trunc i64 %2582 to i8
-  %2584 = getelementptr inbounds i8, ptr %.11611030, i64 6
+  %2584 = getelementptr inbounds i8, ptr %.11111025, i64 6
   store i8 %2583, ptr %2584, align 1
   %2585 = trunc i64 %2531 to i8
-  %2586 = getelementptr inbounds i8, ptr %.11611030, i64 7
+  %2586 = getelementptr inbounds i8, ptr %.11111025, i64 7
   store i8 %2585, ptr %2586, align 1
-  %2587 = getelementptr inbounds i8, ptr %.11611030, i64 8
+  %2587 = getelementptr inbounds i8, ptr %.11111025, i64 8
   br label %2588
 
 2588:                                             ; preds = %2566, %2537
-  %.11811032 = phi ptr [ %2565, %2537 ], [ %2587, %2566 ]
+  %.11911033 = phi ptr [ %2565, %2537 ], [ %2587, %2566 ]
   %2589 = add nsw i32 %2522, 64
   %2590 = load i32, ptr %2519, align 4
   %2591 = zext i32 %2590 to i64
@@ -6153,24 +6153,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 2592:                                             ; preds = %.lr.ph14771
   %2593 = zext nneg i32 %2521 to i64
-  %2594 = shl i64 %.7611116, %2593
+  %2594 = shl i64 %.7311113, %2593
   %2595 = zext i32 %2524 to i64
   %2596 = or i64 %2594, %2595
   br label %._crit_edge14772.loopexit
 
 ._crit_edge14772.loopexit:                        ; preds = %2592, %2588
-  %.7811372 = phi i32 [ %2589, %2588 ], [ %2522, %2592 ]
-  %.7811118 = phi i64 [ %2591, %2588 ], [ %2596, %2592 ]
-  %.11911033 = phi ptr [ %.11811032, %2588 ], [ %.11611030, %2592 ]
-  %2597 = add nsw i32 %.37, -256
+  %.7911373 = phi i32 [ %2589, %2588 ], [ %2522, %2592 ]
+  %.7911119 = phi i64 [ %2591, %2588 ], [ %2596, %2592 ]
+  %.12011034 = phi ptr [ %.11911033, %2588 ], [ %.11111025, %2592 ]
+  %2597 = add nsw i32 %.36, -256
   br label %._crit_edge14772
 
 ._crit_edge14772:                                 ; preds = %._crit_edge14772.loopexit, %2516
-  %.7711371.lcssa = phi i32 [ %.7611370, %2516 ], [ %.7811372, %._crit_edge14772.loopexit ]
-  %.7711117.lcssa = phi i64 [ %.7611116, %2516 ], [ %.7811118, %._crit_edge14772.loopexit ]
-  %.11711031.lcssa = phi ptr [ %.11611030, %2516 ], [ %.11911033, %._crit_edge14772.loopexit ]
-  %.38.lcssa = phi i32 [ %.37, %2516 ], [ %2597, %._crit_edge14772.loopexit ]
-  %2598 = add nuw nsw i32 %.38.lcssa, %2507
+  %.7811372.lcssa = phi i32 [ %.7311367, %2516 ], [ %.7911373, %._crit_edge14772.loopexit ]
+  %.7811118.lcssa = phi i64 [ %.7311113, %2516 ], [ %.7911119, %._crit_edge14772.loopexit ]
+  %.11811032.lcssa = phi ptr [ %.11111025, %2516 ], [ %.12011034, %._crit_edge14772.loopexit ]
+  %.39.lcssa = phi i32 [ %.36, %2516 ], [ %2597, %._crit_edge14772.loopexit ]
+  %2598 = add nuw nsw i32 %.39.lcssa, %2507
   %2599 = zext nneg i8 %2506 to i64
   %notmask12276 = shl nsw i64 -1, %2599
   %2600 = trunc i64 %notmask12276 to i32
@@ -6186,13 +6186,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2610 = load i8, ptr %2609, align 1
   %2611 = sext i8 %2610 to i32
   %2612 = add nsw i32 %2611, %2507
-  %2613 = sub nsw i32 %.7711371.lcssa, %2612
+  %2613 = sub nsw i32 %.7811372.lcssa, %2612
   %2614 = icmp slt i32 %2613, 0
   br i1 %2614, label %2615, label %2681
 
 2615:                                             ; preds = %._crit_edge14772
-  %2616 = zext nneg i32 %.7711371.lcssa to i64
-  %2617 = shl i64 %.7711117.lcssa, %2616
+  %2616 = zext nneg i32 %.7811372.lcssa to i64
+  %2617 = shl i64 %.7811118.lcssa, %2616
   %2618 = sub nsw i32 0, %2613
   %2619 = ashr i32 %2607, %2618
   %2620 = sext i32 %2619 to i64
@@ -6203,19 +6203,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12277 = icmp eq i64 %2624, 0
   %2625 = lshr i64 %2621, 56
   %2626 = trunc nuw i64 %2625 to i8
-  store i8 %2626, ptr %.11711031.lcssa, align 1
+  store i8 %2626, ptr %.11811032.lcssa, align 1
   br i1 %.not12277, label %2656, label %2627
 
 2627:                                             ; preds = %2615
-  %2628 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 1
+  %2628 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 1
   store i8 0, ptr %2628, align 1
   %.not12278 = icmp eq i64 %2625, 255
-  %.sroa.gep14028 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 2
+  %.sroa.gep14028 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 2
   %.neg12279.sroa.sel = select i1 %.not12278, ptr %.sroa.gep14028, ptr %2628
   %2629 = lshr i64 %2621, 48
   %2630 = trunc i64 %2629 to i8
   store i8 %2630, ptr %.neg12279.sroa.sel, align 1
-  %.sroa.gep16101 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 3
+  %.sroa.gep16101 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 3
   %.neg12279.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12278, ptr %.sroa.gep16101, ptr %.sroa.gep14028
   store i8 0, ptr %.neg12279.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2631 = and i64 %2621, 71776119061217280
@@ -6283,59 +6283,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2656:                                             ; preds = %2615
   %2657 = lshr i64 %2621, 48
   %2658 = trunc i64 %2657 to i8
-  %2659 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 1
+  %2659 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 1
   store i8 %2658, ptr %2659, align 1
   %2660 = lshr i64 %2621, 40
   %2661 = trunc i64 %2660 to i8
-  %2662 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 2
+  %2662 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 2
   store i8 %2661, ptr %2662, align 1
   %2663 = lshr i64 %2621, 32
   %2664 = trunc i64 %2663 to i8
-  %2665 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 3
+  %2665 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 3
   store i8 %2664, ptr %2665, align 1
   %2666 = lshr i64 %2621, 24
   %2667 = trunc i64 %2666 to i8
-  %2668 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 4
+  %2668 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 4
   store i8 %2667, ptr %2668, align 1
   %2669 = lshr i64 %2621, 16
   %2670 = trunc i64 %2669 to i8
-  %2671 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 5
+  %2671 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 5
   store i8 %2670, ptr %2671, align 1
   %2672 = lshr i64 %2621, 8
   %2673 = trunc i64 %2672 to i8
-  %2674 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 6
+  %2674 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 6
   store i8 %2673, ptr %2674, align 1
   %2675 = trunc i64 %2621 to i8
-  %2676 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 7
+  %2676 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 7
   store i8 %2675, ptr %2676, align 1
-  %2677 = getelementptr inbounds i8, ptr %.11711031.lcssa, i64 8
+  %2677 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 8
   br label %2678
 
 2678:                                             ; preds = %2656, %2627
-  %.12011034 = phi ptr [ %2655, %2627 ], [ %2677, %2656 ]
+  %.12111035 = phi ptr [ %2655, %2627 ], [ %2677, %2656 ]
   %2679 = add nsw i32 %2613, 64
   %2680 = sext i32 %2607 to i64
   br label %2686
 
 2681:                                             ; preds = %._crit_edge14772
   %2682 = zext nneg i32 %2612 to i64
-  %2683 = shl i64 %.7711117.lcssa, %2682
+  %2683 = shl i64 %.7811118.lcssa, %2682
   %2684 = sext i32 %2607 to i64
   %2685 = or i64 %2683, %2684
   br label %2686
 
 2686:                                             ; preds = %2678, %2681, %2497
-  %.8011374 = phi i32 [ %.7611370, %2497 ], [ %2679, %2678 ], [ %2613, %2681 ]
-  %.8011120 = phi i64 [ %.7611116, %2497 ], [ %2680, %2678 ], [ %2685, %2681 ]
-  %.12211036 = phi ptr [ %.11611030, %2497 ], [ %.12011034, %2678 ], [ %.11711031.lcssa, %2681 ]
-  %.39 = phi i32 [ %2498, %2497 ], [ 0, %2678 ], [ 0, %2681 ]
+  %.7711371 = phi i32 [ %.7311367, %2497 ], [ %2679, %2678 ], [ %2613, %2681 ]
+  %.7711117 = phi i64 [ %.7311113, %2497 ], [ %2680, %2678 ], [ %2685, %2681 ]
+  %.11711031 = phi ptr [ %.11111025, %2497 ], [ %.12111035, %2678 ], [ %.11811032.lcssa, %2681 ]
+  %.38 = phi i32 [ %2498, %2497 ], [ 0, %2678 ], [ 0, %2681 ]
   %2687 = getelementptr inbounds i8, ptr %1, i64 96
   %2688 = load i16, ptr %2687, align 2
   %2689 = icmp eq i16 %2688, 0
   br i1 %2689, label %2690, label %2692
 
 2690:                                             ; preds = %2686
-  %2691 = add nuw nsw i32 %.39, 16
+  %2691 = add nuw nsw i32 %.38, 16
   br label %2879
 
 2692:                                             ; preds = %2686
@@ -6362,7 +6362,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %2709
 
 2709:                                             ; preds = %2702, %2692
-  %2710 = icmp ugt i32 %.39, 255
+  %2710 = icmp ugt i32 %.38, 255
   br i1 %2710, label %.lr.ph14782, label %._crit_edge14783
 
 .lr.ph14782:                                      ; preds = %2709
@@ -6370,14 +6370,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2712 = getelementptr inbounds i8, ptr %4, i64 960
   %2713 = load i8, ptr %2711, align 4
   %2714 = sext i8 %2713 to i32
-  %2715 = sub nsw i32 %.8011374, %2714
+  %2715 = sub nsw i32 %.7711371, %2714
   %2716 = icmp slt i32 %2715, 0
   %2717 = load i32, ptr %2712, align 4
   br i1 %2716, label %2718, label %2785
 
 2718:                                             ; preds = %.lr.ph14782
-  %2719 = zext nneg i32 %.8011374 to i64
-  %2720 = shl i64 %.8011120, %2719
+  %2719 = zext nneg i32 %.7711371 to i64
+  %2720 = shl i64 %.7711117, %2719
   %2721 = sub nsw i32 0, %2715
   %2722 = lshr i32 %2717, %2721
   %2723 = zext nneg i32 %2722 to i64
@@ -6388,19 +6388,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12329 = icmp eq i64 %2727, 0
   %2728 = lshr i64 %2720, 56
   %2729 = trunc nuw i64 %2728 to i8
-  store i8 %2729, ptr %.12211036, align 1
+  store i8 %2729, ptr %.11711031, align 1
   br i1 %.not12329, label %2759, label %2730
 
 2730:                                             ; preds = %2718
-  %2731 = getelementptr inbounds i8, ptr %.12211036, i64 1
+  %2731 = getelementptr inbounds i8, ptr %.11711031, i64 1
   store i8 0, ptr %2731, align 1
   %.not12330 = icmp eq i64 %2728, 255
-  %.sroa.gep14036 = getelementptr inbounds i8, ptr %.12211036, i64 2
+  %.sroa.gep14036 = getelementptr inbounds i8, ptr %.11711031, i64 2
   %.neg12331.sroa.sel = select i1 %.not12330, ptr %.sroa.gep14036, ptr %2731
   %2732 = lshr i64 %2720, 48
   %2733 = trunc i64 %2732 to i8
   store i8 %2733, ptr %.neg12331.sroa.sel, align 1
-  %.sroa.gep16099 = getelementptr inbounds i8, ptr %.12211036, i64 3
+  %.sroa.gep16099 = getelementptr inbounds i8, ptr %.11711031, i64 3
   %.neg12331.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12330, ptr %.sroa.gep16099, ptr %.sroa.gep14036
   store i8 0, ptr %.neg12331.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2734 = and i64 %2720, 71776119061217280
@@ -6468,36 +6468,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2759:                                             ; preds = %2718
   %2760 = lshr i64 %2720, 48
   %2761 = trunc i64 %2760 to i8
-  %2762 = getelementptr inbounds i8, ptr %.12211036, i64 1
+  %2762 = getelementptr inbounds i8, ptr %.11711031, i64 1
   store i8 %2761, ptr %2762, align 1
   %2763 = lshr i64 %2720, 40
   %2764 = trunc i64 %2763 to i8
-  %2765 = getelementptr inbounds i8, ptr %.12211036, i64 2
+  %2765 = getelementptr inbounds i8, ptr %.11711031, i64 2
   store i8 %2764, ptr %2765, align 1
   %2766 = lshr i64 %2720, 32
   %2767 = trunc i64 %2766 to i8
-  %2768 = getelementptr inbounds i8, ptr %.12211036, i64 3
+  %2768 = getelementptr inbounds i8, ptr %.11711031, i64 3
   store i8 %2767, ptr %2768, align 1
   %2769 = lshr i64 %2724, 24
   %2770 = trunc i64 %2769 to i8
-  %2771 = getelementptr inbounds i8, ptr %.12211036, i64 4
+  %2771 = getelementptr inbounds i8, ptr %.11711031, i64 4
   store i8 %2770, ptr %2771, align 1
   %2772 = lshr i64 %2724, 16
   %2773 = trunc i64 %2772 to i8
-  %2774 = getelementptr inbounds i8, ptr %.12211036, i64 5
+  %2774 = getelementptr inbounds i8, ptr %.11711031, i64 5
   store i8 %2773, ptr %2774, align 1
   %2775 = lshr i64 %2724, 8
   %2776 = trunc i64 %2775 to i8
-  %2777 = getelementptr inbounds i8, ptr %.12211036, i64 6
+  %2777 = getelementptr inbounds i8, ptr %.11711031, i64 6
   store i8 %2776, ptr %2777, align 1
   %2778 = trunc i64 %2724 to i8
-  %2779 = getelementptr inbounds i8, ptr %.12211036, i64 7
+  %2779 = getelementptr inbounds i8, ptr %.11711031, i64 7
   store i8 %2778, ptr %2779, align 1
-  %2780 = getelementptr inbounds i8, ptr %.12211036, i64 8
+  %2780 = getelementptr inbounds i8, ptr %.11711031, i64 8
   br label %2781
 
 2781:                                             ; preds = %2759, %2730
-  %.12411038 = phi ptr [ %2758, %2730 ], [ %2780, %2759 ]
+  %.12511039 = phi ptr [ %2758, %2730 ], [ %2780, %2759 ]
   %2782 = add nsw i32 %2715, 64
   %2783 = load i32, ptr %2712, align 4
   %2784 = zext i32 %2783 to i64
@@ -6505,24 +6505,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 2785:                                             ; preds = %.lr.ph14782
   %2786 = zext nneg i32 %2714 to i64
-  %2787 = shl i64 %.8011120, %2786
+  %2787 = shl i64 %.7711117, %2786
   %2788 = zext i32 %2717 to i64
   %2789 = or i64 %2787, %2788
   br label %._crit_edge14783.loopexit
 
 ._crit_edge14783.loopexit:                        ; preds = %2785, %2781
-  %.8211376 = phi i32 [ %2782, %2781 ], [ %2715, %2785 ]
-  %.8211122 = phi i64 [ %2784, %2781 ], [ %2789, %2785 ]
-  %.12511039 = phi ptr [ %.12411038, %2781 ], [ %.12211036, %2785 ]
-  %2790 = add nsw i32 %.39, -256
+  %.8311377 = phi i32 [ %2782, %2781 ], [ %2715, %2785 ]
+  %.8311123 = phi i64 [ %2784, %2781 ], [ %2789, %2785 ]
+  %.126 = phi ptr [ %.12511039, %2781 ], [ %.11711031, %2785 ]
+  %2790 = add nsw i32 %.38, -256
   br label %._crit_edge14783
 
 ._crit_edge14783:                                 ; preds = %._crit_edge14783.loopexit, %2709
-  %.8111375.lcssa = phi i32 [ %.8011374, %2709 ], [ %.8211376, %._crit_edge14783.loopexit ]
-  %.8111121.lcssa = phi i64 [ %.8011120, %2709 ], [ %.8211122, %._crit_edge14783.loopexit ]
-  %.12311037.lcssa = phi ptr [ %.12211036, %2709 ], [ %.12511039, %._crit_edge14783.loopexit ]
-  %.40.lcssa = phi i32 [ %.39, %2709 ], [ %2790, %._crit_edge14783.loopexit ]
-  %2791 = add nuw nsw i32 %.40.lcssa, %2700
+  %.8211376.lcssa = phi i32 [ %.7711371, %2709 ], [ %.8311377, %._crit_edge14783.loopexit ]
+  %.8211122.lcssa = phi i64 [ %.7711117, %2709 ], [ %.8311123, %._crit_edge14783.loopexit ]
+  %.12411038.lcssa = phi ptr [ %.11711031, %2709 ], [ %.126, %._crit_edge14783.loopexit ]
+  %.41.lcssa = phi i32 [ %.38, %2709 ], [ %2790, %._crit_edge14783.loopexit ]
+  %2791 = add nuw nsw i32 %.41.lcssa, %2700
   %2792 = zext nneg i8 %2699 to i64
   %notmask12311 = shl nsw i64 -1, %2792
   %2793 = trunc i64 %notmask12311 to i32
@@ -6538,13 +6538,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2803 = load i8, ptr %2802, align 1
   %2804 = sext i8 %2803 to i32
   %2805 = add nsw i32 %2804, %2700
-  %2806 = sub nsw i32 %.8111375.lcssa, %2805
+  %2806 = sub nsw i32 %.8211376.lcssa, %2805
   %2807 = icmp slt i32 %2806, 0
   br i1 %2807, label %2808, label %2874
 
 2808:                                             ; preds = %._crit_edge14783
-  %2809 = zext nneg i32 %.8111375.lcssa to i64
-  %2810 = shl i64 %.8111121.lcssa, %2809
+  %2809 = zext nneg i32 %.8211376.lcssa to i64
+  %2810 = shl i64 %.8211122.lcssa, %2809
   %2811 = sub nsw i32 0, %2806
   %2812 = ashr i32 %2800, %2811
   %2813 = sext i32 %2812 to i64
@@ -6555,19 +6555,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12312 = icmp eq i64 %2817, 0
   %2818 = lshr i64 %2814, 56
   %2819 = trunc nuw i64 %2818 to i8
-  store i8 %2819, ptr %.12311037.lcssa, align 1
+  store i8 %2819, ptr %.12411038.lcssa, align 1
   br i1 %.not12312, label %2849, label %2820
 
 2820:                                             ; preds = %2808
-  %2821 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 1
+  %2821 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 1
   store i8 0, ptr %2821, align 1
   %.not12313 = icmp eq i64 %2818, 255
-  %.sroa.gep14044 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 2
+  %.sroa.gep14044 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 2
   %.neg12314.sroa.sel = select i1 %.not12313, ptr %.sroa.gep14044, ptr %2821
   %2822 = lshr i64 %2814, 48
   %2823 = trunc i64 %2822 to i8
   store i8 %2823, ptr %.neg12314.sroa.sel, align 1
-  %.sroa.gep16085 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 3
+  %.sroa.gep16085 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 3
   %.neg12314.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12313, ptr %.sroa.gep16085, ptr %.sroa.gep14044
   store i8 0, ptr %.neg12314.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2824 = and i64 %2814, 71776119061217280
@@ -6635,59 +6635,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2849:                                             ; preds = %2808
   %2850 = lshr i64 %2814, 48
   %2851 = trunc i64 %2850 to i8
-  %2852 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 1
+  %2852 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 1
   store i8 %2851, ptr %2852, align 1
   %2853 = lshr i64 %2814, 40
   %2854 = trunc i64 %2853 to i8
-  %2855 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 2
+  %2855 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 2
   store i8 %2854, ptr %2855, align 1
   %2856 = lshr i64 %2814, 32
   %2857 = trunc i64 %2856 to i8
-  %2858 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 3
+  %2858 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 3
   store i8 %2857, ptr %2858, align 1
   %2859 = lshr i64 %2814, 24
   %2860 = trunc i64 %2859 to i8
-  %2861 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 4
+  %2861 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 4
   store i8 %2860, ptr %2861, align 1
   %2862 = lshr i64 %2814, 16
   %2863 = trunc i64 %2862 to i8
-  %2864 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 5
+  %2864 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 5
   store i8 %2863, ptr %2864, align 1
   %2865 = lshr i64 %2814, 8
   %2866 = trunc i64 %2865 to i8
-  %2867 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 6
+  %2867 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 6
   store i8 %2866, ptr %2867, align 1
   %2868 = trunc i64 %2814 to i8
-  %2869 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 7
+  %2869 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 7
   store i8 %2868, ptr %2869, align 1
-  %2870 = getelementptr inbounds i8, ptr %.12311037.lcssa, i64 8
+  %2870 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 8
   br label %2871
 
 2871:                                             ; preds = %2849, %2820
-  %.126 = phi ptr [ %2848, %2820 ], [ %2870, %2849 ]
+  %.127 = phi ptr [ %2848, %2820 ], [ %2870, %2849 ]
   %2872 = add nsw i32 %2806, 64
   %2873 = sext i32 %2800 to i64
   br label %2879
 
 2874:                                             ; preds = %._crit_edge14783
   %2875 = zext nneg i32 %2805 to i64
-  %2876 = shl i64 %.8111121.lcssa, %2875
+  %2876 = shl i64 %.8211122.lcssa, %2875
   %2877 = sext i32 %2800 to i64
   %2878 = or i64 %2876, %2877
   br label %2879
 
 2879:                                             ; preds = %2871, %2874, %2690
-  %.8411378 = phi i32 [ %.8011374, %2690 ], [ %2872, %2871 ], [ %2806, %2874 ]
-  %.8411124 = phi i64 [ %.8011120, %2690 ], [ %2873, %2871 ], [ %2878, %2874 ]
-  %.128 = phi ptr [ %.12211036, %2690 ], [ %.126, %2871 ], [ %.12311037.lcssa, %2874 ]
-  %.41 = phi i32 [ %2691, %2690 ], [ 0, %2871 ], [ 0, %2874 ]
+  %.8111375 = phi i32 [ %.7711371, %2690 ], [ %2872, %2871 ], [ %2806, %2874 ]
+  %.8111121 = phi i64 [ %.7711117, %2690 ], [ %2873, %2871 ], [ %2878, %2874 ]
+  %.12311037 = phi ptr [ %.11711031, %2690 ], [ %.127, %2871 ], [ %.12411038.lcssa, %2874 ]
+  %.40 = phi i32 [ %2691, %2690 ], [ 0, %2871 ], [ 0, %2874 ]
   %2880 = getelementptr inbounds i8, ptr %1, i64 82
   %2881 = load i16, ptr %2880, align 2
   %2882 = icmp eq i16 %2881, 0
   br i1 %2882, label %2883, label %2885
 
 2883:                                             ; preds = %2879
-  %2884 = add nuw nsw i32 %.41, 16
+  %2884 = add nuw nsw i32 %.40, 16
   br label %3072
 
 2885:                                             ; preds = %2879
@@ -6714,7 +6714,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %2902
 
 2902:                                             ; preds = %2895, %2885
-  %2903 = icmp ugt i32 %.41, 255
+  %2903 = icmp ugt i32 %.40, 255
   br i1 %2903, label %.lr.ph14793, label %._crit_edge14794
 
 .lr.ph14793:                                      ; preds = %2902
@@ -6722,14 +6722,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2905 = getelementptr inbounds i8, ptr %4, i64 960
   %2906 = load i8, ptr %2904, align 4
   %2907 = sext i8 %2906 to i32
-  %2908 = sub nsw i32 %.8411378, %2907
+  %2908 = sub nsw i32 %.8111375, %2907
   %2909 = icmp slt i32 %2908, 0
   %2910 = load i32, ptr %2905, align 4
   br i1 %2909, label %2911, label %2978
 
 2911:                                             ; preds = %.lr.ph14793
-  %2912 = zext nneg i32 %.8411378 to i64
-  %2913 = shl i64 %.8411124, %2912
+  %2912 = zext nneg i32 %.8111375 to i64
+  %2913 = shl i64 %.8111121, %2912
   %2914 = sub nsw i32 0, %2908
   %2915 = lshr i32 %2910, %2914
   %2916 = zext nneg i32 %2915 to i64
@@ -6740,19 +6740,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12364 = icmp eq i64 %2920, 0
   %2921 = lshr i64 %2913, 56
   %2922 = trunc nuw i64 %2921 to i8
-  store i8 %2922, ptr %.128, align 1
+  store i8 %2922, ptr %.12311037, align 1
   br i1 %.not12364, label %2952, label %2923
 
 2923:                                             ; preds = %2911
-  %2924 = getelementptr inbounds i8, ptr %.128, i64 1
+  %2924 = getelementptr inbounds i8, ptr %.12311037, i64 1
   store i8 0, ptr %2924, align 1
   %.not12365 = icmp eq i64 %2921, 255
-  %.sroa.gep14052 = getelementptr inbounds i8, ptr %.128, i64 2
+  %.sroa.gep14052 = getelementptr inbounds i8, ptr %.12311037, i64 2
   %.neg12366.sroa.sel = select i1 %.not12365, ptr %.sroa.gep14052, ptr %2924
   %2925 = lshr i64 %2913, 48
   %2926 = trunc i64 %2925 to i8
   store i8 %2926, ptr %.neg12366.sroa.sel, align 1
-  %.sroa.gep16083 = getelementptr inbounds i8, ptr %.128, i64 3
+  %.sroa.gep16083 = getelementptr inbounds i8, ptr %.12311037, i64 3
   %.neg12366.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12365, ptr %.sroa.gep16083, ptr %.sroa.gep14052
   store i8 0, ptr %.neg12366.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2927 = and i64 %2913, 71776119061217280
@@ -6820,36 +6820,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 2952:                                             ; preds = %2911
   %2953 = lshr i64 %2913, 48
   %2954 = trunc i64 %2953 to i8
-  %2955 = getelementptr inbounds i8, ptr %.128, i64 1
+  %2955 = getelementptr inbounds i8, ptr %.12311037, i64 1
   store i8 %2954, ptr %2955, align 1
   %2956 = lshr i64 %2913, 40
   %2957 = trunc i64 %2956 to i8
-  %2958 = getelementptr inbounds i8, ptr %.128, i64 2
+  %2958 = getelementptr inbounds i8, ptr %.12311037, i64 2
   store i8 %2957, ptr %2958, align 1
   %2959 = lshr i64 %2913, 32
   %2960 = trunc i64 %2959 to i8
-  %2961 = getelementptr inbounds i8, ptr %.128, i64 3
+  %2961 = getelementptr inbounds i8, ptr %.12311037, i64 3
   store i8 %2960, ptr %2961, align 1
   %2962 = lshr i64 %2917, 24
   %2963 = trunc i64 %2962 to i8
-  %2964 = getelementptr inbounds i8, ptr %.128, i64 4
+  %2964 = getelementptr inbounds i8, ptr %.12311037, i64 4
   store i8 %2963, ptr %2964, align 1
   %2965 = lshr i64 %2917, 16
   %2966 = trunc i64 %2965 to i8
-  %2967 = getelementptr inbounds i8, ptr %.128, i64 5
+  %2967 = getelementptr inbounds i8, ptr %.12311037, i64 5
   store i8 %2966, ptr %2967, align 1
   %2968 = lshr i64 %2917, 8
   %2969 = trunc i64 %2968 to i8
-  %2970 = getelementptr inbounds i8, ptr %.128, i64 6
+  %2970 = getelementptr inbounds i8, ptr %.12311037, i64 6
   store i8 %2969, ptr %2970, align 1
   %2971 = trunc i64 %2917 to i8
-  %2972 = getelementptr inbounds i8, ptr %.128, i64 7
+  %2972 = getelementptr inbounds i8, ptr %.12311037, i64 7
   store i8 %2971, ptr %2972, align 1
-  %2973 = getelementptr inbounds i8, ptr %.128, i64 8
+  %2973 = getelementptr inbounds i8, ptr %.12311037, i64 8
   br label %2974
 
 2974:                                             ; preds = %2952, %2923
-  %.130 = phi ptr [ %2951, %2923 ], [ %2973, %2952 ]
+  %.131 = phi ptr [ %2951, %2923 ], [ %2973, %2952 ]
   %2975 = add nsw i32 %2908, 64
   %2976 = load i32, ptr %2905, align 4
   %2977 = zext i32 %2976 to i64
@@ -6857,24 +6857,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 2978:                                             ; preds = %.lr.ph14793
   %2979 = zext nneg i32 %2907 to i64
-  %2980 = shl i64 %.8411124, %2979
+  %2980 = shl i64 %.8111121, %2979
   %2981 = zext i32 %2910 to i64
   %2982 = or i64 %2980, %2981
   br label %._crit_edge14794.loopexit
 
 ._crit_edge14794.loopexit:                        ; preds = %2978, %2974
-  %.8611380 = phi i32 [ %2975, %2974 ], [ %2908, %2978 ]
-  %.8611126 = phi i64 [ %2977, %2974 ], [ %2982, %2978 ]
-  %.131 = phi ptr [ %.130, %2974 ], [ %.128, %2978 ]
-  %2983 = add nsw i32 %.41, -256
+  %.8711381 = phi i32 [ %2975, %2974 ], [ %2908, %2978 ]
+  %.8711127 = phi i64 [ %2977, %2974 ], [ %2982, %2978 ]
+  %.132 = phi ptr [ %.131, %2974 ], [ %.12311037, %2978 ]
+  %2983 = add nsw i32 %.40, -256
   br label %._crit_edge14794
 
 ._crit_edge14794:                                 ; preds = %._crit_edge14794.loopexit, %2902
-  %.8511379.lcssa = phi i32 [ %.8411378, %2902 ], [ %.8611380, %._crit_edge14794.loopexit ]
-  %.8511125.lcssa = phi i64 [ %.8411124, %2902 ], [ %.8611126, %._crit_edge14794.loopexit ]
-  %.129.lcssa = phi ptr [ %.128, %2902 ], [ %.131, %._crit_edge14794.loopexit ]
-  %.42.lcssa = phi i32 [ %.41, %2902 ], [ %2983, %._crit_edge14794.loopexit ]
-  %2984 = add nuw nsw i32 %.42.lcssa, %2893
+  %.8611380.lcssa = phi i32 [ %.8111375, %2902 ], [ %.8711381, %._crit_edge14794.loopexit ]
+  %.8611126.lcssa = phi i64 [ %.8111121, %2902 ], [ %.8711127, %._crit_edge14794.loopexit ]
+  %.130.lcssa = phi ptr [ %.12311037, %2902 ], [ %.132, %._crit_edge14794.loopexit ]
+  %.43.lcssa = phi i32 [ %.40, %2902 ], [ %2983, %._crit_edge14794.loopexit ]
+  %2984 = add nuw nsw i32 %.43.lcssa, %2893
   %2985 = zext nneg i8 %2892 to i64
   %notmask12346 = shl nsw i64 -1, %2985
   %2986 = trunc i64 %notmask12346 to i32
@@ -6890,13 +6890,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %2996 = load i8, ptr %2995, align 1
   %2997 = sext i8 %2996 to i32
   %2998 = add nsw i32 %2997, %2893
-  %2999 = sub nsw i32 %.8511379.lcssa, %2998
+  %2999 = sub nsw i32 %.8611380.lcssa, %2998
   %3000 = icmp slt i32 %2999, 0
   br i1 %3000, label %3001, label %3067
 
 3001:                                             ; preds = %._crit_edge14794
-  %3002 = zext nneg i32 %.8511379.lcssa to i64
-  %3003 = shl i64 %.8511125.lcssa, %3002
+  %3002 = zext nneg i32 %.8611380.lcssa to i64
+  %3003 = shl i64 %.8611126.lcssa, %3002
   %3004 = sub nsw i32 0, %2999
   %3005 = ashr i32 %2993, %3004
   %3006 = sext i32 %3005 to i64
@@ -6907,19 +6907,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12347 = icmp eq i64 %3010, 0
   %3011 = lshr i64 %3007, 56
   %3012 = trunc nuw i64 %3011 to i8
-  store i8 %3012, ptr %.129.lcssa, align 1
+  store i8 %3012, ptr %.130.lcssa, align 1
   br i1 %.not12347, label %3042, label %3013
 
 3013:                                             ; preds = %3001
-  %3014 = getelementptr inbounds i8, ptr %.129.lcssa, i64 1
+  %3014 = getelementptr inbounds i8, ptr %.130.lcssa, i64 1
   store i8 0, ptr %3014, align 1
   %.not12348 = icmp eq i64 %3011, 255
-  %.sroa.gep14060 = getelementptr inbounds i8, ptr %.129.lcssa, i64 2
+  %.sroa.gep14060 = getelementptr inbounds i8, ptr %.130.lcssa, i64 2
   %.neg12349.sroa.sel = select i1 %.not12348, ptr %.sroa.gep14060, ptr %3014
   %3015 = lshr i64 %3007, 48
   %3016 = trunc i64 %3015 to i8
   store i8 %3016, ptr %.neg12349.sroa.sel, align 1
-  %.sroa.gep16069 = getelementptr inbounds i8, ptr %.129.lcssa, i64 3
+  %.sroa.gep16069 = getelementptr inbounds i8, ptr %.130.lcssa, i64 3
   %.neg12349.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12348, ptr %.sroa.gep16069, ptr %.sroa.gep14060
   store i8 0, ptr %.neg12349.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3017 = and i64 %3007, 71776119061217280
@@ -6987,59 +6987,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3042:                                             ; preds = %3001
   %3043 = lshr i64 %3007, 48
   %3044 = trunc i64 %3043 to i8
-  %3045 = getelementptr inbounds i8, ptr %.129.lcssa, i64 1
+  %3045 = getelementptr inbounds i8, ptr %.130.lcssa, i64 1
   store i8 %3044, ptr %3045, align 1
   %3046 = lshr i64 %3007, 40
   %3047 = trunc i64 %3046 to i8
-  %3048 = getelementptr inbounds i8, ptr %.129.lcssa, i64 2
+  %3048 = getelementptr inbounds i8, ptr %.130.lcssa, i64 2
   store i8 %3047, ptr %3048, align 1
   %3049 = lshr i64 %3007, 32
   %3050 = trunc i64 %3049 to i8
-  %3051 = getelementptr inbounds i8, ptr %.129.lcssa, i64 3
+  %3051 = getelementptr inbounds i8, ptr %.130.lcssa, i64 3
   store i8 %3050, ptr %3051, align 1
   %3052 = lshr i64 %3007, 24
   %3053 = trunc i64 %3052 to i8
-  %3054 = getelementptr inbounds i8, ptr %.129.lcssa, i64 4
+  %3054 = getelementptr inbounds i8, ptr %.130.lcssa, i64 4
   store i8 %3053, ptr %3054, align 1
   %3055 = lshr i64 %3007, 16
   %3056 = trunc i64 %3055 to i8
-  %3057 = getelementptr inbounds i8, ptr %.129.lcssa, i64 5
+  %3057 = getelementptr inbounds i8, ptr %.130.lcssa, i64 5
   store i8 %3056, ptr %3057, align 1
   %3058 = lshr i64 %3007, 8
   %3059 = trunc i64 %3058 to i8
-  %3060 = getelementptr inbounds i8, ptr %.129.lcssa, i64 6
+  %3060 = getelementptr inbounds i8, ptr %.130.lcssa, i64 6
   store i8 %3059, ptr %3060, align 1
   %3061 = trunc i64 %3007 to i8
-  %3062 = getelementptr inbounds i8, ptr %.129.lcssa, i64 7
+  %3062 = getelementptr inbounds i8, ptr %.130.lcssa, i64 7
   store i8 %3061, ptr %3062, align 1
-  %3063 = getelementptr inbounds i8, ptr %.129.lcssa, i64 8
+  %3063 = getelementptr inbounds i8, ptr %.130.lcssa, i64 8
   br label %3064
 
 3064:                                             ; preds = %3042, %3013
-  %.132 = phi ptr [ %3041, %3013 ], [ %3063, %3042 ]
+  %.133 = phi ptr [ %3041, %3013 ], [ %3063, %3042 ]
   %3065 = add nsw i32 %2999, 64
   %3066 = sext i32 %2993 to i64
   br label %3072
 
 3067:                                             ; preds = %._crit_edge14794
   %3068 = zext nneg i32 %2998 to i64
-  %3069 = shl i64 %.8511125.lcssa, %3068
+  %3069 = shl i64 %.8611126.lcssa, %3068
   %3070 = sext i32 %2993 to i64
   %3071 = or i64 %3069, %3070
   br label %3072
 
 3072:                                             ; preds = %3064, %3067, %2883
-  %.8811382 = phi i32 [ %.8411378, %2883 ], [ %3065, %3064 ], [ %2999, %3067 ]
-  %.8811128 = phi i64 [ %.8411124, %2883 ], [ %3066, %3064 ], [ %3071, %3067 ]
-  %.134 = phi ptr [ %.128, %2883 ], [ %.132, %3064 ], [ %.129.lcssa, %3067 ]
-  %.43 = phi i32 [ %2884, %2883 ], [ 0, %3064 ], [ 0, %3067 ]
+  %.8511379 = phi i32 [ %.8111375, %2883 ], [ %3065, %3064 ], [ %2999, %3067 ]
+  %.8511125 = phi i64 [ %.8111121, %2883 ], [ %3066, %3064 ], [ %3071, %3067 ]
+  %.129 = phi ptr [ %.12311037, %2883 ], [ %.133, %3064 ], [ %.130.lcssa, %3067 ]
+  %.42 = phi i32 [ %2884, %2883 ], [ 0, %3064 ], [ 0, %3067 ]
   %3073 = getelementptr inbounds i8, ptr %1, i64 68
   %3074 = load i16, ptr %3073, align 2
   %3075 = icmp eq i16 %3074, 0
   br i1 %3075, label %3076, label %3078
 
 3076:                                             ; preds = %3072
-  %3077 = add nuw nsw i32 %.43, 16
+  %3077 = add nuw nsw i32 %.42, 16
   br label %3265
 
 3078:                                             ; preds = %3072
@@ -7066,7 +7066,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %3095
 
 3095:                                             ; preds = %3088, %3078
-  %3096 = icmp ugt i32 %.43, 255
+  %3096 = icmp ugt i32 %.42, 255
   br i1 %3096, label %.lr.ph14804, label %._crit_edge14805
 
 .lr.ph14804:                                      ; preds = %3095
@@ -7074,14 +7074,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3098 = getelementptr inbounds i8, ptr %4, i64 960
   %3099 = load i8, ptr %3097, align 4
   %3100 = sext i8 %3099 to i32
-  %3101 = sub nsw i32 %.8811382, %3100
+  %3101 = sub nsw i32 %.8511379, %3100
   %3102 = icmp slt i32 %3101, 0
   %3103 = load i32, ptr %3098, align 4
   br i1 %3102, label %3104, label %3171
 
 3104:                                             ; preds = %.lr.ph14804
-  %3105 = zext nneg i32 %.8811382 to i64
-  %3106 = shl i64 %.8811128, %3105
+  %3105 = zext nneg i32 %.8511379 to i64
+  %3106 = shl i64 %.8511125, %3105
   %3107 = sub nsw i32 0, %3101
   %3108 = lshr i32 %3103, %3107
   %3109 = zext nneg i32 %3108 to i64
@@ -7092,19 +7092,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12399 = icmp eq i64 %3113, 0
   %3114 = lshr i64 %3106, 56
   %3115 = trunc nuw i64 %3114 to i8
-  store i8 %3115, ptr %.134, align 1
+  store i8 %3115, ptr %.129, align 1
   br i1 %.not12399, label %3145, label %3116
 
 3116:                                             ; preds = %3104
-  %3117 = getelementptr inbounds i8, ptr %.134, i64 1
+  %3117 = getelementptr inbounds i8, ptr %.129, i64 1
   store i8 0, ptr %3117, align 1
   %.not12400 = icmp eq i64 %3114, 255
-  %.sroa.gep14068 = getelementptr inbounds i8, ptr %.134, i64 2
+  %.sroa.gep14068 = getelementptr inbounds i8, ptr %.129, i64 2
   %.neg12401.sroa.sel = select i1 %.not12400, ptr %.sroa.gep14068, ptr %3117
   %3118 = lshr i64 %3106, 48
   %3119 = trunc i64 %3118 to i8
   store i8 %3119, ptr %.neg12401.sroa.sel, align 1
-  %.sroa.gep16067 = getelementptr inbounds i8, ptr %.134, i64 3
+  %.sroa.gep16067 = getelementptr inbounds i8, ptr %.129, i64 3
   %.neg12401.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12400, ptr %.sroa.gep16067, ptr %.sroa.gep14068
   store i8 0, ptr %.neg12401.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3120 = and i64 %3106, 71776119061217280
@@ -7172,36 +7172,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3145:                                             ; preds = %3104
   %3146 = lshr i64 %3106, 48
   %3147 = trunc i64 %3146 to i8
-  %3148 = getelementptr inbounds i8, ptr %.134, i64 1
+  %3148 = getelementptr inbounds i8, ptr %.129, i64 1
   store i8 %3147, ptr %3148, align 1
   %3149 = lshr i64 %3106, 40
   %3150 = trunc i64 %3149 to i8
-  %3151 = getelementptr inbounds i8, ptr %.134, i64 2
+  %3151 = getelementptr inbounds i8, ptr %.129, i64 2
   store i8 %3150, ptr %3151, align 1
   %3152 = lshr i64 %3106, 32
   %3153 = trunc i64 %3152 to i8
-  %3154 = getelementptr inbounds i8, ptr %.134, i64 3
+  %3154 = getelementptr inbounds i8, ptr %.129, i64 3
   store i8 %3153, ptr %3154, align 1
   %3155 = lshr i64 %3110, 24
   %3156 = trunc i64 %3155 to i8
-  %3157 = getelementptr inbounds i8, ptr %.134, i64 4
+  %3157 = getelementptr inbounds i8, ptr %.129, i64 4
   store i8 %3156, ptr %3157, align 1
   %3158 = lshr i64 %3110, 16
   %3159 = trunc i64 %3158 to i8
-  %3160 = getelementptr inbounds i8, ptr %.134, i64 5
+  %3160 = getelementptr inbounds i8, ptr %.129, i64 5
   store i8 %3159, ptr %3160, align 1
   %3161 = lshr i64 %3110, 8
   %3162 = trunc i64 %3161 to i8
-  %3163 = getelementptr inbounds i8, ptr %.134, i64 6
+  %3163 = getelementptr inbounds i8, ptr %.129, i64 6
   store i8 %3162, ptr %3163, align 1
   %3164 = trunc i64 %3110 to i8
-  %3165 = getelementptr inbounds i8, ptr %.134, i64 7
+  %3165 = getelementptr inbounds i8, ptr %.129, i64 7
   store i8 %3164, ptr %3165, align 1
-  %3166 = getelementptr inbounds i8, ptr %.134, i64 8
+  %3166 = getelementptr inbounds i8, ptr %.129, i64 8
   br label %3167
 
 3167:                                             ; preds = %3145, %3116
-  %.136 = phi ptr [ %3144, %3116 ], [ %3166, %3145 ]
+  %.137 = phi ptr [ %3144, %3116 ], [ %3166, %3145 ]
   %3168 = add nsw i32 %3101, 64
   %3169 = load i32, ptr %3098, align 4
   %3170 = zext i32 %3169 to i64
@@ -7209,24 +7209,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 3171:                                             ; preds = %.lr.ph14804
   %3172 = zext nneg i32 %3100 to i64
-  %3173 = shl i64 %.8811128, %3172
+  %3173 = shl i64 %.8511125, %3172
   %3174 = zext i32 %3103 to i64
   %3175 = or i64 %3173, %3174
   br label %._crit_edge14805.loopexit
 
 ._crit_edge14805.loopexit:                        ; preds = %3171, %3167
-  %.9011384 = phi i32 [ %3168, %3167 ], [ %3101, %3171 ]
-  %.9011130 = phi i64 [ %3170, %3167 ], [ %3175, %3171 ]
-  %.137 = phi ptr [ %.136, %3167 ], [ %.134, %3171 ]
-  %3176 = add nsw i32 %.43, -256
+  %.9111385 = phi i32 [ %3168, %3167 ], [ %3101, %3171 ]
+  %.9111131 = phi i64 [ %3170, %3167 ], [ %3175, %3171 ]
+  %.138 = phi ptr [ %.137, %3167 ], [ %.129, %3171 ]
+  %3176 = add nsw i32 %.42, -256
   br label %._crit_edge14805
 
 ._crit_edge14805:                                 ; preds = %._crit_edge14805.loopexit, %3095
-  %.8911383.lcssa = phi i32 [ %.8811382, %3095 ], [ %.9011384, %._crit_edge14805.loopexit ]
-  %.8911129.lcssa = phi i64 [ %.8811128, %3095 ], [ %.9011130, %._crit_edge14805.loopexit ]
-  %.135.lcssa = phi ptr [ %.134, %3095 ], [ %.137, %._crit_edge14805.loopexit ]
-  %.44.lcssa = phi i32 [ %.43, %3095 ], [ %3176, %._crit_edge14805.loopexit ]
-  %3177 = add nuw nsw i32 %.44.lcssa, %3086
+  %.9011384.lcssa = phi i32 [ %.8511379, %3095 ], [ %.9111385, %._crit_edge14805.loopexit ]
+  %.9011130.lcssa = phi i64 [ %.8511125, %3095 ], [ %.9111131, %._crit_edge14805.loopexit ]
+  %.136.lcssa = phi ptr [ %.129, %3095 ], [ %.138, %._crit_edge14805.loopexit ]
+  %.45.lcssa = phi i32 [ %.42, %3095 ], [ %3176, %._crit_edge14805.loopexit ]
+  %3177 = add nuw nsw i32 %.45.lcssa, %3086
   %3178 = zext nneg i8 %3085 to i64
   %notmask12381 = shl nsw i64 -1, %3178
   %3179 = trunc i64 %notmask12381 to i32
@@ -7242,13 +7242,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3189 = load i8, ptr %3188, align 1
   %3190 = sext i8 %3189 to i32
   %3191 = add nsw i32 %3190, %3086
-  %3192 = sub nsw i32 %.8911383.lcssa, %3191
+  %3192 = sub nsw i32 %.9011384.lcssa, %3191
   %3193 = icmp slt i32 %3192, 0
   br i1 %3193, label %3194, label %3260
 
 3194:                                             ; preds = %._crit_edge14805
-  %3195 = zext nneg i32 %.8911383.lcssa to i64
-  %3196 = shl i64 %.8911129.lcssa, %3195
+  %3195 = zext nneg i32 %.9011384.lcssa to i64
+  %3196 = shl i64 %.9011130.lcssa, %3195
   %3197 = sub nsw i32 0, %3192
   %3198 = ashr i32 %3186, %3197
   %3199 = sext i32 %3198 to i64
@@ -7259,19 +7259,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12382 = icmp eq i64 %3203, 0
   %3204 = lshr i64 %3200, 56
   %3205 = trunc nuw i64 %3204 to i8
-  store i8 %3205, ptr %.135.lcssa, align 1
+  store i8 %3205, ptr %.136.lcssa, align 1
   br i1 %.not12382, label %3235, label %3206
 
 3206:                                             ; preds = %3194
-  %3207 = getelementptr inbounds i8, ptr %.135.lcssa, i64 1
+  %3207 = getelementptr inbounds i8, ptr %.136.lcssa, i64 1
   store i8 0, ptr %3207, align 1
   %.not12383 = icmp eq i64 %3204, 255
-  %.sroa.gep14076 = getelementptr inbounds i8, ptr %.135.lcssa, i64 2
+  %.sroa.gep14076 = getelementptr inbounds i8, ptr %.136.lcssa, i64 2
   %.neg12384.sroa.sel = select i1 %.not12383, ptr %.sroa.gep14076, ptr %3207
   %3208 = lshr i64 %3200, 48
   %3209 = trunc i64 %3208 to i8
   store i8 %3209, ptr %.neg12384.sroa.sel, align 1
-  %.sroa.gep16053 = getelementptr inbounds i8, ptr %.135.lcssa, i64 3
+  %.sroa.gep16053 = getelementptr inbounds i8, ptr %.136.lcssa, i64 3
   %.neg12384.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12383, ptr %.sroa.gep16053, ptr %.sroa.gep14076
   store i8 0, ptr %.neg12384.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3210 = and i64 %3200, 71776119061217280
@@ -7339,59 +7339,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3235:                                             ; preds = %3194
   %3236 = lshr i64 %3200, 48
   %3237 = trunc i64 %3236 to i8
-  %3238 = getelementptr inbounds i8, ptr %.135.lcssa, i64 1
+  %3238 = getelementptr inbounds i8, ptr %.136.lcssa, i64 1
   store i8 %3237, ptr %3238, align 1
   %3239 = lshr i64 %3200, 40
   %3240 = trunc i64 %3239 to i8
-  %3241 = getelementptr inbounds i8, ptr %.135.lcssa, i64 2
+  %3241 = getelementptr inbounds i8, ptr %.136.lcssa, i64 2
   store i8 %3240, ptr %3241, align 1
   %3242 = lshr i64 %3200, 32
   %3243 = trunc i64 %3242 to i8
-  %3244 = getelementptr inbounds i8, ptr %.135.lcssa, i64 3
+  %3244 = getelementptr inbounds i8, ptr %.136.lcssa, i64 3
   store i8 %3243, ptr %3244, align 1
   %3245 = lshr i64 %3200, 24
   %3246 = trunc i64 %3245 to i8
-  %3247 = getelementptr inbounds i8, ptr %.135.lcssa, i64 4
+  %3247 = getelementptr inbounds i8, ptr %.136.lcssa, i64 4
   store i8 %3246, ptr %3247, align 1
   %3248 = lshr i64 %3200, 16
   %3249 = trunc i64 %3248 to i8
-  %3250 = getelementptr inbounds i8, ptr %.135.lcssa, i64 5
+  %3250 = getelementptr inbounds i8, ptr %.136.lcssa, i64 5
   store i8 %3249, ptr %3250, align 1
   %3251 = lshr i64 %3200, 8
   %3252 = trunc i64 %3251 to i8
-  %3253 = getelementptr inbounds i8, ptr %.135.lcssa, i64 6
+  %3253 = getelementptr inbounds i8, ptr %.136.lcssa, i64 6
   store i8 %3252, ptr %3253, align 1
   %3254 = trunc i64 %3200 to i8
-  %3255 = getelementptr inbounds i8, ptr %.135.lcssa, i64 7
+  %3255 = getelementptr inbounds i8, ptr %.136.lcssa, i64 7
   store i8 %3254, ptr %3255, align 1
-  %3256 = getelementptr inbounds i8, ptr %.135.lcssa, i64 8
+  %3256 = getelementptr inbounds i8, ptr %.136.lcssa, i64 8
   br label %3257
 
 3257:                                             ; preds = %3235, %3206
-  %.138 = phi ptr [ %3234, %3206 ], [ %3256, %3235 ]
+  %.139 = phi ptr [ %3234, %3206 ], [ %3256, %3235 ]
   %3258 = add nsw i32 %3192, 64
   %3259 = sext i32 %3186 to i64
   br label %3265
 
 3260:                                             ; preds = %._crit_edge14805
   %3261 = zext nneg i32 %3191 to i64
-  %3262 = shl i64 %.8911129.lcssa, %3261
+  %3262 = shl i64 %.9011130.lcssa, %3261
   %3263 = sext i32 %3186 to i64
   %3264 = or i64 %3262, %3263
   br label %3265
 
 3265:                                             ; preds = %3257, %3260, %3076
-  %.9211386 = phi i32 [ %.8811382, %3076 ], [ %3258, %3257 ], [ %3192, %3260 ]
-  %.9211132 = phi i64 [ %.8811128, %3076 ], [ %3259, %3257 ], [ %3264, %3260 ]
-  %.140 = phi ptr [ %.134, %3076 ], [ %.138, %3257 ], [ %.135.lcssa, %3260 ]
-  %.45 = phi i32 [ %3077, %3076 ], [ 0, %3257 ], [ 0, %3260 ]
+  %.8911383 = phi i32 [ %.8511379, %3076 ], [ %3258, %3257 ], [ %3192, %3260 ]
+  %.8911129 = phi i64 [ %.8511125, %3076 ], [ %3259, %3257 ], [ %3264, %3260 ]
+  %.135 = phi ptr [ %.129, %3076 ], [ %.139, %3257 ], [ %.136.lcssa, %3260 ]
+  %.44 = phi i32 [ %3077, %3076 ], [ 0, %3257 ], [ 0, %3260 ]
   %3266 = getelementptr inbounds i8, ptr %1, i64 54
   %3267 = load i16, ptr %3266, align 2
   %3268 = icmp eq i16 %3267, 0
   br i1 %3268, label %3269, label %3271
 
 3269:                                             ; preds = %3265
-  %3270 = add nuw nsw i32 %.45, 16
+  %3270 = add nuw nsw i32 %.44, 16
   br label %3458
 
 3271:                                             ; preds = %3265
@@ -7418,7 +7418,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %3288
 
 3288:                                             ; preds = %3281, %3271
-  %3289 = icmp ugt i32 %.45, 255
+  %3289 = icmp ugt i32 %.44, 255
   br i1 %3289, label %.lr.ph14815, label %._crit_edge14816
 
 .lr.ph14815:                                      ; preds = %3288
@@ -7426,14 +7426,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3291 = getelementptr inbounds i8, ptr %4, i64 960
   %3292 = load i8, ptr %3290, align 4
   %3293 = sext i8 %3292 to i32
-  %3294 = sub nsw i32 %.9211386, %3293
+  %3294 = sub nsw i32 %.8911383, %3293
   %3295 = icmp slt i32 %3294, 0
   %3296 = load i32, ptr %3291, align 4
   br i1 %3295, label %3297, label %3364
 
 3297:                                             ; preds = %.lr.ph14815
-  %3298 = zext nneg i32 %.9211386 to i64
-  %3299 = shl i64 %.9211132, %3298
+  %3298 = zext nneg i32 %.8911383 to i64
+  %3299 = shl i64 %.8911129, %3298
   %3300 = sub nsw i32 0, %3294
   %3301 = lshr i32 %3296, %3300
   %3302 = zext nneg i32 %3301 to i64
@@ -7444,19 +7444,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12434 = icmp eq i64 %3306, 0
   %3307 = lshr i64 %3299, 56
   %3308 = trunc nuw i64 %3307 to i8
-  store i8 %3308, ptr %.140, align 1
+  store i8 %3308, ptr %.135, align 1
   br i1 %.not12434, label %3338, label %3309
 
 3309:                                             ; preds = %3297
-  %3310 = getelementptr inbounds i8, ptr %.140, i64 1
+  %3310 = getelementptr inbounds i8, ptr %.135, i64 1
   store i8 0, ptr %3310, align 1
   %.not12435 = icmp eq i64 %3307, 255
-  %.sroa.gep14084 = getelementptr inbounds i8, ptr %.140, i64 2
+  %.sroa.gep14084 = getelementptr inbounds i8, ptr %.135, i64 2
   %.neg12436.sroa.sel = select i1 %.not12435, ptr %.sroa.gep14084, ptr %3310
   %3311 = lshr i64 %3299, 48
   %3312 = trunc i64 %3311 to i8
   store i8 %3312, ptr %.neg12436.sroa.sel, align 1
-  %.sroa.gep16051 = getelementptr inbounds i8, ptr %.140, i64 3
+  %.sroa.gep16051 = getelementptr inbounds i8, ptr %.135, i64 3
   %.neg12436.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12435, ptr %.sroa.gep16051, ptr %.sroa.gep14084
   store i8 0, ptr %.neg12436.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3313 = and i64 %3299, 71776119061217280
@@ -7524,36 +7524,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3338:                                             ; preds = %3297
   %3339 = lshr i64 %3299, 48
   %3340 = trunc i64 %3339 to i8
-  %3341 = getelementptr inbounds i8, ptr %.140, i64 1
+  %3341 = getelementptr inbounds i8, ptr %.135, i64 1
   store i8 %3340, ptr %3341, align 1
   %3342 = lshr i64 %3299, 40
   %3343 = trunc i64 %3342 to i8
-  %3344 = getelementptr inbounds i8, ptr %.140, i64 2
+  %3344 = getelementptr inbounds i8, ptr %.135, i64 2
   store i8 %3343, ptr %3344, align 1
   %3345 = lshr i64 %3299, 32
   %3346 = trunc i64 %3345 to i8
-  %3347 = getelementptr inbounds i8, ptr %.140, i64 3
+  %3347 = getelementptr inbounds i8, ptr %.135, i64 3
   store i8 %3346, ptr %3347, align 1
   %3348 = lshr i64 %3303, 24
   %3349 = trunc i64 %3348 to i8
-  %3350 = getelementptr inbounds i8, ptr %.140, i64 4
+  %3350 = getelementptr inbounds i8, ptr %.135, i64 4
   store i8 %3349, ptr %3350, align 1
   %3351 = lshr i64 %3303, 16
   %3352 = trunc i64 %3351 to i8
-  %3353 = getelementptr inbounds i8, ptr %.140, i64 5
+  %3353 = getelementptr inbounds i8, ptr %.135, i64 5
   store i8 %3352, ptr %3353, align 1
   %3354 = lshr i64 %3303, 8
   %3355 = trunc i64 %3354 to i8
-  %3356 = getelementptr inbounds i8, ptr %.140, i64 6
+  %3356 = getelementptr inbounds i8, ptr %.135, i64 6
   store i8 %3355, ptr %3356, align 1
   %3357 = trunc i64 %3303 to i8
-  %3358 = getelementptr inbounds i8, ptr %.140, i64 7
+  %3358 = getelementptr inbounds i8, ptr %.135, i64 7
   store i8 %3357, ptr %3358, align 1
-  %3359 = getelementptr inbounds i8, ptr %.140, i64 8
+  %3359 = getelementptr inbounds i8, ptr %.135, i64 8
   br label %3360
 
 3360:                                             ; preds = %3338, %3309
-  %.142 = phi ptr [ %3337, %3309 ], [ %3359, %3338 ]
+  %.143 = phi ptr [ %3337, %3309 ], [ %3359, %3338 ]
   %3361 = add nsw i32 %3294, 64
   %3362 = load i32, ptr %3291, align 4
   %3363 = zext i32 %3362 to i64
@@ -7561,24 +7561,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 3364:                                             ; preds = %.lr.ph14815
   %3365 = zext nneg i32 %3293 to i64
-  %3366 = shl i64 %.9211132, %3365
+  %3366 = shl i64 %.8911129, %3365
   %3367 = zext i32 %3296 to i64
   %3368 = or i64 %3366, %3367
   br label %._crit_edge14816.loopexit
 
 ._crit_edge14816.loopexit:                        ; preds = %3364, %3360
-  %.9411388 = phi i32 [ %3361, %3360 ], [ %3294, %3364 ]
-  %.9411134 = phi i64 [ %3363, %3360 ], [ %3368, %3364 ]
-  %.143 = phi ptr [ %.142, %3360 ], [ %.140, %3364 ]
-  %3369 = add nsw i32 %.45, -256
+  %.9511389 = phi i32 [ %3361, %3360 ], [ %3294, %3364 ]
+  %.9511135 = phi i64 [ %3363, %3360 ], [ %3368, %3364 ]
+  %.144 = phi ptr [ %.143, %3360 ], [ %.135, %3364 ]
+  %3369 = add nsw i32 %.44, -256
   br label %._crit_edge14816
 
 ._crit_edge14816:                                 ; preds = %._crit_edge14816.loopexit, %3288
-  %.9311387.lcssa = phi i32 [ %.9211386, %3288 ], [ %.9411388, %._crit_edge14816.loopexit ]
-  %.9311133.lcssa = phi i64 [ %.9211132, %3288 ], [ %.9411134, %._crit_edge14816.loopexit ]
-  %.141.lcssa = phi ptr [ %.140, %3288 ], [ %.143, %._crit_edge14816.loopexit ]
-  %.46.lcssa = phi i32 [ %.45, %3288 ], [ %3369, %._crit_edge14816.loopexit ]
-  %3370 = add nuw nsw i32 %.46.lcssa, %3279
+  %.9411388.lcssa = phi i32 [ %.8911383, %3288 ], [ %.9511389, %._crit_edge14816.loopexit ]
+  %.9411134.lcssa = phi i64 [ %.8911129, %3288 ], [ %.9511135, %._crit_edge14816.loopexit ]
+  %.142.lcssa = phi ptr [ %.135, %3288 ], [ %.144, %._crit_edge14816.loopexit ]
+  %.47.lcssa = phi i32 [ %.44, %3288 ], [ %3369, %._crit_edge14816.loopexit ]
+  %3370 = add nuw nsw i32 %.47.lcssa, %3279
   %3371 = zext nneg i8 %3278 to i64
   %notmask12416 = shl nsw i64 -1, %3371
   %3372 = trunc i64 %notmask12416 to i32
@@ -7594,13 +7594,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3382 = load i8, ptr %3381, align 1
   %3383 = sext i8 %3382 to i32
   %3384 = add nsw i32 %3383, %3279
-  %3385 = sub nsw i32 %.9311387.lcssa, %3384
+  %3385 = sub nsw i32 %.9411388.lcssa, %3384
   %3386 = icmp slt i32 %3385, 0
   br i1 %3386, label %3387, label %3453
 
 3387:                                             ; preds = %._crit_edge14816
-  %3388 = zext nneg i32 %.9311387.lcssa to i64
-  %3389 = shl i64 %.9311133.lcssa, %3388
+  %3388 = zext nneg i32 %.9411388.lcssa to i64
+  %3389 = shl i64 %.9411134.lcssa, %3388
   %3390 = sub nsw i32 0, %3385
   %3391 = ashr i32 %3379, %3390
   %3392 = sext i32 %3391 to i64
@@ -7611,19 +7611,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12417 = icmp eq i64 %3396, 0
   %3397 = lshr i64 %3393, 56
   %3398 = trunc nuw i64 %3397 to i8
-  store i8 %3398, ptr %.141.lcssa, align 1
+  store i8 %3398, ptr %.142.lcssa, align 1
   br i1 %.not12417, label %3428, label %3399
 
 3399:                                             ; preds = %3387
-  %3400 = getelementptr inbounds i8, ptr %.141.lcssa, i64 1
+  %3400 = getelementptr inbounds i8, ptr %.142.lcssa, i64 1
   store i8 0, ptr %3400, align 1
   %.not12418 = icmp eq i64 %3397, 255
-  %.sroa.gep14092 = getelementptr inbounds i8, ptr %.141.lcssa, i64 2
+  %.sroa.gep14092 = getelementptr inbounds i8, ptr %.142.lcssa, i64 2
   %.neg12419.sroa.sel = select i1 %.not12418, ptr %.sroa.gep14092, ptr %3400
   %3401 = lshr i64 %3393, 48
   %3402 = trunc i64 %3401 to i8
   store i8 %3402, ptr %.neg12419.sroa.sel, align 1
-  %.sroa.gep16037 = getelementptr inbounds i8, ptr %.141.lcssa, i64 3
+  %.sroa.gep16037 = getelementptr inbounds i8, ptr %.142.lcssa, i64 3
   %.neg12419.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12418, ptr %.sroa.gep16037, ptr %.sroa.gep14092
   store i8 0, ptr %.neg12419.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3403 = and i64 %3393, 71776119061217280
@@ -7691,59 +7691,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3428:                                             ; preds = %3387
   %3429 = lshr i64 %3393, 48
   %3430 = trunc i64 %3429 to i8
-  %3431 = getelementptr inbounds i8, ptr %.141.lcssa, i64 1
+  %3431 = getelementptr inbounds i8, ptr %.142.lcssa, i64 1
   store i8 %3430, ptr %3431, align 1
   %3432 = lshr i64 %3393, 40
   %3433 = trunc i64 %3432 to i8
-  %3434 = getelementptr inbounds i8, ptr %.141.lcssa, i64 2
+  %3434 = getelementptr inbounds i8, ptr %.142.lcssa, i64 2
   store i8 %3433, ptr %3434, align 1
   %3435 = lshr i64 %3393, 32
   %3436 = trunc i64 %3435 to i8
-  %3437 = getelementptr inbounds i8, ptr %.141.lcssa, i64 3
+  %3437 = getelementptr inbounds i8, ptr %.142.lcssa, i64 3
   store i8 %3436, ptr %3437, align 1
   %3438 = lshr i64 %3393, 24
   %3439 = trunc i64 %3438 to i8
-  %3440 = getelementptr inbounds i8, ptr %.141.lcssa, i64 4
+  %3440 = getelementptr inbounds i8, ptr %.142.lcssa, i64 4
   store i8 %3439, ptr %3440, align 1
   %3441 = lshr i64 %3393, 16
   %3442 = trunc i64 %3441 to i8
-  %3443 = getelementptr inbounds i8, ptr %.141.lcssa, i64 5
+  %3443 = getelementptr inbounds i8, ptr %.142.lcssa, i64 5
   store i8 %3442, ptr %3443, align 1
   %3444 = lshr i64 %3393, 8
   %3445 = trunc i64 %3444 to i8
-  %3446 = getelementptr inbounds i8, ptr %.141.lcssa, i64 6
+  %3446 = getelementptr inbounds i8, ptr %.142.lcssa, i64 6
   store i8 %3445, ptr %3446, align 1
   %3447 = trunc i64 %3393 to i8
-  %3448 = getelementptr inbounds i8, ptr %.141.lcssa, i64 7
+  %3448 = getelementptr inbounds i8, ptr %.142.lcssa, i64 7
   store i8 %3447, ptr %3448, align 1
-  %3449 = getelementptr inbounds i8, ptr %.141.lcssa, i64 8
+  %3449 = getelementptr inbounds i8, ptr %.142.lcssa, i64 8
   br label %3450
 
 3450:                                             ; preds = %3428, %3399
-  %.144 = phi ptr [ %3427, %3399 ], [ %3449, %3428 ]
+  %.145 = phi ptr [ %3427, %3399 ], [ %3449, %3428 ]
   %3451 = add nsw i32 %3385, 64
   %3452 = sext i32 %3379 to i64
   br label %3458
 
 3453:                                             ; preds = %._crit_edge14816
   %3454 = zext nneg i32 %3384 to i64
-  %3455 = shl i64 %.9311133.lcssa, %3454
+  %3455 = shl i64 %.9411134.lcssa, %3454
   %3456 = sext i32 %3379 to i64
   %3457 = or i64 %3455, %3456
   br label %3458
 
 3458:                                             ; preds = %3450, %3453, %3269
-  %.9611390 = phi i32 [ %.9211386, %3269 ], [ %3451, %3450 ], [ %3385, %3453 ]
-  %.9611136 = phi i64 [ %.9211132, %3269 ], [ %3452, %3450 ], [ %3457, %3453 ]
-  %.146 = phi ptr [ %.140, %3269 ], [ %.144, %3450 ], [ %.141.lcssa, %3453 ]
-  %.47 = phi i32 [ %3270, %3269 ], [ 0, %3450 ], [ 0, %3453 ]
+  %.9311387 = phi i32 [ %.8911383, %3269 ], [ %3451, %3450 ], [ %3385, %3453 ]
+  %.9311133 = phi i64 [ %.8911129, %3269 ], [ %3452, %3450 ], [ %3457, %3453 ]
+  %.141 = phi ptr [ %.135, %3269 ], [ %.145, %3450 ], [ %.142.lcssa, %3453 ]
+  %.46 = phi i32 [ %3270, %3269 ], [ 0, %3450 ], [ 0, %3453 ]
   %3459 = getelementptr inbounds i8, ptr %1, i64 40
   %3460 = load i16, ptr %3459, align 2
   %3461 = icmp eq i16 %3460, 0
   br i1 %3461, label %3462, label %3464
 
 3462:                                             ; preds = %3458
-  %3463 = add nuw nsw i32 %.47, 16
+  %3463 = add nuw nsw i32 %.46, 16
   br label %3651
 
 3464:                                             ; preds = %3458
@@ -7770,7 +7770,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %3481
 
 3481:                                             ; preds = %3474, %3464
-  %3482 = icmp ugt i32 %.47, 255
+  %3482 = icmp ugt i32 %.46, 255
   br i1 %3482, label %.lr.ph14826, label %._crit_edge14827
 
 .lr.ph14826:                                      ; preds = %3481
@@ -7778,14 +7778,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3484 = getelementptr inbounds i8, ptr %4, i64 960
   %3485 = load i8, ptr %3483, align 4
   %3486 = sext i8 %3485 to i32
-  %3487 = sub nsw i32 %.9611390, %3486
+  %3487 = sub nsw i32 %.9311387, %3486
   %3488 = icmp slt i32 %3487, 0
   %3489 = load i32, ptr %3484, align 4
   br i1 %3488, label %3490, label %3557
 
 3490:                                             ; preds = %.lr.ph14826
-  %3491 = zext nneg i32 %.9611390 to i64
-  %3492 = shl i64 %.9611136, %3491
+  %3491 = zext nneg i32 %.9311387 to i64
+  %3492 = shl i64 %.9311133, %3491
   %3493 = sub nsw i32 0, %3487
   %3494 = lshr i32 %3489, %3493
   %3495 = zext nneg i32 %3494 to i64
@@ -7796,19 +7796,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12469 = icmp eq i64 %3499, 0
   %3500 = lshr i64 %3492, 56
   %3501 = trunc nuw i64 %3500 to i8
-  store i8 %3501, ptr %.146, align 1
+  store i8 %3501, ptr %.141, align 1
   br i1 %.not12469, label %3531, label %3502
 
 3502:                                             ; preds = %3490
-  %3503 = getelementptr inbounds i8, ptr %.146, i64 1
+  %3503 = getelementptr inbounds i8, ptr %.141, i64 1
   store i8 0, ptr %3503, align 1
   %.not12470 = icmp eq i64 %3500, 255
-  %.sroa.gep14100 = getelementptr inbounds i8, ptr %.146, i64 2
+  %.sroa.gep14100 = getelementptr inbounds i8, ptr %.141, i64 2
   %.neg12471.sroa.sel = select i1 %.not12470, ptr %.sroa.gep14100, ptr %3503
   %3504 = lshr i64 %3492, 48
   %3505 = trunc i64 %3504 to i8
   store i8 %3505, ptr %.neg12471.sroa.sel, align 1
-  %.sroa.gep16035 = getelementptr inbounds i8, ptr %.146, i64 3
+  %.sroa.gep16035 = getelementptr inbounds i8, ptr %.141, i64 3
   %.neg12471.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12470, ptr %.sroa.gep16035, ptr %.sroa.gep14100
   store i8 0, ptr %.neg12471.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3506 = and i64 %3492, 71776119061217280
@@ -7876,36 +7876,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3531:                                             ; preds = %3490
   %3532 = lshr i64 %3492, 48
   %3533 = trunc i64 %3532 to i8
-  %3534 = getelementptr inbounds i8, ptr %.146, i64 1
+  %3534 = getelementptr inbounds i8, ptr %.141, i64 1
   store i8 %3533, ptr %3534, align 1
   %3535 = lshr i64 %3492, 40
   %3536 = trunc i64 %3535 to i8
-  %3537 = getelementptr inbounds i8, ptr %.146, i64 2
+  %3537 = getelementptr inbounds i8, ptr %.141, i64 2
   store i8 %3536, ptr %3537, align 1
   %3538 = lshr i64 %3492, 32
   %3539 = trunc i64 %3538 to i8
-  %3540 = getelementptr inbounds i8, ptr %.146, i64 3
+  %3540 = getelementptr inbounds i8, ptr %.141, i64 3
   store i8 %3539, ptr %3540, align 1
   %3541 = lshr i64 %3496, 24
   %3542 = trunc i64 %3541 to i8
-  %3543 = getelementptr inbounds i8, ptr %.146, i64 4
+  %3543 = getelementptr inbounds i8, ptr %.141, i64 4
   store i8 %3542, ptr %3543, align 1
   %3544 = lshr i64 %3496, 16
   %3545 = trunc i64 %3544 to i8
-  %3546 = getelementptr inbounds i8, ptr %.146, i64 5
+  %3546 = getelementptr inbounds i8, ptr %.141, i64 5
   store i8 %3545, ptr %3546, align 1
   %3547 = lshr i64 %3496, 8
   %3548 = trunc i64 %3547 to i8
-  %3549 = getelementptr inbounds i8, ptr %.146, i64 6
+  %3549 = getelementptr inbounds i8, ptr %.141, i64 6
   store i8 %3548, ptr %3549, align 1
   %3550 = trunc i64 %3496 to i8
-  %3551 = getelementptr inbounds i8, ptr %.146, i64 7
+  %3551 = getelementptr inbounds i8, ptr %.141, i64 7
   store i8 %3550, ptr %3551, align 1
-  %3552 = getelementptr inbounds i8, ptr %.146, i64 8
+  %3552 = getelementptr inbounds i8, ptr %.141, i64 8
   br label %3553
 
 3553:                                             ; preds = %3531, %3502
-  %.148 = phi ptr [ %3530, %3502 ], [ %3552, %3531 ]
+  %.149 = phi ptr [ %3530, %3502 ], [ %3552, %3531 ]
   %3554 = add nsw i32 %3487, 64
   %3555 = load i32, ptr %3484, align 4
   %3556 = zext i32 %3555 to i64
@@ -7913,24 +7913,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 3557:                                             ; preds = %.lr.ph14826
   %3558 = zext nneg i32 %3486 to i64
-  %3559 = shl i64 %.9611136, %3558
+  %3559 = shl i64 %.9311133, %3558
   %3560 = zext i32 %3489 to i64
   %3561 = or i64 %3559, %3560
   br label %._crit_edge14827.loopexit
 
 ._crit_edge14827.loopexit:                        ; preds = %3557, %3553
-  %.9811392 = phi i32 [ %3554, %3553 ], [ %3487, %3557 ]
-  %.9811138 = phi i64 [ %3556, %3553 ], [ %3561, %3557 ]
-  %.149 = phi ptr [ %.148, %3553 ], [ %.146, %3557 ]
-  %3562 = add nsw i32 %.47, -256
+  %.9911393 = phi i32 [ %3554, %3553 ], [ %3487, %3557 ]
+  %.9911139 = phi i64 [ %3556, %3553 ], [ %3561, %3557 ]
+  %.150 = phi ptr [ %.149, %3553 ], [ %.141, %3557 ]
+  %3562 = add nsw i32 %.46, -256
   br label %._crit_edge14827
 
 ._crit_edge14827:                                 ; preds = %._crit_edge14827.loopexit, %3481
-  %.9711391.lcssa = phi i32 [ %.9611390, %3481 ], [ %.9811392, %._crit_edge14827.loopexit ]
-  %.9711137.lcssa = phi i64 [ %.9611136, %3481 ], [ %.9811138, %._crit_edge14827.loopexit ]
-  %.147.lcssa = phi ptr [ %.146, %3481 ], [ %.149, %._crit_edge14827.loopexit ]
-  %.48.lcssa = phi i32 [ %.47, %3481 ], [ %3562, %._crit_edge14827.loopexit ]
-  %3563 = add nuw nsw i32 %.48.lcssa, %3472
+  %.9811392.lcssa = phi i32 [ %.9311387, %3481 ], [ %.9911393, %._crit_edge14827.loopexit ]
+  %.9811138.lcssa = phi i64 [ %.9311133, %3481 ], [ %.9911139, %._crit_edge14827.loopexit ]
+  %.148.lcssa = phi ptr [ %.141, %3481 ], [ %.150, %._crit_edge14827.loopexit ]
+  %.49.lcssa = phi i32 [ %.46, %3481 ], [ %3562, %._crit_edge14827.loopexit ]
+  %3563 = add nuw nsw i32 %.49.lcssa, %3472
   %3564 = zext nneg i8 %3471 to i64
   %notmask12451 = shl nsw i64 -1, %3564
   %3565 = trunc i64 %notmask12451 to i32
@@ -7946,13 +7946,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3575 = load i8, ptr %3574, align 1
   %3576 = sext i8 %3575 to i32
   %3577 = add nsw i32 %3576, %3472
-  %3578 = sub nsw i32 %.9711391.lcssa, %3577
+  %3578 = sub nsw i32 %.9811392.lcssa, %3577
   %3579 = icmp slt i32 %3578, 0
   br i1 %3579, label %3580, label %3646
 
 3580:                                             ; preds = %._crit_edge14827
-  %3581 = zext nneg i32 %.9711391.lcssa to i64
-  %3582 = shl i64 %.9711137.lcssa, %3581
+  %3581 = zext nneg i32 %.9811392.lcssa to i64
+  %3582 = shl i64 %.9811138.lcssa, %3581
   %3583 = sub nsw i32 0, %3578
   %3584 = ashr i32 %3572, %3583
   %3585 = sext i32 %3584 to i64
@@ -7963,19 +7963,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12452 = icmp eq i64 %3589, 0
   %3590 = lshr i64 %3586, 56
   %3591 = trunc nuw i64 %3590 to i8
-  store i8 %3591, ptr %.147.lcssa, align 1
+  store i8 %3591, ptr %.148.lcssa, align 1
   br i1 %.not12452, label %3621, label %3592
 
 3592:                                             ; preds = %3580
-  %3593 = getelementptr inbounds i8, ptr %.147.lcssa, i64 1
+  %3593 = getelementptr inbounds i8, ptr %.148.lcssa, i64 1
   store i8 0, ptr %3593, align 1
   %.not12453 = icmp eq i64 %3590, 255
-  %.sroa.gep14108 = getelementptr inbounds i8, ptr %.147.lcssa, i64 2
+  %.sroa.gep14108 = getelementptr inbounds i8, ptr %.148.lcssa, i64 2
   %.neg12454.sroa.sel = select i1 %.not12453, ptr %.sroa.gep14108, ptr %3593
   %3594 = lshr i64 %3586, 48
   %3595 = trunc i64 %3594 to i8
   store i8 %3595, ptr %.neg12454.sroa.sel, align 1
-  %.sroa.gep16021 = getelementptr inbounds i8, ptr %.147.lcssa, i64 3
+  %.sroa.gep16021 = getelementptr inbounds i8, ptr %.148.lcssa, i64 3
   %.neg12454.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12453, ptr %.sroa.gep16021, ptr %.sroa.gep14108
   store i8 0, ptr %.neg12454.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3596 = and i64 %3586, 71776119061217280
@@ -8043,59 +8043,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3621:                                             ; preds = %3580
   %3622 = lshr i64 %3586, 48
   %3623 = trunc i64 %3622 to i8
-  %3624 = getelementptr inbounds i8, ptr %.147.lcssa, i64 1
+  %3624 = getelementptr inbounds i8, ptr %.148.lcssa, i64 1
   store i8 %3623, ptr %3624, align 1
   %3625 = lshr i64 %3586, 40
   %3626 = trunc i64 %3625 to i8
-  %3627 = getelementptr inbounds i8, ptr %.147.lcssa, i64 2
+  %3627 = getelementptr inbounds i8, ptr %.148.lcssa, i64 2
   store i8 %3626, ptr %3627, align 1
   %3628 = lshr i64 %3586, 32
   %3629 = trunc i64 %3628 to i8
-  %3630 = getelementptr inbounds i8, ptr %.147.lcssa, i64 3
+  %3630 = getelementptr inbounds i8, ptr %.148.lcssa, i64 3
   store i8 %3629, ptr %3630, align 1
   %3631 = lshr i64 %3586, 24
   %3632 = trunc i64 %3631 to i8
-  %3633 = getelementptr inbounds i8, ptr %.147.lcssa, i64 4
+  %3633 = getelementptr inbounds i8, ptr %.148.lcssa, i64 4
   store i8 %3632, ptr %3633, align 1
   %3634 = lshr i64 %3586, 16
   %3635 = trunc i64 %3634 to i8
-  %3636 = getelementptr inbounds i8, ptr %.147.lcssa, i64 5
+  %3636 = getelementptr inbounds i8, ptr %.148.lcssa, i64 5
   store i8 %3635, ptr %3636, align 1
   %3637 = lshr i64 %3586, 8
   %3638 = trunc i64 %3637 to i8
-  %3639 = getelementptr inbounds i8, ptr %.147.lcssa, i64 6
+  %3639 = getelementptr inbounds i8, ptr %.148.lcssa, i64 6
   store i8 %3638, ptr %3639, align 1
   %3640 = trunc i64 %3586 to i8
-  %3641 = getelementptr inbounds i8, ptr %.147.lcssa, i64 7
+  %3641 = getelementptr inbounds i8, ptr %.148.lcssa, i64 7
   store i8 %3640, ptr %3641, align 1
-  %3642 = getelementptr inbounds i8, ptr %.147.lcssa, i64 8
+  %3642 = getelementptr inbounds i8, ptr %.148.lcssa, i64 8
   br label %3643
 
 3643:                                             ; preds = %3621, %3592
-  %.150 = phi ptr [ %3620, %3592 ], [ %3642, %3621 ]
+  %.151 = phi ptr [ %3620, %3592 ], [ %3642, %3621 ]
   %3644 = add nsw i32 %3578, 64
   %3645 = sext i32 %3572 to i64
   br label %3651
 
 3646:                                             ; preds = %._crit_edge14827
   %3647 = zext nneg i32 %3577 to i64
-  %3648 = shl i64 %.9711137.lcssa, %3647
+  %3648 = shl i64 %.9811138.lcssa, %3647
   %3649 = sext i32 %3572 to i64
   %3650 = or i64 %3648, %3649
   br label %3651
 
 3651:                                             ; preds = %3643, %3646, %3462
-  %.10011394 = phi i32 [ %.9611390, %3462 ], [ %3644, %3643 ], [ %3578, %3646 ]
-  %.10011140 = phi i64 [ %.9611136, %3462 ], [ %3645, %3643 ], [ %3650, %3646 ]
-  %.152 = phi ptr [ %.146, %3462 ], [ %.150, %3643 ], [ %.147.lcssa, %3646 ]
-  %.49 = phi i32 [ %3463, %3462 ], [ 0, %3643 ], [ 0, %3646 ]
+  %.9711391 = phi i32 [ %.9311387, %3462 ], [ %3644, %3643 ], [ %3578, %3646 ]
+  %.9711137 = phi i64 [ %.9311133, %3462 ], [ %3645, %3643 ], [ %3650, %3646 ]
+  %.147 = phi ptr [ %.141, %3462 ], [ %.151, %3643 ], [ %.148.lcssa, %3646 ]
+  %.48 = phi i32 [ %3463, %3462 ], [ 0, %3643 ], [ 0, %3646 ]
   %3652 = getelementptr inbounds i8, ptr %1, i64 26
   %3653 = load i16, ptr %3652, align 2
   %3654 = icmp eq i16 %3653, 0
   br i1 %3654, label %3655, label %3657
 
 3655:                                             ; preds = %3651
-  %3656 = add nuw nsw i32 %.49, 16
+  %3656 = add nuw nsw i32 %.48, 16
   br label %3844
 
 3657:                                             ; preds = %3651
@@ -8122,7 +8122,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %3674
 
 3674:                                             ; preds = %3667, %3657
-  %3675 = icmp ugt i32 %.49, 255
+  %3675 = icmp ugt i32 %.48, 255
   br i1 %3675, label %.lr.ph14837, label %._crit_edge14838
 
 .lr.ph14837:                                      ; preds = %3674
@@ -8130,14 +8130,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3677 = getelementptr inbounds i8, ptr %4, i64 960
   %3678 = load i8, ptr %3676, align 4
   %3679 = sext i8 %3678 to i32
-  %3680 = sub nsw i32 %.10011394, %3679
+  %3680 = sub nsw i32 %.9711391, %3679
   %3681 = icmp slt i32 %3680, 0
   %3682 = load i32, ptr %3677, align 4
   br i1 %3681, label %3683, label %3750
 
 3683:                                             ; preds = %.lr.ph14837
-  %3684 = zext nneg i32 %.10011394 to i64
-  %3685 = shl i64 %.10011140, %3684
+  %3684 = zext nneg i32 %.9711391 to i64
+  %3685 = shl i64 %.9711137, %3684
   %3686 = sub nsw i32 0, %3680
   %3687 = lshr i32 %3682, %3686
   %3688 = zext nneg i32 %3687 to i64
@@ -8148,19 +8148,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12504 = icmp eq i64 %3692, 0
   %3693 = lshr i64 %3685, 56
   %3694 = trunc nuw i64 %3693 to i8
-  store i8 %3694, ptr %.152, align 1
+  store i8 %3694, ptr %.147, align 1
   br i1 %.not12504, label %3724, label %3695
 
 3695:                                             ; preds = %3683
-  %3696 = getelementptr inbounds i8, ptr %.152, i64 1
+  %3696 = getelementptr inbounds i8, ptr %.147, i64 1
   store i8 0, ptr %3696, align 1
   %.not12505 = icmp eq i64 %3693, 255
-  %.sroa.gep14116 = getelementptr inbounds i8, ptr %.152, i64 2
+  %.sroa.gep14116 = getelementptr inbounds i8, ptr %.147, i64 2
   %.neg12506.sroa.sel = select i1 %.not12505, ptr %.sroa.gep14116, ptr %3696
   %3697 = lshr i64 %3685, 48
   %3698 = trunc i64 %3697 to i8
   store i8 %3698, ptr %.neg12506.sroa.sel, align 1
-  %.sroa.gep16019 = getelementptr inbounds i8, ptr %.152, i64 3
+  %.sroa.gep16019 = getelementptr inbounds i8, ptr %.147, i64 3
   %.neg12506.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12505, ptr %.sroa.gep16019, ptr %.sroa.gep14116
   store i8 0, ptr %.neg12506.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3699 = and i64 %3685, 71776119061217280
@@ -8228,36 +8228,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3724:                                             ; preds = %3683
   %3725 = lshr i64 %3685, 48
   %3726 = trunc i64 %3725 to i8
-  %3727 = getelementptr inbounds i8, ptr %.152, i64 1
+  %3727 = getelementptr inbounds i8, ptr %.147, i64 1
   store i8 %3726, ptr %3727, align 1
   %3728 = lshr i64 %3685, 40
   %3729 = trunc i64 %3728 to i8
-  %3730 = getelementptr inbounds i8, ptr %.152, i64 2
+  %3730 = getelementptr inbounds i8, ptr %.147, i64 2
   store i8 %3729, ptr %3730, align 1
   %3731 = lshr i64 %3685, 32
   %3732 = trunc i64 %3731 to i8
-  %3733 = getelementptr inbounds i8, ptr %.152, i64 3
+  %3733 = getelementptr inbounds i8, ptr %.147, i64 3
   store i8 %3732, ptr %3733, align 1
   %3734 = lshr i64 %3689, 24
   %3735 = trunc i64 %3734 to i8
-  %3736 = getelementptr inbounds i8, ptr %.152, i64 4
+  %3736 = getelementptr inbounds i8, ptr %.147, i64 4
   store i8 %3735, ptr %3736, align 1
   %3737 = lshr i64 %3689, 16
   %3738 = trunc i64 %3737 to i8
-  %3739 = getelementptr inbounds i8, ptr %.152, i64 5
+  %3739 = getelementptr inbounds i8, ptr %.147, i64 5
   store i8 %3738, ptr %3739, align 1
   %3740 = lshr i64 %3689, 8
   %3741 = trunc i64 %3740 to i8
-  %3742 = getelementptr inbounds i8, ptr %.152, i64 6
+  %3742 = getelementptr inbounds i8, ptr %.147, i64 6
   store i8 %3741, ptr %3742, align 1
   %3743 = trunc i64 %3689 to i8
-  %3744 = getelementptr inbounds i8, ptr %.152, i64 7
+  %3744 = getelementptr inbounds i8, ptr %.147, i64 7
   store i8 %3743, ptr %3744, align 1
-  %3745 = getelementptr inbounds i8, ptr %.152, i64 8
+  %3745 = getelementptr inbounds i8, ptr %.147, i64 8
   br label %3746
 
 3746:                                             ; preds = %3724, %3695
-  %.154 = phi ptr [ %3723, %3695 ], [ %3745, %3724 ]
+  %.155 = phi ptr [ %3723, %3695 ], [ %3745, %3724 ]
   %3747 = add nsw i32 %3680, 64
   %3748 = load i32, ptr %3677, align 4
   %3749 = zext i32 %3748 to i64
@@ -8265,24 +8265,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 3750:                                             ; preds = %.lr.ph14837
   %3751 = zext nneg i32 %3679 to i64
-  %3752 = shl i64 %.10011140, %3751
+  %3752 = shl i64 %.9711137, %3751
   %3753 = zext i32 %3682 to i64
   %3754 = or i64 %3752, %3753
   br label %._crit_edge14838.loopexit
 
 ._crit_edge14838.loopexit:                        ; preds = %3750, %3746
-  %.10211396 = phi i32 [ %3747, %3746 ], [ %3680, %3750 ]
-  %.10211142 = phi i64 [ %3749, %3746 ], [ %3754, %3750 ]
-  %.155 = phi ptr [ %.154, %3746 ], [ %.152, %3750 ]
-  %3755 = add nsw i32 %.49, -256
+  %.10311397 = phi i32 [ %3747, %3746 ], [ %3680, %3750 ]
+  %.10311143 = phi i64 [ %3749, %3746 ], [ %3754, %3750 ]
+  %.156 = phi ptr [ %.155, %3746 ], [ %.147, %3750 ]
+  %3755 = add nsw i32 %.48, -256
   br label %._crit_edge14838
 
 ._crit_edge14838:                                 ; preds = %._crit_edge14838.loopexit, %3674
-  %.10111395.lcssa = phi i32 [ %.10011394, %3674 ], [ %.10211396, %._crit_edge14838.loopexit ]
-  %.10111141.lcssa = phi i64 [ %.10011140, %3674 ], [ %.10211142, %._crit_edge14838.loopexit ]
-  %.153.lcssa = phi ptr [ %.152, %3674 ], [ %.155, %._crit_edge14838.loopexit ]
-  %.50.lcssa = phi i32 [ %.49, %3674 ], [ %3755, %._crit_edge14838.loopexit ]
-  %3756 = add nuw nsw i32 %.50.lcssa, %3665
+  %.10211396.lcssa = phi i32 [ %.9711391, %3674 ], [ %.10311397, %._crit_edge14838.loopexit ]
+  %.10211142.lcssa = phi i64 [ %.9711137, %3674 ], [ %.10311143, %._crit_edge14838.loopexit ]
+  %.154.lcssa = phi ptr [ %.147, %3674 ], [ %.156, %._crit_edge14838.loopexit ]
+  %.51.lcssa = phi i32 [ %.48, %3674 ], [ %3755, %._crit_edge14838.loopexit ]
+  %3756 = add nuw nsw i32 %.51.lcssa, %3665
   %3757 = zext nneg i8 %3664 to i64
   %notmask12486 = shl nsw i64 -1, %3757
   %3758 = trunc i64 %notmask12486 to i32
@@ -8298,13 +8298,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3768 = load i8, ptr %3767, align 1
   %3769 = sext i8 %3768 to i32
   %3770 = add nsw i32 %3769, %3665
-  %3771 = sub nsw i32 %.10111395.lcssa, %3770
+  %3771 = sub nsw i32 %.10211396.lcssa, %3770
   %3772 = icmp slt i32 %3771, 0
   br i1 %3772, label %3773, label %3839
 
 3773:                                             ; preds = %._crit_edge14838
-  %3774 = zext nneg i32 %.10111395.lcssa to i64
-  %3775 = shl i64 %.10111141.lcssa, %3774
+  %3774 = zext nneg i32 %.10211396.lcssa to i64
+  %3775 = shl i64 %.10211142.lcssa, %3774
   %3776 = sub nsw i32 0, %3771
   %3777 = ashr i32 %3765, %3776
   %3778 = sext i32 %3777 to i64
@@ -8315,19 +8315,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12487 = icmp eq i64 %3782, 0
   %3783 = lshr i64 %3779, 56
   %3784 = trunc nuw i64 %3783 to i8
-  store i8 %3784, ptr %.153.lcssa, align 1
+  store i8 %3784, ptr %.154.lcssa, align 1
   br i1 %.not12487, label %3814, label %3785
 
 3785:                                             ; preds = %3773
-  %3786 = getelementptr inbounds i8, ptr %.153.lcssa, i64 1
+  %3786 = getelementptr inbounds i8, ptr %.154.lcssa, i64 1
   store i8 0, ptr %3786, align 1
   %.not12488 = icmp eq i64 %3783, 255
-  %.sroa.gep14124 = getelementptr inbounds i8, ptr %.153.lcssa, i64 2
+  %.sroa.gep14124 = getelementptr inbounds i8, ptr %.154.lcssa, i64 2
   %.neg12489.sroa.sel = select i1 %.not12488, ptr %.sroa.gep14124, ptr %3786
   %3787 = lshr i64 %3779, 48
   %3788 = trunc i64 %3787 to i8
   store i8 %3788, ptr %.neg12489.sroa.sel, align 1
-  %.sroa.gep16005 = getelementptr inbounds i8, ptr %.153.lcssa, i64 3
+  %.sroa.gep16005 = getelementptr inbounds i8, ptr %.154.lcssa, i64 3
   %.neg12489.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12488, ptr %.sroa.gep16005, ptr %.sroa.gep14124
   store i8 0, ptr %.neg12489.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3789 = and i64 %3779, 71776119061217280
@@ -8395,59 +8395,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3814:                                             ; preds = %3773
   %3815 = lshr i64 %3779, 48
   %3816 = trunc i64 %3815 to i8
-  %3817 = getelementptr inbounds i8, ptr %.153.lcssa, i64 1
+  %3817 = getelementptr inbounds i8, ptr %.154.lcssa, i64 1
   store i8 %3816, ptr %3817, align 1
   %3818 = lshr i64 %3779, 40
   %3819 = trunc i64 %3818 to i8
-  %3820 = getelementptr inbounds i8, ptr %.153.lcssa, i64 2
+  %3820 = getelementptr inbounds i8, ptr %.154.lcssa, i64 2
   store i8 %3819, ptr %3820, align 1
   %3821 = lshr i64 %3779, 32
   %3822 = trunc i64 %3821 to i8
-  %3823 = getelementptr inbounds i8, ptr %.153.lcssa, i64 3
+  %3823 = getelementptr inbounds i8, ptr %.154.lcssa, i64 3
   store i8 %3822, ptr %3823, align 1
   %3824 = lshr i64 %3779, 24
   %3825 = trunc i64 %3824 to i8
-  %3826 = getelementptr inbounds i8, ptr %.153.lcssa, i64 4
+  %3826 = getelementptr inbounds i8, ptr %.154.lcssa, i64 4
   store i8 %3825, ptr %3826, align 1
   %3827 = lshr i64 %3779, 16
   %3828 = trunc i64 %3827 to i8
-  %3829 = getelementptr inbounds i8, ptr %.153.lcssa, i64 5
+  %3829 = getelementptr inbounds i8, ptr %.154.lcssa, i64 5
   store i8 %3828, ptr %3829, align 1
   %3830 = lshr i64 %3779, 8
   %3831 = trunc i64 %3830 to i8
-  %3832 = getelementptr inbounds i8, ptr %.153.lcssa, i64 6
+  %3832 = getelementptr inbounds i8, ptr %.154.lcssa, i64 6
   store i8 %3831, ptr %3832, align 1
   %3833 = trunc i64 %3779 to i8
-  %3834 = getelementptr inbounds i8, ptr %.153.lcssa, i64 7
+  %3834 = getelementptr inbounds i8, ptr %.154.lcssa, i64 7
   store i8 %3833, ptr %3834, align 1
-  %3835 = getelementptr inbounds i8, ptr %.153.lcssa, i64 8
+  %3835 = getelementptr inbounds i8, ptr %.154.lcssa, i64 8
   br label %3836
 
 3836:                                             ; preds = %3814, %3785
-  %.156 = phi ptr [ %3813, %3785 ], [ %3835, %3814 ]
+  %.157 = phi ptr [ %3813, %3785 ], [ %3835, %3814 ]
   %3837 = add nsw i32 %3771, 64
   %3838 = sext i32 %3765 to i64
   br label %3844
 
 3839:                                             ; preds = %._crit_edge14838
   %3840 = zext nneg i32 %3770 to i64
-  %3841 = shl i64 %.10111141.lcssa, %3840
+  %3841 = shl i64 %.10211142.lcssa, %3840
   %3842 = sext i32 %3765 to i64
   %3843 = or i64 %3841, %3842
   br label %3844
 
 3844:                                             ; preds = %3836, %3839, %3655
-  %.10411398 = phi i32 [ %.10011394, %3655 ], [ %3837, %3836 ], [ %3771, %3839 ]
-  %.10411144 = phi i64 [ %.10011140, %3655 ], [ %3838, %3836 ], [ %3843, %3839 ]
-  %.158 = phi ptr [ %.152, %3655 ], [ %.156, %3836 ], [ %.153.lcssa, %3839 ]
-  %.51 = phi i32 [ %3656, %3655 ], [ 0, %3836 ], [ 0, %3839 ]
+  %.10111395 = phi i32 [ %.9711391, %3655 ], [ %3837, %3836 ], [ %3771, %3839 ]
+  %.10111141 = phi i64 [ %.9711137, %3655 ], [ %3838, %3836 ], [ %3843, %3839 ]
+  %.153 = phi ptr [ %.147, %3655 ], [ %.157, %3836 ], [ %.154.lcssa, %3839 ]
+  %.50 = phi i32 [ %3656, %3655 ], [ 0, %3836 ], [ 0, %3839 ]
   %3845 = getelementptr inbounds i8, ptr %1, i64 12
   %3846 = load i16, ptr %3845, align 2
   %3847 = icmp eq i16 %3846, 0
   br i1 %3847, label %3848, label %3850
 
 3848:                                             ; preds = %3844
-  %3849 = add nuw nsw i32 %.51, 16
+  %3849 = add nuw nsw i32 %.50, 16
   br label %4037
 
 3850:                                             ; preds = %3844
@@ -8474,7 +8474,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %3867
 
 3867:                                             ; preds = %3860, %3850
-  %3868 = icmp ugt i32 %.51, 255
+  %3868 = icmp ugt i32 %.50, 255
   br i1 %3868, label %.lr.ph14848, label %._crit_edge14849
 
 .lr.ph14848:                                      ; preds = %3867
@@ -8482,14 +8482,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3870 = getelementptr inbounds i8, ptr %4, i64 960
   %3871 = load i8, ptr %3869, align 4
   %3872 = sext i8 %3871 to i32
-  %3873 = sub nsw i32 %.10411398, %3872
+  %3873 = sub nsw i32 %.10111395, %3872
   %3874 = icmp slt i32 %3873, 0
   %3875 = load i32, ptr %3870, align 4
   br i1 %3874, label %3876, label %3943
 
 3876:                                             ; preds = %.lr.ph14848
-  %3877 = zext nneg i32 %.10411398 to i64
-  %3878 = shl i64 %.10411144, %3877
+  %3877 = zext nneg i32 %.10111395 to i64
+  %3878 = shl i64 %.10111141, %3877
   %3879 = sub nsw i32 0, %3873
   %3880 = lshr i32 %3875, %3879
   %3881 = zext nneg i32 %3880 to i64
@@ -8500,19 +8500,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12539 = icmp eq i64 %3885, 0
   %3886 = lshr i64 %3878, 56
   %3887 = trunc nuw i64 %3886 to i8
-  store i8 %3887, ptr %.158, align 1
+  store i8 %3887, ptr %.153, align 1
   br i1 %.not12539, label %3917, label %3888
 
 3888:                                             ; preds = %3876
-  %3889 = getelementptr inbounds i8, ptr %.158, i64 1
+  %3889 = getelementptr inbounds i8, ptr %.153, i64 1
   store i8 0, ptr %3889, align 1
   %.not12540 = icmp eq i64 %3886, 255
-  %.sroa.gep14132 = getelementptr inbounds i8, ptr %.158, i64 2
+  %.sroa.gep14132 = getelementptr inbounds i8, ptr %.153, i64 2
   %.neg12541.sroa.sel = select i1 %.not12540, ptr %.sroa.gep14132, ptr %3889
   %3890 = lshr i64 %3878, 48
   %3891 = trunc i64 %3890 to i8
   store i8 %3891, ptr %.neg12541.sroa.sel, align 1
-  %.sroa.gep16003 = getelementptr inbounds i8, ptr %.158, i64 3
+  %.sroa.gep16003 = getelementptr inbounds i8, ptr %.153, i64 3
   %.neg12541.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12540, ptr %.sroa.gep16003, ptr %.sroa.gep14132
   store i8 0, ptr %.neg12541.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3892 = and i64 %3878, 71776119061217280
@@ -8580,36 +8580,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 3917:                                             ; preds = %3876
   %3918 = lshr i64 %3878, 48
   %3919 = trunc i64 %3918 to i8
-  %3920 = getelementptr inbounds i8, ptr %.158, i64 1
+  %3920 = getelementptr inbounds i8, ptr %.153, i64 1
   store i8 %3919, ptr %3920, align 1
   %3921 = lshr i64 %3878, 40
   %3922 = trunc i64 %3921 to i8
-  %3923 = getelementptr inbounds i8, ptr %.158, i64 2
+  %3923 = getelementptr inbounds i8, ptr %.153, i64 2
   store i8 %3922, ptr %3923, align 1
   %3924 = lshr i64 %3878, 32
   %3925 = trunc i64 %3924 to i8
-  %3926 = getelementptr inbounds i8, ptr %.158, i64 3
+  %3926 = getelementptr inbounds i8, ptr %.153, i64 3
   store i8 %3925, ptr %3926, align 1
   %3927 = lshr i64 %3882, 24
   %3928 = trunc i64 %3927 to i8
-  %3929 = getelementptr inbounds i8, ptr %.158, i64 4
+  %3929 = getelementptr inbounds i8, ptr %.153, i64 4
   store i8 %3928, ptr %3929, align 1
   %3930 = lshr i64 %3882, 16
   %3931 = trunc i64 %3930 to i8
-  %3932 = getelementptr inbounds i8, ptr %.158, i64 5
+  %3932 = getelementptr inbounds i8, ptr %.153, i64 5
   store i8 %3931, ptr %3932, align 1
   %3933 = lshr i64 %3882, 8
   %3934 = trunc i64 %3933 to i8
-  %3935 = getelementptr inbounds i8, ptr %.158, i64 6
+  %3935 = getelementptr inbounds i8, ptr %.153, i64 6
   store i8 %3934, ptr %3935, align 1
   %3936 = trunc i64 %3882 to i8
-  %3937 = getelementptr inbounds i8, ptr %.158, i64 7
+  %3937 = getelementptr inbounds i8, ptr %.153, i64 7
   store i8 %3936, ptr %3937, align 1
-  %3938 = getelementptr inbounds i8, ptr %.158, i64 8
+  %3938 = getelementptr inbounds i8, ptr %.153, i64 8
   br label %3939
 
 3939:                                             ; preds = %3917, %3888
-  %.160 = phi ptr [ %3916, %3888 ], [ %3938, %3917 ]
+  %.161 = phi ptr [ %3916, %3888 ], [ %3938, %3917 ]
   %3940 = add nsw i32 %3873, 64
   %3941 = load i32, ptr %3870, align 4
   %3942 = zext i32 %3941 to i64
@@ -8617,24 +8617,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 3943:                                             ; preds = %.lr.ph14848
   %3944 = zext nneg i32 %3872 to i64
-  %3945 = shl i64 %.10411144, %3944
+  %3945 = shl i64 %.10111141, %3944
   %3946 = zext i32 %3875 to i64
   %3947 = or i64 %3945, %3946
   br label %._crit_edge14849.loopexit
 
 ._crit_edge14849.loopexit:                        ; preds = %3943, %3939
-  %.10611400 = phi i32 [ %3940, %3939 ], [ %3873, %3943 ]
-  %.10611146 = phi i64 [ %3942, %3939 ], [ %3947, %3943 ]
-  %.161 = phi ptr [ %.160, %3939 ], [ %.158, %3943 ]
-  %3948 = add nsw i32 %.51, -256
+  %.10711401 = phi i32 [ %3940, %3939 ], [ %3873, %3943 ]
+  %.10711147 = phi i64 [ %3942, %3939 ], [ %3947, %3943 ]
+  %.162 = phi ptr [ %.161, %3939 ], [ %.153, %3943 ]
+  %3948 = add nsw i32 %.50, -256
   br label %._crit_edge14849
 
 ._crit_edge14849:                                 ; preds = %._crit_edge14849.loopexit, %3867
-  %.10511399.lcssa = phi i32 [ %.10411398, %3867 ], [ %.10611400, %._crit_edge14849.loopexit ]
-  %.10511145.lcssa = phi i64 [ %.10411144, %3867 ], [ %.10611146, %._crit_edge14849.loopexit ]
-  %.159.lcssa = phi ptr [ %.158, %3867 ], [ %.161, %._crit_edge14849.loopexit ]
-  %.52.lcssa = phi i32 [ %.51, %3867 ], [ %3948, %._crit_edge14849.loopexit ]
-  %3949 = add nuw nsw i32 %.52.lcssa, %3858
+  %.10611400.lcssa = phi i32 [ %.10111395, %3867 ], [ %.10711401, %._crit_edge14849.loopexit ]
+  %.10611146.lcssa = phi i64 [ %.10111141, %3867 ], [ %.10711147, %._crit_edge14849.loopexit ]
+  %.160.lcssa = phi ptr [ %.153, %3867 ], [ %.162, %._crit_edge14849.loopexit ]
+  %.53.lcssa = phi i32 [ %.50, %3867 ], [ %3948, %._crit_edge14849.loopexit ]
+  %3949 = add nuw nsw i32 %.53.lcssa, %3858
   %3950 = zext nneg i8 %3857 to i64
   %notmask12521 = shl nsw i64 -1, %3950
   %3951 = trunc i64 %notmask12521 to i32
@@ -8650,13 +8650,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %3961 = load i8, ptr %3960, align 1
   %3962 = sext i8 %3961 to i32
   %3963 = add nsw i32 %3962, %3858
-  %3964 = sub nsw i32 %.10511399.lcssa, %3963
+  %3964 = sub nsw i32 %.10611400.lcssa, %3963
   %3965 = icmp slt i32 %3964, 0
   br i1 %3965, label %3966, label %4032
 
 3966:                                             ; preds = %._crit_edge14849
-  %3967 = zext nneg i32 %.10511399.lcssa to i64
-  %3968 = shl i64 %.10511145.lcssa, %3967
+  %3967 = zext nneg i32 %.10611400.lcssa to i64
+  %3968 = shl i64 %.10611146.lcssa, %3967
   %3969 = sub nsw i32 0, %3964
   %3970 = ashr i32 %3958, %3969
   %3971 = sext i32 %3970 to i64
@@ -8667,19 +8667,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12522 = icmp eq i64 %3975, 0
   %3976 = lshr i64 %3972, 56
   %3977 = trunc nuw i64 %3976 to i8
-  store i8 %3977, ptr %.159.lcssa, align 1
+  store i8 %3977, ptr %.160.lcssa, align 1
   br i1 %.not12522, label %4007, label %3978
 
 3978:                                             ; preds = %3966
-  %3979 = getelementptr inbounds i8, ptr %.159.lcssa, i64 1
+  %3979 = getelementptr inbounds i8, ptr %.160.lcssa, i64 1
   store i8 0, ptr %3979, align 1
   %.not12523 = icmp eq i64 %3976, 255
-  %.sroa.gep14140 = getelementptr inbounds i8, ptr %.159.lcssa, i64 2
+  %.sroa.gep14140 = getelementptr inbounds i8, ptr %.160.lcssa, i64 2
   %.neg12524.sroa.sel = select i1 %.not12523, ptr %.sroa.gep14140, ptr %3979
   %3980 = lshr i64 %3972, 48
   %3981 = trunc i64 %3980 to i8
   store i8 %3981, ptr %.neg12524.sroa.sel, align 1
-  %.sroa.gep15989 = getelementptr inbounds i8, ptr %.159.lcssa, i64 3
+  %.sroa.gep15989 = getelementptr inbounds i8, ptr %.160.lcssa, i64 3
   %.neg12524.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12523, ptr %.sroa.gep15989, ptr %.sroa.gep14140
   store i8 0, ptr %.neg12524.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3982 = and i64 %3972, 71776119061217280
@@ -8747,59 +8747,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4007:                                             ; preds = %3966
   %4008 = lshr i64 %3972, 48
   %4009 = trunc i64 %4008 to i8
-  %4010 = getelementptr inbounds i8, ptr %.159.lcssa, i64 1
+  %4010 = getelementptr inbounds i8, ptr %.160.lcssa, i64 1
   store i8 %4009, ptr %4010, align 1
   %4011 = lshr i64 %3972, 40
   %4012 = trunc i64 %4011 to i8
-  %4013 = getelementptr inbounds i8, ptr %.159.lcssa, i64 2
+  %4013 = getelementptr inbounds i8, ptr %.160.lcssa, i64 2
   store i8 %4012, ptr %4013, align 1
   %4014 = lshr i64 %3972, 32
   %4015 = trunc i64 %4014 to i8
-  %4016 = getelementptr inbounds i8, ptr %.159.lcssa, i64 3
+  %4016 = getelementptr inbounds i8, ptr %.160.lcssa, i64 3
   store i8 %4015, ptr %4016, align 1
   %4017 = lshr i64 %3972, 24
   %4018 = trunc i64 %4017 to i8
-  %4019 = getelementptr inbounds i8, ptr %.159.lcssa, i64 4
+  %4019 = getelementptr inbounds i8, ptr %.160.lcssa, i64 4
   store i8 %4018, ptr %4019, align 1
   %4020 = lshr i64 %3972, 16
   %4021 = trunc i64 %4020 to i8
-  %4022 = getelementptr inbounds i8, ptr %.159.lcssa, i64 5
+  %4022 = getelementptr inbounds i8, ptr %.160.lcssa, i64 5
   store i8 %4021, ptr %4022, align 1
   %4023 = lshr i64 %3972, 8
   %4024 = trunc i64 %4023 to i8
-  %4025 = getelementptr inbounds i8, ptr %.159.lcssa, i64 6
+  %4025 = getelementptr inbounds i8, ptr %.160.lcssa, i64 6
   store i8 %4024, ptr %4025, align 1
   %4026 = trunc i64 %3972 to i8
-  %4027 = getelementptr inbounds i8, ptr %.159.lcssa, i64 7
+  %4027 = getelementptr inbounds i8, ptr %.160.lcssa, i64 7
   store i8 %4026, ptr %4027, align 1
-  %4028 = getelementptr inbounds i8, ptr %.159.lcssa, i64 8
+  %4028 = getelementptr inbounds i8, ptr %.160.lcssa, i64 8
   br label %4029
 
 4029:                                             ; preds = %4007, %3978
-  %.162 = phi ptr [ %4006, %3978 ], [ %4028, %4007 ]
+  %.163 = phi ptr [ %4006, %3978 ], [ %4028, %4007 ]
   %4030 = add nsw i32 %3964, 64
   %4031 = sext i32 %3958 to i64
   br label %4037
 
 4032:                                             ; preds = %._crit_edge14849
   %4033 = zext nneg i32 %3963 to i64
-  %4034 = shl i64 %.10511145.lcssa, %4033
+  %4034 = shl i64 %.10611146.lcssa, %4033
   %4035 = sext i32 %3958 to i64
   %4036 = or i64 %4034, %4035
   br label %4037
 
 4037:                                             ; preds = %4029, %4032, %3848
-  %.10811402 = phi i32 [ %.10411398, %3848 ], [ %4030, %4029 ], [ %3964, %4032 ]
-  %.10811148 = phi i64 [ %.10411144, %3848 ], [ %4031, %4029 ], [ %4036, %4032 ]
-  %.164 = phi ptr [ %.158, %3848 ], [ %.162, %4029 ], [ %.159.lcssa, %4032 ]
-  %.53 = phi i32 [ %3849, %3848 ], [ 0, %4029 ], [ 0, %4032 ]
+  %.10511399 = phi i32 [ %.10111395, %3848 ], [ %4030, %4029 ], [ %3964, %4032 ]
+  %.10511145 = phi i64 [ %.10111141, %3848 ], [ %4031, %4029 ], [ %4036, %4032 ]
+  %.159 = phi ptr [ %.153, %3848 ], [ %.163, %4029 ], [ %.160.lcssa, %4032 ]
+  %.52 = phi i32 [ %3849, %3848 ], [ 0, %4029 ], [ 0, %4032 ]
   %4038 = getelementptr inbounds i8, ptr %1, i64 14
   %4039 = load i16, ptr %4038, align 2
   %4040 = icmp eq i16 %4039, 0
   br i1 %4040, label %4041, label %4043
 
 4041:                                             ; preds = %4037
-  %4042 = add nuw nsw i32 %.53, 16
+  %4042 = add nuw nsw i32 %.52, 16
   br label %4230
 
 4043:                                             ; preds = %4037
@@ -8826,7 +8826,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %4060
 
 4060:                                             ; preds = %4053, %4043
-  %4061 = icmp ugt i32 %.53, 255
+  %4061 = icmp ugt i32 %.52, 255
   br i1 %4061, label %.lr.ph14859, label %._crit_edge14860
 
 .lr.ph14859:                                      ; preds = %4060
@@ -8834,14 +8834,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4063 = getelementptr inbounds i8, ptr %4, i64 960
   %4064 = load i8, ptr %4062, align 4
   %4065 = sext i8 %4064 to i32
-  %4066 = sub nsw i32 %.10811402, %4065
+  %4066 = sub nsw i32 %.10511399, %4065
   %4067 = icmp slt i32 %4066, 0
   %4068 = load i32, ptr %4063, align 4
   br i1 %4067, label %4069, label %4136
 
 4069:                                             ; preds = %.lr.ph14859
-  %4070 = zext nneg i32 %.10811402 to i64
-  %4071 = shl i64 %.10811148, %4070
+  %4070 = zext nneg i32 %.10511399 to i64
+  %4071 = shl i64 %.10511145, %4070
   %4072 = sub nsw i32 0, %4066
   %4073 = lshr i32 %4068, %4072
   %4074 = zext nneg i32 %4073 to i64
@@ -8852,19 +8852,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12574 = icmp eq i64 %4078, 0
   %4079 = lshr i64 %4071, 56
   %4080 = trunc nuw i64 %4079 to i8
-  store i8 %4080, ptr %.164, align 1
+  store i8 %4080, ptr %.159, align 1
   br i1 %.not12574, label %4110, label %4081
 
 4081:                                             ; preds = %4069
-  %4082 = getelementptr inbounds i8, ptr %.164, i64 1
+  %4082 = getelementptr inbounds i8, ptr %.159, i64 1
   store i8 0, ptr %4082, align 1
   %.not12575 = icmp eq i64 %4079, 255
-  %.sroa.gep14148 = getelementptr inbounds i8, ptr %.164, i64 2
+  %.sroa.gep14148 = getelementptr inbounds i8, ptr %.159, i64 2
   %.neg12576.sroa.sel = select i1 %.not12575, ptr %.sroa.gep14148, ptr %4082
   %4083 = lshr i64 %4071, 48
   %4084 = trunc i64 %4083 to i8
   store i8 %4084, ptr %.neg12576.sroa.sel, align 1
-  %.sroa.gep15987 = getelementptr inbounds i8, ptr %.164, i64 3
+  %.sroa.gep15987 = getelementptr inbounds i8, ptr %.159, i64 3
   %.neg12576.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12575, ptr %.sroa.gep15987, ptr %.sroa.gep14148
   store i8 0, ptr %.neg12576.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4085 = and i64 %4071, 71776119061217280
@@ -8932,36 +8932,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4110:                                             ; preds = %4069
   %4111 = lshr i64 %4071, 48
   %4112 = trunc i64 %4111 to i8
-  %4113 = getelementptr inbounds i8, ptr %.164, i64 1
+  %4113 = getelementptr inbounds i8, ptr %.159, i64 1
   store i8 %4112, ptr %4113, align 1
   %4114 = lshr i64 %4071, 40
   %4115 = trunc i64 %4114 to i8
-  %4116 = getelementptr inbounds i8, ptr %.164, i64 2
+  %4116 = getelementptr inbounds i8, ptr %.159, i64 2
   store i8 %4115, ptr %4116, align 1
   %4117 = lshr i64 %4071, 32
   %4118 = trunc i64 %4117 to i8
-  %4119 = getelementptr inbounds i8, ptr %.164, i64 3
+  %4119 = getelementptr inbounds i8, ptr %.159, i64 3
   store i8 %4118, ptr %4119, align 1
   %4120 = lshr i64 %4075, 24
   %4121 = trunc i64 %4120 to i8
-  %4122 = getelementptr inbounds i8, ptr %.164, i64 4
+  %4122 = getelementptr inbounds i8, ptr %.159, i64 4
   store i8 %4121, ptr %4122, align 1
   %4123 = lshr i64 %4075, 16
   %4124 = trunc i64 %4123 to i8
-  %4125 = getelementptr inbounds i8, ptr %.164, i64 5
+  %4125 = getelementptr inbounds i8, ptr %.159, i64 5
   store i8 %4124, ptr %4125, align 1
   %4126 = lshr i64 %4075, 8
   %4127 = trunc i64 %4126 to i8
-  %4128 = getelementptr inbounds i8, ptr %.164, i64 6
+  %4128 = getelementptr inbounds i8, ptr %.159, i64 6
   store i8 %4127, ptr %4128, align 1
   %4129 = trunc i64 %4075 to i8
-  %4130 = getelementptr inbounds i8, ptr %.164, i64 7
+  %4130 = getelementptr inbounds i8, ptr %.159, i64 7
   store i8 %4129, ptr %4130, align 1
-  %4131 = getelementptr inbounds i8, ptr %.164, i64 8
+  %4131 = getelementptr inbounds i8, ptr %.159, i64 8
   br label %4132
 
 4132:                                             ; preds = %4110, %4081
-  %.166 = phi ptr [ %4109, %4081 ], [ %4131, %4110 ]
+  %.167 = phi ptr [ %4109, %4081 ], [ %4131, %4110 ]
   %4133 = add nsw i32 %4066, 64
   %4134 = load i32, ptr %4063, align 4
   %4135 = zext i32 %4134 to i64
@@ -8969,24 +8969,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 4136:                                             ; preds = %.lr.ph14859
   %4137 = zext nneg i32 %4065 to i64
-  %4138 = shl i64 %.10811148, %4137
+  %4138 = shl i64 %.10511145, %4137
   %4139 = zext i32 %4068 to i64
   %4140 = or i64 %4138, %4139
   br label %._crit_edge14860.loopexit
 
 ._crit_edge14860.loopexit:                        ; preds = %4136, %4132
-  %.11011404 = phi i32 [ %4133, %4132 ], [ %4066, %4136 ]
-  %.11011150 = phi i64 [ %4135, %4132 ], [ %4140, %4136 ]
-  %.167 = phi ptr [ %.166, %4132 ], [ %.164, %4136 ]
-  %4141 = add nsw i32 %.53, -256
+  %.11111405 = phi i32 [ %4133, %4132 ], [ %4066, %4136 ]
+  %.11111151 = phi i64 [ %4135, %4132 ], [ %4140, %4136 ]
+  %.168 = phi ptr [ %.167, %4132 ], [ %.159, %4136 ]
+  %4141 = add nsw i32 %.52, -256
   br label %._crit_edge14860
 
 ._crit_edge14860:                                 ; preds = %._crit_edge14860.loopexit, %4060
-  %.10911403.lcssa = phi i32 [ %.10811402, %4060 ], [ %.11011404, %._crit_edge14860.loopexit ]
-  %.10911149.lcssa = phi i64 [ %.10811148, %4060 ], [ %.11011150, %._crit_edge14860.loopexit ]
-  %.165.lcssa = phi ptr [ %.164, %4060 ], [ %.167, %._crit_edge14860.loopexit ]
-  %.54.lcssa = phi i32 [ %.53, %4060 ], [ %4141, %._crit_edge14860.loopexit ]
-  %4142 = add nuw nsw i32 %.54.lcssa, %4051
+  %.11011404.lcssa = phi i32 [ %.10511399, %4060 ], [ %.11111405, %._crit_edge14860.loopexit ]
+  %.11011150.lcssa = phi i64 [ %.10511145, %4060 ], [ %.11111151, %._crit_edge14860.loopexit ]
+  %.166.lcssa = phi ptr [ %.159, %4060 ], [ %.168, %._crit_edge14860.loopexit ]
+  %.55.lcssa = phi i32 [ %.52, %4060 ], [ %4141, %._crit_edge14860.loopexit ]
+  %4142 = add nuw nsw i32 %.55.lcssa, %4051
   %4143 = zext nneg i8 %4050 to i64
   %notmask12556 = shl nsw i64 -1, %4143
   %4144 = trunc i64 %notmask12556 to i32
@@ -9002,13 +9002,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4154 = load i8, ptr %4153, align 1
   %4155 = sext i8 %4154 to i32
   %4156 = add nsw i32 %4155, %4051
-  %4157 = sub nsw i32 %.10911403.lcssa, %4156
+  %4157 = sub nsw i32 %.11011404.lcssa, %4156
   %4158 = icmp slt i32 %4157, 0
   br i1 %4158, label %4159, label %4225
 
 4159:                                             ; preds = %._crit_edge14860
-  %4160 = zext nneg i32 %.10911403.lcssa to i64
-  %4161 = shl i64 %.10911149.lcssa, %4160
+  %4160 = zext nneg i32 %.11011404.lcssa to i64
+  %4161 = shl i64 %.11011150.lcssa, %4160
   %4162 = sub nsw i32 0, %4157
   %4163 = ashr i32 %4151, %4162
   %4164 = sext i32 %4163 to i64
@@ -9019,19 +9019,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12557 = icmp eq i64 %4168, 0
   %4169 = lshr i64 %4165, 56
   %4170 = trunc nuw i64 %4169 to i8
-  store i8 %4170, ptr %.165.lcssa, align 1
+  store i8 %4170, ptr %.166.lcssa, align 1
   br i1 %.not12557, label %4200, label %4171
 
 4171:                                             ; preds = %4159
-  %4172 = getelementptr inbounds i8, ptr %.165.lcssa, i64 1
+  %4172 = getelementptr inbounds i8, ptr %.166.lcssa, i64 1
   store i8 0, ptr %4172, align 1
   %.not12558 = icmp eq i64 %4169, 255
-  %.sroa.gep14156 = getelementptr inbounds i8, ptr %.165.lcssa, i64 2
+  %.sroa.gep14156 = getelementptr inbounds i8, ptr %.166.lcssa, i64 2
   %.neg12559.sroa.sel = select i1 %.not12558, ptr %.sroa.gep14156, ptr %4172
   %4173 = lshr i64 %4165, 48
   %4174 = trunc i64 %4173 to i8
   store i8 %4174, ptr %.neg12559.sroa.sel, align 1
-  %.sroa.gep15973 = getelementptr inbounds i8, ptr %.165.lcssa, i64 3
+  %.sroa.gep15973 = getelementptr inbounds i8, ptr %.166.lcssa, i64 3
   %.neg12559.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12558, ptr %.sroa.gep15973, ptr %.sroa.gep14156
   store i8 0, ptr %.neg12559.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4175 = and i64 %4165, 71776119061217280
@@ -9099,59 +9099,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4200:                                             ; preds = %4159
   %4201 = lshr i64 %4165, 48
   %4202 = trunc i64 %4201 to i8
-  %4203 = getelementptr inbounds i8, ptr %.165.lcssa, i64 1
+  %4203 = getelementptr inbounds i8, ptr %.166.lcssa, i64 1
   store i8 %4202, ptr %4203, align 1
   %4204 = lshr i64 %4165, 40
   %4205 = trunc i64 %4204 to i8
-  %4206 = getelementptr inbounds i8, ptr %.165.lcssa, i64 2
+  %4206 = getelementptr inbounds i8, ptr %.166.lcssa, i64 2
   store i8 %4205, ptr %4206, align 1
   %4207 = lshr i64 %4165, 32
   %4208 = trunc i64 %4207 to i8
-  %4209 = getelementptr inbounds i8, ptr %.165.lcssa, i64 3
+  %4209 = getelementptr inbounds i8, ptr %.166.lcssa, i64 3
   store i8 %4208, ptr %4209, align 1
   %4210 = lshr i64 %4165, 24
   %4211 = trunc i64 %4210 to i8
-  %4212 = getelementptr inbounds i8, ptr %.165.lcssa, i64 4
+  %4212 = getelementptr inbounds i8, ptr %.166.lcssa, i64 4
   store i8 %4211, ptr %4212, align 1
   %4213 = lshr i64 %4165, 16
   %4214 = trunc i64 %4213 to i8
-  %4215 = getelementptr inbounds i8, ptr %.165.lcssa, i64 5
+  %4215 = getelementptr inbounds i8, ptr %.166.lcssa, i64 5
   store i8 %4214, ptr %4215, align 1
   %4216 = lshr i64 %4165, 8
   %4217 = trunc i64 %4216 to i8
-  %4218 = getelementptr inbounds i8, ptr %.165.lcssa, i64 6
+  %4218 = getelementptr inbounds i8, ptr %.166.lcssa, i64 6
   store i8 %4217, ptr %4218, align 1
   %4219 = trunc i64 %4165 to i8
-  %4220 = getelementptr inbounds i8, ptr %.165.lcssa, i64 7
+  %4220 = getelementptr inbounds i8, ptr %.166.lcssa, i64 7
   store i8 %4219, ptr %4220, align 1
-  %4221 = getelementptr inbounds i8, ptr %.165.lcssa, i64 8
+  %4221 = getelementptr inbounds i8, ptr %.166.lcssa, i64 8
   br label %4222
 
 4222:                                             ; preds = %4200, %4171
-  %.168 = phi ptr [ %4199, %4171 ], [ %4221, %4200 ]
+  %.169 = phi ptr [ %4199, %4171 ], [ %4221, %4200 ]
   %4223 = add nsw i32 %4157, 64
   %4224 = sext i32 %4151 to i64
   br label %4230
 
 4225:                                             ; preds = %._crit_edge14860
   %4226 = zext nneg i32 %4156 to i64
-  %4227 = shl i64 %.10911149.lcssa, %4226
+  %4227 = shl i64 %.11011150.lcssa, %4226
   %4228 = sext i32 %4151 to i64
   %4229 = or i64 %4227, %4228
   br label %4230
 
 4230:                                             ; preds = %4222, %4225, %4041
-  %.11211406 = phi i32 [ %.10811402, %4041 ], [ %4223, %4222 ], [ %4157, %4225 ]
-  %.11211152 = phi i64 [ %.10811148, %4041 ], [ %4224, %4222 ], [ %4229, %4225 ]
-  %.170 = phi ptr [ %.164, %4041 ], [ %.168, %4222 ], [ %.165.lcssa, %4225 ]
-  %.55 = phi i32 [ %4042, %4041 ], [ 0, %4222 ], [ 0, %4225 ]
+  %.10911403 = phi i32 [ %.10511399, %4041 ], [ %4223, %4222 ], [ %4157, %4225 ]
+  %.10911149 = phi i64 [ %.10511145, %4041 ], [ %4224, %4222 ], [ %4229, %4225 ]
+  %.165 = phi ptr [ %.159, %4041 ], [ %.169, %4222 ], [ %.166.lcssa, %4225 ]
+  %.54 = phi i32 [ %4042, %4041 ], [ 0, %4222 ], [ 0, %4225 ]
   %4231 = getelementptr inbounds i8, ptr %1, i64 28
   %4232 = load i16, ptr %4231, align 2
   %4233 = icmp eq i16 %4232, 0
   br i1 %4233, label %4234, label %4236
 
 4234:                                             ; preds = %4230
-  %4235 = add nuw nsw i32 %.55, 16
+  %4235 = add nuw nsw i32 %.54, 16
   br label %4423
 
 4236:                                             ; preds = %4230
@@ -9178,7 +9178,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %4253
 
 4253:                                             ; preds = %4246, %4236
-  %4254 = icmp ugt i32 %.55, 255
+  %4254 = icmp ugt i32 %.54, 255
   br i1 %4254, label %.lr.ph14870, label %._crit_edge14871
 
 .lr.ph14870:                                      ; preds = %4253
@@ -9186,14 +9186,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4256 = getelementptr inbounds i8, ptr %4, i64 960
   %4257 = load i8, ptr %4255, align 4
   %4258 = sext i8 %4257 to i32
-  %4259 = sub nsw i32 %.11211406, %4258
+  %4259 = sub nsw i32 %.10911403, %4258
   %4260 = icmp slt i32 %4259, 0
   %4261 = load i32, ptr %4256, align 4
   br i1 %4260, label %4262, label %4329
 
 4262:                                             ; preds = %.lr.ph14870
-  %4263 = zext nneg i32 %.11211406 to i64
-  %4264 = shl i64 %.11211152, %4263
+  %4263 = zext nneg i32 %.10911403 to i64
+  %4264 = shl i64 %.10911149, %4263
   %4265 = sub nsw i32 0, %4259
   %4266 = lshr i32 %4261, %4265
   %4267 = zext nneg i32 %4266 to i64
@@ -9204,19 +9204,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12609 = icmp eq i64 %4271, 0
   %4272 = lshr i64 %4264, 56
   %4273 = trunc nuw i64 %4272 to i8
-  store i8 %4273, ptr %.170, align 1
+  store i8 %4273, ptr %.165, align 1
   br i1 %.not12609, label %4303, label %4274
 
 4274:                                             ; preds = %4262
-  %4275 = getelementptr inbounds i8, ptr %.170, i64 1
+  %4275 = getelementptr inbounds i8, ptr %.165, i64 1
   store i8 0, ptr %4275, align 1
   %.not12610 = icmp eq i64 %4272, 255
-  %.sroa.gep14164 = getelementptr inbounds i8, ptr %.170, i64 2
+  %.sroa.gep14164 = getelementptr inbounds i8, ptr %.165, i64 2
   %.neg12611.sroa.sel = select i1 %.not12610, ptr %.sroa.gep14164, ptr %4275
   %4276 = lshr i64 %4264, 48
   %4277 = trunc i64 %4276 to i8
   store i8 %4277, ptr %.neg12611.sroa.sel, align 1
-  %.sroa.gep15971 = getelementptr inbounds i8, ptr %.170, i64 3
+  %.sroa.gep15971 = getelementptr inbounds i8, ptr %.165, i64 3
   %.neg12611.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12610, ptr %.sroa.gep15971, ptr %.sroa.gep14164
   store i8 0, ptr %.neg12611.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4278 = and i64 %4264, 71776119061217280
@@ -9284,36 +9284,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4303:                                             ; preds = %4262
   %4304 = lshr i64 %4264, 48
   %4305 = trunc i64 %4304 to i8
-  %4306 = getelementptr inbounds i8, ptr %.170, i64 1
+  %4306 = getelementptr inbounds i8, ptr %.165, i64 1
   store i8 %4305, ptr %4306, align 1
   %4307 = lshr i64 %4264, 40
   %4308 = trunc i64 %4307 to i8
-  %4309 = getelementptr inbounds i8, ptr %.170, i64 2
+  %4309 = getelementptr inbounds i8, ptr %.165, i64 2
   store i8 %4308, ptr %4309, align 1
   %4310 = lshr i64 %4264, 32
   %4311 = trunc i64 %4310 to i8
-  %4312 = getelementptr inbounds i8, ptr %.170, i64 3
+  %4312 = getelementptr inbounds i8, ptr %.165, i64 3
   store i8 %4311, ptr %4312, align 1
   %4313 = lshr i64 %4268, 24
   %4314 = trunc i64 %4313 to i8
-  %4315 = getelementptr inbounds i8, ptr %.170, i64 4
+  %4315 = getelementptr inbounds i8, ptr %.165, i64 4
   store i8 %4314, ptr %4315, align 1
   %4316 = lshr i64 %4268, 16
   %4317 = trunc i64 %4316 to i8
-  %4318 = getelementptr inbounds i8, ptr %.170, i64 5
+  %4318 = getelementptr inbounds i8, ptr %.165, i64 5
   store i8 %4317, ptr %4318, align 1
   %4319 = lshr i64 %4268, 8
   %4320 = trunc i64 %4319 to i8
-  %4321 = getelementptr inbounds i8, ptr %.170, i64 6
+  %4321 = getelementptr inbounds i8, ptr %.165, i64 6
   store i8 %4320, ptr %4321, align 1
   %4322 = trunc i64 %4268 to i8
-  %4323 = getelementptr inbounds i8, ptr %.170, i64 7
+  %4323 = getelementptr inbounds i8, ptr %.165, i64 7
   store i8 %4322, ptr %4323, align 1
-  %4324 = getelementptr inbounds i8, ptr %.170, i64 8
+  %4324 = getelementptr inbounds i8, ptr %.165, i64 8
   br label %4325
 
 4325:                                             ; preds = %4303, %4274
-  %.172 = phi ptr [ %4302, %4274 ], [ %4324, %4303 ]
+  %.173 = phi ptr [ %4302, %4274 ], [ %4324, %4303 ]
   %4326 = add nsw i32 %4259, 64
   %4327 = load i32, ptr %4256, align 4
   %4328 = zext i32 %4327 to i64
@@ -9321,24 +9321,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 4329:                                             ; preds = %.lr.ph14870
   %4330 = zext nneg i32 %4258 to i64
-  %4331 = shl i64 %.11211152, %4330
+  %4331 = shl i64 %.10911149, %4330
   %4332 = zext i32 %4261 to i64
   %4333 = or i64 %4331, %4332
   br label %._crit_edge14871.loopexit
 
 ._crit_edge14871.loopexit:                        ; preds = %4329, %4325
-  %.11411408 = phi i32 [ %4326, %4325 ], [ %4259, %4329 ]
-  %.11411154 = phi i64 [ %4328, %4325 ], [ %4333, %4329 ]
-  %.173 = phi ptr [ %.172, %4325 ], [ %.170, %4329 ]
-  %4334 = add nsw i32 %.55, -256
+  %.11511409 = phi i32 [ %4326, %4325 ], [ %4259, %4329 ]
+  %.11511155 = phi i64 [ %4328, %4325 ], [ %4333, %4329 ]
+  %.174 = phi ptr [ %.173, %4325 ], [ %.165, %4329 ]
+  %4334 = add nsw i32 %.54, -256
   br label %._crit_edge14871
 
 ._crit_edge14871:                                 ; preds = %._crit_edge14871.loopexit, %4253
-  %.11311407.lcssa = phi i32 [ %.11211406, %4253 ], [ %.11411408, %._crit_edge14871.loopexit ]
-  %.11311153.lcssa = phi i64 [ %.11211152, %4253 ], [ %.11411154, %._crit_edge14871.loopexit ]
-  %.171.lcssa = phi ptr [ %.170, %4253 ], [ %.173, %._crit_edge14871.loopexit ]
-  %.56.lcssa = phi i32 [ %.55, %4253 ], [ %4334, %._crit_edge14871.loopexit ]
-  %4335 = add nuw nsw i32 %.56.lcssa, %4244
+  %.11411408.lcssa = phi i32 [ %.10911403, %4253 ], [ %.11511409, %._crit_edge14871.loopexit ]
+  %.11411154.lcssa = phi i64 [ %.10911149, %4253 ], [ %.11511155, %._crit_edge14871.loopexit ]
+  %.172.lcssa = phi ptr [ %.165, %4253 ], [ %.174, %._crit_edge14871.loopexit ]
+  %.57.lcssa = phi i32 [ %.54, %4253 ], [ %4334, %._crit_edge14871.loopexit ]
+  %4335 = add nuw nsw i32 %.57.lcssa, %4244
   %4336 = zext nneg i8 %4243 to i64
   %notmask12591 = shl nsw i64 -1, %4336
   %4337 = trunc i64 %notmask12591 to i32
@@ -9354,13 +9354,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4347 = load i8, ptr %4346, align 1
   %4348 = sext i8 %4347 to i32
   %4349 = add nsw i32 %4348, %4244
-  %4350 = sub nsw i32 %.11311407.lcssa, %4349
+  %4350 = sub nsw i32 %.11411408.lcssa, %4349
   %4351 = icmp slt i32 %4350, 0
   br i1 %4351, label %4352, label %4418
 
 4352:                                             ; preds = %._crit_edge14871
-  %4353 = zext nneg i32 %.11311407.lcssa to i64
-  %4354 = shl i64 %.11311153.lcssa, %4353
+  %4353 = zext nneg i32 %.11411408.lcssa to i64
+  %4354 = shl i64 %.11411154.lcssa, %4353
   %4355 = sub nsw i32 0, %4350
   %4356 = ashr i32 %4344, %4355
   %4357 = sext i32 %4356 to i64
@@ -9371,19 +9371,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12592 = icmp eq i64 %4361, 0
   %4362 = lshr i64 %4358, 56
   %4363 = trunc nuw i64 %4362 to i8
-  store i8 %4363, ptr %.171.lcssa, align 1
+  store i8 %4363, ptr %.172.lcssa, align 1
   br i1 %.not12592, label %4393, label %4364
 
 4364:                                             ; preds = %4352
-  %4365 = getelementptr inbounds i8, ptr %.171.lcssa, i64 1
+  %4365 = getelementptr inbounds i8, ptr %.172.lcssa, i64 1
   store i8 0, ptr %4365, align 1
   %.not12593 = icmp eq i64 %4362, 255
-  %.sroa.gep14172 = getelementptr inbounds i8, ptr %.171.lcssa, i64 2
+  %.sroa.gep14172 = getelementptr inbounds i8, ptr %.172.lcssa, i64 2
   %.neg12594.sroa.sel = select i1 %.not12593, ptr %.sroa.gep14172, ptr %4365
   %4366 = lshr i64 %4358, 48
   %4367 = trunc i64 %4366 to i8
   store i8 %4367, ptr %.neg12594.sroa.sel, align 1
-  %.sroa.gep15957 = getelementptr inbounds i8, ptr %.171.lcssa, i64 3
+  %.sroa.gep15957 = getelementptr inbounds i8, ptr %.172.lcssa, i64 3
   %.neg12594.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12593, ptr %.sroa.gep15957, ptr %.sroa.gep14172
   store i8 0, ptr %.neg12594.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4368 = and i64 %4358, 71776119061217280
@@ -9451,59 +9451,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4393:                                             ; preds = %4352
   %4394 = lshr i64 %4358, 48
   %4395 = trunc i64 %4394 to i8
-  %4396 = getelementptr inbounds i8, ptr %.171.lcssa, i64 1
+  %4396 = getelementptr inbounds i8, ptr %.172.lcssa, i64 1
   store i8 %4395, ptr %4396, align 1
   %4397 = lshr i64 %4358, 40
   %4398 = trunc i64 %4397 to i8
-  %4399 = getelementptr inbounds i8, ptr %.171.lcssa, i64 2
+  %4399 = getelementptr inbounds i8, ptr %.172.lcssa, i64 2
   store i8 %4398, ptr %4399, align 1
   %4400 = lshr i64 %4358, 32
   %4401 = trunc i64 %4400 to i8
-  %4402 = getelementptr inbounds i8, ptr %.171.lcssa, i64 3
+  %4402 = getelementptr inbounds i8, ptr %.172.lcssa, i64 3
   store i8 %4401, ptr %4402, align 1
   %4403 = lshr i64 %4358, 24
   %4404 = trunc i64 %4403 to i8
-  %4405 = getelementptr inbounds i8, ptr %.171.lcssa, i64 4
+  %4405 = getelementptr inbounds i8, ptr %.172.lcssa, i64 4
   store i8 %4404, ptr %4405, align 1
   %4406 = lshr i64 %4358, 16
   %4407 = trunc i64 %4406 to i8
-  %4408 = getelementptr inbounds i8, ptr %.171.lcssa, i64 5
+  %4408 = getelementptr inbounds i8, ptr %.172.lcssa, i64 5
   store i8 %4407, ptr %4408, align 1
   %4409 = lshr i64 %4358, 8
   %4410 = trunc i64 %4409 to i8
-  %4411 = getelementptr inbounds i8, ptr %.171.lcssa, i64 6
+  %4411 = getelementptr inbounds i8, ptr %.172.lcssa, i64 6
   store i8 %4410, ptr %4411, align 1
   %4412 = trunc i64 %4358 to i8
-  %4413 = getelementptr inbounds i8, ptr %.171.lcssa, i64 7
+  %4413 = getelementptr inbounds i8, ptr %.172.lcssa, i64 7
   store i8 %4412, ptr %4413, align 1
-  %4414 = getelementptr inbounds i8, ptr %.171.lcssa, i64 8
+  %4414 = getelementptr inbounds i8, ptr %.172.lcssa, i64 8
   br label %4415
 
 4415:                                             ; preds = %4393, %4364
-  %.174 = phi ptr [ %4392, %4364 ], [ %4414, %4393 ]
+  %.175 = phi ptr [ %4392, %4364 ], [ %4414, %4393 ]
   %4416 = add nsw i32 %4350, 64
   %4417 = sext i32 %4344 to i64
   br label %4423
 
 4418:                                             ; preds = %._crit_edge14871
   %4419 = zext nneg i32 %4349 to i64
-  %4420 = shl i64 %.11311153.lcssa, %4419
+  %4420 = shl i64 %.11411154.lcssa, %4419
   %4421 = sext i32 %4344 to i64
   %4422 = or i64 %4420, %4421
   br label %4423
 
 4423:                                             ; preds = %4415, %4418, %4234
-  %.11611410 = phi i32 [ %.11211406, %4234 ], [ %4416, %4415 ], [ %4350, %4418 ]
-  %.11611156 = phi i64 [ %.11211152, %4234 ], [ %4417, %4415 ], [ %4422, %4418 ]
-  %.176 = phi ptr [ %.170, %4234 ], [ %.174, %4415 ], [ %.171.lcssa, %4418 ]
-  %.57 = phi i32 [ %4235, %4234 ], [ 0, %4415 ], [ 0, %4418 ]
+  %.11311407 = phi i32 [ %.10911403, %4234 ], [ %4416, %4415 ], [ %4350, %4418 ]
+  %.11311153 = phi i64 [ %.10911149, %4234 ], [ %4417, %4415 ], [ %4422, %4418 ]
+  %.171 = phi ptr [ %.165, %4234 ], [ %.175, %4415 ], [ %.172.lcssa, %4418 ]
+  %.56 = phi i32 [ %4235, %4234 ], [ 0, %4415 ], [ 0, %4418 ]
   %4424 = getelementptr inbounds i8, ptr %1, i64 42
   %4425 = load i16, ptr %4424, align 2
   %4426 = icmp eq i16 %4425, 0
   br i1 %4426, label %4427, label %4429
 
 4427:                                             ; preds = %4423
-  %4428 = add nuw nsw i32 %.57, 16
+  %4428 = add nuw nsw i32 %.56, 16
   br label %4616
 
 4429:                                             ; preds = %4423
@@ -9530,7 +9530,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %4446
 
 4446:                                             ; preds = %4439, %4429
-  %4447 = icmp ugt i32 %.57, 255
+  %4447 = icmp ugt i32 %.56, 255
   br i1 %4447, label %.lr.ph14881, label %._crit_edge14882
 
 .lr.ph14881:                                      ; preds = %4446
@@ -9538,14 +9538,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4449 = getelementptr inbounds i8, ptr %4, i64 960
   %4450 = load i8, ptr %4448, align 4
   %4451 = sext i8 %4450 to i32
-  %4452 = sub nsw i32 %.11611410, %4451
+  %4452 = sub nsw i32 %.11311407, %4451
   %4453 = icmp slt i32 %4452, 0
   %4454 = load i32, ptr %4449, align 4
   br i1 %4453, label %4455, label %4522
 
 4455:                                             ; preds = %.lr.ph14881
-  %4456 = zext nneg i32 %.11611410 to i64
-  %4457 = shl i64 %.11611156, %4456
+  %4456 = zext nneg i32 %.11311407 to i64
+  %4457 = shl i64 %.11311153, %4456
   %4458 = sub nsw i32 0, %4452
   %4459 = lshr i32 %4454, %4458
   %4460 = zext nneg i32 %4459 to i64
@@ -9556,19 +9556,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12644 = icmp eq i64 %4464, 0
   %4465 = lshr i64 %4457, 56
   %4466 = trunc nuw i64 %4465 to i8
-  store i8 %4466, ptr %.176, align 1
+  store i8 %4466, ptr %.171, align 1
   br i1 %.not12644, label %4496, label %4467
 
 4467:                                             ; preds = %4455
-  %4468 = getelementptr inbounds i8, ptr %.176, i64 1
+  %4468 = getelementptr inbounds i8, ptr %.171, i64 1
   store i8 0, ptr %4468, align 1
   %.not12645 = icmp eq i64 %4465, 255
-  %.sroa.gep14180 = getelementptr inbounds i8, ptr %.176, i64 2
+  %.sroa.gep14180 = getelementptr inbounds i8, ptr %.171, i64 2
   %.neg12646.sroa.sel = select i1 %.not12645, ptr %.sroa.gep14180, ptr %4468
   %4469 = lshr i64 %4457, 48
   %4470 = trunc i64 %4469 to i8
   store i8 %4470, ptr %.neg12646.sroa.sel, align 1
-  %.sroa.gep15955 = getelementptr inbounds i8, ptr %.176, i64 3
+  %.sroa.gep15955 = getelementptr inbounds i8, ptr %.171, i64 3
   %.neg12646.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12645, ptr %.sroa.gep15955, ptr %.sroa.gep14180
   store i8 0, ptr %.neg12646.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4471 = and i64 %4457, 71776119061217280
@@ -9636,36 +9636,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4496:                                             ; preds = %4455
   %4497 = lshr i64 %4457, 48
   %4498 = trunc i64 %4497 to i8
-  %4499 = getelementptr inbounds i8, ptr %.176, i64 1
+  %4499 = getelementptr inbounds i8, ptr %.171, i64 1
   store i8 %4498, ptr %4499, align 1
   %4500 = lshr i64 %4457, 40
   %4501 = trunc i64 %4500 to i8
-  %4502 = getelementptr inbounds i8, ptr %.176, i64 2
+  %4502 = getelementptr inbounds i8, ptr %.171, i64 2
   store i8 %4501, ptr %4502, align 1
   %4503 = lshr i64 %4457, 32
   %4504 = trunc i64 %4503 to i8
-  %4505 = getelementptr inbounds i8, ptr %.176, i64 3
+  %4505 = getelementptr inbounds i8, ptr %.171, i64 3
   store i8 %4504, ptr %4505, align 1
   %4506 = lshr i64 %4461, 24
   %4507 = trunc i64 %4506 to i8
-  %4508 = getelementptr inbounds i8, ptr %.176, i64 4
+  %4508 = getelementptr inbounds i8, ptr %.171, i64 4
   store i8 %4507, ptr %4508, align 1
   %4509 = lshr i64 %4461, 16
   %4510 = trunc i64 %4509 to i8
-  %4511 = getelementptr inbounds i8, ptr %.176, i64 5
+  %4511 = getelementptr inbounds i8, ptr %.171, i64 5
   store i8 %4510, ptr %4511, align 1
   %4512 = lshr i64 %4461, 8
   %4513 = trunc i64 %4512 to i8
-  %4514 = getelementptr inbounds i8, ptr %.176, i64 6
+  %4514 = getelementptr inbounds i8, ptr %.171, i64 6
   store i8 %4513, ptr %4514, align 1
   %4515 = trunc i64 %4461 to i8
-  %4516 = getelementptr inbounds i8, ptr %.176, i64 7
+  %4516 = getelementptr inbounds i8, ptr %.171, i64 7
   store i8 %4515, ptr %4516, align 1
-  %4517 = getelementptr inbounds i8, ptr %.176, i64 8
+  %4517 = getelementptr inbounds i8, ptr %.171, i64 8
   br label %4518
 
 4518:                                             ; preds = %4496, %4467
-  %.178 = phi ptr [ %4495, %4467 ], [ %4517, %4496 ]
+  %.179 = phi ptr [ %4495, %4467 ], [ %4517, %4496 ]
   %4519 = add nsw i32 %4452, 64
   %4520 = load i32, ptr %4449, align 4
   %4521 = zext i32 %4520 to i64
@@ -9673,24 +9673,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 4522:                                             ; preds = %.lr.ph14881
   %4523 = zext nneg i32 %4451 to i64
-  %4524 = shl i64 %.11611156, %4523
+  %4524 = shl i64 %.11311153, %4523
   %4525 = zext i32 %4454 to i64
   %4526 = or i64 %4524, %4525
   br label %._crit_edge14882.loopexit
 
 ._crit_edge14882.loopexit:                        ; preds = %4522, %4518
-  %.11811412 = phi i32 [ %4519, %4518 ], [ %4452, %4522 ]
-  %.11811158 = phi i64 [ %4521, %4518 ], [ %4526, %4522 ]
-  %.179 = phi ptr [ %.178, %4518 ], [ %.176, %4522 ]
-  %4527 = add nsw i32 %.57, -256
+  %.11911413 = phi i32 [ %4519, %4518 ], [ %4452, %4522 ]
+  %.11911159 = phi i64 [ %4521, %4518 ], [ %4526, %4522 ]
+  %.180 = phi ptr [ %.179, %4518 ], [ %.171, %4522 ]
+  %4527 = add nsw i32 %.56, -256
   br label %._crit_edge14882
 
 ._crit_edge14882:                                 ; preds = %._crit_edge14882.loopexit, %4446
-  %.11711411.lcssa = phi i32 [ %.11611410, %4446 ], [ %.11811412, %._crit_edge14882.loopexit ]
-  %.11711157.lcssa = phi i64 [ %.11611156, %4446 ], [ %.11811158, %._crit_edge14882.loopexit ]
-  %.177.lcssa = phi ptr [ %.176, %4446 ], [ %.179, %._crit_edge14882.loopexit ]
-  %.58.lcssa = phi i32 [ %.57, %4446 ], [ %4527, %._crit_edge14882.loopexit ]
-  %4528 = add nuw nsw i32 %.58.lcssa, %4437
+  %.11811412.lcssa = phi i32 [ %.11311407, %4446 ], [ %.11911413, %._crit_edge14882.loopexit ]
+  %.11811158.lcssa = phi i64 [ %.11311153, %4446 ], [ %.11911159, %._crit_edge14882.loopexit ]
+  %.178.lcssa = phi ptr [ %.171, %4446 ], [ %.180, %._crit_edge14882.loopexit ]
+  %.59.lcssa = phi i32 [ %.56, %4446 ], [ %4527, %._crit_edge14882.loopexit ]
+  %4528 = add nuw nsw i32 %.59.lcssa, %4437
   %4529 = zext nneg i8 %4436 to i64
   %notmask12626 = shl nsw i64 -1, %4529
   %4530 = trunc i64 %notmask12626 to i32
@@ -9706,13 +9706,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4540 = load i8, ptr %4539, align 1
   %4541 = sext i8 %4540 to i32
   %4542 = add nsw i32 %4541, %4437
-  %4543 = sub nsw i32 %.11711411.lcssa, %4542
+  %4543 = sub nsw i32 %.11811412.lcssa, %4542
   %4544 = icmp slt i32 %4543, 0
   br i1 %4544, label %4545, label %4611
 
 4545:                                             ; preds = %._crit_edge14882
-  %4546 = zext nneg i32 %.11711411.lcssa to i64
-  %4547 = shl i64 %.11711157.lcssa, %4546
+  %4546 = zext nneg i32 %.11811412.lcssa to i64
+  %4547 = shl i64 %.11811158.lcssa, %4546
   %4548 = sub nsw i32 0, %4543
   %4549 = ashr i32 %4537, %4548
   %4550 = sext i32 %4549 to i64
@@ -9723,19 +9723,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12627 = icmp eq i64 %4554, 0
   %4555 = lshr i64 %4551, 56
   %4556 = trunc nuw i64 %4555 to i8
-  store i8 %4556, ptr %.177.lcssa, align 1
+  store i8 %4556, ptr %.178.lcssa, align 1
   br i1 %.not12627, label %4586, label %4557
 
 4557:                                             ; preds = %4545
-  %4558 = getelementptr inbounds i8, ptr %.177.lcssa, i64 1
+  %4558 = getelementptr inbounds i8, ptr %.178.lcssa, i64 1
   store i8 0, ptr %4558, align 1
   %.not12628 = icmp eq i64 %4555, 255
-  %.sroa.gep14188 = getelementptr inbounds i8, ptr %.177.lcssa, i64 2
+  %.sroa.gep14188 = getelementptr inbounds i8, ptr %.178.lcssa, i64 2
   %.neg12629.sroa.sel = select i1 %.not12628, ptr %.sroa.gep14188, ptr %4558
   %4559 = lshr i64 %4551, 48
   %4560 = trunc i64 %4559 to i8
   store i8 %4560, ptr %.neg12629.sroa.sel, align 1
-  %.sroa.gep15941 = getelementptr inbounds i8, ptr %.177.lcssa, i64 3
+  %.sroa.gep15941 = getelementptr inbounds i8, ptr %.178.lcssa, i64 3
   %.neg12629.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12628, ptr %.sroa.gep15941, ptr %.sroa.gep14188
   store i8 0, ptr %.neg12629.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4561 = and i64 %4551, 71776119061217280
@@ -9803,59 +9803,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4586:                                             ; preds = %4545
   %4587 = lshr i64 %4551, 48
   %4588 = trunc i64 %4587 to i8
-  %4589 = getelementptr inbounds i8, ptr %.177.lcssa, i64 1
+  %4589 = getelementptr inbounds i8, ptr %.178.lcssa, i64 1
   store i8 %4588, ptr %4589, align 1
   %4590 = lshr i64 %4551, 40
   %4591 = trunc i64 %4590 to i8
-  %4592 = getelementptr inbounds i8, ptr %.177.lcssa, i64 2
+  %4592 = getelementptr inbounds i8, ptr %.178.lcssa, i64 2
   store i8 %4591, ptr %4592, align 1
   %4593 = lshr i64 %4551, 32
   %4594 = trunc i64 %4593 to i8
-  %4595 = getelementptr inbounds i8, ptr %.177.lcssa, i64 3
+  %4595 = getelementptr inbounds i8, ptr %.178.lcssa, i64 3
   store i8 %4594, ptr %4595, align 1
   %4596 = lshr i64 %4551, 24
   %4597 = trunc i64 %4596 to i8
-  %4598 = getelementptr inbounds i8, ptr %.177.lcssa, i64 4
+  %4598 = getelementptr inbounds i8, ptr %.178.lcssa, i64 4
   store i8 %4597, ptr %4598, align 1
   %4599 = lshr i64 %4551, 16
   %4600 = trunc i64 %4599 to i8
-  %4601 = getelementptr inbounds i8, ptr %.177.lcssa, i64 5
+  %4601 = getelementptr inbounds i8, ptr %.178.lcssa, i64 5
   store i8 %4600, ptr %4601, align 1
   %4602 = lshr i64 %4551, 8
   %4603 = trunc i64 %4602 to i8
-  %4604 = getelementptr inbounds i8, ptr %.177.lcssa, i64 6
+  %4604 = getelementptr inbounds i8, ptr %.178.lcssa, i64 6
   store i8 %4603, ptr %4604, align 1
   %4605 = trunc i64 %4551 to i8
-  %4606 = getelementptr inbounds i8, ptr %.177.lcssa, i64 7
+  %4606 = getelementptr inbounds i8, ptr %.178.lcssa, i64 7
   store i8 %4605, ptr %4606, align 1
-  %4607 = getelementptr inbounds i8, ptr %.177.lcssa, i64 8
+  %4607 = getelementptr inbounds i8, ptr %.178.lcssa, i64 8
   br label %4608
 
 4608:                                             ; preds = %4586, %4557
-  %.180 = phi ptr [ %4585, %4557 ], [ %4607, %4586 ]
+  %.181 = phi ptr [ %4585, %4557 ], [ %4607, %4586 ]
   %4609 = add nsw i32 %4543, 64
   %4610 = sext i32 %4537 to i64
   br label %4616
 
 4611:                                             ; preds = %._crit_edge14882
   %4612 = zext nneg i32 %4542 to i64
-  %4613 = shl i64 %.11711157.lcssa, %4612
+  %4613 = shl i64 %.11811158.lcssa, %4612
   %4614 = sext i32 %4537 to i64
   %4615 = or i64 %4613, %4614
   br label %4616
 
 4616:                                             ; preds = %4608, %4611, %4427
-  %.12011414 = phi i32 [ %.11611410, %4427 ], [ %4609, %4608 ], [ %4543, %4611 ]
-  %.12011160 = phi i64 [ %.11611156, %4427 ], [ %4610, %4608 ], [ %4615, %4611 ]
-  %.182 = phi ptr [ %.176, %4427 ], [ %.180, %4608 ], [ %.177.lcssa, %4611 ]
-  %.59 = phi i32 [ %4428, %4427 ], [ 0, %4608 ], [ 0, %4611 ]
+  %.11711411 = phi i32 [ %.11311407, %4427 ], [ %4609, %4608 ], [ %4543, %4611 ]
+  %.11711157 = phi i64 [ %.11311153, %4427 ], [ %4610, %4608 ], [ %4615, %4611 ]
+  %.177 = phi ptr [ %.171, %4427 ], [ %.181, %4608 ], [ %.178.lcssa, %4611 ]
+  %.58 = phi i32 [ %4428, %4427 ], [ 0, %4608 ], [ 0, %4611 ]
   %4617 = getelementptr inbounds i8, ptr %1, i64 56
   %4618 = load i16, ptr %4617, align 2
   %4619 = icmp eq i16 %4618, 0
   br i1 %4619, label %4620, label %4622
 
 4620:                                             ; preds = %4616
-  %4621 = add nuw nsw i32 %.59, 16
+  %4621 = add nuw nsw i32 %.58, 16
   br label %4809
 
 4622:                                             ; preds = %4616
@@ -9882,7 +9882,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %4639
 
 4639:                                             ; preds = %4632, %4622
-  %4640 = icmp ugt i32 %.59, 255
+  %4640 = icmp ugt i32 %.58, 255
   br i1 %4640, label %.lr.ph14892, label %._crit_edge14893
 
 .lr.ph14892:                                      ; preds = %4639
@@ -9890,14 +9890,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4642 = getelementptr inbounds i8, ptr %4, i64 960
   %4643 = load i8, ptr %4641, align 4
   %4644 = sext i8 %4643 to i32
-  %4645 = sub nsw i32 %.12011414, %4644
+  %4645 = sub nsw i32 %.11711411, %4644
   %4646 = icmp slt i32 %4645, 0
   %4647 = load i32, ptr %4642, align 4
   br i1 %4646, label %4648, label %4715
 
 4648:                                             ; preds = %.lr.ph14892
-  %4649 = zext nneg i32 %.12011414 to i64
-  %4650 = shl i64 %.12011160, %4649
+  %4649 = zext nneg i32 %.11711411 to i64
+  %4650 = shl i64 %.11711157, %4649
   %4651 = sub nsw i32 0, %4645
   %4652 = lshr i32 %4647, %4651
   %4653 = zext nneg i32 %4652 to i64
@@ -9908,19 +9908,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12679 = icmp eq i64 %4657, 0
   %4658 = lshr i64 %4650, 56
   %4659 = trunc nuw i64 %4658 to i8
-  store i8 %4659, ptr %.182, align 1
+  store i8 %4659, ptr %.177, align 1
   br i1 %.not12679, label %4689, label %4660
 
 4660:                                             ; preds = %4648
-  %4661 = getelementptr inbounds i8, ptr %.182, i64 1
+  %4661 = getelementptr inbounds i8, ptr %.177, i64 1
   store i8 0, ptr %4661, align 1
   %.not12680 = icmp eq i64 %4658, 255
-  %.sroa.gep14196 = getelementptr inbounds i8, ptr %.182, i64 2
+  %.sroa.gep14196 = getelementptr inbounds i8, ptr %.177, i64 2
   %.neg12681.sroa.sel = select i1 %.not12680, ptr %.sroa.gep14196, ptr %4661
   %4662 = lshr i64 %4650, 48
   %4663 = trunc i64 %4662 to i8
   store i8 %4663, ptr %.neg12681.sroa.sel, align 1
-  %.sroa.gep15939 = getelementptr inbounds i8, ptr %.182, i64 3
+  %.sroa.gep15939 = getelementptr inbounds i8, ptr %.177, i64 3
   %.neg12681.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12680, ptr %.sroa.gep15939, ptr %.sroa.gep14196
   store i8 0, ptr %.neg12681.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4664 = and i64 %4650, 71776119061217280
@@ -9988,36 +9988,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4689:                                             ; preds = %4648
   %4690 = lshr i64 %4650, 48
   %4691 = trunc i64 %4690 to i8
-  %4692 = getelementptr inbounds i8, ptr %.182, i64 1
+  %4692 = getelementptr inbounds i8, ptr %.177, i64 1
   store i8 %4691, ptr %4692, align 1
   %4693 = lshr i64 %4650, 40
   %4694 = trunc i64 %4693 to i8
-  %4695 = getelementptr inbounds i8, ptr %.182, i64 2
+  %4695 = getelementptr inbounds i8, ptr %.177, i64 2
   store i8 %4694, ptr %4695, align 1
   %4696 = lshr i64 %4650, 32
   %4697 = trunc i64 %4696 to i8
-  %4698 = getelementptr inbounds i8, ptr %.182, i64 3
+  %4698 = getelementptr inbounds i8, ptr %.177, i64 3
   store i8 %4697, ptr %4698, align 1
   %4699 = lshr i64 %4654, 24
   %4700 = trunc i64 %4699 to i8
-  %4701 = getelementptr inbounds i8, ptr %.182, i64 4
+  %4701 = getelementptr inbounds i8, ptr %.177, i64 4
   store i8 %4700, ptr %4701, align 1
   %4702 = lshr i64 %4654, 16
   %4703 = trunc i64 %4702 to i8
-  %4704 = getelementptr inbounds i8, ptr %.182, i64 5
+  %4704 = getelementptr inbounds i8, ptr %.177, i64 5
   store i8 %4703, ptr %4704, align 1
   %4705 = lshr i64 %4654, 8
   %4706 = trunc i64 %4705 to i8
-  %4707 = getelementptr inbounds i8, ptr %.182, i64 6
+  %4707 = getelementptr inbounds i8, ptr %.177, i64 6
   store i8 %4706, ptr %4707, align 1
   %4708 = trunc i64 %4654 to i8
-  %4709 = getelementptr inbounds i8, ptr %.182, i64 7
+  %4709 = getelementptr inbounds i8, ptr %.177, i64 7
   store i8 %4708, ptr %4709, align 1
-  %4710 = getelementptr inbounds i8, ptr %.182, i64 8
+  %4710 = getelementptr inbounds i8, ptr %.177, i64 8
   br label %4711
 
 4711:                                             ; preds = %4689, %4660
-  %.184 = phi ptr [ %4688, %4660 ], [ %4710, %4689 ]
+  %.185 = phi ptr [ %4688, %4660 ], [ %4710, %4689 ]
   %4712 = add nsw i32 %4645, 64
   %4713 = load i32, ptr %4642, align 4
   %4714 = zext i32 %4713 to i64
@@ -10025,24 +10025,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 4715:                                             ; preds = %.lr.ph14892
   %4716 = zext nneg i32 %4644 to i64
-  %4717 = shl i64 %.12011160, %4716
+  %4717 = shl i64 %.11711157, %4716
   %4718 = zext i32 %4647 to i64
   %4719 = or i64 %4717, %4718
   br label %._crit_edge14893.loopexit
 
 ._crit_edge14893.loopexit:                        ; preds = %4715, %4711
-  %.12211416 = phi i32 [ %4712, %4711 ], [ %4645, %4715 ]
-  %.12211162 = phi i64 [ %4714, %4711 ], [ %4719, %4715 ]
-  %.185 = phi ptr [ %.184, %4711 ], [ %.182, %4715 ]
-  %4720 = add nsw i32 %.59, -256
+  %.12311417 = phi i32 [ %4712, %4711 ], [ %4645, %4715 ]
+  %.12311163 = phi i64 [ %4714, %4711 ], [ %4719, %4715 ]
+  %.186 = phi ptr [ %.185, %4711 ], [ %.177, %4715 ]
+  %4720 = add nsw i32 %.58, -256
   br label %._crit_edge14893
 
 ._crit_edge14893:                                 ; preds = %._crit_edge14893.loopexit, %4639
-  %.12111415.lcssa = phi i32 [ %.12011414, %4639 ], [ %.12211416, %._crit_edge14893.loopexit ]
-  %.12111161.lcssa = phi i64 [ %.12011160, %4639 ], [ %.12211162, %._crit_edge14893.loopexit ]
-  %.183.lcssa = phi ptr [ %.182, %4639 ], [ %.185, %._crit_edge14893.loopexit ]
-  %.60.lcssa = phi i32 [ %.59, %4639 ], [ %4720, %._crit_edge14893.loopexit ]
-  %4721 = add nuw nsw i32 %.60.lcssa, %4630
+  %.12211416.lcssa = phi i32 [ %.11711411, %4639 ], [ %.12311417, %._crit_edge14893.loopexit ]
+  %.12211162.lcssa = phi i64 [ %.11711157, %4639 ], [ %.12311163, %._crit_edge14893.loopexit ]
+  %.184.lcssa = phi ptr [ %.177, %4639 ], [ %.186, %._crit_edge14893.loopexit ]
+  %.61.lcssa = phi i32 [ %.58, %4639 ], [ %4720, %._crit_edge14893.loopexit ]
+  %4721 = add nuw nsw i32 %.61.lcssa, %4630
   %4722 = zext nneg i8 %4629 to i64
   %notmask12661 = shl nsw i64 -1, %4722
   %4723 = trunc i64 %notmask12661 to i32
@@ -10058,13 +10058,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4733 = load i8, ptr %4732, align 1
   %4734 = sext i8 %4733 to i32
   %4735 = add nsw i32 %4734, %4630
-  %4736 = sub nsw i32 %.12111415.lcssa, %4735
+  %4736 = sub nsw i32 %.12211416.lcssa, %4735
   %4737 = icmp slt i32 %4736, 0
   br i1 %4737, label %4738, label %4804
 
 4738:                                             ; preds = %._crit_edge14893
-  %4739 = zext nneg i32 %.12111415.lcssa to i64
-  %4740 = shl i64 %.12111161.lcssa, %4739
+  %4739 = zext nneg i32 %.12211416.lcssa to i64
+  %4740 = shl i64 %.12211162.lcssa, %4739
   %4741 = sub nsw i32 0, %4736
   %4742 = ashr i32 %4730, %4741
   %4743 = sext i32 %4742 to i64
@@ -10075,19 +10075,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12662 = icmp eq i64 %4747, 0
   %4748 = lshr i64 %4744, 56
   %4749 = trunc nuw i64 %4748 to i8
-  store i8 %4749, ptr %.183.lcssa, align 1
+  store i8 %4749, ptr %.184.lcssa, align 1
   br i1 %.not12662, label %4779, label %4750
 
 4750:                                             ; preds = %4738
-  %4751 = getelementptr inbounds i8, ptr %.183.lcssa, i64 1
+  %4751 = getelementptr inbounds i8, ptr %.184.lcssa, i64 1
   store i8 0, ptr %4751, align 1
   %.not12663 = icmp eq i64 %4748, 255
-  %.sroa.gep14204 = getelementptr inbounds i8, ptr %.183.lcssa, i64 2
+  %.sroa.gep14204 = getelementptr inbounds i8, ptr %.184.lcssa, i64 2
   %.neg12664.sroa.sel = select i1 %.not12663, ptr %.sroa.gep14204, ptr %4751
   %4752 = lshr i64 %4744, 48
   %4753 = trunc i64 %4752 to i8
   store i8 %4753, ptr %.neg12664.sroa.sel, align 1
-  %.sroa.gep15925 = getelementptr inbounds i8, ptr %.183.lcssa, i64 3
+  %.sroa.gep15925 = getelementptr inbounds i8, ptr %.184.lcssa, i64 3
   %.neg12664.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12663, ptr %.sroa.gep15925, ptr %.sroa.gep14204
   store i8 0, ptr %.neg12664.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4754 = and i64 %4744, 71776119061217280
@@ -10155,59 +10155,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4779:                                             ; preds = %4738
   %4780 = lshr i64 %4744, 48
   %4781 = trunc i64 %4780 to i8
-  %4782 = getelementptr inbounds i8, ptr %.183.lcssa, i64 1
+  %4782 = getelementptr inbounds i8, ptr %.184.lcssa, i64 1
   store i8 %4781, ptr %4782, align 1
   %4783 = lshr i64 %4744, 40
   %4784 = trunc i64 %4783 to i8
-  %4785 = getelementptr inbounds i8, ptr %.183.lcssa, i64 2
+  %4785 = getelementptr inbounds i8, ptr %.184.lcssa, i64 2
   store i8 %4784, ptr %4785, align 1
   %4786 = lshr i64 %4744, 32
   %4787 = trunc i64 %4786 to i8
-  %4788 = getelementptr inbounds i8, ptr %.183.lcssa, i64 3
+  %4788 = getelementptr inbounds i8, ptr %.184.lcssa, i64 3
   store i8 %4787, ptr %4788, align 1
   %4789 = lshr i64 %4744, 24
   %4790 = trunc i64 %4789 to i8
-  %4791 = getelementptr inbounds i8, ptr %.183.lcssa, i64 4
+  %4791 = getelementptr inbounds i8, ptr %.184.lcssa, i64 4
   store i8 %4790, ptr %4791, align 1
   %4792 = lshr i64 %4744, 16
   %4793 = trunc i64 %4792 to i8
-  %4794 = getelementptr inbounds i8, ptr %.183.lcssa, i64 5
+  %4794 = getelementptr inbounds i8, ptr %.184.lcssa, i64 5
   store i8 %4793, ptr %4794, align 1
   %4795 = lshr i64 %4744, 8
   %4796 = trunc i64 %4795 to i8
-  %4797 = getelementptr inbounds i8, ptr %.183.lcssa, i64 6
+  %4797 = getelementptr inbounds i8, ptr %.184.lcssa, i64 6
   store i8 %4796, ptr %4797, align 1
   %4798 = trunc i64 %4744 to i8
-  %4799 = getelementptr inbounds i8, ptr %.183.lcssa, i64 7
+  %4799 = getelementptr inbounds i8, ptr %.184.lcssa, i64 7
   store i8 %4798, ptr %4799, align 1
-  %4800 = getelementptr inbounds i8, ptr %.183.lcssa, i64 8
+  %4800 = getelementptr inbounds i8, ptr %.184.lcssa, i64 8
   br label %4801
 
 4801:                                             ; preds = %4779, %4750
-  %.186 = phi ptr [ %4778, %4750 ], [ %4800, %4779 ]
+  %.187 = phi ptr [ %4778, %4750 ], [ %4800, %4779 ]
   %4802 = add nsw i32 %4736, 64
   %4803 = sext i32 %4730 to i64
   br label %4809
 
 4804:                                             ; preds = %._crit_edge14893
   %4805 = zext nneg i32 %4735 to i64
-  %4806 = shl i64 %.12111161.lcssa, %4805
+  %4806 = shl i64 %.12211162.lcssa, %4805
   %4807 = sext i32 %4730 to i64
   %4808 = or i64 %4806, %4807
   br label %4809
 
 4809:                                             ; preds = %4801, %4804, %4620
-  %.12411418 = phi i32 [ %.12011414, %4620 ], [ %4802, %4801 ], [ %4736, %4804 ]
-  %.12411164 = phi i64 [ %.12011160, %4620 ], [ %4803, %4801 ], [ %4808, %4804 ]
-  %.188 = phi ptr [ %.182, %4620 ], [ %.186, %4801 ], [ %.183.lcssa, %4804 ]
-  %.61 = phi i32 [ %4621, %4620 ], [ 0, %4801 ], [ 0, %4804 ]
+  %.12111415 = phi i32 [ %.11711411, %4620 ], [ %4802, %4801 ], [ %4736, %4804 ]
+  %.12111161 = phi i64 [ %.11711157, %4620 ], [ %4803, %4801 ], [ %4808, %4804 ]
+  %.183 = phi ptr [ %.177, %4620 ], [ %.187, %4801 ], [ %.184.lcssa, %4804 ]
+  %.60 = phi i32 [ %4621, %4620 ], [ 0, %4801 ], [ 0, %4804 ]
   %4810 = getelementptr inbounds i8, ptr %1, i64 70
   %4811 = load i16, ptr %4810, align 2
   %4812 = icmp eq i16 %4811, 0
   br i1 %4812, label %4813, label %4815
 
 4813:                                             ; preds = %4809
-  %4814 = add nuw nsw i32 %.61, 16
+  %4814 = add nuw nsw i32 %.60, 16
   br label %5002
 
 4815:                                             ; preds = %4809
@@ -10234,7 +10234,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %4832
 
 4832:                                             ; preds = %4825, %4815
-  %4833 = icmp ugt i32 %.61, 255
+  %4833 = icmp ugt i32 %.60, 255
   br i1 %4833, label %.lr.ph14903, label %._crit_edge14904
 
 .lr.ph14903:                                      ; preds = %4832
@@ -10242,14 +10242,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4835 = getelementptr inbounds i8, ptr %4, i64 960
   %4836 = load i8, ptr %4834, align 4
   %4837 = sext i8 %4836 to i32
-  %4838 = sub nsw i32 %.12411418, %4837
+  %4838 = sub nsw i32 %.12111415, %4837
   %4839 = icmp slt i32 %4838, 0
   %4840 = load i32, ptr %4835, align 4
   br i1 %4839, label %4841, label %4908
 
 4841:                                             ; preds = %.lr.ph14903
-  %4842 = zext nneg i32 %.12411418 to i64
-  %4843 = shl i64 %.12411164, %4842
+  %4842 = zext nneg i32 %.12111415 to i64
+  %4843 = shl i64 %.12111161, %4842
   %4844 = sub nsw i32 0, %4838
   %4845 = lshr i32 %4840, %4844
   %4846 = zext nneg i32 %4845 to i64
@@ -10260,19 +10260,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12714 = icmp eq i64 %4850, 0
   %4851 = lshr i64 %4843, 56
   %4852 = trunc nuw i64 %4851 to i8
-  store i8 %4852, ptr %.188, align 1
+  store i8 %4852, ptr %.183, align 1
   br i1 %.not12714, label %4882, label %4853
 
 4853:                                             ; preds = %4841
-  %4854 = getelementptr inbounds i8, ptr %.188, i64 1
+  %4854 = getelementptr inbounds i8, ptr %.183, i64 1
   store i8 0, ptr %4854, align 1
   %.not12715 = icmp eq i64 %4851, 255
-  %.sroa.gep14212 = getelementptr inbounds i8, ptr %.188, i64 2
+  %.sroa.gep14212 = getelementptr inbounds i8, ptr %.183, i64 2
   %.neg12716.sroa.sel = select i1 %.not12715, ptr %.sroa.gep14212, ptr %4854
   %4855 = lshr i64 %4843, 48
   %4856 = trunc i64 %4855 to i8
   store i8 %4856, ptr %.neg12716.sroa.sel, align 1
-  %.sroa.gep15923 = getelementptr inbounds i8, ptr %.188, i64 3
+  %.sroa.gep15923 = getelementptr inbounds i8, ptr %.183, i64 3
   %.neg12716.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12715, ptr %.sroa.gep15923, ptr %.sroa.gep14212
   store i8 0, ptr %.neg12716.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4857 = and i64 %4843, 71776119061217280
@@ -10340,36 +10340,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4882:                                             ; preds = %4841
   %4883 = lshr i64 %4843, 48
   %4884 = trunc i64 %4883 to i8
-  %4885 = getelementptr inbounds i8, ptr %.188, i64 1
+  %4885 = getelementptr inbounds i8, ptr %.183, i64 1
   store i8 %4884, ptr %4885, align 1
   %4886 = lshr i64 %4843, 40
   %4887 = trunc i64 %4886 to i8
-  %4888 = getelementptr inbounds i8, ptr %.188, i64 2
+  %4888 = getelementptr inbounds i8, ptr %.183, i64 2
   store i8 %4887, ptr %4888, align 1
   %4889 = lshr i64 %4843, 32
   %4890 = trunc i64 %4889 to i8
-  %4891 = getelementptr inbounds i8, ptr %.188, i64 3
+  %4891 = getelementptr inbounds i8, ptr %.183, i64 3
   store i8 %4890, ptr %4891, align 1
   %4892 = lshr i64 %4847, 24
   %4893 = trunc i64 %4892 to i8
-  %4894 = getelementptr inbounds i8, ptr %.188, i64 4
+  %4894 = getelementptr inbounds i8, ptr %.183, i64 4
   store i8 %4893, ptr %4894, align 1
   %4895 = lshr i64 %4847, 16
   %4896 = trunc i64 %4895 to i8
-  %4897 = getelementptr inbounds i8, ptr %.188, i64 5
+  %4897 = getelementptr inbounds i8, ptr %.183, i64 5
   store i8 %4896, ptr %4897, align 1
   %4898 = lshr i64 %4847, 8
   %4899 = trunc i64 %4898 to i8
-  %4900 = getelementptr inbounds i8, ptr %.188, i64 6
+  %4900 = getelementptr inbounds i8, ptr %.183, i64 6
   store i8 %4899, ptr %4900, align 1
   %4901 = trunc i64 %4847 to i8
-  %4902 = getelementptr inbounds i8, ptr %.188, i64 7
+  %4902 = getelementptr inbounds i8, ptr %.183, i64 7
   store i8 %4901, ptr %4902, align 1
-  %4903 = getelementptr inbounds i8, ptr %.188, i64 8
+  %4903 = getelementptr inbounds i8, ptr %.183, i64 8
   br label %4904
 
 4904:                                             ; preds = %4882, %4853
-  %.190 = phi ptr [ %4881, %4853 ], [ %4903, %4882 ]
+  %.191 = phi ptr [ %4881, %4853 ], [ %4903, %4882 ]
   %4905 = add nsw i32 %4838, 64
   %4906 = load i32, ptr %4835, align 4
   %4907 = zext i32 %4906 to i64
@@ -10377,24 +10377,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 4908:                                             ; preds = %.lr.ph14903
   %4909 = zext nneg i32 %4837 to i64
-  %4910 = shl i64 %.12411164, %4909
+  %4910 = shl i64 %.12111161, %4909
   %4911 = zext i32 %4840 to i64
   %4912 = or i64 %4910, %4911
   br label %._crit_edge14904.loopexit
 
 ._crit_edge14904.loopexit:                        ; preds = %4908, %4904
-  %.12611420 = phi i32 [ %4905, %4904 ], [ %4838, %4908 ]
-  %.12611166 = phi i64 [ %4907, %4904 ], [ %4912, %4908 ]
-  %.191 = phi ptr [ %.190, %4904 ], [ %.188, %4908 ]
-  %4913 = add nsw i32 %.61, -256
+  %.12711421 = phi i32 [ %4905, %4904 ], [ %4838, %4908 ]
+  %.12711167 = phi i64 [ %4907, %4904 ], [ %4912, %4908 ]
+  %.192 = phi ptr [ %.191, %4904 ], [ %.183, %4908 ]
+  %4913 = add nsw i32 %.60, -256
   br label %._crit_edge14904
 
 ._crit_edge14904:                                 ; preds = %._crit_edge14904.loopexit, %4832
-  %.12511419.lcssa = phi i32 [ %.12411418, %4832 ], [ %.12611420, %._crit_edge14904.loopexit ]
-  %.12511165.lcssa = phi i64 [ %.12411164, %4832 ], [ %.12611166, %._crit_edge14904.loopexit ]
-  %.189.lcssa = phi ptr [ %.188, %4832 ], [ %.191, %._crit_edge14904.loopexit ]
-  %.62.lcssa = phi i32 [ %.61, %4832 ], [ %4913, %._crit_edge14904.loopexit ]
-  %4914 = add nuw nsw i32 %.62.lcssa, %4823
+  %.12611420.lcssa = phi i32 [ %.12111415, %4832 ], [ %.12711421, %._crit_edge14904.loopexit ]
+  %.12611166.lcssa = phi i64 [ %.12111161, %4832 ], [ %.12711167, %._crit_edge14904.loopexit ]
+  %.190.lcssa = phi ptr [ %.183, %4832 ], [ %.192, %._crit_edge14904.loopexit ]
+  %.63.lcssa = phi i32 [ %.60, %4832 ], [ %4913, %._crit_edge14904.loopexit ]
+  %4914 = add nuw nsw i32 %.63.lcssa, %4823
   %4915 = zext nneg i8 %4822 to i64
   %notmask12696 = shl nsw i64 -1, %4915
   %4916 = trunc i64 %notmask12696 to i32
@@ -10410,13 +10410,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %4926 = load i8, ptr %4925, align 1
   %4927 = sext i8 %4926 to i32
   %4928 = add nsw i32 %4927, %4823
-  %4929 = sub nsw i32 %.12511419.lcssa, %4928
+  %4929 = sub nsw i32 %.12611420.lcssa, %4928
   %4930 = icmp slt i32 %4929, 0
   br i1 %4930, label %4931, label %4997
 
 4931:                                             ; preds = %._crit_edge14904
-  %4932 = zext nneg i32 %.12511419.lcssa to i64
-  %4933 = shl i64 %.12511165.lcssa, %4932
+  %4932 = zext nneg i32 %.12611420.lcssa to i64
+  %4933 = shl i64 %.12611166.lcssa, %4932
   %4934 = sub nsw i32 0, %4929
   %4935 = ashr i32 %4923, %4934
   %4936 = sext i32 %4935 to i64
@@ -10427,19 +10427,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12697 = icmp eq i64 %4940, 0
   %4941 = lshr i64 %4937, 56
   %4942 = trunc nuw i64 %4941 to i8
-  store i8 %4942, ptr %.189.lcssa, align 1
+  store i8 %4942, ptr %.190.lcssa, align 1
   br i1 %.not12697, label %4972, label %4943
 
 4943:                                             ; preds = %4931
-  %4944 = getelementptr inbounds i8, ptr %.189.lcssa, i64 1
+  %4944 = getelementptr inbounds i8, ptr %.190.lcssa, i64 1
   store i8 0, ptr %4944, align 1
   %.not12698 = icmp eq i64 %4941, 255
-  %.sroa.gep14220 = getelementptr inbounds i8, ptr %.189.lcssa, i64 2
+  %.sroa.gep14220 = getelementptr inbounds i8, ptr %.190.lcssa, i64 2
   %.neg12699.sroa.sel = select i1 %.not12698, ptr %.sroa.gep14220, ptr %4944
   %4945 = lshr i64 %4937, 48
   %4946 = trunc i64 %4945 to i8
   store i8 %4946, ptr %.neg12699.sroa.sel, align 1
-  %.sroa.gep15909 = getelementptr inbounds i8, ptr %.189.lcssa, i64 3
+  %.sroa.gep15909 = getelementptr inbounds i8, ptr %.190.lcssa, i64 3
   %.neg12699.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12698, ptr %.sroa.gep15909, ptr %.sroa.gep14220
   store i8 0, ptr %.neg12699.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4947 = and i64 %4937, 71776119061217280
@@ -10507,59 +10507,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 4972:                                             ; preds = %4931
   %4973 = lshr i64 %4937, 48
   %4974 = trunc i64 %4973 to i8
-  %4975 = getelementptr inbounds i8, ptr %.189.lcssa, i64 1
+  %4975 = getelementptr inbounds i8, ptr %.190.lcssa, i64 1
   store i8 %4974, ptr %4975, align 1
   %4976 = lshr i64 %4937, 40
   %4977 = trunc i64 %4976 to i8
-  %4978 = getelementptr inbounds i8, ptr %.189.lcssa, i64 2
+  %4978 = getelementptr inbounds i8, ptr %.190.lcssa, i64 2
   store i8 %4977, ptr %4978, align 1
   %4979 = lshr i64 %4937, 32
   %4980 = trunc i64 %4979 to i8
-  %4981 = getelementptr inbounds i8, ptr %.189.lcssa, i64 3
+  %4981 = getelementptr inbounds i8, ptr %.190.lcssa, i64 3
   store i8 %4980, ptr %4981, align 1
   %4982 = lshr i64 %4937, 24
   %4983 = trunc i64 %4982 to i8
-  %4984 = getelementptr inbounds i8, ptr %.189.lcssa, i64 4
+  %4984 = getelementptr inbounds i8, ptr %.190.lcssa, i64 4
   store i8 %4983, ptr %4984, align 1
   %4985 = lshr i64 %4937, 16
   %4986 = trunc i64 %4985 to i8
-  %4987 = getelementptr inbounds i8, ptr %.189.lcssa, i64 5
+  %4987 = getelementptr inbounds i8, ptr %.190.lcssa, i64 5
   store i8 %4986, ptr %4987, align 1
   %4988 = lshr i64 %4937, 8
   %4989 = trunc i64 %4988 to i8
-  %4990 = getelementptr inbounds i8, ptr %.189.lcssa, i64 6
+  %4990 = getelementptr inbounds i8, ptr %.190.lcssa, i64 6
   store i8 %4989, ptr %4990, align 1
   %4991 = trunc i64 %4937 to i8
-  %4992 = getelementptr inbounds i8, ptr %.189.lcssa, i64 7
+  %4992 = getelementptr inbounds i8, ptr %.190.lcssa, i64 7
   store i8 %4991, ptr %4992, align 1
-  %4993 = getelementptr inbounds i8, ptr %.189.lcssa, i64 8
+  %4993 = getelementptr inbounds i8, ptr %.190.lcssa, i64 8
   br label %4994
 
 4994:                                             ; preds = %4972, %4943
-  %.192 = phi ptr [ %4971, %4943 ], [ %4993, %4972 ]
+  %.193 = phi ptr [ %4971, %4943 ], [ %4993, %4972 ]
   %4995 = add nsw i32 %4929, 64
   %4996 = sext i32 %4923 to i64
   br label %5002
 
 4997:                                             ; preds = %._crit_edge14904
   %4998 = zext nneg i32 %4928 to i64
-  %4999 = shl i64 %.12511165.lcssa, %4998
+  %4999 = shl i64 %.12611166.lcssa, %4998
   %5000 = sext i32 %4923 to i64
   %5001 = or i64 %4999, %5000
   br label %5002
 
 5002:                                             ; preds = %4994, %4997, %4813
-  %.12811422 = phi i32 [ %.12411418, %4813 ], [ %4995, %4994 ], [ %4929, %4997 ]
-  %.12811168 = phi i64 [ %.12411164, %4813 ], [ %4996, %4994 ], [ %5001, %4997 ]
-  %.194 = phi ptr [ %.188, %4813 ], [ %.192, %4994 ], [ %.189.lcssa, %4997 ]
-  %.63 = phi i32 [ %4814, %4813 ], [ 0, %4994 ], [ 0, %4997 ]
+  %.12511419 = phi i32 [ %.12111415, %4813 ], [ %4995, %4994 ], [ %4929, %4997 ]
+  %.12511165 = phi i64 [ %.12111161, %4813 ], [ %4996, %4994 ], [ %5001, %4997 ]
+  %.189 = phi ptr [ %.183, %4813 ], [ %.193, %4994 ], [ %.190.lcssa, %4997 ]
+  %.62 = phi i32 [ %4814, %4813 ], [ 0, %4994 ], [ 0, %4997 ]
   %5003 = getelementptr inbounds i8, ptr %1, i64 84
   %5004 = load i16, ptr %5003, align 2
   %5005 = icmp eq i16 %5004, 0
   br i1 %5005, label %5006, label %5008
 
 5006:                                             ; preds = %5002
-  %5007 = add nuw nsw i32 %.63, 16
+  %5007 = add nuw nsw i32 %.62, 16
   br label %5198
 
 5008:                                             ; preds = %5002
@@ -10586,7 +10586,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5025
 
 5025:                                             ; preds = %5018, %5008
-  %5026 = icmp ugt i32 %.63, 255
+  %5026 = icmp ugt i32 %.62, 255
   br i1 %5026, label %.lr.ph14914, label %._crit_edge14915
 
 .lr.ph14914:                                      ; preds = %5025
@@ -10595,21 +10595,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5029
 
 5029:                                             ; preds = %.lr.ph14914, %5108
-  %.6414912 = phi i32 [ %.63, %.lr.ph14914 ], [ %5030, %5108 ]
-  %.19514911 = phi ptr [ %.194, %.lr.ph14914 ], [ %.197, %5108 ]
-  %.1291116914910 = phi i64 [ %.12811168, %.lr.ph14914 ], [ %.13011170, %5108 ]
-  %.1291142314909 = phi i32 [ %.12811422, %.lr.ph14914 ], [ %.13011424, %5108 ]
-  %5030 = add nsw i32 %.6414912, -256
+  %.6514912 = phi i32 [ %.62, %.lr.ph14914 ], [ %5030, %5108 ]
+  %.19614911 = phi ptr [ %.189, %.lr.ph14914 ], [ %.198, %5108 ]
+  %.1301117014910 = phi i64 [ %.12511165, %.lr.ph14914 ], [ %.13111171, %5108 ]
+  %.1301142414909 = phi i32 [ %.12511419, %.lr.ph14914 ], [ %.13111425, %5108 ]
+  %5030 = add nsw i32 %.6514912, -256
   %5031 = load i8, ptr %5027, align 4
   %5032 = sext i8 %5031 to i32
-  %5033 = sub nsw i32 %.1291142314909, %5032
+  %5033 = sub nsw i32 %.1301142414909, %5032
   %5034 = icmp slt i32 %5033, 0
   %5035 = load i32, ptr %5028, align 4
   br i1 %5034, label %5036, label %5103
 
 5036:                                             ; preds = %5029
-  %5037 = zext nneg i32 %.1291142314909 to i64
-  %5038 = shl i64 %.1291116914910, %5037
+  %5037 = zext nneg i32 %.1301142414909 to i64
+  %5038 = shl i64 %.1301117014910, %5037
   %5039 = sub nsw i32 0, %5033
   %5040 = lshr i32 %5035, %5039
   %5041 = zext nneg i32 %5040 to i64
@@ -10620,19 +10620,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12749 = icmp eq i64 %5045, 0
   %5046 = lshr i64 %5038, 56
   %5047 = trunc nuw i64 %5046 to i8
-  store i8 %5047, ptr %.19514911, align 1
+  store i8 %5047, ptr %.19614911, align 1
   br i1 %.not12749, label %5077, label %5048
 
 5048:                                             ; preds = %5036
-  %5049 = getelementptr inbounds i8, ptr %.19514911, i64 1
+  %5049 = getelementptr inbounds i8, ptr %.19614911, i64 1
   store i8 0, ptr %5049, align 1
   %.not12750 = icmp eq i64 %5046, 255
-  %.sroa.gep14228 = getelementptr inbounds i8, ptr %.19514911, i64 2
+  %.sroa.gep14228 = getelementptr inbounds i8, ptr %.19614911, i64 2
   %.neg12751.sroa.sel = select i1 %.not12750, ptr %.sroa.gep14228, ptr %5049
   %5050 = lshr i64 %5038, 48
   %5051 = trunc i64 %5050 to i8
   store i8 %5051, ptr %.neg12751.sroa.sel, align 1
-  %.sroa.gep15893 = getelementptr inbounds i8, ptr %.19514911, i64 3
+  %.sroa.gep15893 = getelementptr inbounds i8, ptr %.19614911, i64 3
   %.neg12751.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12750, ptr %.sroa.gep15893, ptr %.sroa.gep14228
   store i8 0, ptr %.neg12751.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5052 = and i64 %5038, 71776119061217280
@@ -10700,36 +10700,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5077:                                             ; preds = %5036
   %5078 = lshr i64 %5038, 48
   %5079 = trunc i64 %5078 to i8
-  %5080 = getelementptr inbounds i8, ptr %.19514911, i64 1
+  %5080 = getelementptr inbounds i8, ptr %.19614911, i64 1
   store i8 %5079, ptr %5080, align 1
   %5081 = lshr i64 %5038, 40
   %5082 = trunc i64 %5081 to i8
-  %5083 = getelementptr inbounds i8, ptr %.19514911, i64 2
+  %5083 = getelementptr inbounds i8, ptr %.19614911, i64 2
   store i8 %5082, ptr %5083, align 1
   %5084 = lshr i64 %5038, 32
   %5085 = trunc i64 %5084 to i8
-  %5086 = getelementptr inbounds i8, ptr %.19514911, i64 3
+  %5086 = getelementptr inbounds i8, ptr %.19614911, i64 3
   store i8 %5085, ptr %5086, align 1
   %5087 = lshr i64 %5042, 24
   %5088 = trunc i64 %5087 to i8
-  %5089 = getelementptr inbounds i8, ptr %.19514911, i64 4
+  %5089 = getelementptr inbounds i8, ptr %.19614911, i64 4
   store i8 %5088, ptr %5089, align 1
   %5090 = lshr i64 %5042, 16
   %5091 = trunc i64 %5090 to i8
-  %5092 = getelementptr inbounds i8, ptr %.19514911, i64 5
+  %5092 = getelementptr inbounds i8, ptr %.19614911, i64 5
   store i8 %5091, ptr %5092, align 1
   %5093 = lshr i64 %5042, 8
   %5094 = trunc i64 %5093 to i8
-  %5095 = getelementptr inbounds i8, ptr %.19514911, i64 6
+  %5095 = getelementptr inbounds i8, ptr %.19614911, i64 6
   store i8 %5094, ptr %5095, align 1
   %5096 = trunc i64 %5042 to i8
-  %5097 = getelementptr inbounds i8, ptr %.19514911, i64 7
+  %5097 = getelementptr inbounds i8, ptr %.19614911, i64 7
   store i8 %5096, ptr %5097, align 1
-  %5098 = getelementptr inbounds i8, ptr %.19514911, i64 8
+  %5098 = getelementptr inbounds i8, ptr %.19614911, i64 8
   br label %5099
 
 5099:                                             ; preds = %5077, %5048
-  %.196 = phi ptr [ %5076, %5048 ], [ %5098, %5077 ]
+  %.197 = phi ptr [ %5076, %5048 ], [ %5098, %5077 ]
   %5100 = add nsw i32 %5033, 64
   %5101 = load i32, ptr %5028, align 4
   %5102 = zext i32 %5101 to i64
@@ -10737,24 +10737,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 5103:                                             ; preds = %5029
   %5104 = zext nneg i32 %5032 to i64
-  %5105 = shl i64 %.1291116914910, %5104
+  %5105 = shl i64 %.1301117014910, %5104
   %5106 = zext i32 %5035 to i64
   %5107 = or i64 %5105, %5106
   br label %5108
 
 5108:                                             ; preds = %5103, %5099
-  %.13011424 = phi i32 [ %5100, %5099 ], [ %5033, %5103 ]
-  %.13011170 = phi i64 [ %5102, %5099 ], [ %5107, %5103 ]
-  %.197 = phi ptr [ %.196, %5099 ], [ %.19514911, %5103 ]
-  %5109 = icmp ugt i32 %.6414912, 511
+  %.13111425 = phi i32 [ %5100, %5099 ], [ %5033, %5103 ]
+  %.13111171 = phi i64 [ %5102, %5099 ], [ %5107, %5103 ]
+  %.198 = phi ptr [ %.197, %5099 ], [ %.19614911, %5103 ]
+  %5109 = icmp ugt i32 %.6514912, 511
   br i1 %5109, label %5029, label %._crit_edge14915, !llvm.loop !34
 
 ._crit_edge14915:                                 ; preds = %5108, %5025
-  %.12911423.lcssa = phi i32 [ %.12811422, %5025 ], [ %.13011424, %5108 ]
-  %.12911169.lcssa = phi i64 [ %.12811168, %5025 ], [ %.13011170, %5108 ]
-  %.195.lcssa = phi ptr [ %.194, %5025 ], [ %.197, %5108 ]
-  %.64.lcssa = phi i32 [ %.63, %5025 ], [ %5030, %5108 ]
-  %5110 = add nuw nsw i32 %.64.lcssa, %5016
+  %.13011424.lcssa = phi i32 [ %.12511419, %5025 ], [ %.13111425, %5108 ]
+  %.13011170.lcssa = phi i64 [ %.12511165, %5025 ], [ %.13111171, %5108 ]
+  %.196.lcssa = phi ptr [ %.189, %5025 ], [ %.198, %5108 ]
+  %.65.lcssa = phi i32 [ %.62, %5025 ], [ %5030, %5108 ]
+  %5110 = add nuw nsw i32 %.65.lcssa, %5016
   %5111 = zext nneg i8 %5015 to i64
   %notmask12731 = shl nsw i64 -1, %5111
   %5112 = trunc i64 %notmask12731 to i32
@@ -10770,13 +10770,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %5122 = load i8, ptr %5121, align 1
   %5123 = sext i8 %5122 to i32
   %5124 = add nsw i32 %5123, %5016
-  %5125 = sub nsw i32 %.12911423.lcssa, %5124
+  %5125 = sub nsw i32 %.13011424.lcssa, %5124
   %5126 = icmp slt i32 %5125, 0
   br i1 %5126, label %5127, label %5193
 
 5127:                                             ; preds = %._crit_edge14915
-  %5128 = zext nneg i32 %.12911423.lcssa to i64
-  %5129 = shl i64 %.12911169.lcssa, %5128
+  %5128 = zext nneg i32 %.13011424.lcssa to i64
+  %5129 = shl i64 %.13011170.lcssa, %5128
   %5130 = sub nsw i32 0, %5125
   %5131 = ashr i32 %5119, %5130
   %5132 = sext i32 %5131 to i64
@@ -10787,19 +10787,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12732 = icmp eq i64 %5136, 0
   %5137 = lshr i64 %5133, 56
   %5138 = trunc nuw i64 %5137 to i8
-  store i8 %5138, ptr %.195.lcssa, align 1
+  store i8 %5138, ptr %.196.lcssa, align 1
   br i1 %.not12732, label %5168, label %5139
 
 5139:                                             ; preds = %5127
-  %5140 = getelementptr inbounds i8, ptr %.195.lcssa, i64 1
+  %5140 = getelementptr inbounds i8, ptr %.196.lcssa, i64 1
   store i8 0, ptr %5140, align 1
   %.not12733 = icmp eq i64 %5137, 255
-  %.sroa.gep14236 = getelementptr inbounds i8, ptr %.195.lcssa, i64 2
+  %.sroa.gep14236 = getelementptr inbounds i8, ptr %.196.lcssa, i64 2
   %.neg12734.sroa.sel = select i1 %.not12733, ptr %.sroa.gep14236, ptr %5140
   %5141 = lshr i64 %5133, 48
   %5142 = trunc i64 %5141 to i8
   store i8 %5142, ptr %.neg12734.sroa.sel, align 1
-  %.sroa.gep15901 = getelementptr inbounds i8, ptr %.195.lcssa, i64 3
+  %.sroa.gep15901 = getelementptr inbounds i8, ptr %.196.lcssa, i64 3
   %.neg12734.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12733, ptr %.sroa.gep15901, ptr %.sroa.gep14236
   store i8 0, ptr %.neg12734.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5143 = and i64 %5133, 71776119061217280
@@ -10867,59 +10867,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5168:                                             ; preds = %5127
   %5169 = lshr i64 %5133, 48
   %5170 = trunc i64 %5169 to i8
-  %5171 = getelementptr inbounds i8, ptr %.195.lcssa, i64 1
+  %5171 = getelementptr inbounds i8, ptr %.196.lcssa, i64 1
   store i8 %5170, ptr %5171, align 1
   %5172 = lshr i64 %5133, 40
   %5173 = trunc i64 %5172 to i8
-  %5174 = getelementptr inbounds i8, ptr %.195.lcssa, i64 2
+  %5174 = getelementptr inbounds i8, ptr %.196.lcssa, i64 2
   store i8 %5173, ptr %5174, align 1
   %5175 = lshr i64 %5133, 32
   %5176 = trunc i64 %5175 to i8
-  %5177 = getelementptr inbounds i8, ptr %.195.lcssa, i64 3
+  %5177 = getelementptr inbounds i8, ptr %.196.lcssa, i64 3
   store i8 %5176, ptr %5177, align 1
   %5178 = lshr i64 %5133, 24
   %5179 = trunc i64 %5178 to i8
-  %5180 = getelementptr inbounds i8, ptr %.195.lcssa, i64 4
+  %5180 = getelementptr inbounds i8, ptr %.196.lcssa, i64 4
   store i8 %5179, ptr %5180, align 1
   %5181 = lshr i64 %5133, 16
   %5182 = trunc i64 %5181 to i8
-  %5183 = getelementptr inbounds i8, ptr %.195.lcssa, i64 5
+  %5183 = getelementptr inbounds i8, ptr %.196.lcssa, i64 5
   store i8 %5182, ptr %5183, align 1
   %5184 = lshr i64 %5133, 8
   %5185 = trunc i64 %5184 to i8
-  %5186 = getelementptr inbounds i8, ptr %.195.lcssa, i64 6
+  %5186 = getelementptr inbounds i8, ptr %.196.lcssa, i64 6
   store i8 %5185, ptr %5186, align 1
   %5187 = trunc i64 %5133 to i8
-  %5188 = getelementptr inbounds i8, ptr %.195.lcssa, i64 7
+  %5188 = getelementptr inbounds i8, ptr %.196.lcssa, i64 7
   store i8 %5187, ptr %5188, align 1
-  %5189 = getelementptr inbounds i8, ptr %.195.lcssa, i64 8
+  %5189 = getelementptr inbounds i8, ptr %.196.lcssa, i64 8
   br label %5190
 
 5190:                                             ; preds = %5168, %5139
-  %.198 = phi ptr [ %5167, %5139 ], [ %5189, %5168 ]
+  %.199 = phi ptr [ %5167, %5139 ], [ %5189, %5168 ]
   %5191 = add nsw i32 %5125, 64
   %5192 = sext i32 %5119 to i64
   br label %5198
 
 5193:                                             ; preds = %._crit_edge14915
   %5194 = zext nneg i32 %5124 to i64
-  %5195 = shl i64 %.12911169.lcssa, %5194
+  %5195 = shl i64 %.13011170.lcssa, %5194
   %5196 = sext i32 %5119 to i64
   %5197 = or i64 %5195, %5196
   br label %5198
 
 5198:                                             ; preds = %5190, %5193, %5006
-  %.13211426 = phi i32 [ %.12811422, %5006 ], [ %5191, %5190 ], [ %5125, %5193 ]
-  %.13211172 = phi i64 [ %.12811168, %5006 ], [ %5192, %5190 ], [ %5197, %5193 ]
-  %.200 = phi ptr [ %.194, %5006 ], [ %.198, %5190 ], [ %.195.lcssa, %5193 ]
-  %.65 = phi i32 [ %5007, %5006 ], [ 0, %5190 ], [ 0, %5193 ]
+  %.12911423 = phi i32 [ %.12511419, %5006 ], [ %5191, %5190 ], [ %5125, %5193 ]
+  %.12911169 = phi i64 [ %.12511165, %5006 ], [ %5192, %5190 ], [ %5197, %5193 ]
+  %.195 = phi ptr [ %.189, %5006 ], [ %.199, %5190 ], [ %.196.lcssa, %5193 ]
+  %.64 = phi i32 [ %5007, %5006 ], [ 0, %5190 ], [ 0, %5193 ]
   %5199 = getelementptr inbounds i8, ptr %1, i64 98
   %5200 = load i16, ptr %5199, align 2
   %5201 = icmp eq i16 %5200, 0
   br i1 %5201, label %5202, label %5204
 
 5202:                                             ; preds = %5198
-  %5203 = add nuw nsw i32 %.65, 16
+  %5203 = add nuw nsw i32 %.64, 16
   br label %5394
 
 5204:                                             ; preds = %5198
@@ -10946,7 +10946,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5221
 
 5221:                                             ; preds = %5214, %5204
-  %5222 = icmp ugt i32 %.65, 255
+  %5222 = icmp ugt i32 %.64, 255
   br i1 %5222, label %.lr.ph14925, label %._crit_edge14926
 
 .lr.ph14925:                                      ; preds = %5221
@@ -10955,21 +10955,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5225
 
 5225:                                             ; preds = %.lr.ph14925, %5304
-  %.6614923 = phi i32 [ %.65, %.lr.ph14925 ], [ %5226, %5304 ]
-  %.20114922 = phi ptr [ %.200, %.lr.ph14925 ], [ %.203, %5304 ]
-  %.1331117314921 = phi i64 [ %.13211172, %.lr.ph14925 ], [ %.13411174, %5304 ]
-  %.1331142714920 = phi i32 [ %.13211426, %.lr.ph14925 ], [ %.13411428, %5304 ]
-  %5226 = add nsw i32 %.6614923, -256
+  %.6714923 = phi i32 [ %.64, %.lr.ph14925 ], [ %5226, %5304 ]
+  %.20214922 = phi ptr [ %.195, %.lr.ph14925 ], [ %.204, %5304 ]
+  %.1341117414921 = phi i64 [ %.12911169, %.lr.ph14925 ], [ %.13511175, %5304 ]
+  %.1341142814920 = phi i32 [ %.12911423, %.lr.ph14925 ], [ %.13511429, %5304 ]
+  %5226 = add nsw i32 %.6714923, -256
   %5227 = load i8, ptr %5223, align 4
   %5228 = sext i8 %5227 to i32
-  %5229 = sub nsw i32 %.1331142714920, %5228
+  %5229 = sub nsw i32 %.1341142814920, %5228
   %5230 = icmp slt i32 %5229, 0
   %5231 = load i32, ptr %5224, align 4
   br i1 %5230, label %5232, label %5299
 
 5232:                                             ; preds = %5225
-  %5233 = zext nneg i32 %.1331142714920 to i64
-  %5234 = shl i64 %.1331117314921, %5233
+  %5233 = zext nneg i32 %.1341142814920 to i64
+  %5234 = shl i64 %.1341117414921, %5233
   %5235 = sub nsw i32 0, %5229
   %5236 = lshr i32 %5231, %5235
   %5237 = zext nneg i32 %5236 to i64
@@ -10980,19 +10980,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12784 = icmp eq i64 %5241, 0
   %5242 = lshr i64 %5234, 56
   %5243 = trunc nuw i64 %5242 to i8
-  store i8 %5243, ptr %.20114922, align 1
+  store i8 %5243, ptr %.20214922, align 1
   br i1 %.not12784, label %5273, label %5244
 
 5244:                                             ; preds = %5232
-  %5245 = getelementptr inbounds i8, ptr %.20114922, i64 1
+  %5245 = getelementptr inbounds i8, ptr %.20214922, i64 1
   store i8 0, ptr %5245, align 1
   %.not12785 = icmp eq i64 %5242, 255
-  %.sroa.gep14244 = getelementptr inbounds i8, ptr %.20114922, i64 2
+  %.sroa.gep14244 = getelementptr inbounds i8, ptr %.20214922, i64 2
   %.neg12786.sroa.sel = select i1 %.not12785, ptr %.sroa.gep14244, ptr %5245
   %5246 = lshr i64 %5234, 48
   %5247 = trunc i64 %5246 to i8
   store i8 %5247, ptr %.neg12786.sroa.sel, align 1
-  %.sroa.gep15877 = getelementptr inbounds i8, ptr %.20114922, i64 3
+  %.sroa.gep15877 = getelementptr inbounds i8, ptr %.20214922, i64 3
   %.neg12786.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12785, ptr %.sroa.gep15877, ptr %.sroa.gep14244
   store i8 0, ptr %.neg12786.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5248 = and i64 %5234, 71776119061217280
@@ -11060,36 +11060,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5273:                                             ; preds = %5232
   %5274 = lshr i64 %5234, 48
   %5275 = trunc i64 %5274 to i8
-  %5276 = getelementptr inbounds i8, ptr %.20114922, i64 1
+  %5276 = getelementptr inbounds i8, ptr %.20214922, i64 1
   store i8 %5275, ptr %5276, align 1
   %5277 = lshr i64 %5234, 40
   %5278 = trunc i64 %5277 to i8
-  %5279 = getelementptr inbounds i8, ptr %.20114922, i64 2
+  %5279 = getelementptr inbounds i8, ptr %.20214922, i64 2
   store i8 %5278, ptr %5279, align 1
   %5280 = lshr i64 %5234, 32
   %5281 = trunc i64 %5280 to i8
-  %5282 = getelementptr inbounds i8, ptr %.20114922, i64 3
+  %5282 = getelementptr inbounds i8, ptr %.20214922, i64 3
   store i8 %5281, ptr %5282, align 1
   %5283 = lshr i64 %5238, 24
   %5284 = trunc i64 %5283 to i8
-  %5285 = getelementptr inbounds i8, ptr %.20114922, i64 4
+  %5285 = getelementptr inbounds i8, ptr %.20214922, i64 4
   store i8 %5284, ptr %5285, align 1
   %5286 = lshr i64 %5238, 16
   %5287 = trunc i64 %5286 to i8
-  %5288 = getelementptr inbounds i8, ptr %.20114922, i64 5
+  %5288 = getelementptr inbounds i8, ptr %.20214922, i64 5
   store i8 %5287, ptr %5288, align 1
   %5289 = lshr i64 %5238, 8
   %5290 = trunc i64 %5289 to i8
-  %5291 = getelementptr inbounds i8, ptr %.20114922, i64 6
+  %5291 = getelementptr inbounds i8, ptr %.20214922, i64 6
   store i8 %5290, ptr %5291, align 1
   %5292 = trunc i64 %5238 to i8
-  %5293 = getelementptr inbounds i8, ptr %.20114922, i64 7
+  %5293 = getelementptr inbounds i8, ptr %.20214922, i64 7
   store i8 %5292, ptr %5293, align 1
-  %5294 = getelementptr inbounds i8, ptr %.20114922, i64 8
+  %5294 = getelementptr inbounds i8, ptr %.20214922, i64 8
   br label %5295
 
 5295:                                             ; preds = %5273, %5244
-  %.202 = phi ptr [ %5272, %5244 ], [ %5294, %5273 ]
+  %.203 = phi ptr [ %5272, %5244 ], [ %5294, %5273 ]
   %5296 = add nsw i32 %5229, 64
   %5297 = load i32, ptr %5224, align 4
   %5298 = zext i32 %5297 to i64
@@ -11097,24 +11097,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 5299:                                             ; preds = %5225
   %5300 = zext nneg i32 %5228 to i64
-  %5301 = shl i64 %.1331117314921, %5300
+  %5301 = shl i64 %.1341117414921, %5300
   %5302 = zext i32 %5231 to i64
   %5303 = or i64 %5301, %5302
   br label %5304
 
 5304:                                             ; preds = %5299, %5295
-  %.13411428 = phi i32 [ %5296, %5295 ], [ %5229, %5299 ]
-  %.13411174 = phi i64 [ %5298, %5295 ], [ %5303, %5299 ]
-  %.203 = phi ptr [ %.202, %5295 ], [ %.20114922, %5299 ]
-  %5305 = icmp ugt i32 %.6614923, 511
+  %.13511429 = phi i32 [ %5296, %5295 ], [ %5229, %5299 ]
+  %.13511175 = phi i64 [ %5298, %5295 ], [ %5303, %5299 ]
+  %.204 = phi ptr [ %.203, %5295 ], [ %.20214922, %5299 ]
+  %5305 = icmp ugt i32 %.6714923, 511
   br i1 %5305, label %5225, label %._crit_edge14926, !llvm.loop !35
 
 ._crit_edge14926:                                 ; preds = %5304, %5221
-  %.13311427.lcssa = phi i32 [ %.13211426, %5221 ], [ %.13411428, %5304 ]
-  %.13311173.lcssa = phi i64 [ %.13211172, %5221 ], [ %.13411174, %5304 ]
-  %.201.lcssa = phi ptr [ %.200, %5221 ], [ %.203, %5304 ]
-  %.66.lcssa = phi i32 [ %.65, %5221 ], [ %5226, %5304 ]
-  %5306 = add nuw nsw i32 %.66.lcssa, %5212
+  %.13411428.lcssa = phi i32 [ %.12911423, %5221 ], [ %.13511429, %5304 ]
+  %.13411174.lcssa = phi i64 [ %.12911169, %5221 ], [ %.13511175, %5304 ]
+  %.202.lcssa = phi ptr [ %.195, %5221 ], [ %.204, %5304 ]
+  %.67.lcssa = phi i32 [ %.64, %5221 ], [ %5226, %5304 ]
+  %5306 = add nuw nsw i32 %.67.lcssa, %5212
   %5307 = zext nneg i8 %5211 to i64
   %notmask12766 = shl nsw i64 -1, %5307
   %5308 = trunc i64 %notmask12766 to i32
@@ -11130,13 +11130,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %5318 = load i8, ptr %5317, align 1
   %5319 = sext i8 %5318 to i32
   %5320 = add nsw i32 %5319, %5212
-  %5321 = sub nsw i32 %.13311427.lcssa, %5320
+  %5321 = sub nsw i32 %.13411428.lcssa, %5320
   %5322 = icmp slt i32 %5321, 0
   br i1 %5322, label %5323, label %5389
 
 5323:                                             ; preds = %._crit_edge14926
-  %5324 = zext nneg i32 %.13311427.lcssa to i64
-  %5325 = shl i64 %.13311173.lcssa, %5324
+  %5324 = zext nneg i32 %.13411428.lcssa to i64
+  %5325 = shl i64 %.13411174.lcssa, %5324
   %5326 = sub nsw i32 0, %5321
   %5327 = ashr i32 %5315, %5326
   %5328 = sext i32 %5327 to i64
@@ -11147,19 +11147,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12767 = icmp eq i64 %5332, 0
   %5333 = lshr i64 %5329, 56
   %5334 = trunc nuw i64 %5333 to i8
-  store i8 %5334, ptr %.201.lcssa, align 1
+  store i8 %5334, ptr %.202.lcssa, align 1
   br i1 %.not12767, label %5364, label %5335
 
 5335:                                             ; preds = %5323
-  %5336 = getelementptr inbounds i8, ptr %.201.lcssa, i64 1
+  %5336 = getelementptr inbounds i8, ptr %.202.lcssa, i64 1
   store i8 0, ptr %5336, align 1
   %.not12768 = icmp eq i64 %5333, 255
-  %.sroa.gep14252 = getelementptr inbounds i8, ptr %.201.lcssa, i64 2
+  %.sroa.gep14252 = getelementptr inbounds i8, ptr %.202.lcssa, i64 2
   %.neg12769.sroa.sel = select i1 %.not12768, ptr %.sroa.gep14252, ptr %5336
   %5337 = lshr i64 %5329, 48
   %5338 = trunc i64 %5337 to i8
   store i8 %5338, ptr %.neg12769.sroa.sel, align 1
-  %.sroa.gep15885 = getelementptr inbounds i8, ptr %.201.lcssa, i64 3
+  %.sroa.gep15885 = getelementptr inbounds i8, ptr %.202.lcssa, i64 3
   %.neg12769.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12768, ptr %.sroa.gep15885, ptr %.sroa.gep14252
   store i8 0, ptr %.neg12769.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5339 = and i64 %5329, 71776119061217280
@@ -11227,59 +11227,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5364:                                             ; preds = %5323
   %5365 = lshr i64 %5329, 48
   %5366 = trunc i64 %5365 to i8
-  %5367 = getelementptr inbounds i8, ptr %.201.lcssa, i64 1
+  %5367 = getelementptr inbounds i8, ptr %.202.lcssa, i64 1
   store i8 %5366, ptr %5367, align 1
   %5368 = lshr i64 %5329, 40
   %5369 = trunc i64 %5368 to i8
-  %5370 = getelementptr inbounds i8, ptr %.201.lcssa, i64 2
+  %5370 = getelementptr inbounds i8, ptr %.202.lcssa, i64 2
   store i8 %5369, ptr %5370, align 1
   %5371 = lshr i64 %5329, 32
   %5372 = trunc i64 %5371 to i8
-  %5373 = getelementptr inbounds i8, ptr %.201.lcssa, i64 3
+  %5373 = getelementptr inbounds i8, ptr %.202.lcssa, i64 3
   store i8 %5372, ptr %5373, align 1
   %5374 = lshr i64 %5329, 24
   %5375 = trunc i64 %5374 to i8
-  %5376 = getelementptr inbounds i8, ptr %.201.lcssa, i64 4
+  %5376 = getelementptr inbounds i8, ptr %.202.lcssa, i64 4
   store i8 %5375, ptr %5376, align 1
   %5377 = lshr i64 %5329, 16
   %5378 = trunc i64 %5377 to i8
-  %5379 = getelementptr inbounds i8, ptr %.201.lcssa, i64 5
+  %5379 = getelementptr inbounds i8, ptr %.202.lcssa, i64 5
   store i8 %5378, ptr %5379, align 1
   %5380 = lshr i64 %5329, 8
   %5381 = trunc i64 %5380 to i8
-  %5382 = getelementptr inbounds i8, ptr %.201.lcssa, i64 6
+  %5382 = getelementptr inbounds i8, ptr %.202.lcssa, i64 6
   store i8 %5381, ptr %5382, align 1
   %5383 = trunc i64 %5329 to i8
-  %5384 = getelementptr inbounds i8, ptr %.201.lcssa, i64 7
+  %5384 = getelementptr inbounds i8, ptr %.202.lcssa, i64 7
   store i8 %5383, ptr %5384, align 1
-  %5385 = getelementptr inbounds i8, ptr %.201.lcssa, i64 8
+  %5385 = getelementptr inbounds i8, ptr %.202.lcssa, i64 8
   br label %5386
 
 5386:                                             ; preds = %5364, %5335
-  %.204 = phi ptr [ %5363, %5335 ], [ %5385, %5364 ]
+  %.205 = phi ptr [ %5363, %5335 ], [ %5385, %5364 ]
   %5387 = add nsw i32 %5321, 64
   %5388 = sext i32 %5315 to i64
   br label %5394
 
 5389:                                             ; preds = %._crit_edge14926
   %5390 = zext nneg i32 %5320 to i64
-  %5391 = shl i64 %.13311173.lcssa, %5390
+  %5391 = shl i64 %.13411174.lcssa, %5390
   %5392 = sext i32 %5315 to i64
   %5393 = or i64 %5391, %5392
   br label %5394
 
 5394:                                             ; preds = %5386, %5389, %5202
-  %.13611430 = phi i32 [ %.13211426, %5202 ], [ %5387, %5386 ], [ %5321, %5389 ]
-  %.13611176 = phi i64 [ %.13211172, %5202 ], [ %5388, %5386 ], [ %5393, %5389 ]
-  %.206 = phi ptr [ %.200, %5202 ], [ %.204, %5386 ], [ %.201.lcssa, %5389 ]
-  %.67 = phi i32 [ %5203, %5202 ], [ 0, %5386 ], [ 0, %5389 ]
+  %.13311427 = phi i32 [ %.12911423, %5202 ], [ %5387, %5386 ], [ %5321, %5389 ]
+  %.13311173 = phi i64 [ %.12911169, %5202 ], [ %5388, %5386 ], [ %5393, %5389 ]
+  %.201 = phi ptr [ %.195, %5202 ], [ %.205, %5386 ], [ %.202.lcssa, %5389 ]
+  %.66 = phi i32 [ %5203, %5202 ], [ 0, %5386 ], [ 0, %5389 ]
   %5395 = getelementptr inbounds i8, ptr %1, i64 112
   %5396 = load i16, ptr %5395, align 2
   %5397 = icmp eq i16 %5396, 0
   br i1 %5397, label %5398, label %5400
 
 5398:                                             ; preds = %5394
-  %5399 = add nuw nsw i32 %.67, 16
+  %5399 = add nuw nsw i32 %.66, 16
   br label %5590
 
 5400:                                             ; preds = %5394
@@ -11306,7 +11306,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5417
 
 5417:                                             ; preds = %5410, %5400
-  %5418 = icmp ugt i32 %.67, 255
+  %5418 = icmp ugt i32 %.66, 255
   br i1 %5418, label %.lr.ph14936, label %._crit_edge14937
 
 .lr.ph14936:                                      ; preds = %5417
@@ -11315,21 +11315,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5421
 
 5421:                                             ; preds = %.lr.ph14936, %5500
-  %.6814934 = phi i32 [ %.67, %.lr.ph14936 ], [ %5422, %5500 ]
-  %.20714933 = phi ptr [ %.206, %.lr.ph14936 ], [ %.209, %5500 ]
-  %.1371117714932 = phi i64 [ %.13611176, %.lr.ph14936 ], [ %.13811178, %5500 ]
-  %.1371143114931 = phi i32 [ %.13611430, %.lr.ph14936 ], [ %.13811432, %5500 ]
-  %5422 = add nsw i32 %.6814934, -256
+  %.6914934 = phi i32 [ %.66, %.lr.ph14936 ], [ %5422, %5500 ]
+  %.20814933 = phi ptr [ %.201, %.lr.ph14936 ], [ %.210, %5500 ]
+  %.1381117814932 = phi i64 [ %.13311173, %.lr.ph14936 ], [ %.13911179, %5500 ]
+  %.1381143214931 = phi i32 [ %.13311427, %.lr.ph14936 ], [ %.13911433, %5500 ]
+  %5422 = add nsw i32 %.6914934, -256
   %5423 = load i8, ptr %5419, align 4
   %5424 = sext i8 %5423 to i32
-  %5425 = sub nsw i32 %.1371143114931, %5424
+  %5425 = sub nsw i32 %.1381143214931, %5424
   %5426 = icmp slt i32 %5425, 0
   %5427 = load i32, ptr %5420, align 4
   br i1 %5426, label %5428, label %5495
 
 5428:                                             ; preds = %5421
-  %5429 = zext nneg i32 %.1371143114931 to i64
-  %5430 = shl i64 %.1371117714932, %5429
+  %5429 = zext nneg i32 %.1381143214931 to i64
+  %5430 = shl i64 %.1381117814932, %5429
   %5431 = sub nsw i32 0, %5425
   %5432 = lshr i32 %5427, %5431
   %5433 = zext nneg i32 %5432 to i64
@@ -11340,19 +11340,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12819 = icmp eq i64 %5437, 0
   %5438 = lshr i64 %5430, 56
   %5439 = trunc nuw i64 %5438 to i8
-  store i8 %5439, ptr %.20714933, align 1
+  store i8 %5439, ptr %.20814933, align 1
   br i1 %.not12819, label %5469, label %5440
 
 5440:                                             ; preds = %5428
-  %5441 = getelementptr inbounds i8, ptr %.20714933, i64 1
+  %5441 = getelementptr inbounds i8, ptr %.20814933, i64 1
   store i8 0, ptr %5441, align 1
   %.not12820 = icmp eq i64 %5438, 255
-  %.sroa.gep14260 = getelementptr inbounds i8, ptr %.20714933, i64 2
+  %.sroa.gep14260 = getelementptr inbounds i8, ptr %.20814933, i64 2
   %.neg12821.sroa.sel = select i1 %.not12820, ptr %.sroa.gep14260, ptr %5441
   %5442 = lshr i64 %5430, 48
   %5443 = trunc i64 %5442 to i8
   store i8 %5443, ptr %.neg12821.sroa.sel, align 1
-  %.sroa.gep15861 = getelementptr inbounds i8, ptr %.20714933, i64 3
+  %.sroa.gep15861 = getelementptr inbounds i8, ptr %.20814933, i64 3
   %.neg12821.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12820, ptr %.sroa.gep15861, ptr %.sroa.gep14260
   store i8 0, ptr %.neg12821.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5444 = and i64 %5430, 71776119061217280
@@ -11420,36 +11420,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5469:                                             ; preds = %5428
   %5470 = lshr i64 %5430, 48
   %5471 = trunc i64 %5470 to i8
-  %5472 = getelementptr inbounds i8, ptr %.20714933, i64 1
+  %5472 = getelementptr inbounds i8, ptr %.20814933, i64 1
   store i8 %5471, ptr %5472, align 1
   %5473 = lshr i64 %5430, 40
   %5474 = trunc i64 %5473 to i8
-  %5475 = getelementptr inbounds i8, ptr %.20714933, i64 2
+  %5475 = getelementptr inbounds i8, ptr %.20814933, i64 2
   store i8 %5474, ptr %5475, align 1
   %5476 = lshr i64 %5430, 32
   %5477 = trunc i64 %5476 to i8
-  %5478 = getelementptr inbounds i8, ptr %.20714933, i64 3
+  %5478 = getelementptr inbounds i8, ptr %.20814933, i64 3
   store i8 %5477, ptr %5478, align 1
   %5479 = lshr i64 %5434, 24
   %5480 = trunc i64 %5479 to i8
-  %5481 = getelementptr inbounds i8, ptr %.20714933, i64 4
+  %5481 = getelementptr inbounds i8, ptr %.20814933, i64 4
   store i8 %5480, ptr %5481, align 1
   %5482 = lshr i64 %5434, 16
   %5483 = trunc i64 %5482 to i8
-  %5484 = getelementptr inbounds i8, ptr %.20714933, i64 5
+  %5484 = getelementptr inbounds i8, ptr %.20814933, i64 5
   store i8 %5483, ptr %5484, align 1
   %5485 = lshr i64 %5434, 8
   %5486 = trunc i64 %5485 to i8
-  %5487 = getelementptr inbounds i8, ptr %.20714933, i64 6
+  %5487 = getelementptr inbounds i8, ptr %.20814933, i64 6
   store i8 %5486, ptr %5487, align 1
   %5488 = trunc i64 %5434 to i8
-  %5489 = getelementptr inbounds i8, ptr %.20714933, i64 7
+  %5489 = getelementptr inbounds i8, ptr %.20814933, i64 7
   store i8 %5488, ptr %5489, align 1
-  %5490 = getelementptr inbounds i8, ptr %.20714933, i64 8
+  %5490 = getelementptr inbounds i8, ptr %.20814933, i64 8
   br label %5491
 
 5491:                                             ; preds = %5469, %5440
-  %.208 = phi ptr [ %5468, %5440 ], [ %5490, %5469 ]
+  %.209 = phi ptr [ %5468, %5440 ], [ %5490, %5469 ]
   %5492 = add nsw i32 %5425, 64
   %5493 = load i32, ptr %5420, align 4
   %5494 = zext i32 %5493 to i64
@@ -11457,24 +11457,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 5495:                                             ; preds = %5421
   %5496 = zext nneg i32 %5424 to i64
-  %5497 = shl i64 %.1371117714932, %5496
+  %5497 = shl i64 %.1381117814932, %5496
   %5498 = zext i32 %5427 to i64
   %5499 = or i64 %5497, %5498
   br label %5500
 
 5500:                                             ; preds = %5495, %5491
-  %.13811432 = phi i32 [ %5492, %5491 ], [ %5425, %5495 ]
-  %.13811178 = phi i64 [ %5494, %5491 ], [ %5499, %5495 ]
-  %.209 = phi ptr [ %.208, %5491 ], [ %.20714933, %5495 ]
-  %5501 = icmp ugt i32 %.6814934, 511
+  %.13911433 = phi i32 [ %5492, %5491 ], [ %5425, %5495 ]
+  %.13911179 = phi i64 [ %5494, %5491 ], [ %5499, %5495 ]
+  %.210 = phi ptr [ %.209, %5491 ], [ %.20814933, %5495 ]
+  %5501 = icmp ugt i32 %.6914934, 511
   br i1 %5501, label %5421, label %._crit_edge14937, !llvm.loop !36
 
 ._crit_edge14937:                                 ; preds = %5500, %5417
-  %.13711431.lcssa = phi i32 [ %.13611430, %5417 ], [ %.13811432, %5500 ]
-  %.13711177.lcssa = phi i64 [ %.13611176, %5417 ], [ %.13811178, %5500 ]
-  %.207.lcssa = phi ptr [ %.206, %5417 ], [ %.209, %5500 ]
-  %.68.lcssa = phi i32 [ %.67, %5417 ], [ %5422, %5500 ]
-  %5502 = add nuw nsw i32 %.68.lcssa, %5408
+  %.13811432.lcssa = phi i32 [ %.13311427, %5417 ], [ %.13911433, %5500 ]
+  %.13811178.lcssa = phi i64 [ %.13311173, %5417 ], [ %.13911179, %5500 ]
+  %.208.lcssa = phi ptr [ %.201, %5417 ], [ %.210, %5500 ]
+  %.69.lcssa = phi i32 [ %.66, %5417 ], [ %5422, %5500 ]
+  %5502 = add nuw nsw i32 %.69.lcssa, %5408
   %5503 = zext nneg i8 %5407 to i64
   %notmask12801 = shl nsw i64 -1, %5503
   %5504 = trunc i64 %notmask12801 to i32
@@ -11490,13 +11490,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %5514 = load i8, ptr %5513, align 1
   %5515 = sext i8 %5514 to i32
   %5516 = add nsw i32 %5515, %5408
-  %5517 = sub nsw i32 %.13711431.lcssa, %5516
+  %5517 = sub nsw i32 %.13811432.lcssa, %5516
   %5518 = icmp slt i32 %5517, 0
   br i1 %5518, label %5519, label %5585
 
 5519:                                             ; preds = %._crit_edge14937
-  %5520 = zext nneg i32 %.13711431.lcssa to i64
-  %5521 = shl i64 %.13711177.lcssa, %5520
+  %5520 = zext nneg i32 %.13811432.lcssa to i64
+  %5521 = shl i64 %.13811178.lcssa, %5520
   %5522 = sub nsw i32 0, %5517
   %5523 = ashr i32 %5511, %5522
   %5524 = sext i32 %5523 to i64
@@ -11507,19 +11507,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12802 = icmp eq i64 %5528, 0
   %5529 = lshr i64 %5525, 56
   %5530 = trunc nuw i64 %5529 to i8
-  store i8 %5530, ptr %.207.lcssa, align 1
+  store i8 %5530, ptr %.208.lcssa, align 1
   br i1 %.not12802, label %5560, label %5531
 
 5531:                                             ; preds = %5519
-  %5532 = getelementptr inbounds i8, ptr %.207.lcssa, i64 1
+  %5532 = getelementptr inbounds i8, ptr %.208.lcssa, i64 1
   store i8 0, ptr %5532, align 1
   %.not12803 = icmp eq i64 %5529, 255
-  %.sroa.gep14268 = getelementptr inbounds i8, ptr %.207.lcssa, i64 2
+  %.sroa.gep14268 = getelementptr inbounds i8, ptr %.208.lcssa, i64 2
   %.neg12804.sroa.sel = select i1 %.not12803, ptr %.sroa.gep14268, ptr %5532
   %5533 = lshr i64 %5525, 48
   %5534 = trunc i64 %5533 to i8
   store i8 %5534, ptr %.neg12804.sroa.sel, align 1
-  %.sroa.gep15869 = getelementptr inbounds i8, ptr %.207.lcssa, i64 3
+  %.sroa.gep15869 = getelementptr inbounds i8, ptr %.208.lcssa, i64 3
   %.neg12804.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12803, ptr %.sroa.gep15869, ptr %.sroa.gep14268
   store i8 0, ptr %.neg12804.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5535 = and i64 %5525, 71776119061217280
@@ -11587,59 +11587,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5560:                                             ; preds = %5519
   %5561 = lshr i64 %5525, 48
   %5562 = trunc i64 %5561 to i8
-  %5563 = getelementptr inbounds i8, ptr %.207.lcssa, i64 1
+  %5563 = getelementptr inbounds i8, ptr %.208.lcssa, i64 1
   store i8 %5562, ptr %5563, align 1
   %5564 = lshr i64 %5525, 40
   %5565 = trunc i64 %5564 to i8
-  %5566 = getelementptr inbounds i8, ptr %.207.lcssa, i64 2
+  %5566 = getelementptr inbounds i8, ptr %.208.lcssa, i64 2
   store i8 %5565, ptr %5566, align 1
   %5567 = lshr i64 %5525, 32
   %5568 = trunc i64 %5567 to i8
-  %5569 = getelementptr inbounds i8, ptr %.207.lcssa, i64 3
+  %5569 = getelementptr inbounds i8, ptr %.208.lcssa, i64 3
   store i8 %5568, ptr %5569, align 1
   %5570 = lshr i64 %5525, 24
   %5571 = trunc i64 %5570 to i8
-  %5572 = getelementptr inbounds i8, ptr %.207.lcssa, i64 4
+  %5572 = getelementptr inbounds i8, ptr %.208.lcssa, i64 4
   store i8 %5571, ptr %5572, align 1
   %5573 = lshr i64 %5525, 16
   %5574 = trunc i64 %5573 to i8
-  %5575 = getelementptr inbounds i8, ptr %.207.lcssa, i64 5
+  %5575 = getelementptr inbounds i8, ptr %.208.lcssa, i64 5
   store i8 %5574, ptr %5575, align 1
   %5576 = lshr i64 %5525, 8
   %5577 = trunc i64 %5576 to i8
-  %5578 = getelementptr inbounds i8, ptr %.207.lcssa, i64 6
+  %5578 = getelementptr inbounds i8, ptr %.208.lcssa, i64 6
   store i8 %5577, ptr %5578, align 1
   %5579 = trunc i64 %5525 to i8
-  %5580 = getelementptr inbounds i8, ptr %.207.lcssa, i64 7
+  %5580 = getelementptr inbounds i8, ptr %.208.lcssa, i64 7
   store i8 %5579, ptr %5580, align 1
-  %5581 = getelementptr inbounds i8, ptr %.207.lcssa, i64 8
+  %5581 = getelementptr inbounds i8, ptr %.208.lcssa, i64 8
   br label %5582
 
 5582:                                             ; preds = %5560, %5531
-  %.210 = phi ptr [ %5559, %5531 ], [ %5581, %5560 ]
+  %.211 = phi ptr [ %5559, %5531 ], [ %5581, %5560 ]
   %5583 = add nsw i32 %5517, 64
   %5584 = sext i32 %5511 to i64
   br label %5590
 
 5585:                                             ; preds = %._crit_edge14937
   %5586 = zext nneg i32 %5516 to i64
-  %5587 = shl i64 %.13711177.lcssa, %5586
+  %5587 = shl i64 %.13811178.lcssa, %5586
   %5588 = sext i32 %5511 to i64
   %5589 = or i64 %5587, %5588
   br label %5590
 
 5590:                                             ; preds = %5582, %5585, %5398
-  %.14011434 = phi i32 [ %.13611430, %5398 ], [ %5583, %5582 ], [ %5517, %5585 ]
-  %.14011180 = phi i64 [ %.13611176, %5398 ], [ %5584, %5582 ], [ %5589, %5585 ]
-  %.212 = phi ptr [ %.206, %5398 ], [ %.210, %5582 ], [ %.207.lcssa, %5585 ]
-  %.69 = phi i32 [ %5399, %5398 ], [ 0, %5582 ], [ 0, %5585 ]
+  %.13711431 = phi i32 [ %.13311427, %5398 ], [ %5583, %5582 ], [ %5517, %5585 ]
+  %.13711177 = phi i64 [ %.13311173, %5398 ], [ %5584, %5582 ], [ %5589, %5585 ]
+  %.207 = phi ptr [ %.201, %5398 ], [ %.211, %5582 ], [ %.208.lcssa, %5585 ]
+  %.68 = phi i32 [ %5399, %5398 ], [ 0, %5582 ], [ 0, %5585 ]
   %5591 = getelementptr inbounds i8, ptr %1, i64 114
   %5592 = load i16, ptr %5591, align 2
   %5593 = icmp eq i16 %5592, 0
   br i1 %5593, label %5594, label %5596
 
 5594:                                             ; preds = %5590
-  %5595 = add nuw nsw i32 %.69, 16
+  %5595 = add nuw nsw i32 %.68, 16
   br label %5786
 
 5596:                                             ; preds = %5590
@@ -11666,7 +11666,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5613
 
 5613:                                             ; preds = %5606, %5596
-  %5614 = icmp ugt i32 %.69, 255
+  %5614 = icmp ugt i32 %.68, 255
   br i1 %5614, label %.lr.ph14947, label %._crit_edge14948
 
 .lr.ph14947:                                      ; preds = %5613
@@ -11675,21 +11675,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5617
 
 5617:                                             ; preds = %.lr.ph14947, %5696
-  %.7014945 = phi i32 [ %.69, %.lr.ph14947 ], [ %5618, %5696 ]
-  %.21314944 = phi ptr [ %.212, %.lr.ph14947 ], [ %.215, %5696 ]
-  %.1411118114943 = phi i64 [ %.14011180, %.lr.ph14947 ], [ %.14211182, %5696 ]
-  %.1411143514942 = phi i32 [ %.14011434, %.lr.ph14947 ], [ %.14211436, %5696 ]
-  %5618 = add nsw i32 %.7014945, -256
+  %.7114945 = phi i32 [ %.68, %.lr.ph14947 ], [ %5618, %5696 ]
+  %.21414944 = phi ptr [ %.207, %.lr.ph14947 ], [ %.216, %5696 ]
+  %.1421118214943 = phi i64 [ %.13711177, %.lr.ph14947 ], [ %.14311183, %5696 ]
+  %.1421143614942 = phi i32 [ %.13711431, %.lr.ph14947 ], [ %.14311437, %5696 ]
+  %5618 = add nsw i32 %.7114945, -256
   %5619 = load i8, ptr %5615, align 4
   %5620 = sext i8 %5619 to i32
-  %5621 = sub nsw i32 %.1411143514942, %5620
+  %5621 = sub nsw i32 %.1421143614942, %5620
   %5622 = icmp slt i32 %5621, 0
   %5623 = load i32, ptr %5616, align 4
   br i1 %5622, label %5624, label %5691
 
 5624:                                             ; preds = %5617
-  %5625 = zext nneg i32 %.1411143514942 to i64
-  %5626 = shl i64 %.1411118114943, %5625
+  %5625 = zext nneg i32 %.1421143614942 to i64
+  %5626 = shl i64 %.1421118214943, %5625
   %5627 = sub nsw i32 0, %5621
   %5628 = lshr i32 %5623, %5627
   %5629 = zext nneg i32 %5628 to i64
@@ -11700,19 +11700,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12854 = icmp eq i64 %5633, 0
   %5634 = lshr i64 %5626, 56
   %5635 = trunc nuw i64 %5634 to i8
-  store i8 %5635, ptr %.21314944, align 1
+  store i8 %5635, ptr %.21414944, align 1
   br i1 %.not12854, label %5665, label %5636
 
 5636:                                             ; preds = %5624
-  %5637 = getelementptr inbounds i8, ptr %.21314944, i64 1
+  %5637 = getelementptr inbounds i8, ptr %.21414944, i64 1
   store i8 0, ptr %5637, align 1
   %.not12855 = icmp eq i64 %5634, 255
-  %.sroa.gep14276 = getelementptr inbounds i8, ptr %.21314944, i64 2
+  %.sroa.gep14276 = getelementptr inbounds i8, ptr %.21414944, i64 2
   %.neg12856.sroa.sel = select i1 %.not12855, ptr %.sroa.gep14276, ptr %5637
   %5638 = lshr i64 %5626, 48
   %5639 = trunc i64 %5638 to i8
   store i8 %5639, ptr %.neg12856.sroa.sel, align 1
-  %.sroa.gep15845 = getelementptr inbounds i8, ptr %.21314944, i64 3
+  %.sroa.gep15845 = getelementptr inbounds i8, ptr %.21414944, i64 3
   %.neg12856.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12855, ptr %.sroa.gep15845, ptr %.sroa.gep14276
   store i8 0, ptr %.neg12856.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5640 = and i64 %5626, 71776119061217280
@@ -11780,36 +11780,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5665:                                             ; preds = %5624
   %5666 = lshr i64 %5626, 48
   %5667 = trunc i64 %5666 to i8
-  %5668 = getelementptr inbounds i8, ptr %.21314944, i64 1
+  %5668 = getelementptr inbounds i8, ptr %.21414944, i64 1
   store i8 %5667, ptr %5668, align 1
   %5669 = lshr i64 %5626, 40
   %5670 = trunc i64 %5669 to i8
-  %5671 = getelementptr inbounds i8, ptr %.21314944, i64 2
+  %5671 = getelementptr inbounds i8, ptr %.21414944, i64 2
   store i8 %5670, ptr %5671, align 1
   %5672 = lshr i64 %5626, 32
   %5673 = trunc i64 %5672 to i8
-  %5674 = getelementptr inbounds i8, ptr %.21314944, i64 3
+  %5674 = getelementptr inbounds i8, ptr %.21414944, i64 3
   store i8 %5673, ptr %5674, align 1
   %5675 = lshr i64 %5630, 24
   %5676 = trunc i64 %5675 to i8
-  %5677 = getelementptr inbounds i8, ptr %.21314944, i64 4
+  %5677 = getelementptr inbounds i8, ptr %.21414944, i64 4
   store i8 %5676, ptr %5677, align 1
   %5678 = lshr i64 %5630, 16
   %5679 = trunc i64 %5678 to i8
-  %5680 = getelementptr inbounds i8, ptr %.21314944, i64 5
+  %5680 = getelementptr inbounds i8, ptr %.21414944, i64 5
   store i8 %5679, ptr %5680, align 1
   %5681 = lshr i64 %5630, 8
   %5682 = trunc i64 %5681 to i8
-  %5683 = getelementptr inbounds i8, ptr %.21314944, i64 6
+  %5683 = getelementptr inbounds i8, ptr %.21414944, i64 6
   store i8 %5682, ptr %5683, align 1
   %5684 = trunc i64 %5630 to i8
-  %5685 = getelementptr inbounds i8, ptr %.21314944, i64 7
+  %5685 = getelementptr inbounds i8, ptr %.21414944, i64 7
   store i8 %5684, ptr %5685, align 1
-  %5686 = getelementptr inbounds i8, ptr %.21314944, i64 8
+  %5686 = getelementptr inbounds i8, ptr %.21414944, i64 8
   br label %5687
 
 5687:                                             ; preds = %5665, %5636
-  %.214 = phi ptr [ %5664, %5636 ], [ %5686, %5665 ]
+  %.215 = phi ptr [ %5664, %5636 ], [ %5686, %5665 ]
   %5688 = add nsw i32 %5621, 64
   %5689 = load i32, ptr %5616, align 4
   %5690 = zext i32 %5689 to i64
@@ -11817,24 +11817,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 5691:                                             ; preds = %5617
   %5692 = zext nneg i32 %5620 to i64
-  %5693 = shl i64 %.1411118114943, %5692
+  %5693 = shl i64 %.1421118214943, %5692
   %5694 = zext i32 %5623 to i64
   %5695 = or i64 %5693, %5694
   br label %5696
 
 5696:                                             ; preds = %5691, %5687
-  %.14211436 = phi i32 [ %5688, %5687 ], [ %5621, %5691 ]
-  %.14211182 = phi i64 [ %5690, %5687 ], [ %5695, %5691 ]
-  %.215 = phi ptr [ %.214, %5687 ], [ %.21314944, %5691 ]
-  %5697 = icmp ugt i32 %.7014945, 511
+  %.14311437 = phi i32 [ %5688, %5687 ], [ %5621, %5691 ]
+  %.14311183 = phi i64 [ %5690, %5687 ], [ %5695, %5691 ]
+  %.216 = phi ptr [ %.215, %5687 ], [ %.21414944, %5691 ]
+  %5697 = icmp ugt i32 %.7114945, 511
   br i1 %5697, label %5617, label %._crit_edge14948, !llvm.loop !37
 
 ._crit_edge14948:                                 ; preds = %5696, %5613
-  %.14111435.lcssa = phi i32 [ %.14011434, %5613 ], [ %.14211436, %5696 ]
-  %.14111181.lcssa = phi i64 [ %.14011180, %5613 ], [ %.14211182, %5696 ]
-  %.213.lcssa = phi ptr [ %.212, %5613 ], [ %.215, %5696 ]
-  %.70.lcssa = phi i32 [ %.69, %5613 ], [ %5618, %5696 ]
-  %5698 = add nuw nsw i32 %.70.lcssa, %5604
+  %.14211436.lcssa = phi i32 [ %.13711431, %5613 ], [ %.14311437, %5696 ]
+  %.14211182.lcssa = phi i64 [ %.13711177, %5613 ], [ %.14311183, %5696 ]
+  %.214.lcssa = phi ptr [ %.207, %5613 ], [ %.216, %5696 ]
+  %.71.lcssa = phi i32 [ %.68, %5613 ], [ %5618, %5696 ]
+  %5698 = add nuw nsw i32 %.71.lcssa, %5604
   %5699 = zext nneg i8 %5603 to i64
   %notmask12836 = shl nsw i64 -1, %5699
   %5700 = trunc i64 %notmask12836 to i32
@@ -11850,13 +11850,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %5710 = load i8, ptr %5709, align 1
   %5711 = sext i8 %5710 to i32
   %5712 = add nsw i32 %5711, %5604
-  %5713 = sub nsw i32 %.14111435.lcssa, %5712
+  %5713 = sub nsw i32 %.14211436.lcssa, %5712
   %5714 = icmp slt i32 %5713, 0
   br i1 %5714, label %5715, label %5781
 
 5715:                                             ; preds = %._crit_edge14948
-  %5716 = zext nneg i32 %.14111435.lcssa to i64
-  %5717 = shl i64 %.14111181.lcssa, %5716
+  %5716 = zext nneg i32 %.14211436.lcssa to i64
+  %5717 = shl i64 %.14211182.lcssa, %5716
   %5718 = sub nsw i32 0, %5713
   %5719 = ashr i32 %5707, %5718
   %5720 = sext i32 %5719 to i64
@@ -11867,19 +11867,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12837 = icmp eq i64 %5724, 0
   %5725 = lshr i64 %5721, 56
   %5726 = trunc nuw i64 %5725 to i8
-  store i8 %5726, ptr %.213.lcssa, align 1
+  store i8 %5726, ptr %.214.lcssa, align 1
   br i1 %.not12837, label %5756, label %5727
 
 5727:                                             ; preds = %5715
-  %5728 = getelementptr inbounds i8, ptr %.213.lcssa, i64 1
+  %5728 = getelementptr inbounds i8, ptr %.214.lcssa, i64 1
   store i8 0, ptr %5728, align 1
   %.not12838 = icmp eq i64 %5725, 255
-  %.sroa.gep14284 = getelementptr inbounds i8, ptr %.213.lcssa, i64 2
+  %.sroa.gep14284 = getelementptr inbounds i8, ptr %.214.lcssa, i64 2
   %.neg12839.sroa.sel = select i1 %.not12838, ptr %.sroa.gep14284, ptr %5728
   %5729 = lshr i64 %5721, 48
   %5730 = trunc i64 %5729 to i8
   store i8 %5730, ptr %.neg12839.sroa.sel, align 1
-  %.sroa.gep15853 = getelementptr inbounds i8, ptr %.213.lcssa, i64 3
+  %.sroa.gep15853 = getelementptr inbounds i8, ptr %.214.lcssa, i64 3
   %.neg12839.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12838, ptr %.sroa.gep15853, ptr %.sroa.gep14284
   store i8 0, ptr %.neg12839.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5731 = and i64 %5721, 71776119061217280
@@ -11947,59 +11947,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5756:                                             ; preds = %5715
   %5757 = lshr i64 %5721, 48
   %5758 = trunc i64 %5757 to i8
-  %5759 = getelementptr inbounds i8, ptr %.213.lcssa, i64 1
+  %5759 = getelementptr inbounds i8, ptr %.214.lcssa, i64 1
   store i8 %5758, ptr %5759, align 1
   %5760 = lshr i64 %5721, 40
   %5761 = trunc i64 %5760 to i8
-  %5762 = getelementptr inbounds i8, ptr %.213.lcssa, i64 2
+  %5762 = getelementptr inbounds i8, ptr %.214.lcssa, i64 2
   store i8 %5761, ptr %5762, align 1
   %5763 = lshr i64 %5721, 32
   %5764 = trunc i64 %5763 to i8
-  %5765 = getelementptr inbounds i8, ptr %.213.lcssa, i64 3
+  %5765 = getelementptr inbounds i8, ptr %.214.lcssa, i64 3
   store i8 %5764, ptr %5765, align 1
   %5766 = lshr i64 %5721, 24
   %5767 = trunc i64 %5766 to i8
-  %5768 = getelementptr inbounds i8, ptr %.213.lcssa, i64 4
+  %5768 = getelementptr inbounds i8, ptr %.214.lcssa, i64 4
   store i8 %5767, ptr %5768, align 1
   %5769 = lshr i64 %5721, 16
   %5770 = trunc i64 %5769 to i8
-  %5771 = getelementptr inbounds i8, ptr %.213.lcssa, i64 5
+  %5771 = getelementptr inbounds i8, ptr %.214.lcssa, i64 5
   store i8 %5770, ptr %5771, align 1
   %5772 = lshr i64 %5721, 8
   %5773 = trunc i64 %5772 to i8
-  %5774 = getelementptr inbounds i8, ptr %.213.lcssa, i64 6
+  %5774 = getelementptr inbounds i8, ptr %.214.lcssa, i64 6
   store i8 %5773, ptr %5774, align 1
   %5775 = trunc i64 %5721 to i8
-  %5776 = getelementptr inbounds i8, ptr %.213.lcssa, i64 7
+  %5776 = getelementptr inbounds i8, ptr %.214.lcssa, i64 7
   store i8 %5775, ptr %5776, align 1
-  %5777 = getelementptr inbounds i8, ptr %.213.lcssa, i64 8
+  %5777 = getelementptr inbounds i8, ptr %.214.lcssa, i64 8
   br label %5778
 
 5778:                                             ; preds = %5756, %5727
-  %.216 = phi ptr [ %5755, %5727 ], [ %5777, %5756 ]
+  %.217 = phi ptr [ %5755, %5727 ], [ %5777, %5756 ]
   %5779 = add nsw i32 %5713, 64
   %5780 = sext i32 %5707 to i64
   br label %5786
 
 5781:                                             ; preds = %._crit_edge14948
   %5782 = zext nneg i32 %5712 to i64
-  %5783 = shl i64 %.14111181.lcssa, %5782
+  %5783 = shl i64 %.14211182.lcssa, %5782
   %5784 = sext i32 %5707 to i64
   %5785 = or i64 %5783, %5784
   br label %5786
 
 5786:                                             ; preds = %5778, %5781, %5594
-  %.14411438 = phi i32 [ %.14011434, %5594 ], [ %5779, %5778 ], [ %5713, %5781 ]
-  %.14411184 = phi i64 [ %.14011180, %5594 ], [ %5780, %5778 ], [ %5785, %5781 ]
-  %.218 = phi ptr [ %.212, %5594 ], [ %.216, %5778 ], [ %.213.lcssa, %5781 ]
-  %.71 = phi i32 [ %5595, %5594 ], [ 0, %5778 ], [ 0, %5781 ]
+  %.14111435 = phi i32 [ %.13711431, %5594 ], [ %5779, %5778 ], [ %5713, %5781 ]
+  %.14111181 = phi i64 [ %.13711177, %5594 ], [ %5780, %5778 ], [ %5785, %5781 ]
+  %.213 = phi ptr [ %.207, %5594 ], [ %.217, %5778 ], [ %.214.lcssa, %5781 ]
+  %.70 = phi i32 [ %5595, %5594 ], [ 0, %5778 ], [ 0, %5781 ]
   %5787 = getelementptr inbounds i8, ptr %1, i64 100
   %5788 = load i16, ptr %5787, align 2
   %5789 = icmp eq i16 %5788, 0
   br i1 %5789, label %5790, label %5792
 
 5790:                                             ; preds = %5786
-  %5791 = add nuw nsw i32 %.71, 16
+  %5791 = add nuw nsw i32 %.70, 16
   br label %5982
 
 5792:                                             ; preds = %5786
@@ -12026,7 +12026,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5809
 
 5809:                                             ; preds = %5802, %5792
-  %5810 = icmp ugt i32 %.71, 255
+  %5810 = icmp ugt i32 %.70, 255
   br i1 %5810, label %.lr.ph14958, label %._crit_edge14959
 
 .lr.ph14958:                                      ; preds = %5809
@@ -12035,21 +12035,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %5813
 
 5813:                                             ; preds = %.lr.ph14958, %5892
-  %.7214956 = phi i32 [ %.71, %.lr.ph14958 ], [ %5814, %5892 ]
-  %.21914955 = phi ptr [ %.218, %.lr.ph14958 ], [ %.221, %5892 ]
-  %.1451118514954 = phi i64 [ %.14411184, %.lr.ph14958 ], [ %.14611186, %5892 ]
-  %.1451143914953 = phi i32 [ %.14411438, %.lr.ph14958 ], [ %.14611440, %5892 ]
-  %5814 = add nsw i32 %.7214956, -256
+  %.7314956 = phi i32 [ %.70, %.lr.ph14958 ], [ %5814, %5892 ]
+  %.22014955 = phi ptr [ %.213, %.lr.ph14958 ], [ %.222, %5892 ]
+  %.1461118614954 = phi i64 [ %.14111181, %.lr.ph14958 ], [ %.14711187, %5892 ]
+  %.1461144014953 = phi i32 [ %.14111435, %.lr.ph14958 ], [ %.14711441, %5892 ]
+  %5814 = add nsw i32 %.7314956, -256
   %5815 = load i8, ptr %5811, align 4
   %5816 = sext i8 %5815 to i32
-  %5817 = sub nsw i32 %.1451143914953, %5816
+  %5817 = sub nsw i32 %.1461144014953, %5816
   %5818 = icmp slt i32 %5817, 0
   %5819 = load i32, ptr %5812, align 4
   br i1 %5818, label %5820, label %5887
 
 5820:                                             ; preds = %5813
-  %5821 = zext nneg i32 %.1451143914953 to i64
-  %5822 = shl i64 %.1451118514954, %5821
+  %5821 = zext nneg i32 %.1461144014953 to i64
+  %5822 = shl i64 %.1461118614954, %5821
   %5823 = sub nsw i32 0, %5817
   %5824 = lshr i32 %5819, %5823
   %5825 = zext nneg i32 %5824 to i64
@@ -12060,19 +12060,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12889 = icmp eq i64 %5829, 0
   %5830 = lshr i64 %5822, 56
   %5831 = trunc nuw i64 %5830 to i8
-  store i8 %5831, ptr %.21914955, align 1
+  store i8 %5831, ptr %.22014955, align 1
   br i1 %.not12889, label %5861, label %5832
 
 5832:                                             ; preds = %5820
-  %5833 = getelementptr inbounds i8, ptr %.21914955, i64 1
+  %5833 = getelementptr inbounds i8, ptr %.22014955, i64 1
   store i8 0, ptr %5833, align 1
   %.not12890 = icmp eq i64 %5830, 255
-  %.sroa.gep14292 = getelementptr inbounds i8, ptr %.21914955, i64 2
+  %.sroa.gep14292 = getelementptr inbounds i8, ptr %.22014955, i64 2
   %.neg12891.sroa.sel = select i1 %.not12890, ptr %.sroa.gep14292, ptr %5833
   %5834 = lshr i64 %5822, 48
   %5835 = trunc i64 %5834 to i8
   store i8 %5835, ptr %.neg12891.sroa.sel, align 1
-  %.sroa.gep15829 = getelementptr inbounds i8, ptr %.21914955, i64 3
+  %.sroa.gep15829 = getelementptr inbounds i8, ptr %.22014955, i64 3
   %.neg12891.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12890, ptr %.sroa.gep15829, ptr %.sroa.gep14292
   store i8 0, ptr %.neg12891.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5836 = and i64 %5822, 71776119061217280
@@ -12140,36 +12140,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5861:                                             ; preds = %5820
   %5862 = lshr i64 %5822, 48
   %5863 = trunc i64 %5862 to i8
-  %5864 = getelementptr inbounds i8, ptr %.21914955, i64 1
+  %5864 = getelementptr inbounds i8, ptr %.22014955, i64 1
   store i8 %5863, ptr %5864, align 1
   %5865 = lshr i64 %5822, 40
   %5866 = trunc i64 %5865 to i8
-  %5867 = getelementptr inbounds i8, ptr %.21914955, i64 2
+  %5867 = getelementptr inbounds i8, ptr %.22014955, i64 2
   store i8 %5866, ptr %5867, align 1
   %5868 = lshr i64 %5822, 32
   %5869 = trunc i64 %5868 to i8
-  %5870 = getelementptr inbounds i8, ptr %.21914955, i64 3
+  %5870 = getelementptr inbounds i8, ptr %.22014955, i64 3
   store i8 %5869, ptr %5870, align 1
   %5871 = lshr i64 %5826, 24
   %5872 = trunc i64 %5871 to i8
-  %5873 = getelementptr inbounds i8, ptr %.21914955, i64 4
+  %5873 = getelementptr inbounds i8, ptr %.22014955, i64 4
   store i8 %5872, ptr %5873, align 1
   %5874 = lshr i64 %5826, 16
   %5875 = trunc i64 %5874 to i8
-  %5876 = getelementptr inbounds i8, ptr %.21914955, i64 5
+  %5876 = getelementptr inbounds i8, ptr %.22014955, i64 5
   store i8 %5875, ptr %5876, align 1
   %5877 = lshr i64 %5826, 8
   %5878 = trunc i64 %5877 to i8
-  %5879 = getelementptr inbounds i8, ptr %.21914955, i64 6
+  %5879 = getelementptr inbounds i8, ptr %.22014955, i64 6
   store i8 %5878, ptr %5879, align 1
   %5880 = trunc i64 %5826 to i8
-  %5881 = getelementptr inbounds i8, ptr %.21914955, i64 7
+  %5881 = getelementptr inbounds i8, ptr %.22014955, i64 7
   store i8 %5880, ptr %5881, align 1
-  %5882 = getelementptr inbounds i8, ptr %.21914955, i64 8
+  %5882 = getelementptr inbounds i8, ptr %.22014955, i64 8
   br label %5883
 
 5883:                                             ; preds = %5861, %5832
-  %.220 = phi ptr [ %5860, %5832 ], [ %5882, %5861 ]
+  %.221 = phi ptr [ %5860, %5832 ], [ %5882, %5861 ]
   %5884 = add nsw i32 %5817, 64
   %5885 = load i32, ptr %5812, align 4
   %5886 = zext i32 %5885 to i64
@@ -12177,24 +12177,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 5887:                                             ; preds = %5813
   %5888 = zext nneg i32 %5816 to i64
-  %5889 = shl i64 %.1451118514954, %5888
+  %5889 = shl i64 %.1461118614954, %5888
   %5890 = zext i32 %5819 to i64
   %5891 = or i64 %5889, %5890
   br label %5892
 
 5892:                                             ; preds = %5887, %5883
-  %.14611440 = phi i32 [ %5884, %5883 ], [ %5817, %5887 ]
-  %.14611186 = phi i64 [ %5886, %5883 ], [ %5891, %5887 ]
-  %.221 = phi ptr [ %.220, %5883 ], [ %.21914955, %5887 ]
-  %5893 = icmp ugt i32 %.7214956, 511
+  %.14711441 = phi i32 [ %5884, %5883 ], [ %5817, %5887 ]
+  %.14711187 = phi i64 [ %5886, %5883 ], [ %5891, %5887 ]
+  %.222 = phi ptr [ %.221, %5883 ], [ %.22014955, %5887 ]
+  %5893 = icmp ugt i32 %.7314956, 511
   br i1 %5893, label %5813, label %._crit_edge14959, !llvm.loop !38
 
 ._crit_edge14959:                                 ; preds = %5892, %5809
-  %.14511439.lcssa = phi i32 [ %.14411438, %5809 ], [ %.14611440, %5892 ]
-  %.14511185.lcssa = phi i64 [ %.14411184, %5809 ], [ %.14611186, %5892 ]
-  %.219.lcssa = phi ptr [ %.218, %5809 ], [ %.221, %5892 ]
-  %.72.lcssa = phi i32 [ %.71, %5809 ], [ %5814, %5892 ]
-  %5894 = add nuw nsw i32 %.72.lcssa, %5800
+  %.14611440.lcssa = phi i32 [ %.14111435, %5809 ], [ %.14711441, %5892 ]
+  %.14611186.lcssa = phi i64 [ %.14111181, %5809 ], [ %.14711187, %5892 ]
+  %.220.lcssa = phi ptr [ %.213, %5809 ], [ %.222, %5892 ]
+  %.73.lcssa = phi i32 [ %.70, %5809 ], [ %5814, %5892 ]
+  %5894 = add nuw nsw i32 %.73.lcssa, %5800
   %5895 = zext nneg i8 %5799 to i64
   %notmask12871 = shl nsw i64 -1, %5895
   %5896 = trunc i64 %notmask12871 to i32
@@ -12210,13 +12210,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %5906 = load i8, ptr %5905, align 1
   %5907 = sext i8 %5906 to i32
   %5908 = add nsw i32 %5907, %5800
-  %5909 = sub nsw i32 %.14511439.lcssa, %5908
+  %5909 = sub nsw i32 %.14611440.lcssa, %5908
   %5910 = icmp slt i32 %5909, 0
   br i1 %5910, label %5911, label %5977
 
 5911:                                             ; preds = %._crit_edge14959
-  %5912 = zext nneg i32 %.14511439.lcssa to i64
-  %5913 = shl i64 %.14511185.lcssa, %5912
+  %5912 = zext nneg i32 %.14611440.lcssa to i64
+  %5913 = shl i64 %.14611186.lcssa, %5912
   %5914 = sub nsw i32 0, %5909
   %5915 = ashr i32 %5903, %5914
   %5916 = sext i32 %5915 to i64
@@ -12227,19 +12227,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12872 = icmp eq i64 %5920, 0
   %5921 = lshr i64 %5917, 56
   %5922 = trunc nuw i64 %5921 to i8
-  store i8 %5922, ptr %.219.lcssa, align 1
+  store i8 %5922, ptr %.220.lcssa, align 1
   br i1 %.not12872, label %5952, label %5923
 
 5923:                                             ; preds = %5911
-  %5924 = getelementptr inbounds i8, ptr %.219.lcssa, i64 1
+  %5924 = getelementptr inbounds i8, ptr %.220.lcssa, i64 1
   store i8 0, ptr %5924, align 1
   %.not12873 = icmp eq i64 %5921, 255
-  %.sroa.gep14300 = getelementptr inbounds i8, ptr %.219.lcssa, i64 2
+  %.sroa.gep14300 = getelementptr inbounds i8, ptr %.220.lcssa, i64 2
   %.neg12874.sroa.sel = select i1 %.not12873, ptr %.sroa.gep14300, ptr %5924
   %5925 = lshr i64 %5917, 48
   %5926 = trunc i64 %5925 to i8
   store i8 %5926, ptr %.neg12874.sroa.sel, align 1
-  %.sroa.gep15837 = getelementptr inbounds i8, ptr %.219.lcssa, i64 3
+  %.sroa.gep15837 = getelementptr inbounds i8, ptr %.220.lcssa, i64 3
   %.neg12874.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12873, ptr %.sroa.gep15837, ptr %.sroa.gep14300
   store i8 0, ptr %.neg12874.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5927 = and i64 %5917, 71776119061217280
@@ -12307,59 +12307,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 5952:                                             ; preds = %5911
   %5953 = lshr i64 %5917, 48
   %5954 = trunc i64 %5953 to i8
-  %5955 = getelementptr inbounds i8, ptr %.219.lcssa, i64 1
+  %5955 = getelementptr inbounds i8, ptr %.220.lcssa, i64 1
   store i8 %5954, ptr %5955, align 1
   %5956 = lshr i64 %5917, 40
   %5957 = trunc i64 %5956 to i8
-  %5958 = getelementptr inbounds i8, ptr %.219.lcssa, i64 2
+  %5958 = getelementptr inbounds i8, ptr %.220.lcssa, i64 2
   store i8 %5957, ptr %5958, align 1
   %5959 = lshr i64 %5917, 32
   %5960 = trunc i64 %5959 to i8
-  %5961 = getelementptr inbounds i8, ptr %.219.lcssa, i64 3
+  %5961 = getelementptr inbounds i8, ptr %.220.lcssa, i64 3
   store i8 %5960, ptr %5961, align 1
   %5962 = lshr i64 %5917, 24
   %5963 = trunc i64 %5962 to i8
-  %5964 = getelementptr inbounds i8, ptr %.219.lcssa, i64 4
+  %5964 = getelementptr inbounds i8, ptr %.220.lcssa, i64 4
   store i8 %5963, ptr %5964, align 1
   %5965 = lshr i64 %5917, 16
   %5966 = trunc i64 %5965 to i8
-  %5967 = getelementptr inbounds i8, ptr %.219.lcssa, i64 5
+  %5967 = getelementptr inbounds i8, ptr %.220.lcssa, i64 5
   store i8 %5966, ptr %5967, align 1
   %5968 = lshr i64 %5917, 8
   %5969 = trunc i64 %5968 to i8
-  %5970 = getelementptr inbounds i8, ptr %.219.lcssa, i64 6
+  %5970 = getelementptr inbounds i8, ptr %.220.lcssa, i64 6
   store i8 %5969, ptr %5970, align 1
   %5971 = trunc i64 %5917 to i8
-  %5972 = getelementptr inbounds i8, ptr %.219.lcssa, i64 7
+  %5972 = getelementptr inbounds i8, ptr %.220.lcssa, i64 7
   store i8 %5971, ptr %5972, align 1
-  %5973 = getelementptr inbounds i8, ptr %.219.lcssa, i64 8
+  %5973 = getelementptr inbounds i8, ptr %.220.lcssa, i64 8
   br label %5974
 
 5974:                                             ; preds = %5952, %5923
-  %.222 = phi ptr [ %5951, %5923 ], [ %5973, %5952 ]
+  %.223 = phi ptr [ %5951, %5923 ], [ %5973, %5952 ]
   %5975 = add nsw i32 %5909, 64
   %5976 = sext i32 %5903 to i64
   br label %5982
 
 5977:                                             ; preds = %._crit_edge14959
   %5978 = zext nneg i32 %5908 to i64
-  %5979 = shl i64 %.14511185.lcssa, %5978
+  %5979 = shl i64 %.14611186.lcssa, %5978
   %5980 = sext i32 %5903 to i64
   %5981 = or i64 %5979, %5980
   br label %5982
 
 5982:                                             ; preds = %5974, %5977, %5790
-  %.14811442 = phi i32 [ %.14411438, %5790 ], [ %5975, %5974 ], [ %5909, %5977 ]
-  %.14811188 = phi i64 [ %.14411184, %5790 ], [ %5976, %5974 ], [ %5981, %5977 ]
-  %.224 = phi ptr [ %.218, %5790 ], [ %.222, %5974 ], [ %.219.lcssa, %5977 ]
-  %.73 = phi i32 [ %5791, %5790 ], [ 0, %5974 ], [ 0, %5977 ]
+  %.14511439 = phi i32 [ %.14111435, %5790 ], [ %5975, %5974 ], [ %5909, %5977 ]
+  %.14511185 = phi i64 [ %.14111181, %5790 ], [ %5976, %5974 ], [ %5981, %5977 ]
+  %.219 = phi ptr [ %.213, %5790 ], [ %.223, %5974 ], [ %.220.lcssa, %5977 ]
+  %.72 = phi i32 [ %5791, %5790 ], [ 0, %5974 ], [ 0, %5977 ]
   %5983 = getelementptr inbounds i8, ptr %1, i64 86
   %5984 = load i16, ptr %5983, align 2
   %5985 = icmp eq i16 %5984, 0
   br i1 %5985, label %5986, label %5988
 
 5986:                                             ; preds = %5982
-  %5987 = add nuw nsw i32 %.73, 16
+  %5987 = add nuw nsw i32 %.72, 16
   br label %6178
 
 5988:                                             ; preds = %5982
@@ -12386,7 +12386,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6005
 
 6005:                                             ; preds = %5998, %5988
-  %6006 = icmp ugt i32 %.73, 255
+  %6006 = icmp ugt i32 %.72, 255
   br i1 %6006, label %.lr.ph14969, label %._crit_edge14970
 
 .lr.ph14969:                                      ; preds = %6005
@@ -12395,21 +12395,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6009
 
 6009:                                             ; preds = %.lr.ph14969, %6088
-  %.7414967 = phi i32 [ %.73, %.lr.ph14969 ], [ %6010, %6088 ]
-  %.22514966 = phi ptr [ %.224, %.lr.ph14969 ], [ %.227, %6088 ]
-  %.1491118914965 = phi i64 [ %.14811188, %.lr.ph14969 ], [ %.15011190, %6088 ]
-  %.1491144314964 = phi i32 [ %.14811442, %.lr.ph14969 ], [ %.15011444, %6088 ]
-  %6010 = add nsw i32 %.7414967, -256
+  %.7514967 = phi i32 [ %.72, %.lr.ph14969 ], [ %6010, %6088 ]
+  %.22614966 = phi ptr [ %.219, %.lr.ph14969 ], [ %.228, %6088 ]
+  %.1501119014965 = phi i64 [ %.14511185, %.lr.ph14969 ], [ %.15111191, %6088 ]
+  %.1501144414964 = phi i32 [ %.14511439, %.lr.ph14969 ], [ %.15111445, %6088 ]
+  %6010 = add nsw i32 %.7514967, -256
   %6011 = load i8, ptr %6007, align 4
   %6012 = sext i8 %6011 to i32
-  %6013 = sub nsw i32 %.1491144314964, %6012
+  %6013 = sub nsw i32 %.1501144414964, %6012
   %6014 = icmp slt i32 %6013, 0
   %6015 = load i32, ptr %6008, align 4
   br i1 %6014, label %6016, label %6083
 
 6016:                                             ; preds = %6009
-  %6017 = zext nneg i32 %.1491144314964 to i64
-  %6018 = shl i64 %.1491118914965, %6017
+  %6017 = zext nneg i32 %.1501144414964 to i64
+  %6018 = shl i64 %.1501119014965, %6017
   %6019 = sub nsw i32 0, %6013
   %6020 = lshr i32 %6015, %6019
   %6021 = zext nneg i32 %6020 to i64
@@ -12420,19 +12420,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12924 = icmp eq i64 %6025, 0
   %6026 = lshr i64 %6018, 56
   %6027 = trunc nuw i64 %6026 to i8
-  store i8 %6027, ptr %.22514966, align 1
+  store i8 %6027, ptr %.22614966, align 1
   br i1 %.not12924, label %6057, label %6028
 
 6028:                                             ; preds = %6016
-  %6029 = getelementptr inbounds i8, ptr %.22514966, i64 1
+  %6029 = getelementptr inbounds i8, ptr %.22614966, i64 1
   store i8 0, ptr %6029, align 1
   %.not12925 = icmp eq i64 %6026, 255
-  %.sroa.gep14308 = getelementptr inbounds i8, ptr %.22514966, i64 2
+  %.sroa.gep14308 = getelementptr inbounds i8, ptr %.22614966, i64 2
   %.neg12926.sroa.sel = select i1 %.not12925, ptr %.sroa.gep14308, ptr %6029
   %6030 = lshr i64 %6018, 48
   %6031 = trunc i64 %6030 to i8
   store i8 %6031, ptr %.neg12926.sroa.sel, align 1
-  %.sroa.gep15813 = getelementptr inbounds i8, ptr %.22514966, i64 3
+  %.sroa.gep15813 = getelementptr inbounds i8, ptr %.22614966, i64 3
   %.neg12926.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12925, ptr %.sroa.gep15813, ptr %.sroa.gep14308
   store i8 0, ptr %.neg12926.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6032 = and i64 %6018, 71776119061217280
@@ -12500,36 +12500,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6057:                                             ; preds = %6016
   %6058 = lshr i64 %6018, 48
   %6059 = trunc i64 %6058 to i8
-  %6060 = getelementptr inbounds i8, ptr %.22514966, i64 1
+  %6060 = getelementptr inbounds i8, ptr %.22614966, i64 1
   store i8 %6059, ptr %6060, align 1
   %6061 = lshr i64 %6018, 40
   %6062 = trunc i64 %6061 to i8
-  %6063 = getelementptr inbounds i8, ptr %.22514966, i64 2
+  %6063 = getelementptr inbounds i8, ptr %.22614966, i64 2
   store i8 %6062, ptr %6063, align 1
   %6064 = lshr i64 %6018, 32
   %6065 = trunc i64 %6064 to i8
-  %6066 = getelementptr inbounds i8, ptr %.22514966, i64 3
+  %6066 = getelementptr inbounds i8, ptr %.22614966, i64 3
   store i8 %6065, ptr %6066, align 1
   %6067 = lshr i64 %6022, 24
   %6068 = trunc i64 %6067 to i8
-  %6069 = getelementptr inbounds i8, ptr %.22514966, i64 4
+  %6069 = getelementptr inbounds i8, ptr %.22614966, i64 4
   store i8 %6068, ptr %6069, align 1
   %6070 = lshr i64 %6022, 16
   %6071 = trunc i64 %6070 to i8
-  %6072 = getelementptr inbounds i8, ptr %.22514966, i64 5
+  %6072 = getelementptr inbounds i8, ptr %.22614966, i64 5
   store i8 %6071, ptr %6072, align 1
   %6073 = lshr i64 %6022, 8
   %6074 = trunc i64 %6073 to i8
-  %6075 = getelementptr inbounds i8, ptr %.22514966, i64 6
+  %6075 = getelementptr inbounds i8, ptr %.22614966, i64 6
   store i8 %6074, ptr %6075, align 1
   %6076 = trunc i64 %6022 to i8
-  %6077 = getelementptr inbounds i8, ptr %.22514966, i64 7
+  %6077 = getelementptr inbounds i8, ptr %.22614966, i64 7
   store i8 %6076, ptr %6077, align 1
-  %6078 = getelementptr inbounds i8, ptr %.22514966, i64 8
+  %6078 = getelementptr inbounds i8, ptr %.22614966, i64 8
   br label %6079
 
 6079:                                             ; preds = %6057, %6028
-  %.226 = phi ptr [ %6056, %6028 ], [ %6078, %6057 ]
+  %.227 = phi ptr [ %6056, %6028 ], [ %6078, %6057 ]
   %6080 = add nsw i32 %6013, 64
   %6081 = load i32, ptr %6008, align 4
   %6082 = zext i32 %6081 to i64
@@ -12537,24 +12537,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 6083:                                             ; preds = %6009
   %6084 = zext nneg i32 %6012 to i64
-  %6085 = shl i64 %.1491118914965, %6084
+  %6085 = shl i64 %.1501119014965, %6084
   %6086 = zext i32 %6015 to i64
   %6087 = or i64 %6085, %6086
   br label %6088
 
 6088:                                             ; preds = %6083, %6079
-  %.15011444 = phi i32 [ %6080, %6079 ], [ %6013, %6083 ]
-  %.15011190 = phi i64 [ %6082, %6079 ], [ %6087, %6083 ]
-  %.227 = phi ptr [ %.226, %6079 ], [ %.22514966, %6083 ]
-  %6089 = icmp ugt i32 %.7414967, 511
+  %.15111445 = phi i32 [ %6080, %6079 ], [ %6013, %6083 ]
+  %.15111191 = phi i64 [ %6082, %6079 ], [ %6087, %6083 ]
+  %.228 = phi ptr [ %.227, %6079 ], [ %.22614966, %6083 ]
+  %6089 = icmp ugt i32 %.7514967, 511
   br i1 %6089, label %6009, label %._crit_edge14970, !llvm.loop !39
 
 ._crit_edge14970:                                 ; preds = %6088, %6005
-  %.14911443.lcssa = phi i32 [ %.14811442, %6005 ], [ %.15011444, %6088 ]
-  %.14911189.lcssa = phi i64 [ %.14811188, %6005 ], [ %.15011190, %6088 ]
-  %.225.lcssa = phi ptr [ %.224, %6005 ], [ %.227, %6088 ]
-  %.74.lcssa = phi i32 [ %.73, %6005 ], [ %6010, %6088 ]
-  %6090 = add nuw nsw i32 %.74.lcssa, %5996
+  %.15011444.lcssa = phi i32 [ %.14511439, %6005 ], [ %.15111445, %6088 ]
+  %.15011190.lcssa = phi i64 [ %.14511185, %6005 ], [ %.15111191, %6088 ]
+  %.226.lcssa = phi ptr [ %.219, %6005 ], [ %.228, %6088 ]
+  %.75.lcssa = phi i32 [ %.72, %6005 ], [ %6010, %6088 ]
+  %6090 = add nuw nsw i32 %.75.lcssa, %5996
   %6091 = zext nneg i8 %5995 to i64
   %notmask12906 = shl nsw i64 -1, %6091
   %6092 = trunc i64 %notmask12906 to i32
@@ -12570,13 +12570,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %6102 = load i8, ptr %6101, align 1
   %6103 = sext i8 %6102 to i32
   %6104 = add nsw i32 %6103, %5996
-  %6105 = sub nsw i32 %.14911443.lcssa, %6104
+  %6105 = sub nsw i32 %.15011444.lcssa, %6104
   %6106 = icmp slt i32 %6105, 0
   br i1 %6106, label %6107, label %6173
 
 6107:                                             ; preds = %._crit_edge14970
-  %6108 = zext nneg i32 %.14911443.lcssa to i64
-  %6109 = shl i64 %.14911189.lcssa, %6108
+  %6108 = zext nneg i32 %.15011444.lcssa to i64
+  %6109 = shl i64 %.15011190.lcssa, %6108
   %6110 = sub nsw i32 0, %6105
   %6111 = ashr i32 %6099, %6110
   %6112 = sext i32 %6111 to i64
@@ -12587,19 +12587,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12907 = icmp eq i64 %6116, 0
   %6117 = lshr i64 %6113, 56
   %6118 = trunc nuw i64 %6117 to i8
-  store i8 %6118, ptr %.225.lcssa, align 1
+  store i8 %6118, ptr %.226.lcssa, align 1
   br i1 %.not12907, label %6148, label %6119
 
 6119:                                             ; preds = %6107
-  %6120 = getelementptr inbounds i8, ptr %.225.lcssa, i64 1
+  %6120 = getelementptr inbounds i8, ptr %.226.lcssa, i64 1
   store i8 0, ptr %6120, align 1
   %.not12908 = icmp eq i64 %6117, 255
-  %.sroa.gep14316 = getelementptr inbounds i8, ptr %.225.lcssa, i64 2
+  %.sroa.gep14316 = getelementptr inbounds i8, ptr %.226.lcssa, i64 2
   %.neg12909.sroa.sel = select i1 %.not12908, ptr %.sroa.gep14316, ptr %6120
   %6121 = lshr i64 %6113, 48
   %6122 = trunc i64 %6121 to i8
   store i8 %6122, ptr %.neg12909.sroa.sel, align 1
-  %.sroa.gep15821 = getelementptr inbounds i8, ptr %.225.lcssa, i64 3
+  %.sroa.gep15821 = getelementptr inbounds i8, ptr %.226.lcssa, i64 3
   %.neg12909.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12908, ptr %.sroa.gep15821, ptr %.sroa.gep14316
   store i8 0, ptr %.neg12909.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6123 = and i64 %6113, 71776119061217280
@@ -12667,59 +12667,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6148:                                             ; preds = %6107
   %6149 = lshr i64 %6113, 48
   %6150 = trunc i64 %6149 to i8
-  %6151 = getelementptr inbounds i8, ptr %.225.lcssa, i64 1
+  %6151 = getelementptr inbounds i8, ptr %.226.lcssa, i64 1
   store i8 %6150, ptr %6151, align 1
   %6152 = lshr i64 %6113, 40
   %6153 = trunc i64 %6152 to i8
-  %6154 = getelementptr inbounds i8, ptr %.225.lcssa, i64 2
+  %6154 = getelementptr inbounds i8, ptr %.226.lcssa, i64 2
   store i8 %6153, ptr %6154, align 1
   %6155 = lshr i64 %6113, 32
   %6156 = trunc i64 %6155 to i8
-  %6157 = getelementptr inbounds i8, ptr %.225.lcssa, i64 3
+  %6157 = getelementptr inbounds i8, ptr %.226.lcssa, i64 3
   store i8 %6156, ptr %6157, align 1
   %6158 = lshr i64 %6113, 24
   %6159 = trunc i64 %6158 to i8
-  %6160 = getelementptr inbounds i8, ptr %.225.lcssa, i64 4
+  %6160 = getelementptr inbounds i8, ptr %.226.lcssa, i64 4
   store i8 %6159, ptr %6160, align 1
   %6161 = lshr i64 %6113, 16
   %6162 = trunc i64 %6161 to i8
-  %6163 = getelementptr inbounds i8, ptr %.225.lcssa, i64 5
+  %6163 = getelementptr inbounds i8, ptr %.226.lcssa, i64 5
   store i8 %6162, ptr %6163, align 1
   %6164 = lshr i64 %6113, 8
   %6165 = trunc i64 %6164 to i8
-  %6166 = getelementptr inbounds i8, ptr %.225.lcssa, i64 6
+  %6166 = getelementptr inbounds i8, ptr %.226.lcssa, i64 6
   store i8 %6165, ptr %6166, align 1
   %6167 = trunc i64 %6113 to i8
-  %6168 = getelementptr inbounds i8, ptr %.225.lcssa, i64 7
+  %6168 = getelementptr inbounds i8, ptr %.226.lcssa, i64 7
   store i8 %6167, ptr %6168, align 1
-  %6169 = getelementptr inbounds i8, ptr %.225.lcssa, i64 8
+  %6169 = getelementptr inbounds i8, ptr %.226.lcssa, i64 8
   br label %6170
 
 6170:                                             ; preds = %6148, %6119
-  %.228 = phi ptr [ %6147, %6119 ], [ %6169, %6148 ]
+  %.229 = phi ptr [ %6147, %6119 ], [ %6169, %6148 ]
   %6171 = add nsw i32 %6105, 64
   %6172 = sext i32 %6099 to i64
   br label %6178
 
 6173:                                             ; preds = %._crit_edge14970
   %6174 = zext nneg i32 %6104 to i64
-  %6175 = shl i64 %.14911189.lcssa, %6174
+  %6175 = shl i64 %.15011190.lcssa, %6174
   %6176 = sext i32 %6099 to i64
   %6177 = or i64 %6175, %6176
   br label %6178
 
 6178:                                             ; preds = %6170, %6173, %5986
-  %.15211446 = phi i32 [ %.14811442, %5986 ], [ %6171, %6170 ], [ %6105, %6173 ]
-  %.15211192 = phi i64 [ %.14811188, %5986 ], [ %6172, %6170 ], [ %6177, %6173 ]
-  %.230 = phi ptr [ %.224, %5986 ], [ %.228, %6170 ], [ %.225.lcssa, %6173 ]
-  %.75 = phi i32 [ %5987, %5986 ], [ 0, %6170 ], [ 0, %6173 ]
+  %.14911443 = phi i32 [ %.14511439, %5986 ], [ %6171, %6170 ], [ %6105, %6173 ]
+  %.14911189 = phi i64 [ %.14511185, %5986 ], [ %6172, %6170 ], [ %6177, %6173 ]
+  %.225 = phi ptr [ %.219, %5986 ], [ %.229, %6170 ], [ %.226.lcssa, %6173 ]
+  %.74 = phi i32 [ %5987, %5986 ], [ 0, %6170 ], [ 0, %6173 ]
   %6179 = getelementptr inbounds i8, ptr %1, i64 72
   %6180 = load i16, ptr %6179, align 2
   %6181 = icmp eq i16 %6180, 0
   br i1 %6181, label %6182, label %6184
 
 6182:                                             ; preds = %6178
-  %6183 = add nuw nsw i32 %.75, 16
+  %6183 = add nuw nsw i32 %.74, 16
   br label %6374
 
 6184:                                             ; preds = %6178
@@ -12746,7 +12746,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6201
 
 6201:                                             ; preds = %6194, %6184
-  %6202 = icmp ugt i32 %.75, 255
+  %6202 = icmp ugt i32 %.74, 255
   br i1 %6202, label %.lr.ph14980, label %._crit_edge14981
 
 .lr.ph14980:                                      ; preds = %6201
@@ -12755,21 +12755,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6205
 
 6205:                                             ; preds = %.lr.ph14980, %6284
-  %.7614978 = phi i32 [ %.75, %.lr.ph14980 ], [ %6206, %6284 ]
-  %.23114977 = phi ptr [ %.230, %.lr.ph14980 ], [ %.233, %6284 ]
-  %.1531119314976 = phi i64 [ %.15211192, %.lr.ph14980 ], [ %.15411194, %6284 ]
-  %.1531144714975 = phi i32 [ %.15211446, %.lr.ph14980 ], [ %.15411448, %6284 ]
-  %6206 = add nsw i32 %.7614978, -256
+  %.7714978 = phi i32 [ %.74, %.lr.ph14980 ], [ %6206, %6284 ]
+  %.23214977 = phi ptr [ %.225, %.lr.ph14980 ], [ %.234, %6284 ]
+  %.1541119414976 = phi i64 [ %.14911189, %.lr.ph14980 ], [ %.15511195, %6284 ]
+  %.1541144814975 = phi i32 [ %.14911443, %.lr.ph14980 ], [ %.15511449, %6284 ]
+  %6206 = add nsw i32 %.7714978, -256
   %6207 = load i8, ptr %6203, align 4
   %6208 = sext i8 %6207 to i32
-  %6209 = sub nsw i32 %.1531144714975, %6208
+  %6209 = sub nsw i32 %.1541144814975, %6208
   %6210 = icmp slt i32 %6209, 0
   %6211 = load i32, ptr %6204, align 4
   br i1 %6210, label %6212, label %6279
 
 6212:                                             ; preds = %6205
-  %6213 = zext nneg i32 %.1531144714975 to i64
-  %6214 = shl i64 %.1531119314976, %6213
+  %6213 = zext nneg i32 %.1541144814975 to i64
+  %6214 = shl i64 %.1541119414976, %6213
   %6215 = sub nsw i32 0, %6209
   %6216 = lshr i32 %6211, %6215
   %6217 = zext nneg i32 %6216 to i64
@@ -12780,19 +12780,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12959 = icmp eq i64 %6221, 0
   %6222 = lshr i64 %6214, 56
   %6223 = trunc nuw i64 %6222 to i8
-  store i8 %6223, ptr %.23114977, align 1
+  store i8 %6223, ptr %.23214977, align 1
   br i1 %.not12959, label %6253, label %6224
 
 6224:                                             ; preds = %6212
-  %6225 = getelementptr inbounds i8, ptr %.23114977, i64 1
+  %6225 = getelementptr inbounds i8, ptr %.23214977, i64 1
   store i8 0, ptr %6225, align 1
   %.not12960 = icmp eq i64 %6222, 255
-  %.sroa.gep14324 = getelementptr inbounds i8, ptr %.23114977, i64 2
+  %.sroa.gep14324 = getelementptr inbounds i8, ptr %.23214977, i64 2
   %.neg12961.sroa.sel = select i1 %.not12960, ptr %.sroa.gep14324, ptr %6225
   %6226 = lshr i64 %6214, 48
   %6227 = trunc i64 %6226 to i8
   store i8 %6227, ptr %.neg12961.sroa.sel, align 1
-  %.sroa.gep15797 = getelementptr inbounds i8, ptr %.23114977, i64 3
+  %.sroa.gep15797 = getelementptr inbounds i8, ptr %.23214977, i64 3
   %.neg12961.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12960, ptr %.sroa.gep15797, ptr %.sroa.gep14324
   store i8 0, ptr %.neg12961.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6228 = and i64 %6214, 71776119061217280
@@ -12860,36 +12860,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6253:                                             ; preds = %6212
   %6254 = lshr i64 %6214, 48
   %6255 = trunc i64 %6254 to i8
-  %6256 = getelementptr inbounds i8, ptr %.23114977, i64 1
+  %6256 = getelementptr inbounds i8, ptr %.23214977, i64 1
   store i8 %6255, ptr %6256, align 1
   %6257 = lshr i64 %6214, 40
   %6258 = trunc i64 %6257 to i8
-  %6259 = getelementptr inbounds i8, ptr %.23114977, i64 2
+  %6259 = getelementptr inbounds i8, ptr %.23214977, i64 2
   store i8 %6258, ptr %6259, align 1
   %6260 = lshr i64 %6214, 32
   %6261 = trunc i64 %6260 to i8
-  %6262 = getelementptr inbounds i8, ptr %.23114977, i64 3
+  %6262 = getelementptr inbounds i8, ptr %.23214977, i64 3
   store i8 %6261, ptr %6262, align 1
   %6263 = lshr i64 %6218, 24
   %6264 = trunc i64 %6263 to i8
-  %6265 = getelementptr inbounds i8, ptr %.23114977, i64 4
+  %6265 = getelementptr inbounds i8, ptr %.23214977, i64 4
   store i8 %6264, ptr %6265, align 1
   %6266 = lshr i64 %6218, 16
   %6267 = trunc i64 %6266 to i8
-  %6268 = getelementptr inbounds i8, ptr %.23114977, i64 5
+  %6268 = getelementptr inbounds i8, ptr %.23214977, i64 5
   store i8 %6267, ptr %6268, align 1
   %6269 = lshr i64 %6218, 8
   %6270 = trunc i64 %6269 to i8
-  %6271 = getelementptr inbounds i8, ptr %.23114977, i64 6
+  %6271 = getelementptr inbounds i8, ptr %.23214977, i64 6
   store i8 %6270, ptr %6271, align 1
   %6272 = trunc i64 %6218 to i8
-  %6273 = getelementptr inbounds i8, ptr %.23114977, i64 7
+  %6273 = getelementptr inbounds i8, ptr %.23214977, i64 7
   store i8 %6272, ptr %6273, align 1
-  %6274 = getelementptr inbounds i8, ptr %.23114977, i64 8
+  %6274 = getelementptr inbounds i8, ptr %.23214977, i64 8
   br label %6275
 
 6275:                                             ; preds = %6253, %6224
-  %.232 = phi ptr [ %6252, %6224 ], [ %6274, %6253 ]
+  %.233 = phi ptr [ %6252, %6224 ], [ %6274, %6253 ]
   %6276 = add nsw i32 %6209, 64
   %6277 = load i32, ptr %6204, align 4
   %6278 = zext i32 %6277 to i64
@@ -12897,24 +12897,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 6279:                                             ; preds = %6205
   %6280 = zext nneg i32 %6208 to i64
-  %6281 = shl i64 %.1531119314976, %6280
+  %6281 = shl i64 %.1541119414976, %6280
   %6282 = zext i32 %6211 to i64
   %6283 = or i64 %6281, %6282
   br label %6284
 
 6284:                                             ; preds = %6279, %6275
-  %.15411448 = phi i32 [ %6276, %6275 ], [ %6209, %6279 ]
-  %.15411194 = phi i64 [ %6278, %6275 ], [ %6283, %6279 ]
-  %.233 = phi ptr [ %.232, %6275 ], [ %.23114977, %6279 ]
-  %6285 = icmp ugt i32 %.7614978, 511
+  %.15511449 = phi i32 [ %6276, %6275 ], [ %6209, %6279 ]
+  %.15511195 = phi i64 [ %6278, %6275 ], [ %6283, %6279 ]
+  %.234 = phi ptr [ %.233, %6275 ], [ %.23214977, %6279 ]
+  %6285 = icmp ugt i32 %.7714978, 511
   br i1 %6285, label %6205, label %._crit_edge14981, !llvm.loop !40
 
 ._crit_edge14981:                                 ; preds = %6284, %6201
-  %.15311447.lcssa = phi i32 [ %.15211446, %6201 ], [ %.15411448, %6284 ]
-  %.15311193.lcssa = phi i64 [ %.15211192, %6201 ], [ %.15411194, %6284 ]
-  %.231.lcssa = phi ptr [ %.230, %6201 ], [ %.233, %6284 ]
-  %.76.lcssa = phi i32 [ %.75, %6201 ], [ %6206, %6284 ]
-  %6286 = add nuw nsw i32 %.76.lcssa, %6192
+  %.15411448.lcssa = phi i32 [ %.14911443, %6201 ], [ %.15511449, %6284 ]
+  %.15411194.lcssa = phi i64 [ %.14911189, %6201 ], [ %.15511195, %6284 ]
+  %.232.lcssa = phi ptr [ %.225, %6201 ], [ %.234, %6284 ]
+  %.77.lcssa = phi i32 [ %.74, %6201 ], [ %6206, %6284 ]
+  %6286 = add nuw nsw i32 %.77.lcssa, %6192
   %6287 = zext nneg i8 %6191 to i64
   %notmask12941 = shl nsw i64 -1, %6287
   %6288 = trunc i64 %notmask12941 to i32
@@ -12930,13 +12930,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %6298 = load i8, ptr %6297, align 1
   %6299 = sext i8 %6298 to i32
   %6300 = add nsw i32 %6299, %6192
-  %6301 = sub nsw i32 %.15311447.lcssa, %6300
+  %6301 = sub nsw i32 %.15411448.lcssa, %6300
   %6302 = icmp slt i32 %6301, 0
   br i1 %6302, label %6303, label %6369
 
 6303:                                             ; preds = %._crit_edge14981
-  %6304 = zext nneg i32 %.15311447.lcssa to i64
-  %6305 = shl i64 %.15311193.lcssa, %6304
+  %6304 = zext nneg i32 %.15411448.lcssa to i64
+  %6305 = shl i64 %.15411194.lcssa, %6304
   %6306 = sub nsw i32 0, %6301
   %6307 = ashr i32 %6295, %6306
   %6308 = sext i32 %6307 to i64
@@ -12947,19 +12947,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12942 = icmp eq i64 %6312, 0
   %6313 = lshr i64 %6309, 56
   %6314 = trunc nuw i64 %6313 to i8
-  store i8 %6314, ptr %.231.lcssa, align 1
+  store i8 %6314, ptr %.232.lcssa, align 1
   br i1 %.not12942, label %6344, label %6315
 
 6315:                                             ; preds = %6303
-  %6316 = getelementptr inbounds i8, ptr %.231.lcssa, i64 1
+  %6316 = getelementptr inbounds i8, ptr %.232.lcssa, i64 1
   store i8 0, ptr %6316, align 1
   %.not12943 = icmp eq i64 %6313, 255
-  %.sroa.gep14332 = getelementptr inbounds i8, ptr %.231.lcssa, i64 2
+  %.sroa.gep14332 = getelementptr inbounds i8, ptr %.232.lcssa, i64 2
   %.neg12944.sroa.sel = select i1 %.not12943, ptr %.sroa.gep14332, ptr %6316
   %6317 = lshr i64 %6309, 48
   %6318 = trunc i64 %6317 to i8
   store i8 %6318, ptr %.neg12944.sroa.sel, align 1
-  %.sroa.gep15805 = getelementptr inbounds i8, ptr %.231.lcssa, i64 3
+  %.sroa.gep15805 = getelementptr inbounds i8, ptr %.232.lcssa, i64 3
   %.neg12944.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12943, ptr %.sroa.gep15805, ptr %.sroa.gep14332
   store i8 0, ptr %.neg12944.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6319 = and i64 %6309, 71776119061217280
@@ -13027,59 +13027,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6344:                                             ; preds = %6303
   %6345 = lshr i64 %6309, 48
   %6346 = trunc i64 %6345 to i8
-  %6347 = getelementptr inbounds i8, ptr %.231.lcssa, i64 1
+  %6347 = getelementptr inbounds i8, ptr %.232.lcssa, i64 1
   store i8 %6346, ptr %6347, align 1
   %6348 = lshr i64 %6309, 40
   %6349 = trunc i64 %6348 to i8
-  %6350 = getelementptr inbounds i8, ptr %.231.lcssa, i64 2
+  %6350 = getelementptr inbounds i8, ptr %.232.lcssa, i64 2
   store i8 %6349, ptr %6350, align 1
   %6351 = lshr i64 %6309, 32
   %6352 = trunc i64 %6351 to i8
-  %6353 = getelementptr inbounds i8, ptr %.231.lcssa, i64 3
+  %6353 = getelementptr inbounds i8, ptr %.232.lcssa, i64 3
   store i8 %6352, ptr %6353, align 1
   %6354 = lshr i64 %6309, 24
   %6355 = trunc i64 %6354 to i8
-  %6356 = getelementptr inbounds i8, ptr %.231.lcssa, i64 4
+  %6356 = getelementptr inbounds i8, ptr %.232.lcssa, i64 4
   store i8 %6355, ptr %6356, align 1
   %6357 = lshr i64 %6309, 16
   %6358 = trunc i64 %6357 to i8
-  %6359 = getelementptr inbounds i8, ptr %.231.lcssa, i64 5
+  %6359 = getelementptr inbounds i8, ptr %.232.lcssa, i64 5
   store i8 %6358, ptr %6359, align 1
   %6360 = lshr i64 %6309, 8
   %6361 = trunc i64 %6360 to i8
-  %6362 = getelementptr inbounds i8, ptr %.231.lcssa, i64 6
+  %6362 = getelementptr inbounds i8, ptr %.232.lcssa, i64 6
   store i8 %6361, ptr %6362, align 1
   %6363 = trunc i64 %6309 to i8
-  %6364 = getelementptr inbounds i8, ptr %.231.lcssa, i64 7
+  %6364 = getelementptr inbounds i8, ptr %.232.lcssa, i64 7
   store i8 %6363, ptr %6364, align 1
-  %6365 = getelementptr inbounds i8, ptr %.231.lcssa, i64 8
+  %6365 = getelementptr inbounds i8, ptr %.232.lcssa, i64 8
   br label %6366
 
 6366:                                             ; preds = %6344, %6315
-  %.234 = phi ptr [ %6343, %6315 ], [ %6365, %6344 ]
+  %.235 = phi ptr [ %6343, %6315 ], [ %6365, %6344 ]
   %6367 = add nsw i32 %6301, 64
   %6368 = sext i32 %6295 to i64
   br label %6374
 
 6369:                                             ; preds = %._crit_edge14981
   %6370 = zext nneg i32 %6300 to i64
-  %6371 = shl i64 %.15311193.lcssa, %6370
+  %6371 = shl i64 %.15411194.lcssa, %6370
   %6372 = sext i32 %6295 to i64
   %6373 = or i64 %6371, %6372
   br label %6374
 
 6374:                                             ; preds = %6366, %6369, %6182
-  %.15611450 = phi i32 [ %.15211446, %6182 ], [ %6367, %6366 ], [ %6301, %6369 ]
-  %.15611196 = phi i64 [ %.15211192, %6182 ], [ %6368, %6366 ], [ %6373, %6369 ]
-  %.236 = phi ptr [ %.230, %6182 ], [ %.234, %6366 ], [ %.231.lcssa, %6369 ]
-  %.77 = phi i32 [ %6183, %6182 ], [ 0, %6366 ], [ 0, %6369 ]
+  %.15311447 = phi i32 [ %.14911443, %6182 ], [ %6367, %6366 ], [ %6301, %6369 ]
+  %.15311193 = phi i64 [ %.14911189, %6182 ], [ %6368, %6366 ], [ %6373, %6369 ]
+  %.231 = phi ptr [ %.225, %6182 ], [ %.235, %6366 ], [ %.232.lcssa, %6369 ]
+  %.76 = phi i32 [ %6183, %6182 ], [ 0, %6366 ], [ 0, %6369 ]
   %6375 = getelementptr inbounds i8, ptr %1, i64 58
   %6376 = load i16, ptr %6375, align 2
   %6377 = icmp eq i16 %6376, 0
   br i1 %6377, label %6378, label %6380
 
 6378:                                             ; preds = %6374
-  %6379 = add nuw nsw i32 %.77, 16
+  %6379 = add nuw nsw i32 %.76, 16
   br label %6570
 
 6380:                                             ; preds = %6374
@@ -13106,7 +13106,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6397
 
 6397:                                             ; preds = %6390, %6380
-  %6398 = icmp ugt i32 %.77, 255
+  %6398 = icmp ugt i32 %.76, 255
   br i1 %6398, label %.lr.ph14991, label %._crit_edge14992
 
 .lr.ph14991:                                      ; preds = %6397
@@ -13115,21 +13115,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6401
 
 6401:                                             ; preds = %.lr.ph14991, %6480
-  %.7814989 = phi i32 [ %.77, %.lr.ph14991 ], [ %6402, %6480 ]
-  %.23714988 = phi ptr [ %.236, %.lr.ph14991 ], [ %.239, %6480 ]
-  %.1571119714987 = phi i64 [ %.15611196, %.lr.ph14991 ], [ %.15811198, %6480 ]
-  %.1571145114986 = phi i32 [ %.15611450, %.lr.ph14991 ], [ %.15811452, %6480 ]
-  %6402 = add nsw i32 %.7814989, -256
+  %.7914989 = phi i32 [ %.76, %.lr.ph14991 ], [ %6402, %6480 ]
+  %.23814988 = phi ptr [ %.231, %.lr.ph14991 ], [ %.240, %6480 ]
+  %.1581119814987 = phi i64 [ %.15311193, %.lr.ph14991 ], [ %.15911199, %6480 ]
+  %.1581145214986 = phi i32 [ %.15311447, %.lr.ph14991 ], [ %.15911453, %6480 ]
+  %6402 = add nsw i32 %.7914989, -256
   %6403 = load i8, ptr %6399, align 4
   %6404 = sext i8 %6403 to i32
-  %6405 = sub nsw i32 %.1571145114986, %6404
+  %6405 = sub nsw i32 %.1581145214986, %6404
   %6406 = icmp slt i32 %6405, 0
   %6407 = load i32, ptr %6400, align 4
   br i1 %6406, label %6408, label %6475
 
 6408:                                             ; preds = %6401
-  %6409 = zext nneg i32 %.1571145114986 to i64
-  %6410 = shl i64 %.1571119714987, %6409
+  %6409 = zext nneg i32 %.1581145214986 to i64
+  %6410 = shl i64 %.1581119814987, %6409
   %6411 = sub nsw i32 0, %6405
   %6412 = lshr i32 %6407, %6411
   %6413 = zext nneg i32 %6412 to i64
@@ -13140,19 +13140,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12994 = icmp eq i64 %6417, 0
   %6418 = lshr i64 %6410, 56
   %6419 = trunc nuw i64 %6418 to i8
-  store i8 %6419, ptr %.23714988, align 1
+  store i8 %6419, ptr %.23814988, align 1
   br i1 %.not12994, label %6449, label %6420
 
 6420:                                             ; preds = %6408
-  %6421 = getelementptr inbounds i8, ptr %.23714988, i64 1
+  %6421 = getelementptr inbounds i8, ptr %.23814988, i64 1
   store i8 0, ptr %6421, align 1
   %.not12995 = icmp eq i64 %6418, 255
-  %.sroa.gep14340 = getelementptr inbounds i8, ptr %.23714988, i64 2
+  %.sroa.gep14340 = getelementptr inbounds i8, ptr %.23814988, i64 2
   %.neg12996.sroa.sel = select i1 %.not12995, ptr %.sroa.gep14340, ptr %6421
   %6422 = lshr i64 %6410, 48
   %6423 = trunc i64 %6422 to i8
   store i8 %6423, ptr %.neg12996.sroa.sel, align 1
-  %.sroa.gep15781 = getelementptr inbounds i8, ptr %.23714988, i64 3
+  %.sroa.gep15781 = getelementptr inbounds i8, ptr %.23814988, i64 3
   %.neg12996.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12995, ptr %.sroa.gep15781, ptr %.sroa.gep14340
   store i8 0, ptr %.neg12996.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6424 = and i64 %6410, 71776119061217280
@@ -13220,36 +13220,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6449:                                             ; preds = %6408
   %6450 = lshr i64 %6410, 48
   %6451 = trunc i64 %6450 to i8
-  %6452 = getelementptr inbounds i8, ptr %.23714988, i64 1
+  %6452 = getelementptr inbounds i8, ptr %.23814988, i64 1
   store i8 %6451, ptr %6452, align 1
   %6453 = lshr i64 %6410, 40
   %6454 = trunc i64 %6453 to i8
-  %6455 = getelementptr inbounds i8, ptr %.23714988, i64 2
+  %6455 = getelementptr inbounds i8, ptr %.23814988, i64 2
   store i8 %6454, ptr %6455, align 1
   %6456 = lshr i64 %6410, 32
   %6457 = trunc i64 %6456 to i8
-  %6458 = getelementptr inbounds i8, ptr %.23714988, i64 3
+  %6458 = getelementptr inbounds i8, ptr %.23814988, i64 3
   store i8 %6457, ptr %6458, align 1
   %6459 = lshr i64 %6414, 24
   %6460 = trunc i64 %6459 to i8
-  %6461 = getelementptr inbounds i8, ptr %.23714988, i64 4
+  %6461 = getelementptr inbounds i8, ptr %.23814988, i64 4
   store i8 %6460, ptr %6461, align 1
   %6462 = lshr i64 %6414, 16
   %6463 = trunc i64 %6462 to i8
-  %6464 = getelementptr inbounds i8, ptr %.23714988, i64 5
+  %6464 = getelementptr inbounds i8, ptr %.23814988, i64 5
   store i8 %6463, ptr %6464, align 1
   %6465 = lshr i64 %6414, 8
   %6466 = trunc i64 %6465 to i8
-  %6467 = getelementptr inbounds i8, ptr %.23714988, i64 6
+  %6467 = getelementptr inbounds i8, ptr %.23814988, i64 6
   store i8 %6466, ptr %6467, align 1
   %6468 = trunc i64 %6414 to i8
-  %6469 = getelementptr inbounds i8, ptr %.23714988, i64 7
+  %6469 = getelementptr inbounds i8, ptr %.23814988, i64 7
   store i8 %6468, ptr %6469, align 1
-  %6470 = getelementptr inbounds i8, ptr %.23714988, i64 8
+  %6470 = getelementptr inbounds i8, ptr %.23814988, i64 8
   br label %6471
 
 6471:                                             ; preds = %6449, %6420
-  %.238 = phi ptr [ %6448, %6420 ], [ %6470, %6449 ]
+  %.239 = phi ptr [ %6448, %6420 ], [ %6470, %6449 ]
   %6472 = add nsw i32 %6405, 64
   %6473 = load i32, ptr %6400, align 4
   %6474 = zext i32 %6473 to i64
@@ -13257,24 +13257,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 6475:                                             ; preds = %6401
   %6476 = zext nneg i32 %6404 to i64
-  %6477 = shl i64 %.1571119714987, %6476
+  %6477 = shl i64 %.1581119814987, %6476
   %6478 = zext i32 %6407 to i64
   %6479 = or i64 %6477, %6478
   br label %6480
 
 6480:                                             ; preds = %6475, %6471
-  %.15811452 = phi i32 [ %6472, %6471 ], [ %6405, %6475 ]
-  %.15811198 = phi i64 [ %6474, %6471 ], [ %6479, %6475 ]
-  %.239 = phi ptr [ %.238, %6471 ], [ %.23714988, %6475 ]
-  %6481 = icmp ugt i32 %.7814989, 511
+  %.15911453 = phi i32 [ %6472, %6471 ], [ %6405, %6475 ]
+  %.15911199 = phi i64 [ %6474, %6471 ], [ %6479, %6475 ]
+  %.240 = phi ptr [ %.239, %6471 ], [ %.23814988, %6475 ]
+  %6481 = icmp ugt i32 %.7914989, 511
   br i1 %6481, label %6401, label %._crit_edge14992, !llvm.loop !41
 
 ._crit_edge14992:                                 ; preds = %6480, %6397
-  %.15711451.lcssa = phi i32 [ %.15611450, %6397 ], [ %.15811452, %6480 ]
-  %.15711197.lcssa = phi i64 [ %.15611196, %6397 ], [ %.15811198, %6480 ]
-  %.237.lcssa = phi ptr [ %.236, %6397 ], [ %.239, %6480 ]
-  %.78.lcssa = phi i32 [ %.77, %6397 ], [ %6402, %6480 ]
-  %6482 = add nuw nsw i32 %.78.lcssa, %6388
+  %.15811452.lcssa = phi i32 [ %.15311447, %6397 ], [ %.15911453, %6480 ]
+  %.15811198.lcssa = phi i64 [ %.15311193, %6397 ], [ %.15911199, %6480 ]
+  %.238.lcssa = phi ptr [ %.231, %6397 ], [ %.240, %6480 ]
+  %.79.lcssa = phi i32 [ %.76, %6397 ], [ %6402, %6480 ]
+  %6482 = add nuw nsw i32 %.79.lcssa, %6388
   %6483 = zext nneg i8 %6387 to i64
   %notmask12976 = shl nsw i64 -1, %6483
   %6484 = trunc i64 %notmask12976 to i32
@@ -13290,13 +13290,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %6494 = load i8, ptr %6493, align 1
   %6495 = sext i8 %6494 to i32
   %6496 = add nsw i32 %6495, %6388
-  %6497 = sub nsw i32 %.15711451.lcssa, %6496
+  %6497 = sub nsw i32 %.15811452.lcssa, %6496
   %6498 = icmp slt i32 %6497, 0
   br i1 %6498, label %6499, label %6565
 
 6499:                                             ; preds = %._crit_edge14992
-  %6500 = zext nneg i32 %.15711451.lcssa to i64
-  %6501 = shl i64 %.15711197.lcssa, %6500
+  %6500 = zext nneg i32 %.15811452.lcssa to i64
+  %6501 = shl i64 %.15811198.lcssa, %6500
   %6502 = sub nsw i32 0, %6497
   %6503 = ashr i32 %6491, %6502
   %6504 = sext i32 %6503 to i64
@@ -13307,19 +13307,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not12977 = icmp eq i64 %6508, 0
   %6509 = lshr i64 %6505, 56
   %6510 = trunc nuw i64 %6509 to i8
-  store i8 %6510, ptr %.237.lcssa, align 1
+  store i8 %6510, ptr %.238.lcssa, align 1
   br i1 %.not12977, label %6540, label %6511
 
 6511:                                             ; preds = %6499
-  %6512 = getelementptr inbounds i8, ptr %.237.lcssa, i64 1
+  %6512 = getelementptr inbounds i8, ptr %.238.lcssa, i64 1
   store i8 0, ptr %6512, align 1
   %.not12978 = icmp eq i64 %6509, 255
-  %.sroa.gep14348 = getelementptr inbounds i8, ptr %.237.lcssa, i64 2
+  %.sroa.gep14348 = getelementptr inbounds i8, ptr %.238.lcssa, i64 2
   %.neg12979.sroa.sel = select i1 %.not12978, ptr %.sroa.gep14348, ptr %6512
   %6513 = lshr i64 %6505, 48
   %6514 = trunc i64 %6513 to i8
   store i8 %6514, ptr %.neg12979.sroa.sel, align 1
-  %.sroa.gep15789 = getelementptr inbounds i8, ptr %.237.lcssa, i64 3
+  %.sroa.gep15789 = getelementptr inbounds i8, ptr %.238.lcssa, i64 3
   %.neg12979.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12978, ptr %.sroa.gep15789, ptr %.sroa.gep14348
   store i8 0, ptr %.neg12979.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6515 = and i64 %6505, 71776119061217280
@@ -13387,59 +13387,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6540:                                             ; preds = %6499
   %6541 = lshr i64 %6505, 48
   %6542 = trunc i64 %6541 to i8
-  %6543 = getelementptr inbounds i8, ptr %.237.lcssa, i64 1
+  %6543 = getelementptr inbounds i8, ptr %.238.lcssa, i64 1
   store i8 %6542, ptr %6543, align 1
   %6544 = lshr i64 %6505, 40
   %6545 = trunc i64 %6544 to i8
-  %6546 = getelementptr inbounds i8, ptr %.237.lcssa, i64 2
+  %6546 = getelementptr inbounds i8, ptr %.238.lcssa, i64 2
   store i8 %6545, ptr %6546, align 1
   %6547 = lshr i64 %6505, 32
   %6548 = trunc i64 %6547 to i8
-  %6549 = getelementptr inbounds i8, ptr %.237.lcssa, i64 3
+  %6549 = getelementptr inbounds i8, ptr %.238.lcssa, i64 3
   store i8 %6548, ptr %6549, align 1
   %6550 = lshr i64 %6505, 24
   %6551 = trunc i64 %6550 to i8
-  %6552 = getelementptr inbounds i8, ptr %.237.lcssa, i64 4
+  %6552 = getelementptr inbounds i8, ptr %.238.lcssa, i64 4
   store i8 %6551, ptr %6552, align 1
   %6553 = lshr i64 %6505, 16
   %6554 = trunc i64 %6553 to i8
-  %6555 = getelementptr inbounds i8, ptr %.237.lcssa, i64 5
+  %6555 = getelementptr inbounds i8, ptr %.238.lcssa, i64 5
   store i8 %6554, ptr %6555, align 1
   %6556 = lshr i64 %6505, 8
   %6557 = trunc i64 %6556 to i8
-  %6558 = getelementptr inbounds i8, ptr %.237.lcssa, i64 6
+  %6558 = getelementptr inbounds i8, ptr %.238.lcssa, i64 6
   store i8 %6557, ptr %6558, align 1
   %6559 = trunc i64 %6505 to i8
-  %6560 = getelementptr inbounds i8, ptr %.237.lcssa, i64 7
+  %6560 = getelementptr inbounds i8, ptr %.238.lcssa, i64 7
   store i8 %6559, ptr %6560, align 1
-  %6561 = getelementptr inbounds i8, ptr %.237.lcssa, i64 8
+  %6561 = getelementptr inbounds i8, ptr %.238.lcssa, i64 8
   br label %6562
 
 6562:                                             ; preds = %6540, %6511
-  %.240 = phi ptr [ %6539, %6511 ], [ %6561, %6540 ]
+  %.241 = phi ptr [ %6539, %6511 ], [ %6561, %6540 ]
   %6563 = add nsw i32 %6497, 64
   %6564 = sext i32 %6491 to i64
   br label %6570
 
 6565:                                             ; preds = %._crit_edge14992
   %6566 = zext nneg i32 %6496 to i64
-  %6567 = shl i64 %.15711197.lcssa, %6566
+  %6567 = shl i64 %.15811198.lcssa, %6566
   %6568 = sext i32 %6491 to i64
   %6569 = or i64 %6567, %6568
   br label %6570
 
 6570:                                             ; preds = %6562, %6565, %6378
-  %.16011454 = phi i32 [ %.15611450, %6378 ], [ %6563, %6562 ], [ %6497, %6565 ]
-  %.16011200 = phi i64 [ %.15611196, %6378 ], [ %6564, %6562 ], [ %6569, %6565 ]
-  %.242 = phi ptr [ %.236, %6378 ], [ %.240, %6562 ], [ %.237.lcssa, %6565 ]
-  %.79 = phi i32 [ %6379, %6378 ], [ 0, %6562 ], [ 0, %6565 ]
+  %.15711451 = phi i32 [ %.15311447, %6378 ], [ %6563, %6562 ], [ %6497, %6565 ]
+  %.15711197 = phi i64 [ %.15311193, %6378 ], [ %6564, %6562 ], [ %6569, %6565 ]
+  %.237 = phi ptr [ %.231, %6378 ], [ %.241, %6562 ], [ %.238.lcssa, %6565 ]
+  %.78 = phi i32 [ %6379, %6378 ], [ 0, %6562 ], [ 0, %6565 ]
   %6571 = getelementptr inbounds i8, ptr %1, i64 44
   %6572 = load i16, ptr %6571, align 2
   %6573 = icmp eq i16 %6572, 0
   br i1 %6573, label %6574, label %6576
 
 6574:                                             ; preds = %6570
-  %6575 = add nuw nsw i32 %.79, 16
+  %6575 = add nuw nsw i32 %.78, 16
   br label %6766
 
 6576:                                             ; preds = %6570
@@ -13466,7 +13466,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6593
 
 6593:                                             ; preds = %6586, %6576
-  %6594 = icmp ugt i32 %.79, 255
+  %6594 = icmp ugt i32 %.78, 255
   br i1 %6594, label %.lr.ph15002, label %._crit_edge15003
 
 .lr.ph15002:                                      ; preds = %6593
@@ -13475,21 +13475,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6597
 
 6597:                                             ; preds = %.lr.ph15002, %6676
-  %.8015000 = phi i32 [ %.79, %.lr.ph15002 ], [ %6598, %6676 ]
-  %.24314999 = phi ptr [ %.242, %.lr.ph15002 ], [ %.245, %6676 ]
-  %.1611120114998 = phi i64 [ %.16011200, %.lr.ph15002 ], [ %.16211202, %6676 ]
-  %.1611145514997 = phi i32 [ %.16011454, %.lr.ph15002 ], [ %.16211456, %6676 ]
-  %6598 = add nsw i32 %.8015000, -256
+  %.8115000 = phi i32 [ %.78, %.lr.ph15002 ], [ %6598, %6676 ]
+  %.24414999 = phi ptr [ %.237, %.lr.ph15002 ], [ %.246, %6676 ]
+  %.1621120214998 = phi i64 [ %.15711197, %.lr.ph15002 ], [ %.16311203, %6676 ]
+  %.1621145614997 = phi i32 [ %.15711451, %.lr.ph15002 ], [ %.16311457, %6676 ]
+  %6598 = add nsw i32 %.8115000, -256
   %6599 = load i8, ptr %6595, align 4
   %6600 = sext i8 %6599 to i32
-  %6601 = sub nsw i32 %.1611145514997, %6600
+  %6601 = sub nsw i32 %.1621145614997, %6600
   %6602 = icmp slt i32 %6601, 0
   %6603 = load i32, ptr %6596, align 4
   br i1 %6602, label %6604, label %6671
 
 6604:                                             ; preds = %6597
-  %6605 = zext nneg i32 %.1611145514997 to i64
-  %6606 = shl i64 %.1611120114998, %6605
+  %6605 = zext nneg i32 %.1621145614997 to i64
+  %6606 = shl i64 %.1621120214998, %6605
   %6607 = sub nsw i32 0, %6601
   %6608 = lshr i32 %6603, %6607
   %6609 = zext nneg i32 %6608 to i64
@@ -13500,19 +13500,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13029 = icmp eq i64 %6613, 0
   %6614 = lshr i64 %6606, 56
   %6615 = trunc nuw i64 %6614 to i8
-  store i8 %6615, ptr %.24314999, align 1
+  store i8 %6615, ptr %.24414999, align 1
   br i1 %.not13029, label %6645, label %6616
 
 6616:                                             ; preds = %6604
-  %6617 = getelementptr inbounds i8, ptr %.24314999, i64 1
+  %6617 = getelementptr inbounds i8, ptr %.24414999, i64 1
   store i8 0, ptr %6617, align 1
   %.not13030 = icmp eq i64 %6614, 255
-  %.sroa.gep14356 = getelementptr inbounds i8, ptr %.24314999, i64 2
+  %.sroa.gep14356 = getelementptr inbounds i8, ptr %.24414999, i64 2
   %.neg13031.sroa.sel = select i1 %.not13030, ptr %.sroa.gep14356, ptr %6617
   %6618 = lshr i64 %6606, 48
   %6619 = trunc i64 %6618 to i8
   store i8 %6619, ptr %.neg13031.sroa.sel, align 1
-  %.sroa.gep15765 = getelementptr inbounds i8, ptr %.24314999, i64 3
+  %.sroa.gep15765 = getelementptr inbounds i8, ptr %.24414999, i64 3
   %.neg13031.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13030, ptr %.sroa.gep15765, ptr %.sroa.gep14356
   store i8 0, ptr %.neg13031.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6620 = and i64 %6606, 71776119061217280
@@ -13580,36 +13580,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6645:                                             ; preds = %6604
   %6646 = lshr i64 %6606, 48
   %6647 = trunc i64 %6646 to i8
-  %6648 = getelementptr inbounds i8, ptr %.24314999, i64 1
+  %6648 = getelementptr inbounds i8, ptr %.24414999, i64 1
   store i8 %6647, ptr %6648, align 1
   %6649 = lshr i64 %6606, 40
   %6650 = trunc i64 %6649 to i8
-  %6651 = getelementptr inbounds i8, ptr %.24314999, i64 2
+  %6651 = getelementptr inbounds i8, ptr %.24414999, i64 2
   store i8 %6650, ptr %6651, align 1
   %6652 = lshr i64 %6606, 32
   %6653 = trunc i64 %6652 to i8
-  %6654 = getelementptr inbounds i8, ptr %.24314999, i64 3
+  %6654 = getelementptr inbounds i8, ptr %.24414999, i64 3
   store i8 %6653, ptr %6654, align 1
   %6655 = lshr i64 %6610, 24
   %6656 = trunc i64 %6655 to i8
-  %6657 = getelementptr inbounds i8, ptr %.24314999, i64 4
+  %6657 = getelementptr inbounds i8, ptr %.24414999, i64 4
   store i8 %6656, ptr %6657, align 1
   %6658 = lshr i64 %6610, 16
   %6659 = trunc i64 %6658 to i8
-  %6660 = getelementptr inbounds i8, ptr %.24314999, i64 5
+  %6660 = getelementptr inbounds i8, ptr %.24414999, i64 5
   store i8 %6659, ptr %6660, align 1
   %6661 = lshr i64 %6610, 8
   %6662 = trunc i64 %6661 to i8
-  %6663 = getelementptr inbounds i8, ptr %.24314999, i64 6
+  %6663 = getelementptr inbounds i8, ptr %.24414999, i64 6
   store i8 %6662, ptr %6663, align 1
   %6664 = trunc i64 %6610 to i8
-  %6665 = getelementptr inbounds i8, ptr %.24314999, i64 7
+  %6665 = getelementptr inbounds i8, ptr %.24414999, i64 7
   store i8 %6664, ptr %6665, align 1
-  %6666 = getelementptr inbounds i8, ptr %.24314999, i64 8
+  %6666 = getelementptr inbounds i8, ptr %.24414999, i64 8
   br label %6667
 
 6667:                                             ; preds = %6645, %6616
-  %.244 = phi ptr [ %6644, %6616 ], [ %6666, %6645 ]
+  %.245 = phi ptr [ %6644, %6616 ], [ %6666, %6645 ]
   %6668 = add nsw i32 %6601, 64
   %6669 = load i32, ptr %6596, align 4
   %6670 = zext i32 %6669 to i64
@@ -13617,24 +13617,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 6671:                                             ; preds = %6597
   %6672 = zext nneg i32 %6600 to i64
-  %6673 = shl i64 %.1611120114998, %6672
+  %6673 = shl i64 %.1621120214998, %6672
   %6674 = zext i32 %6603 to i64
   %6675 = or i64 %6673, %6674
   br label %6676
 
 6676:                                             ; preds = %6671, %6667
-  %.16211456 = phi i32 [ %6668, %6667 ], [ %6601, %6671 ]
-  %.16211202 = phi i64 [ %6670, %6667 ], [ %6675, %6671 ]
-  %.245 = phi ptr [ %.244, %6667 ], [ %.24314999, %6671 ]
-  %6677 = icmp ugt i32 %.8015000, 511
+  %.16311457 = phi i32 [ %6668, %6667 ], [ %6601, %6671 ]
+  %.16311203 = phi i64 [ %6670, %6667 ], [ %6675, %6671 ]
+  %.246 = phi ptr [ %.245, %6667 ], [ %.24414999, %6671 ]
+  %6677 = icmp ugt i32 %.8115000, 511
   br i1 %6677, label %6597, label %._crit_edge15003, !llvm.loop !42
 
 ._crit_edge15003:                                 ; preds = %6676, %6593
-  %.16111455.lcssa = phi i32 [ %.16011454, %6593 ], [ %.16211456, %6676 ]
-  %.16111201.lcssa = phi i64 [ %.16011200, %6593 ], [ %.16211202, %6676 ]
-  %.243.lcssa = phi ptr [ %.242, %6593 ], [ %.245, %6676 ]
-  %.80.lcssa = phi i32 [ %.79, %6593 ], [ %6598, %6676 ]
-  %6678 = add nuw nsw i32 %.80.lcssa, %6584
+  %.16211456.lcssa = phi i32 [ %.15711451, %6593 ], [ %.16311457, %6676 ]
+  %.16211202.lcssa = phi i64 [ %.15711197, %6593 ], [ %.16311203, %6676 ]
+  %.244.lcssa = phi ptr [ %.237, %6593 ], [ %.246, %6676 ]
+  %.81.lcssa = phi i32 [ %.78, %6593 ], [ %6598, %6676 ]
+  %6678 = add nuw nsw i32 %.81.lcssa, %6584
   %6679 = zext nneg i8 %6583 to i64
   %notmask13011 = shl nsw i64 -1, %6679
   %6680 = trunc i64 %notmask13011 to i32
@@ -13650,13 +13650,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %6690 = load i8, ptr %6689, align 1
   %6691 = sext i8 %6690 to i32
   %6692 = add nsw i32 %6691, %6584
-  %6693 = sub nsw i32 %.16111455.lcssa, %6692
+  %6693 = sub nsw i32 %.16211456.lcssa, %6692
   %6694 = icmp slt i32 %6693, 0
   br i1 %6694, label %6695, label %6761
 
 6695:                                             ; preds = %._crit_edge15003
-  %6696 = zext nneg i32 %.16111455.lcssa to i64
-  %6697 = shl i64 %.16111201.lcssa, %6696
+  %6696 = zext nneg i32 %.16211456.lcssa to i64
+  %6697 = shl i64 %.16211202.lcssa, %6696
   %6698 = sub nsw i32 0, %6693
   %6699 = ashr i32 %6687, %6698
   %6700 = sext i32 %6699 to i64
@@ -13667,19 +13667,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13012 = icmp eq i64 %6704, 0
   %6705 = lshr i64 %6701, 56
   %6706 = trunc nuw i64 %6705 to i8
-  store i8 %6706, ptr %.243.lcssa, align 1
+  store i8 %6706, ptr %.244.lcssa, align 1
   br i1 %.not13012, label %6736, label %6707
 
 6707:                                             ; preds = %6695
-  %6708 = getelementptr inbounds i8, ptr %.243.lcssa, i64 1
+  %6708 = getelementptr inbounds i8, ptr %.244.lcssa, i64 1
   store i8 0, ptr %6708, align 1
   %.not13013 = icmp eq i64 %6705, 255
-  %.sroa.gep14364 = getelementptr inbounds i8, ptr %.243.lcssa, i64 2
+  %.sroa.gep14364 = getelementptr inbounds i8, ptr %.244.lcssa, i64 2
   %.neg13014.sroa.sel = select i1 %.not13013, ptr %.sroa.gep14364, ptr %6708
   %6709 = lshr i64 %6701, 48
   %6710 = trunc i64 %6709 to i8
   store i8 %6710, ptr %.neg13014.sroa.sel, align 1
-  %.sroa.gep15773 = getelementptr inbounds i8, ptr %.243.lcssa, i64 3
+  %.sroa.gep15773 = getelementptr inbounds i8, ptr %.244.lcssa, i64 3
   %.neg13014.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13013, ptr %.sroa.gep15773, ptr %.sroa.gep14364
   store i8 0, ptr %.neg13014.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6711 = and i64 %6701, 71776119061217280
@@ -13747,59 +13747,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6736:                                             ; preds = %6695
   %6737 = lshr i64 %6701, 48
   %6738 = trunc i64 %6737 to i8
-  %6739 = getelementptr inbounds i8, ptr %.243.lcssa, i64 1
+  %6739 = getelementptr inbounds i8, ptr %.244.lcssa, i64 1
   store i8 %6738, ptr %6739, align 1
   %6740 = lshr i64 %6701, 40
   %6741 = trunc i64 %6740 to i8
-  %6742 = getelementptr inbounds i8, ptr %.243.lcssa, i64 2
+  %6742 = getelementptr inbounds i8, ptr %.244.lcssa, i64 2
   store i8 %6741, ptr %6742, align 1
   %6743 = lshr i64 %6701, 32
   %6744 = trunc i64 %6743 to i8
-  %6745 = getelementptr inbounds i8, ptr %.243.lcssa, i64 3
+  %6745 = getelementptr inbounds i8, ptr %.244.lcssa, i64 3
   store i8 %6744, ptr %6745, align 1
   %6746 = lshr i64 %6701, 24
   %6747 = trunc i64 %6746 to i8
-  %6748 = getelementptr inbounds i8, ptr %.243.lcssa, i64 4
+  %6748 = getelementptr inbounds i8, ptr %.244.lcssa, i64 4
   store i8 %6747, ptr %6748, align 1
   %6749 = lshr i64 %6701, 16
   %6750 = trunc i64 %6749 to i8
-  %6751 = getelementptr inbounds i8, ptr %.243.lcssa, i64 5
+  %6751 = getelementptr inbounds i8, ptr %.244.lcssa, i64 5
   store i8 %6750, ptr %6751, align 1
   %6752 = lshr i64 %6701, 8
   %6753 = trunc i64 %6752 to i8
-  %6754 = getelementptr inbounds i8, ptr %.243.lcssa, i64 6
+  %6754 = getelementptr inbounds i8, ptr %.244.lcssa, i64 6
   store i8 %6753, ptr %6754, align 1
   %6755 = trunc i64 %6701 to i8
-  %6756 = getelementptr inbounds i8, ptr %.243.lcssa, i64 7
+  %6756 = getelementptr inbounds i8, ptr %.244.lcssa, i64 7
   store i8 %6755, ptr %6756, align 1
-  %6757 = getelementptr inbounds i8, ptr %.243.lcssa, i64 8
+  %6757 = getelementptr inbounds i8, ptr %.244.lcssa, i64 8
   br label %6758
 
 6758:                                             ; preds = %6736, %6707
-  %.246 = phi ptr [ %6735, %6707 ], [ %6757, %6736 ]
+  %.247 = phi ptr [ %6735, %6707 ], [ %6757, %6736 ]
   %6759 = add nsw i32 %6693, 64
   %6760 = sext i32 %6687 to i64
   br label %6766
 
 6761:                                             ; preds = %._crit_edge15003
   %6762 = zext nneg i32 %6692 to i64
-  %6763 = shl i64 %.16111201.lcssa, %6762
+  %6763 = shl i64 %.16211202.lcssa, %6762
   %6764 = sext i32 %6687 to i64
   %6765 = or i64 %6763, %6764
   br label %6766
 
 6766:                                             ; preds = %6758, %6761, %6574
-  %.16411458 = phi i32 [ %.16011454, %6574 ], [ %6759, %6758 ], [ %6693, %6761 ]
-  %.16411204 = phi i64 [ %.16011200, %6574 ], [ %6760, %6758 ], [ %6765, %6761 ]
-  %.248 = phi ptr [ %.242, %6574 ], [ %.246, %6758 ], [ %.243.lcssa, %6761 ]
-  %.81 = phi i32 [ %6575, %6574 ], [ 0, %6758 ], [ 0, %6761 ]
+  %.16111455 = phi i32 [ %.15711451, %6574 ], [ %6759, %6758 ], [ %6693, %6761 ]
+  %.16111201 = phi i64 [ %.15711197, %6574 ], [ %6760, %6758 ], [ %6765, %6761 ]
+  %.243 = phi ptr [ %.237, %6574 ], [ %.247, %6758 ], [ %.244.lcssa, %6761 ]
+  %.80 = phi i32 [ %6575, %6574 ], [ 0, %6758 ], [ 0, %6761 ]
   %6767 = getelementptr inbounds i8, ptr %1, i64 30
   %6768 = load i16, ptr %6767, align 2
   %6769 = icmp eq i16 %6768, 0
   br i1 %6769, label %6770, label %6772
 
 6770:                                             ; preds = %6766
-  %6771 = add nuw nsw i32 %.81, 16
+  %6771 = add nuw nsw i32 %.80, 16
   br label %6962
 
 6772:                                             ; preds = %6766
@@ -13826,7 +13826,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6789
 
 6789:                                             ; preds = %6782, %6772
-  %6790 = icmp ugt i32 %.81, 255
+  %6790 = icmp ugt i32 %.80, 255
   br i1 %6790, label %.lr.ph15013, label %._crit_edge15014
 
 .lr.ph15013:                                      ; preds = %6789
@@ -13835,21 +13835,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6793
 
 6793:                                             ; preds = %.lr.ph15013, %6872
-  %.8215011 = phi i32 [ %.81, %.lr.ph15013 ], [ %6794, %6872 ]
-  %.24915010 = phi ptr [ %.248, %.lr.ph15013 ], [ %.251, %6872 ]
-  %.1651120515009 = phi i64 [ %.16411204, %.lr.ph15013 ], [ %.16611206, %6872 ]
-  %.1651145915008 = phi i32 [ %.16411458, %.lr.ph15013 ], [ %.16611460, %6872 ]
-  %6794 = add nsw i32 %.8215011, -256
+  %.8315011 = phi i32 [ %.80, %.lr.ph15013 ], [ %6794, %6872 ]
+  %.25015010 = phi ptr [ %.243, %.lr.ph15013 ], [ %.252, %6872 ]
+  %.1661120615009 = phi i64 [ %.16111201, %.lr.ph15013 ], [ %.16711207, %6872 ]
+  %.1661146015008 = phi i32 [ %.16111455, %.lr.ph15013 ], [ %.16711461, %6872 ]
+  %6794 = add nsw i32 %.8315011, -256
   %6795 = load i8, ptr %6791, align 4
   %6796 = sext i8 %6795 to i32
-  %6797 = sub nsw i32 %.1651145915008, %6796
+  %6797 = sub nsw i32 %.1661146015008, %6796
   %6798 = icmp slt i32 %6797, 0
   %6799 = load i32, ptr %6792, align 4
   br i1 %6798, label %6800, label %6867
 
 6800:                                             ; preds = %6793
-  %6801 = zext nneg i32 %.1651145915008 to i64
-  %6802 = shl i64 %.1651120515009, %6801
+  %6801 = zext nneg i32 %.1661146015008 to i64
+  %6802 = shl i64 %.1661120615009, %6801
   %6803 = sub nsw i32 0, %6797
   %6804 = lshr i32 %6799, %6803
   %6805 = zext nneg i32 %6804 to i64
@@ -13860,19 +13860,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13064 = icmp eq i64 %6809, 0
   %6810 = lshr i64 %6802, 56
   %6811 = trunc nuw i64 %6810 to i8
-  store i8 %6811, ptr %.24915010, align 1
+  store i8 %6811, ptr %.25015010, align 1
   br i1 %.not13064, label %6841, label %6812
 
 6812:                                             ; preds = %6800
-  %6813 = getelementptr inbounds i8, ptr %.24915010, i64 1
+  %6813 = getelementptr inbounds i8, ptr %.25015010, i64 1
   store i8 0, ptr %6813, align 1
   %.not13065 = icmp eq i64 %6810, 255
-  %.sroa.gep14372 = getelementptr inbounds i8, ptr %.24915010, i64 2
+  %.sroa.gep14372 = getelementptr inbounds i8, ptr %.25015010, i64 2
   %.neg13066.sroa.sel = select i1 %.not13065, ptr %.sroa.gep14372, ptr %6813
   %6814 = lshr i64 %6802, 48
   %6815 = trunc i64 %6814 to i8
   store i8 %6815, ptr %.neg13066.sroa.sel, align 1
-  %.sroa.gep15749 = getelementptr inbounds i8, ptr %.24915010, i64 3
+  %.sroa.gep15749 = getelementptr inbounds i8, ptr %.25015010, i64 3
   %.neg13066.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13065, ptr %.sroa.gep15749, ptr %.sroa.gep14372
   store i8 0, ptr %.neg13066.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6816 = and i64 %6802, 71776119061217280
@@ -13940,36 +13940,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6841:                                             ; preds = %6800
   %6842 = lshr i64 %6802, 48
   %6843 = trunc i64 %6842 to i8
-  %6844 = getelementptr inbounds i8, ptr %.24915010, i64 1
+  %6844 = getelementptr inbounds i8, ptr %.25015010, i64 1
   store i8 %6843, ptr %6844, align 1
   %6845 = lshr i64 %6802, 40
   %6846 = trunc i64 %6845 to i8
-  %6847 = getelementptr inbounds i8, ptr %.24915010, i64 2
+  %6847 = getelementptr inbounds i8, ptr %.25015010, i64 2
   store i8 %6846, ptr %6847, align 1
   %6848 = lshr i64 %6802, 32
   %6849 = trunc i64 %6848 to i8
-  %6850 = getelementptr inbounds i8, ptr %.24915010, i64 3
+  %6850 = getelementptr inbounds i8, ptr %.25015010, i64 3
   store i8 %6849, ptr %6850, align 1
   %6851 = lshr i64 %6806, 24
   %6852 = trunc i64 %6851 to i8
-  %6853 = getelementptr inbounds i8, ptr %.24915010, i64 4
+  %6853 = getelementptr inbounds i8, ptr %.25015010, i64 4
   store i8 %6852, ptr %6853, align 1
   %6854 = lshr i64 %6806, 16
   %6855 = trunc i64 %6854 to i8
-  %6856 = getelementptr inbounds i8, ptr %.24915010, i64 5
+  %6856 = getelementptr inbounds i8, ptr %.25015010, i64 5
   store i8 %6855, ptr %6856, align 1
   %6857 = lshr i64 %6806, 8
   %6858 = trunc i64 %6857 to i8
-  %6859 = getelementptr inbounds i8, ptr %.24915010, i64 6
+  %6859 = getelementptr inbounds i8, ptr %.25015010, i64 6
   store i8 %6858, ptr %6859, align 1
   %6860 = trunc i64 %6806 to i8
-  %6861 = getelementptr inbounds i8, ptr %.24915010, i64 7
+  %6861 = getelementptr inbounds i8, ptr %.25015010, i64 7
   store i8 %6860, ptr %6861, align 1
-  %6862 = getelementptr inbounds i8, ptr %.24915010, i64 8
+  %6862 = getelementptr inbounds i8, ptr %.25015010, i64 8
   br label %6863
 
 6863:                                             ; preds = %6841, %6812
-  %.250 = phi ptr [ %6840, %6812 ], [ %6862, %6841 ]
+  %.251 = phi ptr [ %6840, %6812 ], [ %6862, %6841 ]
   %6864 = add nsw i32 %6797, 64
   %6865 = load i32, ptr %6792, align 4
   %6866 = zext i32 %6865 to i64
@@ -13977,24 +13977,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 6867:                                             ; preds = %6793
   %6868 = zext nneg i32 %6796 to i64
-  %6869 = shl i64 %.1651120515009, %6868
+  %6869 = shl i64 %.1661120615009, %6868
   %6870 = zext i32 %6799 to i64
   %6871 = or i64 %6869, %6870
   br label %6872
 
 6872:                                             ; preds = %6867, %6863
-  %.16611460 = phi i32 [ %6864, %6863 ], [ %6797, %6867 ]
-  %.16611206 = phi i64 [ %6866, %6863 ], [ %6871, %6867 ]
-  %.251 = phi ptr [ %.250, %6863 ], [ %.24915010, %6867 ]
-  %6873 = icmp ugt i32 %.8215011, 511
+  %.16711461 = phi i32 [ %6864, %6863 ], [ %6797, %6867 ]
+  %.16711207 = phi i64 [ %6866, %6863 ], [ %6871, %6867 ]
+  %.252 = phi ptr [ %.251, %6863 ], [ %.25015010, %6867 ]
+  %6873 = icmp ugt i32 %.8315011, 511
   br i1 %6873, label %6793, label %._crit_edge15014, !llvm.loop !43
 
 ._crit_edge15014:                                 ; preds = %6872, %6789
-  %.16511459.lcssa = phi i32 [ %.16411458, %6789 ], [ %.16611460, %6872 ]
-  %.16511205.lcssa = phi i64 [ %.16411204, %6789 ], [ %.16611206, %6872 ]
-  %.249.lcssa = phi ptr [ %.248, %6789 ], [ %.251, %6872 ]
-  %.82.lcssa = phi i32 [ %.81, %6789 ], [ %6794, %6872 ]
-  %6874 = add nuw nsw i32 %.82.lcssa, %6780
+  %.16611460.lcssa = phi i32 [ %.16111455, %6789 ], [ %.16711461, %6872 ]
+  %.16611206.lcssa = phi i64 [ %.16111201, %6789 ], [ %.16711207, %6872 ]
+  %.250.lcssa = phi ptr [ %.243, %6789 ], [ %.252, %6872 ]
+  %.83.lcssa = phi i32 [ %.80, %6789 ], [ %6794, %6872 ]
+  %6874 = add nuw nsw i32 %.83.lcssa, %6780
   %6875 = zext nneg i8 %6779 to i64
   %notmask13046 = shl nsw i64 -1, %6875
   %6876 = trunc i64 %notmask13046 to i32
@@ -14010,13 +14010,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %6886 = load i8, ptr %6885, align 1
   %6887 = sext i8 %6886 to i32
   %6888 = add nsw i32 %6887, %6780
-  %6889 = sub nsw i32 %.16511459.lcssa, %6888
+  %6889 = sub nsw i32 %.16611460.lcssa, %6888
   %6890 = icmp slt i32 %6889, 0
   br i1 %6890, label %6891, label %6957
 
 6891:                                             ; preds = %._crit_edge15014
-  %6892 = zext nneg i32 %.16511459.lcssa to i64
-  %6893 = shl i64 %.16511205.lcssa, %6892
+  %6892 = zext nneg i32 %.16611460.lcssa to i64
+  %6893 = shl i64 %.16611206.lcssa, %6892
   %6894 = sub nsw i32 0, %6889
   %6895 = ashr i32 %6883, %6894
   %6896 = sext i32 %6895 to i64
@@ -14027,19 +14027,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13047 = icmp eq i64 %6900, 0
   %6901 = lshr i64 %6897, 56
   %6902 = trunc nuw i64 %6901 to i8
-  store i8 %6902, ptr %.249.lcssa, align 1
+  store i8 %6902, ptr %.250.lcssa, align 1
   br i1 %.not13047, label %6932, label %6903
 
 6903:                                             ; preds = %6891
-  %6904 = getelementptr inbounds i8, ptr %.249.lcssa, i64 1
+  %6904 = getelementptr inbounds i8, ptr %.250.lcssa, i64 1
   store i8 0, ptr %6904, align 1
   %.not13048 = icmp eq i64 %6901, 255
-  %.sroa.gep14380 = getelementptr inbounds i8, ptr %.249.lcssa, i64 2
+  %.sroa.gep14380 = getelementptr inbounds i8, ptr %.250.lcssa, i64 2
   %.neg13049.sroa.sel = select i1 %.not13048, ptr %.sroa.gep14380, ptr %6904
   %6905 = lshr i64 %6897, 48
   %6906 = trunc i64 %6905 to i8
   store i8 %6906, ptr %.neg13049.sroa.sel, align 1
-  %.sroa.gep15757 = getelementptr inbounds i8, ptr %.249.lcssa, i64 3
+  %.sroa.gep15757 = getelementptr inbounds i8, ptr %.250.lcssa, i64 3
   %.neg13049.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13048, ptr %.sroa.gep15757, ptr %.sroa.gep14380
   store i8 0, ptr %.neg13049.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6907 = and i64 %6897, 71776119061217280
@@ -14107,59 +14107,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 6932:                                             ; preds = %6891
   %6933 = lshr i64 %6897, 48
   %6934 = trunc i64 %6933 to i8
-  %6935 = getelementptr inbounds i8, ptr %.249.lcssa, i64 1
+  %6935 = getelementptr inbounds i8, ptr %.250.lcssa, i64 1
   store i8 %6934, ptr %6935, align 1
   %6936 = lshr i64 %6897, 40
   %6937 = trunc i64 %6936 to i8
-  %6938 = getelementptr inbounds i8, ptr %.249.lcssa, i64 2
+  %6938 = getelementptr inbounds i8, ptr %.250.lcssa, i64 2
   store i8 %6937, ptr %6938, align 1
   %6939 = lshr i64 %6897, 32
   %6940 = trunc i64 %6939 to i8
-  %6941 = getelementptr inbounds i8, ptr %.249.lcssa, i64 3
+  %6941 = getelementptr inbounds i8, ptr %.250.lcssa, i64 3
   store i8 %6940, ptr %6941, align 1
   %6942 = lshr i64 %6897, 24
   %6943 = trunc i64 %6942 to i8
-  %6944 = getelementptr inbounds i8, ptr %.249.lcssa, i64 4
+  %6944 = getelementptr inbounds i8, ptr %.250.lcssa, i64 4
   store i8 %6943, ptr %6944, align 1
   %6945 = lshr i64 %6897, 16
   %6946 = trunc i64 %6945 to i8
-  %6947 = getelementptr inbounds i8, ptr %.249.lcssa, i64 5
+  %6947 = getelementptr inbounds i8, ptr %.250.lcssa, i64 5
   store i8 %6946, ptr %6947, align 1
   %6948 = lshr i64 %6897, 8
   %6949 = trunc i64 %6948 to i8
-  %6950 = getelementptr inbounds i8, ptr %.249.lcssa, i64 6
+  %6950 = getelementptr inbounds i8, ptr %.250.lcssa, i64 6
   store i8 %6949, ptr %6950, align 1
   %6951 = trunc i64 %6897 to i8
-  %6952 = getelementptr inbounds i8, ptr %.249.lcssa, i64 7
+  %6952 = getelementptr inbounds i8, ptr %.250.lcssa, i64 7
   store i8 %6951, ptr %6952, align 1
-  %6953 = getelementptr inbounds i8, ptr %.249.lcssa, i64 8
+  %6953 = getelementptr inbounds i8, ptr %.250.lcssa, i64 8
   br label %6954
 
 6954:                                             ; preds = %6932, %6903
-  %.252 = phi ptr [ %6931, %6903 ], [ %6953, %6932 ]
+  %.253 = phi ptr [ %6931, %6903 ], [ %6953, %6932 ]
   %6955 = add nsw i32 %6889, 64
   %6956 = sext i32 %6883 to i64
   br label %6962
 
 6957:                                             ; preds = %._crit_edge15014
   %6958 = zext nneg i32 %6888 to i64
-  %6959 = shl i64 %.16511205.lcssa, %6958
+  %6959 = shl i64 %.16611206.lcssa, %6958
   %6960 = sext i32 %6883 to i64
   %6961 = or i64 %6959, %6960
   br label %6962
 
 6962:                                             ; preds = %6954, %6957, %6770
-  %.16811462 = phi i32 [ %.16411458, %6770 ], [ %6955, %6954 ], [ %6889, %6957 ]
-  %.16811208 = phi i64 [ %.16411204, %6770 ], [ %6956, %6954 ], [ %6961, %6957 ]
-  %.254 = phi ptr [ %.248, %6770 ], [ %.252, %6954 ], [ %.249.lcssa, %6957 ]
-  %.83 = phi i32 [ %6771, %6770 ], [ 0, %6954 ], [ 0, %6957 ]
+  %.16511459 = phi i32 [ %.16111455, %6770 ], [ %6955, %6954 ], [ %6889, %6957 ]
+  %.16511205 = phi i64 [ %.16111201, %6770 ], [ %6956, %6954 ], [ %6961, %6957 ]
+  %.249 = phi ptr [ %.243, %6770 ], [ %.253, %6954 ], [ %.250.lcssa, %6957 ]
+  %.82 = phi i32 [ %6771, %6770 ], [ 0, %6954 ], [ 0, %6957 ]
   %6963 = getelementptr inbounds i8, ptr %1, i64 46
   %6964 = load i16, ptr %6963, align 2
   %6965 = icmp eq i16 %6964, 0
   br i1 %6965, label %6966, label %6968
 
 6966:                                             ; preds = %6962
-  %6967 = add nuw nsw i32 %.83, 16
+  %6967 = add nuw nsw i32 %.82, 16
   br label %7158
 
 6968:                                             ; preds = %6962
@@ -14186,7 +14186,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6985
 
 6985:                                             ; preds = %6978, %6968
-  %6986 = icmp ugt i32 %.83, 255
+  %6986 = icmp ugt i32 %.82, 255
   br i1 %6986, label %.lr.ph15024, label %._crit_edge15025
 
 .lr.ph15024:                                      ; preds = %6985
@@ -14195,21 +14195,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %6989
 
 6989:                                             ; preds = %.lr.ph15024, %7068
-  %.8415022 = phi i32 [ %.83, %.lr.ph15024 ], [ %6990, %7068 ]
-  %.25515021 = phi ptr [ %.254, %.lr.ph15024 ], [ %.257, %7068 ]
-  %.1691120915020 = phi i64 [ %.16811208, %.lr.ph15024 ], [ %.17011210, %7068 ]
-  %.1691146315019 = phi i32 [ %.16811462, %.lr.ph15024 ], [ %.17011464, %7068 ]
-  %6990 = add nsw i32 %.8415022, -256
+  %.8515022 = phi i32 [ %.82, %.lr.ph15024 ], [ %6990, %7068 ]
+  %.25615021 = phi ptr [ %.249, %.lr.ph15024 ], [ %.258, %7068 ]
+  %.1701121015020 = phi i64 [ %.16511205, %.lr.ph15024 ], [ %.17111211, %7068 ]
+  %.1701146415019 = phi i32 [ %.16511459, %.lr.ph15024 ], [ %.17111465, %7068 ]
+  %6990 = add nsw i32 %.8515022, -256
   %6991 = load i8, ptr %6987, align 4
   %6992 = sext i8 %6991 to i32
-  %6993 = sub nsw i32 %.1691146315019, %6992
+  %6993 = sub nsw i32 %.1701146415019, %6992
   %6994 = icmp slt i32 %6993, 0
   %6995 = load i32, ptr %6988, align 4
   br i1 %6994, label %6996, label %7063
 
 6996:                                             ; preds = %6989
-  %6997 = zext nneg i32 %.1691146315019 to i64
-  %6998 = shl i64 %.1691120915020, %6997
+  %6997 = zext nneg i32 %.1701146415019 to i64
+  %6998 = shl i64 %.1701121015020, %6997
   %6999 = sub nsw i32 0, %6993
   %7000 = lshr i32 %6995, %6999
   %7001 = zext nneg i32 %7000 to i64
@@ -14220,19 +14220,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13099 = icmp eq i64 %7005, 0
   %7006 = lshr i64 %6998, 56
   %7007 = trunc nuw i64 %7006 to i8
-  store i8 %7007, ptr %.25515021, align 1
+  store i8 %7007, ptr %.25615021, align 1
   br i1 %.not13099, label %7037, label %7008
 
 7008:                                             ; preds = %6996
-  %7009 = getelementptr inbounds i8, ptr %.25515021, i64 1
+  %7009 = getelementptr inbounds i8, ptr %.25615021, i64 1
   store i8 0, ptr %7009, align 1
   %.not13100 = icmp eq i64 %7006, 255
-  %.sroa.gep14388 = getelementptr inbounds i8, ptr %.25515021, i64 2
+  %.sroa.gep14388 = getelementptr inbounds i8, ptr %.25615021, i64 2
   %.neg13101.sroa.sel = select i1 %.not13100, ptr %.sroa.gep14388, ptr %7009
   %7010 = lshr i64 %6998, 48
   %7011 = trunc i64 %7010 to i8
   store i8 %7011, ptr %.neg13101.sroa.sel, align 1
-  %.sroa.gep15733 = getelementptr inbounds i8, ptr %.25515021, i64 3
+  %.sroa.gep15733 = getelementptr inbounds i8, ptr %.25615021, i64 3
   %.neg13101.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13100, ptr %.sroa.gep15733, ptr %.sroa.gep14388
   store i8 0, ptr %.neg13101.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7012 = and i64 %6998, 71776119061217280
@@ -14300,36 +14300,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7037:                                             ; preds = %6996
   %7038 = lshr i64 %6998, 48
   %7039 = trunc i64 %7038 to i8
-  %7040 = getelementptr inbounds i8, ptr %.25515021, i64 1
+  %7040 = getelementptr inbounds i8, ptr %.25615021, i64 1
   store i8 %7039, ptr %7040, align 1
   %7041 = lshr i64 %6998, 40
   %7042 = trunc i64 %7041 to i8
-  %7043 = getelementptr inbounds i8, ptr %.25515021, i64 2
+  %7043 = getelementptr inbounds i8, ptr %.25615021, i64 2
   store i8 %7042, ptr %7043, align 1
   %7044 = lshr i64 %6998, 32
   %7045 = trunc i64 %7044 to i8
-  %7046 = getelementptr inbounds i8, ptr %.25515021, i64 3
+  %7046 = getelementptr inbounds i8, ptr %.25615021, i64 3
   store i8 %7045, ptr %7046, align 1
   %7047 = lshr i64 %7002, 24
   %7048 = trunc i64 %7047 to i8
-  %7049 = getelementptr inbounds i8, ptr %.25515021, i64 4
+  %7049 = getelementptr inbounds i8, ptr %.25615021, i64 4
   store i8 %7048, ptr %7049, align 1
   %7050 = lshr i64 %7002, 16
   %7051 = trunc i64 %7050 to i8
-  %7052 = getelementptr inbounds i8, ptr %.25515021, i64 5
+  %7052 = getelementptr inbounds i8, ptr %.25615021, i64 5
   store i8 %7051, ptr %7052, align 1
   %7053 = lshr i64 %7002, 8
   %7054 = trunc i64 %7053 to i8
-  %7055 = getelementptr inbounds i8, ptr %.25515021, i64 6
+  %7055 = getelementptr inbounds i8, ptr %.25615021, i64 6
   store i8 %7054, ptr %7055, align 1
   %7056 = trunc i64 %7002 to i8
-  %7057 = getelementptr inbounds i8, ptr %.25515021, i64 7
+  %7057 = getelementptr inbounds i8, ptr %.25615021, i64 7
   store i8 %7056, ptr %7057, align 1
-  %7058 = getelementptr inbounds i8, ptr %.25515021, i64 8
+  %7058 = getelementptr inbounds i8, ptr %.25615021, i64 8
   br label %7059
 
 7059:                                             ; preds = %7037, %7008
-  %.256 = phi ptr [ %7036, %7008 ], [ %7058, %7037 ]
+  %.257 = phi ptr [ %7036, %7008 ], [ %7058, %7037 ]
   %7060 = add nsw i32 %6993, 64
   %7061 = load i32, ptr %6988, align 4
   %7062 = zext i32 %7061 to i64
@@ -14337,24 +14337,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 7063:                                             ; preds = %6989
   %7064 = zext nneg i32 %6992 to i64
-  %7065 = shl i64 %.1691120915020, %7064
+  %7065 = shl i64 %.1701121015020, %7064
   %7066 = zext i32 %6995 to i64
   %7067 = or i64 %7065, %7066
   br label %7068
 
 7068:                                             ; preds = %7063, %7059
-  %.17011464 = phi i32 [ %7060, %7059 ], [ %6993, %7063 ]
-  %.17011210 = phi i64 [ %7062, %7059 ], [ %7067, %7063 ]
-  %.257 = phi ptr [ %.256, %7059 ], [ %.25515021, %7063 ]
-  %7069 = icmp ugt i32 %.8415022, 511
+  %.17111465 = phi i32 [ %7060, %7059 ], [ %6993, %7063 ]
+  %.17111211 = phi i64 [ %7062, %7059 ], [ %7067, %7063 ]
+  %.258 = phi ptr [ %.257, %7059 ], [ %.25615021, %7063 ]
+  %7069 = icmp ugt i32 %.8515022, 511
   br i1 %7069, label %6989, label %._crit_edge15025, !llvm.loop !44
 
 ._crit_edge15025:                                 ; preds = %7068, %6985
-  %.16911463.lcssa = phi i32 [ %.16811462, %6985 ], [ %.17011464, %7068 ]
-  %.16911209.lcssa = phi i64 [ %.16811208, %6985 ], [ %.17011210, %7068 ]
-  %.255.lcssa = phi ptr [ %.254, %6985 ], [ %.257, %7068 ]
-  %.84.lcssa = phi i32 [ %.83, %6985 ], [ %6990, %7068 ]
-  %7070 = add nuw nsw i32 %.84.lcssa, %6976
+  %.17011464.lcssa = phi i32 [ %.16511459, %6985 ], [ %.17111465, %7068 ]
+  %.17011210.lcssa = phi i64 [ %.16511205, %6985 ], [ %.17111211, %7068 ]
+  %.256.lcssa = phi ptr [ %.249, %6985 ], [ %.258, %7068 ]
+  %.85.lcssa = phi i32 [ %.82, %6985 ], [ %6990, %7068 ]
+  %7070 = add nuw nsw i32 %.85.lcssa, %6976
   %7071 = zext nneg i8 %6975 to i64
   %notmask13081 = shl nsw i64 -1, %7071
   %7072 = trunc i64 %notmask13081 to i32
@@ -14370,13 +14370,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %7082 = load i8, ptr %7081, align 1
   %7083 = sext i8 %7082 to i32
   %7084 = add nsw i32 %7083, %6976
-  %7085 = sub nsw i32 %.16911463.lcssa, %7084
+  %7085 = sub nsw i32 %.17011464.lcssa, %7084
   %7086 = icmp slt i32 %7085, 0
   br i1 %7086, label %7087, label %7153
 
 7087:                                             ; preds = %._crit_edge15025
-  %7088 = zext nneg i32 %.16911463.lcssa to i64
-  %7089 = shl i64 %.16911209.lcssa, %7088
+  %7088 = zext nneg i32 %.17011464.lcssa to i64
+  %7089 = shl i64 %.17011210.lcssa, %7088
   %7090 = sub nsw i32 0, %7085
   %7091 = ashr i32 %7079, %7090
   %7092 = sext i32 %7091 to i64
@@ -14387,19 +14387,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13082 = icmp eq i64 %7096, 0
   %7097 = lshr i64 %7093, 56
   %7098 = trunc nuw i64 %7097 to i8
-  store i8 %7098, ptr %.255.lcssa, align 1
+  store i8 %7098, ptr %.256.lcssa, align 1
   br i1 %.not13082, label %7128, label %7099
 
 7099:                                             ; preds = %7087
-  %7100 = getelementptr inbounds i8, ptr %.255.lcssa, i64 1
+  %7100 = getelementptr inbounds i8, ptr %.256.lcssa, i64 1
   store i8 0, ptr %7100, align 1
   %.not13083 = icmp eq i64 %7097, 255
-  %.sroa.gep14396 = getelementptr inbounds i8, ptr %.255.lcssa, i64 2
+  %.sroa.gep14396 = getelementptr inbounds i8, ptr %.256.lcssa, i64 2
   %.neg13084.sroa.sel = select i1 %.not13083, ptr %.sroa.gep14396, ptr %7100
   %7101 = lshr i64 %7093, 48
   %7102 = trunc i64 %7101 to i8
   store i8 %7102, ptr %.neg13084.sroa.sel, align 1
-  %.sroa.gep15741 = getelementptr inbounds i8, ptr %.255.lcssa, i64 3
+  %.sroa.gep15741 = getelementptr inbounds i8, ptr %.256.lcssa, i64 3
   %.neg13084.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13083, ptr %.sroa.gep15741, ptr %.sroa.gep14396
   store i8 0, ptr %.neg13084.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7103 = and i64 %7093, 71776119061217280
@@ -14467,59 +14467,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7128:                                             ; preds = %7087
   %7129 = lshr i64 %7093, 48
   %7130 = trunc i64 %7129 to i8
-  %7131 = getelementptr inbounds i8, ptr %.255.lcssa, i64 1
+  %7131 = getelementptr inbounds i8, ptr %.256.lcssa, i64 1
   store i8 %7130, ptr %7131, align 1
   %7132 = lshr i64 %7093, 40
   %7133 = trunc i64 %7132 to i8
-  %7134 = getelementptr inbounds i8, ptr %.255.lcssa, i64 2
+  %7134 = getelementptr inbounds i8, ptr %.256.lcssa, i64 2
   store i8 %7133, ptr %7134, align 1
   %7135 = lshr i64 %7093, 32
   %7136 = trunc i64 %7135 to i8
-  %7137 = getelementptr inbounds i8, ptr %.255.lcssa, i64 3
+  %7137 = getelementptr inbounds i8, ptr %.256.lcssa, i64 3
   store i8 %7136, ptr %7137, align 1
   %7138 = lshr i64 %7093, 24
   %7139 = trunc i64 %7138 to i8
-  %7140 = getelementptr inbounds i8, ptr %.255.lcssa, i64 4
+  %7140 = getelementptr inbounds i8, ptr %.256.lcssa, i64 4
   store i8 %7139, ptr %7140, align 1
   %7141 = lshr i64 %7093, 16
   %7142 = trunc i64 %7141 to i8
-  %7143 = getelementptr inbounds i8, ptr %.255.lcssa, i64 5
+  %7143 = getelementptr inbounds i8, ptr %.256.lcssa, i64 5
   store i8 %7142, ptr %7143, align 1
   %7144 = lshr i64 %7093, 8
   %7145 = trunc i64 %7144 to i8
-  %7146 = getelementptr inbounds i8, ptr %.255.lcssa, i64 6
+  %7146 = getelementptr inbounds i8, ptr %.256.lcssa, i64 6
   store i8 %7145, ptr %7146, align 1
   %7147 = trunc i64 %7093 to i8
-  %7148 = getelementptr inbounds i8, ptr %.255.lcssa, i64 7
+  %7148 = getelementptr inbounds i8, ptr %.256.lcssa, i64 7
   store i8 %7147, ptr %7148, align 1
-  %7149 = getelementptr inbounds i8, ptr %.255.lcssa, i64 8
+  %7149 = getelementptr inbounds i8, ptr %.256.lcssa, i64 8
   br label %7150
 
 7150:                                             ; preds = %7128, %7099
-  %.258 = phi ptr [ %7127, %7099 ], [ %7149, %7128 ]
+  %.259 = phi ptr [ %7127, %7099 ], [ %7149, %7128 ]
   %7151 = add nsw i32 %7085, 64
   %7152 = sext i32 %7079 to i64
   br label %7158
 
 7153:                                             ; preds = %._crit_edge15025
   %7154 = zext nneg i32 %7084 to i64
-  %7155 = shl i64 %.16911209.lcssa, %7154
+  %7155 = shl i64 %.17011210.lcssa, %7154
   %7156 = sext i32 %7079 to i64
   %7157 = or i64 %7155, %7156
   br label %7158
 
 7158:                                             ; preds = %7150, %7153, %6966
-  %.17211466 = phi i32 [ %.16811462, %6966 ], [ %7151, %7150 ], [ %7085, %7153 ]
-  %.17211212 = phi i64 [ %.16811208, %6966 ], [ %7152, %7150 ], [ %7157, %7153 ]
-  %.260 = phi ptr [ %.254, %6966 ], [ %.258, %7150 ], [ %.255.lcssa, %7153 ]
-  %.85 = phi i32 [ %6967, %6966 ], [ 0, %7150 ], [ 0, %7153 ]
+  %.16911463 = phi i32 [ %.16511459, %6966 ], [ %7151, %7150 ], [ %7085, %7153 ]
+  %.16911209 = phi i64 [ %.16511205, %6966 ], [ %7152, %7150 ], [ %7157, %7153 ]
+  %.255 = phi ptr [ %.249, %6966 ], [ %.259, %7150 ], [ %.256.lcssa, %7153 ]
+  %.84 = phi i32 [ %6967, %6966 ], [ 0, %7150 ], [ 0, %7153 ]
   %7159 = getelementptr inbounds i8, ptr %1, i64 60
   %7160 = load i16, ptr %7159, align 2
   %7161 = icmp eq i16 %7160, 0
   br i1 %7161, label %7162, label %7164
 
 7162:                                             ; preds = %7158
-  %7163 = add nuw nsw i32 %.85, 16
+  %7163 = add nuw nsw i32 %.84, 16
   br label %7354
 
 7164:                                             ; preds = %7158
@@ -14546,7 +14546,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7181
 
 7181:                                             ; preds = %7174, %7164
-  %7182 = icmp ugt i32 %.85, 255
+  %7182 = icmp ugt i32 %.84, 255
   br i1 %7182, label %.lr.ph15035, label %._crit_edge15036
 
 .lr.ph15035:                                      ; preds = %7181
@@ -14555,21 +14555,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7185
 
 7185:                                             ; preds = %.lr.ph15035, %7264
-  %.8615033 = phi i32 [ %.85, %.lr.ph15035 ], [ %7186, %7264 ]
-  %.26115032 = phi ptr [ %.260, %.lr.ph15035 ], [ %.263, %7264 ]
-  %.1731121315031 = phi i64 [ %.17211212, %.lr.ph15035 ], [ %.17411214, %7264 ]
-  %.1731146715030 = phi i32 [ %.17211466, %.lr.ph15035 ], [ %.17411468, %7264 ]
-  %7186 = add nsw i32 %.8615033, -256
+  %.8715033 = phi i32 [ %.84, %.lr.ph15035 ], [ %7186, %7264 ]
+  %.26215032 = phi ptr [ %.255, %.lr.ph15035 ], [ %.264, %7264 ]
+  %.1741121415031 = phi i64 [ %.16911209, %.lr.ph15035 ], [ %.17511215, %7264 ]
+  %.1741146815030 = phi i32 [ %.16911463, %.lr.ph15035 ], [ %.17511469, %7264 ]
+  %7186 = add nsw i32 %.8715033, -256
   %7187 = load i8, ptr %7183, align 4
   %7188 = sext i8 %7187 to i32
-  %7189 = sub nsw i32 %.1731146715030, %7188
+  %7189 = sub nsw i32 %.1741146815030, %7188
   %7190 = icmp slt i32 %7189, 0
   %7191 = load i32, ptr %7184, align 4
   br i1 %7190, label %7192, label %7259
 
 7192:                                             ; preds = %7185
-  %7193 = zext nneg i32 %.1731146715030 to i64
-  %7194 = shl i64 %.1731121315031, %7193
+  %7193 = zext nneg i32 %.1741146815030 to i64
+  %7194 = shl i64 %.1741121415031, %7193
   %7195 = sub nsw i32 0, %7189
   %7196 = lshr i32 %7191, %7195
   %7197 = zext nneg i32 %7196 to i64
@@ -14580,19 +14580,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13134 = icmp eq i64 %7201, 0
   %7202 = lshr i64 %7194, 56
   %7203 = trunc nuw i64 %7202 to i8
-  store i8 %7203, ptr %.26115032, align 1
+  store i8 %7203, ptr %.26215032, align 1
   br i1 %.not13134, label %7233, label %7204
 
 7204:                                             ; preds = %7192
-  %7205 = getelementptr inbounds i8, ptr %.26115032, i64 1
+  %7205 = getelementptr inbounds i8, ptr %.26215032, i64 1
   store i8 0, ptr %7205, align 1
   %.not13135 = icmp eq i64 %7202, 255
-  %.sroa.gep14404 = getelementptr inbounds i8, ptr %.26115032, i64 2
+  %.sroa.gep14404 = getelementptr inbounds i8, ptr %.26215032, i64 2
   %.neg13136.sroa.sel = select i1 %.not13135, ptr %.sroa.gep14404, ptr %7205
   %7206 = lshr i64 %7194, 48
   %7207 = trunc i64 %7206 to i8
   store i8 %7207, ptr %.neg13136.sroa.sel, align 1
-  %.sroa.gep15717 = getelementptr inbounds i8, ptr %.26115032, i64 3
+  %.sroa.gep15717 = getelementptr inbounds i8, ptr %.26215032, i64 3
   %.neg13136.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13135, ptr %.sroa.gep15717, ptr %.sroa.gep14404
   store i8 0, ptr %.neg13136.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7208 = and i64 %7194, 71776119061217280
@@ -14660,36 +14660,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7233:                                             ; preds = %7192
   %7234 = lshr i64 %7194, 48
   %7235 = trunc i64 %7234 to i8
-  %7236 = getelementptr inbounds i8, ptr %.26115032, i64 1
+  %7236 = getelementptr inbounds i8, ptr %.26215032, i64 1
   store i8 %7235, ptr %7236, align 1
   %7237 = lshr i64 %7194, 40
   %7238 = trunc i64 %7237 to i8
-  %7239 = getelementptr inbounds i8, ptr %.26115032, i64 2
+  %7239 = getelementptr inbounds i8, ptr %.26215032, i64 2
   store i8 %7238, ptr %7239, align 1
   %7240 = lshr i64 %7194, 32
   %7241 = trunc i64 %7240 to i8
-  %7242 = getelementptr inbounds i8, ptr %.26115032, i64 3
+  %7242 = getelementptr inbounds i8, ptr %.26215032, i64 3
   store i8 %7241, ptr %7242, align 1
   %7243 = lshr i64 %7198, 24
   %7244 = trunc i64 %7243 to i8
-  %7245 = getelementptr inbounds i8, ptr %.26115032, i64 4
+  %7245 = getelementptr inbounds i8, ptr %.26215032, i64 4
   store i8 %7244, ptr %7245, align 1
   %7246 = lshr i64 %7198, 16
   %7247 = trunc i64 %7246 to i8
-  %7248 = getelementptr inbounds i8, ptr %.26115032, i64 5
+  %7248 = getelementptr inbounds i8, ptr %.26215032, i64 5
   store i8 %7247, ptr %7248, align 1
   %7249 = lshr i64 %7198, 8
   %7250 = trunc i64 %7249 to i8
-  %7251 = getelementptr inbounds i8, ptr %.26115032, i64 6
+  %7251 = getelementptr inbounds i8, ptr %.26215032, i64 6
   store i8 %7250, ptr %7251, align 1
   %7252 = trunc i64 %7198 to i8
-  %7253 = getelementptr inbounds i8, ptr %.26115032, i64 7
+  %7253 = getelementptr inbounds i8, ptr %.26215032, i64 7
   store i8 %7252, ptr %7253, align 1
-  %7254 = getelementptr inbounds i8, ptr %.26115032, i64 8
+  %7254 = getelementptr inbounds i8, ptr %.26215032, i64 8
   br label %7255
 
 7255:                                             ; preds = %7233, %7204
-  %.262 = phi ptr [ %7232, %7204 ], [ %7254, %7233 ]
+  %.263 = phi ptr [ %7232, %7204 ], [ %7254, %7233 ]
   %7256 = add nsw i32 %7189, 64
   %7257 = load i32, ptr %7184, align 4
   %7258 = zext i32 %7257 to i64
@@ -14697,24 +14697,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 7259:                                             ; preds = %7185
   %7260 = zext nneg i32 %7188 to i64
-  %7261 = shl i64 %.1731121315031, %7260
+  %7261 = shl i64 %.1741121415031, %7260
   %7262 = zext i32 %7191 to i64
   %7263 = or i64 %7261, %7262
   br label %7264
 
 7264:                                             ; preds = %7259, %7255
-  %.17411468 = phi i32 [ %7256, %7255 ], [ %7189, %7259 ]
-  %.17411214 = phi i64 [ %7258, %7255 ], [ %7263, %7259 ]
-  %.263 = phi ptr [ %.262, %7255 ], [ %.26115032, %7259 ]
-  %7265 = icmp ugt i32 %.8615033, 511
+  %.17511469 = phi i32 [ %7256, %7255 ], [ %7189, %7259 ]
+  %.17511215 = phi i64 [ %7258, %7255 ], [ %7263, %7259 ]
+  %.264 = phi ptr [ %.263, %7255 ], [ %.26215032, %7259 ]
+  %7265 = icmp ugt i32 %.8715033, 511
   br i1 %7265, label %7185, label %._crit_edge15036, !llvm.loop !45
 
 ._crit_edge15036:                                 ; preds = %7264, %7181
-  %.17311467.lcssa = phi i32 [ %.17211466, %7181 ], [ %.17411468, %7264 ]
-  %.17311213.lcssa = phi i64 [ %.17211212, %7181 ], [ %.17411214, %7264 ]
-  %.261.lcssa = phi ptr [ %.260, %7181 ], [ %.263, %7264 ]
-  %.86.lcssa = phi i32 [ %.85, %7181 ], [ %7186, %7264 ]
-  %7266 = add nuw nsw i32 %.86.lcssa, %7172
+  %.17411468.lcssa = phi i32 [ %.16911463, %7181 ], [ %.17511469, %7264 ]
+  %.17411214.lcssa = phi i64 [ %.16911209, %7181 ], [ %.17511215, %7264 ]
+  %.262.lcssa = phi ptr [ %.255, %7181 ], [ %.264, %7264 ]
+  %.87.lcssa = phi i32 [ %.84, %7181 ], [ %7186, %7264 ]
+  %7266 = add nuw nsw i32 %.87.lcssa, %7172
   %7267 = zext nneg i8 %7171 to i64
   %notmask13116 = shl nsw i64 -1, %7267
   %7268 = trunc i64 %notmask13116 to i32
@@ -14730,13 +14730,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %7278 = load i8, ptr %7277, align 1
   %7279 = sext i8 %7278 to i32
   %7280 = add nsw i32 %7279, %7172
-  %7281 = sub nsw i32 %.17311467.lcssa, %7280
+  %7281 = sub nsw i32 %.17411468.lcssa, %7280
   %7282 = icmp slt i32 %7281, 0
   br i1 %7282, label %7283, label %7349
 
 7283:                                             ; preds = %._crit_edge15036
-  %7284 = zext nneg i32 %.17311467.lcssa to i64
-  %7285 = shl i64 %.17311213.lcssa, %7284
+  %7284 = zext nneg i32 %.17411468.lcssa to i64
+  %7285 = shl i64 %.17411214.lcssa, %7284
   %7286 = sub nsw i32 0, %7281
   %7287 = ashr i32 %7275, %7286
   %7288 = sext i32 %7287 to i64
@@ -14747,19 +14747,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13117 = icmp eq i64 %7292, 0
   %7293 = lshr i64 %7289, 56
   %7294 = trunc nuw i64 %7293 to i8
-  store i8 %7294, ptr %.261.lcssa, align 1
+  store i8 %7294, ptr %.262.lcssa, align 1
   br i1 %.not13117, label %7324, label %7295
 
 7295:                                             ; preds = %7283
-  %7296 = getelementptr inbounds i8, ptr %.261.lcssa, i64 1
+  %7296 = getelementptr inbounds i8, ptr %.262.lcssa, i64 1
   store i8 0, ptr %7296, align 1
   %.not13118 = icmp eq i64 %7293, 255
-  %.sroa.gep14412 = getelementptr inbounds i8, ptr %.261.lcssa, i64 2
+  %.sroa.gep14412 = getelementptr inbounds i8, ptr %.262.lcssa, i64 2
   %.neg13119.sroa.sel = select i1 %.not13118, ptr %.sroa.gep14412, ptr %7296
   %7297 = lshr i64 %7289, 48
   %7298 = trunc i64 %7297 to i8
   store i8 %7298, ptr %.neg13119.sroa.sel, align 1
-  %.sroa.gep15725 = getelementptr inbounds i8, ptr %.261.lcssa, i64 3
+  %.sroa.gep15725 = getelementptr inbounds i8, ptr %.262.lcssa, i64 3
   %.neg13119.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13118, ptr %.sroa.gep15725, ptr %.sroa.gep14412
   store i8 0, ptr %.neg13119.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7299 = and i64 %7289, 71776119061217280
@@ -14827,59 +14827,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7324:                                             ; preds = %7283
   %7325 = lshr i64 %7289, 48
   %7326 = trunc i64 %7325 to i8
-  %7327 = getelementptr inbounds i8, ptr %.261.lcssa, i64 1
+  %7327 = getelementptr inbounds i8, ptr %.262.lcssa, i64 1
   store i8 %7326, ptr %7327, align 1
   %7328 = lshr i64 %7289, 40
   %7329 = trunc i64 %7328 to i8
-  %7330 = getelementptr inbounds i8, ptr %.261.lcssa, i64 2
+  %7330 = getelementptr inbounds i8, ptr %.262.lcssa, i64 2
   store i8 %7329, ptr %7330, align 1
   %7331 = lshr i64 %7289, 32
   %7332 = trunc i64 %7331 to i8
-  %7333 = getelementptr inbounds i8, ptr %.261.lcssa, i64 3
+  %7333 = getelementptr inbounds i8, ptr %.262.lcssa, i64 3
   store i8 %7332, ptr %7333, align 1
   %7334 = lshr i64 %7289, 24
   %7335 = trunc i64 %7334 to i8
-  %7336 = getelementptr inbounds i8, ptr %.261.lcssa, i64 4
+  %7336 = getelementptr inbounds i8, ptr %.262.lcssa, i64 4
   store i8 %7335, ptr %7336, align 1
   %7337 = lshr i64 %7289, 16
   %7338 = trunc i64 %7337 to i8
-  %7339 = getelementptr inbounds i8, ptr %.261.lcssa, i64 5
+  %7339 = getelementptr inbounds i8, ptr %.262.lcssa, i64 5
   store i8 %7338, ptr %7339, align 1
   %7340 = lshr i64 %7289, 8
   %7341 = trunc i64 %7340 to i8
-  %7342 = getelementptr inbounds i8, ptr %.261.lcssa, i64 6
+  %7342 = getelementptr inbounds i8, ptr %.262.lcssa, i64 6
   store i8 %7341, ptr %7342, align 1
   %7343 = trunc i64 %7289 to i8
-  %7344 = getelementptr inbounds i8, ptr %.261.lcssa, i64 7
+  %7344 = getelementptr inbounds i8, ptr %.262.lcssa, i64 7
   store i8 %7343, ptr %7344, align 1
-  %7345 = getelementptr inbounds i8, ptr %.261.lcssa, i64 8
+  %7345 = getelementptr inbounds i8, ptr %.262.lcssa, i64 8
   br label %7346
 
 7346:                                             ; preds = %7324, %7295
-  %.264 = phi ptr [ %7323, %7295 ], [ %7345, %7324 ]
+  %.265 = phi ptr [ %7323, %7295 ], [ %7345, %7324 ]
   %7347 = add nsw i32 %7281, 64
   %7348 = sext i32 %7275 to i64
   br label %7354
 
 7349:                                             ; preds = %._crit_edge15036
   %7350 = zext nneg i32 %7280 to i64
-  %7351 = shl i64 %.17311213.lcssa, %7350
+  %7351 = shl i64 %.17411214.lcssa, %7350
   %7352 = sext i32 %7275 to i64
   %7353 = or i64 %7351, %7352
   br label %7354
 
 7354:                                             ; preds = %7346, %7349, %7162
-  %.17611470 = phi i32 [ %.17211466, %7162 ], [ %7347, %7346 ], [ %7281, %7349 ]
-  %.17611216 = phi i64 [ %.17211212, %7162 ], [ %7348, %7346 ], [ %7353, %7349 ]
-  %.266 = phi ptr [ %.260, %7162 ], [ %.264, %7346 ], [ %.261.lcssa, %7349 ]
-  %.87 = phi i32 [ %7163, %7162 ], [ 0, %7346 ], [ 0, %7349 ]
+  %.17311467 = phi i32 [ %.16911463, %7162 ], [ %7347, %7346 ], [ %7281, %7349 ]
+  %.17311213 = phi i64 [ %.16911209, %7162 ], [ %7348, %7346 ], [ %7353, %7349 ]
+  %.261 = phi ptr [ %.255, %7162 ], [ %.265, %7346 ], [ %.262.lcssa, %7349 ]
+  %.86 = phi i32 [ %7163, %7162 ], [ 0, %7346 ], [ 0, %7349 ]
   %7355 = getelementptr inbounds i8, ptr %1, i64 74
   %7356 = load i16, ptr %7355, align 2
   %7357 = icmp eq i16 %7356, 0
   br i1 %7357, label %7358, label %7360
 
 7358:                                             ; preds = %7354
-  %7359 = add nuw nsw i32 %.87, 16
+  %7359 = add nuw nsw i32 %.86, 16
   br label %7550
 
 7360:                                             ; preds = %7354
@@ -14906,7 +14906,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7377
 
 7377:                                             ; preds = %7370, %7360
-  %7378 = icmp ugt i32 %.87, 255
+  %7378 = icmp ugt i32 %.86, 255
   br i1 %7378, label %.lr.ph15046, label %._crit_edge15047
 
 .lr.ph15046:                                      ; preds = %7377
@@ -14915,21 +14915,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7381
 
 7381:                                             ; preds = %.lr.ph15046, %7460
-  %.8815044 = phi i32 [ %.87, %.lr.ph15046 ], [ %7382, %7460 ]
-  %.26715043 = phi ptr [ %.266, %.lr.ph15046 ], [ %.269, %7460 ]
-  %.1771121715042 = phi i64 [ %.17611216, %.lr.ph15046 ], [ %.17811218, %7460 ]
-  %.1771147115041 = phi i32 [ %.17611470, %.lr.ph15046 ], [ %.17811472, %7460 ]
-  %7382 = add nsw i32 %.8815044, -256
+  %.8915044 = phi i32 [ %.86, %.lr.ph15046 ], [ %7382, %7460 ]
+  %.26815043 = phi ptr [ %.261, %.lr.ph15046 ], [ %.270, %7460 ]
+  %.1781121815042 = phi i64 [ %.17311213, %.lr.ph15046 ], [ %.17911219, %7460 ]
+  %.1781147215041 = phi i32 [ %.17311467, %.lr.ph15046 ], [ %.17911473, %7460 ]
+  %7382 = add nsw i32 %.8915044, -256
   %7383 = load i8, ptr %7379, align 4
   %7384 = sext i8 %7383 to i32
-  %7385 = sub nsw i32 %.1771147115041, %7384
+  %7385 = sub nsw i32 %.1781147215041, %7384
   %7386 = icmp slt i32 %7385, 0
   %7387 = load i32, ptr %7380, align 4
   br i1 %7386, label %7388, label %7455
 
 7388:                                             ; preds = %7381
-  %7389 = zext nneg i32 %.1771147115041 to i64
-  %7390 = shl i64 %.1771121715042, %7389
+  %7389 = zext nneg i32 %.1781147215041 to i64
+  %7390 = shl i64 %.1781121815042, %7389
   %7391 = sub nsw i32 0, %7385
   %7392 = lshr i32 %7387, %7391
   %7393 = zext nneg i32 %7392 to i64
@@ -14940,19 +14940,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13169 = icmp eq i64 %7397, 0
   %7398 = lshr i64 %7390, 56
   %7399 = trunc nuw i64 %7398 to i8
-  store i8 %7399, ptr %.26715043, align 1
+  store i8 %7399, ptr %.26815043, align 1
   br i1 %.not13169, label %7429, label %7400
 
 7400:                                             ; preds = %7388
-  %7401 = getelementptr inbounds i8, ptr %.26715043, i64 1
+  %7401 = getelementptr inbounds i8, ptr %.26815043, i64 1
   store i8 0, ptr %7401, align 1
   %.not13170 = icmp eq i64 %7398, 255
-  %.sroa.gep14420 = getelementptr inbounds i8, ptr %.26715043, i64 2
+  %.sroa.gep14420 = getelementptr inbounds i8, ptr %.26815043, i64 2
   %.neg13171.sroa.sel = select i1 %.not13170, ptr %.sroa.gep14420, ptr %7401
   %7402 = lshr i64 %7390, 48
   %7403 = trunc i64 %7402 to i8
   store i8 %7403, ptr %.neg13171.sroa.sel, align 1
-  %.sroa.gep15701 = getelementptr inbounds i8, ptr %.26715043, i64 3
+  %.sroa.gep15701 = getelementptr inbounds i8, ptr %.26815043, i64 3
   %.neg13171.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13170, ptr %.sroa.gep15701, ptr %.sroa.gep14420
   store i8 0, ptr %.neg13171.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7404 = and i64 %7390, 71776119061217280
@@ -15020,36 +15020,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7429:                                             ; preds = %7388
   %7430 = lshr i64 %7390, 48
   %7431 = trunc i64 %7430 to i8
-  %7432 = getelementptr inbounds i8, ptr %.26715043, i64 1
+  %7432 = getelementptr inbounds i8, ptr %.26815043, i64 1
   store i8 %7431, ptr %7432, align 1
   %7433 = lshr i64 %7390, 40
   %7434 = trunc i64 %7433 to i8
-  %7435 = getelementptr inbounds i8, ptr %.26715043, i64 2
+  %7435 = getelementptr inbounds i8, ptr %.26815043, i64 2
   store i8 %7434, ptr %7435, align 1
   %7436 = lshr i64 %7390, 32
   %7437 = trunc i64 %7436 to i8
-  %7438 = getelementptr inbounds i8, ptr %.26715043, i64 3
+  %7438 = getelementptr inbounds i8, ptr %.26815043, i64 3
   store i8 %7437, ptr %7438, align 1
   %7439 = lshr i64 %7394, 24
   %7440 = trunc i64 %7439 to i8
-  %7441 = getelementptr inbounds i8, ptr %.26715043, i64 4
+  %7441 = getelementptr inbounds i8, ptr %.26815043, i64 4
   store i8 %7440, ptr %7441, align 1
   %7442 = lshr i64 %7394, 16
   %7443 = trunc i64 %7442 to i8
-  %7444 = getelementptr inbounds i8, ptr %.26715043, i64 5
+  %7444 = getelementptr inbounds i8, ptr %.26815043, i64 5
   store i8 %7443, ptr %7444, align 1
   %7445 = lshr i64 %7394, 8
   %7446 = trunc i64 %7445 to i8
-  %7447 = getelementptr inbounds i8, ptr %.26715043, i64 6
+  %7447 = getelementptr inbounds i8, ptr %.26815043, i64 6
   store i8 %7446, ptr %7447, align 1
   %7448 = trunc i64 %7394 to i8
-  %7449 = getelementptr inbounds i8, ptr %.26715043, i64 7
+  %7449 = getelementptr inbounds i8, ptr %.26815043, i64 7
   store i8 %7448, ptr %7449, align 1
-  %7450 = getelementptr inbounds i8, ptr %.26715043, i64 8
+  %7450 = getelementptr inbounds i8, ptr %.26815043, i64 8
   br label %7451
 
 7451:                                             ; preds = %7429, %7400
-  %.268 = phi ptr [ %7428, %7400 ], [ %7450, %7429 ]
+  %.269 = phi ptr [ %7428, %7400 ], [ %7450, %7429 ]
   %7452 = add nsw i32 %7385, 64
   %7453 = load i32, ptr %7380, align 4
   %7454 = zext i32 %7453 to i64
@@ -15057,24 +15057,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 7455:                                             ; preds = %7381
   %7456 = zext nneg i32 %7384 to i64
-  %7457 = shl i64 %.1771121715042, %7456
+  %7457 = shl i64 %.1781121815042, %7456
   %7458 = zext i32 %7387 to i64
   %7459 = or i64 %7457, %7458
   br label %7460
 
 7460:                                             ; preds = %7455, %7451
-  %.17811472 = phi i32 [ %7452, %7451 ], [ %7385, %7455 ]
-  %.17811218 = phi i64 [ %7454, %7451 ], [ %7459, %7455 ]
-  %.269 = phi ptr [ %.268, %7451 ], [ %.26715043, %7455 ]
-  %7461 = icmp ugt i32 %.8815044, 511
+  %.17911473 = phi i32 [ %7452, %7451 ], [ %7385, %7455 ]
+  %.17911219 = phi i64 [ %7454, %7451 ], [ %7459, %7455 ]
+  %.270 = phi ptr [ %.269, %7451 ], [ %.26815043, %7455 ]
+  %7461 = icmp ugt i32 %.8915044, 511
   br i1 %7461, label %7381, label %._crit_edge15047, !llvm.loop !46
 
 ._crit_edge15047:                                 ; preds = %7460, %7377
-  %.17711471.lcssa = phi i32 [ %.17611470, %7377 ], [ %.17811472, %7460 ]
-  %.17711217.lcssa = phi i64 [ %.17611216, %7377 ], [ %.17811218, %7460 ]
-  %.267.lcssa = phi ptr [ %.266, %7377 ], [ %.269, %7460 ]
-  %.88.lcssa = phi i32 [ %.87, %7377 ], [ %7382, %7460 ]
-  %7462 = add nuw nsw i32 %.88.lcssa, %7368
+  %.17811472.lcssa = phi i32 [ %.17311467, %7377 ], [ %.17911473, %7460 ]
+  %.17811218.lcssa = phi i64 [ %.17311213, %7377 ], [ %.17911219, %7460 ]
+  %.268.lcssa = phi ptr [ %.261, %7377 ], [ %.270, %7460 ]
+  %.89.lcssa = phi i32 [ %.86, %7377 ], [ %7382, %7460 ]
+  %7462 = add nuw nsw i32 %.89.lcssa, %7368
   %7463 = zext nneg i8 %7367 to i64
   %notmask13151 = shl nsw i64 -1, %7463
   %7464 = trunc i64 %notmask13151 to i32
@@ -15090,13 +15090,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %7474 = load i8, ptr %7473, align 1
   %7475 = sext i8 %7474 to i32
   %7476 = add nsw i32 %7475, %7368
-  %7477 = sub nsw i32 %.17711471.lcssa, %7476
+  %7477 = sub nsw i32 %.17811472.lcssa, %7476
   %7478 = icmp slt i32 %7477, 0
   br i1 %7478, label %7479, label %7545
 
 7479:                                             ; preds = %._crit_edge15047
-  %7480 = zext nneg i32 %.17711471.lcssa to i64
-  %7481 = shl i64 %.17711217.lcssa, %7480
+  %7480 = zext nneg i32 %.17811472.lcssa to i64
+  %7481 = shl i64 %.17811218.lcssa, %7480
   %7482 = sub nsw i32 0, %7477
   %7483 = ashr i32 %7471, %7482
   %7484 = sext i32 %7483 to i64
@@ -15107,19 +15107,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13152 = icmp eq i64 %7488, 0
   %7489 = lshr i64 %7485, 56
   %7490 = trunc nuw i64 %7489 to i8
-  store i8 %7490, ptr %.267.lcssa, align 1
+  store i8 %7490, ptr %.268.lcssa, align 1
   br i1 %.not13152, label %7520, label %7491
 
 7491:                                             ; preds = %7479
-  %7492 = getelementptr inbounds i8, ptr %.267.lcssa, i64 1
+  %7492 = getelementptr inbounds i8, ptr %.268.lcssa, i64 1
   store i8 0, ptr %7492, align 1
   %.not13153 = icmp eq i64 %7489, 255
-  %.sroa.gep14428 = getelementptr inbounds i8, ptr %.267.lcssa, i64 2
+  %.sroa.gep14428 = getelementptr inbounds i8, ptr %.268.lcssa, i64 2
   %.neg13154.sroa.sel = select i1 %.not13153, ptr %.sroa.gep14428, ptr %7492
   %7493 = lshr i64 %7485, 48
   %7494 = trunc i64 %7493 to i8
   store i8 %7494, ptr %.neg13154.sroa.sel, align 1
-  %.sroa.gep15709 = getelementptr inbounds i8, ptr %.267.lcssa, i64 3
+  %.sroa.gep15709 = getelementptr inbounds i8, ptr %.268.lcssa, i64 3
   %.neg13154.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13153, ptr %.sroa.gep15709, ptr %.sroa.gep14428
   store i8 0, ptr %.neg13154.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7495 = and i64 %7485, 71776119061217280
@@ -15187,59 +15187,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7520:                                             ; preds = %7479
   %7521 = lshr i64 %7485, 48
   %7522 = trunc i64 %7521 to i8
-  %7523 = getelementptr inbounds i8, ptr %.267.lcssa, i64 1
+  %7523 = getelementptr inbounds i8, ptr %.268.lcssa, i64 1
   store i8 %7522, ptr %7523, align 1
   %7524 = lshr i64 %7485, 40
   %7525 = trunc i64 %7524 to i8
-  %7526 = getelementptr inbounds i8, ptr %.267.lcssa, i64 2
+  %7526 = getelementptr inbounds i8, ptr %.268.lcssa, i64 2
   store i8 %7525, ptr %7526, align 1
   %7527 = lshr i64 %7485, 32
   %7528 = trunc i64 %7527 to i8
-  %7529 = getelementptr inbounds i8, ptr %.267.lcssa, i64 3
+  %7529 = getelementptr inbounds i8, ptr %.268.lcssa, i64 3
   store i8 %7528, ptr %7529, align 1
   %7530 = lshr i64 %7485, 24
   %7531 = trunc i64 %7530 to i8
-  %7532 = getelementptr inbounds i8, ptr %.267.lcssa, i64 4
+  %7532 = getelementptr inbounds i8, ptr %.268.lcssa, i64 4
   store i8 %7531, ptr %7532, align 1
   %7533 = lshr i64 %7485, 16
   %7534 = trunc i64 %7533 to i8
-  %7535 = getelementptr inbounds i8, ptr %.267.lcssa, i64 5
+  %7535 = getelementptr inbounds i8, ptr %.268.lcssa, i64 5
   store i8 %7534, ptr %7535, align 1
   %7536 = lshr i64 %7485, 8
   %7537 = trunc i64 %7536 to i8
-  %7538 = getelementptr inbounds i8, ptr %.267.lcssa, i64 6
+  %7538 = getelementptr inbounds i8, ptr %.268.lcssa, i64 6
   store i8 %7537, ptr %7538, align 1
   %7539 = trunc i64 %7485 to i8
-  %7540 = getelementptr inbounds i8, ptr %.267.lcssa, i64 7
+  %7540 = getelementptr inbounds i8, ptr %.268.lcssa, i64 7
   store i8 %7539, ptr %7540, align 1
-  %7541 = getelementptr inbounds i8, ptr %.267.lcssa, i64 8
+  %7541 = getelementptr inbounds i8, ptr %.268.lcssa, i64 8
   br label %7542
 
 7542:                                             ; preds = %7520, %7491
-  %.270 = phi ptr [ %7519, %7491 ], [ %7541, %7520 ]
+  %.271 = phi ptr [ %7519, %7491 ], [ %7541, %7520 ]
   %7543 = add nsw i32 %7477, 64
   %7544 = sext i32 %7471 to i64
   br label %7550
 
 7545:                                             ; preds = %._crit_edge15047
   %7546 = zext nneg i32 %7476 to i64
-  %7547 = shl i64 %.17711217.lcssa, %7546
+  %7547 = shl i64 %.17811218.lcssa, %7546
   %7548 = sext i32 %7471 to i64
   %7549 = or i64 %7547, %7548
   br label %7550
 
 7550:                                             ; preds = %7542, %7545, %7358
-  %.18011474 = phi i32 [ %.17611470, %7358 ], [ %7543, %7542 ], [ %7477, %7545 ]
-  %.18011220 = phi i64 [ %.17611216, %7358 ], [ %7544, %7542 ], [ %7549, %7545 ]
-  %.272 = phi ptr [ %.266, %7358 ], [ %.270, %7542 ], [ %.267.lcssa, %7545 ]
-  %.89 = phi i32 [ %7359, %7358 ], [ 0, %7542 ], [ 0, %7545 ]
+  %.17711471 = phi i32 [ %.17311467, %7358 ], [ %7543, %7542 ], [ %7477, %7545 ]
+  %.17711217 = phi i64 [ %.17311213, %7358 ], [ %7544, %7542 ], [ %7549, %7545 ]
+  %.267 = phi ptr [ %.261, %7358 ], [ %.271, %7542 ], [ %.268.lcssa, %7545 ]
+  %.88 = phi i32 [ %7359, %7358 ], [ 0, %7542 ], [ 0, %7545 ]
   %7551 = getelementptr inbounds i8, ptr %1, i64 88
   %7552 = load i16, ptr %7551, align 2
   %7553 = icmp eq i16 %7552, 0
   br i1 %7553, label %7554, label %7556
 
 7554:                                             ; preds = %7550
-  %7555 = add nuw nsw i32 %.89, 16
+  %7555 = add nuw nsw i32 %.88, 16
   br label %7746
 
 7556:                                             ; preds = %7550
@@ -15266,7 +15266,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7573
 
 7573:                                             ; preds = %7566, %7556
-  %7574 = icmp ugt i32 %.89, 255
+  %7574 = icmp ugt i32 %.88, 255
   br i1 %7574, label %.lr.ph15057, label %._crit_edge15058
 
 .lr.ph15057:                                      ; preds = %7573
@@ -15275,21 +15275,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7577
 
 7577:                                             ; preds = %.lr.ph15057, %7656
-  %.9015055 = phi i32 [ %.89, %.lr.ph15057 ], [ %7578, %7656 ]
-  %.27315054 = phi ptr [ %.272, %.lr.ph15057 ], [ %.275, %7656 ]
-  %.1811122115053 = phi i64 [ %.18011220, %.lr.ph15057 ], [ %.18211222, %7656 ]
-  %.1811147515052 = phi i32 [ %.18011474, %.lr.ph15057 ], [ %.18211476, %7656 ]
-  %7578 = add nsw i32 %.9015055, -256
+  %.9115055 = phi i32 [ %.88, %.lr.ph15057 ], [ %7578, %7656 ]
+  %.27415054 = phi ptr [ %.267, %.lr.ph15057 ], [ %.276, %7656 ]
+  %.1821122215053 = phi i64 [ %.17711217, %.lr.ph15057 ], [ %.18311223, %7656 ]
+  %.1821147615052 = phi i32 [ %.17711471, %.lr.ph15057 ], [ %.18311477, %7656 ]
+  %7578 = add nsw i32 %.9115055, -256
   %7579 = load i8, ptr %7575, align 4
   %7580 = sext i8 %7579 to i32
-  %7581 = sub nsw i32 %.1811147515052, %7580
+  %7581 = sub nsw i32 %.1821147615052, %7580
   %7582 = icmp slt i32 %7581, 0
   %7583 = load i32, ptr %7576, align 4
   br i1 %7582, label %7584, label %7651
 
 7584:                                             ; preds = %7577
-  %7585 = zext nneg i32 %.1811147515052 to i64
-  %7586 = shl i64 %.1811122115053, %7585
+  %7585 = zext nneg i32 %.1821147615052 to i64
+  %7586 = shl i64 %.1821122215053, %7585
   %7587 = sub nsw i32 0, %7581
   %7588 = lshr i32 %7583, %7587
   %7589 = zext nneg i32 %7588 to i64
@@ -15300,19 +15300,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13204 = icmp eq i64 %7593, 0
   %7594 = lshr i64 %7586, 56
   %7595 = trunc nuw i64 %7594 to i8
-  store i8 %7595, ptr %.27315054, align 1
+  store i8 %7595, ptr %.27415054, align 1
   br i1 %.not13204, label %7625, label %7596
 
 7596:                                             ; preds = %7584
-  %7597 = getelementptr inbounds i8, ptr %.27315054, i64 1
+  %7597 = getelementptr inbounds i8, ptr %.27415054, i64 1
   store i8 0, ptr %7597, align 1
   %.not13205 = icmp eq i64 %7594, 255
-  %.sroa.gep14436 = getelementptr inbounds i8, ptr %.27315054, i64 2
+  %.sroa.gep14436 = getelementptr inbounds i8, ptr %.27415054, i64 2
   %.neg13206.sroa.sel = select i1 %.not13205, ptr %.sroa.gep14436, ptr %7597
   %7598 = lshr i64 %7586, 48
   %7599 = trunc i64 %7598 to i8
   store i8 %7599, ptr %.neg13206.sroa.sel, align 1
-  %.sroa.gep15685 = getelementptr inbounds i8, ptr %.27315054, i64 3
+  %.sroa.gep15685 = getelementptr inbounds i8, ptr %.27415054, i64 3
   %.neg13206.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13205, ptr %.sroa.gep15685, ptr %.sroa.gep14436
   store i8 0, ptr %.neg13206.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7600 = and i64 %7586, 71776119061217280
@@ -15380,36 +15380,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7625:                                             ; preds = %7584
   %7626 = lshr i64 %7586, 48
   %7627 = trunc i64 %7626 to i8
-  %7628 = getelementptr inbounds i8, ptr %.27315054, i64 1
+  %7628 = getelementptr inbounds i8, ptr %.27415054, i64 1
   store i8 %7627, ptr %7628, align 1
   %7629 = lshr i64 %7586, 40
   %7630 = trunc i64 %7629 to i8
-  %7631 = getelementptr inbounds i8, ptr %.27315054, i64 2
+  %7631 = getelementptr inbounds i8, ptr %.27415054, i64 2
   store i8 %7630, ptr %7631, align 1
   %7632 = lshr i64 %7586, 32
   %7633 = trunc i64 %7632 to i8
-  %7634 = getelementptr inbounds i8, ptr %.27315054, i64 3
+  %7634 = getelementptr inbounds i8, ptr %.27415054, i64 3
   store i8 %7633, ptr %7634, align 1
   %7635 = lshr i64 %7590, 24
   %7636 = trunc i64 %7635 to i8
-  %7637 = getelementptr inbounds i8, ptr %.27315054, i64 4
+  %7637 = getelementptr inbounds i8, ptr %.27415054, i64 4
   store i8 %7636, ptr %7637, align 1
   %7638 = lshr i64 %7590, 16
   %7639 = trunc i64 %7638 to i8
-  %7640 = getelementptr inbounds i8, ptr %.27315054, i64 5
+  %7640 = getelementptr inbounds i8, ptr %.27415054, i64 5
   store i8 %7639, ptr %7640, align 1
   %7641 = lshr i64 %7590, 8
   %7642 = trunc i64 %7641 to i8
-  %7643 = getelementptr inbounds i8, ptr %.27315054, i64 6
+  %7643 = getelementptr inbounds i8, ptr %.27415054, i64 6
   store i8 %7642, ptr %7643, align 1
   %7644 = trunc i64 %7590 to i8
-  %7645 = getelementptr inbounds i8, ptr %.27315054, i64 7
+  %7645 = getelementptr inbounds i8, ptr %.27415054, i64 7
   store i8 %7644, ptr %7645, align 1
-  %7646 = getelementptr inbounds i8, ptr %.27315054, i64 8
+  %7646 = getelementptr inbounds i8, ptr %.27415054, i64 8
   br label %7647
 
 7647:                                             ; preds = %7625, %7596
-  %.274 = phi ptr [ %7624, %7596 ], [ %7646, %7625 ]
+  %.275 = phi ptr [ %7624, %7596 ], [ %7646, %7625 ]
   %7648 = add nsw i32 %7581, 64
   %7649 = load i32, ptr %7576, align 4
   %7650 = zext i32 %7649 to i64
@@ -15417,24 +15417,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 7651:                                             ; preds = %7577
   %7652 = zext nneg i32 %7580 to i64
-  %7653 = shl i64 %.1811122115053, %7652
+  %7653 = shl i64 %.1821122215053, %7652
   %7654 = zext i32 %7583 to i64
   %7655 = or i64 %7653, %7654
   br label %7656
 
 7656:                                             ; preds = %7651, %7647
-  %.18211476 = phi i32 [ %7648, %7647 ], [ %7581, %7651 ]
-  %.18211222 = phi i64 [ %7650, %7647 ], [ %7655, %7651 ]
-  %.275 = phi ptr [ %.274, %7647 ], [ %.27315054, %7651 ]
-  %7657 = icmp ugt i32 %.9015055, 511
+  %.18311477 = phi i32 [ %7648, %7647 ], [ %7581, %7651 ]
+  %.18311223 = phi i64 [ %7650, %7647 ], [ %7655, %7651 ]
+  %.276 = phi ptr [ %.275, %7647 ], [ %.27415054, %7651 ]
+  %7657 = icmp ugt i32 %.9115055, 511
   br i1 %7657, label %7577, label %._crit_edge15058, !llvm.loop !47
 
 ._crit_edge15058:                                 ; preds = %7656, %7573
-  %.18111475.lcssa = phi i32 [ %.18011474, %7573 ], [ %.18211476, %7656 ]
-  %.18111221.lcssa = phi i64 [ %.18011220, %7573 ], [ %.18211222, %7656 ]
-  %.273.lcssa = phi ptr [ %.272, %7573 ], [ %.275, %7656 ]
-  %.90.lcssa = phi i32 [ %.89, %7573 ], [ %7578, %7656 ]
-  %7658 = add nuw nsw i32 %.90.lcssa, %7564
+  %.18211476.lcssa = phi i32 [ %.17711471, %7573 ], [ %.18311477, %7656 ]
+  %.18211222.lcssa = phi i64 [ %.17711217, %7573 ], [ %.18311223, %7656 ]
+  %.274.lcssa = phi ptr [ %.267, %7573 ], [ %.276, %7656 ]
+  %.91.lcssa = phi i32 [ %.88, %7573 ], [ %7578, %7656 ]
+  %7658 = add nuw nsw i32 %.91.lcssa, %7564
   %7659 = zext nneg i8 %7563 to i64
   %notmask13186 = shl nsw i64 -1, %7659
   %7660 = trunc i64 %notmask13186 to i32
@@ -15450,13 +15450,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %7670 = load i8, ptr %7669, align 1
   %7671 = sext i8 %7670 to i32
   %7672 = add nsw i32 %7671, %7564
-  %7673 = sub nsw i32 %.18111475.lcssa, %7672
+  %7673 = sub nsw i32 %.18211476.lcssa, %7672
   %7674 = icmp slt i32 %7673, 0
   br i1 %7674, label %7675, label %7741
 
 7675:                                             ; preds = %._crit_edge15058
-  %7676 = zext nneg i32 %.18111475.lcssa to i64
-  %7677 = shl i64 %.18111221.lcssa, %7676
+  %7676 = zext nneg i32 %.18211476.lcssa to i64
+  %7677 = shl i64 %.18211222.lcssa, %7676
   %7678 = sub nsw i32 0, %7673
   %7679 = ashr i32 %7667, %7678
   %7680 = sext i32 %7679 to i64
@@ -15467,19 +15467,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13187 = icmp eq i64 %7684, 0
   %7685 = lshr i64 %7681, 56
   %7686 = trunc nuw i64 %7685 to i8
-  store i8 %7686, ptr %.273.lcssa, align 1
+  store i8 %7686, ptr %.274.lcssa, align 1
   br i1 %.not13187, label %7716, label %7687
 
 7687:                                             ; preds = %7675
-  %7688 = getelementptr inbounds i8, ptr %.273.lcssa, i64 1
+  %7688 = getelementptr inbounds i8, ptr %.274.lcssa, i64 1
   store i8 0, ptr %7688, align 1
   %.not13188 = icmp eq i64 %7685, 255
-  %.sroa.gep14444 = getelementptr inbounds i8, ptr %.273.lcssa, i64 2
+  %.sroa.gep14444 = getelementptr inbounds i8, ptr %.274.lcssa, i64 2
   %.neg13189.sroa.sel = select i1 %.not13188, ptr %.sroa.gep14444, ptr %7688
   %7689 = lshr i64 %7681, 48
   %7690 = trunc i64 %7689 to i8
   store i8 %7690, ptr %.neg13189.sroa.sel, align 1
-  %.sroa.gep15693 = getelementptr inbounds i8, ptr %.273.lcssa, i64 3
+  %.sroa.gep15693 = getelementptr inbounds i8, ptr %.274.lcssa, i64 3
   %.neg13189.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13188, ptr %.sroa.gep15693, ptr %.sroa.gep14444
   store i8 0, ptr %.neg13189.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7691 = and i64 %7681, 71776119061217280
@@ -15547,59 +15547,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7716:                                             ; preds = %7675
   %7717 = lshr i64 %7681, 48
   %7718 = trunc i64 %7717 to i8
-  %7719 = getelementptr inbounds i8, ptr %.273.lcssa, i64 1
+  %7719 = getelementptr inbounds i8, ptr %.274.lcssa, i64 1
   store i8 %7718, ptr %7719, align 1
   %7720 = lshr i64 %7681, 40
   %7721 = trunc i64 %7720 to i8
-  %7722 = getelementptr inbounds i8, ptr %.273.lcssa, i64 2
+  %7722 = getelementptr inbounds i8, ptr %.274.lcssa, i64 2
   store i8 %7721, ptr %7722, align 1
   %7723 = lshr i64 %7681, 32
   %7724 = trunc i64 %7723 to i8
-  %7725 = getelementptr inbounds i8, ptr %.273.lcssa, i64 3
+  %7725 = getelementptr inbounds i8, ptr %.274.lcssa, i64 3
   store i8 %7724, ptr %7725, align 1
   %7726 = lshr i64 %7681, 24
   %7727 = trunc i64 %7726 to i8
-  %7728 = getelementptr inbounds i8, ptr %.273.lcssa, i64 4
+  %7728 = getelementptr inbounds i8, ptr %.274.lcssa, i64 4
   store i8 %7727, ptr %7728, align 1
   %7729 = lshr i64 %7681, 16
   %7730 = trunc i64 %7729 to i8
-  %7731 = getelementptr inbounds i8, ptr %.273.lcssa, i64 5
+  %7731 = getelementptr inbounds i8, ptr %.274.lcssa, i64 5
   store i8 %7730, ptr %7731, align 1
   %7732 = lshr i64 %7681, 8
   %7733 = trunc i64 %7732 to i8
-  %7734 = getelementptr inbounds i8, ptr %.273.lcssa, i64 6
+  %7734 = getelementptr inbounds i8, ptr %.274.lcssa, i64 6
   store i8 %7733, ptr %7734, align 1
   %7735 = trunc i64 %7681 to i8
-  %7736 = getelementptr inbounds i8, ptr %.273.lcssa, i64 7
+  %7736 = getelementptr inbounds i8, ptr %.274.lcssa, i64 7
   store i8 %7735, ptr %7736, align 1
-  %7737 = getelementptr inbounds i8, ptr %.273.lcssa, i64 8
+  %7737 = getelementptr inbounds i8, ptr %.274.lcssa, i64 8
   br label %7738
 
 7738:                                             ; preds = %7716, %7687
-  %.276 = phi ptr [ %7715, %7687 ], [ %7737, %7716 ]
+  %.277 = phi ptr [ %7715, %7687 ], [ %7737, %7716 ]
   %7739 = add nsw i32 %7673, 64
   %7740 = sext i32 %7667 to i64
   br label %7746
 
 7741:                                             ; preds = %._crit_edge15058
   %7742 = zext nneg i32 %7672 to i64
-  %7743 = shl i64 %.18111221.lcssa, %7742
+  %7743 = shl i64 %.18211222.lcssa, %7742
   %7744 = sext i32 %7667 to i64
   %7745 = or i64 %7743, %7744
   br label %7746
 
 7746:                                             ; preds = %7738, %7741, %7554
-  %.18411478 = phi i32 [ %.18011474, %7554 ], [ %7739, %7738 ], [ %7673, %7741 ]
-  %.18411224 = phi i64 [ %.18011220, %7554 ], [ %7740, %7738 ], [ %7745, %7741 ]
-  %.278 = phi ptr [ %.272, %7554 ], [ %.276, %7738 ], [ %.273.lcssa, %7741 ]
-  %.91 = phi i32 [ %7555, %7554 ], [ 0, %7738 ], [ 0, %7741 ]
+  %.18111475 = phi i32 [ %.17711471, %7554 ], [ %7739, %7738 ], [ %7673, %7741 ]
+  %.18111221 = phi i64 [ %.17711217, %7554 ], [ %7740, %7738 ], [ %7745, %7741 ]
+  %.273 = phi ptr [ %.267, %7554 ], [ %.277, %7738 ], [ %.274.lcssa, %7741 ]
+  %.90 = phi i32 [ %7555, %7554 ], [ 0, %7738 ], [ 0, %7741 ]
   %7747 = getelementptr inbounds i8, ptr %1, i64 102
   %7748 = load i16, ptr %7747, align 2
   %7749 = icmp eq i16 %7748, 0
   br i1 %7749, label %7750, label %7752
 
 7750:                                             ; preds = %7746
-  %7751 = add nuw nsw i32 %.91, 16
+  %7751 = add nuw nsw i32 %.90, 16
   br label %7942
 
 7752:                                             ; preds = %7746
@@ -15626,7 +15626,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7769
 
 7769:                                             ; preds = %7762, %7752
-  %7770 = icmp ugt i32 %.91, 255
+  %7770 = icmp ugt i32 %.90, 255
   br i1 %7770, label %.lr.ph15068, label %._crit_edge15069
 
 .lr.ph15068:                                      ; preds = %7769
@@ -15635,21 +15635,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7773
 
 7773:                                             ; preds = %.lr.ph15068, %7852
-  %.9215066 = phi i32 [ %.91, %.lr.ph15068 ], [ %7774, %7852 ]
-  %.27915065 = phi ptr [ %.278, %.lr.ph15068 ], [ %.281, %7852 ]
-  %.1851122515064 = phi i64 [ %.18411224, %.lr.ph15068 ], [ %.18611226, %7852 ]
-  %.1851147915063 = phi i32 [ %.18411478, %.lr.ph15068 ], [ %.18611480, %7852 ]
-  %7774 = add nsw i32 %.9215066, -256
+  %.9315066 = phi i32 [ %.90, %.lr.ph15068 ], [ %7774, %7852 ]
+  %.28015065 = phi ptr [ %.273, %.lr.ph15068 ], [ %.282, %7852 ]
+  %.1861122615064 = phi i64 [ %.18111221, %.lr.ph15068 ], [ %.18711227, %7852 ]
+  %.1861148015063 = phi i32 [ %.18111475, %.lr.ph15068 ], [ %.18711481, %7852 ]
+  %7774 = add nsw i32 %.9315066, -256
   %7775 = load i8, ptr %7771, align 4
   %7776 = sext i8 %7775 to i32
-  %7777 = sub nsw i32 %.1851147915063, %7776
+  %7777 = sub nsw i32 %.1861148015063, %7776
   %7778 = icmp slt i32 %7777, 0
   %7779 = load i32, ptr %7772, align 4
   br i1 %7778, label %7780, label %7847
 
 7780:                                             ; preds = %7773
-  %7781 = zext nneg i32 %.1851147915063 to i64
-  %7782 = shl i64 %.1851122515064, %7781
+  %7781 = zext nneg i32 %.1861148015063 to i64
+  %7782 = shl i64 %.1861122615064, %7781
   %7783 = sub nsw i32 0, %7777
   %7784 = lshr i32 %7779, %7783
   %7785 = zext nneg i32 %7784 to i64
@@ -15660,19 +15660,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13239 = icmp eq i64 %7789, 0
   %7790 = lshr i64 %7782, 56
   %7791 = trunc nuw i64 %7790 to i8
-  store i8 %7791, ptr %.27915065, align 1
+  store i8 %7791, ptr %.28015065, align 1
   br i1 %.not13239, label %7821, label %7792
 
 7792:                                             ; preds = %7780
-  %7793 = getelementptr inbounds i8, ptr %.27915065, i64 1
+  %7793 = getelementptr inbounds i8, ptr %.28015065, i64 1
   store i8 0, ptr %7793, align 1
   %.not13240 = icmp eq i64 %7790, 255
-  %.sroa.gep14452 = getelementptr inbounds i8, ptr %.27915065, i64 2
+  %.sroa.gep14452 = getelementptr inbounds i8, ptr %.28015065, i64 2
   %.neg13241.sroa.sel = select i1 %.not13240, ptr %.sroa.gep14452, ptr %7793
   %7794 = lshr i64 %7782, 48
   %7795 = trunc i64 %7794 to i8
   store i8 %7795, ptr %.neg13241.sroa.sel, align 1
-  %.sroa.gep15669 = getelementptr inbounds i8, ptr %.27915065, i64 3
+  %.sroa.gep15669 = getelementptr inbounds i8, ptr %.28015065, i64 3
   %.neg13241.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13240, ptr %.sroa.gep15669, ptr %.sroa.gep14452
   store i8 0, ptr %.neg13241.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7796 = and i64 %7782, 71776119061217280
@@ -15740,36 +15740,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7821:                                             ; preds = %7780
   %7822 = lshr i64 %7782, 48
   %7823 = trunc i64 %7822 to i8
-  %7824 = getelementptr inbounds i8, ptr %.27915065, i64 1
+  %7824 = getelementptr inbounds i8, ptr %.28015065, i64 1
   store i8 %7823, ptr %7824, align 1
   %7825 = lshr i64 %7782, 40
   %7826 = trunc i64 %7825 to i8
-  %7827 = getelementptr inbounds i8, ptr %.27915065, i64 2
+  %7827 = getelementptr inbounds i8, ptr %.28015065, i64 2
   store i8 %7826, ptr %7827, align 1
   %7828 = lshr i64 %7782, 32
   %7829 = trunc i64 %7828 to i8
-  %7830 = getelementptr inbounds i8, ptr %.27915065, i64 3
+  %7830 = getelementptr inbounds i8, ptr %.28015065, i64 3
   store i8 %7829, ptr %7830, align 1
   %7831 = lshr i64 %7786, 24
   %7832 = trunc i64 %7831 to i8
-  %7833 = getelementptr inbounds i8, ptr %.27915065, i64 4
+  %7833 = getelementptr inbounds i8, ptr %.28015065, i64 4
   store i8 %7832, ptr %7833, align 1
   %7834 = lshr i64 %7786, 16
   %7835 = trunc i64 %7834 to i8
-  %7836 = getelementptr inbounds i8, ptr %.27915065, i64 5
+  %7836 = getelementptr inbounds i8, ptr %.28015065, i64 5
   store i8 %7835, ptr %7836, align 1
   %7837 = lshr i64 %7786, 8
   %7838 = trunc i64 %7837 to i8
-  %7839 = getelementptr inbounds i8, ptr %.27915065, i64 6
+  %7839 = getelementptr inbounds i8, ptr %.28015065, i64 6
   store i8 %7838, ptr %7839, align 1
   %7840 = trunc i64 %7786 to i8
-  %7841 = getelementptr inbounds i8, ptr %.27915065, i64 7
+  %7841 = getelementptr inbounds i8, ptr %.28015065, i64 7
   store i8 %7840, ptr %7841, align 1
-  %7842 = getelementptr inbounds i8, ptr %.27915065, i64 8
+  %7842 = getelementptr inbounds i8, ptr %.28015065, i64 8
   br label %7843
 
 7843:                                             ; preds = %7821, %7792
-  %.280 = phi ptr [ %7820, %7792 ], [ %7842, %7821 ]
+  %.281 = phi ptr [ %7820, %7792 ], [ %7842, %7821 ]
   %7844 = add nsw i32 %7777, 64
   %7845 = load i32, ptr %7772, align 4
   %7846 = zext i32 %7845 to i64
@@ -15777,24 +15777,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 7847:                                             ; preds = %7773
   %7848 = zext nneg i32 %7776 to i64
-  %7849 = shl i64 %.1851122515064, %7848
+  %7849 = shl i64 %.1861122615064, %7848
   %7850 = zext i32 %7779 to i64
   %7851 = or i64 %7849, %7850
   br label %7852
 
 7852:                                             ; preds = %7847, %7843
-  %.18611480 = phi i32 [ %7844, %7843 ], [ %7777, %7847 ]
-  %.18611226 = phi i64 [ %7846, %7843 ], [ %7851, %7847 ]
-  %.281 = phi ptr [ %.280, %7843 ], [ %.27915065, %7847 ]
-  %7853 = icmp ugt i32 %.9215066, 511
+  %.18711481 = phi i32 [ %7844, %7843 ], [ %7777, %7847 ]
+  %.18711227 = phi i64 [ %7846, %7843 ], [ %7851, %7847 ]
+  %.282 = phi ptr [ %.281, %7843 ], [ %.28015065, %7847 ]
+  %7853 = icmp ugt i32 %.9315066, 511
   br i1 %7853, label %7773, label %._crit_edge15069, !llvm.loop !48
 
 ._crit_edge15069:                                 ; preds = %7852, %7769
-  %.18511479.lcssa = phi i32 [ %.18411478, %7769 ], [ %.18611480, %7852 ]
-  %.18511225.lcssa = phi i64 [ %.18411224, %7769 ], [ %.18611226, %7852 ]
-  %.279.lcssa = phi ptr [ %.278, %7769 ], [ %.281, %7852 ]
-  %.92.lcssa = phi i32 [ %.91, %7769 ], [ %7774, %7852 ]
-  %7854 = add nuw nsw i32 %.92.lcssa, %7760
+  %.18611480.lcssa = phi i32 [ %.18111475, %7769 ], [ %.18711481, %7852 ]
+  %.18611226.lcssa = phi i64 [ %.18111221, %7769 ], [ %.18711227, %7852 ]
+  %.280.lcssa = phi ptr [ %.273, %7769 ], [ %.282, %7852 ]
+  %.93.lcssa = phi i32 [ %.90, %7769 ], [ %7774, %7852 ]
+  %7854 = add nuw nsw i32 %.93.lcssa, %7760
   %7855 = zext nneg i8 %7759 to i64
   %notmask13221 = shl nsw i64 -1, %7855
   %7856 = trunc i64 %notmask13221 to i32
@@ -15810,13 +15810,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %7866 = load i8, ptr %7865, align 1
   %7867 = sext i8 %7866 to i32
   %7868 = add nsw i32 %7867, %7760
-  %7869 = sub nsw i32 %.18511479.lcssa, %7868
+  %7869 = sub nsw i32 %.18611480.lcssa, %7868
   %7870 = icmp slt i32 %7869, 0
   br i1 %7870, label %7871, label %7937
 
 7871:                                             ; preds = %._crit_edge15069
-  %7872 = zext nneg i32 %.18511479.lcssa to i64
-  %7873 = shl i64 %.18511225.lcssa, %7872
+  %7872 = zext nneg i32 %.18611480.lcssa to i64
+  %7873 = shl i64 %.18611226.lcssa, %7872
   %7874 = sub nsw i32 0, %7869
   %7875 = ashr i32 %7863, %7874
   %7876 = sext i32 %7875 to i64
@@ -15827,19 +15827,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13222 = icmp eq i64 %7880, 0
   %7881 = lshr i64 %7877, 56
   %7882 = trunc nuw i64 %7881 to i8
-  store i8 %7882, ptr %.279.lcssa, align 1
+  store i8 %7882, ptr %.280.lcssa, align 1
   br i1 %.not13222, label %7912, label %7883
 
 7883:                                             ; preds = %7871
-  %7884 = getelementptr inbounds i8, ptr %.279.lcssa, i64 1
+  %7884 = getelementptr inbounds i8, ptr %.280.lcssa, i64 1
   store i8 0, ptr %7884, align 1
   %.not13223 = icmp eq i64 %7881, 255
-  %.sroa.gep14460 = getelementptr inbounds i8, ptr %.279.lcssa, i64 2
+  %.sroa.gep14460 = getelementptr inbounds i8, ptr %.280.lcssa, i64 2
   %.neg13224.sroa.sel = select i1 %.not13223, ptr %.sroa.gep14460, ptr %7884
   %7885 = lshr i64 %7877, 48
   %7886 = trunc i64 %7885 to i8
   store i8 %7886, ptr %.neg13224.sroa.sel, align 1
-  %.sroa.gep15677 = getelementptr inbounds i8, ptr %.279.lcssa, i64 3
+  %.sroa.gep15677 = getelementptr inbounds i8, ptr %.280.lcssa, i64 3
   %.neg13224.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13223, ptr %.sroa.gep15677, ptr %.sroa.gep14460
   store i8 0, ptr %.neg13224.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7887 = and i64 %7877, 71776119061217280
@@ -15907,59 +15907,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 7912:                                             ; preds = %7871
   %7913 = lshr i64 %7877, 48
   %7914 = trunc i64 %7913 to i8
-  %7915 = getelementptr inbounds i8, ptr %.279.lcssa, i64 1
+  %7915 = getelementptr inbounds i8, ptr %.280.lcssa, i64 1
   store i8 %7914, ptr %7915, align 1
   %7916 = lshr i64 %7877, 40
   %7917 = trunc i64 %7916 to i8
-  %7918 = getelementptr inbounds i8, ptr %.279.lcssa, i64 2
+  %7918 = getelementptr inbounds i8, ptr %.280.lcssa, i64 2
   store i8 %7917, ptr %7918, align 1
   %7919 = lshr i64 %7877, 32
   %7920 = trunc i64 %7919 to i8
-  %7921 = getelementptr inbounds i8, ptr %.279.lcssa, i64 3
+  %7921 = getelementptr inbounds i8, ptr %.280.lcssa, i64 3
   store i8 %7920, ptr %7921, align 1
   %7922 = lshr i64 %7877, 24
   %7923 = trunc i64 %7922 to i8
-  %7924 = getelementptr inbounds i8, ptr %.279.lcssa, i64 4
+  %7924 = getelementptr inbounds i8, ptr %.280.lcssa, i64 4
   store i8 %7923, ptr %7924, align 1
   %7925 = lshr i64 %7877, 16
   %7926 = trunc i64 %7925 to i8
-  %7927 = getelementptr inbounds i8, ptr %.279.lcssa, i64 5
+  %7927 = getelementptr inbounds i8, ptr %.280.lcssa, i64 5
   store i8 %7926, ptr %7927, align 1
   %7928 = lshr i64 %7877, 8
   %7929 = trunc i64 %7928 to i8
-  %7930 = getelementptr inbounds i8, ptr %.279.lcssa, i64 6
+  %7930 = getelementptr inbounds i8, ptr %.280.lcssa, i64 6
   store i8 %7929, ptr %7930, align 1
   %7931 = trunc i64 %7877 to i8
-  %7932 = getelementptr inbounds i8, ptr %.279.lcssa, i64 7
+  %7932 = getelementptr inbounds i8, ptr %.280.lcssa, i64 7
   store i8 %7931, ptr %7932, align 1
-  %7933 = getelementptr inbounds i8, ptr %.279.lcssa, i64 8
+  %7933 = getelementptr inbounds i8, ptr %.280.lcssa, i64 8
   br label %7934
 
 7934:                                             ; preds = %7912, %7883
-  %.282 = phi ptr [ %7911, %7883 ], [ %7933, %7912 ]
+  %.283 = phi ptr [ %7911, %7883 ], [ %7933, %7912 ]
   %7935 = add nsw i32 %7869, 64
   %7936 = sext i32 %7863 to i64
   br label %7942
 
 7937:                                             ; preds = %._crit_edge15069
   %7938 = zext nneg i32 %7868 to i64
-  %7939 = shl i64 %.18511225.lcssa, %7938
+  %7939 = shl i64 %.18611226.lcssa, %7938
   %7940 = sext i32 %7863 to i64
   %7941 = or i64 %7939, %7940
   br label %7942
 
 7942:                                             ; preds = %7934, %7937, %7750
-  %.18811482 = phi i32 [ %.18411478, %7750 ], [ %7935, %7934 ], [ %7869, %7937 ]
-  %.18811228 = phi i64 [ %.18411224, %7750 ], [ %7936, %7934 ], [ %7941, %7937 ]
-  %.284 = phi ptr [ %.278, %7750 ], [ %.282, %7934 ], [ %.279.lcssa, %7937 ]
-  %.93 = phi i32 [ %7751, %7750 ], [ 0, %7934 ], [ 0, %7937 ]
+  %.18511479 = phi i32 [ %.18111475, %7750 ], [ %7935, %7934 ], [ %7869, %7937 ]
+  %.18511225 = phi i64 [ %.18111221, %7750 ], [ %7936, %7934 ], [ %7941, %7937 ]
+  %.279 = phi ptr [ %.273, %7750 ], [ %.283, %7934 ], [ %.280.lcssa, %7937 ]
+  %.92 = phi i32 [ %7751, %7750 ], [ 0, %7934 ], [ 0, %7937 ]
   %7943 = getelementptr inbounds i8, ptr %1, i64 116
   %7944 = load i16, ptr %7943, align 2
   %7945 = icmp eq i16 %7944, 0
   br i1 %7945, label %7946, label %7948
 
 7946:                                             ; preds = %7942
-  %7947 = add nuw nsw i32 %.93, 16
+  %7947 = add nuw nsw i32 %.92, 16
   br label %8138
 
 7948:                                             ; preds = %7942
@@ -15986,7 +15986,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7965
 
 7965:                                             ; preds = %7958, %7948
-  %7966 = icmp ugt i32 %.93, 255
+  %7966 = icmp ugt i32 %.92, 255
   br i1 %7966, label %.lr.ph15079, label %._crit_edge15080
 
 .lr.ph15079:                                      ; preds = %7965
@@ -15995,21 +15995,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %7969
 
 7969:                                             ; preds = %.lr.ph15079, %8048
-  %.9415077 = phi i32 [ %.93, %.lr.ph15079 ], [ %7970, %8048 ]
-  %.28515076 = phi ptr [ %.284, %.lr.ph15079 ], [ %.287, %8048 ]
-  %.1891122915075 = phi i64 [ %.18811228, %.lr.ph15079 ], [ %.19011230, %8048 ]
-  %.1891148315074 = phi i32 [ %.18811482, %.lr.ph15079 ], [ %.19011484, %8048 ]
-  %7970 = add nsw i32 %.9415077, -256
+  %.9515077 = phi i32 [ %.92, %.lr.ph15079 ], [ %7970, %8048 ]
+  %.28615076 = phi ptr [ %.279, %.lr.ph15079 ], [ %.288, %8048 ]
+  %.1901123015075 = phi i64 [ %.18511225, %.lr.ph15079 ], [ %.19111231, %8048 ]
+  %.1901148415074 = phi i32 [ %.18511479, %.lr.ph15079 ], [ %.19111485, %8048 ]
+  %7970 = add nsw i32 %.9515077, -256
   %7971 = load i8, ptr %7967, align 4
   %7972 = sext i8 %7971 to i32
-  %7973 = sub nsw i32 %.1891148315074, %7972
+  %7973 = sub nsw i32 %.1901148415074, %7972
   %7974 = icmp slt i32 %7973, 0
   %7975 = load i32, ptr %7968, align 4
   br i1 %7974, label %7976, label %8043
 
 7976:                                             ; preds = %7969
-  %7977 = zext nneg i32 %.1891148315074 to i64
-  %7978 = shl i64 %.1891122915075, %7977
+  %7977 = zext nneg i32 %.1901148415074 to i64
+  %7978 = shl i64 %.1901123015075, %7977
   %7979 = sub nsw i32 0, %7973
   %7980 = lshr i32 %7975, %7979
   %7981 = zext nneg i32 %7980 to i64
@@ -16020,19 +16020,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13274 = icmp eq i64 %7985, 0
   %7986 = lshr i64 %7978, 56
   %7987 = trunc nuw i64 %7986 to i8
-  store i8 %7987, ptr %.28515076, align 1
+  store i8 %7987, ptr %.28615076, align 1
   br i1 %.not13274, label %8017, label %7988
 
 7988:                                             ; preds = %7976
-  %7989 = getelementptr inbounds i8, ptr %.28515076, i64 1
+  %7989 = getelementptr inbounds i8, ptr %.28615076, i64 1
   store i8 0, ptr %7989, align 1
   %.not13275 = icmp eq i64 %7986, 255
-  %.sroa.gep14468 = getelementptr inbounds i8, ptr %.28515076, i64 2
+  %.sroa.gep14468 = getelementptr inbounds i8, ptr %.28615076, i64 2
   %.neg13276.sroa.sel = select i1 %.not13275, ptr %.sroa.gep14468, ptr %7989
   %7990 = lshr i64 %7978, 48
   %7991 = trunc i64 %7990 to i8
   store i8 %7991, ptr %.neg13276.sroa.sel, align 1
-  %.sroa.gep15653 = getelementptr inbounds i8, ptr %.28515076, i64 3
+  %.sroa.gep15653 = getelementptr inbounds i8, ptr %.28615076, i64 3
   %.neg13276.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13275, ptr %.sroa.gep15653, ptr %.sroa.gep14468
   store i8 0, ptr %.neg13276.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7992 = and i64 %7978, 71776119061217280
@@ -16100,36 +16100,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8017:                                             ; preds = %7976
   %8018 = lshr i64 %7978, 48
   %8019 = trunc i64 %8018 to i8
-  %8020 = getelementptr inbounds i8, ptr %.28515076, i64 1
+  %8020 = getelementptr inbounds i8, ptr %.28615076, i64 1
   store i8 %8019, ptr %8020, align 1
   %8021 = lshr i64 %7978, 40
   %8022 = trunc i64 %8021 to i8
-  %8023 = getelementptr inbounds i8, ptr %.28515076, i64 2
+  %8023 = getelementptr inbounds i8, ptr %.28615076, i64 2
   store i8 %8022, ptr %8023, align 1
   %8024 = lshr i64 %7978, 32
   %8025 = trunc i64 %8024 to i8
-  %8026 = getelementptr inbounds i8, ptr %.28515076, i64 3
+  %8026 = getelementptr inbounds i8, ptr %.28615076, i64 3
   store i8 %8025, ptr %8026, align 1
   %8027 = lshr i64 %7982, 24
   %8028 = trunc i64 %8027 to i8
-  %8029 = getelementptr inbounds i8, ptr %.28515076, i64 4
+  %8029 = getelementptr inbounds i8, ptr %.28615076, i64 4
   store i8 %8028, ptr %8029, align 1
   %8030 = lshr i64 %7982, 16
   %8031 = trunc i64 %8030 to i8
-  %8032 = getelementptr inbounds i8, ptr %.28515076, i64 5
+  %8032 = getelementptr inbounds i8, ptr %.28615076, i64 5
   store i8 %8031, ptr %8032, align 1
   %8033 = lshr i64 %7982, 8
   %8034 = trunc i64 %8033 to i8
-  %8035 = getelementptr inbounds i8, ptr %.28515076, i64 6
+  %8035 = getelementptr inbounds i8, ptr %.28615076, i64 6
   store i8 %8034, ptr %8035, align 1
   %8036 = trunc i64 %7982 to i8
-  %8037 = getelementptr inbounds i8, ptr %.28515076, i64 7
+  %8037 = getelementptr inbounds i8, ptr %.28615076, i64 7
   store i8 %8036, ptr %8037, align 1
-  %8038 = getelementptr inbounds i8, ptr %.28515076, i64 8
+  %8038 = getelementptr inbounds i8, ptr %.28615076, i64 8
   br label %8039
 
 8039:                                             ; preds = %8017, %7988
-  %.286 = phi ptr [ %8016, %7988 ], [ %8038, %8017 ]
+  %.287 = phi ptr [ %8016, %7988 ], [ %8038, %8017 ]
   %8040 = add nsw i32 %7973, 64
   %8041 = load i32, ptr %7968, align 4
   %8042 = zext i32 %8041 to i64
@@ -16137,24 +16137,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 8043:                                             ; preds = %7969
   %8044 = zext nneg i32 %7972 to i64
-  %8045 = shl i64 %.1891122915075, %8044
+  %8045 = shl i64 %.1901123015075, %8044
   %8046 = zext i32 %7975 to i64
   %8047 = or i64 %8045, %8046
   br label %8048
 
 8048:                                             ; preds = %8043, %8039
-  %.19011484 = phi i32 [ %8040, %8039 ], [ %7973, %8043 ]
-  %.19011230 = phi i64 [ %8042, %8039 ], [ %8047, %8043 ]
-  %.287 = phi ptr [ %.286, %8039 ], [ %.28515076, %8043 ]
-  %8049 = icmp ugt i32 %.9415077, 511
+  %.19111485 = phi i32 [ %8040, %8039 ], [ %7973, %8043 ]
+  %.19111231 = phi i64 [ %8042, %8039 ], [ %8047, %8043 ]
+  %.288 = phi ptr [ %.287, %8039 ], [ %.28615076, %8043 ]
+  %8049 = icmp ugt i32 %.9515077, 511
   br i1 %8049, label %7969, label %._crit_edge15080, !llvm.loop !49
 
 ._crit_edge15080:                                 ; preds = %8048, %7965
-  %.18911483.lcssa = phi i32 [ %.18811482, %7965 ], [ %.19011484, %8048 ]
-  %.18911229.lcssa = phi i64 [ %.18811228, %7965 ], [ %.19011230, %8048 ]
-  %.285.lcssa = phi ptr [ %.284, %7965 ], [ %.287, %8048 ]
-  %.94.lcssa = phi i32 [ %.93, %7965 ], [ %7970, %8048 ]
-  %8050 = add nuw nsw i32 %.94.lcssa, %7956
+  %.19011484.lcssa = phi i32 [ %.18511479, %7965 ], [ %.19111485, %8048 ]
+  %.19011230.lcssa = phi i64 [ %.18511225, %7965 ], [ %.19111231, %8048 ]
+  %.286.lcssa = phi ptr [ %.279, %7965 ], [ %.288, %8048 ]
+  %.95.lcssa = phi i32 [ %.92, %7965 ], [ %7970, %8048 ]
+  %8050 = add nuw nsw i32 %.95.lcssa, %7956
   %8051 = zext nneg i8 %7955 to i64
   %notmask13256 = shl nsw i64 -1, %8051
   %8052 = trunc i64 %notmask13256 to i32
@@ -16170,13 +16170,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %8062 = load i8, ptr %8061, align 1
   %8063 = sext i8 %8062 to i32
   %8064 = add nsw i32 %8063, %7956
-  %8065 = sub nsw i32 %.18911483.lcssa, %8064
+  %8065 = sub nsw i32 %.19011484.lcssa, %8064
   %8066 = icmp slt i32 %8065, 0
   br i1 %8066, label %8067, label %8133
 
 8067:                                             ; preds = %._crit_edge15080
-  %8068 = zext nneg i32 %.18911483.lcssa to i64
-  %8069 = shl i64 %.18911229.lcssa, %8068
+  %8068 = zext nneg i32 %.19011484.lcssa to i64
+  %8069 = shl i64 %.19011230.lcssa, %8068
   %8070 = sub nsw i32 0, %8065
   %8071 = ashr i32 %8059, %8070
   %8072 = sext i32 %8071 to i64
@@ -16187,19 +16187,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13257 = icmp eq i64 %8076, 0
   %8077 = lshr i64 %8073, 56
   %8078 = trunc nuw i64 %8077 to i8
-  store i8 %8078, ptr %.285.lcssa, align 1
+  store i8 %8078, ptr %.286.lcssa, align 1
   br i1 %.not13257, label %8108, label %8079
 
 8079:                                             ; preds = %8067
-  %8080 = getelementptr inbounds i8, ptr %.285.lcssa, i64 1
+  %8080 = getelementptr inbounds i8, ptr %.286.lcssa, i64 1
   store i8 0, ptr %8080, align 1
   %.not13258 = icmp eq i64 %8077, 255
-  %.sroa.gep14476 = getelementptr inbounds i8, ptr %.285.lcssa, i64 2
+  %.sroa.gep14476 = getelementptr inbounds i8, ptr %.286.lcssa, i64 2
   %.neg13259.sroa.sel = select i1 %.not13258, ptr %.sroa.gep14476, ptr %8080
   %8081 = lshr i64 %8073, 48
   %8082 = trunc i64 %8081 to i8
   store i8 %8082, ptr %.neg13259.sroa.sel, align 1
-  %.sroa.gep15661 = getelementptr inbounds i8, ptr %.285.lcssa, i64 3
+  %.sroa.gep15661 = getelementptr inbounds i8, ptr %.286.lcssa, i64 3
   %.neg13259.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13258, ptr %.sroa.gep15661, ptr %.sroa.gep14476
   store i8 0, ptr %.neg13259.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8083 = and i64 %8073, 71776119061217280
@@ -16267,59 +16267,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8108:                                             ; preds = %8067
   %8109 = lshr i64 %8073, 48
   %8110 = trunc i64 %8109 to i8
-  %8111 = getelementptr inbounds i8, ptr %.285.lcssa, i64 1
+  %8111 = getelementptr inbounds i8, ptr %.286.lcssa, i64 1
   store i8 %8110, ptr %8111, align 1
   %8112 = lshr i64 %8073, 40
   %8113 = trunc i64 %8112 to i8
-  %8114 = getelementptr inbounds i8, ptr %.285.lcssa, i64 2
+  %8114 = getelementptr inbounds i8, ptr %.286.lcssa, i64 2
   store i8 %8113, ptr %8114, align 1
   %8115 = lshr i64 %8073, 32
   %8116 = trunc i64 %8115 to i8
-  %8117 = getelementptr inbounds i8, ptr %.285.lcssa, i64 3
+  %8117 = getelementptr inbounds i8, ptr %.286.lcssa, i64 3
   store i8 %8116, ptr %8117, align 1
   %8118 = lshr i64 %8073, 24
   %8119 = trunc i64 %8118 to i8
-  %8120 = getelementptr inbounds i8, ptr %.285.lcssa, i64 4
+  %8120 = getelementptr inbounds i8, ptr %.286.lcssa, i64 4
   store i8 %8119, ptr %8120, align 1
   %8121 = lshr i64 %8073, 16
   %8122 = trunc i64 %8121 to i8
-  %8123 = getelementptr inbounds i8, ptr %.285.lcssa, i64 5
+  %8123 = getelementptr inbounds i8, ptr %.286.lcssa, i64 5
   store i8 %8122, ptr %8123, align 1
   %8124 = lshr i64 %8073, 8
   %8125 = trunc i64 %8124 to i8
-  %8126 = getelementptr inbounds i8, ptr %.285.lcssa, i64 6
+  %8126 = getelementptr inbounds i8, ptr %.286.lcssa, i64 6
   store i8 %8125, ptr %8126, align 1
   %8127 = trunc i64 %8073 to i8
-  %8128 = getelementptr inbounds i8, ptr %.285.lcssa, i64 7
+  %8128 = getelementptr inbounds i8, ptr %.286.lcssa, i64 7
   store i8 %8127, ptr %8128, align 1
-  %8129 = getelementptr inbounds i8, ptr %.285.lcssa, i64 8
+  %8129 = getelementptr inbounds i8, ptr %.286.lcssa, i64 8
   br label %8130
 
 8130:                                             ; preds = %8108, %8079
-  %.288 = phi ptr [ %8107, %8079 ], [ %8129, %8108 ]
+  %.289 = phi ptr [ %8107, %8079 ], [ %8129, %8108 ]
   %8131 = add nsw i32 %8065, 64
   %8132 = sext i32 %8059 to i64
   br label %8138
 
 8133:                                             ; preds = %._crit_edge15080
   %8134 = zext nneg i32 %8064 to i64
-  %8135 = shl i64 %.18911229.lcssa, %8134
+  %8135 = shl i64 %.19011230.lcssa, %8134
   %8136 = sext i32 %8059 to i64
   %8137 = or i64 %8135, %8136
   br label %8138
 
 8138:                                             ; preds = %8130, %8133, %7946
-  %.19211486 = phi i32 [ %.18811482, %7946 ], [ %8131, %8130 ], [ %8065, %8133 ]
-  %.19211232 = phi i64 [ %.18811228, %7946 ], [ %8132, %8130 ], [ %8137, %8133 ]
-  %.290 = phi ptr [ %.284, %7946 ], [ %.288, %8130 ], [ %.285.lcssa, %8133 ]
-  %.95 = phi i32 [ %7947, %7946 ], [ 0, %8130 ], [ 0, %8133 ]
+  %.18911483 = phi i32 [ %.18511479, %7946 ], [ %8131, %8130 ], [ %8065, %8133 ]
+  %.18911229 = phi i64 [ %.18511225, %7946 ], [ %8132, %8130 ], [ %8137, %8133 ]
+  %.285 = phi ptr [ %.279, %7946 ], [ %.289, %8130 ], [ %.286.lcssa, %8133 ]
+  %.94 = phi i32 [ %7947, %7946 ], [ 0, %8130 ], [ 0, %8133 ]
   %8139 = getelementptr inbounds i8, ptr %1, i64 118
   %8140 = load i16, ptr %8139, align 2
   %8141 = icmp eq i16 %8140, 0
   br i1 %8141, label %8142, label %8144
 
 8142:                                             ; preds = %8138
-  %8143 = add nuw nsw i32 %.95, 16
+  %8143 = add nuw nsw i32 %.94, 16
   br label %8334
 
 8144:                                             ; preds = %8138
@@ -16346,7 +16346,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8161
 
 8161:                                             ; preds = %8154, %8144
-  %8162 = icmp ugt i32 %.95, 255
+  %8162 = icmp ugt i32 %.94, 255
   br i1 %8162, label %.lr.ph15090, label %._crit_edge15091
 
 .lr.ph15090:                                      ; preds = %8161
@@ -16355,21 +16355,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8165
 
 8165:                                             ; preds = %.lr.ph15090, %8244
-  %.9615088 = phi i32 [ %.95, %.lr.ph15090 ], [ %8166, %8244 ]
-  %.29115087 = phi ptr [ %.290, %.lr.ph15090 ], [ %.293, %8244 ]
-  %.1931123315086 = phi i64 [ %.19211232, %.lr.ph15090 ], [ %.19411234, %8244 ]
-  %.1931148715085 = phi i32 [ %.19211486, %.lr.ph15090 ], [ %.19411488, %8244 ]
-  %8166 = add nsw i32 %.9615088, -256
+  %.9715088 = phi i32 [ %.94, %.lr.ph15090 ], [ %8166, %8244 ]
+  %.29215087 = phi ptr [ %.285, %.lr.ph15090 ], [ %.294, %8244 ]
+  %.1941123415086 = phi i64 [ %.18911229, %.lr.ph15090 ], [ %.19511235, %8244 ]
+  %.1941148815085 = phi i32 [ %.18911483, %.lr.ph15090 ], [ %.19511489, %8244 ]
+  %8166 = add nsw i32 %.9715088, -256
   %8167 = load i8, ptr %8163, align 4
   %8168 = sext i8 %8167 to i32
-  %8169 = sub nsw i32 %.1931148715085, %8168
+  %8169 = sub nsw i32 %.1941148815085, %8168
   %8170 = icmp slt i32 %8169, 0
   %8171 = load i32, ptr %8164, align 4
   br i1 %8170, label %8172, label %8239
 
 8172:                                             ; preds = %8165
-  %8173 = zext nneg i32 %.1931148715085 to i64
-  %8174 = shl i64 %.1931123315086, %8173
+  %8173 = zext nneg i32 %.1941148815085 to i64
+  %8174 = shl i64 %.1941123415086, %8173
   %8175 = sub nsw i32 0, %8169
   %8176 = lshr i32 %8171, %8175
   %8177 = zext nneg i32 %8176 to i64
@@ -16380,19 +16380,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13309 = icmp eq i64 %8181, 0
   %8182 = lshr i64 %8174, 56
   %8183 = trunc nuw i64 %8182 to i8
-  store i8 %8183, ptr %.29115087, align 1
+  store i8 %8183, ptr %.29215087, align 1
   br i1 %.not13309, label %8213, label %8184
 
 8184:                                             ; preds = %8172
-  %8185 = getelementptr inbounds i8, ptr %.29115087, i64 1
+  %8185 = getelementptr inbounds i8, ptr %.29215087, i64 1
   store i8 0, ptr %8185, align 1
   %.not13310 = icmp eq i64 %8182, 255
-  %.sroa.gep14484 = getelementptr inbounds i8, ptr %.29115087, i64 2
+  %.sroa.gep14484 = getelementptr inbounds i8, ptr %.29215087, i64 2
   %.neg13311.sroa.sel = select i1 %.not13310, ptr %.sroa.gep14484, ptr %8185
   %8186 = lshr i64 %8174, 48
   %8187 = trunc i64 %8186 to i8
   store i8 %8187, ptr %.neg13311.sroa.sel, align 1
-  %.sroa.gep15637 = getelementptr inbounds i8, ptr %.29115087, i64 3
+  %.sroa.gep15637 = getelementptr inbounds i8, ptr %.29215087, i64 3
   %.neg13311.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13310, ptr %.sroa.gep15637, ptr %.sroa.gep14484
   store i8 0, ptr %.neg13311.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8188 = and i64 %8174, 71776119061217280
@@ -16460,36 +16460,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8213:                                             ; preds = %8172
   %8214 = lshr i64 %8174, 48
   %8215 = trunc i64 %8214 to i8
-  %8216 = getelementptr inbounds i8, ptr %.29115087, i64 1
+  %8216 = getelementptr inbounds i8, ptr %.29215087, i64 1
   store i8 %8215, ptr %8216, align 1
   %8217 = lshr i64 %8174, 40
   %8218 = trunc i64 %8217 to i8
-  %8219 = getelementptr inbounds i8, ptr %.29115087, i64 2
+  %8219 = getelementptr inbounds i8, ptr %.29215087, i64 2
   store i8 %8218, ptr %8219, align 1
   %8220 = lshr i64 %8174, 32
   %8221 = trunc i64 %8220 to i8
-  %8222 = getelementptr inbounds i8, ptr %.29115087, i64 3
+  %8222 = getelementptr inbounds i8, ptr %.29215087, i64 3
   store i8 %8221, ptr %8222, align 1
   %8223 = lshr i64 %8178, 24
   %8224 = trunc i64 %8223 to i8
-  %8225 = getelementptr inbounds i8, ptr %.29115087, i64 4
+  %8225 = getelementptr inbounds i8, ptr %.29215087, i64 4
   store i8 %8224, ptr %8225, align 1
   %8226 = lshr i64 %8178, 16
   %8227 = trunc i64 %8226 to i8
-  %8228 = getelementptr inbounds i8, ptr %.29115087, i64 5
+  %8228 = getelementptr inbounds i8, ptr %.29215087, i64 5
   store i8 %8227, ptr %8228, align 1
   %8229 = lshr i64 %8178, 8
   %8230 = trunc i64 %8229 to i8
-  %8231 = getelementptr inbounds i8, ptr %.29115087, i64 6
+  %8231 = getelementptr inbounds i8, ptr %.29215087, i64 6
   store i8 %8230, ptr %8231, align 1
   %8232 = trunc i64 %8178 to i8
-  %8233 = getelementptr inbounds i8, ptr %.29115087, i64 7
+  %8233 = getelementptr inbounds i8, ptr %.29215087, i64 7
   store i8 %8232, ptr %8233, align 1
-  %8234 = getelementptr inbounds i8, ptr %.29115087, i64 8
+  %8234 = getelementptr inbounds i8, ptr %.29215087, i64 8
   br label %8235
 
 8235:                                             ; preds = %8213, %8184
-  %.292 = phi ptr [ %8212, %8184 ], [ %8234, %8213 ]
+  %.293 = phi ptr [ %8212, %8184 ], [ %8234, %8213 ]
   %8236 = add nsw i32 %8169, 64
   %8237 = load i32, ptr %8164, align 4
   %8238 = zext i32 %8237 to i64
@@ -16497,24 +16497,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 8239:                                             ; preds = %8165
   %8240 = zext nneg i32 %8168 to i64
-  %8241 = shl i64 %.1931123315086, %8240
+  %8241 = shl i64 %.1941123415086, %8240
   %8242 = zext i32 %8171 to i64
   %8243 = or i64 %8241, %8242
   br label %8244
 
 8244:                                             ; preds = %8239, %8235
-  %.19411488 = phi i32 [ %8236, %8235 ], [ %8169, %8239 ]
-  %.19411234 = phi i64 [ %8238, %8235 ], [ %8243, %8239 ]
-  %.293 = phi ptr [ %.292, %8235 ], [ %.29115087, %8239 ]
-  %8245 = icmp ugt i32 %.9615088, 511
+  %.19511489 = phi i32 [ %8236, %8235 ], [ %8169, %8239 ]
+  %.19511235 = phi i64 [ %8238, %8235 ], [ %8243, %8239 ]
+  %.294 = phi ptr [ %.293, %8235 ], [ %.29215087, %8239 ]
+  %8245 = icmp ugt i32 %.9715088, 511
   br i1 %8245, label %8165, label %._crit_edge15091, !llvm.loop !50
 
 ._crit_edge15091:                                 ; preds = %8244, %8161
-  %.19311487.lcssa = phi i32 [ %.19211486, %8161 ], [ %.19411488, %8244 ]
-  %.19311233.lcssa = phi i64 [ %.19211232, %8161 ], [ %.19411234, %8244 ]
-  %.291.lcssa = phi ptr [ %.290, %8161 ], [ %.293, %8244 ]
-  %.96.lcssa = phi i32 [ %.95, %8161 ], [ %8166, %8244 ]
-  %8246 = add nuw nsw i32 %.96.lcssa, %8152
+  %.19411488.lcssa = phi i32 [ %.18911483, %8161 ], [ %.19511489, %8244 ]
+  %.19411234.lcssa = phi i64 [ %.18911229, %8161 ], [ %.19511235, %8244 ]
+  %.292.lcssa = phi ptr [ %.285, %8161 ], [ %.294, %8244 ]
+  %.97.lcssa = phi i32 [ %.94, %8161 ], [ %8166, %8244 ]
+  %8246 = add nuw nsw i32 %.97.lcssa, %8152
   %8247 = zext nneg i8 %8151 to i64
   %notmask13291 = shl nsw i64 -1, %8247
   %8248 = trunc i64 %notmask13291 to i32
@@ -16530,13 +16530,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %8258 = load i8, ptr %8257, align 1
   %8259 = sext i8 %8258 to i32
   %8260 = add nsw i32 %8259, %8152
-  %8261 = sub nsw i32 %.19311487.lcssa, %8260
+  %8261 = sub nsw i32 %.19411488.lcssa, %8260
   %8262 = icmp slt i32 %8261, 0
   br i1 %8262, label %8263, label %8329
 
 8263:                                             ; preds = %._crit_edge15091
-  %8264 = zext nneg i32 %.19311487.lcssa to i64
-  %8265 = shl i64 %.19311233.lcssa, %8264
+  %8264 = zext nneg i32 %.19411488.lcssa to i64
+  %8265 = shl i64 %.19411234.lcssa, %8264
   %8266 = sub nsw i32 0, %8261
   %8267 = ashr i32 %8255, %8266
   %8268 = sext i32 %8267 to i64
@@ -16547,19 +16547,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13292 = icmp eq i64 %8272, 0
   %8273 = lshr i64 %8269, 56
   %8274 = trunc nuw i64 %8273 to i8
-  store i8 %8274, ptr %.291.lcssa, align 1
+  store i8 %8274, ptr %.292.lcssa, align 1
   br i1 %.not13292, label %8304, label %8275
 
 8275:                                             ; preds = %8263
-  %8276 = getelementptr inbounds i8, ptr %.291.lcssa, i64 1
+  %8276 = getelementptr inbounds i8, ptr %.292.lcssa, i64 1
   store i8 0, ptr %8276, align 1
   %.not13293 = icmp eq i64 %8273, 255
-  %.sroa.gep14492 = getelementptr inbounds i8, ptr %.291.lcssa, i64 2
+  %.sroa.gep14492 = getelementptr inbounds i8, ptr %.292.lcssa, i64 2
   %.neg13294.sroa.sel = select i1 %.not13293, ptr %.sroa.gep14492, ptr %8276
   %8277 = lshr i64 %8269, 48
   %8278 = trunc i64 %8277 to i8
   store i8 %8278, ptr %.neg13294.sroa.sel, align 1
-  %.sroa.gep15645 = getelementptr inbounds i8, ptr %.291.lcssa, i64 3
+  %.sroa.gep15645 = getelementptr inbounds i8, ptr %.292.lcssa, i64 3
   %.neg13294.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13293, ptr %.sroa.gep15645, ptr %.sroa.gep14492
   store i8 0, ptr %.neg13294.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8279 = and i64 %8269, 71776119061217280
@@ -16627,59 +16627,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8304:                                             ; preds = %8263
   %8305 = lshr i64 %8269, 48
   %8306 = trunc i64 %8305 to i8
-  %8307 = getelementptr inbounds i8, ptr %.291.lcssa, i64 1
+  %8307 = getelementptr inbounds i8, ptr %.292.lcssa, i64 1
   store i8 %8306, ptr %8307, align 1
   %8308 = lshr i64 %8269, 40
   %8309 = trunc i64 %8308 to i8
-  %8310 = getelementptr inbounds i8, ptr %.291.lcssa, i64 2
+  %8310 = getelementptr inbounds i8, ptr %.292.lcssa, i64 2
   store i8 %8309, ptr %8310, align 1
   %8311 = lshr i64 %8269, 32
   %8312 = trunc i64 %8311 to i8
-  %8313 = getelementptr inbounds i8, ptr %.291.lcssa, i64 3
+  %8313 = getelementptr inbounds i8, ptr %.292.lcssa, i64 3
   store i8 %8312, ptr %8313, align 1
   %8314 = lshr i64 %8269, 24
   %8315 = trunc i64 %8314 to i8
-  %8316 = getelementptr inbounds i8, ptr %.291.lcssa, i64 4
+  %8316 = getelementptr inbounds i8, ptr %.292.lcssa, i64 4
   store i8 %8315, ptr %8316, align 1
   %8317 = lshr i64 %8269, 16
   %8318 = trunc i64 %8317 to i8
-  %8319 = getelementptr inbounds i8, ptr %.291.lcssa, i64 5
+  %8319 = getelementptr inbounds i8, ptr %.292.lcssa, i64 5
   store i8 %8318, ptr %8319, align 1
   %8320 = lshr i64 %8269, 8
   %8321 = trunc i64 %8320 to i8
-  %8322 = getelementptr inbounds i8, ptr %.291.lcssa, i64 6
+  %8322 = getelementptr inbounds i8, ptr %.292.lcssa, i64 6
   store i8 %8321, ptr %8322, align 1
   %8323 = trunc i64 %8269 to i8
-  %8324 = getelementptr inbounds i8, ptr %.291.lcssa, i64 7
+  %8324 = getelementptr inbounds i8, ptr %.292.lcssa, i64 7
   store i8 %8323, ptr %8324, align 1
-  %8325 = getelementptr inbounds i8, ptr %.291.lcssa, i64 8
+  %8325 = getelementptr inbounds i8, ptr %.292.lcssa, i64 8
   br label %8326
 
 8326:                                             ; preds = %8304, %8275
-  %.294 = phi ptr [ %8303, %8275 ], [ %8325, %8304 ]
+  %.295 = phi ptr [ %8303, %8275 ], [ %8325, %8304 ]
   %8327 = add nsw i32 %8261, 64
   %8328 = sext i32 %8255 to i64
   br label %8334
 
 8329:                                             ; preds = %._crit_edge15091
   %8330 = zext nneg i32 %8260 to i64
-  %8331 = shl i64 %.19311233.lcssa, %8330
+  %8331 = shl i64 %.19411234.lcssa, %8330
   %8332 = sext i32 %8255 to i64
   %8333 = or i64 %8331, %8332
   br label %8334
 
 8334:                                             ; preds = %8326, %8329, %8142
-  %.19611490 = phi i32 [ %.19211486, %8142 ], [ %8327, %8326 ], [ %8261, %8329 ]
-  %.19611236 = phi i64 [ %.19211232, %8142 ], [ %8328, %8326 ], [ %8333, %8329 ]
-  %.296 = phi ptr [ %.290, %8142 ], [ %.294, %8326 ], [ %.291.lcssa, %8329 ]
-  %.97 = phi i32 [ %8143, %8142 ], [ 0, %8326 ], [ 0, %8329 ]
+  %.19311487 = phi i32 [ %.18911483, %8142 ], [ %8327, %8326 ], [ %8261, %8329 ]
+  %.19311233 = phi i64 [ %.18911229, %8142 ], [ %8328, %8326 ], [ %8333, %8329 ]
+  %.291 = phi ptr [ %.285, %8142 ], [ %.295, %8326 ], [ %.292.lcssa, %8329 ]
+  %.96 = phi i32 [ %8143, %8142 ], [ 0, %8326 ], [ 0, %8329 ]
   %8335 = getelementptr inbounds i8, ptr %1, i64 104
   %8336 = load i16, ptr %8335, align 2
   %8337 = icmp eq i16 %8336, 0
   br i1 %8337, label %8338, label %8340
 
 8338:                                             ; preds = %8334
-  %8339 = add nuw nsw i32 %.97, 16
+  %8339 = add nuw nsw i32 %.96, 16
   br label %8530
 
 8340:                                             ; preds = %8334
@@ -16706,7 +16706,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8357
 
 8357:                                             ; preds = %8350, %8340
-  %8358 = icmp ugt i32 %.97, 255
+  %8358 = icmp ugt i32 %.96, 255
   br i1 %8358, label %.lr.ph15101, label %._crit_edge15102
 
 .lr.ph15101:                                      ; preds = %8357
@@ -16715,21 +16715,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8361
 
 8361:                                             ; preds = %.lr.ph15101, %8440
-  %.9815099 = phi i32 [ %.97, %.lr.ph15101 ], [ %8362, %8440 ]
-  %.29715098 = phi ptr [ %.296, %.lr.ph15101 ], [ %.299, %8440 ]
-  %.1971123715097 = phi i64 [ %.19611236, %.lr.ph15101 ], [ %.19811238, %8440 ]
-  %.1971149115096 = phi i32 [ %.19611490, %.lr.ph15101 ], [ %.19811492, %8440 ]
-  %8362 = add nsw i32 %.9815099, -256
+  %.9915099 = phi i32 [ %.96, %.lr.ph15101 ], [ %8362, %8440 ]
+  %.29815098 = phi ptr [ %.291, %.lr.ph15101 ], [ %.300, %8440 ]
+  %.1981123815097 = phi i64 [ %.19311233, %.lr.ph15101 ], [ %.19911239, %8440 ]
+  %.1981149215096 = phi i32 [ %.19311487, %.lr.ph15101 ], [ %.19911493, %8440 ]
+  %8362 = add nsw i32 %.9915099, -256
   %8363 = load i8, ptr %8359, align 4
   %8364 = sext i8 %8363 to i32
-  %8365 = sub nsw i32 %.1971149115096, %8364
+  %8365 = sub nsw i32 %.1981149215096, %8364
   %8366 = icmp slt i32 %8365, 0
   %8367 = load i32, ptr %8360, align 4
   br i1 %8366, label %8368, label %8435
 
 8368:                                             ; preds = %8361
-  %8369 = zext nneg i32 %.1971149115096 to i64
-  %8370 = shl i64 %.1971123715097, %8369
+  %8369 = zext nneg i32 %.1981149215096 to i64
+  %8370 = shl i64 %.1981123815097, %8369
   %8371 = sub nsw i32 0, %8365
   %8372 = lshr i32 %8367, %8371
   %8373 = zext nneg i32 %8372 to i64
@@ -16740,19 +16740,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13344 = icmp eq i64 %8377, 0
   %8378 = lshr i64 %8370, 56
   %8379 = trunc nuw i64 %8378 to i8
-  store i8 %8379, ptr %.29715098, align 1
+  store i8 %8379, ptr %.29815098, align 1
   br i1 %.not13344, label %8409, label %8380
 
 8380:                                             ; preds = %8368
-  %8381 = getelementptr inbounds i8, ptr %.29715098, i64 1
+  %8381 = getelementptr inbounds i8, ptr %.29815098, i64 1
   store i8 0, ptr %8381, align 1
   %.not13345 = icmp eq i64 %8378, 255
-  %.sroa.gep14500 = getelementptr inbounds i8, ptr %.29715098, i64 2
+  %.sroa.gep14500 = getelementptr inbounds i8, ptr %.29815098, i64 2
   %.neg13346.sroa.sel = select i1 %.not13345, ptr %.sroa.gep14500, ptr %8381
   %8382 = lshr i64 %8370, 48
   %8383 = trunc i64 %8382 to i8
   store i8 %8383, ptr %.neg13346.sroa.sel, align 1
-  %.sroa.gep15621 = getelementptr inbounds i8, ptr %.29715098, i64 3
+  %.sroa.gep15621 = getelementptr inbounds i8, ptr %.29815098, i64 3
   %.neg13346.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13345, ptr %.sroa.gep15621, ptr %.sroa.gep14500
   store i8 0, ptr %.neg13346.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8384 = and i64 %8370, 71776119061217280
@@ -16820,36 +16820,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8409:                                             ; preds = %8368
   %8410 = lshr i64 %8370, 48
   %8411 = trunc i64 %8410 to i8
-  %8412 = getelementptr inbounds i8, ptr %.29715098, i64 1
+  %8412 = getelementptr inbounds i8, ptr %.29815098, i64 1
   store i8 %8411, ptr %8412, align 1
   %8413 = lshr i64 %8370, 40
   %8414 = trunc i64 %8413 to i8
-  %8415 = getelementptr inbounds i8, ptr %.29715098, i64 2
+  %8415 = getelementptr inbounds i8, ptr %.29815098, i64 2
   store i8 %8414, ptr %8415, align 1
   %8416 = lshr i64 %8370, 32
   %8417 = trunc i64 %8416 to i8
-  %8418 = getelementptr inbounds i8, ptr %.29715098, i64 3
+  %8418 = getelementptr inbounds i8, ptr %.29815098, i64 3
   store i8 %8417, ptr %8418, align 1
   %8419 = lshr i64 %8374, 24
   %8420 = trunc i64 %8419 to i8
-  %8421 = getelementptr inbounds i8, ptr %.29715098, i64 4
+  %8421 = getelementptr inbounds i8, ptr %.29815098, i64 4
   store i8 %8420, ptr %8421, align 1
   %8422 = lshr i64 %8374, 16
   %8423 = trunc i64 %8422 to i8
-  %8424 = getelementptr inbounds i8, ptr %.29715098, i64 5
+  %8424 = getelementptr inbounds i8, ptr %.29815098, i64 5
   store i8 %8423, ptr %8424, align 1
   %8425 = lshr i64 %8374, 8
   %8426 = trunc i64 %8425 to i8
-  %8427 = getelementptr inbounds i8, ptr %.29715098, i64 6
+  %8427 = getelementptr inbounds i8, ptr %.29815098, i64 6
   store i8 %8426, ptr %8427, align 1
   %8428 = trunc i64 %8374 to i8
-  %8429 = getelementptr inbounds i8, ptr %.29715098, i64 7
+  %8429 = getelementptr inbounds i8, ptr %.29815098, i64 7
   store i8 %8428, ptr %8429, align 1
-  %8430 = getelementptr inbounds i8, ptr %.29715098, i64 8
+  %8430 = getelementptr inbounds i8, ptr %.29815098, i64 8
   br label %8431
 
 8431:                                             ; preds = %8409, %8380
-  %.298 = phi ptr [ %8408, %8380 ], [ %8430, %8409 ]
+  %.299 = phi ptr [ %8408, %8380 ], [ %8430, %8409 ]
   %8432 = add nsw i32 %8365, 64
   %8433 = load i32, ptr %8360, align 4
   %8434 = zext i32 %8433 to i64
@@ -16857,24 +16857,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 8435:                                             ; preds = %8361
   %8436 = zext nneg i32 %8364 to i64
-  %8437 = shl i64 %.1971123715097, %8436
+  %8437 = shl i64 %.1981123815097, %8436
   %8438 = zext i32 %8367 to i64
   %8439 = or i64 %8437, %8438
   br label %8440
 
 8440:                                             ; preds = %8435, %8431
-  %.19811492 = phi i32 [ %8432, %8431 ], [ %8365, %8435 ]
-  %.19811238 = phi i64 [ %8434, %8431 ], [ %8439, %8435 ]
-  %.299 = phi ptr [ %.298, %8431 ], [ %.29715098, %8435 ]
-  %8441 = icmp ugt i32 %.9815099, 511
+  %.19911493 = phi i32 [ %8432, %8431 ], [ %8365, %8435 ]
+  %.19911239 = phi i64 [ %8434, %8431 ], [ %8439, %8435 ]
+  %.300 = phi ptr [ %.299, %8431 ], [ %.29815098, %8435 ]
+  %8441 = icmp ugt i32 %.9915099, 511
   br i1 %8441, label %8361, label %._crit_edge15102, !llvm.loop !51
 
 ._crit_edge15102:                                 ; preds = %8440, %8357
-  %.19711491.lcssa = phi i32 [ %.19611490, %8357 ], [ %.19811492, %8440 ]
-  %.19711237.lcssa = phi i64 [ %.19611236, %8357 ], [ %.19811238, %8440 ]
-  %.297.lcssa = phi ptr [ %.296, %8357 ], [ %.299, %8440 ]
-  %.98.lcssa = phi i32 [ %.97, %8357 ], [ %8362, %8440 ]
-  %8442 = add nuw nsw i32 %.98.lcssa, %8348
+  %.19811492.lcssa = phi i32 [ %.19311487, %8357 ], [ %.19911493, %8440 ]
+  %.19811238.lcssa = phi i64 [ %.19311233, %8357 ], [ %.19911239, %8440 ]
+  %.298.lcssa = phi ptr [ %.291, %8357 ], [ %.300, %8440 ]
+  %.99.lcssa = phi i32 [ %.96, %8357 ], [ %8362, %8440 ]
+  %8442 = add nuw nsw i32 %.99.lcssa, %8348
   %8443 = zext nneg i8 %8347 to i64
   %notmask13326 = shl nsw i64 -1, %8443
   %8444 = trunc i64 %notmask13326 to i32
@@ -16890,13 +16890,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %8454 = load i8, ptr %8453, align 1
   %8455 = sext i8 %8454 to i32
   %8456 = add nsw i32 %8455, %8348
-  %8457 = sub nsw i32 %.19711491.lcssa, %8456
+  %8457 = sub nsw i32 %.19811492.lcssa, %8456
   %8458 = icmp slt i32 %8457, 0
   br i1 %8458, label %8459, label %8525
 
 8459:                                             ; preds = %._crit_edge15102
-  %8460 = zext nneg i32 %.19711491.lcssa to i64
-  %8461 = shl i64 %.19711237.lcssa, %8460
+  %8460 = zext nneg i32 %.19811492.lcssa to i64
+  %8461 = shl i64 %.19811238.lcssa, %8460
   %8462 = sub nsw i32 0, %8457
   %8463 = ashr i32 %8451, %8462
   %8464 = sext i32 %8463 to i64
@@ -16907,19 +16907,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13327 = icmp eq i64 %8468, 0
   %8469 = lshr i64 %8465, 56
   %8470 = trunc nuw i64 %8469 to i8
-  store i8 %8470, ptr %.297.lcssa, align 1
+  store i8 %8470, ptr %.298.lcssa, align 1
   br i1 %.not13327, label %8500, label %8471
 
 8471:                                             ; preds = %8459
-  %8472 = getelementptr inbounds i8, ptr %.297.lcssa, i64 1
+  %8472 = getelementptr inbounds i8, ptr %.298.lcssa, i64 1
   store i8 0, ptr %8472, align 1
   %.not13328 = icmp eq i64 %8469, 255
-  %.sroa.gep14508 = getelementptr inbounds i8, ptr %.297.lcssa, i64 2
+  %.sroa.gep14508 = getelementptr inbounds i8, ptr %.298.lcssa, i64 2
   %.neg13329.sroa.sel = select i1 %.not13328, ptr %.sroa.gep14508, ptr %8472
   %8473 = lshr i64 %8465, 48
   %8474 = trunc i64 %8473 to i8
   store i8 %8474, ptr %.neg13329.sroa.sel, align 1
-  %.sroa.gep15629 = getelementptr inbounds i8, ptr %.297.lcssa, i64 3
+  %.sroa.gep15629 = getelementptr inbounds i8, ptr %.298.lcssa, i64 3
   %.neg13329.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13328, ptr %.sroa.gep15629, ptr %.sroa.gep14508
   store i8 0, ptr %.neg13329.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8475 = and i64 %8465, 71776119061217280
@@ -16987,59 +16987,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8500:                                             ; preds = %8459
   %8501 = lshr i64 %8465, 48
   %8502 = trunc i64 %8501 to i8
-  %8503 = getelementptr inbounds i8, ptr %.297.lcssa, i64 1
+  %8503 = getelementptr inbounds i8, ptr %.298.lcssa, i64 1
   store i8 %8502, ptr %8503, align 1
   %8504 = lshr i64 %8465, 40
   %8505 = trunc i64 %8504 to i8
-  %8506 = getelementptr inbounds i8, ptr %.297.lcssa, i64 2
+  %8506 = getelementptr inbounds i8, ptr %.298.lcssa, i64 2
   store i8 %8505, ptr %8506, align 1
   %8507 = lshr i64 %8465, 32
   %8508 = trunc i64 %8507 to i8
-  %8509 = getelementptr inbounds i8, ptr %.297.lcssa, i64 3
+  %8509 = getelementptr inbounds i8, ptr %.298.lcssa, i64 3
   store i8 %8508, ptr %8509, align 1
   %8510 = lshr i64 %8465, 24
   %8511 = trunc i64 %8510 to i8
-  %8512 = getelementptr inbounds i8, ptr %.297.lcssa, i64 4
+  %8512 = getelementptr inbounds i8, ptr %.298.lcssa, i64 4
   store i8 %8511, ptr %8512, align 1
   %8513 = lshr i64 %8465, 16
   %8514 = trunc i64 %8513 to i8
-  %8515 = getelementptr inbounds i8, ptr %.297.lcssa, i64 5
+  %8515 = getelementptr inbounds i8, ptr %.298.lcssa, i64 5
   store i8 %8514, ptr %8515, align 1
   %8516 = lshr i64 %8465, 8
   %8517 = trunc i64 %8516 to i8
-  %8518 = getelementptr inbounds i8, ptr %.297.lcssa, i64 6
+  %8518 = getelementptr inbounds i8, ptr %.298.lcssa, i64 6
   store i8 %8517, ptr %8518, align 1
   %8519 = trunc i64 %8465 to i8
-  %8520 = getelementptr inbounds i8, ptr %.297.lcssa, i64 7
+  %8520 = getelementptr inbounds i8, ptr %.298.lcssa, i64 7
   store i8 %8519, ptr %8520, align 1
-  %8521 = getelementptr inbounds i8, ptr %.297.lcssa, i64 8
+  %8521 = getelementptr inbounds i8, ptr %.298.lcssa, i64 8
   br label %8522
 
 8522:                                             ; preds = %8500, %8471
-  %.300 = phi ptr [ %8499, %8471 ], [ %8521, %8500 ]
+  %.301 = phi ptr [ %8499, %8471 ], [ %8521, %8500 ]
   %8523 = add nsw i32 %8457, 64
   %8524 = sext i32 %8451 to i64
   br label %8530
 
 8525:                                             ; preds = %._crit_edge15102
   %8526 = zext nneg i32 %8456 to i64
-  %8527 = shl i64 %.19711237.lcssa, %8526
+  %8527 = shl i64 %.19811238.lcssa, %8526
   %8528 = sext i32 %8451 to i64
   %8529 = or i64 %8527, %8528
   br label %8530
 
 8530:                                             ; preds = %8522, %8525, %8338
-  %.20011494 = phi i32 [ %.19611490, %8338 ], [ %8523, %8522 ], [ %8457, %8525 ]
-  %.20011240 = phi i64 [ %.19611236, %8338 ], [ %8524, %8522 ], [ %8529, %8525 ]
-  %.302 = phi ptr [ %.296, %8338 ], [ %.300, %8522 ], [ %.297.lcssa, %8525 ]
-  %.99 = phi i32 [ %8339, %8338 ], [ 0, %8522 ], [ 0, %8525 ]
+  %.19711491 = phi i32 [ %.19311487, %8338 ], [ %8523, %8522 ], [ %8457, %8525 ]
+  %.19711237 = phi i64 [ %.19311233, %8338 ], [ %8524, %8522 ], [ %8529, %8525 ]
+  %.297 = phi ptr [ %.291, %8338 ], [ %.301, %8522 ], [ %.298.lcssa, %8525 ]
+  %.98 = phi i32 [ %8339, %8338 ], [ 0, %8522 ], [ 0, %8525 ]
   %8531 = getelementptr inbounds i8, ptr %1, i64 90
   %8532 = load i16, ptr %8531, align 2
   %8533 = icmp eq i16 %8532, 0
   br i1 %8533, label %8534, label %8536
 
 8534:                                             ; preds = %8530
-  %8535 = add nuw nsw i32 %.99, 16
+  %8535 = add nuw nsw i32 %.98, 16
   br label %8726
 
 8536:                                             ; preds = %8530
@@ -17066,7 +17066,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8553
 
 8553:                                             ; preds = %8546, %8536
-  %8554 = icmp ugt i32 %.99, 255
+  %8554 = icmp ugt i32 %.98, 255
   br i1 %8554, label %.lr.ph15112, label %._crit_edge15113
 
 .lr.ph15112:                                      ; preds = %8553
@@ -17075,21 +17075,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8557
 
 8557:                                             ; preds = %.lr.ph15112, %8636
-  %.10015110 = phi i32 [ %.99, %.lr.ph15112 ], [ %8558, %8636 ]
-  %.30315109 = phi ptr [ %.302, %.lr.ph15112 ], [ %.305, %8636 ]
-  %.2011124115108 = phi i64 [ %.20011240, %.lr.ph15112 ], [ %.20211242, %8636 ]
-  %.2011149515107 = phi i32 [ %.20011494, %.lr.ph15112 ], [ %.20211496, %8636 ]
-  %8558 = add nsw i32 %.10015110, -256
+  %.10115110 = phi i32 [ %.98, %.lr.ph15112 ], [ %8558, %8636 ]
+  %.30415109 = phi ptr [ %.297, %.lr.ph15112 ], [ %.306, %8636 ]
+  %.2021124215108 = phi i64 [ %.19711237, %.lr.ph15112 ], [ %.20311243, %8636 ]
+  %.2021149615107 = phi i32 [ %.19711491, %.lr.ph15112 ], [ %.20311497, %8636 ]
+  %8558 = add nsw i32 %.10115110, -256
   %8559 = load i8, ptr %8555, align 4
   %8560 = sext i8 %8559 to i32
-  %8561 = sub nsw i32 %.2011149515107, %8560
+  %8561 = sub nsw i32 %.2021149615107, %8560
   %8562 = icmp slt i32 %8561, 0
   %8563 = load i32, ptr %8556, align 4
   br i1 %8562, label %8564, label %8631
 
 8564:                                             ; preds = %8557
-  %8565 = zext nneg i32 %.2011149515107 to i64
-  %8566 = shl i64 %.2011124115108, %8565
+  %8565 = zext nneg i32 %.2021149615107 to i64
+  %8566 = shl i64 %.2021124215108, %8565
   %8567 = sub nsw i32 0, %8561
   %8568 = lshr i32 %8563, %8567
   %8569 = zext nneg i32 %8568 to i64
@@ -17100,19 +17100,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13379 = icmp eq i64 %8573, 0
   %8574 = lshr i64 %8566, 56
   %8575 = trunc nuw i64 %8574 to i8
-  store i8 %8575, ptr %.30315109, align 1
+  store i8 %8575, ptr %.30415109, align 1
   br i1 %.not13379, label %8605, label %8576
 
 8576:                                             ; preds = %8564
-  %8577 = getelementptr inbounds i8, ptr %.30315109, i64 1
+  %8577 = getelementptr inbounds i8, ptr %.30415109, i64 1
   store i8 0, ptr %8577, align 1
   %.not13380 = icmp eq i64 %8574, 255
-  %.sroa.gep14516 = getelementptr inbounds i8, ptr %.30315109, i64 2
+  %.sroa.gep14516 = getelementptr inbounds i8, ptr %.30415109, i64 2
   %.neg13381.sroa.sel = select i1 %.not13380, ptr %.sroa.gep14516, ptr %8577
   %8578 = lshr i64 %8566, 48
   %8579 = trunc i64 %8578 to i8
   store i8 %8579, ptr %.neg13381.sroa.sel, align 1
-  %.sroa.gep15605 = getelementptr inbounds i8, ptr %.30315109, i64 3
+  %.sroa.gep15605 = getelementptr inbounds i8, ptr %.30415109, i64 3
   %.neg13381.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13380, ptr %.sroa.gep15605, ptr %.sroa.gep14516
   store i8 0, ptr %.neg13381.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8580 = and i64 %8566, 71776119061217280
@@ -17180,36 +17180,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8605:                                             ; preds = %8564
   %8606 = lshr i64 %8566, 48
   %8607 = trunc i64 %8606 to i8
-  %8608 = getelementptr inbounds i8, ptr %.30315109, i64 1
+  %8608 = getelementptr inbounds i8, ptr %.30415109, i64 1
   store i8 %8607, ptr %8608, align 1
   %8609 = lshr i64 %8566, 40
   %8610 = trunc i64 %8609 to i8
-  %8611 = getelementptr inbounds i8, ptr %.30315109, i64 2
+  %8611 = getelementptr inbounds i8, ptr %.30415109, i64 2
   store i8 %8610, ptr %8611, align 1
   %8612 = lshr i64 %8566, 32
   %8613 = trunc i64 %8612 to i8
-  %8614 = getelementptr inbounds i8, ptr %.30315109, i64 3
+  %8614 = getelementptr inbounds i8, ptr %.30415109, i64 3
   store i8 %8613, ptr %8614, align 1
   %8615 = lshr i64 %8570, 24
   %8616 = trunc i64 %8615 to i8
-  %8617 = getelementptr inbounds i8, ptr %.30315109, i64 4
+  %8617 = getelementptr inbounds i8, ptr %.30415109, i64 4
   store i8 %8616, ptr %8617, align 1
   %8618 = lshr i64 %8570, 16
   %8619 = trunc i64 %8618 to i8
-  %8620 = getelementptr inbounds i8, ptr %.30315109, i64 5
+  %8620 = getelementptr inbounds i8, ptr %.30415109, i64 5
   store i8 %8619, ptr %8620, align 1
   %8621 = lshr i64 %8570, 8
   %8622 = trunc i64 %8621 to i8
-  %8623 = getelementptr inbounds i8, ptr %.30315109, i64 6
+  %8623 = getelementptr inbounds i8, ptr %.30415109, i64 6
   store i8 %8622, ptr %8623, align 1
   %8624 = trunc i64 %8570 to i8
-  %8625 = getelementptr inbounds i8, ptr %.30315109, i64 7
+  %8625 = getelementptr inbounds i8, ptr %.30415109, i64 7
   store i8 %8624, ptr %8625, align 1
-  %8626 = getelementptr inbounds i8, ptr %.30315109, i64 8
+  %8626 = getelementptr inbounds i8, ptr %.30415109, i64 8
   br label %8627
 
 8627:                                             ; preds = %8605, %8576
-  %.304 = phi ptr [ %8604, %8576 ], [ %8626, %8605 ]
+  %.305 = phi ptr [ %8604, %8576 ], [ %8626, %8605 ]
   %8628 = add nsw i32 %8561, 64
   %8629 = load i32, ptr %8556, align 4
   %8630 = zext i32 %8629 to i64
@@ -17217,24 +17217,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 8631:                                             ; preds = %8557
   %8632 = zext nneg i32 %8560 to i64
-  %8633 = shl i64 %.2011124115108, %8632
+  %8633 = shl i64 %.2021124215108, %8632
   %8634 = zext i32 %8563 to i64
   %8635 = or i64 %8633, %8634
   br label %8636
 
 8636:                                             ; preds = %8631, %8627
-  %.20211496 = phi i32 [ %8628, %8627 ], [ %8561, %8631 ]
-  %.20211242 = phi i64 [ %8630, %8627 ], [ %8635, %8631 ]
-  %.305 = phi ptr [ %.304, %8627 ], [ %.30315109, %8631 ]
-  %8637 = icmp ugt i32 %.10015110, 511
+  %.20311497 = phi i32 [ %8628, %8627 ], [ %8561, %8631 ]
+  %.20311243 = phi i64 [ %8630, %8627 ], [ %8635, %8631 ]
+  %.306 = phi ptr [ %.305, %8627 ], [ %.30415109, %8631 ]
+  %8637 = icmp ugt i32 %.10115110, 511
   br i1 %8637, label %8557, label %._crit_edge15113, !llvm.loop !52
 
 ._crit_edge15113:                                 ; preds = %8636, %8553
-  %.20111495.lcssa = phi i32 [ %.20011494, %8553 ], [ %.20211496, %8636 ]
-  %.20111241.lcssa = phi i64 [ %.20011240, %8553 ], [ %.20211242, %8636 ]
-  %.303.lcssa = phi ptr [ %.302, %8553 ], [ %.305, %8636 ]
-  %.100.lcssa = phi i32 [ %.99, %8553 ], [ %8558, %8636 ]
-  %8638 = add nuw nsw i32 %.100.lcssa, %8544
+  %.20211496.lcssa = phi i32 [ %.19711491, %8553 ], [ %.20311497, %8636 ]
+  %.20211242.lcssa = phi i64 [ %.19711237, %8553 ], [ %.20311243, %8636 ]
+  %.304.lcssa = phi ptr [ %.297, %8553 ], [ %.306, %8636 ]
+  %.101.lcssa = phi i32 [ %.98, %8553 ], [ %8558, %8636 ]
+  %8638 = add nuw nsw i32 %.101.lcssa, %8544
   %8639 = zext nneg i8 %8543 to i64
   %notmask13361 = shl nsw i64 -1, %8639
   %8640 = trunc i64 %notmask13361 to i32
@@ -17250,13 +17250,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %8650 = load i8, ptr %8649, align 1
   %8651 = sext i8 %8650 to i32
   %8652 = add nsw i32 %8651, %8544
-  %8653 = sub nsw i32 %.20111495.lcssa, %8652
+  %8653 = sub nsw i32 %.20211496.lcssa, %8652
   %8654 = icmp slt i32 %8653, 0
   br i1 %8654, label %8655, label %8721
 
 8655:                                             ; preds = %._crit_edge15113
-  %8656 = zext nneg i32 %.20111495.lcssa to i64
-  %8657 = shl i64 %.20111241.lcssa, %8656
+  %8656 = zext nneg i32 %.20211496.lcssa to i64
+  %8657 = shl i64 %.20211242.lcssa, %8656
   %8658 = sub nsw i32 0, %8653
   %8659 = ashr i32 %8647, %8658
   %8660 = sext i32 %8659 to i64
@@ -17267,19 +17267,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13362 = icmp eq i64 %8664, 0
   %8665 = lshr i64 %8661, 56
   %8666 = trunc nuw i64 %8665 to i8
-  store i8 %8666, ptr %.303.lcssa, align 1
+  store i8 %8666, ptr %.304.lcssa, align 1
   br i1 %.not13362, label %8696, label %8667
 
 8667:                                             ; preds = %8655
-  %8668 = getelementptr inbounds i8, ptr %.303.lcssa, i64 1
+  %8668 = getelementptr inbounds i8, ptr %.304.lcssa, i64 1
   store i8 0, ptr %8668, align 1
   %.not13363 = icmp eq i64 %8665, 255
-  %.sroa.gep14524 = getelementptr inbounds i8, ptr %.303.lcssa, i64 2
+  %.sroa.gep14524 = getelementptr inbounds i8, ptr %.304.lcssa, i64 2
   %.neg13364.sroa.sel = select i1 %.not13363, ptr %.sroa.gep14524, ptr %8668
   %8669 = lshr i64 %8661, 48
   %8670 = trunc i64 %8669 to i8
   store i8 %8670, ptr %.neg13364.sroa.sel, align 1
-  %.sroa.gep15613 = getelementptr inbounds i8, ptr %.303.lcssa, i64 3
+  %.sroa.gep15613 = getelementptr inbounds i8, ptr %.304.lcssa, i64 3
   %.neg13364.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13363, ptr %.sroa.gep15613, ptr %.sroa.gep14524
   store i8 0, ptr %.neg13364.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8671 = and i64 %8661, 71776119061217280
@@ -17347,59 +17347,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8696:                                             ; preds = %8655
   %8697 = lshr i64 %8661, 48
   %8698 = trunc i64 %8697 to i8
-  %8699 = getelementptr inbounds i8, ptr %.303.lcssa, i64 1
+  %8699 = getelementptr inbounds i8, ptr %.304.lcssa, i64 1
   store i8 %8698, ptr %8699, align 1
   %8700 = lshr i64 %8661, 40
   %8701 = trunc i64 %8700 to i8
-  %8702 = getelementptr inbounds i8, ptr %.303.lcssa, i64 2
+  %8702 = getelementptr inbounds i8, ptr %.304.lcssa, i64 2
   store i8 %8701, ptr %8702, align 1
   %8703 = lshr i64 %8661, 32
   %8704 = trunc i64 %8703 to i8
-  %8705 = getelementptr inbounds i8, ptr %.303.lcssa, i64 3
+  %8705 = getelementptr inbounds i8, ptr %.304.lcssa, i64 3
   store i8 %8704, ptr %8705, align 1
   %8706 = lshr i64 %8661, 24
   %8707 = trunc i64 %8706 to i8
-  %8708 = getelementptr inbounds i8, ptr %.303.lcssa, i64 4
+  %8708 = getelementptr inbounds i8, ptr %.304.lcssa, i64 4
   store i8 %8707, ptr %8708, align 1
   %8709 = lshr i64 %8661, 16
   %8710 = trunc i64 %8709 to i8
-  %8711 = getelementptr inbounds i8, ptr %.303.lcssa, i64 5
+  %8711 = getelementptr inbounds i8, ptr %.304.lcssa, i64 5
   store i8 %8710, ptr %8711, align 1
   %8712 = lshr i64 %8661, 8
   %8713 = trunc i64 %8712 to i8
-  %8714 = getelementptr inbounds i8, ptr %.303.lcssa, i64 6
+  %8714 = getelementptr inbounds i8, ptr %.304.lcssa, i64 6
   store i8 %8713, ptr %8714, align 1
   %8715 = trunc i64 %8661 to i8
-  %8716 = getelementptr inbounds i8, ptr %.303.lcssa, i64 7
+  %8716 = getelementptr inbounds i8, ptr %.304.lcssa, i64 7
   store i8 %8715, ptr %8716, align 1
-  %8717 = getelementptr inbounds i8, ptr %.303.lcssa, i64 8
+  %8717 = getelementptr inbounds i8, ptr %.304.lcssa, i64 8
   br label %8718
 
 8718:                                             ; preds = %8696, %8667
-  %.306 = phi ptr [ %8695, %8667 ], [ %8717, %8696 ]
+  %.307 = phi ptr [ %8695, %8667 ], [ %8717, %8696 ]
   %8719 = add nsw i32 %8653, 64
   %8720 = sext i32 %8647 to i64
   br label %8726
 
 8721:                                             ; preds = %._crit_edge15113
   %8722 = zext nneg i32 %8652 to i64
-  %8723 = shl i64 %.20111241.lcssa, %8722
+  %8723 = shl i64 %.20211242.lcssa, %8722
   %8724 = sext i32 %8647 to i64
   %8725 = or i64 %8723, %8724
   br label %8726
 
 8726:                                             ; preds = %8718, %8721, %8534
-  %.20411498 = phi i32 [ %.20011494, %8534 ], [ %8719, %8718 ], [ %8653, %8721 ]
-  %.20411244 = phi i64 [ %.20011240, %8534 ], [ %8720, %8718 ], [ %8725, %8721 ]
-  %.308 = phi ptr [ %.302, %8534 ], [ %.306, %8718 ], [ %.303.lcssa, %8721 ]
-  %.101 = phi i32 [ %8535, %8534 ], [ 0, %8718 ], [ 0, %8721 ]
+  %.20111495 = phi i32 [ %.19711491, %8534 ], [ %8719, %8718 ], [ %8653, %8721 ]
+  %.20111241 = phi i64 [ %.19711237, %8534 ], [ %8720, %8718 ], [ %8725, %8721 ]
+  %.303 = phi ptr [ %.297, %8534 ], [ %.307, %8718 ], [ %.304.lcssa, %8721 ]
+  %.100 = phi i32 [ %8535, %8534 ], [ 0, %8718 ], [ 0, %8721 ]
   %8727 = getelementptr inbounds i8, ptr %1, i64 76
   %8728 = load i16, ptr %8727, align 2
   %8729 = icmp eq i16 %8728, 0
   br i1 %8729, label %8730, label %8732
 
 8730:                                             ; preds = %8726
-  %8731 = add nuw nsw i32 %.101, 16
+  %8731 = add nuw nsw i32 %.100, 16
   br label %8922
 
 8732:                                             ; preds = %8726
@@ -17426,7 +17426,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8749
 
 8749:                                             ; preds = %8742, %8732
-  %8750 = icmp ugt i32 %.101, 255
+  %8750 = icmp ugt i32 %.100, 255
   br i1 %8750, label %.lr.ph15123, label %._crit_edge15124
 
 .lr.ph15123:                                      ; preds = %8749
@@ -17435,21 +17435,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8753
 
 8753:                                             ; preds = %.lr.ph15123, %8832
-  %.10215121 = phi i32 [ %.101, %.lr.ph15123 ], [ %8754, %8832 ]
-  %.30915120 = phi ptr [ %.308, %.lr.ph15123 ], [ %.311, %8832 ]
-  %.2051124515119 = phi i64 [ %.20411244, %.lr.ph15123 ], [ %.20611246, %8832 ]
-  %.2051149915118 = phi i32 [ %.20411498, %.lr.ph15123 ], [ %.20611500, %8832 ]
-  %8754 = add nsw i32 %.10215121, -256
+  %.10315121 = phi i32 [ %.100, %.lr.ph15123 ], [ %8754, %8832 ]
+  %.31015120 = phi ptr [ %.303, %.lr.ph15123 ], [ %.312, %8832 ]
+  %.2061124615119 = phi i64 [ %.20111241, %.lr.ph15123 ], [ %.20711247, %8832 ]
+  %.2061150015118 = phi i32 [ %.20111495, %.lr.ph15123 ], [ %.20711501, %8832 ]
+  %8754 = add nsw i32 %.10315121, -256
   %8755 = load i8, ptr %8751, align 4
   %8756 = sext i8 %8755 to i32
-  %8757 = sub nsw i32 %.2051149915118, %8756
+  %8757 = sub nsw i32 %.2061150015118, %8756
   %8758 = icmp slt i32 %8757, 0
   %8759 = load i32, ptr %8752, align 4
   br i1 %8758, label %8760, label %8827
 
 8760:                                             ; preds = %8753
-  %8761 = zext nneg i32 %.2051149915118 to i64
-  %8762 = shl i64 %.2051124515119, %8761
+  %8761 = zext nneg i32 %.2061150015118 to i64
+  %8762 = shl i64 %.2061124615119, %8761
   %8763 = sub nsw i32 0, %8757
   %8764 = lshr i32 %8759, %8763
   %8765 = zext nneg i32 %8764 to i64
@@ -17460,19 +17460,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13414 = icmp eq i64 %8769, 0
   %8770 = lshr i64 %8762, 56
   %8771 = trunc nuw i64 %8770 to i8
-  store i8 %8771, ptr %.30915120, align 1
+  store i8 %8771, ptr %.31015120, align 1
   br i1 %.not13414, label %8801, label %8772
 
 8772:                                             ; preds = %8760
-  %8773 = getelementptr inbounds i8, ptr %.30915120, i64 1
+  %8773 = getelementptr inbounds i8, ptr %.31015120, i64 1
   store i8 0, ptr %8773, align 1
   %.not13415 = icmp eq i64 %8770, 255
-  %.sroa.gep14532 = getelementptr inbounds i8, ptr %.30915120, i64 2
+  %.sroa.gep14532 = getelementptr inbounds i8, ptr %.31015120, i64 2
   %.neg13416.sroa.sel = select i1 %.not13415, ptr %.sroa.gep14532, ptr %8773
   %8774 = lshr i64 %8762, 48
   %8775 = trunc i64 %8774 to i8
   store i8 %8775, ptr %.neg13416.sroa.sel, align 1
-  %.sroa.gep15589 = getelementptr inbounds i8, ptr %.30915120, i64 3
+  %.sroa.gep15589 = getelementptr inbounds i8, ptr %.31015120, i64 3
   %.neg13416.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13415, ptr %.sroa.gep15589, ptr %.sroa.gep14532
   store i8 0, ptr %.neg13416.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8776 = and i64 %8762, 71776119061217280
@@ -17540,36 +17540,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8801:                                             ; preds = %8760
   %8802 = lshr i64 %8762, 48
   %8803 = trunc i64 %8802 to i8
-  %8804 = getelementptr inbounds i8, ptr %.30915120, i64 1
+  %8804 = getelementptr inbounds i8, ptr %.31015120, i64 1
   store i8 %8803, ptr %8804, align 1
   %8805 = lshr i64 %8762, 40
   %8806 = trunc i64 %8805 to i8
-  %8807 = getelementptr inbounds i8, ptr %.30915120, i64 2
+  %8807 = getelementptr inbounds i8, ptr %.31015120, i64 2
   store i8 %8806, ptr %8807, align 1
   %8808 = lshr i64 %8762, 32
   %8809 = trunc i64 %8808 to i8
-  %8810 = getelementptr inbounds i8, ptr %.30915120, i64 3
+  %8810 = getelementptr inbounds i8, ptr %.31015120, i64 3
   store i8 %8809, ptr %8810, align 1
   %8811 = lshr i64 %8766, 24
   %8812 = trunc i64 %8811 to i8
-  %8813 = getelementptr inbounds i8, ptr %.30915120, i64 4
+  %8813 = getelementptr inbounds i8, ptr %.31015120, i64 4
   store i8 %8812, ptr %8813, align 1
   %8814 = lshr i64 %8766, 16
   %8815 = trunc i64 %8814 to i8
-  %8816 = getelementptr inbounds i8, ptr %.30915120, i64 5
+  %8816 = getelementptr inbounds i8, ptr %.31015120, i64 5
   store i8 %8815, ptr %8816, align 1
   %8817 = lshr i64 %8766, 8
   %8818 = trunc i64 %8817 to i8
-  %8819 = getelementptr inbounds i8, ptr %.30915120, i64 6
+  %8819 = getelementptr inbounds i8, ptr %.31015120, i64 6
   store i8 %8818, ptr %8819, align 1
   %8820 = trunc i64 %8766 to i8
-  %8821 = getelementptr inbounds i8, ptr %.30915120, i64 7
+  %8821 = getelementptr inbounds i8, ptr %.31015120, i64 7
   store i8 %8820, ptr %8821, align 1
-  %8822 = getelementptr inbounds i8, ptr %.30915120, i64 8
+  %8822 = getelementptr inbounds i8, ptr %.31015120, i64 8
   br label %8823
 
 8823:                                             ; preds = %8801, %8772
-  %.310 = phi ptr [ %8800, %8772 ], [ %8822, %8801 ]
+  %.311 = phi ptr [ %8800, %8772 ], [ %8822, %8801 ]
   %8824 = add nsw i32 %8757, 64
   %8825 = load i32, ptr %8752, align 4
   %8826 = zext i32 %8825 to i64
@@ -17577,24 +17577,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 8827:                                             ; preds = %8753
   %8828 = zext nneg i32 %8756 to i64
-  %8829 = shl i64 %.2051124515119, %8828
+  %8829 = shl i64 %.2061124615119, %8828
   %8830 = zext i32 %8759 to i64
   %8831 = or i64 %8829, %8830
   br label %8832
 
 8832:                                             ; preds = %8827, %8823
-  %.20611500 = phi i32 [ %8824, %8823 ], [ %8757, %8827 ]
-  %.20611246 = phi i64 [ %8826, %8823 ], [ %8831, %8827 ]
-  %.311 = phi ptr [ %.310, %8823 ], [ %.30915120, %8827 ]
-  %8833 = icmp ugt i32 %.10215121, 511
+  %.20711501 = phi i32 [ %8824, %8823 ], [ %8757, %8827 ]
+  %.20711247 = phi i64 [ %8826, %8823 ], [ %8831, %8827 ]
+  %.312 = phi ptr [ %.311, %8823 ], [ %.31015120, %8827 ]
+  %8833 = icmp ugt i32 %.10315121, 511
   br i1 %8833, label %8753, label %._crit_edge15124, !llvm.loop !53
 
 ._crit_edge15124:                                 ; preds = %8832, %8749
-  %.20511499.lcssa = phi i32 [ %.20411498, %8749 ], [ %.20611500, %8832 ]
-  %.20511245.lcssa = phi i64 [ %.20411244, %8749 ], [ %.20611246, %8832 ]
-  %.309.lcssa = phi ptr [ %.308, %8749 ], [ %.311, %8832 ]
-  %.102.lcssa = phi i32 [ %.101, %8749 ], [ %8754, %8832 ]
-  %8834 = add nuw nsw i32 %.102.lcssa, %8740
+  %.20611500.lcssa = phi i32 [ %.20111495, %8749 ], [ %.20711501, %8832 ]
+  %.20611246.lcssa = phi i64 [ %.20111241, %8749 ], [ %.20711247, %8832 ]
+  %.310.lcssa = phi ptr [ %.303, %8749 ], [ %.312, %8832 ]
+  %.103.lcssa = phi i32 [ %.100, %8749 ], [ %8754, %8832 ]
+  %8834 = add nuw nsw i32 %.103.lcssa, %8740
   %8835 = zext nneg i8 %8739 to i64
   %notmask13396 = shl nsw i64 -1, %8835
   %8836 = trunc i64 %notmask13396 to i32
@@ -17610,13 +17610,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %8846 = load i8, ptr %8845, align 1
   %8847 = sext i8 %8846 to i32
   %8848 = add nsw i32 %8847, %8740
-  %8849 = sub nsw i32 %.20511499.lcssa, %8848
+  %8849 = sub nsw i32 %.20611500.lcssa, %8848
   %8850 = icmp slt i32 %8849, 0
   br i1 %8850, label %8851, label %8917
 
 8851:                                             ; preds = %._crit_edge15124
-  %8852 = zext nneg i32 %.20511499.lcssa to i64
-  %8853 = shl i64 %.20511245.lcssa, %8852
+  %8852 = zext nneg i32 %.20611500.lcssa to i64
+  %8853 = shl i64 %.20611246.lcssa, %8852
   %8854 = sub nsw i32 0, %8849
   %8855 = ashr i32 %8843, %8854
   %8856 = sext i32 %8855 to i64
@@ -17627,19 +17627,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13397 = icmp eq i64 %8860, 0
   %8861 = lshr i64 %8857, 56
   %8862 = trunc nuw i64 %8861 to i8
-  store i8 %8862, ptr %.309.lcssa, align 1
+  store i8 %8862, ptr %.310.lcssa, align 1
   br i1 %.not13397, label %8892, label %8863
 
 8863:                                             ; preds = %8851
-  %8864 = getelementptr inbounds i8, ptr %.309.lcssa, i64 1
+  %8864 = getelementptr inbounds i8, ptr %.310.lcssa, i64 1
   store i8 0, ptr %8864, align 1
   %.not13398 = icmp eq i64 %8861, 255
-  %.sroa.gep14540 = getelementptr inbounds i8, ptr %.309.lcssa, i64 2
+  %.sroa.gep14540 = getelementptr inbounds i8, ptr %.310.lcssa, i64 2
   %.neg13399.sroa.sel = select i1 %.not13398, ptr %.sroa.gep14540, ptr %8864
   %8865 = lshr i64 %8857, 48
   %8866 = trunc i64 %8865 to i8
   store i8 %8866, ptr %.neg13399.sroa.sel, align 1
-  %.sroa.gep15597 = getelementptr inbounds i8, ptr %.309.lcssa, i64 3
+  %.sroa.gep15597 = getelementptr inbounds i8, ptr %.310.lcssa, i64 3
   %.neg13399.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13398, ptr %.sroa.gep15597, ptr %.sroa.gep14540
   store i8 0, ptr %.neg13399.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8867 = and i64 %8857, 71776119061217280
@@ -17707,59 +17707,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8892:                                             ; preds = %8851
   %8893 = lshr i64 %8857, 48
   %8894 = trunc i64 %8893 to i8
-  %8895 = getelementptr inbounds i8, ptr %.309.lcssa, i64 1
+  %8895 = getelementptr inbounds i8, ptr %.310.lcssa, i64 1
   store i8 %8894, ptr %8895, align 1
   %8896 = lshr i64 %8857, 40
   %8897 = trunc i64 %8896 to i8
-  %8898 = getelementptr inbounds i8, ptr %.309.lcssa, i64 2
+  %8898 = getelementptr inbounds i8, ptr %.310.lcssa, i64 2
   store i8 %8897, ptr %8898, align 1
   %8899 = lshr i64 %8857, 32
   %8900 = trunc i64 %8899 to i8
-  %8901 = getelementptr inbounds i8, ptr %.309.lcssa, i64 3
+  %8901 = getelementptr inbounds i8, ptr %.310.lcssa, i64 3
   store i8 %8900, ptr %8901, align 1
   %8902 = lshr i64 %8857, 24
   %8903 = trunc i64 %8902 to i8
-  %8904 = getelementptr inbounds i8, ptr %.309.lcssa, i64 4
+  %8904 = getelementptr inbounds i8, ptr %.310.lcssa, i64 4
   store i8 %8903, ptr %8904, align 1
   %8905 = lshr i64 %8857, 16
   %8906 = trunc i64 %8905 to i8
-  %8907 = getelementptr inbounds i8, ptr %.309.lcssa, i64 5
+  %8907 = getelementptr inbounds i8, ptr %.310.lcssa, i64 5
   store i8 %8906, ptr %8907, align 1
   %8908 = lshr i64 %8857, 8
   %8909 = trunc i64 %8908 to i8
-  %8910 = getelementptr inbounds i8, ptr %.309.lcssa, i64 6
+  %8910 = getelementptr inbounds i8, ptr %.310.lcssa, i64 6
   store i8 %8909, ptr %8910, align 1
   %8911 = trunc i64 %8857 to i8
-  %8912 = getelementptr inbounds i8, ptr %.309.lcssa, i64 7
+  %8912 = getelementptr inbounds i8, ptr %.310.lcssa, i64 7
   store i8 %8911, ptr %8912, align 1
-  %8913 = getelementptr inbounds i8, ptr %.309.lcssa, i64 8
+  %8913 = getelementptr inbounds i8, ptr %.310.lcssa, i64 8
   br label %8914
 
 8914:                                             ; preds = %8892, %8863
-  %.312 = phi ptr [ %8891, %8863 ], [ %8913, %8892 ]
+  %.313 = phi ptr [ %8891, %8863 ], [ %8913, %8892 ]
   %8915 = add nsw i32 %8849, 64
   %8916 = sext i32 %8843 to i64
   br label %8922
 
 8917:                                             ; preds = %._crit_edge15124
   %8918 = zext nneg i32 %8848 to i64
-  %8919 = shl i64 %.20511245.lcssa, %8918
+  %8919 = shl i64 %.20611246.lcssa, %8918
   %8920 = sext i32 %8843 to i64
   %8921 = or i64 %8919, %8920
   br label %8922
 
 8922:                                             ; preds = %8914, %8917, %8730
-  %.20811502 = phi i32 [ %.20411498, %8730 ], [ %8915, %8914 ], [ %8849, %8917 ]
-  %.20811248 = phi i64 [ %.20411244, %8730 ], [ %8916, %8914 ], [ %8921, %8917 ]
-  %.314 = phi ptr [ %.308, %8730 ], [ %.312, %8914 ], [ %.309.lcssa, %8917 ]
-  %.103 = phi i32 [ %8731, %8730 ], [ 0, %8914 ], [ 0, %8917 ]
+  %.20511499 = phi i32 [ %.20111495, %8730 ], [ %8915, %8914 ], [ %8849, %8917 ]
+  %.20511245 = phi i64 [ %.20111241, %8730 ], [ %8916, %8914 ], [ %8921, %8917 ]
+  %.309 = phi ptr [ %.303, %8730 ], [ %.313, %8914 ], [ %.310.lcssa, %8917 ]
+  %.102 = phi i32 [ %8731, %8730 ], [ 0, %8914 ], [ 0, %8917 ]
   %8923 = getelementptr inbounds i8, ptr %1, i64 62
   %8924 = load i16, ptr %8923, align 2
   %8925 = icmp eq i16 %8924, 0
   br i1 %8925, label %8926, label %8928
 
 8926:                                             ; preds = %8922
-  %8927 = add nuw nsw i32 %.103, 16
+  %8927 = add nuw nsw i32 %.102, 16
   br label %9118
 
 8928:                                             ; preds = %8922
@@ -17786,7 +17786,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8945
 
 8945:                                             ; preds = %8938, %8928
-  %8946 = icmp ugt i32 %.103, 255
+  %8946 = icmp ugt i32 %.102, 255
   br i1 %8946, label %.lr.ph15134, label %._crit_edge15135
 
 .lr.ph15134:                                      ; preds = %8945
@@ -17795,21 +17795,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %8949
 
 8949:                                             ; preds = %.lr.ph15134, %9028
-  %.10415132 = phi i32 [ %.103, %.lr.ph15134 ], [ %8950, %9028 ]
-  %.31515131 = phi ptr [ %.314, %.lr.ph15134 ], [ %.317, %9028 ]
-  %.2091124915130 = phi i64 [ %.20811248, %.lr.ph15134 ], [ %.21011250, %9028 ]
-  %.2091150315129 = phi i32 [ %.20811502, %.lr.ph15134 ], [ %.21011504, %9028 ]
-  %8950 = add nsw i32 %.10415132, -256
+  %.10515132 = phi i32 [ %.102, %.lr.ph15134 ], [ %8950, %9028 ]
+  %.31615131 = phi ptr [ %.309, %.lr.ph15134 ], [ %.318, %9028 ]
+  %.2101125015130 = phi i64 [ %.20511245, %.lr.ph15134 ], [ %.21111251, %9028 ]
+  %.2101150415129 = phi i32 [ %.20511499, %.lr.ph15134 ], [ %.21111505, %9028 ]
+  %8950 = add nsw i32 %.10515132, -256
   %8951 = load i8, ptr %8947, align 4
   %8952 = sext i8 %8951 to i32
-  %8953 = sub nsw i32 %.2091150315129, %8952
+  %8953 = sub nsw i32 %.2101150415129, %8952
   %8954 = icmp slt i32 %8953, 0
   %8955 = load i32, ptr %8948, align 4
   br i1 %8954, label %8956, label %9023
 
 8956:                                             ; preds = %8949
-  %8957 = zext nneg i32 %.2091150315129 to i64
-  %8958 = shl i64 %.2091124915130, %8957
+  %8957 = zext nneg i32 %.2101150415129 to i64
+  %8958 = shl i64 %.2101125015130, %8957
   %8959 = sub nsw i32 0, %8953
   %8960 = lshr i32 %8955, %8959
   %8961 = zext nneg i32 %8960 to i64
@@ -17820,19 +17820,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13449 = icmp eq i64 %8965, 0
   %8966 = lshr i64 %8958, 56
   %8967 = trunc nuw i64 %8966 to i8
-  store i8 %8967, ptr %.31515131, align 1
+  store i8 %8967, ptr %.31615131, align 1
   br i1 %.not13449, label %8997, label %8968
 
 8968:                                             ; preds = %8956
-  %8969 = getelementptr inbounds i8, ptr %.31515131, i64 1
+  %8969 = getelementptr inbounds i8, ptr %.31615131, i64 1
   store i8 0, ptr %8969, align 1
   %.not13450 = icmp eq i64 %8966, 255
-  %.sroa.gep14548 = getelementptr inbounds i8, ptr %.31515131, i64 2
+  %.sroa.gep14548 = getelementptr inbounds i8, ptr %.31615131, i64 2
   %.neg13451.sroa.sel = select i1 %.not13450, ptr %.sroa.gep14548, ptr %8969
   %8970 = lshr i64 %8958, 48
   %8971 = trunc i64 %8970 to i8
   store i8 %8971, ptr %.neg13451.sroa.sel, align 1
-  %.sroa.gep15573 = getelementptr inbounds i8, ptr %.31515131, i64 3
+  %.sroa.gep15573 = getelementptr inbounds i8, ptr %.31615131, i64 3
   %.neg13451.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13450, ptr %.sroa.gep15573, ptr %.sroa.gep14548
   store i8 0, ptr %.neg13451.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8972 = and i64 %8958, 71776119061217280
@@ -17900,36 +17900,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 8997:                                             ; preds = %8956
   %8998 = lshr i64 %8958, 48
   %8999 = trunc i64 %8998 to i8
-  %9000 = getelementptr inbounds i8, ptr %.31515131, i64 1
+  %9000 = getelementptr inbounds i8, ptr %.31615131, i64 1
   store i8 %8999, ptr %9000, align 1
   %9001 = lshr i64 %8958, 40
   %9002 = trunc i64 %9001 to i8
-  %9003 = getelementptr inbounds i8, ptr %.31515131, i64 2
+  %9003 = getelementptr inbounds i8, ptr %.31615131, i64 2
   store i8 %9002, ptr %9003, align 1
   %9004 = lshr i64 %8958, 32
   %9005 = trunc i64 %9004 to i8
-  %9006 = getelementptr inbounds i8, ptr %.31515131, i64 3
+  %9006 = getelementptr inbounds i8, ptr %.31615131, i64 3
   store i8 %9005, ptr %9006, align 1
   %9007 = lshr i64 %8962, 24
   %9008 = trunc i64 %9007 to i8
-  %9009 = getelementptr inbounds i8, ptr %.31515131, i64 4
+  %9009 = getelementptr inbounds i8, ptr %.31615131, i64 4
   store i8 %9008, ptr %9009, align 1
   %9010 = lshr i64 %8962, 16
   %9011 = trunc i64 %9010 to i8
-  %9012 = getelementptr inbounds i8, ptr %.31515131, i64 5
+  %9012 = getelementptr inbounds i8, ptr %.31615131, i64 5
   store i8 %9011, ptr %9012, align 1
   %9013 = lshr i64 %8962, 8
   %9014 = trunc i64 %9013 to i8
-  %9015 = getelementptr inbounds i8, ptr %.31515131, i64 6
+  %9015 = getelementptr inbounds i8, ptr %.31615131, i64 6
   store i8 %9014, ptr %9015, align 1
   %9016 = trunc i64 %8962 to i8
-  %9017 = getelementptr inbounds i8, ptr %.31515131, i64 7
+  %9017 = getelementptr inbounds i8, ptr %.31615131, i64 7
   store i8 %9016, ptr %9017, align 1
-  %9018 = getelementptr inbounds i8, ptr %.31515131, i64 8
+  %9018 = getelementptr inbounds i8, ptr %.31615131, i64 8
   br label %9019
 
 9019:                                             ; preds = %8997, %8968
-  %.316 = phi ptr [ %8996, %8968 ], [ %9018, %8997 ]
+  %.317 = phi ptr [ %8996, %8968 ], [ %9018, %8997 ]
   %9020 = add nsw i32 %8953, 64
   %9021 = load i32, ptr %8948, align 4
   %9022 = zext i32 %9021 to i64
@@ -17937,24 +17937,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 9023:                                             ; preds = %8949
   %9024 = zext nneg i32 %8952 to i64
-  %9025 = shl i64 %.2091124915130, %9024
+  %9025 = shl i64 %.2101125015130, %9024
   %9026 = zext i32 %8955 to i64
   %9027 = or i64 %9025, %9026
   br label %9028
 
 9028:                                             ; preds = %9023, %9019
-  %.21011504 = phi i32 [ %9020, %9019 ], [ %8953, %9023 ]
-  %.21011250 = phi i64 [ %9022, %9019 ], [ %9027, %9023 ]
-  %.317 = phi ptr [ %.316, %9019 ], [ %.31515131, %9023 ]
-  %9029 = icmp ugt i32 %.10415132, 511
+  %.21111505 = phi i32 [ %9020, %9019 ], [ %8953, %9023 ]
+  %.21111251 = phi i64 [ %9022, %9019 ], [ %9027, %9023 ]
+  %.318 = phi ptr [ %.317, %9019 ], [ %.31615131, %9023 ]
+  %9029 = icmp ugt i32 %.10515132, 511
   br i1 %9029, label %8949, label %._crit_edge15135, !llvm.loop !54
 
 ._crit_edge15135:                                 ; preds = %9028, %8945
-  %.20911503.lcssa = phi i32 [ %.20811502, %8945 ], [ %.21011504, %9028 ]
-  %.20911249.lcssa = phi i64 [ %.20811248, %8945 ], [ %.21011250, %9028 ]
-  %.315.lcssa = phi ptr [ %.314, %8945 ], [ %.317, %9028 ]
-  %.104.lcssa = phi i32 [ %.103, %8945 ], [ %8950, %9028 ]
-  %9030 = add nuw nsw i32 %.104.lcssa, %8936
+  %.21011504.lcssa = phi i32 [ %.20511499, %8945 ], [ %.21111505, %9028 ]
+  %.21011250.lcssa = phi i64 [ %.20511245, %8945 ], [ %.21111251, %9028 ]
+  %.316.lcssa = phi ptr [ %.309, %8945 ], [ %.318, %9028 ]
+  %.105.lcssa = phi i32 [ %.102, %8945 ], [ %8950, %9028 ]
+  %9030 = add nuw nsw i32 %.105.lcssa, %8936
   %9031 = zext nneg i8 %8935 to i64
   %notmask13431 = shl nsw i64 -1, %9031
   %9032 = trunc i64 %notmask13431 to i32
@@ -17970,13 +17970,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %9042 = load i8, ptr %9041, align 1
   %9043 = sext i8 %9042 to i32
   %9044 = add nsw i32 %9043, %8936
-  %9045 = sub nsw i32 %.20911503.lcssa, %9044
+  %9045 = sub nsw i32 %.21011504.lcssa, %9044
   %9046 = icmp slt i32 %9045, 0
   br i1 %9046, label %9047, label %9113
 
 9047:                                             ; preds = %._crit_edge15135
-  %9048 = zext nneg i32 %.20911503.lcssa to i64
-  %9049 = shl i64 %.20911249.lcssa, %9048
+  %9048 = zext nneg i32 %.21011504.lcssa to i64
+  %9049 = shl i64 %.21011250.lcssa, %9048
   %9050 = sub nsw i32 0, %9045
   %9051 = ashr i32 %9039, %9050
   %9052 = sext i32 %9051 to i64
@@ -17987,19 +17987,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13432 = icmp eq i64 %9056, 0
   %9057 = lshr i64 %9053, 56
   %9058 = trunc nuw i64 %9057 to i8
-  store i8 %9058, ptr %.315.lcssa, align 1
+  store i8 %9058, ptr %.316.lcssa, align 1
   br i1 %.not13432, label %9088, label %9059
 
 9059:                                             ; preds = %9047
-  %9060 = getelementptr inbounds i8, ptr %.315.lcssa, i64 1
+  %9060 = getelementptr inbounds i8, ptr %.316.lcssa, i64 1
   store i8 0, ptr %9060, align 1
   %.not13433 = icmp eq i64 %9057, 255
-  %.sroa.gep14556 = getelementptr inbounds i8, ptr %.315.lcssa, i64 2
+  %.sroa.gep14556 = getelementptr inbounds i8, ptr %.316.lcssa, i64 2
   %.neg13434.sroa.sel = select i1 %.not13433, ptr %.sroa.gep14556, ptr %9060
   %9061 = lshr i64 %9053, 48
   %9062 = trunc i64 %9061 to i8
   store i8 %9062, ptr %.neg13434.sroa.sel, align 1
-  %.sroa.gep15581 = getelementptr inbounds i8, ptr %.315.lcssa, i64 3
+  %.sroa.gep15581 = getelementptr inbounds i8, ptr %.316.lcssa, i64 3
   %.neg13434.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13433, ptr %.sroa.gep15581, ptr %.sroa.gep14556
   store i8 0, ptr %.neg13434.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9063 = and i64 %9053, 71776119061217280
@@ -18067,59 +18067,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9088:                                             ; preds = %9047
   %9089 = lshr i64 %9053, 48
   %9090 = trunc i64 %9089 to i8
-  %9091 = getelementptr inbounds i8, ptr %.315.lcssa, i64 1
+  %9091 = getelementptr inbounds i8, ptr %.316.lcssa, i64 1
   store i8 %9090, ptr %9091, align 1
   %9092 = lshr i64 %9053, 40
   %9093 = trunc i64 %9092 to i8
-  %9094 = getelementptr inbounds i8, ptr %.315.lcssa, i64 2
+  %9094 = getelementptr inbounds i8, ptr %.316.lcssa, i64 2
   store i8 %9093, ptr %9094, align 1
   %9095 = lshr i64 %9053, 32
   %9096 = trunc i64 %9095 to i8
-  %9097 = getelementptr inbounds i8, ptr %.315.lcssa, i64 3
+  %9097 = getelementptr inbounds i8, ptr %.316.lcssa, i64 3
   store i8 %9096, ptr %9097, align 1
   %9098 = lshr i64 %9053, 24
   %9099 = trunc i64 %9098 to i8
-  %9100 = getelementptr inbounds i8, ptr %.315.lcssa, i64 4
+  %9100 = getelementptr inbounds i8, ptr %.316.lcssa, i64 4
   store i8 %9099, ptr %9100, align 1
   %9101 = lshr i64 %9053, 16
   %9102 = trunc i64 %9101 to i8
-  %9103 = getelementptr inbounds i8, ptr %.315.lcssa, i64 5
+  %9103 = getelementptr inbounds i8, ptr %.316.lcssa, i64 5
   store i8 %9102, ptr %9103, align 1
   %9104 = lshr i64 %9053, 8
   %9105 = trunc i64 %9104 to i8
-  %9106 = getelementptr inbounds i8, ptr %.315.lcssa, i64 6
+  %9106 = getelementptr inbounds i8, ptr %.316.lcssa, i64 6
   store i8 %9105, ptr %9106, align 1
   %9107 = trunc i64 %9053 to i8
-  %9108 = getelementptr inbounds i8, ptr %.315.lcssa, i64 7
+  %9108 = getelementptr inbounds i8, ptr %.316.lcssa, i64 7
   store i8 %9107, ptr %9108, align 1
-  %9109 = getelementptr inbounds i8, ptr %.315.lcssa, i64 8
+  %9109 = getelementptr inbounds i8, ptr %.316.lcssa, i64 8
   br label %9110
 
 9110:                                             ; preds = %9088, %9059
-  %.318 = phi ptr [ %9087, %9059 ], [ %9109, %9088 ]
+  %.319 = phi ptr [ %9087, %9059 ], [ %9109, %9088 ]
   %9111 = add nsw i32 %9045, 64
   %9112 = sext i32 %9039 to i64
   br label %9118
 
 9113:                                             ; preds = %._crit_edge15135
   %9114 = zext nneg i32 %9044 to i64
-  %9115 = shl i64 %.20911249.lcssa, %9114
+  %9115 = shl i64 %.21011250.lcssa, %9114
   %9116 = sext i32 %9039 to i64
   %9117 = or i64 %9115, %9116
   br label %9118
 
 9118:                                             ; preds = %9110, %9113, %8926
-  %.21211506 = phi i32 [ %.20811502, %8926 ], [ %9111, %9110 ], [ %9045, %9113 ]
-  %.21211252 = phi i64 [ %.20811248, %8926 ], [ %9112, %9110 ], [ %9117, %9113 ]
-  %.320 = phi ptr [ %.314, %8926 ], [ %.318, %9110 ], [ %.315.lcssa, %9113 ]
-  %.105 = phi i32 [ %8927, %8926 ], [ 0, %9110 ], [ 0, %9113 ]
+  %.20911503 = phi i32 [ %.20511499, %8926 ], [ %9111, %9110 ], [ %9045, %9113 ]
+  %.20911249 = phi i64 [ %.20511245, %8926 ], [ %9112, %9110 ], [ %9117, %9113 ]
+  %.315 = phi ptr [ %.309, %8926 ], [ %.319, %9110 ], [ %.316.lcssa, %9113 ]
+  %.104 = phi i32 [ %8927, %8926 ], [ 0, %9110 ], [ 0, %9113 ]
   %9119 = getelementptr inbounds i8, ptr %1, i64 78
   %9120 = load i16, ptr %9119, align 2
   %9121 = icmp eq i16 %9120, 0
   br i1 %9121, label %9122, label %9124
 
 9122:                                             ; preds = %9118
-  %9123 = add nuw nsw i32 %.105, 16
+  %9123 = add nuw nsw i32 %.104, 16
   br label %9314
 
 9124:                                             ; preds = %9118
@@ -18146,7 +18146,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9141
 
 9141:                                             ; preds = %9134, %9124
-  %9142 = icmp ugt i32 %.105, 255
+  %9142 = icmp ugt i32 %.104, 255
   br i1 %9142, label %.lr.ph15145, label %._crit_edge15146
 
 .lr.ph15145:                                      ; preds = %9141
@@ -18155,21 +18155,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9145
 
 9145:                                             ; preds = %.lr.ph15145, %9224
-  %.10615143 = phi i32 [ %.105, %.lr.ph15145 ], [ %9146, %9224 ]
-  %.32115142 = phi ptr [ %.320, %.lr.ph15145 ], [ %.323, %9224 ]
-  %.2131125315141 = phi i64 [ %.21211252, %.lr.ph15145 ], [ %.21411254, %9224 ]
-  %.2131150715140 = phi i32 [ %.21211506, %.lr.ph15145 ], [ %.21411508, %9224 ]
-  %9146 = add nsw i32 %.10615143, -256
+  %.10715143 = phi i32 [ %.104, %.lr.ph15145 ], [ %9146, %9224 ]
+  %.32215142 = phi ptr [ %.315, %.lr.ph15145 ], [ %.324, %9224 ]
+  %.2141125415141 = phi i64 [ %.20911249, %.lr.ph15145 ], [ %.21511255, %9224 ]
+  %.2141150815140 = phi i32 [ %.20911503, %.lr.ph15145 ], [ %.21511509, %9224 ]
+  %9146 = add nsw i32 %.10715143, -256
   %9147 = load i8, ptr %9143, align 4
   %9148 = sext i8 %9147 to i32
-  %9149 = sub nsw i32 %.2131150715140, %9148
+  %9149 = sub nsw i32 %.2141150815140, %9148
   %9150 = icmp slt i32 %9149, 0
   %9151 = load i32, ptr %9144, align 4
   br i1 %9150, label %9152, label %9219
 
 9152:                                             ; preds = %9145
-  %9153 = zext nneg i32 %.2131150715140 to i64
-  %9154 = shl i64 %.2131125315141, %9153
+  %9153 = zext nneg i32 %.2141150815140 to i64
+  %9154 = shl i64 %.2141125415141, %9153
   %9155 = sub nsw i32 0, %9149
   %9156 = lshr i32 %9151, %9155
   %9157 = zext nneg i32 %9156 to i64
@@ -18180,19 +18180,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13484 = icmp eq i64 %9161, 0
   %9162 = lshr i64 %9154, 56
   %9163 = trunc nuw i64 %9162 to i8
-  store i8 %9163, ptr %.32115142, align 1
+  store i8 %9163, ptr %.32215142, align 1
   br i1 %.not13484, label %9193, label %9164
 
 9164:                                             ; preds = %9152
-  %9165 = getelementptr inbounds i8, ptr %.32115142, i64 1
+  %9165 = getelementptr inbounds i8, ptr %.32215142, i64 1
   store i8 0, ptr %9165, align 1
   %.not13485 = icmp eq i64 %9162, 255
-  %.sroa.gep14564 = getelementptr inbounds i8, ptr %.32115142, i64 2
+  %.sroa.gep14564 = getelementptr inbounds i8, ptr %.32215142, i64 2
   %.neg13486.sroa.sel = select i1 %.not13485, ptr %.sroa.gep14564, ptr %9165
   %9166 = lshr i64 %9154, 48
   %9167 = trunc i64 %9166 to i8
   store i8 %9167, ptr %.neg13486.sroa.sel, align 1
-  %.sroa.gep15557 = getelementptr inbounds i8, ptr %.32115142, i64 3
+  %.sroa.gep15557 = getelementptr inbounds i8, ptr %.32215142, i64 3
   %.neg13486.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13485, ptr %.sroa.gep15557, ptr %.sroa.gep14564
   store i8 0, ptr %.neg13486.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9168 = and i64 %9154, 71776119061217280
@@ -18260,36 +18260,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9193:                                             ; preds = %9152
   %9194 = lshr i64 %9154, 48
   %9195 = trunc i64 %9194 to i8
-  %9196 = getelementptr inbounds i8, ptr %.32115142, i64 1
+  %9196 = getelementptr inbounds i8, ptr %.32215142, i64 1
   store i8 %9195, ptr %9196, align 1
   %9197 = lshr i64 %9154, 40
   %9198 = trunc i64 %9197 to i8
-  %9199 = getelementptr inbounds i8, ptr %.32115142, i64 2
+  %9199 = getelementptr inbounds i8, ptr %.32215142, i64 2
   store i8 %9198, ptr %9199, align 1
   %9200 = lshr i64 %9154, 32
   %9201 = trunc i64 %9200 to i8
-  %9202 = getelementptr inbounds i8, ptr %.32115142, i64 3
+  %9202 = getelementptr inbounds i8, ptr %.32215142, i64 3
   store i8 %9201, ptr %9202, align 1
   %9203 = lshr i64 %9158, 24
   %9204 = trunc i64 %9203 to i8
-  %9205 = getelementptr inbounds i8, ptr %.32115142, i64 4
+  %9205 = getelementptr inbounds i8, ptr %.32215142, i64 4
   store i8 %9204, ptr %9205, align 1
   %9206 = lshr i64 %9158, 16
   %9207 = trunc i64 %9206 to i8
-  %9208 = getelementptr inbounds i8, ptr %.32115142, i64 5
+  %9208 = getelementptr inbounds i8, ptr %.32215142, i64 5
   store i8 %9207, ptr %9208, align 1
   %9209 = lshr i64 %9158, 8
   %9210 = trunc i64 %9209 to i8
-  %9211 = getelementptr inbounds i8, ptr %.32115142, i64 6
+  %9211 = getelementptr inbounds i8, ptr %.32215142, i64 6
   store i8 %9210, ptr %9211, align 1
   %9212 = trunc i64 %9158 to i8
-  %9213 = getelementptr inbounds i8, ptr %.32115142, i64 7
+  %9213 = getelementptr inbounds i8, ptr %.32215142, i64 7
   store i8 %9212, ptr %9213, align 1
-  %9214 = getelementptr inbounds i8, ptr %.32115142, i64 8
+  %9214 = getelementptr inbounds i8, ptr %.32215142, i64 8
   br label %9215
 
 9215:                                             ; preds = %9193, %9164
-  %.322 = phi ptr [ %9192, %9164 ], [ %9214, %9193 ]
+  %.323 = phi ptr [ %9192, %9164 ], [ %9214, %9193 ]
   %9216 = add nsw i32 %9149, 64
   %9217 = load i32, ptr %9144, align 4
   %9218 = zext i32 %9217 to i64
@@ -18297,24 +18297,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 9219:                                             ; preds = %9145
   %9220 = zext nneg i32 %9148 to i64
-  %9221 = shl i64 %.2131125315141, %9220
+  %9221 = shl i64 %.2141125415141, %9220
   %9222 = zext i32 %9151 to i64
   %9223 = or i64 %9221, %9222
   br label %9224
 
 9224:                                             ; preds = %9219, %9215
-  %.21411508 = phi i32 [ %9216, %9215 ], [ %9149, %9219 ]
-  %.21411254 = phi i64 [ %9218, %9215 ], [ %9223, %9219 ]
-  %.323 = phi ptr [ %.322, %9215 ], [ %.32115142, %9219 ]
-  %9225 = icmp ugt i32 %.10615143, 511
+  %.21511509 = phi i32 [ %9216, %9215 ], [ %9149, %9219 ]
+  %.21511255 = phi i64 [ %9218, %9215 ], [ %9223, %9219 ]
+  %.324 = phi ptr [ %.323, %9215 ], [ %.32215142, %9219 ]
+  %9225 = icmp ugt i32 %.10715143, 511
   br i1 %9225, label %9145, label %._crit_edge15146, !llvm.loop !55
 
 ._crit_edge15146:                                 ; preds = %9224, %9141
-  %.21311507.lcssa = phi i32 [ %.21211506, %9141 ], [ %.21411508, %9224 ]
-  %.21311253.lcssa = phi i64 [ %.21211252, %9141 ], [ %.21411254, %9224 ]
-  %.321.lcssa = phi ptr [ %.320, %9141 ], [ %.323, %9224 ]
-  %.106.lcssa = phi i32 [ %.105, %9141 ], [ %9146, %9224 ]
-  %9226 = add nuw nsw i32 %.106.lcssa, %9132
+  %.21411508.lcssa = phi i32 [ %.20911503, %9141 ], [ %.21511509, %9224 ]
+  %.21411254.lcssa = phi i64 [ %.20911249, %9141 ], [ %.21511255, %9224 ]
+  %.322.lcssa = phi ptr [ %.315, %9141 ], [ %.324, %9224 ]
+  %.107.lcssa = phi i32 [ %.104, %9141 ], [ %9146, %9224 ]
+  %9226 = add nuw nsw i32 %.107.lcssa, %9132
   %9227 = zext nneg i8 %9131 to i64
   %notmask13466 = shl nsw i64 -1, %9227
   %9228 = trunc i64 %notmask13466 to i32
@@ -18330,13 +18330,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %9238 = load i8, ptr %9237, align 1
   %9239 = sext i8 %9238 to i32
   %9240 = add nsw i32 %9239, %9132
-  %9241 = sub nsw i32 %.21311507.lcssa, %9240
+  %9241 = sub nsw i32 %.21411508.lcssa, %9240
   %9242 = icmp slt i32 %9241, 0
   br i1 %9242, label %9243, label %9309
 
 9243:                                             ; preds = %._crit_edge15146
-  %9244 = zext nneg i32 %.21311507.lcssa to i64
-  %9245 = shl i64 %.21311253.lcssa, %9244
+  %9244 = zext nneg i32 %.21411508.lcssa to i64
+  %9245 = shl i64 %.21411254.lcssa, %9244
   %9246 = sub nsw i32 0, %9241
   %9247 = ashr i32 %9235, %9246
   %9248 = sext i32 %9247 to i64
@@ -18347,19 +18347,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13467 = icmp eq i64 %9252, 0
   %9253 = lshr i64 %9249, 56
   %9254 = trunc nuw i64 %9253 to i8
-  store i8 %9254, ptr %.321.lcssa, align 1
+  store i8 %9254, ptr %.322.lcssa, align 1
   br i1 %.not13467, label %9284, label %9255
 
 9255:                                             ; preds = %9243
-  %9256 = getelementptr inbounds i8, ptr %.321.lcssa, i64 1
+  %9256 = getelementptr inbounds i8, ptr %.322.lcssa, i64 1
   store i8 0, ptr %9256, align 1
   %.not13468 = icmp eq i64 %9253, 255
-  %.sroa.gep14572 = getelementptr inbounds i8, ptr %.321.lcssa, i64 2
+  %.sroa.gep14572 = getelementptr inbounds i8, ptr %.322.lcssa, i64 2
   %.neg13469.sroa.sel = select i1 %.not13468, ptr %.sroa.gep14572, ptr %9256
   %9257 = lshr i64 %9249, 48
   %9258 = trunc i64 %9257 to i8
   store i8 %9258, ptr %.neg13469.sroa.sel, align 1
-  %.sroa.gep15565 = getelementptr inbounds i8, ptr %.321.lcssa, i64 3
+  %.sroa.gep15565 = getelementptr inbounds i8, ptr %.322.lcssa, i64 3
   %.neg13469.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13468, ptr %.sroa.gep15565, ptr %.sroa.gep14572
   store i8 0, ptr %.neg13469.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9259 = and i64 %9249, 71776119061217280
@@ -18427,59 +18427,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9284:                                             ; preds = %9243
   %9285 = lshr i64 %9249, 48
   %9286 = trunc i64 %9285 to i8
-  %9287 = getelementptr inbounds i8, ptr %.321.lcssa, i64 1
+  %9287 = getelementptr inbounds i8, ptr %.322.lcssa, i64 1
   store i8 %9286, ptr %9287, align 1
   %9288 = lshr i64 %9249, 40
   %9289 = trunc i64 %9288 to i8
-  %9290 = getelementptr inbounds i8, ptr %.321.lcssa, i64 2
+  %9290 = getelementptr inbounds i8, ptr %.322.lcssa, i64 2
   store i8 %9289, ptr %9290, align 1
   %9291 = lshr i64 %9249, 32
   %9292 = trunc i64 %9291 to i8
-  %9293 = getelementptr inbounds i8, ptr %.321.lcssa, i64 3
+  %9293 = getelementptr inbounds i8, ptr %.322.lcssa, i64 3
   store i8 %9292, ptr %9293, align 1
   %9294 = lshr i64 %9249, 24
   %9295 = trunc i64 %9294 to i8
-  %9296 = getelementptr inbounds i8, ptr %.321.lcssa, i64 4
+  %9296 = getelementptr inbounds i8, ptr %.322.lcssa, i64 4
   store i8 %9295, ptr %9296, align 1
   %9297 = lshr i64 %9249, 16
   %9298 = trunc i64 %9297 to i8
-  %9299 = getelementptr inbounds i8, ptr %.321.lcssa, i64 5
+  %9299 = getelementptr inbounds i8, ptr %.322.lcssa, i64 5
   store i8 %9298, ptr %9299, align 1
   %9300 = lshr i64 %9249, 8
   %9301 = trunc i64 %9300 to i8
-  %9302 = getelementptr inbounds i8, ptr %.321.lcssa, i64 6
+  %9302 = getelementptr inbounds i8, ptr %.322.lcssa, i64 6
   store i8 %9301, ptr %9302, align 1
   %9303 = trunc i64 %9249 to i8
-  %9304 = getelementptr inbounds i8, ptr %.321.lcssa, i64 7
+  %9304 = getelementptr inbounds i8, ptr %.322.lcssa, i64 7
   store i8 %9303, ptr %9304, align 1
-  %9305 = getelementptr inbounds i8, ptr %.321.lcssa, i64 8
+  %9305 = getelementptr inbounds i8, ptr %.322.lcssa, i64 8
   br label %9306
 
 9306:                                             ; preds = %9284, %9255
-  %.324 = phi ptr [ %9283, %9255 ], [ %9305, %9284 ]
+  %.325 = phi ptr [ %9283, %9255 ], [ %9305, %9284 ]
   %9307 = add nsw i32 %9241, 64
   %9308 = sext i32 %9235 to i64
   br label %9314
 
 9309:                                             ; preds = %._crit_edge15146
   %9310 = zext nneg i32 %9240 to i64
-  %9311 = shl i64 %.21311253.lcssa, %9310
+  %9311 = shl i64 %.21411254.lcssa, %9310
   %9312 = sext i32 %9235 to i64
   %9313 = or i64 %9311, %9312
   br label %9314
 
 9314:                                             ; preds = %9306, %9309, %9122
-  %.21611510 = phi i32 [ %.21211506, %9122 ], [ %9307, %9306 ], [ %9241, %9309 ]
-  %.21611256 = phi i64 [ %.21211252, %9122 ], [ %9308, %9306 ], [ %9313, %9309 ]
-  %.326 = phi ptr [ %.320, %9122 ], [ %.324, %9306 ], [ %.321.lcssa, %9309 ]
-  %.107 = phi i32 [ %9123, %9122 ], [ 0, %9306 ], [ 0, %9309 ]
+  %.21311507 = phi i32 [ %.20911503, %9122 ], [ %9307, %9306 ], [ %9241, %9309 ]
+  %.21311253 = phi i64 [ %.20911249, %9122 ], [ %9308, %9306 ], [ %9313, %9309 ]
+  %.321 = phi ptr [ %.315, %9122 ], [ %.325, %9306 ], [ %.322.lcssa, %9309 ]
+  %.106 = phi i32 [ %9123, %9122 ], [ 0, %9306 ], [ 0, %9309 ]
   %9315 = getelementptr inbounds i8, ptr %1, i64 92
   %9316 = load i16, ptr %9315, align 2
   %9317 = icmp eq i16 %9316, 0
   br i1 %9317, label %9318, label %9320
 
 9318:                                             ; preds = %9314
-  %9319 = add nuw nsw i32 %.107, 16
+  %9319 = add nuw nsw i32 %.106, 16
   br label %9510
 
 9320:                                             ; preds = %9314
@@ -18506,7 +18506,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9337
 
 9337:                                             ; preds = %9330, %9320
-  %9338 = icmp ugt i32 %.107, 255
+  %9338 = icmp ugt i32 %.106, 255
   br i1 %9338, label %.lr.ph15156, label %._crit_edge15157
 
 .lr.ph15156:                                      ; preds = %9337
@@ -18515,21 +18515,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9341
 
 9341:                                             ; preds = %.lr.ph15156, %9420
-  %.10815154 = phi i32 [ %.107, %.lr.ph15156 ], [ %9342, %9420 ]
-  %.32715153 = phi ptr [ %.326, %.lr.ph15156 ], [ %.329, %9420 ]
-  %.2171125715152 = phi i64 [ %.21611256, %.lr.ph15156 ], [ %.21811258, %9420 ]
-  %.2171151115151 = phi i32 [ %.21611510, %.lr.ph15156 ], [ %.21811512, %9420 ]
-  %9342 = add nsw i32 %.10815154, -256
+  %.10915154 = phi i32 [ %.106, %.lr.ph15156 ], [ %9342, %9420 ]
+  %.32815153 = phi ptr [ %.321, %.lr.ph15156 ], [ %.330, %9420 ]
+  %.2181125815152 = phi i64 [ %.21311253, %.lr.ph15156 ], [ %.21911259, %9420 ]
+  %.2181151215151 = phi i32 [ %.21311507, %.lr.ph15156 ], [ %.21911513, %9420 ]
+  %9342 = add nsw i32 %.10915154, -256
   %9343 = load i8, ptr %9339, align 4
   %9344 = sext i8 %9343 to i32
-  %9345 = sub nsw i32 %.2171151115151, %9344
+  %9345 = sub nsw i32 %.2181151215151, %9344
   %9346 = icmp slt i32 %9345, 0
   %9347 = load i32, ptr %9340, align 4
   br i1 %9346, label %9348, label %9415
 
 9348:                                             ; preds = %9341
-  %9349 = zext nneg i32 %.2171151115151 to i64
-  %9350 = shl i64 %.2171125715152, %9349
+  %9349 = zext nneg i32 %.2181151215151 to i64
+  %9350 = shl i64 %.2181125815152, %9349
   %9351 = sub nsw i32 0, %9345
   %9352 = lshr i32 %9347, %9351
   %9353 = zext nneg i32 %9352 to i64
@@ -18540,19 +18540,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13519 = icmp eq i64 %9357, 0
   %9358 = lshr i64 %9350, 56
   %9359 = trunc nuw i64 %9358 to i8
-  store i8 %9359, ptr %.32715153, align 1
+  store i8 %9359, ptr %.32815153, align 1
   br i1 %.not13519, label %9389, label %9360
 
 9360:                                             ; preds = %9348
-  %9361 = getelementptr inbounds i8, ptr %.32715153, i64 1
+  %9361 = getelementptr inbounds i8, ptr %.32815153, i64 1
   store i8 0, ptr %9361, align 1
   %.not13520 = icmp eq i64 %9358, 255
-  %.sroa.gep14580 = getelementptr inbounds i8, ptr %.32715153, i64 2
+  %.sroa.gep14580 = getelementptr inbounds i8, ptr %.32815153, i64 2
   %.neg13521.sroa.sel = select i1 %.not13520, ptr %.sroa.gep14580, ptr %9361
   %9362 = lshr i64 %9350, 48
   %9363 = trunc i64 %9362 to i8
   store i8 %9363, ptr %.neg13521.sroa.sel, align 1
-  %.sroa.gep15541 = getelementptr inbounds i8, ptr %.32715153, i64 3
+  %.sroa.gep15541 = getelementptr inbounds i8, ptr %.32815153, i64 3
   %.neg13521.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13520, ptr %.sroa.gep15541, ptr %.sroa.gep14580
   store i8 0, ptr %.neg13521.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9364 = and i64 %9350, 71776119061217280
@@ -18620,36 +18620,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9389:                                             ; preds = %9348
   %9390 = lshr i64 %9350, 48
   %9391 = trunc i64 %9390 to i8
-  %9392 = getelementptr inbounds i8, ptr %.32715153, i64 1
+  %9392 = getelementptr inbounds i8, ptr %.32815153, i64 1
   store i8 %9391, ptr %9392, align 1
   %9393 = lshr i64 %9350, 40
   %9394 = trunc i64 %9393 to i8
-  %9395 = getelementptr inbounds i8, ptr %.32715153, i64 2
+  %9395 = getelementptr inbounds i8, ptr %.32815153, i64 2
   store i8 %9394, ptr %9395, align 1
   %9396 = lshr i64 %9350, 32
   %9397 = trunc i64 %9396 to i8
-  %9398 = getelementptr inbounds i8, ptr %.32715153, i64 3
+  %9398 = getelementptr inbounds i8, ptr %.32815153, i64 3
   store i8 %9397, ptr %9398, align 1
   %9399 = lshr i64 %9354, 24
   %9400 = trunc i64 %9399 to i8
-  %9401 = getelementptr inbounds i8, ptr %.32715153, i64 4
+  %9401 = getelementptr inbounds i8, ptr %.32815153, i64 4
   store i8 %9400, ptr %9401, align 1
   %9402 = lshr i64 %9354, 16
   %9403 = trunc i64 %9402 to i8
-  %9404 = getelementptr inbounds i8, ptr %.32715153, i64 5
+  %9404 = getelementptr inbounds i8, ptr %.32815153, i64 5
   store i8 %9403, ptr %9404, align 1
   %9405 = lshr i64 %9354, 8
   %9406 = trunc i64 %9405 to i8
-  %9407 = getelementptr inbounds i8, ptr %.32715153, i64 6
+  %9407 = getelementptr inbounds i8, ptr %.32815153, i64 6
   store i8 %9406, ptr %9407, align 1
   %9408 = trunc i64 %9354 to i8
-  %9409 = getelementptr inbounds i8, ptr %.32715153, i64 7
+  %9409 = getelementptr inbounds i8, ptr %.32815153, i64 7
   store i8 %9408, ptr %9409, align 1
-  %9410 = getelementptr inbounds i8, ptr %.32715153, i64 8
+  %9410 = getelementptr inbounds i8, ptr %.32815153, i64 8
   br label %9411
 
 9411:                                             ; preds = %9389, %9360
-  %.328 = phi ptr [ %9388, %9360 ], [ %9410, %9389 ]
+  %.329 = phi ptr [ %9388, %9360 ], [ %9410, %9389 ]
   %9412 = add nsw i32 %9345, 64
   %9413 = load i32, ptr %9340, align 4
   %9414 = zext i32 %9413 to i64
@@ -18657,24 +18657,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 9415:                                             ; preds = %9341
   %9416 = zext nneg i32 %9344 to i64
-  %9417 = shl i64 %.2171125715152, %9416
+  %9417 = shl i64 %.2181125815152, %9416
   %9418 = zext i32 %9347 to i64
   %9419 = or i64 %9417, %9418
   br label %9420
 
 9420:                                             ; preds = %9415, %9411
-  %.21811512 = phi i32 [ %9412, %9411 ], [ %9345, %9415 ]
-  %.21811258 = phi i64 [ %9414, %9411 ], [ %9419, %9415 ]
-  %.329 = phi ptr [ %.328, %9411 ], [ %.32715153, %9415 ]
-  %9421 = icmp ugt i32 %.10815154, 511
+  %.21911513 = phi i32 [ %9412, %9411 ], [ %9345, %9415 ]
+  %.21911259 = phi i64 [ %9414, %9411 ], [ %9419, %9415 ]
+  %.330 = phi ptr [ %.329, %9411 ], [ %.32815153, %9415 ]
+  %9421 = icmp ugt i32 %.10915154, 511
   br i1 %9421, label %9341, label %._crit_edge15157, !llvm.loop !56
 
 ._crit_edge15157:                                 ; preds = %9420, %9337
-  %.21711511.lcssa = phi i32 [ %.21611510, %9337 ], [ %.21811512, %9420 ]
-  %.21711257.lcssa = phi i64 [ %.21611256, %9337 ], [ %.21811258, %9420 ]
-  %.327.lcssa = phi ptr [ %.326, %9337 ], [ %.329, %9420 ]
-  %.108.lcssa = phi i32 [ %.107, %9337 ], [ %9342, %9420 ]
-  %9422 = add nuw nsw i32 %.108.lcssa, %9328
+  %.21811512.lcssa = phi i32 [ %.21311507, %9337 ], [ %.21911513, %9420 ]
+  %.21811258.lcssa = phi i64 [ %.21311253, %9337 ], [ %.21911259, %9420 ]
+  %.328.lcssa = phi ptr [ %.321, %9337 ], [ %.330, %9420 ]
+  %.109.lcssa = phi i32 [ %.106, %9337 ], [ %9342, %9420 ]
+  %9422 = add nuw nsw i32 %.109.lcssa, %9328
   %9423 = zext nneg i8 %9327 to i64
   %notmask13501 = shl nsw i64 -1, %9423
   %9424 = trunc i64 %notmask13501 to i32
@@ -18690,13 +18690,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %9434 = load i8, ptr %9433, align 1
   %9435 = sext i8 %9434 to i32
   %9436 = add nsw i32 %9435, %9328
-  %9437 = sub nsw i32 %.21711511.lcssa, %9436
+  %9437 = sub nsw i32 %.21811512.lcssa, %9436
   %9438 = icmp slt i32 %9437, 0
   br i1 %9438, label %9439, label %9505
 
 9439:                                             ; preds = %._crit_edge15157
-  %9440 = zext nneg i32 %.21711511.lcssa to i64
-  %9441 = shl i64 %.21711257.lcssa, %9440
+  %9440 = zext nneg i32 %.21811512.lcssa to i64
+  %9441 = shl i64 %.21811258.lcssa, %9440
   %9442 = sub nsw i32 0, %9437
   %9443 = ashr i32 %9431, %9442
   %9444 = sext i32 %9443 to i64
@@ -18707,19 +18707,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13502 = icmp eq i64 %9448, 0
   %9449 = lshr i64 %9445, 56
   %9450 = trunc nuw i64 %9449 to i8
-  store i8 %9450, ptr %.327.lcssa, align 1
+  store i8 %9450, ptr %.328.lcssa, align 1
   br i1 %.not13502, label %9480, label %9451
 
 9451:                                             ; preds = %9439
-  %9452 = getelementptr inbounds i8, ptr %.327.lcssa, i64 1
+  %9452 = getelementptr inbounds i8, ptr %.328.lcssa, i64 1
   store i8 0, ptr %9452, align 1
   %.not13503 = icmp eq i64 %9449, 255
-  %.sroa.gep14588 = getelementptr inbounds i8, ptr %.327.lcssa, i64 2
+  %.sroa.gep14588 = getelementptr inbounds i8, ptr %.328.lcssa, i64 2
   %.neg13504.sroa.sel = select i1 %.not13503, ptr %.sroa.gep14588, ptr %9452
   %9453 = lshr i64 %9445, 48
   %9454 = trunc i64 %9453 to i8
   store i8 %9454, ptr %.neg13504.sroa.sel, align 1
-  %.sroa.gep15549 = getelementptr inbounds i8, ptr %.327.lcssa, i64 3
+  %.sroa.gep15549 = getelementptr inbounds i8, ptr %.328.lcssa, i64 3
   %.neg13504.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13503, ptr %.sroa.gep15549, ptr %.sroa.gep14588
   store i8 0, ptr %.neg13504.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9455 = and i64 %9445, 71776119061217280
@@ -18787,59 +18787,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9480:                                             ; preds = %9439
   %9481 = lshr i64 %9445, 48
   %9482 = trunc i64 %9481 to i8
-  %9483 = getelementptr inbounds i8, ptr %.327.lcssa, i64 1
+  %9483 = getelementptr inbounds i8, ptr %.328.lcssa, i64 1
   store i8 %9482, ptr %9483, align 1
   %9484 = lshr i64 %9445, 40
   %9485 = trunc i64 %9484 to i8
-  %9486 = getelementptr inbounds i8, ptr %.327.lcssa, i64 2
+  %9486 = getelementptr inbounds i8, ptr %.328.lcssa, i64 2
   store i8 %9485, ptr %9486, align 1
   %9487 = lshr i64 %9445, 32
   %9488 = trunc i64 %9487 to i8
-  %9489 = getelementptr inbounds i8, ptr %.327.lcssa, i64 3
+  %9489 = getelementptr inbounds i8, ptr %.328.lcssa, i64 3
   store i8 %9488, ptr %9489, align 1
   %9490 = lshr i64 %9445, 24
   %9491 = trunc i64 %9490 to i8
-  %9492 = getelementptr inbounds i8, ptr %.327.lcssa, i64 4
+  %9492 = getelementptr inbounds i8, ptr %.328.lcssa, i64 4
   store i8 %9491, ptr %9492, align 1
   %9493 = lshr i64 %9445, 16
   %9494 = trunc i64 %9493 to i8
-  %9495 = getelementptr inbounds i8, ptr %.327.lcssa, i64 5
+  %9495 = getelementptr inbounds i8, ptr %.328.lcssa, i64 5
   store i8 %9494, ptr %9495, align 1
   %9496 = lshr i64 %9445, 8
   %9497 = trunc i64 %9496 to i8
-  %9498 = getelementptr inbounds i8, ptr %.327.lcssa, i64 6
+  %9498 = getelementptr inbounds i8, ptr %.328.lcssa, i64 6
   store i8 %9497, ptr %9498, align 1
   %9499 = trunc i64 %9445 to i8
-  %9500 = getelementptr inbounds i8, ptr %.327.lcssa, i64 7
+  %9500 = getelementptr inbounds i8, ptr %.328.lcssa, i64 7
   store i8 %9499, ptr %9500, align 1
-  %9501 = getelementptr inbounds i8, ptr %.327.lcssa, i64 8
+  %9501 = getelementptr inbounds i8, ptr %.328.lcssa, i64 8
   br label %9502
 
 9502:                                             ; preds = %9480, %9451
-  %.330 = phi ptr [ %9479, %9451 ], [ %9501, %9480 ]
+  %.331 = phi ptr [ %9479, %9451 ], [ %9501, %9480 ]
   %9503 = add nsw i32 %9437, 64
   %9504 = sext i32 %9431 to i64
   br label %9510
 
 9505:                                             ; preds = %._crit_edge15157
   %9506 = zext nneg i32 %9436 to i64
-  %9507 = shl i64 %.21711257.lcssa, %9506
+  %9507 = shl i64 %.21811258.lcssa, %9506
   %9508 = sext i32 %9431 to i64
   %9509 = or i64 %9507, %9508
   br label %9510
 
 9510:                                             ; preds = %9502, %9505, %9318
-  %.22011514 = phi i32 [ %.21611510, %9318 ], [ %9503, %9502 ], [ %9437, %9505 ]
-  %.22011260 = phi i64 [ %.21611256, %9318 ], [ %9504, %9502 ], [ %9509, %9505 ]
-  %.332 = phi ptr [ %.326, %9318 ], [ %.330, %9502 ], [ %.327.lcssa, %9505 ]
-  %.109 = phi i32 [ %9319, %9318 ], [ 0, %9502 ], [ 0, %9505 ]
+  %.21711511 = phi i32 [ %.21311507, %9318 ], [ %9503, %9502 ], [ %9437, %9505 ]
+  %.21711257 = phi i64 [ %.21311253, %9318 ], [ %9504, %9502 ], [ %9509, %9505 ]
+  %.327 = phi ptr [ %.321, %9318 ], [ %.331, %9502 ], [ %.328.lcssa, %9505 ]
+  %.108 = phi i32 [ %9319, %9318 ], [ 0, %9502 ], [ 0, %9505 ]
   %9511 = getelementptr inbounds i8, ptr %1, i64 106
   %9512 = load i16, ptr %9511, align 2
   %9513 = icmp eq i16 %9512, 0
   br i1 %9513, label %9514, label %9516
 
 9514:                                             ; preds = %9510
-  %9515 = add nuw nsw i32 %.109, 16
+  %9515 = add nuw nsw i32 %.108, 16
   br label %9706
 
 9516:                                             ; preds = %9510
@@ -18866,7 +18866,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9533
 
 9533:                                             ; preds = %9526, %9516
-  %9534 = icmp ugt i32 %.109, 255
+  %9534 = icmp ugt i32 %.108, 255
   br i1 %9534, label %.lr.ph15167, label %._crit_edge15168
 
 .lr.ph15167:                                      ; preds = %9533
@@ -18875,21 +18875,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9537
 
 9537:                                             ; preds = %.lr.ph15167, %9616
-  %.11015165 = phi i32 [ %.109, %.lr.ph15167 ], [ %9538, %9616 ]
-  %.33315164 = phi ptr [ %.332, %.lr.ph15167 ], [ %.335, %9616 ]
-  %.2211126115163 = phi i64 [ %.22011260, %.lr.ph15167 ], [ %.22211262, %9616 ]
-  %.2211151515162 = phi i32 [ %.22011514, %.lr.ph15167 ], [ %.22211516, %9616 ]
-  %9538 = add nsw i32 %.11015165, -256
+  %.11115165 = phi i32 [ %.108, %.lr.ph15167 ], [ %9538, %9616 ]
+  %.33415164 = phi ptr [ %.327, %.lr.ph15167 ], [ %.336, %9616 ]
+  %.2221126215163 = phi i64 [ %.21711257, %.lr.ph15167 ], [ %.22311263, %9616 ]
+  %.2221151615162 = phi i32 [ %.21711511, %.lr.ph15167 ], [ %.22311517, %9616 ]
+  %9538 = add nsw i32 %.11115165, -256
   %9539 = load i8, ptr %9535, align 4
   %9540 = sext i8 %9539 to i32
-  %9541 = sub nsw i32 %.2211151515162, %9540
+  %9541 = sub nsw i32 %.2221151615162, %9540
   %9542 = icmp slt i32 %9541, 0
   %9543 = load i32, ptr %9536, align 4
   br i1 %9542, label %9544, label %9611
 
 9544:                                             ; preds = %9537
-  %9545 = zext nneg i32 %.2211151515162 to i64
-  %9546 = shl i64 %.2211126115163, %9545
+  %9545 = zext nneg i32 %.2221151615162 to i64
+  %9546 = shl i64 %.2221126215163, %9545
   %9547 = sub nsw i32 0, %9541
   %9548 = lshr i32 %9543, %9547
   %9549 = zext nneg i32 %9548 to i64
@@ -18900,19 +18900,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13554 = icmp eq i64 %9553, 0
   %9554 = lshr i64 %9546, 56
   %9555 = trunc nuw i64 %9554 to i8
-  store i8 %9555, ptr %.33315164, align 1
+  store i8 %9555, ptr %.33415164, align 1
   br i1 %.not13554, label %9585, label %9556
 
 9556:                                             ; preds = %9544
-  %9557 = getelementptr inbounds i8, ptr %.33315164, i64 1
+  %9557 = getelementptr inbounds i8, ptr %.33415164, i64 1
   store i8 0, ptr %9557, align 1
   %.not13555 = icmp eq i64 %9554, 255
-  %.sroa.gep14596 = getelementptr inbounds i8, ptr %.33315164, i64 2
+  %.sroa.gep14596 = getelementptr inbounds i8, ptr %.33415164, i64 2
   %.neg13556.sroa.sel = select i1 %.not13555, ptr %.sroa.gep14596, ptr %9557
   %9558 = lshr i64 %9546, 48
   %9559 = trunc i64 %9558 to i8
   store i8 %9559, ptr %.neg13556.sroa.sel, align 1
-  %.sroa.gep15525 = getelementptr inbounds i8, ptr %.33315164, i64 3
+  %.sroa.gep15525 = getelementptr inbounds i8, ptr %.33415164, i64 3
   %.neg13556.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13555, ptr %.sroa.gep15525, ptr %.sroa.gep14596
   store i8 0, ptr %.neg13556.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9560 = and i64 %9546, 71776119061217280
@@ -18980,36 +18980,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9585:                                             ; preds = %9544
   %9586 = lshr i64 %9546, 48
   %9587 = trunc i64 %9586 to i8
-  %9588 = getelementptr inbounds i8, ptr %.33315164, i64 1
+  %9588 = getelementptr inbounds i8, ptr %.33415164, i64 1
   store i8 %9587, ptr %9588, align 1
   %9589 = lshr i64 %9546, 40
   %9590 = trunc i64 %9589 to i8
-  %9591 = getelementptr inbounds i8, ptr %.33315164, i64 2
+  %9591 = getelementptr inbounds i8, ptr %.33415164, i64 2
   store i8 %9590, ptr %9591, align 1
   %9592 = lshr i64 %9546, 32
   %9593 = trunc i64 %9592 to i8
-  %9594 = getelementptr inbounds i8, ptr %.33315164, i64 3
+  %9594 = getelementptr inbounds i8, ptr %.33415164, i64 3
   store i8 %9593, ptr %9594, align 1
   %9595 = lshr i64 %9550, 24
   %9596 = trunc i64 %9595 to i8
-  %9597 = getelementptr inbounds i8, ptr %.33315164, i64 4
+  %9597 = getelementptr inbounds i8, ptr %.33415164, i64 4
   store i8 %9596, ptr %9597, align 1
   %9598 = lshr i64 %9550, 16
   %9599 = trunc i64 %9598 to i8
-  %9600 = getelementptr inbounds i8, ptr %.33315164, i64 5
+  %9600 = getelementptr inbounds i8, ptr %.33415164, i64 5
   store i8 %9599, ptr %9600, align 1
   %9601 = lshr i64 %9550, 8
   %9602 = trunc i64 %9601 to i8
-  %9603 = getelementptr inbounds i8, ptr %.33315164, i64 6
+  %9603 = getelementptr inbounds i8, ptr %.33415164, i64 6
   store i8 %9602, ptr %9603, align 1
   %9604 = trunc i64 %9550 to i8
-  %9605 = getelementptr inbounds i8, ptr %.33315164, i64 7
+  %9605 = getelementptr inbounds i8, ptr %.33415164, i64 7
   store i8 %9604, ptr %9605, align 1
-  %9606 = getelementptr inbounds i8, ptr %.33315164, i64 8
+  %9606 = getelementptr inbounds i8, ptr %.33415164, i64 8
   br label %9607
 
 9607:                                             ; preds = %9585, %9556
-  %.334 = phi ptr [ %9584, %9556 ], [ %9606, %9585 ]
+  %.335 = phi ptr [ %9584, %9556 ], [ %9606, %9585 ]
   %9608 = add nsw i32 %9541, 64
   %9609 = load i32, ptr %9536, align 4
   %9610 = zext i32 %9609 to i64
@@ -19017,24 +19017,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 9611:                                             ; preds = %9537
   %9612 = zext nneg i32 %9540 to i64
-  %9613 = shl i64 %.2211126115163, %9612
+  %9613 = shl i64 %.2221126215163, %9612
   %9614 = zext i32 %9543 to i64
   %9615 = or i64 %9613, %9614
   br label %9616
 
 9616:                                             ; preds = %9611, %9607
-  %.22211516 = phi i32 [ %9608, %9607 ], [ %9541, %9611 ]
-  %.22211262 = phi i64 [ %9610, %9607 ], [ %9615, %9611 ]
-  %.335 = phi ptr [ %.334, %9607 ], [ %.33315164, %9611 ]
-  %9617 = icmp ugt i32 %.11015165, 511
+  %.22311517 = phi i32 [ %9608, %9607 ], [ %9541, %9611 ]
+  %.22311263 = phi i64 [ %9610, %9607 ], [ %9615, %9611 ]
+  %.336 = phi ptr [ %.335, %9607 ], [ %.33415164, %9611 ]
+  %9617 = icmp ugt i32 %.11115165, 511
   br i1 %9617, label %9537, label %._crit_edge15168, !llvm.loop !57
 
 ._crit_edge15168:                                 ; preds = %9616, %9533
-  %.22111515.lcssa = phi i32 [ %.22011514, %9533 ], [ %.22211516, %9616 ]
-  %.22111261.lcssa = phi i64 [ %.22011260, %9533 ], [ %.22211262, %9616 ]
-  %.333.lcssa = phi ptr [ %.332, %9533 ], [ %.335, %9616 ]
-  %.110.lcssa = phi i32 [ %.109, %9533 ], [ %9538, %9616 ]
-  %9618 = add nuw nsw i32 %.110.lcssa, %9524
+  %.22211516.lcssa = phi i32 [ %.21711511, %9533 ], [ %.22311517, %9616 ]
+  %.22211262.lcssa = phi i64 [ %.21711257, %9533 ], [ %.22311263, %9616 ]
+  %.334.lcssa = phi ptr [ %.327, %9533 ], [ %.336, %9616 ]
+  %.111.lcssa = phi i32 [ %.108, %9533 ], [ %9538, %9616 ]
+  %9618 = add nuw nsw i32 %.111.lcssa, %9524
   %9619 = zext nneg i8 %9523 to i64
   %notmask13536 = shl nsw i64 -1, %9619
   %9620 = trunc i64 %notmask13536 to i32
@@ -19050,13 +19050,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %9630 = load i8, ptr %9629, align 1
   %9631 = sext i8 %9630 to i32
   %9632 = add nsw i32 %9631, %9524
-  %9633 = sub nsw i32 %.22111515.lcssa, %9632
+  %9633 = sub nsw i32 %.22211516.lcssa, %9632
   %9634 = icmp slt i32 %9633, 0
   br i1 %9634, label %9635, label %9701
 
 9635:                                             ; preds = %._crit_edge15168
-  %9636 = zext nneg i32 %.22111515.lcssa to i64
-  %9637 = shl i64 %.22111261.lcssa, %9636
+  %9636 = zext nneg i32 %.22211516.lcssa to i64
+  %9637 = shl i64 %.22211262.lcssa, %9636
   %9638 = sub nsw i32 0, %9633
   %9639 = ashr i32 %9627, %9638
   %9640 = sext i32 %9639 to i64
@@ -19067,19 +19067,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13537 = icmp eq i64 %9644, 0
   %9645 = lshr i64 %9641, 56
   %9646 = trunc nuw i64 %9645 to i8
-  store i8 %9646, ptr %.333.lcssa, align 1
+  store i8 %9646, ptr %.334.lcssa, align 1
   br i1 %.not13537, label %9676, label %9647
 
 9647:                                             ; preds = %9635
-  %9648 = getelementptr inbounds i8, ptr %.333.lcssa, i64 1
+  %9648 = getelementptr inbounds i8, ptr %.334.lcssa, i64 1
   store i8 0, ptr %9648, align 1
   %.not13538 = icmp eq i64 %9645, 255
-  %.sroa.gep14604 = getelementptr inbounds i8, ptr %.333.lcssa, i64 2
+  %.sroa.gep14604 = getelementptr inbounds i8, ptr %.334.lcssa, i64 2
   %.neg13539.sroa.sel = select i1 %.not13538, ptr %.sroa.gep14604, ptr %9648
   %9649 = lshr i64 %9641, 48
   %9650 = trunc i64 %9649 to i8
   store i8 %9650, ptr %.neg13539.sroa.sel, align 1
-  %.sroa.gep15533 = getelementptr inbounds i8, ptr %.333.lcssa, i64 3
+  %.sroa.gep15533 = getelementptr inbounds i8, ptr %.334.lcssa, i64 3
   %.neg13539.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13538, ptr %.sroa.gep15533, ptr %.sroa.gep14604
   store i8 0, ptr %.neg13539.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9651 = and i64 %9641, 71776119061217280
@@ -19147,59 +19147,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9676:                                             ; preds = %9635
   %9677 = lshr i64 %9641, 48
   %9678 = trunc i64 %9677 to i8
-  %9679 = getelementptr inbounds i8, ptr %.333.lcssa, i64 1
+  %9679 = getelementptr inbounds i8, ptr %.334.lcssa, i64 1
   store i8 %9678, ptr %9679, align 1
   %9680 = lshr i64 %9641, 40
   %9681 = trunc i64 %9680 to i8
-  %9682 = getelementptr inbounds i8, ptr %.333.lcssa, i64 2
+  %9682 = getelementptr inbounds i8, ptr %.334.lcssa, i64 2
   store i8 %9681, ptr %9682, align 1
   %9683 = lshr i64 %9641, 32
   %9684 = trunc i64 %9683 to i8
-  %9685 = getelementptr inbounds i8, ptr %.333.lcssa, i64 3
+  %9685 = getelementptr inbounds i8, ptr %.334.lcssa, i64 3
   store i8 %9684, ptr %9685, align 1
   %9686 = lshr i64 %9641, 24
   %9687 = trunc i64 %9686 to i8
-  %9688 = getelementptr inbounds i8, ptr %.333.lcssa, i64 4
+  %9688 = getelementptr inbounds i8, ptr %.334.lcssa, i64 4
   store i8 %9687, ptr %9688, align 1
   %9689 = lshr i64 %9641, 16
   %9690 = trunc i64 %9689 to i8
-  %9691 = getelementptr inbounds i8, ptr %.333.lcssa, i64 5
+  %9691 = getelementptr inbounds i8, ptr %.334.lcssa, i64 5
   store i8 %9690, ptr %9691, align 1
   %9692 = lshr i64 %9641, 8
   %9693 = trunc i64 %9692 to i8
-  %9694 = getelementptr inbounds i8, ptr %.333.lcssa, i64 6
+  %9694 = getelementptr inbounds i8, ptr %.334.lcssa, i64 6
   store i8 %9693, ptr %9694, align 1
   %9695 = trunc i64 %9641 to i8
-  %9696 = getelementptr inbounds i8, ptr %.333.lcssa, i64 7
+  %9696 = getelementptr inbounds i8, ptr %.334.lcssa, i64 7
   store i8 %9695, ptr %9696, align 1
-  %9697 = getelementptr inbounds i8, ptr %.333.lcssa, i64 8
+  %9697 = getelementptr inbounds i8, ptr %.334.lcssa, i64 8
   br label %9698
 
 9698:                                             ; preds = %9676, %9647
-  %.336 = phi ptr [ %9675, %9647 ], [ %9697, %9676 ]
+  %.337 = phi ptr [ %9675, %9647 ], [ %9697, %9676 ]
   %9699 = add nsw i32 %9633, 64
   %9700 = sext i32 %9627 to i64
   br label %9706
 
 9701:                                             ; preds = %._crit_edge15168
   %9702 = zext nneg i32 %9632 to i64
-  %9703 = shl i64 %.22111261.lcssa, %9702
+  %9703 = shl i64 %.22211262.lcssa, %9702
   %9704 = sext i32 %9627 to i64
   %9705 = or i64 %9703, %9704
   br label %9706
 
 9706:                                             ; preds = %9698, %9701, %9514
-  %.22411518 = phi i32 [ %.22011514, %9514 ], [ %9699, %9698 ], [ %9633, %9701 ]
-  %.22411264 = phi i64 [ %.22011260, %9514 ], [ %9700, %9698 ], [ %9705, %9701 ]
-  %.338 = phi ptr [ %.332, %9514 ], [ %.336, %9698 ], [ %.333.lcssa, %9701 ]
-  %.111 = phi i32 [ %9515, %9514 ], [ 0, %9698 ], [ 0, %9701 ]
+  %.22111515 = phi i32 [ %.21711511, %9514 ], [ %9699, %9698 ], [ %9633, %9701 ]
+  %.22111261 = phi i64 [ %.21711257, %9514 ], [ %9700, %9698 ], [ %9705, %9701 ]
+  %.333 = phi ptr [ %.327, %9514 ], [ %.337, %9698 ], [ %.334.lcssa, %9701 ]
+  %.110 = phi i32 [ %9515, %9514 ], [ 0, %9698 ], [ 0, %9701 ]
   %9707 = getelementptr inbounds i8, ptr %1, i64 120
   %9708 = load i16, ptr %9707, align 2
   %9709 = icmp eq i16 %9708, 0
   br i1 %9709, label %9710, label %9712
 
 9710:                                             ; preds = %9706
-  %9711 = add nuw nsw i32 %.111, 16
+  %9711 = add nuw nsw i32 %.110, 16
   br label %9902
 
 9712:                                             ; preds = %9706
@@ -19226,7 +19226,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9729
 
 9729:                                             ; preds = %9722, %9712
-  %9730 = icmp ugt i32 %.111, 255
+  %9730 = icmp ugt i32 %.110, 255
   br i1 %9730, label %.lr.ph15178, label %._crit_edge15179
 
 .lr.ph15178:                                      ; preds = %9729
@@ -19235,21 +19235,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9733
 
 9733:                                             ; preds = %.lr.ph15178, %9812
-  %.11215176 = phi i32 [ %.111, %.lr.ph15178 ], [ %9734, %9812 ]
-  %.33915175 = phi ptr [ %.338, %.lr.ph15178 ], [ %.341, %9812 ]
-  %.2251126515174 = phi i64 [ %.22411264, %.lr.ph15178 ], [ %.22611266, %9812 ]
-  %.2251151915173 = phi i32 [ %.22411518, %.lr.ph15178 ], [ %.22611520, %9812 ]
-  %9734 = add nsw i32 %.11215176, -256
+  %.11315176 = phi i32 [ %.110, %.lr.ph15178 ], [ %9734, %9812 ]
+  %.34015175 = phi ptr [ %.333, %.lr.ph15178 ], [ %.342, %9812 ]
+  %.2261126615174 = phi i64 [ %.22111261, %.lr.ph15178 ], [ %.22711267, %9812 ]
+  %.2261152015173 = phi i32 [ %.22111515, %.lr.ph15178 ], [ %.22711521, %9812 ]
+  %9734 = add nsw i32 %.11315176, -256
   %9735 = load i8, ptr %9731, align 4
   %9736 = sext i8 %9735 to i32
-  %9737 = sub nsw i32 %.2251151915173, %9736
+  %9737 = sub nsw i32 %.2261152015173, %9736
   %9738 = icmp slt i32 %9737, 0
   %9739 = load i32, ptr %9732, align 4
   br i1 %9738, label %9740, label %9807
 
 9740:                                             ; preds = %9733
-  %9741 = zext nneg i32 %.2251151915173 to i64
-  %9742 = shl i64 %.2251126515174, %9741
+  %9741 = zext nneg i32 %.2261152015173 to i64
+  %9742 = shl i64 %.2261126615174, %9741
   %9743 = sub nsw i32 0, %9737
   %9744 = lshr i32 %9739, %9743
   %9745 = zext nneg i32 %9744 to i64
@@ -19260,19 +19260,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13589 = icmp eq i64 %9749, 0
   %9750 = lshr i64 %9742, 56
   %9751 = trunc nuw i64 %9750 to i8
-  store i8 %9751, ptr %.33915175, align 1
+  store i8 %9751, ptr %.34015175, align 1
   br i1 %.not13589, label %9781, label %9752
 
 9752:                                             ; preds = %9740
-  %9753 = getelementptr inbounds i8, ptr %.33915175, i64 1
+  %9753 = getelementptr inbounds i8, ptr %.34015175, i64 1
   store i8 0, ptr %9753, align 1
   %.not13590 = icmp eq i64 %9750, 255
-  %.sroa.gep14612 = getelementptr inbounds i8, ptr %.33915175, i64 2
+  %.sroa.gep14612 = getelementptr inbounds i8, ptr %.34015175, i64 2
   %.neg13591.sroa.sel = select i1 %.not13590, ptr %.sroa.gep14612, ptr %9753
   %9754 = lshr i64 %9742, 48
   %9755 = trunc i64 %9754 to i8
   store i8 %9755, ptr %.neg13591.sroa.sel, align 1
-  %.sroa.gep15509 = getelementptr inbounds i8, ptr %.33915175, i64 3
+  %.sroa.gep15509 = getelementptr inbounds i8, ptr %.34015175, i64 3
   %.neg13591.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13590, ptr %.sroa.gep15509, ptr %.sroa.gep14612
   store i8 0, ptr %.neg13591.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9756 = and i64 %9742, 71776119061217280
@@ -19340,36 +19340,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9781:                                             ; preds = %9740
   %9782 = lshr i64 %9742, 48
   %9783 = trunc i64 %9782 to i8
-  %9784 = getelementptr inbounds i8, ptr %.33915175, i64 1
+  %9784 = getelementptr inbounds i8, ptr %.34015175, i64 1
   store i8 %9783, ptr %9784, align 1
   %9785 = lshr i64 %9742, 40
   %9786 = trunc i64 %9785 to i8
-  %9787 = getelementptr inbounds i8, ptr %.33915175, i64 2
+  %9787 = getelementptr inbounds i8, ptr %.34015175, i64 2
   store i8 %9786, ptr %9787, align 1
   %9788 = lshr i64 %9742, 32
   %9789 = trunc i64 %9788 to i8
-  %9790 = getelementptr inbounds i8, ptr %.33915175, i64 3
+  %9790 = getelementptr inbounds i8, ptr %.34015175, i64 3
   store i8 %9789, ptr %9790, align 1
   %9791 = lshr i64 %9746, 24
   %9792 = trunc i64 %9791 to i8
-  %9793 = getelementptr inbounds i8, ptr %.33915175, i64 4
+  %9793 = getelementptr inbounds i8, ptr %.34015175, i64 4
   store i8 %9792, ptr %9793, align 1
   %9794 = lshr i64 %9746, 16
   %9795 = trunc i64 %9794 to i8
-  %9796 = getelementptr inbounds i8, ptr %.33915175, i64 5
+  %9796 = getelementptr inbounds i8, ptr %.34015175, i64 5
   store i8 %9795, ptr %9796, align 1
   %9797 = lshr i64 %9746, 8
   %9798 = trunc i64 %9797 to i8
-  %9799 = getelementptr inbounds i8, ptr %.33915175, i64 6
+  %9799 = getelementptr inbounds i8, ptr %.34015175, i64 6
   store i8 %9798, ptr %9799, align 1
   %9800 = trunc i64 %9746 to i8
-  %9801 = getelementptr inbounds i8, ptr %.33915175, i64 7
+  %9801 = getelementptr inbounds i8, ptr %.34015175, i64 7
   store i8 %9800, ptr %9801, align 1
-  %9802 = getelementptr inbounds i8, ptr %.33915175, i64 8
+  %9802 = getelementptr inbounds i8, ptr %.34015175, i64 8
   br label %9803
 
 9803:                                             ; preds = %9781, %9752
-  %.340 = phi ptr [ %9780, %9752 ], [ %9802, %9781 ]
+  %.341 = phi ptr [ %9780, %9752 ], [ %9802, %9781 ]
   %9804 = add nsw i32 %9737, 64
   %9805 = load i32, ptr %9732, align 4
   %9806 = zext i32 %9805 to i64
@@ -19377,24 +19377,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 9807:                                             ; preds = %9733
   %9808 = zext nneg i32 %9736 to i64
-  %9809 = shl i64 %.2251126515174, %9808
+  %9809 = shl i64 %.2261126615174, %9808
   %9810 = zext i32 %9739 to i64
   %9811 = or i64 %9809, %9810
   br label %9812
 
 9812:                                             ; preds = %9807, %9803
-  %.22611520 = phi i32 [ %9804, %9803 ], [ %9737, %9807 ]
-  %.22611266 = phi i64 [ %9806, %9803 ], [ %9811, %9807 ]
-  %.341 = phi ptr [ %.340, %9803 ], [ %.33915175, %9807 ]
-  %9813 = icmp ugt i32 %.11215176, 511
+  %.22711521 = phi i32 [ %9804, %9803 ], [ %9737, %9807 ]
+  %.22711267 = phi i64 [ %9806, %9803 ], [ %9811, %9807 ]
+  %.342 = phi ptr [ %.341, %9803 ], [ %.34015175, %9807 ]
+  %9813 = icmp ugt i32 %.11315176, 511
   br i1 %9813, label %9733, label %._crit_edge15179, !llvm.loop !58
 
 ._crit_edge15179:                                 ; preds = %9812, %9729
-  %.22511519.lcssa = phi i32 [ %.22411518, %9729 ], [ %.22611520, %9812 ]
-  %.22511265.lcssa = phi i64 [ %.22411264, %9729 ], [ %.22611266, %9812 ]
-  %.339.lcssa = phi ptr [ %.338, %9729 ], [ %.341, %9812 ]
-  %.112.lcssa = phi i32 [ %.111, %9729 ], [ %9734, %9812 ]
-  %9814 = add nuw nsw i32 %.112.lcssa, %9720
+  %.22611520.lcssa = phi i32 [ %.22111515, %9729 ], [ %.22711521, %9812 ]
+  %.22611266.lcssa = phi i64 [ %.22111261, %9729 ], [ %.22711267, %9812 ]
+  %.340.lcssa = phi ptr [ %.333, %9729 ], [ %.342, %9812 ]
+  %.113.lcssa = phi i32 [ %.110, %9729 ], [ %9734, %9812 ]
+  %9814 = add nuw nsw i32 %.113.lcssa, %9720
   %9815 = zext nneg i8 %9719 to i64
   %notmask13571 = shl nsw i64 -1, %9815
   %9816 = trunc i64 %notmask13571 to i32
@@ -19410,13 +19410,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %9826 = load i8, ptr %9825, align 1
   %9827 = sext i8 %9826 to i32
   %9828 = add nsw i32 %9827, %9720
-  %9829 = sub nsw i32 %.22511519.lcssa, %9828
+  %9829 = sub nsw i32 %.22611520.lcssa, %9828
   %9830 = icmp slt i32 %9829, 0
   br i1 %9830, label %9831, label %9897
 
 9831:                                             ; preds = %._crit_edge15179
-  %9832 = zext nneg i32 %.22511519.lcssa to i64
-  %9833 = shl i64 %.22511265.lcssa, %9832
+  %9832 = zext nneg i32 %.22611520.lcssa to i64
+  %9833 = shl i64 %.22611266.lcssa, %9832
   %9834 = sub nsw i32 0, %9829
   %9835 = ashr i32 %9823, %9834
   %9836 = sext i32 %9835 to i64
@@ -19427,19 +19427,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13572 = icmp eq i64 %9840, 0
   %9841 = lshr i64 %9837, 56
   %9842 = trunc nuw i64 %9841 to i8
-  store i8 %9842, ptr %.339.lcssa, align 1
+  store i8 %9842, ptr %.340.lcssa, align 1
   br i1 %.not13572, label %9872, label %9843
 
 9843:                                             ; preds = %9831
-  %9844 = getelementptr inbounds i8, ptr %.339.lcssa, i64 1
+  %9844 = getelementptr inbounds i8, ptr %.340.lcssa, i64 1
   store i8 0, ptr %9844, align 1
   %.not13573 = icmp eq i64 %9841, 255
-  %.sroa.gep14620 = getelementptr inbounds i8, ptr %.339.lcssa, i64 2
+  %.sroa.gep14620 = getelementptr inbounds i8, ptr %.340.lcssa, i64 2
   %.neg13574.sroa.sel = select i1 %.not13573, ptr %.sroa.gep14620, ptr %9844
   %9845 = lshr i64 %9837, 48
   %9846 = trunc i64 %9845 to i8
   store i8 %9846, ptr %.neg13574.sroa.sel, align 1
-  %.sroa.gep15517 = getelementptr inbounds i8, ptr %.339.lcssa, i64 3
+  %.sroa.gep15517 = getelementptr inbounds i8, ptr %.340.lcssa, i64 3
   %.neg13574.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13573, ptr %.sroa.gep15517, ptr %.sroa.gep14620
   store i8 0, ptr %.neg13574.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9847 = and i64 %9837, 71776119061217280
@@ -19507,59 +19507,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9872:                                             ; preds = %9831
   %9873 = lshr i64 %9837, 48
   %9874 = trunc i64 %9873 to i8
-  %9875 = getelementptr inbounds i8, ptr %.339.lcssa, i64 1
+  %9875 = getelementptr inbounds i8, ptr %.340.lcssa, i64 1
   store i8 %9874, ptr %9875, align 1
   %9876 = lshr i64 %9837, 40
   %9877 = trunc i64 %9876 to i8
-  %9878 = getelementptr inbounds i8, ptr %.339.lcssa, i64 2
+  %9878 = getelementptr inbounds i8, ptr %.340.lcssa, i64 2
   store i8 %9877, ptr %9878, align 1
   %9879 = lshr i64 %9837, 32
   %9880 = trunc i64 %9879 to i8
-  %9881 = getelementptr inbounds i8, ptr %.339.lcssa, i64 3
+  %9881 = getelementptr inbounds i8, ptr %.340.lcssa, i64 3
   store i8 %9880, ptr %9881, align 1
   %9882 = lshr i64 %9837, 24
   %9883 = trunc i64 %9882 to i8
-  %9884 = getelementptr inbounds i8, ptr %.339.lcssa, i64 4
+  %9884 = getelementptr inbounds i8, ptr %.340.lcssa, i64 4
   store i8 %9883, ptr %9884, align 1
   %9885 = lshr i64 %9837, 16
   %9886 = trunc i64 %9885 to i8
-  %9887 = getelementptr inbounds i8, ptr %.339.lcssa, i64 5
+  %9887 = getelementptr inbounds i8, ptr %.340.lcssa, i64 5
   store i8 %9886, ptr %9887, align 1
   %9888 = lshr i64 %9837, 8
   %9889 = trunc i64 %9888 to i8
-  %9890 = getelementptr inbounds i8, ptr %.339.lcssa, i64 6
+  %9890 = getelementptr inbounds i8, ptr %.340.lcssa, i64 6
   store i8 %9889, ptr %9890, align 1
   %9891 = trunc i64 %9837 to i8
-  %9892 = getelementptr inbounds i8, ptr %.339.lcssa, i64 7
+  %9892 = getelementptr inbounds i8, ptr %.340.lcssa, i64 7
   store i8 %9891, ptr %9892, align 1
-  %9893 = getelementptr inbounds i8, ptr %.339.lcssa, i64 8
+  %9893 = getelementptr inbounds i8, ptr %.340.lcssa, i64 8
   br label %9894
 
 9894:                                             ; preds = %9872, %9843
-  %.342 = phi ptr [ %9871, %9843 ], [ %9893, %9872 ]
+  %.343 = phi ptr [ %9871, %9843 ], [ %9893, %9872 ]
   %9895 = add nsw i32 %9829, 64
   %9896 = sext i32 %9823 to i64
   br label %9902
 
 9897:                                             ; preds = %._crit_edge15179
   %9898 = zext nneg i32 %9828 to i64
-  %9899 = shl i64 %.22511265.lcssa, %9898
+  %9899 = shl i64 %.22611266.lcssa, %9898
   %9900 = sext i32 %9823 to i64
   %9901 = or i64 %9899, %9900
   br label %9902
 
 9902:                                             ; preds = %9894, %9897, %9710
-  %.22811522 = phi i32 [ %.22411518, %9710 ], [ %9895, %9894 ], [ %9829, %9897 ]
-  %.22811268 = phi i64 [ %.22411264, %9710 ], [ %9896, %9894 ], [ %9901, %9897 ]
-  %.344 = phi ptr [ %.338, %9710 ], [ %.342, %9894 ], [ %.339.lcssa, %9897 ]
-  %.113 = phi i32 [ %9711, %9710 ], [ 0, %9894 ], [ 0, %9897 ]
+  %.22511519 = phi i32 [ %.22111515, %9710 ], [ %9895, %9894 ], [ %9829, %9897 ]
+  %.22511265 = phi i64 [ %.22111261, %9710 ], [ %9896, %9894 ], [ %9901, %9897 ]
+  %.339 = phi ptr [ %.333, %9710 ], [ %.343, %9894 ], [ %.340.lcssa, %9897 ]
+  %.112 = phi i32 [ %9711, %9710 ], [ 0, %9894 ], [ 0, %9897 ]
   %9903 = getelementptr inbounds i8, ptr %1, i64 122
   %9904 = load i16, ptr %9903, align 2
   %9905 = icmp eq i16 %9904, 0
   br i1 %9905, label %9906, label %9908
 
 9906:                                             ; preds = %9902
-  %9907 = add nuw nsw i32 %.113, 16
+  %9907 = add nuw nsw i32 %.112, 16
   br label %10098
 
 9908:                                             ; preds = %9902
@@ -19586,7 +19586,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9925
 
 9925:                                             ; preds = %9918, %9908
-  %9926 = icmp ugt i32 %.113, 255
+  %9926 = icmp ugt i32 %.112, 255
   br i1 %9926, label %.lr.ph15189, label %._crit_edge15190
 
 .lr.ph15189:                                      ; preds = %9925
@@ -19595,21 +19595,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %9929
 
 9929:                                             ; preds = %.lr.ph15189, %10008
-  %.11415187 = phi i32 [ %.113, %.lr.ph15189 ], [ %9930, %10008 ]
-  %.34515186 = phi ptr [ %.344, %.lr.ph15189 ], [ %.347, %10008 ]
-  %.2291126915185 = phi i64 [ %.22811268, %.lr.ph15189 ], [ %.23011270, %10008 ]
-  %.2291152315184 = phi i32 [ %.22811522, %.lr.ph15189 ], [ %.23011524, %10008 ]
-  %9930 = add nsw i32 %.11415187, -256
+  %.11515187 = phi i32 [ %.112, %.lr.ph15189 ], [ %9930, %10008 ]
+  %.34615186 = phi ptr [ %.339, %.lr.ph15189 ], [ %.348, %10008 ]
+  %.2301127015185 = phi i64 [ %.22511265, %.lr.ph15189 ], [ %.23111271, %10008 ]
+  %.2301152415184 = phi i32 [ %.22511519, %.lr.ph15189 ], [ %.23111525, %10008 ]
+  %9930 = add nsw i32 %.11515187, -256
   %9931 = load i8, ptr %9927, align 4
   %9932 = sext i8 %9931 to i32
-  %9933 = sub nsw i32 %.2291152315184, %9932
+  %9933 = sub nsw i32 %.2301152415184, %9932
   %9934 = icmp slt i32 %9933, 0
   %9935 = load i32, ptr %9928, align 4
   br i1 %9934, label %9936, label %10003
 
 9936:                                             ; preds = %9929
-  %9937 = zext nneg i32 %.2291152315184 to i64
-  %9938 = shl i64 %.2291126915185, %9937
+  %9937 = zext nneg i32 %.2301152415184 to i64
+  %9938 = shl i64 %.2301127015185, %9937
   %9939 = sub nsw i32 0, %9933
   %9940 = lshr i32 %9935, %9939
   %9941 = zext nneg i32 %9940 to i64
@@ -19620,19 +19620,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13624 = icmp eq i64 %9945, 0
   %9946 = lshr i64 %9938, 56
   %9947 = trunc nuw i64 %9946 to i8
-  store i8 %9947, ptr %.34515186, align 1
+  store i8 %9947, ptr %.34615186, align 1
   br i1 %.not13624, label %9977, label %9948
 
 9948:                                             ; preds = %9936
-  %9949 = getelementptr inbounds i8, ptr %.34515186, i64 1
+  %9949 = getelementptr inbounds i8, ptr %.34615186, i64 1
   store i8 0, ptr %9949, align 1
   %.not13625 = icmp eq i64 %9946, 255
-  %.sroa.gep14628 = getelementptr inbounds i8, ptr %.34515186, i64 2
+  %.sroa.gep14628 = getelementptr inbounds i8, ptr %.34615186, i64 2
   %.neg13626.sroa.sel = select i1 %.not13625, ptr %.sroa.gep14628, ptr %9949
   %9950 = lshr i64 %9938, 48
   %9951 = trunc i64 %9950 to i8
   store i8 %9951, ptr %.neg13626.sroa.sel, align 1
-  %.sroa.gep15493 = getelementptr inbounds i8, ptr %.34515186, i64 3
+  %.sroa.gep15493 = getelementptr inbounds i8, ptr %.34615186, i64 3
   %.neg13626.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13625, ptr %.sroa.gep15493, ptr %.sroa.gep14628
   store i8 0, ptr %.neg13626.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9952 = and i64 %9938, 71776119061217280
@@ -19700,36 +19700,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 9977:                                             ; preds = %9936
   %9978 = lshr i64 %9938, 48
   %9979 = trunc i64 %9978 to i8
-  %9980 = getelementptr inbounds i8, ptr %.34515186, i64 1
+  %9980 = getelementptr inbounds i8, ptr %.34615186, i64 1
   store i8 %9979, ptr %9980, align 1
   %9981 = lshr i64 %9938, 40
   %9982 = trunc i64 %9981 to i8
-  %9983 = getelementptr inbounds i8, ptr %.34515186, i64 2
+  %9983 = getelementptr inbounds i8, ptr %.34615186, i64 2
   store i8 %9982, ptr %9983, align 1
   %9984 = lshr i64 %9938, 32
   %9985 = trunc i64 %9984 to i8
-  %9986 = getelementptr inbounds i8, ptr %.34515186, i64 3
+  %9986 = getelementptr inbounds i8, ptr %.34615186, i64 3
   store i8 %9985, ptr %9986, align 1
   %9987 = lshr i64 %9942, 24
   %9988 = trunc i64 %9987 to i8
-  %9989 = getelementptr inbounds i8, ptr %.34515186, i64 4
+  %9989 = getelementptr inbounds i8, ptr %.34615186, i64 4
   store i8 %9988, ptr %9989, align 1
   %9990 = lshr i64 %9942, 16
   %9991 = trunc i64 %9990 to i8
-  %9992 = getelementptr inbounds i8, ptr %.34515186, i64 5
+  %9992 = getelementptr inbounds i8, ptr %.34615186, i64 5
   store i8 %9991, ptr %9992, align 1
   %9993 = lshr i64 %9942, 8
   %9994 = trunc i64 %9993 to i8
-  %9995 = getelementptr inbounds i8, ptr %.34515186, i64 6
+  %9995 = getelementptr inbounds i8, ptr %.34615186, i64 6
   store i8 %9994, ptr %9995, align 1
   %9996 = trunc i64 %9942 to i8
-  %9997 = getelementptr inbounds i8, ptr %.34515186, i64 7
+  %9997 = getelementptr inbounds i8, ptr %.34615186, i64 7
   store i8 %9996, ptr %9997, align 1
-  %9998 = getelementptr inbounds i8, ptr %.34515186, i64 8
+  %9998 = getelementptr inbounds i8, ptr %.34615186, i64 8
   br label %9999
 
 9999:                                             ; preds = %9977, %9948
-  %.346 = phi ptr [ %9976, %9948 ], [ %9998, %9977 ]
+  %.347 = phi ptr [ %9976, %9948 ], [ %9998, %9977 ]
   %10000 = add nsw i32 %9933, 64
   %10001 = load i32, ptr %9928, align 4
   %10002 = zext i32 %10001 to i64
@@ -19737,24 +19737,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 10003:                                            ; preds = %9929
   %10004 = zext nneg i32 %9932 to i64
-  %10005 = shl i64 %.2291126915185, %10004
+  %10005 = shl i64 %.2301127015185, %10004
   %10006 = zext i32 %9935 to i64
   %10007 = or i64 %10005, %10006
   br label %10008
 
 10008:                                            ; preds = %10003, %9999
-  %.23011524 = phi i32 [ %10000, %9999 ], [ %9933, %10003 ]
-  %.23011270 = phi i64 [ %10002, %9999 ], [ %10007, %10003 ]
-  %.347 = phi ptr [ %.346, %9999 ], [ %.34515186, %10003 ]
-  %10009 = icmp ugt i32 %.11415187, 511
+  %.23111525 = phi i32 [ %10000, %9999 ], [ %9933, %10003 ]
+  %.23111271 = phi i64 [ %10002, %9999 ], [ %10007, %10003 ]
+  %.348 = phi ptr [ %.347, %9999 ], [ %.34615186, %10003 ]
+  %10009 = icmp ugt i32 %.11515187, 511
   br i1 %10009, label %9929, label %._crit_edge15190, !llvm.loop !59
 
 ._crit_edge15190:                                 ; preds = %10008, %9925
-  %.22911523.lcssa = phi i32 [ %.22811522, %9925 ], [ %.23011524, %10008 ]
-  %.22911269.lcssa = phi i64 [ %.22811268, %9925 ], [ %.23011270, %10008 ]
-  %.345.lcssa = phi ptr [ %.344, %9925 ], [ %.347, %10008 ]
-  %.114.lcssa = phi i32 [ %.113, %9925 ], [ %9930, %10008 ]
-  %10010 = add nuw nsw i32 %.114.lcssa, %9916
+  %.23011524.lcssa = phi i32 [ %.22511519, %9925 ], [ %.23111525, %10008 ]
+  %.23011270.lcssa = phi i64 [ %.22511265, %9925 ], [ %.23111271, %10008 ]
+  %.346.lcssa = phi ptr [ %.339, %9925 ], [ %.348, %10008 ]
+  %.115.lcssa = phi i32 [ %.112, %9925 ], [ %9930, %10008 ]
+  %10010 = add nuw nsw i32 %.115.lcssa, %9916
   %10011 = zext nneg i8 %9915 to i64
   %notmask13606 = shl nsw i64 -1, %10011
   %10012 = trunc i64 %notmask13606 to i32
@@ -19770,13 +19770,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %10022 = load i8, ptr %10021, align 1
   %10023 = sext i8 %10022 to i32
   %10024 = add nsw i32 %10023, %9916
-  %10025 = sub nsw i32 %.22911523.lcssa, %10024
+  %10025 = sub nsw i32 %.23011524.lcssa, %10024
   %10026 = icmp slt i32 %10025, 0
   br i1 %10026, label %10027, label %10093
 
 10027:                                            ; preds = %._crit_edge15190
-  %10028 = zext nneg i32 %.22911523.lcssa to i64
-  %10029 = shl i64 %.22911269.lcssa, %10028
+  %10028 = zext nneg i32 %.23011524.lcssa to i64
+  %10029 = shl i64 %.23011270.lcssa, %10028
   %10030 = sub nsw i32 0, %10025
   %10031 = ashr i32 %10019, %10030
   %10032 = sext i32 %10031 to i64
@@ -19787,19 +19787,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13607 = icmp eq i64 %10036, 0
   %10037 = lshr i64 %10033, 56
   %10038 = trunc nuw i64 %10037 to i8
-  store i8 %10038, ptr %.345.lcssa, align 1
+  store i8 %10038, ptr %.346.lcssa, align 1
   br i1 %.not13607, label %10068, label %10039
 
 10039:                                            ; preds = %10027
-  %10040 = getelementptr inbounds i8, ptr %.345.lcssa, i64 1
+  %10040 = getelementptr inbounds i8, ptr %.346.lcssa, i64 1
   store i8 0, ptr %10040, align 1
   %.not13608 = icmp eq i64 %10037, 255
-  %.sroa.gep14636 = getelementptr inbounds i8, ptr %.345.lcssa, i64 2
+  %.sroa.gep14636 = getelementptr inbounds i8, ptr %.346.lcssa, i64 2
   %.neg13609.sroa.sel = select i1 %.not13608, ptr %.sroa.gep14636, ptr %10040
   %10041 = lshr i64 %10033, 48
   %10042 = trunc i64 %10041 to i8
   store i8 %10042, ptr %.neg13609.sroa.sel, align 1
-  %.sroa.gep15501 = getelementptr inbounds i8, ptr %.345.lcssa, i64 3
+  %.sroa.gep15501 = getelementptr inbounds i8, ptr %.346.lcssa, i64 3
   %.neg13609.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13608, ptr %.sroa.gep15501, ptr %.sroa.gep14636
   store i8 0, ptr %.neg13609.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10043 = and i64 %10033, 71776119061217280
@@ -19867,59 +19867,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10068:                                            ; preds = %10027
   %10069 = lshr i64 %10033, 48
   %10070 = trunc i64 %10069 to i8
-  %10071 = getelementptr inbounds i8, ptr %.345.lcssa, i64 1
+  %10071 = getelementptr inbounds i8, ptr %.346.lcssa, i64 1
   store i8 %10070, ptr %10071, align 1
   %10072 = lshr i64 %10033, 40
   %10073 = trunc i64 %10072 to i8
-  %10074 = getelementptr inbounds i8, ptr %.345.lcssa, i64 2
+  %10074 = getelementptr inbounds i8, ptr %.346.lcssa, i64 2
   store i8 %10073, ptr %10074, align 1
   %10075 = lshr i64 %10033, 32
   %10076 = trunc i64 %10075 to i8
-  %10077 = getelementptr inbounds i8, ptr %.345.lcssa, i64 3
+  %10077 = getelementptr inbounds i8, ptr %.346.lcssa, i64 3
   store i8 %10076, ptr %10077, align 1
   %10078 = lshr i64 %10033, 24
   %10079 = trunc i64 %10078 to i8
-  %10080 = getelementptr inbounds i8, ptr %.345.lcssa, i64 4
+  %10080 = getelementptr inbounds i8, ptr %.346.lcssa, i64 4
   store i8 %10079, ptr %10080, align 1
   %10081 = lshr i64 %10033, 16
   %10082 = trunc i64 %10081 to i8
-  %10083 = getelementptr inbounds i8, ptr %.345.lcssa, i64 5
+  %10083 = getelementptr inbounds i8, ptr %.346.lcssa, i64 5
   store i8 %10082, ptr %10083, align 1
   %10084 = lshr i64 %10033, 8
   %10085 = trunc i64 %10084 to i8
-  %10086 = getelementptr inbounds i8, ptr %.345.lcssa, i64 6
+  %10086 = getelementptr inbounds i8, ptr %.346.lcssa, i64 6
   store i8 %10085, ptr %10086, align 1
   %10087 = trunc i64 %10033 to i8
-  %10088 = getelementptr inbounds i8, ptr %.345.lcssa, i64 7
+  %10088 = getelementptr inbounds i8, ptr %.346.lcssa, i64 7
   store i8 %10087, ptr %10088, align 1
-  %10089 = getelementptr inbounds i8, ptr %.345.lcssa, i64 8
+  %10089 = getelementptr inbounds i8, ptr %.346.lcssa, i64 8
   br label %10090
 
 10090:                                            ; preds = %10068, %10039
-  %.348 = phi ptr [ %10067, %10039 ], [ %10089, %10068 ]
+  %.349 = phi ptr [ %10067, %10039 ], [ %10089, %10068 ]
   %10091 = add nsw i32 %10025, 64
   %10092 = sext i32 %10019 to i64
   br label %10098
 
 10093:                                            ; preds = %._crit_edge15190
   %10094 = zext nneg i32 %10024 to i64
-  %10095 = shl i64 %.22911269.lcssa, %10094
+  %10095 = shl i64 %.23011270.lcssa, %10094
   %10096 = sext i32 %10019 to i64
   %10097 = or i64 %10095, %10096
   br label %10098
 
 10098:                                            ; preds = %10090, %10093, %9906
-  %.23211526 = phi i32 [ %.22811522, %9906 ], [ %10091, %10090 ], [ %10025, %10093 ]
-  %.23211272 = phi i64 [ %.22811268, %9906 ], [ %10092, %10090 ], [ %10097, %10093 ]
-  %.350 = phi ptr [ %.344, %9906 ], [ %.348, %10090 ], [ %.345.lcssa, %10093 ]
-  %.115 = phi i32 [ %9907, %9906 ], [ 0, %10090 ], [ 0, %10093 ]
+  %.22911523 = phi i32 [ %.22511519, %9906 ], [ %10091, %10090 ], [ %10025, %10093 ]
+  %.22911269 = phi i64 [ %.22511265, %9906 ], [ %10092, %10090 ], [ %10097, %10093 ]
+  %.345 = phi ptr [ %.339, %9906 ], [ %.349, %10090 ], [ %.346.lcssa, %10093 ]
+  %.114 = phi i32 [ %9907, %9906 ], [ 0, %10090 ], [ 0, %10093 ]
   %10099 = getelementptr inbounds i8, ptr %1, i64 108
   %10100 = load i16, ptr %10099, align 2
   %10101 = icmp eq i16 %10100, 0
   br i1 %10101, label %10102, label %10104
 
 10102:                                            ; preds = %10098
-  %10103 = add nuw nsw i32 %.115, 16
+  %10103 = add nuw nsw i32 %.114, 16
   br label %10294
 
 10104:                                            ; preds = %10098
@@ -19946,7 +19946,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10121
 
 10121:                                            ; preds = %10114, %10104
-  %10122 = icmp ugt i32 %.115, 255
+  %10122 = icmp ugt i32 %.114, 255
   br i1 %10122, label %.lr.ph15200, label %._crit_edge15201
 
 .lr.ph15200:                                      ; preds = %10121
@@ -19955,21 +19955,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10125
 
 10125:                                            ; preds = %.lr.ph15200, %10204
-  %.11615198 = phi i32 [ %.115, %.lr.ph15200 ], [ %10126, %10204 ]
-  %.35115197 = phi ptr [ %.350, %.lr.ph15200 ], [ %.353, %10204 ]
-  %.2331127315196 = phi i64 [ %.23211272, %.lr.ph15200 ], [ %.23411274, %10204 ]
-  %.2331152715195 = phi i32 [ %.23211526, %.lr.ph15200 ], [ %.23411528, %10204 ]
-  %10126 = add nsw i32 %.11615198, -256
+  %.11715198 = phi i32 [ %.114, %.lr.ph15200 ], [ %10126, %10204 ]
+  %.35215197 = phi ptr [ %.345, %.lr.ph15200 ], [ %.354, %10204 ]
+  %.2341127415196 = phi i64 [ %.22911269, %.lr.ph15200 ], [ %.23511275, %10204 ]
+  %.2341152815195 = phi i32 [ %.22911523, %.lr.ph15200 ], [ %.23511529, %10204 ]
+  %10126 = add nsw i32 %.11715198, -256
   %10127 = load i8, ptr %10123, align 4
   %10128 = sext i8 %10127 to i32
-  %10129 = sub nsw i32 %.2331152715195, %10128
+  %10129 = sub nsw i32 %.2341152815195, %10128
   %10130 = icmp slt i32 %10129, 0
   %10131 = load i32, ptr %10124, align 4
   br i1 %10130, label %10132, label %10199
 
 10132:                                            ; preds = %10125
-  %10133 = zext nneg i32 %.2331152715195 to i64
-  %10134 = shl i64 %.2331127315196, %10133
+  %10133 = zext nneg i32 %.2341152815195 to i64
+  %10134 = shl i64 %.2341127415196, %10133
   %10135 = sub nsw i32 0, %10129
   %10136 = lshr i32 %10131, %10135
   %10137 = zext nneg i32 %10136 to i64
@@ -19980,19 +19980,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13659 = icmp eq i64 %10141, 0
   %10142 = lshr i64 %10134, 56
   %10143 = trunc nuw i64 %10142 to i8
-  store i8 %10143, ptr %.35115197, align 1
+  store i8 %10143, ptr %.35215197, align 1
   br i1 %.not13659, label %10173, label %10144
 
 10144:                                            ; preds = %10132
-  %10145 = getelementptr inbounds i8, ptr %.35115197, i64 1
+  %10145 = getelementptr inbounds i8, ptr %.35215197, i64 1
   store i8 0, ptr %10145, align 1
   %.not13660 = icmp eq i64 %10142, 255
-  %.sroa.gep14644 = getelementptr inbounds i8, ptr %.35115197, i64 2
+  %.sroa.gep14644 = getelementptr inbounds i8, ptr %.35215197, i64 2
   %.neg13661.sroa.sel = select i1 %.not13660, ptr %.sroa.gep14644, ptr %10145
   %10146 = lshr i64 %10134, 48
   %10147 = trunc i64 %10146 to i8
   store i8 %10147, ptr %.neg13661.sroa.sel, align 1
-  %.sroa.gep15477 = getelementptr inbounds i8, ptr %.35115197, i64 3
+  %.sroa.gep15477 = getelementptr inbounds i8, ptr %.35215197, i64 3
   %.neg13661.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13660, ptr %.sroa.gep15477, ptr %.sroa.gep14644
   store i8 0, ptr %.neg13661.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10148 = and i64 %10134, 71776119061217280
@@ -20060,36 +20060,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10173:                                            ; preds = %10132
   %10174 = lshr i64 %10134, 48
   %10175 = trunc i64 %10174 to i8
-  %10176 = getelementptr inbounds i8, ptr %.35115197, i64 1
+  %10176 = getelementptr inbounds i8, ptr %.35215197, i64 1
   store i8 %10175, ptr %10176, align 1
   %10177 = lshr i64 %10134, 40
   %10178 = trunc i64 %10177 to i8
-  %10179 = getelementptr inbounds i8, ptr %.35115197, i64 2
+  %10179 = getelementptr inbounds i8, ptr %.35215197, i64 2
   store i8 %10178, ptr %10179, align 1
   %10180 = lshr i64 %10134, 32
   %10181 = trunc i64 %10180 to i8
-  %10182 = getelementptr inbounds i8, ptr %.35115197, i64 3
+  %10182 = getelementptr inbounds i8, ptr %.35215197, i64 3
   store i8 %10181, ptr %10182, align 1
   %10183 = lshr i64 %10138, 24
   %10184 = trunc i64 %10183 to i8
-  %10185 = getelementptr inbounds i8, ptr %.35115197, i64 4
+  %10185 = getelementptr inbounds i8, ptr %.35215197, i64 4
   store i8 %10184, ptr %10185, align 1
   %10186 = lshr i64 %10138, 16
   %10187 = trunc i64 %10186 to i8
-  %10188 = getelementptr inbounds i8, ptr %.35115197, i64 5
+  %10188 = getelementptr inbounds i8, ptr %.35215197, i64 5
   store i8 %10187, ptr %10188, align 1
   %10189 = lshr i64 %10138, 8
   %10190 = trunc i64 %10189 to i8
-  %10191 = getelementptr inbounds i8, ptr %.35115197, i64 6
+  %10191 = getelementptr inbounds i8, ptr %.35215197, i64 6
   store i8 %10190, ptr %10191, align 1
   %10192 = trunc i64 %10138 to i8
-  %10193 = getelementptr inbounds i8, ptr %.35115197, i64 7
+  %10193 = getelementptr inbounds i8, ptr %.35215197, i64 7
   store i8 %10192, ptr %10193, align 1
-  %10194 = getelementptr inbounds i8, ptr %.35115197, i64 8
+  %10194 = getelementptr inbounds i8, ptr %.35215197, i64 8
   br label %10195
 
 10195:                                            ; preds = %10173, %10144
-  %.352 = phi ptr [ %10172, %10144 ], [ %10194, %10173 ]
+  %.353 = phi ptr [ %10172, %10144 ], [ %10194, %10173 ]
   %10196 = add nsw i32 %10129, 64
   %10197 = load i32, ptr %10124, align 4
   %10198 = zext i32 %10197 to i64
@@ -20097,24 +20097,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 10199:                                            ; preds = %10125
   %10200 = zext nneg i32 %10128 to i64
-  %10201 = shl i64 %.2331127315196, %10200
+  %10201 = shl i64 %.2341127415196, %10200
   %10202 = zext i32 %10131 to i64
   %10203 = or i64 %10201, %10202
   br label %10204
 
 10204:                                            ; preds = %10199, %10195
-  %.23411528 = phi i32 [ %10196, %10195 ], [ %10129, %10199 ]
-  %.23411274 = phi i64 [ %10198, %10195 ], [ %10203, %10199 ]
-  %.353 = phi ptr [ %.352, %10195 ], [ %.35115197, %10199 ]
-  %10205 = icmp ugt i32 %.11615198, 511
+  %.23511529 = phi i32 [ %10196, %10195 ], [ %10129, %10199 ]
+  %.23511275 = phi i64 [ %10198, %10195 ], [ %10203, %10199 ]
+  %.354 = phi ptr [ %.353, %10195 ], [ %.35215197, %10199 ]
+  %10205 = icmp ugt i32 %.11715198, 511
   br i1 %10205, label %10125, label %._crit_edge15201, !llvm.loop !60
 
 ._crit_edge15201:                                 ; preds = %10204, %10121
-  %.23311527.lcssa = phi i32 [ %.23211526, %10121 ], [ %.23411528, %10204 ]
-  %.23311273.lcssa = phi i64 [ %.23211272, %10121 ], [ %.23411274, %10204 ]
-  %.351.lcssa = phi ptr [ %.350, %10121 ], [ %.353, %10204 ]
-  %.116.lcssa = phi i32 [ %.115, %10121 ], [ %10126, %10204 ]
-  %10206 = add nuw nsw i32 %.116.lcssa, %10112
+  %.23411528.lcssa = phi i32 [ %.22911523, %10121 ], [ %.23511529, %10204 ]
+  %.23411274.lcssa = phi i64 [ %.22911269, %10121 ], [ %.23511275, %10204 ]
+  %.352.lcssa = phi ptr [ %.345, %10121 ], [ %.354, %10204 ]
+  %.117.lcssa = phi i32 [ %.114, %10121 ], [ %10126, %10204 ]
+  %10206 = add nuw nsw i32 %.117.lcssa, %10112
   %10207 = zext nneg i8 %10111 to i64
   %notmask13641 = shl nsw i64 -1, %10207
   %10208 = trunc i64 %notmask13641 to i32
@@ -20130,13 +20130,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %10218 = load i8, ptr %10217, align 1
   %10219 = sext i8 %10218 to i32
   %10220 = add nsw i32 %10219, %10112
-  %10221 = sub nsw i32 %.23311527.lcssa, %10220
+  %10221 = sub nsw i32 %.23411528.lcssa, %10220
   %10222 = icmp slt i32 %10221, 0
   br i1 %10222, label %10223, label %10289
 
 10223:                                            ; preds = %._crit_edge15201
-  %10224 = zext nneg i32 %.23311527.lcssa to i64
-  %10225 = shl i64 %.23311273.lcssa, %10224
+  %10224 = zext nneg i32 %.23411528.lcssa to i64
+  %10225 = shl i64 %.23411274.lcssa, %10224
   %10226 = sub nsw i32 0, %10221
   %10227 = ashr i32 %10215, %10226
   %10228 = sext i32 %10227 to i64
@@ -20147,19 +20147,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13642 = icmp eq i64 %10232, 0
   %10233 = lshr i64 %10229, 56
   %10234 = trunc nuw i64 %10233 to i8
-  store i8 %10234, ptr %.351.lcssa, align 1
+  store i8 %10234, ptr %.352.lcssa, align 1
   br i1 %.not13642, label %10264, label %10235
 
 10235:                                            ; preds = %10223
-  %10236 = getelementptr inbounds i8, ptr %.351.lcssa, i64 1
+  %10236 = getelementptr inbounds i8, ptr %.352.lcssa, i64 1
   store i8 0, ptr %10236, align 1
   %.not13643 = icmp eq i64 %10233, 255
-  %.sroa.gep14652 = getelementptr inbounds i8, ptr %.351.lcssa, i64 2
+  %.sroa.gep14652 = getelementptr inbounds i8, ptr %.352.lcssa, i64 2
   %.neg13644.sroa.sel = select i1 %.not13643, ptr %.sroa.gep14652, ptr %10236
   %10237 = lshr i64 %10229, 48
   %10238 = trunc i64 %10237 to i8
   store i8 %10238, ptr %.neg13644.sroa.sel, align 1
-  %.sroa.gep15485 = getelementptr inbounds i8, ptr %.351.lcssa, i64 3
+  %.sroa.gep15485 = getelementptr inbounds i8, ptr %.352.lcssa, i64 3
   %.neg13644.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13643, ptr %.sroa.gep15485, ptr %.sroa.gep14652
   store i8 0, ptr %.neg13644.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10239 = and i64 %10229, 71776119061217280
@@ -20227,59 +20227,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10264:                                            ; preds = %10223
   %10265 = lshr i64 %10229, 48
   %10266 = trunc i64 %10265 to i8
-  %10267 = getelementptr inbounds i8, ptr %.351.lcssa, i64 1
+  %10267 = getelementptr inbounds i8, ptr %.352.lcssa, i64 1
   store i8 %10266, ptr %10267, align 1
   %10268 = lshr i64 %10229, 40
   %10269 = trunc i64 %10268 to i8
-  %10270 = getelementptr inbounds i8, ptr %.351.lcssa, i64 2
+  %10270 = getelementptr inbounds i8, ptr %.352.lcssa, i64 2
   store i8 %10269, ptr %10270, align 1
   %10271 = lshr i64 %10229, 32
   %10272 = trunc i64 %10271 to i8
-  %10273 = getelementptr inbounds i8, ptr %.351.lcssa, i64 3
+  %10273 = getelementptr inbounds i8, ptr %.352.lcssa, i64 3
   store i8 %10272, ptr %10273, align 1
   %10274 = lshr i64 %10229, 24
   %10275 = trunc i64 %10274 to i8
-  %10276 = getelementptr inbounds i8, ptr %.351.lcssa, i64 4
+  %10276 = getelementptr inbounds i8, ptr %.352.lcssa, i64 4
   store i8 %10275, ptr %10276, align 1
   %10277 = lshr i64 %10229, 16
   %10278 = trunc i64 %10277 to i8
-  %10279 = getelementptr inbounds i8, ptr %.351.lcssa, i64 5
+  %10279 = getelementptr inbounds i8, ptr %.352.lcssa, i64 5
   store i8 %10278, ptr %10279, align 1
   %10280 = lshr i64 %10229, 8
   %10281 = trunc i64 %10280 to i8
-  %10282 = getelementptr inbounds i8, ptr %.351.lcssa, i64 6
+  %10282 = getelementptr inbounds i8, ptr %.352.lcssa, i64 6
   store i8 %10281, ptr %10282, align 1
   %10283 = trunc i64 %10229 to i8
-  %10284 = getelementptr inbounds i8, ptr %.351.lcssa, i64 7
+  %10284 = getelementptr inbounds i8, ptr %.352.lcssa, i64 7
   store i8 %10283, ptr %10284, align 1
-  %10285 = getelementptr inbounds i8, ptr %.351.lcssa, i64 8
+  %10285 = getelementptr inbounds i8, ptr %.352.lcssa, i64 8
   br label %10286
 
 10286:                                            ; preds = %10264, %10235
-  %.354 = phi ptr [ %10263, %10235 ], [ %10285, %10264 ]
+  %.355 = phi ptr [ %10263, %10235 ], [ %10285, %10264 ]
   %10287 = add nsw i32 %10221, 64
   %10288 = sext i32 %10215 to i64
   br label %10294
 
 10289:                                            ; preds = %._crit_edge15201
   %10290 = zext nneg i32 %10220 to i64
-  %10291 = shl i64 %.23311273.lcssa, %10290
+  %10291 = shl i64 %.23411274.lcssa, %10290
   %10292 = sext i32 %10215 to i64
   %10293 = or i64 %10291, %10292
   br label %10294
 
 10294:                                            ; preds = %10286, %10289, %10102
-  %.23611530 = phi i32 [ %.23211526, %10102 ], [ %10287, %10286 ], [ %10221, %10289 ]
-  %.23611276 = phi i64 [ %.23211272, %10102 ], [ %10288, %10286 ], [ %10293, %10289 ]
-  %.356 = phi ptr [ %.350, %10102 ], [ %.354, %10286 ], [ %.351.lcssa, %10289 ]
-  %.117 = phi i32 [ %10103, %10102 ], [ 0, %10286 ], [ 0, %10289 ]
+  %.23311527 = phi i32 [ %.22911523, %10102 ], [ %10287, %10286 ], [ %10221, %10289 ]
+  %.23311273 = phi i64 [ %.22911269, %10102 ], [ %10288, %10286 ], [ %10293, %10289 ]
+  %.351 = phi ptr [ %.345, %10102 ], [ %.355, %10286 ], [ %.352.lcssa, %10289 ]
+  %.116 = phi i32 [ %10103, %10102 ], [ 0, %10286 ], [ 0, %10289 ]
   %10295 = getelementptr inbounds i8, ptr %1, i64 94
   %10296 = load i16, ptr %10295, align 2
   %10297 = icmp eq i16 %10296, 0
   br i1 %10297, label %10298, label %10300
 
 10298:                                            ; preds = %10294
-  %10299 = add nuw nsw i32 %.117, 16
+  %10299 = add nuw nsw i32 %.116, 16
   br label %10490
 
 10300:                                            ; preds = %10294
@@ -20306,7 +20306,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10317
 
 10317:                                            ; preds = %10310, %10300
-  %10318 = icmp ugt i32 %.117, 255
+  %10318 = icmp ugt i32 %.116, 255
   br i1 %10318, label %.lr.ph15211, label %._crit_edge15212
 
 .lr.ph15211:                                      ; preds = %10317
@@ -20315,21 +20315,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10321
 
 10321:                                            ; preds = %.lr.ph15211, %10400
-  %.11815209 = phi i32 [ %.117, %.lr.ph15211 ], [ %10322, %10400 ]
-  %.35715208 = phi ptr [ %.356, %.lr.ph15211 ], [ %.359, %10400 ]
-  %.2371127715207 = phi i64 [ %.23611276, %.lr.ph15211 ], [ %.23811278, %10400 ]
-  %.2371153115206 = phi i32 [ %.23611530, %.lr.ph15211 ], [ %.23811532, %10400 ]
-  %10322 = add nsw i32 %.11815209, -256
+  %.11915209 = phi i32 [ %.116, %.lr.ph15211 ], [ %10322, %10400 ]
+  %.35815208 = phi ptr [ %.351, %.lr.ph15211 ], [ %.360, %10400 ]
+  %.2381127815207 = phi i64 [ %.23311273, %.lr.ph15211 ], [ %.23911279, %10400 ]
+  %.2381153215206 = phi i32 [ %.23311527, %.lr.ph15211 ], [ %.23911533, %10400 ]
+  %10322 = add nsw i32 %.11915209, -256
   %10323 = load i8, ptr %10319, align 4
   %10324 = sext i8 %10323 to i32
-  %10325 = sub nsw i32 %.2371153115206, %10324
+  %10325 = sub nsw i32 %.2381153215206, %10324
   %10326 = icmp slt i32 %10325, 0
   %10327 = load i32, ptr %10320, align 4
   br i1 %10326, label %10328, label %10395
 
 10328:                                            ; preds = %10321
-  %10329 = zext nneg i32 %.2371153115206 to i64
-  %10330 = shl i64 %.2371127715207, %10329
+  %10329 = zext nneg i32 %.2381153215206 to i64
+  %10330 = shl i64 %.2381127815207, %10329
   %10331 = sub nsw i32 0, %10325
   %10332 = lshr i32 %10327, %10331
   %10333 = zext nneg i32 %10332 to i64
@@ -20340,19 +20340,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13694 = icmp eq i64 %10337, 0
   %10338 = lshr i64 %10330, 56
   %10339 = trunc nuw i64 %10338 to i8
-  store i8 %10339, ptr %.35715208, align 1
+  store i8 %10339, ptr %.35815208, align 1
   br i1 %.not13694, label %10369, label %10340
 
 10340:                                            ; preds = %10328
-  %10341 = getelementptr inbounds i8, ptr %.35715208, i64 1
+  %10341 = getelementptr inbounds i8, ptr %.35815208, i64 1
   store i8 0, ptr %10341, align 1
   %.not13695 = icmp eq i64 %10338, 255
-  %.sroa.gep14660 = getelementptr inbounds i8, ptr %.35715208, i64 2
+  %.sroa.gep14660 = getelementptr inbounds i8, ptr %.35815208, i64 2
   %.neg13696.sroa.sel = select i1 %.not13695, ptr %.sroa.gep14660, ptr %10341
   %10342 = lshr i64 %10330, 48
   %10343 = trunc i64 %10342 to i8
   store i8 %10343, ptr %.neg13696.sroa.sel, align 1
-  %.sroa.gep15461 = getelementptr inbounds i8, ptr %.35715208, i64 3
+  %.sroa.gep15461 = getelementptr inbounds i8, ptr %.35815208, i64 3
   %.neg13696.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13695, ptr %.sroa.gep15461, ptr %.sroa.gep14660
   store i8 0, ptr %.neg13696.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10344 = and i64 %10330, 71776119061217280
@@ -20420,36 +20420,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10369:                                            ; preds = %10328
   %10370 = lshr i64 %10330, 48
   %10371 = trunc i64 %10370 to i8
-  %10372 = getelementptr inbounds i8, ptr %.35715208, i64 1
+  %10372 = getelementptr inbounds i8, ptr %.35815208, i64 1
   store i8 %10371, ptr %10372, align 1
   %10373 = lshr i64 %10330, 40
   %10374 = trunc i64 %10373 to i8
-  %10375 = getelementptr inbounds i8, ptr %.35715208, i64 2
+  %10375 = getelementptr inbounds i8, ptr %.35815208, i64 2
   store i8 %10374, ptr %10375, align 1
   %10376 = lshr i64 %10330, 32
   %10377 = trunc i64 %10376 to i8
-  %10378 = getelementptr inbounds i8, ptr %.35715208, i64 3
+  %10378 = getelementptr inbounds i8, ptr %.35815208, i64 3
   store i8 %10377, ptr %10378, align 1
   %10379 = lshr i64 %10334, 24
   %10380 = trunc i64 %10379 to i8
-  %10381 = getelementptr inbounds i8, ptr %.35715208, i64 4
+  %10381 = getelementptr inbounds i8, ptr %.35815208, i64 4
   store i8 %10380, ptr %10381, align 1
   %10382 = lshr i64 %10334, 16
   %10383 = trunc i64 %10382 to i8
-  %10384 = getelementptr inbounds i8, ptr %.35715208, i64 5
+  %10384 = getelementptr inbounds i8, ptr %.35815208, i64 5
   store i8 %10383, ptr %10384, align 1
   %10385 = lshr i64 %10334, 8
   %10386 = trunc i64 %10385 to i8
-  %10387 = getelementptr inbounds i8, ptr %.35715208, i64 6
+  %10387 = getelementptr inbounds i8, ptr %.35815208, i64 6
   store i8 %10386, ptr %10387, align 1
   %10388 = trunc i64 %10334 to i8
-  %10389 = getelementptr inbounds i8, ptr %.35715208, i64 7
+  %10389 = getelementptr inbounds i8, ptr %.35815208, i64 7
   store i8 %10388, ptr %10389, align 1
-  %10390 = getelementptr inbounds i8, ptr %.35715208, i64 8
+  %10390 = getelementptr inbounds i8, ptr %.35815208, i64 8
   br label %10391
 
 10391:                                            ; preds = %10369, %10340
-  %.358 = phi ptr [ %10368, %10340 ], [ %10390, %10369 ]
+  %.359 = phi ptr [ %10368, %10340 ], [ %10390, %10369 ]
   %10392 = add nsw i32 %10325, 64
   %10393 = load i32, ptr %10320, align 4
   %10394 = zext i32 %10393 to i64
@@ -20457,24 +20457,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 10395:                                            ; preds = %10321
   %10396 = zext nneg i32 %10324 to i64
-  %10397 = shl i64 %.2371127715207, %10396
+  %10397 = shl i64 %.2381127815207, %10396
   %10398 = zext i32 %10327 to i64
   %10399 = or i64 %10397, %10398
   br label %10400
 
 10400:                                            ; preds = %10395, %10391
-  %.23811532 = phi i32 [ %10392, %10391 ], [ %10325, %10395 ]
-  %.23811278 = phi i64 [ %10394, %10391 ], [ %10399, %10395 ]
-  %.359 = phi ptr [ %.358, %10391 ], [ %.35715208, %10395 ]
-  %10401 = icmp ugt i32 %.11815209, 511
+  %.23911533 = phi i32 [ %10392, %10391 ], [ %10325, %10395 ]
+  %.23911279 = phi i64 [ %10394, %10391 ], [ %10399, %10395 ]
+  %.360 = phi ptr [ %.359, %10391 ], [ %.35815208, %10395 ]
+  %10401 = icmp ugt i32 %.11915209, 511
   br i1 %10401, label %10321, label %._crit_edge15212, !llvm.loop !61
 
 ._crit_edge15212:                                 ; preds = %10400, %10317
-  %.23711531.lcssa = phi i32 [ %.23611530, %10317 ], [ %.23811532, %10400 ]
-  %.23711277.lcssa = phi i64 [ %.23611276, %10317 ], [ %.23811278, %10400 ]
-  %.357.lcssa = phi ptr [ %.356, %10317 ], [ %.359, %10400 ]
-  %.118.lcssa = phi i32 [ %.117, %10317 ], [ %10322, %10400 ]
-  %10402 = add nuw nsw i32 %.118.lcssa, %10308
+  %.23811532.lcssa = phi i32 [ %.23311527, %10317 ], [ %.23911533, %10400 ]
+  %.23811278.lcssa = phi i64 [ %.23311273, %10317 ], [ %.23911279, %10400 ]
+  %.358.lcssa = phi ptr [ %.351, %10317 ], [ %.360, %10400 ]
+  %.119.lcssa = phi i32 [ %.116, %10317 ], [ %10322, %10400 ]
+  %10402 = add nuw nsw i32 %.119.lcssa, %10308
   %10403 = zext nneg i8 %10307 to i64
   %notmask13676 = shl nsw i64 -1, %10403
   %10404 = trunc i64 %notmask13676 to i32
@@ -20490,13 +20490,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %10414 = load i8, ptr %10413, align 1
   %10415 = sext i8 %10414 to i32
   %10416 = add nsw i32 %10415, %10308
-  %10417 = sub nsw i32 %.23711531.lcssa, %10416
+  %10417 = sub nsw i32 %.23811532.lcssa, %10416
   %10418 = icmp slt i32 %10417, 0
   br i1 %10418, label %10419, label %10485
 
 10419:                                            ; preds = %._crit_edge15212
-  %10420 = zext nneg i32 %.23711531.lcssa to i64
-  %10421 = shl i64 %.23711277.lcssa, %10420
+  %10420 = zext nneg i32 %.23811532.lcssa to i64
+  %10421 = shl i64 %.23811278.lcssa, %10420
   %10422 = sub nsw i32 0, %10417
   %10423 = ashr i32 %10411, %10422
   %10424 = sext i32 %10423 to i64
@@ -20507,19 +20507,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13677 = icmp eq i64 %10428, 0
   %10429 = lshr i64 %10425, 56
   %10430 = trunc nuw i64 %10429 to i8
-  store i8 %10430, ptr %.357.lcssa, align 1
+  store i8 %10430, ptr %.358.lcssa, align 1
   br i1 %.not13677, label %10460, label %10431
 
 10431:                                            ; preds = %10419
-  %10432 = getelementptr inbounds i8, ptr %.357.lcssa, i64 1
+  %10432 = getelementptr inbounds i8, ptr %.358.lcssa, i64 1
   store i8 0, ptr %10432, align 1
   %.not13678 = icmp eq i64 %10429, 255
-  %.sroa.gep14668 = getelementptr inbounds i8, ptr %.357.lcssa, i64 2
+  %.sroa.gep14668 = getelementptr inbounds i8, ptr %.358.lcssa, i64 2
   %.neg13679.sroa.sel = select i1 %.not13678, ptr %.sroa.gep14668, ptr %10432
   %10433 = lshr i64 %10425, 48
   %10434 = trunc i64 %10433 to i8
   store i8 %10434, ptr %.neg13679.sroa.sel, align 1
-  %.sroa.gep15469 = getelementptr inbounds i8, ptr %.357.lcssa, i64 3
+  %.sroa.gep15469 = getelementptr inbounds i8, ptr %.358.lcssa, i64 3
   %.neg13679.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13678, ptr %.sroa.gep15469, ptr %.sroa.gep14668
   store i8 0, ptr %.neg13679.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10435 = and i64 %10425, 71776119061217280
@@ -20587,59 +20587,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10460:                                            ; preds = %10419
   %10461 = lshr i64 %10425, 48
   %10462 = trunc i64 %10461 to i8
-  %10463 = getelementptr inbounds i8, ptr %.357.lcssa, i64 1
+  %10463 = getelementptr inbounds i8, ptr %.358.lcssa, i64 1
   store i8 %10462, ptr %10463, align 1
   %10464 = lshr i64 %10425, 40
   %10465 = trunc i64 %10464 to i8
-  %10466 = getelementptr inbounds i8, ptr %.357.lcssa, i64 2
+  %10466 = getelementptr inbounds i8, ptr %.358.lcssa, i64 2
   store i8 %10465, ptr %10466, align 1
   %10467 = lshr i64 %10425, 32
   %10468 = trunc i64 %10467 to i8
-  %10469 = getelementptr inbounds i8, ptr %.357.lcssa, i64 3
+  %10469 = getelementptr inbounds i8, ptr %.358.lcssa, i64 3
   store i8 %10468, ptr %10469, align 1
   %10470 = lshr i64 %10425, 24
   %10471 = trunc i64 %10470 to i8
-  %10472 = getelementptr inbounds i8, ptr %.357.lcssa, i64 4
+  %10472 = getelementptr inbounds i8, ptr %.358.lcssa, i64 4
   store i8 %10471, ptr %10472, align 1
   %10473 = lshr i64 %10425, 16
   %10474 = trunc i64 %10473 to i8
-  %10475 = getelementptr inbounds i8, ptr %.357.lcssa, i64 5
+  %10475 = getelementptr inbounds i8, ptr %.358.lcssa, i64 5
   store i8 %10474, ptr %10475, align 1
   %10476 = lshr i64 %10425, 8
   %10477 = trunc i64 %10476 to i8
-  %10478 = getelementptr inbounds i8, ptr %.357.lcssa, i64 6
+  %10478 = getelementptr inbounds i8, ptr %.358.lcssa, i64 6
   store i8 %10477, ptr %10478, align 1
   %10479 = trunc i64 %10425 to i8
-  %10480 = getelementptr inbounds i8, ptr %.357.lcssa, i64 7
+  %10480 = getelementptr inbounds i8, ptr %.358.lcssa, i64 7
   store i8 %10479, ptr %10480, align 1
-  %10481 = getelementptr inbounds i8, ptr %.357.lcssa, i64 8
+  %10481 = getelementptr inbounds i8, ptr %.358.lcssa, i64 8
   br label %10482
 
 10482:                                            ; preds = %10460, %10431
-  %.360 = phi ptr [ %10459, %10431 ], [ %10481, %10460 ]
+  %.361 = phi ptr [ %10459, %10431 ], [ %10481, %10460 ]
   %10483 = add nsw i32 %10417, 64
   %10484 = sext i32 %10411 to i64
   br label %10490
 
 10485:                                            ; preds = %._crit_edge15212
   %10486 = zext nneg i32 %10416 to i64
-  %10487 = shl i64 %.23711277.lcssa, %10486
+  %10487 = shl i64 %.23811278.lcssa, %10486
   %10488 = sext i32 %10411 to i64
   %10489 = or i64 %10487, %10488
   br label %10490
 
 10490:                                            ; preds = %10482, %10485, %10298
-  %.24011534 = phi i32 [ %.23611530, %10298 ], [ %10483, %10482 ], [ %10417, %10485 ]
-  %.24011280 = phi i64 [ %.23611276, %10298 ], [ %10484, %10482 ], [ %10489, %10485 ]
-  %.362 = phi ptr [ %.356, %10298 ], [ %.360, %10482 ], [ %.357.lcssa, %10485 ]
-  %.119 = phi i32 [ %10299, %10298 ], [ 0, %10482 ], [ 0, %10485 ]
+  %.23711531 = phi i32 [ %.23311527, %10298 ], [ %10483, %10482 ], [ %10417, %10485 ]
+  %.23711277 = phi i64 [ %.23311273, %10298 ], [ %10484, %10482 ], [ %10489, %10485 ]
+  %.357 = phi ptr [ %.351, %10298 ], [ %.361, %10482 ], [ %.358.lcssa, %10485 ]
+  %.118 = phi i32 [ %10299, %10298 ], [ 0, %10482 ], [ 0, %10485 ]
   %10491 = getelementptr inbounds i8, ptr %1, i64 110
   %10492 = load i16, ptr %10491, align 2
   %10493 = icmp eq i16 %10492, 0
   br i1 %10493, label %10494, label %10496
 
 10494:                                            ; preds = %10490
-  %10495 = add nuw nsw i32 %.119, 16
+  %10495 = add nuw nsw i32 %.118, 16
   br label %10686
 
 10496:                                            ; preds = %10490
@@ -20666,7 +20666,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10513
 
 10513:                                            ; preds = %10506, %10496
-  %10514 = icmp ugt i32 %.119, 255
+  %10514 = icmp ugt i32 %.118, 255
   br i1 %10514, label %.lr.ph15222, label %._crit_edge15223
 
 .lr.ph15222:                                      ; preds = %10513
@@ -20675,21 +20675,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10517
 
 10517:                                            ; preds = %.lr.ph15222, %10596
-  %.12015220 = phi i32 [ %.119, %.lr.ph15222 ], [ %10518, %10596 ]
-  %.36315219 = phi ptr [ %.362, %.lr.ph15222 ], [ %.365, %10596 ]
-  %.2411128115218 = phi i64 [ %.24011280, %.lr.ph15222 ], [ %.24211282, %10596 ]
-  %.2411153515217 = phi i32 [ %.24011534, %.lr.ph15222 ], [ %.24211536, %10596 ]
-  %10518 = add nsw i32 %.12015220, -256
+  %.12115220 = phi i32 [ %.118, %.lr.ph15222 ], [ %10518, %10596 ]
+  %.36415219 = phi ptr [ %.357, %.lr.ph15222 ], [ %.366, %10596 ]
+  %.2421128215218 = phi i64 [ %.23711277, %.lr.ph15222 ], [ %.24311283, %10596 ]
+  %.2421153615217 = phi i32 [ %.23711531, %.lr.ph15222 ], [ %.24311537, %10596 ]
+  %10518 = add nsw i32 %.12115220, -256
   %10519 = load i8, ptr %10515, align 4
   %10520 = sext i8 %10519 to i32
-  %10521 = sub nsw i32 %.2411153515217, %10520
+  %10521 = sub nsw i32 %.2421153615217, %10520
   %10522 = icmp slt i32 %10521, 0
   %10523 = load i32, ptr %10516, align 4
   br i1 %10522, label %10524, label %10591
 
 10524:                                            ; preds = %10517
-  %10525 = zext nneg i32 %.2411153515217 to i64
-  %10526 = shl i64 %.2411128115218, %10525
+  %10525 = zext nneg i32 %.2421153615217 to i64
+  %10526 = shl i64 %.2421128215218, %10525
   %10527 = sub nsw i32 0, %10521
   %10528 = lshr i32 %10523, %10527
   %10529 = zext nneg i32 %10528 to i64
@@ -20700,19 +20700,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13729 = icmp eq i64 %10533, 0
   %10534 = lshr i64 %10526, 56
   %10535 = trunc nuw i64 %10534 to i8
-  store i8 %10535, ptr %.36315219, align 1
+  store i8 %10535, ptr %.36415219, align 1
   br i1 %.not13729, label %10565, label %10536
 
 10536:                                            ; preds = %10524
-  %10537 = getelementptr inbounds i8, ptr %.36315219, i64 1
+  %10537 = getelementptr inbounds i8, ptr %.36415219, i64 1
   store i8 0, ptr %10537, align 1
   %.not13730 = icmp eq i64 %10534, 255
-  %.sroa.gep14676 = getelementptr inbounds i8, ptr %.36315219, i64 2
+  %.sroa.gep14676 = getelementptr inbounds i8, ptr %.36415219, i64 2
   %.neg13731.sroa.sel = select i1 %.not13730, ptr %.sroa.gep14676, ptr %10537
   %10538 = lshr i64 %10526, 48
   %10539 = trunc i64 %10538 to i8
   store i8 %10539, ptr %.neg13731.sroa.sel, align 1
-  %.sroa.gep15445 = getelementptr inbounds i8, ptr %.36315219, i64 3
+  %.sroa.gep15445 = getelementptr inbounds i8, ptr %.36415219, i64 3
   %.neg13731.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13730, ptr %.sroa.gep15445, ptr %.sroa.gep14676
   store i8 0, ptr %.neg13731.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10540 = and i64 %10526, 71776119061217280
@@ -20780,36 +20780,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10565:                                            ; preds = %10524
   %10566 = lshr i64 %10526, 48
   %10567 = trunc i64 %10566 to i8
-  %10568 = getelementptr inbounds i8, ptr %.36315219, i64 1
+  %10568 = getelementptr inbounds i8, ptr %.36415219, i64 1
   store i8 %10567, ptr %10568, align 1
   %10569 = lshr i64 %10526, 40
   %10570 = trunc i64 %10569 to i8
-  %10571 = getelementptr inbounds i8, ptr %.36315219, i64 2
+  %10571 = getelementptr inbounds i8, ptr %.36415219, i64 2
   store i8 %10570, ptr %10571, align 1
   %10572 = lshr i64 %10526, 32
   %10573 = trunc i64 %10572 to i8
-  %10574 = getelementptr inbounds i8, ptr %.36315219, i64 3
+  %10574 = getelementptr inbounds i8, ptr %.36415219, i64 3
   store i8 %10573, ptr %10574, align 1
   %10575 = lshr i64 %10530, 24
   %10576 = trunc i64 %10575 to i8
-  %10577 = getelementptr inbounds i8, ptr %.36315219, i64 4
+  %10577 = getelementptr inbounds i8, ptr %.36415219, i64 4
   store i8 %10576, ptr %10577, align 1
   %10578 = lshr i64 %10530, 16
   %10579 = trunc i64 %10578 to i8
-  %10580 = getelementptr inbounds i8, ptr %.36315219, i64 5
+  %10580 = getelementptr inbounds i8, ptr %.36415219, i64 5
   store i8 %10579, ptr %10580, align 1
   %10581 = lshr i64 %10530, 8
   %10582 = trunc i64 %10581 to i8
-  %10583 = getelementptr inbounds i8, ptr %.36315219, i64 6
+  %10583 = getelementptr inbounds i8, ptr %.36415219, i64 6
   store i8 %10582, ptr %10583, align 1
   %10584 = trunc i64 %10530 to i8
-  %10585 = getelementptr inbounds i8, ptr %.36315219, i64 7
+  %10585 = getelementptr inbounds i8, ptr %.36415219, i64 7
   store i8 %10584, ptr %10585, align 1
-  %10586 = getelementptr inbounds i8, ptr %.36315219, i64 8
+  %10586 = getelementptr inbounds i8, ptr %.36415219, i64 8
   br label %10587
 
 10587:                                            ; preds = %10565, %10536
-  %.364 = phi ptr [ %10564, %10536 ], [ %10586, %10565 ]
+  %.365 = phi ptr [ %10564, %10536 ], [ %10586, %10565 ]
   %10588 = add nsw i32 %10521, 64
   %10589 = load i32, ptr %10516, align 4
   %10590 = zext i32 %10589 to i64
@@ -20817,24 +20817,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 10591:                                            ; preds = %10517
   %10592 = zext nneg i32 %10520 to i64
-  %10593 = shl i64 %.2411128115218, %10592
+  %10593 = shl i64 %.2421128215218, %10592
   %10594 = zext i32 %10523 to i64
   %10595 = or i64 %10593, %10594
   br label %10596
 
 10596:                                            ; preds = %10591, %10587
-  %.24211536 = phi i32 [ %10588, %10587 ], [ %10521, %10591 ]
-  %.24211282 = phi i64 [ %10590, %10587 ], [ %10595, %10591 ]
-  %.365 = phi ptr [ %.364, %10587 ], [ %.36315219, %10591 ]
-  %10597 = icmp ugt i32 %.12015220, 511
+  %.24311537 = phi i32 [ %10588, %10587 ], [ %10521, %10591 ]
+  %.24311283 = phi i64 [ %10590, %10587 ], [ %10595, %10591 ]
+  %.366 = phi ptr [ %.365, %10587 ], [ %.36415219, %10591 ]
+  %10597 = icmp ugt i32 %.12115220, 511
   br i1 %10597, label %10517, label %._crit_edge15223, !llvm.loop !62
 
 ._crit_edge15223:                                 ; preds = %10596, %10513
-  %.24111535.lcssa = phi i32 [ %.24011534, %10513 ], [ %.24211536, %10596 ]
-  %.24111281.lcssa = phi i64 [ %.24011280, %10513 ], [ %.24211282, %10596 ]
-  %.363.lcssa = phi ptr [ %.362, %10513 ], [ %.365, %10596 ]
-  %.120.lcssa = phi i32 [ %.119, %10513 ], [ %10518, %10596 ]
-  %10598 = add nuw nsw i32 %.120.lcssa, %10504
+  %.24211536.lcssa = phi i32 [ %.23711531, %10513 ], [ %.24311537, %10596 ]
+  %.24211282.lcssa = phi i64 [ %.23711277, %10513 ], [ %.24311283, %10596 ]
+  %.364.lcssa = phi ptr [ %.357, %10513 ], [ %.366, %10596 ]
+  %.121.lcssa = phi i32 [ %.118, %10513 ], [ %10518, %10596 ]
+  %10598 = add nuw nsw i32 %.121.lcssa, %10504
   %10599 = zext nneg i8 %10503 to i64
   %notmask13711 = shl nsw i64 -1, %10599
   %10600 = trunc i64 %notmask13711 to i32
@@ -20850,13 +20850,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %10610 = load i8, ptr %10609, align 1
   %10611 = sext i8 %10610 to i32
   %10612 = add nsw i32 %10611, %10504
-  %10613 = sub nsw i32 %.24111535.lcssa, %10612
+  %10613 = sub nsw i32 %.24211536.lcssa, %10612
   %10614 = icmp slt i32 %10613, 0
   br i1 %10614, label %10615, label %10681
 
 10615:                                            ; preds = %._crit_edge15223
-  %10616 = zext nneg i32 %.24111535.lcssa to i64
-  %10617 = shl i64 %.24111281.lcssa, %10616
+  %10616 = zext nneg i32 %.24211536.lcssa to i64
+  %10617 = shl i64 %.24211282.lcssa, %10616
   %10618 = sub nsw i32 0, %10613
   %10619 = ashr i32 %10607, %10618
   %10620 = sext i32 %10619 to i64
@@ -20867,19 +20867,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13712 = icmp eq i64 %10624, 0
   %10625 = lshr i64 %10621, 56
   %10626 = trunc nuw i64 %10625 to i8
-  store i8 %10626, ptr %.363.lcssa, align 1
+  store i8 %10626, ptr %.364.lcssa, align 1
   br i1 %.not13712, label %10656, label %10627
 
 10627:                                            ; preds = %10615
-  %10628 = getelementptr inbounds i8, ptr %.363.lcssa, i64 1
+  %10628 = getelementptr inbounds i8, ptr %.364.lcssa, i64 1
   store i8 0, ptr %10628, align 1
   %.not13713 = icmp eq i64 %10625, 255
-  %.sroa.gep14684 = getelementptr inbounds i8, ptr %.363.lcssa, i64 2
+  %.sroa.gep14684 = getelementptr inbounds i8, ptr %.364.lcssa, i64 2
   %.neg13714.sroa.sel = select i1 %.not13713, ptr %.sroa.gep14684, ptr %10628
   %10629 = lshr i64 %10621, 48
   %10630 = trunc i64 %10629 to i8
   store i8 %10630, ptr %.neg13714.sroa.sel, align 1
-  %.sroa.gep15453 = getelementptr inbounds i8, ptr %.363.lcssa, i64 3
+  %.sroa.gep15453 = getelementptr inbounds i8, ptr %.364.lcssa, i64 3
   %.neg13714.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13713, ptr %.sroa.gep15453, ptr %.sroa.gep14684
   store i8 0, ptr %.neg13714.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10631 = and i64 %10621, 71776119061217280
@@ -20947,59 +20947,59 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10656:                                            ; preds = %10615
   %10657 = lshr i64 %10621, 48
   %10658 = trunc i64 %10657 to i8
-  %10659 = getelementptr inbounds i8, ptr %.363.lcssa, i64 1
+  %10659 = getelementptr inbounds i8, ptr %.364.lcssa, i64 1
   store i8 %10658, ptr %10659, align 1
   %10660 = lshr i64 %10621, 40
   %10661 = trunc i64 %10660 to i8
-  %10662 = getelementptr inbounds i8, ptr %.363.lcssa, i64 2
+  %10662 = getelementptr inbounds i8, ptr %.364.lcssa, i64 2
   store i8 %10661, ptr %10662, align 1
   %10663 = lshr i64 %10621, 32
   %10664 = trunc i64 %10663 to i8
-  %10665 = getelementptr inbounds i8, ptr %.363.lcssa, i64 3
+  %10665 = getelementptr inbounds i8, ptr %.364.lcssa, i64 3
   store i8 %10664, ptr %10665, align 1
   %10666 = lshr i64 %10621, 24
   %10667 = trunc i64 %10666 to i8
-  %10668 = getelementptr inbounds i8, ptr %.363.lcssa, i64 4
+  %10668 = getelementptr inbounds i8, ptr %.364.lcssa, i64 4
   store i8 %10667, ptr %10668, align 1
   %10669 = lshr i64 %10621, 16
   %10670 = trunc i64 %10669 to i8
-  %10671 = getelementptr inbounds i8, ptr %.363.lcssa, i64 5
+  %10671 = getelementptr inbounds i8, ptr %.364.lcssa, i64 5
   store i8 %10670, ptr %10671, align 1
   %10672 = lshr i64 %10621, 8
   %10673 = trunc i64 %10672 to i8
-  %10674 = getelementptr inbounds i8, ptr %.363.lcssa, i64 6
+  %10674 = getelementptr inbounds i8, ptr %.364.lcssa, i64 6
   store i8 %10673, ptr %10674, align 1
   %10675 = trunc i64 %10621 to i8
-  %10676 = getelementptr inbounds i8, ptr %.363.lcssa, i64 7
+  %10676 = getelementptr inbounds i8, ptr %.364.lcssa, i64 7
   store i8 %10675, ptr %10676, align 1
-  %10677 = getelementptr inbounds i8, ptr %.363.lcssa, i64 8
+  %10677 = getelementptr inbounds i8, ptr %.364.lcssa, i64 8
   br label %10678
 
 10678:                                            ; preds = %10656, %10627
-  %.366 = phi ptr [ %10655, %10627 ], [ %10677, %10656 ]
+  %.367 = phi ptr [ %10655, %10627 ], [ %10677, %10656 ]
   %10679 = add nsw i32 %10613, 64
   %10680 = sext i32 %10607 to i64
   br label %10686
 
 10681:                                            ; preds = %._crit_edge15223
   %10682 = zext nneg i32 %10612 to i64
-  %10683 = shl i64 %.24111281.lcssa, %10682
+  %10683 = shl i64 %.24211282.lcssa, %10682
   %10684 = sext i32 %10607 to i64
   %10685 = or i64 %10683, %10684
   br label %10686
 
 10686:                                            ; preds = %10678, %10681, %10494
-  %.24411538 = phi i32 [ %.24011534, %10494 ], [ %10679, %10678 ], [ %10613, %10681 ]
-  %.24411284 = phi i64 [ %.24011280, %10494 ], [ %10680, %10678 ], [ %10685, %10681 ]
-  %.368 = phi ptr [ %.362, %10494 ], [ %.366, %10678 ], [ %.363.lcssa, %10681 ]
-  %.121 = phi i32 [ %10495, %10494 ], [ 0, %10678 ], [ 0, %10681 ]
+  %.24111535 = phi i32 [ %.23711531, %10494 ], [ %10679, %10678 ], [ %10613, %10681 ]
+  %.24111281 = phi i64 [ %.23711277, %10494 ], [ %10680, %10678 ], [ %10685, %10681 ]
+  %.363 = phi ptr [ %.357, %10494 ], [ %.367, %10678 ], [ %.364.lcssa, %10681 ]
+  %.120 = phi i32 [ %10495, %10494 ], [ 0, %10678 ], [ 0, %10681 ]
   %10687 = getelementptr inbounds i8, ptr %1, i64 124
   %10688 = load i16, ptr %10687, align 2
   %10689 = icmp eq i16 %10688, 0
   br i1 %10689, label %10690, label %10692
 
 10690:                                            ; preds = %10686
-  %10691 = add nuw nsw i32 %.121, 16
+  %10691 = add nuw nsw i32 %.120, 16
   br label %10882
 
 10692:                                            ; preds = %10686
@@ -21026,7 +21026,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10709
 
 10709:                                            ; preds = %10702, %10692
-  %10710 = icmp ugt i32 %.121, 255
+  %10710 = icmp ugt i32 %.120, 255
   br i1 %10710, label %.lr.ph15233, label %._crit_edge15234
 
 .lr.ph15233:                                      ; preds = %10709
@@ -21035,21 +21035,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10713
 
 10713:                                            ; preds = %.lr.ph15233, %10792
-  %.12215231 = phi i32 [ %.121, %.lr.ph15233 ], [ %10714, %10792 ]
-  %.36915230 = phi ptr [ %.368, %.lr.ph15233 ], [ %.371, %10792 ]
-  %.2451128515229 = phi i64 [ %.24411284, %.lr.ph15233 ], [ %.24611286, %10792 ]
-  %.2451153915228 = phi i32 [ %.24411538, %.lr.ph15233 ], [ %.24611540, %10792 ]
-  %10714 = add nsw i32 %.12215231, -256
+  %.12315231 = phi i32 [ %.120, %.lr.ph15233 ], [ %10714, %10792 ]
+  %.37015230 = phi ptr [ %.363, %.lr.ph15233 ], [ %.372, %10792 ]
+  %.2461128615229 = phi i64 [ %.24111281, %.lr.ph15233 ], [ %.24711287, %10792 ]
+  %.2461154015228 = phi i32 [ %.24111535, %.lr.ph15233 ], [ %.24711541, %10792 ]
+  %10714 = add nsw i32 %.12315231, -256
   %10715 = load i8, ptr %10711, align 4
   %10716 = sext i8 %10715 to i32
-  %10717 = sub nsw i32 %.2451153915228, %10716
+  %10717 = sub nsw i32 %.2461154015228, %10716
   %10718 = icmp slt i32 %10717, 0
   %10719 = load i32, ptr %10712, align 4
   br i1 %10718, label %10720, label %10787
 
 10720:                                            ; preds = %10713
-  %10721 = zext nneg i32 %.2451153915228 to i64
-  %10722 = shl i64 %.2451128515229, %10721
+  %10721 = zext nneg i32 %.2461154015228 to i64
+  %10722 = shl i64 %.2461128615229, %10721
   %10723 = sub nsw i32 0, %10717
   %10724 = lshr i32 %10719, %10723
   %10725 = zext nneg i32 %10724 to i64
@@ -21060,19 +21060,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13764 = icmp eq i64 %10729, 0
   %10730 = lshr i64 %10722, 56
   %10731 = trunc nuw i64 %10730 to i8
-  store i8 %10731, ptr %.36915230, align 1
+  store i8 %10731, ptr %.37015230, align 1
   br i1 %.not13764, label %10761, label %10732
 
 10732:                                            ; preds = %10720
-  %10733 = getelementptr inbounds i8, ptr %.36915230, i64 1
+  %10733 = getelementptr inbounds i8, ptr %.37015230, i64 1
   store i8 0, ptr %10733, align 1
   %.not13765 = icmp eq i64 %10730, 255
-  %.sroa.gep14692 = getelementptr inbounds i8, ptr %.36915230, i64 2
+  %.sroa.gep14692 = getelementptr inbounds i8, ptr %.37015230, i64 2
   %.neg13766.sroa.sel = select i1 %.not13765, ptr %.sroa.gep14692, ptr %10733
   %10734 = lshr i64 %10722, 48
   %10735 = trunc i64 %10734 to i8
   store i8 %10735, ptr %.neg13766.sroa.sel, align 1
-  %.sroa.gep15429 = getelementptr inbounds i8, ptr %.36915230, i64 3
+  %.sroa.gep15429 = getelementptr inbounds i8, ptr %.37015230, i64 3
   %.neg13766.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13765, ptr %.sroa.gep15429, ptr %.sroa.gep14692
   store i8 0, ptr %.neg13766.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10736 = and i64 %10722, 71776119061217280
@@ -21140,36 +21140,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10761:                                            ; preds = %10720
   %10762 = lshr i64 %10722, 48
   %10763 = trunc i64 %10762 to i8
-  %10764 = getelementptr inbounds i8, ptr %.36915230, i64 1
+  %10764 = getelementptr inbounds i8, ptr %.37015230, i64 1
   store i8 %10763, ptr %10764, align 1
   %10765 = lshr i64 %10722, 40
   %10766 = trunc i64 %10765 to i8
-  %10767 = getelementptr inbounds i8, ptr %.36915230, i64 2
+  %10767 = getelementptr inbounds i8, ptr %.37015230, i64 2
   store i8 %10766, ptr %10767, align 1
   %10768 = lshr i64 %10722, 32
   %10769 = trunc i64 %10768 to i8
-  %10770 = getelementptr inbounds i8, ptr %.36915230, i64 3
+  %10770 = getelementptr inbounds i8, ptr %.37015230, i64 3
   store i8 %10769, ptr %10770, align 1
   %10771 = lshr i64 %10726, 24
   %10772 = trunc i64 %10771 to i8
-  %10773 = getelementptr inbounds i8, ptr %.36915230, i64 4
+  %10773 = getelementptr inbounds i8, ptr %.37015230, i64 4
   store i8 %10772, ptr %10773, align 1
   %10774 = lshr i64 %10726, 16
   %10775 = trunc i64 %10774 to i8
-  %10776 = getelementptr inbounds i8, ptr %.36915230, i64 5
+  %10776 = getelementptr inbounds i8, ptr %.37015230, i64 5
   store i8 %10775, ptr %10776, align 1
   %10777 = lshr i64 %10726, 8
   %10778 = trunc i64 %10777 to i8
-  %10779 = getelementptr inbounds i8, ptr %.36915230, i64 6
+  %10779 = getelementptr inbounds i8, ptr %.37015230, i64 6
   store i8 %10778, ptr %10779, align 1
   %10780 = trunc i64 %10726 to i8
-  %10781 = getelementptr inbounds i8, ptr %.36915230, i64 7
+  %10781 = getelementptr inbounds i8, ptr %.37015230, i64 7
   store i8 %10780, ptr %10781, align 1
-  %10782 = getelementptr inbounds i8, ptr %.36915230, i64 8
+  %10782 = getelementptr inbounds i8, ptr %.37015230, i64 8
   br label %10783
 
 10783:                                            ; preds = %10761, %10732
-  %.370 = phi ptr [ %10760, %10732 ], [ %10782, %10761 ]
+  %.371 = phi ptr [ %10760, %10732 ], [ %10782, %10761 ]
   %10784 = add nsw i32 %10717, 64
   %10785 = load i32, ptr %10712, align 4
   %10786 = zext i32 %10785 to i64
@@ -21177,24 +21177,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 10787:                                            ; preds = %10713
   %10788 = zext nneg i32 %10716 to i64
-  %10789 = shl i64 %.2451128515229, %10788
+  %10789 = shl i64 %.2461128615229, %10788
   %10790 = zext i32 %10719 to i64
   %10791 = or i64 %10789, %10790
   br label %10792
 
 10792:                                            ; preds = %10787, %10783
-  %.24611540 = phi i32 [ %10784, %10783 ], [ %10717, %10787 ]
-  %.24611286 = phi i64 [ %10786, %10783 ], [ %10791, %10787 ]
-  %.371 = phi ptr [ %.370, %10783 ], [ %.36915230, %10787 ]
-  %10793 = icmp ugt i32 %.12215231, 511
+  %.24711541 = phi i32 [ %10784, %10783 ], [ %10717, %10787 ]
+  %.24711287 = phi i64 [ %10786, %10783 ], [ %10791, %10787 ]
+  %.372 = phi ptr [ %.371, %10783 ], [ %.37015230, %10787 ]
+  %10793 = icmp ugt i32 %.12315231, 511
   br i1 %10793, label %10713, label %._crit_edge15234, !llvm.loop !63
 
 ._crit_edge15234:                                 ; preds = %10792, %10709
-  %.24511539.lcssa = phi i32 [ %.24411538, %10709 ], [ %.24611540, %10792 ]
-  %.24511285.lcssa = phi i64 [ %.24411284, %10709 ], [ %.24611286, %10792 ]
-  %.369.lcssa = phi ptr [ %.368, %10709 ], [ %.371, %10792 ]
-  %.122.lcssa = phi i32 [ %.121, %10709 ], [ %10714, %10792 ]
-  %10794 = add nuw nsw i32 %.122.lcssa, %10700
+  %.24611540.lcssa = phi i32 [ %.24111535, %10709 ], [ %.24711541, %10792 ]
+  %.24611286.lcssa = phi i64 [ %.24111281, %10709 ], [ %.24711287, %10792 ]
+  %.370.lcssa = phi ptr [ %.363, %10709 ], [ %.372, %10792 ]
+  %.123.lcssa = phi i32 [ %.120, %10709 ], [ %10714, %10792 ]
+  %10794 = add nuw nsw i32 %.123.lcssa, %10700
   %10795 = zext nneg i8 %10699 to i64
   %notmask13746 = shl nsw i64 -1, %10795
   %10796 = trunc i64 %notmask13746 to i32
@@ -21210,13 +21210,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %10806 = load i8, ptr %10805, align 1
   %10807 = sext i8 %10806 to i32
   %10808 = add nsw i32 %10807, %10700
-  %10809 = sub nsw i32 %.24511539.lcssa, %10808
+  %10809 = sub nsw i32 %.24611540.lcssa, %10808
   %10810 = icmp slt i32 %10809, 0
   br i1 %10810, label %10811, label %10877
 
 10811:                                            ; preds = %._crit_edge15234
-  %10812 = zext nneg i32 %.24511539.lcssa to i64
-  %10813 = shl i64 %.24511285.lcssa, %10812
+  %10812 = zext nneg i32 %.24611540.lcssa to i64
+  %10813 = shl i64 %.24611286.lcssa, %10812
   %10814 = sub nsw i32 0, %10809
   %10815 = ashr i32 %10803, %10814
   %10816 = sext i32 %10815 to i64
@@ -21227,19 +21227,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13747 = icmp eq i64 %10820, 0
   %10821 = lshr i64 %10817, 56
   %10822 = trunc nuw i64 %10821 to i8
-  store i8 %10822, ptr %.369.lcssa, align 1
+  store i8 %10822, ptr %.370.lcssa, align 1
   br i1 %.not13747, label %10852, label %10823
 
 10823:                                            ; preds = %10811
-  %10824 = getelementptr inbounds i8, ptr %.369.lcssa, i64 1
+  %10824 = getelementptr inbounds i8, ptr %.370.lcssa, i64 1
   store i8 0, ptr %10824, align 1
   %.not13748 = icmp eq i64 %10821, 255
-  %.sroa.gep14700 = getelementptr inbounds i8, ptr %.369.lcssa, i64 2
+  %.sroa.gep14700 = getelementptr inbounds i8, ptr %.370.lcssa, i64 2
   %.neg13749.sroa.sel = select i1 %.not13748, ptr %.sroa.gep14700, ptr %10824
   %10825 = lshr i64 %10817, 48
   %10826 = trunc i64 %10825 to i8
   store i8 %10826, ptr %.neg13749.sroa.sel, align 1
-  %.sroa.gep15437 = getelementptr inbounds i8, ptr %.369.lcssa, i64 3
+  %.sroa.gep15437 = getelementptr inbounds i8, ptr %.370.lcssa, i64 3
   %.neg13749.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13748, ptr %.sroa.gep15437, ptr %.sroa.gep14700
   store i8 0, ptr %.neg13749.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10827 = and i64 %10817, 71776119061217280
@@ -21307,52 +21307,52 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10852:                                            ; preds = %10811
   %10853 = lshr i64 %10817, 48
   %10854 = trunc i64 %10853 to i8
-  %10855 = getelementptr inbounds i8, ptr %.369.lcssa, i64 1
+  %10855 = getelementptr inbounds i8, ptr %.370.lcssa, i64 1
   store i8 %10854, ptr %10855, align 1
   %10856 = lshr i64 %10817, 40
   %10857 = trunc i64 %10856 to i8
-  %10858 = getelementptr inbounds i8, ptr %.369.lcssa, i64 2
+  %10858 = getelementptr inbounds i8, ptr %.370.lcssa, i64 2
   store i8 %10857, ptr %10858, align 1
   %10859 = lshr i64 %10817, 32
   %10860 = trunc i64 %10859 to i8
-  %10861 = getelementptr inbounds i8, ptr %.369.lcssa, i64 3
+  %10861 = getelementptr inbounds i8, ptr %.370.lcssa, i64 3
   store i8 %10860, ptr %10861, align 1
   %10862 = lshr i64 %10817, 24
   %10863 = trunc i64 %10862 to i8
-  %10864 = getelementptr inbounds i8, ptr %.369.lcssa, i64 4
+  %10864 = getelementptr inbounds i8, ptr %.370.lcssa, i64 4
   store i8 %10863, ptr %10864, align 1
   %10865 = lshr i64 %10817, 16
   %10866 = trunc i64 %10865 to i8
-  %10867 = getelementptr inbounds i8, ptr %.369.lcssa, i64 5
+  %10867 = getelementptr inbounds i8, ptr %.370.lcssa, i64 5
   store i8 %10866, ptr %10867, align 1
   %10868 = lshr i64 %10817, 8
   %10869 = trunc i64 %10868 to i8
-  %10870 = getelementptr inbounds i8, ptr %.369.lcssa, i64 6
+  %10870 = getelementptr inbounds i8, ptr %.370.lcssa, i64 6
   store i8 %10869, ptr %10870, align 1
   %10871 = trunc i64 %10817 to i8
-  %10872 = getelementptr inbounds i8, ptr %.369.lcssa, i64 7
+  %10872 = getelementptr inbounds i8, ptr %.370.lcssa, i64 7
   store i8 %10871, ptr %10872, align 1
-  %10873 = getelementptr inbounds i8, ptr %.369.lcssa, i64 8
+  %10873 = getelementptr inbounds i8, ptr %.370.lcssa, i64 8
   br label %10874
 
 10874:                                            ; preds = %10852, %10823
-  %.372 = phi ptr [ %10851, %10823 ], [ %10873, %10852 ]
+  %.373 = phi ptr [ %10851, %10823 ], [ %10873, %10852 ]
   %10875 = add nsw i32 %10809, 64
   %10876 = sext i32 %10803 to i64
   br label %10882
 
 10877:                                            ; preds = %._crit_edge15234
   %10878 = zext nneg i32 %10808 to i64
-  %10879 = shl i64 %.24511285.lcssa, %10878
+  %10879 = shl i64 %.24611286.lcssa, %10878
   %10880 = sext i32 %10803 to i64
   %10881 = or i64 %10879, %10880
   br label %10882
 
 10882:                                            ; preds = %10874, %10877, %10690
-  %.24811542 = phi i32 [ %.24411538, %10690 ], [ %10875, %10874 ], [ %10809, %10877 ]
-  %.24811288 = phi i64 [ %.24411284, %10690 ], [ %10876, %10874 ], [ %10881, %10877 ]
-  %.374 = phi ptr [ %.368, %10690 ], [ %.372, %10874 ], [ %.369.lcssa, %10877 ]
-  %.123 = phi i32 [ %10691, %10690 ], [ 0, %10874 ], [ 0, %10877 ]
+  %.24511539 = phi i32 [ %.24111535, %10690 ], [ %10875, %10874 ], [ %10809, %10877 ]
+  %.24511285 = phi i64 [ %.24111281, %10690 ], [ %10876, %10874 ], [ %10881, %10877 ]
+  %.369 = phi ptr [ %.363, %10690 ], [ %.373, %10874 ], [ %.370.lcssa, %10877 ]
+  %.122 = phi i32 [ %10691, %10690 ], [ 0, %10874 ], [ 0, %10877 ]
   %10883 = getelementptr inbounds i8, ptr %1, i64 126
   %10884 = load i16, ptr %10883, align 2
   %10885 = icmp eq i16 %10884, 0
@@ -21382,7 +21382,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10903
 
 10903:                                            ; preds = %10896, %10886
-  %10904 = icmp ugt i32 %.123, 255
+  %10904 = icmp ugt i32 %.122, 255
   br i1 %10904, label %.lr.ph15244, label %._crit_edge15245
 
 .lr.ph15244:                                      ; preds = %10903
@@ -21391,21 +21391,21 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   br label %10907
 
 10907:                                            ; preds = %.lr.ph15244, %10986
-  %.12415242 = phi i32 [ %.123, %.lr.ph15244 ], [ %10908, %10986 ]
-  %.37515241 = phi ptr [ %.374, %.lr.ph15244 ], [ %.377, %10986 ]
-  %.2491128915240 = phi i64 [ %.24811288, %.lr.ph15244 ], [ %.25011290, %10986 ]
-  %.2491154315239 = phi i32 [ %.24811542, %.lr.ph15244 ], [ %.25011544, %10986 ]
-  %10908 = add nsw i32 %.12415242, -256
+  %.12515242 = phi i32 [ %.122, %.lr.ph15244 ], [ %10908, %10986 ]
+  %.37615241 = phi ptr [ %.369, %.lr.ph15244 ], [ %.378, %10986 ]
+  %.2501129015240 = phi i64 [ %.24511285, %.lr.ph15244 ], [ %.25111291, %10986 ]
+  %.2501154415239 = phi i32 [ %.24511539, %.lr.ph15244 ], [ %.25111545, %10986 ]
+  %10908 = add nsw i32 %.12515242, -256
   %10909 = load i8, ptr %10905, align 4
   %10910 = sext i8 %10909 to i32
-  %10911 = sub nsw i32 %.2491154315239, %10910
+  %10911 = sub nsw i32 %.2501154415239, %10910
   %10912 = icmp slt i32 %10911, 0
   %10913 = load i32, ptr %10906, align 4
   br i1 %10912, label %10914, label %10981
 
 10914:                                            ; preds = %10907
-  %10915 = zext nneg i32 %.2491154315239 to i64
-  %10916 = shl i64 %.2491128915240, %10915
+  %10915 = zext nneg i32 %.2501154415239 to i64
+  %10916 = shl i64 %.2501129015240, %10915
   %10917 = sub nsw i32 0, %10911
   %10918 = lshr i32 %10913, %10917
   %10919 = zext nneg i32 %10918 to i64
@@ -21416,19 +21416,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13799 = icmp eq i64 %10923, 0
   %10924 = lshr i64 %10916, 56
   %10925 = trunc nuw i64 %10924 to i8
-  store i8 %10925, ptr %.37515241, align 1
+  store i8 %10925, ptr %.37615241, align 1
   br i1 %.not13799, label %10955, label %10926
 
 10926:                                            ; preds = %10914
-  %10927 = getelementptr inbounds i8, ptr %.37515241, i64 1
+  %10927 = getelementptr inbounds i8, ptr %.37615241, i64 1
   store i8 0, ptr %10927, align 1
   %.not13800 = icmp eq i64 %10924, 255
-  %.sroa.gep14708 = getelementptr inbounds i8, ptr %.37515241, i64 2
+  %.sroa.gep14708 = getelementptr inbounds i8, ptr %.37615241, i64 2
   %.neg13801.sroa.sel = select i1 %.not13800, ptr %.sroa.gep14708, ptr %10927
   %10928 = lshr i64 %10916, 48
   %10929 = trunc i64 %10928 to i8
   store i8 %10929, ptr %.neg13801.sroa.sel, align 1
-  %.sroa.gep15413 = getelementptr inbounds i8, ptr %.37515241, i64 3
+  %.sroa.gep15413 = getelementptr inbounds i8, ptr %.37615241, i64 3
   %.neg13801.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13800, ptr %.sroa.gep15413, ptr %.sroa.gep14708
   store i8 0, ptr %.neg13801.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10930 = and i64 %10916, 71776119061217280
@@ -21496,36 +21496,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 10955:                                            ; preds = %10914
   %10956 = lshr i64 %10916, 48
   %10957 = trunc i64 %10956 to i8
-  %10958 = getelementptr inbounds i8, ptr %.37515241, i64 1
+  %10958 = getelementptr inbounds i8, ptr %.37615241, i64 1
   store i8 %10957, ptr %10958, align 1
   %10959 = lshr i64 %10916, 40
   %10960 = trunc i64 %10959 to i8
-  %10961 = getelementptr inbounds i8, ptr %.37515241, i64 2
+  %10961 = getelementptr inbounds i8, ptr %.37615241, i64 2
   store i8 %10960, ptr %10961, align 1
   %10962 = lshr i64 %10916, 32
   %10963 = trunc i64 %10962 to i8
-  %10964 = getelementptr inbounds i8, ptr %.37515241, i64 3
+  %10964 = getelementptr inbounds i8, ptr %.37615241, i64 3
   store i8 %10963, ptr %10964, align 1
   %10965 = lshr i64 %10920, 24
   %10966 = trunc i64 %10965 to i8
-  %10967 = getelementptr inbounds i8, ptr %.37515241, i64 4
+  %10967 = getelementptr inbounds i8, ptr %.37615241, i64 4
   store i8 %10966, ptr %10967, align 1
   %10968 = lshr i64 %10920, 16
   %10969 = trunc i64 %10968 to i8
-  %10970 = getelementptr inbounds i8, ptr %.37515241, i64 5
+  %10970 = getelementptr inbounds i8, ptr %.37615241, i64 5
   store i8 %10969, ptr %10970, align 1
   %10971 = lshr i64 %10920, 8
   %10972 = trunc i64 %10971 to i8
-  %10973 = getelementptr inbounds i8, ptr %.37515241, i64 6
+  %10973 = getelementptr inbounds i8, ptr %.37615241, i64 6
   store i8 %10972, ptr %10973, align 1
   %10974 = trunc i64 %10920 to i8
-  %10975 = getelementptr inbounds i8, ptr %.37515241, i64 7
+  %10975 = getelementptr inbounds i8, ptr %.37615241, i64 7
   store i8 %10974, ptr %10975, align 1
-  %10976 = getelementptr inbounds i8, ptr %.37515241, i64 8
+  %10976 = getelementptr inbounds i8, ptr %.37615241, i64 8
   br label %10977
 
 10977:                                            ; preds = %10955, %10926
-  %.376 = phi ptr [ %10954, %10926 ], [ %10976, %10955 ]
+  %.377 = phi ptr [ %10954, %10926 ], [ %10976, %10955 ]
   %10978 = add nsw i32 %10911, 64
   %10979 = load i32, ptr %10906, align 4
   %10980 = zext i32 %10979 to i64
@@ -21533,24 +21533,24 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 10981:                                            ; preds = %10907
   %10982 = zext nneg i32 %10910 to i64
-  %10983 = shl i64 %.2491128915240, %10982
+  %10983 = shl i64 %.2501129015240, %10982
   %10984 = zext i32 %10913 to i64
   %10985 = or i64 %10983, %10984
   br label %10986
 
 10986:                                            ; preds = %10981, %10977
-  %.25011544 = phi i32 [ %10978, %10977 ], [ %10911, %10981 ]
-  %.25011290 = phi i64 [ %10980, %10977 ], [ %10985, %10981 ]
-  %.377 = phi ptr [ %.376, %10977 ], [ %.37515241, %10981 ]
-  %10987 = icmp ugt i32 %.12415242, 511
+  %.25111545 = phi i32 [ %10978, %10977 ], [ %10911, %10981 ]
+  %.25111291 = phi i64 [ %10980, %10977 ], [ %10985, %10981 ]
+  %.378 = phi ptr [ %.377, %10977 ], [ %.37615241, %10981 ]
+  %10987 = icmp ugt i32 %.12515242, 511
   br i1 %10987, label %10907, label %._crit_edge15245, !llvm.loop !64
 
 ._crit_edge15245:                                 ; preds = %10986, %10903
-  %.24911543.lcssa = phi i32 [ %.24811542, %10903 ], [ %.25011544, %10986 ]
-  %.24911289.lcssa = phi i64 [ %.24811288, %10903 ], [ %.25011290, %10986 ]
-  %.375.lcssa = phi ptr [ %.374, %10903 ], [ %.377, %10986 ]
-  %.124.lcssa = phi i32 [ %.123, %10903 ], [ %10908, %10986 ]
-  %10988 = add nuw nsw i32 %.124.lcssa, %10894
+  %.25011544.lcssa = phi i32 [ %.24511539, %10903 ], [ %.25111545, %10986 ]
+  %.25011290.lcssa = phi i64 [ %.24511285, %10903 ], [ %.25111291, %10986 ]
+  %.376.lcssa = phi ptr [ %.369, %10903 ], [ %.378, %10986 ]
+  %.125.lcssa = phi i32 [ %.122, %10903 ], [ %10908, %10986 ]
+  %10988 = add nuw nsw i32 %.125.lcssa, %10894
   %10989 = zext nneg i8 %10893 to i64
   %notmask13781 = shl nsw i64 -1, %10989
   %10990 = trunc i64 %notmask13781 to i32
@@ -21566,13 +21566,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %11000 = load i8, ptr %10999, align 1
   %11001 = sext i8 %11000 to i32
   %11002 = add nsw i32 %11001, %10894
-  %11003 = sub nsw i32 %.24911543.lcssa, %11002
+  %11003 = sub nsw i32 %.25011544.lcssa, %11002
   %11004 = icmp slt i32 %11003, 0
   br i1 %11004, label %11005, label %11071
 
 11005:                                            ; preds = %._crit_edge15245
-  %11006 = zext nneg i32 %.24911543.lcssa to i64
-  %11007 = shl i64 %.24911289.lcssa, %11006
+  %11006 = zext nneg i32 %.25011544.lcssa to i64
+  %11007 = shl i64 %.25011290.lcssa, %11006
   %11008 = sub nsw i32 0, %11003
   %11009 = ashr i32 %10997, %11008
   %11010 = sext i32 %11009 to i64
@@ -21583,19 +21583,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13782 = icmp eq i64 %11014, 0
   %11015 = lshr i64 %11011, 56
   %11016 = trunc nuw i64 %11015 to i8
-  store i8 %11016, ptr %.375.lcssa, align 1
+  store i8 %11016, ptr %.376.lcssa, align 1
   br i1 %.not13782, label %11046, label %11017
 
 11017:                                            ; preds = %11005
-  %11018 = getelementptr inbounds i8, ptr %.375.lcssa, i64 1
+  %11018 = getelementptr inbounds i8, ptr %.376.lcssa, i64 1
   store i8 0, ptr %11018, align 1
   %.not13783 = icmp eq i64 %11015, 255
-  %.sroa.gep14716 = getelementptr inbounds i8, ptr %.375.lcssa, i64 2
+  %.sroa.gep14716 = getelementptr inbounds i8, ptr %.376.lcssa, i64 2
   %.neg13784.sroa.sel = select i1 %.not13783, ptr %.sroa.gep14716, ptr %11018
   %11019 = lshr i64 %11011, 48
   %11020 = trunc i64 %11019 to i8
   store i8 %11020, ptr %.neg13784.sroa.sel, align 1
-  %.sroa.gep15421 = getelementptr inbounds i8, ptr %.375.lcssa, i64 3
+  %.sroa.gep15421 = getelementptr inbounds i8, ptr %.376.lcssa, i64 3
   %.neg13784.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13783, ptr %.sroa.gep15421, ptr %.sroa.gep14716
   store i8 0, ptr %.neg13784.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11021 = and i64 %11011, 71776119061217280
@@ -21663,43 +21663,43 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 11046:                                            ; preds = %11005
   %11047 = lshr i64 %11011, 48
   %11048 = trunc i64 %11047 to i8
-  %11049 = getelementptr inbounds i8, ptr %.375.lcssa, i64 1
+  %11049 = getelementptr inbounds i8, ptr %.376.lcssa, i64 1
   store i8 %11048, ptr %11049, align 1
   %11050 = lshr i64 %11011, 40
   %11051 = trunc i64 %11050 to i8
-  %11052 = getelementptr inbounds i8, ptr %.375.lcssa, i64 2
+  %11052 = getelementptr inbounds i8, ptr %.376.lcssa, i64 2
   store i8 %11051, ptr %11052, align 1
   %11053 = lshr i64 %11011, 32
   %11054 = trunc i64 %11053 to i8
-  %11055 = getelementptr inbounds i8, ptr %.375.lcssa, i64 3
+  %11055 = getelementptr inbounds i8, ptr %.376.lcssa, i64 3
   store i8 %11054, ptr %11055, align 1
   %11056 = lshr i64 %11011, 24
   %11057 = trunc i64 %11056 to i8
-  %11058 = getelementptr inbounds i8, ptr %.375.lcssa, i64 4
+  %11058 = getelementptr inbounds i8, ptr %.376.lcssa, i64 4
   store i8 %11057, ptr %11058, align 1
   %11059 = lshr i64 %11011, 16
   %11060 = trunc i64 %11059 to i8
-  %11061 = getelementptr inbounds i8, ptr %.375.lcssa, i64 5
+  %11061 = getelementptr inbounds i8, ptr %.376.lcssa, i64 5
   store i8 %11060, ptr %11061, align 1
   %11062 = lshr i64 %11011, 8
   %11063 = trunc i64 %11062 to i8
-  %11064 = getelementptr inbounds i8, ptr %.375.lcssa, i64 6
+  %11064 = getelementptr inbounds i8, ptr %.376.lcssa, i64 6
   store i8 %11063, ptr %11064, align 1
   %11065 = trunc i64 %11011 to i8
-  %11066 = getelementptr inbounds i8, ptr %.375.lcssa, i64 7
+  %11066 = getelementptr inbounds i8, ptr %.376.lcssa, i64 7
   store i8 %11065, ptr %11066, align 1
-  %11067 = getelementptr inbounds i8, ptr %.375.lcssa, i64 8
+  %11067 = getelementptr inbounds i8, ptr %.376.lcssa, i64 8
   br label %11068
 
 11068:                                            ; preds = %11046, %11017
-  %.378 = phi ptr [ %11045, %11017 ], [ %11067, %11046 ]
+  %.379 = phi ptr [ %11045, %11017 ], [ %11067, %11046 ]
   %11069 = add nsw i32 %11003, 64
   %11070 = sext i32 %10997 to i64
   br label %.thread
 
 11071:                                            ; preds = %._crit_edge15245
   %11072 = zext nneg i32 %11002 to i64
-  %11073 = shl i64 %.24911289.lcssa, %11072
+  %11073 = shl i64 %.25011290.lcssa, %11072
   %11074 = sext i32 %10997 to i64
   %11075 = or i64 %11073, %11074
   br label %.thread
@@ -21708,14 +21708,14 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %11077 = getelementptr inbounds i8, ptr %4, i64 1024
   %11078 = load i8, ptr %11077, align 4
   %11079 = sext i8 %11078 to i32
-  %11080 = sub nsw i32 %.24811542, %11079
+  %11080 = sub nsw i32 %.24511539, %11079
   %11081 = icmp slt i32 %11080, 0
   %11082 = load i32, ptr %4, align 4
   br i1 %11081, label %11083, label %11150
 
 11083:                                            ; preds = %11076
-  %11084 = zext nneg i32 %.24811542 to i64
-  %11085 = shl i64 %.24811288, %11084
+  %11084 = zext nneg i32 %.24511539 to i64
+  %11085 = shl i64 %.24511285, %11084
   %11086 = sub nsw i32 0, %11080
   %11087 = lshr i32 %11082, %11086
   %11088 = zext nneg i32 %11087 to i64
@@ -21726,19 +21726,19 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
   %.not13816 = icmp eq i64 %11092, 0
   %11093 = lshr i64 %11085, 56
   %11094 = trunc nuw i64 %11093 to i8
-  store i8 %11094, ptr %.374, align 1
+  store i8 %11094, ptr %.369, align 1
   br i1 %.not13816, label %11124, label %11095
 
 11095:                                            ; preds = %11083
-  %11096 = getelementptr inbounds i8, ptr %.374, i64 1
+  %11096 = getelementptr inbounds i8, ptr %.369, i64 1
   store i8 0, ptr %11096, align 1
   %.not13817 = icmp eq i64 %11093, 255
-  %.sroa.gep14724 = getelementptr inbounds i8, ptr %.374, i64 2
+  %.sroa.gep14724 = getelementptr inbounds i8, ptr %.369, i64 2
   %.neg13818.sroa.sel = select i1 %.not13817, ptr %.sroa.gep14724, ptr %11096
   %11097 = lshr i64 %11085, 48
   %11098 = trunc i64 %11097 to i8
   store i8 %11098, ptr %.neg13818.sroa.sel, align 1
-  %.sroa.gep15411 = getelementptr inbounds i8, ptr %.374, i64 3
+  %.sroa.gep15411 = getelementptr inbounds i8, ptr %.369, i64 3
   %.neg13818.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13817, ptr %.sroa.gep15411, ptr %.sroa.gep14724
   store i8 0, ptr %.neg13818.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11099 = and i64 %11085, 71776119061217280
@@ -21806,36 +21806,36 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 11124:                                            ; preds = %11083
   %11125 = lshr i64 %11085, 48
   %11126 = trunc i64 %11125 to i8
-  %11127 = getelementptr inbounds i8, ptr %.374, i64 1
+  %11127 = getelementptr inbounds i8, ptr %.369, i64 1
   store i8 %11126, ptr %11127, align 1
   %11128 = lshr i64 %11085, 40
   %11129 = trunc i64 %11128 to i8
-  %11130 = getelementptr inbounds i8, ptr %.374, i64 2
+  %11130 = getelementptr inbounds i8, ptr %.369, i64 2
   store i8 %11129, ptr %11130, align 1
   %11131 = lshr i64 %11085, 32
   %11132 = trunc i64 %11131 to i8
-  %11133 = getelementptr inbounds i8, ptr %.374, i64 3
+  %11133 = getelementptr inbounds i8, ptr %.369, i64 3
   store i8 %11132, ptr %11133, align 1
   %11134 = lshr i64 %11089, 24
   %11135 = trunc i64 %11134 to i8
-  %11136 = getelementptr inbounds i8, ptr %.374, i64 4
+  %11136 = getelementptr inbounds i8, ptr %.369, i64 4
   store i8 %11135, ptr %11136, align 1
   %11137 = lshr i64 %11089, 16
   %11138 = trunc i64 %11137 to i8
-  %11139 = getelementptr inbounds i8, ptr %.374, i64 5
+  %11139 = getelementptr inbounds i8, ptr %.369, i64 5
   store i8 %11138, ptr %11139, align 1
   %11140 = lshr i64 %11089, 8
   %11141 = trunc i64 %11140 to i8
-  %11142 = getelementptr inbounds i8, ptr %.374, i64 6
+  %11142 = getelementptr inbounds i8, ptr %.369, i64 6
   store i8 %11141, ptr %11142, align 1
   %11143 = trunc i64 %11089 to i8
-  %11144 = getelementptr inbounds i8, ptr %.374, i64 7
+  %11144 = getelementptr inbounds i8, ptr %.369, i64 7
   store i8 %11143, ptr %11144, align 1
-  %11145 = getelementptr inbounds i8, ptr %.374, i64 8
+  %11145 = getelementptr inbounds i8, ptr %.369, i64 8
   br label %11146
 
 11146:                                            ; preds = %11124, %11095
-  %.381 = phi ptr [ %11123, %11095 ], [ %11145, %11124 ]
+  %.382 = phi ptr [ %11123, %11095 ], [ %11145, %11124 ]
   %11147 = add nsw i32 %11080, 64
   %11148 = load i32, ptr %4, align 4
   %11149 = zext i32 %11148 to i64
@@ -21843,7 +21843,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 
 11150:                                            ; preds = %11076
   %11151 = zext nneg i32 %11079 to i64
-  %11152 = shl i64 %.24811288, %11151
+  %11152 = shl i64 %.24511285, %11151
   %11153 = zext i32 %11082 to i64
   %11154 = or i64 %11152, %11153
   br label %.thread
@@ -21851,13 +21851,13 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef %0, ptr
 .thread:                                          ; preds = %11068, %11071, %11146, %11150
   %.25311547 = phi i32 [ %11147, %11146 ], [ %11080, %11150 ], [ %11003, %11071 ], [ %11069, %11068 ]
   %.25311293 = phi i64 [ %11149, %11146 ], [ %11154, %11150 ], [ %11075, %11071 ], [ %11070, %11068 ]
-  %.382 = phi ptr [ %.381, %11146 ], [ %.374, %11150 ], [ %.375.lcssa, %11071 ], [ %.378, %11068 ]
+  %.381 = phi ptr [ %.382, %11146 ], [ %.369, %11150 ], [ %.376.lcssa, %11071 ], [ %.379, %11068 ]
   store i64 %.25311293, ptr %12, align 8
   store i32 %.25311547, ptr %13, align 8
   br i1 %18, label %11181, label %11155
 
 11155:                                            ; preds = %.thread
-  %11156 = ptrtoint ptr %.382 to i64
+  %11156 = ptrtoint ptr %.381 to i64
   %11157 = ptrtoint ptr %6 to i64
   %11158 = sub i64 %11156, %11157
   %.not1383515250 = icmp eq i64 %11158, 0
@@ -21912,13 +21912,13 @@ dump_buffer.exit:                                 ; preds = %11167
 
 11181:                                            ; preds = %.thread
   %11182 = load ptr, ptr %0, align 8
-  %11183 = ptrtoint ptr %.382 to i64
+  %11183 = ptrtoint ptr %.381 to i64
   %11184 = ptrtoint ptr %11182 to i64
   %.neg13834 = sub i64 %11184, %11183
   %11185 = load i64, ptr %16, align 8
   %11186 = add i64 %.neg13834, %11185
   store i64 %11186, ptr %16, align 8
-  store ptr %.382, ptr %0, align 8
+  store ptr %.381, ptr %0, align 8
   br label %dump_buffer.exit.thread
 
 dump_buffer.exit.thread:                          ; preds = %11177, %11167, %11155, %11181

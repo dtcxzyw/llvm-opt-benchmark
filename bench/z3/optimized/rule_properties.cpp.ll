@@ -5834,7 +5834,7 @@ ehcleanup246:                                     ; preds = %ehcleanup244, %ehcl
   br label %ehcleanup248
 
 cleanup247:                                       ; preds = %invoke.cont14, %call5.i.noexc, %_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit
-  %retval.5 = phi i1 [ %226, %_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit ], [ true, %call5.i.noexc ], [ true, %invoke.cont14 ]
+  %retval.1 = phi i1 [ %226, %_ZN7obj_mapI4expr10ptr_vectorIS0_EED2Ev.exit ], [ true, %call5.i.noexc ], [ true, %invoke.cont14 ]
   %234 = load ptr, ptr %ctors, align 8
   %tobool.not.i.i.i403 = icmp eq ptr %234, null
   br i1 %tobool.not.i.i.i403, label %return, label %if.then.i.i.i404
@@ -5857,8 +5857,8 @@ ehcleanup248:                                     ; preds = %lpad.loopexit510, %
   resume { ptr, i32 } %.pn35
 
 return:                                           ; preds = %entry, %if.then.i.i.i404, %cleanup247, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
-  %retval.6 = phi i1 [ true, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ], [ %retval.5, %cleanup247 ], [ %retval.5, %if.then.i.i.i404 ], [ true, %entry ]
-  ret i1 %retval.6
+  %retval.0 = phi i1 [ true, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit ], [ %retval.1, %cleanup247 ], [ %retval.1, %if.then.i.i.i404 ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 declare noundef ptr @_ZN8datatype4util25get_datatype_constructorsEP4sort(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef) local_unnamed_addr #0

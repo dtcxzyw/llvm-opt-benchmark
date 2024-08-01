@@ -1016,15 +1016,15 @@ if.end2.i.i.i.i.i:                                ; preds = %if.end.i96.i.i.i.i
   br label %if.end74.i.i.i.i
 
 if.end74.i.i.i.i:                                 ; preds = %if.end2.i.i.i.i.i, %if.then67.i.i.i.i
-  %rxe.0.ph.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.end2.i.i.i.i.i ], [ %retval.0.i.i.i.i.i, %if.then67.i.i.i.i ]
+  %rxe.1.ph.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.end2.i.i.i.i.i ], [ %retval.0.i.i.i.i.i, %if.then67.i.i.i.i ]
   %token.0.ph.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.end2.i.i.i.i.i ], [ %28, %if.then67.i.i.i.i ]
-  %token76.i.i.i.i = getelementptr inbounds i8, ptr %rxe.0.ph.i.i.i.i, i64 160
+  %token76.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.ph.i.i.i.i, i64 160
   store ptr %token.0.ph.i.i.i.i, ptr %token76.i.i.i.i, align 8
   br label %if.end77.i.i.i.i
 
 if.end77.i.i.i.i:                                 ; preds = %if.end74.i.i.i.i, %sw.epilog.i.i.i.i
-  %rxe.1.i.i.i.i = phi ptr [ %rxe.0.ph.i.i.i.i, %if.end74.i.i.i.i ], [ %retval.0.i.i.i.i.i, %sw.epilog.i.i.i.i ]
-  %i.1.i.i.i.i = phi i64 [ %29, %if.end74.i.i.i.i ], [ 0, %sw.epilog.i.i.i.i ]
+  %rxe.0.i.i.i.i = phi ptr [ %rxe.1.ph.i.i.i.i, %if.end74.i.i.i.i ], [ %retval.0.i.i.i.i.i, %sw.epilog.i.i.i.i ]
+  %i.0.i.i.i.i = phi i64 [ %29, %if.end74.i.i.i.i ], [ 0, %sw.epilog.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %orig_pkt.i.i.i.i, i64 16, i1 false)
   %call79.i.i.i.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i.i.i.i, i32 noundef %retval.0.i95.i.i.i.i, i32 noundef 1) #12
   br i1 %cmp.i79.not.i.i.i.i, label %if.then81.i.i.i.i, label %if.end94.i.i.i.i
@@ -1039,13 +1039,13 @@ if.end85.i.i.i.i:                                 ; preds = %if.then81.i.i.i.i
   %or.i102.i.i.i.i = or i64 %30, %shl.i.i.i.i.i
   store i64 %or.i102.i.i.i.i, ptr %hpr_removed.i.i.i.i, align 8
   %31 = load i64, ptr %short_conn_id_len.i.i.i.i, align 8
-  %hdr88.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 104
+  %hdr88.i.i.i.i = getelementptr inbounds i8, ptr %rxe.0.i.i.i.i, i64 104
   %call89.i.i.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %pkt.i.i.i, i64 noundef %31, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %hdr88.i.i.i.i, ptr noundef null) #12
   %cmp90.not.i.i.i.i = icmp eq i32 %call89.i.i.i.i, 1
   br i1 %cmp90.not.i.i.i.i, label %if.end94.i.i.i.i, label %malformed.i.i.i.i
 
 if.end94.i.i.i.i:                                 ; preds = %if.end85.i.i.i.i, %if.end77.i.i.i.i
-  %32 = getelementptr i8, ptr %rxe.1.i.i.i.i, i64 104
+  %32 = getelementptr i8, ptr %rxe.0.i.i.i.i, i64 104
   %rxe.val.i.i = load i32, ptr %32, align 8
   %trunc.i.i.i.i = trunc i32 %rxe.val.i.i to i8
   %switch.tableidx = add i8 %trunc.i.i.i.i, -2
@@ -1060,13 +1060,13 @@ switch.lookup:                                    ; preds = %if.end94.i.i.i.i
 
 qrx_validate_hdr.exit.i:                          ; preds = %if.end94.i.i.i.i, %switch.lookup
   %retval.0.i2.i.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %if.end94.i.i.i.i ]
-  %pn.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 154
+  %pn.i.i = getelementptr inbounds i8, ptr %rxe.0.i.i.i.i, i64 154
   %bf.lshr.i.i = lshr i32 %rxe.val.i.i, 10
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 15
   %conv.i.i = zext nneg i32 %bf.clear.i.i to i64
   %arrayidx.i7.i = getelementptr inbounds [3 x i64], ptr %largest_pn.i.i.i.i, i64 0, i64 %retval.0.i2.i.i.i
   %35 = load i64, ptr %arrayidx.i7.i, align 8
-  %pn2.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 192
+  %pn2.i.i = getelementptr inbounds i8, ptr %rxe.0.i.i.i.i, i64 192
   %call3.i.i = call i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef nonnull %pn.i.i, i64 noundef %conv.i.i, i64 noundef %35, ptr noundef nonnull %pn2.i.i) #12
   %tobool.not.i.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool.not.i.not.i, label %malformed.i.i.i.i, label %if.end98.i.i.i.i
@@ -1079,7 +1079,7 @@ if.end98.i.i.i.i:                                 ; preds = %qrx_validate_hdr.ex
 if.then101.i.i.i.i:                               ; preds = %if.end98.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %.pre23.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %pkt.val73.i.i.i.i to i64
-  %len104.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 176
+  %len104.i.i.i.i = getelementptr inbounds i8, ptr %rxe.0.i.i.i.i, i64 176
   %37 = load i64, ptr %len104.i.i.i.i, align 8
   %38 = add i64 %37, %sub.ptr.rhs.cast.i.i.i.i
   %sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %38
@@ -1089,12 +1089,12 @@ if.then101.i.i.i.i:                               ; preds = %if.end98.i.i.i.i
   br label %if.end105.i.i.i.i
 
 if.end105.i.i.i.i:                                ; preds = %if.then101.i.i.i.i, %if.end98.i.i.i.i
-  %data107.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 184
+  %data107.i.i.i.i = getelementptr inbounds i8, ptr %rxe.0.i.i.i.i, i64 184
   %41 = load ptr, ptr %data107.i.i.i.i, align 8
-  %len113.i.i.i.i = getelementptr inbounds i8, ptr %rxe.1.i.i.i.i, i64 176
+  %len113.i.i.i.i = getelementptr inbounds i8, ptr %rxe.0.i.i.i.i, i64 176
   %42 = load i64, ptr %len113.i.i.i.i, align 8
-  %add.i.i.i.i = add i64 %42, %i.1.i.i.i.i
-  %call114.i.i.i.i = call fastcc ptr @qrx_reserve_rxe(ptr noundef nonnull %rx_free.i.i.i.i.i, ptr noundef nonnull %rxe.1.i.i.i.i, i64 noundef %add.i.i.i.i)
+  %add.i.i.i.i = add i64 %42, %i.0.i.i.i.i
+  %call114.i.i.i.i = call fastcc ptr @qrx_reserve_rxe(ptr noundef nonnull %rx_free.i.i.i.i.i, ptr noundef nonnull %rxe.0.i.i.i.i, i64 noundef %add.i.i.i.i)
   %cmp115.i.i.i.i = icmp eq ptr %call114.i.i.i.i, null
   br i1 %cmp115.i.i.i.i, label %if.end105.i.PACKET_forward.exit140.i_crit_edge.i.i.i, label %if.end118.i.i.i.i
 
@@ -1107,7 +1107,7 @@ if.end118.i.i.i.i:                                ; preds = %if.end105.i.i.i.i
   %sub.ptr.rhs.cast109.i.i.i.i = ptrtoint ptr %pkt.val73.i.i.i.i to i64
   %sub.ptr.sub110.i.i.i.i = sub i64 %sub.ptr.lhs.cast108.i.i.i.i, %sub.ptr.rhs.cast109.i.i.i.i
   %add.ptr.i103.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 448
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i103.i.i.i.i, i64 %i.1.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i103.i.i.i.i, i64 %i.0.i.i.i.i
   %hdr120.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 104
   %data121.i.i.i.i = getelementptr inbounds i8, ptr %call114.i.i.i.i, i64 184
   %43 = load ptr, ptr %data121.i.i.i.i, align 8

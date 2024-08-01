@@ -1213,7 +1213,7 @@ lpad:                                             ; preds = %if.then2.i.i.i101, 
   br label %common.resume
 
 cleanup:                                          ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit102, %invoke.cont28
-  %retval.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit102 ], [ 5, %invoke.cont28 ]
+  %retval.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit102 ], [ 5, %invoke.cont28 ]
   %59 = load ptr, ptr %v1, align 8
   %m_mpz_manager.i.i.i = getelementptr inbounds i8, ptr %59, i64 728
   %60 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
@@ -1234,8 +1234,8 @@ return.sink.split:                                ; preds = %if.then2.i.i.i81, %
   br label %return
 
 return:                                           ; preds = %return.sink.split, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 4, %return.sink.split ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 4, %return.sink.split ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1901,7 +1901,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit22:    ; preds = %if.then2.i.i.i21, %
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit22, %invoke.cont5
-  %retval.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit22 ], [ 5, %invoke.cont5 ]
+  %retval.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit22 ], [ 5, %invoke.cont5 ]
   %23 = load ptr, ptr %v, align 8
   %m_mpz_manager.i.i.i = getelementptr inbounds i8, ptr %23, i64 728
   %24 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
@@ -1917,8 +1917,8 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2216,7 +2216,7 @@ lpad49:                                           ; preds = %if.then2.i.i.i68, %
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont62, %invoke.cont13, %invoke.cont18, %land.lhs.true32
-  %retval.0 = phi i32 [ 5, %land.lhs.true32 ], [ 5, %invoke.cont18 ], [ 5, %invoke.cont13 ], [ 4, %invoke.cont62 ]
+  %retval.1 = phi i32 [ 5, %land.lhs.true32 ], [ 5, %invoke.cont18 ], [ 5, %invoke.cont13 ], [ 4, %invoke.cont62 ]
   %48 = load ptr, ptr %v2, align 8
   %m_mpz_manager.i.i.i70 = getelementptr inbounds i8, ptr %48, i64 728
   %49 = load ptr, ptr %m_mpz_manager.i.i.i70, align 8
@@ -2257,8 +2257,8 @@ return.sink.split:                                ; preds = %if.then2.i.i.i35, %
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN10scoped_mpfD2Ev.exit73
-  %retval.1 = phi i32 [ %retval.0, %_ZN10scoped_mpfD2Ev.exit73 ], [ 4, %return.sink.split ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN10scoped_mpfD2Ev.exit73 ], [ 4, %return.sink.split ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2556,7 +2556,7 @@ lpad49:                                           ; preds = %if.then2.i.i.i68, %
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont62, %invoke.cont13, %invoke.cont18, %land.lhs.true32
-  %retval.0 = phi i32 [ 5, %land.lhs.true32 ], [ 5, %invoke.cont18 ], [ 5, %invoke.cont13 ], [ 4, %invoke.cont62 ]
+  %retval.1 = phi i32 [ 5, %land.lhs.true32 ], [ 5, %invoke.cont18 ], [ 5, %invoke.cont13 ], [ 4, %invoke.cont62 ]
   %48 = load ptr, ptr %v2, align 8
   %m_mpz_manager.i.i.i70 = getelementptr inbounds i8, ptr %48, i64 728
   %49 = load ptr, ptr %m_mpz_manager.i.i.i70, align 8
@@ -2597,8 +2597,8 @@ return.sink.split:                                ; preds = %if.then2.i.i.i35, %
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN10scoped_mpfD2Ev.exit73
-  %retval.1 = phi i32 [ %retval.0, %_ZN10scoped_mpfD2Ev.exit73 ], [ 4, %return.sink.split ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN10scoped_mpfD2Ev.exit73 ], [ 4, %return.sink.split ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3706,14 +3706,14 @@ lpad47:                                           ; preds = %land.lhs.true, %inv
   br label %common.resume
 
 cleanup:                                          ; preds = %invoke.cont50, %invoke.cont55, %invoke.cont63
-  %retval.0 = phi i32 [ 4, %invoke.cont63 ], [ 5, %invoke.cont55 ], [ 5, %invoke.cont50 ]
+  %retval.1 = phi i32 [ 4, %invoke.cont63 ], [ 5, %invoke.cont55 ], [ 5, %invoke.cont50 ]
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v2) #13
   call void @_ZN10scoped_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %v1) #13
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then35, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit118, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit90, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 2, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit90 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit118 ], [ 2, %if.then35 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ 2, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit90 ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit118 ], [ 2, %if.then35 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3980,7 +3980,7 @@ lpad9:                                            ; preds = %if.then2.i.i.i41, %
   br label %common.resume
 
 cleanup:                                          ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit42, %invoke.cont12, %invoke.cont17
-  %retval.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit42 ], [ 5, %invoke.cont17 ], [ 5, %invoke.cont12 ]
+  %retval.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit42 ], [ 5, %invoke.cont17 ], [ 5, %invoke.cont12 ]
   %36 = load ptr, ptr %v2, align 8
   %m_mpz_manager.i.i.i = getelementptr inbounds i8, ptr %36, i64 728
   %37 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
@@ -4011,8 +4011,8 @@ terminate.lpad.i.i45:                             ; preds = %_ZN10scoped_mpfD2Ev
   unreachable
 
 return:                                           ; preds = %_ZN10scoped_mpfD2Ev.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.1 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %retval.0, %_ZN10scoped_mpfD2Ev.exit ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %retval.1, %_ZN10scoped_mpfD2Ev.exit ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7407,23 +7407,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.not2.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
-  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 4
+  %retval.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
+  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 4
   %8 = load i32, ptr %m_state.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %8, 2
   br i1 %cmp.i.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr5.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i, !llvm.loop !7
 
 _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit: ; preds = %land.rhs.i.i.i.i
-  %cmp.i.not = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr5.i.i.i
+  %cmp.i.not = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr5.i.i.i
   br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit
-  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
+  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   %retval.0.in.sroa.speculate.load.if.then = load ptr, ptr %m_value, align 8
   br label %return
 
@@ -8744,7 +8744,7 @@ if.else80:                                        ; preds = %call4.i.i.i.i.i.i.n
           to label %cleanup unwind label %lpad43
 
 cleanup:                                          ; preds = %if.else80, %invoke.cont76
-  %retval.0 = phi i32 [ 4, %invoke.cont76 ], [ %call82, %if.else80 ]
+  %retval.1 = phi i32 [ 4, %invoke.cont76 ], [ %call82, %if.else80 ]
   %102 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(16) %ll)
           to label %.noexc.i279 unwind label %terminate.lpad.i278
@@ -8821,7 +8821,7 @@ ehcleanup88:                                      ; preds = %ehcleanup, %lpad30
   br label %ehcleanup91
 
 cleanup90:                                        ; preds = %.noexc.i292, %invoke.cont, %invoke.cont7, %if.then19
-  %retval.1 = phi i32 [ %call21, %if.then19 ], [ 5, %invoke.cont7 ], [ 5, %invoke.cont ], [ %retval.0, %.noexc.i292 ]
+  %retval.0 = phi i32 [ %call21, %if.then19 ], [ 5, %invoke.cont7 ], [ 5, %invoke.cont ], [ %retval.1, %.noexc.i292 ]
   %114 = load ptr, ptr %v, align 8
   %m_mpz_manager.i.i.i = getelementptr inbounds i8, ptr %114, i64 728
   %115 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
@@ -8837,7 +8837,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup90
   unreachable
 
 _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup90
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup91:                                      ; preds = %ehcleanup88, %lpad
   %.pn12 = phi { ptr, i32 } [ %9, %lpad ], [ %.pn.pn.pn.pn, %ehcleanup88 ]
@@ -8999,23 +8999,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.not2.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
-  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 4
+  %retval.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
+  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 4
   %8 = load i32, ptr %m_state.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %8, 2
   br i1 %cmp.i.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr5.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i, !llvm.loop !7
 
 _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit: ; preds = %land.rhs.i.i.i.i
-  %cmp.i.not = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr5.i.i.i
+  %cmp.i.not = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr5.i.i.i
   br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit
-  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
+  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   %retval.0.in.sroa.speculate.load.if.then = load ptr, ptr %m_value, align 8
   br label %return
 

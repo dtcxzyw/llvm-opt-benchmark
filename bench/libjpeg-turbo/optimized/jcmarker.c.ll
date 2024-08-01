@@ -1173,12 +1173,12 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.055 = phi ptr [ %17, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.03854 = phi i32 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.13954 = phi i32 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.04053 = phi i32 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = getelementptr inbounds i8, ptr %.055, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = tail call fastcc i32 @emit_dqt(ptr noundef nonnull %0, i32 noundef %13)
-  %15 = add nuw nsw i32 %14, %.03854
+  %15 = add nuw nsw i32 %14, %.13954
   %16 = add nuw nsw i32 %.04053, 1
   %17 = getelementptr inbounds i8, ptr %.055, i64 96
   %18 = load i32, ptr %7, align 4
@@ -1190,7 +1190,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %6, %1
-  %.139 = phi i1 [ false, %1 ], [ false, %6 ], [ %20, %.loopexit.loopexit ]
+  %.038 = phi i1 [ false, %1 ], [ false, %6 ], [ %20, %.loopexit.loopexit ]
   %21 = getelementptr inbounds i8, ptr %0, i64 260
   %22 = load i32, ptr %21, align 4
   %.not42 = icmp eq i32 %22, 0
@@ -1228,7 +1228,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %47
   %.158 = phi ptr [ %49, %47 ], [ %38, %.lr.ph59.preheader ]
-  %.03657 = phi i32 [ %.137, %47 ], [ 1, %.lr.ph59.preheader ]
+  %.13757 = phi i32 [ %.2, %47 ], [ 1, %.lr.ph59.preheader ]
   %.14156 = phi i32 [ %48, %47 ], [ 0, %.lr.ph59.preheader ]
   %39 = getelementptr inbounds i8, ptr %.158, i64 20
   %40 = load i32, ptr %39, align 4
@@ -1245,16 +1245,16 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br label %47
 
 47:                                               ; preds = %42, %46
-  %.137 = phi i32 [ 0, %46 ], [ %.03657, %42 ]
+  %.2 = phi i32 [ 0, %46 ], [ %.13757, %42 ]
   %48 = add nuw nsw i32 %.14156, 1
   %49 = getelementptr inbounds i8, ptr %.158, i64 96
   %exitcond.not = icmp eq i32 %48, %35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph59, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %47, %33
-  %.036.lcssa = phi i32 [ 1, %33 ], [ %.137, %47 ]
-  %50 = icmp ne i32 %.036.lcssa, 0
-  %or.cond = select i1 %.139, i1 %50, i1 false
+  %.137.lcssa = phi i32 [ 1, %33 ], [ %.2, %47 ]
+  %50 = icmp ne i32 %.137.lcssa, 0
+  %or.cond = select i1 %.038, i1 %50, i1 false
   br i1 %or.cond, label %51, label %.thread62
 
 51:                                               ; preds = %._crit_edge
@@ -1277,7 +1277,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br label %.thread62.thread
 
 .thread62:                                        ; preds = %._crit_edge, %30, %26, %51
-  %.2.ph65.ph = phi i32 [ 0, %26 ], [ 0, %30 ], [ %.036.lcssa, %._crit_edge ], [ 0, %51 ]
+  %.036.ph65.ph = phi i32 [ 0, %26 ], [ 0, %30 ], [ %.137.lcssa, %._crit_edge ], [ 0, %51 ]
   %.pr = load i32, ptr %24, align 4
   %.not47 = icmp eq i32 %.pr, 0
   br i1 %.not47, label %60, label %.thread62.thread
@@ -1290,7 +1290,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br i1 %.not48, label %64, label %.thread62.thread
 
 64:                                               ; preds = %60
-  %.not49 = icmp eq i32 %.2.ph65.ph, 0
+  %.not49 = icmp eq i32 %.036.ph65.ph, 0
   %.68 = select i1 %.not49, i32 193, i32 192
   br label %.thread62.thread
 

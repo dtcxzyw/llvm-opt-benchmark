@@ -46,7 +46,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_agent_FileSystemImpl_isAcces
   br label %17
 
 17:                                               ; preds = %16, %10
-  %.0 = phi i8 [ %15, %10 ], [ 0, %16 ]
+  %.1 = phi i8 [ %15, %10 ], [ 0, %16 ]
   %18 = load i8, ptr %4, align 1
   %.not9 = icmp eq i8 %18, 0
   br i1 %.not9, label %20, label %19
@@ -56,8 +56,8 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_agent_FileSystemImpl_isAcces
   br label %20
 
 20:                                               ; preds = %17, %19, %3
-  %.1 = phi i8 [ %.0, %19 ], [ %.0, %17 ], [ 0, %3 ]
-  ret i8 %.1
+  %.0 = phi i8 [ %.1, %19 ], [ %.1, %17 ], [ 0, %3 ]
+  ret i8 %.0
 }
 
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

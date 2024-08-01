@@ -4079,7 +4079,7 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
 
 .thread:                                          ; preds = %140, %153, %161
   %.0242312 = phi i64 [ %165, %161 ], [ %141, %140 ], [ %154, %153 ]
-  %.0247311 = phi ptr [ null, %161 ], [ %138, %140 ], [ %149, %153 ]
+  %.1248311 = phi ptr [ null, %161 ], [ %138, %140 ], [ %149, %153 ]
   %166 = call ptr @expand_filepath(ptr noundef nonnull %14, ptr noundef null) #19
   %.not283 = icmp eq ptr %166, null
   br i1 %.not283, label %167, label %171
@@ -4087,11 +4087,11 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
 167:                                              ; preds = %.thread
   %168 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %169 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %168, i64 noundef 0, ptr noundef nonnull @.str.223) #19
-  %.not284 = icmp eq ptr %.0247311, null
+  %.not284 = icmp eq ptr %.1248311, null
   br i1 %.not284, label %385, label %170
 
 170:                                              ; preds = %167
-  call void @_efree(ptr noundef nonnull %.0247311) #19
+  call void @_efree(ptr noundef nonnull %.1248311) #19
   br label %385
 
 171:                                              ; preds = %.thread
@@ -4125,11 +4125,11 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %184
-  %.not307 = icmp eq ptr %.0247311, null
+  %.not307 = icmp eq ptr %.1248311, null
   br i1 %.not307, label %385, label %188
 
 188:                                              ; preds = %187
-  call void @_efree(ptr noundef nonnull %.0247311) #19
+  call void @_efree(ptr noundef nonnull %.1248311) #19
   call void @_efree(ptr noundef nonnull %166) #19
   br label %385
 
@@ -4151,11 +4151,11 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 24
   %199 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %195, i64 noundef 0, ptr noundef nonnull @.str.225, ptr noundef nonnull %198, ptr noundef %.pre313, ptr noundef nonnull %166) #19
-  %.not286 = icmp eq ptr %.0247311, null
+  %.not286 = icmp eq ptr %.1248311, null
   br i1 %.not286, label %385, label %200
 
 200:                                              ; preds = %194
-  call void @_efree(ptr noundef nonnull %.0247311) #19
+  call void @_efree(ptr noundef nonnull %.1248311) #19
   call void @_efree(ptr noundef nonnull %166) #19
   br label %385
 
@@ -4222,10 +4222,10 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   br label %385
 
 237:                                              ; preds = %189, %229, %224, %216, %191
-  %.1248 = phi ptr [ %.0247311, %191 ], [ %221, %224 ], [ %221, %229 ], [ %221, %216 ], [ %.0247311, %189 ]
-  %.0245 = phi ptr [ %166, %191 ], [ null, %224 ], [ null, %229 ], [ null, %216 ], [ %166, %189 ]
-  %.0243 = phi ptr [ %192, %191 ], [ %221, %224 ], [ %221, %229 ], [ %221, %216 ], [ %181, %189 ]
-  %.0240 = phi i64 [ %193, %191 ], [ %219, %224 ], [ %219, %229 ], [ %219, %216 ], [ %185, %189 ]
+  %.2 = phi ptr [ %.1248311, %191 ], [ %221, %224 ], [ %221, %229 ], [ %221, %216 ], [ %.1248311, %189 ]
+  %.1246 = phi ptr [ %166, %191 ], [ null, %224 ], [ null, %229 ], [ null, %216 ], [ %166, %189 ]
+  %.1244 = phi ptr [ %192, %191 ], [ %221, %224 ], [ %221, %229 ], [ %221, %216 ], [ %181, %189 ]
+  %.1 = phi i64 [ %193, %191 ], [ %219, %224 ], [ %219, %229 ], [ %219, %216 ], [ %185, %189 ]
   %238 = load ptr, ptr %4, align 8
   %239 = call i32 @php_check_open_basedir(ptr noundef %238) #19
   %.not287 = icmp eq i32 %239, 0
@@ -4238,19 +4238,19 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   %244 = getelementptr inbounds i8, ptr %243, i64 24
   %245 = load ptr, ptr %4, align 8
   %246 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %241, i64 noundef 0, ptr noundef nonnull @.str.226, ptr noundef nonnull %244, ptr noundef %245) #19
-  %.not305 = icmp eq ptr %.1248, null
+  %.not305 = icmp eq ptr %.2, null
   br i1 %.not305, label %248, label %247
 
 247:                                              ; preds = %240
-  call void @_efree(ptr noundef nonnull %.1248) #19
+  call void @_efree(ptr noundef nonnull %.2) #19
   br label %248
 
 248:                                              ; preds = %247, %240
-  %.not306 = icmp eq ptr %.0245, null
+  %.not306 = icmp eq ptr %.1246, null
   br i1 %.not306, label %385, label %249
 
 249:                                              ; preds = %248
-  call void @_efree(ptr noundef nonnull %.0245) #19
+  call void @_efree(ptr noundef nonnull %.1246) #19
   br label %385
 
 250:                                              ; preds = %237
@@ -4266,50 +4266,50 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   %257 = getelementptr inbounds i8, ptr %256, i64 24
   %258 = load ptr, ptr %4, align 8
   %259 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %254, i64 noundef 0, ptr noundef nonnull @.str.227, ptr noundef nonnull %257, ptr noundef %258) #19
-  %.not289 = icmp eq ptr %.1248, null
+  %.not289 = icmp eq ptr %.2, null
   br i1 %.not289, label %261, label %260
 
 260:                                              ; preds = %253
-  call void @_efree(ptr noundef nonnull %.1248) #19
+  call void @_efree(ptr noundef nonnull %.2) #19
   br label %261
 
 261:                                              ; preds = %260, %253
-  %.not290 = icmp eq ptr %.0245, null
+  %.not290 = icmp eq ptr %.1246, null
   br i1 %.not290, label %385, label %262
 
 262:                                              ; preds = %261
-  call void @_efree(ptr noundef nonnull %.0245) #19
+  call void @_efree(ptr noundef nonnull %.1246) #19
   br label %385
 
 263:                                              ; preds = %250, %80
-  %.2 = phi ptr [ %.1248, %250 ], [ %64, %80 ]
-  %.1246 = phi ptr [ %.0245, %250 ], [ null, %80 ]
-  %.1244 = phi ptr [ %.0243, %250 ], [ %64, %80 ]
+  %.0247 = phi ptr [ %.2, %250 ], [ %64, %80 ]
+  %.0245 = phi ptr [ %.1246, %250 ], [ null, %80 ]
+  %.0243 = phi ptr [ %.1244, %250 ], [ %64, %80 ]
   %.0241 = phi ptr [ %252, %250 ], [ %37, %80 ]
-  %.1 = phi i64 [ %.0240, %250 ], [ %62, %80 ]
+  %.0240 = phi i64 [ %.1, %250 ], [ %62, %80 ]
   %.0239 = phi i1 [ true, %250 ], [ false, %80 ]
-  %264 = icmp ugt i64 %.1, 4
+  %264 = icmp ugt i64 %.0240, 4
   br i1 %264, label %265, label %285
 
 265:                                              ; preds = %263
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.1244, ptr noundef nonnull dereferenceable(5) @.str.128, i64 5)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.0243, ptr noundef nonnull dereferenceable(5) @.str.128, i64 5)
   %.not291 = icmp eq i32 %bcmp, 0
   br i1 %.not291, label %266, label %285
 
 266:                                              ; preds = %265
-  %.not292 = icmp eq ptr %.2, null
+  %.not292 = icmp eq ptr %.0247, null
   br i1 %.not292, label %268, label %267
 
 267:                                              ; preds = %266
-  call void @_efree(ptr noundef nonnull %.2) #19
+  call void @_efree(ptr noundef nonnull %.0247) #19
   br label %268
 
 268:                                              ; preds = %267, %266
-  %.not293 = icmp eq ptr %.1246, null
+  %.not293 = icmp eq ptr %.0245, null
   br i1 %.not293, label %270, label %269
 
 269:                                              ; preds = %268
-  call void @_efree(ptr noundef nonnull %.1246) #19
+  call void @_efree(ptr noundef nonnull %.0245) #19
   br label %270
 
 270:                                              ; preds = %269, %268
@@ -4350,21 +4350,21 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   %288 = getelementptr inbounds i8, ptr %286, i64 8
   %289 = load i32, ptr %288, align 8
   %290 = zext i32 %289 to i64
-  %291 = call ptr @phar_get_or_create_entry_data(ptr noundef %287, i64 noundef %290, ptr noundef %.1244, i64 noundef %.1, ptr noundef nonnull @.str.228, i8 noundef signext 0, ptr noundef nonnull %5, i32 noundef 1) #19
+  %291 = call ptr @phar_get_or_create_entry_data(ptr noundef %287, i64 noundef %290, ptr noundef %.0243, i64 noundef %.0240, ptr noundef nonnull @.str.228, i8 noundef signext 0, ptr noundef nonnull %5, i32 noundef 1) #19
   %.not296 = icmp eq ptr %291, null
   br i1 %.not296, label %292, label %315
 
 292:                                              ; preds = %285
   %293 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %294 = load ptr, ptr %5, align 8
-  %295 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %293, i64 noundef 0, ptr noundef nonnull @.str.229, ptr noundef %.1244, ptr noundef %294) #19
+  %295 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %293, i64 noundef 0, ptr noundef nonnull @.str.229, ptr noundef %.0243, ptr noundef %294) #19
   %296 = load ptr, ptr %5, align 8
   call void @_efree(ptr noundef %296) #19
-  %.not297 = icmp eq ptr %.2, null
+  %.not297 = icmp eq ptr %.0247, null
   br i1 %.not297, label %298, label %297
 
 297:                                              ; preds = %292
-  call void @_efree(ptr noundef nonnull %.2) #19
+  call void @_efree(ptr noundef nonnull %.0247) #19
   br label %298
 
 298:                                              ; preds = %297, %292
@@ -4393,11 +4393,11 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   br label %310
 
 310:                                              ; preds = %300, %309, %304, %298
-  %.not300 = icmp eq ptr %.1246, null
+  %.not300 = icmp eq ptr %.0245, null
   br i1 %.not300, label %312, label %311
 
 311:                                              ; preds = %310
-  call void @_efree(ptr noundef nonnull %.1246) #19
+  call void @_efree(ptr noundef nonnull %.0245) #19
   br label %312
 
 312:                                              ; preds = %311, %310
@@ -4497,21 +4497,21 @@ define internal range(i32 0, 3) i32 @phar_build(ptr noundef %0, ptr nocapture no
   %371 = getelementptr inbounds i8, ptr %1, i64 24
   %372 = load ptr, ptr %371, align 8
   %373 = load ptr, ptr %6, align 8
-  %374 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1244) #21
-  call void @add_assoc_str_ex(ptr noundef %372, ptr noundef %.1244, i64 noundef %374, ptr noundef %373) #19
-  %.not303 = icmp eq ptr %.2, null
+  %374 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0243) #21
+  call void @add_assoc_str_ex(ptr noundef %372, ptr noundef %.0243, i64 noundef %374, ptr noundef %373) #19
+  %.not303 = icmp eq ptr %.0247, null
   br i1 %.not303, label %376, label %375
 
 375:                                              ; preds = %370
-  call void @_efree(ptr noundef nonnull %.2) #19
+  call void @_efree(ptr noundef nonnull %.0247) #19
   br label %376
 
 376:                                              ; preds = %375, %370
-  %.not304 = icmp eq ptr %.1246, null
+  %.not304 = icmp eq ptr %.0245, null
   br i1 %.not304, label %378, label %377
 
 377:                                              ; preds = %376
-  call void @_efree(ptr noundef nonnull %.1246) #19
+  call void @_efree(ptr noundef nonnull %.0245) #19
   br label %378
 
 378:                                              ; preds = %377, %376
@@ -9983,7 +9983,7 @@ define hidden void @zim_Phar_getStub(ptr nocapture noundef readonly %0, ptr noca
   br label %73
 
 73:                                               ; preds = %71, %52, %38
-  %.1127 = phi ptr [ %63, %71 ], [ null, %52 ], [ null, %38 ]
+  %.0126 = phi ptr [ %63, %71 ], [ null, %52 ], [ null, %38 ]
   %.0125 = phi ptr [ %44, %71 ], [ %44, %52 ], [ %33, %38 ]
   %74 = getelementptr inbounds i8, ptr %30, i64 72
   %75 = load i64, ptr %74, align 8
@@ -10025,13 +10025,13 @@ define hidden void @zim_Phar_getStub(ptr nocapture noundef readonly %0, ptr noca
   br label %142
 
 .thread163:                                       ; preds = %82, %88
-  %.1166 = phi ptr [ %90, %88 ], [ %86, %82 ]
-  %96 = tail call i32 @_php_stream_seek(ptr noundef nonnull %.1166, i64 noundef 0, i32 noundef 0) #19
+  %.2166 = phi ptr [ %90, %88 ], [ %86, %82 ]
+  %96 = tail call i32 @_php_stream_seek(ptr noundef nonnull %.2166, i64 noundef 0, i32 noundef 0) #19
   br label %97
 
 97:                                               ; preds = %.thread163, %73
-  %.2128 = phi ptr [ %.1127, %73 ], [ null, %.thread163 ]
-  %.2 = phi ptr [ %.0125, %73 ], [ %.1166, %.thread163 ]
+  %.2128 = phi ptr [ %.0126, %73 ], [ null, %.thread163 ]
+  %.1 = phi ptr [ %.0125, %73 ], [ %.2166, %.thread163 ]
   %.0124 = phi i64 [ %78, %73 ], [ %84, %.thread163 ]
   %98 = and i64 %.0124, -8
   %99 = add i64 %98, 32
@@ -10044,7 +10044,7 @@ define hidden void @zim_Phar_getStub(ptr nocapture noundef readonly %0, ptr noca
   %103 = getelementptr inbounds i8, ptr %100, i64 16
   store i64 %.0124, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %100, i64 24
-  %105 = tail call i64 @_php_stream_read(ptr noundef nonnull %.2, ptr noundef nonnull %104, i64 noundef %.0124) #19
+  %105 = tail call i64 @_php_stream_read(ptr noundef nonnull %.1, ptr noundef nonnull %104, i64 noundef %.0124) #19
   %.not151 = icmp eq i64 %.0124, %105
   br i1 %.not151, label %126, label %106
 
@@ -10052,11 +10052,11 @@ define hidden void @zim_Phar_getStub(ptr nocapture noundef readonly %0, ptr noca
   %107 = load ptr, ptr %15, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 256
   %109 = load ptr, ptr %108, align 8
-  %.not155 = icmp eq ptr %.2, %109
+  %.not155 = icmp eq ptr %.1, %109
   br i1 %.not155, label %112, label %110
 
 110:                                              ; preds = %106
-  %111 = tail call i32 @_php_stream_free(ptr noundef nonnull %.2, i32 noundef 3) #19
+  %111 = tail call i32 @_php_stream_free(ptr noundef nonnull %.1, i32 noundef 3) #19
   br label %112
 
 112:                                              ; preds = %110, %106
@@ -10099,11 +10099,11 @@ define hidden void @zim_Phar_getStub(ptr nocapture noundef readonly %0, ptr noca
   %131 = load ptr, ptr %15, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 256
   %133 = load ptr, ptr %132, align 8
-  %.not153 = icmp eq ptr %.2, %133
+  %.not153 = icmp eq ptr %.1, %133
   br i1 %.not153, label %136, label %134
 
 134:                                              ; preds = %130
-  %135 = tail call i32 @_php_stream_free(ptr noundef nonnull %.2, i32 noundef 3) #19
+  %135 = tail call i32 @_php_stream_free(ptr noundef nonnull %.1, i32 noundef 3) #19
   br label %136
 
 136:                                              ; preds = %134, %130
@@ -10227,7 +10227,7 @@ define hidden void @zim_Phar_getMetadata(ptr noundef %0, ptr noundef %1) #0 {
   br label %44
 
 .thread:                                          ; preds = %7, %.thread98
-  %.286 = phi ptr [ %13, %.thread98 ], [ null, %7 ]
+  %.07086 = phi ptr [ %13, %.thread98 ], [ null, %7 ]
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
@@ -10264,7 +10264,7 @@ define hidden void @zim_Phar_getMetadata(ptr noundef %0, ptr noundef %1) #0 {
   %40 = lshr i16 %39, 8
   %41 = and i16 %40, 1
   %42 = zext nneg i16 %41 to i32
-  %43 = tail call i32 @phar_metadata_tracker_unserialize_or_copy(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %42, ptr noundef %.286, ptr noundef nonnull @.str.156) #19
+  %43 = tail call i32 @phar_metadata_tracker_unserialize_or_copy(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %42, ptr noundef %.07086, ptr noundef nonnull @.str.156) #19
   br label %44
 
 44:                                               ; preds = %36, %28, %23, %14
@@ -10716,7 +10716,7 @@ thread-pre-split:                                 ; preds = %19
   br i1 %42, label %.thread246, label %.thread263
 
 .thread246:                                       ; preds = %36, %40, %38, %41
-  %.1249 = phi ptr [ null, %41 ], [ null, %40 ], [ %39, %38 ], [ null, %36 ]
+  %.2249 = phi ptr [ null, %41 ], [ null, %40 ], [ %39, %38 ], [ null, %36 ]
   %.not225 = icmp eq i32 %10, 3
   br i1 %.not225, label %43, label %.thread279
 
@@ -10751,7 +10751,7 @@ thread-pre-split:                                 ; preds = %19
   br label %192
 
 .thread279:                                       ; preds = %47, %.thread246, %28, %.thread291
-  %.2290 = phi ptr [ %.1249, %.thread291 ], [ %.1249, %.thread246 ], [ null, %28 ], [ %.1249, %47 ]
+  %.0207290 = phi ptr [ %.2249, %.thread291 ], [ %.2249, %.thread246 ], [ null, %28 ], [ %.2249, %47 ]
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
@@ -10848,11 +10848,11 @@ thread-pre-split:                                 ; preds = %19
   br label %192
 
 108:                                              ; preds = %99, %92
-  %.not231 = icmp eq ptr %.2290, null
+  %.not231 = icmp eq ptr %.0207290, null
   br i1 %.not231, label %166, label %109
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.2290, i64 28
+  %110 = getelementptr inbounds i8, ptr %.0207290, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %115
@@ -10863,9 +10863,9 @@ thread-pre-split:                                 ; preds = %19
   br label %192
 
 115:                                              ; preds = %109
-  %116 = getelementptr inbounds i8, ptr %.2290, i64 24
+  %116 = getelementptr inbounds i8, ptr %.0207290, i64 24
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %.2290, i64 8
+  %118 = getelementptr inbounds i8, ptr %.0207290, i64 8
   %119 = load i32, ptr %118, align 8
   %120 = shl i32 %119, 2
   %121 = and i32 %120, 16
@@ -10876,7 +10876,7 @@ thread-pre-split:                                 ; preds = %19
   br i1 %.not232295, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %115
-  %124 = getelementptr inbounds i8, ptr %.2290, i64 16
+  %124 = getelementptr inbounds i8, ptr %.0207290, i64 16
   %125 = load ptr, ptr %124, align 8
   br label %.lr.ph
 
@@ -11074,7 +11074,7 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %36, %60
   %.05874 = phi ptr [ %61, %60 ], [ %38, %36 ]
-  %.273 = phi i32 [ %.3, %60 ], [ 0, %36 ]
+  %.373 = phi i32 [ %.4, %60 ], [ 0, %36 ]
   %46 = getelementptr inbounds i8, ptr %.05874, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = icmp eq i8 %47, 0
@@ -11095,11 +11095,11 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %57, label %.thread, label %58
 
 58:                                               ; preds = %55
-  %59 = add nsw i32 %.273, 1
+  %59 = add nsw i32 %.373, 1
   br label %60
 
 60:                                               ; preds = %49, %.lr.ph, %58
-  %.3 = phi i32 [ %.273, %.lr.ph ], [ %.273, %49 ], [ %59, %58 ]
+  %.4 = phi i32 [ %.373, %.lr.ph ], [ %.373, %49 ], [ %59, %58 ]
   %61 = getelementptr inbounds i8, ptr %.05874, i64 32
   %.not67 = icmp eq ptr %61, %42
   br i1 %.not67, label %.thread, label %.lr.ph
@@ -11118,7 +11118,7 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %55, %60, %20, %26, %36, %7, %62, %65
-  %.057 = phi i32 [ %., %65 ], [ 0, %62 ], [ 0, %7 ], [ 0, %36 ], [ -1, %20 ], [ %.1, %26 ], [ -1, %55 ], [ %.3, %60 ]
+  %.057 = phi i32 [ %., %65 ], [ 0, %62 ], [ 0, %7 ], [ 0, %36 ], [ -1, %20 ], [ %.1, %26 ], [ -1, %55 ], [ %.4, %60 ]
   ret i32 %.057
 }
 
@@ -12010,7 +12010,7 @@ define hidden void @zim_PharFileInfo_getMetadata(ptr noundef %0, ptr noundef %1)
   br label %44
 
 .thread:                                          ; preds = %7, %.thread98
-  %.286 = phi ptr [ %13, %.thread98 ], [ null, %7 ]
+  %.07086 = phi ptr [ %13, %.thread98 ], [ null, %7 ]
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
@@ -12047,7 +12047,7 @@ define hidden void @zim_PharFileInfo_getMetadata(ptr noundef %0, ptr noundef %1)
   %40 = lshr i16 %39, 8
   %41 = and i16 %40, 1
   %42 = zext nneg i16 %41 to i32
-  %43 = tail call i32 @phar_metadata_tracker_unserialize_or_copy(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %42, ptr noundef %.286, ptr noundef nonnull @.str.177) #19
+  %43 = tail call i32 @phar_metadata_tracker_unserialize_or_copy(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %42, ptr noundef %.07086, ptr noundef nonnull @.str.177) #19
   br label %44
 
 44:                                               ; preds = %36, %28, %23, %14

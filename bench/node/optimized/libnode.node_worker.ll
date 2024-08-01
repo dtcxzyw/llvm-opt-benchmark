@@ -5108,7 +5108,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %lor.lhs.false.i734
 
 lor.lhs.false.i734:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit797, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit452
-  %per_isolate_opts.sroa.6.0 = phi ptr [ %call.i.i.i.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ %call.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit452 ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit797 ]
+  %per_isolate_opts.sroa.6.1 = phi ptr [ %call.i.i.i.i, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ %call.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit452 ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit797 ]
   %per_isolate_opts.sroa.0.0 = phi ptr [ %call216, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ %call216, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit452 ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit797 ]
   %242 = load i32, ptr %length_.i1010, align 8
   %cmp2.i736 = icmp slt i32 %242, 3
@@ -5336,7 +5336,7 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERA
   br label %cleanup474
 
 cleanup474:                                       ; preds = %lor.lhs.false, %if.then417, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 1, %if.then417 ], [ 0, %lor.lhs.false ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN4node21FIXED_ONE_BYTE_STRINGILi16EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ 1, %if.then417 ], [ 0, %lor.lhs.false ]
   %283 = load ptr, ptr %errors403, align 8
   %284 = load ptr, ptr %_M_finish.i479, align 8
   %cmp.not3.i.i.i.i503 = icmp eq ptr %283, %284
@@ -5389,7 +5389,7 @@ if.then.i.i.i524:                                 ; preds = %_ZSt8_DestroyIPNSt7
   br label %cleanup476
 
 cleanup476:                                       ; preds = %if.end370, %for.body, %if.then.i.i.i524, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i522
-  %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i522 ], [ %cleanup.dest.slot.1, %if.then.i.i.i524 ], [ 1, %for.body ], [ 1, %if.end370 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i522 ], [ %cleanup.dest.slot.2, %if.then.i.i.i524 ], [ 1, %for.body ], [ 1, %if.end370 ]
   %289 = load ptr, ptr %exec_argv, align 8
   %290 = load ptr, ptr %_M_finish.i.i457, align 8
   %cmp.not3.i.i.i.i527 = icmp eq ptr %289, %290
@@ -5416,7 +5416,7 @@ if.then.i.i.i536:                                 ; preds = %_ZSt8_DestroyIPNSt7
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit537
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit537: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i534, %if.then.i.i.i536
-  %cond = icmp eq i32 %cleanup.dest.slot.2, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %cond, label %if.end482, label %cleanup588
 
 if.else479:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit747
@@ -5434,12 +5434,12 @@ if.end482:                                        ; preds = %_ZNSt6vectorINSt7__
   %add.ptr.i1210 = getelementptr inbounds i8, ptr %294, i64 -8
   store ptr %per_isolate_opts.sroa.0.0, ptr %agg.tmp491, align 8
   %_M_refcount.i.i539 = getelementptr inbounds i8, ptr %agg.tmp491, i64 8
-  store ptr %per_isolate_opts.sroa.6.0, ptr %_M_refcount.i.i539, align 8
-  %cmp.not.i.i.i541 = icmp eq ptr %per_isolate_opts.sroa.6.0, null
+  store ptr %per_isolate_opts.sroa.6.1, ptr %_M_refcount.i.i539, align 8
+  %cmp.not.i.i.i541 = icmp eq ptr %per_isolate_opts.sroa.6.1, null
   br i1 %cmp.not.i.i.i541, label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit, label %if.then.i.i.i542
 
 if.then.i.i.i542:                                 ; preds = %if.end482
-  %_M_use_count.i.i.i.i543 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.0, i64 8
+  %_M_use_count.i.i.i.i543 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.1, i64 8
   %295 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i544 = icmp eq i8 %295, 0
   br i1 %tobool.i.not.i.i.i.i544, label %if.else.i.i.i.i.i547, label %if.then.i.i.i.i.i545
@@ -5917,7 +5917,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %cleanup588
 
 cleanup588:                                       ; preds = %if.end582, %if.then584, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit672, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit537
-  %per_isolate_opts.sroa.6.1 = phi ptr [ %per_isolate_opts.sroa.6.0, %if.then584 ], [ %per_isolate_opts.sroa.6.0, %if.end582 ], [ %per_isolate_opts.sroa.6.0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit537 ], [ %call.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit672 ]
+  %per_isolate_opts.sroa.6.0 = phi ptr [ %per_isolate_opts.sroa.6.1, %if.then584 ], [ %per_isolate_opts.sroa.6.1, %if.end582 ], [ %per_isolate_opts.sroa.6.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit537 ], [ %call.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit672 ]
   %371 = load ptr, ptr %exec_argv_out, align 8
   %_M_finish.i673 = getelementptr inbounds i8, ptr %exec_argv_out, i64 8
   %372 = load ptr, ptr %_M_finish.i673, align 8
@@ -6019,11 +6019,11 @@ if.end8.sink.split.i.i.i.i707:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit716
 
 _ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit716:   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit684, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i694, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i704, %if.end8.sink.split.i.i.i.i707
-  %cmp.not.i.i.i718 = icmp eq ptr %per_isolate_opts.sroa.6.1, null
+  %cmp.not.i.i.i718 = icmp eq ptr %per_isolate_opts.sroa.6.0, null
   br i1 %cmp.not.i.i.i718, label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit748, label %if.then.i.i.i719
 
 if.then.i.i.i719:                                 ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit716
-  %_M_use_count.i.i.i.i720 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.1, i64 8
+  %_M_use_count.i.i.i.i720 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.0, i64 8
   %385 = load atomic i64, ptr %_M_use_count.i.i.i.i720 acquire, align 8
   %cmp.i.i.i.i721 = icmp eq i64 %385, 4294967297
   %386 = trunc i64 %385 to i32
@@ -6031,12 +6031,12 @@ if.then.i.i.i719:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i744:                               ; preds = %if.then.i.i.i719
   store i32 0, ptr %_M_use_count.i.i.i.i720, align 8
-  %_M_weak_count.i.i.i.i745 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.1, i64 12
+  %_M_weak_count.i.i.i.i745 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i745, align 4
-  %vtable.i.i.i.i746 = load ptr, ptr %per_isolate_opts.sroa.6.1, align 8
+  %vtable.i.i.i.i746 = load ptr, ptr %per_isolate_opts.sroa.6.0, align 8
   %vfn.i.i.i.i747 = getelementptr inbounds i8, ptr %vtable.i.i.i.i746, i64 16
   %387 = load ptr, ptr %vfn.i.i.i.i747, align 8
-  call void %387(ptr noundef nonnull align 8 dereferenceable(16) %per_isolate_opts.sroa.6.1) #22
+  call void %387(ptr noundef nonnull align 8 dereferenceable(16) %per_isolate_opts.sroa.6.0) #22
   br label %if.end8.sink.split.i.i.i.i739
 
 if.end.i.i.i.i722:                                ; preds = %if.then.i.i.i719
@@ -6059,11 +6059,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i726: ; preds = %if.el
   br i1 %cmp6.i.i.i.i728, label %if.then7.i.i.i.i729, label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit748
 
 if.then7.i.i.i.i729:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i726
-  %vtable.i.i.i.i.i.i730 = load ptr, ptr %per_isolate_opts.sroa.6.1, align 8
+  %vtable.i.i.i.i.i.i730 = load ptr, ptr %per_isolate_opts.sroa.6.0, align 8
   %vfn.i.i.i.i.i.i731 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i730, i64 16
   %390 = load ptr, ptr %vfn.i.i.i.i.i.i731, align 8
-  call void %390(ptr noundef nonnull align 8 dereferenceable(16) %per_isolate_opts.sroa.6.1) #22
-  %_M_weak_count.i.i.i.i.i.i732 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.1, i64 12
+  call void %390(ptr noundef nonnull align 8 dereferenceable(16) %per_isolate_opts.sroa.6.0) #22
+  %_M_weak_count.i.i.i.i.i.i732 = getelementptr inbounds i8, ptr %per_isolate_opts.sroa.6.0, i64 12
   %391 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i733 = icmp eq i8 %391, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i733, label %if.else.i.i.i.i.i.i.i742, label %if.then.i.i.i.i.i.i.i734
@@ -6084,10 +6084,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i736: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i738, label %if.end8.sink.split.i.i.i.i739, label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit748
 
 if.end8.sink.split.i.i.i.i739:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i736, %if.then.i.i.i.i744
-  %vtable2.i.i.i.i.i.i740 = load ptr, ptr %per_isolate_opts.sroa.6.1, align 8
+  %vtable2.i.i.i.i.i.i740 = load ptr, ptr %per_isolate_opts.sroa.6.0, align 8
   %vfn3.i.i.i.i.i.i741 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i740, i64 24
   %394 = load ptr, ptr %vfn3.i.i.i.i.i.i741, align 8
-  call void %394(ptr noundef nonnull align 8 dereferenceable(16) %per_isolate_opts.sroa.6.1) #22
+  call void %394(ptr noundef nonnull align 8 dereferenceable(16) %per_isolate_opts.sroa.6.0) #22
   br label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit748
 
 _ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit748: ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit716, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i726, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i736, %if.end8.sink.split.i.i.i.i739

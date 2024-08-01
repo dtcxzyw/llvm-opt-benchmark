@@ -2449,7 +2449,7 @@ if.end414:                                        ; preds = %if.then410, %if.end
 for.body418:                                      ; preds = %if.end414, %for.inc482
   %i.2526 = phi i64 [ %inc483, %for.inc482 ], [ 0, %if.end414 ]
   %struct_index.0525 = phi i64 [ %struct_index.1, %for.inc482 ], [ 0, %if.end414 ]
-  %dummy_index.0524 = phi i64 [ %dummy_index.2, %for.inc482 ], [ 0, %if.end414 ]
+  %dummy_index.0524 = phi i64 [ %dummy_index.1, %for.inc482 ], [ 0, %if.end414 ]
   %element_index.0523 = phi i64 [ %element_index.1, %for.inc482 ], [ %ffi_ofs.0, %if.end414 ]
   %call422 = call ptr @PySequence_GetItem(ptr noundef nonnull %fields, i64 noundef %i.2526) #9
   store i32 0, ptr %bitsize424, align 4
@@ -2619,22 +2619,22 @@ while.body.preheader:                             ; preds = %if.end455
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %dummy_index.1519 = phi i64 [ %inc477, %while.body ], [ %dummy_index.0524, %while.body.preheader ]
-  %inc477 = add i64 %dummy_index.1519, 1
-  %arrayidx478 = getelementptr ptr, ptr %arrayidx399, i64 %dummy_index.1519
+  %dummy_index.2519 = phi i64 [ %inc477, %while.body ], [ %dummy_index.0524, %while.body.preheader ]
+  %inc477 = add i64 %dummy_index.2519, 1
+  %arrayidx478 = getelementptr ptr, ptr %arrayidx399, i64 %dummy_index.2519
   store ptr %ffi_type_pointer459, ptr %arrayidx478, align 8
   %exitcond585.not = icmp eq i64 %inc477, %166
   br i1 %exitcond585.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %if.end455
-  %dummy_index.1.lcssa = phi i64 [ %dummy_index.0524, %if.end455 ], [ %166, %while.body ]
-  %inc479 = add i64 %dummy_index.1.lcssa, 1
-  %arrayidx480 = getelementptr ptr, ptr %arrayidx399, i64 %dummy_index.1.lcssa
+  %dummy_index.2.lcssa = phi i64 [ %dummy_index.0524, %if.end455 ], [ %166, %while.body ]
+  %inc479 = add i64 %dummy_index.2.lcssa, 1
+  %arrayidx480 = getelementptr ptr, ptr %arrayidx399, i64 %dummy_index.2.lcssa
   store ptr null, ptr %arrayidx480, align 8
   br label %if.end481
 
 if.end481:                                        ; preds = %while.end, %if.then441
-  %dummy_index.2 = phi i64 [ %inc479, %while.end ], [ %dummy_index.0524, %if.then441 ]
+  %dummy_index.1 = phi i64 [ %inc479, %while.end ], [ %dummy_index.0524, %if.then441 ]
   %struct_index.1 = phi i64 [ %inc473, %while.end ], [ %struct_index.0525, %if.then441 ]
   %element_index.1 = add i64 %element_index.0523, 1
   %167 = load i64, ptr %call422, align 8

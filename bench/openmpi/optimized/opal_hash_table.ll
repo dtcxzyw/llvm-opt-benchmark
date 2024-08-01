@@ -1421,21 +1421,21 @@ define noundef range(i32 1, 0) i32 @opal_proc_table_remove_all(ptr nocapture nou
   br i1 %.not.i.i.i, label %4, label %opal_hash_table_get_first_key_uint32.exit
 
 opal_hash_table_get_first_key_uint32.exit:        ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i
-  %.1 = phi ptr [ %6, %.lr.ph.i.i.i ], [ %57, %.lr.ph.i.i ]
-  %.119.in = getelementptr inbounds i8, ptr %.1, i64 24
-  %.119 = load ptr, ptr %.119.in, align 8
-  %.not = icmp eq ptr %.119, null
+  %.017 = phi ptr [ %6, %.lr.ph.i.i.i ], [ %57, %.lr.ph.i.i ]
+  %.018.in = getelementptr inbounds i8, ptr %.017, i64 24
+  %.018 = load ptr, ptr %.018.in, align 8
+  %.not = icmp eq ptr %.018, null
   br i1 %.not, label %48, label %8
 
 8:                                                ; preds = %opal_hash_table_get_first_key_uint32.exit
-  %9 = getelementptr inbounds i8, ptr %.119, i64 24
+  %9 = getelementptr inbounds i8, ptr %.018, i64 24
   %10 = load i64, ptr %9, align 8
   %.not18.i = icmp eq i64 %10, 0
   br i1 %.not18.i, label %opal_hash_table_remove_all.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.119, i64 16
-  %12 = getelementptr inbounds i8, ptr %.119, i64 64
+  %11 = getelementptr inbounds i8, ptr %.018, i64 16
+  %12 = getelementptr inbounds i8, ptr %.018, i64 64
   br label %13
 
 13:                                               ; preds = %22, %.lr.ph.i
@@ -1470,11 +1470,11 @@ opal_hash_table_get_first_key_uint32.exit:        ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %26, label %13, label %opal_hash_table_remove_all.exit, !llvm.loop !4
 
 opal_hash_table_remove_all.exit:                  ; preds = %22, %8
-  %27 = getelementptr inbounds i8, ptr %.119, i64 32
+  %27 = getelementptr inbounds i8, ptr %.018, i64 32
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.119, i64 64
+  %28 = getelementptr inbounds i8, ptr %.018, i64 64
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.119, i64 8
+  %29 = getelementptr inbounds i8, ptr %.018, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %35
@@ -1497,7 +1497,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %32, %35
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %41 = load ptr, ptr %.119, align 8
+  %41 = load ptr, ptr %.018, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
@@ -1507,20 +1507,20 @@ opal_thread_add_fetch_32.exit:                    ; preds = %32, %35
 .lr.ph.i10:                                       ; preds = %40, %.lr.ph.i10
   %45 = phi ptr [ %47, %.lr.ph.i10 ], [ %44, %40 ]
   %.07.i = phi ptr [ %46, %.lr.ph.i10 ], [ %43, %40 ]
-  tail call void %45(ptr noundef nonnull %.119) #17
+  tail call void %45(ptr noundef nonnull %.018) #17
   %46 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not.i11 = icmp eq ptr %47, null
   br i1 %.not.i11, label %opal_obj_run_destructors.exit, label %.lr.ph.i10, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i10, %40
-  tail call void @free(ptr noundef %.119) #17
+  tail call void @free(ptr noundef %.018) #17
   br label %48
 
 48:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %opal_hash_table_get_first_key_uint32.exit
   %.val.i = load ptr, ptr %2, align 8
   %.val5.i = load i64, ptr %3, align 8
-  %49 = ptrtoint ptr %.1 to i64
+  %49 = ptrtoint ptr %.017 to i64
   %50 = ptrtoint ptr %.val.i to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 5
@@ -1814,8 +1814,8 @@ opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %83
   br label %opal_obj_new.exit.thread
 
 91:                                               ; preds = %opal_hash_table_get_value_uint32.exit, %65
-  %.1 = phi ptr [ %23, %opal_hash_table_get_value_uint32.exit ], [ %25, %65 ]
-  %92 = tail call i32 @opal_hash_table_set_value_uint32(ptr noundef %.1, i32 noundef %.sroa.3.0.extract.trunc, ptr noundef %2)
+  %.036 = phi ptr [ %23, %opal_hash_table_get_value_uint32.exit ], [ %25, %65 ]
+  %92 = tail call i32 @opal_hash_table_set_value_uint32(ptr noundef %.036, i32 noundef %.sroa.3.0.extract.trunc, ptr noundef %2)
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %29, %opal_obj_run_destructors.exit28, %opal_thread_add_fetch_32.exit23, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %91

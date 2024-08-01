@@ -1703,7 +1703,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %476, %483
 
 .lr.ph131:                                        ; preds = %.preheader118, %.loopexit
   %.promoted149 = phi i32 [ %.promoted, %.loopexit ], [ %.promoted146, %.preheader118 ]
-  %.075.ph148 = phi ptr [ %.2, %.loopexit ], [ null, %.preheader118 ]
+  %.075.ph148 = phi ptr [ %.1, %.loopexit ], [ null, %.preheader118 ]
   %490 = load ptr, ptr %28, align 8
   %491 = load ptr, ptr %6, align 8
   %492 = getelementptr inbounds i8, ptr %491, i64 2136
@@ -1759,7 +1759,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %476, %483
 
 521:                                              ; preds = %.lr.ph141, %549
   %indvars.iv167 = phi i64 [ 1, %.lr.ph141 ], [ %indvars.iv.next168, %549 ]
-  %.077139 = phi ptr [ inttoptr (i64 3735928559 to ptr), %.lr.ph141 ], [ %.178, %549 ]
+  %.077139 = phi ptr [ inttoptr (i64 3735928559 to ptr), %.lr.ph141 ], [ %.279, %549 ]
   %522 = getelementptr inbounds ptr, ptr %518, i64 %indvars.iv167
   %523 = load ptr, ptr %522, align 8
   %524 = getelementptr inbounds i8, ptr %523, i64 40
@@ -1816,13 +1816,13 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %476, %483
   br i1 %548, label %.loopexit117, label %549
 
 549:                                              ; preds = %521, %._crit_edge134
-  %.178 = phi ptr [ %528, %._crit_edge134 ], [ %.077139, %521 ]
+  %.279 = phi ptr [ %528, %._crit_edge134 ], [ %.077139, %521 ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
   br i1 %exitcond171.not, label %.thread, label %521, !llvm.loop !35
 
 .thread:                                          ; preds = %549, %.preheader116
-  %.077.lcssa = phi ptr [ inttoptr (i64 3735928559 to ptr), %.preheader116 ], [ %.178, %549 ]
+  %.077.lcssa = phi ptr [ inttoptr (i64 3735928559 to ptr), %.preheader116 ], [ %.279, %549 ]
   %.not91 = icmp eq ptr %.075.ph148, null
   br i1 %.not91, label %550, label %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge
 
@@ -1887,8 +1887,8 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104: ; preds = %
 
 _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104
   %574 = phi ptr [ %.pre176, %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge ], [ %569, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104 ]
-  %.1 = phi ptr [ %.075.ph148, %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge ], [ %567, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104 ]
-  %575 = getelementptr inbounds i8, ptr %.1, i64 24
+  %.2 = phi ptr [ %.075.ph148, %.thread._ZN7OopFlow4makeEP5ArenaiP7Compile.exit109_crit_edge ], [ %567, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit10.i104 ]
+  %575 = getelementptr inbounds i8, ptr %.2, i64 24
   %576 = load ptr, ptr %575, align 8
   store ptr null, ptr %575, align 8
   %577 = getelementptr inbounds i8, ptr %.077.lcssa, i64 76
@@ -1898,11 +1898,11 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds i8, ptr %581, i64 16
   %583 = load ptr, ptr %582, align 8
-  %584 = getelementptr inbounds i8, ptr %.1, i64 16
+  %584 = getelementptr inbounds i8, ptr %.2, i64 16
   store ptr %583, ptr %584, align 8
   %585 = load ptr, ptr %581, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %574, ptr align 2 %585, i64 %461, i1 false)
-  %586 = getelementptr inbounds i8, ptr %.1, i64 8
+  %586 = getelementptr inbounds i8, ptr %.2, i64 8
   %587 = load ptr, ptr %586, align 8
   %588 = getelementptr inbounds i8, ptr %581, i64 8
   %589 = load ptr, ptr %588, align 8
@@ -1910,8 +1910,8 @@ _ZN7OopFlow4makeEP5ArenaiP7Compile.exit109:       ; preds = %.thread._ZN7OopFlow
   br label %.loopexit117
 
 .loopexit117:                                     ; preds = %._crit_edge134, %546, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109
-  %.181 = phi ptr [ %.1, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %533, %546 ], [ %533, %._crit_edge134 ]
-  %.2 = phi ptr [ %576, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %.075.ph148, %546 ], [ %.075.ph148, %._crit_edge134 ]
+  %.181 = phi ptr [ %.2, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %533, %546 ], [ %533, %._crit_edge134 ]
+  %.1 = phi ptr [ %576, %_ZN7OopFlow4makeEP5ArenaiP7Compile.exit109 ], [ %.075.ph148, %546 ], [ %.075.ph148, %._crit_edge134 ]
   %590 = getelementptr inbounds i8, ptr %.181, i64 16
   store ptr null, ptr %590, align 8
   %591 = load i32, ptr %508, align 4

@@ -1478,7 +1478,7 @@ if.then24.i:                                      ; preds = %if.end21.i
   br label %return.sink.split.i
 
 if.end25.i:                                       ; preds = %if.end21.i
-  %or.i = or i32 %shl.i, %received.0.ph.i
+  %or.i = or i32 %shl.i, %received.1.ph.i
   store i8 50, ptr %alert.i, align 1
   %parse_serverhello.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %6 = load ptr, ptr %parse_serverhello.i, align 8
@@ -1487,7 +1487,7 @@ if.end25.i:                                       ; preds = %if.end21.i
   br i1 %tobool28.not.i, label %if.then29.i, label %while.cond.outer.i, !llvm.loop !26
 
 while.cond.outer.i:                               ; preds = %if.end25.i, %while.cond.preheader.i
-  %received.0.ph.i = phi i32 [ 0, %while.cond.preheader.i ], [ %or.i, %if.end25.i ]
+  %received.1.ph.i = phi i32 [ 0, %while.cond.preheader.i ], [ %or.i, %if.end25.i ]
   br label %while.cond.i
 
 if.then29.i:                                      ; preds = %if.end25.i
@@ -1499,14 +1499,14 @@ if.then29.i:                                      ; preds = %if.end25.i
   br label %return.sink.split.i
 
 if.end33.i:                                       ; preds = %while.cond.i, %entry
-  %received.1.i = phi i32 [ 0, %entry ], [ %received.0.ph.i, %while.cond.i ]
+  %received.0.i = phi i32 [ 0, %entry ], [ %received.1.ph.i, %while.cond.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end33.i
   %i.027.i = phi i64 [ 0, %if.end33.i ], [ %inc.i, %for.inc.i ]
   %sh_prom.i = trunc nuw nsw i64 %i.027.i to i32
   %shl36.i = shl nuw nsw i32 1, %sh_prom.i
-  %and37.i = and i32 %shl36.i, %received.1.i
+  %and37.i = and i32 %shl36.i, %received.0.i
   %tobool38.not.i = icmp eq i32 %and37.i, 0
   br i1 %tobool38.not.i, label %if.then39.i, label %for.inc.i
 

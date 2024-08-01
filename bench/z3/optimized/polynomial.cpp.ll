@@ -15199,7 +15199,7 @@ ehcleanup152:                                     ; preds = %lpad22.loopexit, %l
   br label %ehcleanup156
 
 cleanup155:                                       ; preds = %for.body.preheader.i.i109, %_ZNK10polynomial8monomial9is_squareEv.exit.i122, %for.body.preheader.i.i, %_ZNK10polynomial8monomial9is_squareEv.exit.i, %if.then.i14.i.i505, %_ZN6vectorI3mpzLb0EjE5resetEv.exit.i.i503, %_ZNK10polynomial7manager3imp10som_buffer5emptyEv.exit.i.i477, %_ZZN10polynomial7manager3imp4sqrtEPKNS_10polynomialER7obj_refIS2_S0_EEN12scoped_resetD2Ev.exit, %invoke.cont12, %invoke.cont5
-  %retval.3 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont12 ], [ %cmp56517, %_ZZN10polynomial7manager3imp4sqrtEPKNS_10polynomialER7obj_refIS2_S0_EEN12scoped_resetD2Ev.exit ], [ %cmp56517, %_ZNK10polynomial7manager3imp10som_buffer5emptyEv.exit.i.i477 ], [ %cmp56517, %_ZN6vectorI3mpzLb0EjE5resetEv.exit.i.i503 ], [ %cmp56517, %if.then.i14.i.i505 ], [ false, %_ZNK10polynomial8monomial9is_squareEv.exit.i ], [ false, %for.body.preheader.i.i ], [ false, %_ZNK10polynomial8monomial9is_squareEv.exit.i122 ], [ false, %for.body.preheader.i.i109 ]
+  %retval.1 = phi i1 [ false, %invoke.cont5 ], [ false, %invoke.cont12 ], [ %cmp56517, %_ZZN10polynomial7manager3imp4sqrtEPKNS_10polynomialER7obj_refIS2_S0_EEN12scoped_resetD2Ev.exit ], [ %cmp56517, %_ZNK10polynomial7manager3imp10som_buffer5emptyEv.exit.i.i477 ], [ %cmp56517, %_ZN6vectorI3mpzLb0EjE5resetEv.exit.i.i503 ], [ %cmp56517, %if.then.i14.i.i505 ], [ false, %_ZNK10polynomial8monomial9is_squareEv.exit.i ], [ false, %for.body.preheader.i.i ], [ false, %_ZNK10polynomial8monomial9is_squareEv.exit.i122 ], [ false, %for.body.preheader.i.i109 ]
   %267 = load ptr, ptr %a, align 8
   %268 = load ptr, ptr %267, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %268, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
@@ -15218,8 +15218,8 @@ ehcleanup156:                                     ; preds = %ehcleanup152, %lpad
   resume { ptr, i32 } %.pn43.pn.pn
 
 return:                                           ; preds = %cleanup155, %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEEaSEPS1_.exit
-  %retval.4 = phi i1 [ true, %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEEaSEPS1_.exit ], [ %retval.3, %cleanup155 ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ true, %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEEaSEPS1_.exit ], [ %retval.1, %cleanup155 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15699,7 +15699,7 @@ terminate.lpad.i125:                              ; preds = %invoke.cont71
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont71, %invoke.cont43
-  %retval.0 = phi ptr [ %p, %invoke.cont43 ], [ %call5.i122, %invoke.cont71 ]
+  %retval.1 = phi ptr [ %p, %invoke.cont43 ], [ %call5.i122, %invoke.cont71 ]
   %66 = load ptr, ptr %g, align 8
   %67 = load ptr, ptr %66, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %67, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i51)
@@ -15713,8 +15713,8 @@ terminate.lpad.i128:                              ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %invoke.cont31, %entry
-  %retval.1 = phi ptr [ %p, %entry ], [ %call5.i49, %invoke.cont31 ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %p, %entry ], [ %call5.i49, %invoke.cont31 ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad62, %lpad39.loopexit.split-lp, %lpad39.loopexit, %lpad.loopexit134, %lpad.loopexit.split-lp135
   %g.sink = phi ptr [ %a, %lpad.loopexit.split-lp135 ], [ %a, %lpad.loopexit134 ], [ %g, %lpad39.loopexit ], [ %g, %lpad39.loopexit.split-lp ], [ %g, %lpad62 ]
@@ -17436,8 +17436,8 @@ ehcleanup:                                        ; preds = %lpad8.loopexit, %lp
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN10polynomial7manager7dec_refEPNS_8monomialE.exit.i.i149, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit, %entry
-  %retval.3 = phi i1 [ true, %entry ], [ %cmp157, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit ], [ %cmp157, %_ZN10polynomial7manager7dec_refEPNS_8monomialE.exit.i.i149 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp157, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit ], [ %cmp157, %_ZN10polynomial7manager7dec_refEPNS_8monomialE.exit.i.i149 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32987,7 +32987,7 @@ sw.bb202:                                         ; preds = %while.end
   br label %sw.bb205
 
 sw.bb205:                                         ; preds = %sw.bb202, %while.end
-  %b.1 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
   %m_ms.i.i794 = getelementptr inbounds i8, ptr %app, i64 24
   %273 = load ptr, ptr %m_ms.i.i794, align 8
   %274 = load ptr, ptr %273, align 8
@@ -33031,14 +33031,14 @@ sw.bb205:                                         ; preds = %sw.bb202, %while.en
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %299 = add i32 %b.2, %c.1
+  %299 = add i32 %b.1, %c.1
   %sub209 = sub i32 %246, %299
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %300 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %300
+  %sub213 = sub i32 %b.1, %300
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %301 = add i32 %xor211, %xor215
@@ -34560,11 +34560,11 @@ for.body8.preheader:                              ; preds = %for.cond6.preheader
 
 for.body8:                                        ; preds = %for.body8.preheader, %for.body8
   %indvars.iv = phi i64 [ %6, %for.body8.preheader ], [ %indvars.iv.next, %for.body8 ]
-  %j.272 = phi i32 [ %j.067, %for.body8.preheader ], [ %inc13, %for.body8 ]
+  %j.372 = phi i32 [ %j.067, %for.body8.preheader ], [ %inc13, %for.body8 ]
   %arrayidx10 = getelementptr inbounds %"class.polynomial::power", ptr %pws1, i64 %indvars.iv
   %7 = load ptr, ptr %m_tmp1, align 8
   %m_powers.i41 = getelementptr inbounds i8, ptr %7, i64 20
-  %idxprom.i42 = zext i32 %j.272 to i64
+  %idxprom.i42 = zext i32 %j.372 to i64
   %arrayidx.i43 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i41, i64 0, i64 %idxprom.i42
   %8 = load i32, ptr %arrayidx10, align 4
   store i32 %8, ptr %arrayidx.i43, align 4
@@ -34573,7 +34573,7 @@ for.body8:                                        ; preds = %for.body8.preheader
   %second3.i.i.i45 = getelementptr inbounds i8, ptr %arrayidx.i43, i64 4
   store i32 %9, ptr %second3.i.i.i45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %inc13 = add i32 %j.272, 1
+  %inc13 = add i32 %j.372, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.end, label %for.body8, !llvm.loop !183
 
@@ -34637,10 +34637,10 @@ if.end34:                                         ; preds = %if.then29, %if.else
   br i1 %cmp, label %for.cond.preheader, label %if.end, !llvm.loop !184
 
 while.end:                                        ; preds = %for.body8, %for.body, %for.cond6.preheader, %for.cond.preheader
-  %j.3 = phi i32 [ %j.0.lcssa, %for.cond.preheader ], [ %j.067, %for.cond6.preheader ], [ %inc3, %for.body ], [ %inc13, %for.body8 ]
+  %j.2 = phi i32 [ %j.0.lcssa, %for.cond.preheader ], [ %j.067, %for.cond6.preheader ], [ %inc3, %for.body ], [ %inc13, %for.body8 ]
   %18 = load ptr, ptr %m_tmp1, align 8
   %m_size.i = getelementptr inbounds i8, ptr %18, i64 12
-  store i32 %j.3, ptr %m_size.i, align 4
+  store i32 %j.2, ptr %m_size.i, align 4
   %call36 = tail call noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(12) %m_tmp1)
   ret ptr %call36
 }
@@ -36864,8 +36864,8 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %entry, %cleanup, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit
-  %retval.1 = phi i1 [ false, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit ], [ %.not, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit ], [ %.not, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75438,24 +75438,24 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS
   br i1 %cmp.not3.i.i.i, label %for.end, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit, %if.end.i.i.i
-  %it.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ]
-  %3 = load ptr, ptr %it.sroa.0.0, align 8, !noalias !319
+  %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %0, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS4_jj.exit ]
+  %3 = load ptr, ptr %it.sroa.0.1, align 8, !noalias !319
   %4 = ptrtoint ptr %3 to i64
   %and.i.i.i.i = and i64 %4, 7
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.outer
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !322
 
 for.body.outer:                                   ; preds = %while.body.i.i, %while.body.i.i.i
-  %it.sroa.0.216.ph = phi ptr [ %it.sroa.0.0, %while.body.i.i.i ], [ %it.sroa.0.3, %while.body.i.i ]
+  %it.sroa.0.016.ph = phi ptr [ %it.sroa.0.1, %while.body.i.i.i ], [ %it.sroa.0.3, %while.body.i.i ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %for.inc
-  %it.sroa.7.017 = phi ptr [ %12, %for.inc ], [ %it.sroa.0.216.ph, %for.body.outer ]
+  %it.sroa.7.017 = phi ptr [ %12, %for.inc ], [ %it.sroa.0.016.ph, %for.body.outer ]
   %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.017, i64 8
   %5 = load ptr, ptr %m_data.i, align 8
   store ptr %5, ptr %m, align 8
@@ -75522,7 +75522,7 @@ for.inc:                                          ; preds = %invoke.cont8
   br i1 %cmp.i5, label %if.then.i, label %for.body, !llvm.loop !324
 
 if.then.i:                                        ; preds = %for.inc
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.216.ph, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.016.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end.loopexit, label %while.body.i.i
 
@@ -87857,15 +87857,15 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.not3.i.i.i, label %for.end, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont, %if.end.i.i.i
-  %__begin2.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %1, %invoke.cont ]
-  %3 = load ptr, ptr %__begin2.sroa.0.0, align 8, !noalias !354
+  %__begin2.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %1, %invoke.cont ]
+  %3 = load ptr, ptr %__begin2.sroa.0.1, align 8, !noalias !354
   %4 = ptrtoint ptr %3 to i64
   %and.i.i.i.i = and i64 %4, 7
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.1, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !322
 
@@ -87874,11 +87874,11 @@ for.body.lr.ph:                                   ; preds = %while.body.i.i.i
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
-  %__begin2.sroa.0.225.ph = phi ptr [ %__begin2.sroa.0.0, %for.body.lr.ph ], [ %__begin2.sroa.0.3, %while.body.i.i ]
+  %__begin2.sroa.0.025.ph = phi ptr [ %__begin2.sroa.0.1, %for.body.lr.ph ], [ %__begin2.sroa.0.3, %while.body.i.i ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %for.inc
-  %__begin2.sroa.7.026 = phi ptr [ %8, %for.inc ], [ %__begin2.sroa.0.225.ph, %for.body.outer ]
+  %__begin2.sroa.7.026 = phi ptr [ %8, %for.inc ], [ %__begin2.sroa.0.025.ph, %for.body.outer ]
   %m_data.i = getelementptr inbounds i8, ptr %__begin2.sroa.7.026, i64 8
   %5 = load ptr, ptr %m_data.i, align 8
   %m_size.i = getelementptr inbounds i8, ptr %5, i64 12
@@ -87896,7 +87896,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp.i5, label %if.then.i, label %for.body
 
 if.then.i:                                        ; preds = %for.inc
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.225.ph, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.025.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 

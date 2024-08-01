@@ -739,10 +739,10 @@ while.end:                                        ; preds = %land.rhs, %land.rhs
 
 err:                                              ; preds = %if.end30, %if.end26, %if.end22, %if.end18, %while.body, %land.lhs.true8, %if.end, %entry, %while.end
   %x.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %land.lhs.true8 ], [ %call39, %while.end ], [ null, %while.body ], [ null, %if.end18 ], [ null, %if.end22 ], [ null, %if.end26 ], [ null, %if.end30 ]
-  %ia5.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %land.lhs.true8 ], [ null, %while.end ], [ null, %if.end30 ], [ %call23, %if.end26 ], [ null, %if.end22 ], [ null, %if.end18 ], [ null, %while.body ]
-  %ad.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %land.lhs.true8 ], [ null, %while.end ], [ %call15, %if.end30 ], [ %call15, %if.end26 ], [ %call15, %if.end22 ], [ %call15, %if.end18 ], [ null, %while.body ]
-  tail call void @ASN1_IA5STRING_free(ptr noundef %ia5.1) #3
-  tail call void @ACCESS_DESCRIPTION_free(ptr noundef %ad.1) #3
+  %ia5.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %land.lhs.true8 ], [ null, %while.end ], [ null, %if.end30 ], [ %call23, %if.end26 ], [ null, %if.end22 ], [ null, %if.end18 ], [ null, %while.body ]
+  %ad.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %land.lhs.true8 ], [ null, %while.end ], [ %call15, %if.end30 ], [ %call15, %if.end26 ], [ %call15, %if.end22 ], [ %call15, %if.end18 ], [ null, %while.body ]
+  tail call void @ASN1_IA5STRING_free(ptr noundef %ia5.0) #3
+  tail call void @ACCESS_DESCRIPTION_free(ptr noundef %ad.0) #3
   tail call void @OCSP_SERVICELOC_free(ptr noundef %call) #3
   ret ptr %x.0
 }

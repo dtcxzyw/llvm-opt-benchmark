@@ -1377,14 +1377,14 @@ _ZN14G1CardSetArray20G1CardSetArrayLockerC2EPVj.exit: ; preds = %_ZN9SpinYield4w
 
 .loopexit:                                        ; preds = %37, %._crit_edge26, %45
   %.sroa.4.0 = phi i32 [ %.0.lcssa.i, %._crit_edge26 ], [ %50, %45 ], [ %.0.lcssa.i, %37 ]
-  %.014 = phi i32 [ 0, %._crit_edge26 ], [ 2, %45 ], [ 1, %37 ]
+  %.115 = phi i32 [ 0, %._crit_edge26 ], [ 2, %45 ], [ 1, %37 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   store volatile i32 %.sroa.4.0, ptr %4, align 4
   br label %.loopexit21
 
 .loopexit21:                                      ; preds = %8, %.loopexit
-  %.115 = phi i32 [ %.014, %.loopexit ], [ 1, %8 ]
-  ret i32 %.115
+  %.014 = phi i32 [ %.115, %.loopexit ], [ 1, %8 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10681,9 +10681,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -10924,9 +10924,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
@@ -15936,9 +15936,9 @@ define linkonce_odr hidden void @_ZN13G1CardSetHowl15iterate_cardsetI23G1Contain
   br label %71
 
 71:                                               ; preds = %69, %62
-  %.1.ph.i.i.i.i.i = phi i64 [ %60, %62 ], [ %68, %69 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %60, %62 ], [ %68, %69 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.01018.i.i.i, %62 ], [ %70, %69 ]
-  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %73 = add i64 %.026.ph.i.i.i.i.i, %72
   %74 = icmp ult i64 %73, %50
   br i1 %74, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN18G1CardSetInlinePtr7iterateI23G1ContainerCardsClosureIN9G1CardSet11CardClosureEEEEvRT_j.exit

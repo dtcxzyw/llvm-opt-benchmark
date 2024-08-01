@@ -842,8 +842,8 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
 
 142:                                              ; preds = %118
   %143 = load ptr, ptr @pldmTypeMap, align 8
-  %.mask56 = and i32 %57, 255
-  %144 = zext nneg i32 %.mask56 to i64
+  %.mask57 = and i32 %57, 255
+  %144 = zext nneg i32 %.mask57 to i64
   %145 = inttoptr i64 %144 to ptr
   %146 = call ptr @wmem_map_lookup(ptr noundef %143, ptr noundef %145) #5
   %147 = ptrtoint ptr %146 to i64
@@ -1069,8 +1069,8 @@ dissect_base.exit:                                ; preds = %223, %206, %189, %1
   %249 = icmp ne ptr %248, null
   %250 = load i32, ptr %8, align 4
   %251 = icmp eq i32 %250, 0
-  %or.cond.i52 = select i1 %249, i1 %251, i1 false
-  br i1 %or.cond.i52, label %252, label %257
+  %or.cond.i53 = select i1 %249, i1 %251, i1 false
+  br i1 %or.cond.i53, label %252, label %257
 
 252:                                              ; preds = %241
   %253 = add nuw nsw i8 %.0395.i, 2
@@ -1343,8 +1343,8 @@ dissect_base.exit:                                ; preds = %223, %206, %189, %1
   %414 = add nuw nsw i32 %.03929.i, 1
   %415 = shl nuw nsw i32 %.03947.i, 1
   %416 = and i32 %415, 510
-  %exitcond.not.i51 = icmp eq i32 %414, 8
-  br i1 %exitcond.not.i51, label %417, label %407, !llvm.loop !13
+  %exitcond.not.i52 = icmp eq i32 %414, 8
+  br i1 %exitcond.not.i52, label %417, label %407, !llvm.loop !13
 
 417:                                              ; preds = %413
   %418 = icmp eq i32 %.1.i, 0
@@ -1718,11 +1718,11 @@ dissect_base.exit:                                ; preds = %223, %206, %189, %1
   br label %dissect_platform.exit
 
 .preheader.i50:                                   ; preds = %665, %.preheader.i50
-  %.54.i = phi i8 [ %672, %.preheader.i50 ], [ %640, %665 ]
+  %.64.i = phi i8 [ %672, %.preheader.i50 ], [ %640, %665 ]
   %669 = load i32, ptr @hf_pdr_record_data, align 4
-  %670 = zext i8 %.54.i to i32
+  %670 = zext i8 %.64.i to i32
   %671 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %669, ptr noundef %53, i32 noundef %670, i32 noundef 1, i32 noundef -2147483648) #5
-  %672 = add i8 %.54.i, 1
+  %672 = add i8 %.64.i, 1
   %673 = load i32, ptr %22, align 4
   %674 = add i32 %673, -1
   store i32 %674, ptr %22, align 4
@@ -1730,14 +1730,14 @@ dissect_base.exit:                                ; preds = %223, %206, %189, %1
   br i1 %.not404.i, label %.loopexit3.i, label %.preheader.i50, !llvm.loop !16
 
 .loopexit3.i:                                     ; preds = %.preheader.i50, %653
-  %.6.i = phi i8 [ %640, %653 ], [ %672, %.preheader.i50 ]
+  %.5.i51 = phi i8 [ %640, %653 ], [ %672, %.preheader.i50 ]
   %675 = load i32, ptr %21, align 4
   %676 = icmp eq i32 %675, 4
   br i1 %676, label %677, label %dissect_platform.exit
 
 677:                                              ; preds = %.loopexit3.i
   %678 = load i32, ptr @hf_transfer_crc, align 4
-  %679 = zext i8 %.6.i to i32
+  %679 = zext i8 %.5.i51 to i32
   %680 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %678, ptr noundef %53, i32 noundef %679, i32 noundef 1, i32 noundef -2147483648) #5
   br label %dissect_platform.exit
 
@@ -1771,8 +1771,8 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %685 = load i32, ptr @hf_pldm_FRU_commands, align 4
   %686 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %685, ptr noundef %53, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #5
-  %.not.i53 = icmp eq i8 %56, 0
-  br i1 %.not.i53, label %687, label %694
+  %.not.i54 = icmp eq i8 %56, 0
+  br i1 %.not.i54, label %687, label %694
 
 687:                                              ; preds = %684
   %688 = call zeroext i8 @tvb_get_guint8(ptr noundef %53, i32 noundef 1) #5
@@ -1801,7 +1801,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   ]
 
 696:                                              ; preds = %694
-  br i1 %.not.i53, label %697, label %dissect_FRU.exit
+  br i1 %.not.i54, label %697, label %dissect_FRU.exit
 
 697:                                              ; preds = %696
   %698 = load i32, ptr @hf_fru_major_ver, align 4
@@ -1828,7 +1828,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
 
 718:                                              ; preds = %694
   %719 = or disjoint i32 %.0141.i, 4
-  br i1 %.not.i53, label %725, label %720
+  br i1 %.not.i54, label %725, label %720
 
 720:                                              ; preds = %718
   %721 = load i32, ptr @hf_fru_data_handle, align 4
@@ -1856,7 +1856,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   br label %dissect_FRU.exit
 
 737:                                              ; preds = %694
-  br i1 %.not.i53, label %758, label %738
+  br i1 %.not.i54, label %758, label %738
 
 738:                                              ; preds = %737
   %739 = load i32, ptr @hf_fru_data_handle, align 4
@@ -1875,8 +1875,8 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
 749:                                              ; preds = %738
   %750 = call i32 @tvb_captured_length(ptr noundef %53) #5
   %751 = trunc i32 %750 to i16
-  %reass.sub65 = sub i16 %751, %746
-  %752 = add i16 %reass.sub65, 252
+  %reass.sub66 = sub i16 %751, %746
+  %752 = add i16 %reass.sub66, 252
   %753 = and i16 %752, 255
   %754 = add i16 %753, %746
   %755 = load i32, ptr @hf_fru_record_crc, align 4
@@ -1891,7 +1891,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
 
 761:                                              ; preds = %694
   %762 = or disjoint i32 %.0141.i, 4
-  br i1 %.not.i53, label %780, label %763
+  br i1 %.not.i54, label %780, label %763
 
 763:                                              ; preds = %761
   %764 = load i32, ptr @hf_fru_data_handle, align 4

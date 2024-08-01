@@ -996,20 +996,20 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
   br label %39
 
 39:                                               ; preds = %34, %.critedge
-  %.058 = phi ptr [ %33, %34 ], [ %38, %.critedge ]
-  %40 = getelementptr inbounds i8, ptr %.058, i64 28
+  %.1 = phi ptr [ %33, %34 ], [ %38, %.critedge ]
+  %40 = getelementptr inbounds i8, ptr %.1, i64 28
   store i32 %3, ptr %40, align 4
   %41 = load i32, ptr %24, align 4
-  %42 = getelementptr inbounds i8, ptr %.058, i64 4
+  %42 = getelementptr inbounds i8, ptr %.1, i64 4
   store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %.058, i64 8
+  %43 = getelementptr inbounds i8, ptr %.1, i64 8
   %44 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.058, i64 24
+  %45 = getelementptr inbounds i8, ptr %.1, i64 24
   store i32 0, ptr %45, align 8
-  store i32 1, ptr %.058, align 8
+  store i32 1, ptr %.1, align 8
   %46 = load ptr, ptr %12, align 8
-  %47 = call ptr @wmem_map_insert(ptr noundef %46, ptr noundef nonnull %.058, ptr noundef nonnull %.058) #5
+  %47 = call ptr @wmem_map_insert(ptr noundef %46, ptr noundef nonnull %.1, ptr noundef nonnull %.1) #5
   br label %proto_item_set_generated.exit
 
 48:                                               ; preds = %18
@@ -1041,13 +1041,13 @@ thread-pre-split:                                 ; preds = %54, %51
 
 60:                                               ; preds = %thread-pre-split, %29
   %61 = phi i32 [ %.pr, %thread-pre-split ], [ %31, %29 ]
-  %.1.ph = phi ptr [ %50, %thread-pre-split ], [ %30, %29 ]
+  %.058.ph = phi ptr [ %50, %thread-pre-split ], [ %30, %29 ]
   %.not71 = icmp eq i32 %61, 0
   br i1 %.not71, label %74, label %62
 
 62:                                               ; preds = %60
   %63 = load i32, ptr @hf_ros_response_in, align 4
-  %64 = getelementptr inbounds i8, ptr %.1.ph, i64 24
+  %64 = getelementptr inbounds i8, ptr %.058.ph, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %65) #5
   %.not.i = icmp eq ptr %66, null
@@ -1068,7 +1068,7 @@ thread-pre-split:                                 ; preds = %54, %51
 
 74:                                               ; preds = %60
   %75 = load i32, ptr @hf_ros_response_to, align 4
-  %76 = getelementptr inbounds i8, ptr %.1.ph, i64 4
+  %76 = getelementptr inbounds i8, ptr %.058.ph, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %77) #5
   %.not.i72 = icmp eq ptr %78, null
@@ -1089,7 +1089,7 @@ thread-pre-split:                                 ; preds = %54, %51
 
 proto_item_set_generated.exit74:                  ; preds = %74, %79, %82
   %86 = getelementptr inbounds i8, ptr %1, i64 24
-  %87 = getelementptr inbounds i8, ptr %.1.ph, i64 8
+  %87 = getelementptr inbounds i8, ptr %.058.ph, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %86, ptr noundef nonnull %87) #5
   %88 = load i32, ptr @hf_ros_time, align 4
   %89 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #5

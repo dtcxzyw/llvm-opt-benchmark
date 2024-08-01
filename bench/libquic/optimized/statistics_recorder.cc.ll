@@ -1080,7 +1080,7 @@ invoke.cont36:                                    ; preds = %for.end
 
 cleanup:                                          ; preds = %if.else33, %invoke.cont, %if.then30, %invoke.cont36
   %.pr = phi ptr [ null, %invoke.cont36 ], [ null, %if.then30 ], [ null, %invoke.cont ], [ %ranges, %if.else33 ]
-  %retval.0 = phi ptr [ %ranges, %invoke.cont36 ], [ %ranges, %if.then30 ], [ %ranges, %invoke.cont ], [ %10, %if.else33 ]
+  %retval.1 = phi ptr [ %ranges, %invoke.cont36 ], [ %ranges, %if.then30 ], [ %ranges, %invoke.cont ], [ %10, %if.else33 ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %cleanup37 unwind label %terminate.lpad.i14
 
@@ -1101,8 +1101,8 @@ _ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i: ; preds = %cleanup
   br label %_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %cleanup37, %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
-  %retval.131 = phi ptr [ %retval.0, %cleanup37 ], [ %retval.0, %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i ], [ %ranges, %entry ]
-  ret ptr %retval.131
+  %retval.031 = phi ptr [ %retval.1, %cleanup37 ], [ %retval.1, %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i ], [ %ranges, %entry ]
+  ret ptr %retval.031
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %lpad.phi, %lpad4 ]
@@ -2486,7 +2486,7 @@ if.end10:                                         ; preds = %invoke.cont4
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont4, %if.end, %if.end10
-  %retval.0 = phi ptr [ %6, %if.end10 ], [ null, %if.end ], [ null, %invoke.cont4 ]
+  %retval.1 = phi ptr [ %6, %if.end10 ], [ null, %if.end ], [ null, %invoke.cont4 ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %.pr)
           to label %return unwind label %terminate.lpad.i5
 
@@ -2498,8 +2498,8 @@ terminate.lpad.i5:                                ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %entry, %cleanup, %_ZN4base18StatisticsRecorder32ImportGlobalPersistentHistogramsEv.exit
-  %retval.1 = phi ptr [ null, %_ZN4base18StatisticsRecorder32ImportGlobalPersistentHistogramsEv.exit ], [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %_ZN4base18StatisticsRecorder32ImportGlobalPersistentHistogramsEv.exit ], [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2901,7 +2901,7 @@ lpad7:                                            ; preds = %if.then.i
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont12, %if.then18, %invoke.cont, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ false, %invoke.cont ], [ true, %if.then18 ], [ true, %invoke.cont12 ]
+  %retval.1 = phi i1 [ false, %if.end ], [ false, %invoke.cont ], [ true, %if.then18 ], [ true, %invoke.cont12 ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %return unwind label %terminate.lpad.i
 
@@ -2928,8 +2928,8 @@ _ZN4base8AutoLockD2Ev.exit29:                     ; preds = %ehcleanup
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %cleanup ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3185,7 +3185,7 @@ if.end3:                                          ; preds = %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.end3
-  %retval.0 = phi i64 [ %2, %if.end3 ], [ 0, %if.end ]
+  %retval.1 = phi i64 [ %2, %if.end3 ], [ 0, %if.end ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %return unwind label %terminate.lpad.i
 
@@ -3197,8 +3197,8 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %entry
-  %retval.1 = phi i64 [ 0, %entry ], [ %retval.0, %cleanup ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ 0, %entry ], [ %retval.1, %cleanup ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

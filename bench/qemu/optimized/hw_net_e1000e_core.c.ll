@@ -1650,14 +1650,14 @@ if.then30.i:                                      ; preds = %if.then19.i
 
 do.body33.i:                                      ; preds = %if.then30.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i
   %153 = phi i16 [ %conv12.i.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %.pre.i, %if.then30.i ]
-  %copy_size.1.i = phi i64 [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %spec.select76.i, %if.then30.i ]
+  %copy_size.2.i = phi i64 [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %spec.select76.i, %if.then30.i ]
   %ps_hdr_copied.0.i = phi i64 [ %add40.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ 0, %if.then30.i ]
-  %iov.1.i = phi ptr [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %iov.0.i, %if.then30.i ]
-  %iov_ofs.1.i = phi i64 [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %iov_ofs.0.i, %if.then30.i ]
+  %iov.2.i = phi ptr [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %iov.0.i, %if.then30.i ]
+  %iov_ofs.2.i = phi i64 [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ], [ %iov_ofs.0.i, %if.then30.i ]
   %sub34.i = sub i64 %ps_hdr_len.0286.i, %ps_hdr_copied.0.i
-  %iov_len.i142 = getelementptr inbounds i8, ptr %iov.1.i, i64 8
+  %iov_len.i142 = getelementptr inbounds i8, ptr %iov.2.i, i64 8
   %154 = load i64, ptr %iov_len.i142, align 8
-  %sub35.i = sub i64 %154, %iov_ofs.1.i
+  %sub35.i = sub i64 %154, %iov_ofs.2.i
   %cond.i143 = call i64 @llvm.umin.i64(i64 %sub34.i, i64 %sub35.i)
   %155 = load i32, ptr %rxbuf_sizes.i94301.i, align 8
   %conv.i95.i = zext i16 %153 to i32
@@ -1672,7 +1672,7 @@ if.else.i98.i:                                    ; preds = %do.body33.i
 
 e1000e_write_hdr_frag_to_rx_buffers.exit.i:       ; preds = %do.body33.i
   %ba.val.i = load i64, ptr %ba.i, align 16
-  %156 = load ptr, ptr %iov.1.i, align 8
+  %156 = load ptr, ptr %iov.2.i, align 8
   %157 = load ptr, ptr %owner.i, align 8
   %conv7.i.i = zext i16 %153 to i64
   %add.i97.i = add i64 %ba.val.i, %conv7.i.i
@@ -1685,13 +1685,13 @@ e1000e_write_hdr_frag_to_rx_buffers.exit.i:       ; preds = %do.body33.i
   %conv12.i.i = add i16 %158, %159
   store i16 %conv12.i.i, ptr %bastate.i, align 2
   store i8 1, ptr %cur_idx.i111300.i, align 2
-  %sub39.i = sub i64 %copy_size.1.i, %cond.i143
+  %sub39.i = sub i64 %copy_size.2.i, %cond.i143
   %add40.i = add i64 %cond.i143, %ps_hdr_copied.0.i
-  %add41.i = add i64 %cond.i143, %iov_ofs.1.i
+  %add41.i = add i64 %cond.i143, %iov_ofs.2.i
   %160 = load i64, ptr %iov_len.i142, align 8
   %cmp43.i = icmp eq i64 %add41.i, %160
   %spec.select77.idx.i = select i1 %cmp43.i, i64 16, i64 0
-  %spec.select77.i = getelementptr i8, ptr %iov.1.i, i64 %spec.select77.idx.i
+  %spec.select77.i = getelementptr i8, ptr %iov.2.i, i64 %spec.select77.idx.i
   %spec.select78.i = select i1 %cmp43.i, i64 0, i64 %add41.i
   %cmp47.i = icmp ult i64 %add40.i, %ps_hdr_len.0286.i
   br i1 %cmp47.i, label %do.body33.i, label %if.end51.i, !llvm.loop !9
@@ -1708,17 +1708,17 @@ if.else.i141:                                     ; preds = %if.then30.i
   br label %if.end51.i
 
 if.end51.i:                                       ; preds = %e1000e_write_hdr_frag_to_rx_buffers.exit.i, %if.else.i141, %if.then19.i
-  %copy_size.2.i = phi i64 [ %spec.select76.i, %if.else.i141 ], [ %spec.select76.i, %if.then19.i ], [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
+  %copy_size.1.i = phi i64 [ %spec.select76.i, %if.else.i141 ], [ %spec.select76.i, %if.then19.i ], [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
   %is_first.1.i = phi i1 [ false, %if.else.i141 ], [ %is_first.0.i, %if.then19.i ], [ false, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
-  %iov.3.i = phi ptr [ %iov.0.i, %if.else.i141 ], [ %iov.0.i, %if.then19.i ], [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
-  %iov_ofs.3.i = phi i64 [ %iov_ofs.0.i, %if.else.i141 ], [ %iov_ofs.0.i, %if.then19.i ], [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
-  %tobool52.not260.i = icmp eq i64 %copy_size.2.i, 0
+  %iov.1.i = phi ptr [ %iov.0.i, %if.else.i141 ], [ %iov.0.i, %if.then19.i ], [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
+  %iov_ofs.1.i = phi i64 [ %iov_ofs.0.i, %if.else.i141 ], [ %iov_ofs.0.i, %if.then19.i ], [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
+  %tobool52.not260.i = icmp eq i64 %copy_size.1.i, 0
   br i1 %tobool52.not260.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end51.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i
-  %iov_ofs.4263.i = phi i64 [ %spec.select80.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ], [ %iov_ofs.3.i, %if.end51.i ]
-  %iov.4262.i = phi ptr [ %spec.select79.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ], [ %iov.3.i, %if.end51.i ]
-  %copy_size.3261.i = phi i64 [ %sub64.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ], [ %copy_size.2.i, %if.end51.i ]
+  %iov_ofs.4263.i = phi i64 [ %spec.select80.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ], [ %iov_ofs.1.i, %if.end51.i ]
+  %iov.4262.i = phi ptr [ %spec.select79.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ], [ %iov.1.i, %if.end51.i ]
+  %copy_size.3261.i = phi i64 [ %sub64.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ], [ %copy_size.1.i, %if.end51.i ]
   %iov_len53.i = getelementptr inbounds i8, ptr %iov.4262.i, i64 8
   %162 = load i64, ptr %iov_len53.i, align 8
   %sub54.i = sub i64 %162, %iov_ofs.4263.i
@@ -1832,8 +1832,8 @@ e1000e_write_payload_frag_to_rx_buffers.exit.i:   ; preds = %while.cond.i.i
   br i1 %tobool52.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %e1000e_write_payload_frag_to_rx_buffers.exit.i, %if.end51.i
-  %iov.4.lcssa.i = phi ptr [ %iov.3.i, %if.end51.i ], [ %spec.select79.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ]
-  %iov_ofs.4.lcssa.i = phi i64 [ %iov_ofs.3.i, %if.end51.i ], [ %spec.select80.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ]
+  %iov.4.lcssa.i = phi ptr [ %iov.1.i, %if.end51.i ], [ %spec.select79.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ]
+  %iov_ofs.4.lcssa.i = phi i64 [ %iov_ofs.1.i, %if.end51.i ], [ %spec.select80.i, %e1000e_write_payload_frag_to_rx_buffers.exit.i ]
   %add72.i = add i64 %spec.select.i, %desc_offset.0.i
   %cmp73.not.i = icmp ult i64 %add72.i, %add.i
   br i1 %cmp73.not.i, label %if.end84.i, label %if.then75.i
@@ -9139,8 +9139,8 @@ if.then6.i:                                       ; preds = %land.lhs.true.i68
   br label %if.end8
 
 if.then7:                                         ; preds = %while.cond.preheader, %if.end.i63, %lor.lhs.false, %while.end
-  %cause.2 = phi i32 [ %cause.0.lcssa, %while.end ], [ %and1.i66, %if.end.i63 ], [ %cause.0.lcssa, %lor.lhs.false ], [ 2, %while.cond.preheader ]
-  call fastcc void @e1000e_set_interrupt_cause(ptr noundef nonnull %core, i32 noundef %cause.2)
+  %cause.1 = phi i32 [ %cause.0.lcssa, %while.end ], [ %and1.i66, %if.end.i63 ], [ %cause.0.lcssa, %lor.lhs.false ], [ 2, %while.cond.preheader ]
+  call fastcc void @e1000e_set_interrupt_cause(ptr noundef nonnull %core, i32 noundef %cause.1)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end3.i, %land.lhs.true.i68, %if.then6.i, %if.then7

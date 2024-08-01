@@ -3606,12 +3606,12 @@ define internal fastcc i32 @_run_script(ptr noundef %0, i32 noundef %1, i32 noun
   br label %27
 
 27:                                               ; preds = %24, %21
-  %.0 = phi i32 [ 0, %21 ], [ %19, %24 ]
+  %.1 = phi i32 [ 0, %21 ], [ %19, %24 ]
   call void @slurm_xfree(ptr noundef nonnull %10) #11
   br label %28
 
 28:                                               ; preds = %27, %7
-  %.1 = phi i32 [ %.0, %27 ], [ 0, %7 ]
+  %.0 = phi i32 [ %.1, %27 ], [ 0, %7 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8
   %.not43 = icmp eq i64 %30, 0
@@ -3719,11 +3719,11 @@ define internal fastcc i32 @_run_script(ptr noundef %0, i32 noundef %1, i32 noun
   br label %82
 
 82:                                               ; preds = %80, %78
-  %.not50 = icmp eq i32 %.1, 0
+  %.not50 = icmp eq i32 %.0, 0
   br i1 %.not50, label %85, label %83
 
 83:                                               ; preds = %82
-  %84 = call i32 @close(i32 noundef %.1) #11
+  %84 = call i32 @close(i32 noundef %.0) #11
   br label %85
 
 85:                                               ; preds = %83, %82

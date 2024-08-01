@@ -1034,9 +1034,9 @@ lor.lhs.false29:                                  ; preds = %lor.lhs.false26
   br label %end
 
 end:                                              ; preds = %lor.lhs.false29, %entry, %if.end.i, %lor.lhs.false7, %lor.lhs.false10, %PACKET_forward.exit, %if.end.i8, %lor.lhs.false26
-  %data.2 = phi ptr [ null, %entry ], [ %call1.i, %if.end.i ], [ %call1.i, %lor.lhs.false7 ], [ %call1.i, %lor.lhs.false10 ], [ %call1.i, %PACKET_forward.exit ], [ %call1.i9, %if.end.i8 ], [ %call1.i9, %lor.lhs.false26 ], [ %call1.i9, %lor.lhs.false29 ]
+  %data.0 = phi ptr [ null, %entry ], [ %call1.i, %if.end.i ], [ %call1.i, %lor.lhs.false7 ], [ %call1.i, %lor.lhs.false10 ], [ %call1.i, %PACKET_forward.exit ], [ %call1.i9, %if.end.i8 ], [ %call1.i9, %lor.lhs.false26 ], [ %call1.i9, %lor.lhs.false29 ]
   %result.0 = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ 0, %lor.lhs.false7 ], [ 0, %lor.lhs.false10 ], [ 0, %PACKET_forward.exit ], [ 0, %if.end.i8 ], [ 0, %lor.lhs.false26 ], [ %spec.select, %lor.lhs.false29 ]
-  tail call void @CRYPTO_free(ptr noundef %data.2, ptr noundef nonnull @.str.25, i32 noundef 237) #5
+  tail call void @CRYPTO_free(ptr noundef %data.0, ptr noundef nonnull @.str.25, i32 noundef 237) #5
   ret i32 %result.0
 }
 

@@ -887,7 +887,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %_ZL4helpv.exit109
 
 _ZL4helpv.exit109:                                ; preds = %217, %213, %.noexc112.invoke, %233, %._crit_edge, %235, %231
-  %.0 = phi i32 [ 0, %231 ], [ 0, %235 ], [ 0, %._crit_edge ], [ 0, %233 ], [ -1, %.noexc112.invoke ], [ 0, %213 ], [ 0, %217 ]
+  %.1 = phi i32 [ 0, %231 ], [ 0, %235 ], [ 0, %._crit_edge ], [ 0, %233 ], [ -1, %.noexc112.invoke ], [ 0, %213 ], [ 0, %217 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #18
   br label %_ZL4helpv.exit
@@ -903,7 +903,7 @@ _ZL4helpv.exit109:                                ; preds = %217, %213, %.noexc1
   br label %296
 
 _ZL4helpv.exit:                                   ; preds = %.noexc93, %_ZL4helpv.exit109
-  %.1 = phi i32 [ %.0, %_ZL4helpv.exit109 ], [ 0, %.noexc93 ]
+  %.0 = phi i32 [ %.1, %_ZL4helpv.exit109 ], [ 0, %.noexc93 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #18
   call void @_ZN2cv17CascadeClassifierD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   call void @_ZN2cv17CascadeClassifierD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
@@ -912,7 +912,7 @@ _ZL4helpv.exit:                                   ; preds = %.noexc93, %_ZL4help
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #18
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #18
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %6) #18
-  ret i32 %.1
+  ret i32 %.0
 
 296:                                              ; preds = %295, %100, %68, %67
   %.pn87 = phi { ptr, i32 } [ %69, %68 ], [ %.pn83.pn, %295 ], [ %.pn62.pn, %100 ], [ %.pn60, %67 ]

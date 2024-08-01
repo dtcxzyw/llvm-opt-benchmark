@@ -9979,7 +9979,7 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   br label %49
 
 49:                                               ; preds = %.preheader, %ext4_mb_discard_group_preallocations.exit
-  %.1 = phi i32 [ %.5, %ext4_mb_discard_group_preallocations.exit ], [ 0, %.preheader ]
+  %.1 = phi i32 [ %.6, %ext4_mb_discard_group_preallocations.exit ], [ 0, %.preheader ]
   %50 = phi i32 [ %198, %ext4_mb_discard_group_preallocations.exit ], [ %46, %.preheader ]
   %51 = phi i32 [ %197, %ext4_mb_discard_group_preallocations.exit ], [ %48, %.preheader ]
   %52 = phi i32 [ %200, %ext4_mb_discard_group_preallocations.exit ], [ 0, %.preheader ]
@@ -10083,7 +10083,7 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   br i1 %104, label %.loopexit13.i, label %.preheader12.i
 
 .preheader12.i:                                   ; preds = %.thread.i, %141
-  %.2 = phi i32 [ %.3, %141 ], [ %.1, %.thread.i ]
+  %.3 = phi i32 [ %.4, %141 ], [ %.1, %.thread.i ]
   %105 = phi ptr [ %107, %141 ], [ %103, %.thread.i ]
   %106 = phi i32 [ %142, %141 ], [ 0, %.thread.i ]
   %107 = load ptr, ptr %105, align 8
@@ -10154,13 +10154,13 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   br label %141
 
 141:                                              ; preds = %129, %117, %112
-  %.3 = phi i32 [ %.2, %129 ], [ %.2, %117 ], [ 1, %112 ]
+  %.4 = phi i32 [ %.3, %129 ], [ %.3, %117 ], [ 1, %112 ]
   %142 = phi i32 [ %132, %129 ], [ %106, %117 ], [ %106, %112 ]
   %143 = icmp eq ptr %107, %56
   br i1 %143, label %.loopexit13.i, label %.preheader12.i, !llvm.loop !267
 
 .loopexit13.i:                                    ; preds = %141, %.thread.i
-  %.4 = phi i32 [ %.1, %.thread.i ], [ %.3, %141 ]
+  %.5 = phi i32 [ %.1, %.thread.i ], [ %.4, %141 ]
   %144 = phi i32 [ 0, %.thread.i ], [ %142, %141 ]
   %145 = load ptr, ptr %4, align 8
   %146 = icmp eq ptr %145, %4
@@ -10271,7 +10271,7 @@ define internal fastcc noundef zeroext i1 @ext4_mb_discard_preallocations_should
   br label %ext4_mb_discard_group_preallocations.exit
 
 ext4_mb_discard_group_preallocations.exit:        ; preds = %49, %55, %62, %69, %.loopexit.i
-  %.5 = phi i32 [ %.1, %49 ], [ %.1, %55 ], [ %.1, %62 ], [ %.4, %.loopexit.i ], [ %.1, %69 ]
+  %.6 = phi i32 [ %.1, %49 ], [ %.1, %55 ], [ %.1, %62 ], [ %.5, %.loopexit.i ], [ %.1, %69 ]
   %196 = phi i32 [ 0, %49 ], [ 0, %55 ], [ 0, %62 ], [ %144, %.loopexit.i ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
@@ -10285,7 +10285,7 @@ ext4_mb_discard_group_preallocations.exit:        ; preds = %49, %55, %62, %69, 
   br i1 %203, label %49, label %204, !llvm.loop !269
 
 204:                                              ; preds = %ext4_mb_discard_group_preallocations.exit
-  %205 = icmp ne i32 %.5, 0
+  %205 = icmp ne i32 %.6, 0
   %206 = select i1 %202, i1 %205, i1 false
   %207 = icmp ult i32 %47, 2
   %208 = select i1 %206, i1 %207, i1 false

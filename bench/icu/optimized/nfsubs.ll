@@ -2225,7 +2225,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont5.prehea
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end73
-  %fmt.069 = phi ptr [ null, %while.body.lr.ph ], [ %fmt.248, %if.end73 ]
+  %fmt.069 = phi ptr [ null, %while.body.lr.ph ], [ %fmt.148, %if.end73 ]
   %totalDigits.068 = phi i32 [ 0, %while.body.lr.ph ], [ %totalDigits.1, %if.end73 ]
   store i32 0, ptr %index.i, align 8
   invoke void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp)
@@ -2308,11 +2308,11 @@ if.end32:                                         ; preds = %invoke.cont26
   br i1 %tobool33.not, label %if.end41, label %if.then34
 
 if.then34:                                        ; preds = %if.then23, %if.end32
-  %fmt.142 = phi ptr [ %call27, %if.end32 ], [ %fmt.069, %if.then23 ]
-  %vtable35 = load ptr, ptr %fmt.142, align 8
+  %fmt.242 = phi ptr [ %call27, %if.end32 ], [ %fmt.069, %if.then23 ]
+  %vtable35 = load ptr, ptr %fmt.242, align 8
   %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 160
   %11 = load ptr, ptr %vfn36, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(356) %fmt.142, ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(112) %temp, ptr noundef nonnull align 8 dereferenceable(16) %workPos)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(356) %fmt.242, ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(112) %temp, ptr noundef nonnull align 8 dereferenceable(16) %workPos)
           to label %invoke.cont37 unwind label %lpad12.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %if.then34
@@ -2321,13 +2321,13 @@ invoke.cont37:                                    ; preds = %if.then34
 
 if.end41:                                         ; preds = %if.then31, %delete.notnull, %invoke.cont37, %if.end32, %invoke.cont17
   %digit.0.ph = phi i32 [ %call39, %invoke.cont37 ], [ %call18, %invoke.cont17 ], [ %call18, %if.end32 ], [ %call18, %delete.notnull ], [ %call18, %if.then31 ]
-  %fmt.2.ph = phi ptr [ %fmt.142, %invoke.cont37 ], [ %fmt.069, %invoke.cont17 ], [ null, %if.end32 ], [ null, %delete.notnull ], [ null, %if.then31 ]
+  %fmt.1.ph = phi ptr [ %fmt.242, %invoke.cont37 ], [ %fmt.069, %invoke.cont17 ], [ null, %if.end32 ], [ null, %delete.notnull ], [ null, %if.then31 ]
   %.pr = load i32, ptr %index.i, align 8
   %cmp44.not = icmp eq i32 %.pr, 0
   br i1 %cmp44.not, label %if.end73, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true, %if.end41
-  %fmt.247 = phi ptr [ %fmt.2.ph, %if.end41 ], [ %fmt.069, %land.lhs.true ]
+  %fmt.147 = phi ptr [ %fmt.1.ph, %if.end41 ], [ %fmt.069, %land.lhs.true ]
   %digit.046 = phi i32 [ %digit.0.ph, %if.end41 ], [ %call18, %land.lhs.true ]
   %conv = trunc i32 %digit.046 to i8
   invoke void @_ZN6icu_756number4impl15DecimalQuantity11appendDigitEaib(ptr noundef nonnull align 8 dereferenceable(66) %dl, i8 noundef signext %conv, i32 noundef 0, i1 noundef zeroext true)
@@ -2380,7 +2380,7 @@ invoke.cont67:                                    ; preds = %while.body66
   br i1 %cmp59, label %invoke.cont61, label %if.end73, !llvm.loop !10
 
 if.end73:                                         ; preds = %invoke.cont67, %invoke.cont61, %invoke.cont57.preheader, %if.end41
-  %fmt.248 = phi ptr [ %fmt.2.ph, %if.end41 ], [ %fmt.247, %invoke.cont57.preheader ], [ %fmt.247, %invoke.cont61 ], [ %fmt.247, %invoke.cont67 ]
+  %fmt.148 = phi ptr [ %fmt.1.ph, %if.end41 ], [ %fmt.147, %invoke.cont57.preheader ], [ %fmt.147, %invoke.cont61 ], [ %fmt.147, %invoke.cont67 ]
   %totalDigits.1 = phi i32 [ %totalDigits.068, %if.end41 ], [ %inc, %invoke.cont57.preheader ], [ %inc, %invoke.cont61 ], [ %inc, %invoke.cont67 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %temp) #11
   %25 = load i16, ptr %fUnion.i.i, align 8
@@ -2396,14 +2396,14 @@ if.end73:                                         ; preds = %invoke.cont67, %inv
   br i1 %or.cond, label %while.end74, label %while.body, !llvm.loop !11
 
 while.end74:                                      ; preds = %if.end73
-  %isnull75 = icmp eq ptr %fmt.248, null
+  %isnull75 = icmp eq ptr %fmt.148, null
   br i1 %isnull75, label %delete.end79, label %delete.notnull76
 
 delete.notnull76:                                 ; preds = %while.end74
-  %vtable77 = load ptr, ptr %fmt.248, align 8
+  %vtable77 = load ptr, ptr %fmt.148, align 8
   %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 8
   %29 = load ptr, ptr %vfn78, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(356) %fmt.248) #11
+  call void %29(ptr noundef nonnull align 8 dereferenceable(356) %fmt.148) #11
   br label %delete.end79
 
 delete.end79:                                     ; preds = %invoke.cont5.preheader, %delete.notnull76, %while.end74
@@ -2762,7 +2762,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont5.prehea
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %zeroCount.071 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %while.end ]
+  %zeroCount.171 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %while.end ]
   store i32 0, ptr %index.i, align 8
   %6 = load ptr, ptr %ruleSet.i, align 8
   %call13 = invoke noundef signext i8 @_ZNK6icu_759NFRuleSet5parseERKNS_13UnicodeStringERNS_13ParsePositionEdjRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(163) %6, ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(16) %workPos, double noundef 1.000000e+00, i32 noundef %nonNumericalExecutedRuleMask, ptr noundef nonnull align 8 dereferenceable(112) %temp)
@@ -2804,7 +2804,7 @@ lpad4:                                            ; preds = %lpad4.loopexit.spli
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont12
-  %inc = add nuw nsw i32 %zeroCount.071, 1
+  %inc = add nuw nsw i32 %zeroCount.171, 1
   %10 = load i32, ptr %index.i23, align 8
   %add = add nsw i32 %10, %7
   store i32 %add, ptr %index.i23, align 8
@@ -2893,7 +2893,7 @@ while.end:                                        ; preds = %invoke.cont37, %inv
   br i1 %or.cond, label %while.end43, label %while.body, !llvm.loop !14
 
 while.end43:                                      ; preds = %invoke.cont12, %while.end, %invoke.cont5.preheader
-  %zeroCount.0.lcssa = phi i32 [ 0, %invoke.cont5.preheader ], [ %inc, %while.end ], [ %zeroCount.071, %invoke.cont12 ]
+  %zeroCount.1.lcssa = phi i32 [ 0, %invoke.cont5.preheader ], [ %inc, %while.end ], [ %zeroCount.171, %invoke.cont12 ]
   %call45 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(64) %text)
           to label %invoke.cont44 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
@@ -2932,7 +2932,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
 
 if.end51:                                         ; preds = %invoke.cont48, %entry
   %tobool53.not = phi double [ %33, %invoke.cont48 ], [ %baseValue, %entry ]
-  %zeroCount.1 = phi i32 [ %zeroCount.0.lcssa, %invoke.cont48 ], [ 0, %entry ]
+  %zeroCount.0 = phi i32 [ %zeroCount.1.lcssa, %invoke.cont48 ], [ 0, %entry ]
   %call55 = invoke noundef signext i8 @_ZNK6icu_7514NFSubstitution7doParseERKNS_13UnicodeStringERNS_13ParsePositionEddajRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(64) %workText, ptr noundef nonnull align 8 dereferenceable(16) %parsePosition, double noundef %tobool53.not, double noundef %upperBound, i8 noundef signext 0, i32 noundef %nonNumericalExecutedRuleMask, ptr noundef nonnull align 8 dereferenceable(112) %result)
           to label %invoke.cont54 unwind label %lpad
 
@@ -2952,7 +2952,7 @@ invoke.cont59:                                    ; preds = %if.then58
 
 while.cond66.preheader:                           ; preds = %while.body64, %invoke.cont59
   %d.0.lcssa = phi i64 [ 1, %invoke.cont59 ], [ %mul, %while.body64 ]
-  %cmp6778 = icmp sgt i32 %zeroCount.1, 0
+  %cmp6778 = icmp sgt i32 %zeroCount.0, 0
   br i1 %cmp6778, label %while.body68, label %while.end70
 
 while.body64:                                     ; preds = %invoke.cont59, %while.body64
@@ -2963,7 +2963,7 @@ while.body64:                                     ; preds = %invoke.cont59, %whi
 
 while.body68:                                     ; preds = %while.cond66.preheader, %while.body68
   %d.180 = phi i64 [ %mul69, %while.body68 ], [ %d.0.lcssa, %while.cond66.preheader ]
-  %zeroCount.279 = phi i32 [ %dec, %while.body68 ], [ %zeroCount.1, %while.cond66.preheader ]
+  %zeroCount.279 = phi i32 [ %dec, %while.body68 ], [ %zeroCount.0, %while.cond66.preheader ]
   %mul69 = mul nuw nsw i64 %d.180, 10
   %dec = add nsw i32 %zeroCount.279, -1
   %cmp67 = icmp ugt i32 %zeroCount.279, 1

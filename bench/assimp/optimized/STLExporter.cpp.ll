@@ -150,10 +150,10 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 ehcleanup10:                                      ; preds = %lpad6, %lpad8
   %.pn7 = phi { ptr, i32 } [ %3, %lpad8 ], [ %2, %lpad6 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad8 ], [ true, %lpad6 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad8 ], [ true, %lpad6 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #12
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %ehcleanup55
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %ehcleanup55
 
 cleanup.action:                                   ; preds = %ehcleanup10.thread, %ehcleanup10
   %.pn7.pn26 = phi { ptr, i32 } [ %1, %ehcleanup10.thread ], [ %.pn7, %ehcleanup10 ]
@@ -210,10 +210,10 @@ lpad25:                                           ; preds = %invoke.cont26, %inv
 
 ehcleanup30:                                      ; preds = %lpad23, %lpad25
   %.pn = phi { ptr, i32 } [ %7, %lpad25 ], [ %6, %lpad23 ]
-  %cleanup.isactive27.1 = phi i1 [ %cleanup.isactive27.0, %lpad25 ], [ true, %lpad23 ]
+  %cleanup.isactive27.2 = phi i1 [ %cleanup.isactive27.0, %lpad25 ], [ true, %lpad23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #12
-  br i1 %cleanup.isactive27.1, label %cleanup.action33, label %ehcleanup55
+  br i1 %cleanup.isactive27.2, label %cleanup.action33, label %ehcleanup55
 
 cleanup.action33:                                 ; preds = %ehcleanup30.thread, %ehcleanup30
   %.pn.pn29 = phi { ptr, i32 } [ %5, %ehcleanup30.thread ], [ %.pn, %ehcleanup30 ]
@@ -441,10 +441,10 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 ehcleanup10:                                      ; preds = %lpad6, %lpad8
   %.pn7 = phi { ptr, i32 } [ %3, %lpad8 ], [ %2, %lpad6 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad8 ], [ true, %lpad6 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad8 ], [ true, %lpad6 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #12
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %ehcleanup55
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %ehcleanup55
 
 cleanup.action:                                   ; preds = %ehcleanup10.thread, %ehcleanup10
   %.pn7.pn26 = phi { ptr, i32 } [ %1, %ehcleanup10.thread ], [ %.pn7, %ehcleanup10 ]
@@ -501,10 +501,10 @@ lpad25:                                           ; preds = %invoke.cont26, %inv
 
 ehcleanup30:                                      ; preds = %lpad23, %lpad25
   %.pn = phi { ptr, i32 } [ %7, %lpad25 ], [ %6, %lpad23 ]
-  %cleanup.isactive27.1 = phi i1 [ %cleanup.isactive27.0, %lpad25 ], [ true, %lpad23 ]
+  %cleanup.isactive27.2 = phi i1 [ %cleanup.isactive27.0, %lpad25 ], [ true, %lpad23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #12
-  br i1 %cleanup.isactive27.1, label %cleanup.action33, label %ehcleanup55
+  br i1 %cleanup.isactive27.2, label %cleanup.action33, label %ehcleanup55
 
 cleanup.action33:                                 ; preds = %ehcleanup30.thread, %ehcleanup30
   %.pn.pn29 = phi { ptr, i32 } [ %5, %ehcleanup30.thread ], [ %.pn, %ehcleanup30 ]
@@ -1035,7 +1035,7 @@ for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.body4
   %indvars.iv = phi i64 [ 0, %for.body4.lr.ph ], [ %indvars.iv.next, %for.body4 ]
-  %nor.sroa.12.025 = phi float [ 0.000000e+00, %for.body4.lr.ph ], [ %add6.i, %for.body4 ]
+  %nor.sroa.12.125 = phi float [ 0.000000e+00, %for.body4.lr.ph ], [ %add6.i, %for.body4 ]
   %5 = phi <2 x float> [ zeroinitializer, %for.body4.lr.ph ], [ %8, %for.body4 ]
   %arrayidx7 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx7, align 4
@@ -1045,19 +1045,19 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   %8 = fadd <2 x float> %5, %7
   %z.i17 = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   %9 = load float, ptr %z.i17, align 4
-  %add6.i = fadd float %nor.sroa.12.025, %9
+  %add6.i = fadd float %nor.sroa.12.125, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body4, %for.cond2.preheader
-  %nor.sroa.12.0.lcssa = phi float [ 0.000000e+00, %for.cond2.preheader ], [ %add6.i, %for.body4 ]
+  %nor.sroa.12.1.lcssa = phi float [ 0.000000e+00, %for.cond2.preheader ], [ %add6.i, %for.body4 ]
   %10 = phi <2 x float> [ zeroinitializer, %for.cond2.preheader ], [ %8, %for.body4 ]
   %11 = fmul <2 x float> %10, %10
   %mul4.i.i.i = extractelement <2 x float> %11, i64 1
   %12 = extractelement <2 x float> %10, i64 0
   %13 = call float @llvm.fmuladd.f32(float %12, float %12, float %mul4.i.i.i)
-  %14 = call noundef float @llvm.fmuladd.f32(float %nor.sroa.12.0.lcssa, float %nor.sroa.12.0.lcssa, float %13)
+  %14 = call noundef float @llvm.fmuladd.f32(float %nor.sroa.12.1.lcssa, float %nor.sroa.12.1.lcssa, float %13)
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %14)
   %cmp.i = fcmp oeq float %sqrt.i.i, 0.000000e+00
   br i1 %cmp.i, label %if.end, label %_ZN10aiVector3tIfEdVEf.exit.i
@@ -1067,17 +1067,17 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %for.end
   %15 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
   %17 = fmul <2 x float> %10, %16
-  %mul3.i.i = fmul float %nor.sroa.12.0.lcssa, %div.i.i
+  %mul3.i.i = fmul float %nor.sroa.12.1.lcssa, %div.i.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10aiVector3tIfEdVEf.exit.i, %for.end, %for.body
-  %nor.sroa.12.2 = phi float [ 0.000000e+00, %for.body ], [ %nor.sroa.12.0.lcssa, %for.end ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
+  %nor.sroa.12.0 = phi float [ 0.000000e+00, %for.body ], [ %nor.sroa.12.1.lcssa, %for.end ], [ %mul3.i.i, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %18 = phi <2 x float> [ zeroinitializer, %for.body ], [ %10, %for.end ], [ %17, %_ZN10aiVector3tIfEdVEf.exit.i ]
   %19 = extractelement <2 x float> %18, i64 0
   store float %19, ptr %nx, align 4
   %20 = extractelement <2 x float> %18, i64 1
   store float %20, ptr %ny, align 4
-  store float %nor.sroa.12.2, ptr %nz, align 4
+  store float %nor.sroa.12.0, ptr %nz, align 4
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %nx, i64 noundef 4)
   %call13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %ny, i64 noundef 4)
   %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %nz, i64 noundef 4)
@@ -1272,7 +1272,7 @@ for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.body4
   %indvars.iv = phi i64 [ 0, %for.body4.lr.ph ], [ %indvars.iv.next, %for.body4 ]
-  %nor.sroa.12.025 = phi float [ 0.000000e+00, %for.body4.lr.ph ], [ %add6.i, %for.body4 ]
+  %nor.sroa.12.125 = phi float [ 0.000000e+00, %for.body4.lr.ph ], [ %add6.i, %for.body4 ]
   %5 = phi <2 x float> [ zeroinitializer, %for.body4.lr.ph ], [ %8, %for.body4 ]
   %arrayidx7 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx7, align 4
@@ -1282,19 +1282,19 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   %8 = fadd <2 x float> %5, %7
   %z.i17 = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   %9 = load float, ptr %z.i17, align 4
-  %add6.i = fadd float %nor.sroa.12.025, %9
+  %add6.i = fadd float %nor.sroa.12.125, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body4, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body4, %for.cond2.preheader
-  %nor.sroa.12.0.lcssa = phi float [ 0.000000e+00, %for.cond2.preheader ], [ %add6.i, %for.body4 ]
+  %nor.sroa.12.1.lcssa = phi float [ 0.000000e+00, %for.cond2.preheader ], [ %add6.i, %for.body4 ]
   %10 = phi <2 x float> [ zeroinitializer, %for.cond2.preheader ], [ %8, %for.body4 ]
   %11 = fmul <2 x float> %10, %10
   %mul4.i.i.i = extractelement <2 x float> %11, i64 1
   %12 = extractelement <2 x float> %10, i64 0
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %mul4.i.i.i)
-  %14 = tail call noundef float @llvm.fmuladd.f32(float %nor.sroa.12.0.lcssa, float %nor.sroa.12.0.lcssa, float %13)
+  %14 = tail call noundef float @llvm.fmuladd.f32(float %nor.sroa.12.1.lcssa, float %nor.sroa.12.1.lcssa, float %13)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %14)
   %or.cond.i = fcmp ule float %sqrt.i.i, 0.000000e+00
   br i1 %or.cond.i, label %if.end, label %if.end.i.i
@@ -1304,11 +1304,11 @@ if.end.i.i:                                       ; preds = %for.end
   %15 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
   %17 = fmul <2 x float> %10, %16
-  %mul3.i.i = fmul float %nor.sroa.12.0.lcssa, %div.i.i
+  %mul3.i.i = fmul float %nor.sroa.12.1.lcssa, %div.i.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i, %for.end, %for.body
-  %nor.sroa.12.2 = phi float [ 0.000000e+00, %for.body ], [ %nor.sroa.12.0.lcssa, %for.end ], [ %mul3.i.i, %if.end.i.i ]
+  %nor.sroa.12.0 = phi float [ 0.000000e+00, %for.body ], [ %nor.sroa.12.1.lcssa, %for.end ], [ %mul3.i.i, %if.end.i.i ]
   %18 = phi <2 x float> [ zeroinitializer, %for.body ], [ %10, %for.end ], [ %17, %if.end.i.i ]
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.11)
   %19 = extractelement <2 x float> %18, i64 0
@@ -1317,7 +1317,7 @@ if.end:                                           ; preds = %if.end.i.i, %for.en
   %20 = extractelement <2 x float> %18, i64 1
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call13, float noundef %20)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull @.str.10)
-  %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call15, float noundef %nor.sroa.12.2)
+  %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call15, float noundef %nor.sroa.12.0)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef nonnull align 8 dereferenceable(32) %endl)
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.13)
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call19, ptr noundef nonnull align 8 dereferenceable(32) %endl)

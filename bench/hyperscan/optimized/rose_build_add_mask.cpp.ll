@@ -3036,8 +3036,8 @@ _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %cleanup, %if.then.i
   br label %return
 
 return:                                           ; preds = %_ZN3ue211ue2_literalD2Ev.exit, %if.then
-  %retval.1 = phi i1 [ true, %if.then ], [ %retval.0.i18, %_ZN3ue211ue2_literalD2Ev.exit ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.then ], [ %retval.0.i18, %_ZN3ue211ue2_literalD2Ev.exit ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3314,8 +3314,8 @@ ehcleanup:                                        ; preds = %if.then.i.i.i25, %_
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %if.then.i.i.i38, %invoke.cont.i, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ %retval.157, %invoke.cont.i ], [ %retval.157, %if.then.i.i.i38 ], [ false, %if.end ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.157, %invoke.cont.i ], [ %retval.157, %if.then.i.i.i38 ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4219,12 +4219,12 @@ for.cond19.i.i:                                   ; preds = %for.cond19.i.i, %if
   br i1 %cmp.i16.i.i, label %invoke.cont117, label %for.cond19.i.i
 
 invoke.cont117:                                   ; preds = %for.cond19.i.i, %if.then12.i.i
-  %ref.tmp114.sroa.0.1 = phi ptr [ %sub.ptr.i.i.i.i.i.i.i.i.i, %if.then12.i.i ], [ %__begin017.sroa.0.0.i.i, %for.cond19.i.i ]
-  %minBound = getelementptr inbounds i8, ptr %ref.tmp114.sroa.0.1, i64 64
+  %ref.tmp114.sroa.0.2 = phi ptr [ %sub.ptr.i.i.i.i.i.i.i.i.i, %if.then12.i.i ], [ %__begin017.sroa.0.0.i.i, %for.cond19.i.i ]
+  %minBound = getelementptr inbounds i8, ptr %ref.tmp114.sroa.0.2, i64 64
   store i32 0, ptr %minBound, align 8
-  %maxBound = getelementptr inbounds i8, ptr %ref.tmp114.sroa.0.1, i64 68
+  %maxBound = getelementptr inbounds i8, ptr %ref.tmp114.sroa.0.2, i64 68
   store i32 %cond, ptr %maxBound, align 4
-  %history = getelementptr inbounds i8, ptr %ref.tmp114.sroa.0.1, i64 80
+  %history = getelementptr inbounds i8, ptr %ref.tmp114.sroa.0.2, i64 80
   store i32 %cond128, ptr %history, align 8
   br label %invoke.cont138
 
@@ -8887,8 +8887,8 @@ land.lhs.true29:                                  ; preds = %if.then20
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end, %if.end27.thread, %land.lhs.true29, %land.lhs.true17
-  %fail.3 = phi i8 [ %fail.1, %if.end ], [ %fail.1, %land.lhs.true17 ], [ %spec.select42, %land.lhs.true29 ], [ %spec.select41, %if.end27.thread ]
-  %tobool36 = trunc nuw i8 %fail.3 to i1
+  %fail.2 = phi i8 [ %fail.1, %if.end ], [ %fail.1, %land.lhs.true17 ], [ %spec.select42, %land.lhs.true29 ], [ %spec.select41, %if.end27.thread ]
+  %tobool36 = trunc nuw i8 %fail.2 to i1
   br i1 %tobool36, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.end35

@@ -4237,7 +4237,7 @@ ehcleanup66.thread92:                             ; preds = %invoke.cont30
   br label %_ZN7rocksdb6StatusD2Ev.exit71
 
 lpad33:                                           ; preds = %invoke.cont59, %if.then52, %invoke.cont34, %invoke.cont32
-  %s.sroa.26.0 = phi ptr [ %17, %invoke.cont59 ], [ %17, %if.then52 ], [ null, %invoke.cont34 ], [ null, %invoke.cont32 ]
+  %s.sroa.26.2 = phi ptr [ %17, %invoke.cont59 ], [ %17, %if.then52 ], [ null, %invoke.cont34 ], [ null, %invoke.cont32 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup64
@@ -4251,7 +4251,7 @@ lpad55:                                           ; preds = %invoke.cont54
 if.end63:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit51, %invoke.cont50
   %s.sroa.0.0 = phi i8 [ %22, %_ZN7rocksdb6StatusD2Ev.exit51 ], [ %14, %invoke.cont50 ]
   %s.sroa.6.0 = phi i8 [ %23, %_ZN7rocksdb6StatusD2Ev.exit51 ], [ %15, %invoke.cont50 ]
-  %s.sroa.26.1 = phi ptr [ %25, %_ZN7rocksdb6StatusD2Ev.exit51 ], [ %17, %invoke.cont50 ]
+  %s.sroa.26.3 = phi ptr [ %25, %_ZN7rocksdb6StatusD2Ev.exit51 ], [ %17, %invoke.cont50 ]
   %29 = phi <4 x i8> [ %24, %_ZN7rocksdb6StatusD2Ev.exit51 ], [ %16, %invoke.cont50 ]
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %s.sroa.0.0, ptr %agg.result, align 8
@@ -4271,7 +4271,7 @@ if.end63:                                         ; preds = %_ZN7rocksdb6StatusD
   %scope_14.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   %33 = extractelement <4 x i8> %29, i64 3
   store i8 %33, ptr %scope_14.i.i, align 1
-  store ptr %s.sroa.26.1, ptr %state_.i.i, align 8
+  store ptr %s.sroa.26.3, ptr %state_.i.i, align 8
   call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %db_options_2pc) #22
   %34 = load ptr, ptr %compaction_enabled_cf_indices, align 8
   %tobool.not.i.i.i54 = icmp eq ptr %34, null
@@ -4310,7 +4310,7 @@ if.then.i.i.i59:                                  ; preds = %invoke.cont.i57
   br label %_ZN7rocksdb6StatusD2Ev.exit67
 
 ehcleanup64:                                      ; preds = %lpad33, %lpad55
-  %s.sroa.26.2 = phi ptr [ %s.sroa.26.0, %lpad33 ], [ %17, %lpad55 ]
+  %s.sroa.26.5 = phi ptr [ %s.sroa.26.2, %lpad33 ], [ %17, %lpad55 ]
   %.pn = phi { ptr, i32 } [ %27, %lpad33 ], [ %28, %lpad55 ]
   call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %db_options_2pc) #22
   %.pre = load ptr, ptr %compaction_enabled_cf_indices, align 8
@@ -4326,11 +4326,11 @@ _ZN7rocksdb6StatusD2Ev.exit67:                    ; preds = %if.then23.invoke, %
 
 ehcleanup66:                                      ; preds = %if.then.i.i.i62, %ehcleanup64
   call void @_ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %column_families_copy) #22
-  %cmp.not.i.i69 = icmp eq ptr %s.sroa.26.2, null
+  %cmp.not.i.i69 = icmp eq ptr %s.sroa.26.5, null
   br i1 %cmp.not.i.i69, label %_ZN7rocksdb6StatusD2Ev.exit71, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i70
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i70: ; preds = %ehcleanup66
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.26.2) #21
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.26.5) #21
   br label %_ZN7rocksdb6StatusD2Ev.exit71
 
 _ZN7rocksdb6StatusD2Ev.exit71:                    ; preds = %if.then.i.i.i, %lpad10.i, %ehcleanup66.thread92, %ehcleanup66, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i70

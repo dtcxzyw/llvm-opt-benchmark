@@ -1495,40 +1495,40 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   br label %233
 
 231:                                              ; preds = %7883, %7876, %380, %375, %7791
-  %.01727 = phi i32 [ %.31730, %7791 ], [ 0, %375 ], [ 0, %380 ], [ 0, %7876 ], [ 0, %7883 ]
-  %.01719 = phi ptr [ %7773, %7791 ], [ %379, %375 ], [ %379, %380 ], [ %7880, %7876 ], [ %7880, %7883 ]
-  %.01709 = phi ptr [ %7771, %7791 ], [ %377, %375 ], [ %377, %380 ], [ %7878, %7876 ], [ %7878, %7883 ]
-  %.01699 = phi ptr [ %7769, %7791 ], [ %.21701, %375 ], [ %.21701, %380 ], [ %.31702, %7876 ], [ %.31702, %7883 ]
-  %.01686 = phi i32 [ %.11687, %7791 ], [ %spec.select, %375 ], [ %spec.select, %380 ], [ 3, %7876 ], [ 3, %7883 ]
-  %.01683 = phi i32 [ %7793, %7791 ], [ %354, %375 ], [ %354, %380 ], [ %7871, %7876 ], [ %7871, %7883 ]
-  %.01677 = phi i32 [ %.5, %7791 ], [ -2, %375 ], [ -2, %380 ], [ %.7, %7876 ], [ %.7, %7883 ]
-  %232 = getelementptr inbounds i8, ptr %.01699, i64 2
+  %.11728 = phi i32 [ %.51732, %7791 ], [ 0, %375 ], [ 0, %380 ], [ 0, %7876 ], [ 0, %7883 ]
+  %.11720 = phi ptr [ %7773, %7791 ], [ %379, %375 ], [ %379, %380 ], [ %7880, %7876 ], [ %7880, %7883 ]
+  %.11710 = phi ptr [ %7771, %7791 ], [ %377, %375 ], [ %377, %380 ], [ %7878, %7876 ], [ %7878, %7883 ]
+  %.11700 = phi ptr [ %7769, %7791 ], [ %.21701, %375 ], [ %.21701, %380 ], [ %.51704, %7876 ], [ %.51704, %7883 ]
+  %.11687 = phi i32 [ %.01686, %7791 ], [ %spec.select, %375 ], [ %spec.select, %380 ], [ 3, %7876 ], [ 3, %7883 ]
+  %.11684 = phi i32 [ %7793, %7791 ], [ %354, %375 ], [ %354, %380 ], [ %7871, %7876 ], [ %7871, %7883 ]
+  %.1 = phi i32 [ %.9, %7791 ], [ -2, %375 ], [ -2, %380 ], [ %.7, %7876 ], [ %.7, %7883 ]
+  %232 = getelementptr inbounds i8, ptr %.11700, i64 2
   br label %233
 
 233:                                              ; preds = %231, %222
-  %.11728 = phi i32 [ 0, %222 ], [ %.01727, %231 ]
-  %.11720 = phi ptr [ %5, %222 ], [ %.01719, %231 ]
+  %.01727 = phi i32 [ 0, %222 ], [ %.11728, %231 ]
+  %.01719 = phi ptr [ %5, %222 ], [ %.11720, %231 ]
   %.01717 = phi ptr [ %5, %222 ], [ %.11718, %231 ]
-  %.11710 = phi ptr [ %4, %222 ], [ %.01709, %231 ]
+  %.01709 = phi ptr [ %4, %222 ], [ %.11710, %231 ]
   %.01707 = phi ptr [ %4, %222 ], [ %.11708, %231 ]
-  %.11700 = phi ptr [ %3, %222 ], [ %232, %231 ]
+  %.01699 = phi ptr [ %3, %222 ], [ %232, %231 ]
   %.01694 = phi ptr [ %3, %222 ], [ %.11695, %231 ]
   %.01692 = phi i64 [ 200, %222 ], [ %.11693, %231 ]
-  %.11687 = phi i32 [ 0, %222 ], [ %.01686, %231 ]
-  %.11684 = phi i32 [ 0, %222 ], [ %.01683, %231 ]
-  %.1 = phi i32 [ -2, %222 ], [ %.01677, %231 ]
+  %.01686 = phi i32 [ 0, %222 ], [ %.11687, %231 ]
+  %.01683 = phi i32 [ 0, %222 ], [ %.11684, %231 ]
+  %.01677 = phi i32 [ -2, %222 ], [ %.1, %231 ]
   %234 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not2069 = icmp eq i32 %234, 0
   br i1 %.not2069, label %238, label %235
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr @stderr, align 8
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.8, i32 noundef %.11684) #31
+  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.8, i32 noundef %.01683) #31
   br label %238
 
 238:                                              ; preds = %233, %235
-  %239 = trunc nsw i32 %.11684 to i16
-  store i16 %239, ptr %.11700, align 2
+  %239 = trunc nsw i32 %.01683 to i16
+  store i16 %239, ptr %.01699, align 2
   %240 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not2070 = icmp eq i32 %240, 0
   br i1 %.not2070, label %250, label %241
@@ -1536,7 +1536,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
 241:                                              ; preds = %238
   %242 = load ptr, ptr @stderr, align 8
   %243 = call i64 @fwrite(ptr nonnull @.str.119, i64 9, i64 1, ptr %242) #30
-  %.not4.i = icmp ugt ptr %.01694, %.11700
+  %.not4.i = icmp ugt ptr %.01694, %.01699
   br i1 %.not4.i, label %_ZL14yy_stack_printPsS_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %241, %.lr.ph.i
@@ -1546,7 +1546,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   %246 = load ptr, ptr @stderr, align 8
   %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull @.str.120, i32 noundef %245) #31
   %248 = getelementptr inbounds i8, ptr %.05.i, i64 2
-  %.not.i = icmp ugt ptr %248, %.11700
+  %.not.i = icmp ugt ptr %248, %.01699
   br i1 %.not.i, label %_ZL14yy_stack_printPsS_.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
@@ -1557,11 +1557,11 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
 250:                                              ; preds = %238, %_ZL14yy_stack_printPsS_.exit
   %251 = getelementptr inbounds i16, ptr %.01694, i64 %.01692
   %252 = getelementptr inbounds i8, ptr %251, i64 -2
-  %.not2071 = icmp ugt ptr %252, %.11700
+  %.not2071 = icmp ugt ptr %252, %.01699
   br i1 %.not2071, label %290, label %253
 
 253:                                              ; preds = %250
-  %254 = ptrtoint ptr %.11700 to i64
+  %254 = ptrtoint ptr %.01699 to i64
   %255 = ptrtoint ptr %.01694 to i64
   %256 = sub i64 %254, %255
   %257 = ashr exact i64 %256, 1
@@ -1621,18 +1621,18 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br i1 %.not2075, label %290, label %.loopexit
 
 290:                                              ; preds = %289, %250
-  %.21721 = phi ptr [ %284, %289 ], [ %.11720, %250 ]
+  %.21721 = phi ptr [ %284, %289 ], [ %.01719, %250 ]
   %.11718 = phi ptr [ %275, %289 ], [ %.01717, %250 ]
-  %.21711 = phi ptr [ %282, %289 ], [ %.11710, %250 ]
+  %.21711 = phi ptr [ %282, %289 ], [ %.01709, %250 ]
   %.11708 = phi ptr [ %270, %289 ], [ %.01707, %250 ]
-  %.21701 = phi ptr [ %280, %289 ], [ %.11700, %250 ]
+  %.21701 = phi ptr [ %280, %289 ], [ %.01699, %250 ]
   %.11695 = phi ptr [ %264, %289 ], [ %.01694, %250 ]
   %.11693 = phi i64 [ %spec.store.select, %289 ], [ %.01692, %250 ]
-  %291 = icmp eq i32 %.11684, 3
+  %291 = icmp eq i32 %.01683, 3
   br i1 %291, label %.loopexit, label %292
 
 292:                                              ; preds = %290
-  %293 = sext i32 %.11684 to i64
+  %293 = sext i32 %.01683 to i64
   %294 = getelementptr inbounds [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %293
   %295 = load i16, ptr %294, align 2
   %296 = sext i16 %295 to i32
@@ -1640,7 +1640,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br i1 %297, label %383, label %298
 
 298:                                              ; preds = %292
-  %299 = icmp eq i32 %.1, -2
+  %299 = icmp eq i32 %.01677, -2
   br i1 %299, label %300, label %307
 
 300:                                              ; preds = %298
@@ -1658,8 +1658,8 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br label %307
 
 307:                                              ; preds = %305, %298
-  %.2 = phi i32 [ %306, %305 ], [ %.1, %298 ]
-  %308 = icmp slt i32 %.2, 1
+  %.5 = phi i32 [ %306, %305 ], [ %.01677, %298 ]
+  %308 = icmp slt i32 %.5, 1
   br i1 %308, label %309, label %314
 
 309:                                              ; preds = %307
@@ -1673,7 +1673,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br label %333
 
 314:                                              ; preds = %307
-  %315 = icmp eq i32 %.2, 256
+  %315 = icmp eq i32 %.5, 256
   br i1 %315, label %316, label %318
 
 316:                                              ; preds = %314
@@ -1681,11 +1681,11 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 318:                                              ; preds = %314
-  %319 = icmp ult i32 %.2, 403
+  %319 = icmp ult i32 %.5, 403
   br i1 %319, label %320, label %325
 
 320:                                              ; preds = %318
-  %321 = zext nneg i32 %.2 to i64
+  %321 = zext nneg i32 %.5 to i64
   %322 = getelementptr inbounds [403 x i8], ptr @_ZL11yytranslate, i64 0, i64 %321
   %323 = load i8, ptr %322, align 1
   %324 = zext i8 %323 to i32
@@ -1708,7 +1708,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
 
 333:                                              ; preds = %325, %328, %311, %309
   %.01739 = phi i32 [ 0, %311 ], [ 0, %309 ], [ %326, %328 ], [ %326, %325 ]
-  %.3 = phi i32 [ 0, %311 ], [ 0, %309 ], [ %.2, %328 ], [ %.2, %325 ]
+  %.6 = phi i32 [ 0, %311 ], [ 0, %309 ], [ %.5, %328 ], [ %.5, %325 ]
   %334 = add nsw i32 %.01739, %296
   %or.cond3 = icmp ugt i32 %334, 3157
   br i1 %or.cond3, label %340, label %335
@@ -1722,7 +1722,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br i1 %.not2079, label %351, label %340
 
 340:                                              ; preds = %333, %335
-  %.not2087 = icmp eq i32 %.11728, 0
+  %.not2087 = icmp eq i32 %.01727, 0
   br i1 %.not2087, label %341, label %383
 
 341:                                              ; preds = %340
@@ -1754,7 +1754,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
 
 356:                                              ; preds = %351
   %357 = sub nsw i32 0, %354
-  %.not2085 = icmp eq i32 %.11728, 0
+  %.not2085 = icmp eq i32 %.01727, 0
   br i1 %.not2085, label %358, label %407
 
 358:                                              ; preds = %356
@@ -1778,7 +1778,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   ]
 
 368:                                              ; preds = %351
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.11687, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01686, i32 1)
   %369 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not2081 = icmp eq i32 %369, 0
   br i1 %.not2081, label %375, label %370
@@ -1800,7 +1800,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   store i64 %378, ptr %377, align 8
   %379 = getelementptr inbounds i8, ptr %.21721, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %379, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.not2083 = icmp eq i32 %.11728, 0
+  %.not2083 = icmp eq i32 %.01727, 0
   %.not2084 = icmp eq i32 %376, 0
   %or.cond2242 = select i1 %.not2083, i1 true, i1 %.not2084
   br i1 %or.cond2242, label %231, label %380
@@ -1811,8 +1811,8 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br label %231
 
 383:                                              ; preds = %349, %340, %292
-  %.21729 = phi i32 [ %.11728, %292 ], [ 1, %340 ], [ 1, %349 ]
-  %.4 = phi i32 [ %.1, %292 ], [ %.3, %340 ], [ %.3, %349 ]
+  %.21729 = phi i32 [ %.01727, %292 ], [ 1, %340 ], [ 1, %349 ]
+  %.4 = phi i32 [ %.01677, %292 ], [ %.6, %340 ], [ %.6, %349 ]
   %384 = getelementptr inbounds [1357 x i16], ptr @_ZL8yydefact, i64 0, i64 %293
   %385 = load i16, ptr %384, align 2
   %386 = sext i16 %385 to i32
@@ -1820,12 +1820,12 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br i1 %387, label %.preheader, label %407
 
 .preheader:                                       ; preds = %349, %366, %383
-  %.51732.ph = phi i32 [ %367, %366 ], [ %350, %349 ], [ %.21729, %383 ]
-  %.6.ph = phi i32 [ %.3, %366 ], [ %.3, %349 ], [ %.4, %383 ]
-  %388 = icmp eq i32 %.6.ph, -2
-  %.not2224 = icmp eq i32 %.11687, 0
-  %or.cond7 = icmp ugt i32 %.6.ph, 402
-  %389 = zext nneg i32 %.6.ph to i64
+  %.41731.ph = phi i32 [ %367, %366 ], [ %350, %349 ], [ %.21729, %383 ]
+  %.8.ph = phi i32 [ %.6, %366 ], [ %.6, %349 ], [ %.4, %383 ]
+  %388 = icmp eq i32 %.8.ph, -2
+  %.not2224 = icmp eq i32 %.01686, 0
+  %or.cond7 = icmp ugt i32 %.8.ph, 402
+  %389 = zext nneg i32 %.8.ph to i64
   %390 = getelementptr inbounds [403 x i8], ptr @_ZL11yytranslate, i64 0, i64 %389
   br i1 %.not2224, label %.preheader.split.us, label %.preheader.split
 
@@ -1842,7 +1842,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   br label %.split.us
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us, %404
-  %.51732.us = phi i32 [ %405, %404 ], [ %.51732.ph, %.preheader.split.us ]
+  %.41731.us = phi i32 [ %405, %404 ], [ %.41731.ph, %.preheader.split.us ]
   br i1 %or.cond7, label %394, label %391
 
 391:                                              ; preds = %.preheader.split.us.split
@@ -1858,7 +1858,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   store ptr %8, ptr %228, align 8
   store i32 %395, ptr %229, align 8
   store ptr %2, ptr %230, align 8
-  %.not4859 = icmp eq i32 %.51732.us, 0
+  %.not4859 = icmp eq i32 %.41731.us, 0
   br i1 %.not4859, label %396, label %.split.us
 
 396:                                              ; preds = %394
@@ -1882,7 +1882,7 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
   ]
 
 .split.us:                                        ; preds = %394, %404, %.split.us.split.us
-  %.us-phi4851 = phi i32 [ %.51732.ph, %.split.us.split.us ], [ 1, %404 ], [ %.51732.us, %394 ]
+  %.us-phi4851 = phi i32 [ %.41731.ph, %.split.us.split.us ], [ 1, %404 ], [ %.41731.us, %394 ]
   %406 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %217)
   switch i32 %406, label %.thread2624 [
     i32 0, label %.thread2627
@@ -1895,8 +1895,8 @@ _ZL14yy_stack_printPsS_.exit:                     ; preds = %.lr.ph.i, %241
 
 407:                                              ; preds = %383, %366, %356
   %.01737 = phi i32 [ %386, %383 ], [ %357, %356 ], [ %357, %366 ]
-  %.31730 = phi i32 [ %.21729, %383 ], [ 1, %356 ], [ 1, %366 ]
-  %.5 = phi i32 [ %.4, %383 ], [ %.3, %356 ], [ %.3, %366 ]
+  %.51732 = phi i32 [ %.21729, %383 ], [ 1, %356 ], [ 1, %366 ]
+  %.9 = phi i32 [ %.4, %383 ], [ %.6, %356 ], [ %.6, %366 ]
   %408 = sext i32 %.01737 to i64
   %409 = getelementptr inbounds [702 x i8], ptr @_ZL4yyr2, i64 0, i64 %408
   %410 = load i8, ptr %409, align 1
@@ -15954,7 +15954,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
 7797:                                             ; preds = %.preheader.split, %7794
   %7798 = phi i32 [ %.mux, %.preheader.split ], [ %7796, %7794 ]
   %7799 = load <2 x i32>, ptr %2, align 8
-  %7800 = icmp eq i32 %.11687, 3
+  %7800 = icmp eq i32 %.01686, 3
   br i1 %7800, label %7813, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 .thread2627:                                      ; preds = %.split.us
@@ -15998,11 +15998,11 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 7813:                                             ; preds = %7797
-  %7814 = icmp slt i32 %.6.ph, 1
+  %7814 = icmp slt i32 %.8.ph, 1
   br i1 %7814, label %7815, label %7817
 
 7815:                                             ; preds = %7813
-  %7816 = icmp eq i32 %.6.ph, 0
+  %7816 = icmp eq i32 %.8.ph, 0
   br i1 %7816, label %.thread2657, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 7817:                                             ; preds = %7813
@@ -16020,17 +16020,17 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2281: ; preds = %5287
   br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit: ; preds = %7819, %7817, %.thread2631, %7797, %7815, %316
-  %.81735 = phi i32 [ %.51732.ph, %7815 ], [ %.51732.ph, %7797 ], [ %.11728, %316 ], [ %.us-phi4851, %.thread2631 ], [ %.51732.ph, %7817 ], [ %.51732.ph, %7819 ]
-  %.7 = phi i32 [ %.6.ph, %7815 ], [ %.6.ph, %7797 ], [ 257, %316 ], [ %.6.ph, %.thread2631 ], [ -2, %7817 ], [ -2, %7819 ]
+  %.31730 = phi i32 [ %.41731.ph, %7815 ], [ %.41731.ph, %7797 ], [ %.01727, %316 ], [ %.us-phi4851, %.thread2631 ], [ %.41731.ph, %7817 ], [ %.41731.ph, %7819 ]
+  %.7 = phi i32 [ %.8.ph, %7815 ], [ %.8.ph, %7797 ], [ 257, %316 ], [ %.8.ph, %.thread2631 ], [ -2, %7817 ], [ -2, %7819 ]
   %7824 = phi <2 x i32> [ %7799, %7815 ], [ %7799, %7797 ], [ %317, %316 ], [ %7812, %.thread2631 ], [ %7799, %7817 ], [ %7799, %7819 ]
   br label %7825
 
 7825:                                             ; preds = %7865, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
   %7826 = phi i16 [ %295, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %.pre7026, %7865 ]
-  %.31722 = phi ptr [ %.21721, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7868, %7865 ]
-  %.31712 = phi ptr [ %.21711, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7867, %7865 ]
-  %.31702 = phi ptr [ %.21701, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7866, %7865 ]
-  %.21685 = phi i32 [ %.11684, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7869, %7865 ]
+  %.51724 = phi ptr [ %.21721, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7868, %7865 ]
+  %.51714 = phi ptr [ %.21711, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7867, %7865 ]
+  %.51704 = phi ptr [ %.21701, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7866, %7865 ]
+  %.21685 = phi i32 [ %.01683, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7869, %7865 ]
   %7827 = phi <2 x i32> [ %7824, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit ], [ %7843, %7865 ]
   %7828 = sext i32 %.21685 to i64
   %7829 = add i16 %7826, 1
@@ -16052,17 +16052,17 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   br i1 %7839, label %7870, label %7840
 
 7840:                                             ; preds = %7830, %7836, %7825
-  %7841 = icmp eq ptr %.31702, %.11695
+  %7841 = icmp eq ptr %.51704, %.11695
   br i1 %7841, label %.loopexit, label %7842
 
 7842:                                             ; preds = %7840
-  %7843 = load <2 x i32>, ptr %.31722, align 4
+  %7843 = load <2 x i32>, ptr %.51724, align 4
   %7844 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not4.i2287 = icmp eq i32 %7844, 0
   br i1 %.not4.i2287, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289
 
 _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289.thread: ; preds = %7842
-  %7845 = getelementptr inbounds i8, ptr %.31702, i64 -2
+  %7845 = getelementptr inbounds i8, ptr %.51704, i64 -2
   %7846 = load i16, ptr %7845, align 2
   br label %7865
 
@@ -16073,11 +16073,11 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7850 = load ptr, ptr @stderr, align 8
   %7851 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7850, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.114) #31
   %7852 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7852, i32 noundef %7849, ptr noundef nonnull readonly %.31722)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7852, i32 noundef %7849, ptr noundef nonnull readonly %.51724)
   %7853 = load ptr, ptr @stderr, align 8
   %fputc.i2288 = call i32 @fputc(i32 10, ptr %7853)
   %.pr = load i32, ptr @frontend_verilog_yydebug, align 4
-  %7854 = getelementptr inbounds i8, ptr %.31702, i64 -2
+  %7854 = getelementptr inbounds i8, ptr %.51704, i64 -2
   %7855 = load i16, ptr %7854, align 2
   %.not2232 = icmp eq i32 %.pr, 0
   br i1 %.not2232, label %7865, label %7856
@@ -16106,8 +16106,8 @@ _ZL14yy_stack_printPsS_.exit2295:                 ; preds = %.lr.ph.i2291, %7856
 7865:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289.thread, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289, %_ZL14yy_stack_printPsS_.exit2295
   %.in2710 = phi i16 [ %7846, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289.thread ], [ %7855, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289 ], [ %7855, %_ZL14yy_stack_printPsS_.exit2295 ]
   %7866 = phi ptr [ %7845, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289.thread ], [ %7854, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2289 ], [ %7854, %_ZL14yy_stack_printPsS_.exit2295 ]
-  %7867 = getelementptr inbounds i8, ptr %.31712, i64 -8
-  %7868 = getelementptr inbounds i8, ptr %.31722, i64 -16
+  %7867 = getelementptr inbounds i8, ptr %.51714, i64 -8
+  %7868 = getelementptr inbounds i8, ptr %.51724, i64 -16
   %7869 = sext i16 %.in2710 to i32
   %.phi.trans.insert7024 = sext i16 %.in2710 to i64
   %.phi.trans.insert7025 = getelementptr inbounds [1357 x i16], ptr @_ZL6yypact, i64 0, i64 %.phi.trans.insert7024
@@ -16116,7 +16116,7 @@ _ZL14yy_stack_printPsS_.exit2295:                 ; preds = %.lr.ph.i2291, %7856
 
 7870:                                             ; preds = %7836
   %7871 = zext nneg i16 %7838 to i32
-  %.not2228 = icmp eq i32 %.81735, 0
+  %.not2228 = icmp eq i32 %.31730, 0
   %7872 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not2229 = icmp eq i32 %7872, 0
   %or.cond2243 = select i1 %.not2228, i1 true, i1 %.not2229
@@ -16130,12 +16130,12 @@ _ZL14yy_stack_printPsS_.exit2295:                 ; preds = %.lr.ph.i2291, %7856
 
 7876:                                             ; preds = %7873, %7870
   %7877 = phi i32 [ %.pre7027, %7873 ], [ %7872, %7870 ]
-  %7878 = getelementptr inbounds i8, ptr %.31712, i64 8
+  %7878 = getelementptr inbounds i8, ptr %.51714, i64 8
   %7879 = load i64, ptr %1, align 8
   store i64 %7879, ptr %7878, align 8
-  %7880 = getelementptr inbounds i8, ptr %.31722, i64 16
+  %7880 = getelementptr inbounds i8, ptr %.51724, i64 16
   store <2 x i32> %7827, ptr %7880, align 4
-  %7881 = getelementptr inbounds i8, ptr %.31722, i64 24
+  %7881 = getelementptr inbounds i8, ptr %.51724, i64 24
   %7882 = load <2 x i32>, ptr %.sroa.7.32..sroa_idx, align 8
   store <2 x i32> %7882, ptr %7881, align 4
   %.not2230 = icmp eq i32 %7877, 0
@@ -16155,19 +16155,19 @@ _ZL14yy_stack_printPsS_.exit2295:                 ; preds = %.lr.ph.i2291, %7856
   br label %231
 
 .loopexit2712:                                    ; preds = %7809, %366, %349, %260, %253, %404, %.thread2624
-  %.51724 = phi ptr [ %.21721, %.thread2624 ], [ %.21721, %404 ], [ %.11720, %260 ], [ %.21721, %366 ], [ %.21721, %349 ], [ %.21721, %7809 ], [ %.11720, %253 ]
-  %.51704 = phi ptr [ %.21701, %.thread2624 ], [ %.21701, %404 ], [ %.11700, %260 ], [ %.21701, %366 ], [ %.21701, %349 ], [ %.21701, %7809 ], [ %.11700, %253 ]
-  %.31697 = phi ptr [ %.11695, %.thread2624 ], [ %.11695, %404 ], [ %.01694, %260 ], [ %.11695, %366 ], [ %.11695, %349 ], [ %.11695, %7809 ], [ %.01694, %253 ]
-  %.9 = phi i32 [ %.6.ph, %.thread2624 ], [ %.6.ph, %404 ], [ %.1, %260 ], [ %.3, %366 ], [ %.3, %349 ], [ %.6.ph, %7809 ], [ %.1, %253 ]
+  %.31722 = phi ptr [ %.21721, %.thread2624 ], [ %.21721, %404 ], [ %.01719, %260 ], [ %.21721, %366 ], [ %.21721, %349 ], [ %.21721, %7809 ], [ %.01719, %253 ]
+  %.31702 = phi ptr [ %.21701, %.thread2624 ], [ %.21701, %404 ], [ %.01699, %260 ], [ %.21701, %366 ], [ %.21701, %349 ], [ %.21701, %7809 ], [ %.01699, %253 ]
+  %.21696 = phi ptr [ %.11695, %.thread2624 ], [ %.11695, %404 ], [ %.01694, %260 ], [ %.11695, %366 ], [ %.11695, %349 ], [ %.11695, %7809 ], [ %.01694, %253 ]
+  %.2 = phi i32 [ %.8.ph, %.thread2624 ], [ %.8.ph, %404 ], [ %.01677, %260 ], [ %.6, %366 ], [ %.6, %349 ], [ %.8.ph, %7809 ], [ %.01677, %253 ]
   call void (ptr, ...) @_Z24frontend_verilog_yyerrorPKcz(ptr noundef nonnull @.str.116)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %289, %290, %7840, %.loopexit2712
   %.01738 = phi i32 [ 2, %.loopexit2712 ], [ 1, %7840 ], [ 1, %289 ], [ 0, %290 ]
-  %.61725 = phi ptr [ %.51724, %.loopexit2712 ], [ %.31722, %7840 ], [ %284, %289 ], [ %.21721, %290 ]
-  %.61705 = phi ptr [ %.51704, %.loopexit2712 ], [ %.31702, %7840 ], [ %280, %289 ], [ %.21701, %290 ]
-  %.41698 = phi ptr [ %.31697, %.loopexit2712 ], [ %.11695, %7840 ], [ %264, %289 ], [ %.11695, %290 ]
-  %.10 = phi i32 [ %.9, %.loopexit2712 ], [ %.7, %7840 ], [ %.1, %290 ], [ %.1, %289 ]
+  %.61725 = phi ptr [ %.31722, %.loopexit2712 ], [ %.51724, %7840 ], [ %284, %289 ], [ %.21721, %290 ]
+  %.61705 = phi ptr [ %.31702, %.loopexit2712 ], [ %.51704, %7840 ], [ %280, %289 ], [ %.21701, %290 ]
+  %.41698 = phi ptr [ %.21696, %.loopexit2712 ], [ %.11695, %7840 ], [ %264, %289 ], [ %.11695, %290 ]
+  %.10 = phi i32 [ %.2, %.loopexit2712 ], [ %.7, %7840 ], [ %.01677, %290 ], [ %.01677, %289 ]
   %.not2233 = icmp eq i32 %.10, -2
   br i1 %.not2233, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2298, label %7892
 
@@ -16630,8 +16630,8 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymb
   br label %.thread85
 
 _ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit: ; preds = %125, %104
-  %.4 = phi ptr [ %123, %125 ], [ %.2, %104 ]
-  %131 = getelementptr inbounds i8, ptr %.4, i64 2
+  %.5 = phi ptr [ %123, %125 ], [ %.2, %104 ]
+  %131 = getelementptr inbounds i8, ptr %.5, i64 2
   br label %132
 
 132:                                              ; preds = %99, %_ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit
@@ -17991,9 +17991,9 @@ define internal fastcc noundef ptr @_ZL10checkRangePN5Yosys3AST7AstNodeES2_(ptr 
   br i1 %.not2627, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %41
-  %.01429 = phi i1 [ %42, %41 ], [ true, %27 ]
+  %.129 = phi i1 [ %42, %41 ], [ true, %27 ]
   %.sroa.019.028 = phi ptr [ %43, %41 ], [ %28, %27 ]
-  br i1 %.01429, label %31, label %41
+  br i1 %.129, label %31, label %41
 
 31:                                               ; preds = %.lr.ph
   %32 = load ptr, ptr %.sroa.019.028, align 8

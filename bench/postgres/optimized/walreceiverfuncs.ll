@@ -151,8 +151,8 @@ define dso_local zeroext i1 @WalRcvRunning() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %23, %12, %24, %6
-  %.1 = phi i32 [ 0, %24 ], [ 1, %23 ], [ 1, %12 ], [ %8, %6 ]
-  %.not21 = icmp ne i32 %.1, 0
+  %.017 = phi i32 [ 0, %24 ], [ 1, %23 ], [ 1, %12 ], [ %8, %6 ]
+  %.not21 = icmp ne i32 %.017, 0
   ret i1 %.not21
 }
 
@@ -219,10 +219,10 @@ define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %23, %12, %24, %6
-  %.1 = phi i32 [ 0, %24 ], [ 1, %23 ], [ 1, %12 ], [ %8, %6 ]
-  %27 = add i32 %.1, -1
+  %.022 = phi i32 [ 0, %24 ], [ 1, %23 ], [ 1, %12 ], [ %8, %6 ]
+  %27 = add i32 %.022, -1
   %or.cond = icmp ult i32 %27, 2
-  %28 = icmp eq i32 %.1, 4
+  %28 = icmp eq i32 %.022, 4
   %or.cond3 = or i1 %28, %or.cond
   ret i1 %or.cond3
 }

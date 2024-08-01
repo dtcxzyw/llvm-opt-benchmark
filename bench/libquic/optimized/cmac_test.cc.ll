@@ -230,11 +230,11 @@ if.then60:                                        ; preds = %invoke.cont57.us
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %for.inc.us, %if.then60, %if.then51, %if.then46, %if.then37, %if.then24, %if.then15
-  %retval.0 = phi i32 [ 0, %if.then37 ], [ 0, %if.then51 ], [ 0, %if.then46 ], [ 0, %if.then24 ], [ 0, %if.then15 ], [ 0, %if.then60 ], [ 1, %for.inc.us ]
+  %retval.1 = phi i32 [ 0, %if.then37 ], [ 0, %if.then51 ], [ 0, %if.then46 ], [ 0, %if.then24 ], [ 0, %if.then15 ], [ 0, %if.then60 ], [ 1, %for.inc.us ]
   br i1 %cmp.i.not, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %for.cond.preheader, %cleanup
-  %retval.038 = phi i32 [ %retval.0, %cleanup ], [ 1, %for.cond.preheader ]
+  %retval.138 = phi i32 [ %retval.1, %cleanup ], [ 1, %for.cond.preheader ]
   invoke void @CMAC_CTX_free(ptr noundef nonnull %call8)
           to label %return unwind label %terminate.lpad.i
 
@@ -246,8 +246,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 return:                                           ; preds = %if.then.i, %cleanup, %if.then4, %if.then
-  %retval.1 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.0, %cleanup ], [ %retval.038, %if.then.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then ], [ %retval.1, %cleanup ], [ %retval.138, %if.then.i ]
+  ret i32 %retval.0
 }
 
 declare i32 @AES_CMAC(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

@@ -198,7 +198,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 
 39:                                               ; preds = %.lr.ph83, %98
   %indvars.iv94 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next95, %98 ]
-  %.06581 = phi i1 [ false, %.lr.ph83 ], [ %.4, %98 ]
+  %.06581 = phi i1 [ false, %.lr.ph83 ], [ %.3, %98 ]
   %40 = getelementptr %struct.ScanKeyData, ptr %10, i64 %indvars.iv94
   store i32 0, ptr %3, align 4
   store ptr null, ptr %4, align 8
@@ -264,7 +264,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 .lr.ph:                                           ; preds = %67, %81
   %74 = phi i32 [ %82, %81 ], [ %72, %67 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %67 ]
-  %.279 = phi i1 [ %.3, %81 ], [ %spec.select, %67 ]
+  %.479 = phi i1 [ %.5, %81 ], [ %spec.select, %67 ]
   %75 = load ptr, ptr %6, align 8
   %76 = getelementptr i8, ptr %75, i64 %indvars.iv
   %77 = load i8, ptr %76, align 1
@@ -279,7 +279,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 
 81:                                               ; preds = %.lr.ph, %79
   %82 = phi i32 [ %.pre, %79 ], [ %74, %.lr.ph ]
-  %.3 = phi i1 [ true, %79 ], [ %.279, %.lr.ph ]
+  %.5 = phi i1 [ true, %79 ], [ %.479, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
@@ -287,7 +287,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 
 .loopexit:                                        ; preds = %81, %67
   %85 = phi i32 [ %72, %67 ], [ %82, %81 ]
-  %.4 = phi i1 [ %spec.select, %67 ], [ %.3, %81 ]
+  %.3 = phi i1 [ %spec.select, %67 ], [ %.5, %81 ]
   %86 = load i16, ptr %44, align 4
   %87 = load i16, ptr %53, align 2
   %88 = load i32, ptr %7, align 4
@@ -319,7 +319,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
   br label %.loopexit75
 
 .loopexit75:                                      ; preds = %98, %.loopexit75.sink.split, %1
-  %.06578 = phi i1 [ false, %1 ], [ %.06581, %.loopexit75.sink.split ], [ %.4, %98 ]
+  %.06578 = phi i1 [ false, %1 ], [ %.06581, %.loopexit75.sink.split ], [ %.3, %98 ]
   %102 = load i32, ptr %24, align 8
   %.not90 = icmp eq i32 %102, 0
   br i1 %.not90, label %._crit_edge.thread, label %.lr.ph86

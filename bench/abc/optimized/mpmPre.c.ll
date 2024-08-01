@@ -3026,29 +3026,29 @@ define i32 @Ifd_ManOper(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2
 32:                                               ; preds = %5
   %33 = and i32 %3, 1
   %.not = icmp eq i32 %33, 0
-  %.071 = and i32 %3, -2
-  %.067 = select i1 %.not, i32 %2, i32 %1
-  %.166 = select i1 %.not, i32 %1, i32 %2
-  %34 = and i32 %.067, 1
-  %.168 = and i32 %.067, -2
-  %.2 = xor i32 %34, %.166
-  %35 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef %0, i32 noundef %.2, i32 noundef %.168, i32 noundef %.071, i32 noundef 3)
+  %.172 = and i32 %3, -2
+  %.168 = select i1 %.not, i32 %2, i32 %1
+  %.2 = select i1 %.not, i32 %1, i32 %2
+  %34 = and i32 %.168, 1
+  %.067 = and i32 %.168, -2
+  %.065 = xor i32 %34, %.2
+  %35 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef %0, i32 noundef %.065, i32 noundef %.067, i32 noundef %.172, i32 noundef 3)
   %36 = shl nsw i32 %35, 1
   %37 = or disjoint i32 %36, %34
   br label %68
 
 38:                                               ; preds = %5, %29, %26, %9
-  %.168.ph = phi i32 [ %2, %5 ], [ %2, %26 ], [ %31, %29 ], [ %2, %9 ]
-  %.2.ph = phi i32 [ %1, %5 ], [ %spec.select, %26 ], [ %spec.select, %29 ], [ %1, %9 ]
-  %.1.ph = phi i32 [ 0, %5 ], [ %27, %26 ], [ %30, %29 ], [ 0, %9 ]
+  %.067.ph = phi i32 [ %2, %5 ], [ %2, %26 ], [ %31, %29 ], [ %2, %9 ]
+  %.065.ph = phi i32 [ %1, %5 ], [ %spec.select, %26 ], [ %spec.select, %29 ], [ %1, %9 ]
+  %.064.ph = phi i32 [ 0, %5 ], [ %27, %26 ], [ %30, %29 ], [ 0, %9 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   store i32 0, ptr %41, align 4
   %42 = load ptr, ptr %39, align 8
-  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.2.ph, i32 noundef %4, ptr noundef %42)
+  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.065.ph, i32 noundef %4, ptr noundef %42)
   %43 = load ptr, ptr %39, align 8
-  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.168.ph, i32 noundef %4, ptr noundef %43)
+  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.067.ph, i32 noundef %4, ptr noundef %43)
   %44 = load ptr, ptr %39, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -3085,7 +3085,7 @@ define i32 @Ifd_ManOper(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2
 
 .critedge:                                        ; preds = %.lr.ph, %38
   %.069.lcssa = phi i32 [ %52, %38 ], [ %60, %.lr.ph ]
-  %65 = icmp sgt i32 %.1.ph, 0
+  %65 = icmp sgt i32 %.064.ph, 0
   %66 = zext i1 %65 to i32
   %67 = xor i32 %.069.lcssa, %66
   br label %68
@@ -3220,13 +3220,13 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %61 = phi i32 [ %.pre82, %._crit_edge.loopexit ], [ undef, %46 ]
   %62 = and i32 %59, 1
   %.not.i = icmp eq i32 %62, 0
-  %.071.i = and i32 %59, -2
-  %.067.i = select i1 %.not.i, i32 %60, i32 %61
-  %.166.i = select i1 %.not.i, i32 %61, i32 %60
-  %63 = and i32 %.067.i, 1
-  %.168.i = and i32 %.067.i, -2
-  %.2.i = xor i32 %63, %.166.i
-  %64 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef %0, i32 noundef %.2.i, i32 noundef %.168.i, i32 noundef %.071.i, i32 noundef 3)
+  %.172.i = and i32 %59, -2
+  %.168.i = select i1 %.not.i, i32 %60, i32 %61
+  %.2.i = select i1 %.not.i, i32 %61, i32 %60
+  %63 = and i32 %.168.i, 1
+  %.067.i = and i32 %.168.i, -2
+  %.065.i = xor i32 %63, %.2.i
+  %64 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef %0, i32 noundef %.065.i, i32 noundef %.067.i, i32 noundef %.172.i, i32 noundef 3)
   %65 = shl nsw i32 %64, 1
   %66 = or disjoint i32 %63, %65
   %67 = zext i1 %8 to i32

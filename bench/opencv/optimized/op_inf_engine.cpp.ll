@@ -508,14 +508,14 @@ define void @_ZN2cv3dnn14dnn4_v2024052129setInferenceEngineBackendTypeERKNSt7__c
   %.sink = phi ptr [ %4, %18 ], [ %4, %16 ], [ %6, %25 ], [ %6, %23 ]
   %.pn20.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %26, %25 ], [ %24, %23 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #10
-  %.214 = extractvalue { ptr, i32 } %.pn20.pn, 1
+  %.113 = extractvalue { ptr, i32 } %.pn20.pn, 1
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %29 = icmp eq i32 %.214, %28
+  %29 = icmp eq i32 %.113, %28
   br i1 %29, label %30, label %73
 
 30:                                               ; preds = %27
-  %.2 = extractvalue { ptr, i32 } %.pn20.pn, 0
-  %31 = call ptr @__cxa_begin_catch(ptr %.2) #10
+  %.1 = extractvalue { ptr, i32 } %.pn20.pn, 0
+  %31 = call ptr @__cxa_begin_catch(ptr %.1) #10
   %32 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %35 unwind label %33
 
@@ -740,14 +740,14 @@ define void @_ZN2cv3dnn14dnn4_v2024052125getInferenceEngineVPUTypeB5cxx11Ev(ptr 
 
 38:                                               ; preds = %37, %28, %26, %25
   %.pn22 = phi { ptr, i32 } [ %29, %28 ], [ %.pn20, %37 ], [ %27, %26 ], [ %.pn, %25 ]
-  %.214 = extractvalue { ptr, i32 } %.pn22, 1
+  %.113 = extractvalue { ptr, i32 } %.pn22, 1
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %40 = icmp eq i32 %.214, %39
+  %40 = icmp eq i32 %.113, %39
   br i1 %40, label %41, label %83
 
 41:                                               ; preds = %38
-  %.2 = extractvalue { ptr, i32 } %.pn22, 0
-  %42 = call ptr @__cxa_begin_catch(ptr %.2) #10
+  %.1 = extractvalue { ptr, i32 } %.pn22, 0
+  %42 = call ptr @__cxa_begin_catch(ptr %.1) #10
   %43 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %46 unwind label %44
 

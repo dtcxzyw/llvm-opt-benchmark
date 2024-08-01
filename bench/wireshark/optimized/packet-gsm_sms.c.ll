@@ -3225,8 +3225,8 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
 
 129:                                              ; preds = %.thread, %119
   %130 = phi ptr [ %118, %.thread ], [ %122, %119 ]
-  %.0191247 = phi i32 [ 0, %.thread ], [ %121, %119 ]
-  %.0193245 = phi i32 [ 0, %.thread ], [ 1, %119 ]
+  %.1192247 = phi i32 [ 0, %.thread ], [ %121, %119 ]
+  %.1194245 = phi i32 [ 0, %.thread ], [ 1, %119 ]
   %131 = getelementptr inbounds i8, ptr %1, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = load i16, ptr %110, align 2
@@ -3238,8 +3238,8 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
 
 137:                                              ; preds = %129, %126
   %138 = phi ptr [ %130, %129 ], [ %122, %126 ]
-  %.0191246 = phi i32 [ %.0191247, %129 ], [ %121, %126 ]
-  %.0193244 = phi i32 [ %.0193245, %129 ], [ 1, %126 ]
+  %.1192246 = phi i32 [ %.1192247, %129 ], [ %121, %126 ]
+  %.1194244 = phi i32 [ %.1194245, %129 ], [ 1, %126 ]
   %139 = getelementptr inbounds i8, ptr %1, i64 80
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 50
@@ -3342,8 +3342,8 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   %202 = phi ptr [ %101, %200 ], [ %101, %99 ], [ %98, %.thread287 ]
   %.pre285291 = phi i32 [ %.pre285.pre, %200 ], [ %.pre285.pre, %99 ], [ %3, %.thread287 ]
   %.0189259 = phi i32 [ %107, %200 ], [ 0, %99 ], [ 0, %.thread287 ]
-  %.1192257 = phi i32 [ %.0191246, %200 ], [ 0, %99 ], [ 0, %.thread287 ]
-  %.1194255 = phi i32 [ %.0193244, %200 ], [ 0, %99 ], [ 0, %.thread287 ]
+  %.0191257 = phi i32 [ %.1192246, %200 ], [ 0, %99 ], [ 0, %.thread287 ]
+  %.0193255 = phi i32 [ %.1194244, %200 ], [ 0, %99 ], [ 0, %.thread287 ]
   %203 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.pre285291) #8
   br label %204
 
@@ -3353,8 +3353,8 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   %206 = phi ptr [ %101, %200 ], [ %202, %.thread248 ]
   %.pre285290 = phi i32 [ %.pre285.pre, %200 ], [ %.pre285291, %.thread248 ]
   %.0189258 = phi i32 [ %107, %200 ], [ %.0189259, %.thread248 ]
-  %.1192256 = phi i32 [ %.0191246, %200 ], [ %.1192257, %.thread248 ]
-  %.1194254 = phi i32 [ %.0193244, %200 ], [ %.1194255, %.thread248 ]
+  %.0191256 = phi i32 [ %.1192246, %200 ], [ %.0191257, %.thread248 ]
+  %.0193254 = phi i32 [ %.1194244, %200 ], [ %.0193255, %.thread248 ]
   %.1 = phi ptr [ %138, %200 ], [ %203, %.thread248 ]
   %.not226 = icmp eq i32 %8, 0
   br i1 %.not226, label %211, label %207
@@ -3374,13 +3374,13 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   ]
 
 212:                                              ; preds = %211
-  %.not234 = icmp eq i32 %.1194254, 0
+  %.not234 = icmp eq i32 %.0193254, 0
   br i1 %.not234, label %231, label %213
 
 213:                                              ; preds = %212
   %214 = getelementptr inbounds i8, ptr %1, i64 20
   %215 = load i32, ptr %214, align 4
-  %216 = icmp eq i32 %215, %.1192256
+  %216 = icmp eq i32 %215, %.0191256
   br i1 %216, label %.preheader, label %231
 
 .preheader:                                       ; preds = %213
@@ -3454,13 +3454,13 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   br i1 %258, label %235, label %.loopexit, !llvm.loop !9
 
 259:                                              ; preds = %211
-  %.not232 = icmp eq i32 %.1194254, 0
+  %.not232 = icmp eq i32 %.0193254, 0
   br i1 %.not232, label %278, label %260
 
 260:                                              ; preds = %259
   %261 = getelementptr inbounds i8, ptr %1, i64 20
   %262 = load i32, ptr %261, align 4
-  %263 = icmp eq i32 %262, %.1192256
+  %263 = icmp eq i32 %262, %.0191256
   br i1 %263, label %.preheader261, label %278
 
 .preheader261:                                    ; preds = %260
@@ -3551,13 +3551,13 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
   br i1 %205, label %324, label %319
 
 319:                                              ; preds = %318
-  %.not229 = icmp eq i32 %.1194254, 0
+  %.not229 = icmp eq i32 %.0193254, 0
   br i1 %.not229, label %340, label %320
 
 320:                                              ; preds = %319
   %321 = getelementptr inbounds i8, ptr %1, i64 20
   %322 = load i32, ptr %321, align 4
-  %323 = icmp eq i32 %322, %.1192256
+  %323 = icmp eq i32 %322, %.0191256
   br i1 %323, label %324, label %340
 
 324:                                              ; preds = %320, %318
@@ -3592,13 +3592,13 @@ copy_address_wmem.exit241:                        ; preds = %copy_address_wmem.e
 
 344:                                              ; preds = %211
   %345 = call i32 @tvb_reported_length(ptr noundef %.1) #8
-  %.not227 = icmp eq i32 %.1194254, 0
+  %.not227 = icmp eq i32 %.0193254, 0
   br i1 %.not227, label %364, label %346
 
 346:                                              ; preds = %344
   %347 = getelementptr inbounds i8, ptr %1, i64 20
   %348 = load i32, ptr %347, align 4
-  %349 = icmp eq i32 %348, %.1192256
+  %349 = icmp eq i32 %348, %.0191256
   br i1 %349, label %.preheader263, label %364
 
 .preheader263:                                    ; preds = %346

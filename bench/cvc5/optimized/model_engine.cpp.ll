@@ -2023,12 +2023,12 @@ ehcleanup197:                                     ; preds = %lpad193, %lpad191
   br label %ehcleanup228
 
 if.end225:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit523, %invoke.cont203
-  %addedLemmas.1 = phi i32 [ %inc199, %invoke.cont203 ], [ %addedLemmas.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit523 ]
+  %addedLemmas.3 = phi i32 [ %inc199, %invoke.cont203 ], [ %addedLemmas.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit523 ]
   %call227 = invoke noundef i32 @_ZN4cvc58internal6theory14RepSetIterator9incrementEv(ptr noundef nonnull align 8 dereferenceable(169) %riter)
           to label %cleanup unwind label %lpad163
 
 cleanup:                                          ; preds = %if.end225, %invoke.cont203
-  %addedLemmas.2 = phi i32 [ %inc199, %invoke.cont203 ], [ %addedLemmas.1, %if.end225 ]
+  %addedLemmas.2 = phi i32 [ %inc199, %invoke.cont203 ], [ %addedLemmas.3, %if.end225 ]
   %switch = phi i1 [ false, %invoke.cont203 ], [ true, %if.end225 ]
   %59 = load ptr, ptr %terms, align 8
   %60 = load ptr, ptr %_M_finish.i, align 8
@@ -2091,10 +2091,10 @@ ehcleanup228:                                     ; preds = %ehcleanup197, %lpad
 
 while.end:                                        ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %invoke.cont158, %invoke.cont161
   %triedLemmas.1 = phi i32 [ %triedLemmas.0, %invoke.cont158 ], [ %inc182, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %triedLemmas.0, %invoke.cont161 ]
-  %addedLemmas.3 = phi i32 [ %addedLemmas.0, %invoke.cont158 ], [ %addedLemmas.2, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %addedLemmas.0, %invoke.cont161 ]
+  %addedLemmas.1 = phi i32 [ %addedLemmas.0, %invoke.cont158 ], [ %addedLemmas.2, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %addedLemmas.0, %invoke.cont161 ]
   %d_addedLemmas229 = getelementptr inbounds i8, ptr %this, i64 52
   %66 = load i32, ptr %d_addedLemmas229, align 4
-  %add230 = add nsw i32 %66, %addedLemmas.3
+  %add230 = add nsw i32 %66, %addedLemmas.1
   store i32 %add230, ptr %d_addedLemmas229, align 4
   %d_triedLemmas231 = getelementptr inbounds i8, ptr %this, i64 56
   %67 = load i32, ptr %d_triedLemmas231, align 8

@@ -92,7 +92,7 @@ define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 .lr.ph:                                           ; preds = %3, %16
   %.026 = phi ptr [ %8, %16 ], [ %1, %3 ]
-  %.01825 = phi i64 [ %.2, %16 ], [ 0, %3 ]
+  %.01825 = phi i64 [ %.1, %16 ], [ 0, %3 ]
   %.01924 = phi ptr [ %.120, %16 ], [ %1, %3 ]
   %.02123 = phi i32 [ %17, %16 ], [ %2, %3 ]
   %8 = getelementptr i8, ptr %.026, i64 1
@@ -118,17 +118,17 @@ define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 16:                                               ; preds = %15, %11
   %.120 = phi ptr [ %.01924, %11 ], [ %8, %15 ]
-  %.2 = phi i64 [ %12, %11 ], [ 0, %15 ]
+  %.1 = phi i64 [ %12, %11 ], [ 0, %15 ]
   %17 = add nsw i32 %.02123, -1
   %18 = icmp sgt i32 %.02123, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %16
-  %.not = icmp eq i64 %.2, 0
+  %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %._crit_edge.thread, label %19
 
 19:                                               ; preds = %._crit_edge
-  tail call void @wmem_strbuf_append_len(ptr noundef %6, ptr noundef %.120, i64 noundef %.2) #6
+  tail call void @wmem_strbuf_append_len(ptr noundef %6, ptr noundef %.120, i64 noundef %.1) #6
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %19, %._crit_edge
@@ -453,10 +453,10 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr nocapture noundef readonly %1,
 
 52:                                               ; preds = %37, %.lr.ph.split.us, %51, %42
   %.sink = phi i32 [ %32, %51 ], [ %50, %42 ], [ 65533, %.lr.ph.split.us ], [ 65533, %37 ]
-  %.2.us = phi i32 [ %.173.us, %51 ], [ %35, %42 ], [ %.173.us, %.lr.ph.split.us ], [ %35, %37 ]
+  %.3.us = phi i32 [ %.173.us, %51 ], [ %35, %42 ], [ %.173.us, %.lr.ph.split.us ], [ %35, %37 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink) #6
-  %53 = add i32 %.2.us, 2
-  %.reass.us = add i32 %.2.us, 3
+  %53 = add i32 %.3.us, 2
+  %.reass.us = add i32 %.3.us, 3
   %54 = icmp slt i32 %.reass.us, %2
   br i1 %54, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !10
 
@@ -503,16 +503,16 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr nocapture noundef readonly %1,
 
 72:                                               ; preds = %.lr.ph.split, %62, %66, %71
   %.sink92 = phi i32 [ %70, %66 ], [ %57, %71 ], [ 65533, %62 ], [ 65533, %.lr.ph.split ]
-  %.2 = phi i32 [ %60, %66 ], [ %.173, %71 ], [ %60, %62 ], [ %.173, %.lr.ph.split ]
+  %.3 = phi i32 [ %60, %66 ], [ %.173, %71 ], [ %60, %62 ], [ %.173, %.lr.ph.split ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink92) #6
-  %73 = add i32 %.2, 2
-  %.reass = add i32 %.2, 3
+  %73 = add i32 %.3, 2
+  %.reass = add i32 %.3, 3
   %74 = icmp slt i32 %.reass, %2
   br i1 %74, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %52, %72, %.thread, %20, %.split.us
-  %.3 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %20 ], [ 2, %.thread ], [ %73, %72 ], [ %53, %52 ]
-  %75 = icmp slt i32 %.3, %2
+  %.2 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %20 ], [ 2, %.thread ], [ %73, %72 ], [ %53, %52 ]
+  %75 = icmp slt i32 %.2, %2
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %.loopexit
@@ -761,13 +761,13 @@ GSM_to_UNICHAR.exit:                              ; preds = %5
 
 .sink.split:                                      ; preds = %4, %GSM_to_UNICHAR.exit, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16
   %.0.sink = phi i32 [ %20, %GSM_to_UNICHAR.exit ], [ 65533, %16 ], [ 8364, %15 ], [ 124, %14 ], [ 93, %13 ], [ 126, %12 ], [ 91, %11 ], [ 92, %10 ], [ 125, %9 ], [ 123, %8 ], [ 94, %7 ], [ 12, %6 ], [ 65533, %4 ]
-  %.1.ph = phi i32 [ 0, %GSM_to_UNICHAR.exit ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ %2, %4 ]
+  %.08.ph = phi i32 [ 0, %GSM_to_UNICHAR.exit ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ %2, %4 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %0, i32 noundef %.0.sink) #6
   br label %21
 
 21:                                               ; preds = %.sink.split, %3
-  %.1 = phi i32 [ 1, %3 ], [ %.1.ph, %.sink.split ]
-  ret i32 %.1
+  %.08 = phi i32 [ 1, %3 ], [ %.08.ph, %.sink.split ]
+  ret i32 %.08
 }
 
 ; Function Attrs: nounwind uwtable

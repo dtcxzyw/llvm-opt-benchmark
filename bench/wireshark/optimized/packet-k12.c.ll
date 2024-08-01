@@ -412,20 +412,20 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %106
 
 106:                                              ; preds = %.thread, %101
-  %.189 = phi ptr [ %104, %101 ], [ @dissect_k12.data_handles, %.thread ]
+  %.2 = phi ptr [ %104, %101 ], [ @dissect_k12.data_handles, %.thread ]
   %107 = load ptr, ptr @port_handles, align 8
   %108 = load ptr, ptr %6, align 8
   %109 = load i32, ptr %108, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %107, i32 noundef %109, ptr noundef nonnull %.189) #5
+  tail call void @wmem_tree_insert32(ptr noundef %107, i32 noundef %109, ptr noundef nonnull %.2) #5
   br label %110
 
 110:                                              ; preds = %106, %76
-  %.2 = phi ptr [ %80, %76 ], [ %.189, %106 ]
-  %111 = icmp eq ptr %.2, @dissect_k12.data_handles
+  %.088 = phi ptr [ %80, %76 ], [ %.2, %106 ]
+  %111 = icmp eq ptr %.088, @dissect_k12.data_handles
   br i1 %111, label %113, label %.preheader
 
 .preheader:                                       ; preds = %110
-  %112 = load ptr, ptr %.2, align 8
+  %112 = load ptr, ptr %.088, align 8
   %.not98106 = icmp eq ptr %112, null
   br i1 %.not98106, label %.critedge, label %.lr.ph108
 
@@ -441,7 +441,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.1107 = phi i32 [ %119, %136 ], [ 0, %.preheader ]
   %119 = add i32 %.1107, 1
   %120 = zext i32 %119 to i64
-  %121 = getelementptr ptr, ptr %.2, i64 %120
+  %121 = getelementptr ptr, ptr %.088, i64 %120
   %122 = load ptr, ptr %121, align 8
   %.not99 = icmp eq ptr %122, null
   br i1 %.not99, label %.critedge.loopexit, label %123
@@ -478,7 +478,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not98, label %.critedge.loopexit, label %.lr.ph108, !llvm.loop !8
 
 .critedge.loopexit:                               ; preds = %136, %.lr.ph108
-  %.pre113 = load ptr, ptr %.2, align 8
+  %.pre113 = load ptr, ptr %.088, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader

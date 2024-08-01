@@ -1172,8 +1172,8 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br label %104
 
 104:                                              ; preds = %102, %99, %95
-  %.0.i = phi i32 [ 0, %95 ], [ 0, %102 ], [ 4, %99 ]
-  %105 = add nuw nsw i32 %.0.i, %.not105.ph.i
+  %.1208.i = phi i32 [ 0, %95 ], [ 0, %102 ], [ 4, %99 ]
+  %105 = add nuw nsw i32 %.1208.i, %.not105.ph.i
   %106 = call i32 @tvb_offset_exists(ptr noundef %.096.ph.i, i32 noundef %105) #6
   %.not106240.i = icmp eq i32 %106, 0
   br i1 %.not106240.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1183,14 +1183,14 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br label %108
 
 108:                                              ; preds = %parse_c1222_detailed.exit.i, %.lr.ph.i
-  %.1208241.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %466, %parse_c1222_detailed.exit.i ]
-  %109 = call i32 @tvb_offset_exists(ptr noundef %.096.ph.i, i32 noundef %.1208241.i) #6
+  %.2241.i = phi i32 [ %.1208.i, %.lr.ph.i ], [ %466, %parse_c1222_detailed.exit.i ]
+  %109 = call i32 @tvb_offset_exists(ptr noundef %.096.ph.i, i32 noundef %.2241.i) #6
   %.not.i.i = icmp eq i32 %109, 0
   br i1 %.not.i.i, label %ber_len_ok.exit.i, label %110
 
 110:                                              ; preds = %108
-  %111 = call zeroext i8 @tvb_get_guint8(ptr noundef %.096.ph.i, i32 noundef %.1208241.i) #6
-  %112 = add i32 %.1208241.i, 1
+  %111 = call zeroext i8 @tvb_get_guint8(ptr noundef %.096.ph.i, i32 noundef %.2241.i) #6
+  %112 = add i32 %.2241.i, 1
   %.not23.i.i = icmp sgt i8 %111, -1
   br i1 %.not23.i.i, label %127, label %113
 
@@ -1201,7 +1201,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
 
 115:                                              ; preds = %113
   %116 = call zeroext i8 @tvb_get_guint8(ptr noundef %.096.ph.i, i32 noundef %112) #6
-  %117 = add i32 %.1208241.i, 2
+  %117 = add i32 %.2241.i, 2
   %.not25.i.i = icmp sgt i8 %116, -1
   br i1 %.not25.i.i, label %127, label %118
 
@@ -1212,7 +1212,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
 
 120:                                              ; preds = %118
   %121 = call zeroext i8 @tvb_get_guint8(ptr noundef %.096.ph.i, i32 noundef %117) #6
-  %122 = add i32 %.1208241.i, 3
+  %122 = add i32 %.2241.i, 3
   %.not27.i.i = icmp sgt i8 %121, -1
   br i1 %.not27.i.i, label %127, label %123
 
@@ -1227,7 +1227,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br i1 %.not29.i.i, label %127, label %ber_len_ok.exit.i
 
 127:                                              ; preds = %125, %120, %115, %110
-  %128 = call i32 @dissect_ber_length(ptr noundef %47, ptr noundef %45, ptr noundef %.096.ph.i, i32 noundef %.1208241.i, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+  %128 = call i32 @dissect_ber_length(ptr noundef %47, ptr noundef %45, ptr noundef %.096.ph.i, i32 noundef %.2241.i, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
   %129 = load i32, ptr %9, align 4
   %130 = add i32 %128, -1
   %131 = add i32 %130, %129
@@ -1499,20 +1499,20 @@ ber_len_ok.exit.i:                                ; preds = %125, %123, %118, %1
   br label %302
 
 302:                                              ; preds = %280, %278
-  %.2.i = phi i32 [ %298, %280 ], [ %275, %278 ]
+  %.3.i = phi i32 [ %298, %280 ], [ %275, %278 ]
   %.pre-phi.i.i = phi i32 [ %.pre377.i.i, %280 ], [ %273, %278 ]
   %.0343.i.i = phi i16 [ %301, %280 ], [ %271, %278 ]
   %.0342.i.i = phi i32 [ %285, %280 ], [ 0, %278 ]
   %303 = load i32, ptr @hf_c1222_write_data, align 4
-  %304 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %303, ptr noundef %.096.ph.i, i32 noundef %.2.i, i32 noundef %.pre-phi.i.i, i32 noundef 0) #6
-  %305 = add i32 %.pre-phi.i.i, %.2.i
+  %304 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %303, ptr noundef %.096.ph.i, i32 noundef %.3.i, i32 noundef %.pre-phi.i.i, i32 noundef 0) #6
+  %305 = add i32 %.pre-phi.i.i, %.3.i
   %306 = load i32, ptr %9, align 4
   %307 = sub i32 %306, %.pre-phi.i.i
   store i32 %307, ptr %9, align 4
   br i1 %279, label %308, label %315
 
 308:                                              ; preds = %302
-  %309 = add i32 %.2.i, -3
+  %309 = add i32 %.3.i, -3
   %310 = add nuw nsw i32 %.pre-phi.i.i, 3
   br label %.lr.ph.i.i.i
 
@@ -1534,7 +1534,7 @@ ber_len_ok.exit.i:                                ; preds = %125, %123, %118, %1
 .lr.ph.i356.i.i:                                  ; preds = %315, %.lr.ph.i356.i.i
   %.011.i357.i.i = phi i8 [ %317, %.lr.ph.i356.i.i ], [ 0, %315 ]
   %.0610.i358.i.i = phi i32 [ %319, %.lr.ph.i356.i.i ], [ %.pre-phi.i.i, %315 ]
-  %.079.i359.i.i = phi i32 [ %318, %.lr.ph.i356.i.i ], [ %.2.i, %315 ]
+  %.079.i359.i.i = phi i32 [ %318, %.lr.ph.i356.i.i ], [ %.3.i, %315 ]
   %316 = call zeroext i8 @tvb_get_guint8(ptr noundef %.096.ph.i, i32 noundef %.079.i359.i.i) #6
   %317 = add i8 %316, %.011.i357.i.i
   %318 = add i32 %.079.i359.i.i, 1
@@ -1770,11 +1770,11 @@ c1222_cksum.exit369.i.i:                          ; preds = %.lr.ph.i363.i.i, %3
   br label %parse_c1222_detailed.exit.i
 
 parse_c1222_detailed.exit.i:                      ; preds = %462, %459, %457, %427, %423, %407, %403, %394, %391, %389, %c1222_cksum.exit369.i.i, %342, %340, %336, %259, %236, %232, %219, %215, %213, %204, %194, %191, %181, %169, %155
-  %.3.i = phi i32 [ %150, %459 ], [ %150, %462 ], [ %453, %427 ], [ %150, %457 ], [ %419, %407 ], [ %150, %423 ], [ %150, %403 ], [ %399, %394 ], [ %386, %c1222_cksum.exit369.i.i ], [ %363, %389 ], [ %150, %391 ], [ %337, %336 ], [ %275, %340 ], [ %150, %342 ], [ %251, %236 ], [ %150, %259 ], [ %229, %219 ], [ %150, %232 ], [ %150, %215 ], [ %202, %213 ], [ %209, %204 ], [ %186, %181 ], [ %177, %191 ], [ %150, %194 ], [ %164, %155 ], [ %150, %169 ]
+  %.4.i = phi i32 [ %150, %459 ], [ %150, %462 ], [ %453, %427 ], [ %150, %457 ], [ %419, %407 ], [ %150, %423 ], [ %150, %403 ], [ %399, %394 ], [ %386, %c1222_cksum.exit369.i.i ], [ %363, %389 ], [ %150, %391 ], [ %337, %336 ], [ %275, %340 ], [ %150, %342 ], [ %251, %236 ], [ %150, %259 ], [ %229, %219 ], [ %150, %232 ], [ %150, %215 ], [ %202, %213 ], [ %209, %204 ], [ %186, %181 ], [ %177, %191 ], [ %150, %194 ], [ %164, %155 ], [ %150, %169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %465 = load i32, ptr %9, align 4
-  %466 = add i32 %465, %.3.i
+  %466 = add i32 %465, %.4.i
   %467 = add i32 %466, %.not105.ph.i
   %468 = call i32 @tvb_offset_exists(ptr noundef %.096.ph.i, i32 noundef %467) #6
   %.not106.i = icmp eq i32 %468, 0
@@ -1785,26 +1785,26 @@ parse_c1222_detailed.exit.i:                      ; preds = %462, %459, %457, %4
   br label %dissect_epsem.exit
 
 ._crit_edge.i:                                    ; preds = %parse_c1222_detailed.exit.i, %104
-  %.1208.lcssa.i = phi i32 [ %.0.i, %104 ], [ %466, %parse_c1222_detailed.exit.i ]
+  %.2.lcssa.i = phi i32 [ %.1208.i, %104 ], [ %466, %parse_c1222_detailed.exit.i ]
   br i1 %.not109.ph.i, label %dissect_epsem.exit, label %471
 
 471:                                              ; preds = %._crit_edge.i, %.thread225.i
   %.1234.i = phi ptr [ %1, %.thread225.i ], [ %.096.ph.i, %._crit_edge.i ]
-  %.4233.i = phi i32 [ %94, %.thread225.i ], [ %.1208.lcssa.i, %._crit_edge.i ]
+  %.0233.i = phi i32 [ %94, %.thread225.i ], [ %.2.lcssa.i, %._crit_edge.i ]
   %.095216232.i = phi i64 [ 0, %.thread225.i ], [ %.095.ph.i, %._crit_edge.i ]
   %.094218231.i = phi i64 [ %.094.i, %.thread225.i ], [ %.094.ph.i, %._crit_edge.i ]
-  %472 = add i32 %.4233.i, 3
+  %472 = add i32 %.0233.i, 3
   %473 = call i32 @tvb_offset_exists(ptr noundef %.1234.i, i32 noundef %472) #6
   %.not110.i = icmp eq i32 %473, 0
   br i1 %.not110.i, label %497, label %474
 
 474:                                              ; preds = %471
   %475 = load i32, ptr @hf_c1222_epsem_mac, align 4
-  %476 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %475, ptr noundef %.1234.i, i32 noundef %.4233.i, i32 noundef 4, i32 noundef 0) #6
+  %476 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %475, ptr noundef %.1234.i, i32 noundef %.0233.i, i32 noundef 4, i32 noundef 0) #6
   %477 = load i32, ptr @ett_c1222_crypto, align 4
   %478 = call ptr @proto_item_add_subtree(ptr noundef %476, i32 noundef %477) #6
   %479 = load i32, ptr @hf_c1222_epsem_crypto_good, align 4
-  %480 = call ptr @proto_tree_add_boolean(ptr noundef %478, i32 noundef %479, ptr noundef %1, i32 noundef %.4233.i, i32 noundef 4, i64 noundef %.095216232.i) #6
+  %480 = call ptr @proto_tree_add_boolean(ptr noundef %478, i32 noundef %479, ptr noundef %1, i32 noundef %.0233.i, i32 noundef 4, i64 noundef %.095216232.i) #6
   %.not.i112.i = icmp eq ptr %480, null
   br i1 %.not.i112.i, label %proto_item_set_generated.exit.i, label %481
 
@@ -1823,7 +1823,7 @@ parse_c1222_detailed.exit.i:                      ; preds = %462, %459, %457, %4
 
 proto_item_set_generated.exit.i:                  ; preds = %484, %481, %474
   %488 = load i32, ptr @hf_c1222_epsem_crypto_bad, align 4
-  %489 = call ptr @proto_tree_add_boolean(ptr noundef %478, i32 noundef %488, ptr noundef %1, i32 noundef %.4233.i, i32 noundef 4, i64 noundef %.094218231.i) #6
+  %489 = call ptr @proto_tree_add_boolean(ptr noundef %478, i32 noundef %488, ptr noundef %1, i32 noundef %.0233.i, i32 noundef 4, i64 noundef %.094218231.i) #6
   %.not.i113.i = icmp eq ptr %489, null
   br i1 %.not.i113.i, label %dissect_epsem.exit, label %490
 

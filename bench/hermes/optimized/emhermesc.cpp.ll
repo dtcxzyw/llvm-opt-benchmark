@@ -349,14 +349,14 @@ if.then21:                                        ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EEaSEOS4_.exit, %if.then21
-  %compileRes.sroa.0.0 = phi ptr [ %call.i13, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %if.then21 ]
+  %compileRes.sroa.0.2 = phi ptr [ %call.i13, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %if.then21 ]
   call void @_ZN6hermes21SimpleDiagHandlerRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(388) %diagHandler) #15
   call void @_ZN6hermes18SourceErrorManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %sm) #15
   br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit24, label %if.end30
 
 if.end30:                                         ; preds = %cleanup, %land.lhs.true, %if.end
-  %sourceMap.sroa.0.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true ], [ %3, %cleanup ]
-  %compileRes.sroa.0.1 = phi ptr [ %call.i13, %if.end ], [ %call.i13, %land.lhs.true ], [ %compileRes.sroa.0.0, %cleanup ]
+  %sourceMap.sroa.0.1 = phi ptr [ null, %if.end ], [ null, %land.lhs.true ], [ %3, %cleanup ]
+  %compileRes.sroa.0.1 = phi ptr [ %call.i13, %if.end ], [ %call.i13, %land.lhs.true ], [ %compileRes.sroa.0.2, %cleanup ]
   %lazy = getelementptr inbounds i8, ptr %flags, i64 1
   store i8 0, ptr %lazy, align 1
   %enableBlockScoping = getelementptr inbounds i8, ptr %flags, i64 2
@@ -389,7 +389,7 @@ if.end30:                                         ; preds = %cleanup, %land.lhs.
   %tobool.not = icmp eq ptr %sourceURL, null
   %cond = select i1 %tobool.not, ptr @.str.3, ptr %sourceURL
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond) #18
-  %4 = ptrtoint ptr %sourceMap.sroa.0.0 to i64
+  %4 = ptrtoint ptr %sourceMap.sroa.0.1 to i64
   store i64 %4, ptr %agg.tmp37, align 8
   call void @_ZN6hermes3hbc17BCProviderFromSrc23createBCProviderFromSrcB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsE(ptr nonnull sret(%"struct.std::pair") align 8 %res, ptr noundef nonnull %agg.tmp32, ptr nonnull %cond, i64 %call.i, ptr noundef nonnull %agg.tmp37, ptr noundef nonnull align 4 dereferenceable(28) %flags) #15
   %5 = load ptr, ptr %agg.tmp37, align 8
@@ -505,13 +505,13 @@ _ZNKSt14default_deleteIN6hermes3hbc17BCProviderFromSrcEEclEPS2_.exit.i.i: ; pred
   br label %_ZNSt10unique_ptrI13CompileResultSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit24: ; preds = %cleanup
-  %cmp.not.i25 = icmp eq ptr %compileRes.sroa.0.0, null
+  %cmp.not.i25 = icmp eq ptr %compileRes.sroa.0.2, null
   br i1 %cmp.not.i25, label %_ZNSt10unique_ptrI13CompileResultSt14default_deleteIS0_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit24
-  %bytecode_.i.i.i = getelementptr inbounds i8, ptr %compileRes.sroa.0.0, i64 32
+  %bytecode_.i.i.i = getelementptr inbounds i8, ptr %compileRes.sroa.0.2, i64 32
   %13 = load ptr, ptr %bytecode_.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %compileRes.sroa.0.0, i64 48
+  %add.ptr.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %compileRes.sroa.0.2, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i.i26
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i, label %if.then.i.i.i.i.i
 
@@ -520,13 +520,13 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   br label %_ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i: ; preds = %if.then.i.i.i.i.i, %delete.notnull.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compileRes.sroa.0.0) #15
-  call void @_ZdlPv(ptr noundef nonnull %compileRes.sroa.0.0) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compileRes.sroa.0.2) #15
+  call void @_ZdlPv(ptr noundef nonnull %compileRes.sroa.0.2) #16
   br label %_ZNSt10unique_ptrI13CompileResultSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI13CompileResultSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6hermes3hbc17BCProviderFromSrcEEclEPS2_.exit.i.i, %cleanup63, %if.then, %if.then12, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit24, %_ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i
-  %retval.245 = phi ptr [ %call.i13, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit24 ], [ %call.i13, %_ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i ], [ %call.i13, %if.then12 ], [ %call.i13, %if.then ], [ %compileRes.sroa.0.1, %cleanup63 ], [ %compileRes.sroa.0.1, %_ZNKSt14default_deleteIN6hermes3hbc17BCProviderFromSrcEEclEPS2_.exit.i.i ]
-  ret ptr %retval.245
+  %retval.045 = phi ptr [ %call.i13, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit24 ], [ %call.i13, %_ZNKSt14default_deleteI13CompileResultEclEPS0_.exit.i ], [ %call.i13, %if.then12 ], [ %call.i13, %if.then ], [ %compileRes.sroa.0.1, %cleanup63 ], [ %compileRes.sroa.0.1, %_ZNKSt14default_deleteIN6hermes3hbc17BCProviderFromSrcEEclEPS2_.exit.i.i ]
+  ret ptr %retval.045
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4

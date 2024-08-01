@@ -190,9 +190,9 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
   br label %unreadable_info.exit
 
 45:                                               ; preds = %21, %17
-  %.073 = phi ptr [ %2, %17 ], [ %22, %21 ]
-  %.0 = phi i32 [ 0, %17 ], [ 1, %21 ]
-  %46 = call i32 @_php_stream_stat(ptr noundef %.073, ptr noundef nonnull %5) #11
+  %.174 = phi ptr [ %2, %17 ], [ %22, %21 ]
+  %.1 = phi i32 [ 0, %17 ], [ 1, %21 ]
+  %46 = call i32 @_php_stream_stat(ptr noundef %.174, ptr noundef nonnull %5) #11
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %54
 
@@ -211,7 +211,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
 54:                                               ; preds = %48, %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
   %55 = load i64, ptr %9, align 8
-  %56 = call i64 @_php_stream_read(ptr noundef %.073, ptr noundef nonnull %12, i64 noundef %55) #11
+  %56 = call i64 @_php_stream_read(ptr noundef %.174, ptr noundef nonnull %12, i64 noundef %55) #11
   %57 = icmp slt i64 %56, 0
   br i1 %57, label %58, label %60
 
@@ -223,26 +223,26 @@ define internal fastcc ptr @file_or_stream(ptr noundef %0, ptr noundef %1, ptr n
 60:                                               ; preds = %54
   %61 = getelementptr inbounds i8, ptr %12, i64 %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(129) %61, i8 0, i64 129, i1 false)
-  %62 = call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %56) #11
+  %62 = call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef %.174, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %56) #11
   %63 = icmp ne i32 %62, -1
   br label %unreadable_info.exit
 
 unreadable_info.exit:                             ; preds = %43, %40, %34, %28, %60, %14, %58, %52, %16
-  %.174 = phi ptr [ %2, %16 ], [ %.073, %52 ], [ %.073, %58 ], [ %2, %14 ], [ %.073, %60 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %43 ]
-  %.071 = phi i1 [ true, %16 ], [ false, %52 ], [ false, %58 ], [ false, %14 ], [ %63, %60 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %43 ]
-  %.1 = phi i32 [ 0, %16 ], [ %.0, %52 ], [ %.0, %58 ], [ 0, %14 ], [ %.0, %60 ], [ 1, %28 ], [ 1, %34 ], [ 1, %40 ], [ 1, %43 ]
+  %.073 = phi ptr [ %2, %16 ], [ %.174, %52 ], [ %.174, %58 ], [ %2, %14 ], [ %.174, %60 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %43 ]
+  %.172 = phi i1 [ true, %16 ], [ false, %52 ], [ false, %58 ], [ false, %14 ], [ %63, %60 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %43 ]
+  %.0 = phi i32 [ 0, %16 ], [ %.1, %52 ], [ %.1, %58 ], [ 0, %14 ], [ %.1, %60 ], [ 1, %28 ], [ 1, %34 ], [ 1, %40 ], [ 1, %43 ]
   call void @_efree(ptr noundef nonnull %12) #11
-  %64 = icmp ne i32 %.1, 0
-  %65 = icmp ne ptr %.174, null
+  %64 = icmp ne i32 %.0, 0
+  %65 = icmp ne ptr %.073, null
   %or.cond3 = and i1 %65, %64
   br i1 %or.cond3, label %66, label %68
 
 66:                                               ; preds = %unreadable_info.exit
-  %67 = call i32 @_php_stream_free(ptr noundef nonnull %.174, i32 noundef 3) #11
+  %67 = call i32 @_php_stream_free(ptr noundef nonnull %.073, i32 noundef 3) #11
   br label %68
 
 68:                                               ; preds = %unreadable_info.exit, %66
-  br i1 %.071, label %69, label %.thread
+  br i1 %.172, label %69, label %.thread
 
 69:                                               ; preds = %68
   %70 = call ptr @file_getbuffer(ptr noundef nonnull %0) #11

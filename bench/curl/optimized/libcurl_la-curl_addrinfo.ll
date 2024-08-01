@@ -48,7 +48,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %ai.055 = phi ptr [ %ai.0, %for.inc ], [ %ai.051, %for.cond.preheader ]
   %calast.054 = phi ptr [ %calast.1, %for.inc ], [ null, %for.cond.preheader ]
-  %cafirst.053 = phi ptr [ %cafirst.2, %for.inc ], [ null, %for.cond.preheader ]
+  %cafirst.053 = phi ptr [ %cafirst.1, %for.inc ], [ null, %for.cond.preheader ]
   %ai_canonname = getelementptr inbounds i8, ptr %ai.055, i64 32
   %0 = load ptr, ptr %ai_canonname, align 8
   %tobool1.not = icmp eq ptr %0, null
@@ -139,7 +139,7 @@ if.then51:                                        ; preds = %if.end46
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end46, %if.then51, %cond.end, %if.end11, %lor.lhs.false
-  %cafirst.2 = phi ptr [ %cafirst.053, %lor.lhs.false ], [ %cafirst.053, %if.end11 ], [ %cafirst.053, %cond.end ], [ %spec.select, %if.then51 ], [ %spec.select, %if.end46 ]
+  %cafirst.1 = phi ptr [ %cafirst.053, %lor.lhs.false ], [ %cafirst.053, %if.end11 ], [ %cafirst.053, %cond.end ], [ %spec.select, %if.then51 ], [ %spec.select, %if.end46 ]
   %calast.1 = phi ptr [ %calast.054, %lor.lhs.false ], [ %calast.054, %if.end11 ], [ %calast.054, %cond.end ], [ %call23, %if.then51 ], [ %call23, %if.end46 ]
   %ai_next54 = getelementptr inbounds i8, ptr %ai.055, i64 40
   %ai.0 = load ptr, ptr %ai_next54, align 8
@@ -178,7 +178,7 @@ for.body.i:                                       ; preds = %if.then59, %for.bod
   br i1 %tobool.not.i, label %if.end64, label %for.body.i, !llvm.loop !4
 
 if.else60:                                        ; preds = %for.end, %if.then56, %for.cond.preheader
-  %cafirst.0.lcssa6672 = phi ptr [ %cafirst.2, %if.then56 ], [ null, %for.cond.preheader ], [ %cafirst.2, %for.end ]
+  %cafirst.0.lcssa6672 = phi ptr [ %cafirst.1, %if.then56 ], [ null, %for.cond.preheader ], [ %cafirst.1, %for.end ]
   %tobool61.not = icmp eq ptr %cafirst.0.lcssa6672, null
   %spec.select50 = select i1 %tobool61.not, i32 -2, i32 0
   br label %if.end64

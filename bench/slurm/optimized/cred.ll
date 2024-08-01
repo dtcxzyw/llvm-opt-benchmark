@@ -332,15 +332,15 @@ define ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef
   br label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %29, %._crit_edge.loopexit.split.loop.exit
-  %.034.lcssa.ph = phi i32 [ %30, %._crit_edge.loopexit.split.loop.exit ], [ %25, %29 ]
-  %31 = trunc i32 %.034.lcssa.ph to i16
+  %.1.lcssa.ph = phi i32 [ %30, %._crit_edge.loopexit.split.loop.exit ], [ %25, %29 ]
+  %31 = trunc i32 %.1.lcssa.ph to i16
   %32 = add i16 %31, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %21
-  %.1 = phi i16 [ 0, %21 ], [ 1, %.preheader ], [ %32, %._crit_edge.loopexit ]
+  %.034 = phi i16 [ 0, %21 ], [ 1, %.preheader ], [ %32, %._crit_edge.loopexit ]
   %33 = getelementptr inbounds i8, ptr %0, i64 32
-  store i16 %.1, ptr %33, align 8
+  store i16 %.034, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not42 = icmp eq ptr %35, null

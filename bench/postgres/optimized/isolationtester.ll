@@ -1072,12 +1072,12 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
 
 106:                                              ; preds = %.lr.ph33, %192
   %107 = phi ptr [ %103, %.lr.ph33 ], [ %.pre95, %192 ]
-  %.112331 = phi i32 [ %.012238, %.lr.ph33 ], [ %.125.lcssa7.i, %192 ]
+  %.212431 = phi i32 [ %.012238, %.lr.ph33 ], [ %.125.lcssa7.i, %192 ]
   %108 = call fastcc zeroext i1 @try_complete_step(ptr noundef nonnull %107, i32 noundef 2)
   br i1 %108, label %.preheader138, label %.preheader2
 
 .preheader2:                                      ; preds = %106
-  %109 = icmp sgt i32 %.112331, 0
+  %109 = icmp sgt i32 %.212431, 0
   br i1 %109, label %.lr.ph28, label %.preheader2._crit_edge
 
 .lr.ph28:                                         ; preds = %.preheader2, %115
@@ -1090,7 +1090,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
   br i1 %113, label %116, label %115
 
 115:                                              ; preds = %.lr.ph28
-  %exitcond75.not = icmp eq i32 %114, %.112331
+  %exitcond75.not = icmp eq i32 %114, %.212431
   br i1 %exitcond75.not, label %.preheader2._crit_edge, label %.lr.ph28, !llvm.loop !28
 
 .preheader2._crit_edge:                           ; preds = %.preheader2, %115
@@ -1098,25 +1098,25 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr nocapture nound
   unreachable
 
 116:                                              ; preds = %.lr.ph28
-  %117 = icmp slt i32 %114, %.112331
+  %117 = icmp slt i32 %114, %.212431
   br i1 %117, label %118, label %125
 
 118:                                              ; preds = %116
   %119 = getelementptr ptr, ptr %12, i64 %110
   %120 = zext nneg i32 %114 to i64
   %121 = getelementptr ptr, ptr %12, i64 %120
-  %122 = sub nsw i32 %.112331, %114
+  %122 = sub nsw i32 %.212431, %114
   %123 = sext i32 %122 to i64
   %124 = shl nsw i64 %123, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %119, ptr align 8 %121, i64 %124, i1 false)
   br label %125
 
 125:                                              ; preds = %118, %116
-  %126 = add nsw i32 %.112331, -1
+  %126 = add nsw i32 %.212431, -1
   br label %.preheader138
 
 .preheader138:                                    ; preds = %125, %106
-  %.024.i.ph = phi i32 [ %126, %125 ], [ %.112331, %106 ]
+  %.024.i.ph = phi i32 [ %126, %125 ], [ %.212431, %106 ]
   br label %127
 
 127:                                              ; preds = %.preheader138, %152
@@ -1250,7 +1250,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   br i1 %.not142, label %.loopexit, label %106, !llvm.loop !32
 
 .loopexit:                                        ; preds = %try_complete_steps.exit, %192, %101, %87
-  %.3125 = phi i32 [ %.012238, %87 ], [ %.012238, %101 ], [ %.125.lcssa7.i, %192 ], [ %.125.lcssa7.i, %try_complete_steps.exit ]
+  %.1123 = phi i32 [ %.012238, %87 ], [ %.012238, %101 ], [ %.125.lcssa7.i, %192 ], [ %.125.lcssa7.i, %try_complete_steps.exit ]
   %193 = getelementptr inbounds i8, ptr %91, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = call i32 @PQsendQuery(ptr noundef %98, ptr noundef %194) #17
@@ -1317,7 +1317,7 @@ try_complete_steps.exit:                          ; preds = %127, %._crit_edge.i
   br label %233
 
 233:                                              ; preds = %258, %._crit_edge37
-  %.024.i150 = phi i32 [ %.3125, %._crit_edge37 ], [ %.226.i156, %258 ]
+  %.024.i150 = phi i32 [ %.1123, %._crit_edge37 ], [ %.226.i156, %258 ]
   store i1 false, ptr @any_new_notice, align 1
   %234 = icmp sgt i32 %.024.i150, 0
   br i1 %234, label %.lr.ph.i152, label %try_complete_steps.exit162
@@ -1683,7 +1683,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr nocapture nound
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %133, %.preheader4
-  %.094.ph.ph = phi i1 [ %.2, %133 ], [ false, %.preheader4 ]
+  %.094.ph.ph = phi i1 [ %.195, %133 ], [ false, %.preheader4 ]
   br label %.outer
 
 57:                                               ; preds = %.outer, %64
@@ -1821,7 +1821,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr nocapture nound
   br label %133
 
 133:                                              ; preds = %110, %120, %132
-  %.2 = phi i1 [ %.not115, %132 ], [ false, %120 ], [ %.094.ph.ph, %110 ]
+  %.195 = phi i1 [ %.not115, %132 ], [ false, %120 ], [ %.094.ph.ph, %110 ]
   %134 = load i64, ptr @max_step_wait, align 8
   %135 = shl nsw i64 %134, 1
   %136 = icmp sgt i64 %117, %135

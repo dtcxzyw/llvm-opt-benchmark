@@ -1734,9 +1734,9 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286: ; preds
 .lr.ph522:                                        ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286, %694
   %indvars.iv579 = phi i64 [ %indvars.iv.next580, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
   %672 = phi ptr [ %696, %694 ], [ %665, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
-  %.sroa.5.1520 = phi i64 [ %.sroa.7.0.i, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
-  %.sroa.0365.sroa.4.1519 = phi i32 [ %.sroa.0.sroa.5.0.i, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
-  %.sroa.0365.sroa.0.1518 = phi i32 [ %.sroa.0.sroa.0.0.i, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
+  %.sroa.5.2520 = phi i64 [ %.sroa.7.0.i, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
+  %.sroa.0365.sroa.4.2519 = phi i32 [ %.sroa.0.sroa.5.0.i, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
+  %.sroa.0365.sroa.0.2518 = phi i32 [ %.sroa.0.sroa.0.0.i, %694 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ]
   %673 = getelementptr inbounds %"class.std::vector", ptr %672, i64 %indvars.iv579
   store i32 0, ptr %234, align 8
   store i32 0, ptr %235, align 4
@@ -1760,24 +1760,24 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286: ; preds
   br i1 %680, label %694, label %681
 
 681:                                              ; preds = %675
-  %.sroa.5.8.extract.trunc368 = trunc i64 %.sroa.5.1520 to i32
+  %.sroa.5.8.extract.trunc368 = trunc i64 %.sroa.5.2520 to i32
   %682 = icmp slt i32 %.sroa.5.8.extract.trunc368, 1
-  %.sroa.5.12.extract.shift370 = lshr i64 %.sroa.5.1520, 32
+  %.sroa.5.12.extract.shift370 = lshr i64 %.sroa.5.2520, 32
   %.sroa.5.12.extract.trunc371 = trunc nuw i64 %.sroa.5.12.extract.shift370 to i32
   %683 = icmp slt i32 %.sroa.5.12.extract.trunc371, 1
   %684 = select i1 %682, i1 true, i1 %683
   br i1 %684, label %694, label %685
 
 685:                                              ; preds = %681
-  %686 = call i32 @llvm.smin.i32(i32 %.sroa.0365.sroa.0.1518, i32 %.sroa.0.sroa.0.0.extract.trunc.i)
-  %687 = call i32 @llvm.smin.i32(i32 %.sroa.0365.sroa.4.1519, i32 %.sroa.0.sroa.5.0.extract.trunc.i)
+  %686 = call i32 @llvm.smin.i32(i32 %.sroa.0365.sroa.0.2518, i32 %.sroa.0.sroa.0.0.extract.trunc.i)
+  %687 = call i32 @llvm.smin.i32(i32 %.sroa.0365.sroa.4.2519, i32 %.sroa.0.sroa.5.0.extract.trunc.i)
   %688 = add nsw i32 %.sroa.7.8.extract.trunc.i, %.sroa.0.sroa.0.0.extract.trunc.i
-  %689 = add nsw i32 %.sroa.0365.sroa.0.1518, %.sroa.5.8.extract.trunc368
+  %689 = add nsw i32 %.sroa.0365.sroa.0.2518, %.sroa.5.8.extract.trunc368
   %.sroa.speculated30.i.i = call i32 @llvm.smax.i32(i32 %688, i32 %689)
   %690 = sub nsw i32 %.sroa.speculated30.i.i, %686
   %.sroa.7.8.insert.ext.i = zext i32 %690 to i64
   %691 = add nsw i32 %.sroa.7.12.extract.trunc.i, %.sroa.0.sroa.5.0.extract.trunc.i
-  %692 = add nsw i32 %.sroa.0365.sroa.4.1519, %.sroa.5.12.extract.trunc371
+  %692 = add nsw i32 %.sroa.0365.sroa.4.2519, %.sroa.5.12.extract.trunc371
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %691, i32 %692)
   %693 = sub nsw i32 %.sroa.speculated.i.i, %687
   %.sroa.7.12.insert.ext.i = zext i32 %693 to i64
@@ -1786,9 +1786,9 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286: ; preds
   br label %694
 
 694:                                              ; preds = %675, %685, %681
-  %.sroa.0.sroa.5.0.i = phi i32 [ %.sroa.0.sroa.5.0.extract.trunc.i, %681 ], [ %687, %685 ], [ %.sroa.0365.sroa.4.1519, %675 ]
-  %.sroa.0.sroa.0.0.i = phi i32 [ %.sroa.0.sroa.0.0.extract.trunc.i, %681 ], [ %686, %685 ], [ %.sroa.0365.sroa.0.1518, %675 ]
-  %.sroa.7.0.i = phi i64 [ %677, %681 ], [ %.sroa.7.12.insert.insert.i, %685 ], [ %.sroa.5.1520, %675 ]
+  %.sroa.0.sroa.5.0.i = phi i32 [ %.sroa.0.sroa.5.0.extract.trunc.i, %681 ], [ %687, %685 ], [ %.sroa.0365.sroa.4.2519, %675 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ %.sroa.0.sroa.0.0.extract.trunc.i, %681 ], [ %686, %685 ], [ %.sroa.0365.sroa.0.2518, %675 ]
+  %.sroa.7.0.i = phi i64 [ %677, %681 ], [ %.sroa.7.12.insert.insert.i, %685 ], [ %.sroa.5.2520, %675 ]
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %695 = load ptr, ptr %232, align 8
   %696 = load ptr, ptr %37, align 8
@@ -1807,9 +1807,9 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286: ; preds
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit263
 
 ._crit_edge523:                                   ; preds = %694, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286
-  %.sroa.5.1.lcssa = phi i64 [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ], [ %.sroa.7.0.i, %694 ]
-  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.1.lcssa to i32
-  %sh.diff = lshr i64 %.sroa.5.1.lcssa, 31
+  %.sroa.5.2.lcssa = phi i64 [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit286 ], [ %.sroa.7.0.i, %694 ]
+  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.2.lcssa to i32
+  %sh.diff = lshr i64 %.sroa.5.2.lcssa, 31
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %705 = and i32 %tr.sh.diff, -2
   %706 = add i32 %705, 20

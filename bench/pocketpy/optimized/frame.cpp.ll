@@ -1117,8 +1117,8 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   br i1 %or.cond18.i, label %.loopexit.i, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %63, %.lr.ph20.i
-  %.119.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
-  %72 = add i16 %.119.i, 1
+  %.319.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
+  %72 = add i16 %.319.i, 1
   %73 = and i16 %72, %64
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %66, i64 %74
@@ -1203,8 +1203,8 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
   br i1 %or.cond18.i20, label %.loopexit.i16, label %.lr.ph20.i21
 
 .lr.ph20.i21:                                     ; preds = %108, %.lr.ph20.i21
-  %.119.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
-  %117 = add i16 %.119.i22, 1
+  %.319.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
+  %117 = add i16 %.319.i22, 1
   %118 = and i16 %117, %109
   %119 = zext i16 %118 to i64
   %120 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %111, i64 %119
@@ -1308,8 +1308,8 @@ define linkonce_odr void @_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12N
   br i1 %or.cond18.i.i, label %.loopexit.i.i, label %.lr.ph20.i.i
 
 .lr.ph20.i.i:                                     ; preds = %36, %.lr.ph20.i.i
-  %.119.i.i = phi i16 [ %46, %.lr.ph20.i.i ], [ %38, %36 ]
-  %45 = add i16 %.119.i.i, 1
+  %.319.i.i = phi i16 [ %46, %.lr.ph20.i.i ], [ %38, %36 ]
+  %45 = add i16 %.319.i.i, 1
   %46 = and i16 %45, %37
   %47 = zext i16 %46 to i64
   %48 = getelementptr inbounds %"struct.pkpy::NameDictItem.42", ptr %39, i64 %47
@@ -1476,23 +1476,23 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
 
 59:                                               ; preds = %57, %55
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.1 = phi i1 [ %.0, %57 ], [ true, %55 ]
+  %.4 = phi i1 [ %.0, %57 ], [ true, %55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %60
 
 60:                                               ; preds = %59, %53
   %.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %54, %53 ]
-  %.2 = phi i1 [ %.1, %59 ], [ true, %53 ]
+  %.3 = phi i1 [ %.4, %59 ], [ true, %53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   br label %61
 
 61:                                               ; preds = %51, %60
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %60 ], [ %52, %51 ]
-  %.3 = phi i1 [ %.2, %60 ], [ true, %51 ]
+  %.2 = phi i1 [ %.3, %60 ], [ true, %51 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
-  br i1 %.3, label %62, label %64
+  br i1 %.2, label %62, label %64
 
 62:                                               ; preds = %.thread, %61
   %.pn.pn.pn.pn38 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn, %61 ]

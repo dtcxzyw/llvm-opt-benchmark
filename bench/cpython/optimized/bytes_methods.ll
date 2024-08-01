@@ -527,9 +527,9 @@ if.end30.sink.split:                              ; preds = %if.then19, %if.then
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.else, %if.then19, %if.then
   %previous_is_cased.1 = phi i32 [ 1, %if.then ], [ 1, %if.then19 ], [ 0, %if.else ], [ 1, %if.end30.sink.split ]
-  %c.2 = phi i8 [ %0, %if.then ], [ %0, %if.then19 ], [ %0, %if.else ], [ %2, %if.end30.sink.split ]
+  %c.1 = phi i8 [ %0, %if.then ], [ %0, %if.then19 ], [ %0, %if.else ], [ %2, %if.end30.sink.split ]
   %incdec.ptr32 = getelementptr i8, ptr %result.addr.09, i64 1
-  store i8 %c.2, ptr %result.addr.09, align 1
+  store i8 %c.1, ptr %result.addr.09, align 1
   %inc = add nuw nsw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
@@ -849,7 +849,7 @@ if.end.i.i41:                                     ; preds = %if.else48
   br label %if.end52
 
 if.end52:                                         ; preds = %while.cond.i, %if.end15.i, %if.end39, %if.then.i31, %while.cond.preheader.i, %if.then.i, %if.end.i.i41, %if.else48, %if.end.i.i, %if.then46, %if.end17
-  %res.1 = phi i64 [ -1, %if.end17 ], [ %spec.select.i.i, %if.end.i.i ], [ %6, %if.then46 ], [ %spec.select.i.i45, %if.end.i.i41 ], [ %4, %if.else48 ], [ -1, %if.then.i ], [ -1, %while.cond.preheader.i ], [ -1, %if.then.i31 ], [ %spec.select, %if.end39 ], [ -1, %if.end15.i ], [ -1, %while.cond.i ]
+  %res.0 = phi i64 [ -1, %if.end17 ], [ %spec.select.i.i, %if.end.i.i ], [ %6, %if.then46 ], [ %spec.select.i.i45, %if.end.i.i41 ], [ %4, %if.else48 ], [ -1, %if.then.i ], [ -1, %while.cond.preheader.i ], [ -1, %if.then.i31 ], [ %spec.select, %if.end39 ], [ -1, %if.end15.i ], [ -1, %while.cond.i ]
   br i1 %tobool1.not, label %return, label %if.then54
 
 if.then54:                                        ; preds = %if.end52
@@ -857,7 +857,7 @@ if.then54:                                        ; preds = %if.end52
   br label %return
 
 return:                                           ; preds = %if.end52, %if.then54, %if.then2, %entry
-  %retval.0 = phi i64 [ -2, %entry ], [ -2, %if.then2 ], [ %res.1, %if.then54 ], [ %res.1, %if.end52 ]
+  %retval.0 = phi i64 [ -2, %entry ], [ -2, %if.then2 ], [ %res.0, %if.then54 ], [ %res.0, %if.end52 ]
   ret i64 %retval.0
 }
 

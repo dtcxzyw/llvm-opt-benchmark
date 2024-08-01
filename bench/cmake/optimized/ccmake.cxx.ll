@@ -1189,7 +1189,7 @@ _Z12curses_clearv.exit115:                        ; preds = %.noexc113
           to label %340 unwind label %.loopexit.split-lp
 
 340:                                              ; preds = %338, %239, %200
-  %.0 = phi i32 [ 1, %200 ], [ 1, %239 ], [ 0, %338 ]
+  %.1 = phi i32 [ 1, %200 ], [ 1, %239 ], [ 0, %338 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   %341 = load ptr, ptr %13, align 8
   %342 = load ptr, ptr %131, align 8
@@ -1227,10 +1227,10 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMes
   br label %347
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit124: ; preds = %345, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i122, %_ZNSt6vectorI20cmDocumentationEntrySaIS0_EED2Ev.exit
-  %.1 = phi i32 [ %107, %_ZNSt6vectorI20cmDocumentationEntrySaIS0_EED2Ev.exit ], [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i122 ], [ %.0, %345 ]
+  %.0 = phi i32 [ %107, %_ZNSt6vectorI20cmDocumentationEntrySaIS0_EED2Ev.exit ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i122 ], [ %.1, %345 ]
   call void @_ZN15cmDocumentationD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #21
   call void @_ZN5cmsys8Encoding20CommandLineArgumentsD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
-  ret i32 %.1
+  ret i32 %.0
 
 347:                                              ; preds = %346, %114, %71
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %114 ], [ %72, %71 ], [ %.pn60, %346 ]

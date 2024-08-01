@@ -1127,7 +1127,7 @@ name_eq.exit.thread.i.i.i:                        ; preds = %.lr.ph.split.split.
   br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !13
 
 hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread.us51.i.i.i, %name_eq.exit.thread.i.i.i, %.lr.ph.split.split.i.i.i, %name_eq.exit.thread.us.us.i.i.i, %name_eq.exit.thread.us.i.i.i, %name_eq.exit.us.i.i.i, %hd_deflate_decide_indexing.exit.i
-  %.3.i.i.i = phi ptr [ null, %hd_deflate_decide_indexing.exit.i ], [ %.01937.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %name_eq.exit.thread.us.i.i.i ], [ %.2.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ %.01937.i.i.i, %.lr.ph.split.split.i.i.i ], [ null, %name_eq.exit.thread.i.i.i ], [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ]
+  %.1.i.i.i = phi ptr [ null, %hd_deflate_decide_indexing.exit.i ], [ %.01937.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %name_eq.exit.thread.us.i.i.i ], [ %.2.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ %.01937.i.i.i, %.lr.ph.split.split.i.i.i ], [ null, %name_eq.exit.thread.i.i.i ], [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ]
   %161 = icmp ult i32 %75, 61
   br i1 %161, label %162, label %184
 
@@ -1170,13 +1170,13 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
   br i1 %183, label %166, label %search_hd_table.exit.thread.i, !llvm.loop !14
 
 184:                                              ; preds = %hd_map_find.exit.i.i
-  %185 = icmp eq ptr %.3.i.i.i, null
+  %185 = icmp eq ptr %.1.i.i.i, null
   br i1 %185, label %search_hd_table.exit.thread.thread95.i, label %search_hd_table.exit.i
 
 search_hd_table.exit.thread125.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
-  %.3.i3336.i.ph.i = phi ptr [ %.01937.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
+  %.1.i3336.i.ph.i = phi ptr [ %.01937.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
   %186 = load i32, ptr %61, align 8
-  %187 = getelementptr inbounds i8, ptr %.3.i3336.i.ph.i, i64 72
+  %187 = getelementptr inbounds i8, ptr %.1.i3336.i.ph.i, i64 72
   %188 = load i32, ptr %187, align 8
   %189 = xor i32 %188, -1
   %190 = add i32 %186, 61
@@ -1186,7 +1186,7 @@ search_hd_table.exit.thread125.i:                 ; preds = %value_eq.exit.us48.
 
 search_hd_table.exit.i:                           ; preds = %184
   %193 = load i32, ptr %61, align 8
-  %194 = getelementptr inbounds i8, ptr %.3.i.i.i, i64 72
+  %194 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 72
   %195 = load i32, ptr %194, align 8
   %196 = xor i32 %195, -1
   %197 = add i32 %193, 61
@@ -1793,7 +1793,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   br label %40
 
 40:                                               ; preds = %.lr.ph, %422
-  %.0207467 = phi ptr [ %3, %.lr.ph ], [ %.2, %422 ]
+  %.0207467 = phi ptr [ %3, %.lr.ph ], [ %.1208, %422 ]
   %41 = load i32, ptr %17, align 4
   switch i32 %41, label %422 [
     i32 0, label %42
@@ -1868,7 +1868,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   br label %63
 
 63:                                               ; preds = %55, %52, %.thread330
-  %.1208 = phi ptr [ %.0207467, %.thread330 ], [ %.0207467, %52 ], [ %spec.select, %55 ]
+  %.2 = phi ptr [ %.0207467, %.thread330 ], [ %.0207467, %52 ], [ %spec.select, %55 ]
   store i64 0, ptr %19, align 8
   store i64 0, ptr %20, align 8
   br label %422
@@ -2633,9 +2633,9 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
   br label %440
 
 422:                                              ; preds = %352, %290, %270, %249, %194, %hd_context_shrink_table_size.exit, %63, %40
-  %.2 = phi ptr [ %.0207467, %40 ], [ %341, %352 ], [ %289, %290 ], [ %269, %270 ], [ %238, %249 ], [ %183, %194 ], [ %106, %hd_context_shrink_table_size.exit ], [ %.1208, %63 ]
+  %.1208 = phi ptr [ %.0207467, %40 ], [ %341, %352 ], [ %289, %290 ], [ %269, %270 ], [ %238, %249 ], [ %183, %194 ], [ %106, %hd_context_shrink_table_size.exit ], [ %.2, %63 ]
   %423 = phi i1 [ false, %40 ], [ true, %352 ], [ false, %290 ], [ false, %270 ], [ false, %249 ], [ false, %194 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %63 ]
-  %424 = icmp ne ptr %.2, %7
+  %424 = icmp ne ptr %.1208, %7
   %425 = or i1 %424, %423
   br i1 %425, label %40, label %._crit_edge, !llvm.loop !20
 

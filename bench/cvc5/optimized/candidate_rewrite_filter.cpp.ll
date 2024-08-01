@@ -2108,7 +2108,7 @@ ehcleanup290:                                     ; preds = %lpad287, %lpad285
   br label %ehcleanup292
 
 if.end291:                                        ; preds = %if.then13.i.i1150, %if.then.i.i1144, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1141, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1053
-  %keep.3 = phi i8 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1053 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1141 ], [ 0, %if.then.i.i1144 ], [ 0, %if.then13.i.i1150 ]
+  %keep.5 = phi i8 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1053 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1141 ], [ 0, %if.then.i.i1144 ], [ 0, %if.then13.i.i1150 ]
   %175 = load ptr, ptr %tn, align 8
   %bf.load.i.i1153 = load i64, ptr %175, align 8
   %176 = and i64 %bf.load.i.i1153, 1152920405095219200
@@ -2141,7 +2141,7 @@ ehcleanup292:                                     ; preds = %ehcleanup290, %lpad
   br label %ehcleanup294
 
 if.end293:                                        ; preds = %if.then13.i.i1161, %if.then.i.i1155, %if.end291, %invoke.cont252
-  %keep.4 = phi i8 [ 1, %invoke.cont252 ], [ %keep.3, %if.end291 ], [ %keep.3, %if.then.i.i1155 ], [ %keep.3, %if.then13.i.i1161 ]
+  %keep.4 = phi i8 [ 1, %invoke.cont252 ], [ %keep.5, %if.end291 ], [ %keep.5, %if.then.i.i1155 ], [ %keep.5, %if.then13.i.i1161 ]
   %179 = load ptr, ptr %bni, align 8
   %bf.load.i.i1163 = load i64, ptr %179, align 8
   %180 = and i64 %bf.load.i.i1163, 1152920405095219200

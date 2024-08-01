@@ -371,7 +371,7 @@ if.end36:                                         ; preds = %land.lhs.true.i
   br label %for.cond.preheader.i
 
 if.then38:                                        ; preds = %while.cond.i36.thread, %if.end29, %if.end29.thread, %land.lhs.true.i, %if.then31
-  %ret.2.ph = phi i32 [ 1, %if.then31 ], [ 1, %land.lhs.true.i ], [ 1, %if.end29.thread ], [ %ret.014.i.ph, %if.end29 ], [ 3, %while.cond.i36.thread ]
+  %ret.3.ph = phi i32 [ 1, %if.then31 ], [ 1, %land.lhs.true.i ], [ 1, %if.end29.thread ], [ %ret.014.i.ph, %if.end29 ], [ 3, %while.cond.i36.thread ]
   %9 = load ptr, ptr %drbg, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.end42, label %if.then41
@@ -385,7 +385,7 @@ if.end42:                                         ; preds = %if.then41, %if.then
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then11, %if.end42, %if.end36
-  %ret.3 = phi i32 [ %ret.2.ph, %if.end42 ], [ 0, %if.end36 ], [ -125, %if.then11 ]
+  %ret.1 = phi i32 [ %ret.3.ph, %if.end42 ], [ 0, %if.end36 ], [ -125, %if.then11 ]
   br label %for.body.i
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
@@ -411,7 +411,7 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i, label %if.end48, label %while.body12.i, !llvm.loop !6
 
 if.end48:                                         ; preds = %while.body12.i, %while.cond9.preheader.i
-  switch i32 %ret.3, label %if.else60 [
+  switch i32 %ret.1, label %if.else60 [
     i32 0, label %return.sink.split
     i32 3, label %if.then54
     i32 1, label %if.then58
@@ -428,7 +428,7 @@ if.else60:                                        ; preds = %if.end48
 
 return.sink.split:                                ; preds = %if.end48, %if.then54, %if.else60, %if.then58
   %.sink = phi i8 [ 2, %if.then58 ], [ 2, %if.else60 ], [ 3, %if.then54 ], [ 1, %if.end48 ]
-  %retval.0.ph = phi i32 [ -199, %if.then58 ], [ %ret.3, %if.else60 ], [ -209, %if.then54 ], [ %ret.3, %if.end48 ]
+  %retval.0.ph = phi i32 [ -199, %if.then58 ], [ %ret.1, %if.else60 ], [ -209, %if.then54 ], [ %ret.1, %if.end48 ]
   store i8 %.sink, ptr %status, align 8
   br label %return
 
@@ -648,13 +648,13 @@ if.end9:                                          ; preds = %if.then8, %Hash_DRB
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %if.end
-  %ret.1 = phi i32 [ %spec.select, %if.end9 ], [ 0, %if.end ]
+  %ret.0 = phi i32 [ %spec.select, %if.end9 ], [ 0, %if.end ]
   %status = getelementptr inbounds i8, ptr %rng, i64 24
   store i8 0, ptr %status, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end11
-  %retval.0 = phi i32 [ %ret.1, %if.end11 ], [ -173, %entry ]
+  %retval.0 = phi i32 [ %ret.0, %if.end11 ], [ -173, %entry ]
   ret i32 %retval.0
 }
 
@@ -824,13 +824,13 @@ if.then45:                                        ; preds = %if.end42
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then23, %if.end35, %if.then45, %if.end42
-  %ret.3 = phi i32 [ %call47, %if.then45 ], [ %call41, %if.end42 ], [ %call34, %if.end35 ], [ 1, %if.then23 ]
+  %ret.4 = phi i32 [ %call47, %if.then45 ], [ %call41, %if.end42 ], [ %call34, %if.end35 ], [ 1, %if.then23 ]
   call fastcc void @ForceZero(ptr noundef nonnull %newSeed, i32 noundef 36)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end48, %if.end13
-  %ret.4 = phi i32 [ %ret.3, %if.end48 ], [ %call, %if.end13 ]
-  switch i32 %ret.4, label %if.else60 [
+  %ret.0 = phi i32 [ %ret.4, %if.end48 ], [ %call, %if.end13 ]
+  switch i32 %ret.0, label %if.else60 [
     i32 0, label %return
     i32 3, label %return.sink.split
   ]
@@ -845,7 +845,7 @@ return.sink.split:                                ; preds = %if.end51, %wc_RNG_H
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end51, %if.end8, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end ], [ -173, %if.end4 ], [ -199, %if.end8 ], [ %ret.4, %if.end51 ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end ], [ -173, %if.end4 ], [ -199, %if.end8 ], [ %ret.0, %if.end51 ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -1109,7 +1109,7 @@ if.end39:                                         ; preds = %for.body23.i63, %if
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %Hash_gen.exit, %if.end39
-  %ret.4 = phi i32 [ %19, %if.end39 ], [ 1, %Hash_gen.exit ]
+  %ret.0 = phi i32 [ %19, %if.end39 ], [ 1, %Hash_gen.exit ]
   br label %for.body.i75
 
 for.body.i75:                                     ; preds = %for.cond.preheader.i, %for.body.i75
@@ -1122,7 +1122,7 @@ for.body.i75:                                     ; preds = %for.cond.preheader.
   br i1 %cmp5.i76.not, label %return, label %for.body.i75, !llvm.loop !4
 
 return:                                           ; preds = %for.body.i75, %if.end, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 2, %if.end ], [ %ret.4, %for.body.i75 ]
+  %retval.0 = phi i32 [ 1, %entry ], [ 2, %if.end ], [ %ret.0, %for.body.i75 ]
   ret i32 %retval.0
 }
 
@@ -1205,8 +1205,8 @@ ConstantCompare.exit35:                           ; preds = %for.body.i25
   br label %if.end30
 
 if.end30:                                         ; preds = %ConstantCompare.exit24, %if.else, %ConstantCompare.exit35, %ConstantCompare.exit, %if.then18, %if.then
-  %ret.1 = phi i32 [ %call, %if.then ], [ %call20, %if.then18 ], [ %spec.select, %ConstantCompare.exit ], [ %spec.select13, %ConstantCompare.exit35 ], [ -1, %ConstantCompare.exit24 ], [ %call8, %if.else ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %call, %if.then ], [ %call20, %if.then18 ], [ %spec.select, %ConstantCompare.exit ], [ %spec.select13, %ConstantCompare.exit35 ], [ -1, %ConstantCompare.exit24 ], [ %call8, %if.else ]
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1463,8 +1463,8 @@ if.then17:                                        ; preds = %if.end12
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end12
-  %ret.2 = phi i32 [ %call19, %if.then17 ], [ %call11, %if.end12 ]
-  %cmp22 = icmp eq i32 %ret.2, 0
+  %ret.3 = phi i32 [ %call19, %if.then17 ], [ %call11, %if.end12 ]
+  %cmp22 = icmp eq i32 %ret.3, 0
   br i1 %cmp22, label %if.end27, label %if.end46.thread
 
 if.end27:                                         ; preds = %if.end21
@@ -1481,7 +1481,7 @@ if.end39:                                         ; preds = %if.then30
   br i1 %cmp40, label %if.end46, label %if.end46.thread
 
 if.end46.thread:                                  ; preds = %if.end39, %if.end27, %if.end21, %if.end5
-  %ret.5.ph = phi i32 [ %call37, %if.end39 ], [ %call26, %if.end27 ], [ %ret.2, %if.end21 ], [ %call7, %if.end5 ]
+  %ret.6.ph = phi i32 [ %call37, %if.end39 ], [ %call26, %if.end27 ], [ %ret.3, %if.end21 ], [ %call7, %if.end5 ]
   call void @wc_Sha256Free(ptr noundef nonnull %sha) #9
   br label %for.inc
 
@@ -1507,13 +1507,13 @@ if.else:                                          ; preds = %if.then50
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end46.thread, %if.end46, %if.else, %if.then53
-  %ret.534 = phi i32 [ 0, %if.then53 ], [ 0, %if.else ], [ %call45, %if.end46 ], [ %ret.5.ph, %if.end46.thread ]
+  %ret.634 = phi i32 [ 0, %if.then53 ], [ 0, %if.else ], [ %call45, %if.end46 ], [ %ret.6.ph, %if.end46.thread ]
   %outSz.addr.1 = phi i32 [ %sub, %if.then53 ], [ %outSz.addr.035, %if.else ], [ %outSz.addr.035, %if.end46 ], [ %outSz.addr.035, %if.end46.thread ]
   %out.addr.1 = phi ptr [ %add.ptr, %if.then53 ], [ %out.addr.036, %if.else ], [ %out.addr.036, %if.end46 ], [ %out.addr.036, %if.end46.thread ]
   br i1 %cmp1, label %for.body, label %for.cond.preheader.i, !llvm.loop !16
 
 for.cond.preheader.i:                             ; preds = %for.inc, %for.body
-  %ret.6 = phi i32 [ %call2, %for.body ], [ %ret.534, %for.inc ]
+  %ret.1 = phi i32 [ %call2, %for.body ], [ %ret.634, %for.inc ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
@@ -1526,7 +1526,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp5.i.not, label %ForceZero.exit, label %for.body.i, !llvm.loop !4
 
 ForceZero.exit:                                   ; preds = %for.body.i
-  %cmp61 = icmp ne i32 %ret.6, 0
+  %cmp61 = icmp ne i32 %ret.1, 0
   %cond63 = zext i1 %cmp61 to i32
   br label %return
 

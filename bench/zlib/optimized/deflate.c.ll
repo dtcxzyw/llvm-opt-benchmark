@@ -3137,32 +3137,32 @@ if.then25:                                        ; preds = %if.then21
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then25, %if.then21
-  %wraplen.0 = phi i64 [ %add29, %if.then25 ], [ 18, %if.then21 ]
+  %wraplen.1 = phi i64 [ %add29, %if.then25 ], [ 18, %if.then21 ]
   %name = getelementptr inbounds i8, ptr %7, i64 40
   %10 = load ptr, ptr %name, align 8
   %cmp32.not = icmp eq ptr %10, null
   br i1 %cmp32.not, label %if.end36, label %do.body
 
 do.body:                                          ; preds = %if.end30, %do.body
-  %wraplen.1 = phi i64 [ %inc, %do.body ], [ %wraplen.0, %if.end30 ]
+  %wraplen.3 = phi i64 [ %inc, %do.body ], [ %wraplen.1, %if.end30 ]
   %str.0 = phi ptr [ %incdec.ptr, %do.body ], [ %10, %if.end30 ]
-  %inc = add i64 %wraplen.1, 1
+  %inc = add i64 %wraplen.3, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %str.0, i64 1
   %11 = load i8, ptr %str.0, align 1
   %tobool35.not = icmp eq i8 %11, 0
   br i1 %tobool35.not, label %if.end36, label %do.body, !llvm.loop !15
 
 if.end36:                                         ; preds = %do.body, %if.end30
-  %wraplen.2 = phi i64 [ %wraplen.0, %if.end30 ], [ %inc, %do.body ]
+  %wraplen.2 = phi i64 [ %wraplen.1, %if.end30 ], [ %inc, %do.body ]
   %comment = getelementptr inbounds i8, ptr %7, i64 56
   %12 = load ptr, ptr %comment, align 8
   %cmp38.not = icmp eq ptr %12, null
   br i1 %cmp38.not, label %if.end47, label %do.body41
 
 do.body41:                                        ; preds = %if.end36, %do.body41
-  %wraplen.3 = phi i64 [ %inc42, %do.body41 ], [ %wraplen.2, %if.end36 ]
+  %wraplen.5 = phi i64 [ %inc42, %do.body41 ], [ %wraplen.2, %if.end36 ]
   %str.1 = phi ptr [ %incdec.ptr44, %do.body41 ], [ %12, %if.end36 ]
-  %inc42 = add i64 %wraplen.3, 1
+  %inc42 = add i64 %wraplen.5, 1
   %incdec.ptr44 = getelementptr inbounds i8, ptr %str.1, i64 1
   %13 = load i8, ptr %str.1, align 1
   %tobool45.not = icmp eq i8 %13, 0
@@ -3181,7 +3181,7 @@ sw.default:                                       ; preds = %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end47, %if.end, %sw.bb18, %sw.default, %sw.bb14
-  %wraplen.5 = phi i64 [ 6, %sw.default ], [ 18, %sw.bb18 ], [ %add17, %sw.bb14 ], [ 0, %if.end ], [ %spec.select, %if.end47 ]
+  %wraplen.0 = phi i64 [ 6, %sw.default ], [ 18, %sw.bb18 ], [ %add17, %sw.bb14 ], [ 0, %if.end ], [ %spec.select, %if.end47 ]
   %w_bits = getelementptr inbounds i8, ptr %2, i64 84
   %15 = load i32, ptr %w_bits, align 4
   %cmp54.not = icmp eq i32 %15, 15
@@ -3206,7 +3206,7 @@ cond.false65:                                     ; preds = %land.lhs.true, %if.
 
 cond.end66:                                       ; preds = %land.lhs.true, %cond.false65
   %cond67 = phi i64 [ %add12, %cond.false65 ], [ %add5, %land.lhs.true ]
-  %add68 = add i64 %cond67, %wraplen.5
+  %add68 = add i64 %cond67, %wraplen.0
   br label %return
 
 if.end69:                                         ; preds = %sw.epilog
@@ -3216,7 +3216,7 @@ if.end69:                                         ; preds = %sw.epilog
   %add73 = add i64 %add7, %shr70
   %add75 = add i64 %add73, %shr72
   %sub = add i64 %add75, %shr74
-  %add77 = add i64 %sub, %wraplen.5
+  %add77 = add i64 %sub, %wraplen.0
   br label %return
 
 return:                                           ; preds = %if.end69, %cond.end66, %if.then
@@ -6184,9 +6184,9 @@ if.end49:                                         ; preds = %lor.lhs.false42
 
 do.body52:                                        ; preds = %land.lhs.true100, %if.end49
   %match.0 = phi ptr [ %incdec.ptr51, %if.end49 ], [ %incdec.ptr103, %land.lhs.true100 ]
-  %scan.1.idx = phi i64 [ 2, %if.end49 ], [ %scan.1.add, %land.lhs.true100 ]
-  %scan.1.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.1.idx
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 1
+  %scan.2.idx = phi i64 [ 2, %if.end49 ], [ %scan.2.add, %land.lhs.true100 ]
+  %scan.2.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.2.idx
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 1
   %20 = load i8, ptr %incdec.ptr53, align 1
   %incdec.ptr55 = getelementptr inbounds i8, ptr %match.0, i64 1
   %21 = load i8, ptr %incdec.ptr55, align 1
@@ -6194,7 +6194,7 @@ do.body52:                                        ; preds = %land.lhs.true100, %
   br i1 %cmp57, label %land.lhs.true, label %do.end.split.loop.exit
 
 land.lhs.true:                                    ; preds = %do.body52
-  %incdec.ptr59 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 2
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 2
   %22 = load i8, ptr %incdec.ptr59, align 1
   %incdec.ptr61 = getelementptr inbounds i8, ptr %match.0, i64 2
   %23 = load i8, ptr %incdec.ptr61, align 1
@@ -6202,7 +6202,7 @@ land.lhs.true:                                    ; preds = %do.body52
   br i1 %cmp63, label %land.lhs.true65, label %do.end.split.loop.exit96
 
 land.lhs.true65:                                  ; preds = %land.lhs.true
-  %incdec.ptr66 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 3
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 3
   %24 = load i8, ptr %incdec.ptr66, align 1
   %incdec.ptr68 = getelementptr inbounds i8, ptr %match.0, i64 3
   %25 = load i8, ptr %incdec.ptr68, align 1
@@ -6210,7 +6210,7 @@ land.lhs.true65:                                  ; preds = %land.lhs.true
   br i1 %cmp70, label %land.lhs.true72, label %do.end.split.loop.exit98
 
 land.lhs.true72:                                  ; preds = %land.lhs.true65
-  %incdec.ptr73 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 4
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 4
   %26 = load i8, ptr %incdec.ptr73, align 1
   %incdec.ptr75 = getelementptr inbounds i8, ptr %match.0, i64 4
   %27 = load i8, ptr %incdec.ptr75, align 1
@@ -6218,7 +6218,7 @@ land.lhs.true72:                                  ; preds = %land.lhs.true65
   br i1 %cmp77, label %land.lhs.true79, label %do.end.split.loop.exit100
 
 land.lhs.true79:                                  ; preds = %land.lhs.true72
-  %incdec.ptr80 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 5
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 5
   %28 = load i8, ptr %incdec.ptr80, align 1
   %incdec.ptr82 = getelementptr inbounds i8, ptr %match.0, i64 5
   %29 = load i8, ptr %incdec.ptr82, align 1
@@ -6226,7 +6226,7 @@ land.lhs.true79:                                  ; preds = %land.lhs.true72
   br i1 %cmp84, label %land.lhs.true86, label %do.end.split.loop.exit102
 
 land.lhs.true86:                                  ; preds = %land.lhs.true79
-  %incdec.ptr87 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 6
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 6
   %30 = load i8, ptr %incdec.ptr87, align 1
   %incdec.ptr89 = getelementptr inbounds i8, ptr %match.0, i64 6
   %31 = load i8, ptr %incdec.ptr89, align 1
@@ -6234,7 +6234,7 @@ land.lhs.true86:                                  ; preds = %land.lhs.true79
   br i1 %cmp91, label %land.lhs.true93, label %do.end.split.loop.exit104
 
 land.lhs.true93:                                  ; preds = %land.lhs.true86
-  %incdec.ptr94 = getelementptr inbounds i8, ptr %scan.1.ptr, i64 7
+  %incdec.ptr94 = getelementptr inbounds i8, ptr %scan.2.ptr, i64 7
   %32 = load i8, ptr %incdec.ptr94, align 1
   %incdec.ptr96 = getelementptr inbounds i8, ptr %match.0, i64 7
   %33 = load i8, ptr %incdec.ptr96, align 1
@@ -6242,51 +6242,51 @@ land.lhs.true93:                                  ; preds = %land.lhs.true86
   br i1 %cmp98, label %land.lhs.true100, label %do.end.split.loop.exit106
 
 land.lhs.true100:                                 ; preds = %land.lhs.true93
-  %scan.1.add = add nuw nsw i64 %scan.1.idx, 8
-  %incdec.ptr101.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.1.add
+  %scan.2.add = add nuw nsw i64 %scan.2.idx, 8
+  %incdec.ptr101.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.2.add
   %34 = load i8, ptr %incdec.ptr101.ptr, align 1
   %incdec.ptr103 = getelementptr inbounds i8, ptr %match.0, i64 8
   %35 = load i8, ptr %incdec.ptr103, align 1
   %cmp105 = icmp eq i8 %34, %35
-  %cmp107 = icmp ult i64 %scan.1.idx, 250
+  %cmp107 = icmp ult i64 %scan.2.idx, 250
   %or.cond = and i1 %cmp107, %cmp105
   br i1 %or.cond, label %do.body52, label %do.end.split.loop.exit108, !llvm.loop !21
 
 do.end.split.loop.exit:                           ; preds = %do.body52
-  %incdec.ptr53.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 1
+  %incdec.ptr53.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 1
   br label %do.end
 
 do.end.split.loop.exit96:                         ; preds = %land.lhs.true
-  %incdec.ptr59.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 2
+  %incdec.ptr59.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 2
   br label %do.end
 
 do.end.split.loop.exit98:                         ; preds = %land.lhs.true65
-  %incdec.ptr66.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 3
+  %incdec.ptr66.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 3
   br label %do.end
 
 do.end.split.loop.exit100:                        ; preds = %land.lhs.true72
-  %incdec.ptr73.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 4
+  %incdec.ptr73.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 4
   br label %do.end
 
 do.end.split.loop.exit102:                        ; preds = %land.lhs.true79
-  %incdec.ptr80.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 5
+  %incdec.ptr80.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 5
   br label %do.end
 
 do.end.split.loop.exit104:                        ; preds = %land.lhs.true86
-  %incdec.ptr87.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 6
+  %incdec.ptr87.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 6
   br label %do.end
 
 do.end.split.loop.exit106:                        ; preds = %land.lhs.true93
-  %incdec.ptr94.le = getelementptr inbounds i8, ptr %scan.1.ptr, i64 7
+  %incdec.ptr94.le = getelementptr inbounds i8, ptr %scan.2.ptr, i64 7
   br label %do.end
 
 do.end.split.loop.exit108:                        ; preds = %land.lhs.true100
-  %incdec.ptr101.ptr.le = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.1.add
+  %incdec.ptr101.ptr.le = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.2.add
   br label %do.end
 
 do.end:                                           ; preds = %do.end.split.loop.exit108, %do.end.split.loop.exit106, %do.end.split.loop.exit104, %do.end.split.loop.exit102, %do.end.split.loop.exit100, %do.end.split.loop.exit98, %do.end.split.loop.exit96, %do.end.split.loop.exit
-  %scan.2 = phi ptr [ %incdec.ptr53.le, %do.end.split.loop.exit ], [ %incdec.ptr59.le, %do.end.split.loop.exit96 ], [ %incdec.ptr66.le, %do.end.split.loop.exit98 ], [ %incdec.ptr73.le, %do.end.split.loop.exit100 ], [ %incdec.ptr80.le, %do.end.split.loop.exit102 ], [ %incdec.ptr87.le, %do.end.split.loop.exit104 ], [ %incdec.ptr94.le, %do.end.split.loop.exit106 ], [ %incdec.ptr101.ptr.le, %do.end.split.loop.exit108 ]
-  %sub.ptr.rhs.cast = ptrtoint ptr %scan.2 to i64
+  %scan.3 = phi ptr [ %incdec.ptr53.le, %do.end.split.loop.exit ], [ %incdec.ptr59.le, %do.end.split.loop.exit96 ], [ %incdec.ptr66.le, %do.end.split.loop.exit98 ], [ %incdec.ptr73.le, %do.end.split.loop.exit100 ], [ %incdec.ptr80.le, %do.end.split.loop.exit102 ], [ %incdec.ptr87.le, %do.end.split.loop.exit104 ], [ %incdec.ptr94.le, %do.end.split.loop.exit106 ], [ %incdec.ptr101.ptr.le, %do.end.split.loop.exit108 ]
+  %sub.ptr.rhs.cast = ptrtoint ptr %scan.3 to i64
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %conv109.neg = trunc i64 %sub.ptr.sub.neg to i32
   %sub110 = add i32 %conv109.neg, 258

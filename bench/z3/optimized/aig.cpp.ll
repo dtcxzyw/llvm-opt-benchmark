@@ -6013,7 +6013,7 @@ for.body.preheader:                               ; preds = %_ZNK6vectorI7aig_li
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 2, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %r.sroa.0.027 = phi ptr [ %call.i21, %for.body.preheader ], [ %call.i25, %for.body ]
+  %r.sroa.0.127 = phi ptr [ %call.i21, %for.body.preheader ], [ %call.i25, %for.body ]
   %11 = load ptr, ptr %this, align 8
   %12 = trunc nuw i64 %indvars.iv to i32
   %add37 = add i32 %12, %spos
@@ -6021,7 +6021,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom.i22 = zext i32 %add37 to i64
   %arrayidx.i23 = getelementptr inbounds %class.aig_lit, ptr %13, i64 %idxprom.i22
   %agg.tmp35.sroa.0.0.copyload = load ptr, ptr %arrayidx.i23, align 8
-  %14 = ptrtoint ptr %r.sroa.0.027 to i64
+  %14 = ptrtoint ptr %r.sroa.0.127 to i64
   %xor.i.i24 = xor i64 %14, 1
   %15 = inttoptr i64 %xor.i.i24 to ptr
   %call.i25 = tail call ptr @_ZN11aig_manager3imp6mk_iffE7aig_litS1_(ptr noundef nonnull align 8 dereferenceable(680) %11, ptr %15, ptr %agg.tmp35.sroa.0.0.copyload)
@@ -6030,8 +6030,8 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !28
 
 sw.epilog:                                        ; preds = %for.body, %sw.bb7, %sw.bb3, %sw.bb
-  %r.sroa.0.1 = phi ptr [ %call.i, %sw.bb7 ], [ %4, %sw.bb3 ], [ %3, %sw.bb ], [ %call.i25, %for.body ]
-  tail call void @_ZN11aig_manager3imp8expr2aig16save_node_resultEj7aig_lit(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %spos, ptr %r.sroa.0.1)
+  %r.sroa.0.0 = phi ptr [ %call.i, %sw.bb7 ], [ %4, %sw.bb3 ], [ %3, %sw.bb ], [ %call.i25, %for.body ]
+  tail call void @_ZN11aig_manager3imp8expr2aig16save_node_resultEj7aig_lit(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %spos, ptr %r.sroa.0.0)
   ret void
 }
 
@@ -6098,10 +6098,10 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit ]
-  %retval.sroa.0.0.in.in31 = phi i64 [ %12, %for.body.lr.ph ], [ %18, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit ]
+  %retval.sroa.0.1.in.in31 = phi i64 [ %12, %for.body.lr.ph ], [ %18, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit ]
   %arrayidx20 = getelementptr inbounds %class.aig_lit, ptr %args, i64 %indvars.iv
   %agg.tmp19.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
-  %15 = inttoptr i64 %retval.sroa.0.0.in.in31 to ptr
+  %15 = inttoptr i64 %retval.sroa.0.1.in.in31 to ptr
   %16 = ptrtoint ptr %agg.tmp19.sroa.0.0.copyload to i64
   %xor.i1.i17 = xor i64 %16, 1
   %17 = inttoptr i64 %xor.i1.i17 to ptr
@@ -6113,7 +6113,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %20 = load i32, ptr %m_ref_count.i.i21, align 4
   %inc.i.i22 = add i32 %20, 1
   store i32 %inc.i.i22, ptr %m_ref_count.i.i21, align 4
-  %and.i.i23 = and i64 %retval.sroa.0.0.in.in31, -2
+  %and.i.i23 = and i64 %retval.sroa.0.1.in.in31, -2
   %21 = inttoptr i64 %and.i.i23 to ptr
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %21, i64 4
   %22 = load i32, ptr %m_ref_count.i.i.i, align 4
@@ -6184,7 +6184,7 @@ _ZN11aig_manager3imp7dec_refERK7aig_lit.exit:     ; preds = %_ZNK6vectorIP3aigLb
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit
-  %retval.sroa.0.0.in = xor i64 %18, 1
+  %retval.sroa.0.1.in = xor i64 %18, 1
   %m_ref_count.i.i25 = getelementptr inbounds i8, ptr %19, i64 4
   %37 = load i32, ptr %m_ref_count.i.i25, align 4
   %dec.i.i = add i32 %37, -1
@@ -6192,9 +6192,9 @@ for.end:                                          ; preds = %_ZN11aig_manager3im
   br label %return
 
 return:                                           ; preds = %for.end, %sw.bb3, %sw.bb2, %sw.bb
-  %retval.sroa.0.1.in = phi i64 [ %retval.sroa.0.0.in, %for.end ], [ %xor.i2.i, %sw.bb3 ], [ %1, %sw.bb2 ], [ %0, %sw.bb ]
-  %retval.sroa.0.1 = inttoptr i64 %retval.sroa.0.1.in to ptr
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0.in = phi i64 [ %retval.sroa.0.1.in, %for.end ], [ %xor.i2.i, %sw.bb3 ], [ %1, %sw.bb2 ], [ %0, %sw.bb ]
+  %retval.sroa.0.0 = inttoptr i64 %retval.sroa.0.0.in to ptr
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7199,10 +7199,10 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit ]
-  %retval.sroa.0.025 = phi ptr [ %call.i12, %for.body.lr.ph ], [ %call.i13, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit ]
+  %retval.sroa.0.125 = phi ptr [ %call.i12, %for.body.lr.ph ], [ %call.i13, %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit ]
   %arrayidx20 = getelementptr inbounds %class.aig_lit, ptr %args, i64 %indvars.iv
   %agg.tmp19.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
-  %call.i13 = tail call ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr noundef nonnull align 8 dereferenceable(680) %this, ptr %retval.sroa.0.025, ptr %agg.tmp19.sroa.0.0.copyload)
+  %call.i13 = tail call ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr noundef nonnull align 8 dereferenceable(680) %this, ptr %retval.sroa.0.125, ptr %agg.tmp19.sroa.0.0.copyload)
   %8 = ptrtoint ptr %call.i13 to i64
   %and.i.i14 = and i64 %8, -2
   %9 = inttoptr i64 %and.i.i14 to ptr
@@ -7210,7 +7210,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load i32, ptr %m_ref_count.i.i15, align 4
   %inc.i.i16 = add i32 %10, 1
   store i32 %inc.i.i16, ptr %m_ref_count.i.i15, align 4
-  %11 = ptrtoint ptr %retval.sroa.0.025 to i64
+  %11 = ptrtoint ptr %retval.sroa.0.125 to i64
   %and.i.i17 = and i64 %11, -2
   %12 = inttoptr i64 %and.i.i17 to ptr
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %12, i64 4
@@ -7289,8 +7289,8 @@ for.end:                                          ; preds = %_ZN11aig_manager3im
   br label %return
 
 return:                                           ; preds = %for.end, %sw.bb3, %sw.bb2, %sw.bb
-  %retval.sroa.0.1 = phi ptr [ %call.i13, %for.end ], [ %call.i, %sw.bb3 ], [ %3, %sw.bb2 ], [ %1, %sw.bb ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %call.i13, %for.end ], [ %call.i, %sw.bb3 ], [ %3, %sw.bb2 ], [ %1, %sw.bb ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13662,10 +13662,10 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -13691,7 +13691,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -13706,7 +13706,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823

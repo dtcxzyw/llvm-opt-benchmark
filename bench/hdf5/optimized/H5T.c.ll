@@ -3786,7 +3786,7 @@ H5T_close_real.exit1439:                          ; preds = %H5T_close_real.exit
   br label %2131
 
 2131:                                             ; preds = %2127, %2124, %.thread
-  %.1 = phi i32 [ -1, %2127 ], [ %.0146214701484149015031508, %2124 ], [ %.0146214701484149015031508, %.thread ]
+  %.2 = phi i32 [ -1, %2127 ], [ %.0146214701484149015031508, %2124 ], [ %.0146214701484149015031508, %.thread ]
   %2132 = load ptr, ptr %2120, align 8
   %2133 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_shared_t_reg_free_list, ptr noundef %2132) #17
   store ptr %2133, ptr %2120, align 8
@@ -3794,8 +3794,8 @@ H5T_close_real.exit1439:                          ; preds = %H5T_close_real.exit
   br label %H5T_close_real.exit1443
 
 H5T_close_real.exit1443:                          ; preds = %2094, %2084, %4, %11, %18, %26, %34, %42, %50, %58, %66, %74, %82, %90, %98, %106, %114, %122, %130, %137, %156, %175, %194, %213, %232, %251, %270, %289, %308, %349, %390, %431, %472, %513, %554, %597, %640, %667, %694, %721, %748, %775, %802, %829, %856, %883, %910, %937, %964, %991, %1018, %1045, %1072, %1095, %1118, %1141, %1164, %1187, %1210, %1233, %1256, %1271, %1286, %1301, %1316, %1342, %1377, %1412, %1460, %1508, %2118, %2108, %2131, %H5T_close_real.exit1439
-  %.2 = phi i32 [ %.1, %2131 ], [ %.0, %H5T_close_real.exit1439 ], [ -1, %2108 ], [ -1, %2118 ], [ -1, %1508 ], [ -1, %1460 ], [ -1, %1412 ], [ -1, %1377 ], [ -1, %1342 ], [ -1, %1316 ], [ -1, %1301 ], [ -1, %1286 ], [ -1, %1271 ], [ -1, %1256 ], [ -1, %1233 ], [ -1, %1210 ], [ -1, %1187 ], [ -1, %1164 ], [ -1, %1141 ], [ -1, %1118 ], [ -1, %1095 ], [ -1, %1072 ], [ -1, %1045 ], [ -1, %1018 ], [ -1, %991 ], [ -1, %964 ], [ -1, %937 ], [ -1, %910 ], [ -1, %883 ], [ -1, %856 ], [ -1, %829 ], [ -1, %802 ], [ -1, %775 ], [ -1, %748 ], [ -1, %721 ], [ -1, %694 ], [ -1, %667 ], [ -1, %640 ], [ -1, %597 ], [ -1, %554 ], [ -1, %513 ], [ -1, %472 ], [ -1, %431 ], [ -1, %390 ], [ -1, %349 ], [ -1, %308 ], [ -1, %289 ], [ -1, %270 ], [ -1, %251 ], [ -1, %232 ], [ -1, %213 ], [ -1, %194 ], [ -1, %175 ], [ -1, %156 ], [ -1, %137 ], [ -1, %130 ], [ -1, %122 ], [ -1, %114 ], [ -1, %106 ], [ -1, %98 ], [ -1, %90 ], [ -1, %82 ], [ -1, %74 ], [ -1, %66 ], [ -1, %58 ], [ -1, %50 ], [ -1, %42 ], [ -1, %34 ], [ -1, %26 ], [ -1, %18 ], [ -1, %11 ], [ -1, %4 ], [ %.0, %2084 ], [ %.0, %2094 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %.2, %2131 ], [ %.0, %H5T_close_real.exit1439 ], [ -1, %2108 ], [ -1, %2118 ], [ -1, %1508 ], [ -1, %1460 ], [ -1, %1412 ], [ -1, %1377 ], [ -1, %1342 ], [ -1, %1316 ], [ -1, %1301 ], [ -1, %1286 ], [ -1, %1271 ], [ -1, %1256 ], [ -1, %1233 ], [ -1, %1210 ], [ -1, %1187 ], [ -1, %1164 ], [ -1, %1141 ], [ -1, %1118 ], [ -1, %1095 ], [ -1, %1072 ], [ -1, %1045 ], [ -1, %1018 ], [ -1, %991 ], [ -1, %964 ], [ -1, %937 ], [ -1, %910 ], [ -1, %883 ], [ -1, %856 ], [ -1, %829 ], [ -1, %802 ], [ -1, %775 ], [ -1, %748 ], [ -1, %721 ], [ -1, %694 ], [ -1, %667 ], [ -1, %640 ], [ -1, %597 ], [ -1, %554 ], [ -1, %513 ], [ -1, %472 ], [ -1, %431 ], [ -1, %390 ], [ -1, %349 ], [ -1, %308 ], [ -1, %289 ], [ -1, %270 ], [ -1, %251 ], [ -1, %232 ], [ -1, %213 ], [ -1, %194 ], [ -1, %175 ], [ -1, %156 ], [ -1, %137 ], [ -1, %130 ], [ -1, %122 ], [ -1, %114 ], [ -1, %106 ], [ -1, %98 ], [ -1, %90 ], [ -1, %82 ], [ -1, %74 ], [ -1, %66 ], [ -1, %58 ], [ -1, %50 ], [ -1, %42 ], [ -1, %34 ], [ -1, %26 ], [ -1, %18 ], [ -1, %11 ], [ -1, %4 ], [ %.0, %2084 ], [ %.0, %2094 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3897,8 +3897,8 @@ define ptr @H5T_copy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %5, %23, %43
-  %.2 = phi ptr [ null, %43 ], [ %3, %23 ], [ null, %5 ]
-  ret ptr %.2
+  %.1 = phi ptr [ null, %43 ], [ %3, %23 ], [ null, %5 ]
+  ret ptr %.1
 }
 
 declare i64 @H5I_register(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -4038,7 +4038,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %108 ], [ 0, %45 ]
   %50 = phi ptr [ %109, %108 ], [ %47, %45 ]
   %.0127 = phi i64 [ %.1, %108 ], [ 0, %45 ]
-  %.191125 = phi i32 [ %.3, %108 ], [ 0, %45 ]
+  %.2125 = phi i32 [ %.4, %108 ], [ 0, %45 ]
   %51 = icmp slt i64 %.0127, 0
   %52 = getelementptr inbounds i8, ptr %50, i64 64
   %53 = load ptr, ptr %52, align 8
@@ -4092,7 +4092,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
 
 85:                                               ; preds = %76
   %.not105 = icmp eq i32 %79, 0
-  %spec.select109 = select i1 %.not105, i32 %.191125, i32 %79
+  %spec.select109 = select i1 %.not105, i32 %.2125, i32 %79
   %86 = load ptr, ptr %68, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load i64, ptr %87, align 8
@@ -4126,7 +4126,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
   br label %108
 
 108:                                              ; preds = %73, %.lr.ph._crit_edge, %95, %85
-  %.3 = phi i32 [ %spec.select109, %95 ], [ %spec.select109, %85 ], [ %.191125, %.lr.ph._crit_edge ], [ %.191125, %73 ]
+  %.4 = phi i32 [ %spec.select109, %95 ], [ %spec.select109, %85 ], [ %.2125, %.lr.ph._crit_edge ], [ %.2125, %73 ]
   %.1 = phi i64 [ %107, %95 ], [ %.0127, %85 ], [ %.0127, %.lr.ph._crit_edge ], [ %.0127, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load ptr, ptr %4, align 8
@@ -4143,7 +4143,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
 ._crit_edge._crit_edge:                           ; preds = %45, %._crit_edge
   %.lcssa145 = phi ptr [ %109, %._crit_edge ], [ %47, %45 ]
   %.0.lcssa143 = phi i64 [ %.1, %._crit_edge ], [ 0, %45 ]
-  %.191.lcssa141 = phi i32 [ %.3, %._crit_edge ], [ 0, %45 ]
+  %.2.lcssa141 = phi i32 [ %.4, %._crit_edge ], [ 0, %45 ]
   %.phi.trans.insert135 = getelementptr inbounds i8, ptr %.lcssa145, i64 16
   %.pre136 = load i64, ptr %.phi.trans.insert135, align 8
   br label %123
@@ -4163,7 +4163,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
 123:                                              ; preds = %._crit_edge._crit_edge, %115
   %.lcssa144 = phi ptr [ %.lcssa145, %._crit_edge._crit_edge ], [ %109, %115 ]
   %.0.lcssa142 = phi i64 [ %.0.lcssa143, %._crit_edge._crit_edge ], [ %.1, %115 ]
-  %.191.lcssa140 = phi i32 [ %.191.lcssa141, %._crit_edge._crit_edge ], [ %.3, %115 ]
+  %.2.lcssa140 = phi i32 [ %.2.lcssa141, %._crit_edge._crit_edge ], [ %.4, %115 ]
   %124 = phi i64 [ %.pre136, %._crit_edge._crit_edge ], [ %117, %115 ]
   %125 = getelementptr inbounds i8, ptr %.lcssa144, i64 16
   %126 = add i64 %124, %.0.lcssa142
@@ -4201,7 +4201,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
   br label %161
 
 146:                                              ; preds = %139, %135, %127
-  %.4 = phi i32 [ 0, %127 ], [ 0, %135 ], [ %140, %139 ]
+  %.5 = phi i32 [ 0, %127 ], [ 0, %135 ], [ %140, %139 ]
   %147 = tail call i32 @H5T__vlen_set_loc(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #17
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %149, label %153
@@ -4214,7 +4214,7 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
 
 153:                                              ; preds = %146
   %.not104 = icmp eq i32 %147, 0
-  %spec.select111 = select i1 %.not104, i32 %.4, i32 %147
+  %spec.select111 = select i1 %.not104, i32 %.5, i32 %147
   br label %161
 
 154:                                              ; preds = %9
@@ -4229,8 +4229,8 @@ define range(i32 -1, -2147483648) i32 @H5T_set_loc(ptr noundef %0, ptr noundef %
   br label %161
 
 161:                                              ; preds = %153, %20, %3, %9, %154, %12, %40, %32, %123, %157, %149, %142, %119, %91, %81, %57, %28
-  %.5 = phi i32 [ 0, %9 ], [ -1, %157 ], [ %155, %154 ], [ -1, %142 ], [ -1, %149 ], [ -1, %57 ], [ -1, %81 ], [ -1, %91 ], [ -1, %119 ], [ %.191.lcssa140, %123 ], [ -1, %28 ], [ %26, %40 ], [ %26, %32 ], [ 0, %12 ], [ 0, %3 ], [ 0, %20 ], [ %spec.select111, %153 ]
-  ret i32 %.5
+  %.090 = phi i32 [ 0, %9 ], [ -1, %157 ], [ %155, %154 ], [ -1, %142 ], [ -1, %149 ], [ -1, %57 ], [ -1, %81 ], [ -1, %91 ], [ -1, %119 ], [ %.2.lcssa140, %123 ], [ -1, %28 ], [ %26, %40 ], [ %26, %32 ], [ 0, %12 ], [ 0, %3 ], [ 0, %20 ], [ %spec.select111, %153 ]
+  ret i32 %.090
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4412,22 +4412,22 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %or.cond, label %.thread, label %101
 
 .thread:                                          ; preds = %48, %43, %74, %95
-  %.069 = phi ptr [ %12, %95 ], [ %33, %48 ], [ %33, %43 ], [ %58, %74 ]
-  %98 = getelementptr inbounds i8, ptr %.069, i64 40
+  %.169 = phi ptr [ %12, %95 ], [ %33, %48 ], [ %33, %43 ], [ %58, %74 ]
+  %98 = getelementptr inbounds i8, ptr %.169, i64 40
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 16
   store i64 %1, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %95, %.thread
-  %.068 = phi ptr [ %12, %95 ], [ %.069, %.thread ]
-  %102 = getelementptr inbounds i8, ptr %.068, i64 96
+  %.168 = phi ptr [ %12, %95 ], [ %.169, %.thread ]
+  %102 = getelementptr inbounds i8, ptr %.168, i64 96
   store ptr null, ptr %102, align 8
   br label %.thread71
 
 103:                                              ; preds = %24, %70, %79
-  %.1 = phi ptr [ %58, %70 ], [ %58, %79 ], [ %12, %24 ]
-  %104 = getelementptr inbounds i8, ptr %.1, i64 40
+  %.0 = phi ptr [ %58, %70 ], [ %58, %79 ], [ %12, %24 ]
+  %104 = getelementptr inbounds i8, ptr %.0, i64 40
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8
@@ -4449,12 +4449,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %116 = load ptr, ptr %104, align 8
   %117 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_shared_t_reg_free_list, ptr noundef %116) #17
   store ptr %117, ptr %104, align 8
-  %118 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_t_reg_free_list, ptr noundef nonnull %.1) #17
+  %118 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_t_reg_free_list, ptr noundef nonnull %.0) #17
   br label %.thread71
 
 .thread71:                                        ; preds = %14, %7, %28, %35, %54, %60, %83, %87, %91, %101, %115
-  %.2 = phi ptr [ null, %115 ], [ null, %14 ], [ null, %7 ], [ null, %28 ], [ null, %35 ], [ null, %54 ], [ %.068, %101 ], [ null, %60 ], [ null, %83 ], [ null, %87 ], [ null, %91 ]
-  ret ptr %.2
+  %.153 = phi ptr [ null, %115 ], [ null, %14 ], [ null, %7 ], [ null, %28 ], [ null, %35 ], [ null, %54 ], [ %.168, %101 ], [ null, %60 ], [ null, %83 ], [ null, %87 ], [ null, %91 ]
+  ret ptr %.153
 }
 
 declare ptr @H5T__vlen_create(ptr noundef) local_unnamed_addr #2
@@ -5783,7 +5783,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tcopy(i64 noundef %0) local_un
   br label %.thread77
 
 60:                                               ; preds = %48, %25
-  %.030 = phi i64 [ %49, %48 ], [ -1, %25 ]
+  %.131 = phi i64 [ %49, %48 ], [ -1, %25 ]
   %.0 = phi ptr [ %50, %48 ], [ %26, %25 ]
   %61 = call ptr @H5T_copy(ptr noundef nonnull %.0, i32 noundef 0)
   %62 = icmp eq ptr %61, null
@@ -5808,14 +5808,14 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tcopy(i64 noundef %0) local_un
 
 .preheader:                                       ; preds = %52, %63, %70, %67
   %.032.ph = phi ptr [ %61, %67 ], [ %61, %70 ], [ null, %63 ], [ null, %52 ]
-  %.131.ph = phi i64 [ %.030, %67 ], [ %.030, %70 ], [ %.030, %63 ], [ %49, %52 ]
+  %.030.ph = phi i64 [ %.131, %67 ], [ %.131, %70 ], [ %.131, %63 ], [ %49, %52 ]
   %.028.ph = phi i64 [ %68, %67 ], [ -1, %70 ], [ -1, %63 ], [ -1, %52 ]
   %.026.ph = phi i1 [ false, %67 ], [ true, %70 ], [ true, %63 ], [ true, %52 ]
-  %.not = icmp eq i64 %.131.ph, -1
+  %.not = icmp eq i64 %.030.ph, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader
-  %74 = call i32 @H5I_dec_app_ref(i64 noundef %.131.ph) #17
+  %74 = call i32 @H5I_dec_app_ref(i64 noundef %.030.ph) #17
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %.lr.ph49, label %._crit_edge
 
@@ -5823,7 +5823,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tcopy(i64 noundef %0) local_un
   %76 = load i64, ptr @H5E_DATATYPE_g, align 8
   %77 = load i64, ptr @H5E_BADID_g, align 8
   %78 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Tcopy, i32 noundef 2035, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.232) #17
-  %79 = call i32 @H5I_dec_app_ref(i64 noundef %.131.ph) #17
+  %79 = call i32 @H5I_dec_app_ref(i64 noundef %.030.ph) #17
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %.lr.ph49, label %._crit_edge
 
@@ -6070,7 +6070,7 @@ define range(i32 -1, 1) i32 @H5Tclose_async(ptr noundef %0, ptr noundef %1, i32 
 
 56:                                               ; preds = %52, %51
   %.032 = phi ptr [ %6, %52 ], [ null, %51 ]
-  %.030 = phi ptr [ %54, %52 ], [ null, %51 ]
+  %.131 = phi ptr [ %54, %52 ], [ null, %51 ]
   %57 = call i32 @H5I_dec_app_ref_async(i64 noundef %3, ptr noundef %.032) #17
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %63
@@ -6102,11 +6102,11 @@ define range(i32 -1, 1) i32 @H5Tclose_async(ptr noundef %0, ptr noundef %1, i32 
 74:                                               ; preds = %63, %65, %70, %59
   %.028 = phi i32 [ -1, %59 ], [ -1, %70 ], [ 0, %65 ], [ 0, %63 ]
   %.0 = phi i1 [ true, %59 ], [ true, %70 ], [ false, %65 ], [ false, %63 ]
-  %.not37 = icmp eq ptr %.030, null
+  %.not37 = icmp eq ptr %.131, null
   br i1 %.not37, label %83, label %75
 
 75:                                               ; preds = %74
-  %76 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.030) #17
+  %76 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.131) #17
   %77 = icmp slt i64 %76, 0
   br i1 %77, label %.thread65, label %83
 
@@ -7219,26 +7219,26 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
 
 .loopexit:                                        ; preds = %254, %._crit_edge552, %.loopexit.sink.split, %.loopexit517, %.loopexit506
   %.0381 = phi i32 [ 0, %.loopexit506 ], [ 0, %.loopexit517 ], [ 0, %.loopexit.sink.split ], [ -1, %._crit_edge552 ], [ -1, %254 ]
-  %.2 = phi ptr [ %57, %.loopexit506 ], [ %188, %.loopexit517 ], [ null, %.loopexit.sink.split ], [ %188, %._crit_edge552 ], [ %188, %254 ]
+  %.0364 = phi ptr [ %57, %.loopexit506 ], [ %188, %.loopexit517 ], [ null, %.loopexit.sink.split ], [ %188, %._crit_edge552 ], [ %188, %254 ]
   %.0361 = phi ptr [ %52, %.loopexit506 ], [ %182, %.loopexit517 ], [ %.0361.ph, %.loopexit.sink.split ], [ %182, %._crit_edge552 ], [ %182, %254 ]
   %.not471 = icmp eq ptr %.0361, null
   br i1 %.not471, label %535, label %.thread492
 
 .thread492:                                       ; preds = %252, %307, %294, %292, %277, %111, %159, %152, %150, %144, %142, %136, %135, %.lr.ph581, %.loopexit
   %.0361499 = phi ptr [ %.0361, %.loopexit ], [ %52, %.lr.ph581 ], [ %52, %135 ], [ %52, %136 ], [ %52, %142 ], [ %52, %144 ], [ %52, %150 ], [ %52, %152 ], [ %52, %159 ], [ %52, %111 ], [ %182, %277 ], [ %182, %292 ], [ %182, %294 ], [ %182, %307 ], [ %182, %252 ]
-  %.2498 = phi ptr [ %.2, %.loopexit ], [ %57, %.lr.ph581 ], [ %57, %135 ], [ %57, %136 ], [ %57, %142 ], [ %57, %144 ], [ %57, %150 ], [ %57, %152 ], [ %57, %159 ], [ %57, %111 ], [ %188, %277 ], [ %188, %292 ], [ %188, %294 ], [ %188, %307 ], [ %188, %252 ]
+  %.0364498 = phi ptr [ %.0364, %.loopexit ], [ %57, %.lr.ph581 ], [ %57, %135 ], [ %57, %136 ], [ %57, %142 ], [ %57, %144 ], [ %57, %150 ], [ %57, %152 ], [ %57, %159 ], [ %57, %111 ], [ %188, %277 ], [ %188, %292 ], [ %188, %294 ], [ %188, %307 ], [ %188, %252 ]
   %.0381497 = phi i32 [ %.0381, %.loopexit ], [ 0, %111 ], [ 1, %159 ], [ -1, %152 ], [ 1, %150 ], [ -1, %144 ], [ 1, %142 ], [ -1, %136 ], [ 1, %135 ], [ -1, %.lr.ph581 ], [ 0, %252 ], [ 1, %307 ], [ -1, %294 ], [ 1, %292 ], [ -1, %277 ]
   %534 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.0361499) #17
   br label %535
 
 535:                                              ; preds = %.thread492, %.loopexit
-  %.2489 = phi ptr [ %.2498, %.thread492 ], [ %.2, %.loopexit ]
+  %.0364489 = phi ptr [ %.0364498, %.thread492 ], [ %.0364, %.loopexit ]
   %.0381488 = phi i32 [ %.0381497, %.thread492 ], [ %.0381, %.loopexit ]
-  %.not472 = icmp eq ptr %.2489, null
+  %.not472 = icmp eq ptr %.0364489, null
   br i1 %.not472, label %.thread500, label %536
 
 536:                                              ; preds = %535
-  %537 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.2489) #17
+  %537 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.0364489) #17
   br label %.thread500
 
 .thread500:                                       ; preds = %362, %368, %38, %418, %348, %344, %341, %3, %5, %15, %17, %23, %30, %31, %32, %35, %._crit_edge659, %47, %164, %173, %175, %177, %311, %316, %323, %327, %331, %.thread481, %339, %350, %357, %._crit_edge, %376, %377, %384, %386, %392, %394, %400, %402, %408, %410, %416, %419, %425, %427, %433, %435, %441, %443, %449, %451, %457, %459, %465, %467, %473, %475, %481, %483, %489, %491, %497, %499, %505, %507, %513, %515, %521, %523, %529, %536, %535
@@ -8672,8 +8672,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
 
 76:                                               ; preds = %.lr.ph, %228
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %228 ]
-  %.0115299 = phi ptr [ null, %.lr.ph ], [ %.3118, %228 ]
-  %.0120298 = phi ptr [ null, %.lr.ph ], [ %.3123, %228 ]
+  %.1116299 = phi ptr [ null, %.lr.ph ], [ %.2117, %228 ]
+  %.1121298 = phi ptr [ null, %.lr.ph ], [ %.2122, %228 ]
   %77 = load ptr, ptr @H5T_g.2, align 8
   %78 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
@@ -8817,10 +8817,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
   br label %.thread.thread
 
 172:                                              ; preds = %161, %135
-  %.1121 = phi ptr [ %107, %135 ], [ %.0120298, %161 ]
-  %.1116 = phi ptr [ %115, %135 ], [ %.0115299, %161 ]
-  %.1111 = phi i64 [ %122, %135 ], [ -1, %161 ]
-  %.1106 = phi i64 [ %129, %135 ], [ -1, %161 ]
+  %.3123 = phi ptr [ %107, %135 ], [ %.1121298, %161 ]
+  %.3118 = phi ptr [ %115, %135 ], [ %.1116299, %161 ]
+  %.3113 = phi i64 [ %122, %135 ], [ -1, %161 ]
+  %.3108 = phi i64 [ %129, %135 ], [ -1, %161 ]
   %173 = call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5T_path_t_reg_free_list) #17
   %174 = icmp eq ptr %173, null
   br i1 %174, label %175, label %179
@@ -8860,8 +8860,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
   %195 = load ptr, ptr @H5T_g.2, align 8
   %196 = getelementptr inbounds ptr, ptr %195, i64 %indvars.iv
   store ptr %173, ptr %196, align 8
-  store i64 %.1111, ptr %7, align 8
-  store i64 %.1106, ptr %75, align 8
+  store i64 %.3113, ptr %7, align 8
+  store i64 %.3108, ptr %75, align 8
   %197 = call fastcc i32 @H5T__path_free(ptr noundef nonnull %79, ptr noundef nonnull %7)
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %199, label %203
@@ -8873,11 +8873,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
   br label %.thread
 
 203:                                              ; preds = %191
-  %204 = icmp sgt i64 %.1111, -1
+  %204 = icmp sgt i64 %.3113, -1
   br i1 %204, label %205, label %212
 
 205:                                              ; preds = %203
-  %206 = call i32 @H5I_dec_ref(i64 noundef %.1111) #17
+  %206 = call i32 @H5I_dec_ref(i64 noundef %.3113) #17
   %207 = icmp slt i32 %206, 0
   br i1 %207, label %208, label %212
 
@@ -8888,12 +8888,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
   br label %.thread.thread182
 
 212:                                              ; preds = %205, %203
-  %.2122 = phi ptr [ %.1121, %203 ], [ null, %205 ]
-  %213 = icmp sgt i64 %.1106, -1
+  %.4124 = phi ptr [ %.3123, %203 ], [ null, %205 ]
+  %213 = icmp sgt i64 %.3108, -1
   br i1 %213, label %214, label %221
 
 214:                                              ; preds = %212
-  %215 = call i32 @H5I_dec_ref(i64 noundef %.1106) #17
+  %215 = call i32 @H5I_dec_ref(i64 noundef %.3108) #17
   %216 = icmp slt i32 %215, 0
   br i1 %216, label %217, label %221
 
@@ -8904,7 +8904,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
   br label %.thread.thread
 
 221:                                              ; preds = %214, %212
-  %.2117 = phi ptr [ %.1116, %212 ], [ null, %214 ]
+  %.4119 = phi ptr [ %.3118, %212 ], [ null, %214 ]
   %222 = call i32 @H5E_clear_stack() #17
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %224, label %228
@@ -8916,8 +8916,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__register(i32 noundef %0, ptr n
   br label %.thread.thread
 
 228:                                              ; preds = %221, %165, %154, %76, %83, %93
-  %.3123 = phi ptr [ %.0120298, %76 ], [ %.0120298, %83 ], [ %.0120298, %93 ], [ null, %154 ], [ %.2122, %221 ], [ %.0120298, %165 ]
-  %.3118 = phi ptr [ %.0115299, %76 ], [ %.0115299, %83 ], [ %.0115299, %93 ], [ null, %154 ], [ %.2117, %221 ], [ %.0115299, %165 ]
+  %.2122 = phi ptr [ %.1121298, %76 ], [ %.1121298, %83 ], [ %.1121298, %93 ], [ null, %154 ], [ %.4124, %221 ], [ %.1121298, %165 ]
+  %.2117 = phi ptr [ %.1116299, %76 ], [ %.1116299, %83 ], [ %.1116299, %93 ], [ null, %154 ], [ %.4119, %221 ], [ %.1116299, %165 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %229 = load i32, ptr @H5T_g.0, align 8
   %230 = sext i32 %229 to i64
@@ -9026,14 +9026,14 @@ H5T_close_real.exit153:                           ; preds = %273, %276
   br label %.thread
 
 .thread:                                          ; preds = %199, %175, %287
-  %289 = icmp sgt i64 %.1111, -1
+  %289 = icmp sgt i64 %.3113, -1
   br i1 %289, label %.thread.thread182, label %.thread.thread
 
 .thread.thread182:                                ; preds = %131, %143, %150, %208, %.thread
-  %.4119162190 = phi ptr [ %.1116, %.thread ], [ %115, %131 ], [ %115, %143 ], [ %115, %150 ], [ %.1116, %208 ]
-  %.4114163189 = phi i64 [ %.1111, %.thread ], [ %122, %131 ], [ %122, %143 ], [ %122, %150 ], [ %.1111, %208 ]
-  %.4109164188 = phi i64 [ %.1106, %.thread ], [ %129, %131 ], [ %129, %143 ], [ %129, %150 ], [ %.1106, %208 ]
-  %290 = call i32 @H5I_dec_ref(i64 noundef %.4114163189) #17
+  %.0115162190 = phi ptr [ %.3118, %.thread ], [ %115, %131 ], [ %115, %143 ], [ %115, %150 ], [ %.3118, %208 ]
+  %.0110163189 = phi i64 [ %.3113, %.thread ], [ %122, %131 ], [ %122, %143 ], [ %122, %150 ], [ %.3113, %208 ]
+  %.0105164188 = phi i64 [ %.3108, %.thread ], [ %129, %131 ], [ %129, %143 ], [ %129, %150 ], [ %.3108, %208 ]
+  %290 = call i32 @H5I_dec_ref(i64 noundef %.0110163189) #17
   %291 = icmp slt i32 %290, 0
   br i1 %291, label %292, label %302
 
@@ -9044,19 +9044,19 @@ H5T_close_real.exit153:                           ; preds = %273, %276
   br label %302
 
 .thread.thread:                                   ; preds = %228, %217, %224, %168, %.thread
-  %.3177 = phi i32 [ -1, %.thread ], [ -1, %217 ], [ -1, %224 ], [ -1, %168 ], [ 0, %228 ]
-  %.4124161176 = phi ptr [ %.1121, %.thread ], [ %.2122, %217 ], [ %.2122, %224 ], [ %.0120298, %168 ], [ %.3123, %228 ]
-  %.4119162175 = phi ptr [ %.1116, %.thread ], [ %.1116, %217 ], [ %.2117, %224 ], [ %.0115299, %168 ], [ %.3118, %228 ]
-  %.4109164173 = phi i64 [ %.1106, %.thread ], [ %.1106, %217 ], [ -1, %224 ], [ -1, %168 ], [ -1, %228 ]
-  %.not148 = icmp eq ptr %.4124161176, null
+  %.1101177 = phi i32 [ -1, %.thread ], [ -1, %217 ], [ -1, %224 ], [ -1, %168 ], [ 0, %228 ]
+  %.0120161176 = phi ptr [ %.3123, %.thread ], [ %.4124, %217 ], [ %.4124, %224 ], [ %.1121298, %168 ], [ %.2122, %228 ]
+  %.0115162175 = phi ptr [ %.3118, %.thread ], [ %.3118, %217 ], [ %.4119, %224 ], [ %.1116299, %168 ], [ %.2117, %228 ]
+  %.0105164173 = phi i64 [ %.3108, %.thread ], [ %.3108, %217 ], [ -1, %224 ], [ -1, %168 ], [ -1, %228 ]
+  %.not148 = icmp eq ptr %.0120161176, null
   br i1 %.not148, label %302, label %.thread.thread.thread199
 
 .thread.thread.thread199:                         ; preds = %124, %117, %.thread.thread
-  %.4109164173208 = phi i64 [ %.4109164173, %.thread.thread ], [ -1, %117 ], [ -1, %124 ]
-  %.4119162175207 = phi ptr [ %.4119162175, %.thread.thread ], [ null, %117 ], [ %115, %124 ]
-  %.4124161176206 = phi ptr [ %.4124161176, %.thread.thread ], [ %107, %117 ], [ %107, %124 ]
-  %.3177205 = phi i32 [ %.3177, %.thread.thread ], [ -1, %117 ], [ -1, %124 ]
-  %296 = call i32 @H5T_close(ptr noundef nonnull %.4124161176206)
+  %.0105164173208 = phi i64 [ %.0105164173, %.thread.thread ], [ -1, %117 ], [ -1, %124 ]
+  %.0115162175207 = phi ptr [ %.0115162175, %.thread.thread ], [ null, %117 ], [ %115, %124 ]
+  %.0120161176206 = phi ptr [ %.0120161176, %.thread.thread ], [ %107, %117 ], [ %107, %124 ]
+  %.1101177205 = phi i32 [ %.1101177, %.thread.thread ], [ -1, %117 ], [ -1, %124 ]
+  %296 = call i32 @H5T_close(ptr noundef nonnull %.0120161176206)
   %297 = icmp slt i32 %296, 0
   br i1 %297, label %298, label %302
 
@@ -9067,14 +9067,14 @@ H5T_close_real.exit153:                           ; preds = %273, %276
   br label %302
 
 302:                                              ; preds = %.thread.thread, %298, %.thread.thread.thread199, %.thread.thread182, %292
-  %.4119162174 = phi ptr [ %.4119162190, %292 ], [ %.4119162190, %.thread.thread182 ], [ %.4119162175207, %298 ], [ %.4119162175207, %.thread.thread.thread199 ], [ %.4119162175, %.thread.thread ]
-  %.4109164172 = phi i64 [ %.4109164188, %292 ], [ %.4109164188, %.thread.thread182 ], [ %.4109164173208, %298 ], [ %.4109164173208, %.thread.thread.thread199 ], [ %.4109164173, %.thread.thread ]
-  %.4 = phi i32 [ -1, %292 ], [ -1, %.thread.thread182 ], [ -1, %298 ], [ %.3177205, %.thread.thread.thread199 ], [ %.3177, %.thread.thread ]
-  %303 = icmp sgt i64 %.4109164172, -1
+  %.0115162174 = phi ptr [ %.0115162190, %292 ], [ %.0115162190, %.thread.thread182 ], [ %.0115162175207, %298 ], [ %.0115162175207, %.thread.thread.thread199 ], [ %.0115162175, %.thread.thread ]
+  %.0105164172 = phi i64 [ %.0105164188, %292 ], [ %.0105164188, %.thread.thread182 ], [ %.0105164173208, %298 ], [ %.0105164173208, %.thread.thread.thread199 ], [ %.0105164173, %.thread.thread ]
+  %.4 = phi i32 [ -1, %292 ], [ -1, %.thread.thread182 ], [ -1, %298 ], [ %.1101177205, %.thread.thread.thread199 ], [ %.1101177, %.thread.thread ]
+  %303 = icmp sgt i64 %.0105164172, -1
   br i1 %303, label %304, label %.thread209
 
 304:                                              ; preds = %302
-  %305 = call i32 @H5I_dec_ref(i64 noundef %.4109164172) #17
+  %305 = call i32 @H5I_dec_ref(i64 noundef %.0105164172) #17
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %307, label %.thread209.thread
 
@@ -9086,12 +9086,12 @@ H5T_close_real.exit153:                           ; preds = %273, %276
 
 .thread209:                                       ; preds = %109, %302
   %.4214 = phi i32 [ %.4, %302 ], [ -1, %109 ]
-  %.4119162174213 = phi ptr [ %.4119162174, %302 ], [ %.0115299, %109 ]
-  %.not149 = icmp eq ptr %.4119162174213, null
+  %.0115162174213 = phi ptr [ %.0115162174, %302 ], [ %.1116299, %109 ]
+  %.not149 = icmp eq ptr %.0115162174213, null
   br i1 %.not149, label %.thread209.thread, label %311
 
 311:                                              ; preds = %.thread209
-  %312 = call i32 @H5T_close(ptr noundef nonnull %.4119162174213)
+  %312 = call i32 @H5T_close(ptr noundef nonnull %.0115162174213)
   %313 = icmp slt i32 %312, 0
   br i1 %313, label %314, label %.thread209.thread
 
@@ -10010,12 +10010,12 @@ define range(i32 -1, 1) i32 @H5T_convert(ptr noundef %0, ptr noundef %1, ptr nou
 
 41:                                               ; preds = %35, %38, %16
   %42 = phi i8 [ %.pre, %38 ], [ %36, %35 ], [ %18, %16 ]
-  %.030 = phi i64 [ %23, %38 ], [ %23, %35 ], [ -1, %16 ]
-  %.028 = phi i64 [ %30, %38 ], [ %30, %35 ], [ -1, %16 ]
+  %.131 = phi i64 [ %23, %38 ], [ %23, %35 ], [ -1, %16 ]
+  %.129 = phi i64 [ %30, %38 ], [ %30, %35 ], [ -1, %16 ]
   %43 = getelementptr inbounds i8, ptr %9, i64 24
-  store i64 %.030, ptr %43, align 8
+  store i64 %.131, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %9, i64 32
-  store i64 %.028, ptr %44, align 8
+  store i64 %.129, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %45, align 8
   %46 = trunc i8 %42 to i1
@@ -10026,7 +10026,7 @@ define range(i32 -1, 1) i32 @H5T_convert(ptr noundef %0, ptr noundef %1, ptr nou
 49:                                               ; preds = %41
   %50 = getelementptr inbounds i8, ptr %9, i64 16
   %51 = load i64, ptr %50, align 8
-  %52 = call i32 %48(i64 noundef %.030, i64 noundef %.028, ptr noundef nonnull %45, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %51) #17
+  %52 = call i32 %48(i64 noundef %.131, i64 noundef %.129, ptr noundef nonnull %45, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %51) #17
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %57, label %H5T_convert_with_ctx.exit.thread
 
@@ -10047,14 +10047,14 @@ define range(i32 -1, 1) i32 @H5T_convert(ptr noundef %0, ptr noundef %1, ptr nou
 
 H5T_convert_with_ctx.exit.thread:                 ; preds = %54, %49, %57
   %.0 = phi i32 [ -1, %57 ], [ 0, %49 ], [ 0, %54 ]
-  %64 = icmp sgt i64 %.030, -1
+  %64 = icmp sgt i64 %.131, -1
   br i1 %64, label %65, label %72
 
 65:                                               ; preds = %.thread41, %H5T_convert_with_ctx.exit.thread
   %.047 = phi i32 [ -1, %.thread41 ], [ %.0, %H5T_convert_with_ctx.exit.thread ]
-  %.12946 = phi i64 [ %30, %.thread41 ], [ %.028, %H5T_convert_with_ctx.exit.thread ]
-  %.13145 = phi i64 [ %23, %.thread41 ], [ %.030, %H5T_convert_with_ctx.exit.thread ]
-  %66 = call ptr @H5I_remove(i64 noundef %.13145) #17
+  %.02846 = phi i64 [ %30, %.thread41 ], [ %.129, %H5T_convert_with_ctx.exit.thread ]
+  %.03045 = phi i64 [ %23, %.thread41 ], [ %.131, %H5T_convert_with_ctx.exit.thread ]
+  %66 = call ptr @H5I_remove(i64 noundef %.03045) #17
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %72
 
@@ -10065,13 +10065,13 @@ H5T_convert_with_ctx.exit.thread:                 ; preds = %54, %49, %57
   br label %72
 
 72:                                               ; preds = %68, %65, %H5T_convert_with_ctx.exit.thread
-  %.12940 = phi i64 [ %.12946, %68 ], [ %.12946, %65 ], [ %.028, %H5T_convert_with_ctx.exit.thread ]
+  %.02840 = phi i64 [ %.02846, %68 ], [ %.02846, %65 ], [ %.129, %H5T_convert_with_ctx.exit.thread ]
   %.1 = phi i32 [ -1, %68 ], [ %.047, %65 ], [ %.0, %H5T_convert_with_ctx.exit.thread ]
-  %73 = icmp sgt i64 %.12940, -1
+  %73 = icmp sgt i64 %.02840, -1
   br i1 %73, label %74, label %.thread48
 
 74:                                               ; preds = %72
-  %75 = call ptr @H5I_remove(i64 noundef %.12940) #17
+  %75 = call ptr @H5I_remove(i64 noundef %.02840) #17
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %.thread48
 
@@ -10577,8 +10577,8 @@ define internal fastcc ptr @H5T__initiate_copy(ptr nocapture noundef readonly %0
   br label %.thread
 
 .thread:                                          ; preds = %4, %19, %21
-  %.3 = phi ptr [ null, %21 ], [ %2, %19 ], [ null, %4 ]
-  ret ptr %.3
+  %.1 = phi ptr [ null, %21 ], [ %2, %19 ], [ null, %4 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11334,8 +11334,8 @@ define ptr @H5T_copy_reopen(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %4, %96, %115
-  %.2 = phi ptr [ null, %115 ], [ %2, %96 ], [ null, %4 ]
-  ret ptr %.2
+  %.1 = phi ptr [ null, %115 ], [ %2, %96 ], [ null, %4 ]
+  ret ptr %.1
 }
 
 declare ptr @H5FO_opened(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -12124,7 +12124,7 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br i1 %.not140.i, label %.thread263, label %.thread258
 
 .thread258:                                       ; preds = %157, %164
-  %.0112.i261 = phi ptr [ %159, %164 ], [ null, %157 ]
+  %.1113.i261 = phi ptr [ %159, %164 ], [ null, %157 ]
   %165 = phi ptr [ %.pre254, %164 ], [ %142, %157 ]
   %166 = call ptr @H5T_copy(ptr noundef nonnull %165, i32 noundef 1)
   %167 = icmp eq ptr %166, null
@@ -12137,13 +12137,13 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.thread.i
 
 172:                                              ; preds = %.thread258
-  %.not141.i = icmp eq ptr %.0112.i261, null
+  %.not141.i = icmp eq ptr %.1113.i261, null
   br i1 %.not141.i, label %.thread271, label %.thread263
 
 .thread263:                                       ; preds = %164, %172
-  %.0104.i269 = phi ptr [ %166, %172 ], [ null, %164 ]
-  %.0112.i262267 = phi ptr [ %.0112.i261, %172 ], [ %159, %164 ]
-  %173 = call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %.0112.i262267, i1 noundef zeroext false) #17
+  %.2106.i269 = phi ptr [ %166, %172 ], [ null, %164 ]
+  %.1113.i262267 = phi ptr [ %.1113.i261, %172 ], [ %159, %164 ]
+  %173 = call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %.1113.i262267, i1 noundef zeroext false) #17
   %174 = icmp slt i64 %173, 0
   br i1 %174, label %175, label %179
 
@@ -12154,14 +12154,14 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.thread.thread.i
 
 179:                                              ; preds = %.thread263
-  %.not142.i = icmp eq ptr %.0104.i269, null
+  %.not142.i = icmp eq ptr %.2106.i269, null
   br i1 %.not142.i, label %186, label %.thread271
 
 .thread271:                                       ; preds = %172, %179
-  %.096.i280 = phi i64 [ %173, %179 ], [ -1, %172 ]
-  %.0112.i262268278 = phi ptr [ %.0112.i262267, %179 ], [ null, %172 ]
-  %.0104.i270276 = phi ptr [ %.0104.i269, %179 ], [ %166, %172 ]
-  %180 = call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %.0104.i270276, i1 noundef zeroext false) #17
+  %.298.i280 = phi i64 [ %173, %179 ], [ -1, %172 ]
+  %.1113.i262268278 = phi ptr [ %.1113.i262267, %179 ], [ null, %172 ]
+  %.2106.i270276 = phi ptr [ %.2106.i269, %179 ], [ %166, %172 ]
+  %180 = call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %.2106.i270276, i1 noundef zeroext false) #17
   %181 = icmp slt i64 %180, 0
   br i1 %181, label %182, label %186
 
@@ -12172,13 +12172,13 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.i
 
 186:                                              ; preds = %.thread271, %179
-  %.096.i281 = phi i64 [ %.096.i280, %.thread271 ], [ %173, %179 ]
-  %.0112.i262268279 = phi ptr [ %.0112.i262268278, %.thread271 ], [ %.0112.i262267, %179 ]
-  %.0104.i270277 = phi ptr [ %.0104.i270276, %.thread271 ], [ null, %179 ]
-  %.093.i = phi i64 [ %180, %.thread271 ], [ -1, %179 ]
+  %.298.i281 = phi i64 [ %.298.i280, %.thread271 ], [ %173, %179 ]
+  %.1113.i262268279 = phi ptr [ %.1113.i262268278, %.thread271 ], [ %.1113.i262267, %179 ]
+  %.2106.i270277 = phi ptr [ %.2106.i270276, %.thread271 ], [ null, %179 ]
+  %.295.i = phi i64 [ %180, %.thread271 ], [ -1, %179 ]
   %187 = load ptr, ptr %150, align 8
   %188 = call i64 @H5CX_get_dxpl() #17
-  %189 = call i32 %187(i64 noundef %.096.i281, i64 noundef %.093.i, ptr noundef nonnull %153, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, i64 noundef %188) #17
+  %189 = call i32 %187(i64 noundef %.298.i281, i64 noundef %.295.i, ptr noundef nonnull %153, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, i64 noundef %188) #17
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %193, label %197
 
@@ -12188,21 +12188,21 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br i1 %192, label %193, label %.thread170.i
 
 193:                                              ; preds = %.thread.i, %186
-  %.194161.i = phi i64 [ -1, %.thread.i ], [ %.093.i, %186 ]
-  %.197159.i = phi i64 [ -1, %.thread.i ], [ %.096.i281, %186 ]
-  %.1105157.i = phi ptr [ null, %.thread.i ], [ %.0104.i270277, %186 ]
-  %.1113155.i = phi ptr [ null, %.thread.i ], [ %.0112.i262268279, %186 ]
+  %.3161.i = phi i64 [ -1, %.thread.i ], [ %.295.i, %186 ]
+  %.399159.i = phi i64 [ -1, %.thread.i ], [ %.298.i281, %186 ]
+  %.3107157.i = phi ptr [ null, %.thread.i ], [ %.2106.i270277, %186 ]
+  %.3115155.i = phi ptr [ null, %.thread.i ], [ %.1113.i262268279, %186 ]
   %194 = load i64, ptr @H5E_DATATYPE_g, align 8
   %195 = load i64, ptr @H5E_CANTINIT_g, align 8
   %196 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__path_find_init_new_path, i32 noundef 5373, i64 noundef %194, i64 noundef %195, ptr noundef nonnull @.str.376) #17
   br label %.critedge.i
 
 197:                                              ; preds = %186
-  %198 = icmp sgt i64 %.096.i281, -1
+  %198 = icmp sgt i64 %.298.i281, -1
   br i1 %198, label %199, label %206
 
 199:                                              ; preds = %197
-  %200 = call i32 @H5I_dec_ref(i64 noundef %.096.i281) #17
+  %200 = call i32 @H5I_dec_ref(i64 noundef %.298.i281) #17
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %202, label %206
 
@@ -12213,12 +12213,12 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.thread190.i
 
 206:                                              ; preds = %199, %197
-  %.2114.i = phi ptr [ %.0112.i262268279, %197 ], [ null, %199 ]
-  %207 = icmp sgt i64 %.093.i, -1
+  %.4116.i = phi ptr [ %.1113.i262268279, %197 ], [ null, %199 ]
+  %207 = icmp sgt i64 %.295.i, -1
   br i1 %207, label %208, label %.thread170.i
 
 208:                                              ; preds = %206
-  %209 = call i32 @H5I_dec_ref(i64 noundef %.093.i) #17
+  %209 = call i32 @H5I_dec_ref(i64 noundef %.295.i) #17
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %211, label %.thread170.i
 
@@ -12229,8 +12229,8 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.thread.i
 
 .thread170.i:                                     ; preds = %208, %206, %.thread.i
-  %.2114174.i = phi ptr [ %.2114.i, %206 ], [ %.2114.i, %208 ], [ null, %.thread.i ]
-  %.2106.i = phi ptr [ %.0104.i270277, %206 ], [ null, %208 ], [ null, %.thread.i ]
+  %.4116174.i = phi ptr [ %.4116.i, %206 ], [ %.4116.i, %208 ], [ null, %.thread.i ]
+  %.4108.i = phi ptr [ %.2106.i270277, %206 ], [ null, %208 ], [ null, %.thread.i ]
   %215 = getelementptr inbounds i8, ptr %120, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
   %216 = getelementptr inbounds i8, ptr %120, i64 64
@@ -12238,8 +12238,8 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %217
 
 217:                                              ; preds = %.thread170.i, %149
-  %.3115.i = phi ptr [ %.2114174.i, %.thread170.i ], [ null, %149 ]
-  %.3107.i = phi ptr [ %.2106.i, %.thread170.i ], [ null, %149 ]
+  %.0112.i = phi ptr [ %.4116174.i, %.thread170.i ], [ null, %149 ]
+  %.0104.i = phi ptr [ %.4108.i, %.thread170.i ], [ null, %149 ]
   %218 = load i32, ptr @H5T_g.3, align 8
   %219 = icmp sgt i32 %218, 0
   br i1 %219, label %.lr.ph.i96, label %.critedge.thread.i
@@ -12256,8 +12256,8 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
 
 227:                                              ; preds = %320, %.lr.ph.i96
   %indvars.iv.i = phi i64 [ %226, %.lr.ph.i96 ], [ %indvars.iv.next.i, %320 ]
-  %.4108259.i = phi ptr [ %.3107.i, %.lr.ph.i96 ], [ %.6110.i, %320 ]
-  %.4116258.i = phi ptr [ %.3115.i, %.lr.ph.i96 ], [ %.7119.i, %320 ]
+  %.5109259.i = phi ptr [ %.0104.i, %.lr.ph.i96 ], [ %.6110.i, %320 ]
+  %.5117258.i = phi ptr [ %.0112.i, %.lr.ph.i96 ], [ %.6118.i, %320 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %228 = load ptr, ptr %221, align 8
   %.not143.i = icmp eq ptr %228, null
@@ -12353,10 +12353,10 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %289
 
 289:                                              ; preds = %283, %277
-  %.5117.i = phi ptr [ %249, %277 ], [ %.4116258.i, %283 ]
-  %.5109.i = phi ptr [ %257, %277 ], [ %.4108259.i, %283 ]
-  %.5101.i = phi i64 [ %264, %277 ], [ -1, %283 ]
-  %.5.i = phi i64 [ %271, %277 ], [ -1, %283 ]
+  %.7119.i = phi ptr [ %249, %277 ], [ %.5117258.i, %283 ]
+  %.7111.i = phi ptr [ %257, %277 ], [ %.5109259.i, %283 ]
+  %.7103.i = phi i64 [ %264, %277 ], [ -1, %283 ]
+  %.7.i = phi i64 [ %271, %277 ], [ -1, %283 ]
   %.192.i = phi i32 [ %282, %277 ], [ %288, %283 ]
   %290 = icmp slt i32 %.192.i, 0
   br i1 %290, label %291, label %.critedge149.i
@@ -12384,11 +12384,11 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %302
 
 302:                                              ; preds = %.critedge149.i, %291
-  %303 = icmp sgt i64 %.5101.i, -1
+  %303 = icmp sgt i64 %.7103.i, -1
   br i1 %303, label %304, label %311
 
 304:                                              ; preds = %302
-  %305 = call i32 @H5I_dec_ref(i64 noundef %.5101.i) #17
+  %305 = call i32 @H5I_dec_ref(i64 noundef %.7103.i) #17
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %307, label %311
 
@@ -12399,12 +12399,12 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.thread190.i
 
 311:                                              ; preds = %304, %302
-  %.6118.i = phi ptr [ %.5117.i, %302 ], [ null, %304 ]
-  %312 = icmp sgt i64 %.5.i, -1
+  %.8120.i = phi ptr [ %.7119.i, %302 ], [ null, %304 ]
+  %312 = icmp sgt i64 %.7.i, -1
   br i1 %312, label %313, label %320
 
 313:                                              ; preds = %311
-  %314 = call i32 @H5I_dec_ref(i64 noundef %.5.i) #17
+  %314 = call i32 @H5I_dec_ref(i64 noundef %.7.i) #17
   %315 = icmp slt i32 %314, 0
   br i1 %315, label %316, label %320
 
@@ -12415,24 +12415,24 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %.critedge.thread.i
 
 320:                                              ; preds = %313, %311, %237, %229
-  %.7119.i = phi ptr [ %.4116258.i, %229 ], [ %.4116258.i, %237 ], [ %.6118.i, %311 ], [ %.6118.i, %313 ]
-  %.6110.i = phi ptr [ %.4108259.i, %229 ], [ %.4108259.i, %237 ], [ %.5109.i, %311 ], [ null, %313 ]
+  %.6118.i = phi ptr [ %.5117258.i, %229 ], [ %.5117258.i, %237 ], [ %.8120.i, %311 ], [ %.8120.i, %313 ]
+  %.6110.i = phi ptr [ %.5109259.i, %229 ], [ %.5109259.i, %237 ], [ %.7111.i, %311 ], [ null, %313 ]
   %321 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %321, label %227, label %.critedge.thread.i
 
 .critedge.i:                                      ; preds = %294, %193, %182
-  %.8120.i = phi ptr [ %.0112.i262268278, %182 ], [ %.1113155.i, %193 ], [ %.5117.i, %294 ]
-  %.7111.i = phi ptr [ %.0104.i270276, %182 ], [ %.1105157.i, %193 ], [ %.5109.i, %294 ]
-  %.8.i = phi i64 [ %.096.i280, %182 ], [ %.197159.i, %193 ], [ %.5101.i, %294 ]
-  %.7.i = phi i64 [ %180, %182 ], [ %.194161.i, %193 ], [ %.5.i, %294 ]
-  %322 = icmp sgt i64 %.8.i, -1
+  %.2114.i = phi ptr [ %.1113.i262268278, %182 ], [ %.3115155.i, %193 ], [ %.7119.i, %294 ]
+  %.1105.i = phi ptr [ %.2106.i270276, %182 ], [ %.3107157.i, %193 ], [ %.7111.i, %294 ]
+  %.197.i = phi i64 [ %.298.i280, %182 ], [ %.399159.i, %193 ], [ %.7103.i, %294 ]
+  %.194.i = phi i64 [ %180, %182 ], [ %.3161.i, %193 ], [ %.7.i, %294 ]
+  %322 = icmp sgt i64 %.197.i, -1
   br i1 %322, label %.critedge.thread190.i, label %.critedge.thread.i
 
 .critedge.thread190.i:                            ; preds = %.critedge.i, %307, %273, %202
-  %.7198.i = phi i64 [ %.7.i, %.critedge.i ], [ %.5.i, %307 ], [ %271, %273 ], [ %.093.i, %202 ]
-  %.8197.i = phi i64 [ %.8.i, %.critedge.i ], [ %.5101.i, %307 ], [ %264, %273 ], [ %.096.i281, %202 ]
-  %.7111196.i = phi ptr [ %.7111.i, %.critedge.i ], [ %.5109.i, %307 ], [ %257, %273 ], [ %.0104.i270277, %202 ]
-  %323 = call i32 @H5I_dec_ref(i64 noundef %.8197.i) #17
+  %.194198.i = phi i64 [ %.194.i, %.critedge.i ], [ %.7.i, %307 ], [ %271, %273 ], [ %.295.i, %202 ]
+  %.197197.i = phi i64 [ %.197.i, %.critedge.i ], [ %.7103.i, %307 ], [ %264, %273 ], [ %.298.i281, %202 ]
+  %.1105196.i = phi ptr [ %.1105.i, %.critedge.i ], [ %.7111.i, %307 ], [ %257, %273 ], [ %.2106.i270277, %202 ]
+  %323 = call i32 @H5I_dec_ref(i64 noundef %.197197.i) #17
   %324 = icmp slt i32 %323, 0
   br i1 %324, label %325, label %335
 
@@ -12444,18 +12444,18 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
 
 .critedge.thread.i:                               ; preds = %320, %227, %.critedge.i, %316, %217, %211, %168
   %.090185.i = phi i32 [ -1, %.critedge.i ], [ -1, %316 ], [ -1, %211 ], [ -1, %168 ], [ 0, %217 ], [ 0, %227 ], [ 0, %320 ]
-  %.7184.i = phi i64 [ %.7.i, %.critedge.i ], [ %.5.i, %316 ], [ %.093.i, %211 ], [ -1, %168 ], [ -1, %217 ], [ -1, %227 ], [ -1, %320 ]
-  %.7111182.i = phi ptr [ %.7111.i, %.critedge.i ], [ %.5109.i, %316 ], [ %.0104.i270277, %211 ], [ null, %168 ], [ %.3107.i, %217 ], [ %.6110.i, %320 ], [ %.4108259.i, %227 ]
-  %.8120180.i = phi ptr [ %.8120.i, %.critedge.i ], [ %.6118.i, %316 ], [ %.2114.i, %211 ], [ %.0112.i261, %168 ], [ %.3115.i, %217 ], [ %.7119.i, %320 ], [ %.4116258.i, %227 ]
-  %.not146.i = icmp eq ptr %.8120180.i, null
+  %.194184.i = phi i64 [ %.194.i, %.critedge.i ], [ %.7.i, %316 ], [ %.295.i, %211 ], [ -1, %168 ], [ -1, %217 ], [ -1, %227 ], [ -1, %320 ]
+  %.1105182.i = phi ptr [ %.1105.i, %.critedge.i ], [ %.7111.i, %316 ], [ %.2106.i270277, %211 ], [ null, %168 ], [ %.0104.i, %217 ], [ %.6110.i, %320 ], [ %.5109259.i, %227 ]
+  %.2114180.i = phi ptr [ %.2114.i, %.critedge.i ], [ %.8120.i, %316 ], [ %.4116.i, %211 ], [ %.1113.i261, %168 ], [ %.0112.i, %217 ], [ %.6118.i, %320 ], [ %.5117258.i, %227 ]
+  %.not146.i = icmp eq ptr %.2114180.i, null
   br i1 %.not146.i, label %335, label %.critedge.thread.thread.i
 
 .critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %266, %259, %175
-  %.8120180208.i = phi ptr [ %.8120180.i, %.critedge.thread.i ], [ %.0112.i262267, %175 ], [ %249, %259 ], [ %249, %266 ]
-  %.7111182207.i = phi ptr [ %.7111182.i, %.critedge.thread.i ], [ %.0104.i269, %175 ], [ null, %259 ], [ %257, %266 ]
-  %.7184206.i = phi i64 [ %.7184.i, %.critedge.thread.i ], [ -1, %175 ], [ -1, %259 ], [ -1, %266 ]
+  %.2114180208.i = phi ptr [ %.2114180.i, %.critedge.thread.i ], [ %.1113.i262267, %175 ], [ %249, %259 ], [ %249, %266 ]
+  %.1105182207.i = phi ptr [ %.1105182.i, %.critedge.thread.i ], [ %.2106.i269, %175 ], [ null, %259 ], [ %257, %266 ]
+  %.194184206.i = phi i64 [ %.194184.i, %.critedge.thread.i ], [ -1, %175 ], [ -1, %259 ], [ -1, %266 ]
   %.090185205.i = phi i32 [ %.090185.i, %.critedge.thread.i ], [ -1, %175 ], [ -1, %259 ], [ -1, %266 ]
-  %329 = call i32 @H5T_close(ptr noundef nonnull %.8120180208.i)
+  %329 = call i32 @H5T_close(ptr noundef nonnull %.2114180208.i)
   %330 = icmp slt i32 %329, 0
   br i1 %330, label %331, label %335
 
@@ -12466,14 +12466,14 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
   br label %335
 
 335:                                              ; preds = %331, %.critedge.thread.thread.i, %.critedge.thread.i, %325, %.critedge.thread190.i
-  %.7183.i = phi i64 [ %.7198.i, %325 ], [ %.7198.i, %.critedge.thread190.i ], [ %.7184206.i, %331 ], [ %.7184206.i, %.critedge.thread.thread.i ], [ %.7184.i, %.critedge.thread.i ]
-  %.7111181.i = phi ptr [ %.7111196.i, %325 ], [ %.7111196.i, %.critedge.thread190.i ], [ %.7111182207.i, %331 ], [ %.7111182207.i, %.critedge.thread.thread.i ], [ %.7111182.i, %.critedge.thread.i ]
+  %.194183.i = phi i64 [ %.194198.i, %325 ], [ %.194198.i, %.critedge.thread190.i ], [ %.194184206.i, %331 ], [ %.194184206.i, %.critedge.thread.thread.i ], [ %.194184.i, %.critedge.thread.i ]
+  %.1105181.i = phi ptr [ %.1105196.i, %325 ], [ %.1105196.i, %.critedge.thread190.i ], [ %.1105182207.i, %331 ], [ %.1105182207.i, %.critedge.thread.thread.i ], [ %.1105182.i, %.critedge.thread.i ]
   %.1.i95 = phi i32 [ -1, %325 ], [ -1, %.critedge.thread190.i ], [ -1, %331 ], [ %.090185205.i, %.critedge.thread.thread.i ], [ %.090185.i, %.critedge.thread.i ]
-  %336 = icmp sgt i64 %.7183.i, -1
+  %336 = icmp sgt i64 %.194183.i, -1
   br i1 %336, label %337, label %.thread217.i
 
 337:                                              ; preds = %335
-  %338 = call i32 @H5I_dec_ref(i64 noundef %.7183.i) #17
+  %338 = call i32 @H5I_dec_ref(i64 noundef %.194183.i) #17
   %339 = icmp slt i32 %338, 0
   br i1 %339, label %340, label %H5T__path_find_init_new_path.exit
 
@@ -12485,12 +12485,12 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
 
 .thread217.i:                                     ; preds = %335, %251
   %.1222.i = phi i32 [ %.1.i95, %335 ], [ -1, %251 ]
-  %.7111181221.i = phi ptr [ %.7111181.i, %335 ], [ %.4108259.i, %251 ]
-  %.not147.i = icmp eq ptr %.7111181221.i, null
+  %.1105181221.i = phi ptr [ %.1105181.i, %335 ], [ %.5109259.i, %251 ]
+  %.not147.i = icmp eq ptr %.1105181221.i, null
   br i1 %.not147.i, label %H5T__path_find_init_new_path.exit, label %344
 
 344:                                              ; preds = %.thread217.i
-  %345 = call i32 @H5T_close(ptr noundef nonnull %.7111181221.i)
+  %345 = call i32 @H5T_close(ptr noundef nonnull %.1105181221.i)
   %346 = icmp slt i32 %345, 0
   br i1 %346, label %347, label %H5T__path_find_init_new_path.exit
 
@@ -12512,13 +12512,13 @@ H5T__path_find_init_new_path.exit.thread:         ; preds = %.thread217.thread.i
   br label %434
 
 .thread172:                                       ; preds = %114, %.thread152, %115, %H5T__path_find_init_new_path.exit
-  %.068180 = phi ptr [ %120, %H5T__path_find_init_new_path.exit ], [ %.0, %.thread152 ], [ %.0, %115 ], [ %.0, %114 ]
+  %.169180 = phi ptr [ %120, %H5T__path_find_init_new_path.exit ], [ %.0, %.thread152 ], [ %.0, %115 ], [ %.0, %114 ]
   %355 = phi i32 [ %119, %H5T__path_find_init_new_path.exit ], [ %108, %.thread152 ], [ %108, %115 ], [ %108, %114 ]
   %.0137146162163179 = phi ptr [ %.0137146162164, %H5T__path_find_init_new_path.exit ], [ %.0, %.thread152 ], [ %.0, %115 ], [ %.0, %114 ]
   %.0123136147161165178 = phi i32 [ %.0123136147161166, %H5T__path_find_init_new_path.exit ], [ %.0123, %.thread152 ], [ %.0123, %115 ], [ %.0123, %114 ]
   %.0125135148160167177 = phi i32 [ %.0125135148160168, %H5T__path_find_init_new_path.exit ], [ %.0125, %.thread152 ], [ %.0125, %115 ], [ %.0125, %114 ]
   %356 = phi i1 [ true, %H5T__path_find_init_new_path.exit ], [ false, %.thread152 ], [ false, %115 ], [ false, %114 ]
-  %357 = getelementptr inbounds i8, ptr %.068180, i64 56
+  %357 = getelementptr inbounds i8, ptr %.169180, i64 56
   %358 = load ptr, ptr %357, align 8
   %.not82 = icmp eq ptr %358, null
   br i1 %.not82, label %359, label %363
@@ -12611,7 +12611,7 @@ H5T__path_table_search.exit111.thread:            ; preds = %365, %H5T__path_tab
   %403 = load ptr, ptr @H5T_g.2, align 8
   %404 = zext nneg i32 %.1124 to i64
   %405 = getelementptr inbounds ptr, ptr %403, i64 %404
-  store ptr %.068180, ptr %405, align 8
+  store ptr %.169180, ptr %405, align 8
   br label %434
 
 406:                                              ; preds = %H5T__path_table_search.exit111.thread
@@ -12660,19 +12660,19 @@ H5T__path_table_search.exit111.thread:            ; preds = %365, %H5T__path_tab
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %429, ptr align 8 %428, i64 %432, i1 false)
   %433 = add nsw i32 %423, 1
   store i32 %433, ptr @H5T_g.0, align 8
-  store ptr %.068180, ptr %428, align 8
+  store ptr %.169180, ptr %428, align 8
   br label %434
 
 434:                                              ; preds = %402, %422, %417, %398, %359, %H5T__path_find_init_new_path.exit.thread, %145, %137
   %.072.shrunk = phi i1 [ true, %137 ], [ true, %145 ], [ true, %H5T__path_find_init_new_path.exit.thread ], [ true, %398 ], [ true, %417 ], [ %356, %359 ], [ true, %422 ], [ true, %402 ]
-  %.070 = phi ptr [ null, %137 ], [ null, %145 ], [ null, %H5T__path_find_init_new_path.exit.thread ], [ null, %398 ], [ null, %417 ], [ null, %359 ], [ %.068180, %422 ], [ %.068180, %402 ]
-  %.169 = phi ptr [ %120, %137 ], [ %120, %145 ], [ %120, %H5T__path_find_init_new_path.exit.thread ], [ %.068180, %398 ], [ %.068180, %417 ], [ %.068180, %359 ], [ %.068180, %422 ], [ %.068180, %402 ]
+  %.070 = phi ptr [ null, %137 ], [ null, %145 ], [ null, %H5T__path_find_init_new_path.exit.thread ], [ null, %398 ], [ null, %417 ], [ null, %359 ], [ %.169180, %422 ], [ %.169180, %402 ]
+  %.068 = phi ptr [ %120, %137 ], [ %120, %145 ], [ %120, %H5T__path_find_init_new_path.exit.thread ], [ %.169180, %398 ], [ %.169180, %417 ], [ %.169180, %359 ], [ %.169180, %422 ], [ %.169180, %402 ]
   %435 = icmp eq ptr %.070, null
   %436 = and i1 %.072.shrunk, %435
   br i1 %436, label %437, label %.thread282
 
 437:                                              ; preds = %434
-  %438 = getelementptr inbounds i8, ptr %.169, i64 32
+  %438 = getelementptr inbounds i8, ptr %.068, i64 32
   %439 = load ptr, ptr %438, align 8
   %.not86 = icmp eq ptr %439, null
   br i1 %.not86, label %463, label %440
@@ -12719,7 +12719,7 @@ H5T_close_real.exit:                              ; preds = %449, %452
   br label %463
 
 463:                                              ; preds = %H5T_close_real.exit, %456, %437
-  %464 = getelementptr inbounds i8, ptr %.169, i64 40
+  %464 = getelementptr inbounds i8, ptr %.068, i64 40
   %465 = load ptr, ptr %464, align 8
   %.not87 = icmp eq ptr %465, null
   br i1 %.not87, label %489, label %466
@@ -12766,12 +12766,12 @@ H5T_close_real.exit116:                           ; preds = %475, %478
   br label %489
 
 489:                                              ; preds = %H5T_close_real.exit116, %482, %463
-  %490 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_path_t_reg_free_list, ptr noundef nonnull %.169) #17
+  %490 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_path_t_reg_free_list, ptr noundef nonnull %.068) #17
   br label %.thread282
 
 .thread282:                                       ; preds = %122, %406, %53, %10, %434, %489
-  %.3 = phi ptr [ null, %489 ], [ %.070, %434 ], [ %.068180, %406 ], [ null, %122 ], [ null, %53 ], [ null, %10 ]
-  ret ptr %.3
+  %.171 = phi ptr [ null, %489 ], [ %.070, %434 ], [ %.169180, %406 ], [ null, %122 ], [ null, %53 ], [ null, %10 ]
+  ret ptr %.171
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13694,8 +13694,8 @@ tailrecurse:                                      ; preds = %25, %22, %2
 
 14:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.01722 = phi i8 [ 0, %.lr.ph ], [ %21, %16 ]
-  %15 = trunc nuw i8 %.01722 to i1
+  %.122 = phi i8 [ 0, %.lr.ph ], [ %21, %16 ]
+  %15 = trunc nuw i8 %.122 to i1
   br i1 %15, label %.loopexit.loopexit, label %16
 
 16:                                               ; preds = %14
@@ -13721,13 +13721,13 @@ tailrecurse:                                      ; preds = %25, %22, %2
   br i1 %.not, label %.loopexit, label %tailrecurse
 
 .loopexit.loopexit:                               ; preds = %14, %16
-  %.1.ph = phi i8 [ %.01722, %14 ], [ %21, %16 ]
-  %28 = trunc nuw i8 %.1.ph to i1
+  %.017.ph = phi i8 [ %.122, %14 ], [ %21, %16 ]
+  %28 = trunc nuw i8 %.017.ph to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %8, %22, %25, %tailrecurse
-  %.1 = phi i1 [ true, %tailrecurse ], [ false, %25 ], [ false, %22 ], [ false, %8 ], [ false, %.preheader ], [ %28, %.loopexit.loopexit ]
-  ret i1 %.1
+  %.017 = phi i1 [ true, %tailrecurse ], [ false, %25 ], [ false, %22 ], [ false, %8 ], [ false, %.preheader ], [ %28, %.loopexit.loopexit ]
+  ret i1 %.017
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

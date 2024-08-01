@@ -869,8 +869,8 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
   br label %70
 
 70:                                               ; preds = %68, %65
-  %.0115 = phi ptr [ %42, %65 ], [ %69, %68 ]
-  %71 = getelementptr inbounds i8, ptr %.0115, i64 32
+  %.1 = phi ptr [ %42, %65 ], [ %69, %68 ]
+  %71 = getelementptr inbounds i8, ptr %.1, i64 32
   %72 = load i64, ptr %71, align 8
   %73 = load ptr, ptr %.0109.ph, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
@@ -879,15 +879,15 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
   br i1 %.not143, label %._crit_edge, label %76
 
 ._crit_edge:                                      ; preds = %70
-  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %.1, i64 24
   %.pre22 = load ptr, ptr %.phi.trans.insert21, align 8
   br label %91
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %.0115, i64 41
+  %77 = getelementptr inbounds i8, ptr %.1, i64 41
   %78 = load i8, ptr %77, align 1
   %.not144 = icmp eq i8 %78, 0
-  %79 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %79 = getelementptr inbounds i8, ptr %.1, i64 24
   %80 = load ptr, ptr %79, align 8
   br i1 %.not144, label %83, label %81
 
@@ -901,7 +901,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
 
 85:                                               ; preds = %83, %81
   %86 = phi ptr [ %82, %81 ], [ %84, %83 ]
-  %87 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %87 = getelementptr inbounds i8, ptr %.1, i64 24
   store ptr %86, ptr %87, align 8
   %88 = load ptr, ptr %.0109.ph, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
@@ -919,20 +919,20 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
   br label %96
 
 96:                                               ; preds = %47, %91, %62
-  %.1 = phi ptr [ %.0115, %91 ], [ %42, %62 ], [ %42, %47 ]
+  %.0115 = phi ptr [ %.1, %91 ], [ %42, %62 ], [ %42, %47 ]
   %.not145 = icmp eq i32 %0, 0
   br i1 %.not145, label %98, label %97
 
 97:                                               ; preds = %96
-  tail call void @php_stream_bucket_append(ptr noundef nonnull %35, ptr noundef nonnull %.1) #11
+  tail call void @php_stream_bucket_append(ptr noundef nonnull %35, ptr noundef nonnull %.0115) #11
   br label %99
 
 98:                                               ; preds = %96
-  tail call void @php_stream_bucket_prepend(ptr noundef nonnull %35, ptr noundef nonnull %.1) #11
+  tail call void @php_stream_bucket_prepend(ptr noundef nonnull %35, ptr noundef nonnull %.0115) #11
   br label %99
 
 99:                                               ; preds = %98, %97
-  %100 = getelementptr inbounds i8, ptr %.1, i64 44
+  %100 = getelementptr inbounds i8, ptr %.0115, i64 44
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 1
   br i1 %102, label %103, label %104
@@ -1459,27 +1459,27 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
   br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %.thread, %15
-  %.0133.lcssa = phi ptr [ null, %15 ], [ %29, %.thread ], [ null, %30 ]
+  %.2.lcssa = phi ptr [ null, %15 ], [ %29, %.thread ], [ null, %30 ]
   tail call void @_efree(ptr noundef %16) #11
   br label %32
 
 32:                                               ; preds = %._crit_edge, %13
-  %.1134 = phi ptr [ %.0133.lcssa, %._crit_edge ], [ null, %13 ]
+  %.1134 = phi ptr [ %.2.lcssa, %._crit_edge ], [ null, %13 ]
   %33 = icmp ne ptr %.1134, null
   tail call void @llvm.assume(i1 %33)
   br label %34
 
 34:                                               ; preds = %11, %32
-  %.2 = phi ptr [ %.1134, %32 ], [ %12, %11 ]
-  %35 = load ptr, ptr %.2, align 8
+  %.0133 = phi ptr [ %.1134, %32 ], [ %12, %11 ]
+  %35 = load ptr, ptr %.0133, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.2, i64 8
+  %38 = getelementptr inbounds i8, ptr %.0133, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @zend_lookup_class(ptr noundef %39) #11
-  store ptr %40, ptr %.2, align 8
+  store ptr %40, ptr %.0133, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %45
 

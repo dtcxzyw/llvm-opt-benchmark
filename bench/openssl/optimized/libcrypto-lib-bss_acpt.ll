@@ -813,8 +813,8 @@ if.end106:                                        ; preds = %if.then101
   br i1 %tobool108.not, label %if.then132, label %if.end111
 
 if.end111:                                        ; preds = %if.end106, %if.end96
-  %bio.0 = phi ptr [ %call93, %if.end96 ], [ %call103, %if.end106 ]
-  %call112 = tail call ptr @BIO_push(ptr noundef nonnull %b, ptr noundef nonnull %bio.0) #6
+  %bio.1 = phi ptr [ %call93, %if.end96 ], [ %call103, %if.end106 ]
+  %call112 = tail call ptr @BIO_push(ptr noundef nonnull %b, ptr noundef nonnull %bio.1) #6
   %cmp113 = icmp eq ptr %call112, null
   br i1 %cmp113, label %if.then132, label %if.end115
 
@@ -839,8 +839,8 @@ for.cond.backedge:                                ; preds = %if.then126, %if.the
   br label %for.cond
 
 if.then132:                                       ; preds = %if.then101, %if.end106, %if.end111
-  %bio.1 = phi ptr [ %call93, %if.then101 ], [ %bio.0, %if.end111 ], [ %call93, %if.end106 ]
-  %call133 = tail call i32 @BIO_free(ptr noundef nonnull %bio.1) #6
+  %bio.0 = phi ptr [ %call93, %if.then101 ], [ %bio.1, %if.end111 ], [ %call93, %if.end106 ]
+  %call133 = tail call i32 @BIO_free(ptr noundef nonnull %bio.0) #6
   br label %end
 
 if.then135:                                       ; preds = %if.end92

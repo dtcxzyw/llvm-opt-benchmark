@@ -2320,26 +2320,26 @@ invoke.cont4:                                     ; preds = %invoke.cont4.lr.ph,
   %4 = phi ptr [ %0, %invoke.cont4.lr.ph ], [ %14, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
   %5 = phi ptr [ %.pre91, %invoke.cont4.lr.ph ], [ %15, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
   %6 = phi ptr [ %.pre, %invoke.cont4.lr.ph ], [ %16, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %ranges.sroa.0.185 = phi ptr [ %call5.i.i.i.i7, %invoke.cont4.lr.ph ], [ %ranges.sroa.0.2, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %ranges.sroa.9.184 = phi ptr [ %call5.i.i.i.i7, %invoke.cont4.lr.ph ], [ %ranges.sroa.9.2, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %ranges.sroa.16.183 = phi ptr [ %add.ptr21.i, %invoke.cont4.lr.ph ], [ %ranges.sroa.16.2, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %ranges.sroa.0.185 = phi ptr [ %call5.i.i.i.i7, %invoke.cont4.lr.ph ], [ %ranges.sroa.0.4, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %ranges.sroa.9.084 = phi ptr [ %call5.i.i.i.i7, %invoke.cont4.lr.ph ], [ %ranges.sroa.9.2, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %ranges.sroa.16.083 = phi ptr [ %add.ptr21.i, %invoke.cont4.lr.ph ], [ %ranges.sroa.16.2, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv = trunc i64 %sub.ptr.sub.i to i32
-  %cmp.not.i = icmp eq ptr %ranges.sroa.9.184, %ranges.sroa.16.183
+  %cmp.not.i = icmp eq ptr %ranges.sroa.9.084, %ranges.sroa.16.083
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont4
-  store ptr %6, ptr %ranges.sroa.9.184, align 8
-  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %ranges.sroa.9.184, i64 8
+  store ptr %6, ptr %ranges.sroa.9.084, align 8
+  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %ranges.sroa.9.084, i64 8
   store i32 %conv, ptr %ref.tmp.sroa.3.0..sroa_idx, align 8
-  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %ranges.sroa.9.184, i64 12
+  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %ranges.sroa.9.084, i64 12
   store i32 0, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4
   br label %for.inc
 
 if.else.i:                                        ; preds = %invoke.cont4
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %ranges.sroa.9.184 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %ranges.sroa.9.084 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %ranges.sroa.0.185 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
@@ -2399,9 +2399,9 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i
   %8 = phi ptr [ %.pre92, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %4, %if.then.i ]
-  %ranges.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %ranges.sroa.16.183, %if.then.i ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %ranges.sroa.9.184, %if.then.i ]
-  %ranges.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %ranges.sroa.0.185, %if.then.i ]
+  %ranges.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %ranges.sroa.16.083, %if.then.i ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %ranges.sroa.9.084, %if.then.i ]
+  %ranges.sroa.0.4 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %ranges.sroa.0.185, %if.then.i ]
   %ranges.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 16
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %__begin2, align 8
@@ -2438,12 +2438,12 @@ _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %byteStream, align 8
   %ranges_.i = getelementptr inbounds i8, ptr %byteStream, i64 8
-  store ptr %ranges.sroa.0.2, ptr %ranges_.i, align 8
+  store ptr %ranges.sroa.0.4, ptr %ranges_.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %byteStream, i64 16
   store ptr %ranges.sroa.9.2, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %byteStream, i64 24
   store ptr %ranges.sroa.16.2, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i12 = icmp eq ptr %ranges.sroa.0.2, %ranges.sroa.9.2
+  %cmp.i.i.i12 = icmp eq ptr %ranges.sroa.0.4, %ranges.sroa.9.2
   br i1 %cmp.i.i.i12, label %if.then.i13, label %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit
 
 if.then.i13:                                      ; preds = %invoke.cont3.preheader, %for.end
@@ -2452,7 +2452,7 @@ if.then.i13:                                      ; preds = %invoke.cont3.prehea
 
 _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit: ; preds = %for.end
   %current_.i = getelementptr inbounds i8, ptr %byteStream, i64 32
-  store ptr %ranges.sroa.0.2, ptr %current_.i, align 8
+  store ptr %ranges.sroa.0.4, ptr %current_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp = icmp eq ptr %serde, null
   br i1 %cmp, label %if.then, label %if.end

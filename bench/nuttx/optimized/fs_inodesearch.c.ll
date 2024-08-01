@@ -41,7 +41,7 @@ define noundef i32 @inode_search(ptr noundef %0) local_unnamed_addr #0 {
   %.03158.i = phi ptr [ %.031.i, %_inode_compare.exit.thread40.i ], [ %.03153.i, %.preheader.i ]
   %.02857.i = phi ptr [ %.1.i, %_inode_compare.exit.thread40.i ], [ null, %.preheader.i ]
   %.02956.i = phi ptr [ %.130.i, %_inode_compare.exit.thread40.i ], [ null, %.preheader.i ]
-  %.03355.i = phi ptr [ %.134.i, %_inode_compare.exit.thread40.i ], [ %13, %.preheader.i ]
+  %.03355.i = phi ptr [ %.235.i, %_inode_compare.exit.thread40.i ], [ %13, %.preheader.i ]
   %14 = getelementptr inbounds i8, ptr %.03158.i, i64 56
   %15 = load i8, ptr %14, align 1
   %.not2125.i.i = icmp eq i8 %15, 0
@@ -131,7 +131,7 @@ inode_nextname.exit.thread.i:                     ; preds = %33, %.critedge.i.i
 
 _inode_compare.exit.thread40.i:                   ; preds = %18, %inode_nextname.exit.thread.i, %_inode_compare.exit.i
   %.sink.i = phi i64 [ 8, %_inode_compare.exit.i ], [ 16, %inode_nextname.exit.thread.i ], [ 8, %18 ]
-  %.134.i = phi ptr [ %.03355.i, %_inode_compare.exit.i ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ %.03355.i, %18 ]
+  %.235.i = phi ptr [ %.03355.i, %_inode_compare.exit.i ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ %.03355.i, %18 ]
   %.130.i = phi ptr [ %.03158.i, %_inode_compare.exit.i ], [ null, %inode_nextname.exit.thread.i ], [ %.03158.i, %18 ]
   %.1.i = phi ptr [ %.02857.i, %_inode_compare.exit.i ], [ %.03158.i, %inode_nextname.exit.thread.i ], [ %.02857.i, %18 ]
   %41 = getelementptr inbounds i8, ptr %.03158.i, i64 %.sink.i
@@ -142,13 +142,13 @@ _inode_compare.exit.thread40.i:                   ; preds = %18, %inode_nextname
 _inode_compare.exit.thread.i:                     ; preds = %_inode_compare.exit.thread40.i, %inode_nextname.exit.thread.i, %20, %.lr.ph.i.i, %.lr.ph.i.i, %.critedge.i.i, %.preheader.i
   %.02951.i = phi ptr [ null, %.preheader.i ], [ %.02956.i, %.critedge.i.i ], [ %.02956.i, %.lr.ph.i.i ], [ %.02956.i, %.lr.ph.i.i ], [ %.02956.i, %20 ], [ %.02956.i, %inode_nextname.exit.thread.i ], [ %.130.i, %_inode_compare.exit.thread40.i ]
   %.02849.i = phi ptr [ null, %.preheader.i ], [ %.02857.i, %.critedge.i.i ], [ %.02857.i, %.lr.ph.i.i ], [ %.02857.i, %.lr.ph.i.i ], [ %.02857.i, %20 ], [ %.02857.i, %inode_nextname.exit.thread.i ], [ %.1.i, %_inode_compare.exit.thread40.i ]
-  %.235.i = phi ptr [ %13, %.preheader.i ], [ %.1.i.i, %.critedge.i.i ], [ %.03355.i, %.lr.ph.i.i ], [ %.03355.i, %.lr.ph.i.i ], [ %.03355.i, %20 ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ %.134.i, %_inode_compare.exit.thread40.i ]
-  %.2.i = phi ptr [ null, %.preheader.i ], [ %.03158.i, %.critedge.i.i ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i.i ], [ null, %20 ], [ %.03158.i, %inode_nextname.exit.thread.i ], [ null, %_inode_compare.exit.thread40.i ]
+  %.134.i = phi ptr [ %13, %.preheader.i ], [ %.1.i.i, %.critedge.i.i ], [ %.03355.i, %.lr.ph.i.i ], [ %.03355.i, %.lr.ph.i.i ], [ %.03355.i, %20 ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ %.235.i, %_inode_compare.exit.thread40.i ]
+  %.132.i = phi ptr [ null, %.preheader.i ], [ %.03158.i, %.critedge.i.i ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i.i ], [ null, %20 ], [ %.03158.i, %inode_nextname.exit.thread.i ], [ null, %_inode_compare.exit.thread40.i ]
   %.027.i = phi ptr [ null, %.preheader.i ], [ %.1.i.i, %.critedge.i.i ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i.i ], [ null, %20 ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ null, %_inode_compare.exit.thread40.i ]
   %.026.i = phi i32 [ -2, %.preheader.i ], [ 0, %.critedge.i.i ], [ -2, %.lr.ph.i.i ], [ -2, %.lr.ph.i.i ], [ -2, %20 ], [ 0, %inode_nextname.exit.thread.i ], [ -2, %_inode_compare.exit.thread40.i ]
-  store ptr %.235.i, ptr %0, align 8
+  store ptr %.134.i, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.2.i, ptr %42, align 8
+  store ptr %.132.i, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.02951.i, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 24

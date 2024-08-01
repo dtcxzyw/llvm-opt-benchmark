@@ -4261,7 +4261,7 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
 .lr.ph104.split.us:                               ; preds = %.lr.ph104.split.us.preheader, %.loopexit.us
   %indvars.iv148 = phi i64 [ 0, %.lr.ph104.split.us.preheader ], [ %35, %.loopexit.us ]
   %indvars.iv136 = phi i64 [ 1, %.lr.ph104.split.us.preheader ], [ %indvars.iv.next137, %.loopexit.us ]
-  %.084101.us = phi float [ 0.000000e+00, %.lr.ph104.split.us.preheader ], [ %.387.us, %.loopexit.us ]
+  %.185101.us = phi float [ 0.000000e+00, %.lr.ph104.split.us.preheader ], [ %.4.us, %.loopexit.us ]
   %20 = trunc nuw nsw i64 %indvars.iv148 to i32
   br i1 %.not, label %24, label %21
 
@@ -4292,7 +4292,7 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
 
 37:                                               ; preds = %.lr.ph.us, %37
   %indvars.iv138 = phi i64 [ %indvars.iv136, %.lr.ph.us ], [ %indvars.iv.next139, %37 ]
-  %.18594.us = phi float [ %.084101.us, %.lr.ph.us ], [ %.sroa.speculated81.us, %37 ]
+  %.28694.us = phi float [ %.185101.us, %.lr.ph.us ], [ %.sroa.speculated81.us, %37 ]
   %38 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv138
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
@@ -4308,21 +4308,21 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
   %49 = fsub float %48, %81
   %50 = fmul float %49, %49
   %51 = fadd float %46, %50
-  %52 = fcmp olt float %51, %.18594.us
-  %.sroa.speculated81.us = select i1 %52, float %.18594.us, float %51
+  %52 = fcmp olt float %51, %.28694.us
+  %.sroa.speculated81.us = select i1 %52, float %.28694.us, float %51
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count153
   br i1 %exitcond142.not, label %.loopexit.us, label %37, !llvm.loop !56
 
 .loopexit.us:                                     ; preds = %37, %53, %.preheader88.us, %.preheader.us
-  %.387.us = phi float [ %.084101.us, %.preheader88.us ], [ %.084101.us, %.preheader.us ], [ %.sroa.speculated.us, %53 ], [ %.sroa.speculated81.us, %37 ]
+  %.4.us = phi float [ %.185101.us, %.preheader88.us ], [ %.185101.us, %.preheader.us ], [ %.sroa.speculated.us, %53 ], [ %.sroa.speculated81.us, %37 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond154.not = icmp eq i64 %35, %wide.trip.count153
   br i1 %exitcond154.not, label %._crit_edge, label %.lr.ph104.split.us, !llvm.loop !57
 
 53:                                               ; preds = %.lr.ph99.us, %53
   %indvars.iv143 = phi i64 [ %indvars.iv136, %.lr.ph99.us ], [ %indvars.iv.next144, %53 ]
-  %.28697.us = phi float [ %.084101.us, %.lr.ph99.us ], [ %.sroa.speculated.us, %53 ]
+  %.38797.us = phi float [ %.185101.us, %.lr.ph99.us ], [ %.sroa.speculated.us, %53 ]
   %54 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv143
   %55 = load <2 x float>, ptr %54, align 4
   %56 = fsub <2 x float> %55, %83
@@ -4335,8 +4335,8 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
   %62 = fsub float %61, %85
   %63 = fmul float %62, %62
   %64 = fadd float %59, %63
-  %65 = fcmp olt float %64, %.28697.us
-  %.sroa.speculated.us = select i1 %65, float %.28697.us, float %64
+  %65 = fcmp olt float %64, %.38797.us
+  %.sroa.speculated.us = select i1 %65, float %.38797.us, float %64
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count153
   br i1 %exitcond147.not, label %.loopexit.us, label %53, !llvm.loop !58
@@ -4506,7 +4506,7 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph104.split.split, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %139, %94, %.loopexit.us, %.preheader90
-  %.084.lcssa = phi float [ 0.000000e+00, %.preheader90 ], [ %.387.us, %.loopexit.us ], [ 0.000000e+00, %94 ], [ 0.000000e+00, %139 ]
+  %.185.lcssa = phi float [ 0.000000e+00, %.preheader90 ], [ %.4.us, %.loopexit.us ], [ 0.000000e+00, %94 ], [ 0.000000e+00, %139 ]
   %140 = sitofp i32 %0 to double
   %141 = fdiv double 1.000000e+00, %140
   %142 = fptrunc double %141 to float
@@ -4521,8 +4521,8 @@ define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 nounde
   br label %149
 
 149:                                              ; preds = %._crit_edge, %10
-  %.4 = phi float [ 0.000000e+00, %10 ], [ %.084.lcssa, %._crit_edge ]
-  %150 = tail call noundef float @sqrtf(float noundef %.4) #21
+  %.084 = phi float [ 0.000000e+00, %10 ], [ %.185.lcssa, %._crit_edge ]
+  %150 = tail call noundef float @sqrtf(float noundef %.084) #21
   ret float %150
 }
 

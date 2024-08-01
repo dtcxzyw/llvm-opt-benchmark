@@ -8721,7 +8721,7 @@ define hidden noundef i32 @_ZN6hir_ty5lower42named_associated_type_shorthand_can
   br label %97
 
 97:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit", %96
-  %.0 = phi i32 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit" ], [ %92, %96 ]
+  %.2 = phi i32 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit" ], [ %92, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   br label %254
 
@@ -9138,7 +9138,7 @@ define hidden noundef i32 @_ZN6hir_ty5lower42named_associated_type_shorthand_can
   br label %.noexc55
 
 "_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17h63bbd17fc0a0dc1bE.exit": ; preds = %264, %259, %258, %257, %254, %253, %248, %247, %246, %243, %.noexc55, %.noexc53
-  %.4 = phi i32 [ 0, %.noexc53 ], [ %.3, %.noexc55 ], [ 0, %243 ], [ 0, %246 ], [ 0, %247 ], [ 0, %248 ], [ 0, %253 ], [ %.1.ph, %254 ], [ %.1.ph, %257 ], [ %.1.ph, %258 ], [ %.1.ph, %259 ], [ %.1.ph, %264 ]
+  %.4 = phi i32 [ 0, %.noexc53 ], [ %.3, %.noexc55 ], [ 0, %243 ], [ 0, %246 ], [ 0, %247 ], [ 0, %248 ], [ 0, %253 ], [ %.0.ph, %254 ], [ %.0.ph, %257 ], [ %.0.ph, %258 ], [ %.0.ph, %259 ], [ %.0.ph, %264 ]
   ret i32 %.4
 
 243:                                              ; preds = %40
@@ -9181,7 +9181,7 @@ define hidden noundef i32 @_ZN6hir_ty5lower42named_associated_type_shorthand_can
   br label %.thread89.thread
 
 254:                                              ; preds = %97, %6
-  %.1.ph = phi i32 [ 0, %6 ], [ %.0, %97 ]
+  %.0.ph = phi i32 [ 0, %6 ], [ %.2, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2358)
   %255 = load i8, ptr %4, align 8, !range !153, !alias.scope !2358, !noundef !9
   %256 = icmp eq i8 %255, 27
@@ -9442,7 +9442,7 @@ define hidden noundef i32 @_ZN6hir_ty5lower42named_associated_type_shorthand_can
   br label %97
 
 97:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit", %96
-  %.0 = phi i32 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit" ], [ %92, %96 ]
+  %.2 = phi i32 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit" ], [ %92, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   br label %254
 
@@ -9859,7 +9859,7 @@ define hidden noundef i32 @_ZN6hir_ty5lower42named_associated_type_shorthand_can
   br label %.noexc55
 
 "_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17h63bbd17fc0a0dc1bE.exit": ; preds = %264, %259, %258, %257, %254, %253, %248, %247, %246, %243, %.noexc55, %.noexc53
-  %.4 = phi i32 [ 0, %.noexc53 ], [ %.3, %.noexc55 ], [ 0, %243 ], [ 0, %246 ], [ 0, %247 ], [ 0, %248 ], [ 0, %253 ], [ %.1.ph, %254 ], [ %.1.ph, %257 ], [ %.1.ph, %258 ], [ %.1.ph, %259 ], [ %.1.ph, %264 ]
+  %.4 = phi i32 [ 0, %.noexc53 ], [ %.3, %.noexc55 ], [ 0, %243 ], [ 0, %246 ], [ 0, %247 ], [ 0, %248 ], [ 0, %253 ], [ %.0.ph, %254 ], [ %.0.ph, %257 ], [ %.0.ph, %258 ], [ %.0.ph, %259 ], [ %.0.ph, %264 ]
   ret i32 %.4
 
 243:                                              ; preds = %40
@@ -9902,7 +9902,7 @@ define hidden noundef i32 @_ZN6hir_ty5lower42named_associated_type_shorthand_can
   br label %.thread89.thread
 
 254:                                              ; preds = %97, %6
-  %.1.ph = phi i32 [ 0, %6 ], [ %.0, %97 ]
+  %.0.ph = phi i32 [ 0, %6 ], [ %.2, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2479)
   %255 = load i8, ptr %4, align 8, !range !153, !alias.scope !2479, !noundef !9
   %256 = icmp eq i8 %255, 27

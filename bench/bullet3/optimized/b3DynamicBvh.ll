@@ -1402,8 +1402,8 @@ for.cond:                                         ; preds = %land.rhs
 
 land.rhs:                                         ; preds = %for.cond.preheader, %for.cond
   %i.09 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %root.08 = phi ptr [ %0, %for.cond ], [ %call, %for.cond.preheader ]
-  %parent = getelementptr inbounds i8, ptr %root.08, i64 32
+  %root.18 = phi ptr [ %0, %for.cond ], [ %call, %for.cond.preheader ]
+  %parent = getelementptr inbounds i8, ptr %root.18, i64 32
   %0 = load ptr, ptr %parent, align 16
   %tobool4.not = icmp eq ptr %0, null
   br i1 %tobool4.not, label %if.end6, label %for.cond
@@ -1413,8 +1413,8 @@ if.else:                                          ; preds = %if.then
   br label %if.end6
 
 if.end6:                                          ; preds = %land.rhs, %for.cond, %for.cond.preheader, %if.else, %entry
-  %root.1 = phi ptr [ %1, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.08, %land.rhs ], [ %0, %for.cond ]
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1, ptr noundef %leaf)
+  %root.0 = phi ptr [ %1, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.18, %land.rhs ], [ %0, %for.cond ]
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0, ptr noundef %leaf)
   ret void
 }
 
@@ -1488,8 +1488,8 @@ do.body.preheader:                                ; preds = %if.else
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
   %9 = phi ptr [ %40, %do.body ], [ %1, %do.body.preheader ]
-  %root.addr.0 = phi ptr [ %39, %do.body ], [ %root, %do.body.preheader ]
-  %10 = getelementptr inbounds i8, ptr %root.addr.0, i64 40
+  %root.addr.1 = phi ptr [ %39, %do.body ], [ %root, %do.body.preheader ]
+  %10 = getelementptr inbounds i8, ptr %root.addr.1, i64 40
   %11 = load ptr, ptr %10, align 8
   %mx4.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %arrayidx5.i7.i.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -1534,8 +1534,8 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp.i43, label %if.end, label %do.body, !llvm.loop !28
 
 if.end:                                           ; preds = %do.body, %if.else
-  %root.addr.1 = phi ptr [ %root, %if.else ], [ %39, %do.body ]
-  %parent9 = getelementptr inbounds i8, ptr %root.addr.1, i64 32
+  %root.addr.0 = phi ptr [ %root, %if.else ], [ %39, %do.body ]
+  %parent9 = getelementptr inbounds i8, ptr %root.addr.0, i64 32
   %41 = load ptr, ptr %parent9, align 16
   %m_free.i.i = getelementptr inbounds i8, ptr %pdbvt, i64 8
   %42 = load ptr, ptr %m_free.i.i, align 8
@@ -1557,7 +1557,7 @@ _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i: ; preds = %if.else.i.i, 
   store ptr %41, ptr %parent3.i.i, align 16
   %43 = getelementptr inbounds i8, ptr %node.0.i.i, i64 40
   %mx.i.i44 = getelementptr inbounds i8, ptr %leaf, i64 16
-  %mx25.i.i = getelementptr inbounds i8, ptr %root.addr.1, i64 16
+  %mx25.i.i = getelementptr inbounds i8, ptr %root.addr.0, i64 16
   %mx44.i.i = getelementptr inbounds i8, ptr %node.0.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   br label %for.body.i.i
@@ -1566,7 +1566,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZL1
   %indvars.iv.i.i = phi i64 [ 0, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i2.i = getelementptr inbounds float, ptr %leaf, i64 %indvars.iv.i.i
   %44 = load float, ptr %arrayidx.i2.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds float, ptr %root.addr.1, i64 %indvars.iv.i.i
+  %arrayidx4.i.i = getelementptr inbounds float, ptr %root.addr.0, i64 %indvars.iv.i.i
   %45 = load float, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = fcmp olt float %44, %45
   %.sink.i.i = select i1 %cmp5.i.i, float %44, float %45
@@ -1593,11 +1593,11 @@ if.then14:                                        ; preds = %_ZL12b3CreateNodeP1
   %50 = load ptr, ptr %parent9, align 16
   %arrayidx.i45 = getelementptr inbounds i8, ptr %50, i64 48
   %51 = load ptr, ptr %arrayidx.i45, align 8
-  %cmp.i46 = icmp eq ptr %51, %root.addr.1
+  %cmp.i46 = icmp eq ptr %51, %root.addr.0
   %idxprom16 = zext i1 %cmp.i46 to i64
   %arrayidx17 = getelementptr inbounds [2 x ptr], ptr %49, i64 0, i64 %idxprom16
   store ptr %node.0.i.i, ptr %arrayidx17, align 8
-  store ptr %root.addr.1, ptr %43, align 8
+  store ptr %root.addr.0, ptr %43, align 8
   store ptr %node.0.i.i, ptr %parent9, align 16
   %arrayidx20 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   store ptr %leaf, ptr %arrayidx20, align 8
@@ -1692,7 +1692,7 @@ _Z7b3MergeRK12b3DbvtAabbMmS1_RS_.exit:            ; preds = %for.body.i
   br i1 %cmp.not, label %if.end44, label %do.body22, !llvm.loop !29
 
 if.else37:                                        ; preds = %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit
-  store ptr %root.addr.1, ptr %43, align 8
+  store ptr %root.addr.0, ptr %43, align 8
   store ptr %node.0.i.i, ptr %parent9, align 16
   %arrayidx40 = getelementptr inbounds i8, ptr %node.0.i.i, i64 48
   store ptr %leaf, ptr %arrayidx40, align 8
@@ -1870,8 +1870,8 @@ for.cond:                                         ; preds = %land.rhs
 
 land.rhs:                                         ; preds = %for.cond.preheader, %for.cond
   %i.09 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %root.08 = phi ptr [ %1, %for.cond ], [ %call, %for.cond.preheader ]
-  %parent = getelementptr inbounds i8, ptr %root.08, i64 32
+  %root.18 = phi ptr [ %1, %for.cond ], [ %call, %for.cond.preheader ]
+  %parent = getelementptr inbounds i8, ptr %root.18, i64 32
   %1 = load ptr, ptr %parent, align 16
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end7, label %for.cond
@@ -1881,9 +1881,9 @@ if.else:                                          ; preds = %if.then
   br label %if.end7
 
 if.end7:                                          ; preds = %land.rhs, %for.cond, %for.cond.preheader, %if.else, %entry
-  %root.1 = phi ptr [ %2, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.08, %land.rhs ], [ %1, %for.cond ]
+  %root.0 = phi ptr [ %2, %if.else ], [ null, %entry ], [ %call, %for.cond.preheader ], [ %root.18, %land.rhs ], [ %1, %for.cond ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1, ptr noundef %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0, ptr noundef %leaf)
   ret void
 }
 
@@ -2007,8 +2007,8 @@ for.cond.i:                                       ; preds = %land.rhs.i13
 
 land.rhs.i13:                                     ; preds = %for.cond.preheader.i, %for.cond.i
   %i.09.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
-  %root.08.i = phi ptr [ %29, %for.cond.i ], [ %call.i, %for.cond.preheader.i ]
-  %parent.i = getelementptr inbounds i8, ptr %root.08.i, i64 32
+  %root.18.i = phi ptr [ %29, %for.cond.i ], [ %call.i, %for.cond.preheader.i ]
+  %parent.i = getelementptr inbounds i8, ptr %root.18.i, i64 32
   %29 = load ptr, ptr %parent.i, align 16
   %tobool5.not.i = icmp eq ptr %29, null
   br i1 %tobool5.not.i, label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit, label %for.cond.i
@@ -2018,9 +2018,9 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i13, %if.end, %for.cond.preheader.i, %if.else.i
-  %root.1.i = phi ptr [ %30, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %29, %for.cond.i ], [ %root.08.i, %land.rhs.i13 ]
+  %root.0.i = phi ptr [ %30, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %29, %for.cond.i ], [ %root.18.i, %land.rhs.i13 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12b3DbvtAabbMm7ContainERKS_.exit, %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
@@ -2121,8 +2121,8 @@ for.cond.i:                                       ; preds = %land.rhs.i9
 
 land.rhs.i9:                                      ; preds = %for.cond.preheader.i, %for.cond.i
   %i.09.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
-  %root.08.i = phi ptr [ %19, %for.cond.i ], [ %call.i, %for.cond.preheader.i ]
-  %parent.i = getelementptr inbounds i8, ptr %root.08.i, i64 32
+  %root.18.i = phi ptr [ %19, %for.cond.i ], [ %call.i, %for.cond.preheader.i ]
+  %parent.i = getelementptr inbounds i8, ptr %root.18.i, i64 32
   %19 = load ptr, ptr %parent.i, align 16
   %tobool5.not.i = icmp eq ptr %19, null
   br i1 %tobool5.not.i, label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit, label %for.cond.i
@@ -2132,9 +2132,9 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i9, %if.end, %for.cond.preheader.i, %if.else.i
-  %root.1.i = phi ptr [ %20, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %19, %for.cond.i ], [ %root.08.i, %land.rhs.i9 ]
+  %root.0.i = phi ptr [ %20, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %19, %for.cond.i ], [ %root.18.i, %land.rhs.i9 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12b3DbvtAabbMm7ContainERKS_.exit, %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
@@ -2236,8 +2236,8 @@ for.cond.i:                                       ; preds = %land.rhs.i8
 
 land.rhs.i8:                                      ; preds = %for.cond.preheader.i, %for.cond.i
   %i.09.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
-  %root.08.i = phi ptr [ %23, %for.cond.i ], [ %call.i, %for.cond.preheader.i ]
-  %parent.i = getelementptr inbounds i8, ptr %root.08.i, i64 32
+  %root.18.i = phi ptr [ %23, %for.cond.i ], [ %call.i, %for.cond.preheader.i ]
+  %parent.i = getelementptr inbounds i8, ptr %root.18.i, i64 32
   %23 = load ptr, ptr %parent.i, align 16
   %tobool5.not.i = icmp eq ptr %23, null
   br i1 %tobool5.not.i, label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit, label %for.cond.i
@@ -2247,9 +2247,9 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit
 
 _ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit: ; preds = %for.cond.i, %land.rhs.i8, %if.end, %for.cond.preheader.i, %if.else.i
-  %root.1.i = phi ptr [ %24, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %23, %for.cond.i ], [ %root.08.i, %land.rhs.i8 ]
+  %root.0.i = phi ptr [ %24, %if.else.i ], [ null, %if.end ], [ %call.i, %for.cond.preheader.i ], [ %23, %for.cond.i ], [ %root.18.i, %land.rhs.i8 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %leaf, ptr noundef nonnull readonly align 16 dereferenceable(32) %volume, i64 32, i1 false)
-  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.1.i, ptr noundef nonnull %leaf)
+  tail call fastcc void @_ZL12b3InsertLeafP12b3DynamicBvhP10b3DbvtNodeS2_(ptr noundef nonnull %this, ptr noundef %root.0.i, ptr noundef nonnull %leaf)
   br label %return
 
 return:                                           ; preds = %_ZNK12b3DbvtAabbMm7ContainERKS_.exit, %_ZN12b3DynamicBvh6updateEP10b3DbvtNodeR12b3DbvtAabbMm.exit

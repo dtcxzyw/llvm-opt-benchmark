@@ -9216,51 +9216,51 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   br label %31
 
 31:                                               ; preds = %30, %27
-  %.075.idx.i.i = phi i64 [ 16, %27 ], [ 24, %30 ]
+  %.3.idx.i.i = phi i64 [ 16, %27 ], [ 24, %30 ]
   %32 = getelementptr inbounds i8, ptr %2, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not19.i.i.i = icmp eq ptr %33, null
   br i1 %.not19.i.i.i, label %35, label %34
 
 34:                                               ; preds = %31
-  %.075.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.075.idx.i.i
-  %.075.add.i.i = add nuw nsw i64 %.075.idx.i.i, 8
-  store ptr %33, ptr %.075.ptr.i.i, align 8
+  %.3.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.3.idx.i.i
+  %.3.add.i.i = add nuw nsw i64 %.3.idx.i.i, 8
+  store ptr %33, ptr %.3.ptr.i.i, align 8
   br label %35
 
 35:                                               ; preds = %34, %31
-  %.176.idx.i.i = phi i64 [ %.075.idx.i.i, %31 ], [ %.075.add.i.i, %34 ]
+  %.4.idx.i.i = phi i64 [ %.3.idx.i.i, %31 ], [ %.3.add.i.i, %34 ]
   %36 = getelementptr inbounds i8, ptr %2, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not20.i.i.i = icmp eq ptr %37, null
   br i1 %.not20.i.i.i, label %39, label %38
 
 38:                                               ; preds = %35
-  %.176.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.176.idx.i.i
-  %.176.add.i.i = add nuw nsw i64 %.176.idx.i.i, 8
-  store ptr %37, ptr %.176.ptr.i.i, align 8
+  %.4.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.4.idx.i.i
+  %.4.add.i.i = add nuw nsw i64 %.4.idx.i.i, 8
+  store ptr %37, ptr %.4.ptr.i.i, align 8
   br label %39
 
 39:                                               ; preds = %38, %35
-  %.2.idx.i.i = phi i64 [ %.176.idx.i.i, %35 ], [ %.176.add.i.i, %38 ]
+  %.5.idx.i.i = phi i64 [ %.4.idx.i.i, %35 ], [ %.4.add.i.i, %38 ]
   %40 = getelementptr inbounds i8, ptr %2, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not21.i.i.i = icmp eq ptr %41, null
   br i1 %.not21.i.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i, label %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i
 
 _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i: ; preds = %39
-  %.2.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.2.idx.i.i
-  %.2.add.i.i = add nuw nsw i64 %.2.idx.i.i, 8
-  store ptr %41, ptr %.2.ptr.i.i, align 8
+  %.5.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.5.idx.i.i
+  %.5.add.i.i = add nuw nsw i64 %.5.idx.i.i, 8
+  store ptr %41, ptr %.5.ptr.i.i, align 8
   br label %.lr.ph.preheader.i.i
 
 _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i: ; preds = %39
-  %42 = icmp ugt i64 %.2.idx.i.i, 16
+  %42 = icmp ugt i64 %.5.idx.i.i, 16
   br i1 %42, label %.lr.ph.preheader.i.i, label %._crit_edge.i.thread.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i
-  %.3.idx90.i.i = phi i64 [ %.2.add.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i ], [ %.2.idx.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i ]
-  %.3.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.3.idx90.i.i
+  %.6.idx90.i.i = phi i64 [ %.5.add.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.thread.i.i ], [ %.5.idx.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit.i.i ]
+  %.6.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %.6.idx90.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i, %.lr.ph.preheader.i.i
@@ -9269,10 +9269,10 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   %.sroa.20.1.i = phi ptr [ %19, %.lr.ph.preheader.i.i ], [ %.sroa.20.4.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i ]
   %.07281.i.i = phi ptr [ %20, %.lr.ph.preheader.i.i ], [ %.1.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i ]
   %.07380.i.i = phi ptr [ %.ptr82.i.i, %.lr.ph.preheader.i.i ], [ %.174.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i ]
-  %.479.i.i = phi ptr [ %.3.ptr.i.i, %.lr.ph.preheader.i.i ], [ %.10.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i ]
-  %43 = getelementptr inbounds i8, ptr %.479.i.i, i64 -8
+  %.07579.i.i = phi ptr [ %.6.ptr.i.i, %.lr.ph.preheader.i.i ], [ %.10.i.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i ]
+  %43 = getelementptr inbounds i8, ptr %.07579.i.i, i64 -8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.479.i.i, i64 -24
+  %45 = getelementptr inbounds i8, ptr %.07579.i.i, i64 -24
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   tail call void @llvm.prefetch.p0(ptr nonnull %47, i32 0, i32 3, i32 1)
@@ -9392,7 +9392,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   %.sroa.0.5.i = phi ptr [ %.sroa.0.2.i, %.lr.ph.i.i ], [ %.sroa.0.4.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
   %.sroa.12.4.i = phi ptr [ %.sroa.12.1.i, %.lr.ph.i.i ], [ %.sroa.12.3.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
   %.sroa.20.4.i = phi ptr [ %.sroa.20.1.i, %.lr.ph.i.i ], [ %.sroa.20.3.i, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
-  %.5.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %94, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
+  %.176.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %94, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
   %.174.i.i = phi ptr [ %.07380.i.i, %.lr.ph.i.i ], [ %93, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
   %.1.i.i = phi ptr [ %.07281.i.i, %.lr.ph.i.i ], [ %96, %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit19.i.i ]
   %98 = getelementptr inbounds i8, ptr %44, i64 8
@@ -9401,12 +9401,12 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   br i1 %.not15.i.i, label %102, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %.5.i.i, i64 8
-  store ptr %99, ptr %.5.i.i, align 8
+  %101 = getelementptr inbounds i8, ptr %.176.i.i, i64 8
+  store ptr %99, ptr %.176.i.i, align 8
   br label %102
 
 102:                                              ; preds = %100, %97
-  %.6.i.i = phi ptr [ %.5.i.i, %97 ], [ %101, %100 ]
+  %.2.i.i = phi ptr [ %.176.i.i, %97 ], [ %101, %100 ]
   %103 = getelementptr inbounds i8, ptr %44, i64 64
   %.sroa.0.0.copyload.i.i.i20.i.i = load i16, ptr %103, align 8
   %104 = icmp eq i16 %.sroa.0.0.copyload.i.i.i20.i.i, 316
@@ -9429,12 +9429,12 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   br i1 %.not.i21.i.i, label %115, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %.6.i.i, i64 8
-  store ptr %112, ptr %.6.i.i, align 8
+  %114 = getelementptr inbounds i8, ptr %.2.i.i, i64 8
+  store ptr %112, ptr %.2.i.i, align 8
   br label %115
 
 115:                                              ; preds = %113, %110
-  %.7.i.i = phi ptr [ %.6.i.i, %110 ], [ %114, %113 ]
+  %.7.i.i = phi ptr [ %.2.i.i, %110 ], [ %114, %113 ]
   %116 = getelementptr inbounds i8, ptr %44, i64 40
   %117 = load ptr, ptr %116, align 8
   %.not19.i22.i.i = icmp eq ptr %117, null
@@ -9470,7 +9470,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i
 
 _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESK_.exit26.i.i: ; preds = %128, %125, %105
-  %.10.i.i = phi ptr [ %.6.i.i, %105 ], [ %.9.i.i, %125 ], [ %129, %128 ]
+  %.10.i.i = phi ptr [ %.2.i.i, %105 ], [ %.9.i.i, %125 ], [ %129, %128 ]
   %130 = icmp ugt ptr %.10.i.i, %.174.i.i
   br i1 %130, label %.lr.ph.i.i, label %._crit_edge.i.i
 

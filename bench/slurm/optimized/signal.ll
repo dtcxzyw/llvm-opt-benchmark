@@ -284,22 +284,22 @@ _signal_batch_script_step.exit:                   ; preds = %25, %42, %._crit_ed
 
 .loopexit:                                        ; preds = %79, %.preheader, %71
   %80 = phi ptr [ %.pre, %71 ], [ %54, %.preheader ], [ %54, %79 ]
-  %.0 = phi i32 [ %78, %71 ], [ 0, %.preheader ], [ 0, %79 ]
+  %.1 = phi i32 [ %78, %71 ], [ 0, %.preheader ], [ 0, %79 ]
   call void @slurm_free_job_step_info_response_msg(ptr noundef %80) #5
-  %81 = icmp ne i32 %.0, 0
+  %81 = icmp ne i32 %.1, 0
   %82 = sext i1 %81 to i32
   %.pre39 = tail call ptr @__errno_location() #6
   br label %83
 
 83:                                               ; preds = %.loopexit, %59
   %.pre-phi = phi ptr [ %.pre39, %.loopexit ], [ %60, %59 ]
-  %.122 = phi i32 [ %82, %.loopexit ], [ -1, %59 ]
-  %.1 = phi i32 [ %.0, %.loopexit ], [ %61, %59 ]
-  store i32 %.1, ptr %.pre-phi, align 4
+  %.021 = phi i32 [ %82, %.loopexit ], [ -1, %59 ]
+  %.0 = phi i32 [ %.1, %.loopexit ], [ %61, %59 ]
+  store i32 %.0, ptr %.pre-phi, align 4
   br label %84
 
 84:                                               ; preds = %11, %83, %_signal_batch_script_step.exit
-  %.023 = phi i32 [ %51, %_signal_batch_script_step.exit ], [ %.122, %83 ], [ -1, %11 ]
+  %.023 = phi i32 [ %51, %_signal_batch_script_step.exit ], [ %.021, %83 ], [ -1, %11 ]
   ret i32 %.023
 }
 
@@ -484,21 +484,21 @@ _terminate_job_step.exit:                         ; preds = %._terminate_job_ste
 
 .loopexit:                                        ; preds = %80, %.preheader, %_terminate_job_step.exit
   %81 = phi ptr [ %.pre, %_terminate_job_step.exit ], [ %48, %.preheader ], [ %48, %80 ]
-  %.018 = phi i32 [ %.0.i29, %_terminate_job_step.exit ], [ 0, %.preheader ], [ 0, %80 ]
-  %.0 = phi i32 [ %79, %_terminate_job_step.exit ], [ 0, %.preheader ], [ 0, %80 ]
+  %.119 = phi i32 [ %.0.i29, %_terminate_job_step.exit ], [ 0, %.preheader ], [ 0, %80 ]
+  %.1 = phi i32 [ %79, %_terminate_job_step.exit ], [ 0, %.preheader ], [ 0, %80 ]
   call void @slurm_free_job_step_info_response_msg(ptr noundef %81) #5
   %.pre37 = tail call ptr @__errno_location() #6
   br label %82
 
 82:                                               ; preds = %.loopexit, %53
   %.pre-phi = phi ptr [ %.pre37, %.loopexit ], [ %54, %53 ]
-  %.119 = phi i32 [ %.018, %.loopexit ], [ -1, %53 ]
-  %.1 = phi i32 [ %.0, %.loopexit ], [ %55, %53 ]
-  store i32 %.1, ptr %.pre-phi, align 4
+  %.018 = phi i32 [ %.119, %.loopexit ], [ -1, %53 ]
+  %.0 = phi i32 [ %.1, %.loopexit ], [ %55, %53 ]
+  store i32 %.0, ptr %.pre-phi, align 4
   br label %83
 
 83:                                               ; preds = %10, %82, %_terminate_batch_script_step.exit
-  %.020 = phi i32 [ %45, %_terminate_batch_script_step.exit ], [ %.119, %82 ], [ -1, %10 ]
+  %.020 = phi i32 [ %45, %_terminate_batch_script_step.exit ], [ %.018, %82 ], [ -1, %10 ]
   ret i32 %.020
 }
 

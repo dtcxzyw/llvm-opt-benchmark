@@ -507,9 +507,9 @@ set_next_rotation_time.exit:                      ; preds = %57, %64
 .backedge:                                        ; preds = %.backedge.backedge, %set_next_rotation_time.exit
   %.04 = phi i32 [ 0, %set_next_rotation_time.exit ], [ %.04.be, %.backedge.backedge ]
   %.046 = phi i64 [ %9, %set_next_rotation_time.exit ], [ %.147, %.backedge.backedge ]
-  %.043 = phi i32 [ %62, %set_next_rotation_time.exit ], [ %.245, %.backedge.backedge ]
-  %.035 = phi ptr [ %61, %set_next_rotation_time.exit ], [ %.237, %.backedge.backedge ]
-  %.0 = phi ptr [ %59, %set_next_rotation_time.exit ], [ %.2, %.backedge.backedge ]
+  %.043 = phi i32 [ %62, %set_next_rotation_time.exit ], [ %.144, %.backedge.backedge ]
+  %.035 = phi ptr [ %61, %set_next_rotation_time.exit ], [ %.136, %.backedge.backedge ]
+  %.0 = phi ptr [ %59, %set_next_rotation_time.exit ], [ %.1, %.backedge.backedge ]
   %83 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %83) #15
   %84 = load volatile i32, ptr @ConfigReloadPending, align 4
@@ -534,7 +534,7 @@ set_next_rotation_time.exit:                      ; preds = %57, %64
   br label %93
 
 93:                                               ; preds = %88, %85
-  %.1 = phi ptr [ %90, %88 ], [ %.0, %85 ]
+  %.2 = phi ptr [ %90, %88 ], [ %.0, %85 ]
   %94 = load ptr, ptr @Log_filename, align 8
   %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull dereferenceable(1) %.035) #17
   %.not66 = icmp eq i32 %95, 0
@@ -548,7 +548,7 @@ set_next_rotation_time.exit:                      ; preds = %57, %64
   br label %99
 
 99:                                               ; preds = %96, %93
-  %.136 = phi ptr [ %98, %96 ], [ %.035, %93 ]
+  %.237 = phi ptr [ %98, %96 ], [ %.035, %93 ]
   %100 = load i32, ptr @Log_destination, align 4
   %101 = load ptr, ptr @csvlogFile, align 8
   %102 = icmp ne ptr %101, null
@@ -605,7 +605,7 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
   br label %129
 
 129:                                              ; preds = %set_next_rotation_time.exit84, %112
-  %.144 = phi i32 [ %113, %set_next_rotation_time.exit84 ], [ %.043, %112 ]
+  %.245 = phi i32 [ %113, %set_next_rotation_time.exit84 ], [ %.043, %112 ]
   %.b5970 = load i1, ptr @rotation_disabled, align 1
   br i1 %.b5970, label %130, label %131
 
@@ -619,9 +619,9 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
   br label %132
 
 132:                                              ; preds = %131, %.backedge
-  %.245 = phi i32 [ %.144, %131 ], [ %.043, %.backedge ]
-  %.237 = phi ptr [ %.136, %131 ], [ %.035, %.backedge ]
-  %.2 = phi ptr [ %.1, %131 ], [ %.0, %.backedge ]
+  %.144 = phi i32 [ %.245, %131 ], [ %.043, %.backedge ]
+  %.136 = phi ptr [ %.237, %131 ], [ %.035, %.backedge ]
+  %.1 = phi ptr [ %.2, %131 ], [ %.0, %.backedge ]
   %133 = load i32, ptr @Log_RotationAge, align 4
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %140
@@ -668,7 +668,7 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
   br label %153
 
 153:                                              ; preds = %152, %146
-  %.039 = phi i32 [ 1, %152 ], [ 0, %146 ]
+  %.140 = phi i32 [ 1, %152 ], [ 0, %146 ]
   %154 = load ptr, ptr @csvlogFile, align 8
   %.not75 = icmp eq ptr %154, null
   br i1 %.not75, label %162, label %155
@@ -683,11 +683,11 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
 
 160:                                              ; preds = %155
   store volatile i32 1, ptr @rotation_requested, align 4
-  %161 = or disjoint i32 %.039, 8
+  %161 = or disjoint i32 %.140, 8
   br label %162
 
 162:                                              ; preds = %160, %155, %153
-  %.140 = phi i32 [ %161, %160 ], [ %.039, %155 ], [ %.039, %153 ]
+  %.241 = phi i32 [ %161, %160 ], [ %.140, %155 ], [ %.140, %153 ]
   %163 = load ptr, ptr @jsonlogFile, align 8
   %.not77 = icmp eq ptr %163, null
   br i1 %.not77, label %171, label %164
@@ -702,19 +702,19 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
 
 169:                                              ; preds = %164
   store volatile i32 1, ptr @rotation_requested, align 4
-  %170 = or i32 %.140, 16
+  %170 = or i32 %.241, 16
   br label %171
 
 171:                                              ; preds = %162, %164, %169, %145, %140
-  %.241 = phi i32 [ 0, %145 ], [ %170, %169 ], [ %.140, %164 ], [ %.140, %162 ], [ 0, %140 ]
+  %.039 = phi i32 [ 0, %145 ], [ %170, %169 ], [ %.241, %164 ], [ %.241, %162 ], [ 0, %140 ]
   %172 = load volatile i32, ptr @rotation_requested, align 4
   %.not79 = icmp eq i32 %172, 0
   br i1 %.not79, label %logfile_rotate.exit, label %173
 
 173:                                              ; preds = %171
-  %174 = icmp ne i32 %.241, 0
+  %174 = icmp ne i32 %.039, 0
   %or.cond3.not = select i1 %.042, i1 true, i1 %174
-  %spec.store.select7 = select i1 %or.cond3.not, i32 %.241, i32 25
+  %spec.store.select7 = select i1 %or.cond3.not, i32 %.039, i32 25
   store volatile i32 0, ptr @rotation_requested, align 4
   br i1 %.042, label %.thread, label %176
 

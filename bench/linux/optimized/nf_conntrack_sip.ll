@@ -687,8 +687,8 @@ sip_parse_addr.exit.thread:                       ; preds = %.loopexit, %25, %37
   br label %84
 
 84:                                               ; preds = %81, %54
-  %.1 = phi ptr [ %83, %81 ], [ %55, %54 ]
-  %85 = ptrtoint ptr %.1 to i64
+  %.0 = phi ptr [ %83, %81 ], [ %55, %54 ]
+  %85 = ptrtoint ptr %.0 to i64
   %86 = ptrtoint ptr %20 to i64
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
@@ -2470,8 +2470,8 @@ sip_parse_addr.exit.thread:                       ; preds = %4, %11, %23, %20, %
   br label %70
 
 70:                                               ; preds = %67, %40
-  %.1 = phi ptr [ %69, %67 ], [ %41, %40 ]
-  %71 = ptrtoint ptr %.1 to i64
+  %.0 = phi ptr [ %69, %67 ], [ %41, %40 ]
+  %71 = ptrtoint ptr %.0 to i64
   %72 = ptrtoint ptr %1 to i64
   %73 = sub i64 %71, %72
   %74 = trunc i64 %73 to i32

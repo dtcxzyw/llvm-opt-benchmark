@@ -1371,7 +1371,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %184,
   br i1 %or.cond2.i, label %264, label %270
 
 263:                                              ; preds = %251, %254
-  %.sroa.818.2 = phi ptr [ %253, %251 ], [ %257, %254 ]
+  %.sroa.818.3 = phi ptr [ %253, %251 ], [ %257, %254 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !301
   br label %309
 
@@ -1474,9 +1474,9 @@ _ZN10serde_json4read12parse_escape17hc2de0ed98f40915bE.exit: ; preds = %"_ZN5all
   br i1 %trunc92, label %.outer._crit_edge, label %.lr.ph.backedge
 
 309:                                              ; preds = %tailrecurse._crit_edge.i, %66, %171, %302, %232, %241, %263, %264, %281, %288, %295
-  %.1.i.ph = phi ptr [ %300, %295 ], [ %293, %288 ], [ %286, %281 ], [ %269, %264 ], [ %.sroa.818.2, %263 ], [ %243, %241 ], [ %234, %232 ], [ %307, %302 ], [ %.sroa.846.0.i, %171 ], [ %71, %66 ], [ %65, %tailrecurse._crit_edge.i ]
+  %.0.i.ph = phi ptr [ %300, %295 ], [ %293, %288 ], [ %286, %281 ], [ %269, %264 ], [ %.sroa.818.3, %263 ], [ %243, %241 ], [ %234, %232 ], [ %307, %302 ], [ %.sroa.846.0.i, %171 ], [ %71, %66 ], [ %65, %tailrecurse._crit_edge.i ]
   %310 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.1.i.ph, ptr %310, align 8
+  store ptr %.0.i.ph, ptr %310, align 8
   store ptr null, ptr %0, align 8
   br label %323
 

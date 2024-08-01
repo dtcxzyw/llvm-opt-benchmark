@@ -112,9 +112,9 @@ define i32 @f32_roundToInt(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %50
 
 50:                                               ; preds = %45, %42, %38, %35
-  %.0 = phi i64 [ %37, %35 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select, %45 ]
+  %.1 = phi i64 [ %37, %35 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select, %45 ]
   %51 = sub nsw i64 0, %33
-  %52 = and i64 %.0, %51
+  %52 = and i64 %.1, %51
   %.not51 = icmp ne i64 %52, %4
   %or.cond58.not = select i1 %2, i1 %.not51, i1 false
   br i1 %or.cond58.not, label %53, label %56
@@ -126,8 +126,8 @@ define i32 @f32_roundToInt(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %56
 
 56:                                               ; preds = %50, %53, %13, %22, %23, %15, %20, %19, %29
-  %.1 = phi i64 [ %14, %13 ], [ %spec.store.select1, %23 ], [ %spec.store.select, %22 ], [ %21, %20 ], [ %14, %19 ], [ %14, %15 ], [ %30, %29 ], [ %52, %53 ], [ %52, %50 ]
-  %57 = trunc i64 %.1 to i32
+  %.0 = phi i64 [ %14, %13 ], [ %spec.store.select1, %23 ], [ %spec.store.select, %22 ], [ %21, %20 ], [ %14, %19 ], [ %14, %15 ], [ %30, %29 ], [ %52, %53 ], [ %52, %50 ]
+  %57 = trunc i64 %.0 to i32
   br label %58
 
 58:                                               ; preds = %26, %8, %56

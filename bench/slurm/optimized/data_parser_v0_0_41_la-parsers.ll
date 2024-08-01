@@ -10412,7 +10412,7 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   %.02744 = phi i64 [ 0, %12 ], [ %133, %_dump_node_res.exit ]
   %.02943 = phi i64 [ 0, %12 ], [ %44, %_dump_node_res.exit ]
   %.03042 = phi i64 [ 0, %12 ], [ %spec.select, %_dump_node_res.exit ]
-  %.041 = phi i64 [ 0, %12 ], [ %.3, %_dump_node_res.exit ]
+  %.041 = phi i64 [ 0, %12 ], [ %.2, %_dump_node_res.exit ]
   %32 = load i32, ptr %10, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %.02744, %33
@@ -10550,7 +10550,7 @@ define internal noundef i32 @_v41_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   br i1 %.not67.i, label %.thread.i, label %122
 
 .thread.i:                                        ; preds = %110, %113, %.preheader.i
-  %.2 = phi i64 [ %.041, %.preheader.i ], [ %.1, %113 ], [ %111, %110 ]
+  %.3 = phi i64 [ %.041, %.preheader.i ], [ %.1, %113 ], [ %111, %110 ]
   br label %116
 
 115:                                              ; preds = %116
@@ -10572,7 +10572,7 @@ find_parser_by_type.exit.i:                       ; preds = %116, %115
   br label %122
 
 122:                                              ; preds = %find_parser_by_type.exit.i, %113
-  %.3 = phi i64 [ %.2, %find_parser_by_type.exit.i ], [ %.1, %113 ]
+  %.2 = phi i64 [ %.3, %find_parser_by_type.exit.i ], [ %.1, %113 ]
   %.1.i = phi i32 [ %121, %find_parser_by_type.exit.i ], [ %114, %113 ]
   %123 = load ptr, ptr %29, align 8
   %124 = getelementptr inbounds i16, ptr %123, i64 %spec.select

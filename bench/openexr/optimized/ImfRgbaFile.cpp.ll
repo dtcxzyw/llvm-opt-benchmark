@@ -3341,8 +3341,8 @@ lpad16:                                           ; preds = %invoke.cont13
 
 catch:                                            ; preds = %lpad16, %lpad8, %lpad4
   %.pn = phi { ptr, i32 } [ %7, %lpad16 ], [ %5, %lpad4 ], [ %6, %lpad8 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
   %9 = load ptr, ptr %_inputPart, align 8
   %tobool20.not = icmp eq ptr %9, null
   br i1 %tobool20.not, label %if.end23, label %delete.notnull
@@ -3511,8 +3511,8 @@ lpad16:                                           ; preds = %invoke.cont13
 
 catch:                                            ; preds = %lpad16, %lpad8, %lpad4
   %.pn = phi { ptr, i32 } [ %7, %lpad16 ], [ %5, %lpad4 ], [ %6, %lpad8 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
   %9 = load ptr, ptr %_inputPart, align 8
   %tobool20.not = icmp eq ptr %9, null
   br i1 %tobool20.not, label %if.end23, label %delete.notnull
@@ -3663,8 +3663,8 @@ lpad20:                                           ; preds = %invoke.cont17
 
 catch:                                            ; preds = %lpad20, %lpad6, %lpad2
   %.pn = phi { ptr, i32 } [ %6, %lpad20 ], [ %4, %lpad2 ], [ %5, %lpad6 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
   %8 = load ptr, ptr %_inputPart, align 8
   %tobool24.not = icmp eq ptr %8, null
   br i1 %tobool24.not, label %if.end27, label %delete.notnull
@@ -3815,8 +3815,8 @@ lpad20:                                           ; preds = %invoke.cont17
 
 catch:                                            ; preds = %lpad20, %lpad6, %lpad2
   %.pn = phi { ptr, i32 } [ %6, %lpad20 ], [ %4, %lpad2 ], [ %5, %lpad6 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #25
   %8 = load ptr, ptr %_inputPart, align 8
   %tobool24.not = icmp eq ptr %8, null
   br i1 %tobool24.not, label %if.end27, label %delete.notnull

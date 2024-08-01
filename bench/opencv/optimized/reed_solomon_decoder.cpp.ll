@@ -1570,7 +1570,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit76: ; preds = %89, %_ZN5zxing3Ref
 
 99:                                               ; preds = %.preheader212, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140
   %.sroa.0199.0 = phi ptr [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ], [ %83, %.preheader212 ]
-  %.sroa.0185.0 = phi ptr [ %.sroa.0185.5, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ], [ %88, %.preheader212 ]
+  %.sroa.0185.0 = phi ptr [ %.sroa.0185.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ], [ %88, %.preheader212 ]
   %100 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.0)
           to label %101 unwind label %.loopexit213
 
@@ -1779,7 +1779,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit93: ; preds = %161, %166
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134
 
 .loopexit:                                        ; preds = %.preheader, %186, %189, %192, %194, %196, %200, %202, %204, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit107
-  %.sroa.0185.2.ph = phi ptr [ %.sroa.0185.3, %.preheader ], [ %.sroa.0185.3, %186 ], [ %.sroa.0185.3, %189 ], [ %.sroa.0185.3, %192 ], [ %.sroa.0185.3, %194 ], [ %.sroa.0185.3, %196 ], [ %.sroa.0185.3, %200 ], [ %.sroa.0185.3, %202 ], [ %.sroa.0185.3, %204 ], [ %.sroa.0185.3, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100 ], [ %247, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit107 ]
+  %.sroa.0185.7.ph = phi ptr [ %.sroa.0185.10, %.preheader ], [ %.sroa.0185.10, %186 ], [ %.sroa.0185.10, %189 ], [ %.sroa.0185.10, %192 ], [ %.sroa.0185.10, %194 ], [ %.sroa.0185.10, %196 ], [ %.sroa.0185.10, %200 ], [ %.sroa.0185.10, %202 ], [ %.sroa.0185.10, %204 ], [ %.sroa.0185.10, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100 ], [ %247, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit107 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109
@@ -1790,8 +1790,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit93: ; preds = %161, %166
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109
 
 .preheader:                                       ; preds = %183, %285
-  %.sroa.0185.3 = phi ptr [ %247, %285 ], [ %.sroa.0199.0, %183 ]
-  %185 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3)
+  %.sroa.0185.10 = phi ptr [ %247, %285 ], [ %.sroa.0199.0, %183 ]
+  %185 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10)
           to label %186 unwind label %.loopexit
 
 186:                                              ; preds = %.preheader
@@ -1803,14 +1803,14 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit93: ; preds = %161, %166
   br i1 %.not48, label %.critedge, label %189
 
 189:                                              ; preds = %188
-  %190 = invoke noundef zeroext i1 @_ZN5zxing13GenericGFPoly6isZeroEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3)
+  %190 = invoke noundef zeroext i1 @_ZN5zxing13GenericGFPoly6isZeroEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10)
           to label %191 unwind label %.loopexit
 
 191:                                              ; preds = %189
   br i1 %190, label %.critedge, label %192
 
 192:                                              ; preds = %191
-  %193 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3)
+  %193 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10)
           to label %194 unwind label %.loopexit
 
 194:                                              ; preds = %192
@@ -1820,11 +1820,11 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit93: ; preds = %161, %166
 196:                                              ; preds = %194
   %197 = sub nsw i32 %193, %195
   %198 = load ptr, ptr %1, align 8
-  %199 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3)
+  %199 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10)
           to label %200 unwind label %.loopexit
 
 200:                                              ; preds = %196
-  %201 = invoke noundef i32 @_ZN5zxing13GenericGFPoly14getCoefficientEi(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3, i32 noundef %199)
+  %201 = invoke noundef i32 @_ZN5zxing13GenericGFPoly14getCoefficientEi(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10, i32 noundef %199)
           to label %202 unwind label %.loopexit
 
 202:                                              ; preds = %200
@@ -1923,7 +1923,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100:   ; preds = %_ZN5zxing3RefINS_13
           to label %245 unwind label %.loopexit
 
 245:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100
-  invoke void @_ZN5zxing13GenericGFPoly13addOrSubtractENS_3RefIS0_EERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  invoke void @_ZN5zxing13GenericGFPoly13addOrSubtractENS_3RefIS0_EERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %246 unwind label %299
 
 246:                                              ; preds = %245
@@ -1939,7 +1939,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100:   ; preds = %_ZN5zxing3RefINS_13
   br label %252
 
 252:                                              ; preds = %246, %248
-  %253 = getelementptr inbounds i8, ptr %.sroa.0185.3, i64 8
+  %253 = getelementptr inbounds i8, ptr %.sroa.0185.10, i64 8
   %254 = load i32, ptr %253, align 8
   %255 = add i32 %254, -1
   store i32 %255, ptr %253, align 8
@@ -1948,10 +1948,10 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit100:   ; preds = %_ZN5zxing3RefINS_13
 
 257:                                              ; preds = %252
   store i32 -559026175, ptr %253, align 8
-  %258 = load ptr, ptr %.sroa.0185.3, align 8
+  %258 = load ptr, ptr %.sroa.0185.10, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 8
   %260 = load ptr, ptr %259, align 8
-  call void %260(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0185.3) #10
+  call void %260(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0185.10) #10
   %.pre374 = load ptr, ptr %14, align 8
   br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit103
 
@@ -2264,7 +2264,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit130:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132
 
 407:                                              ; preds = %394
-  %408 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.3)
+  %408 = invoke noundef i32 @_ZN5zxing13GenericGFPoly9getDegreeEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0185.10)
           to label %409 unwind label %345
 
 409:                                              ; preds = %407
@@ -2300,7 +2300,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit130:   ; preds = %_ZN5zxing3RefINS_13
   br label %418
 
 418:                                              ; preds = %.sink.split, %411
-  %.041 = phi i32 [ 0, %411 ], [ 1, %.sink.split ]
+  %.243 = phi i32 [ 0, %411 ], [ 1, %.sink.split ]
   %419 = load ptr, ptr %16, align 8
   %.not.i133 = icmp eq ptr %419, null
   br i1 %.not.i133, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134, label %420
@@ -2322,8 +2322,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit130:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134:   ; preds = %425, %420, %418, %286, %184
-  %.sroa.0185.4 = phi ptr [ %247, %286 ], [ %.sroa.0199.0, %184 ], [ %.sroa.0185.3, %418 ], [ %.sroa.0185.3, %420 ], [ %.sroa.0185.3, %425 ]
-  %.142 = phi i32 [ 1, %286 ], [ 1, %184 ], [ %.041, %418 ], [ %.041, %420 ], [ %.041, %425 ]
+  %.sroa.0185.8 = phi ptr [ %247, %286 ], [ %.sroa.0199.0, %184 ], [ %.sroa.0185.10, %418 ], [ %.sroa.0185.10, %420 ], [ %.sroa.0185.10, %425 ]
+  %.142 = phi i32 [ 1, %286 ], [ 1, %184 ], [ %.243, %418 ], [ %.243, %420 ], [ %.243, %425 ]
   %429 = load ptr, ptr %11, align 8
   %.not.i135 = icmp eq ptr %429, null
   br i1 %.not.i135, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit136, label %430
@@ -2345,8 +2345,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134:   ; preds = %425, %420, %418, %2
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit136
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit136:   ; preds = %435, %430, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134, %147
-  %.sroa.0185.5 = phi ptr [ %.sroa.0185.0, %147 ], [ %.sroa.0185.4, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134 ], [ %.sroa.0185.4, %430 ], [ %.sroa.0185.4, %435 ]
-  %.243 = phi i32 [ 1, %147 ], [ %.142, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134 ], [ %.142, %430 ], [ %.142, %435 ]
+  %.sroa.0185.2 = phi ptr [ %.sroa.0185.0, %147 ], [ %.sroa.0185.8, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134 ], [ %.sroa.0185.8, %430 ], [ %.sroa.0185.8, %435 ]
+  %.041 = phi i32 [ 1, %147 ], [ %.142, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134 ], [ %.142, %430 ], [ %.142, %435 ]
   br i1 %.not.i.i81, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit138, label %439
 
 439:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit136
@@ -2385,7 +2385,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit138:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit138, %448, %453
-  %cond = icmp eq i32 %.243, 0
+  %cond = icmp eq i32 %.041, 0
   br i1 %cond, label %99, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit160, !llvm.loop !9
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132:   ; preds = %403, %398, %395, %416, %345
@@ -2411,7 +2411,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132:   ; preds = %403, %398, %395, %4
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109:   ; preds = %.loopexit, %.loopexit.split-lp, %463, %458, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132, %341, %336, %333, %307, %302, %299, %295, %290, %287
-  %.sroa.0185.6 = phi ptr [ %.sroa.0185.3, %287 ], [ %.sroa.0185.3, %290 ], [ %.sroa.0185.3, %295 ], [ %.sroa.0185.3, %299 ], [ %.sroa.0185.3, %302 ], [ %.sroa.0185.3, %307 ], [ %.sroa.0185.3, %333 ], [ %.sroa.0185.3, %336 ], [ %.sroa.0185.3, %341 ], [ %.sroa.0185.3, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132 ], [ %.sroa.0185.3, %458 ], [ %.sroa.0185.3, %463 ], [ %.sroa.0185.2.ph, %.loopexit ], [ %.sroa.0199.0, %.loopexit.split-lp ]
+  %.sroa.0185.9 = phi ptr [ %.sroa.0185.10, %287 ], [ %.sroa.0185.10, %290 ], [ %.sroa.0185.10, %295 ], [ %.sroa.0185.10, %299 ], [ %.sroa.0185.10, %302 ], [ %.sroa.0185.10, %307 ], [ %.sroa.0185.10, %333 ], [ %.sroa.0185.10, %336 ], [ %.sroa.0185.10, %341 ], [ %.sroa.0185.10, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132 ], [ %.sroa.0185.10, %458 ], [ %.sroa.0185.10, %463 ], [ %.sroa.0185.7.ph, %.loopexit ], [ %.sroa.0199.0, %.loopexit.split-lp ]
   %.pn54 = phi { ptr, i32 } [ %288, %287 ], [ %288, %290 ], [ %288, %295 ], [ %300, %299 ], [ %300, %302 ], [ %300, %307 ], [ %334, %333 ], [ %334, %336 ], [ %334, %341 ], [ %.pn52, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132 ], [ %.pn52, %458 ], [ %.pn52, %463 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %467 = load ptr, ptr %11, align 8
   %.not.i143 = icmp eq ptr %467, null
@@ -2434,7 +2434,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109:   ; preds = %.loopexit, %.loopex
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit144
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit144:   ; preds = %473, %468, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109, %154, %152
-  %.sroa.0185.7 = phi ptr [ %.sroa.0185.0, %154 ], [ %.sroa.0185.1, %152 ], [ %.sroa.0185.6, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109 ], [ %.sroa.0185.6, %468 ], [ %.sroa.0185.6, %473 ]
+  %.sroa.0185.6 = phi ptr [ %.sroa.0185.0, %154 ], [ %.sroa.0185.1, %152 ], [ %.sroa.0185.9, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109 ], [ %.sroa.0185.9, %468 ], [ %.sroa.0185.9, %473 ]
   %.pn57 = phi { ptr, i32 } [ %155, %154 ], [ %153, %152 ], [ %.pn54, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit109 ], [ %.pn54, %468 ], [ %.pn54, %473 ]
   br i1 %.not.i.i81, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146, label %477
 
@@ -2702,8 +2702,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150:   ; preds = %530, %525, %522, %5
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit160:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140, %588, %583, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158, %503
-  %.sroa.0199.1 = phi ptr [ %.sroa.0199.0, %503 ], [ %.sroa.0199.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158 ], [ %.sroa.0199.0, %583 ], [ %.sroa.0199.0, %588 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ]
-  %.sroa.0185.8 = phi ptr [ %.sroa.0185.0, %503 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158 ], [ %.sroa.0185.0, %583 ], [ %.sroa.0185.0, %588 ], [ %.sroa.0185.5, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ]
+  %.sroa.0199.4 = phi ptr [ %.sroa.0199.0, %503 ], [ %.sroa.0199.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158 ], [ %.sroa.0199.0, %583 ], [ %.sroa.0199.0, %588 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ]
+  %.sroa.0185.11 = phi ptr [ %.sroa.0185.0, %503 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158 ], [ %.sroa.0185.0, %583 ], [ %.sroa.0185.0, %588 ], [ %.sroa.0185.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140 ]
   %602 = load ptr, ptr %9, align 8
   %.not.i163 = icmp eq ptr %602, null
   br i1 %.not.i163, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit164, label %603
@@ -2746,11 +2746,11 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit164:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit164, %613, %618
-  %.not.i167 = icmp eq ptr %.sroa.0185.8, null
+  %.not.i167 = icmp eq ptr %.sroa.0185.11, null
   br i1 %.not.i167, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit168, label %622
 
 622:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166
-  %623 = getelementptr inbounds i8, ptr %.sroa.0185.8, i64 8
+  %623 = getelementptr inbounds i8, ptr %.sroa.0185.11, i64 8
   %624 = load i32, ptr %623, align 8
   %625 = add i32 %624, -1
   store i32 %625, ptr %623, align 8
@@ -2759,18 +2759,18 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166:   ; preds = %_ZN5zxing3RefINS_13
 
 627:                                              ; preds = %622
   store i32 -559026175, ptr %623, align 8
-  %628 = load ptr, ptr %.sroa.0185.8, align 8
+  %628 = load ptr, ptr %.sroa.0185.11, align 8
   %629 = getelementptr inbounds i8, ptr %628, i64 8
   %630 = load ptr, ptr %629, align 8
-  call void %630(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0185.8) #10
+  call void %630(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0185.11) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit168
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit168:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166, %622, %627
-  %.not.i169 = icmp eq ptr %.sroa.0199.1, null
+  %.not.i169 = icmp eq ptr %.sroa.0199.4, null
   br i1 %.not.i169, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit170, label %631
 
 631:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit168
-  %632 = getelementptr inbounds i8, ptr %.sroa.0199.1, i64 8
+  %632 = getelementptr inbounds i8, ptr %.sroa.0199.4, i64 8
   %633 = load i32, ptr %632, align 8
   %634 = add i32 %633, -1
   store i32 %634, ptr %632, align 8
@@ -2779,10 +2779,10 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit168:   ; preds = %_ZN5zxing3RefINS_13
 
 636:                                              ; preds = %631
   store i32 -559026175, ptr %632, align 8
-  %637 = load ptr, ptr %.sroa.0199.1, align 8
+  %637 = load ptr, ptr %.sroa.0199.4, align 8
   %638 = getelementptr inbounds i8, ptr %637, i64 8
   %639 = load ptr, ptr %638, align 8
-  call void %639(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0199.1) #10
+  call void %639(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0199.4) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit170
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit170:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit168, %631, %636
@@ -2830,8 +2830,8 @@ _ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit: ; preds = %_ZS
   ret void
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148:   ; preds = %.loopexit213, %.loopexit.split-lp214, %598, %593, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150, %491, %486, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146, %505
-  %.sroa.0199.2 = phi ptr [ %.sroa.0199.0, %505 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146 ], [ %.sroa.0185.0, %486 ], [ %.sroa.0185.0, %491 ], [ %.sroa.0199.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150 ], [ %.sroa.0199.0, %593 ], [ %.sroa.0199.0, %598 ], [ %.sroa.0199.0, %.loopexit213 ], [ %.sroa.0199.0, %.loopexit.split-lp214 ]
-  %.sroa.0185.9 = phi ptr [ %.sroa.0185.0, %505 ], [ %.sroa.0185.7, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146 ], [ %.sroa.0185.7, %486 ], [ %.sroa.0185.7, %491 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150 ], [ %.sroa.0185.0, %593 ], [ %.sroa.0185.0, %598 ], [ %.sroa.0185.0, %.loopexit213 ], [ %.sroa.0185.0, %.loopexit.split-lp214 ]
+  %.sroa.0199.3 = phi ptr [ %.sroa.0199.0, %505 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146 ], [ %.sroa.0185.0, %486 ], [ %.sroa.0185.0, %491 ], [ %.sroa.0199.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150 ], [ %.sroa.0199.0, %593 ], [ %.sroa.0199.0, %598 ], [ %.sroa.0199.0, %.loopexit213 ], [ %.sroa.0199.0, %.loopexit.split-lp214 ]
+  %.sroa.0185.5 = phi ptr [ %.sroa.0185.0, %505 ], [ %.sroa.0185.6, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146 ], [ %.sroa.0185.6, %486 ], [ %.sroa.0185.6, %491 ], [ %.sroa.0185.0, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150 ], [ %.sroa.0185.0, %593 ], [ %.sroa.0185.0, %598 ], [ %.sroa.0185.0, %.loopexit213 ], [ %.sroa.0185.0, %.loopexit.split-lp214 ]
   %.pn57.pn = phi { ptr, i32 } [ %506, %505 ], [ %.pn57, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146 ], [ %.pn57, %486 ], [ %.pn57, %491 ], [ %.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit150 ], [ %.pn, %593 ], [ %.pn, %598 ], [ %lpad.loopexit215, %.loopexit213 ], [ %lpad.loopexit.split-lp216, %.loopexit.split-lp214 ]
   %654 = load ptr, ptr %9, align 8
   %.not.i172 = icmp eq ptr %654, null
@@ -2854,8 +2854,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148:   ; preds = %.loopexit213, %.loo
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173:   ; preds = %660, %655, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148, %150
-  %.sroa.0199.3 = phi ptr [ %83, %150 ], [ %.sroa.0199.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148 ], [ %.sroa.0199.2, %655 ], [ %.sroa.0199.2, %660 ]
-  %.sroa.0185.10 = phi ptr [ %88, %150 ], [ %.sroa.0185.9, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148 ], [ %.sroa.0185.9, %655 ], [ %.sroa.0185.9, %660 ]
+  %.sroa.0199.2 = phi ptr [ %83, %150 ], [ %.sroa.0199.3, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148 ], [ %.sroa.0199.3, %655 ], [ %.sroa.0199.3, %660 ]
+  %.sroa.0185.4 = phi ptr [ %88, %150 ], [ %.sroa.0185.5, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148 ], [ %.sroa.0185.5, %655 ], [ %.sroa.0185.5, %660 ]
   %.pn57.pn.pn = phi { ptr, i32 } [ %151, %150 ], [ %.pn57.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit148 ], [ %.pn57.pn, %655 ], [ %.pn57.pn, %660 ]
   %664 = load ptr, ptr %8, align 8
   %.not.i174 = icmp eq ptr %664, null
@@ -2878,14 +2878,14 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173:   ; preds = %660, %655, %_ZN5zxi
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit175
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit175:   ; preds = %670, %665, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173, %148
-  %.sroa.0199.4 = phi ptr [ %83, %148 ], [ %.sroa.0199.3, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173 ], [ %.sroa.0199.3, %665 ], [ %.sroa.0199.3, %670 ]
-  %.sroa.0185.11 = phi ptr [ %88, %148 ], [ %.sroa.0185.10, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173 ], [ %.sroa.0185.10, %665 ], [ %.sroa.0185.10, %670 ]
+  %.sroa.0199.1 = phi ptr [ %83, %148 ], [ %.sroa.0199.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173 ], [ %.sroa.0199.2, %665 ], [ %.sroa.0199.2, %670 ]
+  %.sroa.0185.3 = phi ptr [ %88, %148 ], [ %.sroa.0185.4, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173 ], [ %.sroa.0185.4, %665 ], [ %.sroa.0185.4, %670 ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %149, %148 ], [ %.pn57.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit173 ], [ %.pn57.pn.pn, %665 ], [ %.pn57.pn.pn, %670 ]
-  %.not.i176 = icmp eq ptr %.sroa.0185.11, null
+  %.not.i176 = icmp eq ptr %.sroa.0185.3, null
   br i1 %.not.i176, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177, label %674
 
 674:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit175
-  %675 = getelementptr inbounds i8, ptr %.sroa.0185.11, i64 8
+  %675 = getelementptr inbounds i8, ptr %.sroa.0185.3, i64 8
   %676 = load i32, ptr %675, align 8
   %677 = add i32 %676, -1
   store i32 %677, ptr %675, align 8
@@ -2894,18 +2894,18 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit175:   ; preds = %670, %665, %_ZN5zxi
 
 679:                                              ; preds = %674
   store i32 -559026175, ptr %675, align 8
-  %680 = load ptr, ptr %.sroa.0185.11, align 8
+  %680 = load ptr, ptr %.sroa.0185.3, align 8
   %681 = getelementptr inbounds i8, ptr %680, i64 8
   %682 = load ptr, ptr %681, align 8
-  call void %682(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0185.11) #10
+  call void %682(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0185.3) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit175, %674, %679
-  %.not.i178 = icmp eq ptr %.sroa.0199.4, null
+  %.not.i178 = icmp eq ptr %.sroa.0199.1, null
   br i1 %.not.i178, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit179, label %683
 
 683:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177
-  %684 = getelementptr inbounds i8, ptr %.sroa.0199.4, i64 8
+  %684 = getelementptr inbounds i8, ptr %.sroa.0199.1, i64 8
   %685 = load i32, ptr %684, align 8
   %686 = add i32 %685, -1
   store i32 %686, ptr %684, align 8
@@ -2914,10 +2914,10 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177:   ; preds = %_ZN5zxing3RefINS_13
 
 688:                                              ; preds = %683
   store i32 -559026175, ptr %684, align 8
-  %689 = load ptr, ptr %.sroa.0199.4, align 8
+  %689 = load ptr, ptr %.sroa.0199.1, align 8
   %690 = getelementptr inbounds i8, ptr %689, i64 8
   %691 = load ptr, ptr %690, align 8
-  call void %691(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0199.4) #10
+  call void %691(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0199.1) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit179
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit179:   ; preds = %688, %683, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177, %81

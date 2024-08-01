@@ -6444,9 +6444,9 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 
 73:                                               ; preds = %.preheader, %.loopexit
   %.0155 = phi i64 [ %.sroa.speculated, %.loopexit ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %.1, %.loopexit ], [ 0, %.preheader ]
   %.076 = phi i64 [ %92, %.loopexit ], [ 0, %.preheader ]
-  %.073 = phi i64 [ %.275, %.loopexit ], [ -1, %.preheader ]
+  %.073 = phi i64 [ %.174, %.loopexit ], [ -1, %.preheader ]
   %74 = load ptr, ptr %1, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -6593,14 +6593,14 @@ _ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
   %142 = phi ptr [ %178, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %140, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
   %.063180 = phi i64 [ %177, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ 0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
-  %.174179 = phi i64 [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
-  %.1178 = phi i32 [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
+  %.275179 = phi i64 [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
+  %.2178 = phi i32 [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
   %143 = getelementptr inbounds i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i64, ptr %144, i64 %.063180
   %146 = load i64, ptr %145, align 8
-  %147 = icmp ne i64 %.174179, -1
-  %.not83 = icmp eq i64 %.174179, %146
+  %147 = icmp ne i64 %.275179, -1
+  %.not83 = icmp eq i64 %.275179, %146
   %or.cond = select i1 %147, i1 %.not83, i1 false
   br i1 %or.cond, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %148
 
@@ -6611,7 +6611,7 @@ _ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_
   br i1 %.not.i, label %154, label %151
 
 151:                                              ; preds = %148
-  store i32 %.1178, ptr %149, align 4
+  store i32 %.2178, ptr %149, align 4
   %152 = load ptr, ptr %71, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 4
   store ptr %153, ptr %71, align 8
@@ -6643,7 +6643,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %154
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %165, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %168 = phi ptr [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i ], [ %167, %165 ]
   %169 = getelementptr inbounds i32, ptr %168, i64 %160
-  store i32 %.1178, ptr %169, align 4
+  store i32 %.2178, ptr %169, align 4
   %170 = icmp sgt i64 %158, 0
   br i1 %170, label %171, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
@@ -6669,7 +6669,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %151, %.lr.ph
-  %176 = add i32 %.1178, 1
+  %176 = add i32 %.2178, 1
   %177 = add nuw i64 %.063180, 1
   %178 = load ptr, ptr %83, align 8
   %179 = load i64, ptr %178, align 8
@@ -6677,8 +6677,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %180, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit
-  %.2 = phi i32 [ %.0, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.275 = phi i64 [ %.073, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.1 = phi i32 [ %.0, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.174 = phi i64 [ %.073, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   br label %73, !llvm.loop !46
 
 181:                                              ; preds = %78
@@ -7998,9 +7998,9 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 
 73:                                               ; preds = %.preheader, %.loopexit
   %.0155 = phi i64 [ %.sroa.speculated, %.loopexit ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %.1, %.loopexit ], [ 0, %.preheader ]
   %.076 = phi i64 [ %92, %.loopexit ], [ 0, %.preheader ]
-  %.073 = phi i64 [ %.275, %.loopexit ], [ -1, %.preheader ]
+  %.073 = phi i64 [ %.174, %.loopexit ], [ -1, %.preheader ]
   %74 = load ptr, ptr %1, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
@@ -8147,14 +8147,14 @@ _ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
   %142 = phi ptr [ %178, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %140, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
   %.063180 = phi i64 [ %177, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ 0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
-  %.174179 = phi i64 [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
-  %.1178 = phi i32 [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
+  %.275179 = phi i64 [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
+  %.2178 = phi i32 [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ]
   %143 = getelementptr inbounds i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i64, ptr %144, i64 %.063180
   %146 = load i64, ptr %145, align 8
-  %147 = icmp ne i64 %.174179, -1
-  %.not83 = icmp eq i64 %.174179, %146
+  %147 = icmp ne i64 %.275179, -1
+  %.not83 = icmp eq i64 %.275179, %146
   %or.cond = select i1 %147, i1 %.not83, i1 false
   br i1 %or.cond, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %148
 
@@ -8165,7 +8165,7 @@ _ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_
   br i1 %.not.i, label %154, label %151
 
 151:                                              ; preds = %148
-  store i32 %.1178, ptr %149, align 4
+  store i32 %.2178, ptr %149, align 4
   %152 = load ptr, ptr %71, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 4
   store ptr %153, ptr %71, align 8
@@ -8197,7 +8197,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %154
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %165, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
   %168 = phi ptr [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i ], [ %167, %165 ]
   %169 = getelementptr inbounds i32, ptr %168, i64 %160
-  store i32 %.1178, ptr %169, align 4
+  store i32 %.2178, ptr %169, align 4
   %170 = icmp sgt i64 %158, 0
   br i1 %170, label %171, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
@@ -8223,7 +8223,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %151, %.lr.ph
-  %176 = add i32 %.1178, 1
+  %176 = add i32 %.2178, 1
   %177 = add nuw i64 %.063180, 1
   %178 = load ptr, ptr %83, align 8
   %179 = load i64, ptr %178, align 8
@@ -8231,8 +8231,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %180, label %.lr.ph, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit
-  %.2 = phi i32 [ %.0, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.275 = phi i64 [ %.073, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.1 = phi i32 [ %.0, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.0, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %176, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.174 = phi i64 [ %.073, %_ZNSt6vectorIfSaIfEE6insertIPKfvEEN9__gnu_cxx17__normal_iteratorIPfS1_EENS6_IS4_S1_EET_SA_.exit ], [ %.073, %_ZNSt6vectorImSaImEE6insertIPKmvEEN9__gnu_cxx17__normal_iteratorIPmS1_EENS6_IS4_S1_EET_SA_.exit.preheader ], [ %146, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   br label %73, !llvm.loop !55
 
 181:                                              ; preds = %78

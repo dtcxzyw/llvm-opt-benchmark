@@ -2245,7 +2245,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
   br label %81
 
 81:                                               ; preds = %16, %.loopexit, %69, %62, %34, %24
-  %.2 = phi i32 [ -32, %24 ], [ -32, %34 ], [ -32, %62 ], [ -32, %69 ], [ 0, %.loopexit ], [ -32, %16 ]
+  %.017 = phi i32 [ -32, %24 ], [ -32, %34 ], [ -32, %62 ], [ -32, %69 ], [ 0, %.loopexit ], [ -32, %16 ]
   %82 = load ptr, ptr %6, align 8
   %.not28 = icmp eq ptr %82, %1
   br i1 %.not28, label %84, label %83
@@ -2255,7 +2255,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %47, %60
   br label %84
 
 84:                                               ; preds = %81, %83, %12
-  %.019 = phi i32 [ -32, %12 ], [ %.2, %83 ], [ %.2, %81 ]
+  %.019 = phi i32 [ -32, %12 ], [ %.017, %83 ], [ %.017, %81 ]
   ret i32 %.019
 }
 

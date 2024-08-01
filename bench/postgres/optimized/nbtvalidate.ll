@@ -281,8 +281,8 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph173:                                        ; preds = %.lr.ph140, %203
   %.0105134172 = phi i32 [ %.1106, %203 ], [ 0, %.lr.ph140 ]
   %.0103135171 = phi ptr [ %.1104, %203 ], [ null, %.lr.ph140 ]
-  %.0100137170 = phi ptr [ %.2102, %203 ], [ null, %.lr.ph140 ]
-  %.6138169 = phi i1 [ %.8, %203 ], [ %.2.lcssa, %.lr.ph140 ]
+  %.0100137170 = phi ptr [ %.1101, %203 ], [ null, %.lr.ph140 ]
+  %.6138169 = phi i1 [ %.7, %203 ], [ %.2.lcssa, %.lr.ph140 ]
   %indvars.iv153168 = phi i64 [ %indvars.iv.next154, %203 ], [ 0, %.lr.ph140 ]
   %156 = load ptr, ptr %153, align 8
   %157 = getelementptr %union.ListCell, ptr %156, i64 %indvars.iv153168
@@ -312,7 +312,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %174
 
 174:                                              ; preds = %170, %166
-  %.1101 = phi ptr [ %.0100137170, %166 ], [ %spec.select, %170 ]
+  %.2102 = phi ptr [ %.0100137170, %166 ], [ %spec.select, %170 ]
   %175 = tail call ptr @list_append_unique_oid(ptr noundef %.0103135171, i32 noundef %168) #4
   %176 = getelementptr inbounds i8, ptr %158, i64 4
   %177 = load i32, ptr %176, align 4
@@ -336,7 +336,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %189
 
 189:                                              ; preds = %182, %180, %174
-  %.7 = phi i1 [ %.6138169, %174 ], [ false, %180 ], [ false, %182 ]
+  %.8 = phi i1 [ %.6138169, %174 ], [ false, %180 ], [ false, %182 ]
   %190 = getelementptr inbounds i8, ptr %158, i64 16
   %191 = load i64, ptr %190, align 8
   %192 = and i64 %191, 2
@@ -360,8 +360,8 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 203:                                              ; preds = %196, %194, %189, %162
   %.1106 = phi i32 [ %.0105134172, %162 ], [ %167, %189 ], [ %167, %194 ], [ %167, %196 ]
   %.1104 = phi ptr [ %.0103135171, %162 ], [ %178, %189 ], [ %178, %194 ], [ %178, %196 ]
-  %.2102 = phi ptr [ %.0100137170, %162 ], [ %.1101, %189 ], [ %.1101, %194 ], [ %.1101, %196 ]
-  %.8 = phi i1 [ %.6138169, %162 ], [ %.7, %189 ], [ false, %194 ], [ false, %196 ]
+  %.1101 = phi ptr [ %.0100137170, %162 ], [ %.2102, %189 ], [ %.2102, %194 ], [ %.2102, %196 ]
+  %.7 = phi i1 [ %.6138169, %162 ], [ %.8, %189 ], [ false, %194 ], [ false, %196 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153168, 1
   %204 = load i32, ptr %152, align 4
   %205 = sext i32 %204 to i64
@@ -369,11 +369,11 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %206, label %.lr.ph173, label %.._crit_edge141_crit_edge
 
 .._crit_edge141_crit_edge:                        ; preds = %203
-  %207 = icmp eq ptr %.2102, null
+  %207 = icmp eq ptr %.1101, null
   br label %._crit_edge141
 
 ._crit_edge141:                                   ; preds = %.._crit_edge141_crit_edge, %.lr.ph140
-  %.6138.lcssa = phi i1 [ %.8, %.._crit_edge141_crit_edge ], [ %.2.lcssa, %.lr.ph140 ]
+  %.6138.lcssa = phi i1 [ %.7, %.._crit_edge141_crit_edge ], [ %.2.lcssa, %.lr.ph140 ]
   %.0100137.lcssa = phi i1 [ %207, %.._crit_edge141_crit_edge ], [ true, %.lr.ph140 ]
   %.0103135.lcssa = phi ptr [ %.1104, %.._crit_edge141_crit_edge ], [ null, %.lr.ph140 ]
   %.0105134.lcssa = phi i32 [ %.1106, %.._crit_edge141_crit_edge ], [ 0, %.lr.ph140 ]

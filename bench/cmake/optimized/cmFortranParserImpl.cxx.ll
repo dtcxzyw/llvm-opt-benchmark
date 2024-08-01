@@ -209,13 +209,13 @@ define dso_local noundef zeroext i1 @_ZN17cmFortranParser_s15FindIncludeFileEPKc
   br i1 %52, label %.invoke, label %43
 
 .loopexit:                                        ; preds = %43, %.invoke, %30
-  %.0 = phi i1 [ false, %30 ], [ true, %.invoke ], [ false, %43 ]
+  %.1 = phi i1 [ false, %30 ], [ true, %.invoke ], [ false, %43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   br label %54
 
 54:                                               ; preds = %.loopexit, %12
-  %.1 = phi i1 [ %14, %12 ], [ %.0, %.loopexit ]
-  ret i1 %.1
+  %.0 = phi i1 [ %14, %12 ], [ %.1, %.loopexit ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools14FileIsFullPathEPKc(ptr noundef) local_unnamed_addr #0

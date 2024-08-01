@@ -563,17 +563,17 @@ if.else:                                          ; preds = %call.i.noexc100, %c
   %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #10
   %cmp21 = icmp eq i32 %call20, 0
   %20 = load i32, ptr %defaultLanguageDistance, align 4
-  %distance.1 = select i1 %cmp21, i32 0, i32 %20
+  %distance.2 = select i1 %cmp21, i32 0, i32 %20
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else, %if.then16
   %cmp15158 = phi i1 [ false, %if.then16 ], [ true, %if.else ]
-  %distance.2 = phi i32 [ %and17, %if.then16 ], [ %distance.1, %if.else ]
+  %distance.1 = phi i32 [ %and17, %if.then16 ], [ %distance.2, %if.else ]
   %flags.0 = phi i32 [ %and, %if.then16 ], [ 0, %if.else ]
   %add = add nsw i32 %shiftedThreshold.addr.0185, 7
   %shr = ashr i32 %add, 3
-  %shr28 = ashr i32 %distance.2, 2
-  %spec.select = select i1 %cmp26, i32 %shr28, i32 %distance.2
+  %shr28 = ashr i32 %distance.1, 2
+  %spec.select = select i1 %cmp26, i32 %shr28, i32 %distance.1
   %cmp30 = icmp sgt i32 %spec.select, %shr
   br i1 %cmp30, label %for.inc, label %if.end32
 
@@ -980,15 +980,15 @@ if.else:                                          ; preds = %if.then3
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then3, %if.else
-  %distance.1 = phi i32 [ %call.i30, %if.else ], [ 0, %if.then3 ]
+  %distance.2 = phi i32 [ %call.i30, %if.else ], [ 0, %if.then3 ]
   %cmp11 = icmp eq i32 %call5, 2
-  %or = or i32 %distance.1, 256
-  %spec.select = select i1 %cmp11, i32 %or, i32 %distance.1
+  %or = or i32 %distance.2, 256
+  %spec.select = select i1 %cmp11, i32 %or, i32 %distance.2
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end10, %if.end
-  %distance.2 = phi i32 [ %spec.select.i, %if.end ], [ %spec.select, %if.end10 ]
-  ret i32 %distance.2
+  %distance.1 = phi i32 [ %spec.select.i, %if.end ], [ %spec.select, %if.end10 ]
+  ret i32 %distance.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1052,7 +1052,7 @@ if.end13:                                         ; preds = %if.then6, %if.then
 for.cond:                                         ; preds = %for.cond.preheader, %if.then69
   %supported.0 = phi i8 [ %20, %if.then69 ], [ %1, %for.cond.preheader ]
   %desired.0 = phi i8 [ %18, %if.then69 ], [ %0, %for.cond.preheader ]
-  %regionDistance.0 = phi i32 [ %regionDistance.4, %if.then69 ], [ 0, %for.cond.preheader ]
+  %regionDistance.0 = phi i32 [ %regionDistance.3, %if.then69 ], [ 0, %for.cond.preheader ]
   %star.0 = phi i8 [ %star.3, %if.then69 ], [ 0, %for.cond.preheader ]
   %desiredPartitions.addr.0 = phi ptr [ %incdec.ptr66, %if.then69 ], [ %incdec.ptr, %for.cond.preheader ]
   %conv17 = sext i8 %desired.0 to i32
@@ -1163,7 +1163,7 @@ if.else59:                                        ; preds = %if.then54
   br label %if.end65
 
 if.end65:                                         ; preds = %if.else40, %if.else52, %if.else59
-  %regionDistance.4 = phi i32 [ %regionDistance.0, %if.else52 ], [ %spec.select36, %if.else59 ], [ %spec.select, %if.else40 ]
+  %regionDistance.3 = phi i32 [ %regionDistance.0, %if.else52 ], [ %spec.select36, %if.else59 ], [ %spec.select, %if.else40 ]
   %star.3 = phi i8 [ %star.0, %if.else52 ], [ 1, %if.else59 ], [ %star.2, %if.else40 ]
   %18 = load i8, ptr %desiredPartitions.addr.0, align 1
   %cmp68.not = icmp eq i8 %18, 0
@@ -1189,7 +1189,7 @@ return.sink.split:                                ; preds = %if.then11, %if.end1
   br label %return
 
 return:                                           ; preds = %if.end65, %if.then54, %if.end37, %return.sink.split
-  %retval.0 = phi i32 [ %call.i.i, %return.sink.split ], [ %d.0, %if.end37 ], [ %regionDistance.4, %if.end65 ], [ %call.i.i70, %if.then54 ]
+  %retval.0 = phi i32 [ %call.i.i, %return.sink.split ], [ %d.0, %if.end37 ], [ %regionDistance.3, %if.end65 ], [ %call.i.i70, %if.then54 ]
   ret i32 %retval.0
 }
 

@@ -234,7 +234,7 @@ land.lhs.true.lr.ph:                              ; preds = %entry
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %if.end
   %indvars.iv50 = phi i64 [ 0, %land.lhs.true.lr.ph ], [ %indvars.iv.next51, %if.end ]
   %dec38.in = phi i64 [ %encoded_string.coerce0, %land.lhs.true.lr.ph ], [ %dec38, %if.end ]
-  %i.037 = phi i32 [ 0, %land.lhs.true.lr.ph ], [ %i.3, %if.end ]
+  %i.037 = phi i32 [ 0, %land.lhs.true.lr.ph ], [ %i.1, %if.end ]
   %dec38 = add i64 %dec38.in, -1
   %add.ptr.i = getelementptr inbounds i8, ptr %encoded_string.coerce1, i64 %indvars.iv50
   %0 = load i8, ptr %add.ptr.i, align 1
@@ -318,12 +318,12 @@ for.inc52:                                        ; preds = %for.body47
   br i1 %exitcond49.not, label %if.end, label %for.body47, !llvm.loop !13
 
 if.end:                                           ; preds = %for.inc52, %while.body
-  %i.3 = phi i32 [ %inc, %while.body ], [ 0, %for.inc52 ]
+  %i.1 = phi i32 [ %inc, %while.body ], [ 0, %for.inc52 ]
   %tobool.not = icmp eq i64 %dec38, 0
   br i1 %tobool.not, label %while.end, label %land.lhs.true, !llvm.loop !14
 
 while.end:                                        ; preds = %land.rhs, %if.end, %land.lhs.true
-  %i.0.lcssa = phi i32 [ %i.037, %land.rhs ], [ %i.3, %if.end ], [ %i.037, %land.lhs.true ]
+  %i.0.lcssa = phi i32 [ %i.037, %land.rhs ], [ %i.1, %if.end ], [ %i.037, %land.lhs.true ]
   %tobool55.not = icmp eq i32 %i.0.lcssa, 0
   br i1 %tobool55.not, label %nrvo.skipdtor, label %for.cond57.preheader
 

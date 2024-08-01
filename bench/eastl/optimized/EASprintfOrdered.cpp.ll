@@ -68,7 +68,7 @@ for.cond.i:                                       ; preds = %for.inc99.i, %array
   %startIndex.0.i = phi i32 [ 1, %arrayctor.cont.i ], [ %startIndex.2.i, %for.inc99.i ]
   %p.0.i = phi ptr [ %pFormat, %arrayctor.cont.i ], [ %incdec.ptr100.i, %for.inc99.i ]
   %formattedSpanCount.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %formattedSpanCount.1.i, %for.inc99.i ]
-  %spanIndex.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %spanIndex.1.i, %for.inc99.i ]
+  %spanIndex.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %spanIndex.2.i, %for.inc99.i ]
   %0 = load i8, ptr %p.0.i, align 1, !alias.scope !5, !noalias !10
   switch i8 %0, label %if.else59.i [
     i8 0, label %if.end106.i
@@ -206,7 +206,7 @@ for.inc99.i:                                      ; preds = %if.end89.i, %sw.bb.
   %startIndex.2.i = phi i32 [ %startIndex.0.i, %if.then5.i ], [ %startIndex.1.i, %if.end57.i ], [ %startIndex.0.i, %if.then63.i ], [ %startIndex.0.i, %sw.bb.i ], [ %startIndex.0.i, %if.end89.i ], [ %startIndex.0.i, %if.else59.i ]
   %p.1.i = phi ptr [ %arrayidx2.i, %if.then5.i ], [ %arrayidx53.i, %if.end57.i ], [ %p.0.i, %if.then63.i ], [ %p.0.i, %sw.bb.i ], [ %p.0.i, %if.end89.i ], [ %p.0.i, %if.else59.i ]
   %formattedSpanCount.1.i = phi i32 [ %formattedSpanCount.0.i, %if.then5.i ], [ %inc52.i, %if.end57.i ], [ %formattedSpanCount.0.i, %if.then63.i ], [ %formattedSpanCount.0.i, %sw.bb.i ], [ %formattedSpanCount.0.i, %if.end89.i ], [ %formattedSpanCount.0.i, %if.else59.i ]
-  %spanIndex.1.i = phi i32 [ %spanIndex.0.i, %if.then5.i ], [ %inc.i, %if.end57.i ], [ %spanIndex.0.i, %if.then63.i ], [ 21, %sw.bb.i ], [ %inc86.i, %if.end89.i ], [ %spanIndex.0.i, %if.else59.i ]
+  %spanIndex.2.i = phi i32 [ %spanIndex.0.i, %if.then5.i ], [ %inc.i, %if.end57.i ], [ %spanIndex.0.i, %if.then63.i ], [ 21, %sw.bb.i ], [ %inc86.i, %if.end89.i ], [ %spanIndex.0.i, %if.else59.i ]
   %incdec.ptr100.i = getelementptr inbounds i8, ptr %p.1.i, i64 1
   br label %for.cond.i, !llvm.loop !11
 
@@ -1276,7 +1276,7 @@ for.cond.i:                                       ; preds = %for.inc99.i, %array
   %startIndex.0.i = phi i32 [ 1, %arrayctor.cont.i ], [ %startIndex.2.i, %for.inc99.i ]
   %p.0.i = phi ptr [ %pFormat, %arrayctor.cont.i ], [ %incdec.ptr100.i, %for.inc99.i ]
   %formattedSpanCount.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %formattedSpanCount.1.i, %for.inc99.i ]
-  %spanIndex.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %spanIndex.1.i, %for.inc99.i ]
+  %spanIndex.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %spanIndex.2.i, %for.inc99.i ]
   %0 = load i16, ptr %p.0.i, align 2, !alias.scope !34, !noalias !39
   switch i16 %0, label %if.else59.i [
     i16 0, label %if.end106.i
@@ -1414,7 +1414,7 @@ for.inc99.i:                                      ; preds = %if.end89.i, %sw.bb.
   %startIndex.2.i = phi i32 [ %startIndex.0.i, %if.then5.i ], [ %startIndex.1.i, %if.end57.i ], [ %startIndex.0.i, %if.then63.i ], [ %startIndex.0.i, %sw.bb.i ], [ %startIndex.0.i, %if.end89.i ], [ %startIndex.0.i, %if.else59.i ]
   %p.1.i = phi ptr [ %arrayidx2.i, %if.then5.i ], [ %arrayidx53.i, %if.end57.i ], [ %p.0.i, %if.then63.i ], [ %p.0.i, %sw.bb.i ], [ %p.0.i, %if.end89.i ], [ %p.0.i, %if.else59.i ]
   %formattedSpanCount.1.i = phi i32 [ %formattedSpanCount.0.i, %if.then5.i ], [ %inc52.i, %if.end57.i ], [ %formattedSpanCount.0.i, %if.then63.i ], [ %formattedSpanCount.0.i, %sw.bb.i ], [ %formattedSpanCount.0.i, %if.end89.i ], [ %formattedSpanCount.0.i, %if.else59.i ]
-  %spanIndex.1.i = phi i32 [ %spanIndex.0.i, %if.then5.i ], [ %inc.i, %if.end57.i ], [ %spanIndex.0.i, %if.then63.i ], [ 21, %sw.bb.i ], [ %inc86.i, %if.end89.i ], [ %spanIndex.0.i, %if.else59.i ]
+  %spanIndex.2.i = phi i32 [ %spanIndex.0.i, %if.then5.i ], [ %inc.i, %if.end57.i ], [ %spanIndex.0.i, %if.then63.i ], [ 21, %sw.bb.i ], [ %inc86.i, %if.end89.i ], [ %spanIndex.0.i, %if.else59.i ]
   %incdec.ptr100.i = getelementptr inbounds i8, ptr %p.1.i, i64 2
   br label %for.cond.i, !llvm.loop !40
 
@@ -2470,7 +2470,7 @@ for.cond.i:                                       ; preds = %for.inc93.i, %array
   %startIndex.0.i = phi i32 [ 1, %arrayctor.cont.i ], [ %startIndex.2.i, %for.inc93.i ]
   %p.0.i = phi ptr [ %pFormat, %arrayctor.cont.i ], [ %incdec.ptr94.i, %for.inc93.i ]
   %formattedSpanCount.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %formattedSpanCount.1.i, %for.inc93.i ]
-  %spanIndex.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %spanIndex.1.i, %for.inc93.i ]
+  %spanIndex.0.i = phi i32 [ 0, %arrayctor.cont.i ], [ %spanIndex.2.i, %for.inc93.i ]
   %0 = load i32, ptr %p.0.i, align 4, !alias.scope !62, !noalias !67
   switch i32 %0, label %if.else54.i [
     i32 0, label %if.end100.i
@@ -2607,7 +2607,7 @@ for.inc93.i:                                      ; preds = %if.end83.i, %sw.bb.
   %startIndex.2.i = phi i32 [ %startIndex.0.i, %if.then4.i ], [ %startIndex.1.i, %if.end52.i ], [ %startIndex.0.i, %if.then58.i ], [ %startIndex.0.i, %sw.bb.i ], [ %startIndex.0.i, %if.end83.i ], [ %startIndex.0.i, %if.else54.i ]
   %p.1.i = phi ptr [ %arrayidx2.i, %if.then4.i ], [ %arrayidx49.i, %if.end52.i ], [ %p.0.i, %if.then58.i ], [ %p.0.i, %sw.bb.i ], [ %p.0.i, %if.end83.i ], [ %p.0.i, %if.else54.i ]
   %formattedSpanCount.1.i = phi i32 [ %formattedSpanCount.0.i, %if.then4.i ], [ %inc48.i, %if.end52.i ], [ %formattedSpanCount.0.i, %if.then58.i ], [ %formattedSpanCount.0.i, %sw.bb.i ], [ %formattedSpanCount.0.i, %if.end83.i ], [ %formattedSpanCount.0.i, %if.else54.i ]
-  %spanIndex.1.i = phi i32 [ %spanIndex.0.i, %if.then4.i ], [ %inc.i, %if.end52.i ], [ %spanIndex.0.i, %if.then58.i ], [ 21, %sw.bb.i ], [ %inc80.i, %if.end83.i ], [ %spanIndex.0.i, %if.else54.i ]
+  %spanIndex.2.i = phi i32 [ %spanIndex.0.i, %if.then4.i ], [ %inc.i, %if.end52.i ], [ %spanIndex.0.i, %if.then58.i ], [ 21, %sw.bb.i ], [ %inc80.i, %if.end83.i ], [ %spanIndex.0.i, %if.else54.i ]
   %incdec.ptr94.i = getelementptr inbounds i8, ptr %p.1.i, i64 4
   br label %for.cond.i, !llvm.loop !68
 

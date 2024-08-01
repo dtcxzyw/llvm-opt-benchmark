@@ -1337,13 +1337,13 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
   br label %83
 
 83:                                               ; preds = %83, %76
-  %.sroa.16.2 = phi i64 [ %.sroa.16.1, %76 ], [ %88, %83 ]
-  %84 = add i64 %82, %.sroa.16.2
+  %.sroa.16.4 = phi i64 [ %.sroa.16.1, %76 ], [ %88, %83 ]
+  %84 = add i64 %82, %.sroa.16.4
   %85 = load ptr, ptr %69, align 8
   %86 = load i64, ptr %70, align 8
   %87 = trunc i64 %86 to i32
   call void @__breadahead(ptr noundef %85, i64 noundef %84, i32 noundef %87) #9
-  %88 = add i64 %.sroa.16.2, 1
+  %88 = add i64 %.sroa.16.4, 1
   %exitcond.not = icmp eq i64 %88, %.sroa.20.1
   br i1 %exitcond.not, label %.loopexit.i, label %83, !llvm.loop !25
 
@@ -1360,7 +1360,7 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
 
 93:                                               ; preds = %.loopexit.i, %74
   %.sroa.129.2 = phi i64 [ %.sroa.129.1, %74 ], [ %89, %.loopexit.i ]
-  %.sroa.16.4 = phi i64 [ %.sroa.16.1, %74 ], [ %.sroa.20.1, %.loopexit.i ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.1, %74 ], [ %.sroa.20.1, %.loopexit.i ]
   %.sroa.20.2 = phi i64 [ %.sroa.20.1, %74 ], [ %92, %.loopexit.i ]
   %94 = add i64 %.sroa.0.1, 1
   br label %fat_ent_reada.exit
@@ -1368,7 +1368,7 @@ define dso_local i32 @fat_count_free_clusters(ptr noundef %0) local_unnamed_addr
 fat_ent_reada.exit:                               ; preds = %71, %93
   %.sroa.0.2 = phi i64 [ %94, %93 ], [ %.sroa.0.1, %71 ]
   %.sroa.129.3 = phi i64 [ %.sroa.129.2, %93 ], [ %.sroa.129.1, %71 ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.4, %93 ], [ %.sroa.16.1, %71 ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.3, %93 ], [ %.sroa.16.1, %71 ]
   %.sroa.20.3 = phi i64 [ %.sroa.20.2, %93 ], [ %.sroa.20.1, %71 ]
   %95 = load ptr, ptr %11, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 272
@@ -1671,13 +1671,13 @@ define dso_local i32 @fat_trim_fs(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %106
 
 106:                                              ; preds = %106, %99
-  %.sroa.16.2 = phi i64 [ %.sroa.16.1, %99 ], [ %111, %106 ]
-  %107 = add i64 %105, %.sroa.16.2
+  %.sroa.16.4 = phi i64 [ %.sroa.16.1, %99 ], [ %111, %106 ]
+  %107 = add i64 %105, %.sroa.16.4
   %108 = load ptr, ptr %90, align 8
   %109 = load i64, ptr %92, align 8
   %110 = trunc i64 %109 to i32
   call void @__breadahead(ptr noundef %108, i64 noundef %107, i32 noundef %110) #9
-  %111 = add i64 %.sroa.16.2, 1
+  %111 = add i64 %.sroa.16.4, 1
   %exitcond.not = icmp eq i64 %111, %.sroa.20.1
   br i1 %exitcond.not, label %.loopexit.i, label %106, !llvm.loop !25
 
@@ -1694,7 +1694,7 @@ define dso_local i32 @fat_trim_fs(ptr nocapture noundef readonly %0, ptr nocaptu
 
 116:                                              ; preds = %.loopexit.i, %97
   %.sroa.1218.2 = phi i64 [ %.sroa.1218.1, %97 ], [ %112, %.loopexit.i ]
-  %.sroa.16.4 = phi i64 [ %.sroa.16.1, %97 ], [ %.sroa.20.1, %.loopexit.i ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.1, %97 ], [ %.sroa.20.1, %.loopexit.i ]
   %.sroa.20.2 = phi i64 [ %.sroa.20.1, %97 ], [ %115, %.loopexit.i ]
   %117 = add i64 %.sroa.0.1, 1
   br label %fat_ent_reada.exit
@@ -1702,7 +1702,7 @@ define dso_local i32 @fat_trim_fs(ptr nocapture noundef readonly %0, ptr nocaptu
 fat_ent_reada.exit:                               ; preds = %93, %116
   %.sroa.0.2 = phi i64 [ %117, %116 ], [ %.sroa.0.1, %93 ]
   %.sroa.1218.3 = phi i64 [ %.sroa.1218.2, %116 ], [ %.sroa.1218.1, %93 ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.4, %116 ], [ %.sroa.16.1, %93 ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.3, %116 ], [ %.sroa.16.1, %93 ]
   %.sroa.20.3 = phi i64 [ %.sroa.20.2, %116 ], [ %.sroa.20.1, %93 ]
   %118 = load ptr, ptr %14, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 272

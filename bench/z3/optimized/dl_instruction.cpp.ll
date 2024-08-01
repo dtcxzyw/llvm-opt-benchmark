@@ -6827,13 +6827,13 @@ if.end30:                                         ; preds = %_ZN7datalog16relati
   br label %if.end31
 
 if.end31:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEEEbRKNS_13relation_baseES8_RPT_.exit, %if.end30
-  %fn.1 = phi ptr [ %19, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEEEbRKNS_13relation_baseES8_RPT_.exit ], [ %call4.i55, %if.end30 ]
+  %fn.0 = phi ptr [ %19, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEEEbRKNS_13relation_baseES8_RPT_.exit ], [ %call4.i55, %if.end30 ]
   %m_res32 = getelementptr inbounds i8, ptr %this, i64 96
   %32 = load i32, ptr %m_res32, align 8
-  %vtable = load ptr, ptr %fn.1, align 8
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %33 = load ptr, ptr %vfn, align 8
-  %call33 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %6)
+  %call33 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %6)
   call void @_ZN7datalog17execution_context7set_regEjPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(108) %ctx, i32 noundef %32, ptr noundef %call33)
   %34 = load i32, ptr %m_res32, align 8
   %35 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
@@ -7778,11 +7778,11 @@ if.end17:                                         ; preds = %if.then5
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit, %if.end17
-  %fn.1 = phi ptr [ %14, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call8, %if.end17 ]
-  %vtable = load ptr, ptr %fn.1, align 8
+  %fn.0 = phi ptr [ %14, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call8, %if.end17 ]
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %24 = load ptr, ptr %vfn, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %4)
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %4)
   %vtable19 = load ptr, ptr %4, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 32
   %25 = load ptr, ptr %vfn20, align 8
@@ -8283,11 +8283,11 @@ if.end18:                                         ; preds = %_ZNK6vectorIjLb0EjE
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit, %if.end18
-  %fn.1 = phi ptr [ %14, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call10, %if.end18 ]
-  %vtable = load ptr, ptr %fn.1, align 8
+  %fn.0 = phi ptr [ %14, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call10, %if.end18 ]
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %24 = load ptr, ptr %vfn, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %4)
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %4)
   %vtable20 = load ptr, ptr %4, align 8
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 32
   %25 = load ptr, ptr %vfn21, align 8
@@ -8708,11 +8708,11 @@ if.end16:                                         ; preds = %if.then5
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit, %if.end16
-  %fn.1 = phi ptr [ %18, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call8, %if.end16 ]
-  %vtable = load ptr, ptr %fn.1, align 8
+  %fn.0 = phi ptr [ %18, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE10mutator_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call8, %if.end16 ]
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %27 = load ptr, ptr %vfn, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i17)
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i17)
   %vtable18 = load ptr, ptr %retval.0.i17, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 32
   %28 = load ptr, ptr %vfn19, align 8
@@ -9253,13 +9253,13 @@ if.end19:                                         ; preds = %_ZNK6vectorIjLb0EjE
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit, %if.end19
-  %fn.1 = phi ptr [ %19, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call11, %if.end19 ]
+  %fn.0 = phi ptr [ %19, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call11, %if.end19 ]
   %m_res21 = getelementptr inbounds i8, ptr %this, i64 104
   %30 = load i32, ptr %m_res21, align 8
-  %vtable = load ptr, ptr %fn.1, align 8
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %31 = load ptr, ptr %vfn, align 8
-  %call22 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i21)
+  %call22 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i21)
   call void @_ZN7datalog17execution_context7set_regEjPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(108) %ctx, i32 noundef %30, ptr noundef %call22)
   %32 = load i32, ptr %m_res21, align 8
   %33 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
@@ -10646,13 +10646,13 @@ if.end39:                                         ; preds = %if.end19
   br label %if.end40
 
 if.end40:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit, %if.end39
-  %fn.1 = phi ptr [ %20, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %storemerge, %if.end39 ]
+  %fn.0 = phi ptr [ %20, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %storemerge, %if.end39 ]
   %m_tgt41 = getelementptr inbounds i8, ptr %this, i64 88
   %33 = load i32, ptr %m_tgt41, align 8
-  %vtable = load ptr, ptr %fn.1, align 8
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %34 = load ptr, ptr %vfn, align 8
-  %call42 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i22)
+  %call42 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i22)
   call void @_ZN7datalog17execution_context7set_regEjPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(108) %ctx, i32 noundef %33, ptr noundef %call42)
   br label %return
 
@@ -11360,13 +11360,13 @@ if.end26:                                         ; preds = %_ZN7datalog16relati
   br label %if.end27
 
 if.end27:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEEEbRKNS_13relation_baseES8_RPT_.exit, %if.end26
-  %fn.1 = phi ptr [ %24, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEEEbRKNS_13relation_baseES8_RPT_.exit ], [ %call6.i, %if.end26 ]
+  %fn.0 = phi ptr [ %24, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEEEbRKNS_13relation_baseES8_RPT_.exit ], [ %call6.i, %if.end26 ]
   %m_res28 = getelementptr inbounds i8, ptr %this, i64 104
   %39 = load i32, ptr %m_res28, align 8
-  %vtable = load ptr, ptr %fn.1, align 8
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %40 = load ptr, ptr %vfn, align 8
-  %call29 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i38, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i48)
+  %call29 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i38, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i48)
   call void @_ZN7datalog17execution_context7set_regEjPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(108) %ctx, i32 noundef %39, ptr noundef %call29)
   %41 = load i32, ptr %m_res28, align 8
   %42 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
@@ -11953,13 +11953,13 @@ if.end17:                                         ; preds = %if.then5
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit, %if.end17
-  %fn.1 = phi ptr [ %20, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call8, %if.end17 ]
+  %fn.0 = phi ptr [ %20, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE14transformer_fnEEEbRKNS_13relation_baseERPT_.exit ], [ %call8, %if.end17 ]
   %m_result19 = getelementptr inbounds i8, ptr %this, i64 76
   %30 = load i32, ptr %m_result19, align 4
-  %vtable = load ptr, ptr %fn.1, align 8
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %31 = load ptr, ptr %vfn, align 8
-  %call20 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i21)
+  %call20 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i21)
   call void @_ZN7datalog17execution_context7set_regEjPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(108) %ctx, i32 noundef %30, ptr noundef %call20)
   %32 = load i32, ptr %m_result19, align 4
   %33 = load ptr, ptr %m_registers.i, align 8, !nonnull !26, !noundef !26
@@ -12630,11 +12630,11 @@ if.end37:                                         ; preds = %_ZNK6vectorIjLb0EjE
   br label %if.end38
 
 if.end38:                                         ; preds = %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE22intersection_filter_fnEEEbRKNS_13relation_baseES8_RPT_.exit, %if.end37
-  %fn.1 = phi ptr [ %22, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE22intersection_filter_fnEEEbRKNS_13relation_baseES8_RPT_.exit ], [ %call15, %if.end37 ]
-  %vtable = load ptr, ptr %fn.1, align 8
+  %fn.0 = phi ptr [ %22, %_ZNK7datalog11instruction7find_fnINS_17tr_infrastructureINS_15relation_traitsEE22intersection_filter_fnEEEbRKNS_13relation_baseES8_RPT_.exit ], [ %call15, %if.end37 ]
+  %vtable = load ptr, ptr %fn.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %35 = load ptr, ptr %vfn, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(8) %fn.1, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i34, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i44)
+  call void %35(ptr noundef nonnull align 8 dereferenceable(8) %fn.0, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i34, ptr noundef nonnull align 8 dereferenceable(28) %retval.0.i44)
   %vtable39 = load ptr, ptr %retval.0.i34, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 32
   %36 = load ptr, ptr %vfn40, align 8

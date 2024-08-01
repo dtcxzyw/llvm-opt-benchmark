@@ -71,7 +71,7 @@ define ptr @Dau_ParseFormulaEndToken(ptr noundef readonly %0) local_unnamed_addr
   br label %2
 
 2:                                                ; preds = %12, %1
-  %.010 = phi i32 [ 0, %1 ], [ %.2, %12 ]
+  %.010 = phi i32 [ 0, %1 ], [ %.1, %12 ]
   %.0 = phi ptr [ %0, %1 ], [ %13, %12 ]
   %3 = load i8, ptr %.0, align 1
   switch i8 %3, label %8 [
@@ -90,8 +90,8 @@ define ptr @Dau_ParseFormulaEndToken(ptr noundef readonly %0) local_unnamed_addr
   br label %8
 
 8:                                                ; preds = %2, %6, %4
-  %.1 = phi i32 [ %5, %4 ], [ %7, %6 ], [ %.010, %2 ]
-  %9 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %5, %4 ], [ %7, %6 ], [ %.010, %2 ]
+  %9 = icmp eq i32 %.2, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
@@ -99,7 +99,7 @@ define ptr @Dau_ParseFormulaEndToken(ptr noundef readonly %0) local_unnamed_addr
   br label %.loopexit
 
 12:                                               ; preds = %2, %8
-  %.2 = phi i32 [ %.1, %8 ], [ %.010, %2 ]
+  %.1 = phi i32 [ %.2, %8 ], [ %.010, %2 ]
   %13 = getelementptr inbounds i8, ptr %.0, i64 1
   br label %2, !llvm.loop !4
 
@@ -162,7 +162,7 @@ tailrecurse:                                      ; preds = %33, %2
 
 .preheader:                                       ; preds = %19, %30
   %21 = phi i8 [ %.pre, %30 ], [ 40, %19 ]
-  %.010.i = phi i32 [ %.2.i, %30 ], [ 0, %19 ]
+  %.010.i = phi i32 [ %.1.i, %30 ], [ 0, %19 ]
   %.0.i = phi ptr [ %31, %30 ], [ %.035.lcssa, %19 ]
   switch i8 %21, label %26 [
     i8 0, label %Dau_ParseFormulaEndToken.exit
@@ -180,8 +180,8 @@ tailrecurse:                                      ; preds = %33, %2
   br label %26
 
 26:                                               ; preds = %24, %22, %.preheader
-  %.1.i = phi i32 [ %23, %22 ], [ %25, %24 ], [ %.010.i, %.preheader ]
-  %27 = icmp eq i32 %.1.i, 0
+  %.2.i = phi i32 [ %23, %22 ], [ %25, %24 ], [ %.010.i, %.preheader ]
+  %27 = icmp eq i32 %.2.i, 0
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -189,7 +189,7 @@ tailrecurse:                                      ; preds = %33, %2
   br label %Dau_ParseFormulaEndToken.exit
 
 30:                                               ; preds = %26, %.preheader
-  %.2.i = phi i32 [ %.1.i, %26 ], [ %.010.i, %.preheader ]
+  %.1.i = phi i32 [ %.2.i, %26 ], [ %.010.i, %.preheader ]
   %31 = getelementptr inbounds i8, ptr %.0.i, i64 1
   %.pre = load i8, ptr %31, align 1
   br label %.preheader, !llvm.loop !4
@@ -208,7 +208,7 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %28
 
 37:                                               ; preds = %.preheader103, %47
   %38 = phi i8 [ %.pre81, %47 ], [ %.lcssa65, %.preheader103 ]
-  %.010.i42 = phi i32 [ %.2.i45, %47 ], [ 0, %.preheader103 ]
+  %.010.i42 = phi i32 [ %.1.i45, %47 ], [ 0, %.preheader103 ]
   %.0.i43 = phi ptr [ %48, %47 ], [ %.035.lcssa, %.preheader103 ]
   switch i8 %38, label %43 [
     i8 0, label %Dau_ParseFormulaEndToken.exit47
@@ -226,8 +226,8 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %28
   br label %43
 
 43:                                               ; preds = %41, %39, %37
-  %.1.i44 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %.010.i42, %37 ]
-  %44 = icmp eq i32 %.1.i44, 0
+  %.2.i44 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %.010.i42, %37 ]
+  %44 = icmp eq i32 %.2.i44, 0
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -235,7 +235,7 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %28
   br label %Dau_ParseFormulaEndToken.exit47
 
 47:                                               ; preds = %43, %37
-  %.2.i45 = phi i32 [ %.1.i44, %43 ], [ %.010.i42, %37 ]
+  %.1.i45 = phi i32 [ %.2.i44, %43 ], [ %.010.i42, %37 ]
   %48 = getelementptr inbounds i8, ptr %.0.i43, i64 1
   %.pre81 = load i8, ptr %48, align 1
   br label %37, !llvm.loop !4
@@ -251,7 +251,7 @@ Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
   br label %54
 
 54:                                               ; preds = %64, %Dau_ParseFormulaEndToken.exit47
-  %.010.i48 = phi i32 [ 0, %Dau_ParseFormulaEndToken.exit47 ], [ %.2.i51, %64 ]
+  %.010.i48 = phi i32 [ 0, %Dau_ParseFormulaEndToken.exit47 ], [ %.1.i51, %64 ]
   %.0.i49 = phi ptr [ %53, %Dau_ParseFormulaEndToken.exit47 ], [ %65, %64 ]
   %55 = load i8, ptr %.0.i49, align 1
   switch i8 %55, label %60 [
@@ -270,8 +270,8 @@ Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
   br label %60
 
 60:                                               ; preds = %58, %56, %54
-  %.1.i50 = phi i32 [ %57, %56 ], [ %59, %58 ], [ %.010.i48, %54 ]
-  %61 = icmp eq i32 %.1.i50, 0
+  %.2.i50 = phi i32 [ %57, %56 ], [ %59, %58 ], [ %.010.i48, %54 ]
+  %61 = icmp eq i32 %.2.i50, 0
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
@@ -279,7 +279,7 @@ Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
   br label %Dau_ParseFormulaEndToken.exit53
 
 64:                                               ; preds = %60, %54
-  %.2.i51 = phi i32 [ %.1.i50, %60 ], [ %.010.i48, %54 ]
+  %.1.i51 = phi i32 [ %.2.i50, %60 ], [ %.010.i48, %54 ]
   %65 = getelementptr inbounds i8, ptr %.0.i49, i64 1
   br label %54, !llvm.loop !4
 
@@ -372,7 +372,7 @@ tailrecurse:                                      ; preds = %32, %3
 
 .preheader:                                       ; preds = %18, %29
   %20 = phi i8 [ %.pre, %29 ], [ 40, %18 ]
-  %.010.i = phi i32 [ %.2.i, %29 ], [ 0, %18 ]
+  %.010.i = phi i32 [ %.1.i, %29 ], [ 0, %18 ]
   %.0.i = phi ptr [ %30, %29 ], [ %.037.lcssa, %18 ]
   switch i8 %20, label %25 [
     i8 0, label %Dau_ParseFormulaEndToken.exit
@@ -390,8 +390,8 @@ tailrecurse:                                      ; preds = %32, %3
   br label %25
 
 25:                                               ; preds = %23, %21, %.preheader
-  %.1.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ %.010.i, %.preheader ]
-  %26 = icmp eq i32 %.1.i, 0
+  %.2.i = phi i32 [ %22, %21 ], [ %24, %23 ], [ %.010.i, %.preheader ]
+  %26 = icmp eq i32 %.2.i, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -399,7 +399,7 @@ tailrecurse:                                      ; preds = %32, %3
   br label %Dau_ParseFormulaEndToken.exit
 
 29:                                               ; preds = %25, %.preheader
-  %.2.i = phi i32 [ %.1.i, %25 ], [ %.010.i, %.preheader ]
+  %.1.i = phi i32 [ %.2.i, %25 ], [ %.010.i, %.preheader ]
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 1
   %.pre = load i8, ptr %30, align 1
   br label %.preheader, !llvm.loop !4
@@ -418,7 +418,7 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %27
 
 37:                                               ; preds = %.preheader103, %47
   %38 = phi i8 [ %.pre79, %47 ], [ %.lcssa, %.preheader103 ]
-  %.010.i42 = phi i32 [ %.2.i45, %47 ], [ 0, %.preheader103 ]
+  %.010.i42 = phi i32 [ %.1.i45, %47 ], [ 0, %.preheader103 ]
   %.0.i43 = phi ptr [ %48, %47 ], [ %.037.lcssa, %.preheader103 ]
   switch i8 %38, label %43 [
     i8 0, label %Dau_ParseFormulaEndToken.exit47
@@ -436,8 +436,8 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %27
   br label %43
 
 43:                                               ; preds = %41, %39, %37
-  %.1.i44 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %.010.i42, %37 ]
-  %44 = icmp eq i32 %.1.i44, 0
+  %.2.i44 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %.010.i42, %37 ]
+  %44 = icmp eq i32 %.2.i44, 0
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -445,7 +445,7 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %27
   br label %Dau_ParseFormulaEndToken.exit47
 
 47:                                               ; preds = %43, %37
-  %.2.i45 = phi i32 [ %.1.i44, %43 ], [ %.010.i42, %37 ]
+  %.1.i45 = phi i32 [ %.2.i44, %43 ], [ %.010.i42, %37 ]
   %48 = getelementptr inbounds i8, ptr %.0.i43, i64 1
   %.pre79 = load i8, ptr %48, align 1
   br label %37, !llvm.loop !4
@@ -461,7 +461,7 @@ Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
   br label %55
 
 55:                                               ; preds = %65, %Dau_ParseFormulaEndToken.exit47
-  %.010.i48 = phi i32 [ 0, %Dau_ParseFormulaEndToken.exit47 ], [ %.2.i51, %65 ]
+  %.010.i48 = phi i32 [ 0, %Dau_ParseFormulaEndToken.exit47 ], [ %.1.i51, %65 ]
   %.0.i49 = phi ptr [ %54, %Dau_ParseFormulaEndToken.exit47 ], [ %66, %65 ]
   %56 = load i8, ptr %.0.i49, align 1
   switch i8 %56, label %61 [
@@ -480,8 +480,8 @@ Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
   br label %61
 
 61:                                               ; preds = %59, %57, %55
-  %.1.i50 = phi i32 [ %58, %57 ], [ %60, %59 ], [ %.010.i48, %55 ]
-  %62 = icmp eq i32 %.1.i50, 0
+  %.2.i50 = phi i32 [ %58, %57 ], [ %60, %59 ], [ %.010.i48, %55 ]
+  %62 = icmp eq i32 %.2.i50, 0
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
@@ -489,7 +489,7 @@ Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
   br label %Dau_ParseFormulaEndToken.exit53
 
 65:                                               ; preds = %61, %55
-  %.2.i51 = phi i32 [ %.1.i50, %61 ], [ %.010.i48, %55 ]
+  %.1.i51 = phi i32 [ %.2.i50, %61 ], [ %.010.i48, %55 ]
   %66 = getelementptr inbounds i8, ptr %.0.i49, i64 1
   br label %55, !llvm.loop !4
 

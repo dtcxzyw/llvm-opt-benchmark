@@ -572,34 +572,34 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %9
 
 7:                                                ; preds = %159, %112, %73
-  %.0217 = phi ptr [ %.4221, %159 ], [ %.1218, %112 ], [ %.1218, %73 ]
-  %.0172 = phi ptr [ %162, %159 ], [ %92, %112 ], [ %75, %73 ]
-  %.0160 = phi ptr [ %.3163, %159 ], [ %91, %112 ], [ %.2162, %73 ]
-  %.0152 = phi i32 [ 3, %159 ], [ %.1153, %112 ], [ %spec.select, %73 ]
-  %.0149 = phi i32 [ %160, %159 ], [ %113, %112 ], [ %69, %73 ]
-  %.0148 = phi i32 [ %.6, %159 ], [ %.5, %112 ], [ -2, %73 ]
-  %8 = getelementptr inbounds i8, ptr %.0160, i64 2
+  %.1218 = phi ptr [ %.5221, %159 ], [ %.0217, %112 ], [ %.0217, %73 ]
+  %.1173 = phi ptr [ %162, %159 ], [ %92, %112 ], [ %75, %73 ]
+  %.1161 = phi ptr [ %.5165, %159 ], [ %91, %112 ], [ %.2162, %73 ]
+  %.1153 = phi i32 [ 3, %159 ], [ %.0152, %112 ], [ %spec.select, %73 ]
+  %.1150 = phi i32 [ %160, %159 ], [ %113, %112 ], [ %69, %73 ]
+  %.1 = phi i32 [ %.8, %159 ], [ %.7, %112 ], [ -2, %73 ]
+  %8 = getelementptr inbounds i8, ptr %.1161, i64 2
   br label %9
 
 9:                                                ; preds = %7, %1
-  %.1218 = phi ptr [ %5, %1 ], [ %.0217, %7 ]
+  %.0217 = phi ptr [ %5, %1 ], [ %.1218, %7 ]
   %.0183 = phi i64 [ 200, %1 ], [ %.1184, %7 ]
-  %.1173 = phi ptr [ %4, %1 ], [ %.0172, %7 ]
+  %.0172 = phi ptr [ %4, %1 ], [ %.1173, %7 ]
   %.0168 = phi ptr [ %4, %1 ], [ %.1169, %7 ]
-  %.1161 = phi ptr [ %3, %1 ], [ %8, %7 ]
+  %.0160 = phi ptr [ %3, %1 ], [ %8, %7 ]
   %.0155 = phi ptr [ %3, %1 ], [ %.1156, %7 ]
-  %.1153 = phi i32 [ 0, %1 ], [ %.0152, %7 ]
-  %.1150 = phi i32 [ 0, %1 ], [ %.0149, %7 ]
-  %.1 = phi i32 [ -2, %1 ], [ %.0148, %7 ]
-  %10 = trunc nsw i32 %.1150 to i16
-  store i16 %10, ptr %.1161, align 2
+  %.0152 = phi i32 [ 0, %1 ], [ %.1153, %7 ]
+  %.0149 = phi i32 [ 0, %1 ], [ %.1150, %7 ]
+  %.0148 = phi i32 [ -2, %1 ], [ %.1, %7 ]
+  %10 = trunc nsw i32 %.0149 to i16
+  store i16 %10, ptr %.0160, align 2
   %11 = getelementptr inbounds i16, ptr %.0155, i64 %.0183
   %12 = getelementptr inbounds i8, ptr %11, i64 -2
-  %.not = icmp ugt ptr %12, %.1161
+  %.not = icmp ugt ptr %12, %.0160
   br i1 %.not, label %38, label %13
 
 13:                                               ; preds = %9
-  %14 = ptrtoint ptr %.1161 to i64
+  %14 = ptrtoint ptr %.0160 to i64
   %15 = ptrtoint ptr %.0155 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 1
@@ -638,19 +638,19 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   %36 = getelementptr inbounds i32, ptr %30, i64 %18
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
   %.not203 = icmp sgt i64 %spec.store.select, %18
-  br i1 %.not203, label %38, label %.thread251.thread
+  br i1 %.not203, label %38, label %.thread250.thread
 
 38:                                               ; preds = %33, %9
   %.1184 = phi i64 [ %spec.store.select, %33 ], [ %.0183, %9 ]
-  %.2174 = phi ptr [ %37, %33 ], [ %.1173, %9 ]
+  %.2174 = phi ptr [ %37, %33 ], [ %.0172, %9 ]
   %.1169 = phi ptr [ %30, %33 ], [ %.0168, %9 ]
-  %.2162 = phi ptr [ %35, %33 ], [ %.1161, %9 ]
+  %.2162 = phi ptr [ %35, %33 ], [ %.0160, %9 ]
   %.1156 = phi ptr [ %24, %33 ], [ %.0155, %9 ]
-  %39 = icmp eq i32 %.1150, 106
-  br i1 %39, label %.thread251, label %40
+  %39 = icmp eq i32 %.0149, 106
+  br i1 %39, label %.thread250, label %40
 
 40:                                               ; preds = %38
-  %41 = sext i32 %.1150 to i64
+  %41 = sext i32 %.0149 to i64
   %42 = getelementptr inbounds [1496 x i16], ptr @yypact, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i32
@@ -658,7 +658,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br i1 %45, label %76, label %46
 
 46:                                               ; preds = %40
-  %47 = icmp eq i32 %.1, -2
+  %47 = icmp eq i32 %.0148, -2
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
@@ -666,16 +666,16 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %50
 
 50:                                               ; preds = %48, %46
-  %.2 = phi i32 [ %49, %48 ], [ %.1, %46 ]
-  %51 = icmp slt i32 %.2, 1
+  %.5 = phi i32 [ %49, %48 ], [ %.0148, %46 ]
+  %51 = icmp slt i32 %.5, 1
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ult i32 %.2, 410
+  %53 = icmp ult i32 %.5, 410
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52
-  %55 = zext nneg i32 %.2 to i64
+  %55 = zext nneg i32 %.5 to i64
   %56 = getelementptr inbounds [410 x i8], ptr @yytranslate, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
@@ -683,7 +683,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
 
 59:                                               ; preds = %54, %52, %50
   %.0180 = phi i32 [ 0, %50 ], [ %58, %54 ], [ 2, %52 ]
-  %.3 = phi i32 [ 0, %50 ], [ %.2, %54 ], [ %.2, %52 ]
+  %.6 = phi i32 [ 0, %50 ], [ %.5, %54 ], [ %.5, %52 ]
   %60 = add nsw i32 %.0180, %44
   %or.cond3 = icmp ugt i32 %60, 3343
   br i1 %or.cond3, label %76, label %61
@@ -708,14 +708,14 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %81
 
 73:                                               ; preds = %66
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.1153, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0152, i32 1)
   %74 = load i32, ptr %2, align 4
   %75 = getelementptr inbounds i8, ptr %.2174, i64 4
   store i32 %74, ptr %75, align 4
   br label %7
 
 76:                                               ; preds = %59, %61, %40
-  %.4 = phi i32 [ %.1, %40 ], [ %.3, %59 ], [ %.3, %61 ]
+  %.4 = phi i32 [ %.0148, %40 ], [ %.6, %59 ], [ %.6, %61 ]
   %77 = getelementptr inbounds [1496 x i16], ptr @yydefact, i64 0, i64 %41
   %78 = load i16, ptr %77, align 2
   %79 = sext i16 %78 to i32
@@ -724,7 +724,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
 
 81:                                               ; preds = %76, %71
   %.0182 = phi i32 [ %79, %76 ], [ %72, %71 ]
-  %.5 = phi i32 [ %.4, %76 ], [ %.3, %71 ]
+  %.7 = phi i32 [ %.4, %76 ], [ %.6, %71 ]
   %82 = sext i32 %.0182 to i64
   %83 = getelementptr inbounds [733 x i8], ptr @yyr2, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
@@ -788,28 +788,28 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
 
 122:                                              ; preds = %117, %116, %114
   %123 = phi i32 [ -2, %114 ], [ %121, %117 ], [ 2, %116 ]
-  switch i32 %.1153, label %139 [
+  switch i32 %.0152, label %139 [
     i32 0, label %124
     i32 3, label %135
   ]
 
 124:                                              ; preds = %122
-  %125 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr %.1218, ptr noundef nonnull %.2162, i32 noundef %123)
+  %125 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %6, ptr %.0217, ptr noundef nonnull %.2162, i32 noundef %123)
   switch i32 %125, label %.thread [
-    i32 0, label %.thread227
+    i32 0, label %.thread226
     i32 1, label %126
   ]
 
-.thread227:                                       ; preds = %124
-  call void @pj_wkt2_error(ptr noundef %0, ptr noundef %.1218) #8
+.thread226:                                       ; preds = %124
+  call void @pj_wkt2_error(ptr noundef %0, ptr noundef %.0217) #8
   br label %139
 
 126:                                              ; preds = %124
-  %.not207 = icmp eq ptr %.1218, %5
+  %.not207 = icmp eq ptr %.0217, %5
   br i1 %.not207, label %128, label %127
 
 127:                                              ; preds = %126
-  call void @free(ptr noundef %.1218)
+  call void @free(ptr noundef %.0217)
   br label %128
 
 128:                                              ; preds = %127, %126
@@ -823,7 +823,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %124, %131
-  %.2219.ph = phi ptr [ %5, %131 ], [ %.1218, %124 ]
+  %.3.ph = phi ptr [ %5, %131 ], [ %.0217, %124 ]
   call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull @.str) #8
   br label %.loopexit
 
@@ -839,17 +839,17 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
 
 137:                                              ; preds = %135
   %138 = icmp eq i32 %.4, 0
-  br i1 %138, label %.thread251, label %139
+  br i1 %138, label %.thread250, label %139
 
-139:                                              ; preds = %135, %132, %.thread227, %122, %137
-  %.4221 = phi ptr [ %.1218, %122 ], [ %.1218, %137 ], [ %.1218, %.thread227 ], [ %130, %132 ], [ %.1218, %135 ]
-  %.6 = phi i32 [ %.4, %122 ], [ %.4, %137 ], [ %.4, %.thread227 ], [ %.4, %132 ], [ -2, %135 ]
+139:                                              ; preds = %135, %132, %.thread226, %122, %137
+  %.5221 = phi ptr [ %.0217, %122 ], [ %.0217, %137 ], [ %.0217, %.thread226 ], [ %130, %132 ], [ %.0217, %135 ]
+  %.8 = phi i32 [ %.4, %122 ], [ %.4, %137 ], [ %.4, %.thread226 ], [ %.4, %132 ], [ -2, %135 ]
   br label %140
 
 140:                                              ; preds = %155, %139
   %141 = phi i16 [ %43, %139 ], [ %.pre, %155 ]
-  %.3175 = phi ptr [ %.2174, %139 ], [ %156, %155 ]
-  %.3163 = phi ptr [ %.2162, %139 ], [ %157, %155 ]
+  %.5177 = phi ptr [ %.2174, %139 ], [ %156, %155 ]
+  %.5165 = phi ptr [ %.2162, %139 ], [ %157, %155 ]
   %142 = add i16 %141, 1
   %or.cond9 = icmp ult i16 %142, 3344
   br i1 %or.cond9, label %143, label %153
@@ -869,57 +869,57 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br i1 %152, label %159, label %153
 
 153:                                              ; preds = %143, %149, %140
-  %154 = icmp eq ptr %.3163, %.1156
-  br i1 %154, label %.thread251, label %155
+  %154 = icmp eq ptr %.5165, %.1156
+  br i1 %154, label %.thread250, label %155
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds i8, ptr %.3175, i64 -4
-  %157 = getelementptr inbounds i8, ptr %.3163, i64 -2
+  %156 = getelementptr inbounds i8, ptr %.5177, i64 -4
+  %157 = getelementptr inbounds i8, ptr %.5165, i64 -2
   %158 = load i16, ptr %157, align 2
   %.phi.trans.insert = sext i16 %158 to i64
-  %.phi.trans.insert296 = getelementptr inbounds [1496 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert296, align 2
+  %.phi.trans.insert295 = getelementptr inbounds [1496 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert295, align 2
   br label %140
 
 159:                                              ; preds = %149
   %160 = zext nneg i16 %151 to i32
   %161 = load i32, ptr %2, align 4
-  %162 = getelementptr inbounds i8, ptr %.3175, i64 4
+  %162 = getelementptr inbounds i8, ptr %.5177, i64 4
   store i32 %161, ptr %162, align 4
   br label %7
 
 .loopexit:                                        ; preds = %132, %20, %13, %.thread
-  %.5222 = phi ptr [ %.2219.ph, %.thread ], [ %.1218, %20 ], [ %.1218, %13 ], [ %130, %132 ]
-  %.3158 = phi ptr [ %.1156, %.thread ], [ %.0155, %20 ], [ %.0155, %13 ], [ %.1156, %132 ]
+  %.2219 = phi ptr [ %.3.ph, %.thread ], [ %.0217, %20 ], [ %.0217, %13 ], [ %130, %132 ]
+  %.2157 = phi ptr [ %.1156, %.thread ], [ %.0155, %20 ], [ %.0155, %13 ], [ %.1156, %132 ]
   call void @pj_wkt2_error(ptr noundef %0, ptr noundef nonnull @.str.3) #8
-  br label %.thread251
+  br label %.thread250
 
-.thread251:                                       ; preds = %38, %137, %153, %.loopexit
-  %.4159249 = phi ptr [ %.3158, %.loopexit ], [ %.1156, %153 ], [ %.1156, %137 ], [ %.1156, %38 ]
-  %.0181243 = phi i32 [ 2, %.loopexit ], [ 1, %153 ], [ 0, %38 ], [ 1, %137 ]
-  %.6223241 = phi ptr [ %.5222, %.loopexit ], [ %.4221, %153 ], [ %.1218, %137 ], [ %.1218, %38 ]
-  %.not211 = icmp eq ptr %.4159249, %3
-  br i1 %.not211, label %163, label %.thread251.thread
+.thread250:                                       ; preds = %38, %137, %153, %.loopexit
+  %.4159248 = phi ptr [ %.2157, %.loopexit ], [ %.1156, %153 ], [ %.1156, %137 ], [ %.1156, %38 ]
+  %.0181242 = phi i32 [ 2, %.loopexit ], [ 1, %153 ], [ 0, %38 ], [ 1, %137 ]
+  %.6222240 = phi ptr [ %.2219, %.loopexit ], [ %.5221, %153 ], [ %.0217, %137 ], [ %.0217, %38 ]
+  %.not211 = icmp eq ptr %.4159248, %3
+  br i1 %.not211, label %163, label %.thread250.thread
 
-.thread251.thread:                                ; preds = %33, %.thread251
-  %.6223241304 = phi ptr [ %.6223241, %.thread251 ], [ %.1218, %33 ]
-  %.0181243302 = phi i32 [ %.0181243, %.thread251 ], [ 1, %33 ]
-  %.4159249301 = phi ptr [ %.4159249, %.thread251 ], [ %24, %33 ]
-  call void @free(ptr noundef %.4159249301)
+.thread250.thread:                                ; preds = %33, %.thread250
+  %.6222240303 = phi ptr [ %.6222240, %.thread250 ], [ %.0217, %33 ]
+  %.0181242301 = phi i32 [ %.0181242, %.thread250 ], [ 1, %33 ]
+  %.4159248300 = phi ptr [ %.4159248, %.thread250 ], [ %24, %33 ]
+  call void @free(ptr noundef %.4159248300)
   br label %163
 
-163:                                              ; preds = %.thread251.thread, %.thread251
-  %.6223241305 = phi ptr [ %.6223241304, %.thread251.thread ], [ %.6223241, %.thread251 ]
-  %.0181243303 = phi i32 [ %.0181243302, %.thread251.thread ], [ %.0181243, %.thread251 ]
-  %.not212 = icmp eq ptr %.6223241305, %5
+163:                                              ; preds = %.thread250.thread, %.thread250
+  %.6222240304 = phi ptr [ %.6222240303, %.thread250.thread ], [ %.6222240, %.thread250 ]
+  %.0181242302 = phi i32 [ %.0181242301, %.thread250.thread ], [ %.0181242, %.thread250 ]
+  %.not212 = icmp eq ptr %.6222240304, %5
   br i1 %.not212, label %165, label %164
 
 164:                                              ; preds = %163
-  call void @free(ptr noundef %.6223241305)
+  call void @free(ptr noundef %.6222240304)
   br label %165
 
 165:                                              ; preds = %164, %163
-  ret i32 %.0181243303
+  ret i32 %.0181242302
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -1009,8 +1009,8 @@ yytnamerr.exit:                                   ; preds = %.preheader26.split.
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ %34, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
-  %.07018 = phi i32 [ 1, %.lr.ph.preheader ], [ %.171, %64 ]
-  %.07317 = phi i64 [ %.019.i, %.lr.ph.preheader ], [ %.174, %64 ]
+  %.17118 = phi i32 [ 1, %.lr.ph.preheader ], [ %.272, %64 ]
+  %.17417 = phi i64 [ %.019.i, %.lr.ph.preheader ], [ %.275, %64 ]
   %37 = add nsw i64 %indvars.iv, %35
   %38 = getelementptr inbounds [3344 x i16], ptr @yycheck, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
@@ -1021,13 +1021,13 @@ yytnamerr.exit:                                   ; preds = %.preheader26.split.
   br i1 %or.cond, label %43, label %64
 
 43:                                               ; preds = %.lr.ph
-  %44 = icmp eq i32 %.07018, 5
+  %44 = icmp eq i32 %.17118, 5
   br i1 %44, label %.thread7, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds [538 x ptr], ptr @yytname, i64 0, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  %48 = sext i32 %.07018 to i64
+  %48 = sext i32 %.17118 to i64
   %49 = getelementptr inbounds [5 x ptr], ptr %4, i64 0, i64 %48
   store ptr %47, ptr %49, align 8
   %50 = load i8, ptr %47, align 1
@@ -1070,19 +1070,19 @@ yytnamerr.exit:                                   ; preds = %.preheader26.split.
 
 yytnamerr.exit99:                                 ; preds = %.preheader26.split.us.i93, %.lr.ph.split.i.i88
   %.019.i91 = phi i64 [ %.06.i.i89, %.lr.ph.split.i.i88 ], [ %.018.us.i94, %.preheader26.split.us.i93 ]
-  %62 = add nsw i64 %.019.i91, %.07317
-  %63 = add nsw i32 %.07018, 1
+  %62 = add nsw i64 %.019.i91, %.17417
+  %63 = add nsw i32 %.17118, 1
   br label %64
 
 64:                                               ; preds = %.lr.ph, %yytnamerr.exit99
-  %.174 = phi i64 [ %62, %yytnamerr.exit99 ], [ %.07317, %.lr.ph ]
-  %.171 = phi i32 [ %63, %yytnamerr.exit99 ], [ %.07018, %.lr.ph ]
+  %.275 = phi i64 [ %62, %yytnamerr.exit99 ], [ %.17417, %.lr.ph ]
+  %.272 = phi i32 [ %63, %yytnamerr.exit99 ], [ %.17118, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %65 = icmp slt i64 %indvars.iv.next, %36
   br i1 %65, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %64
-  switch i32 %.171, label %.thread7 [
+  switch i32 %.272, label %.thread7 [
     i32 5, label %70
     i32 1, label %66
     i32 2, label %67
@@ -1106,8 +1106,8 @@ yytnamerr.exit99:                                 ; preds = %.preheader26.split.
   br label %.thread7
 
 .thread7:                                         ; preds = %43, %27, %yytnamerr.exit, %3, %._crit_edge, %70, %69, %68, %67, %66
-  %.2726 = phi i32 [ %.171, %69 ], [ %.171, %68 ], [ %.171, %67 ], [ %.171, %70 ], [ %.171, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ %.171, %66 ], [ 1, %27 ], [ 1, %43 ]
-  %.2754 = phi i64 [ %.174, %69 ], [ %.174, %68 ], [ %.174, %67 ], [ %.174, %70 ], [ %.174, %._crit_edge ], [ 0, %3 ], [ %.019.i, %yytnamerr.exit ], [ %.174, %66 ], [ %.019.i, %27 ], [ %.019.i, %43 ]
+  %.0706 = phi i32 [ %.272, %69 ], [ %.272, %68 ], [ %.272, %67 ], [ %.272, %70 ], [ %.272, %._crit_edge ], [ 0, %3 ], [ 1, %yytnamerr.exit ], [ %.272, %66 ], [ 1, %27 ], [ 1, %43 ]
+  %.0734 = phi i64 [ %.275, %69 ], [ %.275, %68 ], [ %.275, %67 ], [ %.275, %70 ], [ %.275, %._crit_edge ], [ 0, %3 ], [ %.019.i, %yytnamerr.exit ], [ %.275, %66 ], [ %.019.i, %27 ], [ %.019.i, %43 ]
   %.067 = phi ptr [ @.str.9, %69 ], [ @.str.8, %68 ], [ @.str.7, %67 ], [ @.str.10, %70 ], [ @.str, %._crit_edge ], [ @.str, %3 ], [ @.str.6, %yytnamerr.exit ], [ @.str.6, %66 ], [ @.str.6, %27 ], [ @.str.6, %43 ]
   br label %.lr.ph.split.i
 
@@ -1120,12 +1120,12 @@ yytnamerr.exit99:                                 ; preds = %.preheader26.split.
   br i1 %.not5.i, label %yystrlen.exit, label %.lr.ph.split.i
 
 yystrlen.exit:                                    ; preds = %.lr.ph.split.i
-  %74 = shl nsw i32 %.2726, 1
+  %74 = shl nsw i32 %.0706, 1
   %75 = sext i32 %74 to i64
   %76 = sub nsw i64 %.06.i, %75
-  %77 = add nsw i64 %76, %.2754
+  %77 = add nsw i64 %76, %.0734
   %78 = add nsw i64 %77, 1
-  %.not82 = icmp sgt i64 %.2754, %78
+  %.not82 = icmp sgt i64 %.0734, %78
   br i1 %.not82, label %.loopexit, label %79
 
 79:                                               ; preds = %yystrlen.exit
@@ -1155,7 +1155,7 @@ yystrlen.exit:                                    ; preds = %.lr.ph.split.i
   %85 = getelementptr inbounds i8, ptr %.168, i64 1
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 115
-  %88 = icmp slt i32 %.0, %.2726
+  %88 = icmp slt i32 %.0, %.0706
   %or.cond86 = select i1 %87, i1 %88, i1 false
   br i1 %or.cond86, label %89, label %yytnamerr.exit112
 

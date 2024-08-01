@@ -642,13 +642,13 @@ define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i
   br label %.critedge2
 
 .critedge2:                                       ; preds = %26, %38, %43, %40, %.critedge4
-  %.0 = phi ptr [ null, %.critedge4 ], [ %45, %43 ], [ null, %40 ], [ null, %38 ], [ null, %26 ]
+  %.1 = phi ptr [ null, %.critedge4 ], [ %45, %43 ], [ null, %40 ], [ null, %38 ], [ null, %26 ]
   tail call void @free(ptr noundef %22) #14
   %46 = tail call i32 @close(i32 noundef %24) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %15, %.critedge2, %17, %.critedge37, %21
-  %.031 = phi ptr [ null, %21 ], [ %16, %15 ], [ %.0, %.critedge2 ], [ null, %17 ], [ null, %.critedge37 ], [ null, %8 ]
+  %.031 = phi ptr [ null, %21 ], [ %16, %15 ], [ %.1, %.critedge2 ], [ null, %17 ], [ null, %.critedge37 ], [ null, %8 ]
   ret ptr %.031
 }
 

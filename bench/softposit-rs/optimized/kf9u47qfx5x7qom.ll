@@ -164,7 +164,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 
 ._crit_edge.thread:                               ; preds = %.preheader, %78, %._crit_edge
   %74 = phi i64 [ %71, %._crit_edge ], [ %71, %78 ], [ %.079157, %.preheader ]
-  %.sroa.0112.2.idx = phi i64 [ %.sroa.0112.0.add, %._crit_edge ], [ %.ptr.add, %78 ], [ %.sroa.0112.0.add, %.preheader ]
+  %.sroa.0112.1.idx = phi i64 [ %.sroa.0112.0.add, %._crit_edge ], [ %.ptr.add, %78 ], [ %.sroa.0112.0.add, %.preheader ]
   %.277 = phi i64 [ %69, %._crit_edge ], [ %83, %78 ], [ %52, %.preheader ]
   %.1 = phi i8 [ 0, %._crit_edge ], [ %spec.select, %78 ], [ 0, %.preheader ]
   br label %87
@@ -192,7 +192,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br label %._crit_edge.thread
 
 87:                                               ; preds = %90, %._crit_edge.thread
-  %.sroa.0117.0.idx = phi i64 [ %.sroa.0112.2.idx, %._crit_edge.thread ], [ %.sroa.0117.0.add, %90 ]
+  %.sroa.0117.0.idx = phi i64 [ %.sroa.0112.1.idx, %._crit_edge.thread ], [ %.sroa.0117.0.add, %90 ]
   %88 = icmp eq i64 %.sroa.0117.0.idx, 64
   br i1 %88, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread", label %90
 
@@ -497,21 +497,21 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire32..Q32E2$u20$as$u20$core.
   br label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.17289136429668401858.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader12.i.i, %.lr.ph.i.i
-  %.214.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ %12, %.preheader12.i.i ]
-  %.21113.i.i = phi i8 [ %20, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
-  %20 = add nuw nsw i8 %.21113.i.i, 1
-  %21 = shl i32 %.214.i.i, 1
+  %.114.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ %12, %.preheader12.i.i ]
+  %.11013.i.i = phi i8 [ %20, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
+  %20 = add nuw nsw i8 %.11013.i.i, 1
+  %21 = shl i32 %.114.i.i, 1
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.17289136429668401858.exit.i, label %.lr.ph.i.i
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.17289136429668401858.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %.preheader12.i.i
-  %.110.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %20, %.lr.ph.i.i ]
-  %.1.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ %12, %.preheader12.i.i ], [ %21, %.lr.ph.i.i ]
-  %23 = shl i32 %.1.i.i, 3
+  %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %20, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %19, %._crit_edge.i.i ], [ %12, %.preheader12.i.i ], [ %21, %.lr.ph.i.i ]
+  %23 = shl i32 %.2.i.i, 3
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 20
-  %26 = sext i8 %.110.i.i to i64
-  %27 = lshr i32 %.1.i.i, 29
+  %26 = sext i8 %.211.i.i to i64
+  %27 = lshr i32 %.2.i.i, 29
   %28 = zext nneg i32 %27 to i64
   %29 = shl nsw i64 %26, 54
   %30 = shl nuw nsw i64 %28, 52

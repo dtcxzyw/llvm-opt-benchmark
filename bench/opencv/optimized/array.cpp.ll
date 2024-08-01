@@ -667,7 +667,7 @@ define void @cvCreateData(ptr noundef %0) local_unnamed_addr #0 personality ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %146, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.075115 = phi i64 [ %119, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.1115 = phi i64 [ %119, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %147 = getelementptr inbounds [32 x %struct.anon.4], ptr %120, i64 0, i64 %indvars.iv.next
   %148 = getelementptr inbounds i8, ptr %147, i64 4
@@ -676,13 +676,13 @@ define void @cvCreateData(ptr noundef %0) local_unnamed_addr #0 personality ptr 
   %151 = load i32, ptr %147, align 8
   %152 = sext i32 %151 to i64
   %153 = mul nsw i64 %152, %150
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.075115, i64 %153)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.1115, i64 %153)
   %154 = icmp ugt i64 %indvars.iv, 1
   br i1 %154, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %142, %135
-  %.2 = phi i64 [ %141, %135 ], [ %119, %142 ], [ %spec.select, %.lr.ph ]
-  %155 = add nsw i64 %.2, 68
+  %.075 = phi i64 [ %141, %135 ], [ %119, %142 ], [ %spec.select, %.lr.ph ]
+  %155 = add nsw i64 %.075, 68
   %156 = tail call ptr @cvAlloc(i64 noundef %155)
   %157 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %156, ptr %157, align 8
@@ -3901,7 +3901,7 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
 122:                                              ; preds = %85, %110, %117
   %.099 = phi i32 [ %87, %110 ], [ %87, %85 ], [ %119, %117 ]
   %.098 = phi i32 [ %89, %110 ], [ %89, %85 ], [ %121, %117 ]
-  %.0 = phi ptr [ %116, %110 ], [ %100, %85 ], [ %69, %117 ]
+  %.1 = phi ptr [ %116, %110 ], [ %100, %85 ], [ %69, %117 ]
   %.not138 = icmp ugt i32 %.098, %1
   %.not139 = icmp ugt i32 %.099, %2
   %or.cond152 = select i1 %.not138, i1 %.not139, i1 false
@@ -3937,7 +3937,7 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   %134 = mul nsw i32 %.0100, %2
   %135 = add nsw i32 %133, %134
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %.0, i64 %136
+  %137 = getelementptr inbounds i8, ptr %.1, i64 %136
   %.not140 = icmp eq ptr %3, null
   br i1 %.not140, label %212, label %138
 
@@ -4117,8 +4117,8 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   br label %213
 
 212:                                              ; preds = %150, %130, %178, %190, %203, %46
-  %.1 = phi ptr [ %64, %46 ], [ %137, %150 ], [ %137, %130 ], [ %189, %190 ], [ %189, %178 ], [ %205, %203 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %64, %46 ], [ %137, %150 ], [ %137, %130 ], [ %189, %190 ], [ %189, %178 ], [ %205, %203 ]
+  ret ptr %.0
 
 213:                                              ; preds = %208, %210, %199, %201, %174, %176, %146, %148, %126, %128, %106, %108, %39, %41
   %.sink = phi ptr [ %6, %41 ], [ %6, %39 ], [ %8, %108 ], [ %8, %106 ], [ %10, %128 ], [ %10, %126 ], [ %12, %148 ], [ %12, %146 ], [ %14, %176 ], [ %14, %174 ], [ %16, %201 ], [ %16, %199 ], [ %19, %210 ], [ %19, %208 ]
@@ -5336,13 +5336,13 @@ define noundef ptr @cvGetMat(ptr noundef readonly %0, ptr noundef %1, ptr nounde
   br label %251
 
 _ZL12icvCheckHugeP5CvMat.exit:                    ; preds = %241, %.loopexit, %169, %132, %96, %44
-  %.1105 = phi i32 [ 0, %44 ], [ 0, %96 ], [ %133, %132 ], [ 0, %169 ], [ 0, %.loopexit ], [ 0, %241 ]
+  %.0104 = phi i32 [ 0, %44 ], [ 0, %96 ], [ %133, %132 ], [ 0, %169 ], [ 0, %.loopexit ], [ 0, %241 ]
   %.0103 = phi ptr [ %0, %44 ], [ %1, %96 ], [ %1, %132 ], [ %1, %169 ], [ %1, %.loopexit ], [ %1, %241 ]
   %.not150 = icmp eq ptr %2, null
   br i1 %.not150, label %250, label %249
 
 249:                                              ; preds = %_ZL12icvCheckHugeP5CvMat.exit
-  store i32 %.1105, ptr %2, align 4
+  store i32 %.0104, ptr %2, align 4
   br label %250
 
 250:                                              ; preds = %249, %_ZL12icvCheckHugeP5CvMat.exit
@@ -6634,7 +6634,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %141
   %indvars.iv166 = phi i64 [ %129, %.lr.ph157.preheader ], [ %indvars.iv.next167, %141 ]
-  %.0154 = phi ptr [ %127, %.lr.ph157.preheader ], [ %.1, %141 ]
+  %.1154 = phi ptr [ %127, %.lr.ph157.preheader ], [ %.2, %141 ]
   %130 = phi i32 [ %1, %.lr.ph157.preheader ], [ %142, %141 ]
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, -1
   %131 = getelementptr inbounds [32 x %struct.anon.4], ptr %91, i64 0, i64 %indvars.iv.next167
@@ -6650,12 +6650,12 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   %137 = load i32, ptr %136, align 4
   %138 = mul nsw i32 %.recomposed171, %137
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i8, ptr %.0154, i64 %139
+  %140 = getelementptr inbounds i8, ptr %.1154, i64 %139
   br label %141
 
 141:                                              ; preds = %.lr.ph157, %133
   %142 = phi i32 [ %134, %133 ], [ %130, %.lr.ph157 ]
-  %.1 = phi ptr [ %140, %133 ], [ %.0154, %.lr.ph157 ]
+  %.2 = phi ptr [ %140, %133 ], [ %.1154, %.lr.ph157 ]
   %143 = icmp ugt i64 %indvars.iv166, 1
   br i1 %143, label %.lr.ph157, label %.loopexit, !llvm.loop !38
 
@@ -6720,8 +6720,8 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   br label %168
 
 .loopexit:                                        ; preds = %141, %126, %78, %._crit_edge, %151, %112, %54, %65
-  %.2 = phi ptr [ %59, %54 ], [ %75, %65 ], [ %86, %78 ], [ %125, %112 ], [ %152, %151 ], [ %161, %._crit_edge ], [ %127, %126 ], [ %.1, %141 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %59, %54 ], [ %75, %65 ], [ %86, %78 ], [ %125, %112 ], [ %152, %151 ], [ %161, %._crit_edge ], [ %127, %126 ], [ %.2, %141 ]
+  ret ptr %.0
 
 168:                                              ; preds = %164, %166, %105, %107, %47, %49
   %.sink = phi ptr [ %6, %49 ], [ %6, %47 ], [ %8, %107 ], [ %8, %105 ], [ %11, %166 ], [ %11, %164 ]
@@ -7347,7 +7347,7 @@ define ptr @cvPtrND(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32
 
 32:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %.04069 = phi ptr [ %27, %.lr.ph ], [ %50, %44 ]
+  %.169 = phi ptr [ %27, %.lr.ph ], [ %50, %44 ]
   %33 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds [32 x %struct.anon.4], ptr %31, i64 0, i64 %indvars.iv
@@ -7384,13 +7384,13 @@ define ptr @cvPtrND(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, %45
-  %50 = getelementptr inbounds i8, ptr %.04069, i64 %49
+  %50 = getelementptr inbounds i8, ptr %.169, i64 %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %44, %.preheader
-  %.040.lcssa = phi ptr [ %27, %.preheader ], [ %50, %44 ]
+  %.1.lcssa = phi ptr [ %27, %.preheader ], [ %50, %44 ]
   %.not61 = icmp eq ptr %2, null
   br i1 %.not61, label %76, label %51
 
@@ -7453,8 +7453,8 @@ define ptr @cvPtrND(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32
   br label %77
 
 76:                                               ; preds = %.split, %.split47, %51, %._crit_edge, %23
-  %.1 = phi ptr [ %24, %23 ], [ %.040.lcssa, %51 ], [ %.040.lcssa, %._crit_edge ], [ %64, %.split ], [ %69, %.split47 ]
-  ret ptr %.1
+  %.040 = phi ptr [ %24, %23 ], [ %.1.lcssa, %51 ], [ %.1.lcssa, %._crit_edge ], [ %64, %.split ], [ %69, %.split47 ]
+  ret ptr %.040
 
 77:                                               ; preds = %72, %74, %40, %42, %15, %17
   %.sink = phi ptr [ %7, %17 ], [ %7, %15 ], [ %9, %42 ], [ %9, %40 ], [ %11, %74 ], [ %11, %72 ]

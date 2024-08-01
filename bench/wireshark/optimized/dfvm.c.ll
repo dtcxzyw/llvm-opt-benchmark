@@ -658,7 +658,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
 
 28:                                               ; preds = %.lr.ph, %194
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %194 ]
-  %.03739 = phi ptr [ null, %.lr.ph ], [ %.2, %194 ]
+  %.03739 = phi ptr [ null, %.lr.ph ], [ %.1, %194 ]
   %29 = load ptr, ptr %1, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr ptr, ptr %30, i64 %indvars.iv
@@ -1174,7 +1174,7 @@ indent.exit271.i:                                 ; preds = %185, %182
   unreachable
 
 append_op_args.exit:                              ; preds = %.lr.ph.i250.i, %115, %indent.exit, %59, %60, %indent.exit.i, %indent.exit240.i, %indent.exit242.i, %indent.exit244.i, %indent.exit246.i, %indent.exit249.i, %110, %indent.exit253.i, %indent.exit255.i, %indent.exit257.i, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %indent.exit259.i, %indent.exit261.i, %indent.exit263.i, %indent.exit265.i, %indent.exit267.i, %indent.exit269.i, %indent.exit271.i, %187, %190, %191
-  %.1 = phi ptr [ %.03739, %indent.exit ], [ %.03739, %190 ], [ %.03739, %191 ], [ %.03739, %187 ], [ %.03739, %indent.exit271.i ], [ %.03739, %indent.exit269.i ], [ %.03739, %indent.exit267.i ], [ %.03739, %indent.exit265.i ], [ %.03739, %indent.exit263.i ], [ %.03739, %indent.exit261.i ], [ %.03739, %indent.exit259.i ], [ %.03739, %151 ], [ %.03739, %150 ], [ %.03739, %149 ], [ %.03739, %148 ], [ %.03739, %147 ], [ %.03739, %146 ], [ %.03739, %145 ], [ %.03739, %144 ], [ %.03739, %143 ], [ %.03739, %142 ], [ %.03739, %141 ], [ %.03739, %140 ], [ %.03739, %139 ], [ %.03739, %138 ], [ %.03739, %indent.exit257.i ], [ %.03739, %indent.exit255.i ], [ %.03739, %indent.exit253.i ], [ %114, %110 ], [ %.03739, %indent.exit249.i ], [ %.03739, %indent.exit246.i ], [ %.03739, %indent.exit244.i ], [ %.03739, %indent.exit242.i ], [ %.03739, %indent.exit240.i ], [ %.03739, %indent.exit.i ], [ %.03739, %60 ], [ %.03739, %59 ], [ %.03739, %115 ], [ %122, %.lr.ph.i250.i ]
+  %.2 = phi ptr [ %.03739, %indent.exit ], [ %.03739, %190 ], [ %.03739, %191 ], [ %.03739, %187 ], [ %.03739, %indent.exit271.i ], [ %.03739, %indent.exit269.i ], [ %.03739, %indent.exit267.i ], [ %.03739, %indent.exit265.i ], [ %.03739, %indent.exit263.i ], [ %.03739, %indent.exit261.i ], [ %.03739, %indent.exit259.i ], [ %.03739, %151 ], [ %.03739, %150 ], [ %.03739, %149 ], [ %.03739, %148 ], [ %.03739, %147 ], [ %.03739, %146 ], [ %.03739, %145 ], [ %.03739, %144 ], [ %.03739, %143 ], [ %.03739, %142 ], [ %.03739, %141 ], [ %.03739, %140 ], [ %.03739, %139 ], [ %.03739, %138 ], [ %.03739, %indent.exit257.i ], [ %.03739, %indent.exit255.i ], [ %.03739, %indent.exit253.i ], [ %114, %110 ], [ %.03739, %indent.exit249.i ], [ %.03739, %indent.exit246.i ], [ %.03739, %indent.exit244.i ], [ %.03739, %indent.exit242.i ], [ %.03739, %indent.exit240.i ], [ %.03739, %indent.exit.i ], [ %.03739, %60 ], [ %.03739, %59 ], [ %.03739, %115 ], [ %122, %.lr.ph.i250.i ]
   tail call void @g_free(ptr noundef %51) #11
   tail call void @g_free(ptr noundef %52) #11
   tail call void @g_free(ptr noundef %53) #11
@@ -1184,7 +1184,7 @@ append_op_args.exit:                              ; preds = %.lr.ph.i250.i, %115
   br label %194
 
 194:                                              ; preds = %append_op_args.exit, %dfvm_opcode_tostr.exit, %dfvm_opcode_tostr.exit, %dfvm_opcode_tostr.exit
-  %.2 = phi ptr [ %.1, %append_op_args.exit ], [ %.03739, %dfvm_opcode_tostr.exit ], [ %.03739, %dfvm_opcode_tostr.exit ], [ %.03739, %dfvm_opcode_tostr.exit ]
+  %.1 = phi ptr [ %.2, %append_op_args.exit ], [ %.03739, %dfvm_opcode_tostr.exit ], [ %.03739, %dfvm_opcode_tostr.exit ], [ %.03739, %dfvm_opcode_tostr.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !7

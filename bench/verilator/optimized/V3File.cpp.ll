@@ -1798,12 +1798,12 @@ _ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_E
   br label %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit: ; preds = %94, %107, %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit.sink.split, %35
-  %.3 = phi i1 [ false, %35 ], [ false, %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit.sink.split ], [ true, %107 ], [ true, %94 ]
+  %.0 = phi i1 [ false, %35 ], [ false, %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit.sink.split ], [ true, %107 ], [ true, %94 ]
   %232 = load ptr, ptr %23, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
   call void %234(ptr noundef nonnull align 8 dereferenceable(256) %23) #27
-  ret i1 %.3
+  ret i1 %.0
 
 _ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit35: ; preds = %.loopexit, %.loopexit.split-lp, %231, %109, %48
   %.pn27 = phi { ptr, i32 } [ %49, %48 ], [ %.pn25, %231 ], [ %.pn.pn, %109 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -4068,7 +4068,7 @@ define dso_local void @_ZN14V3OutFormatter5putnsEPK7AstNodePKc(ptr noundef nonnu
   %.0160 = phi ptr [ %2, %.lr.ph161 ], [ %442, %_ZN14V3OutFormatter9indentDecEv.exit128.thread ]
   %.050158 = phi i1 [ false, %.lr.ph161 ], [ %.151, %_ZN14V3OutFormatter9indentDecEv.exit128.thread ]
   %.052157 = phi i1 [ true, %.lr.ph161 ], [ %.153145, %_ZN14V3OutFormatter9indentDecEv.exit128.thread ]
-  %.054156 = phi i1 [ false, %.lr.ph161 ], [ %.256, %_ZN14V3OutFormatter9indentDecEv.exit128.thread ]
+  %.054156 = phi i1 [ false, %.lr.ph161 ], [ %.155, %_ZN14V3OutFormatter9indentDecEv.exit128.thread ]
   %166 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 885), align 1
   %167 = trunc i8 %166 to i1
   br i1 %167, label %168, label %_ZN14V3OutFormatter14putcNoTrackingEc.exit
@@ -4206,7 +4206,7 @@ _ZN14V3OutFormatter13tokenNotStartEPKc.exit:      ; preds = %.lr.ph.i2.i
   br label %_ZN14V3OutFormatter13tokenNotStartEPKc.exit.thread
 
 _ZN14V3OutFormatter13tokenNotStartEPKc.exit.thread: ; preds = %210, %._crit_edge.i7.i, %200, %._crit_edge.i.i, %215, %213, %_ZN14V3OutFormatter13tokenNotStartEPKc.exit
-  %.155167 = phi i1 [ false, %215 ], [ false, %213 ], [ true, %_ZN14V3OutFormatter13tokenNotStartEPKc.exit ], [ true, %._crit_edge.i.i ], [ true, %200 ], [ true, %210 ], [ true, %._crit_edge.i7.i ]
+  %.256167 = phi i1 [ false, %215 ], [ false, %213 ], [ true, %_ZN14V3OutFormatter13tokenNotStartEPKc.exit ], [ true, %._crit_edge.i.i ], [ true, %200 ], [ true, %210 ], [ true, %._crit_edge.i7.i ]
   %219 = call noundef zeroext i1 @_ZN14V3OutFormatter8tokenEndEPKc(ptr noundef nonnull %.0160)
   br i1 %219, label %220, label %_ZN14V3OutFormatter9indentDecEv.exitthread-pre-split
 
@@ -4229,13 +4229,13 @@ _ZN14V3OutFormatter13tokenNotStartEPKc.exit.thread: ; preds = %210, %._crit_edge
   unreachable
 
 _ZN14V3OutFormatter9indentDecEv.exitthread-pre-split: ; preds = %189, %_ZN14V3OutFormatter13tokenNotStartEPKc.exit.thread, %220
-  %.256.ph = phi i1 [ %.155167, %220 ], [ %.155167, %_ZN14V3OutFormatter13tokenNotStartEPKc.exit.thread ], [ %.054156, %189 ]
+  %.155.ph = phi i1 [ %.256167, %220 ], [ %.256167, %_ZN14V3OutFormatter13tokenNotStartEPKc.exit.thread ], [ %.054156, %189 ]
   %.pr = load i8, ptr %.0160, align 1
   br label %_ZN14V3OutFormatter9indentDecEv.exit
 
 _ZN14V3OutFormatter9indentDecEv.exit:             ; preds = %_ZN14V3OutFormatter9indentDecEv.exitthread-pre-split, %_ZN14V3OutFormatter14putcNoTrackingEc.exit
   %232 = phi i8 [ %.pr, %_ZN14V3OutFormatter9indentDecEv.exitthread-pre-split ], [ %186, %_ZN14V3OutFormatter14putcNoTrackingEc.exit ]
-  %.256 = phi i1 [ %.256.ph, %_ZN14V3OutFormatter9indentDecEv.exitthread-pre-split ], [ %.054156, %_ZN14V3OutFormatter14putcNoTrackingEc.exit ]
+  %.155 = phi i1 [ %.155.ph, %_ZN14V3OutFormatter9indentDecEv.exitthread-pre-split ], [ %.054156, %_ZN14V3OutFormatter14putcNoTrackingEc.exit ]
   switch i8 %232, label %439 [
     i8 10, label %233
     i8 32, label %_ZN14V3OutFormatter9indentDecEv.exit128
@@ -4312,8 +4312,8 @@ _ZN14V3OutFormatter9indentDecEv.exit:             ; preds = %_ZN14V3OutFormatter
 
 .lr.ph:                                           ; preds = %259, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126
   %262 = phi i8 [ %286, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ], [ %261, %259 ]
-  %.1154 = phi ptr [ %263, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ], [ %260, %259 ]
-  %263 = getelementptr inbounds i8, ptr %.1154, i64 1
+  %.2154 = phi ptr [ %263, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ], [ %260, %259 ]
+  %263 = getelementptr inbounds i8, ptr %.2154, i64 1
   %264 = load i8, ptr %263, align 1
   switch i8 %264, label %265 [
     i8 0, label %.critedge
@@ -4680,8 +4680,8 @@ _ZN14V3OutFormatter9indentDecEv.exit134:          ; preds = %412
 
 _ZN14V3OutFormatter9indentDecEv.exit128:          ; preds = %429, %383, %368, %364, %345, %249, %398, %_ZN14V3OutFormatter9indentDecEv.exit, %_ZN14V3OutFormatter9indentDecEv.exit, %409, %425, %_ZN14V3OutFormatter9indentDecEv.exit134, %395, %401, %405, %_ZN14V3OutFormatter14putcNoTrackingEc.exit127, %256, %252, %239, %242, %439, %325, %245
   %.153.ph = phi i1 [ %.052157, %429 ], [ %.052157, %383 ], [ %.052157, %368 ], [ %.052157, %364 ], [ %.052157, %345 ], [ %.052157, %249 ], [ true, %_ZN14V3OutFormatter9indentDecEv.exit ], [ true, %_ZN14V3OutFormatter9indentDecEv.exit ], [ true, %242 ], [ true, %239 ], [ false, %245 ], [ %.052157, %252 ], [ %.052157, %_ZN14V3OutFormatter14putcNoTrackingEc.exit127 ], [ %.052157, %256 ], [ %.052157, %325 ], [ %.052157, %395 ], [ %.052157, %405 ], [ %.052157, %401 ], [ %.052157, %398 ], [ %.052157, %409 ], [ %.052157, %_ZN14V3OutFormatter9indentDecEv.exit134 ], [ %.052157, %425 ], [ false, %439 ]
-  %.2.ph = phi ptr [ %.0160, %429 ], [ %.0160, %383 ], [ %.0160, %368 ], [ %.0160, %364 ], [ %.0160, %345 ], [ %.0160, %249 ], [ %.0160, %_ZN14V3OutFormatter9indentDecEv.exit ], [ %.0160, %_ZN14V3OutFormatter9indentDecEv.exit ], [ %.0160, %242 ], [ %.0160, %239 ], [ %.0160, %245 ], [ %.0160, %252 ], [ %.1154, %_ZN14V3OutFormatter14putcNoTrackingEc.exit127 ], [ %.0160, %256 ], [ %.0160, %325 ], [ %.0160, %395 ], [ %.0160, %405 ], [ %.0160, %401 ], [ %.0160, %398 ], [ %.0160, %409 ], [ %.0160, %_ZN14V3OutFormatter9indentDecEv.exit134 ], [ %.0160, %425 ], [ %.0160, %439 ]
-  %.pr142 = load i8, ptr %.2.ph, align 1
+  %.1.ph = phi ptr [ %.0160, %429 ], [ %.0160, %383 ], [ %.0160, %368 ], [ %.0160, %364 ], [ %.0160, %345 ], [ %.0160, %249 ], [ %.0160, %_ZN14V3OutFormatter9indentDecEv.exit ], [ %.0160, %_ZN14V3OutFormatter9indentDecEv.exit ], [ %.0160, %242 ], [ %.0160, %239 ], [ %.0160, %245 ], [ %.0160, %252 ], [ %.2154, %_ZN14V3OutFormatter14putcNoTrackingEc.exit127 ], [ %.0160, %256 ], [ %.0160, %325 ], [ %.0160, %395 ], [ %.0160, %405 ], [ %.0160, %401 ], [ %.0160, %398 ], [ %.0160, %409 ], [ %.0160, %_ZN14V3OutFormatter9indentDecEv.exit134 ], [ %.0160, %425 ], [ %.0160, %439 ]
+  %.pr142 = load i8, ptr %.1.ph, align 1
   switch i8 %.pr142, label %441 [
     i8 61, label %440
     i8 32, label %_ZN14V3OutFormatter9indentDecEv.exit128.thread
@@ -4694,10 +4694,10 @@ _ZN14V3OutFormatter9indentDecEv.exit128:          ; preds = %429, %383, %368, %3
   br label %_ZN14V3OutFormatter9indentDecEv.exit128.thread
 
 _ZN14V3OutFormatter9indentDecEv.exit128.thread:   ; preds = %_ZN14V3OutFormatter14putcNoTrackingEc.exit126, %259, %440, %441, %_ZN14V3OutFormatter9indentDecEv.exit128
-  %.2147 = phi ptr [ %.2.ph, %_ZN14V3OutFormatter9indentDecEv.exit128 ], [ %.2.ph, %440 ], [ %.2.ph, %441 ], [ %260, %259 ], [ %263, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ]
+  %.1147 = phi ptr [ %.1.ph, %_ZN14V3OutFormatter9indentDecEv.exit128 ], [ %.1.ph, %440 ], [ %.1.ph, %441 ], [ %260, %259 ], [ %263, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ]
   %.153145 = phi i1 [ %.153.ph, %_ZN14V3OutFormatter9indentDecEv.exit128 ], [ %.153.ph, %440 ], [ %.153.ph, %441 ], [ %.052157, %259 ], [ %.052157, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ]
   %.151 = phi i1 [ %.050158, %_ZN14V3OutFormatter9indentDecEv.exit128 ], [ true, %440 ], [ false, %441 ], [ false, %259 ], [ false, %_ZN14V3OutFormatter14putcNoTrackingEc.exit126 ]
-  %442 = getelementptr inbounds i8, ptr %.2147, i64 1
+  %442 = getelementptr inbounds i8, ptr %.1147, i64 1
   %443 = load i8, ptr %442, align 1
   %.not89 = icmp eq i8 %443, 0
   br i1 %.not89, label %.loopexit, label %164, !llvm.loop !37

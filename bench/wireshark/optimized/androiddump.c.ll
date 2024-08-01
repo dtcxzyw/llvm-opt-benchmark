@@ -1877,7 +1877,7 @@ select.unfold:                                    ; preds = %31, %25, %27, %29
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge, %35
-  %.096.ph = phi i32 [ %.298, %._crit_edge ], [ %23, %35 ]
+  %.096.ph = phi i32 [ %.197, %._crit_edge ], [ %23, %35 ]
   %.095.ph = phi i64 [ %100, %._crit_edge ], [ 0, %35 ]
   %51 = getelementptr i8, ptr %47, i64 %.095.ph
   %52 = add i64 %.095.ph, %38
@@ -1914,9 +1914,9 @@ select.unfold:                                    ; preds = %31, %25, %27, %29
   br i1 %or.cond, label %.preheader, label %.loopexit139
 
 .preheader:                                       ; preds = %63, %72
-  %.197 = phi i32 [ %68, %72 ], [ %.096.ph, %63 ]
+  %.298 = phi i32 [ %68, %72 ], [ %.096.ph, %63 ]
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2259, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.163) #16
-  %67 = tail call i32 @close(i32 noundef %.197) #16
+  %67 = tail call i32 @close(i32 noundef %.298) #16
   %.val128 = load i16, ptr %3, align 2
   %68 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val128, ptr noundef %.08.i)
   %69 = icmp eq i32 %68, -1
@@ -1934,7 +1934,7 @@ select.unfold:                                    ; preds = %31, %25, %27, %29
   br i1 %.old1.not, label %.loopexit139, label %.preheader
 
 .loopexit139:                                     ; preds = %72, %70, %63
-  %.298 = phi i32 [ %.096.ph, %63 ], [ %68, %70 ], [ %68, %72 ]
+  %.197 = phi i32 [ %.096.ph, %63 ], [ %68, %70 ], [ %68, %72 ]
   %.1 = phi i64 [ %.095.ph, %63 ], [ 0, %70 ], [ 0, %72 ]
   %73 = add i64 %59, %46
   %74 = add i64 %73, %.1
@@ -2209,7 +2209,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br label %241
 
 81:                                               ; preds = %77
-  %82 = add i64 %72, %.2.ph
+  %82 = add i64 %72, %.3.ph
   %83 = tail call ptr @memchr(ptr noundef nonnull @capture_android_bluetooth_hcidump.data, i32 noundef 10, i64 noundef %82) #19
   %.not211 = icmp ne ptr %83, null
   %84 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %82
@@ -2237,9 +2237,9 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br label %.outer233, !llvm.loop !18
 
 .outer233:                                        ; preds = %65, %.outer233.backedge
-  %.2.ph = phi i64 [ %82, %.outer233.backedge ], [ 0, %65 ]
-  %92 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.2.ph
-  %93 = shl i64 %.2.ph, 32
+  %.3.ph = phi i64 [ %82, %.outer233.backedge ], [ 0, %65 ]
+  %92 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.3.ph
+  %93 = shl i64 %.3.ph, 32
   %sext209 = sub i64 281470681743360, %93
   %94 = ashr exact i64 %sext209, 32
   br label %69
@@ -2257,7 +2257,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 
 .loopexit:                                        ; preds = %33, %69, %.loopexit.sink.split
   %.1171 = phi i32 [ %.1171.ph, %.loopexit.sink.split ], [ %60, %69 ], [ %27, %33 ]
-  %.3 = phi i64 [ %97, %.loopexit.sink.split ], [ %.2.ph, %69 ], [ %.0169.ph, %33 ]
+  %.2 = phi i64 [ %97, %.loopexit.sink.split ], [ %.3.ph, %69 ], [ %.0169.ph, %33 ]
   %98 = getelementptr inbounds i8, ptr %7, i64 20
   %99 = getelementptr inbounds i8, ptr %7, i64 16
   %100 = getelementptr inbounds i8, ptr %7, i64 12
@@ -2268,7 +2268,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 
 .outer:                                           ; preds = %._crit_edge286, %.loopexit
   %.0172.ph = phi i64 [ %.1173.lcssa, %._crit_edge286 ], [ 0, %.loopexit ]
-  %.4.ph = phi i64 [ %.6, %._crit_edge286 ], [ %.3, %.loopexit ]
+  %.4.ph = phi i64 [ %.6, %._crit_edge286 ], [ %.2, %.loopexit ]
   %104 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %.4.ph
   %105 = shl i64 %.4.ph, 32
   %sext217 = sub i64 281470681743360, %105
@@ -2450,11 +2450,11 @@ thread-pre-split:                                 ; preds = %116
   br label %241
 
 195:                                              ; preds = %164, %186, %151
-  %.2177 = phi i64 [ %153, %151 ], [ %166, %164 ], [ %192, %186 ]
-  %196 = mul i64 %.2177, 3
-  %197 = sdiv i64 %.2177, 20
+  %.3178 = phi i64 [ %153, %151 ], [ %166, %164 ], [ %192, %186 ]
+  %196 = mul i64 %.3178, 3
+  %197 = sdiv i64 %.3178, 20
   %198 = shl nsw i64 %197, 2
-  %199 = srem i64 %.2177, 20
+  %199 = srem i64 %.3178, 20
   %.not220 = icmp eq i64 %199, 0
   %200 = select i1 %.not220, i64 -2, i64 2
   %201 = add i64 %196, 29

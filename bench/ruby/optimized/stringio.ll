@@ -3973,7 +3973,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
 
 .critedge2:                                       ; preds = %100, %.critedge2.loopexit, %.preheader224
   %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit ], [ %75, %.preheader224 ], [ %75, %100 ]
-  %.1146 = phi ptr [ %.2151, %.critedge2.loopexit ], [ %.0145, %.preheader224 ], [ %.0145, %100 ]
+  %.2147 = phi ptr [ %.2151, %.critedge2.loopexit ], [ %.0145, %.preheader224 ], [ %.0145, %100 ]
   %.0142 = phi ptr [ %111, %.critedge2.loopexit ], [ null, %.preheader224 ], [ null, %100 ]
   %128 = getelementptr inbounds i8, ptr %0, i64 16
   %129 = load i8, ptr %128, align 8
@@ -4060,10 +4060,10 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
   br label %175
 
 175:                                              ; preds = %164, %171, %169, %RSTRING_PTR.exit194
-  %.2147 = phi ptr [ %.0145, %RSTRING_PTR.exit194 ], [ %165, %169 ], [ %165, %171 ], [ %165, %164 ]
+  %.3148 = phi ptr [ %.0145, %RSTRING_PTR.exit194 ], [ %165, %169 ], [ %165, %171 ], [ %165, %164 ]
   %.2.neg = phi i64 [ 0, %RSTRING_PTR.exit194 ], [ -1, %169 ], [ %.neg, %171 ], [ 0, %164 ]
   %176 = load i64, ptr %14, align 8
-  %177 = ptrtoint ptr %.2147 to i64
+  %177 = ptrtoint ptr %.3148 to i64
   %178 = sub i64 %177, %161
   %179 = add i64 %178, %.2.neg
   %.val181 = load i64, ptr %1, align 8
@@ -4258,10 +4258,10 @@ bm_search.exit:                                   ; preds = %.preheader.lr.ph.i,
   br label %bm_search.exit.thread
 
 bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.lr.ph236, %.lr.ph238, %bm_init_skip.exit.thread, %.preheader, %bm_init_skip.exit, %.split.us, %250, %bm_search.exit, %190
-  %.3148 = phi ptr [ %.us-phi, %.split.us ], [ %253, %250 ], [ %.0145, %bm_search.exit ], [ %.0145, %190 ], [ %.0145, %bm_init_skip.exit ], [ %.0145, %.preheader ], [ %.0145, %bm_init_skip.exit.thread ], [ %.0145, %.lr.ph238 ], [ %.0145, %.lr.ph236 ], [ %.0145, %.critedge.us.i ]
+  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %253, %250 ], [ %.0145, %bm_search.exit ], [ %.0145, %190 ], [ %.0145, %bm_init_skip.exit ], [ %.0145, %.preheader ], [ %.0145, %bm_init_skip.exit.thread ], [ %.0145, %.lr.ph238 ], [ %.0145, %.lr.ph236 ], [ %.0145, %.critedge.us.i ]
   %.3 = phi i64 [ %215, %.split.us ], [ 0, %250 ], [ 0, %bm_search.exit ], [ 0, %190 ], [ 0, %bm_init_skip.exit ], [ 0, %.preheader ], [ 0, %bm_init_skip.exit.thread ], [ 0, %.lr.ph238 ], [ 0, %.lr.ph236 ], [ 0, %.critedge.us.i ]
   %254 = load i64, ptr %14, align 8
-  %255 = ptrtoint ptr %.3148 to i64
+  %255 = ptrtoint ptr %.4 to i64
   %256 = add i64 %.3, %192
   %257 = sub i64 %255, %256
   %.val182 = load i64, ptr %1, align 8
@@ -4283,7 +4283,7 @@ bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.l
   br label %strio_substr.exit
 
 strio_substr.exit:                                ; preds = %265, %263, %187, %185, %150, %148, %66, %64
-  %.4 = phi ptr [ %.0145, %64 ], [ %.0145, %66 ], [ %.1146, %148 ], [ %.1146, %150 ], [ %.2147, %185 ], [ %.2147, %187 ], [ %.3148, %263 ], [ %.3148, %265 ]
+  %.1146 = phi ptr [ %.0145, %64 ], [ %.0145, %66 ], [ %.2147, %148 ], [ %.2147, %150 ], [ %.3148, %185 ], [ %.3148, %187 ], [ %.4, %263 ], [ %.4, %265 ]
   %.0144 = phi i64 [ %65, %64 ], [ %67, %66 ], [ %149, %148 ], [ %151, %150 ], [ %186, %185 ], [ %188, %187 ], [ %264, %263 ], [ %266, %265 ]
   %268 = load i64, ptr %1, align 8
   %269 = inttoptr i64 %268 to ptr
@@ -4299,7 +4299,7 @@ strio_substr.exit:                                ; preds = %265, %263, %187, %1
 
 RSTRING_PTR.exit213:                              ; preds = %strio_substr.exit, %273
   %.sroa.2.0.i212 = phi ptr [ %.sroa.2.0.copyload.i211, %273 ], [ %272, %strio_substr.exit ]
-  %274 = ptrtoint ptr %.4 to i64
+  %274 = ptrtoint ptr %.1146 to i64
   %275 = ptrtoint ptr %.sroa.2.0.i212 to i64
   %276 = sub i64 %274, %275
   store i64 %276, ptr %14, align 8

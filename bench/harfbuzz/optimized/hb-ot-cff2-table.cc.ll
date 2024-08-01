@@ -598,8 +598,8 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0.i2449, %cleanup ], [ %retval.0.i2449, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.0.i2449, %cleanup ], [ %retval.0.i2449, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1441,8 +1441,8 @@ if.then.i.i.i:                                    ; preds = %_ZN3CFF16cs_interpr
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0.i14, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit ], [ %retval.0.i14, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.0.i14, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_cs_opset_path_t17cff2_path_param_tE9interpretERS5_.exit ], [ %retval.0.i14, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2329,20 +2329,20 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %v.06.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i ], [ %16, %for.body.i.i ]
+  %v.16.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i ], [ %16, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i.i
   %14 = load float, ptr %arrayidx.i.i, align 4
   %conv.i.i = fpext float %14 to double
   %arrayidx10.i.i = getelementptr inbounds %"struct.CFF::number_t", ptr %add.ptr.i.i.i, i64 %indvars.iv.i.i
   %15 = load double, ptr %arrayidx10.i.i, align 8
-  %16 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %15, double %v.06.i.i)
+  %16 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %15, double %v.16.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %retval.sroa.3.8.insert.ext.i.i.i
   br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %for.body.i.i, !llvm.loop !11
 
 _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit: ; preds = %for.body.i.i, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %if.then.i.i
-  %v.1.i.i = phi double [ 0.000000e+00, %if.then.i.i ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %16, %for.body.i.i ]
-  %add.i = fadd double %10, %v.1.i.i
+  %v.0.i.i = phi double [ 0.000000e+00, %if.then.i.i ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %16, %for.body.i.i ]
+  %add.i = fadd double %10, %v.0.i.i
   store double %add.i, ptr %retval.0.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6278,9 +6278,9 @@ if.then28.i.i.i:                                  ; preds = %_ZN11hb_vector_tIfL
   br i1 %cmp30.not.i.i.i, label %_ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread17.i.i, label %if.end.i.i2
 
 _ZN11hb_vector_tIfLb0EE5allocEjb.exit.thread17.i.i: ; preds = %if.then28.i.i.i, %lor.rhs.i.i.i
-  %new_allocated.128.sink.i.ph.in.i.i = phi i32 [ %12, %lor.rhs.i.i.i ], [ %17, %if.then28.i.i.i ]
-  %new_allocated.128.sink.i.ph.i.i = xor i32 %new_allocated.128.sink.i.ph.in.i.i, -1
-  store i32 %new_allocated.128.sink.i.ph.i.i, ptr %scalars, align 8
+  %new_allocated.028.sink.i.ph.in.i.i = phi i32 [ %12, %lor.rhs.i.i.i ], [ %17, %if.then28.i.i.i ]
+  %new_allocated.028.sink.i.ph.i.i = xor i32 %new_allocated.028.sink.i.ph.in.i.i, -1
+  store i32 %new_allocated.028.sink.i.ph.i.i, ptr %scalars, align 8
   br label %if.then8
 
 _ZN11hb_vector_tIfLb0EE5allocEjb.exit.i.i:        ; preds = %_ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPfj11hb_priorityILj0EE.exit.i.i.i, %_ZN11hb_vector_tIfLb0EE14realloc_vectorIfTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPfj11hb_priorityILj0EE.exit.thread.i.i.i
@@ -7455,20 +7455,20 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %v.06.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i ], [ %16, %for.body.i.i ]
+  %v.16.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i ], [ %16, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i.i
   %14 = load float, ptr %arrayidx.i.i, align 4
   %conv.i.i = fpext float %14 to double
   %arrayidx10.i.i = getelementptr inbounds %"struct.CFF::number_t", ptr %add.ptr.i.i.i, i64 %indvars.iv.i.i
   %15 = load double, ptr %arrayidx10.i.i, align 8
-  %16 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %15, double %v.06.i.i)
+  %16 = tail call double @llvm.fmuladd.f64(double %conv.i.i, double %15, double %v.16.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %retval.sroa.3.8.insert.ext.i.i.i
   br i1 %exitcond.not.i.i, label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, label %for.body.i.i, !llvm.loop !11
 
 _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit: ; preds = %for.body.i.i, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %if.then.i.i
-  %v.1.i.i = phi double [ 0.000000e+00, %if.then.i.i ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %16, %for.body.i.i ]
-  %add.i = fadd double %10, %v.1.i.i
+  %v.0.i.i = phi double [ 0.000000e+00, %if.then.i.i ], [ 0.000000e+00, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ], [ %16, %for.body.i.i ]
+  %add.i = fadd double %10, %v.0.i.i
   store double %add.i, ptr %retval.0.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

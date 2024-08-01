@@ -254,11 +254,11 @@ med3.exit266:                                     ; preds = %95, %97, %101, %103
 
 med3.exit267:                                     ; preds = %122, %120, %116, %114, %59
   %.0241 = phi ptr [ %62, %59 ], [ %119, %116 ], [ %125, %122 ], [ %110, %114 ], [ %110, %120 ]
-  %.1238 = phi ptr [ %58, %59 ], [ %107, %116 ], [ %107, %122 ], [ %107, %114 ], [ %107, %120 ]
+  %.2239 = phi ptr [ %58, %59 ], [ %107, %116 ], [ %107, %122 ], [ %107, %114 ], [ %107, %120 ]
   %.1232 = phi ptr [ %.0395, %59 ], [ %88, %116 ], [ %88, %122 ], [ %88, %114 ], [ %88, %120 ]
-  %126 = tail call i32 %3(ptr noundef %.1232, ptr noundef %.1238) #2
+  %126 = tail call i32 %3(ptr noundef %.1232, ptr noundef %.2239) #2
   %127 = icmp slt i32 %126, 0
-  %128 = tail call i32 %3(ptr noundef %.1238, ptr noundef %.0241) #2
+  %128 = tail call i32 %3(ptr noundef %.2239, ptr noundef %.0241) #2
   br i1 %127, label %129, label %135
 
 129:                                              ; preds = %med3.exit267
@@ -282,22 +282,22 @@ med3.exit267:                                     ; preds = %122, %120, %116, %1
   br label %med3.exit268
 
 med3.exit268:                                     ; preds = %137, %135, %131, %129, %53
-  %.2239 = phi ptr [ %58, %53 ], [ %134, %131 ], [ %140, %137 ], [ %.1238, %129 ], [ %.1238, %135 ]
+  %.1238 = phi ptr [ %58, %53 ], [ %134, %131 ], [ %140, %137 ], [ %.2239, %129 ], [ %.2239, %135 ]
   %141 = icmp eq i32 %54, 0
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %med3.exit268
   %143 = load i64, ptr %.0395, align 8
-  %144 = load i64, ptr %.2239, align 8
+  %144 = load i64, ptr %.1238, align 8
   store i64 %144, ptr %.0395, align 8
-  store i64 %143, ptr %.2239, align 8
+  store i64 %143, ptr %.1238, align 8
   br label %swapfunc.exit275
 
 145:                                              ; preds = %med3.exit268
   br i1 %or.cond396, label %.preheader451, label %.preheader343
 
 .preheader451:                                    ; preds = %145, %.preheader451
-  %.022.i272 = phi ptr [ %149, %.preheader451 ], [ %.2239, %145 ]
+  %.022.i272 = phi ptr [ %149, %.preheader451 ], [ %.1238, %145 ]
   %.021.i273 = phi ptr [ %148, %.preheader451 ], [ %.0395, %145 ]
   %.0.i274 = phi i64 [ %150, %.preheader451 ], [ %14, %145 ]
   %146 = load i64, ptr %.021.i273, align 8
@@ -313,7 +313,7 @@ med3.exit268:                                     ; preds = %137, %135, %131, %1
 .preheader343:                                    ; preds = %145, %.preheader343
   %.020.i269 = phi i64 [ %156, %.preheader343 ], [ %13, %145 ]
   %.019.i270 = phi ptr [ %154, %.preheader343 ], [ %.0395, %145 ]
-  %.018.i271 = phi ptr [ %155, %.preheader343 ], [ %.2239, %145 ]
+  %.018.i271 = phi ptr [ %155, %.preheader343 ], [ %.1238, %145 ]
   %152 = load i8, ptr %.019.i270, align 1
   %153 = load i8, ptr %.018.i271, align 1
   %154 = getelementptr inbounds i8, ptr %.019.i270, i64 1

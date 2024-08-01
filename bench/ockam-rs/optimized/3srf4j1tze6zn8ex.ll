@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
 11:                                               ; preds = %.lr.ph32, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
   %.01529 = phi i64 [ %6, %.lr.ph32 ], [ %.1, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   %.01628 = phi i1 [ false, %.lr.ph32 ], [ %.117, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
-  %.027 = phi i64 [ 0, %.lr.ph32 ], [ %.2, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
+  %.027 = phi i64 [ 0, %.lr.ph32 ], [ %.121, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   %12 = and i64 %.01529, 2251799813685247
   %13 = or disjoint i64 %12, %10
   %14 = cmpxchg ptr %5, i64 %.01529, i64 %13 acq_rel acquire, align 8
@@ -209,7 +209,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; preds = %29, %27, %11
-  %.2 = phi i64 [ 0, %11 ], [ %.027, %29 ], [ %28, %27 ]
+  %.121 = phi i64 [ 0, %11 ], [ %.027, %29 ], [ %28, %27 ]
   %.117 = phi i1 [ %.01628, %11 ], [ true, %29 ], [ true, %27 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01529, %29 ], [ %.01529, %27 ]
   %30 = lshr i64 %.1, 51
@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
 11:                                               ; preds = %.lr.ph33, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
   %.01530 = phi i64 [ %6, %.lr.ph33 ], [ %.1, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   %.01629 = phi i1 [ false, %.lr.ph33 ], [ %.117, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
-  %.028 = phi i64 [ 0, %.lr.ph33 ], [ %.2, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
+  %.028 = phi i64 [ 0, %.lr.ph33 ], [ %.121, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit ]
   %12 = and i64 %.01530, 2251799813685247
   %13 = or disjoint i64 %12, %10
   %14 = cmpxchg ptr %5, i64 %.01530, i64 %13 acq_rel acquire, align 8
@@ -302,7 +302,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit: ; preds = %32, %30, %11
-  %.2 = phi i64 [ 0, %11 ], [ %.028, %32 ], [ %31, %30 ]
+  %.121 = phi i64 [ 0, %11 ], [ %.028, %32 ], [ %31, %30 ]
   %.117 = phi i1 [ %.01629, %11 ], [ true, %32 ], [ true, %30 ]
   %.1 = phi i64 [ %.sroa.07.0.i, %11 ], [ %.01530, %32 ], [ %.01530, %30 ]
   %33 = lshr i64 %.1, 51
@@ -448,7 +448,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
 38:                                               ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i, %.lr.ph32.i.i.i
   %.01529.i.i.i = phi i64 [ %33, %.lr.ph32.i.i.i ], [ %.1.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
   %.01628.i.i.i = phi i1 [ false, %.lr.ph32.i.i.i ], [ %.117.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
-  %.027.i.i.i = phi i64 [ 0, %.lr.ph32.i.i.i ], [ %.2.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
+  %.027.i.i.i = phi i64 [ 0, %.lr.ph32.i.i.i ], [ %.121.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i ]
   %39 = and i64 %.01529.i.i.i, 2251799813685247
   %40 = or disjoint i64 %39, %37
   %41 = cmpxchg ptr %32, i64 %.01529.i.i.i, i64 %40 acq_rel acquire, align 8, !noalias !23
@@ -499,7 +499,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h706b616e4d895a53E.exit.i.i.i: ; preds = %56, %54, %38
-  %.2.i.i.i = phi i64 [ 0, %38 ], [ %.027.i.i.i, %56 ], [ %55, %54 ]
+  %.121.i.i.i = phi i64 [ 0, %38 ], [ %.027.i.i.i, %56 ], [ %55, %54 ]
   %.117.i.i.i = phi i1 [ %.01628.i.i.i, %38 ], [ true, %56 ], [ true, %54 ]
   %.1.i.i.i = phi i64 [ %.sroa.07.0.i.i.i.i, %38 ], [ %.01529.i.i.i, %56 ], [ %.01529.i.i.i, %54 ]
   %57 = lshr i64 %.1.i.i.i, 51
@@ -3614,7 +3614,7 @@ define internal fastcc noundef zeroext i1 @_ZN10ockam_core12flow_control14access
           to label %18 unwind label %16
 
 _ZN10ockam_core12flow_control13flow_controls14consumers_info13ConsumersInfo8contains17h80cf80ce52dbe7efE.exit: ; preds = %.noexc, %3
-  %.1.i.i = phi i1 [ %not.trunc.i.i, %.noexc ], [ false, %3 ]
+  %.0.i.i = phi i1 [ %not.trunc.i.i, %.noexc ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !392
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -3623,7 +3623,7 @@ _ZN10ockam_core12flow_control13flow_controls14consumers_info13ConsumersInfo8cont
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h611f3fd1899e8239E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !392
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !392
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  ret i1 %.1.i.i
+  ret i1 %.0.i.i
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }

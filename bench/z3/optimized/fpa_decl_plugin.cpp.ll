@@ -10843,12 +10843,12 @@ invoke.cont70:                                    ; preds = %lor.rhs67
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont65, %invoke.cont70, %invoke.cont59
-  %retval.0 = phi i1 [ %cmp61, %invoke.cont59 ], [ true, %invoke.cont65 ], [ %cmp72, %invoke.cont70 ]
+  %retval.2 = phi i1 [ %cmp61, %invoke.cont59 ], [ true, %invoke.cont65 ], [ %cmp72, %invoke.cont70 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %r) #18
   br label %cleanup74
 
 cleanup74:                                        ; preds = %_ZNK9parameter7get_intEv.exit, %land.rhs.i.i.i, %_Z9is_app_ofPK4exprii.exit60.i.i, %invoke.cont34, %invoke.cont37, %invoke.cont30, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont30 ], [ true, %invoke.cont37 ], [ true, %invoke.cont34 ], [ false, %_Z9is_app_ofPK4exprii.exit60.i.i ], [ false, %land.rhs.i.i.i ], [ false, %_ZNK9parameter7get_intEv.exit ]
+  %retval.1 = phi i1 [ %retval.2, %cleanup ], [ false, %invoke.cont30 ], [ true, %invoke.cont37 ], [ true, %invoke.cont34 ], [ false, %_Z9is_app_ofPK4exprii.exit60.i.i ], [ false, %land.rhs.i.i.i ], [ false, %_ZNK9parameter7get_intEv.exit ]
   %49 = load ptr, ptr %sv, align 8
   %m_mpz_manager.i.i.i = getelementptr inbounds i8, ptr %49, i64 728
   %50 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
@@ -10892,8 +10892,8 @@ if.end88:                                         ; preds = %_ZNK4decl13get_fami
   br label %return
 
 return:                                           ; preds = %cleanup74, %_ZNK4decl13get_family_idEv.exit.thread, %if.then79, %lor.rhs83, %_ZNK4decl13get_family_idEv.exit, %if.end88, %_ZN8fpa_util6is_nanEP4expr.exit
-  %retval.2 = phi i1 [ %9, %_ZN8fpa_util6is_nanEP4expr.exit ], [ %call90, %if.end88 ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ true, %if.then79 ], [ %call84, %lor.rhs83 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread ], [ %retval.1, %cleanup74 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %9, %_ZN8fpa_util6is_nanEP4expr.exit ], [ %call90, %if.end88 ], [ false, %_ZNK4decl13get_family_idEv.exit ], [ true, %if.then79 ], [ %call84, %lor.rhs83 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread ], [ %retval.1, %cleanup74 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

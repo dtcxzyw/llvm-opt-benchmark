@@ -262,15 +262,15 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit37:         ; preds = %92
 
 112:                                              ; preds = %110, %108
   %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %.19 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.2 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.210 = extractvalue { ptr, i32 } %.pn.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   %113 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #16
-  %114 = icmp eq i32 %.1, %113
+  %114 = icmp eq i32 %.2, %113
   br i1 %114, label %115, label %183
 
 115:                                              ; preds = %112
-  %116 = call ptr @__cxa_begin_catch(ptr %.19) #16
+  %116 = call ptr @__cxa_begin_catch(ptr %.210) #16
   %117 = load ptr, ptr @stderr, align 8
   %118 = load ptr, ptr %116, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 16
@@ -487,14 +487,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %180, %177
 
 182:                                              ; preds = %181, %173, %.body40, %169
   %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %181 ], [ %174, %173 ], [ %170, %169 ], [ %.pn19, %.body40 ]
-  %.5 = extractvalue { ptr, i32 } %.pn21.pn.pn, 1
-  %.513 = extractvalue { ptr, i32 } %.pn21.pn.pn, 0
+  %.4 = extractvalue { ptr, i32 } %.pn21.pn.pn, 1
+  %.412 = extractvalue { ptr, i32 } %.pn21.pn.pn, 0
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
   br label %183
 
 183:                                              ; preds = %182, %112, %104
-  %.614 = phi ptr [ %.513, %182 ], [ %106, %104 ], [ %.19, %112 ]
-  %.6 = phi i32 [ %.5, %182 ], [ %107, %104 ], [ %.1, %112 ]
+  %.19 = phi ptr [ %.412, %182 ], [ %106, %104 ], [ %.210, %112 ]
+  %.1 = phi i32 [ %.4, %182 ], [ %107, %104 ], [ %.2, %112 ]
   %184 = load ptr, ptr %4, align 8
   %.not.i.i.i54 = icmp eq ptr %184, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIiSaIiEED2Ev.exit55, label %185
@@ -504,11 +504,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %180, %177
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit55
 
 _ZNSt6vectorIiSaIiEED2Ev.exit55:                  ; preds = %185, %183, %.body
-  %.715 = phi ptr [ %35, %.body ], [ %.614, %183 ], [ %.614, %185 ]
-  %.7 = phi i32 [ %36, %.body ], [ %.6, %183 ], [ %.6, %185 ]
+  %.08 = phi ptr [ %35, %.body ], [ %.19, %183 ], [ %.19, %185 ]
+  %.07 = phi i32 [ %36, %.body ], [ %.1, %183 ], [ %.1, %185 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #16
-  %186 = insertvalue { ptr, i32 } poison, ptr %.715, 0
-  %187 = insertvalue { ptr, i32 } %186, i32 %.7, 1
+  %186 = insertvalue { ptr, i32 } poison, ptr %.08, 0
+  %187 = insertvalue { ptr, i32 } %186, i32 %.07, 1
   resume { ptr, i32 } %187
 }
 

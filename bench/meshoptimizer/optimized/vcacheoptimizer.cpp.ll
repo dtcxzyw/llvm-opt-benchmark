@@ -168,7 +168,7 @@ while.body:                                       ; preds = %for.end38, %if.end2
   %cache_count.0170 = phi i64 [ 0, %for.end38 ], [ %cond, %if.end204 ]
   %current_triangle.0169 = phi i32 [ 0, %for.end38 ], [ %current_triangle.1, %if.end204 ]
   %output_triangle.0168 = phi i32 [ 0, %for.end38 ], [ %inc69, %if.end204 ]
-  %input_cursor.0167 = phi i32 [ 1, %for.end38 ], [ %input_cursor.3, %if.end204 ]
+  %input_cursor.0167 = phi i32 [ 1, %for.end38 ], [ %input_cursor.1, %if.end204 ]
   %mul43 = mul i32 %current_triangle.0169, 3
   %idxprom45 = zext i32 %mul43 to i64
   %arrayidx46 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %idxprom45
@@ -283,8 +283,8 @@ for.inc132:                                       ; preds = %for.inc129, %for.bo
 
 for.body138:                                      ; preds = %for.cond136.preheader, %for.inc196
   %i135.0165 = phi i64 [ %inc197, %for.inc196 ], [ 0, %for.cond136.preheader ]
-  %best_score.0164 = phi float [ %best_score.2, %for.inc196 ], [ 0.000000e+00, %for.cond136.preheader ]
-  %best_triangle.0163 = phi i32 [ %best_triangle.2, %for.inc196 ], [ -1, %for.cond136.preheader ]
+  %best_score.0164 = phi float [ %best_score.1, %for.inc196 ], [ 0.000000e+00, %for.cond136.preheader ]
+  %best_triangle.0163 = phi i32 [ %best_triangle.1, %for.inc196 ], [ -1, %for.cond136.preheader ]
   %arrayidx140 = getelementptr inbounds i32, ptr %cache_new.0171, i64 %i135.0165
   %33 = load i32, ptr %arrayidx140, align 4
   %idxprom142 = zext i32 %33 to i64
@@ -324,30 +324,30 @@ if.end146:                                        ; preds = %for.body138
 
 for.body177:                                      ; preds = %if.end146, %for.body177
   %it.0159 = phi ptr [ %incdec.ptr, %for.body177 ], [ %add.ptr169, %if.end146 ]
-  %best_score.1158 = phi float [ %cond191, %for.body177 ], [ %best_score.0164, %if.end146 ]
-  %best_triangle.1157 = phi i32 [ %cond186, %for.body177 ], [ %best_triangle.0163, %if.end146 ]
+  %best_score.2158 = phi float [ %cond191, %for.body177 ], [ %best_score.0164, %if.end146 ]
+  %best_triangle.2157 = phi i32 [ %cond186, %for.body177 ], [ %best_triangle.0163, %if.end146 ]
   %44 = load i32, ptr %it.0159, align 4
   %idxprom179 = zext i32 %44 to i64
   %arrayidx180 = getelementptr inbounds float, ptr %call.i134, i64 %idxprom179
   %45 = load float, ptr %arrayidx180, align 4
   %add181 = fadd float %sub160, %45
-  %cmp182 = fcmp olt float %best_score.1158, %add181
-  %cond186 = select i1 %cmp182, i32 %44, i32 %best_triangle.1157
-  %cond191 = select i1 %cmp182, float %add181, float %best_score.1158
+  %cmp182 = fcmp olt float %best_score.2158, %add181
+  %cond186 = select i1 %cmp182, i32 %44, i32 %best_triangle.2157
+  %cond191 = select i1 %cmp182, float %add181, float %best_score.2158
   store float %add181, ptr %arrayidx180, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0159, i64 4
   %cmp176.not = icmp eq ptr %incdec.ptr, %add.ptr174
   br i1 %cmp176.not, label %for.inc196, label %for.body177, !llvm.loop !11
 
 for.inc196:                                       ; preds = %for.body177, %if.end146, %for.body138
-  %best_triangle.2 = phi i32 [ %best_triangle.0163, %for.body138 ], [ %best_triangle.0163, %if.end146 ], [ %cond186, %for.body177 ]
-  %best_score.2 = phi float [ %best_score.0164, %for.body138 ], [ %best_score.0164, %if.end146 ], [ %cond191, %for.body177 ]
+  %best_triangle.1 = phi i32 [ %best_triangle.0163, %for.body138 ], [ %best_triangle.0163, %if.end146 ], [ %cond186, %for.body177 ]
+  %best_score.1 = phi float [ %best_score.0164, %for.body138 ], [ %best_score.0164, %if.end146 ], [ %cond191, %for.body177 ]
   %inc197 = add nuw i64 %i135.0165, 1
   %exitcond178.not = icmp eq i64 %inc197, %cache_write.0.lcssa
   br i1 %exitcond178.not, label %for.end198, label %for.body138, !llvm.loop !12
 
 for.end198:                                       ; preds = %for.inc196
-  %cmp199 = icmp eq i32 %best_triangle.2, -1
+  %cmp199 = icmp eq i32 %best_triangle.1, -1
   br i1 %cmp199, label %if.then200, label %if.end204
 
 if.then200:                                       ; preds = %for.cond136.preheader, %for.end198
@@ -356,7 +356,7 @@ if.then200:                                       ; preds = %for.cond136.prehead
   br i1 %cmp5.i, label %while.body.i, label %cleanup.loopexit
 
 while.body.i:                                     ; preds = %if.then200, %if.end.i
-  %input_cursor.1 = phi i32 [ %inc.i142, %if.end.i ], [ %input_cursor.0167, %if.then200 ]
+  %input_cursor.2 = phi i32 [ %inc.i142, %if.end.i ], [ %input_cursor.0167, %if.then200 ]
   %conv6.i = phi i64 [ %conv.i, %if.end.i ], [ %conv4.i, %if.then200 ]
   %arrayidx.i141 = getelementptr inbounds i8, ptr %call.i119, i64 %conv6.i
   %46 = load i8, ptr %arrayidx.i141, align 1
@@ -364,14 +364,14 @@ while.body.i:                                     ; preds = %if.then200, %if.end
   br i1 %tobool.not.i, label %if.end204, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %inc.i142 = add i32 %input_cursor.1, 1
+  %inc.i142 = add i32 %input_cursor.2, 1
   %conv.i = zext i32 %inc.i142 to i64
   %cmp.i143 = icmp ugt i64 %div, %conv.i
   br i1 %cmp.i143, label %while.body.i, label %cleanup.loopexit, !llvm.loop !13
 
 if.end204:                                        ; preds = %while.body.i, %for.end198
-  %input_cursor.3 = phi i32 [ %input_cursor.0167, %for.end198 ], [ %input_cursor.1, %while.body.i ]
-  %current_triangle.1 = phi i32 [ %best_triangle.2, %for.end198 ], [ %input_cursor.1, %while.body.i ]
+  %input_cursor.1 = phi i32 [ %input_cursor.0167, %for.end198 ], [ %input_cursor.2, %while.body.i ]
+  %current_triangle.1 = phi i32 [ %best_triangle.1, %for.end198 ], [ %input_cursor.2, %while.body.i ]
   %cmp41.not = icmp eq i32 %current_triangle.1, -1
   br i1 %cmp41.not, label %cleanup.loopexit, label %while.body, !llvm.loop !14
 
@@ -709,8 +709,8 @@ while.body:                                       ; preds = %invoke.cont14, %if.
   %current_vertex.0140 = phi i32 [ 0, %invoke.cont14 ], [ %current_vertex.1, %if.end114 ]
   %timestamp.0139 = phi i32 [ %add, %invoke.cont14 ], [ %timestamp.1.lcssa, %if.end114 ]
   %output_triangle.0138 = phi i32 [ 0, %invoke.cont14 ], [ %output_triangle.1.lcssa, %if.end114 ]
-  %input_cursor.0137 = phi i32 [ 1, %invoke.cont14 ], [ %input_cursor.3, %if.end114 ]
-  %dead_end_top.0136 = phi i32 [ 0, %invoke.cont14 ], [ %dead_end_top.5, %if.end114 ]
+  %input_cursor.0137 = phi i32 [ 1, %invoke.cont14 ], [ %input_cursor.1, %if.end114 ]
+  %dead_end_top.0136 = phi i32 [ 0, %invoke.cont14 ], [ %dead_end_top.3, %if.end114 ]
   %idx.ext = zext i32 %dead_end_top.0136 to i64
   %add.ptr = getelementptr inbounds i32, ptr %call.i99, i64 %idx.ext
   %idxprom = zext i32 %current_vertex.0140 to i64
@@ -915,7 +915,7 @@ while.body.i:                                     ; preds = %if.then109, %while.
   br i1 %cmp.not.i109, label %while.cond.i, label %if.end114.loopexit141, !llvm.loop !22
 
 while.body5.i:                                    ; preds = %while.cond3.preheader.i, %if.end10.i
-  %input_cursor.1 = phi i32 [ %inc.i110, %if.end10.i ], [ %input_cursor.0137, %while.cond3.preheader.i ]
+  %input_cursor.2 = phi i32 [ %inc.i110, %if.end10.i ], [ %input_cursor.0137, %while.cond3.preheader.i ]
   %conv10.i = phi i64 [ %conv.i, %if.end10.i ], [ %conv8.i, %while.cond3.preheader.i ]
   %arrayidx7.i = getelementptr inbounds i32, ptr %call.i83, i64 %conv10.i
   %31 = load i32, ptr %arrayidx7.i, align 4
@@ -923,7 +923,7 @@ while.body5.i:                                    ; preds = %while.cond3.prehead
   br i1 %cmp8.not.i, label %if.end10.i, label %if.end114
 
 if.end10.i:                                       ; preds = %while.body5.i
-  %inc.i110 = add i32 %input_cursor.1, 1
+  %inc.i110 = add i32 %input_cursor.2, 1
   %conv.i = zext i32 %inc.i110 to i64
   %cmp4.i = icmp ult i64 %conv.i, %vertex_count
   br i1 %cmp4.i, label %while.body5.i, label %cleanup.loopexit, !llvm.loop !23
@@ -933,9 +933,9 @@ if.end114.loopexit141:                            ; preds = %while.body.i
   br label %if.end114
 
 if.end114:                                        ; preds = %while.body5.i, %if.end114.loopexit141, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit
-  %dead_end_top.5 = phi i32 [ %dead_end_top.1.lcssa, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %indvars.i, %if.end114.loopexit141 ], [ 0, %while.body5.i ]
-  %input_cursor.3 = phi i32 [ %input_cursor.0137, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %input_cursor.0137, %if.end114.loopexit141 ], [ %input_cursor.1, %while.body5.i ]
-  %current_vertex.1 = phi i32 [ %best_candidate.1.i, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %29, %if.end114.loopexit141 ], [ %input_cursor.1, %while.body5.i ]
+  %dead_end_top.3 = phi i32 [ %dead_end_top.1.lcssa, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %indvars.i, %if.end114.loopexit141 ], [ 0, %while.body5.i ]
+  %input_cursor.1 = phi i32 [ %input_cursor.0137, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %input_cursor.0137, %if.end114.loopexit141 ], [ %input_cursor.2, %while.body5.i ]
+  %current_vertex.1 = phi i32 [ %best_candidate.1.i, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %29, %if.end114.loopexit141 ], [ %input_cursor.2, %while.body5.i ]
   %cmp16.not = icmp eq i32 %current_vertex.1, -1
   br i1 %cmp16.not, label %cleanup.loopexit, label %while.body, !llvm.loop !24
 

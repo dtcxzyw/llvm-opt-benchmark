@@ -555,7 +555,7 @@ for.body8.lr.ph.i:                                ; preds = %if.then.i.i.i383
   br label %invoke.cont57
 
 invoke.cont57:                                    ; preds = %for.body8.lr.ph.i, %for.end48
-  %bodyJointNodeArray.sroa.11.1 = phi ptr [ null, %for.end48 ], [ %call.i.i.i.i386, %for.body8.lr.ph.i ]
+  %bodyJointNodeArray.sroa.11.2 = phi ptr [ null, %for.end48 ], [ %call.i.i.i.i386, %for.body8.lr.ph.i ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile52) #14
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile58, ptr noundef nonnull @.str.3)
           to label %invoke.cont60 unwind label %lpad59
@@ -573,8 +573,8 @@ if.then.i.i396:                                   ; preds = %invoke.cont60
           to label %invoke.cont65 unwind label %ehcleanup585.thread
 
 invoke.cont65:                                    ; preds = %invoke.cont60, %if.then.i.i396
-  %jointNodeArray.sroa.23.0 = phi ptr [ null, %invoke.cont60 ], [ %call.i.i.i405, %if.then.i.i396 ]
-  %jointNodeArray.sroa.14.0 = phi i32 [ 0, %invoke.cont60 ], [ %mul, %if.then.i.i396 ]
+  %jointNodeArray.sroa.23.6 = phi ptr [ null, %invoke.cont60 ], [ %call.i.i.i405, %if.then.i.i396 ]
+  %jointNodeArray.sroa.14.3 = phi i32 [ 0, %invoke.cont60 ], [ %mul, %if.then.i.i396 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile58) #14
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile66, ptr noundef nonnull @.str.4)
           to label %invoke.cont67 unwind label %lpad59
@@ -788,8 +788,8 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   %rowOffset.01339 = phi i32 [ 0, %for.body96.lr.ph ], [ %add310, %if.end309 ]
   %i89.01335 = phi i32 [ 0, %for.body96.lr.ph ], [ %add312, %if.end309 ]
   %jointNodeArray.sroa.0.01334 = phi i32 [ 0, %for.body96.lr.ph ], [ %jointNodeArray.sroa.0.2, %if.end309 ]
-  %jointNodeArray.sroa.14.11333 = phi i32 [ %jointNodeArray.sroa.14.0, %for.body96.lr.ph ], [ %jointNodeArray.sroa.14.5, %if.end309 ]
-  %jointNodeArray.sroa.23.11332 = phi ptr [ %jointNodeArray.sroa.23.0, %for.body96.lr.ph ], [ %jointNodeArray.sroa.23.7, %if.end309 ]
+  %jointNodeArray.sroa.14.01333 = phi i32 [ %jointNodeArray.sroa.14.3, %for.body96.lr.ph ], [ %jointNodeArray.sroa.14.2, %if.end309 ]
+  %jointNodeArray.sroa.23.11332 = phi ptr [ %jointNodeArray.sroa.23.6, %for.body96.lr.ph ], [ %jointNodeArray.sroa.23.5, %if.end309 ]
   %82 = load ptr, ptr %m_data.i499, align 8
   %arrayidx.i501 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv1389
   store i32 %rowOffset.01339, ptr %arrayidx.i501, align 4
@@ -825,7 +825,7 @@ cond.end:                                         ; preds = %for.body96, %cond.t
 
 if.then119:                                       ; preds = %cond.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp122, i8 0, i64 16, i1 false)
-  %cmp.i521 = icmp eq i32 %jointNodeArray.sroa.0.01334, %jointNodeArray.sroa.14.11333
+  %cmp.i521 = icmp eq i32 %jointNodeArray.sroa.0.01334, %jointNodeArray.sroa.14.01333
   br i1 %cmp.i521, label %if.then.i526, label %invoke.cont123
 
 if.then.i526:                                     ; preds = %if.then119
@@ -872,13 +872,13 @@ if.then3.i.i.i543:                                ; preds = %for.body.i.i.i547, 
           to label %invoke.cont123 unwind label %lpad92
 
 invoke.cont123:                                   ; preds = %if.then.i526, %if.then119, %if.then3.i.i.i543, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i
-  %jointNodeArray.sroa.23.2 = phi ptr [ %jointNodeArray.sroa.23.11332, %if.then.i526 ], [ %jointNodeArray.sroa.23.11332, %if.then119 ], [ %retval.0.i.i.i535, %if.then3.i.i.i543 ], [ %retval.0.i.i.i535, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
-  %jointNodeArray.sroa.14.2 = phi i32 [ %jointNodeArray.sroa.0.01334, %if.then.i526 ], [ %jointNodeArray.sroa.14.11333, %if.then119 ], [ %cond.i.i, %if.then3.i.i.i543 ], [ %cond.i.i, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
+  %jointNodeArray.sroa.23.7 = phi ptr [ %jointNodeArray.sroa.23.11332, %if.then.i526 ], [ %jointNodeArray.sroa.23.11332, %if.then119 ], [ %retval.0.i.i.i535, %if.then3.i.i.i543 ], [ %retval.0.i.i.i535, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
+  %jointNodeArray.sroa.14.4 = phi i32 [ %jointNodeArray.sroa.0.01334, %if.then.i526 ], [ %jointNodeArray.sroa.14.01333, %if.then119 ], [ %cond.i.i, %if.then3.i.i.i543 ], [ %cond.i.i, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i ]
   %inc.i = add nsw i32 %jointNodeArray.sroa.0.01334, 1
   %idxprom.i524 = sext i32 %jointNodeArray.sroa.0.01334 to i64
-  %arrayidx.i525 = getelementptr inbounds %struct.btJointNode1, ptr %jointNodeArray.sroa.23.2, i64 %idxprom.i524
+  %arrayidx.i525 = getelementptr inbounds %struct.btJointNode1, ptr %jointNodeArray.sroa.23.7, i64 %idxprom.i524
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i525, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp122, i64 16, i1 false)
-  %arrayidx.i558 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.1, i64 %idxprom.i509
+  %arrayidx.i558 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.2, i64 %idxprom.i509
   %93 = load i32, ptr %arrayidx.i558, align 4
   store i32 %jointNodeArray.sroa.0.01334, ptr %arrayidx.i558, align 4
   %nextJointNodeIndex = getelementptr inbounds i8, ptr %arrayidx.i525, i64 8
@@ -1022,7 +1022,7 @@ lpad55:                                           ; preds = %if.then.i.i.i383
   br label %eh.resume.sink.split
 
 lpad59:                                           ; preds = %invoke.cont549, %for.end544, %invoke.cont327, %invoke.cont322, %for.end314, %invoke.cont86, %invoke.cont77, %invoke.cont70, %invoke.cont65, %invoke.cont57
-  %jointNodeArray.sroa.23.3 = phi ptr [ %jointNodeArray.sroa.23.1.lcssa, %invoke.cont549 ], [ %jointNodeArray.sroa.23.1.lcssa, %for.end544 ], [ %jointNodeArray.sroa.23.1.lcssa, %invoke.cont327 ], [ %jointNodeArray.sroa.23.1.lcssa, %invoke.cont322 ], [ %jointNodeArray.sroa.23.1.lcssa, %for.end314 ], [ %jointNodeArray.sroa.23.0, %invoke.cont86 ], [ %jointNodeArray.sroa.23.0, %invoke.cont77 ], [ %jointNodeArray.sroa.23.0, %invoke.cont70 ], [ %jointNodeArray.sroa.23.0, %invoke.cont65 ], [ null, %invoke.cont57 ]
+  %jointNodeArray.sroa.23.0 = phi ptr [ %jointNodeArray.sroa.23.1.lcssa, %invoke.cont549 ], [ %jointNodeArray.sroa.23.1.lcssa, %for.end544 ], [ %jointNodeArray.sroa.23.1.lcssa, %invoke.cont327 ], [ %jointNodeArray.sroa.23.1.lcssa, %invoke.cont322 ], [ %jointNodeArray.sroa.23.1.lcssa, %for.end314 ], [ %jointNodeArray.sroa.23.6, %invoke.cont86 ], [ %jointNodeArray.sroa.23.6, %invoke.cont77 ], [ %jointNodeArray.sroa.23.6, %invoke.cont70 ], [ %jointNodeArray.sroa.23.6, %invoke.cont65 ], [ null, %invoke.cont57 ]
   %148 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup585
@@ -1052,7 +1052,7 @@ lpad81:                                           ; preds = %if.then3.i.i.i485, 
   br label %ehcleanup585
 
 lpad92:                                           ; preds = %if.then3.i.i.i687, %if.then.i.i.i671, %if.then3.i.i.i543, %if.then.i.i.i531
-  %jointNodeArray.sroa.23.4 = phi ptr [ %jointNodeArray.sroa.23.5, %if.then3.i.i.i687 ], [ %jointNodeArray.sroa.23.5, %if.then.i.i.i671 ], [ %jointNodeArray.sroa.23.11332, %if.then3.i.i.i543 ], [ %jointNodeArray.sroa.23.11332, %if.then.i.i.i531 ]
+  %jointNodeArray.sroa.23.2 = phi ptr [ %jointNodeArray.sroa.23.4, %if.then3.i.i.i687 ], [ %jointNodeArray.sroa.23.4, %if.then.i.i.i671 ], [ %jointNodeArray.sroa.23.11332, %if.then3.i.i.i543 ], [ %jointNodeArray.sroa.23.11332, %if.then.i.i.i531 ]
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile87) #14
@@ -1109,8 +1109,8 @@ if.else:                                          ; preds = %cond.end
   br label %if.end207
 
 if.end207:                                        ; preds = %for.inc202, %invoke.cont123, %if.else
-  %jointNodeArray.sroa.23.5 = phi ptr [ %jointNodeArray.sroa.23.11332, %if.else ], [ %jointNodeArray.sroa.23.2, %invoke.cont123 ], [ %jointNodeArray.sroa.23.2, %for.inc202 ]
-  %jointNodeArray.sroa.14.3 = phi i32 [ %jointNodeArray.sroa.14.11333, %if.else ], [ %jointNodeArray.sroa.14.2, %invoke.cont123 ], [ %jointNodeArray.sroa.14.2, %for.inc202 ]
+  %jointNodeArray.sroa.23.4 = phi ptr [ %jointNodeArray.sroa.23.11332, %if.else ], [ %jointNodeArray.sroa.23.7, %invoke.cont123 ], [ %jointNodeArray.sroa.23.7, %for.inc202 ]
+  %jointNodeArray.sroa.14.1 = phi i32 [ %jointNodeArray.sroa.14.01333, %if.else ], [ %jointNodeArray.sroa.14.4, %invoke.cont123 ], [ %jointNodeArray.sroa.14.4, %for.inc202 ]
   %jointNodeArray.sroa.0.1 = phi i32 [ %jointNodeArray.sroa.0.01334, %if.else ], [ %inc.i, %invoke.cont123 ], [ %inc.i, %for.inc202 ]
   %cur.2 = phi i32 [ %add206, %if.else ], [ %cur.01340, %invoke.cont123 ], [ %inc204, %for.inc202 ]
   %tobool208.not = icmp eq ptr %89, null
@@ -1118,14 +1118,14 @@ if.end207:                                        ; preds = %for.inc202, %invoke
 
 if.then209:                                       ; preds = %if.end207
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp212, i8 0, i64 16, i1 false)
-  %cmp.i657 = icmp eq i32 %jointNodeArray.sroa.0.1, %jointNodeArray.sroa.14.3
+  %cmp.i657 = icmp eq i32 %jointNodeArray.sroa.0.1, %jointNodeArray.sroa.14.1
   br i1 %cmp.i657, label %if.then.i664, label %invoke.cont213
 
 if.then.i664:                                     ; preds = %if.then209
-  %tobool.not.i.i665 = icmp eq i32 %jointNodeArray.sroa.14.3, 0
-  %mul.i.i666 = shl nsw i32 %jointNodeArray.sroa.14.3, 1
+  %tobool.not.i.i665 = icmp eq i32 %jointNodeArray.sroa.14.1, 0
+  %mul.i.i666 = shl nsw i32 %jointNodeArray.sroa.14.1, 1
   %cond.i.i667 = select i1 %tobool.not.i.i665, i32 1, i32 %mul.i.i666
-  %cmp.i.i668 = icmp slt i32 %jointNodeArray.sroa.14.3, %cond.i.i667
+  %cmp.i.i668 = icmp slt i32 %jointNodeArray.sroa.14.1, %cond.i.i667
   br i1 %cmp.i.i668, label %if.then.i.i669, label %invoke.cont213
 
 if.then.i.i669:                                   ; preds = %if.then.i664
@@ -1140,38 +1140,38 @@ if.then.i.i.i671:                                 ; preds = %if.then.i.i669
 
 _ZN20btAlignedObjectArrayI12btJointNode1E8allocateEi.exit.i.i675: ; preds = %if.then.i.i.i671, %if.then.i.i669
   %retval.0.i.i.i676 = phi ptr [ null, %if.then.i.i669 ], [ %call.i.i.i.i698, %if.then.i.i.i671 ]
-  %cmp4.i.i.i677 = icmp sgt i32 %jointNodeArray.sroa.14.3, 0
+  %cmp4.i.i.i677 = icmp sgt i32 %jointNodeArray.sroa.14.1, 0
   br i1 %cmp4.i.i.i677, label %for.body.lr.ph.i.i.i688, label %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678
 
 for.body.lr.ph.i.i.i688:                          ; preds = %_ZN20btAlignedObjectArrayI12btJointNode1E8allocateEi.exit.i.i675
-  %wide.trip.count.i.i.i690 = zext nneg i32 %jointNodeArray.sroa.14.3 to i64
+  %wide.trip.count.i.i.i690 = zext nneg i32 %jointNodeArray.sroa.14.1 to i64
   br label %for.body.i.i.i691
 
 for.body.i.i.i691:                                ; preds = %for.body.i.i.i691, %for.body.lr.ph.i.i.i688
   %indvars.iv.i.i.i692 = phi i64 [ 0, %for.body.lr.ph.i.i.i688 ], [ %indvars.iv.next.i.i.i695, %for.body.i.i.i691 ]
   %arrayidx.i.i.i693 = getelementptr inbounds %struct.btJointNode1, ptr %retval.0.i.i.i676, i64 %indvars.iv.i.i.i692
-  %arrayidx3.i.i.i694 = getelementptr inbounds %struct.btJointNode1, ptr %jointNodeArray.sroa.23.5, i64 %indvars.iv.i.i.i692
+  %arrayidx3.i.i.i694 = getelementptr inbounds %struct.btJointNode1, ptr %jointNodeArray.sroa.23.4, i64 %indvars.iv.i.i.i692
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i.i693, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i694, i64 16, i1 false)
   %indvars.iv.next.i.i.i695 = add nuw nsw i64 %indvars.iv.i.i.i692, 1
   %exitcond.not.i.i.i696 = icmp eq i64 %indvars.iv.next.i.i.i695, %wide.trip.count.i.i.i690
   br i1 %exitcond.not.i.i.i696, label %if.then3.i.i.i687, label %for.body.i.i.i691, !llvm.loop !12
 
 _ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678: ; preds = %_ZN20btAlignedObjectArrayI12btJointNode1E8allocateEi.exit.i.i675
-  %tobool.not.i6.i.i680 = icmp eq ptr %jointNodeArray.sroa.23.5, null
+  %tobool.not.i6.i.i680 = icmp eq ptr %jointNodeArray.sroa.23.4, null
   br i1 %tobool.not.i6.i.i680, label %invoke.cont213, label %if.then3.i.i.i687
 
 if.then3.i.i.i687:                                ; preds = %for.body.i.i.i691, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %jointNodeArray.sroa.23.5)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %jointNodeArray.sroa.23.4)
           to label %invoke.cont213 unwind label %lpad92
 
 invoke.cont213:                                   ; preds = %if.then.i664, %if.then209, %if.then3.i.i.i687, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678
-  %jointNodeArray.sroa.23.6 = phi ptr [ %jointNodeArray.sroa.23.5, %if.then.i664 ], [ %jointNodeArray.sroa.23.5, %if.then209 ], [ %retval.0.i.i.i676, %if.then3.i.i.i687 ], [ %retval.0.i.i.i676, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678 ]
-  %jointNodeArray.sroa.14.4 = phi i32 [ %jointNodeArray.sroa.14.3, %if.then.i664 ], [ %jointNodeArray.sroa.14.3, %if.then209 ], [ %cond.i.i667, %if.then3.i.i.i687 ], [ %cond.i.i667, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678 ]
+  %jointNodeArray.sroa.23.8 = phi ptr [ %jointNodeArray.sroa.23.4, %if.then.i664 ], [ %jointNodeArray.sroa.23.4, %if.then209 ], [ %retval.0.i.i.i676, %if.then3.i.i.i687 ], [ %retval.0.i.i.i676, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678 ]
+  %jointNodeArray.sroa.14.5 = phi i32 [ %jointNodeArray.sroa.14.1, %if.then.i664 ], [ %jointNodeArray.sroa.14.1, %if.then209 ], [ %cond.i.i667, %if.then3.i.i.i687 ], [ %cond.i.i667, %_ZNK20btAlignedObjectArrayI12btJointNode1E4copyEiiPS0_.exit.i.i678 ]
   %inc.i659 = add nsw i32 %jointNodeArray.sroa.0.1, 1
   %idxprom.i661 = sext i32 %jointNodeArray.sroa.0.1 to i64
-  %arrayidx.i662 = getelementptr inbounds %struct.btJointNode1, ptr %jointNodeArray.sroa.23.6, i64 %idxprom.i661
+  %arrayidx.i662 = getelementptr inbounds %struct.btJointNode1, ptr %jointNodeArray.sroa.23.8, i64 %idxprom.i661
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i662, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp212, i64 16, i1 false)
-  %arrayidx.i703 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.1, i64 %idxprom.i512
+  %arrayidx.i703 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.2, i64 %idxprom.i512
   %174 = load i32, ptr %arrayidx.i703, align 4
   store i32 %jointNodeArray.sroa.0.1, ptr %arrayidx.i703, align 4
   %nextJointNodeIndex222 = getelementptr inbounds i8, ptr %arrayidx.i662, i64 8
@@ -1361,8 +1361,8 @@ if.else307:                                       ; preds = %if.end207
   br label %if.end309
 
 if.end309:                                        ; preds = %for.inc303, %invoke.cont213, %if.else307
-  %jointNodeArray.sroa.23.7 = phi ptr [ %jointNodeArray.sroa.23.5, %if.else307 ], [ %jointNodeArray.sroa.23.6, %invoke.cont213 ], [ %jointNodeArray.sroa.23.6, %for.inc303 ]
-  %jointNodeArray.sroa.14.5 = phi i32 [ %jointNodeArray.sroa.14.3, %if.else307 ], [ %jointNodeArray.sroa.14.4, %invoke.cont213 ], [ %jointNodeArray.sroa.14.4, %for.inc303 ]
+  %jointNodeArray.sroa.23.5 = phi ptr [ %jointNodeArray.sroa.23.4, %if.else307 ], [ %jointNodeArray.sroa.23.8, %invoke.cont213 ], [ %jointNodeArray.sroa.23.8, %for.inc303 ]
+  %jointNodeArray.sroa.14.2 = phi i32 [ %jointNodeArray.sroa.14.1, %if.else307 ], [ %jointNodeArray.sroa.14.5, %invoke.cont213 ], [ %jointNodeArray.sroa.14.5, %for.inc303 ]
   %jointNodeArray.sroa.0.2 = phi i32 [ %jointNodeArray.sroa.0.1, %if.else307 ], [ %inc.i659, %invoke.cont213 ], [ %inc.i659, %for.inc303 ]
   %cur.4 = phi i32 [ %add308, %if.else307 ], [ %cur.2, %invoke.cont213 ], [ %inc305, %for.inc303 ]
   %add310 = add nsw i32 %cond117, %rowOffset.01339
@@ -1373,7 +1373,7 @@ if.end309:                                        ; preds = %for.inc303, %invoke
   br i1 %cmp95, label %for.body96, label %for.end314, !llvm.loop !17
 
 for.end314:                                       ; preds = %if.end309, %for.cond90.preheader
-  %jointNodeArray.sroa.23.1.lcssa = phi ptr [ %jointNodeArray.sroa.23.0, %for.cond90.preheader ], [ %jointNodeArray.sroa.23.7, %if.end309 ]
+  %jointNodeArray.sroa.23.1.lcssa = phi ptr [ %jointNodeArray.sroa.23.6, %for.cond90.preheader ], [ %jointNodeArray.sroa.23.5, %if.end309 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile87) #14
   %249 = load i32, ptr %m_size.i.i407, align 4
   %tobool.not.i826 = icmp eq i32 %249, 0
@@ -1469,7 +1469,7 @@ cond.end362:                                      ; preds = %for.body339, %cond.
   %add.ptr.idx = shl nsw i64 %conv, 6
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %add.ptr.idx
   %idxprom.i856 = sext i32 %261 to i64
-  %arrayidx.i857 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.1, i64 %idxprom.i856
+  %arrayidx.i857 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.2, i64 %idxprom.i856
   %startJointNodeA.01342 = load i32, ptr %arrayidx.i857, align 4
   %cmp3671343 = icmp sgt i32 %startJointNodeA.01342, -1
   br i1 %cmp3671343, label %while.body.lr.ph, label %while.end
@@ -1628,7 +1628,7 @@ if.end409:                                        ; preds = %for.cond2.for.end_c
 
 while.end:                                        ; preds = %if.end409, %cond.end362
   %idxprom.i883 = sext i32 %262 to i64
-  %arrayidx.i884 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.1, i64 %idxprom.i883
+  %arrayidx.i884 = getelementptr inbounds i32, ptr %bodyJointNodeArray.sroa.11.2, i64 %idxprom.i883
   %startJointNodeB.01345 = load i32, ptr %arrayidx.i884, align 4
   %cmp4161346 = icmp sgt i32 %startJointNodeB.01345, -1
   br i1 %cmp4161346, label %while.body417.lr.ph, label %for.inc469
@@ -2320,11 +2320,11 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i1189
   unreachable
 
 _ZN20btAlignedObjectArrayI12btJointNode1ED2Ev.exit: ; preds = %if.end583, %if.then3.i.i.i1189
-  %tobool.not.i.i.i1191 = icmp eq ptr %bodyJointNodeArray.sroa.11.1, null
+  %tobool.not.i.i.i1191 = icmp eq ptr %bodyJointNodeArray.sroa.11.2, null
   br i1 %tobool.not.i.i.i1191, label %return, label %if.then3.i.i.i1198
 
 if.then3.i.i.i1198:                               ; preds = %_ZN20btAlignedObjectArrayI12btJointNode1ED2Ev.exit
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %bodyJointNodeArray.sroa.11.1)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %bodyJointNodeArray.sroa.11.2)
           to label %return unwind label %terminate.lpad.i1199
 
 terminate.lpad.i1199:                             ; preds = %if.then3.i.i.i1198
@@ -2338,13 +2338,13 @@ return:                                           ; preds = %if.then3.i.i.i1198,
   ret void
 
 ehcleanup585:                                     ; preds = %lpad553, %lpad335, %lpad326, %lpad321, %lpad92, %lpad81, %lpad74, %lpad69, %lpad59
-  %jointNodeArray.sroa.23.8 = phi ptr [ %jointNodeArray.sroa.23.4, %lpad92 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad553 ], [ %jointNodeArray.sroa.23.3, %lpad59 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad335 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad326 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad321 ], [ %jointNodeArray.sroa.23.0, %lpad81 ], [ %jointNodeArray.sroa.23.0, %lpad74 ], [ %jointNodeArray.sroa.23.0, %lpad69 ]
+  %jointNodeArray.sroa.23.3 = phi ptr [ %jointNodeArray.sroa.23.2, %lpad92 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad553 ], [ %jointNodeArray.sroa.23.0, %lpad59 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad335 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad326 ], [ %jointNodeArray.sroa.23.1.lcssa, %lpad321 ], [ %jointNodeArray.sroa.23.6, %lpad81 ], [ %jointNodeArray.sroa.23.6, %lpad74 ], [ %jointNodeArray.sroa.23.6, %lpad69 ]
   %.pn216 = phi { ptr, i32 } [ %153, %lpad92 ], [ %425, %lpad553 ], [ %148, %lpad59 ], [ %300, %lpad335 ], [ %299, %lpad326 ], [ %298, %lpad321 ], [ %152, %lpad81 ], [ %151, %lpad74 ], [ %150, %lpad69 ]
-  %tobool.not.i.i.i1201 = icmp eq ptr %jointNodeArray.sroa.23.8, null
+  %tobool.not.i.i.i1201 = icmp eq ptr %jointNodeArray.sroa.23.3, null
   br i1 %tobool.not.i.i.i1201, label %ehcleanup586, label %if.then3.i.i.i1208
 
 if.then3.i.i.i1208:                               ; preds = %ehcleanup585
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %jointNodeArray.sroa.23.8)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %jointNodeArray.sroa.23.3)
           to label %ehcleanup586 unwind label %terminate.lpad.i1209
 
 terminate.lpad.i1209:                             ; preds = %if.then3.i.i.i1208
@@ -2356,11 +2356,11 @@ terminate.lpad.i1209:                             ; preds = %if.then3.i.i.i1208
 
 ehcleanup586:                                     ; preds = %if.then3.i.i.i1208, %ehcleanup585, %ehcleanup585.thread
   %.pn216.pn = phi { ptr, i32 } [ %149, %ehcleanup585.thread ], [ %.pn216, %ehcleanup585 ], [ %.pn216, %if.then3.i.i.i1208 ]
-  %tobool.not.i.i.i1212 = icmp eq ptr %bodyJointNodeArray.sroa.11.1, null
+  %tobool.not.i.i.i1212 = icmp eq ptr %bodyJointNodeArray.sroa.11.2, null
   br i1 %tobool.not.i.i.i1212, label %eh.resume, label %if.then3.i.i.i1219
 
 if.then3.i.i.i1219:                               ; preds = %ehcleanup586
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %bodyJointNodeArray.sroa.11.1)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %bodyJointNodeArray.sroa.11.2)
           to label %eh.resume unwind label %terminate.lpad.i1220
 
 terminate.lpad.i1220:                             ; preds = %if.then3.i.i.i1219
@@ -3760,7 +3760,7 @@ lpad6:                                            ; preds = %if.then10, %invoke.
 
 if.end:                                           ; preds = %if.then10.if.end_crit_edge, %invoke.cont7
   %14 = phi ptr [ %5, %invoke.cont7 ], [ %.pre, %if.then10.if.end_crit_edge ]
-  %result.0.in = phi i1 [ false, %invoke.cont7 ], [ %call18, %if.then10.if.end_crit_edge ]
+  %result.1.in = phi i1 [ false, %invoke.cont7 ], [ %call18, %if.then10.if.end_crit_edge ]
   %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i
 
@@ -3786,7 +3786,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %if.end, %if.then.i.
   store i32 0, ptr %m_size.i.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %Acopy) #14
-  br i1 %result.0.in, label %if.end36, label %return
+  br i1 %result.1.in, label %if.end36, label %return
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %13, %lpad6 ], [ %12, %lpad ]

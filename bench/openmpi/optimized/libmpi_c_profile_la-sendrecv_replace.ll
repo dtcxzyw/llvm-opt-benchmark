@@ -359,25 +359,25 @@ ompi_request_cancel.exit:                         ; preds = %159, %163
   br label %167
 
 167:                                              ; preds = %ompi_request_cancel.exit, %152
-  %.2 = phi i32 [ 75, %ompi_request_cancel.exit ], [ %157, %152 ]
+  %.3 = phi i32 [ 75, %ompi_request_cancel.exit ], [ %157, %152 ]
   %168 = icmp ne i32 %155, 0
-  %169 = icmp eq i32 %.2, 0
+  %169 = icmp eq i32 %.3, 0
   %170 = and i1 %168, %169
-  %spec.select113 = select i1 %170, i32 %155, i32 %.2
+  %spec.select113 = select i1 %170, i32 %155, i32 %.3
   br label %171
 
 171:                                              ; preds = %167, %148
-  %.3 = phi i32 [ %151, %148 ], [ %spec.select113, %167 ]
+  %.2 = phi i32 [ %151, %148 ], [ %spec.select113, %167 ]
   br i1 %144, label %.thread151, label %174
 
 .thread151:                                       ; preds = %145, %171
-  %.3154 = phi i32 [ %.3, %171 ], [ -2, %145 ]
+  %.2154 = phi i32 [ %.2, %171 ], [ -2, %145 ]
   %172 = load ptr, ptr %13, align 8
   %173 = call i32 @PMPI_Free_mem(ptr noundef %172) #4
   br label %174
 
 174:                                              ; preds = %171, %.thread151
-  %.3153 = phi i32 [ %.3, %171 ], [ %.3154, %.thread151 ]
+  %.2153 = phi i32 [ %.2, %171 ], [ %.2154, %.thread151 ]
   %175 = load ptr, ptr %11, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 48
   %177 = load ptr, ptr %176, align 8
@@ -395,11 +395,11 @@ ompi_request_cancel.exit:                         ; preds = %159, %163
   br i1 %.not.i133, label %opal_obj_run_destructors.exit, label %.lr.ph.i131, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i131, %174
-  %.not108 = icmp eq i32 %.3153, 0
+  %.not108 = icmp eq i32 %.2153, 0
   br i1 %.not108, label %216, label %182
 
 182:                                              ; preds = %opal_obj_run_destructors.exit
-  %183 = icmp sgt i32 %.3153, -1
+  %183 = icmp sgt i32 %.2153, -1
   br i1 %183, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %182
@@ -450,7 +450,7 @@ opal_pointer_array_get_item.exit.i:               ; preds = %202, %196
   %204 = phi i8 [ %197, %196 ], [ %.pre.i, %202 ]
   %205 = getelementptr inbounds i8, ptr %200, i64 16
   %206 = load i32, ptr %205, align 8
-  %207 = icmp eq i32 %206, %.3153
+  %207 = icmp eq i32 %206, %.2153
   br i1 %207, label %208, label %186
 
 208:                                              ; preds = %opal_pointer_array_get_item.exit.i
@@ -459,7 +459,7 @@ opal_pointer_array_get_item.exit.i:               ; preds = %202, %196
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %186, %182, %.preheader.i, %208
-  %.0.i134 = phi i32 [ %.3153, %182 ], [ %210, %208 ], [ 14, %.preheader.i ], [ 14, %186 ]
+  %.0.i134 = phi i32 [ %.2153, %182 ], [ %210, %208 ], [ 14, %.preheader.i ], [ 14, %186 ]
   %211 = getelementptr inbounds i8, ptr %7, i64 296
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds i8, ptr %7, i64 304

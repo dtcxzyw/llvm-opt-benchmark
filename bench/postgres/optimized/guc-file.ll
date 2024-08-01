@@ -2509,8 +2509,8 @@ record_config_file_error.exit:                    ; preds = %34, %43
   br label %54
 
 54:                                               ; preds = %52, %47
-  %.0146 = phi i32 [ %53, %52 ], [ %50, %47 ]
-  switch i32 %.0146, label %140 [
+  %.1147 = phi i32 [ %53, %52 ], [ %50, %47 ]
+  switch i32 %.1147, label %140 [
     i32 2, label %55
     i32 1, label %58
     i32 3, label %58
@@ -2529,7 +2529,7 @@ record_config_file_error.exit:                    ; preds = %34, %43
   br label %61
 
 61:                                               ; preds = %58, %55
-  %.0144 = phi ptr [ %57, %55 ], [ %60, %58 ]
+  %.1 = phi ptr [ %57, %55 ], [ %60, %58 ]
   %62 = call i32 @GUC_yylex()
   switch i32 %62, label %140 [
     i32 99, label %66
@@ -2552,7 +2552,7 @@ record_config_file_error.exit:                    ; preds = %34, %43
   %71 = add i32 %70, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %72 = call ptr @GetConfFilesInDir(ptr noundef %.0144, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7) #25
+  %72 = call ptr @GetConfFilesInDir(ptr noundef %.1, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %7) #25
   %.not.i158 = icmp eq ptr %72, null
   br i1 %.not.i158, label %75, label %.preheader182
 
@@ -2630,7 +2630,7 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
   %.0..0..0..0.78 = load volatile ptr, ptr %11, align 8
   call void @GUC_yy_switch_to_buffer(ptr noundef %.0..0..0..0.78)
   call void @pfree(ptr noundef %49) #25
-  call void @pfree(ptr noundef %.0144) #25
+  call void @pfree(ptr noundef %.1) #25
   br label %138
 
 102:                                              ; preds = %66
@@ -2641,7 +2641,7 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
 105:                                              ; preds = %102
   %106 = load i32, ptr @ConfigFileLineno, align 4
   %107 = add i32 %106, -1
-  %108 = call zeroext i1 @ParseConfigFile(ptr noundef %.0144, i1 noundef zeroext false, ptr noundef %1, i32 noundef %107, i32 noundef %18, i32 noundef %3, ptr noundef %4, ptr noundef %5)
+  %108 = call zeroext i1 @ParseConfigFile(ptr noundef %.1, i1 noundef zeroext false, ptr noundef %1, i32 noundef %107, i32 noundef %18, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %108, label %110, label %109
 
 109:                                              ; preds = %105
@@ -2652,7 +2652,7 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
   %.0..0..0..0.79 = load volatile ptr, ptr %11, align 8
   call void @GUC_yy_switch_to_buffer(ptr noundef %.0..0..0..0.79)
   call void @pfree(ptr noundef %49) #25
-  call void @pfree(ptr noundef %.0144) #25
+  call void @pfree(ptr noundef %.1) #25
   br label %138
 
 111:                                              ; preds = %102
@@ -2663,7 +2663,7 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
 114:                                              ; preds = %111
   %115 = load i32, ptr @ConfigFileLineno, align 4
   %116 = add i32 %115, -1
-  %117 = call zeroext i1 @ParseConfigFile(ptr noundef %.0144, i1 noundef zeroext true, ptr noundef %1, i32 noundef %116, i32 noundef %18, i32 noundef %3, ptr noundef %4, ptr noundef %5)
+  %117 = call zeroext i1 @ParseConfigFile(ptr noundef %.1, i1 noundef zeroext true, ptr noundef %1, i32 noundef %116, i32 noundef %18, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %117, label %119, label %118
 
 118:                                              ; preds = %114
@@ -2674,14 +2674,14 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
   %.0..0..0..0.80 = load volatile ptr, ptr %11, align 8
   call void @GUC_yy_switch_to_buffer(ptr noundef %.0..0..0..0.80)
   call void @pfree(ptr noundef %49) #25
-  call void @pfree(ptr noundef %.0144) #25
+  call void @pfree(ptr noundef %.1) #25
   br label %138
 
 120:                                              ; preds = %111
   %121 = call ptr @palloc(i64 noundef 48) #25
   store ptr %49, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 8
-  store ptr %.0144, ptr %122, align 8
+  store ptr %.1, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %121, i64 16
   store ptr null, ptr %123, align 8
   %124 = call ptr @pstrdup(ptr noundef %1) #25
@@ -2720,8 +2720,8 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
   br label %.backedge, !llvm.loop !16
 
 140:                                              ; preds = %61, %54
-  %.1147 = phi i32 [ %.0146, %54 ], [ %62, %61 ]
-  %.1 = phi ptr [ null, %54 ], [ %.0144, %61 ]
+  %.0146 = phi i32 [ %.1147, %54 ], [ %62, %61 ]
+  %.0144 = phi ptr [ null, %54 ], [ %.1, %61 ]
   %.not156 = icmp eq ptr %49, null
   br i1 %.not156, label %142, label %141
 
@@ -2730,16 +2730,16 @@ ParseConfigDirectory.exit:                        ; preds = %94, %.preheader182
   br label %142
 
 142:                                              ; preds = %141, %140
-  %.not157 = icmp eq ptr %.1, null
+  %.not157 = icmp eq ptr %.0144, null
   br i1 %.not157, label %.thread176, label %143
 
 143:                                              ; preds = %142
-  call void @pfree(ptr noundef nonnull %.1) #25
+  call void @pfree(ptr noundef nonnull %.0144) #25
   br label %.thread176
 
 .thread176:                                       ; preds = %.backedge, %143, %142
-  %.1147174180 = phi i32 [ %.1147, %143 ], [ %.1147, %142 ], [ %46, %.backedge ]
-  switch i32 %.1147174180, label %171 [
+  %.0146174180 = phi i32 [ %.0146, %143 ], [ %.0146, %142 ], [ %46, %.backedge ]
+  switch i32 %.0146174180, label %171 [
     i32 99, label %144
     i32 0, label %144
   ]
@@ -2867,7 +2867,7 @@ record_config_file_error.exit164:                 ; preds = %185, %194
   br label %.loopexit
 
 .preheader:                                       ; preds = %197, %205
-  %.2 = phi i32 [ %206, %205 ], [ %.1147174180, %197 ]
+  %.2 = phi i32 [ %206, %205 ], [ %.0146174180, %197 ]
   switch i32 %.2, label %205 [
     i32 0, label %.loopexit
     i32 99, label %.backedge.outer

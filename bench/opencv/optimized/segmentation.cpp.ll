@@ -3120,7 +3120,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit195:                 ; preds = %512, %510, %496, %4
   br label %517
 
 516:                                              ; preds = %355, %.loopexit196
-  %.0 = phi i32 [ 0, %.loopexit196 ], [ 1, %355 ]
+  %.1 = phi i32 [ 0, %.loopexit196 ], [ 1, %355 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #17
@@ -3142,11 +3142,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit195:                 ; preds = %512, %510, %496, %4
   br label %521
 
 520:                                              ; preds = %.critedge162.thread, %516
-  %.1 = phi i32 [ %.0, %516 ], [ 0, %.critedge162.thread ]
+  %.0 = phi i32 [ %.1, %516 ], [ 0, %.critedge162.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
-  ret i32 %.1
+  ret i32 %.0
 
 521:                                              ; preds = %141, %519, %217, %212, %207, %202, %197, %192, %136, %130, %128, %126
   %.pn157 = phi { ptr, i32 } [ %127, %126 ], [ %.pn151.pn.pn.pn.pn, %519 ], [ %.pn94.pn, %217 ], [ %.pn92, %212 ], [ %.pn90, %207 ], [ %.pn88, %202 ], [ %.pn86, %197 ], [ %.pn84, %192 ], [ %.pn82, %141 ], [ %.pn80, %136 ], [ %131, %130 ], [ %129, %128 ]

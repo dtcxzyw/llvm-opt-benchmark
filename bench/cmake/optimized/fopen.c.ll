@@ -56,37 +56,37 @@ define dso_local i32 @Curl_fopen(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br label %24
 
 24:                                               ; preds = %26, %.preheader.i
-  %.024.i = phi i64 [ %23, %.preheader.i ], [ %27, %26 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.024.i
+  %.124.i = phi i64 [ %23, %.preheader.i ], [ %27, %26 ]
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.124.i
   %25 = load i8, ptr %gep.i, align 1
   %.not19.i = icmp eq i8 %25, 47
   br i1 %.not19.i, label %.lr.ph.i, label %26
 
 26:                                               ; preds = %24
-  %27 = add i64 %.024.i, -1
+  %27 = add i64 %.124.i, -1
   %.not18.i = icmp eq i64 %27, 0
   br i1 %.not18.i, label %.critedge2.i, label %24, !llvm.loop !5
 
 .lr.ph.i:                                         ; preds = %24, %30
-  %.128.i = phi i64 [ %31, %30 ], [ %.024.i, %24 ]
-  %gep26.i = getelementptr i8, ptr %invariant.gep.i, i64 %.128.i
+  %.228.i = phi i64 [ %31, %30 ], [ %.124.i, %24 ]
+  %gep26.i = getelementptr i8, ptr %invariant.gep.i, i64 %.228.i
   %28 = load i8, ptr %gep26.i, align 1
   %29 = icmp eq i8 %28, 47
   br i1 %29, label %30, label %.critedge2.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = add i64 %.128.i, -1
+  %31 = add i64 %.228.i, -1
   %.not20.i = icmp eq i64 %31, 0
   br i1 %.not20.i, label %.critedge2.i, label %.lr.ph.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %26, %30, %.lr.ph.i, %22
-  %.2.i = phi i64 [ 0, %22 ], [ %.128.i, %.lr.ph.i ], [ 0, %30 ], [ 0, %26 ]
-  %32 = call i32 @Curl_dyn_addn(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %.2.i) #6
+  %.0.i = phi i64 [ 0, %22 ], [ %.228.i, %.lr.ph.i ], [ 0, %30 ], [ 0, %26 ]
+  %32 = call i32 @Curl_dyn_addn(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %.0.i) #6
   %.not21.i = icmp eq i32 %32, 0
   br i1 %.not21.i, label %33, label %dirslash.exit.thread
 
 33:                                               ; preds = %.critedge2.i
-  %.not22.i = icmp eq i64 %.2.i, 0
+  %.not22.i = icmp eq i64 %.0.i, 0
   br i1 %.not22.i, label %dirslash.exit, label %34
 
 34:                                               ; preds = %33
@@ -133,10 +133,10 @@ dirslash.exit:                                    ; preds = %33, %34
   br label %.thread44
 
 .thread44:                                        ; preds = %dirslash.exit.thread, %dirslash.exit, %37, %4, %40, %18, %47
-  %.150 = phi ptr [ %38, %47 ], [ null, %37 ], [ null, %4 ], [ %38, %40 ], [ null, %18 ], [ null, %dirslash.exit ], [ null, %dirslash.exit.thread ]
+  %.02650 = phi ptr [ %38, %47 ], [ null, %37 ], [ null, %4 ], [ %38, %40 ], [ null, %18 ], [ null, %dirslash.exit ], [ null, %dirslash.exit.thread ]
   %.02749 = phi i32 [ 23, %47 ], [ 27, %37 ], [ 23, %4 ], [ 23, %40 ], [ %21, %18 ], [ 27, %dirslash.exit ], [ 27, %dirslash.exit.thread ]
   %50 = load ptr, ptr @Curl_cfree, align 8
-  call void %50(ptr noundef %.150) #6
+  call void %50(ptr noundef %.02650) #6
   br label %51
 
 51:                                               ; preds = %9, %13, %.thread44, %46

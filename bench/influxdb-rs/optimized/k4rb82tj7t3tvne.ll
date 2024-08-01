@@ -3834,7 +3834,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   br label %.thread266.i
 
 .thread266.i:                                     ; preds = %303, %301, %300
-  %.sroa.11.0 = phi i64 [ %.sroa.11.8.copyload44, %300 ], [ %.sroa.11.8.copyload43, %301 ], [ %.sroa.11.8.copyload42, %303 ]
+  %.sroa.11.3 = phi i64 [ %.sroa.11.8.copyload44, %300 ], [ %.sroa.11.8.copyload43, %301 ], [ %.sroa.11.8.copyload42, %303 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$parquet..format..FileMetaData$GT$17h5062ef6276f95985E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %27)
           to label %.noexc31 unwind label %40
 
@@ -3936,7 +3936,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   unreachable
 
 .critedge.i:                                      ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$parquet..format..ColumnOrder$GT$$GT$17he84189f255addb5eE.exit.i.i", %327, %.noexc31
-  %.sroa.11.1 = phi i64 [ %.sroa.11.0, %.noexc31 ], [ %230, %327 ], [ %230, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$parquet..format..ColumnOrder$GT$$GT$17he84189f255addb5eE.exit.i.i" ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.3, %.noexc31 ], [ %230, %327 ], [ %230, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$parquet..format..ColumnOrder$GT$$GT$17he84189f255addb5eE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !575
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !575
   br label %.thread66
@@ -3994,7 +3994,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
           to label %.thread.i unwind label %306, !noalias !573
 
 .thread66:                                        ; preds = %.critedge.i, %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$parquet..format..RowGroup$GT$$GT$17h0835e284ea2eea1aE.exit213.i"
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %.critedge.i ], [ %.sroa.11.3, %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$parquet..format..RowGroup$GT$$GT$17h0835e284ea2eea1aE.exit213.i" ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.2, %.critedge.i ], [ %.sroa.11.0, %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$parquet..format..RowGroup$GT$$GT$17h0835e284ea2eea1aE.exit213.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !575
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.733.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -4002,7 +4002,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   br label %376
 
 341:                                              ; preds = %197, %190, %141
-  %.sroa.11.3 = phi i64 [ %.sroa.0216.0.copyload.i, %197 ], [ %.sroa.0214.0.copyload.i, %190 ], [ %81, %141 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.0216.0.copyload.i, %197 ], [ %.sroa.0214.0.copyload.i, %190 ], [ %81, %141 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !676)
   %342 = load ptr, ptr %34, align 8, !alias.scope !679, !noalias !575, !nonnull !5, !noundef !5
   %343 = load i64, ptr %48, align 8, !alias.scope !679, !noalias !575, !noundef !5
@@ -4138,7 +4138,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   br label %378
 
 376:                                              ; preds = %371, %.thread66
-  %.sroa.11.470 = phi i64 [ %.sroa.11.2, %.thread66 ], [ %.sroa.11.0.copyload, %371 ]
+  %.sroa.11.470 = phi i64 [ %.sroa.11.1, %.thread66 ], [ %.sroa.11.0.copyload, %371 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.79.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.20)
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %.sroa.24)
@@ -4238,15 +4238,15 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
           to label %.critedge unwind label %36
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit": ; preds = %238, %242, %36
-  %.0179 = phi i8 [ %.1180, %36 ], [ %.6185, %242 ], [ %.6185, %238 ]
-  %.0 = phi i1 [ %.1, %36 ], [ %.6, %242 ], [ %.6, %238 ]
+  %.1180 = phi i8 [ %.0179, %36 ], [ %.6185, %242 ], [ %.6185, %238 ]
+  %.1 = phi i1 [ %.0, %36 ], [ %.4, %242 ], [ %.4, %238 ]
   %.pn205 = phi { ptr, i32 } [ %37, %36 ], [ %.pn203, %242 ], [ %.pn203, %238 ]
-  %35 = trunc nuw i8 %.0179 to i1
+  %35 = trunc nuw i8 %.1180 to i1
   br i1 %35, label %343, label %342
 
 36:                                               ; preds = %299, %249, %54, %33
-  %.1180 = phi i8 [ 1, %33 ], [ 1, %54 ], [ 0, %249 ], [ %.11, %299 ]
-  %.1 = phi i1 [ true, %33 ], [ true, %54 ], [ false, %249 ], [ true, %299 ]
+  %.0179 = phi i8 [ 1, %33 ], [ 1, %54 ], [ 0, %249 ], [ %.13, %299 ]
+  %.0 = phi i1 [ true, %33 ], [ true, %54 ], [ false, %249 ], [ true, %299 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit"
@@ -4449,15 +4449,15 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
   br label %313
 
 .body:                                            ; preds = %251, %255, %258, %133, %"_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238"
-  %.2181 = phi i8 [ %.4183, %"_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238" ], [ %.3182, %133 ], [ %.9, %258 ], [ %.9, %255 ], [ %.9, %251 ]
-  %.2 = phi i1 [ %.4, %"_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238" ], [ %.3, %133 ], [ true, %258 ], [ true, %255 ], [ true, %251 ]
+  %.5184 = phi i8 [ %.8, %"_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238" ], [ %.3182, %133 ], [ %.12, %258 ], [ %.12, %255 ], [ %.12, %251 ]
+  %.3 = phi i1 [ %.5, %"_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238" ], [ %.2, %133 ], [ true, %258 ], [ true, %255 ], [ true, %251 ]
   %.pn201 = phi { ptr, i32 } [ %.pn199, %"_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238" ], [ %134, %133 ], [ %252, %258 ], [ %252, %255 ], [ %252, %251 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaData$GT$17h2c6a7982f841fbe0E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %27) #18
           to label %238 unwind label %204
 
 133:                                              ; preds = %289, %271, %.noexc228, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0312dd78e67fed74E.llvm.15632793531851802591.exit.i.i", %.noexc, %"_ZN69_$LT$parquet..schema..types..Type$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62cd4e5a1d87edc1E.exit.i", %236, %135
-  %.3182 = phi i8 [ 0, %236 ], [ 0, %135 ], [ 0, %"_ZN69_$LT$parquet..schema..types..Type$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62cd4e5a1d87edc1E.exit.i" ], [ 0, %.noexc ], [ 0, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0312dd78e67fed74E.llvm.15632793531851802591.exit.i.i" ], [ 0, %.noexc228 ], [ %.9, %271 ], [ 0, %289 ]
-  %.3 = phi i1 [ false, %236 ], [ true, %135 ], [ true, %"_ZN69_$LT$parquet..schema..types..Type$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62cd4e5a1d87edc1E.exit.i" ], [ true, %.noexc ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0312dd78e67fed74E.llvm.15632793531851802591.exit.i.i" ], [ true, %.noexc228 ], [ true, %271 ], [ true, %289 ]
+  %.3182 = phi i8 [ 0, %236 ], [ 0, %135 ], [ 0, %"_ZN69_$LT$parquet..schema..types..Type$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62cd4e5a1d87edc1E.exit.i" ], [ 0, %.noexc ], [ 0, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0312dd78e67fed74E.llvm.15632793531851802591.exit.i.i" ], [ 0, %.noexc228 ], [ %.12, %271 ], [ 0, %289 ]
+  %.2 = phi i1 [ false, %236 ], [ true, %135 ], [ true, %"_ZN69_$LT$parquet..schema..types..Type$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62cd4e5a1d87edc1E.exit.i" ], [ true, %.noexc ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0312dd78e67fed74E.llvm.15632793531851802591.exit.i.i" ], [ true, %.noexc228 ], [ true, %271 ], [ true, %289 ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4513,8 +4513,8 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
           to label %"_ZN106_$LT$std..sys..unix..kernel_copy..Copier$LT$R$C$W$GT$$u20$as$u20$std..sys..unix..kernel_copy..SpecCopy$GT$4copy17h8239d7903a7b416aE.exit" unwind label %154
 
 "_ZN4core3ptr72drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaDataBuilder$GT$17hbea917f6a0bce80eE.exit238": ; preds = %281, %202, %198, %175, %212, %234, %154
-  %.4183 = phi i8 [ 0, %154 ], [ 0, %175 ], [ 0, %234 ], [ 1, %212 ], [ 0, %198 ], [ 0, %202 ], [ 0, %281 ]
-  %.4 = phi i1 [ true, %154 ], [ true, %175 ], [ false, %234 ], [ true, %212 ], [ true, %198 ], [ true, %202 ], [ true, %281 ]
+  %.8 = phi i8 [ 0, %154 ], [ 0, %175 ], [ 0, %234 ], [ 1, %212 ], [ 0, %198 ], [ 0, %202 ], [ 0, %281 ]
+  %.5 = phi i1 [ true, %154 ], [ true, %175 ], [ false, %234 ], [ true, %212 ], [ true, %198 ], [ true, %202 ], [ true, %281 ]
   %.pn199 = phi { ptr, i32 } [ %155, %154 ], [ %176, %175 ], [ %235, %234 ], [ %213, %212 ], [ %199, %198 ], [ %203, %202 ], [ %282, %281 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$GT$$GT$17hd86f600322b5c868E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %23) #18
           to label %.body unwind label %204
@@ -4815,8 +4815,8 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
           to label %245 unwind label %243
 
 238:                                              ; preds = %243, %.body
-  %.6185 = phi i8 [ %.7186, %243 ], [ %.2181, %.body ]
-  %.6 = phi i1 [ %.7, %243 ], [ %.2, %.body ]
+  %.6185 = phi i8 [ %.11, %243 ], [ %.5184, %.body ]
+  %.4 = phi i1 [ %.7, %243 ], [ %.3, %.body ]
   %.pn203 = phi { ptr, i32 } [ %244, %243 ], [ %.pn201, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !748)
   call void @llvm.experimental.noalias.scope.decl(metadata !751)
@@ -4831,7 +4831,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
           to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit" unwind label %204
 
 243:                                              ; preds = %288, %237
-  %.7186 = phi i8 [ %.11, %288 ], [ 0, %237 ]
+  %.11 = phi i8 [ %.13, %288 ], [ 0, %237 ]
   %.7 = phi i1 [ true, %288 ], [ false, %237 ]
   %244 = landingpad { ptr, i32 }
           cleanup
@@ -4859,7 +4859,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
   ret void
 
 250:                                              ; preds = %210, %228, %287, %283
-  %.9 = phi i8 [ 0, %287 ], [ 0, %283 ], [ 0, %210 ], [ 1, %228 ]
+  %.12 = phi i8 [ 0, %287 ], [ 0, %283 ], [ 0, %210 ], [ 1, %228 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b36351a191d7d7cE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.3268.0..sroa_idx)
           to label %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$bytes..bytes..Bytes$GT$$GT$17hc19b16dd7e85c49bE.llvm.9135219245553044050.exit.i.i.i" unwind label %251
 
@@ -4948,12 +4948,12 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$1
   br label %250
 
 "_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$GT$$GT$17hd86f600322b5c868E.exit": ; preds = %268, %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$bytes..bytes..Bytes$GT$$GT$17hc19b16dd7e85c49bE.llvm.9135219245553044050.exit.i.i.i", %271, %151
-  %.10 = phi i8 [ 0, %151 ], [ %.9, %271 ], [ %.9, %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$bytes..bytes..Bytes$GT$$GT$17hc19b16dd7e85c49bE.llvm.9135219245553044050.exit.i.i.i" ], [ %.9, %268 ]
+  %.7186 = phi i8 [ 0, %151 ], [ %.12, %271 ], [ %.12, %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$bytes..bytes..Bytes$GT$$GT$17hc19b16dd7e85c49bE.llvm.9135219245553044050.exit.i.i.i" ], [ %.12, %268 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23)
   br label %288
 
 288:                                              ; preds = %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit, %"_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$GT$$GT$17hd86f600322b5c868E.exit"
-  %.11 = phi i8 [ 0, %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit ], [ %.10, %"_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$GT$$GT$17hd86f600322b5c868E.exit" ]
+  %.13 = phi i8 [ 0, %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit ], [ %.7186, %"_ZN4core3ptr94drop_in_place$LT$std..io..Take$LT$parquet..arrow..arrow_writer..ArrowColumnChunkReader$GT$$GT$17hd86f600322b5c868E.exit" ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaData$GT$17h2c6a7982f841fbe0E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %27)
           to label %295 unwind label %243
 
@@ -5008,7 +5008,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %289
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit249": ; preds = %295, %299
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
-  %300 = trunc nuw i8 %.11 to i1
+  %300 = trunc nuw i8 %.13 to i1
   br i1 %300, label %313, label %301
 
 301:                                              ; preds = %313, %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit249"
@@ -5121,7 +5121,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %289
   resume { ptr, i32 } %.pn209.pn
 
 342:                                              ; preds = %343, %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit"
-  br i1 %.0, label %344, label %.critedge220
+  br i1 %.1, label %344, label %.critedge220
 
 343:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..ColumnDescriptor$GT$$GT$17hab8bbf7e80b9d951E.exit"
   invoke void @"_ZN4core3ptr65drop_in_place$LT$parquet..file..metadata..ColumnChunkMetaData$GT$17h2c6a7982f841fbe0E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %3) #18
@@ -5180,7 +5180,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   br i1 %.not101, label %36, label %26
 
 24:                                               ; preds = %151, %.thread235
-  %.3227237 = phi i8 [ 1, %.thread235 ], [ 0, %151 ]
+  %.4227237 = phi i8 [ 1, %.thread235 ], [ 0, %151 ]
   %.pr = load ptr, ptr %16, align 8
   %25 = icmp eq ptr %.pr, null
   br i1 %25, label %152, label %.thread
@@ -5190,7 +5190,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
           to label %41 unwind label %33
 
 .body159:                                         ; preds = %244, %100, %93, %84, %63, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i", %120, %.body153, %.thread218, %33, %246
-  %.182 = phi i1 [ true, %.body153 ], [ true, %246 ], [ %35, %33 ], [ true, %.thread218 ], [ false, %120 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ true, %63 ], [ true, %84 ], [ true, %93 ], [ true, %100 ], [ true, %244 ]
+  %.2 = phi i1 [ true, %.body153 ], [ true, %246 ], [ %35, %33 ], [ true, %.thread218 ], [ false, %120 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ true, %63 ], [ true, %84 ], [ true, %93 ], [ true, %100 ], [ true, %244 ]
   %.pn119 = phi { ptr, i32 } [ %135, %.body153 ], [ %lpad.thr_comm.split-lp, %246 ], [ %34, %33 ], [ %lpad.thr_comm, %.thread218 ], [ %121, %120 ], [ %121, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.14789186659444866788.exit.i.i" ], [ %64, %63 ], [ %85, %84 ], [ %101, %93 ], [ %101, %100 ], [ %245, %244 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !852)
@@ -5206,10 +5206,10 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
           to label %"_ZN4core3ptr85drop_in_place$LT$alloc..sync..Arc$LT$parquet..schema..types..SchemaDescriptor$GT$$GT$17he4aa40458c34b263E.exit" unwind label %236
 
 33:                                               ; preds = %26, %152
-  %.2 = phi i8 [ %.3227237, %152 ], [ 1, %26 ]
+  %.182 = phi i8 [ %.4227237, %152 ], [ 1, %26 ]
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = trunc nuw i8 %.2 to i1
+  %35 = trunc nuw i8 %.182 to i1
   br label %.body159
 
 36:                                               ; preds = %18
@@ -5508,7 +5508,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   br label %140
 
 140:                                              ; preds = %139, %88, %41
-  %.5 = phi i1 [ true, %88 ], [ false, %139 ], [ true, %41 ]
+  %.3 = phi i1 [ true, %88 ], [ false, %139 ], [ true, %41 ]
   %141 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !912)
@@ -5552,7 +5552,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
 
 .thread:                                          ; preds = %2, %24
   %..val = phi ptr [ %.pr, %24 ], [ %17, %2 ]
-  %.081198 = phi i8 [ %.3227237, %24 ], [ 1, %2 ]
+  %.081198 = phi i8 [ %.4227237, %24 ], [ 1, %2 ]
   %153 = atomicrmw add ptr %..val, i64 1 monotonic, align 8
   %154 = icmp slt i64 %153, 0
   br i1 %154, label %155, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9adcce92dbbd3ae7E.exit161"
@@ -5889,7 +5889,7 @@ common.resume:                                    ; preds = %293, %301, %337, %3
 
 275:                                              ; preds = %276, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit177"
   %.pn125 = phi { ptr, i32 } [ %277, %276 ], [ %.pn123, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit177" ]
-  br i1 %.5, label %316, label %311
+  br i1 %.3, label %316, label %311
 
 276:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit179"
   %277 = landingpad { ptr, i32 }
@@ -5897,7 +5897,7 @@ common.resume:                                    ; preds = %293, %301, %337, %3
   br label %275
 
 278:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit179"
-  br i1 %.5, label %279, label %.critedge134
+  br i1 %.3, label %279, label %.critedge134
 
 279:                                              ; preds = %278
   %280 = getelementptr inbounds i8, ptr %1, i64 64
@@ -6035,7 +6035,7 @@ common.resume:                                    ; preds = %293, %301, %337, %3
           to label %333 unwind label %236
 
 333:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$GT$$GT$17h518624c9d3774659E.exit185"
-  br i1 %.182, label %334, label %337
+  br i1 %.2, label %334, label %337
 
 334:                                              ; preds = %333
   %335 = getelementptr inbounds i8, ptr %1, i64 64

@@ -1245,10 +1245,10 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 
 155:                                              ; preds = %151, %153
   %.pn146 = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
-  %.1109 = phi i1 [ %.0108, %153 ], [ true, %151 ]
+  %.3 = phi i1 [ %.0108, %153 ], [ true, %151 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
-  br i1 %.1109, label %156, label %219
+  br i1 %.3, label %156, label %219
 
 156:                                              ; preds = %.thread167, %.thread, %155
   %.pn146.pn.pn166 = phi { ptr, i32 } [ %149, %.thread ], [ %.pn146, %155 ], [ %150, %.thread167 ]

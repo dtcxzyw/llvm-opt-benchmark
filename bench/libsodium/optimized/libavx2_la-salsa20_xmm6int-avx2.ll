@@ -215,9 +215,9 @@ if.then1:                                         ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %if.then1, %for.end
-  %m.addr.01642 = phi ptr [ %m, %if.then1 ], [ %add.ptr345, %for.end ]
-  %c.addr.01641 = phi ptr [ %c, %if.then1 ], [ %add.ptr344, %for.end ]
-  %bytes.addr.01640 = phi i64 [ %bytes, %if.then1 ], [ %sub, %for.end ]
+  %m.addr.11642 = phi ptr [ %m, %if.then1 ], [ %add.ptr345, %for.end ]
+  %c.addr.11641 = phi ptr [ %c, %if.then1 ], [ %add.ptr344, %for.end ]
+  %bytes.addr.11640 = phi i64 [ %bytes, %if.then1 ], [ %sub, %for.end ]
   %28 = load i32, ptr %arrayidx33, align 4
   %29 = load i32, ptr %arrayidx34, align 4
   %conv = zext i32 %28 to i64
@@ -475,46 +475,46 @@ for.end:                                          ; preds = %for.body
   %vperm243 = bitcast <8 x i32> %152 to <4 x i64>
   %153 = shufflevector <8 x i32> %140, <8 x i32> %145, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %vperm244 = bitcast <8 x i32> %153 to <4 x i64>
-  %154 = load <4 x i64>, ptr %m.addr.01642, align 1
+  %154 = load <4 x i64>, ptr %m.addr.11642, align 1
   %xor.i1842 = xor <4 x i64> %154, %vperm
-  %add.ptr247 = getelementptr i8, ptr %m.addr.01642, i64 64
+  %add.ptr247 = getelementptr i8, ptr %m.addr.11642, i64 64
   %155 = load <4 x i64>, ptr %add.ptr247, align 1
   %xor.i1839 = xor <4 x i64> %155, %vperm239
-  %add.ptr250 = getelementptr i8, ptr %m.addr.01642, i64 128
+  %add.ptr250 = getelementptr i8, ptr %m.addr.11642, i64 128
   %156 = load <4 x i64>, ptr %add.ptr250, align 1
   %xor.i1836 = xor <4 x i64> %156, %vperm241
-  %add.ptr253 = getelementptr i8, ptr %m.addr.01642, i64 192
+  %add.ptr253 = getelementptr i8, ptr %m.addr.11642, i64 192
   %157 = load <4 x i64>, ptr %add.ptr253, align 1
   %xor.i1833 = xor <4 x i64> %157, %vperm243
-  %add.ptr256 = getelementptr i8, ptr %m.addr.01642, i64 256
+  %add.ptr256 = getelementptr i8, ptr %m.addr.11642, i64 256
   %158 = load <4 x i64>, ptr %add.ptr256, align 1
   %xor.i1830 = xor <4 x i64> %158, %vperm238
-  %add.ptr259 = getelementptr i8, ptr %m.addr.01642, i64 320
+  %add.ptr259 = getelementptr i8, ptr %m.addr.11642, i64 320
   %159 = load <4 x i64>, ptr %add.ptr259, align 1
   %xor.i1827 = xor <4 x i64> %159, %vperm240
-  %add.ptr262 = getelementptr i8, ptr %m.addr.01642, i64 384
+  %add.ptr262 = getelementptr i8, ptr %m.addr.11642, i64 384
   %160 = load <4 x i64>, ptr %add.ptr262, align 1
   %xor.i1824 = xor <4 x i64> %160, %vperm242
-  %add.ptr265 = getelementptr i8, ptr %m.addr.01642, i64 448
+  %add.ptr265 = getelementptr i8, ptr %m.addr.11642, i64 448
   %161 = load <4 x i64>, ptr %add.ptr265, align 1
   %xor.i1821 = xor <4 x i64> %161, %vperm244
-  store <4 x i64> %xor.i1842, ptr %c.addr.01641, align 1
-  %add.ptr269 = getelementptr i8, ptr %c.addr.01641, i64 64
+  store <4 x i64> %xor.i1842, ptr %c.addr.11641, align 1
+  %add.ptr269 = getelementptr i8, ptr %c.addr.11641, i64 64
   store <4 x i64> %xor.i1839, ptr %add.ptr269, align 1
-  %add.ptr270 = getelementptr i8, ptr %c.addr.01641, i64 128
+  %add.ptr270 = getelementptr i8, ptr %c.addr.11641, i64 128
   store <4 x i64> %xor.i1836, ptr %add.ptr270, align 1
-  %add.ptr271 = getelementptr i8, ptr %c.addr.01641, i64 192
+  %add.ptr271 = getelementptr i8, ptr %c.addr.11641, i64 192
   store <4 x i64> %xor.i1833, ptr %add.ptr271, align 1
-  %add.ptr272 = getelementptr i8, ptr %c.addr.01641, i64 256
+  %add.ptr272 = getelementptr i8, ptr %c.addr.11641, i64 256
   store <4 x i64> %xor.i1830, ptr %add.ptr272, align 1
-  %add.ptr273 = getelementptr i8, ptr %c.addr.01641, i64 320
+  %add.ptr273 = getelementptr i8, ptr %c.addr.11641, i64 320
   store <4 x i64> %xor.i1827, ptr %add.ptr273, align 1
-  %add.ptr274 = getelementptr i8, ptr %c.addr.01641, i64 384
+  %add.ptr274 = getelementptr i8, ptr %c.addr.11641, i64 384
   store <4 x i64> %xor.i1824, ptr %add.ptr274, align 1
-  %add.ptr275 = getelementptr i8, ptr %c.addr.01641, i64 448
+  %add.ptr275 = getelementptr i8, ptr %c.addr.11641, i64 448
   store <4 x i64> %xor.i1821, ptr %add.ptr275, align 1
-  %add.ptr276 = getelementptr i8, ptr %m.addr.01642, i64 32
-  %add.ptr277 = getelementptr i8, ptr %c.addr.01641, i64 32
+  %add.ptr276 = getelementptr i8, ptr %m.addr.11642, i64 32
+  %add.ptr277 = getelementptr i8, ptr %c.addr.11641, i64 32
   %add.i1612 = add <8 x i32> %32, %124
   %add.i1609 = add <8 x i32> %34, %130
   %162 = bitcast <4 x i64> %xor.i1851 to <8 x i32>
@@ -559,53 +559,53 @@ for.end:                                          ; preds = %for.body
   %vperm309 = bitcast <8 x i32> %179 to <4 x i64>
   %180 = load <4 x i64>, ptr %add.ptr276, align 1
   %xor.i1818 = xor <4 x i64> %180, %vperm302
-  %add.ptr313 = getelementptr i8, ptr %m.addr.01642, i64 96
+  %add.ptr313 = getelementptr i8, ptr %m.addr.11642, i64 96
   %181 = load <4 x i64>, ptr %add.ptr313, align 1
   %xor.i1815 = xor <4 x i64> %181, %vperm304
-  %add.ptr316 = getelementptr i8, ptr %m.addr.01642, i64 160
+  %add.ptr316 = getelementptr i8, ptr %m.addr.11642, i64 160
   %182 = load <4 x i64>, ptr %add.ptr316, align 1
   %xor.i1812 = xor <4 x i64> %182, %vperm306
-  %add.ptr319 = getelementptr i8, ptr %m.addr.01642, i64 224
+  %add.ptr319 = getelementptr i8, ptr %m.addr.11642, i64 224
   %183 = load <4 x i64>, ptr %add.ptr319, align 1
   %xor.i1809 = xor <4 x i64> %183, %vperm308
-  %add.ptr322 = getelementptr i8, ptr %m.addr.01642, i64 288
+  %add.ptr322 = getelementptr i8, ptr %m.addr.11642, i64 288
   %184 = load <4 x i64>, ptr %add.ptr322, align 1
   %xor.i1806 = xor <4 x i64> %184, %vperm303
-  %add.ptr325 = getelementptr i8, ptr %m.addr.01642, i64 352
+  %add.ptr325 = getelementptr i8, ptr %m.addr.11642, i64 352
   %185 = load <4 x i64>, ptr %add.ptr325, align 1
   %xor.i1803 = xor <4 x i64> %185, %vperm305
-  %add.ptr328 = getelementptr i8, ptr %m.addr.01642, i64 416
+  %add.ptr328 = getelementptr i8, ptr %m.addr.11642, i64 416
   %186 = load <4 x i64>, ptr %add.ptr328, align 1
   %xor.i1800 = xor <4 x i64> %186, %vperm307
-  %add.ptr331 = getelementptr i8, ptr %m.addr.01642, i64 480
+  %add.ptr331 = getelementptr i8, ptr %m.addr.11642, i64 480
   %187 = load <4 x i64>, ptr %add.ptr331, align 1
   %xor.i = xor <4 x i64> %187, %vperm309
   store <4 x i64> %xor.i1818, ptr %add.ptr277, align 1
-  %add.ptr335 = getelementptr i8, ptr %c.addr.01641, i64 96
+  %add.ptr335 = getelementptr i8, ptr %c.addr.11641, i64 96
   store <4 x i64> %xor.i1815, ptr %add.ptr335, align 1
-  %add.ptr336 = getelementptr i8, ptr %c.addr.01641, i64 160
+  %add.ptr336 = getelementptr i8, ptr %c.addr.11641, i64 160
   store <4 x i64> %xor.i1812, ptr %add.ptr336, align 1
-  %add.ptr337 = getelementptr i8, ptr %c.addr.01641, i64 224
+  %add.ptr337 = getelementptr i8, ptr %c.addr.11641, i64 224
   store <4 x i64> %xor.i1809, ptr %add.ptr337, align 1
-  %add.ptr338 = getelementptr i8, ptr %c.addr.01641, i64 288
+  %add.ptr338 = getelementptr i8, ptr %c.addr.11641, i64 288
   store <4 x i64> %xor.i1806, ptr %add.ptr338, align 1
-  %add.ptr339 = getelementptr i8, ptr %c.addr.01641, i64 352
+  %add.ptr339 = getelementptr i8, ptr %c.addr.11641, i64 352
   store <4 x i64> %xor.i1803, ptr %add.ptr339, align 1
-  %add.ptr340 = getelementptr i8, ptr %c.addr.01641, i64 416
+  %add.ptr340 = getelementptr i8, ptr %c.addr.11641, i64 416
   store <4 x i64> %xor.i1800, ptr %add.ptr340, align 1
-  %add.ptr341 = getelementptr i8, ptr %c.addr.01641, i64 480
+  %add.ptr341 = getelementptr i8, ptr %c.addr.11641, i64 480
   store <4 x i64> %xor.i, ptr %add.ptr341, align 1
-  %sub = add i64 %bytes.addr.01640, -512
-  %add.ptr344 = getelementptr i8, ptr %c.addr.01641, i64 512
-  %add.ptr345 = getelementptr i8, ptr %m.addr.01642, i64 512
+  %sub = add i64 %bytes.addr.11640, -512
+  %add.ptr344 = getelementptr i8, ptr %c.addr.11641, i64 512
+  %add.ptr345 = getelementptr i8, ptr %m.addr.11642, i64 512
   %cmp29 = icmp ugt i64 %sub, 511
   br i1 %cmp29, label %while.body, label %if.end346, !llvm.loop !6
 
 if.end346:                                        ; preds = %for.end, %entry
-  %bytes.addr.1 = phi i64 [ %bytes, %entry ], [ %sub, %for.end ]
-  %c.addr.1 = phi ptr [ %c, %entry ], [ %add.ptr344, %for.end ]
-  %m.addr.1 = phi ptr [ %m, %entry ], [ %add.ptr345, %for.end ]
-  %cmp347 = icmp ugt i64 %bytes.addr.1, 255
+  %bytes.addr.0 = phi i64 [ %bytes, %entry ], [ %sub, %for.end ]
+  %c.addr.0 = phi ptr [ %c, %entry ], [ %add.ptr344, %for.end ]
+  %m.addr.0 = phi ptr [ %m, %entry ], [ %add.ptr345, %for.end ]
+  %cmp347 = icmp ugt i64 %bytes.addr.0, 255
   br i1 %cmp347, label %if.then349, label %if.end762
 
 if.then349:                                       ; preds = %if.end346
@@ -648,9 +648,9 @@ if.then349:                                       ; preds = %if.end346
   br label %while.body425
 
 while.body425:                                    ; preds = %if.then349, %for.end637
-  %m.addr.21662 = phi ptr [ %m.addr.1, %if.then349 ], [ %add.ptr760, %for.end637 ]
-  %c.addr.21661 = phi ptr [ %c.addr.1, %if.then349 ], [ %add.ptr759, %for.end637 ]
-  %bytes.addr.21660 = phi i64 [ %bytes.addr.1, %if.then349 ], [ %sub758, %for.end637 ]
+  %m.addr.31662 = phi ptr [ %m.addr.0, %if.then349 ], [ %add.ptr760, %for.end637 ]
+  %c.addr.31661 = phi ptr [ %c.addr.0, %if.then349 ], [ %add.ptr759, %for.end637 ]
+  %bytes.addr.31660 = phi i64 [ %bytes.addr.0, %if.then349 ], [ %sub758, %for.end637 ]
   %206 = load i32, ptr %add.ptr412, align 4
   %207 = load i32, ptr %arrayidx434, align 4
   %conv435 = zext i32 %206 to i64
@@ -881,26 +881,26 @@ for.end637:                                       ; preds = %for.body458
   %shuffle.i3309 = shufflevector <2 x i64> %313, <2 x i64> %314, <2 x i32> <i32 1, i32 3>
   %shuffle.i3282 = shufflevector <2 x i64> %315, <2 x i64> %316, <2 x i32> <i32 0, i32 2>
   %shuffle.i3306 = shufflevector <2 x i64> %315, <2 x i64> %316, <2 x i32> <i32 1, i32 3>
-  %317 = load <2 x i64>, ptr %m.addr.21662, align 1
+  %317 = load <2 x i64>, ptr %m.addr.31662, align 1
   %xor.i2941 = xor <2 x i64> %317, %shuffle.i3285
-  store <2 x i64> %xor.i2941, ptr %c.addr.21661, align 1
-  %add.ptr654 = getelementptr i8, ptr %m.addr.21662, i64 64
+  store <2 x i64> %xor.i2941, ptr %c.addr.31661, align 1
+  %add.ptr654 = getelementptr i8, ptr %m.addr.31662, i64 64
   %318 = load <2 x i64>, ptr %add.ptr654, align 1
   %xor.i2938 = xor <2 x i64> %318, %shuffle.i3309
-  %add.ptr657 = getelementptr i8, ptr %c.addr.21661, i64 64
+  %add.ptr657 = getelementptr i8, ptr %c.addr.31661, i64 64
   store <2 x i64> %xor.i2938, ptr %add.ptr657, align 1
-  %add.ptr658 = getelementptr i8, ptr %m.addr.21662, i64 128
+  %add.ptr658 = getelementptr i8, ptr %m.addr.31662, i64 128
   %319 = load <2 x i64>, ptr %add.ptr658, align 1
   %xor.i2935 = xor <2 x i64> %319, %shuffle.i3282
-  %add.ptr661 = getelementptr i8, ptr %c.addr.21661, i64 128
+  %add.ptr661 = getelementptr i8, ptr %c.addr.31661, i64 128
   store <2 x i64> %xor.i2935, ptr %add.ptr661, align 1
-  %add.ptr662 = getelementptr i8, ptr %m.addr.21662, i64 192
+  %add.ptr662 = getelementptr i8, ptr %m.addr.31662, i64 192
   %320 = load <2 x i64>, ptr %add.ptr662, align 1
   %xor.i2932 = xor <2 x i64> %320, %shuffle.i3306
-  %add.ptr665 = getelementptr i8, ptr %c.addr.21661, i64 192
+  %add.ptr665 = getelementptr i8, ptr %c.addr.31661, i64 192
   store <2 x i64> %xor.i2932, ptr %add.ptr665, align 1
-  %add.ptr666 = getelementptr i8, ptr %m.addr.21662, i64 16
-  %add.ptr667 = getelementptr i8, ptr %c.addr.21661, i64 16
+  %add.ptr666 = getelementptr i8, ptr %m.addr.31662, i64 16
+  %add.ptr667 = getelementptr i8, ptr %c.addr.31661, i64 16
   %add.i2465 = add <4 x i32> %permil419, %285
   %321 = bitcast <2 x i64> %xor.i2992 to <4 x i32>
   %add.i2462 = add <4 x i32> %permil, %321
@@ -921,23 +921,23 @@ for.end637:                                       ; preds = %for.body458
   %326 = load <2 x i64>, ptr %add.ptr666, align 1
   %xor.i2929 = xor <2 x i64> %326, %shuffle.i3279
   store <2 x i64> %xor.i2929, ptr %add.ptr667, align 1
-  %add.ptr684 = getelementptr i8, ptr %m.addr.21662, i64 80
+  %add.ptr684 = getelementptr i8, ptr %m.addr.31662, i64 80
   %327 = load <2 x i64>, ptr %add.ptr684, align 1
   %xor.i2926 = xor <2 x i64> %327, %shuffle.i3303
-  %add.ptr687 = getelementptr i8, ptr %c.addr.21661, i64 80
+  %add.ptr687 = getelementptr i8, ptr %c.addr.31661, i64 80
   store <2 x i64> %xor.i2926, ptr %add.ptr687, align 1
-  %add.ptr688 = getelementptr i8, ptr %m.addr.21662, i64 144
+  %add.ptr688 = getelementptr i8, ptr %m.addr.31662, i64 144
   %328 = load <2 x i64>, ptr %add.ptr688, align 1
   %xor.i2923 = xor <2 x i64> %328, %shuffle.i3276
-  %add.ptr691 = getelementptr i8, ptr %c.addr.21661, i64 144
+  %add.ptr691 = getelementptr i8, ptr %c.addr.31661, i64 144
   store <2 x i64> %xor.i2923, ptr %add.ptr691, align 1
-  %add.ptr692 = getelementptr i8, ptr %m.addr.21662, i64 208
+  %add.ptr692 = getelementptr i8, ptr %m.addr.31662, i64 208
   %329 = load <2 x i64>, ptr %add.ptr692, align 1
   %xor.i2920 = xor <2 x i64> %329, %shuffle.i3300
-  %add.ptr695 = getelementptr i8, ptr %c.addr.21661, i64 208
+  %add.ptr695 = getelementptr i8, ptr %c.addr.31661, i64 208
   store <2 x i64> %xor.i2920, ptr %add.ptr695, align 1
-  %add.ptr696 = getelementptr i8, ptr %m.addr.21662, i64 32
-  %add.ptr697 = getelementptr i8, ptr %c.addr.21661, i64 32
+  %add.ptr696 = getelementptr i8, ptr %m.addr.31662, i64 32
+  %add.ptr697 = getelementptr i8, ptr %c.addr.31661, i64 32
   %add.i2453 = add <4 x i32> %shuffle.i2276, %300
   %add.i2450 = add <4 x i32> %shuffle.i2306, %306
   %330 = bitcast <2 x i64> %xor.i2950 to <4 x i32>
@@ -958,23 +958,23 @@ for.end637:                                       ; preds = %for.body458
   %335 = load <2 x i64>, ptr %add.ptr696, align 1
   %xor.i2917 = xor <2 x i64> %335, %shuffle.i3273
   store <2 x i64> %xor.i2917, ptr %add.ptr697, align 1
-  %add.ptr714 = getelementptr i8, ptr %m.addr.21662, i64 96
+  %add.ptr714 = getelementptr i8, ptr %m.addr.31662, i64 96
   %336 = load <2 x i64>, ptr %add.ptr714, align 1
   %xor.i2914 = xor <2 x i64> %336, %shuffle.i3297
-  %add.ptr717 = getelementptr i8, ptr %c.addr.21661, i64 96
+  %add.ptr717 = getelementptr i8, ptr %c.addr.31661, i64 96
   store <2 x i64> %xor.i2914, ptr %add.ptr717, align 1
-  %add.ptr718 = getelementptr i8, ptr %m.addr.21662, i64 160
+  %add.ptr718 = getelementptr i8, ptr %m.addr.31662, i64 160
   %337 = load <2 x i64>, ptr %add.ptr718, align 1
   %xor.i2911 = xor <2 x i64> %337, %shuffle.i3270
-  %add.ptr721 = getelementptr i8, ptr %c.addr.21661, i64 160
+  %add.ptr721 = getelementptr i8, ptr %c.addr.31661, i64 160
   store <2 x i64> %xor.i2911, ptr %add.ptr721, align 1
-  %add.ptr722 = getelementptr i8, ptr %m.addr.21662, i64 224
+  %add.ptr722 = getelementptr i8, ptr %m.addr.31662, i64 224
   %338 = load <2 x i64>, ptr %add.ptr722, align 1
   %xor.i2908 = xor <2 x i64> %338, %shuffle.i3294
-  %add.ptr725 = getelementptr i8, ptr %c.addr.21661, i64 224
+  %add.ptr725 = getelementptr i8, ptr %c.addr.31661, i64 224
   store <2 x i64> %xor.i2908, ptr %add.ptr725, align 1
-  %add.ptr726 = getelementptr i8, ptr %m.addr.21662, i64 48
-  %add.ptr727 = getelementptr i8, ptr %c.addr.21661, i64 48
+  %add.ptr726 = getelementptr i8, ptr %m.addr.31662, i64 48
+  %add.ptr727 = getelementptr i8, ptr %c.addr.31661, i64 48
   %add.i2441 = add <4 x i32> %permil410, %297
   %add.i2438 = add <4 x i32> %permil415, %303
   %add.i2435 = add <4 x i32> %permil420, %309
@@ -995,32 +995,32 @@ for.end637:                                       ; preds = %for.body458
   %344 = load <2 x i64>, ptr %add.ptr726, align 1
   %xor.i2905 = xor <2 x i64> %344, %shuffle.i3267
   store <2 x i64> %xor.i2905, ptr %add.ptr727, align 1
-  %add.ptr744 = getelementptr i8, ptr %m.addr.21662, i64 112
+  %add.ptr744 = getelementptr i8, ptr %m.addr.31662, i64 112
   %345 = load <2 x i64>, ptr %add.ptr744, align 1
   %xor.i2902 = xor <2 x i64> %345, %shuffle.i3291
-  %add.ptr747 = getelementptr i8, ptr %c.addr.21661, i64 112
+  %add.ptr747 = getelementptr i8, ptr %c.addr.31661, i64 112
   store <2 x i64> %xor.i2902, ptr %add.ptr747, align 1
-  %add.ptr748 = getelementptr i8, ptr %m.addr.21662, i64 176
+  %add.ptr748 = getelementptr i8, ptr %m.addr.31662, i64 176
   %346 = load <2 x i64>, ptr %add.ptr748, align 1
   %xor.i2899 = xor <2 x i64> %346, %shuffle.i3264
-  %add.ptr751 = getelementptr i8, ptr %c.addr.21661, i64 176
+  %add.ptr751 = getelementptr i8, ptr %c.addr.31661, i64 176
   store <2 x i64> %xor.i2899, ptr %add.ptr751, align 1
-  %add.ptr752 = getelementptr i8, ptr %m.addr.21662, i64 240
+  %add.ptr752 = getelementptr i8, ptr %m.addr.31662, i64 240
   %347 = load <2 x i64>, ptr %add.ptr752, align 1
   %xor.i2896 = xor <2 x i64> %347, %shuffle.i3288
-  %add.ptr755 = getelementptr i8, ptr %c.addr.21661, i64 240
+  %add.ptr755 = getelementptr i8, ptr %c.addr.31661, i64 240
   store <2 x i64> %xor.i2896, ptr %add.ptr755, align 1
-  %sub758 = add nsw i64 %bytes.addr.21660, -256
-  %add.ptr759 = getelementptr i8, ptr %c.addr.21661, i64 256
-  %add.ptr760 = getelementptr i8, ptr %m.addr.21662, i64 256
+  %sub758 = add nsw i64 %bytes.addr.31660, -256
+  %add.ptr759 = getelementptr i8, ptr %c.addr.31661, i64 256
+  %add.ptr760 = getelementptr i8, ptr %m.addr.31662, i64 256
   %cmp423 = icmp ugt i64 %sub758, 255
   br i1 %cmp423, label %while.body425, label %if.end762, !llvm.loop !8
 
 if.end762:                                        ; preds = %for.end637, %if.end346
-  %bytes.addr.3 = phi i64 [ %bytes.addr.1, %if.end346 ], [ %sub758, %for.end637 ]
-  %c.addr.3 = phi ptr [ %c.addr.1, %if.end346 ], [ %add.ptr759, %for.end637 ]
-  %m.addr.3 = phi ptr [ %m.addr.1, %if.end346 ], [ %add.ptr760, %for.end637 ]
-  %cmp7641665 = icmp ugt i64 %bytes.addr.3, 63
+  %bytes.addr.2 = phi i64 [ %bytes.addr.0, %if.end346 ], [ %sub758, %for.end637 ]
+  %c.addr.2 = phi ptr [ %c.addr.0, %if.end346 ], [ %add.ptr759, %for.end637 ]
+  %m.addr.2 = phi ptr [ %m.addr.0, %if.end346 ], [ %add.ptr760, %for.end637 ]
+  %cmp7641665 = icmp ugt i64 %bytes.addr.2, 63
   br i1 %cmp7641665, label %while.body766.lr.ph, label %while.end988
 
 while.body766.lr.ph:                              ; preds = %if.end762
@@ -1031,9 +1031,9 @@ while.body766.lr.ph:                              ; preds = %if.end762
   br label %while.body766
 
 while.body766:                                    ; preds = %while.body766.lr.ph, %for.end876
-  %m.addr.41668 = phi ptr [ %m.addr.3, %while.body766.lr.ph ], [ %add.ptr986, %for.end876 ]
-  %c.addr.41667 = phi ptr [ %c.addr.3, %while.body766.lr.ph ], [ %add.ptr985, %for.end876 ]
-  %bytes.addr.41666 = phi i64 [ %bytes.addr.3, %while.body766.lr.ph ], [ %sub987, %for.end876 ]
+  %m.addr.41668 = phi ptr [ %m.addr.2, %while.body766.lr.ph ], [ %add.ptr986, %for.end876 ]
+  %c.addr.41667 = phi ptr [ %c.addr.2, %while.body766.lr.ph ], [ %add.ptr985, %for.end876 ]
+  %bytes.addr.41666 = phi i64 [ %bytes.addr.2, %while.body766.lr.ph ], [ %sub987, %for.end876 ]
   %348 = load <2 x i64>, ptr %ctx, align 1
   %349 = load <4 x i32>, ptr %add.ptr769, align 1
   %350 = load <4 x i32>, ptr %add.ptr771, align 1
@@ -1246,9 +1246,9 @@ for.end876:                                       ; preds = %for.body781
   br i1 %cmp764, label %while.body766, label %while.end988, !llvm.loop !10
 
 while.end988:                                     ; preds = %for.end876, %if.end762
-  %bytes.addr.4.lcssa = phi i64 [ %bytes.addr.3, %if.end762 ], [ %sub987, %for.end876 ]
-  %c.addr.4.lcssa = phi ptr [ %c.addr.3, %if.end762 ], [ %add.ptr985, %for.end876 ]
-  %m.addr.4.lcssa = phi ptr [ %m.addr.3, %if.end762 ], [ %add.ptr986, %for.end876 ]
+  %bytes.addr.4.lcssa = phi i64 [ %bytes.addr.2, %if.end762 ], [ %sub987, %for.end876 ]
+  %c.addr.4.lcssa = phi ptr [ %c.addr.2, %if.end762 ], [ %add.ptr985, %for.end876 ]
+  %m.addr.4.lcssa = phi ptr [ %m.addr.2, %if.end762 ], [ %add.ptr986, %for.end876 ]
   %cmp989.not = icmp eq i64 %bytes.addr.4.lcssa, 0
   br i1 %cmp989.not, label %if.end1237, label %if.then991
 

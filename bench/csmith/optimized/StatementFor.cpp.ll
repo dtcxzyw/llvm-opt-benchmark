@@ -527,11 +527,11 @@ select.unfold.i:                                  ; preds = %.noexc122, %.noexc1
   br label %167
 
 167:                                              ; preds = %.thread35.i, %.noexc132, %.noexc131
-  %.0213 = phi i32 [ %140, %.thread35.i ], [ %156, %.noexc132 ], [ %156, %.noexc131 ]
-  %.0209 = phi i32 [ %126, %.thread35.i ], [ %162, %.noexc132 ], [ %162, %.noexc131 ]
-  %.0205 = phi i32 [ %145, %.thread35.i ], [ %spec.select37.i, %.noexc132 ], [ 1, %.noexc131 ]
-  %.0203 = phi i32 [ 8, %.thread35.i ], [ 7, %.noexc132 ], [ 7, %.noexc131 ]
-  %.0202 = phi i32 [ 4, %.thread35.i ], [ 5, %.noexc132 ], [ 5, %.noexc131 ]
+  %.1214 = phi i32 [ %140, %.thread35.i ], [ %156, %.noexc132 ], [ %156, %.noexc131 ]
+  %.1210 = phi i32 [ %126, %.thread35.i ], [ %162, %.noexc132 ], [ %162, %.noexc131 ]
+  %.1206 = phi i32 [ %145, %.thread35.i ], [ %spec.select37.i, %.noexc132 ], [ 1, %.noexc131 ]
+  %.1204 = phi i32 [ 8, %.thread35.i ], [ 7, %.noexc132 ], [ 7, %.noexc131 ]
+  %.1 = phi i32 [ 4, %.thread35.i ], [ 5, %.noexc132 ], [ 5, %.noexc131 ]
   %.0.i = phi i32 [ %148, %.thread35.i ], [ %156, %.noexc132 ], [ %156, %.noexc131 ]
   %168 = load i32, ptr @_ZN10Bookkeeper7oob_cntE, align 4
   %169 = zext i1 %132 to i32
@@ -619,8 +619,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread: ; preds = %67, %_ZNSt6vecto
 
 203:                                              ; preds = %201, %.thread
   %204 = phi i32 [ %200, %.thread ], [ %202, %201 ]
-  %.1210219 = phi i32 [ %199, %.thread ], [ %182, %201 ]
-  %.1206 = phi i32 [ %193, %.thread ], [ %spec.select, %201 ]
+  %.2211219 = phi i32 [ %199, %.thread ], [ %182, %201 ]
+  %.2207 = phi i32 [ %193, %.thread ], [ %spec.select, %201 ]
   %205 = invoke noundef zeroext i1 @_ZN9CGOptions14fast_executionEv()
           to label %.noexc141 unwind label %.loopexit.split-lp238
 
@@ -628,8 +628,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread: ; preds = %67, %_ZNSt6vecto
   br i1 %205, label %206, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 206:                                              ; preds = %.noexc141
-  %207 = sub nsw i32 %.1210219, %180
-  %208 = srem i32 %207, %.1206
+  %207 = sub nsw i32 %.2211219, %180
+  %208 = srem i32 %207, %.2207
   %209 = icmp eq i32 %208, 0
   %.off.i = add i32 %186, -7
   %switch.i = icmp ult i32 %.off.i, 2
@@ -639,7 +639,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread: ; preds = %67, %_ZNSt6vecto
 210:                                              ; preds = %206
   %211 = icmp eq i32 %204, 4
   %.v.i = select i1 %211, i32 1, i32 -1
-  %212 = add nsw i32 %.v.i, %.1210219
+  %212 = add nsw i32 %.v.i, %.2211219
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 213:                                              ; preds = %.noexc139
@@ -691,7 +691,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread: ; preds = %67, %_ZNSt6vecto
   br i1 %227, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 thread-pre-split52.i.thread:                      ; preds = %.noexc146, %.noexc144, %.noexc145
-  %.1221224.ph = phi i32 [ 12, %.noexc146 ], [ 11, %.noexc144 ], [ 13, %.noexc145 ]
+  %.2221224.ph = phi i32 [ 12, %.noexc146 ], [ 11, %.noexc144 ], [ 13, %.noexc145 ]
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 thread-pre-split52.i:                             ; preds = %._crit_edge.i
@@ -703,17 +703,17 @@ thread-pre-split52.i:                             ; preds = %._crit_edge.i
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %.noexc147, %210, %206, %.noexc141, %.noexc144, %.noexc145, %.noexc146, %thread-pre-split52.i.thread, %167
-  %.1214.ph = phi i32 [ %180, %210 ], [ %180, %206 ], [ %180, %.noexc141 ], [ %180, %.noexc144 ], [ %180, %.noexc145 ], [ %180, %.noexc146 ], [ %180, %thread-pre-split52.i.thread ], [ %.0213, %167 ], [ %180, %.noexc147 ]
-  %.3212.ph = phi i32 [ %212, %210 ], [ %.1210219, %206 ], [ %.1210219, %.noexc141 ], [ %182, %.noexc144 ], [ %182, %.noexc145 ], [ %182, %.noexc146 ], [ %182, %thread-pre-split52.i.thread ], [ %.0209, %167 ], [ %182, %.noexc147 ]
-  %.3208.ph = phi i32 [ %.1206, %210 ], [ %.1206, %206 ], [ %.1206, %.noexc141 ], [ 1, %.noexc144 ], [ 1, %.noexc145 ], [ 1, %.noexc146 ], [ 1, %thread-pre-split52.i.thread ], [ %.0205, %167 ], [ 1, %.noexc147 ]
-  %.1204.ph = phi i32 [ %186, %210 ], [ %186, %206 ], [ %186, %.noexc141 ], [ %186, %.noexc144 ], [ %186, %.noexc145 ], [ %186, %.noexc146 ], [ %186, %thread-pre-split52.i.thread ], [ %.0203, %167 ], [ %186, %.noexc147 ]
-  %.4.ph = phi i32 [ %204, %210 ], [ %204, %206 ], [ %204, %.noexc141 ], [ 4, %.noexc144 ], [ 4, %.noexc145 ], [ 5, %.noexc146 ], [ %.1221224.ph, %thread-pre-split52.i.thread ], [ %.0202, %167 ], [ %spec.select236, %.noexc147 ]
+  %.0213.ph = phi i32 [ %180, %210 ], [ %180, %206 ], [ %180, %.noexc141 ], [ %180, %.noexc144 ], [ %180, %.noexc145 ], [ %180, %.noexc146 ], [ %180, %thread-pre-split52.i.thread ], [ %.1214, %167 ], [ %180, %.noexc147 ]
+  %.0209.ph = phi i32 [ %212, %210 ], [ %.2211219, %206 ], [ %.2211219, %.noexc141 ], [ %182, %.noexc144 ], [ %182, %.noexc145 ], [ %182, %.noexc146 ], [ %182, %thread-pre-split52.i.thread ], [ %.1210, %167 ], [ %182, %.noexc147 ]
+  %.0205.ph = phi i32 [ %.2207, %210 ], [ %.2207, %206 ], [ %.2207, %.noexc141 ], [ 1, %.noexc144 ], [ 1, %.noexc145 ], [ 1, %.noexc146 ], [ 1, %thread-pre-split52.i.thread ], [ %.1206, %167 ], [ 1, %.noexc147 ]
+  %.0203.ph = phi i32 [ %186, %210 ], [ %186, %206 ], [ %186, %.noexc141 ], [ %186, %.noexc144 ], [ %186, %.noexc145 ], [ %186, %.noexc146 ], [ %186, %thread-pre-split52.i.thread ], [ %.1204, %167 ], [ %186, %.noexc147 ]
+  %.0202.ph = phi i32 [ %204, %210 ], [ %204, %206 ], [ %204, %.noexc141 ], [ 4, %.noexc144 ], [ 4, %.noexc145 ], [ 5, %.noexc146 ], [ %.2221224.ph, %thread-pre-split52.i.thread ], [ %.1, %167 ], [ %spec.select236, %.noexc147 ]
   %.pr229 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not93 = icmp eq i32 %.pr229, 0
   br i1 %.not93, label %229, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
 229:                                              ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
-  %230 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.1214.ph)
+  %230 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0213.ph)
           to label %231 unwind label %.loopexit.split-lp238
 
 231:                                              ; preds = %229
@@ -752,7 +752,7 @@ _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 246:                                              ; preds = %236
-  %247 = invoke noundef i32 @_ZN15StatementAssign22compound_to_binary_opsE10eAssignOps(i32 noundef %.4.ph)
+  %247 = invoke noundef i32 @_ZN15StatementAssign22compound_to_binary_opsE10eAssignOps(i32 noundef %.0202.ph)
           to label %248 unwind label %.loopexit.split-lp238
 
 248:                                              ; preds = %246
@@ -860,7 +860,7 @@ _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %
           to label %299 unwind label %.loopexit.split-lp238
 
 299:                                              ; preds = %298
-  %300 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.3212.ph)
+  %300 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0209.ph)
           to label %301 unwind label %.loopexit.split-lp238
 
 301:                                              ; preds = %299
@@ -894,7 +894,7 @@ _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 316:                                              ; preds = %301
-  %317 = invoke noundef ptr @_ZN18FunctionInvocation11make_binaryER9CGContext10eBinaryOpsP10ExpressionS4_(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.1204.ph, ptr noundef nonnull %288, ptr noundef %300)
+  %317 = invoke noundef ptr @_ZN18FunctionInvocation11make_binaryER9CGContext10eBinaryOpsP10ExpressionS4_(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.0203.ph, ptr noundef nonnull %288, ptr noundef %300)
           to label %318 unwind label %.loopexit.split-lp238
 
 318:                                              ; preds = %316
@@ -1001,7 +1001,7 @@ _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
 373:                                              ; preds = %350
-  %374 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.3208.ph)
+  %374 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0205.ph)
           to label %375 unwind label %.loopexit.split-lp238
 
 375:                                              ; preds = %373
@@ -1058,7 +1058,7 @@ _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %
           to label %403 unwind label %404
 
 403:                                              ; preds = %401
-  invoke void @_ZN15StatementAssignC1EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %400, ptr noundef %402, ptr noundef nonnull align 8 dereferenceable(41) %351, ptr noundef nonnull align 8 dereferenceable(24) %374, i32 noundef %.4.ph, ptr noundef null)
+  invoke void @_ZN15StatementAssignC1EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %400, ptr noundef %402, ptr noundef nonnull align 8 dereferenceable(41) %351, ptr noundef nonnull align 8 dereferenceable(24) %374, i32 noundef %.0202.ph, ptr noundef null)
           to label %413 unwind label %404
 
 404:                                              ; preds = %403, %401
@@ -1075,7 +1075,7 @@ _ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %
           to label %411 unwind label %.loopexit.split-lp238
 
 411:                                              ; preds = %406
-  %412 = invoke noundef ptr @_ZN15StatementAssign29make_possible_compound_assignER9CGContextPK4TypeRK3Lhs10eAssignOpsRK10Expression(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %410, ptr noundef nonnull align 8 dereferenceable(41) %351, i32 noundef %.4.ph, ptr noundef nonnull align 8 dereferenceable(24) %374)
+  %412 = invoke noundef ptr @_ZN15StatementAssign29make_possible_compound_assignER9CGContextPK4TypeRK3Lhs10eAssignOpsRK10Expression(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %410, ptr noundef nonnull align 8 dereferenceable(41) %351, i32 noundef %.0202.ph, ptr noundef nonnull align 8 dereferenceable(24) %374)
           to label %413 unwind label %.loopexit.split-lp238
 
 413:                                              ; preds = %411, %403
@@ -2775,7 +2775,7 @@ _ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE5eraseERS6_.exit53: ; preds
   br label %_ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit55
 
 _ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit55:       ; preds = %154, %_ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE5eraseERS6_.exit53, %74
-  %.022 = phi i1 [ %73, %74 ], [ true, %_ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE5eraseERS6_.exit53 ], [ true, %154 ]
+  %.1 = phi i1 [ %73, %74 ], [ true, %_ZNSt3mapIPK8VariablejSt4lessIS2_ESaISt4pairIKS2_jEEE5eraseERS6_.exit53 ], [ true, %154 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %11) #20
   %155 = load ptr, ptr %10, align 8
   %.not.i.i.i56 = icmp eq ptr %155, null
@@ -2802,8 +2802,8 @@ _ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit:         ; preds = %149, %147, %83, %77
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit58
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %156, %_ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit55, %27
-  %.1 = phi i1 [ %26, %27 ], [ %.022, %_ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit55 ], [ %.022, %156 ]
-  ret i1 %.1
+  %.022 = phi i1 [ %26, %27 ], [ %.1, %_ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit55 ], [ %.1, %156 ]
+  ret i1 %.022
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit58:          ; preds = %159, %157, %32
   %.pn33.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %.pn33.pn, %157 ], [ %.pn33.pn, %159 ]

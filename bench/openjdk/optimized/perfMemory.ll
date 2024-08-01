@@ -292,7 +292,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %6
 23:                                               ; preds = %14, %10
   %.sink = phi ptr [ %22, %14 ], [ %13, %10 ]
   %.sink8 = phi i32 [ 1, %14 ], [ %11, %10 ]
-  %.0 = phi ptr [ %7, %14 ], [ null, %10 ]
+  %.1 = phi ptr [ %7, %14 ], [ null, %10 ]
   %24 = load i32, ptr %.sink, align 4
   %25 = add nsw i32 %24, %.sink8
   store i32 %25, ptr %.sink, align 4
@@ -303,8 +303,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %6
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %26, %23, %1
-  %.1 = phi ptr [ null, %1 ], [ %.0, %23 ], [ %.0, %26 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %1 ], [ %.1, %23 ], [ %.1, %26 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

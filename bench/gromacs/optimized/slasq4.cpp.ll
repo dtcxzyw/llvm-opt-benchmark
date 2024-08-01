@@ -369,7 +369,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .lr.ph488:                                        ; preds = %.lr.ph488.preheader, %265
   %indvars.iv513 = phi i64 [ %263, %.lr.ph488.preheader ], [ %indvars.iv.next514, %265 ]
   %.2395486 = phi float [ %255, %.lr.ph488.preheader ], [ %275, %265 ]
-  %.3402485 = phi float [ %256, %.lr.ph488.preheader ], [ %276, %265 ]
+  %.4403485 = phi float [ %256, %.lr.ph488.preheader ], [ %276, %265 ]
   %268 = getelementptr inbounds float, ptr %2, i64 %indvars.iv513
   %269 = load float, ptr %268, align 4
   %270 = getelementptr i8, ptr %268, i64 -8
@@ -380,7 +380,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 273:                                              ; preds = %.lr.ph488
   %274 = fdiv float %269, %271
   %275 = fmul float %.2395486, %274
-  %276 = fadd float %.3402485, %275
+  %276 = fadd float %.4403485, %275
   %277 = fcmp ogt float %275, %.2395486
   %278 = select i1 %277, float %275, float %.2395486
   %279 = fpext float %278 to double
@@ -398,14 +398,14 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %286
 
 286:                                              ; preds = %._crit_edge, %236
-  %.5404 = phi float [ %285, %._crit_edge ], [ %243, %236 ]
-  %287 = fpext float %.5404 to double
+  %.3402 = phi float [ %285, %._crit_edge ], [ %243, %236 ]
+  %287 = fpext float %.3402 to double
   %288 = fcmp olt double %287, 5.630000e-01
   br i1 %288, label %289, label %517
 
 289:                                              ; preds = %286
   %290 = fpext float %228 to double
-  %291 = tail call noundef float @sqrtf(float noundef %.5404) #3
+  %291 = tail call noundef float @sqrtf(float noundef %.3402) #3
   %292 = fpext float %291 to double
   %293 = fsub double 1.000000e+00, %292
   %294 = fmul double %293, %290
@@ -492,7 +492,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph479:                                        ; preds = %355, %.lr.ph479.preheader
   %indvars.iv510 = phi i64 [ %348, %.lr.ph479.preheader ], [ %indvars.iv.next511, %355 ]
-  %.3396477 = phi float [ %335, %.lr.ph479.preheader ], [ %358, %355 ]
+  %.4477 = phi float [ %335, %.lr.ph479.preheader ], [ %358, %355 ]
   %.0397476 = phi float [ %335, %.lr.ph479.preheader ], [ %357, %355 ]
   %350 = getelementptr inbounds float, ptr %2, i64 %indvars.iv510
   %351 = load float, ptr %350, align 4
@@ -504,7 +504,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 355:                                              ; preds = %.lr.ph479
   %356 = fdiv float %351, %353
   %357 = fmul float %.0397476, %356
-  %358 = fadd float %.3396477, %357
+  %358 = fadd float %.4477, %357
   %359 = fcmp ogt float %.0397476, %357
   %360 = select i1 %359, float %.0397476, float %357
   %361 = fpext float %360 to double
@@ -517,8 +517,8 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond528, label %.loopexit465, label %.lr.ph479, !llvm.loop !7
 
 .loopexit465:                                     ; preds = %355, %338, %334
-  %.4 = phi float [ %335, %334 ], [ %335, %338 ], [ %358, %355 ]
-  %365 = fpext float %.4 to double
+  %.3396 = phi float [ %335, %334 ], [ %335, %338 ], [ %358, %355 ]
+  %365 = fpext float %.3396 to double
   %366 = fmul double %365, 1.050000e+00
   %367 = tail call double @sqrt(double noundef %366) #3
   %368 = fptrunc double %367 to float
@@ -637,7 +637,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %458, %.lr.ph.preheader
   %indvars.iv = phi i64 [ %451, %.lr.ph.preheader ], [ %indvars.iv.next, %458 ]
-  %.5471 = phi float [ %438, %.lr.ph.preheader ], [ %461, %458 ]
+  %.6471 = phi float [ %438, %.lr.ph.preheader ], [ %461, %458 ]
   %.1398470 = phi float [ %438, %.lr.ph.preheader ], [ %460, %458 ]
   %453 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
   %454 = load float, ptr %453, align 4
@@ -649,7 +649,7 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 458:                                              ; preds = %.lr.ph
   %459 = fdiv float %454, %456
   %460 = fmul float %.1398470, %459
-  %461 = fadd float %.5471, %460
+  %461 = fadd float %.6471, %460
   %462 = fpext float %460 to double
   %463 = fmul double %462, 1.000000e+02
   %464 = fpext float %461 to double
@@ -660,8 +660,8 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond529, label %.loopexit467, label %.lr.ph, !llvm.loop !8
 
 .loopexit467:                                     ; preds = %458, %441, %437
-  %.6 = phi float [ %438, %437 ], [ %438, %441 ], [ %461, %458 ]
-  %466 = fpext float %.6 to double
+  %.5 = phi float [ %438, %437 ], [ %438, %441 ], [ %461, %458 ]
+  %466 = fpext float %.5 to double
   %467 = fmul double %466, 1.050000e+00
   %468 = tail call double @sqrt(double noundef %467) #3
   %469 = fptrunc double %468 to float
@@ -728,8 +728,8 @@ define void @slasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %517
 
 517:                                              ; preds = %385, %396, %404, %514, %516, %512, %504, %493, %._crit_edge499, %199, %101, %108, %286, %289, %298
-  %.3408 = phi float [ %107, %101 ], [ %120, %108 ], [ %207, %199 ], [ %123, %._crit_edge499 ], [ %297, %289 ], [ %218, %286 ], [ %300, %298 ], [ %395, %385 ], [ %403, %396 ], [ %405, %404 ], [ %503, %493 ], [ %511, %504 ], [ %513, %512 ], [ 0.000000e+00, %516 ], [ 0.000000e+00, %514 ]
-  store float %.3408, ptr %11, align 4
+  %.2407 = phi float [ %107, %101 ], [ %120, %108 ], [ %207, %199 ], [ %123, %._crit_edge499 ], [ %297, %289 ], [ %218, %286 ], [ %300, %298 ], [ %395, %385 ], [ %403, %396 ], [ %405, %404 ], [ %503, %493 ], [ %511, %504 ], [ %513, %512 ], [ 0.000000e+00, %516 ], [ 0.000000e+00, %514 ]
+  store float %.2407, ptr %11, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph479, %.lr.ph488, %.lr.ph498, %429, %322, %216, %232, %150, %138, %131, %517, %16

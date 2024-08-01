@@ -1834,11 +1834,11 @@ _ZN7AstCase9addItemspEP11AstCaseItem.exit:        ; preds = %_ZN11AstCaseItemC2E
   br label %114
 
 114:                                              ; preds = %110, %112
-  %.192 = phi i1 [ %.091, %112 ], [ true, %110 ]
+  %.394 = phi i1 [ %.091, %112 ], [ true, %110 ]
   %.pn105 = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
-  br i1 %.192, label %115, label %.body
+  br i1 %.394, label %115, label %.body
 
 115:                                              ; preds = %.thread243, %.thread, %114
   %.pn105.pn.pn242 = phi { ptr, i32 } [ %108, %.thread ], [ %.pn105, %114 ], [ %109, %.thread243 ]

@@ -912,12 +912,12 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN55_$LT$str$u20$as$u2
   br label %19
 
 19:                                               ; preds = %15, %11
-  %.0.i = phi ptr [ %18, %15 ], [ null, %11 ]
+  %.1.i = phi ptr [ %18, %15 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !206
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit": ; preds = %19, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.i, %19 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ %.1.i, %19 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -947,12 +947,12 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN55_$LT$str$u20$as$u2
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !213
   %16 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.27.0.copyload.i
-  %.0.i = select i1 %trunc.i, ptr null, ptr %16
+  %.1.i = select i1 %trunc.i, ptr null, ptr %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !213
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hc871f1687b8ff7adE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hc871f1687b8ff7adE.exit": ; preds = %11, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.i, %11 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ %.1.i, %11 ], [ null, %7 ]
   ret ptr %.0
 }
 

@@ -4497,57 +4497,57 @@ if.then68.i:                                      ; preds = %trace_scsi_disk_emu
   br label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then68.i, %trace_scsi_disk_emulate_vpd_page_83.exit.i
-  %buflen.1.i = phi i32 [ %add86.i, %if.then68.i ], [ 4, %trace_scsi_disk_emulate_vpd_page_83.exit.i ]
+  %buflen.2.i = phi i32 [ %add86.i, %if.then68.i ], [ 4, %trace_scsi_disk_emulate_vpd_page_83.exit.i ]
   %wwn.i = getelementptr inbounds i8, ptr %0, i64 576
   %40 = load i64, ptr %wwn.i, align 8
   %tobool89.not.i = icmp eq i64 %40, 0
   br i1 %tobool89.not.i, label %if.end108.i, label %if.then90.i
 
 if.then90.i:                                      ; preds = %if.end87.i
-  %idxprom92.i = zext nneg i32 %buflen.1.i to i64
+  %idxprom92.i = zext nneg i32 %buflen.2.i to i64
   %arrayidx93.i = getelementptr i8, ptr %outbuf, i64 %idxprom92.i
   store <4 x i8> <i8 1, i8 3, i8 0, i8 8>, ptr %arrayidx93.i, align 1
   %arrayidx104.i = getelementptr i8, ptr %arrayidx93.i, i64 4
   %41 = load i64, ptr %wwn.i, align 8
   %42 = tail call i64 @llvm.bswap.i64(i64 %41)
   store i64 %42, ptr %arrayidx104.i, align 1
-  %add107.i = add nuw nsw i32 %buflen.1.i, 12
+  %add107.i = add nuw nsw i32 %buflen.2.i, 12
   br label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.then90.i, %if.end87.i
-  %buflen.2.i = phi i32 [ %add107.i, %if.then90.i ], [ %buflen.1.i, %if.end87.i ]
+  %buflen.3.i = phi i32 [ %add107.i, %if.then90.i ], [ %buflen.2.i, %if.end87.i ]
   %port_wwn.i = getelementptr inbounds i8, ptr %0, i64 584
   %43 = load i64, ptr %port_wwn.i, align 8
   %tobool110.not.i = icmp eq i64 %43, 0
   br i1 %tobool110.not.i, label %if.end129.i, label %if.then111.i
 
 if.then111.i:                                     ; preds = %if.end108.i
-  %idxprom113.i = zext nneg i32 %buflen.2.i to i64
+  %idxprom113.i = zext nneg i32 %buflen.3.i to i64
   %arrayidx114.i = getelementptr i8, ptr %outbuf, i64 %idxprom113.i
   store <4 x i8> <i8 97, i8 -109, i8 0, i8 8>, ptr %arrayidx114.i, align 1
   %arrayidx125.i = getelementptr i8, ptr %arrayidx114.i, i64 4
   %44 = load i64, ptr %port_wwn.i, align 8
   %45 = tail call i64 @llvm.bswap.i64(i64 %44)
   store i64 %45, ptr %arrayidx125.i, align 1
-  %add128.i = add nuw nsw i32 %buflen.2.i, 12
+  %add128.i = add nuw nsw i32 %buflen.3.i, 12
   br label %if.end129.i
 
 if.end129.i:                                      ; preds = %if.then111.i, %if.end108.i
-  %buflen.3.i = phi i32 [ %add128.i, %if.then111.i ], [ %buflen.2.i, %if.end108.i ]
+  %buflen.4.i = phi i32 [ %add128.i, %if.then111.i ], [ %buflen.3.i, %if.end108.i ]
   %port_index.i = getelementptr inbounds i8, ptr %0, i64 616
   %46 = load i16, ptr %port_index.i, align 8
   %tobool130.not.i = icmp eq i16 %46, 0
   br i1 %tobool130.not.i, label %sw.epilog.i, label %if.then131.i
 
 if.then131.i:                                     ; preds = %if.end129.i
-  %idxprom133.i = zext nneg i32 %buflen.3.i to i64
+  %idxprom133.i = zext nneg i32 %buflen.4.i to i64
   %arrayidx134.i = getelementptr i8, ptr %outbuf, i64 %idxprom133.i
   store <4 x i8> <i8 97, i8 -108, i8 0, i8 4>, ptr %arrayidx134.i, align 1
   %arrayidx146.i = getelementptr i8, ptr %arrayidx134.i, i64 6
   %47 = load i16, ptr %port_index.i, align 8
   %48 = tail call i16 @llvm.bswap.i16(i16 %47)
   store i16 %48, ptr %arrayidx146.i, align 1
-  %add148.i = add nuw nsw i32 %buflen.3.i, 8
+  %add148.i = add nuw nsw i32 %buflen.4.i, 8
   br label %sw.epilog.i
 
 sw.bb150.i:                                       ; preds = %if.then
@@ -4680,17 +4680,17 @@ sw.epilog.thread.i:                               ; preds = %sw.bb228.i, %sw.bb2
   %.sink196.i = phi i64 [ 6, %sw.bb228.i ], [ 7, %sw.bb215.i ]
   %conv236.sink.i = phi i8 [ %conv236.i, %sw.bb228.i ], [ 0, %sw.bb215.i ]
   %.sink.i = phi i64 [ 7, %sw.bb228.i ], [ 8, %sw.bb215.i ]
-  %buflen.4.ph.i = phi i32 [ 8, %sw.bb228.i ], [ 64, %sw.bb215.i ]
+  %buflen.1.ph.i = phi i32 [ 8, %sw.bb228.i ], [ 64, %sw.bb215.i ]
   %arrayidx237.i = getelementptr i8, ptr %outbuf, i64 %.sink196.i
   store i8 %conv236.sink.i, ptr %arrayidx237.i, align 1
   %arrayidx238.i = getelementptr i8, ptr %outbuf, i64 %.sink.i
   store i8 0, ptr %arrayidx238.i, align 1
-  %sub192.i = add nsw i32 %buflen.4.ph.i, -4
+  %sub192.i = add nsw i32 %buflen.1.ph.i, -4
   br label %if.end242.i
 
 sw.epilog.i:                                      ; preds = %if.end210.i, %if.then131.i, %if.end129.i, %trace_scsi_disk_emulate_vpd_page_80.exit.i, %if.then26.i, %if.end.i
-  %buflen.4.i = phi i32 [ %add214.i, %if.end210.i ], [ %add148.i, %if.then131.i ], [ %buflen.3.i, %if.end129.i ], [ %add.i, %trace_scsi_disk_emulate_vpd_page_80.exit.i ], [ %inc33.i, %if.then26.i ], [ %inc20.i, %if.end.i ]
-  %sub.i = add i32 %buflen.4.i, -4
+  %buflen.1.i = phi i32 [ %add214.i, %if.end210.i ], [ %add148.i, %if.then131.i ], [ %buflen.4.i, %if.end129.i ], [ %add.i, %trace_scsi_disk_emulate_vpd_page_80.exit.i ], [ %inc33.i, %if.then26.i ], [ %inc20.i, %if.end.i ]
+  %sub.i = add i32 %buflen.1.i, -4
   %cmp239.i = icmp slt i32 %sub.i, 256
   br i1 %cmp239.i, label %if.end242.i, label %if.else.i
 
@@ -4700,13 +4700,13 @@ if.else.i:                                        ; preds = %sw.epilog.i
 
 if.end242.i:                                      ; preds = %sw.epilog.i, %sw.epilog.thread.i
   %sub195.i = phi i32 [ %sub192.i, %sw.epilog.thread.i ], [ %sub.i, %sw.epilog.i ]
-  %buflen.4194.i = phi i32 [ %buflen.4.ph.i, %sw.epilog.thread.i ], [ %buflen.4.i, %sw.epilog.i ]
+  %buflen.1194.i = phi i32 [ %buflen.1.ph.i, %sw.epilog.thread.i ], [ %buflen.1.i, %sw.epilog.i ]
   %conv244.i = trunc i32 %sub195.i to i8
   store i8 %conv244.i, ptr %arrayidx11.i, align 1
   br label %scsi_disk_emulate_vpd_page.exit
 
 scsi_disk_emulate_vpd_page.exit:                  ; preds = %if.then, %trace_scsi_disk_emulate_vpd_page_80_not_supported.exit.i, %trace_scsi_disk_emulate_vpd_page_b0_not_supported.exit.i, %if.end242.i
-  %retval.0.i = phi i32 [ %buflen.4194.i, %if.end242.i ], [ -1, %trace_scsi_disk_emulate_vpd_page_b0_not_supported.exit.i ], [ -1, %trace_scsi_disk_emulate_vpd_page_80_not_supported.exit.i ], [ -1, %if.then ]
+  %retval.0.i = phi i32 [ %buflen.1194.i, %if.end242.i ], [ -1, %trace_scsi_disk_emulate_vpd_page_b0_not_supported.exit.i ], [ -1, %trace_scsi_disk_emulate_vpd_page_80_not_supported.exit.i ], [ -1, %if.then ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bl.i)
   br label %return
 
@@ -5274,46 +5274,46 @@ if.end36:                                         ; preds = %sw.bb
 
 for.body:                                         ; preds = %if.end12, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end12 ]
-  %size.133 = phi i32 [ %size.2, %for.inc ], [ 4, %if.end12 ]
+  %size.233 = phi i32 [ %size.3, %for.inc ], [ 4, %if.end12 ]
   %tobool.not = icmp eq i64 %indvars.iv, 2
   br i1 %tobool.not, label %for.inc, label %if.end60
 
 if.end60:                                         ; preds = %for.body
   %arrayidx58 = getelementptr [5 x i32], ptr @scsi_read_dvd_structure.rds_caps_size, i64 0, i64 %indvars.iv
   %conv61 = trunc i64 %indvars.iv to i8
-  %idxprom62 = sext i32 %size.133 to i64
+  %idxprom62 = sext i32 %size.233 to i64
   %arrayidx63 = getelementptr i8, ptr %outbuf, i64 %idxprom62
   store i8 %conv61, ptr %arrayidx63, align 1
-  %add = add i32 %size.133, 1
+  %add = add i32 %size.233, 1
   %idxprom64 = sext i32 %add to i64
   %arrayidx65 = getelementptr i8, ptr %outbuf, i64 %idxprom64
   store i8 64, ptr %arrayidx65, align 1
-  %add66 = add i32 %size.133, 2
+  %add66 = add i32 %size.233, 2
   %idxprom67 = sext i32 %add66 to i64
   %arrayidx68 = getelementptr i8, ptr %outbuf, i64 %idxprom67
   %14 = load i32, ptr %arrayidx58, align 4
   %conv71 = trunc i32 %14 to i16
   %15 = tail call i16 @llvm.bswap.i16(i16 %conv71)
   store i16 %15, ptr %arrayidx68, align 1
-  %add72 = add i32 %size.133, 4
+  %add72 = add i32 %size.233, 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end60
-  %size.2 = phi i32 [ %add72, %if.end60 ], [ %size.133, %for.body ]
+  %size.3 = phi i32 [ %add72, %if.end60 ], [ %size.233, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !13
 
 sw.epilog:                                        ; preds = %for.inc, %if.end30, %if.end30, %if.end36
-  %size.3 = phi i32 [ %9, %if.end30 ], [ %9, %if.end30 ], [ %9, %if.end36 ], [ %size.2, %for.inc ]
-  %16 = trunc i32 %size.3 to i16
+  %size.1 = phi i32 [ %9, %if.end30 ], [ %9, %if.end30 ], [ %9, %if.end36 ], [ %size.3, %for.inc ]
+  %16 = trunc i32 %size.1 to i16
   %conv74 = add i16 %16, -2
   %17 = call i16 @llvm.bswap.i16(i16 %conv74)
   store i16 %17, ptr %outbuf, align 1
   br label %return
 
 return:                                           ; preds = %sw.bb, %if.end30, %if.end22, %entry, %sw.epilog, %if.then21, %if.then18, %if.then11
-  %retval.0 = phi i32 [ -1, %if.then11 ], [ -1, %if.then21 ], [ %size.3, %sw.epilog ], [ -1, %if.then18 ], [ -1, %entry ], [ -1, %if.end22 ], [ -1, %if.end30 ], [ -1, %sw.bb ]
+  %retval.0 = phi i32 [ -1, %if.then11 ], [ -1, %if.then21 ], [ %size.1, %sw.epilog ], [ -1, %if.then18 ], [ -1, %entry ], [ -1, %if.end22 ], [ -1, %if.end30 ], [ -1, %sw.bb ]
   ret i32 %retval.0
 }
 
@@ -7001,12 +7001,12 @@ if.end13:                                         ; preds = %if.end
   br i1 %cmp14.not, label %if.end28, label %if.then16
 
 if.then16:                                        ; preds = %if.end, %if.end13
-  %ret.addr.018 = phi i32 [ %conv12, %if.end13 ], [ 8, %if.end ]
+  %ret.addr.118 = phi i32 [ %conv12, %if.end13 ], [ 8, %if.end ]
   %conf = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load ptr, ptr %conf, align 8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %5) #18
   tail call void @aio_context_acquire(ptr noundef %call) #18
-  %call17 = tail call fastcc zeroext i1 @scsi_handle_rw_error(ptr noundef nonnull %opaque, i32 noundef %ret.addr.018, i1 noundef zeroext true)
+  %call17 = tail call fastcc zeroext i1 @scsi_handle_rw_error(ptr noundef nonnull %opaque, i32 noundef %ret.addr.118, i1 noundef zeroext true)
   %6 = load ptr, ptr %conf, align 8
   %call21 = tail call ptr @blk_get_aio_context(ptr noundef %6) #18
   tail call void @aio_context_release(ptr noundef %call21) #18

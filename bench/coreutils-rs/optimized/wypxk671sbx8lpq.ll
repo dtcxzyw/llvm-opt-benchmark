@@ -1270,13 +1270,13 @@ _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; p
           to label %174 unwind label %166, !noalias !216
 
 164:                                              ; preds = %199, %166
-  %.034.i.i.i = phi i8 [ %.1.i.i.i, %166 ], [ %.2.i.i.i, %199 ]
+  %.1.i.i.i = phi i8 [ %.034.i.i.i, %166 ], [ %.2.i.i.i, %199 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %167, %166 ], [ %200, %199 ]
-  %165 = trunc nuw i8 %.034.i.i.i to i1
+  %165 = trunc nuw i8 %.1.i.i.i to i1
   br i1 %165, label %.thread.i.i.i, label %common.resume
 
 166:                                              ; preds = %207, %205, %197, %183, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i, %162, %160, %158, %156
-  %.1.i.i.i = phi i8 [ 0, %197 ], [ 1, %158 ], [ 1, %156 ], [ 1, %160 ], [ 1, %162 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i ], [ 1, %183 ], [ %.2.i.i.i, %205 ], [ %.2.i.i.i, %207 ]
+  %.034.i.i.i = phi i8 [ 0, %197 ], [ 1, %158 ], [ 1, %156 ], [ 1, %160 ], [ 1, %162 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i ], [ 1, %183 ], [ %.2.i.i.i, %205 ], [ %.2.i.i.i, %207 ]
   %167 = landingpad { ptr, i32 }
           cleanup
   br label %164

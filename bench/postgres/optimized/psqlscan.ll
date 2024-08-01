@@ -3458,18 +3458,18 @@ psqlscan_emit.exit1161:                           ; preds = %1463, %1449, %1447,
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit, %.critedge30.preheader, %1614, %1600
-  %.2714 = phi i32 [ %.0712, %1600 ], [ %.0712, %1614 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 1, %.critedge30.backedge ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ]
-  %1629 = icmp slt i32 %.2714, %1601
+  %.1713 = phi i32 [ %.0712, %1600 ], [ %.0712, %1614 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 1, %.critedge30.backedge ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ], [ %.0712, %.lr.ph ]
+  %1629 = icmp slt i32 %.1713, %1601
   br i1 %1629, label %1630, label %1635
 
 1630:                                             ; preds = %.critedge
   %1631 = load i8, ptr %80, align 8
   store i8 %1631, ptr %.2705, align 1
-  %1632 = sext i32 %.2714 to i64
+  %1632 = sext i32 %.1713 to i64
   %1633 = getelementptr i8, ptr %.1707, i64 %1632
   store ptr %1633, ptr %79, align 8
   store ptr %.1707, ptr %81, align 8
-  store i32 %.2714, ptr %82, align 8
+  store i32 %.1713, ptr %82, align 8
   %1634 = load i8, ptr %1633, align 1
   store i8 %1634, ptr %80, align 8
   store i8 0, ptr %1633, align 1

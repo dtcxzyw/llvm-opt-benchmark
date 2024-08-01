@@ -639,17 +639,17 @@ _dump_node_state.exit:                            ; preds = %115, %156
   br i1 %207, label %.lr.ph48, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %204, %183, %200
-  %.0 = phi i32 [ %203, %200 ], [ 0, %183 ], [ 0, %204 ]
+  %.1 = phi i32 [ %203, %200 ], [ 0, %183 ], [ 0, %204 ]
   %208 = call i32 @fsync_and_close(i32 noundef %176, ptr noundef nonnull @.str.6) #16
   %209 = icmp eq i32 %208, 0
-  %210 = icmp ne i32 %.0, 0
+  %210 = icmp ne i32 %.1, 0
   %or.cond = select i1 %209, i1 true, i1 %210
-  %spec.select = select i1 %or.cond, i32 %.0, i32 %208
+  %spec.select = select i1 %or.cond, i32 %.1, i32 %208
   br label %211
 
 211:                                              ; preds = %.loopexit, %178
-  %.1 = phi i32 [ %182, %178 ], [ %spec.select, %.loopexit ]
-  %.not38 = icmp eq i32 %.1, 0
+  %.0 = phi i32 [ %182, %178 ], [ %spec.select, %.loopexit ]
+  %.not38 = icmp eq i32 %.0, 0
   br i1 %.not38, label %212, label %236
 
 212:                                              ; preds = %211
@@ -709,7 +709,7 @@ _dump_node_state.exit:                            ; preds = %115, %156
 239:                                              ; preds = %238, %236
   %240 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #16
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef nonnull @__func__.dump_all_node_state, i64 noundef 0, ptr noundef nonnull %8) #16
-  ret i32 %.1
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1074,9 +1074,9 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br i1 %.not191348, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %136, %689
-  %.0156352 = phi ptr [ %.2158, %689 ], [ null, %136 ]
-  %.0159351 = phi ptr [ %.6329, %689 ], [ null, %136 ]
-  %.0164349 = phi i32 [ %.1165, %689 ], [ 0, %136 ]
+  %.1157352 = phi ptr [ %.2158, %689 ], [ null, %136 ]
+  %.1160351 = phi ptr [ %.2161329, %689 ], [ null, %136 ]
+  %.1165349 = phi i32 [ %.2166, %689 ], [ 0, %136 ]
   store i16 -2, ptr %47, align 2
   %141 = load i16, ptr %45, align 2
   %142 = icmp ugt i16 %141, 10239
@@ -1640,12 +1640,12 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
 401:                                              ; preds = %398
   %402 = and i32 %399, -282625
   store i32 %402, ptr %21, align 4
-  %.not279 = icmp eq ptr %.0159351, null
+  %.not279 = icmp eq ptr %.1160351, null
   %403 = load ptr, ptr %10, align 8
   br i1 %.not279, label %406, label %404
 
 404:                                              ; preds = %401
-  %405 = call i32 @hostset_insert(ptr noundef nonnull %.0159351, ptr noundef %403) #16
+  %405 = call i32 @hostset_insert(ptr noundef nonnull %.1160351, ptr noundef %403) #16
   br label %408
 
 406:                                              ; preds = %401
@@ -1653,7 +1653,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %408
 
 408:                                              ; preds = %398, %404, %406, %397
-  %.1160 = phi ptr [ %.0159351, %397 ], [ %.0159351, %404 ], [ %407, %406 ], [ %.0159351, %398 ]
+  %.4163 = phi ptr [ %.1160351, %397 ], [ %.1160351, %404 ], [ %407, %406 ], [ %.1160351, %398 ]
   %409 = load i32, ptr %21, align 4
   %410 = and i32 %409, 15
   %411 = icmp eq i32 %410, 6
@@ -1732,12 +1732,12 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %453
 
 .critedge:                                        ; preds = %439
-  %.not270 = icmp eq ptr %.0159351, null
+  %.not270 = icmp eq ptr %.1160351, null
   %448 = load ptr, ptr %10, align 8
   br i1 %.not270, label %451, label %449
 
 449:                                              ; preds = %.critedge
-  %450 = call i32 @hostset_insert(ptr noundef nonnull %.0159351, ptr noundef %448) #16
+  %450 = call i32 @hostset_insert(ptr noundef nonnull %.1160351, ptr noundef %448) #16
   br label %453
 
 451:                                              ; preds = %.critedge
@@ -1745,7 +1745,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %453
 
 453:                                              ; preds = %446, %451, %449, %443
-  %.2161 = phi ptr [ %.0159351, %443 ], [ %.0159351, %446 ], [ %.0159351, %449 ], [ %452, %451 ]
+  %.6 = phi ptr [ %.1160351, %443 ], [ %.1160351, %446 ], [ %.1160351, %449 ], [ %452, %451 ]
   %454 = load i16, ptr %24, align 2
   %455 = load ptr, ptr %42, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 104
@@ -1777,7 +1777,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
 471:                                              ; preds = %437, %453
   %472 = phi ptr [ %455, %453 ], [ %386, %437 ]
   %473 = phi i32 [ %.pre382, %453 ], [ %432, %437 ]
-  %.3162 = phi ptr [ %.2161, %453 ], [ %.0159351, %437 ]
+  %.5 = phi ptr [ %.6, %453 ], [ %.1160351, %437 ]
   %474 = and i32 %473, 32768
   %.not271 = icmp eq i32 %474, 0
   br i1 %.not271, label %479, label %475
@@ -1829,12 +1829,12 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %.thread324
 
 498:                                              ; preds = %493
-  %.not275 = icmp eq ptr %.3162, null
+  %.not275 = icmp eq ptr %.5, null
   %499 = load ptr, ptr %10, align 8
   br i1 %.not275, label %502, label %500
 
 500:                                              ; preds = %498
-  %501 = call i32 @hostset_insert(ptr noundef nonnull %.3162, ptr noundef %499) #16
+  %501 = call i32 @hostset_insert(ptr noundef nonnull %.5, ptr noundef %499) #16
   br label %.thread324
 
 502:                                              ; preds = %498
@@ -1842,7 +1842,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %.thread324
 
 .thread324:                                       ; preds = %.thread, %420, %491, %500, %502, %494, %424, %393
-  %.4163 = phi ptr [ %.0159351, %393 ], [ %.1160, %420 ], [ %.3162, %494 ], [ %.3162, %500 ], [ %503, %502 ], [ %.3162, %491 ], [ %.0159351, %424 ], [ %.0159351, %.thread ]
+  %.3162 = phi ptr [ %.1160351, %393 ], [ %.4163, %420 ], [ %.5, %494 ], [ %.5, %500 ], [ %503, %502 ], [ %.5, %491 ], [ %.1160351, %424 ], [ %.1160351, %.thread ]
   %504 = load ptr, ptr %42, align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 128
   %506 = load ptr, ptr %505, align 8
@@ -1935,12 +1935,12 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
 544:                                              ; preds = %541
   %545 = and i32 %542, -282625
   store i32 %545, ptr %21, align 4
-  %.not287 = icmp eq ptr %.0159351, null
+  %.not287 = icmp eq ptr %.1160351, null
   %546 = load ptr, ptr %10, align 8
   br i1 %.not287, label %549, label %547
 
 547:                                              ; preds = %544
-  %548 = call i32 @hostset_insert(ptr noundef nonnull %.0159351, ptr noundef %546) #16
+  %548 = call i32 @hostset_insert(ptr noundef nonnull %.1160351, ptr noundef %546) #16
   br label %551
 
 549:                                              ; preds = %544
@@ -1948,7 +1948,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %551
 
 551:                                              ; preds = %541, %547, %549, %540
-  %.5 = phi ptr [ %.0159351, %540 ], [ %.0159351, %547 ], [ %550, %549 ], [ %.0159351, %541 ]
+  %.7 = phi ptr [ %.1160351, %540 ], [ %.1160351, %547 ], [ %550, %549 ], [ %.1160351, %541 ]
   %552 = load ptr, ptr %42, align 8
   %553 = getelementptr inbounds i8, ptr %552, i64 304
   %554 = load i32, ptr %553, align 8
@@ -2107,9 +2107,9 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br i1 %.not291, label %686, label %639
 
 639:                                              ; preds = %.thread386, %.thread325, %636
-  %.6328 = phi ptr [ %.5, %.thread325 ], [ %.0159351, %636 ], [ %.4163, %.thread386 ]
+  %.2161328 = phi ptr [ %.7, %.thread325 ], [ %.1160351, %636 ], [ %.3162, %.thread386 ]
   %640 = phi ptr [ %634, %.thread325 ], [ %.pr.pre, %636 ], [ %536, %.thread386 ]
-  %641 = add nsw i32 %.0164349, 1
+  %641 = add nsw i32 %.1165349, 1
   %642 = load i32, ptr %23, align 4
   %643 = getelementptr inbounds i8, ptr %640, i64 264
   store i32 %642, ptr %643, align 8
@@ -2120,12 +2120,12 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br i1 %647, label %648, label %654
 
 648:                                              ; preds = %639
-  %.not292 = icmp eq ptr %.0156352, null
+  %.not292 = icmp eq ptr %.1157352, null
   %649 = load ptr, ptr %10, align 8
   br i1 %.not292, label %652, label %650
 
 650:                                              ; preds = %648
-  %651 = call i32 @hostlist_push(ptr noundef nonnull %.0156352, ptr noundef %649) #16
+  %651 = call i32 @hostlist_push(ptr noundef nonnull %.1157352, ptr noundef %649) #16
   br label %654
 
 652:                                              ; preds = %648
@@ -2133,7 +2133,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br label %654
 
 654:                                              ; preds = %650, %652, %639
-  %.1157 = phi ptr [ %.0156352, %650 ], [ %653, %652 ], [ %.0156352, %639 ]
+  %.3 = phi ptr [ %.1157352, %650 ], [ %653, %652 ], [ %.1157352, %639 ]
   %655 = load i64, ptr %37, align 8
   %.not293 = icmp eq i64 %655, 0
   %.pre385 = load ptr, ptr %42, align 8
@@ -2208,9 +2208,9 @@ switch.early.test:                                ; preds = %661
   br label %686
 
 686:                                              ; preds = %680, %684, %636
-  %.6329 = phi ptr [ %.6328, %680 ], [ %.6328, %684 ], [ %.0159351, %636 ]
-  %.1165 = phi i32 [ %641, %680 ], [ %641, %684 ], [ %.0164349, %636 ]
-  %.2158 = phi ptr [ %.1157, %680 ], [ %.1157, %684 ], [ %.0156352, %636 ]
+  %.2161329 = phi ptr [ %.2161328, %680 ], [ %.2161328, %684 ], [ %.1160351, %636 ]
+  %.2166 = phi i32 [ %641, %680 ], [ %641, %684 ], [ %.1165349, %636 ]
+  %.2158 = phi ptr [ %.3, %680 ], [ %.3, %684 ], [ %.1157352, %636 ]
   call void @slurm_xfree(ptr noundef nonnull %14) #16
   call void @slurm_xfree(ptr noundef nonnull %15) #16
   call void @slurm_xfree(ptr noundef nonnull %16) #16
@@ -2239,24 +2239,24 @@ switch.early.test:                                ; preds = %661
   br i1 %.not191, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %689, %136, %717
-  %.2166 = phi i32 [ %.3167, %717 ], [ 0, %136 ], [ %.1165, %689 ]
-  %.7 = phi ptr [ %.8, %717 ], [ null, %136 ], [ %.6329, %689 ]
-  %.3 = phi ptr [ %.4, %717 ], [ null, %136 ], [ %.2158, %689 ]
+  %.3167 = phi i32 [ %.0164, %717 ], [ 0, %136 ], [ %.2166, %689 ]
+  %.8 = phi ptr [ %.0159, %717 ], [ null, %136 ], [ %.2161329, %689 ]
+  %.4 = phi ptr [ %.0156, %717 ], [ null, %136 ], [ %.2158, %689 ]
   %.2 = phi i32 [ 14, %717 ], [ 0, %136 ], [ 0, %689 ]
   %692 = call i32 @get_log_level() #16
   %693 = icmp sgt i32 %692, 2
   br i1 %693, label %694, label %695
 
 694:                                              ; preds = %.loopexit
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %.2166) #16
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %.3167) #16
   br label %695
 
 695:                                              ; preds = %694, %.loopexit
-  %.not298 = icmp eq ptr %.7, null
+  %.not298 = icmp eq ptr %.8, null
   br i1 %.not298, label %702, label %696
 
 696:                                              ; preds = %695
-  %697 = call ptr @hostset_ranged_string_xmalloc(ptr noundef nonnull %.7) #16
+  %697 = call ptr @hostset_ranged_string_xmalloc(ptr noundef nonnull %.8) #16
   store ptr %697, ptr %72, align 8
   %698 = call i32 @get_log_level() #16
   %699 = icmp sgt i32 %698, 2
@@ -2267,17 +2267,17 @@ switch.early.test:                                ; preds = %661
   br label %701
 
 701:                                              ; preds = %700, %696
-  call void @hostset_destroy(ptr noundef nonnull %.7) #16
+  call void @hostset_destroy(ptr noundef nonnull %.8) #16
   call void @slurm_xfree(ptr noundef nonnull %72) #16
   br label %702
 
 702:                                              ; preds = %701, %695
-  %.not299 = icmp eq ptr %.3, null
+  %.not299 = icmp eq ptr %.4, null
   br i1 %.not299, label %709, label %703
 
 703:                                              ; preds = %702
   store ptr null, ptr %73, align 8
-  %704 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.3) #16
+  %704 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.4) #16
   store ptr %704, ptr %73, align 8
   %705 = call i32 @get_log_level() #16
   %706 = icmp sgt i32 %705, 2
@@ -2289,7 +2289,7 @@ switch.early.test:                                ; preds = %661
 
 708:                                              ; preds = %707, %703
   call void @slurm_xfree(ptr noundef nonnull %73) #16
-  call void @hostlist_destroy(ptr noundef nonnull %.3) #16
+  call void @hostlist_destroy(ptr noundef nonnull %.4) #16
   br label %709
 
 709:                                              ; preds = %708, %702
@@ -2297,9 +2297,9 @@ switch.early.test:                                ; preds = %661
   br label %718
 
 .loopexit330:                                     ; preds = %277, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %211, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %167, %165, %163, %161, %159, %157, %155, %153, %151, %149, %147, %145, %143, %_load_cluster_settings.exit, %134, %114, %102, %_open_node_state_file.exit.thread, %294, %279
-  %.3167 = phi i32 [ 0, %_open_node_state_file.exit.thread ], [ 0, %114 ], [ 0, %_load_cluster_settings.exit ], [ 0, %134 ], [ %.0164349, %294 ], [ %.0164349, %279 ], [ 0, %102 ], [ %.0164349, %143 ], [ %.0164349, %145 ], [ %.0164349, %147 ], [ %.0164349, %149 ], [ %.0164349, %151 ], [ %.0164349, %153 ], [ %.0164349, %155 ], [ %.0164349, %157 ], [ %.0164349, %159 ], [ %.0164349, %161 ], [ %.0164349, %163 ], [ %.0164349, %165 ], [ %.0164349, %167 ], [ %.0164349, %169 ], [ %.0164349, %171 ], [ %.0164349, %173 ], [ %.0164349, %175 ], [ %.0164349, %177 ], [ %.0164349, %179 ], [ %.0164349, %181 ], [ %.0164349, %183 ], [ %.0164349, %185 ], [ %.0164349, %187 ], [ %.0164349, %189 ], [ %.0164349, %191 ], [ %.0164349, %193 ], [ %.0164349, %195 ], [ %.0164349, %197 ], [ %.0164349, %199 ], [ %.0164349, %201 ], [ %.0164349, %203 ], [ %.0164349, %205 ], [ %.0164349, %207 ], [ %.0164349, %211 ], [ %.0164349, %215 ], [ %.0164349, %217 ], [ %.0164349, %219 ], [ %.0164349, %221 ], [ %.0164349, %223 ], [ %.0164349, %225 ], [ %.0164349, %227 ], [ %.0164349, %229 ], [ %.0164349, %231 ], [ %.0164349, %233 ], [ %.0164349, %235 ], [ %.0164349, %237 ], [ %.0164349, %239 ], [ %.0164349, %241 ], [ %.0164349, %243 ], [ %.0164349, %245 ], [ %.0164349, %247 ], [ %.0164349, %249 ], [ %.0164349, %251 ], [ %.0164349, %253 ], [ %.0164349, %255 ], [ %.0164349, %257 ], [ %.0164349, %259 ], [ %.0164349, %261 ], [ %.0164349, %263 ], [ %.0164349, %265 ], [ %.0164349, %267 ], [ %.0164349, %269 ], [ %.0164349, %271 ], [ %.0164349, %273 ], [ %.0164349, %277 ]
-  %.8 = phi ptr [ null, %_open_node_state_file.exit.thread ], [ null, %114 ], [ null, %_load_cluster_settings.exit ], [ null, %134 ], [ %.0159351, %294 ], [ %.0159351, %279 ], [ null, %102 ], [ %.0159351, %143 ], [ %.0159351, %145 ], [ %.0159351, %147 ], [ %.0159351, %149 ], [ %.0159351, %151 ], [ %.0159351, %153 ], [ %.0159351, %155 ], [ %.0159351, %157 ], [ %.0159351, %159 ], [ %.0159351, %161 ], [ %.0159351, %163 ], [ %.0159351, %165 ], [ %.0159351, %167 ], [ %.0159351, %169 ], [ %.0159351, %171 ], [ %.0159351, %173 ], [ %.0159351, %175 ], [ %.0159351, %177 ], [ %.0159351, %179 ], [ %.0159351, %181 ], [ %.0159351, %183 ], [ %.0159351, %185 ], [ %.0159351, %187 ], [ %.0159351, %189 ], [ %.0159351, %191 ], [ %.0159351, %193 ], [ %.0159351, %195 ], [ %.0159351, %197 ], [ %.0159351, %199 ], [ %.0159351, %201 ], [ %.0159351, %203 ], [ %.0159351, %205 ], [ %.0159351, %207 ], [ %.0159351, %211 ], [ %.0159351, %215 ], [ %.0159351, %217 ], [ %.0159351, %219 ], [ %.0159351, %221 ], [ %.0159351, %223 ], [ %.0159351, %225 ], [ %.0159351, %227 ], [ %.0159351, %229 ], [ %.0159351, %231 ], [ %.0159351, %233 ], [ %.0159351, %235 ], [ %.0159351, %237 ], [ %.0159351, %239 ], [ %.0159351, %241 ], [ %.0159351, %243 ], [ %.0159351, %245 ], [ %.0159351, %247 ], [ %.0159351, %249 ], [ %.0159351, %251 ], [ %.0159351, %253 ], [ %.0159351, %255 ], [ %.0159351, %257 ], [ %.0159351, %259 ], [ %.0159351, %261 ], [ %.0159351, %263 ], [ %.0159351, %265 ], [ %.0159351, %267 ], [ %.0159351, %269 ], [ %.0159351, %271 ], [ %.0159351, %273 ], [ %.0159351, %277 ]
-  %.4 = phi ptr [ null, %_open_node_state_file.exit.thread ], [ null, %114 ], [ null, %_load_cluster_settings.exit ], [ null, %134 ], [ %.0156352, %294 ], [ %.0156352, %279 ], [ null, %102 ], [ %.0156352, %143 ], [ %.0156352, %145 ], [ %.0156352, %147 ], [ %.0156352, %149 ], [ %.0156352, %151 ], [ %.0156352, %153 ], [ %.0156352, %155 ], [ %.0156352, %157 ], [ %.0156352, %159 ], [ %.0156352, %161 ], [ %.0156352, %163 ], [ %.0156352, %165 ], [ %.0156352, %167 ], [ %.0156352, %169 ], [ %.0156352, %171 ], [ %.0156352, %173 ], [ %.0156352, %175 ], [ %.0156352, %177 ], [ %.0156352, %179 ], [ %.0156352, %181 ], [ %.0156352, %183 ], [ %.0156352, %185 ], [ %.0156352, %187 ], [ %.0156352, %189 ], [ %.0156352, %191 ], [ %.0156352, %193 ], [ %.0156352, %195 ], [ %.0156352, %197 ], [ %.0156352, %199 ], [ %.0156352, %201 ], [ %.0156352, %203 ], [ %.0156352, %205 ], [ %.0156352, %207 ], [ %.0156352, %211 ], [ %.0156352, %215 ], [ %.0156352, %217 ], [ %.0156352, %219 ], [ %.0156352, %221 ], [ %.0156352, %223 ], [ %.0156352, %225 ], [ %.0156352, %227 ], [ %.0156352, %229 ], [ %.0156352, %231 ], [ %.0156352, %233 ], [ %.0156352, %235 ], [ %.0156352, %237 ], [ %.0156352, %239 ], [ %.0156352, %241 ], [ %.0156352, %243 ], [ %.0156352, %245 ], [ %.0156352, %247 ], [ %.0156352, %249 ], [ %.0156352, %251 ], [ %.0156352, %253 ], [ %.0156352, %255 ], [ %.0156352, %257 ], [ %.0156352, %259 ], [ %.0156352, %261 ], [ %.0156352, %263 ], [ %.0156352, %265 ], [ %.0156352, %267 ], [ %.0156352, %269 ], [ %.0156352, %271 ], [ %.0156352, %273 ], [ %.0156352, %277 ]
+  %.0164 = phi i32 [ 0, %_open_node_state_file.exit.thread ], [ 0, %114 ], [ 0, %_load_cluster_settings.exit ], [ 0, %134 ], [ %.1165349, %294 ], [ %.1165349, %279 ], [ 0, %102 ], [ %.1165349, %143 ], [ %.1165349, %145 ], [ %.1165349, %147 ], [ %.1165349, %149 ], [ %.1165349, %151 ], [ %.1165349, %153 ], [ %.1165349, %155 ], [ %.1165349, %157 ], [ %.1165349, %159 ], [ %.1165349, %161 ], [ %.1165349, %163 ], [ %.1165349, %165 ], [ %.1165349, %167 ], [ %.1165349, %169 ], [ %.1165349, %171 ], [ %.1165349, %173 ], [ %.1165349, %175 ], [ %.1165349, %177 ], [ %.1165349, %179 ], [ %.1165349, %181 ], [ %.1165349, %183 ], [ %.1165349, %185 ], [ %.1165349, %187 ], [ %.1165349, %189 ], [ %.1165349, %191 ], [ %.1165349, %193 ], [ %.1165349, %195 ], [ %.1165349, %197 ], [ %.1165349, %199 ], [ %.1165349, %201 ], [ %.1165349, %203 ], [ %.1165349, %205 ], [ %.1165349, %207 ], [ %.1165349, %211 ], [ %.1165349, %215 ], [ %.1165349, %217 ], [ %.1165349, %219 ], [ %.1165349, %221 ], [ %.1165349, %223 ], [ %.1165349, %225 ], [ %.1165349, %227 ], [ %.1165349, %229 ], [ %.1165349, %231 ], [ %.1165349, %233 ], [ %.1165349, %235 ], [ %.1165349, %237 ], [ %.1165349, %239 ], [ %.1165349, %241 ], [ %.1165349, %243 ], [ %.1165349, %245 ], [ %.1165349, %247 ], [ %.1165349, %249 ], [ %.1165349, %251 ], [ %.1165349, %253 ], [ %.1165349, %255 ], [ %.1165349, %257 ], [ %.1165349, %259 ], [ %.1165349, %261 ], [ %.1165349, %263 ], [ %.1165349, %265 ], [ %.1165349, %267 ], [ %.1165349, %269 ], [ %.1165349, %271 ], [ %.1165349, %273 ], [ %.1165349, %277 ]
+  %.0159 = phi ptr [ null, %_open_node_state_file.exit.thread ], [ null, %114 ], [ null, %_load_cluster_settings.exit ], [ null, %134 ], [ %.1160351, %294 ], [ %.1160351, %279 ], [ null, %102 ], [ %.1160351, %143 ], [ %.1160351, %145 ], [ %.1160351, %147 ], [ %.1160351, %149 ], [ %.1160351, %151 ], [ %.1160351, %153 ], [ %.1160351, %155 ], [ %.1160351, %157 ], [ %.1160351, %159 ], [ %.1160351, %161 ], [ %.1160351, %163 ], [ %.1160351, %165 ], [ %.1160351, %167 ], [ %.1160351, %169 ], [ %.1160351, %171 ], [ %.1160351, %173 ], [ %.1160351, %175 ], [ %.1160351, %177 ], [ %.1160351, %179 ], [ %.1160351, %181 ], [ %.1160351, %183 ], [ %.1160351, %185 ], [ %.1160351, %187 ], [ %.1160351, %189 ], [ %.1160351, %191 ], [ %.1160351, %193 ], [ %.1160351, %195 ], [ %.1160351, %197 ], [ %.1160351, %199 ], [ %.1160351, %201 ], [ %.1160351, %203 ], [ %.1160351, %205 ], [ %.1160351, %207 ], [ %.1160351, %211 ], [ %.1160351, %215 ], [ %.1160351, %217 ], [ %.1160351, %219 ], [ %.1160351, %221 ], [ %.1160351, %223 ], [ %.1160351, %225 ], [ %.1160351, %227 ], [ %.1160351, %229 ], [ %.1160351, %231 ], [ %.1160351, %233 ], [ %.1160351, %235 ], [ %.1160351, %237 ], [ %.1160351, %239 ], [ %.1160351, %241 ], [ %.1160351, %243 ], [ %.1160351, %245 ], [ %.1160351, %247 ], [ %.1160351, %249 ], [ %.1160351, %251 ], [ %.1160351, %253 ], [ %.1160351, %255 ], [ %.1160351, %257 ], [ %.1160351, %259 ], [ %.1160351, %261 ], [ %.1160351, %263 ], [ %.1160351, %265 ], [ %.1160351, %267 ], [ %.1160351, %269 ], [ %.1160351, %271 ], [ %.1160351, %273 ], [ %.1160351, %277 ]
+  %.0156 = phi ptr [ null, %_open_node_state_file.exit.thread ], [ null, %114 ], [ null, %_load_cluster_settings.exit ], [ null, %134 ], [ %.1157352, %294 ], [ %.1157352, %279 ], [ null, %102 ], [ %.1157352, %143 ], [ %.1157352, %145 ], [ %.1157352, %147 ], [ %.1157352, %149 ], [ %.1157352, %151 ], [ %.1157352, %153 ], [ %.1157352, %155 ], [ %.1157352, %157 ], [ %.1157352, %159 ], [ %.1157352, %161 ], [ %.1157352, %163 ], [ %.1157352, %165 ], [ %.1157352, %167 ], [ %.1157352, %169 ], [ %.1157352, %171 ], [ %.1157352, %173 ], [ %.1157352, %175 ], [ %.1157352, %177 ], [ %.1157352, %179 ], [ %.1157352, %181 ], [ %.1157352, %183 ], [ %.1157352, %185 ], [ %.1157352, %187 ], [ %.1157352, %189 ], [ %.1157352, %191 ], [ %.1157352, %193 ], [ %.1157352, %195 ], [ %.1157352, %197 ], [ %.1157352, %199 ], [ %.1157352, %201 ], [ %.1157352, %203 ], [ %.1157352, %205 ], [ %.1157352, %207 ], [ %.1157352, %211 ], [ %.1157352, %215 ], [ %.1157352, %217 ], [ %.1157352, %219 ], [ %.1157352, %221 ], [ %.1157352, %223 ], [ %.1157352, %225 ], [ %.1157352, %227 ], [ %.1157352, %229 ], [ %.1157352, %231 ], [ %.1157352, %233 ], [ %.1157352, %235 ], [ %.1157352, %237 ], [ %.1157352, %239 ], [ %.1157352, %241 ], [ %.1157352, %243 ], [ %.1157352, %245 ], [ %.1157352, %247 ], [ %.1157352, %249 ], [ %.1157352, %251 ], [ %.1157352, %253 ], [ %.1157352, %255 ], [ %.1157352, %257 ], [ %.1157352, %259 ], [ %.1157352, %261 ], [ %.1157352, %263 ], [ %.1157352, %265 ], [ %.1157352, %267 ], [ %.1157352, %269 ], [ %.1157352, %271 ], [ %.1157352, %273 ], [ %.1157352, %277 ]
   %710 = load i8, ptr @ignore_state_errors, align 1
   %711 = trunc i8 %710 to i1
   br i1 %711, label %713, label %712
@@ -4376,7 +4376,7 @@ define dso_local i32 @update_node(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %124
 
 124:                                              ; preds = %123, %121
-  %.1 = phi i32 [ %.0406646, %121 ], [ 2029, %123 ]
+  %.3 = phi i32 [ %.0406646, %121 ], [ 2029, %123 ]
   %125 = load ptr, ptr %80, align 8
   %.not467 = icmp eq ptr %125, null
   br i1 %.not467, label %126, label %129
@@ -4503,7 +4503,7 @@ _valid_features_act.exit:                         ; preds = %.lr.ph30.i, %148
   br label %159
 
 159:                                              ; preds = %_valid_features_act.exit.thread566, %_valid_features_act.exit.thread, %158
-  %.2.ph = phi i32 [ %.1, %_valid_features_act.exit.thread566 ], [ %.1, %_valid_features_act.exit.thread ], [ 2031, %158 ]
+  %.2.ph = phi i32 [ %.3, %_valid_features_act.exit.thread566 ], [ %.3, %_valid_features_act.exit.thread ], [ 2031, %158 ]
   %.pr = load ptr, ptr %80, align 8
   %.not469 = icmp eq ptr %.pr, null
   br i1 %.not469, label %.thread684, label %160
@@ -4582,7 +4582,7 @@ _valid_features_act.exit:                         ; preds = %.lr.ph30.i, %148
   br label %.thread725
 
 .thread725:                                       ; preds = %119, %184, %183
-  %.3 = phi i32 [ %194, %184 ], [ %.2.ph, %183 ], [ %.0406646, %119 ]
+  %.4 = phi i32 [ %194, %184 ], [ %.2.ph, %183 ], [ %.0406646, %119 ]
   %195 = load ptr, ptr %81, align 8
   %.not475 = icmp eq ptr %195, null
   br i1 %.not475, label %202, label %196
@@ -4654,7 +4654,7 @@ _valid_features_act.exit:                         ; preds = %.lr.ph30.i, %148
   br label %227
 
 227:                                              ; preds = %211, %225, %220, %202
-  %.4 = phi i32 [ 2171, %211 ], [ %.3, %225 ], [ %.3, %220 ], [ %.3, %202 ]
+  %.5 = phi i32 [ 2171, %211 ], [ %.4, %225 ], [ %.4, %220 ], [ %.4, %202 ]
   %228 = load ptr, ptr %0, align 8
   %.not482 = icmp eq ptr %228, null
   br i1 %.not482, label %235, label %229
@@ -4799,7 +4799,7 @@ _valid_features_act.exit:                         ; preds = %.lr.ph30.i, %148
 
 .lr.ph.backedge:                                  ; preds = %286, %.outer.backedge
   %.be = phi ptr [ %287, %286 ], [ %689, %.outer.backedge ]
-  %.0406646.be = phi i32 [ %.4, %286 ], [ %.0406.ph.be, %.outer.backedge ]
+  %.0406646.be = phi i32 [ %.5, %286 ], [ %.0406.ph.be, %.outer.backedge ]
   %.0417645.be = phi i32 [ %.1418, %286 ], [ %.1418674, %.outer.backedge ]
   br label %.lr.ph, !llvm.loop !16
 
@@ -5228,7 +5228,7 @@ _valid_node_state_change.exit:                    ; preds = %327, %328, %334, %3
   br label %470
 
 470:                                              ; preds = %.sink.split755, %466, %.thread589
-  %.3412 = phi i1 [ %.2411592, %.thread589 ], [ %.2411592, %466 ], [ true, %.sink.split755 ]
+  %.5414 = phi i1 [ %.2411592, %.thread589 ], [ %.2411592, %466 ], [ true, %.sink.split755 ]
   %471 = load i32, ptr %317, align 8
   %472 = and i32 %471, -8705
   store i32 %472, ptr %317, align 8
@@ -5618,7 +5618,7 @@ make_node_avail.exit556:                          ; preds = %497, %.thread584.th
 
 664:                                              ; preds = %448, %.thread584.thread692, %493, %494, %make_node_avail.exit556, %540, %536, %525, %639, %653, %648
   %.3422.ph = phi i32 [ %.pre681, %648 ], [ %.pre681, %653 ], [ %.pre681, %639 ], [ %532, %525 ], [ %532, %536 ], [ %532, %540 ], [ 3, %make_node_avail.exit556 ], [ 2, %494 ], [ 2, %493 ], [ %.2421695, %.thread584.thread692 ], [ 6, %448 ]
-  %.4413.ph = phi i1 [ %.2411691707714718, %648 ], [ %.2411691707714718, %653 ], [ %.2411, %639 ], [ %.2411, %525 ], [ %.2411, %536 ], [ %.2411, %540 ], [ %.2411703, %make_node_avail.exit556 ], [ %.3412, %494 ], [ %.3412, %493 ], [ %.2411696, %.thread584.thread692 ], [ %.2411696, %448 ]
+  %.4413.ph = phi i1 [ %.2411691707714718, %648 ], [ %.2411691707714718, %653 ], [ %.2411, %639 ], [ %.2411, %525 ], [ %.2411, %536 ], [ %.2411, %540 ], [ %.2411703, %make_node_avail.exit556 ], [ %.5414, %494 ], [ %.5414, %493 ], [ %.2411696, %.thread584.thread692 ], [ %.2411696, %448 ]
   %665 = load i32, ptr %317, align 8
   %666 = and i32 %665, -16
   %667 = or i32 %666, %.3422.ph
@@ -5648,12 +5648,12 @@ make_node_avail.exit556:                          ; preds = %497, %.thread584.th
   br i1 %.4413.ph, label %.outer.backedge, label %.thread603
 
 680:                                              ; preds = %656, %660, %671
-  %.5414 = phi i1 [ %.4413.ph, %671 ], [ %.2411691707714718, %656 ], [ %.2411, %660 ]
-  %.8 = phi i32 [ %.4, %671 ], [ 2120, %656 ], [ 2028, %660 ]
-  br i1 %.5414, label %.outer.backedge, label %.thread603
+  %.0409 = phi i1 [ %.4413.ph, %671 ], [ %.2411691707714718, %656 ], [ %.2411, %660 ]
+  %.8 = phi i32 [ %.5, %671 ], [ 2120, %656 ], [ 2028, %660 ]
+  br i1 %.0409, label %.outer.backedge, label %.thread603
 
 .thread603:                                       ; preds = %663, %659, %678, %_valid_node_state_change.exit, %357, %315, %680
-  %.8609 = phi i32 [ %.8, %680 ], [ %.4, %315 ], [ 2028, %357 ], [ 2028, %_valid_node_state_change.exit ], [ %.4, %678 ], [ 2120, %659 ], [ 2028, %663 ]
+  %.8609 = phi i32 [ %.8, %680 ], [ %.5, %315 ], [ 2028, %357 ], [ 2028, %_valid_node_state_change.exit ], [ %.5, %678 ], [ 2120, %659 ], [ 2028, %663 ]
   %681 = getelementptr inbounds i8, ptr %90, i64 304
   %682 = load i32, ptr %681, align 8
   %683 = and i32 %682, 15
@@ -5669,14 +5669,14 @@ make_node_avail.exit556:                          ; preds = %497, %.thread584.th
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %680, %.thread603, %686, %678, %659, %663, %550, %572, %606, %633
-  %.0406.ph.be = phi i32 [ %.4, %633 ], [ %.4, %606 ], [ %.4, %572 ], [ %.4, %550 ], [ %.8609, %686 ], [ %.8609, %.thread603 ], [ %.8, %680 ], [ %.4, %678 ], [ 2120, %659 ], [ 2028, %663 ]
+  %.0406.ph.be = phi i32 [ %.5, %633 ], [ %.5, %606 ], [ %.5, %572 ], [ %.5, %550 ], [ %.8609, %686 ], [ %.8609, %.thread603 ], [ %.8, %680 ], [ %.5, %678 ], [ 2120, %659 ], [ 2028, %663 ]
   call void @free(ptr noundef %89) #16
   %689 = call ptr @hostlist_shift(ptr noundef nonnull %27) #16
   %.not463644 = icmp eq ptr %689, null
   br i1 %.not463644, label %.loopexit, label %.lr.ph.backedge
 
 .loopexit:                                        ; preds = %.outer.backedge, %286, %76, %92
-  %.9 = phi i32 [ 2018, %92 ], [ 0, %76 ], [ %.0406.ph.be, %.outer.backedge ], [ %.4, %286 ]
+  %.1 = phi i32 [ 2018, %92 ], [ 0, %76 ], [ %.0406.ph.be, %.outer.backedge ], [ %.5, %286 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %690 = load ptr, ptr @update_node_active_features.last_active_features, align 8
   %.not.i558 = icmp eq ptr %690, null
@@ -5741,7 +5741,7 @@ update_node_active_features.exit:                 ; preds = %_update_node_featur
 
 706:                                              ; preds = %705, %704
   store i64 %11, ptr @last_node_update, align 8
-  %707 = icmp eq i32 %.9, 0
+  %707 = icmp eq i32 %.1, 0
   br i1 %707, label %708, label %.thread617
 
 708:                                              ; preds = %706
@@ -5786,7 +5786,7 @@ update_node_active_features.exit:                 ; preds = %_update_node_featur
   br label %.thread617
 
 .thread617:                                       ; preds = %706, %711, %717, %.thread619, %727, %723, %65, %66, %26, %15, %18, %75, %53, %46, %35
-  %.0403 = phi i32 [ 2018, %46 ], [ 2018, %53 ], [ 2018, %75 ], [ 2018, %35 ], [ 2018, %18 ], [ 2018, %15 ], [ 2018, %26 ], [ 2018, %66 ], [ 2018, %65 ], [ 0, %727 ], [ %725, %723 ], [ 0, %.thread619 ], [ %719, %717 ], [ %713, %711 ], [ %.9, %706 ]
+  %.0403 = phi i32 [ 2018, %46 ], [ 2018, %53 ], [ 2018, %75 ], [ 2018, %35 ], [ 2018, %18 ], [ 2018, %15 ], [ 2018, %26 ], [ 2018, %66 ], [ 2018, %65 ], [ 0, %727 ], [ %725, %723 ], [ 0, %.thread619 ], [ %719, %717 ], [ %713, %711 ], [ %.1, %706 ]
   ret i32 %.0403
 }
 
@@ -7495,7 +7495,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %147
   br i1 %.not2637.i, label %_valid_reported_active_features.exit.thread511, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %150, %158
-  %.01939.i = phi ptr [ %.2.i, %158 ], [ null, %150 ]
+  %.01939.i = phi ptr [ %.120.i, %158 ], [ null, %150 ]
   %.02138.i = phi ptr [ %159, %158 ], [ %152, %150 ]
   %153 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.02138.i) #16
   br i1 %153, label %154, label %158
@@ -7509,22 +7509,22 @@ _valid_reported_active_features.exit.thread:      ; preds = %147
   br label %157
 
 157:                                              ; preds = %155, %154
-  %.120.i = phi ptr [ %.01939.i, %154 ], [ %156, %155 ]
-  call void @list_append(ptr noundef %.120.i, ptr noundef nonnull %.02138.i) #16
+  %.2.i = phi ptr [ %.01939.i, %154 ], [ %156, %155 ]
+  call void @list_append(ptr noundef %.2.i, ptr noundef nonnull %.02138.i) #16
   br label %158
 
 158:                                              ; preds = %157, %.lr.ph.i
-  %.2.i = phi ptr [ %.120.i, %157 ], [ %.01939.i, %.lr.ph.i ]
+  %.120.i = phi ptr [ %.2.i, %157 ], [ %.01939.i, %.lr.ph.i ]
   %159 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef nonnull %6) #16
   %.not26.i = icmp eq ptr %159, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %158
-  %.not27.i = icmp eq ptr %.2.i, null
+  %.not27.i = icmp eq ptr %.120.i, null
   br i1 %.not27.i, label %_valid_reported_active_features.exit.thread511, label %160
 
 160:                                              ; preds = %._crit_edge.i
-  %161 = call i32 @list_count(ptr noundef nonnull %.2.i) #16
+  %161 = call i32 @list_count(ptr noundef nonnull %.120.i) #16
   %.not28.i = icmp eq i32 %161, 0
   br i1 %.not28.i, label %.critedge, label %162
 
@@ -7541,7 +7541,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %147
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %.lr.ph44.i
-  %167 = call i32 @list_delete_all(ptr noundef nonnull %.2.i, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %.12241.i) #16
+  %167 = call i32 @list_delete_all(ptr noundef nonnull %.120.i, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %.12241.i) #16
   %.not30.i = icmp eq i32 %167, 0
   br i1 %.not30.i, label %._crit_edge45.i, label %168
 
@@ -7552,7 +7552,7 @@ _valid_reported_active_features.exit.thread:      ; preds = %147
 
 ._crit_edge45.i:                                  ; preds = %166
   call void @slurm_xfree(ptr noundef nonnull %7) #16
-  call void @list_destroy(ptr noundef nonnull %.2.i) #16
+  call void @list_destroy(ptr noundef nonnull %.120.i) #16
   call void @slurm_xfree(ptr noundef nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -7621,7 +7621,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %200
 
 .critedge:                                        ; preds = %160
-  call void @list_destroy(ptr noundef nonnull %.2.i) #16
+  call void @list_destroy(ptr noundef nonnull %.120.i) #16
   call void @slurm_xfree(ptr noundef nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -7630,7 +7630,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
 
 .critedge516:                                     ; preds = %168, %162
   call void @slurm_xfree(ptr noundef nonnull %7) #16
-  call void @list_destroy(ptr noundef nonnull %.2.i) #16
+  call void @list_destroy(ptr noundef nonnull %.120.i) #16
   call void @slurm_xfree(ptr noundef nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -7827,7 +7827,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %.thread523
 
 .thread523:                                       ; preds = %.thread520, %.thread, %286, %288, %293, %298, %301, %307, %234
-  %.4 = phi i32 [ %.1, %234 ], [ 0, %307 ], [ 0, %301 ], [ 0, %298 ], [ 0, %293 ], [ 0, %288 ], [ %.1, %286 ], [ 22, %.thread ], [ 22, %.thread520 ]
+  %.2 = phi i32 [ %.1, %234 ], [ 0, %307 ], [ 0, %301 ], [ 0, %298 ], [ 0, %293 ], [ 0, %288 ], [ %.1, %286 ], [ 22, %.thread ], [ 22, %.thread520 ]
   %308 = getelementptr inbounds i8, ptr %20, i64 152
   %309 = load i16, ptr %308, align 8
   %310 = load i16, ptr %201, align 8
@@ -7905,7 +7905,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %350
 
 350:                                              ; preds = %347, %329, %326
-  %.5 = phi i32 [ 22, %347 ], [ %.4, %329 ], [ %.4, %326 ]
+  %.6 = phi i32 [ 22, %347 ], [ %.2, %329 ], [ %.2, %326 ]
   %351 = getelementptr inbounds i8, ptr %20, i64 216
   %352 = load i32, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %55, i64 92
@@ -7939,7 +7939,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %367
 
 367:                                              ; preds = %350, %366, %317
-  %.6 = phi i32 [ %.4, %317 ], [ 22, %366 ], [ %.5, %350 ]
+  %.5 = phi i32 [ %.2, %317 ], [ 22, %366 ], [ %.6, %350 ]
   %368 = getelementptr inbounds i8, ptr %20, i64 56
   %369 = load ptr, ptr %368, align 8
   %.not427 = icmp eq ptr %369, null
@@ -7997,7 +7997,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %393
 
 393:                                              ; preds = %370, %379, %392
-  %.7 = phi i32 [ %.6, %379 ], [ 22, %392 ], [ 22, %370 ]
+  %.8 = phi i32 [ %.5, %379 ], [ 22, %392 ], [ 22, %370 ]
   call void @slurm_xfree(ptr noundef nonnull %14) #16
   %394 = load ptr, ptr %13, align 8
   %.not432 = icmp eq ptr %394, null
@@ -8012,7 +8012,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %397
 
 397:                                              ; preds = %396, %367
-  %.8 = phi i32 [ %.7, %396 ], [ %.6, %367 ]
+  %.7 = phi i32 [ %.8, %396 ], [ %.5, %367 ]
   call void @slurm_xfree(ptr noundef nonnull %23) #16
   %398 = load ptr, ptr %20, align 8
   store ptr %398, ptr %23, align 8
@@ -8116,7 +8116,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %447
 
 447:                                              ; preds = %446, %444
-  %.0373 = phi i8 [ 1, %446 ], [ 0, %444 ]
+  %.1374 = phi i8 [ 1, %446 ], [ 0, %444 ]
   %448 = and i32 %440, -284673
   store i32 %448, ptr %62, align 8
   %449 = load i32, ptr %50, align 8
@@ -8144,7 +8144,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
 
 461:                                              ; preds = %429, %454, %458
   %.0375 = phi i8 [ %434, %458 ], [ %434, %454 ], [ 0, %429 ]
-  %.1374 = phi i8 [ %.0373, %458 ], [ %.0373, %454 ], [ 0, %429 ]
+  %.0373 = phi i8 [ %.1374, %458 ], [ %.1374, %454 ], [ 0, %429 ]
   %462 = getelementptr inbounds i8, ptr %20, i64 72
   %463 = load ptr, ptr %462, align 8
   %.not444 = icmp eq ptr %463, null
@@ -8257,7 +8257,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   %513 = and i32 %511, -4194305
   store i32 %513, ptr %62, align 8
   %514 = and i32 %511, -4194320
-  %.not454 = icmp eq i32 %.8, 0
+  %.not454 = icmp eq i32 %.7, 0
   br i1 %.not454, label %551, label %515
 
 515:                                              ; preds = %510
@@ -8269,7 +8269,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   %518 = load ptr, ptr %21, align 8
   %519 = load ptr, ptr %9, align 8
   %520 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef %518, ptr noundef %519) #16
-  %521 = trunc nuw i8 %.1374 to i1
+  %521 = trunc nuw i8 %.0373 to i1
   br i1 %521, label %524, label %522
 
 522:                                              ; preds = %517
@@ -8391,23 +8391,23 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %585
 
 585:                                              ; preds = %581, %579
-  %.0368 = phi i32 [ %514, %579 ], [ %spec.select492, %581 ]
-  %586 = and i32 %.0368, -5308432
+  %.1369 = phi i32 [ %514, %579 ], [ %spec.select492, %581 ]
+  %586 = and i32 %.1369, -5308432
   br label %587
 
 587:                                              ; preds = %585, %575
-  %.1369 = phi i32 [ %586, %585 ], [ %514, %575 ]
+  %.0368 = phi i32 [ %586, %585 ], [ %514, %575 ]
   %588 = getelementptr inbounds i8, ptr %20, i64 136
   %589 = load i32, ptr %588, align 8
   %.not472 = icmp eq i32 %589, 0
   br i1 %.not472, label %592, label %590
 
 590:                                              ; preds = %587
-  %591 = or disjoint i32 %.1369, 3
+  %591 = or disjoint i32 %.0368, 3
   br label %595
 
 592:                                              ; preds = %587
-  %593 = or disjoint i32 %.1369, 2
+  %593 = or disjoint i32 %.0368, 2
   %594 = getelementptr inbounds i8, ptr %23, i64 216
   store i64 %18, ptr %594, align 8
   br label %595
@@ -8782,7 +8782,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %784
 
 784:                                              ; preds = %761, %773
-  %785 = trunc nuw i8 %.1374 to i1
+  %785 = trunc nuw i8 %.0373 to i1
   br i1 %785, label %788, label %786
 
 786:                                              ; preds = %784
@@ -8812,7 +8812,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %waiting_for_node_power_down.exit
 
 waiting_for_node_power_down.exit:                 ; preds = %71, %74, %91, %88, %786, %788, %791, %794, %2
-  %.0 = phi i32 [ 2, %2 ], [ %.8, %794 ], [ %.8, %791 ], [ %.8, %788 ], [ %.8, %786 ], [ 0, %88 ], [ 0, %91 ], [ 0, %74 ], [ 0, %71 ]
+  %.0 = phi i32 [ 2, %2 ], [ %.7, %794 ], [ %.7, %791 ], [ %.7, %788 ], [ %.7, %786 ], [ 0, %88 ], [ 0, %91 ], [ 0, %74 ], [ 0, %71 ]
   ret i32 %.0
 }
 
@@ -9288,7 +9288,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 92:                                               ; preds = %.lr.ph, %188
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %188 ]
-  %.0183238 = phi ptr [ null, %.lr.ph ], [ %.2185, %188 ]
+  %.0183238 = phi ptr [ null, %.lr.ph ], [ %.1184, %188 ]
   %93 = load ptr, ptr %90, align 8
   %94 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %93, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4
@@ -9344,7 +9344,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
   br label %188
 
 126:                                              ; preds = %112, %108, %105
-  %.1184.ph = phi ptr [ %.0183238, %105 ], [ %.0183238, %108 ], [ %116, %112 ]
+  %.2185.ph = phi ptr [ %.0183238, %105 ], [ %.0183238, %108 ], [ %116, %112 ]
   %127 = getelementptr inbounds i8, ptr %104, i64 96
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
@@ -9398,7 +9398,7 @@ _front_end_reg.exit.thread:                       ; preds = %28
   br i1 %.not227, label %157, label %156
 
 156:                                              ; preds = %154
-  tail call void @kill_job_on_node(ptr noundef nonnull %104, ptr noundef %.1184.ph) #16
+  tail call void @kill_job_on_node(ptr noundef nonnull %104, ptr noundef %.2185.ph) #16
   br label %188
 
 157:                                              ; preds = %154
@@ -9444,11 +9444,11 @@ _front_end_reg.exit.thread:                       ; preds = %28
   %185 = tail call ptr @job_state_string(i32 noundef %140) #16
   %186 = load ptr, ptr %91, align 8
   %187 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.101, ptr noundef nonnull %104, ptr noundef %184, ptr noundef %185, ptr noundef %186) #16
-  tail call void @kill_job_on_node(ptr noundef nonnull %104, ptr noundef %.1184.ph) #16
+  tail call void @kill_job_on_node(ptr noundef nonnull %104, ptr noundef %.2185.ph) #16
   br label %188
 
 188:                                              ; preds = %152, %149, %159, %175, %178, %182, %156, %97, %100, %117
-  %.2185 = phi ptr [ %.0183238, %100 ], [ %.0183238, %97 ], [ %.0183238, %117 ], [ %.1184.ph, %152 ], [ %.1184.ph, %149 ], [ %.1184.ph, %156 ], [ %.1184.ph, %159 ], [ %.1184.ph, %178 ], [ %.1184.ph, %175 ], [ %.1184.ph, %182 ]
+  %.1184 = phi ptr [ %.0183238, %100 ], [ %.0183238, %97 ], [ %.0183238, %117 ], [ %.2185.ph, %152 ], [ %.2185.ph, %149 ], [ %.2185.ph, %156 ], [ %.2185.ph, %159 ], [ %.2185.ph, %178 ], [ %.2185.ph, %175 ], [ %.2185.ph, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %189 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %189, ptr %4, align 4
@@ -9534,8 +9534,8 @@ _front_end_reg.exit.thread:                       ; preds = %28
 
 233:                                              ; preds = %.lr.ph247, %407
   %234 = phi ptr [ %228, %.lr.ph247 ], [ %410, %407 ]
-  %.0178245 = phi i1 [ false, %.lr.ph247 ], [ %.3, %407 ]
-  %.0180244 = phi ptr [ null, %.lr.ph247 ], [ %.2182, %407 ]
+  %.0178245 = phi i1 [ false, %.lr.ph247 ], [ %.2, %407 ]
+  %.0180244 = phi ptr [ null, %.lr.ph247 ], [ %.1181, %407 ]
   %235 = getelementptr inbounds i8, ptr %234, i64 64
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %234, i64 224
@@ -9650,7 +9650,7 @@ set_node_down.exit:                               ; preds = %267, %269
   br label %300
 
 300:                                              ; preds = %298, %296
-  %.1181 = phi ptr [ %.0180244, %296 ], [ %299, %298 ]
+  %.2182 = phi ptr [ %.0180244, %296 ], [ %299, %298 ]
   %301 = load i32, ptr %287, align 8
   %302 = and i32 %301, -16
   %303 = and i32 %301, 15
@@ -9803,8 +9803,8 @@ set_node_down.exit:                               ; preds = %267, %269
   br label %375
 
 375:                                              ; preds = %340, %337, %360, %370, %367, %365, %351, %312, %314
-  %.2 = phi i1 [ true, %312 ], [ true, %314 ], [ true, %337 ], [ true, %340 ], [ true, %351 ], [ true, %360 ], [ true, %370 ], [ %.1179, %367 ], [ %.1179, %365 ]
-  %.0 = phi i1 [ false, %312 ], [ true, %314 ], [ false, %337 ], [ true, %340 ], [ false, %351 ], [ false, %360 ], [ false, %370 ], [ false, %367 ], [ false, %365 ]
+  %.3 = phi i1 [ true, %312 ], [ true, %314 ], [ true, %337 ], [ true, %340 ], [ true, %351 ], [ true, %360 ], [ true, %370 ], [ %.1179, %367 ], [ %.1179, %365 ]
+  %.1 = phi i1 [ false, %312 ], [ true, %314 ], [ false, %337 ], [ true, %340 ], [ false, %351 ], [ false, %360 ], [ false, %370 ], [ false, %367 ], [ false, %365 ]
   %376 = load i32, ptr %287, align 8
   %377 = and i32 %376, 15
   %378 = icmp eq i32 %377, 2
@@ -9829,9 +9829,9 @@ set_node_down.exit:                               ; preds = %267, %269
   br label %390
 
 390:                                              ; preds = %382, %292
-  %.2182 = phi ptr [ %.1181, %382 ], [ %.0180244, %292 ]
-  %.3 = phi i1 [ %.2, %382 ], [ %.1179, %292 ]
-  %.1 = phi i1 [ %.0, %382 ], [ false, %292 ]
+  %.1181 = phi ptr [ %.2182, %382 ], [ %.0180244, %292 ]
+  %.2 = phi i1 [ %.3, %382 ], [ %.1179, %292 ]
+  %.0 = phi i1 [ %.1, %382 ], [ false, %292 ]
   %391 = load ptr, ptr %232, align 8
   %.not220 = icmp eq ptr %391, null
   br i1 %.not220, label %395, label %392
@@ -9843,7 +9843,7 @@ set_node_down.exit:                               ; preds = %267, %269
   br label %395
 
 395:                                              ; preds = %392, %390
-  br i1 %.1, label %407, label %396
+  br i1 %.0, label %407, label %396
 
 396:                                              ; preds = %395
   %397 = load i8, ptr @slurmctld_init_db, align 1
@@ -9873,12 +9873,12 @@ set_node_down.exit:                               ; preds = %267, %269
   br i1 %.not203, label %._crit_edge248, label %233, !llvm.loop !30
 
 ._crit_edge248:                                   ; preds = %407
-  %.not204 = icmp eq ptr %.2182, null
+  %.not204 = icmp eq ptr %.1181, null
   br i1 %.not204, label %417, label %411
 
 411:                                              ; preds = %._crit_edge248
-  call void @hostlist_uniq(ptr noundef nonnull %.2182) #16
-  %412 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.2182) #16
+  call void @hostlist_uniq(ptr noundef nonnull %.1181) #16
+  %412 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.1181) #16
   store ptr %412, ptr %5, align 8
   %413 = call i32 @get_log_level() #16
   %414 = icmp sgt i32 %413, 4
@@ -9890,11 +9890,11 @@ set_node_down.exit:                               ; preds = %267, %269
 
 416:                                              ; preds = %415, %411
   call void @slurm_xfree(ptr noundef nonnull %5) #16
-  call void @hostlist_destroy(ptr noundef nonnull %.2182) #16
-  br i1 %.3, label %418, label %.thread
+  call void @hostlist_destroy(ptr noundef nonnull %.1181) #16
+  br i1 %.2, label %418, label %.thread
 
 417:                                              ; preds = %._crit_edge248
-  br i1 %.3, label %418, label %.thread
+  br i1 %.2, label %418, label %.thread
 
 418:                                              ; preds = %416, %417
   %419 = call i64 @time(ptr noundef null) #16
@@ -10314,7 +10314,7 @@ define dso_local void @node_no_resp_msg() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %20
   %4 = phi ptr [ %23, %20 ], [ %3, %0 ]
-  %.021 = phi ptr [ %.2, %20 ], [ null, %0 ]
+  %.021 = phi ptr [ %.1, %20 ], [ null, %0 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 308
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
@@ -10342,12 +10342,12 @@ define dso_local void @node_no_resp_msg() local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %17, %15
-  %.1 = phi ptr [ %.021, %15 ], [ %18, %17 ]
+  %.2 = phi ptr [ %.021, %15 ], [ %18, %17 ]
   store i8 0, ptr %5, align 4
   br label %20
 
 20:                                               ; preds = %.lr.ph, %8, %19
-  %.2 = phi ptr [ %.021, %8 ], [ %.1, %19 ], [ %.021, %.lr.ph ]
+  %.1 = phi ptr [ %.021, %8 ], [ %.2, %19 ], [ %.021, %.lr.ph ]
   %21 = load i32, ptr %1, align 4
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %1, align 4
@@ -10356,16 +10356,16 @@ define dso_local void @node_no_resp_msg() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %20
-  %.not14 = icmp eq ptr %.2, null
+  %.not14 = icmp eq ptr %.1, null
   br i1 %.not14, label %._crit_edge.thread, label %24
 
 24:                                               ; preds = %._crit_edge
-  call void @hostlist_uniq(ptr noundef nonnull %.2) #16
-  %25 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.2) #16
+  call void @hostlist_uniq(ptr noundef nonnull %.1) #16
+  %25 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.1) #16
   store ptr %25, ptr %2, align 8
   %26 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.109, ptr noundef %25) #16
   call void @slurm_xfree(ptr noundef nonnull %2) #16
-  call void @hostlist_destroy(ptr noundef nonnull %.2) #16
+  call void @hostlist_destroy(ptr noundef nonnull %.1) #16
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %0, %24, %._crit_edge
@@ -11601,12 +11601,12 @@ define dso_local i32 @send_nodes_to_accounting(i64 noundef %0) local_unnamed_add
   br label %22
 
 22:                                               ; preds = %18, %16
-  %.1 = phi i32 [ %21, %18 ], [ %.01325, %16 ]
-  %23 = icmp eq i32 %.1, -1
+  %.3 = phi i32 [ %21, %18 ], [ %.01325, %16 ]
+  %23 = icmp eq i32 %.3, -1
   br i1 %23, label %._crit_edge, label %24
 
 24:                                               ; preds = %22, %.lr.ph
-  %.2 = phi i32 [ %.1, %22 ], [ %.01325, %.lr.ph ]
+  %.2 = phi i32 [ %.3, %22 ], [ %.01325, %.lr.ph ]
   %25 = load i32, ptr %2, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %2, align 4
@@ -11615,9 +11615,9 @@ define dso_local i32 @send_nodes_to_accounting(i64 noundef %0) local_unnamed_add
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %24, %22, %1
-  %.3 = phi i32 [ 0, %1 ], [ -1, %22 ], [ %.2, %24 ]
+  %.1 = phi i32 [ 0, %1 ], [ -1, %22 ], [ %.2, %24 ]
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.send_nodes_to_accounting.node_read_lock) #16
-  ret i32 %.3
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12909,8 +12909,8 @@ define dso_local i32 @delete_nodes(ptr noundef %0, ptr nocapture noundef writeon
 .lr.ph:                                           ; preds = %.preheader, %28
   %18 = phi ptr [ %30, %28 ], [ %13, %.preheader ]
   %.02549 = phi ptr [ %.1, %28 ], [ null, %.preheader ]
-  %.02648 = phi i32 [ %29, %28 ], [ 0, %.preheader ]
-  %.02847 = phi i8 [ %.129, %28 ], [ 0, %.preheader ]
+  %.12748 = phi i32 [ %29, %28 ], [ 0, %.preheader ]
+  %.12947 = phi i8 [ %.2, %28 ], [ 0, %.preheader ]
   %19 = tail call ptr @find_node_record(ptr noundef nonnull %18) #16
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_delete_node.exit.thread, label %_delete_node.exit
@@ -12940,16 +12940,16 @@ _delete_node.exit:                                ; preds = %.lr.ph
 
 28:                                               ; preds = %_delete_node.exit, %24, %26
   %.0.i42 = phi i32 [ %.0.i41, %26 ], [ %.0.i41, %24 ], [ 0, %_delete_node.exit ]
-  %.129 = phi i8 [ %.02847, %26 ], [ %.02847, %24 ], [ 1, %_delete_node.exit ]
+  %.2 = phi i8 [ %.12947, %26 ], [ %.12947, %24 ], [ 1, %_delete_node.exit ]
   %.1 = phi ptr [ %.02549, %26 ], [ %25, %24 ], [ %.02549, %_delete_node.exit ]
-  %29 = or i32 %.0.i42, %.02648
+  %29 = or i32 %.0.i42, %.12748
   tail call void @free(ptr noundef nonnull %18) #16
   %30 = tail call ptr @hostlist_shift(ptr noundef nonnull %10) #16
   %.not35 = icmp eq ptr %30, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %28
-  %31 = trunc nuw i8 %.129 to i1
+  %31 = trunc nuw i8 %.2 to i1
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %._crit_edge
@@ -12989,16 +12989,16 @@ _delete_node.exit:                                ; preds = %.lr.ph
   br label %44
 
 44:                                               ; preds = %37, %.thread, %40, %41
-  %.12745 = phi i32 [ 2018, %.thread ], [ %29, %40 ], [ %29, %41 ], [ %29, %37 ]
+  %.02645 = phi i32 [ 2018, %.thread ], [ %29, %40 ], [ %29, %41 ], [ %29, %37 ]
   br i1 %.not33, label %46, label %45
 
 45:                                               ; preds = %.thread69, %44
-  %.1274571 = phi i32 [ 0, %.thread69 ], [ %.12745, %44 ]
+  %.0264571 = phi i32 [ 0, %.thread69 ], [ %.02645, %44 ]
   call void @hostlist_destroy(ptr noundef nonnull %10) #16
   br label %46
 
 46:                                               ; preds = %44, %45, %6
-  %.0 = phi i32 [ 2002, %6 ], [ %.1274571, %45 ], [ %.12745, %44 ]
+  %.0 = phi i32 [ 2002, %6 ], [ %.0264571, %45 ], [ %.02645, %44 ]
   ret i32 %.0
 }
 

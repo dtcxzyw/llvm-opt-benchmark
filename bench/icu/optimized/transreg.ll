@@ -466,9 +466,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1029,8 +1029,8 @@ sw.bb107:                                         ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %cleanup, %if.end, %if.then7, %if.end6, %sw.bb, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %sw.bb ], [ null, %if.end ], [ %call2, %if.then7 ], [ %call2, %if.end6 ], [ %switch, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %sw.bb ], [ null, %if.end ], [ %call2, %if.then7 ], [ %call2, %if.end6 ], [ %switch, %cleanup ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZN6icu_7514Transliterator14createInstanceERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -3910,8 +3910,8 @@ if.end51:                                         ; preds = %if.then43
   br i1 %cmp52, label %return, label %if.end55
 
 if.end55:                                         ; preds = %if.end51, %if.end22
-  %variantListIndex.1 = phi i32 [ %sub, %if.end51 ], [ %call23, %if.end22 ]
-  %shl = shl nuw i32 1, %variantListIndex.1
+  %variantListIndex.0 = phi i32 [ %sub, %if.end51 ], [ %call23, %if.end22 ]
+  %shl = shl nuw i32 1, %variantListIndex.0
   %19 = load ptr, ptr %targets.0, align 8
   %call.i30 = call noundef i32 @uhash_geti_75(ptr noundef %19, ptr noundef nonnull %target)
   %or = or i32 %call.i30, %shl

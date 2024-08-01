@@ -1932,11 +1932,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.134 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
-  %30 = load i8, ptr %.134, align 1
+  %.334 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
+  %30 = load i8, ptr %.334, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.134, i64 1
+  %33 = getelementptr inbounds i8, ptr %.334, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
@@ -1949,11 +1949,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.134, i64 2
+  %42 = getelementptr inbounds i8, ptr %.334, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.134, i32 noundef %39)
+  %44 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.334, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -2090,8 +2090,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %48, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %96, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %72, %73
-  %.3 = phi ptr [ %.0.i, %73 ], [ null, %72 ], [ %spec.select, %21 ], [ null, %48 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %96 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ %.0.i, %73 ], [ null, %72 ], [ %spec.select, %21 ], [ null, %48 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %96 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.2
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt64ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -3158,11 +3158,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %26
   br i1 %42, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread98
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread98: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1101 = phi ptr [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.095, %.backedge ]
-  %43 = load i8, ptr %.1101, align 1
+  %.6101 = phi ptr [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.095, %.backedge ]
+  %43 = load i8, ptr %.6101, align 1
   %44 = zext i8 %43 to i32
   %45 = icmp sgt i8 %43, -1
-  %46 = getelementptr inbounds i8, ptr %.1101, i64 1
+  %46 = getelementptr inbounds i8, ptr %.6101, i64 1
   br i1 %45, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %47
 
 47:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread98
@@ -3175,11 +3175,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread98: ; preds = %.
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %.1101, i64 2
+  %55 = getelementptr inbounds i8, ptr %.6101, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 56:                                               ; preds = %47
-  %57 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1101, i32 noundef %52)
+  %57 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.6101, i32 noundef %52)
   %58 = extractvalue { ptr, i32 } %57, 0
   %59 = extractvalue { ptr, i32 } %57, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -3676,12 +3676,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not34, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit53, %138, %143, %_ZN12opencv_caffe9BlobProto23_internal_mutable_shapeEv.exit, %166, %171, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe9BlobProto26_internal_mutable_raw_dataB5cxx11Ev.exit, %261, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %34, %237, %238
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %237 ], [ %.sroa.0.0, %238 ], [ %.sroa.0.0, %34 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %65, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %84, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %122, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit53 ], [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %143 ], [ %.sroa.0.0, %_ZN12opencv_caffe9BlobProto23_internal_mutable_shapeEv.exit ], [ %.sroa.0.0, %166 ], [ %.sroa.0.0, %171 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe9BlobProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ %.sroa.0.0, %261 ]
-  %.6 = phi ptr [ null, %237 ], [ %.0.i, %238 ], [ %spec.select, %34 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit53 ], [ null, %138 ], [ null, %143 ], [ null, %_ZN12opencv_caffe9BlobProto23_internal_mutable_shapeEv.exit ], [ null, %166 ], [ null, %171 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe9BlobProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ null, %261 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %237 ], [ %.sroa.0.0, %238 ], [ %.sroa.0.0, %34 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %65, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %84, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %122, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit53 ], [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %143 ], [ %.sroa.0.0, %_ZN12opencv_caffe9BlobProto23_internal_mutable_shapeEv.exit ], [ %.sroa.0.0, %166 ], [ %.sroa.0.0, %171 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe9BlobProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ %.sroa.0.0, %261 ]
+  %.5 = phi ptr [ null, %237 ], [ %.0.i, %238 ], [ %spec.select, %34 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit53 ], [ null, %138 ], [ null, %143 ], [ null, %_ZN12opencv_caffe9BlobProto23_internal_mutable_shapeEv.exit ], [ null, %166 ], [ null, %171 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe9BlobProto26_internal_mutable_raw_dataB5cxx11Ev.exit ], [ null, %261 ]
   %263 = load i32, ptr %10, align 8
-  %264 = or i32 %263, %.sroa.0.3
+  %264 = or i32 %263, %.sroa.0.1
   store i32 %264, ptr %10, align 8
-  ret ptr %.6
+  ret ptr %.5
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -4469,7 +4469,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe9BlobProto12ByteSizeLongEv(ptr noun
   br label %88
 
 88:                                               ; preds = %70, %68
-  %.4 = phi i64 [ %87, %70 ], [ %64, %68 ]
+  %.5 = phi i64 [ %87, %70 ], [ %64, %68 ]
   %89 = and i32 %66, 2
   %.not51 = icmp eq i32 %89, 0
   br i1 %.not51, label %120, label %90
@@ -4510,13 +4510,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %114 = add nuw nsw i32 %113, 73
   %115 = lshr i32 %114, 6
   %116 = zext nneg i32 %115 to i64
-  %117 = add i64 %.4, 1
+  %117 = add i64 %.5, 1
   %118 = add i64 %117, %108
   %119 = add i64 %118, %116
   br label %120
 
 120:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobShapeEEEmRKT_.exit, %88
-  %.5 = phi i64 [ %119, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobShapeEEEmRKT_.exit ], [ %.4, %88 ]
+  %.6 = phi i64 [ %119, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobShapeEEEmRKT_.exit ], [ %.5, %88 ]
   %121 = and i32 %66, 4
   %.not52 = icmp eq i32 %121, 0
   br i1 %.not52, label %133, label %122
@@ -4531,11 +4531,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %129 = mul nuw nsw i64 %128, 9
   %130 = add nuw nsw i64 %129, 137
   %131 = lshr i64 %130, 6
-  %132 = add i64 %131, %.5
+  %132 = add i64 %131, %.6
   br label %133
 
 133:                                              ; preds = %122, %120
-  %.6 = phi i64 [ %132, %122 ], [ %.5, %120 ]
+  %.7 = phi i64 [ %132, %122 ], [ %.6, %120 ]
   %134 = and i32 %66, 8
   %.not53 = icmp eq i32 %134, 0
   br i1 %.not53, label %146, label %135
@@ -4550,11 +4550,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %142 = mul nuw nsw i64 %141, 9
   %143 = add nuw nsw i64 %142, 137
   %144 = lshr i64 %143, 6
-  %145 = add i64 %144, %.6
+  %145 = add i64 %144, %.7
   br label %146
 
 146:                                              ; preds = %135, %133
-  %.7 = phi i64 [ %145, %135 ], [ %.6, %133 ]
+  %.8 = phi i64 [ %145, %135 ], [ %.7, %133 ]
   %147 = and i32 %66, 16
   %.not54 = icmp eq i32 %147, 0
   br i1 %.not54, label %159, label %148
@@ -4569,11 +4569,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %155 = mul nuw nsw i64 %154, 9
   %156 = add nuw nsw i64 %155, 137
   %157 = lshr i64 %156, 6
-  %158 = add i64 %157, %.7
+  %158 = add i64 %157, %.8
   br label %159
 
 159:                                              ; preds = %148, %146
-  %.8 = phi i64 [ %158, %148 ], [ %.7, %146 ]
+  %.9 = phi i64 [ %158, %148 ], [ %.8, %146 ]
   %160 = and i32 %66, 32
   %.not55 = icmp eq i32 %160, 0
   br i1 %.not55, label %172, label %161
@@ -4588,11 +4588,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %168 = mul nuw nsw i64 %167, 9
   %169 = add nuw nsw i64 %168, 137
   %170 = lshr i64 %169, 6
-  %171 = add i64 %170, %.8
+  %171 = add i64 %170, %.9
   br label %172
 
 172:                                              ; preds = %161, %159
-  %.9 = phi i64 [ %171, %161 ], [ %.8, %159 ]
+  %.10 = phi i64 [ %171, %161 ], [ %.9, %159 ]
   %173 = and i32 %66, 64
   %.not56 = icmp eq i32 %173, 0
   br i1 %.not56, label %186, label %174
@@ -4607,14 +4607,14 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %181 = mul nuw nsw i64 %180, 9
   %182 = add nuw nsw i64 %181, 73
   %183 = lshr i64 %182, 6
-  %184 = add i64 %.9, 1
+  %184 = add i64 %.10, 1
   %185 = add i64 %184, %183
   br label %186
 
 186:                                              ; preds = %172, %174, %63
-  %.10 = phi i64 [ %185, %174 ], [ %.9, %172 ], [ %64, %63 ]
+  %.4 = phi i64 [ %185, %174 ], [ %.10, %172 ], [ %64, %63 ]
   %187 = getelementptr inbounds i8, ptr %0, i64 20
-  %188 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.10, ptr noundef nonnull %187)
+  %188 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %187)
   ret i64 %188
 }
 
@@ -5347,11 +5347,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %9, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.132 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %9 ]
-  %30 = load i8, ptr %.132, align 1
+  %.332 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %9 ]
+  %30 = load i8, ptr %.332, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.132, i64 1
+  %33 = getelementptr inbounds i8, ptr %.332, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
@@ -5364,11 +5364,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %9
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.132, i64 2
+  %42 = getelementptr inbounds i8, ptr %.332, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.132, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.332, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -5384,8 +5384,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %50
 
 50:                                               ; preds = %57, %48
-  %.2 = phi ptr [ %49, %48 ], [ %53, %57 ]
-  %51 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %49, %48 ], [ %53, %57 ]
+  %51 = getelementptr inbounds i8, ptr %.1, i64 1
   %52 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef null)
   %53 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %52, ptr noundef nonnull %51)
   %.not13 = icmp eq ptr %53, null
@@ -5470,8 +5470,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %88, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %50, %21, %64, %65
-  %.3 = phi ptr [ %.0.i, %65 ], [ null, %64 ], [ %spec.select, %21 ], [ null, %50 ], [ null, %88 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ %.0.i, %65 ], [ null, %64 ], [ %spec.select, %21 ], [ null, %50 ], [ null, %88 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6178,11 +6178,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34: ; preds = %10, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.137 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.031, %10 ]
-  %31 = load i8, ptr %.137, align 1
+  %.437 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.031, %10 ]
+  %31 = load i8, ptr %.437, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.137, i64 1
+  %34 = getelementptr inbounds i8, ptr %.437, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34
@@ -6195,11 +6195,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34: ; preds = %1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.137, i64 2
+  %43 = getelementptr inbounds i8, ptr %.437, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.137, i32 noundef %40)
+  %45 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.437, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -6222,12 +6222,12 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %51
 
 51:                                               ; preds = %70, %49
-  %.2 = phi ptr [ %50, %49 ], [ %.0.i.i1841, %70 ]
-  %52 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %50, %49 ], [ %.0.i.i1841, %70 ]
+  %52 = getelementptr inbounds i8, ptr %.1, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %.not.i.i = icmp sgt i8 %53, -1
-  %55 = getelementptr inbounds i8, ptr %.2, i64 2
+  %55 = getelementptr inbounds i8, ptr %.1, i64 2
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, label %56
 
 56:                                               ; preds = %51
@@ -6240,7 +6240,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br i1 %.not16.i.i, label %62, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %.2, i64 3
+  %63 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread: ; preds = %62, %51
@@ -6348,8 +6348,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %73, %103, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %22, %79, %80
-  %.4 = phi ptr [ %.0.i, %80 ], [ null, %79 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %73 ], [ null, %103 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.4
+  %.3 = phi ptr [ %.0.i, %80 ], [ null, %79 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %73 ], [ null, %103 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.3
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal18PackedUInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -7184,11 +7184,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.146 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %.backedge ]
-  %32 = load i8, ptr %.146, align 1
+  %.246 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %.backedge ]
+  %32 = load i8, ptr %.246, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.146, i64 1
+  %35 = getelementptr inbounds i8, ptr %.246, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
@@ -7201,11 +7201,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %.
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.146, i64 2
+  %44 = getelementptr inbounds i8, ptr %.246, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.146, i32 noundef %41)
+  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.246, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -7466,12 +7466,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe22NormalizeBBoxParameter30_internal_mutable_scale_fillerEv.exit, %163, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit25, %23, %139, %140
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %139 ], [ %.sroa.0.0.ph, %140 ], [ %.sroa.0.0.ph, %23 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe22NormalizeBBoxParameter30_internal_mutable_scale_fillerEv.exit ], [ %.sroa.0.0.ph, %163 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %107, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit25 ], [ %54, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %139 ], [ %.0.i, %140 ], [ %spec.select, %23 ], [ null, %163 ], [ null, %_ZN12opencv_caffe22NormalizeBBoxParameter30_internal_mutable_scale_fillerEv.exit ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit25 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %139 ], [ %.sroa.0.0.ph, %140 ], [ %.sroa.0.0.ph, %23 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe22NormalizeBBoxParameter30_internal_mutable_scale_fillerEv.exit ], [ %.sroa.0.0.ph, %163 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %107, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit25 ], [ %54, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %139 ], [ %.0.i, %140 ], [ %spec.select, %23 ], [ null, %163 ], [ null, %_ZN12opencv_caffe22NormalizeBBoxParameter30_internal_mutable_scale_fillerEv.exit ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit25 ]
   %165 = load i32, ptr %8, align 8
-  %166 = or i32 %165, %.sroa.0.3
+  %166 = or i32 %165, %.sroa.0.1
   store i32 %166, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7644,23 +7644,23 @@ define hidden noundef i64 @_ZNK12opencv_caffe22NormalizeBBoxParameter12ByteSizeL
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %23 = lshr i32 %3, 1
   %24 = and i32 %23, 2
   %narrow = add nuw nsw i32 %24, %22
   %spec.select = zext nneg i32 %narrow to i64
-  %.2 = add i64 %.0, %spec.select
+  %.3 = add i64 %.1, %spec.select
   %25 = and i32 %3, 8
   %.not15 = icmp eq i32 %25, 0
-  %26 = add i64 %.2, 5
-  %spec.select16 = select i1 %.not15, i64 %.2, i64 %26
+  %26 = add i64 %.3, 5
+  %spec.select16 = select i1 %.not15, i64 %.3, i64 %26
   br label %27
 
 27:                                               ; preds = %21, %1
-  %.3 = phi i64 [ 0, %1 ], [ %spec.select16, %21 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select16, %21 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 20
-  %29 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3, ptr noundef nonnull %28)
+  %29 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %28)
   ret i64 %29
 }
 
@@ -8684,7 +8684,7 @@ define hidden noundef ptr @_ZN12opencv_caffe17PriorBoxParameter14_InternalParseE
   br label %32
 
 32:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.0140 = phi ptr [ %1, %.preheader ], [ %.0140.be, %.backedge ]
   %33 = load i32, ptr %11, align 4
   %34 = load ptr, ptr %2, align 8
@@ -8718,11 +8718,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %36
   br i1 %52, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread143
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread143: ; preds = %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1146 = phi ptr [ %50, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0140, %32 ]
-  %53 = load i8, ptr %.1146, align 1
+  %.18146 = phi ptr [ %50, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0140, %32 ]
+  %53 = load i8, ptr %.18146, align 1
   %54 = zext i8 %53 to i32
   %55 = icmp sgt i8 %53, -1
-  %56 = getelementptr inbounds i8, ptr %.1146, i64 1
+  %56 = getelementptr inbounds i8, ptr %.18146, i64 1
   br i1 %55, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %57
 
 57:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread143
@@ -8735,11 +8735,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread143: ; preds = %
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %.1146, i64 2
+  %65 = getelementptr inbounds i8, ptr %.18146, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 66:                                               ; preds = %57
-  %67 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1146, i32 noundef %62)
+  %67 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.18146, i32 noundef %62)
   %68 = extractvalue { ptr, i32 } %67, 0
   %69 = extractvalue { ptr, i32 } %67, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -8780,14 +8780,14 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %74
 
 74:                                               ; preds = %79, %72
-  %.2 = phi ptr [ %73, %72 ], [ %76, %79 ]
-  %75 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %73, %72 ], [ %76, %79 ]
+  %75 = getelementptr inbounds i8, ptr %.1, i64 1
   %.0.copyload.i2.i = load float, ptr %75, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store float %.0.copyload.i2.i, ptr %10, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %76 = getelementptr inbounds i8, ptr %.2, i64 5
+  %76 = getelementptr inbounds i8, ptr %.1, i64 5
   %77 = load ptr, ptr %2, align 8
   %78 = icmp ugt ptr %77, %76
   br i1 %78, label %79, label %.backedge
@@ -8803,7 +8803,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br i1 %.not45, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %297, %302, %285, %290, %272, %277, %259, %264, %165, %170, %100, %105, %87, %92, %74, %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %304, %292, %280, %267, %173, %108, %95, %82, %235, %241, %247, %253, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73, %334
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %334 ], [ %.sroa.0.0, %304 ], [ %.sroa.0.0, %292 ], [ %.sroa.0.0, %280 ], [ %.sroa.0.0, %267 ], [ %254, %253 ], [ %248, %247 ], [ %242, %241 ], [ %236, %235 ], [ %217, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ %198, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %173 ], [ %140, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %108 ], [ %.sroa.0.0, %95 ], [ %.sroa.0.0, %82 ], [ %114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %140, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58.thread ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %198, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68.thread ], [ %217, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73.thread ], [ %.sroa.0.0, %79 ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %92 ], [ %.sroa.0.0, %87 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %100 ], [ %.sroa.0.0, %170 ], [ %.sroa.0.0, %165 ], [ %.sroa.0.0, %264 ], [ %.sroa.0.0, %259 ], [ %.sroa.0.0, %277 ], [ %.sroa.0.0, %272 ], [ %.sroa.0.0, %290 ], [ %.sroa.0.0, %285 ], [ %.sroa.0.0, %302 ], [ %.sroa.0.0, %297 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %334 ], [ %.sroa.0.0, %304 ], [ %.sroa.0.0, %292 ], [ %.sroa.0.0, %280 ], [ %.sroa.0.0, %267 ], [ %254, %253 ], [ %248, %247 ], [ %242, %241 ], [ %236, %235 ], [ %217, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ %198, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %173 ], [ %140, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %108 ], [ %.sroa.0.0, %95 ], [ %.sroa.0.0, %82 ], [ %114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %140, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58.thread ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %198, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68.thread ], [ %217, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73.thread ], [ %.sroa.0.0, %79 ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %92 ], [ %.sroa.0.0, %87 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %100 ], [ %.sroa.0.0, %170 ], [ %.sroa.0.0, %165 ], [ %.sroa.0.0, %264 ], [ %.sroa.0.0, %259 ], [ %.sroa.0.0, %277 ], [ %.sroa.0.0, %272 ], [ %.sroa.0.0, %290 ], [ %.sroa.0.0, %285 ], [ %.sroa.0.0, %302 ], [ %.sroa.0.0, %297 ]
   %.0140.be = phi ptr [ %335, %334 ], [ %305, %304 ], [ %293, %292 ], [ %281, %280 ], [ %268, %267 ], [ %255, %253 ], [ %249, %247 ], [ %243, %241 ], [ %237, %235 ], [ %230, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ %211, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ %192, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %174, %173 ], [ %158, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %132, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %109, %108 ], [ %96, %95 ], [ %83, %82 ], [ %.0.i.i53.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %.0.i.i57.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58.thread ], [ %.0.i.i63.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i67.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68.thread ], [ %.0.i.i72.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73.thread ], [ %76, %79 ], [ %76, %74 ], [ %89, %92 ], [ %89, %87 ], [ %102, %105 ], [ %102, %100 ], [ %167, %170 ], [ %167, %165 ], [ %261, %264 ], [ %261, %259 ], [ %274, %277 ], [ %274, %272 ], [ %287, %290 ], [ %287, %285 ], [ %299, %302 ], [ %299, %297 ]
   br label %32, !llvm.loop !26
 
@@ -8819,14 +8819,14 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %87
 
 87:                                               ; preds = %92, %85
-  %.4 = phi ptr [ %86, %85 ], [ %89, %92 ]
-  %88 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %86, %85 ], [ %89, %92 ]
+  %88 = getelementptr inbounds i8, ptr %.3, i64 1
   %.0.copyload.i2.i50 = load float, ptr %88, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store float %.0.copyload.i2.i50, ptr %9, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %89 = getelementptr inbounds i8, ptr %.4, i64 5
+  %89 = getelementptr inbounds i8, ptr %.3, i64 5
   %90 = load ptr, ptr %2, align 8
   %91 = icmp ugt ptr %90, %89
   br i1 %91, label %92, label %.backedge
@@ -8853,14 +8853,14 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %100
 
 100:                                              ; preds = %105, %98
-  %.6 = phi ptr [ %99, %98 ], [ %102, %105 ]
-  %101 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.5 = phi ptr [ %99, %98 ], [ %102, %105 ]
+  %101 = getelementptr inbounds i8, ptr %.5, i64 1
   %.0.copyload.i2.i51 = load float, ptr %101, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store float %.0.copyload.i2.i51, ptr %8, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %102 = getelementptr inbounds i8, ptr %.6, i64 5
+  %102 = getelementptr inbounds i8, ptr %.5, i64 5
   %103 = load ptr, ptr %2, align 8
   %104 = icmp ugt ptr %103, %102
   br i1 %104, label %105, label %.backedge
@@ -8985,14 +8985,14 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58: ; preds = %145
   br label %165
 
 165:                                              ; preds = %170, %163
-  %.8 = phi ptr [ %164, %163 ], [ %167, %170 ]
-  %166 = getelementptr inbounds i8, ptr %.8, i64 1
+  %.7 = phi ptr [ %164, %163 ], [ %167, %170 ]
+  %166 = getelementptr inbounds i8, ptr %.7, i64 1
   %.0.copyload.i2.i59 = load float, ptr %166, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store float %.0.copyload.i2.i59, ptr %7, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %167 = getelementptr inbounds i8, ptr %.8, i64 5
+  %167 = getelementptr inbounds i8, ptr %.7, i64 5
   %168 = load ptr, ptr %2, align 8
   %169 = icmp ugt ptr %168, %167
   br i1 %169, label %170, label %.backedge
@@ -9187,14 +9187,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73: ; preds = %221
   br label %259
 
 259:                                              ; preds = %264, %257
-  %.10 = phi ptr [ %258, %257 ], [ %261, %264 ]
-  %260 = getelementptr inbounds i8, ptr %.10, i64 1
+  %.9 = phi ptr [ %258, %257 ], [ %261, %264 ]
+  %260 = getelementptr inbounds i8, ptr %.9, i64 1
   %.0.copyload.i2.i78 = load float, ptr %260, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store float %.0.copyload.i2.i78, ptr %6, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %261 = getelementptr inbounds i8, ptr %.10, i64 5
+  %261 = getelementptr inbounds i8, ptr %.9, i64 5
   %262 = load ptr, ptr %2, align 8
   %263 = icmp ugt ptr %262, %261
   br i1 %263, label %264, label %.backedge
@@ -9221,14 +9221,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73: ; preds = %221
   br label %272
 
 272:                                              ; preds = %277, %270
-  %.12 = phi ptr [ %271, %270 ], [ %274, %277 ]
-  %273 = getelementptr inbounds i8, ptr %.12, i64 1
+  %.11 = phi ptr [ %271, %270 ], [ %274, %277 ]
+  %273 = getelementptr inbounds i8, ptr %.11, i64 1
   %.0.copyload.i2.i79 = load float, ptr %273, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store float %.0.copyload.i2.i79, ptr %5, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %274 = getelementptr inbounds i8, ptr %.12, i64 5
+  %274 = getelementptr inbounds i8, ptr %.11, i64 5
   %275 = load ptr, ptr %2, align 8
   %276 = icmp ugt ptr %275, %274
   br i1 %276, label %277, label %.backedge
@@ -9255,14 +9255,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73: ; preds = %221
   br label %285
 
 285:                                              ; preds = %290, %283
-  %.14 = phi ptr [ %284, %283 ], [ %287, %290 ]
-  %286 = getelementptr inbounds i8, ptr %.14, i64 2
+  %.13 = phi ptr [ %284, %283 ], [ %287, %290 ]
+  %286 = getelementptr inbounds i8, ptr %.13, i64 2
   %.0.copyload.i2.i80 = load float, ptr %286, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store float %.0.copyload.i2.i80, ptr %4, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %287 = getelementptr inbounds i8, ptr %.14, i64 6
+  %287 = getelementptr inbounds i8, ptr %.13, i64 6
   %288 = load ptr, ptr %2, align 8
   %289 = icmp ugt ptr %288, %287
   br i1 %289, label %290, label %.backedge
@@ -9289,14 +9289,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73: ; preds = %221
   br label %297
 
 297:                                              ; preds = %302, %295
-  %.16 = phi ptr [ %296, %295 ], [ %299, %302 ]
-  %298 = getelementptr inbounds i8, ptr %.16, i64 2
+  %.15 = phi ptr [ %296, %295 ], [ %299, %302 ]
+  %298 = getelementptr inbounds i8, ptr %.15, i64 2
   %.0.copyload.i2.i81 = load float, ptr %298, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store float %.0.copyload.i2.i81, ptr %3, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %299 = getelementptr inbounds i8, ptr %.16, i64 6
+  %299 = getelementptr inbounds i8, ptr %.15, i64 6
   %300 = load ptr, ptr %2, align 8
   %301 = icmp ugt ptr %300, %299
   br i1 %301, label %302, label %.backedge
@@ -9376,13 +9376,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not47, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %82, %95, %108, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58, %173, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73, %267, %280, %292, %304, %334, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %44, %310, %311
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %310 ], [ %.sroa.0.0, %311 ], [ %.sroa.0.0, %44 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %82 ], [ %.sroa.0.0, %95 ], [ %.sroa.0.0, %108 ], [ %114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %140, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %.sroa.0.0, %173 ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %198, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ %217, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ %.sroa.0.0, %267 ], [ %.sroa.0.0, %280 ], [ %.sroa.0.0, %292 ], [ %.sroa.0.0, %304 ], [ %.sroa.0.0, %334 ]
-  %.18 = phi ptr [ null, %310 ], [ %.0.i, %311 ], [ %spec.select, %44 ], [ %50, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %82 ], [ null, %95 ], [ null, %108 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ null, %173 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ null, %267 ], [ null, %280 ], [ null, %292 ], [ null, %304 ], [ null, %334 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %310 ], [ %.sroa.0.0, %311 ], [ %.sroa.0.0, %44 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %82 ], [ %.sroa.0.0, %95 ], [ %.sroa.0.0, %108 ], [ %114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %140, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %.sroa.0.0, %173 ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %198, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ %217, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ %.sroa.0.0, %267 ], [ %.sroa.0.0, %280 ], [ %.sroa.0.0, %292 ], [ %.sroa.0.0, %304 ], [ %.sroa.0.0, %334 ]
+  %.17 = phi ptr [ null, %310 ], [ %.0.i, %311 ], [ %spec.select, %44 ], [ %50, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %82 ], [ null, %95 ], [ null, %108 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ null, %173 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit68 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit73 ], [ null, %267 ], [ null, %280 ], [ null, %292 ], [ null, %304 ], [ null, %334 ]
   %336 = getelementptr inbounds i8, ptr %0, i64 16
   %337 = load i32, ptr %336, align 8
-  %338 = or i32 %337, %.sroa.0.3
+  %338 = or i32 %337, %.sroa.0.1
   store i32 %338, ptr %336, align 8
-  ret ptr %.18
+  ret ptr %.17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10068,7 +10068,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe17PriorBoxParameter12ByteSizeLongEv
   br label %67
 
 67:                                               ; preds = %56, %54
-  %.0 = phi i64 [ %66, %56 ], [ %50, %54 ]
+  %.1 = phi i64 [ %66, %56 ], [ %50, %54 ]
   %68 = and i32 %52, 2
   %.not55 = icmp eq i32 %68, 0
   br i1 %.not55, label %80, label %69
@@ -10083,11 +10083,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe17PriorBoxParameter12ByteSizeLongEv
   %76 = add nuw nsw i32 %75, 137
   %77 = lshr i32 %76, 6
   %78 = zext nneg i32 %77 to i64
-  %79 = add nuw nsw i64 %.0, %78
+  %79 = add nuw nsw i64 %.1, %78
   br label %80
 
 80:                                               ; preds = %69, %67
-  %.1 = phi i64 [ %79, %69 ], [ %.0, %67 ]
+  %.2 = phi i64 [ %79, %69 ], [ %.1, %67 ]
   %81 = and i32 %52, 4
   %.not56 = icmp eq i32 %81, 0
   br i1 %.not56, label %93, label %82
@@ -10102,38 +10102,38 @@ define hidden noundef i64 @_ZNK12opencv_caffe17PriorBoxParameter12ByteSizeLongEv
   %89 = add nuw nsw i32 %88, 137
   %90 = lshr i32 %89, 6
   %91 = zext nneg i32 %90 to i64
-  %92 = add nuw nsw i64 %.1, %91
+  %92 = add nuw nsw i64 %.2, %91
   br label %93
 
 93:                                               ; preds = %82, %80
-  %.2 = phi i64 [ %92, %82 ], [ %.1, %80 ]
+  %.3 = phi i64 [ %92, %82 ], [ %.2, %80 ]
   %94 = and i32 %52, 8
   %.not57 = icmp eq i32 %94, 0
-  %95 = add nuw nsw i64 %.2, 5
-  %spec.select = select i1 %.not57, i64 %.2, i64 %95
+  %95 = add nuw nsw i64 %.3, 5
+  %spec.select = select i1 %.not57, i64 %.3, i64 %95
   %96 = and i32 %52, 16
   %.not58 = icmp eq i32 %96, 0
   %97 = add nuw nsw i64 %spec.select, 5
-  %.4 = select i1 %.not58, i64 %spec.select, i64 %97
+  %.5 = select i1 %.not58, i64 %spec.select, i64 %97
   %98 = and i32 %52, 32
   %.not59 = icmp eq i32 %98, 0
-  %99 = add nuw nsw i64 %.4, 5
-  %.5 = select i1 %.not59, i64 %.4, i64 %99
+  %99 = add nuw nsw i64 %.5, 5
+  %.6 = select i1 %.not59, i64 %.5, i64 %99
   %100 = lshr i32 %52, 5
   %101 = and i32 %100, 2
   %102 = lshr i32 %52, 6
   %103 = and i32 %102, 2
   %narrow = add nuw nsw i32 %103, %101
-  %.6 = zext nneg i32 %narrow to i64
-  %spec.select64 = add nuw nsw i64 %.5, %.6
+  %.7 = zext nneg i32 %narrow to i64
+  %spec.select64 = add nuw nsw i64 %.6, %.7
   br label %104
 
 104:                                              ; preds = %93, %1
-  %.7 = phi i64 [ %50, %1 ], [ %spec.select64, %93 ]
+  %.0 = phi i64 [ %50, %1 ], [ %spec.select64, %93 ]
   %105 = and i32 %52, 256
   %.not62 = icmp eq i32 %105, 0
-  %106 = add nuw nsw i64 %.7, 5
-  %spec.select63 = select i1 %.not62, i64 %.7, i64 %106
+  %106 = add nuw nsw i64 %.0, 5
+  %spec.select63 = select i1 %.not62, i64 %.0, i64 %106
   %107 = getelementptr inbounds i8, ptr %0, i64 20
   %108 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %spec.select63, ptr noundef nonnull %107)
   ret i64 %108
@@ -11103,11 +11103,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %22
   br i1 %38, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread101
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread101: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1104 = phi ptr [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.098, %.backedge ]
-  %39 = load i8, ptr %.1104, align 1
+  %.2104 = phi ptr [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.098, %.backedge ]
+  %39 = load i8, ptr %.2104, align 1
   %40 = zext i8 %39 to i32
   %41 = icmp sgt i8 %39, -1
-  %42 = getelementptr inbounds i8, ptr %.1104, i64 1
+  %42 = getelementptr inbounds i8, ptr %.2104, i64 1
   br i1 %41, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %43
 
 43:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread101
@@ -11120,11 +11120,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread101: ; preds = %
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %.1104, i64 2
+  %51 = getelementptr inbounds i8, ptr %.2104, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 52:                                               ; preds = %43
-  %53 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1104, i32 noundef %48)
+  %53 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.2104, i32 noundef %48)
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = extractvalue { ptr, i32 } %53, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -11776,12 +11776,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not24, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37, %_ZN12opencv_caffe24DetectionOutputParameter27_internal_mutable_nms_paramEv.exit, %_ZN12opencv_caffe24DetectionOutputParameter35_internal_mutable_save_output_paramEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit48, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit64, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69, %356, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %30, %332, %333
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %332 ], [ %.sroa.0.0, %333 ], [ %.sroa.0.0, %30 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %61, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %80, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %106, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %.sroa.0.0, %_ZN12opencv_caffe24DetectionOutputParameter27_internal_mutable_nms_paramEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe24DetectionOutputParameter35_internal_mutable_save_output_paramEv.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit48 ], [ %229, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54 ], [ %248, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ %280, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit64 ], [ %306, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ %.sroa.0.0, %356 ]
-  %.2 = phi ptr [ null, %332 ], [ %.0.i, %333 ], [ %spec.select, %30 ], [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ null, %_ZN12opencv_caffe24DetectionOutputParameter27_internal_mutable_nms_paramEv.exit ], [ null, %_ZN12opencv_caffe24DetectionOutputParameter35_internal_mutable_save_output_paramEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit48 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit64 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ null, %356 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %332 ], [ %.sroa.0.0, %333 ], [ %.sroa.0.0, %30 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %61, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %80, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %106, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %.sroa.0.0, %_ZN12opencv_caffe24DetectionOutputParameter27_internal_mutable_nms_paramEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe24DetectionOutputParameter35_internal_mutable_save_output_paramEv.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit48 ], [ %229, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54 ], [ %248, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ %280, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit64 ], [ %306, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ %.sroa.0.0, %356 ]
+  %.1 = phi ptr [ null, %332 ], [ %.0.i, %333 ], [ %spec.select, %30 ], [ %36, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ null, %_ZN12opencv_caffe24DetectionOutputParameter27_internal_mutable_nms_paramEv.exit ], [ null, %_ZN12opencv_caffe24DetectionOutputParameter35_internal_mutable_save_output_paramEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit48 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit64 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ null, %356 ]
   %358 = load i32, ptr %12, align 8
-  %359 = or i32 %358, %.sroa.0.3
+  %359 = or i32 %358, %.sroa.0.1
   store i32 %359, ptr %12, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12302,11 +12302,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe24DetectionOutputParameter12ByteSiz
   br label %25
 
 25:                                               ; preds = %15, %13
-  %.0.i.i = phi i64 [ %24, %15 ], [ 0, %13 ]
+  %.1.i.i = phi i64 [ %24, %15 ], [ 0, %13 ]
   %26 = and i32 %11, 2
   %.not11.i.i = icmp eq i32 %26, 0
-  %27 = add nuw nsw i64 %.0.i.i, 5
-  %spec.select.i.i = select i1 %.not11.i.i, i64 %.0.i.i, i64 %27
+  %27 = add nuw nsw i64 %.1.i.i, 5
+  %spec.select.i.i = select i1 %.not11.i.i, i64 %.1.i.i, i64 %27
   %28 = and i32 %11, 4
   %.not12.i.i = icmp eq i32 %28, 0
   %29 = add nuw nsw i64 %spec.select.i.i, 5
@@ -12314,9 +12314,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe24DetectionOutputParameter12ByteSiz
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMaximumSuppressionParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMaximumSuppressionParameterEEEmRKT_.exit: ; preds = %7, %25
-  %.2.i.i = phi i64 [ 0, %7 ], [ %spec.select13.i.i, %25 ]
+  %.0.i.i = phi i64 [ 0, %7 ], [ %spec.select13.i.i, %25 ]
   %30 = getelementptr inbounds i8, ptr %9, i64 20
-  %31 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %.2.i.i, ptr noundef nonnull %30)
+  %31 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %.0.i.i, ptr noundef nonnull %30)
   %32 = trunc i64 %31 to i32
   %33 = or i32 %32, 1
   %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
@@ -12330,7 +12330,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
   br label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMaximumSuppressionParameterEEEmRKT_.exit, %5
-  %.0 = phi i64 [ %41, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMaximumSuppressionParameterEEEmRKT_.exit ], [ 0, %5 ]
+  %.1 = phi i64 [ %41, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMaximumSuppressionParameterEEEmRKT_.exit ], [ 0, %5 ]
   %43 = and i32 %3, 2
   %.not28 = icmp eq i32 %43, 0
   br i1 %.not28, label %59, label %44
@@ -12347,13 +12347,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
   %53 = add nuw nsw i32 %52, 73
   %54 = lshr i32 %53, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = add i64 %.0, 1
+  %56 = add i64 %.1, 1
   %57 = add i64 %56, %47
   %58 = add i64 %57, %55
   br label %59
 
 59:                                               ; preds = %44, %42
-  %.1 = phi i64 [ %58, %44 ], [ %.0, %42 ]
+  %.2 = phi i64 [ %58, %44 ], [ %.1, %42 ]
   %60 = and i32 %3, 4
   %.not29 = icmp eq i32 %60, 0
   br i1 %.not29, label %72, label %61
@@ -12368,11 +12368,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
   %68 = add nuw nsw i32 %67, 137
   %69 = lshr i32 %68, 6
   %70 = zext nneg i32 %69 to i64
-  %71 = add i64 %.1, %70
+  %71 = add i64 %.2, %70
   br label %72
 
 72:                                               ; preds = %61, %59
-  %.2 = phi i64 [ %71, %61 ], [ %.1, %59 ]
+  %.3 = phi i64 [ %71, %61 ], [ %.2, %59 ]
   %73 = and i32 %3, 8
   %.not30 = icmp eq i32 %73, 0
   br i1 %.not30, label %85, label %74
@@ -12387,23 +12387,23 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
   %81 = mul nuw nsw i64 %80, 9
   %82 = add nuw nsw i64 %81, 137
   %83 = lshr i64 %82, 6
-  %84 = add i64 %83, %.2
+  %84 = add i64 %83, %.3
   br label %85
 
 85:                                               ; preds = %74, %72
-  %.3 = phi i64 [ %84, %74 ], [ %.2, %72 ]
+  %.4 = phi i64 [ %84, %74 ], [ %.3, %72 ]
   %86 = and i32 %3, 16
   %.not31 = icmp eq i32 %86, 0
-  %87 = add i64 %.3, 5
-  %spec.select = select i1 %.not31, i64 %.3, i64 %87
+  %87 = add i64 %.4, 5
+  %spec.select = select i1 %.not31, i64 %.4, i64 %87
   %88 = lshr i32 %3, 4
   %89 = and i32 %88, 2
   %90 = zext nneg i32 %89 to i64
-  %.5 = add i64 %spec.select, %90
+  %.6 = add i64 %spec.select, %90
   %91 = and i32 %3, 64
   %.not33 = icmp eq i32 %91, 0
-  %92 = add i64 %.5, 3
-  %.6 = select i1 %.not33, i64 %.5, i64 %92
+  %92 = add i64 %.6, 3
+  %.7 = select i1 %.not33, i64 %.6, i64 %92
   %93 = and i32 %3, 128
   %.not34 = icmp eq i32 %93, 0
   br i1 %.not34, label %105, label %94
@@ -12418,11 +12418,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
   %101 = mul nuw nsw i64 %100, 9
   %102 = add nuw nsw i64 %101, 137
   %103 = lshr i64 %102, 6
-  %104 = add i64 %103, %.6
+  %104 = add i64 %103, %.7
   br label %105
 
 105:                                              ; preds = %85, %94, %1
-  %.7 = phi i64 [ %104, %94 ], [ %.6, %85 ], [ 0, %1 ]
+  %.0 = phi i64 [ %104, %94 ], [ %.7, %85 ], [ 0, %1 ]
   %106 = and i32 %3, 1792
   %.not35 = icmp eq i32 %106, 0
   br i1 %.not35, label %126, label %107
@@ -12442,25 +12442,25 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
   %116 = mul nuw nsw i64 %115, 9
   %117 = add nuw nsw i64 %116, 73
   %118 = lshr i64 %117, 6
-  %119 = add i64 %.7, 1
+  %119 = add i64 %.0, 1
   %120 = add i64 %119, %118
   br label %121
 
 121:                                              ; preds = %109, %107
-  %.8 = phi i64 [ %120, %109 ], [ %.7, %107 ]
+  %.9 = phi i64 [ %120, %109 ], [ %.0, %107 ]
   %122 = lshr i32 %3, 8
   %123 = and i32 %122, 2
   %124 = lshr i32 %3, 9
   %125 = and i32 %124, 2
   %narrow = add nuw nsw i32 %125, %123
   %spec.select39 = zext nneg i32 %narrow to i64
-  %spec.select40 = add i64 %.8, %spec.select39
+  %spec.select40 = add i64 %.9, %spec.select39
   br label %126
 
 126:                                              ; preds = %121, %105
-  %.10 = phi i64 [ %.7, %105 ], [ %spec.select40, %121 ]
+  %.8 = phi i64 [ %.0, %105 ], [ %spec.select40, %121 ]
   %127 = getelementptr inbounds i8, ptr %0, i64 20
-  %128 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.10, ptr noundef nonnull %127)
+  %128 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.8, ptr noundef nonnull %127)
   ret i64 %128
 }
 
@@ -13655,7 +13655,7 @@ define hidden noundef ptr @_ZN12opencv_caffe5Datum14_InternalParseEPKcPN6google8
   br label %16
 
 16:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.070 = phi ptr [ %1, %.preheader ], [ %.070.be, %.backedge ]
   %17 = load i32, ptr %4, align 4
   %18 = load ptr, ptr %2, align 8
@@ -13689,11 +13689,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %20
   br i1 %36, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread73
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread73: ; preds = %16, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.176 = phi ptr [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.070, %16 ]
-  %37 = load i8, ptr %.176, align 1
+  %.476 = phi ptr [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.070, %16 ]
+  %37 = load i8, ptr %.476, align 1
   %38 = zext i8 %37 to i32
   %39 = icmp sgt i8 %37, -1
-  %40 = getelementptr inbounds i8, ptr %.176, i64 1
+  %40 = getelementptr inbounds i8, ptr %.476, i64 1
   br i1 %39, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread73
@@ -13706,11 +13706,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread73: ; preds = %1
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %.176, i64 2
+  %49 = getelementptr inbounds i8, ptr %.476, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 50:                                               ; preds = %41
-  %51 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.176, i32 noundef %46)
+  %51 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.476, i32 noundef %46)
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = extractvalue { ptr, i32 } %51, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -13928,14 +13928,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43: ; preds = %134
   br label %148
 
 148:                                              ; preds = %153, %146
-  %.2 = phi ptr [ %147, %146 ], [ %150, %153 ]
-  %149 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %147, %146 ], [ %150, %153 ]
+  %149 = getelementptr inbounds i8, ptr %.1, i64 1
   %.0.copyload.i2.i = load float, ptr %149, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store float %.0.copyload.i2.i, ptr %3, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %150 = getelementptr inbounds i8, ptr %.2, i64 5
+  %150 = getelementptr inbounds i8, ptr %.1, i64 5
   %151 = load ptr, ptr %2, align 8
   %152 = icmp ugt ptr %151, %150
   br i1 %152, label %153, label %.backedge
@@ -13951,7 +13951,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43: ; preds = %134
   br i1 %.not15, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %148, %153, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %156, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %212
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %212 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %156 ], [ %130, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %.sroa.0.0, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36.thread ], [ %130, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread ], [ %162, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %.sroa.0.0, %153 ], [ %.sroa.0.0, %148 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %212 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %156 ], [ %130, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %.sroa.0.0, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36.thread ], [ %130, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread ], [ %162, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %.sroa.0.0, %153 ], [ %.sroa.0.0, %148 ]
   %.070.be = phi ptr [ %213, %212 ], [ %180, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %157, %156 ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %125, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ %110, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i26.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i30.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread ], [ %.0.i.i35.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36.thread ], [ %.0.i.i42.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread ], [ %.0.i.i47.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %150, %153 ], [ %150, %148 ]
   br label %16, !llvm.loop !44
 
@@ -14069,12 +14069,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not22, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43, %156, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %212, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %28, %188, %189
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %188 ], [ %.sroa.0.0, %189 ], [ %.sroa.0.0, %28 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ %.sroa.0.0, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ %130, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %.sroa.0.0, %156 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %212 ]
-  %.4 = phi ptr [ null, %188 ], [ %.0.i, %189 ], [ %spec.select, %28 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ null, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ null, %156 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %212 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %188 ], [ %.sroa.0.0, %189 ], [ %.sroa.0.0, %28 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ %.sroa.0.0, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ %130, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %.sroa.0.0, %156 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %212 ]
+  %.3 = phi ptr [ null, %188 ], [ %.0.i, %189 ], [ %spec.select, %28 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit36 ], [ null, %_ZN12opencv_caffe5Datum22_internal_mutable_dataB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ null, %156 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %212 ]
   %214 = load i32, ptr %10, align 8
-  %215 = or i32 %214, %.sroa.0.3
+  %215 = or i32 %214, %.sroa.0.1
   store i32 %215, ptr %10, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14480,7 +14480,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe5Datum12ByteSizeLongEv(ptr noundef 
   br label %32
 
 32:                                               ; preds = %14, %12
-  %.0 = phi i64 [ %31, %14 ], [ %8, %12 ]
+  %.1 = phi i64 [ %31, %14 ], [ %8, %12 ]
   %33 = and i32 %10, 2
   %.not21 = icmp eq i32 %33, 0
   br i1 %.not21, label %45, label %34
@@ -14495,11 +14495,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe5Datum12ByteSizeLongEv(ptr noundef 
   %41 = mul nuw nsw i64 %40, 9
   %42 = add nuw nsw i64 %41, 137
   %43 = lshr i64 %42, 6
-  %44 = add i64 %43, %.0
+  %44 = add i64 %43, %.1
   br label %45
 
 45:                                               ; preds = %34, %32
-  %.1 = phi i64 [ %44, %34 ], [ %.0, %32 ]
+  %.2 = phi i64 [ %44, %34 ], [ %.1, %32 ]
   %46 = and i32 %10, 4
   %.not22 = icmp eq i32 %46, 0
   br i1 %.not22, label %58, label %47
@@ -14514,11 +14514,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe5Datum12ByteSizeLongEv(ptr noundef 
   %54 = mul nuw nsw i64 %53, 9
   %55 = add nuw nsw i64 %54, 137
   %56 = lshr i64 %55, 6
-  %57 = add i64 %56, %.1
+  %57 = add i64 %56, %.2
   br label %58
 
 58:                                               ; preds = %47, %45
-  %.2 = phi i64 [ %57, %47 ], [ %.1, %45 ]
+  %.3 = phi i64 [ %57, %47 ], [ %.2, %45 ]
   %59 = and i32 %10, 8
   %.not23 = icmp eq i32 %59, 0
   br i1 %.not23, label %71, label %60
@@ -14533,11 +14533,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe5Datum12ByteSizeLongEv(ptr noundef 
   %67 = mul nuw nsw i64 %66, 9
   %68 = add nuw nsw i64 %67, 137
   %69 = lshr i64 %68, 6
-  %70 = add i64 %69, %.2
+  %70 = add i64 %69, %.3
   br label %71
 
 71:                                               ; preds = %60, %58
-  %.3 = phi i64 [ %70, %60 ], [ %.2, %58 ]
+  %.4 = phi i64 [ %70, %60 ], [ %.3, %58 ]
   %72 = and i32 %10, 16
   %.not24 = icmp eq i32 %72, 0
   br i1 %.not24, label %84, label %73
@@ -14552,21 +14552,21 @@ define hidden noundef i64 @_ZNK12opencv_caffe5Datum12ByteSizeLongEv(ptr noundef 
   %80 = mul nuw nsw i64 %79, 9
   %81 = add nuw nsw i64 %80, 137
   %82 = lshr i64 %81, 6
-  %83 = add i64 %82, %.3
+  %83 = add i64 %82, %.4
   br label %84
 
 84:                                               ; preds = %73, %71
-  %.4 = phi i64 [ %83, %73 ], [ %.3, %71 ]
+  %.5 = phi i64 [ %83, %73 ], [ %.4, %71 ]
   %85 = lshr i32 %10, 4
   %86 = and i32 %85, 2
   %87 = zext nneg i32 %86 to i64
-  %spec.select = add i64 %.4, %87
+  %spec.select = add i64 %.5, %87
   br label %88
 
 88:                                               ; preds = %84, %1
-  %.5 = phi i64 [ %8, %1 ], [ %spec.select, %84 ]
+  %.0 = phi i64 [ %8, %1 ], [ %spec.select, %84 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 20
-  %90 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.5, ptr noundef nonnull %89)
+  %90 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %89)
   ret i64 %90
 }
 
@@ -15159,11 +15159,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %19
   br i1 %35, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread59
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread59: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.162 = phi ptr [ %33, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.056, %.backedge ]
-  %36 = load i8, ptr %.162, align 1
+  %.262 = phi ptr [ %33, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.056, %.backedge ]
+  %36 = load i8, ptr %.262, align 1
   %37 = zext i8 %36 to i32
   %38 = icmp sgt i8 %36, -1
-  %39 = getelementptr inbounds i8, ptr %.162, i64 1
+  %39 = getelementptr inbounds i8, ptr %.262, i64 1
   br i1 %38, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %40
 
 40:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread59
@@ -15176,11 +15176,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread59: ; preds = %.
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %.162, i64 2
+  %48 = getelementptr inbounds i8, ptr %.262, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 49:                                               ; preds = %40
-  %50 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.162, i32 noundef %45)
+  %50 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.262, i32 noundef %45)
   %51 = extractvalue { ptr, i32 } %50, 0
   %52 = extractvalue { ptr, i32 } %50, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -15493,12 +15493,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe15FillerParameter22_internal_mutable_typeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %189, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %27, %165, %166
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %165 ], [ %.sroa.0.0, %166 ], [ %.sroa.0.0, %27 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe15FillerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ %102, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %189 ]
-  %.2 = phi ptr [ null, %165 ], [ %.0.i, %166 ], [ %spec.select, %27 ], [ %33, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe15FillerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %189 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %165 ], [ %.sroa.0.0, %166 ], [ %.sroa.0.0, %27 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe15FillerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ %102, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %189 ]
+  %.1 = phi ptr [ null, %165 ], [ %.0.i, %166 ], [ %spec.select, %27 ], [ %33, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe15FillerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %189 ]
   %191 = load i32, ptr %7, align 8
-  %192 = or i32 %191, %.sroa.0.3
+  %192 = or i32 %191, %.sroa.0.1
   store i32 %192, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15859,20 +15859,20 @@ define hidden noundef i64 @_ZNK12opencv_caffe15FillerParameter12ByteSizeLongEv(p
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = insertelement <4 x i32> poison, i32 %3, i64 0
   %26 = shufflevector <4 x i32> %25, <4 x i32> poison, <4 x i32> zeroinitializer
   %27 = and <4 x i32> %26, <i32 16, i32 8, i32 4, i32 2>
-  %28 = add i64 %.0, 5
+  %28 = add i64 %.1, 5
   %29 = icmp eq <4 x i32> %27, zeroinitializer
   %30 = extractelement <4 x i1> %29, i64 3
-  %spec.select = select i1 %30, i64 %.0, i64 %28
+  %spec.select = select i1 %30, i64 %.1, i64 %28
   %31 = add i64 %spec.select, 5
   %32 = extractelement <4 x i1> %29, i64 2
-  %.2 = select i1 %32, i64 %spec.select, i64 %31
-  %33 = add i64 %.2, 5
+  %.3 = select i1 %32, i64 %spec.select, i64 %31
+  %33 = add i64 %.3, 5
   %34 = extractelement <4 x i1> %29, i64 1
-  %.3 = select i1 %34, i64 %.2, i64 %33
+  %.4 = select i1 %34, i64 %.3, i64 %33
   %35 = extractelement <4 x i1> %29, i64 0
   br i1 %35, label %48, label %36
 
@@ -15886,12 +15886,12 @@ define hidden noundef i64 @_ZNK12opencv_caffe15FillerParameter12ByteSizeLongEv(p
   %43 = mul nuw nsw i64 %42, 9
   %44 = add nuw nsw i64 %43, 73
   %45 = lshr i64 %44, 6
-  %46 = add i64 %.3, 1
+  %46 = add i64 %.4, 1
   %47 = add i64 %46, %45
   br label %48
 
 48:                                               ; preds = %36, %24
-  %.4 = phi i64 [ %47, %36 ], [ %.3, %24 ]
+  %.5 = phi i64 [ %47, %36 ], [ %.4, %24 ]
   %49 = and i32 %3, 32
   %.not25 = icmp eq i32 %49, 0
   br i1 %.not25, label %61, label %50
@@ -15906,15 +15906,15 @@ define hidden noundef i64 @_ZNK12opencv_caffe15FillerParameter12ByteSizeLongEv(p
   %57 = mul nuw nsw i64 %56, 9
   %58 = add nuw nsw i64 %57, 137
   %59 = lshr i64 %58, 6
-  %60 = add i64 %59, %.4
+  %60 = add i64 %59, %.5
   br label %61
 
 61:                                               ; preds = %50, %48
-  %.5 = phi i64 [ %60, %50 ], [ %.4, %48 ]
+  %.6 = phi i64 [ %60, %50 ], [ %.5, %48 ]
   %62 = and i32 %3, 64
   %.not26 = icmp eq i32 %62, 0
-  %63 = add i64 %.5, 5
-  %spec.select28 = select i1 %.not26, i64 %.5, i64 %63
+  %63 = add i64 %.6, 5
+  %spec.select28 = select i1 %.not26, i64 %.6, i64 %63
   %64 = and i32 %3, 128
   %.not27 = icmp eq i32 %64, 0
   %65 = add i64 %spec.select28, 5
@@ -15922,9 +15922,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe15FillerParameter12ByteSizeLongEv(p
   br label %66
 
 66:                                               ; preds = %61, %1
-  %.7 = phi i64 [ 0, %1 ], [ %spec.select29, %61 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select29, %61 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 20
-  %68 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.7, ptr noundef nonnull %67)
+  %68 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %67)
   ret i64 %68
 }
 
@@ -17010,7 +17010,7 @@ define hidden noundef ptr @_ZN12opencv_caffe12NetParameter14_InternalParseEPKcPN
   br label %20
 
 20:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.083 = phi ptr [ %1, %.preheader ], [ %.083.be, %.backedge ]
   %21 = load i32, ptr %4, align 4
   %22 = load ptr, ptr %2, align 8
@@ -17044,11 +17044,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %24
   br i1 %40, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread86
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread86: ; preds = %20, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.189 = phi ptr [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.083, %20 ]
-  %41 = load i8, ptr %.189, align 1
+  %.889 = phi ptr [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.083, %20 ]
+  %41 = load i8, ptr %.889, align 1
   %42 = zext i8 %41 to i32
   %43 = icmp sgt i8 %41, -1
-  %44 = getelementptr inbounds i8, ptr %.189, i64 1
+  %44 = getelementptr inbounds i8, ptr %.889, i64 1
   br i1 %43, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %45
 
 45:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread86
@@ -17061,11 +17061,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread86: ; preds = %2
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %.189, i64 2
+  %53 = getelementptr inbounds i8, ptr %.889, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 54:                                               ; preds = %45
-  %55 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.189, i32 noundef %50)
+  %55 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.889, i32 noundef %50)
   %56 = extractvalue { ptr, i32 } %55, 0
   %57 = extractvalue { ptr, i32 } %55, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -17123,8 +17123,8 @@ _ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds =
   br label %78
 
 78:                                               ; preds = %85, %76
-  %.2 = phi ptr [ %77, %76 ], [ %81, %85 ]
-  %79 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %77, %76 ], [ %81, %85 ]
+  %79 = getelementptr inbounds i8, ptr %.1, i64 1
   %80 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe16V1LayerParameterEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef null)
   %81 = call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %80, ptr noundef nonnull %79)
   %.not32 = icmp eq ptr %81, null
@@ -17141,7 +17141,7 @@ _ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds =
   br i1 %87, label %78, label %.backedge, !llvm.loop !50
 
 .backedge:                                        ; preds = %238, %241, %223, %226, %122, %125, %97, %100, %82, %85, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %128, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50, %271
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %271 ], [ %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %128 ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50.thread ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %82 ], [ %.sroa.0.0, %100 ], [ %.sroa.0.0, %97 ], [ %.sroa.0.0, %125 ], [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %226 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %241 ], [ %.sroa.0.0, %238 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %271 ], [ %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %128 ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50.thread ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %82 ], [ %.sroa.0.0, %100 ], [ %.sroa.0.0, %97 ], [ %.sroa.0.0, %125 ], [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %226 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %241 ], [ %.sroa.0.0, %238 ]
   %.083.be = phi ptr [ %272, %271 ], [ %196, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ %173, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ %152, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %129, %128 ], [ %72, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ %.0.i.i45.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %.0.i.i49.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50.thread ], [ %81, %85 ], [ %81, %82 ], [ %96, %100 ], [ %96, %97 ], [ %.0.i.i4193, %125 ], [ %.0.i.i4193, %122 ], [ %222, %226 ], [ %222, %223 ], [ %237, %241 ], [ %237, %238 ]
   br label %20, !llvm.loop !51
 
@@ -17155,8 +17155,8 @@ _ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds =
   br label %93
 
 93:                                               ; preds = %100, %91
-  %.3 = phi ptr [ %92, %91 ], [ %96, %100 ]
-  %94 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %92, %91 ], [ %96, %100 ]
+  %94 = getelementptr inbounds i8, ptr %.2, i64 1
   %95 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
   %96 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %95, ptr noundef nonnull %94, ptr noundef nonnull %2)
   %.not31 = icmp eq ptr %96, null
@@ -17184,12 +17184,12 @@ _ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds =
   br label %106
 
 106:                                              ; preds = %125, %104
-  %.4 = phi ptr [ %105, %104 ], [ %.0.i.i4193, %125 ]
-  %107 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %105, %104 ], [ %.0.i.i4193, %125 ]
+  %107 = getelementptr inbounds i8, ptr %.3, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %.not.i.i39 = icmp sgt i8 %108, -1
-  %110 = getelementptr inbounds i8, ptr %.4, i64 2
+  %110 = getelementptr inbounds i8, ptr %.3, i64 2
   br i1 %.not.i.i39, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, label %111
 
 111:                                              ; preds = %106
@@ -17202,7 +17202,7 @@ _ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit: ; preds =
   br i1 %.not16.i.i, label %117, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %.4, i64 3
+  %118 = getelementptr inbounds i8, ptr %.3, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread: ; preds = %117, %106
@@ -17386,8 +17386,8 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50: ; preds = %183
   br label %205
 
 205:                                              ; preds = %226, %203
-  %.6 = phi ptr [ %204, %203 ], [ %222, %226 ]
-  %206 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.5 = phi ptr [ %204, %203 ], [ %222, %226 ]
+  %206 = getelementptr inbounds i8, ptr %.5, i64 1
   %207 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %207, null
   br i1 %.not.i.i.i, label %218, label %208
@@ -17439,8 +17439,8 @@ _ZN12opencv_caffe12NetParameter25_internal_add_input_shapeEv.exit: ; preds = %21
   br label %234
 
 234:                                              ; preds = %241, %232
-  %.7 = phi ptr [ %233, %232 ], [ %237, %241 ]
-  %235 = getelementptr inbounds i8, ptr %.7, i64 2
+  %.6 = phi ptr [ %233, %232 ], [ %237, %241 ]
+  %235 = getelementptr inbounds i8, ptr %.6, i64 2
   %236 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe14LayerParameterEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef null)
   %237 = call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %236, ptr noundef nonnull %235)
   %.not = icmp eq ptr %237, null
@@ -17521,12 +17521,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not35, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit, %128, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50, %271, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %234, %_ZN12opencv_caffe12NetParameter25_internal_add_input_shapeEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %93, %78, %32, %247, %248
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %247 ], [ %.sroa.0.0, %248 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %78 ], [ %.sroa.0.0, %93 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter25_internal_add_input_shapeEv.exit ], [ %.sroa.0.0, %234 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %128 ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ %.sroa.0.0, %271 ]
-  %.8 = phi ptr [ null, %247 ], [ %.0.i, %248 ], [ %spec.select, %32 ], [ null, %78 ], [ null, %93 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe12NetParameter25_internal_add_input_shapeEv.exit ], [ null, %234 ], [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %128 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ null, %271 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %247 ], [ %.sroa.0.0, %248 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %78 ], [ %.sroa.0.0, %93 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter25_internal_add_input_shapeEv.exit ], [ %.sroa.0.0, %234 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %128 ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ %178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ %.sroa.0.0, %271 ]
+  %.7 = phi ptr [ null, %247 ], [ %.0.i, %248 ], [ %spec.select, %32 ], [ null, %78 ], [ null, %93 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe12NetParameter25_internal_add_input_shapeEv.exit ], [ null, %234 ], [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe12NetParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %128 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe12NetParameter23_internal_mutable_stateEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit50 ], [ null, %271 ]
   %273 = load i32, ptr %12, align 8
-  %274 = or i32 %273, %.sroa.0.3
+  %274 = or i32 %273, %.sroa.0.1
   store i32 %274, ptr %12, align 8
-  ret ptr %.8
+  ret ptr %.7
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -18169,7 +18169,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   br label %128
 
 128:                                              ; preds = %110, %108
-  %.4 = phi i64 [ %127, %110 ], [ %.3.lcssa, %108 ]
+  %.5 = phi i64 [ %127, %110 ], [ %.3.lcssa, %108 ]
   %129 = and i32 %106, 2
   %.not38 = icmp eq i32 %129, 0
   br i1 %.not38, label %145, label %130
@@ -18186,26 +18186,26 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %139 = add nuw nsw i32 %138, 73
   %140 = lshr i32 %139, 6
   %141 = zext nneg i32 %140 to i64
-  %142 = add i64 %.4, 1
+  %142 = add i64 %.5, 1
   %143 = add i64 %142, %133
   %144 = add i64 %143, %141
   br label %145
 
 145:                                              ; preds = %130, %128
-  %.5 = phi i64 [ %144, %130 ], [ %.4, %128 ]
+  %.6 = phi i64 [ %144, %130 ], [ %.5, %128 ]
   %146 = lshr i32 %106, 1
   %147 = and i32 %146, 2
   %148 = lshr i32 %106, 2
   %149 = and i32 %148, 2
   %narrow = add nuw nsw i32 %149, %147
   %spec.select = zext nneg i32 %narrow to i64
-  %spec.select41 = add i64 %.5, %spec.select
+  %spec.select41 = add i64 %.6, %spec.select
   br label %150
 
 150:                                              ; preds = %145, %._crit_edge88
-  %.7 = phi i64 [ %.3.lcssa, %._crit_edge88 ], [ %spec.select41, %145 ]
+  %.4 = phi i64 [ %.3.lcssa, %._crit_edge88 ], [ %spec.select41, %145 ]
   %151 = getelementptr inbounds i8, ptr %0, i64 20
-  %152 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.7, ptr noundef nonnull %151)
+  %152 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %151)
   ret i64 %152
 }
 
@@ -20246,11 +20246,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %60
   br i1 %76, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread315
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread315: ; preds = %56, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1318 = phi ptr [ %74, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0312, %56 ]
-  %77 = load i8, ptr %.1318, align 1
+  %.9318 = phi ptr [ %74, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0312, %56 ]
+  %77 = load i8, ptr %.9318, align 1
   %78 = zext i8 %77 to i32
   %79 = icmp sgt i8 %77, -1
-  %80 = getelementptr inbounds i8, ptr %.1318, i64 1
+  %80 = getelementptr inbounds i8, ptr %.9318, i64 1
   br i1 %79, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %81
 
 81:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread315
@@ -20263,11 +20263,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread315: ; preds = %
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %.1318, i64 2
+  %89 = getelementptr inbounds i8, ptr %.9318, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 90:                                               ; preds = %81
-  %91 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1318, i32 noundef %86)
+  %91 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.9318, i32 noundef %86)
   %92 = extractvalue { ptr, i32 } %91, 0
   %93 = extractvalue { ptr, i32 } %91, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -20356,8 +20356,8 @@ _ZN12opencv_caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit: ;
   br label %114
 
 114:                                              ; preds = %121, %112
-  %.2 = phi ptr [ %113, %112 ], [ %117, %121 ]
-  %115 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %113, %112 ], [ %117, %121 ]
+  %115 = getelementptr inbounds i8, ptr %.1, i64 1
   %116 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %54)
   %117 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %116, ptr noundef nonnull %115, ptr noundef nonnull %2)
   %.not75 = icmp eq ptr %117, null
@@ -20389,12 +20389,12 @@ _ZN12opencv_caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit: ;
   br label %127
 
 127:                                              ; preds = %146, %125
-  %.3 = phi ptr [ %126, %125 ], [ %.0.i.i84322, %146 ]
-  %128 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %126, %125 ], [ %.0.i.i84322, %146 ]
+  %128 = getelementptr inbounds i8, ptr %.2, i64 1
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %.not.i.i82 = icmp sgt i8 %129, -1
-  %131 = getelementptr inbounds i8, ptr %.3, i64 2
+  %131 = getelementptr inbounds i8, ptr %.2, i64 2
   br i1 %.not.i.i82, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, label %132
 
 132:                                              ; preds = %127
@@ -20407,7 +20407,7 @@ _ZN12opencv_caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit: ;
   br i1 %.not16.i.i, label %138, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
 
 138:                                              ; preds = %132
-  %139 = getelementptr inbounds i8, ptr %.3, i64 3
+  %139 = getelementptr inbounds i8, ptr %.2, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread: ; preds = %138, %127
@@ -21114,8 +21114,8 @@ _ZN12opencv_caffe15SolverParameter33_internal_mutable_train_net_paramEv.exit: ; 
   br label %478
 
 478:                                              ; preds = %499, %476
-  %.5 = phi ptr [ %477, %476 ], [ %495, %499 ]
-  %479 = getelementptr inbounds i8, ptr %.5, i64 2
+  %.4 = phi ptr [ %477, %476 ], [ %495, %499 ]
+  %479 = getelementptr inbounds i8, ptr %.4, i64 2
   %480 = load ptr, ptr %33, align 8
   %.not.i.i.i = icmp eq ptr %480, null
   br i1 %.not.i.i.i, label %491, label %481
@@ -21319,8 +21319,8 @@ _ZN12opencv_caffe15SolverParameter29_internal_mutable_train_stateEv.exit: ; pred
   br label %583
 
 583:                                              ; preds = %604, %581
-  %.6 = phi ptr [ %582, %581 ], [ %600, %604 ]
-  %584 = getelementptr inbounds i8, ptr %.6, i64 2
+  %.5 = phi ptr [ %582, %581 ], [ %600, %604 ]
+  %584 = getelementptr inbounds i8, ptr %.5, i64 2
   %585 = load ptr, ptr %26, align 8
   %.not.i.i.i159 = icmp eq ptr %585, null
   br i1 %.not.i.i.i159, label %596, label %586
@@ -21655,12 +21655,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit193: ; preds = %734
   br label %748
 
 748:                                              ; preds = %767, %746
-  %.7 = phi ptr [ %747, %746 ], [ %.0.i.i197336, %767 ]
-  %749 = getelementptr inbounds i8, ptr %.7, i64 2
+  %.6 = phi ptr [ %747, %746 ], [ %.0.i.i197336, %767 ]
+  %749 = getelementptr inbounds i8, ptr %.6, i64 2
   %750 = load i8, ptr %749, align 1
   %751 = zext i8 %750 to i32
   %.not.i.i194 = icmp sgt i8 %750, -1
-  %752 = getelementptr inbounds i8, ptr %.7, i64 3
+  %752 = getelementptr inbounds i8, ptr %.6, i64 3
   br i1 %.not.i.i194, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198.thread, label %753
 
 753:                                              ; preds = %748
@@ -21673,7 +21673,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit193: ; preds = %734
   br i1 %.not16.i.i195, label %759, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198
 
 759:                                              ; preds = %753
-  %760 = getelementptr inbounds i8, ptr %.7, i64 4
+  %760 = getelementptr inbounds i8, ptr %.6, i64 4
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198.thread: ; preds = %759, %748
@@ -21984,8 +21984,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not78, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit, %149, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_lr_policyB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit110, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit115, %_ZN12opencv_caffe15SolverParameter33_internal_mutable_snapshot_prefixB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit126, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit132, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit142, %_ZN12opencv_caffe15SolverParameter33_internal_mutable_train_net_paramEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit149, %_ZN12opencv_caffe15SolverParameter21_internal_mutable_netB5cxx11Ev.exit, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_net_paramEv.exit, %_ZN12opencv_caffe15SolverParameter29_internal_mutable_train_stateEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit166, %_ZN12opencv_caffe15SolverParameter37_internal_mutable_regularization_typeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit174, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit188, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit193, %769, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit205, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit210, %_ZN12opencv_caffe15SolverParameter22_internal_mutable_typeB5cxx11Ev.exit, %898, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198, %_ZN12opencv_caffe15SolverParameter24_internal_add_test_stateEv.exit, %_ZN12opencv_caffe15SolverParameter28_internal_add_test_net_paramEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %114, %68, %874, %875
-  %.9 = phi ptr [ %.0.i, %875 ], [ null, %874 ], [ %spec.select, %68 ], [ null, %114 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe15SolverParameter28_internal_add_test_net_paramEv.exit ], [ null, %_ZN12opencv_caffe15SolverParameter24_internal_add_test_stateEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198 ], [ null, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit ], [ null, %149 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ null, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_lr_policyB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit110 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit115 ], [ null, %_ZN12opencv_caffe15SolverParameter33_internal_mutable_snapshot_prefixB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit126 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit132 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit142 ], [ null, %_ZN12opencv_caffe15SolverParameter33_internal_mutable_train_net_paramEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit149 ], [ null, %_ZN12opencv_caffe15SolverParameter21_internal_mutable_netB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_net_paramEv.exit ], [ null, %_ZN12opencv_caffe15SolverParameter29_internal_mutable_train_stateEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit166 ], [ null, %_ZN12opencv_caffe15SolverParameter37_internal_mutable_regularization_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit174 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit188 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit193 ], [ null, %769 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit205 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit210 ], [ null, %_ZN12opencv_caffe15SolverParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %898 ], [ %74, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.9
+  %.8 = phi ptr [ %.0.i, %875 ], [ null, %874 ], [ %spec.select, %68 ], [ null, %114 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe15SolverParameter28_internal_add_test_net_paramEv.exit ], [ null, %_ZN12opencv_caffe15SolverParameter24_internal_add_test_stateEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit198 ], [ null, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_train_netB5cxx11Ev.exit ], [ null, %149 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ null, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_lr_policyB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit110 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit115 ], [ null, %_ZN12opencv_caffe15SolverParameter33_internal_mutable_snapshot_prefixB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit126 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit132 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit142 ], [ null, %_ZN12opencv_caffe15SolverParameter33_internal_mutable_train_net_paramEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit149 ], [ null, %_ZN12opencv_caffe15SolverParameter21_internal_mutable_netB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe15SolverParameter27_internal_mutable_net_paramEv.exit ], [ null, %_ZN12opencv_caffe15SolverParameter29_internal_mutable_train_stateEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit166 ], [ null, %_ZN12opencv_caffe15SolverParameter37_internal_mutable_regularization_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit174 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit188 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit193 ], [ null, %769 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit205 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit210 ], [ null, %_ZN12opencv_caffe15SolverParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %898 ], [ %74, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24009,7 +24009,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   br label %100
 
 100:                                              ; preds = %82, %80
-  %.3 = phi i64 [ %99, %82 ], [ %76, %80 ]
+  %.4 = phi i64 [ %99, %82 ], [ %76, %80 ]
   %101 = and i32 %78, 2
   %.not104 = icmp eq i32 %101, 0
   br i1 %.not104, label %120, label %102
@@ -24029,13 +24029,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %114 = add nuw nsw i32 %113, 73
   %115 = lshr i32 %114, 6
   %116 = zext nneg i32 %115 to i64
-  %117 = add i64 %.3, 1
+  %117 = add i64 %.4, 1
   %118 = add i64 %117, %108
   %119 = add i64 %118, %116
   br label %120
 
 120:                                              ; preds = %102, %100
-  %.4 = phi i64 [ %119, %102 ], [ %.3, %100 ]
+  %.5 = phi i64 [ %119, %102 ], [ %.4, %100 ]
   %121 = and i32 %78, 4
   %.not105 = icmp eq i32 %121, 0
   br i1 %.not105, label %140, label %122
@@ -24055,13 +24055,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %134 = add nuw nsw i32 %133, 73
   %135 = lshr i32 %134, 6
   %136 = zext nneg i32 %135 to i64
-  %137 = add i64 %.4, 1
+  %137 = add i64 %.5, 1
   %138 = add i64 %137, %128
   %139 = add i64 %138, %136
   br label %140
 
 140:                                              ; preds = %122, %120
-  %.5 = phi i64 [ %139, %122 ], [ %.4, %120 ]
+  %.6 = phi i64 [ %139, %122 ], [ %.5, %120 ]
   %141 = and i32 %78, 8
   %.not106 = icmp eq i32 %141, 0
   br i1 %.not106, label %160, label %142
@@ -24081,13 +24081,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %154 = add nuw nsw i32 %153, 73
   %155 = lshr i32 %154, 6
   %156 = zext nneg i32 %155 to i64
-  %157 = add i64 %.5, 2
+  %157 = add i64 %.6, 2
   %158 = add i64 %157, %148
   %159 = add i64 %158, %156
   br label %160
 
 160:                                              ; preds = %142, %140
-  %.6 = phi i64 [ %159, %142 ], [ %.5, %140 ]
+  %.7 = phi i64 [ %159, %142 ], [ %.6, %140 ]
   %161 = and i32 %78, 16
   %.not107 = icmp eq i32 %161, 0
   br i1 %.not107, label %180, label %162
@@ -24107,13 +24107,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %174 = add nuw nsw i32 %173, 73
   %175 = lshr i32 %174, 6
   %176 = zext nneg i32 %175 to i64
-  %177 = add i64 %.6, 2
+  %177 = add i64 %.7, 2
   %178 = add i64 %177, %168
   %179 = add i64 %178, %176
   br label %180
 
 180:                                              ; preds = %162, %160
-  %.7 = phi i64 [ %179, %162 ], [ %.6, %160 ]
+  %.8 = phi i64 [ %179, %162 ], [ %.7, %160 ]
   %181 = and i32 %78, 32
   %.not108 = icmp eq i32 %181, 0
   br i1 %.not108, label %200, label %182
@@ -24133,13 +24133,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %194 = add nuw nsw i32 %193, 73
   %195 = lshr i32 %194, 6
   %196 = zext nneg i32 %195 to i64
-  %197 = add i64 %.7, 2
+  %197 = add i64 %.8, 2
   %198 = add i64 %197, %188
   %199 = add i64 %198, %196
   br label %200
 
 200:                                              ; preds = %182, %180
-  %.8 = phi i64 [ %199, %182 ], [ %.7, %180 ]
+  %.9 = phi i64 [ %199, %182 ], [ %.8, %180 ]
   %201 = and i32 %78, 64
   %.not109 = icmp eq i32 %201, 0
   br i1 %.not109, label %217, label %202
@@ -24156,13 +24156,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %211 = add nuw nsw i32 %210, 73
   %212 = lshr i32 %211, 6
   %213 = zext nneg i32 %212 to i64
-  %214 = add i64 %.8, 2
+  %214 = add i64 %.9, 2
   %215 = add i64 %214, %205
   %216 = add i64 %215, %213
   br label %217
 
 217:                                              ; preds = %202, %200
-  %.9 = phi i64 [ %216, %202 ], [ %.8, %200 ]
+  %.10 = phi i64 [ %216, %202 ], [ %.9, %200 ]
   %218 = and i32 %78, 128
   %.not110 = icmp eq i32 %218, 0
   br i1 %.not110, label %234, label %219
@@ -24179,13 +24179,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %228 = add nuw nsw i32 %227, 73
   %229 = lshr i32 %228, 6
   %230 = zext nneg i32 %229 to i64
-  %231 = add i64 %.9, 2
+  %231 = add i64 %.10, 2
   %232 = add i64 %231, %222
   %233 = add i64 %232, %230
   br label %234
 
 234:                                              ; preds = %217, %219, %._crit_edge180
-  %.10 = phi i64 [ %233, %219 ], [ %.9, %217 ], [ %76, %._crit_edge180 ]
+  %.3 = phi i64 [ %233, %219 ], [ %.10, %217 ], [ %76, %._crit_edge180 ]
   %235 = and i32 %78, 65280
   %.not111 = icmp eq i32 %235, 0
   br i1 %.not111, label %301, label %236
@@ -24207,13 +24207,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %247 = add nuw nsw i32 %246, 73
   %248 = lshr i32 %247, 6
   %249 = zext nneg i32 %248 to i64
-  %250 = add i64 %.10, 2
+  %250 = add i64 %.3, 2
   %251 = add i64 %250, %241
   %252 = add i64 %251, %249
   br label %253
 
 253:                                              ; preds = %238, %236
-  %.11 = phi i64 [ %252, %238 ], [ %.10, %236 ]
+  %.12 = phi i64 [ %252, %238 ], [ %.3, %236 ]
   %254 = and i32 %78, 512
   %.not113 = icmp eq i32 %254, 0
   br i1 %.not113, label %266, label %255
@@ -24228,15 +24228,15 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %262 = mul nuw nsw i64 %261, 9
   %263 = add nuw nsw i64 %262, 137
   %264 = lshr i64 %263, 6
-  %265 = add i64 %264, %.11
+  %265 = add i64 %264, %.12
   br label %266
 
 266:                                              ; preds = %255, %253
-  %.12 = phi i64 [ %265, %255 ], [ %.11, %253 ]
+  %.13 = phi i64 [ %265, %255 ], [ %.12, %253 ]
   %267 = and i32 %78, 1024
   %.not114 = icmp eq i32 %267, 0
-  %268 = add i64 %.12, 5
-  %spec.select = select i1 %.not114, i64 %.12, i64 %268
+  %268 = add i64 %.13, 5
+  %spec.select = select i1 %.not114, i64 %.13, i64 %268
   %269 = and i32 %78, 2048
   %.not115 = icmp eq i32 %269, 0
   br i1 %.not115, label %281, label %270
@@ -24255,7 +24255,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   br label %281
 
 281:                                              ; preds = %270, %266
-  %.14 = phi i64 [ %280, %270 ], [ %spec.select, %266 ]
+  %.15 = phi i64 [ %280, %270 ], [ %spec.select, %266 ]
   %282 = and i32 %78, 4096
   %.not116 = icmp eq i32 %282, 0
   br i1 %.not116, label %294, label %283
@@ -24270,27 +24270,27 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %290 = mul nuw nsw i64 %289, 9
   %291 = add nuw nsw i64 %290, 137
   %292 = lshr i64 %291, 6
-  %293 = add i64 %292, %.14
+  %293 = add i64 %292, %.15
   br label %294
 
 294:                                              ; preds = %283, %281
-  %.15 = phi i64 [ %293, %283 ], [ %.14, %281 ]
+  %.16 = phi i64 [ %293, %283 ], [ %.15, %281 ]
   %295 = and i32 %78, 8192
   %.not117 = icmp eq i32 %295, 0
-  %296 = add i64 %.15, 5
-  %spec.select142 = select i1 %.not117, i64 %.15, i64 %296
+  %296 = add i64 %.16, 5
+  %spec.select142 = select i1 %.not117, i64 %.16, i64 %296
   %297 = and i32 %78, 16384
   %.not118 = icmp eq i32 %297, 0
   %298 = add i64 %spec.select142, 5
-  %.17 = select i1 %.not118, i64 %spec.select142, i64 %298
+  %.18 = select i1 %.not118, i64 %spec.select142, i64 %298
   %299 = and i32 %78, 32768
   %.not119 = icmp eq i32 %299, 0
-  %300 = add i64 %.17, 5
-  %spec.select149 = select i1 %.not119, i64 %.17, i64 %300
+  %300 = add i64 %.18, 5
+  %spec.select149 = select i1 %.not119, i64 %.18, i64 %300
   br label %301
 
 301:                                              ; preds = %294, %234
-  %.18 = phi i64 [ %.10, %234 ], [ %spec.select149, %294 ]
+  %.11 = phi i64 [ %.3, %234 ], [ %spec.select149, %294 ]
   %302 = and i32 %78, 16711680
   %.not120 = icmp eq i32 %302, 0
   br i1 %.not120, label %369, label %303
@@ -24298,8 +24298,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
 303:                                              ; preds = %301
   %304 = and i32 %78, 65536
   %.not121 = icmp eq i32 %304, 0
-  %305 = add i64 %.18, 5
-  %spec.select143 = select i1 %.not121, i64 %.18, i64 %305
+  %305 = add i64 %.11, 5
+  %spec.select143 = select i1 %.not121, i64 %.11, i64 %305
   %306 = and i32 %78, 131072
   %.not122 = icmp eq i32 %306, 0
   br i1 %.not122, label %318, label %307
@@ -24318,7 +24318,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   br label %318
 
 318:                                              ; preds = %307, %303
-  %.20 = phi i64 [ %317, %307 ], [ %spec.select143, %303 ]
+  %.21 = phi i64 [ %317, %307 ], [ %spec.select143, %303 ]
   %319 = and i32 %78, 262144
   %.not123 = icmp eq i32 %319, 0
   br i1 %.not123, label %331, label %320
@@ -24333,11 +24333,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %327 = mul nuw nsw i64 %326, 9
   %328 = add nuw nsw i64 %327, 137
   %329 = lshr i64 %328, 6
-  %330 = add i64 %329, %.20
+  %330 = add i64 %329, %.21
   br label %331
 
 331:                                              ; preds = %320, %318
-  %.21 = phi i64 [ %330, %320 ], [ %.20, %318 ]
+  %.22 = phi i64 [ %330, %320 ], [ %.21, %318 ]
   %332 = and i32 %78, 524288
   %.not124 = icmp eq i32 %332, 0
   br i1 %.not124, label %345, label %333
@@ -24352,25 +24352,25 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %340 = mul nuw nsw i64 %339, 9
   %341 = add nuw nsw i64 %340, 73
   %342 = lshr i64 %341, 6
-  %343 = add i64 %.21, 2
+  %343 = add i64 %.22, 2
   %344 = add i64 %343, %342
   br label %345
 
 345:                                              ; preds = %333, %331
-  %.22 = phi i64 [ %344, %333 ], [ %.21, %331 ]
+  %.23 = phi i64 [ %344, %333 ], [ %.22, %331 ]
   %346 = insertelement <4 x i32> poison, i32 %78, i64 0
   %347 = shufflevector <4 x i32> %346, <4 x i32> poison, <4 x i32> zeroinitializer
   %348 = and <4 x i32> %347, <i32 8388608, i32 4194304, i32 2097152, i32 1048576>
-  %349 = add i64 %.22, 3
+  %349 = add i64 %.23, 3
   %350 = icmp eq <4 x i32> %348, zeroinitializer
   %351 = extractelement <4 x i1> %350, i64 3
-  %spec.select144 = select i1 %351, i64 %.22, i64 %349
+  %spec.select144 = select i1 %351, i64 %.23, i64 %349
   %352 = add i64 %spec.select144, 3
   %353 = extractelement <4 x i1> %350, i64 2
-  %.24 = select i1 %353, i64 %spec.select144, i64 %352
-  %354 = add i64 %.24, 3
+  %.25 = select i1 %353, i64 %spec.select144, i64 %352
+  %354 = add i64 %.25, 3
   %355 = extractelement <4 x i1> %350, i64 1
-  %.25 = select i1 %355, i64 %.24, i64 %354
+  %.26 = select i1 %355, i64 %.25, i64 %354
   %356 = extractelement <4 x i1> %350, i64 0
   br i1 %356, label %369, label %357
 
@@ -24384,20 +24384,20 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %364 = mul nuw nsw i64 %363, 9
   %365 = add nuw nsw i64 %364, 73
   %366 = lshr i64 %365, 6
-  %367 = add i64 %.25, 2
+  %367 = add i64 %.26, 2
   %368 = add i64 %367, %366
   br label %369
 
 369:                                              ; preds = %345, %357, %301
-  %.26 = phi i64 [ %368, %357 ], [ %.25, %345 ], [ %.18, %301 ]
+  %.19 = phi i64 [ %368, %357 ], [ %.26, %345 ], [ %.11, %301 ]
   %.not129 = icmp ult i32 %78, 16777216
   br i1 %.not129, label %425, label %370
 
 370:                                              ; preds = %369
   %371 = and i32 %78, 16777216
   %.not130 = icmp eq i32 %371, 0
-  %372 = add i64 %.26, 6
-  %spec.select145 = select i1 %.not130, i64 %.26, i64 %372
+  %372 = add i64 %.19, 6
+  %spec.select145 = select i1 %.not130, i64 %.19, i64 %372
   %373 = and i32 %78, 33554432
   %.not131 = icmp eq i32 %373, 0
   br i1 %.not131, label %385, label %374
@@ -24416,7 +24416,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   br label %385
 
 385:                                              ; preds = %374, %370
-  %.28 = phi i64 [ %384, %374 ], [ %spec.select145, %370 ]
+  %.29 = phi i64 [ %384, %374 ], [ %spec.select145, %370 ]
   %386 = and i32 %78, 67108864
   %.not132 = icmp eq i32 %386, 0
   br i1 %.not132, label %399, label %387
@@ -24431,25 +24431,25 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %394 = mul nuw nsw i64 %393, 9
   %395 = add nuw nsw i64 %394, 73
   %396 = lshr i64 %395, 6
-  %397 = add i64 %.28, 2
+  %397 = add i64 %.29, 2
   %398 = add i64 %397, %396
   br label %399
 
 399:                                              ; preds = %387, %385
-  %.29 = phi i64 [ %398, %387 ], [ %.28, %385 ]
+  %.30 = phi i64 [ %398, %387 ], [ %.29, %385 ]
   %400 = insertelement <4 x i32> poison, i32 %78, i64 0
   %401 = shufflevector <4 x i32> %400, <4 x i32> poison, <4 x i32> zeroinitializer
   %402 = and <4 x i32> %401, <i32 1073741824, i32 536870912, i32 268435456, i32 134217728>
-  %403 = add i64 %.29, 3
+  %403 = add i64 %.30, 3
   %404 = icmp eq <4 x i32> %402, zeroinitializer
   %405 = extractelement <4 x i1> %404, i64 3
-  %spec.select146 = select i1 %405, i64 %.29, i64 %403
+  %spec.select146 = select i1 %405, i64 %.30, i64 %403
   %406 = add i64 %spec.select146, 3
   %407 = extractelement <4 x i1> %404, i64 2
-  %.31 = select i1 %407, i64 %spec.select146, i64 %406
-  %408 = add i64 %.31, 6
+  %.32 = select i1 %407, i64 %spec.select146, i64 %406
+  %408 = add i64 %.32, 6
   %409 = extractelement <4 x i1> %404, i64 1
-  %.32 = select i1 %409, i64 %.31, i64 %408
+  %.33 = select i1 %409, i64 %.32, i64 %408
   %410 = extractelement <4 x i1> %404, i64 0
   br i1 %410, label %423, label %411
 
@@ -24463,19 +24463,19 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %418 = mul nuw nsw i64 %417, 9
   %419 = add nuw nsw i64 %418, 73
   %420 = lshr i64 %419, 6
-  %421 = add i64 %.32, 2
+  %421 = add i64 %.33, 2
   %422 = add i64 %421, %420
   br label %423
 
 423:                                              ; preds = %411, %399
-  %.33 = phi i64 [ %422, %411 ], [ %.32, %399 ]
-  %424 = add i64 %.33, 6
+  %.34 = phi i64 [ %422, %411 ], [ %.33, %399 ]
+  %424 = add i64 %.34, 6
   %.not137165 = icmp slt i32 %78, 0
-  %spec.select147 = select i1 %.not137165, i64 %424, i64 %.33
+  %spec.select147 = select i1 %.not137165, i64 %424, i64 %.34
   br label %425
 
 425:                                              ; preds = %423, %369
-  %.34 = phi i64 [ %.26, %369 ], [ %spec.select147, %423 ]
+  %.27 = phi i64 [ %.19, %369 ], [ %spec.select147, %423 ]
   %426 = getelementptr inbounds i8, ptr %0, i64 20
   %427 = load i32, ptr %426, align 4
   %428 = and i32 %427, 7
@@ -24497,12 +24497,12 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %438 = mul nuw nsw i64 %437, 9
   %439 = add nuw nsw i64 %438, 73
   %440 = lshr i64 %439, 6
-  %441 = add i64 %.34, 2
+  %441 = add i64 %.27, 2
   %442 = add i64 %441, %440
   br label %443
 
 443:                                              ; preds = %431, %429
-  %.35 = phi i64 [ %442, %431 ], [ %.34, %429 ]
+  %.36 = phi i64 [ %442, %431 ], [ %.27, %429 ]
   %444 = and i32 %427, 2
   %.not140 = icmp eq i32 %444, 0
   br i1 %.not140, label %457, label %445
@@ -24517,22 +24517,22 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %452 = mul nuw nsw i64 %451, 9
   %453 = add nuw nsw i64 %452, 73
   %454 = lshr i64 %453, 6
-  %455 = add i64 %.35, 2
+  %455 = add i64 %.36, 2
   %456 = add i64 %455, %454
   br label %457
 
 457:                                              ; preds = %445, %443
-  %.36 = phi i64 [ %456, %445 ], [ %.35, %443 ]
+  %.37 = phi i64 [ %456, %445 ], [ %.36, %443 ]
   %458 = and i32 %427, 4
   %.not141 = icmp eq i32 %458, 0
-  %459 = add i64 %.36, 6
-  %spec.select148 = select i1 %.not141, i64 %.36, i64 %459
+  %459 = add i64 %.37, 6
+  %spec.select148 = select i1 %.not141, i64 %.37, i64 %459
   br label %460
 
 460:                                              ; preds = %457, %425
-  %.37 = phi i64 [ %.34, %425 ], [ %spec.select148, %457 ]
+  %.35 = phi i64 [ %.27, %425 ], [ %spec.select148, %457 ]
   %461 = getelementptr inbounds i8, ptr %0, i64 24
-  %462 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.37, ptr noundef nonnull %461)
+  %462 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.35, ptr noundef nonnull %461)
   ret i64 %462
 }
 
@@ -26260,7 +26260,7 @@ define hidden noundef ptr @_ZN12opencv_caffe11SolverState14_InternalParseEPKcPN6
   br label %12
 
 12:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.045 = phi ptr [ %1, %.preheader ], [ %.045.be, %.backedge ]
   %13 = load i32, ptr %3, align 4
   %14 = load ptr, ptr %2, align 8
@@ -26294,11 +26294,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %16
   br i1 %32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48: ; preds = %12, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.151 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.045, %12 ]
-  %33 = load i8, ptr %.151, align 1
+  %.351 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.045, %12 ]
+  %33 = load i8, ptr %.351, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp sgt i8 %33, -1
-  %36 = getelementptr inbounds i8, ptr %.151, i64 1
+  %36 = getelementptr inbounds i8, ptr %.351, i64 1
   br i1 %35, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48
@@ -26311,11 +26311,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48: ; preds = %1
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.151, i64 2
+  %45 = getelementptr inbounds i8, ptr %.351, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 46:                                               ; preds = %37
-  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.151, i32 noundef %42)
+  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.351, i32 noundef %42)
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -26408,8 +26408,8 @@ _ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit: ; p
   br label %89
 
 89:                                               ; preds = %96, %87
-  %.2 = phi ptr [ %88, %87 ], [ %92, %96 ]
-  %90 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %88, %87 ], [ %92, %96 ]
+  %90 = getelementptr inbounds i8, ptr %.1, i64 1
   %91 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef null)
   %92 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %91, ptr noundef nonnull %90)
   %.not14 = icmp eq ptr %92, null
@@ -26426,7 +26426,7 @@ _ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit: ; p
   br i1 %98, label %89, label %.backedge, !llvm.loop !112
 
 .backedge:                                        ; preds = %93, %96, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29, %146
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %146 ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ %.sroa.0.0, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29.thread ], [ %.sroa.0.0, %96 ], [ %.sroa.0.0, %93 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %146 ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ %.sroa.0.0, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29.thread ], [ %.sroa.0.0, %96 ], [ %.sroa.0.0, %93 ]
   %.045.be = phi ptr [ %147, %146 ], [ %116, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ %83, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ %68, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i22.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i28.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29.thread ], [ %92, %96 ], [ %92, %93 ]
   br label %12, !llvm.loop !113
 
@@ -26535,12 +26535,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29, %146, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %89, %24, %122, %123
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %123 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %89 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ %.sroa.0.0, %146 ]
-  %.3 = phi ptr [ null, %122 ], [ %.0.i, %123 ], [ %spec.select, %24 ], [ null, %89 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ null, %146 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %123 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %89 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ %103, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ %.sroa.0.0, %146 ]
+  %.2 = phi ptr [ null, %122 ], [ %.0.i, %123 ], [ %spec.select, %24 ], [ null, %89 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe11SolverState29_internal_mutable_learned_netB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ null, %146 ]
   %148 = load i32, ptr %8, align 8
-  %149 = or i32 %148, %.sroa.0.3
+  %149 = or i32 %148, %.sroa.0.1
   store i32 %149, ptr %8, align 8
-  ret ptr %.3
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26857,7 +26857,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe11SolverState12ByteSizeLongEv(ptr n
   br label %45
 
 45:                                               ; preds = %27, %25
-  %.1 = phi i64 [ %44, %27 ], [ %.0.lcssa, %25 ]
+  %.2 = phi i64 [ %44, %27 ], [ %.0.lcssa, %25 ]
   %46 = and i32 %23, 2
   %.not16 = icmp eq i32 %46, 0
   br i1 %.not16, label %58, label %47
@@ -26872,11 +26872,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe11SolverState12ByteSizeLongEv(ptr n
   %54 = mul nuw nsw i64 %53, 9
   %55 = add nuw nsw i64 %54, 137
   %56 = lshr i64 %55, 6
-  %57 = add i64 %56, %.1
+  %57 = add i64 %56, %.2
   br label %58
 
 58:                                               ; preds = %47, %45
-  %.2 = phi i64 [ %57, %47 ], [ %.1, %45 ]
+  %.3 = phi i64 [ %57, %47 ], [ %.2, %45 ]
   %59 = and i32 %23, 4
   %.not17 = icmp eq i32 %59, 0
   br i1 %.not17, label %71, label %60
@@ -26891,13 +26891,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe11SolverState12ByteSizeLongEv(ptr n
   %67 = mul nuw nsw i64 %66, 9
   %68 = add nuw nsw i64 %67, 137
   %69 = lshr i64 %68, 6
-  %70 = add i64 %69, %.2
+  %70 = add i64 %69, %.3
   br label %71
 
 71:                                               ; preds = %58, %60, %._crit_edge
-  %.3 = phi i64 [ %70, %60 ], [ %.2, %58 ], [ %.0.lcssa, %._crit_edge ]
+  %.1 = phi i64 [ %70, %60 ], [ %.3, %58 ], [ %.0.lcssa, %._crit_edge ]
   %72 = getelementptr inbounds i8, ptr %0, i64 20
-  %73 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3, ptr noundef nonnull %72)
+  %73 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %72)
   ret i64 %73
 }
 
@@ -27444,7 +27444,7 @@ define hidden noundef ptr @_ZN12opencv_caffe8NetState14_InternalParseEPKcPN6goog
   br label %11
 
 11:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.043 = phi ptr [ %1, %.preheader ], [ %.043.be, %.backedge ]
   %12 = load i32, ptr %3, align 4
   %13 = load ptr, ptr %2, align 8
@@ -27478,11 +27478,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46: ; preds = %11, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.149 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.043, %11 ]
-  %32 = load i8, ptr %.149, align 1
+  %.349 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.043, %11 ]
+  %32 = load i8, ptr %.349, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.149, i64 1
+  %35 = getelementptr inbounds i8, ptr %.349, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46
@@ -27495,11 +27495,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46: ; preds = %1
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.149, i64 2
+  %44 = getelementptr inbounds i8, ptr %.349, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.149, i32 noundef %41)
+  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.349, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -27611,7 +27611,7 @@ _ZN12opencv_caffe8NetState22mutable_unknown_fieldsEv.exit: ; preds = %75, %_ZN6g
   br label %.backedge
 
 .backedge:                                        ; preds = %121, %124, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN12opencv_caffe8NetState22mutable_unknown_fieldsEv.exit, %72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %155
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %155 ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %72 ], [ %.sroa.0.0, %_ZN12opencv_caffe8NetState22mutable_unknown_fieldsEv.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.sroa.0.0, %124 ], [ %.sroa.0.0, %121 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %155 ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %72 ], [ %.sroa.0.0, %_ZN12opencv_caffe8NetState22mutable_unknown_fieldsEv.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.sroa.0.0, %124 ], [ %.sroa.0.0, %121 ]
   %.043.be = phi ptr [ %156, %155 ], [ %110, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i2254, %72 ], [ %.0.i.i2254, %_ZN12opencv_caffe8NetState22mutable_unknown_fieldsEv.exit ], [ %.0.i.i27.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %120, %124 ], [ %120, %121 ]
   br label %11, !llvm.loop !121
 
@@ -27664,8 +27664,8 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %101
   br label %117
 
 117:                                              ; preds = %124, %115
-  %.2 = phi ptr [ %116, %115 ], [ %120, %124 ]
-  %118 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %116, %115 ], [ %120, %124 ]
+  %118 = getelementptr inbounds i8, ptr %.1, i64 1
   %119 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   %120 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %119, ptr noundef nonnull %118, ptr noundef nonnull %2)
   %.not = icmp eq ptr %120, null
@@ -27746,12 +27746,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %155, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %117, %23, %131, %132
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %132 ], [ %.sroa.0.0, %23 ], [ %.sroa.0.0, %117 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %155 ]
-  %.3 = phi ptr [ null, %131 ], [ %.0.i, %132 ], [ %spec.select, %23 ], [ null, %117 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %155 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %132 ], [ %.sroa.0.0, %23 ], [ %.sroa.0.0, %117 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %155 ]
+  %.2 = phi ptr [ null, %131 ], [ %.0.i, %132 ], [ %spec.select, %23 ], [ null, %117 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %155 ]
   %157 = load i32, ptr %9, align 8
-  %158 = or i32 %157, %.sroa.0.3
+  %158 = or i32 %157, %.sroa.0.1
   store i32 %158, ptr %9, align 8
-  ret ptr %.3
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28000,7 +28000,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe8NetState12ByteSizeLongEv(ptr nound
   br label %36
 
 36:                                               ; preds = %25, %23
-  %.1 = phi i64 [ %35, %25 ], [ %.0.lcssa, %23 ]
+  %.2 = phi i64 [ %35, %25 ], [ %.0.lcssa, %23 ]
   %37 = and i32 %21, 2
   %.not16 = icmp eq i32 %37, 0
   br i1 %.not16, label %50, label %38
@@ -28015,14 +28015,14 @@ define hidden noundef i64 @_ZNK12opencv_caffe8NetState12ByteSizeLongEv(ptr nound
   %45 = mul nuw nsw i64 %44, 9
   %46 = add nuw nsw i64 %45, 73
   %47 = lshr i64 %46, 6
-  %48 = add i64 %.1, 1
+  %48 = add i64 %.2, 1
   %49 = add i64 %48, %47
   br label %50
 
 50:                                               ; preds = %36, %38, %._crit_edge
-  %.2 = phi i64 [ %49, %38 ], [ %.1, %36 ], [ %.0.lcssa, %._crit_edge ]
+  %.1 = phi i64 [ %49, %38 ], [ %.2, %36 ], [ %.0.lcssa, %._crit_edge ]
   %51 = getelementptr inbounds i8, ptr %0, i64 20
-  %52 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %51)
+  %52 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %51)
   ret i64 %52
 }
 
@@ -28457,7 +28457,7 @@ define hidden noundef ptr @_ZN12opencv_caffe12NetStateRule14_InternalParseEPKcPN
   br label %13
 
 13:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.058 = phi ptr [ %1, %.preheader ], [ %.058.be, %.backedge ]
   %14 = load i32, ptr %3, align 4
   %15 = load ptr, ptr %2, align 8
@@ -28491,11 +28491,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %17
   br i1 %33, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread61
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread61: ; preds = %13, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.164 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.058, %13 ]
-  %34 = load i8, ptr %.164, align 1
+  %.464 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.058, %13 ]
+  %34 = load i8, ptr %.464, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i8 %34, -1
-  %37 = getelementptr inbounds i8, ptr %.164, i64 1
+  %37 = getelementptr inbounds i8, ptr %.464, i64 1
   br i1 %36, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread61
@@ -28508,11 +28508,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread61: ; preds = %1
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %.164, i64 2
+  %46 = getelementptr inbounds i8, ptr %.464, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 47:                                               ; preds = %38
-  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.164, i32 noundef %43)
+  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.464, i32 noundef %43)
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = extractvalue { ptr, i32 } %48, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -28626,7 +28626,7 @@ _ZN12opencv_caffe12NetStateRule22mutable_unknown_fieldsEv.exit: ; preds = %77, %
   br label %.backedge
 
 .backedge:                                        ; preds = %158, %161, %143, %146, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN12opencv_caffe12NetStateRule22mutable_unknown_fieldsEv.exit, %74, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37, %192
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %192 ], [ %119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetStateRule22mutable_unknown_fieldsEv.exit ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread ], [ %.sroa.0.0, %146 ], [ %.sroa.0.0, %143 ], [ %.sroa.0.0, %161 ], [ %.sroa.0.0, %158 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %192 ], [ %119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %_ZN12opencv_caffe12NetStateRule22mutable_unknown_fieldsEv.exit ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread ], [ %.sroa.0.0, %146 ], [ %.sroa.0.0, %143 ], [ %.sroa.0.0, %161 ], [ %.sroa.0.0, %158 ]
   %.058.be = phi ptr [ %193, %192 ], [ %132, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %113, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i2769, %74 ], [ %.0.i.i2769, %_ZN12opencv_caffe12NetStateRule22mutable_unknown_fieldsEv.exit ], [ %.0.i.i32.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i36.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread ], [ %142, %146 ], [ %142, %143 ], [ %157, %161 ], [ %157, %158 ]
   br label %13, !llvm.loop !125
 
@@ -28720,8 +28720,8 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37: ; preds = %123
   br label %139
 
 139:                                              ; preds = %146, %137
-  %.2 = phi ptr [ %138, %137 ], [ %142, %146 ]
-  %140 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %138, %137 ], [ %142, %146 ]
+  %140 = getelementptr inbounds i8, ptr %.1, i64 1
   %141 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
   %142 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %141, ptr noundef nonnull %140, ptr noundef nonnull %2)
   %.not18 = icmp eq ptr %142, null
@@ -28747,8 +28747,8 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37: ; preds = %123
   br label %154
 
 154:                                              ; preds = %161, %152
-  %.3 = phi ptr [ %153, %152 ], [ %157, %161 ]
-  %155 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %153, %152 ], [ %157, %161 ]
+  %155 = getelementptr inbounds i8, ptr %.2, i64 1
   %156 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   %157 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %156, ptr noundef nonnull %155, ptr noundef nonnull %2)
   %.not = icmp eq ptr %157, null
@@ -28829,12 +28829,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not23, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37, %192, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %154, %139, %25, %168, %169
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %168 ], [ %.sroa.0.0, %169 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %154 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %.sroa.0.0, %192 ]
-  %.4 = phi ptr [ null, %168 ], [ %.0.i, %169 ], [ %spec.select, %25 ], [ null, %139 ], [ null, %154 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ null, %192 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %168 ], [ %.sroa.0.0, %169 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %154 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %.sroa.0.0, %192 ]
+  %.3 = phi ptr [ null, %168 ], [ %.0.i, %169 ], [ %spec.select, %25 ], [ null, %139 ], [ null, %154 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ null, %192 ]
   %194 = load i32, ptr %11, align 8
-  %195 = or i32 %194, %.sroa.0.3
+  %195 = or i32 %194, %.sroa.0.1
   store i32 %195, ptr %11, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29221,7 +29221,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe12NetStateRule12ByteSizeLongEv(ptr 
   br label %56
 
 56:                                               ; preds = %44, %42
-  %.2 = phi i64 [ %55, %44 ], [ %.1.lcssa, %42 ]
+  %.3 = phi i64 [ %55, %44 ], [ %.1.lcssa, %42 ]
   %57 = and i32 %40, 2
   %.not25 = icmp eq i32 %57, 0
   br i1 %.not25, label %69, label %58
@@ -29236,11 +29236,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe12NetStateRule12ByteSizeLongEv(ptr 
   %65 = mul nuw nsw i64 %64, 9
   %66 = add nuw nsw i64 %65, 137
   %67 = lshr i64 %66, 6
-  %68 = add i64 %67, %.2
+  %68 = add i64 %67, %.3
   br label %69
 
 69:                                               ; preds = %58, %56
-  %.3 = phi i64 [ %68, %58 ], [ %.2, %56 ]
+  %.4 = phi i64 [ %68, %58 ], [ %.3, %56 ]
   %70 = and i32 %40, 4
   %.not26 = icmp eq i32 %70, 0
   br i1 %.not26, label %82, label %71
@@ -29255,13 +29255,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe12NetStateRule12ByteSizeLongEv(ptr 
   %78 = mul nuw nsw i64 %77, 9
   %79 = add nuw nsw i64 %78, 137
   %80 = lshr i64 %79, 6
-  %81 = add i64 %80, %.3
+  %81 = add i64 %80, %.4
   br label %82
 
 82:                                               ; preds = %69, %71, %._crit_edge33
-  %.4 = phi i64 [ %81, %71 ], [ %.3, %69 ], [ %.1.lcssa, %._crit_edge33 ]
+  %.2 = phi i64 [ %81, %71 ], [ %.4, %69 ], [ %.1.lcssa, %._crit_edge33 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 20
-  %84 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %83)
+  %84 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %83)
   ret i64 %84
 }
 
@@ -29839,11 +29839,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.146 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %.backedge ]
-  %32 = load i8, ptr %.146, align 1
+  %.246 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %.backedge ]
+  %32 = load i8, ptr %.246, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.146, i64 1
+  %35 = getelementptr inbounds i8, ptr %.246, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
@@ -29856,11 +29856,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %.
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.146, i64 2
+  %44 = getelementptr inbounds i8, ptr %.246, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.146, i32 noundef %41)
+  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.246, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -30095,11 +30095,11 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not16, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe9ParamSpec22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %146, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %23, %122, %123
-  %.2 = phi ptr [ %.0.i, %123 ], [ null, %122 ], [ %spec.select, %23 ], [ null, %_ZN12opencv_caffe9ParamSpec22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %146 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %123 ], [ null, %122 ], [ %spec.select, %23 ], [ null, %_ZN12opencv_caffe9ParamSpec22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %146 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %148 = load i32, ptr %9, align 8
   %149 = or i32 %148, %.sroa.0.0.ph
   store i32 %149, ptr %9, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30318,7 +30318,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe9ParamSpec12ByteSizeLongEv(ptr noun
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not13 = icmp eq i32 %25, 0
   br i1 %.not13, label %38, label %26
@@ -30333,16 +30333,16 @@ define hidden noundef i64 @_ZNK12opencv_caffe9ParamSpec12ByteSizeLongEv(ptr noun
   %33 = mul nuw nsw i64 %32, 9
   %34 = add nuw nsw i64 %33, 73
   %35 = lshr i64 %34, 6
-  %36 = add i64 %.0, 1
+  %36 = add i64 %.1, 1
   %37 = add i64 %36, %35
   br label %38
 
 38:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %37, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %37, %26 ], [ %.1, %24 ]
   %39 = and i32 %3, 4
   %.not14 = icmp eq i32 %39, 0
-  %40 = add i64 %.1, 5
-  %spec.select = select i1 %.not14, i64 %.1, i64 %40
+  %40 = add i64 %.2, 5
+  %spec.select = select i1 %.not14, i64 %.2, i64 %40
   %41 = and i32 %3, 8
   %.not15 = icmp eq i32 %41, 0
   %42 = add i64 %spec.select, 5
@@ -30350,9 +30350,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe9ParamSpec12ByteSizeLongEv(ptr noun
   br label %43
 
 43:                                               ; preds = %38, %1
-  %.3 = phi i64 [ 0, %1 ], [ %spec.select16, %38 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select16, %38 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 20
-  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3, ptr noundef nonnull %44)
+  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %44)
   ret i64 %45
 }
 
@@ -40522,11 +40522,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %84
   br i1 %100, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread500
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread500: ; preds = %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1503 = phi ptr [ %98, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0497, %80 ]
-  %101 = load i8, ptr %.1503, align 1
+  %.12503 = phi ptr [ %98, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0497, %80 ]
+  %101 = load i8, ptr %.12503, align 1
   %102 = zext i8 %101 to i32
   %103 = icmp sgt i8 %101, -1
-  %104 = getelementptr inbounds i8, ptr %.1503, i64 1
+  %104 = getelementptr inbounds i8, ptr %.12503, i64 1
   br i1 %103, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %105
 
 105:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread500
@@ -40539,11 +40539,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread500: ; preds = %
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %105
-  %113 = getelementptr inbounds i8, ptr %.1503, i64 2
+  %113 = getelementptr inbounds i8, ptr %.12503, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 114:                                              ; preds = %105
-  %115 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1503, i32 noundef %110)
+  %115 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.12503, i32 noundef %110)
   %116 = extractvalue { ptr, i32 } %115, 0
   %117 = extractvalue { ptr, i32 } %115, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -40684,8 +40684,8 @@ _ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit: ; preds
   br label %152
 
 152:                                              ; preds = %159, %150
-  %.2 = phi ptr [ %151, %150 ], [ %155, %159 ]
-  %153 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %151, %150 ], [ %155, %159 ]
+  %153 = getelementptr inbounds i8, ptr %.1, i64 1
   %154 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %77)
   %155 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %154, ptr noundef nonnull %153, ptr noundef nonnull %2)
   %.not151 = icmp eq ptr %155, null
@@ -40715,8 +40715,8 @@ _ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit: ; preds
   br label %167
 
 167:                                              ; preds = %174, %165
-  %.3 = phi ptr [ %166, %165 ], [ %170, %174 ]
-  %168 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %166, %165 ], [ %170, %174 ]
+  %168 = getelementptr inbounds i8, ptr %.2, i64 1
   %169 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %76)
   %170 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %169, ptr noundef nonnull %168, ptr noundef nonnull %2)
   %.not150 = icmp eq ptr %170, null
@@ -40744,14 +40744,14 @@ _ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit: ; preds
   br label %180
 
 180:                                              ; preds = %185, %178
-  %.4 = phi ptr [ %179, %178 ], [ %182, %185 ]
-  %181 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %179, %178 ], [ %182, %185 ]
+  %181 = getelementptr inbounds i8, ptr %.3, i64 1
   %.0.copyload.i2.i = load float, ptr %181, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store float %.0.copyload.i2.i, ptr %5, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %182 = getelementptr inbounds i8, ptr %.4, i64 5
+  %182 = getelementptr inbounds i8, ptr %.3, i64 5
   %183 = load ptr, ptr %2, align 8
   %184 = icmp ugt ptr %183, %182
   br i1 %184, label %185, label %.backedge
@@ -40776,8 +40776,8 @@ _ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit: ; preds
   br label %195
 
 195:                                              ; preds = %227, %193
-  %.6 = phi ptr [ %194, %193 ], [ %223, %227 ]
-  %196 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.5 = phi ptr [ %194, %193 ], [ %223, %227 ]
+  %196 = getelementptr inbounds i8, ptr %.5, i64 1
   %197 = load ptr, ptr %73, align 8
   %.not.i.i.i = icmp eq ptr %197, null
   br i1 %.not.i.i.i, label %208, label %198
@@ -40857,8 +40857,8 @@ _ZN12opencv_caffe14LayerParameter19_internal_add_paramEv.exit: ; preds = %202, %
   br label %235
 
 235:                                              ; preds = %242, %233
-  %.7 = phi ptr [ %234, %233 ], [ %238, %242 ]
-  %236 = getelementptr inbounds i8, ptr %.7, i64 1
+  %.6 = phi ptr [ %234, %233 ], [ %238, %242 ]
+  %236 = getelementptr inbounds i8, ptr %.6, i64 1
   %237 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef null)
   %238 = call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %237, ptr noundef nonnull %236)
   %.not147 = icmp eq ptr %238, null
@@ -40884,8 +40884,8 @@ _ZN12opencv_caffe14LayerParameter19_internal_add_paramEv.exit: ; preds = %202, %
   br label %250
 
 250:                                              ; preds = %271, %248
-  %.8 = phi ptr [ %249, %248 ], [ %267, %271 ]
-  %251 = getelementptr inbounds i8, ptr %.8, i64 1
+  %.7 = phi ptr [ %249, %248 ], [ %267, %271 ]
+  %251 = getelementptr inbounds i8, ptr %.7, i64 1
   %252 = load ptr, ptr %69, align 8
   %.not.i.i.i161 = icmp eq ptr %252, null
   br i1 %.not.i.i.i161, label %263, label %253
@@ -40937,8 +40937,8 @@ _ZN12opencv_caffe14LayerParameter21_internal_add_includeEv.exit: ; preds = %257,
   br label %279
 
 279:                                              ; preds = %300, %277
-  %.9 = phi ptr [ %278, %277 ], [ %296, %300 ]
-  %280 = getelementptr inbounds i8, ptr %.9, i64 1
+  %.8 = phi ptr [ %278, %277 ], [ %296, %300 ]
+  %280 = getelementptr inbounds i8, ptr %.8, i64 1
   %281 = load ptr, ptr %66, align 8
   %.not.i.i.i163 = icmp eq ptr %281, null
   br i1 %.not.i.i.i163, label %292, label %282
@@ -41088,11 +41088,11 @@ _ZN12opencv_caffe14LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %328
   br label %350
 
 350:                                              ; preds = %375, %348
-  %.10 = phi ptr [ %349, %348 ], [ %.0.i.i172, %375 ]
-  %351 = getelementptr inbounds i8, ptr %.10, i64 1
+  %.9 = phi ptr [ %349, %348 ], [ %.0.i.i172, %375 ]
+  %351 = getelementptr inbounds i8, ptr %.9, i64 1
   %352 = load i8, ptr %351, align 1
   %.not.i.i169 = icmp sgt i8 %352, -1
-  %353 = getelementptr inbounds i8, ptr %.10, i64 2
+  %353 = getelementptr inbounds i8, ptr %.9, i64 2
   br i1 %.not.i.i169, label %354, label %356
 
 354:                                              ; preds = %350
@@ -41111,7 +41111,7 @@ _ZN12opencv_caffe14LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %328
 
 363:                                              ; preds = %356
   %364 = zext nneg i32 %362 to i64
-  %365 = getelementptr inbounds i8, ptr %.10, i64 3
+  %365 = getelementptr inbounds i8, ptr %.9, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit173
 
 366:                                              ; preds = %356
@@ -44209,8 +44209,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not155, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe14LayerParameter22_internal_mutable_nameB5cxx11Ev.exit, %_ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit, %188, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %378, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_transform_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_loss_paramEv.exit, %_ZN12opencv_caffe14LayerParameter32_internal_mutable_accuracy_paramEv.exit, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_argmax_paramEv.exit, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_concat_paramEv.exit, %_ZN12opencv_caffe14LayerParameter40_internal_mutable_contrastive_loss_paramEv.exit, %530, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_data_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_dropout_paramEv.exit, %595, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_eltwise_paramEv.exit, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_exp_paramEv.exit, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_hdf5_data_paramEv.exit, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_hdf5_output_paramEv.exit, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_hinge_loss_paramEv.exit, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_image_data_paramEv.exit, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_infogain_loss_paramEv.exit, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_inner_product_paramEv.exit, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_lrn_paramEv.exit, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_memory_data_paramEv.exit, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_mvn_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_pooling_paramEv.exit, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_power_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_relu_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_sigmoid_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_softmax_paramEv.exit, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_slice_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_tanh_paramEv.exit, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_threshold_paramEv.exit, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_window_data_paramEv.exit, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_python_paramEv.exit, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_prelu_paramEv.exit, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_spp_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_reshape_paramEv.exit, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_log_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_flatten_paramEv.exit, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_reduction_paramEv.exit, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_embed_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_tile_paramEv.exit, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_batch_norm_paramEv.exit, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_elu_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_bias_paramEv.exit, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_scale_paramEv.exit, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_input_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_crop_paramEv.exit, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_parameter_paramEv.exit, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_recurrent_paramEv.exit, %_ZN12opencv_caffe14LayerParameter40_internal_mutable_detection_output_paramEv.exit, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_permute_paramEv.exit, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_norm_paramEv.exit, %1648, %_ZN12opencv_caffe14LayerParameter32_internal_mutable_proposal_paramEv.exit, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_psroi_pooling_paramEv.exit, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_roi_pooling_paramEv.exit, %1748, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit173, %_ZN12opencv_caffe14LayerParameter21_internal_add_excludeEv.exit, %_ZN12opencv_caffe14LayerParameter21_internal_add_includeEv.exit, %235, %_ZN12opencv_caffe14LayerParameter19_internal_add_paramEv.exit, %167, %152, %92, %1724, %1725
-  %.12 = phi ptr [ %.0.i, %1725 ], [ null, %1724 ], [ %spec.select, %92 ], [ null, %152 ], [ null, %167 ], [ null, %_ZN12opencv_caffe14LayerParameter19_internal_add_paramEv.exit ], [ null, %235 ], [ null, %_ZN12opencv_caffe14LayerParameter21_internal_add_includeEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter21_internal_add_excludeEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit173 ], [ null, %_ZN12opencv_caffe14LayerParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %188 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %378 ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_transform_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter32_internal_mutable_accuracy_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_argmax_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_concat_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter40_internal_mutable_contrastive_loss_paramEv.exit ], [ null, %530 ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_dropout_paramEv.exit ], [ null, %595 ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_eltwise_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_exp_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_hdf5_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_hdf5_output_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_hinge_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_image_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_infogain_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_inner_product_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_lrn_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_memory_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_mvn_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_pooling_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_power_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_relu_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_sigmoid_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_softmax_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_slice_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_tanh_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_threshold_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_window_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_python_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_prelu_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_spp_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_reshape_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_log_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_flatten_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_reduction_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_embed_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_tile_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_batch_norm_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_elu_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_bias_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_scale_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_input_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_crop_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_parameter_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_recurrent_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter40_internal_mutable_detection_output_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_permute_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_norm_paramEv.exit ], [ null, %1648 ], [ null, %_ZN12opencv_caffe14LayerParameter32_internal_mutable_proposal_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_psroi_pooling_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_roi_pooling_paramEv.exit ], [ null, %1748 ], [ %98, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.12
+  %.11 = phi ptr [ %.0.i, %1725 ], [ null, %1724 ], [ %spec.select, %92 ], [ null, %152 ], [ null, %167 ], [ null, %_ZN12opencv_caffe14LayerParameter19_internal_add_paramEv.exit ], [ null, %235 ], [ null, %_ZN12opencv_caffe14LayerParameter21_internal_add_includeEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter21_internal_add_excludeEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit173 ], [ null, %_ZN12opencv_caffe14LayerParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %188 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %378 ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_transform_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter32_internal_mutable_accuracy_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_argmax_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_concat_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter40_internal_mutable_contrastive_loss_paramEv.exit ], [ null, %530 ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_dropout_paramEv.exit ], [ null, %595 ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_eltwise_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_exp_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_hdf5_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_hdf5_output_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_hinge_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_image_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_infogain_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_inner_product_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_lrn_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_memory_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_mvn_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_pooling_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_power_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_relu_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_sigmoid_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_softmax_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_slice_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_tanh_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_threshold_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_window_data_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter30_internal_mutable_python_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_prelu_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_spp_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_reshape_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_log_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_flatten_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_reduction_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_embed_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_tile_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter34_internal_mutable_batch_norm_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter27_internal_mutable_elu_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_bias_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_scale_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter29_internal_mutable_input_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_crop_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_parameter_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter33_internal_mutable_recurrent_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter40_internal_mutable_detection_output_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter31_internal_mutable_permute_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter28_internal_mutable_norm_paramEv.exit ], [ null, %1648 ], [ null, %_ZN12opencv_caffe14LayerParameter32_internal_mutable_proposal_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter37_internal_mutable_psroi_pooling_paramEv.exit ], [ null, %_ZN12opencv_caffe14LayerParameter35_internal_mutable_roi_pooling_paramEv.exit ], [ null, %1748 ], [ %98, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.11
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal16PackedBoolParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -48042,7 +48042,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   br label %152
 
 152:                                              ; preds = %134, %132
-  %.6 = phi i64 [ %151, %134 ], [ %128, %132 ]
+  %.7 = phi i64 [ %151, %134 ], [ %128, %132 ]
   %153 = and i32 %130, 2
   %.not169 = icmp eq i32 %153, 0
   br i1 %.not169, label %172, label %154
@@ -48062,13 +48062,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   %166 = add nuw nsw i32 %165, 73
   %167 = lshr i32 %166, 6
   %168 = zext nneg i32 %167 to i64
-  %169 = add i64 %.6, 1
+  %169 = add i64 %.7, 1
   %170 = add i64 %169, %160
   %171 = add i64 %170, %168
   br label %172
 
 172:                                              ; preds = %154, %152
-  %.7 = phi i64 [ %171, %154 ], [ %.6, %152 ]
+  %.8 = phi i64 [ %171, %154 ], [ %.7, %152 ]
   %173 = and i32 %130, 4
   %.not170 = icmp eq i32 %173, 0
   br i1 %.not170, label %189, label %174
@@ -48085,13 +48085,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   %183 = add nuw nsw i32 %182, 73
   %184 = lshr i32 %183, 6
   %185 = zext nneg i32 %184 to i64
-  %186 = add i64 %.7, 2
+  %186 = add i64 %.8, 2
   %187 = add i64 %186, %177
   %188 = add i64 %187, %185
   br label %189
 
 189:                                              ; preds = %174, %172
-  %.8 = phi i64 [ %188, %174 ], [ %.7, %172 ]
+  %.9 = phi i64 [ %188, %174 ], [ %.8, %172 ]
   %190 = and i32 %130, 8
   %.not171 = icmp eq i32 %190, 0
   br i1 %.not171, label %238, label %191
@@ -48123,10 +48123,10 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   br label %209
 
 209:                                              ; preds = %199, %197
-  %.0.i.i = phi i64 [ %208, %199 ], [ 0, %197 ]
+  %.1.i.i = phi i64 [ %208, %199 ], [ 0, %197 ]
   %210 = and i32 %195, 2
   %211 = zext nneg i32 %210 to i64
-  %spec.select.i.i246 = add nuw nsw i64 %.0.i.i, %211
+  %spec.select.i.i246 = add nuw nsw i64 %.1.i.i, %211
   %212 = and i32 %195, 4
   %.not12.i.i = icmp eq i32 %212, 0
   br i1 %.not12.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit, label %213
@@ -48146,9 +48146,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit: ; preds = %191, %209, %213
-  %.2.i.i = phi i64 [ %224, %213 ], [ %spec.select.i.i246, %209 ], [ 0, %191 ]
+  %.0.i.i = phi i64 [ %224, %213 ], [ %spec.select.i.i246, %209 ], [ 0, %191 ]
   %225 = getelementptr inbounds i8, ptr %193, i64 20
-  %226 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %193, i64 noundef %.2.i.i, ptr noundef nonnull %225)
+  %226 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %193, i64 noundef %.0.i.i, ptr noundef nonnull %225)
   %227 = trunc i64 %226 to i32
   %228 = or i32 %227, 1
   %229 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %228, i1 true)
@@ -48157,13 +48157,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossP
   %232 = add nuw nsw i32 %231, 73
   %233 = lshr i32 %232, 6
   %234 = zext nneg i32 %233 to i64
-  %235 = add i64 %.8, 2
+  %235 = add i64 %.9, 2
   %236 = add i64 %235, %226
   %237 = add i64 %236, %234
   br label %238
 
 238:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit, %189
-  %.9 = phi i64 [ %237, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit ], [ %.8, %189 ]
+  %.10 = phi i64 [ %237, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit ], [ %.9, %189 ]
   %239 = and i32 %130, 16
   %.not172 = icmp eq i32 %239, 0
   br i1 %.not172, label %297, label %240
@@ -48195,7 +48195,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossP
   br label %258
 
 258:                                              ; preds = %248, %246
-  %.0.i.i249 = phi i64 [ %257, %248 ], [ 0, %246 ]
+  %.1.i.i249 = phi i64 [ %257, %248 ], [ 0, %246 ]
   %259 = and i32 %244, 2
   %.not11.i.i = icmp eq i32 %259, 0
   br i1 %.not11.i.i, label %271, label %260
@@ -48210,11 +48210,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossP
   %267 = add nuw nsw i32 %266, 137
   %268 = lshr i32 %267, 6
   %269 = zext nneg i32 %268 to i64
-  %270 = add nuw nsw i64 %.0.i.i249, %269
+  %270 = add nuw nsw i64 %.1.i.i249, %269
   br label %271
 
 271:                                              ; preds = %260, %258
-  %.1.i.i = phi i64 [ %270, %260 ], [ %.0.i.i249, %258 ]
+  %.2.i.i = phi i64 [ %270, %260 ], [ %.1.i.i249, %258 ]
   %272 = and i32 %244, 4
   %.not12.i.i250 = icmp eq i32 %272, 0
   br i1 %.not12.i.i250, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit, label %273
@@ -48229,13 +48229,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossP
   %280 = mul nuw nsw i64 %279, 9
   %281 = add nuw nsw i64 %280, 137
   %282 = lshr i64 %281, 6
-  %283 = add nuw nsw i64 %282, %.1.i.i
+  %283 = add nuw nsw i64 %282, %.2.i.i
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit: ; preds = %240, %271, %273
-  %.2.i.i251 = phi i64 [ %283, %273 ], [ %.1.i.i, %271 ], [ 0, %240 ]
+  %.0.i.i251 = phi i64 [ %283, %273 ], [ %.2.i.i, %271 ], [ 0, %240 ]
   %284 = getelementptr inbounds i8, ptr %242, i64 20
-  %285 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %242, i64 noundef %.2.i.i251, ptr noundef nonnull %284)
+  %285 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %242, i64 noundef %.0.i.i251, ptr noundef nonnull %284)
   %286 = trunc i64 %285 to i32
   %287 = or i32 %286, 1
   %288 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
@@ -48244,13 +48244,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17Accur
   %291 = add nuw nsw i32 %290, 73
   %292 = lshr i32 %291, 6
   %293 = zext nneg i32 %292 to i64
-  %294 = add i64 %.9, 2
+  %294 = add i64 %.10, 2
   %295 = add i64 %294, %285
   %296 = add i64 %295, %293
   br label %297
 
 297:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit, %238
-  %.10 = phi i64 [ %296, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit ], [ %.9, %238 ]
+  %.11 = phi i64 [ %296, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit ], [ %.10, %238 ]
   %298 = and i32 %130, 32
   %.not173 = icmp eq i32 %298, 0
   br i1 %.not173, label %346, label %299
@@ -48286,7 +48286,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17Accur
   br label %320
 
 320:                                              ; preds = %309, %305
-  %.1.i.i255 = phi i64 [ %319, %309 ], [ %spec.select.i.i253, %305 ]
+  %.2.i.i255 = phi i64 [ %319, %309 ], [ %spec.select.i.i253, %305 ]
   %321 = and i32 %303, 4
   %.not12.i.i256 = icmp eq i32 %321, 0
   br i1 %.not12.i.i256, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit, label %322
@@ -48301,13 +48301,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17Accur
   %329 = add nuw nsw i32 %328, 137
   %330 = lshr i32 %329, 6
   %331 = zext nneg i32 %330 to i64
-  %332 = add nuw nsw i64 %.1.i.i255, %331
+  %332 = add nuw nsw i64 %.2.i.i255, %331
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit: ; preds = %299, %320, %322
-  %.2.i.i257 = phi i64 [ %332, %322 ], [ %.1.i.i255, %320 ], [ 0, %299 ]
+  %.0.i.i257 = phi i64 [ %332, %322 ], [ %.2.i.i255, %320 ], [ 0, %299 ]
   %333 = getelementptr inbounds i8, ptr %301, i64 20
-  %334 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %301, i64 noundef %.2.i.i257, ptr noundef nonnull %333)
+  %334 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %301, i64 noundef %.0.i.i257, ptr noundef nonnull %333)
   %335 = trunc i64 %334 to i32
   %336 = or i32 %335, 1
   %337 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %336, i1 true)
@@ -48316,13 +48316,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMa
   %340 = add nuw nsw i32 %339, 73
   %341 = lshr i32 %340, 6
   %342 = zext nneg i32 %341 to i64
-  %343 = add i64 %.10, 2
+  %343 = add i64 %.11, 2
   %344 = add i64 %343, %334
   %345 = add i64 %344, %342
   br label %346
 
 346:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit, %297
-  %.11 = phi i64 [ %345, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit ], [ %.10, %297 ]
+  %.12 = phi i64 [ %345, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit ], [ %.11, %297 ]
   %347 = and i32 %130, 64
   %.not174 = icmp eq i32 %347, 0
   br i1 %.not174, label %392, label %348
@@ -48354,7 +48354,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMa
   br label %366
 
 366:                                              ; preds = %356, %354
-  %.0.i.i259 = phi i64 [ %365, %356 ], [ 0, %354 ]
+  %.1.i.i259 = phi i64 [ %365, %356 ], [ 0, %354 ]
   %367 = and i32 %352, 2
   %.not9.i.i = icmp eq i32 %367, 0
   br i1 %.not9.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit, label %368
@@ -48369,13 +48369,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMa
   %375 = mul nuw nsw i64 %374, 9
   %376 = add nuw nsw i64 %375, 137
   %377 = lshr i64 %376, 6
-  %378 = add nuw nsw i64 %377, %.0.i.i259
+  %378 = add nuw nsw i64 %377, %.1.i.i259
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit: ; preds = %348, %366, %368
-  %.1.i.i260 = phi i64 [ %378, %368 ], [ %.0.i.i259, %366 ], [ 0, %348 ]
+  %.0.i.i260 = phi i64 [ %378, %368 ], [ %.1.i.i259, %366 ], [ 0, %348 ]
   %379 = getelementptr inbounds i8, ptr %350, i64 20
-  %380 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %350, i64 noundef %.1.i.i260, ptr noundef nonnull %379)
+  %380 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %350, i64 noundef %.0.i.i260, ptr noundef nonnull %379)
   %381 = trunc i64 %380 to i32
   %382 = or i32 %381, 1
   %383 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %382, i1 true)
@@ -48384,13 +48384,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15Conca
   %386 = add nuw nsw i32 %385, 73
   %387 = lshr i32 %386, 6
   %388 = zext nneg i32 %387 to i64
-  %389 = add i64 %.11, 2
+  %389 = add i64 %.12, 2
   %390 = add i64 %389, %380
   %391 = add i64 %390, %388
   br label %392
 
 392:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit, %346
-  %.12 = phi i64 [ %391, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit ], [ %.11, %346 ]
+  %.13 = phi i64 [ %391, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit ], [ %.12, %346 ]
   %393 = and i32 %130, 128
   %.not175 = icmp eq i32 %393, 0
   br i1 %.not175, label %418, label %394
@@ -48415,9 +48415,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15Conca
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit: ; preds = %394, %400
-  %.1.i.i264 = phi i64 [ 0, %394 ], [ %spec.select10.i.i, %400 ]
+  %.0.i.i264 = phi i64 [ 0, %394 ], [ %spec.select10.i.i, %400 ]
   %405 = getelementptr inbounds i8, ptr %396, i64 20
-  %406 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %396, i64 noundef %.1.i.i264, ptr noundef nonnull %405)
+  %406 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %396, i64 noundef %.0.i.i264, ptr noundef nonnull %405)
   %407 = trunc i64 %406 to i32
   %408 = or i32 %407, 1
   %409 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %408, i1 true)
@@ -48426,13 +48426,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24Contr
   %412 = add nuw nsw i32 %411, 73
   %413 = lshr i32 %412, 6
   %414 = zext nneg i32 %413 to i64
-  %415 = add i64 %.12, 2
+  %415 = add i64 %.13, 2
   %416 = add i64 %415, %406
   %417 = add i64 %416, %414
   br label %418
 
 418:                                              ; preds = %392, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit, %._crit_edge440
-  %.13 = phi i64 [ %417, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit ], [ %.12, %392 ], [ %128, %._crit_edge440 ]
+  %.6 = phi i64 [ %417, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit ], [ %.13, %392 ], [ %128, %._crit_edge440 ]
   %419 = and i32 %130, 65280
   %.not176 = icmp eq i32 %419, 0
   br i1 %.not176, label %663, label %420
@@ -48454,13 +48454,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24Contr
   %431 = add nuw nsw i32 %430, 73
   %432 = lshr i32 %431, 6
   %433 = zext nneg i32 %432 to i64
-  %434 = add i64 %.13, 2
+  %434 = add i64 %.6, 2
   %435 = add i64 %434, %425
   %436 = add i64 %435, %433
   br label %437
 
 437:                                              ; preds = %422, %420
-  %.14 = phi i64 [ %436, %422 ], [ %.13, %420 ]
+  %.15 = phi i64 [ %436, %422 ], [ %.6, %420 ]
   %438 = and i32 %130, 512
   %.not178 = icmp eq i32 %438, 0
   br i1 %.not178, label %454, label %439
@@ -48477,13 +48477,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24Contr
   %448 = add nuw nsw i32 %447, 73
   %449 = lshr i32 %448, 6
   %450 = zext nneg i32 %449 to i64
-  %451 = add i64 %.14, 2
+  %451 = add i64 %.15, 2
   %452 = add i64 %451, %442
   %453 = add i64 %452, %450
   br label %454
 
 454:                                              ; preds = %439, %437
-  %.15 = phi i64 [ %453, %439 ], [ %.14, %437 ]
+  %.16 = phi i64 [ %453, %439 ], [ %.15, %437 ]
   %455 = and i32 %130, 1024
   %.not179 = icmp eq i32 %455, 0
   br i1 %.not179, label %479, label %456
@@ -48507,9 +48507,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24Contr
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit: ; preds = %456, %462
-  %.1.i.i269 = phi i64 [ 0, %456 ], [ %spec.select10.i.i268, %462 ]
+  %.0.i.i269 = phi i64 [ 0, %456 ], [ %spec.select10.i.i268, %462 ]
   %466 = getelementptr inbounds i8, ptr %458, i64 20
-  %467 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %458, i64 noundef %.1.i.i269, ptr noundef nonnull %466)
+  %467 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %458, i64 noundef %.0.i.i269, ptr noundef nonnull %466)
   %468 = trunc i64 %467 to i32
   %469 = or i32 %468, 1
   %470 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %469, i1 true)
@@ -48518,13 +48518,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   %473 = add nuw nsw i32 %472, 73
   %474 = lshr i32 %473, 6
   %475 = zext nneg i32 %474 to i64
-  %476 = add i64 %.15, 2
+  %476 = add i64 %.16, 2
   %477 = add i64 %476, %467
   %478 = add i64 %477, %475
   br label %479
 
 479:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit, %454
-  %.16 = phi i64 [ %478, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit ], [ %.15, %454 ]
+  %.17 = phi i64 [ %478, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit ], [ %.16, %454 ]
   %480 = and i32 %130, 2048
   %.not180 = icmp eq i32 %480, 0
   br i1 %.not180, label %496, label %481
@@ -48541,13 +48541,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   %490 = add nuw nsw i32 %489, 73
   %491 = lshr i32 %490, 6
   %492 = zext nneg i32 %491 to i64
-  %493 = add i64 %.16, 2
+  %493 = add i64 %.17, 2
   %494 = add i64 %493, %484
   %495 = add i64 %494, %492
   br label %496
 
 496:                                              ; preds = %481, %479
-  %.17 = phi i64 [ %495, %481 ], [ %.16, %479 ]
+  %.18 = phi i64 [ %495, %481 ], [ %.17, %479 ]
   %497 = and i32 %130, 4096
   %.not181 = icmp eq i32 %497, 0
   br i1 %.not181, label %541, label %498
@@ -48588,16 +48588,16 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   br label %525
 
 525:                                              ; preds = %513, %511
-  %.0.i.i272 = phi i64 [ %524, %513 ], [ %507, %511 ]
+  %.1.i.i272 = phi i64 [ %524, %513 ], [ %507, %511 ]
   %526 = and i32 %509, 2
   %527 = zext nneg i32 %526 to i64
-  %spec.select.i.i273 = add nuw nsw i64 %.0.i.i272, %527
+  %spec.select.i.i273 = add nuw nsw i64 %.1.i.i272, %527
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit: ; preds = %498, %525
-  %.1.i.i274 = phi i64 [ %507, %498 ], [ %spec.select.i.i273, %525 ]
+  %.0.i.i274 = phi i64 [ %507, %498 ], [ %spec.select.i.i273, %525 ]
   %528 = getelementptr inbounds i8, ptr %500, i64 20
-  %529 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %500, i64 noundef %.1.i.i274, ptr noundef nonnull %528)
+  %529 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %500, i64 noundef %.0.i.i274, ptr noundef nonnull %528)
   %530 = trunc i64 %529 to i32
   %531 = or i32 %530, 1
   %532 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %531, i1 true)
@@ -48606,13 +48606,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %535 = add nuw nsw i32 %534, 73
   %536 = lshr i32 %535, 6
   %537 = zext nneg i32 %536 to i64
-  %538 = add i64 %.17, 2
+  %538 = add i64 %.18, 2
   %539 = add i64 %538, %529
   %540 = add i64 %539, %537
   br label %541
 
 541:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit, %496
-  %.18 = phi i64 [ %540, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit ], [ %.17, %496 ]
+  %.19 = phi i64 [ %540, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit ], [ %.18, %496 ]
   %542 = and i32 %130, 8192
   %.not182 = icmp eq i32 %542, 0
   br i1 %.not182, label %568, label %543
@@ -48633,17 +48633,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %551 = and i32 %547, 2
   %.not11.i.i278 = icmp eq i32 %551, 0
   %552 = add nuw nsw i64 %spec.select.i.i277, 5
-  %.1.i.i279 = select i1 %.not11.i.i278, i64 %spec.select.i.i277, i64 %552
+  %.2.i.i279 = select i1 %.not11.i.i278, i64 %spec.select.i.i277, i64 %552
   %553 = and i32 %547, 4
   %.not12.i.i280 = icmp eq i32 %553, 0
-  %554 = add nuw nsw i64 %.1.i.i279, 5
-  %spec.select13.i.i = select i1 %.not12.i.i280, i64 %.1.i.i279, i64 %554
+  %554 = add nuw nsw i64 %.2.i.i279, 5
+  %spec.select13.i.i = select i1 %.not12.i.i280, i64 %.2.i.i279, i64 %554
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit: ; preds = %543, %549
-  %.2.i.i281 = phi i64 [ 0, %543 ], [ %spec.select13.i.i, %549 ]
+  %.0.i.i281 = phi i64 [ 0, %543 ], [ %spec.select13.i.i, %549 ]
   %555 = getelementptr inbounds i8, ptr %545, i64 20
-  %556 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %545, i64 noundef %.2.i.i281, ptr noundef nonnull %555)
+  %556 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %545, i64 noundef %.0.i.i281, ptr noundef nonnull %555)
   %557 = trunc i64 %556 to i32
   %558 = or i32 %557, 1
   %559 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %558, i1 true)
@@ -48652,13 +48652,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpPa
   %562 = add nuw nsw i32 %561, 73
   %563 = lshr i32 %562, 6
   %564 = zext nneg i32 %563 to i64
-  %565 = add i64 %.18, 2
+  %565 = add i64 %.19, 2
   %566 = add i64 %565, %556
   %567 = add i64 %566, %564
   br label %568
 
 568:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit, %541
-  %.19 = phi i64 [ %567, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit ], [ %.18, %541 ]
+  %.20 = phi i64 [ %567, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit ], [ %.19, %541 ]
   %569 = and i32 %130, 16384
   %.not183 = icmp eq i32 %569, 0
   br i1 %.not183, label %625, label %570
@@ -48697,7 +48697,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpPa
   br label %595
 
 595:                                              ; preds = %578, %576
-  %.0.i.i284 = phi i64 [ %594, %578 ], [ 0, %576 ]
+  %.1.i.i284 = phi i64 [ %594, %578 ], [ 0, %576 ]
   %596 = and i32 %574, 2
   %.not11.i.i285 = icmp eq i32 %596, 0
   br i1 %.not11.i.i285, label %608, label %597
@@ -48712,21 +48712,21 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpPa
   %604 = add nuw nsw i32 %603, 137
   %605 = lshr i32 %604, 6
   %606 = zext nneg i32 %605 to i64
-  %607 = add i64 %.0.i.i284, %606
+  %607 = add i64 %.1.i.i284, %606
   br label %608
 
 608:                                              ; preds = %597, %595
-  %.1.i.i286 = phi i64 [ %607, %597 ], [ %.0.i.i284, %595 ]
+  %.2.i.i286 = phi i64 [ %607, %597 ], [ %.1.i.i284, %595 ]
   %609 = lshr i32 %574, 1
   %610 = and i32 %609, 2
   %611 = zext nneg i32 %610 to i64
-  %spec.select.i.i287 = add i64 %.1.i.i286, %611
+  %spec.select.i.i287 = add i64 %.2.i.i286, %611
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit: ; preds = %570, %608
-  %.2.i.i288 = phi i64 [ 0, %570 ], [ %spec.select.i.i287, %608 ]
+  %.0.i.i288 = phi i64 [ 0, %570 ], [ %spec.select.i.i287, %608 ]
   %612 = getelementptr inbounds i8, ptr %572, i64 20
-  %613 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %572, i64 noundef %.2.i.i288, ptr noundef nonnull %612)
+  %613 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %572, i64 noundef %.0.i.i288, ptr noundef nonnull %612)
   %614 = trunc i64 %613 to i32
   %615 = or i32 %614, 1
   %616 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %615, i1 true)
@@ -48735,13 +48735,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5D
   %619 = add nuw nsw i32 %618, 73
   %620 = lshr i32 %619, 6
   %621 = zext nneg i32 %620 to i64
-  %622 = add i64 %.19, 2
+  %622 = add i64 %.20, 2
   %623 = add i64 %622, %613
   %624 = add i64 %623, %621
   br label %625
 
 625:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit, %568
-  %.20 = phi i64 [ %624, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit ], [ %.19, %568 ]
+  %.21 = phi i64 [ %624, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit ], [ %.20, %568 ]
   %626 = and i32 %130, 32768
   %.not184 = icmp eq i32 %626, 0
   br i1 %.not184, label %663, label %627
@@ -48786,13 +48786,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %657 = add nuw nsw i32 %656, 73
   %658 = lshr i32 %657, 6
   %659 = zext nneg i32 %658 to i64
-  %660 = add i64 %.20, 2
+  %660 = add i64 %.21, 2
   %661 = add i64 %660, %651
   %662 = add i64 %661, %659
   br label %663
 
 663:                                              ; preds = %625, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit, %418
-  %.21 = phi i64 [ %662, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit ], [ %.20, %625 ], [ %.13, %418 ]
+  %.14 = phi i64 [ %662, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit ], [ %.21, %625 ], [ %.6, %418 ]
   %664 = and i32 %130, 16711680
   %.not185 = icmp eq i32 %664, 0
   br i1 %.not185, label %838, label %665
@@ -48836,13 +48836,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Hinge
   %691 = add nuw nsw i32 %690, 73
   %692 = lshr i32 %691, 6
   %693 = zext nneg i32 %692 to i64
-  %694 = add i64 %.21, 2
+  %694 = add i64 %.14, 2
   %695 = add i64 %694, %685
   %696 = add i64 %695, %693
   br label %697
 
 697:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18HingeLossParameterEEEmRKT_.exit, %665
-  %.22 = phi i64 [ %696, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18HingeLossParameterEEEmRKT_.exit ], [ %.21, %665 ]
+  %.23 = phi i64 [ %696, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18HingeLossParameterEEEmRKT_.exit ], [ %.14, %665 ]
   %698 = and i32 %130, 131072
   %.not187 = icmp eq i32 %698, 0
   br i1 %.not187, label %714, label %699
@@ -48859,13 +48859,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Hinge
   %708 = add nuw nsw i32 %707, 73
   %709 = lshr i32 %708, 6
   %710 = zext nneg i32 %709 to i64
-  %711 = add i64 %.22, 2
+  %711 = add i64 %.23, 2
   %712 = add i64 %711, %702
   %713 = add i64 %712, %710
   br label %714
 
 714:                                              ; preds = %699, %697
-  %.23 = phi i64 [ %713, %699 ], [ %.22, %697 ]
+  %.24 = phi i64 [ %713, %699 ], [ %.23, %697 ]
   %715 = and i32 %130, 262144
   %.not188 = icmp eq i32 %715, 0
   br i1 %.not188, label %752, label %716
@@ -48910,13 +48910,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %746 = add nuw nsw i32 %745, 73
   %747 = lshr i32 %746, 6
   %748 = zext nneg i32 %747 to i64
-  %749 = add i64 %.23, 2
+  %749 = add i64 %.24, 2
   %750 = add i64 %749, %740
   %751 = add i64 %750, %748
   br label %752
 
 752:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21InfogainLossParameterEEEmRKT_.exit, %714
-  %.24 = phi i64 [ %751, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21InfogainLossParameterEEEmRKT_.exit ], [ %.23, %714 ]
+  %.25 = phi i64 [ %751, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21InfogainLossParameterEEEmRKT_.exit ], [ %.24, %714 ]
   %753 = and i32 %130, 524288
   %.not189 = icmp eq i32 %753, 0
   br i1 %.not189, label %769, label %754
@@ -48933,13 +48933,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %763 = add nuw nsw i32 %762, 73
   %764 = lshr i32 %763, 6
   %765 = zext nneg i32 %764 to i64
-  %766 = add i64 %.24, 2
+  %766 = add i64 %.25, 2
   %767 = add i64 %766, %757
   %768 = add i64 %767, %765
   br label %769
 
 769:                                              ; preds = %754, %752
-  %.25 = phi i64 [ %768, %754 ], [ %.24, %752 ]
+  %.26 = phi i64 [ %768, %754 ], [ %.25, %752 ]
   %770 = and i32 %130, 1048576
   %.not190 = icmp eq i32 %770, 0
   br i1 %.not190, label %786, label %771
@@ -48956,13 +48956,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %780 = add nuw nsw i32 %779, 73
   %781 = lshr i32 %780, 6
   %782 = zext nneg i32 %781 to i64
-  %783 = add i64 %.25, 2
+  %783 = add i64 %.26, 2
   %784 = add i64 %783, %774
   %785 = add i64 %784, %782
   br label %786
 
 786:                                              ; preds = %771, %769
-  %.26 = phi i64 [ %785, %771 ], [ %.25, %769 ]
+  %.27 = phi i64 [ %785, %771 ], [ %.26, %769 ]
   %787 = and i32 %130, 2097152
   %.not191 = icmp eq i32 %787, 0
   br i1 %.not191, label %794, label %788
@@ -48971,12 +48971,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %789 = getelementptr inbounds i8, ptr %0, i64 376
   %790 = load ptr, ptr %789, align 8
   %791 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19MemoryDataParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) %790)
-  %792 = add i64 %.26, 2
+  %792 = add i64 %.27, 2
   %793 = add i64 %792, %791
   br label %794
 
 794:                                              ; preds = %788, %786
-  %.27 = phi i64 [ %793, %788 ], [ %.26, %786 ]
+  %.28 = phi i64 [ %793, %788 ], [ %.27, %786 ]
   %795 = and i32 %130, 4194304
   %.not192 = icmp eq i32 %795, 0
   br i1 %.not192, label %821, label %796
@@ -48995,17 +48995,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %804 = and i32 %803, 2
   %805 = and i32 %800, 2
   %narrow.i.i = add nuw nsw i32 %804, %805
-  %.1.i.i296 = zext nneg i32 %narrow.i.i to i64
+  %.2.i.i296 = zext nneg i32 %narrow.i.i to i64
   %806 = and i32 %800, 4
   %.not12.i.i297 = icmp eq i32 %806, 0
-  %807 = add nuw nsw i64 %.1.i.i296, 5
-  %spec.select13.i.i298 = select i1 %.not12.i.i297, i64 %.1.i.i296, i64 %807
+  %807 = add nuw nsw i64 %.2.i.i296, 5
+  %spec.select13.i.i298 = select i1 %.not12.i.i297, i64 %.2.i.i296, i64 %807
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit: ; preds = %796, %802
-  %.2.i.i299 = phi i64 [ 0, %796 ], [ %spec.select13.i.i298, %802 ]
+  %.0.i.i299 = phi i64 [ 0, %796 ], [ %spec.select13.i.i298, %802 ]
   %808 = getelementptr inbounds i8, ptr %798, i64 20
-  %809 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %798, i64 noundef %.2.i.i299, ptr noundef nonnull %808)
+  %809 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %798, i64 noundef %.0.i.i299, ptr noundef nonnull %808)
   %810 = trunc i64 %809 to i32
   %811 = or i32 %810, 1
   %812 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %811, i1 true)
@@ -49014,13 +49014,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNPa
   %815 = add nuw nsw i32 %814, 73
   %816 = lshr i32 %815, 6
   %817 = zext nneg i32 %816 to i64
-  %818 = add i64 %.27, 2
+  %818 = add i64 %.28, 2
   %819 = add i64 %818, %809
   %820 = add i64 %819, %817
   br label %821
 
 821:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit, %794
-  %.28 = phi i64 [ %820, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit ], [ %.27, %794 ]
+  %.29 = phi i64 [ %820, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit ], [ %.28, %794 ]
   %822 = and i32 %130, 8388608
   %.not193 = icmp eq i32 %822, 0
   br i1 %.not193, label %838, label %823
@@ -49037,13 +49037,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNPa
   %832 = add nuw nsw i32 %831, 73
   %833 = lshr i32 %832, 6
   %834 = zext nneg i32 %833 to i64
-  %835 = add i64 %.28, 2
+  %835 = add i64 %.29, 2
   %836 = add i64 %835, %826
   %837 = add i64 %836, %834
   br label %838
 
 838:                                              ; preds = %821, %823, %663
-  %.29 = phi i64 [ %837, %823 ], [ %.28, %821 ], [ %.21, %663 ]
+  %.22 = phi i64 [ %837, %823 ], [ %.29, %821 ], [ %.14, %663 ]
   %.not194 = icmp ult i32 %130, 16777216
   br i1 %.not194, label %1058, label %839
 
@@ -49068,17 +49068,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNPa
   %849 = and i32 %845, 2
   %.not11.i.i303 = icmp eq i32 %849, 0
   %850 = add nuw nsw i64 %spec.select.i.i302, 5
-  %.1.i.i304 = select i1 %.not11.i.i303, i64 %spec.select.i.i302, i64 %850
+  %.2.i.i304 = select i1 %.not11.i.i303, i64 %spec.select.i.i302, i64 %850
   %851 = and i32 %845, 4
   %.not12.i.i305 = icmp eq i32 %851, 0
-  %852 = add nuw nsw i64 %.1.i.i304, 5
-  %spec.select13.i.i306 = select i1 %.not12.i.i305, i64 %.1.i.i304, i64 %852
+  %852 = add nuw nsw i64 %.2.i.i304, 5
+  %spec.select13.i.i306 = select i1 %.not12.i.i305, i64 %.2.i.i304, i64 %852
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit: ; preds = %841, %847
-  %.2.i.i307 = phi i64 [ 0, %841 ], [ %spec.select13.i.i306, %847 ]
+  %.0.i.i307 = phi i64 [ 0, %841 ], [ %spec.select13.i.i306, %847 ]
   %853 = getelementptr inbounds i8, ptr %843, i64 20
-  %854 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %843, i64 noundef %.2.i.i307, ptr noundef nonnull %853)
+  %854 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %843, i64 noundef %.0.i.i307, ptr noundef nonnull %853)
   %855 = trunc i64 %854 to i32
   %856 = or i32 %855, 1
   %857 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %856, i1 true)
@@ -49087,13 +49087,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Power
   %860 = add nuw nsw i32 %859, 73
   %861 = lshr i32 %860, 6
   %862 = zext nneg i32 %861 to i64
-  %863 = add i64 %.29, 2
+  %863 = add i64 %.22, 2
   %864 = add i64 %863, %854
   %865 = add i64 %864, %862
   br label %866
 
 866:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit, %839
-  %.30 = phi i64 [ %865, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit ], [ %.29, %839 ]
+  %.31 = phi i64 [ %865, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit ], [ %.22, %839 ]
   %867 = and i32 %130, 33554432
   %.not196 = icmp eq i32 %867, 0
   br i1 %.not196, label %902, label %868
@@ -49130,9 +49130,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Power
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit: ; preds = %868, %874, %877
-  %.1.i.i312 = phi i64 [ %888, %877 ], [ %spec.select.i.i310, %874 ], [ 0, %868 ]
+  %.0.i.i312 = phi i64 [ %888, %877 ], [ %spec.select.i.i310, %874 ], [ 0, %868 ]
   %889 = getelementptr inbounds i8, ptr %870, i64 20
-  %890 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %870, i64 noundef %.1.i.i312, ptr noundef nonnull %889)
+  %890 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %870, i64 noundef %.0.i.i312, ptr noundef nonnull %889)
   %891 = trunc i64 %890 to i32
   %892 = or i32 %891, 1
   %893 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %892, i1 true)
@@ -49141,13 +49141,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUP
   %896 = add nuw nsw i32 %895, 73
   %897 = lshr i32 %896, 6
   %898 = zext nneg i32 %897 to i64
-  %899 = add i64 %.30, 2
+  %899 = add i64 %.31, 2
   %900 = add i64 %899, %890
   %901 = add i64 %900, %898
   br label %902
 
 902:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit, %866
-  %.31 = phi i64 [ %901, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit ], [ %.30, %866 ]
+  %.32 = phi i64 [ %901, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit ], [ %.31, %866 ]
   %903 = and i32 %130, 67108864
   %.not197 = icmp eq i32 %903, 0
   br i1 %.not197, label %934, label %904
@@ -49186,13 +49186,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Sigmo
   %928 = add nuw nsw i32 %927, 73
   %929 = lshr i32 %928, 6
   %930 = zext nneg i32 %929 to i64
-  %931 = add i64 %.31, 2
+  %931 = add i64 %.32, 2
   %932 = add i64 %931, %922
   %933 = add i64 %932, %930
   br label %934
 
 934:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SigmoidParameterEEEmRKT_.exit, %902
-  %.32 = phi i64 [ %933, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SigmoidParameterEEEmRKT_.exit ], [ %.31, %902 ]
+  %.33 = phi i64 [ %933, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SigmoidParameterEEEmRKT_.exit ], [ %.32, %902 ]
   %935 = and i32 %130, 134217728
   %.not198 = icmp eq i32 %935, 0
   br i1 %.not198, label %981, label %936
@@ -49225,7 +49225,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Sigmo
   br label %955
 
 955:                                              ; preds = %944, %942
-  %.0.i.i317 = phi i64 [ %954, %944 ], [ 0, %942 ]
+  %.1.i.i317 = phi i64 [ %954, %944 ], [ 0, %942 ]
   %956 = and i32 %940, 2
   %.not9.i.i318 = icmp eq i32 %956, 0
   br i1 %.not9.i.i318, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit, label %957
@@ -49240,13 +49240,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Sigmo
   %964 = mul nuw nsw i64 %963, 9
   %965 = add nuw nsw i64 %964, 137
   %966 = lshr i64 %965, 6
-  %967 = add nuw nsw i64 %966, %.0.i.i317
+  %967 = add nuw nsw i64 %966, %.1.i.i317
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit: ; preds = %936, %955, %957
-  %.1.i.i319 = phi i64 [ %967, %957 ], [ %.0.i.i317, %955 ], [ 0, %936 ]
+  %.0.i.i319 = phi i64 [ %967, %957 ], [ %.1.i.i317, %955 ], [ 0, %936 ]
   %968 = getelementptr inbounds i8, ptr %938, i64 20
-  %969 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %938, i64 noundef %.1.i.i319, ptr noundef nonnull %968)
+  %969 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %938, i64 noundef %.0.i.i319, ptr noundef nonnull %968)
   %970 = trunc i64 %969 to i32
   %971 = or i32 %970, 1
   %972 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %971, i1 true)
@@ -49255,13 +49255,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Softm
   %975 = add nuw nsw i32 %974, 73
   %976 = lshr i32 %975, 6
   %977 = zext nneg i32 %976 to i64
-  %978 = add i64 %.32, 2
+  %978 = add i64 %.33, 2
   %979 = add i64 %978, %969
   %980 = add i64 %979, %977
   br label %981
 
 981:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit, %934
-  %.33 = phi i64 [ %980, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit ], [ %.32, %934 ]
+  %.34 = phi i64 [ %980, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit ], [ %.33, %934 ]
   %982 = and i32 %130, 268435456
   %.not199 = icmp eq i32 %982, 0
   br i1 %.not199, label %989, label %983
@@ -49270,12 +49270,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Softm
   %984 = getelementptr inbounds i8, ptr %0, i64 432
   %985 = load ptr, ptr %984, align 8
   %986 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14SliceParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(48) %985)
-  %987 = add i64 %.33, 2
+  %987 = add i64 %.34, 2
   %988 = add i64 %987, %986
   br label %989
 
 989:                                              ; preds = %983, %981
-  %.34 = phi i64 [ %988, %983 ], [ %.33, %981 ]
+  %.35 = phi i64 [ %988, %983 ], [ %.34, %981 ]
   %990 = and i32 %130, 536870912
   %.not200 = icmp eq i32 %990, 0
   br i1 %.not200, label %1021, label %991
@@ -49314,13 +49314,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHP
   %1015 = add nuw nsw i32 %1014, 73
   %1016 = lshr i32 %1015, 6
   %1017 = zext nneg i32 %1016 to i64
-  %1018 = add i64 %.34, 2
+  %1018 = add i64 %.35, 2
   %1019 = add i64 %1018, %1009
   %1020 = add i64 %1019, %1017
   br label %1021
 
 1021:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHParameterEEEmRKT_.exit, %989
-  %.35 = phi i64 [ %1020, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHParameterEEEmRKT_.exit ], [ %.34, %989 ]
+  %.36 = phi i64 [ %1020, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHParameterEEEmRKT_.exit ], [ %.35, %989 ]
   %1022 = and i32 %130, 1073741824
   %.not201 = icmp eq i32 %1022, 0
   br i1 %.not201, label %1042, label %1023
@@ -49343,13 +49343,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHP
   %1036 = add nuw nsw i32 %1035, 73
   %1037 = lshr i32 %1036, 6
   %1038 = zext nneg i32 %1037 to i64
-  %1039 = add i64 %.35, 2
+  %1039 = add i64 %.36, 2
   %1040 = add i64 %1039, %1030
   %1041 = add i64 %1040, %1038
   br label %1042
 
 1042:                                             ; preds = %1023, %1021
-  %.36 = phi i64 [ %1041, %1023 ], [ %.35, %1021 ]
+  %.37 = phi i64 [ %1041, %1023 ], [ %.36, %1021 ]
   %.not202 = icmp sgt i32 %130, -1
   br i1 %.not202, label %1058, label %1043
 
@@ -49365,13 +49365,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHP
   %1052 = add nuw nsw i32 %1051, 73
   %1053 = lshr i32 %1052, 6
   %1054 = zext nneg i32 %1053 to i64
-  %1055 = add i64 %.36, 2
+  %1055 = add i64 %.37, 2
   %1056 = add i64 %1055, %1046
   %1057 = add i64 %1056, %1054
   br label %1058
 
 1058:                                             ; preds = %1042, %1043, %838
-  %.37 = phi i64 [ %1057, %1043 ], [ %.36, %1042 ], [ %.29, %838 ]
+  %.30 = phi i64 [ %1057, %1043 ], [ %.37, %1042 ], [ %.22, %838 ]
   %1059 = getelementptr inbounds i8, ptr %0, i64 20
   %1060 = load i32, ptr %1059, align 4
   %1061 = and i32 %1060, 255
@@ -49395,13 +49395,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHP
   %1073 = add nuw nsw i32 %1072, 73
   %1074 = lshr i32 %1073, 6
   %1075 = zext nneg i32 %1074 to i64
-  %1076 = add i64 %.37, 2
+  %1076 = add i64 %.30, 2
   %1077 = add i64 %1076, %1067
   %1078 = add i64 %1077, %1075
   br label %1079
 
 1079:                                             ; preds = %1064, %1062
-  %.38 = phi i64 [ %1078, %1064 ], [ %.37, %1062 ]
+  %.39 = phi i64 [ %1078, %1064 ], [ %.30, %1062 ]
   %1080 = and i32 %1060, 2
   %.not205 = icmp eq i32 %1080, 0
   br i1 %.not205, label %1119, label %1081
@@ -49437,16 +49437,16 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHP
   br label %1103
 
 1103:                                             ; preds = %1089, %1087
-  %.0.i.i326 = phi i64 [ %1102, %1089 ], [ 0, %1087 ]
+  %.1.i.i326 = phi i64 [ %1102, %1089 ], [ 0, %1087 ]
   %1104 = and i32 %1085, 2
   %1105 = zext nneg i32 %1104 to i64
-  %spec.select.i.i327 = add i64 %.0.i.i326, %1105
+  %spec.select.i.i327 = add i64 %.1.i.i326, %1105
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLUParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLUParameterEEEmRKT_.exit: ; preds = %1081, %1103
-  %.1.i.i328 = phi i64 [ 0, %1081 ], [ %spec.select.i.i327, %1103 ]
+  %.0.i.i328 = phi i64 [ 0, %1081 ], [ %spec.select.i.i327, %1103 ]
   %1106 = getelementptr inbounds i8, ptr %1083, i64 20
-  %1107 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1083, i64 noundef %.1.i.i328, ptr noundef nonnull %1106)
+  %1107 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1083, i64 noundef %.0.i.i328, ptr noundef nonnull %1106)
   %1108 = trunc i64 %1107 to i32
   %1109 = or i32 %1108, 1
   %1110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1109, i1 true)
@@ -49455,13 +49455,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLU
   %1113 = add nuw nsw i32 %1112, 73
   %1114 = lshr i32 %1113, 6
   %1115 = zext nneg i32 %1114 to i64
-  %1116 = add i64 %.38, 2
+  %1116 = add i64 %.39, 2
   %1117 = add i64 %1116, %1107
   %1118 = add i64 %1117, %1115
   br label %1119
 
 1119:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLUParameterEEEmRKT_.exit, %1079
-  %.39 = phi i64 [ %1118, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLUParameterEEEmRKT_.exit ], [ %.38, %1079 ]
+  %.40 = phi i64 [ %1118, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLUParameterEEEmRKT_.exit ], [ %.39, %1079 ]
   %1120 = and i32 %1060, 4
   %.not206 = icmp eq i32 %1120, 0
   br i1 %.not206, label %1180, label %1121
@@ -49493,7 +49493,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLU
   br label %1139
 
 1139:                                             ; preds = %1129, %1127
-  %.0.i.i331 = phi i64 [ %1138, %1129 ], [ 0, %1127 ]
+  %.1.i.i331 = phi i64 [ %1138, %1129 ], [ 0, %1127 ]
   %1140 = and i32 %1125, 2
   %.not11.i.i332 = icmp eq i32 %1140, 0
   br i1 %.not11.i.i332, label %1153, label %1141
@@ -49508,12 +49508,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLU
   %1148 = mul nuw nsw i64 %1147, 9
   %1149 = add nuw nsw i64 %1148, 73
   %1150 = lshr i64 %1149, 6
-  %1151 = add nuw nsw i64 %.0.i.i331, 1
+  %1151 = add nuw nsw i64 %.1.i.i331, 1
   %1152 = add nuw nsw i64 %1151, %1150
   br label %1153
 
 1153:                                             ; preds = %1141, %1139
-  %.1.i.i333 = phi i64 [ %1152, %1141 ], [ %.0.i.i331, %1139 ]
+  %.2.i.i333 = phi i64 [ %1152, %1141 ], [ %.1.i.i331, %1139 ]
   %1154 = and i32 %1125, 4
   %.not12.i.i334 = icmp eq i32 %1154, 0
   br i1 %.not12.i.i334, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPParameterEEEmRKT_.exit, label %1155
@@ -49528,14 +49528,14 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PReLU
   %1162 = mul nuw nsw i64 %1161, 9
   %1163 = add nuw nsw i64 %1162, 73
   %1164 = lshr i64 %1163, 6
-  %1165 = add nuw nsw i64 %.1.i.i333, 1
+  %1165 = add nuw nsw i64 %.2.i.i333, 1
   %1166 = add nuw nsw i64 %1165, %1164
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPParameterEEEmRKT_.exit: ; preds = %1121, %1153, %1155
-  %.2.i.i335 = phi i64 [ %1166, %1155 ], [ %.1.i.i333, %1153 ], [ 0, %1121 ]
+  %.0.i.i335 = phi i64 [ %1166, %1155 ], [ %.2.i.i333, %1153 ], [ 0, %1121 ]
   %1167 = getelementptr inbounds i8, ptr %1123, i64 20
-  %1168 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1123, i64 noundef %.2.i.i335, ptr noundef nonnull %1167)
+  %1168 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1123, i64 noundef %.0.i.i335, ptr noundef nonnull %1167)
   %1169 = trunc i64 %1168 to i32
   %1170 = or i32 %1169, 1
   %1171 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1170, i1 true)
@@ -49544,13 +49544,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPPa
   %1174 = add nuw nsw i32 %1173, 73
   %1175 = lshr i32 %1174, 6
   %1176 = zext nneg i32 %1175 to i64
-  %1177 = add i64 %.39, 2
+  %1177 = add i64 %.40, 2
   %1178 = add i64 %1177, %1168
   %1179 = add i64 %1178, %1176
   br label %1180
 
 1180:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPParameterEEEmRKT_.exit, %1119
-  %.40 = phi i64 [ %1179, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPParameterEEEmRKT_.exit ], [ %.39, %1119 ]
+  %.41 = phi i64 [ %1179, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPParameterEEEmRKT_.exit ], [ %.40, %1119 ]
   %1181 = and i32 %1060, 8
   %.not207 = icmp eq i32 %1181, 0
   br i1 %.not207, label %1197, label %1182
@@ -49567,13 +49567,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPPa
   %1191 = add nuw nsw i32 %1190, 73
   %1192 = lshr i32 %1191, 6
   %1193 = zext nneg i32 %1192 to i64
-  %1194 = add i64 %.40, 2
+  %1194 = add i64 %.41, 2
   %1195 = add i64 %1194, %1185
   %1196 = add i64 %1195, %1193
   br label %1197
 
 1197:                                             ; preds = %1182, %1180
-  %.41 = phi i64 [ %1196, %1182 ], [ %.40, %1180 ]
+  %.42 = phi i64 [ %1196, %1182 ], [ %.41, %1180 ]
   %1198 = and i32 %1060, 16
   %.not208 = icmp eq i32 %1198, 0
   br i1 %.not208, label %1224, label %1199
@@ -49594,17 +49594,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12SPPPa
   %1207 = and i32 %1203, 2
   %.not11.i.i339 = icmp eq i32 %1207, 0
   %1208 = add nuw nsw i64 %spec.select.i.i338, 5
-  %.1.i.i340 = select i1 %.not11.i.i339, i64 %spec.select.i.i338, i64 %1208
+  %.2.i.i340 = select i1 %.not11.i.i339, i64 %spec.select.i.i338, i64 %1208
   %1209 = and i32 %1203, 4
   %.not12.i.i341 = icmp eq i32 %1209, 0
-  %1210 = add nuw nsw i64 %.1.i.i340, 5
-  %spec.select13.i.i342 = select i1 %.not12.i.i341, i64 %.1.i.i340, i64 %1210
+  %1210 = add nuw nsw i64 %.2.i.i340, 5
+  %spec.select13.i.i342 = select i1 %.not12.i.i341, i64 %.2.i.i340, i64 %1210
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogParameterEEEmRKT_.exit: ; preds = %1199, %1205
-  %.2.i.i343 = phi i64 [ 0, %1199 ], [ %spec.select13.i.i342, %1205 ]
+  %.0.i.i343 = phi i64 [ 0, %1199 ], [ %spec.select13.i.i342, %1205 ]
   %1211 = getelementptr inbounds i8, ptr %1201, i64 20
-  %1212 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1201, i64 noundef %.2.i.i343, ptr noundef nonnull %1211)
+  %1212 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1201, i64 noundef %.0.i.i343, ptr noundef nonnull %1211)
   %1213 = trunc i64 %1212 to i32
   %1214 = or i32 %1213, 1
   %1215 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1214, i1 true)
@@ -49613,13 +49613,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogPa
   %1218 = add nuw nsw i32 %1217, 73
   %1219 = lshr i32 %1218, 6
   %1220 = zext nneg i32 %1219 to i64
-  %1221 = add i64 %.41, 2
+  %1221 = add i64 %.42, 2
   %1222 = add i64 %1221, %1212
   %1223 = add i64 %1222, %1220
   br label %1224
 
 1224:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogParameterEEEmRKT_.exit, %1197
-  %.42 = phi i64 [ %1223, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogParameterEEEmRKT_.exit ], [ %.41, %1197 ]
+  %.43 = phi i64 [ %1223, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogParameterEEEmRKT_.exit ], [ %.42, %1197 ]
   %1225 = and i32 %1060, 32
   %.not209 = icmp eq i32 %1225, 0
   br i1 %.not209, label %1270, label %1226
@@ -49651,7 +49651,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogPa
   br label %1244
 
 1244:                                             ; preds = %1234, %1232
-  %.0.i.i346 = phi i64 [ %1243, %1234 ], [ 0, %1232 ]
+  %.1.i.i346 = phi i64 [ %1243, %1234 ], [ 0, %1232 ]
   %1245 = and i32 %1230, 2
   %.not9.i.i347 = icmp eq i32 %1245, 0
   br i1 %.not9.i.i347, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16FlattenParameterEEEmRKT_.exit, label %1246
@@ -49666,13 +49666,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12LogPa
   %1253 = mul nuw nsw i64 %1252, 9
   %1254 = add nuw nsw i64 %1253, 137
   %1255 = lshr i64 %1254, 6
-  %1256 = add nuw nsw i64 %1255, %.0.i.i346
+  %1256 = add nuw nsw i64 %1255, %.1.i.i346
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16FlattenParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16FlattenParameterEEEmRKT_.exit: ; preds = %1226, %1244, %1246
-  %.1.i.i348 = phi i64 [ %1256, %1246 ], [ %.0.i.i346, %1244 ], [ 0, %1226 ]
+  %.0.i.i348 = phi i64 [ %1256, %1246 ], [ %.1.i.i346, %1244 ], [ 0, %1226 ]
   %1257 = getelementptr inbounds i8, ptr %1228, i64 20
-  %1258 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1228, i64 noundef %.1.i.i348, ptr noundef nonnull %1257)
+  %1258 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1228, i64 noundef %.0.i.i348, ptr noundef nonnull %1257)
   %1259 = trunc i64 %1258 to i32
   %1260 = or i32 %1259, 1
   %1261 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1260, i1 true)
@@ -49681,13 +49681,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Flatt
   %1264 = add nuw nsw i32 %1263, 73
   %1265 = lshr i32 %1264, 6
   %1266 = zext nneg i32 %1265 to i64
-  %1267 = add i64 %.42, 2
+  %1267 = add i64 %.43, 2
   %1268 = add i64 %1267, %1258
   %1269 = add i64 %1268, %1266
   br label %1270
 
 1270:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16FlattenParameterEEEmRKT_.exit, %1224
-  %.43 = phi i64 [ %1269, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16FlattenParameterEEEmRKT_.exit ], [ %.42, %1224 ]
+  %.44 = phi i64 [ %1269, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16FlattenParameterEEEmRKT_.exit ], [ %.43, %1224 ]
   %1271 = and i32 %1060, 64
   %.not210 = icmp eq i32 %1271, 0
   br i1 %.not210, label %1320, label %1272
@@ -49719,7 +49719,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Flatt
   br label %1290
 
 1290:                                             ; preds = %1280, %1278
-  %.0.i.i351 = phi i64 [ %1289, %1280 ], [ 0, %1278 ]
+  %.1.i.i351 = phi i64 [ %1289, %1280 ], [ 0, %1278 ]
   %1291 = and i32 %1276, 2
   %.not11.i.i352 = icmp eq i32 %1291, 0
   br i1 %.not11.i.i352, label %1304, label %1292
@@ -49734,22 +49734,22 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Flatt
   %1299 = mul nuw nsw i64 %1298, 9
   %1300 = add nuw nsw i64 %1299, 73
   %1301 = lshr i64 %1300, 6
-  %1302 = add nuw nsw i64 %.0.i.i351, 1
+  %1302 = add nuw nsw i64 %.1.i.i351, 1
   %1303 = add nuw nsw i64 %1302, %1301
   br label %1304
 
 1304:                                             ; preds = %1292, %1290
-  %.1.i.i353 = phi i64 [ %1303, %1292 ], [ %.0.i.i351, %1290 ]
+  %.2.i.i353 = phi i64 [ %1303, %1292 ], [ %.1.i.i351, %1290 ]
   %1305 = and i32 %1276, 4
   %.not12.i.i354 = icmp eq i32 %1305, 0
-  %1306 = add nuw nsw i64 %.1.i.i353, 5
-  %spec.select.i.i355 = select i1 %.not12.i.i354, i64 %.1.i.i353, i64 %1306
+  %1306 = add nuw nsw i64 %.2.i.i353, 5
+  %spec.select.i.i355 = select i1 %.not12.i.i354, i64 %.2.i.i353, i64 %1306
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18ReductionParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18ReductionParameterEEEmRKT_.exit: ; preds = %1272, %1304
-  %.2.i.i356 = phi i64 [ 0, %1272 ], [ %spec.select.i.i355, %1304 ]
+  %.0.i.i356 = phi i64 [ 0, %1272 ], [ %spec.select.i.i355, %1304 ]
   %1307 = getelementptr inbounds i8, ptr %1274, i64 20
-  %1308 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1274, i64 noundef %.2.i.i356, ptr noundef nonnull %1307)
+  %1308 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1274, i64 noundef %.0.i.i356, ptr noundef nonnull %1307)
   %1309 = trunc i64 %1308 to i32
   %1310 = or i32 %1309, 1
   %1311 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1310, i1 true)
@@ -49758,13 +49758,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Reduc
   %1314 = add nuw nsw i32 %1313, 73
   %1315 = lshr i32 %1314, 6
   %1316 = zext nneg i32 %1315 to i64
-  %1317 = add i64 %.43, 2
+  %1317 = add i64 %.44, 2
   %1318 = add i64 %1317, %1308
   %1319 = add i64 %1318, %1316
   br label %1320
 
 1320:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18ReductionParameterEEEmRKT_.exit, %1270
-  %.44 = phi i64 [ %1319, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18ReductionParameterEEEmRKT_.exit ], [ %.43, %1270 ]
+  %.45 = phi i64 [ %1319, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18ReductionParameterEEEmRKT_.exit ], [ %.44, %1270 ]
   %1321 = and i32 %1060, 128
   %.not211 = icmp eq i32 %1321, 0
   br i1 %.not211, label %1337, label %1322
@@ -49781,13 +49781,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Reduc
   %1331 = add nuw nsw i32 %1330, 73
   %1332 = lshr i32 %1331, 6
   %1333 = zext nneg i32 %1332 to i64
-  %1334 = add i64 %.44, 2
+  %1334 = add i64 %.45, 2
   %1335 = add i64 %1334, %1325
   %1336 = add i64 %1335, %1333
   br label %1337
 
 1337:                                             ; preds = %1320, %1322, %1058
-  %.45 = phi i64 [ %1336, %1322 ], [ %.44, %1320 ], [ %.37, %1058 ]
+  %.38 = phi i64 [ %1336, %1322 ], [ %.45, %1320 ], [ %.30, %1058 ]
   %1338 = and i32 %1060, 65280
   %.not212 = icmp eq i32 %1338, 0
   br i1 %.not212, label %1513, label %1339
@@ -49824,7 +49824,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Reduc
   br label %1359
 
 1359:                                             ; preds = %1349, %1347
-  %.0.i.i359 = phi i64 [ %1358, %1349 ], [ 0, %1347 ]
+  %.1.i.i359 = phi i64 [ %1358, %1349 ], [ 0, %1347 ]
   %1360 = and i32 %1345, 2
   %.not9.i.i360 = icmp eq i32 %1360, 0
   br i1 %.not9.i.i360, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileParameterEEEmRKT_.exit, label %1361
@@ -49839,13 +49839,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Reduc
   %1368 = mul nuw nsw i64 %1367, 9
   %1369 = add nuw nsw i64 %1368, 137
   %1370 = lshr i64 %1369, 6
-  %1371 = add nuw nsw i64 %1370, %.0.i.i359
+  %1371 = add nuw nsw i64 %1370, %.1.i.i359
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileParameterEEEmRKT_.exit: ; preds = %1341, %1359, %1361
-  %.1.i.i361 = phi i64 [ %1371, %1361 ], [ %.0.i.i359, %1359 ], [ 0, %1341 ]
+  %.0.i.i361 = phi i64 [ %1371, %1361 ], [ %.1.i.i359, %1359 ], [ 0, %1341 ]
   %1372 = getelementptr inbounds i8, ptr %1343, i64 20
-  %1373 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1343, i64 noundef %.1.i.i361, ptr noundef nonnull %1372)
+  %1373 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1343, i64 noundef %.0.i.i361, ptr noundef nonnull %1372)
   %1374 = trunc i64 %1373 to i32
   %1375 = or i32 %1374, 1
   %1376 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1375, i1 true)
@@ -49854,13 +49854,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileP
   %1379 = add nuw nsw i32 %1378, 73
   %1380 = lshr i32 %1379, 6
   %1381 = zext nneg i32 %1380 to i64
-  %1382 = add i64 %.45, 2
+  %1382 = add i64 %.38, 2
   %1383 = add i64 %1382, %1373
   %1384 = add i64 %1383, %1381
   br label %1385
 
 1385:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileParameterEEEmRKT_.exit, %1339
-  %.46 = phi i64 [ %1384, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileParameterEEEmRKT_.exit ], [ %.45, %1339 ]
+  %.47 = phi i64 [ %1384, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileParameterEEEmRKT_.exit ], [ %.38, %1339 ]
   %1386 = and i32 %1060, 512
   %.not214 = icmp eq i32 %1386, 0
   br i1 %.not214, label %1414, label %1387
@@ -49879,21 +49879,21 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TileP
   %1395 = and i32 %1394, 2
   %1396 = and i32 %1391, 2
   %narrow.i.i363 = add nuw nsw i32 %1395, %1396
-  %.1.i.i364 = zext nneg i32 %narrow.i.i363 to i64
+  %.2.i.i364 = zext nneg i32 %narrow.i.i363 to i64
   %1397 = and i32 %1391, 4
   %.not14.i.i = icmp eq i32 %1397, 0
-  %1398 = add nuw nsw i64 %.1.i.i364, 5
-  %.2.i.i365 = select i1 %.not14.i.i, i64 %.1.i.i364, i64 %1398
+  %1398 = add nuw nsw i64 %.2.i.i364, 5
+  %.3.i.i = select i1 %.not14.i.i, i64 %.2.i.i364, i64 %1398
   %1399 = and i32 %1391, 8
   %.not15.i.i = icmp eq i32 %1399, 0
-  %1400 = add nuw nsw i64 %.2.i.i365, 5
-  %spec.select16.i.i = select i1 %.not15.i.i, i64 %.2.i.i365, i64 %1400
+  %1400 = add nuw nsw i64 %.3.i.i, 5
+  %spec.select16.i.i = select i1 %.not15.i.i, i64 %.3.i.i, i64 %1400
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18BatchNormParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18BatchNormParameterEEEmRKT_.exit: ; preds = %1387, %1393
-  %.3.i.i = phi i64 [ 0, %1387 ], [ %spec.select16.i.i, %1393 ]
+  %.0.i.i365 = phi i64 [ 0, %1387 ], [ %spec.select16.i.i, %1393 ]
   %1401 = getelementptr inbounds i8, ptr %1389, i64 20
-  %1402 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1389, i64 noundef %.3.i.i, ptr noundef nonnull %1401)
+  %1402 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1389, i64 noundef %.0.i.i365, ptr noundef nonnull %1401)
   %1403 = trunc i64 %1402 to i32
   %1404 = or i32 %1403, 1
   %1405 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1404, i1 true)
@@ -49902,13 +49902,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Batch
   %1408 = add nuw nsw i32 %1407, 73
   %1409 = lshr i32 %1408, 6
   %1410 = zext nneg i32 %1409 to i64
-  %1411 = add i64 %.46, 2
+  %1411 = add i64 %.47, 2
   %1412 = add i64 %1411, %1402
   %1413 = add i64 %1412, %1410
   br label %1414
 
 1414:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18BatchNormParameterEEEmRKT_.exit, %1385
-  %.47 = phi i64 [ %1413, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18BatchNormParameterEEEmRKT_.exit ], [ %.46, %1385 ]
+  %.48 = phi i64 [ %1413, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18BatchNormParameterEEEmRKT_.exit ], [ %.47, %1385 ]
   %1415 = and i32 %1060, 1024
   %.not215 = icmp eq i32 %1415, 0
   br i1 %.not215, label %1435, label %1416
@@ -49931,13 +49931,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Batch
   %1429 = add nuw nsw i32 %1428, 73
   %1430 = lshr i32 %1429, 6
   %1431 = zext nneg i32 %1430 to i64
-  %1432 = add i64 %.47, 2
+  %1432 = add i64 %.48, 2
   %1433 = add i64 %1432, %1423
   %1434 = add i64 %1433, %1431
   br label %1435
 
 1435:                                             ; preds = %1416, %1414
-  %.48 = phi i64 [ %1434, %1416 ], [ %.47, %1414 ]
+  %.49 = phi i64 [ %1434, %1416 ], [ %.48, %1414 ]
   %1436 = and i32 %1060, 2048
   %.not216 = icmp eq i32 %1436, 0
   br i1 %.not216, label %1443, label %1437
@@ -49946,12 +49946,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Batch
   %1438 = getelementptr inbounds i8, ptr %0, i64 552
   %1439 = load ptr, ptr %1438, align 8
   %1440 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13BiasParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) %1439)
-  %1441 = add i64 %.48, 2
+  %1441 = add i64 %.49, 2
   %1442 = add i64 %1441, %1440
   br label %1443
 
 1443:                                             ; preds = %1437, %1435
-  %.49 = phi i64 [ %1442, %1437 ], [ %.48, %1435 ]
+  %.50 = phi i64 [ %1442, %1437 ], [ %.49, %1435 ]
   %1444 = and i32 %1060, 4096
   %.not217 = icmp eq i32 %1444, 0
   br i1 %.not217, label %1460, label %1445
@@ -49968,13 +49968,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Batch
   %1454 = add nuw nsw i32 %1453, 73
   %1455 = lshr i32 %1454, 6
   %1456 = zext nneg i32 %1455 to i64
-  %1457 = add i64 %.49, 2
+  %1457 = add i64 %.50, 2
   %1458 = add i64 %1457, %1448
   %1459 = add i64 %1458, %1456
   br label %1460
 
 1460:                                             ; preds = %1445, %1443
-  %.50 = phi i64 [ %1459, %1445 ], [ %.49, %1443 ]
+  %.51 = phi i64 [ %1459, %1445 ], [ %.50, %1443 ]
   %1461 = and i32 %1060, 8192
   %.not218 = icmp eq i32 %1461, 0
   br i1 %.not218, label %1468, label %1462
@@ -49983,12 +49983,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Batch
   %1463 = getelementptr inbounds i8, ptr %0, i64 568
   %1464 = load ptr, ptr %1463, align 8
   %1465 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14InputParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(48) %1464)
-  %1466 = add i64 %.50, 2
+  %1466 = add i64 %.51, 2
   %1467 = add i64 %1466, %1465
   br label %1468
 
 1468:                                             ; preds = %1462, %1460
-  %.51 = phi i64 [ %1467, %1462 ], [ %.50, %1460 ]
+  %.52 = phi i64 [ %1467, %1462 ], [ %.51, %1460 ]
   %1469 = and i32 %1060, 16384
   %.not219 = icmp eq i32 %1469, 0
   br i1 %.not219, label %1505, label %1470
@@ -50032,13 +50032,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropP
   %1499 = add nuw nsw i32 %1498, 73
   %1500 = lshr i32 %1499, 6
   %1501 = zext nneg i32 %1500 to i64
-  %1502 = add i64 %.51, 2
+  %1502 = add i64 %.52, 2
   %1503 = add i64 %1502, %1493
   %1504 = add i64 %1503, %1501
   br label %1505
 
 1505:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropParameterEEEmRKT_.exit, %1468
-  %.52 = phi i64 [ %1504, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropParameterEEEmRKT_.exit ], [ %.51, %1468 ]
+  %.53 = phi i64 [ %1504, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropParameterEEEmRKT_.exit ], [ %.52, %1468 ]
   %1506 = and i32 %1060, 32768
   %.not220 = icmp eq i32 %1506, 0
   br i1 %.not220, label %1513, label %1507
@@ -50047,12 +50047,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropP
   %1508 = getelementptr inbounds i8, ptr %0, i64 584
   %1509 = load ptr, ptr %1508, align 8
   %1510 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18ParameterParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %1509)
-  %1511 = add i64 %.52, 2
+  %1511 = add i64 %.53, 2
   %1512 = add i64 %1511, %1510
   br label %1513
 
 1513:                                             ; preds = %1505, %1507, %1337
-  %.53 = phi i64 [ %1512, %1507 ], [ %.52, %1505 ], [ %.45, %1337 ]
+  %.46 = phi i64 [ %1512, %1507 ], [ %.53, %1505 ], [ %.38, %1337 ]
   %1514 = and i32 %1060, 16711680
   %.not221 = icmp eq i32 %1514, 0
   br i1 %.not221, label %1715, label %1515
@@ -50074,13 +50074,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropP
   %1526 = add nuw nsw i32 %1525, 73
   %1527 = lshr i32 %1526, 6
   %1528 = zext nneg i32 %1527 to i64
-  %1529 = add i64 %.53, 2
+  %1529 = add i64 %.46, 2
   %1530 = add i64 %1529, %1520
   %1531 = add i64 %1530, %1528
   br label %1532
 
 1532:                                             ; preds = %1517, %1515
-  %.54 = phi i64 [ %1531, %1517 ], [ %.53, %1515 ]
+  %.55 = phi i64 [ %1531, %1517 ], [ %.46, %1515 ]
   %1533 = and i32 %1060, 131072
   %.not223 = icmp eq i32 %1533, 0
   br i1 %.not223, label %1549, label %1534
@@ -50097,13 +50097,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropP
   %1543 = add nuw nsw i32 %1542, 73
   %1544 = lshr i32 %1543, 6
   %1545 = zext nneg i32 %1544 to i64
-  %1546 = add i64 %.54, 2
+  %1546 = add i64 %.55, 2
   %1547 = add i64 %1546, %1537
   %1548 = add i64 %1547, %1545
   br label %1549
 
 1549:                                             ; preds = %1534, %1532
-  %.55 = phi i64 [ %1548, %1534 ], [ %.54, %1532 ]
+  %.56 = phi i64 [ %1548, %1534 ], [ %.55, %1532 ]
   %1550 = and i32 %1060, 262144
   %.not224 = icmp eq i32 %1550, 0
   br i1 %.not224, label %1572, label %1551
@@ -50126,13 +50126,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropP
   %1566 = add nuw nsw i32 %1565, 73
   %1567 = lshr i32 %1566, 6
   %1568 = zext nneg i32 %1567 to i64
-  %1569 = add i64 %.55, 2
+  %1569 = add i64 %.56, 2
   %1570 = add i64 %1569, %1560
   %1571 = add i64 %1570, %1568
   br label %1572
 
 1572:                                             ; preds = %1551, %1549
-  %.56 = phi i64 [ %1571, %1551 ], [ %.55, %1549 ]
+  %.57 = phi i64 [ %1571, %1551 ], [ %.56, %1549 ]
   %1573 = and i32 %1060, 524288
   %.not225 = icmp eq i32 %1573, 0
   br i1 %.not225, label %1615, label %1574
@@ -50168,23 +50168,23 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13CropP
   br label %1596
 
 1596:                                             ; preds = %1582, %1580
-  %.0.i.i372 = phi i64 [ %1595, %1582 ], [ 0, %1580 ]
+  %.1.i.i372 = phi i64 [ %1595, %1582 ], [ 0, %1580 ]
   %1597 = and i32 %1578, 2
   %1598 = lshr i32 %1578, 1
   %1599 = and i32 %1598, 2
   %narrow.i.i373 = add nuw nsw i32 %1599, %1597
   %spec.select.i.i374 = zext nneg i32 %narrow.i.i373 to i64
-  %.2.i.i375 = add i64 %.0.i.i372, %spec.select.i.i374
+  %.3.i.i375 = add i64 %.1.i.i372, %spec.select.i.i374
   %1600 = and i32 %1578, 8
   %.not15.i.i376 = icmp eq i32 %1600, 0
-  %1601 = add i64 %.2.i.i375, 5
-  %spec.select16.i.i377 = select i1 %.not15.i.i376, i64 %.2.i.i375, i64 %1601
+  %1601 = add i64 %.3.i.i375, 5
+  %spec.select16.i.i377 = select i1 %.not15.i.i376, i64 %.3.i.i375, i64 %1601
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22NormalizeBBoxParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22NormalizeBBoxParameterEEEmRKT_.exit: ; preds = %1574, %1596
-  %.3.i.i378 = phi i64 [ 0, %1574 ], [ %spec.select16.i.i377, %1596 ]
+  %.0.i.i378 = phi i64 [ 0, %1574 ], [ %spec.select16.i.i377, %1596 ]
   %1602 = getelementptr inbounds i8, ptr %1576, i64 20
-  %1603 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1576, i64 noundef %.3.i.i378, ptr noundef nonnull %1602)
+  %1603 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1576, i64 noundef %.0.i.i378, ptr noundef nonnull %1602)
   %1604 = trunc i64 %1603 to i32
   %1605 = or i32 %1604, 1
   %1606 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1605, i1 true)
@@ -50193,13 +50193,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22Norma
   %1609 = add nuw nsw i32 %1608, 73
   %1610 = lshr i32 %1609, 6
   %1611 = zext nneg i32 %1610 to i64
-  %1612 = add i64 %.56, 2
+  %1612 = add i64 %.57, 2
   %1613 = add i64 %1612, %1603
   %1614 = add i64 %1613, %1611
   br label %1615
 
 1615:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22NormalizeBBoxParameterEEEmRKT_.exit, %1572
-  %.57 = phi i64 [ %1614, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22NormalizeBBoxParameterEEEmRKT_.exit ], [ %.56, %1572 ]
+  %.58 = phi i64 [ %1614, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22NormalizeBBoxParameterEEEmRKT_.exit ], [ %.57, %1572 ]
   %1616 = and i32 %1060, 1048576
   %.not226 = icmp eq i32 %1616, 0
   br i1 %.not226, label %1632, label %1617
@@ -50216,13 +50216,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22Norma
   %1626 = add nuw nsw i32 %1625, 73
   %1627 = lshr i32 %1626, 6
   %1628 = zext nneg i32 %1627 to i64
-  %1629 = add i64 %.57, 2
+  %1629 = add i64 %.58, 2
   %1630 = add i64 %1629, %1620
   %1631 = add i64 %1630, %1628
   br label %1632
 
 1632:                                             ; preds = %1617, %1615
-  %.58 = phi i64 [ %1631, %1617 ], [ %.57, %1615 ]
+  %.59 = phi i64 [ %1631, %1617 ], [ %.58, %1615 ]
   %1633 = and i32 %1060, 2097152
   %.not227 = icmp eq i32 %1633, 0
   br i1 %.not227, label %1649, label %1634
@@ -50239,13 +50239,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22Norma
   %1643 = add nuw nsw i32 %1642, 73
   %1644 = lshr i32 %1643, 6
   %1645 = zext nneg i32 %1644 to i64
-  %1646 = add i64 %.58, 2
+  %1646 = add i64 %.59, 2
   %1647 = add i64 %1646, %1637
   %1648 = add i64 %1647, %1645
   br label %1649
 
 1649:                                             ; preds = %1634, %1632
-  %.59 = phi i64 [ %1648, %1634 ], [ %.58, %1632 ]
+  %.60 = phi i64 [ %1648, %1634 ], [ %.59, %1632 ]
   %1650 = and i32 %1060, 4194304
   %.not228 = icmp eq i32 %1650, 0
   br i1 %.not228, label %1666, label %1651
@@ -50262,13 +50262,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22Norma
   %1660 = add nuw nsw i32 %1659, 73
   %1661 = lshr i32 %1660, 6
   %1662 = zext nneg i32 %1661 to i64
-  %1663 = add i64 %.59, 3
+  %1663 = add i64 %.60, 3
   %1664 = add i64 %1663, %1654
   %1665 = add i64 %1664, %1662
   br label %1666
 
 1666:                                             ; preds = %1651, %1649
-  %.60 = phi i64 [ %1665, %1651 ], [ %.59, %1649 ]
+  %.61 = phi i64 [ %1665, %1651 ], [ %.60, %1649 ]
   %1667 = and i32 %1060, 8388608
   %.not229 = icmp eq i32 %1667, 0
   br i1 %.not229, label %1715, label %1668
@@ -50300,7 +50300,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22Norma
   br label %1686
 
 1686:                                             ; preds = %1676, %1674
-  %.0.i.i381 = phi i64 [ %1685, %1676 ], [ 0, %1674 ]
+  %.1.i.i381 = phi i64 [ %1685, %1676 ], [ 0, %1674 ]
   %1687 = and i32 %1672, 2
   %.not11.i.i382 = icmp eq i32 %1687, 0
   br i1 %.not11.i.i382, label %1699, label %1688
@@ -50315,21 +50315,21 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe22Norma
   %1695 = add nuw nsw i32 %1694, 137
   %1696 = lshr i32 %1695, 6
   %1697 = zext nneg i32 %1696 to i64
-  %1698 = add nuw nsw i64 %.0.i.i381, %1697
+  %1698 = add nuw nsw i64 %.1.i.i381, %1697
   br label %1699
 
 1699:                                             ; preds = %1688, %1686
-  %.1.i.i383 = phi i64 [ %1698, %1688 ], [ %.0.i.i381, %1686 ]
+  %.2.i.i383 = phi i64 [ %1698, %1688 ], [ %.1.i.i381, %1686 ]
   %1700 = and i32 %1672, 4
   %.not12.i.i384 = icmp eq i32 %1700, 0
-  %1701 = add nuw nsw i64 %.1.i.i383, 5
-  %spec.select.i.i385 = select i1 %.not12.i.i384, i64 %.1.i.i383, i64 %1701
+  %1701 = add nuw nsw i64 %.2.i.i383, 5
+  %spec.select.i.i385 = select i1 %.not12.i.i384, i64 %.2.i.i383, i64 %1701
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPoolingParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPoolingParameterEEEmRKT_.exit: ; preds = %1668, %1699
-  %.2.i.i386 = phi i64 [ 0, %1668 ], [ %spec.select.i.i385, %1699 ]
+  %.0.i.i386 = phi i64 [ 0, %1668 ], [ %spec.select.i.i385, %1699 ]
   %1702 = getelementptr inbounds i8, ptr %1670, i64 20
-  %1703 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1670, i64 noundef %.2.i.i386, ptr noundef nonnull %1702)
+  %1703 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1670, i64 noundef %.0.i.i386, ptr noundef nonnull %1702)
   %1704 = trunc i64 %1703 to i32
   %1705 = or i32 %1704, 1
   %1706 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1705, i1 true)
@@ -50338,13 +50338,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPo
   %1709 = add nuw nsw i32 %1708, 73
   %1710 = lshr i32 %1709, 6
   %1711 = zext nneg i32 %1710 to i64
-  %1712 = add i64 %.60, 4
+  %1712 = add i64 %.61, 4
   %1713 = add i64 %1712, %1703
   %1714 = add i64 %1713, %1711
   br label %1715
 
 1715:                                             ; preds = %1666, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPoolingParameterEEEmRKT_.exit, %1513
-  %.61 = phi i64 [ %1714, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPoolingParameterEEEmRKT_.exit ], [ %.60, %1666 ], [ %.53, %1513 ]
+  %.54 = phi i64 [ %1714, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPoolingParameterEEEmRKT_.exit ], [ %.61, %1666 ], [ %.46, %1513 ]
   %1716 = and i32 %1060, 16777216
   %.not230 = icmp eq i32 %1716, 0
   br i1 %.not230, label %1729, label %1717
@@ -50359,12 +50359,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19ROIPo
   %1724 = mul nuw nsw i64 %1723, 9
   %1725 = add nuw nsw i64 %1724, 73
   %1726 = lshr i64 %1725, 6
-  %1727 = add i64 %.61, 1
+  %1727 = add i64 %.54, 1
   %1728 = add i64 %1727, %1726
   br label %1729
 
 1729:                                             ; preds = %1717, %1715
-  %.62 = phi i64 [ %1728, %1717 ], [ %.61, %1715 ]
+  %.62 = phi i64 [ %1728, %1717 ], [ %.54, %1715 ]
   %1730 = getelementptr inbounds i8, ptr %0, i64 24
   %1731 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.62, ptr noundef nonnull %1730)
   ret i64 %1731
@@ -50403,7 +50403,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0.i = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1.i = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not13.i = icmp eq i32 %25, 0
   br i1 %.not13.i, label %38, label %26
@@ -50418,16 +50418,16 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %33 = mul nuw nsw i64 %32, 9
   %34 = add nuw nsw i64 %33, 73
   %35 = lshr i64 %34, 6
-  %36 = add i64 %.0.i, 1
+  %36 = add i64 %.1.i, 1
   %37 = add i64 %36, %35
   br label %38
 
 38:                                               ; preds = %26, %24
-  %.1.i = phi i64 [ %37, %26 ], [ %.0.i, %24 ]
+  %.2.i = phi i64 [ %37, %26 ], [ %.1.i, %24 ]
   %39 = and i32 %3, 4
   %.not14.i = icmp eq i32 %39, 0
-  %40 = add i64 %.1.i, 5
-  %spec.select.i = select i1 %.not14.i, i64 %.1.i, i64 %40
+  %40 = add i64 %.2.i, 5
+  %spec.select.i = select i1 %.not14.i, i64 %.2.i, i64 %40
   %41 = and i32 %3, 8
   %.not15.i = icmp eq i32 %41, 0
   %42 = add i64 %spec.select.i, 5
@@ -50435,9 +50435,9 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   br label %_ZNK12opencv_caffe9ParamSpec12ByteSizeLongEv.exit
 
 _ZNK12opencv_caffe9ParamSpec12ByteSizeLongEv.exit: ; preds = %1, %38
-  %.3.i = phi i64 [ 0, %1 ], [ %spec.select16.i, %38 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %spec.select16.i, %38 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 20
-  %44 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3.i, ptr noundef nonnull %43)
+  %44 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0.i, ptr noundef nonnull %43)
   %45 = trunc i64 %44 to i32
   %46 = or i32 %45, 1
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
@@ -50476,7 +50476,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0.i = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1.i = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not13.i = icmp eq i32 %18, 0
   br i1 %.not13.i, label %30, label %19
@@ -50491,11 +50491,11 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %26 = add nuw nsw i32 %25, 137
   %27 = lshr i32 %26, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = add nuw nsw i64 %.0.i, %28
+  %29 = add nuw nsw i64 %.1.i, %28
   br label %30
 
 30:                                               ; preds = %19, %17
-  %.1.i = phi i64 [ %29, %19 ], [ %.0.i, %17 ]
+  %.2.i = phi i64 [ %29, %19 ], [ %.1.i, %17 ]
   %31 = and i32 %3, 4
   %.not14.i = icmp eq i32 %31, 0
   br i1 %.not14.i, label %43, label %32
@@ -50510,11 +50510,11 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %39 = add nuw nsw i32 %38, 137
   %40 = lshr i32 %39, 6
   %41 = zext nneg i32 %40 to i64
-  %42 = add nuw nsw i64 %.1.i, %41
+  %42 = add nuw nsw i64 %.2.i, %41
   br label %43
 
 43:                                               ; preds = %32, %30
-  %.2.i = phi i64 [ %42, %32 ], [ %.1.i, %30 ]
+  %.3.i = phi i64 [ %42, %32 ], [ %.2.i, %30 ]
   %44 = and i32 %3, 8
   %.not15.i = icmp eq i32 %44, 0
   br i1 %.not15.i, label %_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLongEv.exit, label %45
@@ -50529,13 +50529,13 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %52 = add nuw nsw i32 %51, 137
   %53 = lshr i32 %52, 6
   %54 = zext nneg i32 %53 to i64
-  %55 = add nuw nsw i64 %.2.i, %54
+  %55 = add nuw nsw i64 %.3.i, %54
   br label %_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLongEv.exit
 
 _ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLongEv.exit: ; preds = %1, %43, %45
-  %.3.i = phi i64 [ %55, %45 ], [ %.2.i, %43 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %55, %45 ], [ %.3.i, %43 ], [ 0, %1 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 20
-  %57 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3.i, ptr noundef nonnull %56)
+  %57 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0.i, ptr noundef nonnull %56)
   %58 = trunc i64 %57 to i32
   %59 = or i32 %58, 1
   %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
@@ -50580,7 +50580,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   br label %23
 
 23:                                               ; preds = %12, %10
-  %.0.i = phi i64 [ %22, %12 ], [ %6, %10 ]
+  %.1.i = phi i64 [ %22, %12 ], [ %6, %10 ]
   %24 = and i32 %8, 2
   %.not12.i = icmp eq i32 %24, 0
   br i1 %.not12.i, label %_ZNK12opencv_caffe14SliceParameter12ByteSizeLongEv.exit, label %25
@@ -50595,13 +50595,13 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %32 = mul nuw nsw i64 %31, 9
   %33 = add nuw nsw i64 %32, 137
   %34 = lshr i64 %33, 6
-  %35 = add i64 %34, %.0.i
+  %35 = add i64 %34, %.1.i
   br label %_ZNK12opencv_caffe14SliceParameter12ByteSizeLongEv.exit
 
 _ZNK12opencv_caffe14SliceParameter12ByteSizeLongEv.exit: ; preds = %1, %23, %25
-  %.1.i = phi i64 [ %35, %25 ], [ %.0.i, %23 ], [ %6, %1 ]
+  %.0.i = phi i64 [ %35, %25 ], [ %.1.i, %23 ], [ %6, %1 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 20
-  %37 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1.i, ptr noundef nonnull %36)
+  %37 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0.i, ptr noundef nonnull %36)
   %38 = trunc i64 %37 to i32
   %39 = or i32 %38, 1
   %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %39, i1 true)
@@ -50644,7 +50644,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0.i = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1.i = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %.not11.i = icmp eq i32 %22, 0
   br i1 %.not11.i, label %34, label %23
@@ -50659,11 +50659,11 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %30 = mul nuw nsw i64 %29, 9
   %31 = add nuw nsw i64 %30, 137
   %32 = lshr i64 %31, 6
-  %33 = add i64 %32, %.0.i
+  %33 = add i64 %32, %.1.i
   br label %34
 
 34:                                               ; preds = %23, %21
-  %.1.i = phi i64 [ %33, %23 ], [ %.0.i, %21 ]
+  %.2.i = phi i64 [ %33, %23 ], [ %.1.i, %21 ]
   %35 = and i32 %3, 4
   %.not12.i = icmp eq i32 %35, 0
   br i1 %.not12.i, label %_ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv.exit, label %36
@@ -50678,13 +50678,13 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %43 = mul nuw nsw i64 %42, 9
   %44 = add nuw nsw i64 %43, 137
   %45 = lshr i64 %44, 6
-  %46 = add i64 %45, %.1.i
+  %46 = add i64 %45, %.2.i
   br label %_ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv.exit
 
 _ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv.exit: ; preds = %1, %34, %36
-  %.2.i = phi i64 [ %46, %36 ], [ %.1.i, %34 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %46, %36 ], [ %.2.i, %34 ], [ 0, %1 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 20
-  %48 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2.i, ptr noundef nonnull %47)
+  %48 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0.i, ptr noundef nonnull %47)
   %49 = trunc i64 %48 to i32
   %50 = or i32 %49, 1
   %51 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
@@ -62827,7 +62827,7 @@ define hidden noundef ptr @_ZN12opencv_caffe23TransformationParameter14_Internal
   br label %16
 
 16:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.065 = phi ptr [ %1, %.preheader ], [ %.065.be, %.backedge ]
   %17 = load i32, ptr %4, align 4
   %18 = load ptr, ptr %2, align 8
@@ -62861,11 +62861,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %20
   br i1 %36, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68: ; preds = %16, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.171 = phi ptr [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.065, %16 ]
-  %37 = load i8, ptr %.171, align 1
+  %.471 = phi ptr [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.065, %16 ]
+  %37 = load i8, ptr %.471, align 1
   %38 = zext i8 %37 to i32
   %39 = icmp sgt i8 %37, -1
-  %40 = getelementptr inbounds i8, ptr %.171, i64 1
+  %40 = getelementptr inbounds i8, ptr %.471, i64 1
   br i1 %39, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68
@@ -62878,11 +62878,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread68: ; preds = %1
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %.171, i64 2
+  %49 = getelementptr inbounds i8, ptr %.471, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 50:                                               ; preds = %41
-  %51 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.171, i32 noundef %46)
+  %51 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.471, i32 noundef %46)
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = extractvalue { ptr, i32 } %51, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -62914,7 +62914,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %.backedge
 
 .backedge:                                        ; preds = %123, %128, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %131, %58, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42, %213
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %213 ], [ %163, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ %137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %65, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %59, %58 ], [ %65, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37.thread ], [ %163, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42.thread ], [ %.sroa.0.0, %128 ], [ %.sroa.0.0, %123 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %213 ], [ %163, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ %137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %65, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %59, %58 ], [ %65, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37.thread ], [ %163, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42.thread ], [ %.sroa.0.0, %128 ], [ %.sroa.0.0, %123 ]
   %.065.be = phi ptr [ %214, %213 ], [ %181, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ %155, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %132, %131 ], [ %119, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %104, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %83, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %60, %58 ], [ %.0.i.i25.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %.0.i.i29.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i36.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37.thread ], [ %.0.i.i41.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42.thread ], [ %125, %128 ], [ %125, %123 ]
   br label %16, !llvm.loop !182
 
@@ -63046,14 +63046,14 @@ _ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev
   br label %123
 
 123:                                              ; preds = %128, %121
-  %.2 = phi ptr [ %122, %121 ], [ %125, %128 ]
-  %124 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %122, %121 ], [ %125, %128 ]
+  %124 = getelementptr inbounds i8, ptr %.1, i64 1
   %.0.copyload.i2.i32 = load float, ptr %124, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store float %.0.copyload.i2.i32, ptr %3, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %125 = getelementptr inbounds i8, ptr %.2, i64 5
+  %125 = getelementptr inbounds i8, ptr %.1, i64 5
   %126 = load ptr, ptr %2, align 8
   %127 = icmp ugt ptr %126, %125
   br i1 %127, label %128, label %.backedge
@@ -63231,12 +63231,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not21, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit, %131, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42, %213, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %28, %189, %190
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %189 ], [ %.sroa.0.0, %190 ], [ %.sroa.0.0, %28 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %65, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %.sroa.0.0, %131 ], [ %137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %163, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ %.sroa.0.0, %213 ]
-  %.4 = phi ptr [ null, %189 ], [ %.0.i, %190 ], [ %spec.select, %28 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %131 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ null, %213 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %189 ], [ %.sroa.0.0, %190 ], [ %.sroa.0.0, %28 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %65, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %.sroa.0.0, %131 ], [ %137, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %163, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ %.sroa.0.0, %213 ]
+  %.3 = phi ptr [ null, %189 ], [ %.0.i, %190 ], [ %spec.select, %28 ], [ %34, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe23TransformationParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %131 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit42 ], [ null, %213 ]
   %215 = load i32, ptr %10, align 8
-  %216 = or i32 %215, %.sroa.0.3
+  %216 = or i32 %215, %.sroa.0.1
   store i32 %216, ptr %10, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -63545,7 +63545,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe23TransformationParameter12ByteSize
   br label %32
 
 32:                                               ; preds = %14, %12
-  %.0 = phi i64 [ %31, %14 ], [ %8, %12 ]
+  %.1 = phi i64 [ %31, %14 ], [ %8, %12 ]
   %33 = and i32 %10, 2
   %.not21 = icmp eq i32 %33, 0
   br i1 %.not21, label %45, label %34
@@ -63560,11 +63560,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe23TransformationParameter12ByteSize
   %41 = add nuw nsw i32 %40, 137
   %42 = lshr i32 %41, 6
   %43 = zext nneg i32 %42 to i64
-  %44 = add i64 %.0, %43
+  %44 = add i64 %.1, %43
   br label %45
 
 45:                                               ; preds = %34, %32
-  %.1 = phi i64 [ %44, %34 ], [ %.0, %32 ]
+  %.2 = phi i64 [ %44, %34 ], [ %.1, %32 ]
   %46 = lshr i32 %10, 1
   %47 = and i32 %46, 2
   %48 = lshr i32 %10, 2
@@ -63573,18 +63573,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe23TransformationParameter12ByteSize
   %51 = and i32 %50, 2
   %narrow = add nuw nsw i32 %49, %47
   %narrow27 = add nuw nsw i32 %narrow, %51
-  %.3 = zext nneg i32 %narrow27 to i64
-  %.4 = add i64 %.1, %.3
+  %.4 = zext nneg i32 %narrow27 to i64
+  %.5 = add i64 %.2, %.4
   %52 = and i32 %10, 32
   %.not25 = icmp eq i32 %52, 0
-  %53 = add i64 %.4, 5
-  %spec.select26 = select i1 %.not25, i64 %.4, i64 %53
+  %53 = add i64 %.5, 5
+  %spec.select26 = select i1 %.not25, i64 %.5, i64 %53
   br label %54
 
 54:                                               ; preds = %45, %1
-  %.5 = phi i64 [ %8, %1 ], [ %spec.select26, %45 ]
+  %.0 = phi i64 [ %8, %1 ], [ %spec.select26, %45 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 20
-  %56 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.5, ptr noundef nonnull %55)
+  %56 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %55)
   ret i64 %56
 }
 
@@ -63944,11 +63944,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.150 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.044, %.backedge ]
-  %31 = load i8, ptr %.150, align 1
+  %.250 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.044, %.backedge ]
+  %31 = load i8, ptr %.250, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.150, i64 1
+  %34 = getelementptr inbounds i8, ptr %.250, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47
@@ -63961,11 +63961,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.150, i64 2
+  %43 = getelementptr inbounds i8, ptr %.250, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.150, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.250, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -64239,12 +64239,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not15, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28, %166, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %22, %142, %143
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %142 ], [ %.sroa.0.0.ph, %143 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %.sroa.0.0.ph, %166 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %53, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %142 ], [ %.0.i, %143 ], [ %spec.select, %22 ], [ null, %166 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %142 ], [ %.sroa.0.0.ph, %143 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %.sroa.0.0.ph, %166 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %53, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %142 ], [ %.0.i, %143 ], [ %spec.select, %22 ], [ null, %166 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %168 = load i32, ptr %7, align 8
-  %169 = or i32 %168, %.sroa.0.3
+  %169 = or i32 %168, %.sroa.0.1
   store i32 %169, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -64443,10 +64443,10 @@ define hidden noundef i64 @_ZNK12opencv_caffe13LossParameter12ByteSizeLongEv(ptr
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %19 = zext nneg i32 %18 to i64
-  %spec.select = add nuw nsw i64 %.0, %19
+  %spec.select = add nuw nsw i64 %.1, %19
   %20 = and i32 %3, 4
   %.not12 = icmp eq i32 %20, 0
   br i1 %.not12, label %33, label %21
@@ -64466,9 +64466,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe13LossParameter12ByteSizeLongEv(ptr
   br label %33
 
 33:                                               ; preds = %17, %21, %1
-  %.2 = phi i64 [ %32, %21 ], [ %spec.select, %17 ], [ 0, %1 ]
+  %.0 = phi i64 [ %32, %21 ], [ %spec.select, %17 ], [ 0, %1 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 20
-  %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %34)
+  %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %34)
   ret i64 %35
 }
 
@@ -64795,11 +64795,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread44
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread44: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.147 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.041, %.backedge ]
-  %30 = load i8, ptr %.147, align 1
+  %.247 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.041, %.backedge ]
+  %30 = load i8, ptr %.247, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.147, i64 1
+  %33 = getelementptr inbounds i8, ptr %.247, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread44
@@ -64812,11 +64812,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread44: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.147, i64 2
+  %42 = getelementptr inbounds i8, ptr %.247, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.147, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.247, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -65021,13 +65021,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !186
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %133, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit22, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit27, %21, %109, %110
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %109 ], [ %.sroa.0.0.ph, %110 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %133 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %90, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit27 ], [ %71, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit22 ], [ %52, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %109 ], [ %.0.i, %110 ], [ %spec.select, %21 ], [ null, %133 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit22 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit27 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %109 ], [ %.sroa.0.0.ph, %110 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %133 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %90, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit27 ], [ %71, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit22 ], [ %52, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %109 ], [ %.0.i, %110 ], [ %spec.select, %21 ], [ null, %133 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit22 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit27 ]
   %135 = getelementptr inbounds i8, ptr %0, i64 16
   %136 = load i32, ptr %135, align 8
-  %137 = or i32 %136, %.sroa.0.3
+  %137 = or i32 %136, %.sroa.0.1
   store i32 %137, ptr %135, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65260,7 +65260,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe17AccuracyParameter12ByteSizeLongEv
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %30, label %19
@@ -65275,11 +65275,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe17AccuracyParameter12ByteSizeLongEv
   %26 = add nuw nsw i32 %25, 137
   %27 = lshr i32 %26, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = add nuw nsw i64 %.0, %28
+  %29 = add nuw nsw i64 %.1, %28
   br label %30
 
 30:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %29, %19 ], [ %.0, %17 ]
+  %.2 = phi i64 [ %29, %19 ], [ %.1, %17 ]
   %31 = and i32 %3, 4
   %.not12 = icmp eq i32 %31, 0
   br i1 %.not12, label %43, label %32
@@ -65294,13 +65294,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe17AccuracyParameter12ByteSizeLongEv
   %39 = mul nuw nsw i64 %38, 9
   %40 = add nuw nsw i64 %39, 137
   %41 = lshr i64 %40, 6
-  %42 = add nuw nsw i64 %41, %.1
+  %42 = add nuw nsw i64 %41, %.2
   br label %43
 
 43:                                               ; preds = %30, %32, %1
-  %.2 = phi i64 [ %42, %32 ], [ %.1, %30 ], [ 0, %1 ]
+  %.0 = phi i64 [ %42, %32 ], [ %.2, %30 ], [ 0, %1 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 20
-  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %44)
+  %45 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %44)
   ret i64 %45
 }
 
@@ -65629,11 +65629,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.146 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %.backedge ]
-  %30 = load i8, ptr %.146, align 1
+  %.246 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %.backedge ]
+  %30 = load i8, ptr %.246, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.146, i64 1
+  %33 = getelementptr inbounds i8, ptr %.246, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
@@ -65646,11 +65646,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.146, i64 2
+  %42 = getelementptr inbounds i8, ptr %.246, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.146, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.246, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -65864,13 +65864,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !187
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %140, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26, %21, %116, %117
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %116 ], [ %.sroa.0.0.ph, %117 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %140 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %116 ], [ %.0.i, %117 ], [ %spec.select, %21 ], [ null, %140 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %116 ], [ %.sroa.0.0.ph, %117 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %140 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %78, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %116 ], [ %.0.i, %117 ], [ %spec.select, %21 ], [ null, %140 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ]
   %142 = getelementptr inbounds i8, ptr %0, i64 16
   %143 = load i32, ptr %142, align 8
-  %144 = or i32 %143, %.sroa.0.3
+  %144 = or i32 %143, %.sroa.0.1
   store i32 %144, ptr %142, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66072,7 +66072,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15ArgMaxParameter12ByteSizeLongEv(p
   br label %20
 
 20:                                               ; preds = %9, %5
-  %.1 = phi i64 [ %19, %9 ], [ %spec.select, %5 ]
+  %.2 = phi i64 [ %19, %9 ], [ %spec.select, %5 ]
   %21 = and i32 %3, 4
   %.not12 = icmp eq i32 %21, 0
   br i1 %.not12, label %33, label %22
@@ -66087,13 +66087,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15ArgMaxParameter12ByteSizeLongEv(p
   %29 = add nuw nsw i32 %28, 137
   %30 = lshr i32 %29, 6
   %31 = zext nneg i32 %30 to i64
-  %32 = add nuw nsw i64 %.1, %31
+  %32 = add nuw nsw i64 %.2, %31
   br label %33
 
 33:                                               ; preds = %20, %22, %1
-  %.2 = phi i64 [ %32, %22 ], [ %.1, %20 ], [ 0, %1 ]
+  %.0 = phi i64 [ %32, %22 ], [ %.2, %20 ], [ 0, %1 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 20
-  %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %34)
+  %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %34)
   ret i64 %35
 }
 
@@ -66412,11 +66412,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.139 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.033, %.backedge ]
-  %29 = load i8, ptr %.139, align 1
+  %.239 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.033, %.backedge ]
+  %29 = load i8, ptr %.239, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.139, i64 1
+  %32 = getelementptr inbounds i8, ptr %.239, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
@@ -66429,11 +66429,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.139, i64 2
+  %41 = getelementptr inbounds i8, ptr %.239, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.139, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.239, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -66597,13 +66597,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !188
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %113, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21, %20, %89, %90
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %89 ], [ %.sroa.0.0.ph, %90 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %51, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %89 ], [ %.0.i, %90 ], [ %spec.select, %20 ], [ null, %113 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %89 ], [ %.sroa.0.0.ph, %90 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %51, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %89 ], [ %.0.i, %90 ], [ %spec.select, %20 ], [ null, %113 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = or i32 %116, %.sroa.0.3
+  %117 = or i32 %116, %.sroa.0.1
   store i32 %117, ptr %115, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -66775,7 +66775,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15ConcatParameter12ByteSizeLongEv(p
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not9 = icmp eq i32 %18, 0
   br i1 %.not9, label %30, label %19
@@ -66790,13 +66790,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15ConcatParameter12ByteSizeLongEv(p
   %26 = mul nuw nsw i64 %25, 9
   %27 = add nuw nsw i64 %26, 137
   %28 = lshr i64 %27, 6
-  %29 = add nuw nsw i64 %28, %.0
+  %29 = add nuw nsw i64 %28, %.1
   br label %30
 
 30:                                               ; preds = %17, %19, %1
-  %.1 = phi i64 [ %29, %19 ], [ %.0, %17 ], [ 0, %1 ]
+  %.0 = phi i64 [ %29, %19 ], [ %.1, %17 ], [ 0, %1 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %31)
+  %32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %31)
   ret i64 %32
 }
 
@@ -67122,11 +67122,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.144 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
-  %31 = load i8, ptr %.144, align 1
+  %.244 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
+  %31 = load i8, ptr %.244, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.144, i64 1
+  %34 = getelementptr inbounds i8, ptr %.244, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
@@ -67139,11 +67139,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.144, i64 2
+  %43 = getelementptr inbounds i8, ptr %.244, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.144, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.244, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -67351,13 +67351,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !189
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %141, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit22, %22, %117, %118
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %117 ], [ %.sroa.0.0.ph, %118 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %141 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %91, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit22 ], [ %53, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %117 ], [ %.0.i, %118 ], [ %spec.select, %22 ], [ null, %141 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit22 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %117 ], [ %.sroa.0.0.ph, %118 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %141 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %91, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit22 ], [ %53, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %117 ], [ %.0.i, %118 ], [ %spec.select, %22 ], [ null, %141 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit22 ]
   %143 = getelementptr inbounds i8, ptr %0, i64 16
   %144 = load i32, ptr %143, align 8
-  %145 = or i32 %144, %.sroa.0.3
+  %145 = or i32 %144, %.sroa.0.1
   store i32 %145, ptr %143, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -67497,21 +67497,21 @@ define hidden noundef i64 @_ZNK12opencv_caffe18BatchNormParameter12ByteSizeLongE
   %7 = and i32 %6, 2
   %8 = and i32 %3, 2
   %narrow = add nuw nsw i32 %7, %8
-  %.1 = zext nneg i32 %narrow to i64
+  %.2 = zext nneg i32 %narrow to i64
   %9 = and i32 %3, 4
   %.not14 = icmp eq i32 %9, 0
-  %10 = add nuw nsw i64 %.1, 5
-  %.2 = select i1 %.not14, i64 %.1, i64 %10
+  %10 = add nuw nsw i64 %.2, 5
+  %.3 = select i1 %.not14, i64 %.2, i64 %10
   %11 = and i32 %3, 8
   %.not15 = icmp eq i32 %11, 0
-  %12 = add nuw nsw i64 %.2, 5
-  %spec.select16 = select i1 %.not15, i64 %.2, i64 %12
+  %12 = add nuw nsw i64 %.3, 5
+  %spec.select16 = select i1 %.not15, i64 %.3, i64 %12
   br label %13
 
 13:                                               ; preds = %5, %1
-  %.3 = phi i64 [ 0, %1 ], [ %spec.select16, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select16, %5 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 20
-  %15 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3, ptr noundef nonnull %14)
+  %15 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %14)
   ret i64 %15
 }
 
@@ -67915,11 +67915,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.144 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
-  %31 = load i8, ptr %.144, align 1
+  %.244 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
+  %31 = load i8, ptr %.244, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.144, i64 1
+  %34 = getelementptr inbounds i8, ptr %.244, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
@@ -67932,11 +67932,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.144, i64 2
+  %43 = getelementptr inbounds i8, ptr %.244, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.144, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.244, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -68166,12 +68166,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe13BiasParameter24_internal_mutable_fillerEv.exit, %142, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23, %22, %118, %119
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %118 ], [ %.sroa.0.0.ph, %119 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe13BiasParameter24_internal_mutable_fillerEv.exit ], [ %.sroa.0.0.ph, %142 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ], [ %53, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %118 ], [ %.0.i, %119 ], [ %spec.select, %22 ], [ null, %142 ], [ null, %_ZN12opencv_caffe13BiasParameter24_internal_mutable_fillerEv.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %118 ], [ %.sroa.0.0.ph, %119 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe13BiasParameter24_internal_mutable_fillerEv.exit ], [ %.sroa.0.0.ph, %142 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ], [ %53, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %118 ], [ %.0.i, %119 ], [ %spec.select, %22 ], [ null, %142 ], [ null, %_ZN12opencv_caffe13BiasParameter24_internal_mutable_fillerEv.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ]
   %144 = load i32, ptr %6, align 8
-  %145 = or i32 %144, %.sroa.0.3
+  %145 = or i32 %144, %.sroa.0.1
   store i32 %145, ptr %6, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68389,7 +68389,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv(ptr
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %.not11 = icmp eq i32 %22, 0
   br i1 %.not11, label %34, label %23
@@ -68404,11 +68404,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv(ptr
   %30 = mul nuw nsw i64 %29, 9
   %31 = add nuw nsw i64 %30, 137
   %32 = lshr i64 %31, 6
-  %33 = add i64 %32, %.0
+  %33 = add i64 %32, %.1
   br label %34
 
 34:                                               ; preds = %23, %21
-  %.1 = phi i64 [ %33, %23 ], [ %.0, %21 ]
+  %.2 = phi i64 [ %33, %23 ], [ %.1, %21 ]
   %35 = and i32 %3, 4
   %.not12 = icmp eq i32 %35, 0
   br i1 %.not12, label %47, label %36
@@ -68423,13 +68423,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv(ptr
   %43 = mul nuw nsw i64 %42, 9
   %44 = add nuw nsw i64 %43, 137
   %45 = lshr i64 %44, 6
-  %46 = add i64 %45, %.1
+  %46 = add i64 %45, %.2
   br label %47
 
 47:                                               ; preds = %34, %36, %1
-  %.2 = phi i64 [ %46, %36 ], [ %.1, %34 ], [ 0, %1 ]
+  %.0 = phi i64 [ %46, %36 ], [ %.2, %34 ], [ 0, %1 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 20
-  %49 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %48)
+  %49 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %48)
   ret i64 %49
 }
 
@@ -68721,11 +68721,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.133 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.027, %.backedge ]
-  %29 = load i8, ptr %.133, align 1
+  %.233 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.027, %.backedge ]
+  %29 = load i8, ptr %.233, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.133, i64 1
+  %32 = getelementptr inbounds i8, ptr %.233, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30
@@ -68738,11 +68738,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.133, i64 2
+  %41 = getelementptr inbounds i8, ptr %.233, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.133, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.233, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -68887,13 +68887,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !191
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %107, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %20, %83, %84
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %84 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %107 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %57, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %83 ], [ %.0.i, %84 ], [ %spec.select, %20 ], [ null, %107 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %84 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %107 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %57, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %83 ], [ %.0.i, %84 ], [ %spec.select, %20 ], [ null, %107 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %109 = getelementptr inbounds i8, ptr %0, i64 16
   %110 = load i32, ptr %109, align 8
-  %111 = or i32 %110, %.sroa.0.3
+  %111 = or i32 %110, %.sroa.0.1
   store i32 %111, ptr %109, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68988,9 +68988,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe24ContrastiveLossParameter12ByteSiz
   br label %10
 
 10:                                               ; preds = %5, %1
-  %.1 = phi i64 [ 0, %1 ], [ %spec.select10, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select10, %5 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 20
-  %12 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %11)
+  %12 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %11)
   ret i64 %12
 }
 
@@ -69585,7 +69585,7 @@ define hidden noundef ptr @_ZN12opencv_caffe20ConvolutionParameter14_InternalPar
   br label %30
 
 30:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.0190 = phi ptr [ %1, %.preheader ], [ %.0190.be, %.backedge ]
   %31 = load i32, ptr %7, align 4
   %32 = load ptr, ptr %2, align 8
@@ -69619,11 +69619,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %34
   br i1 %50, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread193
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread193: ; preds = %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1196 = phi ptr [ %48, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0190, %30 ]
-  %51 = load i8, ptr %.1196, align 1
+  %.10196 = phi ptr [ %48, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0190, %30 ]
+  %51 = load i8, ptr %.10196, align 1
   %52 = zext i8 %51 to i32
   %53 = icmp sgt i8 %51, -1
-  %54 = getelementptr inbounds i8, ptr %.1196, i64 1
+  %54 = getelementptr inbounds i8, ptr %.10196, i64 1
   br i1 %53, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %55
 
 55:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread193
@@ -69636,11 +69636,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread193: ; preds = %
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %.1196, i64 2
+  %63 = getelementptr inbounds i8, ptr %.10196, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 64:                                               ; preds = %55
-  %65 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1196, i32 noundef %60)
+  %65 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.10196, i32 noundef %60)
   %66 = extractvalue { ptr, i32 } %65, 0
   %67 = extractvalue { ptr, i32 } %65, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -69771,12 +69771,12 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %97
   br label %117
 
 117:                                              ; preds = %136, %115
-  %.2 = phi ptr [ %116, %115 ], [ %.0.i.i60200, %136 ]
-  %118 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %116, %115 ], [ %.0.i.i60200, %136 ]
+  %118 = getelementptr inbounds i8, ptr %.1, i64 1
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %.not.i.i57 = icmp sgt i8 %119, -1
-  %121 = getelementptr inbounds i8, ptr %.2, i64 2
+  %121 = getelementptr inbounds i8, ptr %.1, i64 2
   br i1 %.not.i.i57, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61.thread, label %122
 
 122:                                              ; preds = %117
@@ -69789,7 +69789,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %97
   br i1 %.not16.i.i58, label %128, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds i8, ptr %.2, i64 3
+  %129 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61.thread: ; preds = %128, %117
@@ -69829,7 +69829,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61: ; preds = %122
   br i1 %.not43, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %490, %493, %206, %209, %160, %163, %133, %136, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %495, %_ZN12opencv_caffe20ConvolutionParameter22mutable_unknown_fieldsEv.exit, %404, %212, %166, %139, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130, %525
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %525 ], [ %.sroa.0.0, %495 ], [ %449, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ %430, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ %.sroa.0.0, %404 ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter22mutable_unknown_fieldsEv.exit ], [ %367, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ %348, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ %329, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ %310, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ %291, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ %272, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %212 ], [ %172, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ %.sroa.0.0, %166 ], [ %.sroa.0.0, %139 ], [ %92, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %92, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %172, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71.thread ], [ %272, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89.thread ], [ %291, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94.thread ], [ %310, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99.thread ], [ %329, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104.thread ], [ %348, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109.thread ], [ %367, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114.thread ], [ %430, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125.thread ], [ %449, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130.thread ], [ %.sroa.0.0, %136 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %163 ], [ %.sroa.0.0, %160 ], [ %.sroa.0.0, %209 ], [ %.sroa.0.0, %206 ], [ %.sroa.0.0, %493 ], [ %.sroa.0.0, %490 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %525 ], [ %.sroa.0.0, %495 ], [ %449, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ %430, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ %.sroa.0.0, %404 ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter22mutable_unknown_fieldsEv.exit ], [ %367, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ %348, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ %329, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ %310, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ %291, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ %272, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %212 ], [ %172, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ %.sroa.0.0, %166 ], [ %.sroa.0.0, %139 ], [ %92, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %92, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %172, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71.thread ], [ %272, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89.thread ], [ %291, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94.thread ], [ %310, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99.thread ], [ %329, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104.thread ], [ %348, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109.thread ], [ %367, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114.thread ], [ %430, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125.thread ], [ %449, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130.thread ], [ %.sroa.0.0, %136 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %163 ], [ %.sroa.0.0, %160 ], [ %.sroa.0.0, %209 ], [ %.sroa.0.0, %206 ], [ %.sroa.0.0, %493 ], [ %.sroa.0.0, %490 ]
   %.0190.be = phi ptr [ %526, %525 ], [ %496, %495 ], [ %467, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ %443, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ %.0.i.i118213, %404 ], [ %.0.i.i118213, %_ZN12opencv_caffe20ConvolutionParameter22mutable_unknown_fieldsEv.exit ], [ %380, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ %361, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ %342, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ %323, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ %304, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ %285, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ %267, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ %240, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ %213, %212 ], [ %185, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ %167, %166 ], [ %140, %139 ], [ %110, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %86, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i52.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i56.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %.0.i.i70.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71.thread ], [ %.0.i.i88.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89.thread ], [ %.0.i.i93.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94.thread ], [ %.0.i.i98.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99.thread ], [ %.0.i.i103.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104.thread ], [ %.0.i.i108.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109.thread ], [ %.0.i.i113.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114.thread ], [ %.0.i.i124.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125.thread ], [ %.0.i.i129.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130.thread ], [ %.0.i.i60200, %136 ], [ %.0.i.i60200, %133 ], [ %.0.i.i65204, %163 ], [ %.0.i.i65204, %160 ], [ %.0.i.i75208, %209 ], [ %.0.i.i75208, %206 ], [ %.0.i.i134217, %493 ], [ %.0.i.i134217, %490 ]
   br label %30, !llvm.loop !193
 
@@ -69845,12 +69845,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61: ; preds = %122
   br label %144
 
 144:                                              ; preds = %163, %142
-  %.4 = phi ptr [ %143, %142 ], [ %.0.i.i65204, %163 ]
-  %145 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %143, %142 ], [ %.0.i.i65204, %163 ]
+  %145 = getelementptr inbounds i8, ptr %.3, i64 1
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %.not.i.i62 = icmp sgt i8 %146, -1
-  %148 = getelementptr inbounds i8, ptr %.4, i64 2
+  %148 = getelementptr inbounds i8, ptr %.3, i64 2
   br i1 %.not.i.i62, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66.thread, label %149
 
 149:                                              ; preds = %144
@@ -69863,7 +69863,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61: ; preds = %122
   br i1 %.not16.i.i63, label %155, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66
 
 155:                                              ; preds = %149
-  %156 = getelementptr inbounds i8, ptr %.4, i64 3
+  %156 = getelementptr inbounds i8, ptr %.3, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66.thread: ; preds = %155, %144
@@ -69954,12 +69954,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71: ; preds = %176
   br label %190
 
 190:                                              ; preds = %209, %188
-  %.6 = phi ptr [ %189, %188 ], [ %.0.i.i75208, %209 ]
-  %191 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.5 = phi ptr [ %189, %188 ], [ %.0.i.i75208, %209 ]
+  %191 = getelementptr inbounds i8, ptr %.5, i64 1
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %.not.i.i72 = icmp sgt i8 %192, -1
-  %194 = getelementptr inbounds i8, ptr %.6, i64 2
+  %194 = getelementptr inbounds i8, ptr %.5, i64 2
   br i1 %.not.i.i72, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76.thread, label %195
 
 195:                                              ; preds = %190
@@ -69972,7 +69972,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71: ; preds = %176
   br i1 %.not16.i.i73, label %201, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds i8, ptr %.6, i64 3
+  %202 = getelementptr inbounds i8, ptr %.5, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76.thread: ; preds = %201, %190
@@ -70570,12 +70570,12 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130: ; preds = %454
   br label %474
 
 474:                                              ; preds = %493, %472
-  %.8 = phi ptr [ %473, %472 ], [ %.0.i.i134217, %493 ]
-  %475 = getelementptr inbounds i8, ptr %.8, i64 2
+  %.7 = phi ptr [ %473, %472 ], [ %.0.i.i134217, %493 ]
+  %475 = getelementptr inbounds i8, ptr %.7, i64 2
   %476 = load i8, ptr %475, align 1
   %477 = zext i8 %476 to i32
   %.not.i.i131 = icmp sgt i8 %476, -1
-  %478 = getelementptr inbounds i8, ptr %.8, i64 3
+  %478 = getelementptr inbounds i8, ptr %.7, i64 3
   br i1 %.not.i.i131, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135.thread, label %479
 
 479:                                              ; preds = %474
@@ -70588,7 +70588,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130: ; preds = %454
   br i1 %.not16.i.i132, label %485, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135
 
 485:                                              ; preds = %479
-  %486 = getelementptr inbounds i8, ptr %.8, i64 4
+  %486 = getelementptr inbounds i8, ptr %.7, i64 4
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135.thread: ; preds = %485, %474
@@ -70692,12 +70692,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not48, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %139, %166, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71, %212, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit119, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130, %495, %525, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61, %42, %501, %502
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %501 ], [ %.sroa.0.0, %502 ], [ %.sroa.0.0, %42 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %92, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %166 ], [ %172, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ %.sroa.0.0, %212 ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ %272, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ %291, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ %310, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ %329, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ %348, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ %367, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit119 ], [ %430, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ %449, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ %.sroa.0.0, %495 ], [ %.sroa.0.0, %525 ]
-  %.10 = phi ptr [ null, %501 ], [ %.0.i, %502 ], [ %spec.select, %42 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135 ], [ %48, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %139 ], [ null, %166 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ null, %212 ], [ null, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit119 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ null, %495 ], [ null, %525 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %501 ], [ %.sroa.0.0, %502 ], [ %.sroa.0.0, %42 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %92, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %166 ], [ %172, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ %.sroa.0.0, %212 ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ %272, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ %291, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ %310, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ %329, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ %348, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ %367, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit119 ], [ %430, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ %449, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ %.sroa.0.0, %495 ], [ %.sroa.0.0, %525 ]
+  %.9 = phi ptr [ null, %501 ], [ %.0.i, %502 ], [ %spec.select, %42 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit61 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit66 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit76 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit135 ], [ %48, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %139 ], [ null, %166 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit71 ], [ null, %212 ], [ null, %_ZN12opencv_caffe20ConvolutionParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe20ConvolutionParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit89 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit94 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit99 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit104 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit109 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit114 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit119 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit125 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit130 ], [ null, %495 ], [ null, %525 ]
   %527 = load i32, ptr %14, align 8
-  %528 = or i32 %527, %.sroa.0.3
+  %528 = or i32 %527, %.sroa.0.1
   store i32 %528, ptr %14, align 8
-  ret ptr %.10
+  ret ptr %.9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -71795,7 +71795,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   br label %46
 
 46:                                               ; preds = %31, %29
-  %.0 = phi i64 [ %45, %31 ], [ %25, %29 ]
+  %.1 = phi i64 [ %45, %31 ], [ %25, %29 ]
   %47 = and i32 %27, 2
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %63, label %48
@@ -71812,13 +71812,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %57 = add nuw nsw i32 %56, 73
   %58 = lshr i32 %57, 6
   %59 = zext nneg i32 %58 to i64
-  %60 = add i64 %.0, 1
+  %60 = add i64 %.1, 1
   %61 = add i64 %60, %51
   %62 = add i64 %61, %59
   br label %63
 
 63:                                               ; preds = %48, %46
-  %.1 = phi i64 [ %62, %48 ], [ %.0, %46 ]
+  %.2 = phi i64 [ %62, %48 ], [ %.1, %46 ]
   %64 = and i32 %27, 4
   %.not47 = icmp eq i32 %64, 0
   br i1 %.not47, label %76, label %65
@@ -71833,11 +71833,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %72 = add nuw nsw i32 %71, 137
   %73 = lshr i32 %72, 6
   %74 = zext nneg i32 %73 to i64
-  %75 = add i64 %.1, %74
+  %75 = add i64 %.2, %74
   br label %76
 
 76:                                               ; preds = %65, %63
-  %.2 = phi i64 [ %75, %65 ], [ %.1, %63 ]
+  %.3 = phi i64 [ %75, %65 ], [ %.2, %63 ]
   %77 = and i32 %27, 8
   %.not48 = icmp eq i32 %77, 0
   br i1 %.not48, label %89, label %78
@@ -71852,11 +71852,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %85 = add nuw nsw i32 %84, 137
   %86 = lshr i32 %85, 6
   %87 = zext nneg i32 %86 to i64
-  %88 = add i64 %.2, %87
+  %88 = add i64 %.3, %87
   br label %89
 
 89:                                               ; preds = %78, %76
-  %.3 = phi i64 [ %88, %78 ], [ %.2, %76 ]
+  %.4 = phi i64 [ %88, %78 ], [ %.3, %76 ]
   %90 = and i32 %27, 16
   %.not49 = icmp eq i32 %90, 0
   br i1 %.not49, label %102, label %91
@@ -71871,11 +71871,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %98 = add nuw nsw i32 %97, 137
   %99 = lshr i32 %98, 6
   %100 = zext nneg i32 %99 to i64
-  %101 = add i64 %.3, %100
+  %101 = add i64 %.4, %100
   br label %102
 
 102:                                              ; preds = %91, %89
-  %.4 = phi i64 [ %101, %91 ], [ %.3, %89 ]
+  %.5 = phi i64 [ %101, %91 ], [ %.4, %89 ]
   %103 = and i32 %27, 32
   %.not50 = icmp eq i32 %103, 0
   br i1 %.not50, label %115, label %104
@@ -71890,11 +71890,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %111 = add nuw nsw i32 %110, 137
   %112 = lshr i32 %111, 6
   %113 = zext nneg i32 %112 to i64
-  %114 = add i64 %.4, %113
+  %114 = add i64 %.5, %113
   br label %115
 
 115:                                              ; preds = %104, %102
-  %.5 = phi i64 [ %114, %104 ], [ %.4, %102 ]
+  %.6 = phi i64 [ %114, %104 ], [ %.5, %102 ]
   %116 = and i32 %27, 64
   %.not51 = icmp eq i32 %116, 0
   br i1 %.not51, label %128, label %117
@@ -71909,11 +71909,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %124 = add nuw nsw i32 %123, 137
   %125 = lshr i32 %124, 6
   %126 = zext nneg i32 %125 to i64
-  %127 = add i64 %.5, %126
+  %127 = add i64 %.6, %126
   br label %128
 
 128:                                              ; preds = %117, %115
-  %.6 = phi i64 [ %127, %117 ], [ %.5, %115 ]
+  %.7 = phi i64 [ %127, %117 ], [ %.6, %115 ]
   %129 = and i32 %27, 128
   %.not52 = icmp eq i32 %129, 0
   br i1 %.not52, label %141, label %130
@@ -71928,11 +71928,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %137 = add nuw nsw i32 %136, 137
   %138 = lshr i32 %137, 6
   %139 = zext nneg i32 %138 to i64
-  %140 = add i64 %.6, %139
+  %140 = add i64 %.7, %139
   br label %141
 
 141:                                              ; preds = %128, %130, %1
-  %.7 = phi i64 [ %140, %130 ], [ %.6, %128 ], [ %25, %1 ]
+  %.0 = phi i64 [ %140, %130 ], [ %.7, %128 ], [ %25, %1 ]
   %142 = and i32 %27, 16128
   %.not53 = icmp eq i32 %142, 0
   br i1 %.not53, label %202, label %143
@@ -71952,11 +71952,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %152 = add nuw nsw i32 %151, 137
   %153 = lshr i32 %152, 6
   %154 = zext nneg i32 %153 to i64
-  %155 = add i64 %.7, %154
+  %155 = add i64 %.0, %154
   br label %156
 
 156:                                              ; preds = %145, %143
-  %.8 = phi i64 [ %155, %145 ], [ %.7, %143 ]
+  %.9 = phi i64 [ %155, %145 ], [ %.0, %143 ]
   %157 = and i32 %27, 512
   %.not55 = icmp eq i32 %157, 0
   br i1 %.not55, label %170, label %158
@@ -71971,16 +71971,16 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   %165 = mul nuw nsw i64 %164, 9
   %166 = add nuw nsw i64 %165, 73
   %167 = lshr i64 %166, 6
-  %168 = add i64 %.8, 1
+  %168 = add i64 %.9, 1
   %169 = add i64 %168, %167
   br label %170
 
 170:                                              ; preds = %158, %156
-  %.9 = phi i64 [ %169, %158 ], [ %.8, %156 ]
+  %.10 = phi i64 [ %169, %158 ], [ %.9, %156 ]
   %171 = and i32 %27, 1024
   %.not56 = icmp eq i32 %171, 0
-  %172 = add i64 %.9, 3
-  %spec.select = select i1 %.not56, i64 %.9, i64 %172
+  %172 = add i64 %.10, 3
+  %spec.select = select i1 %.not56, i64 %.10, i64 %172
   %173 = and i32 %27, 2048
   %.not57 = icmp eq i32 %173, 0
   br i1 %.not57, label %186, label %174
@@ -72000,11 +72000,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   br label %186
 
 186:                                              ; preds = %174, %170
-  %.11 = phi i64 [ %185, %174 ], [ %spec.select, %170 ]
+  %.12 = phi i64 [ %185, %174 ], [ %spec.select, %170 ]
   %187 = lshr i32 %27, 11
   %188 = and i32 %187, 2
   %189 = zext nneg i32 %188 to i64
-  %spec.select60 = add i64 %.11, %189
+  %spec.select60 = add i64 %.12, %189
   %190 = and i32 %27, 8192
   %.not59 = icmp eq i32 %190, 0
   br i1 %.not59, label %202, label %191
@@ -72023,9 +72023,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe20ConvolutionParameter12ByteSizeLon
   br label %202
 
 202:                                              ; preds = %186, %191, %141
-  %.13 = phi i64 [ %201, %191 ], [ %spec.select60, %186 ], [ %.7, %141 ]
+  %.8 = phi i64 [ %201, %191 ], [ %spec.select60, %186 ], [ %.0, %141 ]
   %203 = getelementptr inbounds i8, ptr %0, i64 20
-  %204 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.13, ptr noundef nonnull %203)
+  %204 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.8, ptr noundef nonnull %203)
   ret i64 %204
 }
 
@@ -72383,7 +72383,7 @@ define hidden noundef ptr @_ZN12opencv_caffe13CropParameter14_InternalParseEPKcP
   br label %10
 
 10:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.040 = phi ptr [ %1, %.preheader ], [ %.040.be, %.backedge ]
   %11 = load i32, ptr %4, align 4
   %12 = load ptr, ptr %2, align 8
@@ -72417,11 +72417,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %10, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.146 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %10 ]
-  %31 = load i8, ptr %.146, align 1
+  %.446 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.040, %10 ]
+  %31 = load i8, ptr %.446, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.146, i64 1
+  %34 = getelementptr inbounds i8, ptr %.446, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43
@@ -72434,11 +72434,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread43: ; preds = %1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.146, i64 2
+  %43 = getelementptr inbounds i8, ptr %.446, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.146, i32 noundef %40)
+  %45 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.446, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -72503,12 +72503,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %56
   br label %70
 
 70:                                               ; preds = %89, %68
-  %.2 = phi ptr [ %69, %68 ], [ %.0.i.i2450, %89 ]
-  %71 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %69, %68 ], [ %.0.i.i2450, %89 ]
+  %71 = getelementptr inbounds i8, ptr %.1, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %.not.i.i21 = icmp sgt i8 %72, -1
-  %74 = getelementptr inbounds i8, ptr %.2, i64 2
+  %74 = getelementptr inbounds i8, ptr %.1, i64 2
   br i1 %.not.i.i21, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25.thread, label %75
 
 75:                                               ; preds = %70
@@ -72521,7 +72521,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %56
   br i1 %.not16.i.i22, label %81, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %.2, i64 3
+  %82 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25.thread: ; preds = %81, %70
@@ -72561,7 +72561,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25: ; preds = %75
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %86, %89, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %122
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %92 ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.sroa.0.0, %89 ], [ %.sroa.0.0, %86 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %122 ], [ %.sroa.0.0, %92 ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.sroa.0.0, %89 ], [ %.sroa.0.0, %86 ]
   %.040.be = phi ptr [ %123, %122 ], [ %93, %92 ], [ %65, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i20.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i2450, %89 ], [ %.0.i.i2450, %86 ]
   br label %10, !llvm.loop !202
 
@@ -72630,13 +72630,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not16, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %92, %122, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25, %22, %98, %99
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %22 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %92 ], [ %.sroa.0.0, %122 ]
-  %.4 = phi ptr [ null, %98 ], [ %.0.i, %99 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %92 ], [ null, %122 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %22 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %92 ], [ %.sroa.0.0, %122 ]
+  %.3 = phi ptr [ null, %98 ], [ %.0.i, %99 ], [ %spec.select, %22 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %92 ], [ null, %122 ]
   %124 = getelementptr inbounds i8, ptr %0, i64 16
   %125 = load i32, ptr %124, align 8
-  %126 = or i32 %125, %.sroa.0.3
+  %126 = or i32 %125, %.sroa.0.1
   store i32 %126, ptr %124, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73247,11 +73247,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %21
   br i1 %37, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.196 = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.090, %.backedge ]
-  %38 = load i8, ptr %.196, align 1
+  %.296 = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.090, %.backedge ]
+  %38 = load i8, ptr %.296, align 1
   %39 = zext i8 %38 to i32
   %40 = icmp sgt i8 %38, -1
-  %41 = getelementptr inbounds i8, ptr %.196, i64 1
+  %41 = getelementptr inbounds i8, ptr %.296, i64 1
   br i1 %40, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93
@@ -73264,11 +73264,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93: ; preds = %.
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %.196, i64 2
+  %50 = getelementptr inbounds i8, ptr %.296, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 51:                                               ; preds = %42
-  %52 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.196, i32 noundef %47)
+  %52 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.296, i32 noundef %47)
   %53 = extractvalue { ptr, i32 } %52, 0
   %54 = extractvalue { ptr, i32 } %52, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -73780,12 +73780,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not25, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe13DataParameter24_internal_mutable_sourceB5cxx11Ev.exit, %_ZN12opencv_caffe13DataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit38, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit63, %290, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %29, %266, %267
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %266 ], [ %.sroa.0.0, %267 ], [ %.sroa.0.0, %29 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe13DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe13DataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %113, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit38 ], [ %132, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %158, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ %221, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %247, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit63 ], [ %.sroa.0.0, %290 ]
-  %.2 = phi ptr [ null, %266 ], [ %.0.i, %267 ], [ %spec.select, %29 ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe13DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe13DataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit38 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit63 ], [ null, %290 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %266 ], [ %.sroa.0.0, %267 ], [ %.sroa.0.0, %29 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe13DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe13DataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %113, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit38 ], [ %132, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %158, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ %221, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ %247, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit63 ], [ %.sroa.0.0, %290 ]
+  %.1 = phi ptr [ null, %266 ], [ %.0.i, %267 ], [ %spec.select, %29 ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe13DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe13DataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit38 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit58 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit63 ], [ null, %290 ]
   %292 = load i32, ptr %9, align 8
-  %293 = or i32 %292, %.sroa.0.3
+  %293 = or i32 %292, %.sroa.0.1
   store i32 %293, ptr %9, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -74321,7 +74321,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not26 = icmp eq i32 %25, 0
   br i1 %.not26, label %44, label %26
@@ -74341,13 +74341,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   %38 = add nuw nsw i32 %37, 73
   %39 = lshr i32 %38, 6
   %40 = zext nneg i32 %39 to i64
-  %41 = add i64 %.0, 1
+  %41 = add i64 %.1, 1
   %42 = add i64 %41, %32
   %43 = add i64 %42, %40
   br label %44
 
 44:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %43, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %43, %26 ], [ %.1, %24 ]
   %45 = and i32 %3, 4
   %.not27 = icmp eq i32 %45, 0
   br i1 %.not27, label %57, label %46
@@ -74362,11 +74362,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   %53 = add nuw nsw i32 %52, 137
   %54 = lshr i32 %53, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = add i64 %.1, %55
+  %56 = add i64 %.2, %55
   br label %57
 
 57:                                               ; preds = %46, %44
-  %.2 = phi i64 [ %56, %46 ], [ %.1, %44 ]
+  %.3 = phi i64 [ %56, %46 ], [ %.2, %44 ]
   %58 = and i32 %3, 8
   %.not28 = icmp eq i32 %58, 0
   br i1 %.not28, label %70, label %59
@@ -74381,11 +74381,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   %66 = add nuw nsw i32 %65, 137
   %67 = lshr i32 %66, 6
   %68 = zext nneg i32 %67 to i64
-  %69 = add i64 %.2, %68
+  %69 = add i64 %.3, %68
   br label %70
 
 70:                                               ; preds = %59, %57
-  %.3 = phi i64 [ %69, %59 ], [ %.2, %57 ]
+  %.4 = phi i64 [ %69, %59 ], [ %.3, %57 ]
   %71 = and i32 %3, 16
   %.not29 = icmp eq i32 %71, 0
   br i1 %.not29, label %83, label %72
@@ -74400,18 +74400,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   %79 = add nuw nsw i32 %78, 137
   %80 = lshr i32 %79, 6
   %81 = zext nneg i32 %80 to i64
-  %82 = add i64 %.3, %81
+  %82 = add i64 %.4, %81
   br label %83
 
 83:                                               ; preds = %72, %70
-  %.4 = phi i64 [ %82, %72 ], [ %.3, %70 ]
+  %.5 = phi i64 [ %82, %72 ], [ %.4, %70 ]
   %84 = lshr i32 %3, 4
   %85 = and i32 %84, 2
   %86 = lshr i32 %3, 5
   %87 = and i32 %86, 2
   %narrow = add nuw nsw i32 %87, %85
   %spec.select = zext nneg i32 %narrow to i64
-  %.6 = add i64 %.4, %spec.select
+  %.7 = add i64 %.5, %spec.select
   %88 = and i32 %3, 128
   %.not32 = icmp eq i32 %88, 0
   br i1 %.not32, label %101, label %89
@@ -74426,12 +74426,12 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   %96 = mul nuw nsw i64 %95, 9
   %97 = add nuw nsw i64 %96, 73
   %98 = lshr i64 %97, 6
-  %99 = add i64 %.6, 1
+  %99 = add i64 %.7, 1
   %100 = add i64 %99, %98
   br label %101
 
 101:                                              ; preds = %83, %89, %1
-  %.7 = phi i64 [ %100, %89 ], [ %.6, %83 ], [ 0, %1 ]
+  %.0 = phi i64 [ %100, %89 ], [ %.7, %83 ], [ 0, %1 ]
   %102 = and i32 %3, 768
   %.not33 = icmp eq i32 %102, 0
   br i1 %.not33, label %118, label %103
@@ -74439,8 +74439,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
 103:                                              ; preds = %101
   %104 = and i32 %3, 256
   %.not34 = icmp eq i32 %104, 0
-  %105 = add i64 %.7, 5
-  %spec.select36 = select i1 %.not34, i64 %.7, i64 %105
+  %105 = add i64 %.0, 5
+  %spec.select36 = select i1 %.not34, i64 %.0, i64 %105
   %106 = and i32 %3, 512
   %.not35 = icmp eq i32 %106, 0
   br i1 %.not35, label %118, label %107
@@ -74459,9 +74459,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
   br label %118
 
 118:                                              ; preds = %103, %107, %101
-  %.9 = phi i64 [ %117, %107 ], [ %spec.select36, %103 ], [ %.7, %101 ]
+  %.8 = phi i64 [ %117, %107 ], [ %spec.select36, %103 ], [ %.0, %101 ]
   %119 = getelementptr inbounds i8, ptr %0, i64 20
-  %120 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.9, ptr noundef nonnull %119)
+  %120 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.8, ptr noundef nonnull %119)
   ret i64 %120
 }
 
@@ -74853,11 +74853,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.136 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
-  %30 = load i8, ptr %.136, align 1
+  %.236 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
+  %30 = load i8, ptr %.236, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.136, i64 1
+  %33 = getelementptr inbounds i8, ptr %.236, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
@@ -74870,11 +74870,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.136, i64 2
+  %42 = getelementptr inbounds i8, ptr %.236, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.136, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.236, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -75023,13 +75023,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !205
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %107, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %21, %83, %84
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %84 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %107 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %58, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %83 ], [ %.0.i, %84 ], [ %spec.select, %21 ], [ null, %107 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %84 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %107 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %58, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %83 ], [ %.0.i, %84 ], [ %spec.select, %21 ], [ null, %107 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
   %109 = getelementptr inbounds i8, ptr %0, i64 16
   %110 = load i32, ptr %109, align 8
-  %111 = or i32 %110, %.sroa.0.3
+  %111 = or i32 %110, %.sroa.0.1
   store i32 %111, ptr %109, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -75191,11 +75191,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe30NonMaximumSuppressionParameter12B
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not11 = icmp eq i32 %18, 0
-  %19 = add nuw nsw i64 %.0, 5
-  %spec.select = select i1 %.not11, i64 %.0, i64 %19
+  %19 = add nuw nsw i64 %.1, 5
+  %spec.select = select i1 %.not11, i64 %.1, i64 %19
   %20 = and i32 %3, 4
   %.not12 = icmp eq i32 %20, 0
   %21 = add nuw nsw i64 %spec.select, 5
@@ -75203,9 +75203,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe30NonMaximumSuppressionParameter12B
   br label %22
 
 22:                                               ; preds = %17, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select13, %17 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select13, %17 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 20
-  %24 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %23)
+  %24 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %23)
   ret i64 %24
 }
 
@@ -75769,11 +75769,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %17
   br i1 %33, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.161 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.055, %.backedge ]
-  %34 = load i8, ptr %.161, align 1
+  %.261 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.055, %.backedge ]
+  %34 = load i8, ptr %.261, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i8 %34, -1
-  %37 = getelementptr inbounds i8, ptr %.161, i64 1
+  %37 = getelementptr inbounds i8, ptr %.261, i64 1
   br i1 %36, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58
@@ -75786,11 +75786,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58: ; preds = %.
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %.161, i64 2
+  %46 = getelementptr inbounds i8, ptr %.261, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 47:                                               ; preds = %38
-  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.161, i32 noundef %43)
+  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.261, i32 noundef %43)
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = extractvalue { ptr, i32 } %48, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -76053,12 +76053,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not26, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe19SaveOutputParameter34_internal_mutable_output_directoryB5cxx11Ev.exit, %_ZN12opencv_caffe19SaveOutputParameter36_internal_mutable_output_name_prefixB5cxx11Ev.exit, %_ZN12opencv_caffe19SaveOutputParameter31_internal_mutable_output_formatB5cxx11Ev.exit, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_label_map_fileB5cxx11Ev.exit, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_name_size_fileB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %169, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %25, %145, %146
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %145 ], [ %.sroa.0.0, %146 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter34_internal_mutable_output_directoryB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter36_internal_mutable_output_name_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter31_internal_mutable_output_formatB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_label_map_fileB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_name_size_fileB5cxx11Ev.exit ], [ %126, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %169 ]
-  %.2 = phi ptr [ null, %145 ], [ %.0.i, %146 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter34_internal_mutable_output_directoryB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter36_internal_mutable_output_name_prefixB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter31_internal_mutable_output_formatB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_label_map_fileB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_name_size_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %169 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %145 ], [ %.sroa.0.0, %146 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter34_internal_mutable_output_directoryB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter36_internal_mutable_output_name_prefixB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter31_internal_mutable_output_formatB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_label_map_fileB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_name_size_fileB5cxx11Ev.exit ], [ %126, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %169 ]
+  %.1 = phi ptr [ null, %145 ], [ %.0.i, %146 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter34_internal_mutable_output_directoryB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter36_internal_mutable_output_name_prefixB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter31_internal_mutable_output_formatB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_label_map_fileB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19SaveOutputParameter32_internal_mutable_name_size_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %169 ]
   %171 = load i32, ptr %7, align 8
-  %172 = or i32 %171, %.sroa.0.3
+  %172 = or i32 %171, %.sroa.0.1
   store i32 %172, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -76426,7 +76426,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not17 = icmp eq i32 %25, 0
   br i1 %.not17, label %44, label %26
@@ -76446,13 +76446,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
   %38 = add nuw nsw i32 %37, 73
   %39 = lshr i32 %38, 6
   %40 = zext nneg i32 %39 to i64
-  %41 = add i64 %.0, 1
+  %41 = add i64 %.1, 1
   %42 = add i64 %41, %32
   %43 = add i64 %42, %40
   br label %44
 
 44:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %43, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %43, %26 ], [ %.1, %24 ]
   %45 = and i32 %3, 4
   %.not18 = icmp eq i32 %45, 0
   br i1 %.not18, label %64, label %46
@@ -76472,13 +76472,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
   %58 = add nuw nsw i32 %57, 73
   %59 = lshr i32 %58, 6
   %60 = zext nneg i32 %59 to i64
-  %61 = add i64 %.1, 1
+  %61 = add i64 %.2, 1
   %62 = add i64 %61, %52
   %63 = add i64 %62, %60
   br label %64
 
 64:                                               ; preds = %46, %44
-  %.2 = phi i64 [ %63, %46 ], [ %.1, %44 ]
+  %.3 = phi i64 [ %63, %46 ], [ %.2, %44 ]
   %65 = and i32 %3, 8
   %.not19 = icmp eq i32 %65, 0
   br i1 %.not19, label %84, label %66
@@ -76498,13 +76498,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
   %78 = add nuw nsw i32 %77, 73
   %79 = lshr i32 %78, 6
   %80 = zext nneg i32 %79 to i64
-  %81 = add i64 %.2, 1
+  %81 = add i64 %.3, 1
   %82 = add i64 %81, %72
   %83 = add i64 %82, %80
   br label %84
 
 84:                                               ; preds = %66, %64
-  %.3 = phi i64 [ %83, %66 ], [ %.2, %64 ]
+  %.4 = phi i64 [ %83, %66 ], [ %.3, %64 ]
   %85 = and i32 %3, 16
   %.not20 = icmp eq i32 %85, 0
   br i1 %.not20, label %104, label %86
@@ -76524,13 +76524,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
   %98 = add nuw nsw i32 %97, 73
   %99 = lshr i32 %98, 6
   %100 = zext nneg i32 %99 to i64
-  %101 = add i64 %.3, 1
+  %101 = add i64 %.4, 1
   %102 = add i64 %101, %92
   %103 = add i64 %102, %100
   br label %104
 
 104:                                              ; preds = %86, %84
-  %.4 = phi i64 [ %103, %86 ], [ %.3, %84 ]
+  %.5 = phi i64 [ %103, %86 ], [ %.4, %84 ]
   %105 = and i32 %3, 32
   %.not21 = icmp eq i32 %105, 0
   br i1 %.not21, label %117, label %106
@@ -76545,13 +76545,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
   %113 = add nuw nsw i32 %112, 137
   %114 = lshr i32 %113, 6
   %115 = zext nneg i32 %114 to i64
-  %116 = add i64 %.4, %115
+  %116 = add i64 %.5, %115
   br label %117
 
 117:                                              ; preds = %104, %106, %1
-  %.5 = phi i64 [ %116, %106 ], [ %.4, %104 ], [ 0, %1 ]
+  %.0 = phi i64 [ %116, %106 ], [ %.5, %104 ], [ 0, %1 ]
   %118 = getelementptr inbounds i8, ptr %0, i64 20
-  %119 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.5, ptr noundef nonnull %118)
+  %119 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %118)
   ret i64 %119
 }
 
@@ -76865,11 +76865,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.133 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.027, %.backedge ]
-  %29 = load i8, ptr %.133, align 1
+  %.233 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.027, %.backedge ]
+  %29 = load i8, ptr %.233, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.133, i64 1
+  %32 = getelementptr inbounds i8, ptr %.233, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30
@@ -76882,11 +76882,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.133, i64 2
+  %41 = getelementptr inbounds i8, ptr %.233, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.133, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.233, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -77031,13 +77031,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !207
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %107, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %20, %83, %84
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %84 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %107 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %57, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %83 ], [ %.0.i, %84 ], [ %spec.select, %20 ], [ null, %107 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %83 ], [ %.sroa.0.0.ph, %84 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %107 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %57, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %83 ], [ %.0.i, %84 ], [ %spec.select, %20 ], [ null, %107 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %109 = getelementptr inbounds i8, ptr %0, i64 16
   %110 = load i32, ptr %109, align 8
-  %111 = or i32 %110, %.sroa.0.3
+  %111 = or i32 %110, %.sroa.0.1
   store i32 %111, ptr %109, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -77131,9 +77131,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe16DropoutParameter12ByteSizeLongEv(
   br label %9
 
 9:                                                ; preds = %5, %1
-  %.1 = phi i64 [ 0, %1 ], [ %spec.select10, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select10, %5 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 20
-  %11 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %10)
+  %11 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %10)
   ret i64 %11
 }
 
@@ -77756,11 +77756,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %26
   br i1 %42, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93: ; preds = %22, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.196 = phi ptr [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.090, %22 ]
-  %43 = load i8, ptr %.196, align 1
+  %.1296 = phi ptr [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.090, %22 ]
+  %43 = load i8, ptr %.1296, align 1
   %44 = zext i8 %43 to i32
   %45 = icmp sgt i8 %43, -1
-  %46 = getelementptr inbounds i8, ptr %.196, i64 1
+  %46 = getelementptr inbounds i8, ptr %.1296, i64 1
   br i1 %45, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %47
 
 47:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93
@@ -77773,11 +77773,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread93: ; preds = %2
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %.196, i64 2
+  %55 = getelementptr inbounds i8, ptr %.1296, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 56:                                               ; preds = %47
-  %57 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.196, i32 noundef %52)
+  %57 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1296, i32 noundef %52)
   %58 = extractvalue { ptr, i32 } %57, 0
   %59 = extractvalue { ptr, i32 } %57, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -77805,8 +77805,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %66
 
 66:                                               ; preds = %96, %64
-  %.2 = phi ptr [ %65, %64 ], [ %92, %96 ]
-  %67 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %65, %64 ], [ %92, %96 ]
+  %67 = getelementptr inbounds i8, ptr %.1, i64 1
   %68 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i, label %79, label %69
@@ -77888,12 +77888,12 @@ _ZN12opencv_caffe18DummyDataParameter25_internal_add_data_fillerEv.exit: ; preds
   br label %102
 
 102:                                              ; preds = %121, %100
-  %.3 = phi ptr [ %101, %100 ], [ %.0.i.i39100, %121 ]
-  %103 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %101, %100 ], [ %.0.i.i39100, %121 ]
+  %103 = getelementptr inbounds i8, ptr %.2, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %.not.i.i = icmp sgt i8 %104, -1
-  %106 = getelementptr inbounds i8, ptr %.3, i64 2
+  %106 = getelementptr inbounds i8, ptr %.2, i64 2
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, label %107
 
 107:                                              ; preds = %102
@@ -77906,7 +77906,7 @@ _ZN12opencv_caffe18DummyDataParameter25_internal_add_data_fillerEv.exit: ; preds
   br i1 %.not16.i.i, label %113, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %.3, i64 3
+  %114 = getelementptr inbounds i8, ptr %.2, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread: ; preds = %113, %102
@@ -77957,12 +77957,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %107
   br label %129
 
 129:                                              ; preds = %148, %127
-  %.5 = phi ptr [ %128, %127 ], [ %.0.i.i43104, %148 ]
-  %130 = getelementptr inbounds i8, ptr %.5, i64 1
+  %.4 = phi ptr [ %128, %127 ], [ %.0.i.i43104, %148 ]
+  %130 = getelementptr inbounds i8, ptr %.4, i64 1
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
   %.not.i.i40 = icmp sgt i8 %131, -1
-  %133 = getelementptr inbounds i8, ptr %.5, i64 2
+  %133 = getelementptr inbounds i8, ptr %.4, i64 2
   br i1 %.not.i.i40, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44.thread, label %134
 
 134:                                              ; preds = %129
@@ -77975,7 +77975,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %107
   br i1 %.not16.i.i41, label %140, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44
 
 140:                                              ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %.5, i64 3
+  %141 = getelementptr inbounds i8, ptr %.4, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44.thread: ; preds = %140, %129
@@ -78026,12 +78026,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44: ; preds = %134
   br label %156
 
 156:                                              ; preds = %175, %154
-  %.7 = phi ptr [ %155, %154 ], [ %.0.i.i48108, %175 ]
-  %157 = getelementptr inbounds i8, ptr %.7, i64 1
+  %.6 = phi ptr [ %155, %154 ], [ %.0.i.i48108, %175 ]
+  %157 = getelementptr inbounds i8, ptr %.6, i64 1
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
   %.not.i.i45 = icmp sgt i8 %158, -1
-  %160 = getelementptr inbounds i8, ptr %.7, i64 2
+  %160 = getelementptr inbounds i8, ptr %.6, i64 2
   br i1 %.not.i.i45, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49.thread, label %161
 
 161:                                              ; preds = %156
@@ -78044,7 +78044,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44: ; preds = %134
   br i1 %.not16.i.i46, label %167, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49
 
 167:                                              ; preds = %161
-  %168 = getelementptr inbounds i8, ptr %.7, i64 3
+  %168 = getelementptr inbounds i8, ptr %.6, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49.thread: ; preds = %167, %156
@@ -78095,12 +78095,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49: ; preds = %161
   br label %183
 
 183:                                              ; preds = %202, %181
-  %.9 = phi ptr [ %182, %181 ], [ %.0.i.i53112, %202 ]
-  %184 = getelementptr inbounds i8, ptr %.9, i64 1
+  %.8 = phi ptr [ %182, %181 ], [ %.0.i.i53112, %202 ]
+  %184 = getelementptr inbounds i8, ptr %.8, i64 1
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %.not.i.i50 = icmp sgt i8 %185, -1
-  %187 = getelementptr inbounds i8, ptr %.9, i64 2
+  %187 = getelementptr inbounds i8, ptr %.8, i64 2
   br i1 %.not.i.i50, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54.thread, label %188
 
 188:                                              ; preds = %183
@@ -78113,7 +78113,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49: ; preds = %161
   br i1 %.not16.i.i51, label %194, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54
 
 194:                                              ; preds = %188
-  %195 = getelementptr inbounds i8, ptr %.9, i64 3
+  %195 = getelementptr inbounds i8, ptr %.8, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54.thread: ; preds = %194, %183
@@ -78162,8 +78162,8 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54: ; preds = %188
   br label %212
 
 212:                                              ; preds = %233, %210
-  %.11 = phi ptr [ %211, %210 ], [ %229, %233 ]
-  %213 = getelementptr inbounds i8, ptr %.11, i64 1
+  %.10 = phi ptr [ %211, %210 ], [ %229, %233 ]
+  %213 = getelementptr inbounds i8, ptr %.10, i64 1
   %214 = load ptr, ptr %12, align 8
   %.not.i.i.i55 = icmp eq ptr %214, null
   br i1 %.not.i.i.i55, label %225, label %215
@@ -78270,8 +78270,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not35, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %124, %151, %178, %205, %264, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN12opencv_caffe18DummyDataParameter19_internal_add_shapeEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN12opencv_caffe18DummyDataParameter25_internal_add_data_fillerEv.exit, %34, %240, %241
-  %.12 = phi ptr [ %.0.i, %241 ], [ null, %240 ], [ %spec.select, %34 ], [ null, %_ZN12opencv_caffe18DummyDataParameter25_internal_add_data_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54 ], [ null, %_ZN12opencv_caffe18DummyDataParameter19_internal_add_shapeEv.exit ], [ null, %124 ], [ null, %151 ], [ null, %178 ], [ null, %205 ], [ null, %264 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.12
+  %.11 = phi ptr [ %.0.i, %241 ], [ null, %240 ], [ %spec.select, %34 ], [ null, %_ZN12opencv_caffe18DummyDataParameter25_internal_add_data_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit44 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit54 ], [ null, %_ZN12opencv_caffe18DummyDataParameter19_internal_add_shapeEv.exit ], [ null, %124 ], [ null, %151 ], [ null, %178 ], [ null, %205 ], [ null, %264 ], [ %40, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -79144,7 +79144,7 @@ define hidden noundef ptr @_ZN12opencv_caffe16EltwiseParameter14_InternalParseEP
   br label %12
 
 12:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.045 = phi ptr [ %1, %.preheader ], [ %.045.be, %.backedge ]
   %13 = load i32, ptr %4, align 4
   %14 = load ptr, ptr %2, align 8
@@ -79178,11 +79178,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %16
   br i1 %32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48: ; preds = %12, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.151 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.045, %12 ]
-  %33 = load i8, ptr %.151, align 1
+  %.451 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.045, %12 ]
+  %33 = load i8, ptr %.451, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp sgt i8 %33, -1
-  %36 = getelementptr inbounds i8, ptr %.151, i64 1
+  %36 = getelementptr inbounds i8, ptr %.451, i64 1
   br i1 %35, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48
@@ -79195,11 +79195,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread48: ; preds = %1
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.151, i64 2
+  %45 = getelementptr inbounds i8, ptr %.451, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 46:                                               ; preds = %37
-  %47 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.151, i32 noundef %42)
+  %47 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.451, i32 noundef %42)
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -79311,7 +79311,7 @@ _ZN12opencv_caffe16EltwiseParameter22mutable_unknown_fieldsEv.exit: ; preds = %7
   br label %.backedge
 
 .backedge:                                        ; preds = %98, %103, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28.thread, %106, %_ZN12opencv_caffe16EltwiseParameter22mutable_unknown_fieldsEv.exit, %73, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28, %162
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %162 ], [ %112, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %.sroa.0.0, %106 ], [ %.sroa.0.0, %73 ], [ %.sroa.0.0, %_ZN12opencv_caffe16EltwiseParameter22mutable_unknown_fieldsEv.exit ], [ %112, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28.thread ], [ %.sroa.0.0, %103 ], [ %.sroa.0.0, %98 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %162 ], [ %112, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %.sroa.0.0, %106 ], [ %.sroa.0.0, %73 ], [ %.sroa.0.0, %_ZN12opencv_caffe16EltwiseParameter22mutable_unknown_fieldsEv.exit ], [ %112, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28.thread ], [ %.sroa.0.0, %103 ], [ %.sroa.0.0, %98 ]
   %.045.be = phi ptr [ %163, %162 ], [ %130, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %107, %106 ], [ %.0.i.i2256, %73 ], [ %.0.i.i2256, %_ZN12opencv_caffe16EltwiseParameter22mutable_unknown_fieldsEv.exit ], [ %.0.i.i27.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28.thread ], [ %100, %103 ], [ %100, %98 ]
   br label %12, !llvm.loop !233
 
@@ -79327,14 +79327,14 @@ _ZN12opencv_caffe16EltwiseParameter22mutable_unknown_fieldsEv.exit: ; preds = %7
   br label %98
 
 98:                                               ; preds = %103, %96
-  %.2 = phi ptr [ %97, %96 ], [ %100, %103 ]
-  %99 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %97, %96 ], [ %100, %103 ]
+  %99 = getelementptr inbounds i8, ptr %.1, i64 1
   %.0.copyload.i2.i = load float, ptr %99, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store float %.0.copyload.i2.i, ptr %3, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %100 = getelementptr inbounds i8, ptr %.2, i64 5
+  %100 = getelementptr inbounds i8, ptr %.1, i64 5
   %101 = load ptr, ptr %2, align 8
   %102 = icmp ugt ptr %101, %100
   br i1 %102, label %103, label %.backedge
@@ -79463,12 +79463,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %106, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28, %162, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %24, %138, %139
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %106 ], [ %112, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %.sroa.0.0, %162 ]
-  %.4 = phi ptr [ null, %138 ], [ %.0.i, %139 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %106 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ null, %162 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %106 ], [ %112, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ %.sroa.0.0, %162 ]
+  %.3 = phi ptr [ null, %138 ], [ %.0.i, %139 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %106 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit28 ], [ null, %162 ]
   %164 = load i32, ptr %10, align 8
-  %165 = or i32 %164, %.sroa.0.3
+  %165 = or i32 %164, %.sroa.0.1
   store i32 %165, ptr %10, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -79645,16 +79645,16 @@ define hidden noundef i64 @_ZNK12opencv_caffe16EltwiseParameter12ByteSizeLongEv(
   br label %26
 
 26:                                               ; preds = %14, %12
-  %.0 = phi i64 [ %25, %14 ], [ %8, %12 ]
+  %.1 = phi i64 [ %25, %14 ], [ %8, %12 ]
   %27 = and i32 %10, 2
   %28 = zext nneg i32 %27 to i64
-  %spec.select = add nuw nsw i64 %.0, %28
+  %spec.select = add nuw nsw i64 %.1, %28
   br label %29
 
 29:                                               ; preds = %26, %1
-  %.1 = phi i64 [ %8, %1 ], [ %spec.select, %26 ]
+  %.0 = phi i64 [ %8, %1 ], [ %spec.select, %26 ]
   %30 = getelementptr inbounds i8, ptr %0, i64 20
-  %31 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %30)
+  %31 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %30)
   ret i64 %31
 }
 
@@ -79983,11 +79983,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %11
   br i1 %27, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.129 = phi ptr [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.023, %.backedge ]
-  %28 = load i8, ptr %.129, align 1
+  %.229 = phi ptr [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.023, %.backedge ]
+  %28 = load i8, ptr %.229, align 1
   %29 = zext i8 %28 to i32
   %30 = icmp sgt i8 %28, -1
-  %31 = getelementptr inbounds i8, ptr %.129, i64 1
+  %31 = getelementptr inbounds i8, ptr %.229, i64 1
   br i1 %30, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %32
 
 32:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26
@@ -80000,11 +80000,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26: ; preds = %.
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %.129, i64 2
+  %40 = getelementptr inbounds i8, ptr %.229, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 41:                                               ; preds = %32
-  %42 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.129, i32 noundef %37)
+  %42 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.229, i32 noundef %37)
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = extractvalue { ptr, i32 } %42, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -80086,12 +80086,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !236
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %76, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %19, %52, %53
-  %.2 = phi ptr [ %.0.i, %53 ], [ null, %52 ], [ %spec.select, %19 ], [ null, %76 ], [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %53 ], [ null, %52 ], [ %spec.select, %19 ], [ null, %76 ], [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %78 = getelementptr inbounds i8, ptr %0, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = or i32 %79, %.sroa.0.0.ph
   store i32 %80, ptr %78, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -80709,11 +80709,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %16
   br i1 %32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.160 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.054, %.backedge ]
-  %33 = load i8, ptr %.160, align 1
+  %.260 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.054, %.backedge ]
+  %33 = load i8, ptr %.260, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp sgt i8 %33, -1
-  %36 = getelementptr inbounds i8, ptr %.160, i64 1
+  %36 = getelementptr inbounds i8, ptr %.260, i64 1
   br i1 %35, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57
@@ -80726,11 +80726,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57: ; preds = %.
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.160, i64 2
+  %45 = getelementptr inbounds i8, ptr %.260, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 46:                                               ; preds = %37
-  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.160, i32 noundef %42)
+  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.260, i32 noundef %42)
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -81068,12 +81068,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe14EmbedParameter31_internal_mutable_weight_fillerEv.exit, %_ZN12opencv_caffe14EmbedParameter29_internal_mutable_bias_fillerEv.exit, %197, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %24, %173, %174
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %173 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %74, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %93, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe14EmbedParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe14EmbedParameter29_internal_mutable_bias_fillerEv.exit ], [ %.sroa.0.0, %197 ]
-  %.2 = phi ptr [ null, %173 ], [ %.0.i, %174 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe14EmbedParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe14EmbedParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %197 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %173 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %74, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %93, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe14EmbedParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe14EmbedParameter29_internal_mutable_bias_fillerEv.exit ], [ %.sroa.0.0, %197 ]
+  %.1 = phi ptr [ null, %173 ], [ %.0.i, %174 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe14EmbedParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe14EmbedParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %197 ]
   %199 = load i32, ptr %6, align 8
-  %200 = or i32 %199, %.sroa.0.3
+  %200 = or i32 %199, %.sroa.0.1
   store i32 %200, ptr %6, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -81356,7 +81356,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe14EmbedParameter12ByteSizeLongEv(pt
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %38, label %23
@@ -81373,13 +81373,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14EmbedParameter12ByteSizeLongEv(pt
   %32 = add nuw nsw i32 %31, 73
   %33 = lshr i32 %32, 6
   %34 = zext nneg i32 %33 to i64
-  %35 = add i64 %.0, 1
+  %35 = add i64 %.1, 1
   %36 = add i64 %35, %26
   %37 = add i64 %36, %34
   br label %38
 
 38:                                               ; preds = %23, %21
-  %.1 = phi i64 [ %37, %23 ], [ %.0, %21 ]
+  %.2 = phi i64 [ %37, %23 ], [ %.1, %21 ]
   %39 = and i32 %3, 4
   %.not16 = icmp eq i32 %39, 0
   br i1 %.not16, label %51, label %40
@@ -81394,11 +81394,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe14EmbedParameter12ByteSizeLongEv(pt
   %47 = add nuw nsw i32 %46, 137
   %48 = lshr i32 %47, 6
   %49 = zext nneg i32 %48 to i64
-  %50 = add i64 %.1, %49
+  %50 = add i64 %.2, %49
   br label %51
 
 51:                                               ; preds = %40, %38
-  %.2 = phi i64 [ %50, %40 ], [ %.1, %38 ]
+  %.3 = phi i64 [ %50, %40 ], [ %.2, %38 ]
   %52 = and i32 %3, 8
   %.not17 = icmp eq i32 %52, 0
   br i1 %.not17, label %64, label %53
@@ -81413,21 +81413,21 @@ define hidden noundef i64 @_ZNK12opencv_caffe14EmbedParameter12ByteSizeLongEv(pt
   %60 = add nuw nsw i32 %59, 137
   %61 = lshr i32 %60, 6
   %62 = zext nneg i32 %61 to i64
-  %63 = add i64 %.2, %62
+  %63 = add i64 %.3, %62
   br label %64
 
 64:                                               ; preds = %53, %51
-  %.3 = phi i64 [ %63, %53 ], [ %.2, %51 ]
+  %.4 = phi i64 [ %63, %53 ], [ %.3, %51 ]
   %65 = lshr i32 %3, 3
   %66 = and i32 %65, 2
   %67 = zext nneg i32 %66 to i64
-  %spec.select = add i64 %.3, %67
+  %spec.select = add i64 %.4, %67
   br label %68
 
 68:                                               ; preds = %64, %1
-  %.4 = phi i64 [ 0, %1 ], [ %spec.select, %64 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %64 ]
   %69 = getelementptr inbounds i8, ptr %0, i64 20
-  %70 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %69)
+  %70 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %69)
   ret i64 %70
 }
 
@@ -81724,11 +81724,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.134 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
-  %30 = load i8, ptr %.134, align 1
+  %.234 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
+  %30 = load i8, ptr %.234, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.134, i64 1
+  %33 = getelementptr inbounds i8, ptr %.234, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
@@ -81741,11 +81741,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.134, i64 2
+  %42 = getelementptr inbounds i8, ptr %.234, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.134, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.234, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -81863,12 +81863,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !238
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %91, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %67, %68
-  %.2 = phi ptr [ %.0.i, %68 ], [ null, %67 ], [ %spec.select, %21 ], [ null, %91 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %68 ], [ null, %67 ], [ %spec.select, %21 ], [ null, %91 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %93 = getelementptr inbounds i8, ptr %0, i64 16
   %94 = load i32, ptr %93, align 8
   %95 = or i32 %94, %.sroa.0.0.ph
   store i32 %95, ptr %93, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -81983,17 +81983,17 @@ define hidden noundef i64 @_ZNK12opencv_caffe12ExpParameter12ByteSizeLongEv(ptr 
   %7 = and i32 %3, 2
   %.not11 = icmp eq i32 %7, 0
   %8 = add nuw nsw i64 %spec.select, 5
-  %.1 = select i1 %.not11, i64 %spec.select, i64 %8
+  %.2 = select i1 %.not11, i64 %spec.select, i64 %8
   %9 = and i32 %3, 4
   %.not12 = icmp eq i32 %9, 0
-  %10 = add nuw nsw i64 %.1, 5
-  %spec.select13 = select i1 %.not12, i64 %.1, i64 %10
+  %10 = add nuw nsw i64 %.2, 5
+  %spec.select13 = select i1 %.not12, i64 %.2, i64 %10
   br label %11
 
 11:                                               ; preds = %5, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %12)
+  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %12)
   ret i64 %13
 }
 
@@ -82318,11 +82318,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.139 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.033, %.backedge ]
-  %29 = load i8, ptr %.139, align 1
+  %.239 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.033, %.backedge ]
+  %29 = load i8, ptr %.239, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.139, i64 1
+  %32 = getelementptr inbounds i8, ptr %.239, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
@@ -82335,11 +82335,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.139, i64 2
+  %41 = getelementptr inbounds i8, ptr %.239, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.139, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.239, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -82503,13 +82503,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !239
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %113, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21, %20, %89, %90
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %89 ], [ %.sroa.0.0.ph, %90 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %51, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %89 ], [ %.0.i, %90 ], [ %spec.select, %20 ], [ null, %113 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %89 ], [ %.sroa.0.0.ph, %90 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %51, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %89 ], [ %.0.i, %90 ], [ %spec.select, %20 ], [ null, %113 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = or i32 %116, %.sroa.0.3
+  %117 = or i32 %116, %.sroa.0.1
   store i32 %117, ptr %115, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -82682,7 +82682,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16FlattenParameter12ByteSizeLongEv(
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not9 = icmp eq i32 %18, 0
   br i1 %.not9, label %30, label %19
@@ -82697,13 +82697,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16FlattenParameter12ByteSizeLongEv(
   %26 = mul nuw nsw i64 %25, 9
   %27 = add nuw nsw i64 %26, 137
   %28 = lshr i64 %27, 6
-  %29 = add nuw nsw i64 %28, %.0
+  %29 = add nuw nsw i64 %28, %.1
   br label %30
 
 30:                                               ; preds = %17, %19, %1
-  %.1 = phi i64 [ %29, %19 ], [ %.0, %17 ], [ 0, %1 ]
+  %.0 = phi i64 [ %29, %19 ], [ %.1, %17 ], [ 0, %1 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %31)
+  %32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %31)
   ret i64 %32
 }
 
@@ -83098,11 +83098,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.144 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
-  %31 = load i8, ptr %.144, align 1
+  %.244 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
+  %31 = load i8, ptr %.244, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.144, i64 1
+  %34 = getelementptr inbounds i8, ptr %.244, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
@@ -83115,11 +83115,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.144, i64 2
+  %43 = getelementptr inbounds i8, ptr %.244, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.144, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.244, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -83324,12 +83324,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not15, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe17HDF5DataParameter24_internal_mutable_sourceB5cxx11Ev.exit, %136, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %22, %112, %113
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %112 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe17HDF5DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %136 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %86, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %67, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %112 ], [ %.0.i, %113 ], [ %spec.select, %22 ], [ null, %136 ], [ null, %_ZN12opencv_caffe17HDF5DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %112 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe17HDF5DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %136 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %86, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %67, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %112 ], [ %.0.i, %113 ], [ %spec.select, %22 ], [ null, %136 ], [ null, %_ZN12opencv_caffe17HDF5DataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %138 = load i32, ptr %8, align 8
-  %139 = or i32 %138, %.sroa.0.3
+  %139 = or i32 %138, %.sroa.0.1
   store i32 %139, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -83523,7 +83523,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe17HDF5DataParameter12ByteSizeLongEv
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not11 = icmp eq i32 %25, 0
   br i1 %.not11, label %37, label %26
@@ -83538,21 +83538,21 @@ define hidden noundef i64 @_ZNK12opencv_caffe17HDF5DataParameter12ByteSizeLongEv
   %33 = add nuw nsw i32 %32, 137
   %34 = lshr i32 %33, 6
   %35 = zext nneg i32 %34 to i64
-  %36 = add i64 %.0, %35
+  %36 = add i64 %.1, %35
   br label %37
 
 37:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %36, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %36, %26 ], [ %.1, %24 ]
   %38 = lshr i32 %3, 1
   %39 = and i32 %38, 2
   %40 = zext nneg i32 %39 to i64
-  %spec.select = add i64 %.1, %40
+  %spec.select = add i64 %.2, %40
   br label %41
 
 41:                                               ; preds = %37, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select, %37 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %37 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 20
-  %43 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %42)
+  %43 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %42)
   ret i64 %43
 }
 
@@ -83954,11 +83954,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.132 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %.backedge ]
-  %29 = load i8, ptr %.132, align 1
+  %.232 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %.backedge ]
+  %29 = load i8, ptr %.232, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.132, i64 1
+  %32 = getelementptr inbounds i8, ptr %.232, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
@@ -83971,11 +83971,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.132, i64 2
+  %41 = getelementptr inbounds i8, ptr %.232, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.132, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.232, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -84077,8 +84077,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe19HDF5OutputParameter27_internal_mutable_file_nameB5cxx11Ev.exit, %86, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %20, %62, %63
-  %.2 = phi ptr [ %.0.i, %63 ], [ null, %62 ], [ %spec.select, %20 ], [ null, %_ZN12opencv_caffe19HDF5OutputParameter27_internal_mutable_file_nameB5cxx11Ev.exit ], [ null, %86 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0.i, %63 ], [ null, %62 ], [ %spec.select, %20 ], [ null, %_ZN12opencv_caffe19HDF5OutputParameter27_internal_mutable_file_nameB5cxx11Ev.exit ], [ null, %86 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -84498,11 +84498,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.136 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
-  %29 = load i8, ptr %.136, align 1
+  %.236 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
+  %29 = load i8, ptr %.236, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.136, i64 1
+  %32 = getelementptr inbounds i8, ptr %.236, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
@@ -84515,11 +84515,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.136, i64 2
+  %41 = getelementptr inbounds i8, ptr %.236, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.136, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.236, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -84691,8 +84691,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %116, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %20, %92, %93
-  %.2 = phi ptr [ %.0.i, %93 ], [ null, %92 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %116 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0.i, %93 ], [ null, %92 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %116 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -85410,11 +85410,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %23
   br i1 %39, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread103
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread103: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1106 = phi ptr [ %37, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0100, %.backedge ]
-  %40 = load i8, ptr %.1106, align 1
+  %.2106 = phi ptr [ %37, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0100, %.backedge ]
+  %40 = load i8, ptr %.2106, align 1
   %41 = zext i8 %40 to i32
   %42 = icmp sgt i8 %40, -1
-  %43 = getelementptr inbounds i8, ptr %.1106, i64 1
+  %43 = getelementptr inbounds i8, ptr %.2106, i64 1
   br i1 %42, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %44
 
 44:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread103
@@ -85427,11 +85427,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread103: ; preds = %
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %.1106, i64 2
+  %52 = getelementptr inbounds i8, ptr %.2106, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 53:                                               ; preds = %44
-  %54 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1106, i32 noundef %49)
+  %54 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.2106, i32 noundef %49)
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = extractvalue { ptr, i32 } %54, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -85965,12 +85965,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not27, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe18ImageDataParameter24_internal_mutable_sourceB5cxx11Ev.exit, %_ZN12opencv_caffe18ImageDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit59, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit64, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69, %_ZN12opencv_caffe18ImageDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit, %307, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %31, %283, %284
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %283 ], [ %.sroa.0.0, %284 ], [ %.sroa.0.0, %31 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18ImageDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18ImageDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %96, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %115, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %160, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49 ], [ %179, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ %205, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit59 ], [ %224, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit64 ], [ %243, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ %.sroa.0.0, %_ZN12opencv_caffe18ImageDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ %.sroa.0.0, %307 ]
-  %.2 = phi ptr [ null, %283 ], [ %.0.i, %284 ], [ %spec.select, %31 ], [ %37, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe18ImageDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe18ImageDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit59 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit64 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ null, %_ZN12opencv_caffe18ImageDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ null, %307 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %283 ], [ %.sroa.0.0, %284 ], [ %.sroa.0.0, %31 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18ImageDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18ImageDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %96, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %115, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %160, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49 ], [ %179, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ %205, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit59 ], [ %224, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit64 ], [ %243, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ %.sroa.0.0, %_ZN12opencv_caffe18ImageDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ %.sroa.0.0, %307 ]
+  %.1 = phi ptr [ null, %283 ], [ %.0.i, %284 ], [ %spec.select, %31 ], [ %37, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe18ImageDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe18ImageDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit49 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit59 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit64 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit69 ], [ null, %_ZN12opencv_caffe18ImageDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ null, %307 ]
   %309 = load i32, ptr %6, align 8
-  %310 = or i32 %309, %.sroa.0.3
+  %310 = or i32 %309, %.sroa.0.1
   store i32 %310, ptr %6, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -86581,7 +86581,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not30 = icmp eq i32 %25, 0
   br i1 %.not30, label %44, label %26
@@ -86601,13 +86601,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %38 = add nuw nsw i32 %37, 73
   %39 = lshr i32 %38, 6
   %40 = zext nneg i32 %39 to i64
-  %41 = add i64 %.0, 1
+  %41 = add i64 %.1, 1
   %42 = add i64 %41, %32
   %43 = add i64 %42, %40
   br label %44
 
 44:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %43, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %43, %26 ], [ %.1, %24 ]
   %45 = and i32 %3, 4
   %.not31 = icmp eq i32 %45, 0
   br i1 %.not31, label %64, label %46
@@ -86627,13 +86627,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %58 = add nuw nsw i32 %57, 73
   %59 = lshr i32 %58, 6
   %60 = zext nneg i32 %59 to i64
-  %61 = add i64 %.1, 1
+  %61 = add i64 %.2, 1
   %62 = add i64 %61, %52
   %63 = add i64 %62, %60
   br label %64
 
 64:                                               ; preds = %46, %44
-  %.2 = phi i64 [ %63, %46 ], [ %.1, %44 ]
+  %.3 = phi i64 [ %63, %46 ], [ %.2, %44 ]
   %65 = and i32 %3, 8
   %.not32 = icmp eq i32 %65, 0
   br i1 %.not32, label %77, label %66
@@ -86648,11 +86648,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %73 = add nuw nsw i32 %72, 137
   %74 = lshr i32 %73, 6
   %75 = zext nneg i32 %74 to i64
-  %76 = add i64 %.2, %75
+  %76 = add i64 %.3, %75
   br label %77
 
 77:                                               ; preds = %66, %64
-  %.3 = phi i64 [ %76, %66 ], [ %.2, %64 ]
+  %.4 = phi i64 [ %76, %66 ], [ %.3, %64 ]
   %78 = and i32 %3, 16
   %.not33 = icmp eq i32 %78, 0
   br i1 %.not33, label %90, label %79
@@ -86667,18 +86667,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %86 = add nuw nsw i32 %85, 137
   %87 = lshr i32 %86, 6
   %88 = zext nneg i32 %87 to i64
-  %89 = add i64 %.3, %88
+  %89 = add i64 %.4, %88
   br label %90
 
 90:                                               ; preds = %79, %77
-  %.4 = phi i64 [ %89, %79 ], [ %.3, %77 ]
+  %.5 = phi i64 [ %89, %79 ], [ %.4, %77 ]
   %91 = lshr i32 %3, 4
   %92 = and i32 %91, 2
   %93 = lshr i32 %3, 5
   %94 = and i32 %93, 2
   %narrow = add nuw nsw i32 %94, %92
   %spec.select = zext nneg i32 %narrow to i64
-  %.6 = add i64 %.4, %spec.select
+  %.7 = add i64 %.5, %spec.select
   %95 = and i32 %3, 128
   %.not36 = icmp eq i32 %95, 0
   br i1 %.not36, label %107, label %96
@@ -86693,11 +86693,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %103 = add nuw nsw i32 %102, 137
   %104 = lshr i32 %103, 6
   %105 = zext nneg i32 %104 to i64
-  %106 = add i64 %.6, %105
+  %106 = add i64 %.7, %105
   br label %107
 
 107:                                              ; preds = %90, %96, %1
-  %.7 = phi i64 [ %106, %96 ], [ %.6, %90 ], [ 0, %1 ]
+  %.0 = phi i64 [ %106, %96 ], [ %.7, %90 ], [ 0, %1 ]
   %108 = and i32 %3, 3840
   %.not37 = icmp eq i32 %108, 0
   br i1 %.not37, label %140, label %109
@@ -86717,19 +86717,19 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %118 = add nuw nsw i32 %117, 137
   %119 = lshr i32 %118, 6
   %120 = zext nneg i32 %119 to i64
-  %121 = add i64 %.7, %120
+  %121 = add i64 %.0, %120
   br label %122
 
 122:                                              ; preds = %111, %109
-  %.8 = phi i64 [ %121, %111 ], [ %.7, %109 ]
+  %.9 = phi i64 [ %121, %111 ], [ %.0, %109 ]
   %123 = lshr i32 %3, 8
   %124 = and i32 %123, 2
   %125 = zext nneg i32 %124 to i64
-  %spec.select42 = add i64 %.8, %125
+  %spec.select42 = add i64 %.9, %125
   %126 = and i32 %3, 1024
   %.not40 = icmp eq i32 %126, 0
   %127 = add i64 %spec.select42, 5
-  %.10 = select i1 %.not40, i64 %spec.select42, i64 %127
+  %.11 = select i1 %.not40, i64 %spec.select42, i64 %127
   %128 = and i32 %3, 2048
   %.not41 = icmp eq i32 %128, 0
   br i1 %.not41, label %140, label %129
@@ -86744,13 +86744,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
   %136 = add nuw nsw i32 %135, 137
   %137 = lshr i32 %136, 6
   %138 = zext nneg i32 %137 to i64
-  %139 = add i64 %.10, %138
+  %139 = add i64 %.11, %138
   br label %140
 
 140:                                              ; preds = %122, %129, %107
-  %.11 = phi i64 [ %139, %129 ], [ %.10, %122 ], [ %.7, %107 ]
+  %.8 = phi i64 [ %139, %129 ], [ %.11, %122 ], [ %.0, %107 ]
   %141 = getelementptr inbounds i8, ptr %0, i64 20
-  %142 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.11, ptr noundef nonnull %141)
+  %142 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.8, ptr noundef nonnull %141)
   ret i64 %142
 }
 
@@ -87136,11 +87136,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.132 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %.backedge ]
-  %29 = load i8, ptr %.132, align 1
+  %.232 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %.backedge ]
+  %29 = load i8, ptr %.232, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.132, i64 1
+  %32 = getelementptr inbounds i8, ptr %.232, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
@@ -87153,11 +87153,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.132, i64 2
+  %41 = getelementptr inbounds i8, ptr %.232, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.132, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.232, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -87259,8 +87259,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe21InfogainLossParameter24_internal_mutable_sourceB5cxx11Ev.exit, %86, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %20, %62, %63
-  %.2 = phi ptr [ %.0.i, %63 ], [ null, %62 ], [ %spec.select, %20 ], [ null, %_ZN12opencv_caffe21InfogainLossParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %86 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0.i, %63 ], [ null, %62 ], [ %spec.select, %20 ], [ null, %_ZN12opencv_caffe21InfogainLossParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %86 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -87802,11 +87802,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %17
   br i1 %33, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread65
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread65: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.168 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.062, %.backedge ]
-  %34 = load i8, ptr %.168, align 1
+  %.268 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.062, %.backedge ]
+  %34 = load i8, ptr %.268, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i8 %34, -1
-  %37 = getelementptr inbounds i8, ptr %.168, i64 1
+  %37 = getelementptr inbounds i8, ptr %.268, i64 1
   br i1 %36, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread65
@@ -87819,11 +87819,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread65: ; preds = %.
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %.168, i64 2
+  %46 = getelementptr inbounds i8, ptr %.268, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 47:                                               ; preds = %38
-  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.168, i32 noundef %43)
+  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.268, i32 noundef %43)
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = extractvalue { ptr, i32 } %48, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -88211,12 +88211,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe21InnerProductParameter31_internal_mutable_weight_fillerEv.exit, %_ZN12opencv_caffe21InnerProductParameter29_internal_mutable_bias_fillerEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44, %224, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %25, %200, %201
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %200 ], [ %.sroa.0.0, %201 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %56, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %75, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe21InnerProductParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe21InnerProductParameter29_internal_mutable_bias_fillerEv.exit ], [ %155, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ %174, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ %.sroa.0.0, %224 ]
-  %.2 = phi ptr [ null, %200 ], [ %.0.i, %201 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe21InnerProductParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe21InnerProductParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ null, %224 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %200 ], [ %.sroa.0.0, %201 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %56, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %75, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe21InnerProductParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe21InnerProductParameter29_internal_mutable_bias_fillerEv.exit ], [ %155, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ %174, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ %.sroa.0.0, %224 ]
+  %.1 = phi ptr [ null, %200 ], [ %.0.i, %201 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe21InnerProductParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe21InnerProductParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ null, %224 ]
   %226 = load i32, ptr %8, align 8
-  %227 = or i32 %226, %.sroa.0.3
+  %227 = or i32 %226, %.sroa.0.1
   store i32 %227, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -88526,7 +88526,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe21InnerProductParameter12ByteSizeLo
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %.not17 = icmp eq i32 %22, 0
   br i1 %.not17, label %38, label %23
@@ -88543,13 +88543,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe21InnerProductParameter12ByteSizeLo
   %32 = add nuw nsw i32 %31, 73
   %33 = lshr i32 %32, 6
   %34 = zext nneg i32 %33 to i64
-  %35 = add i64 %.0, 1
+  %35 = add i64 %.1, 1
   %36 = add i64 %35, %26
   %37 = add i64 %36, %34
   br label %38
 
 38:                                               ; preds = %23, %21
-  %.1 = phi i64 [ %37, %23 ], [ %.0, %21 ]
+  %.2 = phi i64 [ %37, %23 ], [ %.1, %21 ]
   %39 = and i32 %3, 4
   %.not18 = icmp eq i32 %39, 0
   br i1 %.not18, label %51, label %40
@@ -88564,18 +88564,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe21InnerProductParameter12ByteSizeLo
   %47 = add nuw nsw i32 %46, 137
   %48 = lshr i32 %47, 6
   %49 = zext nneg i32 %48 to i64
-  %50 = add i64 %.1, %49
+  %50 = add i64 %.2, %49
   br label %51
 
 51:                                               ; preds = %40, %38
-  %.2 = phi i64 [ %50, %40 ], [ %.1, %38 ]
+  %.3 = phi i64 [ %50, %40 ], [ %.2, %38 ]
   %52 = lshr i32 %3, 2
   %53 = and i32 %52, 2
   %54 = lshr i32 %3, 3
   %55 = and i32 %54, 2
   %narrow = add nuw nsw i32 %55, %53
   %spec.select = zext nneg i32 %narrow to i64
-  %.4 = add i64 %.2, %spec.select
+  %.5 = add i64 %.3, %spec.select
   %56 = and i32 %3, 32
   %.not21 = icmp eq i32 %56, 0
   br i1 %.not21, label %68, label %57
@@ -88590,13 +88590,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe21InnerProductParameter12ByteSizeLo
   %64 = mul nuw nsw i64 %63, 9
   %65 = add nuw nsw i64 %64, 137
   %66 = lshr i64 %65, 6
-  %67 = add i64 %66, %.4
+  %67 = add i64 %66, %.5
   br label %68
 
 68:                                               ; preds = %51, %57, %1
-  %.5 = phi i64 [ %67, %57 ], [ %.4, %51 ], [ 0, %1 ]
+  %.0 = phi i64 [ %67, %57 ], [ %.5, %51 ], [ 0, %1 ]
   %69 = getelementptr inbounds i8, ptr %0, i64 20
-  %70 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.5, ptr noundef nonnull %69)
+  %70 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %69)
   ret i64 %70
 }
 
@@ -88994,11 +88994,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %11, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.132 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %11 ]
-  %32 = load i8, ptr %.132, align 1
+  %.332 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %11 ]
+  %32 = load i8, ptr %.332, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.132, i64 1
+  %35 = getelementptr inbounds i8, ptr %.332, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
@@ -89011,11 +89011,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %1
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.132, i64 2
+  %44 = getelementptr inbounds i8, ptr %.332, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.132, i32 noundef %41)
+  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.332, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -89031,8 +89031,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %52
 
 52:                                               ; preds = %73, %50
-  %.2 = phi ptr [ %51, %50 ], [ %69, %73 ]
-  %53 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %51, %50 ], [ %69, %73 ]
+  %53 = getelementptr inbounds i8, ptr %.1, i64 1
   %54 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i, label %65, label %55
@@ -89143,8 +89143,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %104, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN12opencv_caffe14InputParameter19_internal_add_shapeEv.exit, %23, %80, %81
-  %.3 = phi ptr [ %.0.i, %81 ], [ null, %80 ], [ %spec.select, %23 ], [ null, %_ZN12opencv_caffe14InputParameter19_internal_add_shapeEv.exit ], [ null, %104 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ %.0.i, %81 ], [ null, %80 ], [ %spec.select, %23 ], [ null, %_ZN12opencv_caffe14InputParameter19_internal_add_shapeEv.exit ], [ null, %104 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -89638,11 +89638,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.134 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
-  %30 = load i8, ptr %.134, align 1
+  %.234 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
+  %30 = load i8, ptr %.234, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.134, i64 1
+  %33 = getelementptr inbounds i8, ptr %.234, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
@@ -89655,11 +89655,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.134, i64 2
+  %42 = getelementptr inbounds i8, ptr %.234, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.134, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.234, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -89777,12 +89777,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !254
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %91, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %67, %68
-  %.2 = phi ptr [ %.0.i, %68 ], [ null, %67 ], [ %spec.select, %21 ], [ null, %91 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %68 ], [ null, %67 ], [ %spec.select, %21 ], [ null, %91 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %93 = getelementptr inbounds i8, ptr %0, i64 16
   %94 = load i32, ptr %93, align 8
   %95 = or i32 %94, %.sroa.0.0.ph
   store i32 %95, ptr %93, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -89897,17 +89897,17 @@ define hidden noundef i64 @_ZNK12opencv_caffe12LogParameter12ByteSizeLongEv(ptr 
   %7 = and i32 %3, 2
   %.not11 = icmp eq i32 %7, 0
   %8 = add nuw nsw i64 %spec.select, 5
-  %.1 = select i1 %.not11, i64 %spec.select, i64 %8
+  %.2 = select i1 %.not11, i64 %spec.select, i64 %8
   %9 = and i32 %3, 4
   %.not12 = icmp eq i32 %9, 0
-  %10 = add nuw nsw i64 %.1, 5
-  %spec.select13 = select i1 %.not12, i64 %.1, i64 %10
+  %10 = add nuw nsw i64 %.2, 5
+  %spec.select13 = select i1 %.not12, i64 %.2, i64 %10
   br label %11
 
 11:                                               ; preds = %5, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %12)
+  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %12)
   ret i64 %13
 }
 
@@ -90238,11 +90238,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %17
   br i1 %33, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread66
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread66: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.169 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.063, %.backedge ]
-  %34 = load i8, ptr %.169, align 1
+  %.269 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.063, %.backedge ]
+  %34 = load i8, ptr %.269, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i8 %34, -1
-  %37 = getelementptr inbounds i8, ptr %.169, i64 1
+  %37 = getelementptr inbounds i8, ptr %.269, i64 1
   br i1 %36, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread66
@@ -90255,11 +90255,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread66: ; preds = %.
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %.169, i64 2
+  %46 = getelementptr inbounds i8, ptr %.269, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 47:                                               ; preds = %38
-  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.169, i32 noundef %43)
+  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.269, i32 noundef %43)
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = extractvalue { ptr, i32 } %48, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -90615,12 +90615,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit34, %205, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %25, %181, %182
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %182 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %56, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit34 ], [ %.sroa.0.0, %205 ]
-  %.2 = phi ptr [ null, %181 ], [ %.0.i, %182 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit34 ], [ null, %205 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %182 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %56, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit34 ], [ %.sroa.0.0, %205 ]
+  %.1 = phi ptr [ null, %181 ], [ %.0.i, %182 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit34 ], [ null, %205 ]
   %207 = load i32, ptr %7, align 8
-  %208 = or i32 %207, %.sroa.0.3
+  %208 = or i32 %207, %.sroa.0.1
   store i32 %208, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -90929,7 +90929,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe12LRNParameter12ByteSizeLongEv(ptr 
   br label %18
 
 18:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %17, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %17, %7 ], [ 0, %5 ]
   %19 = and i32 %3, 2
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %32, label %20
@@ -90944,12 +90944,12 @@ define hidden noundef i64 @_ZNK12opencv_caffe12LRNParameter12ByteSizeLongEv(ptr 
   %27 = mul nuw nsw i64 %26, 9
   %28 = add nuw nsw i64 %27, 73
   %29 = lshr i64 %28, 6
-  %30 = add nuw nsw i64 %.0, 1
+  %30 = add nuw nsw i64 %.1, 1
   %31 = add nuw nsw i64 %30, %29
   br label %32
 
 32:                                               ; preds = %20, %18
-  %.1 = phi i64 [ %31, %20 ], [ %.0, %18 ]
+  %.2 = phi i64 [ %31, %20 ], [ %.1, %18 ]
   %33 = and i32 %3, 4
   %.not18 = icmp eq i32 %33, 0
   br i1 %.not18, label %45, label %34
@@ -90964,29 +90964,29 @@ define hidden noundef i64 @_ZNK12opencv_caffe12LRNParameter12ByteSizeLongEv(ptr 
   %41 = add nuw nsw i32 %40, 137
   %42 = lshr i32 %41, 6
   %43 = zext nneg i32 %42 to i64
-  %44 = add nuw nsw i64 %.1, %43
+  %44 = add nuw nsw i64 %.2, %43
   br label %45
 
 45:                                               ; preds = %34, %32
-  %.2 = phi i64 [ %44, %34 ], [ %.1, %32 ]
+  %.3 = phi i64 [ %44, %34 ], [ %.2, %32 ]
   %46 = and i32 %3, 8
   %.not19 = icmp eq i32 %46, 0
-  %47 = add nuw nsw i64 %.2, 5
-  %spec.select = select i1 %.not19, i64 %.2, i64 %47
+  %47 = add nuw nsw i64 %.3, 5
+  %spec.select = select i1 %.not19, i64 %.3, i64 %47
   %48 = and i32 %3, 16
   %.not20 = icmp eq i32 %48, 0
   %49 = add nuw nsw i64 %spec.select, 5
-  %.4 = select i1 %.not20, i64 %spec.select, i64 %49
+  %.5 = select i1 %.not20, i64 %spec.select, i64 %49
   %50 = and i32 %3, 32
   %.not21 = icmp eq i32 %50, 0
-  %51 = add nuw nsw i64 %.4, 5
-  %spec.select22 = select i1 %.not21, i64 %.4, i64 %51
+  %51 = add nuw nsw i64 %.5, 5
+  %spec.select22 = select i1 %.not21, i64 %.5, i64 %51
   br label %52
 
 52:                                               ; preds = %45, %1
-  %.5 = phi i64 [ 0, %1 ], [ %spec.select22, %45 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select22, %45 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 20
-  %54 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.5, ptr noundef nonnull %53)
+  %54 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %53)
   ret i64 %54
 }
 
@@ -91324,11 +91324,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.155 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.049, %.backedge ]
-  %31 = load i8, ptr %.155, align 1
+  %.255 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.049, %.backedge ]
+  %31 = load i8, ptr %.255, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.155, i64 1
+  %34 = getelementptr inbounds i8, ptr %.255, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52
@@ -91341,11 +91341,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.155, i64 2
+  %43 = getelementptr inbounds i8, ptr %.255, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.155, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.255, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -91591,13 +91591,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit28, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit33, %153, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %22, %129, %130
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %129 ], [ %.sroa.0.0, %130 ], [ %.sroa.0.0, %22 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %53, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit28 ], [ %110, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit33 ], [ %.sroa.0.0, %153 ]
-  %.2 = phi ptr [ null, %129 ], [ %.0.i, %130 ], [ %spec.select, %22 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit28 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit33 ], [ null, %153 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %129 ], [ %.sroa.0.0, %130 ], [ %.sroa.0.0, %22 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %53, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ], [ %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit28 ], [ %110, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit33 ], [ %.sroa.0.0, %153 ]
+  %.1 = phi ptr [ null, %129 ], [ %.0.i, %130 ], [ %spec.select, %22 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit23 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit28 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit33 ], [ null, %153 ]
   %155 = getelementptr inbounds i8, ptr %0, i64 16
   %156 = load i32, ptr %155, align 8
-  %157 = or i32 %156, %.sroa.0.3
+  %157 = or i32 %156, %.sroa.0.1
   store i32 %157, ptr %155, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -91888,7 +91888,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLong
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not13 = icmp eq i32 %18, 0
   br i1 %.not13, label %30, label %19
@@ -91903,11 +91903,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLong
   %26 = add nuw nsw i32 %25, 137
   %27 = lshr i32 %26, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = add nuw nsw i64 %.0, %28
+  %29 = add nuw nsw i64 %.1, %28
   br label %30
 
 30:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %29, %19 ], [ %.0, %17 ]
+  %.2 = phi i64 [ %29, %19 ], [ %.1, %17 ]
   %31 = and i32 %3, 4
   %.not14 = icmp eq i32 %31, 0
   br i1 %.not14, label %43, label %32
@@ -91922,11 +91922,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLong
   %39 = add nuw nsw i32 %38, 137
   %40 = lshr i32 %39, 6
   %41 = zext nneg i32 %40 to i64
-  %42 = add nuw nsw i64 %.1, %41
+  %42 = add nuw nsw i64 %.2, %41
   br label %43
 
 43:                                               ; preds = %32, %30
-  %.2 = phi i64 [ %42, %32 ], [ %.1, %30 ]
+  %.3 = phi i64 [ %42, %32 ], [ %.2, %30 ]
   %44 = and i32 %3, 8
   %.not15 = icmp eq i32 %44, 0
   br i1 %.not15, label %56, label %45
@@ -91941,13 +91941,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLong
   %52 = add nuw nsw i32 %51, 137
   %53 = lshr i32 %52, 6
   %54 = zext nneg i32 %53 to i64
-  %55 = add nuw nsw i64 %.2, %54
+  %55 = add nuw nsw i64 %.3, %54
   br label %56
 
 56:                                               ; preds = %43, %45, %1
-  %.3 = phi i64 [ %55, %45 ], [ %.2, %43 ], [ 0, %1 ]
+  %.0 = phi i64 [ %55, %45 ], [ %.3, %43 ], [ 0, %1 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 20
-  %58 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3, ptr noundef nonnull %57)
+  %58 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %57)
   ret i64 %58
 }
 
@@ -92262,11 +92262,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.141 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.035, %.backedge ]
-  %30 = load i8, ptr %.141, align 1
+  %.241 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.035, %.backedge ]
+  %30 = load i8, ptr %.241, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.141, i64 1
+  %33 = getelementptr inbounds i8, ptr %.241, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38
@@ -92279,11 +92279,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.141, i64 2
+  %42 = getelementptr inbounds i8, ptr %.241, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.141, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.241, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -92478,13 +92478,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !257
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %134, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit21, %21, %110, %111
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %110 ], [ %.sroa.0.0.ph, %111 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %134 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %78, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit21 ], [ %52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %110 ], [ %.0.i, %111 ], [ %spec.select, %21 ], [ null, %134 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit21 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %110 ], [ %.sroa.0.0.ph, %111 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %134 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %78, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit21 ], [ %52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %110 ], [ %.0.i, %111 ], [ %spec.select, %21 ], [ null, %134 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit21 ]
   %136 = getelementptr inbounds i8, ptr %0, i64 16
   %137 = load i32, ptr %136, align 8
-  %138 = or i32 %137, %.sroa.0.3
+  %138 = or i32 %137, %.sroa.0.1
   store i32 %138, ptr %136, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -92599,17 +92599,17 @@ define hidden noundef i64 @_ZNK12opencv_caffe12MVNParameter12ByteSizeLongEv(ptr 
   %7 = and i32 %6, 2
   %8 = and i32 %3, 2
   %narrow = add nuw nsw i32 %7, %8
-  %.1 = zext nneg i32 %narrow to i64
+  %.2 = zext nneg i32 %narrow to i64
   %9 = and i32 %3, 4
   %.not12 = icmp eq i32 %9, 0
-  %10 = add nuw nsw i64 %.1, 5
-  %spec.select13 = select i1 %.not12, i64 %.1, i64 %10
+  %10 = add nuw nsw i64 %.2, 5
+  %spec.select13 = select i1 %.not12, i64 %.2, i64 %10
   br label %11
 
 11:                                               ; preds = %5, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %12)
+  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %12)
   ret i64 %13
 }
 
@@ -93004,11 +93004,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread28
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread28: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.131 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.025, %.backedge ]
-  %29 = load i8, ptr %.131, align 1
+  %.231 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.025, %.backedge ]
+  %29 = load i8, ptr %.231, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.131, i64 1
+  %32 = getelementptr inbounds i8, ptr %.231, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread28
@@ -93021,11 +93021,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread28: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.131, i64 2
+  %41 = getelementptr inbounds i8, ptr %.231, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.131, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.231, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -93137,8 +93137,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not11, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe18ParameterParameter23_internal_mutable_shapeEv.exit, %90, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %20, %66, %67
-  %.2 = phi ptr [ %.0.i, %67 ], [ null, %66 ], [ %spec.select, %20 ], [ null, %_ZN12opencv_caffe18ParameterParameter23_internal_mutable_shapeEv.exit ], [ null, %90 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0.i, %67 ], [ null, %66 ], [ %spec.select, %20 ], [ null, %_ZN12opencv_caffe18ParameterParameter23_internal_mutable_shapeEv.exit ], [ null, %90 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -93597,11 +93597,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %24
   br i1 %40, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread138
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread138: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1141 = phi ptr [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0135, %.backedge ]
-  %41 = load i8, ptr %.1141, align 1
+  %.2141 = phi ptr [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0135, %.backedge ]
+  %41 = load i8, ptr %.2141, align 1
   %42 = zext i8 %41 to i32
   %43 = icmp sgt i8 %41, -1
-  %44 = getelementptr inbounds i8, ptr %.1141, i64 1
+  %44 = getelementptr inbounds i8, ptr %.2141, i64 1
   br i1 %43, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %45
 
 45:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread138
@@ -93614,11 +93614,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread138: ; preds = %
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %.1141, i64 2
+  %53 = getelementptr inbounds i8, ptr %.2141, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 54:                                               ; preds = %45
-  %55 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1141, i32 noundef %50)
+  %55 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.2141, i32 noundef %50)
   %56 = extractvalue { ptr, i32 } %55, 0
   %57 = extractvalue { ptr, i32 } %55, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -94363,12 +94363,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit42, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit57, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit62, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit67, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit72, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit77, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit100, %398, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %32, %374, %375
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %374 ], [ %.sroa.0.0, %375 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %107, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %126, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit42 ], [ %145, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ %164, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ %183, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit57 ], [ %202, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit62 ], [ %221, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit67 ], [ %240, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit72 ], [ %259, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit77 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82 ], [ %322, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95 ], [ %348, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit100 ], [ %.sroa.0.0, %398 ]
-  %.2 = phi ptr [ null, %374 ], [ %.0.i, %375 ], [ %spec.select, %32 ], [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit42 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit57 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit62 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit67 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit72 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit77 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit100 ], [ null, %398 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %374 ], [ %.sroa.0.0, %375 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %107, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %126, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit42 ], [ %145, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ %164, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ %183, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit57 ], [ %202, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit62 ], [ %221, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit67 ], [ %240, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit72 ], [ %259, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit77 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82 ], [ %322, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95 ], [ %348, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit100 ], [ %.sroa.0.0, %398 ]
+  %.1 = phi ptr [ null, %374 ], [ %.0.i, %375 ], [ %spec.select, %32 ], [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit42 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit47 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit57 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit62 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit67 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit72 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit77 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit82 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit100 ], [ null, %398 ]
   %400 = load i32, ptr %9, align 8
-  %401 = or i32 %400, %.sroa.0.3
+  %401 = or i32 %400, %.sroa.0.1
   store i32 %401, ptr %9, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -95134,7 +95134,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   br label %18
 
 18:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %17, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %17, %7 ], [ 0, %5 ]
   %19 = and i32 %3, 2
   %.not32 = icmp eq i32 %19, 0
   br i1 %.not32, label %31, label %20
@@ -95149,11 +95149,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %27 = add nuw nsw i32 %26, 137
   %28 = lshr i32 %27, 6
   %29 = zext nneg i32 %28 to i64
-  %30 = add nuw nsw i64 %.0, %29
+  %30 = add nuw nsw i64 %.1, %29
   br label %31
 
 31:                                               ; preds = %20, %18
-  %.1 = phi i64 [ %30, %20 ], [ %.0, %18 ]
+  %.2 = phi i64 [ %30, %20 ], [ %.1, %18 ]
   %32 = and i32 %3, 4
   %.not33 = icmp eq i32 %32, 0
   br i1 %.not33, label %44, label %33
@@ -95168,11 +95168,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %40 = add nuw nsw i32 %39, 137
   %41 = lshr i32 %40, 6
   %42 = zext nneg i32 %41 to i64
-  %43 = add nuw nsw i64 %.1, %42
+  %43 = add nuw nsw i64 %.2, %42
   br label %44
 
 44:                                               ; preds = %33, %31
-  %.2 = phi i64 [ %43, %33 ], [ %.1, %31 ]
+  %.3 = phi i64 [ %43, %33 ], [ %.2, %31 ]
   %45 = and i32 %3, 8
   %.not34 = icmp eq i32 %45, 0
   br i1 %.not34, label %57, label %46
@@ -95187,11 +95187,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %53 = add nuw nsw i32 %52, 137
   %54 = lshr i32 %53, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = add nuw nsw i64 %.2, %55
+  %56 = add nuw nsw i64 %.3, %55
   br label %57
 
 57:                                               ; preds = %46, %44
-  %.3 = phi i64 [ %56, %46 ], [ %.2, %44 ]
+  %.4 = phi i64 [ %56, %46 ], [ %.3, %44 ]
   %58 = and i32 %3, 16
   %.not35 = icmp eq i32 %58, 0
   br i1 %.not35, label %70, label %59
@@ -95206,11 +95206,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %66 = add nuw nsw i32 %65, 137
   %67 = lshr i32 %66, 6
   %68 = zext nneg i32 %67 to i64
-  %69 = add nuw nsw i64 %.3, %68
+  %69 = add nuw nsw i64 %.4, %68
   br label %70
 
 70:                                               ; preds = %59, %57
-  %.4 = phi i64 [ %69, %59 ], [ %.3, %57 ]
+  %.5 = phi i64 [ %69, %59 ], [ %.4, %57 ]
   %71 = and i32 %3, 32
   %.not36 = icmp eq i32 %71, 0
   br i1 %.not36, label %83, label %72
@@ -95225,11 +95225,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %79 = add nuw nsw i32 %78, 137
   %80 = lshr i32 %79, 6
   %81 = zext nneg i32 %80 to i64
-  %82 = add nuw nsw i64 %.4, %81
+  %82 = add nuw nsw i64 %.5, %81
   br label %83
 
 83:                                               ; preds = %72, %70
-  %.5 = phi i64 [ %82, %72 ], [ %.4, %70 ]
+  %.6 = phi i64 [ %82, %72 ], [ %.5, %70 ]
   %84 = and i32 %3, 64
   %.not37 = icmp eq i32 %84, 0
   br i1 %.not37, label %96, label %85
@@ -95244,11 +95244,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %92 = add nuw nsw i32 %91, 137
   %93 = lshr i32 %92, 6
   %94 = zext nneg i32 %93 to i64
-  %95 = add nuw nsw i64 %.5, %94
+  %95 = add nuw nsw i64 %.6, %94
   br label %96
 
 96:                                               ; preds = %85, %83
-  %.6 = phi i64 [ %95, %85 ], [ %.5, %83 ]
+  %.7 = phi i64 [ %95, %85 ], [ %.6, %83 ]
   %97 = and i32 %3, 128
   %.not38 = icmp eq i32 %97, 0
   br i1 %.not38, label %109, label %98
@@ -95263,11 +95263,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %105 = add nuw nsw i32 %104, 137
   %106 = lshr i32 %105, 6
   %107 = zext nneg i32 %106 to i64
-  %108 = add nuw nsw i64 %.6, %107
+  %108 = add nuw nsw i64 %.7, %107
   br label %109
 
 109:                                              ; preds = %96, %98, %1
-  %.7 = phi i64 [ %108, %98 ], [ %.6, %96 ], [ 0, %1 ]
+  %.0 = phi i64 [ %108, %98 ], [ %.7, %96 ], [ 0, %1 ]
   %110 = and i32 %3, 7936
   %.not39 = icmp eq i32 %110, 0
   br i1 %.not39, label %158, label %111
@@ -95287,11 +95287,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %120 = add nuw nsw i32 %119, 137
   %121 = lshr i32 %120, 6
   %122 = zext nneg i32 %121 to i64
-  %123 = add nuw nsw i64 %.7, %122
+  %123 = add nuw nsw i64 %.0, %122
   br label %124
 
 124:                                              ; preds = %113, %111
-  %.8 = phi i64 [ %123, %113 ], [ %.7, %111 ]
+  %.9 = phi i64 [ %123, %113 ], [ %.0, %111 ]
   %125 = and i32 %3, 512
   %.not41 = icmp eq i32 %125, 0
   br i1 %.not41, label %138, label %126
@@ -95306,16 +95306,16 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   %133 = mul nuw nsw i64 %132, 9
   %134 = add nuw nsw i64 %133, 73
   %135 = lshr i64 %134, 6
-  %136 = add nuw nsw i64 %.8, 1
+  %136 = add nuw nsw i64 %.9, 1
   %137 = add nuw nsw i64 %136, %135
   br label %138
 
 138:                                              ; preds = %126, %124
-  %.9 = phi i64 [ %137, %126 ], [ %.8, %124 ]
+  %.10 = phi i64 [ %137, %126 ], [ %.9, %124 ]
   %139 = lshr i32 %3, 9
   %140 = and i32 %139, 2
   %141 = zext nneg i32 %140 to i64
-  %spec.select = add nuw nsw i64 %.9, %141
+  %spec.select = add nuw nsw i64 %.10, %141
   %142 = and i32 %3, 2048
   %.not43 = icmp eq i32 %142, 0
   br i1 %.not43, label %154, label %143
@@ -95334,17 +95334,17 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
   br label %154
 
 154:                                              ; preds = %143, %138
-  %.11 = phi i64 [ %153, %143 ], [ %spec.select, %138 ]
+  %.12 = phi i64 [ %153, %143 ], [ %spec.select, %138 ]
   %155 = lshr i32 %3, 11
   %156 = and i32 %155, 2
   %157 = zext nneg i32 %156 to i64
-  %spec.select45 = add nuw nsw i64 %.11, %157
+  %spec.select45 = add nuw nsw i64 %.12, %157
   br label %158
 
 158:                                              ; preds = %154, %109
-  %.12 = phi i64 [ %.7, %109 ], [ %spec.select45, %154 ]
+  %.8 = phi i64 [ %.0, %109 ], [ %spec.select45, %154 ]
   %159 = getelementptr inbounds i8, ptr %0, i64 20
-  %160 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.12, ptr noundef nonnull %159)
+  %160 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.8, ptr noundef nonnull %159)
   ret i64 %160
 }
 
@@ -95705,11 +95705,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.134 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
-  %30 = load i8, ptr %.134, align 1
+  %.234 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.028, %.backedge ]
+  %30 = load i8, ptr %.234, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.134, i64 1
+  %33 = getelementptr inbounds i8, ptr %.234, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31
@@ -95722,11 +95722,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread31: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.134, i64 2
+  %42 = getelementptr inbounds i8, ptr %.234, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.134, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.234, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -95844,12 +95844,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !260
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %91, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %67, %68
-  %.2 = phi ptr [ %.0.i, %68 ], [ null, %67 ], [ %spec.select, %21 ], [ null, %91 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %68 ], [ null, %67 ], [ %spec.select, %21 ], [ null, %91 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %93 = getelementptr inbounds i8, ptr %0, i64 16
   %94 = load i32, ptr %93, align 8
   %95 = or i32 %94, %.sroa.0.0.ph
   store i32 %95, ptr %93, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -95964,17 +95964,17 @@ define hidden noundef i64 @_ZNK12opencv_caffe14PowerParameter12ByteSizeLongEv(pt
   %7 = and i32 %3, 2
   %.not11 = icmp eq i32 %7, 0
   %8 = add nuw nsw i64 %spec.select, 5
-  %.1 = select i1 %.not11, i64 %spec.select, i64 %8
+  %.2 = select i1 %.not11, i64 %spec.select, i64 %8
   %9 = and i32 %3, 4
   %.not12 = icmp eq i32 %9, 0
-  %10 = add nuw nsw i64 %.1, 5
-  %spec.select13 = select i1 %.not12, i64 %.1, i64 %10
+  %10 = add nuw nsw i64 %.2, 5
+  %spec.select13 = select i1 %.not12, i64 %.2, i64 %10
   br label %11
 
 11:                                               ; preds = %5, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select13, %5 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %12)
+  %13 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %12)
   ret i64 %13
 }
 
@@ -96457,11 +96457,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.149 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.043, %.backedge ]
-  %32 = load i8, ptr %.149, align 1
+  %.249 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.043, %.backedge ]
+  %32 = load i8, ptr %.249, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.149, i64 1
+  %35 = getelementptr inbounds i8, ptr %.249, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46
@@ -96474,11 +96474,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread46: ; preds = %.
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.149, i64 2
+  %44 = getelementptr inbounds i8, ptr %.249, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.149, i32 noundef %41)
+  %46 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.249, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -96696,12 +96696,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not20, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe15PythonParameter24_internal_mutable_moduleB5cxx11Ev.exit, %_ZN12opencv_caffe15PythonParameter23_internal_mutable_layerB5cxx11Ev.exit, %_ZN12opencv_caffe15PythonParameter27_internal_mutable_param_strB5cxx11Ev.exit, %145, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %23, %121, %122
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %121 ], [ %.sroa.0.0.ph, %122 ], [ %.sroa.0.0.ph, %23 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe15PythonParameter24_internal_mutable_moduleB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe15PythonParameter23_internal_mutable_layerB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe15PythonParameter27_internal_mutable_param_strB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %145 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 8, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %121 ], [ %.0.i, %122 ], [ %spec.select, %23 ], [ null, %145 ], [ null, %_ZN12opencv_caffe15PythonParameter27_internal_mutable_param_strB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe15PythonParameter23_internal_mutable_layerB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe15PythonParameter24_internal_mutable_moduleB5cxx11Ev.exit ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %121 ], [ %.sroa.0.0.ph, %122 ], [ %.sroa.0.0.ph, %23 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe15PythonParameter24_internal_mutable_moduleB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe15PythonParameter23_internal_mutable_layerB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe15PythonParameter27_internal_mutable_param_strB5cxx11Ev.exit ], [ %.sroa.0.0.ph, %145 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 8, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %121 ], [ %.0.i, %122 ], [ %spec.select, %23 ], [ null, %145 ], [ null, %_ZN12opencv_caffe15PythonParameter27_internal_mutable_param_strB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe15PythonParameter23_internal_mutable_layerB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe15PythonParameter24_internal_mutable_moduleB5cxx11Ev.exit ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %147 = load i32, ptr %7, align 8
-  %148 = or i32 %147, %.sroa.0.3
+  %148 = or i32 %147, %.sroa.0.1
   store i32 %148, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -96935,7 +96935,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe15PythonParameter12ByteSizeLongEv(p
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not13 = icmp eq i32 %25, 0
   br i1 %.not13, label %44, label %26
@@ -96955,13 +96955,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15PythonParameter12ByteSizeLongEv(p
   %38 = add nuw nsw i32 %37, 73
   %39 = lshr i32 %38, 6
   %40 = zext nneg i32 %39 to i64
-  %41 = add i64 %.0, 1
+  %41 = add i64 %.1, 1
   %42 = add i64 %41, %32
   %43 = add i64 %42, %40
   br label %44
 
 44:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %43, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %43, %26 ], [ %.1, %24 ]
   %45 = and i32 %3, 4
   %.not14 = icmp eq i32 %45, 0
   br i1 %.not14, label %64, label %46
@@ -96981,23 +96981,23 @@ define hidden noundef i64 @_ZNK12opencv_caffe15PythonParameter12ByteSizeLongEv(p
   %58 = add nuw nsw i32 %57, 73
   %59 = lshr i32 %58, 6
   %60 = zext nneg i32 %59 to i64
-  %61 = add i64 %.1, 1
+  %61 = add i64 %.2, 1
   %62 = add i64 %61, %52
   %63 = add i64 %62, %60
   br label %64
 
 64:                                               ; preds = %46, %44
-  %.2 = phi i64 [ %63, %46 ], [ %.1, %44 ]
+  %.3 = phi i64 [ %63, %46 ], [ %.2, %44 ]
   %65 = lshr i32 %3, 2
   %66 = and i32 %65, 2
   %67 = zext nneg i32 %66 to i64
-  %spec.select = add i64 %.2, %67
+  %spec.select = add i64 %.3, %67
   br label %68
 
 68:                                               ; preds = %64, %1
-  %.3 = phi i64 [ 0, %1 ], [ %spec.select, %64 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %64 ]
   %69 = getelementptr inbounds i8, ptr %0, i64 20
-  %70 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.3, ptr noundef nonnull %69)
+  %70 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %69)
   ret i64 %70
 }
 
@@ -97412,11 +97412,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %16
   br i1 %32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.160 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.054, %.backedge ]
-  %33 = load i8, ptr %.160, align 1
+  %.260 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.054, %.backedge ]
+  %33 = load i8, ptr %.260, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp sgt i8 %33, -1
-  %36 = getelementptr inbounds i8, ptr %.160, i64 1
+  %36 = getelementptr inbounds i8, ptr %.260, i64 1
   br i1 %35, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57
@@ -97429,11 +97429,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57: ; preds = %.
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.160, i64 2
+  %45 = getelementptr inbounds i8, ptr %.260, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 46:                                               ; preds = %37
-  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.160, i32 noundef %42)
+  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.260, i32 noundef %42)
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -97780,12 +97780,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN12opencv_caffe18RecurrentParameter31_internal_mutable_weight_fillerEv.exit, %_ZN12opencv_caffe18RecurrentParameter29_internal_mutable_bias_fillerEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit38, %204, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %24, %180, %181
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %180 ], [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18RecurrentParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18RecurrentParameter29_internal_mutable_bias_fillerEv.exit ], [ %128, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %154, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit38 ], [ %.sroa.0.0, %204 ]
-  %.2 = phi ptr [ null, %180 ], [ %.0.i, %181 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe18RecurrentParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe18RecurrentParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit38 ], [ null, %204 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %180 ], [ %.sroa.0.0, %181 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18RecurrentParameter31_internal_mutable_weight_fillerEv.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe18RecurrentParameter29_internal_mutable_bias_fillerEv.exit ], [ %128, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %154, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit38 ], [ %.sroa.0.0, %204 ]
+  %.1 = phi ptr [ null, %180 ], [ %.0.i, %181 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN12opencv_caffe18RecurrentParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe18RecurrentParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit38 ], [ null, %204 ]
   %206 = load i32, ptr %8, align 8
-  %207 = or i32 %206, %.sroa.0.3
+  %207 = or i32 %206, %.sroa.0.1
   store i32 %207, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -98034,7 +98034,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe18RecurrentParameter12ByteSizeLongE
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %38, label %23
@@ -98051,13 +98051,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18RecurrentParameter12ByteSizeLongE
   %32 = add nuw nsw i32 %31, 73
   %33 = lshr i32 %32, 6
   %34 = zext nneg i32 %33 to i64
-  %35 = add i64 %.0, 1
+  %35 = add i64 %.1, 1
   %36 = add i64 %35, %26
   %37 = add i64 %36, %34
   br label %38
 
 38:                                               ; preds = %23, %21
-  %.1 = phi i64 [ %37, %23 ], [ %.0, %21 ]
+  %.2 = phi i64 [ %37, %23 ], [ %.1, %21 ]
   %39 = and i32 %3, 4
   %.not16 = icmp eq i32 %39, 0
   br i1 %.not16, label %51, label %40
@@ -98072,24 +98072,24 @@ define hidden noundef i64 @_ZNK12opencv_caffe18RecurrentParameter12ByteSizeLongE
   %47 = add nuw nsw i32 %46, 137
   %48 = lshr i32 %47, 6
   %49 = zext nneg i32 %48 to i64
-  %50 = add i64 %.1, %49
+  %50 = add i64 %.2, %49
   br label %51
 
 51:                                               ; preds = %40, %38
-  %.2 = phi i64 [ %50, %40 ], [ %.1, %38 ]
+  %.3 = phi i64 [ %50, %40 ], [ %.2, %38 ]
   %52 = lshr i32 %3, 2
   %53 = and i32 %52, 2
   %54 = lshr i32 %3, 3
   %55 = and i32 %54, 2
   %narrow = add nuw nsw i32 %55, %53
   %spec.select = zext nneg i32 %narrow to i64
-  %spec.select19 = add i64 %.2, %spec.select
+  %spec.select19 = add i64 %.3, %spec.select
   br label %56
 
 56:                                               ; preds = %51, %1
-  %.4 = phi i64 [ 0, %1 ], [ %spec.select19, %51 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select19, %51 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 20
-  %58 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %57)
+  %58 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %57)
   ret i64 %58
 }
 
@@ -98381,11 +98381,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.144 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
-  %31 = load i8, ptr %.144, align 1
+  %.244 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
+  %31 = load i8, ptr %.244, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.144, i64 1
+  %34 = getelementptr inbounds i8, ptr %.244, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
@@ -98398,11 +98398,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.144, i64 2
+  %43 = getelementptr inbounds i8, ptr %.244, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.144, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.244, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -98640,12 +98640,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %146, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %22, %122, %123
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %122 ], [ %.sroa.0.0.ph, %123 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0.ph, %146 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %122 ], [ %.0.i, %123 ], [ %spec.select, %22 ], [ null, %146 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %122 ], [ %.sroa.0.0.ph, %123 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0.ph, %146 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %122 ], [ %.0.i, %123 ], [ %spec.select, %22 ], [ null, %146 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
   %148 = load i32, ptr %9, align 8
-  %149 = or i32 %148, %.sroa.0.3
+  %149 = or i32 %148, %.sroa.0.1
   store i32 %149, ptr %9, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -98843,7 +98843,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ReductionParameter12ByteSizeLongE
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %31, label %19
@@ -98858,22 +98858,22 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ReductionParameter12ByteSizeLongE
   %26 = mul nuw nsw i64 %25, 9
   %27 = add nuw nsw i64 %26, 73
   %28 = lshr i64 %27, 6
-  %29 = add nuw nsw i64 %.0, 1
+  %29 = add nuw nsw i64 %.1, 1
   %30 = add nuw nsw i64 %29, %28
   br label %31
 
 31:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %30, %19 ], [ %.0, %17 ]
+  %.2 = phi i64 [ %30, %19 ], [ %.1, %17 ]
   %32 = and i32 %3, 4
   %.not12 = icmp eq i32 %32, 0
-  %33 = add nuw nsw i64 %.1, 5
-  %spec.select = select i1 %.not12, i64 %.1, i64 %33
+  %33 = add nuw nsw i64 %.2, 5
+  %spec.select = select i1 %.not12, i64 %.2, i64 %33
   br label %34
 
 34:                                               ; preds = %31, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select, %31 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %31 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 20
-  %36 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %35)
+  %36 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %35)
   ret i64 %36
 }
 
@@ -99201,11 +99201,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.137 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.031, %.backedge ]
-  %30 = load i8, ptr %.137, align 1
+  %.237 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.031, %.backedge ]
+  %30 = load i8, ptr %.237, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.137, i64 1
+  %33 = getelementptr inbounds i8, ptr %.237, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34
@@ -99218,11 +99218,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread34: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.137, i64 2
+  %42 = getelementptr inbounds i8, ptr %.237, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.137, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.237, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -99412,11 +99412,11 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %125, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %101, %102
-  %.2 = phi ptr [ %.0.i, %102 ], [ null, %101 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %125 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %102 ], [ null, %101 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %125 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %127 = load i32, ptr %7, align 8
   %128 = or i32 %127, %.sroa.0.0.ph
   store i32 %128, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -99558,9 +99558,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe13ReLUParameter12ByteSizeLongEv(ptr
   br label %20
 
 20:                                               ; preds = %5, %8, %1
-  %.1 = phi i64 [ %19, %8 ], [ %spec.select, %5 ], [ 0, %1 ]
+  %.0 = phi i64 [ %19, %8 ], [ %spec.select, %5 ], [ 0, %1 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 20
-  %22 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %21)
+  %22 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %21)
   ret i64 %22
 }
 
@@ -99948,11 +99948,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.144 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
-  %31 = load i8, ptr %.144, align 1
+  %.244 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.038, %.backedge ]
+  %31 = load i8, ptr %.244, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.144, i64 1
+  %34 = getelementptr inbounds i8, ptr %.244, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
@@ -99965,11 +99965,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.144, i64 2
+  %43 = getelementptr inbounds i8, ptr %.244, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.144, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.244, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -100175,12 +100175,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe16ReshapeParameter23_internal_mutable_shapeEv.exit, %133, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25, %22, %109, %110
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %109 ], [ %.sroa.0.0.ph, %110 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe16ReshapeParameter23_internal_mutable_shapeEv.exit ], [ %.sroa.0.0.ph, %133 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %90, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ], [ %71, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %109 ], [ %.0.i, %110 ], [ %spec.select, %22 ], [ null, %133 ], [ null, %_ZN12opencv_caffe16ReshapeParameter23_internal_mutable_shapeEv.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %109 ], [ %.sroa.0.0.ph, %110 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe16ReshapeParameter23_internal_mutable_shapeEv.exit ], [ %.sroa.0.0.ph, %133 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %90, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ], [ %71, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %109 ], [ %.0.i, %110 ], [ %spec.select, %22 ], [ null, %133 ], [ null, %_ZN12opencv_caffe16ReshapeParameter23_internal_mutable_shapeEv.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit25 ]
   %135 = load i32, ptr %8, align 8
-  %136 = or i32 %135, %.sroa.0.3
+  %136 = or i32 %135, %.sroa.0.1
   store i32 %136, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -100422,7 +100422,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   br label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobShapeEEEmRKT_.exit, %5
-  %.0 = phi i64 [ %35, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobShapeEEEmRKT_.exit ], [ 0, %5 ]
+  %.1 = phi i64 [ %35, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobShapeEEEmRKT_.exit ], [ 0, %5 ]
   %37 = and i32 %3, 2
   %.not11 = icmp eq i32 %37, 0
   br i1 %.not11, label %49, label %38
@@ -100437,11 +100437,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %45 = mul nuw nsw i64 %44, 9
   %46 = add nuw nsw i64 %45, 137
   %47 = lshr i64 %46, 6
-  %48 = add i64 %47, %.0
+  %48 = add i64 %47, %.1
   br label %49
 
 49:                                               ; preds = %38, %36
-  %.1 = phi i64 [ %48, %38 ], [ %.0, %36 ]
+  %.2 = phi i64 [ %48, %38 ], [ %.1, %36 ]
   %50 = and i32 %3, 4
   %.not12 = icmp eq i32 %50, 0
   br i1 %.not12, label %62, label %51
@@ -100456,13 +100456,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
   %58 = mul nuw nsw i64 %57, 9
   %59 = add nuw nsw i64 %58, 137
   %60 = lshr i64 %59, 6
-  %61 = add i64 %60, %.1
+  %61 = add i64 %60, %.2
   br label %62
 
 62:                                               ; preds = %49, %51, %1
-  %.2 = phi i64 [ %61, %51 ], [ %.1, %49 ], [ 0, %1 ]
+  %.0 = phi i64 [ %61, %51 ], [ %.2, %49 ], [ 0, %1 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 20
-  %64 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %63)
+  %64 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %63)
   ret i64 %64
 }
 
@@ -100937,11 +100937,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %16
   br i1 %32, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.160 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.054, %.backedge ]
-  %33 = load i8, ptr %.160, align 1
+  %.260 = phi ptr [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.054, %.backedge ]
+  %33 = load i8, ptr %.260, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp sgt i8 %33, -1
-  %36 = getelementptr inbounds i8, ptr %.160, i64 1
+  %36 = getelementptr inbounds i8, ptr %.260, i64 1
   br i1 %35, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %37
 
 37:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57
@@ -100954,11 +100954,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread57: ; preds = %.
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.160, i64 2
+  %45 = getelementptr inbounds i8, ptr %.260, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 46:                                               ; preds = %37
-  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.160, i32 noundef %42)
+  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.260, i32 noundef %42)
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -101296,12 +101296,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26, %_ZN12opencv_caffe14ScaleParameter24_internal_mutable_fillerEv.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe14ScaleParameter29_internal_mutable_bias_fillerEv.exit, %197, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %24, %173, %174
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %173 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %74, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %.sroa.0.0, %_ZN12opencv_caffe14ScaleParameter24_internal_mutable_fillerEv.exit ], [ %120, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe14ScaleParameter29_internal_mutable_bias_fillerEv.exit ], [ %.sroa.0.0, %197 ]
-  %.2 = phi ptr [ null, %173 ], [ %.0.i, %174 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ null, %_ZN12opencv_caffe14ScaleParameter24_internal_mutable_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe14ScaleParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %197 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %173 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %24 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %55, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %74, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %.sroa.0.0, %_ZN12opencv_caffe14ScaleParameter24_internal_mutable_fillerEv.exit ], [ %120, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe14ScaleParameter29_internal_mutable_bias_fillerEv.exit ], [ %.sroa.0.0, %197 ]
+  %.1 = phi ptr [ null, %173 ], [ %.0.i, %174 ], [ %spec.select, %24 ], [ %30, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ null, %_ZN12opencv_caffe14ScaleParameter24_internal_mutable_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe14ScaleParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %197 ]
   %199 = load i32, ptr %6, align 8
-  %200 = or i32 %199, %.sroa.0.3
+  %200 = or i32 %199, %.sroa.0.1
   store i32 %200, ptr %6, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -101586,7 +101586,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe14ScaleParameter12ByteSizeLongEv(pt
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %38, label %23
@@ -101603,17 +101603,17 @@ define hidden noundef i64 @_ZNK12opencv_caffe14ScaleParameter12ByteSizeLongEv(pt
   %32 = add nuw nsw i32 %31, 73
   %33 = lshr i32 %32, 6
   %34 = zext nneg i32 %33 to i64
-  %35 = add i64 %.0, 1
+  %35 = add i64 %.1, 1
   %36 = add i64 %35, %26
   %37 = add i64 %36, %34
   br label %38
 
 38:                                               ; preds = %23, %21
-  %.1 = phi i64 [ %37, %23 ], [ %.0, %21 ]
+  %.2 = phi i64 [ %37, %23 ], [ %.1, %21 ]
   %39 = lshr i32 %3, 1
   %40 = and i32 %39, 2
   %41 = zext nneg i32 %40 to i64
-  %spec.select = add i64 %.1, %41
+  %spec.select = add i64 %.2, %41
   %42 = and i32 %3, 8
   %.not17 = icmp eq i32 %42, 0
   br i1 %.not17, label %54, label %43
@@ -101632,7 +101632,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe14ScaleParameter12ByteSizeLongEv(pt
   br label %54
 
 54:                                               ; preds = %43, %38
-  %.3 = phi i64 [ %53, %43 ], [ %spec.select, %38 ]
+  %.4 = phi i64 [ %53, %43 ], [ %spec.select, %38 ]
   %55 = and i32 %3, 16
   %.not18 = icmp eq i32 %55, 0
   br i1 %.not18, label %67, label %56
@@ -101647,13 +101647,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14ScaleParameter12ByteSizeLongEv(pt
   %63 = mul nuw nsw i64 %62, 9
   %64 = add nuw nsw i64 %63, 137
   %65 = lshr i64 %64, 6
-  %66 = add i64 %65, %.3
+  %66 = add i64 %65, %.4
   br label %67
 
 67:                                               ; preds = %54, %56, %1
-  %.4 = phi i64 [ %66, %56 ], [ %.3, %54 ], [ 0, %1 ]
+  %.0 = phi i64 [ %66, %56 ], [ %.4, %54 ], [ 0, %1 ]
   %68 = getelementptr inbounds i8, ptr %0, i64 20
-  %69 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %68)
+  %69 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %68)
   ret i64 %69
 }
 
@@ -101947,11 +101947,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.136 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
-  %29 = load i8, ptr %.136, align 1
+  %.236 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
+  %29 = load i8, ptr %.236, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.136, i64 1
+  %32 = getelementptr inbounds i8, ptr %.236, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
@@ -101964,11 +101964,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.136, i64 2
+  %41 = getelementptr inbounds i8, ptr %.236, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.136, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.236, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -102139,8 +102139,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %116, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %20, %92, %93
-  %.2 = phi ptr [ %.0.i, %93 ], [ null, %92 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %116 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0.i, %93 ], [ null, %92 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %116 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -102728,7 +102728,7 @@ define hidden noundef ptr @_ZN12opencv_caffe14SliceParameter14_InternalParseEPKc
   br label %11
 
 11:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.048 = phi ptr [ %1, %.preheader ], [ %.048.be, %.backedge ]
   %12 = load i32, ptr %4, align 4
   %13 = load ptr, ptr %2, align 8
@@ -102762,11 +102762,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread51
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread51: ; preds = %11, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.154 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.048, %11 ]
-  %32 = load i8, ptr %.154, align 1
+  %.454 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.048, %11 ]
+  %32 = load i8, ptr %.454, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.154, i64 1
+  %35 = getelementptr inbounds i8, ptr %.454, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread51
@@ -102779,11 +102779,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread51: ; preds = %1
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.154, i64 2
+  %44 = getelementptr inbounds i8, ptr %.454, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.154, i32 noundef %41)
+  %46 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.454, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -102850,12 +102850,12 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %58
   br label %72
 
 72:                                               ; preds = %91, %70
-  %.2 = phi ptr [ %71, %70 ], [ %.0.i.i2558, %91 ]
-  %73 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %71, %70 ], [ %.0.i.i2558, %91 ]
+  %73 = getelementptr inbounds i8, ptr %.1, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %.not.i.i22 = icmp sgt i8 %74, -1
-  %76 = getelementptr inbounds i8, ptr %.2, i64 2
+  %76 = getelementptr inbounds i8, ptr %.1, i64 2
   br i1 %.not.i.i22, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26.thread, label %77
 
 77:                                               ; preds = %72
@@ -102868,7 +102868,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit: ; preds = %58
   br i1 %.not16.i.i23, label %83, label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %.2, i64 3
+  %84 = getelementptr inbounds i8, ptr %.1, i64 3
   br label %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26.thread
 
 _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26.thread: ; preds = %83, %72
@@ -102908,7 +102908,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26: ; preds = %77
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %88, %91, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31, %143
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %143 ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %.sroa.0.0, %94 ], [ %54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread ], [ %.sroa.0.0, %91 ], [ %.sroa.0.0, %88 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %143 ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %.sroa.0.0, %94 ], [ %54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread ], [ %.sroa.0.0, %91 ], [ %.sroa.0.0, %88 ]
   %.048.be = phi ptr [ %144, %143 ], [ %113, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %95, %94 ], [ %67, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i21.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i30.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31.thread ], [ %.0.i.i2558, %91 ], [ %.0.i.i2558, %88 ]
   br label %11, !llvm.loop !269
 
@@ -103017,13 +103017,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %94, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31, %143, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26, %23, %119, %120
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %119 ], [ %.sroa.0.0, %120 ], [ %.sroa.0.0, %23 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %94 ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %.sroa.0.0, %143 ]
-  %.4 = phi ptr [ null, %119 ], [ %.0.i, %120 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %94 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ null, %143 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %119 ], [ %.sroa.0.0, %120 ], [ %.sroa.0.0, %23 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %54, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %94 ], [ %100, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ %.sroa.0.0, %143 ]
+  %.3 = phi ptr [ null, %119 ], [ %.0.i, %120 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit26 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %94 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit31 ], [ null, %143 ]
   %145 = getelementptr inbounds i8, ptr %0, i64 16
   %146 = load i32, ptr %145, align 8
-  %147 = or i32 %146, %.sroa.0.3
+  %147 = or i32 %146, %.sroa.0.1
   store i32 %147, ptr %145, align 8
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -103270,7 +103270,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe14SliceParameter12ByteSizeLongEv(pt
   br label %23
 
 23:                                               ; preds = %12, %10
-  %.0 = phi i64 [ %22, %12 ], [ %6, %10 ]
+  %.1 = phi i64 [ %22, %12 ], [ %6, %10 ]
   %24 = and i32 %8, 2
   %.not12 = icmp eq i32 %24, 0
   br i1 %.not12, label %36, label %25
@@ -103285,13 +103285,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14SliceParameter12ByteSizeLongEv(pt
   %32 = mul nuw nsw i64 %31, 9
   %33 = add nuw nsw i64 %32, 137
   %34 = lshr i64 %33, 6
-  %35 = add i64 %34, %.0
+  %35 = add i64 %34, %.1
   br label %36
 
 36:                                               ; preds = %23, %25, %1
-  %.1 = phi i64 [ %35, %25 ], [ %.0, %23 ], [ %6, %1 ]
+  %.0 = phi i64 [ %35, %25 ], [ %.1, %23 ], [ %6, %1 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 20
-  %38 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %37)
+  %38 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %37)
   ret i64 %38
 }
 
@@ -103616,11 +103616,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread39
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread39: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.142 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.036, %.backedge ]
-  %30 = load i8, ptr %.142, align 1
+  %.242 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.036, %.backedge ]
+  %30 = load i8, ptr %.242, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.142, i64 1
+  %33 = getelementptr inbounds i8, ptr %.242, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread39
@@ -103633,11 +103633,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread39: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.142, i64 2
+  %42 = getelementptr inbounds i8, ptr %.242, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.142, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.242, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -103859,12 +103859,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %138, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %21, %114, %115
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %114 ], [ %.sroa.0.0.ph, %115 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0.ph, %138 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 2, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %114 ], [ %.0.i, %115 ], [ %spec.select, %21 ], [ null, %138 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %114 ], [ %.sroa.0.0.ph, %115 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0.ph, %138 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 2, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %114 ], [ %.0.i, %115 ], [ %spec.select, %21 ], [ null, %138 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
   %140 = load i32, ptr %8, align 8
-  %141 = or i32 %140, %.sroa.0.3
+  %141 = or i32 %140, %.sroa.0.1
   store i32 %141, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -104038,7 +104038,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16SoftmaxParameter12ByteSizeLongEv(
   br label %18
 
 18:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %17, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %17, %7 ], [ 0, %5 ]
   %19 = and i32 %3, 2
   %.not9 = icmp eq i32 %19, 0
   br i1 %.not9, label %31, label %20
@@ -104053,13 +104053,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16SoftmaxParameter12ByteSizeLongEv(
   %27 = mul nuw nsw i64 %26, 9
   %28 = add nuw nsw i64 %27, 137
   %29 = lshr i64 %28, 6
-  %30 = add nuw nsw i64 %29, %.0
+  %30 = add nuw nsw i64 %29, %.1
   br label %31
 
 31:                                               ; preds = %18, %20, %1
-  %.1 = phi i64 [ %30, %20 ], [ %.0, %18 ], [ 0, %1 ]
+  %.0 = phi i64 [ %30, %20 ], [ %.1, %18 ], [ 0, %1 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 20
-  %33 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %32)
+  %33 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %32)
   ret i64 %33
 }
 
@@ -104377,11 +104377,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.136 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
-  %29 = load i8, ptr %.136, align 1
+  %.236 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
+  %29 = load i8, ptr %.236, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.136, i64 1
+  %32 = getelementptr inbounds i8, ptr %.236, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
@@ -104394,11 +104394,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.136, i64 2
+  %41 = getelementptr inbounds i8, ptr %.236, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.136, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.236, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -104569,8 +104569,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %116, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %20, %92, %93
-  %.2 = phi ptr [ %.0.i, %93 ], [ null, %92 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %116 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.0.i, %93 ], [ null, %92 ], [ %spec.select, %20 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %116 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -105122,11 +105122,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %12
   br i1 %28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.139 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.033, %.backedge ]
-  %29 = load i8, ptr %.139, align 1
+  %.239 = phi ptr [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.033, %.backedge ]
+  %29 = load i8, ptr %.239, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i8 %29, -1
-  %32 = getelementptr inbounds i8, ptr %.139, i64 1
+  %32 = getelementptr inbounds i8, ptr %.239, i64 1
   br i1 %31, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
@@ -105139,11 +105139,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %.
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.139, i64 2
+  %41 = getelementptr inbounds i8, ptr %.239, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %33
-  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.139, i32 noundef %38)
+  %43 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.239, i32 noundef %38)
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -105307,13 +105307,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !273
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %113, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21, %20, %89, %90
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %89 ], [ %.sroa.0.0.ph, %90 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %51, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %89 ], [ %.0.i, %90 ], [ %spec.select, %20 ], [ null, %113 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %89 ], [ %.sroa.0.0.ph, %90 ], [ %.sroa.0.0.ph, %20 ], [ %.sroa.0.0.ph, %113 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %51, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %89 ], [ %.0.i, %90 ], [ %spec.select, %20 ], [ null, %113 ], [ %26, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = or i32 %116, %.sroa.0.3
+  %117 = or i32 %116, %.sroa.0.1
   store i32 %117, ptr %115, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -105486,7 +105486,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe13TileParameter12ByteSizeLongEv(ptr
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not9 = icmp eq i32 %18, 0
   br i1 %.not9, label %30, label %19
@@ -105501,13 +105501,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13TileParameter12ByteSizeLongEv(ptr
   %26 = mul nuw nsw i64 %25, 9
   %27 = add nuw nsw i64 %26, 137
   %28 = lshr i64 %27, 6
-  %29 = add nuw nsw i64 %28, %.0
+  %29 = add nuw nsw i64 %28, %.1
   br label %30
 
 30:                                               ; preds = %17, %19, %1
-  %.1 = phi i64 [ %29, %19 ], [ %.0, %17 ], [ 0, %1 ]
+  %.0 = phi i64 [ %29, %19 ], [ %.1, %17 ], [ 0, %1 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %31)
+  %32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %31)
   ret i64 %32
 }
 
@@ -105829,11 +105829,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %11
   br i1 %27, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.129 = phi ptr [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.023, %.backedge ]
-  %28 = load i8, ptr %.129, align 1
+  %.229 = phi ptr [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.023, %.backedge ]
+  %28 = load i8, ptr %.229, align 1
   %29 = zext i8 %28 to i32
   %30 = icmp sgt i8 %28, -1
-  %31 = getelementptr inbounds i8, ptr %.129, i64 1
+  %31 = getelementptr inbounds i8, ptr %.229, i64 1
   br i1 %30, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %32
 
 32:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26
@@ -105846,11 +105846,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread26: ; preds = %.
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %.129, i64 2
+  %40 = getelementptr inbounds i8, ptr %.229, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 41:                                               ; preds = %32
-  %42 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.129, i32 noundef %37)
+  %42 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.229, i32 noundef %37)
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = extractvalue { ptr, i32 } %42, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -105932,12 +105932,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !274
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %76, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %19, %52, %53
-  %.2 = phi ptr [ %.0.i, %53 ], [ null, %52 ], [ %spec.select, %19 ], [ null, %76 ], [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i, %53 ], [ null, %52 ], [ %spec.select, %19 ], [ null, %76 ], [ %25, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %78 = getelementptr inbounds i8, ptr %0, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = or i32 %79, %.sroa.0.0.ph
   store i32 %80, ptr %78, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -106642,11 +106642,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %24
   br i1 %40, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread94
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread94: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.197 = phi ptr [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.091, %.backedge ]
-  %41 = load i8, ptr %.197, align 1
+  %.297 = phi ptr [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.091, %.backedge ]
+  %41 = load i8, ptr %.297, align 1
   %42 = zext i8 %41 to i32
   %43 = icmp sgt i8 %41, -1
-  %44 = getelementptr inbounds i8, ptr %.197, i64 1
+  %44 = getelementptr inbounds i8, ptr %.297, i64 1
   br i1 %43, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %45
 
 45:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread94
@@ -106659,11 +106659,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread94: ; preds = %.
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %.197, i64 2
+  %53 = getelementptr inbounds i8, ptr %.297, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 54:                                               ; preds = %45
-  %55 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.197, i32 noundef %50)
+  %55 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.297, i32 noundef %50)
   %56 = extractvalue { ptr, i32 } %55, 0
   %57 = extractvalue { ptr, i32 } %55, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -107132,12 +107132,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not27, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe19WindowDataParameter24_internal_mutable_sourceB5cxx11Ev.exit, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_crop_modeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59, %_ZN12opencv_caffe19WindowDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit, %276, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %32, %252, %253
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %252 ], [ %.sroa.0.0, %253 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %116, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ %135, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_crop_modeB5cxx11Ev.exit ], [ %212, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ %.sroa.0.0, %276 ]
-  %.2 = phi ptr [ null, %252 ], [ %.0.i, %253 ], [ %spec.select, %32 ], [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe19WindowDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ null, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_crop_modeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ null, %_ZN12opencv_caffe19WindowDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ null, %276 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %252 ], [ %.sroa.0.0, %253 ], [ %.sroa.0.0, %32 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ %97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %116, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ %135, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %179, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_crop_modeB5cxx11Ev.exit ], [ %212, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ %.sroa.0.0, %_ZN12opencv_caffe19WindowDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ %.sroa.0.0, %276 ]
+  %.1 = phi ptr [ null, %252 ], [ %.0.i, %253 ], [ %spec.select, %32 ], [ %38, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN12opencv_caffe19WindowDataParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_mean_fileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit40 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit52 ], [ null, %_ZN12opencv_caffe19WindowDataParameter27_internal_mutable_crop_modeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit59 ], [ null, %_ZN12opencv_caffe19WindowDataParameter29_internal_mutable_root_folderB5cxx11Ev.exit ], [ null, %276 ]
   %278 = load i32, ptr %6, align 8
-  %279 = or i32 %278, %.sroa.0.3
+  %279 = or i32 %278, %.sroa.0.1
   store i32 %279, ptr %6, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -107727,7 +107727,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   br label %24
 
 24:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %23, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %23, %7 ], [ 0, %5 ]
   %25 = and i32 %3, 2
   %.not32 = icmp eq i32 %25, 0
   br i1 %.not32, label %44, label %26
@@ -107747,13 +107747,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   %38 = add nuw nsw i32 %37, 73
   %39 = lshr i32 %38, 6
   %40 = zext nneg i32 %39 to i64
-  %41 = add i64 %.0, 1
+  %41 = add i64 %.1, 1
   %42 = add i64 %41, %32
   %43 = add i64 %42, %40
   br label %44
 
 44:                                               ; preds = %26, %24
-  %.1 = phi i64 [ %43, %26 ], [ %.0, %24 ]
+  %.2 = phi i64 [ %43, %26 ], [ %.1, %24 ]
   %45 = and i32 %3, 4
   %.not33 = icmp eq i32 %45, 0
   br i1 %.not33, label %64, label %46
@@ -107773,13 +107773,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   %58 = add nuw nsw i32 %57, 73
   %59 = lshr i32 %58, 6
   %60 = zext nneg i32 %59 to i64
-  %61 = add i64 %.1, 1
+  %61 = add i64 %.2, 1
   %62 = add i64 %61, %52
   %63 = add i64 %62, %60
   br label %64
 
 64:                                               ; preds = %46, %44
-  %.2 = phi i64 [ %63, %46 ], [ %.1, %44 ]
+  %.3 = phi i64 [ %63, %46 ], [ %.2, %44 ]
   %65 = and i32 %3, 8
   %.not34 = icmp eq i32 %65, 0
   br i1 %.not34, label %84, label %66
@@ -107799,13 +107799,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   %78 = add nuw nsw i32 %77, 73
   %79 = lshr i32 %78, 6
   %80 = zext nneg i32 %79 to i64
-  %81 = add i64 %.2, 1
+  %81 = add i64 %.3, 1
   %82 = add i64 %81, %72
   %83 = add i64 %82, %80
   br label %84
 
 84:                                               ; preds = %66, %64
-  %.3 = phi i64 [ %83, %66 ], [ %.2, %64 ]
+  %.4 = phi i64 [ %83, %66 ], [ %.3, %64 ]
   %85 = and i32 %3, 16
   %.not35 = icmp eq i32 %85, 0
   br i1 %.not35, label %97, label %86
@@ -107820,11 +107820,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   %93 = add nuw nsw i32 %92, 137
   %94 = lshr i32 %93, 6
   %95 = zext nneg i32 %94 to i64
-  %96 = add i64 %.3, %95
+  %96 = add i64 %.4, %95
   br label %97
 
 97:                                               ; preds = %86, %84
-  %.4 = phi i64 [ %96, %86 ], [ %.3, %84 ]
+  %.5 = phi i64 [ %96, %86 ], [ %.4, %84 ]
   %98 = and i32 %3, 32
   %.not36 = icmp eq i32 %98, 0
   br i1 %.not36, label %110, label %99
@@ -107839,22 +107839,22 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   %106 = add nuw nsw i32 %105, 137
   %107 = lshr i32 %106, 6
   %108 = zext nneg i32 %107 to i64
-  %109 = add i64 %.4, %108
+  %109 = add i64 %.5, %108
   br label %110
 
 110:                                              ; preds = %99, %97
-  %.5 = phi i64 [ %109, %99 ], [ %.4, %97 ]
+  %.6 = phi i64 [ %109, %99 ], [ %.5, %97 ]
   %111 = lshr i32 %3, 5
   %112 = and i32 %111, 2
   %113 = lshr i32 %3, 6
   %114 = and i32 %113, 2
   %narrow = add nuw nsw i32 %114, %112
   %spec.select = zext nneg i32 %narrow to i64
-  %spec.select46 = add i64 %.5, %spec.select
+  %spec.select46 = add i64 %.6, %spec.select
   br label %115
 
 115:                                              ; preds = %110, %1
-  %.7 = phi i64 [ 0, %1 ], [ %spec.select46, %110 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select46, %110 ]
   %116 = and i32 %3, 7936
   %.not39 = icmp eq i32 %116, 0
   br i1 %.not39, label %143, label %117
@@ -107874,33 +107874,33 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
   %126 = add nuw nsw i32 %125, 137
   %127 = lshr i32 %126, 6
   %128 = zext nneg i32 %127 to i64
-  %129 = add i64 %.7, %128
+  %129 = add i64 %.0, %128
   br label %130
 
 130:                                              ; preds = %119, %117
-  %.8 = phi i64 [ %129, %119 ], [ %.7, %117 ]
+  %.9 = phi i64 [ %129, %119 ], [ %.0, %117 ]
   %131 = insertelement <4 x i32> poison, i32 %3, i64 0
   %132 = shufflevector <4 x i32> %131, <4 x i32> poison, <4 x i32> zeroinitializer
   %133 = and <4 x i32> %132, <i32 4096, i32 2048, i32 1024, i32 512>
-  %134 = add i64 %.8, 5
+  %134 = add i64 %.9, 5
   %135 = icmp eq <4 x i32> %133, zeroinitializer
   %136 = extractelement <4 x i1> %135, i64 3
-  %spec.select45 = select i1 %136, i64 %.8, i64 %134
+  %spec.select45 = select i1 %136, i64 %.9, i64 %134
   %137 = add i64 %spec.select45, 5
   %138 = extractelement <4 x i1> %135, i64 2
-  %.10 = select i1 %138, i64 %spec.select45, i64 %137
-  %139 = add i64 %.10, 5
+  %.11 = select i1 %138, i64 %spec.select45, i64 %137
+  %139 = add i64 %.11, 5
   %140 = extractelement <4 x i1> %135, i64 1
-  %.11 = select i1 %140, i64 %.10, i64 %139
-  %141 = add i64 %.11, 5
+  %.12 = select i1 %140, i64 %.11, i64 %139
+  %141 = add i64 %.12, 5
   %142 = extractelement <4 x i1> %135, i64 0
-  %spec.select47 = select i1 %142, i64 %.11, i64 %141
+  %spec.select47 = select i1 %142, i64 %.12, i64 %141
   br label %143
 
 143:                                              ; preds = %130, %115
-  %.12 = phi i64 [ %.7, %115 ], [ %spec.select47, %130 ]
+  %.8 = phi i64 [ %.0, %115 ], [ %spec.select47, %130 ]
   %144 = getelementptr inbounds i8, ptr %0, i64 20
-  %145 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.12, ptr noundef nonnull %144)
+  %145 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.8, ptr noundef nonnull %144)
   ret i64 %145
 }
 
@@ -108227,11 +108227,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.161 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.055, %.backedge ]
-  %31 = load i8, ptr %.161, align 1
+  %.261 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.055, %.backedge ]
+  %31 = load i8, ptr %.261, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.161, i64 1
+  %34 = getelementptr inbounds i8, ptr %.261, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58
@@ -108244,11 +108244,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58: ; preds = %.
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.161, i64 2
+  %43 = getelementptr inbounds i8, ptr %.261, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
-  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.161, i32 noundef %40)
+  %45 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.261, i32 noundef %40)
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -108567,12 +108567,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32, %183, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %22, %159, %160
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %159 ], [ %.sroa.0.0.ph, %160 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ %.sroa.0.0.ph, %183 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %159 ], [ %.0.i, %160 ], [ %spec.select, %22 ], [ null, %183 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %159 ], [ %.sroa.0.0.ph, %160 ], [ %.sroa.0.0.ph, %22 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ %.sroa.0.0.ph, %183 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 1, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %159 ], [ %.0.i, %160 ], [ %spec.select, %22 ], [ null, %183 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
   %185 = load i32, ptr %7, align 8
-  %186 = or i32 %185, %.sroa.0.3
+  %186 = or i32 %185, %.sroa.0.1
   store i32 %186, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -108805,7 +108805,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe12SPPParameter12ByteSizeLongEv(ptr 
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %31, label %19
@@ -108820,12 +108820,12 @@ define hidden noundef i64 @_ZNK12opencv_caffe12SPPParameter12ByteSizeLongEv(ptr 
   %26 = mul nuw nsw i64 %25, 9
   %27 = add nuw nsw i64 %26, 73
   %28 = lshr i64 %27, 6
-  %29 = add nuw nsw i64 %.0, 1
+  %29 = add nuw nsw i64 %.1, 1
   %30 = add nuw nsw i64 %29, %28
   br label %31
 
 31:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %30, %19 ], [ %.0, %17 ]
+  %.2 = phi i64 [ %30, %19 ], [ %.1, %17 ]
   %32 = and i32 %3, 4
   %.not12 = icmp eq i32 %32, 0
   br i1 %.not12, label %45, label %33
@@ -108840,14 +108840,14 @@ define hidden noundef i64 @_ZNK12opencv_caffe12SPPParameter12ByteSizeLongEv(ptr 
   %40 = mul nuw nsw i64 %39, 9
   %41 = add nuw nsw i64 %40, 73
   %42 = lshr i64 %41, 6
-  %43 = add nuw nsw i64 %.1, 1
+  %43 = add nuw nsw i64 %.2, 1
   %44 = add nuw nsw i64 %43, %42
   br label %45
 
 45:                                               ; preds = %31, %33, %1
-  %.2 = phi i64 [ %44, %33 ], [ %.1, %31 ], [ 0, %1 ]
+  %.0 = phi i64 [ %44, %33 ], [ %.2, %31 ], [ 0, %1 ]
   %46 = getelementptr inbounds i8, ptr %0, i64 20
-  %47 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %46)
+  %47 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %46)
   ret i64 %47
 }
 
@@ -113561,11 +113561,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %66
   br i1 %82, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread352
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread352: ; preds = %62, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1355 = phi ptr [ %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0349, %62 ]
-  %83 = load i8, ptr %.1355, align 1
+  %.16355 = phi ptr [ %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0349, %62 ]
+  %83 = load i8, ptr %.16355, align 1
   %84 = zext i8 %83 to i32
   %85 = icmp sgt i8 %83, -1
-  %86 = getelementptr inbounds i8, ptr %.1355, i64 1
+  %86 = getelementptr inbounds i8, ptr %.16355, i64 1
   br i1 %85, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %87
 
 87:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread352
@@ -113578,11 +113578,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread352: ; preds = %
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %.1355, i64 2
+  %95 = getelementptr inbounds i8, ptr %.16355, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 96:                                               ; preds = %87
-  %97 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1355, i32 noundef %92)
+  %97 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.16355, i32 noundef %92)
   %98 = extractvalue { ptr, i32 } %97, 0
   %99 = extractvalue { ptr, i32 } %97, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -113658,8 +113658,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %112
 
 112:                                              ; preds = %119, %110
-  %.2 = phi ptr [ %111, %110 ], [ %115, %119 ]
-  %113 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %111, %110 ], [ %115, %119 ]
+  %113 = getelementptr inbounds i8, ptr %.1, i64 1
   %114 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %61)
   %115 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %114, ptr noundef nonnull %113, ptr noundef nonnull %2)
   %.not115 = icmp eq ptr %115, null
@@ -113689,8 +113689,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br label %127
 
 127:                                              ; preds = %134, %125
-  %.3 = phi ptr [ %126, %125 ], [ %130, %134 ]
-  %128 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %126, %125 ], [ %130, %134 ]
+  %128 = getelementptr inbounds i8, ptr %.2, i64 1
   %129 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %60)
   %130 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %129, ptr noundef nonnull %128, ptr noundef nonnull %2)
   %.not114 = icmp eq ptr %130, null
@@ -113839,8 +113839,8 @@ _ZN12opencv_caffe16V1LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %1
   br label %200
 
 200:                                              ; preds = %207, %198
-  %.4 = phi ptr [ %199, %198 ], [ %203, %207 ]
-  %201 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %199, %198 ], [ %203, %207 ]
+  %201 = getelementptr inbounds i8, ptr %.3, i64 1
   %202 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef null)
   %203 = call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %202, ptr noundef nonnull %201)
   %.not111 = icmp eq ptr %203, null
@@ -113868,14 +113868,14 @@ _ZN12opencv_caffe16V1LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %1
   br label %213
 
 213:                                              ; preds = %218, %211
-  %.5 = phi ptr [ %212, %211 ], [ %215, %218 ]
-  %214 = getelementptr inbounds i8, ptr %.5, i64 1
+  %.4 = phi ptr [ %212, %211 ], [ %215, %218 ]
+  %214 = getelementptr inbounds i8, ptr %.4, i64 1
   %.0.copyload.i2.i = load float, ptr %214, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store float %.0.copyload.i2.i, ptr %8, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %215 = getelementptr inbounds i8, ptr %.5, i64 5
+  %215 = getelementptr inbounds i8, ptr %.4, i64 5
   %216 = load ptr, ptr %2, align 8
   %217 = icmp ugt ptr %216, %215
   br i1 %217, label %218, label %.backedge
@@ -113902,14 +113902,14 @@ _ZN12opencv_caffe16V1LayerParameter22mutable_unknown_fieldsEv.exit: ; preds = %1
   br label %226
 
 226:                                              ; preds = %231, %224
-  %.7 = phi ptr [ %225, %224 ], [ %228, %231 ]
-  %227 = getelementptr inbounds i8, ptr %.7, i64 1
+  %.6 = phi ptr [ %225, %224 ], [ %228, %231 ]
+  %227 = getelementptr inbounds i8, ptr %.6, i64 1
   %.0.copyload.i2.i126 = load float, ptr %227, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store float %.0.copyload.i2.i126, ptr %7, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %228 = getelementptr inbounds i8, ptr %.7, i64 5
+  %228 = getelementptr inbounds i8, ptr %.6, i64 5
   %229 = load ptr, ptr %2, align 8
   %230 = icmp ugt ptr %229, %228
   br i1 %230, label %231, label %.backedge
@@ -115150,8 +115150,8 @@ _ZN12opencv_caffe16V1LayerParameter29_internal_mutable_slice_paramEv.exit: ; pre
   br label %786
 
 786:                                              ; preds = %807, %784
-  %.9 = phi ptr [ %785, %784 ], [ %803, %807 ]
-  %787 = getelementptr inbounds i8, ptr %.9, i64 2
+  %.8 = phi ptr [ %785, %784 ], [ %803, %807 ]
+  %787 = getelementptr inbounds i8, ptr %.8, i64 2
   %788 = load ptr, ptr %32, align 8
   %.not.i.i.i = icmp eq ptr %788, null
   br i1 %.not.i.i.i, label %799, label %789
@@ -115203,8 +115203,8 @@ _ZN12opencv_caffe16V1LayerParameter21_internal_add_includeEv.exit: ; preds = %79
   br label %814
 
 814:                                              ; preds = %835, %812
-  %.10 = phi ptr [ %813, %812 ], [ %831, %835 ]
-  %815 = getelementptr inbounds i8, ptr %.10, i64 2
+  %.9 = phi ptr [ %813, %812 ], [ %831, %835 ]
+  %815 = getelementptr inbounds i8, ptr %.9, i64 2
   %816 = load ptr, ptr %29, align 8
   %.not.i.i.i213 = icmp eq ptr %816, null
   br i1 %.not.i.i.i213, label %827, label %817
@@ -115319,14 +115319,14 @@ _ZN12opencv_caffe16V1LayerParameter27_internal_mutable_mvn_paramEv.exit: ; preds
   br label %867
 
 867:                                              ; preds = %872, %865
-  %.11 = phi ptr [ %866, %865 ], [ %869, %872 ]
-  %868 = getelementptr inbounds i8, ptr %.11, i64 2
+  %.10 = phi ptr [ %866, %865 ], [ %869, %872 ]
+  %868 = getelementptr inbounds i8, ptr %.10, i64 2
   %.0.copyload.i2.i221 = load float, ptr %868, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store float %.0.copyload.i2.i221, ptr %6, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %869 = getelementptr inbounds i8, ptr %.11, i64 6
+  %869 = getelementptr inbounds i8, ptr %.10, i64 6
   %870 = load ptr, ptr %2, align 8
   %871 = icmp ugt ptr %870, %869
   br i1 %871, label %872, label %.backedge
@@ -115748,8 +115748,8 @@ _ZN12opencv_caffe16V1LayerParameter28_internal_mutable_loss_paramEv.exit: ; pred
   br label %1058
 
 1058:                                             ; preds = %1065, %1056
-  %.13 = phi ptr [ %1057, %1056 ], [ %1061, %1065 ]
-  %1059 = getelementptr inbounds i8, ptr %.13, i64 2
+  %.12 = phi ptr [ %1057, %1056 ], [ %1061, %1065 ]
+  %1059 = getelementptr inbounds i8, ptr %.12, i64 2
   %1060 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
   %1061 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1060, ptr noundef nonnull %1059, ptr noundef nonnull %2)
   %.not75 = icmp eq ptr %1061, null
@@ -115777,11 +115777,11 @@ _ZN12opencv_caffe16V1LayerParameter28_internal_mutable_loss_paramEv.exit: ; pred
   br label %1070
 
 1070:                                             ; preds = %1113, %1068
-  %.14 = phi ptr [ %1069, %1068 ], [ %.0.i.i260365, %1113 ]
-  %1071 = getelementptr inbounds i8, ptr %.14, i64 2
+  %.13 = phi ptr [ %1069, %1068 ], [ %.0.i.i260365, %1113 ]
+  %1071 = getelementptr inbounds i8, ptr %.13, i64 2
   %1072 = load i8, ptr %1071, align 1
   %.not.i.i257 = icmp sgt i8 %1072, -1
-  %1073 = getelementptr inbounds i8, ptr %.14, i64 3
+  %1073 = getelementptr inbounds i8, ptr %.13, i64 3
   br i1 %.not.i.i257, label %1074, label %1076
 
 1074:                                             ; preds = %1070
@@ -115800,7 +115800,7 @@ _ZN12opencv_caffe16V1LayerParameter28_internal_mutable_loss_paramEv.exit: ; pred
 
 1083:                                             ; preds = %1076
   %1084 = zext nneg i32 %1082 to i64
-  %1085 = getelementptr inbounds i8, ptr %.14, i64 4
+  %1085 = getelementptr inbounds i8, ptr %.13, i64 4
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit261.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit261: ; preds = %1076
@@ -115955,8 +115955,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not118, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %104, %_ZN12opencv_caffe16V1LayerParameter22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %221, %234, %_ZN12opencv_caffe16V1LayerParameter30_internal_mutable_concat_paramEv.exit, %264, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_data_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_dropout_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_hdf5_data_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_hdf5_output_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter34_internal_mutable_image_data_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter37_internal_mutable_infogain_loss_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter37_internal_mutable_inner_product_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_lrn_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_pooling_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_window_data_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter29_internal_mutable_power_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_memory_data_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter30_internal_mutable_argmax_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_eltwise_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_threshold_paramEv.exit, %682, %_ZN12opencv_caffe16V1LayerParameter32_internal_mutable_accuracy_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter34_internal_mutable_hinge_loss_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_relu_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter29_internal_mutable_slice_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_mvn_paramEv.exit, %874, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_transform_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_tanh_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_sigmoid_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_softmax_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter40_internal_mutable_contrastive_loss_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_exp_paramEv.exit, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_loss_paramEv.exit, %1115, %1145, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit261, %1058, %_ZN12opencv_caffe16V1LayerParameter21_internal_add_excludeEv.exit, %_ZN12opencv_caffe16V1LayerParameter21_internal_add_includeEv.exit, %200, %127, %112, %74, %1121, %1122
-  %.16 = phi ptr [ %.0.i, %1122 ], [ null, %1121 ], [ %spec.select, %74 ], [ null, %112 ], [ null, %127 ], [ null, %200 ], [ null, %_ZN12opencv_caffe16V1LayerParameter21_internal_add_includeEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter21_internal_add_excludeEv.exit ], [ null, %1058 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit261 ], [ null, %104 ], [ null, %_ZN12opencv_caffe16V1LayerParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %221 ], [ null, %234 ], [ null, %_ZN12opencv_caffe16V1LayerParameter30_internal_mutable_concat_paramEv.exit ], [ null, %264 ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_dropout_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_hdf5_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_hdf5_output_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter34_internal_mutable_image_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter37_internal_mutable_infogain_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter37_internal_mutable_inner_product_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_lrn_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_pooling_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_window_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter29_internal_mutable_power_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_memory_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter30_internal_mutable_argmax_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_eltwise_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_threshold_paramEv.exit ], [ null, %682 ], [ null, %_ZN12opencv_caffe16V1LayerParameter32_internal_mutable_accuracy_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter34_internal_mutable_hinge_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_relu_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter29_internal_mutable_slice_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_mvn_paramEv.exit ], [ null, %874 ], [ null, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_transform_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_tanh_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_sigmoid_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_softmax_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter40_internal_mutable_contrastive_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_exp_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_loss_paramEv.exit ], [ null, %1115 ], [ null, %1145 ], [ %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.16
+  %.15 = phi ptr [ %.0.i, %1122 ], [ null, %1121 ], [ %spec.select, %74 ], [ null, %112 ], [ null, %127 ], [ null, %200 ], [ null, %_ZN12opencv_caffe16V1LayerParameter21_internal_add_includeEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter21_internal_add_excludeEv.exit ], [ null, %1058 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit261 ], [ null, %104 ], [ null, %_ZN12opencv_caffe16V1LayerParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %221 ], [ null, %234 ], [ null, %_ZN12opencv_caffe16V1LayerParameter30_internal_mutable_concat_paramEv.exit ], [ null, %264 ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_dropout_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_hdf5_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_hdf5_output_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter34_internal_mutable_image_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter37_internal_mutable_infogain_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter37_internal_mutable_inner_product_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_lrn_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_pooling_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_window_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter29_internal_mutable_power_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter35_internal_mutable_memory_data_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter30_internal_mutable_argmax_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_eltwise_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_threshold_paramEv.exit ], [ null, %682 ], [ null, %_ZN12opencv_caffe16V1LayerParameter32_internal_mutable_accuracy_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter34_internal_mutable_hinge_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_relu_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter29_internal_mutable_slice_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_mvn_paramEv.exit ], [ null, %874 ], [ null, %_ZN12opencv_caffe16V1LayerParameter33_internal_mutable_transform_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_tanh_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_sigmoid_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter31_internal_mutable_softmax_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter40_internal_mutable_contrastive_loss_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter27_internal_mutable_exp_paramEv.exit ], [ null, %_ZN12opencv_caffe16V1LayerParameter28_internal_mutable_loss_paramEv.exit ], [ null, %1115 ], [ null, %1145 ], [ %80, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -118704,7 +118704,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   br label %183
 
 183:                                              ; preds = %165, %163
-  %.6 = phi i64 [ %182, %165 ], [ %159, %163 ]
+  %.7 = phi i64 [ %182, %165 ], [ %159, %163 ]
   %184 = and i32 %161, 2
   %.not135 = icmp eq i32 %184, 0
   br i1 %.not135, label %200, label %185
@@ -118721,13 +118721,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %194 = add nuw nsw i32 %193, 73
   %195 = lshr i32 %194, 6
   %196 = zext nneg i32 %195 to i64
-  %197 = add i64 %.6, 1
+  %197 = add i64 %.7, 1
   %198 = add i64 %197, %188
   %199 = add i64 %198, %196
   br label %200
 
 200:                                              ; preds = %185, %183
-  %.7 = phi i64 [ %199, %185 ], [ %.6, %183 ]
+  %.8 = phi i64 [ %199, %185 ], [ %.7, %183 ]
   %201 = and i32 %161, 4
   %.not136 = icmp eq i32 %201, 0
   br i1 %.not136, label %246, label %202
@@ -118759,7 +118759,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   br label %220
 
 220:                                              ; preds = %210, %208
-  %.0.i.i = phi i64 [ %219, %210 ], [ 0, %208 ]
+  %.1.i.i = phi i64 [ %219, %210 ], [ 0, %208 ]
   %221 = and i32 %206, 2
   %.not9.i.i = icmp eq i32 %221, 0
   br i1 %.not9.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit, label %222
@@ -118774,13 +118774,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %229 = mul nuw nsw i64 %228, 9
   %230 = add nuw nsw i64 %229, 137
   %231 = lshr i64 %230, 6
-  %232 = add nuw nsw i64 %231, %.0.i.i
+  %232 = add nuw nsw i64 %231, %.1.i.i
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit: ; preds = %202, %220, %222
-  %.1.i.i = phi i64 [ %232, %222 ], [ %.0.i.i, %220 ], [ 0, %202 ]
+  %.0.i.i = phi i64 [ %232, %222 ], [ %.1.i.i, %220 ], [ 0, %202 ]
   %233 = getelementptr inbounds i8, ptr %204, i64 20
-  %234 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %204, i64 noundef %.1.i.i, ptr noundef nonnull %233)
+  %234 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %204, i64 noundef %.0.i.i, ptr noundef nonnull %233)
   %235 = trunc i64 %234 to i32
   %236 = or i32 %235, 1
   %237 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %236, i1 true)
@@ -118789,13 +118789,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15Conca
   %240 = add nuw nsw i32 %239, 73
   %241 = lshr i32 %240, 6
   %242 = zext nneg i32 %241 to i64
-  %243 = add i64 %.7, 1
+  %243 = add i64 %.8, 1
   %244 = add i64 %243, %234
   %245 = add i64 %244, %242
   br label %246
 
 246:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit, %200
-  %.8 = phi i64 [ %245, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit ], [ %.7, %200 ]
+  %.9 = phi i64 [ %245, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ConcatParameterEEEmRKT_.exit ], [ %.8, %200 ]
   %247 = and i32 %161, 8
   %.not137 = icmp eq i32 %247, 0
   br i1 %.not137, label %263, label %248
@@ -118812,13 +118812,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15Conca
   %257 = add nuw nsw i32 %256, 73
   %258 = lshr i32 %257, 6
   %259 = zext nneg i32 %258 to i64
-  %260 = add i64 %.8, 1
+  %260 = add i64 %.9, 1
   %261 = add i64 %260, %251
   %262 = add i64 %261, %259
   br label %263
 
 263:                                              ; preds = %248, %246
-  %.9 = phi i64 [ %262, %248 ], [ %.8, %246 ]
+  %.10 = phi i64 [ %262, %248 ], [ %.9, %246 ]
   %264 = and i32 %161, 16
   %.not138 = icmp eq i32 %264, 0
   br i1 %.not138, label %280, label %265
@@ -118835,13 +118835,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15Conca
   %274 = add nuw nsw i32 %273, 73
   %275 = lshr i32 %274, 6
   %276 = zext nneg i32 %275 to i64
-  %277 = add i64 %.9, 1
+  %277 = add i64 %.10, 1
   %278 = add i64 %277, %268
   %279 = add i64 %278, %276
   br label %280
 
 280:                                              ; preds = %265, %263
-  %.10 = phi i64 [ %279, %265 ], [ %.9, %263 ]
+  %.11 = phi i64 [ %279, %265 ], [ %.10, %263 ]
   %281 = and i32 %161, 32
   %.not139 = icmp eq i32 %281, 0
   br i1 %.not139, label %305, label %282
@@ -118865,9 +118865,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15Conca
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit: ; preds = %282, %288
-  %.1.i.i184 = phi i64 [ 0, %282 ], [ %spec.select10.i.i, %288 ]
+  %.0.i.i184 = phi i64 [ 0, %282 ], [ %spec.select10.i.i, %288 ]
   %292 = getelementptr inbounds i8, ptr %284, i64 20
-  %293 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %284, i64 noundef %.1.i.i184, ptr noundef nonnull %292)
+  %293 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %284, i64 noundef %.0.i.i184, ptr noundef nonnull %292)
   %294 = trunc i64 %293 to i32
   %295 = or i32 %294, 1
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
@@ -118876,13 +118876,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   %299 = add nuw nsw i32 %298, 73
   %300 = lshr i32 %299, 6
   %301 = zext nneg i32 %300 to i64
-  %302 = add i64 %.10, 1
+  %302 = add i64 %.11, 1
   %303 = add i64 %302, %293
   %304 = add i64 %303, %301
   br label %305
 
 305:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit, %280
-  %.11 = phi i64 [ %304, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit ], [ %.10, %280 ]
+  %.12 = phi i64 [ %304, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16DropoutParameterEEEmRKT_.exit ], [ %.11, %280 ]
   %306 = and i32 %161, 64
   %.not140 = icmp eq i32 %306, 0
   br i1 %.not140, label %362, label %307
@@ -118921,7 +118921,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   br label %332
 
 332:                                              ; preds = %315, %313
-  %.0.i.i186 = phi i64 [ %331, %315 ], [ 0, %313 ]
+  %.1.i.i186 = phi i64 [ %331, %315 ], [ 0, %313 ]
   %333 = and i32 %311, 2
   %.not11.i.i = icmp eq i32 %333, 0
   br i1 %.not11.i.i, label %345, label %334
@@ -118936,21 +118936,21 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Dropo
   %341 = add nuw nsw i32 %340, 137
   %342 = lshr i32 %341, 6
   %343 = zext nneg i32 %342 to i64
-  %344 = add i64 %.0.i.i186, %343
+  %344 = add i64 %.1.i.i186, %343
   br label %345
 
 345:                                              ; preds = %334, %332
-  %.1.i.i187 = phi i64 [ %344, %334 ], [ %.0.i.i186, %332 ]
+  %.2.i.i = phi i64 [ %344, %334 ], [ %.1.i.i186, %332 ]
   %346 = lshr i32 %311, 1
   %347 = and i32 %346, 2
   %348 = zext nneg i32 %347 to i64
-  %spec.select.i.i188 = add i64 %.1.i.i187, %348
+  %spec.select.i.i187 = add i64 %.2.i.i, %348
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit: ; preds = %307, %345
-  %.2.i.i = phi i64 [ 0, %307 ], [ %spec.select.i.i188, %345 ]
+  %.0.i.i188 = phi i64 [ 0, %307 ], [ %spec.select.i.i187, %345 ]
   %349 = getelementptr inbounds i8, ptr %309, i64 20
-  %350 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %309, i64 noundef %.2.i.i, ptr noundef nonnull %349)
+  %350 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %309, i64 noundef %.0.i.i188, ptr noundef nonnull %349)
   %351 = trunc i64 %350 to i32
   %352 = or i32 %351, 1
   %353 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %352, i1 true)
@@ -118959,13 +118959,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5D
   %356 = add nuw nsw i32 %355, 73
   %357 = lshr i32 %356, 6
   %358 = zext nneg i32 %357 to i64
-  %359 = add i64 %.11, 1
+  %359 = add i64 %.12, 1
   %360 = add i64 %359, %350
   %361 = add i64 %360, %358
   br label %362
 
 362:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit, %305
-  %.12 = phi i64 [ %361, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit ], [ %.11, %305 ]
+  %.13 = phi i64 [ %361, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17HDF5DataParameterEEEmRKT_.exit ], [ %.12, %305 ]
   %363 = and i32 %161, 128
   %.not141 = icmp eq i32 %363, 0
   br i1 %.not141, label %400, label %364
@@ -119010,13 +119010,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %394 = add nuw nsw i32 %393, 73
   %395 = lshr i32 %394, 6
   %396 = zext nneg i32 %395 to i64
-  %397 = add i64 %.12, 1
+  %397 = add i64 %.13, 1
   %398 = add i64 %397, %388
   %399 = add i64 %398, %396
   br label %400
 
 400:                                              ; preds = %362, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit, %._crit_edge314
-  %.13 = phi i64 [ %399, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit ], [ %.12, %362 ], [ %159, %._crit_edge314 ]
+  %.6 = phi i64 [ %399, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit ], [ %.13, %362 ], [ %159, %._crit_edge314 ]
   %401 = and i32 %161, 65280
   %.not142 = icmp eq i32 %401, 0
   br i1 %.not142, label %560, label %402
@@ -119038,13 +119038,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %413 = add nuw nsw i32 %412, 73
   %414 = lshr i32 %413, 6
   %415 = zext nneg i32 %414 to i64
-  %416 = add i64 %.13, 1
+  %416 = add i64 %.6, 1
   %417 = add i64 %416, %407
   %418 = add i64 %417, %415
   br label %419
 
 419:                                              ; preds = %404, %402
-  %.14 = phi i64 [ %418, %404 ], [ %.13, %402 ]
+  %.15 = phi i64 [ %418, %404 ], [ %.6, %402 ]
   %420 = and i32 %161, 512
   %.not144 = icmp eq i32 %420, 0
   br i1 %.not144, label %457, label %421
@@ -119089,13 +119089,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %451 = add nuw nsw i32 %450, 73
   %452 = lshr i32 %451, 6
   %453 = zext nneg i32 %452 to i64
-  %454 = add i64 %.14, 2
+  %454 = add i64 %.15, 2
   %455 = add i64 %454, %445
   %456 = add i64 %455, %453
   br label %457
 
 457:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21InfogainLossParameterEEEmRKT_.exit, %419
-  %.15 = phi i64 [ %456, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21InfogainLossParameterEEEmRKT_.exit ], [ %.14, %419 ]
+  %.16 = phi i64 [ %456, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21InfogainLossParameterEEEmRKT_.exit ], [ %.15, %419 ]
   %458 = and i32 %161, 1024
   %.not145 = icmp eq i32 %458, 0
   br i1 %.not145, label %474, label %459
@@ -119112,13 +119112,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %468 = add nuw nsw i32 %467, 73
   %469 = lshr i32 %468, 6
   %470 = zext nneg i32 %469 to i64
-  %471 = add i64 %.15, 2
+  %471 = add i64 %.16, 2
   %472 = add i64 %471, %462
   %473 = add i64 %472, %470
   br label %474
 
 474:                                              ; preds = %459, %457
-  %.16 = phi i64 [ %473, %459 ], [ %.15, %457 ]
+  %.17 = phi i64 [ %473, %459 ], [ %.16, %457 ]
   %475 = and i32 %161, 2048
   %.not146 = icmp eq i32 %475, 0
   br i1 %.not146, label %491, label %476
@@ -119135,13 +119135,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %485 = add nuw nsw i32 %484, 73
   %486 = lshr i32 %485, 6
   %487 = zext nneg i32 %486 to i64
-  %488 = add i64 %.16, 2
+  %488 = add i64 %.17, 2
   %489 = add i64 %488, %479
   %490 = add i64 %489, %487
   br label %491
 
 491:                                              ; preds = %476, %474
-  %.17 = phi i64 [ %490, %476 ], [ %.16, %474 ]
+  %.18 = phi i64 [ %490, %476 ], [ %.17, %474 ]
   %492 = and i32 %161, 4096
   %.not147 = icmp eq i32 %492, 0
   br i1 %.not147, label %508, label %493
@@ -119158,13 +119158,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %502 = add nuw nsw i32 %501, 73
   %503 = lshr i32 %502, 6
   %504 = zext nneg i32 %503 to i64
-  %505 = add i64 %.17, 2
+  %505 = add i64 %.18, 2
   %506 = add i64 %505, %496
   %507 = add i64 %506, %504
   br label %508
 
 508:                                              ; preds = %493, %491
-  %.18 = phi i64 [ %507, %493 ], [ %.17, %491 ]
+  %.19 = phi i64 [ %507, %493 ], [ %.18, %491 ]
   %509 = and i32 %161, 8192
   %.not148 = icmp eq i32 %509, 0
   br i1 %.not148, label %525, label %510
@@ -119181,13 +119181,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %519 = add nuw nsw i32 %518, 73
   %520 = lshr i32 %519, 6
   %521 = zext nneg i32 %520 to i64
-  %522 = add i64 %.18, 2
+  %522 = add i64 %.19, 2
   %523 = add i64 %522, %513
   %524 = add i64 %523, %521
   br label %525
 
 525:                                              ; preds = %510, %508
-  %.19 = phi i64 [ %524, %510 ], [ %.18, %508 ]
+  %.20 = phi i64 [ %524, %510 ], [ %.19, %508 ]
   %526 = and i32 %161, 16384
   %.not149 = icmp eq i32 %526, 0
   br i1 %.not149, label %552, label %527
@@ -119208,17 +119208,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe21Infog
   %535 = and i32 %531, 2
   %.not11.i.i196 = icmp eq i32 %535, 0
   %536 = add nuw nsw i64 %spec.select.i.i195, 5
-  %.1.i.i197 = select i1 %.not11.i.i196, i64 %spec.select.i.i195, i64 %536
+  %.2.i.i197 = select i1 %.not11.i.i196, i64 %spec.select.i.i195, i64 %536
   %537 = and i32 %531, 4
   %.not12.i.i = icmp eq i32 %537, 0
-  %538 = add nuw nsw i64 %.1.i.i197, 5
-  %spec.select13.i.i = select i1 %.not12.i.i, i64 %.1.i.i197, i64 %538
+  %538 = add nuw nsw i64 %.2.i.i197, 5
+  %spec.select13.i.i = select i1 %.not12.i.i, i64 %.2.i.i197, i64 %538
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit: ; preds = %527, %533
-  %.2.i.i198 = phi i64 [ 0, %527 ], [ %spec.select13.i.i, %533 ]
+  %.0.i.i198 = phi i64 [ 0, %527 ], [ %spec.select13.i.i, %533 ]
   %539 = getelementptr inbounds i8, ptr %529, i64 20
-  %540 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %529, i64 noundef %.2.i.i198, ptr noundef nonnull %539)
+  %540 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %529, i64 noundef %.0.i.i198, ptr noundef nonnull %539)
   %541 = trunc i64 %540 to i32
   %542 = or i32 %541, 1
   %543 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %542, i1 true)
@@ -119227,13 +119227,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Power
   %546 = add nuw nsw i32 %545, 73
   %547 = lshr i32 %546, 6
   %548 = zext nneg i32 %547 to i64
-  %549 = add i64 %.19, 2
+  %549 = add i64 %.20, 2
   %550 = add i64 %549, %540
   %551 = add i64 %550, %548
   br label %552
 
 552:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit, %525
-  %.20 = phi i64 [ %551, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit ], [ %.19, %525 ]
+  %.21 = phi i64 [ %551, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14PowerParameterEEEmRKT_.exit ], [ %.20, %525 ]
   %553 = and i32 %161, 32768
   %.not150 = icmp eq i32 %553, 0
   br i1 %.not150, label %560, label %554
@@ -119242,12 +119242,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Power
   %555 = getelementptr inbounds i8, ptr %0, i64 360
   %556 = load ptr, ptr %555, align 8
   %557 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19MemoryDataParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(40) %556)
-  %558 = add i64 %.20, 2
+  %558 = add i64 %.21, 2
   %559 = add i64 %558, %557
   br label %560
 
 560:                                              ; preds = %552, %554, %400
-  %.21 = phi i64 [ %559, %554 ], [ %.20, %552 ], [ %.13, %400 ]
+  %.14 = phi i64 [ %559, %554 ], [ %.21, %552 ], [ %.6, %400 ]
   %561 = and i32 %161, 16711680
   %.not151 = icmp eq i32 %561, 0
   br i1 %.not151, label %829, label %562
@@ -119288,7 +119288,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Power
   br label %585
 
 585:                                              ; preds = %574, %570
-  %.1.i.i202 = phi i64 [ %584, %574 ], [ %spec.select.i.i200, %570 ]
+  %.2.i.i202 = phi i64 [ %584, %574 ], [ %spec.select.i.i200, %570 ]
   %586 = and i32 %568, 4
   %.not12.i.i203 = icmp eq i32 %586, 0
   br i1 %.not12.i.i203, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit, label %587
@@ -119303,13 +119303,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14Power
   %594 = add nuw nsw i32 %593, 137
   %595 = lshr i32 %594, 6
   %596 = zext nneg i32 %595 to i64
-  %597 = add nuw nsw i64 %.1.i.i202, %596
+  %597 = add nuw nsw i64 %.2.i.i202, %596
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit: ; preds = %564, %585, %587
-  %.2.i.i204 = phi i64 [ %597, %587 ], [ %.1.i.i202, %585 ], [ 0, %564 ]
+  %.0.i.i204 = phi i64 [ %597, %587 ], [ %.2.i.i202, %585 ], [ 0, %564 ]
   %598 = getelementptr inbounds i8, ptr %566, i64 20
-  %599 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %566, i64 noundef %.2.i.i204, ptr noundef nonnull %598)
+  %599 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %566, i64 noundef %.0.i.i204, ptr noundef nonnull %598)
   %600 = trunc i64 %599 to i32
   %601 = or i32 %600, 1
   %602 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %601, i1 true)
@@ -119318,13 +119318,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMa
   %605 = add nuw nsw i32 %604, 73
   %606 = lshr i32 %605, 6
   %607 = zext nneg i32 %606 to i64
-  %608 = add i64 %.21, 2
+  %608 = add i64 %.14, 2
   %609 = add i64 %608, %599
   %610 = add i64 %609, %607
   br label %611
 
 611:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit, %562
-  %.22 = phi i64 [ %610, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit ], [ %.21, %562 ]
+  %.23 = phi i64 [ %610, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMaxParameterEEEmRKT_.exit ], [ %.14, %562 ]
   %612 = and i32 %161, 131072
   %.not153 = icmp eq i32 %612, 0
   br i1 %.not153, label %656, label %613
@@ -119365,16 +119365,16 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe15ArgMa
   br label %640
 
 640:                                              ; preds = %628, %626
-  %.0.i.i207 = phi i64 [ %639, %628 ], [ %622, %626 ]
+  %.1.i.i207 = phi i64 [ %639, %628 ], [ %622, %626 ]
   %641 = and i32 %624, 2
   %642 = zext nneg i32 %641 to i64
-  %spec.select.i.i208 = add nuw nsw i64 %.0.i.i207, %642
+  %spec.select.i.i208 = add nuw nsw i64 %.1.i.i207, %642
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit: ; preds = %613, %640
-  %.1.i.i209 = phi i64 [ %622, %613 ], [ %spec.select.i.i208, %640 ]
+  %.0.i.i209 = phi i64 [ %622, %613 ], [ %spec.select.i.i208, %640 ]
   %643 = getelementptr inbounds i8, ptr %615, i64 20
-  %644 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %615, i64 noundef %.1.i.i209, ptr noundef nonnull %643)
+  %644 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %615, i64 noundef %.0.i.i209, ptr noundef nonnull %643)
   %645 = trunc i64 %644 to i32
   %646 = or i32 %645, 1
   %647 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %646, i1 true)
@@ -119383,13 +119383,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %650 = add nuw nsw i32 %649, 73
   %651 = lshr i32 %650, 6
   %652 = zext nneg i32 %651 to i64
-  %653 = add i64 %.22, 2
+  %653 = add i64 %.23, 2
   %654 = add i64 %653, %644
   %655 = add i64 %654, %652
   br label %656
 
 656:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit, %611
-  %.23 = phi i64 [ %655, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit ], [ %.22, %611 ]
+  %.24 = phi i64 [ %655, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16EltwiseParameterEEEmRKT_.exit ], [ %.23, %611 ]
   %657 = and i32 %161, 262144
   %.not154 = icmp eq i32 %657, 0
   br i1 %.not154, label %677, label %658
@@ -119412,13 +119412,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %671 = add nuw nsw i32 %670, 73
   %672 = lshr i32 %671, 6
   %673 = zext nneg i32 %672 to i64
-  %674 = add i64 %.23, 2
+  %674 = add i64 %.24, 2
   %675 = add i64 %674, %665
   %676 = add i64 %675, %673
   br label %677
 
 677:                                              ; preds = %658, %656
-  %.24 = phi i64 [ %676, %658 ], [ %.23, %656 ]
+  %.25 = phi i64 [ %676, %658 ], [ %.24, %656 ]
   %678 = and i32 %161, 524288
   %.not155 = icmp eq i32 %678, 0
   br i1 %.not155, label %694, label %679
@@ -119435,13 +119435,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %688 = add nuw nsw i32 %687, 73
   %689 = lshr i32 %688, 6
   %690 = zext nneg i32 %689 to i64
-  %691 = add i64 %.24, 2
+  %691 = add i64 %.25, 2
   %692 = add i64 %691, %682
   %693 = add i64 %692, %690
   br label %694
 
 694:                                              ; preds = %679, %677
-  %.25 = phi i64 [ %693, %679 ], [ %.24, %677 ]
+  %.26 = phi i64 [ %693, %679 ], [ %.25, %677 ]
   %695 = and i32 %161, 1048576
   %.not156 = icmp eq i32 %695, 0
   br i1 %.not156, label %753, label %696
@@ -119473,7 +119473,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   br label %714
 
 714:                                              ; preds = %704, %702
-  %.0.i.i214 = phi i64 [ %713, %704 ], [ 0, %702 ]
+  %.1.i.i214 = phi i64 [ %713, %704 ], [ 0, %702 ]
   %715 = and i32 %700, 2
   %.not11.i.i215 = icmp eq i32 %715, 0
   br i1 %.not11.i.i215, label %727, label %716
@@ -119488,11 +119488,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %723 = add nuw nsw i32 %722, 137
   %724 = lshr i32 %723, 6
   %725 = zext nneg i32 %724 to i64
-  %726 = add nuw nsw i64 %.0.i.i214, %725
+  %726 = add nuw nsw i64 %.1.i.i214, %725
   br label %727
 
 727:                                              ; preds = %716, %714
-  %.1.i.i216 = phi i64 [ %726, %716 ], [ %.0.i.i214, %714 ]
+  %.2.i.i216 = phi i64 [ %726, %716 ], [ %.1.i.i214, %714 ]
   %728 = and i32 %700, 4
   %.not12.i.i217 = icmp eq i32 %728, 0
   br i1 %.not12.i.i217, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit, label %729
@@ -119507,13 +119507,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Eltwi
   %736 = mul nuw nsw i64 %735, 9
   %737 = add nuw nsw i64 %736, 137
   %738 = lshr i64 %737, 6
-  %739 = add nuw nsw i64 %738, %.1.i.i216
+  %739 = add nuw nsw i64 %738, %.2.i.i216
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit: ; preds = %696, %727, %729
-  %.2.i.i218 = phi i64 [ %739, %729 ], [ %.1.i.i216, %727 ], [ 0, %696 ]
+  %.0.i.i218 = phi i64 [ %739, %729 ], [ %.2.i.i216, %727 ], [ 0, %696 ]
   %740 = getelementptr inbounds i8, ptr %698, i64 20
-  %741 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %698, i64 noundef %.2.i.i218, ptr noundef nonnull %740)
+  %741 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %698, i64 noundef %.0.i.i218, ptr noundef nonnull %740)
   %742 = trunc i64 %741 to i32
   %743 = or i32 %742, 1
   %744 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %743, i1 true)
@@ -119522,13 +119522,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17Accur
   %747 = add nuw nsw i32 %746, 73
   %748 = lshr i32 %747, 6
   %749 = zext nneg i32 %748 to i64
-  %750 = add i64 %.25, 2
+  %750 = add i64 %.26, 2
   %751 = add i64 %750, %741
   %752 = add i64 %751, %749
   br label %753
 
 753:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit, %694
-  %.26 = phi i64 [ %752, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit ], [ %.25, %694 ]
+  %.27 = phi i64 [ %752, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe17AccuracyParameterEEEmRKT_.exit ], [ %.26, %694 ]
   %754 = and i32 %161, 2097152
   %.not157 = icmp eq i32 %754, 0
   br i1 %.not157, label %785, label %755
@@ -119567,13 +119567,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Hinge
   %779 = add nuw nsw i32 %778, 73
   %780 = lshr i32 %779, 6
   %781 = zext nneg i32 %780 to i64
-  %782 = add i64 %.26, 2
+  %782 = add i64 %.27, 2
   %783 = add i64 %782, %773
   %784 = add i64 %783, %781
   br label %785
 
 785:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18HingeLossParameterEEEmRKT_.exit, %753
-  %.27 = phi i64 [ %784, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18HingeLossParameterEEEmRKT_.exit ], [ %.26, %753 ]
+  %.28 = phi i64 [ %784, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18HingeLossParameterEEEmRKT_.exit ], [ %.27, %753 ]
   %786 = and i32 %161, 4194304
   %.not158 = icmp eq i32 %786, 0
   br i1 %.not158, label %821, label %787
@@ -119610,9 +119610,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe18Hinge
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit: ; preds = %787, %793, %796
-  %.1.i.i225 = phi i64 [ %807, %796 ], [ %spec.select.i.i223, %793 ], [ 0, %787 ]
+  %.0.i.i225 = phi i64 [ %807, %796 ], [ %spec.select.i.i223, %793 ], [ 0, %787 ]
   %808 = getelementptr inbounds i8, ptr %789, i64 20
-  %809 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %789, i64 noundef %.1.i.i225, ptr noundef nonnull %808)
+  %809 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %789, i64 noundef %.0.i.i225, ptr noundef nonnull %808)
   %810 = trunc i64 %809 to i32
   %811 = or i32 %810, 1
   %812 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %811, i1 true)
@@ -119621,13 +119621,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUP
   %815 = add nuw nsw i32 %814, 73
   %816 = lshr i32 %815, 6
   %817 = zext nneg i32 %816 to i64
-  %818 = add i64 %.27, 2
+  %818 = add i64 %.28, 2
   %819 = add i64 %818, %809
   %820 = add i64 %819, %817
   br label %821
 
 821:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit, %785
-  %.28 = phi i64 [ %820, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit ], [ %.27, %785 ]
+  %.29 = phi i64 [ %820, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUParameterEEEmRKT_.exit ], [ %.28, %785 ]
   %822 = and i32 %161, 8388608
   %.not159 = icmp eq i32 %822, 0
   br i1 %.not159, label %829, label %823
@@ -119636,12 +119636,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUP
   %824 = getelementptr inbounds i8, ptr %0, i64 424
   %825 = load ptr, ptr %824, align 8
   %826 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14SliceParameterEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(48) %825)
-  %827 = add i64 %.28, 2
+  %827 = add i64 %.29, 2
   %828 = add i64 %827, %826
   br label %829
 
 829:                                              ; preds = %821, %823, %560
-  %.29 = phi i64 [ %828, %823 ], [ %.28, %821 ], [ %.21, %560 ]
+  %.22 = phi i64 [ %828, %823 ], [ %.29, %821 ], [ %.14, %560 ]
   %.not160 = icmp ult i32 %161, 16777216
   br i1 %.not160, label %1086, label %830
 
@@ -119664,17 +119664,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13ReLUP
   %840 = and i32 %839, 2
   %841 = and i32 %836, 2
   %narrow.i.i = add nuw nsw i32 %840, %841
-  %.1.i.i227 = zext nneg i32 %narrow.i.i to i64
+  %.2.i.i227 = zext nneg i32 %narrow.i.i to i64
   %842 = and i32 %836, 4
   %.not12.i.i228 = icmp eq i32 %842, 0
-  %843 = add nuw nsw i64 %.1.i.i227, 5
-  %spec.select13.i.i229 = select i1 %.not12.i.i228, i64 %.1.i.i227, i64 %843
+  %843 = add nuw nsw i64 %.2.i.i227, 5
+  %spec.select13.i.i229 = select i1 %.not12.i.i228, i64 %.2.i.i227, i64 %843
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit: ; preds = %832, %838
-  %.2.i.i230 = phi i64 [ 0, %832 ], [ %spec.select13.i.i229, %838 ]
+  %.0.i.i230 = phi i64 [ 0, %832 ], [ %spec.select13.i.i229, %838 ]
   %844 = getelementptr inbounds i8, ptr %834, i64 20
-  %845 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %834, i64 noundef %.2.i.i230, ptr noundef nonnull %844)
+  %845 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %834, i64 noundef %.0.i.i230, ptr noundef nonnull %844)
   %846 = trunc i64 %845 to i32
   %847 = or i32 %846, 1
   %848 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %847, i1 true)
@@ -119683,13 +119683,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNPa
   %851 = add nuw nsw i32 %850, 73
   %852 = lshr i32 %851, 6
   %853 = zext nneg i32 %852 to i64
-  %854 = add i64 %.29, 2
+  %854 = add i64 %.22, 2
   %855 = add i64 %854, %845
   %856 = add i64 %855, %853
   br label %857
 
 857:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit, %830
-  %.30 = phi i64 [ %856, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit ], [ %.29, %830 ]
+  %.31 = phi i64 [ %856, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNParameterEEEmRKT_.exit ], [ %.22, %830 ]
   %858 = and i32 %161, 33554432
   %.not162 = icmp eq i32 %858, 0
   br i1 %.not162, label %874, label %859
@@ -119706,13 +119706,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12MVNPa
   %868 = add nuw nsw i32 %867, 73
   %869 = lshr i32 %868, 6
   %870 = zext nneg i32 %869 to i64
-  %871 = add i64 %.30, 2
+  %871 = add i64 %.31, 2
   %872 = add i64 %871, %862
   %873 = add i64 %872, %870
   br label %874
 
 874:                                              ; preds = %859, %857
-  %.31 = phi i64 [ %873, %859 ], [ %.30, %857 ]
+  %.32 = phi i64 [ %873, %859 ], [ %.31, %857 ]
   %875 = and i32 %161, 67108864
   %.not163 = icmp eq i32 %875, 0
   br i1 %.not163, label %906, label %876
@@ -119751,13 +119751,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHP
   %900 = add nuw nsw i32 %899, 73
   %901 = lshr i32 %900, 6
   %902 = zext nneg i32 %901 to i64
-  %903 = add i64 %.31, 2
+  %903 = add i64 %.32, 2
   %904 = add i64 %903, %894
   %905 = add i64 %904, %902
   br label %906
 
 906:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHParameterEEEmRKT_.exit, %874
-  %.32 = phi i64 [ %905, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHParameterEEEmRKT_.exit ], [ %.31, %874 ]
+  %.33 = phi i64 [ %905, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13TanHParameterEEEmRKT_.exit ], [ %.32, %874 ]
   %907 = and i32 %161, 134217728
   %.not164 = icmp eq i32 %907, 0
   br i1 %.not164, label %938, label %908
@@ -119796,13 +119796,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Sigmo
   %932 = add nuw nsw i32 %931, 73
   %933 = lshr i32 %932, 6
   %934 = zext nneg i32 %933 to i64
-  %935 = add i64 %.32, 2
+  %935 = add i64 %.33, 2
   %936 = add i64 %935, %926
   %937 = add i64 %936, %934
   br label %938
 
 938:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SigmoidParameterEEEmRKT_.exit, %906
-  %.33 = phi i64 [ %937, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SigmoidParameterEEEmRKT_.exit ], [ %.32, %906 ]
+  %.34 = phi i64 [ %937, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SigmoidParameterEEEmRKT_.exit ], [ %.33, %906 ]
   %939 = and i32 %161, 268435456
   %.not165 = icmp eq i32 %939, 0
   br i1 %.not165, label %985, label %940
@@ -119835,7 +119835,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Sigmo
   br label %959
 
 959:                                              ; preds = %948, %946
-  %.0.i.i237 = phi i64 [ %958, %948 ], [ 0, %946 ]
+  %.1.i.i237 = phi i64 [ %958, %948 ], [ 0, %946 ]
   %960 = and i32 %944, 2
   %.not9.i.i238 = icmp eq i32 %960, 0
   br i1 %.not9.i.i238, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit, label %961
@@ -119850,13 +119850,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Sigmo
   %968 = mul nuw nsw i64 %967, 9
   %969 = add nuw nsw i64 %968, 137
   %970 = lshr i64 %969, 6
-  %971 = add nuw nsw i64 %970, %.0.i.i237
+  %971 = add nuw nsw i64 %970, %.1.i.i237
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit: ; preds = %940, %959, %961
-  %.1.i.i239 = phi i64 [ %971, %961 ], [ %.0.i.i237, %959 ], [ 0, %940 ]
+  %.0.i.i239 = phi i64 [ %971, %961 ], [ %.1.i.i237, %959 ], [ 0, %940 ]
   %972 = getelementptr inbounds i8, ptr %942, i64 20
-  %973 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %942, i64 noundef %.1.i.i239, ptr noundef nonnull %972)
+  %973 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %942, i64 noundef %.0.i.i239, ptr noundef nonnull %972)
   %974 = trunc i64 %973 to i32
   %975 = or i32 %974, 1
   %976 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %975, i1 true)
@@ -119865,13 +119865,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Softm
   %979 = add nuw nsw i32 %978, 73
   %980 = lshr i32 %979, 6
   %981 = zext nneg i32 %980 to i64
-  %982 = add i64 %.33, 2
+  %982 = add i64 %.34, 2
   %983 = add i64 %982, %973
   %984 = add i64 %983, %981
   br label %985
 
 985:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit, %938
-  %.34 = phi i64 [ %984, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit ], [ %.33, %938 ]
+  %.35 = phi i64 [ %984, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16SoftmaxParameterEEEmRKT_.exit ], [ %.34, %938 ]
   %986 = and i32 %161, 536870912
   %.not166 = icmp eq i32 %986, 0
   br i1 %.not166, label %1011, label %987
@@ -119896,9 +119896,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe16Softm
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit: ; preds = %987, %993
-  %.1.i.i244 = phi i64 [ 0, %987 ], [ %spec.select10.i.i243, %993 ]
+  %.0.i.i244 = phi i64 [ 0, %987 ], [ %spec.select10.i.i243, %993 ]
   %998 = getelementptr inbounds i8, ptr %989, i64 20
-  %999 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %989, i64 noundef %.1.i.i244, ptr noundef nonnull %998)
+  %999 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %989, i64 noundef %.0.i.i244, ptr noundef nonnull %998)
   %1000 = trunc i64 %999 to i32
   %1001 = or i32 %1000, 1
   %1002 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1001, i1 true)
@@ -119907,13 +119907,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24Contr
   %1005 = add nuw nsw i32 %1004, 73
   %1006 = lshr i32 %1005, 6
   %1007 = zext nneg i32 %1006 to i64
-  %1008 = add i64 %.34, 2
+  %1008 = add i64 %.35, 2
   %1009 = add i64 %1008, %999
   %1010 = add i64 %1009, %1007
   br label %1011
 
 1011:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit, %985
-  %.35 = phi i64 [ %1010, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit ], [ %.34, %985 ]
+  %.36 = phi i64 [ %1010, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24ContrastiveLossParameterEEEmRKT_.exit ], [ %.35, %985 ]
   %1012 = and i32 %161, 1073741824
   %.not167 = icmp eq i32 %1012, 0
   br i1 %.not167, label %1038, label %1013
@@ -119934,17 +119934,17 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe24Contr
   %1021 = and i32 %1017, 2
   %.not11.i.i248 = icmp eq i32 %1021, 0
   %1022 = add nuw nsw i64 %spec.select.i.i247, 5
-  %.1.i.i249 = select i1 %.not11.i.i248, i64 %spec.select.i.i247, i64 %1022
+  %.2.i.i249 = select i1 %.not11.i.i248, i64 %spec.select.i.i247, i64 %1022
   %1023 = and i32 %1017, 4
   %.not12.i.i250 = icmp eq i32 %1023, 0
-  %1024 = add nuw nsw i64 %.1.i.i249, 5
-  %spec.select13.i.i251 = select i1 %.not12.i.i250, i64 %.1.i.i249, i64 %1024
+  %1024 = add nuw nsw i64 %.2.i.i249, 5
+  %spec.select13.i.i251 = select i1 %.not12.i.i250, i64 %.2.i.i249, i64 %1024
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit: ; preds = %1013, %1019
-  %.2.i.i252 = phi i64 [ 0, %1013 ], [ %spec.select13.i.i251, %1019 ]
+  %.0.i.i252 = phi i64 [ 0, %1013 ], [ %spec.select13.i.i251, %1019 ]
   %1025 = getelementptr inbounds i8, ptr %1015, i64 20
-  %1026 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1015, i64 noundef %.2.i.i252, ptr noundef nonnull %1025)
+  %1026 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1015, i64 noundef %.0.i.i252, ptr noundef nonnull %1025)
   %1027 = trunc i64 %1026 to i32
   %1028 = or i32 %1027, 1
   %1029 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1028, i1 true)
@@ -119953,13 +119953,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpPa
   %1032 = add nuw nsw i32 %1031, 73
   %1033 = lshr i32 %1032, 6
   %1034 = zext nneg i32 %1033 to i64
-  %1035 = add i64 %.35, 2
+  %1035 = add i64 %.36, 2
   %1036 = add i64 %1035, %1026
   %1037 = add i64 %1036, %1034
   br label %1038
 
 1038:                                             ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit, %1011
-  %.36 = phi i64 [ %1037, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit ], [ %.35, %1011 ]
+  %.37 = phi i64 [ %1037, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpParameterEEEmRKT_.exit ], [ %.36, %1011 ]
   %.not168 = icmp sgt i32 %161, -1
   br i1 %.not168, label %1086, label %1039
 
@@ -119990,10 +119990,10 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpPa
   br label %1057
 
 1057:                                             ; preds = %1047, %1045
-  %.0.i.i255 = phi i64 [ %1056, %1047 ], [ 0, %1045 ]
+  %.1.i.i255 = phi i64 [ %1056, %1047 ], [ 0, %1045 ]
   %1058 = and i32 %1043, 2
   %1059 = zext nneg i32 %1058 to i64
-  %spec.select.i.i256 = add nuw nsw i64 %.0.i.i255, %1059
+  %spec.select.i.i256 = add nuw nsw i64 %.1.i.i255, %1059
   %1060 = and i32 %1043, 4
   %.not12.i.i257 = icmp eq i32 %1060, 0
   br i1 %.not12.i.i257, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit, label %1061
@@ -120013,9 +120013,9 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe12ExpPa
   br label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit: ; preds = %1039, %1057, %1061
-  %.2.i.i258 = phi i64 [ %1072, %1061 ], [ %spec.select.i.i256, %1057 ], [ 0, %1039 ]
+  %.0.i.i258 = phi i64 [ %1072, %1061 ], [ %spec.select.i.i256, %1057 ], [ 0, %1039 ]
   %1073 = getelementptr inbounds i8, ptr %1041, i64 20
-  %1074 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1041, i64 noundef %.2.i.i258, ptr noundef nonnull %1073)
+  %1074 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %1041, i64 noundef %.0.i.i258, ptr noundef nonnull %1073)
   %1075 = trunc i64 %1074 to i32
   %1076 = or i32 %1075, 1
   %1077 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1076, i1 true)
@@ -120024,13 +120024,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossP
   %1080 = add nuw nsw i32 %1079, 73
   %1081 = lshr i32 %1080, 6
   %1082 = zext nneg i32 %1081 to i64
-  %1083 = add i64 %.36, 2
+  %1083 = add i64 %.37, 2
   %1084 = add i64 %1083, %1074
   %1085 = add i64 %1084, %1082
   br label %1086
 
 1086:                                             ; preds = %1038, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit, %829
-  %.37 = phi i64 [ %1085, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit ], [ %.36, %1038 ], [ %.29, %829 ]
+  %.30 = phi i64 [ %1085, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossParameterEEEmRKT_.exit ], [ %.37, %1038 ], [ %.22, %829 ]
   %1087 = getelementptr inbounds i8, ptr %0, i64 20
   %1088 = load i32, ptr %1087, align 4
   %1089 = and i32 %1088, 1
@@ -120047,12 +120047,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13LossP
   %1097 = mul nuw nsw i64 %1096, 9
   %1098 = add nuw nsw i64 %1097, 73
   %1099 = lshr i64 %1098, 6
-  %1100 = add i64 %.37, 1
+  %1100 = add i64 %.30, 1
   %1101 = add i64 %1100, %1099
   br label %1102
 
 1102:                                             ; preds = %1090, %1086
-  %.38 = phi i64 [ %1101, %1090 ], [ %.37, %1086 ]
+  %.38 = phi i64 [ %1101, %1090 ], [ %.30, %1086 ]
   %1103 = getelementptr inbounds i8, ptr %0, i64 24
   %1104 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.38, ptr noundef nonnull %1103)
   ret i64 %1104
@@ -124211,11 +124211,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %54
   br i1 %70, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread277
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread277: ; preds = %50, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.1280 = phi ptr [ %68, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0274, %50 ]
-  %71 = load i8, ptr %.1280, align 1
+  %.7280 = phi ptr [ %68, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0274, %50 ]
+  %71 = load i8, ptr %.7280, align 1
   %72 = zext i8 %71 to i32
   %73 = icmp sgt i8 %71, -1
-  %74 = getelementptr inbounds i8, ptr %.1280, i64 1
+  %74 = getelementptr inbounds i8, ptr %.7280, i64 1
   br i1 %73, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %75
 
 75:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread277
@@ -124228,11 +124228,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread277: ; preds = %
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %.1280, i64 2
+  %83 = getelementptr inbounds i8, ptr %.7280, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 84:                                               ; preds = %75
-  %85 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.1280, i32 noundef %80)
+  %85 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.7280, i32 noundef %80)
   %86 = extractvalue { ptr, i32 } %85, 0
   %87 = extractvalue { ptr, i32 } %85, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -125130,8 +125130,8 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137: ; preds = %468
   br label %497
 
 497:                                              ; preds = %504, %495
-  %.2 = phi ptr [ %496, %495 ], [ %500, %504 ]
-  %498 = getelementptr inbounds i8, ptr %.2, i64 2
+  %.1 = phi ptr [ %496, %495 ], [ %500, %504 ]
+  %498 = getelementptr inbounds i8, ptr %.1, i64 2
   %499 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef null)
   %500 = call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %499, ptr noundef nonnull %498)
   %.not43 = icmp eq ptr %500, null
@@ -125159,14 +125159,14 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137: ; preds = %468
   br label %509
 
 509:                                              ; preds = %514, %507
-  %.3 = phi ptr [ %508, %507 ], [ %511, %514 ]
-  %510 = getelementptr inbounds i8, ptr %.3, i64 2
+  %.2 = phi ptr [ %508, %507 ], [ %511, %514 ]
+  %510 = getelementptr inbounds i8, ptr %.2, i64 2
   %.0.copyload.i2.i139 = load float, ptr %510, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store float %.0.copyload.i2.i139, ptr %5, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %511 = getelementptr inbounds i8, ptr %.3, i64 6
+  %511 = getelementptr inbounds i8, ptr %.2, i64 6
   %512 = load ptr, ptr %2, align 8
   %513 = icmp ugt ptr %512, %511
   br i1 %513, label %514, label %.backedge
@@ -125193,14 +125193,14 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137: ; preds = %468
   br label %521
 
 521:                                              ; preds = %526, %519
-  %.5 = phi ptr [ %520, %519 ], [ %523, %526 ]
-  %522 = getelementptr inbounds i8, ptr %.5, i64 2
+  %.4 = phi ptr [ %520, %519 ], [ %523, %526 ]
+  %522 = getelementptr inbounds i8, ptr %.4, i64 2
   %.0.copyload.i2.i141 = load float, ptr %522, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store float %.0.copyload.i2.i141, ptr %4, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %523 = getelementptr inbounds i8, ptr %.5, i64 6
+  %523 = getelementptr inbounds i8, ptr %.4, i64 6
   %524 = load ptr, ptr %2, align 8
   %525 = icmp ugt ptr %524, %523
   br i1 %525, label %526, label %.backedge
@@ -125755,8 +125755,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not62, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe16V0LayerParameter22_internal_mutable_nameB5cxx11Ev.exit, %_ZN12opencv_caffe16V0LayerParameter22_internal_mutable_typeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN12opencv_caffe16V0LayerParameter31_internal_mutable_weight_fillerEv.exit, %_ZN12opencv_caffe16V0LayerParameter29_internal_mutable_bias_fillerEv.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit87, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit97, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit102, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit107, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit113, %_ZN12opencv_caffe16V0LayerParameter24_internal_mutable_sourceB5cxx11Ev.exit, %_ZN12opencv_caffe16V0LayerParameter26_internal_mutable_meanfileB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit127, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit132, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137, %516, %528, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit147, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit155, %_ZN12opencv_caffe16V0LayerParameter31_internal_mutable_det_crop_modeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit163, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit168, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit173, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit178, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit183, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit188, %_ZN12opencv_caffe16V0LayerParameter35_internal_mutable_hdf5_output_paramEv.exit, %787, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %497, %62, %763, %764
-  %.7 = phi ptr [ %.0.i, %764 ], [ null, %763 ], [ %spec.select, %62 ], [ null, %497 ], [ null, %_ZN12opencv_caffe16V0LayerParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit87 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit92 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit97 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit102 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit107 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit113 ], [ null, %_ZN12opencv_caffe16V0LayerParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter26_internal_mutable_meanfileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit127 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit132 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137 ], [ null, %516 ], [ null, %528 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit147 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit155 ], [ null, %_ZN12opencv_caffe16V0LayerParameter31_internal_mutable_det_crop_modeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit163 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit168 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit173 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit178 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit183 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit188 ], [ null, %_ZN12opencv_caffe16V0LayerParameter35_internal_mutable_hdf5_output_paramEv.exit ], [ null, %787 ], [ %68, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.7
+  %.6 = phi ptr [ %.0.i, %764 ], [ null, %763 ], [ %spec.select, %62 ], [ null, %497 ], [ null, %_ZN12opencv_caffe16V0LayerParameter22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter22_internal_mutable_typeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter31_internal_mutable_weight_fillerEv.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter29_internal_mutable_bias_fillerEv.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit87 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit92 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit97 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit102 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit107 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit113 ], [ null, %_ZN12opencv_caffe16V0LayerParameter24_internal_mutable_sourceB5cxx11Ev.exit ], [ null, %_ZN12opencv_caffe16V0LayerParameter26_internal_mutable_meanfileB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit127 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit132 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit137 ], [ null, %516 ], [ null, %528 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit147 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit155 ], [ null, %_ZN12opencv_caffe16V0LayerParameter31_internal_mutable_det_crop_modeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit163 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit168 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit173 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit178 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit183 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit188 ], [ null, %_ZN12opencv_caffe16V0LayerParameter35_internal_mutable_hdf5_output_paramEv.exit ], [ null, %787 ], [ %68, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -127642,7 +127642,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   br label %60
 
 60:                                               ; preds = %42, %40
-  %.1 = phi i64 [ %59, %42 ], [ %36, %40 ]
+  %.2 = phi i64 [ %59, %42 ], [ %36, %40 ]
   %61 = and i32 %38, 2
   %.not94 = icmp eq i32 %61, 0
   br i1 %.not94, label %80, label %62
@@ -127662,13 +127662,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %74 = add nuw nsw i32 %73, 73
   %75 = lshr i32 %74, 6
   %76 = zext nneg i32 %75 to i64
-  %77 = add i64 %.1, 1
+  %77 = add i64 %.2, 1
   %78 = add i64 %77, %68
   %79 = add i64 %78, %76
   br label %80
 
 80:                                               ; preds = %62, %60
-  %.2 = phi i64 [ %79, %62 ], [ %.1, %60 ]
+  %.3 = phi i64 [ %79, %62 ], [ %.2, %60 ]
   %81 = and i32 %38, 4
   %.not95 = icmp eq i32 %81, 0
   br i1 %.not95, label %100, label %82
@@ -127688,13 +127688,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %94 = add nuw nsw i32 %93, 73
   %95 = lshr i32 %94, 6
   %96 = zext nneg i32 %95 to i64
-  %97 = add i64 %.2, 2
+  %97 = add i64 %.3, 2
   %98 = add i64 %97, %88
   %99 = add i64 %98, %96
   br label %100
 
 100:                                              ; preds = %82, %80
-  %.3 = phi i64 [ %99, %82 ], [ %.2, %80 ]
+  %.4 = phi i64 [ %99, %82 ], [ %.3, %80 ]
   %101 = and i32 %38, 8
   %.not96 = icmp eq i32 %101, 0
   br i1 %.not96, label %120, label %102
@@ -127714,13 +127714,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %114 = add nuw nsw i32 %113, 73
   %115 = lshr i32 %114, 6
   %116 = zext nneg i32 %115 to i64
-  %117 = add i64 %.3, 2
+  %117 = add i64 %.4, 2
   %118 = add i64 %117, %108
   %119 = add i64 %118, %116
   br label %120
 
 120:                                              ; preds = %102, %100
-  %.4 = phi i64 [ %119, %102 ], [ %.3, %100 ]
+  %.5 = phi i64 [ %119, %102 ], [ %.4, %100 ]
   %121 = and i32 %38, 16
   %.not97 = icmp eq i32 %121, 0
   br i1 %.not97, label %140, label %122
@@ -127740,13 +127740,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %134 = add nuw nsw i32 %133, 73
   %135 = lshr i32 %134, 6
   %136 = zext nneg i32 %135 to i64
-  %137 = add i64 %.4, 2
+  %137 = add i64 %.5, 2
   %138 = add i64 %137, %128
   %139 = add i64 %138, %136
   br label %140
 
 140:                                              ; preds = %122, %120
-  %.5 = phi i64 [ %139, %122 ], [ %.4, %120 ]
+  %.6 = phi i64 [ %139, %122 ], [ %.5, %120 ]
   %141 = and i32 %38, 32
   %.not98 = icmp eq i32 %141, 0
   br i1 %.not98, label %157, label %142
@@ -127763,13 +127763,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %151 = add nuw nsw i32 %150, 73
   %152 = lshr i32 %151, 6
   %153 = zext nneg i32 %152 to i64
-  %154 = add i64 %.5, 1
+  %154 = add i64 %.6, 1
   %155 = add i64 %154, %145
   %156 = add i64 %155, %153
   br label %157
 
 157:                                              ; preds = %142, %140
-  %.6 = phi i64 [ %156, %142 ], [ %.5, %140 ]
+  %.7 = phi i64 [ %156, %142 ], [ %.6, %140 ]
   %158 = and i32 %38, 64
   %.not99 = icmp eq i32 %158, 0
   br i1 %.not99, label %174, label %159
@@ -127786,13 +127786,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %168 = add nuw nsw i32 %167, 73
   %169 = lshr i32 %168, 6
   %170 = zext nneg i32 %169 to i64
-  %171 = add i64 %.6, 1
+  %171 = add i64 %.7, 1
   %172 = add i64 %171, %162
   %173 = add i64 %172, %170
   br label %174
 
 174:                                              ; preds = %159, %157
-  %.7 = phi i64 [ %173, %159 ], [ %.6, %157 ]
+  %.8 = phi i64 [ %173, %159 ], [ %.7, %157 ]
   %175 = and i32 %38, 128
   %.not100 = icmp eq i32 %175, 0
   br i1 %.not100, label %212, label %176
@@ -127837,13 +127837,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %206 = add nuw nsw i32 %205, 73
   %207 = lshr i32 %206, 6
   %208 = zext nneg i32 %207 to i64
-  %209 = add i64 %.7, 2
+  %209 = add i64 %.8, 2
   %210 = add i64 %209, %200
   %211 = add i64 %210, %208
   br label %212
 
 212:                                              ; preds = %174, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit, %._crit_edge
-  %.8 = phi i64 [ %211, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit ], [ %.7, %174 ], [ %36, %._crit_edge ]
+  %.1 = phi i64 [ %211, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5OutputParameterEEEmRKT_.exit ], [ %.8, %174 ], [ %36, %._crit_edge ]
   %213 = and i32 %38, 65280
   %.not101 = icmp eq i32 %213, 0
   br i1 %.not101, label %310, label %214
@@ -127863,11 +127863,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %223 = add nuw nsw i32 %222, 137
   %224 = lshr i32 %223, 6
   %225 = zext nneg i32 %224 to i64
-  %226 = add i64 %.8, %225
+  %226 = add i64 %.1, %225
   br label %227
 
 227:                                              ; preds = %216, %214
-  %.9 = phi i64 [ %226, %216 ], [ %.8, %214 ]
+  %.10 = phi i64 [ %226, %216 ], [ %.1, %214 ]
   %228 = and i32 %38, 512
   %.not103 = icmp eq i32 %228, 0
   br i1 %.not103, label %240, label %229
@@ -127882,11 +127882,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %236 = add nuw nsw i32 %235, 137
   %237 = lshr i32 %236, 6
   %238 = zext nneg i32 %237 to i64
-  %239 = add i64 %.9, %238
+  %239 = add i64 %.10, %238
   br label %240
 
 240:                                              ; preds = %229, %227
-  %.10 = phi i64 [ %239, %229 ], [ %.9, %227 ]
+  %.11 = phi i64 [ %239, %229 ], [ %.10, %227 ]
   %241 = and i32 %38, 1024
   %.not104 = icmp eq i32 %241, 0
   br i1 %.not104, label %253, label %242
@@ -127901,11 +127901,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %249 = add nuw nsw i32 %248, 137
   %250 = lshr i32 %249, 6
   %251 = zext nneg i32 %250 to i64
-  %252 = add i64 %.10, %251
+  %252 = add i64 %.11, %251
   br label %253
 
 253:                                              ; preds = %242, %240
-  %.11 = phi i64 [ %252, %242 ], [ %.10, %240 ]
+  %.12 = phi i64 [ %252, %242 ], [ %.11, %240 ]
   %254 = and i32 %38, 2048
   %.not105 = icmp eq i32 %254, 0
   br i1 %.not105, label %267, label %255
@@ -127920,12 +127920,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %262 = mul nuw nsw i64 %261, 9
   %263 = add nuw nsw i64 %262, 73
   %264 = lshr i64 %263, 6
-  %265 = add i64 %.11, 1
+  %265 = add i64 %.12, 1
   %266 = add i64 %265, %264
   br label %267
 
 267:                                              ; preds = %255, %253
-  %.12 = phi i64 [ %266, %255 ], [ %.11, %253 ]
+  %.13 = phi i64 [ %266, %255 ], [ %.12, %253 ]
   %268 = and i32 %38, 4096
   %.not106 = icmp eq i32 %268, 0
   br i1 %.not106, label %280, label %269
@@ -127941,11 +127941,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %277 = lshr i32 %276, 6
   %narrow = add nuw nsw i32 %277, 2
   %278 = zext nneg i32 %narrow to i64
-  %279 = add i64 %.12, %278
+  %279 = add i64 %.13, %278
   br label %280
 
 280:                                              ; preds = %269, %267
-  %.13 = phi i64 [ %279, %269 ], [ %.12, %267 ]
+  %.14 = phi i64 [ %279, %269 ], [ %.13, %267 ]
   %281 = and i32 %38, 8192
   %.not107 = icmp eq i32 %281, 0
   br i1 %.not107, label %293, label %282
@@ -127961,11 +127961,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %290 = lshr i32 %289, 6
   %narrow146 = add nuw nsw i32 %290, 2
   %291 = zext nneg i32 %narrow146 to i64
-  %292 = add i64 %.13, %291
+  %292 = add i64 %.14, %291
   br label %293
 
 293:                                              ; preds = %282, %280
-  %.14 = phi i64 [ %292, %282 ], [ %.13, %280 ]
+  %.15 = phi i64 [ %292, %282 ], [ %.14, %280 ]
   %294 = and i32 %38, 16384
   %.not108 = icmp eq i32 %294, 0
   br i1 %.not108, label %307, label %295
@@ -127980,20 +127980,20 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %302 = mul nuw nsw i64 %301, 9
   %303 = add nuw nsw i64 %302, 73
   %304 = lshr i64 %303, 6
-  %305 = add i64 %.14, 2
+  %305 = add i64 %.15, 2
   %306 = add i64 %305, %304
   br label %307
 
 307:                                              ; preds = %295, %293
-  %.15 = phi i64 [ %306, %295 ], [ %.14, %293 ]
+  %.16 = phi i64 [ %306, %295 ], [ %.15, %293 ]
   %308 = and i32 %38, 32768
   %.not109 = icmp eq i32 %308, 0
-  %309 = add i64 %.15, 3
-  %spec.select = select i1 %.not109, i64 %.15, i64 %309
+  %309 = add i64 %.16, 3
+  %spec.select = select i1 %.not109, i64 %.16, i64 %309
   br label %310
 
 310:                                              ; preds = %307, %212
-  %.16 = phi i64 [ %.8, %212 ], [ %spec.select, %307 ]
+  %.9 = phi i64 [ %.1, %212 ], [ %spec.select, %307 ]
   %311 = and i32 %38, 16711680
   %.not110 = icmp eq i32 %311, 0
   br i1 %.not110, label %399, label %312
@@ -128001,8 +128001,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
 312:                                              ; preds = %310
   %313 = and i32 %38, 65536
   %.not111 = icmp eq i32 %313, 0
-  %314 = add i64 %.16, 3
-  %spec.select132 = select i1 %.not111, i64 %.16, i64 %314
+  %314 = add i64 %.9, 3
+  %spec.select132 = select i1 %.not111, i64 %.9, i64 %314
   %315 = and i32 %38, 131072
   %.not112 = icmp eq i32 %315, 0
   br i1 %.not112, label %327, label %316
@@ -128022,7 +128022,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   br label %327
 
 327:                                              ; preds = %316, %312
-  %.18 = phi i64 [ %326, %316 ], [ %spec.select132, %312 ]
+  %.19 = phi i64 [ %326, %316 ], [ %spec.select132, %312 ]
   %328 = and i32 %38, 262144
   %.not113 = icmp eq i32 %328, 0
   br i1 %.not113, label %340, label %329
@@ -128038,11 +128038,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %337 = lshr i32 %336, 6
   %narrow148 = add nuw nsw i32 %337, 2
   %338 = zext nneg i32 %narrow148 to i64
-  %339 = add i64 %.18, %338
+  %339 = add i64 %.19, %338
   br label %340
 
 340:                                              ; preds = %329, %327
-  %.19 = phi i64 [ %339, %329 ], [ %.18, %327 ]
+  %.20 = phi i64 [ %339, %329 ], [ %.19, %327 ]
   %341 = and i32 %38, 524288
   %.not114 = icmp eq i32 %341, 0
   br i1 %.not114, label %354, label %342
@@ -128057,12 +128057,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %349 = mul nuw nsw i64 %348, 9
   %350 = add nuw nsw i64 %349, 73
   %351 = lshr i64 %350, 6
-  %352 = add i64 %.19, 2
+  %352 = add i64 %.20, 2
   %353 = add i64 %352, %351
   br label %354
 
 354:                                              ; preds = %342, %340
-  %.20 = phi i64 [ %353, %342 ], [ %.19, %340 ]
+  %.21 = phi i64 [ %353, %342 ], [ %.20, %340 ]
   %355 = and i32 %38, 1048576
   %.not115 = icmp eq i32 %355, 0
   br i1 %.not115, label %368, label %356
@@ -128077,12 +128077,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %363 = mul nuw nsw i64 %362, 9
   %364 = add nuw nsw i64 %363, 73
   %365 = lshr i64 %364, 6
-  %366 = add i64 %.20, 2
+  %366 = add i64 %.21, 2
   %367 = add i64 %366, %365
   br label %368
 
 368:                                              ; preds = %356, %354
-  %.21 = phi i64 [ %367, %356 ], [ %.20, %354 ]
+  %.22 = phi i64 [ %367, %356 ], [ %.21, %354 ]
   %369 = and i32 %38, 2097152
   %.not116 = icmp eq i32 %369, 0
   br i1 %.not116, label %382, label %370
@@ -128097,12 +128097,12 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %377 = mul nuw nsw i64 %376, 9
   %378 = add nuw nsw i64 %377, 73
   %379 = lshr i64 %378, 6
-  %380 = add i64 %.21, 2
+  %380 = add i64 %.22, 2
   %381 = add i64 %380, %379
   br label %382
 
 382:                                              ; preds = %370, %368
-  %.22 = phi i64 [ %381, %370 ], [ %.21, %368 ]
+  %.23 = phi i64 [ %381, %370 ], [ %.22, %368 ]
   %383 = and i32 %38, 4194304
   %.not117 = icmp eq i32 %383, 0
   br i1 %.not117, label %395, label %384
@@ -128118,19 +128118,19 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %392 = lshr i32 %391, 6
   %narrow149 = add nuw nsw i32 %392, 2
   %393 = zext nneg i32 %narrow149 to i64
-  %394 = add i64 %.22, %393
+  %394 = add i64 %.23, %393
   br label %395
 
 395:                                              ; preds = %384, %382
-  %.23 = phi i64 [ %394, %384 ], [ %.22, %382 ]
+  %.24 = phi i64 [ %394, %384 ], [ %.23, %382 ]
   %396 = lshr i32 %38, 22
   %397 = and i32 %396, 2
   %398 = zext nneg i32 %397 to i64
-  %spec.select133 = add i64 %.23, %398
+  %spec.select133 = add i64 %.24, %398
   br label %399
 
 399:                                              ; preds = %395, %310
-  %.24 = phi i64 [ %.16, %310 ], [ %spec.select133, %395 ]
+  %.17 = phi i64 [ %.9, %310 ], [ %spec.select133, %395 ]
   %.not119 = icmp ult i32 %38, 16777216
   br i1 %.not119, label %449, label %400
 
@@ -128149,11 +128149,11 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %409 = add nuw nsw i32 %408, 137
   %410 = lshr i32 %409, 6
   %411 = zext nneg i32 %410 to i64
-  %412 = add i64 %.24, %411
+  %412 = add i64 %.17, %411
   br label %413
 
 413:                                              ; preds = %402, %400
-  %.25 = phi i64 [ %412, %402 ], [ %.24, %400 ]
+  %.26 = phi i64 [ %412, %402 ], [ %.17, %400 ]
   %414 = and i32 %38, 33554432
   %.not121 = icmp eq i32 %414, 0
   br i1 %.not121, label %426, label %415
@@ -128168,15 +128168,15 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   %422 = add nuw nsw i32 %421, 137
   %423 = lshr i32 %422, 6
   %424 = zext nneg i32 %423 to i64
-  %425 = add i64 %.25, %424
+  %425 = add i64 %.26, %424
   br label %426
 
 426:                                              ; preds = %415, %413
-  %.26 = phi i64 [ %425, %415 ], [ %.25, %413 ]
+  %.27 = phi i64 [ %425, %415 ], [ %.26, %413 ]
   %427 = and i32 %38, 67108864
   %.not122 = icmp eq i32 %427, 0
-  %428 = add i64 %.26, 5
-  %spec.select134 = select i1 %.not122, i64 %.26, i64 %428
+  %428 = add i64 %.27, 5
+  %spec.select134 = select i1 %.not122, i64 %.27, i64 %428
   %429 = and i32 %38, 134217728
   %.not123 = icmp eq i32 %429, 0
   br i1 %.not123, label %441, label %430
@@ -128195,26 +128195,26 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
   br label %441
 
 441:                                              ; preds = %430, %426
-  %.28 = phi i64 [ %440, %430 ], [ %spec.select134, %426 ]
+  %.29 = phi i64 [ %440, %430 ], [ %spec.select134, %426 ]
   %442 = and i32 %38, 268435456
   %.not124 = icmp eq i32 %442, 0
-  %443 = add i64 %.28, 5
-  %spec.select135 = select i1 %.not124, i64 %.28, i64 %443
+  %443 = add i64 %.29, 5
+  %spec.select135 = select i1 %.not124, i64 %.29, i64 %443
   %444 = and i32 %38, 536870912
   %.not125 = icmp eq i32 %444, 0
   %445 = add i64 %spec.select135, 5
-  %.30 = select i1 %.not125, i64 %spec.select135, i64 %445
+  %.31 = select i1 %.not125, i64 %spec.select135, i64 %445
   %446 = and i32 %38, 1073741824
   %.not126 = icmp eq i32 %446, 0
-  %447 = add i64 %.30, 6
-  %.31 = select i1 %.not126, i64 %.30, i64 %447
-  %448 = add i64 %.31, 6
+  %447 = add i64 %.31, 6
+  %.32 = select i1 %.not126, i64 %.31, i64 %447
+  %448 = add i64 %.32, 6
   %.not127150 = icmp slt i32 %38, 0
-  %spec.select137 = select i1 %.not127150, i64 %448, i64 %.31
+  %spec.select137 = select i1 %.not127150, i64 %448, i64 %.32
   br label %449
 
 449:                                              ; preds = %441, %399
-  %.32 = phi i64 [ %.24, %399 ], [ %spec.select137, %441 ]
+  %.25 = phi i64 [ %.17, %399 ], [ %spec.select137, %441 ]
   %450 = getelementptr inbounds i8, ptr %0, i64 20
   %451 = load i32, ptr %450, align 4
   %452 = and i32 %451, 7
@@ -128224,22 +128224,22 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe19HDF5O
 453:                                              ; preds = %449
   %454 = and i32 %451, 1
   %.not129 = icmp eq i32 %454, 0
-  %455 = add i64 %.32, 6
-  %spec.select136 = select i1 %.not129, i64 %.32, i64 %455
+  %455 = add i64 %.25, 6
+  %spec.select136 = select i1 %.not129, i64 %.25, i64 %455
   %456 = and i32 %451, 2
   %.not130 = icmp eq i32 %456, 0
   %457 = add i64 %spec.select136, 6
-  %.34 = select i1 %.not130, i64 %spec.select136, i64 %457
+  %.35 = select i1 %.not130, i64 %spec.select136, i64 %457
   %458 = and i32 %451, 4
   %.not131 = icmp eq i32 %458, 0
-  %459 = add i64 %.34, 6
-  %spec.select138 = select i1 %.not131, i64 %.34, i64 %459
+  %459 = add i64 %.35, 6
+  %spec.select138 = select i1 %.not131, i64 %.35, i64 %459
   br label %460
 
 460:                                              ; preds = %453, %449
-  %.35 = phi i64 [ %.32, %449 ], [ %spec.select138, %453 ]
+  %.33 = phi i64 [ %.25, %449 ], [ %spec.select138, %453 ]
   %461 = getelementptr inbounds i8, ptr %0, i64 24
-  %462 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.35, ptr noundef nonnull %461)
+  %462 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.33, ptr noundef nonnull %461)
   ret i64 %462
 }
 
@@ -128759,11 +128759,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.136 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
-  %30 = load i8, ptr %.136, align 1
+  %.236 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.030, %.backedge ]
+  %30 = load i8, ptr %.236, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.136, i64 1
+  %33 = getelementptr inbounds i8, ptr %.236, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33
@@ -128776,11 +128776,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread33: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.136, i64 2
+  %42 = getelementptr inbounds i8, ptr %.236, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.136, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.236, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -128976,12 +128976,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN12opencv_caffe14PReLUParameter24_internal_mutable_fillerEv.exit, %128, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %21, %104, %105
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %104 ], [ %.sroa.0.0.ph, %105 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe14PReLUParameter24_internal_mutable_fillerEv.exit ], [ %.sroa.0.0.ph, %128 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 2, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
-  %.2 = phi ptr [ null, %104 ], [ %.0.i, %105 ], [ %spec.select, %21 ], [ null, %128 ], [ null, %_ZN12opencv_caffe14PReLUParameter24_internal_mutable_fillerEv.exit ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %104 ], [ %.sroa.0.0.ph, %105 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %_ZN12opencv_caffe14PReLUParameter24_internal_mutable_fillerEv.exit ], [ %.sroa.0.0.ph, %128 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ 2, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
+  %.1 = phi ptr [ null, %104 ], [ %.0.i, %105 ], [ %spec.select, %21 ], [ null, %128 ], [ null, %_ZN12opencv_caffe14PReLUParameter24_internal_mutable_fillerEv.exit ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ]
   %130 = load i32, ptr %7, align 8
-  %131 = or i32 %130, %.sroa.0.3
+  %131 = or i32 %130, %.sroa.0.1
   store i32 %131, ptr %7, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -129103,16 +129103,16 @@ define hidden noundef i64 @_ZNK12opencv_caffe14PReLUParameter12ByteSizeLongEv(pt
   br label %21
 
 21:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %20, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %20, %7 ], [ 0, %5 ]
   %22 = and i32 %3, 2
   %23 = zext nneg i32 %22 to i64
-  %spec.select = add i64 %.0, %23
+  %spec.select = add i64 %.1, %23
   br label %24
 
 24:                                               ; preds = %21, %1
-  %.1 = phi i64 [ 0, %1 ], [ %spec.select, %21 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %21 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 20
-  %26 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %25)
+  %26 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %25)
   ret i64 %26
 }
 
@@ -129436,11 +129436,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
   br i1 %34, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.155 = phi ptr [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.049, %.backedge ]
-  %35 = load i8, ptr %.155, align 1
+  %.255 = phi ptr [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.049, %.backedge ]
+  %35 = load i8, ptr %.255, align 1
   %36 = zext i8 %35 to i32
   %37 = icmp sgt i8 %35, -1
-  %38 = getelementptr inbounds i8, ptr %.155, i64 1
+  %38 = getelementptr inbounds i8, ptr %.255, i64 1
   br i1 %37, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52
@@ -129453,11 +129453,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread52: ; preds = %.
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %.155, i64 2
+  %47 = getelementptr inbounds i8, ptr %.255, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 48:                                               ; preds = %39
-  %49 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.155, i32 noundef %44)
+  %49 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.255, i32 noundef %44)
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = extractvalue { ptr, i32 } %49, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -129708,13 +129708,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %162, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %26, %138, %139
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %26 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %81, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %100, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %162 ]
-  %.2 = phi ptr [ null, %138 ], [ %.0.i, %139 ], [ %spec.select, %26 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %162 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %26 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %81, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %100, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %162 ]
+  %.1 = phi ptr [ null, %138 ], [ %.0.i, %139 ], [ %spec.select, %26 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %162 ]
   %164 = getelementptr inbounds i8, ptr %0, i64 16
   %165 = load i32, ptr %164, align 8
-  %166 = or i32 %165, %.sroa.0.3
+  %166 = or i32 %165, %.sroa.0.1
   store i32 %166, ptr %164, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -129994,13 +129994,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14NormalizedBBox12ByteSizeLongEv(pt
   %10 = add nuw nsw i64 %spec.select, 5
   %11 = icmp eq <4 x i32> %9, zeroinitializer
   %12 = extractelement <4 x i1> %11, i64 3
-  %.1 = select i1 %12, i64 %spec.select, i64 %10
-  %13 = add nuw nsw i64 %.1, 5
+  %.2 = select i1 %12, i64 %spec.select, i64 %10
+  %13 = add nuw nsw i64 %.2, 5
   %14 = extractelement <4 x i1> %11, i64 2
-  %.2 = select i1 %14, i64 %.1, i64 %13
-  %15 = add nuw nsw i64 %.2, 5
+  %.3 = select i1 %14, i64 %.2, i64 %13
+  %15 = add nuw nsw i64 %.3, 5
   %16 = extractelement <4 x i1> %11, i64 1
-  %.3 = select i1 %16, i64 %.2, i64 %15
+  %.4 = select i1 %16, i64 %.3, i64 %15
   %17 = extractelement <4 x i1> %11, i64 0
   br i1 %17, label %29, label %18
 
@@ -130014,29 +130014,29 @@ define hidden noundef i64 @_ZNK12opencv_caffe14NormalizedBBox12ByteSizeLongEv(pt
   %25 = mul nuw nsw i64 %24, 9
   %26 = add nuw nsw i64 %25, 137
   %27 = lshr i64 %26, 6
-  %28 = add nuw nsw i64 %27, %.3
+  %28 = add nuw nsw i64 %27, %.4
   br label %29
 
 29:                                               ; preds = %18, %5
-  %.4 = phi i64 [ %28, %18 ], [ %.3, %5 ]
+  %.5 = phi i64 [ %28, %18 ], [ %.4, %5 ]
   %30 = lshr i32 %3, 4
   %31 = and i32 %30, 2
   %32 = zext nneg i32 %31 to i64
-  %spec.select28 = add nuw nsw i64 %.4, %32
+  %spec.select28 = add nuw nsw i64 %.5, %32
   %33 = and i32 %3, 64
   %.not26 = icmp eq i32 %33, 0
   %34 = add nuw nsw i64 %spec.select28, 5
-  %.6 = select i1 %.not26, i64 %spec.select28, i64 %34
+  %.7 = select i1 %.not26, i64 %spec.select28, i64 %34
   %35 = and i32 %3, 128
   %.not27 = icmp eq i32 %35, 0
-  %36 = add nuw nsw i64 %.6, 5
-  %spec.select29 = select i1 %.not27, i64 %.6, i64 %36
+  %36 = add nuw nsw i64 %.7, 5
+  %spec.select29 = select i1 %.not27, i64 %.7, i64 %36
   br label %37
 
 37:                                               ; preds = %29, %1
-  %.7 = phi i64 [ 0, %1 ], [ %spec.select29, %29 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select29, %29 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 20
-  %39 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.7, ptr noundef nonnull %38)
+  %39 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %38)
   ret i64 %39
 }
 
@@ -130525,11 +130525,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.141 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.035, %.backedge ]
-  %30 = load i8, ptr %.141, align 1
+  %.241 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.035, %.backedge ]
+  %30 = load i8, ptr %.241, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.141, i64 1
+  %33 = getelementptr inbounds i8, ptr %.241, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38
@@ -130542,11 +130542,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.141, i64 2
+  %42 = getelementptr inbounds i8, ptr %.241, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.141, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.241, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -130723,13 +130723,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !335
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %120, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21, %21, %96, %97
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %96 ], [ %.sroa.0.0.ph, %97 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %120 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %71, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %52, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %96 ], [ %.0.i, %97 ], [ %spec.select, %21 ], [ null, %120 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %96 ], [ %.sroa.0.0.ph, %97 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %120 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %71, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %52, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %96 ], [ %.0.i, %97 ], [ %spec.select, %21 ], [ null, %120 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
   %122 = getelementptr inbounds i8, ptr %0, i64 16
   %123 = load i32, ptr %122, align 8
-  %124 = or i32 %123, %.sroa.0.3
+  %124 = or i32 %123, %.sroa.0.1
   store i32 %124, ptr %122, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -130925,7 +130925,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe19ROIPoolingParameter12ByteSizeLong
   br label %17
 
 17:                                               ; preds = %7, %5
-  %.0 = phi i64 [ %16, %7 ], [ 0, %5 ]
+  %.1 = phi i64 [ %16, %7 ], [ 0, %5 ]
   %18 = and i32 %3, 2
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %30, label %19
@@ -130940,21 +130940,21 @@ define hidden noundef i64 @_ZNK12opencv_caffe19ROIPoolingParameter12ByteSizeLong
   %26 = add nuw nsw i32 %25, 137
   %27 = lshr i32 %26, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = add nuw nsw i64 %.0, %28
+  %29 = add nuw nsw i64 %.1, %28
   br label %30
 
 30:                                               ; preds = %19, %17
-  %.1 = phi i64 [ %29, %19 ], [ %.0, %17 ]
+  %.2 = phi i64 [ %29, %19 ], [ %.1, %17 ]
   %31 = and i32 %3, 4
   %.not12 = icmp eq i32 %31, 0
-  %32 = add nuw nsw i64 %.1, 5
-  %spec.select = select i1 %.not12, i64 %.1, i64 %32
+  %32 = add nuw nsw i64 %.2, 5
+  %spec.select = select i1 %.not12, i64 %.2, i64 %32
   br label %33
 
 33:                                               ; preds = %30, %1
-  %.2 = phi i64 [ 0, %1 ], [ %spec.select, %30 ]
+  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %30 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 20
-  %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.2, ptr noundef nonnull %34)
+  %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %34)
   ret i64 %35
 }
 
@@ -131349,7 +131349,7 @@ define hidden noundef ptr @_ZN12opencv_caffe17ProposalParameter14_InternalParseE
   br label %17
 
 17:                                               ; preds = %.backedge, %.preheader
-  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.1, %.backedge ]
+  %.sroa.0.0 = phi i32 [ 0, %.preheader ], [ %.sroa.0.2, %.backedge ]
   %.077 = phi ptr [ %1, %.preheader ], [ %.077.be, %.backedge ]
   %18 = load i32, ptr %5, align 4
   %19 = load ptr, ptr %2, align 8
@@ -131383,11 +131383,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %21
   br i1 %37, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread80
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread80: ; preds = %17, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.183 = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.077, %17 ]
-  %38 = load i8, ptr %.183, align 1
+  %.683 = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.077, %17 ]
+  %38 = load i8, ptr %.683, align 1
   %39 = zext i8 %38 to i32
   %40 = icmp sgt i8 %38, -1
-  %41 = getelementptr inbounds i8, ptr %.183, i64 1
+  %41 = getelementptr inbounds i8, ptr %.683, i64 1
   br i1 %40, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread80
@@ -131400,11 +131400,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread80: ; preds = %1
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %.183, i64 2
+  %50 = getelementptr inbounds i8, ptr %.683, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 51:                                               ; preds = %42
-  %52 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.183, i32 noundef %47)
+  %52 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.683, i32 noundef %47)
   %53 = extractvalue { ptr, i32 } %52, 0
   %54 = extractvalue { ptr, i32 } %52, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -131556,14 +131556,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37: ; preds = %102
   br label %116
 
 116:                                              ; preds = %121, %114
-  %.2 = phi ptr [ %115, %114 ], [ %118, %121 ]
-  %117 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %115, %114 ], [ %118, %121 ]
+  %117 = getelementptr inbounds i8, ptr %.1, i64 1
   %.0.copyload.i2.i = load float, ptr %117, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store float %.0.copyload.i2.i, ptr %4, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %118 = getelementptr inbounds i8, ptr %.2, i64 5
+  %118 = getelementptr inbounds i8, ptr %.1, i64 5
   %119 = load ptr, ptr %2, align 8
   %120 = icmp ugt ptr %119, %118
   br i1 %120, label %121, label %.backedge
@@ -131579,7 +131579,7 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37: ; preds = %102
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %129, %134, %116, %121, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread, %137, %124, %180, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48, %211
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %211 ], [ %181, %180 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %.sroa.0.0, %137 ], [ %.sroa.0.0, %124 ], [ %98, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %60, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %60, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread ], [ %98, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread ], [ %162, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48.thread ], [ %.sroa.0.0, %121 ], [ %.sroa.0.0, %116 ], [ %.sroa.0.0, %134 ], [ %.sroa.0.0, %129 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %211 ], [ %181, %180 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %.sroa.0.0, %137 ], [ %.sroa.0.0, %124 ], [ %98, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %60, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %60, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread ], [ %98, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread ], [ %162, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48.thread ], [ %.sroa.0.0, %121 ], [ %.sroa.0.0, %116 ], [ %.sroa.0.0, %134 ], [ %.sroa.0.0, %129 ]
   %.077.be = phi ptr [ %212, %211 ], [ %182, %180 ], [ %175, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %156, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %138, %137 ], [ %125, %124 ], [ %111, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %92, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %73, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.0.i.i27.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit.thread ], [ %.0.i.i31.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32.thread ], [ %.0.i.i36.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37.thread ], [ %.0.i.i42.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43.thread ], [ %.0.i.i47.ph, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48.thread ], [ %118, %121 ], [ %118, %116 ], [ %131, %134 ], [ %131, %129 ]
   br label %17, !llvm.loop !337
 
@@ -131595,14 +131595,14 @@ _ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37: ; preds = %102
   br label %129
 
 129:                                              ; preds = %134, %127
-  %.4 = phi ptr [ %128, %127 ], [ %131, %134 ]
-  %130 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.3 = phi ptr [ %128, %127 ], [ %131, %134 ]
+  %130 = getelementptr inbounds i8, ptr %.3, i64 1
   %.0.copyload.i2.i38 = load float, ptr %130, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store float %.0.copyload.i2.i38, ptr %3, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE3AddERKf(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %131 = getelementptr inbounds i8, ptr %.4, i64 5
+  %131 = getelementptr inbounds i8, ptr %.3, i64 5
   %132 = load ptr, ptr %2, align 8
   %133 = icmp ugt ptr %132, %131
   br i1 %133, label %134, label %.backedge
@@ -131774,13 +131774,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not23, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37, %124, %137, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48, %211, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %29, %187, %188
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %187 ], [ %.sroa.0.0, %188 ], [ %.sroa.0.0, %29 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %60, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %98, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %.sroa.0.0, %124 ], [ %.sroa.0.0, %137 ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %.sroa.0.0, %211 ]
-  %.6 = phi ptr [ null, %187 ], [ %.0.i, %188 ], [ %spec.select, %29 ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ null, %124 ], [ null, %137 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ null, %211 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %187 ], [ %.sroa.0.0, %188 ], [ %.sroa.0.0, %29 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %60, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %79, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ %98, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ %.sroa.0.0, %124 ], [ %.sroa.0.0, %137 ], [ %143, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ %162, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ %.sroa.0.0, %211 ]
+  %.5 = phi ptr [ null, %187 ], [ %.0.i, %188 ], [ %spec.select, %29 ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit37 ], [ null, %124 ], [ null, %137 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit43 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit48 ], [ null, %211 ]
   %213 = getelementptr inbounds i8, ptr %0, i64 16
   %214 = load i32, ptr %213, align 8
-  %215 = or i32 %214, %.sroa.0.3
+  %215 = or i32 %214, %.sroa.0.1
   store i32 %215, ptr %213, align 8
-  ret ptr %.6
+  ret ptr %.5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -132232,7 +132232,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe17ProposalParameter12ByteSizeLongEv
   br label %33
 
 33:                                               ; preds = %22, %20
-  %.0 = phi i64 [ %32, %22 ], [ %16, %20 ]
+  %.1 = phi i64 [ %32, %22 ], [ %16, %20 ]
   %34 = and i32 %18, 2
   %.not25 = icmp eq i32 %34, 0
   br i1 %.not25, label %46, label %35
@@ -132247,11 +132247,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe17ProposalParameter12ByteSizeLongEv
   %42 = add nuw nsw i32 %41, 137
   %43 = lshr i32 %42, 6
   %44 = zext nneg i32 %43 to i64
-  %45 = add nuw nsw i64 %.0, %44
+  %45 = add nuw nsw i64 %.1, %44
   br label %46
 
 46:                                               ; preds = %35, %33
-  %.1 = phi i64 [ %45, %35 ], [ %.0, %33 ]
+  %.2 = phi i64 [ %45, %35 ], [ %.1, %33 ]
   %47 = and i32 %18, 4
   %.not26 = icmp eq i32 %47, 0
   br i1 %.not26, label %59, label %48
@@ -132266,11 +132266,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe17ProposalParameter12ByteSizeLongEv
   %55 = add nuw nsw i32 %54, 137
   %56 = lshr i32 %55, 6
   %57 = zext nneg i32 %56 to i64
-  %58 = add nuw nsw i64 %.1, %57
+  %58 = add nuw nsw i64 %.2, %57
   br label %59
 
 59:                                               ; preds = %48, %46
-  %.2 = phi i64 [ %58, %48 ], [ %.1, %46 ]
+  %.3 = phi i64 [ %58, %48 ], [ %.2, %46 ]
   %60 = and i32 %18, 8
   %.not27 = icmp eq i32 %60, 0
   br i1 %.not27, label %72, label %61
@@ -132285,11 +132285,11 @@ define hidden noundef i64 @_ZNK12opencv_caffe17ProposalParameter12ByteSizeLongEv
   %68 = add nuw nsw i32 %67, 137
   %69 = lshr i32 %68, 6
   %70 = zext nneg i32 %69 to i64
-  %71 = add nuw nsw i64 %.2, %70
+  %71 = add nuw nsw i64 %.3, %70
   br label %72
 
 72:                                               ; preds = %61, %59
-  %.3 = phi i64 [ %71, %61 ], [ %.2, %59 ]
+  %.4 = phi i64 [ %71, %61 ], [ %.3, %59 ]
   %73 = and i32 %18, 16
   %.not28 = icmp eq i32 %73, 0
   br i1 %.not28, label %85, label %74
@@ -132304,21 +132304,21 @@ define hidden noundef i64 @_ZNK12opencv_caffe17ProposalParameter12ByteSizeLongEv
   %81 = add nuw nsw i32 %80, 137
   %82 = lshr i32 %81, 6
   %83 = zext nneg i32 %82 to i64
-  %84 = add nuw nsw i64 %.3, %83
+  %84 = add nuw nsw i64 %.4, %83
   br label %85
 
 85:                                               ; preds = %74, %72
-  %.4 = phi i64 [ %84, %74 ], [ %.3, %72 ]
+  %.5 = phi i64 [ %84, %74 ], [ %.4, %72 ]
   %86 = and i32 %18, 32
   %.not29 = icmp eq i32 %86, 0
-  %87 = add nuw nsw i64 %.4, 5
-  %spec.select = select i1 %.not29, i64 %.4, i64 %87
+  %87 = add nuw nsw i64 %.5, 5
+  %spec.select = select i1 %.not29, i64 %.5, i64 %87
   br label %88
 
 88:                                               ; preds = %85, %1
-  %.5 = phi i64 [ %16, %1 ], [ %spec.select, %85 ]
+  %.0 = phi i64 [ %16, %1 ], [ %spec.select, %85 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 20
-  %90 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.5, ptr noundef nonnull %89)
+  %90 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.0, ptr noundef nonnull %89)
   ret i64 %90
 }
 
@@ -132673,11 +132673,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
   br i1 %29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.141 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.035, %.backedge ]
-  %30 = load i8, ptr %.141, align 1
+  %.241 = phi ptr [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.035, %.backedge ]
+  %30 = load i8, ptr %.241, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.141, i64 1
+  %33 = getelementptr inbounds i8, ptr %.241, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38
@@ -132690,11 +132690,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread38: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.141, i64 2
+  %42 = getelementptr inbounds i8, ptr %.241, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.141, i32 noundef %39)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.241, i32 noundef %39)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -132871,13 +132871,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not12, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !llvm.loop !341
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %120, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21, %21, %96, %97
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0.ph, %96 ], [ %.sroa.0.0.ph, %97 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %120 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %77, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %58, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
-  %.2 = phi ptr [ null, %96 ], [ %.0.i, %97 ], [ %spec.select, %21 ], [ null, %120 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph, %96 ], [ %.sroa.0.0.ph, %97 ], [ %.sroa.0.0.ph, %21 ], [ %.sroa.0.0.ph, %120 ], [ %.sroa.0.0.ph, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %77, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ], [ %58, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ]
+  %.1 = phi ptr [ null, %96 ], [ %.0.i, %97 ], [ %spec.select, %21 ], [ null, %120 ], [ %27, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit21 ]
   %122 = getelementptr inbounds i8, ptr %0, i64 16
   %123 = load i32, ptr %122, align 8
-  %124 = or i32 %123, %.sroa.0.3
+  %124 = or i32 %123, %.sroa.0.1
   store i32 %124, ptr %122, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress uwtable

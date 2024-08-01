@@ -2397,15 +2397,15 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %126, %128
   br label %.thread188
 
 172:                                              ; preds = %166, %164, %160
-  %.0 = phi ptr [ %163, %164 ], [ %163, %160 ], [ %167, %166 ]
+  %.1 = phi ptr [ %163, %164 ], [ %163, %160 ], [ %167, %166 ]
   %173 = load ptr, ptr %14, align 8
   %174 = call ptr @val_to_str_ext(i32 noundef %142, ptr noundef nonnull @q931_message_type_vals_ext, ptr noundef nonnull @.str.789) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.791, ptr noundef %174) #5
-  %.not176 = icmp eq ptr %.0, null
+  %.not176 = icmp eq ptr %.1, null
   br i1 %.not176, label %.thread188, label %175
 
 175:                                              ; preds = %172
-  call fastcc void @dissect_q931_IEs(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0163179, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
+  call fastcc void @dissect_q931_IEs(ptr noundef nonnull %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0163179, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9)
   br label %.thread188
 
 .thread188:                                       ; preds = %150, %168, %169, %175, %172, %113, %106
@@ -2470,7 +2470,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer432
   %.0.ph436475 = phi i32 [ %.0.ph480, %.lr.ph.lr.ph ], [ %.1, %.outer432 ]
-  %.0347.ph435474 = phi i32 [ %.0347.ph479, %.lr.ph.lr.ph ], [ %.2, %.outer432 ]
+  %.0347.ph435474 = phi i32 [ %.0347.ph479, %.lr.ph.lr.ph ], [ %.1348, %.outer432 ]
   %.0349.ph434473 = phi ptr [ %.0349.ph478, %.lr.ph.lr.ph ], [ %.2351, %.outer432 ]
   %.0354.ph433472 = phi i32 [ %.0354.ph476, %.lr.ph.lr.ph ], [ %.0352.ph477, %.outer432 ]
   %.not364 = icmp eq i32 %.0347.ph435474, 0
@@ -2667,14 +2667,14 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
   br label %115
 
 115:                                              ; preds = %112, %105
-  %.0355 = phi i16 [ %89, %105 ], [ %114, %112 ]
+  %.1356 = phi i16 [ %89, %105 ], [ %114, %112 ]
   %116 = load ptr, ptr @h225_handle, align 8
   %.not395 = icmp eq ptr %116, null
   br i1 %.not395, label %124, label %117
 
 117:                                              ; preds = %115
   %118 = add i32 %.0471, 4
-  %119 = zext i16 %.0355 to i32
+  %119 = zext i16 %.1356 to i32
   %120 = add nsw i32 %119, -1
   %121 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %118, i32 noundef %120) #5
   %122 = load ptr, ptr @h225_handle, align 8
@@ -2684,7 +2684,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
 124:                                              ; preds = %115
   %125 = load i32, ptr @hf_q931_user_information_bytes, align 4
   %126 = add i32 %.0471, 4
-  %127 = zext i16 %.0355 to i32
+  %127 = zext i16 %.1356 to i32
   %128 = add nsw i32 %127, -1
   %129 = call ptr @proto_tree_add_item(ptr noundef %.1350, i32 noundef %125, ptr noundef %0, i32 noundef %126, i32 noundef %128, i32 noundef 0) #5
   br label %130
@@ -2938,12 +2938,12 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
 
 .preheader127.i:                                  ; preds = %247, %.preheader127.i
   %.0105.i = phi i32 [ %255, %.preheader127.i ], [ 0, %247 ]
-  %.0100.i = phi i32 [ %250, %.preheader127.i ], [ %245, %247 ]
+  %.1101.i = phi i32 [ %250, %.preheader127.i ], [ %245, %247 ]
   %.098.i = phi i32 [ %251, %.preheader127.i ], [ 0, %247 ]
-  %.0.i = phi i32 [ %249, %.preheader127.i ], [ %244, %247 ]
-  %248 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i) #5
-  %249 = add i32 %.0.i, 1
-  %250 = add i32 %.0100.i, -1
+  %.1.i = phi i32 [ %249, %.preheader127.i ], [ %244, %247 ]
+  %248 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i) #5
+  %249 = add i32 %.1.i, 1
+  %250 = add i32 %.1101.i, -1
   %251 = add nuw i32 %.098.i, 1
   %252 = shl i32 %.0105.i, 7
   %253 = and i8 %248, 127
@@ -2960,35 +2960,35 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
   br label %261
 
 261:                                              ; preds = %258, %227
-  %.2102.i = phi i32 [ %250, %258 ], [ %245, %227 ]
-  %.2.i = phi i32 [ %249, %258 ], [ %244, %227 ]
-  %262 = icmp eq i32 %.2102.i, 0
+  %.0100.i = phi i32 [ %250, %258 ], [ %245, %227 ]
+  %.0.i = phi i32 [ %249, %258 ], [ %244, %227 ]
+  %262 = icmp eq i32 %.0100.i, 0
   %or.cond4.i = select i1 %.not.i405, i1 true, i1 %262
   br i1 %or.cond4.i, label %dissect_q931_change_status_ie.exit, label %263
 
 263:                                              ; preds = %261
-  %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2.i) #5
+  %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i) #5
   %265 = zext i8 %264 to i32
   %266 = and i8 %264, 96
   %267 = load i32, ptr @hf_q931_extension_ind, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %267, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #5
+  %268 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %267, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #5
   %269 = load i32, ptr @hf_q931_coding_standard, align 4
-  %270 = call ptr @proto_tree_add_uint(ptr noundef %169, i32 noundef %269, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef %265) #5
+  %270 = call ptr @proto_tree_add_uint(ptr noundef %169, i32 noundef %269, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef %265) #5
   %.not113.i = icmp eq i8 %266, 0
   br i1 %.not113.i, label %274, label %271
 
 271:                                              ; preds = %263
   %272 = load i32, ptr @hf_q931_channel_data, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %272, ptr noundef %0, i32 noundef %.2.i, i32 noundef %.2102.i, i32 noundef 0) #5
+  %273 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %272, ptr noundef %0, i32 noundef %.0.i, i32 noundef %.0100.i, i32 noundef 0) #5
   br label %dissect_q931_change_status_ie.exit
 
 274:                                              ; preds = %263
   %275 = load i32, ptr @hf_q931_channel_map, align 4
-  %276 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %275, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #5
+  %276 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %275, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #5
   %277 = load i32, ptr @hf_q931_channel_element_type, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %277, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #5
-  %279 = add i32 %.2.i, 1
-  %280 = add i32 %.2102.i, -1
+  %278 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %277, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #5
+  %279 = add i32 %.0.i, 1
+  %280 = add i32 %.0100.i, -1
   %281 = and i32 %265, 16
   %.not114.i = icmp eq i32 %281, 0
   %.old7.i = icmp eq i32 %280, 0
@@ -3463,14 +3463,14 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %177, %180
 
 dissect_q931_change_status_ie.exit:               ; preds = %.lr.ph.i, %.preheader.i, %541, %536, %524, %521, %512, %504, %488, %482, %476, %470, %465, %459, %454, %450, %443, %441, %436, %431, %427, %423, %419, %406, %403, %398, %395, %387, %384, %367, %347, %338, %333, %.thread.i, %327, %312, %310, %286, %.preheader125.i, %271, %261, %247, %.sink.split.i, %207, %dissect_q931_segmented_message_ie.exit, %202, %496, %499, %200, %199, %205, %215, %225, %297, %296, %299, %331, %337, %386, %448, %452, %463, %474, %486, %493, %492, %502, %517, %516, %529, %528, %532, %531, %534, %540, %549, %548, %192
   %.2357 = phi i16 [ %198, %192 ], [ %161, %549 ], [ %161, %548 ], [ %161, %540 ], [ %161, %534 ], [ %161, %532 ], [ %161, %531 ], [ %161, %529 ], [ %161, %528 ], [ %161, %517 ], [ %161, %516 ], [ %161, %502 ], [ %161, %499 ], [ %161, %496 ], [ %161, %493 ], [ %161, %492 ], [ %161, %486 ], [ %161, %474 ], [ %161, %463 ], [ %161, %452 ], [ %161, %448 ], [ %161, %386 ], [ %161, %337 ], [ %161, %331 ], [ %161, %299 ], [ %161, %297 ], [ %161, %296 ], [ %161, %225 ], [ %161, %215 ], [ %161, %205 ], [ %161, %202 ], [ %161, %200 ], [ %161, %199 ], [ %161, %dissect_q931_segmented_message_ie.exit ], [ %161, %207 ], [ %161, %.sink.split.i ], [ %161, %247 ], [ %161, %261 ], [ %161, %271 ], [ %161, %.preheader125.i ], [ %161, %286 ], [ %161, %310 ], [ %161, %312 ], [ %161, %327 ], [ %161, %.thread.i ], [ %161, %333 ], [ %161, %338 ], [ 6, %347 ], [ 5, %367 ], [ %161, %384 ], [ %161, %387 ], [ %161, %395 ], [ 1, %398 ], [ %161, %403 ], [ 4, %406 ], [ 0, %419 ], [ %161, %423 ], [ %161, %427 ], [ %161, %431 ], [ %161, %436 ], [ 0, %441 ], [ %161, %443 ], [ %161, %450 ], [ 1, %454 ], [ %161, %459 ], [ 1, %465 ], [ %161, %470 ], [ %161, %476 ], [ %161, %482 ], [ %161, %488 ], [ %161, %504 ], [ %161, %512 ], [ %161, %521 ], [ 1, %524 ], [ %161, %536 ], [ %161, %541 ], [ %161, %.preheader.i ], [ %161, %.lr.ph.i ]
-  %.1348 = phi i32 [ %.0347.ph435474, %192 ], [ %.0347.ph435474, %549 ], [ %.0347.ph435474, %548 ], [ %.0347.ph435474, %540 ], [ %.0347.ph435474, %534 ], [ %.0347.ph435474, %532 ], [ %.0347.ph435474, %531 ], [ %.0347.ph435474, %529 ], [ %.0347.ph435474, %528 ], [ %.0347.ph435474, %517 ], [ %.0347.ph435474, %516 ], [ %.0347.ph435474, %502 ], [ %.0347.ph435474, %499 ], [ %.0347.ph435474, %496 ], [ %.0347.ph435474, %493 ], [ %.0347.ph435474, %492 ], [ %.0347.ph435474, %486 ], [ %.0347.ph435474, %474 ], [ %.0347.ph435474, %463 ], [ %.0347.ph435474, %452 ], [ %.0347.ph435474, %448 ], [ %.0347.ph435474, %386 ], [ %.0347.ph435474, %337 ], [ %.0347.ph435474, %331 ], [ %.0347.ph435474, %299 ], [ %.0347.ph435474, %297 ], [ %.0347.ph435474, %296 ], [ %.0347.ph435474, %225 ], [ %.0347.ph435474, %215 ], [ %.0347.ph435474, %205 ], [ %.0347.ph435474, %202 ], [ %.0347.ph435474, %200 ], [ %.0347.ph435474, %199 ], [ 1, %dissect_q931_segmented_message_ie.exit ], [ %.0347.ph435474, %207 ], [ %.0347.ph435474, %.sink.split.i ], [ %.0347.ph435474, %247 ], [ %.0347.ph435474, %261 ], [ %.0347.ph435474, %271 ], [ %.0347.ph435474, %.preheader125.i ], [ %.0347.ph435474, %286 ], [ %.0347.ph435474, %310 ], [ %.0347.ph435474, %312 ], [ %.0347.ph435474, %327 ], [ %.0347.ph435474, %.thread.i ], [ %.0347.ph435474, %333 ], [ %.0347.ph435474, %338 ], [ %.0347.ph435474, %347 ], [ %.0347.ph435474, %367 ], [ %.0347.ph435474, %384 ], [ %.0347.ph435474, %387 ], [ %.0347.ph435474, %395 ], [ %.0347.ph435474, %398 ], [ %.0347.ph435474, %403 ], [ %.0347.ph435474, %406 ], [ %.0347.ph435474, %419 ], [ %.0347.ph435474, %423 ], [ %.0347.ph435474, %427 ], [ %.0347.ph435474, %431 ], [ %.0347.ph435474, %436 ], [ %.0347.ph435474, %441 ], [ %.0347.ph435474, %443 ], [ %.0347.ph435474, %450 ], [ %.0347.ph435474, %454 ], [ %.0347.ph435474, %459 ], [ %.0347.ph435474, %465 ], [ %.0347.ph435474, %470 ], [ %.0347.ph435474, %476 ], [ %.0347.ph435474, %482 ], [ %.0347.ph435474, %488 ], [ %.0347.ph435474, %504 ], [ %.0347.ph435474, %512 ], [ %.0347.ph435474, %521 ], [ %.0347.ph435474, %524 ], [ %.0347.ph435474, %536 ], [ %.0347.ph435474, %541 ], [ %.0347.ph435474, %.preheader.i ], [ %.0347.ph435474, %.lr.ph.i ]
+  %.2 = phi i32 [ %.0347.ph435474, %192 ], [ %.0347.ph435474, %549 ], [ %.0347.ph435474, %548 ], [ %.0347.ph435474, %540 ], [ %.0347.ph435474, %534 ], [ %.0347.ph435474, %532 ], [ %.0347.ph435474, %531 ], [ %.0347.ph435474, %529 ], [ %.0347.ph435474, %528 ], [ %.0347.ph435474, %517 ], [ %.0347.ph435474, %516 ], [ %.0347.ph435474, %502 ], [ %.0347.ph435474, %499 ], [ %.0347.ph435474, %496 ], [ %.0347.ph435474, %493 ], [ %.0347.ph435474, %492 ], [ %.0347.ph435474, %486 ], [ %.0347.ph435474, %474 ], [ %.0347.ph435474, %463 ], [ %.0347.ph435474, %452 ], [ %.0347.ph435474, %448 ], [ %.0347.ph435474, %386 ], [ %.0347.ph435474, %337 ], [ %.0347.ph435474, %331 ], [ %.0347.ph435474, %299 ], [ %.0347.ph435474, %297 ], [ %.0347.ph435474, %296 ], [ %.0347.ph435474, %225 ], [ %.0347.ph435474, %215 ], [ %.0347.ph435474, %205 ], [ %.0347.ph435474, %202 ], [ %.0347.ph435474, %200 ], [ %.0347.ph435474, %199 ], [ 1, %dissect_q931_segmented_message_ie.exit ], [ %.0347.ph435474, %207 ], [ %.0347.ph435474, %.sink.split.i ], [ %.0347.ph435474, %247 ], [ %.0347.ph435474, %261 ], [ %.0347.ph435474, %271 ], [ %.0347.ph435474, %.preheader125.i ], [ %.0347.ph435474, %286 ], [ %.0347.ph435474, %310 ], [ %.0347.ph435474, %312 ], [ %.0347.ph435474, %327 ], [ %.0347.ph435474, %.thread.i ], [ %.0347.ph435474, %333 ], [ %.0347.ph435474, %338 ], [ %.0347.ph435474, %347 ], [ %.0347.ph435474, %367 ], [ %.0347.ph435474, %384 ], [ %.0347.ph435474, %387 ], [ %.0347.ph435474, %395 ], [ %.0347.ph435474, %398 ], [ %.0347.ph435474, %403 ], [ %.0347.ph435474, %406 ], [ %.0347.ph435474, %419 ], [ %.0347.ph435474, %423 ], [ %.0347.ph435474, %427 ], [ %.0347.ph435474, %431 ], [ %.0347.ph435474, %436 ], [ %.0347.ph435474, %441 ], [ %.0347.ph435474, %443 ], [ %.0347.ph435474, %450 ], [ %.0347.ph435474, %454 ], [ %.0347.ph435474, %459 ], [ %.0347.ph435474, %465 ], [ %.0347.ph435474, %470 ], [ %.0347.ph435474, %476 ], [ %.0347.ph435474, %482 ], [ %.0347.ph435474, %488 ], [ %.0347.ph435474, %504 ], [ %.0347.ph435474, %512 ], [ %.0347.ph435474, %521 ], [ %.0347.ph435474, %524 ], [ %.0347.ph435474, %536 ], [ %.0347.ph435474, %541 ], [ %.0347.ph435474, %.preheader.i ], [ %.0347.ph435474, %.lr.ph.i ]
   %553 = zext i16 %.2357 to i32
   %554 = add nuw nsw i32 %553, 2
   br label %.outer432
 
 .outer432:                                        ; preds = %dissect_q931_change_status_ie.exit, %130
   %.2351 = phi ptr [ %.1350, %130 ], [ %169, %dissect_q931_change_status_ie.exit ]
-  %.2 = phi i32 [ %.0347.ph435474, %130 ], [ %.1348, %dissect_q931_change_status_ie.exit ]
+  %.1348 = phi i32 [ %.0347.ph435474, %130 ], [ %.2, %dissect_q931_change_status_ie.exit ]
   %.pn = phi i32 [ %131, %130 ], [ %554, %dissect_q931_change_status_ie.exit ]
   %.1 = add i32 %.pn, %.0471
   %555 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #5

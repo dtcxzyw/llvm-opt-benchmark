@@ -368,7 +368,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %.thread48
 
 36:                                               ; preds = %27, %29, %19
-  %.030 = phi ptr [ %30, %29 ], [ null, %27 ], [ null, %19 ]
+  %.1 = phi ptr [ %30, %29 ], [ null, %27 ], [ null, %19 ]
   %37 = getelementptr inbounds i8, ptr %1, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = call ptr @H5B2_open(ptr noundef %0, i64 noundef %38, ptr noundef null) #6
@@ -387,7 +387,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %46 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.030, ptr %47, align 8
+  store ptr %.1, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %2, ptr %48, align 8
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
@@ -428,11 +428,11 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %70
 
 70:                                               ; preds = %62, %66, %58, %41
-  %.not40 = icmp eq ptr %.030, null
+  %.not40 = icmp eq ptr %.1, null
   br i1 %.not40, label %.thread48, label %71
 
 71:                                               ; preds = %70
-  %72 = call i32 @H5HF_close(ptr noundef nonnull %.030) #6
+  %72 = call i32 @H5HF_close(ptr noundef nonnull %.1) #6
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %.thread48
 
@@ -615,7 +615,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture nou
   br label %.thread130
 
 47:                                               ; preds = %38, %40, %14
-  %.065 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %14 ]
+  %.1 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %14 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = call ptr @H5HF_open(ptr noundef %0, i64 noundef %49) #6
@@ -698,7 +698,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture nou
   br label %153
 
 99:                                               ; preds = %91, %59
-  %.070 = phi ptr [ null, %59 ], [ %71, %91 ]
+  %.171 = phi ptr [ null, %59 ], [ %71, %91 ]
   %100 = getelementptr inbounds i8, ptr %1, i64 32
   %101 = load i64, ptr %100, align 8
   %102 = call ptr @H5B2_open(ptr noundef %0, i64 noundef %101, ptr noundef null) #6
@@ -716,7 +716,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture nou
   %109 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %50, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.065, ptr %110, align 8
+  store ptr %.1, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %2, i64 96
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 8
@@ -779,15 +779,15 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture nou
   br label %153
 
 153:                                              ; preds = %133, %146, %149, %142, %129, %104, %95, %87, %80, %73, %66, %52
-  %.171 = phi ptr [ null, %52 ], [ %.070, %104 ], [ %.070, %129 ], [ %.070, %142 ], [ %.070, %149 ], [ %.070, %146 ], [ %.070, %133 ], [ null, %66 ], [ null, %73 ], [ %71, %80 ], [ %71, %87 ], [ %71, %95 ]
+  %.070 = phi ptr [ null, %52 ], [ %.171, %104 ], [ %.171, %129 ], [ %.171, %142 ], [ %.171, %149 ], [ %.171, %146 ], [ %.171, %133 ], [ null, %66 ], [ null, %73 ], [ %71, %80 ], [ %71, %87 ], [ %71, %95 ]
   %.069 = phi ptr [ null, %52 ], [ null, %104 ], [ null, %129 ], [ null, %142 ], [ %140, %149 ], [ %140, %146 ], [ null, %133 ], [ null, %66 ], [ null, %73 ], [ null, %80 ], [ null, %87 ], [ null, %95 ]
   %.067 = phi i32 [ -1, %52 ], [ -1, %104 ], [ -1, %129 ], [ -1, %142 ], [ -1, %149 ], [ 0, %146 ], [ 0, %133 ], [ -1, %66 ], [ -1, %73 ], [ -1, %80 ], [ -1, %87 ], [ -1, %95 ]
   %.066 = phi ptr [ null, %52 ], [ null, %104 ], [ %102, %129 ], [ %102, %142 ], [ %102, %149 ], [ %102, %146 ], [ %102, %133 ], [ null, %66 ], [ null, %73 ], [ null, %80 ], [ null, %87 ], [ null, %95 ]
-  %.not90 = icmp eq ptr %.065, null
+  %.not90 = icmp eq ptr %.1, null
   br i1 %.not90, label %161, label %154
 
 154:                                              ; preds = %153
-  %155 = call i32 @H5HF_close(ptr noundef nonnull %.065) #6
+  %155 = call i32 @H5HF_close(ptr noundef nonnull %.1) #6
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %161
 
@@ -846,11 +846,11 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture nou
 
 185:                                              ; preds = %181, %178, %177
   %.4 = phi i32 [ -1, %181 ], [ %.3, %178 ], [ %.3, %177 ]
-  %.not94 = icmp eq ptr %.171, null
+  %.not94 = icmp eq ptr %.070, null
   br i1 %.not94, label %.thread130, label %186
 
 186:                                              ; preds = %185
-  %187 = call i32 @H5WB_unwrap(ptr noundef nonnull %.171) #6
+  %187 = call i32 @H5WB_unwrap(ptr noundef nonnull %.070) #6
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %189, label %.thread130
 
@@ -933,7 +933,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noun
   br label %.thread64
 
 30:                                               ; preds = %21, %23, %13
-  %.037 = phi ptr [ %24, %23 ], [ null, %21 ], [ null, %13 ]
+  %.138 = phi ptr [ %24, %23 ], [ null, %21 ], [ null, %13 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = call ptr @H5HF_open(ptr noundef %0, i64 noundef %32) #6
@@ -964,7 +964,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noun
   %49 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %33, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.037, ptr %50, align 8
+  store ptr %.138, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 96
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
@@ -985,7 +985,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noun
   %62 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %33, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.037, ptr %63, align 8
+  store ptr %.138, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %2, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1005,11 +1005,11 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noun
 74:                                               ; preds = %48, %70, %44, %35
   %.036 = phi ptr [ null, %35 ], [ null, %44 ], [ %42, %70 ], [ %42, %48 ]
   %.0 = phi i32 [ -1, %35 ], [ -1, %44 ], [ -1, %70 ], [ 0, %48 ]
-  %.not48 = icmp eq ptr %.037, null
+  %.not48 = icmp eq ptr %.138, null
   br i1 %.not48, label %82, label %75
 
 75:                                               ; preds = %74
-  %76 = call i32 @H5HF_close(ptr noundef nonnull %.037) #6
+  %76 = call i32 @H5HF_close(ptr noundef nonnull %.138) #6
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %78, label %82
 
@@ -1278,7 +1278,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
   br label %.thread112
 
 36:                                               ; preds = %27, %29, %19
-  %.067 = phi ptr [ %30, %29 ], [ null, %27 ], [ null, %19 ]
+  %.168 = phi ptr [ %30, %29 ], [ null, %27 ], [ null, %19 ]
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = call ptr @H5HF_open(ptr noundef %0, i64 noundef %38) #6
@@ -1309,7 +1309,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %39, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.067, ptr %56, align 8
+  store ptr %.168, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %2, ptr %57, align 8
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
@@ -1452,7 +1452,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
   br label %202
 
 149:                                              ; preds = %133, %136, %108
-  %.064 = phi ptr [ %115, %136 ], [ %115, %133 ], [ null, %108 ]
+  %.165 = phi ptr [ %115, %136 ], [ %115, %133 ], [ null, %108 ]
   %150 = load ptr, ptr %6, align 8
   %151 = call i32 @H5A__dense_insert(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %150)
   %152 = icmp slt i32 %151, 0
@@ -1536,13 +1536,13 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
 
 202:                                              ; preds = %194, %198, %190, %186, %176, %165, %153, %145, %129, %117, %104, %83, %75, %67, %50, %41
   %.066 = phi ptr [ null, %41 ], [ null, %50 ], [ %48, %67 ], [ %48, %75 ], [ %48, %83 ], [ %48, %104 ], [ %48, %117 ], [ %48, %129 ], [ %48, %145 ], [ %48, %153 ], [ %48, %165 ], [ %48, %176 ], [ %48, %198 ], [ %48, %194 ], [ %48, %186 ], [ %48, %190 ]
-  %.165 = phi ptr [ null, %41 ], [ null, %50 ], [ null, %67 ], [ null, %75 ], [ null, %83 ], [ null, %104 ], [ null, %117 ], [ %115, %129 ], [ %115, %145 ], [ %.064, %153 ], [ %.064, %165 ], [ %.064, %176 ], [ %.064, %198 ], [ %.064, %194 ], [ %.064, %186 ], [ %.064, %190 ]
+  %.064 = phi ptr [ null, %41 ], [ null, %50 ], [ null, %67 ], [ null, %75 ], [ null, %83 ], [ null, %104 ], [ null, %117 ], [ %115, %129 ], [ %115, %145 ], [ %.165, %153 ], [ %.165, %165 ], [ %.165, %176 ], [ %.165, %198 ], [ %.165, %194 ], [ %.165, %186 ], [ %.165, %190 ]
   %.0 = phi i32 [ -1, %41 ], [ -1, %50 ], [ -1, %67 ], [ -1, %75 ], [ -1, %83 ], [ -1, %104 ], [ -1, %117 ], [ -1, %129 ], [ -1, %145 ], [ -1, %153 ], [ -1, %165 ], [ -1, %176 ], [ -1, %198 ], [ 0, %194 ], [ -1, %186 ], [ -1, %190 ]
-  %.not84 = icmp eq ptr %.067, null
+  %.not84 = icmp eq ptr %.168, null
   br i1 %.not84, label %210, label %203
 
 203:                                              ; preds = %202
-  %204 = call i32 @H5HF_close(ptr noundef nonnull %.067) #6
+  %204 = call i32 @H5HF_close(ptr noundef nonnull %.168) #6
   %205 = icmp slt i32 %204, 0
   br i1 %205, label %206, label %210
 
@@ -1585,11 +1585,11 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
 
 226:                                              ; preds = %222, %219, %218
   %.3 = phi i32 [ -1, %222 ], [ %.2, %219 ], [ %.2, %218 ]
-  %.not87 = icmp eq ptr %.165, null
+  %.not87 = icmp eq ptr %.064, null
   br i1 %.not87, label %.thread112, label %227
 
 227:                                              ; preds = %226
-  %228 = call i32 @H5B2_close(ptr noundef nonnull %.165) #6
+  %228 = call i32 @H5B2_close(ptr noundef nonnull %.064) #6
   %229 = icmp slt i32 %228, 0
   br i1 %229, label %230, label %.thread112
 
@@ -1680,7 +1680,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr nocapture nou
   br label %.thread54
 
 35:                                               ; preds = %26, %28, %18
-  %.032 = phi ptr [ %29, %28 ], [ null, %26 ], [ null, %18 ]
+  %.133 = phi ptr [ %29, %28 ], [ null, %26 ], [ null, %18 ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @H5B2_open(ptr noundef %0, i64 noundef %37, ptr noundef null) #6
@@ -1698,7 +1698,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr nocapture nou
   %45 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %9, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.032, ptr %46, align 8
+  store ptr %.133, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %2, ptr %47, align 8
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
@@ -1725,11 +1725,11 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr nocapture nou
 
 62:                                               ; preds = %44, %58, %40
   %.0 = phi i32 [ -1, %40 ], [ -1, %58 ], [ 0, %44 ]
-  %.not44 = icmp eq ptr %.032, null
+  %.not44 = icmp eq ptr %.133, null
   br i1 %.not44, label %.thread54, label %63
 
 63:                                               ; preds = %62
-  %64 = call i32 @H5HF_close(ptr noundef nonnull %.032) #6
+  %64 = call i32 @H5HF_close(ptr noundef nonnull %.133) #6
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %.thread54
 
@@ -1868,7 +1868,7 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %.thread83
 
 53:                                               ; preds = %44, %46, %36
-  %.053 = phi ptr [ %47, %46 ], [ null, %44 ], [ null, %36 ]
+  %.154 = phi ptr [ %47, %46 ], [ null, %44 ], [ null, %36 ]
   %54 = call ptr @H5B2_open(ptr noundef %0, i64 noundef %.051, ptr noundef null) #6
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %60
@@ -1884,7 +1884,7 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %61 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %23, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %.053, ptr %62, align 8
+  store ptr %.154, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %11, i64 40
@@ -1938,11 +1938,11 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 90:                                               ; preds = %75, %74, %56
   %.050 = phi i32 [ -1, %56 ], [ %68, %75 ], [ %68, %74 ]
-  %.not68 = icmp eq ptr %.053, null
+  %.not68 = icmp eq ptr %.154, null
   br i1 %.not68, label %.thread83, label %91
 
 91:                                               ; preds = %90
-  %92 = call i32 @H5HF_close(ptr noundef nonnull %.053) #6
+  %92 = call i32 @H5HF_close(ptr noundef nonnull %.154) #6
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %94, label %.thread83
 
@@ -2117,14 +2117,14 @@ define internal i32 @H5A__dense_iterate_bt2_cb(ptr noundef %0, ptr nocapture nou
   br label %85
 
 74:                                               ; preds = %36, %50, %63
-  %.025 = phi i32 [ %69, %63 ], [ %62, %50 ], [ %49, %36 ]
+  %.2 = phi i32 [ %69, %63 ], [ %62, %50 ], [ %49, %36 ]
   %75 = load ptr, ptr %17, align 8
   %76 = call ptr @H5O_msg_free(i32 noundef 12, ptr noundef %75) #6
   %77 = getelementptr inbounds i8, ptr %1, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 1
   store i64 %79, ptr %77, align 8
-  %80 = icmp slt i32 %.025, 0
+  %80 = icmp slt i32 %.2, 0
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %74
@@ -2134,8 +2134,8 @@ define internal i32 @H5A__dense_iterate_bt2_cb(ptr noundef %0, ptr nocapture nou
   br label %85
 
 85:                                               ; preds = %.thread, %74, %81, %70, %32, %20
-  %.2 = phi i32 [ %.025, %81 ], [ %.025, %74 ], [ -1, %20 ], [ -1, %70 ], [ -1, %32 ], [ 0, %.thread ]
-  ret i32 %.2
+  %.1 = phi i32 [ %.2, %81 ], [ %.2, %74 ], [ -1, %20 ], [ -1, %70 ], [ -1, %32 ], [ 0, %.thread ]
+  ret i32 %.1
 }
 
 declare i32 @H5A__dense_build_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -2328,7 +2328,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   br label %.thread82
 
 47:                                               ; preds = %38, %40, %30
-  %.053 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %30 ]
+  %.154 = phi ptr [ %41, %40 ], [ null, %38 ], [ null, %30 ]
   %48 = call ptr @H5B2_open(ptr noundef %0, i64 noundef %.051, ptr noundef null) #6
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %54
@@ -2344,7 +2344,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %55 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %17, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %.053, ptr %56, align 8
+  store ptr %.154, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %7, i64 24
   store i32 %2, ptr %57, align 8
   %.in.v = select i1 %9, i64 8, i64 32
@@ -2405,11 +2405,11 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
 
 93:                                               ; preds = %54, %62, %50
   %.050 = phi i32 [ -1, %50 ], [ -1, %62 ], [ 0, %54 ]
-  %.not67 = icmp eq ptr %.053, null
+  %.not67 = icmp eq ptr %.154, null
   br i1 %.not67, label %.thread82, label %94
 
 94:                                               ; preds = %93
-  %95 = call i32 @H5HF_close(ptr noundef nonnull %.053) #6
+  %95 = call i32 @H5HF_close(ptr noundef nonnull %.154) #6
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %.thread82
 
@@ -2582,7 +2582,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   br label %97
 
 68:                                               ; preds = %62, %26
-  %.040 = phi ptr [ %56, %62 ], [ null, %26 ]
+  %.141 = phi ptr [ %56, %62 ], [ null, %26 ]
   %69 = load i8, ptr %9, align 8
   %70 = and i8 %69, 2
   %.not48 = icmp eq i8 %70, 0
@@ -2628,13 +2628,13 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
 
 96:                                               ; preds = %71, %89, %92, %85, %76
   %.037 = phi i32 [ -1, %76 ], [ 0, %71 ], [ -1, %85 ], [ -1, %92 ], [ 0, %89 ]
-  %.not49 = icmp eq ptr %.040, null
+  %.not49 = icmp eq ptr %.141, null
   br i1 %.not49, label %.thread, label %97
 
 97:                                               ; preds = %.thread54, %96
   %.03759 = phi i32 [ -1, %.thread54 ], [ %.037, %96 ]
-  %.14158 = phi ptr [ %56, %.thread54 ], [ %.040, %96 ]
-  %98 = call i32 @H5B2_close(ptr noundef nonnull %.14158) #6
+  %.04058 = phi ptr [ %56, %.thread54 ], [ %.141, %96 ]
+  %98 = call i32 @H5B2_close(ptr noundef nonnull %.04058) #6
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %.thread
 
@@ -2711,7 +2711,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr nocapture nou
   br label %.thread52
 
 35:                                               ; preds = %26, %28, %18
-  %.032 = phi ptr [ %29, %28 ], [ null, %26 ], [ null, %18 ]
+  %.133 = phi ptr [ %29, %28 ], [ null, %26 ], [ null, %18 ]
   %36 = getelementptr inbounds i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @H5B2_open(ptr noundef %0, i64 noundef %37, ptr noundef null) #6
@@ -2729,7 +2729,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr nocapture nou
   %45 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %9, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.032, ptr %46, align 8
+  store ptr %.133, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %2, ptr %47, align 8
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
@@ -2754,11 +2754,11 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr nocapture nou
 
 60:                                               ; preds = %44, %56, %40
   %.0 = phi i32 [ -1, %40 ], [ -1, %56 ], [ 0, %44 ]
-  %.not43 = icmp eq ptr %.032, null
+  %.not43 = icmp eq ptr %.133, null
   br i1 %.not43, label %.thread52, label %61
 
 61:                                               ; preds = %60
-  %62 = call i32 @H5HF_close(ptr noundef nonnull %.032) #6
+  %62 = call i32 @H5HF_close(ptr noundef nonnull %.133) #6
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %.thread52
 

@@ -1883,7 +1883,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 do.body.i:                                        ; preds = %for.body, %do.body.i
   %13 = phi i64 [ %inc3.i, %do.body.i ], [ %inc.i25, %for.body ]
-  %value.0.i = phi i64 [ %add.i31, %do.body.i ], [ 127, %for.body ]
+  %value.1.i = phi i64 [ %add.i31, %do.body.i ], [ 127, %for.body ]
   %i.0.i = phi i64 [ %add6.i, %do.body.i ], [ 0, %for.body ]
   %inc3.i = add i64 %13, 1
   store i64 %inc3.i, ptr %iterator, align 8
@@ -1893,14 +1893,14 @@ do.body.i:                                        ; preds = %for.body, %do.body.
   %conv5.i = zext i8 %15 to i64
   %shr.i = lshr i64 %conv5.i, 1
   %shl.i30 = shl i64 %shr.i, %i.0.i
-  %add.i31 = add i64 %shl.i30, %value.0.i
+  %add.i31 = add i64 %shl.i30, %value.1.i
   %add6.i = add i64 %i.0.i, 6
   %and.i = and i64 %conv5.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit, label %do.body.i, !llvm.loop !23
 
 _ZNK5o3dgc12BinaryStream13ReadUIntASCIIERm.exit:  ; preds = %do.body.i, %for.body
-  %value.1.i = phi i64 [ %conv.i27, %for.body ], [ %add.i31, %do.body.i ]
+  %value.0.i = phi i64 [ %conv.i27, %for.body ], [ %add.i31, %do.body.i ]
   %16 = load i64, ptr %m_size.i2447, align 8
   %17 = load i64, ptr %m_allocated.i, align 8
   %cmp.i34 = icmp eq i64 %16, %17
@@ -1944,7 +1944,7 @@ _ZN5o3dgc6VectorIlE8PushBackERKl.exit:            ; preds = %entry.if.end16_crit
   %inc.i36 = add i64 %22, 1
   store i64 %inc.i36, ptr %m_size.i2447, align 8
   %arrayidx.i = getelementptr inbounds i64, ptr %23, i64 %22
-  store i64 %value.1.i, ptr %arrayidx.i, align 8
+  store i64 %value.0.i, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.044, 1
   %exitcond.not = icmp eq i64 %inc, %add.i19
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
@@ -2037,7 +2037,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 do.body.i.i:                                      ; preds = %for.body, %do.body.i.i
   %13 = phi i64 [ %inc3.i.i, %do.body.i.i ], [ %inc.i.i, %for.body ]
-  %value.0.i.i = phi i64 [ %add.i.i, %do.body.i.i ], [ 127, %for.body ]
+  %value.1.i.i = phi i64 [ %add.i.i, %do.body.i.i ], [ 127, %for.body ]
   %i.0.i.i = phi i64 [ %add6.i.i, %do.body.i.i ], [ 0, %for.body ]
   %inc3.i.i = add i64 %13, 1
   store i64 %inc3.i.i, ptr %iterator, align 8
@@ -2047,20 +2047,20 @@ do.body.i.i:                                      ; preds = %for.body, %do.body.
   %conv5.i.i = zext i8 %15 to i64
   %shr.i.i = lshr i64 %conv5.i.i, 1
   %shl.i.i = shl i64 %shr.i.i, %i.0.i.i
-  %add.i.i = add i64 %shl.i.i, %value.0.i.i
+  %add.i.i = add i64 %shl.i.i, %value.1.i.i
   %add6.i.i = add i64 %i.0.i.i, 6
   %and.i.i = and i64 %conv5.i.i, 1
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit, label %do.body.i.i, !llvm.loop !23
 
 _ZNK5o3dgc12BinaryStream12ReadIntASCIIERm.exit:   ; preds = %do.body.i.i, %for.body
-  %value.1.i.i = phi i64 [ %conv.i.i, %for.body ], [ %add.i.i, %do.body.i.i ]
-  %and.i1.i = and i64 %value.1.i.i, 1
+  %value.0.i.i = phi i64 [ %conv.i.i, %for.body ], [ %add.i.i, %do.body.i.i ]
+  %and.i1.i = and i64 %value.0.i.i, 1
   %tobool.not.i2.i = icmp eq i64 %and.i1.i, 0
-  %add.i3.i = add i64 %value.1.i.i, 1
+  %add.i3.i = add i64 %value.0.i.i, 1
   %shr.i4.i = lshr exact i64 %add.i3.i, 1
   %sub.i.i = sub nsw i64 0, %shr.i4.i
-  %shr1.i.i = lshr exact i64 %value.1.i.i, 1
+  %shr1.i.i = lshr exact i64 %value.0.i.i, 1
   %cond.i.i = select i1 %tobool.not.i2.i, i64 %shr1.i.i, i64 %sub.i.i
   %16 = load i64, ptr %m_size.i2440, align 8
   %17 = load i64, ptr %m_allocated.i, align 8

@@ -842,7 +842,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont21
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.0221 = phi ptr [ %52, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %visited.0220 = phi i1 [ true, %for.body.lr.ph ], [ %visited.1, %for.inc ]
+  %visited.0220 = phi i1 [ true, %for.body.lr.ph ], [ %visited.2, %for.inc ]
   %54 = load ptr, ptr %__begin2.0221, align 8
   %fcolors.val.i.i = load ptr, ptr %fcolors.i, align 8
   %cmp.i.i.i51 = icmp eq ptr %fcolors.val.i.i, null
@@ -901,7 +901,7 @@ _ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i: ; preds = %.noexc, %lor
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i
-  %visited.1 = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i ], [ %visited.0220, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i ]
+  %visited.2 = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i ], [ %visited.0220, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0221, i64 8
   %cmp26.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp26.not, label %for.end.loopexit, label %for.body
@@ -922,7 +922,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont21
   %66 = phi ptr [ %52, %invoke.cont21 ], [ %.pre, %for.end.loopexit ]
-  %visited.0.lcssa = phi i1 [ true, %invoke.cont21 ], [ %visited.1, %for.end.loopexit ]
+  %visited.0.lcssa = phi i1 [ true, %invoke.cont21 ], [ %visited.2, %for.end.loopexit ]
   %cmp.not.i.i.i.i = icmp eq ptr %66, %m_initial_buffer.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %66, null
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp.i.i.i.i.i
@@ -1029,7 +1029,7 @@ _ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i75: ; preds = %if.then.i2
   br label %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit90
 
 _ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit90: ; preds = %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i86, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i75
-  %visited.2 = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i75 ], [ true, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i86 ]
+  %visited.3 = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i75 ], [ true, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i86 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %n, i64 40
   %86 = load ptr, ptr %arrayidx.i, align 8
   %fcolors.val.i.i95 = load ptr, ptr %fcolors.i62, align 8
@@ -1096,7 +1096,7 @@ _ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121: ; pr
 
 _ZNK6vectorIcLb0EjE4sizeEv.exit.i.i129:           ; preds = %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121.thread, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121
   %99 = phi ptr [ %90, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121.thread ], [ %98, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121 ]
-  %visited.3239 = phi i1 [ %visited.2, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121.thread ], [ false, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121 ]
+  %visited.4239 = phi i1 [ %visited.3, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121.thread ], [ false, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121 ]
   %fcolors.val.i.i127238 = phi ptr [ %fcolors.val.i.i95, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121.thread ], [ %fcolors.val.i.i127.pre, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit121 ]
   %arrayidx.i.i.i130 = getelementptr inbounds i8, ptr %fcolors.val.i.i127238, i64 -4
   %100 = load i32, ptr %arrayidx.i.i.i130, align 4
@@ -1231,7 +1231,7 @@ while.body.lr.ph:                                 ; preds = %land.end
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us
   %indvars.iv228 = phi i64 [ %126, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us ], [ %125, %while.body.lr.ph ]
-  %visited.5223.us = phi i1 [ %visited.6.us, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us ], [ true, %while.body.lr.ph ]
+  %visited.1223.us = phi i1 [ %visited.6.us, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us ], [ true, %while.body.lr.ph ]
   %126 = add nsw i64 %indvars.iv228, -1
   %arrayidx.i173.us = getelementptr inbounds [0 x ptr], ptr %m_args.i172, i64 0, i64 %126
   %127 = load ptr, ptr %arrayidx.i173.us, align 8
@@ -1289,13 +1289,13 @@ _ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188.us: ; preds = %if.the
   br label %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us
 
 _ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us: ; preds = %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188.us, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i199.us
-  %visited.6.us = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188.us ], [ %visited.5223.us, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i199.us ]
+  %visited.6.us = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188.us ], [ %visited.1223.us, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i199.us ]
   %cmp52.not.us.wide = icmp eq i64 %126, 0
   br i1 %cmp52.not.us.wide, label %return, label %while.body.us, !llvm.loop !7
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203
   %indvars.iv = phi i64 [ %138, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203 ], [ %125, %while.body.lr.ph ]
-  %visited.5223 = phi i1 [ %visited.6, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203 ], [ true, %while.body.lr.ph ]
+  %visited.1223 = phi i1 [ %visited.6, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203 ], [ true, %while.body.lr.ph ]
   %138 = add nsw i64 %indvars.iv, -1
   %arrayidx.i173 = getelementptr inbounds [0 x ptr], ptr %m_args.i172, i64 0, i64 %138
   %139 = load ptr, ptr %arrayidx.i173, align 8
@@ -1353,12 +1353,12 @@ _ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188: ; preds = %if.then.i
   br label %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203
 
 _ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203: ; preds = %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i199, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188
-  %visited.6 = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188 ], [ %visited.5223, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i199 ]
+  %visited.6 = phi i1 [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i188 ], [ %visited.1223, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i199 ]
   %cmp52.not.wide = icmp eq i64 %138, 0
   br i1 %cmp52.not.wide, label %return, label %while.body, !llvm.loop !7
 
 return:                                           ; preds = %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us, %land.end, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i138, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i149, %entry, %if.end.i.i.i.i.i, %for.end, %_ZNK3smt7context14e_internalizedEPK4expr.exit, %_ZNK3smt7context14b_internalizedEPK4expr.exit, %_ZNK3smt7context22should_internalize_recEP4expr.exit
-  %retval.0 = phi i1 [ true, %entry ], [ true, %_ZNK3smt7context22should_internalize_recEP4expr.exit ], [ true, %_ZNK3smt7context14b_internalizedEPK4expr.exit ], [ true, %_ZNK3smt7context14e_internalizedEPK4expr.exit ], [ %visited.0.lcssa, %for.end ], [ %visited.0.lcssa, %if.end.i.i.i.i.i ], [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i138 ], [ %visited.3239, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i149 ], [ true, %land.end ], [ %visited.6.us, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us ], [ %visited.6, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203 ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %_ZNK3smt7context22should_internalize_recEP4expr.exit ], [ true, %_ZNK3smt7context14b_internalizedEPK4expr.exit ], [ true, %_ZNK3smt7context14e_internalizedEPK4expr.exit ], [ %visited.0.lcssa, %for.end ], [ %visited.0.lcssa, %if.end.i.i.i.i.i ], [ false, %_ZN6vectorISt4pairIP4exprbELb0EjE9push_backEOS3_.exit.i138 ], [ %visited.4239, %_ZN3smtL9get_colorER7svectorIcjES2_P4exprb.exit.i149 ], [ true, %land.end ], [ %visited.6.us, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203.us ], [ %visited.6, %_ZN3smt7context14ts_visit_childEP4exprbR7svectorISt4pairIS2_bEjERb.exit203 ]
   ret i1 %retval.0
 }
 
@@ -16175,8 +16175,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !52
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.141 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %4, %for.cond17.preheader ]
-  %8 = load ptr, ptr %curr.141, align 8
+  %curr.241 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %4, %for.cond17.preheader ]
+  %8 = load ptr, ptr %curr.241, align 8
   %magicptr32 = ptrtoint ptr %8 to i64
   switch i64 %magicptr32, label %if.then21 [
     i64 0, label %if.end55
@@ -16193,13 +16193,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond31, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.141, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.241, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !53
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.141, %if.then21 ], [ %curr.039, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.241, %if.then21 ], [ %curr.039, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %4, ptr %add.ptr37
   %11 = load ptr, ptr %spec.select, align 8
@@ -16207,7 +16207,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i28, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %12 = load i32, ptr %m_size, align 4
   %dec = add i32 %12, -1
@@ -16215,7 +16215,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %13, 1

@@ -136,14 +136,14 @@ _ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %33 unwind label %22
 
 33:                                               ; preds = %28, %27, %24, %20
-  %.0 = phi i1 [ false, %20 ], [ true, %24 ], [ false, %27 ], [ %32, %28 ]
+  %.1 = phi i1 [ false, %20 ], [ true, %24 ], [ false, %27 ], [ %32, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br label %34
 
 34:                                               ; preds = %_ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %33
-  %.1 = phi i1 [ %.0, %33 ], [ true, %_ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %.0 = phi i1 [ %.1, %33 ], [ true, %_ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  ret i1 %.1
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind

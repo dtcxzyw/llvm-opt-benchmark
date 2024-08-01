@@ -52,7 +52,7 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi i64 [ %7, %.lr.ph ], [ %82, %.backedge ]
   %10 = phi ptr [ %5, %.lr.ph ], [ %80, %.backedge ]
   %.0109 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.051108 = phi i32 [ 0, %.lr.ph ], [ %.253, %.backedge ]
+  %.051108 = phi i32 [ 0, %.lr.ph ], [ %.152, %.backedge ]
   %.054107 = phi i32 [ 0, %.lr.ph ], [ %23, %.backedge ]
   %.055106 = phi ptr [ null, %.lr.ph ], [ %.156, %.backedge ]
   %11 = sub nuw i64 %9, %.0109
@@ -180,8 +180,8 @@ sanitname.exit:                                   ; preds = %51, %40
 
 62:                                               ; preds = %60, %56, %22
   %.156 = phi ptr [ %.055106, %22 ], [ %3, %60 ], [ %3, %56 ]
-  %.253 = phi i32 [ %.051108, %22 ], [ %spec.select, %60 ], [ %spec.select, %56 ]
-  %.2 = phi i64 [ %17, %22 ], [ %spec.select86, %60 ], [ %59, %56 ]
+  %.152 = phi i32 [ %.051108, %22 ], [ %spec.select, %60 ], [ %spec.select, %56 ]
+  %.1 = phi i64 [ %17, %22 ], [ %spec.select86, %60 ], [ %59, %56 ]
   %.22..22..22.97 = load i16, ptr %.22..22..22..sroa_idx, align 2
   %rev74 = call i16 @llvm.bswap.i16(i16 %.22..22..22.97)
   %.in75 = select i1 %21, i16 %.22..22..22.97, i16 %rev74
@@ -216,7 +216,7 @@ sanitname.exit:                                   ; preds = %51, %40
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %4, align 8
-  %75 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %74, i64 noundef %.2, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #8
+  %75 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %74, i64 noundef %.1, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #8
   %.not83 = icmp eq i32 %75, 0
   br i1 %.not83, label %76, label %fmap_readn.exit.thread
 
@@ -224,11 +224,11 @@ sanitname.exit:                                   ; preds = %51, %40
   %77 = and i32 %65, 1
   %spec.select87 = add i32 %66, %77
   %78 = zext i32 %spec.select87 to i64
-  %79 = add i64 %.2, %78
+  %79 = add i64 %.1, %78
   br label %.backedge
 
 .backedge:                                        ; preds = %76, %62
-  %.0.be = phi i64 [ %79, %76 ], [ %.2, %62 ]
+  %.0.be = phi i64 [ %79, %76 ], [ %.1, %62 ]
   %80 = load ptr, ptr %4, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 88
   %82 = load i64, ptr %81, align 8
@@ -241,8 +241,8 @@ fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, 
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %67, %73, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
-  %.249 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %75, %73 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
-  ret i32 %.249
+  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %75, %73 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
+  ret i32 %.148
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -284,7 +284,7 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %16 = phi i64 [ %10, %.lr.ph ], [ %90, %.backedge ]
   %17 = phi ptr [ %8, %.lr.ph ], [ %88, %.backedge ]
   %.058 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.02457 = phi i32 [ 0, %.lr.ph ], [ %.2, %.backedge ]
+  %.02457 = phi i32 [ 0, %.lr.ph ], [ %.125, %.backedge ]
   %.02656 = phi i32 [ 0, %.lr.ph ], [ %30, %.backedge ]
   %18 = sub nuw i64 %16, %.058
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 76)
@@ -405,7 +405,7 @@ sanitname.exit:                                   ; preds = %60, %49
   br label %69
 
 69:                                               ; preds = %sanitname.exit, %65, %33
-  %.2 = phi i32 [ %spec.select, %65 ], [ %spec.select, %sanitname.exit ], [ %.02457, %33 ]
+  %.125 = phi i32 [ %spec.select, %65 ], [ %spec.select, %sanitname.exit ], [ %.02457, %33 ]
   %.1 = phi i64 [ %68, %65 ], [ %50, %sanitname.exit ], [ %24, %33 ]
   %70 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 11) #8
   store i8 0, ptr %14, align 1
@@ -490,7 +490,7 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %16 = phi i64 [ %11, %.lr.ph ], [ %106, %.backedge ]
   %17 = phi ptr [ %9, %.lr.ph ], [ %104, %.backedge ]
   %.075 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.03474 = phi i32 [ 0, %.lr.ph ], [ %.2, %.backedge ]
+  %.03474 = phi i32 [ 0, %.lr.ph ], [ %.135, %.backedge ]
   %.03673 = phi i32 [ 0, %.lr.ph ], [ %31, %.backedge ]
   %18 = sub nuw i64 %16, %.075
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 110)
@@ -640,7 +640,7 @@ sanitname.exit:                                   ; preds = %61, %50
   br label %80
 
 80:                                               ; preds = %71, %77, %76, %34
-  %.2 = phi i32 [ %spec.select, %71 ], [ %spec.select, %77 ], [ %spec.select, %76 ], [ %.03474, %34 ]
+  %.135 = phi i32 [ %spec.select, %71 ], [ %spec.select, %77 ], [ %spec.select, %76 ], [ %.03474, %34 ]
   %.1 = phi i64 [ %75, %71 ], [ %79, %77 ], [ %51, %76 ], [ %24, %34 ]
   %81 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 8) #8
   store i8 0, ptr %13, align 1

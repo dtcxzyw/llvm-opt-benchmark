@@ -155,7 +155,7 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
 
 .lr.ph45:                                         ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
-  %.0293744 = phi i32 [ %54, %53 ], [ 0, %.lr.ph ]
+  %.13744 = phi i32 [ %54, %53 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
@@ -207,7 +207,7 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
 
 53:                                               ; preds = %35, %32, %.lr.ph45
   %.sink = phi i32 [ 2, %.lr.ph45 ], [ 4, %32 ], [ 8, %35 ]
-  %54 = or i32 %.0293744, %.sink
+  %54 = or i32 %.13744, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %23, align 4
   %56 = sext i32 %55 to i64
@@ -215,20 +215,20 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
   br i1 %57, label %.lr.ph45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %21
-  %.029.lcssa = phi i32 [ 0, %21 ], [ 0, %.lr.ph ], [ %54, %53 ]
+  %.1.lcssa = phi i32 [ 0, %21 ], [ 0, %.lr.ph ], [ %54, %53 ]
   call void @pfree(ptr noundef %14) #10
   %58 = load ptr, ptr %4, align 8
   call void @list_free(ptr noundef %58) #10
   br label %59
 
 59:                                               ; preds = %8, %3, %._crit_edge
-  %.2 = phi i32 [ %.029.lcssa, %._crit_edge ], [ -1, %3 ], [ 0, %8 ]
+  %.029 = phi i32 [ %.1.lcssa, %._crit_edge ], [ -1, %3 ], [ 0, %8 ]
   %60 = call ptr @guc_malloc(i32 noundef 15, i64 noundef 4) #10
   %.not33 = icmp eq ptr %60, null
   br i1 %.not33, label %62, label %61
 
 61:                                               ; preds = %59
-  store i32 %.2, ptr %60, align 4
+  store i32 %.029, ptr %60, align 4
   store ptr %60, ptr %1, align 8
   br label %62
 

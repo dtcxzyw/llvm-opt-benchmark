@@ -4387,8 +4387,8 @@ for.inc:                                          ; preds = %if.then113, %if.els
   br i1 %exitcond.not, label %if.end184, label %for.body111, !llvm.loop !16
 
 if.end184:                                        ; preds = %for.inc, %if.end44, %if.end31
-  %secrets.0 = phi ptr [ null, %if.end31 ], [ %call35, %if.end44 ], [ %call35, %for.inc ]
-  %pre_comp.0 = phi ptr [ null, %if.end31 ], [ %call37, %if.end44 ], [ %call37, %for.inc ]
+  %secrets.1 = phi ptr [ null, %if.end31 ], [ %call35, %if.end44 ], [ %call35, %for.inc ]
+  %pre_comp.1 = phi ptr [ null, %if.end31 ], [ %call37, %if.end44 ], [ %call37, %for.inc ]
   %cmp185.not = icmp eq ptr %g_scalar, null
   br i1 %cmp185.not, label %if.end210, label %if.then187
 
@@ -4470,7 +4470,7 @@ if.end210:                                        ; preds = %for.body.i406, %if.
 
 for.cond.i:                                       ; preds = %if.end224.i, %if.end210
   %i.0.i = phi i64 [ %conv.i, %if.end210 ], [ %dec.i, %if.end224.i ]
-  %skip.0.i = phi i32 [ 1, %if.end210 ], [ %skip.5.i, %if.end224.i ]
+  %skip.0.i = phi i32 [ 1, %if.end210 ], [ %skip.3.i, %if.end224.i ]
   %tobool.not.i = icmp eq i32 %skip.0.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -4666,7 +4666,7 @@ select_point.exit188.i:                           ; preds = %for.inc16.i178.i
   br label %if.end115.i
 
 if.end115.i:                                      ; preds = %select_point.exit188.i, %if.end.i
-  %skip.2.i = phi i32 [ 0, %select_point.exit188.i ], [ %skip.0.i, %if.end.i ]
+  %skip.1.i = phi i32 [ 0, %select_point.exit188.i ], [ %skip.0.i, %if.end.i ]
   %rem.i = urem i64 %i.0.i, 5
   %cmp119.i = icmp eq i64 %rem.i, 0
   %or.cond67.i = select i1 %cmp.not, i1 %cmp119.i, i1 false
@@ -4680,30 +4680,30 @@ for.cond122.preheader.i:                          ; preds = %if.end115.i
   %or.cond.i200.i = icmp ugt i32 %conv136.i, 255
   %shr.i202.i = lshr i32 %conv136.i, 3
   %idxprom.i203.i = zext nneg i32 %shr.i202.i to i64
-  %arrayidx.i204.i = getelementptr inbounds i8, ptr %secrets.0, i64 %idxprom.i203.i
+  %arrayidx.i204.i = getelementptr inbounds i8, ptr %secrets.1, i64 %idxprom.i203.i
   %and.i206.i = and i32 %conv136.i, 7
   %conv145.i = add i32 %132, 2
   %or.cond.i211.i = icmp ugt i32 %conv145.i, 255
   %shr.i213.i = lshr i32 %conv145.i, 3
   %idxprom.i214.i = zext nneg i32 %shr.i213.i to i64
-  %arrayidx.i215.i = getelementptr inbounds i8, ptr %secrets.0, i64 %idxprom.i214.i
+  %arrayidx.i215.i = getelementptr inbounds i8, ptr %secrets.1, i64 %idxprom.i214.i
   %and.i217.i = and i32 %conv145.i, 7
   %conv154.i = add i32 %132, 1
   %or.cond.i222.i = icmp ugt i32 %conv154.i, 255
   %shr.i224.i = lshr i32 %conv154.i, 3
   %idxprom.i225.i = zext nneg i32 %shr.i224.i to i64
-  %arrayidx.i226.i = getelementptr inbounds i8, ptr %secrets.0, i64 %idxprom.i225.i
+  %arrayidx.i226.i = getelementptr inbounds i8, ptr %secrets.1, i64 %idxprom.i225.i
   %and.i228.i = and i32 %conv154.i, 7
   %or.cond.i233.i = icmp ugt i32 %132, 255
   %shr.i235.i = lshr i64 %i.0.i, 3
   %idxprom.i236.i = and i64 %shr.i235.i, 31
-  %arrayidx.i237.i = getelementptr inbounds i8, ptr %secrets.0, i64 %idxprom.i236.i
+  %arrayidx.i237.i = getelementptr inbounds i8, ptr %secrets.1, i64 %idxprom.i236.i
   %and.i239.i = and i32 %132, 7
   %conv170.i = add i32 %132, -1
   %or.cond.i244.i = icmp ugt i32 %conv170.i, 255
   %shr.i246.i = lshr i32 %conv170.i, 3
   %idxprom.i247.i = zext nneg i32 %shr.i246.i to i64
-  %arrayidx.i248.i = getelementptr inbounds i8, ptr %secrets.0, i64 %idxprom.i247.i
+  %arrayidx.i248.i = getelementptr inbounds i8, ptr %secrets.1, i64 %idxprom.i247.i
   %and.i250.i = and i32 %conv170.i, 7
   br i1 %or.cond.i189.i, label %get_bit.exit199.i, label %if.end.i190.i
 
@@ -4711,7 +4711,7 @@ if.end.i190.i:                                    ; preds = %for.cond122.prehead
   %and.i195.i = and i32 %conv128.i, 7
   %shr.i191.i = lshr i32 %conv128.i, 3
   %idxprom.i192.i = zext nneg i32 %shr.i191.i to i64
-  %arrayidx.i193.i = getelementptr inbounds i8, ptr %secrets.0, i64 %idxprom.i192.i
+  %arrayidx.i193.i = getelementptr inbounds i8, ptr %secrets.1, i64 %idxprom.i192.i
   %133 = load i8, ptr %arrayidx.i193.i, align 1
   %conv.i194.i = zext i8 %133 to i32
   %shr2.i196.i = lshr i32 %conv.i194.i, %and.i195.i
@@ -4799,7 +4799,7 @@ get_bit.exit254.i:                                ; preds = %if.end.i245.i, %get
 
 for.body.i255.i:                                  ; preds = %for.inc16.i265.i, %get_bit.exit254.i
   %i.018.i256.i = phi i64 [ %inc17.i266.i, %for.inc16.i265.i ], [ 0, %get_bit.exit254.i ]
-  %arrayidx2.i257.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.0, i64 %i.018.i256.i
+  %arrayidx2.i257.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.1, i64 %i.018.i256.i
   %xor.i258.i = xor i64 %i.018.i256.i, %conv175.i
   %shr.i259.i = lshr i64 %xor.i258.i, 4
   %or.i260.i = or i64 %shr.i259.i, %xor.i258.i
@@ -4995,7 +4995,7 @@ felem_contract.exit.i:                            ; preds = %for.body.i288.i
   %and35.i.i = and i64 %or21.i.i, -4294967295
   %conv3.i94.i.i = sub i64 %conv3.i77.i.i, %and35.i.i
   store i64 %conv3.i94.i.i, ptr %arrayidx8.i111.i, align 8
-  %tobool190.not.i = icmp eq i32 %skip.2.i, 0
+  %tobool190.not.i = icmp eq i32 %skip.1.i, 0
   br i1 %tobool190.not.i, label %if.then191.i, label %if.else210.i
 
 if.then191.i:                                     ; preds = %felem_contract.exit.i
@@ -5038,7 +5038,7 @@ if.else210.i:                                     ; preds = %felem_contract.exit
   br label %if.end224.i
 
 if.end224.i:                                      ; preds = %if.else210.i, %if.then191.i, %if.end115.i
-  %skip.5.i = phi i32 [ %skip.2.i, %if.end115.i ], [ 0, %if.else210.i ], [ 0, %if.then191.i ]
+  %skip.3.i = phi i32 [ %skip.1.i, %if.end115.i ], [ 0, %if.else210.i ], [ 0, %if.then191.i ]
   %cmp225.i = icmp eq i64 %i.0.i, 0
   %dec.i = add nsw i64 %i.0.i, -1
   br i1 %cmp225.i, label %batch_mul.exit, label %for.cond.i
@@ -5184,12 +5184,12 @@ if.end239:                                        ; preds = %smallfelem_to_BN.ex
 
 err:                                              ; preds = %flip_endian.exit, %lor.lhs.false83, %lor.lhs.false87, %if.end15, %lor.lhs.false, %lor.lhs.false22, %lor.lhs.false26, %if.end239, %if.then238, %if.then200, %if.then70, %if.then43
   %ret.0 = phi i32 [ 0, %if.end15 ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false26 ], [ 0, %if.then43 ], [ 0, %if.then70 ], [ %call240, %if.end239 ], [ 0, %if.then238 ], [ 0, %if.then200 ], [ 0, %lor.lhs.false87 ], [ 0, %lor.lhs.false83 ], [ 0, %flip_endian.exit ]
-  %secrets.1 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call35, %if.then43 ], [ %call35, %if.then70 ], [ %secrets.0, %if.end239 ], [ %secrets.0, %if.then238 ], [ %secrets.0, %if.then200 ], [ %call35, %lor.lhs.false87 ], [ %call35, %lor.lhs.false83 ], [ %call35, %flip_endian.exit ]
-  %pre_comp.1 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call37, %if.then43 ], [ %call37, %if.then70 ], [ %pre_comp.0, %if.end239 ], [ %pre_comp.0, %if.then238 ], [ %pre_comp.0, %if.then200 ], [ %call37, %lor.lhs.false87 ], [ %call37, %lor.lhs.false83 ], [ %call37, %flip_endian.exit ]
+  %secrets.0 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call35, %if.then43 ], [ %call35, %if.then70 ], [ %secrets.1, %if.end239 ], [ %secrets.1, %if.then238 ], [ %secrets.1, %if.then200 ], [ %call35, %lor.lhs.false87 ], [ %call35, %lor.lhs.false83 ], [ %call35, %flip_endian.exit ]
+  %pre_comp.0 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call37, %if.then43 ], [ %call37, %if.then70 ], [ %pre_comp.1, %if.end239 ], [ %pre_comp.1, %if.then238 ], [ %pre_comp.1, %if.then200 ], [ %call37, %lor.lhs.false87 ], [ %call37, %lor.lhs.false83 ], [ %call37, %flip_endian.exit ]
   call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0) #9
   call void @BN_CTX_free(ptr noundef %new_ctx.0) #9
-  call void @free(ptr noundef %secrets.1) #9
-  call void @free(ptr noundef %pre_comp.1) #9
+  call void @free(ptr noundef %secrets.0) #9
+  call void @free(ptr noundef %pre_comp.0) #9
   br label %return
 
 return:                                           ; preds = %if.then, %err

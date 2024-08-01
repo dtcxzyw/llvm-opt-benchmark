@@ -717,13 +717,13 @@ if.else:                                          ; preds = %entry
 
 for.body:                                         ; preds = %if.else, %for.inc
   %dec57 = phi i32 [ %dec55, %if.else ], [ %dec, %for.inc ]
-  %n.056 = phi i32 [ %first, %if.else ], [ %inc, %for.inc ]
-  %call4 = call i32 @lua_type(ptr noundef %L, i32 noundef %n.056) #10
+  %n.156 = phi i32 [ %first, %if.else ], [ %inc, %for.inc ]
+  %call4 = call i32 @lua_type(ptr noundef %L, i32 noundef %n.156) #10
   %cmp5 = icmp eq i32 %call4, 3
   br i1 %cmp5, label %if.then6, label %if.else11
 
 if.then6:                                         ; preds = %for.body
-  %call7 = call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %n.056) #10
+  %call7 = call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %n.156) #10
   %cmp8 = icmp eq i64 %call7, 0
   br i1 %cmp8, label %cond.true, label %cond.false
 
@@ -750,7 +750,7 @@ cond.false:                                       ; preds = %if.then6
   br label %for.inc
 
 if.else11:                                        ; preds = %for.body
-  %call12 = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %n.056, ptr noundef null) #10
+  %call12 = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %n.156, ptr noundef null) #10
   %1 = load i8, ptr %call12, align 1
   %cmp13 = icmp eq i8 %1, 42
   %spec.select.idx = zext i1 %cmp13 to i64
@@ -1013,21 +1013,21 @@ read_all.exit:                                    ; preds = %do.body.i46
   br label %for.inc
 
 sw.default:                                       ; preds = %if.else11
-  %call23 = call i32 @luaL_argerror(ptr noundef %L, i32 noundef %n.056, ptr noundef nonnull @.str.24) #10
+  %call23 = call i32 @luaL_argerror(ptr noundef %L, i32 noundef %n.156, ptr noundef nonnull @.str.24) #10
   br label %return
 
 for.inc:                                          ; preds = %cond.true, %cond.false, %read_all.exit, %sw.bb20, %sw.bb18, %read_number.exit
-  %success.1 = phi i32 [ 1, %read_all.exit ], [ %call21, %sw.bb20 ], [ %call19, %sw.bb18 ], [ %retval.0.i, %read_number.exit ], [ %conv.i, %cond.true ], [ %conv.i40, %cond.false ]
-  %inc = add nsw i32 %n.056, 1
+  %success.2 = phi i32 [ 1, %read_all.exit ], [ %call21, %sw.bb20 ], [ %call19, %sw.bb18 ], [ %retval.0.i, %read_number.exit ], [ %conv.i, %cond.true ], [ %conv.i40, %cond.false ]
+  %inc = add nsw i32 %n.156, 1
   %dec = add nsw i32 %dec57, -1
   %tobool = icmp ne i32 %dec57, 0
-  %tobool3 = icmp ne i32 %success.1, 0
+  %tobool3 = icmp ne i32 %success.2, 0
   %33 = select i1 %tobool, i1 %tobool3, i1 false
   br i1 %33, label %for.body, label %if.end25, !llvm.loop !10
 
 if.end25:                                         ; preds = %for.inc, %if.then
-  %n.1 = phi i32 [ %add, %if.then ], [ %inc, %for.inc ]
-  %success.2 = phi i32 [ %call1, %if.then ], [ %success.1, %for.inc ]
+  %n.0 = phi i32 [ %add, %if.then ], [ %inc, %for.inc ]
+  %success.0 = phi i32 [ %call1, %if.then ], [ %success.2, %for.inc ]
   %call26 = call i32 @ferror(ptr noundef %f) #10
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end30, label %if.then28
@@ -1037,7 +1037,7 @@ if.then28:                                        ; preds = %if.end25
   br label %return
 
 if.end30:                                         ; preds = %if.end25
-  %tobool31.not = icmp eq i32 %success.2, 0
+  %tobool31.not = icmp eq i32 %success.0, 0
   br i1 %tobool31.not, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end30
@@ -1046,7 +1046,7 @@ if.then32:                                        ; preds = %if.end30
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %if.end30
-  %sub34 = sub nsw i32 %n.1, %first
+  %sub34 = sub nsw i32 %n.0, %first
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then28, %sw.default

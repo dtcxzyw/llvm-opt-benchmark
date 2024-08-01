@@ -1143,14 +1143,14 @@ _ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  %vp.1 = phi ptr [ %7, %_ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit ], [ %call2, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
+  %vp.0 = phi ptr [ %7, %_ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit ], [ %call2, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %m15 = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load ptr, ptr %m15, align 8
   %33 = ptrtoint ptr %32 to i64
   store i64 %33, ptr %args, align 8
   %m_nodes.i.i51 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr null, ptr %m_nodes.i.i51, align 8
-  %m_nodes.i52 = getelementptr inbounds i8, ptr %vp.1, i64 8
+  %m_nodes.i52 = getelementptr inbounds i8, ptr %vp.0, i64 8
   %dt18 = getelementptr inbounds i8, ptr %this, i64 24
   %m_rand = getelementptr inbounds i8, ptr %this, i64 376
   %m_constr2seen = getelementptr inbounds i8, ptr %this, i64 352
@@ -3376,13 +3376,13 @@ while.body.i.preheader:                           ; preds = %if.end
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %x.0 = phi i32 [ %spec.select, %while.body.i ], [ 1, %while.body.i.preheader ]
+  %x.1 = phi i32 [ %spec.select, %while.body.i ], [ 1, %while.body.i.preheader ]
   %y.0 = phi i32 [ %spec.select48, %while.body.i ], [ 1, %while.body.i.preheader ]
   %i.addr.07.i = phi i32 [ %div5.i, %while.body.i ], [ %add, %while.body.i.preheader ]
   %rem.i14 = and i32 %i.addr.07.i, 1
   %cmp2.i = icmp eq i32 %rem.i14, 0
-  %add3.i = add i32 %y.0, %x.0
-  %spec.select = select i1 %cmp2.i, i32 %add3.i, i32 %x.0
+  %add3.i = add i32 %y.0, %x.1
+  %spec.select = select i1 %cmp2.i, i32 %add3.i, i32 %x.1
   %spec.select48 = select i1 %cmp2.i, i32 %y.0, i32 %add3.i
   %div5.i = lshr i32 %i.addr.07.i, 1
   %cmp.i15 = icmp ugt i32 %i.addr.07.i, 3
@@ -3390,7 +3390,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 
 _ZN21arith_value_generator11calkin_wilfEjRjS0_.exit: ; preds = %while.body.i, %if.end
   %x.2 = phi i32 [ %index, %if.end ], [ %spec.select, %while.body.i ]
-  %y.2 = phi i32 [ %index, %if.end ], [ %spec.select48, %while.body.i ]
+  %y.1 = phi i32 [ %index, %if.end ], [ %spec.select48, %while.body.i ]
   %rem = and i32 %index, 1
   %cmp11 = icmp eq i32 %rem, 0
   %sub = sub nsw i32 0, %x.2
@@ -3407,7 +3407,7 @@ _ZN21arith_value_generator11calkin_wilfEjRjS0_.exit: ; preds = %while.body.i, %i
   %m_ptr.i4.i.i24 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
   store ptr null, ptr %m_ptr.i4.i.i24, align 8
   %14 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  call void @_ZN11mpq_managerILb1EE3setER3mpqii(ptr noundef nonnull align 8 dereferenceable(728) %14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i32 noundef %spec.select49, i32 noundef %y.2)
+  call void @_ZN11mpq_managerILb1EE3setER3mpqii(ptr noundef nonnull align 8 dereferenceable(728) %14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i32 noundef %spec.select49, i32 noundef %y.1)
   %m_plugin.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %m_plugin.i.i.i25, align 8
   %tobool.not.i.i.i26 = icmp eq ptr %15, null

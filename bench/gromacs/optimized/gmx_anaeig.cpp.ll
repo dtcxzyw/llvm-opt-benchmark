@@ -1345,14 +1345,14 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZL13gmx_snew_implI
           to label %.loopexit622 unwind label %.loopexit.split-lp625.loopexit.split-lp
 
 .loopexit622:                                     ; preds = %.lr.ph670, %.preheader621, %._crit_edge673, %428, %427
-  %.1543 = phi ptr [ %442, %._crit_edge673 ], [ null, %428 ], [ null, %427 ], [ %442, %.preheader621 ], [ %442, %.lr.ph670 ]
-  %.0 = phi ptr [ %471, %._crit_edge673 ], [ null, %428 ], [ null, %427 ], [ %471, %.preheader621 ], [ %471, %.lr.ph670 ]
+  %.2544 = phi ptr [ %442, %._crit_edge673 ], [ null, %428 ], [ null, %427 ], [ %442, %.preheader621 ], [ %442, %.lr.ph670 ]
+  %.1 = phi ptr [ %471, %._crit_edge673 ], [ null, %428 ], [ null, %427 ], [ %471, %.preheader621 ], [ %471, %.lr.ph670 ]
   invoke void @_Z14gmx_rmpbc_doneP9gmx_rmpbc(ptr noundef %423)
           to label %526 unwind label %.loopexit.split-lp625.loopexit.split-lp
 
 526:                                              ; preds = %410, %.loopexit622
-  %.2544 = phi ptr [ %.1543, %.loopexit622 ], [ null, %410 ]
-  %.1 = phi ptr [ %.0, %.loopexit622 ], [ null, %410 ]
+  %.1543 = phi ptr [ %.2544, %.loopexit622 ], [ null, %410 ]
+  %.0 = phi ptr [ %.1, %.loopexit622 ], [ null, %410 ]
   %.0204 = phi i1 [ %414, %.loopexit622 ], [ false, %410 ]
   %.0186 = phi ptr [ %419, %.loopexit622 ], [ null, %410 ]
   %.pre777 = load i32, ptr %82, align 4
@@ -1728,10 +1728,10 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit275:       ; preds = %646
 
 654:                                              ; preds = %664, %653
   %indvars.iv764 = phi i64 [ %indvars.iv.next765, %664 ], [ -1, %653 ]
-  %.0547 = phi ptr [ %656, %664 ], [ null, %653 ]
+  %.1548 = phi ptr [ %656, %664 ], [ null, %653 ]
   %indvars.iv.next765 = add nsw i64 %indvars.iv764, 1
   %655 = add nsw i64 %indvars.iv764, 2
-  %656 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.111, i32 noundef 1465, ptr noundef %.0547, i64 noundef %655, i64 noundef 4)
+  %656 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.111, i32 noundef 1465, ptr noundef %.1548, i64 noundef %655, i64 noundef 4)
           to label %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %654
@@ -1770,15 +1770,15 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %654
   br label %.loopexit611
 
 .loopexit611:                                     ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit275, %641, %668
-  %.1548 = phi ptr [ %632, %641 ], [ %647, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit275 ], [ %656, %668 ], [ %619, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %619, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
-  %.1546 = phi i32 [ %.sroa.speculated, %641 ], [ 2, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit275 ], [ %669, %668 ], [ %617, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %617, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
-  %670 = sext i32 %.1546 to i64
+  %.0547 = phi ptr [ %632, %641 ], [ %647, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit275 ], [ %656, %668 ], [ %619, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %619, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %.0545 = phi i32 [ %.sroa.speculated, %641 ], [ 2, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit275 ], [ %669, %668 ], [ %617, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %617, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %670 = sext i32 %.0545 to i64
   %671 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.111, i32 noundef 1476, i64 noundef %670, i64 noundef 4)
           to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276.preheader: ; preds = %.loopexit611
   store i32 0, ptr %84, align 4
-  %672 = icmp sgt i32 %.1546, 0
+  %672 = icmp sgt i32 %.0545, 0
   br i1 %672, label %.preheader, label %.thread
 
 .thread:                                          ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276.preheader
@@ -1798,7 +1798,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276.preheader: ; preds = %.loopexit611
 .lr.ph691:                                        ; preds = %.preheader
   %678 = load ptr, ptr %75, align 8
   %679 = sext i32 %storemerge242692 to i64
-  %680 = getelementptr inbounds i32, ptr %.1548, i64 %679
+  %680 = getelementptr inbounds i32, ptr %.0547, i64 %679
   %681 = load i32, ptr %680, align 4
   %wide.trip.count770 = zext nneg i32 %676 to i64
   br label %682
@@ -1836,7 +1836,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276.preheader: ; preds = %.loopexit611
   %.1201 = phi i32 [ %695, %691 ], [ %.0200693, %686 ], [ %.0200693, %.preheader ], [ %.0200693, %685 ]
   %697 = add nsw i32 %696, 1
   store i32 %697, ptr %84, align 4
-  %698 = icmp slt i32 %697, %.1546
+  %698 = icmp slt i32 %697, %.0545
   br i1 %698, label %.preheader, label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276._crit_edge, !llvm.loop !20
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit276._crit_edge: ; preds = %.critedge
@@ -2624,7 +2624,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit403.i:     ; preds = %944, %941
 966:                                              ; preds = %.noexc337, %.preheader468.i
   %.0359.i = phi i32 [ %1084, %.noexc337 ], [ 0, %.preheader468.i ]
   %.0356.i = phi i32 [ %.1357.i, %.noexc337 ], [ 0, %.preheader468.i ]
-  %.0353.i = phi i32 [ %.2355.i, %.noexc337 ], [ 0, %.preheader468.i ]
+  %.0353.i = phi i32 [ %.1354.i, %.noexc337 ], [ 0, %.preheader468.i ]
   %967 = srem i32 %.0359.i, %901
   %968 = icmp eq i32 %967, 0
   br i1 %968, label %969, label %1080
@@ -2663,7 +2663,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit403.i:     ; preds = %944, %941
   br i1 %exitcond557.not.i, label %.loopexit467.i, label %975, !llvm.loop !33
 
 .loopexit467.i:                                   ; preds = %.noexc333, %972, %.noexc332
-  %.1354.i = phi i32 [ %.0353.i, %.noexc332 ], [ %973, %972 ], [ %973, %.noexc333 ]
+  %.2355.i = phi i32 [ %.0353.i, %.noexc332 ], [ %973, %972 ], [ %973, %.noexc333 ]
   %979 = load float, ptr %35, align 4
   %980 = load ptr, ptr %961, align 8
   %981 = sext i32 %.0356.i to i64
@@ -2673,12 +2673,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit403.i:     ; preds = %944, %941
 
 983:                                              ; preds = %.loopexit467.i
   %984 = load ptr, ptr %34, align 8
-  invoke void @_Z7reset_xiPKiiS0_PA3_fPKf(i32 noundef %908, ptr noundef %909, i32 noundef %940, ptr noundef null, ptr noundef %984, ptr noundef %.2544)
+  invoke void @_Z7reset_xiPKiiS0_PA3_fPKf(i32 noundef %908, ptr noundef %909, i32 noundef %940, ptr noundef null, ptr noundef %984, ptr noundef %.1543)
           to label %.noexc334 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc334:                                        ; preds = %983
   %985 = load ptr, ptr %34, align 8
-  invoke void @_Z6do_fitiPfPA3_KfPA3_f(i32 noundef %940, ptr noundef %.2544, ptr noundef %.1, ptr noundef %985)
+  invoke void @_Z6do_fitiPfPA3_KfPA3_f(i32 noundef %940, ptr noundef %.1543, ptr noundef %.0, ptr noundef %985)
           to label %.noexc335 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc335:                                        ; preds = %.noexc334, %.loopexit467.i
@@ -2882,7 +2882,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit403.i:     ; preds = %944, %941
 
 1080:                                             ; preds = %.noexc336, %966
   %.1357.i = phi i32 [ %1079, %.noexc336 ], [ %.0356.i, %966 ]
-  %.2355.i = phi i32 [ %.1354.i, %.noexc336 ], [ %.0353.i, %966 ]
+  %.1354.i = phi i32 [ %.2355.i, %.noexc336 ], [ %.0353.i, %966 ]
   %1081 = load ptr, ptr %32, align 8
   %1082 = load ptr, ptr %34, align 8
   %1083 = invoke noundef zeroext i1 @_Z11read_next_xPK16gmx_output_env_tP11t_trxstatusPfPA3_fS6_(ptr noundef %915, ptr noundef %1081, ptr noundef nonnull %35, ptr noundef %1082, ptr noundef nonnull %33)
@@ -5444,22 +5444,22 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
 
 .preheader186.us:                                 ; preds = %47, %._crit_edge.us
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %._crit_edge.us ], [ 0, %47 ]
-  %.2166200.us = phi float [ %.4.us, %._crit_edge.us ], [ %51, %47 ]
-  %.2169199.us = phi float [ %.4171.us, %._crit_edge.us ], [ %51, %47 ]
+  %.3200.us = phi float [ %.5.us, %._crit_edge.us ], [ %51, %47 ]
+  %.3170199.us = phi float [ %.5172.us, %._crit_edge.us ], [ %51, %47 ]
   %52 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv225
   %53 = load ptr, ptr %52, align 8
   br label %54
 
 54:                                               ; preds = %.preheader186.us, %54
   %indvars.iv220 = phi i64 [ 0, %.preheader186.us ], [ %indvars.iv.next221, %54 ]
-  %.3194.us = phi float [ %.2166200.us, %.preheader186.us ], [ %.4.us, %54 ]
-  %.3170193.us = phi float [ %.2169199.us, %.preheader186.us ], [ %.4171.us, %54 ]
+  %.4194.us = phi float [ %.3200.us, %.preheader186.us ], [ %.5.us, %54 ]
+  %.4171193.us = phi float [ %.3170199.us, %.preheader186.us ], [ %.5172.us, %54 ]
   %55 = getelementptr inbounds float, ptr %53, i64 %indvars.iv220
   %56 = load float, ptr %55, align 4
-  %57 = fcmp olt float %56, %.3194.us
-  %.4.us = select i1 %57, float %56, float %.3194.us
-  %58 = fcmp ogt float %56, %.3170193.us
-  %.4171.us = select i1 %58, float %56, float %.3170193.us
+  %57 = fcmp olt float %56, %.4194.us
+  %.5.us = select i1 %57, float %56, float %.4194.us
+  %58 = fcmp ogt float %56, %.4171193.us
+  %.5172.us = select i1 %58, float %56, float %.4171193.us
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
   br i1 %exitcond224.not, label %._crit_edge.us, label %54, !llvm.loop !71
@@ -5470,13 +5470,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
   br i1 %exitcond229.not, label %.loopexit, label %.preheader186.us, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge.us, %47, %39
-  %.5172 = phi float [ %51, %47 ], [ %42, %39 ], [ %.4171.us, %._crit_edge.us ], [ %.1168, %.lr.ph ]
-  %.5 = phi float [ %51, %47 ], [ %42, %39 ], [ %.4.us, %._crit_edge.us ], [ %.1165, %.lr.ph ]
+  %.2169 = phi float [ %51, %47 ], [ %42, %39 ], [ %.5172.us, %._crit_edge.us ], [ %.1168, %.lr.ph ]
+  %.2166 = phi float [ %51, %47 ], [ %42, %39 ], [ %.5.us, %._crit_edge.us ], [ %.1165, %.lr.ph ]
   br i1 %12, label %65, label %59
 
 59:                                               ; preds = %.loopexit
-  %60 = fpext float %.5 to double
-  %61 = fsub float %.5172, %.5
+  %60 = fpext float %.2166 to double
+  %61 = fsub float %.2169, %.2166
   %62 = fpext float %61 to double
   %63 = call double @llvm.fmuladd.f64(double %62, double -1.000000e-01, double %60)
   %64 = fptrunc double %63 to float
@@ -5484,8 +5484,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
 
 65:                                               ; preds = %.loopexit, %59
   %.6 = phi float [ %64, %59 ], [ 0.000000e+00, %.loopexit ]
-  %66 = fpext float %.5172 to double
-  %67 = fsub float %.5172, %.6
+  %66 = fpext float %.2169 to double
+  %67 = fsub float %.2169, %.6
   %68 = fpext float %67 to double
   %69 = call double @llvm.fmuladd.f64(double %68, double 1.000000e-01, double %66)
   %70 = fptrunc double %69 to float

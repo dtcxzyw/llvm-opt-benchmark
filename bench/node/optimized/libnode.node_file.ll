@@ -5000,7 +5000,7 @@ _ZN4node17BaseObjectPtrImplINS_2fs18FileHandleReadWrapELb0EED2Ev.exit: ; preds =
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit, %_ZN4node17BaseObjectPtrImplINS_2fs18FileHandleReadWrapELb0EED2Ev.exit
-  %read_wrap.sroa.0.0 = phi ptr [ %42, %_ZN4node17BaseObjectPtrImplINS_2fs18FileHandleReadWrapELb0EED2Ev.exit ], [ %15, %_ZNK4node10BaseObject6objectEv.exit ]
+  %read_wrap.sroa.0.1 = phi ptr [ %42, %_ZN4node17BaseObjectPtrImplINS_2fs18FileHandleReadWrapELb0EED2Ev.exit ], [ %15, %_ZNK4node10BaseObject6objectEv.exit ]
   call void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %trigger_scope) #30
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #30
   %43 = load i64, ptr %read_length_, align 8
@@ -5013,9 +5013,9 @@ cleanup:                                          ; preds = %_ZNK4node10BaseObje
   %call.i = call { ptr, i64 } %45(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %recommended_read.0) #30
   %46 = extractvalue { ptr, i64 } %call.i, 0
   %47 = extractvalue { ptr, i64 } %call.i, 1
-  %buffer_ = getelementptr inbounds i8, ptr %read_wrap.sroa.0.0, i64 536
+  %buffer_ = getelementptr inbounds i8, ptr %read_wrap.sroa.0.1, i64 536
   store ptr %46, ptr %buffer_, align 8
-  %ref.tmp102.sroa.2.0.buffer_.sroa_idx = getelementptr inbounds i8, ptr %read_wrap.sroa.0.0, i64 544
+  %ref.tmp102.sroa.2.0.buffer_.sroa_idx = getelementptr inbounds i8, ptr %read_wrap.sroa.0.1, i64 544
   store i64 %47, ptr %ref.tmp102.sroa.2.0.buffer_.sroa_idx, align 8
   %48 = load ptr, ptr %current_read_, align 8
   %cmp.not.i.i45 = icmp eq ptr %48, null
@@ -5026,7 +5026,7 @@ if.then.i.i46:                                    ; preds = %cleanup
   br label %_ZN4node17BaseObjectPtrImplINS_2fs18FileHandleReadWrapELb0EED2Ev.exit.i47
 
 _ZN4node17BaseObjectPtrImplINS_2fs18FileHandleReadWrapELb0EED2Ev.exit.i47: ; preds = %if.then.i.i46, %cleanup
-  %49 = ptrtoint ptr %read_wrap.sroa.0.0 to i64
+  %49 = ptrtoint ptr %read_wrap.sroa.0.1 to i64
   store i64 %49, ptr %current_read_, align 8
   %50 = load atomic i64, ptr @_ZZN4node2fs10FileHandle9ReadStartEvE28trace_event_unique_atomic593.0 seq_cst, align 8
   %51 = inttoptr i64 %50 to ptr
@@ -5165,8 +5165,8 @@ cleanup129.critedge:                              ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %if.then6, %cleanup129.critedge, %_ZN4node24MakeLibuvRequestCallbackI7uv_fs_sPFvPS1_EE3ForEPNS_7ReqWrapIS1_EES4_.exit.i, %_ZN4node10BaseObject9ClearWeakEv.exit.i, %if.end, %entry, %lor.lhs.false
-  %retval.2 = phi i32 [ -4095, %lor.lhs.false ], [ -4095, %entry ], [ 0, %if.end ], [ 0, %if.then6 ], [ -16, %cleanup129.critedge ], [ 0, %_ZN4node24MakeLibuvRequestCallbackI7uv_fs_sPFvPS1_EE3ForEPNS_7ReqWrapIS1_EES4_.exit.i ], [ 0, %_ZN4node10BaseObject9ClearWeakEv.exit.i ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ -4095, %lor.lhs.false ], [ -4095, %entry ], [ 0, %if.end ], [ 0, %if.then6 ], [ -16, %cleanup129.critedge ], [ 0, %_ZN4node24MakeLibuvRequestCallbackI7uv_fs_sPFvPS1_EE3ForEPNS_7ReqWrapIS1_EES4_.exit.i ], [ 0, %_ZN4node10BaseObject9ClearWeakEv.exit.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18853,7 +18853,7 @@ if.then118:                                       ; preds = %if.end116
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit, %if.end116, %if.then118
-  %file.0 = phi i32 [ %call97, %if.then118 ], [ undef, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ], [ %call97, %if.end116 ]
+  %file.1 = phi i32 [ %call97, %if.then118 ], [ undef, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ], [ %call97, %if.end116 ]
   %switch = phi i1 [ false, %if.then118 ], [ false, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ], [ true, %if.end116 ]
   %72 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i127 = icmp ne ptr %72, null
@@ -18870,7 +18870,7 @@ _ZN4node11BufferValueD2Ev.exit:                   ; preds = %cleanup, %if.then.i
   br i1 %switch, label %if.end123, label %cleanup.cont228
 
 if.end123:                                        ; preds = %_ZN4node11BufferValueD2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit246
-  %file.1 = phi i32 [ %call52, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit246 ], [ %file.0, %_ZN4node11BufferValueD2Ev.exit ]
+  %file.0 = phi i32 [ %call52, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit246 ], [ %file.1, %_ZN4node11BufferValueD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result127) #30
   %call128 = call { ptr, i64 } @uv_buf_init(ptr noundef nonnull %buffer, i32 noundef 8192) #30
   %74 = extractvalue { ptr, i64 } %call128, 0
@@ -18968,7 +18968,7 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit164: ; preds = %_ZNSt10unique
   br label %if.end147
 
 if.end147:                                        ; preds = %if.end138, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit164, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit136
-  %call148266 = call i32 @uv_fs_read(ptr noundef null, ptr noundef nonnull %req, i32 noundef %file.1, ptr noundef nonnull %buf, i32 noundef 1, i64 noundef -1, ptr noundef null) #30
+  %call148266 = call i32 @uv_fs_read(ptr noundef null, ptr noundef nonnull %req, i32 noundef %file.0, ptr noundef nonnull %buf, i32 noundef 1, i64 noundef -1, ptr noundef null) #30
   %result149 = getelementptr inbounds i8, ptr %req, i64 88
   %88 = load i64, ptr %result149, align 8
   %cmp150267 = icmp slt i64 %88, 0
@@ -19081,7 +19081,7 @@ if.end176:                                        ; preds = %if.end173
   %102 = load ptr, ptr %buf, align 8
   %conv177 = zext nneg i32 %call148268 to i64
   %call178 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result127, ptr noundef %102, i64 noundef %conv177) #30
-  %call148 = call i32 @uv_fs_read(ptr noundef null, ptr noundef nonnull %req, i32 noundef %file.1, ptr noundef nonnull %buf, i32 noundef 1, i64 noundef -1, ptr noundef null) #30
+  %call148 = call i32 @uv_fs_read(ptr noundef null, ptr noundef nonnull %req, i32 noundef %file.0, ptr noundef nonnull %buf, i32 noundef 1, i64 noundef -1, ptr noundef null) #30
   %103 = load i64, ptr %result149, align 8
   %cmp150 = icmp slt i64 %103, 0
   br i1 %cmp150, label %if.then151, label %if.end173, !llvm.loop !108
@@ -19320,7 +19320,7 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit.i.i: ; preds = %_ZNSt10uniqu
   br label %do.body13.i.i
 
 do.body13.i.i:                                    ; preds = %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit.i.i, %if.end.i.i256, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i.i
-  %call14.i.i = call i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %req, i32 noundef %file.1, ptr noundef null) #30
+  %call14.i.i = call i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %req, i32 noundef %file.0, ptr noundef null) #30
   %cmp15.not.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %cmp15.not.i.i, label %do.end23.i.i, label %do.body20.i.i
 
@@ -23806,9 +23806,9 @@ if.end123:                                        ; preds = %if.end123.lr.ph, %i
   %call120238 = phi i32 [ %call120230, %if.end123.lr.ph ], [ %call120, %if.end157 ]
   %name_v.sroa.0.0237 = phi ptr [ null, %if.end123.lr.ph ], [ %name_v.sroa.0.1, %if.end157 ]
   %name_v.sroa.6.0236 = phi ptr [ null, %if.end123.lr.ph ], [ %name_v.sroa.6.1, %if.end157 ]
-  %type_v.sroa.11.0235 = phi ptr [ null, %if.end123.lr.ph ], [ %type_v.sroa.11.2, %if.end157 ]
-  %type_v.sroa.6.0234 = phi ptr [ null, %if.end123.lr.ph ], [ %type_v.sroa.6.2, %if.end157 ]
-  %type_v.sroa.0.0233 = phi ptr [ null, %if.end123.lr.ph ], [ %type_v.sroa.0.2, %if.end157 ]
+  %type_v.sroa.11.0235 = phi ptr [ null, %if.end123.lr.ph ], [ %type_v.sroa.11.1, %if.end157 ]
+  %type_v.sroa.6.0234 = phi ptr [ null, %if.end123.lr.ph ], [ %type_v.sroa.6.1, %if.end157 ]
+  %type_v.sroa.0.0233 = phi ptr [ null, %if.end123.lr.ph ], [ %type_v.sroa.0.1, %if.end157 ]
   %name_v.sroa.11.0232 = phi ptr [ null, %if.end123.lr.ph ], [ %name_v.sroa.11.1, %if.end157 ]
   %cmp.i155 = icmp slt i32 %call120238, 0
   br i1 %cmp.i155, label %if.then125, label %if.end127
@@ -23978,20 +23978,20 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7Inte
   br label %if.end157
 
 if.end157:                                        ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i159, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit
-  %type_v.sroa.0.2 = phi ptr [ %type_v.sroa.0.0233, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit ], [ %cond.i10.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %type_v.sroa.0.0233, %if.then.i159 ]
-  %type_v.sroa.6.2 = phi ptr [ %type_v.sroa.6.0234, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit ], [ %incdec.ptr.i.i164, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i159 ]
-  %type_v.sroa.11.2 = phi ptr [ %type_v.sroa.11.0235, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit ], [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %type_v.sroa.11.0235, %if.then.i159 ]
+  %type_v.sroa.0.1 = phi ptr [ %type_v.sroa.0.0233, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit ], [ %cond.i10.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %type_v.sroa.0.0233, %if.then.i159 ]
+  %type_v.sroa.6.1 = phi ptr [ %type_v.sroa.6.0234, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit ], [ %incdec.ptr.i.i164, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i159 ]
+  %type_v.sroa.11.1 = phi ptr [ %type_v.sroa.11.0235, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backEOS3_.exit ], [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7IntegerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %type_v.sroa.11.0235, %if.then.i159 ]
   %call120 = call i32 @uv_fs_scandir_next(ptr noundef nonnull %req_wrap_sync, ptr noundef nonnull %ent) #30
   %cmp121 = icmp eq i32 %call120, -4095
   br i1 %cmp121, label %for.end.loopexit, label %if.end123, !llvm.loop !120
 
 for.end.loopexit:                                 ; preds = %if.end157
   %97 = ptrtoint ptr %name_v.sroa.6.1 to i64
-  %98 = ptrtoint ptr %type_v.sroa.6.2 to i64
+  %98 = ptrtoint ptr %type_v.sroa.6.1 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %type_v.sroa.0.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %type_v.sroa.0.2, %for.end.loopexit ]
+  %type_v.sroa.0.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %type_v.sroa.0.1, %for.end.loopexit ]
   %type_v.sroa.6.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %98, %for.end.loopexit ]
   %name_v.sroa.6.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %97, %for.end.loopexit ]
   %name_v.sroa.0.0.lcssa = phi ptr [ null, %for.cond.preheader ], [ %name_v.sroa.0.1, %for.end.loopexit ]
@@ -31166,9 +31166,9 @@ _ZN4node16MaybeStackBufferIcLm64EE25SetLengthAndZeroTerminateEm.exit140: ; preds
   br label %if.end189
 
 if.end189:                                        ; preds = %_ZN4node16MaybeStackBufferIcLm64EE25SetLengthAndZeroTerminateEm.exit140, %do.end164
-  %len.3 = phi i64 [ %call187, %_ZN4node16MaybeStackBufferIcLm64EE25SetLengthAndZeroTerminateEm.exit140 ], [ %len.0.ph, %do.end164 ]
+  %len.2 = phi i64 [ %call187, %_ZN4node16MaybeStackBufferIcLm64EE25SetLengthAndZeroTerminateEm.exit140 ], [ %len.0.ph, %do.end164 ]
   %buf.1 = phi ptr [ %109, %_ZN4node16MaybeStackBufferIcLm64EE25SetLengthAndZeroTerminateEm.exit140 ], [ %buf.0.ph, %do.end164 ]
-  %conv191 = trunc i64 %len.3 to i32
+  %conv191 = trunc i64 %len.2 to i32
   %call192 = call { ptr, i64 } @uv_buf_init(ptr noundef %buf.1, i32 noundef %conv191) #30
   %110 = extractvalue { ptr, i64 } %call192, 0
   store ptr %110, ptr %uvbuf190, align 8
@@ -31990,8 +31990,8 @@ _ZN4node2fs13FSReqWrapSyncD2Ev.exit:              ; preds = %if.end169, %_ZNKSt1
   br label %cleanup173
 
 cleanup173:                                       ; preds = %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit
-  %file.0 = phi i32 [ %call.i.i114, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ undef, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
-  %cleanup.dest.slot.1 = phi i32 [ %call.i.i114.lobit, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ 1, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
+  %file.1 = phi i32 [ %call.i.i114, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ undef, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
+  %cleanup.dest.slot.0 = phi i32 [ %call.i.i114.lobit, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ 1, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
   %92 = load ptr, ptr %buf_.i99, align 8
   %cmp.i.i.i.i153 = icmp ne ptr %92, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %path, i64 24
@@ -32004,11 +32004,11 @@ if.then.i.i155:                                   ; preds = %cleanup173
   br label %_ZN4node11BufferValueD2Ev.exit
 
 _ZN4node11BufferValueD2Ev.exit:                   ; preds = %cleanup173, %if.then.i.i155
-  %cond = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond, label %if.end174, label %cleanup275
 
 if.end174:                                        ; preds = %_ZN4node11BufferValueD2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295
-  %file.1 = phi i32 [ %call103, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295 ], [ %file.0, %_ZN4node11BufferValueD2Ev.exit ]
+  %file.0 = phi i32 [ %call103, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295 ], [ %file.1, %_ZN4node11BufferValueD2Ev.exit ]
   %94 = load i64, ptr %value, align 8
   %95 = load ptr, ptr %buf_.i, align 8
   %conv177 = trunc i64 %94 to i32
@@ -32124,7 +32124,7 @@ while.body:                                       ; preds = %while.cond
   store ptr @.str.123, ptr %syscall_p.i193, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path_p.i194, i8 0, i64 24, i1 false)
   call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %retval.0.i.i) #30
-  %call.i.i197 = call noundef i32 @uv_fs_write(ptr noundef null, ptr noundef nonnull %req_write, i32 noundef %file.1, ptr noundef nonnull %uvbuf, i32 noundef 1, i64 noundef -1, ptr noundef null) #30
+  %call.i.i197 = call noundef i32 @uv_fs_write(ptr noundef null, ptr noundef nonnull %req_write, i32 noundef %file.0, ptr noundef nonnull %uvbuf, i32 noundef 1, i64 noundef -1, ptr noundef null) #30
   %cmp.i.i198 = icmp sgt i32 %call.i.i197, -1
   br i1 %cmp.i.i198, label %if.end203, label %_ZN4node2fs23SyncCallAndThrowOnErrorIPFiP9uv_loop_sP7uv_fs_siPK8uv_buf_tjlPFvS5_EEJiPS6_iiEEEiPNS_11EnvironmentEPNS0_13FSReqWrapSyncET_DpT0_.exit.thread
 
@@ -32357,7 +32357,7 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit287: ; preds = %_ZNSt10unique
 
 if.end247:                                        ; preds = %if.end238, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit287, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit259
   call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %retval.0.i.i) #30
-  %call.i.i288 = call noundef i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %req_close, i32 noundef %file.1, ptr noundef null) #30
+  %call.i.i288 = call noundef i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %req_close, i32 noundef %file.0, ptr noundef null) #30
   %cmp.i.i289 = icmp slt i32 %call.i.i288, 0
   br i1 %cmp.i.i289, label %if.then.i.i290, label %_ZN4node2fs23SyncCallAndThrowOnErrorIPFiP9uv_loop_sP7uv_fs_siPFvS5_EEJiEEEiPNS_11EnvironmentEPNS0_13FSReqWrapSyncET_DpT0_.exit
 
@@ -41946,7 +41946,7 @@ if.then34.i:                                      ; preds = %if.end32.i
   %25 = load i64, ptr %read_length_.i, align 8
   %cmp35.i = icmp sgt i64 %25, -1
   %26 = call i64 @llvm.umin.i64(i64 %25, i64 %18)
-  %result23.0.i = select i1 %cmp35.i, i64 %26, i64 %18
+  %result23.1.i = select i1 %cmp35.i, i64 %26, i64 %18
   br i1 %cmp35.i, label %if.then43.i, label %if.end45.i
 
 if.then43.i:                                      ; preds = %if.then34.i
@@ -41961,14 +41961,14 @@ if.end45.i:                                       ; preds = %if.then43.i, %if.th
   br i1 %cmp46.i, label %if.then47.i, label %if.end50.i
 
 if.then47.i:                                      ; preds = %if.end45.i
-  %add.i = add nuw nsw i64 %27, %result23.0.i
+  %add.i = add nuw nsw i64 %27, %result23.1.i
   store i64 %add.i, ptr %read_offset_.i, align 8
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then47.i, %if.end45.i, %if.end32.i
-  %result23.1.i = phi i64 [ %result23.0.i, %if.then47.i ], [ %result23.0.i, %if.end45.i ], [ %18, %if.end32.i ]
-  %cmp51.i = icmp eq i64 %result23.1.i, 0
-  %spec.store.select.i = select i1 %cmp51.i, i64 -4095, i64 %result23.1.i
+  %result23.0.i = phi i64 [ %result23.1.i, %if.then47.i ], [ %result23.1.i, %if.end45.i ], [ %18, %if.end32.i ]
+  %cmp51.i = icmp eq i64 %result23.0.i, 0
+  %spec.store.select.i = select i1 %cmp51.i, i64 -4095, i64 %result23.0.i
   %cmp.i40.i = icmp sgt i64 %spec.store.select.i, 0
   br i1 %cmp.i40.i, label %if.then.i44.i, label %_ZN4node14StreamResource8EmitReadElRK8uv_buf_t.exit.i
 

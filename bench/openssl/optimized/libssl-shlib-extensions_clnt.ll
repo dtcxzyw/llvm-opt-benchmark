@@ -1830,20 +1830,20 @@ if.then138:                                       ; preds = %if.then132
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %PACKET_equal.exit
-  %prots.sroa.3.1 = phi i64 [ %sub.i.i6.i, %PACKET_equal.exit ], [ %21, %while.cond.preheader ]
-  %prots.sroa.0.1 = phi ptr [ %add.ptr.i.i5.i, %PACKET_equal.exit ], [ %19, %while.cond.preheader ]
-  %tobool.not.i.i.i = icmp eq i64 %prots.sroa.3.1, 0
+  %prots.sroa.3.0 = phi i64 [ %sub.i.i6.i, %PACKET_equal.exit ], [ %21, %while.cond.preheader ]
+  %prots.sroa.0.0 = phi ptr [ %add.ptr.i.i5.i, %PACKET_equal.exit ], [ %19, %while.cond.preheader ]
+  %tobool.not.i.i.i = icmp eq i64 %prots.sroa.3.0, 0
   br i1 %tobool.not.i.i.i, label %if.then150, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.cond
-  %22 = load i8, ptr %prots.sroa.0.1, align 1
-  %sub.i.i.i = add i64 %prots.sroa.3.1, -1
+  %22 = load i8, ptr %prots.sroa.0.0, align 1
+  %sub.i.i.i = add i64 %prots.sroa.3.0, -1
   %conv.i = zext i8 %22 to i64
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %conv.i
   br i1 %cmp.i.i.i, label %if.then150, label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prots.sroa.0.1, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prots.sroa.0.0, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   %23 = load i64, ptr %alpn_selected_len, align 8

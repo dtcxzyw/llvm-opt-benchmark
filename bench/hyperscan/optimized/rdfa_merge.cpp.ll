@@ -4301,8 +4301,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i15:                ; preds = %if.then.i.i.i.i.i.i
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %cleanup, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp.i.i.i.i.not.lcssa.ph, %cleanup ], [ %cmp.i.i.i.i.not.lcssa64, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i.i.i.not.lcssa64, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp.i.i.i.i.not.lcssa.ph, %cleanup ], [ %cmp.i.i.i.i.not.lcssa64, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i.i.i.not.lcssa64, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i15, %if.then.i.i.i.i.i.i.i.i.i12, %ehcleanup
   resume { ptr, i32 } %.pn

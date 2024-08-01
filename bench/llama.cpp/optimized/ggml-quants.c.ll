@@ -1904,15 +1904,15 @@ for.body21.i:                                     ; preds = %for.body21.i, %if.e
 
 for.cond69.preheader.i:                           ; preds = %for.body21.i, %for.end163.i
   %itry.0135.i = phi i32 [ %inc168.i, %for.end163.i ], [ 0, %for.body21.i ]
-  %suml2.1134.i = phi float [ %suml2.3.i, %for.end163.i ], [ %9, %for.body21.i ]
-  %sumlx.1133.i = phi float [ %sumlx.3.i, %for.end163.i ], [ %8, %for.body21.i ]
+  %suml2.1134.i = phi float [ %suml2.4.i, %for.end163.i ], [ %9, %for.body21.i ]
+  %sumlx.1133.i = phi float [ %sumlx.4.i, %for.end163.i ], [ %8, %for.body21.i ]
   br label %for.body72.i
 
 for.body72.i:                                     ; preds = %for.inc161.i, %for.cond69.preheader.i
   %indvars.iv146.i = phi i64 [ 0, %for.cond69.preheader.i ], [ %indvars.iv.next147.i, %for.inc161.i ]
   %n_changed.0131.i = phi i32 [ 0, %for.cond69.preheader.i ], [ %n_changed.1.i, %for.inc161.i ]
-  %suml2.2130.i = phi float [ %suml2.1134.i, %for.cond69.preheader.i ], [ %suml2.3.i, %for.inc161.i ]
-  %sumlx.2129.i = phi float [ %sumlx.1133.i, %for.cond69.preheader.i ], [ %sumlx.3.i, %for.inc161.i ]
+  %suml2.3130.i = phi float [ %suml2.1134.i, %for.cond69.preheader.i ], [ %suml2.4.i, %for.inc161.i ]
+  %sumlx.3129.i = phi float [ %sumlx.1133.i, %for.cond69.preheader.i ], [ %sumlx.4.i, %for.inc161.i ]
   %arrayidx75.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv146.i
   %10 = load float, ptr %arrayidx75.i, align 4, !alias.scope !88, !noalias !91
   %mul78.i = fmul float %10, %10
@@ -1921,13 +1921,13 @@ for.body72.i:                                     ; preds = %for.inc161.i, %for.
   %conv85.i = sitofp i8 %11 to float
   %12 = fneg float %mul78.i
   %neg.i = fmul float %10, %12
-  %13 = tail call float @llvm.fmuladd.f32(float %neg.i, float %conv85.i, float %sumlx.2129.i)
+  %13 = tail call float @llvm.fmuladd.f32(float %neg.i, float %conv85.i, float %sumlx.3129.i)
   %cmp87.i = fcmp ogt float %13, 0.000000e+00
   br i1 %cmp87.i, label %if.then89.i, label %for.inc161.i
 
 if.then89.i:                                      ; preds = %for.body72.i
   %neg100.i = fmul float %12, %conv85.i
-  %14 = tail call float @llvm.fmuladd.f32(float %neg100.i, float %conv85.i, float %suml2.2130.i)
+  %14 = tail call float @llvm.fmuladd.f32(float %neg100.i, float %conv85.i, float %suml2.3130.i)
   %mul103.i = fmul float %10, %14
   %div104.i = fdiv float %mul103.i, %13
   %add.i119.i = fadd float %div104.i, 0x4168000000000000
@@ -1951,8 +1951,8 @@ if.then135.i:                                     ; preds = %if.then89.i
 
 land.lhs.true.i:                                  ; preds = %if.then135.i
   %mul147.i = fmul float %18, %18
-  %mul148.i = fmul float %suml2.2130.i, %mul147.i
-  %mul149.i = fmul float %sumlx.2129.i, %sumlx.2129.i
+  %mul148.i = fmul float %suml2.3130.i, %mul147.i
+  %mul149.i = fmul float %sumlx.3129.i, %sumlx.3129.i
   %mul150.i = fmul float %mul149.i, %19
   %cmp151.i = fcmp ogt float %mul148.i, %mul150.i
   br i1 %cmp151.i, label %if.then153.i, label %for.inc161.i
@@ -1964,8 +1964,8 @@ if.then153.i:                                     ; preds = %land.lhs.true.i
   br label %for.inc161.i
 
 for.inc161.i:                                     ; preds = %if.then153.i, %land.lhs.true.i, %if.then135.i, %if.then89.i, %for.body72.i
-  %sumlx.3.i = phi float [ %18, %if.then153.i ], [ %sumlx.2129.i, %land.lhs.true.i ], [ %sumlx.2129.i, %if.then135.i ], [ %sumlx.2129.i, %if.then89.i ], [ %sumlx.2129.i, %for.body72.i ]
-  %suml2.3.i = phi float [ %19, %if.then153.i ], [ %suml2.2130.i, %land.lhs.true.i ], [ %suml2.2130.i, %if.then135.i ], [ %suml2.2130.i, %if.then89.i ], [ %suml2.2130.i, %for.body72.i ]
+  %sumlx.4.i = phi float [ %18, %if.then153.i ], [ %sumlx.3129.i, %land.lhs.true.i ], [ %sumlx.3129.i, %if.then135.i ], [ %sumlx.3129.i, %if.then89.i ], [ %sumlx.3129.i, %for.body72.i ]
+  %suml2.4.i = phi float [ %19, %if.then153.i ], [ %suml2.3130.i, %land.lhs.true.i ], [ %suml2.3130.i, %if.then135.i ], [ %suml2.3130.i, %if.then89.i ], [ %suml2.3130.i, %for.body72.i ]
   %n_changed.1.i = phi i32 [ %inc157.i, %if.then153.i ], [ %n_changed.0131.i, %land.lhs.true.i ], [ %n_changed.0131.i, %if.then135.i ], [ %n_changed.0131.i, %if.then89.i ], [ %n_changed.0131.i, %for.body72.i ]
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next147.i, 16
@@ -1989,7 +1989,7 @@ for.body174.i:                                    ; preds = %for.end163.i, %for.
   br i1 %exitcond154.not.i, label %for.end181.i, label %for.body174.i, !llvm.loop !97
 
 for.end181.i:                                     ; preds = %for.body174.i
-  %div182.i = fdiv float %sumlx.3.i, %suml2.3.i
+  %div182.i = fdiv float %sumlx.4.i, %suml2.4.i
   br label %make_q3_quants.exit
 
 make_q3_quants.exit:                              ; preds = %for.body8.preheader.i, %for.end181.i

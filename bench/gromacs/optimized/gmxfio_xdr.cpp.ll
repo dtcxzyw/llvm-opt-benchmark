@@ -1251,7 +1251,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %.loopexit
 
 .thread270:                                       ; preds = %248, %.thread, %.thread273
-  %.2272 = phi i32 [ %254, %.thread273 ], [ 1, %.thread ], [ 1, %248 ]
+  %.3272 = phi i32 [ %254, %.thread273 ], [ 1, %.thread ], [ 1, %248 ]
   %259 = getelementptr inbounds i8, ptr %0, i64 8
   %260 = load i8, ptr %259, align 8
   %261 = trunc i8 %260 to i1
@@ -1308,8 +1308,8 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader233, %218, %.preheader231.split.us, %195, %255, %.loopexit.loopexit246, %.loopexit228, %.preheader229, %.thread219, %.thread218, %175, %151, %139, %127, %115, %103, %91, %79, %67, %54, %271, %.thread270, %262, %177, %153, %141, %129, %117, %105, %93, %81, %56, %69, %165, %159
-  %.4 = phi i32 [ %258, %255 ], [ %.2272, %262 ], [ %.2272, %.thread270 ], [ %178, %177 ], [ %176, %175 ], [ %167, %165 ], [ %161, %159 ], [ %154, %153 ], [ %152, %151 ], [ %142, %141 ], [ %140, %139 ], [ %130, %129 ], [ %128, %127 ], [ %118, %117 ], [ %116, %115 ], [ %106, %105 ], [ %104, %103 ], [ %94, %93 ], [ %92, %91 ], [ %82, %81 ], [ %80, %79 ], [ %57, %56 ], [ %55, %54 ], [ %70, %69 ], [ %68, %67 ], [ 1, %271 ], [ %185, %.thread218 ], [ %201, %.thread219 ], [ 1, %.preheader229 ], [ %206, %.loopexit228 ], [ %282, %.loopexit.loopexit246 ], [ %194, %195 ], [ %37, %.preheader231.split.us ], [ %220, %218 ], [ %275, %.preheader233 ]
-  %283 = icmp ne i32 %.4, 0
+  %.0 = phi i32 [ %258, %255 ], [ %.3272, %262 ], [ %.3272, %.thread270 ], [ %178, %177 ], [ %176, %175 ], [ %167, %165 ], [ %161, %159 ], [ %154, %153 ], [ %152, %151 ], [ %142, %141 ], [ %140, %139 ], [ %130, %129 ], [ %128, %127 ], [ %118, %117 ], [ %116, %115 ], [ %106, %105 ], [ %104, %103 ], [ %94, %93 ], [ %92, %91 ], [ %82, %81 ], [ %80, %79 ], [ %57, %56 ], [ %55, %54 ], [ %70, %69 ], [ %68, %67 ], [ 1, %271 ], [ %185, %.thread218 ], [ %201, %.thread219 ], [ 1, %.preheader229 ], [ %206, %.loopexit228 ], [ %282, %.loopexit.loopexit246 ], [ %194, %195 ], [ %37, %.preheader231.split.us ], [ %220, %218 ], [ %275, %.preheader233 ]
+  %283 = icmp ne i32 %.0, 0
   ret i1 %283
 }
 
@@ -1550,8 +1550,8 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_floatP8t_fileioPfPKcS3_i(ptr noundef 
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1598,8 +1598,8 @@ define noundef zeroext i1 @_Z18gmx_fio_doe_doubleP8t_fileioPdPKcS3_i(ptr noundef
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1702,8 +1702,8 @@ define noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1749,8 +1749,8 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_int32P8t_fileioPiPKcS3_i(ptr noundef 
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1796,8 +1796,8 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_int64P8t_fileioPlPKcS3_i(ptr noundef 
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1843,8 +1843,8 @@ define noundef zeroext i1 @_Z17gmx_fio_doe_ucharP8t_fileioPhPKcS3_i(ptr noundef 
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1890,8 +1890,8 @@ define noundef zeroext i1 @_Z16gmx_fio_doe_charP8t_fileioPcPKcS3_i(ptr noundef %
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22
@@ -1937,8 +1937,8 @@ define noundef zeroext i1 @_Z18gmx_fio_doe_ushortP8t_fileioPtPKcS3_i(ptr noundef
   br label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
 _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17, %19
-  %.4.i = phi i32 [ %20, %19 ], [ %18, %17 ]
-  %22 = icmp ne i32 %.4.i, 0
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
+  %22 = icmp ne i32 %.0.i, 0
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef nonnull %0)
   ret i1 %22

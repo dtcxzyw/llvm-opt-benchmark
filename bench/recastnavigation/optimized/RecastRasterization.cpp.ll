@@ -455,9 +455,9 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
 
 103:                                              ; preds = %.lr.ph183, %.loopexit
   %.0100181 = phi i32 [ %90, %.lr.ph183 ], [ %177, %.loopexit ]
-  %.0154180 = phi ptr [ %99, %.lr.ph183 ], [ %.2, %.loopexit ]
+  %.0154180 = phi ptr [ %99, %.lr.ph183 ], [ %.1155, %.loopexit ]
   %.0156179 = phi ptr [ %100, %.lr.ph183 ], [ %.0160177, %.loopexit ]
-  %.0157178 = phi ptr [ %101, %.lr.ph183 ], [ %.2159, %.loopexit ]
+  %.0157178 = phi ptr [ %101, %.lr.ph183 ], [ %.1158, %.loopexit ]
   %.0160177 = phi ptr [ %12, %.lr.ph183 ], [ %.0156179, %.loopexit ]
   %104 = load float, ptr %73, align 4
   %105 = sitofp i32 %.0100181 to float
@@ -517,14 +517,14 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
 
 132:                                              ; preds = %.lr.ph, %175
   %.0101174 = phi i32 [ %129, %.lr.ph ], [ %176, %175 ]
-  %.1155173 = phi ptr [ %.0154180, %.lr.ph ], [ %.1158172, %175 ]
-  %.1158172 = phi ptr [ %.0157178, %.lr.ph ], [ %.1155173, %175 ]
+  %.2173 = phi ptr [ %.0154180, %.lr.ph ], [ %.2159172, %175 ]
+  %.2159172 = phi ptr [ %.0157178, %.lr.ph ], [ %.2173, %175 ]
   %133 = load float, ptr %5, align 4
   %134 = sitofp i32 %.0101174 to float
   %135 = tail call float @llvm.fmuladd.f32(float %134, float %7, float %133)
   %136 = load i32, ptr %16, align 4
   %137 = fadd float %135, %7
-  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.1158172, i32 noundef %136, ptr noundef %.0160177, ptr noundef nonnull %15, ptr noundef %.1155173, ptr noundef nonnull %16, float noundef %137, i32 noundef 0)
+  call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.2159172, i32 noundef %136, ptr noundef %.0160177, ptr noundef nonnull %15, ptr noundef %.2173, ptr noundef nonnull %16, float noundef %137, i32 noundef 0)
   %138 = load i32, ptr %15, align 4
   %139 = icmp slt i32 %138, 3
   %140 = icmp slt i32 %.0101174, 0
@@ -589,8 +589,8 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   br i1 %exitcond194.not, label %.loopexit, label %132, !llvm.loop !9
 
 .loopexit:                                        ; preds = %175, %128, %119, %103
-  %.2159 = phi ptr [ %.0157178, %103 ], [ %.0157178, %119 ], [ %.0157178, %128 ], [ %.1155173, %175 ]
-  %.2 = phi ptr [ %.0154180, %103 ], [ %.0154180, %119 ], [ %.0154180, %128 ], [ %.1158172, %175 ]
+  %.1158 = phi ptr [ %.0157178, %103 ], [ %.0157178, %119 ], [ %.0157178, %128 ], [ %.2173, %175 ]
+  %.1155 = phi ptr [ %.0154180, %103 ], [ %.0154180, %119 ], [ %.0154180, %128 ], [ %.2159172, %175 ]
   %177 = add i32 %.0100181, 1
   %exitcond195.not = icmp eq i32 %.0100181, %93
   br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %103, !llvm.loop !10

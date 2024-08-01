@@ -910,12 +910,12 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
   br label %379
 
 379:                                              ; preds = %list_length.exit150, %generate_union_paths.exit
-  %.0 = phi ptr [ %189, %generate_union_paths.exit ], [ %283, %list_length.exit150 ]
+  %.1 = phi ptr [ %189, %generate_union_paths.exit ], [ %283, %list_length.exit150 ]
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %383, label %380
 
 380:                                              ; preds = %379
-  %381 = getelementptr inbounds i8, ptr %.0, i64 16
+  %381 = getelementptr inbounds i8, ptr %.1, i64 16
   %382 = load double, ptr %381, align 8
   store double %382, ptr %8, align 8
   br label %383
@@ -940,7 +940,7 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
   store ptr %393, ptr %7, align 8
   %394 = call ptr @make_pathtarget_from_tlist(ptr noundef %393) #7
   %395 = call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %394) #7
-  %396 = getelementptr inbounds i8, ptr %.0, i64 40
+  %396 = getelementptr inbounds i8, ptr %.1, i64 40
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds i8, ptr %397, i64 4
   %.not126 = icmp eq ptr %397, null
@@ -975,7 +975,7 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
   br i1 %412, label %.lr.ph242, label %._crit_edge239
 
 ._crit_edge239:                                   ; preds = %409, %.lr.ph238, %391
-  %413 = getelementptr inbounds i8, ptr %.0, i64 56
+  %413 = getelementptr inbounds i8, ptr %.1, i64 56
   %414 = load ptr, ptr %413, align 8
   %415 = getelementptr inbounds i8, ptr %414, i64 4
   %.not128 = icmp eq ptr %414, null
@@ -1016,18 +1016,18 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
   br label %.thread170
 
 .thread170:                                       ; preds = %.lr.ph248, %.thread170.sink.split, %._crit_edge239, %.lr.ph245, %388, %71
-  %.1 = phi ptr [ %28, %71 ], [ %.0, %388 ], [ %.0, %.lr.ph245 ], [ %.0, %._crit_edge239 ], [ %28, %.thread170.sink.split ], [ %.0, %.lr.ph248 ]
+  %.0 = phi ptr [ %28, %71 ], [ %.1, %388 ], [ %.1, %.lr.ph245 ], [ %.1, %._crit_edge239 ], [ %28, %.thread170.sink.split ], [ %.1, %.lr.ph248 ]
   %432 = load ptr, ptr @create_upper_paths_hook, align 8
   %.not.i143 = icmp eq ptr %432, null
   br i1 %.not.i143, label %postprocess_setop_rel.exit, label %433
 
 433:                                              ; preds = %.thread170
-  call void %432(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef %.1, ptr noundef null) #7
+  call void %432(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef %.0, ptr noundef null) #7
   br label %postprocess_setop_rel.exit
 
 postprocess_setop_rel.exit:                       ; preds = %.thread170, %433
-  call void @set_cheapest(ptr noundef %.1) #7
-  ret ptr %.1
+  call void @set_cheapest(ptr noundef %.0) #7
+  ret ptr %.0
 }
 
 declare void @check_stack_depth() local_unnamed_addr #1
@@ -1589,8 +1589,8 @@ generate_setop_grouplist.exit:                    ; preds = %34, %list_head.exit
   br label %49
 
 49:                                               ; preds = %46, %45
-  %.0 = phi ptr [ %48, %46 ], [ %1, %45 ]
-  %50 = getelementptr inbounds i8, ptr %.0, i64 64
+  %.1 = phi ptr [ %48, %46 ], [ %1, %45 ]
+  %50 = getelementptr inbounds i8, ptr %.1, i64 64
   %51 = load ptr, ptr %50, align 8
   %.not.i30 = icmp eq ptr %51, null
   br i1 %.not.i30, label %list_length.exit, label %52
@@ -1602,12 +1602,12 @@ generate_setop_grouplist.exit:                    ; preds = %34, %list_head.exit
 
 list_length.exit:                                 ; preds = %49, %52
   %55 = phi i32 [ %54, %52 ], [ 0, %49 ]
-  %56 = tail call ptr @create_upper_unique_path(ptr noundef %3, ptr noundef %5, ptr noundef nonnull %.0, i32 noundef %55, double noundef %39) #7
+  %56 = tail call ptr @create_upper_unique_path(ptr noundef %3, ptr noundef %5, ptr noundef nonnull %.1, i32 noundef %55, double noundef %39) #7
   br label %57
 
 57:                                               ; preds = %list_length.exit, %41
-  %.1 = phi ptr [ %44, %41 ], [ %56, %list_length.exit ]
-  ret ptr %.1
+  %.0 = phi ptr [ %44, %41 ], [ %56, %list_length.exit ]
+  ret ptr %.0
 }
 
 declare ptr @create_gather_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

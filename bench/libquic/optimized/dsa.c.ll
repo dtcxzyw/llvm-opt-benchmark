@@ -286,12 +286,12 @@ lor.lhs.false132:                                 ; preds = %for.end129
   br i1 %tobool134.not, label %if.end309, label %for.cond139
 
 for.cond139:                                      ; preds = %lor.lhs.false132, %if.end229
-  %counter.1 = phi i32 [ %inc230, %if.end229 ], [ 0, %lor.lhs.false132 ]
-  %cmp140.not = icmp eq i32 %counter.1, 0
+  %counter.2 = phi i32 [ %inc230, %if.end229 ], [ 0, %lor.lhs.false132 ]
+  %cmp140.not = icmp eq i32 %counter.2, 0
   br i1 %cmp140.not, label %if.end145, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.cond139
-  %call142 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %counter.1) #8
+  %call142 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %counter.2) #8
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %if.end309, label %if.end145
 
@@ -420,7 +420,7 @@ if.end224:                                        ; preds = %if.then219
   br i1 %cmp225.not, label %if.end229, label %if.end309
 
 if.end229:                                        ; preds = %if.end224, %if.end215
-  %inc230 = add nuw nsw i32 %counter.1, 1
+  %inc230 = add nuw nsw i32 %counter.2, 1
   %exitcond195 = icmp eq i32 %inc230, 4096
   br i1 %exitcond195, label %for.cond44.backedge, label %for.cond139
 
@@ -456,7 +456,7 @@ for.cond256.preheader:                            ; preds = %lor.lhs.false251
   br i1 %tobool258.not168, label %if.end309, label %if.end260
 
 if.end260:                                        ; preds = %for.cond256.preheader, %if.end269
-  %h.0169 = phi i32 [ %inc270, %if.end269 ], [ 2, %for.cond256.preheader ]
+  %h.1169 = phi i32 [ %inc270, %if.end269 ], [ 2, %for.cond256.preheader ]
   %call261 = call i32 @BN_is_one(ptr noundef %call31) #8
   %tobool262.not = icmp eq i32 %call261, 0
   br i1 %tobool262.not, label %err.preheader, label %if.end264
@@ -468,7 +468,7 @@ if.end264:                                        ; preds = %if.end260
   br i1 %tobool267.not, label %if.end309, label %if.end269
 
 if.end269:                                        ; preds = %if.end264
-  %inc270 = add i32 %h.0169, 1
+  %inc270 = add i32 %h.1169, 1
   %call257 = call i32 @BN_mod_exp_mont(ptr noundef %call31, ptr noundef nonnull %call37, ptr noundef %call30, ptr noundef %call36, ptr noundef nonnull %call20, ptr noundef nonnull %call25) #8
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %if.end309, label %if.end260
@@ -510,7 +510,7 @@ if.end299:                                        ; preds = %lor.lhs.false290
   br i1 %cmp300.not, label %if.end303, label %if.then302
 
 if.then302:                                       ; preds = %if.end299
-  store i32 %counter.1, ptr %out_counter, align 4
+  store i32 %counter.2, ptr %out_counter, align 4
   br label %if.end303
 
 if.end303:                                        ; preds = %if.then302, %if.end299
@@ -518,7 +518,7 @@ if.end303:                                        ; preds = %if.then302, %if.end
   br i1 %cmp304.not, label %if.end309, label %if.then306
 
 if.then306:                                       ; preds = %if.end303
-  %conv307 = zext i32 %h.0169 to i64
+  %conv307 = zext i32 %h.1169 to i64
   store i64 %conv307, ptr %out_h, align 8
   br label %if.end309
 
@@ -681,18 +681,18 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %err, label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %priv_key.0 = phi ptr [ %call4, %if.then3 ], [ %0, %if.end ]
+  %priv_key.1 = phi ptr [ %call4, %if.then3 ], [ %0, %if.end ]
   %q = getelementptr inbounds i8, ptr %dsa, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end8
   %1 = load ptr, ptr %q, align 8
-  %call9 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.0, ptr noundef %1) #8
+  %call9 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.1, ptr noundef %1) #8
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %err, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %call12 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.0) #8
+  %call12 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.1) #8
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %do.end, label %do.body, !llvm.loop !12
 
@@ -708,33 +708,33 @@ if.then16:                                        ; preds = %do.end
   br i1 %cmp18, label %err, label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %do.end
-  %pub_key.0 = phi ptr [ %call17, %if.then16 ], [ %2, %do.end ]
+  %pub_key.1 = phi ptr [ %call17, %if.then16 ], [ %2, %do.end ]
   call void @BN_init(ptr noundef nonnull %prk) #8
-  call void @BN_with_flags(ptr noundef nonnull %prk, ptr noundef nonnull %priv_key.0, i32 noundef 4) #8
+  call void @BN_with_flags(ptr noundef nonnull %prk, ptr noundef nonnull %priv_key.1, i32 noundef 4) #8
   %g = getelementptr inbounds i8, ptr %dsa, i64 24
   %3 = load ptr, ptr %g, align 8
   %p = getelementptr inbounds i8, ptr %dsa, i64 8
   %4 = load ptr, ptr %p, align 8
-  %call22 = call i32 @BN_mod_exp(ptr noundef nonnull %pub_key.0, ptr noundef %3, ptr noundef nonnull %prk, ptr noundef %4, ptr noundef nonnull %call) #8
+  %call22 = call i32 @BN_mod_exp(ptr noundef nonnull %pub_key.1, ptr noundef %3, ptr noundef nonnull %prk, ptr noundef %4, ptr noundef nonnull %call) #8
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %err, label %if.end25
 
 if.end25:                                         ; preds = %if.end21
-  store ptr %priv_key.0, ptr %priv_key1, align 8
-  store ptr %pub_key.0, ptr %pub_key14, align 8
+  store ptr %priv_key.1, ptr %priv_key1, align 8
+  store ptr %pub_key.1, ptr %pub_key14, align 8
   br label %err
 
 err:                                              ; preds = %do.body, %if.end21, %if.then16, %if.then3, %entry, %if.end25
   %ok.0 = phi i32 [ 0, %entry ], [ 0, %if.then3 ], [ 0, %if.then16 ], [ 1, %if.end25 ], [ 0, %if.end21 ], [ 0, %do.body ]
-  %pub_key.1 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ null, %if.then16 ], [ %pub_key.0, %if.end25 ], [ %pub_key.0, %if.end21 ], [ null, %do.body ]
-  %priv_key.1 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ %priv_key.0, %if.then16 ], [ %priv_key.0, %if.end25 ], [ %priv_key.0, %if.end21 ], [ %priv_key.0, %do.body ]
+  %pub_key.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ null, %if.then16 ], [ %pub_key.1, %if.end25 ], [ %pub_key.1, %if.end21 ], [ null, %do.body ]
+  %priv_key.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ %priv_key.1, %if.then16 ], [ %priv_key.1, %if.end25 ], [ %priv_key.1, %if.end21 ], [ %priv_key.1, %do.body ]
   %pub_key28 = getelementptr inbounds i8, ptr %dsa, i64 32
   %5 = load ptr, ptr %pub_key28, align 8
   %cmp29 = icmp eq ptr %5, null
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %err
-  call void @BN_free(ptr noundef %pub_key.1) #8
+  call void @BN_free(ptr noundef %pub_key.0) #8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %err
@@ -744,7 +744,7 @@ if.end31:                                         ; preds = %if.then30, %err
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end31
-  call void @BN_free(ptr noundef %priv_key.1) #8
+  call void @BN_free(ptr noundef %priv_key.0) #8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %if.end31

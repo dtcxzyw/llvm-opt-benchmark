@@ -108,7 +108,7 @@ define dso_local noundef ptr @MultiExecBitmapAnd(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %23, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %.02131 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %23 ]
+  %.02131 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %23 ]
   %11 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @MultiExecProcNode(ptr noundef %12) #5
@@ -137,8 +137,8 @@ define dso_local noundef ptr @MultiExecBitmapAnd(ptr nocapture noundef readonly 
   br label %23
 
 23:                                               ; preds = %20, %22
-  %.1 = phi ptr [ %.02131, %22 ], [ %13, %20 ]
-  %24 = tail call zeroext i1 @tbm_is_empty(ptr noundef nonnull %.1) #5
+  %.2 = phi ptr [ %.02131, %22 ], [ %13, %20 ]
+  %24 = tail call zeroext i1 @tbm_is_empty(ptr noundef nonnull %.2) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %24, i1 true, i1 %exitcond.not
@@ -161,7 +161,7 @@ define dso_local noundef ptr @MultiExecBitmapAnd(ptr nocapture noundef readonly 
   br label %30
 
 30:                                               ; preds = %29, %.thread
-  ret ptr %.1
+  ret ptr %.2
 }
 
 declare void @InstrStartNode(ptr noundef) local_unnamed_addr #1

@@ -326,7 +326,7 @@ if.end104:                                        ; preds = %for.body100
   br i1 %exitcond282.not, label %if.end109, label %for.body100, !llvm.loop !6
 
 if.end109:                                        ; preds = %if.end104, %if.end84
-  %pinfo.1 = phi ptr [ null, %if.end84 ], [ %call101, %if.end104 ]
+  %pinfo.0 = phi ptr [ null, %if.end84 ], [ %call101, %if.end104 ]
   %prime_infos.0 = phi ptr [ null, %if.end84 ], [ %call.i, %if.end104 ]
   %18 = load ptr, ptr %e, align 8
   %call111 = tail call ptr @BN_copy(ptr noundef %18, ptr noundef nonnull %e_value) #3
@@ -338,7 +338,7 @@ for.body117.lr.ph:                                ; preds = %if.end109
   br label %for.body117
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %for.inc261
-  %pinfo.2253 = phi ptr [ %pinfo.1, %for.body117.lr.ph ], [ %pinfo.3, %for.inc261 ]
+  %pinfo.2253 = phi ptr [ %pinfo.0, %for.body117.lr.ph ], [ %pinfo.3, %for.inc261 ]
   %i.2252 = phi i32 [ 0, %for.body117.lr.ph ], [ %inc262, %for.inc261 ]
   %bitse.0251 = phi i32 [ 0, %for.body117.lr.ph ], [ %bitse.3, %for.inc261 ]
   %n.0250 = phi i32 [ 0, %for.body117.lr.ph ], [ %n.3, %for.inc261 ]

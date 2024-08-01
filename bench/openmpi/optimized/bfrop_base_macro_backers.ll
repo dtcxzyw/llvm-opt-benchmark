@@ -7657,13 +7657,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %275
   br label %333
 
 333:                                              ; preds = %333, %330
-  %.1.i.i = phi i64 [ %spec.select.i.i, %330 ], [ %335, %333 ]
-  %334 = icmp ult i64 %.1.i.i, %323
-  %335 = shl i64 %.1.i.i, 1
+  %.2.i.i = phi i64 [ %spec.select.i.i, %330 ], [ %335, %333 ]
+  %334 = icmp ult i64 %.2.i.i, %323
+  %335 = shl i64 %.2.i.i, 1
   br i1 %334, label %333, label %.loopexit.i.i, !llvm.loop !59
 
 .loopexit.i.i:                                    ; preds = %333, %325
-  %.2.i.i = phi i64 [ %329, %325 ], [ %.1.i.i, %333 ]
+  %.045.i.i = phi i64 [ %329, %325 ], [ %.2.i.i, %333 ]
   br i1 %288, label %350, label %336
 
 336:                                              ; preds = %.loopexit.i.i
@@ -7676,16 +7676,16 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %275
   %343 = load ptr, ptr %342, align 8
   %344 = ptrtoint ptr %343 to i64
   %345 = sub i64 %344, %340
-  %346 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %287, i64 noundef %.2.i.i) #37
+  %346 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %287, i64 noundef %.045.i.i) #37
   %347 = getelementptr inbounds i8, ptr %346, i64 %341
   %348 = load i64, ptr %314, align 8
-  %349 = sub i64 %.2.i.i, %348
+  %349 = sub i64 %.045.i.i, %348
   tail call void @llvm.memset.p0.i64(ptr align 1 %347, i8 0, i64 %349, i1 false)
   br label %351
 
 350:                                              ; preds = %.loopexit.i.i
   store i64 0, ptr %316, align 8
-  %calloc.i.i = tail call ptr @calloc(i64 1, i64 %.2.i.i)
+  %calloc.i.i = tail call ptr @calloc(i64 1, i64 %.045.i.i)
   br label %351
 
 351:                                              ; preds = %350, %336
@@ -7703,7 +7703,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %275
   %356 = getelementptr inbounds i8, ptr %.sink.i.i, i64 %.0.i.i
   %357 = getelementptr inbounds i8, ptr %276, i64 144
   store ptr %356, ptr %357, align 8
-  store i64 %.2.i.i, ptr %314, align 8
+  store i64 %.045.i.i, ptr %314, align 8
   br label %pmix_bfrops_base_tma_buffer_extend.exit.i
 
 pmix_bfrops_base_tma_buffer_extend.exit.i:        ; preds = %353, %319
@@ -8834,24 +8834,24 @@ pmix_bfrops_base_tma_node_stats_create.exit:      ; preds = %15
   br label %.thread10
 
 898:                                              ; preds = %615, %114
-  %.8 = phi i32 [ %614, %615 ], [ %113, %114 ]
-  %cond = icmp eq i32 %.8, -2
+  %.0815 = phi i32 [ %614, %615 ], [ %113, %114 ]
+  %cond = icmp eq i32 %.0815, -2
   br i1 %cond, label %900, label %.thread10
 
 .thread10:                                        ; preds = %639, %402, %898, %pmix_bfrops_base_tma_info_create.exit979.thread, %pmix_bfrops_base_tma_node_stats_create.exit, %pmix_bfrops_base_tma_net_stats_create.exit, %pmix_bfrops_base_tma_disk_stats_create.exit, %pmix_bfrops_base_tma_proc_stats_create.exit, %752, %pmix_bfrops_base_tma_endpoint_create.exit, %697, %pmix_bfrops_base_tma_resource_unit_create.exit, %pmix_bfrops_base_tma_device_create.exit, %pmix_bfrops_base_tma_geometry_create.exit, %pmix_bfrops_base_tma_cpuset_create.exit, %573, %552, %529, %pmix_bfrops_base_tma_query_create.exit, %15, %pmix_bfrops_base_tma_proc_info_create.exit, %440, %435, %430, %425, %413, %388, %370, %267, %pmix_bfrops_base_tma_pdata_create.exit, %209, %pmix_bfrops_base_tma_app_create.exit, %124, %116, %pmix_bfrops_base_tma_value_create.exit, %98, %92, %86, %80, %74, %68, %56, %50, %44, %39, %33, %27, %21, %16, %173, %407, %pmix_bfrops_base_tma_fill_coord.exit, %667, %897
-  %.812 = phi i32 [ %.8, %898 ], [ -32, %pmix_bfrops_base_tma_info_create.exit979.thread ], [ -32, %pmix_bfrops_base_tma_node_stats_create.exit ], [ -32, %pmix_bfrops_base_tma_net_stats_create.exit ], [ -32, %pmix_bfrops_base_tma_disk_stats_create.exit ], [ -32, %pmix_bfrops_base_tma_proc_stats_create.exit ], [ -32, %752 ], [ -32, %pmix_bfrops_base_tma_endpoint_create.exit ], [ -32, %697 ], [ -32, %pmix_bfrops_base_tma_resource_unit_create.exit ], [ -32, %pmix_bfrops_base_tma_device_create.exit ], [ -32, %pmix_bfrops_base_tma_geometry_create.exit ], [ -32, %pmix_bfrops_base_tma_cpuset_create.exit ], [ -32, %573 ], [ -32, %552 ], [ -32, %529 ], [ -32, %pmix_bfrops_base_tma_query_create.exit ], [ -47, %15 ], [ -32, %pmix_bfrops_base_tma_proc_info_create.exit ], [ -32, %440 ], [ -32, %435 ], [ -32, %430 ], [ -32, %425 ], [ -32, %413 ], [ -32, %388 ], [ -32, %370 ], [ -32, %267 ], [ -32, %pmix_bfrops_base_tma_pdata_create.exit ], [ -32, %209 ], [ -32, %pmix_bfrops_base_tma_app_create.exit ], [ -32, %124 ], [ -32, %116 ], [ -32, %pmix_bfrops_base_tma_value_create.exit ], [ -32, %98 ], [ -32, %92 ], [ -32, %86 ], [ -32, %80 ], [ -32, %74 ], [ -32, %68 ], [ -32, %56 ], [ -32, %50 ], [ -32, %44 ], [ -32, %39 ], [ -32, %33 ], [ -32, %27 ], [ -32, %21 ], [ -32, %16 ], [ -32, %173 ], [ -32, %407 ], [ -32, %pmix_bfrops_base_tma_fill_coord.exit ], [ -32, %667 ], [ -16, %897 ], [ -32, %402 ], [ -32, %639 ]
-  %899 = tail call ptr @PMIx_Error_string(i32 noundef %.812) #38
+  %.081512 = phi i32 [ %.0815, %898 ], [ -32, %pmix_bfrops_base_tma_info_create.exit979.thread ], [ -32, %pmix_bfrops_base_tma_node_stats_create.exit ], [ -32, %pmix_bfrops_base_tma_net_stats_create.exit ], [ -32, %pmix_bfrops_base_tma_disk_stats_create.exit ], [ -32, %pmix_bfrops_base_tma_proc_stats_create.exit ], [ -32, %752 ], [ -32, %pmix_bfrops_base_tma_endpoint_create.exit ], [ -32, %697 ], [ -32, %pmix_bfrops_base_tma_resource_unit_create.exit ], [ -32, %pmix_bfrops_base_tma_device_create.exit ], [ -32, %pmix_bfrops_base_tma_geometry_create.exit ], [ -32, %pmix_bfrops_base_tma_cpuset_create.exit ], [ -32, %573 ], [ -32, %552 ], [ -32, %529 ], [ -32, %pmix_bfrops_base_tma_query_create.exit ], [ -47, %15 ], [ -32, %pmix_bfrops_base_tma_proc_info_create.exit ], [ -32, %440 ], [ -32, %435 ], [ -32, %430 ], [ -32, %425 ], [ -32, %413 ], [ -32, %388 ], [ -32, %370 ], [ -32, %267 ], [ -32, %pmix_bfrops_base_tma_pdata_create.exit ], [ -32, %209 ], [ -32, %pmix_bfrops_base_tma_app_create.exit ], [ -32, %124 ], [ -32, %116 ], [ -32, %pmix_bfrops_base_tma_value_create.exit ], [ -32, %98 ], [ -32, %92 ], [ -32, %86 ], [ -32, %80 ], [ -32, %74 ], [ -32, %68 ], [ -32, %56 ], [ -32, %50 ], [ -32, %44 ], [ -32, %39 ], [ -32, %33 ], [ -32, %27 ], [ -32, %21 ], [ -32, %16 ], [ -32, %173 ], [ -32, %407 ], [ -32, %pmix_bfrops_base_tma_fill_coord.exit ], [ -32, %667 ], [ -16, %897 ], [ -32, %402 ], [ -32, %639 ]
+  %899 = tail call ptr @PMIx_Error_string(i32 noundef %.081512) #38
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %899, ptr noundef nonnull @.str.10, i32 noundef 3442) #38
   br label %900
 
 900:                                              ; preds = %898, %.thread10
-  %.813 = phi i32 [ -2, %898 ], [ %.812, %.thread10 ]
+  %.081513 = phi i32 [ -2, %898 ], [ %.081512, %.thread10 ]
   tail call void @free(ptr noundef %3) #38
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %pmix_bfrops_base_tma_populate_netstats.exit, %pmix_bfrops_base_tma_populate_dkstats.exit, %pmix_bfrops_base_tma_populate_pstats.exit, %pmix_strncpy.exit.i, %750, %715, %.lr.ph85, %686, %.loopexit46, %608, %pmix_bfrops_base_tma_load_key.exit, %571, %547, %525, %461, %.lr.ph109, %409, %386, %pmix_bfrops_base_tma_copy_payload.exit, %pmix_bfrops_base_tma_pdata_xfer.exit, %pmix_bfrops_base_tma_info_xfer.exit964, %.loopexit, %107, %66, %900, %445, %439, %434, %429, %417, %129, %120, %103, %97, %91, %85, %79, %73, %55, %49, %43, %38, %32, %26, %20, %213, %533, %577, %701, %5, %11
   %.0817.sink = phi ptr [ %3, %11 ], [ %3, %5 ], [ null, %900 ], [ %3, %445 ], [ %3, %439 ], [ %3, %434 ], [ %3, %429 ], [ %3, %417 ], [ %3, %129 ], [ %3, %120 ], [ %3, %103 ], [ %3, %97 ], [ %3, %91 ], [ %3, %85 ], [ %3, %79 ], [ %3, %73 ], [ %3, %55 ], [ %3, %49 ], [ %3, %43 ], [ %3, %38 ], [ %3, %32 ], [ %3, %26 ], [ %3, %20 ], [ %3, %213 ], [ %3, %533 ], [ %3, %577 ], [ %3, %701 ], [ %3, %66 ], [ %3, %107 ], [ %3, %.loopexit ], [ %3, %pmix_bfrops_base_tma_info_xfer.exit964 ], [ %3, %pmix_bfrops_base_tma_pdata_xfer.exit ], [ %3, %pmix_bfrops_base_tma_copy_payload.exit ], [ %3, %386 ], [ %3, %409 ], [ %3, %.lr.ph109 ], [ %3, %461 ], [ %3, %525 ], [ %3, %547 ], [ %3, %571 ], [ %3, %pmix_bfrops_base_tma_load_key.exit ], [ %3, %608 ], [ %3, %.loopexit46 ], [ %3, %686 ], [ %3, %.lr.ph85 ], [ %3, %715 ], [ %3, %750 ], [ %3, %pmix_strncpy.exit.i ], [ %3, %pmix_bfrops_base_tma_populate_pstats.exit ], [ %3, %pmix_bfrops_base_tma_populate_dkstats.exit ], [ %3, %pmix_bfrops_base_tma_populate_netstats.exit ], [ %3, %.lr.ph ]
-  %.0814.ph = phi i32 [ 0, %11 ], [ 0, %5 ], [ %.813, %900 ], [ 0, %445 ], [ 0, %439 ], [ 0, %434 ], [ 0, %429 ], [ 0, %417 ], [ 0, %129 ], [ 0, %120 ], [ 0, %103 ], [ 0, %97 ], [ 0, %91 ], [ 0, %85 ], [ 0, %79 ], [ 0, %73 ], [ 0, %55 ], [ 0, %49 ], [ 0, %43 ], [ 0, %38 ], [ 0, %32 ], [ 0, %26 ], [ 0, %20 ], [ 0, %213 ], [ 0, %533 ], [ 0, %577 ], [ 0, %701 ], [ 0, %66 ], [ 0, %107 ], [ 0, %.loopexit ], [ 0, %pmix_bfrops_base_tma_info_xfer.exit964 ], [ 0, %pmix_bfrops_base_tma_pdata_xfer.exit ], [ 0, %pmix_bfrops_base_tma_copy_payload.exit ], [ 0, %386 ], [ 0, %409 ], [ 0, %.lr.ph109 ], [ 0, %461 ], [ 0, %525 ], [ 0, %547 ], [ 0, %571 ], [ 0, %pmix_bfrops_base_tma_load_key.exit ], [ 0, %608 ], [ 0, %.loopexit46 ], [ 0, %686 ], [ 0, %.lr.ph85 ], [ 0, %715 ], [ 0, %750 ], [ 0, %pmix_strncpy.exit.i ], [ 0, %pmix_bfrops_base_tma_populate_pstats.exit ], [ 0, %pmix_bfrops_base_tma_populate_dkstats.exit ], [ 0, %pmix_bfrops_base_tma_populate_netstats.exit ], [ 0, %.lr.ph ]
+  %.0814.ph = phi i32 [ 0, %11 ], [ 0, %5 ], [ %.081513, %900 ], [ 0, %445 ], [ 0, %439 ], [ 0, %434 ], [ 0, %429 ], [ 0, %417 ], [ 0, %129 ], [ 0, %120 ], [ 0, %103 ], [ 0, %97 ], [ 0, %91 ], [ 0, %85 ], [ 0, %79 ], [ 0, %73 ], [ 0, %55 ], [ 0, %49 ], [ 0, %43 ], [ 0, %38 ], [ 0, %32 ], [ 0, %26 ], [ 0, %20 ], [ 0, %213 ], [ 0, %533 ], [ 0, %577 ], [ 0, %701 ], [ 0, %66 ], [ 0, %107 ], [ 0, %.loopexit ], [ 0, %pmix_bfrops_base_tma_info_xfer.exit964 ], [ 0, %pmix_bfrops_base_tma_pdata_xfer.exit ], [ 0, %pmix_bfrops_base_tma_copy_payload.exit ], [ 0, %386 ], [ 0, %409 ], [ 0, %.lr.ph109 ], [ 0, %461 ], [ 0, %525 ], [ 0, %547 ], [ 0, %571 ], [ 0, %pmix_bfrops_base_tma_load_key.exit ], [ 0, %608 ], [ 0, %.loopexit46 ], [ 0, %686 ], [ 0, %.lr.ph85 ], [ 0, %715 ], [ 0, %750 ], [ 0, %pmix_strncpy.exit.i ], [ 0, %pmix_bfrops_base_tma_populate_pstats.exit ], [ 0, %pmix_bfrops_base_tma_populate_dkstats.exit ], [ 0, %pmix_bfrops_base_tma_populate_netstats.exit ], [ 0, %.lr.ph ]
   store ptr %.0817.sink, ptr %0, align 8
   br label %901
 

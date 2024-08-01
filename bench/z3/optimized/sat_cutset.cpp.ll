@@ -4691,7 +4691,7 @@ sw.bb202.i:                                       ; preds = %while.end.i
   br label %sw.bb205.i
 
 sw.bb205.i:                                       ; preds = %sw.bb202.i, %while.end.i
-  %b.1.i = phi i32 [ %xor196.i, %while.end.i ], [ %add204.i, %sw.bb202.i ]
+  %b.2.i = phi i32 [ %xor196.i, %while.end.i ], [ %add204.i, %sw.bb202.i ]
   %cmp.not.i.i426.not.i = icmp eq i32 %3, 0
   %63 = load i32, ptr %m_elems.i.i399.i, align 8
   %cond.i.i427.i = select i1 %cmp.not.i.i426.not.i, i32 -1, i32 %63
@@ -4699,15 +4699,15 @@ sw.bb205.i:                                       ; preds = %sw.bb202.i, %while.
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb205.i, %while.end.i
-  %b.2.i = phi i32 [ %xor196.i, %while.end.i ], [ %b.1.i, %sw.bb205.i ]
+  %b.1.i = phi i32 [ %xor196.i, %while.end.i ], [ %b.2.i, %sw.bb205.i ]
   %c.1.i = phi i32 [ %xor200.i, %while.end.i ], [ %add207.i, %sw.bb205.i ]
   %.neg43 = add i32 %xor192.i, %conv.i.i
-  %64 = add i32 %b.2.i, %c.1.i
+  %64 = add i32 %b.1.i, %c.1.i
   %sub209.i = sub i32 %.neg43, %64
   %shr210.i = lshr i32 %c.1.i, 13
   %xor211.i = xor i32 %sub209.i, %shr210.i
   %65 = add i32 %c.1.i, %xor211.i
-  %sub213.i = sub i32 %b.2.i, %65
+  %sub213.i = sub i32 %b.1.i, %65
   %shl214.i = shl i32 %xor211.i, 8
   %xor215.i = xor i32 %sub213.i, %shl214.i
   %66 = add i32 %xor211.i, %xor215.i
@@ -5074,7 +5074,7 @@ sw.bb202.i:                                       ; preds = %while.end.i
   br label %sw.bb205.i
 
 sw.bb205.i:                                       ; preds = %while.end.i, %sw.bb202.i
-  %b.1.i = phi i32 [ %add204.i, %sw.bb202.i ], [ %xor196.i, %while.end.i ]
+  %b.2.i = phi i32 [ %add204.i, %sw.bb202.i ], [ %xor196.i, %while.end.i ]
   %cmp.not.i.i426.not.i = icmp eq i32 %1, 0
   %64 = load i32, ptr %m_elems.i.i399.i, align 8
   %cond.i.i427.i = select i1 %cmp.not.i.i426.not.i, i32 -1, i32 %64
@@ -5082,15 +5082,15 @@ sw.bb205.i:                                       ; preds = %while.end.i, %sw.bb
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb205.i, %while.end.i
-  %b.2.i = phi i32 [ %xor196.i, %while.end.i ], [ %b.1.i, %sw.bb205.i ]
+  %b.1.i = phi i32 [ %xor196.i, %while.end.i ], [ %b.2.i, %sw.bb205.i ]
   %c.1.i = phi i32 [ %xor200.i, %while.end.i ], [ %add207.i, %sw.bb205.i ]
   %.neg42 = add i32 %xor192.i, 3
-  %65 = add i32 %b.2.i, %c.1.i
+  %65 = add i32 %b.1.i, %c.1.i
   %sub209.i = sub i32 %.neg42, %65
   %shr210.i = lshr i32 %c.1.i, 13
   %xor211.i = xor i32 %sub209.i, %shr210.i
   %66 = add i32 %c.1.i, %xor211.i
-  %sub213.i = sub i32 %b.2.i, %66
+  %sub213.i = sub i32 %b.1.i, %66
   %shl214.i = shl i32 %xor211.i, 8
   %xor215.i = xor i32 %sub213.i, %shl214.i
   %67 = add i32 %xor211.i, %xor215.i
@@ -5149,17 +5149,17 @@ while.body.preheader:                             ; preds = %if.else
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %w.09 = phi i32 [ %mul, %while.body ], [ %shl2, %while.body.preheader ]
-  %m.08 = phi i64 [ %or, %while.body ], [ %sub, %while.body.preheader ]
+  %m.18 = phi i64 [ %or, %while.body ], [ %sub, %while.body.preheader ]
   %sh_prom4 = zext nneg i32 %w.09 to i64
-  %shl5 = shl i64 %m.08, %sh_prom4
-  %or = or i64 %shl5, %m.08
+  %shl5 = shl i64 %m.18, %sh_prom4
+  %or = or i64 %shl5, %m.18
   %mul = shl nuw nsw i32 %w.09, 1
   %cmp3 = icmp ult i32 %w.09, 32
   br i1 %cmp3, label %while.body, label %if.end, !llvm.loop !18
 
 if.end:                                           ; preds = %while.body, %if.else, %entry
-  %m.1 = phi i64 [ -1, %entry ], [ %sub, %if.else ], [ %or, %while.body ]
-  ret i64 %m.1
+  %m.0 = phi i64 [ -1, %entry ], [ %sub, %if.else ], [ %or, %while.body ]
+  ret i64 %m.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -5210,16 +5210,16 @@ while.body.preheader.i:                           ; preds = %if.else.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %w.09.i = phi i32 [ %mul.i, %while.body.i ], [ %shl2.i, %while.body.preheader.i ]
-  %m.08.i = phi i64 [ %or.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
+  %m.18.i = phi i64 [ %or.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
   %sh_prom4.i = zext nneg i32 %w.09.i to i64
-  %shl5.i = shl i64 %m.08.i, %sh_prom4.i
-  %or.i = or i64 %shl5.i, %m.08.i
+  %shl5.i = shl i64 %m.18.i, %sh_prom4.i
+  %or.i = or i64 %shl5.i, %m.18.i
   %mul.i = shl nuw nsw i32 %w.09.i, 1
   %cmp3.i = icmp ult i32 %w.09.i, 32
   br i1 %cmp3.i, label %while.body.i, label %_ZN3sat3cut11effect_maskEj.exit, !llvm.loop !18
 
 _ZN3sat3cut11effect_maskEj.exit:                  ; preds = %while.body.i, %for.end, %if.else.i
-  %m.1.i = phi i64 [ -1, %for.end ], [ %sub.i, %if.else.i ], [ %or.i, %while.body.i ]
+  %m.0.i = phi i64 [ -1, %for.end ], [ %sub.i, %if.else.i ], [ %or.i, %while.body.i ]
   %m_table = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %m_table, align 8
   br label %for.body9
@@ -5229,7 +5229,7 @@ for.body9:                                        ; preds = %_ZN3sat3cut11effect
   %t.021 = phi i64 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %t.1, %for.inc16 ]
   %offset.019 = phi i32 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %offset.1, %for.inc16 ]
   %shl = shl nuw i64 1, %indvars.iv27
-  %and = and i64 %shl, %m.1.i
+  %and = and i64 %shl, %m.0.i
   %cmp10.not = icmp eq i64 %and, 0
   br i1 %cmp10.not, label %for.inc16, label %if.then
 

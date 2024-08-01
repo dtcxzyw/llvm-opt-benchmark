@@ -667,8 +667,8 @@ define i64 @H5EA__hdr_create(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %98
 
 98:                                               ; preds = %.thread, %94, %91, %68
-  %.3 = phi i64 [ -1, %94 ], [ -1, %91 ], [ %69, %68 ], [ -1, %.thread ]
-  ret i64 %.3
+  %.1 = phi i64 [ -1, %94 ], [ -1, %91 ], [ %69, %68 ], [ -1, %.thread ]
+  ret i64 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

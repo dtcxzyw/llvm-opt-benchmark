@@ -3353,7 +3353,7 @@ _ZN4absl12lts_202308024CordaSEOS1_.exit:          ; preds = %invoke.cont62, %if.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4absl12lts_202308024CordaSEOS1_.exit, %invoke.cont55
-  %retval.0 = xor i1 %tobool.i, true
+  %retval.2 = xor i1 %tobool.i, true
   %buffer_.i65 = getelementptr inbounds i8, ptr %output_stream, i64 40
   %58 = load i8, ptr %buffer_.i65, align 8
   %59 = and i8 %58, 1
@@ -3384,7 +3384,7 @@ terminate.lpad.i.i68:                             ; preds = %if.then.i1.i
   unreachable
 
 cleanup70:                                        ; preds = %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %if.then.i1.i, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i, %if.then.i23, %invoke.cont29
-  %retval.1 = phi i1 [ true, %invoke.cont29 ], [ true, %if.then.i23 ], [ %retval.0, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i ], [ %retval.0, %if.then.i1.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ true, %if.then3.i ]
+  %retval.1 = phi i1 [ true, %invoke.cont29 ], [ true, %if.then.i23 ], [ %retval.2, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i ], [ %retval.2, %if.then.i1.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ true, %if.then3.i ]
   %65 = load i8, ptr %buffer, align 8
   %66 = and i8 %65, 1
   %cmp.i.not.i70 = icmp eq i8 %66, 0
@@ -3408,8 +3408,8 @@ if.then.i76:                                      ; preds = %ehcleanup
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i72, %cleanup70, %invoke.cont5
-  %retval.2 = phi i1 [ false, %invoke.cont5 ], [ %retval.1, %cleanup70 ], [ %retval.1, %if.then.i72 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %invoke.cont5 ], [ %retval.1, %cleanup70 ], [ %retval.1, %if.then.i72 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i76, %ehcleanup, %lpad
   %.pn10 = phi { ptr, i32 } [ %3, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i76 ]

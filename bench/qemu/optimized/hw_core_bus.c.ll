@@ -177,8 +177,8 @@ if.end27:                                         ; preds = %if.then22, %for.end
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %if.then22, %if.then, %if.end27
-  %retval.1 = phi i32 [ 0, %if.end27 ], [ %call, %if.then ], [ %call23, %if.then22 ], [ %call9, %if.end.i.i.i.i ], [ %call9, %while.end.i.i.i.i ], [ %call9, %while.end21.i.i.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.end27 ], [ %call, %if.then ], [ %call23, %if.then22 ], [ %call9, %if.end.i.i.i.i ], [ %call9, %while.end.i.i.i.i ], [ %call9, %while.end21.i.i.i.i ]
+  ret i32 %retval.0
 }
 
 declare i32 @qdev_walk_children(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

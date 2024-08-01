@@ -3521,7 +3521,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %Saig_ObjIsPi.exit
 common.ret.sink.split:                            ; preds = %26, %Saig_ObjIsPi.exit.thread, %52, %222, %133
   %.val108.sink = phi ptr [ %.val114, %133 ], [ %.val117, %222 ], [ %.val111, %52 ], [ %.val105, %26 ], [ %.val108.pre, %Saig_ObjIsPi.exit.thread ]
   %.val109.sink = phi ptr [ %.val115, %133 ], [ %.val118, %222 ], [ %.val112, %52 ], [ %.val106, %26 ], [ %.val109.pre, %Saig_ObjIsPi.exit.thread ]
-  %.088.sink = phi i32 [ %135, %133 ], [ %.3, %222 ], [ %spec.select, %52 ], [ %30, %26 ], [ %41, %Saig_ObjIsPi.exit.thread ]
+  %.088.sink = phi i32 [ %135, %133 ], [ %.2, %222 ], [ %spec.select, %52 ], [ %30, %26 ], [ %41, %Saig_ObjIsPi.exit.thread ]
   %.val110 = load i32, ptr %7, align 4
   %42 = getelementptr i8, ptr %.val108.sink, i64 8
   %.val108.val = load ptr, ptr %42, align 8
@@ -3878,12 +3878,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %220
 
 220:                                              ; preds = %207, %196
-  %.2 = phi i32 [ %200, %196 ], [ %213, %207 ]
-  %221 = xor i32 %.2, %147
+  %.3 = phi i32 [ %200, %196 ], [ %213, %207 ]
+  %221 = xor i32 %.3, %147
   br label %222
 
 222:                                              ; preds = %220, %138
-  %.3 = phi i32 [ %142, %138 ], [ %221, %220 ]
+  %.2 = phi i32 [ %142, %138 ], [ %221, %220 ]
   %.val117 = load ptr, ptr %5, align 8
   %.val118 = load ptr, ptr %6, align 8
   br label %common.ret.sink.split
@@ -5986,16 +5986,16 @@ Abc_Clock.exit719:                                ; preds = %215, %219
 
 273:                                              ; preds = %.lr.ph1036, %1181
   %indvars.iv1196 = phi i64 [ 0, %.lr.ph1036 ], [ %indvars.iv.next1197, %1181 ]
-  %.04541035 = phi i64 [ %.0.i717, %.lr.ph1036 ], [ %.3, %1181 ]
-  %.04561034 = phi i64 [ 0, %.lr.ph1036 ], [ %.5, %1181 ]
-  %.04601033 = phi i64 [ 0, %.lr.ph1036 ], [ %.4464, %1181 ]
-  %.04661032 = phi i64 [ 0, %.lr.ph1036 ], [ %.3469, %1181 ]
-  %.04711031 = phi i64 [ 0, %.lr.ph1036 ], [ %.3474, %1181 ]
-  %.04761030 = phi i32 [ -1, %.lr.ph1036 ], [ %.3479, %1181 ]
-  %.04811029 = phi i64 [ 0, %.lr.ph1036 ], [ %.7, %1181 ]
-  %.04871028 = phi i32 [ 1, %.lr.ph1036 ], [ %.4491, %1181 ]
-  %.04921027 = phi i32 [ 0, %.lr.ph1036 ], [ %.2494, %1181 ]
-  %.05031023 = phi i32 [ 0, %.lr.ph1036 ], [ %.4507, %1181 ]
+  %.04541035 = phi i64 [ %.0.i717, %.lr.ph1036 ], [ %.1, %1181 ]
+  %.04561034 = phi i64 [ 0, %.lr.ph1036 ], [ %.1457, %1181 ]
+  %.04601033 = phi i64 [ 0, %.lr.ph1036 ], [ %.2462, %1181 ]
+  %.04661032 = phi i64 [ 0, %.lr.ph1036 ], [ %.2468, %1181 ]
+  %.04711031 = phi i64 [ 0, %.lr.ph1036 ], [ %.2473, %1181 ]
+  %.04761030 = phi i32 [ -1, %.lr.ph1036 ], [ %.2478, %1181 ]
+  %.04811029 = phi i64 [ 0, %.lr.ph1036 ], [ %.2483, %1181 ]
+  %.04871028 = phi i32 [ 1, %.lr.ph1036 ], [ %.1488, %1181 ]
+  %.04921027 = phi i32 [ 0, %.lr.ph1036 ], [ %.1493, %1181 ]
+  %.05031023 = phi i32 [ 0, %.lr.ph1036 ], [ %.1504, %1181 ]
   %274 = load i32, ptr %229, align 8
   %.not570 = icmp eq i32 %274, 0
   br i1 %.not570, label %275, label %305
@@ -6430,7 +6430,7 @@ Vec_PtrPush.exit730:                              ; preds = %.Vec_PtrGrow.exit11
 
 490:                                              ; preds = %.lr.ph993, %559
   %indvars.iv1184 = phi i64 [ 0, %.lr.ph993 ], [ %indvars.iv.next1185, %559 ]
-  %.1482992 = phi i64 [ %.04811029, %.lr.ph993 ], [ %.2483, %559 ]
+  %.4485992 = phi i64 [ %.04811029, %.lr.ph993 ], [ %.5486, %559 ]
   %491 = load ptr, ptr %243, align 8
   %492 = getelementptr i8, ptr %491, i64 8
   %.val685 = load ptr, ptr %492, align 8
@@ -6566,12 +6566,12 @@ Abc_Clock.exit737:                                ; preds = %542, %545
 Abc_Clock.exit739:                                ; preds = %Abc_Clock.exit737, %551
   %.0.i738 = phi i64 [ %556, %551 ], [ -1, %Abc_Clock.exit737 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  %557 = add i64 %.0.i736.neg, %.1482992
+  %557 = add i64 %.0.i736.neg, %.4485992
   %558 = add i64 %557, %.0.i738
   br label %559
 
 559:                                              ; preds = %538, %532, %Abc_Clock.exit739
-  %.2483 = phi i64 [ %.1482992, %532 ], [ %.1482992, %538 ], [ %558, %Abc_Clock.exit739 ]
+  %.5486 = phi i64 [ %.4485992, %532 ], [ %.4485992, %538 ], [ %558, %Abc_Clock.exit739 ]
   %indvars.iv.next1185 = add nuw nsw i64 %indvars.iv1184, 1
   %.val672 = load i32, ptr %34, align 8
   %560 = sext i32 %.val672 to i64
@@ -6579,7 +6579,7 @@ Abc_Clock.exit739:                                ; preds = %Abc_Clock.exit737, 
   br i1 %561, label %490, label %.critedge7, !llvm.loop !70
 
 .critedge7:                                       ; preds = %559, %.preheader811, %486
-  %.3484 = phi i64 [ %.04811029, %486 ], [ %.04811029, %.preheader811 ], [ %.2483, %559 ]
+  %.3484 = phi i64 [ %.04811029, %486 ], [ %.04811029, %.preheader811 ], [ %.5486, %559 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   %562 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %23) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
@@ -6593,15 +6593,15 @@ Abc_Clock.exit739:                                ; preds = %Abc_Clock.exit737, 
 
 .lr.ph1013:                                       ; preds = %.lr.ph1013.preheader, %1071
   %indvars.iv1193 = phi i64 [ 0, %.lr.ph1013.preheader ], [ %indvars.iv.next1194, %1071 ]
-  %.11012 = phi i64 [ %.04541035, %.lr.ph1013.preheader ], [ %.2, %1071 ]
-  %.14571011 = phi i64 [ %.04561034, %.lr.ph1013.preheader ], [ %.3459, %1071 ]
-  %.14611010 = phi i64 [ %.04601033, %.lr.ph1013.preheader ], [ %.2462, %1071 ]
-  %.14671009 = phi i64 [ %.04661032, %.lr.ph1013.preheader ], [ %.2468, %1071 ]
-  %.14721008 = phi i64 [ %.04711031, %.lr.ph1013.preheader ], [ %.2473, %1071 ]
-  %.14771007 = phi i32 [ %.04761030, %.lr.ph1013.preheader ], [ %.2478, %1071 ]
-  %.44851006 = phi i64 [ %.3484, %.lr.ph1013.preheader ], [ %.5486, %1071 ]
-  %.14881005 = phi i32 [ %.04871028, %.lr.ph1013.preheader ], [ %.2489, %1071 ]
-  %.15041003 = phi i32 [ %.05031023, %.lr.ph1013.preheader ], [ %.2505, %1071 ]
+  %.21012 = phi i64 [ %.04541035, %.lr.ph1013.preheader ], [ %.3, %1071 ]
+  %.24581011 = phi i64 [ %.04561034, %.lr.ph1013.preheader ], [ %.4, %1071 ]
+  %.34631010 = phi i64 [ %.04601033, %.lr.ph1013.preheader ], [ %.5465, %1071 ]
+  %.34691009 = phi i64 [ %.04661032, %.lr.ph1013.preheader ], [ %.4470, %1071 ]
+  %.34741008 = phi i64 [ %.04711031, %.lr.ph1013.preheader ], [ %.4475, %1071 ]
+  %.34791007 = phi i32 [ %.04761030, %.lr.ph1013.preheader ], [ %.4480, %1071 ]
+  %.61006 = phi i64 [ %.3484, %.lr.ph1013.preheader ], [ %.8, %1071 ]
+  %.24891005 = phi i32 [ %.04871028, %.lr.ph1013.preheader ], [ %.3490, %1071 ]
+  %.25051003 = phi i32 [ %.05031023, %.lr.ph1013.preheader ], [ %.4507, %1071 ]
   %565 = load ptr, ptr %243, align 8
   %566 = getelementptr i8, ptr %565, i64 8
   %.val683 = load ptr, ptr %566, align 8
@@ -6646,7 +6646,7 @@ Abc_Clock.exit743:                                ; preds = %572, %575
   br label %.loopexit
 
 588:                                              ; preds = %Abc_Clock.exit743, %570, %.lr.ph1013
-  %.not593 = icmp eq i64 %.11012, 0
+  %.not593 = icmp eq i64 %.21012, 0
   br i1 %.not593, label %604, label %589
 
 589:                                              ; preds = %588
@@ -6666,7 +6666,7 @@ Abc_Clock.exit743:                                ; preds = %572, %575
 Abc_Clock.exit745:                                ; preds = %589, %592
   %.0.i744 = phi i64 [ %597, %592 ], [ -1, %589 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  %598 = icmp sgt i64 %.0.i744, %.11012
+  %598 = icmp sgt i64 %.0.i744, %.21012
   br i1 %598, label %599, label %604
 
 599:                                              ; preds = %Abc_Clock.exit745
@@ -6763,7 +6763,7 @@ Abc_Clock.exit747:                                ; preds = %628, %631
 Abc_Clock.exit749:                                ; preds = %Abc_Clock.exit747, %637
   %.0.i748 = phi i64 [ %642, %637 ], [ -1, %Abc_Clock.exit747 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
-  %643 = add i64 %.0.i746.neg, %.44851006
+  %643 = add i64 %.0.i746.neg, %.61006
   %644 = add i64 %643, %.0.i748
   %645 = load ptr, ptr %115, align 8
   %.not599 = icmp eq ptr %645, null
@@ -6887,7 +6887,7 @@ Abc_Clock.exit758:                                ; preds = %694, %701
   br label %709
 
 709:                                              ; preds = %Abc_Clock.exit754, %Abc_Clock.exit758, %Abc_Clock.exit756, %sat_solver_compress.exit
-  %.2458 = phi i64 [ %.0.i751, %Abc_Clock.exit754 ], [ %.0.i751, %Abc_Clock.exit756 ], [ %.0.i751, %Abc_Clock.exit758 ], [ %.14571011, %sat_solver_compress.exit ]
+  %.5 = phi i64 [ %.0.i751, %Abc_Clock.exit754 ], [ %.0.i751, %Abc_Clock.exit756 ], [ %.0.i751, %Abc_Clock.exit758 ], [ %.24581011, %sat_solver_compress.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %710 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %14) #23
   %711 = icmp slt i32 %710, 0
@@ -6974,7 +6974,7 @@ Abc_Clock.exit762:                                ; preds = %Abc_Clock.exit760, 
 Abc_Clock.exit764:                                ; preds = %747, %750
   %.0.i763 = phi i64 [ %755, %750 ], [ -1, %747 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %756 = sub nsw i64 %.0.i763, %.2458
+  %756 = sub nsw i64 %.0.i763, %.5
   %757 = load ptr, ptr %247, align 8
   %758 = getelementptr inbounds i64, ptr %757, i64 %indvars.iv1193
   %759 = load i64, ptr %758, align 8
@@ -7003,7 +7003,7 @@ Abc_Clock.exit764:                                ; preds = %747, %750
   ]
 
 771:                                              ; preds = %770
-  %772 = add nsw i64 %725, %.14721008
+  %772 = add nsw i64 %725, %.34741008
   %773 = load i32, ptr %33, align 4
   %.not634 = icmp eq i32 %773, 0
   br i1 %.not634, label %sat_solver_compress.exit766, label %774
@@ -7096,7 +7096,7 @@ sat_solver_compress.exit766:                      ; preds = %805, %._crit_edge, 
   br label %1071
 
 817:                                              ; preds = %770
-  %818 = add nsw i64 %725, %.14671009
+  %818 = add nsw i64 %725, %.34691009
   %819 = load i32, ptr %163, align 4
   %.not607 = icmp eq i32 %819, 0
   br i1 %.not607, label %820, label %905
@@ -7586,7 +7586,7 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
   br label %1071
 
 1062:                                             ; preds = %770
-  %1063 = add nsw i64 %725, %.14611010
+  %1063 = add nsw i64 %725, %.34631010
   %1064 = load i32, ptr %229, align 8
   %.not606 = icmp eq i32 %1064, 0
   br i1 %.not606, label %1068, label %1065
@@ -7603,15 +7603,15 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
   br i1 %1070, label %.loopexit, label %1071
 
 1071:                                             ; preds = %810, %sat_solver_compress.exit766, %1068, %.critedge13, %624, %618
-  %.2505 = phi i32 [ %.15041003, %618 ], [ %.15041003, %624 ], [ 0, %810 ], [ 0, %sat_solver_compress.exit766 ], [ 0, %.critedge13 ], [ 0, %1068 ]
-  %.2489 = phi i32 [ %.14881005, %618 ], [ %.14881005, %624 ], [ %.14881005, %810 ], [ %.14881005, %sat_solver_compress.exit766 ], [ 0, %.critedge13 ], [ %.14881005, %1068 ]
-  %.5486 = phi i64 [ %.44851006, %618 ], [ %.44851006, %624 ], [ %644, %810 ], [ %644, %sat_solver_compress.exit766 ], [ %644, %.critedge13 ], [ %644, %1068 ]
-  %.2478 = phi i32 [ %.14771007, %618 ], [ %.14771007, %624 ], [ %.14771007, %810 ], [ %.14771007, %sat_solver_compress.exit766 ], [ 0, %.critedge13 ], [ %.14771007, %1068 ]
-  %.2473 = phi i64 [ %.14721008, %618 ], [ %.14721008, %624 ], [ %772, %810 ], [ %772, %sat_solver_compress.exit766 ], [ %.14721008, %.critedge13 ], [ %.14721008, %1068 ]
-  %.2468 = phi i64 [ %.14671009, %618 ], [ %.14671009, %624 ], [ %.14671009, %810 ], [ %.14671009, %sat_solver_compress.exit766 ], [ %818, %.critedge13 ], [ %.14671009, %1068 ]
-  %.2462 = phi i64 [ %.14611010, %618 ], [ %.14611010, %624 ], [ %.14611010, %810 ], [ %.14611010, %sat_solver_compress.exit766 ], [ %.14611010, %.critedge13 ], [ %1063, %1068 ]
-  %.3459 = phi i64 [ %.14571011, %618 ], [ %.14571011, %624 ], [ %.2458, %810 ], [ %.2458, %sat_solver_compress.exit766 ], [ %.2458, %.critedge13 ], [ %.2458, %1068 ]
-  %.2 = phi i64 [ %.11012, %618 ], [ %.11012, %624 ], [ %.11012, %810 ], [ %.11012, %sat_solver_compress.exit766 ], [ %.0.i779797, %.critedge13 ], [ %.11012, %1068 ]
+  %.4507 = phi i32 [ %.25051003, %618 ], [ %.25051003, %624 ], [ 0, %810 ], [ 0, %sat_solver_compress.exit766 ], [ 0, %.critedge13 ], [ 0, %1068 ]
+  %.3490 = phi i32 [ %.24891005, %618 ], [ %.24891005, %624 ], [ %.24891005, %810 ], [ %.24891005, %sat_solver_compress.exit766 ], [ 0, %.critedge13 ], [ %.24891005, %1068 ]
+  %.8 = phi i64 [ %.61006, %618 ], [ %.61006, %624 ], [ %644, %810 ], [ %644, %sat_solver_compress.exit766 ], [ %644, %.critedge13 ], [ %644, %1068 ]
+  %.4480 = phi i32 [ %.34791007, %618 ], [ %.34791007, %624 ], [ %.34791007, %810 ], [ %.34791007, %sat_solver_compress.exit766 ], [ 0, %.critedge13 ], [ %.34791007, %1068 ]
+  %.4475 = phi i64 [ %.34741008, %618 ], [ %.34741008, %624 ], [ %772, %810 ], [ %772, %sat_solver_compress.exit766 ], [ %.34741008, %.critedge13 ], [ %.34741008, %1068 ]
+  %.4470 = phi i64 [ %.34691009, %618 ], [ %.34691009, %624 ], [ %.34691009, %810 ], [ %.34691009, %sat_solver_compress.exit766 ], [ %818, %.critedge13 ], [ %.34691009, %1068 ]
+  %.5465 = phi i64 [ %.34631010, %618 ], [ %.34631010, %624 ], [ %.34631010, %810 ], [ %.34631010, %sat_solver_compress.exit766 ], [ %.34631010, %.critedge13 ], [ %1063, %1068 ]
+  %.4 = phi i64 [ %.24581011, %618 ], [ %.24581011, %624 ], [ %.5, %810 ], [ %.5, %sat_solver_compress.exit766 ], [ %.5, %.critedge13 ], [ %.5, %1068 ]
+  %.3 = phi i64 [ %.21012, %618 ], [ %.21012, %624 ], [ %.21012, %810 ], [ %.21012, %sat_solver_compress.exit766 ], [ %.0.i779797, %.critedge13 ], [ %.21012, %1068 ]
   %indvars.iv.next1194 = add nuw nsw i64 %indvars.iv1193, 1
   %.val670 = load i32, ptr %34, align 8
   %1072 = sext i32 %.val670 to i64
@@ -7619,22 +7619,22 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
   br i1 %1073, label %.lr.ph1013, label %.critedge9, !llvm.loop !73
 
 .critedge9:                                       ; preds = %1071, %.critedge7, %1065
-  %.1488879 = phi i32 [ %.14881005, %1065 ], [ %.04871028, %.critedge7 ], [ %.2489, %1071 ]
-  %.1477864 = phi i32 [ %.14771007, %1065 ], [ %.04761030, %.critedge7 ], [ %.2478, %1071 ]
-  %.1472856 = phi i64 [ %.14721008, %1065 ], [ %.04711031, %.critedge7 ], [ %.2473, %1071 ]
-  %.1467848 = phi i64 [ %.14671009, %1065 ], [ %.04661032, %.critedge7 ], [ %.2468, %1071 ]
-  %.1826 = phi i64 [ %.11012, %1065 ], [ %.04541035, %.critedge7 ], [ %.2, %1071 ]
-  %.3506 = phi i32 [ 1, %1065 ], [ %.05031023, %.critedge7 ], [ %.2505, %1071 ]
-  %.1493 = phi i32 [ %1067, %1065 ], [ %.04921027, %.critedge7 ], [ %.04921027, %1071 ]
-  %.6 = phi i64 [ %644, %1065 ], [ %.3484, %.critedge7 ], [ %.5486, %1071 ]
-  %.3463 = phi i64 [ %1063, %1065 ], [ %.04601033, %.critedge7 ], [ %.2462, %1071 ]
-  %.4 = phi i64 [ %.2458, %1065 ], [ %.04561034, %.critedge7 ], [ %.3459, %1071 ]
+  %.2489879 = phi i32 [ %.24891005, %1065 ], [ %.04871028, %.critedge7 ], [ %.3490, %1071 ]
+  %.3479864 = phi i32 [ %.34791007, %1065 ], [ %.04761030, %.critedge7 ], [ %.4480, %1071 ]
+  %.3474856 = phi i64 [ %.34741008, %1065 ], [ %.04711031, %.critedge7 ], [ %.4475, %1071 ]
+  %.3469848 = phi i64 [ %.34691009, %1065 ], [ %.04661032, %.critedge7 ], [ %.4470, %1071 ]
+  %.2826 = phi i64 [ %.21012, %1065 ], [ %.04541035, %.critedge7 ], [ %.3, %1071 ]
+  %.3506 = phi i32 [ 1, %1065 ], [ %.05031023, %.critedge7 ], [ %.4507, %1071 ]
+  %.2494 = phi i32 [ %1067, %1065 ], [ %.04921027, %.critedge7 ], [ %.04921027, %1071 ]
+  %.7 = phi i64 [ %644, %1065 ], [ %.3484, %.critedge7 ], [ %.8, %1071 ]
+  %.4464 = phi i64 [ %1063, %1065 ], [ %.04601033, %.critedge7 ], [ %.5465, %1071 ]
+  %.3459 = phi i64 [ %.5, %1065 ], [ %.04561034, %.critedge7 ], [ %.4, %1071 ]
   %1074 = load i32, ptr %182, align 4
   %.not641 = icmp eq i32 %1074, 0
   br i1 %.not641, label %1181, label %1075
 
 1075:                                             ; preds = %.critedge9
-  %1076 = icmp eq i32 %.1488879, 1
+  %1076 = icmp eq i32 %.2489879, 1
   %1077 = icmp ne i64 %indvars.iv1196, 0
   %or.cond15 = and i1 %1077, %1076
   br i1 %or.cond15, label %1078, label %1096
@@ -7675,7 +7675,7 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
   br label %1096
 
 1096:                                             ; preds = %1093, %1075
-  %.3490 = phi i32 [ %.1488879, %1075 ], [ %spec.select660, %1093 ]
+  %.4491 = phi i32 [ %.2489879, %1075 ], [ %spec.select660, %1093 ]
   %.not644 = icmp eq i32 %.3506, 0
   %1097 = select i1 %.not644, ptr @.str.33, ptr @.str.32
   %1098 = trunc nuw nsw i64 %indvars.iv1196 to i32
@@ -7836,16 +7836,16 @@ Abc_Clock.exit783:                                ; preds = %1165, %1170
   br label %1181
 
 1181:                                             ; preds = %.critedge5, %.critedge9, %Abc_Clock.exit783
-  %.4507 = phi i32 [ %.3506, %Abc_Clock.exit783 ], [ %.3506, %.critedge9 ], [ %.05031023, %.critedge5 ]
-  %.2494 = phi i32 [ %.1493, %Abc_Clock.exit783 ], [ %.1493, %.critedge9 ], [ %.04921027, %.critedge5 ]
-  %.4491 = phi i32 [ %.3490, %Abc_Clock.exit783 ], [ %.1488879, %.critedge9 ], [ %.04871028, %.critedge5 ]
-  %.7 = phi i64 [ %.6, %Abc_Clock.exit783 ], [ %.6, %.critedge9 ], [ %.04811029, %.critedge5 ]
-  %.3479 = phi i32 [ %.1477864, %Abc_Clock.exit783 ], [ %.1477864, %.critedge9 ], [ %.04761030, %.critedge5 ]
-  %.3474 = phi i64 [ %.1472856, %Abc_Clock.exit783 ], [ %.1472856, %.critedge9 ], [ %.04711031, %.critedge5 ]
-  %.3469 = phi i64 [ %.1467848, %Abc_Clock.exit783 ], [ %.1467848, %.critedge9 ], [ %.04661032, %.critedge5 ]
-  %.4464 = phi i64 [ %.3463, %Abc_Clock.exit783 ], [ %.3463, %.critedge9 ], [ %.04601033, %.critedge5 ]
-  %.5 = phi i64 [ %.4, %Abc_Clock.exit783 ], [ %.4, %.critedge9 ], [ %.04561034, %.critedge5 ]
-  %.3 = phi i64 [ %.1826, %Abc_Clock.exit783 ], [ %.1826, %.critedge9 ], [ %.04541035, %.critedge5 ]
+  %.1504 = phi i32 [ %.3506, %Abc_Clock.exit783 ], [ %.3506, %.critedge9 ], [ %.05031023, %.critedge5 ]
+  %.1493 = phi i32 [ %.2494, %Abc_Clock.exit783 ], [ %.2494, %.critedge9 ], [ %.04921027, %.critedge5 ]
+  %.1488 = phi i32 [ %.4491, %Abc_Clock.exit783 ], [ %.2489879, %.critedge9 ], [ %.04871028, %.critedge5 ]
+  %.2483 = phi i64 [ %.7, %Abc_Clock.exit783 ], [ %.7, %.critedge9 ], [ %.04811029, %.critedge5 ]
+  %.2478 = phi i32 [ %.3479864, %Abc_Clock.exit783 ], [ %.3479864, %.critedge9 ], [ %.04761030, %.critedge5 ]
+  %.2473 = phi i64 [ %.3474856, %Abc_Clock.exit783 ], [ %.3474856, %.critedge9 ], [ %.04711031, %.critedge5 ]
+  %.2468 = phi i64 [ %.3469848, %Abc_Clock.exit783 ], [ %.3469848, %.critedge9 ], [ %.04661032, %.critedge5 ]
+  %.2462 = phi i64 [ %.4464, %Abc_Clock.exit783 ], [ %.4464, %.critedge9 ], [ %.04601033, %.critedge5 ]
+  %.1457 = phi i64 [ %.3459, %Abc_Clock.exit783 ], [ %.3459, %.critedge9 ], [ %.04561034, %.critedge5 ]
+  %.1 = phi i64 [ %.2826, %Abc_Clock.exit783 ], [ %.2826, %.critedge9 ], [ %.04541035, %.critedge5 ]
   %indvars.iv.next1197 = add nuw nsw i64 %indvars.iv1196, 1
   %1182 = load i32, ptr %200, align 4
   %1183 = sext i32 %1182 to i64
@@ -7854,7 +7854,7 @@ Abc_Clock.exit783:                                ; preds = %1165, %1170
 
 ._crit_edge1037:                                  ; preds = %1181
   %1185 = trunc nuw nsw i64 %indvars.iv1196 to i32
-  %.not569 = icmp eq i32 %.2494, 0
+  %.not569 = icmp eq i32 %.1493, 0
   br i1 %.not569, label %1194, label %1186
 
 1186:                                             ; preds = %._crit_edge1037
@@ -7865,21 +7865,21 @@ Abc_Clock.exit783:                                ; preds = %1165, %1170
 1189:                                             ; preds = %1186
   %1190 = getelementptr inbounds i8, ptr %1, i64 16
   %1191 = load i32, ptr %1190, align 8
-  %1192 = sub nsw i32 %.2494, %1191
+  %1192 = sub nsw i32 %.1493, %1191
   %1193 = getelementptr inbounds i8, ptr %1, i64 108
   store i32 %1192, ptr %1193, align 4
   br label %.loopexit
 
 1194:                                             ; preds = %1186, %._crit_edge1037
-  %1195 = icmp eq i32 %.3479, -1
+  %1195 = icmp eq i32 %.2478, -1
   br i1 %1195, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %Abc_Clock.exit719, %1194
   %.0497.lcssa12151231 = phi i32 [ %1185, %1194 ], [ -1, %Abc_Clock.exit719 ]
-  %.0481.lcssa12161230 = phi i64 [ %.7, %1194 ], [ 0, %Abc_Clock.exit719 ]
-  %.0471.lcssa12181229 = phi i64 [ %.3474, %1194 ], [ 0, %Abc_Clock.exit719 ]
-  %.0466.lcssa12191228 = phi i64 [ %.3469, %1194 ], [ 0, %Abc_Clock.exit719 ]
-  %.0460.lcssa12201227 = phi i64 [ %.4464, %1194 ], [ 0, %Abc_Clock.exit719 ]
+  %.0481.lcssa12161230 = phi i64 [ %.2483, %1194 ], [ 0, %Abc_Clock.exit719 ]
+  %.0471.lcssa12181229 = phi i64 [ %.2473, %1194 ], [ 0, %Abc_Clock.exit719 ]
+  %.0466.lcssa12191228 = phi i64 [ %.2468, %1194 ], [ 0, %Abc_Clock.exit719 ]
+  %.0460.lcssa12201227 = phi i64 [ %.2462, %1194 ], [ 0, %Abc_Clock.exit719 ]
   %1196 = load i32, ptr %1, align 8
   %1197 = icmp eq i32 %1196, 0
   br i1 %1197, label %1198, label %.loopexit
@@ -7890,18 +7890,18 @@ Abc_Clock.exit783:                                ; preds = %1165, %1170
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1068, %1189, %1198, %.thread, %1194, %612, %615, %599, %602, %525, %528, %961, %903, %587, %513, %311, %.critedge
-  %.8 = phi i64 [ %.04811029, %311 ], [ %.44851006, %587 ], [ %.44851006, %599 ], [ %.44851006, %602 ], [ %.44851006, %612 ], [ %.44851006, %615 ], [ %644, %961 ], [ %644, %903 ], [ %.1482992, %513 ], [ %.1482992, %525 ], [ %.1482992, %528 ], [ %.04811029, %.critedge ], [ %.7, %1189 ], [ %.0481.lcssa12161230, %1198 ], [ %.0481.lcssa12161230, %.thread ], [ %.7, %1194 ], [ %644, %1068 ]
-  %.4480 = phi i32 [ %313, %311 ], [ %.14771007, %587 ], [ %.14771007, %599 ], [ %.14771007, %602 ], [ %.14771007, %612 ], [ %.14771007, %615 ], [ 0, %961 ], [ 0, %903 ], [ %.04761030, %513 ], [ %.04761030, %525 ], [ %.04761030, %528 ], [ %304, %.critedge ], [ %.3479, %1189 ], [ -1, %1198 ], [ -1, %.thread ], [ 0, %1194 ], [ %.14771007, %1068 ]
-  %.4475 = phi i64 [ %.04711031, %311 ], [ %.14721008, %587 ], [ %.14721008, %599 ], [ %.14721008, %602 ], [ %.14721008, %612 ], [ %.14721008, %615 ], [ %.14721008, %961 ], [ %.14721008, %903 ], [ %.04711031, %513 ], [ %.04711031, %525 ], [ %.04711031, %528 ], [ %.04711031, %.critedge ], [ %.3474, %1189 ], [ %.0471.lcssa12181229, %1198 ], [ %.0471.lcssa12181229, %.thread ], [ %.3474, %1194 ], [ %.14721008, %1068 ]
-  %.4470 = phi i64 [ %.04661032, %311 ], [ %.14671009, %587 ], [ %.14671009, %599 ], [ %.14671009, %602 ], [ %.14671009, %612 ], [ %.14671009, %615 ], [ %818, %961 ], [ %818, %903 ], [ %.04661032, %513 ], [ %.04661032, %525 ], [ %.04661032, %528 ], [ %.04661032, %.critedge ], [ %.3469, %1189 ], [ %.0466.lcssa12191228, %1198 ], [ %.0466.lcssa12191228, %.thread ], [ %.3469, %1194 ], [ %.14671009, %1068 ]
-  %.5465 = phi i64 [ %.04601033, %311 ], [ %.14611010, %587 ], [ %.14611010, %599 ], [ %.14611010, %602 ], [ %.14611010, %612 ], [ %.14611010, %615 ], [ %.14611010, %961 ], [ %.14611010, %903 ], [ %.04601033, %513 ], [ %.04601033, %525 ], [ %.04601033, %528 ], [ %.04601033, %.critedge ], [ %.4464, %1189 ], [ %.0460.lcssa12201227, %1198 ], [ %.0460.lcssa12201227, %.thread ], [ %.4464, %1194 ], [ %1063, %1068 ]
+  %.1482 = phi i64 [ %.04811029, %311 ], [ %.61006, %587 ], [ %.61006, %599 ], [ %.61006, %602 ], [ %.61006, %612 ], [ %.61006, %615 ], [ %644, %961 ], [ %644, %903 ], [ %.4485992, %513 ], [ %.4485992, %525 ], [ %.4485992, %528 ], [ %.04811029, %.critedge ], [ %.2483, %1189 ], [ %.0481.lcssa12161230, %1198 ], [ %.0481.lcssa12161230, %.thread ], [ %.2483, %1194 ], [ %644, %1068 ]
+  %.1477 = phi i32 [ %313, %311 ], [ %.34791007, %587 ], [ %.34791007, %599 ], [ %.34791007, %602 ], [ %.34791007, %612 ], [ %.34791007, %615 ], [ 0, %961 ], [ 0, %903 ], [ %.04761030, %513 ], [ %.04761030, %525 ], [ %.04761030, %528 ], [ %304, %.critedge ], [ %.2478, %1189 ], [ -1, %1198 ], [ -1, %.thread ], [ 0, %1194 ], [ %.34791007, %1068 ]
+  %.1472 = phi i64 [ %.04711031, %311 ], [ %.34741008, %587 ], [ %.34741008, %599 ], [ %.34741008, %602 ], [ %.34741008, %612 ], [ %.34741008, %615 ], [ %.34741008, %961 ], [ %.34741008, %903 ], [ %.04711031, %513 ], [ %.04711031, %525 ], [ %.04711031, %528 ], [ %.04711031, %.critedge ], [ %.2473, %1189 ], [ %.0471.lcssa12181229, %1198 ], [ %.0471.lcssa12181229, %.thread ], [ %.2473, %1194 ], [ %.34741008, %1068 ]
+  %.1467 = phi i64 [ %.04661032, %311 ], [ %.34691009, %587 ], [ %.34691009, %599 ], [ %.34691009, %602 ], [ %.34691009, %612 ], [ %.34691009, %615 ], [ %818, %961 ], [ %818, %903 ], [ %.04661032, %513 ], [ %.04661032, %525 ], [ %.04661032, %528 ], [ %.04661032, %.critedge ], [ %.2468, %1189 ], [ %.0466.lcssa12191228, %1198 ], [ %.0466.lcssa12191228, %.thread ], [ %.2468, %1194 ], [ %.34691009, %1068 ]
+  %.1461 = phi i64 [ %.04601033, %311 ], [ %.34631010, %587 ], [ %.34631010, %599 ], [ %.34631010, %602 ], [ %.34631010, %612 ], [ %.34631010, %615 ], [ %.34631010, %961 ], [ %.34631010, %903 ], [ %.04601033, %513 ], [ %.04601033, %525 ], [ %.04601033, %528 ], [ %.04601033, %.critedge ], [ %.2462, %1189 ], [ %.0460.lcssa12201227, %1198 ], [ %.0460.lcssa12201227, %.thread ], [ %.2462, %1194 ], [ %1063, %1068 ]
   %1200 = load i32, ptr %182, align 4
   %.not655 = icmp eq i32 %1200, 0
   br i1 %.not655, label %1262, label %1201
 
 1201:                                             ; preds = %.loopexit
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.45)
-  %1202 = sitofp i64 %.8 to double
+  %1202 = sitofp i64 %.1482 to double
   %1203 = fdiv double %1202, 1.000000e+06
   %1204 = fmul double %1202, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -7925,7 +7925,7 @@ Abc_Clock.exit785:                                ; preds = %1201, %1207
   %1215 = sitofp i64 %1214 to double
   %1216 = fdiv double %1204, %1215
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.46, double noundef %1203, double noundef %1216)
-  %1217 = sitofp i64 %.4475 to double
+  %1217 = sitofp i64 %.1472 to double
   %1218 = fdiv double %1217, 1.000000e+06
   %1219 = fmul double %1217, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -7949,7 +7949,7 @@ Abc_Clock.exit787:                                ; preds = %Abc_Clock.exit785, 
   %1230 = sitofp i64 %1229 to double
   %1231 = fdiv double %1219, %1230
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.47, double noundef %1218, double noundef %1231)
-  %1232 = sitofp i64 %.4470 to double
+  %1232 = sitofp i64 %.1467 to double
   %1233 = fdiv double %1232, 1.000000e+06
   %1234 = fmul double %1232, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -7973,7 +7973,7 @@ Abc_Clock.exit789:                                ; preds = %Abc_Clock.exit787, 
   %1245 = sitofp i64 %1244 to double
   %1246 = fdiv double %1234, %1245
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.48, double noundef %1233, double noundef %1246)
-  %1247 = sitofp i64 %.5465 to double
+  %1247 = sitofp i64 %.1461 to double
   %1248 = fdiv double %1247, 1.000000e+06
   %1249 = fmul double %1247, 1.000000e+02
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -8012,7 +8012,7 @@ Abc_Clock.exit791:                                ; preds = %Abc_Clock.exit789, 
   br label %1267
 
 1267:                                             ; preds = %1265, %1262
-  ret i32 %.4480
+  ret i32 %.1477
 }
 
 declare void @satoko_set_runid(ptr noundef, i32 noundef) local_unnamed_addr #2

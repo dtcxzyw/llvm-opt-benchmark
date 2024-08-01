@@ -782,7 +782,7 @@ _ZN2cv13HOGDescriptorD2Ev.exit.i:                 ; preds = %255, %.loopexit78
   br label %.body65
 
 _ZN8DetectorD2Ev.exit:                            ; preds = %259, %_ZN2cv13HOGDescriptorD2Ev.exit.i, %102, %103
-  %.0 = phi i32 [ 2, %103 ], [ 2, %102 ], [ 0, %_ZN2cv13HOGDescriptorD2Ev.exit.i ], [ 0, %259 ]
+  %.2 = phi i32 [ 2, %103 ], [ 2, %102 ], [ 0, %_ZN2cv13HOGDescriptorD2Ev.exit.i ], [ 0, %259 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %16) #12
   br label %260
 
@@ -792,7 +792,7 @@ _ZN8DetectorD2Ev.exit:                            ; preds = %259, %_ZN2cv13HOGDe
   br label %261
 
 260:                                              ; preds = %60, %_ZN8DetectorD2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN8DetectorD2Ev.exit ], [ 1, %60 ]
+  %.1 = phi i32 [ %.2, %_ZN8DetectorD2Ev.exit ], [ 1, %60 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   br label %262
 
@@ -802,9 +802,9 @@ _ZN8DetectorD2Ev.exit:                            ; preds = %259, %_ZN2cv13HOGDe
   br label %263
 
 262:                                              ; preds = %39, %260
-  %.2 = phi i32 [ %.1, %260 ], [ 0, %39 ]
+  %.0 = phi i32 [ %.1, %260 ], [ 0, %39 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  ret i32 %.2
+  ret i32 %.0
 
 263:                                              ; preds = %261, %68, %65, %50, %49, %44
   %.pn63 = phi { ptr, i32 } [ %51, %50 ], [ %.pn59.pn.pn, %261 ], [ %.pn47, %68 ], [ %.pn45, %65 ], [ %.pn43, %49 ], [ %.pn, %44 ]

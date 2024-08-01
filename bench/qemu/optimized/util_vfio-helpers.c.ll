@@ -554,7 +554,7 @@ if.end82.i:                                       ; preds = %if.then72.i
   br label %if.end83.i
 
 if.end83.i:                                       ; preds = %if.end82.i, %if.end62.i
-  %iommu_info.0.i = phi ptr [ %call75.i, %if.end82.i ], [ %call54.i, %if.end62.i ]
+  %iommu_info.1.i = phi ptr [ %call75.i, %if.end82.i ], [ %call54.i, %if.end62.i ]
   %24 = load i32, ptr %group.i, align 4
   %call85.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %24, i64 noundef 15210, ptr noundef %device) #16
   %device86.i = getelementptr inbounds i8, ptr %call, i64 56
@@ -649,33 +649,33 @@ if.end131.i:                                      ; preds = %for.end.i
   br i1 %tobool135.not.i, label %qemu_vfio_init_pci.exit.thread, label %fail.i
 
 qemu_vfio_init_pci.exit.thread:                   ; preds = %if.end131.i
-  call void @g_free(ptr noundef %iommu_info.0.i) #16
+  call void @g_free(ptr noundef %iommu_info.1.i) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %pci_cmd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group_status.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %device_info.i)
   br label %if.end6
 
 fail.i:                                           ; preds = %for.body.i, %if.end131.i, %for.end.i, %if.then113.i, %if.then105.i, %if.then98.i, %if.then90.i, %if.then79.i, %if.then58.i, %if.then49.i, %if.then41.i, %if.then35.i, %if.then29.i
-  %ret.0.i = phi i32 [ %sub32.i, %if.then29.i ], [ %sub44.i, %if.then41.i ], [ %sub52.i, %if.then49.i ], [ %sub61.i, %if.then58.i ], [ %sub81.i, %if.then79.i ], [ %sub93.i, %if.then90.i ], [ %sub101.i, %if.then98.i ], [ -22, %if.then105.i ], [ %sub116.i, %if.then113.i ], [ %call128.i, %for.end.i ], [ %call134.i, %if.end131.i ], [ -22, %if.then35.i ], [ %call124.i, %for.body.i ]
-  %iommu_info.1.i = phi ptr [ null, %if.then29.i ], [ null, %if.then41.i ], [ null, %if.then49.i ], [ %call54.i, %if.then58.i ], [ %call75.i, %if.then79.i ], [ %iommu_info.0.i, %if.then90.i ], [ %iommu_info.0.i, %if.then98.i ], [ %iommu_info.0.i, %if.then105.i ], [ %iommu_info.0.i, %if.then113.i ], [ %iommu_info.0.i, %for.end.i ], [ %iommu_info.0.i, %if.end131.i ], [ null, %if.then35.i ], [ %iommu_info.0.i, %for.body.i ]
+  %ret.1.i = phi i32 [ %sub32.i, %if.then29.i ], [ %sub44.i, %if.then41.i ], [ %sub52.i, %if.then49.i ], [ %sub61.i, %if.then58.i ], [ %sub81.i, %if.then79.i ], [ %sub93.i, %if.then90.i ], [ %sub101.i, %if.then98.i ], [ -22, %if.then105.i ], [ %sub116.i, %if.then113.i ], [ %call128.i, %for.end.i ], [ %call134.i, %if.end131.i ], [ -22, %if.then35.i ], [ %call124.i, %for.body.i ]
+  %iommu_info.0.i = phi ptr [ null, %if.then29.i ], [ null, %if.then41.i ], [ null, %if.then49.i ], [ %call54.i, %if.then58.i ], [ %call75.i, %if.then79.i ], [ %iommu_info.1.i, %if.then90.i ], [ %iommu_info.1.i, %if.then98.i ], [ %iommu_info.1.i, %if.then105.i ], [ %iommu_info.1.i, %if.then113.i ], [ %iommu_info.1.i, %for.end.i ], [ %iommu_info.1.i, %if.end131.i ], [ null, %if.then35.i ], [ %iommu_info.1.i, %for.body.i ]
   %38 = load ptr, ptr %usable_iova_ranges.i, align 8
   call void @g_free(ptr noundef %38) #16
   store ptr null, ptr %usable_iova_ranges.i, align 8
   %nb_iova_ranges140.i = getelementptr inbounds i8, ptr %call, i64 336
   store i8 0, ptr %nb_iova_ranges140.i, align 8
-  call void @g_free(ptr noundef %iommu_info.1.i) #16
+  call void @g_free(ptr noundef %iommu_info.0.i) #16
   %39 = load i32, ptr %group.i, align 4
   %call142.i = call i32 @close(i32 noundef %39) #16
   br label %fail_container.i
 
 fail_container.i:                                 ; preds = %fail.i, %if.then21.i, %sysfs_find_group_file.exit.i, %if.then11.i, %if.then7.i
-  %ret.1.i = phi i32 [ -22, %if.then7.i ], [ %sub24.i, %if.then21.i ], [ %ret.0.i, %fail.i ], [ -22, %if.then11.i ], [ -22, %sysfs_find_group_file.exit.i ]
+  %ret.0.i = phi i32 [ -22, %if.then7.i ], [ %sub24.i, %if.then21.i ], [ %ret.1.i, %fail.i ], [ -22, %if.then11.i ], [ -22, %sysfs_find_group_file.exit.i ]
   %40 = load i32, ptr %container.i, align 8
   %call144.i = call i32 @close(i32 noundef %40) #16
   br label %qemu_vfio_init_pci.exit
 
 qemu_vfio_init_pci.exit:                          ; preds = %if.then.i, %fail_container.i
-  %retval.0.i = phi i32 [ %sub.i, %if.then.i ], [ %ret.1.i, %fail_container.i ]
+  %retval.0.i = phi i32 [ %sub.i, %if.then.i ], [ %ret.0.i, %fail_container.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %pci_cmd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group_status.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %device_info.i)
@@ -1077,7 +1077,7 @@ if.end38:                                         ; preds = %if.end.i85
   br i1 %cmp40, label %glib_autoptr_cleanup_QemuLockable.exit.cont, label %if.end44
 
 if.end44:                                         ; preds = %trace_qemu_vfio_dump_mapping.exit.i, %if.end34, %if.end38, %if.then13
-  %iova0.2 = phi i64 [ %sub31.i, %if.end38 ], [ %add, %if.then13 ], [ %cond.i45, %if.end34 ], [ %cond.i45, %trace_qemu_vfio_dump_mapping.exit.i ]
+  %iova0.0 = phi i64 [ %sub31.i, %if.end38 ], [ %add, %if.then13 ], [ %cond.i45, %if.end34 ], [ %cond.i45, %trace_qemu_vfio_dump_mapping.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i93)
   %49 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i94 = icmp ne i32 %49, 0
@@ -1103,11 +1103,11 @@ if.then8.i.i103:                                  ; preds = %if.then.i.i100
   %53 = load i64, ptr %_now.i.i93, align 8
   %tv_usec.i.i106 = getelementptr inbounds i8, ptr %_now.i.i93, i64 8
   %54 = load i64, ptr %tv_usec.i.i106, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i105, i64 noundef %53, i64 noundef %54, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.2, i64 noundef %size) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i105, i64 noundef %53, i64 noundef %54, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.0, i64 noundef %size) #16
   br label %trace_qemu_vfio_dma_mapped.exit
 
 if.else.i.i102:                                   ; preds = %if.then.i.i100
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.2, i64 noundef %size) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, ptr noundef %s, ptr noundef %host, i64 noundef %iova0.0, i64 noundef %size) #16
   br label %trace_qemu_vfio_dma_mapped.exit
 
 trace_qemu_vfio_dma_mapped.exit:                  ; preds = %if.end44, %land.lhs.true5.i.i97, %if.then8.i.i103, %if.else.i.i102
@@ -1116,7 +1116,7 @@ trace_qemu_vfio_dma_mapped.exit:                  ; preds = %if.end44, %land.lhs
   br i1 %tobool45.not, label %glib_autoptr_cleanup_QemuLockable.exit.cont121, label %if.then46
 
 if.then46:                                        ; preds = %trace_qemu_vfio_dma_mapped.exit
-  store i64 %iova0.2, ptr %iova, align 8
+  store i64 %iova0.0, ptr %iova, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit.cont121
 
 glib_autoptr_cleanup_QemuLockable.exit.cont121:   ; preds = %if.then46, %trace_qemu_vfio_dma_mapped.exit, %qemu_vfio_find_temp_iova.exit, %for.end.i

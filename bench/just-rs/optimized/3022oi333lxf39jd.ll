@@ -353,19 +353,19 @@ select.unfold.i.i:                                ; preds = %86, %"_ZN4core3str4
   br label %95
 
 90:                                               ; preds = %select.unfold.i.i
-  %.sroa.4.1.i.i.i.i = sub i64 %.pn23.i.i, %.pre.i.i.i16.i.i
-  %.sroa.0.1.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.pre.i.i.i16.i.i
-  %91 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdbf984e918f80b5eE"(i64 noundef %.sroa.4.1.i.i.i.i, i1 noundef zeroext false), !noalias !61
+  %.sroa.4.0.i.i.i.i = sub i64 %.pn23.i.i, %.pre.i.i.i16.i.i
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.pre.i.i.i16.i.i
+  %91 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdbf984e918f80b5eE"(i64 noundef %.sroa.4.0.i.i.i.i, i1 noundef zeroext false), !noalias !61
   %92 = extractvalue { i64, ptr } %91, 0
   %93 = extractvalue { i64, ptr } %91, 1
   %94 = icmp ne ptr %93, null
   tail call void @llvm.assume(i1 %94)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 %.sroa.4.1.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.4.0.i.i.i.i, i1 false)
   store i64 %92, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %93, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.4.1.i.i.i.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.i.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   br label %95
 
 95:                                               ; preds = %90, %89
@@ -636,8 +636,8 @@ _ZN4core3ops8function6FnOnce9call_once17hc38402397c831250E.exit.thread.i: ; pred
   br label %120
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit: ; preds = %106, %111
-  %.sroa.4.0.i.i.i.i = phi i64 [ %119, %111 ], [ %110, %106 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %118, %111 ], [ %109, %106 ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %119, %111 ], [ %110, %106 ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %118, %111 ], [ %109, %106 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6aa1b4361f5f9da7E.exit"
@@ -665,8 +665,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit: ; pred
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6aa1b4361f5f9da7E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6aa1b4361f5f9da7E.exit": ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit, %120, %124, %128
-  %.sroa.33.0.i = phi i64 [ %.sroa.4.0.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ], [ undef, %120 ], [ %132, %128 ], [ undef, %124 ]
-  %.sroa.02.0.i = phi ptr [ %.sroa.0.0.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ], [ null, %120 ], [ %130, %128 ], [ null, %124 ]
+  %.sroa.33.0.i = phi i64 [ %.sroa.4.1.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ], [ undef, %120 ], [ %132, %128 ], [ undef, %124 ]
+  %.sroa.02.0.i = phi ptr [ %.sroa.0.1.i.i.i.i, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9b4a64334b920b52E.exit ], [ null, %120 ], [ %130, %128 ], [ null, %124 ]
   %133 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
   %134 = insertvalue { ptr, i64 } %133, i64 %.sroa.33.0.i, 1
   ret { ptr, i64 } %134
@@ -2307,8 +2307,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfb0043450fbe6922E.exit.i.i"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfb0043450fbe6922E.exit.i.i": ; preds = %63, %57, %56, %55
-  %.sroa.0.1.i.i = phi i64 [ %62, %57 ], [ %68, %63 ], [ 0, %55 ], [ 0, %56 ]
-  %69 = add nuw nsw i64 %.sroa.0.1.i.i, 1
+  %.sroa.0.2.i.i = phi i64 [ %62, %57 ], [ %68, %63 ], [ 0, %55 ], [ 0, %56 ]
+  %69 = add nuw nsw i64 %.sroa.0.2.i.i, 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17ha0b90f94b0853c59E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %47, i64 noundef %69)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7994be9c01920c0eE.exit.i.i" unwind label %.loopexit
 

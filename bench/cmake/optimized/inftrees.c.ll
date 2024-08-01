@@ -204,7 +204,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 .outer:                                           ; preds = %153, %.preheader
   %.3.ph = phi i32 [ %.4, %153 ], [ %.0199.lcssa, %.preheader ]
   %.2202.ph = phi i32 [ %109, %153 ], [ 0, %.preheader ]
-  %.0193.ph = phi i32 [ %.1194.lcssa, %153 ], [ %spec.select222, %.preheader ]
+  %.0193.ph = phi i32 [ %.2195.lcssa, %153 ], [ %spec.select222, %.preheader ]
   %.0191.ph = phi i32 [ %spec.select223, %153 ], [ 0, %.preheader ]
   %.0187.ph = phi i32 [ %150, %153 ], [ %70, %.preheader ]
   %.0185.ph = phi i32 [ %.1186, %153 ], [ 0, %.preheader ]
@@ -335,7 +335,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
 137:                                              ; preds = %.lr.ph262, %145
   %138 = phi i32 [ %.4, %.lr.ph262 ], [ %.reass268, %145 ]
   %.1190260 = phi i32 [ %135, %.lr.ph262 ], [ %147, %145 ]
-  %.1194259 = phi i32 [ %133, %.lr.ph262 ], [ %146, %145 ]
+  %.2195259 = phi i32 [ %133, %.lr.ph262 ], [ %146, %145 ]
   %139 = zext i32 %138 to i64
   %140 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %139
   %141 = load i16, ptr %140, align 2
@@ -345,15 +345,15 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %144, label %._crit_edge263, label %145
 
 145:                                              ; preds = %137
-  %146 = add i32 %.1194259, 1
+  %146 = add i32 %.2195259, 1
   %147 = shl nuw i32 %143, 1
-  %.reass268 = add i32 %.1194259, %invariant.op267
+  %.reass268 = add i32 %.2195259, %invariant.op267
   %148 = icmp ult i32 %.reass268, %.0198246
   br i1 %148, label %137, label %._crit_edge263, !llvm.loop !14
 
 ._crit_edge263:                                   ; preds = %145, %137, %129
-  %.1194.lcssa = phi i32 [ %133, %129 ], [ %.1194259, %137 ], [ %136, %145 ]
-  %149 = shl nuw i32 1, %.1194.lcssa
+  %.2195.lcssa = phi i32 [ %133, %129 ], [ %.2195259, %137 ], [ %136, %145 ]
+  %149 = shl nuw i32 1, %.2195.lcssa
   %150 = add i32 %149, %.0187.ph
   %151 = icmp ugt i32 %150, 852
   %or.cond7 = select i1 %69, i1 %151, i1 false
@@ -363,7 +363,7 @@ define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr
   br i1 %or.cond224, label %.loopexit, label %153
 
 153:                                              ; preds = %._crit_edge263
-  %154 = trunc i32 %.1194.lcssa to i8
+  %154 = trunc i32 %.2195.lcssa to i8
   %155 = load ptr, ptr %3, align 8
   %156 = zext i32 %128 to i64
   %157 = getelementptr inbounds %struct.code, ptr %155, i64 %156

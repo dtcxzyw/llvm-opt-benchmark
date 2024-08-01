@@ -90,16 +90,16 @@ if.end16:                                         ; preds = %if.end10
   br label %return
 
 err_deflate_end:                                  ; preds = %if.end, %if.then15
-  %err_msg.0 = phi ptr [ @.str.3, %if.then15 ], [ @.str.2, %if.end ]
+  %err_msg.1 = phi ptr [ @.str.3, %if.then15 ], [ @.str.2, %if.end ]
   %call19 = tail call i32 @deflateEnd(ptr noundef nonnull %call) #6
   br label %err_free_z
 
 err_free_z:                                       ; preds = %entry, %err_deflate_end
-  %err_msg.1 = phi ptr [ %err_msg.0, %err_deflate_end ], [ @.str.1, %entry ]
+  %err_msg.0 = phi ptr [ %err_msg.1, %err_deflate_end ], [ @.str.1, %entry ]
   tail call void @g_free(ptr noundef nonnull %call) #6
   %1 = load i8, ptr %p, align 8
   %conv20 = zext i8 %1 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 81, ptr noundef nonnull @__func__.zlib_send_setup, ptr noundef nonnull @.str.5, i32 noundef %conv20, ptr noundef nonnull %err_msg.1) #6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 81, ptr noundef nonnull @__func__.zlib_send_setup, ptr noundef nonnull @.str.5, i32 noundef %conv20, ptr noundef nonnull %err_msg.0) #6
   br label %return
 
 return:                                           ; preds = %err_free_z, %if.end16

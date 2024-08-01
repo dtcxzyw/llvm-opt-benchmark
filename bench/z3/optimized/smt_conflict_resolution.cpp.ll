@@ -6152,7 +6152,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true, %if.then9
-  %f1.1 = phi ptr [ %16, %if.then9 ], [ %10, %land.lhs.true ]
+  %f1.0 = phi ptr [ %16, %if.then9 ], [ %10, %land.lhs.true ]
   %m_kind.i.i29 = getelementptr inbounds i8, ptr %11, i64 4
   %bf.load.i.i30 = load i32, ptr %m_kind.i.i29, align 4
   %bf.clear.i.i31 = and i32 %bf.load.i.i30, 65535
@@ -6173,8 +6173,8 @@ if.then16:                                        ; preds = %land.lhs.true14
 
 if.end20:                                         ; preds = %land.rhs.i.i.i, %if.end, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %land.lhs.true.i, %if.then16, %land.lhs.true14
   %retval.0.i91 = phi i1 [ true, %if.then16 ], [ true, %land.lhs.true14 ], [ false, %land.lhs.true.i ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %if.end ], [ false, %land.rhs.i.i.i ]
-  %f1.2 = phi ptr [ %f1.1, %if.then16 ], [ %f1.1, %land.lhs.true14 ], [ null, %land.lhs.true.i ], [ null, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ null, %if.end ], [ null, %land.rhs.i.i.i ]
-  %f2.1 = phi ptr [ %21, %if.then16 ], [ %11, %land.lhs.true14 ], [ null, %land.lhs.true.i ], [ null, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ null, %if.end ], [ null, %land.rhs.i.i.i ]
+  %f1.1 = phi ptr [ %f1.0, %if.then16 ], [ %f1.0, %land.lhs.true14 ], [ null, %land.lhs.true.i ], [ null, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ null, %if.end ], [ null, %land.rhs.i.i.i ]
+  %f2.0 = phi ptr [ %21, %if.then16 ], [ %11, %land.lhs.true14 ], [ null, %land.lhs.true.i ], [ null, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ null, %if.end ], [ null, %land.rhs.i.i.i ]
   %22 = load ptr, ptr %m, align 8
   %m_false.i = getelementptr inbounds i8, ptr %22, i64 864
   %23 = load ptr, ptr %m_false.i, align 8
@@ -6226,8 +6226,8 @@ if.end35:                                         ; preds = %land.lhs.true26, %l
   br i1 %retval.0.i91, label %lor.lhs.false, label %if.then39
 
 lor.lhs.false:                                    ; preds = %if.end35
-  %cmp.not = icmp eq ptr %f1.2, %3
-  %cmp38.not = icmp eq ptr %f2.1, %3
+  %cmp.not = icmp eq ptr %f1.1, %3
+  %cmp38.not = icmp eq ptr %f2.0, %3
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp38.not
   br i1 %or.cond, label %if.end50, label %if.then39
 
@@ -6274,7 +6274,7 @@ lor.lhs.false.i.i49:                              ; preds = %_ZN15ref_vector_cor
   br i1 %cmp5.i.i52, label %return.sink.split.sink.split, label %return.sink.split
 
 if.end50:                                         ; preds = %lor.lhs.false
-  %cmp51 = icmp eq ptr %f1.2, %2
+  %cmp51 = icmp eq ptr %f1.1, %2
   %or.cond22 = select i1 %cmp51, i1 %cmp38.not, i1 false
   br i1 %or.cond22, label %return, label %if.end55
 
@@ -6719,7 +6719,7 @@ invoke.cont72:                                    ; preds = %.noexc106, %lor.lhs
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont34, %invoke.cont72, %if.end38
-  %retval.0 = phi ptr [ null, %if.end38 ], [ %call76, %invoke.cont72 ], [ null, %invoke.cont34 ]
+  %retval.1 = phi ptr [ null, %if.end38 ], [ %call76, %invoke.cont72 ], [ null, %invoke.cont34 ]
   %57 = load ptr, ptr %prs, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %57, %m_initial_buffer.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %57, null
@@ -6922,7 +6922,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
 cleanup114:                                       ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit172, %for.end
   %m_initial_buffer.i.i108200 = phi ptr [ %m_initial_buffer.i.i108, %for.end ], [ %m_initial_buffer.i.i108201, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit172 ]
   %84 = phi ptr [ %.pre191, %for.end ], [ %.pre190, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit172 ]
-  %retval.1 = phi ptr [ null, %for.end ], [ %call110, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit172 ]
+  %retval.2 = phi ptr [ null, %for.end ], [ %call110, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit172 ]
   %cmp.not.i.i.i.i174 = icmp eq ptr %84, %m_initial_buffer.i.i108200
   %cmp.i.i.i.i.i175 = icmp eq ptr %84, null
   %or.cond.i.i.i.i176 = or i1 %cmp.not.i.i.i.i174, %cmp.i.i.i.i.i175
@@ -6945,8 +6945,8 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %if.end.i.i.i.i.i177, %cleanup114, %if.end.i.i.i.i.i, %cleanup, %sw.bb13, %sw.bb7, %sw.bb
-  %retval.2 = phi ptr [ %call16, %sw.bb13 ], [ %call12, %sw.bb7 ], [ %call6, %sw.bb ], [ %retval.0, %cleanup ], [ %retval.0, %if.end.i.i.i.i.i ], [ %retval.1, %cleanup114 ], [ %retval.1, %if.end.i.i.i.i.i177 ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %call16, %sw.bb13 ], [ %call12, %sw.bb7 ], [ %call6, %sw.bb ], [ %retval.1, %cleanup ], [ %retval.1, %if.end.i.i.i.i.i ], [ %retval.2, %cleanup114 ], [ %retval.2, %if.end.i.i.i.i.i177 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad81.loopexit, %lpad81.loopexit.split-lp, %lpad
   %prs79.sink = phi ptr [ %prs, %lpad ], [ %prs79, %lpad81.loopexit.split-lp ], [ %prs79, %lpad81.loopexit ]
@@ -7477,7 +7477,7 @@ invoke.cont53:                                    ; preds = %_ZN6bufferIP3appLb0
 
 if.end56:                                         ; preds = %if.then34, %invoke.cont53, %invoke.cont29
   %i.0 = phi i32 [ 2, %invoke.cont53 ], [ 0, %invoke.cont29 ], [ 1, %if.then34 ]
-  %visited.1 = phi i1 [ %spec.select, %invoke.cont53 ], [ %cmp27, %invoke.cont29 ], [ %cmp27, %if.then34 ]
+  %visited.0 = phi i1 [ %spec.select, %invoke.cont53 ], [ %cmp27, %invoke.cont29 ], [ %cmp27, %if.then34 ]
   %cmp57146 = icmp ult i32 %i.0, %31
   br i1 %cmp57146, label %for.body.lr.ph, label %for.end
 
@@ -7489,7 +7489,7 @@ for.body.lr.ph:                                   ; preds = %if.end56
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont70
   %indvars.iv = phi i64 [ %41, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont70 ]
-  %visited.2148 = phi i1 [ %visited.1, %for.body.lr.ph ], [ %spec.select11, %invoke.cont70 ]
+  %visited.2148 = phi i1 [ %visited.0, %for.body.lr.ph ], [ %spec.select11, %invoke.cont70 ]
   %arrayidx.i.i62 = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i.i61, i64 0, i64 %indvars.iv
   %agg.tmp60.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i62, align 4
   %xor.i63 = xor i32 %agg.tmp60.sroa.0.0.copyload, 1
@@ -7569,7 +7569,7 @@ invoke.cont70:                                    ; preds = %_ZN6bufferIP3appLb0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
 
 for.end:                                          ; preds = %invoke.cont70, %if.end56
-  %visited.2.lcssa = phi i1 [ %visited.1, %if.end56 ], [ %spec.select11, %invoke.cont70 ]
+  %visited.2.lcssa = phi i1 [ %visited.0, %if.end56 ], [ %spec.select11, %invoke.cont70 ]
   br i1 %visited.2.lcssa, label %if.end76, label %cleanup
 
 if.end76:                                         ; preds = %for.end
@@ -7667,7 +7667,7 @@ lpad82:                                           ; preds = %if.then.i.i116, %in
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.then2.i.i.i128, %if.then.i.i.i123, %invoke.cont94, %for.end
-  %retval.0 = phi ptr [ null, %for.end ], [ %call92, %invoke.cont94 ], [ %call92, %if.then.i.i.i123 ], [ %call92, %if.then2.i.i.i128 ]
+  %retval.1 = phi ptr [ null, %for.end ], [ %call92, %invoke.cont94 ], [ %call92, %if.then.i.i.i123 ], [ %call92, %if.then2.i.i.i128 ]
   %69 = load ptr, ptr %prs, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %69, %m_initial_buffer.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %69, null
@@ -7697,8 +7697,8 @@ if.else96:                                        ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i.i.i, %cleanup, %if.then2.i.i.i, %if.then.i.i.i, %invoke.cont17, %if.else96
-  %retval.1 = phi ptr [ %call98, %if.else96 ], [ %call16, %invoke.cont17 ], [ %call16, %if.then.i.i.i ], [ %call16, %if.then2.i.i.i ], [ %retval.0, %cleanup ], [ %retval.0, %if.end.i.i.i.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call98, %if.else96 ], [ %call16, %invoke.cont17 ], [ %call16, %if.then.i.i.i ], [ %call16, %if.then2.i.i.i ], [ %retval.1, %cleanup ], [ %retval.1, %if.end.i.i.i.i.i ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
   %.pn9 = phi { ptr, i32 } [ %21, %lpad ], [ %.pn, %ehcleanup ]
@@ -8276,7 +8276,7 @@ if.else:                                          ; preds = %if.then21
 
 if.end36:                                         ; preds = %if.then21, %if.else, %_ZNK3smt6clause17get_justificationEv.exit
   %i.0 = phi i32 [ 2, %if.else ], [ 0, %_ZNK3smt6clause17get_justificationEv.exit ], [ 1, %if.then21 ]
-  %visited.1 = phi i1 [ %spec.select, %if.else ], [ %cmp18, %_ZNK3smt6clause17get_justificationEv.exit ], [ %cmp18, %if.then21 ]
+  %visited.0 = phi i1 [ %spec.select, %if.else ], [ %cmp18, %_ZNK3smt6clause17get_justificationEv.exit ], [ %cmp18, %if.then21 ]
   %cmp3726 = icmp ult i32 %i.0, %14
   br i1 %cmp3726, label %for.body.lr.ph, label %return
 
@@ -8287,7 +8287,7 @@ for.body.lr.ph:                                   ; preds = %if.end36
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %17, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %visited.228 = phi i1 [ %visited.1, %for.body.lr.ph ], [ %spec.select7, %for.body ]
+  %visited.228 = phi i1 [ %visited.0, %for.body.lr.ph ], [ %spec.select7, %for.body ]
   %arrayidx.i.i = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i.i16, i64 0, i64 %indvars.iv
   %agg.tmp39.sroa.0.0.copyload = load i32, ptr %arrayidx.i.i, align 4
   %xor.i17 = xor i32 %agg.tmp39.sroa.0.0.copyload, 1
@@ -8307,7 +8307,7 @@ if.else49:                                        ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %for.body, %if.end36, %if.end, %land.rhs, %if.else49
-  %retval.0 = phi i1 [ %cmp52, %if.else49 ], [ true, %land.rhs ], [ true, %if.end ], [ %visited.1, %if.end36 ], [ %spec.select7, %for.body ]
+  %retval.0 = phi i1 [ %cmp52, %if.else49 ], [ true, %land.rhs ], [ true, %if.end ], [ %visited.0, %if.end36 ], [ %spec.select7, %for.body ]
   ret i1 %retval.0
 }
 
@@ -8382,7 +8382,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %lhs.addr.048 = phi ptr [ %lhs, %while.body.lr.ph ], [ %37, %sw.epilog ]
-  %visited.047 = phi i1 [ true, %while.body.lr.ph ], [ %visited.4, %sw.epilog ]
+  %visited.047 = phi i1 [ true, %while.body.lr.ph ], [ %visited.1, %sw.epilog ]
   %m_trans = getelementptr inbounds i8, ptr %lhs.addr.048, i64 80
   %m_justification = getelementptr inbounds i8, ptr %lhs.addr.048, i64 88
   %0 = load i64, ptr %m_justification, align 8
@@ -8461,19 +8461,19 @@ land.lhs.true:                                    ; preds = %if.then17
   br label %if.end26
 
 if.end26:                                         ; preds = %land.lhs.true, %if.then17
-  %visited.1 = phi i1 [ %visited.047, %if.then17 ], [ %spec.select20, %land.lhs.true ]
+  %visited.2 = phi i1 [ %visited.047, %if.then17 ], [ %spec.select20, %land.lhs.true ]
   %cmp27.not = icmp eq ptr %10, %11
   br i1 %cmp27.not, label %sw.epilog, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end26
   %call29 = tail call noundef ptr @_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %10, ptr noundef %11)
   %cmp30 = icmp ne ptr %call29, null
-  %spec.select21 = select i1 %cmp30, i1 %visited.1, i1 false
+  %spec.select21 = select i1 %cmp30, i1 %visited.2, i1 false
   br label %sw.epilog
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %visited.245 = phi i1 [ %visited.047, %for.body.lr.ph ], [ %visited.3, %for.inc ]
+  %visited.345 = phi i1 [ %visited.047, %for.body.lr.ph ], [ %visited.4, %for.inc ]
   %arrayidx.i30 = getelementptr inbounds [0 x ptr], ptr %m_args.i29, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx.i30, align 8
   %arrayidx.i33 = getelementptr inbounds [0 x ptr], ptr %m_args.i31, i64 0, i64 %indvars.iv
@@ -8614,11 +8614,11 @@ _ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i: ; pr
 _ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit: ; preds = %if.then.i, %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i
   %retval.0.i = phi ptr [ %29, %if.then.i ], [ null, %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i ]
   %cmp39 = icmp ne ptr %retval.0.i, null
-  %spec.select22 = select i1 %cmp39, i1 %visited.245, i1 false
+  %spec.select22 = select i1 %cmp39, i1 %visited.345, i1 false
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit, %for.body
-  %visited.3 = phi i1 [ %visited.245, %for.body ], [ %spec.select22, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
+  %visited.4 = phi i1 [ %visited.345, %for.body ], [ %spec.select22, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !47
@@ -8629,13 +8629,13 @@ sw.default:                                       ; preds = %while.body
   unreachable
 
 sw.epilog:                                        ; preds = %for.inc, %_ZNK3smt5enode12get_num_argsEv.exit.thread, %for.cond.preheader, %land.lhs.true28, %sw.bb7, %sw.bb2, %if.end26, %while.body
-  %visited.4 = phi i1 [ %visited.1, %if.end26 ], [ %visited.047, %while.body ], [ %spec.select, %sw.bb2 ], [ %spec.select19, %sw.bb7 ], [ %spec.select21, %land.lhs.true28 ], [ %visited.047, %for.cond.preheader ], [ %visited.047, %_ZNK3smt5enode12get_num_argsEv.exit.thread ], [ %visited.3, %for.inc ]
+  %visited.1 = phi i1 [ %visited.2, %if.end26 ], [ %visited.047, %while.body ], [ %spec.select, %sw.bb2 ], [ %spec.select19, %sw.bb7 ], [ %spec.select21, %land.lhs.true28 ], [ %visited.047, %for.cond.preheader ], [ %visited.047, %_ZNK3smt5enode12get_num_argsEv.exit.thread ], [ %visited.4, %for.inc ]
   %37 = load ptr, ptr %m_trans, align 8
   %cmp.not = icmp eq ptr %37, %rhs
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !48
 
 while.end:                                        ; preds = %sw.epilog, %entry
-  %visited.0.lcssa = phi i1 [ true, %entry ], [ %visited.4, %sw.epilog ]
+  %visited.0.lcssa = phi i1 [ true, %entry ], [ %visited.1, %sw.epilog ]
   ret i1 %visited.0.lcssa
 }
 

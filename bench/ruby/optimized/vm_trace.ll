@@ -5538,24 +5538,24 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %66, %rb_ec_ractor_p
   br i1 %.not3949, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %71
-  %.0.lcssa = phi i32 [ 0, %71 ], [ %77, %.lr.ph ]
+  %.1.lcssa = phi i32 [ 0, %71 ], [ %77, %.lr.ph ]
   %72 = load ptr, ptr %4, align 8
   %.not.i4451 = icmp eq ptr %72, %4
   br i1 %.not.i4451, label %ccan_list_pop_.exit.thread, label %ccan_list_pop_.exit
 
 .lr.ph:                                           ; preds = %71, %.lr.ph
-  %.050 = phi i32 [ %77, %.lr.ph ], [ %27, %71 ]
-  %73 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.050, i1 true)
+  %.150 = phi i32 [ %77, %.lr.ph ], [ %27, %71 ]
+  %73 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.150, i1 true)
   %74 = xor i32 %73, 31
   %75 = zext nneg i32 %74 to i64
   %76 = shl nuw i32 1, %74
-  %77 = xor i32 %76, %.050
+  %77 = xor i32 %76, %.150
   %78 = getelementptr [32 x %struct.anon.14], ptr %9, i64 0, i64 %75
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8
   call void %79(ptr noundef %81) #4
-  %.not39 = icmp eq i32 %76, %.050
+  %.not39 = icmp eq i32 %76, %.150
   br i1 %.not39, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_list_pop_.exit
@@ -5580,7 +5580,7 @@ ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_l
 ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit, %.preheader, %.thread
   %93 = phi ptr [ %.pre, %.thread ], [ %4, %.preheader ], [ %4, %ccan_list_pop_.exit ]
   %.0..0..0.13 = phi ptr [ %.0..0..0.13.pre, %.thread ], [ %11, %.preheader ], [ %11, %ccan_list_pop_.exit ]
-  %.1 = phi i32 [ %27, %.thread ], [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %ccan_list_pop_.exit ]
+  %.0 = phi i32 [ %27, %.thread ], [ %.1.lcssa, %.preheader ], [ %.1.lcssa, %ccan_list_pop_.exit ]
   %94 = load ptr, ptr %33, align 8
   %95 = getelementptr inbounds i8, ptr %.0..0..0.13, i64 24
   store ptr %94, ptr %95, align 8
@@ -5617,11 +5617,11 @@ ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit
   br label %109
 
 109:                                              ; preds = %99, %ccan_list_pop_.exit.thread
-  %.not42 = icmp eq i32 %.1, 0
+  %.not42 = icmp eq i32 %.0, 0
   br i1 %.not42, label %115, label %110
 
 110:                                              ; preds = %109
-  %111 = atomicrmw volatile or ptr %26, i32 %.1 seq_cst, align 4
+  %111 = atomicrmw volatile or ptr %26, i32 %.0 seq_cst, align 4
   %112 = load ptr, ptr %10, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 32
   %114 = atomicrmw volatile or ptr %113, i32 4 seq_cst, align 4

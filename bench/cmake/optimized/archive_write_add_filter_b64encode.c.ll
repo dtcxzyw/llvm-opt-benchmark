@@ -227,16 +227,16 @@ define internal i32 @archive_filter_b64encode_write(ptr nocapture noundef readon
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
-  %.04051 = phi ptr [ %1, %.lr.ph ], [ %14, %12 ]
-  %.04250 = phi i64 [ %2, %.lr.ph ], [ %18, %12 ]
+  %.151 = phi ptr [ %1, %.lr.ph ], [ %14, %12 ]
+  %.14350 = phi i64 [ %2, %.lr.ph ], [ %18, %12 ]
   %13 = phi i64 [ %9, %.lr.ph ], [ %.pr, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.04051, i64 1
-  %15 = load i8, ptr %.04051, align 1
+  %14 = getelementptr inbounds i8, ptr %.151, i64 1
+  %15 = load i8, ptr %.151, align 1
   %16 = add nuw nsw i64 %13, 1
   store i64 %16, ptr %8, align 8
   %17 = getelementptr inbounds [57 x i8], ptr %11, i64 0, i64 %13
   store i8 %15, ptr %17, align 1
-  %18 = add i64 %.04250, -1
+  %18 = add i64 %.14350, -1
   %.pr = load i64, ptr %8, align 8
   %19 = icmp ult i64 %.pr, 57
   %20 = icmp ne i64 %18, 0
@@ -247,8 +247,8 @@ define internal i32 @archive_filter_b64encode_write(ptr nocapture noundef readon
   br i1 %19, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.040.lcssa75 = phi ptr [ %14, %._crit_edge ], [ %1, %.preheader ]
-  %.042.lcssa74 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader ]
+  %.1.lcssa75 = phi ptr [ %14, %._crit_edge ], [ %1, %.preheader ]
+  %.143.lcssa74 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader ]
   %22 = getelementptr inbounds i8, ptr %5, i64 32
   %23 = getelementptr inbounds i8, ptr %5, i64 72
   tail call fastcc void @la_b64_encode(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 57)
@@ -256,9 +256,9 @@ define internal i32 @archive_filter_b64encode_write(ptr nocapture noundef readon
   br label %24
 
 24:                                               ; preds = %._crit_edge.thread, %7
-  %.143 = phi i64 [ %.042.lcssa74, %._crit_edge.thread ], [ %2, %7 ]
-  %.1 = phi ptr [ %.040.lcssa75, %._crit_edge.thread ], [ %1, %7 ]
-  %25 = icmp ugt i64 %.143, 56
+  %.042 = phi i64 [ %.143.lcssa74, %._crit_edge.thread ], [ %2, %7 ]
+  %.040 = phi ptr [ %.1.lcssa75, %._crit_edge.thread ], [ %1, %7 ]
+  %25 = icmp ugt i64 %.042, 56
   br i1 %25, label %.lr.ph57, label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %24
@@ -266,8 +266,8 @@ define internal i32 @archive_filter_b64encode_write(ptr nocapture noundef readon
   br label %27
 
 27:                                               ; preds = %.lr.ph57, %27
-  %.255 = phi ptr [ %.1, %.lr.ph57 ], [ %29, %27 ]
-  %.24454 = phi i64 [ %.143, %.lr.ph57 ], [ %28, %27 ]
+  %.255 = phi ptr [ %.040, %.lr.ph57 ], [ %29, %27 ]
+  %.24454 = phi i64 [ %.042, %.lr.ph57 ], [ %28, %27 ]
   tail call fastcc void @la_b64_encode(ptr noundef nonnull %26, ptr noundef %.255, i64 noundef 57)
   %28 = add i64 %.24454, -57
   %29 = getelementptr inbounds i8, ptr %.255, i64 57
@@ -275,8 +275,8 @@ define internal i32 @archive_filter_b64encode_write(ptr nocapture noundef readon
   br i1 %30, label %27, label %._crit_edge58, !llvm.loop !8
 
 ._crit_edge58:                                    ; preds = %27, %24
-  %.244.lcssa = phi i64 [ %.143, %24 ], [ %28, %27 ]
-  %.2.lcssa = phi ptr [ %.1, %24 ], [ %29, %27 ]
+  %.244.lcssa = phi i64 [ %.042, %24 ], [ %28, %27 ]
+  %.2.lcssa = phi ptr [ %.040, %24 ], [ %29, %27 ]
   %.not48 = icmp eq i64 %.244.lcssa, 0
   br i1 %.not48, label %33, label %31
 

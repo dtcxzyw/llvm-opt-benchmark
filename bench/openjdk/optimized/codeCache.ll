@@ -2102,7 +2102,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
-  %.sroa.0.128 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
+  %.sroa.0.028 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %.sroa.11.027 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %sext = shl i64 %.sroa.11.027, 32
   %7 = ashr exact i64 %sext, 32
@@ -2110,7 +2110,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 8:                                                ; preds = %.lr.ph, %.backedge.i.i
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
-  %.sroa.0.224 = phi ptr [ %.sroa.0.128, %.lr.ph ], [ null, %.backedge.i.i ]
+  %.sroa.0.224 = phi ptr [ %.sroa.0.028, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -2184,7 +2184,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
-  %.sroa.0.128 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
+  %.sroa.0.028 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %.sroa.11.027 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %sext = shl i64 %.sroa.11.027, 32
   %7 = ashr exact i64 %sext, 32
@@ -2192,7 +2192,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 8:                                                ; preds = %.lr.ph, %.backedge.i.i
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
-  %.sroa.0.224 = phi ptr [ %.sroa.0.128, %.lr.ph ], [ null, %.backedge.i.i ]
+  %.sroa.0.224 = phi ptr [ %.sroa.0.028, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -2268,7 +2268,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
-  %.sroa.0.128 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
+  %.sroa.0.028 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %.sroa.11.027 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %sext = shl i64 %.sroa.11.027, 32
   %7 = ashr exact i64 %sext, 32
@@ -2276,7 +2276,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 8:                                                ; preds = %.lr.ph, %.backedge.i.i
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
-  %.sroa.0.224 = phi ptr [ %.sroa.0.128, %.lr.ph ], [ null, %.backedge.i.i ]
+  %.sroa.0.224 = phi ptr [ %.sroa.0.028, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -2800,7 +2800,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit
-  %.sroa.0.128 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
+  %.sroa.0.028 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %.sroa.11.027 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit ]
   %sext = shl i64 %.sroa.11.027, 32
   %7 = ashr exact i64 %sext, 32
@@ -2808,7 +2808,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 8:                                                ; preds = %.lr.ph, %.backedge.i.i
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
-  %.sroa.0.224 = phi ptr [ %.sroa.0.128, %.lr.ph ], [ null, %.backedge.i.i ]
+  %.sroa.0.224 = phi ptr [ %.sroa.0.028, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -4302,7 +4302,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %76
-  %.sroa.0.133 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %76 ]
+  %.sroa.0.033 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %76 ]
   %.sroa.11.032 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %76 ]
   %sext = shl i64 %.sroa.11.032, 32
   %13 = ashr exact i64 %sext, 32
@@ -4310,7 +4310,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 14:                                               ; preds = %.lr.ph, %.backedge.i.i
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
-  %.sroa.0.229 = phi ptr [ %.sroa.0.133, %.lr.ph ], [ null, %.backedge.i.i ]
+  %.sroa.0.229 = phi ptr [ %.sroa.0.033, %.lr.ph ], [ null, %.backedge.i.i ]
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
@@ -4452,7 +4452,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %78
-  %.sroa.0.134 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %78 ]
+  %.sroa.0.034 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.sroa.0.4, %78 ]
   %.sroa.11.033 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %indvars.iv, %78 ]
   %sext = shl i64 %.sroa.11.033, 32
   %7 = ashr exact i64 %sext, 32
@@ -4460,7 +4460,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 8:                                                ; preds = %.lr.ph, %.backedge.i.i
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
-  %.sroa.0.230 = phi ptr [ %.sroa.0.134, %.lr.ph ], [ null, %.backedge.i.i ]
+  %.sroa.0.230 = phi ptr [ %.sroa.0.034, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -4853,7 +4853,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EEC2ENS2_14LivenessFilterEPS0_.e
 
 _ZNK7nmethod18can_be_deoptimizedEv.exit.thread:   ; preds = %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread.backedge, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EEC2ENS2_14LivenessFilterEPS0_.exit
   %.sroa.11.0 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EEC2ENS2_14LivenessFilterEPS0_.exit ], [ %.sroa.11.1.lcssa, %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread.backedge ]
-  %.sroa.0.1 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EEC2ENS2_14LivenessFilterEPS0_.exit ], [ %.sroa.0.412, %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread.backedge ]
+  %.sroa.0.0 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EEC2ENS2_14LivenessFilterEPS0_.exit ], [ %.sroa.0.412, %_ZNK7nmethod18can_be_deoptimizedEv.exit.thread.backedge ]
   %6 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %7
@@ -4867,7 +4867,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %7, %_ZNK7
   br i1 %8, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_implEv.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, %.backedge.i.i
-  %.sroa.0.224 = phi ptr [ %.sroa.0.414, %.backedge.i.i ], [ %.sroa.0.1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
+  %.sroa.0.224 = phi ptr [ %.sroa.0.414, %.backedge.i.i ], [ %.sroa.0.0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
   %.sroa.11.123 = phi i32 [ %.sroa.11.2, %.backedge.i.i ], [ %.sroa.11.0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
   %9 = load ptr, ptr %5, align 8
   %10 = sext i32 %.sroa.11.123 to i64
@@ -4928,7 +4928,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_blobEv.exit: ; preds = %
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_implEv.exit.i: ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_blobEv.exit, %.backedge.i.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %.sroa.11.1.lcssa = phi i32 [ %.sroa.17.0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ %.sroa.17.0, %.backedge.i.i ], [ %.sroa.11.123, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_blobEv.exit ]
   %.0.i15 = phi i1 [ false, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ false, %.backedge.i.i ], [ true, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_blobEv.exit ]
-  %.sroa.0.412 = phi ptr [ %.sroa.0.1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ %.sroa.0.414, %.backedge.i.i ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_blobEv.exit ]
+  %.sroa.0.412 = phi ptr [ %.sroa.0.0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ], [ %.sroa.0.414, %.backedge.i.i ], [ %.sroa.0.4, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_blobEv.exit ]
   br i1 %.not.i.i.i, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE4nextEv.exit, label %37
 
 37:                                               ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb1EE9next_implEv.exit.i
@@ -8323,8 +8323,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 
@@ -8660,8 +8660,8 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit
 

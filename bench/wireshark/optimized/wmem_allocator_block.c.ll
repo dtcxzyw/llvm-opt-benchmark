@@ -1469,7 +1469,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
 
 23:                                               ; preds = %13, %9, %2
   %24 = phi i32 [ %4, %9 ], [ %22, %13 ], [ %4, %2 ]
-  %.1 = phi ptr [ null, %9 ], [ %spec.select, %13 ], [ null, %2 ]
+  %.049 = phi ptr [ null, %9 ], [ %spec.select, %13 ], [ null, %2 ]
   %25 = load i32, ptr %1, align 4
   %.not59 = icmp eq i32 %25, 0
   %26 = zext i32 %25 to i64
@@ -1505,7 +1505,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
 
 44:                                               ; preds = %33, %29, %23
   %45 = phi i32 [ %24, %29 ], [ %43, %33 ], [ %24, %23 ]
-  %.151 = phi ptr [ null, %29 ], [ %spec.select68, %33 ], [ null, %23 ]
+  %.050 = phi ptr [ null, %29 ], [ %spec.select68, %33 ], [ null, %23 ]
   %.0 = phi ptr [ %1, %29 ], [ %28, %33 ], [ %1, %23 ]
   %46 = getelementptr inbounds i8, ptr %.0, i64 4
   %47 = and i32 %45, 1
@@ -1520,26 +1520,26 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br label %52
 
 52:                                               ; preds = %48, %44
-  %.not64 = icmp eq ptr %.1, null
+  %.not64 = icmp eq ptr %.049, null
   br i1 %.not64, label %.critedge, label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %.1, %55
+  %56 = icmp eq ptr %.049, %55
   br i1 %56, label %57, label %83
 
 57:                                               ; preds = %53
-  %.not66 = icmp eq ptr %.151, null
+  %.not66 = icmp eq ptr %.050, null
   br i1 %.not66, label %wmem_block_remove_from_recycler.exit, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr i8, ptr %.151, i64 16
+  %59 = getelementptr i8, ptr %.050, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %.151
-  %62 = getelementptr i8, ptr %.151, i64 24
+  %61 = icmp eq ptr %60, %.050
+  %62 = getelementptr i8, ptr %.050, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %.151
+  %64 = icmp eq ptr %63, %.050
   %or.cond.i = select i1 %61, i1 %64, i1 false
   br i1 %or.cond.i, label %65, label %._crit_edge.i
 
@@ -1557,7 +1557,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   store ptr %68, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, %.151
+  %73 = icmp eq ptr %72, %.050
   br i1 %73, label %74, label %wmem_block_remove_from_recycler.exit
 
 74:                                               ; preds = %._crit_edge.i
@@ -1568,7 +1568,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
 wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i, %65, %57
   %76 = getelementptr i8, ptr %.0, i64 16
   store ptr null, ptr %76, align 8
-  %77 = getelementptr i8, ptr %.1, i64 24
+  %77 = getelementptr i8, ptr %.049, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %.0, i64 24
   store ptr %78, ptr %79, align 8
@@ -1582,12 +1582,12 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   br label %wmem_block_add_to_recycler.exit.sink.split
 
 83:                                               ; preds = %53
-  %84 = getelementptr i8, ptr %.1, i64 16
+  %84 = getelementptr i8, ptr %.049, i64 16
   %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %.1
-  %87 = getelementptr i8, ptr %.1, i64 24
+  %86 = icmp eq ptr %85, %.049
+  %87 = getelementptr i8, ptr %.049, i64 24
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %.1
+  %89 = icmp eq ptr %88, %.049
   %or.cond.i69 = select i1 %86, i1 %89, i1 false
   br i1 %or.cond.i69, label %90, label %._crit_edge.i70
 
@@ -1605,7 +1605,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   store ptr %93, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, %.1
+  %98 = icmp eq ptr %97, %.049
   br i1 %98, label %99, label %.critedge
 
 99:                                               ; preds = %._crit_edge.i70
@@ -1614,7 +1614,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   br label %.critedge
 
 .critedge:                                        ; preds = %99, %._crit_edge.i70, %90, %52
-  %.not65 = icmp eq ptr %.151, null
+  %.not65 = icmp eq ptr %.050, null
   br i1 %.not65, label %101, label %wmem_block_add_to_recycler.exit
 
 101:                                              ; preds = %.critedge

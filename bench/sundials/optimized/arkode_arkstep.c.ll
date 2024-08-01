@@ -4349,7 +4349,7 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   br i1 %exitcond.not, label %.loopexit152, label %95
 
 .loopexit152:                                     ; preds = %95, %89
-  %.3129 = phi i32 [ 0, %89 ], [ %1, %95 ]
+  %.2128 = phi i32 [ 0, %89 ], [ %1, %95 ]
   %110 = getelementptr inbounds i8, ptr %5, i64 28
   %111 = load i32, ptr %110, align 4
   %.not140 = icmp ne i32 %111, 0
@@ -4358,7 +4358,7 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 .lr.ph157:                                        ; preds = %.loopexit152
   %112 = getelementptr inbounds i8, ptr %5, i64 48
-  %113 = zext nneg i32 %.3129 to i64
+  %113 = zext nneg i32 %.2128 to i64
   %wide.trip.count182 = zext nneg i32 %1 to i64
   br label %114
 
@@ -4391,15 +4391,15 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit152
-  %.5 = phi i32 [ %.3129, %.loopexit152 ], [ %129, %.loopexit.loopexit ]
-  %130 = sext i32 %.5 to i64
+  %.4130 = phi i32 [ %.2128, %.loopexit152 ], [ %129, %.loopexit.loopexit ]
+  %130 = sext i32 %.4130 to i64
   %131 = getelementptr inbounds double, ptr %19, i64 %130
   store double 1.000000e+00, ptr %131, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 272
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds ptr, ptr %21, i64 %130
   store ptr %133, ptr %134, align 8
-  %135 = add nsw i32 %.5, 1
+  %135 = add nsw i32 %.4130, 1
   %136 = tail call i32 @N_VLinearCombination(i32 noundef %135, ptr noundef %19, ptr noundef %21, ptr noundef %2) #12
   %.not141 = icmp eq i32 %136, 0
   %. = select i1 %.not141, i32 0, i32 -28
@@ -4550,7 +4550,7 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
   br label %.loopexit122
 
 .loopexit122:                                     ; preds = %.loopexit122.loopexit, %.critedge108
-  %.3 = phi i32 [ %.0115120, %.critedge108 ], [ %77, %.loopexit122.loopexit ]
+  %.2117 = phi i32 [ %.0115120, %.critedge108 ], [ %77, %.loopexit122.loopexit ]
   %78 = getelementptr inbounds i8, ptr %4, i64 28
   %79 = load i32, ptr %78, align 4
   %.not101 = icmp ne i32 %79, 0
@@ -4562,7 +4562,7 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
   %81 = getelementptr inbounds i8, ptr %4, i64 112
   %82 = zext nneg i32 %9 to i64
   %83 = getelementptr inbounds i8, ptr %4, i64 48
-  %84 = sext i32 %.3 to i64
+  %84 = sext i32 %.2117 to i64
   br label %85
 
 85:                                               ; preds = %.lr.ph127, %85
@@ -4594,7 +4594,7 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit122
-  %.5 = phi i32 [ %.3, %.loopexit122 ], [ %100, %.loopexit.loopexit ]
+  %.4 = phi i32 [ %.2117, %.loopexit122 ], [ %100, %.loopexit.loopexit ]
   %101 = getelementptr inbounds i8, ptr %4, i64 436
   %102 = load i32, ptr %101, align 4
   %.not102 = icmp eq i32 %102, 0
@@ -4670,7 +4670,7 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
   br i1 %144, label %arkStep_ApplyForcing.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
-  %145 = sext i32 %.5 to i64
+  %145 = sext i32 %.4 to i64
   %wide.trip.count.i = zext nneg i32 %141 to i64
   br label %.lr.ph.i
 
@@ -4724,11 +4724,11 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i
 
 arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %._crit_edge, %.preheader.i
-  %162 = add nsw i32 %141, %.5
+  %162 = add nsw i32 %141, %.4
   br label %163
 
 163:                                              ; preds = %arkStep_ApplyForcing.exit, %103
-  %.6 = phi i32 [ %.5, %103 ], [ %162, %arkStep_ApplyForcing.exit ]
+  %.6 = phi i32 [ %.4, %103 ], [ %162, %arkStep_ApplyForcing.exit ]
   %164 = getelementptr inbounds i8, ptr %4, i64 64
   %165 = load ptr, ptr %164, align 8
   %166 = tail call i32 @N_VLinearCombination(i32 noundef %.6, ptr noundef %11, ptr noundef %13, ptr noundef %165) #12
@@ -6019,7 +6019,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br label %96
 
 96:                                               ; preds = %89, %95
-  %.099 = phi ptr [ %.1102, %95 ], [ %94, %89 ]
+  %.1 = phi ptr [ %.1102, %95 ], [ %94, %89 ]
   %97 = load ptr, ptr %24, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 32
   %99 = load ptr, ptr %98, align 8
@@ -6040,7 +6040,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br label %109
 
 109:                                              ; preds = %102, %108
-  %.1 = phi ptr [ %.1102, %108 ], [ %107, %102 ]
+  %.2 = phi ptr [ %.1102, %108 ], [ %107, %102 ]
   %110 = load ptr, ptr %29, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 32
   %112 = load ptr, ptr %111, align 8
@@ -6049,7 +6049,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br label %115
 
 115:                                              ; preds = %96, %109, %72
-  %.2 = phi ptr [ %.1102, %72 ], [ %.099, %96 ], [ %.1, %109 ]
+  %.099 = phi ptr [ %.1102, %72 ], [ %.1, %96 ], [ %.2, %109 ]
   %.0 = phi double [ 1.000000e+00, %72 ], [ %101, %96 ], [ %114, %109 ]
   %116 = load i32, ptr %21, align 8
   %117 = icmp eq i32 %116, 1
@@ -6058,7 +6058,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
 118:                                              ; preds = %115
   %119 = load ptr, ptr %31, align 8
   %120 = load double, ptr %32, align 8
-  %121 = tail call i32 %119(ptr noundef nonnull %0, ptr noundef %.2, double noundef %120) #12
+  %121 = tail call i32 %119(ptr noundef nonnull %0, ptr noundef %.099, double noundef %120) #12
   %.not117 = icmp eq i32 %121, 0
   br i1 %.not117, label %122, label %.loopexit
 
@@ -6076,11 +6076,11 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br i1 %.not119, label %131, label %129
 
 129:                                              ; preds = %126
-  %130 = tail call double @N_VDotProdLocal(ptr noundef nonnull %6, ptr noundef %.2) #12
+  %130 = tail call double @N_VDotProdLocal(ptr noundef nonnull %6, ptr noundef %.099) #12
   br label %133
 
 131:                                              ; preds = %126, %122
-  %132 = tail call double @N_VDotProd(ptr noundef nonnull %6, ptr noundef %.2) #12
+  %132 = tail call double @N_VDotProd(ptr noundef nonnull %6, ptr noundef %.099) #12
   br label %133
 
 133:                                              ; preds = %129, %131

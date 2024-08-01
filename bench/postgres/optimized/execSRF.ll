@@ -413,7 +413,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %.loopexit115
 
 .loopexit115:                                     ; preds = %75, %.preheader, %ExecEvalFuncArgs.exit, %80
-  %.098 = phi i8 [ 0, %80 ], [ %35, %ExecEvalFuncArgs.exit ], [ %35, %.preheader ], [ %35, %75 ]
+  %.199 = phi i8 [ 0, %80 ], [ %35, %ExecEvalFuncArgs.exit ], [ %35, %.preheader ], [ %35, %75 ]
   %82 = getelementptr inbounds i8, ptr %1, i64 40
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr @CurrentMemoryContext, align 8
@@ -421,7 +421,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %85 = getelementptr inbounds i8, ptr %7, i64 32
   %86 = getelementptr inbounds i8, ptr %1, i64 32
   %87 = getelementptr inbounds i8, ptr %8, i64 16
-  %88 = trunc i8 %.098 to i1
+  %88 = trunc i8 %.199 to i1
   br label %89
 
 89:                                               ; preds = %160, %.loopexit115
@@ -495,12 +495,12 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %118
 
 118:                                              ; preds = %116, %111
-  %.197 = phi ptr [ %.096, %111 ], [ %117, %116 ]
+  %.2 = phi ptr [ %.096, %111 ], [ %117, %116 ]
   store ptr %113, ptr @CurrentMemoryContext, align 8
   br label %119
 
 119:                                              ; preds = %118, %110
-  %.2 = phi ptr [ %.197, %118 ], [ %.096, %110 ]
+  %.197 = phi ptr [ %.2, %118 ], [ %.096, %110 ]
   %.1 = phi ptr [ %115, %118 ], [ %.0, %110 ]
   br i1 %14, label %120, label %157
 
@@ -513,7 +513,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %124 = load i64, ptr %9, align 8
   %125 = inttoptr i64 %124 to ptr
   %126 = call ptr @pg_detoast_datum(ptr noundef %125) #5
-  %127 = icmp eq ptr %.2, null
+  %127 = icmp eq ptr %.197, null
   br i1 %127, label %128, label %136
 
 128:                                              ; preds = %123
@@ -532,7 +532,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 136:                                              ; preds = %123
   %137 = getelementptr inbounds i8, ptr %126, i64 8
   %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %.2, i64 4
+  %139 = getelementptr inbounds i8, ptr %.197, i64 4
   %140 = load i32, ptr %139, align 4
   %.not = icmp eq i32 %138, %140
   br i1 %.not, label %141, label %146
@@ -540,7 +540,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 141:                                              ; preds = %136
   %142 = getelementptr inbounds i8, ptr %126, i64 4
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %.2, i64 8
+  %144 = getelementptr inbounds i8, ptr %.197, i64 8
   %145 = load i32, ptr %144, align 8
   %.not109 = icmp eq i32 %143, %145
   br i1 %.not109, label %150, label %146
@@ -554,7 +554,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   unreachable
 
 150:                                              ; preds = %141, %128
-  %.3 = phi ptr [ %135, %128 ], [ %.2, %141 ]
+  %.3 = phi ptr [ %135, %128 ], [ %.197, %141 ]
   %151 = load i32, ptr %126, align 4
   %152 = lshr i32 %151, 2
   store i32 %152, ptr %8, align 8
@@ -571,11 +571,11 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %158
 
 157:                                              ; preds = %119
-  call void @tuplestore_putvalues(ptr noundef %.1, ptr noundef %.2, ptr noundef nonnull %9, ptr noundef nonnull %84) #5
+  call void @tuplestore_putvalues(ptr noundef %.1, ptr noundef %.197, ptr noundef nonnull %9, ptr noundef nonnull %84) #5
   br label %158
 
 158:                                              ; preds = %150, %153, %157
-  %.4 = phi ptr [ %.2, %153 ], [ %.3, %150 ], [ %.2, %157 ]
+  %.4 = phi ptr [ %.197, %153 ], [ %.3, %150 ], [ %.197, %157 ]
   %159 = load i32, ptr %85, align 8
   %.not110 = icmp eq i32 %159, 1
   br i1 %.not110, label %160, label %.loopexit
@@ -617,7 +617,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   unreachable
 
 .loopexit:                                        ; preds = %76, %107, %158, %165
-  %.199 = phi i8 [ %.098, %165 ], [ %.098, %158 ], [ %.098, %107 ], [ %35, %76 ]
+  %.098 = phi i8 [ %.199, %165 ], [ %.199, %158 ], [ %.199, %107 ], [ %35, %76 ]
   %177 = load ptr, ptr %19, align 8
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %190
@@ -631,7 +631,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %184 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %4, i1 noundef zeroext false, i32 noundef %183) #5
   store ptr %184, ptr %19, align 8
   store ptr %182, ptr @CurrentMemoryContext, align 8
-  %185 = trunc i8 %.199 to i1
+  %185 = trunc i8 %.098 to i1
   br i1 %185, label %190, label %186
 
 186:                                              ; preds = %179

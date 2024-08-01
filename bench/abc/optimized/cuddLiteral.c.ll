@@ -81,7 +81,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   %.0113155 = phi ptr [ %1, %.lr.ph ], [ %.3, %94 ]
   %.0119154 = phi ptr [ %11, %.lr.ph ], [ %.1120, %94 ]
   %.0121153 = phi ptr [ %8, %.lr.ph ], [ %.1122, %94 ]
-  %.0123152 = phi ptr [ %2, %.lr.ph ], [ %.3126, %94 ]
+  %.0123152 = phi ptr [ %2, %.lr.ph ], [ %.1124, %94 ]
   %41 = icmp ult i32 %.0110156, %.0109157
   br i1 %41, label %42, label %67
 
@@ -134,8 +134,8 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   %72 = ptrtoint ptr %71 to i64
   %73 = xor i64 %72, 1
   %74 = inttoptr i64 %73 to ptr
-  %.1124 = select i1 %.not149, ptr %71, ptr %74
-  %75 = icmp eq ptr %.1124, %18
+  %.2125 = select i1 %.not149, ptr %71, ptr %74
+  %75 = icmp eq ptr %.2125, %18
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %69
@@ -150,8 +150,8 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br label %83
 
 83:                                               ; preds = %76, %79, %69
-  %.2125 = phi ptr [ %82, %79 ], [ %78, %76 ], [ %.1124, %69 ]
-  %84 = ptrtoint ptr %.2125 to i64
+  %.3126 = phi ptr [ %82, %79 ], [ %78, %76 ], [ %.2125, %69 ]
+  %84 = ptrtoint ptr %.3126 to i64
   %85 = and i64 %84, -2
   %86 = inttoptr i64 %85 to ptr
   %87 = load i32, ptr %86, align 8
@@ -166,7 +166,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br label %94
 
 94:                                               ; preds = %89, %83, %62, %56, %67
-  %.3126 = phi ptr [ %.0123152, %67 ], [ %.0123152, %56 ], [ %.0123152, %62 ], [ %.2125, %83 ], [ %.2125, %89 ]
+  %.1124 = phi ptr [ %.0123152, %67 ], [ %.0123152, %56 ], [ %.0123152, %62 ], [ %.3126, %83 ], [ %.3126, %89 ]
   %.1122 = phi ptr [ %.0121153, %67 ], [ %59, %56 ], [ %59, %62 ], [ %.0121153, %83 ], [ %.0121153, %89 ]
   %.1120 = phi ptr [ %.0119154, %67 ], [ %.0119154, %56 ], [ %.0119154, %62 ], [ %86, %83 ], [ %86, %89 ]
   %.3 = phi ptr [ %.0113155, %67 ], [ %.2, %56 ], [ %.2, %62 ], [ %.0113155, %83 ], [ %.0113155, %89 ]
@@ -176,7 +176,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %._crit_edge, label %40, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %94, %37
-  %.0123.lcssa = phi ptr [ %2, %37 ], [ %.3126, %94 ]
+  %.0123.lcssa = phi ptr [ %2, %37 ], [ %.1124, %94 ]
   %.0121.lcssa = phi ptr [ %8, %37 ], [ %.1122, %94 ]
   %.0119.lcssa = phi ptr [ %11, %37 ], [ %.1120, %94 ]
   %.0113.lcssa = phi ptr [ %1, %37 ], [ %.3, %94 ]
@@ -278,12 +278,12 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   br label %152
 
 152:                                              ; preds = %129, %149
-  %.1128 = phi ptr [ %146, %149 ], [ %127, %129 ]
-  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_bddLiteralSetIntersection, ptr noundef %.0113.lcssa, ptr noundef %.0123.lcssa, ptr noundef nonnull %.1128) #2
+  %.0127 = phi ptr [ %146, %149 ], [ %127, %129 ]
+  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @Cudd_bddLiteralSetIntersection, ptr noundef %.0113.lcssa, ptr noundef %.0123.lcssa, ptr noundef nonnull %.0127) #2
   br label %153
 
 153:                                              ; preds = %126, %96, %._crit_edge, %5, %3, %152, %148
-  %.0112 = phi ptr [ %.1128, %152 ], [ null, %148 ], [ %1, %3 ], [ %13, %5 ], [ %13, %._crit_edge ], [ %97, %96 ], [ null, %126 ]
+  %.0112 = phi ptr [ %.0127, %152 ], [ null, %148 ], [ %1, %3 ], [ %13, %5 ], [ %13, %._crit_edge ], [ %97, %96 ], [ null, %126 ]
   ret ptr %.0112
 }
 

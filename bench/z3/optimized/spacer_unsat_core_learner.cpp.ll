@@ -407,7 +407,7 @@ _ZNK11ast_manager13proof_parents3endEv.exit:      ; preds = %invoke.cont14, %cal
   br i1 %cmp18.not83, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNK11ast_manager13proof_parents3endEv.exit, %invoke.cont19
-  %done.085 = phi i1 [ %tobool23, %invoke.cont19 ], [ true, %_ZNK11ast_manager13proof_parents3endEv.exit ]
+  %done.185 = phi i1 [ %tobool23, %invoke.cont19 ], [ true, %_ZNK11ast_manager13proof_parents3endEv.exit ]
   %__begin3.084 = phi ptr [ %incdec.ptr, %invoke.cont19 ], [ %m_args.i.i.ptr, %_ZNK11ast_manager13proof_parents3endEv.exit ]
   %14 = load ptr, ptr %__begin3.084, align 8
   %15 = load ptr, ptr %m_pr, align 8
@@ -424,18 +424,18 @@ land.rhs.i:                                       ; preds = %call.i.i.noexc
 
 invoke.cont19:                                    ; preds = %land.rhs.i, %call.i.i.noexc
   %not.call20 = phi i1 [ true, %call.i.i.noexc ], [ %call.i2.i35, %land.rhs.i ]
-  %tobool23 = select i1 %not.call20, i1 %done.085, i1 false
+  %tobool23 = select i1 %not.call20, i1 %done.185, i1 false
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.084, i64 8
   %cmp18.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp18.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %invoke.cont19, %_ZNK11ast_manager13proof_parents3endEv.exit
-  %done.0.lcssa = phi i1 [ true, %_ZNK11ast_manager13proof_parents3endEv.exit ], [ %tobool23, %invoke.cont19 ]
-  invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_closed.i, ptr noundef %call4, i1 noundef zeroext %done.0.lcssa)
+  %done.1.lcssa = phi i1 [ true, %_ZNK11ast_manager13proof_parents3endEv.exit ], [ %tobool23, %invoke.cont19 ]
+  invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %m_closed.i, ptr noundef %call4, i1 noundef zeroext %done.1.lcssa)
           to label %if.end27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end27:                                         ; preds = %for.end
-  br i1 %done.0.lcssa, label %while.cond.backedge, label %if.then29
+  br i1 %done.1.lcssa, label %while.cond.backedge, label %if.then29
 
 while.cond.backedge:                              ; preds = %.noexc, %call.i.i.noexc47, %if.end27, %invoke.cont32, %invoke.cont30, %if.then34, %_ZN6vectorIPN6spacer17unsat_core_pluginELb0EjE3endEv.exit.i, %invoke.cont5
   br label %while.cond, !llvm.loop !7

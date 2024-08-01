@@ -751,7 +751,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   resume { ptr, i32 } %.pn199.pn.pn
 
 128:                                              ; preds = %.body
-  br i1 %.2, label %480, label %127
+  br i1 %.3, label %480, label %127
 
 .thread:                                          ; preds = %129, %90
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -800,7 +800,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
           to label %154 unwind label %.loopexit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %241, %456, %359, %247, %182
-  %.2 = phi i1 [ true, %247 ], [ true, %182 ], [ true, %456 ], [ true, %359 ], [ true, %241 ], [ true, %.loopexit ], [ %.3.ph, %.loopexit.split-lp ]
+  %.3 = phi i1 [ true, %247 ], [ true, %182 ], [ true, %456 ], [ true, %359 ], [ true, %241 ], [ true, %.loopexit ], [ %.2.ph, %.loopexit.split-lp ]
   %.pn199 = phi { ptr, i32 } [ %248, %247 ], [ %183, %182 ], [ %.pn197, %456 ], [ %360, %359 ], [ %242, %241 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr nonnull align 8 %80) #12
           to label %128 unwind label %125
@@ -811,7 +811,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke636, %.invoke634, %.invoke, %255, %262, %266, %.critedge, %271, %.critedge204, %285, %287, %.critedge206, %299, %306, %320, %330, %335, %346, %348, %353, %361, %365, %369, %.critedge208, %374, %.critedge210, %388, %390, %.critedge212, %402, %409, %422, %432, %437, %441, %445, %474, %362, %259, %189
-  %.3.ph = phi i1 [ true, %189 ], [ true, %259 ], [ true, %362 ], [ true, %262 ], [ true, %266 ], [ true, %.critedge ], [ true, %.critedge204 ], [ true, %285 ], [ true, %287 ], [ true, %.critedge206 ], [ true, %299 ], [ true, %306 ], [ true, %320 ], [ true, %271 ], [ true, %330 ], [ true, %255 ], [ true, %335 ], [ true, %346 ], [ true, %348 ], [ true, %353 ], [ true, %361 ], [ true, %365 ], [ true, %369 ], [ true, %.critedge208 ], [ true, %.critedge210 ], [ true, %388 ], [ true, %390 ], [ true, %.critedge212 ], [ true, %402 ], [ true, %409 ], [ true, %422 ], [ true, %374 ], [ true, %432 ], [ true, %437 ], [ true, %441 ], [ true, %445 ], [ false, %474 ], [ true, %.invoke ], [ true, %.invoke634 ], [ true, %.invoke636 ]
+  %.2.ph = phi i1 [ true, %189 ], [ true, %259 ], [ true, %362 ], [ true, %262 ], [ true, %266 ], [ true, %.critedge ], [ true, %.critedge204 ], [ true, %285 ], [ true, %287 ], [ true, %.critedge206 ], [ true, %299 ], [ true, %306 ], [ true, %320 ], [ true, %271 ], [ true, %330 ], [ true, %255 ], [ true, %335 ], [ true, %346 ], [ true, %348 ], [ true, %353 ], [ true, %361 ], [ true, %365 ], [ true, %369 ], [ true, %.critedge208 ], [ true, %.critedge210 ], [ true, %388 ], [ true, %390 ], [ true, %.critedge212 ], [ true, %402 ], [ true, %409 ], [ true, %422 ], [ true, %374 ], [ true, %432 ], [ true, %437 ], [ true, %441 ], [ true, %445 ], [ false, %474 ], [ true, %.invoke ], [ true, %.invoke634 ], [ true, %.invoke636 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

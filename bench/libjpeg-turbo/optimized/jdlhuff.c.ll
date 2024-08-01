@@ -311,8 +311,8 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr nocapture noundef readonly 
 
 .lr.ph122:                                        ; preds = %.preheader, %126
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %126 ], [ 0, %.preheader ]
-  %.193120 = phi i32 [ %.6, %126 ], [ %.092127, %.preheader ]
-  %.195119 = phi i64 [ %.6100, %126 ], [ %.094126, %.preheader ]
+  %.193120 = phi i32 [ %.5, %126 ], [ %.092127, %.preheader ]
+  %.195119 = phi i64 [ %.599, %126 ], [ %.094126, %.preheader ]
   %77 = getelementptr inbounds [10 x ptr], ptr %69, i64 0, i64 %indvars.iv135
   %78 = load ptr, ptr %77, align 8
   %79 = icmp slt i32 %.193120, 8
@@ -388,11 +388,11 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr nocapture noundef readonly 
   br label %114
 
 114:                                              ; preds = %111, %107
-  %.599 = phi i64 [ %112, %111 ], [ %.498, %107 ]
-  %.5 = phi i32 [ %113, %111 ], [ %.4, %107 ]
-  %115 = sub nsw i32 %.5, %.089
+  %.6100 = phi i64 [ %112, %111 ], [ %.498, %107 ]
+  %.6 = phi i32 [ %113, %111 ], [ %.4, %107 ]
+  %115 = sub nsw i32 %.6, %.089
   %116 = zext nneg i32 %115 to i64
-  %117 = lshr i64 %.599, %116
+  %117 = lshr i64 %.6100, %116
   %118 = trunc i64 %117 to i32
   %notmask = shl nsw i32 -1, %.089
   %119 = xor i32 %notmask, -1
@@ -407,8 +407,8 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr nocapture noundef readonly 
   br label %126
 
 126:                                              ; preds = %105, %106, %114
-  %.6100 = phi i64 [ %.498, %106 ], [ %.599, %114 ], [ %.498, %105 ]
-  %.6 = phi i32 [ %.4, %106 ], [ %115, %114 ], [ %.4, %105 ]
+  %.599 = phi i64 [ %.498, %106 ], [ %.6100, %114 ], [ %.498, %105 ]
+  %.5 = phi i32 [ %.4, %106 ], [ %115, %114 ], [ %.4, %105 ]
   %.1 = phi i32 [ 32768, %106 ], [ %125, %114 ], [ %.089, %105 ]
   %127 = getelementptr inbounds [10 x i32], ptr %73, i64 0, i64 %indvars.iv135
   %128 = load i32, ptr %127, align 4
@@ -430,8 +430,8 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr nocapture noundef readonly 
 
 ._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %.preheader
   %136 = phi ptr [ %74, %.preheader ], [ %.pre, %._crit_edge123.loopexit ]
-  %.195.lcssa = phi i64 [ %.094126, %.preheader ], [ %.6100, %._crit_edge123.loopexit ]
-  %.193.lcssa = phi i32 [ %.092127, %.preheader ], [ %.6, %._crit_edge123.loopexit ]
+  %.195.lcssa = phi i64 [ %.094126, %.preheader ], [ %.599, %._crit_edge123.loopexit ]
+  %.193.lcssa = phi i32 [ %.092127, %.preheader ], [ %.5, %._crit_edge123.loopexit ]
   %137 = load ptr, ptr %58, align 8
   store ptr %136, ptr %137, align 8
   %138 = load i64, ptr %63, align 8

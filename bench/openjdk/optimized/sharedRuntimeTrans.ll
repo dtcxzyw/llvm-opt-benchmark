@@ -920,7 +920,7 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
 298:                                              ; preds = %280, %277
   %.pre-phi297.i = phi i64 [ %.pre296.i, %280 ], [ %247, %277 ]
   %.0287.i = phi double [ %297, %280 ], [ %245, %277 ]
-  %.3.i = phi i32 [ %spec.select.i, %280 ], [ 0, %277 ]
+  %.2.i = phi i32 [ %spec.select.i, %280 ], [ 0, %277 ]
   %.sroa.0.0.insert.mask.i235.i = and i64 %.pre-phi297.i, -4294967296
   %299 = bitcast i64 %.sroa.0.0.insert.mask.i235.i to double
   %300 = fmul double %299, 0x3FE62E4300000000
@@ -954,13 +954,13 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   %328 = bitcast double %327 to i64
   %.sroa.0.4.extract.shift.i236.i = lshr i64 %328, 32
   %.sroa.0.4.extract.trunc.i237.i = trunc nuw i64 %.sroa.0.4.extract.shift.i236.i to i32
-  %329 = shl i32 %.3.i, 20
+  %329 = shl i32 %.2.i, 20
   %330 = add nsw i32 %329, %.sroa.0.4.extract.trunc.i237.i
   %331 = icmp slt i32 %330, 1048576
   br i1 %331, label %332, label %334
 
 332:                                              ; preds = %298
-  %333 = tail call fastcc noundef double @_ZL7scalbnAdi(double noundef %327, i32 noundef %.3.i)
+  %333 = tail call fastcc noundef double @_ZL7scalbnAdi(double noundef %327, i32 noundef %.2.i)
   br label %336
 
 334:                                              ; preds = %298

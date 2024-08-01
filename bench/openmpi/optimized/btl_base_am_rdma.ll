@@ -2106,8 +2106,8 @@ define internal void @am_rdma_process_atomic(ptr noundef %0, ptr nocapture nound
   br i1 %.not.old.i.i, label %.preheader.i.i, label %am_rdma_atomic_32.exit
 
 .preheader.i.i:                                   ; preds = %57, %opal_atomic_compare_exchange_strong_32.exit.i.i
-  %.0.i.i = phi i32 [ %61, %opal_atomic_compare_exchange_strong_32.exit.i.i ], [ %58, %57 ]
-  %59 = cmpxchg volatile ptr %45, i32 %.0.i.i, i32 %42 acquire monotonic, align 4
+  %.1.i.i = phi i32 [ %61, %opal_atomic_compare_exchange_strong_32.exit.i.i ], [ %58, %57 ]
+  %59 = cmpxchg volatile ptr %45, i32 %.1.i.i, i32 %42 acquire monotonic, align 4
   %60 = extractvalue { i32, i1 } %59, 1
   br i1 %60, label %am_rdma_atomic_32.exit, label %opal_atomic_compare_exchange_strong_32.exit.i.i
 
@@ -2122,8 +2122,8 @@ opal_atomic_compare_exchange_strong_32.exit.i.i:  ; preds = %.preheader.i.i
   br i1 %.not.old.i18.i, label %.preheader.i20.i, label %am_rdma_atomic_32.exit
 
 .preheader.i20.i:                                 ; preds = %62, %opal_atomic_compare_exchange_strong_32.exit.i22.i
-  %.0.i21.i = phi i32 [ %66, %opal_atomic_compare_exchange_strong_32.exit.i22.i ], [ %63, %62 ]
-  %64 = cmpxchg volatile ptr %45, i32 %.0.i21.i, i32 %42 acquire monotonic, align 4
+  %.1.i21.i = phi i32 [ %66, %opal_atomic_compare_exchange_strong_32.exit.i22.i ], [ %63, %62 ]
+  %64 = cmpxchg volatile ptr %45, i32 %.1.i21.i, i32 %42 acquire monotonic, align 4
   %65 = extractvalue { i32, i1 } %64, 1
   br i1 %65, label %am_rdma_atomic_32.exit, label %opal_atomic_compare_exchange_strong_32.exit.i22.i
 
@@ -2133,7 +2133,7 @@ opal_atomic_compare_exchange_strong_32.exit.i22.i: ; preds = %.preheader.i20.i
   br i1 %.not.i23.i, label %.preheader.i20.i, label %am_rdma_atomic_32.exit, !llvm.loop !14
 
 am_rdma_atomic_32.exit:                           ; preds = %.preheader.i20.i, %opal_atomic_compare_exchange_strong_32.exit.i22.i, %.preheader.i.i, %opal_atomic_compare_exchange_strong_32.exit.i.i, %47, %49, %51, %53, %55, %57, %62, %41
-  %.060 = phi i32 [ %42, %41 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %58, %57 ], [ %63, %62 ], [ %.0.i.i, %.preheader.i.i ], [ %61, %opal_atomic_compare_exchange_strong_32.exit.i.i ], [ %.0.i21.i, %.preheader.i20.i ], [ %66, %opal_atomic_compare_exchange_strong_32.exit.i22.i ]
+  %.060 = phi i32 [ %42, %41 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %58, %57 ], [ %63, %62 ], [ %.1.i.i, %.preheader.i.i ], [ %61, %opal_atomic_compare_exchange_strong_32.exit.i.i ], [ %.1.i21.i, %.preheader.i20.i ], [ %66, %opal_atomic_compare_exchange_strong_32.exit.i22.i ]
   %67 = sext i32 %.060 to i64
   store i64 %67, ptr %3, align 8
   br label %121
@@ -2179,8 +2179,8 @@ am_rdma_atomic_32.exit:                           ; preds = %.preheader.i20.i, %
   br i1 %.not.old.i.i35, label %.preheader.i.i36, label %am_rdma_atomic_64.exit
 
 .preheader.i.i36:                                 ; preds = %83, %opal_atomic_compare_exchange_strong_64.exit.i.i
-  %.0.i.i37 = phi i64 [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %84, %83 ]
-  %85 = cmpxchg volatile ptr %71, i64 %.0.i.i37, i64 %23 acquire monotonic, align 8
+  %.1.i.i37 = phi i64 [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %84, %83 ]
+  %85 = cmpxchg volatile ptr %71, i64 %.1.i.i37, i64 %23 acquire monotonic, align 8
   %86 = extractvalue { i64, i1 } %85, 1
   br i1 %86, label %am_rdma_atomic_64.exit, label %opal_atomic_compare_exchange_strong_64.exit.i.i
 
@@ -2195,8 +2195,8 @@ opal_atomic_compare_exchange_strong_64.exit.i.i:  ; preds = %.preheader.i.i36
   br i1 %.not.old.i18.i29, label %.preheader.i20.i32, label %am_rdma_atomic_64.exit
 
 .preheader.i20.i32:                               ; preds = %88, %opal_atomic_compare_exchange_strong_64.exit.i22.i
-  %.0.i21.i33 = phi i64 [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ], [ %89, %88 ]
-  %90 = cmpxchg volatile ptr %71, i64 %.0.i21.i33, i64 %23 acquire monotonic, align 8
+  %.1.i21.i33 = phi i64 [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ], [ %89, %88 ]
+  %90 = cmpxchg volatile ptr %71, i64 %.1.i21.i33, i64 %23 acquire monotonic, align 8
   %91 = extractvalue { i64, i1 } %90, 1
   br i1 %91, label %am_rdma_atomic_64.exit, label %opal_atomic_compare_exchange_strong_64.exit.i22.i
 
@@ -2206,7 +2206,7 @@ opal_atomic_compare_exchange_strong_64.exit.i22.i: ; preds = %.preheader.i20.i32
   br i1 %.not.i23.i34, label %.preheader.i20.i32, label %am_rdma_atomic_64.exit, !llvm.loop !16
 
 am_rdma_atomic_64.exit:                           ; preds = %.preheader.i20.i32, %opal_atomic_compare_exchange_strong_64.exit.i22.i, %.preheader.i.i36, %opal_atomic_compare_exchange_strong_64.exit.i.i, %73, %75, %77, %79, %81, %83, %88, %68
-  %.059 = phi i64 [ %23, %68 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %84, %83 ], [ %89, %88 ], [ %.0.i.i37, %.preheader.i.i36 ], [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %.0.i21.i33, %.preheader.i20.i32 ], [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ]
+  %.059 = phi i64 [ %23, %68 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %84, %83 ], [ %89, %88 ], [ %.1.i.i37, %.preheader.i.i36 ], [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %.1.i21.i33, %.preheader.i20.i32 ], [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ]
   store i64 %.059, ptr %3, align 8
   br label %121
 

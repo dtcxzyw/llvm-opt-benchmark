@@ -999,13 +999,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %373, %376
   br label %447
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit, %357, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i
-  %.243 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit ], [ 2, %357 ], [ 2, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i ]
+  %.445 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit ], [ 2, %357 ], [ 2, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i ]
   store double 2.000000e+02, ptr %35, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %320, i8 0, i64 24, i1 false)
   br label %382
 
 382:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, %343
-  %.344 = phi i32 [ %.243, %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit ], [ %.142, %343 ]
+  %.344 = phi i32 [ %.445, %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit ], [ %.142, %343 ]
   %383 = icmp eq i32 %.344, 2
   br i1 %383, label %384, label %421
 
@@ -1058,7 +1058,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3M
 
 404:                                              ; preds = %._crit_edge, %401
   %405 = phi ptr [ %.pre, %._crit_edge ], [ %391, %401 ]
-  %.445 = phi i32 [ 2, %._crit_edge ], [ 0, %401 ]
+  %.647 = phi i32 [ 2, %._crit_edge ], [ 0, %401 ]
   %406 = load ptr, ptr %33, align 8
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 4 dereferenceable(16) %406)
           to label %407 unwind label %363
@@ -1101,7 +1101,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3M
           to label %421 unwind label %363
 
 421:                                              ; preds = %382, %419, %412
-  %.546 = phi i32 [ %.445, %412 ], [ %.445, %419 ], [ %.344, %382 ]
+  %.546 = phi i32 [ %.647, %412 ], [ %.647, %419 ], [ %.344, %382 ]
   store i64 0, ptr %333, align 8
   store i32 50397184, ptr %42, align 8
   store ptr %32, ptr %332, align 8
@@ -1118,7 +1118,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3M
   br label %447
 
 425:                                              ; preds = %421, %340
-  %.647 = phi i32 [ %.142, %340 ], [ %.546, %421 ]
+  %.243 = phi i32 [ %.142, %340 ], [ %.546, %421 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %44)
           to label %426 unwind label %430
@@ -1183,7 +1183,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3M
   br label %444
 
 444:                                              ; preds = %435, %436, %437, %438, %429, %443
-  %.849 = phi i32 [ %.647, %429 ], [ 0, %435 ], [ %.647, %438 ], [ 2, %437 ], [ 1, %436 ], [ %.647, %443 ]
+  %.849 = phi i32 [ %.243, %429 ], [ 0, %435 ], [ %.243, %438 ], [ 2, %437 ], [ 1, %436 ], [ %.243, %443 ]
   %cond = phi i1 [ false, %429 ], [ true, %435 ], [ true, %438 ], [ true, %437 ], [ true, %436 ], [ true, %443 ]
   %445 = load ptr, ptr %33, align 8
   %.not.i.i.i = icmp eq ptr %445, null
@@ -1240,7 +1240,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %455, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %311
-  %.2 = phi i32 [ -3, %311 ], [ 0, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i ], [ 0, %455 ]
+  %.3 = phi i32 [ -3, %311 ], [ 0, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i ], [ 0, %455 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %30) #13
   br label %457
 
@@ -1250,7 +1250,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %455, %_ZSt8_Destroy
   br label %458
 
 457:                                              ; preds = %301, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %.3 = phi i32 [ %.2, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ -2, %301 ]
+  %.2 = phi i32 [ %.3, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ -2, %301 ]
   call void @_ZN2cv17CascadeClassifierD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #13
   br label %459
 
@@ -1260,7 +1260,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %455, %_ZSt8_Destroy
   br label %496
 
 459:                                              ; preds = %177, %457
-  %.4 = phi i32 [ %.3, %457 ], [ -1, %177 ]
+  %.1 = phi i32 [ %.2, %457 ], [ -1, %177 ]
   %460 = getelementptr inbounds i8, ptr %25, i64 8
   %461 = load ptr, ptr %460, align 8
   %.not.i.i.i.i127 = icmp eq ptr %461, null
@@ -1361,10 +1361,10 @@ _ZN2cv3PtrINS_4face4MACEEED2Ev.exit133:           ; preds = %459, %478, %491, %_
   br label %501
 
 500:                                              ; preds = %55, %_ZN2cv3PtrINS_4face4MACEEED2Ev.exit133
-  %.5 = phi i32 [ %.4, %_ZN2cv3PtrINS_4face4MACEEED2Ev.exit133 ], [ 1, %55 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_4face4MACEEED2Ev.exit133 ], [ 1, %55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  ret i32 %.5
+  ret i32 %.0
 
 501:                                              ; preds = %499, %179, %69, %68
   %.pn81 = phi { ptr, i32 } [ %70, %69 ], [ %.pn75.pn.pn.pn.pn, %499 ], [ %180, %179 ], [ %.pn53, %68 ]

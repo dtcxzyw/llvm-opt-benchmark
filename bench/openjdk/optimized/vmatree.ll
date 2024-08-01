@@ -91,7 +91,7 @@ define hidden void @_ZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionD
 
 .lr.ph.i:                                         ; preds = %17, %38
   %.01119.i = phi ptr [ %.011.i, %38 ], [ %.01116.i, %17 ]
-  %.018.i = phi ptr [ %.1.i, %38 ], [ null, %17 ]
+  %.018.i = phi ptr [ %.2.i, %38 ], [ null, %17 ]
   %29 = getelementptr inbounds i8, ptr %.01119.i, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp ult i64 %30, %2
@@ -112,7 +112,7 @@ define hidden void @_ZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionD
   unreachable
 
 38:                                               ; preds = %34, %.lr.ph.i
-  %.1.i = phi ptr [ %.018.i, %34 ], [ %.01119.i, %.lr.ph.i ]
+  %.2.i = phi ptr [ %.018.i, %34 ], [ %.01119.i, %.lr.ph.i ]
   %.112.in.v.i = phi i64 [ 32, %34 ], [ 40, %.lr.ph.i ]
   %.112.in.i = getelementptr inbounds i8, ptr %.01119.i, i64 %.112.in.v.i
   %.011.i = load ptr, ptr %.112.in.i, align 8
@@ -120,7 +120,7 @@ define hidden void @_ZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionD
   br i1 %.not.i, label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit: ; preds = %38
-  %.not = icmp eq ptr %.1.i, null
+  %.not = icmp eq ptr %.2.i, null
   br i1 %.not, label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit.thread, label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit.thread102
 
 _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit.thread: ; preds = %17, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit
@@ -138,12 +138,12 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.thread: ; preds = %_ZN5TreapImN7VMATr
   br label %83
 
 _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit.thread102: ; preds = %32, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit
-  %.2.i105 = phi ptr [ %.1.i, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit ], [ %.01119.i, %32 ]
-  %43 = getelementptr inbounds i8, ptr %.2.i105, i64 8
-  %44 = getelementptr inbounds i8, ptr %.2.i105, i64 16
-  %.sroa.2.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.2.i105, i64 24
+  %.1.i105 = phi ptr [ %.2.i, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE11closest_leqERKm.exit ], [ %.01119.i, %32 ]
+  %43 = getelementptr inbounds i8, ptr %.1.i105, i64 8
+  %44 = getelementptr inbounds i8, ptr %.1.i105, i64 16
+  %.sroa.2.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i105, i64 24
   %.sroa.2.sroa.5.0.copyload = load i8, ptr %.sroa.2.sroa.5.0..sroa_idx, align 4
-  %.sroa.2.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %.2.i105, i64 25
+  %.sroa.2.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i105, i64 25
   %.sroa.2.sroa.6.0.copyload = load i8, ptr %.sroa.2.sroa.6.0..sroa_idx, align 1
   %45 = load i64, ptr %.sroa.2.sroa.5.0..sroa_idx, align 4
   store i64 %45, ptr %25, align 8
@@ -239,7 +239,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit65.thread: ; preds = %74, %_ZN7VMATree
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread.i, %.preheader.lr.ph.i
-  %.0 = phi i1 [ true, %.preheader.lr.ph.i ], [ %.3, %.thread.i ]
+  %.0 = phi i1 [ true, %.preheader.lr.ph.i ], [ %.1, %.thread.i ]
   %storemerge952.i = phi ptr [ %.val, %.preheader.lr.ph.i ], [ %storemerge.i, %.thread.i ]
   %.sroa.16.051.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.sroa.16.3.i, %.thread.i ]
   %.sroa.10.050.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.sroa.10.3.i, %.thread.i ]
@@ -433,19 +433,19 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i: ; preds = %_ZN7VMATree14I
   br label %"_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i"
 
 "_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i": ; preds = %169, %_ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i, %151, %146
-  %.1 = phi i1 [ %.0, %146 ], [ %.0, %151 ], [ false, %_ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i ], [ false, %169 ]
+  %.2 = phi i1 [ %.0, %146 ], [ %.0, %151 ], [ false, %_ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i ], [ false, %169 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %171
 
 171:                                              ; preds = %"_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i", %_ZN7VMATree18PositionComparator3cmpEmm.exit13.i
-  %.2 = phi i1 [ %.0, %_ZN7VMATree18PositionComparator3cmpEmm.exit13.i ], [ %.1, %"_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i" ]
+  %.3 = phi i1 [ %.0, %_ZN7VMATree18PositionComparator3cmpEmm.exit13.i ], [ %.2, %"_ZZN7VMATree16register_mappingEmmNS_9StateTypeERKNS_10RegionDataEENK3$_0clEPN5TreapImNS_14IntervalChangeENS_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i" ]
   %172 = getelementptr inbounds i8, ptr %133, i64 40
   %173 = load ptr, ptr %172, align 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %171, %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i
-  %.3 = phi i1 [ %.2, %171 ], [ %.0, %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i ]
+  %.1 = phi i1 [ %.3, %171 ], [ %.0, %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i ]
   %storemerge.i = phi ptr [ %173, %171 ], [ null, %_ZN7VMATree18PositionComparator3cmpEmm.exit11.i ]
   %174 = icmp eq i32 %130, 0
   %175 = icmp eq ptr %storemerge.i, null
@@ -461,7 +461,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit.thread.i.i: ; preds = %_ZN7VMATree14I
   br label %"_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit"
 
 "_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit": ; preds = %._crit_edge53.i, %.loopexit.thread.i.i.i.i
-  br i1 %.3, label %"_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit._ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit.thread_crit_edge", label %185
+  br i1 %.1, label %"_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit._ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit.thread_crit_edge", label %185
 
 "_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit._ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit.thread_crit_edge": ; preds = %"_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE20visit_range_in_orderIZNS0_16register_mappingEmmNS0_9StateTypeERKNS0_10RegionDataEE3$_0EEvRKmSC_T_.exit"
   %.pre = load i8, ptr %12, align 8

@@ -100,18 +100,18 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture nou
   br label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %13, %.loopexit.loopexit.split.loop.exit34
-  %.1.ph = phi i32 [ %14, %.loopexit.loopexit.split.loop.exit34 ], [ %.pre, %13 ]
-  %15 = add nuw nsw i32 %.1.ph, 1
+  %.0.ph = phi i32 [ %14, %.loopexit.loopexit.split.loop.exit34 ], [ %.pre, %13 ]
+  %15 = add nuw nsw i32 %.0.ph, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %4
-  %.1 = phi i32 [ 1, %4 ], [ 2, %.preheader ], [ %15, %.loopexit.loopexit ]
-  %16 = icmp slt i32 %.1, %.pre
+  %.0 = phi i32 [ 1, %4 ], [ 2, %.preheader ], [ %15, %.loopexit.loopexit ]
+  %16 = icmp slt i32 %.0, %.pre
   br i1 %16, label %17, label %.thread32
 
 17:                                               ; preds = %.loopexit
   %18 = load ptr, ptr %1, align 8
-  %19 = zext nneg i32 %.1 to i64
+  %19 = zext nneg i32 %.0 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = call i64 @strtol(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 10) #18
@@ -190,18 +190,18 @@ define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef %0, p
   br label %.loopexit.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %15, %.loopexit.loopexit.split.loop.exit34.i
-  %.1.ph.i = phi i32 [ %16, %.loopexit.loopexit.split.loop.exit34.i ], [ %.pre.i, %15 ]
-  %17 = add nuw nsw i32 %.1.ph.i, 1
+  %.0.ph.i = phi i32 [ %16, %.loopexit.loopexit.split.loop.exit34.i ], [ %.pre.i, %15 ]
+  %17 = add nuw nsw i32 %.0.ph.i, 1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %7
-  %.1.i = phi i32 [ 2, %7 ], [ %17, %.loopexit.loopexit.i ]
-  %18 = icmp slt i32 %.1.i, %.pre.i
+  %.0.i = phi i32 [ 2, %7 ], [ %17, %.loopexit.loopexit.i ]
+  %18 = icmp slt i32 %.0.i, %.pre.i
   br i1 %18, label %19, label %.thread32.i
 
 19:                                               ; preds = %.loopexit.i
   %20 = load ptr, ptr %1, align 8
-  %21 = zext nneg i32 %.1.i to i64
+  %21 = zext nneg i32 %.0.i to i64
   %22 = getelementptr inbounds ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = call i64 @strtol(ptr noundef %23, ptr noundef nonnull %4, i32 noundef 10) #18

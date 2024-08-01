@@ -105,15 +105,15 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %.090111 = phi i32 [ %32, %.lr.ph112 ], [ 0, %.lr.ph112.preheader ]
-  %.1110 = phi i32 [ %31, %.lr.ph112 ], [ %.091.ph125, %.lr.ph112.preheader ]
-  %30 = shl i32 %.1110, 1
+  %.2110 = phi i32 [ %31, %.lr.ph112 ], [ %.091.ph125, %.lr.ph112.preheader ]
+  %30 = shl i32 %.2110, 1
   %31 = and i32 %30, 238
   %32 = add nuw nsw i32 %.090111, 1
   %exitcond.not = icmp eq i32 %32, %umax134
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph112, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph112, %.preheader, %24
-  %.2 = phi i32 [ 0, %24 ], [ %.091.ph125, %.preheader ], [ %31, %.lr.ph112 ]
+  %.1 = phi i32 [ 0, %24 ], [ %.091.ph125, %.preheader ], [ %31, %.lr.ph112 ]
   %33 = getelementptr i8, ptr %25, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
@@ -122,13 +122,13 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   br i1 %or.cond5, label %37, label %85
 
 37:                                               ; preds = %.loopexit
-  %38 = lshr i32 %.2, 1
+  %38 = lshr i32 %.1, 1
   %39 = and i32 %38, 7
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds [8 x i8], ptr @x86_code.MASK_TO_ALLOWED_STATUS, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
-  %44 = icmp ult i32 %.2, 32
+  %44 = icmp ult i32 %.1, 32
   %or.cond99 = select i1 %43, i1 %44, i1 false
   br i1 %or.cond99, label %45, label %85
 
@@ -151,7 +151,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %.reass = add i32 %invariant.op, %26
   %61 = sub i32 -5, %27
   %.088.p = select i1 %2, i32 %.reass, i32 %61
-  %62 = icmp eq i32 %.2, 0
+  %62 = icmp eq i32 %.1, 0
   %.088114 = add i32 %60, %.088.p
   br i1 %62, label %._crit_edge118, label %.lr.ph117
 
@@ -202,7 +202,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
 85:                                               ; preds = %.loopexit, %37
   %spec.select100.v = phi i32 [ 1, %.loopexit ], [ 17, %37 ]
   %86 = add nuw i64 %.092104, 1
-  %spec.select100 = or i32 %spec.select100.v, %.2
+  %spec.select100 = or i32 %spec.select100.v, %.1
   br label %.outer
 
 .outer:                                           ; preds = %85, %._crit_edge118

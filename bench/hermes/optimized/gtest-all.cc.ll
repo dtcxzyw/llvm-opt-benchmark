@@ -35729,13 +35729,13 @@ if.end16:                                         ; preds = %if.end13
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end13, %if.end16, %invoke.cont7
-  %retval.0 = phi ptr [ null, %invoke.cont7 ], [ %spec.select, %if.end16 ], [ %add.ptr, %if.end13 ]
+  %retval.1 = phi ptr [ null, %invoke.cont7 ], [ %spec.select, %if.end16 ], [ %add.ptr, %if.end13 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %flag_str) #48
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -45387,7 +45387,7 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %if.end, %if.end19
   %1 = phi i8 [ %3, %if.end19 ], [ %0, %if.end ]
   %dest_ptr.015 = phi ptr [ %incdec.ptr20, %if.end19 ], [ %call8, %if.end ]
-  %src.014 = phi ptr [ %src.2, %if.end19 ], [ %call5, %if.end ]
+  %src.014 = phi ptr [ %src.1, %if.end19 ], [ %call5, %if.end ]
   store i8 %1, ptr %dest_ptr.015, align 1
   %2 = load i8, ptr %src.014, align 1
   %cmp.i = icmp eq i8 %2, 47
@@ -45399,15 +45399,15 @@ if.then14:                                        ; preds = %while.body
   br label %if.end19
 
 while.body17:                                     ; preds = %while.body, %while.body17
-  %src.112 = phi ptr [ %incdec.ptr18, %while.body17 ], [ %src.014, %while.body ]
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %src.112, i64 1
+  %src.212 = phi ptr [ %incdec.ptr18, %while.body17 ], [ %src.014, %while.body ]
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %src.212, i64 1
   %.pr = load i8, ptr %incdec.ptr18, align 1
   %cmp.i11 = icmp eq i8 %.pr, 47
   br i1 %cmp.i11, label %while.body17, label %if.end19, !llvm.loop !724
 
 if.end19:                                         ; preds = %while.body17, %if.then14
   %3 = phi i8 [ %.pre, %if.then14 ], [ %.pr, %while.body17 ]
-  %src.2 = phi ptr [ %incdec.ptr, %if.then14 ], [ %incdec.ptr18, %while.body17 ]
+  %src.1 = phi ptr [ %incdec.ptr, %if.then14 ], [ %incdec.ptr18, %while.body17 ]
   %incdec.ptr20 = getelementptr inbounds i8, ptr %dest_ptr.015, i64 1
   %cmp12.not = icmp eq i8 %3, 0
   br i1 %cmp12.not, label %while.end21, label %while.body, !llvm.loop !725

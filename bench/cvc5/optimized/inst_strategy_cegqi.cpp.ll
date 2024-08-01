@@ -10021,8 +10021,8 @@ if.end25:                                         ; preds = %_ZNSt6vectorIN4cvc5
   br label %return
 
 return:                                           ; preds = %if.then13.i.i13, %if.then.i.i7, %invoke.cont, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %if.end25
-  %retval.1 = phi i1 [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ false, %if.end25 ], [ %call3, %invoke.cont ], [ %call3, %if.then.i.i7 ], [ %call3, %if.then13.i.i13 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ false, %if.end25 ], [ %call3, %invoke.cont ], [ %call3, %if.then.i.i7 ], [ %call3, %if.then13.i.i13 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
   %.pn3 = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]

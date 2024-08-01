@@ -2527,7 +2527,7 @@ default.unreachable171:                           ; preds = %1107, %1096, %1080,
   br label %285
 
 285:                                              ; preds = %.thread166, %288
-  %.1169 = phi ptr [ %168, %.thread166 ], [ %178, %288 ]
+  %.2169 = phi ptr [ %168, %.thread166 ], [ %178, %288 ]
   store i8 0, ptr %101, align 1
   %286 = load i8, ptr %102, align 8, !range !137, !noundef !4
   %287 = trunc nuw i8 %286 to i1
@@ -2554,9 +2554,9 @@ common.ret:                                       ; preds = %1335, %295
   ret { i64, ptr } %common.ret.op
 
 295:                                              ; preds = %1349, %297, %285
-  %.2 = phi ptr [ %.fca.1.extract53, %1349 ], [ %.1169, %297 ], [ %.1169, %285 ]
+  %.1 = phi ptr [ %.fca.1.extract53, %1349 ], [ %.2169, %297 ], [ %.2169, %285 ]
   store i8 1, ptr %97, align 2
-  %296 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.2, 1
+  %296 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 297:                                              ; preds = %285

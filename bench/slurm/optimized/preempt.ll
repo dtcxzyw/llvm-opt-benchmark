@@ -615,8 +615,8 @@ _job_check_grace.exit:                            ; preds = %12, %16
   br label %54
 
 54:                                               ; preds = %52, %50
-  %.2 = phi i32 [ %51, %50 ], [ %53, %52 ]
-  %55 = icmp eq i32 %.2, 0
+  %.3 = phi i32 [ %51, %50 ], [ %53, %52 ]
+  %55 = icmp eq i32 %.3, 0
   %56 = call i32 @get_log_level() #8
   %57 = icmp sgt i32 %56, 2
   br i1 %55, label %58, label %60
@@ -632,12 +632,12 @@ _job_check_grace.exit:                            ; preds = %12, %16
   br i1 %57, label %61, label %.critedge
 
 61:                                               ; preds = %60
-  %62 = call ptr @slurm_strerror(i32 noundef %.2) #8
+  %62 = call ptr @slurm_strerror(i32 noundef %.3) #8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.slurm_job_preempt, ptr noundef nonnull %0, ptr noundef %62) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %61, %58, %59, %44, %47, %35, %38, %_job_check_grace.exit, %4
-  %.027 = phi i32 [ -1, %4 ], [ -1, %_job_check_grace.exit ], [ 0, %59 ], [ 0, %58 ], [ %.2, %61 ], [ %.2, %60 ], [ 0, %44 ], [ 0, %47 ], [ 0, %35 ], [ 0, %38 ]
+  %.027 = phi i32 [ -1, %4 ], [ -1, %_job_check_grace.exit ], [ 0, %59 ], [ 0, %58 ], [ %.3, %61 ], [ %.3, %60 ], [ 0, %44 ], [ 0, %47 ], [ 0, %35 ], [ 0, %38 ]
   ret i32 %.027
 }
 

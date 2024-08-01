@@ -183,7 +183,7 @@ list_length.exit105:                              ; preds = %54
   br i1 %92, label %.thread142, label %is_opclause.exit.thread
 
 .thread142:                                       ; preds = %82, %65, %72, %88
-  %.2145 = phi i1 [ false, %88 ], [ false, %72 ], [ true, %65 ], [ true, %82 ]
+  %.1145 = phi i1 [ false, %88 ], [ false, %72 ], [ true, %65 ], [ true, %82 ]
   %93 = getelementptr inbounds i8, ptr %.086136, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = call i32 @get_oprrest(i32 noundef %94) #3
@@ -197,7 +197,7 @@ list_length.exit105:                              ; preds = %54
 96:                                               ; preds = %.thread142, %.thread142
   %.val.i = load ptr, ptr %55, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.2145, label %97, label %100
+  br i1 %.1145, label %97, label %100
 
 97:                                               ; preds = %96
   br i1 %.not.i.i, label %get_rightop.exit.i, label %98
@@ -229,7 +229,7 @@ get_rightop.exit.i.sink.split:                    ; preds = %104, %98
 
 get_rightop.exit.i:                               ; preds = %get_rightop.exit.i.sink.split, %97, %list_length.exit.i.i, %100
   %.041.i = phi ptr [ null, %list_length.exit.i.i ], [ null, %100 ], [ null, %97 ], [ %107, %get_rightop.exit.i.sink.split ]
-  %.0.in.i = xor i1 %.2145, true
+  %.0.in.i = xor i1 %.1145, true
   br label %108
 
 108:                                              ; preds = %109, %get_rightop.exit.i
@@ -245,7 +245,7 @@ get_rightop.exit.i:                               ; preds = %get_rightop.exit.i.
   br i1 %112, label %113, label %108, !llvm.loop !5
 
 113:                                              ; preds = %109
-  br i1 %.2145, label %125, label %114
+  br i1 %.1145, label %125, label %114
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds i8, ptr %.042.i, i64 16
@@ -295,9 +295,9 @@ get_rightop.exit.i:                               ; preds = %get_rightop.exit.i.
   %137 = call ptr @palloc(i64 noundef 40) #3
   %138 = getelementptr inbounds i8, ptr %137, i64 8
   store ptr %.041.i, ptr %138, align 8
-  %..i = select i1 %.2145, i64 32, i64 24
+  %..i = select i1 %.1145, i64 32, i64 24
   %.53.i = zext i1 %.0.in.i to i8
-  %.54.i = zext i1 %.2145 to i8
+  %.54.i = zext i1 %.1145 to i8
   %139 = getelementptr inbounds i8, ptr %137, i64 %..i
   store double %40, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %137, i64 16
@@ -311,7 +311,7 @@ get_rightop.exit.i:                               ; preds = %get_rightop.exit.i.
 142:                                              ; preds = %.thread142, %.thread142
   %.val.i107 = load ptr, ptr %55, align 8
   %.not.i.i108 = icmp eq ptr %.val.i107, null
-  br i1 %.2145, label %143, label %146
+  br i1 %.1145, label %143, label %146
 
 143:                                              ; preds = %142
   br i1 %.not.i.i108, label %get_rightop.exit.i110, label %144
@@ -358,7 +358,7 @@ get_rightop.exit.i110:                            ; preds = %get_rightop.exit.i1
   br i1 %158, label %159, label %154, !llvm.loop !5
 
 159:                                              ; preds = %155
-  br i1 %.2145, label %160, label %171
+  br i1 %.1145, label %160, label %171
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds i8, ptr %.042.i114, i64 16
@@ -408,9 +408,9 @@ get_rightop.exit.i110:                            ; preds = %get_rightop.exit.i1
   %183 = call ptr @palloc(i64 noundef 40) #3
   %184 = getelementptr inbounds i8, ptr %183, i64 8
   store ptr %.041.i111, ptr %184, align 8
-  %..i116 = select i1 %.2145, i64 24, i64 32
-  %.53.i117 = zext i1 %.2145 to i8
-  %not..0.in.i118 = xor i1 %.2145, true
+  %..i116 = select i1 %.1145, i64 24, i64 32
+  %.53.i117 = zext i1 %.1145 to i8
+  %not..0.in.i118 = xor i1 %.1145, true
   %.54.i119 = zext i1 %not..0.in.i118 to i8
   %185 = getelementptr inbounds i8, ptr %183, i64 %..i116
   store double %40, ptr %185, align 8
@@ -561,7 +561,7 @@ define dso_local double @clause_selectivity_ext(ptr noundef %0, ptr noundef %1, 
   br i1 %38, label %39, label %184
 
 39:                                               ; preds = %31, %35, %22, %25
-  %.0160 = phi i1 [ false, %25 ], [ false, %22 ], [ true, %35 ], [ true, %31 ]
+  %.1161 = phi i1 [ false, %25 ], [ false, %22 ], [ true, %35 ], [ true, %31 ]
   %40 = getelementptr inbounds i8, ptr %1, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
@@ -579,7 +579,7 @@ thread-pre-split:                                 ; preds = %42, %39
 
 45:                                               ; preds = %thread-pre-split, %8
   %46 = phi i32 [ %.pr, %thread-pre-split ], [ %9, %8 ]
-  %.1161 = phi i1 [ %.0160, %thread-pre-split ], [ false, %8 ]
+  %.0160 = phi i1 [ %.1161, %thread-pre-split ], [ false, %8 ]
   %.0159 = phi ptr [ %1, %thread-pre-split ], [ null, %8 ]
   %.0157 = phi ptr [ %.0157.ph, %thread-pre-split ], [ %1, %8 ]
   switch i32 %46, label %.thread190 [
@@ -722,13 +722,13 @@ treat_as_join_clause.exit.thread:                 ; preds = %94, %99, %treat_as_
   br label %116
 
 116:                                              ; preds = %treat_as_join_clause.exit.thread, %105
-  %.0158 = phi double [ %110, %105 ], [ %115, %treat_as_join_clause.exit.thread ]
+  %.1 = phi double [ %110, %105 ], [ %115, %treat_as_join_clause.exit.thread ]
   %117 = load i32, ptr %.0157, align 4
   %118 = icmp eq i32 %117, 16
   br i1 %118, label %119, label %181
 
 119:                                              ; preds = %116
-  %120 = fsub double 1.000000e+00, %.0158
+  %120 = fsub double 1.000000e+00, %.1
   br label %181
 
 121:                                              ; preds = %45
@@ -839,18 +839,18 @@ treat_as_join_clause.exit186:                     ; preds = %138, %141, %145
   br label %181
 
 181:                                              ; preds = %75, %71, %63, %59, %81, %90, %treat_as_join_clause.exit181, %149, %157, %172, %.thread190, %176, %163, %170, %151, %treat_as_join_clause.exit186, %116, %119, %86, %67, %47, %53, %57
-  %.1 = phi double [ %58, %57 ], [ 5.000000e-01, %53 ], [ 5.000000e-01, %47 ], [ 5.000000e-01, %67 ], [ %85, %81 ], [ %89, %86 ], [ %93, %90 ], [ %120, %119 ], [ %.0158, %116 ], [ %137, %treat_as_join_clause.exit181 ], [ %148, %treat_as_join_clause.exit186 ], [ %150, %149 ], [ %156, %151 ], [ %162, %157 ], [ %171, %170 ], [ 5.000000e-01, %163 ], [ %175, %172 ], [ %179, %176 ], [ %180, %.thread190 ], [ %66, %63 ], [ 0.000000e+00, %59 ], [ %78, %75 ], [ 0.000000e+00, %71 ]
-  br i1 %.1161, label %.sink.split, label %184
+  %.0158 = phi double [ %58, %57 ], [ 5.000000e-01, %53 ], [ 5.000000e-01, %47 ], [ 5.000000e-01, %67 ], [ %85, %81 ], [ %89, %86 ], [ %93, %90 ], [ %120, %119 ], [ %.1, %116 ], [ %137, %treat_as_join_clause.exit181 ], [ %148, %treat_as_join_clause.exit186 ], [ %150, %149 ], [ %156, %151 ], [ %162, %157 ], [ %171, %170 ], [ 5.000000e-01, %163 ], [ %175, %172 ], [ %179, %176 ], [ %180, %.thread190 ], [ %66, %63 ], [ 0.000000e+00, %59 ], [ %78, %75 ], [ 0.000000e+00, %71 ]
+  br i1 %.0160, label %.sink.split, label %184
 
 .sink.split:                                      ; preds = %181
   %182 = icmp eq i32 %3, 0
   %. = select i1 %182, i64 128, i64 136
   %183 = getelementptr inbounds i8, ptr %.0159, i64 %.
-  store double %.1, ptr %183, align 8
+  store double %.0158, ptr %183, align 8
   br label %184
 
 184:                                              ; preds = %.sink.split, %181, %35, %31, %15, %6
-  %.0 = phi double [ 5.000000e-01, %6 ], [ 1.000000e+00, %15 ], [ %33, %31 ], [ %37, %35 ], [ %.1, %181 ], [ %.1, %.sink.split ]
+  %.0 = phi double [ 5.000000e-01, %6 ], [ 1.000000e+00, %15 ], [ %33, %31 ], [ %37, %35 ], [ %.0158, %181 ], [ %.0158, %.sink.split ]
   ret double %.0
 }
 

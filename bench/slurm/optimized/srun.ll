@@ -1934,7 +1934,7 @@ _file_bcast.exit:                                 ; preds = %82
 
 223:                                              ; preds = %239, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %239 ]
-  %.030.i = phi ptr [ @.str.38, %.lr.ph.i ], [ %.2.i, %239 ]
+  %.030.i = phi ptr [ @.str.38, %.lr.ph.i ], [ %.1.i, %239 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i ], [ %.122.i, %239 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %224 = icmp ult i64 %indvars.iv.next.i, %221
@@ -1970,7 +1970,7 @@ _file_bcast.exit:                                 ; preds = %82
 
 239:                                              ; preds = %238, %236, %231
   %.122.i = phi i32 [ %232, %231 ], [ 0, %238 ], [ 0, %236 ]
-  %.2.i = phi ptr [ %.030.i, %231 ], [ %spec.select.i, %238 ], [ %spec.select.i, %236 ]
+  %.1.i = phi ptr [ %.030.i, %231 ], [ %spec.select.i, %238 ], [ %spec.select.i, %236 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %221
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %223, !llvm.loop !19
 

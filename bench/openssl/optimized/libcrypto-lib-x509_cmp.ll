@@ -1190,7 +1190,7 @@ check_suite_b.exit54.thread:                      ; preds = %lor.lhs.false.i36, 
   br label %if.then35
 
 check_suite_b.exit54:                             ; preds = %if.then18.i44, %if.end15.i52
-  %tflags.1 = phi i64 [ %and16.i53, %if.end15.i52 ], [ %flags, %if.then18.i44 ]
+  %tflags.3 = phi i64 [ %and16.i53, %if.end15.i52 ], [ %flags, %if.then18.i44 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i34)
   %call18187 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #8
@@ -1198,11 +1198,11 @@ check_suite_b.exit54:                             ; preds = %if.then18.i44, %if.
   br i1 %cmp19188, label %for.body, label %lor.lhs.false.i86
 
 for.body:                                         ; preds = %check_suite_b.exit54, %for.inc
-  %i.1191 = phi i32 [ %inc, %for.inc ], [ %i.0120, %check_suite_b.exit54 ]
+  %i.2191 = phi i32 [ %inc, %for.inc ], [ %i.0120, %check_suite_b.exit54 ]
   %x.addr.1190 = phi ptr [ %call22, %for.inc ], [ %x.addr.0118, %check_suite_b.exit54 ]
-  %tflags.2189 = phi i64 [ %tflags.4, %for.inc ], [ %tflags.1, %check_suite_b.exit54 ]
+  %tflags.1189 = phi i64 [ %tflags.5, %for.inc ], [ %tflags.3, %check_suite_b.exit54 ]
   %call20 = call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1190) #8
-  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1191) #8
+  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.2191) #8
   %call23 = call i64 @X509_get_version(ptr noundef %call22) #8
   %cmp24.not = icmp eq i64 %call23, 2
   br i1 %cmp24.not, label %if.end26, label %if.then35.thread
@@ -1249,12 +1249,12 @@ if.then8.i77:                                     ; preds = %if.end4.i70
   ]
 
 if.end12.i:                                       ; preds = %if.then8.i77, %if.then8.i77
-  %and.i78 = and i64 %tflags.2189, 131072
+  %and.i78 = and i64 %tflags.1189, 131072
   %tobool13.not.i79 = icmp eq i64 %and.i78, 0
   br i1 %tobool13.not.i79, label %check_suite_b.exit82.thread, label %if.end15.i80
 
 if.end15.i80:                                     ; preds = %if.end12.i
-  %and16.i81 = and i64 %tflags.2189, -65537
+  %and16.i81 = and i64 %tflags.1189, -65537
   br label %for.inc
 
 if.then18.i72:                                    ; preds = %if.end4.i70
@@ -1264,7 +1264,7 @@ if.then18.i72:                                    ; preds = %if.end4.i70
   ]
 
 if.end23.i:                                       ; preds = %if.then18.i72, %if.then18.i72
-  %and24.i73 = and i64 %tflags.2189, 65536
+  %and24.i73 = and i64 %tflags.1189, 65536
   %tobool25.not.i74 = icmp eq i64 %and24.i73, 0
   br i1 %tobool25.not.i74, label %check_suite_b.exit82.thread, label %for.inc
 
@@ -1275,18 +1275,18 @@ check_suite_b.exit82.thread:                      ; preds = %lor.lhs.false.i64, 
   br label %if.then35
 
 for.inc:                                          ; preds = %if.end23.i, %if.end15.i80
-  %tflags.4 = phi i64 [ %and16.i81, %if.end15.i80 ], [ %tflags.2189, %if.end23.i ]
+  %tflags.5 = phi i64 [ %and16.i81, %if.end15.i80 ], [ %tflags.1189, %if.end23.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i61)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i62)
-  %inc = add nuw nsw i32 %i.1191, 1
+  %inc = add nuw nsw i32 %i.2191, 1
   %call18 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #8
   %cmp19 = icmp slt i32 %inc, %call18
   br i1 %cmp19, label %for.body, label %lor.lhs.false.i86, !llvm.loop !9
 
 lor.lhs.false.i86:                                ; preds = %for.inc, %check_suite_b.exit54
-  %tflags.2.lcssa = phi i64 [ %tflags.1, %check_suite_b.exit54 ], [ %tflags.4, %for.inc ]
+  %tflags.1.lcssa = phi i64 [ %tflags.3, %check_suite_b.exit54 ], [ %tflags.5, %for.inc ]
   %x.addr.1.lcssa = phi ptr [ %x.addr.0118, %check_suite_b.exit54 ], [ %call22, %for.inc ]
-  %i.1.lcssa = phi i32 [ %i.0120, %check_suite_b.exit54 ], [ %inc, %for.inc ]
+  %i.2.lcssa = phi i32 [ %i.0120, %check_suite_b.exit54 ], [ %inc, %for.inc ]
   %pk.0.lcssa = phi ptr [ %call.i, %check_suite_b.exit54 ], [ %call.i58, %for.inc ]
   %call32 = call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1.lcssa) #8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i83)
@@ -1314,7 +1314,7 @@ if.then8.i100:                                    ; preds = %if.end4.i92
   ]
 
 if.end12.i101:                                    ; preds = %if.then8.i100, %if.then8.i100
-  %and.i102 = and i64 %tflags.2.lcssa, 131072
+  %and.i102 = and i64 %tflags.1.lcssa, 131072
   %tobool13.not.i103 = icmp eq i64 %and.i102, 0
   br i1 %tobool13.not.i103, label %end.thread168, label %end
 
@@ -1325,7 +1325,7 @@ if.then18.i94:                                    ; preds = %if.end4.i92
   ]
 
 if.end23.i95:                                     ; preds = %if.then18.i94, %if.then18.i94
-  %and24.i96 = and i64 %tflags.2.lcssa, 65536
+  %and24.i96 = and i64 %tflags.1.lcssa, 65536
   %tobool25.not.i97 = icmp eq i64 %and24.i96, 0
   br i1 %tobool25.not.i97, label %end.thread168, label %end
 
@@ -1341,11 +1341,11 @@ end:                                              ; preds = %if.end12.i101, %if.
   br label %return
 
 if.then35:                                        ; preds = %check_suite_b.exit82.thread, %check_suite_b.exit54.thread, %end.thread168
-  %i.2166 = phi i32 [ %i.1.lcssa, %end.thread168 ], [ %i.1191, %check_suite_b.exit82.thread ], [ 0, %check_suite_b.exit54.thread ]
+  %i.1166 = phi i32 [ %i.2.lcssa, %end.thread168 ], [ %i.2191, %check_suite_b.exit82.thread ], [ 0, %check_suite_b.exit54.thread ]
   %rv.0165 = phi i32 [ %retval.0.i99.ph, %end.thread168 ], [ %retval.0.i76.ph, %check_suite_b.exit82.thread ], [ %retval.0.i48.ph, %check_suite_b.exit54.thread ]
-  %tflags.7164 = phi i64 [ %tflags.2.lcssa, %end.thread168 ], [ %tflags.2189, %check_suite_b.exit82.thread ], [ %flags, %check_suite_b.exit54.thread ]
+  %tflags.0164 = phi i64 [ %tflags.1.lcssa, %end.thread168 ], [ %tflags.1189, %check_suite_b.exit82.thread ], [ %flags, %check_suite_b.exit54.thread ]
   %cmp37 = icmp eq i32 %rv.0165, 60
-  %cmp43.not = icmp eq i64 %tflags.7164, %flags
+  %cmp43.not = icmp eq i64 %tflags.0164, %flags
   %spec.select28 = select i1 %cmp43.not, i32 60, i32 61
   %spec.select228 = select i1 %cmp37, i32 %spec.select28, i32 %rv.0165
   %2 = add nsw i32 %rv.0165, -59
@@ -1354,16 +1354,16 @@ if.then35:                                        ; preds = %check_suite_b.exit8
 
 if.then35.thread:                                 ; preds = %for.body, %if.then35, %if.end8, %if.end8.thread
   %rv.0165214 = phi i1 [ false, %if.end8.thread ], [ false, %if.end8 ], [ %3, %if.then35 ], [ false, %for.body ]
-  %i.2166213 = phi i32 [ 0, %if.end8.thread ], [ 0, %if.end8 ], [ %i.2166, %if.then35 ], [ %i.1191, %for.body ]
+  %i.1166213 = phi i32 [ 0, %if.end8.thread ], [ 0, %if.end8 ], [ %i.1166, %if.then35 ], [ %i.2191, %for.body ]
   %4 = phi i32 [ 56, %if.end8.thread ], [ 56, %if.end8 ], [ %spec.select228, %if.then35 ], [ 56, %for.body ]
   %tobool46.not = icmp eq ptr %perror_depth, null
   br i1 %tobool46.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %if.then35.thread
-  %tobool38 = icmp ne i32 %i.2166213, 0
+  %tobool38 = icmp ne i32 %i.1166213, 0
   %or.cond1 = select i1 %rv.0165214, i1 %tobool38, i1 false
   %dec = sext i1 %or.cond1 to i32
-  %spec.select = add nsw i32 %i.2166213, %dec
+  %spec.select = add nsw i32 %i.1166213, %dec
   store i32 %spec.select, ptr %perror_depth, align 4
   br label %return
 

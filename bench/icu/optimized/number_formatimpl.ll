@@ -584,9 +584,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1106,8 +1106,8 @@ lpad51:                                           ; preds = %if.else46
   br label %eh.resume
 
 if.end58:                                         ; preds = %if.else18, %if.then26, %invoke.cont54, %invoke.cont43
-  %length.0 = phi i32 [ %add45, %invoke.cont43 ], [ %add56, %invoke.cont54 ], [ %add32, %if.then26 ], [ %call20, %if.else18 ]
-  %add59 = add nsw i32 %length.0, %index
+  %length.1 = phi i32 [ %add45, %invoke.cont43 ], [ %add56, %invoke.cont54 ], [ %add32, %if.then26 ], [ %call20, %if.else18 ]
+  %add59 = add nsw i32 %length.1, %index
   %call.i = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity24getLowerDisplayMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
   %cmp6.i = icmp slt i32 %call.i, 0
   br i1 %cmp6.i, label %for.body.lr.ph.i, label %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit
@@ -1157,7 +1157,7 @@ _ZN6icu_756number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilde
 
 _ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit: ; preds = %_ZN6icu_756number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i, %if.end58
   %length.0.lcssa.i = phi i32 [ 0, %if.end58 ], [ %add5.i, %_ZN6icu_756number4impl5utils22insertDigitFromSymbolsERNS_22FormattedStringBuilderEiaRKNS_20DecimalFormatSymbolsENS3_5FieldER10UErrorCode.exit.i ]
-  %add61 = add nsw i32 %length.0.lcssa.i, %length.0
+  %add61 = add nsw i32 %length.0.lcssa.i, %length.1
   %cmp62 = icmp eq i32 %add61, 0
   br i1 %cmp62, label %if.then63, label %if.end71
 
@@ -1179,8 +1179,8 @@ if.end.i:                                         ; preds = %if.then63
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end.i, %if.then.i, %invoke.cont15, %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit, %invoke.cont1
-  %length.1 = phi i32 [ %call2, %invoke.cont1 ], [ %call16, %invoke.cont15 ], [ %add61, %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit ], [ %call3.i63, %if.then.i ], [ %call8.i, %if.end.i ]
-  ret i32 %length.1
+  %length.0 = phi i32 [ %call2, %invoke.cont1 ], [ %call16, %invoke.cont15 ], [ %add61, %_ZN6icu_756number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode.exit ], [ %call3.i63, %if.then.i ], [ %call8.i, %if.end.i ]
+  ret i32 %length.0
 
 eh.resume:                                        ; preds = %lpad51, %lpad40, %lpad12, %lpad
   %ref.tmp48.sink = phi ptr [ %ref.tmp48, %lpad51 ], [ %ref.tmp37, %lpad40 ], [ %ref.tmp9, %lpad12 ], [ %ref.tmp, %lpad ]
@@ -3031,8 +3031,8 @@ ehcleanup702:                                     ; preds = %delete.notnull.i298
   br label %common.resume
 
 return:                                           ; preds = %_ZNK6icu_756number4impl10MacroProps11copyErrorToER10UErrorCode.exit.thread, %entry, %_ZN6icu_7512LocalPointerIKNS_15NumberingSystemEED2Ev.exit
-  %retval.4 = phi ptr [ %retval.3, %_ZN6icu_7512LocalPointerIKNS_15NumberingSystemEED2Ev.exit ], [ null, %entry ], [ null, %_ZNK6icu_756number4impl10MacroProps11copyErrorToER10UErrorCode.exit.thread ]
-  ret ptr %retval.4
+  %retval.0 = phi ptr [ %retval.3, %_ZN6icu_7512LocalPointerIKNS_15NumberingSystemEED2Ev.exit ], [ null, %entry ], [ null, %_ZNK6icu_756number4impl10MacroProps11copyErrorToER10UErrorCode.exit.thread ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

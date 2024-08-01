@@ -1464,7 +1464,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
 13:                                               ; preds = %.lr.ph514, %.thread
   %.0445513 = phi i32 [ %2, %.lr.ph514 ], [ %449, %.thread ]
   %.0448512 = phi i32 [ %4, %.lr.ph514 ], [ %448, %.thread ]
-  %.0449511 = phi i16 [ 1, %.lr.ph514 ], [ %.2451473, %.thread ]
+  %.0449511 = phi i16 [ 1, %.lr.ph514 ], [ %.1450473, %.thread ]
   %.0452510 = phi i16 [ 1, %.lr.ph514 ], [ %450, %.thread ]
   %14 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0445513) #3
   %spec.store.select = call i16 @llvm.umin.i16(i16 %14, i16 -1024)
@@ -1820,15 +1820,15 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
   br label %.thread476
 
 .lr.ph:                                           ; preds = %.preheader, %253
-  %.1508 = phi i32 [ %243, %253 ], [ %.0445513, %.preheader ]
+  %.2508 = phi i32 [ %243, %253 ], [ %.0445513, %.preheader ]
   %.0446507 = phi i32 [ %254, %253 ], [ %17, %.preheader ]
-  %.1450506 = phi i16 [ %255, %253 ], [ %.0449511, %.preheader ]
-  %243 = add i32 %.1508, 4
+  %.2451506 = phi i16 [ %255, %253 ], [ %.0449511, %.preheader ]
+  %243 = add i32 %.2508, 4
   call void @decode_mpls_label(ptr noundef %0, i32 noundef %243, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #3
   %244 = load i32, ptr %6, align 4
   %245 = icmp ult i32 %244, 16
   %246 = load i32, ptr @hf_mpls_echo_tlv_fec_nil_label, align 4
-  %247 = zext i16 %.1450506 to i32
+  %247 = zext i16 %.2451506 to i32
   br i1 %245, label %248, label %251
 
 248:                                              ; preds = %.lr.ph
@@ -1842,7 +1842,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
 
 253:                                              ; preds = %251, %248
   %254 = add nsw i32 %.0446507, -4
-  %255 = add i16 %.1450506, 1
+  %255 = add i16 %.2451506, 1
   %256 = icmp sgt i32 %.0446507, 7
   br i1 %256, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
@@ -2092,16 +2092,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit
 
 .loopexit:                                        ; preds = %253, %.preheader, %429, %408, %410, %416, %422, %335, %336, %309, %310, %215, %216, %207, %208, %199, %200, %191, %192, %180, %183, %182, %161, %162, %143, %144, %129, %130, %118, %119, %107, %108, %47, %48, %39, %40, %371, %358
-  %.2451 = phi i16 [ %.0449511, %429 ], [ %.0449511, %408 ], [ %.0449511, %422 ], [ %.0449511, %416 ], [ %.0449511, %410 ], [ %.0449511, %371 ], [ %.0449511, %358 ], [ %.0449511, %336 ], [ %.0449511, %335 ], [ %.0449511, %310 ], [ %.0449511, %309 ], [ %.0449511, %216 ], [ %.0449511, %215 ], [ %.0449511, %208 ], [ %.0449511, %207 ], [ %.0449511, %200 ], [ %.0449511, %199 ], [ %.0449511, %192 ], [ %.0449511, %191 ], [ %.0449511, %180 ], [ %.0449511, %183 ], [ %.0449511, %182 ], [ %.0449511, %162 ], [ %.0449511, %161 ], [ %.0449511, %144 ], [ %.0449511, %143 ], [ %.0449511, %130 ], [ %.0449511, %129 ], [ %.0449511, %119 ], [ %.0449511, %118 ], [ %.0449511, %108 ], [ %.0449511, %107 ], [ %.0449511, %48 ], [ %.0449511, %47 ], [ %.0449511, %40 ], [ %.0449511, %39 ], [ %.0449511, %.preheader ], [ %255, %253 ]
-  %.2 = phi i32 [ %.0445513, %429 ], [ %.0445513, %408 ], [ %.0445513, %422 ], [ %.0445513, %416 ], [ %.0445513, %410 ], [ %.0445513, %371 ], [ %.0445513, %358 ], [ %.0445513, %336 ], [ %.0445513, %335 ], [ %.0445513, %310 ], [ %.0445513, %309 ], [ %.0445513, %216 ], [ %.0445513, %215 ], [ %.0445513, %208 ], [ %.0445513, %207 ], [ %.0445513, %200 ], [ %.0445513, %199 ], [ %.0445513, %192 ], [ %.0445513, %191 ], [ %.0445513, %180 ], [ %.0445513, %183 ], [ %.0445513, %182 ], [ %.0445513, %162 ], [ %.0445513, %161 ], [ %.0445513, %144 ], [ %.0445513, %143 ], [ %.0445513, %130 ], [ %.0445513, %129 ], [ %.0445513, %119 ], [ %.0445513, %118 ], [ %.0445513, %108 ], [ %.0445513, %107 ], [ %.0445513, %48 ], [ %.0445513, %47 ], [ %.0445513, %40 ], [ %.0445513, %39 ], [ %.0445513, %.preheader ], [ %243, %253 ]
+  %.1450 = phi i16 [ %.0449511, %429 ], [ %.0449511, %408 ], [ %.0449511, %422 ], [ %.0449511, %416 ], [ %.0449511, %410 ], [ %.0449511, %371 ], [ %.0449511, %358 ], [ %.0449511, %336 ], [ %.0449511, %335 ], [ %.0449511, %310 ], [ %.0449511, %309 ], [ %.0449511, %216 ], [ %.0449511, %215 ], [ %.0449511, %208 ], [ %.0449511, %207 ], [ %.0449511, %200 ], [ %.0449511, %199 ], [ %.0449511, %192 ], [ %.0449511, %191 ], [ %.0449511, %180 ], [ %.0449511, %183 ], [ %.0449511, %182 ], [ %.0449511, %162 ], [ %.0449511, %161 ], [ %.0449511, %144 ], [ %.0449511, %143 ], [ %.0449511, %130 ], [ %.0449511, %129 ], [ %.0449511, %119 ], [ %.0449511, %118 ], [ %.0449511, %108 ], [ %.0449511, %107 ], [ %.0449511, %48 ], [ %.0449511, %47 ], [ %.0449511, %40 ], [ %.0449511, %39 ], [ %.0449511, %.preheader ], [ %255, %253 ]
+  %.1 = phi i32 [ %.0445513, %429 ], [ %.0445513, %408 ], [ %.0445513, %422 ], [ %.0445513, %416 ], [ %.0445513, %410 ], [ %.0445513, %371 ], [ %.0445513, %358 ], [ %.0445513, %336 ], [ %.0445513, %335 ], [ %.0445513, %310 ], [ %.0445513, %309 ], [ %.0445513, %216 ], [ %.0445513, %215 ], [ %.0445513, %208 ], [ %.0445513, %207 ], [ %.0445513, %200 ], [ %.0445513, %199 ], [ %.0445513, %192 ], [ %.0445513, %191 ], [ %.0445513, %180 ], [ %.0445513, %183 ], [ %.0445513, %182 ], [ %.0445513, %162 ], [ %.0445513, %161 ], [ %.0445513, %144 ], [ %.0445513, %143 ], [ %.0445513, %130 ], [ %.0445513, %129 ], [ %.0445513, %119 ], [ %.0445513, %118 ], [ %.0445513, %108 ], [ %.0445513, %107 ], [ %.0445513, %48 ], [ %.0445513, %47 ], [ %.0445513, %40 ], [ %.0445513, %39 ], [ %.0445513, %.preheader ], [ %243, %253 ]
   %433 = and i32 %17, 3
   %.not469 = icmp eq i32 %433, 0
   br i1 %.not469, label %.thread, label %.thread476
 
 .thread476:                                       ; preds = %227, %226, %.loopexit
   %434 = phi i32 [ %433, %.loopexit ], [ 2, %226 ], [ 2, %227 ]
-  %.2481 = phi i32 [ %.2, %.loopexit ], [ %.0445513, %226 ], [ %.0445513, %227 ]
-  %.2451480 = phi i16 [ %.2451, %.loopexit ], [ %.0449511, %226 ], [ %.0449511, %227 ]
+  %.1481 = phi i32 [ %.1, %.loopexit ], [ %.0445513, %226 ], [ %.0445513, %227 ]
+  %.1450480 = phi i16 [ %.1450, %.loopexit ], [ %.0449511, %226 ], [ %.0449511, %227 ]
   %435 = sub nuw nsw i32 4, %434
   %436 = add nuw nsw i32 %435, %32
   %437 = icmp sgt i32 %436, %.0448512
@@ -2115,18 +2115,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 442:                                              ; preds = %.thread476
   %443 = load i32, ptr @hf_mpls_echo_padding, align 4
-  %444 = add i32 %32, %.2481
+  %444 = add i32 %32, %.1481
   %445 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %443, ptr noundef %0, i32 noundef %444, i32 noundef %435, i32 noundef 0) #3
   %446 = add nuw nsw i32 %435, %17
   br label %.thread
 
 .thread:                                          ; preds = %59, %58, %85, %84, %261, %260, %287, %286, %428, %442, %.loopexit
-  %.2474 = phi i32 [ %.2481, %442 ], [ %.2, %.loopexit ], [ %.0445513, %428 ], [ %.0445513, %286 ], [ %.0445513, %287 ], [ %.0445513, %260 ], [ %.0445513, %261 ], [ %.0445513, %84 ], [ %.0445513, %85 ], [ %.0445513, %58 ], [ %.0445513, %59 ]
-  %.2451473 = phi i16 [ %.2451480, %442 ], [ %.2451, %.loopexit ], [ %.0449511, %428 ], [ %.0449511, %286 ], [ %.0449511, %287 ], [ %.0449511, %260 ], [ %.0449511, %261 ], [ %.0449511, %84 ], [ %.0449511, %85 ], [ %.0449511, %58 ], [ %.0449511, %59 ]
+  %.1474 = phi i32 [ %.1481, %442 ], [ %.1, %.loopexit ], [ %.0445513, %428 ], [ %.0445513, %286 ], [ %.0445513, %287 ], [ %.0445513, %260 ], [ %.0445513, %261 ], [ %.0445513, %84 ], [ %.0445513, %85 ], [ %.0445513, %58 ], [ %.0445513, %59 ]
+  %.1450473 = phi i16 [ %.1450480, %442 ], [ %.1450, %.loopexit ], [ %.0449511, %428 ], [ %.0449511, %286 ], [ %.0449511, %287 ], [ %.0449511, %260 ], [ %.0449511, %261 ], [ %.0449511, %84 ], [ %.0449511, %85 ], [ %.0449511, %58 ], [ %.0449511, %59 ]
   %.0447 = phi i32 [ %446, %442 ], [ %17, %.loopexit ], [ 0, %428 ], [ 56, %286 ], [ 56, %287 ], [ 20, %260 ], [ 20, %261 ], [ 56, %84 ], [ 56, %85 ], [ 20, %58 ], [ 20, %59 ]
   %447 = add nuw nsw i32 %.0447, 4
   %448 = sub nsw i32 %.0448512, %447
-  %449 = add i32 %447, %.2474
+  %449 = add i32 %447, %.1474
   %450 = add i16 %.0452510, 1
   %451 = icmp sgt i32 %448, 3
   br i1 %451, label %13, label %.loopexit482, !llvm.loop !8
@@ -2640,9 +2640,9 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   br label %.lr.ph317
 
 .lr.ph317:                                        ; preds = %.lr.ph317.preheader, %.loopexit
-  %.0316 = phi i16 [ %.2, %.loopexit ], [ 1, %.lr.ph317.preheader ]
-  %.1275315 = phi i32 [ %.4, %.loopexit ], [ %70, %.lr.ph317.preheader ]
-  %.1278314 = phi i32 [ %.4281, %.loopexit ], [ %71, %.lr.ph317.preheader ]
+  %.0316 = phi i16 [ %.1, %.loopexit ], [ 1, %.lr.ph317.preheader ]
+  %.1275315 = phi i32 [ %.2276, %.loopexit ], [ %70, %.lr.ph317.preheader ]
+  %.1278314 = phi i32 [ %.2279, %.loopexit ], [ %71, %.lr.ph317.preheader ]
   %72 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1275315) #3
   %73 = add i32 %.1275315, 2
   %74 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %73) #3
@@ -2846,13 +2846,13 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.1309 = phi i16 [ %227, %.lr.ph.split ], [ %.0316, %.lr.ph.split.preheader ]
-  %.2276308 = phi i32 [ %226, %.lr.ph.split ], [ %76, %.lr.ph.split.preheader ]
-  %.2279307 = phi i32 [ %225, %.lr.ph.split ], [ %75, %.lr.ph.split.preheader ]
-  call void @decode_mpls_label(ptr noundef %0, i32 noundef %.2276308, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #3
+  %.2309 = phi i16 [ %227, %.lr.ph.split ], [ %.0316, %.lr.ph.split.preheader ]
+  %.3308 = phi i32 [ %226, %.lr.ph.split ], [ %76, %.lr.ph.split.preheader ]
+  %.3280307 = phi i32 [ %225, %.lr.ph.split ], [ %75, %.lr.ph.split.preheader ]
+  call void @decode_mpls_label(ptr noundef %0, i32 noundef %.3308, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #3
   %203 = load i32, ptr @ett_mpls_echo_tlv_ddstlv_map, align 4
-  %204 = zext i16 %.1309 to i32
-  %205 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %187, ptr noundef %0, i32 noundef %.2276308, i32 noundef 4, i32 noundef %203, ptr noundef nonnull %7, ptr noundef nonnull @.str.642, i32 noundef %204) #3
+  %204 = zext i16 %.2309 to i32
+  %205 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %187, ptr noundef %0, i32 noundef %.3308, i32 noundef 4, i32 noundef %203, ptr noundef nonnull %7, ptr noundef nonnull @.str.642, i32 noundef %204) #3
   %206 = load ptr, ptr %7, align 8
   %207 = load i32, ptr %8, align 4
   %208 = load i8, ptr %11, align 1
@@ -2860,9 +2860,9 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %206, ptr noundef nonnull @.str.657, i32 noundef %207, i32 noundef %209) #3
   %210 = load i32, ptr @hf_mpls_echo_sub_tlv_label, align 4
   %211 = load i32, ptr %8, align 4
-  %212 = call ptr @proto_tree_add_uint(ptr noundef %205, i32 noundef %210, ptr noundef %0, i32 noundef %.2276308, i32 noundef 3, i32 noundef %211) #3
+  %212 = call ptr @proto_tree_add_uint(ptr noundef %205, i32 noundef %210, ptr noundef %0, i32 noundef %.3308, i32 noundef 3, i32 noundef %211) #3
   %213 = load i32, ptr @hf_mpls_echo_sub_tlv_traffic_class, align 4
-  %214 = add i32 %.2276308, 2
+  %214 = add i32 %.3308, 2
   %215 = load i8, ptr %9, align 1
   %216 = zext i8 %215 to i32
   %217 = call ptr @proto_tree_add_uint(ptr noundef %205, i32 noundef %213, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef %216) #3
@@ -2871,11 +2871,11 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   %220 = zext i8 %219 to i32
   %221 = call ptr @proto_tree_add_uint(ptr noundef %205, i32 noundef %218, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef %220) #3
   %222 = load i32, ptr @hf_mpls_echo_tlv_ddstlv_map_mp_proto, align 4
-  %223 = add i32 %.2276308, 3
+  %223 = add i32 %.3308, 3
   %224 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 1, i32 noundef 0) #3
-  %225 = add i32 %.2279307, -4
-  %226 = add i32 %.2276308, 4
-  %227 = add i16 %.1309, 1
+  %225 = add i32 %.3280307, -4
+  %226 = add i32 %.3308, 4
+  %227 = add i16 %.2309, 1
   %exitcond.not = icmp eq i16 %227, %192
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
@@ -2925,11 +2925,11 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   br label %261
 
 261:                                              ; preds = %255, %250, %246, %228
-  %.3280 = phi i32 [ %75, %228 ], [ %259, %255 ], [ %254, %250 ], [ %75, %246 ]
-  %.3 = phi i32 [ %76, %228 ], [ %260, %255 ], [ %252, %250 ], [ %76, %246 ]
-  %262 = add i32 %.3, 4
+  %.4281 = phi i32 [ %75, %228 ], [ %259, %255 ], [ %254, %250 ], [ %75, %246 ]
+  %.4 = phi i32 [ %76, %228 ], [ %260, %255 ], [ %252, %250 ], [ %76, %246 ]
+  %262 = add i32 %.4, 4
   call fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr noundef %1, i32 noundef %262, ptr noundef %236, i32 noundef %233)
-  %reass.sub = sub nsw i32 %.3280, %233
+  %reass.sub = sub nsw i32 %.4281, %233
   %263 = add nsw i32 %reass.sub, -4
   br label %.loopexit
 
@@ -2946,10 +2946,10 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.preheader, %184, %264, %261, %182
-  %.4281 = phi i32 [ %273, %264 ], [ %263, %261 ], [ %183, %182 ], [ %75, %184 ], [ %200, %.lr.ph.split.us.preheader ], [ %225, %.lr.ph.split ]
-  %.4 = phi i32 [ %76, %264 ], [ %262, %261 ], [ %76, %182 ], [ %76, %184 ], [ %197, %.lr.ph.split.us.preheader ], [ %226, %.lr.ph.split ]
-  %.2 = phi i16 [ %.0316, %264 ], [ %.0316, %261 ], [ %.0316, %182 ], [ %.0316, %184 ], [ %202, %.lr.ph.split.us.preheader ], [ %192, %.lr.ph.split ]
-  %274 = icmp sgt i32 %.4281, 4
+  %.2279 = phi i32 [ %273, %264 ], [ %263, %261 ], [ %183, %182 ], [ %75, %184 ], [ %200, %.lr.ph.split.us.preheader ], [ %225, %.lr.ph.split ]
+  %.2276 = phi i32 [ %76, %264 ], [ %262, %261 ], [ %76, %182 ], [ %76, %184 ], [ %197, %.lr.ph.split.us.preheader ], [ %226, %.lr.ph.split ]
+  %.1 = phi i16 [ %.0316, %264 ], [ %.0316, %261 ], [ %.0316, %182 ], [ %.0316, %184 ], [ %202, %.lr.ph.split.us.preheader ], [ %192, %.lr.ph.split ]
+  %274 = icmp sgt i32 %.2279, 4
   br i1 %274, label %.lr.ph317, label %.loopexit304, !llvm.loop !10
 
 .loopexit304:                                     ; preds = %.loopexit, %68, %79

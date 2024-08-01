@@ -729,7 +729,7 @@ define internal i32 @dissect_mrcpv2_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br label %70
 
 70:                                               ; preds = %59, %48
-  %.1.i = phi i32 [ 0, %48 ], [ %..i, %59 ]
+  %.0743.i = phi i32 [ 0, %48 ], [ %..i, %59 ]
   %.0739.i = phi ptr [ %50, %48 ], [ %57, %59 ]
   %.0.i = phi ptr [ null, %48 ], [ %69, %59 ]
   %71 = call zeroext i1 @ws_strtou32(ptr noundef %33, ptr noundef null, ptr noundef nonnull %6) #4
@@ -740,7 +740,7 @@ define internal i32 @dissect_mrcpv2_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %8, align 8
-  switch i32 %.1.i, label %default.unreachable [
+  switch i32 %.0743.i, label %default.unreachable [
     i32 0, label %76
     i32 1, label %103
     i32 2, label %137

@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 .lr.ph312:                                        ; preds = %48, %.loopexit217
   %indvars.iv364 = phi i64 [ %indvars.iv.next365, %.loopexit217 ], [ 0, %48 ]
-  %.0179311 = phi i32 [ %.6, %.loopexit217 ], [ 0, %48 ]
+  %.0179311 = phi i32 [ %.1, %.loopexit217 ], [ 0, %48 ]
   %54 = getelementptr inbounds %struct.collective_rule_s, ptr %51, i64 %indvars.iv364
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   store i32 0, ptr %55, align 4
@@ -284,7 +284,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 .lr.ph308:                                        ; preds = %120, %.loopexit215
   %indvars.iv361 = phi i64 [ %indvars.iv.next362, %.loopexit215 ], [ 0, %120 ]
-  %.1307 = phi i32 [ %.5, %.loopexit215 ], [ %.0179311, %120 ]
+  %.2307 = phi i32 [ %.3, %.loopexit215 ], [ %.0179311, %120 ]
   %125 = getelementptr inbounds %struct.topologic_rule_s, ptr %122, i64 %indvars.iv361
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   store i32 0, ptr %126, align 8
@@ -409,7 +409,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 189:                                              ; preds = %.lr.ph304, %.loopexit213
   %indvars.iv358 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next359, %.loopexit213 ]
-  %.2303 = phi i32 [ %.1307, %.lr.ph304 ], [ %.4, %.loopexit213 ]
+  %.4303 = phi i32 [ %.2307, %.lr.ph304 ], [ %.5, %.loopexit213 ]
   %190 = getelementptr inbounds %struct.configuration_rule_s, ptr %186, i64 %indvars.iv358
   %191 = getelementptr inbounds i8, ptr %190, i64 12
   store i32 0, ptr %191, align 4
@@ -501,7 +501,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 .lr.ph:                                           ; preds = %234, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %234 ]
-  %.3301 = phi i32 [ %327, %.loopexit ], [ %.2303, %234 ]
+  %.6301 = phi i32 [ %327, %.loopexit ], [ %.4303, %234 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %239 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %239, ptr %191, align 4
@@ -626,7 +626,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br label %397
 
 309:                                              ; preds = %289, %298
-  %.0184 = phi i32 [ %299, %298 ], [ %291, %289 ]
+  %.1185 = phi i32 [ %299, %298 ], [ %291, %289 ]
   %310 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %311 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %310) #7
   br i1 %311, label %312, label %317
@@ -636,11 +636,11 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   %314 = load ptr, ptr %2, align 8
   %315 = load i64, ptr %9, align 8
   %316 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %313, ptr noundef nonnull @.str.21, ptr noundef %314, i64 noundef %315, ptr noundef %316, i32 noundef %.0184) #7
+  call void (i32, ptr, ...) @opal_output(i32 noundef %313, ptr noundef nonnull @.str.21, ptr noundef %314, i64 noundef %315, ptr noundef %316, i32 noundef %.1185) #7
   br label %317
 
 317:                                              ; preds = %312, %309, %276, %274
-  %.1185 = phi i32 [ %.0184, %312 ], [ %.0184, %309 ], [ 0, %276 ], [ 0, %274 ]
+  %.0184 = phi i32 [ %.1185, %312 ], [ %.1185, %309 ], [ 0, %276 ], [ 0, %274 ]
   %318 = getelementptr inbounds %struct.msg_size_rule_s, ptr %236, i64 %indvars.iv
   store i32 %.0186, ptr %318, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 4
@@ -655,8 +655,8 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   %325 = getelementptr inbounds i8, ptr %318, i64 24
   store i32 %265, ptr %325, align 8
   %326 = getelementptr inbounds i8, ptr %318, i64 28
-  store i32 %.1185, ptr %326, align 4
-  %327 = add nsw i32 %.3301, 1
+  store i32 %.0184, ptr %326, align 4
+  %327 = add nsw i32 %.6301, 1
   %328 = call i32 @ompi_coll_base_file_peek_next_char_is(ptr noundef nonnull %27, ptr noundef nonnull @fileline, i32 noundef 91) #7
   %329 = icmp eq i32 %328, 1
   br i1 %329, label %330, label %.loopexit
@@ -719,19 +719,19 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br i1 %358, label %.lr.ph, label %.loopexit213, !llvm.loop !6
 
 .loopexit213:                                     ; preds = %.loopexit, %230, %227
-  %.4 = phi i32 [ %.2303, %230 ], [ %.2303, %227 ], [ %327, %.loopexit ]
+  %.5 = phi i32 [ %.4303, %230 ], [ %.4303, %227 ], [ %327, %.loopexit ]
   %359 = load i64, ptr %6, align 8
   %360 = icmp sgt i64 %359, %indvars.iv.next359
   br i1 %360, label %189, label %.loopexit215, !llvm.loop !7
 
 .loopexit215:                                     ; preds = %.loopexit213, %180, %177
-  %.5 = phi i32 [ %.1307, %180 ], [ %.1307, %177 ], [ %.4, %.loopexit213 ]
+  %.3 = phi i32 [ %.2307, %180 ], [ %.2307, %177 ], [ %.5, %.loopexit213 ]
   %361 = load i64, ptr %5, align 8
   %362 = icmp sgt i64 %361, %indvars.iv.next362
   br i1 %362, label %.lr.ph308, label %.loopexit217, !llvm.loop !8
 
 .loopexit217:                                     ; preds = %.loopexit215, %116, %113
-  %.6 = phi i32 [ %.0179311, %116 ], [ %.0179311, %113 ], [ %.5, %.loopexit215 ]
+  %.1 = phi i32 [ %.0179311, %116 ], [ %.0179311, %113 ], [ %.3, %.loopexit215 ]
   %363 = load i64, ptr %1, align 8
   %364 = icmp sgt i64 %363, %indvars.iv.next365
   br i1 %364, label %.lr.ph312, label %._crit_edge, !llvm.loop !9
@@ -759,7 +759,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 376:                                              ; preds = %373
   %377 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %377, ptr noundef nonnull @.str.26, i32 noundef %.6, ptr noundef %18) #7
+  call void (i32, ptr, ...) @opal_output(i32 noundef %377, ptr noundef nonnull @.str.26, i32 noundef %.1, ptr noundef %18) #7
   br label %378
 
 378:                                              ; preds = %373, %376

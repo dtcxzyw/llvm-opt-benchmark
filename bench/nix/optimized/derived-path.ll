@@ -11943,14 +11943,14 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 37:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %.013 = extractvalue { ptr, i32 } %.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %.114 = extractvalue { ptr, i32 } %.pn, 1
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2rc6detail10CaseResultE) #23
-  %39 = icmp eq i32 %.013, %38
+  %39 = icmp eq i32 %.114, %38
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %41 = call ptr @__cxa_begin_catch(ptr %.1) #23
   %42 = invoke noundef zeroext i1 @_ZN2rc6detail14AdapterContext12reportResultERKNS0_10CaseResultE(ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull align 8 dereferenceable(40) %41)
           to label %.invoke unwind label %129
 
@@ -11967,11 +11967,11 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 47:                                               ; preds = %37
   %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2rc17GenerationFailureE) #23
-  %49 = icmp eq i32 %.013, %48
+  %49 = icmp eq i32 %.114, %48
   br i1 %49, label %50, label %61
 
 50:                                               ; preds = %47
-  %51 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %51 = call ptr @__cxa_begin_catch(ptr %.1) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %52 unwind label %118
@@ -12001,11 +12001,11 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 61:                                               ; preds = %47
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %63 = icmp eq i32 %.013, %62
+  %63 = icmp eq i32 %.114, %62
   br i1 %63, label %64, label %75
 
 64:                                               ; preds = %61
-  %65 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %65 = call ptr @__cxa_begin_catch(ptr %.1) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %66 unwind label %107
@@ -12035,8 +12035,8 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 75:                                               ; preds = %61
   %76 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #23
-  %77 = icmp eq i32 %.013, %76
-  %78 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %77 = icmp eq i32 %.114, %76
+  %78 = call ptr @__cxa_begin_catch(ptr %.1) #23
   br i1 %77, label %79, label %84
 
 79:                                               ; preds = %75
@@ -19168,14 +19168,14 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 37:                                               ; preds = %35, %33
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %.013 = extractvalue { ptr, i32 } %.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %.114 = extractvalue { ptr, i32 } %.pn, 1
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2rc6detail10CaseResultE) #23
-  %39 = icmp eq i32 %.013, %38
+  %39 = icmp eq i32 %.114, %38
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %41 = call ptr @__cxa_begin_catch(ptr %.1) #23
   %42 = invoke noundef zeroext i1 @_ZN2rc6detail14AdapterContext12reportResultERKNS0_10CaseResultE(ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull align 8 dereferenceable(40) %41)
           to label %.invoke unwind label %129
 
@@ -19192,11 +19192,11 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 47:                                               ; preds = %37
   %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2rc17GenerationFailureE) #23
-  %49 = icmp eq i32 %.013, %48
+  %49 = icmp eq i32 %.114, %48
   br i1 %49, label %50, label %61
 
 50:                                               ; preds = %47
-  %51 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %51 = call ptr @__cxa_begin_catch(ptr %.1) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %52 unwind label %118
@@ -19226,11 +19226,11 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 61:                                               ; preds = %47
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %63 = icmp eq i32 %.013, %62
+  %63 = icmp eq i32 %.114, %62
   br i1 %63, label %64, label %75
 
 64:                                               ; preds = %61
-  %65 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %65 = call ptr @__cxa_begin_catch(ptr %.1) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %66 unwind label %107
@@ -19260,8 +19260,8 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 75:                                               ; preds = %61
   %76 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #23
-  %77 = icmp eq i32 %.013, %76
-  %78 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %77 = icmp eq i32 %.114, %76
+  %78 = call ptr @__cxa_begin_catch(ptr %.1) #23
   br i1 %77, label %79, label %84
 
 79:                                               ; preds = %75
@@ -25028,14 +25028,14 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 38:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %.014 = extractvalue { ptr, i32 } %.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %.115 = extractvalue { ptr, i32 } %.pn, 1
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2rc6detail10CaseResultE) #23
-  %40 = icmp eq i32 %.014, %39
+  %40 = icmp eq i32 %.115, %39
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %38
-  %42 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %42 = call ptr @__cxa_begin_catch(ptr %.1) #23
   %43 = invoke noundef zeroext i1 @_ZN2rc6detail14AdapterContext12reportResultERKNS0_10CaseResultE(ptr noundef nonnull align 8 dereferenceable(440) %5, ptr noundef nonnull align 8 dereferenceable(40) %42)
           to label %.invoke unwind label %130
 
@@ -25052,11 +25052,11 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 48:                                               ; preds = %38
   %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2rc17GenerationFailureE) #23
-  %50 = icmp eq i32 %.014, %49
+  %50 = icmp eq i32 %.115, %49
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %48
-  %52 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %52 = call ptr @__cxa_begin_catch(ptr %.1) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %53 unwind label %119
@@ -25086,11 +25086,11 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 62:                                               ; preds = %48
   %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %64 = icmp eq i32 %.014, %63
+  %64 = icmp eq i32 %.115, %63
   br i1 %64, label %65, label %76
 
 65:                                               ; preds = %62
-  %66 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %66 = call ptr @__cxa_begin_catch(ptr %.1) #23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %67 unwind label %108
@@ -25120,8 +25120,8 @@ _ZN2rc6detail10CaseResultD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 76:                                               ; preds = %62
   %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE) #23
-  %78 = icmp eq i32 %.014, %77
-  %79 = call ptr @__cxa_begin_catch(ptr %.0) #23
+  %78 = icmp eq i32 %.115, %77
+  %79 = call ptr @__cxa_begin_catch(ptr %.1) #23
   br i1 %78, label %80, label %85
 
 80:                                               ; preds = %76

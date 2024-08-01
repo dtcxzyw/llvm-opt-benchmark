@@ -3802,7 +3802,7 @@ while.end:                                        ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup27
 
 cleanup27:                                        ; preds = %invoke.cont, %_ZNKSt14default_deleteIN7rocksdb14BlockCacheFileEEclEPS1_.exit.i12, %while.end, %if.then
-  %retval.2 = phi i1 [ true, %if.then ], [ true, %while.end ], [ false, %_ZNKSt14default_deleteIN7rocksdb14BlockCacheFileEEclEPS1_.exit.i12 ], [ false, %invoke.cont ]
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %while.end ], [ false, %_ZNKSt14default_deleteIN7rocksdb14BlockCacheFileEEclEPS1_.exit.i12 ], [ false, %invoke.cont ]
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %lock_)
           to label %_ZN7rocksdb9WriteLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -3814,7 +3814,7 @@ terminate.lpad.i:                                 ; preds = %cleanup27
   unreachable
 
 _ZN7rocksdb9WriteLockD2Ev.exit:                   ; preds = %cleanup27
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup28:                                      ; preds = %lpad16, %lpad
   %.pn.pn = phi { ptr, i32 } [ %9, %lpad16 ], [ %5, %lpad ]

@@ -17152,14 +17152,14 @@ if.then78:                                        ; preds = %if.then59
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then59, %if.then78, %for.body53
-  %non_nulls.1 = phi ptr [ %82, %if.then59 ], [ %82, %if.then78 ], [ null, %for.body53 ]
+  %non_nulls.0 = phi ptr [ %82, %if.then59 ], [ %82, %if.then78 ], [ null, %for.body53 ]
   %fixedlen.0 = phi ptr [ %83, %if.then59 ], [ %83, %if.then78 ], [ null, %for.body53 ]
   %varlen.0 = phi ptr [ null, %if.then59 ], [ %88, %if.then78 ], [ null, %for.body53 ]
   %offset88 = getelementptr inbounds %"struct.arrow::compute::ExecValue", ptr %.pre, i64 %indvars.iv381, i32 0, i32 3
   %89 = load i64, ptr %offset88, align 8
   %add.ptr.i162 = getelementptr inbounds %"struct.arrow::compute::KeyColumnMetadata", ptr %.pre386, i64 %indvars.iv381
   %add = add nsw i64 %89, %0
-  invoke void @_ZN5arrow7compute14KeyColumnArrayC1ERKNS0_17KeyColumnMetadataElPKhS6_S6_ii(ptr noundef nonnull align 8 dereferenceable(72) %col_base, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i162, i64 noundef %add, ptr noundef %non_nulls.1, ptr noundef %fixedlen.0, ptr noundef %varlen.0, i32 noundef 0, i32 noundef 0)
+  invoke void @_ZN5arrow7compute14KeyColumnArrayC1ERKNS0_17KeyColumnMetadataElPKhS6_S6_ii(ptr noundef nonnull align 8 dereferenceable(72) %col_base, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i162, i64 noundef %add, ptr noundef %non_nulls.0, ptr noundef %fixedlen.0, ptr noundef %varlen.0, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont92 unwind label %lpad34.loopexit.split-lp
 
 invoke.cont92:                                    ; preds = %if.end85
@@ -27023,7 +27023,7 @@ while.body.lr.ph.i:                               ; preds = %if.end
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end32.i, %while.body.lr.ph.i
-  %position.047.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %position.4.i, %if.end32.i ]
+  %position.047.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %position.2.i, %if.end32.i ]
   %call.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i)
   %block.sroa.0.0.extract.trunc.i = trunc i32 %call.i to i16
   %block.sroa.5.0.extract.shift.i = lshr i32 %call.i, 16
@@ -27096,8 +27096,8 @@ for.body12.i:                                     ; preds = %for.cond8.preheader
   br i1 %exitcond51.not.i, label %if.end32.loopexit49.i, label %for.body12.i, !llvm.loop !566
 
 for.body23.i:                                     ; preds = %for.inc27.i, %for.body23.preheader.i
-  %position.336.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.047.i, %for.body23.preheader.i ]
-  %add.i = add nsw i64 %position.336.i, %1
+  %position.436.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.047.i, %for.body23.preheader.i ]
+  %add.i = add nsw i64 %position.436.i, %1
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
   %20 = load i8, ptr %arrayidx.i18.i, align 1
@@ -27110,7 +27110,7 @@ for.body23.i:                                     ; preds = %for.inc27.i, %for.b
   br i1 %tobool.i.not.i, label %if.else26.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %for.body23.i
-  %arrayidx.i19.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %position.336.i
+  %arrayidx.i19.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %position.436.i
   %24 = load i32, ptr %arrayidx.i19.i, align 4
   %arrayidx2.i20.i = getelementptr i8, ptr %arrayidx.i19.i, i64 4
   %25 = load i32, ptr %arrayidx2.i20.i, align 4
@@ -27142,7 +27142,7 @@ if.else26.i:                                      ; preds = %for.body23.i
   br label %for.inc27.i
 
 for.inc27.i:                                      ; preds = %if.else26.i, %if.then25.i
-  %inc29.i = add i64 %position.336.i, 1
+  %inc29.i = add i64 %position.436.i, 1
   %exitcond.not.i = icmp eq i64 %inc29.i, %14
   br i1 %exitcond.not.i, label %if.end32.i, label %for.body23.i, !llvm.loop !567
 
@@ -27151,8 +27151,8 @@ if.end32.loopexit49.i:                            ; preds = %for.body12.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %for.inc27.i, %for.body.i, %if.end32.loopexit49.i, %for.cond8.preheader.i, %for.cond19.preheader.i, %for.cond.preheader.i
-  %position.4.i = phi i64 [ %position.047.i, %for.cond.preheader.i ], [ %position.047.i, %for.cond8.preheader.i ], [ %position.047.i, %for.cond19.preheader.i ], [ %37, %if.end32.loopexit49.i ], [ %inc4.i, %for.body.i ], [ %14, %for.inc27.i ]
-  %cmp.i = icmp slt i64 %position.4.i, %0
+  %position.2.i = phi i64 [ %position.047.i, %for.cond.preheader.i ], [ %position.047.i, %for.cond8.preheader.i ], [ %position.047.i, %for.cond19.preheader.i ], [ %37, %if.end32.loopexit49.i ], [ %inc4.i, %for.body.i ], [ %14, %for.inc27.i ]
+  %cmp.i = icmp slt i64 %position.2.i, %0
   br i1 %cmp.i, label %while.body.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E9AddLengthERKNS6_9ExecValueElPiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_9AddLengthESC_lSD_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SJ_EEvPKhllSO_SQ_.exit, !llvm.loop !568
 
 _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E9AddLengthERKNS6_9ExecValueElPiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_9AddLengthESC_lSD_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SJ_EEvPKhllSO_SQ_.exit: ; preds = %if.end32.i, %if.end
@@ -27299,7 +27299,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp50.i, label %while.body.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E6EncodeERKNS6_9ExecValueElPPhEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_6EncodeESC_lSE_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SK_EEvPKhllSP_SR_.exit
 
 while.body.i:                                     ; preds = %if.end, %if.end32.i
-  %position.051.i = phi i64 [ %position.4.i, %if.end32.i ], [ 0, %if.end ]
+  %position.051.i = phi i64 [ %position.2.i, %if.end32.i ], [ 0, %if.end ]
   %call.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i)
   %block.sroa.0.0.extract.trunc.i = trunc i32 %call.i to i16
   %block.sroa.5.0.extract.shift.i = lshr i32 %call.i, 16
@@ -27384,8 +27384,8 @@ for.body12.i:                                     ; preds = %for.cond8.preheader
   br i1 %exitcond54.not.i, label %if.end32.loopexit52.i, label %for.body12.i, !llvm.loop !570
 
 for.body23.i:                                     ; preds = %for.inc27.i, %for.body23.preheader.i
-  %position.340.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.051.i, %for.body23.preheader.i ]
-  %add.i = add nsw i64 %position.340.i, %1
+  %position.440.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.051.i, %for.body23.preheader.i ]
+  %add.i = add nsw i64 %position.440.i, %1
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %4, i64 %shr.i.i
   %19 = load i8, ptr %arrayidx.i18.i, align 1
@@ -27398,7 +27398,7 @@ for.body23.i:                                     ; preds = %for.inc27.i, %for.b
   br i1 %tobool.i.not.i, label %if.else26.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %for.body23.i
-  %arrayidx.i20.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %position.340.i
+  %arrayidx.i20.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %position.440.i
   %23 = load i32, ptr %arrayidx.i20.i, align 4
   %idx.ext.i21.i = sext i32 %23 to i64
   %add.ptr.i22.i = getelementptr inbounds i8, ptr %storemerge, i64 %idx.ext.i21.i
@@ -27441,7 +27441,7 @@ for.inc27.i:                                      ; preds = %if.else26.i, %if.th
   %34 = load ptr, ptr %.sink58.i, align 8
   %add.ptr6.i.i29.i = getelementptr inbounds i8, ptr %34, i64 %conv.i25.sink.i
   store ptr %add.ptr6.i.i29.i, ptr %.sink58.i, align 8
-  %inc29.i = add i64 %position.340.i, 1
+  %inc29.i = add i64 %position.440.i, 1
   %exitcond.not.i = icmp eq i64 %inc29.i, %13
   br i1 %exitcond.not.i, label %if.end32.i, label %for.body23.i, !llvm.loop !571
 
@@ -27450,8 +27450,8 @@ if.end32.loopexit52.i:                            ; preds = %for.body12.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %for.inc27.i, %for.body.i, %if.end32.loopexit52.i, %for.cond8.preheader.i, %for.cond19.preheader.i, %for.cond.preheader.i
-  %position.4.i = phi i64 [ %position.051.i, %for.cond.preheader.i ], [ %position.051.i, %for.cond8.preheader.i ], [ %position.051.i, %for.cond19.preheader.i ], [ %35, %if.end32.loopexit52.i ], [ %inc4.i, %for.body.i ], [ %13, %for.inc27.i ]
-  %cmp.i = icmp slt i64 %position.4.i, %0
+  %position.2.i = phi i64 [ %position.051.i, %for.cond.preheader.i ], [ %position.051.i, %for.cond8.preheader.i ], [ %position.051.i, %for.cond19.preheader.i ], [ %35, %if.end32.loopexit52.i ], [ %inc4.i, %for.body.i ], [ %13, %for.inc27.i ]
+  %cmp.i = icmp slt i64 %position.2.i, %0
   br i1 %cmp.i, label %while.body.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E6EncodeERKNS6_9ExecValueElPPhEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_6EncodeESC_lSE_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SK_EEvPKhllSP_SR_.exit, !llvm.loop !572
 
 _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E6EncodeERKNS6_9ExecValueElPPhEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_6EncodeESC_lSE_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SK_EEvPKhllSP_SR_.exit: ; preds = %if.end32.i, %if.end
@@ -28748,7 +28748,7 @@ while.body.lr.ph.i:                               ; preds = %if.end
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end32.i, %while.body.lr.ph.i
-  %position.046.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %position.4.i, %if.end32.i ]
+  %position.046.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %position.2.i, %if.end32.i ]
   %call.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i)
   %block.sroa.0.0.extract.trunc.i = trunc i32 %call.i to i16
   %block.sroa.5.0.extract.shift.i = lshr i32 %call.i, 16
@@ -28822,8 +28822,8 @@ for.body12.i:                                     ; preds = %for.cond8.preheader
   br i1 %exitcond49.not.i, label %if.end32.loopexit47.i, label %for.body12.i, !llvm.loop !602
 
 for.body23.i:                                     ; preds = %for.inc27.i, %for.body23.preheader.i
-  %position.335.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.046.i, %for.body23.preheader.i ]
-  %add.i = add nsw i64 %position.335.i, %1
+  %position.435.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.046.i, %for.body23.preheader.i ]
+  %add.i = add nsw i64 %position.435.i, %1
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %3, i64 %shr.i.i
   %21 = load i8, ptr %arrayidx.i18.i, align 1
@@ -28836,7 +28836,7 @@ for.body23.i:                                     ; preds = %for.inc27.i, %for.b
   br i1 %tobool.i.not.i, label %if.else26.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %for.body23.i
-  %arrayidx.i19.i = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %position.335.i
+  %arrayidx.i19.i = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %position.435.i
   %25 = load i64, ptr %arrayidx.i19.i, align 8
   %arrayidx2.i20.i = getelementptr i8, ptr %arrayidx.i19.i, i64 8
   %26 = load i64, ptr %arrayidx2.i20.i, align 8
@@ -28869,7 +28869,7 @@ if.else26.i:                                      ; preds = %for.body23.i
   br label %for.inc27.i
 
 for.inc27.i:                                      ; preds = %if.else26.i, %if.then25.i
-  %inc29.i = add i64 %position.335.i, 1
+  %inc29.i = add i64 %position.435.i, 1
   %exitcond.not.i = icmp eq i64 %inc29.i, %15
   br i1 %exitcond.not.i, label %if.end32.i, label %for.body23.i, !llvm.loop !603
 
@@ -28878,8 +28878,8 @@ if.end32.loopexit47.i:                            ; preds = %for.body12.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %for.inc27.i, %for.body.i, %if.end32.loopexit47.i, %for.cond8.preheader.i, %for.cond19.preheader.i, %for.cond.preheader.i
-  %position.4.i = phi i64 [ %position.046.i, %for.cond.preheader.i ], [ %position.046.i, %for.cond8.preheader.i ], [ %position.046.i, %for.cond19.preheader.i ], [ %39, %if.end32.loopexit47.i ], [ %inc4.i, %for.body.i ], [ %15, %for.inc27.i ]
-  %cmp.i = icmp slt i64 %position.4.i, %0
+  %position.2.i = phi i64 [ %position.046.i, %for.cond.preheader.i ], [ %position.046.i, %for.cond8.preheader.i ], [ %position.046.i, %for.cond19.preheader.i ], [ %39, %if.end32.loopexit47.i ], [ %inc4.i, %for.body.i ], [ %15, %for.inc27.i ]
+  %cmp.i = icmp slt i64 %position.2.i, %0
   br i1 %cmp.i, label %while.body.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E9AddLengthERKNS6_9ExecValueElPiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_9AddLengthESC_lSD_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SJ_EEvPKhllSO_SQ_.exit, !llvm.loop !604
 
 _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E9AddLengthERKNS6_9ExecValueElPiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_9AddLengthESC_lSD_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SJ_EEvPKhllSO_SQ_.exit: ; preds = %if.end32.i, %if.end
@@ -28919,7 +28919,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp47.i, label %while.body.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E6EncodeERKNS6_9ExecValueElPPhEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_6EncodeESC_lSE_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SK_EEvPKhllSP_SR_.exit
 
 while.body.i:                                     ; preds = %if.end, %if.end32.i
-  %position.048.i = phi i64 [ %position.4.i, %if.end32.i ], [ 0, %if.end ]
+  %position.048.i = phi i64 [ %position.2.i, %if.end32.i ], [ 0, %if.end ]
   %call.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i)
   %block.sroa.0.0.extract.trunc.i = trunc i32 %call.i to i16
   %block.sroa.5.0.extract.shift.i = lshr i32 %call.i, 16
@@ -29002,8 +29002,8 @@ for.body12.i:                                     ; preds = %for.cond8.preheader
   br i1 %exitcond51.not.i, label %if.end32.loopexit49.i, label %for.body12.i, !llvm.loop !606
 
 for.body23.i:                                     ; preds = %for.inc27.i, %for.body23.preheader.i
-  %position.337.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.048.i, %for.body23.preheader.i ]
-  %add.i = add nsw i64 %position.337.i, %1
+  %position.437.i = phi i64 [ %inc29.i, %for.inc27.i ], [ %position.048.i, %for.body23.preheader.i ]
+  %add.i = add nsw i64 %position.437.i, %1
   %shr.i.i = lshr i64 %add.i, 3
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %4, i64 %shr.i.i
   %19 = load i8, ptr %arrayidx.i18.i, align 1
@@ -29016,7 +29016,7 @@ for.body23.i:                                     ; preds = %for.inc27.i, %for.b
   br i1 %tobool.i.not.i, label %if.else26.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %for.body23.i
-  %arrayidx.i19.i = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %position.337.i
+  %arrayidx.i19.i = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %position.437.i
   %23 = load i64, ptr %arrayidx.i19.i, align 8
   %add.ptr.i20.i = getelementptr inbounds i8, ptr %storemerge, i64 %23
   %arrayidx2.i21.i = getelementptr i8, ptr %arrayidx.i19.i, i64 8
@@ -29057,7 +29057,7 @@ for.inc27.i:                                      ; preds = %if.else26.i, %if.th
   %34 = load ptr, ptr %.sink55.i, align 8
   %add.ptr6.i.i26.i = getelementptr inbounds i8, ptr %34, i64 %sub.i22.sink.i
   store ptr %add.ptr6.i.i26.i, ptr %.sink55.i, align 8
-  %inc29.i = add i64 %position.337.i, 1
+  %inc29.i = add i64 %position.437.i, 1
   %exitcond.not.i = icmp eq i64 %inc29.i, %13
   br i1 %exitcond.not.i, label %if.end32.i, label %for.body23.i, !llvm.loop !607
 
@@ -29066,8 +29066,8 @@ if.end32.loopexit49.i:                            ; preds = %for.body12.i
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %for.inc27.i, %for.body.i, %if.end32.loopexit49.i, %for.cond8.preheader.i, %for.cond19.preheader.i, %for.cond.preheader.i
-  %position.4.i = phi i64 [ %position.048.i, %for.cond.preheader.i ], [ %position.048.i, %for.cond8.preheader.i ], [ %position.048.i, %for.cond19.preheader.i ], [ %35, %if.end32.loopexit49.i ], [ %inc4.i, %for.body.i ], [ %13, %for.inc27.i ]
-  %cmp.i = icmp slt i64 %position.4.i, %0
+  %position.2.i = phi i64 [ %position.048.i, %for.cond.preheader.i ], [ %position.048.i, %for.cond8.preheader.i ], [ %position.048.i, %for.cond19.preheader.i ], [ %35, %if.end32.loopexit49.i ], [ %inc4.i, %for.body.i ], [ %13, %for.inc27.i ]
+  %cmp.i = icmp slt i64 %position.2.i, %0
   br i1 %cmp.i, label %while.body.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E6EncodeERKNS6_9ExecValueElPPhEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_6EncodeESC_lSE_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SK_EEvPKhllSP_SR_.exit, !llvm.loop !608
 
 _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internal19VarLengthKeyEncoderIS3_E6EncodeERKNS6_9ExecValueElPPhEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS9_6EncodeESC_lSE_EUlvE_EEvRKNS_9ArraySpanEOT_OT0_EUllE_SK_EEvPKhllSP_SR_.exit: ; preds = %if.end32.i, %if.end

@@ -2337,16 +2337,16 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
   %19 = fsub float %15, %18
   %20 = fdiv float %19, %11
   %21 = fcmp olt float %20, 0.000000e+00
-  %.0 = select i1 %21, float 0.000000e+00, float %20
-  %22 = fcmp ogt float %.0, 1.000000e+00
+  %.1 = select i1 %21, float 0.000000e+00, float %20
+  %22 = fcmp ogt float %.1, 1.000000e+00
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %13
   br label %24
 
 24:                                               ; preds = %13, %23, %8
-  %.1 = phi float [ 1.000000e+00, %23 ], [ %.0, %13 ], [ 0.000000e+00, %8 ]
-  %25 = fmul float %.1, 2.550000e+02
+  %.0 = phi float [ 1.000000e+00, %23 ], [ %.1, %13 ], [ 0.000000e+00, %8 ]
+  %25 = fmul float %.0, 2.550000e+02
   %26 = fptosi float %25 to i32
   %27 = trunc i32 %26 to i8
   %sext = shl i64 %.01518, 32
@@ -2441,17 +2441,17 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
   %19 = fsub float %15, %18
   %20 = fdiv float %19, %11
   %21 = fcmp olt float %20, 0.000000e+00
-  %.0 = select i1 %21, float 0.000000e+00, float %20
-  %22 = fcmp ogt float %.0, 1.000000e+00
+  %.1 = select i1 %21, float 0.000000e+00, float %20
+  %22 = fcmp ogt float %.1, 1.000000e+00
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %13
   br label %24
 
 24:                                               ; preds = %13, %23, %8
-  %.1 = phi float [ 1.000000e+00, %23 ], [ %.0, %13 ], [ 0.000000e+00, %8 ]
+  %.0 = phi float [ 1.000000e+00, %23 ], [ %.1, %13 ], [ 0.000000e+00, %8 ]
   %25 = trunc i64 %.02833 to i32
-  %26 = fpext float %.1 to double
+  %26 = fpext float %.0 to double
   %27 = fmul double %26, 6.300000e+01
   %28 = fptosi double %27 to i32
   %29 = ashr i32 %25, 2
@@ -2649,17 +2649,17 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
   %19 = fsub float %15, %18
   %20 = fdiv float %19, %11
   %21 = fcmp olt float %20, 0.000000e+00
-  %.0 = select i1 %21, float 0.000000e+00, float %20
-  %22 = fcmp ogt float %.0, 1.000000e+00
+  %.1 = select i1 %21, float 0.000000e+00, float %20
+  %22 = fcmp ogt float %.1, 1.000000e+00
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %13
   br label %24
 
 24:                                               ; preds = %13, %23, %8
-  %.1 = phi float [ 1.000000e+00, %23 ], [ %.0, %13 ], [ 0.000000e+00, %8 ]
+  %.0 = phi float [ 1.000000e+00, %23 ], [ %.1, %13 ], [ 0.000000e+00, %8 ]
   %25 = trunc i64 %.01619 to i32
-  %26 = fpext float %.1 to double
+  %26 = fpext float %.0 to double
   %27 = fmul double %26, 1.500000e+01
   %28 = fptosi double %27 to i32
   %29 = shl i32 %25, 2
@@ -2762,16 +2762,16 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
   %15 = fsub float %13, %14
   %16 = fdiv float %15, %9
   %17 = fcmp olt float %16, 0.000000e+00
-  %.0 = select i1 %17, float 0.000000e+00, float %16
-  %18 = fcmp ogt float %.0, 1.000000e+00
+  %.1 = select i1 %17, float 0.000000e+00, float %16
+  %18 = fcmp ogt float %.1, 1.000000e+00
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
   br label %20
 
 20:                                               ; preds = %11, %19, %8
-  %.1 = phi float [ 1.000000e+00, %19 ], [ %.0, %11 ], [ 0.000000e+00, %8 ]
-  %21 = fmul float %.1, 2.550000e+02
+  %.0 = phi float [ 1.000000e+00, %19 ], [ %.1, %11 ], [ 0.000000e+00, %8 ]
+  %21 = fmul float %.0, 2.550000e+02
   %22 = fptosi float %21 to i32
   %23 = trunc i32 %22 to i8
   %sext = shl i64 %.01215, 32
@@ -2858,17 +2858,17 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
   %15 = fsub float %13, %14
   %16 = fdiv float %15, %9
   %17 = fcmp olt float %16, 0.000000e+00
-  %.0 = select i1 %17, float 0.000000e+00, float %16
-  %18 = fcmp ogt float %.0, 1.000000e+00
+  %.1 = select i1 %17, float 0.000000e+00, float %16
+  %18 = fcmp ogt float %.1, 1.000000e+00
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %11
   br label %20
 
 20:                                               ; preds = %11, %19, %8
-  %.1 = phi float [ 1.000000e+00, %19 ], [ %.0, %11 ], [ 0.000000e+00, %8 ]
+  %.0 = phi float [ 1.000000e+00, %19 ], [ %.1, %11 ], [ 0.000000e+00, %8 ]
   %21 = trunc i64 %.01316 to i32
-  %22 = fpext float %.1 to double
+  %22 = fpext float %.0 to double
   %23 = fmul double %22, 1.500000e+01
   %24 = fptosi double %23 to i32
   %25 = shl i32 %21, 2

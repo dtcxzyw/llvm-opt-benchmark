@@ -224,7 +224,7 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr nocapture noundef
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %16
   %6 = phi i32 [ %17, %16 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.lr.ph ]
-  %.033.us = phi i32 [ %.1.us, %16 ], [ 0, %.lr.ph ]
+  %.033.us = phi i32 [ %.2.us, %16 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds %struct.node_info, ptr %7, i64 %indvars.iv, i32 27
   %9 = load ptr, ptr %8, align 8
@@ -242,7 +242,7 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr nocapture noundef
 
 16:                                               ; preds = %11, %.lr.ph.split.us.split
   %17 = phi i32 [ %.pre42, %11 ], [ %6, %.lr.ph.split.us.split ]
-  %.1.us = phi i32 [ %12, %11 ], [ %.033.us, %.lr.ph.split.us.split ]
+  %.2.us = phi i32 [ %12, %11 ], [ %.033.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp ult i64 %indvars.iv.next, %18
@@ -288,7 +288,7 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr nocapture noundef
   br i1 %39, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !9
 
 .loopexit:                                        ; preds = %16
-  %40 = icmp eq i32 %.1.us, 0
+  %40 = icmp eq i32 %.2.us, 0
   br i1 %40, label %.loopexit.thread, label %48
 
 .loopexit.thread:                                 ; preds = %35, %2, %.loopexit
@@ -529,7 +529,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   br label %98
 
 98:                                               ; preds = %.loopexit94, %85
-  %.052 = phi i32 [ 0, %85 ], [ %.153, %.loopexit94 ]
+  %.052 = phi i32 [ 0, %85 ], [ %.254, %.loopexit94 ]
   %99 = call ptr @hostlist_shift(ptr noundef %67) #9
   %.not75 = icmp eq ptr %99, null
   br i1 %.not75, label %116, label %.preheader93
@@ -565,15 +565,15 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   br label %.loopexit94
 
 .loopexit94:                                      ; preds = %101, %.preheader93, %110
-  %.153 = phi i32 [ %114, %110 ], [ %.052, %.preheader93 ], [ %.052, %101 ]
+  %.254 = phi i32 [ %114, %110 ], [ %.052, %.preheader93 ], [ %.052, %101 ]
   call void @free(ptr noundef %99) #9
   %115 = load i32, ptr %93, align 8
-  %.not77 = icmp ult i32 %.153, %115
+  %.not77 = icmp ult i32 %.254, %115
   br i1 %.not77, label %98, label %116, !llvm.loop !11
 
 116:                                              ; preds = %.loopexit94, %98
-  %.254 = phi i32 [ %.153, %.loopexit94 ], [ %.052, %98 ]
-  store i32 %.254, ptr %87, align 8
+  %.153 = phi i32 [ %.254, %.loopexit94 ], [ %.052, %98 ]
+  store i32 %.153, ptr %87, align 8
   store i32 463606195, ptr %11, align 8
   %117 = getelementptr inbounds i8, ptr %11, i64 4
   %118 = getelementptr inbounds i8, ptr %11, i64 8
@@ -847,7 +847,7 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr nocapture no
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %16
   %6 = phi i32 [ %17, %16 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.lr.ph ]
-  %.034.us = phi i32 [ %.1.us, %16 ], [ 0, %.lr.ph ]
+  %.034.us = phi i32 [ %.2.us, %16 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds %struct.front_end_info, ptr %7, i64 %indvars.iv, i32 5
   %9 = load ptr, ptr %8, align 8
@@ -865,7 +865,7 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr nocapture no
 
 16:                                               ; preds = %11, %.lr.ph.split.us.split
   %17 = phi i32 [ %.pre43, %11 ], [ %6, %.lr.ph.split.us.split ]
-  %.1.us = phi i32 [ %12, %11 ], [ %.034.us, %.lr.ph.split.us.split ]
+  %.2.us = phi i32 [ %12, %11 ], [ %.034.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp ult i64 %indvars.iv.next, %18
@@ -911,7 +911,7 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr nocapture no
   br i1 %38, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !13
 
 .loopexit:                                        ; preds = %16
-  %39 = icmp eq i32 %.1.us, 0
+  %39 = icmp eq i32 %.2.us, 0
   br i1 %39, label %.loopexit.thread, label %47
 
 .loopexit.thread:                                 ; preds = %34, %2, %.loopexit
@@ -1033,7 +1033,7 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
 .lr.ph.split.us.split.i:                          ; preds = %49, %.lr.ph.i
   %39 = phi i32 [ %50, %49 ], [ %37, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %49 ], [ 0, %.lr.ph.i ]
-  %.034.us.i = phi i32 [ %.1.us.i, %49 ], [ 0, %.lr.ph.i ]
+  %.034.us.i = phi i32 [ %.2.us.i, %49 ], [ 0, %.lr.ph.i ]
   %40 = load ptr, ptr %38, align 8
   %41 = getelementptr inbounds %struct.front_end_info, ptr %40, i64 %indvars.iv.i, i32 5
   %42 = load ptr, ptr %41, align 8
@@ -1051,14 +1051,14 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
 
 49:                                               ; preds = %44, %.lr.ph.split.us.split.i
   %50 = phi i32 [ %.pre43.i, %44 ], [ %39, %.lr.ph.split.us.split.i ]
-  %.1.us.i = phi i32 [ %45, %44 ], [ %.034.us.i, %.lr.ph.split.us.split.i ]
+  %.2.us.i = phi i32 [ %45, %44 ], [ %.034.us.i, %.lr.ph.split.us.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = zext i32 %50 to i64
   %52 = icmp ult i64 %indvars.iv.next.i, %51
   br i1 %52, label %.lr.ph.split.us.split.i, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %49
-  %53 = icmp ne i32 %.1.us.i, 0
+  %53 = icmp ne i32 %.2.us.i, 0
   %54 = load i32, ptr @quiet_flag, align 4
   %.not30.i = icmp eq i32 %54, 1
   %or.cond = select i1 %53, i1 true, i1 %.not30.i

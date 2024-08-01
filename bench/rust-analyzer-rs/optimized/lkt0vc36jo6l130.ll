@@ -7274,7 +7274,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %48, label %49, label %.critedge.i
 
 .noexc76.i:                                       ; preds = %96, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h5a73409b9fbc1998E.exit.i"
-  br i1 %.2.i, label %.noexc76.i._crit_edge, label %.thread47
+  br i1 %.3.i, label %.noexc76.i._crit_edge, label %.thread47
 
 .noexc76.i._crit_edge:                            ; preds = %.noexc76.i
   %.pre = load ptr, ptr %45, align 8, !alias.scope !985, !noalias !979
@@ -7421,7 +7421,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %71 unwind label %.thread.i, !noalias !982
 
 "_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h5a73409b9fbc1998E.exit.i": ; preds = %106, %.body.i, %99
-  %.2.i = phi i1 [ %.3.i, %99 ], [ %.4.lpad-body.i, %106 ], [ %.4.lpad-body.i, %.body.i ]
+  %.3.i = phi i1 [ %.2.i, %99 ], [ %.4.lpad-body.i, %106 ], [ %.4.lpad-body.i, %.body.i ]
   %.pn.i = phi { ptr, i32 } [ %100, %99 ], [ %eh.lpad-body.i, %106 ], [ %eh.lpad-body.i, %.body.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !992)
   call void @llvm.experimental.noalias.scope.decl(metadata !995)
@@ -7437,7 +7437,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc76.i unwind label %210, !noalias !982
 
 99:                                               ; preds = %188, %90
-  %.3.i = phi i1 [ true, %90 ], [ false, %188 ]
+  %.2.i = phi i1 [ true, %90 ], [ false, %188 ]
   %100 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h5a73409b9fbc1998E.exit.i"
@@ -17851,7 +17851,7 @@ default.unreachable:                              ; preds = %.noexc41
   br label %.body44
 
 .body44:                                          ; preds = %185, %168, %158, %162
-  %.020.lpad-body = phi i1 [ true, %162 ], [ true, %158 ], [ true, %168 ], [ false, %185 ]
+  %.121.lpad-body = phi i1 [ true, %162 ], [ true, %158 ], [ true, %168 ], [ false, %185 ]
   %eh.lpad-body45 = phi { ptr, i32 } [ %159, %162 ], [ %159, %158 ], [ %169, %168 ], [ %186, %185 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2959)
   call void @llvm.experimental.noalias.scope.decl(metadata !2962)
@@ -17941,7 +17941,7 @@ default.unreachable:                              ; preds = %.noexc41
   br label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_expand..MacroCallLoc$C$hir_expand..MacroCallLoc$GT$$GT$$GT$17h25d0b375ef914eb7E.exit39"
 
 .body:                                            ; preds = %.body44, %173
-  br i1 %.020.lpad-body, label %.body.thread, label %27
+  br i1 %.121.lpad-body, label %.body.thread, label %27
 
 .body.thread:                                     ; preds = %146, %95, %.body
   %.pn57 = phi { ptr, i32 } [ %eh.lpad-body45, %.body ], [ %147, %146 ], [ %96, %95 ]
@@ -19634,8 +19634,8 @@ define hidden { ptr, ptr } @"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple
 
 "_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h064152bd2610f77fE.exit.thread": ; preds = %6, %1, %9
   %.sroa.4.0 = phi ptr [ %7, %9 ], [ undef, %1 ], [ undef, %6 ]
-  %.sroa.0.0 = phi ptr [ %4, %9 ], [ null, %1 ], [ null, %6 ]
-  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ %4, %9 ], [ null, %1 ], [ null, %6 ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %12
 }
@@ -19656,7 +19656,7 @@ define hidden { ptr, ptr } @"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple
 
 3:                                                ; preds = %2, %1
   %.sroa.8.0 = phi ptr [ %.sroa.8.0.copyload, %1 ], [ null, %2 ]
-  %.sroa.0.019 = phi i64 [ %.sroa.0.0.copyload, %1 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %1 ], [ 0, %2 ]
   %4 = icmp eq ptr %.sroa.12.0.copyload, null
   br i1 %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit16", label %5
 
@@ -19670,7 +19670,7 @@ define hidden { ptr, ptr } @"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit": ; preds = %5
   %10 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %10, ptr %.sroa.12.0.copyload, align 8, !alias.scope !3181, !noalias !3184
-  %trunc.i.i12 = trunc nuw i64 %.sroa.0.019 to i1
+  %trunc.i.i12 = trunc nuw i64 %.sroa.0.0 to i1
   %.not.i.i15 = icmp ne ptr %.sroa.8.0, null
   %or.cond.not = select i1 %trunc.i.i12, i1 %.not.i.i15, i1 false
   br i1 %or.cond.not, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit16", label %.thread36
@@ -19699,8 +19699,8 @@ define hidden { ptr, ptr } @"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit16": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit", %.thread36, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit.thread23", %5, %3, %15
   %.sroa.4.0 = phi ptr [ %12, %15 ], [ undef, %3 ], [ undef, %5 ], [ undef, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit.thread23" ], [ undef, %.thread36 ], [ %.sroa.8.0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit" ]
-  %.sroa.0.0 = phi ptr [ %.0.i1.i3038, %15 ], [ null, %3 ], [ null, %5 ], [ null, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit.thread23" ], [ null, %.thread36 ], [ %8, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit" ]
-  %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ %.0.i1.i3038, %15 ], [ null, %3 ], [ null, %5 ], [ null, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit.thread23" ], [ null, %.thread36 ], [ %8, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8d6079561f922aE.exit" ]
+  %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %18
 }

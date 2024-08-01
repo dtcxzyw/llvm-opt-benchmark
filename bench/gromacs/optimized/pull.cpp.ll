@@ -707,7 +707,7 @@ define noundef float @_Z18max_pull_distance2RK17pull_coord_work_tRK5t_pbc(ptr no
 
 29:                                               ; preds = %.preheader48, %47
   %indvars.iv67 = phi i64 [ 0, %.preheader48 ], [ %indvars.iv.next68, %47 ]
-  %.252 = phi float [ 0x47EFFFFFE0000000, %.preheader48 ], [ %.3, %47 ]
+  %.352 = phi float [ 0x47EFFFFFE0000000, %.preheader48 ], [ %.4, %47 ]
   %30 = icmp slt i64 %indvars.iv67, %8
   br i1 %30, label %31, label %47
 
@@ -747,19 +747,19 @@ define noundef float @_Z18max_pull_distance2RK17pull_coord_work_tRK5t_pbc(ptr no
 
 ._crit_edge:                                      ; preds = %45, %34
   %.045.lcssa = phi float [ %37, %34 ], [ %.1, %45 ]
-  %46 = fcmp olt float %.045.lcssa, %.252
-  %.sroa.speculated = select i1 %46, float %.045.lcssa, float %.252
+  %46 = fcmp olt float %.045.lcssa, %.352
+  %.sroa.speculated = select i1 %46, float %.045.lcssa, float %.352
   br label %47
 
 47:                                               ; preds = %29, %31, %._crit_edge
-  %.3 = phi float [ %.252, %31 ], [ %.sroa.speculated, %._crit_edge ], [ %.252, %29 ]
+  %.4 = phi float [ %.352, %31 ], [ %.sroa.speculated, %._crit_edge ], [ %.352, %29 ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
   br i1 %exitcond70.not, label %.loopexit, label %29, !llvm.loop !9
 
 .loopexit:                                        ; preds = %47, %28
-  %.4 = phi float [ %.147, %28 ], [ %.3, %47 ]
-  %48 = fmul float %.4, 2.500000e-01
+  %.2 = phi float [ %.147, %28 ], [ %.4, %47 ]
+  %48 = fmul float %.2, 2.500000e-01
   ret float %48
 }
 
@@ -867,7 +867,7 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
 
 48:                                               ; preds = %66, %.preheader48.i.i
   %indvars.iv67.i.i = phi i64 [ 0, %.preheader48.i.i ], [ %indvars.iv.next68.i.i, %66 ]
-  %.252.i.i = phi float [ 0x47EFFFFFE0000000, %.preheader48.i.i ], [ %.3.i.i, %66 ]
+  %.352.i.i = phi float [ 0x47EFFFFFE0000000, %.preheader48.i.i ], [ %.4.i.i, %66 ]
   %49 = icmp slt i64 %indvars.iv67.i.i, %25
   br i1 %49, label %50, label %66
 
@@ -907,19 +907,19 @@ define internal fastcc void @_ZL23get_pull_coord_distanceRK6pull_tP17pull_coord_
 
 ._crit_edge.i.i:                                  ; preds = %64, %53
   %.045.lcssa.i.i = phi float [ %56, %53 ], [ %.1.i.i, %64 ]
-  %65 = fcmp olt float %.045.lcssa.i.i, %.252.i.i
-  %.sroa.speculated.i.i = select i1 %65, float %.045.lcssa.i.i, float %.252.i.i
+  %65 = fcmp olt float %.045.lcssa.i.i, %.352.i.i
+  %.sroa.speculated.i.i = select i1 %65, float %.045.lcssa.i.i, float %.352.i.i
   br label %66
 
 66:                                               ; preds = %._crit_edge.i.i, %50, %48
-  %.3.i.i = phi float [ %.252.i.i, %50 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ %.252.i.i, %48 ]
+  %.4.i.i = phi float [ %.352.i.i, %50 ], [ %.sroa.speculated.i.i, %._crit_edge.i.i ], [ %.352.i.i, %48 ]
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1
   %exitcond70.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, 3
   br i1 %exitcond70.not.i.i, label %.loopexit.i, label %48, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %66, %47
-  %.4.i.i = phi float [ %.147.i.i, %47 ], [ %.3.i.i, %66 ]
-  %67 = fmul float %.4.i.i, 2.500000e-01
+  %.2.i.i = phi float [ %.147.i.i, %47 ], [ %.4.i.i, %66 ]
+  %67 = fmul float %.2.i.i, 2.500000e-01
   %68 = fpext float %67 to double
   %69 = icmp eq i32 %13, 4
   br i1 %69, label %70, label %.thread73.i
@@ -2075,7 +2075,7 @@ _ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i: ; preds = %76, %
   br label %_ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i
 
 _ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i: ; preds = %.sink.split.i.i.i, %100, %.thread.i.i, %96, %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i
-  %.1.i.i = phi double [ 0.000000e+00, %96 ], [ %93, %.thread.i.i ], [ %102, %.sink.split.i.i.i ], [ %93, %100 ], [ %93, %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %96 ], [ %93, %.thread.i.i ], [ %102, %.sink.split.i.i.i ], [ %93, %100 ], [ %93, %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
@@ -2103,13 +2103,13 @@ _ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i: ; pr
 
 114:                                              ; preds = %_ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i, %_ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i, %_ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i
   %115 = icmp eq i32 %113, 3
-  %116 = fcmp olt double %.1.i.i, 0.000000e+00
+  %116 = fcmp olt double %.0.i.i, 0.000000e+00
   %or.cond.i.i = and i1 %116, %115
   br i1 %or.cond.i.i, label %120, label %117
 
 117:                                              ; preds = %114
   %118 = icmp eq i32 %113, 4
-  %119 = fcmp ogt double %.1.i.i, 0.000000e+00
+  %119 = fcmp ogt double %.0.i.i, 0.000000e+00
   %or.cond3.i.i = and i1 %119, %118
   br i1 %or.cond3.i.i, label %120, label %121
 
@@ -2117,7 +2117,7 @@ _ZL24get_pull_coord_deviationRK6pull_tP17pull_coord_work_tRK5t_pbcd.exit.i: ; pr
   br label %121
 
 121:                                              ; preds = %120, %117
-  %.037.i.i = phi double [ 0.000000e+00, %120 ], [ %.1.i.i, %117 ]
+  %.037.i.i = phi double [ 0.000000e+00, %120 ], [ %.0.i.i, %117 ]
   %122 = fneg float %111
   %123 = fpext float %122 to double
   %124 = load double, ptr %69, align 8
@@ -2269,7 +2269,7 @@ _ZL17do_pull_pot_coordRK6pull_tP17pull_coord_work_tRK5t_pbcdfPfS7_.exit: ; preds
   br label %189
 
 189:                                              ; preds = %179, %184, %_ZL37check_external_potential_registrationPK6pull_t.exit
-  %.3 = phi float [ %188, %184 ], [ %183, %179 ], [ 0.000000e+00, %_ZL37check_external_potential_registrationPK6pull_t.exit ]
+  %.0 = phi float [ %188, %184 ], [ %183, %179 ], [ 0.000000e+00, %_ZL37check_external_potential_registrationPK6pull_t.exit ]
   %190 = getelementptr inbounds i8, ptr %0, i64 328
   %191 = load i32, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %0, i64 336
@@ -2289,7 +2289,7 @@ _ZL17do_pull_pot_coordRK6pull_tP17pull_coord_work_tRK5t_pbcdfPfS7_.exit: ; preds
   br label %201
 
 201:                                              ; preds = %196, %200
-  %202 = phi float [ %.3, %200 ], [ 0.000000e+00, %196 ]
+  %202 = phi float [ %.0, %200 ], [ 0.000000e+00, %196 ]
   ret float %202
 }
 
@@ -2371,8 +2371,8 @@ define internal fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t
   br label %_ZL17make_periodic_2piPd.exit
 
 _ZL17make_periodic_2piPd.exit:                    ; preds = %.sink.split.i, %34, %2, %16, %7
-  %.1 = phi double [ %1, %2 ], [ %1, %16 ], [ %1, %7 ], [ %36, %.sink.split.i ], [ %1, %34 ]
-  ret double %.1
+  %.0 = phi double [ %1, %2 ], [ %1, %16 ], [ %1, %7 ], [ %36, %.sink.split.i ], [ %1, %34 ]
+  ret double %.0
 
 37:                                               ; preds = %30, %14
   %.sink = phi ptr [ %4, %30 ], [ %3, %14 ]
@@ -3860,7 +3860,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   br i1 %198, label %.lr.ph488.i, label %.preheader443.i, !llvm.loop !40
 
 .preheader442.i:                                  ; preds = %._crit_edge.i, %.preheader443.i
-  %.0239505.i = phi i1 [ false, %.preheader443.i ], [ %.3.i, %._crit_edge.i ]
+  %.0239505.i = phi i1 [ false, %.preheader443.i ], [ %.2241.i, %._crit_edge.i ]
   %.0243504.i = phi i32 [ 0, %.preheader443.i ], [ %776, %._crit_edge.i ]
   %199 = load ptr, ptr %72, align 8
   %200 = load ptr, ptr %71, align 8
@@ -3990,10 +3990,10 @@ common.resume.i:                                  ; preds = %782, %466, %342, %2
   br label %common.resume.i
 
 _ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd.exit.i: ; preds = %.sink.split.i.i.i, %252, %233, %224, %211
-  %.1.i.i = phi double [ %223, %211 ], [ %223, %233 ], [ %223, %224 ], [ %254, %.sink.split.i.i.i ], [ %223, %252 ]
+  %.0.i.i = phi double [ %223, %211 ], [ %223, %233 ], [ %223, %224 ], [ %254, %.sink.split.i.i.i ], [ %223, %252 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
-  store double %.1.i.i, ptr %207, align 8
+  store double %.0.i.i, ptr %207, align 8
   br label %_ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i
 
 _ZL29updatePullCoordReferenceValuePdRK12t_pull_coordd.exit.i: ; preds = %_ZL31sanitizePullCoordReferenceValueRK12t_pull_coordd.exit.i, %206
@@ -4705,7 +4705,7 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
 
 .lr.ph501.i:                                      ; preds = %.preheader441.i, %774
   %.1500.i = phi i1 [ %.2.i, %774 ], [ true, %.preheader441.i ]
-  %.1240499.i = phi i1 [ %.3.i, %774 ], [ %.0239505.i, %.preheader441.i ]
+  %.1240499.i = phi i1 [ %.2241.i, %774 ], [ %.0239505.i, %.preheader441.i ]
   %.sroa.0393.0498.i = phi ptr [ %775, %774 ], [ %.lcssa450.i, %.preheader441.i ]
   %649 = load i32, ptr %.sroa.0393.0498.i, align 8
   %.not272.i = icmp eq i32 %649, 1
@@ -4936,7 +4936,7 @@ _ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_work_tRK5t_pbcPKdS9_iidPd.exit
   br label %774
 
 774:                                              ; preds = %762, %760, %759, %736, %718, %.lr.ph501.i
-  %.3.i = phi i1 [ %.1240499.i, %.lr.ph501.i ], [ true, %759 ], [ false, %762 ], [ false, %760 ], [ true, %736 ], [ true, %718 ]
+  %.2241.i = phi i1 [ %.1240499.i, %.lr.ph501.i ], [ true, %759 ], [ false, %762 ], [ false, %760 ], [ true, %736 ], [ true, %718 ]
   %.2.i = phi i1 [ %.1500.i, %.lr.ph501.i ], [ %.1500.i, %759 ], [ false, %762 ], [ false, %760 ], [ %.1500.i, %736 ], [ %.1500.i, %718 ]
   %775 = getelementptr inbounds i8, ptr %.sroa.0393.0498.i, i64 488
   %.not431.i = icmp eq ptr %775, %.lcssa456.i
@@ -6554,7 +6554,7 @@ switch.edge.i:                                    ; preds = %430, %switch.lookup
 450:                                              ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i, %.lr.ph.i
   %indvars.iv170.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next171.i, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %451 = phi ptr [ %441, %.lr.ph.i ], [ %586, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
-  %.0105153.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
+  %.0105153.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %.0106152.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %578, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %.0110151.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %581, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
   %.0112150.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %584, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.i ]
@@ -6570,7 +6570,7 @@ switch.edge.i:                                    ; preds = %430, %switch.lookup
 
 .preheader134.i:                                  ; preds = %454, %466
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %466 ], [ 0, %454 ]
-  %.1147.i = phi i32 [ %.2.i, %466 ], [ %.0105153.i, %454 ]
+  %.2147.i = phi i32 [ %.3.i, %466 ], [ %.0105153.i, %454 ]
   %456 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
   %457 = load i32, ptr %456, align 4
   %458 = icmp eq i32 %457, 1
@@ -6584,17 +6584,17 @@ switch.edge.i:                                    ; preds = %430, %switch.lookup
   %464 = load i32, ptr %463, align 4
   %.not124.i = icmp ne i32 %464, 0
   %465 = zext i1 %.not124.i to i32
-  %spec.select.i = add nsw i32 %.1147.i, %465
+  %spec.select.i = add nsw i32 %.2147.i, %465
   br label %466
 
 466:                                              ; preds = %459, %.preheader134.i
-  %.2.i = phi i32 [ %.1147.i, %.preheader134.i ], [ %spec.select.i, %459 ]
+  %.3.i = phi i32 [ %.2147.i, %.preheader134.i ], [ %spec.select.i, %459 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader134.i, !llvm.loop !63
 
 .loopexit.i:                                      ; preds = %466, %454, %450
-  %.3.i = phi i32 [ %.0105153.i, %454 ], [ %.0105153.i, %450 ], [ %.2.i, %466 ]
+  %.1.i = phi i32 [ %.0105153.i, %454 ], [ %.0105153.i, %450 ], [ %.3.i, %466 ]
   %467 = load ptr, ptr %351, align 8
   %468 = load ptr, ptr %350, align 8
   %469 = ptrtoint ptr %467 to i64
@@ -6825,7 +6825,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.i:        ; preds = %_ZNSt6vectorIfSaIfE
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %438
   %.lcssa136191.i = phi i64 [ %592, %._crit_edge.i ], [ %445, %438 ]
   %.lcssa138189.i = phi i64 [ %589, %._crit_edge.i ], [ %444, %438 ]
-  %.0105.lcssa188.i = phi i32 [ %.3.i, %._crit_edge.i ], [ 0, %438 ]
+  %.0105.lcssa188.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %438 ]
   %.0106.lcssa186.i = phi double [ %578, %._crit_edge.i ], [ 0.000000e+00, %438 ]
   %.0110.lcssa184.i = phi double [ %581, %._crit_edge.i ], [ 0.000000e+00, %438 ]
   %594 = icmp ne i64 %.lcssa138189.i, 4
@@ -6861,7 +6861,7 @@ common.resume:                                    ; preds = %148, %164, %406, %4
 
 605:                                              ; preds = %595, %._crit_edge.i
   %.lcssa136190.i = phi i64 [ %592, %._crit_edge.i ], [ %.lcssa136191.i, %595 ]
-  %.0105.lcssa187.i = phi i32 [ %.3.i, %._crit_edge.i ], [ %.0105.lcssa188.i, %595 ]
+  %.0105.lcssa187.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.0105.lcssa188.i, %595 ]
   %.0106.lcssa185.i = phi double [ %578, %._crit_edge.i ], [ %.0106.lcssa186.i, %595 ]
   %.0110.lcssa183.i = phi double [ %581, %._crit_edge.i ], [ %.0110.lcssa184.i, %595 ]
   %.1113.i = phi double [ %584, %._crit_edge.i ], [ 1.000000e+00, %595 ]

@@ -618,8 +618,8 @@ cleanup:                                          ; preds = %if.end.i.i76, %if.t
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 if.end61:                                         ; preds = %cleanup.thread, %if.end28
-  %avail.1 = phi i64 [ %34, %if.end28 ], [ %cond, %cleanup.thread ]
-  %sub63 = sub i64 %avail.1, %bytes
+  %avail.0 = phi i64 [ %34, %if.end28 ], [ %cond, %cleanup.thread ]
+  %sub63 = sub i64 %avail.0, %bytes
   store atomic i64 %sub63, ptr %allocated_and_unused_31 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp65 = icmp eq i64 %rem, 0
@@ -633,16 +633,16 @@ if.then66:                                        ; preds = %if.end61
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 if.else:                                          ; preds = %if.end61
-  %add.ptr70 = getelementptr inbounds i8, ptr %57, i64 %avail.1
+  %add.ptr70 = getelementptr inbounds i8, ptr %57, i64 %avail.0
   %idx.neg = sub nsw i64 0, %bytes
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 %idx.neg
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110
 
 _ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit110: ; preds = %if.else, %if.then66, %cleanup, %cleanup74.thread
   %mutex29.sink = phi ptr [ %arena_mutex_, %cleanup74.thread ], [ %mutex29, %cleanup ], [ %mutex29, %if.then66 ], [ %mutex29, %if.else ]
-  %retval.2137 = phi ptr [ %retval.0.i.i, %cleanup74.thread ], [ %retval.0.i.i75, %cleanup ], [ %57, %if.then66 ], [ %add.ptr71, %if.else ]
+  %retval.0137 = phi ptr [ %retval.0.i.i, %cleanup74.thread ], [ %retval.0.i.i75, %cleanup ], [ %57, %if.then66 ], [ %add.ptr71, %if.else ]
   store atomic i8 0, ptr %mutex29.sink release, align 1
-  ret ptr %retval.2137
+  ret ptr %retval.0137
 
 if.then3.i.i116:                                  ; preds = %if.end.i.i45
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -957,8 +957,8 @@ cleanup:                                          ; preds = %if.then41
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 if.end59:                                         ; preds = %cleanup.thread, %if.end27
-  %avail.1 = phi i64 [ %36, %if.end27 ], [ %cond, %cleanup.thread ]
-  %sub61 = sub i64 %avail.1, %bytes
+  %avail.0 = phi i64 [ %36, %if.end27 ], [ %cond, %cleanup.thread ]
+  %sub61 = sub i64 %avail.0, %bytes
   store atomic i64 %sub61, ptr %allocated_and_unused_30 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp63 = icmp eq i64 %rem, 0
@@ -972,16 +972,16 @@ if.then64:                                        ; preds = %if.end59
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 if.else:                                          ; preds = %if.end59
-  %add.ptr68 = getelementptr inbounds i8, ptr %61, i64 %avail.1
+  %add.ptr68 = getelementptr inbounds i8, ptr %61, i64 %avail.0
   %idx.neg = sub nsw i64 0, %bytes
   %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr68, i64 %idx.neg
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98
 
 _ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit98: ; preds = %if.else, %if.then64, %cleanup, %cleanup72.thread
   %mutex28.sink = phi ptr [ %arena_mutex_, %cleanup72.thread ], [ %mutex28, %cleanup ], [ %mutex28, %if.then64 ], [ %mutex28, %if.else ]
-  %retval.2125 = phi ptr [ %call.i4546, %cleanup72.thread ], [ %call.i6667, %cleanup ], [ %61, %if.then64 ], [ %add.ptr69, %if.else ]
+  %retval.0125 = phi ptr [ %call.i4546, %cleanup72.thread ], [ %call.i6667, %cleanup ], [ %61, %if.then64 ], [ %add.ptr69, %if.else ]
   store atomic i8 0, ptr %mutex28.sink release, align 1
-  ret ptr %retval.2125
+  ret ptr %retval.0125
 
 if.then3.i.i104:                                  ; preds = %if.end
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }

@@ -1936,7 +1936,7 @@ ehcleanup442.thread:                              ; preds = %_ZN20b3AlignedObjec
   br label %ehcleanup443
 
 invoke.cont77:                                    ; preds = %for.body67, %invoke.cont60, %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit
-  %contactConstraints.sroa.12.11076 = phi ptr [ %call.i.i.i756, %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit ], [ null, %invoke.cont60 ], [ %call.i.i.i756, %for.body67 ]
+  %contactConstraints.sroa.12.21076 = phi ptr [ %call.i.i.i756, %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4E6resizeEiRKS0_.exit ], [ null, %invoke.cont60 ], [ %call.i.i.i756, %for.body67 ]
   %m_numIterations = getelementptr inbounds i8, ptr %solverInfo, i64 16
   %41 = load i32, ptr %m_numIterations, align 4
   %42 = load i32, ptr %totalNumSplitBodies, align 4
@@ -2013,7 +2013,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255.loopexit: ; preds = 
 _ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255: ; preds = %invoke.cont77, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255.loopexit, %invoke.cont80
   %deltaLinearVelocities.sroa.12.11079 = phi ptr [ %call.i.i.i791, %invoke.cont80 ], [ %call.i.i.i791, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255.loopexit ], [ null, %invoke.cont77 ]
   %43 = phi i32 [ %.pre, %invoke.cont80 ], [ %.pre1069, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255.loopexit ], [ %42, %invoke.cont77 ]
-  %deltaAngularVelocities.sroa.12.1 = phi ptr [ null, %invoke.cont80 ], [ %call.i.i.i829, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255.loopexit ], [ null, %invoke.cont77 ]
+  %deltaAngularVelocities.sroa.12.0 = phi ptr [ null, %invoke.cont80 ], [ %call.i.i.i829, %_ZN20b3AlignedObjectArrayI9b3Vector3E6resizeEiRKS0_.exit255.loopexit ], [ null, %invoke.cont77 ]
   %cmp85916.not = icmp eq i32 %43, 0
   br i1 %cmp85916.not, label %for.cond96.preheader, label %for.body86
 
@@ -2031,7 +2031,7 @@ for.body86:                                       ; preds = %_ZN20b3AlignedObjec
   %idxprom.i257 = sext i32 %i83.0917 to i64
   %arrayidx.i258 = getelementptr inbounds %class.b3Vector3, ptr %deltaLinearVelocities.sroa.12.11079, i64 %idxprom.i257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i258, i8 0, i64 16, i1 false)
-  %arrayidx.i261 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %idxprom.i257
+  %arrayidx.i261 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %idxprom.i257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i261, i8 0, i64 16, i1 false)
   %inc94 = add nuw i32 %i83.0917, 1
   %exitcond1009.not = icmp eq i32 %inc94, %43
@@ -2063,7 +2063,7 @@ for.cond159.preheader:                            ; preds = %for.inc155, %for.co
 
 invoke.cont111:                                   ; preds = %for.cond100.preheader, %for.inc155
   %indvars.iv1010 = phi i64 [ %indvars.iv.next1011, %for.inc155 ], [ 0, %for.cond100.preheader ]
-  %arrayidx.i264 = getelementptr inbounds %struct.b3GpuConstraint4, ptr %contactConstraints.sroa.12.11076, i64 %indvars.iv1010
+  %arrayidx.i264 = getelementptr inbounds %struct.b3GpuConstraint4, ptr %contactConstraints.sroa.12.21076, i64 %indvars.iv1010
   %m_bodyA = getelementptr inbounds i8, ptr %arrayidx.i264, i64 160
   %47 = load i32, ptr %m_bodyA, align 16
   %m_bodyB = getelementptr inbounds i8, ptr %arrayidx.i264, i64 164
@@ -2087,7 +2087,7 @@ if.then115:                                       ; preds = %invoke.cont111
   %add121 = add nsw i32 %52, %51
   %idxprom.i275 = sext i32 %add121 to i64
   %arrayidx.i276 = getelementptr inbounds %class.b3Vector3, ptr %deltaLinearVelocities.sroa.12.11079, i64 %idxprom.i275
-  %arrayidx.i279 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %idxprom.i275
+  %arrayidx.i279 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %idxprom.i275
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then115, %invoke.cont111
@@ -2107,7 +2107,7 @@ if.then129:                                       ; preds = %if.end126
   %add135 = add nsw i32 %56, %55
   %idxprom.i287 = sext i32 %add135 to i64
   %arrayidx.i288 = getelementptr inbounds %class.b3Vector3, ptr %deltaLinearVelocities.sroa.12.11079, i64 %idxprom.i287
-  %arrayidx.i291 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %idxprom.i287
+  %arrayidx.i291 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %idxprom.i287
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then129, %if.end126
@@ -2462,7 +2462,7 @@ invoke.cont190:                                   ; preds = %invoke.cont190.preh
   %arrayidx3.i309 = getelementptr inbounds i8, ptr %arrayidx.i307, i64 8
   %233 = load float, ptr %arrayidx3.i309, align 8
   %234 = fadd <2 x float> %227, %232
-  %arrayidx.i314 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %230
+  %arrayidx.i314 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %230
   %235 = load <2 x float>, ptr %arrayidx.i314, align 16
   %236 = fmul <2 x float> %223, %235
   %arrayidx3.i318 = getelementptr inbounds i8, ptr %arrayidx.i314, i64 8
@@ -2485,7 +2485,7 @@ for.body202:                                      ; preds = %for.body202.prehead
   store float %226, ptr %averageLinVel.sroa.6.0.arrayidx.i334.sroa_idx, align 8
   %averageLinVel.sroa.8.0.arrayidx.i334.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i334, i64 12
   store float 0.000000e+00, ptr %averageLinVel.sroa.8.0.arrayidx.i334.sroa_idx, align 4
-  %arrayidx.i337 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %243
+  %arrayidx.i337 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %243
   store <2 x float> %241, ptr %arrayidx.i337, align 16
   %averageAngVel.sroa.6.0.arrayidx.i337.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i337, i64 8
   store float %225, ptr %averageAngVel.sroa.6.0.arrayidx.i337.sroa_idx, align 8
@@ -2530,7 +2530,7 @@ for.body226:                                      ; preds = %for.cond224.prehead
 for.body232:                                      ; preds = %for.body226, %for.body232
   %indvars.iv1033 = phi i64 [ 0, %for.body226 ], [ %indvars.iv.next1034, %for.body232 ]
   %sum.0957 = phi float [ 0.000000e+00, %for.body226 ], [ %add237, %for.body232 ]
-  %arrayidx236 = getelementptr inbounds %struct.b3GpuConstraint4, ptr %contactConstraints.sroa.12.11076, i64 %indvars.iv1041, i32 0, i32 5, i64 %indvars.iv1033
+  %arrayidx236 = getelementptr inbounds %struct.b3GpuConstraint4, ptr %contactConstraints.sroa.12.21076, i64 %indvars.iv1041, i32 0, i32 5, i64 %indvars.iv1033
   %246 = load float, ptr %arrayidx236, align 4
   %add237 = fadd float %sum.0957, %246
   %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
@@ -2538,7 +2538,7 @@ for.body232:                                      ; preds = %for.body226, %for.b
   br i1 %exitcond1036.not, label %invoke.cont260, label %for.body232, !llvm.loop !25
 
 invoke.cont260:                                   ; preds = %for.body232
-  %arrayidx.i343 = getelementptr inbounds %struct.b3GpuConstraint4, ptr %contactConstraints.sroa.12.11076, i64 %indvars.iv1041
+  %arrayidx.i343 = getelementptr inbounds %struct.b3GpuConstraint4, ptr %contactConstraints.sroa.12.21076, i64 %indvars.iv1041
   %arrayidx.i344 = getelementptr inbounds i8, ptr %arrayidx.i343, i64 12
   %247 = load float, ptr %arrayidx.i344, align 4
   %m_bodyA248 = getelementptr inbounds i8, ptr %arrayidx.i343, i64 160
@@ -2564,7 +2564,7 @@ if.then270:                                       ; preds = %invoke.cont260
   %add279 = add nsw i32 %253, %252
   %idxprom.i358 = sext i32 %add279 to i64
   %arrayidx.i359 = getelementptr inbounds %class.b3Vector3, ptr %deltaLinearVelocities.sroa.12.11079, i64 %idxprom.i358
-  %arrayidx.i362 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %idxprom.i358
+  %arrayidx.i362 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %idxprom.i358
   br label %if.end284
 
 if.end284:                                        ; preds = %if.then270, %invoke.cont260
@@ -2584,7 +2584,7 @@ if.then287:                                       ; preds = %if.end284
   %add296 = add nsw i32 %257, %256
   %idxprom.i370 = sext i32 %add296 to i64
   %arrayidx.i371 = getelementptr inbounds %class.b3Vector3, ptr %deltaLinearVelocities.sroa.12.11079, i64 %idxprom.i370
-  %arrayidx.i374 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %idxprom.i370
+  %arrayidx.i374 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %idxprom.i370
   br label %if.end301
 
 if.end301:                                        ; preds = %if.then287, %if.end284
@@ -3080,7 +3080,7 @@ invoke.cont377:                                   ; preds = %invoke.cont377.preh
   %arrayidx3.i452 = getelementptr inbounds i8, ptr %arrayidx.i448, i64 8
   %477 = load float, ptr %arrayidx3.i452, align 8
   %478 = fadd <2 x float> %471, %476
-  %arrayidx.i468 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %474
+  %arrayidx.i468 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %474
   %479 = load <2 x float>, ptr %arrayidx.i468, align 16
   %480 = fmul <2 x float> %467, %479
   %arrayidx3.i472 = getelementptr inbounds i8, ptr %arrayidx.i468, i64 8
@@ -3103,7 +3103,7 @@ for.body389:                                      ; preds = %for.body389.prehead
   store float %470, ptr %averageLinVel355.sroa.6.0.arrayidx.i488.sroa_idx, align 8
   %averageLinVel355.sroa.8.0.arrayidx.i488.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i488, i64 12
   store float 0.000000e+00, ptr %averageLinVel355.sroa.8.0.arrayidx.i488.sroa_idx, align 4
-  %arrayidx.i491 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %487
+  %arrayidx.i491 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %487
   store <2 x float> %485, ptr %arrayidx.i491, align 16
   %averageAngVel357.sroa.6.0.arrayidx.i491.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i491, i64 8
   store float %469, ptr %averageAngVel357.sroa.6.0.arrayidx.i491.sroa_idx, align 8
@@ -3159,7 +3159,7 @@ if.then422:                                       ; preds = %if.then414
   %496 = load float, ptr %arrayidx7.i506, align 8
   %add8.i507 = fadd float %495, %496
   store float %add8.i507, ptr %arrayidx7.i506, align 8
-  %arrayidx.i510 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.1, i64 %idxprom.i499
+  %arrayidx.i510 = getelementptr inbounds %class.b3Vector3, ptr %deltaAngularVelocities.sroa.12.0, i64 %idxprom.i499
   %m_angVel434 = getelementptr inbounds i8, ptr %arrayidx411, i64 48
   %497 = load float, ptr %arrayidx.i510, align 16
   %498 = load float, ptr %m_angVel434, align 16
@@ -3185,11 +3185,11 @@ for.inc439:                                       ; preds = %for.body409, %if.th
   br i1 %exitcond1068.not, label %for.end441, label %for.body409, !llvm.loop !33
 
 for.end441:                                       ; preds = %for.inc439, %for.cond407.preheader
-  %tobool.not.i.i.i519 = icmp eq ptr %deltaAngularVelocities.sroa.12.1, null
+  %tobool.not.i.i.i519 = icmp eq ptr %deltaAngularVelocities.sroa.12.0, null
   br i1 %tobool.not.i.i.i519, label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit528, label %if.then3.i.i.i526
 
 if.then3.i.i.i526:                                ; preds = %for.end441
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %deltaAngularVelocities.sroa.12.1)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %deltaAngularVelocities.sroa.12.0)
           to label %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit528 unwind label %terminate.lpad.i527
 
 terminate.lpad.i527:                              ; preds = %if.then3.i.i.i526
@@ -3215,11 +3215,11 @@ terminate.lpad.i538:                              ; preds = %if.then3.i.i.i537
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit539: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit528, %if.then3.i.i.i537
-  %tobool.not.i.i.i541 = icmp eq ptr %contactConstraints.sroa.12.11076, null
+  %tobool.not.i.i.i541 = icmp eq ptr %contactConstraints.sroa.12.21076, null
   br i1 %tobool.not.i.i.i541, label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit, label %if.then3.i.i.i548
 
 if.then3.i.i.i548:                                ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit539
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %contactConstraints.sroa.12.11076)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %contactConstraints.sroa.12.21076)
           to label %_ZN20b3AlignedObjectArrayI16b3GpuConstraint4ED2Ev.exit unwind label %terminate.lpad.i549
 
 terminate.lpad.i549:                              ; preds = %if.then3.i.i.i548
@@ -3323,11 +3323,11 @@ terminate.lpad.i591:                              ; preds = %if.then3.i.i.i590
 
 ehcleanup442:                                     ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit.thread, %if.then3.i.i.i590
   %.pn148 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %if.then3.i.i.i590 ], [ %lpad.thr_comm, %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit.thread ]
-  %tobool.not.i.i.i594 = icmp eq ptr %contactConstraints.sroa.12.11076, null
+  %tobool.not.i.i.i594 = icmp eq ptr %contactConstraints.sroa.12.21076, null
   br i1 %tobool.not.i.i.i594, label %ehcleanup443, label %if.then3.i.i.i601
 
 if.then3.i.i.i601:                                ; preds = %ehcleanup442
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %contactConstraints.sroa.12.11076)
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %contactConstraints.sroa.12.21076)
           to label %ehcleanup443 unwind label %terminate.lpad.i602
 
 terminate.lpad.i602:                              ; preds = %if.then3.i.i.i601
@@ -7452,8 +7452,8 @@ _ZN13b3OpenCLArrayIjE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIjE10deallocateEv.exit, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7617,8 +7617,8 @@ _ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit, %_ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int2E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7780,8 +7780,8 @@ _ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18: ; preds = %if.else,
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7943,8 +7943,8 @@ _ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18: ; preds = %if.else, %land.l
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

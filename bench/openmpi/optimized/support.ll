@@ -1800,13 +1800,13 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
   br i1 %42, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph, %31
-  %.033 = phi i8 [ %34, %31 ], [ %33, %.lr.ph ], [ %34, %37 ]
+  %.134 = phi i8 [ %34, %31 ], [ %33, %.lr.ph ], [ %34, %37 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %35) #18
-  %43 = trunc i8 %.033 to i1
+  %43 = trunc i8 %.134 to i1
   br label %44
 
 44:                                               ; preds = %17, %._crit_edge, %29, %27, %24, %1
-  %.134 = phi i1 [ %43, %._crit_edge ], [ true, %29 ], [ true, %27 ], [ true, %24 ], [ true, %17 ], [ true, %1 ]
+  %.033 = phi i1 [ %43, %._crit_edge ], [ true, %29 ], [ true, %27 ], [ true, %24 ], [ true, %17 ], [ true, %1 ]
   store ptr null, ptr %9, align 8
   %45 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.165, ptr noundef nonnull %spec.select) #18
   %46 = icmp slt i32 %45, 0
@@ -1817,8 +1817,8 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
   br i1 %47, label %.lr.ph71, label %._crit_edge72
 
 .lr.ph71:                                         ; preds = %.preheader58
-  %48 = select i1 %.134, ptr @.str.55, ptr @.str.167
-  %49 = select i1 %.134, ptr @.str.170, ptr @.str.171
+  %48 = select i1 %.033, ptr @.str.55, ptr @.str.167
+  %49 = select i1 %.033, ptr @.str.170, ptr @.str.171
   %wide.trip.count = and i64 %.val, 2147483647
   %50 = getelementptr inbounds i8, ptr %0, i64 168
   %51 = getelementptr inbounds i8, ptr %0, i64 168
@@ -1827,7 +1827,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 
 53:                                               ; preds = %.lr.ph71, %119
   %indvars.iv81 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next82, %119 ]
-  %.070 = phi ptr [ null, %.lr.ph71 ], [ %.2, %119 ]
+  %.070 = phi ptr [ null, %.lr.ph71 ], [ %.1, %119 ]
   %54 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv81
   %55 = load i32, ptr %54, align 4
   %56 = call i32 @pmix_mca_base_var_get(i32 noundef %55, ptr noundef nonnull %3) #18
@@ -1862,7 +1862,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 
 70:                                               ; preds = %67, %60, %57
   %71 = phi i8 [ %.pre, %67 ], [ %58, %60 ], [ %58, %57 ]
-  %.1 = phi ptr [ %0, %67 ], [ %0, %60 ], [ %.070, %57 ]
+  %.2 = phi ptr [ %0, %67 ], [ %0, %60 ], [ %.070, %57 ]
   %72 = load i32, ptr %54, align 4
   %73 = and i8 %71, 1
   %74 = xor i8 %73, 1
@@ -1954,7 +1954,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
   br label %119
 
 119:                                              ; preds = %107, %70, %61, %53, %117
-  %.2 = phi ptr [ %.070, %53 ], [ %.070, %61 ], [ %.1, %70 ], [ %.1, %117 ], [ %.1, %107 ]
+  %.1 = phi ptr [ %.070, %53 ], [ %.070, %61 ], [ %.2, %70 ], [ %.2, %117 ], [ %.2, %107 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge72, label %53, !llvm.loop !25

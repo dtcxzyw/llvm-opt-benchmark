@@ -262,7 +262,7 @@ for.end:                                          ; preds = %if.end78, %if.end38
   br label %err
 
 err:                                              ; preds = %prov_crngt_compare_previous.exit.thread, %crngt_get_entropy.exit46.thread57, %crngt_get_entropy.exit46.thread, %if.then32, %for.end
-  %r.0 = phi i64 [ 0, %if.then32 ], [ %spec.select, %for.end ], [ 0, %crngt_get_entropy.exit46.thread ], [ 0, %crngt_get_entropy.exit46.thread57 ], [ 0, %prov_crngt_compare_previous.exit.thread ]
+  %r.1 = phi i64 [ 0, %if.then32 ], [ %spec.select, %for.end ], [ 0, %crngt_get_entropy.exit46.thread ], [ 0, %crngt_get_entropy.exit46.thread57 ], [ 0, %prov_crngt_compare_previous.exit.thread ]
   %crng_test_pass.0 = phi i32 [ 1, %if.then32 ], [ 1, %for.end ], [ 1, %crngt_get_entropy.exit46.thread ], [ 1, %crngt_get_entropy.exit46.thread57 ], [ 0, %prov_crngt_compare_previous.exit.thread ]
   %ent.0 = phi ptr [ %call25, %if.then32 ], [ null, %for.end ], [ %call25, %crngt_get_entropy.exit46.thread ], [ %call25, %crngt_get_entropy.exit46.thread57 ], [ %call25, %prov_crngt_compare_previous.exit.thread ]
   %st.1 = phi ptr [ null, %if.then32 ], [ %st.0, %for.end ], [ %st.0, %crngt_get_entropy.exit46.thread ], [ %st.0, %crngt_get_entropy.exit46.thread57 ], [ %st.0, %prov_crngt_compare_previous.exit.thread ]
@@ -272,13 +272,13 @@ err:                                              ; preds = %prov_crngt_compare_
   br label %unlock_return
 
 unlock_return:                                    ; preds = %if.end24, %if.end16, %err, %if.then12
-  %r.1 = phi i64 [ 0, %if.end16 ], [ 0, %if.end24 ], [ %r.0, %err ], [ 0, %if.then12 ]
+  %r.0 = phi i64 [ 0, %if.end16 ], [ 0, %if.end24 ], [ %r.1, %err ], [ 0, %if.then12 ]
   %13 = load ptr, ptr %lock, align 8
   %call84 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %13) #6
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %unlock_return
-  %retval.0 = phi i64 [ %r.1, %unlock_return ], [ 0, %entry ], [ 0, %if.end ]
+  %retval.0 = phi i64 [ %r.0, %unlock_return ], [ 0, %entry ], [ 0, %if.end ]
   ret i64 %retval.0
 }
 

@@ -3262,7 +3262,7 @@ if.end:                                           ; preds = %entry
 
 txagain.outer:                                    ; preds = %if.end301, %if.end
   %count.0.in.ph = phi i32 [ %count.0, %if.end301 ], [ %conv, %if.end ]
-  %add_crc.0.ph = phi i32 [ %add_crc.4, %if.end301 ], [ 0, %if.end ]
+  %add_crc.0.ph = phi i32 [ %add_crc.2, %if.end301 ], [ 0, %if.end ]
   %xmit_cxda.0.ph = phi i64 [ %xmit_cxda.1, %if.end301 ], [ 0, %if.end ]
   br label %txagain
 
@@ -3475,8 +3475,8 @@ if.then180:                                       ; preds = %if.end174
   %69 = lshr i32 %conv169170, 13
   %.lobit78 = and i32 %69, 1
   %lnot.ext194 = xor i32 %.lobit78, 1
-  %add_crc.2 = select i1 %cmp185, i32 %lnot.ext194, i32 %add_crc.1
-  %tobool196.not = icmp eq i32 %add_crc.2, 0
+  %add_crc.3 = select i1 %cmp185, i32 %lnot.ext194, i32 %add_crc.1
+  %tobool196.not = icmp eq i32 %add_crc.3, 0
   %cond197 = select i1 %tobool196.not, i32 2, i32 1
   store i32 %cond197, ptr %looptest, align 4
   %70 = load ptr, ptr %s, align 16
@@ -3498,7 +3498,7 @@ if.then206:                                       ; preds = %if.else
   br label %if.end214
 
 if.end214:                                        ; preds = %if.else, %if.then206, %if.then180
-  %add_crc.3 = phi i32 [ %add_crc.2, %if.then180 ], [ %add_crc.1, %if.then206 ], [ %add_crc.1, %if.else ]
+  %add_crc.4 = phi i32 [ %add_crc.3, %if.then180 ], [ %add_crc.1, %if.then206 ], [ %add_crc.1, %if.else ]
   %74 = load i16, ptr %csr, align 4
   %75 = and i16 %74, -9
   store i16 %75, ptr %csr, align 4
@@ -3511,7 +3511,7 @@ if.end214:                                        ; preds = %if.else, %if.then20
 
 txdone:                                           ; preds = %cond.end156, %if.end125, %if.end214, %if.then139, %if.then103
   %78 = phi i16 [ %26, %if.end125 ], [ %26, %if.then139 ], [ %.pre, %if.end214 ], [ %63, %cond.end156 ], [ %and115, %if.then103 ]
-  %add_crc.4 = phi i32 [ %add_crc.1, %if.end125 ], [ %add_crc.1, %if.then139 ], [ %add_crc.3, %if.end214 ], [ %add_crc.1, %cond.end156 ], [ %add_crc.1, %if.then103 ]
+  %add_crc.2 = phi i32 [ %add_crc.1, %if.end125 ], [ %add_crc.1, %if.then139 ], [ %add_crc.4, %if.end214 ], [ %add_crc.1, %cond.end156 ], [ %add_crc.1, %if.then103 ]
   %and228 = and i16 %78, 32767
   store i16 %and228, ptr %status.i, align 2
   %79 = load i16, ptr %arrayidx.i95, align 4

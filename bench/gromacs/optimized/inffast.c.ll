@@ -66,10 +66,10 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br label %53
 
 53:                                               ; preds = %300, %2
-  %.0284 = phi i32 [ %35, %2 ], [ %.8292, %300 ]
-  %.0274 = phi i64 [ %33, %2 ], [ %.8282, %300 ]
-  %.0266 = phi ptr [ %14, %2 ], [ %.8, %300 ]
-  %.0259 = phi ptr [ %6, %2 ], [ %.6265, %300 ]
+  %.0284 = phi i32 [ %35, %2 ], [ %.9293, %300 ]
+  %.0274 = phi i64 [ %33, %2 ], [ %.9283, %300 ]
+  %.0266 = phi ptr [ %14, %2 ], [ %.9, %300 ]
+  %.0259 = phi ptr [ %6, %2 ], [ %.7, %300 ]
   %54 = icmp ult i32 %.0284, 15
   br i1 %54, label %55, label %70
 
@@ -148,48 +148,48 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br label %96
 
 96:                                               ; preds = %88, %86
-  %.3287 = phi i32 [ %95, %88 ], [ %79, %86 ]
-  %.3277 = phi i64 [ %94, %88 ], [ %80, %86 ]
-  %.2261 = phi ptr [ %89, %88 ], [ %.1260, %86 ]
-  %97 = trunc i64 %.3277 to i32
+  %.4288 = phi i32 [ %95, %88 ], [ %79, %86 ]
+  %.4278 = phi i64 [ %94, %88 ], [ %80, %86 ]
+  %.3262 = phi ptr [ %89, %88 ], [ %.1260, %86 ]
+  %97 = trunc i64 %.4278 to i32
   %notmask324 = shl nsw i32 -1, %85
   %98 = xor i32 %notmask324, -1
   %99 = and i32 %97, %98
   %100 = add nuw nsw i32 %99, %84
   %101 = zext nneg i32 %85 to i64
-  %102 = lshr i64 %.3277, %101
-  %103 = sub i32 %.3287, %85
+  %102 = lshr i64 %.4278, %101
+  %103 = sub i32 %.4288, %85
   br label %104
 
 104:                                              ; preds = %96, %83
-  %.4288 = phi i32 [ %103, %96 ], [ %79, %83 ]
-  %.4278 = phi i64 [ %102, %96 ], [ %80, %83 ]
-  %.3262 = phi ptr [ %.2261, %96 ], [ %.1260, %83 ]
+  %.3287 = phi i32 [ %103, %96 ], [ %79, %83 ]
+  %.3277 = phi i64 [ %102, %96 ], [ %80, %83 ]
+  %.2261 = phi ptr [ %.3262, %96 ], [ %.1260, %83 ]
   %.0251 = phi i32 [ %100, %96 ], [ %84, %83 ]
-  %105 = icmp ult i32 %.4288, 15
+  %105 = icmp ult i32 %.3287, 15
   br i1 %105, label %106, label %121
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %.3262, i64 1
+  %107 = getelementptr inbounds i8, ptr %.2261, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i64
-  %110 = zext nneg i32 %.4288 to i64
+  %110 = zext nneg i32 %.3287 to i64
   %111 = shl nuw nsw i64 %109, %110
-  %112 = add i64 %111, %.4278
-  %113 = add nuw nsw i32 %.4288, 8
-  %114 = getelementptr inbounds i8, ptr %.3262, i64 2
+  %112 = add i64 %111, %.3277
+  %113 = add nuw nsw i32 %.3287, 8
+  %114 = getelementptr inbounds i8, ptr %.2261, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i64
   %117 = zext nneg i32 %113 to i64
   %118 = shl nuw nsw i64 %116, %117
   %119 = add i64 %112, %118
-  %120 = or disjoint i32 %.4288, 16
+  %120 = or disjoint i32 %.3287, 16
   br label %121
 
 121:                                              ; preds = %106, %104
-  %.5289 = phi i32 [ %120, %106 ], [ %.4288, %104 ]
-  %.5279 = phi i64 [ %119, %106 ], [ %.4278, %104 ]
-  %.4263 = phi ptr [ %114, %106 ], [ %.3262, %104 ]
+  %.5289 = phi i32 [ %120, %106 ], [ %.3287, %104 ]
+  %.5279 = phi i64 [ %119, %106 ], [ %.3277, %104 ]
+  %.4263 = phi ptr [ %114, %106 ], [ %.2261, %104 ]
   %122 = and i64 %.5279, %47
   %.sroa.0.1.in378 = getelementptr inbounds %struct.code, ptr %39, i64 %122
   %.sroa.0.1379 = load i8, ptr %.sroa.0.1.in378, align 2
@@ -276,12 +276,12 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br i1 %171, label %.preheader, label %219
 
 .preheader:                                       ; preds = %167, %.preheader
-  %.1267 = phi ptr [ %174, %.preheader ], [ %.0266, %167 ]
+  %.2268 = phi ptr [ %174, %.preheader ], [ %.0266, %167 ]
   %.0255 = phi i32 [ %175, %.preheader ], [ %162, %167 ]
   %.0 = phi ptr [ %172, %.preheader ], [ %170, %167 ]
   %172 = getelementptr inbounds i8, ptr %.0, i64 1
   %173 = load i8, ptr %172, align 1
-  %174 = getelementptr inbounds i8, ptr %.1267, i64 1
+  %174 = getelementptr inbounds i8, ptr %.2268, i64 1
   store i8 %173, ptr %174, align 1
   %175 = add i32 %.0255, -1
   %.not333 = icmp eq i32 %175, 0
@@ -307,12 +307,12 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br i1 %188, label %.preheader487, label %219
 
 .preheader487:                                    ; preds = %183, %.preheader487
-  %.2268 = phi ptr [ %191, %.preheader487 ], [ %.0266, %183 ]
+  %.4270 = phi ptr [ %191, %.preheader487 ], [ %.0266, %183 ]
   %.1256 = phi i32 [ %192, %.preheader487 ], [ %187, %183 ]
-  %.1 = phi ptr [ %189, %.preheader487 ], [ %186, %183 ]
-  %189 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.2 = phi ptr [ %189, %.preheader487 ], [ %186, %183 ]
+  %189 = getelementptr inbounds i8, ptr %.2, i64 1
   %190 = load i8, ptr %189, align 1
-  %191 = getelementptr inbounds i8, ptr %.2268, i64 1
+  %191 = getelementptr inbounds i8, ptr %.4270, i64 1
   store i8 %190, ptr %191, align 1
   %192 = add i32 %.1256, -1
   %.not331 = icmp eq i32 %192, 0
@@ -324,12 +324,12 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br i1 %195, label %.preheader486, label %219
 
 .preheader486:                                    ; preds = %193, %.preheader486
-  %.3269 = phi ptr [ %198, %.preheader486 ], [ %191, %193 ]
+  %.5271 = phi ptr [ %198, %.preheader486 ], [ %191, %193 ]
   %.2257 = phi i32 [ %199, %.preheader486 ], [ %29, %193 ]
-  %.2 = phi ptr [ %196, %.preheader486 ], [ %50, %193 ]
-  %196 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.3 = phi ptr [ %196, %.preheader486 ], [ %50, %193 ]
+  %196 = getelementptr inbounds i8, ptr %.3, i64 1
   %197 = load i8, ptr %196, align 1
-  %198 = getelementptr inbounds i8, ptr %.3269, i64 1
+  %198 = getelementptr inbounds i8, ptr %.5271, i64 1
   store i8 %197, ptr %198, align 1
   %199 = add i32 %.2257, -1
   %.not332 = icmp eq i32 %199, 0
@@ -350,12 +350,12 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br i1 %209, label %.preheader488, label %219
 
 .preheader488:                                    ; preds = %205, %.preheader488
-  %.4270 = phi ptr [ %212, %.preheader488 ], [ %.0266, %205 ]
+  %.6272 = phi ptr [ %212, %.preheader488 ], [ %.0266, %205 ]
   %.3258 = phi i32 [ %213, %.preheader488 ], [ %162, %205 ]
-  %.3 = phi ptr [ %210, %.preheader488 ], [ %208, %205 ]
-  %210 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.4 = phi ptr [ %210, %.preheader488 ], [ %208, %205 ]
+  %210 = getelementptr inbounds i8, ptr %.4, i64 1
   %211 = load i8, ptr %210, align 1
-  %212 = getelementptr inbounds i8, ptr %.4270, i64 1
+  %212 = getelementptr inbounds i8, ptr %.6272, i64 1
   store i8 %211, ptr %212, align 1
   %213 = add i32 %.3258, -1
   %.not330 = icmp eq i32 %213, 0
@@ -369,43 +369,43 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br label %219
 
 219:                                              ; preds = %193, %200, %183, %214, %205, %167, %176
-  %.5271 = phi ptr [ %174, %176 ], [ %.0266, %167 ], [ %198, %200 ], [ %191, %193 ], [ %.0266, %183 ], [ %212, %214 ], [ %.0266, %205 ]
+  %.3269 = phi ptr [ %174, %176 ], [ %.0266, %167 ], [ %198, %200 ], [ %191, %193 ], [ %.0266, %183 ], [ %212, %214 ], [ %.0266, %205 ]
   %.1252 = phi i32 [ %177, %176 ], [ %.0251, %167 ], [ %201, %200 ], [ %194, %193 ], [ %.0251, %183 ], [ %215, %214 ], [ %.0251, %205 ]
-  %.4 = phi ptr [ %180, %176 ], [ %170, %167 ], [ %204, %200 ], [ %50, %193 ], [ %186, %183 ], [ %218, %214 ], [ %208, %205 ]
+  %.1 = phi ptr [ %180, %176 ], [ %170, %167 ], [ %204, %200 ], [ %50, %193 ], [ %186, %183 ], [ %218, %214 ], [ %208, %205 ]
   %220 = icmp ugt i32 %.1252, 2
   br i1 %220, label %.lr.ph397, label %._crit_edge398
 
 .lr.ph397:                                        ; preds = %219, %.lr.ph397
-  %.5395 = phi ptr [ %227, %.lr.ph397 ], [ %.4, %219 ]
+  %.5395 = phi ptr [ %227, %.lr.ph397 ], [ %.1, %219 ]
   %.2253394 = phi i32 [ %230, %.lr.ph397 ], [ %.1252, %219 ]
-  %.6272393 = phi ptr [ %229, %.lr.ph397 ], [ %.5271, %219 ]
+  %.7273393 = phi ptr [ %229, %.lr.ph397 ], [ %.3269, %219 ]
   %221 = getelementptr inbounds i8, ptr %.5395, i64 1
   %222 = load i8, ptr %221, align 1
-  %223 = getelementptr inbounds i8, ptr %.6272393, i64 1
+  %223 = getelementptr inbounds i8, ptr %.7273393, i64 1
   store i8 %222, ptr %223, align 1
   %224 = getelementptr inbounds i8, ptr %.5395, i64 2
   %225 = load i8, ptr %224, align 1
-  %226 = getelementptr inbounds i8, ptr %.6272393, i64 2
+  %226 = getelementptr inbounds i8, ptr %.7273393, i64 2
   store i8 %225, ptr %226, align 1
   %227 = getelementptr inbounds i8, ptr %.5395, i64 3
   %228 = load i8, ptr %227, align 1
-  %229 = getelementptr inbounds i8, ptr %.6272393, i64 3
+  %229 = getelementptr inbounds i8, ptr %.7273393, i64 3
   store i8 %228, ptr %229, align 1
   %230 = add i32 %.2253394, -3
   %231 = icmp ugt i32 %230, 2
   br i1 %231, label %.lr.ph397, label %._crit_edge398, !llvm.loop !9
 
 ._crit_edge398:                                   ; preds = %.lr.ph397, %219
-  %.6272.lcssa = phi ptr [ %.5271, %219 ], [ %229, %.lr.ph397 ]
+  %.7273.lcssa = phi ptr [ %.3269, %219 ], [ %229, %.lr.ph397 ]
   %.2253.lcssa = phi i32 [ %.1252, %219 ], [ %230, %.lr.ph397 ]
-  %.5.lcssa = phi ptr [ %.4, %219 ], [ %227, %.lr.ph397 ]
+  %.5.lcssa = phi ptr [ %.1, %219 ], [ %227, %.lr.ph397 ]
   %.not334 = icmp eq i32 %.2253.lcssa, 0
   br i1 %.not334, label %300, label %232
 
 232:                                              ; preds = %._crit_edge398
   %233 = getelementptr inbounds i8, ptr %.5.lcssa, i64 1
   %234 = load i8, ptr %233, align 1
-  %235 = getelementptr inbounds i8, ptr %.6272.lcssa, i64 1
+  %235 = getelementptr inbounds i8, ptr %.7273.lcssa, i64 1
   store i8 %234, ptr %235, align 1
   %236 = icmp eq i32 %.2253.lcssa, 2
   br i1 %236, label %237, label %300
@@ -413,7 +413,7 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
 237:                                              ; preds = %232
   %238 = getelementptr inbounds i8, ptr %.5.lcssa, i64 2
   %239 = load i8, ptr %238, align 1
-  %240 = getelementptr inbounds i8, ptr %.6272.lcssa, i64 2
+  %240 = getelementptr inbounds i8, ptr %.7273.lcssa, i64 2
   store i8 %239, ptr %240, align 1
   br label %300
 
@@ -424,20 +424,20 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br label %245
 
 245:                                              ; preds = %245, %241
-  %.7273 = phi ptr [ %.0266, %241 ], [ %254, %245 ]
+  %.8 = phi ptr [ %.0266, %241 ], [ %254, %245 ]
   %.3254 = phi i32 [ %.0251, %241 ], [ %255, %245 ]
   %.6 = phi ptr [ %244, %241 ], [ %252, %245 ]
   %246 = getelementptr inbounds i8, ptr %.6, i64 1
   %247 = load i8, ptr %246, align 1
-  %248 = getelementptr inbounds i8, ptr %.7273, i64 1
+  %248 = getelementptr inbounds i8, ptr %.8, i64 1
   store i8 %247, ptr %248, align 1
   %249 = getelementptr inbounds i8, ptr %.6, i64 2
   %250 = load i8, ptr %249, align 1
-  %251 = getelementptr inbounds i8, ptr %.7273, i64 2
+  %251 = getelementptr inbounds i8, ptr %.8, i64 2
   store i8 %250, ptr %251, align 1
   %252 = getelementptr inbounds i8, ptr %.6, i64 3
   %253 = load i8, ptr %252, align 1
-  %254 = getelementptr inbounds i8, ptr %.7273, i64 3
+  %254 = getelementptr inbounds i8, ptr %.8, i64 3
   store i8 %253, ptr %254, align 1
   %255 = add i32 %.3254, -3
   %256 = icmp ugt i32 %255, 2
@@ -450,7 +450,7 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
 258:                                              ; preds = %257
   %259 = getelementptr inbounds i8, ptr %.6, i64 4
   %260 = load i8, ptr %259, align 1
-  %261 = getelementptr inbounds i8, ptr %.7273, i64 4
+  %261 = getelementptr inbounds i8, ptr %.8, i64 4
   store i8 %260, ptr %261, align 1
   %262 = icmp eq i32 %255, 2
   br i1 %262, label %263, label %300
@@ -458,7 +458,7 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
 263:                                              ; preds = %258
   %264 = getelementptr inbounds i8, ptr %.6, i64 5
   %265 = load i8, ptr %264, align 1
-  %266 = getelementptr inbounds i8, ptr %.7273, i64 5
+  %266 = getelementptr inbounds i8, ptr %.8, i64 5
   store i8 %265, ptr %266, align 1
   br label %300
 
@@ -524,44 +524,44 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   br i1 %.not321, label %.loopexit.sink.split.sink.split, label %.loopexit.sink.split
 
 300:                                              ; preds = %._crit_edge, %257, %263, %258, %._crit_edge398, %237, %232
-  %.8292 = phi i32 [ %.lcssa340, %._crit_edge ], [ %156, %237 ], [ %156, %232 ], [ %156, %._crit_edge398 ], [ %156, %263 ], [ %156, %258 ], [ %156, %257 ]
-  %.8282 = phi i64 [ %.lcssa343, %._crit_edge ], [ %155, %237 ], [ %155, %232 ], [ %155, %._crit_edge398 ], [ %155, %263 ], [ %155, %258 ], [ %155, %257 ]
-  %.8 = phi ptr [ %78, %._crit_edge ], [ %240, %237 ], [ %235, %232 ], [ %.6272.lcssa, %._crit_edge398 ], [ %266, %263 ], [ %261, %258 ], [ %254, %257 ]
-  %.6265 = phi ptr [ %.1260, %._crit_edge ], [ %.5264, %237 ], [ %.5264, %232 ], [ %.5264, %._crit_edge398 ], [ %.5264, %263 ], [ %.5264, %258 ], [ %.5264, %257 ]
-  %301 = icmp ult ptr %.6265, %11
-  %302 = icmp ult ptr %.8, %23
+  %.9293 = phi i32 [ %.lcssa340, %._crit_edge ], [ %156, %237 ], [ %156, %232 ], [ %156, %._crit_edge398 ], [ %156, %263 ], [ %156, %258 ], [ %156, %257 ]
+  %.9283 = phi i64 [ %.lcssa343, %._crit_edge ], [ %155, %237 ], [ %155, %232 ], [ %155, %._crit_edge398 ], [ %155, %263 ], [ %155, %258 ], [ %155, %257 ]
+  %.9 = phi ptr [ %78, %._crit_edge ], [ %240, %237 ], [ %235, %232 ], [ %.7273.lcssa, %._crit_edge398 ], [ %266, %263 ], [ %261, %258 ], [ %254, %257 ]
+  %.7 = phi ptr [ %.1260, %._crit_edge ], [ %.5264, %237 ], [ %.5264, %232 ], [ %.5264, %._crit_edge398 ], [ %.5264, %263 ], [ %.5264, %258 ], [ %.5264, %257 ]
+  %301 = icmp ult ptr %.7, %11
+  %302 = icmp ult ptr %.9, %23
   %303 = select i1 %301, i1 %302, i1 false
   br i1 %303, label %53, label %.loopexit, !llvm.loop !11
 
 .loopexit.sink.split.sink.split:                  ; preds = %164, %.lr.ph387, %298
   %.str.sink = phi ptr [ @.str.2, %298 ], [ @.str.1, %.lr.ph387 ], [ @.str, %164 ]
-  %.9293.ph.ph = phi i32 [ %79, %298 ], [ %268, %.lr.ph387 ], [ %156, %164 ]
-  %.9283.ph.ph = phi i64 [ %80, %298 ], [ %269, %.lr.ph387 ], [ %155, %164 ]
-  %.7.ph.ph = phi ptr [ %.1260, %298 ], [ %.4263, %.lr.ph387 ], [ %.5264, %164 ]
+  %.8292.ph.ph = phi i32 [ %79, %298 ], [ %268, %.lr.ph387 ], [ %156, %164 ]
+  %.8282.ph.ph = phi i64 [ %80, %298 ], [ %269, %.lr.ph387 ], [ %155, %164 ]
+  %.6265.ph.ph = phi ptr [ %.1260, %298 ], [ %.4263, %.lr.ph387 ], [ %.5264, %164 ]
   %304 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.str.sink, ptr %304, align 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %298
   %.sink = phi i32 [ 11, %298 ], [ 29, %.loopexit.sink.split.sink.split ]
-  %.9293.ph = phi i32 [ %79, %298 ], [ %.9293.ph.ph, %.loopexit.sink.split.sink.split ]
-  %.9283.ph = phi i64 [ %80, %298 ], [ %.9283.ph.ph, %.loopexit.sink.split.sink.split ]
-  %.7.ph = phi ptr [ %.1260, %298 ], [ %.7.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.8292.ph = phi i32 [ %79, %298 ], [ %.8292.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.8282.ph = phi i64 [ %80, %298 ], [ %.8282.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.6265.ph = phi ptr [ %.1260, %298 ], [ %.6265.ph.ph, %.loopexit.sink.split.sink.split ]
   store i32 %.sink, ptr %4, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %300, %.loopexit.sink.split
-  %.9293 = phi i32 [ %.9293.ph, %.loopexit.sink.split ], [ %.8292, %300 ]
-  %.9283 = phi i64 [ %.9283.ph, %.loopexit.sink.split ], [ %.8282, %300 ]
-  %.9 = phi ptr [ %.0266, %.loopexit.sink.split ], [ %.8, %300 ]
-  %.7 = phi ptr [ %.7.ph, %.loopexit.sink.split ], [ %.6265, %300 ]
-  %305 = lshr i32 %.9293, 3
+  %.8292 = phi i32 [ %.8292.ph, %.loopexit.sink.split ], [ %.9293, %300 ]
+  %.8282 = phi i64 [ %.8282.ph, %.loopexit.sink.split ], [ %.9283, %300 ]
+  %.1267 = phi ptr [ %.0266, %.loopexit.sink.split ], [ %.9, %300 ]
+  %.6265 = phi ptr [ %.6265.ph, %.loopexit.sink.split ], [ %.7, %300 ]
+  %305 = lshr i32 %.8292, 3
   %306 = zext nneg i32 %305 to i64
   %307 = sub nsw i64 0, %306
-  %308 = getelementptr inbounds i8, ptr %.7, i64 %307
+  %308 = getelementptr inbounds i8, ptr %.6265, i64 %307
   %309 = getelementptr inbounds i8, ptr %308, i64 1
   store ptr %309, ptr %0, align 8
-  %310 = getelementptr inbounds i8, ptr %.9, i64 1
+  %310 = getelementptr inbounds i8, ptr %.1267, i64 1
   store ptr %310, ptr %12, align 8
   %311 = ptrtoint ptr %11 to i64
   %312 = ptrtoint ptr %308 to i64
@@ -570,13 +570,13 @@ define void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local_unname
   %315 = add i32 %314, 5
   store i32 %315, ptr %7, align 8
   %316 = ptrtoint ptr %23 to i64
-  %317 = ptrtoint ptr %.9 to i64
+  %317 = ptrtoint ptr %.1267 to i64
   %318 = sub i64 %316, %317
-  %319 = and i32 %.9293, 7
+  %319 = and i32 %.8292, 7
   %notmask335 = shl nsw i32 -1, %319
   %320 = xor i32 %notmask335, -1
   %321 = zext nneg i32 %320 to i64
-  %322 = and i64 %.9283, %321
+  %322 = and i64 %.8282, %321
   %323 = trunc i64 %318 to i32
   %324 = add i32 %323, 257
   store i32 %324, ptr %15, align 8

@@ -618,7 +618,7 @@ define float @Abc_NtkGetArea(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.01322 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %26 ]
+  %.122 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2, %26 ]
   %14 = getelementptr inbounds ptr, ptr %.val18.val, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -637,18 +637,18 @@ define float @Abc_NtkGetArea(ptr noundef %0) local_unnamed_addr #0 {
   %22 = sext i32 %.val20 to i64
   %23 = getelementptr inbounds [33 x float], ptr %12, i64 0, i64 %22
   %24 = load float, ptr %23, align 4
-  %25 = fadd float %.01322, %24
+  %25 = fadd float %.122, %24
   br label %26
 
 26:                                               ; preds = %20, %17, %13
-  %.1 = phi float [ %.01322, %13 ], [ %25, %20 ], [ %.01322, %17 ]
+  %.2 = phi float [ %.122, %13 ], [ %25, %20 ], [ %.122, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !8
 
 .critedge:                                        ; preds = %26, %.preheader, %3, %1
-  %.2 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.preheader ], [ %.1, %26 ]
-  ret float %.2
+  %.013 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.preheader ], [ %.2, %26 ]
+  ret float %.013
 }
 
 declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #2
@@ -1138,7 +1138,7 @@ tailrecurse:                                      ; preds = %167, %11
 
 135:                                              ; preds = %148, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %148 ]
-  %.01322.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %148 ]
+  %.122.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %.2.i, %148 ]
   %136 = getelementptr inbounds ptr, ptr %.val18.val.i, i64 %indvars.iv.i
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null
@@ -1157,18 +1157,18 @@ tailrecurse:                                      ; preds = %167, %11
   %144 = sext i32 %.val20.i to i64
   %145 = getelementptr inbounds [33 x float], ptr %134, i64 0, i64 %144
   %146 = load float, ptr %145, align 4
-  %147 = fadd float %.01322.i, %146
+  %147 = fadd float %.122.i, %146
   br label %148
 
 148:                                              ; preds = %142, %139, %135
-  %.1.i = phi float [ %.01322.i, %135 ], [ %147, %142 ], [ %.01322.i, %139 ]
+  %.2.i = phi float [ %.122.i, %135 ], [ %147, %142 ], [ %.122.i, %139 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_NtkGetArea.exit, label %135, !llvm.loop !8
 
 Abc_NtkGetArea.exit:                              ; preds = %148, %123, %125, %.preheader.i
-  %.2.i = phi float [ 0.000000e+00, %125 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %.preheader.i ], [ %.1.i, %148 ]
-  %149 = fpext float %.2.i to double
+  %.013.i = phi float [ 0.000000e+00, %125 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %.preheader.i ], [ %.2.i, %148 ]
+  %149 = fpext float %.013.i to double
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %149)
   br label %.critedge138
 
@@ -7679,7 +7679,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
 
 .lr.ph224:                                        ; preds = %.lr.ph224.preheader, %108
   %indvars.iv257 = phi i64 [ 0, %.lr.ph224.preheader ], [ %indvars.iv.next258, %108 ]
-  %.0146222 = phi i32 [ 0, %.lr.ph224.preheader ], [ %.2148, %108 ]
+  %.0146222 = phi i32 [ 0, %.lr.ph224.preheader ], [ %.1147, %108 ]
   %70 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv257
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @Mio_GateReadValue(ptr noundef %71) #19
@@ -7709,7 +7709,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
   br label %90
 
 90:                                               ; preds = %82, %78
-  %.1147 = phi i32 [ %89, %82 ], [ %.0146222, %78 ]
+  %.2148 = phi i32 [ %89, %82 ], [ %.0146222, %78 ]
   %91 = sitofp i32 %72 to double
   %92 = load ptr, ptr %70, align 8
   %93 = tail call double @Mio_GateReadArea(ptr noundef %92) #19
@@ -7730,7 +7730,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
   br label %108
 
 108:                                              ; preds = %74, %90
-  %.2148 = phi i32 [ %.0146222, %74 ], [ %.1147, %90 ]
+  %.1147 = phi i32 [ %.0146222, %74 ], [ %.2148, %90 ]
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
   br i1 %exitcond261.not, label %._crit_edge, label %.lr.ph224, !llvm.loop !77
@@ -7738,7 +7738,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
 ._crit_edge:                                      ; preds = %108, %.critedge._crit_edge.thread, %.critedge._crit_edge
   %109 = phi double [ %69, %.critedge._crit_edge ], [ %20, %.critedge._crit_edge.thread ], [ %69, %108 ]
   %.0.lcssa269 = phi i32 [ %.1, %.critedge._crit_edge ], [ 5, %.critedge._crit_edge.thread ], [ %.1, %108 ]
-  %.0146.lcssa = phi i32 [ 0, %.critedge._crit_edge ], [ 0, %.critedge._crit_edge.thread ], [ %.2148, %108 ]
+  %.0146.lcssa = phi i32 [ 0, %.critedge._crit_edge ], [ 0, %.critedge._crit_edge.thread ], [ %.1147, %108 ]
   %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.101, i32 noundef %.0.lcssa269, ptr noundef nonnull @.str.102, i32 noundef %.0149.lcssa, double noundef %109, double noundef 1.000000e+02, i32 noundef %.0146.lcssa)
   br label %219
 
@@ -7780,13 +7780,13 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %._crit_edge265, %Ab
 .lr.ph235:                                        ; preds = %Abc_NtkIsBddLogic.exit.thread, %184
   %121 = phi ptr [ %185, %184 ], [ %118, %Abc_NtkIsBddLogic.exit.thread ]
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
-  %.0139233 = phi i32 [ %.2141, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
-  %.0142232 = phi i32 [ %.2144, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
+  %.0139233 = phi i32 [ %.1140, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
+  %.0142232 = phi i32 [ %.1143, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
   %.2151231 = phi i32 [ %.3152, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
-  %.0153230 = phi i32 [ %.2155, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
-  %.0156229 = phi i32 [ %.2158, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
-  %.0159228 = phi i32 [ %.2161, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
-  %.0162227 = phi i32 [ %.2164, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
+  %.0153230 = phi i32 [ %.1154, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
+  %.0156229 = phi i32 [ %.1157, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
+  %.0159228 = phi i32 [ %.1160, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
+  %.0162227 = phi i32 [ %.1163, %184 ], [ 0, %Abc_NtkIsBddLogic.exit.thread ]
   %122 = getelementptr i8, ptr %121, i64 8
   %.val191.val = load ptr, ptr %122, align 8
   %123 = getelementptr inbounds ptr, ptr %.val191.val, i64 %indvars.iv262
@@ -7923,25 +7923,25 @@ Abc_ObjIsBarBuf.exit202:                          ; preds = %129, %132, %135
   br label %182
 
 182:                                              ; preds = %154, %168, %180, %178, %158, %150
-  %.1163 = phi i32 [ %.0162227, %150 ], [ %.0162227, %154 ], [ %159, %158 ], [ %.0162227, %168 ], [ %.0162227, %178 ], [ %.0162227, %180 ]
-  %.1160 = phi i32 [ %.0159228, %150 ], [ %.0159228, %154 ], [ %.0159228, %158 ], [ %169, %168 ], [ %.0159228, %178 ], [ %.0159228, %180 ]
-  %.1157 = phi i32 [ %.0156229, %150 ], [ %.0156229, %154 ], [ %.0156229, %158 ], [ %.0156229, %168 ], [ %179, %178 ], [ %.0156229, %180 ]
-  %.1154 = phi i32 [ %.0153230, %150 ], [ %.0153230, %154 ], [ %.0153230, %158 ], [ %.0153230, %168 ], [ %.0153230, %178 ], [ %181, %180 ]
-  %.1143 = phi i32 [ %.0142232, %150 ], [ %155, %154 ], [ %.0142232, %158 ], [ %.0142232, %168 ], [ %.0142232, %178 ], [ %.0142232, %180 ]
-  %.1140 = phi i32 [ %151, %150 ], [ %.0139233, %154 ], [ %.0139233, %158 ], [ %.0139233, %168 ], [ %.0139233, %178 ], [ %.0139233, %180 ]
+  %.2164 = phi i32 [ %.0162227, %150 ], [ %.0162227, %154 ], [ %159, %158 ], [ %.0162227, %168 ], [ %.0162227, %178 ], [ %.0162227, %180 ]
+  %.2161 = phi i32 [ %.0159228, %150 ], [ %.0159228, %154 ], [ %.0159228, %158 ], [ %169, %168 ], [ %.0159228, %178 ], [ %.0159228, %180 ]
+  %.2158 = phi i32 [ %.0156229, %150 ], [ %.0156229, %154 ], [ %.0156229, %158 ], [ %.0156229, %168 ], [ %179, %178 ], [ %.0156229, %180 ]
+  %.2155 = phi i32 [ %.0153230, %150 ], [ %.0153230, %154 ], [ %.0153230, %158 ], [ %.0153230, %168 ], [ %.0153230, %178 ], [ %181, %180 ]
+  %.2144 = phi i32 [ %.0142232, %150 ], [ %155, %154 ], [ %.0142232, %158 ], [ %.0142232, %168 ], [ %.0142232, %178 ], [ %.0142232, %180 ]
+  %.2141 = phi i32 [ %151, %150 ], [ %.0139233, %154 ], [ %.0139233, %158 ], [ %.0139233, %168 ], [ %.0139233, %178 ], [ %.0139233, %180 ]
   %183 = add nsw i32 %.2151231, 1
   %.pre267 = load ptr, ptr %117, align 8
   br label %184
 
 184:                                              ; preds = %182, %Abc_ObjIsBarBuf.exit202, %126, %.lr.ph235
   %185 = phi ptr [ %121, %.lr.ph235 ], [ %121, %Abc_ObjIsBarBuf.exit202 ], [ %.pre267, %182 ], [ %121, %126 ]
-  %.2164 = phi i32 [ %.0162227, %.lr.ph235 ], [ %.0162227, %Abc_ObjIsBarBuf.exit202 ], [ %.1163, %182 ], [ %.0162227, %126 ]
-  %.2161 = phi i32 [ %.0159228, %.lr.ph235 ], [ %.0159228, %Abc_ObjIsBarBuf.exit202 ], [ %.1160, %182 ], [ %.0159228, %126 ]
-  %.2158 = phi i32 [ %.0156229, %.lr.ph235 ], [ %.0156229, %Abc_ObjIsBarBuf.exit202 ], [ %.1157, %182 ], [ %.0156229, %126 ]
-  %.2155 = phi i32 [ %.0153230, %.lr.ph235 ], [ %.0153230, %Abc_ObjIsBarBuf.exit202 ], [ %.1154, %182 ], [ %.0153230, %126 ]
+  %.1163 = phi i32 [ %.0162227, %.lr.ph235 ], [ %.0162227, %Abc_ObjIsBarBuf.exit202 ], [ %.2164, %182 ], [ %.0162227, %126 ]
+  %.1160 = phi i32 [ %.0159228, %.lr.ph235 ], [ %.0159228, %Abc_ObjIsBarBuf.exit202 ], [ %.2161, %182 ], [ %.0159228, %126 ]
+  %.1157 = phi i32 [ %.0156229, %.lr.ph235 ], [ %.0156229, %Abc_ObjIsBarBuf.exit202 ], [ %.2158, %182 ], [ %.0156229, %126 ]
+  %.1154 = phi i32 [ %.0153230, %.lr.ph235 ], [ %.0153230, %Abc_ObjIsBarBuf.exit202 ], [ %.2155, %182 ], [ %.0153230, %126 ]
   %.3152 = phi i32 [ %.2151231, %.lr.ph235 ], [ %.2151231, %Abc_ObjIsBarBuf.exit202 ], [ %183, %182 ], [ %.2151231, %126 ]
-  %.2144 = phi i32 [ %.0142232, %.lr.ph235 ], [ %.0142232, %Abc_ObjIsBarBuf.exit202 ], [ %.1143, %182 ], [ %.0142232, %126 ]
-  %.2141 = phi i32 [ %.0139233, %.lr.ph235 ], [ %.0139233, %Abc_ObjIsBarBuf.exit202 ], [ %.1140, %182 ], [ %.0139233, %126 ]
+  %.1143 = phi i32 [ %.0142232, %.lr.ph235 ], [ %.0142232, %Abc_ObjIsBarBuf.exit202 ], [ %.2144, %182 ], [ %.0142232, %126 ]
+  %.1140 = phi i32 [ %.0139233, %.lr.ph235 ], [ %.0139233, %Abc_ObjIsBarBuf.exit202 ], [ %.2141, %182 ], [ %.0139233, %126 ]
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %186 = getelementptr i8, ptr %185, i64 4
   %.val = load i32, ptr %186, align 4
@@ -7950,13 +7950,13 @@ Abc_ObjIsBarBuf.exit202:                          ; preds = %129, %132, %135
   br i1 %188, label %.lr.ph235, label %.critedge2, !llvm.loop !78
 
 .critedge2:                                       ; preds = %184, %Abc_NtkIsBddLogic.exit.thread
-  %.0162.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.2164, %184 ]
-  %.0159.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.2161, %184 ]
-  %.0156.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.2158, %184 ]
-  %.0153.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.2155, %184 ]
+  %.0162.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.1163, %184 ]
+  %.0159.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.1160, %184 ]
+  %.0156.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.1157, %184 ]
+  %.0153.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.1154, %184 ]
   %.2151.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.3152, %184 ]
-  %.0142.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.2144, %184 ]
-  %.0139.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.2141, %184 ]
+  %.0142.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.1143, %184 ]
+  %.0139.lcssa = phi i32 [ 0, %Abc_NtkIsBddLogic.exit.thread ], [ %.1140, %184 ]
   %189 = sitofp i32 %.0139.lcssa to double
   %190 = fmul double %189, 1.000000e+02
   %191 = sitofp i32 %.2151.lcssa to double

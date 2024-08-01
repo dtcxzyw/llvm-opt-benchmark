@@ -992,20 +992,20 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorI
   br i1 %192, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %184, %196
-  %.02025.i.i = phi i64 [ %197, %196 ], [ %186, %184 ]
-  %193 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %107, i64 %.02025.i.i
+  %.125.i.i = phi i64 [ %197, %196 ], [ %186, %184 ]
+  %193 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %107, i64 %.125.i.i
   %194 = load i32, ptr %193, align 4
   %195 = icmp sgt i32 %194, -1
   br i1 %195, label %196, label %.critedge.i.i
 
 196:                                              ; preds = %.lr.ph.i.i
-  %197 = add i64 %.02025.i.i, 1
+  %197 = add i64 %.125.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %197, %191
   br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %184
-  %.020.lcssa.i.i = phi i64 [ %186, %184 ], [ %.02025.i.i, %.lr.ph.i.i ]
-  %198 = icmp eq i64 %.020.lcssa.i.i, %191
+  %.1.lcssa.i.i = phi i64 [ %186, %184 ], [ %.125.i.i, %.lr.ph.i.i ]
+  %198 = icmp eq i64 %.1.lcssa.i.i, %191
   br i1 %198, label %.critedge.thread.i.i, label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 .critedge.thread.i.i:                             ; preds = %196, %.critedge.i.i
@@ -1026,9 +1026,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorI
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %201, %200, %199, %.critedge.i.i
-  %.020.lcssa36.i.i = phi i64 [ -1, %201 ], [ -1, %200 ], [ %191, %199 ], [ %.020.lcssa.i.i, %.critedge.i.i ]
+  %.1.lcssa36.i.i = phi i64 [ -1, %201 ], [ -1, %200 ], [ %191, %199 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
   %202 = phi ptr [ %107, %201 ], [ %107, %200 ], [ %.pre.i.i, %199 ], [ %107, %.critedge.i.i ]
-  %203 = trunc i64 %.020.lcssa36.i.i to i32
+  %203 = trunc i64 %.1.lcssa36.i.i to i32
   %204 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %202, i64 %180, i32 2
   store i32 %203, ptr %204, align 4
   %205 = add i32 %203, 1
@@ -1038,11 +1038,11 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = 
 
 _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %168, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
   %206 = phi ptr [ %.pre34.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %107, %168 ]
-  %.1.i.i = phi i64 [ %.020.lcssa36.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %176, %168 ]
-  %207 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %206, i64 %.1.i.i
+  %.020.i.i = phi i64 [ %.1.lcssa36.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %176, %168 ]
+  %207 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %206, i64 %.020.i.i
   store i32 %104, ptr %207, align 4
   %208 = load ptr, ptr %44, align 8
-  %209 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %208, i64 %.1.i.i, i32 1
+  %209 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %208, i64 %.020.i.i, i32 1
   store i32 %175, ptr %209, align 4
   %210 = load i32, ptr %48, align 8
   %211 = add nsw i32 %210, 1

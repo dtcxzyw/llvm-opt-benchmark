@@ -45,7 +45,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 13:                                               ; preds = %.loopexit, %10
   %14 = phi i32 [ 0, %10 ], [ %104, %.loopexit ]
   %.0104 = phi ptr [ %11, %10 ], [ %.1105, %.loopexit ]
-  %.0101 = phi i32 [ 1, %10 ], [ %.2103, %.loopexit ]
+  %.0101 = phi i32 [ 1, %10 ], [ %.1102, %.loopexit ]
   %.099 = phi ptr [ %2, %10 ], [ %spec.select, %.loopexit ]
   br label %15
 
@@ -77,8 +77,8 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 21:                                               ; preds = %20
   %22 = icmp eq i32 %.0101, 1
   %23 = add i32 %.0101, 4
-  %.1102 = select i1 %22, i32 4, i32 %23
-  %24 = zext i32 %.1102 to i64
+  %.2103 = select i1 %22, i32 4, i32 %23
+  %24 = zext i32 %.2103 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = or disjoint i64 %25, 4
   %27 = call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.0104, i64 noundef %26) #4
@@ -86,7 +86,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 
 28:                                               ; preds = %21, %20
   %.1105 = phi ptr [ %27, %21 ], [ %.0104, %20 ]
-  %.2103 = phi i32 [ %.1102, %21 ], [ %.0101, %20 ]
+  %.1102 = phi i32 [ %.2103, %21 ], [ %.0101, %20 ]
   %29 = icmp eq i8 %16, 45
   br i1 %29, label %.loopexit120.thread, label %34
 
@@ -147,8 +147,8 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br label %57
 
 57:                                               ; preds = %59, %50
-  %.2 = phi ptr [ %52, %50 ], [ %60, %59 ]
-  %58 = load i8, ptr %.2, align 1
+  %.3 = phi ptr [ %52, %50 ], [ %60, %59 ]
+  %58 = load i8, ptr %.3, align 1
   switch i8 %58, label %102 [
     i8 32, label %59
     i8 9, label %59
@@ -158,7 +158,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   ]
 
 59:                                               ; preds = %57, %57
-  %60 = getelementptr i8, ptr %.2, i64 1
+  %60 = getelementptr i8, ptr %.3, i64 1
   br label %57, !llvm.loop !6
 
 61:                                               ; preds = %34
@@ -166,13 +166,13 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br label %118
 
 .preheader119.preheader:                          ; preds = %57, %.loopexit120.thread
-  %.3166 = phi ptr [ %.1100, %.loopexit120.thread ], [ %.2, %57 ]
+  %.2166 = phi ptr [ %.1100, %.loopexit120.thread ], [ %.3, %57 ]
   %62 = phi i32 [ %31, %.loopexit120.thread ], [ %54, %57 ]
   br label %.preheader119
 
 .preheader119:                                    ; preds = %.preheader119.backedge, %.preheader119.preheader
-  %.3.pn = phi ptr [ %.3166, %.preheader119.preheader ], [ %.4, %.preheader119.backedge ]
-  %.4 = getelementptr i8, ptr %.3.pn, i64 1
+  %.2.pn = phi ptr [ %.2166, %.preheader119.preheader ], [ %.4, %.preheader119.backedge ]
+  %.4 = getelementptr i8, ptr %.2.pn, i64 1
   %63 = load i8, ptr %.4, align 1
   switch i8 %63, label %68 [
     i8 32, label %.preheader119.backedge
@@ -270,7 +270,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 
 .loopexit:                                        ; preds = %91, %64, %96
   %103 = phi i32 [ %62, %64 ], [ %54, %96 ], [ %88, %91 ]
-  %.6 = phi ptr [ %.4, %64 ], [ %.2, %96 ], [ %.5, %91 ]
+  %.6 = phi ptr [ %.4, %64 ], [ %.3, %96 ], [ %.5, %91 ]
   %.1 = phi i8 [ %63, %64 ], [ %58, %96 ], [ %92, %91 ]
   %104 = add i32 %103, 1
   store i32 %104, ptr %.1105, align 4

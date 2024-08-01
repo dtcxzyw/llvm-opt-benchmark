@@ -1865,7 +1865,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br label %71
 
 71:                                               ; preds = %.loopexit.i.i, %66
-  %.022.i.i = phi ptr [ %51, %66 ], [ %.125.i.i, %.loopexit.i.i ]
+  %.022.i.i = phi ptr [ %51, %66 ], [ %.024.i.i, %.loopexit.i.i ]
   %72 = call ptr @strpbrk(ptr noundef nonnull %.022.i.i, ptr noundef nonnull @.str.51) #14
   %73 = icmp eq ptr %72, null
   br i1 %73, label %84, label %74
@@ -1887,14 +1887,14 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br label %83
 
 83:                                               ; preds = %81, %78, %74
-  %.024.i.i = phi ptr [ %82, %81 ], [ %75, %74 ], [ null, %78 ]
-  %.023.i.i = phi ptr [ %75, %81 ], [ null, %74 ], [ %75, %78 ]
+  %.125.i.i = phi ptr [ %82, %81 ], [ %75, %74 ], [ null, %78 ]
+  %.1.i.i = phi ptr [ %75, %81 ], [ null, %74 ], [ %75, %78 ]
   store i8 0, ptr %72, align 1
   br label %84
 
 84:                                               ; preds = %83, %71
-  %.125.i.i = phi ptr [ %.024.i.i, %83 ], [ null, %71 ]
-  %.1.i.i = phi ptr [ %.023.i.i, %83 ], [ null, %71 ]
+  %.024.i.i = phi ptr [ %.125.i.i, %83 ], [ null, %71 ]
+  %.023.i.i = phi ptr [ %.1.i.i, %83 ], [ null, %71 ]
   %85 = load i32, ptr @_peers_cnt, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %86
@@ -1950,7 +1950,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not28.i.i = icmp eq ptr %.1.i.i, null
+  %.not28.i.i = icmp eq ptr %.023.i.i, null
   %110 = load i32, ptr @_peers_cnt, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111, i32 1
@@ -1958,12 +1958,12 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
 
 113:                                              ; preds = %109
   %114 = select i1 %89, i32 128, i32 32
-  %.pre.i.i.i = load i8, ptr %.1.i.i, align 1
+  %.pre.i.i.i = load i8, ptr %.023.i.i, align 1
   br label %115
 
 115:                                              ; preds = %123, %113
   %116 = phi i8 [ %.pre.i.i.i, %113 ], [ %125, %123 ]
-  %.024.i.i.i = phi ptr [ %.1.i.i, %113 ], [ %124, %123 ]
+  %.024.i.i.i = phi ptr [ %.023.i.i, %113 ], [ %124, %123 ]
   %.023.i.i.i = phi i32 [ 0, %113 ], [ %121, %123 ]
   %117 = add i8 %116, -58
   %or.cond.i.i.i = icmp ult i8 %117, -10
@@ -2030,7 +2030,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
 .loopexit41.i.i:                                  ; preds = %126, %118, %115
   store i32 0, ptr @_peers_cnt, align 4
   %142 = load ptr, ptr @stderr, align 8
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.48, ptr noundef nonnull %.1.i.i) #15
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.48, ptr noundef nonnull %.023.i.i) #15
   %144 = load i32, ptr @tlsIndex, align 4
   %145 = call ptr @dbgsysTlsGet(i32 noundef %144) #13
   %.not.i11.i = icmp eq ptr %145, null
@@ -2073,7 +2073,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
 .loopexit.i.i:                                    ; preds = %155, %162
   %163 = add nsw i32 %110, 1
   store i32 %163, ptr @_peers_cnt, align 4
-  %.not30.i.i = icmp eq ptr %.125.i.i, null
+  %.not30.i.i = icmp eq ptr %.024.i.i, null
   br i1 %.not30.i.i, label %parseAllowedPeers.exit.thread42, label %71, !llvm.loop !20
 
 parseAllowedPeers.exit.thread42:                  ; preds = %.loopexit.i.i

@@ -112,7 +112,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 80:                                               ; preds = %.lr.ph643, %._crit_edge632
   %indvars.iv709 = phi i64 [ 1, %.lr.ph643 ], [ %indvars.iv.next710, %._crit_edge632 ]
-  %.0445641 = phi float [ 0.000000e+00, %.lr.ph643 ], [ %.5, %._crit_edge632 ]
+  %.0445641 = phi float [ 0.000000e+00, %.lr.ph643 ], [ %.1, %._crit_edge632 ]
   %.0449640 = phi i32 [ 1, %.lr.ph643 ], [ %.1450, %._crit_edge632 ]
   %.0451639 = phi i32 [ 1, %.lr.ph643 ], [ %.1452, %._crit_edge632 ]
   %81 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv709
@@ -249,7 +249,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 152:                                              ; preds = %.lr.ph624, %._crit_edge614
   %153 = phi i32 [ %118, %.lr.ph624 ], [ %431, %._crit_edge614 ]
   %.0622 = phi i32 [ 1, %.lr.ph624 ], [ %154, %._crit_edge614 ]
-  %.1621 = phi float [ %.0445641, %.lr.ph624 ], [ %.2.lcssa, %._crit_edge614 ]
+  %.2621 = phi float [ %.0445641, %.lr.ph624 ], [ %.3.lcssa, %._crit_edge614 ]
   %.0447620 = phi i32 [ 0, %.lr.ph624 ], [ %432, %._crit_edge614 ]
   %.0457619 = phi i32 [ 1, %.lr.ph624 ], [ %.1458.lcssa, %._crit_edge614 ]
   %.0472618 = phi i32 [ 0, %.lr.ph624 ], [ %.1473.lcssa, %._crit_edge614 ]
@@ -268,7 +268,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 157:                                              ; preds = %.lr.ph613, %._crit_edge597
   %indvars.iv700 = phi i64 [ 1, %.lr.ph613 ], [ %indvars.iv.next701, %._crit_edge597 ]
-  %.2611 = phi float [ %.1621, %.lr.ph613 ], [ %.3.lcssa, %._crit_edge597 ]
+  %.3611 = phi float [ %.2621, %.lr.ph613 ], [ %.4.lcssa, %._crit_edge597 ]
   %.1458609 = phi i32 [ 0, %.lr.ph613 ], [ %.2459.lcssa, %._crit_edge597 ]
   %.1473608 = phi i32 [ %.0472618, %.lr.ph613 ], [ %.2474.lcssa, %._crit_edge597 ]
   %indvars.iv700.tr = trunc i64 %indvars.iv700 to i32
@@ -372,9 +372,9 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %204 = phi i32 [ %163, %.lr.ph596.preheader ], [ %429, %426 ]
   %indvars.iv697 = phi i64 [ %201, %.lr.ph596.preheader ], [ %indvars.iv.next698, %426 ]
   %indvars.iv671.in = phi i32 [ %163, %.lr.ph596.preheader ], [ %indvars.iv671, %426 ]
-  %.3594 = phi float [ %.2611, %.lr.ph596.preheader ], [ %.4, %426 ]
-  %.2459593 = phi i32 [ %.1458609, %.lr.ph596.preheader ], [ %.4461, %426 ]
-  %.2474589 = phi i32 [ %.1473608, %.lr.ph596.preheader ], [ %.6, %426 ]
+  %.4594 = phi float [ %.3611, %.lr.ph596.preheader ], [ %.5, %426 ]
+  %.2459593 = phi i32 [ %.1458609, %.lr.ph596.preheader ], [ %.3460, %426 ]
+  %.2474589 = phi i32 [ %.1473608, %.lr.ph596.preheader ], [ %.3475, %426 ]
   %indvars.iv671 = add i32 %indvars.iv671.in, 1
   %205 = icmp eq i64 %indvars.iv697, %sext
   br i1 %205, label %214, label %206
@@ -398,7 +398,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   store i32 %217, ptr %38, align 4
   %218 = add nsw i32 %203, %.0449640
   %.reass = add i32 %203, %83
-  %219 = fcmp olt float %.3594, 0x3EE9000000000000
+  %219 = fcmp olt float %.4594, 0x3EE9000000000000
   %220 = icmp sgt i32 %216, 0
   br i1 %220, label %230, label %.preheader513
 
@@ -418,8 +418,8 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br i1 %226, label %426, label %227
 
 227:                                              ; preds = %223
-  %228 = fcmp olt float %.3594, %224
-  %229 = select i1 %228, float %.3594, float %224
+  %228 = fcmp olt float %.4594, %224
+  %229 = select i1 %228, float %.4594, float %224
   br label %426
 
 230:                                              ; preds = %214
@@ -586,7 +586,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 .preheader:                                       ; preds = %.preheader.preheader, %344
   %indvars.iv666 = phi i64 [ %222, %.preheader.preheader ], [ %indvars.iv.next667, %344 ]
   %indvars.iv664 = phi i64 [ %221, %.preheader.preheader ], [ %indvars.iv.next665, %344 ]
-  %.3475543 = phi i32 [ %.2474589, %.preheader.preheader ], [ %spec.select511, %344 ]
+  %.5477543 = phi i32 [ %.2474589, %.preheader.preheader ], [ %spec.select511, %344 ]
   %295 = getelementptr inbounds float, ptr %50, i64 %indvars.iv664
   %gep736 = getelementptr float, ptr %invariant.gep735, i64 %indvars.iv664
   %296 = mul nsw i64 %indvars.iv666, %78
@@ -674,7 +674,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %346 = load i32, ptr %38, align 4
   %347 = icmp eq i32 %346, 1
   %348 = zext i1 %347 to i32
-  %spec.select511 = add nsw i32 %.3475543, %348
+  %spec.select511 = add nsw i32 %.5477543, %348
   %349 = load i32, ptr %301, align 4
   %350 = load i32, ptr %300, align 4
   %reass.sub644 = sub i32 %350, %349
@@ -822,8 +822,8 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %._crit_edge545.thread
 
 ._crit_edge545.thread:                            ; preds = %.preheader513, %._crit_edge545, %._crit_edge562, %257, %292, %264
-  %.5477 = phi i32 [ %.2474589, %257 ], [ %294, %292 ], [ %.2474589, %264 ], [ %423, %._crit_edge562 ], [ %spec.select511, %._crit_edge545 ], [ %.2474589, %.preheader513 ]
-  %.3460 = phi i32 [ %258, %257 ], [ %.2459593, %292 ], [ %.2459593, %264 ], [ %.2459593, %._crit_edge562 ], [ %.2459593, %._crit_edge545 ], [ %.2459593, %.preheader513 ]
+  %.4476 = phi i32 [ %.2474589, %257 ], [ %294, %292 ], [ %.2474589, %264 ], [ %423, %._crit_edge562 ], [ %spec.select511, %._crit_edge545 ], [ %.2474589, %.preheader513 ]
+  %.4461 = phi i32 [ %258, %257 ], [ %.2459593, %292 ], [ %.2459593, %264 ], [ %.2459593, %._crit_edge562 ], [ %.2459593, %._crit_edge545 ], [ %.2459593, %.preheader513 ]
   %424 = trunc i64 %indvars.iv697 to i32
   %425 = add i32 %424, 1
   store i32 %425, ptr %35, align 4
@@ -834,18 +834,18 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %427 = phi i32 [ %.pre716, %._crit_edge545.thread ], [ %202, %227 ], [ %202, %223 ]
   %428 = phi i32 [ %425, %._crit_edge545.thread ], [ %203, %227 ], [ %203, %223 ]
   %429 = phi i32 [ %425, %._crit_edge545.thread ], [ %204, %227 ], [ %204, %223 ]
-  %.6 = phi i32 [ %.5477, %._crit_edge545.thread ], [ %.2474589, %227 ], [ %.2474589, %223 ]
-  %.4461 = phi i32 [ %.3460, %._crit_edge545.thread ], [ %.2459593, %227 ], [ %.2459593, %223 ]
-  %.4 = phi float [ %.3594, %._crit_edge545.thread ], [ %229, %227 ], [ %224, %223 ]
+  %.3475 = phi i32 [ %.4476, %._crit_edge545.thread ], [ %.2474589, %227 ], [ %.2474589, %223 ]
+  %.3460 = phi i32 [ %.4461, %._crit_edge545.thread ], [ %.2459593, %227 ], [ %.2459593, %223 ]
+  %.5 = phi float [ %.4594, %._crit_edge545.thread ], [ %229, %227 ], [ %224, %223 ]
   %indvars.iv.next698 = add nsw i64 %indvars.iv697, 1
   %430 = sext i32 %427 to i64
   %.not498.not = icmp slt i64 %indvars.iv697, %430
   br i1 %.not498.not, label %.lr.ph596, label %._crit_edge597, !llvm.loop !15
 
 ._crit_edge597:                                   ; preds = %426, %200
-  %.2474.lcssa = phi i32 [ %.1473608, %200 ], [ %.6, %426 ]
-  %.2459.lcssa = phi i32 [ %.1458609, %200 ], [ %.4461, %426 ]
-  %.3.lcssa = phi float [ %.2611, %200 ], [ %.4, %426 ]
+  %.2474.lcssa = phi i32 [ %.1473608, %200 ], [ %.3475, %426 ]
+  %.2459.lcssa = phi i32 [ %.1458609, %200 ], [ %.3460, %426 ]
+  %.4.lcssa = phi float [ %.3611, %200 ], [ %.5, %426 ]
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
   %exitcond704.not = icmp eq i64 %indvars.iv.next701, %wide.trip.count703
   br i1 %exitcond704.not, label %._crit_edge614.loopexit, label %157, !llvm.loop !16
@@ -858,13 +858,13 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %431 = phi i32 [ %153, %152 ], [ %.pre717, %._crit_edge614.loopexit ]
   %.1473.lcssa = phi i32 [ %.0472618, %152 ], [ %.2474.lcssa, %._crit_edge614.loopexit ]
   %.1458.lcssa = phi i32 [ 0, %152 ], [ %.2459.lcssa, %._crit_edge614.loopexit ]
-  %.2.lcssa = phi float [ %.1621, %152 ], [ %.3.lcssa, %._crit_edge614.loopexit ]
+  %.3.lcssa = phi float [ %.2621, %152 ], [ %.4.lcssa, %._crit_edge614.loopexit ]
   %432 = add nuw nsw i32 %.0447620, 1
   %433 = icmp slt i32 %.1473.lcssa, %431
   br i1 %433, label %152, label %.lr.ph631.preheader
 
 .lr.ph631.preheader:                              ; preds = %._crit_edge614, %._crit_edge529
-  %.1.lcssa = phi float [ %.0445641, %._crit_edge529 ], [ %.2.lcssa, %._crit_edge614 ]
+  %.2.lcssa = phi float [ %.0445641, %._crit_edge529 ], [ %.3.lcssa, %._crit_edge614 ]
   %434 = shl i32 %.0449640, 1
   %435 = sext i32 %434 to i64
   %436 = add i32 %.0483.lcssa, 1
@@ -886,7 +886,7 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 ._crit_edge632:                                   ; preds = %.lr.ph631, %.split.loop.exit725, %98
   %.1450 = phi i32 [ %107, %98 ], [ %.0449640, %.split.loop.exit725 ], [ %436, %.lr.ph631 ]
-  %.5 = phi float [ %.0445641, %98 ], [ %.0445641, %.split.loop.exit725 ], [ %.1.lcssa, %.lr.ph631 ]
+  %.1 = phi float [ %.0445641, %98 ], [ %.0445641, %.split.loop.exit725 ], [ %.2.lcssa, %.lr.ph631 ]
   %.1452 = add nsw i32 %82, 1
   %indvars.iv.next710 = add nuw nsw i64 %indvars.iv709, 1
   %exitcond713.not = icmp eq i64 %indvars.iv.next710, %wide.trip.count712

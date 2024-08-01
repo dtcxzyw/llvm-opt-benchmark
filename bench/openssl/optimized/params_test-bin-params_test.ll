@@ -469,7 +469,7 @@ if.then61:                                        ; preds = %lor.lhs.false57, %l
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then61, %lor.lhs.false57
-  %errcnt.0 = phi i32 [ 0, %lor.lhs.false57 ], [ 1, %if.then61 ]
+  %errcnt.1 = phi i32 [ 0, %lor.lhs.false57 ], [ 1, %if.then61 ]
   %15 = load ptr, ptr @app_p3, align 8
   call void @BN_free(ptr noundef %15) #6
   store ptr null, ptr @app_p3, align 8
@@ -502,7 +502,7 @@ init_app_variables.exit46:                        ; preds = %if.end63, %lor.lhs.
   br i1 %tobool69.not, label %if.then70, label %if.else
 
 if.then70:                                        ; preds = %init_app_variables.exit46
-  %inc71 = add nuw nsw i32 %errcnt.0, 1
+  %inc71 = add nuw nsw i32 %errcnt.1, 1
   br label %if.end92
 
 if.else:                                          ; preds = %init_app_variables.exit46
@@ -549,11 +549,11 @@ lor.lhs.false86:                                  ; preds = %lor.lhs.false83
   br i1 %tobool88.not, label %if.then89, label %if.end92
 
 if.then89:                                        ; preds = %lor.lhs.false86, %lor.lhs.false83, %lor.lhs.false80, %lor.lhs.false77, %lor.lhs.false74, %if.else
-  %inc90 = add nuw nsw i32 %errcnt.0, 1
+  %inc90 = add nuw nsw i32 %errcnt.1, 1
   br label %if.end92
 
 if.end92:                                         ; preds = %lor.lhs.false86, %if.then89, %if.then70
-  %errcnt.1 = phi i32 [ %errcnt.0, %lor.lhs.false86 ], [ %inc90, %if.then89 ], [ %inc71, %if.then70 ]
+  %errcnt.2 = phi i32 [ %errcnt.1, %lor.lhs.false86 ], [ %inc90, %if.then89 ], [ %inc71, %if.then70 ]
   %26 = load ptr, ptr %verify_p3, align 8
   call void @BN_free(ptr noundef %26) #6
   store ptr null, ptr %verify_p3, align 8
@@ -666,7 +666,7 @@ if.then158:                                       ; preds = %lor.lhs.false154, %
   br label %fin
 
 fin:                                              ; preds = %if.end92, %init_object.exit, %lor.lhs.false, %lor.lhs.false154, %if.then158
-  %errcnt.2 = phi i32 [ %errcnt.1, %lor.lhs.false154 ], [ 1, %if.then158 ], [ 1, %lor.lhs.false ], [ 1, %init_object.exit ], [ 1, %if.end92 ]
+  %errcnt.0 = phi i32 [ %errcnt.2, %lor.lhs.false154 ], [ 1, %if.then158 ], [ 1, %lor.lhs.false ], [ 1, %init_object.exit ], [ 1, %if.end92 ]
   %38 = load ptr, ptr %verify_p3, align 8
   call void @BN_free(ptr noundef %38) #6
   store ptr null, ptr %verify_p3, align 8
@@ -682,7 +682,7 @@ fin:                                              ; preds = %if.end92, %init_obj
   call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str.2, i32 noundef 93) #6
   store ptr null, ptr %p4.i48, align 8
   call void @CRYPTO_free(ptr noundef %retval.0.i, ptr noundef nonnull @.str.2, i32 noundef 95) #6
-  %cmp162 = icmp eq i32 %errcnt.2, 0
+  %cmp162 = icmp eq i32 %errcnt.0, 0
   %conv163 = zext i1 %cmp162 to i32
   ret i32 %conv163
 }

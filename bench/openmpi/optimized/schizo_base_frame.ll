@@ -1593,8 +1593,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
 .lr.ph445:                                        ; preds = %.lr.ph453, %152
   %indvars.iv601 = phi i64 [ %indvars.iv.next602, %152 ], [ 0, %.lr.ph453 ]
   %12 = phi ptr [ %154, %152 ], [ %11, %.lr.ph453 ]
-  %.1158442 = phi ptr [ %.3160, %152 ], [ %.0157450, %.lr.ph453 ]
-  %.1162441 = phi ptr [ %.3164, %152 ], [ %.0161449, %.lr.ph453 ]
+  %.1158442 = phi ptr [ %.2159, %152 ], [ %.0157450, %.lr.ph453 ]
+  %.1162441 = phi ptr [ %.2163, %152 ], [ %.0161449, %.lr.ph453 ]
   %13 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv601
   %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #20
   %.not195 = icmp eq ptr %14, null
@@ -1904,8 +1904,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %121
 
 121:                                              ; preds = %119, %117
-  %.2159 = phi ptr [ %120, %119 ], [ %118, %117 ]
-  %122 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.118, ptr noundef %.2159, i16 noundef zeroext 3) #16
+  %.3160 = phi ptr [ %120, %119 ], [ %118, %117 ]
+  %122 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.118, ptr noundef %.3160, i16 noundef zeroext 3) #16
   switch i32 %122, label %123 [
     i32 0, label %152
     i32 -2, label %.loopexit228
@@ -1970,8 +1970,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %148
 
 148:                                              ; preds = %146, %144
-  %.2163 = phi ptr [ %147, %146 ], [ %145, %144 ]
-  %149 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.119, ptr noundef %.2163, i16 noundef zeroext 3) #16
+  %.3164 = phi ptr [ %147, %146 ], [ %145, %144 ]
+  %149 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.119, ptr noundef %.3164, i16 noundef zeroext 3) #16
   switch i32 %149, label %150 [
     i32 0, label %152
     i32 -2, label %.loopexit227
@@ -1987,8 +1987,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %.thread612
 
 152:                                              ; preds = %148, %121, %94, %87, %80, %73, %66, %59, %52, %125, %42
-  %.3164 = phi ptr [ %.1162441, %42 ], [ %.1162441, %52 ], [ %.1162441, %59 ], [ %.1162441, %66 ], [ %.1162441, %73 ], [ %.1162441, %80 ], [ %.1162441, %87 ], [ %.1162441, %94 ], [ null, %121 ], [ %.2163, %148 ], [ %.1162441, %125 ]
-  %.3160 = phi ptr [ %.1158442, %42 ], [ %.1158442, %52 ], [ %.1158442, %59 ], [ %.1158442, %66 ], [ %.1158442, %73 ], [ %.1158442, %80 ], [ %.1158442, %87 ], [ %.1158442, %94 ], [ %.2159, %121 ], [ null, %148 ], [ %.1158442, %125 ]
+  %.2163 = phi ptr [ %.1162441, %42 ], [ %.1162441, %52 ], [ %.1162441, %59 ], [ %.1162441, %66 ], [ %.1162441, %73 ], [ %.1162441, %80 ], [ %.1162441, %87 ], [ %.1162441, %94 ], [ null, %121 ], [ %.3164, %148 ], [ %.1162441, %125 ]
+  %.2159 = phi ptr [ %.1158442, %42 ], [ %.1158442, %52 ], [ %.1158442, %59 ], [ %.1158442, %66 ], [ %.1158442, %73 ], [ %.1158442, %80 ], [ %.1158442, %87 ], [ %.1158442, %94 ], [ %.3160, %121 ], [ null, %148 ], [ %.1158442, %125 ]
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %153 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next602
   %154 = load ptr, ptr %153, align 8
@@ -1996,8 +1996,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br i1 %.not194, label %._crit_edge446, label %.lr.ph445, !llvm.loop !26
 
 ._crit_edge446:                                   ; preds = %152, %.lr.ph453
-  %.1162.lcssa = phi ptr [ %.0161449, %.lr.ph453 ], [ %.3164, %152 ]
-  %.1158.lcssa = phi ptr [ %.0157450, %.lr.ph453 ], [ %.3160, %152 ]
+  %.1162.lcssa = phi ptr [ %.0161449, %.lr.ph453 ], [ %.2163, %152 ]
+  %.1158.lcssa = phi ptr [ %.0157450, %.lr.ph453 ], [ %.2159, %152 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #16
   %indvars.iv.next605 = add nuw nsw i64 %indvars.iv604, 1
   %155 = load ptr, ptr %5, align 8

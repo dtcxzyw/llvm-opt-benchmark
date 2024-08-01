@@ -1323,7 +1323,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h2939c
   br i1 %24, label %25, label %.critedge
 
 .noexc76:                                         ; preds = %72, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
-  br i1 %.2, label %240, label %"_ZN4core3ptr218drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..CompressedFileTextQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..CompressedFileTextQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56d75363726f9d00E.exit"
+  br i1 %.3, label %240, label %"_ZN4core3ptr218drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..CompressedFileTextQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..CompressedFileTextQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56d75363726f9d00E.exit"
 
 .thread:                                          ; preds = %42, %68, %55, %50, %.critedge, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1466,7 +1466,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %47 unwind label %.thread
 
 "_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %82, %75
-  %.2 = phi i1 [ %.3, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
+  %.3 = phi i1 [ %.2, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %eh.lpad-body, %82 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
@@ -1482,7 +1482,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc76 unwind label %238
 
 75:                                               ; preds = %216, %66
-  %.3 = phi i1 [ true, %66 ], [ false, %216 ]
+  %.2 = phi i1 [ true, %66 ], [ false, %216 ]
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
@@ -2524,7 +2524,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h4a40c
   br i1 %24, label %25, label %.critedge
 
 .noexc76:                                         ; preds = %72, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
-  br i1 %.2, label %233, label %232
+  br i1 %.3, label %233, label %232
 
 .thread:                                          ; preds = %42, %68, %55, %50, %.critedge, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2667,7 +2667,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %47 unwind label %.thread
 
 "_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %82, %75
-  %.2 = phi i1 [ %.3, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
+  %.3 = phi i1 [ %.2, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %eh.lpad-body, %82 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
   call void @llvm.experimental.noalias.scope.decl(metadata !175)
@@ -2683,7 +2683,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc76 unwind label %230
 
 75:                                               ; preds = %208, %66
-  %.3 = phi i1 [ true, %66 ], [ false, %208 ]
+  %.2 = phi i1 [ true, %66 ], [ false, %208 ]
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
@@ -3167,7 +3167,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h5b400
   br i1 %20, label %21, label %.critedge
 
 .noexc76:                                         ; preds = %68, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
-  br i1 %.2, label %184, label %"_ZN4core3ptr206drop_in_place$LT$$LT$salsa..input..UnitInputStorage$LT$base_db..CrateGraphQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..CrateGraphQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0fa5d94e381df2a6E.exit"
+  br i1 %.3, label %184, label %"_ZN4core3ptr206drop_in_place$LT$$LT$salsa..input..UnitInputStorage$LT$base_db..CrateGraphQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..CrateGraphQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0fa5d94e381df2a6E.exit"
 
 .thread:                                          ; preds = %38, %64, %51, %46, %.critedge, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %23
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -3310,7 +3310,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %43 unwind label %.thread
 
 "_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %78, %71
-  %.2 = phi i1 [ %.3, %71 ], [ %.4.lpad-body, %78 ], [ %.4.lpad-body, %.body ]
+  %.3 = phi i1 [ %.2, %71 ], [ %.4.lpad-body, %78 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %72, %71 ], [ %eh.lpad-body, %78 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
@@ -3326,7 +3326,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc76 unwind label %182
 
 71:                                               ; preds = %160, %62
-  %.3 = phi i1 [ true, %62 ], [ false, %160 ]
+  %.2 = phi i1 [ true, %62 ], [ false, %160 ]
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
@@ -3716,7 +3716,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h7f87b
   br i1 %24, label %25, label %.critedge
 
 .noexc76:                                         ; preds = %72, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
-  br i1 %.2, label %236, label %"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..SourceRootQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..SourceRootQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17he1272b81028d0932E.exit"
+  br i1 %.3, label %236, label %"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..SourceRootQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..SourceRootQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17he1272b81028d0932E.exit"
 
 .thread:                                          ; preds = %42, %68, %55, %50, %.critedge, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -3859,7 +3859,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %47 unwind label %.thread
 
 "_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %82, %75
-  %.2 = phi i1 [ %.3, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
+  %.3 = phi i1 [ %.2, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %eh.lpad-body, %82 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
   call void @llvm.experimental.noalias.scope.decl(metadata !256)
@@ -3875,7 +3875,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc76 unwind label %234
 
 75:                                               ; preds = %212, %66
-  %.3 = phi i1 [ true, %66 ], [ false, %212 ]
+  %.2 = phi i1 [ true, %66 ], [ false, %212 ]
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
@@ -4372,7 +4372,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17hbafb6
   br i1 %24, label %25, label %.critedge
 
 .noexc75:                                         ; preds = %72, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
-  br i1 %.2, label %236, label %235
+  br i1 %.3, label %236, label %235
 
 .thread:                                          ; preds = %42, %68, %55, %50, %.critedge, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %27
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -4515,7 +4515,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %47 unwind label %.thread
 
 "_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %82, %75
-  %.2 = phi i1 [ %.3, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
+  %.3 = phi i1 [ %.2, %75 ], [ %.4.lpad-body, %82 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %eh.lpad-body, %82 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !307)
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
@@ -4531,7 +4531,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.noexc75 unwind label %233
 
 75:                                               ; preds = %211, %66
-  %.3 = phi i1 [ true, %66 ], [ false, %211 ]
+  %.2 = phi i1 [ true, %66 ], [ false, %211 ]
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"

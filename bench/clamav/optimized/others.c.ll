@@ -288,11 +288,11 @@ load_module.exit.thread.i:                        ; preds = %41, %40
   br label %rarload.exit
 
 .loopexit.i:                                      ; preds = %13, %37
-  %.611.i.i = phi ptr [ %32, %37 ], [ %17, %13 ]
+  %.211.i.i = phi ptr [ %32, %37 ], [ %17, %13 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  %42 = call ptr @dlsym(ptr noundef nonnull %.611.i.i, ptr noundef nonnull @.str.98) #24
+  %42 = call ptr @dlsym(ptr noundef nonnull %.211.i.i, ptr noundef nonnull @.str.98) #24
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %49
 
@@ -311,7 +311,7 @@ load_module.exit.thread.i:                        ; preds = %41, %40
 
 49:                                               ; preds = %.loopexit.i
   store ptr %42, ptr @cli_unrar_open, align 8
-  %50 = call ptr @dlsym(ptr noundef nonnull %.611.i.i, ptr noundef nonnull @.str.99) #24
+  %50 = call ptr @dlsym(ptr noundef nonnull %.211.i.i, ptr noundef nonnull @.str.99) #24
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %57
 
@@ -330,7 +330,7 @@ load_module.exit.thread.i:                        ; preds = %41, %40
 
 57:                                               ; preds = %49
   store ptr %50, ptr @cli_unrar_peek_file_header, align 8
-  %58 = call ptr @dlsym(ptr noundef nonnull %.611.i.i, ptr noundef nonnull @.str.100) #24
+  %58 = call ptr @dlsym(ptr noundef nonnull %.211.i.i, ptr noundef nonnull @.str.100) #24
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %65
 
@@ -349,7 +349,7 @@ load_module.exit.thread.i:                        ; preds = %41, %40
 
 65:                                               ; preds = %57
   store ptr %58, ptr @cli_unrar_extract_file, align 8
-  %66 = call ptr @dlsym(ptr noundef nonnull %.611.i.i, ptr noundef nonnull @.str.101) #24
+  %66 = call ptr @dlsym(ptr noundef nonnull %.211.i.i, ptr noundef nonnull @.str.101) #24
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %73
 
@@ -368,7 +368,7 @@ load_module.exit.thread.i:                        ; preds = %41, %40
 
 73:                                               ; preds = %65
   store ptr %66, ptr @cli_unrar_skip_file, align 8
-  %74 = call fastcc ptr @get_module_function(ptr noundef nonnull %.611.i.i, ptr noundef nonnull @.str.102)
+  %74 = call fastcc ptr @get_module_function(ptr noundef nonnull %.211.i.i, ptr noundef nonnull @.str.102)
   store ptr %74, ptr @cli_unrar_close, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %77
@@ -2293,8 +2293,8 @@ cli_append_potentially_unwanted_if_heur_exceedsmax.exit: ; preds = %22, %37, %41
   br label %.thread
 
 .thread:                                          ; preds = %4, %7, %14, %16, %cli_append_potentially_unwanted_if_heur_exceedsmax.exit, %1
-  %.1 = phi i32 [ 0, %1 ], [ 21, %cli_append_potentially_unwanted_if_heur_exceedsmax.exit ], [ 0, %16 ], [ 0, %14 ], [ 0, %7 ], [ 0, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %1 ], [ 21, %cli_append_potentially_unwanted_if_heur_exceedsmax.exit ], [ 0, %16 ], [ 0, %14 ], [ 0, %7 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2908,12 +2908,12 @@ define i32 @cli_recursion_stack_get_type(ptr nocapture noundef readonly %0, i32 
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %17, %12 ]
-  %.119.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
+  %.219.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %13 = zext nneg i32 %.020.i to i64
   %14 = getelementptr inbounds %struct.recursion_level_tag, ptr %11, i64 %13, i32 5
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
-  %spec.select.i = sub i32 %.119.i, %16
+  %spec.select.i = sub i32 %.219.i, %16
   %17 = add nsw i32 %.020.i, -1
   %18 = icmp sgt i32 %.020.i, %spec.select.i
   %19 = icmp ugt i32 %.020.i, 1
@@ -2921,18 +2921,18 @@ define i32 @cli_recursion_stack_get_type(ptr nocapture noundef readonly %0, i32 
   br i1 %20, label %12, label %recursion_stack_get.exit
 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
-  %.3.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
-  %21 = icmp slt i32 %.3.i, 0
+  %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
+  %21 = icmp slt i32 %.1.i, 0
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %recursion_stack_get.exit
-  %23 = icmp ult i32 %4, %.3.i
+  %23 = icmp ult i32 %4, %.1.i
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
-  %27 = zext nneg i32 %.3.i to i64
+  %27 = zext nneg i32 %.1.i to i64
   %28 = getelementptr inbounds %struct.recursion_level_tag, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 8
   br label %30
@@ -2964,12 +2964,12 @@ define i64 @cli_recursion_stack_get_size(ptr nocapture noundef readonly %0, i32 
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %17, %12 ]
-  %.119.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
+  %.219.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %13 = zext nneg i32 %.020.i to i64
   %14 = getelementptr inbounds %struct.recursion_level_tag, ptr %11, i64 %13, i32 5
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
-  %spec.select.i = sub i32 %.119.i, %16
+  %spec.select.i = sub i32 %.219.i, %16
   %17 = add nsw i32 %.020.i, -1
   %18 = icmp sgt i32 %.020.i, %spec.select.i
   %19 = icmp ugt i32 %.020.i, 1
@@ -2977,8 +2977,8 @@ define i64 @cli_recursion_stack_get_size(ptr nocapture noundef readonly %0, i32 
   br i1 %20, label %12, label %recursion_stack_get.exit
 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
-  %.3.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
-  %21 = icmp slt i32 %.3.i, 0
+  %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
+  %21 = icmp slt i32 %.1.i, 0
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %recursion_stack_get.exit
@@ -2988,13 +2988,13 @@ recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader
   br label %.sink.split
 
 26:                                               ; preds = %recursion_stack_get.exit
-  %27 = icmp ult i32 %4, %.3.i
+  %27 = icmp ult i32 %4, %.1.i
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = zext nneg i32 %.3.i to i64
+  %31 = zext nneg i32 %.1.i to i64
   %32 = getelementptr inbounds %struct.recursion_level_tag, ptr %30, i64 %31, i32 1
   br label %.sink.split
 

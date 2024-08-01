@@ -1416,10 +1416,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br label %103
 
 103:                                              ; preds = %100, %103
-  %.198 = phi i64 [ %.0.lcssa103, %100 ], [ %105, %103 ]
+  %.298 = phi i64 [ %.0.lcssa103, %100 ], [ %105, %103 ]
   %.05497 = phi ptr [ %99, %100 ], [ %107, %103 ]
   %104 = call noundef i64 @_ZN27JvmtiEventControllerPrivate24recompute_thread_enabledEP16JvmtiThreadState(ptr noundef nonnull %.05497)
-  %105 = or i64 %104, %.198
+  %105 = or i64 %104, %.298
   %106 = getelementptr inbounds i8, ptr %.05497, i64 96
   %107 = load ptr, ptr %106, align 8
   %.not63 = icmp eq ptr %107, null
@@ -1430,101 +1430,101 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br label %109
 
 109:                                              ; preds = %108, %._crit_edge.thread
-  %.2 = phi i64 [ %105, %108 ], [ %.0.lcssa103, %._crit_edge.thread ]
-  %.not64 = icmp eq i64 %.2, %4
+  %.1 = phi i64 [ %105, %108 ], [ %.0.lcssa103, %._crit_edge.thread ]
+  %.not64 = icmp eq i64 %.1, %4
   br i1 %.not64, label %202, label %110
 
 110:                                              ; preds = %109
-  %111 = xor i64 %.2, %4
-  %112 = lshr i64 %.2, 16
+  %111 = xor i64 %.1, %4
+  %112 = lshr i64 %.1, 16
   %113 = trunc i64 %112 to i8
   %114 = and i8 %113, 1
   store i8 %114, ptr @_ZN11JvmtiExport25_should_post_field_accessE, align 1
-  %115 = lshr i64 %.2, 17
+  %115 = lshr i64 %.1, 17
   %116 = trunc i64 %115 to i8
   %117 = and i8 %116, 1
   store i8 %117, ptr @_ZN11JvmtiExport31_should_post_field_modificationE, align 1
-  %118 = lshr i64 %.2, 8
+  %118 = lshr i64 %.1, 8
   %119 = trunc i64 %118 to i8
   %120 = and i8 %119, 1
   store i8 %120, ptr @_ZN11JvmtiExport23_should_post_class_loadE, align 1
-  %121 = and i64 %.2, 128
+  %121 = and i64 %.1, 128
   %122 = icmp ne i64 %121, 0
   %123 = zext i1 %122 to i8
   store i8 %123, ptr @_ZN11JvmtiExport33_should_post_class_file_load_hookE, align 1
-  %124 = lshr i64 %.2, 20
+  %124 = lshr i64 %.1, 20
   %125 = trunc i64 %124 to i8
   %126 = and i8 %125, 1
   store i8 %126, ptr @_ZN11JvmtiExport31_should_post_native_method_bindE, align 1
-  %127 = lshr i64 %.2, 23
+  %127 = lshr i64 %.1, 23
   %128 = trunc i64 %127 to i8
   %129 = and i8 %128, 1
   store i8 %129, ptr @_ZN11JvmtiExport35_should_post_dynamic_code_generatedE, align 1
-  %130 = lshr i64 %.2, 24
+  %130 = lshr i64 %.1, 24
   %131 = trunc i64 %130 to i8
   %132 = and i8 %131, 1
   store i8 %132, ptr @_ZN11JvmtiExport22_should_post_data_dumpE, align 1
-  %133 = lshr i64 %.2, 9
+  %133 = lshr i64 %.1, 9
   %134 = trunc i64 %133 to i8
   %135 = and i8 %134, 1
   store i8 %135, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %136 = trunc i64 %.2 to i8
+  %136 = trunc i64 %.1 to i8
   %137 = lshr i8 %136, 2
   %138 = and i8 %137, 1
   store i8 %138, ptr @_ZN11JvmtiExport25_should_post_class_unloadE, align 1
-  %139 = lshr i64 %.2, 28
+  %139 = lshr i64 %.1, 28
   %140 = trunc i64 %139 to i8
   %141 = and i8 %140, 1
   store i8 %141, ptr @_ZN11JvmtiExport36_should_post_monitor_contended_enterE, align 1
-  %142 = lshr i64 %.2, 29
+  %142 = lshr i64 %.1, 29
   %143 = trunc i64 %142 to i8
   %144 = and i8 %143, 1
   store i8 %144, ptr @_ZN11JvmtiExport38_should_post_monitor_contended_enteredE, align 1
-  %145 = lshr i64 %.2, 26
+  %145 = lshr i64 %.1, 26
   %146 = trunc i64 %145 to i8
   %147 = and i8 %146, 1
   store i8 %147, ptr @_ZN11JvmtiExport25_should_post_monitor_waitE, align 1
-  %148 = lshr i64 %.2, 27
+  %148 = lshr i64 %.1, 27
   %149 = trunc i64 %148 to i8
   %150 = and i8 %149, 1
   store i8 %150, ptr @_ZN11JvmtiExport27_should_post_monitor_waitedE, align 1
-  %151 = lshr i64 %.2, 34
+  %151 = lshr i64 %.1, 34
   %152 = trunc i64 %151 to i8
   %153 = and i8 %152, 1
   store i8 %153, ptr @_ZN11JvmtiExport37_should_post_garbage_collection_startE, align 1
-  %154 = lshr i64 %.2, 35
+  %154 = lshr i64 %.1, 35
   %155 = trunc i64 %154 to i8
   %156 = and i8 %155, 1
   store i8 %156, ptr @_ZN11JvmtiExport38_should_post_garbage_collection_finishE, align 1
-  %157 = lshr i64 %.2, 36
+  %157 = lshr i64 %.1, 36
   %158 = trunc i64 %157 to i8
   %159 = and i8 %158, 1
   store i8 %159, ptr @_ZN11JvmtiExport24_should_post_object_freeE, align 1
-  %160 = lshr i64 %.2, 33
+  %160 = lshr i64 %.1, 33
   %161 = trunc i64 %160 to i8
   %162 = and i8 %161, 1
   store i8 %162, ptr @_ZN11JvmtiExport31_should_post_resource_exhaustedE, align 1
-  %163 = lshr i64 %.2, 21
+  %163 = lshr i64 %.1, 21
   %164 = trunc i64 %163 to i8
   %165 = and i8 %164, 1
   store i8 %165, ptr @_ZN11JvmtiExport33_should_post_compiled_method_loadE, align 1
-  %166 = lshr i64 %.2, 22
+  %166 = lshr i64 %.1, 22
   %167 = trunc i64 %166 to i8
   %168 = and i8 %167, 1
   store i8 %168, ptr @_ZN11JvmtiExport35_should_post_compiled_method_unloadE, align 1
-  %169 = lshr i64 %.2, 37
+  %169 = lshr i64 %.1, 37
   %170 = trunc i64 %169 to i8
   %171 = and i8 %170, 1
   store i8 %171, ptr @_ZN11JvmtiExport28_should_post_vm_object_allocE, align 1
-  %172 = lshr i64 %.2, 39
+  %172 = lshr i64 %.1, 39
   %173 = trunc i64 %172 to i8
   %174 = and i8 %173, 1
   store i8 %174, ptr @_ZN11JvmtiExport33_should_post_sampled_object_allocE, align 1
-  %175 = lshr i64 %.2, 40
+  %175 = lshr i64 %.1, 40
   %176 = trunc i64 %175 to i8
   %177 = and i8 %176, 1
   store i8 %177, ptr @_ZN11JvmtiExport26_should_post_vthread_startE, align 1
-  %178 = lshr i64 %.2, 41
+  %178 = lshr i64 %.1, 41
   %179 = trunc i64 %178 to i8
   %180 = and i8 %179, 1
   store i8 %180, ptr @_ZN11JvmtiExport24_should_post_vthread_endE, align 1
@@ -1533,7 +1533,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   store i8 %182, ptr @_ZN11JvmtiExport26_should_post_vthread_mountE, align 1
   %183 = and i8 %136, 1
   store i8 %183, ptr @_ZN11JvmtiExport28_should_post_vthread_unmountE, align 1
-  %184 = and i64 %.2, 3849298377571
+  %184 = and i64 %.1, 3849298377571
   %185 = icmp ne i64 %184, 0
   %186 = zext i1 %185 to i8
   store i8 %186, ptr @_ZN11JvmtiExport24_should_post_thread_lifeE, align 1
@@ -1545,7 +1545,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br i1 %or.cond88, label %189, label %196
 
 189:                                              ; preds = %110
-  %190 = lshr i64 %.2, 13
+  %190 = lshr i64 %.1, 13
   %191 = trunc i64 %190 to i8
   %192 = and i8 %191, 1
   %193 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1560,8 +1560,8 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 
 196:                                              ; preds = %189, %110
   %197 = phi i8 [ %195, %189 ], [ %171, %110 ]
-  store i64 %.2, ptr @_ZN20JvmtiEventController31_universal_global_event_enabledE, align 8
-  %198 = and i64 %.2, 546816
+  store i64 %.1, ptr @_ZN20JvmtiEventController31_universal_global_event_enabledE, align 8
+  %198 = and i64 %.1, 546816
   %199 = icmp ne i64 %198, 0
   %200 = zext i1 %199 to i8
   store i8 %200, ptr @_ZN11JvmtiExport26_should_post_on_exceptionsE, align 1
@@ -1613,7 +1613,7 @@ _ZN16SafeResourceMarkC2Ev.exit70:                 ; preds = %208, %214, %216
   br i1 %.not90, label %229, label %228
 
 228:                                              ; preds = %_ZN16SafeResourceMarkC2Ev.exit70
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.16, i64 noundef %.2)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.16, i64 noundef %.1)
   br label %229
 
 229:                                              ; preds = %_ZN16SafeResourceMarkC2Ev.exit70, %228
@@ -1722,8 +1722,8 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.0 = phi ptr [ %34, %33 ], [ %21, %32 ]
-  %36 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %34, %33 ], [ %21, %32 ]
+  %36 = icmp eq ptr %.1, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -1732,7 +1732,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %39
 
 39:                                               ; preds = %30, %37, %35, %8, %16
-  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.0, %35 ], [ %21, %30 ]
+  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
   ret ptr %.025
 }
 
@@ -2507,8 +2507,8 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %11, %17, %19
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not38 = icmp eq ptr %30, null
-  br i1 %.not38, label %41, label %31
+  %.not37 = icmp eq ptr %30, null
+  br i1 %.not37, label %41, label %31
 
 31:                                               ; preds = %_ZN16SafeResourceMarkC2Ev.exit
   %32 = icmp eq ptr %1, null
@@ -2579,9 +2579,9 @@ _ZNK6HandleclEv.exit14:                           ; preds = %53
 .thread:                                          ; preds = %_ZNK6HandleclEv.exit14
   %56 = tail call noundef ptr @_ZN16java_lang_Thread18jvmti_thread_stateEP7oopDesc(ptr noundef nonnull %54) #15
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread31, label %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
+  br i1 %57, label %.thread30, label %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
 
-.thread31:                                        ; preds = %.thread
+.thread30:                                        ; preds = %.thread
   %58 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 184, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN16JvmtiThreadStateC1EP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(184) %58, ptr noundef null, ptr noundef nonnull %54) #15
   br label %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit
@@ -2590,26 +2590,26 @@ _ZNK6HandleclEv.exit14.thread:                    ; preds = %53, %_ZNK6HandleclE
   %59 = getelementptr inbounds i8, ptr %0, i64 384
   br label %.sink.split
 
-_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit: ; preds = %.thread31, %_ZNK6HandleclEv.exit
-  %phi.call = phi ptr [ %52, %_ZNK6HandleclEv.exit ], [ %58, %.thread31 ]
+_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit: ; preds = %.thread30, %_ZNK6HandleclEv.exit
+  %phi.call = phi ptr [ %52, %_ZNK6HandleclEv.exit ], [ %58, %.thread30 ]
   %.not = icmp eq ptr %phi.call, null
   br i1 %.not, label %81, label %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
 
 _ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread: ; preds = %.thread, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit
-  %phi.call37 = phi ptr [ %phi.call, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit ], [ %56, %.thread ]
+  %phi.call36 = phi ptr [ %phi.call, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit ], [ %56, %.thread ]
   %60 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 844
   %63 = load volatile i32, ptr %62, align 4
   %64 = add nsw i32 %63, 1
   store volatile i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds i8, ptr %phi.call37, i64 88
+  %65 = getelementptr inbounds i8, ptr %phi.call36, i64 88
   %.08.i = load ptr, ptr %65, align 8
   %.not9.i = icmp eq ptr %.08.i, null
   br i1 %.not9.i, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread, %69
-  %.010.i = phi ptr [ %.0.i18, %69 ], [ %.08.i, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ]
+  %.010.i = phi ptr [ %.0.i17, %69 ], [ %.08.i, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ]
   %66 = getelementptr inbounds i8, ptr %.010.i, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %0
@@ -2617,9 +2617,9 @@ _ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
 
 69:                                               ; preds = %.lr.ph.i
   %70 = getelementptr inbounds i8, ptr %.010.i, i64 16
-  %.0.i18 = load ptr, ptr %70, align 8
-  %.not.i19 = icmp eq ptr %.0.i18, null
-  br i1 %.not.i19, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i, !llvm.loop !21
+  %.0.i17 = load ptr, ptr %70, align 8
+  %.not.i18 = icmp eq ptr %.0.i17, null
+  br i1 %.not.i18, label %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit: ; preds = %.lr.ph.i, %69, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread
   %.0.lcssa.i = phi ptr [ null, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit.thread ], [ %.010.i, %.lr.ph.i ], [ null, %69 ]
@@ -2630,16 +2630,16 @@ _ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit: ; preds = %.lr.ph.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK6HandleclEv.exit14.thread, %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit
-  %.sink48 = phi ptr [ %73, %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit ], [ %59, %_ZNK6HandleclEv.exit14.thread ]
-  %74 = load i64, ptr %.sink48, align 8
+  %.sink47 = phi ptr [ %73, %_ZN16JvmtiThreadState16env_thread_stateEP12JvmtiEnvBase.exit ], [ %59, %_ZNK6HandleclEv.exit14.thread ]
+  %74 = load i64, ptr %.sink47, align 8
   %75 = add nsw i32 %3, -47
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw i64 1, %76
   %78 = or i64 %74, %77
   %79 = xor i64 %77, -1
   %80 = and i64 %74, %79
-  %.0.i.i20 = select i1 %4, i64 %78, i64 %80
-  store i64 %.0.i.i20, ptr %.sink48, align 8
+  %.0.i.i19 = select i1 %4, i64 %78, i64 %80
+  store i64 %.0.i.i19, ptr %.sink47, align 8
   br label %81
 
 81:                                               ; preds = %.sink.split, %_ZN16JvmtiThreadState22state_for_while_lockedEP10JavaThreadP7oopDesc.exit

@@ -2792,16 +2792,16 @@ if.then16:                                        ; preds = %if.then10, %if.end1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then5, %if.end14, %if.then16, %do.end3
-  %old_fd.1 = phi i32 [ %4, %if.end14 ], [ %4, %if.then16 ], [ -1, %do.end3 ], [ -1, %if.then5 ]
-  %err.1 = phi i32 [ %call12, %if.end14 ], [ %call19, %if.then16 ], [ -1, %do.end3 ], [ %call8, %if.then5 ]
-  %tobool22 = icmp ne i32 %err.1, 0
+  %old_fd.0 = phi i32 [ %4, %if.end14 ], [ %4, %if.then16 ], [ -1, %do.end3 ], [ -1, %if.then5 ]
+  %err.0 = phi i32 [ %call12, %if.end14 ], [ %call19, %if.then16 ], [ -1, %do.end3 ], [ %call8, %if.then5 ]
+  %tobool22 = icmp ne i32 %err.0, 0
   %7 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool25 = icmp ne i32 %7, 0
   %or.cond = select i1 %tobool22, i1 %tobool25, i1 false
   br i1 %or.cond, label %if.then26, label %do.body30
 
 if.then26:                                        ; preds = %if.end21
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.bufferevent_replacefd, ptr noundef nonnull %bev, i32 noundef %old_fd.1, i32 noundef %fd) #7
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.bufferevent_replacefd, ptr noundef nonnull %bev, i32 noundef %old_fd.0, i32 noundef %fd) #7
   br label %do.body30
 
 do.body30:                                        ; preds = %if.end21, %if.then26
@@ -2815,7 +2815,7 @@ if.then36:                                        ; preds = %do.body30
   br label %do.end41
 
 do.end41:                                         ; preds = %if.then36, %do.body30
-  ret i32 %err.1
+  ret i32 %err.0
 }
 
 declare i32 @evutil_closesocket(i32 noundef) local_unnamed_addr #1

@@ -214,8 +214,8 @@ if.then11.i.i:                                    ; preds = %if.then9.i.i
   br i1 %cmp13.i.i, label %mi_thread_data_zalloc.exit.i, label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.then9.i.i
-  %td.3.ph.i.i = phi ptr [ %call.i.i, %if.then9.i.i ], [ %call12.i.i, %if.then11.i.i ]
-  %memid19.i.i = getelementptr inbounds i8, ptr %td.3.ph.i.i, i64 4664
+  %td.4.ph.i.i = phi ptr [ %call.i.i, %if.then9.i.i ], [ %call12.i.i, %if.then11.i.i ]
+  %memid19.i.i = getelementptr inbounds i8, ptr %td.4.ph.i.i, i64 4664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid19.i.i, ptr noundef nonnull align 8 dereferenceable(24) %memid.i.i, i64 24, i1 false)
   %initially_zero.i.i = getelementptr inbounds i8, ptr %memid.i.i, i64 18
   %11 = load i8, ptr %initially_zero.i.i, align 2
@@ -223,9 +223,9 @@ if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.
   br i1 %12, label %if.end6.i, label %if.then24.i.i
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i, %if.end21.thread26.i.i
-  %td.429.i.i = phi ptr [ %10, %if.end21.thread26.i.i ], [ %td.3.ph.i.i, %if.end21.i.i ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %td.429.i.i, i64 8) ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4688) %td.429.i.i, i8 0, i64 4688, i1 false)
+  %td.329.i.i = phi ptr [ %10, %if.end21.thread26.i.i ], [ %td.4.ph.i.i, %if.end21.i.i ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %td.329.i.i, i64 8) ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4688) %td.329.i.i, i8 0, i64 4688, i1 false)
   br label %if.end6.i
 
 mi_thread_data_zalloc.exit.i:                     ; preds = %if.then11.i.i
@@ -234,46 +234,46 @@ mi_thread_data_zalloc.exit.i:                     ; preds = %if.then11.i.i
   br label %if.end
 
 if.end6.i:                                        ; preds = %if.then24.i.i, %if.end21.i.i
-  %td.423.i.ph.i = phi ptr [ %td.429.i.i, %if.then24.i.i ], [ %td.3.ph.i.i, %if.end21.i.i ]
+  %td.323.i.ph.i = phi ptr [ %td.329.i.i, %if.then24.i.i ], [ %td.4.ph.i.i, %if.end21.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i.i)
-  %tld7.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 3064
+  %tld7.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %tld7.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %tld7.i, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 1600, i1 false)
-  call void @llvm.assume(i1 true) [ "align"(ptr %td.423.i.ph.i, i64 8) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %td.323.i.ph.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.423.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.323.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
   %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %14 = ptrtoint ptr %13 to i64
-  %thread_id.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 2848
+  %thread_id.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2848
   store i64 %14, ptr %thread_id.i, align 8
-  %random.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 2888
+  %random.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2888
   call void @_mi_random_init(ptr noundef nonnull %random.i) #13
-  %call10.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.423.i.ph.i) #13
+  %call10.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
   %or.i = or i64 %call10.i, 1
-  %cookie.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 2864
+  %cookie.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2864
   store i64 %or.i, ptr %cookie.i, align 8
-  %call11.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.423.i.ph.i) #13
-  %keys.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 2872
+  %call11.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
+  %keys.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2872
   store i64 %call11.i, ptr %keys.i, align 8
-  %call12.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.423.i.ph.i) #13
-  %arrayidx14.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 2880
+  %call12.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
+  %arrayidx14.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2880
   store i64 %call12.i, ptr %arrayidx14.i, align 8
-  store ptr %tld7.i, ptr %td.423.i.ph.i, align 8
-  %heap_backing.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 3080
-  store ptr %td.423.i.ph.i, ptr %heap_backing.i, align 8
-  %heaps.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 3088
-  store ptr %td.423.i.ph.i, ptr %heaps.i, align 8
-  %stats.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 4024
-  %stats16.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 3992
+  store ptr %tld7.i, ptr %td.323.i.ph.i, align 8
+  %heap_backing.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3080
+  store ptr %td.323.i.ph.i, ptr %heap_backing.i, align 8
+  %heaps.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3088
+  store ptr %td.323.i.ph.i, ptr %heaps.i, align 8
+  %stats.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4024
+  %stats16.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3992
   store ptr %stats.i, ptr %stats16.i, align 8
-  %os.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 4008
-  %os18.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 4000
+  %os.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4008
+  %os18.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4000
   store ptr %os.i, ptr %os18.i, align 8
-  %stats21.i = getelementptr inbounds i8, ptr %td.423.i.ph.i, i64 4016
+  %stats21.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4016
   store ptr %stats.i, ptr %stats21.i, align 8
-  store ptr %td.423.i.ph.i, ptr %0, align 8
-  call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %td.423.i.ph.i) #13
+  store ptr %td.323.i.ph.i, ptr %0, align 8
+  call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %td.323.i.ph.i) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.end6.i, %mi_thread_data_zalloc.exit.i, %_mi_heap_init.exit.thread1

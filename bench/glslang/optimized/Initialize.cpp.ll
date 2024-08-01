@@ -27693,8 +27693,8 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 
 107:                                              ; preds = %.preheader1460, %.loopexit1430
   %.not168 = phi i1 [ false, %.loopexit1430 ], [ true, %.preheader1460 ]
-  %.11441 = phi i32 [ %.2, %.loopexit1430 ], [ %.0141, %.preheader1460 ]
-  %.11431440 = phi i8 [ %.2144, %.loopexit1430 ], [ %.0142, %.preheader1460 ]
+  %.11441 = phi i32 [ %.3, %.loopexit1430 ], [ %.0141, %.preheader1460 ]
+  %.11431440 = phi i8 [ %.3145, %.loopexit1430 ], [ %.0142, %.preheader1460 ]
   br i1 %.not168, label %.critedge193, label %108
 
 108:                                              ; preds = %107
@@ -27713,15 +27713,15 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 
 .critedge193:                                     ; preds = %110, %107, %109
   %113 = phi i32 [ 3, %109 ], [ 3, %110 ], [ 1, %107 ]
-  %.2144 = phi i8 [ %.11431440, %109 ], [ %spec.select194, %110 ], [ %.11431440, %107 ]
-  %.2 = phi i32 [ %.11441, %109 ], [ %spec.select195, %110 ], [ %.11441, %107 ]
+  %.3145 = phi i8 [ %.11431440, %109 ], [ %spec.select194, %110 ], [ %.11431440, %107 ]
+  %.3 = phi i32 [ %.11441, %109 ], [ %spec.select195, %110 ], [ %.11441, %107 ]
   %114 = select i1 %85, i32 8, i32 %113
-  %115 = icmp eq i32 %.2, 1
+  %115 = icmp eq i32 %.3, 1
   %116 = zext nneg i32 %114 to i64
   %117 = getelementptr inbounds [24 x ptr], ptr %36, i64 0, i64 %116
-  %118 = sext i32 %.2 to i64
+  %118 = sext i32 %.3 to i64
   %119 = getelementptr inbounds [5 x ptr], ptr %41, i64 0, i64 %118
-  %120 = trunc nuw i8 %.2144 to i1
+  %120 = trunc nuw i8 %.3145 to i1
   %switch.tableidx = add nsw i32 %114, -1
   %121 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile, i64 0, i64 %121

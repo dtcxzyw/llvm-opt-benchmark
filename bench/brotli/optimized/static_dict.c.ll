@@ -1363,7 +1363,7 @@ while.body1062.lr.ph.lr.ph:                       ; preds = %if.then1037
 
 while.body1062.lr.ph:                             ; preds = %while.body1062.lr.ph.lr.ph, %while.cond1058.outer.backedge
   %offset1047.0.ph1675 = phi i64 [ %conv1053, %while.body1062.lr.ph.lr.ph ], [ %inc1065, %while.cond1058.outer.backedge ]
-  %has_found_match.5.ph1674 = phi i32 [ %has_found_match.0.ph, %while.body1062.lr.ph.lr.ph ], [ %has_found_match.5.ph.be, %while.cond1058.outer.backedge ]
+  %has_found_match.6.ph1674 = phi i32 [ %has_found_match.0.ph, %while.body1062.lr.ph.lr.ph ], [ %has_found_match.6.ph.be, %while.cond1058.outer.backedge ]
   %129 = load ptr, ptr %dict_words, align 8
   %130 = load ptr, ptr %dictionary, align 8
   %offsets_by_length.i2695 = getelementptr inbounds i8, ptr %130, i64 32
@@ -1500,7 +1500,7 @@ while.cond1058.outer.backedge.sink.split:         ; preds = %if.then1271, %if.th
   br label %while.cond1058.outer.backedge
 
 while.cond1058.outer.backedge:                    ; preds = %if.else1210, %while.cond1058.outer.backedge.sink.split, %if.then1148, %if.then1166, %if.else1141, %if.then1284, %if.end1266, %if.then1143, %if.then1184, %if.end1241, %if.then1308, %if.end1104, %if.end1230.thread
-  %has_found_match.5.ph.be = phi i32 [ 1, %if.end1230.thread ], [ 1, %if.end1104 ], [ 1, %if.then1148 ], [ 1, %if.then1166 ], [ 1, %if.else1141 ], [ 1, %if.end1266 ], [ 1, %if.then1284 ], [ 1, %if.then1143 ], [ 1, %if.then1184 ], [ 1, %if.end1241 ], [ 1, %if.then1308 ], [ 1, %while.cond1058.outer.backedge.sink.split ], [ %has_found_match.5.ph1674, %if.else1210 ]
+  %has_found_match.6.ph.be = phi i32 [ 1, %if.end1230.thread ], [ 1, %if.end1104 ], [ 1, %if.then1148 ], [ 1, %if.then1166 ], [ 1, %if.else1141 ], [ 1, %if.end1266 ], [ 1, %if.then1284 ], [ 1, %if.then1143 ], [ 1, %if.then1184 ], [ 1, %if.end1241 ], [ 1, %if.then1308 ], [ 1, %while.cond1058.outer.backedge.sink.split ], [ %has_found_match.6.ph1674, %if.else1210 ]
   br i1 %tobool1085, label %if.end1341, label %while.body1062.lr.ph, !llvm.loop !12
 
 if.end1115:                                       ; preds = %if.end1104
@@ -1829,7 +1829,7 @@ if.then1325:                                      ; preds = %if.then1308
   br label %while.cond1058.outer.backedge.sink.split
 
 if.end1341:                                       ; preds = %while.cond1058.outer.backedge, %while.cond1058.backedge, %if.then1037, %land.lhs.true1027
-  %has_found_match.7 = phi i32 [ %has_found_match.0.ph, %land.lhs.true1027 ], [ %has_found_match.0.ph, %if.then1037 ], [ %has_found_match.5.ph1674, %while.cond1058.backedge ], [ %has_found_match.5.ph.be, %while.cond1058.outer.backedge ]
+  %has_found_match.5 = phi i32 [ %has_found_match.0.ph, %land.lhs.true1027 ], [ %has_found_match.0.ph, %if.then1037 ], [ %has_found_match.6.ph1674, %while.cond1058.backedge ], [ %has_found_match.6.ph.be, %while.cond1058.outer.backedge ]
   %cmp1342.not = icmp eq i64 %max_length, 5
   br i1 %cmp1342.not, label %if.end1661, label %if.then1344
 
@@ -1871,7 +1871,7 @@ while.body1390.lr.ph:                             ; preds = %if.then1374
 
 while.body1390:                                   ; preds = %while.body1390.lr.ph, %if.end1466
   %offset1375.01695 = phi i64 [ %conv1381, %while.body1390.lr.ph ], [ %inc1393, %if.end1466 ]
-  %has_found_match.81694 = phi i32 [ %has_found_match.7, %while.body1390.lr.ph ], [ %has_found_match.9, %if.end1466 ]
+  %has_found_match.91694 = phi i32 [ %has_found_match.5, %while.body1390.lr.ph ], [ %has_found_match.10, %if.end1466 ]
   %173 = load ptr, ptr %dict_words, align 8
   %inc1393 = add i64 %offset1375.01695, 1
   %arrayidx1394 = getelementptr inbounds %struct.DictWord, ptr %173, i64 %offset1375.01695
@@ -2010,11 +2010,11 @@ if.end1466.sink.split:                            ; preds = %if.then1430, %if.th
   br label %if.end1466
 
 if.end1466:                                       ; preds = %if.end1466.sink.split, %land.lhs.true1443, %if.else1439, %IsMatch.exit2683, %while.body1390
-  %has_found_match.9 = phi i32 [ %has_found_match.81694, %land.lhs.true1443 ], [ %has_found_match.81694, %if.else1439 ], [ %has_found_match.81694, %IsMatch.exit2683 ], [ %has_found_match.81694, %while.body1390 ], [ 1, %if.end1466.sink.split ]
+  %has_found_match.10 = phi i32 [ %has_found_match.91694, %land.lhs.true1443 ], [ %has_found_match.91694, %if.else1439 ], [ %has_found_match.91694, %IsMatch.exit2683 ], [ %has_found_match.91694, %while.body1390 ], [ 1, %if.end1466.sink.split ]
   br i1 %tobool1413, label %if.end1469, label %while.body1390, !llvm.loop !13
 
 if.end1469:                                       ; preds = %if.end1466, %if.then1374, %land.lhs.true1349, %lor.lhs.false1364
-  %has_found_match.10 = phi i32 [ %has_found_match.7, %lor.lhs.false1364 ], [ %has_found_match.7, %land.lhs.true1349 ], [ %has_found_match.7, %if.then1374 ], [ %has_found_match.9, %if.end1466 ]
+  %has_found_match.8 = phi i32 [ %has_found_match.5, %lor.lhs.false1364 ], [ %has_found_match.5, %land.lhs.true1349 ], [ %has_found_match.5, %if.then1374 ], [ %has_found_match.10, %if.end1466 ]
   %cmp1470 = icmp ugt i64 %max_length, 8
   br i1 %cmp1470, label %if.then1472, label %if.end1661
 
@@ -2090,7 +2090,7 @@ while.body1538.lr.ph:                             ; preds = %if.then1522
 
 while.body1538:                                   ; preds = %while.body1538.lr.ph, %if.end1658
   %offset1523.01711 = phi i64 [ %conv1529, %while.body1538.lr.ph ], [ %inc1541, %if.end1658 ]
-  %has_found_match.111710 = phi i32 [ %has_found_match.10, %while.body1538.lr.ph ], [ %has_found_match.12, %if.end1658 ]
+  %has_found_match.121710 = phi i32 [ %has_found_match.8, %while.body1538.lr.ph ], [ %has_found_match.13, %if.end1658 ]
   %199 = load ptr, ptr %dict_words, align 8
   %inc1541 = add i64 %offset1523.01711, 1
   %arrayidx1542 = getelementptr inbounds %struct.DictWord, ptr %199, i64 %offset1523.01711
@@ -2291,12 +2291,12 @@ if.then1650:                                      ; preds = %land.lhs.true1645
   br label %if.end1658
 
 if.end1658:                                       ; preds = %if.then1578, %land.lhs.true1603, %land.lhs.true1608, %land.lhs.true1613, %land.lhs.true1618, %if.then1650, %land.lhs.true1645, %land.lhs.true1640, %land.lhs.true1635, %land.lhs.true1630, %if.then1623, %if.then1591, %IsMatch.exit, %while.body1538
-  %has_found_match.12 = phi i32 [ 1, %if.then1650 ], [ 1, %land.lhs.true1645 ], [ 1, %land.lhs.true1640 ], [ 1, %land.lhs.true1635 ], [ 1, %land.lhs.true1630 ], [ 1, %if.then1623 ], [ 1, %land.lhs.true1618 ], [ 1, %land.lhs.true1613 ], [ 1, %land.lhs.true1608 ], [ 1, %land.lhs.true1603 ], [ 1, %if.then1591 ], [ 1, %if.then1578 ], [ %has_found_match.111710, %IsMatch.exit ], [ %has_found_match.111710, %while.body1538 ]
+  %has_found_match.13 = phi i32 [ 1, %if.then1650 ], [ 1, %land.lhs.true1645 ], [ 1, %land.lhs.true1640 ], [ 1, %land.lhs.true1635 ], [ 1, %land.lhs.true1630 ], [ 1, %if.then1623 ], [ 1, %land.lhs.true1618 ], [ 1, %land.lhs.true1613 ], [ 1, %land.lhs.true1608 ], [ 1, %land.lhs.true1603 ], [ 1, %if.then1591 ], [ 1, %if.then1578 ], [ %has_found_match.121710, %IsMatch.exit ], [ %has_found_match.121710, %while.body1538 ]
   br i1 %tobool1561, label %if.end1661, label %while.body1538, !llvm.loop !14
 
 if.end1661:                                       ; preds = %if.end1658, %if.then1522, %if.then1472, %land.lhs.true1477, %land.lhs.true1482, %land.lhs.true1487, %land.lhs.true1492, %while.end, %if.end1341, %land.lhs.true1502, %land.lhs.true1507, %land.lhs.true1512, %land.lhs.true1517, %if.end1469
-  %has_found_match.13 = phi i32 [ %has_found_match.10, %land.lhs.true1517 ], [ %has_found_match.10, %land.lhs.true1512 ], [ %has_found_match.10, %land.lhs.true1507 ], [ %has_found_match.10, %land.lhs.true1502 ], [ %has_found_match.10, %if.end1469 ], [ %has_found_match.7, %if.end1341 ], [ %has_found_match.0.ph, %while.end ], [ %has_found_match.10, %land.lhs.true1492 ], [ %has_found_match.10, %land.lhs.true1487 ], [ %has_found_match.10, %land.lhs.true1482 ], [ %has_found_match.10, %land.lhs.true1477 ], [ %has_found_match.10, %if.then1472 ], [ %has_found_match.10, %if.then1522 ], [ %has_found_match.12, %if.end1658 ]
-  ret i32 %has_found_match.13
+  %has_found_match.11 = phi i32 [ %has_found_match.8, %land.lhs.true1517 ], [ %has_found_match.8, %land.lhs.true1512 ], [ %has_found_match.8, %land.lhs.true1507 ], [ %has_found_match.8, %land.lhs.true1502 ], [ %has_found_match.8, %if.end1469 ], [ %has_found_match.5, %if.end1341 ], [ %has_found_match.0.ph, %while.end ], [ %has_found_match.8, %land.lhs.true1492 ], [ %has_found_match.8, %land.lhs.true1487 ], [ %has_found_match.8, %land.lhs.true1482 ], [ %has_found_match.8, %land.lhs.true1477 ], [ %has_found_match.8, %if.then1472 ], [ %has_found_match.8, %if.then1522 ], [ %has_found_match.13, %if.end1658 ]
+  ret i32 %has_found_match.11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

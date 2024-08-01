@@ -1167,7 +1167,7 @@ invoke.cont181:                                   ; preds = %cond.end176
           to label %if.end185 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end185:                                        ; preds = %invoke.cont107, %cond.end158.thread, %invoke.cont181, %cond.end158, %if.end64
-  %result.6 = phi i32 [ %result.1, %if.end64 ], [ %call134, %invoke.cont181 ], [ %call134, %cond.end158 ], [ %call134, %cond.end158.thread ], [ %call102, %invoke.cont107 ]
+  %result.2 = phi i32 [ %result.1, %if.end64 ], [ %call134, %invoke.cont181 ], [ %call134, %cond.end158 ], [ %call134, %cond.end158.thread ], [ %call102, %invoke.cont107 ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %write_mu)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit71 unwind label %terminate.lpad.i70
 
@@ -1179,7 +1179,7 @@ terminate.lpad.i70:                               ; preds = %if.end185
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit71:      ; preds = %if.end185
-  %cmp186.not = icmp eq i32 %result.6, 0
+  %cmp186.not = icmp eq i32 %result.2, 0
   br i1 %cmp186.not, label %if.end201, label %if.then187
 
 if.then187:                                       ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit71
@@ -1189,7 +1189,7 @@ if.then187:                                       ; preds = %_ZN4absl12lts_20230
           to label %invoke.cont195 unwind label %lpad194
 
 invoke.cont195:                                   ; preds = %if.then187
-  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp189, ptr noundef nonnull %agg.tmp190, i32 noundef %result.6)
+  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp189, ptr noundef nonnull %agg.tmp190, i32 noundef %result.2)
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %invoke.cont195
@@ -1581,7 +1581,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %14 = phi i64 [ %11, %for.body.lr.ph ], [ %30, %for.inc ]
   %conv51116 = phi i64 [ 0, %for.body.lr.ph ], [ %conv51, %for.inc ]
   %i.0115 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %cur.0114 = phi ptr [ %cond1888, %for.body.lr.ph ], [ %cur.1.lcssa, %for.inc ]
+  %cur.0114 = phi ptr [ %cond1888, %for.body.lr.ph ], [ %cur.2.lcssa, %for.inc ]
   %end.0113 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %end.1.lcssa, %for.inc ]
   %15 = load ptr, ptr %slices, align 8
   %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %15, i64 %conv51116
@@ -1602,10 +1602,10 @@ while.body.preheader:                             ; preds = %for.body
 while.body:                                       ; preds = %while.body.preheader, %if.end100
   %message_size.0110 = phi i64 [ %sub, %if.end100 ], [ %cond76, %while.body.preheader ]
   %message_bytes.0109 = phi ptr [ %add.ptr90, %if.end100 ], [ %cond65, %while.body.preheader ]
-  %cur.1108 = phi ptr [ %cur.2, %if.end100 ], [ %cur.0114, %while.body.preheader ]
+  %cur.2108 = phi ptr [ %cur.3, %if.end100 ], [ %cur.0114, %while.body.preheader ]
   %end.1107 = phi ptr [ %end.2, %if.end100 ], [ %end.0113, %while.body.preheader ]
   %sub.ptr.lhs.cast = ptrtoint ptr %end.1107 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %cur.1108 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %cur.2108 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %unprotected_buffer_size_written, align 8
   store i64 %message_size.0110, ptr %processed_message_size, align 8
@@ -1614,7 +1614,7 @@ while.body:                                       ; preds = %while.body.preheade
 
 invoke.cont79:                                    ; preds = %while.body
   %19 = load ptr, ptr %protector, align 8
-  %call81 = invoke noundef i32 @_Z29tsi_frame_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef %19, ptr noundef %message_bytes.0109, ptr noundef nonnull %processed_message_size, ptr noundef %cur.1108, ptr noundef nonnull %unprotected_buffer_size_written)
+  %call81 = invoke noundef i32 @_Z29tsi_frame_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef %19, ptr noundef %message_bytes.0109, ptr noundef nonnull %processed_message_size, ptr noundef %cur.2108, ptr noundef nonnull %unprotected_buffer_size_written)
           to label %invoke.cont80 unwind label %lpad.loopexit
 
 invoke.cont80:                                    ; preds = %invoke.cont79
@@ -1638,7 +1638,7 @@ if.end89:                                         ; preds = %invoke.cont83
   %add.ptr90 = getelementptr inbounds i8, ptr %message_bytes.0109, i64 %20
   %sub = sub i64 %message_size.0110, %20
   %21 = load i64, ptr %unprotected_buffer_size_written, align 8
-  %add.ptr91 = getelementptr inbounds i8, ptr %cur.1108, i64 %21
+  %add.ptr91 = getelementptr inbounds i8, ptr %cur.2108, i64 %21
   %cmp92 = icmp eq ptr %add.ptr91, %end.1107
   br i1 %cmp92, label %if.then93, label %if.else95
 
@@ -1685,7 +1685,7 @@ if.else95:                                        ; preds = %if.end89
 
 if.end100:                                        ; preds = %_ZL25flush_read_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_.exit, %if.else95
   %end.2 = phi ptr [ %add.ptr.i, %_ZL25flush_read_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_.exit ], [ %end.1107, %if.else95 ]
-  %cur.2 = phi ptr [ %cond.i91, %_ZL25flush_read_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_.exit ], [ %add.ptr91, %if.else95 ]
+  %cur.3 = phi ptr [ %cond.i91, %_ZL25flush_read_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_.exit ], [ %add.ptr91, %if.else95 ]
   %keep_looping.2 = phi i1 [ true, %_ZL25flush_read_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_.exit ], [ %cmp96.not, %if.else95 ]
   %cmp77 = icmp ne i64 %sub, 0
   %29 = or i1 %keep_looping.2, %cmp77
@@ -1698,14 +1698,14 @@ for.inc.loopexit:                                 ; preds = %if.end100
 for.inc:                                          ; preds = %for.inc.loopexit, %for.body
   %30 = phi i64 [ %14, %for.body ], [ %.pre, %for.inc.loopexit ]
   %end.1.lcssa = phi ptr [ %end.0113, %for.body ], [ %end.2, %for.inc.loopexit ]
-  %cur.1.lcssa = phi ptr [ %cur.0114, %for.body ], [ %cur.2, %for.inc.loopexit ]
+  %cur.2.lcssa = phi ptr [ %cur.0114, %for.body ], [ %cur.3, %for.inc.loopexit ]
   %inc = add i32 %i.0115, 1
   %conv51 = zext i32 %inc to i64
   %cmp53 = icmp ugt i64 %30, %conv51
   br i1 %cmp53, label %for.body, label %for.end, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %invoke.cont86
-  %cur.3 = phi ptr [ %cur.1108, %invoke.cont86 ], [ %cond1888, %for.cond.preheader ], [ %cur.1.lcssa, %for.inc ]
+  %cur.1 = phi ptr [ %cur.2108, %invoke.cont86 ], [ %cond1888, %for.cond.preheader ], [ %cur.2.lcssa, %for.inc ]
   %result.3 = phi i32 [ %call81, %invoke.cont86 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
   %31 = load ptr, ptr %read_staging_buffer, align 8
   %tobool106.not = icmp eq ptr %31, null
@@ -1713,20 +1713,20 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 cond.end116:                                      ; preds = %for.end
   %bytes114 = getelementptr inbounds i8, ptr %user_data, i64 649
-  %cmp118.not = icmp eq ptr %cur.3, %bytes114
+  %cmp118.not = icmp eq ptr %cur.1, %bytes114
   br i1 %cmp118.not, label %cleanup, label %cond.end135
 
 cond.end116.thread:                               ; preds = %for.end
   %bytes110 = getelementptr inbounds i8, ptr %user_data, i64 656
   %32 = load ptr, ptr %bytes110, align 8
-  %cmp118.not96 = icmp eq ptr %cur.3, %32
+  %cmp118.not96 = icmp eq ptr %cur.1, %32
   br i1 %cmp118.not96, label %cleanup, label %cond.end135
 
 cond.end135:                                      ; preds = %cond.end116, %cond.end116.thread
   %cond136 = phi ptr [ %32, %cond.end116.thread ], [ %bytes114, %cond.end116 ]
   %.in = getelementptr inbounds i8, ptr %user_data, i64 104
   %33 = load ptr, ptr %.in, align 8
-  %sub.ptr.lhs.cast137 = ptrtoint ptr %cur.3 to i64
+  %sub.ptr.lhs.cast137 = ptrtoint ptr %cur.1 to i64
   %sub.ptr.rhs.cast138 = ptrtoint ptr %cond136 to i64
   %sub.ptr.sub139 = sub i64 %sub.ptr.lhs.cast137, %sub.ptr.rhs.cast138
   invoke void @grpc_slice_split_head(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp121, ptr noundef nonnull %read_staging_buffer, i64 noundef %sub.ptr.sub139)
@@ -1737,7 +1737,7 @@ invoke.cont140:                                   ; preds = %cond.end135
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %cond.end116.thread, %if.then.i.i, %invoke.cont36, %invoke.cont40, %invoke.cont140, %cond.end116
-  %result.5 = phi i32 [ %call41, %invoke.cont40 ], [ %result.3, %invoke.cont140 ], [ %result.3, %cond.end116 ], [ 0, %invoke.cont36 ], [ 0, %if.then.i.i ], [ %result.3, %cond.end116.thread ]
+  %result.0 = phi i32 [ %call41, %invoke.cont40 ], [ %result.3, %invoke.cont140 ], [ %result.3, %cond.end116 ], [ 0, %invoke.cont36 ], [ 0, %if.then.i.i ], [ %result.3, %cond.end116.thread ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %read_mu)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i52
 
@@ -1754,7 +1754,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
   %source_buffer144 = getelementptr inbounds i8, ptr %user_data, i64 112
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %source_buffer144)
-  %cmp145.not = icmp eq i32 %result.5, 0
+  %cmp145.not = icmp eq i32 %result.0, 0
   br i1 %cmp145.not, label %if.end162, label %if.then146
 
 if.then146:                                       ; preds = %cleanup.cont
@@ -1766,7 +1766,7 @@ if.then146:                                       ; preds = %cleanup.cont
           to label %invoke.cont154 unwind label %lpad153
 
 invoke.cont154:                                   ; preds = %if.then146
-  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp148, ptr noundef nonnull %agg.tmp149, i32 noundef %result.5)
+  invoke void @_Z25grpc_set_tsi_error_resultN4absl12lts_202308026StatusE10tsi_result(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp148, ptr noundef nonnull %agg.tmp149, i32 noundef %result.0)
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %invoke.cont154

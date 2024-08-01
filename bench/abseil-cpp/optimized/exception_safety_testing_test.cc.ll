@@ -27242,7 +27242,7 @@ catch37:                                          ; preds = %lpad
           to label %if.end58 unwind label %lpad10
 
 if.then40.critedge:                               ; preds = %.noexc, %invoke.cont
-  %ip.0 = phi ptr [ null, %invoke.cont ], [ %call.i19, %.noexc ]
+  %ip.2 = phi ptr [ null, %invoke.cont ], [ %call.i19, %.noexc ]
   %call43 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg, ptr noundef nonnull @.str.170)
           to label %gtest_label_testthrow_413 unwind label %lpad10
 
@@ -27320,7 +27320,7 @@ ehcleanup:                                        ; preds = %lpad21, %lpad16
           to label %ehcleanup59 unwind label %terminate.lpad
 
 gtest_label_testthrow_413:                        ; preds = %invoke.cont8.invoke, %if.then40.critedge
-  %ip.1 = phi ptr [ %ip.0, %if.then40.critedge ], [ null, %invoke.cont8.invoke ]
+  %ip.0 = phi ptr [ %ip.2, %if.then40.critedge ], [ null, %invoke.cont8.invoke ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47)
           to label %invoke.cont48 unwind label %lpad10
 
@@ -27379,7 +27379,7 @@ _ZN7testing7MessageD2Ev.exit24:                   ; preds = %ehcleanup57, %_ZNKS
   br label %ehcleanup59
 
 if.end58:                                         ; preds = %catch37, %_ZN7testing7MessageD2Ev.exit
-  %ip.2 = phi ptr [ %ip.1, %_ZN7testing7MessageD2Ev.exit ], [ null, %catch37 ]
+  %ip.1 = phi ptr [ %ip.0, %_ZN7testing7MessageD2Ev.exit ], [ null, %catch37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gtest_msg) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
@@ -27495,7 +27495,7 @@ terminate.lpad.i:                                 ; preds = %ehcleanup13.i
   unreachable
 
 if.then65:                                        ; preds = %_ZN7testing7MessageD2Ev.exit.i, %.noexc.i
-  %ip.3 = phi ptr [ %call.i.i4.i, %.noexc.i ], [ %ip.2, %_ZN7testing7MessageD2Ev.exit.i ]
+  %ip.3 = phi ptr [ %call.i.i4.i, %.noexc.i ], [ %ip.1, %_ZN7testing7MessageD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   store i32 1, ptr %ip.3, align 4
@@ -34982,12 +34982,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i
@@ -34998,7 +34998,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i: ;
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -35010,14 +35010,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_113ExampleStructEEclEPS2_.exit.i30
@@ -35036,11 +35036,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !249
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS2_EED2Ev.exit
@@ -36168,12 +36168,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i
@@ -36184,7 +36184,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exi
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -36196,14 +36196,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_119FailsBasicGuaranteeEEclEPS2_.exit.i30
@@ -36222,11 +36222,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !300
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit
@@ -37160,12 +37160,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i
@@ -37176,7 +37176,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.e
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -37188,14 +37188,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeEEclEPS2_.exit.i30
@@ -37214,11 +37214,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !333
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS2_EED2Ev.exit
@@ -39331,12 +39331,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i
@@ -39347,7 +39347,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContracts
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -39359,14 +39359,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEclEPS2_.exit.i30
@@ -39385,11 +39385,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !436
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS2_EED2Ev.exit
@@ -40885,12 +40885,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i
@@ -40901,7 +40901,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -40913,14 +40913,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeEEclEPS2_.exit.i30
@@ -40939,11 +40939,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !493
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS2_EED2Ev.exit
@@ -42364,12 +42364,12 @@ lpad22.i.i.i:                                     ; preds = %invoke.cont25.i.i.i
   br label %ehcleanup.i.i.i124
 
 cleanup.i.i.i:                                    ; preds = %invoke.cont27.i.i.i, %invoke.cont16.i.i.i
-  %cleanup.dest.slot.0.i.i.i = phi i32 [ 1, %invoke.cont27.i.i.i ], [ 0, %invoke.cont16.i.i.i ]
+  %cleanup.dest.slot.1.i.i.i = phi i32 [ 1, %invoke.cont27.i.i.i ], [ 0, %invoke.cont16.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %cleanup31.i.i.i unwind label %lpad28.i.i.i
 
 cleanup31.i.i.i:                                  ; preds = %cleanup.i.i.i, %invoke.cont9.i.i.i
-  %cleanup.dest.slot.1.i.i.i = phi i32 [ 1, %invoke.cont9.i.i.i ], [ %cleanup.dest.slot.0.i.i.i, %cleanup.i.i.i ]
+  %cleanup.dest.slot.0.i.i.i = phi i32 [ 1, %invoke.cont9.i.i.i ], [ %cleanup.dest.slot.1.i.i.i, %cleanup.i.i.i ]
   %103 = load ptr, ptr %t_ptr.i.i.i, align 8, !noalias !563
   %cmp.not.i.i.i.i = icmp eq ptr %103, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i.i.i.i
@@ -42380,7 +42380,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i.i.i.i: ;
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i.i.i.i, %cleanup31.i.i.i
   store ptr null, ptr %t_ptr.i.i.i, align 8, !noalias !563
-  %cond1.i.i.i = icmp eq i32 %cleanup.dest.slot.1.i.i.i, 0
+  %cond1.i.i.i = icmp eq i32 %cleanup.dest.slot.0.i.i.i, 0
   br i1 %cond1.i.i.i, label %for.cond4.i.i.i, label %invoke.cont6.i.i
 
 lpad28.i.i.i:                                     ; preds = %cleanup.i.i.i
@@ -42392,14 +42392,14 @@ lpad28.i.i.i:                                     ; preds = %cleanup.i.i.i
 
 ehcleanup.i.i.i124:                               ; preds = %lpad22.i.i.i, %lpad15.i.i.i, %lpad13.loopexit.split-lp.i.i.i, %lpad13.loopexit.i.i.i
   %.pn.i10.i.i = phi { ptr, i32 } [ %102, %lpad22.i.i.i ], [ %101, %lpad15.i.i.i ], [ %lpad.loopexit36.i.i.i, %lpad13.loopexit.i.i.i ], [ %lpad.loopexit.split-lp37.i.i.i, %lpad13.loopexit.split-lp.i.i.i ]
-  %ehselector.slot.0.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i, 1
-  %exn.slot.0.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i, 0
+  %ehselector.slot.2.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i, 1
+  %exn.slot.2.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34.i.i.i unwind label %terminate.lpad.i.i.i
 
 ehcleanup34.i.i.i:                                ; preds = %lpad8.i.i.i, %ehcleanup.i.i.i124, %lpad28.i.i.i
-  %exn.slot.1.i.i.i = phi ptr [ %105, %lpad28.i.i.i ], [ %exn.slot.0.i.i.i, %ehcleanup.i.i.i124 ], [ %93, %lpad8.i.i.i ]
-  %ehselector.slot.1.i.i.i = phi i32 [ %106, %lpad28.i.i.i ], [ %ehselector.slot.0.i.i.i, %ehcleanup.i.i.i124 ], [ %94, %lpad8.i.i.i ]
+  %exn.slot.1.i.i.i = phi ptr [ %105, %lpad28.i.i.i ], [ %exn.slot.2.i.i.i, %ehcleanup.i.i.i124 ], [ %93, %lpad8.i.i.i ]
+  %ehselector.slot.1.i.i.i = phi i32 [ %106, %lpad28.i.i.i ], [ %ehselector.slot.2.i.i.i, %ehcleanup.i.i.i124 ], [ %94, %lpad8.i.i.i ]
   %107 = load ptr, ptr %t_ptr.i.i.i, align 8, !noalias !563
   %cmp.not.i29.i.i.i = icmp eq ptr %107, null
   br i1 %cmp.not.i29.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_18HasResetEEclEPS2_.exit.i30.i.i.i
@@ -42467,11 +42467,11 @@ terminate.lpad.i.i19.i.i:                         ; preds = %if.then.i.i17.i.i
   unreachable
 
 ehcleanup.i.i:                                    ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i, %lpad.i.i.i
-  %exn.slot.2.i.i.i = phi ptr [ %exn.slot.1.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i ], [ %90, %lpad.i.i.i ]
-  %ehselector.slot.2.i.i.i = phi i32 [ %ehselector.slot.1.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i ], [ %91, %lpad.i.i.i ]
+  %exn.slot.0.i.i.i = phi ptr [ %exn.slot.1.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i ], [ %90, %lpad.i.i.i ]
+  %ehselector.slot.0.i.i.i = phi i32 [ %ehselector.slot.1.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS2_EED2Ev.exit32.i.i.i ], [ %91, %lpad.i.i.i ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct.i.i.i) #23
-  %lpad.val.i.i.i = insertvalue { ptr, i32 } poison, ptr %exn.slot.2.i.i.i, 0
-  %lpad.val43.i.i.i = insertvalue { ptr, i32 } %lpad.val.i.i.i, i32 %ehselector.slot.2.i.i.i, 1
+  %lpad.val.i.i.i = insertvalue { ptr, i32 } poison, ptr %exn.slot.0.i.i.i, 0
+  %lpad.val43.i.i.i = insertvalue { ptr, i32 } %lpad.val.i.i.i, i32 %ehselector.slot.0.i.i.i, 1
   call fastcc void @_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_18HasResetEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i) #23
   %.pre.i.i = load ptr, ptr %_M_manager.i.i2.i.i, align 8, !noalias !560
   %tobool.not.i.i21.i.i = icmp eq ptr %.pre.i.i, null
@@ -43870,12 +43870,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %21 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %21, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS3_EED2Ev.exit, label %delete.notnull.i.i
@@ -43897,7 +43897,7 @@ _ZNKSt14default_deleteIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEclEPS3_.exit
 
 _ZNSt10unique_ptrIN7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEclEPS3_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -43909,14 +43909,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %20, %lpad22 ], [ %19, %lpad15 ], [ %lpad.loopexit31, %lpad13.loopexit ], [ %lpad.loopexit.split-lp32, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %25, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %10, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %26, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %11, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %25, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %10, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %26, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %11, %lpad8 ]
   call void @_ZNSt10unique_ptrIN7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %t_ptr) #23
   br label %ehcleanup39
 
@@ -43926,11 +43926,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !630
 
 ehcleanup39:                                      ; preds = %ehcleanup34, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup34 ], [ %7, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup34 ], [ %8, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup34 ], [ %7, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup34 ], [ %8, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing13ThrowingValueILNS0_8TypeSpecE0EEESt14default_deleteIS3_EED2Ev.exit
@@ -45184,12 +45184,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i
@@ -45200,7 +45200,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i: ; p
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -45212,14 +45212,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_111NonCopyableEEclEPS2_.exit.i30
@@ -45238,11 +45238,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !677
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS2_EED2Ev.exit
@@ -46663,12 +46663,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %18 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %18, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i
@@ -46679,7 +46679,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.e
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup31, %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -46691,14 +46691,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %17, %lpad22 ], [ %16, %lpad15 ], [ %lpad.loopexit36, %lpad13.loopexit ], [ %lpad.loopexit.split-lp37, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %8, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %9, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %20, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %8, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %21, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %9, %lpad8 ]
   %22 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i29 = icmp eq ptr %22, null
   br i1 %cmp.not.i29, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_121NonEqualityComparableEEclEPS2_.exit.i30
@@ -46717,11 +46717,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !737
 
 ehcleanup39:                                      ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32 ], [ %5, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit32 ], [ %6, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #23
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS2_EED2Ev.exit
@@ -47379,12 +47379,12 @@ lpad22.i.i.i.i:                                   ; preds = %invoke.cont25.i.i.i
   br label %ehcleanup.i.i.i.i
 
 cleanup.i.i.i.i:                                  ; preds = %invoke.cont27.i.i.i.i, %invoke.cont16.i.i.i.i
-  %cleanup.dest.slot.0.i.i.i.i = phi i32 [ 1, %invoke.cont27.i.i.i.i ], [ 0, %invoke.cont16.i.i.i.i ]
+  %cleanup.dest.slot.1.i.i.i.i = phi i32 [ 1, %invoke.cont27.i.i.i.i ], [ 0, %invoke.cont16.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %cleanup31.i.i.i.i unwind label %lpad28.i.i.i.i
 
 cleanup31.i.i.i.i:                                ; preds = %cleanup.i.i.i.i, %invoke.cont9.i.i.i.i
-  %cleanup.dest.slot.1.i.i.i.i = phi i32 [ 1, %invoke.cont9.i.i.i.i ], [ %cleanup.dest.slot.0.i.i.i.i, %cleanup.i.i.i.i ]
+  %cleanup.dest.slot.0.i.i.i.i = phi i32 [ 1, %invoke.cont9.i.i.i.i ], [ %cleanup.dest.slot.1.i.i.i.i, %cleanup.i.i.i.i ]
   %18 = load ptr, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   %cmp.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i.i.i.i.i
@@ -47395,7 +47395,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i.i.i.i.i, %cleanup31.i.i.i.i
   store ptr null, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
-  %cond1.i.i.i.i = icmp eq i32 %cleanup.dest.slot.1.i.i.i.i, 0
+  %cond1.i.i.i.i = icmp eq i32 %cleanup.dest.slot.0.i.i.i.i, 0
   br i1 %cond1.i.i.i.i, label %for.cond4.i.i.i.i, label %invoke.cont6.i.i.i
 
 lpad28.i.i.i.i:                                   ; preds = %cleanup.i.i.i.i
@@ -47407,14 +47407,14 @@ lpad28.i.i.i.i:                                   ; preds = %cleanup.i.i.i.i
 
 ehcleanup.i.i.i.i:                                ; preds = %lpad22.i.i.i.i, %lpad15.i.i.i.i, %lpad13.loopexit.split-lp.i.i.i.i, %lpad13.loopexit.i.i.i.i
   %.pn.i10.i.i.i = phi { ptr, i32 } [ %17, %lpad22.i.i.i.i ], [ %16, %lpad15.i.i.i.i ], [ %lpad.loopexit36.i.i.i.i, %lpad13.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp37.i.i.i.i, %lpad13.loopexit.split-lp.i.i.i.i ]
-  %ehselector.slot.0.i.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i.i, 1
-  %exn.slot.0.i.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i.i, 0
+  %ehselector.slot.2.i.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i.i, 1
+  %exn.slot.2.i.i.i.i = extractvalue { ptr, i32 } %.pn.i10.i.i.i, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 ehcleanup34.i.i.i.i:                              ; preds = %lpad8.i.i.i.i, %ehcleanup.i.i.i.i, %lpad28.i.i.i.i
-  %exn.slot.1.i.i.i.i = phi ptr [ %20, %lpad28.i.i.i.i ], [ %exn.slot.0.i.i.i.i, %ehcleanup.i.i.i.i ], [ %8, %lpad8.i.i.i.i ]
-  %ehselector.slot.1.i.i.i.i = phi i32 [ %21, %lpad28.i.i.i.i ], [ %ehselector.slot.0.i.i.i.i, %ehcleanup.i.i.i.i ], [ %9, %lpad8.i.i.i.i ]
+  %exn.slot.1.i.i.i.i = phi ptr [ %20, %lpad28.i.i.i.i ], [ %exn.slot.2.i.i.i.i, %ehcleanup.i.i.i.i ], [ %8, %lpad8.i.i.i.i ]
+  %ehselector.slot.1.i.i.i.i = phi i32 [ %21, %lpad28.i.i.i.i ], [ %ehselector.slot.2.i.i.i.i, %ehcleanup.i.i.i.i ], [ %9, %lpad8.i.i.i.i ]
   %22 = load ptr, ptr %t_ptr.i.i.i.i, align 8, !noalias !769
   %cmp.not.i29.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i29.i.i.i.i, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEEEclEPS3_.exit.i30.i.i.i.i
@@ -47482,11 +47482,11 @@ terminate.lpad.i.i19.i.i.i:                       ; preds = %if.then.i.i17.i.i.i
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i, %lpad.i.i.i.i
-  %exn.slot.2.i.i.i.i = phi ptr [ %exn.slot.1.i.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i ], [ %5, %lpad.i.i.i.i ]
-  %ehselector.slot.2.i.i.i.i = phi i32 [ %ehselector.slot.1.i.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i ], [ %6, %lpad.i.i.i.i ]
+  %exn.slot.0.i.i.i.i = phi ptr [ %exn.slot.1.i.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i ], [ %5, %lpad.i.i.i.i ]
+  %ehselector.slot.0.i.i.i.i = phi i32 [ %ehselector.slot.1.i.i.i.i, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS3_EED2Ev.exit32.i.i.i.i ], [ %6, %lpad.i.i.i.i ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct.i.i.i.i) #23
-  %lpad.val.i.i.i.i = insertvalue { ptr, i32 } poison, ptr %exn.slot.2.i.i.i.i, 0
-  %lpad.val43.i.i.i.i = insertvalue { ptr, i32 } %lpad.val.i.i.i.i, i32 %ehselector.slot.2.i.i.i.i, 1
+  %lpad.val.i.i.i.i = insertvalue { ptr, i32 } poison, ptr %exn.slot.0.i.i.i.i, 0
+  %lpad.val43.i.i.i.i = insertvalue { ptr, i32 } %lpad.val.i.i.i.i, i32 %ehselector.slot.0.i.i.i.i, 1
   call fastcc void @_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i.i) #23
   %.pre.i.i.i = load ptr, ptr %_M_manager.i.i2.i.i.i, align 8, !noalias !766
   %tobool.not.i.i21.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -48148,12 +48148,12 @@ lpad22.i.i.i.i130:                                ; preds = %invoke.cont25.i.i.i
   br label %ehcleanup.i13.i.i.i
 
 cleanup.i.i.i.i109:                               ; preds = %invoke.cont27.i.i.i.i134, %invoke.cont16.i.i.i.i107
-  %cleanup.dest.slot.0.i.i.i.i110 = phi i32 [ 1, %invoke.cont27.i.i.i.i134 ], [ 0, %invoke.cont16.i.i.i.i107 ]
+  %cleanup.dest.slot.1.i.i.i.i110 = phi i32 [ 1, %invoke.cont27.i.i.i.i134 ], [ 0, %invoke.cont16.i.i.i.i107 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31.i.i.i.i112 unwind label %lpad28.i.i.i.i111
 
 cleanup31.i.i.i.i112:                             ; preds = %cleanup.i.i.i.i109, %invoke.cont9.i.i.i.i139
-  %cleanup.dest.slot.1.i.i.i.i113 = phi i32 [ 1, %invoke.cont9.i.i.i.i139 ], [ %cleanup.dest.slot.0.i.i.i.i110, %cleanup.i.i.i.i109 ]
+  %cleanup.dest.slot.0.i.i.i.i113 = phi i32 [ 1, %invoke.cont9.i.i.i.i139 ], [ %cleanup.dest.slot.1.i.i.i.i110, %cleanup.i.i.i.i109 ]
   %103 = load ptr, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   %cmp.not.i.i.i.i.i114 = icmp eq ptr %103, null
   br i1 %cmp.not.i.i.i.i.i114, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i.i
@@ -48164,7 +48164,7 @@ _ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13Throw
 
 _ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i.i.i.i.i, %cleanup31.i.i.i.i112
   store ptr null, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
-  %cond1.i.i.i.i115 = icmp eq i32 %cleanup.dest.slot.1.i.i.i.i113, 0
+  %cond1.i.i.i.i115 = icmp eq i32 %cleanup.dest.slot.0.i.i.i.i113, 0
   br i1 %cond1.i.i.i.i115, label %for.cond4.i.i.i.i119, label %invoke.cont8.i.i.i
 
 lpad28.i.i.i.i111:                                ; preds = %cleanup.i.i.i.i109
@@ -48176,14 +48176,14 @@ lpad28.i.i.i.i111:                                ; preds = %cleanup.i.i.i.i109
 
 ehcleanup.i13.i.i.i:                              ; preds = %lpad22.i.i.i.i130, %lpad15.i.i.i.i106, %lpad13.loopexit.split-lp.i.i.i.i136, %lpad13.loopexit.i.i.i.i100
   %.pn.i14.i.i.i = phi { ptr, i32 } [ %102, %lpad22.i.i.i.i130 ], [ %101, %lpad15.i.i.i.i106 ], [ %lpad.loopexit36.i.i.i.i101, %lpad13.loopexit.i.i.i.i100 ], [ %lpad.loopexit.split-lp37.i.i.i.i137, %lpad13.loopexit.split-lp.i.i.i.i136 ]
-  %ehselector.slot.0.i.i.i.i102 = extractvalue { ptr, i32 } %.pn.i14.i.i.i, 1
-  %exn.slot.0.i.i.i.i103 = extractvalue { ptr, i32 } %.pn.i14.i.i.i, 0
+  %ehselector.slot.2.i.i.i.i102 = extractvalue { ptr, i32 } %.pn.i14.i.i.i, 1
+  %exn.slot.2.i.i.i.i103 = extractvalue { ptr, i32 } %.pn.i14.i.i.i, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34.i.i.i.i93 unwind label %terminate.lpad.i.i.i.i104
 
 ehcleanup34.i.i.i.i93:                            ; preds = %lpad8.i.i.i.i91, %ehcleanup.i13.i.i.i, %lpad28.i.i.i.i111
-  %exn.slot.1.i.i.i.i94 = phi ptr [ %105, %lpad28.i.i.i.i111 ], [ %exn.slot.0.i.i.i.i103, %ehcleanup.i13.i.i.i ], [ %93, %lpad8.i.i.i.i91 ]
-  %ehselector.slot.1.i.i.i.i95 = phi i32 [ %106, %lpad28.i.i.i.i111 ], [ %ehselector.slot.0.i.i.i.i102, %ehcleanup.i13.i.i.i ], [ %94, %lpad8.i.i.i.i91 ]
+  %exn.slot.1.i.i.i.i94 = phi ptr [ %105, %lpad28.i.i.i.i111 ], [ %exn.slot.2.i.i.i.i103, %ehcleanup.i13.i.i.i ], [ %93, %lpad8.i.i.i.i91 ]
+  %ehselector.slot.1.i.i.i.i95 = phi i32 [ %106, %lpad28.i.i.i.i111 ], [ %ehselector.slot.2.i.i.i.i102, %ehcleanup.i13.i.i.i ], [ %94, %lpad8.i.i.i.i91 ]
   %107 = load ptr, ptr %t_ptr.i.i.i.i39, align 8, !noalias !800
   %cmp.not.i29.i.i.i.i96 = icmp eq ptr %107, null
   br i1 %cmp.not.i29.i.i.i.i96, label %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i, label %_ZNKSt14default_deleteIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEEEclEPS6_.exit.i30.i.i.i.i
@@ -48202,11 +48202,11 @@ for.inc40.i.i.i.i122:                             ; preds = %for.cond4.i.i.i.i11
   br label %for.cond.i.i.i.i73, !llvm.loop !810
 
 ehcleanup39.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i, %lpad.i.i.i.i82
-  %exn.slot.2.i.i.i.i84 = phi ptr [ %exn.slot.1.i.i.i.i94, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i ], [ %90, %lpad.i.i.i.i82 ]
-  %ehselector.slot.2.i.i.i.i85 = phi i32 [ %ehselector.slot.1.i.i.i.i95, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i ], [ %91, %lpad.i.i.i.i82 ]
+  %exn.slot.0.i.i.i.i84 = phi ptr [ %exn.slot.1.i.i.i.i94, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i ], [ %90, %lpad.i.i.i.i82 ]
+  %ehselector.slot.0.i.i.i.i85 = phi i32 [ %ehselector.slot.1.i.i.i.i95, %_ZNSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS0_13ThrowingValueILNS0_8TypeSpecE0EEEEESt14default_deleteIS6_EED2Ev.exit32.i.i.i.i ], [ %91, %lpad.i.i.i.i82 ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct.i.i.i.i38) #23
-  %lpad.val.i.i.i.i86 = insertvalue { ptr, i32 } poison, ptr %exn.slot.2.i.i.i.i84, 0
-  %lpad.val43.i.i.i.i87 = insertvalue { ptr, i32 } %lpad.val.i.i.i.i86, i32 %ehselector.slot.2.i.i.i.i85, 1
+  %lpad.val.i.i.i.i86 = insertvalue { ptr, i32 } poison, ptr %exn.slot.0.i.i.i.i84, 0
+  %lpad.val43.i.i.i.i87 = insertvalue { ptr, i32 } %lpad.val.i.i.i.i86, i32 %ehselector.slot.0.i.i.i.i85, 1
   call fastcc void @_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_120ExhaustivenessTesterINS_13ThrowingValueILNS_8TypeSpecE0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp.i.i.i44) #23
   br label %ehcleanup.i.i.i58
 

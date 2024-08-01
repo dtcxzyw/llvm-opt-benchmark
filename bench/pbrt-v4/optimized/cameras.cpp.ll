@@ -1527,7 +1527,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113: ; preds = %invoke.cont82, %_ZN
   br i1 %tobool.i115, label %invoke.cont127, label %for.cond70
 
 invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread
-  %ry.sroa.10.2358380 = phi i8 [ 1, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ %spec.select276, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
+  %ry.sroa.10.4358380 = phi i8 [ 1, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ %spec.select276, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
   %ry.sroa.6.1359378 = phi float [ %ry.sroa.6.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
   %ry.sroa.3.1362375 = phi float [ %ry.sroa.3.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
   %25 = phi <2 x float> [ %24, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
@@ -1550,7 +1550,7 @@ invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN
   br label %for.end134
 
 for.end134:                                       ; preds = %for.cond70, %invoke.cont127
-  %ry.sroa.10.2358379 = phi i8 [ %ry.sroa.10.2358380, %invoke.cont127 ], [ %spec.select276, %for.cond70 ]
+  %ry.sroa.10.4358379 = phi i8 [ %ry.sroa.10.4358380, %invoke.cont127 ], [ %spec.select276, %for.cond70 ]
   %rd.sroa.31.0 = phi <2 x float> [ %31, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
   %rd.sroa.35.0 = phi <2 x float> [ %35, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
   %rd.sroa.36.0 = phi float [ %add6.i185, %invoke.cont127 ], [ 0.000000e+00, %for.cond70 ]
@@ -1564,7 +1564,7 @@ land.rhs.i.i203:                                  ; preds = %for.end134
   unreachable
 
 invoke.cont145:                                   ; preds = %for.end134
-  %37 = and i8 %ry.sroa.10.2358379, 1
+  %37 = and i8 %ry.sroa.10.4358379, 1
   %frombool = select i1 %tobool.i31348, i8 %37, i8 0
   %weight144 = getelementptr inbounds i8, ptr %cr, i64 40
   %set.i207 = getelementptr inbounds i8, ptr %agg.result, i64 112
@@ -4213,14 +4213,14 @@ ehcleanup416:                                     ; preds = %arraydestroy.body41
 
 ehcleanup418:                                     ; preds = %lpad390, %ehcleanup416
   %cleanup.isactive396.1 = phi i1 [ %76, %ehcleanup416 ], [ false, %lpad390 ]
-  %arrayinit.endOfInit384.0 = phi ptr [ %arrayinit.element392, %ehcleanup416 ], [ %arrayinit.element388, %lpad390 ]
+  %arrayinit.endOfInit384.1 = phi ptr [ %arrayinit.element392, %ehcleanup416 ], [ %arrayinit.element388, %lpad390 ]
   %.pn63.pn = phi { ptr, i32 } [ %.pn63, %ehcleanup416 ], [ %72, %lpad390 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp389) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp385) #25
   br i1 %cleanup.isactive396.1, label %ehcleanup531, label %arraydestroy.body423
 
 arraydestroy.body423:                             ; preds = %ehcleanup418, %arraydestroy.body423
-  %arraydestroy.elementPast424 = phi ptr [ %arraydestroy.element425, %arraydestroy.body423 ], [ %arrayinit.endOfInit384.0, %ehcleanup418 ]
+  %arraydestroy.elementPast424 = phi ptr [ %arraydestroy.element425, %arraydestroy.body423 ], [ %arrayinit.endOfInit384.1, %ehcleanup418 ]
   %arraydestroy.element425 = getelementptr inbounds i8, ptr %arraydestroy.elementPast424, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element425) #25
   %arraydestroy.done426 = icmp eq ptr %arraydestroy.element425, %ref.tmp382
@@ -4532,7 +4532,7 @@ ehcleanup631:                                     ; preds = %lpad71.loopexit, %l
   br label %ehcleanup633
 
 cleanup:                                          ; preds = %_ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEvPKNS_7FileLocEPKcDpOT_.exit, %_ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_.exit, %invoke.cont629
-  %retval.0 = phi ptr [ %call.i.i.i.i239, %invoke.cont629 ], [ null, %_ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_.exit ], [ null, %_ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEvPKNS_7FileLocEPKcDpOT_.exit ]
+  %retval.1 = phi ptr [ %call.i.i.i.i239, %invoke.cont629 ], [ null, %_ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_.exit ], [ null, %_ZN4pbrt5ErrorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEvPKNS_7FileLocEPKcDpOT_.exit ]
   %99 = load ptr, ptr %lensParameters, align 8
   %tobool.not.i.i.i241 = icmp eq ptr %99, null
   br i1 %tobool.not.i.i.i241, label %cleanup634, label %if.then.i.i.i
@@ -4552,9 +4552,9 @@ if.then.i.i.i243:                                 ; preds = %ehcleanup633
   br label %ehcleanup635
 
 cleanup634:                                       ; preds = %if.then.i.i.i, %cleanup, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lensFile) #25
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup635:                                     ; preds = %if.then.i.i.i243, %ehcleanup633, %lpad37, %lpad33, %ehcleanup31, %ehcleanup22
   %.pn84 = phi { ptr, i32 } [ %14, %lpad33 ], [ %19, %lpad37 ], [ %.pn56, %ehcleanup31 ], [ %.pn54, %ehcleanup22 ], [ %.pn82, %ehcleanup633 ], [ %.pn82, %if.then.i.i.i243 ]

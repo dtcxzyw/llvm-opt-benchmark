@@ -135,8 +135,8 @@ define dso_local i64 @uv__hrtime(i32 noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %3, %1, %5
-  %.1 = phi i64 [ 1, %1 ], [ %4, %3 ], [ %spec.select, %5 ]
-  %12 = trunc nuw nsw i64 %.1 to i32
+  %.0 = phi i64 [ 1, %1 ], [ %4, %3 ], [ %spec.select, %5 ]
+  %12 = trunc nuw nsw i64 %.0 to i32
   %13 = call i32 @clock_gettime(i32 noundef %12, ptr noundef nonnull %2) #14
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %14, label %20
@@ -690,7 +690,7 @@ read_models.exit:                                 ; preds = %32
   br i1 %.not, label %.lr.ph.i38, label %read_speeds.exit
 
 121:                                              ; preds = %read_models.exit, %.thread66
-  %.01971 = phi i32 [ -12, %.thread66 ], [ %87, %read_models.exit ]
+  %.171 = phi i32 [ -12, %.thread66 ], [ %87, %read_models.exit ]
   call void @uv_free_cpu_info(ptr noundef nonnull %30, i32 noundef %.0.lcssa.i) #14
   br label %135
 
@@ -736,7 +736,7 @@ read_speeds.exit:                                 ; preds = %read_cpufreq.exit.i
   br label %135
 
 135:                                              ; preds = %uv__cpu_num.exit.thread, %28, %read_speeds.exit, %121
-  %.1 = phi i32 [ -12, %28 ], [ %.01971, %121 ], [ 0, %read_speeds.exit ], [ -5, %uv__cpu_num.exit.thread ]
+  %.019 = phi i32 [ -12, %28 ], [ %.171, %121 ], [ 0, %read_speeds.exit ], [ -5, %uv__cpu_num.exit.thread ]
   %136 = call i32 @fclose(ptr noundef nonnull %15)
   %.not25 = icmp eq i32 %136, 0
   br i1 %.not25, label %141, label %137
@@ -754,7 +754,7 @@ read_speeds.exit:                                 ; preds = %read_cpufreq.exit.i
   unreachable
 
 141:                                              ; preds = %135, %137, %137, %17
-  %.0 = phi i32 [ %20, %17 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %135 ]
+  %.0 = phi i32 [ %20, %17 ], [ %.019, %137 ], [ %.019, %137 ], [ %.019, %135 ]
   ret i32 %.0
 }
 

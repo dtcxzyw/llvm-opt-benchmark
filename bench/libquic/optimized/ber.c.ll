@@ -237,7 +237,7 @@ if.end.i:                                         ; preds = %if.else
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end.i, %3, %if.else
-  %child_string_tag.0 = phi i32 [ 0, %if.else ], [ %and21, %3 ], [ 0, %if.end.i ]
+  %child_string_tag.1 = phi i32 [ 0, %if.else ], [ %and21, %3 ], [ 0, %if.end.i ]
   %out_tag.0 = phi i32 [ %1, %if.else ], [ %and21, %3 ], [ %1, %if.end.i ]
   %conv23 = trunc i32 %out_tag.0 to i8
   %call24 = call i32 @CBB_add_asn1(ptr noundef %out, ptr noundef nonnull %out_contents_storage, i8 noundef zeroext %conv23) #3
@@ -245,7 +245,7 @@ if.end22:                                         ; preds = %if.end.i, %3, %if.e
   br i1 %tobool25.not, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end22, %if.then11
-  %child_string_tag.1 = phi i32 [ %string_tag, %if.then11 ], [ %child_string_tag.0, %if.end22 ]
+  %child_string_tag.0 = phi i32 [ %string_tag, %if.then11 ], [ %child_string_tag.1, %if.end22 ]
   %out_contents.0 = phi ptr [ %out, %if.then11 ], [ %out_contents_storage, %if.end22 ]
   %call29 = call i64 @CBS_len(ptr noundef nonnull %contents) #3
   %4 = load i64, ptr %header_len, align 8
@@ -264,7 +264,7 @@ land.lhs.true35:                                  ; preds = %if.end28
   br i1 %cmp38, label %if.then40, label %if.end47
 
 if.then40:                                        ; preds = %land.lhs.true35
-  %call41 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out_contents.0, i32 noundef %child_string_tag.1, i8 noundef signext 1, i32 noundef %add55)
+  %call41 = call fastcc i32 @cbs_convert_ber(ptr noundef %in, ptr noundef %out_contents.0, i32 noundef %child_string_tag.0, i8 noundef signext 1, i32 noundef %add55)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %return, label %lor.lhs.false
 
@@ -291,7 +291,7 @@ if.end51:                                         ; preds = %if.end47
   br i1 %tobool53.not, label %if.else60, label %if.then54
 
 if.then54:                                        ; preds = %if.end51
-  %call56 = call fastcc i32 @cbs_convert_ber(ptr noundef nonnull %contents, ptr noundef %out_contents.0, i32 noundef %child_string_tag.1, i8 noundef signext 0, i32 noundef %add55)
+  %call56 = call fastcc i32 @cbs_convert_ber(ptr noundef nonnull %contents, ptr noundef %out_contents.0, i32 noundef %child_string_tag.0, i8 noundef signext 0, i32 noundef %add55)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end67
 

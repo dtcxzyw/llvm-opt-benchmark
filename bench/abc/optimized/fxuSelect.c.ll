@@ -777,7 +777,7 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
 
 8:                                                ; preds = %.lr.ph103, %.loopexit
   %.047101 = phi ptr [ %.04796, %.lr.ph103 ], [ %.047, %.loopexit ]
-  %.0100 = phi i32 [ -10, %.lr.ph103 ], [ %.3, %.loopexit ]
+  %.0100 = phi i32 [ -10, %.lr.ph103 ], [ %.1, %.loopexit ]
   store ptr %6, ptr %7, align 8
   store ptr null, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %.047101, i64 24
@@ -826,11 +826,11 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br i1 %switch, label %.loopexit72, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %._crit_edge82, %22
-  %.187 = phi i32 [ %.2, %22 ], [ %.0100, %._crit_edge82 ]
+  %.287 = phi i32 [ %.3, %22 ], [ %.0100, %._crit_edge82 ]
   %.05485 = phi ptr [ %24, %22 ], [ %.pre, %._crit_edge82 ]
   %18 = tail call i32 @Fxu_SingleCountCoincidence(ptr noundef %0, ptr noundef nonnull %.047101, ptr noundef %.05485) #6
   %19 = add nsw i32 %18, -2
-  %20 = icmp slt i32 %.187, %19
+  %20 = icmp slt i32 %.287, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.lr.ph88
@@ -839,7 +839,7 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br label %22
 
 22:                                               ; preds = %.lr.ph88, %21
-  %.2 = phi i32 [ %19, %21 ], [ %.187, %.lr.ph88 ]
+  %.3 = phi i32 [ %19, %21 ], [ %.287, %.lr.ph88 ]
   %23 = getelementptr inbounds i8, ptr %.05485, i64 64
   %24 = load ptr, ptr %23, align 8
   %.not64 = icmp eq ptr %24, inttoptr (i64 1 to ptr)
@@ -851,7 +851,7 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
 
 .loopexit72:                                      ; preds = %8, %.loopexit72.loopexit, %._crit_edge82
   %25 = phi ptr [ %.pre, %._crit_edge82 ], [ %.pre108, %.loopexit72.loopexit ], [ null, %8 ]
-  %.3 = phi i32 [ %.0100, %._crit_edge82 ], [ %.2, %.loopexit72.loopexit ], [ %.0100, %8 ]
+  %.1 = phi i32 [ %.0100, %._crit_edge82 ], [ %.3, %.loopexit72.loopexit ], [ %.0100, %8 ]
   %magicptr = ptrtoint ptr %25 to i64
   switch i64 %magicptr, label %26 [
     i64 0, label %.loopexit
@@ -891,7 +891,7 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br i1 %.not, label %._crit_edge104, label %8, !llvm.loop !21
 
 ._crit_edge104:                                   ; preds = %.loopexit, %4
-  %.0.lcssa = phi i32 [ -10, %4 ], [ %.3, %.loopexit ]
+  %.0.lcssa = phi i32 [ -10, %4 ], [ %.1, %.loopexit ]
   ret i32 %.0.lcssa
 }
 

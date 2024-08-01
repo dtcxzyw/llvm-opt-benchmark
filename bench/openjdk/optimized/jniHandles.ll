@@ -515,17 +515,17 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br label %86
 
 86:                                               ; preds = %84, %75
-  %.1.i = phi ptr [ %74, %75 ], [ %.sink.i, %84 ]
-  %87 = getelementptr inbounds i8, ptr %.1.i, i64 256
+  %.0.i = phi ptr [ %74, %75 ], [ %.sink.i, %84 ]
+  %87 = getelementptr inbounds i8, ptr %.0.i, i64 256
   store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %.1.i, i64 264
+  %88 = getelementptr inbounds i8, ptr %.0.i, i64 264
   store ptr null, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %.1.i, i64 280
+  %89 = getelementptr inbounds i8, ptr %.0.i, i64 280
   store ptr null, ptr %89, align 8
   br label %_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE.exit
 
 _ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %79, %86
-  %.019.i = phi ptr [ %.1.i, %86 ], [ null, %79 ]
+  %.019.i = phi ptr [ %.0.i, %86 ], [ null, %79 ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 264
   store ptr %.019.i, ptr %91, align 8
@@ -1202,17 +1202,17 @@ define hidden noundef ptr @_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17A
   br label %18
 
 18:                                               ; preds = %16, %6
-  %.1 = phi ptr [ %5, %6 ], [ %.sink, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.1, i64 256
+  %.0 = phi ptr [ %5, %6 ], [ %.sink, %16 ]
+  %19 = getelementptr inbounds i8, ptr %.0, i64 256
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.1, i64 264
+  %20 = getelementptr inbounds i8, ptr %.0, i64 264
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.1, i64 280
+  %21 = getelementptr inbounds i8, ptr %.0, i64 280
   store ptr null, ptr %21, align 8
   br label %.thread
 
 .thread:                                          ; preds = %11, %18
-  %.019 = phi ptr [ %.1, %18 ], [ null, %11 ]
+  %.019 = phi ptr [ %.0, %18 ], [ null, %11 ]
   ret ptr %.019
 }
 

@@ -1503,18 +1503,18 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %426 = phi double [ %430, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %427 = phi ptr [ %431, %.lr.ph.i.i ], [ %425, %.lr.ph.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %421, %.lr.ph.preheader.i.i ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %421, %.lr.ph.preheader.i.i ]
   %428 = load double, ptr %427, align 8
   %429 = fcmp olt double %426, %428
   %430 = select i1 %429, double %428, double %426
-  %spec.select.i.i = select i1 %429, ptr %427, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %429, ptr %427, ptr %.sroa.02.110.i.i
   %431 = getelementptr inbounds i8, ptr %427, i64 8
   %.not.i.i178 = icmp eq ptr %431, %423
   br i1 %.not.i.i178, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit, label %.lr.ph.i.i, !llvm.loop !26
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit: ; preds = %.lr.ph.i.i, %.loopexit395
-  %.sroa.02.2.i.i = phi ptr [ %421, %.loopexit395 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %432 = icmp eq ptr %.sroa.02.2.i.i, %423
+  %.sroa.02.0.i.i = phi ptr [ %421, %.loopexit395 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %432 = icmp eq ptr %.sroa.02.0.i.i, %423
   br i1 %432, label %433, label %435
 
 433:                                              ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit
@@ -1526,7 +1526,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
 435:                                              ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit
   %436 = load ptr, ptr %16, align 8
   %437 = getelementptr inbounds %"class.std::vector.12", ptr %436, i64 %indvars.iv372
-  %438 = ptrtoint ptr %.sroa.02.2.i.i to i64
+  %438 = ptrtoint ptr %.sroa.02.0.i.i to i64
   %439 = ptrtoint ptr %421 to i64
   %440 = sub i64 %438, %439
   %441 = ashr exact i64 %440, 3
@@ -1544,7 +1544,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
 
 449:                                              ; preds = %435
   %450 = load ptr, ptr %420, align 8
-  %.not327 = icmp eq ptr %.sroa.02.2.i.i, %450
+  %.not327 = icmp eq ptr %.sroa.02.0.i.i, %450
   br i1 %.not327, label %457, label %.critedge
 
 .critedge:                                        ; preds = %435, %449
@@ -1558,7 +1558,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
 
 457:                                              ; preds = %449, %.critedge
   %458 = load ptr, ptr %422, align 8
-  %.not328 = icmp eq ptr %.sroa.02.2.i.i, %458
+  %.not328 = icmp eq ptr %.sroa.02.0.i.i, %458
   br i1 %.not328, label %466, label %459
 
 459:                                              ; preds = %457
@@ -1572,7 +1572,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.
           to label %466 unwind label %.body184.thread392
 
 466:                                              ; preds = %459, %457
-  %467 = load double, ptr %.sroa.02.2.i.i, align 8
+  %467 = load double, ptr %.sroa.02.0.i.i, align 8
   %468 = fcmp ogt double %467, 5.000000e-01
   br i1 %468, label %.thread391, label %469
 

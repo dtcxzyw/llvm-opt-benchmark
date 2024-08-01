@@ -175,26 +175,26 @@ if.end58:                                         ; preds = %if.then55
   br label %if.end73
 
 while.cond61:                                     ; preds = %if.else52, %while.body69
-  %p.5 = phi ptr [ %incdec.ptr70, %while.body69 ], [ %p.1, %if.else52 ]
-  %4 = load i8, ptr %p.5, align 1
+  %p.6 = phi ptr [ %incdec.ptr70, %while.body69 ], [ %p.1, %if.else52 ]
+  %4 = load i8, ptr %p.6, align 1
   switch i8 %4, label %while.body69 [
     i8 0, label %if.end73
     i8 59, label %if.end73
   ]
 
 while.body69:                                     ; preds = %while.cond61
-  %incdec.ptr70 = getelementptr inbounds i8, ptr %p.5, i64 1
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %p.6, i64 1
   br label %while.cond61, !llvm.loop !8
 
 if.end73:                                         ; preds = %while.cond61, %while.cond61, %if.end42, %if.end49, %if.end58
   %gotma.1 = phi i8 [ %gotma.0, %if.end58 ], [ 1, %if.end49 ], [ 1, %if.end42 ], [ %gotma.0, %while.cond61 ], [ %gotma.0, %while.cond61 ]
   %gotinc.1 = phi i1 [ true, %if.end58 ], [ %gotinc.0, %if.end49 ], [ %gotinc.0, %if.end42 ], [ %gotinc.0, %while.cond61 ], [ %gotinc.0, %while.cond61 ]
   %subdomains.1 = phi i8 [ 1, %if.end58 ], [ %subdomains.0, %if.end49 ], [ %subdomains.0, %if.end42 ], [ %subdomains.0, %while.cond61 ], [ %subdomains.0, %while.cond61 ]
-  %p.6 = phi ptr [ %add.ptr59, %if.end58 ], [ %incdec.ptr50, %if.end49 ], [ %2, %if.end42 ], [ %p.5, %while.cond61 ], [ %p.5, %while.cond61 ]
+  %p.5 = phi ptr [ %add.ptr59, %if.end58 ], [ %incdec.ptr50, %if.end49 ], [ %2, %if.end42 ], [ %p.6, %while.cond61 ], [ %p.6, %while.cond61 ]
   br label %while.cond74
 
 while.cond74:                                     ; preds = %while.body87, %if.end73
-  %p.7 = phi ptr [ %p.6, %if.end73 ], [ %incdec.ptr88, %while.body87 ]
+  %p.7 = phi ptr [ %p.5, %if.end73 ], [ %incdec.ptr88, %while.body87 ]
   %5 = load i8, ptr %p.7, align 1
   switch i8 %5, label %while.end89 [
     i8 9, label %while.body87
@@ -562,10 +562,10 @@ hsts_out.exit:                                    ; preds = %if.end.i, %if.else.
   br i1 %tobool15.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %hsts_out.exit, %if.then13, %hsts_out.exit.thread
-  %result.1 = phi i32 [ %call.i, %hsts_out.exit.thread ], [ 0, %if.then13 ], [ 0, %hsts_out.exit ]
+  %result.3 = phi i32 [ %call.i, %hsts_out.exit.thread ], [ 0, %if.then13 ], [ 0, %hsts_out.exit ]
   %21 = load ptr, ptr %out, align 8
   %call20 = call i32 @fclose(ptr noundef %21)
-  %tobool21 = icmp eq i32 %result.1, 0
+  %tobool21 = icmp eq i32 %result.3, 0
   %22 = load ptr, ptr %tempstore, align 8
   %tobool23 = icmp ne ptr %22, null
   %or.cond1 = select i1 %tobool21, i1 %tobool23, i1 false
@@ -580,8 +580,8 @@ land.lhs.true24:                                  ; preds = %for.end
 
 if.end28:                                         ; preds = %land.lhs.true24, %for.end
   %23 = phi ptr [ %22, %for.end ], [ %.pre, %land.lhs.true24 ]
-  %result.2 = phi i32 [ %result.1, %for.end ], [ %spec.select28, %land.lhs.true24 ]
-  %tobool29 = icmp ne i32 %result.2, 0
+  %result.4 = phi i32 [ %result.3, %for.end ], [ %spec.select28, %land.lhs.true24 ]
+  %tobool29 = icmp ne i32 %result.4, 0
   %tobool31 = icmp ne ptr %23, null
   %or.cond2 = select i1 %tobool29, i1 %tobool31, i1 false
   br i1 %or.cond2, label %if.then32, label %if.end35
@@ -591,14 +591,14 @@ if.then32:                                        ; preds = %if.end28
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end28, %if.then32, %if.end11
-  %result.3 = phi i32 [ %call, %if.end11 ], [ %result.2, %if.then32 ], [ %result.2, %if.end28 ]
+  %result.1 = phi i32 [ %call, %if.end11 ], [ %result.4, %if.then32 ], [ %result.4, %if.end28 ]
   %24 = load ptr, ptr @Curl_cfree, align 8
   %25 = load ptr, ptr %tempstore, align 8
   call void %24(ptr noundef %25) #9
   br label %skipsave
 
 skipsave:                                         ; preds = %if.end5, %lor.lhs.false8, %if.end35
-  %result.4 = phi i32 [ %result.3, %if.end35 ], [ 0, %lor.lhs.false8 ], [ 0, %if.end5 ]
+  %result.0 = phi i32 [ %result.1, %if.end35 ], [ 0, %lor.lhs.false8 ], [ 0, %if.end5 ]
   %hsts_write = getelementptr inbounds i8, ptr %data, i64 680
   %26 = load ptr, ptr %hsts_write, align 8
   %tobool36.not = icmp eq ptr %26, null
@@ -695,7 +695,7 @@ if.end53:                                         ; preds = %lor.lhs.false49
   br i1 %tobool42.not, label %return, label %for.body43, !llvm.loop !13
 
 return:                                           ; preds = %if.end53, %lor.lhs.false49, %if.then37, %hsts_push.exit.thread, %skipsave, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %result.4, %skipsave ], [ %retval.0.i37.ph, %hsts_push.exit.thread ], [ %result.4, %if.then37 ], [ 0, %lor.lhs.false49 ], [ 0, %if.end53 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %result.0, %skipsave ], [ %retval.0.i37.ph, %hsts_push.exit.thread ], [ %result.0, %if.then37 ], [ 0, %lor.lhs.false49 ], [ 0, %if.end53 ]
   ret i32 %retval.0
 }
 

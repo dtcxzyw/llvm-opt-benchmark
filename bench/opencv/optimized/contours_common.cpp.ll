@@ -1031,20 +1031,20 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %8, %11
   br i1 %.not.i, label %._crit_edge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit, %.preheader.i
-  %.0.i = phi i32 [ %34, %.preheader.i ], [ %31, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit ]
-  %32 = sext i32 %.0.i to i64
+  %.1.i = phi i32 [ %34, %.preheader.i ], [ %31, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit ]
+  %32 = sext i32 %.1.i to i64
   %33 = getelementptr inbounds %"class.cv::TreeNode", ptr %28, i64 %32, i32 4
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %.lr.ph, label %.preheader.i, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.preheader.i
-  store i32 %.0.i, ptr %2, align 4
+  store i32 %.1.i, ptr %2, align 4
   %36 = getelementptr inbounds i8, ptr %0, i64 64
   br label %37
 
 37:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
-  %storemerge5 = phi i32 [ %.0.i, %.lr.ph ], [ %50, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
+  %storemerge5 = phi i32 [ %.1.i, %.lr.ph ], [ %50, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
   %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 -4

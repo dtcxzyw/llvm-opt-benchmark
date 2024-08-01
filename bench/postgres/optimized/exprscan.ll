@@ -2798,11 +2798,11 @@ define dso_local ptr @expr_scanner_get_substring(ptr nocapture noundef readonly 
   br i1 %.old3, label %12, label %.critedge
 
 .critedge:                                        ; preds = %12, %.critedge2, %4
-  %.1 = phi i32 [ %9, %4 ], [ %14, %12 ], [ 0, %.critedge2 ]
-  %15 = add i32 %.1, 1
+  %.0 = phi i32 [ %9, %4 ], [ %14, %12 ], [ 0, %.critedge2 ]
+  %15 = add i32 %.0, 1
   %16 = sext i32 %15 to i64
   %17 = tail call ptr @pg_malloc(i64 noundef %16) #30
-  %18 = sext i32 %.1 to i64
+  %18 = sext i32 %.0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %8, i64 %18, i1 false)
   %19 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1

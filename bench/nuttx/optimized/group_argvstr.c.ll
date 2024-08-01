@@ -56,12 +56,12 @@ define i64 @group_argvstr(ptr noundef readonly %0, ptr nocapture noundef writeon
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %30 = phi ptr [ %36, %.lr.ph ], [ %26, %23 ]
   %.036 = phi ptr [ %.0, %.lr.ph ], [ %.034, %23 ]
-  %.02635 = phi i64 [ %35, %.lr.ph ], [ 0, %23 ]
-  %31 = getelementptr inbounds i8, ptr %1, i64 %.02635
-  %32 = sub nuw i64 %2, %.02635
+  %.135 = phi i64 [ %35, %.lr.ph ], [ 0, %23 ]
+  %31 = getelementptr inbounds i8, ptr %1, i64 %.135
+  %32 = sub nuw i64 %2, %.135
   %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %32, ptr noundef nonnull @.str.1, ptr noundef nonnull %30) #3
   %34 = sext i32 %33 to i64
-  %35 = add i64 %.02635, %34
+  %35 = add i64 %.135, %34
   %.0 = getelementptr inbounds i8, ptr %.036, i64 8
   %36 = load ptr, ptr %.0, align 8
   %37 = icmp ne ptr %36, null
@@ -70,9 +70,9 @@ define i64 @group_argvstr(ptr noundef readonly %0, ptr nocapture noundef writeon
   br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %16
-  %.1 = phi i64 [ %22, %16 ], [ 0, %23 ], [ %35, %.lr.ph ]
+  %.026 = phi i64 [ %22, %16 ], [ 0, %23 ], [ %35, %.lr.ph ]
   %40 = add i64 %2, -1
-  %41 = tail call i64 @llvm.umin.i64(i64 %.1, i64 %40)
+  %41 = tail call i64 @llvm.umin.i64(i64 %.026, i64 %40)
   br label %42
 
 42:                                               ; preds = %.loopexit, %10

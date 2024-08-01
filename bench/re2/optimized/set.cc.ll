@@ -586,7 +586,7 @@ lpad74:                                           ; preds = %if.else.i
   br label %ehcleanup78
 
 cleanup:                                          ; preds = %if.end14, %invoke.cont34, %invoke.cont75
-  %retval.0 = phi i32 [ %conv, %invoke.cont75 ], [ -1, %invoke.cont34 ], [ -1, %if.end14 ]
+  %retval.1 = phi i32 [ %conv, %invoke.cont75 ], [ -1, %invoke.cont34 ], [ -1, %if.end14 ]
   %tmp_.i = getelementptr inbounds i8, ptr %status, i64 24
   %23 = load ptr, ptr %tmp_.i, align 8
   %isnull.i = icmp eq ptr %23, null
@@ -603,8 +603,8 @@ ehcleanup78:                                      ; preds = %lpad.i20, %lpad.i42
   br label %common.resume
 
 return:                                           ; preds = %delete.notnull.i, %cleanup, %invoke.cont2
-  %retval.1 = phi i32 [ -1, %invoke.cont2 ], [ %retval.0, %cleanup ], [ %retval.0, %delete.notnull.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %invoke.cont2 ], [ %retval.1, %cleanup ], [ %retval.1, %delete.notnull.i ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
@@ -1276,17 +1276,17 @@ if.end99:                                         ; preds = %invoke.cont93, %if.
 
 cleanup.sink.split:                               ; preds = %if.end99, %if.then67, %if.end59
   %.sink = phi i32 [ 2, %if.end59 ], [ 0, %if.then67 ], [ 0, %if.end99 ]
-  %retval.0.ph = phi i1 [ false, %if.end59 ], [ false, %if.then67 ], [ true, %if.end99 ]
+  %retval.1.ph = phi i1 [ false, %if.end59 ], [ false, %if.then67 ], [ true, %if.end99 ]
   store i32 %.sink, ptr %error_info, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end99, %if.then67, %if.end59
-  %retval.0 = phi i1 [ false, %if.end59 ], [ false, %if.then67 ], [ true, %if.end99 ], [ %retval.0.ph, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %if.end59 ], [ false, %if.then67 ], [ true, %if.end99 ], [ %retval.1.ph, %cleanup.sink.split ]
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %cleanup.thread, %cleanup
-  %retval.050 = phi i1 [ false, %cleanup.thread ], [ %retval.0, %cleanup ]
+  %retval.150 = phi i1 [ false, %cleanup.thread ], [ %retval.1, %cleanup ]
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
   %29 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %29, null
@@ -1317,8 +1317,8 @@ ehcleanup:                                        ; preds = %lpad.i21, %lpad.i34
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i, %cleanup, %invoke.cont3
-  %retval.1 = phi i1 [ false, %invoke.cont3 ], [ %retval.0, %cleanup ], [ %retval.050, %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ %retval.1, %cleanup ], [ %retval.150, %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

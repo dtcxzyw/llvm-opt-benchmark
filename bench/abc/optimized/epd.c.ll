@@ -1198,8 +1198,8 @@ EpdConvert.exit61:                                ; preds = %38, %39, %44
 
 68:                                               ; preds = %55, %52, %63, %60, %66
   %.031 = phi i32 [ %50, %66 ], [ %.sroa.11.1, %60 ], [ %.sroa.11.1, %63 ], [ %.pre, %55 ], [ %50, %52 ]
-  %.2 = phi double [ %67, %66 ], [ %.sroa.0.1, %60 ], [ %65, %63 ], [ %57, %55 ], [ %6, %52 ]
-  store double %.2, ptr %0, align 8
+  %.1 = phi double [ %67, %66 ], [ %.sroa.0.1, %60 ], [ %65, %63 ], [ %57, %55 ], [ %6, %52 ]
+  store double %.1, ptr %0, align 8
   store i32 %.031, ptr %49, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
   br label %69
@@ -1326,8 +1326,8 @@ define void @EpdAdd2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
 
 50:                                               ; preds = %44, %41, %36, %33, %48
   %.041 = phi i32 [ %29, %48 ], [ %.pre73, %36 ], [ %29, %33 ], [ %.pre, %44 ], [ %31, %41 ]
-  %.2 = phi double [ %49, %48 ], [ %38, %36 ], [ %6, %33 ], [ %47, %44 ], [ %11, %41 ]
-  store double %.2, ptr %0, align 8
+  %.1 = phi double [ %49, %48 ], [ %38, %36 ], [ %6, %33 ], [ %47, %44 ], [ %11, %41 ]
+  store double %.1, ptr %0, align 8
   store i32 %.041, ptr %28, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
   br label %51
@@ -1452,8 +1452,8 @@ define void @EpdAdd3(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 59:                                               ; preds = %53, %50, %45, %42, %57
   %.045 = phi i32 [ %38, %57 ], [ %.pre78, %45 ], [ %38, %42 ], [ %.pre, %53 ], [ %40, %50 ]
-  %.2 = phi double [ %58, %57 ], [ %47, %45 ], [ %7, %42 ], [ %56, %53 ], [ %12, %50 ]
-  store double %.2, ptr %2, align 8
+  %.1 = phi double [ %58, %57 ], [ %47, %45 ], [ %7, %42 ], [ %56, %53 ], [ %12, %50 ]
+  store double %.1, ptr %2, align 8
   %60 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %.045, ptr %60, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %2)
@@ -1608,8 +1608,8 @@ EpdConvert.exit60:                                ; preds = %39, %40, %45
 
 71:                                               ; preds = %56, %53, %64, %67, %69
   %.031 = phi i32 [ %51, %69 ], [ %.sroa.11.1, %67 ], [ %.sroa.11.1, %64 ], [ %.pre, %56 ], [ %51, %53 ]
-  %.2 = phi double [ %70, %69 ], [ %68, %67 ], [ %66, %64 ], [ %58, %56 ], [ %6, %53 ]
-  store double %.2, ptr %0, align 8
+  %.1 = phi double [ %70, %69 ], [ %68, %67 ], [ %66, %64 ], [ %58, %56 ], [ %6, %53 ]
+  store double %.1, ptr %0, align 8
   store i32 %.031, ptr %50, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
   br label %72
@@ -1726,8 +1726,8 @@ define void @EpdSubtract2(ptr nocapture noundef %0, ptr nocapture noundef readon
 
 53:                                               ; preds = %45, %49, %37, %34, %51
   %.041 = phi i32 [ %30, %51 ], [ %.pre72, %37 ], [ %30, %34 ], [ %.pre, %45 ], [ %32, %49 ]
-  %.2 = phi double [ %52, %51 ], [ %39, %37 ], [ %6, %34 ], [ %48, %45 ], [ %50, %49 ]
-  store double %.2, ptr %0, align 8
+  %.1 = phi double [ %52, %51 ], [ %39, %37 ], [ %6, %34 ], [ %48, %45 ], [ %50, %49 ]
+  store double %.1, ptr %0, align 8
   store i32 %.041, ptr %29, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
   br label %54
@@ -1847,9 +1847,9 @@ define void @EpdSubtract3(ptr nocapture noundef readonly %0, ptr nocapture nound
   br label %58
 
 58:                                               ; preds = %50, %54, %42, %39, %56
-  %.2 = phi double [ %57, %56 ], [ %44, %42 ], [ %7, %39 ], [ %53, %50 ], [ %55, %54 ]
+  %.1 = phi double [ %57, %56 ], [ %44, %42 ], [ %7, %39 ], [ %53, %50 ], [ %55, %54 ]
   %.0 = phi i32 [ %35, %56 ], [ %.pre78, %42 ], [ %35, %39 ], [ %.pre, %50 ], [ %37, %54 ]
-  store double %.2, ptr %2, align 8
+  store double %.1, ptr %2, align 8
   %59 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %.0, ptr %59, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %2)

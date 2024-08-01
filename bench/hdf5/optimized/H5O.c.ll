@@ -3721,7 +3721,7 @@ H5O__close_check_type.exit:                       ; preds = %29
 
 51:                                               ; preds = %47, %H5O__close_check_type.exit
   %.031 = phi ptr [ %41, %47 ], [ null, %H5O__close_check_type.exit ]
-  %.029 = phi ptr [ %49, %47 ], [ null, %H5O__close_check_type.exit ]
+  %.130 = phi ptr [ %49, %47 ], [ null, %H5O__close_check_type.exit ]
   %.028 = phi ptr [ %6, %47 ], [ null, %H5O__close_check_type.exit ]
   %52 = call i32 @H5I_dec_app_ref_async(i64 noundef %3, ptr noundef %.028) #4
   %53 = icmp slt i32 %52, 0
@@ -3754,11 +3754,11 @@ H5O__close_check_type.exit:                       ; preds = %29
 69:                                               ; preds = %58, %60, %65, %54
   %.026 = phi i32 [ -1, %54 ], [ -1, %65 ], [ 0, %60 ], [ 0, %58 ]
   %.0 = phi i1 [ true, %54 ], [ true, %65 ], [ false, %60 ], [ false, %58 ]
-  %.not35 = icmp eq ptr %.029, null
+  %.not35 = icmp eq ptr %.130, null
   br i1 %.not35, label %78, label %70
 
 70:                                               ; preds = %69
-  %71 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.029) #4
+  %71 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.130) #4
   %72 = icmp slt i64 %71, 0
   br i1 %72, label %.thread64, label %78
 

@@ -785,7 +785,7 @@ _ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.thread: ; preds = %28, %30, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.backedge, %6, %_ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.thread
-  %.0 = phi ptr [ %20, %_ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.thread ], [ null, %6 ], [ null, %_ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.backedge ]
+  %.1 = phi ptr [ %20, %_ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.thread ], [ null, %6 ], [ null, %_ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.backedge ]
   store i32 0, ptr %11, align 4
   %32 = getelementptr inbounds i8, ptr %11, i64 4
   %33 = load i32, ptr %32, align 4
@@ -812,8 +812,8 @@ _ZN14JvmtiAgentList8IteratorD2Ev.exit:            ; preds = %.loopexit, %37
   br label %38
 
 38:                                               ; preds = %2, %_ZN14JvmtiAgentList8IteratorD2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN14JvmtiAgentList8IteratorD2Ev.exit ], [ null, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN14JvmtiAgentList8IteratorD2Ev.exit ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare noundef zeroext i1 @_ZN2os27dll_address_to_library_nameEPhPciPi(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

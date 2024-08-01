@@ -7177,13 +7177,13 @@ if.end288:                                        ; preds = %if.then282, %for.en
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then282, %if.end288, %if.then260
-  %retval.0 = phi i32 [ -1, %if.then260 ], [ 0, %if.end288 ], [ %call284, %if.then282 ]
+  %retval.1 = phi i32 [ -1, %if.then260 ], [ 0, %if.end288 ], [ %call284, %if.then282 ]
   tail call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   br label %return
 
 return:                                           ; preds = %if.then76, %if.end100, %if.then94, %if.then86, %if.end8, %if.then, %cleanup, %if.then126, %if.then120, %if.then68, %if.then28
-  %retval.1 = phi i32 [ -1, %if.then28 ], [ -1, %if.then68 ], [ -1, %if.then120 ], [ %retval.0, %cleanup ], [ -1, %if.then126 ], [ %call5, %if.then ], [ -1, %if.end8 ], [ %call88, %if.then86 ], [ %call96, %if.then94 ], [ %call101, %if.end100 ], [ %call79, %if.then76 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then28 ], [ -1, %if.then68 ], [ -1, %if.then120 ], [ %retval.1, %cleanup ], [ -1, %if.then126 ], [ %call5, %if.then ], [ -1, %if.end8 ], [ %call88, %if.then86 ], [ %call96, %if.then94 ], [ %call101, %if.end100 ], [ %call79, %if.then76 ]
+  ret i32 %retval.0
 }
 
 declare i32 @qemu_get_be32(ptr noundef) local_unnamed_addr #3
@@ -9010,12 +9010,12 @@ do.end:                                           ; preds = %virtqueue_split_rea
   br label %done
 
 done:                                             ; preds = %do.end, %if.then49
-  %element.0 = phi ptr [ null, %if.then49 ], [ %call55, %do.end ]
+  %element.1 = phi ptr [ null, %if.then49 ], [ %call55, %do.end ]
   call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache) #23
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then29, %if.then35, %done
-  %switch = phi ptr [ null, %if.then35 ], [ %element.0, %done ], [ null, %if.then29 ]
+  %switch = phi ptr [ null, %if.then35 ], [ %element.1, %done ], [ null, %if.then29 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %58 = load i32, ptr %depth.i.i.i.i, align 4
@@ -9047,8 +9047,8 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i139, %if.then10, %if.then5, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then10 ], [ %switch, %if.end.i.i.i.i139 ], [ %switch, %while.end.i.i.i.i ], [ %switch, %while.end21.i.i.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then10 ], [ %switch, %if.end.i.i.i.i139 ], [ %switch, %while.end.i.i.i.i ], [ %switch, %while.end21.i.i.i.i ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -9431,10 +9431,10 @@ if.then1:                                         ; preds = %if.end
   br label %out
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end40
-  %num_sg.035 = phi i32 [ %0, %while.cond.preheader ], [ %inc, %if.end40 ]
+  %num_sg.135 = phi i32 [ %0, %while.cond.preheader ], [ %inc, %if.end40 ]
   %sz.addr.034 = phi i64 [ %sz, %while.cond.preheader ], [ %sub, %if.end40 ]
   %pa.addr.033 = phi i64 [ %pa, %while.cond.preheader ], [ %add, %if.end40 ]
-  %cmp4 = icmp eq i32 %num_sg.035, %max_num_sg
+  %cmp4 = icmp eq i32 %num_sg.135, %max_num_sg
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %while.body
@@ -9448,7 +9448,7 @@ if.end6:                                          ; preds = %while.body
   %call.i = call ptr @address_space_map(ptr noundef %1, i64 noundef %pa.addr.033, ptr noundef nonnull %xlen.i, i1 noundef zeroext %is_write, i32 1) #23
   %2 = load i64, ptr %xlen.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i)
-  %idxprom = zext i32 %num_sg.035 to i64
+  %idxprom = zext i32 %num_sg.135 to i64
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %idxprom
   store ptr %call.i, ptr %arrayidx, align 8
   %tobool38.not = icmp eq ptr %call.i, null
@@ -9465,14 +9465,14 @@ if.end40:                                         ; preds = %if.end6
   store i64 %pa.addr.033, ptr %arrayidx44, align 8
   %sub = sub i64 %sz.addr.034, %2
   %add = add i64 %2, %pa.addr.033
-  %inc = add i32 %num_sg.035, 1
+  %inc = add i32 %num_sg.135, 1
   %tobool3.not = icmp eq i64 %sub, 0
   br i1 %tobool3.not, label %out, label %while.body, !llvm.loop !56
 
 out:                                              ; preds = %if.end40, %if.then39, %if.then5, %if.then1
   %ok.0 = phi i1 [ false, %if.then5 ], [ false, %if.then39 ], [ false, %if.then1 ], [ true, %if.end40 ]
-  %num_sg.1 = phi i32 [ %max_num_sg, %if.then5 ], [ %num_sg.035, %if.then39 ], [ %0, %if.then1 ], [ %inc, %if.end40 ]
-  store i32 %num_sg.1, ptr %p_num_sg, align 4
+  %num_sg.0 = phi i32 [ %max_num_sg, %if.then5 ], [ %num_sg.135, %if.then39 ], [ %0, %if.then1 ], [ %inc, %if.end40 ]
+  store i32 %num_sg.0, ptr %p_num_sg, align 4
   ret i1 %ok.0
 }
 

@@ -4471,7 +4471,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i.i.
   br label %.thread104.i.i.i.i
 
 .thread109.loopexit.split-lp.i.i.i.i:             ; preds = %select.unfold.i.i.i.i, %.invoke147.i.i.i.i, %181, %.invoke.i.i.i.i, %119, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %103, %85
-  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %181 ], [ %.0.i.i.i.i.i.i.i, %119 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %103 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi132.i.i.i.i, %.invoke147.i.i.i.i ]
+  %.sroa.11.0.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.2.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.2.i.i.i.i, %181 ], [ %.0.i.i.i.i.i.i.i, %119 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %103 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi132.i.i.i.i, %.invoke147.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread104.i.i.i.i
@@ -4675,8 +4675,8 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i
   br i1 %136, label %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i, label %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.i.i.i.i
 
 _ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i: ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i, %159
-  %.sroa.11.4.us.i.i.i.i = phi i8 [ %.0.i.i.i58.us.i.i.i.i, %159 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
-  %138 = trunc nuw i8 %.sroa.11.4.us.i.i.i.i to i1
+  %.sroa.11.2.us.i.i.i.i = phi i8 [ %.0.i.i.i58.us.i.i.i.i, %159 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
+  %138 = trunc nuw i8 %.sroa.11.2.us.i.i.i.i to i1
   br i1 %138, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.us.i.i.i.i, label %139
 
 139:                                              ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i
@@ -4745,7 +4745,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit57.us
   br i1 %161, label %.split131.us.i.i.i.i, label %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i
 
 _ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.i.i.i.i: ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i, %207
-  %.sroa.11.4.i.i.i.i = phi i8 [ %.0.i.i.i58.i.i.i.i, %207 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
+  %.sroa.11.2.i.i.i.i = phi i8 [ %.0.i.i.i58.i.i.i.i, %207 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
   %162 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hbb1eaf08f9bac9b0E()
           to label %172 unwind label %.thread109.loopexit.i.i.i.i, !noalias !303
 
@@ -4817,7 +4817,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i: ; preds = 
 186:                                              ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread117.i.i.i.i"
   %187 = extractvalue { i64, i32 } %178, 0
   %188 = extractvalue { i64, i32 } %178, 1
-  %189 = trunc nuw i8 %.sroa.11.4.i.i.i.i to i1
+  %189 = trunc nuw i8 %.sroa.11.2.i.i.i.i to i1
   br i1 %189, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i, label %163
 
 "_ZN4core3ptr156drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$wasmtime_runtime..threads..parking_spot..Spot$GT$$GT$$GT$17hb8defb73c83d6804E.exit50.i.i.i.i": ; preds = %171, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i
@@ -4904,9 +4904,9 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit57.i.
   br i1 %.not23.i.i.i.i, label %215, label %.invoke147.i.i.i.i
 
 215:                                              ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i", %213
-  %.sroa.11.5.i.i.i.i = phi i8 [ %.us-phi132.i.i.i.i, %213 ], [ %.sroa.11.4.i.i.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i" ]
+  %.sroa.11.3.i.i.i.i = phi i8 [ %.us-phi132.i.i.i.i, %213 ], [ %.sroa.11.2.i.i.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i" ]
   %.1.i.i.i.i = phi i8 [ 0, %213 ], [ 2, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i" ]
-  %216 = trunc nuw i8 %.sroa.11.5.i.i.i.i to i1
+  %216 = trunc nuw i8 %.sroa.11.3.i.i.i.i to i1
   br i1 %216, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i63.i.i.i.i, label %217
 
 217:                                              ; preds = %215
@@ -4958,8 +4958,8 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc55.i.i.i.i, %
 
 .thread104.i.i.i.i:                               ; preds = %.thread.i.i.i.i, %92, %.thread109.loopexit.split-lp.i.i.i.i, %.thread109.loopexit.i.i.i.i
   %.pn98.i.i.i.i = phi { ptr, i32 } [ %111, %.thread.i.i.i.i ], [ %93, %92 ], [ %lpad.loopexit.i.i.i.i, %.thread109.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.thread109.loopexit.split-lp.i.i.i.i ]
-  %.sroa.11.095.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i, %.thread.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %92 ], [ %.sroa.11.4.i.i.i.i, %.thread109.loopexit.i.i.i.i ], [ %.sroa.11.1.ph.ph.i.i.i.i, %.thread109.loopexit.split-lp.i.i.i.i ]
-  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$wasmtime_runtime..threads..parking_spot..Spot$GT$$GT$$GT$17hb8defb73c83d6804E"(ptr nonnull %43, i8 %.sroa.11.095.i.i.i.i) #33
+  %.sroa.11.195.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i, %.thread.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %92 ], [ %.sroa.11.2.i.i.i.i, %.thread109.loopexit.i.i.i.i ], [ %.sroa.11.0.ph.ph.i.i.i.i, %.thread109.loopexit.split-lp.i.i.i.i ]
+  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$wasmtime_runtime..threads..parking_spot..Spot$GT$$GT$$GT$17hb8defb73c83d6804E"(ptr nonnull %43, i8 %.sroa.11.195.i.i.i.i) #33
           to label %.loopexit.split-lp.i.i unwind label %235, !noalias !303
 
 235:                                              ; preds = %.thread104.i.i.i.i
@@ -5214,7 +5214,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i.i.
   br label %.thread104.i.i.i.i
 
 .thread109.loopexit.split-lp.i.i.i.i:             ; preds = %select.unfold.i.i.i.i, %.invoke147.i.i.i.i, %181, %.invoke.i.i.i.i, %119, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %103, %85
-  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %181 ], [ %.0.i.i.i.i.i.i.i, %119 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %103 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi132.i.i.i.i, %.invoke147.i.i.i.i ]
+  %.sroa.11.0.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.2.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.2.i.i.i.i, %181 ], [ %.0.i.i.i.i.i.i.i, %119 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %103 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi132.i.i.i.i, %.invoke147.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread104.i.i.i.i
@@ -5418,8 +5418,8 @@ _ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i
   br i1 %136, label %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i, label %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.i.i.i.i
 
 _ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i: ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i, %159
-  %.sroa.11.4.us.i.i.i.i = phi i8 [ %.0.i.i.i58.us.i.i.i.i, %159 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
-  %138 = trunc nuw i8 %.sroa.11.4.us.i.i.i.i to i1
+  %.sroa.11.2.us.i.i.i.i = phi i8 [ %.0.i.i.i58.us.i.i.i.i, %159 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
+  %138 = trunc nuw i8 %.sroa.11.2.us.i.i.i.i to i1
   br i1 %138, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.us.i.i.i.i, label %139
 
 139:                                              ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i
@@ -5488,7 +5488,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit57.us
   br i1 %161, label %.split131.us.i.i.i.i, label %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.us.i.i.i.i
 
 _ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.split.i.i.i.i: ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i, %207
-  %.sroa.11.4.i.i.i.i = phi i8 [ %.0.i.i.i58.i.i.i.i, %207 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
+  %.sroa.11.2.i.i.i.i = phi i8 [ %.0.i.i.i58.i.i.i.i, %207 ], [ %.0.i.i.i.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot4push17hc9f9342c671dcb42E.exit.i.i.i.i ]
   %162 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hbb1eaf08f9bac9b0E()
           to label %172 unwind label %.thread109.loopexit.i.i.i.i, !noalias !402
 
@@ -5560,7 +5560,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i: ; preds = 
 186:                                              ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread117.i.i.i.i"
   %187 = extractvalue { i64, i32 } %178, 0
   %188 = extractvalue { i64, i32 } %178, 1
-  %189 = trunc nuw i8 %.sroa.11.4.i.i.i.i to i1
+  %189 = trunc nuw i8 %.sroa.11.2.i.i.i.i to i1
   br i1 %189, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i, label %163
 
 "_ZN4core3ptr156drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$wasmtime_runtime..threads..parking_spot..Spot$GT$$GT$$GT$17hb8defb73c83d6804E.exit50.i.i.i.i": ; preds = %171, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i47.i.i.i.i
@@ -5647,9 +5647,9 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit57.i.
   br i1 %.not23.i.i.i.i, label %215, label %.invoke147.i.i.i.i
 
 215:                                              ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i", %213
-  %.sroa.11.5.i.i.i.i = phi i8 [ %.us-phi132.i.i.i.i, %213 ], [ %.sroa.11.4.i.i.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i" ]
+  %.sroa.11.3.i.i.i.i = phi i8 [ %.us-phi132.i.i.i.i, %213 ], [ %.sroa.11.2.i.i.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i" ]
   %.1.i.i.i.i = phi i8 [ 0, %213 ], [ 2, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h0b4267455f75c11aE.exit.i.i.i.i" ]
-  %216 = trunc nuw i8 %.sroa.11.5.i.i.i.i to i1
+  %216 = trunc nuw i8 %.sroa.11.3.i.i.i.i to i1
   br i1 %216, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i63.i.i.i.i, label %217
 
 217:                                              ; preds = %215
@@ -5701,8 +5701,8 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc55.i.i.i.i, %
 
 .thread104.i.i.i.i:                               ; preds = %.thread.i.i.i.i, %92, %.thread109.loopexit.split-lp.i.i.i.i, %.thread109.loopexit.i.i.i.i
   %.pn98.i.i.i.i = phi { ptr, i32 } [ %111, %.thread.i.i.i.i ], [ %93, %92 ], [ %lpad.loopexit.i.i.i.i, %.thread109.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.thread109.loopexit.split-lp.i.i.i.i ]
-  %.sroa.11.095.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i, %.thread.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %92 ], [ %.sroa.11.4.i.i.i.i, %.thread109.loopexit.i.i.i.i ], [ %.sroa.11.1.ph.ph.i.i.i.i, %.thread109.loopexit.split-lp.i.i.i.i ]
-  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$wasmtime_runtime..threads..parking_spot..Spot$GT$$GT$$GT$17hb8defb73c83d6804E"(ptr nonnull %43, i8 %.sroa.11.095.i.i.i.i) #33
+  %.sroa.11.195.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i, %.thread.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %92 ], [ %.sroa.11.2.i.i.i.i, %.thread109.loopexit.i.i.i.i ], [ %.sroa.11.0.ph.ph.i.i.i.i, %.thread109.loopexit.split-lp.i.i.i.i ]
+  invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..btree..map..BTreeMap$LT$u64$C$wasmtime_runtime..threads..parking_spot..Spot$GT$$GT$$GT$17hb8defb73c83d6804E"(ptr nonnull %43, i8 %.sroa.11.195.i.i.i.i) #33
           to label %.loopexit.split-lp.i.i unwind label %235, !noalias !402
 
 235:                                              ; preds = %.thread104.i.i.i.i

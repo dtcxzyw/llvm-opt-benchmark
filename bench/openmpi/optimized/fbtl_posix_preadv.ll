@@ -135,8 +135,8 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %.078109.i = phi i64 [ %.179.i, %150 ], [ 0, %.critedge ]
   %.080108.i = phi i32 [ %.282.i, %150 ], [ 0, %.critedge ]
   %.083107.i = phi i32 [ %.184.i, %150 ], [ 1, %.critedge ]
-  %.086105.i = phi i64 [ %.288.i, %150 ], [ 0, %.critedge ]
-  %.089104.i = phi ptr [ %.190.i, %150 ], [ %66, %.critedge ]
+  %.086105.i = phi i64 [ %.187.i, %150 ], [ 0, %.critedge ]
+  %.089104.i = phi ptr [ %.291.i, %150 ], [ %66, %.critedge ]
   %69 = icmp eq i32 %.080108.i, 0
   br i1 %69, label %70, label %86
 
@@ -182,7 +182,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_preadv_generic.exit
 
 96:                                               ; preds = %88, %86
-  %.190.i = phi ptr [ %93, %88 ], [ %.089104.i, %86 ]
+  %.291.i = phi ptr [ %93, %88 ], [ %.089104.i, %86 ]
   %.184.i = phi i32 [ %89, %88 ], [ %.083107.i, %86 ]
   %97 = load i32, ptr %36, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -211,7 +211,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
 114:                                              ; preds = %99
   %115 = load ptr, ptr %108, align 8
   %116 = sext i32 %.181.i to i64
-  %117 = getelementptr inbounds %struct.iovec, ptr %.190.i, i64 %116
+  %117 = getelementptr inbounds %struct.iovec, ptr %.291.i, i64 %116
   store ptr %115, ptr %117, align 8
   %118 = load ptr, ptr %4, align 8
   %119 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %118, i64 %indvars.iv.next.i, i32 2
@@ -240,13 +240,13 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %137 = load i32, ptr %136, align 4
   %138 = call ptr @strerror(i32 noundef %137) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %133, ptr noundef %138) #10
-  call void @free(ptr noundef %.190.i) #10
+  call void @free(ptr noundef %.291.i) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 139:                                              ; preds = %131
   %140 = load i32, ptr %0, align 8
-  %141 = call i64 @preadv(i32 noundef %140, ptr noundef %.190.i, i32 noundef %.181.i, i64 noundef %.179.i) #10
+  %141 = call i64 @preadv(i32 noundef %140, ptr noundef %.291.i, i32 noundef %.181.i, i64 noundef %.179.i) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   %142 = icmp sgt i64 %141, 0
   br i1 %142, label %143, label %145
@@ -266,11 +266,11 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %148 = load i32, ptr %147, align 4
   %149 = call ptr @strerror(i32 noundef %148) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %149) #10
-  call void @free(ptr noundef %.190.i) #10
+  call void @free(ptr noundef %.291.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 150:                                              ; preds = %145, %143, %114
-  %.288.i = phi i64 [ %.086105.i, %114 ], [ %144, %143 ], [ %.086105.i, %145 ]
+  %.187.i = phi i64 [ %.086105.i, %114 ], [ %144, %143 ], [ %.086105.i, %145 ]
   %.282.i = phi i32 [ %130, %114 ], [ 0, %143 ], [ 0, %145 ]
   %.2.i = phi i64 [ %129, %114 ], [ %.1.i, %143 ], [ %.1.i, %145 ]
   %151 = load i32, ptr %36, align 8
@@ -279,8 +279,8 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %153, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %150, %145
-  %.086.lcssa.i = phi i64 [ %.086105.i, %145 ], [ %.288.i, %150 ]
-  call void @free(ptr noundef %.190.i) #10
+  %.086.lcssa.i = phi i64 [ %.086105.i, %145 ], [ %.187.i, %150 ]
+  call void @free(ptr noundef %.291.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 .lr.ph157.i:                                      ; preds = %59, %._crit_edge147.i

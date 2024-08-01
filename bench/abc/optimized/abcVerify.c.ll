@@ -232,8 +232,8 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
 .lr.ph97:                                         ; preds = %._crit_edge, %34
   %.val81124 = phi ptr [ %.val81, %34 ], [ %.val8190, %._crit_edge ]
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %34 ], [ 0, %._crit_edge ]
-  %.094 = phi i32 [ %.2, %34 ], [ -1, %._crit_edge ]
-  %.06192 = phi i32 [ %.162, %34 ], [ 0, %._crit_edge ]
+  %.094 = phi i32 [ %.3, %34 ], [ -1, %._crit_edge ]
+  %.06192 = phi i32 [ %.263, %34 ], [ 0, %._crit_edge ]
   %20 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv114
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv114
@@ -261,8 +261,8 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
 
 34:                                               ; preds = %._crit_edge123, %.lr.ph97
   %.val81 = phi ptr [ %.val81.pre, %._crit_edge123 ], [ %.val81124, %.lr.ph97 ]
-  %.162 = phi i32 [ %32, %._crit_edge123 ], [ %.06192, %.lr.ph97 ]
-  %.2 = phi i32 [ %spec.select, %._crit_edge123 ], [ %.094, %.lr.ph97 ]
+  %.263 = phi i32 [ %32, %._crit_edge123 ], [ %.06192, %.lr.ph97 ]
+  %.3 = phi i32 [ %spec.select, %._crit_edge123 ], [ %.094, %.lr.ph97 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %35 = getelementptr i8, ptr %.val81, i64 4
   %.val81.val = load i32, ptr %35, align 4
@@ -271,9 +271,9 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   br i1 %37, label %.lr.ph97, label %._crit_edge98, !llvm.loop !6
 
 ._crit_edge98:                                    ; preds = %34, %24, %._crit_edge
-  %.263 = phi i32 [ 0, %._crit_edge ], [ 3, %24 ], [ %.162, %34 ]
-  %.3 = phi i32 [ -1, %._crit_edge ], [ %spec.select, %24 ], [ %.2, %34 ]
-  %.not69 = icmp eq i32 %.263, %.064.lcssa
+  %.162 = phi i32 [ 0, %._crit_edge ], [ 3, %24 ], [ %.263, %34 ]
+  %.1 = phi i32 [ -1, %._crit_edge ], [ %spec.select, %24 ], [ %.3, %34 ]
+  %.not69 = icmp eq i32 %.162, %.064.lcssa
   br i1 %.not69, label %40, label %38
 
 38:                                               ; preds = %._crit_edge98
@@ -282,14 +282,14 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
 
 40:                                               ; preds = %38, %._crit_edge98
   %putchar = tail call i32 @putchar(i32 10)
-  %41 = icmp sgt i32 %.3, -1
+  %41 = icmp sgt i32 %.1, -1
   br i1 %41, label %42, label %92
 
 42:                                               ; preds = %40
   %.val83 = load ptr, ptr %7, align 8
   %43 = getelementptr i8, ptr %.val83, i64 8
   %.val83.val = load ptr, ptr %43, align 8
-  %44 = zext nneg i32 %.3 to i64
+  %44 = zext nneg i32 %.1 to i64
   %45 = getelementptr inbounds ptr, ptr %.val83.val, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @Abc_ObjName(ptr noundef %46) #14
@@ -960,7 +960,7 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %24 ]
   %.val6984 = phi ptr [ %.val69, %82 ], [ %.val6979, %24 ]
   %.083 = phi i32 [ %.1, %82 ], [ 0, %24 ]
-  %.04582 = phi i32 [ %.146, %82 ], [ 1, %24 ]
+  %.04582 = phi i32 [ %.2, %82 ], [ 1, %24 ]
   %32 = getelementptr i8, ptr %.val6984, i64 8
   %.val71.val = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds ptr, ptr %.val71.val, i64 %indvars.iv
@@ -1060,7 +1060,7 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %79
 
 79:                                               ; preds = %.thread, %65
-  %.146 = phi i32 [ -1, %65 ], [ %.04582, %.thread ]
+  %.2 = phi i32 [ -1, %65 ], [ %.04582, %.thread ]
   %.1 = phi i32 [ %.083, %65 ], [ %78, %.thread ]
   %80 = load ptr, ptr %7, align 8
   %.not58 = icmp eq ptr %80, null
@@ -1082,7 +1082,7 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .critedge:                                        ; preds = %82
   %86 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
   %87 = call i32 @Cmd_CommandExecute(ptr noundef %86, ptr noundef nonnull @.str.22) #14
-  switch i32 %.146, label %93 [
+  switch i32 %.2, label %93 [
     i32 1, label %88
     i32 -1, label %89
   ]
@@ -1191,7 +1191,7 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
 
 34:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %71 ]
-  %.082 = phi i32 [ 0, %.lr.ph ], [ %.2, %71 ]
+  %.082 = phi i32 [ 0, %.lr.ph ], [ %.1, %71 ]
   %.04781 = phi i32 [ 1, %.lr.ph ], [ %.249, %71 ]
   %.val64 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds ptr, ptr %.val64, i64 %indvars.iv
@@ -1265,30 +1265,30 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %69
 
 69:                                               ; preds = %66, %58
-  %.148 = phi i32 [ -1, %58 ], [ %.04781, %66 ]
-  %.1 = phi i32 [ %.082, %58 ], [ %68, %66 ]
+  %.3 = phi i32 [ -1, %58 ], [ %.04781, %66 ]
+  %.2 = phi i32 [ %.082, %58 ], [ %68, %66 ]
   %70 = load ptr, ptr %6, align 8
   call void @Abc_NtkDelete(ptr noundef %70) #14
   br label %71
 
 71:                                               ; preds = %69, %42
   %indvars.iv.next.pre-phi = phi i64 [ %45, %69 ], [ %.pre, %42 ]
-  %.249 = phi i32 [ %.148, %69 ], [ %.04781, %42 ]
-  %.2 = phi i32 [ %.1, %69 ], [ %.082, %42 ]
+  %.249 = phi i32 [ %.3, %69 ], [ %.04781, %42 ]
+  %.1 = phi i32 [ %.2, %69 ], [ %.082, %42 ]
   %.val = load i32, ptr %31, align 4
   %72 = sext i32 %.val to i64
   %73 = icmp slt i64 %indvars.iv.next.pre-phi, %72
   br i1 %73, label %34, label %.critedge, !llvm.loop !14
 
 .critedge.sink.split:                             ; preds = %41, %60
-  %.3.ph = phi i32 [ 0, %60 ], [ %.04781, %41 ]
+  %.148.ph = phi i32 [ 0, %60 ], [ %.04781, %41 ]
   %.sink = load ptr, ptr %6, align 8
   call void @Abc_NtkDelete(ptr noundef %.sink) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %.critedge.sink.split, %23
-  %.076 = phi i32 [ 0, %23 ], [ %.082, %.critedge.sink.split ], [ %.2, %71 ]
-  %.3 = phi i32 [ 1, %23 ], [ %.3.ph, %.critedge.sink.split ], [ %.249, %71 ]
+  %.076 = phi i32 [ 0, %23 ], [ %.082, %.critedge.sink.split ], [ %.1, %71 ]
+  %.148 = phi i32 [ 1, %23 ], [ %.148.ph, %.critedge.sink.split ], [ %.249, %71 ]
   %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
   %.val11.i = load i32, ptr %31, align 4
   %75 = icmp sgt i32 %.val11.i, 0
@@ -1353,7 +1353,7 @@ Vec_PtrFree.exit:                                 ; preds = %Vec_VecFree.exit, %
   call void @free(ptr noundef nonnull %27) #14
   %92 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
   %93 = call i32 @Cmd_CommandExecute(ptr noundef %92, ptr noundef nonnull @.str.22) #14
-  switch i32 %.3, label %99 [
+  switch i32 %.148, label %99 [
     i32 1, label %94
     i32 -1, label %95
   ]
@@ -1767,7 +1767,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 74:                                               ; preds = %.lr.ph, %103
   %.0227.val266427 = phi ptr [ %.0227.val266326, %.lr.ph ], [ %.0227.val266, %103 ]
   %indvars.iv388 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next389, %103 ]
-  %.0199329 = phi i32 [ 0, %.lr.ph ], [ %.1, %103 ]
+  %.0199329 = phi i32 [ 0, %.lr.ph ], [ %.2, %103 ]
   %75 = getelementptr i8, ptr %.0227.val266427, i64 8
   %.0227.val269.val = load ptr, ptr %75, align 8
   %76 = getelementptr inbounds ptr, ptr %.0227.val269.val, i64 %indvars.iv388
@@ -1809,7 +1809,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 
 103:                                              ; preds = %._crit_edge426, %74
   %.0227.val266 = phi ptr [ %.0227.val266427, %74 ], [ %.0227.val266.pre, %._crit_edge426 ]
-  %.1 = phi i32 [ %.0199329, %74 ], [ %101, %._crit_edge426 ]
+  %.2 = phi i32 [ %.0199329, %74 ], [ %101, %._crit_edge426 ]
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %104 = getelementptr i8, ptr %.0227.val266, i64 4
   %.0227.val266.val = load i32, ptr %104, align 4
@@ -1818,8 +1818,8 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %106, label %74, label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %98, %103, %62
-  %.2 = phi i32 [ 0, %62 ], [ %.1, %103 ], [ 3, %98 ]
-  %.not234 = icmp eq i32 %.2, %.2208.us
+  %.1 = phi i32 [ 0, %62 ], [ %.2, %103 ], [ 3, %98 ]
+  %.not234 = icmp eq i32 %.1, %.2208.us
   br i1 %.not234, label %109, label %107
 
 107:                                              ; preds = %.critedge2

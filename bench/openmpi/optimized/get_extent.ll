@@ -45,8 +45,8 @@ define i32 @mca_io_romio_dist_MPI_File_get_type_extent(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %.thread, %15, %8
-  %.1 = phi i32 [ %10, %8 ], [ %16, %15 ], [ %17, %.thread ]
-  ret i32 %.1
+  %.0 = phi i32 [ %10, %8 ], [ %16, %15 ], [ %17, %.thread ]
+  ret i32 %.0
 }
 
 declare ptr @MPIO_File_resolve(ptr noundef) local_unnamed_addr #1

@@ -751,7 +751,7 @@ for.body.i.preheader.i:                           ; preds = %if.then.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.preheader.i
-  %bound.i.i.sroa.0.0.i = phi i64 [ %bound.i.i.sroa.0.3.i, %for.inc.i.i ], [ undef, %for.body.i.preheader.i ]
+  %bound.i.i.sroa.0.0.i = phi i64 [ %bound.i.i.sroa.0.1.i, %for.inc.i.i ], [ undef, %for.body.i.preheader.i ]
   %text.sroa.5.016.i.i = phi ptr [ %add.ptr.i.i, %for.inc.i.i ], [ %0, %for.body.i.preheader.i ]
   %text.sroa.0.015.i.i = phi i64 [ %sub.ptr.sub.i.i, %for.inc.i.i ], [ 0, %for.body.i.preheader.i ]
   %__begin3.sroa.0.014.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %1, %for.body.i.preheader.i ]
@@ -882,19 +882,19 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
   br label %invoke.cont4
 
 _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %if.else46.i.i, %if.end40.i.i
-  %bound.i.i.sroa.0.1.i = phi i64 [ %bound.i.i.sroa.0.4.insert.insert59.i, %if.else46.i.i ], [ %bound.i.i.sroa.0.2.insert.insert56.i, %if.end40.i.i ]
-  %bound.i.i.sroa.12.1.i = phi i32 [ -1, %if.else46.i.i ], [ %13, %if.end40.i.i ]
+  %bound.i.i.sroa.0.2.i = phi i64 [ %bound.i.i.sroa.0.4.insert.insert59.i, %if.else46.i.i ], [ %bound.i.i.sroa.0.2.insert.insert56.i, %if.end40.i.i ]
+  %bound.i.i.sroa.12.2.i = phi i32 [ -1, %if.else46.i.i ], [ %13, %if.end40.i.i ]
   %conv49.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i, i64 30
   %17 = load i8, ptr %conv49.i.i, align 2
   %bound.i.i.sroa.0.0.insert.ext.i = zext i8 %17 to i64
-  %bound.i.i.sroa.0.0.insert.mask49.i = and i64 %bound.i.i.sroa.0.1.i, -256
+  %bound.i.i.sroa.0.0.insert.mask49.i = and i64 %bound.i.i.sroa.0.2.i, -256
   %bound.i.i.sroa.0.0.insert.insert50.i = or disjoint i64 %bound.i.i.sroa.0.0.insert.mask49.i, %bound.i.i.sroa.0.0.insert.ext.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %precision.i.i)
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %arrayidx.i.i42.i, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i42.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i, align 8
-  %call.i.i.i.i.i3 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %bound.i.i.sroa.0.0.insert.insert50.i, i32 %bound.i.i.sroa.12.1.i, ptr noundef nonnull %sink)
+  %call.i.i.i.i.i3 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %bound.i.i.sroa.0.0.insert.insert50.i, i32 %bound.i.i.sroa.12.2.i, ptr noundef nonnull %sink)
           to label %call.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.i.noexc:                             ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
@@ -936,7 +936,7 @@ if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %.noexc, %if.end5.i.i.i.i.i, %if.else.i.i, %call.i.i.i.i.i.noexc
-  %bound.i.i.sroa.0.3.i = phi i64 [ %bound.i.i.sroa.0.0.insert.insert50.i, %call.i.i.i.i.i.noexc ], [ %bound.i.i.sroa.0.0.i, %if.else.i.i ], [ %bound.i.i.sroa.0.0.i, %if.end5.i.i.i.i.i ], [ %bound.i.i.sroa.0.0.i, %.noexc ]
+  %bound.i.i.sroa.0.1.i = phi i64 [ %bound.i.i.sroa.0.0.insert.insert50.i, %call.i.i.i.i.i.noexc ], [ %bound.i.i.sroa.0.0.i, %if.else.i.i ], [ %bound.i.i.sroa.0.0.i, %if.end5.i.i.i.i.i ], [ %bound.i.i.sroa.0.0.i, %.noexc ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i, i64 32
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %2
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
@@ -969,8 +969,8 @@ while.body.lr.ph.lr.ph.i.i:                       ; preds = %if.else.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end65.i.i, %while.body.lr.ph.lr.ph.i.i
   %p.0.ph234.i.i = phi ptr [ %format.coerce0, %while.body.lr.ph.lr.ph.i.i ], [ %p.1.i.i, %if.end65.i.i ]
-  %bound.i53.sroa.0.0.ph231.i.i = phi i64 [ undef, %while.body.lr.ph.lr.ph.i.i ], [ %bound.i53.sroa.0.3.i.i, %if.end65.i.i ]
-  %bound.i.sroa.0.0.ph228.i.i = phi i64 [ undef, %while.body.lr.ph.lr.ph.i.i ], [ %bound.i.sroa.0.3.i.i, %if.end65.i.i ]
+  %bound.i53.sroa.0.0.ph231.i.i = phi i64 [ undef, %while.body.lr.ph.lr.ph.i.i ], [ %bound.i53.sroa.0.1.i.i, %if.end65.i.i ]
+  %bound.i.sroa.0.0.ph228.i.i = phi i64 [ undef, %while.body.lr.ph.lr.ph.i.i ], [ %bound.i.sroa.0.1.i.i, %if.end65.i.i ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i, %while.body.lr.ph.i.i
@@ -1222,18 +1222,18 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
   br label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i: ; preds = %if.else46.i155.i.i, %if.end40.i116.i.i
-  %bound.i53.sroa.0.1.i.i = phi i64 [ %bound.i53.sroa.0.4.insert.insert186.i.i, %if.else46.i155.i.i ], [ %bound.i53.sroa.0.2.insert.insert183.i.i, %if.end40.i116.i.i ]
-  %bound.i53.sroa.11.1.i.i = phi i32 [ -1, %if.else46.i155.i.i ], [ %50, %if.end40.i116.i.i ]
+  %bound.i53.sroa.0.2.i.i = phi i64 [ %bound.i53.sroa.0.4.insert.insert186.i.i, %if.else46.i155.i.i ], [ %bound.i53.sroa.0.2.insert.insert183.i.i, %if.end40.i116.i.i ]
+  %bound.i53.sroa.11.2.i.i = phi i32 [ -1, %if.else46.i155.i.i ], [ %50, %if.end40.i116.i.i ]
   %54 = load i8, ptr %conv.i51.i.i, align 2
   %bound.i53.sroa.0.0.insert.ext.i.i = zext i8 %54 to i64
-  %bound.i53.sroa.0.0.insert.mask176.i.i = and i64 %bound.i53.sroa.0.1.i.i, -256
+  %bound.i53.sroa.0.0.insert.mask176.i.i = and i64 %bound.i53.sroa.0.2.i.i, -256
   %bound.i53.sroa.0.0.insert.insert177.i.i = or disjoint i64 %bound.i53.sroa.0.0.insert.mask176.i.i, %bound.i53.sroa.0.0.insert.ext.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i98.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %precision.i99.i.i)
   %agg.tmp.sroa.0.0.copyload.i.i61.i.i = load ptr, ptr %arrayidx.i.i106.i.i, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx.i.i62.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i106.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i63.i.i = load ptr, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i62.i.i, align 8
-  %call.i.i.i67.i.i13 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i63.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i61.i.i, i64 %bound.i53.sroa.0.0.insert.insert177.i.i, i32 %bound.i53.sroa.11.1.i.i, ptr noundef nonnull %sink)
+  %call.i.i.i67.i.i13 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i63.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i61.i.i, i64 %bound.i53.sroa.0.0.insert.insert177.i.i, i32 %bound.i53.sroa.11.2.i.i, ptr noundef nonnull %sink)
           to label %call.i.i.i67.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i67.i.i.noexc:                           ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i
@@ -1276,8 +1276,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
   br i1 %cmp.not.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, label %while.body.i.i, !llvm.loop !7
 
 if.end65.i.i:                                     ; preds = %call.i.i.i67.i.i.noexc, %call.i.i.i.i18.i.noexc
-  %bound.i.sroa.0.3.i.i = phi i64 [ %bound.i.sroa.0.0.insert.insert164.i.i, %call.i.i.i.i18.i.noexc ], [ %bound.i.sroa.0.0.ph228.i.i, %call.i.i.i67.i.i.noexc ]
-  %bound.i53.sroa.0.3.i.i = phi i64 [ %bound.i53.sroa.0.0.ph231.i.i, %call.i.i.i.i18.i.noexc ], [ %bound.i53.sroa.0.0.insert.insert177.i.i, %call.i.i.i67.i.i.noexc ]
+  %bound.i.sroa.0.1.i.i = phi i64 [ %bound.i.sroa.0.0.insert.insert164.i.i, %call.i.i.i.i18.i.noexc ], [ %bound.i.sroa.0.0.ph228.i.i, %call.i.i.i67.i.i.noexc ]
+  %bound.i53.sroa.0.1.i.i = phi i64 [ %bound.i53.sroa.0.0.ph231.i.i, %call.i.i.i.i18.i.noexc ], [ %bound.i53.sroa.0.0.insert.insert177.i.i, %call.i.i.i67.i.i.noexc ]
   %p.1.i.i = phi ptr [ %add.ptr24.i.i, %call.i.i.i.i18.i.noexc ], [ %call40.i.i10, %call.i.i.i67.i.i.noexc ]
   %cmp.not223.i.i = icmp eq ptr %p.1.i.i, %add.ptr.i7.i
   br i1 %cmp.not223.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, label %while.body.lr.ph.i.i, !llvm.loop !7

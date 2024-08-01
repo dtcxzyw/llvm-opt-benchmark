@@ -203,7 +203,7 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
 .lr.ph28.i:                                       ; preds = %.lr.ph.i, %114
   %92 = phi i32 [ %115, %114 ], [ %90, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %114 ], [ 0, %.lr.ph.i ]
-  %.02326.i = phi i32 [ %.2.i, %114 ], [ 0, %.lr.ph.i ]
+  %.02326.i = phi i32 [ %.1.i, %114 ], [ 0, %.lr.ph.i ]
   %93 = load ptr, ptr %89, align 8
   %94 = getelementptr %union.ListCell, ptr %93, i64 %indvars.iv.i
   %95 = load ptr, ptr %94, align 8
@@ -225,15 +225,15 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
   br label %106
 
 106:                                              ; preds = %102, %98
-  %.1.i = phi i32 [ %103, %102 ], [ %.02326.i, %98 ]
+  %.2.i = phi i32 [ %103, %102 ], [ %.02326.i, %98 ]
   %.not19.i = icmp eq ptr %100, null
   %spec.store.select.i = select i1 %.not19.i, ptr @.str.27, ptr %100
-  %107 = sext i32 %.1.i to i64
+  %107 = sext i32 %.2.i to i64
   %108 = getelementptr i8, ptr %3, i64 %107
   %109 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %spec.store.select.i, i64 noundef 64) #10
   %110 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #12
   %111 = trunc i64 %110 to i32
-  %112 = add i32 %.1.i, %111
+  %112 = add i32 %.2.i, %111
   %113 = icmp sgt i32 %112, 63
   br i1 %113, label %ChooseExtendedStatisticNameAddition.exit, label %._crit_edge.i
 
@@ -243,7 +243,7 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
 
 114:                                              ; preds = %._crit_edge.i, %.lr.ph28.i
   %115 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %92, %.lr.ph28.i ]
-  %.2.i = phi i32 [ %112, %._crit_edge.i ], [ %.02326.i, %.lr.ph28.i ]
+  %.1.i = phi i32 [ %112, %._crit_edge.i ], [ %.02326.i, %.lr.ph28.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next.i, %116

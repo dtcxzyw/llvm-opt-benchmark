@@ -16394,7 +16394,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %if.end12
 
 while.cond.preheader:                             ; preds = %for.inc34, %for.body.preheader.i.i.i.i.i
   %array_offsets.sroa.0.0.lcssa = phi ptr [ null, %for.body.preheader.i.i.i.i.i ], [ %array_offsets.sroa.0.1, %for.inc34 ]
-  %current_arrays.sroa.0.0.lcssa = phi ptr [ null, %for.body.preheader.i.i.i.i.i ], [ %current_arrays.sroa.0.1, %for.inc34 ]
+  %current_arrays.sroa.0.0.lcssa = phi ptr [ null, %for.body.preheader.i.i.i.i.i ], [ %current_arrays.sroa.0.3, %for.inc34 ]
   %cmp37252 = icmp sgt i64 %add, 0
   br i1 %cmp37252, label %for.cond39.preheader.lr.ph, label %while.end131
 
@@ -16405,7 +16405,7 @@ for.cond39.preheader.lr.ph:                       ; preds = %while.cond.preheade
   br label %for.cond39.preheader
 
 for.body23:                                       ; preds = %for.body.preheader.i.i.i.i.i, %for.inc34
-  %current_arrays.sroa.0.0230 = phi ptr [ %current_arrays.sroa.0.1, %for.inc34 ], [ null, %for.body.preheader.i.i.i.i.i ]
+  %current_arrays.sroa.0.0230 = phi ptr [ %current_arrays.sroa.0.3, %for.inc34 ], [ null, %for.body.preheader.i.i.i.i.i ]
   %current_arrays.sroa.7.0229 = phi ptr [ %current_arrays.sroa.7.1, %for.inc34 ], [ null, %for.body.preheader.i.i.i.i.i ]
   %current_arrays.sroa.11.0228 = phi ptr [ %current_arrays.sroa.11.1, %for.inc34 ], [ null, %for.body.preheader.i.i.i.i.i ]
   %__begin215.sroa.0.0227 = phi ptr [ %incdec.ptr.i99, %for.inc34 ], [ %1, %for.body.preheader.i.i.i.i.i ]
@@ -16486,7 +16486,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS
 invoke.cont29:                                    ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EE17_M_realloc_insertIJSA_EEEvNS1_IPSA_SC_EEDpOT_.exit.i, %if.then.i
   %current_arrays.sroa.11.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EE17_M_realloc_insertIJSA_EEEvNS1_IPSA_SC_EEDpOT_.exit.i ], [ %current_arrays.sroa.11.0228, %if.then.i ]
   %__cur.0.lcssa.i.i.i.i.i67.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i67, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EE17_M_realloc_insertIJSA_EEEvNS1_IPSA_SC_EEDpOT_.exit.i ], [ %current_arrays.sroa.7.0229, %if.then.i ]
-  %current_arrays.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EE17_M_realloc_insertIJSA_EEEvNS1_IPSA_SC_EEDpOT_.exit.i ], [ %current_arrays.sroa.0.0230, %if.then.i ]
+  %current_arrays.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EE17_M_realloc_insertIJSA_EEEvNS1_IPSA_SC_EEDpOT_.exit.i ], [ %current_arrays.sroa.0.0230, %if.then.i ]
   %current_arrays.sroa.7.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i67.pn, i64 8
   %cmp.not.i74 = icmp eq ptr %array_offsets.sroa.7.0225, %array_offsets.sroa.11.0226
   br i1 %cmp.not.i74, label %if.else.i77, label %if.then.i75
@@ -16924,19 +16924,19 @@ ehcleanup.thread202:                              ; preds = %while.end117, %if.e
   br label %if.then.i.i.i153
 
 ehcleanup.loopexit:                               ; preds = %cond.true.i.i.i88, %cond.true.i.i.i
-  %current_arrays.sroa.0.2.ph.ph = phi ptr [ %current_arrays.sroa.0.1, %cond.true.i.i.i88 ], [ %current_arrays.sroa.0.0230, %cond.true.i.i.i ]
+  %current_arrays.sroa.0.1.ph.ph = phi ptr [ %current_arrays.sroa.0.3, %cond.true.i.i.i88 ], [ %current_arrays.sroa.0.0230, %cond.true.i.i.i ]
   %lpad.loopexit207 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup.loopexit.split-lp:                      ; preds = %if.then.i.i.i95, %if.then.i.i.i69
-  %current_arrays.sroa.0.2.ph.ph206 = phi ptr [ %current_arrays.sroa.0.0230, %if.then.i.i.i69 ], [ %current_arrays.sroa.0.1, %if.then.i.i.i95 ]
+  %current_arrays.sroa.0.1.ph.ph206 = phi ptr [ %current_arrays.sroa.0.0230, %if.then.i.i.i69 ], [ %current_arrays.sroa.0.3, %if.then.i.i.i95 ]
   %lpad.loopexit.split-lp208 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %ehcleanup.loopexit.split-lp, %ehcleanup.loopexit
-  %current_arrays.sroa.0.2.ph = phi ptr [ %current_arrays.sroa.0.2.ph.ph, %ehcleanup.loopexit ], [ %current_arrays.sroa.0.2.ph.ph206, %ehcleanup.loopexit.split-lp ]
+  %current_arrays.sroa.0.1.ph = phi ptr [ %current_arrays.sroa.0.1.ph.ph, %ehcleanup.loopexit ], [ %current_arrays.sroa.0.1.ph.ph206, %ehcleanup.loopexit.split-lp ]
   %lpad.phi209 = phi { ptr, i32 } [ %lpad.loopexit207, %ehcleanup.loopexit ], [ %lpad.loopexit.split-lp208, %ehcleanup.loopexit.split-lp ]
   %tobool.not.i.i.i152 = icmp eq ptr %array_offsets.sroa.0.0224, null
   br i1 %tobool.not.i.i.i152, label %_ZNSt6vectorIlSaIlEED2Ev.exit154, label %if.then.i.i.i153
@@ -16944,18 +16944,18 @@ ehcleanup:                                        ; preds = %ehcleanup.loopexit.
 if.then.i.i.i153:                                 ; preds = %ehcleanup.thread202, %ehcleanup.thread, %ehcleanup
   %array_offsets.sroa.0.0219 = phi ptr [ %array_offsets.sroa.0.0.lcssa, %ehcleanup.thread ], [ %array_offsets.sroa.0.0224, %ehcleanup ], [ %array_offsets.sroa.0.0.lcssa, %ehcleanup.thread202 ]
   %.pn200 = phi { ptr, i32 } [ %lpad.phi, %ehcleanup.thread ], [ %lpad.phi209, %ehcleanup ], [ %lpad.thr_comm, %ehcleanup.thread202 ]
-  %current_arrays.sroa.0.3198 = phi ptr [ %current_arrays.sroa.0.0.lcssa, %ehcleanup.thread ], [ %current_arrays.sroa.0.2.ph, %ehcleanup ], [ %current_arrays.sroa.0.0.lcssa, %ehcleanup.thread202 ]
+  %current_arrays.sroa.0.2198 = phi ptr [ %current_arrays.sroa.0.0.lcssa, %ehcleanup.thread ], [ %current_arrays.sroa.0.1.ph, %ehcleanup ], [ %current_arrays.sroa.0.0.lcssa, %ehcleanup.thread202 ]
   call void @_ZdlPv(ptr noundef nonnull %array_offsets.sroa.0.0219) #17
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit154
 
 _ZNSt6vectorIlSaIlEED2Ev.exit154:                 ; preds = %ehcleanup, %if.then.i.i.i153
   %.pn201 = phi { ptr, i32 } [ %lpad.phi209, %ehcleanup ], [ %.pn200, %if.then.i.i.i153 ]
-  %current_arrays.sroa.0.3199 = phi ptr [ %current_arrays.sroa.0.2.ph, %ehcleanup ], [ %current_arrays.sroa.0.3198, %if.then.i.i.i153 ]
-  %tobool.not.i.i.i156 = icmp eq ptr %current_arrays.sroa.0.3199, null
+  %current_arrays.sroa.0.2199 = phi ptr [ %current_arrays.sroa.0.1.ph, %ehcleanup ], [ %current_arrays.sroa.0.2198, %if.then.i.i.i153 ]
+  %tobool.not.i.i.i156 = icmp eq ptr %current_arrays.sroa.0.2199, null
   br i1 %tobool.not.i.i.i156, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EED2Ev.exit158, label %if.then.i.i.i157
 
 if.then.i.i.i157:                                 ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit154
-  call void @_ZdlPv(ptr noundef nonnull %current_arrays.sroa.0.3199) #17
+  call void @_ZdlPv(ptr noundef nonnull %current_arrays.sroa.0.2199) #17
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EED2Ev.exit158
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5arrow5ArrayEES_IS5_SaIS5_EEEESaISA_EED2Ev.exit158: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit154, %if.then.i.i.i157

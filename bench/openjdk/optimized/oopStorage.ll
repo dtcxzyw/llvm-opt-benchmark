@@ -2428,7 +2428,7 @@ _ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread: ; preds = %_ZN13MutexUn
   br label %_ZN11MutexLockerD2Ev.exit19
 
 _ZN11MutexLockerD2Ev.exit19:                      ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15, %64, %67, %141, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread
-  %.3 = phi i1 [ true, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread ], [ true, %141 ], [ false, %67 ], [ false, %64 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15 ]
+  %.2 = phi i1 [ true, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread ], [ true, %141 ], [ false, %67 ], [ false, %64 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit21, label %142
 
 142:                                              ; preds = %_ZN11MutexLockerD2Ev.exit19
@@ -2436,8 +2436,8 @@ _ZN11MutexLockerD2Ev.exit19:                      ; preds = %_ZN11MutexLockerC2E
   br label %_ZN11MutexLockerD2Ev.exit21
 
 _ZN11MutexLockerD2Ev.exit21:                      ; preds = %142, %_ZN11MutexLockerD2Ev.exit19, %5
-  %.4 = phi i1 [ false, %5 ], [ %.3, %_ZN11MutexLockerD2Ev.exit19 ], [ %.3, %142 ]
-  ret i1 %.4
+  %.011 = phi i1 [ false, %5 ], [ %.2, %_ZN11MutexLockerD2Ev.exit19 ], [ %.2, %142 ]
+  ret i1 %.011
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -251,7 +251,7 @@ for.body.lr.ph:                                   ; preds = %if.end16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %error_code.0106 = phi i32 [ 4, %for.body.lr.ph ], [ %error_code.1, %for.inc ]
+  %error_code.1106 = phi i32 [ 4, %for.body.lr.ph ], [ %error_code.2, %for.inc ]
   %last_index.1105 = phi ptr [ %last_index.0, %for.body.lr.ph ], [ %last_index.2, %for.inc ]
   %i.0104 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %data, align 8
@@ -404,7 +404,7 @@ if.end91:                                         ; preds = %if.end13.i
 
 for.inc:                                          ; preds = %if.end91, %for.body, %if.then59, %if.end55, %if.then67
   %last_index.2 = phi ptr [ %12, %if.then59 ], [ %last_index.1105, %if.end55 ], [ %last_index.1105, %if.then67 ], [ %last_index.1105, %for.body ], [ %last_index.1105, %if.end91 ]
-  %error_code.1 = phi i32 [ %error_code.0106, %if.then59 ], [ %error_code.0106, %if.end55 ], [ %error_code.0106, %if.then67 ], [ %error_code.0106, %for.body ], [ 2, %if.end91 ]
+  %error_code.2 = phi i32 [ %error_code.1106, %if.then59 ], [ %error_code.1106, %if.end55 ], [ %error_code.1106, %if.then67 ], [ %error_code.1106, %for.body ], [ 2, %if.end91 ]
   %inc = add nuw nsw i32 %i.0104, 1
   %22 = load ptr, ptr %data, align 8
   %call.i = call i32 @OPENSSL_sk_num(ptr noundef %22) #7
@@ -463,7 +463,7 @@ if.end117.thread:                                 ; preds = %if.end31, %lor.lhs.
   br label %SRP_user_pwd_free.exit
 
 if.end.i56:                                       ; preds = %land.lhs.true.i, %SRP_user_pwd_set1_ids.exit, %if.end91, %SRP_user_pwd_set_sv.exit.thread
-  %error_code.2.ph = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %land.lhs.true.i ], [ 2, %if.end91 ], [ 4, %SRP_user_pwd_set1_ids.exit ]
+  %error_code.0.ph = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %land.lhs.true.i ], [ 2, %if.end91 ], [ 4, %SRP_user_pwd_set1_ids.exit ]
   %s.i = getelementptr inbounds i8, ptr %call.i43, i64 8
   %27 = load ptr, ptr %s.i, align 8
   call void @BN_free(ptr noundef %27) #7
@@ -479,11 +479,11 @@ if.end.i56:                                       ; preds = %land.lhs.true.i, %S
 
 SRP_user_pwd_free.exit:                           ; preds = %if.then72, %if.then26, %entry, %if.end, %lor.lhs.false, %if.end8, %SRP_get_gN_by_id.exit, %if.end109, %for.end, %if.end117.thread, %if.end.i56
   %tmpdb.07380 = phi ptr [ %call9, %if.end117.thread ], [ %call9, %if.end.i56 ], [ null, %entry ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ %call9, %SRP_get_gN_by_id.exit ], [ %call9, %if.end109 ], [ %call9, %for.end ], [ %call9, %if.then26 ], [ %call9, %if.then72 ]
-  %error_code.27479 = phi i32 [ %error_code.0106, %if.end117.thread ], [ %error_code.2.ph, %if.end.i56 ], [ 4, %entry ], [ 3, %if.end ], [ 3, %lor.lhs.false ], [ 1, %if.end8 ], [ 2, %SRP_get_gN_by_id.exit ], [ 0, %if.end109 ], [ 0, %for.end ], [ 4, %if.then72 ], [ %error_code.0106, %if.then26 ]
+  %error_code.07479 = phi i32 [ %error_code.1106, %if.end117.thread ], [ %error_code.0.ph, %if.end.i56 ], [ 4, %entry ], [ 3, %if.end ], [ 3, %lor.lhs.false ], [ 1, %if.end8 ], [ 2, %SRP_get_gN_by_id.exit ], [ 0, %if.end109 ], [ 0, %for.end ], [ 4, %if.then72 ], [ %error_code.1106, %if.then26 ]
   call void @TXT_DB_free(ptr noundef %tmpdb.07380) #7
   call void @BIO_free_all(ptr noundef %call2) #7
   call void @OPENSSL_sk_free(ptr noundef %call) #7
-  ret i32 %error_code.27479
+  ret i32 %error_code.07479
 }
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
@@ -973,8 +973,8 @@ if.end28:                                         ; preds = %if.else
 if.end31:                                         ; preds = %if.end19, %if.end28
   %N_bn.0 = phi ptr [ %6, %if.end28 ], [ %call11, %if.end19 ]
   %g_bn.0 = phi ptr [ %7, %if.end28 ], [ %call21, %if.end19 ]
-  %N_bn_alloc.0 = phi ptr [ null, %if.end28 ], [ %call11, %if.end19 ]
-  %g_bn_alloc.0 = phi ptr [ null, %if.end28 ], [ %call21, %if.end19 ]
+  %N_bn_alloc.1 = phi ptr [ null, %if.end28 ], [ %call11, %if.end19 ]
+  %g_bn_alloc.1 = phi ptr [ null, %if.end28 ], [ %call21, %if.end19 ]
   %defgNid.0 = phi ptr [ %8, %if.end28 ], [ @.str.2, %if.end19 ]
   %9 = load ptr, ptr %salt, align 8
   %cmp32 = icmp eq ptr %9, null
@@ -1057,12 +1057,12 @@ if.end89:                                         ; preds = %if.end88, %if.end75
 
 err:                                              ; preds = %if.then78, %if.end67, %if.end61, %if.end56, %if.end52, %if.end49, %if.else41, %if.then33, %if.else, %if.end19, %if.end14, %if.end9, %if.then6, %entry, %if.end89, %if.then87
   %vf.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.end9 ], [ null, %if.end14 ], [ null, %if.end19 ], [ null, %if.then33 ], [ null, %if.end49 ], [ null, %if.end56 ], [ null, %if.end61 ], [ %call63, %if.then78 ], [ null, %if.end89 ], [ %call63, %if.then87 ], [ %call63, %if.end67 ], [ null, %if.end52 ], [ null, %if.else41 ], [ null, %if.else ]
-  %N_bn_alloc.1 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.end9 ], [ %call11, %if.end14 ], [ %call11, %if.end19 ], [ %N_bn_alloc.0, %if.then33 ], [ %N_bn_alloc.0, %if.end49 ], [ %N_bn_alloc.0, %if.end56 ], [ %N_bn_alloc.0, %if.end61 ], [ %N_bn_alloc.0, %if.then78 ], [ %N_bn_alloc.0, %if.end89 ], [ %N_bn_alloc.0, %if.then87 ], [ %N_bn_alloc.0, %if.end67 ], [ %N_bn_alloc.0, %if.end52 ], [ %N_bn_alloc.0, %if.else41 ], [ null, %if.else ]
-  %g_bn_alloc.1 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.end9 ], [ null, %if.end14 ], [ null, %if.end19 ], [ %g_bn_alloc.0, %if.then33 ], [ %g_bn_alloc.0, %if.end49 ], [ %g_bn_alloc.0, %if.end56 ], [ %g_bn_alloc.0, %if.end61 ], [ %g_bn_alloc.0, %if.then78 ], [ %g_bn_alloc.0, %if.end89 ], [ %g_bn_alloc.0, %if.then87 ], [ %g_bn_alloc.0, %if.end67 ], [ %g_bn_alloc.0, %if.end52 ], [ %g_bn_alloc.0, %if.else41 ], [ null, %if.else ]
+  %N_bn_alloc.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.end9 ], [ %call11, %if.end14 ], [ %call11, %if.end19 ], [ %N_bn_alloc.1, %if.then33 ], [ %N_bn_alloc.1, %if.end49 ], [ %N_bn_alloc.1, %if.end56 ], [ %N_bn_alloc.1, %if.end61 ], [ %N_bn_alloc.1, %if.then78 ], [ %N_bn_alloc.1, %if.end89 ], [ %N_bn_alloc.1, %if.then87 ], [ %N_bn_alloc.1, %if.end67 ], [ %N_bn_alloc.1, %if.end52 ], [ %N_bn_alloc.1, %if.else41 ], [ null, %if.else ]
+  %g_bn_alloc.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.end9 ], [ null, %if.end14 ], [ null, %if.end19 ], [ %g_bn_alloc.1, %if.then33 ], [ %g_bn_alloc.1, %if.end49 ], [ %g_bn_alloc.1, %if.end56 ], [ %g_bn_alloc.1, %if.end61 ], [ %g_bn_alloc.1, %if.then78 ], [ %g_bn_alloc.1, %if.end89 ], [ %g_bn_alloc.1, %if.then87 ], [ %g_bn_alloc.1, %if.end67 ], [ %g_bn_alloc.1, %if.end52 ], [ %g_bn_alloc.1, %if.else41 ], [ null, %if.else ]
   %vfsize.0 = phi i32 [ 0, %entry ], [ 0, %if.then6 ], [ 0, %if.end9 ], [ 0, %if.end14 ], [ 0, %if.end19 ], [ 0, %if.then33 ], [ 0, %if.end49 ], [ 0, %if.end56 ], [ %mul, %if.end61 ], [ %mul, %if.then78 ], [ %mul, %if.end89 ], [ %mul, %if.then87 ], [ %mul, %if.end67 ], [ 0, %if.end52 ], [ 0, %if.else41 ], [ 0, %if.else ]
   %result.0 = phi ptr [ null, %entry ], [ null, %if.then6 ], [ null, %if.end9 ], [ null, %if.end14 ], [ null, %if.end19 ], [ null, %if.then33 ], [ null, %if.end49 ], [ null, %if.end56 ], [ null, %if.end61 ], [ null, %if.then78 ], [ %defgNid.0, %if.end89 ], [ null, %if.then87 ], [ null, %if.end67 ], [ null, %if.end52 ], [ null, %if.else41 ], [ null, %if.else ]
-  call void @BN_free(ptr noundef %N_bn_alloc.1) #7
-  call void @BN_free(ptr noundef %g_bn_alloc.1) #7
+  call void @BN_free(ptr noundef %N_bn_alloc.0) #7
+  call void @BN_free(ptr noundef %g_bn_alloc.0) #7
   %conv90 = sext i32 %vfsize.0 to i64
   call void @CRYPTO_clear_free(ptr noundef %vf.0, i64 noundef %conv90, ptr noundef nonnull @.str, i32 noundef 694) #7
   %14 = load ptr, ptr %s, align 8
@@ -1223,8 +1223,8 @@ if.end17:                                         ; preds = %if.then13
   br i1 %cmp20, label %land.lhs.true, label %if.end23
 
 if.end23:                                         ; preds = %if.end, %if.end17
-  %salttmp.0 = phi ptr [ %call19, %if.end17 ], [ %8, %if.end ]
-  %call24 = call ptr @SRP_Calc_x_ex(ptr noundef nonnull %salttmp.0, ptr noundef %user, ptr noundef %pass, ptr noundef %libctx, ptr noundef %propq) #7
+  %salttmp.1 = phi ptr [ %call19, %if.end17 ], [ %8, %if.end ]
+  %call24 = call ptr @SRP_Calc_x_ex(ptr noundef nonnull %salttmp.1, ptr noundef %user, ptr noundef %pass, ptr noundef %libctx, ptr noundef %propq) #7
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %land.lhs.true, label %if.end27
 
@@ -1243,7 +1243,7 @@ if.then33:                                        ; preds = %if.end31
   br label %land.lhs.true
 
 if.end34:                                         ; preds = %if.end31
-  store ptr %salttmp.0, ptr %salt, align 8
+  store ptr %salttmp.1, ptr %salt, align 8
   store ptr %call28, ptr %verifier, align 8
   br label %land.lhs.true
 
@@ -1252,14 +1252,14 @@ err:                                              ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.then33, %if.end34, %if.then13, %if.end17, %if.end23, %if.end27, %err
   %result.035 = phi i32 [ 0, %err ], [ 0, %if.then33 ], [ 1, %if.end34 ], [ 0, %if.end27 ], [ 0, %if.end23 ], [ 0, %if.end17 ], [ 0, %if.then13 ]
-  %salttmp.134 = phi ptr [ null, %err ], [ %salttmp.0, %if.then33 ], [ %salttmp.0, %if.end34 ], [ %salttmp.0, %if.end27 ], [ %salttmp.0, %if.end23 ], [ null, %if.end17 ], [ null, %if.then13 ]
+  %salttmp.034 = phi ptr [ null, %err ], [ %salttmp.1, %if.then33 ], [ %salttmp.1, %if.end34 ], [ %salttmp.1, %if.end27 ], [ %salttmp.1, %if.end23 ], [ null, %if.end17 ], [ null, %if.then13 ]
   %x.032 = phi ptr [ null, %err ], [ %call24, %if.then33 ], [ %call24, %if.end34 ], [ %call24, %if.end27 ], [ null, %if.end23 ], [ null, %if.end17 ], [ null, %if.then13 ]
   %9 = load ptr, ptr %salt, align 8
-  %cmp36.not = icmp eq ptr %9, %salttmp.134
+  %cmp36.not = icmp eq ptr %9, %salttmp.034
   br i1 %cmp36.not, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %land.lhs.true
-  call void @BN_clear_free(ptr noundef %salttmp.134) #7
+  call void @BN_clear_free(ptr noundef %salttmp.034) #7
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %land.lhs.true, %err

@@ -572,9 +572,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4619,14 +4619,14 @@ if.else:                                          ; preds = %if.end17
   br i1 %cmp24, label %if.end28, label %fail
 
 if.end28:                                         ; preds = %if.else, %if.end17
-  %signDisplay.0 = phi i32 [ 1, %if.end17 ], [ 5, %if.else ]
+  %signDisplay.1 = phi i32 [ 1, %if.end17 ], [ 5, %if.else ]
   %inc29 = add nuw nsw i32 %offset.0, 2
   %call30 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp31 = icmp eq i32 %call30, %inc29
   br i1 %cmp31, label %fail, label %if.end34
 
 if.end34:                                         ; preds = %if.end28, %if.end8
-  %signDisplay.1 = phi i32 [ %signDisplay.0, %if.end28 ], [ 0, %if.end8 ]
+  %signDisplay.0 = phi i32 [ %signDisplay.1, %if.end28 ], [ 0, %if.end8 ]
   %offset.1 = phi i32 [ %inc29, %if.end28 ], [ %offset.0, %if.end8 ]
   %call3525 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp3626 = icmp slt i32 %offset.1, %call3525
@@ -4665,7 +4665,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store i64 %call47.fca.0.extract.sink, ptr %ref.tmp45, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
   store i32 %call47.fca.1.extract.sink, ptr %0, align 8
-  %call50 = call { i64, i32 } @_ZNK6icu_756number18ScientificNotation23withExponentSignDisplayE18UNumberSignDisplay(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp45, i32 noundef %signDisplay.1)
+  %call50 = call { i64, i32 } @_ZNK6icu_756number18ScientificNotation23withExponentSignDisplayE18UNumberSignDisplay(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp45, i32 noundef %signDisplay.0)
   %call50.fca.0.extract = extractvalue { i64, i32 } %call50, 0
   %call50.fca.1.extract = extractvalue { i64, i32 } %call50, 1
   store i64 %call50.fca.0.extract, ptr %ref.tmp44, align 8
@@ -5553,26 +5553,26 @@ for.cond14.preheader:                             ; preds = %for.end
   br i1 %cmp1638, label %for.body17, label %if.end28
 
 for.body17:                                       ; preds = %for.cond14.preheader, %if.then21
-  %offset.240 = phi i32 [ %inc26, %if.then21 ], [ %offset.1.lcssa, %for.cond14.preheader ]
-  %minInt.039 = phi i32 [ %inc22, %if.then21 ], [ 0, %for.cond14.preheader ]
-  %call18 = tail call noundef zeroext i16 @_ZNK6icu_7513StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %offset.240)
+  %offset.340 = phi i32 [ %inc26, %if.then21 ], [ %offset.1.lcssa, %for.cond14.preheader ]
+  %minInt.139 = phi i32 [ %inc22, %if.then21 ], [ 0, %for.cond14.preheader ]
+  %call18 = tail call noundef zeroext i16 @_ZNK6icu_7513StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %offset.340)
   %cmp20 = icmp eq i16 %call18, 48
   br i1 %cmp20, label %if.then21, label %if.end28
 
 if.then21:                                        ; preds = %for.body17
-  %inc22 = add nuw nsw i32 %minInt.039, 1
-  %inc26 = add nuw nsw i32 %offset.240, 1
+  %inc22 = add nuw nsw i32 %minInt.139, 1
+  %inc26 = add nuw nsw i32 %offset.340, 1
   %call15 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp16 = icmp slt i32 %inc26, %call15
   br i1 %cmp16, label %for.body17, label %if.end28, !llvm.loop !17
 
 if.end28:                                         ; preds = %for.body17, %if.then21, %for.cond14.preheader, %for.end
-  %minInt.1 = phi i32 [ 0, %for.end ], [ 0, %for.cond14.preheader ], [ %minInt.039, %for.body17 ], [ %inc22, %if.then21 ]
-  %offset.3 = phi i32 [ %offset.1.lcssa, %for.end ], [ %offset.1.lcssa, %for.cond14.preheader ], [ %offset.240, %for.body17 ], [ %inc26, %if.then21 ]
-  %add = add nsw i32 %minInt.1, %maxInt.1.lcssa
+  %minInt.0 = phi i32 [ 0, %for.end ], [ 0, %for.cond14.preheader ], [ %minInt.139, %for.body17 ], [ %inc22, %if.then21 ]
+  %offset.2 = phi i32 [ %offset.1.lcssa, %for.end ], [ %offset.1.lcssa, %for.cond14.preheader ], [ %offset.340, %for.body17 ], [ %inc26, %if.then21 ]
+  %add = add nsw i32 %minInt.0, %maxInt.1.lcssa
   %spec.select = select i1 %cmp3.lcssa, i32 %add, i32 -1
   %call32 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
-  %cmp33 = icmp slt i32 %offset.3, %call32
+  %cmp33 = icmp slt i32 %offset.2, %call32
   br i1 %cmp33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end28
@@ -5581,7 +5581,7 @@ if.then34:                                        ; preds = %if.end28
 
 if.end35:                                         ; preds = %if.end28
   %cmp36 = icmp eq i32 %spec.select, -1
-  %call38 = tail call { i64, i8 } @_ZN6icu_756number12IntegerWidth10zeroFillToEi(i32 noundef %minInt.1)
+  %call38 = tail call { i64, i8 } @_ZN6icu_756number12IntegerWidth10zeroFillToEi(i32 noundef %minInt.0)
   %call38.fca.0.extract = extractvalue { i64, i8 } %call38, 0
   %call38.fca.1.extract = extractvalue { i64, i8 } %call38, 1
   br i1 %cmp36, label %if.then37, label %if.else39
@@ -6694,9 +6694,9 @@ lpad61:                                           ; preds = %invoke.cont60
   br label %ehcleanup
 
 cleanup64:                                        ; preds = %invoke.cont30, %invoke.cont62, %invoke.cont49, %invoke.cont40, %cleanup, %if.then8
-  %retval.1 = phi i1 [ %cmp.i29, %cleanup ], [ true, %invoke.cont40 ], [ true, %invoke.cont49 ], [ true, %invoke.cont62 ], [ false, %if.then8 ], [ false, %invoke.cont30 ]
+  %retval.0 = phi i1 [ %cmp.i29, %cleanup ], [ true, %invoke.cont40 ], [ true, %invoke.cont49 ], [ true, %invoke.cont62 ], [ false, %if.then8 ], [ false, %invoke.cont30 ]
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit) #15
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad.i36, %lpad, %lpad61, %lpad54, %lpad48, %lpad39, %lpad.i30, %lpad20, %lpad12
   %.pn = phi { ptr, i32 } [ %6, %lpad.i30 ], [ %5, %lpad20 ], [ %9, %lpad39 ], [ %10, %lpad48 ], [ %15, %lpad61 ], [ %14, %lpad54 ], [ %3, %lpad12 ], [ %1, %lpad.i ], [ %2, %lpad ], [ %8, %lpad.i36 ]

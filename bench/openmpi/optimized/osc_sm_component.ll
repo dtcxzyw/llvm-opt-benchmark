@@ -444,7 +444,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
   br label %194
 
 194:                                              ; preds = %192, %188
-  %.1 = phi i1 [ false, %192 ], [ %147, %188 ]
+  %.3 = phi i1 [ false, %192 ], [ %147, %188 ]
   %195 = call noalias ptr @malloc(i64 noundef %89) #14
   %196 = getelementptr inbounds i8, ptr %22, i64 4400
   store ptr %195, ptr %196, align 8
@@ -548,7 +548,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
 242:                                              ; preds = %._crit_edge233, %75
   %.pre-phi = phi i64 [ %88, %._crit_edge233 ], [ 1, %75 ]
   %243 = phi ptr [ %.pre242, %._crit_edge233 ], [ %68, %75 ]
-  %.2 = phi i1 [ %.1, %._crit_edge233 ], [ false, %75 ]
+  %.1 = phi i1 [ %.3, %._crit_edge233 ], [ false, %75 ]
   %244 = load ptr, ptr %39, align 8
   %245 = getelementptr i8, ptr %244, i64 220
   %.val224 = load i32, ptr %245, align 4
@@ -697,12 +697,12 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
 
 326:                                              ; preds = %.sink.split, %268, %316, %278, %242
   %.0186 = phi i32 [ %267, %242 ], [ 0, %278 ], [ %324, %316 ], [ -3, %268 ], [ %.0186.ph, %.sink.split ]
-  %.3 = phi i1 [ %.2, %242 ], [ %.2, %278 ], [ %.2, %316 ], [ %.2, %268 ], [ %147, %.sink.split ]
+  %.0185 = phi i1 [ %.1, %242 ], [ %.1, %278 ], [ %.1, %316 ], [ %.1, %268 ], [ %147, %.sink.split ]
   %327 = load ptr, ptr %39, align 8
   %328 = getelementptr i8, ptr %327, i64 220
   %.val227 = load i32, ptr %328, align 4
   %329 = icmp eq i32 %.val227, 0
-  %brmerge.not = and i1 %329, %.3
+  %brmerge.not = and i1 %329, %.0185
   br i1 %brmerge.not, label %330, label %.thread
 
 330:                                              ; preds = %326

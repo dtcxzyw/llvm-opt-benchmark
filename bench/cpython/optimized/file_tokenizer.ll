@@ -1315,8 +1315,8 @@ if.else.i:                                        ; preds = %if.then9
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then.i
-  %line.0.i = phi ptr [ %call.i, %if.then.i ], [ %5, %if.else.i ]
-  %call6.i = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %line.0.i, ptr noundef nonnull %buflen.i) #11
+  %line.1.i = phi ptr [ %call.i, %if.then.i ], [ %5, %if.else.i ]
+  %call6.i = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %line.1.i, ptr noundef nonnull %buflen.i) #11
   %cmp7.i = icmp eq ptr %call6.i, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
@@ -1406,19 +1406,19 @@ tok_concatenate_interactive_new_line.exit.i:      ; preds = %if.then23.i.i, %if.
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %tok_concatenate_interactive_new_line.exit.i, %if.end13.i
-  %18 = load i64, ptr %line.0.i, align 8
+  %18 = load i64, ptr %line.1.i, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i22.not.i = icmp eq i64 %19, 0
   br i1 %cmp.i22.not.i, label %if.end.i.i, label %tok_readline_recode.exit
 
 if.end.i.i:                                       ; preds = %if.end20.i
   %dec.i.i = add i64 %18, -1
-  store i64 %dec.i.i, ptr %line.0.i, align 8
+  store i64 %dec.i.i, ptr %line.1.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %tok_readline_recode.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %line.0.i) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %line.1.i) #11
   br label %tok_readline_recode.exit
 
 error.i:                                          ; preds = %if.then.i
@@ -1426,19 +1426,19 @@ error.i:                                          ; preds = %if.then.i
   br label %tok_readline_recode.exit.thread
 
 if.then.i.i:                                      ; preds = %tok_concatenate_interactive_new_line.exit.thread.i, %if.end10.i, %if.then8.i
-  %20 = load i64, ptr %line.0.i, align 8
+  %20 = load i64, ptr %line.1.i, align 8
   %21 = and i64 %20, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %21, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %tok_readline_recode.exit.thread
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %20, -1
-  store i64 %dec.i.i.i, ptr %line.0.i, align 8
+  store i64 %dec.i.i.i, ptr %line.1.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %tok_readline_recode.exit.thread
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %line.0.i) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %line.1.i) #11
   br label %tok_readline_recode.exit.thread
 
 tok_readline_recode.exit.thread:                  ; preds = %error.i, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i

@@ -1207,7 +1207,7 @@ switch.lookup:                                    ; preds = %66
   br label %125
 
 125:                                              ; preds = %.loopexit, %79
-  %.0146 = phi i32 [ %74, %79 ], [ %.3.ph, %.loopexit ]
+  %.0146 = phi i32 [ %74, %79 ], [ %.1147.ph, %.loopexit ]
   %.0119 = phi i32 [ 0, %79 ], [ %.1.ph, %.loopexit ]
   %126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0119) #21
   %127 = icmp sgt i32 %126, 0
@@ -1286,7 +1286,7 @@ switch.lookup:                                    ; preds = %66
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %164, %158, %161, %157
-  %.1147 = phi i32 [ %.0146, %157 ], [ 2, %158 ], [ 2, %161 ], [ %spec.select, %164 ]
+  %.2 = phi i32 [ %.0146, %157 ], [ 2, %158 ], [ 2, %161 ], [ %spec.select, %164 ]
   %167 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.0119) #21
   %168 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0119, i32 noundef -1, i8 noundef zeroext 10) #21
   %169 = load i32, ptr @ssh_desegment, align 4
@@ -1398,11 +1398,11 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br label %ssh_dissect_ssh1.exit
 
 223:                                              ; preds = %ssh_hash_buffer_put_string.exit.i, %155
-  %.2.ph = phi i32 [ %.0146, %155 ], [ %.1147, %ssh_hash_buffer_put_string.exit.i ]
+  %.3.ph = phi i32 [ %.0146, %155 ], [ %.2, %ssh_hash_buffer_put_string.exit.i ]
   %.0.i.ph = phi i32 [ %156, %155 ], [ %219, %ssh_hash_buffer_put_string.exit.i ]
   %224 = load i32, ptr %13, align 4
   store i32 %224, ptr %83, align 8
-  store i32 %.2.ph, ptr %.0120, align 8
+  store i32 %.3.ph, ptr %.0120, align 8
   br label %.loopexit
 
 225:                                              ; preds = %145, %141
@@ -1573,7 +1573,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br i1 %310, label %.lr.ph.i, label %.thread
 
 .lr.ph.i:                                         ; preds = %308, %733
-  %.096.i = phi i32 [ %.1.i, %733 ], [ %.0119, %308 ]
+  %.096.i = phi i32 [ %.2.i, %733 ], [ %.0119, %308 ]
   %.06295.i = phi ptr [ %.163.i, %733 ], [ null, %308 ]
   br i1 %.not.i130, label %340, label %311
 
@@ -2358,23 +2358,23 @@ ssh_dissect_key_exchange.exit.thread.i:           ; preds = %369, %360
   br label %ssh_increment_message_number.exit.i
 
 ssh_increment_message_number.exit.i:              ; preds = %729, %723, %719, %714
-  %.1.i = phi i32 [ %730, %729 ], [ %702, %714 ], [ %702, %719 ], [ %702, %723 ]
+  %.2.i = phi i32 [ %730, %729 ], [ %702, %714 ], [ %702, %719 ], [ %702, %723 ]
   %.not83.i = icmp eq ptr %.163.i, null
   br i1 %.not83.i, label %733, label %731
 
 731:                                              ; preds = %ssh_increment_message_number.exit.i
-  %732 = sub i32 %.1.i, %.096.i
+  %732 = sub i32 %.2.i, %.096.i
   call void @proto_item_set_len(ptr noundef nonnull %.163.i, i32 noundef %732) #21
   br label %733
 
 733:                                              ; preds = %731, %ssh_increment_message_number.exit.i
-  %734 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.i) #21
+  %734 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2.i) #21
   %735 = icmp sgt i32 %734, 0
   br i1 %735, label %.lr.ph.i, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %733, %223, %226, %306
-  %.3.ph = phi i32 [ 1, %306 ], [ 0, %226 ], [ %.2.ph, %223 ], [ 2, %733 ]
-  %.1.ph = phi i32 [ %307, %306 ], [ %227, %226 ], [ %.0.i.ph, %223 ], [ %.1.i, %733 ]
+  %.1147.ph = phi i32 [ 1, %306 ], [ 0, %226 ], [ %.3.ph, %223 ], [ 2, %733 ]
+  %.1.ph = phi i32 [ %307, %306 ], [ %227, %226 ], [ %.0.i.ph, %223 ], [ %.2.i, %733 ]
   %.not127 = icmp sgt i32 %.1.ph, %.0119
   br i1 %.not127, label %125, label %.thread, !llvm.loop !8
 
@@ -3769,19 +3769,19 @@ ssh_get_message.exit:                             ; preds = %.lr.ph.i
 
 440:                                              ; preds = %ssh_dissect_rfc8308_extension.exit.i.i, %.lr.ph.i.i
   %.02.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %508, %ssh_dissect_rfc8308_extension.exit.i.i ]
-  %.01041.i.i = phi i32 [ 10, %.lr.ph.i.i ], [ %.0.i.i.i, %ssh_dissect_rfc8308_extension.exit.i.i ]
-  %441 = call i32 @tvb_get_ntohl(ptr noundef %335, i32 noundef %.01041.i.i) #21
+  %.11.i.i = phi i32 [ 10, %.lr.ph.i.i ], [ %.0.i.i.i, %ssh_dissect_rfc8308_extension.exit.i.i ]
+  %441 = call i32 @tvb_get_ntohl(ptr noundef %335, i32 noundef %.11.i.i) #21
   %442 = call ptr @wmem_packet_scope() #21
-  %443 = add i32 %.01041.i.i, 4
+  %443 = add i32 %.11.i.i, 4
   %444 = call ptr @tvb_get_string_enc(ptr noundef %442, ptr noundef %335, i32 noundef %443, i32 noundef %441, i32 noundef 0) #21
   %445 = add i32 %441, %443
   %446 = call i32 @tvb_get_ntohl(ptr noundef %335, i32 noundef %445) #21
   %447 = add i32 %441, 8
   %448 = add i32 %447, %446
   %449 = load i32, ptr @ett_extension, align 4
-  %450 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %379, ptr noundef %335, i32 noundef %.01041.i.i, i32 noundef %448, i32 noundef %449, ptr noundef null, ptr noundef nonnull @.str.531, ptr noundef %444) #21
+  %450 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %379, ptr noundef %335, i32 noundef %.11.i.i, i32 noundef %448, i32 noundef %449, ptr noundef null, ptr noundef nonnull @.str.531, ptr noundef %444) #21
   %451 = load i32, ptr @hf_ssh_ext_name_length, align 4
-  %452 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %451, ptr noundef %335, i32 noundef %.01041.i.i, i32 noundef 4, i32 noundef 0) #21
+  %452 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %451, ptr noundef %335, i32 noundef %.11.i.i, i32 noundef 4, i32 noundef 0) #21
   %453 = load i32, ptr @hf_ssh_ext_name, align 4
   %454 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %453, ptr noundef %335, i32 noundef %443, i32 noundef %441, i32 noundef 0) #21
   %455 = load i32, ptr @hf_ssh_ext_value_length, align 4
@@ -3877,8 +3877,8 @@ ssh_dissect_rfc8308_extension.exit.i.i:           ; preds = %506, %502, %496, %4
   br i1 %exitcond.not.i.i, label %ssh_dissect_transport_generic.exit.i, label %440, !llvm.loop !14
 
 ssh_dissect_transport_generic.exit.i:             ; preds = %ssh_dissect_rfc8308_extension.exit.i.i, %435, %428, %421, %405, %398, %382, %374
-  %.1.i.i = phi i32 [ %397, %382 ], [ %404, %398 ], [ %420, %405 ], [ %427, %421 ], [ %434, %428 ], [ 6, %374 ], [ 10, %435 ], [ %.0.i.i.i, %ssh_dissect_rfc8308_extension.exit.i.i ]
-  %509 = add i32 %.1.i.i, -5
+  %.0104.i.i = phi i32 [ %397, %382 ], [ %404, %398 ], [ %420, %405 ], [ %427, %421 ], [ %434, %428 ], [ 6, %374 ], [ 10, %435 ], [ %.0.i.i.i, %ssh_dissect_rfc8308_extension.exit.i.i ]
+  %509 = add i32 %.0104.i.i, -5
   br label %698
 
 510:                                              ; preds = %366

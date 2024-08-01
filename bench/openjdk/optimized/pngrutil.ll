@@ -3433,8 +3433,8 @@ define hidden void @png_handle_unknown(ptr noalias noundef %0, ptr noalias nound
   br label %29
 
 29:                                               ; preds = %26, %24
-  %.0 = phi i32 [ %28, %26 ], [ %3, %24 ]
-  switch i32 %.0, label %37 [
+  %.1 = phi i32 [ %28, %26 ], [ %3, %24 ]
+  switch i32 %.1, label %37 [
     i32 3, label %34
     i32 2, label %30
   ]
@@ -3456,8 +3456,8 @@ define hidden void @png_handle_unknown(ptr noalias noundef %0, ptr noalias nound
   br label %39
 
 39:                                               ; preds = %34, %37, %17
-  %.1 = phi i32 [ %3, %17 ], [ %.0, %37 ], [ %.0, %34 ]
-  switch i32 %.1, label %.thread [
+  %.0 = phi i32 [ %3, %17 ], [ %.1, %37 ], [ %.1, %34 ]
+  switch i32 %.0, label %.thread [
     i32 3, label %43
     i32 2, label %.thread52
   ]

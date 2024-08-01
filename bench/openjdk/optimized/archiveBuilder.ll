@@ -705,9 +705,9 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_(ptr nocaptu
   br label %41
 
 41:                                               ; preds = %39, %32
-  %.1.ph.i.i.i.i = phi i64 [ %30, %32 ], [ %38, %39 ]
+  %.027.ph.i.i.i.i = phi i64 [ %30, %32 ], [ %38, %39 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %32 ], [ %40, %39 ]
-  %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %43 = add i64 %.026.ph.i.i.i.i, %42
   %44 = icmp ult i64 %43, %14
   br i1 %44, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI24RelocateEmbeddedPointersEEbPT_mm.exit
@@ -3602,9 +3602,9 @@ define hidden void @_ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13Source
   br label %43
 
 43:                                               ; preds = %41, %34
-  %.1.ph.i.i.i.i.i = phi i64 [ %32, %34 ], [ %40, %41 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %32, %34 ], [ %40, %41 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %34 ], [ %42, %41 ]
-  %44 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %44 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %45 = add i64 %.026.ph.i.i.i.i.i, %44
   %46 = icmp ult i64 %45, %20
   br i1 %46, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit
@@ -3720,9 +3720,9 @@ define hidden void @_ZN14ArchiveBuilder39relocate_metaspaceobj_embedded_pointers
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i.i.i = phi i64 [ %.0917.i.i.i.i, %37 ], [ %45, %44 ]
-  %47 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i.i, i1 true)
+  %47 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i.i.i, %47
   %49 = icmp ult i64 %48, %23
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i
@@ -3822,9 +3822,9 @@ _ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13SourceObjListE.exit: ; pre
   br label %99
 
 99:                                               ; preds = %97, %90
-  %.1.ph.i.i.i.i.i.i12 = phi i64 [ %88, %90 ], [ %96, %97 ]
+  %.027.ph.i.i.i.i.i.i12 = phi i64 [ %88, %90 ], [ %96, %97 ]
   %.026.ph.i.i.i.i.i.i13 = phi i64 [ %.0917.i.i.i.i6, %90 ], [ %98, %97 ]
-  %100 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i.i12, i1 true)
+  %100 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i12, i1 true)
   %101 = add i64 %.026.ph.i.i.i.i.i.i13, %100
   %102 = icmp ult i64 %101, %76
   br i1 %102, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i8, label %_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_.exit.i3
@@ -3951,14 +3951,14 @@ _ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit: ; preds = %33, %37,
   %indvars.iv131 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next132, %_ZN12ResourceMarkD2Ev.exit ]
   %56 = phi ptr [ %52, %.lr.ph120 ], [ %156, %_ZN12ResourceMarkD2Ev.exit ]
   %.0119 = phi i32 [ 0, %.lr.ph120 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
-  %.049118 = phi i32 [ 0, %.lr.ph120 ], [ %.2, %_ZN12ResourceMarkD2Ev.exit ]
-  %.060115 = phi i32 [ 0, %.lr.ph120 ], [ %.262, %_ZN12ResourceMarkD2Ev.exit ]
+  %.049118 = phi i32 [ 0, %.lr.ph120 ], [ %.150, %_ZN12ResourceMarkD2Ev.exit ]
+  %.060115 = phi i32 [ 0, %.lr.ph120 ], [ %.161, %_ZN12ResourceMarkD2Ev.exit ]
   %.064114 = phi i32 [ 0, %.lr.ph120 ], [ %.165, %_ZN12ResourceMarkD2Ev.exit ]
   %.066113 = phi i32 [ 0, %.lr.ph120 ], [ %.167, %_ZN12ResourceMarkD2Ev.exit ]
-  %.068112 = phi i32 [ 0, %.lr.ph120 ], [ %.270, %_ZN12ResourceMarkD2Ev.exit ]
-  %.071111 = phi i32 [ 0, %.lr.ph120 ], [ %.273, %_ZN12ResourceMarkD2Ev.exit ]
-  %.074110 = phi i32 [ 0, %.lr.ph120 ], [ %.276, %_ZN12ResourceMarkD2Ev.exit ]
-  %.077109 = phi i32 [ 0, %.lr.ph120 ], [ %.279, %_ZN12ResourceMarkD2Ev.exit ]
+  %.068112 = phi i32 [ 0, %.lr.ph120 ], [ %.169, %_ZN12ResourceMarkD2Ev.exit ]
+  %.071111 = phi i32 [ 0, %.lr.ph120 ], [ %.172, %_ZN12ResourceMarkD2Ev.exit ]
+  %.074110 = phi i32 [ 0, %.lr.ph120 ], [ %.175, %_ZN12ResourceMarkD2Ev.exit ]
+  %.077109 = phi i32 [ 0, %.lr.ph120 ], [ %.178, %_ZN12ResourceMarkD2Ev.exit ]
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv131
@@ -4059,11 +4059,11 @@ _ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit86: ; preds = %74, %7
   br label %114
 
 114:                                              ; preds = %106, %112, %110, %102
-  %.178 = phi i32 [ %.077109, %102 ], [ %.077109, %106 ], [ %111, %110 ], [ %.077109, %112 ]
-  %.169 = phi i32 [ %.068112, %102 ], [ %.068112, %106 ], [ %.068112, %110 ], [ %113, %112 ]
-  %.161 = phi i32 [ %.060115, %102 ], [ %107, %106 ], [ %.060115, %110 ], [ %.060115, %112 ]
-  %.057 = phi ptr [ @.str.28, %102 ], [ @.str.29, %106 ], [ @.str.30, %110 ], [ @.str.31, %112 ]
-  %.150 = phi i32 [ %103, %102 ], [ %.049118, %106 ], [ %.049118, %110 ], [ %.049118, %112 ]
+  %.279 = phi i32 [ %.077109, %102 ], [ %.077109, %106 ], [ %111, %110 ], [ %.077109, %112 ]
+  %.270 = phi i32 [ %.068112, %102 ], [ %.068112, %106 ], [ %.068112, %110 ], [ %113, %112 ]
+  %.262 = phi i32 [ %.060115, %102 ], [ %107, %106 ], [ %.060115, %110 ], [ %.060115, %112 ]
+  %.158 = phi ptr [ @.str.28, %102 ], [ @.str.29, %106 ], [ @.str.30, %110 ], [ @.str.31, %112 ]
+  %.2 = phi i32 [ %103, %102 ], [ %.049118, %106 ], [ %.049118, %110 ], [ %.049118, %112 ]
   %115 = getelementptr inbounds i8, ptr %84, i64 305
   %116 = load volatile i8, ptr %115, align 1
   %117 = icmp ult i8 %116, 2
@@ -4075,13 +4075,13 @@ _ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit86: ; preds = %74, %7
   %120 = and i32 %.sroa.0.0.copyload.i.i, 67108864
   %.not103 = icmp eq i32 %120, 0
   %121 = lshr exact i32 %120, 26
-  %.175 = add i32 %121, %.074110
-  %.053 = select i1 %.not103, ptr @.str.26, ptr @.str.33
+  %.276 = add i32 %121, %.074110
+  %.154 = select i1 %.not103, ptr @.str.26, ptr @.str.33
   %122 = getelementptr inbounds i8, ptr %84, i64 188
   %123 = load i16, ptr %122, align 4
   %124 = and i16 %123, 32
   %.not104 = icmp eq i16 %124, 0
-  %.051 = select i1 %.not104, ptr @.str.26, ptr @.str.34
+  %.152 = select i1 %.not104, ptr @.str.26, ptr @.str.34
   %125 = load ptr, ptr %11, align 8
   tail call void @_ZN15MetaspaceShared51rewrite_nofast_bytecodes_and_calculate_fingerprintsEP6ThreadP13InstanceKlass(ptr noundef %125, ptr noundef nonnull %84) #19
   %126 = load ptr, ptr %84, align 8
@@ -4091,18 +4091,18 @@ _ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit86: ; preds = %74, %7
   br label %129
 
 129:                                              ; preds = %92, %114, %90
-  %.279 = phi i32 [ %.077109, %90 ], [ %.077109, %92 ], [ %.178, %114 ]
-  %.276 = phi i32 [ %.074110, %90 ], [ %.074110, %92 ], [ %.175, %114 ]
-  %.273 = phi i32 [ %.071111, %90 ], [ %.071111, %92 ], [ %spec.select, %114 ]
-  %.270 = phi i32 [ %.068112, %90 ], [ %.068112, %92 ], [ %.169, %114 ]
+  %.178 = phi i32 [ %.077109, %90 ], [ %.077109, %92 ], [ %.279, %114 ]
+  %.175 = phi i32 [ %.074110, %90 ], [ %.074110, %92 ], [ %.276, %114 ]
+  %.172 = phi i32 [ %.071111, %90 ], [ %.071111, %92 ], [ %spec.select, %114 ]
+  %.169 = phi i32 [ %.068112, %90 ], [ %.068112, %92 ], [ %.270, %114 ]
   %.167 = phi i32 [ %91, %90 ], [ %.066113, %92 ], [ %.066113, %114 ]
   %.165 = phi i32 [ %.064114, %90 ], [ %93, %92 ], [ %.064114, %114 ]
-  %.262 = phi i32 [ %.060115, %90 ], [ %.060115, %92 ], [ %.161, %114 ]
-  %.158 = phi ptr [ @.str.27, %90 ], [ @.str.27, %92 ], [ %.057, %114 ]
-  %.156 = phi ptr [ @.str.26, %90 ], [ @.str.26, %92 ], [ %spec.select80, %114 ]
-  %.154 = phi ptr [ @.str.26, %90 ], [ @.str.26, %92 ], [ %.053, %114 ]
-  %.152 = phi ptr [ @.str.26, %90 ], [ @.str.26, %92 ], [ %.051, %114 ]
-  %.2 = phi i32 [ %.049118, %90 ], [ %.049118, %92 ], [ %.150, %114 ]
+  %.161 = phi i32 [ %.060115, %90 ], [ %.060115, %92 ], [ %.262, %114 ]
+  %.057 = phi ptr [ @.str.27, %90 ], [ @.str.27, %92 ], [ %.158, %114 ]
+  %.055 = phi ptr [ @.str.26, %90 ], [ @.str.26, %92 ], [ %spec.select80, %114 ]
+  %.053 = phi ptr [ @.str.26, %90 ], [ @.str.26, %92 ], [ %.154, %114 ]
+  %.051 = phi ptr [ @.str.26, %90 ], [ @.str.26, %92 ], [ %.152, %114 ]
+  %.150 = phi i32 [ %.049118, %90 ], [ %.049118, %92 ], [ %.2, %114 ]
   %.1 = phi i32 [ %.0119, %90 ], [ %.0119, %92 ], [ %98, %114 ]
   %130 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_16ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not105 = icmp eq ptr %130, null
@@ -4130,7 +4130,7 @@ _ZNK14ArchiveBuilder17get_buffered_addrIP5KlassEET_S3_.exit86: ; preds = %74, %7
   %147 = ptrtoint ptr %146 to i64
   %148 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %84) #19
   %149 = trunc nuw nsw i64 %indvars.iv131 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_16ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.35, i32 noundef %149, i64 noundef %147, ptr noundef nonnull %.158, ptr noundef %148, ptr noundef nonnull %.154, ptr noundef nonnull %.156, ptr noundef nonnull %.152)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_16ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.35, i32 noundef %149, i64 noundef %147, ptr noundef nonnull %.057, ptr noundef %148, ptr noundef nonnull %.053, ptr noundef nonnull %.055, ptr noundef nonnull %.051)
   br label %150
 
 150:                                              ; preds = %131, %144
@@ -4163,14 +4163,14 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %155, %153, %129
   br i1 %159, label %55, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %1, %.preheader
-  %.077.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.279, %_ZN12ResourceMarkD2Ev.exit ]
-  %.074.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.276, %_ZN12ResourceMarkD2Ev.exit ]
-  %.071.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.273, %_ZN12ResourceMarkD2Ev.exit ]
-  %.068.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.270, %_ZN12ResourceMarkD2Ev.exit ]
+  %.077.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.178, %_ZN12ResourceMarkD2Ev.exit ]
+  %.074.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.175, %_ZN12ResourceMarkD2Ev.exit ]
+  %.071.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.172, %_ZN12ResourceMarkD2Ev.exit ]
+  %.068.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.169, %_ZN12ResourceMarkD2Ev.exit ]
   %.066.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.167, %_ZN12ResourceMarkD2Ev.exit ]
   %.064.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.165, %_ZN12ResourceMarkD2Ev.exit ]
-  %.060.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.262, %_ZN12ResourceMarkD2Ev.exit ]
-  %.049.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.2, %_ZN12ResourceMarkD2Ev.exit ]
+  %.060.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.161, %_ZN12ResourceMarkD2Ev.exit ]
+  %.049.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.150, %_ZN12ResourceMarkD2Ev.exit ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
   %160 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %160, null
@@ -4565,9 +4565,9 @@ _ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit: ; preds = %17, %3
   br label %63
 
 63:                                               ; preds = %61, %54
-  %.1.ph.i.i.i.i.i.i = phi i64 [ %52, %54 ], [ %60, %61 ]
+  %.027.ph.i.i.i.i.i.i = phi i64 [ %52, %54 ], [ %60, %61 ]
   %.026.ph.i.i.i.i.i.i = phi i64 [ %.0917.i.i.i.i, %54 ], [ %62, %61 ]
-  %64 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i.i, i1 true)
+  %64 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i, i1 true)
   %65 = add i64 %.026.ph.i.i.i.i.i.i, %64
   %66 = icmp ult i64 %65, %43
   br i1 %66, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit
@@ -4670,9 +4670,9 @@ _ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit: ; preds = %73, %9
   br label %121
 
 121:                                              ; preds = %119, %112
-  %.1.ph.i.i.i.i.i.i11 = phi i64 [ %110, %112 ], [ %118, %119 ]
+  %.027.ph.i.i.i.i.i.i11 = phi i64 [ %110, %112 ], [ %118, %119 ]
   %.026.ph.i.i.i.i.i.i12 = phi i64 [ %.0917.i.i.i.i5, %112 ], [ %120, %119 ]
-  %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i.i11, i1 true)
+  %122 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i11, i1 true)
   %123 = add i64 %.026.ph.i.i.i.i.i.i12, %122
   %124 = icmp ult i64 %123, %101
   br i1 %124, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i7, label %_ZN25RelocateBufferToRequestedILb1EE4doitEv.exit

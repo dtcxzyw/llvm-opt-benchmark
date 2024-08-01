@@ -433,7 +433,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br label %85
 
 85:                                               ; preds = %80, %63
-  %.064 = phi i32 [ 0, %63 ], [ 2, %80 ]
+  %.1 = phi i32 [ 0, %63 ], [ 2, %80 ]
   %86 = call ptr @H5FA__dblk_page_protect(ptr noundef nonnull %5, i64 noundef %57, i64 noundef %.063, i32 noundef 0) #5
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %92
@@ -459,7 +459,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
 101:                                              ; preds = %29, %92, %88, %76, %21, %13
   %.067 = phi i32 [ 0, %21 ], [ 0, %88 ], [ 2, %92 ], [ 0, %76 ], [ 0, %29 ], [ 0, %13 ]
   %.065 = phi i32 [ -1, %21 ], [ -1, %88 ], [ 0, %92 ], [ -1, %76 ], [ 0, %29 ], [ -1, %13 ]
-  %.1 = phi i32 [ 0, %21 ], [ %.064, %88 ], [ %.064, %92 ], [ 0, %76 ], [ 2, %29 ], [ 0, %13 ]
+  %.064 = phi i32 [ 0, %21 ], [ %.1, %88 ], [ %.1, %92 ], [ 0, %76 ], [ 2, %29 ], [ 0, %13 ]
   %.062 = phi ptr [ null, %21 ], [ null, %88 ], [ %86, %92 ], [ null, %76 ], [ null, %29 ], [ null, %13 ]
   %.0 = phi ptr [ null, %21 ], [ %19, %88 ], [ %19, %92 ], [ %19, %76 ], [ %19, %29 ], [ null, %13 ]
   %102 = load i8, ptr %4, align 1
@@ -483,7 +483,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br i1 %.not75, label %119, label %112
 
 112:                                              ; preds = %111
-  %113 = call i32 @H5FA__dblock_unprotect(ptr noundef nonnull %.0, i32 noundef %.1) #5
+  %113 = call i32 @H5FA__dblock_unprotect(ptr noundef nonnull %.0, i32 noundef %.064) #5
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %115, label %119
 
@@ -826,13 +826,13 @@ define i32 @H5FA_iterate(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %27, %34, %.preheader
-  %.1 = phi i32 [ -1, %27 ], [ %32, %34 ], [ 0, %.preheader ], [ %32, %17 ]
+  %.0 = phi i32 [ -1, %27 ], [ %32, %34 ], [ 0, %.preheader ], [ %32, %17 ]
   %38 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_fa_native_elmt_blk_free_list, ptr noundef nonnull %9) #5
   br label %39
 
 39:                                               ; preds = %.thread, %.loopexit
-  %.122 = phi i32 [ -1, %.thread ], [ %.1, %.loopexit ]
-  ret i32 %.122
+  %.022 = phi i32 [ -1, %.thread ], [ %.0, %.loopexit ]
+  ret i32 %.022
 }
 
 declare noalias ptr @H5FL_blk_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1

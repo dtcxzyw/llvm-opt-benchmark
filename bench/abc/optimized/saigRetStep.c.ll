@@ -460,7 +460,7 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
   %.val6189 = phi i32 [ %.val6189.pr, %.preheaderthread-pre-split ], [ %15, %.preheader.lr.ph ]
-  %.15093 = phi i32 [ %180, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
+  %.293 = phi i32 [ %180, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %121 = icmp sgt i32 %.val6189, 0
   br i1 %121, label %.lr.ph91, label %.critedge2
 
@@ -566,19 +566,19 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   br i1 %178, label %.loopexit, label %179
 
 179:                                              ; preds = %.critedge2
-  %180 = add nuw nsw i32 %.15093, 1
+  %180 = add nuw nsw i32 %.293, 1
   %exitcond116.not = icmp eq i32 %180, %1
   br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %179, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
-  %.2 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select133, %.preheader70.lr.ph.split.us ], [ %.15093, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
+  %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select133, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
   store i32 0, ptr %5, align 8
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
   %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3
   %182 = getelementptr inbounds i8, ptr %0, i64 104
   %183 = load i32, ptr %182, align 8
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %0, i32 noundef %183) #3
-  ret i32 %.2
+  ret i32 %.150
 }
 
 declare void @Aig_ManSetCioIds(ptr noundef) local_unnamed_addr #1

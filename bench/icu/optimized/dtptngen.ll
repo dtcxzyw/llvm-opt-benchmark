@@ -611,9 +611,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6281,7 +6281,7 @@ if.end54.fold.split42:                            ; preds = %if.else29, %if.else
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else29, %if.else29, %if.else29, %if.end54.fold.split42, %if.end54.fold.split
-  %hourChar.0 = phi i16 [ 104, %if.end54.fold.split ], [ 72, %if.else29 ], [ 72, %if.else29 ], [ 72, %if.else29 ], [ 75, %if.end54.fold.split42 ]
+  %hourChar.1 = phi i16 [ 104, %if.end54.fold.split ], [ 72, %if.else29 ], [ 72, %if.else29 ], [ 72, %if.else29 ], [ 75, %if.end54.fold.split42 ]
   switch i32 %19, label %if.end70.fold.split [
     i32 9, label %if.end70
     i32 7, label %if.end70
@@ -6298,15 +6298,15 @@ if.end70.fold.split:                              ; preds = %if.end54
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end54, %if.end54, %if.end54, %if.end70.fold.split, %if.then67, %if.then28
-  %hourChar.1 = phi i16 [ %18, %if.then28 ], [ %hourChar.0, %if.then67 ], [ %hourChar.0, %if.end54 ], [ %hourChar.0, %if.end54 ], [ %hourChar.0, %if.end54 ], [ %hourChar.0, %if.end70.fold.split ]
+  %hourChar.0 = phi i16 [ %18, %if.then28 ], [ %hourChar.1, %if.then67 ], [ %hourChar.1, %if.end54 ], [ %hourChar.1, %if.end54 ], [ %hourChar.1, %if.end54 ], [ %hourChar.1, %if.end70.fold.split ]
   %dayPeriodChar.0 = phi i16 [ 97, %if.then28 ], [ 98, %if.then67 ], [ 66, %if.end54 ], [ 66, %if.end54 ], [ 66, %if.end54 ], [ 97, %if.end70.fold.split ]
-  switch i16 %hourChar.1, label %while.body80 [
+  switch i16 %hourChar.0, label %while.body80 [
     i16 107, label %while.cond84.preheader
     i16 72, label %while.cond84.preheader
   ]
 
 while.cond84.preheader:                           ; preds = %_ZN6icu_7513UnicodeString6appendEDs.exit, %if.end70, %if.end70, %if.else29
-  %hourChar.179116 = phi i16 [ 107, %if.else29 ], [ %hourChar.1, %if.end70 ], [ %hourChar.1, %if.end70 ], [ %hourChar.1, %_ZN6icu_7513UnicodeString6appendEDs.exit ]
+  %hourChar.079116 = phi i16 [ 107, %if.else29 ], [ %hourChar.0, %if.end70 ], [ %hourChar.0, %if.end70 ], [ %hourChar.0, %_ZN6icu_7513UnicodeString6appendEDs.exit ]
   br label %while.body87
 
 while.body80:                                     ; preds = %if.end70, %_ZN6icu_7513UnicodeString6appendEDs.exit
@@ -6325,7 +6325,7 @@ _ZN6icu_7513UnicodeString6appendEDs.exit:         ; preds = %while.body80
 while.body87:                                     ; preds = %while.cond84.preheader, %_ZN6icu_7513UnicodeString6appendEDs.exit64
   %hourLen.097 = phi i32 [ %add23111, %while.cond84.preheader ], [ %dec85, %_ZN6icu_7513UnicodeString6appendEDs.exit64 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i62)
-  store i16 %hourChar.179116, ptr %srcChar.addr.i62, align 2
+  store i16 %hourChar.079116, ptr %srcChar.addr.i62, align 2
   %call.i63 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %patternFormMapped, ptr noundef nonnull %srcChar.addr.i62, i32 noundef 0, i32 noundef 1)
           to label %_ZN6icu_7513UnicodeString6appendEDs.exit64 unwind label %lpad.loopexit
 
@@ -6446,18 +6446,18 @@ while.cond.preheader.i.lr.ph:                     ; preds = %if.end
 
 for.condthread-pre-split:                         ; preds = %cleanup.thread, %cleanup
   %bestPattern.260 = phi ptr [ %bestPattern.079, %cleanup.thread ], [ %retval.0.i35, %cleanup ]
-  %bestMissingFieldMask.259 = phi i32 [ %bestMissingFieldMask.078, %cleanup.thread ], [ %30, %cleanup ]
-  %bestDistance.258 = phi i32 [ %bestDistance.077, %cleanup.thread ], [ %result.1.i, %cleanup ]
-  %specifiedSkeleton.357 = phi ptr [ %specifiedSkeleton.076, %cleanup.thread ], [ %specifiedSkeleton.2, %cleanup ]
+  %bestMissingFieldMask.159 = phi i32 [ %bestMissingFieldMask.078, %cleanup.thread ], [ %30, %cleanup ]
+  %bestDistance.158 = phi i32 [ %bestDistance.077, %cleanup.thread ], [ %result.1.i, %cleanup ]
+  %specifiedSkeleton.257 = phi ptr [ %specifiedSkeleton.076, %cleanup.thread ], [ %specifiedSkeleton.4, %cleanup ]
   %.pr = load ptr, ptr %patternMap.i, align 8
   %cmp.i13 = icmp eq ptr %.pr, null
   br i1 %cmp.i13, label %for.end, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %while.cond.preheader.i.lr.ph, %for.condthread-pre-split
   %bestPattern.079 = phi ptr [ null, %while.cond.preheader.i.lr.ph ], [ %bestPattern.260, %for.condthread-pre-split ]
-  %bestMissingFieldMask.078 = phi i32 [ -1, %while.cond.preheader.i.lr.ph ], [ %bestMissingFieldMask.259, %for.condthread-pre-split ]
-  %bestDistance.077 = phi i32 [ 2147483647, %while.cond.preheader.i.lr.ph ], [ %bestDistance.258, %for.condthread-pre-split ]
-  %specifiedSkeleton.076 = phi ptr [ null, %while.cond.preheader.i.lr.ph ], [ %specifiedSkeleton.357, %for.condthread-pre-split ]
+  %bestMissingFieldMask.078 = phi i32 [ -1, %while.cond.preheader.i.lr.ph ], [ %bestMissingFieldMask.159, %for.condthread-pre-split ]
+  %bestDistance.077 = phi i32 [ 2147483647, %while.cond.preheader.i.lr.ph ], [ %bestDistance.158, %for.condthread-pre-split ]
+  %specifiedSkeleton.076 = phi ptr [ null, %while.cond.preheader.i.lr.ph ], [ %specifiedSkeleton.257, %for.condthread-pre-split ]
   %4 = phi ptr [ %3, %while.cond.preheader.i.lr.ph ], [ %.pr, %for.condthread-pre-split ]
   %5 = load i32, ptr %bootIndex.i, align 8
   %boot.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -6746,7 +6746,7 @@ cleanup.thread:                                   ; preds = %invoke.cont12, %lor
   br label %for.condthread-pre-split
 
 cleanup:                                          ; preds = %for.cond.i.i.i, %if.end25.i, %if.else.i.i, %_ZNK6icu_7510PatternMap9getHeaderEDs.exit.i, %land.lhs.true.i
-  %specifiedSkeleton.2 = phi ptr [ null, %_ZNK6icu_7510PatternMap9getHeaderEDs.exit.i ], [ %spec.select, %land.lhs.true.i ], [ null, %if.else.i.i ], [ null, %if.end25.i ], [ null, %for.cond.i.i.i ]
+  %specifiedSkeleton.4 = phi ptr [ null, %_ZNK6icu_7510PatternMap9getHeaderEDs.exit.i ], [ %spec.select, %land.lhs.true.i ], [ null, %if.else.i.i ], [ null, %if.end25.i ], [ null, %for.cond.i.i.i ]
   %retval.0.i35 = phi ptr [ null, %_ZNK6icu_7510PatternMap9getHeaderEDs.exit.i ], [ %pattern.i, %land.lhs.true.i ], [ null, %if.else.i.i ], [ null, %if.end25.i ], [ null, %for.cond.i.i.i ]
   store i32 %30, ptr %missingFieldMask2.i, align 8
   store i32 %29, ptr %extraFieldMask3.i, align 4
@@ -6755,19 +6755,19 @@ cleanup:                                          ; preds = %for.cond.i.i.i, %if
   br i1 %cmp29, label %for.end, label %for.condthread-pre-split
 
 for.end:                                          ; preds = %cleanup, %for.condthread-pre-split, %while.cond.preheader.i, %while.cond.backedge.i
-  %specifiedSkeleton.4 = phi ptr [ %specifiedSkeleton.076, %while.cond.backedge.i ], [ %specifiedSkeleton.2, %cleanup ], [ %specifiedSkeleton.357, %for.condthread-pre-split ], [ %specifiedSkeleton.076, %while.cond.preheader.i ]
-  %bestPattern.3 = phi ptr [ %bestPattern.079, %while.cond.backedge.i ], [ %retval.0.i35, %cleanup ], [ %bestPattern.260, %for.condthread-pre-split ], [ %bestPattern.079, %while.cond.preheader.i ]
-  %tobool33 = icmp ne ptr %bestPattern.3, null
+  %specifiedSkeleton.1 = phi ptr [ %specifiedSkeleton.076, %while.cond.backedge.i ], [ %specifiedSkeleton.4, %cleanup ], [ %specifiedSkeleton.257, %for.condthread-pre-split ], [ %specifiedSkeleton.076, %while.cond.preheader.i ]
+  %bestPattern.1 = phi ptr [ %bestPattern.079, %while.cond.backedge.i ], [ %retval.0.i35, %cleanup ], [ %bestPattern.260, %for.condthread-pre-split ], [ %bestPattern.079, %while.cond.preheader.i ]
+  %tobool33 = icmp ne ptr %bestPattern.1, null
   %tobool35 = icmp ne ptr %specifiedSkeletonPtr, null
   %or.cond = and i1 %tobool35, %tobool33
   br i1 %or.cond, label %if.then36, label %cleanup38
 
 if.then36:                                        ; preds = %for.end
-  store ptr %specifiedSkeleton.4, ptr %specifiedSkeletonPtr, align 8
+  store ptr %specifiedSkeleton.1, ptr %specifiedSkeletonPtr, align 8
   br label %cleanup38
 
 cleanup38:                                        ; preds = %if.end, %for.end, %if.then36, %invoke.cont
-  %retval.0 = phi ptr [ null, %invoke.cont ], [ %bestPattern.3, %if.then36 ], [ %bestPattern.3, %for.end ], [ null, %if.end ]
+  %retval.0 = phi ptr [ null, %invoke.cont ], [ %bestPattern.1, %if.then36 ], [ %bestPattern.1, %for.end ], [ null, %if.end ]
   call void @_ZN6icu_7518PatternMapIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %it) #33
   call void @_ZN6icu_7512DistanceInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %tempInfo) #33
   ret ptr %retval.0
@@ -8253,7 +8253,7 @@ invoke.cont44:                                    ; preds = %if.end41
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont44, %invoke.cont32, %lor.lhs.false35, %invoke.cont21
-  %retval.0 = phi i32 [ 1, %invoke.cont21 ], [ 2, %lor.lhs.false35 ], [ 2, %invoke.cont32 ], [ %.conflictingStatus.1, %invoke.cont44 ]
+  %retval.1 = phi i32 [ 1, %invoke.cont21 ], [ 2, %lor.lhs.false35 ], [ 2, %invoke.cont32 ], [ %.conflictingStatus.1, %invoke.cont44 ]
   call void @_ZN6icu_7515DateTimeMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %matcher) #33
   call void @_ZN6icu_7511PtnSkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(137) %skeleton) #33
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %basePattern) #33
@@ -8270,8 +8270,8 @@ ehcleanup52:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ 0, %if.then ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10232,8 +10232,8 @@ delete.notnull.i85:                               ; preds = %ehcleanup93.thread,
   br label %eh.resume
 
 return:                                           ; preds = %new.cont, %if.then.i, %cleanup92.thread138, %delete.notnull.i, %entry, %if.then4
-  %retval.5 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %delete.notnull.i ], [ %call7, %cleanup92.thread138 ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.5
+  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %delete.notnull.i ], [ %call7, %cleanup92.thread138 ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %delete.notnull.i85, %ehcleanup93, %lpad
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %ehcleanup93 ], [ %.pn.pn.pn147, %delete.notnull.i85 ]
@@ -12594,7 +12594,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i36, label %for.cond10, label %for.end111
 
 for.cond10:                                       ; preds = %for.body, %for.inc69
-  %list.sroa.0.0 = phi ptr [ %list.sroa.0.7, %for.inc69 ], [ null, %for.body ]
+  %list.sroa.0.0 = phi ptr [ %list.sroa.0.4, %for.inc69 ], [ null, %for.body ]
   %length.0 = phi i32 [ %length.1, %for.inc69 ], [ 0, %for.body ]
   %preferredFormat.0 = phi i32 [ %preferredFormat.1, %for.inc69 ], [ -1, %for.body ]
   %j.0 = phi i32 [ %inc70, %for.inc69 ], [ 0, %for.body ]
@@ -12645,13 +12645,13 @@ lpad.loopexit:                                    ; preds = %for.body47, %invoke
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then61, %if.then3.i45, %if.then.i, %if.end26, %if.then3.i, %if.then21, %if.else, %if.then15, %for.cond10
-  %list.sroa.0.2.ph.ph = phi ptr [ %call.i38, %if.end26 ], [ %list.sroa.0.0, %if.then3.i ], [ %list.sroa.0.0, %if.then21 ], [ %list.sroa.0.0, %if.then3.i45 ], [ %list.sroa.0.0, %if.then.i ], [ %list.sroa.0.0, %if.else ], [ %list.sroa.0.0, %if.then15 ], [ %list.sroa.0.0, %if.then61 ], [ %list.sroa.0.0, %for.cond10 ]
+  %list.sroa.0.1.ph.ph = phi ptr [ %call.i38, %if.end26 ], [ %list.sroa.0.0, %if.then3.i ], [ %list.sroa.0.0, %if.then21 ], [ %list.sroa.0.0, %if.then3.i45 ], [ %list.sroa.0.0, %if.then.i ], [ %list.sroa.0.0, %if.else ], [ %list.sroa.0.0, %if.then15 ], [ %list.sroa.0.0, %if.then61 ], [ %list.sroa.0.0, %for.cond10 ]
   %lpad.loopexit145 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then3.i76, %if.else79, %if.end97
-  %list.sroa.0.2.ph.ph144 = phi ptr [ null, %if.end97 ], [ %list.sroa.0.0, %if.then3.i76 ], [ %list.sroa.0.0, %if.else79 ]
+  %list.sroa.0.1.ph.ph144 = phi ptr [ null, %if.end97 ], [ %list.sroa.0.0, %if.then3.i76 ], [ %list.sroa.0.0, %if.else79 ]
   %lpad.loopexit.split-lp146 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -12890,14 +12890,14 @@ invoke.cont63:                                    ; preds = %call.i.noexc67
 
 for.inc69.sink.split:                             ; preds = %invoke.cont63, %invoke.cont27
   %ref.tmp.sink = phi ptr [ %ref.tmp, %invoke.cont27 ], [ %ref.tmp62, %invoke.cont63 ]
-  %list.sroa.0.7.ph = phi ptr [ %call.i38, %invoke.cont27 ], [ %list.sroa.0.0, %invoke.cont63 ]
+  %list.sroa.0.4.ph = phi ptr [ %call.i38, %invoke.cont27 ], [ %list.sroa.0.0, %invoke.cont63 ]
   %length.1.ph = phi i32 [ 2, %invoke.cont27 ], [ %length.0, %invoke.cont63 ]
   %preferredFormat.1.ph = phi i32 [ %preferredFormat.0, %invoke.cont27 ], [ %call66, %invoke.cont63 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.sink) #33
   br label %for.inc69
 
 for.inc69:                                        ; preds = %invoke.cont53, %for.inc69.sink.split, %for.cond45.preheader, %if.else58
-  %list.sroa.0.7 = phi ptr [ %list.sroa.0.0, %if.else58 ], [ %call.i47, %for.cond45.preheader ], [ %list.sroa.0.7.ph, %for.inc69.sink.split ], [ %call.i47, %invoke.cont53 ]
+  %list.sroa.0.4 = phi ptr [ %list.sroa.0.0, %if.else58 ], [ %call.i47, %for.cond45.preheader ], [ %list.sroa.0.4.ph, %for.inc69.sink.split ], [ %call.i47, %invoke.cont53 ]
   %length.1 = phi i32 [ %length.0, %if.else58 ], [ %add38, %for.cond45.preheader ], [ %length.1.ph, %for.inc69.sink.split ], [ %add38, %invoke.cont53 ]
   %preferredFormat.1 = phi i32 [ %preferredFormat.0, %if.else58 ], [ %preferredFormat.0, %for.cond45.preheader ], [ %preferredFormat.1.ph, %for.inc69.sink.split ], [ %preferredFormat.0, %invoke.cont53 ]
   %inc70 = add nuw nsw i32 %j.0, 1
@@ -12947,13 +12947,13 @@ if.end85:                                         ; preds = %if.then3.i76
   br label %if.end97
 
 if.end97:                                         ; preds = %if.end85, %cond.end
-  %list.sroa.0.9 = phi ptr [ %list.sroa.0.0, %cond.end ], [ %call.i79, %if.end85 ]
+  %list.sroa.0.5 = phi ptr [ %list.sroa.0.0, %cond.end ], [ %call.i79, %if.end85 ]
   %length.2 = phi i32 [ %length.0, %cond.end ], [ 2, %if.end85 ]
   %conv98 = zext nneg i32 %length.2 to i64
-  %arrayidx.i85 = getelementptr inbounds i32, ptr %list.sroa.0.9, i64 %conv98
+  %arrayidx.i85 = getelementptr inbounds i32, ptr %list.sroa.0.5, i64 %conv98
   store i32 -1, ptr %arrayidx.i85, align 4
   %40 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_129localeToAllowedHourFormatsMapE, align 8
-  %call104 = invoke ptr @uhash_put_75(ptr noundef %40, ptr noundef %3, ptr noundef nonnull %list.sroa.0.9, ptr noundef nonnull %errorCode)
+  %call104 = invoke ptr @uhash_put_75(ptr noundef %40, ptr noundef %3, ptr noundef nonnull %list.sroa.0.5, ptr noundef nonnull %errorCode)
           to label %invoke.cont103 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont103:                                   ; preds = %if.end97
@@ -12962,9 +12962,9 @@ invoke.cont103:                                   ; preds = %if.end97
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont103, %if.then84, %if.then43, %if.then25
-  %list.sroa.0.10 = phi ptr [ null, %invoke.cont103 ], [ %list.sroa.0.0, %if.then84 ], [ %list.sroa.0.0, %if.then25 ], [ %list.sroa.0.0, %if.then43 ]
+  %list.sroa.0.2 = phi ptr [ null, %invoke.cont103 ], [ %list.sroa.0.0, %if.then84 ], [ %list.sroa.0.0, %if.then25 ], [ %list.sroa.0.0, %if.then43 ]
   %cleanup.dest.slot.0 = phi i1 [ %cmp.i86, %invoke.cont103 ], [ true, %if.then84 ], [ true, %if.then25 ], [ true, %if.then43 ]
-  invoke void @uprv_free_75(ptr noundef %list.sroa.0.10)
+  invoke void @uprv_free_75(ptr noundef %list.sroa.0.2)
           to label %_ZN6icu_7511LocalMemoryIiED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
@@ -12978,9 +12978,9 @@ _ZN6icu_7511LocalMemoryIiED2Ev.exit:              ; preds = %cleanup
   br i1 %cleanup.dest.slot.0, label %for.end111, label %for.cond
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i, %lpad.i66, %lpad.i54
-  %list.sroa.0.11 = phi ptr [ %call.i38, %lpad.i ], [ %call.i47, %lpad.i54 ], [ %list.sroa.0.0, %lpad.i66 ], [ %call.i47, %lpad.loopexit ], [ %list.sroa.0.2.ph.ph, %lpad.loopexit.split-lp.loopexit ], [ %list.sroa.0.2.ph.ph144, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %list.sroa.0.3 = phi ptr [ %call.i38, %lpad.i ], [ %call.i47, %lpad.i54 ], [ %list.sroa.0.0, %lpad.i66 ], [ %call.i47, %lpad.loopexit ], [ %list.sroa.0.1.ph.ph, %lpad.loopexit.split-lp.loopexit ], [ %list.sroa.0.1.ph.ph144, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %10, %lpad.i ], [ %19, %lpad.i54 ], [ %36, %lpad.i66 ], [ %lpad.loopexit142, %lpad.loopexit ], [ %lpad.loopexit145, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp146, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @uprv_free_75(ptr noundef %list.sroa.0.11)
+  invoke void @uprv_free_75(ptr noundef %list.sroa.0.3)
           to label %_ZN6icu_7511LocalMemoryIiED2Ev.exit89 unwind label %terminate.lpad.i88
 
 terminate.lpad.i88:                               ; preds = %ehcleanup

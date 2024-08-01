@@ -2738,15 +2738,15 @@ get_wbxml_decoding_from_content_type.exit:        ; preds = %142, %145
   br label %162
 
 get_wbxml_decoding_from_content_type.exit.thread129: ; preds = %145, %get_wbxml_decoding_from_content_type.exit
-  %.1.i132 = phi ptr [ %151, %get_wbxml_decoding_from_content_type.exit ], [ %146, %145 ]
+  %.013.i132 = phi ptr [ %151, %get_wbxml_decoding_from_content_type.exit ], [ %146, %145 ]
   %154 = load ptr, ptr %8, align 8
   %155 = load ptr, ptr %135, align 8
-  %156 = load ptr, ptr %.1.i132, align 8
+  %156 = load ptr, ptr %.013.i132, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.165, ptr noundef %155, ptr noundef %156) #4
   br label %157
 
 157:                                              ; preds = %get_wbxml_decoding_from_public_id.exit, %get_wbxml_decoding_from_content_type.exit.thread129, %124
-  %.099 = phi ptr [ %3, %124 ], [ %134, %get_wbxml_decoding_from_public_id.exit ], [ %.1.i132, %get_wbxml_decoding_from_content_type.exit.thread129 ]
+  %.099 = phi ptr [ %3, %124 ], [ %134, %get_wbxml_decoding_from_public_id.exit ], [ %.013.i132, %get_wbxml_decoding_from_content_type.exit.thread129 ]
   %158 = load i32, ptr @skip_wbxml_token_mapping, align 4
   %.not137 = icmp eq i32 %158, 0
   br i1 %.not137, label %162, label %159
@@ -2830,8 +2830,8 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   %27 = getelementptr i8, ptr @indent_buffer, i64 %26
   %28 = shl nuw nsw i32 %24, 1
   %29 = and i32 %28, 510
-  %narrow497 = sub nuw nsw i32 512, %29
-  %30 = zext nneg i32 %narrow497 to i64
+  %narrow496 = sub nuw nsw i32 512, %29
+  %30 = zext nneg i32 %narrow496 to i64
   %31 = getelementptr i8, ptr @indent_buffer, i64 %30
   %32 = getelementptr inbounds i8, ptr %7, i64 40
   %33 = getelementptr inbounds i8, ptr %7, i64 48
@@ -2845,11 +2845,11 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   br label %379
 
 39:                                               ; preds = %.lr.ph, %376
-  %.0409525 = phi i8 [ 0, %.lr.ph ], [ %.1410, %376 ]
-  %.0412524 = phi ptr [ null, %.lr.ph ], [ %.2, %376 ]
-  %.0415523 = phi i8 [ 0, %.lr.ph ], [ %.2417, %376 ]
-  %.0418522 = phi i32 [ %3, %.lr.ph ], [ %.4, %376 ]
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0418522) #4
+  %.0409524 = phi i8 [ 0, %.lr.ph ], [ %.1410, %376 ]
+  %.0412523 = phi ptr [ null, %.lr.ph ], [ %.1413, %376 ]
+  %.0415522 = phi i8 [ 0, %.lr.ph ], [ %.1416, %376 ]
+  %.0418521 = phi i32 [ %3, %.lr.ph ], [ %.1419, %376 ]
+  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0418521) #4
   %41 = zext i8 %40 to i32
   %42 = and i32 %41, 63
   %43 = icmp ult i32 %42, 4
@@ -2876,74 +2876,74 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   ]
 
 45:                                               ; preds = %44
-  %46 = add nuw i32 %.0418522, 1
+  %46 = add nuw i32 %.0418521, 1
   %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %46) #4
   store i8 %47, ptr %5, align 1
   %48 = load i32, ptr @hf_wbxml_switch_page, align 4
   %49 = zext i8 %47 to i32
-  %50 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %48, ptr noundef %1, i32 noundef %.0418522, i32 noundef 2, i32 noundef %49, ptr noundef nonnull @.str.1878, i32 noundef %49) #4
-  %51 = add i32 %.0418522, 2
+  %50 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %48, ptr noundef %1, i32 noundef %.0418521, i32 noundef 2, i32 noundef %49, ptr noundef nonnull @.str.1878, i32 noundef %49) #4
+  %51 = add i32 %.0418521, 2
   br label %376
 
 52:                                               ; preds = %44
-  %.not452 = icmp eq i8 %.0415523, 0
-  br i1 %.not452, label %59, label %53
+  %.not451 = icmp eq i8 %.0415522, 0
+  br i1 %.not451, label %59, label %53
 
 53:                                               ; preds = %52
   %54 = load i32, ptr @hf_wbxml_end_known_tag, align 4
   %55 = load i8, ptr %5, align 1
   %56 = zext i8 %55 to i32
-  %57 = zext nneg i8 %.0415523 to i32
-  %58 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %54, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0412524, ptr noundef nonnull @.str.1879, i32 noundef %14, i32 noundef %56, i32 noundef %57, ptr noundef %27, ptr noundef %.0412524) #4
+  %57 = zext nneg i8 %.0415522 to i32
+  %58 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %54, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0412523, ptr noundef nonnull @.str.1879, i32 noundef %14, i32 noundef %56, i32 noundef %57, ptr noundef %27, ptr noundef %.0412523) #4
   br label %65
 
 59:                                               ; preds = %52
   %60 = load i32, ptr @hf_wbxml_end_literal_tag, align 4
-  %.not453 = icmp eq ptr %.0412524, null
-  %61 = select i1 %.not453, ptr @.str.1880, ptr %.0412524
+  %.not452 = icmp eq ptr %.0412523, null
+  %61 = select i1 %.not452, ptr @.str.1880, ptr %.0412523
   %62 = load i8, ptr %5, align 1
   %63 = zext i8 %62 to i32
-  %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %60, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef nonnull %61, ptr noundef nonnull @.str.1881, i32 noundef %14, i32 noundef %63, ptr noundef %27, ptr noundef nonnull %61) #4
+  %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %60, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef nonnull %61, ptr noundef nonnull @.str.1881, i32 noundef %14, i32 noundef %63, ptr noundef %27, ptr noundef nonnull %61) #4
   br label %65
 
 65:                                               ; preds = %59, %53
   %66 = add nsw i32 %14, -1
   %67 = load i32, ptr @proto_wbxml, align 4
   call void @p_set_proto_depth(ptr noundef %2, i32 noundef %67, i32 noundef %66) #4
-  %reass.sub = sub i32 %.0418522, %3
+  %reass.sub = sub i32 %.0418521, %3
   %68 = add i32 %reass.sub, 1
   br label %379
 
 69:                                               ; preds = %44
-  %70 = add nuw i32 %.0418522, 1
+  %70 = add nuw i32 %.0418521, 1
   %71 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %70, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %72 = load i32, ptr @hf_wbxml_entity, align 4
   %73 = load i32, ptr %9, align 4
   %74 = add i32 %73, 1
   %75 = load i8, ptr %5, align 1
   %76 = zext i8 %75 to i32
-  %77 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %.0418522, i32 noundef %74, i32 noundef %71, ptr noundef nonnull @.str.1882, i32 noundef %14, i32 noundef %76, ptr noundef %27, i32 noundef %71) #4
+  %77 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %.0418521, i32 noundef %74, i32 noundef %71, ptr noundef nonnull @.str.1882, i32 noundef %14, i32 noundef %76, ptr noundef %27, i32 noundef %71) #4
   %78 = load i32, ptr %9, align 4
   %79 = add i32 %70, %78
   br label %376
 
 80:                                               ; preds = %44
   %81 = load ptr, ptr %15, align 8
-  %82 = add nuw i32 %.0418522, 1
+  %82 = add nuw i32 %.0418521, 1
   %83 = call ptr @tvb_get_stringz_enc(ptr noundef %81, ptr noundef %1, i32 noundef %82, ptr noundef nonnull %9, i32 noundef %20) #4
   %84 = load i32, ptr @hf_wbxml_str_i, align 4
   %85 = load i32, ptr %9, align 4
   %86 = add i32 %85, 1
   %87 = load i8, ptr %5, align 1
   %88 = zext i8 %87 to i32
-  %89 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %84, ptr noundef %1, i32 noundef %.0418522, i32 noundef %86, ptr noundef %83, ptr noundef nonnull @.str.1883, i32 noundef %14, i32 noundef %88, ptr noundef %27, ptr noundef %83) #4
+  %89 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %84, ptr noundef %1, i32 noundef %.0418521, i32 noundef %86, ptr noundef %83, ptr noundef nonnull @.str.1883, i32 noundef %14, i32 noundef %88, ptr noundef %27, ptr noundef %83) #4
   %90 = load i32, ptr %9, align 4
   %91 = add i32 %82, %90
   br label %376
 
 92:                                               ; preds = %44, %44, %44
   %93 = load ptr, ptr %15, align 8
-  %94 = add nuw i32 %.0418522, 1
+  %94 = add nuw i32 %.0418521, 1
   %95 = call ptr @tvb_get_stringz_enc(ptr noundef %93, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %9, i32 noundef %20) #4
   %96 = load i32, ptr @hf_wbxml_ext_i, align 4
   %97 = load i32, ptr %9, align 4
@@ -2993,7 +2993,7 @@ val_to_valstr.exit.i:                             ; preds = %.lr.ph.i.i, %.lr.ph
 
 map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_valstr.exit.i, %104, %102, %92
   %117 = phi ptr [ @.str.1885, %92 ], [ %.str.1909..i, %val_to_valstr.exit.i ], [ @.str.1911, %102 ], [ @.str.1910, %104 ], [ @.str.1910, %.lr.ph.i ]
-  %118 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %96, ptr noundef %1, i32 noundef %.0418522, i32 noundef %98, ptr noundef %95, ptr noundef nonnull @.str.1884, i32 noundef %14, i32 noundef %100, i32 noundef %101, ptr noundef %27, ptr noundef nonnull %117, ptr noundef %95) #4
+  %118 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %96, ptr noundef %1, i32 noundef %.0418521, i32 noundef %98, ptr noundef %95, ptr noundef nonnull @.str.1884, i32 noundef %14, i32 noundef %100, i32 noundef %101, ptr noundef %27, ptr noundef nonnull %117, ptr noundef %95) #4
   %119 = load i32, ptr %9, align 4
   %120 = add i32 %94, %119
   br label %376
@@ -3002,10 +3002,10 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   %122 = load i32, ptr @hf_wbxml_pi_xml, align 4
   %123 = load i8, ptr %5, align 1
   %124 = zext i8 %123 to i32
-  %125 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %0, i32 noundef %122, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef nonnull @.str.1886, i32 noundef %14, i32 noundef %124, ptr noundef %27) #4
-  %126 = call fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0418522, i32 noundef %4, ptr noundef %6, ptr noundef %7)
+  %125 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %0, i32 noundef %122, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef nonnull @.str.1886, i32 noundef %14, i32 noundef %124, ptr noundef %27) #4
+  %126 = call fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0418521, i32 noundef %4, ptr noundef %6, ptr noundef %7)
   store i32 %126, ptr %9, align 4
-  %127 = add i32 %126, %.0418522
+  %127 = add i32 %126, %.0418521
   %128 = load i32, ptr @hf_wbxml_end_pi, align 4
   %129 = add i32 %127, -1
   %130 = load i8, ptr %5, align 1
@@ -3014,7 +3014,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   br label %376
 
 133:                                              ; preds = %44, %44, %44
-  %134 = add nuw i32 %.0418522, 1
+  %134 = add nuw i32 %.0418521, 1
   %135 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %134, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   br i1 %.not, label %160, label %136
 
@@ -3023,8 +3023,8 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr [3 x ptr], ptr %35, i64 0, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %.not450 = icmp eq ptr %140, null
-  br i1 %.not450, label %143, label %141
+  %.not449 = icmp eq ptr %140, null
+  br i1 %.not449, label %143, label %141
 
 141:                                              ; preds = %136
   %142 = call ptr %140(ptr noundef %1, i32 noundef %135, i32 noundef %4) #4
@@ -3033,45 +3033,45 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
 143:                                              ; preds = %136
   %144 = load ptr, ptr %15, align 8
   %145 = load ptr, ptr %34, align 8
-  %.not.i454 = icmp eq ptr %145, null
-  br i1 %.not.i454, label %map_token.exit466, label %146
+  %.not.i453 = icmp eq ptr %145, null
+  br i1 %.not.i453, label %map_token.exit465, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds i8, ptr %145, i64 8
   %148 = load ptr, ptr %147, align 8
-  %.not10.i.i455 = icmp eq ptr %148, null
-  br i1 %.not10.i.i455, label %map_token.exit466, label %.lr.ph.i.preheader.i456
+  %.not10.i.i454 = icmp eq ptr %148, null
+  br i1 %.not10.i.i454, label %map_token.exit465, label %.lr.ph.i.preheader.i455
 
-.lr.ph.i.preheader.i456:                          ; preds = %146
+.lr.ph.i.preheader.i455:                          ; preds = %146
   %149 = load i32, ptr %145, align 8
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %val_to_valstr.exit.i461, label %.lr.ph.i457
+  br i1 %150, label %val_to_valstr.exit.i460, label %.lr.ph.i456
 
-.lr.ph.i457:                                      ; preds = %.lr.ph.i.preheader.i456, %.lr.ph.i.i460
-  %.011.i15.i458 = phi i32 [ %151, %.lr.ph.i.i460 ], [ 0, %.lr.ph.i.preheader.i456 ]
-  %151 = add i32 %.011.i15.i458, 1
+.lr.ph.i456:                                      ; preds = %.lr.ph.i.preheader.i455, %.lr.ph.i.i459
+  %.011.i15.i457 = phi i32 [ %151, %.lr.ph.i.i459 ], [ 0, %.lr.ph.i.preheader.i455 ]
+  %151 = add i32 %.011.i15.i457, 1
   %152 = sext i32 %151 to i64
   %153 = getelementptr %struct._value_valuestring, ptr %145, i64 %152
   %154 = getelementptr inbounds i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
-  %.not.i.i459 = icmp eq ptr %155, null
-  br i1 %.not.i.i459, label %map_token.exit466, label %.lr.ph.i.i460, !llvm.loop !6
+  %.not.i.i458 = icmp eq ptr %155, null
+  br i1 %.not.i.i458, label %map_token.exit465, label %.lr.ph.i.i459, !llvm.loop !6
 
-.lr.ph.i.i460:                                    ; preds = %.lr.ph.i457
+.lr.ph.i.i459:                                    ; preds = %.lr.ph.i456
   %156 = load i32, ptr %153, align 8
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %val_to_valstr.exit.i461, label %.lr.ph.i457, !llvm.loop !6
+  br i1 %157, label %val_to_valstr.exit.i460, label %.lr.ph.i456, !llvm.loop !6
 
-val_to_valstr.exit.i461:                          ; preds = %.lr.ph.i.i460, %.lr.ph.i.preheader.i456
-  %.lcssa.i462 = phi ptr [ %148, %.lr.ph.i.preheader.i456 ], [ %155, %.lr.ph.i.i460 ]
-  %158 = call ptr @try_val_to_str(i32 noundef %41, ptr noundef nonnull %.lcssa.i462) #4
-  %.not11.i463 = icmp eq ptr %158, null
-  %.str.1909..i464 = select i1 %.not11.i463, ptr @.str.1909, ptr %158
-  br label %map_token.exit466
+val_to_valstr.exit.i460:                          ; preds = %.lr.ph.i.i459, %.lr.ph.i.preheader.i455
+  %.lcssa.i461 = phi ptr [ %148, %.lr.ph.i.preheader.i455 ], [ %155, %.lr.ph.i.i459 ]
+  %158 = call ptr @try_val_to_str(i32 noundef %41, ptr noundef nonnull %.lcssa.i461) #4
+  %.not11.i462 = icmp eq ptr %158, null
+  %.str.1909..i463 = select i1 %.not11.i462, ptr @.str.1909, ptr %158
+  br label %map_token.exit465
 
-map_token.exit466:                                ; preds = %.lr.ph.i457, %143, %146, %val_to_valstr.exit.i461
-  %.0.i465 = phi ptr [ %.str.1909..i464, %val_to_valstr.exit.i461 ], [ @.str.1911, %143 ], [ @.str.1910, %146 ], [ @.str.1910, %.lr.ph.i457 ]
-  %159 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %144, ptr noundef nonnull @.str.1888, i32 noundef %137, ptr noundef nonnull %.0.i465) #4
+map_token.exit465:                                ; preds = %.lr.ph.i456, %143, %146, %val_to_valstr.exit.i460
+  %.0.i464 = phi ptr [ %.str.1909..i463, %val_to_valstr.exit.i460 ], [ @.str.1911, %143 ], [ @.str.1910, %146 ], [ @.str.1910, %.lr.ph.i456 ]
+  %159 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %144, ptr noundef nonnull @.str.1888, i32 noundef %137, ptr noundef nonnull %.0.i464) #4
   br label %163
 
 160:                                              ; preds = %133
@@ -3079,21 +3079,21 @@ map_token.exit466:                                ; preds = %.lr.ph.i457, %143, 
   %162 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %161, ptr noundef nonnull @.str.1889, i32 noundef %135) #4
   br label %163
 
-163:                                              ; preds = %141, %map_token.exit466, %160
-  %.0406 = phi ptr [ %142, %141 ], [ %159, %map_token.exit466 ], [ %162, %160 ]
+163:                                              ; preds = %141, %map_token.exit465, %160
+  %.0406 = phi ptr [ %142, %141 ], [ %159, %map_token.exit465 ], [ %162, %160 ]
   %164 = load i32, ptr @hf_wbxml_ext_t, align 4
   %165 = load i32, ptr %9, align 4
   %166 = add i32 %165, 1
   %167 = load i8, ptr %5, align 1
   %168 = zext i8 %167 to i32
   %169 = and i32 %41, 15
-  %170 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %164, ptr noundef %1, i32 noundef %.0418522, i32 noundef %166, ptr noundef %.0406, ptr noundef nonnull @.str.1890, i32 noundef %14, i32 noundef %168, i32 noundef %169, ptr noundef %27, ptr noundef %.0406) #4
+  %170 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %164, ptr noundef %1, i32 noundef %.0418521, i32 noundef %166, ptr noundef %.0406, ptr noundef nonnull @.str.1890, i32 noundef %14, i32 noundef %168, i32 noundef %169, ptr noundef %27, ptr noundef %.0406) #4
   %171 = load i32, ptr %9, align 4
   %172 = add i32 %134, %171
   br label %376
 
 173:                                              ; preds = %44
-  %174 = add nuw i32 %.0418522, 1
+  %174 = add nuw i32 %.0418521, 1
   %175 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %174, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %176 = load ptr, ptr %15, align 8
   %177 = add i32 %175, %4
@@ -3103,83 +3103,83 @@ map_token.exit466:                                ; preds = %.lr.ph.i457, %143, 
   %181 = add i32 %180, 1
   %182 = load i8, ptr %5, align 1
   %183 = zext i8 %182 to i32
-  %184 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %179, ptr noundef %1, i32 noundef %.0418522, i32 noundef %181, ptr noundef %178, ptr noundef nonnull @.str.1891, i32 noundef %14, i32 noundef %183, ptr noundef %27, ptr noundef %178) #4
+  %184 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %179, ptr noundef %1, i32 noundef %.0418521, i32 noundef %181, ptr noundef %178, ptr noundef nonnull @.str.1891, i32 noundef %14, i32 noundef %183, ptr noundef %27, ptr noundef %178) #4
   %185 = load i32, ptr %9, align 4
   %186 = add i32 %174, %185
   br label %376
 
 187:                                              ; preds = %44, %44, %44
-  br i1 %.not, label %map_token.exit479, label %188
+  br i1 %.not, label %map_token.exit478, label %188
 
 188:                                              ; preds = %187
   %189 = load ptr, ptr %34, align 8
-  %.not.i467 = icmp eq ptr %189, null
-  br i1 %.not.i467, label %map_token.exit479, label %190
+  %.not.i466 = icmp eq ptr %189, null
+  br i1 %.not.i466, label %map_token.exit478, label %190
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds i8, ptr %189, i64 8
   %192 = load ptr, ptr %191, align 8
-  %.not10.i.i468 = icmp eq ptr %192, null
-  br i1 %.not10.i.i468, label %map_token.exit479, label %.lr.ph.i.preheader.i469
+  %.not10.i.i467 = icmp eq ptr %192, null
+  br i1 %.not10.i.i467, label %map_token.exit478, label %.lr.ph.i.preheader.i468
 
-.lr.ph.i.preheader.i469:                          ; preds = %190
+.lr.ph.i.preheader.i468:                          ; preds = %190
   %193 = load i32, ptr %189, align 8
   %194 = icmp eq i32 %193, 0
-  br i1 %194, label %val_to_valstr.exit.i474, label %.lr.ph.i470
+  br i1 %194, label %val_to_valstr.exit.i473, label %.lr.ph.i469
 
-.lr.ph.i470:                                      ; preds = %.lr.ph.i.preheader.i469, %.lr.ph.i.i473
-  %.011.i15.i471 = phi i32 [ %195, %.lr.ph.i.i473 ], [ 0, %.lr.ph.i.preheader.i469 ]
-  %195 = add i32 %.011.i15.i471, 1
+.lr.ph.i469:                                      ; preds = %.lr.ph.i.preheader.i468, %.lr.ph.i.i472
+  %.011.i15.i470 = phi i32 [ %195, %.lr.ph.i.i472 ], [ 0, %.lr.ph.i.preheader.i468 ]
+  %195 = add i32 %.011.i15.i470, 1
   %196 = sext i32 %195 to i64
   %197 = getelementptr %struct._value_valuestring, ptr %189, i64 %196
   %198 = getelementptr inbounds i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
-  %.not.i.i472 = icmp eq ptr %199, null
-  br i1 %.not.i.i472, label %map_token.exit479, label %.lr.ph.i.i473, !llvm.loop !6
+  %.not.i.i471 = icmp eq ptr %199, null
+  br i1 %.not.i.i471, label %map_token.exit478, label %.lr.ph.i.i472, !llvm.loop !6
 
-.lr.ph.i.i473:                                    ; preds = %.lr.ph.i470
+.lr.ph.i.i472:                                    ; preds = %.lr.ph.i469
   %200 = load i32, ptr %197, align 8
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %val_to_valstr.exit.i474, label %.lr.ph.i470, !llvm.loop !6
+  br i1 %201, label %val_to_valstr.exit.i473, label %.lr.ph.i469, !llvm.loop !6
 
-val_to_valstr.exit.i474:                          ; preds = %.lr.ph.i.i473, %.lr.ph.i.preheader.i469
-  %.lcssa.i475 = phi ptr [ %192, %.lr.ph.i.preheader.i469 ], [ %199, %.lr.ph.i.i473 ]
-  %202 = call ptr @try_val_to_str(i32 noundef %41, ptr noundef nonnull %.lcssa.i475) #4
-  %.not11.i476 = icmp eq ptr %202, null
-  %.str.1909..i477 = select i1 %.not11.i476, ptr @.str.1909, ptr %202
-  br label %map_token.exit479
+val_to_valstr.exit.i473:                          ; preds = %.lr.ph.i.i472, %.lr.ph.i.preheader.i468
+  %.lcssa.i474 = phi ptr [ %192, %.lr.ph.i.preheader.i468 ], [ %199, %.lr.ph.i.i472 ]
+  %202 = call ptr @try_val_to_str(i32 noundef %41, ptr noundef nonnull %.lcssa.i474) #4
+  %.not11.i475 = icmp eq ptr %202, null
+  %.str.1909..i476 = select i1 %.not11.i475, ptr @.str.1909, ptr %202
+  br label %map_token.exit478
 
-map_token.exit479:                                ; preds = %.lr.ph.i470, %val_to_valstr.exit.i474, %190, %188, %187
-  %203 = phi ptr [ @.str.1892, %187 ], [ %.str.1909..i477, %val_to_valstr.exit.i474 ], [ @.str.1911, %188 ], [ @.str.1910, %190 ], [ @.str.1910, %.lr.ph.i470 ]
+map_token.exit478:                                ; preds = %.lr.ph.i469, %val_to_valstr.exit.i473, %190, %188, %187
+  %203 = phi ptr [ @.str.1892, %187 ], [ %.str.1909..i476, %val_to_valstr.exit.i473 ], [ @.str.1911, %188 ], [ @.str.1910, %190 ], [ @.str.1910, %.lr.ph.i469 ]
   %204 = load i32, ptr @hf_wbxml_extension_token, align 4
   %205 = load i8, ptr %5, align 1
   %206 = zext i8 %205 to i32
   %207 = and i32 %41, 15
-  %208 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %204, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef nonnull %203, ptr noundef nonnull @.str.1893, i32 noundef %14, i32 noundef %206, i32 noundef %207, ptr noundef %27, ptr noundef nonnull %203) #4
-  %209 = add i32 %.0418522, 1
+  %208 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %204, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef nonnull %203, ptr noundef nonnull @.str.1893, i32 noundef %14, i32 noundef %206, i32 noundef %207, ptr noundef %27, ptr noundef nonnull %203) #4
+  %209 = add i32 %.0418521, 1
   br label %376
 
 210:                                              ; preds = %44
   %211 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #4
-  %.not442 = icmp eq i8 %211, 0
-  br i1 %.not442, label %261, label %212
+  %.not441 = icmp eq i8 %211, 0
+  br i1 %.not441, label %261, label %212
 
 212:                                              ; preds = %210
   br i1 %.not, label %246, label %213
 
 213:                                              ; preds = %212
-  %.not445 = icmp eq i8 %.0415523, 0
-  %214 = add nuw i32 %.0418522, 1
-  br i1 %.not445, label %226, label %215
+  %.not444 = icmp eq i8 %.0415522, 0
+  %214 = add nuw i32 %.0418521, 1
+  br i1 %.not444, label %226, label %215
 
 215:                                              ; preds = %213
   %216 = load ptr, ptr %32, align 8
-  %.not447 = icmp eq ptr %216, null
-  br i1 %.not447, label %220, label %217
+  %.not446 = icmp eq ptr %216, null
+  br i1 %.not446, label %220, label %217
 
 217:                                              ; preds = %215
   %218 = load i8, ptr %5, align 1
-  %219 = call ptr %216(ptr noundef %1, i32 noundef %214, i8 noundef zeroext %.0415523, i8 noundef zeroext %218, ptr noundef nonnull %9, ptr noundef %2) #4
+  %219 = call ptr %216(ptr noundef %1, i32 noundef %214, i8 noundef zeroext %.0415522, i8 noundef zeroext %218, ptr noundef nonnull %9, ptr noundef %2) #4
   br label %237
 
 220:                                              ; preds = %215
@@ -3193,12 +3193,12 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
 
 226:                                              ; preds = %213
   %227 = load ptr, ptr %33, align 8
-  %.not446 = icmp eq ptr %227, null
-  br i1 %.not446, label %231, label %228
+  %.not445 = icmp eq ptr %227, null
+  br i1 %.not445, label %231, label %228
 
 228:                                              ; preds = %226
   %229 = load i8, ptr %5, align 1
-  %230 = call ptr %227(ptr noundef %1, i32 noundef %214, ptr noundef %.0412524, i8 noundef zeroext %229, ptr noundef nonnull %9, ptr noundef %2) #4
+  %230 = call ptr %227(ptr noundef %1, i32 noundef %214, ptr noundef %.0412523, i8 noundef zeroext %229, ptr noundef nonnull %9, ptr noundef %2) #4
   br label %237
 
 231:                                              ; preds = %226
@@ -3217,18 +3217,18 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
   %240 = add i32 %239, 1
   %241 = load i8, ptr %5, align 1
   %242 = zext i8 %241 to i32
-  %243 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %238, ptr noundef %1, i32 noundef %.0418522, i32 noundef %240, ptr noundef null, ptr noundef nonnull @.str.1894, i32 noundef %14, i32 noundef %242, ptr noundef %27, ptr noundef %.0) #4
+  %243 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %238, ptr noundef %1, i32 noundef %.0418521, i32 noundef %240, ptr noundef null, ptr noundef nonnull @.str.1894, i32 noundef %14, i32 noundef %242, ptr noundef %27, ptr noundef %.0) #4
   %244 = load i32, ptr %9, align 4
   %245 = add i32 %214, %244
   br label %376
 
 246:                                              ; preds = %212
-  %247 = add nuw i32 %.0418522, 1
+  %247 = add nuw i32 %.0418521, 1
   %248 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %247, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %249 = load i32, ptr %9, align 4
-  %.not444 = icmp ule i32 %249, %12
+  %.not443 = icmp ule i32 %249, %12
   %250 = icmp ult i32 %248, %12
-  %or.cond = select i1 %.not444, i1 %250, i1 false
+  %or.cond = select i1 %.not443, i1 %250, i1 false
   br i1 %or.cond, label %251, label %._crit_edge
 
 251:                                              ; preds = %246
@@ -3237,7 +3237,7 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
   %254 = add i32 %253, %249
   %255 = load i8, ptr %5, align 1
   %256 = zext i8 %255 to i32
-  %257 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %252, ptr noundef %1, i32 noundef %.0418522, i32 noundef %254, ptr noundef null, ptr noundef nonnull @.str.1895, i32 noundef %14, i32 noundef %256, ptr noundef %27, i32 noundef %248) #4
+  %257 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %252, ptr noundef %1, i32 noundef %.0418521, i32 noundef %254, ptr noundef null, ptr noundef nonnull @.str.1895, i32 noundef %14, i32 noundef %256, ptr noundef %27, i32 noundef %248) #4
   %258 = load i32, ptr %9, align 4
   %259 = add i32 %247, %248
   %260 = add i32 %259, %258
@@ -3247,7 +3247,7 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
   %262 = load i32, ptr @hf_wbxml_reserved_2, align 4
   %263 = load i8, ptr %5, align 1
   %264 = zext i8 %263 to i32
-  %265 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %0, i32 noundef %262, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef nonnull @.str.1896, i32 noundef %14, i32 noundef %264) #4
+  %265 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %0, i32 noundef %262, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef nonnull @.str.1896, i32 noundef %14, i32 noundef %264) #4
   %266 = sub i32 %12, %3
   br label %379
 
@@ -3257,12 +3257,12 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
   br i1 %268, label %269, label %275
 
 269:                                              ; preds = %267
-  %270 = add nuw i32 %.0418522, 1
+  %270 = add nuw i32 %.0418521, 1
   %271 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %270, ptr noundef nonnull %11, ptr noundef %2, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
   %272 = load ptr, ptr %15, align 8
   %273 = add i32 %271, %4
   %274 = call ptr @tvb_get_stringz_enc(ptr noundef %272, ptr noundef %1, i32 noundef %273, ptr noundef nonnull %10, i32 noundef %20) #4
-  br label %map_token.exit492
+  br label %map_token.exit491
 
 275:                                              ; preds = %267
   %276 = trunc nuw nsw i32 %42 to i8
@@ -3270,97 +3270,97 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
 
 277:                                              ; preds = %275
   %278 = load ptr, ptr %23, align 8
-  %.not.i480 = icmp eq ptr %278, null
-  br i1 %.not.i480, label %map_token.exit492, label %279
+  %.not.i479 = icmp eq ptr %278, null
+  br i1 %.not.i479, label %map_token.exit491, label %279
 
 279:                                              ; preds = %277
   %280 = load i8, ptr %5, align 1
   %281 = zext i8 %280 to i32
   %282 = getelementptr inbounds i8, ptr %278, i64 8
   %283 = load ptr, ptr %282, align 8
-  %.not10.i.i481 = icmp eq ptr %283, null
-  br i1 %.not10.i.i481, label %map_token.exit492, label %.lr.ph.i.preheader.i482
+  %.not10.i.i480 = icmp eq ptr %283, null
+  br i1 %.not10.i.i480, label %map_token.exit491, label %.lr.ph.i.preheader.i481
 
-.lr.ph.i.preheader.i482:                          ; preds = %279
+.lr.ph.i.preheader.i481:                          ; preds = %279
   %284 = load i32, ptr %278, align 8
   %285 = icmp eq i32 %284, %281
-  br i1 %285, label %val_to_valstr.exit.i487, label %.lr.ph.i483
+  br i1 %285, label %val_to_valstr.exit.i486, label %.lr.ph.i482
 
-.lr.ph.i483:                                      ; preds = %.lr.ph.i.preheader.i482, %.lr.ph.i.i486
-  %.011.i15.i484 = phi i32 [ %286, %.lr.ph.i.i486 ], [ 0, %.lr.ph.i.preheader.i482 ]
-  %286 = add i32 %.011.i15.i484, 1
+.lr.ph.i482:                                      ; preds = %.lr.ph.i.preheader.i481, %.lr.ph.i.i485
+  %.011.i15.i483 = phi i32 [ %286, %.lr.ph.i.i485 ], [ 0, %.lr.ph.i.preheader.i481 ]
+  %286 = add i32 %.011.i15.i483, 1
   %287 = sext i32 %286 to i64
   %288 = getelementptr %struct._value_valuestring, ptr %278, i64 %287
   %289 = getelementptr inbounds i8, ptr %288, i64 8
   %290 = load ptr, ptr %289, align 8
-  %.not.i.i485 = icmp eq ptr %290, null
-  br i1 %.not.i.i485, label %map_token.exit492, label %.lr.ph.i.i486, !llvm.loop !6
+  %.not.i.i484 = icmp eq ptr %290, null
+  br i1 %.not.i.i484, label %map_token.exit491, label %.lr.ph.i.i485, !llvm.loop !6
 
-.lr.ph.i.i486:                                    ; preds = %.lr.ph.i483
+.lr.ph.i.i485:                                    ; preds = %.lr.ph.i482
   %291 = load i32, ptr %288, align 8
   %292 = icmp eq i32 %291, %281
-  br i1 %292, label %val_to_valstr.exit.i487, label %.lr.ph.i483, !llvm.loop !6
+  br i1 %292, label %val_to_valstr.exit.i486, label %.lr.ph.i482, !llvm.loop !6
 
-val_to_valstr.exit.i487:                          ; preds = %.lr.ph.i.i486, %.lr.ph.i.preheader.i482
-  %.lcssa.i488 = phi ptr [ %283, %.lr.ph.i.preheader.i482 ], [ %290, %.lr.ph.i.i486 ]
-  %293 = call ptr @try_val_to_str(i32 noundef %42, ptr noundef nonnull %.lcssa.i488) #4
-  %.not11.i489 = icmp eq ptr %293, null
-  %.str.1909..i490 = select i1 %.not11.i489, ptr @.str.1909, ptr %293
-  br label %map_token.exit492
+val_to_valstr.exit.i486:                          ; preds = %.lr.ph.i.i485, %.lr.ph.i.preheader.i481
+  %.lcssa.i487 = phi ptr [ %283, %.lr.ph.i.preheader.i481 ], [ %290, %.lr.ph.i.i485 ]
+  %293 = call ptr @try_val_to_str(i32 noundef %42, ptr noundef nonnull %.lcssa.i487) #4
+  %.not11.i488 = icmp eq ptr %293, null
+  %.str.1909..i489 = select i1 %.not11.i488, ptr @.str.1909, ptr %293
+  br label %map_token.exit491
 
 294:                                              ; preds = %275
   %295 = call ptr @wmem_packet_scope() #4
   %296 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %295, ptr noundef nonnull @.str.1897, i32 noundef %42) #4
-  br label %map_token.exit492
+  br label %map_token.exit491
 
-map_token.exit492:                                ; preds = %.lr.ph.i483, %val_to_valstr.exit.i487, %279, %277, %294, %269
-  %.0414 = phi i8 [ 0, %269 ], [ %276, %294 ], [ %276, %277 ], [ %276, %279 ], [ %276, %val_to_valstr.exit.i487 ], [ %276, %.lr.ph.i483 ]
-  %.0411 = phi ptr [ %274, %269 ], [ %296, %294 ], [ @.str.1911, %277 ], [ @.str.1910, %279 ], [ %.str.1909..i490, %val_to_valstr.exit.i487 ], [ @.str.1910, %.lr.ph.i483 ]
+map_token.exit491:                                ; preds = %.lr.ph.i482, %val_to_valstr.exit.i486, %279, %277, %294, %269
+  %.0414 = phi i8 [ 0, %269 ], [ %276, %294 ], [ %276, %277 ], [ %276, %279 ], [ %276, %val_to_valstr.exit.i486 ], [ %276, %.lr.ph.i482 ]
+  %.0411 = phi ptr [ %274, %269 ], [ %296, %294 ], [ @.str.1911, %277 ], [ @.str.1910, %279 ], [ %.str.1909..i489, %val_to_valstr.exit.i486 ], [ @.str.1910, %.lr.ph.i482 ]
   %297 = and i32 %41, 64
-  %.not434 = icmp eq i32 %297, 0
-  br i1 %.not434, label %335, label %298
+  %.not433 = icmp eq i32 %297, 0
+  br i1 %.not433, label %335, label %298
 
-298:                                              ; preds = %map_token.exit492
-  %.not438 = icmp eq i8 %.0409525, 0
-  br i1 %.not438, label %303, label %299
+298:                                              ; preds = %map_token.exit491
+  %.not437 = icmp eq i8 %.0409524, 0
+  br i1 %.not437, label %303, label %299
 
 299:                                              ; preds = %298
   %300 = load i32, ptr @proto_wbxml, align 4
   call void @p_set_proto_depth(ptr noundef %2, i32 noundef %300, i32 noundef %24) #4
-  %301 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0418522, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %301 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0418521, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   store i32 %301, ptr %9, align 4
-  %302 = add i32 %301, %.0418522
+  %302 = add i32 %301, %.0418521
   br label %376
 
 303:                                              ; preds = %298
-  %.not439 = icmp sgt i8 %40, -1
-  %.not440 = icmp eq i8 %.0414, 0
+  %.not438 = icmp sgt i8 %40, -1
+  %.not439 = icmp eq i8 %.0414, 0
   %304 = load i8, ptr %5, align 1
   %305 = zext i8 %304 to i32
-  %306 = add i32 %.0418522, 1
-  br i1 %.not439, label %325, label %307
+  %306 = add i32 %.0418521, 1
+  br i1 %.not438, label %325, label %307
 
 307:                                              ; preds = %303
-  br i1 %.not440, label %312, label %308
+  br i1 %.not439, label %312, label %308
 
 308:                                              ; preds = %307
   %309 = load i32, ptr @hf_wbxml_known_tag, align 4
   %310 = zext nneg i8 %.0414 to i32
-  %311 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %309, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1898, i32 noundef %14, i32 noundef %305, i32 noundef %310, ptr noundef %27, ptr noundef %.0411) #4
+  %311 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %309, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1898, i32 noundef %14, i32 noundef %305, i32 noundef %310, ptr noundef %27, ptr noundef %.0411) #4
   br label %317
 
 312:                                              ; preds = %307
   %313 = load i32, ptr @hf_wbxml_literal_ac, align 4
-  %314 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %313, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1899, i32 noundef %14, i32 noundef %305, ptr noundef %27, ptr noundef %.0411) #4
+  %314 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %313, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1899, i32 noundef %14, i32 noundef %305, ptr noundef %27, ptr noundef %.0411) #4
   %315 = load i32, ptr %11, align 4
   %316 = add i32 %306, %315
   br label %317
 
 317:                                              ; preds = %312, %308
-  %.1419 = phi i32 [ %306, %308 ], [ %316, %312 ]
-  %318 = call fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1419, i32 noundef %4, ptr noundef %6, ptr noundef %7)
+  %.2420 = phi i32 [ %306, %308 ], [ %316, %312 ]
+  %318 = call fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.2420, i32 noundef %4, ptr noundef %6, ptr noundef %7)
   store i32 %318, ptr %9, align 4
-  %319 = add i32 %318, %.1419
+  %319 = add i32 %318, %.2420
   %320 = load i32, ptr @hf_wbxml_end_attribute_list, align 4
   %321 = add i32 %319, -1
   %322 = load i8, ptr %5, align 1
@@ -3369,43 +3369,43 @@ map_token.exit492:                                ; preds = %.lr.ph.i483, %val_t
   br label %376
 
 325:                                              ; preds = %303
-  br i1 %.not440, label %330, label %326
+  br i1 %.not439, label %330, label %326
 
 326:                                              ; preds = %325
   %327 = load i32, ptr @hf_wbxml_known_tag, align 4
   %328 = zext nneg i8 %.0414 to i32
-  %329 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %327, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1901, i32 noundef %14, i32 noundef %305, i32 noundef %328, ptr noundef %27, ptr noundef %.0411) #4
+  %329 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %327, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1901, i32 noundef %14, i32 noundef %305, i32 noundef %328, ptr noundef %27, ptr noundef %.0411) #4
   br label %376
 
 330:                                              ; preds = %325
   %331 = load i32, ptr @hf_wbxml_literal_c, align 4
-  %332 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %331, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1902, i32 noundef %14, i32 noundef %305, ptr noundef %27, ptr noundef %.0411) #4
+  %332 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %331, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1902, i32 noundef %14, i32 noundef %305, ptr noundef %27, ptr noundef %.0411) #4
   %333 = load i32, ptr %11, align 4
   %334 = add i32 %306, %333
   br label %376
 
-335:                                              ; preds = %map_token.exit492
+335:                                              ; preds = %map_token.exit491
   %336 = load i32, ptr @proto_wbxml, align 4
   call void @p_set_proto_depth(ptr noundef %2, i32 noundef %336, i32 noundef %24) #4
-  %.not435 = icmp sgt i8 %40, -1
-  %.not436 = icmp eq i8 %.0414, 0
+  %.not434 = icmp sgt i8 %40, -1
+  %.not435 = icmp eq i8 %.0414, 0
   %337 = load i8, ptr %5, align 1
   %338 = zext i8 %337 to i32
-  %339 = add i32 %.0418522, 1
-  br i1 %.not435, label %364, label %340
+  %339 = add i32 %.0418521, 1
+  br i1 %.not434, label %364, label %340
 
 340:                                              ; preds = %335
-  br i1 %.not436, label %352, label %341
+  br i1 %.not435, label %352, label %341
 
 341:                                              ; preds = %340
   %342 = load i32, ptr @hf_wbxml_known_tag, align 4
   %343 = zext nneg i8 %.0414 to i32
-  %344 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %342, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1903, i32 noundef %24, i32 noundef %338, i32 noundef %343, ptr noundef %31, ptr noundef %.0411) #4
+  %344 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %342, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1903, i32 noundef %24, i32 noundef %338, i32 noundef %343, ptr noundef %31, ptr noundef %.0411) #4
   %345 = call fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %339, i32 noundef %4, ptr noundef %6, ptr noundef %7)
   store i32 %345, ptr %9, align 4
   %346 = add i32 %345, %339
   %347 = load i32, ptr @hf_wbxml_end_known_tag_uint, align 4
-  %348 = add i32 %345, %.0418522
+  %348 = add i32 %345, %.0418521
   %349 = load i8, ptr %5, align 1
   %350 = zext i8 %349 to i32
   %351 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %347, ptr noundef %1, i32 noundef %348, i32 noundef 1, i32 noundef %350, ptr noundef nonnull @.str.1904, i32 noundef %24, i32 noundef %350, ptr noundef %31) #4
@@ -3413,7 +3413,7 @@ map_token.exit492:                                ; preds = %.lr.ph.i483, %val_t
 
 352:                                              ; preds = %340
   %353 = load i32, ptr @hf_wbxml_literal_a, align 4
-  %354 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %353, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1905, i32 noundef %24, i32 noundef %338, ptr noundef %31, ptr noundef %.0411) #4
+  %354 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %353, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1905, i32 noundef %24, i32 noundef %338, ptr noundef %31, ptr noundef %.0411) #4
   %355 = load i32, ptr %11, align 4
   %356 = add i32 %339, %355
   %357 = call fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %356, i32 noundef %4, ptr noundef %6, ptr noundef %7)
@@ -3427,37 +3427,37 @@ map_token.exit492:                                ; preds = %.lr.ph.i483, %val_t
   br label %374
 
 364:                                              ; preds = %335
-  br i1 %.not436, label %369, label %365
+  br i1 %.not435, label %369, label %365
 
 365:                                              ; preds = %364
   %366 = load i32, ptr @hf_wbxml_known_tag, align 4
   %367 = zext nneg i8 %.0414 to i32
-  %368 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %366, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1907, i32 noundef %24, i32 noundef %338, i32 noundef %367, ptr noundef %31, ptr noundef %.0411) #4
+  %368 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %366, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1907, i32 noundef %24, i32 noundef %338, i32 noundef %367, ptr noundef %31, ptr noundef %.0411) #4
   br label %374
 
 369:                                              ; preds = %364
   %370 = load i32, ptr @hf_wbxml_literal, align 4
-  %371 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %370, ptr noundef %1, i32 noundef %.0418522, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1908, i32 noundef %24, i32 noundef %338, ptr noundef %31, ptr noundef %.0411) #4
+  %371 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %370, ptr noundef %1, i32 noundef %.0418521, i32 noundef 1, ptr noundef %.0411, ptr noundef nonnull @.str.1908, i32 noundef %24, i32 noundef %338, ptr noundef %31, ptr noundef %.0411) #4
   %372 = load i32, ptr %11, align 4
   %373 = add i32 %339, %372
   br label %374
 
 374:                                              ; preds = %365, %369, %341, %352
-  %.3 = phi i32 [ %346, %341 ], [ %358, %352 ], [ %339, %365 ], [ %373, %369 ]
+  %.4 = phi i32 [ %346, %341 ], [ %358, %352 ], [ %339, %365 ], [ %373, %369 ]
   %375 = load i32, ptr @proto_wbxml, align 4
   call void @p_set_proto_depth(ptr noundef %2, i32 noundef %375, i32 noundef %14) #4
   br label %376
 
-376:                                              ; preds = %317, %330, %326, %374, %299, %44, %45, %69, %80, %map_token.exit, %121, %163, %173, %map_token.exit479, %237, %251
-  %.4 = phi i32 [ %.0418522, %44 ], [ %245, %237 ], [ %260, %251 ], [ %209, %map_token.exit479 ], [ %186, %173 ], [ %172, %163 ], [ %127, %121 ], [ %120, %map_token.exit ], [ %91, %80 ], [ %79, %69 ], [ %51, %45 ], [ %302, %299 ], [ %.3, %374 ], [ %319, %317 ], [ %306, %326 ], [ %334, %330 ]
-  %.2417 = phi i8 [ %.0415523, %44 ], [ %.0415523, %237 ], [ %.0415523, %251 ], [ %.0415523, %map_token.exit479 ], [ %.0415523, %173 ], [ %.0415523, %163 ], [ %.0415523, %121 ], [ %.0415523, %map_token.exit ], [ %.0415523, %80 ], [ %.0415523, %69 ], [ %.0415523, %45 ], [ %.0415523, %299 ], [ %.0415523, %374 ], [ %.0414, %317 ], [ %.0414, %326 ], [ 0, %330 ]
-  %.2 = phi ptr [ %.0412524, %44 ], [ %.0412524, %237 ], [ %.0412524, %251 ], [ %.0412524, %map_token.exit479 ], [ %.0412524, %173 ], [ %.0412524, %163 ], [ %.0412524, %121 ], [ %.0412524, %map_token.exit ], [ %.0412524, %80 ], [ %.0412524, %69 ], [ %.0412524, %45 ], [ %.0412524, %299 ], [ %.0412524, %374 ], [ %.0411, %317 ], [ %.0411, %326 ], [ %.0411, %330 ]
-  %.1410 = phi i8 [ %.0409525, %44 ], [ %.0409525, %237 ], [ %.0409525, %251 ], [ %.0409525, %map_token.exit479 ], [ %.0409525, %173 ], [ %.0409525, %163 ], [ %.0409525, %121 ], [ %.0409525, %map_token.exit ], [ %.0409525, %80 ], [ %.0409525, %69 ], [ %.0409525, %45 ], [ 1, %299 ], [ %.0409525, %374 ], [ 1, %317 ], [ 1, %326 ], [ 1, %330 ]
-  %377 = icmp ult i32 %.4, %12
+376:                                              ; preds = %317, %330, %326, %374, %299, %44, %45, %69, %80, %map_token.exit, %121, %163, %173, %map_token.exit478, %237, %251
+  %.1419 = phi i32 [ %.0418521, %44 ], [ %245, %237 ], [ %260, %251 ], [ %209, %map_token.exit478 ], [ %186, %173 ], [ %172, %163 ], [ %127, %121 ], [ %120, %map_token.exit ], [ %91, %80 ], [ %79, %69 ], [ %51, %45 ], [ %302, %299 ], [ %.4, %374 ], [ %319, %317 ], [ %306, %326 ], [ %334, %330 ]
+  %.1416 = phi i8 [ %.0415522, %44 ], [ %.0415522, %237 ], [ %.0415522, %251 ], [ %.0415522, %map_token.exit478 ], [ %.0415522, %173 ], [ %.0415522, %163 ], [ %.0415522, %121 ], [ %.0415522, %map_token.exit ], [ %.0415522, %80 ], [ %.0415522, %69 ], [ %.0415522, %45 ], [ %.0415522, %299 ], [ %.0415522, %374 ], [ %.0414, %317 ], [ %.0414, %326 ], [ 0, %330 ]
+  %.1413 = phi ptr [ %.0412523, %44 ], [ %.0412523, %237 ], [ %.0412523, %251 ], [ %.0412523, %map_token.exit478 ], [ %.0412523, %173 ], [ %.0412523, %163 ], [ %.0412523, %121 ], [ %.0412523, %map_token.exit ], [ %.0412523, %80 ], [ %.0412523, %69 ], [ %.0412523, %45 ], [ %.0412523, %299 ], [ %.0412523, %374 ], [ %.0411, %317 ], [ %.0411, %326 ], [ %.0411, %330 ]
+  %.1410 = phi i8 [ %.0409524, %44 ], [ %.0409524, %237 ], [ %.0409524, %251 ], [ %.0409524, %map_token.exit478 ], [ %.0409524, %173 ], [ %.0409524, %163 ], [ %.0409524, %121 ], [ %.0409524, %map_token.exit ], [ %.0409524, %80 ], [ %.0409524, %69 ], [ %.0409524, %45 ], [ 1, %299 ], [ %.0409524, %374 ], [ 1, %317 ], [ 1, %326 ], [ 1, %330 ]
+  %377 = icmp ult i32 %.1419, %12
   br i1 %377, label %39, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %246, %376, %.preheader
-  %.0418.lcssa = phi i32 [ %3, %.preheader ], [ %12, %246 ], [ %.4, %376 ]
+  %.0418.lcssa = phi i32 [ %3, %.preheader ], [ %12, %246 ], [ %.1419, %376 ]
   %378 = sub i32 %.0418.lcssa, %3
   br label %379
 

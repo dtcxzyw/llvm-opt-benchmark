@@ -1725,9 +1725,9 @@ for.inc122:                                       ; preds = %invoke.cont70.for.i
   br i1 %cmp53, label %for.body54, label %invoke.cont125, !llvm.loop !8
 
 invoke.cont125:                                   ; preds = %for.inc122, %for.inc122.us, %if.else48, %cleanup.thread
-  %dateStart.1 = phi i32 [ %.us-phi82, %cleanup.thread ], [ 0, %if.else48 ], [ 0, %for.inc122.us ], [ 0, %for.inc122 ]
-  %origDateLen.1 = phi i32 [ %50, %cleanup.thread ], [ 0, %if.else48 ], [ 0, %for.inc122.us ], [ 0, %for.inc122 ]
-  %modDateLen.1 = phi i32 [ %cond.i, %cleanup.thread ], [ 0, %if.else48 ], [ 0, %for.inc122.us ], [ 0, %for.inc122 ]
+  %dateStart.0 = phi i32 [ %.us-phi82, %cleanup.thread ], [ 0, %if.else48 ], [ 0, %for.inc122.us ], [ 0, %for.inc122 ]
+  %origDateLen.0 = phi i32 [ %50, %cleanup.thread ], [ 0, %if.else48 ], [ 0, %for.inc122.us ], [ 0, %for.inc122 ]
+  %modDateLen.0 = phi i32 [ %cond.i, %cleanup.thread ], [ 0, %if.else48 ], [ 0, %for.inc122.us ], [ 0, %for.inc122 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %combinedPattern, align 8
   %fUnion2.i68 = getelementptr inbounds i8, ptr %combinedPattern, i64 8
   store i16 2, ptr %fUnion2.i68, align 8
@@ -1758,11 +1758,11 @@ invoke.cont139:                                   ; preds = %invoke.cont135
   %cmp142 = icmp slt i32 %63, 0
   %64 = load i32, ptr %index.i, align 8
   %spec.select77 = select i1 %cmp142, i32 %64, i32 %63
-  %add150 = add nsw i32 %modDateLen.1, %dateStart.1
+  %add150 = add nsw i32 %modDateLen.0, %dateStart.0
   %cmp151.not = icmp slt i32 %spec.select77, %add150
-  %sub.neg = sub i32 %origDateLen.1, %modDateLen.1
+  %sub.neg = sub i32 %origDateLen.0, %modDateLen.0
   %sub153 = add i32 %sub.neg, %spec.select77
-  %spec.select = call i32 @llvm.smin.i32(i32 %spec.select77, i32 %dateStart.1)
+  %spec.select = call i32 @llvm.smin.i32(i32 %spec.select77, i32 %dateStart.0)
   %offset144.0 = select i1 %cmp151.not, i32 %spec.select, i32 %sub153
   br i1 %cmp142, label %if.then160, label %if.else162
 

@@ -855,8 +855,8 @@ _set_usage_column_width.exit:                     ; preds = %334, %325
 
 374:                                              ; preds = %469, %.lr.ph.i67
   %375 = phi ptr [ %371, %.lr.ph.i67 ], [ %471, %469 ]
-  %.079.i = phi i64 [ 0, %.lr.ph.i67 ], [ %.2.i, %469 ]
-  %.05778.i = phi i64 [ 0, %.lr.ph.i67 ], [ %.259.i, %469 ]
+  %.079.i = phi i64 [ 0, %.lr.ph.i67 ], [ %.1.i68, %469 ]
+  %.05778.i = phi i64 [ 0, %.lr.ph.i67 ], [ %.158.i, %469 ]
   %.06077.i = phi i32 [ 1, %.lr.ph.i67 ], [ %470, %469 ]
   %376 = getelementptr inbounds i8, ptr %375, i64 24
   %377 = load i16, ptr %376, align 8
@@ -1009,7 +1009,7 @@ _set_user_acct.exit.i:                            ; preds = %388, %380
   br label %444
 
 444:                                              ; preds = %442, %439
-  %.158.i = phi i64 [ %443, %442 ], [ %.05778.i, %439 ]
+  %.259.i = phi i64 [ %443, %442 ], [ %.05778.i, %439 ]
   %445 = load ptr, ptr %356, align 8
   %446 = call ptr @list_find_first(ptr noundef %445, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %7) #10
   %.not70.i = icmp eq ptr %446, null
@@ -1020,8 +1020,8 @@ _set_user_acct.exit.i:                            ; preds = %388, %380
   br label %449
 
 449:                                              ; preds = %447, %444
-  %.1.i70 = phi i64 [ %448, %447 ], [ %.079.i, %444 ]
-  %450 = call ptr @sreport_get_time_str(i64 noundef %.1.i70, i64 noundef %.158.i) #10
+  %.2.i = phi i64 [ %448, %447 ], [ %.079.i, %444 ]
+  %450 = call ptr @sreport_get_time_str(i64 noundef %.2.i, i64 noundef %.259.i) #10
   store ptr %450, ptr %6, align 8
   %451 = getelementptr inbounds i8, ptr %375, i64 16
   %452 = load ptr, ptr %451, align 8
@@ -1056,12 +1056,12 @@ _set_user_acct.exit.i:                            ; preds = %388, %380
   br label %469
 
 469:                                              ; preds = %464, %455, %449, %432, %417, %402, %396, %390
-  %.259.i = phi i64 [ %.05778.i, %464 ], [ %.05778.i, %455 ], [ %.158.i, %449 ], [ %.05778.i, %432 ], [ %.05778.i, %417 ], [ %.05778.i, %402 ], [ %.05778.i, %396 ], [ %.05778.i, %390 ]
-  %.2.i = phi i64 [ %.079.i, %464 ], [ %.079.i, %455 ], [ %.1.i70, %449 ], [ %.079.i, %432 ], [ %.079.i, %417 ], [ %.079.i, %402 ], [ %.079.i, %396 ], [ %.079.i, %390 ]
+  %.158.i = phi i64 [ %.05778.i, %464 ], [ %.05778.i, %455 ], [ %.259.i, %449 ], [ %.05778.i, %432 ], [ %.05778.i, %417 ], [ %.05778.i, %402 ], [ %.05778.i, %396 ], [ %.05778.i, %390 ]
+  %.1.i68 = phi i64 [ %.079.i, %464 ], [ %.079.i, %455 ], [ %.2.i, %449 ], [ %.079.i, %432 ], [ %.079.i, %417 ], [ %.079.i, %402 ], [ %.079.i, %396 ], [ %.079.i, %390 ]
   %470 = add nuw nsw i32 %.06077.i, 1
   %471 = call ptr @list_next(ptr noundef %370) #10
-  %.not.i68 = icmp eq ptr %471, null
-  br i1 %.not.i68, label %_user_top_tres_report.exit, label %374, !llvm.loop !13
+  %.not.i69 = icmp eq ptr %471, null
+  br i1 %.not.i69, label %_user_top_tres_report.exit, label %374, !llvm.loop !13
 
 _user_top_tres_report.exit:                       ; preds = %469, %364
   call void @list_iterator_destroy(ptr noundef %370) #10

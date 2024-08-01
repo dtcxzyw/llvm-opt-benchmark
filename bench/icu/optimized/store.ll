@@ -486,7 +486,7 @@ while.body8.lr.ph.i:                              ; preds = %while.cond4.prehead
 
 while.body8.i:                                    ; preds = %if.end96.i, %while.body8.lr.ph.i
   %call560.i = phi ptr [ %call555.i, %while.body8.lr.ph.i ], [ %call5.i, %if.end96.i ]
-  %limitIndex.159.i = phi i32 [ %limitIndex.067.i, %while.body8.lr.ph.i ], [ %limitIndex.3.i, %if.end96.i ]
+  %limitIndex.159.i = phi i32 [ %limitIndex.067.i, %while.body8.lr.ph.i ], [ %limitIndex.2.i, %if.end96.i ]
   %oldMappingLength.158.i = phi i32 [ %oldMappingLength.066.i, %while.body8.lr.ph.i ], [ %oldMappingLength.2.i, %if.end96.i ]
   %writtenElementCount.157.i = phi i32 [ %writtenElementCount.064.i, %while.body8.lr.ph.i ], [ %writtenElementCount.2.i, %if.end96.i ]
   %key.i = getelementptr inbounds i8, ptr %call560.i, i64 16
@@ -510,7 +510,7 @@ if.end17.i:                                       ; preds = %if.then12.i
 
 if.end25.i:                                       ; preds = %if.end17.i, %if.then12.i, %while.body8.i
   %oldMappingLength.2.i = phi i32 [ %oldMappingLength.158.i, %while.body8.i ], [ %4, %if.then12.i ], [ %4, %if.end17.i ]
-  %limitIndex.3.i = phi i32 [ %limitIndex.159.i, %while.body8.i ], [ %limitIndex.159.i, %if.then12.i ], [ %spec.select.i, %if.end17.i ]
+  %limitIndex.2.i = phi i32 [ %limitIndex.159.i, %while.body8.i ], [ %limitIndex.159.i, %if.then12.i ], [ %spec.select.i, %if.end17.i ]
   %length.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i16, ptr %length.i, align 8
   %conv26.i = sext i16 %8 to i64
@@ -625,7 +625,7 @@ if.end96.i:                                       ; preds = %if.end80.i, %if.end
 while.end.i:                                      ; preds = %if.end96.i, %while.cond4.preheader.i
   %writtenElementCount.1.lcssa.i = phi i32 [ %writtenElementCount.064.i, %while.cond4.preheader.i ], [ %writtenElementCount.2.i, %if.end96.i ]
   %oldMappingLength.1.lcssa.i = phi i32 [ %oldMappingLength.066.i, %while.cond4.preheader.i ], [ %oldMappingLength.2.i, %if.end96.i ]
-  %limitIndex.1.lcssa.i = phi i32 [ %limitIndex.067.i, %while.cond4.preheader.i ], [ %limitIndex.3.i, %if.end96.i ]
+  %limitIndex.1.lcssa.i = phi i32 [ %limitIndex.067.i, %while.cond4.preheader.i ], [ %limitIndex.2.i, %if.end96.i ]
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   store i32 -1, ptr %pos.i, align 4
   %cmp2.i = icmp slt i32 %writtenElementCount.1.lcssa.i, %call.i

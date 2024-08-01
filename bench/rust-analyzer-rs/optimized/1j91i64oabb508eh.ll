@@ -5266,7 +5266,7 @@ _ZN8smallvec10infallible17ha69d457ea665aadcE.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.757.0.lcssa = phi i64 [ %55, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sink.i.pre-phi, %127 ]
   %.sroa.16.0.lcssa = phi ptr [ %.sroa.16.0.copyload44, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.16.1, %127 ]
   %.sroa.13.0.lcssa = phi i64 [ %.sroa.13.0.copyload40, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.13.1, %127 ]
-  %.sroa.7.0.lcssa = phi ptr [ %.sroa.7.0.copyload35, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.7.2, %127 ]
+  %.sroa.7.0.lcssa = phi ptr [ %.sroa.7.0.copyload35, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.7.1, %127 ]
   store i64 %.sroa.757.0.lcssa, ptr %.sink2.i, align 8
   %63 = icmp ne ptr %.sroa.11.0.copyload38, null
   %64 = icmp ne ptr %.sroa.15.0.copyload42, null
@@ -5280,7 +5280,7 @@ _ZN8smallvec10infallible17ha69d457ea665aadcE.exit: ; preds = %"_ZN8smallvec17Sma
   br label %88
 
 70:                                               ; preds = %.lr.ph, %127
-  %.sroa.7.0106 = phi ptr [ %.sroa.7.0.copyload35, %.lr.ph ], [ %.sroa.7.2, %127 ]
+  %.sroa.7.0106 = phi ptr [ %.sroa.7.0.copyload35, %.lr.ph ], [ %.sroa.7.1, %127 ]
   %.sroa.13.0105 = phi i64 [ %.sroa.13.0.copyload40, %.lr.ph ], [ %.sroa.13.1, %127 ]
   %.sroa.16.0104 = phi ptr [ %.sroa.16.0.copyload44, %.lr.ph ], [ %.sroa.16.1, %127 ]
   %.sroa.757.0103 = phi i64 [ %55, %.lr.ph ], [ %130, %127 ]
@@ -5349,7 +5349,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5d1d3e584a031ae5E.exit.thread.
   br label %127
 
 88:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit", %._crit_edge
-  %.sroa.670.0 = phi ptr [ %.sroa.7.0.lcssa, %._crit_edge ], [ %.sroa.670.2, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
+  %.sroa.670.0 = phi ptr [ %.sroa.7.0.lcssa, %._crit_edge ], [ %.sroa.670.1, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
   %.sroa.12.0 = phi i64 [ %.sroa.13.0.lcssa, %._crit_edge ], [ %.sroa.12.1, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
   %.sroa.17.0 = phi ptr [ %.sroa.16.0.lcssa, %._crit_edge ], [ %.sroa.17.1, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i12), !noalias !1520
@@ -5415,7 +5415,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5d1d3e584a031ae5E.exit.thread.
   br label %126
 
 107:                                              ; preds = %104, %101, %.thread18.i22
-  %.sroa.670.2 = phi ptr [ null, %104 ], [ %93, %.thread18.i22 ], [ %93, %101 ]
+  %.sroa.670.1 = phi ptr [ null, %104 ], [ %93, %.thread18.i22 ], [ %93, %101 ]
   %.sroa.12.1 = phi i64 [ %.sroa.12.0, %104 ], [ %94, %.thread18.i22 ], [ %94, %101 ]
   %.sroa.17.1 = phi ptr [ %105, %104 ], [ %.sroa.17.0, %.thread18.i22 ], [ %.sroa.17.0, %101 ]
   %.sroa.4.0.i.i.i18 = phi ptr [ undef, %104 ], [ undef, %.thread18.i22 ], [ %103, %101 ]
@@ -5484,7 +5484,7 @@ common.resume:                                    ; preds = %113, %115, %132
 127:                                              ; preds = %.noexc10, %86, %.noexc
   %.sroa.16.1 = phi ptr [ %87, %86 ], [ %.sroa.16.0104, %.noexc ], [ %.sroa.16.0104, %.noexc10 ]
   %.sroa.13.1 = phi i64 [ %.sroa.13.0105, %86 ], [ %76, %.noexc ], [ %76, %.noexc10 ]
-  %.sroa.7.2 = phi ptr [ null, %86 ], [ %75, %.noexc ], [ %75, %.noexc10 ]
+  %.sroa.7.1 = phi ptr [ null, %86 ], [ %75, %.noexc ], [ %75, %.noexc10 ]
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !1509
@@ -7528,7 +7528,7 @@ _ZN8smallvec10infallible17ha69d457ea665aadcE.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.757.0.lcssa = phi i64 [ %55, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sink.i.pre-phi, %127 ]
   %.sroa.16.0.lcssa = phi ptr [ %.sroa.16.0.copyload44, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.16.1, %127 ]
   %.sroa.13.0.lcssa = phi i64 [ %.sroa.13.0.copyload40, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.13.1, %127 ]
-  %.sroa.7.0.lcssa = phi ptr [ %.sroa.7.0.copyload35, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.7.2, %127 ]
+  %.sroa.7.0.lcssa = phi ptr [ %.sroa.7.0.copyload35, %_ZN8smallvec10infallible17ha69d457ea665aadcE.exit ], [ %.sroa.7.1, %127 ]
   store i64 %.sroa.757.0.lcssa, ptr %.sink2.i, align 8
   %63 = icmp ne ptr %.sroa.11.0.copyload38, null
   %64 = icmp ne ptr %.sroa.15.0.copyload42, null
@@ -7542,7 +7542,7 @@ _ZN8smallvec10infallible17ha69d457ea665aadcE.exit: ; preds = %"_ZN8smallvec17Sma
   br label %88
 
 70:                                               ; preds = %.lr.ph, %127
-  %.sroa.7.0106 = phi ptr [ %.sroa.7.0.copyload35, %.lr.ph ], [ %.sroa.7.2, %127 ]
+  %.sroa.7.0106 = phi ptr [ %.sroa.7.0.copyload35, %.lr.ph ], [ %.sroa.7.1, %127 ]
   %.sroa.13.0105 = phi i64 [ %.sroa.13.0.copyload40, %.lr.ph ], [ %.sroa.13.1, %127 ]
   %.sroa.16.0104 = phi ptr [ %.sroa.16.0.copyload44, %.lr.ph ], [ %.sroa.16.1, %127 ]
   %.sroa.757.0103 = phi i64 [ %55, %.lr.ph ], [ %130, %127 ]
@@ -7611,7 +7611,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5d1d3e584a031ae5E.exit.thread.
   br label %127
 
 88:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit", %._crit_edge
-  %.sroa.670.0 = phi ptr [ %.sroa.7.0.lcssa, %._crit_edge ], [ %.sroa.670.2, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
+  %.sroa.670.0 = phi ptr [ %.sroa.7.0.lcssa, %._crit_edge ], [ %.sroa.670.1, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
   %.sroa.12.0 = phi i64 [ %.sroa.13.0.lcssa, %._crit_edge ], [ %.sroa.12.1, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
   %.sroa.17.0 = phi ptr [ %.sroa.16.0.lcssa, %._crit_edge ], [ %.sroa.17.1, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h842f48b79710f469E.exit" ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i12), !noalias !2007
@@ -7677,7 +7677,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5d1d3e584a031ae5E.exit.thread.
   br label %126
 
 107:                                              ; preds = %104, %101, %.thread18.i22
-  %.sroa.670.2 = phi ptr [ null, %104 ], [ %93, %.thread18.i22 ], [ %93, %101 ]
+  %.sroa.670.1 = phi ptr [ null, %104 ], [ %93, %.thread18.i22 ], [ %93, %101 ]
   %.sroa.12.1 = phi i64 [ %.sroa.12.0, %104 ], [ %94, %.thread18.i22 ], [ %94, %101 ]
   %.sroa.17.1 = phi ptr [ %105, %104 ], [ %.sroa.17.0, %.thread18.i22 ], [ %.sroa.17.0, %101 ]
   %.sroa.4.0.i.i.i18 = phi ptr [ undef, %104 ], [ undef, %.thread18.i22 ], [ %103, %101 ]
@@ -7746,7 +7746,7 @@ common.resume:                                    ; preds = %113, %115, %132
 127:                                              ; preds = %.noexc10, %86, %.noexc
   %.sroa.16.1 = phi ptr [ %87, %86 ], [ %.sroa.16.0104, %.noexc ], [ %.sroa.16.0104, %.noexc10 ]
   %.sroa.13.1 = phi i64 [ %.sroa.13.0105, %86 ], [ %76, %.noexc ], [ %76, %.noexc10 ]
-  %.sroa.7.2 = phi ptr [ null, %86 ], [ %75, %.noexc ], [ %75, %.noexc10 ]
+  %.sroa.7.1 = phi ptr [ null, %86 ], [ %75, %.noexc ], [ %75, %.noexc10 ]
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !1996
@@ -10471,7 +10471,7 @@ define hidden void @"_ZN3hir11term_search7tactics13free_function28_$u7b$$u7b$clo
   br label %148
 
 52:                                               ; preds = %62, %.thread133
-  %.072 = phi i8 [ %.173137, %.thread133 ], [ %.5, %62 ]
+  %.072 = phi i8 [ %.2137, %.thread133 ], [ %.5, %62 ]
   %.pn82 = phi { ptr, i32 } [ %.pn80138, %.thread133 ], [ %lpad.thr_comm.split-lp, %62 ]
   %53 = trunc nuw i8 %.072 to i1
   br i1 %53, label %149, label %36
@@ -10648,14 +10648,14 @@ define hidden void @"_ZN3hir11term_search7tactics13free_function28_$u7b$$u7b$clo
           to label %111 unwind label %109
 
 107:                                              ; preds = %122, %109
-  %.074 = phi i8 [ %.276, %122 ], [ %.175, %109 ]
-  %.3 = phi i8 [ %.5, %122 ], [ 1, %109 ]
+  %.175 = phi i8 [ %.276, %122 ], [ %.074, %109 ]
+  %.4 = phi i8 [ %.5, %122 ], [ 1, %109 ]
   %.pn = phi { ptr, i32 } [ %123, %122 ], [ %110, %109 ]
-  %108 = trunc nuw i8 %.074 to i1
+  %108 = trunc nuw i8 %.175 to i1
   br i1 %108, label %145, label %.thread133
 
 109:                                              ; preds = %119, %117, %105
-  %.175 = phi i8 [ 1, %105 ], [ 0, %117 ], [ 0, %119 ]
+  %.074 = phi i8 [ 1, %105 ], [ 0, %117 ], [ 0, %119 ]
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %107
@@ -10803,7 +10803,7 @@ define hidden void @"_ZN3hir11term_search7tactics13free_function28_$u7b$$u7b$clo
 
 .thread133:                                       ; preds = %107, %145, %.thread140
   %.pn80138 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread140 ], [ %.pn, %145 ], [ %.pn, %107 ]
-  %.173137 = phi i8 [ 1, %.thread140 ], [ %.3, %145 ], [ %.3, %107 ]
+  %.2137 = phi i8 [ 1, %.thread140 ], [ %.4, %145 ], [ %.4, %107 ]
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19) #71
           to label %52 unwind label %143
 
@@ -11251,14 +11251,14 @@ define hidden void @"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$
   unreachable
 
 118:                                              ; preds = %.body, %120
-  %.081 = phi i8 [ %.283, %.body ], [ %.182, %120 ]
-  %.4 = phi i8 [ %.6, %.body ], [ 1, %120 ]
+  %.182 = phi i8 [ %.283, %.body ], [ %.081, %120 ]
+  %.5 = phi i8 [ %.6, %.body ], [ 1, %120 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %121, %120 ]
-  %119 = trunc nuw i8 %.081 to i1
+  %119 = trunc nuw i8 %.182 to i1
   br i1 %119, label %171, label %.thread178
 
 120:                                              ; preds = %131, %117, %129
-  %.182 = phi i8 [ 0, %129 ], [ 1, %117 ], [ 0, %131 ]
+  %.081 = phi i8 [ 0, %129 ], [ 1, %117 ], [ 0, %131 ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %118
@@ -11502,7 +11502,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.15439407322995335751.e
 
 .thread178:                                       ; preds = %118, %171, %186, %.thread186, %.thread153
   %.pn89158 = phi { ptr, i32 } [ %84, %.thread153 ], [ %lpad.thr_comm184, %.thread186 ], [ %lpad.thr_comm.split-lp, %186 ], [ %.pn, %171 ], [ %.pn, %118 ]
-  %.179157 = phi i8 [ 1, %.thread153 ], [ 1, %.thread186 ], [ 1, %186 ], [ %.4, %171 ], [ %.4, %118 ]
+  %.179157 = phi i8 [ 1, %.thread153 ], [ 1, %.thread186 ], [ 1, %186 ], [ %.5, %171 ], [ %.5, %118 ]
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #71
           to label %53 unwind label %169
 
@@ -11872,7 +11872,7 @@ define hidden void @"_ZN3hir11term_search7tactics18impl_static_method28_$u7b$$u7
   br label %156
 
 53:                                               ; preds = %77, %.thread134
-  %.068 = phi i8 [ %.169138, %.thread134 ], [ %.5, %77 ]
+  %.068 = phi i8 [ %.2138, %.thread134 ], [ %.5, %77 ]
   %.pn78 = phi { ptr, i32 } [ %.pn76139, %.thread134 ], [ %lpad.thr_comm.split-lp, %77 ]
   %54 = trunc nuw i8 %.068 to i1
   br i1 %54, label %157, label %30
@@ -12051,14 +12051,14 @@ define hidden void @"_ZN3hir11term_search7tactics18impl_static_method28_$u7b$$u7
   unreachable
 
 109:                                              ; preds = %.body, %111
-  %.070 = phi i8 [ %.272, %.body ], [ %.171, %111 ]
-  %.3 = phi i8 [ %.5, %.body ], [ 1, %111 ]
+  %.171 = phi i8 [ %.272, %.body ], [ %.070, %111 ]
+  %.4 = phi i8 [ %.5, %.body ], [ 1, %111 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %112, %111 ]
-  %110 = trunc nuw i8 %.070 to i1
+  %110 = trunc nuw i8 %.171 to i1
   br i1 %110, label %153, label %.thread134
 
 111:                                              ; preds = %131, %108, %129
-  %.171 = phi i8 [ 0, %129 ], [ 1, %108 ], [ 0, %131 ]
+  %.070 = phi i8 [ 0, %129 ], [ 1, %108 ], [ 0, %131 ]
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %109
@@ -12232,7 +12232,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.15439407322995335751.e
 
 .thread134:                                       ; preds = %109, %153, %.thread141
   %.pn76139 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread141 ], [ %.pn, %153 ], [ %.pn, %109 ]
-  %.169138 = phi i8 [ 1, %.thread141 ], [ %.3, %153 ], [ %.3, %109 ]
+  %.2138 = phi i8 [ 1, %.thread141 ], [ %.4, %153 ], [ %.4, %109 ]
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21) #71
           to label %53 unwind label %151
 
@@ -12555,7 +12555,7 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   br label %148
 
 110:                                              ; preds = %.body
-  br i1 %.2, label %155, label %105
+  br i1 %.3, label %155, label %105
 
 .thread70:                                        ; preds = %146, %111, %106
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -12615,13 +12615,13 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   unreachable
 
 .body:                                            ; preds = %134, %130, %126, %153
-  %.2 = phi i1 [ true, %153 ], [ true, %134 ], [ %.3, %130 ], [ true, %126 ]
+  %.3 = phi i1 [ true, %153 ], [ true, %134 ], [ %.2, %130 ], [ true, %126 ]
   %.pn = phi { ptr, i32 } [ %154, %153 ], [ %135, %134 ], [ %131, %130 ], [ %127, %126 ]
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #71
           to label %110 unwind label %103
 
 130:                                              ; preds = %125, %151, %142, %140
-  %.3 = phi i1 [ false, %151 ], [ true, %142 ], [ true, %140 ], [ true, %125 ]
+  %.2 = phi i1 [ false, %151 ], [ true, %142 ], [ true, %140 ], [ true, %125 ]
   %131 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -16581,7 +16581,7 @@ define internal fastcc void @_ZN4core3ops8function6FnOnce9call_once17h9abc8bf3ac
           to label %33 unwind label %31, !noalias !3837
 
 30:                                               ; preds = %.body.i, %31
-  %.2.i = phi i8 [ %.3.i, %.body.i ], [ 1, %31 ]
+  %.2.i = phi i8 [ %.4.i, %.body.i ], [ 1, %31 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %32, %31 ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$scip..scip_mod..scip..Descriptor$GT$$GT$17hf204b52859cafe97E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #71
           to label %26 unwind label %65, !noalias !3837
@@ -16607,7 +16607,7 @@ define internal fastcc void @_ZN4core3ops8function6FnOnce9call_once17h9abc8bf3ac
           to label %40 unwind label %38, !noalias !3837
 
 .body.i:                                          ; preds = %67, %61, %38
-  %.3.i = phi i8 [ 0, %67 ], [ 1, %38 ], [ 0, %61 ]
+  %.4.i = phi i8 [ 0, %67 ], [ 1, %38 ], [ 0, %61 ]
   %.pn.i = phi { ptr, i32 } [ %49, %67 ], [ %39, %38 ], [ %62, %61 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #71
           to label %30 unwind label %65, !noalias !3837
@@ -21417,8 +21417,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14, label %.lr.ph.split
 
 _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us, %15, %4
-  %.1 = phi i1 [ false, %4 ], [ true, %15 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %4 ], [ true, %15 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ]
+  ret i1 %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -26302,7 +26302,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %11, label %13, label %15
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit": ; preds = %.critedge.backedge.us.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i", %.lr.ph.i, %32, %24, %16, %15, %.lr.ph.split.us.i.i, %121, %_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit, %4
-  %.030 = phi i8 [ 1, %4 ], [ %132, %_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit ], [ 1, %.lr.ph.split.us.i.i ], [ %.5.i, %121 ], [ %18, %16 ], [ 0, %15 ], [ %28, %24 ], [ 0, %32 ], [ 1, %.lr.ph.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i" ], [ 0, %.critedge.backedge.us.i.i ]
+  %.030 = phi i8 [ 1, %4 ], [ %132, %_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit ], [ 1, %.lr.ph.split.us.i.i ], [ %.4.i, %121 ], [ %18, %16 ], [ 0, %15 ], [ %28, %24 ], [ 0, %32 ], [ 1, %.lr.ph.i ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i" ], [ 0, %.critedge.backedge.us.i.i ]
   %12 = trunc i8 %.030 to i1
   ret i1 %12
 
@@ -26418,31 +26418,31 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   store i64 %36, ptr %66, align 8, !noalias !5929
   %67 = add nuw nsw i64 %1, 63
   %68 = icmp ult i64 %67, %3
-  br i1 %68, label %.lr.ph.i38.preheader, label %._crit_edge.i
+  br i1 %68, label %.lr.ph.i37.preheader, label %._crit_edge.i
 
-.lr.ph.i38.preheader:                             ; preds = %59
+.lr.ph.i37.preheader:                             ; preds = %59
   %invariant.op = add nuw nsw i64 %1, 127
-  br label %.lr.ph.i38
+  br label %.lr.ph.i37
 
-.lr.ph.i38:                                       ; preds = %.lr.ph.i38.preheader, %82
-  %.062142.i = phi i64 [ %83, %82 ], [ 0, %.lr.ph.i38.preheader ]
-  %.064141.i = phi i8 [ %.2.i, %82 ], [ 0, %.lr.ph.i38.preheader ]
+.lr.ph.i37:                                       ; preds = %.lr.ph.i37.preheader, %82
+  %.062142.i = phi i64 [ %83, %82 ], [ 0, %.lr.ph.i37.preheader ]
+  %.064141.i = phi i8 [ %.3.i, %82 ], [ 0, %.lr.ph.i37.preheader ]
   %69 = trunc nuw i8 %.064141.i to i1
   br i1 %69, label %._crit_edge.i, label %73
 
-._crit_edge.i:                                    ; preds = %82, %.lr.ph.i38, %59
-  %.064.lcssa.i = phi i8 [ 0, %59 ], [ %.064141.i, %.lr.ph.i38 ], [ %.2.i, %82 ]
-  %.062.lcssa.i = phi i64 [ 0, %59 ], [ %.062142.i, %.lr.ph.i38 ], [ %83, %82 ]
+._crit_edge.i:                                    ; preds = %82, %.lr.ph.i37, %59
+  %.064.lcssa.i = phi i8 [ 0, %59 ], [ %.064141.i, %.lr.ph.i37 ], [ %.3.i, %82 ]
+  %.062.lcssa.i = phi i64 [ 0, %59 ], [ %.062142.i, %.lr.ph.i37 ], [ %83, %82 ]
   %70 = add nuw nsw i64 %1, 15
   %71 = add i64 %.062.lcssa.i, %70
   %72 = icmp ult i64 %71, %3
   br i1 %72, label %.lr.ph150.i.preheader, label %._crit_edge151.i
 
 .lr.ph150.i.preheader:                            ; preds = %._crit_edge.i
-  %invariant.op45 = add nuw nsw i64 %1, 31
+  %invariant.op44 = add nuw nsw i64 %1, 31
   br label %.lr.ph150.i
 
-73:                                               ; preds = %.lr.ph.i38
+73:                                               ; preds = %.lr.ph.i37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !5929
   store i64 0, ptr %5, align 8, !noalias !5929
   %invariant.gep.i = getelementptr i8, ptr %2, i64 %.062142.i
@@ -26461,19 +26461,19 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %80 = and <16 x i1> %79, %78
   %81 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.019.0138.i
   store <16 x i1> %80, ptr %81, align 2, !noalias !5929
-  %exitcond.not.i39 = icmp eq i64 %75, 4
-  br i1 %exitcond.not.i39, label %.preheader.i, label %74
+  %exitcond.not.i38 = icmp eq i64 %75, 4
+  br i1 %exitcond.not.i38, label %.preheader.i, label %74
 
 82:                                               ; preds = %89
   %83 = add i64 %.062142.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !5929
   %.reass = add i64 %.062142.i, %invariant.op
   %84 = icmp ult i64 %.reass, %3
-  br i1 %84, label %.lr.ph.i38, label %._crit_edge.i
+  br i1 %84, label %.lr.ph.i37, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %74, %89
   %.sroa.025.0140.i = phi i64 [ %85, %89 ], [ 0, %74 ]
-  %.165139.i = phi i8 [ %.2.i, %89 ], [ %.064141.i, %74 ]
+  %.2139.i = phi i8 [ %.3.i, %89 ], [ %.064141.i, %74 ]
   %85 = add nuw nsw i64 %.sroa.025.0140.i, 1
   %86 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0140.i
   %87 = load i16, ptr %86, align 2, !noalias !5929, !noundef !12
@@ -26481,14 +26481,14 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %90, %.preheader.i
-  %.2.i = phi i8 [ %.165139.i, %.preheader.i ], [ %96, %90 ]
+  %.3.i = phi i8 [ %.2139.i, %.preheader.i ], [ %96, %90 ]
   %exitcond157.not.i = icmp eq i64 %85, 4
   br i1 %exitcond157.not.i, label %82, label %.preheader.i
 
 90:                                               ; preds = %.preheader.i
   %91 = shl nuw nsw i64 %.sroa.025.0140.i, 4
   %92 = add nuw nsw i64 %91, %.062142.i
-  %93 = trunc nuw i8 %.165139.i to i1
+  %93 = trunc nuw i8 %.2139.i to i1
   %94 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %92, i16 noundef %87, i1 noundef zeroext %93)
   %95 = or i1 %94, %93
   %96 = zext i1 %95 to i8
@@ -26496,12 +26496,12 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 
 .lr.ph150.i:                                      ; preds = %.lr.ph150.i.preheader, %115
   %.163148.i = phi i64 [ %116, %115 ], [ %.062.lcssa.i, %.lr.ph150.i.preheader ]
-  %.3147.i = phi i8 [ %.4.i, %115 ], [ %.064.lcssa.i, %.lr.ph150.i.preheader ]
-  %97 = trunc nuw i8 %.3147.i to i1
+  %.165147.i = phi i8 [ %.5.i, %115 ], [ %.064.lcssa.i, %.lr.ph150.i.preheader ]
+  %97 = trunc nuw i8 %.165147.i to i1
   br i1 %97, label %._crit_edge151.i, label %107
 
 ._crit_edge151.i:                                 ; preds = %115, %.lr.ph150.i, %._crit_edge.i
-  %.3.lcssa.i = phi i8 [ %.064.lcssa.i, %._crit_edge.i ], [ %.3147.i, %.lr.ph150.i ], [ %.4.i, %115 ]
+  %.165.lcssa.i = phi i8 [ %.064.lcssa.i, %._crit_edge.i ], [ %.165147.i, %.lr.ph150.i ], [ %.5.i, %115 ]
   %98 = sub i64 %3, %36
   %99 = add i64 %98, -16
   %100 = getelementptr inbounds i8, ptr %2, i64 %99
@@ -26528,10 +26528,10 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %118, %107
-  %.4.i = phi i8 [ %.3147.i, %107 ], [ %120, %118 ]
+  %.5.i = phi i8 [ %.165147.i, %107 ], [ %120, %118 ]
   %116 = add i64 %.163148.i, 16
-  %.reass46 = add i64 %.163148.i, %invariant.op45
-  %117 = icmp ult i64 %.reass46, %3
+  %.reass45 = add i64 %.163148.i, %invariant.op44
+  %117 = icmp ult i64 %.reass45, %3
   br i1 %117, label %.lr.ph150.i, label %._crit_edge151.i
 
 118:                                              ; preds = %107
@@ -26540,12 +26540,12 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br label %115
 
 121:                                              ; preds = %122, %._crit_edge151.i
-  %.5.i = phi i8 [ %.3.lcssa.i, %._crit_edge151.i ], [ %126, %122 ]
+  %.4.i = phi i8 [ %.165.lcssa.i, %._crit_edge151.i ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !5929
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit"
 
 122:                                              ; preds = %._crit_edge151.i
-  %123 = trunc nuw i8 %.3.lcssa.i to i1
+  %123 = trunc nuw i8 %.165.lcssa.i to i1
   %124 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %99, i16 noundef %105, i1 noundef zeroext %123)
   %125 = or i1 %124, %123
   %126 = zext i1 %125 to i8
@@ -54698,7 +54698,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   unreachable
 
 30:                                               ; preds = %.body56
-  br i1 %.1, label %.thread78, label %common.resume
+  br i1 %.2, label %.thread78, label %common.resume
 
 31:                                               ; preds = %55
   %32 = landingpad { ptr, i32 }
@@ -54823,7 +54823,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br label %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit66"
 
 .body56:                                          ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %148, %.body.thread.i, %107, %111, %89, %118
-  %.1 = phi i1 [ true, %118 ], [ true, %89 ], [ true, %111 ], [ true, %107 ], [ false, %.body.thread.i ], [ false, %148 ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ]
+  %.2 = phi i1 [ true, %118 ], [ true, %89 ], [ true, %111 ], [ true, %107 ], [ false, %.body.thread.i ], [ false, %148 ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ]
   %.pn28 = phi { ptr, i32 } [ %119, %118 ], [ %90, %89 ], [ %108, %111 ], [ %108, %107 ], [ %167, %.body.thread.i ], [ %149, %148 ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit110, %.loopexit.loopexit ]
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ide_diagnostics..Diagnostic$GT$$GT$17hf49c0e75b9589267E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %13) #71
           to label %30 unwind label %120
@@ -56903,7 +56903,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %326
   br label %406
 
 406:                                              ; preds = %427, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit497"
-  %.0 = phi ptr [ %425, %427 ], [ %390, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit497" ]
+  %.2 = phi ptr [ %425, %427 ], [ %390, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit497" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.735)
   call void @llvm.experimental.noalias.scope.decl(metadata !13963)
   call void @llvm.experimental.noalias.scope.decl(metadata !13966)
@@ -56987,15 +56987,15 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %326
   br label %406
 
 "_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826": ; preds = %2247, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506", %428
-  %.0392 = phi i8 [ %.2394, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506" ], [ %.1393, %428 ], [ %.2394, %2247 ]
-  %.0382 = phi i1 [ false, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506" ], [ %.1383, %428 ], [ false, %2247 ]
+  %.1393 = phi i8 [ %.4396, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506" ], [ %.0392, %428 ], [ %.4396, %2247 ]
+  %.1383 = phi i1 [ false, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506" ], [ %.0382, %428 ], [ false, %2247 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506" ], [ %429, %428 ], [ %.pn.pn.pn.pn.pn, %2247 ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %236) #71
           to label %1993 unwind label %418
 
 428:                                              ; preds = %1992, %459, %452, %447, %440, %430, %426
-  %.1393 = phi i8 [ 1, %459 ], [ 1, %447 ], [ 1, %452 ], [ 1, %440 ], [ 1, %430 ], [ 1, %426 ], [ %.15, %1992 ]
-  %.1383 = phi i1 [ false, %459 ], [ true, %447 ], [ true, %452 ], [ true, %440 ], [ true, %430 ], [ true, %426 ], [ false, %1992 ]
+  %.0392 = phi i8 [ 1, %459 ], [ 1, %447 ], [ 1, %452 ], [ 1, %440 ], [ 1, %430 ], [ 1, %426 ], [ %.18, %1992 ]
+  %.0382 = phi i1 [ false, %459 ], [ true, %447 ], [ true, %452 ], [ true, %440 ], [ true, %430 ], [ true, %426 ], [ false, %1992 ]
   %429 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826"
@@ -57136,13 +57136,13 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %326
           to label %465 unwind label %463
 
 "_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506": ; preds = %466, %470, %463
-  %.2394 = phi i8 [ %.3395, %463 ], [ %.4396, %470 ], [ %.4396, %466 ]
+  %.4396 = phi i8 [ %.3395, %463 ], [ %.5397, %470 ], [ %.5397, %466 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %464, %463 ], [ %.pn.pn.pn.pn, %470 ], [ %.pn.pn.pn.pn, %466 ]
-  %462 = trunc nuw i8 %.2394 to i1
+  %462 = trunc nuw i8 %.4396 to i1
   br i1 %462, label %2247, label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826"
 
 463:                                              ; preds = %1983, %465, %460
-  %.3395 = phi i8 [ 1, %460 ], [ 1, %465 ], [ %.15, %1983 ]
+  %.3395 = phi i8 [ 1, %460 ], [ 1, %465 ], [ %.18, %1983 ]
   %464 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit506"
@@ -57158,7 +57158,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %326
           to label %474 unwind label %472
 
 466:                                              ; preds = %493, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514", %.thread895, %472
-  %.4396 = phi i8 [ %.5397893, %.thread895 ], [ %.15, %493 ], [ 1, %472 ], [ %.7, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" ]
+  %.5397 = phi i8 [ %.7893, %.thread895 ], [ %.18, %493 ], [ 1, %472 ], [ %.9, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn894, %.thread895 ], [ %lpad.thr_comm.split-lp, %493 ], [ %473, %472 ], [ %.pn.pn, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" ]
   %467 = getelementptr inbounds i8, ptr %221, i64 8
   %468 = load i32, ptr %467, align 8, !alias.scope !14000, !noundef !12
@@ -57264,8 +57264,8 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17h33822369c16aff
   unreachable
 
 "_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit525": ; preds = %583, %587, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit817", %506
-  %.7 = phi i8 [ 1, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit817" ], [ %.8, %506 ], [ %.9, %587 ], [ %.9, %583 ]
-  %.2388 = phi i1 [ true, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit817" ], [ %.3389, %506 ], [ false, %587 ], [ false, %583 ]
+  %.9 = phi i8 [ 1, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit817" ], [ %.8, %506 ], [ %.11, %587 ], [ %.11, %583 ]
+  %.3389 = phi i1 [ true, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit817" ], [ %.2388, %506 ], [ false, %587 ], [ false, %583 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit817" ], [ %507, %506 ], [ %.pn431.pn.pn.pn, %587 ], [ %.pn431.pn.pn.pn, %583 ]
   %501 = getelementptr inbounds i8, ptr %219, i64 8
   %502 = load i32, ptr %501, align 8, !alias.scope !14026, !noundef !12
@@ -57277,11 +57277,11 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17h33822369c16aff
           to label %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" unwind label %418
 
 "_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514": ; preds = %504, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit525"
-  br i1 %.2388, label %.thread895, label %466
+  br i1 %.3389, label %.thread895, label %466
 
 506:                                              ; preds = %1973, %582, %.noexc520, %529, %500, %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$10stop_watch17h924f7c4671687145E.exit508", %573, %563, %562, %556
-  %.8 = phi i8 [ 1, %573 ], [ 1, %563 ], [ 1, %562 ], [ 1, %556 ], [ 1, %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$10stop_watch17h924f7c4671687145E.exit508" ], [ 1, %500 ], [ 1, %529 ], [ 1, %.noexc520 ], [ 1, %582 ], [ %.15, %1973 ]
-  %.3389 = phi i1 [ true, %573 ], [ true, %563 ], [ true, %562 ], [ true, %556 ], [ true, %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$10stop_watch17h924f7c4671687145E.exit508" ], [ true, %500 ], [ true, %529 ], [ true, %.noexc520 ], [ true, %582 ], [ false, %1973 ]
+  %.8 = phi i8 [ 1, %573 ], [ 1, %563 ], [ 1, %562 ], [ 1, %556 ], [ 1, %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$10stop_watch17h924f7c4671687145E.exit508" ], [ 1, %500 ], [ 1, %529 ], [ 1, %.noexc520 ], [ 1, %582 ], [ %.18, %1973 ]
+  %.2388 = phi i1 [ true, %573 ], [ true, %563 ], [ true, %562 ], [ true, %556 ], [ true, %"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$10stop_watch17h924f7c4671687145E.exit508" ], [ true, %500 ], [ true, %529 ], [ true, %.noexc520 ], [ true, %582 ], [ false, %1973 ]
   %507 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit525"
@@ -57520,7 +57520,7 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17h33822369c16aff
           to label %591 unwind label %506
 
 583:                                              ; preds = %1961, %589
-  %.9 = phi i8 [ %.19, %1961 ], [ %.15, %589 ]
+  %.11 = phi i8 [ %.14, %1961 ], [ %.18, %589 ]
   %.pn431.pn.pn.pn = phi { ptr, i32 } [ %.pn431.pn.pn, %1961 ], [ %590, %589 ]
   %584 = getelementptr inbounds i8, ptr %205, i64 8
   %585 = load i32, ptr %584, align 8, !alias.scope !14075, !noundef !12
@@ -57537,7 +57537,7 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17h33822369c16aff
   br label %583
 
 .body:                                            ; preds = %.loopexit963, %.loopexit.split-lp964, %600, %1940, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit813"
-  %.11 = phi i8 [ 1, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit813" ], [ %.18, %1940 ], [ 1, %600 ], [ 1, %.loopexit963 ], [ %.12.ph, %.loopexit.split-lp964 ]
+  %.13 = phi i8 [ 1, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit813" ], [ %.20, %1940 ], [ 1, %600 ], [ 1, %.loopexit963 ], [ %.12.ph, %.loopexit.split-lp964 ]
   %.pn431.pn = phi { ptr, i32 } [ %.pn431, %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$17h0e912544a773eceaE.exit813" ], [ %.pn449.pn.pn.pn, %1940 ], [ %601, %600 ], [ %lpad.loopexit965, %.loopexit963 ], [ %lpad.loopexit.split-lp966, %.loopexit.split-lp964 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..Vec$LT$hir..Module$GT$$GT$17h43a8bc4f60ee5f59E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %202) #71
           to label %1961 unwind label %418
@@ -57548,7 +57548,7 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17h33822369c16aff
   br label %.body
 
 .loopexit.split-lp964:                            ; preds = %.loopexit968, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefde2f4c151e1ab5E.llvm.10409712727403535664.exit.i", %619, %1943
-  %.12.ph = phi i8 [ %.15, %1943 ], [ 1, %619 ], [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefde2f4c151e1ab5E.llvm.10409712727403535664.exit.i" ], [ 1, %.loopexit968 ]
+  %.12.ph = phi i8 [ %.18, %1943 ], [ 1, %619 ], [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefde2f4c151e1ab5E.llvm.10409712727403535664.exit.i" ], [ 1, %.loopexit968 ]
   %lpad.loopexit.split-lp966 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -57745,10 +57745,10 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17hab807e8f662930
   br label %642
 
 .body546:                                         ; preds = %.loopexit.split-lp956.loopexit.split-lp, %1886, %1850, %.body793, %.body806, %1819
-  %.0416 = phi i8 [ %.2418, %.body806 ], [ %.2418, %.body793 ], [ %.2418, %1819 ], [ %.2418, %1850 ], [ %.2418, %1886 ], [ %.1417.ph.ph, %.loopexit.split-lp956.loopexit.split-lp ]
-  %.13 = phi i8 [ 1, %.body806 ], [ 1, %.body793 ], [ 1, %1819 ], [ 1, %1850 ], [ 1, %1886 ], [ %.14.ph.ph, %.loopexit.split-lp956.loopexit.split-lp ]
+  %.1417 = phi i8 [ %.2418, %.body806 ], [ %.2418, %.body793 ], [ %.2418, %1819 ], [ %.2418, %1850 ], [ %.2418, %1886 ], [ %.0416.ph.ph, %.loopexit.split-lp956.loopexit.split-lp ]
+  %.16 = phi i8 [ 1, %.body806 ], [ 1, %.body793 ], [ 1, %1819 ], [ 1, %1850 ], [ 1, %1886 ], [ %.15.ph.ph, %.loopexit.split-lp956.loopexit.split-lp ]
   %.pn449 = phi { ptr, i32 } [ %.pn437, %.body806 ], [ %.pn443, %.body793 ], [ %1820, %1819 ], [ %1851, %1850 ], [ %1887, %1886 ], [ %lpad.loopexit.split-lp961, %.loopexit.split-lp956.loopexit.split-lp ]
-  %641 = trunc nuw i8 %.0416 to i1
+  %641 = trunc nuw i8 %.1417 to i1
   br i1 %641, label %.thread909, label %1925
 
 .loopexit955:                                     ; preds = %.lr.ph.i603
@@ -57762,8 +57762,8 @@ _ZN13rust_analyzer3cli14analysis_stats7shuffle15randomize_first17hab807e8f662930
   br label %.thread909
 
 .loopexit.split-lp956.loopexit.split-lp:          ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9db778a6c03538aeE.llvm.10409712727403535664.exit.i", %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1f72785e0503007E.llvm.10409712727403535664.exit.i", %1809, %1801, %1567, %1455, %1367, %1298, %1267, %1154, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit45.i", %909, %1905, %1893, %1860, %1859, %1834, %1833, %1827, %1818, %1804, %1800, %1796, %1793, %1782, %1772, %1770, %1769, %1597, %1147, %886, %876, %875, %._crit_edge1037
-  %.1417.ph.ph = phi i8 [ %.2418, %1905 ], [ %.2418, %1893 ], [ %.2418, %1860 ], [ %.2418, %1859 ], [ %.2418, %1834 ], [ %.2418, %1833 ], [ %.2418, %1827 ], [ %.2418, %1818 ], [ %.2418, %1804 ], [ %.2418, %1800 ], [ %.2418, %1796 ], [ %.2418, %1793 ], [ %.2418, %1782 ], [ %.2418, %1772 ], [ %.2418, %1769 ], [ 0, %1770 ], [ 1, %1597 ], [ 1, %1147 ], [ 1, %886 ], [ 1, %876 ], [ 1, %875 ], [ 1, %._crit_edge1037 ], [ 1, %909 ], [ 1, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit45.i" ], [ 1, %1154 ], [ 1, %1267 ], [ 1, %1298 ], [ 1, %1367 ], [ 1, %1455 ], [ 1, %1567 ], [ %.2418, %1801 ], [ %.2418, %1809 ], [ %.2418, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1f72785e0503007E.llvm.10409712727403535664.exit.i" ], [ %.2418, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9db778a6c03538aeE.llvm.10409712727403535664.exit.i" ]
-  %.14.ph.ph = phi i8 [ 0, %1905 ], [ 1, %1893 ], [ 1, %1860 ], [ 1, %1859 ], [ 1, %1834 ], [ 1, %1833 ], [ 1, %1827 ], [ 1, %1818 ], [ 1, %1804 ], [ 1, %1800 ], [ 1, %1796 ], [ 1, %1793 ], [ 1, %1782 ], [ 1, %1772 ], [ 1, %1769 ], [ 1, %1770 ], [ 1, %1597 ], [ 1, %1147 ], [ 1, %886 ], [ 1, %876 ], [ 1, %875 ], [ 1, %._crit_edge1037 ], [ 1, %909 ], [ 1, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit45.i" ], [ 1, %1154 ], [ 1, %1267 ], [ 1, %1298 ], [ 1, %1367 ], [ 1, %1455 ], [ 1, %1567 ], [ 1, %1801 ], [ 1, %1809 ], [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1f72785e0503007E.llvm.10409712727403535664.exit.i" ], [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9db778a6c03538aeE.llvm.10409712727403535664.exit.i" ]
+  %.0416.ph.ph = phi i8 [ %.2418, %1905 ], [ %.2418, %1893 ], [ %.2418, %1860 ], [ %.2418, %1859 ], [ %.2418, %1834 ], [ %.2418, %1833 ], [ %.2418, %1827 ], [ %.2418, %1818 ], [ %.2418, %1804 ], [ %.2418, %1800 ], [ %.2418, %1796 ], [ %.2418, %1793 ], [ %.2418, %1782 ], [ %.2418, %1772 ], [ %.2418, %1769 ], [ 0, %1770 ], [ 1, %1597 ], [ 1, %1147 ], [ 1, %886 ], [ 1, %876 ], [ 1, %875 ], [ 1, %._crit_edge1037 ], [ 1, %909 ], [ 1, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit45.i" ], [ 1, %1154 ], [ 1, %1267 ], [ 1, %1298 ], [ 1, %1367 ], [ 1, %1455 ], [ 1, %1567 ], [ %.2418, %1801 ], [ %.2418, %1809 ], [ %.2418, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1f72785e0503007E.llvm.10409712727403535664.exit.i" ], [ %.2418, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9db778a6c03538aeE.llvm.10409712727403535664.exit.i" ]
+  %.15.ph.ph = phi i8 [ 0, %1905 ], [ 1, %1893 ], [ 1, %1860 ], [ 1, %1859 ], [ 1, %1834 ], [ 1, %1833 ], [ 1, %1827 ], [ 1, %1818 ], [ 1, %1804 ], [ 1, %1800 ], [ 1, %1796 ], [ 1, %1793 ], [ 1, %1782 ], [ 1, %1772 ], [ 1, %1769 ], [ 1, %1770 ], [ 1, %1597 ], [ 1, %1147 ], [ 1, %886 ], [ 1, %876 ], [ 1, %875 ], [ 1, %._crit_edge1037 ], [ 1, %909 ], [ 1, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit45.i" ], [ 1, %1154 ], [ 1, %1267 ], [ 1, %1298 ], [ 1, %1367 ], [ 1, %1455 ], [ 1, %1567 ], [ 1, %1801 ], [ 1, %1809 ], [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1f72785e0503007E.llvm.10409712727403535664.exit.i" ], [ 1, %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9db778a6c03538aeE.llvm.10409712727403535664.exit.i" ]
   %lpad.loopexit.split-lp961 = landingpad { ptr, i32 }
           cleanup
   br label %.body546
@@ -61836,7 +61836,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br i1 %switch.i731, label %1905, label %1903
 
 1903:                                             ; preds = %1906, %1902
-  %.15 = phi i8 [ 0, %1906 ], [ 1, %1902 ]
+  %.18 = phi i8 [ 0, %1906 ], [ 1, %1902 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %168)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %175)
   %1904 = trunc nuw i8 %.2418 to i1
@@ -61905,7 +61905,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br label %1907
 
 1925:                                             ; preds = %.thread909, %1926, %.body546
-  %.16 = phi i8 [ %.13913, %.thread909 ], [ %.13, %.body546 ], [ %.15, %1926 ]
+  %.17 = phi i8 [ %.16913, %.thread909 ], [ %.16, %.body546 ], [ %.18, %1926 ]
   %.pn449.pn = phi { ptr, i32 } [ %.pn449914, %.thread909 ], [ %.pn449, %.body546 ], [ %1927, %1926 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Const$GT$$GT$17hd431356cb34153f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %193) #71
           to label %1928 unwind label %418
@@ -61916,7 +61916,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br label %1925
 
 1928:                                             ; preds = %1929, %1925
-  %.17 = phi i8 [ %.16, %1925 ], [ %.15, %1929 ]
+  %.19 = phi i8 [ %.17, %1925 ], [ %.18, %1929 ]
   %.pn449.pn.pn = phi { ptr, i32 } [ %.pn449.pn, %1925 ], [ %1930, %1929 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$hir..Adt$GT$$GT$17h736d120d3f721cc1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %194) #71
           to label %1940 unwind label %418
@@ -61951,7 +61951,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br label %1943
 
 1940:                                             ; preds = %1941, %1928
-  %.18 = phi i8 [ %.17, %1928 ], [ %.15, %1941 ]
+  %.20 = phi i8 [ %.19, %1928 ], [ %.18, %1941 ]
   %.pn449.pn.pn.pn = phi { ptr, i32 } [ %.pn449.pn.pn, %1928 ], [ %1942, %1941 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$hir..DefWithBody$GT$$GT$17h69a21793dea85132E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %195) #71
           to label %.body unwind label %418
@@ -62011,7 +62011,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br label %1964
 
 1961:                                             ; preds = %1962, %.body
-  %.19 = phi i8 [ %.11, %.body ], [ %.15, %1962 ]
+  %.14 = phi i8 [ %.13, %.body ], [ %.18, %1962 ]
   %.pn431.pn.pn = phi { ptr, i32 } [ %.pn431.pn, %.body ], [ %1963, %1962 ]
   invoke void @"_ZN4core3ptr137drop_in_place$LT$std..collections..hash..set..HashSet$LT$hir..Module$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h932c64ac65c1193dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %203) #71
           to label %583 unwind label %418
@@ -62077,7 +62077,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
 
 "_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit770": ; preds = %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit768", %1983
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %221)
-  %1985 = trunc nuw i8 %.15 to i1
+  %1985 = trunc nuw i8 %.18 to i1
   br i1 %1985, label %1992, label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit"
 
 "_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit": ; preds = %1992, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit770"
@@ -62105,10 +62105,10 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
           to label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit" unwind label %428
 
 1993:                                             ; preds = %1995, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826"
-  %.20 = phi i8 [ %.0392, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826" ], [ %.15, %1995 ]
-  %.2384 = phi i1 [ %.0382, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826" ], [ false, %1995 ]
+  %.2394 = phi i8 [ %.1393, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826" ], [ %.18, %1995 ]
+  %.2384 = phi i1 [ %.1383, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826" ], [ false, %1995 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit826" ], [ %1996, %1995 ]
-  %1994 = trunc nuw i8 %.20 to i1
+  %1994 = trunc nuw i8 %.2394 to i1
   br i1 %1994, label %2248, label %2010
 
 1995:                                             ; preds = %.noexc771, %1991
@@ -62222,9 +62222,9 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br label %2028
 
 2028:                                             ; preds = %2267, %2027
-  %.1 = phi ptr [ %.4, %2267 ], [ null, %2027 ]
+  %.3 = phi ptr [ %.4, %2267 ], [ null, %2027 ]
   call void @"_ZN4core3ptr61drop_in_place$LT$rust_analyzer..cli..flags..AnalysisStats$GT$17h7fc1d996829abb8bE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-  ret ptr %.1
+  ret ptr %.3
 
 .body790:                                         ; preds = %2073, %2029, %2061
   %.pn441 = phi { ptr, i32 } [ %.pn439, %2061 ], [ %2030, %2029 ], [ %2074, %2073 ]
@@ -62638,7 +62638,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
 
 .thread909:                                       ; preds = %.loopexit.split-lp956.loopexit, %.loopexit955, %.loopexit.i666, %1523, %1318, %1322, %.loopexit.i620, %1224, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit.i", %688, %674, %2147, %1685, %.body725, %.body587, %.body567, %.body546
   %.pn449914 = phi { ptr, i32 } [ %.pn449, %.body546 ], [ %1602, %.body725 ], [ %.pn445, %.body587 ], [ %.pn447, %.body567 ], [ %.pn49.i, %1685 ], [ %2148, %2147 ], [ %.pn40.i, %.loopexit.i666 ], [ %.pn40.i, %1523 ], [ %.pn45.i, %1318 ], [ %.pn45.i, %1322 ], [ %.pn47.i, %.loopexit.i620 ], [ %.pn47.i, %1224 ], [ %.pn30.i, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit.i" ], [ %689, %688 ], [ %675, %674 ], [ %lpad.loopexit960, %.loopexit.split-lp956.loopexit ], [ %lpad.loopexit957, %.loopexit955 ]
-  %.13913 = phi i8 [ %.13, %.body546 ], [ 1, %.body725 ], [ 1, %.body587 ], [ 1, %.body567 ], [ 1, %1685 ], [ 1, %2147 ], [ 1, %.loopexit.i666 ], [ 1, %1523 ], [ 1, %1318 ], [ 1, %1322 ], [ 1, %.loopexit.i620 ], [ 1, %1224 ], [ 1, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit.i" ], [ 1, %688 ], [ 1, %674 ], [ 1, %.loopexit.split-lp956.loopexit ], [ 1, %.loopexit955 ]
+  %.16913 = phi i8 [ %.16, %.body546 ], [ 1, %.body725 ], [ 1, %.body587 ], [ 1, %.body567 ], [ 1, %1685 ], [ 1, %2147 ], [ 1, %.loopexit.i666 ], [ 1, %1523 ], [ 1, %1318 ], [ 1, %1322 ], [ 1, %.loopexit.i620 ], [ 1, %1224 ], [ 1, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit.i" ], [ 1, %688 ], [ 1, %674 ], [ 1, %.loopexit.split-lp956.loopexit ], [ 1, %.loopexit955 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..Vec$LT$vfs..FileId$GT$$GT$17h5d5b250c967609dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %192) #71
           to label %1925 unwind label %418
 
@@ -62892,7 +62892,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
 
 .thread895:                                       ; preds = %.thread895.loopexit, %.thread895.loopexit.split-lp, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514"
   %.pn.pn.pn894 = phi { ptr, i32 } [ %.pn.pn, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" ], [ %lpad.loopexit981, %.thread895.loopexit ], [ %lpad.loopexit.split-lp982, %.thread895.loopexit.split-lp ]
-  %.5397893 = phi i8 [ %.7, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" ], [ 1, %.thread895.loopexit ], [ 1, %.thread895.loopexit.split-lp ]
+  %.7893 = phi i8 [ %.9, %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit514" ], [ 1, %.thread895.loopexit ], [ 1, %.thread895.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Crate$GT$$GT$17h39621f3b91111ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %220) #71
           to label %466 unwind label %418
 
@@ -62915,12 +62915,12 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
           to label %2250 unwind label %345
 
 2250:                                             ; preds = %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit", %365
-  %.2 = phi ptr [ %363, %365 ], [ %.0, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit" ]
+  %.1 = phi ptr [ %363, %365 ], [ %.2, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit" ]
   call void @llvm.lifetime.end.p0(i64 568, ptr nonnull %246)
   br label %2251
 
 2251:                                             ; preds = %2250, %358
-  %.3 = phi ptr [ %356, %358 ], [ %.2, %2250 ]
+  %.0 = phi ptr [ %356, %358 ], [ %.1, %2250 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !15035
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %252)
           to label %.noexc829 unwind label %319
@@ -62947,7 +62947,7 @@ _ZN3std3env3var17h07874b497903878dE.exit:         ; preds = %1801
   br label %2260
 
 2260:                                             ; preds = %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit830", %2266
-  %.4 = phi ptr [ %332, %2266 ], [ %.3, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit830" ]
+  %.4 = phi ptr [ %332, %2266 ], [ %.0, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit830" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %252)
   %2261 = getelementptr inbounds i8, ptr %253, i64 8
   %2262 = load i32, ptr %2261, align 8, !alias.scope !15052, !noundef !12
@@ -63128,7 +63128,7 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %116 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %117 = alloca i32, align 4
   %118 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.7721 = alloca [2 x i64], align 8
+  %.sroa.7722 = alloca [2 x i64], align 8
   %119 = alloca { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, align 8
   %120 = alloca i32, align 4
   %121 = alloca [2 x { ptr, ptr }], align 8
@@ -63148,8 +63148,8 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %135 = alloca [1 x { ptr, ptr }], align 8
   %136 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %137 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.5689 = alloca [3 x i64], align 8
-  %.sroa.4681 = alloca [3 x i64], align 8
+  %.sroa.5690 = alloca [3 x i64], align 8
+  %.sroa.4682 = alloca [3 x i64], align 8
   %138 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %139 = alloca { ptr, i64 }, align 8
   %140 = alloca { i64, [5 x i64] }, align 8
@@ -63237,16 +63237,16 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %195 = getelementptr inbounds i8, ptr %179, i64 280
   store i64 -9223372036854775807, ptr %195, align 8
   store i64 0, ptr %179, align 8
-  %.sroa.41689.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.41689.0..sroa_idx, align 8
+  %.sroa.41690.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.41690.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 16
-  %.sroa.7.0..sroa_idx1691 = getelementptr inbounds i8, ptr %179, i64 32
+  %.sroa.7.0..sroa_idx1692 = getelementptr inbounds i8, ptr %179, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.7.0..sroa_idx1691, align 8
-  %.sroa.81692.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 40
-  store i64 0, ptr %.sroa.81692.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx1693 = getelementptr inbounds i8, ptr %179, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx1693, ptr noundef nonnull align 8 dereferenceable(32) @anon.6cb58fc054cbebc1183ce38d4f851cdf.535, i64 32, i1 false)
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.7.0..sroa_idx1692, align 8
+  %.sroa.81693.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 40
+  store i64 0, ptr %.sroa.81693.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx1694 = getelementptr inbounds i8, ptr %179, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx1694, ptr noundef nonnull align 8 dereferenceable(32) @anon.6cb58fc054cbebc1183ce38d4f851cdf.535, i64 32, i1 false)
   %196 = getelementptr inbounds i8, ptr %179, i64 338
   store i8 0, ptr %196, align 2
   %197 = getelementptr inbounds i8, ptr %179, i64 184
@@ -63367,13 +63367,13 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
           to label %243 unwind label %241
 
 "_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit", %247, %241
-  %.0247 = phi i8 [ %.1248, %241 ], [ %.2249, %247 ], [ %.2249, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit" ]
+  %.1248 = phi i8 [ %.0247, %241 ], [ %.3250, %247 ], [ %.3250, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit" ]
   %.pn313.pn = phi { ptr, i32 } [ %242, %241 ], [ %.pn313, %247 ], [ %.pn313, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit" ]
-  %240 = trunc nuw i8 %.0247 to i1
+  %240 = trunc nuw i8 %.1248 to i1
   br i1 %240, label %1566, label %231
 
 241:                                              ; preds = %497, %243, %235
-  %.1248 = phi i8 [ 1, %235 ], [ 1, %243 ], [ %.4251, %497 ]
+  %.0247 = phi i8 [ 1, %235 ], [ 1, %243 ], [ %.4251, %497 ]
   %242 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit"
@@ -63383,9 +63383,9 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   invoke void @_ZN7profile10stop_watch9StopWatch5start17h6f84661d6bac0b93E(ptr noalias nocapture noundef nonnull sret({ { [2 x i32], i32, [1 x i32] }, i64, { { { i64, i32, [1 x i32] } } } }) align 8 dereferenceable(40) %175)
           to label %249 unwind label %241
 
-"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit": ; preds = %.loopexit921, %.loopexit.split-lp922, %.body417, %456
-  %.2249 = phi i8 [ 0, %456 ], [ 1, %.body417 ], [ 1, %.loopexit921 ], [ %.3250.ph, %.loopexit.split-lp922 ]
-  %.pn313 = phi { ptr, i32 } [ %.pn311, %456 ], [ %.pn307.pn.pn, %.body417 ], [ %lpad.loopexit923, %.loopexit921 ], [ %lpad.loopexit.split-lp924, %.loopexit.split-lp922 ]
+"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit": ; preds = %.loopexit922, %.loopexit.split-lp923, %.body417, %456
+  %.3250 = phi i8 [ 0, %456 ], [ 1, %.body417 ], [ 1, %.loopexit922 ], [ %.2249.ph, %.loopexit.split-lp923 ]
+  %.pn313 = phi { ptr, i32 } [ %.pn311, %456 ], [ %.pn307.pn.pn, %.body417 ], [ %lpad.loopexit924, %.loopexit922 ], [ %lpad.loopexit.split-lp925, %.loopexit.split-lp923 ]
   %244 = getelementptr inbounds i8, ptr %175, i64 8
   %245 = load i32, ptr %244, align 8, !alias.scope !15075, !noundef !12
   %246 = icmp eq i32 %245, -1
@@ -63395,14 +63395,14 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %248 = invoke noundef i32 @close(i32 noundef %245)
           to label %"_ZN4core3ptr51drop_in_place$LT$profile..stop_watch..StopWatch$GT$17h2bc8988794017d7fE.exit" unwind label %528
 
-.loopexit921:                                     ; preds = %376, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17hfa811610b71c0cfcE.exit437"
-  %lpad.loopexit923 = landingpad { ptr, i32 }
+.loopexit922:                                     ; preds = %376, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17hfa811610b71c0cfcE.exit437"
+  %lpad.loopexit924 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit"
 
-.loopexit.split-lp922:                            ; preds = %._crit_edge, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381, %470, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406, %486, %385, %398, %413, %427, %433, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread", %472, %481, %493
-  %.3250.ph = phi i8 [ %.4251, %493 ], [ %.4251, %481 ], [ %.4251, %472 ], [ 0, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread" ], [ 0, %433 ], [ 1, %427 ], [ 1, %413 ], [ 1, %398 ], [ 1, %385 ], [ 1, %._crit_edge ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381 ], [ %.4251, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399 ], [ %.4251, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406 ], [ %.4251, %486 ], [ %.4251, %470 ]
-  %lpad.loopexit.split-lp924 = landingpad { ptr, i32 }
+.loopexit.split-lp923:                            ; preds = %._crit_edge, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381, %470, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406, %486, %385, %398, %413, %427, %433, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread", %472, %481, %493
+  %.2249.ph = phi i8 [ %.4251, %493 ], [ %.4251, %481 ], [ %.4251, %472 ], [ 0, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread" ], [ 0, %433 ], [ 1, %427 ], [ 1, %413 ], [ 1, %398 ], [ 1, %385 ], [ 1, %._crit_edge ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381 ], [ %.4251, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399 ], [ %.4251, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406 ], [ %.4251, %486 ], [ %.4251, %470 ]
+  %lpad.loopexit.split-lp925 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit"
 
@@ -63411,9 +63411,9 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %.val326 = load i64, ptr %214, align 8, !noundef !12
   %250 = getelementptr inbounds i32, ptr %.val, i64 %.val326
   %251 = icmp eq i64 %.val326, 0
-  br i1 %251, label %._crit_edge, label %.lr.ph1492
+  br i1 %251, label %._crit_edge, label %.lr.ph1493
 
-.lr.ph1492:                                       ; preds = %249
+.lr.ph1493:                                       ; preds = %249
   %252 = getelementptr inbounds i8, ptr %174, i64 8
   %253 = getelementptr inbounds i8, ptr %173, i64 8
   %254 = getelementptr inbounds i8, ptr %171, i64 8
@@ -63424,8 +63424,8 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %259 = getelementptr inbounds i8, ptr %161, i64 8
   %.sroa.4.0..sroa_idx.i455 = getelementptr inbounds i8, ptr %87, i64 8
   %.sroa.5.0..sroa_idx.i456 = getelementptr inbounds i8, ptr %87, i64 16
-  %.sroa.4667.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 8
-  %.sroa.5668.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 16
+  %.sroa.4668.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 8
+  %.sroa.5669.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 24
   %260 = getelementptr inbounds i8, ptr %157, i64 8
   %261 = getelementptr inbounds i8, ptr %158, i64 16
@@ -63600,11 +63600,11 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %289 = getelementptr inbounds i8, ptr %39, i64 16
   %290 = getelementptr inbounds i8, ptr %39, i64 32
   %291 = getelementptr inbounds i8, ptr %39, i64 40
-  %.sroa.4674.0..sroa_idx = getelementptr inbounds i8, ptr %155, i64 8
-  %.sroa.4670.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 8
-  %.sroa.5671.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 16
-  %.sroa.6672.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 24
-  %.sroa.8.0..sroa_idx678 = getelementptr inbounds i8, ptr %150, i64 4
+  %.sroa.4675.0..sroa_idx = getelementptr inbounds i8, ptr %155, i64 8
+  %.sroa.4671.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 8
+  %.sroa.5672.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 16
+  %.sroa.6673.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 24
+  %.sroa.8.0..sroa_idx679 = getelementptr inbounds i8, ptr %150, i64 4
   %292 = getelementptr inbounds i8, ptr %162, i64 8
   %293 = getelementptr inbounds i8, ptr %162, i64 16
   %.sroa.4.0..sroa_idx.i.i525 = getelementptr inbounds i8, ptr %35, i64 8
@@ -63655,10 +63655,10 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %.sroa.4232.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 8
   %.sroa.5233.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 16
   %331 = getelementptr inbounds i8, ptr %105, i64 8
-  %.sroa.4744.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 32
-  %.sroa.5745.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 40
-  %.sroa.8682.8..sroa_idx683 = getelementptr inbounds i8, ptr %15, i64 24
-  %.sroa.10685.8..sroa_idx686 = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.4745.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 32
+  %.sroa.5746.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 40
+  %.sroa.8683.8..sroa_idx684 = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.10686.8..sroa_idx687 = getelementptr inbounds i8, ptr %15, i64 32
   %332 = getelementptr inbounds i8, ptr %14, i64 8
   %333 = getelementptr inbounds i8, ptr %14, i64 16
   %334 = getelementptr inbounds i8, ptr %13, i64 24
@@ -63669,10 +63669,10 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %339 = getelementptr inbounds i8, ptr %11, i64 8
   %340 = getelementptr inbounds i8, ptr %11, i64 16
   %341 = getelementptr inbounds i8, ptr %135, i64 8
-  %.sroa.5694.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.7.0..sroa_idx695 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.8696.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.10697.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.5695.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.7.0..sroa_idx696 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.8697.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.10698.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
   %342 = getelementptr inbounds i8, ptr %141, i64 8
   %343 = getelementptr inbounds i8, ptr %141, i64 16
   %344 = getelementptr inbounds i8, ptr %25, i64 8
@@ -63714,16 +63714,16 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439", %249
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %130)
   invoke void @_ZN7profile10stop_watch9StopWatch7elapsed17h5a540926d845e304E(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, { i64, i32, [1 x i32] }, i64 }) align 8 dereferenceable(40) %130, ptr noalias noundef nonnull align 8 dereferenceable(40) %175)
-          to label %379 unwind label %.loopexit.split-lp922
+          to label %379 unwind label %.loopexit.split-lp923
 
-376:                                              ; preds = %.lr.ph1492, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439"
-  %.sroa.0.01491 = phi ptr [ %.val, %.lr.ph1492 ], [ %377, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439" ]
-  %377 = getelementptr inbounds i8, ptr %.sroa.0.01491, i64 4
-  %378 = load i32, ptr %.sroa.0.01491, align 4, !noundef !12
+376:                                              ; preds = %.lr.ph1493, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439"
+  %.sroa.0.01492 = phi ptr [ %.val, %.lr.ph1493 ], [ %377, %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439" ]
+  %377 = getelementptr inbounds i8, ptr %.sroa.0.01492, i64 4
+  %378 = load i32, ptr %.sroa.0.01492, align 4, !noundef !12
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %174)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %106)
   invoke void @_ZN3hir9semantics13SemanticsImpl3new17h3b27c04ed96370c0E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, { i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, { i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, { i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, { i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } }) align 8 dereferenceable(176) %106, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.36.llvm.15439407322995335751)
-          to label %530 unwind label %.loopexit921
+          to label %530 unwind label %.loopexit922
 
 379:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %128)
@@ -63754,23 +63754,23 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17hc815b5032ccf5d36E", ptr %390, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %100), !noalias !15080
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.607, ptr %100, align 8, !noalias !15091
-  %.sroa.5700.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 8
-  store i64 4, ptr %.sroa.5700.0..sroa_idx, align 8, !noalias !15091
-  %.sroa.7701.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 16
-  store ptr %128, ptr %.sroa.7701.0..sroa_idx, align 8, !noalias !15091
-  %.sroa.8702.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 24
-  store i64 3, ptr %.sroa.8702.0..sroa_idx, align 8, !noalias !15091
-  %.sroa.10703.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 32
-  store ptr null, ptr %.sroa.10703.0..sroa_idx, align 8, !noalias !15091
+  %.sroa.5701.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 8
+  store i64 4, ptr %.sroa.5701.0..sroa_idx, align 8, !noalias !15091
+  %.sroa.7702.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 16
+  store ptr %128, ptr %.sroa.7702.0..sroa_idx, align 8, !noalias !15091
+  %.sroa.8703.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 24
+  store i64 3, ptr %.sroa.8703.0..sroa_idx, align 8, !noalias !15091
+  %.sroa.10704.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 32
+  store ptr null, ptr %.sroa.10704.0..sroa_idx, align 8, !noalias !15091
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %129, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %100)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit unwind label %.loopexit.split-lp922
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit unwind label %.loopexit.split-lp923
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds = %385
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %100), !noalias !15080
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %128)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %129)
-          to label %391 unwind label %.loopexit.split-lp922
+          to label %391 unwind label %.loopexit.split-lp923
 
 391:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %125)
@@ -63804,16 +63804,16 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17hc815b5032ccf5d36E", ptr %403, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %99), !noalias !15092
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.609, ptr %99, align 8, !noalias !15103
-  %.sroa.5706.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 8
-  store i64 4, ptr %.sroa.5706.0..sroa_idx, align 8, !noalias !15103
-  %.sroa.7707.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 16
-  store ptr %125, ptr %.sroa.7707.0..sroa_idx, align 8, !noalias !15103
-  %.sroa.8708.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 24
-  store i64 3, ptr %.sroa.8708.0..sroa_idx, align 8, !noalias !15103
-  %.sroa.10709.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 32
-  store ptr null, ptr %.sroa.10709.0..sroa_idx, align 8, !noalias !15103
+  %.sroa.5707.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 8
+  store i64 4, ptr %.sroa.5707.0..sroa_idx, align 8, !noalias !15103
+  %.sroa.7708.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 16
+  store ptr %125, ptr %.sroa.7708.0..sroa_idx, align 8, !noalias !15103
+  %.sroa.8709.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 24
+  store i64 3, ptr %.sroa.8709.0..sroa_idx, align 8, !noalias !15103
+  %.sroa.10710.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 32
+  store ptr null, ptr %.sroa.10710.0..sroa_idx, align 8, !noalias !15103
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %126, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %99)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370 unwind label %.loopexit.split-lp922
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370 unwind label %.loopexit.split-lp923
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370: ; preds = %398
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %99), !noalias !15092
@@ -63821,7 +63821,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %125)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %126)
-          to label %404 unwind label %.loopexit.split-lp922
+          to label %404 unwind label %.loopexit.split-lp923
 
 404:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370
   %405 = getelementptr inbounds i8, ptr %0, i64 64
@@ -63860,14 +63860,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98), !noalias !15115
   store ptr %7, ptr %98, align 8, !noalias !15118
   store ptr %414, ptr %97, align 8, !noalias !15122
-  %.sroa.0717.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 8
-  store ptr %423, ptr %.sroa.0717.sroa.4.0..sroa_idx, align 8, !noalias !15122
-  %.sroa.0717.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 16
-  store ptr %418, ptr %.sroa.0717.sroa.5.0..sroa_idx, align 8, !noalias !15122
-  %.sroa.0717.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 24
-  store i16 %422, ptr %.sroa.0717.sroa.6.0..sroa_idx, align 8, !noalias !15122
+  %.sroa.0718.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 8
+  store ptr %423, ptr %.sroa.0718.sroa.4.0..sroa_idx, align 8, !noalias !15122
+  %.sroa.0718.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 16
+  store ptr %418, ptr %.sroa.0718.sroa.5.0..sroa_idx, align 8, !noalias !15122
+  %.sroa.0718.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 24
+  store i16 %422, ptr %.sroa.0718.sroa.6.0..sroa_idx, align 8, !noalias !15122
   %426 = invoke noundef i32 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h78a1c991ff7efbb2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %97, i64 noundef %425, i32 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %98)
-          to label %427 unwind label %.loopexit.split-lp922
+          to label %427 unwind label %.loopexit.split-lp923
 
 427:                                              ; preds = %413
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97), !noalias !15115
@@ -63885,23 +63885,23 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit370: ; pr
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h4b9fb787c4dcbeb9E", ptr %432, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %96), !noalias !15123
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.613, ptr %96, align 8, !noalias !15134
-  %.sroa.5712.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 8
-  store i64 3, ptr %.sroa.5712.0..sroa_idx, align 8, !noalias !15134
-  %.sroa.7713.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 16
-  store ptr %121, ptr %.sroa.7713.0..sroa_idx, align 8, !noalias !15134
-  %.sroa.8714.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 24
-  store i64 2, ptr %.sroa.8714.0..sroa_idx, align 8, !noalias !15134
-  %.sroa.10715.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 32
-  store ptr null, ptr %.sroa.10715.0..sroa_idx, align 8, !noalias !15134
+  %.sroa.5713.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 8
+  store i64 3, ptr %.sroa.5713.0..sroa_idx, align 8, !noalias !15134
+  %.sroa.7714.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 16
+  store ptr %121, ptr %.sroa.7714.0..sroa_idx, align 8, !noalias !15134
+  %.sroa.8715.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 24
+  store i64 2, ptr %.sroa.8715.0..sroa_idx, align 8, !noalias !15134
+  %.sroa.10716.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 32
+  store ptr null, ptr %.sroa.10716.0..sroa_idx, align 8, !noalias !15134
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %122, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %96)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381 unwind label %.loopexit.split-lp922
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381 unwind label %.loopexit.split-lp923
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; preds = %427
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %96), !noalias !15123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %120)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %122)
-          to label %433 unwind label %.loopexit.split-lp922
+          to label %433 unwind label %.loopexit.split-lp923
 
 433:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381
   %.sroa.053.sroa.0.0.copyload = load ptr, ptr %176, align 8, !nonnull !12, !noundef !12
@@ -63916,7 +63916,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
   %.sroa.610.0..sroa_idx11.i = getelementptr inbounds i8, ptr %95, i64 24
   store i64 %.sroa.053.sroa.6.0.copyload, ptr %.sroa.610.0..sroa_idx11.i, align 8, !noalias !15152
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hac7e9605cb7e9539E.llvm.9266542439947230232"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %.sroa.0.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %95)
-          to label %436 unwind label %.loopexit.split-lp922
+          to label %436 unwind label %.loopexit.split-lp923
 
 436:                                              ; preds = %433
   %437 = getelementptr inbounds i8, ptr %.sroa.053.sroa.0.0.copyload, i64 16
@@ -63940,12 +63940,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
   store i16 %440, ptr %.sroa.052.sroa.7.0..sroa_idx, align 8
   %.sroa.052.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 56
   store i64 %.sroa.053.sroa.6.0.copyload, ptr %.sroa.052.sroa.9.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7721)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7722)
   %444 = icmp eq i64 %.sroa.053.sroa.6.0.copyload, 0
   br i1 %444, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b896e9505ef1eb6E.llvm.9266542439947230232.exit.i.lr.ph"
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b896e9505ef1eb6E.llvm.9266542439947230232.exit.i.lr.ph": ; preds = %436
-  %.sroa.7721.0..sroa_idx722 = getelementptr inbounds i8, ptr %118, i64 8
+  %.sroa.7722.0..sroa_idx723 = getelementptr inbounds i8, ptr %118, i64 8
   %445 = getelementptr inbounds i8, ptr %115, i64 8
   %446 = getelementptr inbounds i8, ptr %115, i64 16
   %447 = getelementptr inbounds i8, ptr %115, i64 24
@@ -63969,11 +63969,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
   %.sroa.8.0..sroa_idx73 = getelementptr inbounds i8, ptr %114, i64 156
   %.sroa.9.0..sroa_idx75 = getelementptr inbounds i8, ptr %114, i64 160
   %.sroa.10.0..sroa_idx77 = getelementptr inbounds i8, ptr %114, i64 161
-  %.sroa.5726.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 8
-  %.sroa.7727.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 16
-  %.sroa.8728.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 24
-  %.sroa.10729.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 32
-  %.sroa.11730.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 40
+  %.sroa.5727.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 8
+  %.sroa.7728.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 16
+  %.sroa.8729.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 24
+  %.sroa.10730.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 32
+  %.sroa.11731.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 40
   %450 = getelementptr inbounds i8, ptr %90, i64 8
   %451 = getelementptr inbounds i8, ptr %90, i64 16
   br label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b896e9505ef1eb6E.llvm.9266542439947230232.exit.i"
@@ -64001,16 +64001,16 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
 
 "_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit": ; preds = %.noexc384
   %459 = getelementptr inbounds i8, ptr %452, i64 -32
-  %.sroa.0719.0.copyload = load i64, ptr %459, align 8
-  %.sroa.7721.0..sroa_idx = getelementptr inbounds i8, ptr %452, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7721, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7721.0..sroa_idx, i64 16, i1 false)
-  %460 = icmp eq i64 %.sroa.0719.0.copyload, -9223372036854775808
+  %.sroa.0720.0.copyload = load i64, ptr %459, align 8
+  %.sroa.7722.0..sroa_idx = getelementptr inbounds i8, ptr %452, i64 -24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7722, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7722.0..sroa_idx, i64 16, i1 false)
+  %460 = icmp eq i64 %.sroa.0720.0.copyload, -9223372036854775808
   br i1 %460, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread", label %469
 
 "_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread": ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit", %.noexc384, %526, %436
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7721)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7722)
   invoke void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h7a893f5cb2d923acE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sroa.052.sroa.4.0..sroa_idx)
-          to label %.noexc385 unwind label %.loopexit.split-lp922
+          to label %.noexc385 unwind label %.loopexit.split-lp923
 
 .noexc385:                                        ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread"
   %461 = load i64, ptr %119, align 8, !range !383, !alias.scope !15160, !noundef !12
@@ -64030,13 +64030,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
   br label %"_ZN4core3ptr93drop_in_place$LT$std..collections..hash..map..IntoIter$LT$alloc..string..String$C$u32$GT$$GT$17ha5afe8d2a838527bE.exit"
 
 469:                                              ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit"
-  %.sroa.7723.0..sroa_idx = getelementptr inbounds i8, ptr %452, i64 -8
-  %.sroa.7723.0.copyload = load i32, ptr %.sroa.7723.0..sroa_idx, align 8
+  %.sroa.7724.0..sroa_idx = getelementptr inbounds i8, ptr %452, i64 -8
+  %.sroa.7724.0.copyload = load i32, ptr %.sroa.7724.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %118)
-  store i64 %.sroa.0719.0.copyload, ptr %118, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7721.0..sroa_idx722, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7721, i64 16, i1 false)
+  store i64 %.sroa.0720.0.copyload, ptr %118, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7722.0..sroa_idx723, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7722, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %117)
-  store i32 %.sroa.7723.0.copyload, ptr %117, align 4
+  store i32 %.sroa.7724.0.copyload, ptr %117, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115)
   store ptr %118, ptr %115, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h940edd02ab5edd80E", ptr %445, align 8
@@ -64066,11 +64066,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx77, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, i64 7, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %94), !noalias !15169
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.624, ptr %94, align 8, !noalias !15180
-  store i64 4, ptr %.sroa.5726.0..sroa_idx, align 8, !noalias !15180
-  store ptr %115, ptr %.sroa.7727.0..sroa_idx, align 8, !noalias !15180
-  store i64 2, ptr %.sroa.8728.0..sroa_idx, align 8, !noalias !15180
-  store ptr %114, ptr %.sroa.10729.0..sroa_idx, align 8, !noalias !15180
-  store i64 3, ptr %.sroa.11730.0..sroa_idx, align 8, !noalias !15180
+  store i64 4, ptr %.sroa.5727.0..sroa_idx, align 8, !noalias !15180
+  store ptr %115, ptr %.sroa.7728.0..sroa_idx, align 8, !noalias !15180
+  store i64 2, ptr %.sroa.8729.0..sroa_idx, align 8, !noalias !15180
+  store ptr %114, ptr %.sroa.10730.0..sroa_idx, align 8, !noalias !15180
+  store i64 3, ptr %.sroa.11731.0..sroa_idx, align 8, !noalias !15180
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %116, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %94)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit392 unwind label %517
 
@@ -64080,7 +64080,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
 
 470:                                              ; preds = %408
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.c, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.616) #70
-          to label %471 unwind label %.loopexit.split-lp922
+          to label %471 unwind label %.loopexit.split-lp923
 
 471:                                              ; preds = %1379, %568, %470
   unreachable
@@ -64099,23 +64099,23 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit381: ; pr
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17hc815b5032ccf5d36E", ptr %480, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %93), !noalias !15181
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.615, ptr %93, align 8, !noalias !15192
-  %.sroa.5732.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 8
-  store i64 2, ptr %.sroa.5732.0..sroa_idx, align 8, !noalias !15192
-  %.sroa.7733.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 16
-  store ptr %112, ptr %.sroa.7733.0..sroa_idx, align 8, !noalias !15192
-  %.sroa.8734.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 24
-  store i64 1, ptr %.sroa.8734.0..sroa_idx, align 8, !noalias !15192
-  %.sroa.10735.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 32
-  store ptr null, ptr %.sroa.10735.0..sroa_idx, align 8, !noalias !15192
+  %.sroa.5733.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 8
+  store i64 2, ptr %.sroa.5733.0..sroa_idx, align 8, !noalias !15192
+  %.sroa.7734.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 16
+  store ptr %112, ptr %.sroa.7734.0..sroa_idx, align 8, !noalias !15192
+  %.sroa.8735.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 24
+  store i64 1, ptr %.sroa.8735.0..sroa_idx, align 8, !noalias !15192
+  %.sroa.10736.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 32
+  store ptr null, ptr %.sroa.10736.0..sroa_idx, align 8, !noalias !15192
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %113, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %93)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399 unwind label %.loopexit.split-lp922
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399 unwind label %.loopexit.split-lp923
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399: ; preds = %472
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %93), !noalias !15181
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %112)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %113)
-          to label %481 unwind label %.loopexit.split-lp922
+          to label %481 unwind label %.loopexit.split-lp923
 
 481:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109)
@@ -64154,25 +64154,25 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit399: ; pr
   store i8 3, ptr %.sroa.10108.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %92), !noalias !15193
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.538, ptr %92, align 8, !noalias !15204
-  %.sroa.5738.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 8
-  store i64 2, ptr %.sroa.5738.0..sroa_idx, align 8, !noalias !15204
-  %.sroa.7739.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 16
-  store ptr %109, ptr %.sroa.7739.0..sroa_idx, align 8, !noalias !15204
-  %.sroa.8740.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 24
-  store i64 2, ptr %.sroa.8740.0..sroa_idx, align 8, !noalias !15204
-  %.sroa.10741.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 32
-  store ptr %108, ptr %.sroa.10741.0..sroa_idx, align 8, !noalias !15204
-  %.sroa.11742.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 40
-  store i64 2, ptr %.sroa.11742.0..sroa_idx, align 8, !noalias !15204
+  %.sroa.5739.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 8
+  store i64 2, ptr %.sroa.5739.0..sroa_idx, align 8, !noalias !15204
+  %.sroa.7740.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 16
+  store ptr %109, ptr %.sroa.7740.0..sroa_idx, align 8, !noalias !15204
+  %.sroa.8741.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 24
+  store i64 2, ptr %.sroa.8741.0..sroa_idx, align 8, !noalias !15204
+  %.sroa.10742.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 32
+  store ptr %108, ptr %.sroa.10742.0..sroa_idx, align 8, !noalias !15204
+  %.sroa.11743.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 40
+  store i64 2, ptr %.sroa.11743.0..sroa_idx, align 8, !noalias !15204
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %110, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %92)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406 unwind label %.loopexit.split-lp922
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406 unwind label %.loopexit.split-lp923
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406: ; preds = %481
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %92), !noalias !15193
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %108)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %110)
-          to label %486 unwind label %.loopexit.split-lp922
+          to label %486 unwind label %.loopexit.split-lp923
 
 486:                                              ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406
   %487 = load i64, ptr %409, align 8, !noundef !12
@@ -64182,11 +64182,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit406: ; pr
   %491 = zext nneg i32 %490 to i64
   %492 = add i64 %488, %491
   invoke void @_ZN13rust_analyzer3cli13report_metric17hc0d3c120ec3a2d6aE(ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.619, i64 noundef 16, i64 noundef %492, ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.556, i64 noundef 2)
-          to label %493 unwind label %.loopexit.split-lp922
+          to label %493 unwind label %.loopexit.split-lp923
 
 493:                                              ; preds = %486
   invoke void @_ZN13rust_analyzer3cli15progress_report14ProgressReport5clear17h9b154abed41fd19fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %177)
-          to label %_ZN13rust_analyzer3cli15progress_report14ProgressReport16finish_and_clear17h128828feca321f3eE.exit unwind label %.loopexit.split-lp922
+          to label %_ZN13rust_analyzer3cli15progress_report14ProgressReport16finish_and_clear17h128828feca321f3eE.exit unwind label %.loopexit.split-lp923
 
 _ZN13rust_analyzer3cli15progress_report14ProgressReport16finish_and_clear17h128828feca321f3eE.exit: ; preds = %493
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %130)
@@ -64297,13 +64297,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit392: ; pr
 526:                                              ; preds = %524, %521, %.noexc413
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90), !noalias !15217
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %118)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7721)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7722)
   %.pr = load i64, ptr %.sroa.052.sroa.9.0..sroa_idx, align 8, !alias.scope !15153, !noalias !15158
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7721)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7722)
   %527 = icmp eq i64 %.pr, 0
   br i1 %527, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d8443b750560e1fE.exit.thread", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b896e9505ef1eb6E.llvm.9266542439947230232.exit.i"
 
-528:                                              ; preds = %1046, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491", %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit", %.body475, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i452", %705, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i", %666, %555, %.body417, %247, %1566, %1565, %1533, %.thread819, %.thread835, %1532, %.body602, %.body, %.body531, %1133, %1132, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit", %790, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit", %517, %505, %456, %231, %185, %183
+528:                                              ; preds = %1046, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491", %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit", %.body475, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i452", %705, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i", %666, %555, %.body417, %247, %1566, %1565, %1533, %.thread820, %.thread836, %1532, %.body602, %.body, %.body531, %1133, %1132, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit", %790, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit", %517, %505, %456, %231, %185, %183
   %529 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #72
@@ -64406,26 +64406,26 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit392: ; pr
   store ptr %559, ptr %171, align 8
   store i64 %560, ptr %254, align 8
   %561 = invoke noundef align 8 dereferenceable(32) ptr @_ZN3vfs3Vfs9file_path17h185b12be4c3b0154E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %3, i32 noundef %378)
-          to label %562 unwind label %.loopexit926
+          to label %562 unwind label %.loopexit927
 
-.body323:                                         ; preds = %.loopexit926, %.loopexit.split-lp927, %642, %633, %597, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit"
-  %.pn307 = phi { ptr, i32 } [ %.pn305, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit" ], [ %598, %597 ], [ %lpad.phi935, %633 ], [ %643, %642 ], [ %lpad.loopexit928, %.loopexit926 ], [ %lpad.loopexit.split-lp929, %.loopexit.split-lp927 ]
+.body323:                                         ; preds = %.loopexit927, %.loopexit.split-lp928, %642, %633, %597, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit"
+  %.pn307 = phi { ptr, i32 } [ %.pn305, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit" ], [ %598, %597 ], [ %lpad.phi936, %633 ], [ %643, %642 ], [ %lpad.loopexit929, %.loopexit927 ], [ %lpad.loopexit.split-lp930, %.loopexit.split-lp928 ]
   call fastcc void @"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %171) #71
   br label %549
 
-.loopexit926:                                     ; preds = %558, %562, %569, %637, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.exit.i, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.10409712727403535664.exit.sink.split.i.i.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit325", %.noexc430
-  %lpad.loopexit928 = landingpad { ptr, i32 }
+.loopexit927:                                     ; preds = %558, %562, %569, %637, %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.exit.i, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.10409712727403535664.exit.sink.split.i.i.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit325", %.noexc430
+  %lpad.loopexit929 = landingpad { ptr, i32 }
           cleanup
   br label %.body323
 
-.loopexit.split-lp927:                            ; preds = %568, %577
-  %lpad.loopexit.split-lp929 = landingpad { ptr, i32 }
+.loopexit.split-lp928:                            ; preds = %568, %577
+  %lpad.loopexit.split-lp930 = landingpad { ptr, i32 }
           cleanup
   br label %.body323
 
 562:                                              ; preds = %558
   %563 = invoke { ptr, i64 } @_ZN3vfs8vfs_path7VfsPath7as_path17hb0e5a420f736fe3fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %561)
-          to label %564 unwind label %.loopexit926
+          to label %564 unwind label %.loopexit927
 
 564:                                              ; preds = %562
   %565 = extractvalue { ptr, i64 } %563, 0
@@ -64435,11 +64435,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit392: ; pr
 
 568:                                              ; preds = %564
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.626) #70
-          to label %471 unwind label %.loopexit.split-lp927
+          to label %471 unwind label %.loopexit.split-lp928
 
 569:                                              ; preds = %564
   %570 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %172)
-          to label %571 unwind label %.loopexit926
+          to label %571 unwind label %.loopexit927
 
 571:                                              ; preds = %569
   call void @llvm.experimental.noalias.scope.decl(metadata !15253)
@@ -64453,7 +64453,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit392: ; pr
 
 577:                                              ; preds = %571
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #70
-          to label %.noexc421 unwind label %.loopexit.split-lp927
+          to label %.noexc421 unwind label %.loopexit.split-lp928
 
 .noexc421:                                        ; preds = %577
   unreachable
@@ -64462,7 +64462,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
   %578 = extractvalue { i32, i1 } %575, 0
   store i32 %578, ptr %573, align 4, !noalias !15256
   invoke void @_ZN5rowan6cursor8Preorder3new17he2148ca74b7cb7adE(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, ptr, i8, [7 x i8] }) align 8 dereferenceable(32) %.sroa.0.i420, ptr noundef nonnull %572)
-          to label %579 unwind label %.loopexit926
+          to label %579 unwind label %.loopexit927
 
 579:                                              ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170)
@@ -64472,7 +64472,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge", %579
   %580 = invoke { i64, ptr } @"_ZN82_$LT$rowan..cursor..Preorder$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f246160015d372fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %170)
-          to label %.noexc424 unwind label %.loopexit890
+          to label %.noexc424 unwind label %.loopexit891
 
 .noexc424:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i"
   %581 = extractvalue { i64, ptr } %580, 0
@@ -64494,7 +64494,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
 
 "_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.13207202256514997924.exit.sink.split.i.i.i.i.i.i.i.i": ; preds = %583
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %582)
-          to label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge" unwind label %.loopexit890
+          to label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge" unwind label %.loopexit891
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge": ; preds = %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.13207202256514997924.exit.sink.split.i.i.i.i.i.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.i.i.i.i", %583, %.invoke, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit448", %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit522"
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i"
@@ -64503,18 +64503,18 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
   %589 = icmp eq ptr %582, null
   br i1 %589, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50077aaa9d44d2a1E.exit"
 
-"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit": ; preds = %.loopexit890, %.loopexit.split-lp891, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit", %666
-  %.pn305 = phi { ptr, i32 } [ %.pn303, %666 ], [ %.pn303, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit" ], [ %lpad.loopexit892, %.loopexit890 ], [ %lpad.loopexit.split-lp893, %.loopexit.split-lp891 ]
+"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit": ; preds = %.loopexit891, %.loopexit.split-lp892, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit", %666
+  %.pn305 = phi { ptr, i32 } [ %.pn303, %666 ], [ %.pn303, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit" ], [ %lpad.loopexit893, %.loopexit891 ], [ %lpad.loopexit.split-lp894, %.loopexit.split-lp892 ]
   invoke void @"_ZN4core3ptr347drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..Preorder$C$rowan..cursor..SyntaxNode..descendants..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17hfedee79dc0a1c7caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %170) #71
           to label %.body323 unwind label %528
 
-.loopexit890:                                     ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i", %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.13207202256514997924.exit.sink.split.i.i.i.i.i.i.i.i"
-  %lpad.loopexit892 = landingpad { ptr, i32 }
+.loopexit891:                                     ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i", %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.13207202256514997924.exit.sink.split.i.i.i.i.i.i.i.i"
+  %lpad.loopexit893 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit"
 
-.loopexit.split-lp891:                            ; preds = %.invoke
-  %lpad.loopexit.split-lp893 = landingpad { ptr, i32 }
+.loopexit.split-lp892:                            ; preds = %.invoke
+  %lpad.loopexit.split-lp894 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit"
 
@@ -64578,7 +64578,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
 "_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17hab748f058ff365ceE.llvm.10409712727403535664.exit.sink.split.i.i.i.i.i": ; preds = %609, %603
   %.sink.i.i.i.i.i = phi ptr [ %604, %603 ], [ %610, %609 ]
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink.i.i.i.i.i)
-          to label %"_ZN4core3ptr347drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..Preorder$C$rowan..cursor..SyntaxNode..descendants..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17hfedee79dc0a1c7caE.exit" unwind label %.loopexit926
+          to label %"_ZN4core3ptr347drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..Preorder$C$rowan..cursor..SyntaxNode..descendants..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17hfedee79dc0a1c7caE.exit" unwind label %.loopexit927
 
 615:                                              ; preds = %597
   %616 = landingpad { ptr, i32 }
@@ -64596,7 +64596,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
 
 621:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50077aaa9d44d2a1E.exit"
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #70
-          to label %.noexc429 unwind label %.loopexit.split-lp896
+          to label %.noexc429 unwind label %.loopexit.split-lp897
 
 .noexc429:                                        ; preds = %621
   unreachable
@@ -64616,12 +64616,12 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
   %628 = fdiv float %626, %627
   %.sink1.i = select i1 %625, float 0.000000e+00, float %628
   %629 = invoke noundef float @"_ZN4core3f3221_$LT$impl$u20$f32$GT$5clamp17h4bbacb94ea2f9b00E.llvm.2510282452699860474"(float noundef %.sink1.i, float noundef 0.000000e+00, float noundef 1.000000e+00)
-          to label %.noexc430 unwind label %.loopexit926
+          to label %.noexc430 unwind label %.loopexit927
 
 .noexc430:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit325"
   store float %629, ptr %375, align 8, !alias.scope !15304
   invoke void @_ZN13rust_analyzer3cli15progress_report14ProgressReport4tick17h95890e3962576f44E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177)
-          to label %_ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.exit unwind label %.loopexit926
+          to label %_ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.exit unwind label %.loopexit927
 
 630:                                              ; preds = %"_ZN4core3ptr347drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..cursor..Preorder$C$rowan..cursor..SyntaxNode..descendants..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17hfedee79dc0a1c7caE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %131)
@@ -64641,20 +64641,20 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.47, ptr %372, align 8, !noalias !15312
   %631 = getelementptr inbounds i8, ptr %.val329, i64 8
   %632 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %631, i64 noundef %.val330, ptr noalias noundef nonnull align 8 dereferenceable(64) %88)
-          to label %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i" unwind label %.loopexit931, !noalias !15312
+          to label %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i" unwind label %.loopexit932, !noalias !15312
 
-.loopexit931:                                     ; preds = %630
-  %lpad.loopexit933 = landingpad { ptr, i32 }
+.loopexit932:                                     ; preds = %630
+  %lpad.loopexit934 = landingpad { ptr, i32 }
           cleanup
   br label %633
 
-.loopexit.split-lp932:                            ; preds = %634
-  %lpad.loopexit.split-lp934 = landingpad { ptr, i32 }
+.loopexit.split-lp933:                            ; preds = %634
+  %lpad.loopexit.split-lp935 = landingpad { ptr, i32 }
           cleanup
   br label %633
 
-633:                                              ; preds = %.loopexit.split-lp932, %.loopexit931
-  %lpad.phi935 = phi { ptr, i32 } [ %lpad.loopexit933, %.loopexit931 ], [ %lpad.loopexit.split-lp934, %.loopexit.split-lp932 ]
+633:                                              ; preds = %.loopexit.split-lp933, %.loopexit932
+  %lpad.phi936 = phi { ptr, i32 } [ %lpad.loopexit934, %.loopexit932 ], [ %lpad.loopexit.split-lp935, %.loopexit.split-lp933 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %89) #71
           to label %.body323 unwind label %635, !noalias !15312
 
@@ -64664,7 +64664,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
 
 634:                                              ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i"
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.48, i64 noundef 55, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.50) #70
-          to label %.noexc.i unwind label %.loopexit.split-lp932, !noalias !15312
+          to label %.noexc.i unwind label %.loopexit.split-lp933, !noalias !15312
 
 .noexc.i:                                         ; preds = %634
   unreachable
@@ -64681,7 +64681,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.13207202256514997924.e
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %88), !noalias !15312
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89), !noalias !15312
   %638 = invoke noundef ptr @_ZN3std2fs5write17h979e9f7000e98ba9E(ptr noalias noundef nonnull readonly align 1 %565, i64 noundef %566, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %131)
-          to label %639 unwind label %.loopexit926
+          to label %639 unwind label %.loopexit927
 
 639:                                              ; preds = %637
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %131)
@@ -64751,15 +64751,15 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17hfa811610b71c0cfcE.exit437": ; preds = %"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE.exit", %661
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172)
   invoke void @"_ZN4core3ptr50drop_in_place$LT$hir..semantics..SemanticsImpl$GT$17h3f7d3c794bc8a42aE.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(176) %252)
-          to label %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439" unwind label %.loopexit921
+          to label %"_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439" unwind label %.loopexit922
 
 "_ZN4core3ptr74drop_in_place$LT$hir..semantics..Semantics$LT$ide_db..RootDatabase$GT$$GT$17hf5b0345ad34f8605E.exit439": ; preds = %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..SourceFile$GT$17hfa811610b71c0cfcE.exit437"
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %174)
   %662 = icmp eq ptr %377, %250
   br i1 %662, label %._crit_edge, label %376
 
-"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit": ; preds = %.loopexit895, %.loopexit.split-lp896, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i"
-  %.pn303 = phi { ptr, i32 } [ %.pn301, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i" ], [ %.pn301, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit" ], [ %lpad.loopexit897, %.loopexit895 ], [ %lpad.loopexit.split-lp898, %.loopexit.split-lp896 ]
+"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit": ; preds = %.loopexit896, %.loopexit.split-lp897, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i"
+  %.pn303 = phi { ptr, i32 } [ %.pn301, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i" ], [ %.pn301, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit" ], [ %lpad.loopexit898, %.loopexit896 ], [ %lpad.loopexit.split-lp899, %.loopexit.split-lp897 ]
   %663 = load i32, ptr %617, align 4, !noalias !15342, !noundef !12
   %664 = add i32 %663, -1
   store i32 %664, ptr %617, align 4, !noalias !15342
@@ -64770,13 +64770,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %582)
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2b24cf2be98a8a91E.exit" unwind label %528
 
-.loopexit895:                                     ; preds = %667, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i446", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i520"
-  %lpad.loopexit897 = landingpad { ptr, i32 }
+.loopexit896:                                     ; preds = %667, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i446", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i520"
+  %lpad.loopexit898 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit"
 
-.loopexit.split-lp896:                            ; preds = %621
-  %lpad.loopexit.split-lp898 = landingpad { ptr, i32 }
+.loopexit.split-lp897:                            ; preds = %621
+  %lpad.loopexit.split-lp899 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit"
 
@@ -64784,7 +64784,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   %668 = extractvalue { i32, i1 } %619, 0
   store i32 %668, ptr %617, align 4
   %669 = invoke { i64, ptr } @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$4cast17ha4c36d51cf8452bbE"(ptr noundef nonnull %582)
-          to label %670 unwind label %.loopexit895
+          to label %670 unwind label %.loopexit896
 
 670:                                              ; preds = %667
   %671 = extractvalue { i64, ptr } %669, 0
@@ -64797,7 +64797,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   store ptr %674, ptr %255, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %168)
   %675 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$6syntax17haf9d959d2f611838E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %169)
-          to label %683 unwind label %.loopexit900
+          to label %683 unwind label %.loopexit901
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit448": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit451", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i446", %670
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169)
@@ -64809,10 +64809,10 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 .invoke:                                          ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit522", %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit448"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %582)
-          to label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge" unwind label %.loopexit.split-lp891
+          to label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h04176811a1026249E.exit.thread.i.i.i.i.backedge" unwind label %.loopexit.split-lp892
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit": ; preds = %.loopexit900, %.loopexit.split-lp901, %.body653, %705
-  %.pn301 = phi { ptr, i32 } [ %.pn299, %705 ], [ %.pn299, %.body653 ], [ %lpad.loopexit902, %.loopexit900 ], [ %lpad.loopexit.split-lp903, %.loopexit.split-lp901 ]
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit": ; preds = %.loopexit901, %.loopexit.split-lp902, %.body653, %705
+  %.pn301 = phi { ptr, i32 } [ %.pn299, %705 ], [ %.pn299, %.body653 ], [ %lpad.loopexit903, %.loopexit901 ], [ %lpad.loopexit.split-lp904, %.loopexit.split-lp902 ]
   %.val346 = load ptr, ptr %255, align 8, !nonnull !12, !noundef !12
   %679 = getelementptr inbounds i8, ptr %.val346, i64 48
   %680 = load i32, ptr %679, align 4, !noalias !12, !noundef !12
@@ -64825,13 +64825,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val346)
           to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit" unwind label %528
 
-.loopexit900:                                     ; preds = %673, %690, %719, %1124
-  %lpad.loopexit902 = landingpad { ptr, i32 }
+.loopexit901:                                     ; preds = %673, %690, %719, %1124
+  %lpad.loopexit903 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit"
 
-.loopexit.split-lp901:                            ; preds = %689
-  %lpad.loopexit.split-lp903 = landingpad { ptr, i32 }
+.loopexit.split-lp902:                            ; preds = %689
+  %lpad.loopexit.split-lp904 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit"
 
@@ -64845,7 +64845,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 689:                                              ; preds = %683
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #70
-          to label %.noexc444 unwind label %.loopexit.split-lp901
+          to label %.noexc444 unwind label %.loopexit.split-lp902
 
 .noexc444:                                        ; preds = %689
   unreachable
@@ -64854,7 +64854,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   %691 = extractvalue { i32, i1 } %687, 0
   store i32 %691, ptr %685, align 4
   %692 = invoke noundef ptr @"_ZN81_$LT$syntax..ast..generated..nodes..BlockExpr$u20$as$u20$syntax..ast..AstNode$GT$4cast17h26ba5aaccf126cb8E"(ptr noundef nonnull %684)
-          to label %693 unwind label %.loopexit900
+          to label %693 unwind label %.loopexit901
 
 693:                                              ; preds = %690
   %694 = icmp eq ptr %692, null
@@ -64879,7 +64879,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i446": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit451"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val344)
-          to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit448" unwind label %.loopexit895
+          to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit448" unwind label %.loopexit896
 
 .body653:                                         ; preds = %.body.i649, %1550, %1559, %706, %1565, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit454"
   %.pn299 = phi { ptr, i32 } [ %.pn297, %1565 ], [ %.pn297, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit454" ], [ %707, %706 ], [ %1560, %1559 ], [ %1551, %1550 ], [ %eh.lpad-body.i650, %.body.i649 ]
@@ -64934,7 +64934,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 719:                                              ; preds = %"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E.exit"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %714)
-          to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit451" unwind label %.loopexit900
+          to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit451" unwind label %.loopexit901
 
 720:                                              ; preds = %712
   %721 = extractvalue { ptr, ptr } %713, 0
@@ -64947,13 +64947,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
           to label %727 unwind label %725
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit454": ; preds = %734, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i452", %725
-  %.0252 = phi i8 [ %.1253, %725 ], [ %.3255, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i452" ], [ %.3255, %734 ]
+  %.1253 = phi i8 [ %.0252, %725 ], [ %.4256, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i452" ], [ %.4256, %734 ]
   %.pn297 = phi { ptr, i32 } [ %726, %725 ], [ %.pn295, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i452" ], [ %.pn295, %734 ]
-  %724 = trunc nuw i8 %.0252 to i1
+  %724 = trunc nuw i8 %.1253 to i1
   br i1 %724, label %1565, label %.body653
 
 725:                                              ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i515", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i483", %720
-  %.1253 = phi i8 [ 1, %720 ], [ %.8, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i483" ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i515" ]
+  %.0252 = phi i8 [ 1, %720 ], [ %.5257, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i483" ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i515" ]
   %726 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit454"
@@ -64976,11 +64976,11 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 .noexc484:                                        ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i483", %1014
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164)
-  %733 = trunc nuw i8 %.8 to i1
+  %733 = trunc nuw i8 %.5257 to i1
   br i1 %733, label %1534, label %"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E.exit"
 
 734:                                              ; preds = %.body459, %1533, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit", %739
-  %.3255 = phi i8 [ %.4256, %739 ], [ %.5257, %1533 ], [ %.5257, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit" ], [ 1, %.body459 ]
+  %.4256 = phi i8 [ %.3255, %739 ], [ %.7259, %1533 ], [ %.7259, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit" ], [ 1, %.body459 ]
   %.pn295 = phi { ptr, i32 } [ %740, %739 ], [ %.pn293, %1533 ], [ %.pn293, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit" ], [ %760, %.body459 ]
   %.val342 = load ptr, ptr %257, align 8, !nonnull !12, !noundef !12
   %735 = getelementptr inbounds i8, ptr %.val342, i64 48
@@ -64995,7 +64995,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
           to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit454" unwind label %528
 
 739:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit482", %745, %744, %742, %730
-  %.4256 = phi i8 [ 1, %745 ], [ 1, %744 ], [ 1, %742 ], [ 1, %730 ], [ %.7259, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit482" ]
+  %.3255 = phi i8 [ 1, %745 ], [ 1, %744 ], [ 1, %742 ], [ 1, %730 ], [ %.8, %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit482" ]
   %740 = landingpad { ptr, i32 }
           cleanup
   br label %734
@@ -65037,8 +65037,8 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   store i64 0, ptr %.sroa.5.0..sroa_idx.i456, align 8, !noalias !15382
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86), !noalias !15386
   store ptr %752, ptr %86, align 8, !alias.scope !15390, !noalias !15394
-  store ptr %753, ptr %.sroa.4667.0..sroa_idx, align 8, !alias.scope !15390, !noalias !15394
-  store i64 %754, ptr %.sroa.5668.0..sroa_idx, align 8, !alias.scope !15390, !noalias !15394
+  store ptr %753, ptr %.sroa.4668.0..sroa_idx, align 8, !alias.scope !15390, !noalias !15394
+  store i64 %754, ptr %.sroa.5669.0..sroa_idx, align 8, !alias.scope !15390, !noalias !15394
   store i64 %756, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !15390, !noalias !15394
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %85), !noalias !15386
   invoke void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1384b1e9cf8af266E.llvm.2510282452699860474"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %86)
@@ -65101,15 +65101,15 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   br label %"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE.exit462"
 
 "_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit", %773
-  %.5257 = phi i8 [ %.6258, %773 ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit" ]
-  %.0 = phi i8 [ %.1, %773 ], [ %.3, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit" ]
+  %.7259 = phi i8 [ %.6258, %773 ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit" ]
+  %.1 = phi i8 [ %.0, %773 ], [ %.2, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit" ]
   %.pn293 = phi { ptr, i32 } [ %774, %773 ], [ %.pn291, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit" ]
-  %772 = trunc nuw i8 %.0 to i1
+  %772 = trunc nuw i8 %.1 to i1
   br i1 %772, label %1533, label %734
 
 773:                                              ; preds = %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit512", %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479", %776, %"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE.exit462"
   %.6258 = phi i8 [ 1, %776 ], [ 1, %"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE.exit462" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit512" ]
-  %.1 = phi i8 [ 1, %776 ], [ 1, %"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE.exit462" ], [ 1, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit512" ]
+  %.0 = phi i8 [ 1, %776 ], [ 1, %"_ZN4core3ptr50drop_in_place$LT$triomphe..arc..Arc$LT$str$GT$$GT$17h7088be90cdeff25cE.exit462" ], [ 1, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit512" ]
   %774 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit"
@@ -65148,7 +65148,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
           to label %792 unwind label %790
 
 "_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit482": ; preds = %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479", %780
-  %.7259 = phi i8 [ 1, %780 ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479" ]
+  %.8 = phi i8 [ 1, %780 ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %160)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83), !noalias !15407
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %162)
@@ -65213,7 +65213,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65), !noalias !15421
   store i64 0, ptr %65, align 8, !noalias !15421
   invoke void @"_ZN50_$LT$hir..ScopeDef$u20$as$u20$core..hash..Hash$GT$4hash17hc0a9daf1243abfd0E.llvm.15931924237846680735"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %80, ptr noalias noundef nonnull align 8 dereferenceable(8) %65)
-          to label %.noexc.i467 unwind label %.loopexit905, !noalias !15419
+          to label %.noexc.i467 unwind label %.loopexit906, !noalias !15419
 
 .noexc.i467:                                      ; preds = %.noexc472
   %794 = load i64, ptr %65, align 8, !alias.scope !15427, !noalias !15421, !noundef !12
@@ -65221,14 +65221,14 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64), !noalias !15430
   store ptr %80, ptr %64, align 8, !noalias !15431
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf647cd1c00f51ce4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %81, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %266)
-          to label %.noexc14.i unwind label %.loopexit905, !noalias !15437
+          to label %.noexc14.i unwind label %.loopexit906, !noalias !15437
 
 .noexc14.i:                                       ; preds = %.noexc.i467
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63), !noalias !15431
   store ptr %64, ptr %63, align 8, !noalias !15431
   store ptr %81, ptr %267, align 8, !noalias !15431
   %795 = invoke { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.15931924237846680735(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %81, i64 noundef %794, ptr noundef nonnull align 1 %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.29b274c106bd375417a33fd9878b57aa.167.llvm.15931924237846680735)
-          to label %.noexc15.i unwind label %.loopexit905, !noalias !15437
+          to label %.noexc15.i unwind label %.loopexit906, !noalias !15437
 
 .noexc15.i:                                       ; preds = %.noexc14.i
   %796 = extractvalue { i64, i64 } %795, 0
@@ -65242,14 +65242,14 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %66), !noalias !15430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 4 dereferenceable(20) %80, i64 20, i1 false), !noalias !15438
   %799 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hcd784a040265abc2E.llvm.15931924237846680735"(ptr noalias noundef nonnull align 8 dereferenceable(32) %81, i64 noundef %794, i64 noundef %798, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %66)
-          to label %.noexc16.i unwind label %.loopexit905, !noalias !15437
+          to label %.noexc16.i unwind label %.loopexit906, !noalias !15437
 
 .noexc16.i:                                       ; preds = %797
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %66), !noalias !15430
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h98ecc8a8dfd0a276E.exit.i"
 
-.body.i:                                          ; preds = %.loopexit905, %.loopexit.split-lp906, %.body24.thread121.i, %814
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body24.thread121.i ], [ %815, %814 ], [ %lpad.loopexit907, %.loopexit905 ], [ %lpad.loopexit.split-lp908, %.loopexit.split-lp906 ]
+.body.i:                                          ; preds = %.loopexit906, %.loopexit.split-lp907, %.body24.thread121.i, %814
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body24.thread121.i ], [ %815, %814 ], [ %lpad.loopexit908, %.loopexit906 ], [ %lpad.loopexit.split-lp909, %.loopexit.split-lp907 ]
   %800 = load i64, ptr %268, align 8, !alias.scope !15439, !noalias !15452, !noundef !12
   %801 = icmp eq i64 %800, 0
   br i1 %801, label %.body475, label %802
@@ -65262,13 +65262,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17hfd464836a4c10718E.llvm.9266542439947230232(ptr noalias noundef nonnull align 8 dereferenceable(32) %81, ptr noalias noundef nonnull readonly align 1 %266, i64 noundef 20, i64 noundef 16)
           to label %.body475 unwind label %998
 
-.loopexit905:                                     ; preds = %.noexc472, %.noexc.i467, %.noexc14.i, %797, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h98ecc8a8dfd0a276E.exit.i", %818, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hee29e22d01715953E.exit.i"
-  %lpad.loopexit907 = landingpad { ptr, i32 }
+.loopexit906:                                     ; preds = %.noexc472, %.noexc.i467, %.noexc14.i, %797, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h98ecc8a8dfd0a276E.exit.i", %818, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hee29e22d01715953E.exit.i"
+  %lpad.loopexit908 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp906:                            ; preds = %813
-  %lpad.loopexit.split-lp908 = landingpad { ptr, i32 }
+.loopexit.split-lp907:                            ; preds = %813
+  %lpad.loopexit.split-lp909 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -65277,7 +65277,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79), !noalias !15419
   store ptr %81, ptr %79, align 8, !noalias !15419
   invoke void @_ZN3hir9semantics14SemanticsScope17process_all_names17h6f3736c5be819595E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %160, ptr noundef nonnull align 1 %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.28)
-          to label %803 unwind label %.loopexit905, !noalias !15437
+          to label %803 unwind label %.loopexit906, !noalias !15437
 
 803:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h98ecc8a8dfd0a276E.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79), !noalias !15419
@@ -65305,7 +65305,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 813:                                              ; preds = %803
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #70
-          to label %.noexc17.i unwind label %.loopexit.split-lp906, !noalias !15437
+          to label %.noexc17.i unwind label %.loopexit.split-lp907, !noalias !15437
 
 .noexc17.i:                                       ; preds = %813
   unreachable
@@ -65325,10 +65325,10 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 818:                                              ; preds = %808
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62), !noalias !15454
   invoke void @_ZN3hir11term_search11LookupTable3new17h708e270d0beb78f1E(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, i64 }) align 8 dereferenceable(200) %78, i64 noundef %804, ptr noundef nonnull %805, ptr noundef nonnull %809)
-          to label %821 unwind label %.loopexit905, !noalias !15437
+          to label %821 unwind label %.loopexit906, !noalias !15437
 
 .body24.thread121.i:                              ; preds = %.body24.thread.i, %861, %.body24.i, %819
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body25120.i, %.body24.thread.i ], [ %lpad.thr_comm.split-lp.i, %.body24.i ], [ %820, %819 ], [ %lpad.phi914, %861 ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body25120.i, %.body24.thread.i ], [ %lpad.thr_comm.split-lp.i, %.body24.i ], [ %820, %819 ], [ %lpad.phi915, %861 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$hir..term_search..LookupTable$GT$17h2c82f1a75717c10eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %78) #71
           to label %.body.i unwind label %998, !noalias !15437
 
@@ -65510,20 +65510,20 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   store ptr %860, ptr %.sroa.0.sroa.6.0..sroa_idx.i471, align 8, !noalias !15494
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55), !noalias !15492
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hefded1e2b8c9a0d7E.llvm.15005499655690089915"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.72249de86b580934f12e637c635bc563.130.llvm.15005499655690089915)
-          to label %862 unwind label %.loopexit910, !noalias !15495
+          to label %862 unwind label %.loopexit911, !noalias !15495
 
-.loopexit910:                                     ; preds = %._crit_edge.i
-  %lpad.loopexit912 = landingpad { ptr, i32 }
+.loopexit911:                                     ; preds = %._crit_edge.i
+  %lpad.loopexit913 = landingpad { ptr, i32 }
           cleanup
   br label %861
 
-.loopexit.split-lp911:                            ; preds = %864
-  %lpad.loopexit.split-lp913 = landingpad { ptr, i32 }
+.loopexit.split-lp912:                            ; preds = %864
+  %lpad.loopexit.split-lp914 = landingpad { ptr, i32 }
           cleanup
   br label %861
 
-861:                                              ; preds = %.loopexit.split-lp911, %.loopexit910
-  %lpad.phi914 = phi { ptr, i32 } [ %lpad.loopexit912, %.loopexit910 ], [ %lpad.loopexit.split-lp913, %.loopexit.split-lp911 ]
+861:                                              ; preds = %.loopexit.split-lp912, %.loopexit911
+  %lpad.phi915 = phi { ptr, i32 } [ %lpad.loopexit913, %.loopexit911 ], [ %lpad.loopexit.split-lp914, %.loopexit.split-lp912 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb3854840f449d0ddE.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(32) %56)
           to label %.body24.thread121.i unwind label %865, !noalias !15495
 
@@ -65535,7 +65535,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 864:                                              ; preds = %862
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.72249de86b580934f12e637c635bc563.131.llvm.15005499655690089915, i64 noundef 70, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.72249de86b580934f12e637c635bc563.105.llvm.15005499655690089915, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.72249de86b580934f12e637c635bc563.133.llvm.15005499655690089915) #70
-          to label %.noexc.i29.i unwind label %.loopexit.split-lp911, !noalias !15495
+          to label %.noexc.i29.i unwind label %.loopexit.split-lp912, !noalias !15495
 
 .noexc.i29.i:                                     ; preds = %864
   unreachable
@@ -65562,7 +65562,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hee29e22d01715953E.exit.i": ; preds = %867
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77), !noalias !15419
   invoke void @"_ZN4core3ptr50drop_in_place$LT$hir..term_search..LookupTable$GT$17h2c82f1a75717c10eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %78)
-          to label %869 unwind label %.loopexit905, !noalias !15437
+          to label %869 unwind label %.loopexit906, !noalias !15437
 
 869:                                              ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hee29e22d01715953E.exit.i"
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %78), !noalias !15419
@@ -66082,9 +66082,9 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #72, !noalias !15437
   unreachable
 
-.body475:                                         ; preds = %1000, %.body.i, %.noexc655, %.thread819, %1019
-  %.2 = phi i8 [ %.5825, %.thread819 ], [ %.5, %1019 ], [ 1, %.noexc655 ], [ 1, %.body.i ], [ 1, %1000 ]
-  %.pn289 = phi { ptr, i32 } [ %.pn287826, %.thread819 ], [ %.pn287, %1019 ], [ %.pn.pn.i, %.noexc655 ], [ %.pn.pn.i, %.body.i ], [ %1001, %1000 ]
+.body475:                                         ; preds = %1000, %.body.i, %.noexc655, %.thread820, %1019
+  %.3 = phi i8 [ %.6826, %.thread820 ], [ %.6, %1019 ], [ 1, %.noexc655 ], [ 1, %.body.i ], [ 1, %1000 ]
+  %.pn289 = phi { ptr, i32 } [ %.pn287827, %.thread820 ], [ %.pn287, %1019 ], [ %.pn.pn.i, %.noexc655 ], [ %.pn.pn.i, %.body.i ], [ %1001, %1000 ]
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %158)
           to label %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit" unwind label %528
 
@@ -66128,13 +66128,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
           to label %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit479" unwind label %1011
 
 "_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit": ; preds = %.body475, %1011, %790
-  %.3 = phi i8 [ %.4, %1011 ], [ 1, %790 ], [ %.2, %.body475 ]
+  %.2 = phi i8 [ %.5, %1011 ], [ 1, %790 ], [ %.3, %.body475 ]
   %.pn291 = phi { ptr, i32 } [ %1012, %1011 ], [ %791, %790 ], [ %.pn289, %.body475 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$hir_def..resolver..Resolver$GT$17hfb07ad450ed192adE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %160)
           to label %"_ZN4core3ptr51drop_in_place$LT$hir..semantics..SemanticsScope$GT$17hcb2413d83fdf7baaE.exit" unwind label %528
 
 1011:                                             ; preds = %1114, %1010
-  %.4 = phi i8 [ 1, %1010 ], [ 0, %1114 ]
+  %.5 = phi i8 [ 1, %1010 ], [ 0, %1114 ]
   %1012 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr80drop_in_place$LT$hir..term_search..TermSearchCtx$LT$ide_db..RootDatabase$GT$$GT$17h6dbc86fc1dc4a79cE.exit"
@@ -66150,7 +66150,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   br label %1014
 
 1014:                                             ; preds = %741, %1013
-  %.8 = phi i8 [ 1, %741 ], [ %.7259, %1013 ]
+  %.5257 = phi i8 [ 1, %741 ], [ %.8, %1013 ]
   %.val340 = load ptr, ptr %257, align 8, !nonnull !12, !noundef !12
   %1015 = getelementptr inbounds i8, ptr %.val340, i64 48
   %1016 = load i32, ptr %1015, align 4, !noalias !12, !noundef !12
@@ -66164,14 +66164,14 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
           to label %.noexc484 unwind label %725
 
 1019:                                             ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit", %1021
-  %.0242 = phi i8 [ %.6, %1021 ], [ %.2244, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" ]
-  %.5 = phi i8 [ %.6, %1021 ], [ %.7, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" ]
+  %.1243 = phi i8 [ %.4, %1021 ], [ %.3245, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" ]
+  %.6 = phi i8 [ %.4, %1021 ], [ %.7, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" ]
   %.pn287 = phi { ptr, i32 } [ %1022, %1021 ], [ %.pn285, %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" ]
-  %1020 = trunc nuw i8 %.0242 to i1
-  br i1 %1020, label %.thread819, label %.body475
+  %1020 = trunc nuw i8 %.1243 to i1
+  br i1 %1020, label %.thread820, label %.body475
 
 1021:                                             ; preds = %_ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7e45ae2fE.exit, %1008
-  %.6 = phi i8 [ 1, %1008 ], [ 0, %_ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7e45ae2fE.exit ]
+  %.4 = phi i8 [ 1, %1008 ], [ 0, %_ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7e45ae2fE.exit ]
   %1022 = landingpad { ptr, i32 }
           cleanup
   br label %1019
@@ -66194,20 +66194,20 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   store ptr %40, ptr %290, align 8, !noalias !15705
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.47, ptr %291, align 8, !noalias !15705
   %1026 = invoke noundef zeroext i1 @"_ZN74_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$core..fmt..Display$GT$3fmt17hb483e5dedbb70bddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %153, ptr noalias noundef nonnull align 8 dereferenceable(64) %39)
-          to label %1028 unwind label %.loopexit915, !noalias !15709
+          to label %1028 unwind label %.loopexit916, !noalias !15709
 
-.loopexit915:                                     ; preds = %1023
-  %lpad.loopexit917 = landingpad { ptr, i32 }
+.loopexit916:                                     ; preds = %1023
+  %lpad.loopexit918 = landingpad { ptr, i32 }
           cleanup
   br label %1027
 
-.loopexit.split-lp916:                            ; preds = %1029
-  %lpad.loopexit.split-lp918 = landingpad { ptr, i32 }
+.loopexit.split-lp917:                            ; preds = %1029
+  %lpad.loopexit.split-lp919 = landingpad { ptr, i32 }
           cleanup
   br label %1027
 
-1027:                                             ; preds = %.loopexit.split-lp916, %.loopexit915
-  %lpad.phi919 = phi { ptr, i32 } [ %lpad.loopexit917, %.loopexit915 ], [ %lpad.loopexit.split-lp918, %.loopexit.split-lp916 ]
+1027:                                             ; preds = %.loopexit.split-lp917, %.loopexit916
+  %lpad.phi920 = phi { ptr, i32 } [ %lpad.loopexit918, %.loopexit916 ], [ %lpad.loopexit.split-lp919, %.loopexit.split-lp917 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40) #71
           to label %.body489 unwind label %1030, !noalias !15709
 
@@ -66217,7 +66217,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 1029:                                             ; preds = %1028
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.48, i64 noundef 55, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.50) #70
-          to label %.noexc.i488 unwind label %.loopexit.split-lp916, !noalias !15709
+          to label %.noexc.i488 unwind label %.loopexit.split-lp917, !noalias !15709
 
 .noexc.i488:                                      ; preds = %1029
   unreachable
@@ -66235,11 +66235,11 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   %1034 = add i32 %1033, -1
   store i32 %1034, ptr %1032, align 4, !noalias !12
   %1035 = icmp eq i32 %1034, 0
-  br i1 %1035, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491", label %.thread819
+  br i1 %1035, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491", label %.thread820
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491": ; preds = %.body489
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val338)
-          to label %.thread819 unwind label %528
+          to label %.thread820 unwind label %528
 
 1036:                                             ; preds = %1028
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %7), !noalias !15705
@@ -66259,14 +66259,14 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
           to label %1043 unwind label %1041
 
 "_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit": ; preds = %1102, %.thread.i503, %1072, %1067, %.body506, %1046, %1132, %1041
-  %.2244 = phi i8 [ 0, %1132 ], [ 0, %.body506 ], [ %.3245, %1041 ], [ 0, %1046 ], [ 0, %1067 ], [ 0, %1072 ], [ 0, %.thread.i503 ], [ 0, %1102 ]
+  %.3245 = phi i8 [ 0, %1132 ], [ 0, %.body506 ], [ %.2244, %1041 ], [ 0, %1046 ], [ 0, %1067 ], [ 0, %1072 ], [ 0, %.thread.i503 ], [ 0, %1102 ]
   %.7 = phi i8 [ 0, %1132 ], [ 0, %.body506 ], [ 1, %1041 ], [ 1, %1046 ], [ 0, %1067 ], [ 0, %1072 ], [ 0, %.thread.i503 ], [ 0, %1102 ]
   %.pn285 = phi { ptr, i32 } [ %lpad.thr_comm, %1132 ], [ %lpad.thr_comm.split-lp, %.body506 ], [ %1042, %1041 ], [ %.pn279.pn.pn.pn.pn, %1046 ], [ %1068, %1067 ], [ %1073, %1072 ], [ %1080, %.thread.i503 ], [ %1073, %1102 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %154) #71
           to label %1019 unwind label %528
 
 1041:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i494"
-  %.3245 = phi i8 [ 1, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i494" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread" ]
+  %.2244 = phi i8 [ 1, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i494" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread" ]
   %1042 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit"
@@ -66275,17 +66275,17 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %153)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152)
   store ptr %154, ptr %152, align 8
-  %.sroa.0673.0.copyload = load i64, ptr %155, align 8
-  %.sroa.4674.0.copyload = load ptr, ptr %.sroa.4674.0..sroa_idx, align 8, !nonnull !12, !noundef !12
-  %.sroa.5675.0.copyload = load i64, ptr %284, align 8
-  %1044 = getelementptr inbounds { i32, [15 x i32] }, ptr %.sroa.4674.0.copyload, i64 %.sroa.5675.0.copyload
+  %.sroa.0674.0.copyload = load i64, ptr %155, align 8
+  %.sroa.4675.0.copyload = load ptr, ptr %.sroa.4675.0..sroa_idx, align 8, !nonnull !12, !noundef !12
+  %.sroa.5676.0.copyload = load i64, ptr %284, align 8
+  %1044 = getelementptr inbounds { i32, [15 x i32] }, ptr %.sroa.4675.0.copyload, i64 %.sroa.5676.0.copyload
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
-  store ptr %.sroa.4674.0.copyload, ptr %151, align 8
-  store ptr %.sroa.4674.0.copyload, ptr %.sroa.4670.0..sroa_idx, align 8
-  store i64 %.sroa.0673.0.copyload, ptr %.sroa.5671.0..sroa_idx, align 8
-  store ptr %1044, ptr %.sroa.6672.0..sroa_idx, align 8
+  store ptr %.sroa.4675.0.copyload, ptr %151, align 8
+  store ptr %.sroa.4675.0.copyload, ptr %.sroa.4671.0..sroa_idx, align 8
+  store i64 %.sroa.0674.0.copyload, ptr %.sroa.5672.0..sroa_idx, align 8
+  store ptr %1044, ptr %.sroa.6673.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.8)
-  %1045 = icmp eq i64 %.sroa.5675.0.copyload, 0
+  %1045 = icmp eq i64 %.sroa.5676.0.copyload, 0
   br i1 %1045, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit"
 
 1046:                                             ; preds = %1133, %1047
@@ -66299,27 +66299,27 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   br label %1046
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit": ; preds = %1043, %.backedge
-  %1049 = phi ptr [ %1507, %.backedge ], [ %.sroa.4674.0.copyload, %1043 ]
-  %.0274.shrunk1489 = phi i1 [ %1164, %.backedge ], [ false, %1043 ]
+  %1049 = phi ptr [ %1507, %.backedge ], [ %.sroa.4675.0.copyload, %1043 ]
+  %.0274.shrunk1490 = phi i1 [ %1164, %.backedge ], [ false, %1043 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15711)
   %1050 = getelementptr inbounds i8, ptr %1049, i64 64
-  store ptr %1050, ptr %.sroa.4670.0..sroa_idx, align 8, !alias.scope !15711, !noalias !15714
-  %.sroa.0676.0.copyload677 = load i32, ptr %1049, align 8, !noalias !15711
-  %.sroa.8.0..sroa_idx679 = getelementptr inbounds i8, ptr %1049, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx679, i64 60, i1 false), !noalias !15711
-  %1051 = icmp eq i32 %.sroa.0676.0.copyload677, 13
+  store ptr %1050, ptr %.sroa.4671.0..sroa_idx, align 8, !alias.scope !15711, !noalias !15714
+  %.sroa.0677.0.copyload678 = load i32, ptr %1049, align 8, !noalias !15711
+  %.sroa.8.0..sroa_idx680 = getelementptr inbounds i8, ptr %1049, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx680, i64 60, i1 false), !noalias !15711
+  %1051 = icmp eq i32 %.sroa.0677.0.copyload678, 13
   br i1 %1051, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread", label %1052
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit", %.backedge, %1043
-  %.0274.shrunk.lcssa = phi i1 [ false, %1043 ], [ %1164, %.backedge ], [ %.0274.shrunk1489, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit" ]
+  %.0274.shrunk.lcssa = phi i1 [ false, %1043 ], [ %1164, %.backedge ], [ %.0274.shrunk1490, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit" ]
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.8)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb3854840f449d0ddE.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(32) %151)
           to label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit502" unwind label %1041
 
 1052:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit"
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %150)
-  store i32 %.sroa.0676.0.copyload677, ptr %150, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx678, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8, i64 60, i1 false)
+  store i32 %.sroa.0677.0.copyload678, ptr %150, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx679, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8, i64 60, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %149)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %148)
   invoke void @_ZN3hir11term_search4expr4Expr15gen_source_code17h1434f5a789e2461aE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %148, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %150, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %160, ptr noundef nonnull align 1 %152, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.628, i1 noundef zeroext false, i1 noundef zeroext true)
@@ -66564,7 +66564,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 
 1124:                                             ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit517"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1119)
-          to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit519" unwind label %.loopexit900
+          to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit519" unwind label %.loopexit901
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit519": ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit517", %1124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168)
@@ -66578,7 +66578,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i520": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit519"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val332)
-          to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit522" unwind label %.loopexit895
+          to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit522" unwind label %.loopexit896
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h4f783bc95bc8176bE.exit522": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17hdfbfb5a61f1c869cE.exit519", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i520"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %169)
@@ -66594,8 +66594,8 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   invoke void @"_ZN4core3ptr160drop_in_place$LT$rust_analyzer..cli..analysis_stats..$LT$impl$u20$rust_analyzer..cli..flags..AnalysisStats$GT$..run_term_search..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbeab66213628a513E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %134) #71
           to label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" unwind label %528
 
-1133:                                             ; preds = %.loopexit, %.loopexit.split-lp, %.thread835, %.body527
-  %.pn279.pn.pn.pn = phi { ptr, i32 } [ %.pn279.pn.pn840, %.thread835 ], [ %.pn279.pn.pn, %.body527 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+1133:                                             ; preds = %.loopexit, %.loopexit.split-lp, %.thread836, %.body527
+  %.pn279.pn.pn.pn = phi { ptr, i32 } [ %.pn279.pn.pn841, %.thread836 ], [ %.pn279.pn.pn, %.body527 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17hc753631a3e799948E.llvm.15439407322995335751"(ptr noalias noundef nonnull align 8 dereferenceable(64) %150) #71
           to label %1046 unwind label %528
 
@@ -66645,7 +66645,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   %1145 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #71
-          to label %.thread835 unwind label %1146, !noalias !15777
+          to label %.thread836 unwind label %1146, !noalias !15777
 
 1146:                                             ; preds = %1144
   %1147 = landingpad { ptr, i32 }
@@ -66654,13 +66654,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   unreachable
 
 .body527:                                         ; preds = %1149, %1532, %.body550
-  %.0260 = phi i8 [ %.2262, %1532 ], [ %.2262, %.body550 ], [ %.1261, %1149 ]
+  %.1261 = phi i8 [ %.3263, %1532 ], [ %.3263, %.body550 ], [ %.0260, %1149 ]
   %.pn279.pn.pn = phi { ptr, i32 } [ %.pn279.pn, %1532 ], [ %.pn279.pn, %.body550 ], [ %1150, %1149 ]
-  %1148 = trunc nuw i8 %.0260 to i1
-  br i1 %1148, label %.thread835, label %1133
+  %1148 = trunc nuw i8 %.1261 to i1
+  br i1 %1148, label %.thread836, label %1133
 
 1149:                                             ; preds = %1516, %1171
-  %.1261 = phi i8 [ 1, %1171 ], [ %.6266, %1516 ]
+  %.0260 = phi i8 [ 1, %1171 ], [ %.6266, %1516 ]
   %1150 = landingpad { ptr, i32 }
           cleanup
   br label %.body527
@@ -66694,7 +66694,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 .body531:                                         ; preds = %1159, %1155
   %.pn = phi { ptr, i32 } [ %1160, %1159 ], [ %1156, %1155 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %147) #71
-          to label %.thread835 unwind label %528
+          to label %.thread836 unwind label %528
 
 1159:                                             ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd2f0e6583fe12b65E.exit"
   %1160 = landingpad { ptr, i32 }
@@ -66718,7 +66718,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd2f0e6583fe12b65E.exit": ; preds = %1162, %1161
   %.0.i.i = phi i1 [ %1163, %1162 ], [ false, %1161 ]
-  %1164 = or i1 %.0274.shrunk1489, %.0.i.i
+  %1164 = or i1 %.0274.shrunk1490, %.0.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !15791
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %146)
           to label %.noexc535 unwind label %1159
@@ -66780,22 +66780,22 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.47, ptr %309, align 8, !noalias !15809
   %1179 = getelementptr inbounds i8, ptr %.val327, i64 8
   %1180 = invoke noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %1179, i64 noundef %.val328, ptr noalias noundef nonnull align 8 dereferenceable(64) %30)
-          to label %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i542" unwind label %.loopexit880, !noalias !15809
+          to label %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i542" unwind label %.loopexit881, !noalias !15809
 
-.loopexit880:                                     ; preds = %1178
-  %lpad.loopexit882 = landingpad { ptr, i32 }
+.loopexit881:                                     ; preds = %1178
+  %lpad.loopexit883 = landingpad { ptr, i32 }
           cleanup
   br label %1181
 
-.loopexit.split-lp881:                            ; preds = %1182
-  %lpad.loopexit.split-lp883 = landingpad { ptr, i32 }
+.loopexit.split-lp882:                            ; preds = %1182
+  %lpad.loopexit.split-lp884 = landingpad { ptr, i32 }
           cleanup
   br label %1181
 
-1181:                                             ; preds = %.loopexit.split-lp881, %.loopexit880
-  %lpad.phi884 = phi { ptr, i32 } [ %lpad.loopexit882, %.loopexit880 ], [ %lpad.loopexit.split-lp883, %.loopexit.split-lp881 ]
+1181:                                             ; preds = %.loopexit.split-lp882, %.loopexit881
+  %lpad.phi885 = phi { ptr, i32 } [ %lpad.loopexit883, %.loopexit881 ], [ %lpad.loopexit.split-lp884, %.loopexit.split-lp882 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #71
-          to label %.thread835 unwind label %1183, !noalias !15809
+          to label %.thread836 unwind label %1183, !noalias !15809
 
 "_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i542": ; preds = %1178
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !15809
@@ -66803,7 +66803,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 
 1182:                                             ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hf4c937af60381597E.exit.i542"
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.48, i64 noundef 55, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.50) #70
-          to label %.noexc.i543 unwind label %.loopexit.split-lp881, !noalias !15809
+          to label %.noexc.i543 unwind label %.loopexit.split-lp882, !noalias !15809
 
 .noexc.i543:                                      ; preds = %1182
   unreachable
@@ -66825,15 +66825,15 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
           to label %1189 unwind label %1187
 
 .body550:                                         ; preds = %1197, %1187, %.body
-  %.0269 = phi i8 [ %.2271, %.body ], [ %.1270, %1187 ], [ %.4273, %1197 ]
-  %.2262 = phi i8 [ %.4264, %.body ], [ %.3263, %1187 ], [ %.6266, %1197 ]
+  %.1270 = phi i8 [ %.3272, %.body ], [ %.0269, %1187 ], [ %.4273, %1197 ]
+  %.3263 = phi i8 [ %.5265, %.body ], [ %.2262, %1187 ], [ %.6266, %1197 ]
   %.pn279.pn = phi { ptr, i32 } [ %.pn279, %.body ], [ %1188, %1187 ], [ %1198, %1197 ]
-  %1186 = trunc nuw i8 %.0269 to i1
+  %1186 = trunc nuw i8 %.1270 to i1
   br i1 %1186, label %1532, label %.body527
 
 1187:                                             ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i625", %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i", %1189, %1185
-  %.1270 = phi i8 [ 1, %1189 ], [ 1, %1185 ], [ %.4273, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i" ], [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i625" ]
-  %.3263 = phi i8 [ 1, %1189 ], [ 1, %1185 ], [ %.6266, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i" ], [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i625" ]
+  %.0269 = phi i8 [ 1, %1189 ], [ 1, %1185 ], [ %.4273, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i" ], [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i625" ]
+  %.2262 = phi i8 [ 1, %1189 ], [ 1, %1185 ], [ %.6266, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i" ], [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i625" ]
   %1188 = landingpad { ptr, i32 }
           cleanup
   br label %.body550
@@ -66848,15 +66848,15 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
           to label %1193 unwind label %1191
 
 .body:                                            ; preds = %.body.i564, %1240, %1229, %1209, %1191, %.body602
-  %.2271 = phi i8 [ 0, %.body602 ], [ %.3272, %1191 ], [ 0, %1209 ], [ 0, %1229 ], [ 0, %1240 ], [ 0, %.body.i564 ]
-  %.4264 = phi i8 [ %.7267.lpad-body, %.body602 ], [ %.5265, %1191 ], [ 1, %1209 ], [ 1, %1229 ], [ 1, %1240 ], [ %.8268, %.body.i564 ]
+  %.3272 = phi i8 [ 0, %.body602 ], [ %.2271, %1191 ], [ 0, %1209 ], [ 0, %1229 ], [ 0, %1240 ], [ 0, %.body.i564 ]
+  %.5265 = phi i8 [ %.7267.lpad-body, %.body602 ], [ %.4264, %1191 ], [ 1, %1209 ], [ 1, %1229 ], [ 1, %1240 ], [ %.8268, %.body.i564 ]
   %.pn279 = phi { ptr, i32 } [ %eh.lpad-body603, %.body602 ], [ %1192, %1191 ], [ %1210, %1209 ], [ %1230, %1229 ], [ %1241, %1240 ], [ %eh.lpad-body.i, %.body.i564 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$text_edit..TextEdit$GT$17h9c1a3aa0896792f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %144) #71
           to label %.body550 unwind label %528
 
 1191:                                             ; preds = %1347, %1217, %1383, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit", %1190
-  %.3272 = phi i8 [ 0, %1383 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit" ], [ 1, %1190 ], [ 0, %1217 ], [ 0, %1347 ]
-  %.5265 = phi i8 [ 1, %1383 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit" ], [ 1, %1190 ], [ 1, %1217 ], [ %.8268, %1347 ]
+  %.2271 = phi i8 [ 0, %1383 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit" ], [ 1, %1190 ], [ 0, %1217 ], [ 0, %1347 ]
+  %.4264 = phi i8 [ 1, %1383 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7bc0a3bc54a01bd2E.exit" ], [ 1, %1190 ], [ 1, %1217 ], [ %.8268, %1347 ]
   %1192 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -67020,22 +67020,22 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %141, ptr noundef nonnull align 8 dereferenceable(48) %140, i64 48, i1 false), !alias.scope !15852
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %140)
   %1246 = invoke { ptr, i64 } @_ZN13project_model13build_scripts21WorkspaceBuildScripts5error17hd7bd4c06ddbbb412E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %141)
-          to label %1247 unwind label %.loopexit885
+          to label %1247 unwind label %.loopexit886
 
-.loopexit885:                                     ; preds = %1245, %1388, %1397, %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit, %1431, %1433, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642, %.thread841, %.noexc573, %.thread849, %.noexc598, %1414, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i", %1425, %.noexc608, %1446, %1509
-  %.7267.ph = phi i8 [ 1, %1509 ], [ 0, %1446 ], [ 1, %.noexc608 ], [ 1, %1425 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i" ], [ 1, %1414 ], [ 1, %.noexc598 ], [ 1, %.thread849 ], [ 1, %.noexc573 ], [ 1, %.thread841 ], [ 1, %1245 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642 ], [ 1, %1388 ], [ 1, %1397 ], [ 0, %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit ], [ 0, %1431 ], [ 0, %1433 ]
-  %lpad.loopexit887 = landingpad { ptr, i32 }
+.loopexit886:                                     ; preds = %1245, %1388, %1397, %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit, %1431, %1433, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642, %.thread842, %.noexc573, %.thread850, %.noexc598, %1414, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i", %1425, %.noexc608, %1446, %1509
+  %.7267.ph = phi i8 [ 1, %1509 ], [ 0, %1446 ], [ 1, %.noexc608 ], [ 1, %1425 ], [ 1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i" ], [ 1, %1414 ], [ 1, %.noexc598 ], [ 1, %.thread850 ], [ 1, %.noexc573 ], [ 1, %.thread842 ], [ 1, %1245 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642 ], [ 1, %1388 ], [ 1, %1397 ], [ 0, %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit ], [ 0, %1431 ], [ 0, %1433 ]
+  %lpad.loopexit888 = landingpad { ptr, i32 }
           cleanup
   br label %.body602
 
-.loopexit.split-lp886:                            ; preds = %1379
-  %lpad.loopexit.split-lp888 = landingpad { ptr, i32 }
+.loopexit.split-lp887:                            ; preds = %1379
+  %lpad.loopexit.split-lp889 = landingpad { ptr, i32 }
           cleanup
   br label %.body602
 
-.body602:                                         ; preds = %.loopexit885, %.loopexit.split-lp886, %1456, %1412
-  %.7267.lpad-body = phi i8 [ 1, %1412 ], [ 0, %1456 ], [ %.7267.ph, %.loopexit885 ], [ 1, %.loopexit.split-lp886 ]
-  %eh.lpad-body603 = phi { ptr, i32 } [ %1413, %1412 ], [ %1457, %1456 ], [ %lpad.loopexit887, %.loopexit885 ], [ %lpad.loopexit.split-lp888, %.loopexit.split-lp886 ]
+.body602:                                         ; preds = %.loopexit886, %.loopexit.split-lp887, %1456, %1412
+  %.7267.lpad-body = phi i8 [ 1, %1412 ], [ 0, %1456 ], [ %.7267.ph, %.loopexit886 ], [ 1, %.loopexit.split-lp887 ]
+  %eh.lpad-body603 = phi { ptr, i32 } [ %1413, %1412 ], [ %1457, %1456 ], [ %lpad.loopexit888, %.loopexit886 ], [ %lpad.loopexit.split-lp889, %.loopexit.split-lp887 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$project_model..build_scripts..WorkspaceBuildScripts$GT$17h169ba0bbae93be63E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %141) #71
           to label %.body unwind label %528
 
@@ -67062,7 +67062,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 
 1254:                                             ; preds = %1249
   %.not.i.i558 = icmp eq i64 %1250, 24
-  br i1 %.not.i.i558, label %1255, label %.thread844
+  br i1 %.not.i.i558, label %1255, label %.thread845
 
 1255:                                             ; preds = %1254
   %bcmp.i.i559 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, ptr noundef nonnull readonly dereferenceable(24) %1248, i64 24), !alias.scope !15863
@@ -67077,26 +67077,26 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   store ptr getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 1), ptr %319, align 8, !noalias !15867
   store i64 23, ptr %320, align 8, !noalias !15867
   %1259 = icmp ugt i64 %1250, 87
-  br i1 %1259, label %.lr.ph.i38.i.preheader, label %._crit_edge.i.i
+  br i1 %1259, label %.lr.ph.i37.i.preheader, label %._crit_edge.i.i
 
-.lr.ph.i38.i.preheader:                           ; preds = %1258
-  %invariant.gep1488 = getelementptr i8, ptr %1248, i64 1
-  br label %.lr.ph.i38.i
+.lr.ph.i37.i.preheader:                           ; preds = %1258
+  %invariant.gep1489 = getelementptr i8, ptr %1248, i64 1
+  br label %.lr.ph.i37.i
 
-.lr.ph.i38.i:                                     ; preds = %.lr.ph.i38.i.preheader, %1272
-  %.062142.i.i = phi i64 [ %1273, %1272 ], [ 0, %.lr.ph.i38.i.preheader ]
-  %.064141.i.i = phi i8 [ %.2.i.i, %1272 ], [ 0, %.lr.ph.i38.i.preheader ]
+.lr.ph.i37.i:                                     ; preds = %.lr.ph.i37.i.preheader, %1272
+  %.062142.i.i = phi i64 [ %1273, %1272 ], [ 0, %.lr.ph.i37.i.preheader ]
+  %.064141.i.i = phi i8 [ %.3.i.i, %1272 ], [ 0, %.lr.ph.i37.i.preheader ]
   %1260 = trunc i8 %.064141.i.i to i1
   br i1 %1260, label %._crit_edge.i.i, label %1263
 
-._crit_edge.i.i:                                  ; preds = %1272, %.lr.ph.i38.i, %1258
-  %.064.lcssa.i.i = phi i8 [ 0, %1258 ], [ %.2.i.i, %1272 ], [ %.064141.i.i, %.lr.ph.i38.i ]
-  %.062.lcssa.i.i = phi i64 [ 0, %1258 ], [ %1273, %1272 ], [ %.062142.i.i, %.lr.ph.i38.i ]
+._crit_edge.i.i:                                  ; preds = %1272, %.lr.ph.i37.i, %1258
+  %.064.lcssa.i.i = phi i8 [ 0, %1258 ], [ %.3.i.i, %1272 ], [ %.064141.i.i, %.lr.ph.i37.i ]
+  %.062.lcssa.i.i = phi i64 [ 0, %1258 ], [ %1273, %1272 ], [ %.062142.i.i, %.lr.ph.i37.i ]
   %1261 = add i64 %.062.lcssa.i.i, 39
   %1262 = icmp ult i64 %1261, %1250
   br i1 %1262, label %.lr.ph150.i.i, label %._crit_edge151.i.i
 
-1263:                                             ; preds = %.lr.ph.i38.i
+1263:                                             ; preds = %.lr.ph.i37.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !15867
   store i64 0, ptr %26, align 8, !noalias !15867
   %invariant.gep.i.i = getelementptr i8, ptr %1248, i64 %.062142.i.i
@@ -67115,11 +67115,11 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   %1270 = and <16 x i1> %1269, %1268
   %1271 = getelementptr inbounds [4 x i16], ptr %26, i64 0, i64 %.sroa.019.0138.i.i
   store <16 x i1> %1270, ptr %1271, align 2, !noalias !15867
-  %exitcond.not.i39.i = icmp eq i64 %1265, 4
-  br i1 %exitcond.not.i39.i, label %.preheader.i.i.preheader, label %1264
+  %exitcond.not.i38.i = icmp eq i64 %1265, 4
+  br i1 %exitcond.not.i38.i, label %.preheader.i.i.preheader, label %1264
 
 .preheader.i.i.preheader:                         ; preds = %1264
-  %gep = getelementptr i8, ptr %invariant.gep1488, i64 %.062142.i.i
+  %gep = getelementptr i8, ptr %invariant.gep1489, i64 %.062142.i.i
   br label %.preheader.i.i
 
 1272:                                             ; preds = %1279
@@ -67127,11 +67127,11 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26), !noalias !15867
   %.reass.i = add i64 %.062142.i.i, 151
   %1274 = icmp ult i64 %.reass.i, %1250
-  br i1 %1274, label %.lr.ph.i38.i, label %._crit_edge.i.i
+  br i1 %1274, label %.lr.ph.i37.i, label %._crit_edge.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %1279
   %.sroa.025.0140.i.i = phi i64 [ %1275, %1279 ], [ 0, %.preheader.i.i.preheader ]
-  %.165139.i.i = phi i8 [ %.2.i.i, %1279 ], [ %.064141.i.i, %.preheader.i.i.preheader ]
+  %.2139.i.i = phi i8 [ %.3.i.i, %1279 ], [ %.064141.i.i, %.preheader.i.i.preheader ]
   %1275 = add nuw nsw i64 %.sroa.025.0140.i.i, 1
   %1276 = getelementptr inbounds [4 x i16], ptr %26, i64 0, i64 %.sroa.025.0140.i.i
   %1277 = load i16, ptr %1276, align 2, !noalias !15867, !noundef !12
@@ -67139,24 +67139,24 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   br i1 %1278, label %1279, label %1280
 
 1279:                                             ; preds = %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE.exit", %.preheader.i.i
-  %.2.i.i = phi i8 [ %.165139.i.i, %.preheader.i.i ], [ %1295, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE.exit" ]
+  %.3.i.i = phi i8 [ %.2139.i.i, %.preheader.i.i ], [ %1295, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE.exit" ]
   %exitcond157.not.i.i = icmp eq i64 %1275, 4
   br i1 %exitcond157.not.i.i, label %1272, label %.preheader.i.i
 
 1280:                                             ; preds = %.preheader.i.i
-  %1281 = trunc i8 %.165139.i.i to i1
+  %1281 = trunc i8 %.2139.i.i to i1
   br i1 %1281, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE.exit", label %.lr.ph.i657
 
 .lr.ph.i657:                                      ; preds = %1280
   %1282 = shl nuw nsw i64 %.sroa.025.0140.i.i, 4
-  %gep1487 = getelementptr i8, ptr %gep, i64 %1282
+  %gep1488 = getelementptr i8, ptr %gep, i64 %1282
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i657, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i
   %.01220.i = phi i16 [ %1294, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i ], [ %1277, %.lr.ph.i657 ]
   %1283 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01220.i, i1 true)
   %1284 = zext nneg i16 %1283 to i64
-  %gep23.i = getelementptr i8, ptr %gep1487, i64 %1284
+  %gep23.i = getelementptr i8, ptr %gep1488, i64 %1284
   call void @llvm.experimental.noalias.scope.decl(metadata !15872)
   call void @llvm.experimental.noalias.scope.decl(metadata !15875)
   %1285 = getelementptr i8, ptr %gep23.i, i64 19
@@ -67168,8 +67168,8 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
   %.01829.i.i = phi ptr [ %1288, %1287 ], [ %gep23.i, %.lr.ph.split.i ]
   %.0.copyload.i.i = load i32, ptr %.01829.i.i, align 1, !alias.scope !15872, !noalias !15877
   %.0.copyload11.i.i = load i32, ptr %.01730.i.i, align 1, !alias.scope !15875, !noalias !15880
-  %.not.i.i659 = icmp eq i32 %.0.copyload.i.i, %.0.copyload11.i.i
-  br i1 %.not.i.i659, label %1287, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i
+  %.not.i.i660 = icmp eq i32 %.0.copyload.i.i, %.0.copyload11.i.i
+  br i1 %.not.i.i660, label %1287, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i
 
 1287:                                             ; preds = %.lr.ph.i.i
   %1288 = getelementptr inbounds i8, ptr %.01829.i.i, i64 4
@@ -67190,18 +67190,18 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   br i1 %.not.i658, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE.exit", label %.lr.ph.split.i
 
 "_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE.exit": ; preds = %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.i, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i, %1280
-  %.1.i = phi i8 [ 0, %1280 ], [ 1, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.i ], [ 0, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i ]
-  %1295 = or i8 %.1.i, %.165139.i.i
+  %.0.i659 = phi i8 [ 0, %1280 ], [ 1, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.i ], [ 0, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i ]
+  %1295 = or i8 %.0.i659, %.2139.i.i
   br label %1279
 
 .lr.ph150.i.i:                                    ; preds = %._crit_edge.i.i, %1313
   %.163148.i.i = phi i64 [ %1314, %1313 ], [ %.062.lcssa.i.i, %._crit_edge.i.i ]
-  %.3147.i.i = phi i8 [ %.4.i.i, %1313 ], [ %.064.lcssa.i.i, %._crit_edge.i.i ]
-  %1296 = trunc i8 %.3147.i.i to i1
+  %.165147.i.i = phi i8 [ %.5.i.i, %1313 ], [ %.064.lcssa.i.i, %._crit_edge.i.i ]
+  %1296 = trunc i8 %.165147.i.i to i1
   br i1 %1296, label %._crit_edge151.i.i, label %1305
 
 ._crit_edge151.i.i:                               ; preds = %1313, %.lr.ph150.i.i, %._crit_edge.i.i
-  %.3.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.4.i.i, %1313 ], [ %.3147.i.i, %.lr.ph150.i.i ]
+  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %1313 ], [ %.165147.i.i, %.lr.ph150.i.i ]
   %1297 = add i64 %1250, -39
   %1298 = getelementptr inbounds i8, ptr %1248, i64 %1297
   %.0.copyload.i80.i.i = load <16 x i8>, ptr %1298, align 1, !alias.scope !15868, !noalias !15881
@@ -67227,10 +67227,10 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   br i1 %1312, label %1313, label %1316
 
 1313:                                             ; preds = %1316, %1305
-  %.4.i.i = phi i8 [ %.3147.i.i, %1305 ], [ %1318, %1316 ]
+  %.5.i.i = phi i8 [ %.165147.i.i, %1305 ], [ %1318, %1316 ]
   %1314 = add i64 %.163148.i.i, 16
-  %.reass46.i = add i64 %.163148.i.i, 55
-  %1315 = icmp ult i64 %.reass46.i, %1250
+  %.reass45.i = add i64 %.163148.i.i, 55
+  %1315 = icmp ult i64 %.reass45.i, %1250
   br i1 %1315, label %.lr.ph150.i.i, label %._crit_edge151.i.i
 
 1316:                                             ; preds = %1305
@@ -67239,12 +67239,12 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   br label %1313
 
 1319:                                             ; preds = %1320, %._crit_edge151.i.i
-  %.5.i.i = phi i8 [ %.3.lcssa.i.i, %._crit_edge151.i.i ], [ %1324, %1320 ]
+  %.4.i.i = phi i8 [ %.165.lcssa.i.i, %._crit_edge151.i.i ], [ %1324, %1320 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !15867
   br label %1356
 
 1320:                                             ; preds = %._crit_edge151.i.i
-  %1321 = trunc i8 %.3.lcssa.i.i to i1
+  %1321 = trunc i8 %.165.lcssa.i.i to i1
   %1322 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h6ca9d52889c220bbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, i64 noundef %1297, i16 noundef %1303, i1 noundef zeroext %1321)
   %1323 = or i1 %1322, %1321
   %1324 = zext i1 %1323 to i8
@@ -67253,23 +67253,23 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
 .lr.ph.split.us.i.i.i:                            ; preds = %1252
   %bcmp.i.i.i.us22.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %1248, ptr noundef nonnull readonly dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 24), !alias.scope !15887, !noalias !15891
   %1325 = icmp eq i32 %bcmp.i.i.i.us22.i.i.i, 0
-  br i1 %1325, label %.thread841, label %.critedge.backedge.us.i.i.i
+  br i1 %1325, label %.thread842, label %.critedge.backedge.us.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i": ; preds = %.critedge.backedge.us.i.i.i
   %1326 = add i64 %.in.i.i, -1
   %1327 = getelementptr inbounds i8, ptr %.pn.i.i560, i64 1
   %bcmp.i.i.i.us.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %1327, ptr noundef nonnull readonly dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.633, i64 24), !alias.scope !15887, !noalias !15891
   %1328 = icmp eq i32 %bcmp.i.i.i.us.i.i.i, 0
-  br i1 %1328, label %.thread841, label %.critedge.backedge.us.i.i.i
+  br i1 %1328, label %.thread842, label %.critedge.backedge.us.i.i.i
 
 .critedge.backedge.us.i.i.i:                      ; preds = %.lr.ph.split.us.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i"
   %.pn.i.i560 = phi ptr [ %1327, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i" ], [ %1248, %.lr.ph.split.us.i.i.i ]
   %.in.i.i = phi i64 [ %1326, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i" ], [ %1250, %.lr.ph.split.us.i.i.i ]
   %.not39.i.i.i = icmp ult i64 %.in.i.i, 25
-  br i1 %.not39.i.i.i, label %.thread844, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i"
+  br i1 %.not39.i.i.i, label %.thread845, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i"
 
-1329:                                             ; preds = %.thread844, %1247
-  %.8268 = phi i8 [ %.9, %.thread844 ], [ 1, %1247 ]
+1329:                                             ; preds = %.thread845, %1247
+  %.8268 = phi i8 [ %.9, %.thread845 ], [ 1, %1247 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15895)
   call void @llvm.experimental.noalias.scope.decl(metadata !15898)
   call void @llvm.experimental.noalias.scope.decl(metadata !15901)
@@ -67358,21 +67358,21 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   unreachable
 
 1356:                                             ; preds = %1319, %1255
-  %.030.i = phi i8 [ %.5.i.i, %1319 ], [ %1257, %1255 ]
+  %.030.i = phi i8 [ %.4.i.i, %1319 ], [ %1257, %1255 ]
   %1357 = trunc i8 %.030.i to i1
-  br i1 %1357, label %.thread841, label %.thread844
+  br i1 %1357, label %.thread842, label %.thread845
 
-.thread841:                                       ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i", %.lr.ph.split.us.i.i.i, %1356
+.thread842:                                       ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h792b1b52e2a49a46E.exit.us.i.i.i", %.lr.ph.split.us.i.i.i, %1356
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !15926
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %22), !noalias !15926
   invoke void @_ZN4core3str7pattern11StrSearcher3new17heb1c26811addaa28E(ptr noalias nocapture noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(104) %22, ptr noalias noundef nonnull readonly align 1 %1248, i64 noundef %1250, ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.634, i64 noundef 7)
-          to label %.noexc573 unwind label %.loopexit885
+          to label %.noexc573 unwind label %.loopexit886
 
-.noexc573:                                        ; preds = %.thread841
+.noexc573:                                        ; preds = %.thread842
   invoke fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %23, ptr noalias noundef nonnull align 8 dereferenceable(104) %22)
-          to label %1358 unwind label %.loopexit885
+          to label %1358 unwind label %.loopexit886
 
-.thread844:                                       ; preds = %.critedge.backedge.us.i.i.i, %1254, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17hf76b29f1e6160cb9E.exit", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642, %1356
+.thread845:                                       ; preds = %.critedge.backedge.us.i.i.i, %1254, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17hf76b29f1e6160cb9E.exit", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642, %1356
   %.9 = phi i8 [ 1, %1356 ], [ 0, %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17hf76b29f1e6160cb9E.exit" ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642 ], [ 1, %1254 ], [ 1, %.critedge.backedge.us.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %139)
   br label %1329
@@ -67382,8 +67382,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   %1360 = load i64, ptr %321, align 8, !noalias !15926
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !15926
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %22), !noalias !15926
-  %.not876 = icmp eq i64 %1359, 0
-  br i1 %.not876, label %1509, label %1361
+  %.not877 = icmp eq i64 %1359, 0
+  br i1 %.not877, label %1509, label %1361
 
 1361:                                             ; preds = %1358
   %1362 = add i64 %1360, 7
@@ -67427,7 +67427,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
 
 1379:                                             ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %1361, %1369, %1374
   invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1363, i64 noundef %1364, i64 noundef %1362, i64 noundef %1365, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6cb58fc054cbebc1183ce38d4f851cdf.635) #70
-          to label %471 unwind label %.loopexit.split-lp886
+          to label %471 unwind label %.loopexit.split-lp887
 
 1380:                                             ; preds = %1374, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i"
   %1381 = getelementptr inbounds i8, ptr %1363, i64 %1362
@@ -67456,7 +67456,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   %1391 = load ptr, ptr %322, align 8, !nonnull !12, !noundef !12
   %1392 = load i64, ptr %323, align 8, !noundef !12
   %1393 = invoke noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.llvm.15439407322995335751"(ptr noalias noundef nonnull readonly align 1 %1391, i64 noundef %1392, ptr noalias noundef nonnull readonly align 1 %1389, i64 noundef %1390)
-          to label %1394 unwind label %.loopexit885
+          to label %1394 unwind label %.loopexit886
 
 1394:                                             ; preds = %1388
   br i1 %1393, label %1383, label %1395
@@ -67472,7 +67472,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   %1400 = load ptr, ptr %322, align 8, !nonnull !12, !noundef !12
   %1401 = load i64, ptr %323, align 8, !noundef !12
   %1402 = invoke noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.llvm.15439407322995335751"(ptr noalias noundef nonnull readonly align 1 %1400, i64 noundef %1401, ptr noalias noundef nonnull readonly align 1 %1398, i64 noundef %1399)
-          to label %1403 unwind label %.loopexit885
+          to label %1403 unwind label %.loopexit886
 
 1403:                                             ; preds = %1397
   br i1 %1402, label %1383, label %1404
@@ -67480,22 +67480,22 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
 1404:                                             ; preds = %1395, %1403
   %bcmp.i594 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1381, ptr noundef nonnull readonly dereferenceable(4) @anon.6cb58fc054cbebc1183ce38d4f851cdf.640, i64 4), !alias.scope !15953
   %1405 = icmp eq i32 %bcmp.i594, 0
-  %.pre1695 = load ptr, ptr %139, align 8
-  %.pre1697 = load i64, ptr %317, align 8
-  br i1 %1405, label %1423, label %.thread849
+  %.pre1696 = load ptr, ptr %139, align 8
+  %.pre1698 = load i64, ptr %317, align 8
+  br i1 %1405, label %1423, label %.thread850
 
-.thread849:                                       ; preds = %..thread849_crit_edge, %1428, %1404
-  %1406 = phi i64 [ %.pre1696, %..thread849_crit_edge ], [ %.pre1697, %1428 ], [ %.pre1697, %1404 ]
-  %1407 = phi ptr [ %.pre, %..thread849_crit_edge ], [ %.pre1695, %1428 ], [ %.pre1695, %1404 ]
+.thread850:                                       ; preds = %..thread850_crit_edge, %1428, %1404
+  %1406 = phi i64 [ %.pre1697, %..thread850_crit_edge ], [ %.pre1698, %1428 ], [ %.pre1698, %1404 ]
+  %1407 = phi ptr [ %.pre, %..thread850_crit_edge ], [ %.pre1696, %1428 ], [ %.pre1696, %1404 ]
   invoke void @_ZN13rust_analyzer3cli15progress_report14ProgressReport5clear17h9b154abed41fd19fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %177)
-          to label %.noexc598 unwind label %.loopexit885
+          to label %.noexc598 unwind label %.loopexit886
 
-.noexc598:                                        ; preds = %.thread849
+.noexc598:                                        ; preds = %.thread850
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !15957
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !15957
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !15957
   %1408 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h70ac88092bee57adE"(i64 noundef %1406, i1 noundef zeroext false)
-          to label %.noexc599 unwind label %.loopexit885
+          to label %.noexc599 unwind label %.loopexit886
 
 .noexc599:                                        ; preds = %.noexc598
   %1409 = extractvalue { i64, ptr } %1408, 0
@@ -67526,7 +67526,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21), !noalias !15957
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !15976
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19)
-          to label %.noexc600 unwind label %.loopexit885
+          to label %.noexc600 unwind label %.loopexit886
 
 .noexc600:                                        ; preds = %1414
   %1415 = load i64, ptr %329, align 8, !range !383, !noalias !15976, !noundef !12
@@ -67548,7 +67548,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !15957
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !15957
   invoke void @_ZN13rust_analyzer3cli15progress_report14ProgressReport4tick17h95890e3962576f44E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177)
-          to label %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit unwind label %.loopexit885
+          to label %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit unwind label %.loopexit886
 
 1421:                                             ; preds = %1412
   %1422 = landingpad { ptr, i32 }
@@ -67559,53 +67559,53 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.i: ; preds 
 1423:                                             ; preds = %1404
   call void @llvm.experimental.noalias.scope.decl(metadata !15985)
   call void @llvm.experimental.noalias.scope.decl(metadata !15988)
-  %1424 = icmp ugt i64 %.pre1697, 51
+  %1424 = icmp ugt i64 %.pre1698, 51
   br i1 %1424, label %1425, label %1428
 
 1425:                                             ; preds = %1423
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !15990
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %16), !noalias !15990
-  invoke void @_ZN4core3str7pattern11StrSearcher3new17heb1c26811addaa28E(ptr noalias nocapture noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(104) %16, ptr noalias noundef nonnull readonly align 1 %.pre1695, i64 noundef %.pre1697, ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.641, i64 noundef 51)
-          to label %.noexc608 unwind label %.loopexit885
+  invoke void @_ZN4core3str7pattern11StrSearcher3new17heb1c26811addaa28E(ptr noalias nocapture noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(104) %16, ptr noalias noundef nonnull readonly align 1 %.pre1696, i64 noundef %.pre1698, ptr noalias noundef nonnull readonly align 1 @anon.6cb58fc054cbebc1183ce38d4f851cdf.641, i64 noundef 51)
+          to label %.noexc608 unwind label %.loopexit886
 
 .noexc608:                                        ; preds = %1425
   invoke fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(104) %16)
-          to label %.noexc609 unwind label %.loopexit885
+          to label %.noexc609 unwind label %.loopexit886
 
 .noexc609:                                        ; preds = %.noexc608
   %1426 = load i64, ptr %17, align 8, !range !214, !noalias !15990, !noundef !12
   %1427 = trunc nuw i64 %1426 to i1
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16), !noalias !15990
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !15990
-  br i1 %1427, label %1383, label %..thread849_crit_edge
+  br i1 %1427, label %1383, label %..thread850_crit_edge
 
 1428:                                             ; preds = %1423
-  %.not.i.i604 = icmp eq i64 %.pre1697, 51
-  br i1 %.not.i.i604, label %1429, label %.thread849
+  %.not.i.i604 = icmp eq i64 %.pre1698, 51
+  br i1 %.not.i.i604, label %1429, label %.thread850
 
 1429:                                             ; preds = %1428
-  %bcmp.i.i606 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(51) @anon.6cb58fc054cbebc1183ce38d4f851cdf.641, ptr noundef nonnull readonly dereferenceable(51) %.pre1695, i64 51), !alias.scope !15991
+  %bcmp.i.i606 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(51) @anon.6cb58fc054cbebc1183ce38d4f851cdf.641, ptr noundef nonnull readonly dereferenceable(51) %.pre1696, i64 51), !alias.scope !15991
   %1430 = icmp eq i32 %bcmp.i.i606, 0
-  br i1 %1430, label %1383, label %..thread849_crit_edge
+  br i1 %1430, label %1383, label %..thread850_crit_edge
 
-..thread849_crit_edge:                            ; preds = %.noexc609, %1429
+..thread850_crit_edge:                            ; preds = %.noexc609, %1429
   %.pre = load ptr, ptr %139, align 8
-  %.pre1696 = load i64, ptr %317, align 8
-  br label %.thread849
+  %.pre1697 = load i64, ptr %317, align 8
+  br label %.thread850
 
 _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit: ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %138)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %149, i64 24, i1 false)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %138)
-          to label %1431 unwind label %.loopexit885
+          to label %1431 unwind label %.loopexit886
 
 1431:                                             ; preds = %_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c53dE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %138)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4681)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5689)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4682)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5690)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %137)
   %1432 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h70ac88092bee57adE"(i64 noundef 4, i1 noundef zeroext false)
-          to label %1433 unwind label %.loopexit885
+          to label %1433 unwind label %.loopexit886
 
 1433:                                             ; preds = %1431
   %1434 = extractvalue { i64, ptr } %1432, 0
@@ -67619,14 +67619,14 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
   store i64 4, ptr %.sroa.5233.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %105)
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h9f945cfe85140c95E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %105, ptr noalias noundef nonnull align 8 dereferenceable(32) %176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %137)
-          to label %1438 unwind label %.loopexit885
+          to label %1438 unwind label %.loopexit886
 
 1438:                                             ; preds = %1433
   %1439 = load i64, ptr %105, align 8, !range !214, !noundef !12
   %trunc = trunc nuw i64 %1439 to i1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5689, ptr noundef nonnull align 8 dereferenceable(24) %331, i64 24, i1 false)
-  %.sroa.4747.0.copyload = load ptr, ptr %.sroa.4744.0..sroa_idx, align 8
-  %.sroa.5748.0.copyload = load i64, ptr %.sroa.5745.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5690, ptr noundef nonnull align 8 dereferenceable(24) %331, i64 24, i1 false)
+  %.sroa.4748.0.copyload = load ptr, ptr %.sroa.4745.0..sroa_idx, align 8
+  %.sroa.5749.0.copyload = load i64, ptr %.sroa.5746.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %105)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %137)
   br i1 %trunc, label %1453, label %1440
@@ -67634,16 +67634,16 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
 1440:                                             ; preds = %1438
   call void @llvm.experimental.noalias.scope.decl(metadata !15995)
   call void @llvm.experimental.noalias.scope.decl(metadata !15998)
-  %1441 = getelementptr inbounds i8, ptr %.sroa.4747.0.copyload, i64 -8
+  %1441 = getelementptr inbounds i8, ptr %.sroa.4748.0.copyload, i64 -8
   %1442 = load i32, ptr %1441, align 4, !alias.scope !16000, !noalias !16003, !noundef !12
   %1443 = add i32 %1442, 1
   store i32 %1443, ptr %1441, align 4, !alias.scope !16000, !noalias !16003
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4681, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5689, i64 24, i1 false), !alias.scope !16003
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5689)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4682, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5690, i64 24, i1 false), !alias.scope !16003
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5690)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15), !noalias !16004
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4681, i64 24, i1 false)
-  store ptr %.sroa.4747.0.copyload, ptr %.sroa.8682.8..sroa_idx683, align 8
-  store i64 %.sroa.5748.0.copyload, ptr %.sroa.10685.8..sroa_idx686, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4682, i64 24, i1 false)
+  store ptr %.sroa.4748.0.copyload, ptr %.sroa.8683.8..sroa_idx684, align 8
+  store i64 %.sroa.5749.0.copyload, ptr %.sroa.10686.8..sroa_idx687, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !16007)
   call void @llvm.experimental.noalias.scope.decl(metadata !16010)
   call void @llvm.experimental.noalias.scope.decl(metadata !16013)
@@ -67654,7 +67654,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
 1446:                                             ; preds = %1440
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !16017
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
-          to label %.noexc621 unwind label %.loopexit885
+          to label %.noexc621 unwind label %.loopexit886
 
 .noexc621:                                        ; preds = %1446
   %1447 = load i64, ptr %332, align 8, !range !383, !noalias !16017, !noundef !12
@@ -67680,14 +67680,14 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17hf76b29f1e6160cb9E.exit"
 
 1453:                                             ; preds = %1438
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4681, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5689, i64 24, i1 false), !alias.scope !16003
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5689)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4682, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5690, i64 24, i1 false), !alias.scope !16003
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5690)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !16026
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4681, i64 24, i1 false)
-  %1454 = icmp ne ptr %.sroa.4747.0.copyload, null
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4682, i64 24, i1 false)
+  %1454 = icmp ne ptr %.sroa.4748.0.copyload, null
   call void @llvm.assume(i1 %1454)
   store i32 1, ptr %334, align 8, !noalias !16026
-  %1455 = invoke noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17he8e89ab18b256145E.llvm.9266542439947230232(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.4747.0.copyload, i64 noundef %.sroa.5748.0.copyload)
+  %1455 = invoke noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17he8e89ab18b256145E.llvm.9266542439947230232(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.4748.0.copyload, i64 noundef %.sroa.5749.0.copyload)
           to label %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h537645303ff3c202E.exit.i" unwind label %1456, !noalias !16029
 
 1456:                                             ; preds = %1453
@@ -67703,32 +67703,32 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
   unreachable
 
 "_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h537645303ff3c202E.exit.i": ; preds = %1453
-  %1460 = load ptr, ptr %.sroa.4747.0.copyload, align 8, !alias.scope !16032, !noalias !16029, !nonnull !12, !noundef !12
+  %1460 = load ptr, ptr %.sroa.4748.0.copyload, align 8, !alias.scope !16032, !noalias !16029, !nonnull !12, !noundef !12
   %1461 = getelementptr inbounds i8, ptr %1460, i64 %1455
   %1462 = load i8, ptr %1461, align 1, !noalias !16029, !noundef !12
-  %1463 = lshr i64 %.sroa.5748.0.copyload, 57
+  %1463 = lshr i64 %.sroa.5749.0.copyload, 57
   %1464 = trunc nuw nsw i64 %1463 to i8
   %1465 = add i64 %1455, -16
-  %1466 = getelementptr inbounds i8, ptr %.sroa.4747.0.copyload, i64 8
+  %1466 = getelementptr inbounds i8, ptr %.sroa.4748.0.copyload, i64 8
   %1467 = load i64, ptr %1466, align 8, !alias.scope !16032, !noalias !16029, !noundef !12
   %1468 = and i64 %1467, %1465
   store i8 %1464, ptr %1461, align 1, !noalias !16029
-  %1469 = load ptr, ptr %.sroa.4747.0.copyload, align 8, !alias.scope !16032, !noalias !16029, !nonnull !12, !noundef !12
+  %1469 = load ptr, ptr %.sroa.4748.0.copyload, align 8, !alias.scope !16032, !noalias !16029, !nonnull !12, !noundef !12
   %1470 = getelementptr i8, ptr %1469, i64 %1468
   %1471 = getelementptr i8, ptr %1470, i64 16
   store i8 %1464, ptr %1471, align 1, !noalias !16029
-  %1472 = load ptr, ptr %.sroa.4747.0.copyload, align 8, !alias.scope !16036, !noalias !16029, !nonnull !12, !noundef !12
+  %1472 = load ptr, ptr %.sroa.4748.0.copyload, align 8, !alias.scope !16036, !noalias !16029, !nonnull !12, !noundef !12
   %1473 = sub nsw i64 0, %1455
   %1474 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %1472, i64 %1473
   %1475 = and i8 %1462, 1
   %1476 = zext nneg i8 %1475 to i64
-  %1477 = getelementptr inbounds i8, ptr %.sroa.4747.0.copyload, i64 16
+  %1477 = getelementptr inbounds i8, ptr %.sroa.4748.0.copyload, i64 16
   %1478 = load i64, ptr %1477, align 8, !alias.scope !16036, !noalias !16029, !noundef !12
   %1479 = sub i64 %1478, %1476
   store i64 %1479, ptr %1477, align 8, !alias.scope !16036, !noalias !16029
   %1480 = getelementptr inbounds i8, ptr %1474, i64 -32
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1480, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !16026
-  %1481 = getelementptr inbounds i8, ptr %.sroa.4747.0.copyload, i64 24
+  %1481 = getelementptr inbounds i8, ptr %.sroa.4748.0.copyload, i64 24
   %1482 = load i64, ptr %1481, align 8, !alias.scope !16036, !noalias !16029, !noundef !12
   %1483 = add i64 %1482, 1
   store i64 %1483, ptr %1481, align 8, !alias.scope !16036, !noalias !16029
@@ -67736,8 +67736,8 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
   br label %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17hf76b29f1e6160cb9E.exit"
 
 "_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17hf76b29f1e6160cb9E.exit": ; preds = %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h537645303ff3c202E.exit.i", %"_ZN9hashbrown11rustc_entry35RustcOccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h9df5918fe44170dfE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4681)
-  br label %.thread844
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4682)
+  br label %.thread845
 
 1484:                                             ; preds = %1383
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141)
@@ -67752,7 +67752,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
   %1488 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..raw_vec..RawVec$LT$text_edit..Indel$GT$$GT$17hc599557c26db08bdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %144) #71
-          to label %.thread835 unwind label %1495
+          to label %.thread836 unwind label %1495
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b5034d5f8f7f84E.llvm.10409712727403535664.exit.i.i625": ; preds = %1484
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !16047
@@ -67816,8 +67816,8 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
 
 .backedge:                                        ; preds = %1505, %1531
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.8)
-  %1506 = load ptr, ptr %.sroa.6672.0..sroa_idx, align 8, !alias.scope !16061, !noalias !15714, !nonnull !12, !noundef !12
-  %1507 = load ptr, ptr %.sroa.4670.0..sroa_idx, align 8, !alias.scope !16061, !noalias !15714, !nonnull !12, !noundef !12
+  %1506 = load ptr, ptr %.sroa.6673.0..sroa_idx, align 8, !alias.scope !16061, !noalias !15714, !nonnull !12, !noundef !12
+  %1507 = load ptr, ptr %.sroa.4671.0..sroa_idx, align 8, !alias.scope !16061, !noalias !15714, !nonnull !12, !noundef !12
   %1508 = icmp eq ptr %1507, %1506
   br i1 %1508, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h616f18c24d8ed88dE.exit"
 
@@ -67830,18 +67830,18 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4bad5350d2080ad9E", ptr %341, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !16063
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.643, ptr %10, align 8, !noalias !16074
-  store i64 1, ptr %.sroa.5694.0..sroa_idx, align 8, !noalias !16074
-  store ptr %135, ptr %.sroa.7.0..sroa_idx695, align 8, !noalias !16074
-  store i64 1, ptr %.sroa.8696.0..sroa_idx, align 8, !noalias !16074
-  store ptr null, ptr %.sroa.10697.0..sroa_idx, align 8, !noalias !16074
+  store i64 1, ptr %.sroa.5695.0..sroa_idx, align 8, !noalias !16074
+  store ptr %135, ptr %.sroa.7.0..sroa_idx696, align 8, !noalias !16074
+  store i64 1, ptr %.sroa.8697.0..sroa_idx, align 8, !noalias !16074
+  store ptr null, ptr %.sroa.10698.0..sroa_idx, align 8, !noalias !16074
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %136, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
-          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642 unwind label %.loopexit885
+          to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642 unwind label %.loopexit886
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642: ; preds = %1509
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !16063
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %135)
   invoke fastcc void @_ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h15fefaf3575a2c02E(ptr noalias noundef nonnull align 8 dereferenceable(64) %177, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %136)
-          to label %.thread844 unwind label %.loopexit885
+          to label %.thread845 unwind label %.loopexit886
 
 "_ZN4core3ptr72drop_in_place$LT$project_model..build_scripts..WorkspaceBuildScripts$GT$17h169ba0bbae93be63E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i.i", %1344
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141)
@@ -67920,14 +67920,14 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642: ; pr
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %145) #71
           to label %.body527 unwind label %528
 
-.thread835:                                       ; preds = %1487, %1181, %1144, %.body531, %.body527
-  %.pn279.pn.pn840 = phi { ptr, i32 } [ %.pn279.pn.pn, %.body527 ], [ %.pn, %.body531 ], [ %lpad.phi884, %1181 ], [ %1145, %1144 ], [ %1488, %1487 ]
+.thread836:                                       ; preds = %1487, %1181, %1144, %.body531, %.body527
+  %.pn279.pn.pn841 = phi { ptr, i32 } [ %.pn279.pn.pn, %.body527 ], [ %.pn, %.body531 ], [ %lpad.phi885, %1181 ], [ %1145, %1144 ], [ %1488, %1487 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %149) #71
           to label %1133 unwind label %528
 
-.thread819:                                       ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491", %.body489, %1019
-  %.pn287826 = phi { ptr, i32 } [ %.pn287, %1019 ], [ %lpad.phi919, %.body489 ], [ %lpad.phi919, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491" ]
-  %.5825 = phi i8 [ %.5, %1019 ], [ 1, %.body489 ], [ 1, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491" ]
+.thread820:                                       ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491", %.body489, %1019
+  %.pn287827 = phi { ptr, i32 } [ %.pn287, %1019 ], [ %lpad.phi920, %.body489 ], [ %lpad.phi920, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491" ]
+  %.6826 = phi i8 [ %.6, %1019 ], [ 1, %.body489 ], [ 1, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h0d9c7318ec8bdcd0E.exit.sink.split.i491" ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$17hc355434ef294905dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %155) #71
           to label %.body475 unwind label %528
 
@@ -68004,20 +68004,20 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit642: ; pr
 1555:                                             ; preds = %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7987dbc96b880b3E.llvm.10409712727403535664.exit.i"
   %1556 = load ptr, ptr %256, align 8, !alias.scope !16122, !nonnull !12, !noundef !12
   %1557 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h83b4236318113153E.llvm.10409712727403535664(ptr noundef nonnull %1556, i8 noundef 2)
-          to label %.noexc660 unwind label %706
+          to label %.noexc661 unwind label %706
 
-.noexc660:                                        ; preds = %1555
+.noexc661:                                        ; preds = %1555
   %1558 = getelementptr inbounds i8, ptr %1556, i64 8
   invoke void @"_ZN4core3ptr71drop_in_place$LT$chalk_ir..TyKind$LT$hir_ty..interner..Interner$GT$$GT$17ha8396c421e9322f8E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1558)
           to label %"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h581a8f81db895606E.exit.i.i.i" unwind label %1559, !noalias !16124
 
-1559:                                             ; preds = %.noexc660
+1559:                                             ; preds = %.noexc661
   %1560 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %1556, i64 noundef 48, i64 noundef 8) #73, !noalias !16124
   br label %.body653
 
-"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h581a8f81db895606E.exit.i.i.i": ; preds = %.noexc660
+"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h581a8f81db895606E.exit.i.i.i": ; preds = %.noexc661
   call void @__rust_dealloc(ptr noundef nonnull %1556, i64 noundef 48, i64 noundef 8) #73, !noalias !16124
   br label %"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h41481d0d8a7b5c57E.exit"
 
@@ -74150,7 +74150,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
   br label %120
 
 120:                                              ; preds = %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit177", %119
-  %.0 = phi ptr [ %92, %119 ], [ %.2, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit177" ]
+  %.0 = phi ptr [ %92, %119 ], [ %.1, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit177" ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$project_model..cargo_workspace..CargoConfig$GT$17hc6fd2c8510e67bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(344) %57)
           to label %457 unwind label %285
 
@@ -74449,7 +74449,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
 .lr.ph.i145.preheader:                            ; preds = %.lr.ph.i145.preheader.lr.ph, %404
   %.promoted.i279 = phi ptr [ %.sroa.4215.0.copyload, %.lr.ph.i145.preheader.lr.ph ], [ %.promoted.i, %404 ]
   %216 = phi ptr [ %187, %.lr.ph.i145.preheader.lr.ph ], [ %405, %404 ]
-  %.0108278 = phi i1 [ false, %.lr.ph.i145.preheader.lr.ph ], [ %.2110, %404 ]
+  %.0108278 = phi i1 [ false, %.lr.ph.i145.preheader.lr.ph ], [ %.1109, %404 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !17332)
   br label %.lr.ph.i145
 
@@ -74526,7 +74526,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
   br label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$base_db..input..CrateDisplayName$GT$$GT$17h1f136d594d64509fE.exit"
 
 .loopexit245:                                     ; preds = %404, %232, %185
-  %.0108274 = phi i1 [ false, %185 ], [ %.0108278, %232 ], [ %.2110, %404 ]
+  %.0108274 = phi i1 [ false, %185 ], [ %.0108278, %232 ], [ %.1109, %404 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !17361
   store ptr %44, ptr %13, align 8, !noalias !17361
@@ -74724,9 +74724,9 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
   br label %288
 
 288:                                              ; preds = %457, %287
-  %.1 = phi ptr [ %.0, %457 ], [ null, %287 ]
+  %.2 = phi ptr [ %.0, %457 ], [ null, %287 ]
   call void @"_ZN4core3ptr59drop_in_place$LT$rust_analyzer..cli..flags..Diagnostics$GT$17hfff46e2b96c79415E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
-  ret ptr %.1
+  ret ptr %.2
 
 289:                                              ; preds = %258
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
@@ -74799,7 +74799,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
   br label %308
 
 308:                                              ; preds = %307, %130
-  %.2 = phi ptr [ %128, %130 ], [ %294, %307 ]
+  %.1 = phi ptr [ %128, %130 ], [ %294, %307 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !17442)
   call void @llvm.experimental.noalias.scope.decl(metadata !17445)
   %309 = load i64, ptr %51, align 8, !range !13969, !alias.scope !17448, !noundef !12
@@ -75024,7 +75024,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit": ; preds = %367, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit"
   %372 = phi ptr [ %455, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit" ], [ %.sroa.4222.0.copyload, %367 ]
-  %.1109275 = phi i1 [ %spec.select134, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit" ], [ %.0108278, %367 ]
+  %.2110275 = phi i1 [ %spec.select134, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit" ], [ %.0108278, %367 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !17493)
   %373 = getelementptr inbounds i8, ptr %372, i64 104
   store ptr %373, ptr %.sroa.4218.0..sroa_idx, align 8, !alias.scope !17493, !noalias !17496
@@ -75040,7 +75040,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.thread": ; preds = %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.thread.loopexit.split.loop.exit322", %367
   %376 = phi ptr [ %.sroa.4222.0.copyload, %367 ], [ %375, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.thread.loopexit.split.loop.exit322" ], [ %455, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit" ]
-  %.1109.lcssa = phi i1 [ %.0108278, %367 ], [ %.1109275, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.thread.loopexit.split.loop.exit322" ], [ %spec.select134, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit" ]
+  %.2110.lcssa = phi i1 [ %.0108278, %367 ], [ %.2110275, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h029b70549367f9afE.exit.thread.loopexit.split.loop.exit322" ], [ %spec.select134, %"_ZN4core3ptr48drop_in_place$LT$ide_diagnostics..Diagnostic$GT$17h43744e2b5a4bcb79E.exit" ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !17498
   store ptr %33, ptr %10, align 8, !noalias !17498
@@ -75141,7 +75141,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
   br label %404
 
 404:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha38c8769fbbe7fafE.exit", %403
-  %.2110 = phi i1 [ %.0108278, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha38c8769fbbe7fafE.exit" ], [ %.1109.lcssa, %403 ]
+  %.1109 = phi i1 [ %.0108278, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17ha38c8769fbbe7fafE.exit" ], [ %.2110.lcssa, %403 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
   %405 = load ptr, ptr %.sroa.022.sroa.4.0..sroa_idx, align 8, !alias.scope !17538, !noalias !17338, !nonnull !12, !noundef !12
@@ -75161,7 +75161,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.7, i64 96, i1 false)
   %410 = load i8, ptr %197, align 2, !range !3104, !noundef !12
   %411 = icmp eq i8 %410, 0
-  %spec.select134 = select i1 %411, i1 true, i1 %.1109275
+  %spec.select134 = select i1 %411, i1 true, i1 %.2110275
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   store ptr %32, ptr %30, align 8
@@ -75724,13 +75724,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %62 unwind label %60
 
 58:                                               ; preds = %70, %60
-  %.0130 = phi i8 [ %.1131, %60 ], [ %.2132, %70 ]
+  %.1131 = phi i8 [ %.0130, %60 ], [ %.3133, %70 ]
   %.pn161 = phi { ptr, i32 } [ %61, %60 ], [ %.pn159, %70 ]
-  %59 = trunc nuw i8 %.0130 to i1
+  %59 = trunc nuw i8 %.1131 to i1
   br i1 %59, label %.thread, label %352
 
 60:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit196", %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit", %62, %1
-  %.1131 = phi i8 [ %.6136, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit196" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit" ], [ 1, %62 ], [ 1, %1 ]
+  %.0130 = phi i8 [ %.6136, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit196" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit" ], [ 1, %62 ], [ 1, %1 ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %58
@@ -75761,13 +75761,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %.thread unwind label %305
 
 70:                                               ; preds = %90, %71
-  %.2132 = phi i8 [ %.3133, %71 ], [ %.4134, %90 ]
+  %.3133 = phi i8 [ %.2132, %71 ], [ %.5135, %90 ]
   %.pn159 = phi { ptr, i32 } [ %72, %71 ], [ %.pn157, %90 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$project_model..cargo_workspace..CargoConfig$GT$17hc6fd2c8510e67bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(344) %51) #71
           to label %58 unwind label %305
 
 71:                                               ; preds = %330, %290
-  %.3133 = phi i8 [ 0, %290 ], [ %.6136, %330 ]
+  %.2132 = phi i8 [ 0, %290 ], [ %.6136, %330 ]
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %70
@@ -75832,13 +75832,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %93 unwind label %91
 
 90:                                               ; preds = %131, %339, %130, %.body, %91
-  %.4134 = phi i8 [ %.5135, %91 ], [ 0, %339 ], [ 0, %130 ], [ 0, %.body ], [ 0, %131 ]
+  %.5135 = phi i8 [ %.4134, %91 ], [ 0, %339 ], [ 0, %130 ], [ 0, %.body ], [ 0, %131 ]
   %.pn157 = phi { ptr, i32 } [ %92, %91 ], [ %.pn155253, %339 ], [ %.pn153, %130 ], [ %eh.lpad-body, %.body ], [ %lpad.thr_comm.split-lp, %131 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %49) #71
           to label %70 unwind label %305
 
 91:                                               ; preds = %318, %116, %73
-  %.5135 = phi i8 [ 1, %116 ], [ 1, %73 ], [ 0, %318 ]
+  %.4134 = phi i8 [ 1, %116 ], [ 1, %73 ], [ 0, %318 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   br label %90
@@ -75947,7 +75947,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
   br label %132
 
 130:                                              ; preds = %284
-  br i1 %.12, label %339, label %90
+  br i1 %.4, label %339, label %90
 
 .thread254:                                       ; preds = %149, %142, %134, %132, %121
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -76053,13 +76053,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
   br label %318
 
 "_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit": ; preds = %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit", %158
-  %.2121 = phi i1 [ %.3, %158 ], [ %.4, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
+  %.3 = phi i1 [ %.2121, %158 ], [ %.6, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
   %.pn151 = phi { ptr, i32 } [ %159, %158 ], [ %.pn149, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38) #71
           to label %284 unwind label %305
 
 158:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit182", %156
-  %.3 = phi i1 [ true, %156 ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit182" ]
+  %.2121 = phi i1 [ true, %156 ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit182" ]
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit"
@@ -76069,7 +76069,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %164 unwind label %162
 
 "_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit": ; preds = %166, %162
-  %.4 = phi i1 [ %.5, %162 ], [ %.6, %166 ]
+  %.6 = phi i1 [ %.5, %162 ], [ %.8, %166 ]
   %.pn149 = phi { ptr, i32 } [ %163, %162 ], [ %.pn147, %166 ]
   invoke void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %36)
           to label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit" unwind label %305
@@ -76091,7 +76091,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %171 unwind label %167
 
 166:                                              ; preds = %314, %167
-  %.6 = phi i1 [ %.7, %167 ], [ %.8236246, %314 ]
+  %.8 = phi i1 [ %.7, %167 ], [ %.10236246, %314 ]
   %.pn147 = phi { ptr, i32 } [ %168, %167 ], [ %.pn145237245, %314 ]
   invoke void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %35)
           to label %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" unwind label %305
@@ -76103,7 +76103,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
   br label %166
 
 169:                                              ; preds = %.body176
-  br i1 %.2124, label %313, label %312
+  br i1 %.3125, label %313, label %312
 
 .thread241:                                       ; preds = %270
   %170 = landingpad { ptr, i32 }
@@ -76134,16 +76134,16 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %182 unwind label %180
 
 .body176:                                         ; preds = %249, %229, %180, %246, %186
-  %.2128 = phi i1 [ false, %246 ], [ true, %186 ], [ %.3129, %180 ], [ true, %229 ], [ false, %249 ]
-  %.2124 = phi i1 [ false, %246 ], [ true, %186 ], [ %.3125, %180 ], [ false, %229 ], [ false, %249 ]
-  %.10 = phi i1 [ false, %246 ], [ false, %186 ], [ %.11, %180 ], [ false, %229 ], [ false, %249 ]
+  %.3129 = phi i1 [ false, %246 ], [ true, %186 ], [ %.2128, %180 ], [ true, %229 ], [ false, %249 ]
+  %.3125 = phi i1 [ false, %246 ], [ true, %186 ], [ %.2124, %180 ], [ false, %229 ], [ false, %249 ]
+  %.12 = phi i1 [ false, %246 ], [ false, %186 ], [ %.11, %180 ], [ false, %229 ], [ false, %249 ]
   %.pn143 = phi { ptr, i32 } [ %247, %246 ], [ %.pn.pn, %186 ], [ %181, %180 ], [ %230, %229 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rust_analyzer..cli..lsif..LsifManager$GT$17h7665de5df9f8001eE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %33) #71
           to label %169 unwind label %305
 
 180:                                              ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..TokenStaticData$GT$$GT$$GT$17he98f9a1c83d18688E.llvm.10409712727403535664.exit.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b0c016685cfe955E.exit.thread", %220, %261, %259, %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..StaticIndexedFile$GT$$GT$17h0b1d6610d73a377bE.exit175", %171
-  %.3129 = phi i1 [ false, %261 ], [ false, %259 ], [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..StaticIndexedFile$GT$$GT$17h0b1d6610d73a377bE.exit175" ], [ true, %171 ], [ true, %220 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b0c016685cfe955E.exit.thread" ], [ false, %"_ZN4core3ptr144drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..TokenStaticData$GT$$GT$$GT$17he98f9a1c83d18688E.llvm.10409712727403535664.exit.i" ]
-  %.3125 = phi i1 [ false, %261 ], [ false, %259 ], [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..StaticIndexedFile$GT$$GT$17h0b1d6610d73a377bE.exit175" ], [ true, %171 ], [ true, %220 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b0c016685cfe955E.exit.thread" ], [ false, %"_ZN4core3ptr144drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..TokenStaticData$GT$$GT$$GT$17he98f9a1c83d18688E.llvm.10409712727403535664.exit.i" ]
+  %.2128 = phi i1 [ false, %261 ], [ false, %259 ], [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..StaticIndexedFile$GT$$GT$17h0b1d6610d73a377bE.exit175" ], [ true, %171 ], [ true, %220 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b0c016685cfe955E.exit.thread" ], [ false, %"_ZN4core3ptr144drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..TokenStaticData$GT$$GT$$GT$17he98f9a1c83d18688E.llvm.10409712727403535664.exit.i" ]
+  %.2124 = phi i1 [ false, %261 ], [ false, %259 ], [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..StaticIndexedFile$GT$$GT$17h0b1d6610d73a377bE.exit175" ], [ true, %171 ], [ true, %220 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b0c016685cfe955E.exit.thread" ], [ false, %"_ZN4core3ptr144drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..TokenStaticData$GT$$GT$$GT$17he98f9a1c83d18688E.llvm.10409712727403535664.exit.i" ]
   %.11 = phi i1 [ false, %261 ], [ false, %259 ], [ false, %"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..StaticIndexedFile$GT$$GT$17h0b1d6610d73a377bE.exit175" ], [ true, %171 ], [ false, %220 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b0c016685cfe955E.exit.thread" ], [ false, %"_ZN4core3ptr144drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$ide..static_index..TokenStaticData$GT$$GT$$GT$17he98f9a1c83d18688E.llvm.10409712727403535664.exit.i" ]
   %181 = landingpad { ptr, i32 }
           cleanup
@@ -76540,7 +76540,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" unwind label %285
 
 284:                                              ; preds = %285, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit"
-  %.12 = phi i1 [ false, %285 ], [ %.2121, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit" ]
+  %.4 = phi i1 [ false, %285 ], [ %.3, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit" ]
   %.pn153 = phi { ptr, i32 } [ %286, %285 ], [ %.pn151, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit" ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$vfs..Vfs$GT$17h51be76ebd2a957e7E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %39) #71
           to label %130 unwind label %305
@@ -76603,8 +76603,8 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
   br label %300
 
 300:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit198", %341, %299
-  %.0 = phi ptr [ %.2, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit198" ], [ %.2, %341 ], [ null, %299 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.2, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit198" ], [ %.2, %341 ], [ null, %299 ]
+  ret ptr %.1
 
 301:                                              ; preds = %256
   %302 = load ptr, ptr %237, align 8, !alias.scope !17797, !noalias !17721, !nonnull !12, !noundef !12
@@ -76629,14 +76629,14 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %195 unwind label %305
 
 312:                                              ; preds = %313, %169
-  br i1 %.2128, label %316, label %314
+  br i1 %.3129, label %316, label %314
 
 313:                                              ; preds = %169
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$ide..static_index..StaticIndexedFile$GT$$GT$17hc861f096d9b84d53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #71
           to label %312 unwind label %305
 
 314:                                              ; preds = %.thread241, %316, %312
-  %.8236246 = phi i1 [ false, %.thread241 ], [ %.10, %316 ], [ %.10, %312 ]
+  %.10236246 = phi i1 [ false, %.thread241 ], [ %.12, %316 ], [ %.12, %312 ]
   %.pn145237245 = phi { ptr, i32 } [ %170, %.thread241 ], [ %.pn143, %316 ], [ %.pn143, %312 ]
   %315 = getelementptr inbounds i8, ptr %34, i64 64
   invoke void @"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %315) #71
@@ -76648,7 +76648,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
           to label %314 unwind label %305
 
 318:                                              ; preds = %150, %157, %143
-  %.1 = phi ptr [ %141, %143 ], [ %148, %150 ], [ %155, %157 ]
+  %.0 = phi ptr [ %141, %143 ], [ %148, %150 ], [ %155, %157 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !17803
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48)
           to label %.noexc190 unwind label %91
@@ -76676,7 +76676,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli4lsif49_$LT$impl$u20$rust_analyzer..c
 
 327:                                              ; preds = %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit", %340
   %.6136 = phi i8 [ 1, %340 ], [ 0, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit" ]
-  %.2 = phi ptr [ %117, %340 ], [ %.1, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit" ]
+  %.2 = phi ptr [ %117, %340 ], [ %.0, %"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
   call void @llvm.experimental.noalias.scope.decl(metadata !17820)
   call void @llvm.experimental.noalias.scope.decl(metadata !17823)
@@ -78764,9 +78764,9 @@ _ZN3std4path4Path4join17h1d6a16b9a29ee22eE.exit:  ; preds = %24
   br label %71
 
 71:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit109", %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit"
-  %.0 = phi ptr [ %.1, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit109" ], [ null, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit" ]
+  %.1 = phi ptr [ %.0, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit109" ], [ null, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit" ]
   call void @"_ZN4core3ptr58drop_in_place$LT$rust_analyzer..cli..flags..RustcTests$GT$17hf01bb72f865e22cfE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
-  ret ptr %.0
+  ret ptr %.1
 
 72:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
@@ -79056,7 +79056,7 @@ _ZN3std4path4Path4join17h1d6a16b9a29ee22eE.exit:  ; preds = %24
   unreachable
 
 "_ZN4core3ptr60drop_in_place$LT$rust_analyzer..cli..rustc_tests..Tester$GT$17h68be9692965d1da0E.exit109": ; preds = %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit.i105", %164, %29
-  %.1 = phi ptr [ %23, %29 ], [ %75, %164 ], [ %75, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit.i105" ]
+  %.0 = phi ptr [ %23, %29 ], [ %75, %164 ], [ %75, %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit.i105" ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %16)
   br label %71
 
@@ -79222,15 +79222,15 @@ define noundef ptr @"_ZN13rust_analyzer3cli4scip49_$LT$impl$u20$rust_analyzer..c
           to label %133 unwind label %131
 
 130:                                              ; preds = %141, %131
-  %.0202 = phi i8 [ %.1203, %131 ], [ %.2204, %141 ]
-  %.0196 = phi i8 [ %.1197, %131 ], [ %.2198, %141 ]
+  %.1203 = phi i8 [ %.0202, %131 ], [ %.3205, %141 ]
+  %.1197 = phi i8 [ %.0196, %131 ], [ %.3199, %141 ]
   %.pn268 = phi { ptr, i32 } [ %132, %131 ], [ %.pn266, %141 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #71
           to label %1133 unwind label %266
 
 131:                                              ; preds = %1074, %576, %133, %1
-  %.1203 = phi i8 [ 1, %133 ], [ 1, %1 ], [ %.6208, %576 ], [ %.10212, %1074 ]
-  %.1197 = phi i8 [ 1, %133 ], [ 1, %1 ], [ 0, %576 ], [ %.24, %1074 ]
+  %.0202 = phi i8 [ 1, %133 ], [ 1, %1 ], [ %.6208, %576 ], [ %.10212, %1074 ]
+  %.0196 = phi i8 [ 1, %133 ], [ 1, %1 ], [ 0, %576 ], [ %.24, %1074 ]
   %132 = landingpad { ptr, i32 }
           cleanup
   br label %130
@@ -79264,15 +79264,15 @@ define noundef ptr @"_ZN13rust_analyzer3cli4scip49_$LT$impl$u20$rust_analyzer..c
           to label %144 unwind label %142
 
 141:                                              ; preds = %186, %156, %142
-  %.2204 = phi i8 [ %.3205, %142 ], [ %.4206, %186 ], [ 1, %156 ]
-  %.2198 = phi i8 [ %.3199, %142 ], [ %.4200, %186 ], [ 1, %156 ]
+  %.3205 = phi i8 [ %.2204, %142 ], [ %.4206, %186 ], [ 1, %156 ]
+  %.3199 = phi i8 [ %.2198, %142 ], [ %.4200, %186 ], [ 1, %156 ]
   %.pn266 = phi { ptr, i32 } [ %143, %142 ], [ %.pn264, %186 ], [ %.pn, %156 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %122) #71
           to label %130 unwind label %266
 
 142:                                              ; preds = %1062, %564, %154, %135
-  %.3205 = phi i8 [ 1, %154 ], [ 1, %135 ], [ %.6208, %564 ], [ %.9211, %1062 ]
-  %.3199 = phi i8 [ 1, %154 ], [ 1, %135 ], [ 0, %564 ], [ %.8, %1062 ]
+  %.2204 = phi i8 [ 1, %154 ], [ 1, %135 ], [ %.6208, %564 ], [ %.9211, %1062 ]
+  %.2198 = phi i8 [ 1, %154 ], [ 1, %135 ], [ 0, %564 ], [ %.8, %1062 ]
   %143 = landingpad { ptr, i32 }
           cleanup
   br label %141
@@ -79387,8 +79387,8 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
   br label %189
 
 186:                                              ; preds = %.body, %187, %175
-  %.4206 = phi i8 [ %.5207, %187 ], [ %.7209, %.body ], [ 1, %175 ]
-  %.4200 = phi i8 [ %.5201, %187 ], [ %.6, %.body ], [ 1, %175 ]
+  %.4206 = phi i8 [ %.5207, %187 ], [ %.8210, %.body ], [ 1, %175 ]
+  %.4200 = phi i8 [ %.5201, %187 ], [ %.7, %.body ], [ 1, %175 ]
   %.pn264 = phi { ptr, i32 } [ %188, %187 ], [ %.pn262, %.body ], [ %176, %175 ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17h8f1ff4c068d63fbcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %121) #71
           to label %141 unwind label %266
@@ -79471,15 +79471,15 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
           to label %269 unwind label %211
 
 .body:                                            ; preds = %258, %246, %221, %211, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit", %232
-  %.7209 = phi i8 [ 0, %232 ], [ %.6208, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ], [ %.8210, %211 ], [ 0, %221 ], [ 0, %246 ], [ 0, %258 ]
-  %.6 = phi i8 [ 1, %232 ], [ %.9, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ], [ %.7, %211 ], [ 1, %221 ], [ 1, %246 ], [ 1, %258 ]
+  %.8210 = phi i8 [ 0, %232 ], [ %.6208, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ], [ %.7209, %211 ], [ 0, %221 ], [ 0, %246 ], [ 0, %258 ]
+  %.7 = phi i8 [ 1, %232 ], [ %.9, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ], [ %.6, %211 ], [ 1, %221 ], [ 1, %246 ], [ 1, %258 ]
   %.pn262 = phi { ptr, i32 } [ %233, %232 ], [ %.pn257.pn, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ], [ %212, %211 ], [ %222, %221 ], [ %247, %246 ], [ %259, %258 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$rust_analyzer..config..Config$GT$17h3cc59ba308d8582bE"(ptr noalias noundef nonnull align 8 dereferenceable(4560) %116) #71
           to label %186 unwind label %266
 
 211:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i289", %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i", %644, %562, %226, %210, %209
-  %.8210 = phi i8 [ 0, %226 ], [ %.6208, %644 ], [ %.6208, %562 ], [ %.6208, %210 ], [ 0, %209 ], [ 0, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i" ], [ 0, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i289" ]
-  %.7 = phi i8 [ 1, %226 ], [ %.23, %644 ], [ 0, %562 ], [ 1, %210 ], [ 1, %209 ], [ 1, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i" ], [ 1, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i289" ]
+  %.7209 = phi i8 [ 0, %226 ], [ %.6208, %644 ], [ %.6208, %562 ], [ %.6208, %210 ], [ 0, %209 ], [ 0, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i" ], [ 0, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i289" ]
+  %.6 = phi i8 [ 1, %226 ], [ %.11, %644 ], [ 0, %562 ], [ 1, %210 ], [ 1, %209 ], [ 1, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i" ], [ 1, %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hafac383f74af00caE.llvm.10409712727403535664.exit.i289" ]
   %212 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -79649,8 +79649,8 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
 
 268:                                              ; preds = %1061, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h3addb9783075fd09E.exit295"
   %.9211 = phi i8 [ 0, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h3addb9783075fd09E.exit295" ], [ %.6208, %1061 ]
-  %.8 = phi i8 [ 1, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h3addb9783075fd09E.exit295" ], [ %.23, %1061 ]
-  %.2 = phi ptr [ %.1, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h3addb9783075fd09E.exit295" ], [ %.4, %1061 ]
+  %.8 = phi i8 [ 1, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h3addb9783075fd09E.exit295" ], [ %.11, %1061 ]
+  %.2 = phi ptr [ %.1, %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17h3addb9783075fd09E.exit295" ], [ %.3, %1061 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$rust_analyzer..config..Config$GT$17h3cc59ba308d8582bE"(ptr noalias noundef nonnull align 8 dereferenceable(4560) %116)
           to label %1062 unwind label %187
 
@@ -79661,7 +79661,7 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
           to label %273 unwind label %271
 
 "_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit": ; preds = %1060, %.thread493, %560, %271
-  %.9 = phi i8 [ %.10, %560 ], [ 1, %271 ], [ 0, %.thread493 ], [ %.10, %1060 ]
+  %.9 = phi i8 [ %.12, %560 ], [ 1, %271 ], [ 0, %.thread493 ], [ %.12, %1060 ]
   %.pn257.pn = phi { ptr, i32 } [ %.pn255, %560 ], [ %272, %271 ], [ %561, %.thread493 ], [ %.pn255, %1060 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$project_model..cargo_workspace..CargoConfig$GT$17hc6fd2c8510e67bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(344) %105) #71
           to label %.body unwind label %266
@@ -79728,15 +79728,15 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
   br label %644
 
 "_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit": ; preds = %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit", %295
-  %.10 = phi i8 [ %.11, %295 ], [ %.12, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
-  %.0167 = phi i1 [ %.1168, %295 ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
+  %.12 = phi i8 [ %.10, %295 ], [ %.15, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
+  %.1168 = phi i1 [ %.0167, %295 ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
   %.pn255 = phi { ptr, i32 } [ %296, %295 ], [ %.pn253, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$vfs..Vfs$GT$17h51be76ebd2a957e7E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %103) #71
           to label %560 unwind label %266
 
 295:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit371", %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit345", %.noexc296, %293, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit"
-  %.11 = phi i8 [ 1, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ], [ 1, %293 ], [ 1, %.noexc296 ], [ 0, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit345" ], [ 0, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit371" ]
-  %.1168 = phi i1 [ false, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ], [ true, %293 ], [ true, %.noexc296 ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit345" ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit371" ]
+  %.10 = phi i8 [ 1, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ], [ 1, %293 ], [ 1, %.noexc296 ], [ 0, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit345" ], [ 0, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit371" ]
+  %.0167 = phi i1 [ false, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ], [ true, %293 ], [ true, %.noexc296 ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit345" ], [ false, %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit371" ]
   %296 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit"
@@ -79755,13 +79755,13 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
           to label %301 unwind label %299
 
 "_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit": ; preds = %303, %299
-  %.12 = phi i8 [ %.13, %299 ], [ %.14, %303 ]
+  %.15 = phi i8 [ %.14, %299 ], [ %.17, %303 ]
   %.pn253 = phi { ptr, i32 } [ %300, %299 ], [ %.pn251, %303 ]
   invoke void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %100)
           to label %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit" unwind label %266
 
 299:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E.exit369", %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E.exit", %301, %297
-  %.13 = phi i8 [ 1, %301 ], [ 1, %297 ], [ 0, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E.exit" ], [ 0, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E.exit369" ]
+  %.14 = phi i8 [ 1, %301 ], [ 1, %297 ], [ 0, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E.exit" ], [ 0, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide_db..defs..Definition$C$ide..static_index..TokenId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h4f16ef008694c5a9E.exit369" ]
   %300 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit"
@@ -79777,13 +79777,13 @@ _ZN3std4path4Path4join17h5d7dcd7acd12af1bE.exit:  ; preds = %149
           to label %306 unwind label %304
 
 303:                                              ; preds = %1058, %.body364, %.body340, %304
-  %.14 = phi i8 [ %.15, %304 ], [ 0, %.body340 ], [ %.16476, %1058 ], [ 0, %.body364 ]
+  %.17 = phi i8 [ %.16, %304 ], [ 0, %.body340 ], [ %.18476, %1058 ], [ 0, %.body364 ]
   %.pn251 = phi { ptr, i32 } [ %305, %304 ], [ %eh.lpad-body341, %.body340 ], [ %.pn248.pn478, %1058 ], [ %eh.lpad-body365, %.body364 ]
   invoke void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %98)
           to label %"_ZN4core3ptr34drop_in_place$LT$ide..Analysis$GT$17h853bf4ddedda860eE.exit" unwind label %266
 
 304:                                              ; preds = %.noexc367, %641, %.noexc342, %558, %302
-  %.15 = phi i8 [ 1, %302 ], [ 0, %558 ], [ 0, %.noexc342 ], [ 0, %641 ], [ 0, %.noexc367 ]
+  %.16 = phi i8 [ 1, %302 ], [ 0, %558 ], [ 0, %.noexc342 ], [ 0, %641 ], [ 0, %.noexc367 ]
   %305 = landingpad { ptr, i32 }
           cleanup
   br label %303
@@ -79948,7 +79948,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
 
 .body325:                                         ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i.i.i", %475, %469, %.body328.thread489, %446, %414, %338, %645
   %.2181 = phi i8 [ 0, %645 ], [ 1, %338 ], [ 1, %414 ], [ 1, %446 ], [ 0, %.body328.thread489 ], [ 0, %469 ], [ 0, %475 ], [ 0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i.i.i" ]
-  %.2175 = phi i1 [ false, %645 ], [ true, %338 ], [ true, %414 ], [ false, %446 ], [ false, %.body328.thread489 ], [ false, %469 ], [ false, %475 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i.i.i" ]
+  %.3176 = phi i1 [ false, %645 ], [ true, %338 ], [ true, %414 ], [ false, %446 ], [ false, %.body328.thread489 ], [ false, %469 ], [ false, %475 ], [ false, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i.i.i" ]
   %.pn242 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %645 ], [ %339, %338 ], [ %.pn240, %414 ], [ %447, %446 ], [ %lpad.thr_comm, %.body328.thread489 ], [ %470, %469 ], [ %476, %475 ], [ %476, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i.i.i.i" ]
   invoke void @"_ZN4core3ptr204drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide..static_index..TokenId$C$core..option..Option$LT$alloc..string..String$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h26969e135b2529d4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %85) #71
           to label %517 unwind label %266
@@ -80439,7 +80439,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
 
 517:                                              ; preds = %518, %.body325
   %.3182 = phi i8 [ 0, %518 ], [ %.2181, %.body325 ]
-  %.4177 = phi i1 [ false, %518 ], [ %.2175, %.body325 ]
+  %.4177 = phi i1 [ false, %518 ], [ %.3176, %.body325 ]
   %.pn244 = phi { ptr, i32 } [ %519, %518 ], [ %.pn242, %.body325 ]
   invoke void @"_ZN4core3ptr176drop_in_place$LT$std..collections..hash..map..HashMap$LT$ide..static_index..TokenId$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h570288a4264a5d79E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %86) #71
           to label %525 unwind label %266
@@ -80585,7 +80585,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
           to label %562 unwind label %.thread493
 
 560:                                              ; preds = %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit"
-  br i1 %.0167, label %1060, label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit"
+  br i1 %.1168, label %1060, label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit"
 
 .thread493:                                       ; preds = %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit347", %"_ZN4core3ptr38drop_in_place$LT$ide..AnalysisHost$GT$17hddc984b9fbc1c948E.exit373"
   %561 = landingpad { ptr, i32 }
@@ -80706,8 +80706,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
   br i1 %599, label %601, label %600
 
 600:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit419", %1117, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E.exit", %601, %598, %596
-  %.3 = phi ptr [ %.5, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit419" ], [ %.5, %1117 ], [ %.5, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E.exit" ], [ null, %601 ], [ null, %598 ], [ null, %596 ]
-  ret ptr %.3
+  %.4 = phi ptr [ %.5, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit419" ], [ %.5, %1117 ], [ %.5, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E.exit" ], [ null, %601 ], [ null, %598 ], [ null, %596 ]
+  ret ptr %.4
 
 601:                                              ; preds = %598
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %207)
@@ -80854,8 +80854,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
   br label %644
 
 644:                                              ; preds = %643, %294
-  %.23 = phi i8 [ 1, %294 ], [ 0, %643 ]
-  %.4 = phi ptr [ %284, %294 ], [ %472, %643 ]
+  %.11 = phi i8 [ 1, %294 ], [ 0, %643 ]
+  %.3 = phi ptr [ %284, %294 ], [ %472, %643 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$project_model..cargo_workspace..CargoConfig$GT$17hc6fd2c8510e67bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(344) %105)
           to label %1061 unwind label %211
 
@@ -80866,9 +80866,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit: ; preds
           to label %.body325 unwind label %266
 
 646:                                              ; preds = %1048, %656
-  %.0213 = phi i1 [ %.3216611, %1048 ], [ false, %656 ]
+  %.1214 = phi i1 [ %.4217611, %1048 ], [ false, %656 ]
   %.pn234 = phi { ptr, i32 } [ %.pn232612, %1048 ], [ %.pn230, %656 ]
-  br i1 %.0213, label %1049, label %992
+  br i1 %.1214, label %1049, label %992
 
 .thread:                                          ; preds = %420, %.noexc316, %427, %.noexc318, %435, %.noexc320
   %lpad.thr_comm607 = landingpad { ptr, i32 }
@@ -80907,7 +80907,7 @@ _ZN13rust_analyzer3cli4scip21get_relative_filepath17h8c6aa6d6e5b6d8a8E.exit: ; p
   br i1 %.5189, label %1048, label %646
 
 .thread617:                                       ; preds = %653, %974, %.noexc386
-  %.4217.ph = phi i1 [ false, %.noexc386 ], [ false, %974 ], [ true, %653 ]
+  %.3216.ph = phi i1 [ false, %.noexc386 ], [ false, %974 ], [ true, %653 ]
   %lpad.thr_comm615 = landingpad { ptr, i32 }
           cleanup
   br label %1048
@@ -80963,7 +80963,7 @@ _ZN13rust_analyzer3cli4scip21get_relative_filepath17h8c6aa6d6e5b6d8a8E.exit: ; p
           to label %.thread519 unwind label %956, !noalias !18716
 
 .lr.ph.i:                                         ; preds = %658, %947
-  %.0603 = phi i64 [ %.2605, %947 ], [ 0, %658 ]
+  %.0603 = phi i64 [ %.1604, %947 ], [ 0, %658 ]
   %661 = phi ptr [ %949, %947 ], [ %.sroa.4446.0.copyload, %658 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18718)
   %662 = getelementptr inbounds i8, ptr %661, i64 16
@@ -81057,7 +81057,7 @@ _ZN13rust_analyzer3cli4scip24text_range_to_scip_range17h0e80724be11c3b47E.exit.i
           to label %691 unwind label %689, !noalias !18730
 
 688:                                              ; preds = %.body121.thread.i.i.i
-  %.pre.i.i.i = trunc nuw i8 %.1220.i.i.i to i1
+  %.pre.i.i.i = trunc nuw i8 %.2220.i.i.i to i1
   br i1 %.pre.i.i.i, label %.thread.i.i.i, label %.body.i
 
 689:                                              ; preds = %734, %"_ZN13rust_analyzer3cli4scip49_$LT$impl$u20$rust_analyzer..cli..flags..Scip$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9aba2085c1f2affdE.exit.i.i.i.i", %.thread.i.i.i.i.i, %700, %_ZN13rust_analyzer3cli4scip24text_range_to_scip_range17h0e80724be11c3b47E.exit.i.i.i
@@ -81116,7 +81116,7 @@ _ZN13rust_analyzer3cli4scip24text_range_to_scip_range17h0e80724be11c3b47E.exit.i
   br label %"_ZN13rust_analyzer3cli4scip49_$LT$impl$u20$rust_analyzer..cli..flags..Scip$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9aba2085c1f2affdE.exit.i.i.i.i"
 
 "_ZN13rust_analyzer3cli4scip49_$LT$impl$u20$rust_analyzer..cli..flags..Scip$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9aba2085c1f2affdE.exit.i.i.i.i": ; preds = %703, %.noexc105.i.i.i
-  %.1604 = phi i64 [ %702, %.noexc105.i.i.i ], [ %.0603, %703 ]
+  %.2605 = phi i64 [ %702, %.noexc105.i.i.i ], [ %.0603, %703 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.6.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !18750
   invoke void @_ZN4scip6symbol13format_symbol17hf6c015668f84a58aE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %363, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %28)
@@ -81176,7 +81176,7 @@ _ZN13rust_analyzer3cli4scip24text_range_to_scip_range17h0e80724be11c3b47E.exit.i
   br label %734
 
 734:                                              ; preds = %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0cd300638d5a7902E.exit.i.i.i.i", %694
-  %.2605 = phi i64 [ %.1604, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0cd300638d5a7902E.exit.i.i.i.i" ], [ %.0603, %694 ]
+  %.1604 = phi i64 [ %.2605, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0cd300638d5a7902E.exit.i.i.i.i" ], [ %.0603, %694 ]
   %.pn.i.i.i.i = phi ptr [ %724, %"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h0cd300638d5a7902E.exit.i.i.i.i" ], [ %695, %694 ]
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 -24
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.0.i.i.i.i)
@@ -81189,13 +81189,13 @@ _ZN13rust_analyzer3cli4scip24text_range_to_scip_range17h0e80724be11c3b47E.exit.i
           to label %739 unwind label %737, !noalias !18730
 
 .body121.i.i.i:                                   ; preds = %.body143.thread251.i.i.i, %737
-  %.1.i.i.i = phi i8 [ %.3204.i.i.i, %.body143.thread251.i.i.i ], [ %.2.i.i.i, %737 ]
+  %.2.i.i.i = phi i8 [ %.4204.i.i.i, %.body143.thread251.i.i.i ], [ %.1.i.i.i, %737 ]
   %.pn99.i.i.i = phi { ptr, i32 } [ %.pn97205.i.i.i, %.body143.thread251.i.i.i ], [ %738, %737 ]
-  %736 = trunc nuw i8 %.1.i.i.i to i1
+  %736 = trunc nuw i8 %.2.i.i.i to i1
   br i1 %736, label %.body121.thread.i.i.i, label %.body.i
 
 737:                                              ; preds = %938, %785, %750, %748, %735
-  %.2.i.i.i = phi i8 [ 1, %785 ], [ 1, %735 ], [ 1, %748 ], [ 1, %750 ], [ 0, %938 ]
+  %.1.i.i.i = phi i8 [ 1, %785 ], [ 1, %735 ], [ 1, %748 ], [ 1, %750 ], [ 0, %938 ]
   %738 = landingpad { ptr, i32 }
           cleanup
   br label %.body121.i.i.i
@@ -81492,7 +81492,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.15439407322995335751.e
   br i1 %830, label %.thread208.i.i.i, label %833
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$scip..scip_mod..scip..Document$GT$$GT$17h3eec00b27a106334E.exit.i.i.i": ; preds = %918, %916
-  br i1 %.280230.i.i.i, label %.thread210.i.i.i, label %.body143.thread251.i.i.i
+  br i1 %.381230.i.i.i, label %.thread210.i.i.i, label %.body143.thread251.i.i.i
 
 831:                                              ; preds = %.noexc22.i.i.i.i, %828
   %832 = landingpad { ptr, i32 }
@@ -81869,7 +81869,7 @@ switch.lookup:                                    ; preds = %869
 
 916:                                              ; preds = %.body138.thread.i.i.i, %.body138.i.i.i
   %.pn94231.i.i.i = phi { ptr, i32 } [ %872, %.body138.thread.i.i.i ], [ %.pn.i.i.i, %.body138.i.i.i ]
-  %.280230.i.i.i = phi i1 [ true, %.body138.thread.i.i.i ], [ false, %.body138.i.i.i ]
+  %.381230.i.i.i = phi i1 [ true, %.body138.thread.i.i.i ], [ false, %.body138.i.i.i ]
   %917 = icmp eq i64 %870, -9223372036854775808
   br i1 %917, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$scip..scip_mod..scip..Document$GT$$GT$17h3eec00b27a106334E.exit.i.i.i", label %918
 
@@ -81978,13 +81978,13 @@ switch.lookup:                                    ; preds = %869
 
 .body143.thread251.i.i.i:                         ; preds = %.thread210.i.i.i, %.body138.i.i.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$scip..scip_mod..scip..Document$GT$$GT$17h3eec00b27a106334E.exit.i.i.i", %.thread200.i.i.i, %.body143.thread.i.i.loopexit.split-lp.i, %.body143.thread.i.i.loopexit.i, %.body143.i.i.i
   %.pn97205.i.i.i = phi { ptr, i32 } [ %819, %.thread200.i.i.i ], [ %.pn97.i.i.i, %.body143.i.i.i ], [ %.pn94231.i.i.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$scip..scip_mod..scip..Document$GT$$GT$17h3eec00b27a106334E.exit.i.i.i" ], [ %.pn94.pn215.i.i.i, %.thread210.i.i.i ], [ %.pn.i.i.i, %.body138.i.i.i ], [ %lpad.loopexit15.i, %.body143.thread.i.i.loopexit.i ], [ %lpad.loopexit.split-lp16.i, %.body143.thread.i.i.loopexit.split-lp.i ]
-  %.3204.i.i.i = phi i8 [ 1, %.thread200.i.i.i ], [ 0, %.body143.i.i.i ], [ 1, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$scip..scip_mod..scip..Document$GT$$GT$17h3eec00b27a106334E.exit.i.i.i" ], [ 1, %.thread210.i.i.i ], [ 1, %.body138.i.i.i ], [ 1, %.body143.thread.i.i.loopexit.i ], [ 1, %.body143.thread.i.i.loopexit.split-lp.i ]
+  %.4204.i.i.i = phi i8 [ 1, %.thread200.i.i.i ], [ 0, %.body143.i.i.i ], [ 1, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$scip..scip_mod..scip..Document$GT$$GT$17h3eec00b27a106334E.exit.i.i.i" ], [ 1, %.thread210.i.i.i ], [ 1, %.body138.i.i.i ], [ 1, %.body143.thread.i.i.loopexit.i ], [ 1, %.body143.thread.i.i.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #71
           to label %.body121.i.i.i unwind label %911, !noalias !18730
 
 .body121.thread.i.i.i:                            ; preds = %902, %753, %.body121.i.i.i
   %.pn99221.i.i.i = phi { ptr, i32 } [ %.pn99.i.i.i, %.body121.i.i.i ], [ %754, %753 ], [ %903, %902 ]
-  %.1220.i.i.i = phi i8 [ %.1.i.i.i, %.body121.i.i.i ], [ 1, %753 ], [ 1, %902 ]
+  %.2220.i.i.i = phi i8 [ %.2.i.i.i, %.body121.i.i.i ], [ 1, %753 ], [ 1, %902 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #71
           to label %688 unwind label %911, !noalias !18730
 
@@ -82315,19 +82315,19 @@ switch.lookup:                                    ; preds = %869
 
 .thread519:                                       ; preds = %1010, %952, %.body.i, %.thread522
   %.pn225518 = phi { ptr, i32 } [ %657, %.thread522 ], [ %953, %952 ], [ %eh.lpad-body.i, %.body.i ], [ %1011, %1010 ]
-  %.2186517 = phi i1 [ true, %.thread522 ], [ true, %952 ], [ true, %.body.i ], [ false, %1010 ]
+  %.3187517 = phi i1 [ true, %.thread522 ], [ true, %952 ], [ true, %.body.i ], [ false, %1010 ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$scip..scip_mod..scip..SymbolInformation$GT$$GT$17haa189f2d63d97727E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78) #71
           to label %1047 unwind label %266
 
 1047:                                             ; preds = %964, %.thread519
-  %.4188.ph = phi i1 [ %.2186517, %.thread519 ], [ true, %964 ]
+  %.4188.ph = phi i1 [ %.3187517, %.thread519 ], [ true, %964 ]
   %.pn228.ph = phi { ptr, i32 } [ %.pn225518, %.thread519 ], [ %965, %964 ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$scip..scip_mod..scip..Occurrence$GT$$GT$17h94c4e03819a42dd0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79) #71
           to label %967 unwind label %266
 
 1048:                                             ; preds = %.thread617, %656
   %.pn232612 = phi { ptr, i32 } [ %.pn230, %656 ], [ %lpad.thr_comm615, %.thread617 ]
-  %.3216611 = phi i1 [ false, %656 ], [ %.4217.ph, %.thread617 ]
+  %.4217611 = phi i1 [ false, %656 ], [ %.3216.ph, %.thread617 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81) #71
           to label %646 unwind label %266
 
@@ -82357,7 +82357,7 @@ switch.lookup:                                    ; preds = %869
 
 1055:                                             ; preds = %.thread532, %1052, %1054, %1057
   %.pn248.pn478 = phi { ptr, i32 } [ %.pn248.pn.ph, %1057 ], [ %.pn246, %1054 ], [ %.pn246, %1052 ], [ %337, %.thread532 ]
-  %.16476 = phi i8 [ 1, %1057 ], [ %.4183, %1054 ], [ %.4183, %1052 ], [ 0, %.thread532 ]
+  %.18476 = phi i8 [ 1, %1057 ], [ %.4183, %1054 ], [ %.4183, %1052 ], [ 0, %.thread532 ]
   %1056 = getelementptr inbounds i8, ptr %97, i64 24
   invoke void @"_ZN4core3ptr50drop_in_place$LT$ide..static_index..TokenStore$GT$17h239c3a00fdc0b907E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1056) #71
           to label %1058 unwind label %266
@@ -82580,7 +82580,7 @@ switch.lookup:                                    ; preds = %869
           to label %604 unwind label %266
 
 1133:                                             ; preds = %130
-  %1134 = trunc nuw i8 %.0196 to i1
+  %1134 = trunc nuw i8 %.1197 to i1
   br i1 %1134, label %1138, label %1135
 
 1135:                                             ; preds = %1138, %1133
@@ -82595,7 +82595,7 @@ switch.lookup:                                    ; preds = %869
           to label %1135 unwind label %266
 
 1140:                                             ; preds = %1135
-  %1141 = trunc nuw i8 %.0202 to i1
+  %1141 = trunc nuw i8 %.1203 to i1
   br i1 %1141, label %1142, label %604
 
 1142:                                             ; preds = %1140
@@ -82925,7 +82925,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
           to label %.thread224 unwind label %276
 
 42:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit", %43
-  %.0115 = phi i8 [ %.1116, %43 ], [ %.2117, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ]
+  %.2117 = phi i8 [ %.1116, %43 ], [ %.4119, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ]
   %.pn138 = phi { ptr, i32 } [ %44, %43 ], [ %.pn136, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$project_model..cargo_workspace..CargoConfig$GT$17hc6fd2c8510e67bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(344) %39) #71
           to label %185 unwind label %276
@@ -82996,7 +82996,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
           to label %64 unwind label %62
 
 "_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit": ; preds = %169, %72, %62
-  %.2117 = phi i8 [ %.3118, %62 ], [ 1, %72 ], [ %.8, %169 ]
+  %.4119 = phi i8 [ %.3118, %62 ], [ 1, %72 ], [ %.9, %169 ]
   %.pn136 = phi { ptr, i32 } [ %63, %62 ], [ %73, %72 ], [ %.pn134, %169 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37) #71
           to label %42 unwind label %276
@@ -83106,7 +83106,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
   br label %310
 
 99:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit", %100
-  %.4119 = phi i8 [ %.5, %100 ], [ 0, %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit" ]
+  %.6 = phi i8 [ %.5, %100 ], [ 0, %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit" ]
   %.pn130 = phi { ptr, i32 } [ %101, %100 ], [ %.pn128, %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit" ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35) #71
           to label %166 unwind label %276
@@ -83373,13 +83373,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
           to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" unwind label %167
 
 166:                                              ; preds = %167, %99
-  %.6 = phi i8 [ %.7, %167 ], [ %.4119, %99 ]
+  %.7 = phi i8 [ %.8, %167 ], [ %.6, %99 ]
   %.pn132 = phi { ptr, i32 } [ %168, %167 ], [ %.pn130, %99 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$vfs..Vfs$GT$17h51be76ebd2a957e7E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %36) #71
           to label %169 unwind label %276
 
 167:                                              ; preds = %.noexc183, %296, %.noexc155, %165
-  %.7 = phi i8 [ 0, %165 ], [ 0, %.noexc155 ], [ %.12, %296 ], [ %.12, %.noexc183 ]
+  %.8 = phi i8 [ 0, %165 ], [ 0, %.noexc155 ], [ %.12, %296 ], [ %.12, %.noexc183 ]
   %168 = landingpad { ptr, i32 }
           cleanup
   br label %166
@@ -83390,14 +83390,14 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
           to label %173 unwind label %171
 
 169:                                              ; preds = %171, %166
-  %.8 = phi i8 [ %.9, %171 ], [ %.6, %166 ]
+  %.9 = phi i8 [ %.10, %171 ], [ %.7, %166 ]
   %.pn134 = phi { ptr, i32 } [ %172, %171 ], [ %.pn132, %166 ]
   %170 = getelementptr inbounds i8, ptr %34, i64 128
   invoke void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %170)
           to label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" unwind label %276
 
 171:                                              ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit185", %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit"
-  %.9 = phi i8 [ %.12, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit185" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ]
+  %.10 = phi i8 [ %.12, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit185" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ]
   %172 = landingpad { ptr, i32 }
           cleanup
   br label %169
@@ -83449,9 +83449,9 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
           to label %189 unwind label %187
 
 185:                                              ; preds = %187, %42
-  %.10 = phi i8 [ %.11, %187 ], [ %.0115, %42 ]
+  %.0115 = phi i8 [ %.11, %187 ], [ %.2117, %42 ]
   %.pn140 = phi { ptr, i32 } [ %188, %187 ], [ %.pn138, %42 ]
-  %186 = trunc nuw i8 %.10 to i1
+  %186 = trunc nuw i8 %.0115 to i1
   br i1 %186, label %.thread224, label %315
 
 187:                                              ; preds = %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit193", %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit"
@@ -83465,8 +83465,8 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
   br label %190
 
 190:                                              ; preds = %314, %312, %189
-  %.0 = phi ptr [ %.3, %314 ], [ %.3, %312 ], [ null, %189 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.4, %314 ], [ %.4, %312 ], [ null, %189 ]
+  ret ptr %.1
 
 .body170.thread:                                  ; preds = %.body170.thread231.loopexit, %.body170.thread231.loopexit.split-lp, %.body167, %245, %275, %191
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %275 ], [ %lpad.phi241, %.body167 ], [ %192, %191 ], [ %246, %245 ], [ %lpad.loopexit242, %.body170.thread231.loopexit ], [ %lpad.loopexit.split-lp243, %.body170.thread231.loopexit.split-lp ]
@@ -83765,7 +83765,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
   br label %274
 
 274:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit182", %"_ZN4core3ptr99drop_in_place$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$text_edit..TextEdit$GT$$GT$17h4f8b10ecaa3cd66aE.exit180"
-  %.1 = phi ptr [ %244, %"_ZN4core3ptr99drop_in_place$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$text_edit..TextEdit$GT$$GT$17h4f8b10ecaa3cd66aE.exit180" ], [ %288, %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit182" ]
+  %.2 = phi ptr [ %244, %"_ZN4core3ptr99drop_in_place$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$text_edit..TextEdit$GT$$GT$17h4f8b10ecaa3cd66aE.exit180" ], [ %288, %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ide_ssr..SsrRule$GT$$GT$17hf196ba9ffddcf9c1E.exit182" ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$ide_ssr..MatchFinder$GT$17h02cdedefcaa57755E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %30)
           to label %290 unwind label %100
 
@@ -83823,7 +83823,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
 
 290:                                              ; preds = %297, %274
   %.12 = phi i8 [ 1, %297 ], [ 0, %274 ]
-  %.2 = phi ptr [ %109, %297 ], [ %.1, %274 ]
+  %.3 = phi ptr [ %109, %297 ], [ %.2, %274 ]
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %30)
   call void @llvm.experimental.noalias.scope.decl(metadata !19213)
   %291 = load ptr, ptr %35, align 8, !alias.scope !19213, !noundef !12
@@ -83860,7 +83860,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
 
 "_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit187": ; preds = %298, %310
   %.13 = phi i8 [ 1, %310 ], [ %.12, %298 ]
-  %.3 = phi ptr [ %.4, %310 ], [ %.2, %298 ]
+  %.4 = phi ptr [ %.0, %310 ], [ %.3, %298 ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %34)
   call void @llvm.experimental.noalias.scope.decl(metadata !19223)
   call void @llvm.experimental.noalias.scope.decl(metadata !19226)
@@ -83897,7 +83897,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr48_$LT$impl$u20$rust_analyzer..cl
   br label %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit193"
 
 310:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit146", %311
-  %.4 = phi ptr [ %71, %311 ], [ %78, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit146" ]
+  %.0 = phi ptr [ %71, %311 ], [ %78, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit146" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   br label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit187"
 
@@ -84010,13 +84010,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
           to label %50 unwind label %48
 
 46:                                               ; preds = %301, %48
-  %.0124 = phi i8 [ %.1125, %48 ], [ %.10, %301 ]
+  %.1125 = phi i8 [ %.0124, %48 ], [ %.4, %301 ]
   %.pn152 = phi { ptr, i32 } [ %49, %48 ], [ %.pn150, %301 ]
-  %47 = trunc nuw i8 %.0124 to i1
+  %47 = trunc nuw i8 %.1125 to i1
   br i1 %47, label %412, label %410
 
 48:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit212", %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit", %1
-  %.1125 = phi i8 [ %.13, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit212" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit" ], [ 1, %1 ]
+  %.0124 = phi i8 [ %.13, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit212" ], [ 0, %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit" ], [ 1, %1 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %46
@@ -84074,13 +84074,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
           to label %66 unwind label %64
 
 "_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit": ; preds = %285, %74, %64
-  %.2126 = phi i8 [ %.3127, %64 ], [ 1, %74 ], [ %.8, %285 ]
+  %.3127 = phi i8 [ %.2126, %64 ], [ 1, %74 ], [ %.9, %285 ]
   %.pn148 = phi { ptr, i32 } [ %65, %64 ], [ %75, %74 ], [ %.pn146, %285 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %44) #71
           to label %301 unwind label %255
 
 64:                                               ; preds = %360, %289, %92, %72, %50
-  %.3127 = phi i8 [ 1, %72 ], [ 1, %50 ], [ 1, %92 ], [ 0, %289 ], [ %.12, %360 ]
+  %.2126 = phi i8 [ 1, %72 ], [ 1, %50 ], [ 1, %92 ], [ 0, %289 ], [ %.12, %360 ]
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit"
@@ -84184,7 +84184,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
   br label %372
 
 101:                                              ; preds = %.body, %102
-  %.4 = phi i8 [ %.5, %102 ], [ 0, %.body ]
+  %.6 = phi i8 [ %.5, %102 ], [ 0, %.body ]
   %.pn142 = phi { ptr, i32 } [ %103, %102 ], [ %.pn140, %.body ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %42) #71
           to label %282 unwind label %255
@@ -84813,13 +84813,13 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
           to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" unwind label %283
 
 282:                                              ; preds = %283, %101
-  %.6 = phi i8 [ %.7, %283 ], [ %.4, %101 ]
+  %.7 = phi i8 [ %.8, %283 ], [ %.6, %101 ]
   %.pn144 = phi { ptr, i32 } [ %284, %283 ], [ %.pn142, %101 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$vfs..Vfs$GT$17h51be76ebd2a957e7E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %43) #71
           to label %285 unwind label %255
 
 283:                                              ; preds = %.noexc202, %358, %.noexc189, %281
-  %.7 = phi i8 [ 0, %281 ], [ 0, %.noexc189 ], [ %.12, %358 ], [ %.12, %.noexc202 ]
+  %.8 = phi i8 [ 0, %281 ], [ 0, %.noexc189 ], [ %.12, %358 ], [ %.12, %.noexc202 ]
   %284 = landingpad { ptr, i32 }
           cleanup
   br label %282
@@ -84830,14 +84830,14 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
           to label %289 unwind label %287
 
 285:                                              ; preds = %287, %282
-  %.8 = phi i8 [ %.9, %287 ], [ %.6, %282 ]
+  %.9 = phi i8 [ %.10, %287 ], [ %.7, %282 ]
   %.pn146 = phi { ptr, i32 } [ %288, %287 ], [ %.pn144, %282 ]
   %286 = getelementptr inbounds i8, ptr %41, i64 128
   invoke void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %286)
           to label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" unwind label %255
 
 287:                                              ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit204", %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit"
-  %.9 = phi i8 [ %.12, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit204" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ]
+  %.10 = phi i8 [ %.12, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit204" ], [ 0, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$proc_macro_api..ProcMacroServer$GT$$GT$17hde1e190043d9f2d4E.exit" ]
   %288 = landingpad { ptr, i32 }
           cleanup
   br label %285
@@ -84884,7 +84884,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
   br label %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit"
 
 301:                                              ; preds = %302, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit"
-  %.10 = phi i8 [ %.11, %302 ], [ %.2126, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ]
+  %.4 = phi i8 [ %.11, %302 ], [ %.3127, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ]
   %.pn150 = phi { ptr, i32 } [ %303, %302 ], [ %.pn148, %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit" ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$project_model..cargo_workspace..CargoConfig$GT$17hc6fd2c8510e67bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(344) %45) #71
           to label %46 unwind label %255
@@ -84931,8 +84931,8 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i214", %376, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i", %304
-  %.0 = phi ptr [ null, %304 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i" ], [ %.2, %376 ], [ %.2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i214" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %304 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i" ], [ %.3, %376 ], [ %.3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i214" ]
+  ret ptr %.1
 
 316:                                              ; preds = %319, %317
   %.pn = phi { ptr, i32 } [ %318, %317 ], [ %320, %319 ]
@@ -85058,7 +85058,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
 
 352:                                              ; preds = %359, %351
   %.12 = phi i8 [ 1, %359 ], [ 0, %351 ]
-  %.1 = phi ptr [ %111, %359 ], [ %342, %351 ]
+  %.2 = phi ptr [ %111, %359 ], [ %342, %351 ]
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %37)
   call void @llvm.experimental.noalias.scope.decl(metadata !19479)
   %353 = load ptr, ptr %42, align 8, !alias.scope !19479, !noundef !12
@@ -85095,7 +85095,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
 
 "_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit206": ; preds = %360, %372
   %.13 = phi i8 [ 1, %372 ], [ %.12, %360 ]
-  %.2 = phi ptr [ %.3, %372 ], [ %.1, %360 ]
+  %.3 = phi ptr [ %.0, %372 ], [ %.2, %360 ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %41)
   call void @llvm.experimental.noalias.scope.decl(metadata !19489)
   call void @llvm.experimental.noalias.scope.decl(metadata !19492)
@@ -85132,7 +85132,7 @@ define noundef ptr @"_ZN13rust_analyzer3cli3ssr51_$LT$impl$u20$rust_analyzer..cl
   br label %"_ZN4core3ptr48drop_in_place$LT$load_cargo..LoadCargoConfig$GT$17h362cba2eefb52d97E.exit212"
 
 372:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit159", %373
-  %.3 = phi ptr [ %73, %373 ], [ %80, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit159" ]
+  %.0 = phi ptr [ %73, %373 ], [ %80, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d971bd1a73b6896E.exit159" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
   br label %"_ZN4core3ptr41drop_in_place$LT$ide_db..RootDatabase$GT$17h3327571113d4c4b1E.exit206"
 
@@ -86490,7 +86490,7 @@ define internal fastcc void @_ZN13rust_analyzer3cli5flags12RustAnalyzer6parse_17
           to label %412 unwind label %.loopexit.loopexit
 
 .body3844.thread:                                 ; preds = %.body3844.thread4745.loopexit.split-lp, %.body3844.thread4745.loopexit.loopexit.split-lp, %.body3844.thread4745.loopexit.loopexit, %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %937, %919, %900, %877, %854, %836, %818, %798, %.body, %1331, %.body.thread
-  %.0 = phi i1 [ true, %1331 ], [ true, %.body.thread ], [ true, %.body ], [ true, %798 ], [ true, %818 ], [ true, %836 ], [ true, %854 ], [ true, %877 ], [ true, %900 ], [ true, %919 ], [ true, %937 ], [ %.not.not, %.loopexit.split-lp ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ], [ true, %.body3844.thread4745.loopexit.loopexit ], [ true, %.body3844.thread4745.loopexit.loopexit.split-lp ], [ true, %.body3844.thread4745.loopexit.split-lp ]
+  %.1 = phi i1 [ true, %1331 ], [ true, %.body.thread ], [ true, %.body ], [ true, %798 ], [ true, %818 ], [ true, %836 ], [ true, %854 ], [ true, %877 ], [ true, %900 ], [ true, %919 ], [ true, %937 ], [ %.not.not, %.loopexit.split-lp ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ], [ true, %.body3844.thread4745.loopexit.loopexit ], [ true, %.body3844.thread4745.loopexit.loopexit.split-lp ], [ true, %.body3844.thread4745.loopexit.split-lp ]
   %.pn3472 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp4744, %1331 ], [ %eh.lpad-body4408, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ], [ %799, %798 ], [ %819, %818 ], [ %837, %836 ], [ %855, %854 ], [ %878, %877 ], [ %901, %900 ], [ %920, %919 ], [ %938, %937 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp5025, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit5024, %.loopexit.loopexit ], [ %lpad.loopexit, %.body3844.thread4745.loopexit.loopexit ], [ %lpad.loopexit.split-lp5027, %.body3844.thread4745.loopexit.loopexit.split-lp ], [ %lpad.loopexit.split-lp5019, %.body3844.thread4745.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h4785d53110174bdfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %390)
           to label %"_ZN4core3ptr77drop_in_place$LT$$LP$bool$C$alloc..vec..Vec$LT$std..path..PathBuf$GT$$RP$$GT$17h743a845cc01dea34E.exit" unwind label %741
@@ -88460,7 +88460,7 @@ define internal fastcc void @_ZN13rust_analyzer3cli5flags12RustAnalyzer6parse_17
   br label %812
 
 "_ZN4core3ptr77drop_in_place$LT$$LP$bool$C$alloc..vec..Vec$LT$std..path..PathBuf$GT$$RP$$GT$17h743a845cc01dea34E.exit": ; preds = %.body3844.thread, %952
-  %.2 = phi i1 [ true, %952 ], [ %.0, %.body3844.thread ]
+  %.2 = phi i1 [ true, %952 ], [ %.1, %.body3844.thread ]
   %.pn3474 = phi { ptr, i32 } [ %953, %952 ], [ %.pn3472, %.body3844.thread ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h4785d53110174bdfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %280) #71
           to label %954 unwind label %741
@@ -89954,41 +89954,41 @@ default.unreachable:                              ; preds = %1375
           to label %1692 unwind label %1390
 
 1389:                                             ; preds = %1931, %1927, %1699, %1667, %1633, %1596, %1586, %1576, %1566, %1556, %1546, %1536, %1526, %1516, %1506, %1496, %1486, %1476, %1466, %1390
-  %.03213 = phi i8 [ %.13214, %1390 ], [ 0, %1927 ], [ 0, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03204 = phi i8 [ %.13205, %1390 ], [ 0, %1927 ], [ 0, %1931 ], [ 0, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03194 = phi i8 [ %.13195, %1390 ], [ 0, %1927 ], [ 0, %1931 ], [ 0, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03182 = phi i8 [ %.13183, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03157 = phi i8 [ %.13158, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03121 = phi i8 [ %.13122, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03097 = phi i8 [ %.13098, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03072 = phi i8 [ %.13073, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03046 = phi i8 [ %.13047, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.03017 = phi i8 [ %.13018, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 0, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02987 = phi i8 [ %.12988, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 0, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02955 = phi i8 [ %.12956, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02903 = phi i8 [ %.12904, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02850 = phi i8 [ %.12851, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02796 = phi i8 [ %.12797, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02741 = phi i8 [ %.12742, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02685 = phi i8 [ %.12686, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02628 = phi i8 [ %.12629, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02570 = phi i8 [ %.12571, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02511 = phi i8 [ %.12512, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02451 = phi i8 [ %.12452, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02390 = phi i8 [ %.12391, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02328 = phi i8 [ %.12329, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02265 = phi i8 [ %.12266, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.02197 = phi i8 [ %.12198, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 1, %1466 ]
-  %.02132 = phi i8 [ %.12133, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
-  %.02066 = phi i8 [ %.12067, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
-  %.01999 = phi i8 [ %.12000, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
-  %.01931 = phi i8 [ %.11932, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
-  %.01862 = phi i8 [ %.11863, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
-  %.01792 = phi i8 [ %.11793, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
-  %.01720 = phi i8 [ %.11721, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.01646 = phi i8 [ %.11647, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.01569 = phi i8 [ %.11570, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
-  %.01527 = phi i8 [ %.11528, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33216 = phi i8 [ %.13214, %1390 ], [ 0, %1927 ], [ 0, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33207 = phi i8 [ %.13205, %1390 ], [ 0, %1927 ], [ 0, %1931 ], [ 0, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33197 = phi i8 [ %.13195, %1390 ], [ 0, %1927 ], [ 0, %1931 ], [ 0, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33185 = phi i8 [ %.13183, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33160 = phi i8 [ %.13158, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33124 = phi i8 [ %.13122, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33100 = phi i8 [ %.13098, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33075 = phi i8 [ %.13073, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33049 = phi i8 [ %.13047, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 0, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.33020 = phi i8 [ %.13018, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 0, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32990 = phi i8 [ %.12988, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 0, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32958 = phi i8 [ %.12956, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32906 = phi i8 [ %.12904, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32853 = phi i8 [ %.12851, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32799 = phi i8 [ %.12797, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32744 = phi i8 [ %.12742, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32688 = phi i8 [ %.12686, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32631 = phi i8 [ %.12629, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32573 = phi i8 [ %.12571, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32514 = phi i8 [ %.12512, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32454 = phi i8 [ %.12452, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32393 = phi i8 [ %.12391, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32331 = phi i8 [ %.12329, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32268 = phi i8 [ %.12266, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.32200 = phi i8 [ %.12198, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 1, %1466 ]
+  %.32135 = phi i8 [ %.12133, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
+  %.32069 = phi i8 [ %.12067, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
+  %.32002 = phi i8 [ %.12000, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
+  %.31934 = phi i8 [ %.11932, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
+  %.31865 = phi i8 [ %.11863, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
+  %.31795 = phi i8 [ %.11793, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 0, %1596 ], [ 0, %1586 ], [ 0, %1576 ], [ 0, %1566 ], [ 0, %1556 ], [ 0, %1546 ], [ 0, %1536 ], [ 0, %1526 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ]
+  %.31723 = phi i8 [ %.11721, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.31649 = phi i8 [ %.11647, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.31572 = phi i8 [ %.11570, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
+  %.31530 = phi i8 [ %.11528, %1390 ], [ 1, %1927 ], [ 1, %1931 ], [ 1, %1699 ], [ 1, %1667 ], [ 1, %1633 ], [ 1, %1596 ], [ 1, %1586 ], [ 1, %1576 ], [ 1, %1566 ], [ 1, %1556 ], [ 1, %1546 ], [ 1, %1536 ], [ 1, %1526 ], [ 1, %1516 ], [ 1, %1506 ], [ 1, %1496 ], [ 1, %1486 ], [ 1, %1476 ], [ 1, %1466 ]
   %.pn3394 = phi { ptr, i32 } [ %1391, %1390 ], [ %1928, %1927 ], [ %1709, %1931 ], [ %1700, %1699 ], [ %1668, %1667 ], [ %1634, %1633 ], [ %1597, %1596 ], [ %1587, %1586 ], [ %1577, %1576 ], [ %1567, %1566 ], [ %1557, %1556 ], [ %1547, %1546 ], [ %1537, %1536 ], [ %1527, %1526 ], [ %1517, %1516 ], [ %1507, %1506 ], [ %1497, %1496 ], [ %1487, %1486 ], [ %1477, %1476 ], [ %1467, %1466 ]
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %224) #71
           to label %1945 unwind label %741
@@ -90174,7 +90174,7 @@ default.unreachable:                              ; preds = %1375
   %.sink5665 = phi i64 [ %1400, %1405 ], [ %1393, %1398 ]
   %.sink = phi i8 [ %1403, %1405 ], [ %1396, %1398 ]
   %.sroa.31121.sink = phi ptr [ %.sroa.31121, %1405 ], [ %.sroa.31112, %1398 ]
-  %.31572 = phi i8 [ 0, %1405 ], [ 1, %1398 ]
+  %.51574 = phi i8 [ 0, %1405 ], [ 1, %1398 ]
   %1409 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink5665, ptr %1409, align 8
   %.sroa.21120.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -90185,41 +90185,41 @@ default.unreachable:                              ; preds = %1375
   br label %1410
 
 1410:                                             ; preds = %1650, %1665, %1676, %1658, %1433, %1449, %1618, %1616, %1614, %1612, %1610, %1608, %1605, %1606, %1607, %1609, %1611, %1613, %1615, %1617, %1464, %1457, %1441, %1697, %1932, %1930, %1631, %1643, %1690, %1683, %1624, %1425, %1417, %1408
-  %.33216 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 0, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.33207 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 0, %1930 ], [ 0, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.33197 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 0, %1697 ], [ 0, %1930 ], [ 0, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.33185 = phi i8 [ 0, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.33160 = phi i8 [ 1, %1690 ], [ 0, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.33124 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 0, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.33100 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 0, %1676 ], [ 0, %1665 ], [ 1, %1650 ]
-  %.33075 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 0, %1658 ], [ 0, %1676 ], [ 0, %1665 ], [ 1, %1650 ]
-  %.33049 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 0, %1658 ], [ 0, %1676 ], [ 0, %1665 ], [ 0, %1650 ]
-  %.33020 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 0, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32990 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 0, %1643 ], [ 0, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32958 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 0, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32906 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 0, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32853 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32799 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32744 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32688 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32631 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32573 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32514 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32454 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32393 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32331 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32268 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32200 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32135 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32069 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.32002 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.31934 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 0, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.31865 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 0, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 0, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.31795 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 0, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 0, %1449 ], [ 0, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.31723 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 0, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.31649 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 0, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.41573 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ %.31572, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
-  %.31530 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 0, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53218 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 0, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53209 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 0, %1930 ], [ 0, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53199 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 0, %1697 ], [ 0, %1930 ], [ 0, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53187 = phi i8 [ 0, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53162 = phi i8 [ 1, %1690 ], [ 0, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53126 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 0, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.53102 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 0, %1676 ], [ 0, %1665 ], [ 1, %1650 ]
+  %.53077 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 0, %1658 ], [ 0, %1676 ], [ 0, %1665 ], [ 1, %1650 ]
+  %.53051 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 0, %1658 ], [ 0, %1676 ], [ 0, %1665 ], [ 0, %1650 ]
+  %.53022 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 0, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52992 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 0, %1643 ], [ 0, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52960 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 0, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52908 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 0, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52855 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52801 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52746 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52690 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52633 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52575 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52516 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52456 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52395 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52333 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52270 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52202 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52137 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52071 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.52004 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.51936 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 0, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.51867 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 0, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 0, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.51797 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 0, %1441 ], [ 0, %1457 ], [ 0, %1464 ], [ 0, %1617 ], [ 0, %1615 ], [ 0, %1613 ], [ 0, %1611 ], [ 0, %1609 ], [ 0, %1607 ], [ 0, %1606 ], [ 0, %1605 ], [ 0, %1608 ], [ 0, %1610 ], [ 0, %1612 ], [ 0, %1614 ], [ 0, %1616 ], [ 0, %1618 ], [ 0, %1449 ], [ 0, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.51725 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 0, %1425 ], [ 1, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.51651 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 0, %1417 ], [ 1, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.61575 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ %.51574, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
+  %.51532 = phi i8 [ 1, %1690 ], [ 1, %1683 ], [ 1, %1624 ], [ 1, %1425 ], [ 1, %1417 ], [ 0, %1408 ], [ 1, %1643 ], [ 1, %1631 ], [ 1, %1697 ], [ 1, %1930 ], [ 1, %1932 ], [ 1, %1441 ], [ 1, %1457 ], [ 1, %1464 ], [ 1, %1617 ], [ 1, %1615 ], [ 1, %1613 ], [ 1, %1611 ], [ 1, %1609 ], [ 1, %1607 ], [ 1, %1606 ], [ 1, %1605 ], [ 1, %1608 ], [ 1, %1610 ], [ 1, %1612 ], [ 1, %1614 ], [ 1, %1616 ], [ 1, %1618 ], [ 1, %1449 ], [ 1, %1433 ], [ 1, %1658 ], [ 1, %1676 ], [ 1, %1665 ], [ 1, %1650 ]
   call void @llvm.lifetime.end.p0(i64 53, ptr nonnull %.sroa.20.sroa.0)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.20.sroa.29)
   br label %1933
@@ -91415,83 +91415,83 @@ default.unreachable:                              ; preds = %1375
           to label %1723 unwind label %1720
 
 1718:                                             ; preds = %2261, %1945, %1720
-  %.43208 = phi i8 [ %.53209, %1720 ], [ %.83212, %2261 ], [ %.83212, %1945 ]
-  %.43198 = phi i8 [ %.53199, %1720 ], [ %.93203, %2261 ], [ %.93203, %1945 ]
-  %.43186 = phi i8 [ %.53187, %1720 ], [ %.113193, %2261 ], [ %.113193, %1945 ]
-  %.13174 = phi i8 [ %.23175, %1720 ], [ 1, %2261 ], [ 1, %1945 ]
-  %.43161 = phi i8 [ %.53162, %1720 ], [ %.153172, %2261 ], [ %.153172, %1945 ]
-  %.13145 = phi i8 [ %.23146, %1720 ], [ 1, %2261 ], [ 1, %1945 ]
-  %.73128 = phi i8 [ %.83129, %1720 ], [ %.223143, %2261 ], [ %.223143, %1945 ]
-  %.63103 = phi i8 [ %.73104, %1720 ], [ %.233120, %2261 ], [ %.233120, %1945 ]
-  %.53077 = phi i8 [ %.63078, %1720 ], [ %.243096, %2261 ], [ %.243096, %1945 ]
-  %.43050 = phi i8 [ %.53051, %1720 ], [ %.253071, %2261 ], [ %.253071, %1945 ]
-  %.53022 = phi i8 [ %.63023, %1720 ], [ %.283045, %2261 ], [ %.283045, %1945 ]
-  %.42991 = phi i8 [ %.52992, %1720 ], [ %.293016, %2261 ], [ %.293016, %1945 ]
-  %.42959 = phi i8 [ %.52960, %1720 ], [ %.312986, %2261 ], [ %.312986, %1945 ]
-  %.222925 = phi i8 [ %.232926, %1720 ], [ %.512954, %2261 ], [ %.512954, %1945 ]
-  %.212871 = phi i8 [ %.222872, %1720 ], [ %.522902, %2261 ], [ %.522902, %1945 ]
-  %.202816 = phi i8 [ %.212817, %1720 ], [ %.532849, %2261 ], [ %.532849, %1945 ]
-  %.192760 = phi i8 [ %.202761, %1720 ], [ %.542795, %2261 ], [ %.542795, %1945 ]
-  %.182703 = phi i8 [ %.192704, %1720 ], [ %.552740, %2261 ], [ %.552740, %1945 ]
-  %.172645 = phi i8 [ %.182646, %1720 ], [ %.562684, %2261 ], [ %.562684, %1945 ]
-  %.162586 = phi i8 [ %.172587, %1720 ], [ %.572627, %2261 ], [ %.572627, %1945 ]
-  %.152526 = phi i8 [ %.162527, %1720 ], [ %.582569, %2261 ], [ %.582569, %1945 ]
-  %.142465 = phi i8 [ %.152466, %1720 ], [ %.592510, %2261 ], [ %.592510, %1945 ]
-  %.132403 = phi i8 [ %.142404, %1720 ], [ %.602450, %2261 ], [ %.602450, %1945 ]
-  %.122340 = phi i8 [ %.132341, %1720 ], [ %.612389, %2261 ], [ %.612389, %1945 ]
-  %.112276 = phi i8 [ %.122277, %1720 ], [ %.622327, %2261 ], [ %.622327, %1945 ]
-  %.102207 = phi i8 [ %.112208, %1720 ], [ %.632260, %2261 ], [ %.632260, %1945 ]
-  %.92141 = phi i8 [ %.102142, %1720 ], [ %.642196, %2261 ], [ %.642196, %1945 ]
-  %.82074 = phi i8 [ %.92075, %1720 ], [ %.652131, %2261 ], [ %.652131, %1945 ]
-  %.72006 = phi i8 [ %.82007, %1720 ], [ %.662065, %2261 ], [ %.662065, %1945 ]
-  %.61937 = phi i8 [ %.71938, %1720 ], [ %.671998, %2261 ], [ %.671998, %1945 ]
-  %.51867 = phi i8 [ %.61868, %1720 ], [ %.681930, %2261 ], [ %.681930, %1945 ]
-  %.41796 = phi i8 [ %.51797, %1720 ], [ %.691861, %2261 ], [ %.691861, %1945 ]
-  %.41724 = phi i8 [ %.51725, %1720 ], [ %.711791, %2261 ], [ %.711791, %1945 ]
-  %.41650 = phi i8 [ %.51651, %1720 ], [ %.731719, %2261 ], [ %.731719, %1945 ]
-  %.51574 = phi i8 [ %.61575, %1720 ], [ %.761645, %2261 ], [ %.761645, %1945 ]
-  %.41531 = phi i8 [ %.51532, %1720 ], [ %.77, %2261 ], [ %.77, %1945 ]
+  %.83212 = phi i8 [ %.73211, %1720 ], [ %.43208, %2261 ], [ %.43208, %1945 ]
+  %.73201 = phi i8 [ %.63200, %1720 ], [ %.43198, %2261 ], [ %.43198, %1945 ]
+  %.73189 = phi i8 [ %.63188, %1720 ], [ %.43186, %2261 ], [ %.43186, %1945 ]
+  %.23175 = phi i8 [ %.13174, %1720 ], [ 1, %2261 ], [ 1, %1945 ]
+  %.73164 = phi i8 [ %.63163, %1720 ], [ %.43161, %2261 ], [ %.43161, %1945 ]
+  %.23146 = phi i8 [ %.13145, %1720 ], [ 1, %2261 ], [ 1, %1945 ]
+  %.103131 = phi i8 [ %.93130, %1720 ], [ %.43125, %2261 ], [ %.43125, %1945 ]
+  %.93106 = phi i8 [ %.83105, %1720 ], [ %.43101, %2261 ], [ %.43101, %1945 ]
+  %.83080 = phi i8 [ %.73079, %1720 ], [ %.43076, %2261 ], [ %.43076, %1945 ]
+  %.73053 = phi i8 [ %.63052, %1720 ], [ %.43050, %2261 ], [ %.43050, %1945 ]
+  %.83025 = phi i8 [ %.73024, %1720 ], [ %.43021, %2261 ], [ %.43021, %1945 ]
+  %.72994 = phi i8 [ %.62993, %1720 ], [ %.42991, %2261 ], [ %.42991, %1945 ]
+  %.72962 = phi i8 [ %.62961, %1720 ], [ %.42959, %2261 ], [ %.42959, %1945 ]
+  %.252928 = phi i8 [ %.242927, %1720 ], [ %.42907, %2261 ], [ %.42907, %1945 ]
+  %.242874 = phi i8 [ %.232873, %1720 ], [ %.42854, %2261 ], [ %.42854, %1945 ]
+  %.232819 = phi i8 [ %.222818, %1720 ], [ %.42800, %2261 ], [ %.42800, %1945 ]
+  %.222763 = phi i8 [ %.212762, %1720 ], [ %.42745, %2261 ], [ %.42745, %1945 ]
+  %.212706 = phi i8 [ %.202705, %1720 ], [ %.42689, %2261 ], [ %.42689, %1945 ]
+  %.202648 = phi i8 [ %.192647, %1720 ], [ %.42632, %2261 ], [ %.42632, %1945 ]
+  %.192589 = phi i8 [ %.182588, %1720 ], [ %.42574, %2261 ], [ %.42574, %1945 ]
+  %.182529 = phi i8 [ %.172528, %1720 ], [ %.42515, %2261 ], [ %.42515, %1945 ]
+  %.172468 = phi i8 [ %.162467, %1720 ], [ %.42455, %2261 ], [ %.42455, %1945 ]
+  %.162406 = phi i8 [ %.152405, %1720 ], [ %.42394, %2261 ], [ %.42394, %1945 ]
+  %.152343 = phi i8 [ %.142342, %1720 ], [ %.42332, %2261 ], [ %.42332, %1945 ]
+  %.142279 = phi i8 [ %.132278, %1720 ], [ %.42269, %2261 ], [ %.42269, %1945 ]
+  %.132210 = phi i8 [ %.122209, %1720 ], [ %.42201, %2261 ], [ %.42201, %1945 ]
+  %.122144 = phi i8 [ %.112143, %1720 ], [ %.42136, %2261 ], [ %.42136, %1945 ]
+  %.112077 = phi i8 [ %.102076, %1720 ], [ %.42070, %2261 ], [ %.42070, %1945 ]
+  %.102009 = phi i8 [ %.92008, %1720 ], [ %.42003, %2261 ], [ %.42003, %1945 ]
+  %.91940 = phi i8 [ %.81939, %1720 ], [ %.41935, %2261 ], [ %.41935, %1945 ]
+  %.81870 = phi i8 [ %.71869, %1720 ], [ %.41866, %2261 ], [ %.41866, %1945 ]
+  %.71799 = phi i8 [ %.61798, %1720 ], [ %.41796, %2261 ], [ %.41796, %1945 ]
+  %.71727 = phi i8 [ %.61726, %1720 ], [ %.41724, %2261 ], [ %.41724, %1945 ]
+  %.71653 = phi i8 [ %.61652, %1720 ], [ %.41650, %2261 ], [ %.41650, %1945 ]
+  %.81577 = phi i8 [ %.71576, %1720 ], [ %.41573, %2261 ], [ %.41573, %1945 ]
+  %.71534 = phi i8 [ %.61533, %1720 ], [ %.41531, %2261 ], [ %.41531, %1945 ]
   %.pn3398 = phi { ptr, i32 } [ %1721, %1720 ], [ %.pn3396, %2261 ], [ %.pn3396, %1945 ]
-  %1719 = trunc nuw i8 %.43208 to i1
+  %1719 = trunc nuw i8 %.83212 to i1
   br i1 %1719, label %2262, label %1724
 
 1720:                                             ; preds = %1952, %1717
-  %.53209 = phi i8 [ %.73211, %1952 ], [ %.23196, %1717 ]
-  %.53199 = phi i8 [ %.83202, %1952 ], [ %.23196, %1717 ]
-  %.53187 = phi i8 [ %.103192, %1952 ], [ %.23184, %1717 ]
-  %.23175 = phi i8 [ 1, %1952 ], [ %.23159, %1717 ]
-  %.53162 = phi i8 [ %.143171, %1952 ], [ %.23159, %1717 ]
-  %.23146 = phi i8 [ 1, %1952 ], [ %.03144, %1717 ]
-  %.83129 = phi i8 [ %.213142, %1952 ], [ %.23048, %1717 ]
-  %.73104 = phi i8 [ %.223119, %1952 ], [ %.23048, %1717 ]
-  %.63078 = phi i8 [ %.233095, %1952 ], [ %.23048, %1717 ]
-  %.53051 = phi i8 [ %.243070, %1952 ], [ %.23048, %1717 ]
-  %.63023 = phi i8 [ %.273044, %1952 ], [ %.22989, %1717 ]
-  %.52992 = phi i8 [ %.283015, %1952 ], [ %.22989, %1717 ]
-  %.52960 = phi i8 [ %.302985, %1952 ], [ %.22957, %1717 ]
-  %.232926 = phi i8 [ %.502953, %1952 ], [ %.21794, %1717 ]
-  %.222872 = phi i8 [ %.512901, %1952 ], [ %.21794, %1717 ]
-  %.212817 = phi i8 [ %.522848, %1952 ], [ %.21794, %1717 ]
-  %.202761 = phi i8 [ %.532794, %1952 ], [ %.21794, %1717 ]
-  %.192704 = phi i8 [ %.542739, %1952 ], [ %.21794, %1717 ]
-  %.182646 = phi i8 [ %.552683, %1952 ], [ %.21794, %1717 ]
-  %.172587 = phi i8 [ %.562626, %1952 ], [ %.21794, %1717 ]
-  %.162527 = phi i8 [ %.572568, %1952 ], [ %.21794, %1717 ]
-  %.152466 = phi i8 [ %.582509, %1952 ], [ %.21794, %1717 ]
-  %.142404 = phi i8 [ %.592449, %1952 ], [ %.21794, %1717 ]
-  %.132341 = phi i8 [ %.602388, %1952 ], [ %.21794, %1717 ]
-  %.122277 = phi i8 [ %.612326, %1952 ], [ %.21794, %1717 ]
-  %.112208 = phi i8 [ %.622259, %1952 ], [ %.21794, %1717 ]
-  %.102142 = phi i8 [ %.632195, %1952 ], [ %.21794, %1717 ]
-  %.92075 = phi i8 [ %.642130, %1952 ], [ %.21794, %1717 ]
-  %.82007 = phi i8 [ %.652064, %1952 ], [ %.21794, %1717 ]
-  %.71938 = phi i8 [ %.661997, %1952 ], [ %.21794, %1717 ]
-  %.61868 = phi i8 [ %.671929, %1952 ], [ %.21794, %1717 ]
-  %.51797 = phi i8 [ %.681860, %1952 ], [ %.21794, %1717 ]
-  %.51725 = phi i8 [ %.701790, %1952 ], [ %.21722, %1717 ]
-  %.51651 = phi i8 [ %.721718, %1952 ], [ %.21648, %1717 ]
-  %.61575 = phi i8 [ %.751644, %1952 ], [ %.21529, %1717 ]
-  %.51532 = phi i8 [ %.76, %1952 ], [ %.21529, %1717 ]
+  %.73211 = phi i8 [ %.03204, %1952 ], [ %.23196, %1717 ]
+  %.63200 = phi i8 [ %.03194, %1952 ], [ %.23196, %1717 ]
+  %.63188 = phi i8 [ %.03182, %1952 ], [ %.23184, %1717 ]
+  %.13174 = phi i8 [ 1, %1952 ], [ %.23159, %1717 ]
+  %.63163 = phi i8 [ %.03157, %1952 ], [ %.23159, %1717 ]
+  %.13145 = phi i8 [ 1, %1952 ], [ %.03144, %1717 ]
+  %.93130 = phi i8 [ %.03121, %1952 ], [ %.23048, %1717 ]
+  %.83105 = phi i8 [ %.03097, %1952 ], [ %.23048, %1717 ]
+  %.73079 = phi i8 [ %.03072, %1952 ], [ %.23048, %1717 ]
+  %.63052 = phi i8 [ %.03046, %1952 ], [ %.23048, %1717 ]
+  %.73024 = phi i8 [ %.03017, %1952 ], [ %.22989, %1717 ]
+  %.62993 = phi i8 [ %.02987, %1952 ], [ %.22989, %1717 ]
+  %.62961 = phi i8 [ %.02955, %1952 ], [ %.22957, %1717 ]
+  %.242927 = phi i8 [ %.02903, %1952 ], [ %.21794, %1717 ]
+  %.232873 = phi i8 [ %.02850, %1952 ], [ %.21794, %1717 ]
+  %.222818 = phi i8 [ %.02796, %1952 ], [ %.21794, %1717 ]
+  %.212762 = phi i8 [ %.02741, %1952 ], [ %.21794, %1717 ]
+  %.202705 = phi i8 [ %.02685, %1952 ], [ %.21794, %1717 ]
+  %.192647 = phi i8 [ %.02628, %1952 ], [ %.21794, %1717 ]
+  %.182588 = phi i8 [ %.02570, %1952 ], [ %.21794, %1717 ]
+  %.172528 = phi i8 [ %.02511, %1952 ], [ %.21794, %1717 ]
+  %.162467 = phi i8 [ %.02451, %1952 ], [ %.21794, %1717 ]
+  %.152405 = phi i8 [ %.02390, %1952 ], [ %.21794, %1717 ]
+  %.142342 = phi i8 [ %.02328, %1952 ], [ %.21794, %1717 ]
+  %.132278 = phi i8 [ %.02265, %1952 ], [ %.21794, %1717 ]
+  %.122209 = phi i8 [ %.02197, %1952 ], [ %.21794, %1717 ]
+  %.112143 = phi i8 [ %.02132, %1952 ], [ %.21794, %1717 ]
+  %.102076 = phi i8 [ %.02066, %1952 ], [ %.21794, %1717 ]
+  %.92008 = phi i8 [ %.01999, %1952 ], [ %.21794, %1717 ]
+  %.81939 = phi i8 [ %.01931, %1952 ], [ %.21794, %1717 ]
+  %.71869 = phi i8 [ %.01862, %1952 ], [ %.21794, %1717 ]
+  %.61798 = phi i8 [ %.01792, %1952 ], [ %.21794, %1717 ]
+  %.61726 = phi i8 [ %.01720, %1952 ], [ %.21722, %1717 ]
+  %.61652 = phi i8 [ %.01646, %1952 ], [ %.21648, %1717 ]
+  %.71576 = phi i8 [ %.01569, %1952 ], [ %.21529, %1717 ]
+  %.61533 = phi i8 [ %.01527, %1952 ], [ %.21529, %1717 ]
   %1721 = landingpad { ptr, i32 }
           cleanup
   br label %1718
@@ -91507,81 +91507,81 @@ default.unreachable:                              ; preds = %1375
           to label %1730 unwind label %1726
 
 1724:                                             ; preds = %2262, %1726, %1718
-  %.63200 = phi i8 [ %.73201, %1726 ], [ %.43198, %2262 ], [ %.43198, %1718 ]
-  %.63188 = phi i8 [ %.73189, %1726 ], [ %.43186, %2262 ], [ %.43186, %1718 ]
-  %.33176 = phi i8 [ %.43177, %1726 ], [ %.13174, %2262 ], [ %.13174, %1718 ]
-  %.63163 = phi i8 [ %.73164, %1726 ], [ %.43161, %2262 ], [ %.43161, %1718 ]
-  %.33147 = phi i8 [ %.43148, %1726 ], [ %.13145, %2262 ], [ %.13145, %1718 ]
-  %.93130 = phi i8 [ %.103131, %1726 ], [ %.73128, %2262 ], [ %.73128, %1718 ]
-  %.83105 = phi i8 [ %.93106, %1726 ], [ %.63103, %2262 ], [ %.63103, %1718 ]
-  %.73079 = phi i8 [ %.83080, %1726 ], [ %.53077, %2262 ], [ %.53077, %1718 ]
-  %.63052 = phi i8 [ %.73053, %1726 ], [ %.43050, %2262 ], [ %.43050, %1718 ]
-  %.73024 = phi i8 [ %.83025, %1726 ], [ %.53022, %2262 ], [ %.53022, %1718 ]
-  %.62993 = phi i8 [ %.72994, %1726 ], [ %.42991, %2262 ], [ %.42991, %1718 ]
-  %.62961 = phi i8 [ %.72962, %1726 ], [ %.42959, %2262 ], [ %.42959, %1718 ]
-  %.242927 = phi i8 [ %.252928, %1726 ], [ %.222925, %2262 ], [ %.222925, %1718 ]
-  %.232873 = phi i8 [ %.242874, %1726 ], [ %.212871, %2262 ], [ %.212871, %1718 ]
-  %.222818 = phi i8 [ %.232819, %1726 ], [ %.202816, %2262 ], [ %.202816, %1718 ]
-  %.212762 = phi i8 [ %.222763, %1726 ], [ %.192760, %2262 ], [ %.192760, %1718 ]
-  %.202705 = phi i8 [ %.212706, %1726 ], [ %.182703, %2262 ], [ %.182703, %1718 ]
-  %.192647 = phi i8 [ %.202648, %1726 ], [ %.172645, %2262 ], [ %.172645, %1718 ]
-  %.182588 = phi i8 [ %.192589, %1726 ], [ %.162586, %2262 ], [ %.162586, %1718 ]
-  %.172528 = phi i8 [ %.182529, %1726 ], [ %.152526, %2262 ], [ %.152526, %1718 ]
-  %.162467 = phi i8 [ %.172468, %1726 ], [ %.142465, %2262 ], [ %.142465, %1718 ]
-  %.152405 = phi i8 [ %.162406, %1726 ], [ %.132403, %2262 ], [ %.132403, %1718 ]
-  %.142342 = phi i8 [ %.152343, %1726 ], [ %.122340, %2262 ], [ %.122340, %1718 ]
-  %.132278 = phi i8 [ %.142279, %1726 ], [ %.112276, %2262 ], [ %.112276, %1718 ]
-  %.122209 = phi i8 [ %.132210, %1726 ], [ %.102207, %2262 ], [ %.102207, %1718 ]
-  %.112143 = phi i8 [ %.122144, %1726 ], [ %.92141, %2262 ], [ %.92141, %1718 ]
-  %.102076 = phi i8 [ %.112077, %1726 ], [ %.82074, %2262 ], [ %.82074, %1718 ]
-  %.92008 = phi i8 [ %.102009, %1726 ], [ %.72006, %2262 ], [ %.72006, %1718 ]
-  %.81939 = phi i8 [ %.91940, %1726 ], [ %.61937, %2262 ], [ %.61937, %1718 ]
-  %.71869 = phi i8 [ %.81870, %1726 ], [ %.51867, %2262 ], [ %.51867, %1718 ]
-  %.61798 = phi i8 [ %.71799, %1726 ], [ %.41796, %2262 ], [ %.41796, %1718 ]
-  %.61726 = phi i8 [ %.71727, %1726 ], [ %.41724, %2262 ], [ %.41724, %1718 ]
-  %.61652 = phi i8 [ %.71653, %1726 ], [ %.41650, %2262 ], [ %.41650, %1718 ]
-  %.71576 = phi i8 [ %.81577, %1726 ], [ %.51574, %2262 ], [ %.51574, %1718 ]
-  %.61533 = phi i8 [ %.71534, %1726 ], [ %.41531, %2262 ], [ %.41531, %1718 ]
+  %.83202 = phi i8 [ %.93203, %1726 ], [ %.73201, %2262 ], [ %.73201, %1718 ]
+  %.83190 = phi i8 [ %.93191, %1726 ], [ %.73189, %2262 ], [ %.73189, %1718 ]
+  %.33176 = phi i8 [ %.43177, %1726 ], [ %.23175, %2262 ], [ %.23175, %1718 ]
+  %.83165 = phi i8 [ %.93166, %1726 ], [ %.73164, %2262 ], [ %.73164, %1718 ]
+  %.33147 = phi i8 [ %.43148, %1726 ], [ %.23146, %2262 ], [ %.23146, %1718 ]
+  %.113132 = phi i8 [ %.123133, %1726 ], [ %.103131, %2262 ], [ %.103131, %1718 ]
+  %.103107 = phi i8 [ %.113108, %1726 ], [ %.93106, %2262 ], [ %.93106, %1718 ]
+  %.93081 = phi i8 [ %.103082, %1726 ], [ %.83080, %2262 ], [ %.83080, %1718 ]
+  %.83054 = phi i8 [ %.93055, %1726 ], [ %.73053, %2262 ], [ %.73053, %1718 ]
+  %.93026 = phi i8 [ %.103027, %1726 ], [ %.83025, %2262 ], [ %.83025, %1718 ]
+  %.82995 = phi i8 [ %.92996, %1726 ], [ %.72994, %2262 ], [ %.72994, %1718 ]
+  %.82963 = phi i8 [ %.92964, %1726 ], [ %.72962, %2262 ], [ %.72962, %1718 ]
+  %.262929 = phi i8 [ %.272930, %1726 ], [ %.252928, %2262 ], [ %.252928, %1718 ]
+  %.252875 = phi i8 [ %.262876, %1726 ], [ %.242874, %2262 ], [ %.242874, %1718 ]
+  %.242820 = phi i8 [ %.252821, %1726 ], [ %.232819, %2262 ], [ %.232819, %1718 ]
+  %.232764 = phi i8 [ %.242765, %1726 ], [ %.222763, %2262 ], [ %.222763, %1718 ]
+  %.222707 = phi i8 [ %.232708, %1726 ], [ %.212706, %2262 ], [ %.212706, %1718 ]
+  %.212649 = phi i8 [ %.222650, %1726 ], [ %.202648, %2262 ], [ %.202648, %1718 ]
+  %.202590 = phi i8 [ %.212591, %1726 ], [ %.192589, %2262 ], [ %.192589, %1718 ]
+  %.192530 = phi i8 [ %.202531, %1726 ], [ %.182529, %2262 ], [ %.182529, %1718 ]
+  %.182469 = phi i8 [ %.192470, %1726 ], [ %.172468, %2262 ], [ %.172468, %1718 ]
+  %.172407 = phi i8 [ %.182408, %1726 ], [ %.162406, %2262 ], [ %.162406, %1718 ]
+  %.162344 = phi i8 [ %.172345, %1726 ], [ %.152343, %2262 ], [ %.152343, %1718 ]
+  %.152280 = phi i8 [ %.162281, %1726 ], [ %.142279, %2262 ], [ %.142279, %1718 ]
+  %.142211 = phi i8 [ %.152212, %1726 ], [ %.132210, %2262 ], [ %.132210, %1718 ]
+  %.132145 = phi i8 [ %.142146, %1726 ], [ %.122144, %2262 ], [ %.122144, %1718 ]
+  %.122078 = phi i8 [ %.132079, %1726 ], [ %.112077, %2262 ], [ %.112077, %1718 ]
+  %.112010 = phi i8 [ %.122011, %1726 ], [ %.102009, %2262 ], [ %.102009, %1718 ]
+  %.101941 = phi i8 [ %.111942, %1726 ], [ %.91940, %2262 ], [ %.91940, %1718 ]
+  %.91871 = phi i8 [ %.101872, %1726 ], [ %.81870, %2262 ], [ %.81870, %1718 ]
+  %.81800 = phi i8 [ %.91801, %1726 ], [ %.71799, %2262 ], [ %.71799, %1718 ]
+  %.81728 = phi i8 [ %.91729, %1726 ], [ %.71727, %2262 ], [ %.71727, %1718 ]
+  %.81654 = phi i8 [ %.91655, %1726 ], [ %.71653, %2262 ], [ %.71653, %1718 ]
+  %.91578 = phi i8 [ %.101579, %1726 ], [ %.81577, %2262 ], [ %.81577, %1718 ]
+  %.81535 = phi i8 [ %.91536, %1726 ], [ %.71534, %2262 ], [ %.71534, %1718 ]
   %.pn3400 = phi { ptr, i32 } [ %1727, %1726 ], [ %.pn3398, %2262 ], [ %.pn3398, %1718 ]
-  %1725 = trunc nuw i8 %.63200 to i1
+  %1725 = trunc nuw i8 %.83202 to i1
   br i1 %1725, label %2263, label %1731
 
 1726:                                             ; preds = %1955, %1723
-  %.73201 = phi i8 [ %.83202, %1955 ], [ %.23196, %1723 ]
-  %.73189 = phi i8 [ %.103192, %1955 ], [ %.23184, %1723 ]
+  %.93203 = phi i8 [ %.03194, %1955 ], [ %.23196, %1723 ]
+  %.93191 = phi i8 [ %.03182, %1955 ], [ %.23184, %1723 ]
   %.43177 = phi i8 [ 1, %1955 ], [ %.23159, %1723 ]
-  %.73164 = phi i8 [ %.143171, %1955 ], [ %.23159, %1723 ]
+  %.93166 = phi i8 [ %.03157, %1955 ], [ %.23159, %1723 ]
   %.43148 = phi i8 [ 1, %1955 ], [ %.03144, %1723 ]
-  %.103131 = phi i8 [ %.213142, %1955 ], [ %.23048, %1723 ]
-  %.93106 = phi i8 [ %.223119, %1955 ], [ %.23048, %1723 ]
-  %.83080 = phi i8 [ %.233095, %1955 ], [ %.23048, %1723 ]
-  %.73053 = phi i8 [ %.243070, %1955 ], [ %.23048, %1723 ]
-  %.83025 = phi i8 [ %.273044, %1955 ], [ %.22989, %1723 ]
-  %.72994 = phi i8 [ %.283015, %1955 ], [ %.22989, %1723 ]
-  %.72962 = phi i8 [ %.302985, %1955 ], [ %.22957, %1723 ]
-  %.252928 = phi i8 [ %.502953, %1955 ], [ %.21794, %1723 ]
-  %.242874 = phi i8 [ %.512901, %1955 ], [ %.21794, %1723 ]
-  %.232819 = phi i8 [ %.522848, %1955 ], [ %.21794, %1723 ]
-  %.222763 = phi i8 [ %.532794, %1955 ], [ %.21794, %1723 ]
-  %.212706 = phi i8 [ %.542739, %1955 ], [ %.21794, %1723 ]
-  %.202648 = phi i8 [ %.552683, %1955 ], [ %.21794, %1723 ]
-  %.192589 = phi i8 [ %.562626, %1955 ], [ %.21794, %1723 ]
-  %.182529 = phi i8 [ %.572568, %1955 ], [ %.21794, %1723 ]
-  %.172468 = phi i8 [ %.582509, %1955 ], [ %.21794, %1723 ]
-  %.162406 = phi i8 [ %.592449, %1955 ], [ %.21794, %1723 ]
-  %.152343 = phi i8 [ %.602388, %1955 ], [ %.21794, %1723 ]
-  %.142279 = phi i8 [ %.612326, %1955 ], [ %.21794, %1723 ]
-  %.132210 = phi i8 [ %.622259, %1955 ], [ %.21794, %1723 ]
-  %.122144 = phi i8 [ %.632195, %1955 ], [ %.21794, %1723 ]
-  %.112077 = phi i8 [ %.642130, %1955 ], [ %.21794, %1723 ]
-  %.102009 = phi i8 [ %.652064, %1955 ], [ %.21794, %1723 ]
-  %.91940 = phi i8 [ %.661997, %1955 ], [ %.21794, %1723 ]
-  %.81870 = phi i8 [ %.671929, %1955 ], [ %.21794, %1723 ]
-  %.71799 = phi i8 [ %.681860, %1955 ], [ %.21794, %1723 ]
-  %.71727 = phi i8 [ %.701790, %1955 ], [ %.21722, %1723 ]
-  %.71653 = phi i8 [ %.721718, %1955 ], [ %.21648, %1723 ]
-  %.81577 = phi i8 [ %.751644, %1955 ], [ %.21529, %1723 ]
-  %.71534 = phi i8 [ %.76, %1955 ], [ %.21529, %1723 ]
+  %.123133 = phi i8 [ %.03121, %1955 ], [ %.23048, %1723 ]
+  %.113108 = phi i8 [ %.03097, %1955 ], [ %.23048, %1723 ]
+  %.103082 = phi i8 [ %.03072, %1955 ], [ %.23048, %1723 ]
+  %.93055 = phi i8 [ %.03046, %1955 ], [ %.23048, %1723 ]
+  %.103027 = phi i8 [ %.03017, %1955 ], [ %.22989, %1723 ]
+  %.92996 = phi i8 [ %.02987, %1955 ], [ %.22989, %1723 ]
+  %.92964 = phi i8 [ %.02955, %1955 ], [ %.22957, %1723 ]
+  %.272930 = phi i8 [ %.02903, %1955 ], [ %.21794, %1723 ]
+  %.262876 = phi i8 [ %.02850, %1955 ], [ %.21794, %1723 ]
+  %.252821 = phi i8 [ %.02796, %1955 ], [ %.21794, %1723 ]
+  %.242765 = phi i8 [ %.02741, %1955 ], [ %.21794, %1723 ]
+  %.232708 = phi i8 [ %.02685, %1955 ], [ %.21794, %1723 ]
+  %.222650 = phi i8 [ %.02628, %1955 ], [ %.21794, %1723 ]
+  %.212591 = phi i8 [ %.02570, %1955 ], [ %.21794, %1723 ]
+  %.202531 = phi i8 [ %.02511, %1955 ], [ %.21794, %1723 ]
+  %.192470 = phi i8 [ %.02451, %1955 ], [ %.21794, %1723 ]
+  %.182408 = phi i8 [ %.02390, %1955 ], [ %.21794, %1723 ]
+  %.172345 = phi i8 [ %.02328, %1955 ], [ %.21794, %1723 ]
+  %.162281 = phi i8 [ %.02265, %1955 ], [ %.21794, %1723 ]
+  %.152212 = phi i8 [ %.02197, %1955 ], [ %.21794, %1723 ]
+  %.142146 = phi i8 [ %.02132, %1955 ], [ %.21794, %1723 ]
+  %.132079 = phi i8 [ %.02066, %1955 ], [ %.21794, %1723 ]
+  %.122011 = phi i8 [ %.01999, %1955 ], [ %.21794, %1723 ]
+  %.111942 = phi i8 [ %.01931, %1955 ], [ %.21794, %1723 ]
+  %.101872 = phi i8 [ %.01862, %1955 ], [ %.21794, %1723 ]
+  %.91801 = phi i8 [ %.01792, %1955 ], [ %.21794, %1723 ]
+  %.91729 = phi i8 [ %.01720, %1955 ], [ %.21722, %1723 ]
+  %.91655 = phi i8 [ %.01646, %1955 ], [ %.21648, %1723 ]
+  %.101579 = phi i8 [ %.01569, %1955 ], [ %.21529, %1723 ]
+  %.91536 = phi i8 [ %.01527, %1955 ], [ %.21529, %1723 ]
   %1727 = landingpad { ptr, i32 }
           cleanup
   br label %1724
@@ -91597,79 +91597,79 @@ default.unreachable:                              ; preds = %1375
           to label %1728 unwind label %1733
 
 1731:                                             ; preds = %2263, %1733, %1724
-  %.83190 = phi i8 [ %.93191, %1733 ], [ %.63188, %2263 ], [ %.63188, %1724 ]
+  %.103192 = phi i8 [ %.113193, %1733 ], [ %.83190, %2263 ], [ %.83190, %1724 ]
   %.53178 = phi i8 [ %.63179, %1733 ], [ %.33176, %2263 ], [ %.33176, %1724 ]
-  %.83165 = phi i8 [ %.93166, %1733 ], [ %.63163, %2263 ], [ %.63163, %1724 ]
+  %.103167 = phi i8 [ %.113168, %1733 ], [ %.83165, %2263 ], [ %.83165, %1724 ]
   %.53149 = phi i8 [ %.63150, %1733 ], [ %.33147, %2263 ], [ %.33147, %1724 ]
-  %.113132 = phi i8 [ %.123133, %1733 ], [ %.93130, %2263 ], [ %.93130, %1724 ]
-  %.103107 = phi i8 [ %.113108, %1733 ], [ %.83105, %2263 ], [ %.83105, %1724 ]
-  %.93081 = phi i8 [ %.103082, %1733 ], [ %.73079, %2263 ], [ %.73079, %1724 ]
-  %.83054 = phi i8 [ %.93055, %1733 ], [ %.63052, %2263 ], [ %.63052, %1724 ]
-  %.93026 = phi i8 [ %.103027, %1733 ], [ %.73024, %2263 ], [ %.73024, %1724 ]
-  %.82995 = phi i8 [ %.92996, %1733 ], [ %.62993, %2263 ], [ %.62993, %1724 ]
-  %.82963 = phi i8 [ %.92964, %1733 ], [ %.62961, %2263 ], [ %.62961, %1724 ]
-  %.262929 = phi i8 [ %.272930, %1733 ], [ %.242927, %2263 ], [ %.242927, %1724 ]
-  %.252875 = phi i8 [ %.262876, %1733 ], [ %.232873, %2263 ], [ %.232873, %1724 ]
-  %.242820 = phi i8 [ %.252821, %1733 ], [ %.222818, %2263 ], [ %.222818, %1724 ]
-  %.232764 = phi i8 [ %.242765, %1733 ], [ %.212762, %2263 ], [ %.212762, %1724 ]
-  %.222707 = phi i8 [ %.232708, %1733 ], [ %.202705, %2263 ], [ %.202705, %1724 ]
-  %.212649 = phi i8 [ %.222650, %1733 ], [ %.192647, %2263 ], [ %.192647, %1724 ]
-  %.202590 = phi i8 [ %.212591, %1733 ], [ %.182588, %2263 ], [ %.182588, %1724 ]
-  %.192530 = phi i8 [ %.202531, %1733 ], [ %.172528, %2263 ], [ %.172528, %1724 ]
-  %.182469 = phi i8 [ %.192470, %1733 ], [ %.162467, %2263 ], [ %.162467, %1724 ]
-  %.172407 = phi i8 [ %.182408, %1733 ], [ %.152405, %2263 ], [ %.152405, %1724 ]
-  %.162344 = phi i8 [ %.172345, %1733 ], [ %.142342, %2263 ], [ %.142342, %1724 ]
-  %.152280 = phi i8 [ %.162281, %1733 ], [ %.132278, %2263 ], [ %.132278, %1724 ]
-  %.142211 = phi i8 [ %.152212, %1733 ], [ %.122209, %2263 ], [ %.122209, %1724 ]
-  %.132145 = phi i8 [ %.142146, %1733 ], [ %.112143, %2263 ], [ %.112143, %1724 ]
-  %.122078 = phi i8 [ %.132079, %1733 ], [ %.102076, %2263 ], [ %.102076, %1724 ]
-  %.112010 = phi i8 [ %.122011, %1733 ], [ %.92008, %2263 ], [ %.92008, %1724 ]
-  %.101941 = phi i8 [ %.111942, %1733 ], [ %.81939, %2263 ], [ %.81939, %1724 ]
-  %.91871 = phi i8 [ %.101872, %1733 ], [ %.71869, %2263 ], [ %.71869, %1724 ]
-  %.81800 = phi i8 [ %.91801, %1733 ], [ %.61798, %2263 ], [ %.61798, %1724 ]
-  %.81728 = phi i8 [ %.91729, %1733 ], [ %.61726, %2263 ], [ %.61726, %1724 ]
-  %.81654 = phi i8 [ %.91655, %1733 ], [ %.61652, %2263 ], [ %.61652, %1724 ]
-  %.91578 = phi i8 [ %.101579, %1733 ], [ %.71576, %2263 ], [ %.71576, %1724 ]
-  %.81535 = phi i8 [ %.91536, %1733 ], [ %.61533, %2263 ], [ %.61533, %1724 ]
+  %.133134 = phi i8 [ %.143135, %1733 ], [ %.113132, %2263 ], [ %.113132, %1724 ]
+  %.123109 = phi i8 [ %.133110, %1733 ], [ %.103107, %2263 ], [ %.103107, %1724 ]
+  %.113083 = phi i8 [ %.123084, %1733 ], [ %.93081, %2263 ], [ %.93081, %1724 ]
+  %.103056 = phi i8 [ %.113057, %1733 ], [ %.83054, %2263 ], [ %.83054, %1724 ]
+  %.113028 = phi i8 [ %.123029, %1733 ], [ %.93026, %2263 ], [ %.93026, %1724 ]
+  %.102997 = phi i8 [ %.112998, %1733 ], [ %.82995, %2263 ], [ %.82995, %1724 ]
+  %.102965 = phi i8 [ %.112966, %1733 ], [ %.82963, %2263 ], [ %.82963, %1724 ]
+  %.282931 = phi i8 [ %.292932, %1733 ], [ %.262929, %2263 ], [ %.262929, %1724 ]
+  %.272877 = phi i8 [ %.282878, %1733 ], [ %.252875, %2263 ], [ %.252875, %1724 ]
+  %.262822 = phi i8 [ %.272823, %1733 ], [ %.242820, %2263 ], [ %.242820, %1724 ]
+  %.252766 = phi i8 [ %.262767, %1733 ], [ %.232764, %2263 ], [ %.232764, %1724 ]
+  %.242709 = phi i8 [ %.252710, %1733 ], [ %.222707, %2263 ], [ %.222707, %1724 ]
+  %.232651 = phi i8 [ %.242652, %1733 ], [ %.212649, %2263 ], [ %.212649, %1724 ]
+  %.222592 = phi i8 [ %.232593, %1733 ], [ %.202590, %2263 ], [ %.202590, %1724 ]
+  %.212532 = phi i8 [ %.222533, %1733 ], [ %.192530, %2263 ], [ %.192530, %1724 ]
+  %.202471 = phi i8 [ %.212472, %1733 ], [ %.182469, %2263 ], [ %.182469, %1724 ]
+  %.192409 = phi i8 [ %.202410, %1733 ], [ %.172407, %2263 ], [ %.172407, %1724 ]
+  %.182346 = phi i8 [ %.192347, %1733 ], [ %.162344, %2263 ], [ %.162344, %1724 ]
+  %.172282 = phi i8 [ %.182283, %1733 ], [ %.152280, %2263 ], [ %.152280, %1724 ]
+  %.162213 = phi i8 [ %.172214, %1733 ], [ %.142211, %2263 ], [ %.142211, %1724 ]
+  %.152147 = phi i8 [ %.162148, %1733 ], [ %.132145, %2263 ], [ %.132145, %1724 ]
+  %.142080 = phi i8 [ %.152081, %1733 ], [ %.122078, %2263 ], [ %.122078, %1724 ]
+  %.132012 = phi i8 [ %.142013, %1733 ], [ %.112010, %2263 ], [ %.112010, %1724 ]
+  %.121943 = phi i8 [ %.131944, %1733 ], [ %.101941, %2263 ], [ %.101941, %1724 ]
+  %.111873 = phi i8 [ %.121874, %1733 ], [ %.91871, %2263 ], [ %.91871, %1724 ]
+  %.101802 = phi i8 [ %.111803, %1733 ], [ %.81800, %2263 ], [ %.81800, %1724 ]
+  %.101730 = phi i8 [ %.111731, %1733 ], [ %.81728, %2263 ], [ %.81728, %1724 ]
+  %.101656 = phi i8 [ %.111657, %1733 ], [ %.81654, %2263 ], [ %.81654, %1724 ]
+  %.111580 = phi i8 [ %.121581, %1733 ], [ %.91578, %2263 ], [ %.91578, %1724 ]
+  %.101537 = phi i8 [ %.111538, %1733 ], [ %.81535, %2263 ], [ %.81535, %1724 ]
   %.pn3402 = phi { ptr, i32 } [ %1734, %1733 ], [ %.pn3400, %2263 ], [ %.pn3400, %1724 ]
-  %1732 = trunc nuw i8 %.83190 to i1
+  %1732 = trunc nuw i8 %.103192 to i1
   br i1 %1732, label %2264, label %1738
 
 1733:                                             ; preds = %1958, %1730
-  %.93191 = phi i8 [ %.103192, %1958 ], [ %.23184, %1730 ]
+  %.113193 = phi i8 [ %.03182, %1958 ], [ %.23184, %1730 ]
   %.63179 = phi i8 [ 1, %1958 ], [ %.23159, %1730 ]
-  %.93166 = phi i8 [ %.143171, %1958 ], [ %.23159, %1730 ]
+  %.113168 = phi i8 [ %.03157, %1958 ], [ %.23159, %1730 ]
   %.63150 = phi i8 [ 1, %1958 ], [ %.03144, %1730 ]
-  %.123133 = phi i8 [ %.213142, %1958 ], [ %.23048, %1730 ]
-  %.113108 = phi i8 [ %.223119, %1958 ], [ %.23048, %1730 ]
-  %.103082 = phi i8 [ %.233095, %1958 ], [ %.23048, %1730 ]
-  %.93055 = phi i8 [ %.243070, %1958 ], [ %.23048, %1730 ]
-  %.103027 = phi i8 [ %.273044, %1958 ], [ %.22989, %1730 ]
-  %.92996 = phi i8 [ %.283015, %1958 ], [ %.22989, %1730 ]
-  %.92964 = phi i8 [ %.302985, %1958 ], [ %.22957, %1730 ]
-  %.272930 = phi i8 [ %.502953, %1958 ], [ %.21794, %1730 ]
-  %.262876 = phi i8 [ %.512901, %1958 ], [ %.21794, %1730 ]
-  %.252821 = phi i8 [ %.522848, %1958 ], [ %.21794, %1730 ]
-  %.242765 = phi i8 [ %.532794, %1958 ], [ %.21794, %1730 ]
-  %.232708 = phi i8 [ %.542739, %1958 ], [ %.21794, %1730 ]
-  %.222650 = phi i8 [ %.552683, %1958 ], [ %.21794, %1730 ]
-  %.212591 = phi i8 [ %.562626, %1958 ], [ %.21794, %1730 ]
-  %.202531 = phi i8 [ %.572568, %1958 ], [ %.21794, %1730 ]
-  %.192470 = phi i8 [ %.582509, %1958 ], [ %.21794, %1730 ]
-  %.182408 = phi i8 [ %.592449, %1958 ], [ %.21794, %1730 ]
-  %.172345 = phi i8 [ %.602388, %1958 ], [ %.21794, %1730 ]
-  %.162281 = phi i8 [ %.612326, %1958 ], [ %.21794, %1730 ]
-  %.152212 = phi i8 [ %.622259, %1958 ], [ %.21794, %1730 ]
-  %.142146 = phi i8 [ %.632195, %1958 ], [ %.21794, %1730 ]
-  %.132079 = phi i8 [ %.642130, %1958 ], [ %.21794, %1730 ]
-  %.122011 = phi i8 [ %.652064, %1958 ], [ %.21794, %1730 ]
-  %.111942 = phi i8 [ %.661997, %1958 ], [ %.21794, %1730 ]
-  %.101872 = phi i8 [ %.671929, %1958 ], [ %.21794, %1730 ]
-  %.91801 = phi i8 [ %.681860, %1958 ], [ %.21794, %1730 ]
-  %.91729 = phi i8 [ %.701790, %1958 ], [ %.21722, %1730 ]
-  %.91655 = phi i8 [ %.721718, %1958 ], [ %.21648, %1730 ]
-  %.101579 = phi i8 [ %.751644, %1958 ], [ %.21529, %1730 ]
-  %.91536 = phi i8 [ %.76, %1958 ], [ %.21529, %1730 ]
+  %.143135 = phi i8 [ %.03121, %1958 ], [ %.23048, %1730 ]
+  %.133110 = phi i8 [ %.03097, %1958 ], [ %.23048, %1730 ]
+  %.123084 = phi i8 [ %.03072, %1958 ], [ %.23048, %1730 ]
+  %.113057 = phi i8 [ %.03046, %1958 ], [ %.23048, %1730 ]
+  %.123029 = phi i8 [ %.03017, %1958 ], [ %.22989, %1730 ]
+  %.112998 = phi i8 [ %.02987, %1958 ], [ %.22989, %1730 ]
+  %.112966 = phi i8 [ %.02955, %1958 ], [ %.22957, %1730 ]
+  %.292932 = phi i8 [ %.02903, %1958 ], [ %.21794, %1730 ]
+  %.282878 = phi i8 [ %.02850, %1958 ], [ %.21794, %1730 ]
+  %.272823 = phi i8 [ %.02796, %1958 ], [ %.21794, %1730 ]
+  %.262767 = phi i8 [ %.02741, %1958 ], [ %.21794, %1730 ]
+  %.252710 = phi i8 [ %.02685, %1958 ], [ %.21794, %1730 ]
+  %.242652 = phi i8 [ %.02628, %1958 ], [ %.21794, %1730 ]
+  %.232593 = phi i8 [ %.02570, %1958 ], [ %.21794, %1730 ]
+  %.222533 = phi i8 [ %.02511, %1958 ], [ %.21794, %1730 ]
+  %.212472 = phi i8 [ %.02451, %1958 ], [ %.21794, %1730 ]
+  %.202410 = phi i8 [ %.02390, %1958 ], [ %.21794, %1730 ]
+  %.192347 = phi i8 [ %.02328, %1958 ], [ %.21794, %1730 ]
+  %.182283 = phi i8 [ %.02265, %1958 ], [ %.21794, %1730 ]
+  %.172214 = phi i8 [ %.02197, %1958 ], [ %.21794, %1730 ]
+  %.162148 = phi i8 [ %.02132, %1958 ], [ %.21794, %1730 ]
+  %.152081 = phi i8 [ %.02066, %1958 ], [ %.21794, %1730 ]
+  %.142013 = phi i8 [ %.01999, %1958 ], [ %.21794, %1730 ]
+  %.131944 = phi i8 [ %.01931, %1958 ], [ %.21794, %1730 ]
+  %.121874 = phi i8 [ %.01862, %1958 ], [ %.21794, %1730 ]
+  %.111803 = phi i8 [ %.01792, %1958 ], [ %.21794, %1730 ]
+  %.111731 = phi i8 [ %.01720, %1958 ], [ %.21722, %1730 ]
+  %.111657 = phi i8 [ %.01646, %1958 ], [ %.21648, %1730 ]
+  %.121581 = phi i8 [ %.01569, %1958 ], [ %.21529, %1730 ]
+  %.111538 = phi i8 [ %.01527, %1958 ], [ %.21529, %1730 ]
   %1734 = landingpad { ptr, i32 }
           cleanup
   br label %1731
@@ -91685,76 +91685,76 @@ default.unreachable:                              ; preds = %1375
 
 1738:                                             ; preds = %2264, %1740, %1731
   %.73180 = phi i8 [ %.83181, %1740 ], [ %.53178, %2264 ], [ %.53178, %1731 ]
-  %.103167 = phi i8 [ %.113168, %1740 ], [ %.83165, %2264 ], [ %.83165, %1731 ]
+  %.123169 = phi i8 [ %.133170, %1740 ], [ %.103167, %2264 ], [ %.103167, %1731 ]
   %.73151 = phi i8 [ %.83152, %1740 ], [ %.53149, %2264 ], [ %.53149, %1731 ]
-  %.133134 = phi i8 [ %.143135, %1740 ], [ %.113132, %2264 ], [ %.113132, %1731 ]
-  %.123109 = phi i8 [ %.133110, %1740 ], [ %.103107, %2264 ], [ %.103107, %1731 ]
-  %.113083 = phi i8 [ %.123084, %1740 ], [ %.93081, %2264 ], [ %.93081, %1731 ]
-  %.103056 = phi i8 [ %.113057, %1740 ], [ %.83054, %2264 ], [ %.83054, %1731 ]
-  %.113028 = phi i8 [ %.123029, %1740 ], [ %.93026, %2264 ], [ %.93026, %1731 ]
-  %.102997 = phi i8 [ %.112998, %1740 ], [ %.82995, %2264 ], [ %.82995, %1731 ]
-  %.102965 = phi i8 [ %.112966, %1740 ], [ %.82963, %2264 ], [ %.82963, %1731 ]
-  %.282931 = phi i8 [ %.292932, %1740 ], [ %.262929, %2264 ], [ %.262929, %1731 ]
-  %.272877 = phi i8 [ %.282878, %1740 ], [ %.252875, %2264 ], [ %.252875, %1731 ]
-  %.262822 = phi i8 [ %.272823, %1740 ], [ %.242820, %2264 ], [ %.242820, %1731 ]
-  %.252766 = phi i8 [ %.262767, %1740 ], [ %.232764, %2264 ], [ %.232764, %1731 ]
-  %.242709 = phi i8 [ %.252710, %1740 ], [ %.222707, %2264 ], [ %.222707, %1731 ]
-  %.232651 = phi i8 [ %.242652, %1740 ], [ %.212649, %2264 ], [ %.212649, %1731 ]
-  %.222592 = phi i8 [ %.232593, %1740 ], [ %.202590, %2264 ], [ %.202590, %1731 ]
-  %.212532 = phi i8 [ %.222533, %1740 ], [ %.192530, %2264 ], [ %.192530, %1731 ]
-  %.202471 = phi i8 [ %.212472, %1740 ], [ %.182469, %2264 ], [ %.182469, %1731 ]
-  %.192409 = phi i8 [ %.202410, %1740 ], [ %.172407, %2264 ], [ %.172407, %1731 ]
-  %.182346 = phi i8 [ %.192347, %1740 ], [ %.162344, %2264 ], [ %.162344, %1731 ]
-  %.172282 = phi i8 [ %.182283, %1740 ], [ %.152280, %2264 ], [ %.152280, %1731 ]
-  %.162213 = phi i8 [ %.172214, %1740 ], [ %.142211, %2264 ], [ %.142211, %1731 ]
-  %.152147 = phi i8 [ %.162148, %1740 ], [ %.132145, %2264 ], [ %.132145, %1731 ]
-  %.142080 = phi i8 [ %.152081, %1740 ], [ %.122078, %2264 ], [ %.122078, %1731 ]
-  %.132012 = phi i8 [ %.142013, %1740 ], [ %.112010, %2264 ], [ %.112010, %1731 ]
-  %.121943 = phi i8 [ %.131944, %1740 ], [ %.101941, %2264 ], [ %.101941, %1731 ]
-  %.111873 = phi i8 [ %.121874, %1740 ], [ %.91871, %2264 ], [ %.91871, %1731 ]
-  %.101802 = phi i8 [ %.111803, %1740 ], [ %.81800, %2264 ], [ %.81800, %1731 ]
-  %.101730 = phi i8 [ %.111731, %1740 ], [ %.81728, %2264 ], [ %.81728, %1731 ]
-  %.101656 = phi i8 [ %.111657, %1740 ], [ %.81654, %2264 ], [ %.81654, %1731 ]
-  %.111580 = phi i8 [ %.121581, %1740 ], [ %.91578, %2264 ], [ %.91578, %1731 ]
-  %.101537 = phi i8 [ %.111538, %1740 ], [ %.81535, %2264 ], [ %.81535, %1731 ]
+  %.153136 = phi i8 [ %.163137, %1740 ], [ %.133134, %2264 ], [ %.133134, %1731 ]
+  %.143111 = phi i8 [ %.153112, %1740 ], [ %.123109, %2264 ], [ %.123109, %1731 ]
+  %.133085 = phi i8 [ %.143086, %1740 ], [ %.113083, %2264 ], [ %.113083, %1731 ]
+  %.123058 = phi i8 [ %.133059, %1740 ], [ %.103056, %2264 ], [ %.103056, %1731 ]
+  %.133030 = phi i8 [ %.143031, %1740 ], [ %.113028, %2264 ], [ %.113028, %1731 ]
+  %.122999 = phi i8 [ %.133000, %1740 ], [ %.102997, %2264 ], [ %.102997, %1731 ]
+  %.122967 = phi i8 [ %.132968, %1740 ], [ %.102965, %2264 ], [ %.102965, %1731 ]
+  %.302933 = phi i8 [ %.312934, %1740 ], [ %.282931, %2264 ], [ %.282931, %1731 ]
+  %.292879 = phi i8 [ %.302880, %1740 ], [ %.272877, %2264 ], [ %.272877, %1731 ]
+  %.282824 = phi i8 [ %.292825, %1740 ], [ %.262822, %2264 ], [ %.262822, %1731 ]
+  %.272768 = phi i8 [ %.282769, %1740 ], [ %.252766, %2264 ], [ %.252766, %1731 ]
+  %.262711 = phi i8 [ %.272712, %1740 ], [ %.242709, %2264 ], [ %.242709, %1731 ]
+  %.252653 = phi i8 [ %.262654, %1740 ], [ %.232651, %2264 ], [ %.232651, %1731 ]
+  %.242594 = phi i8 [ %.252595, %1740 ], [ %.222592, %2264 ], [ %.222592, %1731 ]
+  %.232534 = phi i8 [ %.242535, %1740 ], [ %.212532, %2264 ], [ %.212532, %1731 ]
+  %.222473 = phi i8 [ %.232474, %1740 ], [ %.202471, %2264 ], [ %.202471, %1731 ]
+  %.212411 = phi i8 [ %.222412, %1740 ], [ %.192409, %2264 ], [ %.192409, %1731 ]
+  %.202348 = phi i8 [ %.212349, %1740 ], [ %.182346, %2264 ], [ %.182346, %1731 ]
+  %.192284 = phi i8 [ %.202285, %1740 ], [ %.172282, %2264 ], [ %.172282, %1731 ]
+  %.182215 = phi i8 [ %.192216, %1740 ], [ %.162213, %2264 ], [ %.162213, %1731 ]
+  %.172149 = phi i8 [ %.182150, %1740 ], [ %.152147, %2264 ], [ %.152147, %1731 ]
+  %.162082 = phi i8 [ %.172083, %1740 ], [ %.142080, %2264 ], [ %.142080, %1731 ]
+  %.152014 = phi i8 [ %.162015, %1740 ], [ %.132012, %2264 ], [ %.132012, %1731 ]
+  %.141945 = phi i8 [ %.151946, %1740 ], [ %.121943, %2264 ], [ %.121943, %1731 ]
+  %.131875 = phi i8 [ %.141876, %1740 ], [ %.111873, %2264 ], [ %.111873, %1731 ]
+  %.121804 = phi i8 [ %.131805, %1740 ], [ %.101802, %2264 ], [ %.101802, %1731 ]
+  %.121732 = phi i8 [ %.131733, %1740 ], [ %.101730, %2264 ], [ %.101730, %1731 ]
+  %.121658 = phi i8 [ %.131659, %1740 ], [ %.101656, %2264 ], [ %.101656, %1731 ]
+  %.131582 = phi i8 [ %.141583, %1740 ], [ %.111580, %2264 ], [ %.111580, %1731 ]
+  %.121539 = phi i8 [ %.131540, %1740 ], [ %.101537, %2264 ], [ %.101537, %1731 ]
   %.pn3404 = phi { ptr, i32 } [ %1741, %1740 ], [ %.pn3402, %2264 ], [ %.pn3402, %1731 ]
   %1739 = trunc nuw i8 %.73180 to i1
   br i1 %1739, label %2265, label %.body4006
 
 1740:                                             ; preds = %1974, %1737
   %.83181 = phi i8 [ 1, %1974 ], [ %.23159, %1737 ]
-  %.113168 = phi i8 [ %.143171, %1974 ], [ %.23159, %1737 ]
+  %.133170 = phi i8 [ %.03157, %1974 ], [ %.23159, %1737 ]
   %.83152 = phi i8 [ 1, %1974 ], [ %.03144, %1737 ]
-  %.143135 = phi i8 [ %.213142, %1974 ], [ %.23048, %1737 ]
-  %.133110 = phi i8 [ %.223119, %1974 ], [ %.23048, %1737 ]
-  %.123084 = phi i8 [ %.233095, %1974 ], [ %.23048, %1737 ]
-  %.113057 = phi i8 [ %.243070, %1974 ], [ %.23048, %1737 ]
-  %.123029 = phi i8 [ %.273044, %1974 ], [ %.22989, %1737 ]
-  %.112998 = phi i8 [ %.283015, %1974 ], [ %.22989, %1737 ]
-  %.112966 = phi i8 [ %.302985, %1974 ], [ %.22957, %1737 ]
-  %.292932 = phi i8 [ %.502953, %1974 ], [ %.21794, %1737 ]
-  %.282878 = phi i8 [ %.512901, %1974 ], [ %.21794, %1737 ]
-  %.272823 = phi i8 [ %.522848, %1974 ], [ %.21794, %1737 ]
-  %.262767 = phi i8 [ %.532794, %1974 ], [ %.21794, %1737 ]
-  %.252710 = phi i8 [ %.542739, %1974 ], [ %.21794, %1737 ]
-  %.242652 = phi i8 [ %.552683, %1974 ], [ %.21794, %1737 ]
-  %.232593 = phi i8 [ %.562626, %1974 ], [ %.21794, %1737 ]
-  %.222533 = phi i8 [ %.572568, %1974 ], [ %.21794, %1737 ]
-  %.212472 = phi i8 [ %.582509, %1974 ], [ %.21794, %1737 ]
-  %.202410 = phi i8 [ %.592449, %1974 ], [ %.21794, %1737 ]
-  %.192347 = phi i8 [ %.602388, %1974 ], [ %.21794, %1737 ]
-  %.182283 = phi i8 [ %.612326, %1974 ], [ %.21794, %1737 ]
-  %.172214 = phi i8 [ %.622259, %1974 ], [ %.21794, %1737 ]
-  %.162148 = phi i8 [ %.632195, %1974 ], [ %.21794, %1737 ]
-  %.152081 = phi i8 [ %.642130, %1974 ], [ %.21794, %1737 ]
-  %.142013 = phi i8 [ %.652064, %1974 ], [ %.21794, %1737 ]
-  %.131944 = phi i8 [ %.661997, %1974 ], [ %.21794, %1737 ]
-  %.121874 = phi i8 [ %.671929, %1974 ], [ %.21794, %1737 ]
-  %.111803 = phi i8 [ %.681860, %1974 ], [ %.21794, %1737 ]
-  %.111731 = phi i8 [ %.701790, %1974 ], [ %.21722, %1737 ]
-  %.111657 = phi i8 [ %.721718, %1974 ], [ %.21648, %1737 ]
-  %.121581 = phi i8 [ %.751644, %1974 ], [ %.21529, %1737 ]
-  %.111538 = phi i8 [ %.76, %1974 ], [ %.21529, %1737 ]
+  %.163137 = phi i8 [ %.03121, %1974 ], [ %.23048, %1737 ]
+  %.153112 = phi i8 [ %.03097, %1974 ], [ %.23048, %1737 ]
+  %.143086 = phi i8 [ %.03072, %1974 ], [ %.23048, %1737 ]
+  %.133059 = phi i8 [ %.03046, %1974 ], [ %.23048, %1737 ]
+  %.143031 = phi i8 [ %.03017, %1974 ], [ %.22989, %1737 ]
+  %.133000 = phi i8 [ %.02987, %1974 ], [ %.22989, %1737 ]
+  %.132968 = phi i8 [ %.02955, %1974 ], [ %.22957, %1737 ]
+  %.312934 = phi i8 [ %.02903, %1974 ], [ %.21794, %1737 ]
+  %.302880 = phi i8 [ %.02850, %1974 ], [ %.21794, %1737 ]
+  %.292825 = phi i8 [ %.02796, %1974 ], [ %.21794, %1737 ]
+  %.282769 = phi i8 [ %.02741, %1974 ], [ %.21794, %1737 ]
+  %.272712 = phi i8 [ %.02685, %1974 ], [ %.21794, %1737 ]
+  %.262654 = phi i8 [ %.02628, %1974 ], [ %.21794, %1737 ]
+  %.252595 = phi i8 [ %.02570, %1974 ], [ %.21794, %1737 ]
+  %.242535 = phi i8 [ %.02511, %1974 ], [ %.21794, %1737 ]
+  %.232474 = phi i8 [ %.02451, %1974 ], [ %.21794, %1737 ]
+  %.222412 = phi i8 [ %.02390, %1974 ], [ %.21794, %1737 ]
+  %.212349 = phi i8 [ %.02328, %1974 ], [ %.21794, %1737 ]
+  %.202285 = phi i8 [ %.02265, %1974 ], [ %.21794, %1737 ]
+  %.192216 = phi i8 [ %.02197, %1974 ], [ %.21794, %1737 ]
+  %.182150 = phi i8 [ %.02132, %1974 ], [ %.21794, %1737 ]
+  %.172083 = phi i8 [ %.02066, %1974 ], [ %.21794, %1737 ]
+  %.162015 = phi i8 [ %.01999, %1974 ], [ %.21794, %1737 ]
+  %.151946 = phi i8 [ %.01931, %1974 ], [ %.21794, %1737 ]
+  %.141876 = phi i8 [ %.01862, %1974 ], [ %.21794, %1737 ]
+  %.131805 = phi i8 [ %.01792, %1974 ], [ %.21794, %1737 ]
+  %.131733 = phi i8 [ %.01720, %1974 ], [ %.21722, %1737 ]
+  %.131659 = phi i8 [ %.01646, %1974 ], [ %.21648, %1737 ]
+  %.141583 = phi i8 [ %.01569, %1974 ], [ %.21529, %1737 ]
+  %.131540 = phi i8 [ %.01527, %1974 ], [ %.21529, %1737 ]
   %1741 = landingpad { ptr, i32 }
           cleanup
   br label %1738
@@ -91768,75 +91768,75 @@ default.unreachable:                              ; preds = %1375
           to label %1749 unwind label %1745
 
 .body4006:                                        ; preds = %1962, %1745, %2265, %1738
-  %.123169 = phi i8 [ %.103167, %2265 ], [ %.103167, %1738 ], [ %.133170, %1745 ], [ %.143171, %1962 ]
+  %.143171 = phi i8 [ %.123169, %2265 ], [ %.123169, %1738 ], [ %.153172, %1745 ], [ %.03157, %1962 ]
   %.93153 = phi i8 [ %.73151, %2265 ], [ %.73151, %1738 ], [ %.103154, %1745 ], [ 1, %1962 ]
-  %.153136 = phi i8 [ %.133134, %2265 ], [ %.133134, %1738 ], [ %.163137, %1745 ], [ %.213142, %1962 ]
-  %.143111 = phi i8 [ %.123109, %2265 ], [ %.123109, %1738 ], [ %.153112, %1745 ], [ %.223119, %1962 ]
-  %.133085 = phi i8 [ %.113083, %2265 ], [ %.113083, %1738 ], [ %.143086, %1745 ], [ %.233095, %1962 ]
-  %.123058 = phi i8 [ %.103056, %2265 ], [ %.103056, %1738 ], [ %.133059, %1745 ], [ %.243070, %1962 ]
-  %.133030 = phi i8 [ %.113028, %2265 ], [ %.113028, %1738 ], [ %.143031, %1745 ], [ %.273044, %1962 ]
-  %.122999 = phi i8 [ %.102997, %2265 ], [ %.102997, %1738 ], [ %.133000, %1745 ], [ %.283015, %1962 ]
-  %.122967 = phi i8 [ %.102965, %2265 ], [ %.102965, %1738 ], [ %.132968, %1745 ], [ %.302985, %1962 ]
-  %.302933 = phi i8 [ %.282931, %2265 ], [ %.282931, %1738 ], [ %.312934, %1745 ], [ %.502953, %1962 ]
-  %.292879 = phi i8 [ %.272877, %2265 ], [ %.272877, %1738 ], [ %.302880, %1745 ], [ %.512901, %1962 ]
-  %.282824 = phi i8 [ %.262822, %2265 ], [ %.262822, %1738 ], [ %.292825, %1745 ], [ %.522848, %1962 ]
-  %.272768 = phi i8 [ %.252766, %2265 ], [ %.252766, %1738 ], [ %.282769, %1745 ], [ %.532794, %1962 ]
-  %.262711 = phi i8 [ %.242709, %2265 ], [ %.242709, %1738 ], [ %.272712, %1745 ], [ %.542739, %1962 ]
-  %.252653 = phi i8 [ %.232651, %2265 ], [ %.232651, %1738 ], [ %.262654, %1745 ], [ %.552683, %1962 ]
-  %.242594 = phi i8 [ %.222592, %2265 ], [ %.222592, %1738 ], [ %.252595, %1745 ], [ %.562626, %1962 ]
-  %.232534 = phi i8 [ %.212532, %2265 ], [ %.212532, %1738 ], [ %.242535, %1745 ], [ %.572568, %1962 ]
-  %.222473 = phi i8 [ %.202471, %2265 ], [ %.202471, %1738 ], [ %.232474, %1745 ], [ %.582509, %1962 ]
-  %.212411 = phi i8 [ %.192409, %2265 ], [ %.192409, %1738 ], [ %.222412, %1745 ], [ %.592449, %1962 ]
-  %.202348 = phi i8 [ %.182346, %2265 ], [ %.182346, %1738 ], [ %.212349, %1745 ], [ %.602388, %1962 ]
-  %.192284 = phi i8 [ %.172282, %2265 ], [ %.172282, %1738 ], [ %.202285, %1745 ], [ %.612326, %1962 ]
-  %.182215 = phi i8 [ %.162213, %2265 ], [ %.162213, %1738 ], [ %.192216, %1745 ], [ %.622259, %1962 ]
-  %.172149 = phi i8 [ %.152147, %2265 ], [ %.152147, %1738 ], [ %.182150, %1745 ], [ %.632195, %1962 ]
-  %.162082 = phi i8 [ %.142080, %2265 ], [ %.142080, %1738 ], [ %.172083, %1745 ], [ %.642130, %1962 ]
-  %.152014 = phi i8 [ %.132012, %2265 ], [ %.132012, %1738 ], [ %.162015, %1745 ], [ %.652064, %1962 ]
-  %.141945 = phi i8 [ %.121943, %2265 ], [ %.121943, %1738 ], [ %.151946, %1745 ], [ %.661997, %1962 ]
-  %.131875 = phi i8 [ %.111873, %2265 ], [ %.111873, %1738 ], [ %.141876, %1745 ], [ %.671929, %1962 ]
-  %.121804 = phi i8 [ %.101802, %2265 ], [ %.101802, %1738 ], [ %.131805, %1745 ], [ %.681860, %1962 ]
-  %.121732 = phi i8 [ %.101730, %2265 ], [ %.101730, %1738 ], [ %.131733, %1745 ], [ %.701790, %1962 ]
-  %.121658 = phi i8 [ %.101656, %2265 ], [ %.101656, %1738 ], [ %.131659, %1745 ], [ %.721718, %1962 ]
-  %.131582 = phi i8 [ %.111580, %2265 ], [ %.111580, %1738 ], [ %.141583, %1745 ], [ %.751644, %1962 ]
-  %.121539 = phi i8 [ %.101537, %2265 ], [ %.101537, %1738 ], [ %.131540, %1745 ], [ %.76, %1962 ]
+  %.173138 = phi i8 [ %.153136, %2265 ], [ %.153136, %1738 ], [ %.183139, %1745 ], [ %.03121, %1962 ]
+  %.163113 = phi i8 [ %.143111, %2265 ], [ %.143111, %1738 ], [ %.173114, %1745 ], [ %.03097, %1962 ]
+  %.153087 = phi i8 [ %.133085, %2265 ], [ %.133085, %1738 ], [ %.163088, %1745 ], [ %.03072, %1962 ]
+  %.143060 = phi i8 [ %.123058, %2265 ], [ %.123058, %1738 ], [ %.153061, %1745 ], [ %.03046, %1962 ]
+  %.153032 = phi i8 [ %.133030, %2265 ], [ %.133030, %1738 ], [ %.163033, %1745 ], [ %.03017, %1962 ]
+  %.143001 = phi i8 [ %.122999, %2265 ], [ %.122999, %1738 ], [ %.153002, %1745 ], [ %.02987, %1962 ]
+  %.142969 = phi i8 [ %.122967, %2265 ], [ %.122967, %1738 ], [ %.152970, %1745 ], [ %.02955, %1962 ]
+  %.322935 = phi i8 [ %.302933, %2265 ], [ %.302933, %1738 ], [ %.332936, %1745 ], [ %.02903, %1962 ]
+  %.312881 = phi i8 [ %.292879, %2265 ], [ %.292879, %1738 ], [ %.322882, %1745 ], [ %.02850, %1962 ]
+  %.302826 = phi i8 [ %.282824, %2265 ], [ %.282824, %1738 ], [ %.312827, %1745 ], [ %.02796, %1962 ]
+  %.292770 = phi i8 [ %.272768, %2265 ], [ %.272768, %1738 ], [ %.302771, %1745 ], [ %.02741, %1962 ]
+  %.282713 = phi i8 [ %.262711, %2265 ], [ %.262711, %1738 ], [ %.292714, %1745 ], [ %.02685, %1962 ]
+  %.272655 = phi i8 [ %.252653, %2265 ], [ %.252653, %1738 ], [ %.282656, %1745 ], [ %.02628, %1962 ]
+  %.262596 = phi i8 [ %.242594, %2265 ], [ %.242594, %1738 ], [ %.272597, %1745 ], [ %.02570, %1962 ]
+  %.252536 = phi i8 [ %.232534, %2265 ], [ %.232534, %1738 ], [ %.262537, %1745 ], [ %.02511, %1962 ]
+  %.242475 = phi i8 [ %.222473, %2265 ], [ %.222473, %1738 ], [ %.252476, %1745 ], [ %.02451, %1962 ]
+  %.232413 = phi i8 [ %.212411, %2265 ], [ %.212411, %1738 ], [ %.242414, %1745 ], [ %.02390, %1962 ]
+  %.222350 = phi i8 [ %.202348, %2265 ], [ %.202348, %1738 ], [ %.232351, %1745 ], [ %.02328, %1962 ]
+  %.212286 = phi i8 [ %.192284, %2265 ], [ %.192284, %1738 ], [ %.222287, %1745 ], [ %.02265, %1962 ]
+  %.202217 = phi i8 [ %.182215, %2265 ], [ %.182215, %1738 ], [ %.212218, %1745 ], [ %.02197, %1962 ]
+  %.192151 = phi i8 [ %.172149, %2265 ], [ %.172149, %1738 ], [ %.202152, %1745 ], [ %.02132, %1962 ]
+  %.182084 = phi i8 [ %.162082, %2265 ], [ %.162082, %1738 ], [ %.192085, %1745 ], [ %.02066, %1962 ]
+  %.172016 = phi i8 [ %.152014, %2265 ], [ %.152014, %1738 ], [ %.182017, %1745 ], [ %.01999, %1962 ]
+  %.161947 = phi i8 [ %.141945, %2265 ], [ %.141945, %1738 ], [ %.171948, %1745 ], [ %.01931, %1962 ]
+  %.151877 = phi i8 [ %.131875, %2265 ], [ %.131875, %1738 ], [ %.161878, %1745 ], [ %.01862, %1962 ]
+  %.141806 = phi i8 [ %.121804, %2265 ], [ %.121804, %1738 ], [ %.151807, %1745 ], [ %.01792, %1962 ]
+  %.141734 = phi i8 [ %.121732, %2265 ], [ %.121732, %1738 ], [ %.151735, %1745 ], [ %.01720, %1962 ]
+  %.141660 = phi i8 [ %.121658, %2265 ], [ %.121658, %1738 ], [ %.151661, %1745 ], [ %.01646, %1962 ]
+  %.151584 = phi i8 [ %.131582, %2265 ], [ %.131582, %1738 ], [ %.161585, %1745 ], [ %.01569, %1962 ]
+  %.141541 = phi i8 [ %.121539, %2265 ], [ %.121539, %1738 ], [ %.151542, %1745 ], [ %.01527, %1962 ]
   %.pn3406 = phi { ptr, i32 } [ %.pn3404, %2265 ], [ %.pn3404, %1738 ], [ %1746, %1745 ], [ %1963, %1962 ]
-  %1744 = trunc nuw i8 %.123169 to i1
+  %1744 = trunc nuw i8 %.143171 to i1
   br i1 %1744, label %2266, label %1750
 
 1745:                                             ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003", %1743
-  %.133170 = phi i8 [ %.23159, %1743 ], [ %.143171, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.153172 = phi i8 [ %.23159, %1743 ], [ %.03157, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
   %.103154 = phi i8 [ %.03144, %1743 ], [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.163137 = phi i8 [ %.23048, %1743 ], [ %.213142, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.153112 = phi i8 [ %.23048, %1743 ], [ %.223119, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.143086 = phi i8 [ %.23048, %1743 ], [ %.233095, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.133059 = phi i8 [ %.23048, %1743 ], [ %.243070, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.143031 = phi i8 [ %.22989, %1743 ], [ %.273044, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.133000 = phi i8 [ %.22989, %1743 ], [ %.283015, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.132968 = phi i8 [ %.22957, %1743 ], [ %.302985, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.312934 = phi i8 [ %.21794, %1743 ], [ %.502953, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.302880 = phi i8 [ %.21794, %1743 ], [ %.512901, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.292825 = phi i8 [ %.21794, %1743 ], [ %.522848, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.282769 = phi i8 [ %.21794, %1743 ], [ %.532794, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.272712 = phi i8 [ %.21794, %1743 ], [ %.542739, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.262654 = phi i8 [ %.21794, %1743 ], [ %.552683, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.252595 = phi i8 [ %.21794, %1743 ], [ %.562626, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.242535 = phi i8 [ %.21794, %1743 ], [ %.572568, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.232474 = phi i8 [ %.21794, %1743 ], [ %.582509, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.222412 = phi i8 [ %.21794, %1743 ], [ %.592449, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.212349 = phi i8 [ %.21794, %1743 ], [ %.602388, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.202285 = phi i8 [ %.21794, %1743 ], [ %.612326, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.192216 = phi i8 [ %.21794, %1743 ], [ %.622259, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.182150 = phi i8 [ %.21794, %1743 ], [ %.632195, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.172083 = phi i8 [ %.21794, %1743 ], [ %.642130, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.162015 = phi i8 [ %.21794, %1743 ], [ %.652064, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.151946 = phi i8 [ %.21794, %1743 ], [ %.661997, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.141876 = phi i8 [ %.21794, %1743 ], [ %.671929, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.131805 = phi i8 [ %.21794, %1743 ], [ %.681860, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.131733 = phi i8 [ %.21722, %1743 ], [ %.701790, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.131659 = phi i8 [ %.21648, %1743 ], [ %.721718, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.141583 = phi i8 [ %.21529, %1743 ], [ %.751644, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
-  %.131540 = phi i8 [ %.21529, %1743 ], [ %.76, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.183139 = phi i8 [ %.23048, %1743 ], [ %.03121, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.173114 = phi i8 [ %.23048, %1743 ], [ %.03097, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.163088 = phi i8 [ %.23048, %1743 ], [ %.03072, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.153061 = phi i8 [ %.23048, %1743 ], [ %.03046, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.163033 = phi i8 [ %.22989, %1743 ], [ %.03017, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.153002 = phi i8 [ %.22989, %1743 ], [ %.02987, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.152970 = phi i8 [ %.22957, %1743 ], [ %.02955, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.332936 = phi i8 [ %.21794, %1743 ], [ %.02903, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.322882 = phi i8 [ %.21794, %1743 ], [ %.02850, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.312827 = phi i8 [ %.21794, %1743 ], [ %.02796, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.302771 = phi i8 [ %.21794, %1743 ], [ %.02741, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.292714 = phi i8 [ %.21794, %1743 ], [ %.02685, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.282656 = phi i8 [ %.21794, %1743 ], [ %.02628, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.272597 = phi i8 [ %.21794, %1743 ], [ %.02570, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.262537 = phi i8 [ %.21794, %1743 ], [ %.02511, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.252476 = phi i8 [ %.21794, %1743 ], [ %.02451, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.242414 = phi i8 [ %.21794, %1743 ], [ %.02390, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.232351 = phi i8 [ %.21794, %1743 ], [ %.02328, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.222287 = phi i8 [ %.21794, %1743 ], [ %.02265, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.212218 = phi i8 [ %.21794, %1743 ], [ %.02197, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.202152 = phi i8 [ %.21794, %1743 ], [ %.02132, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.192085 = phi i8 [ %.21794, %1743 ], [ %.02066, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.182017 = phi i8 [ %.21794, %1743 ], [ %.01999, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.171948 = phi i8 [ %.21794, %1743 ], [ %.01931, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.161878 = phi i8 [ %.21794, %1743 ], [ %.01862, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.151807 = phi i8 [ %.21794, %1743 ], [ %.01792, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.151735 = phi i8 [ %.21722, %1743 ], [ %.01720, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.151661 = phi i8 [ %.21648, %1743 ], [ %.01646, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.161585 = phi i8 [ %.21529, %1743 ], [ %.01569, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
+  %.151542 = phi i8 [ %.21529, %1743 ], [ %.01527, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h59e9492787cfc938E.llvm.10409712727403535664.exit.i.i4003" ]
   %1746 = landingpad { ptr, i32 }
           cleanup
   br label %.body4006
@@ -91853,72 +91853,72 @@ default.unreachable:                              ; preds = %1375
 
 1750:                                             ; preds = %2266, %1752, %.body4006
   %.113155 = phi i8 [ %.123156, %1752 ], [ %.93153, %2266 ], [ %.93153, %.body4006 ]
-  %.173138 = phi i8 [ %.183139, %1752 ], [ %.153136, %2266 ], [ %.153136, %.body4006 ]
-  %.163113 = phi i8 [ %.173114, %1752 ], [ %.143111, %2266 ], [ %.143111, %.body4006 ]
-  %.153087 = phi i8 [ %.163088, %1752 ], [ %.133085, %2266 ], [ %.133085, %.body4006 ]
-  %.143060 = phi i8 [ %.153061, %1752 ], [ %.123058, %2266 ], [ %.123058, %.body4006 ]
-  %.153032 = phi i8 [ %.163033, %1752 ], [ %.133030, %2266 ], [ %.133030, %.body4006 ]
-  %.143001 = phi i8 [ %.153002, %1752 ], [ %.122999, %2266 ], [ %.122999, %.body4006 ]
-  %.142969 = phi i8 [ %.152970, %1752 ], [ %.122967, %2266 ], [ %.122967, %.body4006 ]
-  %.322935 = phi i8 [ %.332936, %1752 ], [ %.302933, %2266 ], [ %.302933, %.body4006 ]
-  %.312881 = phi i8 [ %.322882, %1752 ], [ %.292879, %2266 ], [ %.292879, %.body4006 ]
-  %.302826 = phi i8 [ %.312827, %1752 ], [ %.282824, %2266 ], [ %.282824, %.body4006 ]
-  %.292770 = phi i8 [ %.302771, %1752 ], [ %.272768, %2266 ], [ %.272768, %.body4006 ]
-  %.282713 = phi i8 [ %.292714, %1752 ], [ %.262711, %2266 ], [ %.262711, %.body4006 ]
-  %.272655 = phi i8 [ %.282656, %1752 ], [ %.252653, %2266 ], [ %.252653, %.body4006 ]
-  %.262596 = phi i8 [ %.272597, %1752 ], [ %.242594, %2266 ], [ %.242594, %.body4006 ]
-  %.252536 = phi i8 [ %.262537, %1752 ], [ %.232534, %2266 ], [ %.232534, %.body4006 ]
-  %.242475 = phi i8 [ %.252476, %1752 ], [ %.222473, %2266 ], [ %.222473, %.body4006 ]
-  %.232413 = phi i8 [ %.242414, %1752 ], [ %.212411, %2266 ], [ %.212411, %.body4006 ]
-  %.222350 = phi i8 [ %.232351, %1752 ], [ %.202348, %2266 ], [ %.202348, %.body4006 ]
-  %.212286 = phi i8 [ %.222287, %1752 ], [ %.192284, %2266 ], [ %.192284, %.body4006 ]
-  %.202217 = phi i8 [ %.212218, %1752 ], [ %.182215, %2266 ], [ %.182215, %.body4006 ]
-  %.192151 = phi i8 [ %.202152, %1752 ], [ %.172149, %2266 ], [ %.172149, %.body4006 ]
-  %.182084 = phi i8 [ %.192085, %1752 ], [ %.162082, %2266 ], [ %.162082, %.body4006 ]
-  %.172016 = phi i8 [ %.182017, %1752 ], [ %.152014, %2266 ], [ %.152014, %.body4006 ]
-  %.161947 = phi i8 [ %.171948, %1752 ], [ %.141945, %2266 ], [ %.141945, %.body4006 ]
-  %.151877 = phi i8 [ %.161878, %1752 ], [ %.131875, %2266 ], [ %.131875, %.body4006 ]
-  %.141806 = phi i8 [ %.151807, %1752 ], [ %.121804, %2266 ], [ %.121804, %.body4006 ]
-  %.141734 = phi i8 [ %.151735, %1752 ], [ %.121732, %2266 ], [ %.121732, %.body4006 ]
-  %.141660 = phi i8 [ %.151661, %1752 ], [ %.121658, %2266 ], [ %.121658, %.body4006 ]
-  %.151584 = phi i8 [ %.161585, %1752 ], [ %.131582, %2266 ], [ %.131582, %.body4006 ]
-  %.141541 = phi i8 [ %.151542, %1752 ], [ %.121539, %2266 ], [ %.121539, %.body4006 ]
+  %.193140 = phi i8 [ %.203141, %1752 ], [ %.173138, %2266 ], [ %.173138, %.body4006 ]
+  %.183115 = phi i8 [ %.193116, %1752 ], [ %.163113, %2266 ], [ %.163113, %.body4006 ]
+  %.173089 = phi i8 [ %.183090, %1752 ], [ %.153087, %2266 ], [ %.153087, %.body4006 ]
+  %.163062 = phi i8 [ %.173063, %1752 ], [ %.143060, %2266 ], [ %.143060, %.body4006 ]
+  %.173034 = phi i8 [ %.183035, %1752 ], [ %.153032, %2266 ], [ %.153032, %.body4006 ]
+  %.163003 = phi i8 [ %.173004, %1752 ], [ %.143001, %2266 ], [ %.143001, %.body4006 ]
+  %.162971 = phi i8 [ %.172972, %1752 ], [ %.142969, %2266 ], [ %.142969, %.body4006 ]
+  %.342937 = phi i8 [ %.352938, %1752 ], [ %.322935, %2266 ], [ %.322935, %.body4006 ]
+  %.332883 = phi i8 [ %.342884, %1752 ], [ %.312881, %2266 ], [ %.312881, %.body4006 ]
+  %.322828 = phi i8 [ %.332829, %1752 ], [ %.302826, %2266 ], [ %.302826, %.body4006 ]
+  %.312772 = phi i8 [ %.322773, %1752 ], [ %.292770, %2266 ], [ %.292770, %.body4006 ]
+  %.302715 = phi i8 [ %.312716, %1752 ], [ %.282713, %2266 ], [ %.282713, %.body4006 ]
+  %.292657 = phi i8 [ %.302658, %1752 ], [ %.272655, %2266 ], [ %.272655, %.body4006 ]
+  %.282598 = phi i8 [ %.292599, %1752 ], [ %.262596, %2266 ], [ %.262596, %.body4006 ]
+  %.272538 = phi i8 [ %.282539, %1752 ], [ %.252536, %2266 ], [ %.252536, %.body4006 ]
+  %.262477 = phi i8 [ %.272478, %1752 ], [ %.242475, %2266 ], [ %.242475, %.body4006 ]
+  %.252415 = phi i8 [ %.262416, %1752 ], [ %.232413, %2266 ], [ %.232413, %.body4006 ]
+  %.242352 = phi i8 [ %.252353, %1752 ], [ %.222350, %2266 ], [ %.222350, %.body4006 ]
+  %.232288 = phi i8 [ %.242289, %1752 ], [ %.212286, %2266 ], [ %.212286, %.body4006 ]
+  %.222219 = phi i8 [ %.232220, %1752 ], [ %.202217, %2266 ], [ %.202217, %.body4006 ]
+  %.212153 = phi i8 [ %.222154, %1752 ], [ %.192151, %2266 ], [ %.192151, %.body4006 ]
+  %.202086 = phi i8 [ %.212087, %1752 ], [ %.182084, %2266 ], [ %.182084, %.body4006 ]
+  %.192018 = phi i8 [ %.202019, %1752 ], [ %.172016, %2266 ], [ %.172016, %.body4006 ]
+  %.181949 = phi i8 [ %.191950, %1752 ], [ %.161947, %2266 ], [ %.161947, %.body4006 ]
+  %.171879 = phi i8 [ %.181880, %1752 ], [ %.151877, %2266 ], [ %.151877, %.body4006 ]
+  %.161808 = phi i8 [ %.171809, %1752 ], [ %.141806, %2266 ], [ %.141806, %.body4006 ]
+  %.161736 = phi i8 [ %.171737, %1752 ], [ %.141734, %2266 ], [ %.141734, %.body4006 ]
+  %.161662 = phi i8 [ %.171663, %1752 ], [ %.141660, %2266 ], [ %.141660, %.body4006 ]
+  %.171586 = phi i8 [ %.181587, %1752 ], [ %.151584, %2266 ], [ %.151584, %.body4006 ]
+  %.161543 = phi i8 [ %.171544, %1752 ], [ %.141541, %2266 ], [ %.141541, %.body4006 ]
   %.pn3408 = phi { ptr, i32 } [ %1753, %1752 ], [ %.pn3406, %2266 ], [ %.pn3406, %.body4006 ]
   %1751 = trunc nuw i8 %.113155 to i1
   br i1 %1751, label %2267, label %1757
 
 1752:                                             ; preds = %1978, %1749
   %.123156 = phi i8 [ 1, %1978 ], [ %.03144, %1749 ]
-  %.183139 = phi i8 [ %.213142, %1978 ], [ %.23048, %1749 ]
-  %.173114 = phi i8 [ %.223119, %1978 ], [ %.23048, %1749 ]
-  %.163088 = phi i8 [ %.233095, %1978 ], [ %.23048, %1749 ]
-  %.153061 = phi i8 [ %.243070, %1978 ], [ %.23048, %1749 ]
-  %.163033 = phi i8 [ %.273044, %1978 ], [ %.22989, %1749 ]
-  %.153002 = phi i8 [ %.283015, %1978 ], [ %.22989, %1749 ]
-  %.152970 = phi i8 [ %.302985, %1978 ], [ %.22957, %1749 ]
-  %.332936 = phi i8 [ %.502953, %1978 ], [ %.21794, %1749 ]
-  %.322882 = phi i8 [ %.512901, %1978 ], [ %.21794, %1749 ]
-  %.312827 = phi i8 [ %.522848, %1978 ], [ %.21794, %1749 ]
-  %.302771 = phi i8 [ %.532794, %1978 ], [ %.21794, %1749 ]
-  %.292714 = phi i8 [ %.542739, %1978 ], [ %.21794, %1749 ]
-  %.282656 = phi i8 [ %.552683, %1978 ], [ %.21794, %1749 ]
-  %.272597 = phi i8 [ %.562626, %1978 ], [ %.21794, %1749 ]
-  %.262537 = phi i8 [ %.572568, %1978 ], [ %.21794, %1749 ]
-  %.252476 = phi i8 [ %.582509, %1978 ], [ %.21794, %1749 ]
-  %.242414 = phi i8 [ %.592449, %1978 ], [ %.21794, %1749 ]
-  %.232351 = phi i8 [ %.602388, %1978 ], [ %.21794, %1749 ]
-  %.222287 = phi i8 [ %.612326, %1978 ], [ %.21794, %1749 ]
-  %.212218 = phi i8 [ %.622259, %1978 ], [ %.21794, %1749 ]
-  %.202152 = phi i8 [ %.632195, %1978 ], [ %.21794, %1749 ]
-  %.192085 = phi i8 [ %.642130, %1978 ], [ %.21794, %1749 ]
-  %.182017 = phi i8 [ %.652064, %1978 ], [ %.21794, %1749 ]
-  %.171948 = phi i8 [ %.661997, %1978 ], [ %.21794, %1749 ]
-  %.161878 = phi i8 [ %.671929, %1978 ], [ %.21794, %1749 ]
-  %.151807 = phi i8 [ %.681860, %1978 ], [ %.21794, %1749 ]
-  %.151735 = phi i8 [ %.701790, %1978 ], [ %.21722, %1749 ]
-  %.151661 = phi i8 [ %.721718, %1978 ], [ %.21648, %1749 ]
-  %.161585 = phi i8 [ %.751644, %1978 ], [ %.21529, %1749 ]
-  %.151542 = phi i8 [ %.76, %1978 ], [ %.21529, %1749 ]
+  %.203141 = phi i8 [ %.03121, %1978 ], [ %.23048, %1749 ]
+  %.193116 = phi i8 [ %.03097, %1978 ], [ %.23048, %1749 ]
+  %.183090 = phi i8 [ %.03072, %1978 ], [ %.23048, %1749 ]
+  %.173063 = phi i8 [ %.03046, %1978 ], [ %.23048, %1749 ]
+  %.183035 = phi i8 [ %.03017, %1978 ], [ %.22989, %1749 ]
+  %.173004 = phi i8 [ %.02987, %1978 ], [ %.22989, %1749 ]
+  %.172972 = phi i8 [ %.02955, %1978 ], [ %.22957, %1749 ]
+  %.352938 = phi i8 [ %.02903, %1978 ], [ %.21794, %1749 ]
+  %.342884 = phi i8 [ %.02850, %1978 ], [ %.21794, %1749 ]
+  %.332829 = phi i8 [ %.02796, %1978 ], [ %.21794, %1749 ]
+  %.322773 = phi i8 [ %.02741, %1978 ], [ %.21794, %1749 ]
+  %.312716 = phi i8 [ %.02685, %1978 ], [ %.21794, %1749 ]
+  %.302658 = phi i8 [ %.02628, %1978 ], [ %.21794, %1749 ]
+  %.292599 = phi i8 [ %.02570, %1978 ], [ %.21794, %1749 ]
+  %.282539 = phi i8 [ %.02511, %1978 ], [ %.21794, %1749 ]
+  %.272478 = phi i8 [ %.02451, %1978 ], [ %.21794, %1749 ]
+  %.262416 = phi i8 [ %.02390, %1978 ], [ %.21794, %1749 ]
+  %.252353 = phi i8 [ %.02328, %1978 ], [ %.21794, %1749 ]
+  %.242289 = phi i8 [ %.02265, %1978 ], [ %.21794, %1749 ]
+  %.232220 = phi i8 [ %.02197, %1978 ], [ %.21794, %1749 ]
+  %.222154 = phi i8 [ %.02132, %1978 ], [ %.21794, %1749 ]
+  %.212087 = phi i8 [ %.02066, %1978 ], [ %.21794, %1749 ]
+  %.202019 = phi i8 [ %.01999, %1978 ], [ %.21794, %1749 ]
+  %.191950 = phi i8 [ %.01931, %1978 ], [ %.21794, %1749 ]
+  %.181880 = phi i8 [ %.01862, %1978 ], [ %.21794, %1749 ]
+  %.171809 = phi i8 [ %.01792, %1978 ], [ %.21794, %1749 ]
+  %.171737 = phi i8 [ %.01720, %1978 ], [ %.21722, %1749 ]
+  %.171663 = phi i8 [ %.01646, %1978 ], [ %.21648, %1749 ]
+  %.181587 = phi i8 [ %.01569, %1978 ], [ %.21529, %1749 ]
+  %.171544 = phi i8 [ %.01527, %1978 ], [ %.21529, %1749 ]
   %1753 = landingpad { ptr, i32 }
           cleanup
   br label %1750
@@ -91933,71 +91933,71 @@ default.unreachable:                              ; preds = %1375
           to label %1754 unwind label %1759
 
 1757:                                             ; preds = %2267, %1759, %1750
-  %.193140 = phi i8 [ %.203141, %1759 ], [ %.173138, %2267 ], [ %.173138, %1750 ]
-  %.183115 = phi i8 [ %.193116, %1759 ], [ %.163113, %2267 ], [ %.163113, %1750 ]
-  %.173089 = phi i8 [ %.183090, %1759 ], [ %.153087, %2267 ], [ %.153087, %1750 ]
-  %.163062 = phi i8 [ %.173063, %1759 ], [ %.143060, %2267 ], [ %.143060, %1750 ]
-  %.173034 = phi i8 [ %.183035, %1759 ], [ %.153032, %2267 ], [ %.153032, %1750 ]
-  %.163003 = phi i8 [ %.173004, %1759 ], [ %.143001, %2267 ], [ %.143001, %1750 ]
-  %.162971 = phi i8 [ %.172972, %1759 ], [ %.142969, %2267 ], [ %.142969, %1750 ]
-  %.342937 = phi i8 [ %.352938, %1759 ], [ %.322935, %2267 ], [ %.322935, %1750 ]
-  %.332883 = phi i8 [ %.342884, %1759 ], [ %.312881, %2267 ], [ %.312881, %1750 ]
-  %.322828 = phi i8 [ %.332829, %1759 ], [ %.302826, %2267 ], [ %.302826, %1750 ]
-  %.312772 = phi i8 [ %.322773, %1759 ], [ %.292770, %2267 ], [ %.292770, %1750 ]
-  %.302715 = phi i8 [ %.312716, %1759 ], [ %.282713, %2267 ], [ %.282713, %1750 ]
-  %.292657 = phi i8 [ %.302658, %1759 ], [ %.272655, %2267 ], [ %.272655, %1750 ]
-  %.282598 = phi i8 [ %.292599, %1759 ], [ %.262596, %2267 ], [ %.262596, %1750 ]
-  %.272538 = phi i8 [ %.282539, %1759 ], [ %.252536, %2267 ], [ %.252536, %1750 ]
-  %.262477 = phi i8 [ %.272478, %1759 ], [ %.242475, %2267 ], [ %.242475, %1750 ]
-  %.252415 = phi i8 [ %.262416, %1759 ], [ %.232413, %2267 ], [ %.232413, %1750 ]
-  %.242352 = phi i8 [ %.252353, %1759 ], [ %.222350, %2267 ], [ %.222350, %1750 ]
-  %.232288 = phi i8 [ %.242289, %1759 ], [ %.212286, %2267 ], [ %.212286, %1750 ]
-  %.222219 = phi i8 [ %.232220, %1759 ], [ %.202217, %2267 ], [ %.202217, %1750 ]
-  %.212153 = phi i8 [ %.222154, %1759 ], [ %.192151, %2267 ], [ %.192151, %1750 ]
-  %.202086 = phi i8 [ %.212087, %1759 ], [ %.182084, %2267 ], [ %.182084, %1750 ]
-  %.192018 = phi i8 [ %.202019, %1759 ], [ %.172016, %2267 ], [ %.172016, %1750 ]
-  %.181949 = phi i8 [ %.191950, %1759 ], [ %.161947, %2267 ], [ %.161947, %1750 ]
-  %.171879 = phi i8 [ %.181880, %1759 ], [ %.151877, %2267 ], [ %.151877, %1750 ]
-  %.161808 = phi i8 [ %.171809, %1759 ], [ %.141806, %2267 ], [ %.141806, %1750 ]
-  %.161736 = phi i8 [ %.171737, %1759 ], [ %.141734, %2267 ], [ %.141734, %1750 ]
-  %.161662 = phi i8 [ %.171663, %1759 ], [ %.141660, %2267 ], [ %.141660, %1750 ]
-  %.171586 = phi i8 [ %.181587, %1759 ], [ %.151584, %2267 ], [ %.151584, %1750 ]
-  %.161543 = phi i8 [ %.171544, %1759 ], [ %.141541, %2267 ], [ %.141541, %1750 ]
+  %.213142 = phi i8 [ %.223143, %1759 ], [ %.193140, %2267 ], [ %.193140, %1750 ]
+  %.203117 = phi i8 [ %.213118, %1759 ], [ %.183115, %2267 ], [ %.183115, %1750 ]
+  %.193091 = phi i8 [ %.203092, %1759 ], [ %.173089, %2267 ], [ %.173089, %1750 ]
+  %.183064 = phi i8 [ %.193065, %1759 ], [ %.163062, %2267 ], [ %.163062, %1750 ]
+  %.193036 = phi i8 [ %.203037, %1759 ], [ %.173034, %2267 ], [ %.173034, %1750 ]
+  %.183005 = phi i8 [ %.193006, %1759 ], [ %.163003, %2267 ], [ %.163003, %1750 ]
+  %.182973 = phi i8 [ %.192974, %1759 ], [ %.162971, %2267 ], [ %.162971, %1750 ]
+  %.362939 = phi i8 [ %.372940, %1759 ], [ %.342937, %2267 ], [ %.342937, %1750 ]
+  %.352885 = phi i8 [ %.362886, %1759 ], [ %.332883, %2267 ], [ %.332883, %1750 ]
+  %.342830 = phi i8 [ %.352831, %1759 ], [ %.322828, %2267 ], [ %.322828, %1750 ]
+  %.332774 = phi i8 [ %.342775, %1759 ], [ %.312772, %2267 ], [ %.312772, %1750 ]
+  %.322717 = phi i8 [ %.332718, %1759 ], [ %.302715, %2267 ], [ %.302715, %1750 ]
+  %.312659 = phi i8 [ %.322660, %1759 ], [ %.292657, %2267 ], [ %.292657, %1750 ]
+  %.302600 = phi i8 [ %.312601, %1759 ], [ %.282598, %2267 ], [ %.282598, %1750 ]
+  %.292540 = phi i8 [ %.302541, %1759 ], [ %.272538, %2267 ], [ %.272538, %1750 ]
+  %.282479 = phi i8 [ %.292480, %1759 ], [ %.262477, %2267 ], [ %.262477, %1750 ]
+  %.272417 = phi i8 [ %.282418, %1759 ], [ %.252415, %2267 ], [ %.252415, %1750 ]
+  %.262354 = phi i8 [ %.272355, %1759 ], [ %.242352, %2267 ], [ %.242352, %1750 ]
+  %.252290 = phi i8 [ %.262291, %1759 ], [ %.232288, %2267 ], [ %.232288, %1750 ]
+  %.242221 = phi i8 [ %.252222, %1759 ], [ %.222219, %2267 ], [ %.222219, %1750 ]
+  %.232155 = phi i8 [ %.242156, %1759 ], [ %.212153, %2267 ], [ %.212153, %1750 ]
+  %.222088 = phi i8 [ %.232089, %1759 ], [ %.202086, %2267 ], [ %.202086, %1750 ]
+  %.212020 = phi i8 [ %.222021, %1759 ], [ %.192018, %2267 ], [ %.192018, %1750 ]
+  %.201951 = phi i8 [ %.211952, %1759 ], [ %.181949, %2267 ], [ %.181949, %1750 ]
+  %.191881 = phi i8 [ %.201882, %1759 ], [ %.171879, %2267 ], [ %.171879, %1750 ]
+  %.181810 = phi i8 [ %.191811, %1759 ], [ %.161808, %2267 ], [ %.161808, %1750 ]
+  %.181738 = phi i8 [ %.191739, %1759 ], [ %.161736, %2267 ], [ %.161736, %1750 ]
+  %.181664 = phi i8 [ %.191665, %1759 ], [ %.161662, %2267 ], [ %.161662, %1750 ]
+  %.191588 = phi i8 [ %.201589, %1759 ], [ %.171586, %2267 ], [ %.171586, %1750 ]
+  %.181545 = phi i8 [ %.191546, %1759 ], [ %.161543, %2267 ], [ %.161543, %1750 ]
   %.pn3410 = phi { ptr, i32 } [ %1760, %1759 ], [ %.pn3408, %2267 ], [ %.pn3408, %1750 ]
-  %1758 = trunc nuw i8 %.193140 to i1
+  %1758 = trunc nuw i8 %.213142 to i1
   br i1 %1758, label %2268, label %1762
 
 1759:                                             ; preds = %1977, %1756
-  %.203141 = phi i8 [ %.23048, %1756 ], [ %.213142, %1977 ]
-  %.193116 = phi i8 [ %.23048, %1756 ], [ %.223119, %1977 ]
-  %.183090 = phi i8 [ %.23048, %1756 ], [ %.233095, %1977 ]
-  %.173063 = phi i8 [ %.23048, %1756 ], [ %.243070, %1977 ]
-  %.183035 = phi i8 [ %.22989, %1756 ], [ %.273044, %1977 ]
-  %.173004 = phi i8 [ %.22989, %1756 ], [ %.283015, %1977 ]
-  %.172972 = phi i8 [ %.22957, %1756 ], [ %.302985, %1977 ]
-  %.352938 = phi i8 [ %.21794, %1756 ], [ %.502953, %1977 ]
-  %.342884 = phi i8 [ %.21794, %1756 ], [ %.512901, %1977 ]
-  %.332829 = phi i8 [ %.21794, %1756 ], [ %.522848, %1977 ]
-  %.322773 = phi i8 [ %.21794, %1756 ], [ %.532794, %1977 ]
-  %.312716 = phi i8 [ %.21794, %1756 ], [ %.542739, %1977 ]
-  %.302658 = phi i8 [ %.21794, %1756 ], [ %.552683, %1977 ]
-  %.292599 = phi i8 [ %.21794, %1756 ], [ %.562626, %1977 ]
-  %.282539 = phi i8 [ %.21794, %1756 ], [ %.572568, %1977 ]
-  %.272478 = phi i8 [ %.21794, %1756 ], [ %.582509, %1977 ]
-  %.262416 = phi i8 [ %.21794, %1756 ], [ %.592449, %1977 ]
-  %.252353 = phi i8 [ %.21794, %1756 ], [ %.602388, %1977 ]
-  %.242289 = phi i8 [ %.21794, %1756 ], [ %.612326, %1977 ]
-  %.232220 = phi i8 [ %.21794, %1756 ], [ %.622259, %1977 ]
-  %.222154 = phi i8 [ %.21794, %1756 ], [ %.632195, %1977 ]
-  %.212087 = phi i8 [ %.21794, %1756 ], [ %.642130, %1977 ]
-  %.202019 = phi i8 [ %.21794, %1756 ], [ %.652064, %1977 ]
-  %.191950 = phi i8 [ %.21794, %1756 ], [ %.661997, %1977 ]
-  %.181880 = phi i8 [ %.21794, %1756 ], [ %.671929, %1977 ]
-  %.171809 = phi i8 [ %.21794, %1756 ], [ %.681860, %1977 ]
-  %.171737 = phi i8 [ %.21722, %1756 ], [ %.701790, %1977 ]
-  %.171663 = phi i8 [ %.21648, %1756 ], [ %.721718, %1977 ]
-  %.181587 = phi i8 [ %.21529, %1756 ], [ %.751644, %1977 ]
-  %.171544 = phi i8 [ %.21529, %1756 ], [ %.76, %1977 ]
+  %.223143 = phi i8 [ %.23048, %1756 ], [ %.03121, %1977 ]
+  %.213118 = phi i8 [ %.23048, %1756 ], [ %.03097, %1977 ]
+  %.203092 = phi i8 [ %.23048, %1756 ], [ %.03072, %1977 ]
+  %.193065 = phi i8 [ %.23048, %1756 ], [ %.03046, %1977 ]
+  %.203037 = phi i8 [ %.22989, %1756 ], [ %.03017, %1977 ]
+  %.193006 = phi i8 [ %.22989, %1756 ], [ %.02987, %1977 ]
+  %.192974 = phi i8 [ %.22957, %1756 ], [ %.02955, %1977 ]
+  %.372940 = phi i8 [ %.21794, %1756 ], [ %.02903, %1977 ]
+  %.362886 = phi i8 [ %.21794, %1756 ], [ %.02850, %1977 ]
+  %.352831 = phi i8 [ %.21794, %1756 ], [ %.02796, %1977 ]
+  %.342775 = phi i8 [ %.21794, %1756 ], [ %.02741, %1977 ]
+  %.332718 = phi i8 [ %.21794, %1756 ], [ %.02685, %1977 ]
+  %.322660 = phi i8 [ %.21794, %1756 ], [ %.02628, %1977 ]
+  %.312601 = phi i8 [ %.21794, %1756 ], [ %.02570, %1977 ]
+  %.302541 = phi i8 [ %.21794, %1756 ], [ %.02511, %1977 ]
+  %.292480 = phi i8 [ %.21794, %1756 ], [ %.02451, %1977 ]
+  %.282418 = phi i8 [ %.21794, %1756 ], [ %.02390, %1977 ]
+  %.272355 = phi i8 [ %.21794, %1756 ], [ %.02328, %1977 ]
+  %.262291 = phi i8 [ %.21794, %1756 ], [ %.02265, %1977 ]
+  %.252222 = phi i8 [ %.21794, %1756 ], [ %.02197, %1977 ]
+  %.242156 = phi i8 [ %.21794, %1756 ], [ %.02132, %1977 ]
+  %.232089 = phi i8 [ %.21794, %1756 ], [ %.02066, %1977 ]
+  %.222021 = phi i8 [ %.21794, %1756 ], [ %.01999, %1977 ]
+  %.211952 = phi i8 [ %.21794, %1756 ], [ %.01931, %1977 ]
+  %.201882 = phi i8 [ %.21794, %1756 ], [ %.01862, %1977 ]
+  %.191811 = phi i8 [ %.21794, %1756 ], [ %.01792, %1977 ]
+  %.191739 = phi i8 [ %.21722, %1756 ], [ %.01720, %1977 ]
+  %.191665 = phi i8 [ %.21648, %1756 ], [ %.01646, %1977 ]
+  %.201589 = phi i8 [ %.21529, %1756 ], [ %.01569, %1977 ]
+  %.191546 = phi i8 [ %.21529, %1756 ], [ %.01527, %1977 ]
   %1760 = landingpad { ptr, i32 }
           cleanup
   br label %1757
@@ -92007,69 +92007,69 @@ default.unreachable:                              ; preds = %1375
           to label %1766 unwind label %1764
 
 1762:                                             ; preds = %2268, %1764, %1757
-  %.203117 = phi i8 [ %.213118, %1764 ], [ %.183115, %2268 ], [ %.183115, %1757 ]
-  %.193091 = phi i8 [ %.203092, %1764 ], [ %.173089, %2268 ], [ %.173089, %1757 ]
-  %.183064 = phi i8 [ %.193065, %1764 ], [ %.163062, %2268 ], [ %.163062, %1757 ]
-  %.193036 = phi i8 [ %.203037, %1764 ], [ %.173034, %2268 ], [ %.173034, %1757 ]
-  %.183005 = phi i8 [ %.193006, %1764 ], [ %.163003, %2268 ], [ %.163003, %1757 ]
-  %.182973 = phi i8 [ %.192974, %1764 ], [ %.162971, %2268 ], [ %.162971, %1757 ]
-  %.362939 = phi i8 [ %.372940, %1764 ], [ %.342937, %2268 ], [ %.342937, %1757 ]
-  %.352885 = phi i8 [ %.362886, %1764 ], [ %.332883, %2268 ], [ %.332883, %1757 ]
-  %.342830 = phi i8 [ %.352831, %1764 ], [ %.322828, %2268 ], [ %.322828, %1757 ]
-  %.332774 = phi i8 [ %.342775, %1764 ], [ %.312772, %2268 ], [ %.312772, %1757 ]
-  %.322717 = phi i8 [ %.332718, %1764 ], [ %.302715, %2268 ], [ %.302715, %1757 ]
-  %.312659 = phi i8 [ %.322660, %1764 ], [ %.292657, %2268 ], [ %.292657, %1757 ]
-  %.302600 = phi i8 [ %.312601, %1764 ], [ %.282598, %2268 ], [ %.282598, %1757 ]
-  %.292540 = phi i8 [ %.302541, %1764 ], [ %.272538, %2268 ], [ %.272538, %1757 ]
-  %.282479 = phi i8 [ %.292480, %1764 ], [ %.262477, %2268 ], [ %.262477, %1757 ]
-  %.272417 = phi i8 [ %.282418, %1764 ], [ %.252415, %2268 ], [ %.252415, %1757 ]
-  %.262354 = phi i8 [ %.272355, %1764 ], [ %.242352, %2268 ], [ %.242352, %1757 ]
-  %.252290 = phi i8 [ %.262291, %1764 ], [ %.232288, %2268 ], [ %.232288, %1757 ]
-  %.242221 = phi i8 [ %.252222, %1764 ], [ %.222219, %2268 ], [ %.222219, %1757 ]
-  %.232155 = phi i8 [ %.242156, %1764 ], [ %.212153, %2268 ], [ %.212153, %1757 ]
-  %.222088 = phi i8 [ %.232089, %1764 ], [ %.202086, %2268 ], [ %.202086, %1757 ]
-  %.212020 = phi i8 [ %.222021, %1764 ], [ %.192018, %2268 ], [ %.192018, %1757 ]
-  %.201951 = phi i8 [ %.211952, %1764 ], [ %.181949, %2268 ], [ %.181949, %1757 ]
-  %.191881 = phi i8 [ %.201882, %1764 ], [ %.171879, %2268 ], [ %.171879, %1757 ]
-  %.181810 = phi i8 [ %.191811, %1764 ], [ %.161808, %2268 ], [ %.161808, %1757 ]
-  %.181738 = phi i8 [ %.191739, %1764 ], [ %.161736, %2268 ], [ %.161736, %1757 ]
-  %.181664 = phi i8 [ %.191665, %1764 ], [ %.161662, %2268 ], [ %.161662, %1757 ]
-  %.191588 = phi i8 [ %.201589, %1764 ], [ %.171586, %2268 ], [ %.171586, %1757 ]
-  %.181545 = phi i8 [ %.191546, %1764 ], [ %.161543, %2268 ], [ %.161543, %1757 ]
+  %.223119 = phi i8 [ %.233120, %1764 ], [ %.203117, %2268 ], [ %.203117, %1757 ]
+  %.213093 = phi i8 [ %.223094, %1764 ], [ %.193091, %2268 ], [ %.193091, %1757 ]
+  %.203066 = phi i8 [ %.213067, %1764 ], [ %.183064, %2268 ], [ %.183064, %1757 ]
+  %.213038 = phi i8 [ %.223039, %1764 ], [ %.193036, %2268 ], [ %.193036, %1757 ]
+  %.203007 = phi i8 [ %.213008, %1764 ], [ %.183005, %2268 ], [ %.183005, %1757 ]
+  %.202975 = phi i8 [ %.212976, %1764 ], [ %.182973, %2268 ], [ %.182973, %1757 ]
+  %.382941 = phi i8 [ %.392942, %1764 ], [ %.362939, %2268 ], [ %.362939, %1757 ]
+  %.372887 = phi i8 [ %.382888, %1764 ], [ %.352885, %2268 ], [ %.352885, %1757 ]
+  %.362832 = phi i8 [ %.372833, %1764 ], [ %.342830, %2268 ], [ %.342830, %1757 ]
+  %.352776 = phi i8 [ %.362777, %1764 ], [ %.332774, %2268 ], [ %.332774, %1757 ]
+  %.342719 = phi i8 [ %.352720, %1764 ], [ %.322717, %2268 ], [ %.322717, %1757 ]
+  %.332661 = phi i8 [ %.342662, %1764 ], [ %.312659, %2268 ], [ %.312659, %1757 ]
+  %.322602 = phi i8 [ %.332603, %1764 ], [ %.302600, %2268 ], [ %.302600, %1757 ]
+  %.312542 = phi i8 [ %.322543, %1764 ], [ %.292540, %2268 ], [ %.292540, %1757 ]
+  %.302481 = phi i8 [ %.312482, %1764 ], [ %.282479, %2268 ], [ %.282479, %1757 ]
+  %.292419 = phi i8 [ %.302420, %1764 ], [ %.272417, %2268 ], [ %.272417, %1757 ]
+  %.282356 = phi i8 [ %.292357, %1764 ], [ %.262354, %2268 ], [ %.262354, %1757 ]
+  %.272292 = phi i8 [ %.282293, %1764 ], [ %.252290, %2268 ], [ %.252290, %1757 ]
+  %.262223 = phi i8 [ %.272224, %1764 ], [ %.242221, %2268 ], [ %.242221, %1757 ]
+  %.252157 = phi i8 [ %.262158, %1764 ], [ %.232155, %2268 ], [ %.232155, %1757 ]
+  %.242090 = phi i8 [ %.252091, %1764 ], [ %.222088, %2268 ], [ %.222088, %1757 ]
+  %.232022 = phi i8 [ %.242023, %1764 ], [ %.212020, %2268 ], [ %.212020, %1757 ]
+  %.221953 = phi i8 [ %.231954, %1764 ], [ %.201951, %2268 ], [ %.201951, %1757 ]
+  %.211883 = phi i8 [ %.221884, %1764 ], [ %.191881, %2268 ], [ %.191881, %1757 ]
+  %.201812 = phi i8 [ %.211813, %1764 ], [ %.181810, %2268 ], [ %.181810, %1757 ]
+  %.201740 = phi i8 [ %.211741, %1764 ], [ %.181738, %2268 ], [ %.181738, %1757 ]
+  %.201666 = phi i8 [ %.211667, %1764 ], [ %.181664, %2268 ], [ %.181664, %1757 ]
+  %.211590 = phi i8 [ %.221591, %1764 ], [ %.191588, %2268 ], [ %.191588, %1757 ]
+  %.201547 = phi i8 [ %.211548, %1764 ], [ %.181545, %2268 ], [ %.181545, %1757 ]
   %.pn3412 = phi { ptr, i32 } [ %1765, %1764 ], [ %.pn3410, %2268 ], [ %.pn3410, %1757 ]
-  %1763 = trunc nuw i8 %.203117 to i1
+  %1763 = trunc nuw i8 %.223119 to i1
   br i1 %1763, label %2269, label %1767
 
 1764:                                             ; preds = %1982, %1761
-  %.213118 = phi i8 [ %.223119, %1982 ], [ %.23048, %1761 ]
-  %.203092 = phi i8 [ %.233095, %1982 ], [ %.23048, %1761 ]
-  %.193065 = phi i8 [ %.243070, %1982 ], [ %.23048, %1761 ]
-  %.203037 = phi i8 [ %.273044, %1982 ], [ %.22989, %1761 ]
-  %.193006 = phi i8 [ %.283015, %1982 ], [ %.22989, %1761 ]
-  %.192974 = phi i8 [ %.302985, %1982 ], [ %.22957, %1761 ]
-  %.372940 = phi i8 [ %.502953, %1982 ], [ %.21794, %1761 ]
-  %.362886 = phi i8 [ %.512901, %1982 ], [ %.21794, %1761 ]
-  %.352831 = phi i8 [ %.522848, %1982 ], [ %.21794, %1761 ]
-  %.342775 = phi i8 [ %.532794, %1982 ], [ %.21794, %1761 ]
-  %.332718 = phi i8 [ %.542739, %1982 ], [ %.21794, %1761 ]
-  %.322660 = phi i8 [ %.552683, %1982 ], [ %.21794, %1761 ]
-  %.312601 = phi i8 [ %.562626, %1982 ], [ %.21794, %1761 ]
-  %.302541 = phi i8 [ %.572568, %1982 ], [ %.21794, %1761 ]
-  %.292480 = phi i8 [ %.582509, %1982 ], [ %.21794, %1761 ]
-  %.282418 = phi i8 [ %.592449, %1982 ], [ %.21794, %1761 ]
-  %.272355 = phi i8 [ %.602388, %1982 ], [ %.21794, %1761 ]
-  %.262291 = phi i8 [ %.612326, %1982 ], [ %.21794, %1761 ]
-  %.252222 = phi i8 [ %.622259, %1982 ], [ %.21794, %1761 ]
-  %.242156 = phi i8 [ %.632195, %1982 ], [ %.21794, %1761 ]
-  %.232089 = phi i8 [ %.642130, %1982 ], [ %.21794, %1761 ]
-  %.222021 = phi i8 [ %.652064, %1982 ], [ %.21794, %1761 ]
-  %.211952 = phi i8 [ %.661997, %1982 ], [ %.21794, %1761 ]
-  %.201882 = phi i8 [ %.671929, %1982 ], [ %.21794, %1761 ]
-  %.191811 = phi i8 [ %.681860, %1982 ], [ %.21794, %1761 ]
-  %.191739 = phi i8 [ %.701790, %1982 ], [ %.21722, %1761 ]
-  %.191665 = phi i8 [ %.721718, %1982 ], [ %.21648, %1761 ]
-  %.201589 = phi i8 [ %.751644, %1982 ], [ %.21529, %1761 ]
-  %.191546 = phi i8 [ %.76, %1982 ], [ %.21529, %1761 ]
+  %.233120 = phi i8 [ %.03097, %1982 ], [ %.23048, %1761 ]
+  %.223094 = phi i8 [ %.03072, %1982 ], [ %.23048, %1761 ]
+  %.213067 = phi i8 [ %.03046, %1982 ], [ %.23048, %1761 ]
+  %.223039 = phi i8 [ %.03017, %1982 ], [ %.22989, %1761 ]
+  %.213008 = phi i8 [ %.02987, %1982 ], [ %.22989, %1761 ]
+  %.212976 = phi i8 [ %.02955, %1982 ], [ %.22957, %1761 ]
+  %.392942 = phi i8 [ %.02903, %1982 ], [ %.21794, %1761 ]
+  %.382888 = phi i8 [ %.02850, %1982 ], [ %.21794, %1761 ]
+  %.372833 = phi i8 [ %.02796, %1982 ], [ %.21794, %1761 ]
+  %.362777 = phi i8 [ %.02741, %1982 ], [ %.21794, %1761 ]
+  %.352720 = phi i8 [ %.02685, %1982 ], [ %.21794, %1761 ]
+  %.342662 = phi i8 [ %.02628, %1982 ], [ %.21794, %1761 ]
+  %.332603 = phi i8 [ %.02570, %1982 ], [ %.21794, %1761 ]
+  %.322543 = phi i8 [ %.02511, %1982 ], [ %.21794, %1761 ]
+  %.312482 = phi i8 [ %.02451, %1982 ], [ %.21794, %1761 ]
+  %.302420 = phi i8 [ %.02390, %1982 ], [ %.21794, %1761 ]
+  %.292357 = phi i8 [ %.02328, %1982 ], [ %.21794, %1761 ]
+  %.282293 = phi i8 [ %.02265, %1982 ], [ %.21794, %1761 ]
+  %.272224 = phi i8 [ %.02197, %1982 ], [ %.21794, %1761 ]
+  %.262158 = phi i8 [ %.02132, %1982 ], [ %.21794, %1761 ]
+  %.252091 = phi i8 [ %.02066, %1982 ], [ %.21794, %1761 ]
+  %.242023 = phi i8 [ %.01999, %1982 ], [ %.21794, %1761 ]
+  %.231954 = phi i8 [ %.01931, %1982 ], [ %.21794, %1761 ]
+  %.221884 = phi i8 [ %.01862, %1982 ], [ %.21794, %1761 ]
+  %.211813 = phi i8 [ %.01792, %1982 ], [ %.21794, %1761 ]
+  %.211741 = phi i8 [ %.01720, %1982 ], [ %.21722, %1761 ]
+  %.211667 = phi i8 [ %.01646, %1982 ], [ %.21648, %1761 ]
+  %.221591 = phi i8 [ %.01569, %1982 ], [ %.21529, %1761 ]
+  %.211548 = phi i8 [ %.01527, %1982 ], [ %.21529, %1761 ]
   %1765 = landingpad { ptr, i32 }
           cleanup
   br label %1762
@@ -92080,67 +92080,67 @@ default.unreachable:                              ; preds = %1375
           to label %1772 unwind label %1769
 
 1767:                                             ; preds = %2269, %1769, %1762
-  %.213093 = phi i8 [ %.223094, %1769 ], [ %.193091, %2269 ], [ %.193091, %1762 ]
-  %.203066 = phi i8 [ %.213067, %1769 ], [ %.183064, %2269 ], [ %.183064, %1762 ]
-  %.213038 = phi i8 [ %.223039, %1769 ], [ %.193036, %2269 ], [ %.193036, %1762 ]
-  %.203007 = phi i8 [ %.213008, %1769 ], [ %.183005, %2269 ], [ %.183005, %1762 ]
-  %.202975 = phi i8 [ %.212976, %1769 ], [ %.182973, %2269 ], [ %.182973, %1762 ]
-  %.382941 = phi i8 [ %.392942, %1769 ], [ %.362939, %2269 ], [ %.362939, %1762 ]
-  %.372887 = phi i8 [ %.382888, %1769 ], [ %.352885, %2269 ], [ %.352885, %1762 ]
-  %.362832 = phi i8 [ %.372833, %1769 ], [ %.342830, %2269 ], [ %.342830, %1762 ]
-  %.352776 = phi i8 [ %.362777, %1769 ], [ %.332774, %2269 ], [ %.332774, %1762 ]
-  %.342719 = phi i8 [ %.352720, %1769 ], [ %.322717, %2269 ], [ %.322717, %1762 ]
-  %.332661 = phi i8 [ %.342662, %1769 ], [ %.312659, %2269 ], [ %.312659, %1762 ]
-  %.322602 = phi i8 [ %.332603, %1769 ], [ %.302600, %2269 ], [ %.302600, %1762 ]
-  %.312542 = phi i8 [ %.322543, %1769 ], [ %.292540, %2269 ], [ %.292540, %1762 ]
-  %.302481 = phi i8 [ %.312482, %1769 ], [ %.282479, %2269 ], [ %.282479, %1762 ]
-  %.292419 = phi i8 [ %.302420, %1769 ], [ %.272417, %2269 ], [ %.272417, %1762 ]
-  %.282356 = phi i8 [ %.292357, %1769 ], [ %.262354, %2269 ], [ %.262354, %1762 ]
-  %.272292 = phi i8 [ %.282293, %1769 ], [ %.252290, %2269 ], [ %.252290, %1762 ]
-  %.262223 = phi i8 [ %.272224, %1769 ], [ %.242221, %2269 ], [ %.242221, %1762 ]
-  %.252157 = phi i8 [ %.262158, %1769 ], [ %.232155, %2269 ], [ %.232155, %1762 ]
-  %.242090 = phi i8 [ %.252091, %1769 ], [ %.222088, %2269 ], [ %.222088, %1762 ]
-  %.232022 = phi i8 [ %.242023, %1769 ], [ %.212020, %2269 ], [ %.212020, %1762 ]
-  %.221953 = phi i8 [ %.231954, %1769 ], [ %.201951, %2269 ], [ %.201951, %1762 ]
-  %.211883 = phi i8 [ %.221884, %1769 ], [ %.191881, %2269 ], [ %.191881, %1762 ]
-  %.201812 = phi i8 [ %.211813, %1769 ], [ %.181810, %2269 ], [ %.181810, %1762 ]
-  %.201740 = phi i8 [ %.211741, %1769 ], [ %.181738, %2269 ], [ %.181738, %1762 ]
-  %.201666 = phi i8 [ %.211667, %1769 ], [ %.181664, %2269 ], [ %.181664, %1762 ]
-  %.211590 = phi i8 [ %.221591, %1769 ], [ %.191588, %2269 ], [ %.191588, %1762 ]
-  %.201547 = phi i8 [ %.211548, %1769 ], [ %.181545, %2269 ], [ %.181545, %1762 ]
+  %.233095 = phi i8 [ %.243096, %1769 ], [ %.213093, %2269 ], [ %.213093, %1762 ]
+  %.223068 = phi i8 [ %.233069, %1769 ], [ %.203066, %2269 ], [ %.203066, %1762 ]
+  %.233040 = phi i8 [ %.243041, %1769 ], [ %.213038, %2269 ], [ %.213038, %1762 ]
+  %.223009 = phi i8 [ %.233010, %1769 ], [ %.203007, %2269 ], [ %.203007, %1762 ]
+  %.222977 = phi i8 [ %.232978, %1769 ], [ %.202975, %2269 ], [ %.202975, %1762 ]
+  %.402943 = phi i8 [ %.412944, %1769 ], [ %.382941, %2269 ], [ %.382941, %1762 ]
+  %.392889 = phi i8 [ %.402890, %1769 ], [ %.372887, %2269 ], [ %.372887, %1762 ]
+  %.382834 = phi i8 [ %.392835, %1769 ], [ %.362832, %2269 ], [ %.362832, %1762 ]
+  %.372778 = phi i8 [ %.382779, %1769 ], [ %.352776, %2269 ], [ %.352776, %1762 ]
+  %.362721 = phi i8 [ %.372722, %1769 ], [ %.342719, %2269 ], [ %.342719, %1762 ]
+  %.352663 = phi i8 [ %.362664, %1769 ], [ %.332661, %2269 ], [ %.332661, %1762 ]
+  %.342604 = phi i8 [ %.352605, %1769 ], [ %.322602, %2269 ], [ %.322602, %1762 ]
+  %.332544 = phi i8 [ %.342545, %1769 ], [ %.312542, %2269 ], [ %.312542, %1762 ]
+  %.322483 = phi i8 [ %.332484, %1769 ], [ %.302481, %2269 ], [ %.302481, %1762 ]
+  %.312421 = phi i8 [ %.322422, %1769 ], [ %.292419, %2269 ], [ %.292419, %1762 ]
+  %.302358 = phi i8 [ %.312359, %1769 ], [ %.282356, %2269 ], [ %.282356, %1762 ]
+  %.292294 = phi i8 [ %.302295, %1769 ], [ %.272292, %2269 ], [ %.272292, %1762 ]
+  %.282225 = phi i8 [ %.292226, %1769 ], [ %.262223, %2269 ], [ %.262223, %1762 ]
+  %.272159 = phi i8 [ %.282160, %1769 ], [ %.252157, %2269 ], [ %.252157, %1762 ]
+  %.262092 = phi i8 [ %.272093, %1769 ], [ %.242090, %2269 ], [ %.242090, %1762 ]
+  %.252024 = phi i8 [ %.262025, %1769 ], [ %.232022, %2269 ], [ %.232022, %1762 ]
+  %.241955 = phi i8 [ %.251956, %1769 ], [ %.221953, %2269 ], [ %.221953, %1762 ]
+  %.231885 = phi i8 [ %.241886, %1769 ], [ %.211883, %2269 ], [ %.211883, %1762 ]
+  %.221814 = phi i8 [ %.231815, %1769 ], [ %.201812, %2269 ], [ %.201812, %1762 ]
+  %.221742 = phi i8 [ %.231743, %1769 ], [ %.201740, %2269 ], [ %.201740, %1762 ]
+  %.221668 = phi i8 [ %.231669, %1769 ], [ %.201666, %2269 ], [ %.201666, %1762 ]
+  %.231592 = phi i8 [ %.241593, %1769 ], [ %.211590, %2269 ], [ %.211590, %1762 ]
+  %.221549 = phi i8 [ %.231550, %1769 ], [ %.201547, %2269 ], [ %.201547, %1762 ]
   %.pn3414 = phi { ptr, i32 } [ %1770, %1769 ], [ %.pn3412, %2269 ], [ %.pn3412, %1762 ]
-  %1768 = trunc nuw i8 %.213093 to i1
+  %1768 = trunc nuw i8 %.233095 to i1
   br i1 %1768, label %2270, label %1773
 
 1769:                                             ; preds = %1985, %1766
-  %.223094 = phi i8 [ %.233095, %1985 ], [ %.23048, %1766 ]
-  %.213067 = phi i8 [ %.243070, %1985 ], [ %.23048, %1766 ]
-  %.223039 = phi i8 [ %.273044, %1985 ], [ %.22989, %1766 ]
-  %.213008 = phi i8 [ %.283015, %1985 ], [ %.22989, %1766 ]
-  %.212976 = phi i8 [ %.302985, %1985 ], [ %.22957, %1766 ]
-  %.392942 = phi i8 [ %.502953, %1985 ], [ %.21794, %1766 ]
-  %.382888 = phi i8 [ %.512901, %1985 ], [ %.21794, %1766 ]
-  %.372833 = phi i8 [ %.522848, %1985 ], [ %.21794, %1766 ]
-  %.362777 = phi i8 [ %.532794, %1985 ], [ %.21794, %1766 ]
-  %.352720 = phi i8 [ %.542739, %1985 ], [ %.21794, %1766 ]
-  %.342662 = phi i8 [ %.552683, %1985 ], [ %.21794, %1766 ]
-  %.332603 = phi i8 [ %.562626, %1985 ], [ %.21794, %1766 ]
-  %.322543 = phi i8 [ %.572568, %1985 ], [ %.21794, %1766 ]
-  %.312482 = phi i8 [ %.582509, %1985 ], [ %.21794, %1766 ]
-  %.302420 = phi i8 [ %.592449, %1985 ], [ %.21794, %1766 ]
-  %.292357 = phi i8 [ %.602388, %1985 ], [ %.21794, %1766 ]
-  %.282293 = phi i8 [ %.612326, %1985 ], [ %.21794, %1766 ]
-  %.272224 = phi i8 [ %.622259, %1985 ], [ %.21794, %1766 ]
-  %.262158 = phi i8 [ %.632195, %1985 ], [ %.21794, %1766 ]
-  %.252091 = phi i8 [ %.642130, %1985 ], [ %.21794, %1766 ]
-  %.242023 = phi i8 [ %.652064, %1985 ], [ %.21794, %1766 ]
-  %.231954 = phi i8 [ %.661997, %1985 ], [ %.21794, %1766 ]
-  %.221884 = phi i8 [ %.671929, %1985 ], [ %.21794, %1766 ]
-  %.211813 = phi i8 [ %.681860, %1985 ], [ %.21794, %1766 ]
-  %.211741 = phi i8 [ %.701790, %1985 ], [ %.21722, %1766 ]
-  %.211667 = phi i8 [ %.721718, %1985 ], [ %.21648, %1766 ]
-  %.221591 = phi i8 [ %.751644, %1985 ], [ %.21529, %1766 ]
-  %.211548 = phi i8 [ %.76, %1985 ], [ %.21529, %1766 ]
+  %.243096 = phi i8 [ %.03072, %1985 ], [ %.23048, %1766 ]
+  %.233069 = phi i8 [ %.03046, %1985 ], [ %.23048, %1766 ]
+  %.243041 = phi i8 [ %.03017, %1985 ], [ %.22989, %1766 ]
+  %.233010 = phi i8 [ %.02987, %1985 ], [ %.22989, %1766 ]
+  %.232978 = phi i8 [ %.02955, %1985 ], [ %.22957, %1766 ]
+  %.412944 = phi i8 [ %.02903, %1985 ], [ %.21794, %1766 ]
+  %.402890 = phi i8 [ %.02850, %1985 ], [ %.21794, %1766 ]
+  %.392835 = phi i8 [ %.02796, %1985 ], [ %.21794, %1766 ]
+  %.382779 = phi i8 [ %.02741, %1985 ], [ %.21794, %1766 ]
+  %.372722 = phi i8 [ %.02685, %1985 ], [ %.21794, %1766 ]
+  %.362664 = phi i8 [ %.02628, %1985 ], [ %.21794, %1766 ]
+  %.352605 = phi i8 [ %.02570, %1985 ], [ %.21794, %1766 ]
+  %.342545 = phi i8 [ %.02511, %1985 ], [ %.21794, %1766 ]
+  %.332484 = phi i8 [ %.02451, %1985 ], [ %.21794, %1766 ]
+  %.322422 = phi i8 [ %.02390, %1985 ], [ %.21794, %1766 ]
+  %.312359 = phi i8 [ %.02328, %1985 ], [ %.21794, %1766 ]
+  %.302295 = phi i8 [ %.02265, %1985 ], [ %.21794, %1766 ]
+  %.292226 = phi i8 [ %.02197, %1985 ], [ %.21794, %1766 ]
+  %.282160 = phi i8 [ %.02132, %1985 ], [ %.21794, %1766 ]
+  %.272093 = phi i8 [ %.02066, %1985 ], [ %.21794, %1766 ]
+  %.262025 = phi i8 [ %.01999, %1985 ], [ %.21794, %1766 ]
+  %.251956 = phi i8 [ %.01931, %1985 ], [ %.21794, %1766 ]
+  %.241886 = phi i8 [ %.01862, %1985 ], [ %.21794, %1766 ]
+  %.231815 = phi i8 [ %.01792, %1985 ], [ %.21794, %1766 ]
+  %.231743 = phi i8 [ %.01720, %1985 ], [ %.21722, %1766 ]
+  %.231669 = phi i8 [ %.01646, %1985 ], [ %.21648, %1766 ]
+  %.241593 = phi i8 [ %.01569, %1985 ], [ %.21529, %1766 ]
+  %.231550 = phi i8 [ %.01527, %1985 ], [ %.21529, %1766 ]
   %1770 = landingpad { ptr, i32 }
           cleanup
   br label %1767
@@ -92157,65 +92157,65 @@ default.unreachable:                              ; preds = %1375
           to label %1779 unwind label %1775
 
 1773:                                             ; preds = %2270, %1775, %1767
-  %.223068 = phi i8 [ %.233069, %1775 ], [ %.203066, %2270 ], [ %.203066, %1767 ]
-  %.233040 = phi i8 [ %.243041, %1775 ], [ %.213038, %2270 ], [ %.213038, %1767 ]
-  %.223009 = phi i8 [ %.233010, %1775 ], [ %.203007, %2270 ], [ %.203007, %1767 ]
-  %.222977 = phi i8 [ %.232978, %1775 ], [ %.202975, %2270 ], [ %.202975, %1767 ]
-  %.402943 = phi i8 [ %.412944, %1775 ], [ %.382941, %2270 ], [ %.382941, %1767 ]
-  %.392889 = phi i8 [ %.402890, %1775 ], [ %.372887, %2270 ], [ %.372887, %1767 ]
-  %.382834 = phi i8 [ %.392835, %1775 ], [ %.362832, %2270 ], [ %.362832, %1767 ]
-  %.372778 = phi i8 [ %.382779, %1775 ], [ %.352776, %2270 ], [ %.352776, %1767 ]
-  %.362721 = phi i8 [ %.372722, %1775 ], [ %.342719, %2270 ], [ %.342719, %1767 ]
-  %.352663 = phi i8 [ %.362664, %1775 ], [ %.332661, %2270 ], [ %.332661, %1767 ]
-  %.342604 = phi i8 [ %.352605, %1775 ], [ %.322602, %2270 ], [ %.322602, %1767 ]
-  %.332544 = phi i8 [ %.342545, %1775 ], [ %.312542, %2270 ], [ %.312542, %1767 ]
-  %.322483 = phi i8 [ %.332484, %1775 ], [ %.302481, %2270 ], [ %.302481, %1767 ]
-  %.312421 = phi i8 [ %.322422, %1775 ], [ %.292419, %2270 ], [ %.292419, %1767 ]
-  %.302358 = phi i8 [ %.312359, %1775 ], [ %.282356, %2270 ], [ %.282356, %1767 ]
-  %.292294 = phi i8 [ %.302295, %1775 ], [ %.272292, %2270 ], [ %.272292, %1767 ]
-  %.282225 = phi i8 [ %.292226, %1775 ], [ %.262223, %2270 ], [ %.262223, %1767 ]
-  %.272159 = phi i8 [ %.282160, %1775 ], [ %.252157, %2270 ], [ %.252157, %1767 ]
-  %.262092 = phi i8 [ %.272093, %1775 ], [ %.242090, %2270 ], [ %.242090, %1767 ]
-  %.252024 = phi i8 [ %.262025, %1775 ], [ %.232022, %2270 ], [ %.232022, %1767 ]
-  %.241955 = phi i8 [ %.251956, %1775 ], [ %.221953, %2270 ], [ %.221953, %1767 ]
-  %.231885 = phi i8 [ %.241886, %1775 ], [ %.211883, %2270 ], [ %.211883, %1767 ]
-  %.221814 = phi i8 [ %.231815, %1775 ], [ %.201812, %2270 ], [ %.201812, %1767 ]
-  %.221742 = phi i8 [ %.231743, %1775 ], [ %.201740, %2270 ], [ %.201740, %1767 ]
-  %.221668 = phi i8 [ %.231669, %1775 ], [ %.201666, %2270 ], [ %.201666, %1767 ]
-  %.231592 = phi i8 [ %.241593, %1775 ], [ %.211590, %2270 ], [ %.211590, %1767 ]
-  %.221549 = phi i8 [ %.231550, %1775 ], [ %.201547, %2270 ], [ %.201547, %1767 ]
+  %.243070 = phi i8 [ %.253071, %1775 ], [ %.223068, %2270 ], [ %.223068, %1767 ]
+  %.253042 = phi i8 [ %.263043, %1775 ], [ %.233040, %2270 ], [ %.233040, %1767 ]
+  %.243011 = phi i8 [ %.253012, %1775 ], [ %.223009, %2270 ], [ %.223009, %1767 ]
+  %.242979 = phi i8 [ %.252980, %1775 ], [ %.222977, %2270 ], [ %.222977, %1767 ]
+  %.422945 = phi i8 [ %.432946, %1775 ], [ %.402943, %2270 ], [ %.402943, %1767 ]
+  %.412891 = phi i8 [ %.422892, %1775 ], [ %.392889, %2270 ], [ %.392889, %1767 ]
+  %.402836 = phi i8 [ %.412837, %1775 ], [ %.382834, %2270 ], [ %.382834, %1767 ]
+  %.392780 = phi i8 [ %.402781, %1775 ], [ %.372778, %2270 ], [ %.372778, %1767 ]
+  %.382723 = phi i8 [ %.392724, %1775 ], [ %.362721, %2270 ], [ %.362721, %1767 ]
+  %.372665 = phi i8 [ %.382666, %1775 ], [ %.352663, %2270 ], [ %.352663, %1767 ]
+  %.362606 = phi i8 [ %.372607, %1775 ], [ %.342604, %2270 ], [ %.342604, %1767 ]
+  %.352546 = phi i8 [ %.362547, %1775 ], [ %.332544, %2270 ], [ %.332544, %1767 ]
+  %.342485 = phi i8 [ %.352486, %1775 ], [ %.322483, %2270 ], [ %.322483, %1767 ]
+  %.332423 = phi i8 [ %.342424, %1775 ], [ %.312421, %2270 ], [ %.312421, %1767 ]
+  %.322360 = phi i8 [ %.332361, %1775 ], [ %.302358, %2270 ], [ %.302358, %1767 ]
+  %.312296 = phi i8 [ %.322297, %1775 ], [ %.292294, %2270 ], [ %.292294, %1767 ]
+  %.302227 = phi i8 [ %.312228, %1775 ], [ %.282225, %2270 ], [ %.282225, %1767 ]
+  %.292161 = phi i8 [ %.302162, %1775 ], [ %.272159, %2270 ], [ %.272159, %1767 ]
+  %.282094 = phi i8 [ %.292095, %1775 ], [ %.262092, %2270 ], [ %.262092, %1767 ]
+  %.272026 = phi i8 [ %.282027, %1775 ], [ %.252024, %2270 ], [ %.252024, %1767 ]
+  %.261957 = phi i8 [ %.271958, %1775 ], [ %.241955, %2270 ], [ %.241955, %1767 ]
+  %.251887 = phi i8 [ %.261888, %1775 ], [ %.231885, %2270 ], [ %.231885, %1767 ]
+  %.241816 = phi i8 [ %.251817, %1775 ], [ %.221814, %2270 ], [ %.221814, %1767 ]
+  %.241744 = phi i8 [ %.251745, %1775 ], [ %.221742, %2270 ], [ %.221742, %1767 ]
+  %.241670 = phi i8 [ %.251671, %1775 ], [ %.221668, %2270 ], [ %.221668, %1767 ]
+  %.251594 = phi i8 [ %.261595, %1775 ], [ %.231592, %2270 ], [ %.231592, %1767 ]
+  %.241551 = phi i8 [ %.251552, %1775 ], [ %.221549, %2270 ], [ %.221549, %1767 ]
   %.pn3416 = phi { ptr, i32 } [ %1776, %1775 ], [ %.pn3414, %2270 ], [ %.pn3414, %1767 ]
-  %1774 = trunc nuw i8 %.223068 to i1
+  %1774 = trunc nuw i8 %.243070 to i1
   br i1 %1774, label %2271, label %1780
 
 1775:                                             ; preds = %1988, %1772
-  %.233069 = phi i8 [ %.23048, %1772 ], [ %.243070, %1988 ]
-  %.243041 = phi i8 [ %.22989, %1772 ], [ %.273044, %1988 ]
-  %.233010 = phi i8 [ %.22989, %1772 ], [ %.283015, %1988 ]
-  %.232978 = phi i8 [ %.22957, %1772 ], [ %.302985, %1988 ]
-  %.412944 = phi i8 [ %.21794, %1772 ], [ %.502953, %1988 ]
-  %.402890 = phi i8 [ %.21794, %1772 ], [ %.512901, %1988 ]
-  %.392835 = phi i8 [ %.21794, %1772 ], [ %.522848, %1988 ]
-  %.382779 = phi i8 [ %.21794, %1772 ], [ %.532794, %1988 ]
-  %.372722 = phi i8 [ %.21794, %1772 ], [ %.542739, %1988 ]
-  %.362664 = phi i8 [ %.21794, %1772 ], [ %.552683, %1988 ]
-  %.352605 = phi i8 [ %.21794, %1772 ], [ %.562626, %1988 ]
-  %.342545 = phi i8 [ %.21794, %1772 ], [ %.572568, %1988 ]
-  %.332484 = phi i8 [ %.21794, %1772 ], [ %.582509, %1988 ]
-  %.322422 = phi i8 [ %.21794, %1772 ], [ %.592449, %1988 ]
-  %.312359 = phi i8 [ %.21794, %1772 ], [ %.602388, %1988 ]
-  %.302295 = phi i8 [ %.21794, %1772 ], [ %.612326, %1988 ]
-  %.292226 = phi i8 [ %.21794, %1772 ], [ %.622259, %1988 ]
-  %.282160 = phi i8 [ %.21794, %1772 ], [ %.632195, %1988 ]
-  %.272093 = phi i8 [ %.21794, %1772 ], [ %.642130, %1988 ]
-  %.262025 = phi i8 [ %.21794, %1772 ], [ %.652064, %1988 ]
-  %.251956 = phi i8 [ %.21794, %1772 ], [ %.661997, %1988 ]
-  %.241886 = phi i8 [ %.21794, %1772 ], [ %.671929, %1988 ]
-  %.231815 = phi i8 [ %.21794, %1772 ], [ %.681860, %1988 ]
-  %.231743 = phi i8 [ %.21722, %1772 ], [ %.701790, %1988 ]
-  %.231669 = phi i8 [ %.21648, %1772 ], [ %.721718, %1988 ]
-  %.241593 = phi i8 [ %.21529, %1772 ], [ %.751644, %1988 ]
-  %.231550 = phi i8 [ %.21529, %1772 ], [ %.76, %1988 ]
+  %.253071 = phi i8 [ %.23048, %1772 ], [ %.03046, %1988 ]
+  %.263043 = phi i8 [ %.22989, %1772 ], [ %.03017, %1988 ]
+  %.253012 = phi i8 [ %.22989, %1772 ], [ %.02987, %1988 ]
+  %.252980 = phi i8 [ %.22957, %1772 ], [ %.02955, %1988 ]
+  %.432946 = phi i8 [ %.21794, %1772 ], [ %.02903, %1988 ]
+  %.422892 = phi i8 [ %.21794, %1772 ], [ %.02850, %1988 ]
+  %.412837 = phi i8 [ %.21794, %1772 ], [ %.02796, %1988 ]
+  %.402781 = phi i8 [ %.21794, %1772 ], [ %.02741, %1988 ]
+  %.392724 = phi i8 [ %.21794, %1772 ], [ %.02685, %1988 ]
+  %.382666 = phi i8 [ %.21794, %1772 ], [ %.02628, %1988 ]
+  %.372607 = phi i8 [ %.21794, %1772 ], [ %.02570, %1988 ]
+  %.362547 = phi i8 [ %.21794, %1772 ], [ %.02511, %1988 ]
+  %.352486 = phi i8 [ %.21794, %1772 ], [ %.02451, %1988 ]
+  %.342424 = phi i8 [ %.21794, %1772 ], [ %.02390, %1988 ]
+  %.332361 = phi i8 [ %.21794, %1772 ], [ %.02328, %1988 ]
+  %.322297 = phi i8 [ %.21794, %1772 ], [ %.02265, %1988 ]
+  %.312228 = phi i8 [ %.21794, %1772 ], [ %.02197, %1988 ]
+  %.302162 = phi i8 [ %.21794, %1772 ], [ %.02132, %1988 ]
+  %.292095 = phi i8 [ %.21794, %1772 ], [ %.02066, %1988 ]
+  %.282027 = phi i8 [ %.21794, %1772 ], [ %.01999, %1988 ]
+  %.271958 = phi i8 [ %.21794, %1772 ], [ %.01931, %1988 ]
+  %.261888 = phi i8 [ %.21794, %1772 ], [ %.01862, %1988 ]
+  %.251817 = phi i8 [ %.21794, %1772 ], [ %.01792, %1988 ]
+  %.251745 = phi i8 [ %.21722, %1772 ], [ %.01720, %1988 ]
+  %.251671 = phi i8 [ %.21648, %1772 ], [ %.01646, %1988 ]
+  %.261595 = phi i8 [ %.21529, %1772 ], [ %.01569, %1988 ]
+  %.251552 = phi i8 [ %.21529, %1772 ], [ %.01527, %1988 ]
   %1776 = landingpad { ptr, i32 }
           cleanup
   br label %1773
@@ -92231,63 +92231,63 @@ default.unreachable:                              ; preds = %1375
           to label %1777 unwind label %1782
 
 1780:                                             ; preds = %2271, %1782, %1773
-  %.253042 = phi i8 [ %.263043, %1782 ], [ %.233040, %2271 ], [ %.233040, %1773 ]
-  %.243011 = phi i8 [ %.253012, %1782 ], [ %.223009, %2271 ], [ %.223009, %1773 ]
-  %.242979 = phi i8 [ %.252980, %1782 ], [ %.222977, %2271 ], [ %.222977, %1773 ]
-  %.422945 = phi i8 [ %.432946, %1782 ], [ %.402943, %2271 ], [ %.402943, %1773 ]
-  %.412891 = phi i8 [ %.422892, %1782 ], [ %.392889, %2271 ], [ %.392889, %1773 ]
-  %.402836 = phi i8 [ %.412837, %1782 ], [ %.382834, %2271 ], [ %.382834, %1773 ]
-  %.392780 = phi i8 [ %.402781, %1782 ], [ %.372778, %2271 ], [ %.372778, %1773 ]
-  %.382723 = phi i8 [ %.392724, %1782 ], [ %.362721, %2271 ], [ %.362721, %1773 ]
-  %.372665 = phi i8 [ %.382666, %1782 ], [ %.352663, %2271 ], [ %.352663, %1773 ]
-  %.362606 = phi i8 [ %.372607, %1782 ], [ %.342604, %2271 ], [ %.342604, %1773 ]
-  %.352546 = phi i8 [ %.362547, %1782 ], [ %.332544, %2271 ], [ %.332544, %1773 ]
-  %.342485 = phi i8 [ %.352486, %1782 ], [ %.322483, %2271 ], [ %.322483, %1773 ]
-  %.332423 = phi i8 [ %.342424, %1782 ], [ %.312421, %2271 ], [ %.312421, %1773 ]
-  %.322360 = phi i8 [ %.332361, %1782 ], [ %.302358, %2271 ], [ %.302358, %1773 ]
-  %.312296 = phi i8 [ %.322297, %1782 ], [ %.292294, %2271 ], [ %.292294, %1773 ]
-  %.302227 = phi i8 [ %.312228, %1782 ], [ %.282225, %2271 ], [ %.282225, %1773 ]
-  %.292161 = phi i8 [ %.302162, %1782 ], [ %.272159, %2271 ], [ %.272159, %1773 ]
-  %.282094 = phi i8 [ %.292095, %1782 ], [ %.262092, %2271 ], [ %.262092, %1773 ]
-  %.272026 = phi i8 [ %.282027, %1782 ], [ %.252024, %2271 ], [ %.252024, %1773 ]
-  %.261957 = phi i8 [ %.271958, %1782 ], [ %.241955, %2271 ], [ %.241955, %1773 ]
-  %.251887 = phi i8 [ %.261888, %1782 ], [ %.231885, %2271 ], [ %.231885, %1773 ]
-  %.241816 = phi i8 [ %.251817, %1782 ], [ %.221814, %2271 ], [ %.221814, %1773 ]
-  %.241744 = phi i8 [ %.251745, %1782 ], [ %.221742, %2271 ], [ %.221742, %1773 ]
-  %.241670 = phi i8 [ %.251671, %1782 ], [ %.221668, %2271 ], [ %.221668, %1773 ]
-  %.251594 = phi i8 [ %.261595, %1782 ], [ %.231592, %2271 ], [ %.231592, %1773 ]
-  %.241551 = phi i8 [ %.251552, %1782 ], [ %.221549, %2271 ], [ %.221549, %1773 ]
+  %.273044 = phi i8 [ %.283045, %1782 ], [ %.253042, %2271 ], [ %.253042, %1773 ]
+  %.263013 = phi i8 [ %.273014, %1782 ], [ %.243011, %2271 ], [ %.243011, %1773 ]
+  %.262981 = phi i8 [ %.272982, %1782 ], [ %.242979, %2271 ], [ %.242979, %1773 ]
+  %.442947 = phi i8 [ %.452948, %1782 ], [ %.422945, %2271 ], [ %.422945, %1773 ]
+  %.432893 = phi i8 [ %.442894, %1782 ], [ %.412891, %2271 ], [ %.412891, %1773 ]
+  %.422838 = phi i8 [ %.432839, %1782 ], [ %.402836, %2271 ], [ %.402836, %1773 ]
+  %.412782 = phi i8 [ %.422783, %1782 ], [ %.392780, %2271 ], [ %.392780, %1773 ]
+  %.402725 = phi i8 [ %.412726, %1782 ], [ %.382723, %2271 ], [ %.382723, %1773 ]
+  %.392667 = phi i8 [ %.402668, %1782 ], [ %.372665, %2271 ], [ %.372665, %1773 ]
+  %.382608 = phi i8 [ %.392609, %1782 ], [ %.362606, %2271 ], [ %.362606, %1773 ]
+  %.372548 = phi i8 [ %.382549, %1782 ], [ %.352546, %2271 ], [ %.352546, %1773 ]
+  %.362487 = phi i8 [ %.372488, %1782 ], [ %.342485, %2271 ], [ %.342485, %1773 ]
+  %.352425 = phi i8 [ %.362426, %1782 ], [ %.332423, %2271 ], [ %.332423, %1773 ]
+  %.342362 = phi i8 [ %.352363, %1782 ], [ %.322360, %2271 ], [ %.322360, %1773 ]
+  %.332298 = phi i8 [ %.342299, %1782 ], [ %.312296, %2271 ], [ %.312296, %1773 ]
+  %.322229 = phi i8 [ %.332230, %1782 ], [ %.302227, %2271 ], [ %.302227, %1773 ]
+  %.312163 = phi i8 [ %.322164, %1782 ], [ %.292161, %2271 ], [ %.292161, %1773 ]
+  %.302096 = phi i8 [ %.312097, %1782 ], [ %.282094, %2271 ], [ %.282094, %1773 ]
+  %.292028 = phi i8 [ %.302029, %1782 ], [ %.272026, %2271 ], [ %.272026, %1773 ]
+  %.281959 = phi i8 [ %.291960, %1782 ], [ %.261957, %2271 ], [ %.261957, %1773 ]
+  %.271889 = phi i8 [ %.281890, %1782 ], [ %.251887, %2271 ], [ %.251887, %1773 ]
+  %.261818 = phi i8 [ %.271819, %1782 ], [ %.241816, %2271 ], [ %.241816, %1773 ]
+  %.261746 = phi i8 [ %.271747, %1782 ], [ %.241744, %2271 ], [ %.241744, %1773 ]
+  %.261672 = phi i8 [ %.271673, %1782 ], [ %.241670, %2271 ], [ %.241670, %1773 ]
+  %.271596 = phi i8 [ %.281597, %1782 ], [ %.251594, %2271 ], [ %.251594, %1773 ]
+  %.261553 = phi i8 [ %.271554, %1782 ], [ %.241551, %2271 ], [ %.241551, %1773 ]
   %.pn3418 = phi { ptr, i32 } [ %1783, %1782 ], [ %.pn3416, %2271 ], [ %.pn3416, %1773 ]
-  %1781 = trunc nuw i8 %.253042 to i1
+  %1781 = trunc nuw i8 %.273044 to i1
   br i1 %1781, label %2272, label %1786
 
 1782:                                             ; preds = %1999, %1779
-  %.263043 = phi i8 [ %.22989, %1779 ], [ %.273044, %1999 ]
-  %.253012 = phi i8 [ %.22989, %1779 ], [ %.283015, %1999 ]
-  %.252980 = phi i8 [ %.22957, %1779 ], [ %.302985, %1999 ]
-  %.432946 = phi i8 [ %.21794, %1779 ], [ %.502953, %1999 ]
-  %.422892 = phi i8 [ %.21794, %1779 ], [ %.512901, %1999 ]
-  %.412837 = phi i8 [ %.21794, %1779 ], [ %.522848, %1999 ]
-  %.402781 = phi i8 [ %.21794, %1779 ], [ %.532794, %1999 ]
-  %.392724 = phi i8 [ %.21794, %1779 ], [ %.542739, %1999 ]
-  %.382666 = phi i8 [ %.21794, %1779 ], [ %.552683, %1999 ]
-  %.372607 = phi i8 [ %.21794, %1779 ], [ %.562626, %1999 ]
-  %.362547 = phi i8 [ %.21794, %1779 ], [ %.572568, %1999 ]
-  %.352486 = phi i8 [ %.21794, %1779 ], [ %.582509, %1999 ]
-  %.342424 = phi i8 [ %.21794, %1779 ], [ %.592449, %1999 ]
-  %.332361 = phi i8 [ %.21794, %1779 ], [ %.602388, %1999 ]
-  %.322297 = phi i8 [ %.21794, %1779 ], [ %.612326, %1999 ]
-  %.312228 = phi i8 [ %.21794, %1779 ], [ %.622259, %1999 ]
-  %.302162 = phi i8 [ %.21794, %1779 ], [ %.632195, %1999 ]
-  %.292095 = phi i8 [ %.21794, %1779 ], [ %.642130, %1999 ]
-  %.282027 = phi i8 [ %.21794, %1779 ], [ %.652064, %1999 ]
-  %.271958 = phi i8 [ %.21794, %1779 ], [ %.661997, %1999 ]
-  %.261888 = phi i8 [ %.21794, %1779 ], [ %.671929, %1999 ]
-  %.251817 = phi i8 [ %.21794, %1779 ], [ %.681860, %1999 ]
-  %.251745 = phi i8 [ %.21722, %1779 ], [ %.701790, %1999 ]
-  %.251671 = phi i8 [ %.21648, %1779 ], [ %.721718, %1999 ]
-  %.261595 = phi i8 [ %.21529, %1779 ], [ %.751644, %1999 ]
-  %.251552 = phi i8 [ %.21529, %1779 ], [ %.76, %1999 ]
+  %.283045 = phi i8 [ %.22989, %1779 ], [ %.03017, %1999 ]
+  %.273014 = phi i8 [ %.22989, %1779 ], [ %.02987, %1999 ]
+  %.272982 = phi i8 [ %.22957, %1779 ], [ %.02955, %1999 ]
+  %.452948 = phi i8 [ %.21794, %1779 ], [ %.02903, %1999 ]
+  %.442894 = phi i8 [ %.21794, %1779 ], [ %.02850, %1999 ]
+  %.432839 = phi i8 [ %.21794, %1779 ], [ %.02796, %1999 ]
+  %.422783 = phi i8 [ %.21794, %1779 ], [ %.02741, %1999 ]
+  %.412726 = phi i8 [ %.21794, %1779 ], [ %.02685, %1999 ]
+  %.402668 = phi i8 [ %.21794, %1779 ], [ %.02628, %1999 ]
+  %.392609 = phi i8 [ %.21794, %1779 ], [ %.02570, %1999 ]
+  %.382549 = phi i8 [ %.21794, %1779 ], [ %.02511, %1999 ]
+  %.372488 = phi i8 [ %.21794, %1779 ], [ %.02451, %1999 ]
+  %.362426 = phi i8 [ %.21794, %1779 ], [ %.02390, %1999 ]
+  %.352363 = phi i8 [ %.21794, %1779 ], [ %.02328, %1999 ]
+  %.342299 = phi i8 [ %.21794, %1779 ], [ %.02265, %1999 ]
+  %.332230 = phi i8 [ %.21794, %1779 ], [ %.02197, %1999 ]
+  %.322164 = phi i8 [ %.21794, %1779 ], [ %.02132, %1999 ]
+  %.312097 = phi i8 [ %.21794, %1779 ], [ %.02066, %1999 ]
+  %.302029 = phi i8 [ %.21794, %1779 ], [ %.01999, %1999 ]
+  %.291960 = phi i8 [ %.21794, %1779 ], [ %.01931, %1999 ]
+  %.281890 = phi i8 [ %.21794, %1779 ], [ %.01862, %1999 ]
+  %.271819 = phi i8 [ %.21794, %1779 ], [ %.01792, %1999 ]
+  %.271747 = phi i8 [ %.21722, %1779 ], [ %.01720, %1999 ]
+  %.271673 = phi i8 [ %.21648, %1779 ], [ %.01646, %1999 ]
+  %.281597 = phi i8 [ %.21529, %1779 ], [ %.01569, %1999 ]
+  %.271554 = phi i8 [ %.21529, %1779 ], [ %.01527, %1999 ]
   %1783 = landingpad { ptr, i32 }
           cleanup
   br label %1780
@@ -92301,61 +92301,61 @@ default.unreachable:                              ; preds = %1375
           to label %1792 unwind label %1788
 
 1786:                                             ; preds = %2272, %1788, %1780
-  %.263013 = phi i8 [ %.273014, %1788 ], [ %.243011, %2272 ], [ %.243011, %1780 ]
-  %.262981 = phi i8 [ %.272982, %1788 ], [ %.242979, %2272 ], [ %.242979, %1780 ]
-  %.442947 = phi i8 [ %.452948, %1788 ], [ %.422945, %2272 ], [ %.422945, %1780 ]
-  %.432893 = phi i8 [ %.442894, %1788 ], [ %.412891, %2272 ], [ %.412891, %1780 ]
-  %.422838 = phi i8 [ %.432839, %1788 ], [ %.402836, %2272 ], [ %.402836, %1780 ]
-  %.412782 = phi i8 [ %.422783, %1788 ], [ %.392780, %2272 ], [ %.392780, %1780 ]
-  %.402725 = phi i8 [ %.412726, %1788 ], [ %.382723, %2272 ], [ %.382723, %1780 ]
-  %.392667 = phi i8 [ %.402668, %1788 ], [ %.372665, %2272 ], [ %.372665, %1780 ]
-  %.382608 = phi i8 [ %.392609, %1788 ], [ %.362606, %2272 ], [ %.362606, %1780 ]
-  %.372548 = phi i8 [ %.382549, %1788 ], [ %.352546, %2272 ], [ %.352546, %1780 ]
-  %.362487 = phi i8 [ %.372488, %1788 ], [ %.342485, %2272 ], [ %.342485, %1780 ]
-  %.352425 = phi i8 [ %.362426, %1788 ], [ %.332423, %2272 ], [ %.332423, %1780 ]
-  %.342362 = phi i8 [ %.352363, %1788 ], [ %.322360, %2272 ], [ %.322360, %1780 ]
-  %.332298 = phi i8 [ %.342299, %1788 ], [ %.312296, %2272 ], [ %.312296, %1780 ]
-  %.322229 = phi i8 [ %.332230, %1788 ], [ %.302227, %2272 ], [ %.302227, %1780 ]
-  %.312163 = phi i8 [ %.322164, %1788 ], [ %.292161, %2272 ], [ %.292161, %1780 ]
-  %.302096 = phi i8 [ %.312097, %1788 ], [ %.282094, %2272 ], [ %.282094, %1780 ]
-  %.292028 = phi i8 [ %.302029, %1788 ], [ %.272026, %2272 ], [ %.272026, %1780 ]
-  %.281959 = phi i8 [ %.291960, %1788 ], [ %.261957, %2272 ], [ %.261957, %1780 ]
-  %.271889 = phi i8 [ %.281890, %1788 ], [ %.251887, %2272 ], [ %.251887, %1780 ]
-  %.261818 = phi i8 [ %.271819, %1788 ], [ %.241816, %2272 ], [ %.241816, %1780 ]
-  %.261746 = phi i8 [ %.271747, %1788 ], [ %.241744, %2272 ], [ %.241744, %1780 ]
-  %.261672 = phi i8 [ %.271673, %1788 ], [ %.241670, %2272 ], [ %.241670, %1780 ]
-  %.271596 = phi i8 [ %.281597, %1788 ], [ %.251594, %2272 ], [ %.251594, %1780 ]
-  %.261553 = phi i8 [ %.271554, %1788 ], [ %.241551, %2272 ], [ %.241551, %1780 ]
+  %.283015 = phi i8 [ %.293016, %1788 ], [ %.263013, %2272 ], [ %.263013, %1780 ]
+  %.282983 = phi i8 [ %.292984, %1788 ], [ %.262981, %2272 ], [ %.262981, %1780 ]
+  %.462949 = phi i8 [ %.472950, %1788 ], [ %.442947, %2272 ], [ %.442947, %1780 ]
+  %.452895 = phi i8 [ %.462896, %1788 ], [ %.432893, %2272 ], [ %.432893, %1780 ]
+  %.442840 = phi i8 [ %.452841, %1788 ], [ %.422838, %2272 ], [ %.422838, %1780 ]
+  %.432784 = phi i8 [ %.442785, %1788 ], [ %.412782, %2272 ], [ %.412782, %1780 ]
+  %.422727 = phi i8 [ %.432728, %1788 ], [ %.402725, %2272 ], [ %.402725, %1780 ]
+  %.412669 = phi i8 [ %.422670, %1788 ], [ %.392667, %2272 ], [ %.392667, %1780 ]
+  %.402610 = phi i8 [ %.412611, %1788 ], [ %.382608, %2272 ], [ %.382608, %1780 ]
+  %.392550 = phi i8 [ %.402551, %1788 ], [ %.372548, %2272 ], [ %.372548, %1780 ]
+  %.382489 = phi i8 [ %.392490, %1788 ], [ %.362487, %2272 ], [ %.362487, %1780 ]
+  %.372427 = phi i8 [ %.382428, %1788 ], [ %.352425, %2272 ], [ %.352425, %1780 ]
+  %.362364 = phi i8 [ %.372365, %1788 ], [ %.342362, %2272 ], [ %.342362, %1780 ]
+  %.352300 = phi i8 [ %.362301, %1788 ], [ %.332298, %2272 ], [ %.332298, %1780 ]
+  %.342231 = phi i8 [ %.352232, %1788 ], [ %.322229, %2272 ], [ %.322229, %1780 ]
+  %.332165 = phi i8 [ %.342166, %1788 ], [ %.312163, %2272 ], [ %.312163, %1780 ]
+  %.322098 = phi i8 [ %.332099, %1788 ], [ %.302096, %2272 ], [ %.302096, %1780 ]
+  %.312030 = phi i8 [ %.322031, %1788 ], [ %.292028, %2272 ], [ %.292028, %1780 ]
+  %.301961 = phi i8 [ %.311962, %1788 ], [ %.281959, %2272 ], [ %.281959, %1780 ]
+  %.291891 = phi i8 [ %.301892, %1788 ], [ %.271889, %2272 ], [ %.271889, %1780 ]
+  %.281820 = phi i8 [ %.291821, %1788 ], [ %.261818, %2272 ], [ %.261818, %1780 ]
+  %.281748 = phi i8 [ %.291749, %1788 ], [ %.261746, %2272 ], [ %.261746, %1780 ]
+  %.281674 = phi i8 [ %.291675, %1788 ], [ %.261672, %2272 ], [ %.261672, %1780 ]
+  %.291598 = phi i8 [ %.301599, %1788 ], [ %.271596, %2272 ], [ %.271596, %1780 ]
+  %.281555 = phi i8 [ %.291556, %1788 ], [ %.261553, %2272 ], [ %.261553, %1780 ]
   %.pn3420 = phi { ptr, i32 } [ %1789, %1788 ], [ %.pn3418, %2272 ], [ %.pn3418, %1780 ]
-  %1787 = trunc nuw i8 %.263013 to i1
+  %1787 = trunc nuw i8 %.283015 to i1
   br i1 %1787, label %2273, label %1793
 
 1788:                                             ; preds = %2010, %1785
-  %.273014 = phi i8 [ %.283015, %2010 ], [ %.22989, %1785 ]
-  %.272982 = phi i8 [ %.302985, %2010 ], [ %.22957, %1785 ]
-  %.452948 = phi i8 [ %.502953, %2010 ], [ %.21794, %1785 ]
-  %.442894 = phi i8 [ %.512901, %2010 ], [ %.21794, %1785 ]
-  %.432839 = phi i8 [ %.522848, %2010 ], [ %.21794, %1785 ]
-  %.422783 = phi i8 [ %.532794, %2010 ], [ %.21794, %1785 ]
-  %.412726 = phi i8 [ %.542739, %2010 ], [ %.21794, %1785 ]
-  %.402668 = phi i8 [ %.552683, %2010 ], [ %.21794, %1785 ]
-  %.392609 = phi i8 [ %.562626, %2010 ], [ %.21794, %1785 ]
-  %.382549 = phi i8 [ %.572568, %2010 ], [ %.21794, %1785 ]
-  %.372488 = phi i8 [ %.582509, %2010 ], [ %.21794, %1785 ]
-  %.362426 = phi i8 [ %.592449, %2010 ], [ %.21794, %1785 ]
-  %.352363 = phi i8 [ %.602388, %2010 ], [ %.21794, %1785 ]
-  %.342299 = phi i8 [ %.612326, %2010 ], [ %.21794, %1785 ]
-  %.332230 = phi i8 [ %.622259, %2010 ], [ %.21794, %1785 ]
-  %.322164 = phi i8 [ %.632195, %2010 ], [ %.21794, %1785 ]
-  %.312097 = phi i8 [ %.642130, %2010 ], [ %.21794, %1785 ]
-  %.302029 = phi i8 [ %.652064, %2010 ], [ %.21794, %1785 ]
-  %.291960 = phi i8 [ %.661997, %2010 ], [ %.21794, %1785 ]
-  %.281890 = phi i8 [ %.671929, %2010 ], [ %.21794, %1785 ]
-  %.271819 = phi i8 [ %.681860, %2010 ], [ %.21794, %1785 ]
-  %.271747 = phi i8 [ %.701790, %2010 ], [ %.21722, %1785 ]
-  %.271673 = phi i8 [ %.721718, %2010 ], [ %.21648, %1785 ]
-  %.281597 = phi i8 [ %.751644, %2010 ], [ %.21529, %1785 ]
-  %.271554 = phi i8 [ %.76, %2010 ], [ %.21529, %1785 ]
+  %.293016 = phi i8 [ %.02987, %2010 ], [ %.22989, %1785 ]
+  %.292984 = phi i8 [ %.02955, %2010 ], [ %.22957, %1785 ]
+  %.472950 = phi i8 [ %.02903, %2010 ], [ %.21794, %1785 ]
+  %.462896 = phi i8 [ %.02850, %2010 ], [ %.21794, %1785 ]
+  %.452841 = phi i8 [ %.02796, %2010 ], [ %.21794, %1785 ]
+  %.442785 = phi i8 [ %.02741, %2010 ], [ %.21794, %1785 ]
+  %.432728 = phi i8 [ %.02685, %2010 ], [ %.21794, %1785 ]
+  %.422670 = phi i8 [ %.02628, %2010 ], [ %.21794, %1785 ]
+  %.412611 = phi i8 [ %.02570, %2010 ], [ %.21794, %1785 ]
+  %.402551 = phi i8 [ %.02511, %2010 ], [ %.21794, %1785 ]
+  %.392490 = phi i8 [ %.02451, %2010 ], [ %.21794, %1785 ]
+  %.382428 = phi i8 [ %.02390, %2010 ], [ %.21794, %1785 ]
+  %.372365 = phi i8 [ %.02328, %2010 ], [ %.21794, %1785 ]
+  %.362301 = phi i8 [ %.02265, %2010 ], [ %.21794, %1785 ]
+  %.352232 = phi i8 [ %.02197, %2010 ], [ %.21794, %1785 ]
+  %.342166 = phi i8 [ %.02132, %2010 ], [ %.21794, %1785 ]
+  %.332099 = phi i8 [ %.02066, %2010 ], [ %.21794, %1785 ]
+  %.322031 = phi i8 [ %.01999, %2010 ], [ %.21794, %1785 ]
+  %.311962 = phi i8 [ %.01931, %2010 ], [ %.21794, %1785 ]
+  %.301892 = phi i8 [ %.01862, %2010 ], [ %.21794, %1785 ]
+  %.291821 = phi i8 [ %.01792, %2010 ], [ %.21794, %1785 ]
+  %.291749 = phi i8 [ %.01720, %2010 ], [ %.21722, %1785 ]
+  %.291675 = phi i8 [ %.01646, %2010 ], [ %.21648, %1785 ]
+  %.301599 = phi i8 [ %.01569, %2010 ], [ %.21529, %1785 ]
+  %.291556 = phi i8 [ %.01527, %2010 ], [ %.21529, %1785 ]
   %1789 = landingpad { ptr, i32 }
           cleanup
   br label %1786
@@ -92371,59 +92371,59 @@ default.unreachable:                              ; preds = %1375
           to label %1790 unwind label %1795
 
 1793:                                             ; preds = %2273, %1795, %1786
-  %.282983 = phi i8 [ %.292984, %1795 ], [ %.262981, %2273 ], [ %.262981, %1786 ]
-  %.462949 = phi i8 [ %.472950, %1795 ], [ %.442947, %2273 ], [ %.442947, %1786 ]
-  %.452895 = phi i8 [ %.462896, %1795 ], [ %.432893, %2273 ], [ %.432893, %1786 ]
-  %.442840 = phi i8 [ %.452841, %1795 ], [ %.422838, %2273 ], [ %.422838, %1786 ]
-  %.432784 = phi i8 [ %.442785, %1795 ], [ %.412782, %2273 ], [ %.412782, %1786 ]
-  %.422727 = phi i8 [ %.432728, %1795 ], [ %.402725, %2273 ], [ %.402725, %1786 ]
-  %.412669 = phi i8 [ %.422670, %1795 ], [ %.392667, %2273 ], [ %.392667, %1786 ]
-  %.402610 = phi i8 [ %.412611, %1795 ], [ %.382608, %2273 ], [ %.382608, %1786 ]
-  %.392550 = phi i8 [ %.402551, %1795 ], [ %.372548, %2273 ], [ %.372548, %1786 ]
-  %.382489 = phi i8 [ %.392490, %1795 ], [ %.362487, %2273 ], [ %.362487, %1786 ]
-  %.372427 = phi i8 [ %.382428, %1795 ], [ %.352425, %2273 ], [ %.352425, %1786 ]
-  %.362364 = phi i8 [ %.372365, %1795 ], [ %.342362, %2273 ], [ %.342362, %1786 ]
-  %.352300 = phi i8 [ %.362301, %1795 ], [ %.332298, %2273 ], [ %.332298, %1786 ]
-  %.342231 = phi i8 [ %.352232, %1795 ], [ %.322229, %2273 ], [ %.322229, %1786 ]
-  %.332165 = phi i8 [ %.342166, %1795 ], [ %.312163, %2273 ], [ %.312163, %1786 ]
-  %.322098 = phi i8 [ %.332099, %1795 ], [ %.302096, %2273 ], [ %.302096, %1786 ]
-  %.312030 = phi i8 [ %.322031, %1795 ], [ %.292028, %2273 ], [ %.292028, %1786 ]
-  %.301961 = phi i8 [ %.311962, %1795 ], [ %.281959, %2273 ], [ %.281959, %1786 ]
-  %.291891 = phi i8 [ %.301892, %1795 ], [ %.271889, %2273 ], [ %.271889, %1786 ]
-  %.281820 = phi i8 [ %.291821, %1795 ], [ %.261818, %2273 ], [ %.261818, %1786 ]
-  %.281748 = phi i8 [ %.291749, %1795 ], [ %.261746, %2273 ], [ %.261746, %1786 ]
-  %.281674 = phi i8 [ %.291675, %1795 ], [ %.261672, %2273 ], [ %.261672, %1786 ]
-  %.291598 = phi i8 [ %.301599, %1795 ], [ %.271596, %2273 ], [ %.271596, %1786 ]
-  %.281555 = phi i8 [ %.291556, %1795 ], [ %.261553, %2273 ], [ %.261553, %1786 ]
+  %.302985 = phi i8 [ %.312986, %1795 ], [ %.282983, %2273 ], [ %.282983, %1786 ]
+  %.482951 = phi i8 [ %.492952, %1795 ], [ %.462949, %2273 ], [ %.462949, %1786 ]
+  %.472897 = phi i8 [ %.482898, %1795 ], [ %.452895, %2273 ], [ %.452895, %1786 ]
+  %.462842 = phi i8 [ %.472843, %1795 ], [ %.442840, %2273 ], [ %.442840, %1786 ]
+  %.452786 = phi i8 [ %.462787, %1795 ], [ %.432784, %2273 ], [ %.432784, %1786 ]
+  %.442729 = phi i8 [ %.452730, %1795 ], [ %.422727, %2273 ], [ %.422727, %1786 ]
+  %.432671 = phi i8 [ %.442672, %1795 ], [ %.412669, %2273 ], [ %.412669, %1786 ]
+  %.422612 = phi i8 [ %.432613, %1795 ], [ %.402610, %2273 ], [ %.402610, %1786 ]
+  %.412552 = phi i8 [ %.422553, %1795 ], [ %.392550, %2273 ], [ %.392550, %1786 ]
+  %.402491 = phi i8 [ %.412492, %1795 ], [ %.382489, %2273 ], [ %.382489, %1786 ]
+  %.392429 = phi i8 [ %.402430, %1795 ], [ %.372427, %2273 ], [ %.372427, %1786 ]
+  %.382366 = phi i8 [ %.392367, %1795 ], [ %.362364, %2273 ], [ %.362364, %1786 ]
+  %.372302 = phi i8 [ %.382303, %1795 ], [ %.352300, %2273 ], [ %.352300, %1786 ]
+  %.362233 = phi i8 [ %.372234, %1795 ], [ %.342231, %2273 ], [ %.342231, %1786 ]
+  %.352167 = phi i8 [ %.362168, %1795 ], [ %.332165, %2273 ], [ %.332165, %1786 ]
+  %.342100 = phi i8 [ %.352101, %1795 ], [ %.322098, %2273 ], [ %.322098, %1786 ]
+  %.332032 = phi i8 [ %.342033, %1795 ], [ %.312030, %2273 ], [ %.312030, %1786 ]
+  %.321963 = phi i8 [ %.331964, %1795 ], [ %.301961, %2273 ], [ %.301961, %1786 ]
+  %.311893 = phi i8 [ %.321894, %1795 ], [ %.291891, %2273 ], [ %.291891, %1786 ]
+  %.301822 = phi i8 [ %.311823, %1795 ], [ %.281820, %2273 ], [ %.281820, %1786 ]
+  %.301750 = phi i8 [ %.311751, %1795 ], [ %.281748, %2273 ], [ %.281748, %1786 ]
+  %.301676 = phi i8 [ %.311677, %1795 ], [ %.281674, %2273 ], [ %.281674, %1786 ]
+  %.311600 = phi i8 [ %.321601, %1795 ], [ %.291598, %2273 ], [ %.291598, %1786 ]
+  %.301557 = phi i8 [ %.311558, %1795 ], [ %.281555, %2273 ], [ %.281555, %1786 ]
   %.pn3422 = phi { ptr, i32 } [ %1796, %1795 ], [ %.pn3420, %2273 ], [ %.pn3420, %1786 ]
-  %1794 = trunc nuw i8 %.282983 to i1
+  %1794 = trunc nuw i8 %.302985 to i1
   br i1 %1794, label %2274, label %1800
 
 1795:                                             ; preds = %2013, %1792
-  %.292984 = phi i8 [ %.302985, %2013 ], [ %.22957, %1792 ]
-  %.472950 = phi i8 [ %.502953, %2013 ], [ %.21794, %1792 ]
-  %.462896 = phi i8 [ %.512901, %2013 ], [ %.21794, %1792 ]
-  %.452841 = phi i8 [ %.522848, %2013 ], [ %.21794, %1792 ]
-  %.442785 = phi i8 [ %.532794, %2013 ], [ %.21794, %1792 ]
-  %.432728 = phi i8 [ %.542739, %2013 ], [ %.21794, %1792 ]
-  %.422670 = phi i8 [ %.552683, %2013 ], [ %.21794, %1792 ]
-  %.412611 = phi i8 [ %.562626, %2013 ], [ %.21794, %1792 ]
-  %.402551 = phi i8 [ %.572568, %2013 ], [ %.21794, %1792 ]
-  %.392490 = phi i8 [ %.582509, %2013 ], [ %.21794, %1792 ]
-  %.382428 = phi i8 [ %.592449, %2013 ], [ %.21794, %1792 ]
-  %.372365 = phi i8 [ %.602388, %2013 ], [ %.21794, %1792 ]
-  %.362301 = phi i8 [ %.612326, %2013 ], [ %.21794, %1792 ]
-  %.352232 = phi i8 [ %.622259, %2013 ], [ %.21794, %1792 ]
-  %.342166 = phi i8 [ %.632195, %2013 ], [ %.21794, %1792 ]
-  %.332099 = phi i8 [ %.642130, %2013 ], [ %.21794, %1792 ]
-  %.322031 = phi i8 [ %.652064, %2013 ], [ %.21794, %1792 ]
-  %.311962 = phi i8 [ %.661997, %2013 ], [ %.21794, %1792 ]
-  %.301892 = phi i8 [ %.671929, %2013 ], [ %.21794, %1792 ]
-  %.291821 = phi i8 [ %.681860, %2013 ], [ %.21794, %1792 ]
-  %.291749 = phi i8 [ %.701790, %2013 ], [ %.21722, %1792 ]
-  %.291675 = phi i8 [ %.721718, %2013 ], [ %.21648, %1792 ]
-  %.301599 = phi i8 [ %.751644, %2013 ], [ %.21529, %1792 ]
-  %.291556 = phi i8 [ %.76, %2013 ], [ %.21529, %1792 ]
+  %.312986 = phi i8 [ %.02955, %2013 ], [ %.22957, %1792 ]
+  %.492952 = phi i8 [ %.02903, %2013 ], [ %.21794, %1792 ]
+  %.482898 = phi i8 [ %.02850, %2013 ], [ %.21794, %1792 ]
+  %.472843 = phi i8 [ %.02796, %2013 ], [ %.21794, %1792 ]
+  %.462787 = phi i8 [ %.02741, %2013 ], [ %.21794, %1792 ]
+  %.452730 = phi i8 [ %.02685, %2013 ], [ %.21794, %1792 ]
+  %.442672 = phi i8 [ %.02628, %2013 ], [ %.21794, %1792 ]
+  %.432613 = phi i8 [ %.02570, %2013 ], [ %.21794, %1792 ]
+  %.422553 = phi i8 [ %.02511, %2013 ], [ %.21794, %1792 ]
+  %.412492 = phi i8 [ %.02451, %2013 ], [ %.21794, %1792 ]
+  %.402430 = phi i8 [ %.02390, %2013 ], [ %.21794, %1792 ]
+  %.392367 = phi i8 [ %.02328, %2013 ], [ %.21794, %1792 ]
+  %.382303 = phi i8 [ %.02265, %2013 ], [ %.21794, %1792 ]
+  %.372234 = phi i8 [ %.02197, %2013 ], [ %.21794, %1792 ]
+  %.362168 = phi i8 [ %.02132, %2013 ], [ %.21794, %1792 ]
+  %.352101 = phi i8 [ %.02066, %2013 ], [ %.21794, %1792 ]
+  %.342033 = phi i8 [ %.01999, %2013 ], [ %.21794, %1792 ]
+  %.331964 = phi i8 [ %.01931, %2013 ], [ %.21794, %1792 ]
+  %.321894 = phi i8 [ %.01862, %2013 ], [ %.21794, %1792 ]
+  %.311823 = phi i8 [ %.01792, %2013 ], [ %.21794, %1792 ]
+  %.311751 = phi i8 [ %.01720, %2013 ], [ %.21722, %1792 ]
+  %.311677 = phi i8 [ %.01646, %2013 ], [ %.21648, %1792 ]
+  %.321601 = phi i8 [ %.01569, %2013 ], [ %.21529, %1792 ]
+  %.311558 = phi i8 [ %.01527, %2013 ], [ %.21529, %1792 ]
   %1796 = landingpad { ptr, i32 }
           cleanup
   br label %1793
@@ -92438,57 +92438,57 @@ default.unreachable:                              ; preds = %1375
           to label %1797 unwind label %1802
 
 1800:                                             ; preds = %2274, %1802, %1793
-  %.482951 = phi i8 [ %.492952, %1802 ], [ %.462949, %2274 ], [ %.462949, %1793 ]
-  %.472897 = phi i8 [ %.482898, %1802 ], [ %.452895, %2274 ], [ %.452895, %1793 ]
-  %.462842 = phi i8 [ %.472843, %1802 ], [ %.442840, %2274 ], [ %.442840, %1793 ]
-  %.452786 = phi i8 [ %.462787, %1802 ], [ %.432784, %2274 ], [ %.432784, %1793 ]
-  %.442729 = phi i8 [ %.452730, %1802 ], [ %.422727, %2274 ], [ %.422727, %1793 ]
-  %.432671 = phi i8 [ %.442672, %1802 ], [ %.412669, %2274 ], [ %.412669, %1793 ]
-  %.422612 = phi i8 [ %.432613, %1802 ], [ %.402610, %2274 ], [ %.402610, %1793 ]
-  %.412552 = phi i8 [ %.422553, %1802 ], [ %.392550, %2274 ], [ %.392550, %1793 ]
-  %.402491 = phi i8 [ %.412492, %1802 ], [ %.382489, %2274 ], [ %.382489, %1793 ]
-  %.392429 = phi i8 [ %.402430, %1802 ], [ %.372427, %2274 ], [ %.372427, %1793 ]
-  %.382366 = phi i8 [ %.392367, %1802 ], [ %.362364, %2274 ], [ %.362364, %1793 ]
-  %.372302 = phi i8 [ %.382303, %1802 ], [ %.352300, %2274 ], [ %.352300, %1793 ]
-  %.362233 = phi i8 [ %.372234, %1802 ], [ %.342231, %2274 ], [ %.342231, %1793 ]
-  %.352167 = phi i8 [ %.362168, %1802 ], [ %.332165, %2274 ], [ %.332165, %1793 ]
-  %.342100 = phi i8 [ %.352101, %1802 ], [ %.322098, %2274 ], [ %.322098, %1793 ]
-  %.332032 = phi i8 [ %.342033, %1802 ], [ %.312030, %2274 ], [ %.312030, %1793 ]
-  %.321963 = phi i8 [ %.331964, %1802 ], [ %.301961, %2274 ], [ %.301961, %1793 ]
-  %.311893 = phi i8 [ %.321894, %1802 ], [ %.291891, %2274 ], [ %.291891, %1793 ]
-  %.301822 = phi i8 [ %.311823, %1802 ], [ %.281820, %2274 ], [ %.281820, %1793 ]
-  %.301750 = phi i8 [ %.311751, %1802 ], [ %.281748, %2274 ], [ %.281748, %1793 ]
-  %.301676 = phi i8 [ %.311677, %1802 ], [ %.281674, %2274 ], [ %.281674, %1793 ]
-  %.311600 = phi i8 [ %.321601, %1802 ], [ %.291598, %2274 ], [ %.291598, %1793 ]
-  %.301557 = phi i8 [ %.311558, %1802 ], [ %.281555, %2274 ], [ %.281555, %1793 ]
+  %.502953 = phi i8 [ %.512954, %1802 ], [ %.482951, %2274 ], [ %.482951, %1793 ]
+  %.492899 = phi i8 [ %.502900, %1802 ], [ %.472897, %2274 ], [ %.472897, %1793 ]
+  %.482844 = phi i8 [ %.492845, %1802 ], [ %.462842, %2274 ], [ %.462842, %1793 ]
+  %.472788 = phi i8 [ %.482789, %1802 ], [ %.452786, %2274 ], [ %.452786, %1793 ]
+  %.462731 = phi i8 [ %.472732, %1802 ], [ %.442729, %2274 ], [ %.442729, %1793 ]
+  %.452673 = phi i8 [ %.462674, %1802 ], [ %.432671, %2274 ], [ %.432671, %1793 ]
+  %.442614 = phi i8 [ %.452615, %1802 ], [ %.422612, %2274 ], [ %.422612, %1793 ]
+  %.432554 = phi i8 [ %.442555, %1802 ], [ %.412552, %2274 ], [ %.412552, %1793 ]
+  %.422493 = phi i8 [ %.432494, %1802 ], [ %.402491, %2274 ], [ %.402491, %1793 ]
+  %.412431 = phi i8 [ %.422432, %1802 ], [ %.392429, %2274 ], [ %.392429, %1793 ]
+  %.402368 = phi i8 [ %.412369, %1802 ], [ %.382366, %2274 ], [ %.382366, %1793 ]
+  %.392304 = phi i8 [ %.402305, %1802 ], [ %.372302, %2274 ], [ %.372302, %1793 ]
+  %.382235 = phi i8 [ %.392236, %1802 ], [ %.362233, %2274 ], [ %.362233, %1793 ]
+  %.372169 = phi i8 [ %.382170, %1802 ], [ %.352167, %2274 ], [ %.352167, %1793 ]
+  %.362102 = phi i8 [ %.372103, %1802 ], [ %.342100, %2274 ], [ %.342100, %1793 ]
+  %.352034 = phi i8 [ %.362035, %1802 ], [ %.332032, %2274 ], [ %.332032, %1793 ]
+  %.341965 = phi i8 [ %.351966, %1802 ], [ %.321963, %2274 ], [ %.321963, %1793 ]
+  %.331895 = phi i8 [ %.341896, %1802 ], [ %.311893, %2274 ], [ %.311893, %1793 ]
+  %.321824 = phi i8 [ %.331825, %1802 ], [ %.301822, %2274 ], [ %.301822, %1793 ]
+  %.321752 = phi i8 [ %.331753, %1802 ], [ %.301750, %2274 ], [ %.301750, %1793 ]
+  %.321678 = phi i8 [ %.331679, %1802 ], [ %.301676, %2274 ], [ %.301676, %1793 ]
+  %.331602 = phi i8 [ %.341603, %1802 ], [ %.311600, %2274 ], [ %.311600, %1793 ]
+  %.321559 = phi i8 [ %.331560, %1802 ], [ %.301557, %2274 ], [ %.301557, %1793 ]
   %.pn3424 = phi { ptr, i32 } [ %1803, %1802 ], [ %.pn3422, %2274 ], [ %.pn3422, %1793 ]
-  %1801 = trunc nuw i8 %.482951 to i1
+  %1801 = trunc nuw i8 %.502953 to i1
   br i1 %1801, label %2275, label %1805
 
 1802:                                             ; preds = %2016, %1799
-  %.492952 = phi i8 [ %.502953, %2016 ], [ %.21794, %1799 ]
-  %.482898 = phi i8 [ %.512901, %2016 ], [ %.21794, %1799 ]
-  %.472843 = phi i8 [ %.522848, %2016 ], [ %.21794, %1799 ]
-  %.462787 = phi i8 [ %.532794, %2016 ], [ %.21794, %1799 ]
-  %.452730 = phi i8 [ %.542739, %2016 ], [ %.21794, %1799 ]
-  %.442672 = phi i8 [ %.552683, %2016 ], [ %.21794, %1799 ]
-  %.432613 = phi i8 [ %.562626, %2016 ], [ %.21794, %1799 ]
-  %.422553 = phi i8 [ %.572568, %2016 ], [ %.21794, %1799 ]
-  %.412492 = phi i8 [ %.582509, %2016 ], [ %.21794, %1799 ]
-  %.402430 = phi i8 [ %.592449, %2016 ], [ %.21794, %1799 ]
-  %.392367 = phi i8 [ %.602388, %2016 ], [ %.21794, %1799 ]
-  %.382303 = phi i8 [ %.612326, %2016 ], [ %.21794, %1799 ]
-  %.372234 = phi i8 [ %.622259, %2016 ], [ %.21794, %1799 ]
-  %.362168 = phi i8 [ %.632195, %2016 ], [ %.21794, %1799 ]
-  %.352101 = phi i8 [ %.642130, %2016 ], [ %.21794, %1799 ]
-  %.342033 = phi i8 [ %.652064, %2016 ], [ %.21794, %1799 ]
-  %.331964 = phi i8 [ %.661997, %2016 ], [ %.21794, %1799 ]
-  %.321894 = phi i8 [ %.671929, %2016 ], [ %.21794, %1799 ]
-  %.311823 = phi i8 [ %.681860, %2016 ], [ %.21794, %1799 ]
-  %.311751 = phi i8 [ %.701790, %2016 ], [ %.21722, %1799 ]
-  %.311677 = phi i8 [ %.721718, %2016 ], [ %.21648, %1799 ]
-  %.321601 = phi i8 [ %.751644, %2016 ], [ %.21529, %1799 ]
-  %.311558 = phi i8 [ %.76, %2016 ], [ %.21529, %1799 ]
+  %.512954 = phi i8 [ %.02903, %2016 ], [ %.21794, %1799 ]
+  %.502900 = phi i8 [ %.02850, %2016 ], [ %.21794, %1799 ]
+  %.492845 = phi i8 [ %.02796, %2016 ], [ %.21794, %1799 ]
+  %.482789 = phi i8 [ %.02741, %2016 ], [ %.21794, %1799 ]
+  %.472732 = phi i8 [ %.02685, %2016 ], [ %.21794, %1799 ]
+  %.462674 = phi i8 [ %.02628, %2016 ], [ %.21794, %1799 ]
+  %.452615 = phi i8 [ %.02570, %2016 ], [ %.21794, %1799 ]
+  %.442555 = phi i8 [ %.02511, %2016 ], [ %.21794, %1799 ]
+  %.432494 = phi i8 [ %.02451, %2016 ], [ %.21794, %1799 ]
+  %.422432 = phi i8 [ %.02390, %2016 ], [ %.21794, %1799 ]
+  %.412369 = phi i8 [ %.02328, %2016 ], [ %.21794, %1799 ]
+  %.402305 = phi i8 [ %.02265, %2016 ], [ %.21794, %1799 ]
+  %.392236 = phi i8 [ %.02197, %2016 ], [ %.21794, %1799 ]
+  %.382170 = phi i8 [ %.02132, %2016 ], [ %.21794, %1799 ]
+  %.372103 = phi i8 [ %.02066, %2016 ], [ %.21794, %1799 ]
+  %.362035 = phi i8 [ %.01999, %2016 ], [ %.21794, %1799 ]
+  %.351966 = phi i8 [ %.01931, %2016 ], [ %.21794, %1799 ]
+  %.341896 = phi i8 [ %.01862, %2016 ], [ %.21794, %1799 ]
+  %.331825 = phi i8 [ %.01792, %2016 ], [ %.21794, %1799 ]
+  %.331753 = phi i8 [ %.01720, %2016 ], [ %.21722, %1799 ]
+  %.331679 = phi i8 [ %.01646, %2016 ], [ %.21648, %1799 ]
+  %.341603 = phi i8 [ %.01569, %2016 ], [ %.21529, %1799 ]
+  %.331560 = phi i8 [ %.01527, %2016 ], [ %.21529, %1799 ]
   %1803 = landingpad { ptr, i32 }
           cleanup
   br label %1800
@@ -92498,55 +92498,55 @@ default.unreachable:                              ; preds = %1375
           to label %1809 unwind label %1807
 
 1805:                                             ; preds = %2275, %1807, %1800
-  %.492899 = phi i8 [ %.502900, %1807 ], [ %.472897, %2275 ], [ %.472897, %1800 ]
-  %.482844 = phi i8 [ %.492845, %1807 ], [ %.462842, %2275 ], [ %.462842, %1800 ]
-  %.472788 = phi i8 [ %.482789, %1807 ], [ %.452786, %2275 ], [ %.452786, %1800 ]
-  %.462731 = phi i8 [ %.472732, %1807 ], [ %.442729, %2275 ], [ %.442729, %1800 ]
-  %.452673 = phi i8 [ %.462674, %1807 ], [ %.432671, %2275 ], [ %.432671, %1800 ]
-  %.442614 = phi i8 [ %.452615, %1807 ], [ %.422612, %2275 ], [ %.422612, %1800 ]
-  %.432554 = phi i8 [ %.442555, %1807 ], [ %.412552, %2275 ], [ %.412552, %1800 ]
-  %.422493 = phi i8 [ %.432494, %1807 ], [ %.402491, %2275 ], [ %.402491, %1800 ]
-  %.412431 = phi i8 [ %.422432, %1807 ], [ %.392429, %2275 ], [ %.392429, %1800 ]
-  %.402368 = phi i8 [ %.412369, %1807 ], [ %.382366, %2275 ], [ %.382366, %1800 ]
-  %.392304 = phi i8 [ %.402305, %1807 ], [ %.372302, %2275 ], [ %.372302, %1800 ]
-  %.382235 = phi i8 [ %.392236, %1807 ], [ %.362233, %2275 ], [ %.362233, %1800 ]
-  %.372169 = phi i8 [ %.382170, %1807 ], [ %.352167, %2275 ], [ %.352167, %1800 ]
-  %.362102 = phi i8 [ %.372103, %1807 ], [ %.342100, %2275 ], [ %.342100, %1800 ]
-  %.352034 = phi i8 [ %.362035, %1807 ], [ %.332032, %2275 ], [ %.332032, %1800 ]
-  %.341965 = phi i8 [ %.351966, %1807 ], [ %.321963, %2275 ], [ %.321963, %1800 ]
-  %.331895 = phi i8 [ %.341896, %1807 ], [ %.311893, %2275 ], [ %.311893, %1800 ]
-  %.321824 = phi i8 [ %.331825, %1807 ], [ %.301822, %2275 ], [ %.301822, %1800 ]
-  %.321752 = phi i8 [ %.331753, %1807 ], [ %.301750, %2275 ], [ %.301750, %1800 ]
-  %.321678 = phi i8 [ %.331679, %1807 ], [ %.301676, %2275 ], [ %.301676, %1800 ]
-  %.331602 = phi i8 [ %.341603, %1807 ], [ %.311600, %2275 ], [ %.311600, %1800 ]
-  %.321559 = phi i8 [ %.331560, %1807 ], [ %.301557, %2275 ], [ %.301557, %1800 ]
+  %.512901 = phi i8 [ %.522902, %1807 ], [ %.492899, %2275 ], [ %.492899, %1800 ]
+  %.502846 = phi i8 [ %.512847, %1807 ], [ %.482844, %2275 ], [ %.482844, %1800 ]
+  %.492790 = phi i8 [ %.502791, %1807 ], [ %.472788, %2275 ], [ %.472788, %1800 ]
+  %.482733 = phi i8 [ %.492734, %1807 ], [ %.462731, %2275 ], [ %.462731, %1800 ]
+  %.472675 = phi i8 [ %.482676, %1807 ], [ %.452673, %2275 ], [ %.452673, %1800 ]
+  %.462616 = phi i8 [ %.472617, %1807 ], [ %.442614, %2275 ], [ %.442614, %1800 ]
+  %.452556 = phi i8 [ %.462557, %1807 ], [ %.432554, %2275 ], [ %.432554, %1800 ]
+  %.442495 = phi i8 [ %.452496, %1807 ], [ %.422493, %2275 ], [ %.422493, %1800 ]
+  %.432433 = phi i8 [ %.442434, %1807 ], [ %.412431, %2275 ], [ %.412431, %1800 ]
+  %.422370 = phi i8 [ %.432371, %1807 ], [ %.402368, %2275 ], [ %.402368, %1800 ]
+  %.412306 = phi i8 [ %.422307, %1807 ], [ %.392304, %2275 ], [ %.392304, %1800 ]
+  %.402237 = phi i8 [ %.412238, %1807 ], [ %.382235, %2275 ], [ %.382235, %1800 ]
+  %.392171 = phi i8 [ %.402172, %1807 ], [ %.372169, %2275 ], [ %.372169, %1800 ]
+  %.382104 = phi i8 [ %.392105, %1807 ], [ %.362102, %2275 ], [ %.362102, %1800 ]
+  %.372036 = phi i8 [ %.382037, %1807 ], [ %.352034, %2275 ], [ %.352034, %1800 ]
+  %.361967 = phi i8 [ %.371968, %1807 ], [ %.341965, %2275 ], [ %.341965, %1800 ]
+  %.351897 = phi i8 [ %.361898, %1807 ], [ %.331895, %2275 ], [ %.331895, %1800 ]
+  %.341826 = phi i8 [ %.351827, %1807 ], [ %.321824, %2275 ], [ %.321824, %1800 ]
+  %.341754 = phi i8 [ %.351755, %1807 ], [ %.321752, %2275 ], [ %.321752, %1800 ]
+  %.341680 = phi i8 [ %.351681, %1807 ], [ %.321678, %2275 ], [ %.321678, %1800 ]
+  %.351604 = phi i8 [ %.361605, %1807 ], [ %.331602, %2275 ], [ %.331602, %1800 ]
+  %.341561 = phi i8 [ %.351562, %1807 ], [ %.321559, %2275 ], [ %.321559, %1800 ]
   %.pn3426 = phi { ptr, i32 } [ %1808, %1807 ], [ %.pn3424, %2275 ], [ %.pn3424, %1800 ]
-  %1806 = trunc nuw i8 %.492899 to i1
+  %1806 = trunc nuw i8 %.512901 to i1
   br i1 %1806, label %2276, label %1810
 
 1807:                                             ; preds = %2019, %1804
-  %.502900 = phi i8 [ %.512901, %2019 ], [ %.21794, %1804 ]
-  %.492845 = phi i8 [ %.522848, %2019 ], [ %.21794, %1804 ]
-  %.482789 = phi i8 [ %.532794, %2019 ], [ %.21794, %1804 ]
-  %.472732 = phi i8 [ %.542739, %2019 ], [ %.21794, %1804 ]
-  %.462674 = phi i8 [ %.552683, %2019 ], [ %.21794, %1804 ]
-  %.452615 = phi i8 [ %.562626, %2019 ], [ %.21794, %1804 ]
-  %.442555 = phi i8 [ %.572568, %2019 ], [ %.21794, %1804 ]
-  %.432494 = phi i8 [ %.582509, %2019 ], [ %.21794, %1804 ]
-  %.422432 = phi i8 [ %.592449, %2019 ], [ %.21794, %1804 ]
-  %.412369 = phi i8 [ %.602388, %2019 ], [ %.21794, %1804 ]
-  %.402305 = phi i8 [ %.612326, %2019 ], [ %.21794, %1804 ]
-  %.392236 = phi i8 [ %.622259, %2019 ], [ %.21794, %1804 ]
-  %.382170 = phi i8 [ %.632195, %2019 ], [ %.21794, %1804 ]
-  %.372103 = phi i8 [ %.642130, %2019 ], [ %.21794, %1804 ]
-  %.362035 = phi i8 [ %.652064, %2019 ], [ %.21794, %1804 ]
-  %.351966 = phi i8 [ %.661997, %2019 ], [ %.21794, %1804 ]
-  %.341896 = phi i8 [ %.671929, %2019 ], [ %.21794, %1804 ]
-  %.331825 = phi i8 [ %.681860, %2019 ], [ %.21794, %1804 ]
-  %.331753 = phi i8 [ %.701790, %2019 ], [ %.21722, %1804 ]
-  %.331679 = phi i8 [ %.721718, %2019 ], [ %.21648, %1804 ]
-  %.341603 = phi i8 [ %.751644, %2019 ], [ %.21529, %1804 ]
-  %.331560 = phi i8 [ %.76, %2019 ], [ %.21529, %1804 ]
+  %.522902 = phi i8 [ %.02850, %2019 ], [ %.21794, %1804 ]
+  %.512847 = phi i8 [ %.02796, %2019 ], [ %.21794, %1804 ]
+  %.502791 = phi i8 [ %.02741, %2019 ], [ %.21794, %1804 ]
+  %.492734 = phi i8 [ %.02685, %2019 ], [ %.21794, %1804 ]
+  %.482676 = phi i8 [ %.02628, %2019 ], [ %.21794, %1804 ]
+  %.472617 = phi i8 [ %.02570, %2019 ], [ %.21794, %1804 ]
+  %.462557 = phi i8 [ %.02511, %2019 ], [ %.21794, %1804 ]
+  %.452496 = phi i8 [ %.02451, %2019 ], [ %.21794, %1804 ]
+  %.442434 = phi i8 [ %.02390, %2019 ], [ %.21794, %1804 ]
+  %.432371 = phi i8 [ %.02328, %2019 ], [ %.21794, %1804 ]
+  %.422307 = phi i8 [ %.02265, %2019 ], [ %.21794, %1804 ]
+  %.412238 = phi i8 [ %.02197, %2019 ], [ %.21794, %1804 ]
+  %.402172 = phi i8 [ %.02132, %2019 ], [ %.21794, %1804 ]
+  %.392105 = phi i8 [ %.02066, %2019 ], [ %.21794, %1804 ]
+  %.382037 = phi i8 [ %.01999, %2019 ], [ %.21794, %1804 ]
+  %.371968 = phi i8 [ %.01931, %2019 ], [ %.21794, %1804 ]
+  %.361898 = phi i8 [ %.01862, %2019 ], [ %.21794, %1804 ]
+  %.351827 = phi i8 [ %.01792, %2019 ], [ %.21794, %1804 ]
+  %.351755 = phi i8 [ %.01720, %2019 ], [ %.21722, %1804 ]
+  %.351681 = phi i8 [ %.01646, %2019 ], [ %.21648, %1804 ]
+  %.361605 = phi i8 [ %.01569, %2019 ], [ %.21529, %1804 ]
+  %.351562 = phi i8 [ %.01527, %2019 ], [ %.21529, %1804 ]
   %1808 = landingpad { ptr, i32 }
           cleanup
   br label %1805
@@ -92557,53 +92557,53 @@ default.unreachable:                              ; preds = %1375
           to label %1814 unwind label %1812
 
 1810:                                             ; preds = %2276, %1812, %1805
-  %.502846 = phi i8 [ %.512847, %1812 ], [ %.482844, %2276 ], [ %.482844, %1805 ]
-  %.492790 = phi i8 [ %.502791, %1812 ], [ %.472788, %2276 ], [ %.472788, %1805 ]
-  %.482733 = phi i8 [ %.492734, %1812 ], [ %.462731, %2276 ], [ %.462731, %1805 ]
-  %.472675 = phi i8 [ %.482676, %1812 ], [ %.452673, %2276 ], [ %.452673, %1805 ]
-  %.462616 = phi i8 [ %.472617, %1812 ], [ %.442614, %2276 ], [ %.442614, %1805 ]
-  %.452556 = phi i8 [ %.462557, %1812 ], [ %.432554, %2276 ], [ %.432554, %1805 ]
-  %.442495 = phi i8 [ %.452496, %1812 ], [ %.422493, %2276 ], [ %.422493, %1805 ]
-  %.432433 = phi i8 [ %.442434, %1812 ], [ %.412431, %2276 ], [ %.412431, %1805 ]
-  %.422370 = phi i8 [ %.432371, %1812 ], [ %.402368, %2276 ], [ %.402368, %1805 ]
-  %.412306 = phi i8 [ %.422307, %1812 ], [ %.392304, %2276 ], [ %.392304, %1805 ]
-  %.402237 = phi i8 [ %.412238, %1812 ], [ %.382235, %2276 ], [ %.382235, %1805 ]
-  %.392171 = phi i8 [ %.402172, %1812 ], [ %.372169, %2276 ], [ %.372169, %1805 ]
-  %.382104 = phi i8 [ %.392105, %1812 ], [ %.362102, %2276 ], [ %.362102, %1805 ]
-  %.372036 = phi i8 [ %.382037, %1812 ], [ %.352034, %2276 ], [ %.352034, %1805 ]
-  %.361967 = phi i8 [ %.371968, %1812 ], [ %.341965, %2276 ], [ %.341965, %1805 ]
-  %.351897 = phi i8 [ %.361898, %1812 ], [ %.331895, %2276 ], [ %.331895, %1805 ]
-  %.341826 = phi i8 [ %.351827, %1812 ], [ %.321824, %2276 ], [ %.321824, %1805 ]
-  %.341754 = phi i8 [ %.351755, %1812 ], [ %.321752, %2276 ], [ %.321752, %1805 ]
-  %.341680 = phi i8 [ %.351681, %1812 ], [ %.321678, %2276 ], [ %.321678, %1805 ]
-  %.351604 = phi i8 [ %.361605, %1812 ], [ %.331602, %2276 ], [ %.331602, %1805 ]
-  %.341561 = phi i8 [ %.351562, %1812 ], [ %.321559, %2276 ], [ %.321559, %1805 ]
+  %.522848 = phi i8 [ %.532849, %1812 ], [ %.502846, %2276 ], [ %.502846, %1805 ]
+  %.512792 = phi i8 [ %.522793, %1812 ], [ %.492790, %2276 ], [ %.492790, %1805 ]
+  %.502735 = phi i8 [ %.512736, %1812 ], [ %.482733, %2276 ], [ %.482733, %1805 ]
+  %.492677 = phi i8 [ %.502678, %1812 ], [ %.472675, %2276 ], [ %.472675, %1805 ]
+  %.482618 = phi i8 [ %.492619, %1812 ], [ %.462616, %2276 ], [ %.462616, %1805 ]
+  %.472558 = phi i8 [ %.482559, %1812 ], [ %.452556, %2276 ], [ %.452556, %1805 ]
+  %.462497 = phi i8 [ %.472498, %1812 ], [ %.442495, %2276 ], [ %.442495, %1805 ]
+  %.452435 = phi i8 [ %.462436, %1812 ], [ %.432433, %2276 ], [ %.432433, %1805 ]
+  %.442372 = phi i8 [ %.452373, %1812 ], [ %.422370, %2276 ], [ %.422370, %1805 ]
+  %.432308 = phi i8 [ %.442309, %1812 ], [ %.412306, %2276 ], [ %.412306, %1805 ]
+  %.422239 = phi i8 [ %.432240, %1812 ], [ %.402237, %2276 ], [ %.402237, %1805 ]
+  %.412173 = phi i8 [ %.422174, %1812 ], [ %.392171, %2276 ], [ %.392171, %1805 ]
+  %.402106 = phi i8 [ %.412107, %1812 ], [ %.382104, %2276 ], [ %.382104, %1805 ]
+  %.392038 = phi i8 [ %.402039, %1812 ], [ %.372036, %2276 ], [ %.372036, %1805 ]
+  %.381969 = phi i8 [ %.391970, %1812 ], [ %.361967, %2276 ], [ %.361967, %1805 ]
+  %.371899 = phi i8 [ %.381900, %1812 ], [ %.351897, %2276 ], [ %.351897, %1805 ]
+  %.361828 = phi i8 [ %.371829, %1812 ], [ %.341826, %2276 ], [ %.341826, %1805 ]
+  %.361756 = phi i8 [ %.371757, %1812 ], [ %.341754, %2276 ], [ %.341754, %1805 ]
+  %.361682 = phi i8 [ %.371683, %1812 ], [ %.341680, %2276 ], [ %.341680, %1805 ]
+  %.371606 = phi i8 [ %.381607, %1812 ], [ %.351604, %2276 ], [ %.351604, %1805 ]
+  %.361563 = phi i8 [ %.371564, %1812 ], [ %.341561, %2276 ], [ %.341561, %1805 ]
   %.pn3428 = phi { ptr, i32 } [ %1813, %1812 ], [ %.pn3426, %2276 ], [ %.pn3426, %1805 ]
-  %1811 = trunc nuw i8 %.502846 to i1
+  %1811 = trunc nuw i8 %.522848 to i1
   br i1 %1811, label %2277, label %1815
 
 1812:                                             ; preds = %2022, %1809
-  %.512847 = phi i8 [ %.21794, %1809 ], [ %.522848, %2022 ]
-  %.502791 = phi i8 [ %.21794, %1809 ], [ %.532794, %2022 ]
-  %.492734 = phi i8 [ %.21794, %1809 ], [ %.542739, %2022 ]
-  %.482676 = phi i8 [ %.21794, %1809 ], [ %.552683, %2022 ]
-  %.472617 = phi i8 [ %.21794, %1809 ], [ %.562626, %2022 ]
-  %.462557 = phi i8 [ %.21794, %1809 ], [ %.572568, %2022 ]
-  %.452496 = phi i8 [ %.21794, %1809 ], [ %.582509, %2022 ]
-  %.442434 = phi i8 [ %.21794, %1809 ], [ %.592449, %2022 ]
-  %.432371 = phi i8 [ %.21794, %1809 ], [ %.602388, %2022 ]
-  %.422307 = phi i8 [ %.21794, %1809 ], [ %.612326, %2022 ]
-  %.412238 = phi i8 [ %.21794, %1809 ], [ %.622259, %2022 ]
-  %.402172 = phi i8 [ %.21794, %1809 ], [ %.632195, %2022 ]
-  %.392105 = phi i8 [ %.21794, %1809 ], [ %.642130, %2022 ]
-  %.382037 = phi i8 [ %.21794, %1809 ], [ %.652064, %2022 ]
-  %.371968 = phi i8 [ %.21794, %1809 ], [ %.661997, %2022 ]
-  %.361898 = phi i8 [ %.21794, %1809 ], [ %.671929, %2022 ]
-  %.351827 = phi i8 [ %.21794, %1809 ], [ %.681860, %2022 ]
-  %.351755 = phi i8 [ %.21722, %1809 ], [ %.701790, %2022 ]
-  %.351681 = phi i8 [ %.21648, %1809 ], [ %.721718, %2022 ]
-  %.361605 = phi i8 [ %.21529, %1809 ], [ %.751644, %2022 ]
-  %.351562 = phi i8 [ %.21529, %1809 ], [ %.76, %2022 ]
+  %.532849 = phi i8 [ %.21794, %1809 ], [ %.02796, %2022 ]
+  %.522793 = phi i8 [ %.21794, %1809 ], [ %.02741, %2022 ]
+  %.512736 = phi i8 [ %.21794, %1809 ], [ %.02685, %2022 ]
+  %.502678 = phi i8 [ %.21794, %1809 ], [ %.02628, %2022 ]
+  %.492619 = phi i8 [ %.21794, %1809 ], [ %.02570, %2022 ]
+  %.482559 = phi i8 [ %.21794, %1809 ], [ %.02511, %2022 ]
+  %.472498 = phi i8 [ %.21794, %1809 ], [ %.02451, %2022 ]
+  %.462436 = phi i8 [ %.21794, %1809 ], [ %.02390, %2022 ]
+  %.452373 = phi i8 [ %.21794, %1809 ], [ %.02328, %2022 ]
+  %.442309 = phi i8 [ %.21794, %1809 ], [ %.02265, %2022 ]
+  %.432240 = phi i8 [ %.21794, %1809 ], [ %.02197, %2022 ]
+  %.422174 = phi i8 [ %.21794, %1809 ], [ %.02132, %2022 ]
+  %.412107 = phi i8 [ %.21794, %1809 ], [ %.02066, %2022 ]
+  %.402039 = phi i8 [ %.21794, %1809 ], [ %.01999, %2022 ]
+  %.391970 = phi i8 [ %.21794, %1809 ], [ %.01931, %2022 ]
+  %.381900 = phi i8 [ %.21794, %1809 ], [ %.01862, %2022 ]
+  %.371829 = phi i8 [ %.21794, %1809 ], [ %.01792, %2022 ]
+  %.371757 = phi i8 [ %.21722, %1809 ], [ %.01720, %2022 ]
+  %.371683 = phi i8 [ %.21648, %1809 ], [ %.01646, %2022 ]
+  %.381607 = phi i8 [ %.21529, %1809 ], [ %.01569, %2022 ]
+  %.371564 = phi i8 [ %.21529, %1809 ], [ %.01527, %2022 ]
   %1813 = landingpad { ptr, i32 }
           cleanup
   br label %1810
@@ -92614,51 +92614,51 @@ default.unreachable:                              ; preds = %1375
           to label %1819 unwind label %1817
 
 1815:                                             ; preds = %2277, %1817, %1810
-  %.512792 = phi i8 [ %.522793, %1817 ], [ %.492790, %2277 ], [ %.492790, %1810 ]
-  %.502735 = phi i8 [ %.512736, %1817 ], [ %.482733, %2277 ], [ %.482733, %1810 ]
-  %.492677 = phi i8 [ %.502678, %1817 ], [ %.472675, %2277 ], [ %.472675, %1810 ]
-  %.482618 = phi i8 [ %.492619, %1817 ], [ %.462616, %2277 ], [ %.462616, %1810 ]
-  %.472558 = phi i8 [ %.482559, %1817 ], [ %.452556, %2277 ], [ %.452556, %1810 ]
-  %.462497 = phi i8 [ %.472498, %1817 ], [ %.442495, %2277 ], [ %.442495, %1810 ]
-  %.452435 = phi i8 [ %.462436, %1817 ], [ %.432433, %2277 ], [ %.432433, %1810 ]
-  %.442372 = phi i8 [ %.452373, %1817 ], [ %.422370, %2277 ], [ %.422370, %1810 ]
-  %.432308 = phi i8 [ %.442309, %1817 ], [ %.412306, %2277 ], [ %.412306, %1810 ]
-  %.422239 = phi i8 [ %.432240, %1817 ], [ %.402237, %2277 ], [ %.402237, %1810 ]
-  %.412173 = phi i8 [ %.422174, %1817 ], [ %.392171, %2277 ], [ %.392171, %1810 ]
-  %.402106 = phi i8 [ %.412107, %1817 ], [ %.382104, %2277 ], [ %.382104, %1810 ]
-  %.392038 = phi i8 [ %.402039, %1817 ], [ %.372036, %2277 ], [ %.372036, %1810 ]
-  %.381969 = phi i8 [ %.391970, %1817 ], [ %.361967, %2277 ], [ %.361967, %1810 ]
-  %.371899 = phi i8 [ %.381900, %1817 ], [ %.351897, %2277 ], [ %.351897, %1810 ]
-  %.361828 = phi i8 [ %.371829, %1817 ], [ %.341826, %2277 ], [ %.341826, %1810 ]
-  %.361756 = phi i8 [ %.371757, %1817 ], [ %.341754, %2277 ], [ %.341754, %1810 ]
-  %.361682 = phi i8 [ %.371683, %1817 ], [ %.341680, %2277 ], [ %.341680, %1810 ]
-  %.371606 = phi i8 [ %.381607, %1817 ], [ %.351604, %2277 ], [ %.351604, %1810 ]
-  %.361563 = phi i8 [ %.371564, %1817 ], [ %.341561, %2277 ], [ %.341561, %1810 ]
+  %.532794 = phi i8 [ %.542795, %1817 ], [ %.512792, %2277 ], [ %.512792, %1810 ]
+  %.522737 = phi i8 [ %.532738, %1817 ], [ %.502735, %2277 ], [ %.502735, %1810 ]
+  %.512679 = phi i8 [ %.522680, %1817 ], [ %.492677, %2277 ], [ %.492677, %1810 ]
+  %.502620 = phi i8 [ %.512621, %1817 ], [ %.482618, %2277 ], [ %.482618, %1810 ]
+  %.492560 = phi i8 [ %.502561, %1817 ], [ %.472558, %2277 ], [ %.472558, %1810 ]
+  %.482499 = phi i8 [ %.492500, %1817 ], [ %.462497, %2277 ], [ %.462497, %1810 ]
+  %.472437 = phi i8 [ %.482438, %1817 ], [ %.452435, %2277 ], [ %.452435, %1810 ]
+  %.462374 = phi i8 [ %.472375, %1817 ], [ %.442372, %2277 ], [ %.442372, %1810 ]
+  %.452310 = phi i8 [ %.462311, %1817 ], [ %.432308, %2277 ], [ %.432308, %1810 ]
+  %.442241 = phi i8 [ %.452242, %1817 ], [ %.422239, %2277 ], [ %.422239, %1810 ]
+  %.432175 = phi i8 [ %.442176, %1817 ], [ %.412173, %2277 ], [ %.412173, %1810 ]
+  %.422108 = phi i8 [ %.432109, %1817 ], [ %.402106, %2277 ], [ %.402106, %1810 ]
+  %.412040 = phi i8 [ %.422041, %1817 ], [ %.392038, %2277 ], [ %.392038, %1810 ]
+  %.401971 = phi i8 [ %.411972, %1817 ], [ %.381969, %2277 ], [ %.381969, %1810 ]
+  %.391901 = phi i8 [ %.401902, %1817 ], [ %.371899, %2277 ], [ %.371899, %1810 ]
+  %.381830 = phi i8 [ %.391831, %1817 ], [ %.361828, %2277 ], [ %.361828, %1810 ]
+  %.381758 = phi i8 [ %.391759, %1817 ], [ %.361756, %2277 ], [ %.361756, %1810 ]
+  %.381684 = phi i8 [ %.391685, %1817 ], [ %.361682, %2277 ], [ %.361682, %1810 ]
+  %.391608 = phi i8 [ %.401609, %1817 ], [ %.371606, %2277 ], [ %.371606, %1810 ]
+  %.381565 = phi i8 [ %.391566, %1817 ], [ %.361563, %2277 ], [ %.361563, %1810 ]
   %.pn3430 = phi { ptr, i32 } [ %1818, %1817 ], [ %.pn3428, %2277 ], [ %.pn3428, %1810 ]
-  %1816 = trunc nuw i8 %.512792 to i1
+  %1816 = trunc nuw i8 %.532794 to i1
   br i1 %1816, label %2278, label %1820
 
 1817:                                             ; preds = %2033, %1814
-  %.522793 = phi i8 [ %.21794, %1814 ], [ %.532794, %2033 ]
-  %.512736 = phi i8 [ %.21794, %1814 ], [ %.542739, %2033 ]
-  %.502678 = phi i8 [ %.21794, %1814 ], [ %.552683, %2033 ]
-  %.492619 = phi i8 [ %.21794, %1814 ], [ %.562626, %2033 ]
-  %.482559 = phi i8 [ %.21794, %1814 ], [ %.572568, %2033 ]
-  %.472498 = phi i8 [ %.21794, %1814 ], [ %.582509, %2033 ]
-  %.462436 = phi i8 [ %.21794, %1814 ], [ %.592449, %2033 ]
-  %.452373 = phi i8 [ %.21794, %1814 ], [ %.602388, %2033 ]
-  %.442309 = phi i8 [ %.21794, %1814 ], [ %.612326, %2033 ]
-  %.432240 = phi i8 [ %.21794, %1814 ], [ %.622259, %2033 ]
-  %.422174 = phi i8 [ %.21794, %1814 ], [ %.632195, %2033 ]
-  %.412107 = phi i8 [ %.21794, %1814 ], [ %.642130, %2033 ]
-  %.402039 = phi i8 [ %.21794, %1814 ], [ %.652064, %2033 ]
-  %.391970 = phi i8 [ %.21794, %1814 ], [ %.661997, %2033 ]
-  %.381900 = phi i8 [ %.21794, %1814 ], [ %.671929, %2033 ]
-  %.371829 = phi i8 [ %.21794, %1814 ], [ %.681860, %2033 ]
-  %.371757 = phi i8 [ %.21722, %1814 ], [ %.701790, %2033 ]
-  %.371683 = phi i8 [ %.21648, %1814 ], [ %.721718, %2033 ]
-  %.381607 = phi i8 [ %.21529, %1814 ], [ %.751644, %2033 ]
-  %.371564 = phi i8 [ %.21529, %1814 ], [ %.76, %2033 ]
+  %.542795 = phi i8 [ %.21794, %1814 ], [ %.02741, %2033 ]
+  %.532738 = phi i8 [ %.21794, %1814 ], [ %.02685, %2033 ]
+  %.522680 = phi i8 [ %.21794, %1814 ], [ %.02628, %2033 ]
+  %.512621 = phi i8 [ %.21794, %1814 ], [ %.02570, %2033 ]
+  %.502561 = phi i8 [ %.21794, %1814 ], [ %.02511, %2033 ]
+  %.492500 = phi i8 [ %.21794, %1814 ], [ %.02451, %2033 ]
+  %.482438 = phi i8 [ %.21794, %1814 ], [ %.02390, %2033 ]
+  %.472375 = phi i8 [ %.21794, %1814 ], [ %.02328, %2033 ]
+  %.462311 = phi i8 [ %.21794, %1814 ], [ %.02265, %2033 ]
+  %.452242 = phi i8 [ %.21794, %1814 ], [ %.02197, %2033 ]
+  %.442176 = phi i8 [ %.21794, %1814 ], [ %.02132, %2033 ]
+  %.432109 = phi i8 [ %.21794, %1814 ], [ %.02066, %2033 ]
+  %.422041 = phi i8 [ %.21794, %1814 ], [ %.01999, %2033 ]
+  %.411972 = phi i8 [ %.21794, %1814 ], [ %.01931, %2033 ]
+  %.401902 = phi i8 [ %.21794, %1814 ], [ %.01862, %2033 ]
+  %.391831 = phi i8 [ %.21794, %1814 ], [ %.01792, %2033 ]
+  %.391759 = phi i8 [ %.21722, %1814 ], [ %.01720, %2033 ]
+  %.391685 = phi i8 [ %.21648, %1814 ], [ %.01646, %2033 ]
+  %.401609 = phi i8 [ %.21529, %1814 ], [ %.01569, %2033 ]
+  %.391566 = phi i8 [ %.21529, %1814 ], [ %.01527, %2033 ]
   %1818 = landingpad { ptr, i32 }
           cleanup
   br label %1815
@@ -92669,49 +92669,49 @@ default.unreachable:                              ; preds = %1375
           to label %1824 unwind label %1822
 
 1820:                                             ; preds = %2278, %1822, %1815
-  %.522737 = phi i8 [ %.532738, %1822 ], [ %.502735, %2278 ], [ %.502735, %1815 ]
-  %.512679 = phi i8 [ %.522680, %1822 ], [ %.492677, %2278 ], [ %.492677, %1815 ]
-  %.502620 = phi i8 [ %.512621, %1822 ], [ %.482618, %2278 ], [ %.482618, %1815 ]
-  %.492560 = phi i8 [ %.502561, %1822 ], [ %.472558, %2278 ], [ %.472558, %1815 ]
-  %.482499 = phi i8 [ %.492500, %1822 ], [ %.462497, %2278 ], [ %.462497, %1815 ]
-  %.472437 = phi i8 [ %.482438, %1822 ], [ %.452435, %2278 ], [ %.452435, %1815 ]
-  %.462374 = phi i8 [ %.472375, %1822 ], [ %.442372, %2278 ], [ %.442372, %1815 ]
-  %.452310 = phi i8 [ %.462311, %1822 ], [ %.432308, %2278 ], [ %.432308, %1815 ]
-  %.442241 = phi i8 [ %.452242, %1822 ], [ %.422239, %2278 ], [ %.422239, %1815 ]
-  %.432175 = phi i8 [ %.442176, %1822 ], [ %.412173, %2278 ], [ %.412173, %1815 ]
-  %.422108 = phi i8 [ %.432109, %1822 ], [ %.402106, %2278 ], [ %.402106, %1815 ]
-  %.412040 = phi i8 [ %.422041, %1822 ], [ %.392038, %2278 ], [ %.392038, %1815 ]
-  %.401971 = phi i8 [ %.411972, %1822 ], [ %.381969, %2278 ], [ %.381969, %1815 ]
-  %.391901 = phi i8 [ %.401902, %1822 ], [ %.371899, %2278 ], [ %.371899, %1815 ]
-  %.381830 = phi i8 [ %.391831, %1822 ], [ %.361828, %2278 ], [ %.361828, %1815 ]
-  %.381758 = phi i8 [ %.391759, %1822 ], [ %.361756, %2278 ], [ %.361756, %1815 ]
-  %.381684 = phi i8 [ %.391685, %1822 ], [ %.361682, %2278 ], [ %.361682, %1815 ]
-  %.391608 = phi i8 [ %.401609, %1822 ], [ %.371606, %2278 ], [ %.371606, %1815 ]
-  %.381565 = phi i8 [ %.391566, %1822 ], [ %.361563, %2278 ], [ %.361563, %1815 ]
+  %.542739 = phi i8 [ %.552740, %1822 ], [ %.522737, %2278 ], [ %.522737, %1815 ]
+  %.532681 = phi i8 [ %.542682, %1822 ], [ %.512679, %2278 ], [ %.512679, %1815 ]
+  %.522622 = phi i8 [ %.532623, %1822 ], [ %.502620, %2278 ], [ %.502620, %1815 ]
+  %.512562 = phi i8 [ %.522563, %1822 ], [ %.492560, %2278 ], [ %.492560, %1815 ]
+  %.502501 = phi i8 [ %.512502, %1822 ], [ %.482499, %2278 ], [ %.482499, %1815 ]
+  %.492439 = phi i8 [ %.502440, %1822 ], [ %.472437, %2278 ], [ %.472437, %1815 ]
+  %.482376 = phi i8 [ %.492377, %1822 ], [ %.462374, %2278 ], [ %.462374, %1815 ]
+  %.472312 = phi i8 [ %.482313, %1822 ], [ %.452310, %2278 ], [ %.452310, %1815 ]
+  %.462243 = phi i8 [ %.472244, %1822 ], [ %.442241, %2278 ], [ %.442241, %1815 ]
+  %.452177 = phi i8 [ %.462178, %1822 ], [ %.432175, %2278 ], [ %.432175, %1815 ]
+  %.442110 = phi i8 [ %.452111, %1822 ], [ %.422108, %2278 ], [ %.422108, %1815 ]
+  %.432042 = phi i8 [ %.442043, %1822 ], [ %.412040, %2278 ], [ %.412040, %1815 ]
+  %.421973 = phi i8 [ %.431974, %1822 ], [ %.401971, %2278 ], [ %.401971, %1815 ]
+  %.411903 = phi i8 [ %.421904, %1822 ], [ %.391901, %2278 ], [ %.391901, %1815 ]
+  %.401832 = phi i8 [ %.411833, %1822 ], [ %.381830, %2278 ], [ %.381830, %1815 ]
+  %.401760 = phi i8 [ %.411761, %1822 ], [ %.381758, %2278 ], [ %.381758, %1815 ]
+  %.401686 = phi i8 [ %.411687, %1822 ], [ %.381684, %2278 ], [ %.381684, %1815 ]
+  %.411610 = phi i8 [ %.421611, %1822 ], [ %.391608, %2278 ], [ %.391608, %1815 ]
+  %.401567 = phi i8 [ %.411568, %1822 ], [ %.381565, %2278 ], [ %.381565, %1815 ]
   %.pn3432 = phi { ptr, i32 } [ %1823, %1822 ], [ %.pn3430, %2278 ], [ %.pn3430, %1815 ]
-  %1821 = trunc nuw i8 %.522737 to i1
+  %1821 = trunc nuw i8 %.542739 to i1
   br i1 %1821, label %2279, label %1825
 
 1822:                                             ; preds = %2044, %1819
-  %.532738 = phi i8 [ %.21794, %1819 ], [ %.542739, %2044 ]
-  %.522680 = phi i8 [ %.21794, %1819 ], [ %.552683, %2044 ]
-  %.512621 = phi i8 [ %.21794, %1819 ], [ %.562626, %2044 ]
-  %.502561 = phi i8 [ %.21794, %1819 ], [ %.572568, %2044 ]
-  %.492500 = phi i8 [ %.21794, %1819 ], [ %.582509, %2044 ]
-  %.482438 = phi i8 [ %.21794, %1819 ], [ %.592449, %2044 ]
-  %.472375 = phi i8 [ %.21794, %1819 ], [ %.602388, %2044 ]
-  %.462311 = phi i8 [ %.21794, %1819 ], [ %.612326, %2044 ]
-  %.452242 = phi i8 [ %.21794, %1819 ], [ %.622259, %2044 ]
-  %.442176 = phi i8 [ %.21794, %1819 ], [ %.632195, %2044 ]
-  %.432109 = phi i8 [ %.21794, %1819 ], [ %.642130, %2044 ]
-  %.422041 = phi i8 [ %.21794, %1819 ], [ %.652064, %2044 ]
-  %.411972 = phi i8 [ %.21794, %1819 ], [ %.661997, %2044 ]
-  %.401902 = phi i8 [ %.21794, %1819 ], [ %.671929, %2044 ]
-  %.391831 = phi i8 [ %.21794, %1819 ], [ %.681860, %2044 ]
-  %.391759 = phi i8 [ %.21722, %1819 ], [ %.701790, %2044 ]
-  %.391685 = phi i8 [ %.21648, %1819 ], [ %.721718, %2044 ]
-  %.401609 = phi i8 [ %.21529, %1819 ], [ %.751644, %2044 ]
-  %.391566 = phi i8 [ %.21529, %1819 ], [ %.76, %2044 ]
+  %.552740 = phi i8 [ %.21794, %1819 ], [ %.02685, %2044 ]
+  %.542682 = phi i8 [ %.21794, %1819 ], [ %.02628, %2044 ]
+  %.532623 = phi i8 [ %.21794, %1819 ], [ %.02570, %2044 ]
+  %.522563 = phi i8 [ %.21794, %1819 ], [ %.02511, %2044 ]
+  %.512502 = phi i8 [ %.21794, %1819 ], [ %.02451, %2044 ]
+  %.502440 = phi i8 [ %.21794, %1819 ], [ %.02390, %2044 ]
+  %.492377 = phi i8 [ %.21794, %1819 ], [ %.02328, %2044 ]
+  %.482313 = phi i8 [ %.21794, %1819 ], [ %.02265, %2044 ]
+  %.472244 = phi i8 [ %.21794, %1819 ], [ %.02197, %2044 ]
+  %.462178 = phi i8 [ %.21794, %1819 ], [ %.02132, %2044 ]
+  %.452111 = phi i8 [ %.21794, %1819 ], [ %.02066, %2044 ]
+  %.442043 = phi i8 [ %.21794, %1819 ], [ %.01999, %2044 ]
+  %.431974 = phi i8 [ %.21794, %1819 ], [ %.01931, %2044 ]
+  %.421904 = phi i8 [ %.21794, %1819 ], [ %.01862, %2044 ]
+  %.411833 = phi i8 [ %.21794, %1819 ], [ %.01792, %2044 ]
+  %.411761 = phi i8 [ %.21722, %1819 ], [ %.01720, %2044 ]
+  %.411687 = phi i8 [ %.21648, %1819 ], [ %.01646, %2044 ]
+  %.421611 = phi i8 [ %.21529, %1819 ], [ %.01569, %2044 ]
+  %.411568 = phi i8 [ %.21529, %1819 ], [ %.01527, %2044 ]
   %1823 = landingpad { ptr, i32 }
           cleanup
   br label %1820
@@ -92722,47 +92722,47 @@ default.unreachable:                              ; preds = %1375
           to label %1829 unwind label %1827
 
 1825:                                             ; preds = %2279, %1827, %1820
-  %.532681 = phi i8 [ %.542682, %1827 ], [ %.512679, %2279 ], [ %.512679, %1820 ]
-  %.522622 = phi i8 [ %.532623, %1827 ], [ %.502620, %2279 ], [ %.502620, %1820 ]
-  %.512562 = phi i8 [ %.522563, %1827 ], [ %.492560, %2279 ], [ %.492560, %1820 ]
-  %.502501 = phi i8 [ %.512502, %1827 ], [ %.482499, %2279 ], [ %.482499, %1820 ]
-  %.492439 = phi i8 [ %.502440, %1827 ], [ %.472437, %2279 ], [ %.472437, %1820 ]
-  %.482376 = phi i8 [ %.492377, %1827 ], [ %.462374, %2279 ], [ %.462374, %1820 ]
-  %.472312 = phi i8 [ %.482313, %1827 ], [ %.452310, %2279 ], [ %.452310, %1820 ]
-  %.462243 = phi i8 [ %.472244, %1827 ], [ %.442241, %2279 ], [ %.442241, %1820 ]
-  %.452177 = phi i8 [ %.462178, %1827 ], [ %.432175, %2279 ], [ %.432175, %1820 ]
-  %.442110 = phi i8 [ %.452111, %1827 ], [ %.422108, %2279 ], [ %.422108, %1820 ]
-  %.432042 = phi i8 [ %.442043, %1827 ], [ %.412040, %2279 ], [ %.412040, %1820 ]
-  %.421973 = phi i8 [ %.431974, %1827 ], [ %.401971, %2279 ], [ %.401971, %1820 ]
-  %.411903 = phi i8 [ %.421904, %1827 ], [ %.391901, %2279 ], [ %.391901, %1820 ]
-  %.401832 = phi i8 [ %.411833, %1827 ], [ %.381830, %2279 ], [ %.381830, %1820 ]
-  %.401760 = phi i8 [ %.411761, %1827 ], [ %.381758, %2279 ], [ %.381758, %1820 ]
-  %.401686 = phi i8 [ %.411687, %1827 ], [ %.381684, %2279 ], [ %.381684, %1820 ]
-  %.411610 = phi i8 [ %.421611, %1827 ], [ %.391608, %2279 ], [ %.391608, %1820 ]
-  %.401567 = phi i8 [ %.411568, %1827 ], [ %.381565, %2279 ], [ %.381565, %1820 ]
+  %.552683 = phi i8 [ %.562684, %1827 ], [ %.532681, %2279 ], [ %.532681, %1820 ]
+  %.542624 = phi i8 [ %.552625, %1827 ], [ %.522622, %2279 ], [ %.522622, %1820 ]
+  %.532564 = phi i8 [ %.542565, %1827 ], [ %.512562, %2279 ], [ %.512562, %1820 ]
+  %.522503 = phi i8 [ %.532504, %1827 ], [ %.502501, %2279 ], [ %.502501, %1820 ]
+  %.512441 = phi i8 [ %.522442, %1827 ], [ %.492439, %2279 ], [ %.492439, %1820 ]
+  %.502378 = phi i8 [ %.512379, %1827 ], [ %.482376, %2279 ], [ %.482376, %1820 ]
+  %.492314 = phi i8 [ %.502315, %1827 ], [ %.472312, %2279 ], [ %.472312, %1820 ]
+  %.482245 = phi i8 [ %.492246, %1827 ], [ %.462243, %2279 ], [ %.462243, %1820 ]
+  %.472179 = phi i8 [ %.482180, %1827 ], [ %.452177, %2279 ], [ %.452177, %1820 ]
+  %.462112 = phi i8 [ %.472113, %1827 ], [ %.442110, %2279 ], [ %.442110, %1820 ]
+  %.452044 = phi i8 [ %.462045, %1827 ], [ %.432042, %2279 ], [ %.432042, %1820 ]
+  %.441975 = phi i8 [ %.451976, %1827 ], [ %.421973, %2279 ], [ %.421973, %1820 ]
+  %.431905 = phi i8 [ %.441906, %1827 ], [ %.411903, %2279 ], [ %.411903, %1820 ]
+  %.421834 = phi i8 [ %.431835, %1827 ], [ %.401832, %2279 ], [ %.401832, %1820 ]
+  %.421762 = phi i8 [ %.431763, %1827 ], [ %.401760, %2279 ], [ %.401760, %1820 ]
+  %.421688 = phi i8 [ %.431689, %1827 ], [ %.401686, %2279 ], [ %.401686, %1820 ]
+  %.431612 = phi i8 [ %.441613, %1827 ], [ %.411610, %2279 ], [ %.411610, %1820 ]
+  %.42 = phi i8 [ %.43, %1827 ], [ %.401567, %2279 ], [ %.401567, %1820 ]
   %.pn3434 = phi { ptr, i32 } [ %1828, %1827 ], [ %.pn3432, %2279 ], [ %.pn3432, %1820 ]
-  %1826 = trunc nuw i8 %.532681 to i1
+  %1826 = trunc nuw i8 %.552683 to i1
   br i1 %1826, label %2280, label %1830
 
 1827:                                             ; preds = %2055, %1824
-  %.542682 = phi i8 [ %.21794, %1824 ], [ %.552683, %2055 ]
-  %.532623 = phi i8 [ %.21794, %1824 ], [ %.562626, %2055 ]
-  %.522563 = phi i8 [ %.21794, %1824 ], [ %.572568, %2055 ]
-  %.512502 = phi i8 [ %.21794, %1824 ], [ %.582509, %2055 ]
-  %.502440 = phi i8 [ %.21794, %1824 ], [ %.592449, %2055 ]
-  %.492377 = phi i8 [ %.21794, %1824 ], [ %.602388, %2055 ]
-  %.482313 = phi i8 [ %.21794, %1824 ], [ %.612326, %2055 ]
-  %.472244 = phi i8 [ %.21794, %1824 ], [ %.622259, %2055 ]
-  %.462178 = phi i8 [ %.21794, %1824 ], [ %.632195, %2055 ]
-  %.452111 = phi i8 [ %.21794, %1824 ], [ %.642130, %2055 ]
-  %.442043 = phi i8 [ %.21794, %1824 ], [ %.652064, %2055 ]
-  %.431974 = phi i8 [ %.21794, %1824 ], [ %.661997, %2055 ]
-  %.421904 = phi i8 [ %.21794, %1824 ], [ %.671929, %2055 ]
-  %.411833 = phi i8 [ %.21794, %1824 ], [ %.681860, %2055 ]
-  %.411761 = phi i8 [ %.21722, %1824 ], [ %.701790, %2055 ]
-  %.411687 = phi i8 [ %.21648, %1824 ], [ %.721718, %2055 ]
-  %.421611 = phi i8 [ %.21529, %1824 ], [ %.751644, %2055 ]
-  %.411568 = phi i8 [ %.21529, %1824 ], [ %.76, %2055 ]
+  %.562684 = phi i8 [ %.21794, %1824 ], [ %.02628, %2055 ]
+  %.552625 = phi i8 [ %.21794, %1824 ], [ %.02570, %2055 ]
+  %.542565 = phi i8 [ %.21794, %1824 ], [ %.02511, %2055 ]
+  %.532504 = phi i8 [ %.21794, %1824 ], [ %.02451, %2055 ]
+  %.522442 = phi i8 [ %.21794, %1824 ], [ %.02390, %2055 ]
+  %.512379 = phi i8 [ %.21794, %1824 ], [ %.02328, %2055 ]
+  %.502315 = phi i8 [ %.21794, %1824 ], [ %.02265, %2055 ]
+  %.492246 = phi i8 [ %.21794, %1824 ], [ %.02197, %2055 ]
+  %.482180 = phi i8 [ %.21794, %1824 ], [ %.02132, %2055 ]
+  %.472113 = phi i8 [ %.21794, %1824 ], [ %.02066, %2055 ]
+  %.462045 = phi i8 [ %.21794, %1824 ], [ %.01999, %2055 ]
+  %.451976 = phi i8 [ %.21794, %1824 ], [ %.01931, %2055 ]
+  %.441906 = phi i8 [ %.21794, %1824 ], [ %.01862, %2055 ]
+  %.431835 = phi i8 [ %.21794, %1824 ], [ %.01792, %2055 ]
+  %.431763 = phi i8 [ %.21722, %1824 ], [ %.01720, %2055 ]
+  %.431689 = phi i8 [ %.21648, %1824 ], [ %.01646, %2055 ]
+  %.441613 = phi i8 [ %.21529, %1824 ], [ %.01569, %2055 ]
+  %.43 = phi i8 [ %.21529, %1824 ], [ %.01527, %2055 ]
   %1828 = landingpad { ptr, i32 }
           cleanup
   br label %1825
@@ -92773,45 +92773,45 @@ default.unreachable:                              ; preds = %1375
           to label %1834 unwind label %1832
 
 1830:                                             ; preds = %2280, %1832, %1825
-  %.542624 = phi i8 [ %.552625, %1832 ], [ %.522622, %2280 ], [ %.522622, %1825 ]
-  %.532564 = phi i8 [ %.542565, %1832 ], [ %.512562, %2280 ], [ %.512562, %1825 ]
-  %.522503 = phi i8 [ %.532504, %1832 ], [ %.502501, %2280 ], [ %.502501, %1825 ]
-  %.512441 = phi i8 [ %.522442, %1832 ], [ %.492439, %2280 ], [ %.492439, %1825 ]
-  %.502378 = phi i8 [ %.512379, %1832 ], [ %.482376, %2280 ], [ %.482376, %1825 ]
-  %.492314 = phi i8 [ %.502315, %1832 ], [ %.472312, %2280 ], [ %.472312, %1825 ]
-  %.482245 = phi i8 [ %.492246, %1832 ], [ %.462243, %2280 ], [ %.462243, %1825 ]
-  %.472179 = phi i8 [ %.482180, %1832 ], [ %.452177, %2280 ], [ %.452177, %1825 ]
-  %.462112 = phi i8 [ %.472113, %1832 ], [ %.442110, %2280 ], [ %.442110, %1825 ]
-  %.452044 = phi i8 [ %.462045, %1832 ], [ %.432042, %2280 ], [ %.432042, %1825 ]
-  %.441975 = phi i8 [ %.451976, %1832 ], [ %.421973, %2280 ], [ %.421973, %1825 ]
-  %.431905 = phi i8 [ %.441906, %1832 ], [ %.411903, %2280 ], [ %.411903, %1825 ]
-  %.421834 = phi i8 [ %.431835, %1832 ], [ %.401832, %2280 ], [ %.401832, %1825 ]
-  %.421762 = phi i8 [ %.431763, %1832 ], [ %.401760, %2280 ], [ %.401760, %1825 ]
-  %.421688 = phi i8 [ %.431689, %1832 ], [ %.401686, %2280 ], [ %.401686, %1825 ]
-  %.431612 = phi i8 [ %.441613, %1832 ], [ %.411610, %2280 ], [ %.411610, %1825 ]
-  %.42 = phi i8 [ %.43, %1832 ], [ %.401567, %2280 ], [ %.401567, %1825 ]
+  %.562626 = phi i8 [ %.572627, %1832 ], [ %.542624, %2280 ], [ %.542624, %1825 ]
+  %.552566 = phi i8 [ %.562567, %1832 ], [ %.532564, %2280 ], [ %.532564, %1825 ]
+  %.542505 = phi i8 [ %.552506, %1832 ], [ %.522503, %2280 ], [ %.522503, %1825 ]
+  %.532443 = phi i8 [ %.542444, %1832 ], [ %.512441, %2280 ], [ %.512441, %1825 ]
+  %.522380 = phi i8 [ %.532381, %1832 ], [ %.502378, %2280 ], [ %.502378, %1825 ]
+  %.512316 = phi i8 [ %.522317, %1832 ], [ %.492314, %2280 ], [ %.492314, %1825 ]
+  %.502247 = phi i8 [ %.512248, %1832 ], [ %.482245, %2280 ], [ %.482245, %1825 ]
+  %.492181 = phi i8 [ %.502182, %1832 ], [ %.472179, %2280 ], [ %.472179, %1825 ]
+  %.482114 = phi i8 [ %.492115, %1832 ], [ %.462112, %2280 ], [ %.462112, %1825 ]
+  %.472046 = phi i8 [ %.482047, %1832 ], [ %.452044, %2280 ], [ %.452044, %1825 ]
+  %.461977 = phi i8 [ %.471978, %1832 ], [ %.441975, %2280 ], [ %.441975, %1825 ]
+  %.451907 = phi i8 [ %.461908, %1832 ], [ %.431905, %2280 ], [ %.431905, %1825 ]
+  %.441836 = phi i8 [ %.451837, %1832 ], [ %.421834, %2280 ], [ %.421834, %1825 ]
+  %.441764 = phi i8 [ %.451765, %1832 ], [ %.421762, %2280 ], [ %.421762, %1825 ]
+  %.441690 = phi i8 [ %.451691, %1832 ], [ %.421688, %2280 ], [ %.421688, %1825 ]
+  %.451614 = phi i8 [ %.461615, %1832 ], [ %.431612, %2280 ], [ %.431612, %1825 ]
+  %.44 = phi i8 [ %.45, %1832 ], [ %.42, %2280 ], [ %.42, %1825 ]
   %.pn3436 = phi { ptr, i32 } [ %1833, %1832 ], [ %.pn3434, %2280 ], [ %.pn3434, %1825 ]
-  %1831 = trunc nuw i8 %.542624 to i1
+  %1831 = trunc nuw i8 %.562626 to i1
   br i1 %1831, label %2281, label %1835
 
 1832:                                             ; preds = %2066, %1829
-  %.552625 = phi i8 [ %.21794, %1829 ], [ %.562626, %2066 ]
-  %.542565 = phi i8 [ %.21794, %1829 ], [ %.572568, %2066 ]
-  %.532504 = phi i8 [ %.21794, %1829 ], [ %.582509, %2066 ]
-  %.522442 = phi i8 [ %.21794, %1829 ], [ %.592449, %2066 ]
-  %.512379 = phi i8 [ %.21794, %1829 ], [ %.602388, %2066 ]
-  %.502315 = phi i8 [ %.21794, %1829 ], [ %.612326, %2066 ]
-  %.492246 = phi i8 [ %.21794, %1829 ], [ %.622259, %2066 ]
-  %.482180 = phi i8 [ %.21794, %1829 ], [ %.632195, %2066 ]
-  %.472113 = phi i8 [ %.21794, %1829 ], [ %.642130, %2066 ]
-  %.462045 = phi i8 [ %.21794, %1829 ], [ %.652064, %2066 ]
-  %.451976 = phi i8 [ %.21794, %1829 ], [ %.661997, %2066 ]
-  %.441906 = phi i8 [ %.21794, %1829 ], [ %.671929, %2066 ]
-  %.431835 = phi i8 [ %.21794, %1829 ], [ %.681860, %2066 ]
-  %.431763 = phi i8 [ %.21722, %1829 ], [ %.701790, %2066 ]
-  %.431689 = phi i8 [ %.21648, %1829 ], [ %.721718, %2066 ]
-  %.441613 = phi i8 [ %.21529, %1829 ], [ %.751644, %2066 ]
-  %.43 = phi i8 [ %.21529, %1829 ], [ %.76, %2066 ]
+  %.572627 = phi i8 [ %.21794, %1829 ], [ %.02570, %2066 ]
+  %.562567 = phi i8 [ %.21794, %1829 ], [ %.02511, %2066 ]
+  %.552506 = phi i8 [ %.21794, %1829 ], [ %.02451, %2066 ]
+  %.542444 = phi i8 [ %.21794, %1829 ], [ %.02390, %2066 ]
+  %.532381 = phi i8 [ %.21794, %1829 ], [ %.02328, %2066 ]
+  %.522317 = phi i8 [ %.21794, %1829 ], [ %.02265, %2066 ]
+  %.512248 = phi i8 [ %.21794, %1829 ], [ %.02197, %2066 ]
+  %.502182 = phi i8 [ %.21794, %1829 ], [ %.02132, %2066 ]
+  %.492115 = phi i8 [ %.21794, %1829 ], [ %.02066, %2066 ]
+  %.482047 = phi i8 [ %.21794, %1829 ], [ %.01999, %2066 ]
+  %.471978 = phi i8 [ %.21794, %1829 ], [ %.01931, %2066 ]
+  %.461908 = phi i8 [ %.21794, %1829 ], [ %.01862, %2066 ]
+  %.451837 = phi i8 [ %.21794, %1829 ], [ %.01792, %2066 ]
+  %.451765 = phi i8 [ %.21722, %1829 ], [ %.01720, %2066 ]
+  %.451691 = phi i8 [ %.21648, %1829 ], [ %.01646, %2066 ]
+  %.461615 = phi i8 [ %.21529, %1829 ], [ %.01569, %2066 ]
+  %.45 = phi i8 [ %.21529, %1829 ], [ %.01527, %2066 ]
   %1833 = landingpad { ptr, i32 }
           cleanup
   br label %1830
@@ -92822,43 +92822,43 @@ default.unreachable:                              ; preds = %1375
           to label %1839 unwind label %1837
 
 1835:                                             ; preds = %2281, %1837, %1830
-  %.552566 = phi i8 [ %.562567, %1837 ], [ %.532564, %2281 ], [ %.532564, %1830 ]
-  %.542505 = phi i8 [ %.552506, %1837 ], [ %.522503, %2281 ], [ %.522503, %1830 ]
-  %.532443 = phi i8 [ %.542444, %1837 ], [ %.512441, %2281 ], [ %.512441, %1830 ]
-  %.522380 = phi i8 [ %.532381, %1837 ], [ %.502378, %2281 ], [ %.502378, %1830 ]
-  %.512316 = phi i8 [ %.522317, %1837 ], [ %.492314, %2281 ], [ %.492314, %1830 ]
-  %.502247 = phi i8 [ %.512248, %1837 ], [ %.482245, %2281 ], [ %.482245, %1830 ]
-  %.492181 = phi i8 [ %.502182, %1837 ], [ %.472179, %2281 ], [ %.472179, %1830 ]
-  %.482114 = phi i8 [ %.492115, %1837 ], [ %.462112, %2281 ], [ %.462112, %1830 ]
-  %.472046 = phi i8 [ %.482047, %1837 ], [ %.452044, %2281 ], [ %.452044, %1830 ]
-  %.461977 = phi i8 [ %.471978, %1837 ], [ %.441975, %2281 ], [ %.441975, %1830 ]
-  %.451907 = phi i8 [ %.461908, %1837 ], [ %.431905, %2281 ], [ %.431905, %1830 ]
-  %.441836 = phi i8 [ %.451837, %1837 ], [ %.421834, %2281 ], [ %.421834, %1830 ]
-  %.441764 = phi i8 [ %.451765, %1837 ], [ %.421762, %2281 ], [ %.421762, %1830 ]
-  %.441690 = phi i8 [ %.451691, %1837 ], [ %.421688, %2281 ], [ %.421688, %1830 ]
-  %.451614 = phi i8 [ %.461615, %1837 ], [ %.431612, %2281 ], [ %.431612, %1830 ]
-  %.44 = phi i8 [ %.45, %1837 ], [ %.42, %2281 ], [ %.42, %1830 ]
+  %.572568 = phi i8 [ %.582569, %1837 ], [ %.552566, %2281 ], [ %.552566, %1830 ]
+  %.562507 = phi i8 [ %.572508, %1837 ], [ %.542505, %2281 ], [ %.542505, %1830 ]
+  %.552445 = phi i8 [ %.562446, %1837 ], [ %.532443, %2281 ], [ %.532443, %1830 ]
+  %.542382 = phi i8 [ %.552383, %1837 ], [ %.522380, %2281 ], [ %.522380, %1830 ]
+  %.532318 = phi i8 [ %.542319, %1837 ], [ %.512316, %2281 ], [ %.512316, %1830 ]
+  %.522249 = phi i8 [ %.532250, %1837 ], [ %.502247, %2281 ], [ %.502247, %1830 ]
+  %.512183 = phi i8 [ %.522184, %1837 ], [ %.492181, %2281 ], [ %.492181, %1830 ]
+  %.502116 = phi i8 [ %.512117, %1837 ], [ %.482114, %2281 ], [ %.482114, %1830 ]
+  %.492048 = phi i8 [ %.502049, %1837 ], [ %.472046, %2281 ], [ %.472046, %1830 ]
+  %.481979 = phi i8 [ %.491980, %1837 ], [ %.461977, %2281 ], [ %.461977, %1830 ]
+  %.471909 = phi i8 [ %.481910, %1837 ], [ %.451907, %2281 ], [ %.451907, %1830 ]
+  %.461838 = phi i8 [ %.471839, %1837 ], [ %.441836, %2281 ], [ %.441836, %1830 ]
+  %.461766 = phi i8 [ %.471767, %1837 ], [ %.441764, %2281 ], [ %.441764, %1830 ]
+  %.461692 = phi i8 [ %.471693, %1837 ], [ %.441690, %2281 ], [ %.441690, %1830 ]
+  %.471616 = phi i8 [ %.481617, %1837 ], [ %.451614, %2281 ], [ %.451614, %1830 ]
+  %.46 = phi i8 [ %.47, %1837 ], [ %.44, %2281 ], [ %.44, %1830 ]
   %.pn3438 = phi { ptr, i32 } [ %1838, %1837 ], [ %.pn3436, %2281 ], [ %.pn3436, %1830 ]
-  %1836 = trunc nuw i8 %.552566 to i1
+  %1836 = trunc nuw i8 %.572568 to i1
   br i1 %1836, label %2282, label %1840
 
 1837:                                             ; preds = %2077, %1834
-  %.562567 = phi i8 [ %.21794, %1834 ], [ %.572568, %2077 ]
-  %.552506 = phi i8 [ %.21794, %1834 ], [ %.582509, %2077 ]
-  %.542444 = phi i8 [ %.21794, %1834 ], [ %.592449, %2077 ]
-  %.532381 = phi i8 [ %.21794, %1834 ], [ %.602388, %2077 ]
-  %.522317 = phi i8 [ %.21794, %1834 ], [ %.612326, %2077 ]
-  %.512248 = phi i8 [ %.21794, %1834 ], [ %.622259, %2077 ]
-  %.502182 = phi i8 [ %.21794, %1834 ], [ %.632195, %2077 ]
-  %.492115 = phi i8 [ %.21794, %1834 ], [ %.642130, %2077 ]
-  %.482047 = phi i8 [ %.21794, %1834 ], [ %.652064, %2077 ]
-  %.471978 = phi i8 [ %.21794, %1834 ], [ %.661997, %2077 ]
-  %.461908 = phi i8 [ %.21794, %1834 ], [ %.671929, %2077 ]
-  %.451837 = phi i8 [ %.21794, %1834 ], [ %.681860, %2077 ]
-  %.451765 = phi i8 [ %.21722, %1834 ], [ %.701790, %2077 ]
-  %.451691 = phi i8 [ %.21648, %1834 ], [ %.721718, %2077 ]
-  %.461615 = phi i8 [ %.21529, %1834 ], [ %.751644, %2077 ]
-  %.45 = phi i8 [ %.21529, %1834 ], [ %.76, %2077 ]
+  %.582569 = phi i8 [ %.21794, %1834 ], [ %.02511, %2077 ]
+  %.572508 = phi i8 [ %.21794, %1834 ], [ %.02451, %2077 ]
+  %.562446 = phi i8 [ %.21794, %1834 ], [ %.02390, %2077 ]
+  %.552383 = phi i8 [ %.21794, %1834 ], [ %.02328, %2077 ]
+  %.542319 = phi i8 [ %.21794, %1834 ], [ %.02265, %2077 ]
+  %.532250 = phi i8 [ %.21794, %1834 ], [ %.02197, %2077 ]
+  %.522184 = phi i8 [ %.21794, %1834 ], [ %.02132, %2077 ]
+  %.512117 = phi i8 [ %.21794, %1834 ], [ %.02066, %2077 ]
+  %.502049 = phi i8 [ %.21794, %1834 ], [ %.01999, %2077 ]
+  %.491980 = phi i8 [ %.21794, %1834 ], [ %.01931, %2077 ]
+  %.481910 = phi i8 [ %.21794, %1834 ], [ %.01862, %2077 ]
+  %.471839 = phi i8 [ %.21794, %1834 ], [ %.01792, %2077 ]
+  %.471767 = phi i8 [ %.21722, %1834 ], [ %.01720, %2077 ]
+  %.471693 = phi i8 [ %.21648, %1834 ], [ %.01646, %2077 ]
+  %.481617 = phi i8 [ %.21529, %1834 ], [ %.01569, %2077 ]
+  %.47 = phi i8 [ %.21529, %1834 ], [ %.01527, %2077 ]
   %1838 = landingpad { ptr, i32 }
           cleanup
   br label %1835
@@ -92869,41 +92869,41 @@ default.unreachable:                              ; preds = %1375
           to label %1844 unwind label %1842
 
 1840:                                             ; preds = %2282, %1842, %1835
-  %.562507 = phi i8 [ %.572508, %1842 ], [ %.542505, %2282 ], [ %.542505, %1835 ]
-  %.552445 = phi i8 [ %.562446, %1842 ], [ %.532443, %2282 ], [ %.532443, %1835 ]
-  %.542382 = phi i8 [ %.552383, %1842 ], [ %.522380, %2282 ], [ %.522380, %1835 ]
-  %.532318 = phi i8 [ %.542319, %1842 ], [ %.512316, %2282 ], [ %.512316, %1835 ]
-  %.522249 = phi i8 [ %.532250, %1842 ], [ %.502247, %2282 ], [ %.502247, %1835 ]
-  %.512183 = phi i8 [ %.522184, %1842 ], [ %.492181, %2282 ], [ %.492181, %1835 ]
-  %.502116 = phi i8 [ %.512117, %1842 ], [ %.482114, %2282 ], [ %.482114, %1835 ]
-  %.492048 = phi i8 [ %.502049, %1842 ], [ %.472046, %2282 ], [ %.472046, %1835 ]
-  %.481979 = phi i8 [ %.491980, %1842 ], [ %.461977, %2282 ], [ %.461977, %1835 ]
-  %.471909 = phi i8 [ %.481910, %1842 ], [ %.451907, %2282 ], [ %.451907, %1835 ]
-  %.461838 = phi i8 [ %.471839, %1842 ], [ %.441836, %2282 ], [ %.441836, %1835 ]
-  %.461766 = phi i8 [ %.471767, %1842 ], [ %.441764, %2282 ], [ %.441764, %1835 ]
-  %.461692 = phi i8 [ %.471693, %1842 ], [ %.441690, %2282 ], [ %.441690, %1835 ]
-  %.471616 = phi i8 [ %.481617, %1842 ], [ %.451614, %2282 ], [ %.451614, %1835 ]
-  %.46 = phi i8 [ %.47, %1842 ], [ %.44, %2282 ], [ %.44, %1835 ]
+  %.582509 = phi i8 [ %.592510, %1842 ], [ %.562507, %2282 ], [ %.562507, %1835 ]
+  %.572447 = phi i8 [ %.582448, %1842 ], [ %.552445, %2282 ], [ %.552445, %1835 ]
+  %.562384 = phi i8 [ %.572385, %1842 ], [ %.542382, %2282 ], [ %.542382, %1835 ]
+  %.552320 = phi i8 [ %.562321, %1842 ], [ %.532318, %2282 ], [ %.532318, %1835 ]
+  %.542251 = phi i8 [ %.552252, %1842 ], [ %.522249, %2282 ], [ %.522249, %1835 ]
+  %.532185 = phi i8 [ %.542186, %1842 ], [ %.512183, %2282 ], [ %.512183, %1835 ]
+  %.522118 = phi i8 [ %.532119, %1842 ], [ %.502116, %2282 ], [ %.502116, %1835 ]
+  %.512050 = phi i8 [ %.522051, %1842 ], [ %.492048, %2282 ], [ %.492048, %1835 ]
+  %.501981 = phi i8 [ %.511982, %1842 ], [ %.481979, %2282 ], [ %.481979, %1835 ]
+  %.491911 = phi i8 [ %.501912, %1842 ], [ %.471909, %2282 ], [ %.471909, %1835 ]
+  %.481840 = phi i8 [ %.491841, %1842 ], [ %.461838, %2282 ], [ %.461838, %1835 ]
+  %.481768 = phi i8 [ %.491769, %1842 ], [ %.461766, %2282 ], [ %.461766, %1835 ]
+  %.481694 = phi i8 [ %.491695, %1842 ], [ %.461692, %2282 ], [ %.461692, %1835 ]
+  %.491618 = phi i8 [ %.501619, %1842 ], [ %.471616, %2282 ], [ %.471616, %1835 ]
+  %.48 = phi i8 [ %.49, %1842 ], [ %.46, %2282 ], [ %.46, %1835 ]
   %.pn3440 = phi { ptr, i32 } [ %1843, %1842 ], [ %.pn3438, %2282 ], [ %.pn3438, %1835 ]
-  %1841 = trunc nuw i8 %.562507 to i1
+  %1841 = trunc nuw i8 %.582509 to i1
   br i1 %1841, label %2283, label %1845
 
 1842:                                             ; preds = %2088, %1839
-  %.572508 = phi i8 [ %.21794, %1839 ], [ %.582509, %2088 ]
-  %.562446 = phi i8 [ %.21794, %1839 ], [ %.592449, %2088 ]
-  %.552383 = phi i8 [ %.21794, %1839 ], [ %.602388, %2088 ]
-  %.542319 = phi i8 [ %.21794, %1839 ], [ %.612326, %2088 ]
-  %.532250 = phi i8 [ %.21794, %1839 ], [ %.622259, %2088 ]
-  %.522184 = phi i8 [ %.21794, %1839 ], [ %.632195, %2088 ]
-  %.512117 = phi i8 [ %.21794, %1839 ], [ %.642130, %2088 ]
-  %.502049 = phi i8 [ %.21794, %1839 ], [ %.652064, %2088 ]
-  %.491980 = phi i8 [ %.21794, %1839 ], [ %.661997, %2088 ]
-  %.481910 = phi i8 [ %.21794, %1839 ], [ %.671929, %2088 ]
-  %.471839 = phi i8 [ %.21794, %1839 ], [ %.681860, %2088 ]
-  %.471767 = phi i8 [ %.21722, %1839 ], [ %.701790, %2088 ]
-  %.471693 = phi i8 [ %.21648, %1839 ], [ %.721718, %2088 ]
-  %.481617 = phi i8 [ %.21529, %1839 ], [ %.751644, %2088 ]
-  %.47 = phi i8 [ %.21529, %1839 ], [ %.76, %2088 ]
+  %.592510 = phi i8 [ %.21794, %1839 ], [ %.02451, %2088 ]
+  %.582448 = phi i8 [ %.21794, %1839 ], [ %.02390, %2088 ]
+  %.572385 = phi i8 [ %.21794, %1839 ], [ %.02328, %2088 ]
+  %.562321 = phi i8 [ %.21794, %1839 ], [ %.02265, %2088 ]
+  %.552252 = phi i8 [ %.21794, %1839 ], [ %.02197, %2088 ]
+  %.542186 = phi i8 [ %.21794, %1839 ], [ %.02132, %2088 ]
+  %.532119 = phi i8 [ %.21794, %1839 ], [ %.02066, %2088 ]
+  %.522051 = phi i8 [ %.21794, %1839 ], [ %.01999, %2088 ]
+  %.511982 = phi i8 [ %.21794, %1839 ], [ %.01931, %2088 ]
+  %.501912 = phi i8 [ %.21794, %1839 ], [ %.01862, %2088 ]
+  %.491841 = phi i8 [ %.21794, %1839 ], [ %.01792, %2088 ]
+  %.491769 = phi i8 [ %.21722, %1839 ], [ %.01720, %2088 ]
+  %.491695 = phi i8 [ %.21648, %1839 ], [ %.01646, %2088 ]
+  %.501619 = phi i8 [ %.21529, %1839 ], [ %.01569, %2088 ]
+  %.49 = phi i8 [ %.21529, %1839 ], [ %.01527, %2088 ]
   %1843 = landingpad { ptr, i32 }
           cleanup
   br label %1840
@@ -92914,39 +92914,39 @@ default.unreachable:                              ; preds = %1375
           to label %1849 unwind label %1847
 
 1845:                                             ; preds = %2283, %1847, %1840
-  %.572447 = phi i8 [ %.582448, %1847 ], [ %.552445, %2283 ], [ %.552445, %1840 ]
-  %.562384 = phi i8 [ %.572385, %1847 ], [ %.542382, %2283 ], [ %.542382, %1840 ]
-  %.552320 = phi i8 [ %.562321, %1847 ], [ %.532318, %2283 ], [ %.532318, %1840 ]
-  %.542251 = phi i8 [ %.552252, %1847 ], [ %.522249, %2283 ], [ %.522249, %1840 ]
-  %.532185 = phi i8 [ %.542186, %1847 ], [ %.512183, %2283 ], [ %.512183, %1840 ]
-  %.522118 = phi i8 [ %.532119, %1847 ], [ %.502116, %2283 ], [ %.502116, %1840 ]
-  %.512050 = phi i8 [ %.522051, %1847 ], [ %.492048, %2283 ], [ %.492048, %1840 ]
-  %.501981 = phi i8 [ %.511982, %1847 ], [ %.481979, %2283 ], [ %.481979, %1840 ]
-  %.491911 = phi i8 [ %.501912, %1847 ], [ %.471909, %2283 ], [ %.471909, %1840 ]
-  %.481840 = phi i8 [ %.491841, %1847 ], [ %.461838, %2283 ], [ %.461838, %1840 ]
-  %.481768 = phi i8 [ %.491769, %1847 ], [ %.461766, %2283 ], [ %.461766, %1840 ]
-  %.481694 = phi i8 [ %.491695, %1847 ], [ %.461692, %2283 ], [ %.461692, %1840 ]
-  %.491618 = phi i8 [ %.501619, %1847 ], [ %.471616, %2283 ], [ %.471616, %1840 ]
-  %.48 = phi i8 [ %.49, %1847 ], [ %.46, %2283 ], [ %.46, %1840 ]
+  %.592449 = phi i8 [ %.602450, %1847 ], [ %.572447, %2283 ], [ %.572447, %1840 ]
+  %.582386 = phi i8 [ %.592387, %1847 ], [ %.562384, %2283 ], [ %.562384, %1840 ]
+  %.572322 = phi i8 [ %.582323, %1847 ], [ %.552320, %2283 ], [ %.552320, %1840 ]
+  %.562253 = phi i8 [ %.572254, %1847 ], [ %.542251, %2283 ], [ %.542251, %1840 ]
+  %.552187 = phi i8 [ %.562188, %1847 ], [ %.532185, %2283 ], [ %.532185, %1840 ]
+  %.542120 = phi i8 [ %.552121, %1847 ], [ %.522118, %2283 ], [ %.522118, %1840 ]
+  %.532052 = phi i8 [ %.542053, %1847 ], [ %.512050, %2283 ], [ %.512050, %1840 ]
+  %.521983 = phi i8 [ %.531984, %1847 ], [ %.501981, %2283 ], [ %.501981, %1840 ]
+  %.511913 = phi i8 [ %.521914, %1847 ], [ %.491911, %2283 ], [ %.491911, %1840 ]
+  %.501842 = phi i8 [ %.511843, %1847 ], [ %.481840, %2283 ], [ %.481840, %1840 ]
+  %.501770 = phi i8 [ %.511771, %1847 ], [ %.481768, %2283 ], [ %.481768, %1840 ]
+  %.501696 = phi i8 [ %.511697, %1847 ], [ %.481694, %2283 ], [ %.481694, %1840 ]
+  %.511620 = phi i8 [ %.521621, %1847 ], [ %.491618, %2283 ], [ %.491618, %1840 ]
+  %.50 = phi i8 [ %.51, %1847 ], [ %.48, %2283 ], [ %.48, %1840 ]
   %.pn3442 = phi { ptr, i32 } [ %1848, %1847 ], [ %.pn3440, %2283 ], [ %.pn3440, %1840 ]
-  %1846 = trunc nuw i8 %.572447 to i1
+  %1846 = trunc nuw i8 %.592449 to i1
   br i1 %1846, label %2284, label %1850
 
 1847:                                             ; preds = %2099, %1844
-  %.582448 = phi i8 [ %.21794, %1844 ], [ %.592449, %2099 ]
-  %.572385 = phi i8 [ %.21794, %1844 ], [ %.602388, %2099 ]
-  %.562321 = phi i8 [ %.21794, %1844 ], [ %.612326, %2099 ]
-  %.552252 = phi i8 [ %.21794, %1844 ], [ %.622259, %2099 ]
-  %.542186 = phi i8 [ %.21794, %1844 ], [ %.632195, %2099 ]
-  %.532119 = phi i8 [ %.21794, %1844 ], [ %.642130, %2099 ]
-  %.522051 = phi i8 [ %.21794, %1844 ], [ %.652064, %2099 ]
-  %.511982 = phi i8 [ %.21794, %1844 ], [ %.661997, %2099 ]
-  %.501912 = phi i8 [ %.21794, %1844 ], [ %.671929, %2099 ]
-  %.491841 = phi i8 [ %.21794, %1844 ], [ %.681860, %2099 ]
-  %.491769 = phi i8 [ %.21722, %1844 ], [ %.701790, %2099 ]
-  %.491695 = phi i8 [ %.21648, %1844 ], [ %.721718, %2099 ]
-  %.501619 = phi i8 [ %.21529, %1844 ], [ %.751644, %2099 ]
-  %.49 = phi i8 [ %.21529, %1844 ], [ %.76, %2099 ]
+  %.602450 = phi i8 [ %.21794, %1844 ], [ %.02390, %2099 ]
+  %.592387 = phi i8 [ %.21794, %1844 ], [ %.02328, %2099 ]
+  %.582323 = phi i8 [ %.21794, %1844 ], [ %.02265, %2099 ]
+  %.572254 = phi i8 [ %.21794, %1844 ], [ %.02197, %2099 ]
+  %.562188 = phi i8 [ %.21794, %1844 ], [ %.02132, %2099 ]
+  %.552121 = phi i8 [ %.21794, %1844 ], [ %.02066, %2099 ]
+  %.542053 = phi i8 [ %.21794, %1844 ], [ %.01999, %2099 ]
+  %.531984 = phi i8 [ %.21794, %1844 ], [ %.01931, %2099 ]
+  %.521914 = phi i8 [ %.21794, %1844 ], [ %.01862, %2099 ]
+  %.511843 = phi i8 [ %.21794, %1844 ], [ %.01792, %2099 ]
+  %.511771 = phi i8 [ %.21722, %1844 ], [ %.01720, %2099 ]
+  %.511697 = phi i8 [ %.21648, %1844 ], [ %.01646, %2099 ]
+  %.521621 = phi i8 [ %.21529, %1844 ], [ %.01569, %2099 ]
+  %.51 = phi i8 [ %.21529, %1844 ], [ %.01527, %2099 ]
   %1848 = landingpad { ptr, i32 }
           cleanup
   br label %1845
@@ -92957,37 +92957,37 @@ default.unreachable:                              ; preds = %1375
           to label %1854 unwind label %1852
 
 1850:                                             ; preds = %2284, %1852, %1845
-  %.582386 = phi i8 [ %.592387, %1852 ], [ %.562384, %2284 ], [ %.562384, %1845 ]
-  %.572322 = phi i8 [ %.582323, %1852 ], [ %.552320, %2284 ], [ %.552320, %1845 ]
-  %.562253 = phi i8 [ %.572254, %1852 ], [ %.542251, %2284 ], [ %.542251, %1845 ]
-  %.552187 = phi i8 [ %.562188, %1852 ], [ %.532185, %2284 ], [ %.532185, %1845 ]
-  %.542120 = phi i8 [ %.552121, %1852 ], [ %.522118, %2284 ], [ %.522118, %1845 ]
-  %.532052 = phi i8 [ %.542053, %1852 ], [ %.512050, %2284 ], [ %.512050, %1845 ]
-  %.521983 = phi i8 [ %.531984, %1852 ], [ %.501981, %2284 ], [ %.501981, %1845 ]
-  %.511913 = phi i8 [ %.521914, %1852 ], [ %.491911, %2284 ], [ %.491911, %1845 ]
-  %.501842 = phi i8 [ %.511843, %1852 ], [ %.481840, %2284 ], [ %.481840, %1845 ]
-  %.501770 = phi i8 [ %.511771, %1852 ], [ %.481768, %2284 ], [ %.481768, %1845 ]
-  %.501696 = phi i8 [ %.511697, %1852 ], [ %.481694, %2284 ], [ %.481694, %1845 ]
-  %.511620 = phi i8 [ %.521621, %1852 ], [ %.491618, %2284 ], [ %.491618, %1845 ]
-  %.50 = phi i8 [ %.51, %1852 ], [ %.48, %2284 ], [ %.48, %1845 ]
+  %.602388 = phi i8 [ %.612389, %1852 ], [ %.582386, %2284 ], [ %.582386, %1845 ]
+  %.592324 = phi i8 [ %.602325, %1852 ], [ %.572322, %2284 ], [ %.572322, %1845 ]
+  %.582255 = phi i8 [ %.592256, %1852 ], [ %.562253, %2284 ], [ %.562253, %1845 ]
+  %.572189 = phi i8 [ %.582190, %1852 ], [ %.552187, %2284 ], [ %.552187, %1845 ]
+  %.562122 = phi i8 [ %.572123, %1852 ], [ %.542120, %2284 ], [ %.542120, %1845 ]
+  %.552054 = phi i8 [ %.562055, %1852 ], [ %.532052, %2284 ], [ %.532052, %1845 ]
+  %.541985 = phi i8 [ %.551986, %1852 ], [ %.521983, %2284 ], [ %.521983, %1845 ]
+  %.531915 = phi i8 [ %.541916, %1852 ], [ %.511913, %2284 ], [ %.511913, %1845 ]
+  %.521844 = phi i8 [ %.531845, %1852 ], [ %.501842, %2284 ], [ %.501842, %1845 ]
+  %.521772 = phi i8 [ %.531773, %1852 ], [ %.501770, %2284 ], [ %.501770, %1845 ]
+  %.521698 = phi i8 [ %.531699, %1852 ], [ %.501696, %2284 ], [ %.501696, %1845 ]
+  %.531622 = phi i8 [ %.541623, %1852 ], [ %.511620, %2284 ], [ %.511620, %1845 ]
+  %.52 = phi i8 [ %.53, %1852 ], [ %.50, %2284 ], [ %.50, %1845 ]
   %.pn3444 = phi { ptr, i32 } [ %1853, %1852 ], [ %.pn3442, %2284 ], [ %.pn3442, %1845 ]
-  %1851 = trunc nuw i8 %.582386 to i1
+  %1851 = trunc nuw i8 %.602388 to i1
   br i1 %1851, label %2285, label %1855
 
 1852:                                             ; preds = %2110, %1849
-  %.592387 = phi i8 [ %.21794, %1849 ], [ %.602388, %2110 ]
-  %.582323 = phi i8 [ %.21794, %1849 ], [ %.612326, %2110 ]
-  %.572254 = phi i8 [ %.21794, %1849 ], [ %.622259, %2110 ]
-  %.562188 = phi i8 [ %.21794, %1849 ], [ %.632195, %2110 ]
-  %.552121 = phi i8 [ %.21794, %1849 ], [ %.642130, %2110 ]
-  %.542053 = phi i8 [ %.21794, %1849 ], [ %.652064, %2110 ]
-  %.531984 = phi i8 [ %.21794, %1849 ], [ %.661997, %2110 ]
-  %.521914 = phi i8 [ %.21794, %1849 ], [ %.671929, %2110 ]
-  %.511843 = phi i8 [ %.21794, %1849 ], [ %.681860, %2110 ]
-  %.511771 = phi i8 [ %.21722, %1849 ], [ %.701790, %2110 ]
-  %.511697 = phi i8 [ %.21648, %1849 ], [ %.721718, %2110 ]
-  %.521621 = phi i8 [ %.21529, %1849 ], [ %.751644, %2110 ]
-  %.51 = phi i8 [ %.21529, %1849 ], [ %.76, %2110 ]
+  %.612389 = phi i8 [ %.21794, %1849 ], [ %.02328, %2110 ]
+  %.602325 = phi i8 [ %.21794, %1849 ], [ %.02265, %2110 ]
+  %.592256 = phi i8 [ %.21794, %1849 ], [ %.02197, %2110 ]
+  %.582190 = phi i8 [ %.21794, %1849 ], [ %.02132, %2110 ]
+  %.572123 = phi i8 [ %.21794, %1849 ], [ %.02066, %2110 ]
+  %.562055 = phi i8 [ %.21794, %1849 ], [ %.01999, %2110 ]
+  %.551986 = phi i8 [ %.21794, %1849 ], [ %.01931, %2110 ]
+  %.541916 = phi i8 [ %.21794, %1849 ], [ %.01862, %2110 ]
+  %.531845 = phi i8 [ %.21794, %1849 ], [ %.01792, %2110 ]
+  %.531773 = phi i8 [ %.21722, %1849 ], [ %.01720, %2110 ]
+  %.531699 = phi i8 [ %.21648, %1849 ], [ %.01646, %2110 ]
+  %.541623 = phi i8 [ %.21529, %1849 ], [ %.01569, %2110 ]
+  %.53 = phi i8 [ %.21529, %1849 ], [ %.01527, %2110 ]
   %1853 = landingpad { ptr, i32 }
           cleanup
   br label %1850
@@ -92998,35 +92998,35 @@ default.unreachable:                              ; preds = %1375
           to label %1859 unwind label %1857
 
 1855:                                             ; preds = %2285, %1857, %1850
-  %.592324 = phi i8 [ %.602325, %1857 ], [ %.572322, %2285 ], [ %.572322, %1850 ]
-  %.582255 = phi i8 [ %.592256, %1857 ], [ %.562253, %2285 ], [ %.562253, %1850 ]
-  %.572189 = phi i8 [ %.582190, %1857 ], [ %.552187, %2285 ], [ %.552187, %1850 ]
-  %.562122 = phi i8 [ %.572123, %1857 ], [ %.542120, %2285 ], [ %.542120, %1850 ]
-  %.552054 = phi i8 [ %.562055, %1857 ], [ %.532052, %2285 ], [ %.532052, %1850 ]
-  %.541985 = phi i8 [ %.551986, %1857 ], [ %.521983, %2285 ], [ %.521983, %1850 ]
-  %.531915 = phi i8 [ %.541916, %1857 ], [ %.511913, %2285 ], [ %.511913, %1850 ]
-  %.521844 = phi i8 [ %.531845, %1857 ], [ %.501842, %2285 ], [ %.501842, %1850 ]
-  %.521772 = phi i8 [ %.531773, %1857 ], [ %.501770, %2285 ], [ %.501770, %1850 ]
-  %.521698 = phi i8 [ %.531699, %1857 ], [ %.501696, %2285 ], [ %.501696, %1850 ]
-  %.531622 = phi i8 [ %.541623, %1857 ], [ %.511620, %2285 ], [ %.511620, %1850 ]
-  %.52 = phi i8 [ %.53, %1857 ], [ %.50, %2285 ], [ %.50, %1850 ]
+  %.612326 = phi i8 [ %.622327, %1857 ], [ %.592324, %2285 ], [ %.592324, %1850 ]
+  %.602257 = phi i8 [ %.612258, %1857 ], [ %.582255, %2285 ], [ %.582255, %1850 ]
+  %.592191 = phi i8 [ %.602192, %1857 ], [ %.572189, %2285 ], [ %.572189, %1850 ]
+  %.582124 = phi i8 [ %.592125, %1857 ], [ %.562122, %2285 ], [ %.562122, %1850 ]
+  %.572056 = phi i8 [ %.582057, %1857 ], [ %.552054, %2285 ], [ %.552054, %1850 ]
+  %.561987 = phi i8 [ %.571988, %1857 ], [ %.541985, %2285 ], [ %.541985, %1850 ]
+  %.551917 = phi i8 [ %.561918, %1857 ], [ %.531915, %2285 ], [ %.531915, %1850 ]
+  %.541846 = phi i8 [ %.551847, %1857 ], [ %.521844, %2285 ], [ %.521844, %1850 ]
+  %.541774 = phi i8 [ %.551775, %1857 ], [ %.521772, %2285 ], [ %.521772, %1850 ]
+  %.541700 = phi i8 [ %.551701, %1857 ], [ %.521698, %2285 ], [ %.521698, %1850 ]
+  %.551624 = phi i8 [ %.561625, %1857 ], [ %.531622, %2285 ], [ %.531622, %1850 ]
+  %.54 = phi i8 [ %.55, %1857 ], [ %.52, %2285 ], [ %.52, %1850 ]
   %.pn3446 = phi { ptr, i32 } [ %1858, %1857 ], [ %.pn3444, %2285 ], [ %.pn3444, %1850 ]
-  %1856 = trunc nuw i8 %.592324 to i1
+  %1856 = trunc nuw i8 %.612326 to i1
   br i1 %1856, label %2286, label %1860
 
 1857:                                             ; preds = %2121, %1854
-  %.602325 = phi i8 [ %.21794, %1854 ], [ %.612326, %2121 ]
-  %.592256 = phi i8 [ %.21794, %1854 ], [ %.622259, %2121 ]
-  %.582190 = phi i8 [ %.21794, %1854 ], [ %.632195, %2121 ]
-  %.572123 = phi i8 [ %.21794, %1854 ], [ %.642130, %2121 ]
-  %.562055 = phi i8 [ %.21794, %1854 ], [ %.652064, %2121 ]
-  %.551986 = phi i8 [ %.21794, %1854 ], [ %.661997, %2121 ]
-  %.541916 = phi i8 [ %.21794, %1854 ], [ %.671929, %2121 ]
-  %.531845 = phi i8 [ %.21794, %1854 ], [ %.681860, %2121 ]
-  %.531773 = phi i8 [ %.21722, %1854 ], [ %.701790, %2121 ]
-  %.531699 = phi i8 [ %.21648, %1854 ], [ %.721718, %2121 ]
-  %.541623 = phi i8 [ %.21529, %1854 ], [ %.751644, %2121 ]
-  %.53 = phi i8 [ %.21529, %1854 ], [ %.76, %2121 ]
+  %.622327 = phi i8 [ %.21794, %1854 ], [ %.02265, %2121 ]
+  %.612258 = phi i8 [ %.21794, %1854 ], [ %.02197, %2121 ]
+  %.602192 = phi i8 [ %.21794, %1854 ], [ %.02132, %2121 ]
+  %.592125 = phi i8 [ %.21794, %1854 ], [ %.02066, %2121 ]
+  %.582057 = phi i8 [ %.21794, %1854 ], [ %.01999, %2121 ]
+  %.571988 = phi i8 [ %.21794, %1854 ], [ %.01931, %2121 ]
+  %.561918 = phi i8 [ %.21794, %1854 ], [ %.01862, %2121 ]
+  %.551847 = phi i8 [ %.21794, %1854 ], [ %.01792, %2121 ]
+  %.551775 = phi i8 [ %.21722, %1854 ], [ %.01720, %2121 ]
+  %.551701 = phi i8 [ %.21648, %1854 ], [ %.01646, %2121 ]
+  %.561625 = phi i8 [ %.21529, %1854 ], [ %.01569, %2121 ]
+  %.55 = phi i8 [ %.21529, %1854 ], [ %.01527, %2121 ]
   %1858 = landingpad { ptr, i32 }
           cleanup
   br label %1855
@@ -93037,33 +93037,33 @@ default.unreachable:                              ; preds = %1375
           to label %1864 unwind label %1862
 
 1860:                                             ; preds = %2286, %1862, %1855
-  %.602257 = phi i8 [ %.612258, %1862 ], [ %.582255, %2286 ], [ %.582255, %1855 ]
-  %.592191 = phi i8 [ %.602192, %1862 ], [ %.572189, %2286 ], [ %.572189, %1855 ]
-  %.582124 = phi i8 [ %.592125, %1862 ], [ %.562122, %2286 ], [ %.562122, %1855 ]
-  %.572056 = phi i8 [ %.582057, %1862 ], [ %.552054, %2286 ], [ %.552054, %1855 ]
-  %.561987 = phi i8 [ %.571988, %1862 ], [ %.541985, %2286 ], [ %.541985, %1855 ]
-  %.551917 = phi i8 [ %.561918, %1862 ], [ %.531915, %2286 ], [ %.531915, %1855 ]
-  %.541846 = phi i8 [ %.551847, %1862 ], [ %.521844, %2286 ], [ %.521844, %1855 ]
-  %.541774 = phi i8 [ %.551775, %1862 ], [ %.521772, %2286 ], [ %.521772, %1855 ]
-  %.541700 = phi i8 [ %.551701, %1862 ], [ %.521698, %2286 ], [ %.521698, %1855 ]
-  %.551624 = phi i8 [ %.561625, %1862 ], [ %.531622, %2286 ], [ %.531622, %1855 ]
-  %.54 = phi i8 [ %.55, %1862 ], [ %.52, %2286 ], [ %.52, %1855 ]
+  %.622259 = phi i8 [ %.632260, %1862 ], [ %.602257, %2286 ], [ %.602257, %1855 ]
+  %.612193 = phi i8 [ %.622194, %1862 ], [ %.592191, %2286 ], [ %.592191, %1855 ]
+  %.602126 = phi i8 [ %.612127, %1862 ], [ %.582124, %2286 ], [ %.582124, %1855 ]
+  %.592058 = phi i8 [ %.602059, %1862 ], [ %.572056, %2286 ], [ %.572056, %1855 ]
+  %.581989 = phi i8 [ %.591990, %1862 ], [ %.561987, %2286 ], [ %.561987, %1855 ]
+  %.571919 = phi i8 [ %.581920, %1862 ], [ %.551917, %2286 ], [ %.551917, %1855 ]
+  %.561848 = phi i8 [ %.571849, %1862 ], [ %.541846, %2286 ], [ %.541846, %1855 ]
+  %.561776 = phi i8 [ %.571777, %1862 ], [ %.541774, %2286 ], [ %.541774, %1855 ]
+  %.561702 = phi i8 [ %.571703, %1862 ], [ %.541700, %2286 ], [ %.541700, %1855 ]
+  %.571626 = phi i8 [ %.581627, %1862 ], [ %.551624, %2286 ], [ %.551624, %1855 ]
+  %.56 = phi i8 [ %.57, %1862 ], [ %.54, %2286 ], [ %.54, %1855 ]
   %.pn3448 = phi { ptr, i32 } [ %1863, %1862 ], [ %.pn3446, %2286 ], [ %.pn3446, %1855 ]
-  %1861 = trunc nuw i8 %.602257 to i1
+  %1861 = trunc nuw i8 %.622259 to i1
   br i1 %1861, label %2287, label %1865
 
 1862:                                             ; preds = %2132, %1859
-  %.612258 = phi i8 [ %.21794, %1859 ], [ %.622259, %2132 ]
-  %.602192 = phi i8 [ %.21794, %1859 ], [ %.632195, %2132 ]
-  %.592125 = phi i8 [ %.21794, %1859 ], [ %.642130, %2132 ]
-  %.582057 = phi i8 [ %.21794, %1859 ], [ %.652064, %2132 ]
-  %.571988 = phi i8 [ %.21794, %1859 ], [ %.661997, %2132 ]
-  %.561918 = phi i8 [ %.21794, %1859 ], [ %.671929, %2132 ]
-  %.551847 = phi i8 [ %.21794, %1859 ], [ %.681860, %2132 ]
-  %.551775 = phi i8 [ %.21722, %1859 ], [ %.701790, %2132 ]
-  %.551701 = phi i8 [ %.21648, %1859 ], [ %.721718, %2132 ]
-  %.561625 = phi i8 [ %.21529, %1859 ], [ %.751644, %2132 ]
-  %.55 = phi i8 [ %.21529, %1859 ], [ %.76, %2132 ]
+  %.632260 = phi i8 [ %.21794, %1859 ], [ %.02197, %2132 ]
+  %.622194 = phi i8 [ %.21794, %1859 ], [ %.02132, %2132 ]
+  %.612127 = phi i8 [ %.21794, %1859 ], [ %.02066, %2132 ]
+  %.602059 = phi i8 [ %.21794, %1859 ], [ %.01999, %2132 ]
+  %.591990 = phi i8 [ %.21794, %1859 ], [ %.01931, %2132 ]
+  %.581920 = phi i8 [ %.21794, %1859 ], [ %.01862, %2132 ]
+  %.571849 = phi i8 [ %.21794, %1859 ], [ %.01792, %2132 ]
+  %.571777 = phi i8 [ %.21722, %1859 ], [ %.01720, %2132 ]
+  %.571703 = phi i8 [ %.21648, %1859 ], [ %.01646, %2132 ]
+  %.581627 = phi i8 [ %.21529, %1859 ], [ %.01569, %2132 ]
+  %.57 = phi i8 [ %.21529, %1859 ], [ %.01527, %2132 ]
   %1863 = landingpad { ptr, i32 }
           cleanup
   br label %1860
@@ -93074,31 +93074,31 @@ default.unreachable:                              ; preds = %1375
           to label %1869 unwind label %1867
 
 1865:                                             ; preds = %2287, %1867, %1860
-  %.612193 = phi i8 [ %.622194, %1867 ], [ %.592191, %2287 ], [ %.592191, %1860 ]
-  %.602126 = phi i8 [ %.612127, %1867 ], [ %.582124, %2287 ], [ %.582124, %1860 ]
-  %.592058 = phi i8 [ %.602059, %1867 ], [ %.572056, %2287 ], [ %.572056, %1860 ]
-  %.581989 = phi i8 [ %.591990, %1867 ], [ %.561987, %2287 ], [ %.561987, %1860 ]
-  %.571919 = phi i8 [ %.581920, %1867 ], [ %.551917, %2287 ], [ %.551917, %1860 ]
-  %.561848 = phi i8 [ %.571849, %1867 ], [ %.541846, %2287 ], [ %.541846, %1860 ]
-  %.561776 = phi i8 [ %.571777, %1867 ], [ %.541774, %2287 ], [ %.541774, %1860 ]
-  %.561702 = phi i8 [ %.571703, %1867 ], [ %.541700, %2287 ], [ %.541700, %1860 ]
-  %.571626 = phi i8 [ %.581627, %1867 ], [ %.551624, %2287 ], [ %.551624, %1860 ]
-  %.56 = phi i8 [ %.57, %1867 ], [ %.54, %2287 ], [ %.54, %1860 ]
+  %.632195 = phi i8 [ %.642196, %1867 ], [ %.612193, %2287 ], [ %.612193, %1860 ]
+  %.622128 = phi i8 [ %.632129, %1867 ], [ %.602126, %2287 ], [ %.602126, %1860 ]
+  %.612060 = phi i8 [ %.622061, %1867 ], [ %.592058, %2287 ], [ %.592058, %1860 ]
+  %.601991 = phi i8 [ %.611992, %1867 ], [ %.581989, %2287 ], [ %.581989, %1860 ]
+  %.591921 = phi i8 [ %.601922, %1867 ], [ %.571919, %2287 ], [ %.571919, %1860 ]
+  %.581850 = phi i8 [ %.591851, %1867 ], [ %.561848, %2287 ], [ %.561848, %1860 ]
+  %.581778 = phi i8 [ %.591779, %1867 ], [ %.561776, %2287 ], [ %.561776, %1860 ]
+  %.581704 = phi i8 [ %.591705, %1867 ], [ %.561702, %2287 ], [ %.561702, %1860 ]
+  %.591628 = phi i8 [ %.601629, %1867 ], [ %.571626, %2287 ], [ %.571626, %1860 ]
+  %.58 = phi i8 [ %.59, %1867 ], [ %.56, %2287 ], [ %.56, %1860 ]
   %.pn3450 = phi { ptr, i32 } [ %1868, %1867 ], [ %.pn3448, %2287 ], [ %.pn3448, %1860 ]
-  %1866 = trunc nuw i8 %.612193 to i1
+  %1866 = trunc nuw i8 %.632195 to i1
   br i1 %1866, label %2288, label %1870
 
 1867:                                             ; preds = %2143, %1864
-  %.622194 = phi i8 [ %.21794, %1864 ], [ %.632195, %2143 ]
-  %.612127 = phi i8 [ %.21794, %1864 ], [ %.642130, %2143 ]
-  %.602059 = phi i8 [ %.21794, %1864 ], [ %.652064, %2143 ]
-  %.591990 = phi i8 [ %.21794, %1864 ], [ %.661997, %2143 ]
-  %.581920 = phi i8 [ %.21794, %1864 ], [ %.671929, %2143 ]
-  %.571849 = phi i8 [ %.21794, %1864 ], [ %.681860, %2143 ]
-  %.571777 = phi i8 [ %.21722, %1864 ], [ %.701790, %2143 ]
-  %.571703 = phi i8 [ %.21648, %1864 ], [ %.721718, %2143 ]
-  %.581627 = phi i8 [ %.21529, %1864 ], [ %.751644, %2143 ]
-  %.57 = phi i8 [ %.21529, %1864 ], [ %.76, %2143 ]
+  %.642196 = phi i8 [ %.21794, %1864 ], [ %.02132, %2143 ]
+  %.632129 = phi i8 [ %.21794, %1864 ], [ %.02066, %2143 ]
+  %.622061 = phi i8 [ %.21794, %1864 ], [ %.01999, %2143 ]
+  %.611992 = phi i8 [ %.21794, %1864 ], [ %.01931, %2143 ]
+  %.601922 = phi i8 [ %.21794, %1864 ], [ %.01862, %2143 ]
+  %.591851 = phi i8 [ %.21794, %1864 ], [ %.01792, %2143 ]
+  %.591779 = phi i8 [ %.21722, %1864 ], [ %.01720, %2143 ]
+  %.591705 = phi i8 [ %.21648, %1864 ], [ %.01646, %2143 ]
+  %.601629 = phi i8 [ %.21529, %1864 ], [ %.01569, %2143 ]
+  %.59 = phi i8 [ %.21529, %1864 ], [ %.01527, %2143 ]
   %1868 = landingpad { ptr, i32 }
           cleanup
   br label %1865
@@ -93109,29 +93109,29 @@ default.unreachable:                              ; preds = %1375
           to label %1874 unwind label %1872
 
 1870:                                             ; preds = %2288, %1872, %1865
-  %.622128 = phi i8 [ %.632129, %1872 ], [ %.602126, %2288 ], [ %.602126, %1865 ]
-  %.612060 = phi i8 [ %.622061, %1872 ], [ %.592058, %2288 ], [ %.592058, %1865 ]
-  %.601991 = phi i8 [ %.611992, %1872 ], [ %.581989, %2288 ], [ %.581989, %1865 ]
-  %.591921 = phi i8 [ %.601922, %1872 ], [ %.571919, %2288 ], [ %.571919, %1865 ]
-  %.581850 = phi i8 [ %.591851, %1872 ], [ %.561848, %2288 ], [ %.561848, %1865 ]
-  %.581778 = phi i8 [ %.591779, %1872 ], [ %.561776, %2288 ], [ %.561776, %1865 ]
-  %.581704 = phi i8 [ %.591705, %1872 ], [ %.561702, %2288 ], [ %.561702, %1865 ]
-  %.591628 = phi i8 [ %.601629, %1872 ], [ %.571626, %2288 ], [ %.571626, %1865 ]
-  %.58 = phi i8 [ %.59, %1872 ], [ %.56, %2288 ], [ %.56, %1865 ]
+  %.642130 = phi i8 [ %.652131, %1872 ], [ %.622128, %2288 ], [ %.622128, %1865 ]
+  %.632062 = phi i8 [ %.642063, %1872 ], [ %.612060, %2288 ], [ %.612060, %1865 ]
+  %.621993 = phi i8 [ %.631994, %1872 ], [ %.601991, %2288 ], [ %.601991, %1865 ]
+  %.611923 = phi i8 [ %.621924, %1872 ], [ %.591921, %2288 ], [ %.591921, %1865 ]
+  %.601852 = phi i8 [ %.611853, %1872 ], [ %.581850, %2288 ], [ %.581850, %1865 ]
+  %.601780 = phi i8 [ %.611781, %1872 ], [ %.581778, %2288 ], [ %.581778, %1865 ]
+  %.601706 = phi i8 [ %.611707, %1872 ], [ %.581704, %2288 ], [ %.581704, %1865 ]
+  %.611630 = phi i8 [ %.621631, %1872 ], [ %.591628, %2288 ], [ %.591628, %1865 ]
+  %.60 = phi i8 [ %.61, %1872 ], [ %.58, %2288 ], [ %.58, %1865 ]
   %.pn3452 = phi { ptr, i32 } [ %1873, %1872 ], [ %.pn3450, %2288 ], [ %.pn3450, %1865 ]
-  %1871 = trunc nuw i8 %.622128 to i1
+  %1871 = trunc nuw i8 %.642130 to i1
   br i1 %1871, label %2289, label %1875
 
 1872:                                             ; preds = %2154, %1869
-  %.632129 = phi i8 [ %.21794, %1869 ], [ %.642130, %2154 ]
-  %.622061 = phi i8 [ %.21794, %1869 ], [ %.652064, %2154 ]
-  %.611992 = phi i8 [ %.21794, %1869 ], [ %.661997, %2154 ]
-  %.601922 = phi i8 [ %.21794, %1869 ], [ %.671929, %2154 ]
-  %.591851 = phi i8 [ %.21794, %1869 ], [ %.681860, %2154 ]
-  %.591779 = phi i8 [ %.21722, %1869 ], [ %.701790, %2154 ]
-  %.591705 = phi i8 [ %.21648, %1869 ], [ %.721718, %2154 ]
-  %.601629 = phi i8 [ %.21529, %1869 ], [ %.751644, %2154 ]
-  %.59 = phi i8 [ %.21529, %1869 ], [ %.76, %2154 ]
+  %.652131 = phi i8 [ %.21794, %1869 ], [ %.02066, %2154 ]
+  %.642063 = phi i8 [ %.21794, %1869 ], [ %.01999, %2154 ]
+  %.631994 = phi i8 [ %.21794, %1869 ], [ %.01931, %2154 ]
+  %.621924 = phi i8 [ %.21794, %1869 ], [ %.01862, %2154 ]
+  %.611853 = phi i8 [ %.21794, %1869 ], [ %.01792, %2154 ]
+  %.611781 = phi i8 [ %.21722, %1869 ], [ %.01720, %2154 ]
+  %.611707 = phi i8 [ %.21648, %1869 ], [ %.01646, %2154 ]
+  %.621631 = phi i8 [ %.21529, %1869 ], [ %.01569, %2154 ]
+  %.61 = phi i8 [ %.21529, %1869 ], [ %.01527, %2154 ]
   %1873 = landingpad { ptr, i32 }
           cleanup
   br label %1870
@@ -93142,27 +93142,27 @@ default.unreachable:                              ; preds = %1375
           to label %1879 unwind label %1877
 
 1875:                                             ; preds = %2289, %1877, %1870
-  %.632062 = phi i8 [ %.642063, %1877 ], [ %.612060, %2289 ], [ %.612060, %1870 ]
-  %.621993 = phi i8 [ %.631994, %1877 ], [ %.601991, %2289 ], [ %.601991, %1870 ]
-  %.611923 = phi i8 [ %.621924, %1877 ], [ %.591921, %2289 ], [ %.591921, %1870 ]
-  %.601852 = phi i8 [ %.611853, %1877 ], [ %.581850, %2289 ], [ %.581850, %1870 ]
-  %.601780 = phi i8 [ %.611781, %1877 ], [ %.581778, %2289 ], [ %.581778, %1870 ]
-  %.601706 = phi i8 [ %.611707, %1877 ], [ %.581704, %2289 ], [ %.581704, %1870 ]
-  %.611630 = phi i8 [ %.621631, %1877 ], [ %.591628, %2289 ], [ %.591628, %1870 ]
-  %.60 = phi i8 [ %.61, %1877 ], [ %.58, %2289 ], [ %.58, %1870 ]
+  %.652064 = phi i8 [ %.662065, %1877 ], [ %.632062, %2289 ], [ %.632062, %1870 ]
+  %.641995 = phi i8 [ %.651996, %1877 ], [ %.621993, %2289 ], [ %.621993, %1870 ]
+  %.631925 = phi i8 [ %.641926, %1877 ], [ %.611923, %2289 ], [ %.611923, %1870 ]
+  %.621854 = phi i8 [ %.631855, %1877 ], [ %.601852, %2289 ], [ %.601852, %1870 ]
+  %.621782 = phi i8 [ %.631783, %1877 ], [ %.601780, %2289 ], [ %.601780, %1870 ]
+  %.621708 = phi i8 [ %.631709, %1877 ], [ %.601706, %2289 ], [ %.601706, %1870 ]
+  %.631632 = phi i8 [ %.641633, %1877 ], [ %.611630, %2289 ], [ %.611630, %1870 ]
+  %.62 = phi i8 [ %.63, %1877 ], [ %.60, %2289 ], [ %.60, %1870 ]
   %.pn3454 = phi { ptr, i32 } [ %1878, %1877 ], [ %.pn3452, %2289 ], [ %.pn3452, %1870 ]
-  %1876 = trunc nuw i8 %.632062 to i1
+  %1876 = trunc nuw i8 %.652064 to i1
   br i1 %1876, label %2290, label %1880
 
 1877:                                             ; preds = %2165, %1874
-  %.642063 = phi i8 [ %.652064, %2165 ], [ %.21794, %1874 ]
-  %.631994 = phi i8 [ %.661997, %2165 ], [ %.21794, %1874 ]
-  %.621924 = phi i8 [ %.671929, %2165 ], [ %.21794, %1874 ]
-  %.611853 = phi i8 [ %.681860, %2165 ], [ %.21794, %1874 ]
-  %.611781 = phi i8 [ %.701790, %2165 ], [ %.21722, %1874 ]
-  %.611707 = phi i8 [ %.721718, %2165 ], [ %.21648, %1874 ]
-  %.621631 = phi i8 [ %.751644, %2165 ], [ %.21529, %1874 ]
-  %.61 = phi i8 [ %.76, %2165 ], [ %.21529, %1874 ]
+  %.662065 = phi i8 [ %.01999, %2165 ], [ %.21794, %1874 ]
+  %.651996 = phi i8 [ %.01931, %2165 ], [ %.21794, %1874 ]
+  %.641926 = phi i8 [ %.01862, %2165 ], [ %.21794, %1874 ]
+  %.631855 = phi i8 [ %.01792, %2165 ], [ %.21794, %1874 ]
+  %.631783 = phi i8 [ %.01720, %2165 ], [ %.21722, %1874 ]
+  %.631709 = phi i8 [ %.01646, %2165 ], [ %.21648, %1874 ]
+  %.641633 = phi i8 [ %.01569, %2165 ], [ %.21529, %1874 ]
+  %.63 = phi i8 [ %.01527, %2165 ], [ %.21529, %1874 ]
   %1878 = landingpad { ptr, i32 }
           cleanup
   br label %1875
@@ -93173,25 +93173,25 @@ default.unreachable:                              ; preds = %1375
           to label %1884 unwind label %1882
 
 1880:                                             ; preds = %2290, %1882, %1875
-  %.641995 = phi i8 [ %.651996, %1882 ], [ %.621993, %2290 ], [ %.621993, %1875 ]
-  %.631925 = phi i8 [ %.641926, %1882 ], [ %.611923, %2290 ], [ %.611923, %1875 ]
-  %.621854 = phi i8 [ %.631855, %1882 ], [ %.601852, %2290 ], [ %.601852, %1875 ]
-  %.621782 = phi i8 [ %.631783, %1882 ], [ %.601780, %2290 ], [ %.601780, %1875 ]
-  %.621708 = phi i8 [ %.631709, %1882 ], [ %.601706, %2290 ], [ %.601706, %1875 ]
-  %.631632 = phi i8 [ %.641633, %1882 ], [ %.611630, %2290 ], [ %.611630, %1875 ]
-  %.62 = phi i8 [ %.63, %1882 ], [ %.60, %2290 ], [ %.60, %1875 ]
+  %.661997 = phi i8 [ %.671998, %1882 ], [ %.641995, %2290 ], [ %.641995, %1875 ]
+  %.651927 = phi i8 [ %.661928, %1882 ], [ %.631925, %2290 ], [ %.631925, %1875 ]
+  %.641856 = phi i8 [ %.651857, %1882 ], [ %.621854, %2290 ], [ %.621854, %1875 ]
+  %.641784 = phi i8 [ %.651785, %1882 ], [ %.621782, %2290 ], [ %.621782, %1875 ]
+  %.641710 = phi i8 [ %.651711, %1882 ], [ %.621708, %2290 ], [ %.621708, %1875 ]
+  %.651634 = phi i8 [ %.661635, %1882 ], [ %.631632, %2290 ], [ %.631632, %1875 ]
+  %.64 = phi i8 [ %.65, %1882 ], [ %.62, %2290 ], [ %.62, %1875 ]
   %.pn3456 = phi { ptr, i32 } [ %1883, %1882 ], [ %.pn3454, %2290 ], [ %.pn3454, %1875 ]
-  %1881 = trunc nuw i8 %.641995 to i1
+  %1881 = trunc nuw i8 %.661997 to i1
   br i1 %1881, label %2291, label %1885
 
 1882:                                             ; preds = %2168, %1879
-  %.651996 = phi i8 [ %.21794, %1879 ], [ %.661997, %2168 ]
-  %.641926 = phi i8 [ %.21794, %1879 ], [ %.671929, %2168 ]
-  %.631855 = phi i8 [ %.21794, %1879 ], [ %.681860, %2168 ]
-  %.631783 = phi i8 [ %.21722, %1879 ], [ %.701790, %2168 ]
-  %.631709 = phi i8 [ %.21648, %1879 ], [ %.721718, %2168 ]
-  %.641633 = phi i8 [ %.21529, %1879 ], [ %.751644, %2168 ]
-  %.63 = phi i8 [ %.21529, %1879 ], [ %.76, %2168 ]
+  %.671998 = phi i8 [ %.21794, %1879 ], [ %.01931, %2168 ]
+  %.661928 = phi i8 [ %.21794, %1879 ], [ %.01862, %2168 ]
+  %.651857 = phi i8 [ %.21794, %1879 ], [ %.01792, %2168 ]
+  %.651785 = phi i8 [ %.21722, %1879 ], [ %.01720, %2168 ]
+  %.651711 = phi i8 [ %.21648, %1879 ], [ %.01646, %2168 ]
+  %.661635 = phi i8 [ %.21529, %1879 ], [ %.01569, %2168 ]
+  %.65 = phi i8 [ %.21529, %1879 ], [ %.01527, %2168 ]
   %1883 = landingpad { ptr, i32 }
           cleanup
   br label %1880
@@ -93202,23 +93202,23 @@ default.unreachable:                              ; preds = %1375
           to label %1890 unwind label %1887
 
 1885:                                             ; preds = %2291, %1887, %1880
-  %.651927 = phi i8 [ %.661928, %1887 ], [ %.631925, %2291 ], [ %.631925, %1880 ]
-  %.641856 = phi i8 [ %.651857, %1887 ], [ %.621854, %2291 ], [ %.621854, %1880 ]
-  %.641784 = phi i8 [ %.651785, %1887 ], [ %.621782, %2291 ], [ %.621782, %1880 ]
-  %.641710 = phi i8 [ %.651711, %1887 ], [ %.621708, %2291 ], [ %.621708, %1880 ]
-  %.651634 = phi i8 [ %.661635, %1887 ], [ %.631632, %2291 ], [ %.631632, %1880 ]
-  %.64 = phi i8 [ %.65, %1887 ], [ %.62, %2291 ], [ %.62, %1880 ]
+  %.671929 = phi i8 [ %.681930, %1887 ], [ %.651927, %2291 ], [ %.651927, %1880 ]
+  %.661858 = phi i8 [ %.671859, %1887 ], [ %.641856, %2291 ], [ %.641856, %1880 ]
+  %.661786 = phi i8 [ %.671787, %1887 ], [ %.641784, %2291 ], [ %.641784, %1880 ]
+  %.661712 = phi i8 [ %.671713, %1887 ], [ %.641710, %2291 ], [ %.641710, %1880 ]
+  %.671636 = phi i8 [ %.681637, %1887 ], [ %.651634, %2291 ], [ %.651634, %1880 ]
+  %.66 = phi i8 [ %.67, %1887 ], [ %.64, %2291 ], [ %.64, %1880 ]
   %.pn3458 = phi { ptr, i32 } [ %1888, %1887 ], [ %.pn3456, %2291 ], [ %.pn3456, %1880 ]
-  %1886 = trunc nuw i8 %.651927 to i1
+  %1886 = trunc nuw i8 %.671929 to i1
   br i1 %1886, label %2292, label %1891
 
 1887:                                             ; preds = %2179, %1884
-  %.661928 = phi i8 [ %.21794, %1884 ], [ %.671929, %2179 ]
-  %.651857 = phi i8 [ %.21794, %1884 ], [ %.681860, %2179 ]
-  %.651785 = phi i8 [ %.21722, %1884 ], [ %.701790, %2179 ]
-  %.651711 = phi i8 [ %.21648, %1884 ], [ %.721718, %2179 ]
-  %.661635 = phi i8 [ %.21529, %1884 ], [ %.751644, %2179 ]
-  %.65 = phi i8 [ %.21529, %1884 ], [ %.76, %2179 ]
+  %.681930 = phi i8 [ %.21794, %1884 ], [ %.01862, %2179 ]
+  %.671859 = phi i8 [ %.21794, %1884 ], [ %.01792, %2179 ]
+  %.671787 = phi i8 [ %.21722, %1884 ], [ %.01720, %2179 ]
+  %.671713 = phi i8 [ %.21648, %1884 ], [ %.01646, %2179 ]
+  %.681637 = phi i8 [ %.21529, %1884 ], [ %.01569, %2179 ]
+  %.67 = phi i8 [ %.21529, %1884 ], [ %.01527, %2179 ]
   %1888 = landingpad { ptr, i32 }
           cleanup
   br label %1885
@@ -93250,21 +93250,21 @@ default.unreachable:                              ; preds = %1375
           to label %1897 unwind label %1893
 
 1891:                                             ; preds = %2292, %1893, %1885
-  %.661858 = phi i8 [ %.671859, %1893 ], [ %.641856, %2292 ], [ %.641856, %1885 ]
-  %.661786 = phi i8 [ %.671787, %1893 ], [ %.641784, %2292 ], [ %.641784, %1885 ]
-  %.661712 = phi i8 [ %.671713, %1893 ], [ %.641710, %2292 ], [ %.641710, %1885 ]
-  %.671636 = phi i8 [ %.681637, %1893 ], [ %.651634, %2292 ], [ %.651634, %1885 ]
-  %.66 = phi i8 [ %.67, %1893 ], [ %.64, %2292 ], [ %.64, %1885 ]
+  %.681860 = phi i8 [ %.691861, %1893 ], [ %.661858, %2292 ], [ %.661858, %1885 ]
+  %.681788 = phi i8 [ %.691789, %1893 ], [ %.661786, %2292 ], [ %.661786, %1885 ]
+  %.681714 = phi i8 [ %.691715, %1893 ], [ %.661712, %2292 ], [ %.661712, %1885 ]
+  %.691638 = phi i8 [ %.701639, %1893 ], [ %.671636, %2292 ], [ %.671636, %1885 ]
+  %.68 = phi i8 [ %.69, %1893 ], [ %.66, %2292 ], [ %.66, %1885 ]
   %.pn3460 = phi { ptr, i32 } [ %1894, %1893 ], [ %.pn3458, %2292 ], [ %.pn3458, %1885 ]
-  %1892 = trunc nuw i8 %.661858 to i1
+  %1892 = trunc nuw i8 %.681860 to i1
   br i1 %1892, label %2293, label %1898
 
 1893:                                             ; preds = %2190, %1890
-  %.671859 = phi i8 [ %.21794, %1890 ], [ %.681860, %2190 ]
-  %.671787 = phi i8 [ %.21722, %1890 ], [ %.701790, %2190 ]
-  %.671713 = phi i8 [ %.21648, %1890 ], [ %.721718, %2190 ]
-  %.681637 = phi i8 [ %.21529, %1890 ], [ %.751644, %2190 ]
-  %.67 = phi i8 [ %.21529, %1890 ], [ %.76, %2190 ]
+  %.691861 = phi i8 [ %.21794, %1890 ], [ %.01792, %2190 ]
+  %.691789 = phi i8 [ %.21722, %1890 ], [ %.01720, %2190 ]
+  %.691715 = phi i8 [ %.21648, %1890 ], [ %.01646, %2190 ]
+  %.701639 = phi i8 [ %.21529, %1890 ], [ %.01569, %2190 ]
+  %.69 = phi i8 [ %.21529, %1890 ], [ %.01527, %2190 ]
   %1894 = landingpad { ptr, i32 }
           cleanup
   br label %1891
@@ -93280,19 +93280,19 @@ default.unreachable:                              ; preds = %1375
           to label %1895 unwind label %1900
 
 1898:                                             ; preds = %2293, %1900, %1891
-  %.681788 = phi i8 [ %.691789, %1900 ], [ %.661786, %2293 ], [ %.661786, %1891 ]
-  %.681714 = phi i8 [ %.691715, %1900 ], [ %.661712, %2293 ], [ %.661712, %1891 ]
-  %.691638 = phi i8 [ %.701639, %1900 ], [ %.671636, %2293 ], [ %.671636, %1891 ]
-  %.68 = phi i8 [ %.69, %1900 ], [ %.66, %2293 ], [ %.66, %1891 ]
+  %.701790 = phi i8 [ %.711791, %1900 ], [ %.681788, %2293 ], [ %.681788, %1891 ]
+  %.701716 = phi i8 [ %.711717, %1900 ], [ %.681714, %2293 ], [ %.681714, %1891 ]
+  %.711640 = phi i8 [ %.721641, %1900 ], [ %.691638, %2293 ], [ %.691638, %1891 ]
+  %.70 = phi i8 [ %.71, %1900 ], [ %.68, %2293 ], [ %.68, %1891 ]
   %.pn3462 = phi { ptr, i32 } [ %1901, %1900 ], [ %.pn3460, %2293 ], [ %.pn3460, %1891 ]
-  %1899 = trunc nuw i8 %.681788 to i1
+  %1899 = trunc nuw i8 %.701790 to i1
   br i1 %1899, label %2294, label %1905
 
 1900:                                             ; preds = %2201, %1897
-  %.691789 = phi i8 [ %.21722, %1897 ], [ %.701790, %2201 ]
-  %.691715 = phi i8 [ %.21648, %1897 ], [ %.721718, %2201 ]
-  %.701639 = phi i8 [ %.21529, %1897 ], [ %.751644, %2201 ]
-  %.69 = phi i8 [ %.21529, %1897 ], [ %.76, %2201 ]
+  %.711791 = phi i8 [ %.21722, %1897 ], [ %.01720, %2201 ]
+  %.711717 = phi i8 [ %.21648, %1897 ], [ %.01646, %2201 ]
+  %.721641 = phi i8 [ %.21529, %1897 ], [ %.01569, %2201 ]
+  %.71 = phi i8 [ %.21529, %1897 ], [ %.01527, %2201 ]
   %1901 = landingpad { ptr, i32 }
           cleanup
   br label %1898
@@ -93307,17 +93307,17 @@ default.unreachable:                              ; preds = %1375
           to label %1902 unwind label %1907
 
 1905:                                             ; preds = %2294, %1907, %1898
-  %.701716 = phi i8 [ %.711717, %1907 ], [ %.681714, %2294 ], [ %.681714, %1898 ]
-  %.711640 = phi i8 [ %.721641, %1907 ], [ %.691638, %2294 ], [ %.691638, %1898 ]
-  %.70 = phi i8 [ %.71, %1907 ], [ %.68, %2294 ], [ %.68, %1898 ]
+  %.721718 = phi i8 [ %.731719, %1907 ], [ %.701716, %2294 ], [ %.701716, %1898 ]
+  %.731642 = phi i8 [ %.741643, %1907 ], [ %.711640, %2294 ], [ %.711640, %1898 ]
+  %.72 = phi i8 [ %.73, %1907 ], [ %.70, %2294 ], [ %.70, %1898 ]
   %.pn3464 = phi { ptr, i32 } [ %1908, %1907 ], [ %.pn3462, %2294 ], [ %.pn3462, %1898 ]
-  %1906 = trunc nuw i8 %.701716 to i1
+  %1906 = trunc nuw i8 %.721718 to i1
   br i1 %1906, label %2295, label %1912
 
 1907:                                             ; preds = %2212, %1904
-  %.711717 = phi i8 [ %.21648, %1904 ], [ %.721718, %2212 ]
-  %.721641 = phi i8 [ %.21529, %1904 ], [ %.751644, %2212 ]
-  %.71 = phi i8 [ %.21529, %1904 ], [ %.76, %2212 ]
+  %.731719 = phi i8 [ %.21648, %1904 ], [ %.01646, %2212 ]
+  %.741643 = phi i8 [ %.21529, %1904 ], [ %.01569, %2212 ]
+  %.73 = phi i8 [ %.21529, %1904 ], [ %.01527, %2212 ]
   %1908 = landingpad { ptr, i32 }
           cleanup
   br label %1905
@@ -93332,15 +93332,15 @@ default.unreachable:                              ; preds = %1375
           to label %1909 unwind label %1914
 
 1912:                                             ; preds = %2295, %1914, %1905
-  %.731642 = phi i8 [ %.741643, %1914 ], [ %.711640, %2295 ], [ %.711640, %1905 ]
-  %.72 = phi i8 [ %.73, %1914 ], [ %.70, %2295 ], [ %.70, %1905 ]
+  %.751644 = phi i8 [ %.761645, %1914 ], [ %.731642, %2295 ], [ %.731642, %1905 ]
+  %.74 = phi i8 [ %.75, %1914 ], [ %.72, %2295 ], [ %.72, %1905 ]
   %.pn3466 = phi { ptr, i32 } [ %1915, %1914 ], [ %.pn3464, %2295 ], [ %.pn3464, %1905 ]
-  %1913 = trunc nuw i8 %.731642 to i1
+  %1913 = trunc nuw i8 %.751644 to i1
   br i1 %1913, label %2296, label %1918
 
 1914:                                             ; preds = %2223, %1911
-  %.741643 = phi i8 [ %.21529, %1911 ], [ %.751644, %2223 ]
-  %.73 = phi i8 [ %.21529, %1911 ], [ %.76, %2223 ]
+  %.761645 = phi i8 [ %.21529, %1911 ], [ %.01569, %2223 ]
+  %.75 = phi i8 [ %.21529, %1911 ], [ %.01527, %2223 ]
   %1915 = landingpad { ptr, i32 }
           cleanup
   br label %1912
@@ -93354,13 +93354,13 @@ default.unreachable:                              ; preds = %1375
           to label %1923 unwind label %1920
 
 1918:                                             ; preds = %2296, %1920, %1912
-  %.74 = phi i8 [ %.75, %1920 ], [ %.72, %2296 ], [ %.72, %1912 ]
+  %.76 = phi i8 [ %.77, %1920 ], [ %.74, %2296 ], [ %.74, %1912 ]
   %.pn3468 = phi { ptr, i32 } [ %1921, %1920 ], [ %.pn3466, %2296 ], [ %.pn3466, %1912 ]
-  %1919 = trunc nuw i8 %.74 to i1
+  %1919 = trunc nuw i8 %.76 to i1
   br i1 %1919, label %2297, label %1924
 
 1920:                                             ; preds = %2234, %1917
-  %.75 = phi i8 [ %.21529, %1917 ], [ %.76, %2234 ]
+  %.77 = phi i8 [ %.21529, %1917 ], [ %.01527, %2234 ]
   %1921 = landingpad { ptr, i32 }
           cleanup
   br label %1918
@@ -93416,41 +93416,41 @@ default.unreachable:                              ; preds = %1375
   br label %1410
 
 1933:                                             ; preds = %1410, %1376
-  %.63219 = phi i8 [ %.33216, %1410 ], [ 1, %1376 ]
-  %.73211 = phi i8 [ %.33207, %1410 ], [ 1, %1376 ]
-  %.83202 = phi i8 [ %.33197, %1410 ], [ 1, %1376 ]
-  %.103192 = phi i8 [ %.33185, %1410 ], [ 1, %1376 ]
-  %.143171 = phi i8 [ %.33160, %1410 ], [ 1, %1376 ]
-  %.213142 = phi i8 [ %.33124, %1410 ], [ 1, %1376 ]
-  %.223119 = phi i8 [ %.33100, %1410 ], [ 1, %1376 ]
-  %.233095 = phi i8 [ %.33075, %1410 ], [ 1, %1376 ]
-  %.243070 = phi i8 [ %.33049, %1410 ], [ 1, %1376 ]
-  %.273044 = phi i8 [ %.33020, %1410 ], [ 1, %1376 ]
-  %.283015 = phi i8 [ %.32990, %1410 ], [ 1, %1376 ]
-  %.302985 = phi i8 [ %.32958, %1410 ], [ 1, %1376 ]
-  %.502953 = phi i8 [ %.32906, %1410 ], [ 1, %1376 ]
-  %.512901 = phi i8 [ %.32853, %1410 ], [ 1, %1376 ]
-  %.522848 = phi i8 [ %.32799, %1410 ], [ 1, %1376 ]
-  %.532794 = phi i8 [ %.32744, %1410 ], [ 1, %1376 ]
-  %.542739 = phi i8 [ %.32688, %1410 ], [ 1, %1376 ]
-  %.552683 = phi i8 [ %.32631, %1410 ], [ 1, %1376 ]
-  %.562626 = phi i8 [ %.32573, %1410 ], [ 1, %1376 ]
-  %.572568 = phi i8 [ %.32514, %1410 ], [ 1, %1376 ]
-  %.582509 = phi i8 [ %.32454, %1410 ], [ 1, %1376 ]
-  %.592449 = phi i8 [ %.32393, %1410 ], [ 1, %1376 ]
-  %.602388 = phi i8 [ %.32331, %1410 ], [ 1, %1376 ]
-  %.612326 = phi i8 [ %.32268, %1410 ], [ 1, %1376 ]
-  %.622259 = phi i8 [ %.32200, %1410 ], [ 1, %1376 ]
-  %.632195 = phi i8 [ %.32135, %1410 ], [ 1, %1376 ]
-  %.642130 = phi i8 [ %.32069, %1410 ], [ 1, %1376 ]
-  %.652064 = phi i8 [ %.32002, %1410 ], [ 1, %1376 ]
-  %.661997 = phi i8 [ %.31934, %1410 ], [ 1, %1376 ]
-  %.671929 = phi i8 [ %.31865, %1410 ], [ 1, %1376 ]
-  %.681860 = phi i8 [ %.31795, %1410 ], [ 1, %1376 ]
-  %.701790 = phi i8 [ %.31723, %1410 ], [ 1, %1376 ]
-  %.721718 = phi i8 [ %.31649, %1410 ], [ 1, %1376 ]
-  %.751644 = phi i8 [ %.41573, %1410 ], [ 1, %1376 ]
-  %.76 = phi i8 [ %.31530, %1410 ], [ 1, %1376 ]
+  %.03213 = phi i8 [ %.53218, %1410 ], [ 1, %1376 ]
+  %.03204 = phi i8 [ %.53209, %1410 ], [ 1, %1376 ]
+  %.03194 = phi i8 [ %.53199, %1410 ], [ 1, %1376 ]
+  %.03182 = phi i8 [ %.53187, %1410 ], [ 1, %1376 ]
+  %.03157 = phi i8 [ %.53162, %1410 ], [ 1, %1376 ]
+  %.03121 = phi i8 [ %.53126, %1410 ], [ 1, %1376 ]
+  %.03097 = phi i8 [ %.53102, %1410 ], [ 1, %1376 ]
+  %.03072 = phi i8 [ %.53077, %1410 ], [ 1, %1376 ]
+  %.03046 = phi i8 [ %.53051, %1410 ], [ 1, %1376 ]
+  %.03017 = phi i8 [ %.53022, %1410 ], [ 1, %1376 ]
+  %.02987 = phi i8 [ %.52992, %1410 ], [ 1, %1376 ]
+  %.02955 = phi i8 [ %.52960, %1410 ], [ 1, %1376 ]
+  %.02903 = phi i8 [ %.52908, %1410 ], [ 1, %1376 ]
+  %.02850 = phi i8 [ %.52855, %1410 ], [ 1, %1376 ]
+  %.02796 = phi i8 [ %.52801, %1410 ], [ 1, %1376 ]
+  %.02741 = phi i8 [ %.52746, %1410 ], [ 1, %1376 ]
+  %.02685 = phi i8 [ %.52690, %1410 ], [ 1, %1376 ]
+  %.02628 = phi i8 [ %.52633, %1410 ], [ 1, %1376 ]
+  %.02570 = phi i8 [ %.52575, %1410 ], [ 1, %1376 ]
+  %.02511 = phi i8 [ %.52516, %1410 ], [ 1, %1376 ]
+  %.02451 = phi i8 [ %.52456, %1410 ], [ 1, %1376 ]
+  %.02390 = phi i8 [ %.52395, %1410 ], [ 1, %1376 ]
+  %.02328 = phi i8 [ %.52333, %1410 ], [ 1, %1376 ]
+  %.02265 = phi i8 [ %.52270, %1410 ], [ 1, %1376 ]
+  %.02197 = phi i8 [ %.52202, %1410 ], [ 1, %1376 ]
+  %.02132 = phi i8 [ %.52137, %1410 ], [ 1, %1376 ]
+  %.02066 = phi i8 [ %.52071, %1410 ], [ 1, %1376 ]
+  %.01999 = phi i8 [ %.52004, %1410 ], [ 1, %1376 ]
+  %.01931 = phi i8 [ %.51936, %1410 ], [ 1, %1376 ]
+  %.01862 = phi i8 [ %.51867, %1410 ], [ 1, %1376 ]
+  %.01792 = phi i8 [ %.51797, %1410 ], [ 1, %1376 ]
+  %.01720 = phi i8 [ %.51725, %1410 ], [ 1, %1376 ]
+  %.01646 = phi i8 [ %.51651, %1410 ], [ 1, %1376 ]
+  %.01569 = phi i8 [ %.61575, %1410 ], [ 1, %1376 ]
+  %.01527 = phi i8 [ %.51532, %1410 ], [ 1, %1376 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20209)
   %1934 = load i64, ptr %224, align 8, !range !383, !alias.scope !20209, !noundef !12
   %1935 = icmp eq i64 %1934, -9223372036854775808
@@ -93483,43 +93483,43 @@ default.unreachable:                              ; preds = %1375
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E.exit4002"
 
 1945:                                             ; preds = %1947, %1389
-  %.73220 = phi i8 [ %.63219, %1947 ], [ %.03213, %1389 ]
-  %.83212 = phi i8 [ %.73211, %1947 ], [ %.03204, %1389 ]
-  %.93203 = phi i8 [ %.83202, %1947 ], [ %.03194, %1389 ]
-  %.113193 = phi i8 [ %.103192, %1947 ], [ %.03182, %1389 ]
-  %.153172 = phi i8 [ %.143171, %1947 ], [ %.03157, %1389 ]
-  %.223143 = phi i8 [ %.213142, %1947 ], [ %.03121, %1389 ]
-  %.233120 = phi i8 [ %.223119, %1947 ], [ %.03097, %1389 ]
-  %.243096 = phi i8 [ %.233095, %1947 ], [ %.03072, %1389 ]
-  %.253071 = phi i8 [ %.243070, %1947 ], [ %.03046, %1389 ]
-  %.283045 = phi i8 [ %.273044, %1947 ], [ %.03017, %1389 ]
-  %.293016 = phi i8 [ %.283015, %1947 ], [ %.02987, %1389 ]
-  %.312986 = phi i8 [ %.302985, %1947 ], [ %.02955, %1389 ]
-  %.512954 = phi i8 [ %.502953, %1947 ], [ %.02903, %1389 ]
-  %.522902 = phi i8 [ %.512901, %1947 ], [ %.02850, %1389 ]
-  %.532849 = phi i8 [ %.522848, %1947 ], [ %.02796, %1389 ]
-  %.542795 = phi i8 [ %.532794, %1947 ], [ %.02741, %1389 ]
-  %.552740 = phi i8 [ %.542739, %1947 ], [ %.02685, %1389 ]
-  %.562684 = phi i8 [ %.552683, %1947 ], [ %.02628, %1389 ]
-  %.572627 = phi i8 [ %.562626, %1947 ], [ %.02570, %1389 ]
-  %.582569 = phi i8 [ %.572568, %1947 ], [ %.02511, %1389 ]
-  %.592510 = phi i8 [ %.582509, %1947 ], [ %.02451, %1389 ]
-  %.602450 = phi i8 [ %.592449, %1947 ], [ %.02390, %1389 ]
-  %.612389 = phi i8 [ %.602388, %1947 ], [ %.02328, %1389 ]
-  %.622327 = phi i8 [ %.612326, %1947 ], [ %.02265, %1389 ]
-  %.632260 = phi i8 [ %.622259, %1947 ], [ %.02197, %1389 ]
-  %.642196 = phi i8 [ %.632195, %1947 ], [ %.02132, %1389 ]
-  %.652131 = phi i8 [ %.642130, %1947 ], [ %.02066, %1389 ]
-  %.662065 = phi i8 [ %.652064, %1947 ], [ %.01999, %1389 ]
-  %.671998 = phi i8 [ %.661997, %1947 ], [ %.01931, %1389 ]
-  %.681930 = phi i8 [ %.671929, %1947 ], [ %.01862, %1389 ]
-  %.691861 = phi i8 [ %.681860, %1947 ], [ %.01792, %1389 ]
-  %.711791 = phi i8 [ %.701790, %1947 ], [ %.01720, %1389 ]
-  %.731719 = phi i8 [ %.721718, %1947 ], [ %.01646, %1389 ]
-  %.761645 = phi i8 [ %.751644, %1947 ], [ %.01569, %1389 ]
-  %.77 = phi i8 [ %.76, %1947 ], [ %.01527, %1389 ]
+  %.43217 = phi i8 [ %.03213, %1947 ], [ %.33216, %1389 ]
+  %.43208 = phi i8 [ %.03204, %1947 ], [ %.33207, %1389 ]
+  %.43198 = phi i8 [ %.03194, %1947 ], [ %.33197, %1389 ]
+  %.43186 = phi i8 [ %.03182, %1947 ], [ %.33185, %1389 ]
+  %.43161 = phi i8 [ %.03157, %1947 ], [ %.33160, %1389 ]
+  %.43125 = phi i8 [ %.03121, %1947 ], [ %.33124, %1389 ]
+  %.43101 = phi i8 [ %.03097, %1947 ], [ %.33100, %1389 ]
+  %.43076 = phi i8 [ %.03072, %1947 ], [ %.33075, %1389 ]
+  %.43050 = phi i8 [ %.03046, %1947 ], [ %.33049, %1389 ]
+  %.43021 = phi i8 [ %.03017, %1947 ], [ %.33020, %1389 ]
+  %.42991 = phi i8 [ %.02987, %1947 ], [ %.32990, %1389 ]
+  %.42959 = phi i8 [ %.02955, %1947 ], [ %.32958, %1389 ]
+  %.42907 = phi i8 [ %.02903, %1947 ], [ %.32906, %1389 ]
+  %.42854 = phi i8 [ %.02850, %1947 ], [ %.32853, %1389 ]
+  %.42800 = phi i8 [ %.02796, %1947 ], [ %.32799, %1389 ]
+  %.42745 = phi i8 [ %.02741, %1947 ], [ %.32744, %1389 ]
+  %.42689 = phi i8 [ %.02685, %1947 ], [ %.32688, %1389 ]
+  %.42632 = phi i8 [ %.02628, %1947 ], [ %.32631, %1389 ]
+  %.42574 = phi i8 [ %.02570, %1947 ], [ %.32573, %1389 ]
+  %.42515 = phi i8 [ %.02511, %1947 ], [ %.32514, %1389 ]
+  %.42455 = phi i8 [ %.02451, %1947 ], [ %.32454, %1389 ]
+  %.42394 = phi i8 [ %.02390, %1947 ], [ %.32393, %1389 ]
+  %.42332 = phi i8 [ %.02328, %1947 ], [ %.32331, %1389 ]
+  %.42269 = phi i8 [ %.02265, %1947 ], [ %.32268, %1389 ]
+  %.42201 = phi i8 [ %.02197, %1947 ], [ %.32200, %1389 ]
+  %.42136 = phi i8 [ %.02132, %1947 ], [ %.32135, %1389 ]
+  %.42070 = phi i8 [ %.02066, %1947 ], [ %.32069, %1389 ]
+  %.42003 = phi i8 [ %.01999, %1947 ], [ %.32002, %1389 ]
+  %.41935 = phi i8 [ %.01931, %1947 ], [ %.31934, %1389 ]
+  %.41866 = phi i8 [ %.01862, %1947 ], [ %.31865, %1389 ]
+  %.41796 = phi i8 [ %.01792, %1947 ], [ %.31795, %1389 ]
+  %.41724 = phi i8 [ %.01720, %1947 ], [ %.31723, %1389 ]
+  %.41650 = phi i8 [ %.01646, %1947 ], [ %.31649, %1389 ]
+  %.41573 = phi i8 [ %.01569, %1947 ], [ %.31572, %1389 ]
+  %.41531 = phi i8 [ %.01527, %1947 ], [ %.31530, %1389 ]
   %.pn3396 = phi { ptr, i32 } [ %1948, %1947 ], [ %.pn3394, %1389 ]
-  %1946 = trunc nuw i8 %.73220 to i1
+  %1946 = trunc nuw i8 %.43217 to i1
   br i1 %1946, label %2261, label %1718
 
 1947:                                             ; preds = %1936
@@ -93532,12 +93532,12 @@ default.unreachable:                              ; preds = %1375
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0210.sroa.0)
   call void @llvm.lifetime.end.p0(i64 53, ptr nonnull %.sroa.0210.sroa.11.sroa.0)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0210.sroa.11.sroa.25)
-  %1949 = trunc nuw i8 %.63219 to i1
+  %1949 = trunc nuw i8 %.03213 to i1
   br i1 %1949, label %1952, label %1950
 
 1950:                                             ; preds = %1952, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E.exit4002"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %279)
-  %1951 = trunc nuw i8 %.73211 to i1
+  %1951 = trunc nuw i8 %.03204 to i1
   br i1 %1951, label %1955, label %1953
 
 1952:                                             ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7e958491a1bae375E.exit4002"
@@ -93546,7 +93546,7 @@ default.unreachable:                              ; preds = %1375
 
 1953:                                             ; preds = %1955, %1950
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %280)
-  %1954 = trunc nuw i8 %.83202 to i1
+  %1954 = trunc nuw i8 %.03194 to i1
   br i1 %1954, label %1958, label %1956
 
 1955:                                             ; preds = %1950
@@ -93555,7 +93555,7 @@ default.unreachable:                              ; preds = %1375
 
 1956:                                             ; preds = %1958, %1953
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %281)
-  %1957 = trunc nuw i8 %.103192 to i1
+  %1957 = trunc nuw i8 %.03182 to i1
   br i1 %1957, label %1974, label %1959
 
 1958:                                             ; preds = %1953
@@ -93612,7 +93612,7 @@ default.unreachable:                              ; preds = %1375
 1975:                                             ; preds = %1970, %1966, %.noexc4005
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107), !noalias !20235
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %283)
-  %1976 = trunc nuw i8 %.143171 to i1
+  %1976 = trunc nuw i8 %.03157 to i1
   br i1 %1976, label %1978, label %1977
 
 1977:                                             ; preds = %1978, %1975
@@ -93626,12 +93626,12 @@ default.unreachable:                              ; preds = %1375
 
 "_ZN4core3ptr75drop_in_place$LT$$LP$bool$C$alloc..vec..Vec$LT$ide_ssr..SsrRule$GT$$RP$$GT$17h14bec964aa523281E.exit4010": ; preds = %1977
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %285)
-  %1979 = trunc nuw i8 %.213142 to i1
+  %1979 = trunc nuw i8 %.03121 to i1
   br i1 %1979, label %1982, label %1980
 
 1980:                                             ; preds = %1982, %"_ZN4core3ptr75drop_in_place$LT$$LP$bool$C$alloc..vec..Vec$LT$ide_ssr..SsrRule$GT$$RP$$GT$17h14bec964aa523281E.exit4010"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %286)
-  %1981 = trunc nuw i8 %.223119 to i1
+  %1981 = trunc nuw i8 %.03097 to i1
   br i1 %1981, label %1985, label %1983
 
 1982:                                             ; preds = %"_ZN4core3ptr75drop_in_place$LT$$LP$bool$C$alloc..vec..Vec$LT$ide_ssr..SsrRule$GT$$RP$$GT$17h14bec964aa523281E.exit4010"
@@ -93640,7 +93640,7 @@ default.unreachable:                              ; preds = %1375
 
 1983:                                             ; preds = %1985, %1980
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %287)
-  %1984 = trunc nuw i8 %.233095 to i1
+  %1984 = trunc nuw i8 %.03072 to i1
   br i1 %1984, label %1988, label %1986
 
 1985:                                             ; preds = %1980
@@ -93649,7 +93649,7 @@ default.unreachable:                              ; preds = %1375
 
 1986:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4013", %1983
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %288)
-  %1987 = trunc nuw i8 %.243070 to i1
+  %1987 = trunc nuw i8 %.03046 to i1
   br i1 %1987, label %1999, label %1997
 
 1988:                                             ; preds = %1983
@@ -93680,7 +93680,7 @@ default.unreachable:                              ; preds = %1375
 
 1997:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4016", %1986
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %289)
-  %1998 = trunc nuw i8 %.273044 to i1
+  %1998 = trunc nuw i8 %.03017 to i1
   br i1 %1998, label %2010, label %2008
 
 1999:                                             ; preds = %1986
@@ -93711,7 +93711,7 @@ default.unreachable:                              ; preds = %1375
 
 2008:                                             ; preds = %2010, %1997
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %290)
-  %2009 = trunc nuw i8 %.283015 to i1
+  %2009 = trunc nuw i8 %.02987 to i1
   br i1 %2009, label %2013, label %2011
 
 2010:                                             ; preds = %1997
@@ -93720,7 +93720,7 @@ default.unreachable:                              ; preds = %1375
 
 2011:                                             ; preds = %2013, %2008
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %291)
-  %2012 = trunc nuw i8 %.302985 to i1
+  %2012 = trunc nuw i8 %.02955 to i1
   br i1 %2012, label %2016, label %2014
 
 2013:                                             ; preds = %2008
@@ -93729,7 +93729,7 @@ default.unreachable:                              ; preds = %1375
 
 2014:                                             ; preds = %2016, %2011
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %292)
-  %2015 = trunc nuw i8 %.502953 to i1
+  %2015 = trunc nuw i8 %.02903 to i1
   br i1 %2015, label %2019, label %2017
 
 2016:                                             ; preds = %2011
@@ -93738,7 +93738,7 @@ default.unreachable:                              ; preds = %1375
 
 2017:                                             ; preds = %2019, %2014
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %293)
-  %2018 = trunc nuw i8 %.512901 to i1
+  %2018 = trunc nuw i8 %.02850 to i1
   br i1 %2018, label %2022, label %2020
 
 2019:                                             ; preds = %2014
@@ -93747,7 +93747,7 @@ default.unreachable:                              ; preds = %1375
 
 2020:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4019", %2017
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %294)
-  %2021 = trunc nuw i8 %.522848 to i1
+  %2021 = trunc nuw i8 %.02796 to i1
   br i1 %2021, label %2033, label %2031
 
 2022:                                             ; preds = %2017
@@ -93778,7 +93778,7 @@ default.unreachable:                              ; preds = %1375
 
 2031:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4022", %2020
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %295)
-  %2032 = trunc nuw i8 %.532794 to i1
+  %2032 = trunc nuw i8 %.02741 to i1
   br i1 %2032, label %2044, label %2042
 
 2033:                                             ; preds = %2020
@@ -93809,7 +93809,7 @@ default.unreachable:                              ; preds = %1375
 
 2042:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4025", %2031
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %296)
-  %2043 = trunc nuw i8 %.542739 to i1
+  %2043 = trunc nuw i8 %.02685 to i1
   br i1 %2043, label %2055, label %2053
 
 2044:                                             ; preds = %2031
@@ -93840,7 +93840,7 @@ default.unreachable:                              ; preds = %1375
 
 2053:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4028", %2042
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %297)
-  %2054 = trunc nuw i8 %.552683 to i1
+  %2054 = trunc nuw i8 %.02628 to i1
   br i1 %2054, label %2066, label %2064
 
 2055:                                             ; preds = %2042
@@ -93871,7 +93871,7 @@ default.unreachable:                              ; preds = %1375
 
 2064:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4031", %2053
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %298)
-  %2065 = trunc nuw i8 %.562626 to i1
+  %2065 = trunc nuw i8 %.02570 to i1
   br i1 %2065, label %2077, label %2075
 
 2066:                                             ; preds = %2053
@@ -93902,7 +93902,7 @@ default.unreachable:                              ; preds = %1375
 
 2075:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4034", %2064
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %299)
-  %2076 = trunc nuw i8 %.572568 to i1
+  %2076 = trunc nuw i8 %.02511 to i1
   br i1 %2076, label %2088, label %2086
 
 2077:                                             ; preds = %2064
@@ -93933,7 +93933,7 @@ default.unreachable:                              ; preds = %1375
 
 2086:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4037", %2075
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %300)
-  %2087 = trunc nuw i8 %.582509 to i1
+  %2087 = trunc nuw i8 %.02451 to i1
   br i1 %2087, label %2099, label %2097
 
 2088:                                             ; preds = %2075
@@ -93964,7 +93964,7 @@ default.unreachable:                              ; preds = %1375
 
 2097:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4040", %2086
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %301)
-  %2098 = trunc nuw i8 %.592449 to i1
+  %2098 = trunc nuw i8 %.02390 to i1
   br i1 %2098, label %2110, label %2108
 
 2099:                                             ; preds = %2086
@@ -93995,7 +93995,7 @@ default.unreachable:                              ; preds = %1375
 
 2108:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4043", %2097
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %302)
-  %2109 = trunc nuw i8 %.602388 to i1
+  %2109 = trunc nuw i8 %.02328 to i1
   br i1 %2109, label %2121, label %2119
 
 2110:                                             ; preds = %2097
@@ -94026,7 +94026,7 @@ default.unreachable:                              ; preds = %1375
 
 2119:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4046", %2108
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %303)
-  %2120 = trunc nuw i8 %.612326 to i1
+  %2120 = trunc nuw i8 %.02265 to i1
   br i1 %2120, label %2132, label %2130
 
 2121:                                             ; preds = %2108
@@ -94057,7 +94057,7 @@ default.unreachable:                              ; preds = %1375
 
 2130:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4049", %2119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %304)
-  %2131 = trunc nuw i8 %.622259 to i1
+  %2131 = trunc nuw i8 %.02197 to i1
   br i1 %2131, label %2143, label %2141
 
 2132:                                             ; preds = %2119
@@ -94088,7 +94088,7 @@ default.unreachable:                              ; preds = %1375
 
 2141:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4052", %2130
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %305)
-  %2142 = trunc nuw i8 %.632195 to i1
+  %2142 = trunc nuw i8 %.02132 to i1
   br i1 %2142, label %2154, label %2152
 
 2143:                                             ; preds = %2130
@@ -94119,7 +94119,7 @@ default.unreachable:                              ; preds = %1375
 
 2152:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4055", %2141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %306)
-  %2153 = trunc nuw i8 %.642130 to i1
+  %2153 = trunc nuw i8 %.02066 to i1
   br i1 %2153, label %2165, label %2163
 
 2154:                                             ; preds = %2141
@@ -94150,7 +94150,7 @@ default.unreachable:                              ; preds = %1375
 
 2163:                                             ; preds = %2165, %2152
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %307)
-  %2164 = trunc nuw i8 %.652064 to i1
+  %2164 = trunc nuw i8 %.01999 to i1
   br i1 %2164, label %2168, label %2166
 
 2165:                                             ; preds = %2152
@@ -94159,7 +94159,7 @@ default.unreachable:                              ; preds = %1375
 
 2166:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4058", %2163
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %308)
-  %2167 = trunc nuw i8 %.661997 to i1
+  %2167 = trunc nuw i8 %.01931 to i1
   br i1 %2167, label %2179, label %2177
 
 2168:                                             ; preds = %2163
@@ -94190,7 +94190,7 @@ default.unreachable:                              ; preds = %1375
 
 2177:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4061", %2166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %309)
-  %2178 = trunc nuw i8 %.671929 to i1
+  %2178 = trunc nuw i8 %.01862 to i1
   br i1 %2178, label %2190, label %2188
 
 2179:                                             ; preds = %2166
@@ -94221,7 +94221,7 @@ default.unreachable:                              ; preds = %1375
 
 2188:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4064", %2177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %310)
-  %2189 = trunc nuw i8 %.681860 to i1
+  %2189 = trunc nuw i8 %.01792 to i1
   br i1 %2189, label %2201, label %2199
 
 2190:                                             ; preds = %2177
@@ -94252,7 +94252,7 @@ default.unreachable:                              ; preds = %1375
 
 2199:                                             ; preds = %"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$rust_analyzer..cli..flags..OutputFormat$GT$$GT$17h7f7a3d82e48538b8E.exit4067", %2188
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %311)
-  %2200 = trunc nuw i8 %.701790 to i1
+  %2200 = trunc nuw i8 %.01720 to i1
   br i1 %2200, label %2212, label %2210
 
 2201:                                             ; preds = %2188
@@ -94283,7 +94283,7 @@ default.unreachable:                              ; preds = %1375
 
 2210:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4070", %2199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %312)
-  %2211 = trunc nuw i8 %.721718 to i1
+  %2211 = trunc nuw i8 %.01646 to i1
   br i1 %2211, label %2223, label %2221
 
 2212:                                             ; preds = %2199
@@ -94314,7 +94314,7 @@ default.unreachable:                              ; preds = %1375
 
 2221:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4073", %2210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %313)
-  %2222 = trunc nuw i8 %.751644 to i1
+  %2222 = trunc nuw i8 %.01569 to i1
   br i1 %2222, label %2234, label %2232
 
 2223:                                             ; preds = %2210
@@ -94345,7 +94345,7 @@ default.unreachable:                              ; preds = %1375
 
 2232:                                             ; preds = %"_ZN4core3ptr52drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$17hc0e021749adb9e44E.exit4076", %2221
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %314)
-  %2233 = trunc nuw i8 %.76 to i1
+  %2233 = trunc nuw i8 %.01527 to i1
   br i1 %2233, label %2252, label %2243
 
 2234:                                             ; preds = %2221

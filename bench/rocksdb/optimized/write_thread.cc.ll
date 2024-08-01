@@ -314,8 +314,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit54:          ; preds = %lpad, %if.else.i.i5
   resume { ptr, i32 } %12
 
 if.end:                                           ; preds = %if.then3.i.i, %if.else.i.i, %invoke.cont8, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit, %_ZN7rocksdb11WriteThread6Writer11CreateMutexEv.exit
-  %state.16 = phi i8 [ %4, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit ], [ %1, %_ZN7rocksdb11WriteThread6Writer11CreateMutexEv.exit ], [ %9, %invoke.cont8 ], [ %10, %if.else.i.i ], [ %10, %if.then3.i.i ]
-  ret i8 %state.16
+  %state.0 = phi i8 [ %4, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit ], [ %1, %_ZN7rocksdb11WriteThread6Writer11CreateMutexEv.exit ], [ %9, %invoke.cont8 ], [ %10, %if.else.i.i ], [ %10, %if.then3.i.i ]
+  ret i8 %state.0
 }
 
 ; Function Attrs: uwtable
@@ -486,10 +486,10 @@ if.end50:                                         ; preds = %if.then45, %lor.end
   br i1 %cmp.i.i.not, label %if.end52, label %while.body, !llvm.loop !8
 
 if.end52:                                         ; preds = %if.end50, %while.body, %if.then45, %if.then13, %lor.lhs.false, %invoke.cont
-  %state.2 = phi i8 [ %0, %lor.lhs.false ], [ %0, %invoke.cont ], [ %0, %if.then13 ], [ %12, %if.then45 ], [ %12, %while.body ], [ %12, %if.end50 ]
+  %state.1 = phi i8 [ %0, %lor.lhs.false ], [ %0, %invoke.cont ], [ %0, %if.then13 ], [ %12, %if.then45 ], [ %12, %while.body ], [ %12, %if.end50 ]
   %update_ctx.0.shrunk = phi i1 [ false, %lor.lhs.false ], [ false, %invoke.cont ], [ %cmp.i31, %if.then13 ], [ %cmp.i31, %if.end50 ], [ %cmp.i31, %while.body ], [ true, %if.then45 ]
   %would_spin_again.0 = phi i32 [ -131072, %lor.lhs.false ], [ -131072, %invoke.cont ], [ -131072, %if.then13 ], [ -131072, %if.end50 ], [ 131072, %while.body ], [ -131072, %if.then45 ]
-  %and5525 = and i8 %state.2, %goal_mask
+  %and5525 = and i8 %state.1, %goal_mask
   %cmp56 = icmp eq i8 %and5525, 0
   br i1 %cmp56, label %if.then57, label %if.end60
 
@@ -498,7 +498,7 @@ if.then57:                                        ; preds = %if.end52
           to label %if.end60 unwind label %lpad
 
 if.end60:                                         ; preds = %if.then57, %if.end52
-  %state.3 = phi i8 [ %state.2, %if.end52 ], [ %call59, %if.then57 ]
+  %state.3 = phi i8 [ %state.1, %if.end52 ], [ %call59, %if.then57 ]
   br i1 %update_ctx.0.shrunk, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %if.end60
@@ -826,7 +826,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %lpad
   resume { ptr, i32 } %17
 
 cleanup:                                          ; preds = %if.end, %invoke.cont
-  %writers.1 = phi ptr [ %atomic-temp.i.0.i12, %invoke.cont ], [ %atomic-temp.i.0.i11, %if.end ]
+  %writers.2 = phi ptr [ %atomic-temp.i.0.i12, %invoke.cont ], [ %atomic-temp.i.0.i11, %if.end ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %stall_mu_)
           to label %_ZN7rocksdb9MutexLockD2Ev.exit14 unwind label %terminate.lpad.i13
 
@@ -841,13 +841,13 @@ _ZN7rocksdb9MutexLockD2Ev.exit14:                 ; preds = %cleanup
   br i1 %cmp8.not, label %while.body.backedge, label %if.end12
 
 while.body.backedge:                              ; preds = %_ZN7rocksdb9MutexLockD2Ev.exit14, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-  %writers.0.be = phi ptr [ %26, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %writers.1, %_ZN7rocksdb9MutexLockD2Ev.exit14 ]
+  %writers.0.be = phi ptr [ %26, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %writers.2, %_ZN7rocksdb9MutexLockD2Ev.exit14 ]
   br label %while.body, !llvm.loop !9
 
 if.end12:                                         ; preds = %_ZN7rocksdb9MutexLockD2Ev.exit14, %while.body
-  %writers.2 = phi ptr [ %writers.1, %_ZN7rocksdb9MutexLockD2Ev.exit14 ], [ %writers.0, %while.body ]
-  store ptr %writers.2, ptr %link_older, align 16
-  %22 = ptrtoint ptr %writers.2 to i64
+  %writers.1 = phi ptr [ %writers.2, %_ZN7rocksdb9MutexLockD2Ev.exit14 ], [ %writers.0, %while.body ]
+  store ptr %writers.1, ptr %link_older, align 16
+  %22 = ptrtoint ptr %writers.1 to i64
   %23 = cmpxchg weak ptr %newest_writer, i64 %22, i64 %1 seq_cst seq_cst, align 8
   %24 = extractvalue { i64, i1 } %23, 1
   br i1 %24, label %if.then14, label %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
@@ -858,7 +858,7 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12
   br label %while.body.backedge
 
 if.then14:                                        ; preds = %if.end12
-  %cmp15 = icmp eq ptr %writers.2, null
+  %cmp15 = icmp eq ptr %writers.1, null
   br label %return
 
 return:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.then14
@@ -1632,12 +1632,12 @@ if.end29:                                         ; preds = %if.then21, %if.end1
   br i1 %cmp10.not, label %if.end32, label %while.body, !llvm.loop !16
 
 if.end32:                                         ; preds = %if.then21, %if.end14, %while.body, %if.end29, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, %lor.lhs.false
-  %last_writer.1 = phi ptr [ %leader, %lor.lhs.false ], [ %leader, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit ], [ %w.030, %if.then21 ], [ %w.030, %if.end14 ], [ %w.030, %while.body ], [ %9, %if.end29 ]
+  %last_writer.0 = phi ptr [ %leader, %lor.lhs.false ], [ %leader, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit ], [ %w.030, %if.then21 ], [ %w.030, %if.end14 ], [ %w.030, %while.body ], [ %9, %if.end29 ]
   %last_writer33 = getelementptr inbounds i8, ptr %write_group, i64 8
-  store ptr %last_writer.1, ptr %last_writer33, align 8
-  %sequence = getelementptr inbounds i8, ptr %last_writer.1, i64 96
+  store ptr %last_writer.0, ptr %last_writer33, align 8
+  %sequence = getelementptr inbounds i8, ptr %last_writer.0, i64 96
   %14 = load i64, ptr %sequence, align 16
-  %15 = load ptr, ptr %last_writer.1, align 16
+  %15 = load ptr, ptr %last_writer.0, align 16
   %call35 = tail call noundef i32 @_ZN7rocksdb18WriteBatchInternal5CountEPKNS_10WriteBatchE(ptr noundef %15)
   %conv = zext i32 %call35 to i64
   %add36 = add i64 %14, -1
@@ -2260,15 +2260,15 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St
   br label %if.then16
 
 if.then16:                                        ; preds = %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit, %if.then12
-  %head.1 = phi ptr [ %18, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit ], [ %atomic-temp.i.0.i, %if.then12 ]
-  %link_older5.i = getelementptr inbounds i8, ptr %head.1, i64 240
+  %head.0 = phi ptr [ %18, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit ], [ %atomic-temp.i.0.i, %if.then12 ]
+  %link_older5.i = getelementptr inbounds i8, ptr %head.0, i64 240
   %19 = load ptr, ptr %link_older5.i, align 16
   %cmp6.i = icmp eq ptr %19, null
   br i1 %cmp6.i, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then16, %if.end.i
   %20 = phi ptr [ %22, %if.end.i ], [ %19, %if.then16 ]
-  %head.addr.07.i = phi ptr [ %20, %if.end.i ], [ %head.1, %if.then16 ]
+  %head.addr.07.i = phi ptr [ %20, %if.end.i ], [ %head.0, %if.then16 ]
   %link_newer.i = getelementptr inbounds i8, ptr %20, i64 248
   %21 = load ptr, ptr %link_newer.i, align 8
   %cmp2.not.i = icmp eq ptr %21, null
@@ -2630,15 +2630,15 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St
   br label %if.then48
 
 if.then48:                                        ; preds = %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit120, %if.end41
-  %head.3 = phi ptr [ %84, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit120 ], [ %atomic-temp.i.0.i117, %if.end41 ]
-  %link_older5.i121 = getelementptr inbounds i8, ptr %head.3, i64 240
+  %head.1 = phi ptr [ %84, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit120 ], [ %atomic-temp.i.0.i117, %if.end41 ]
+  %link_older5.i121 = getelementptr inbounds i8, ptr %head.1, i64 240
   %85 = load ptr, ptr %link_older5.i121, align 16
   %cmp6.i122 = icmp eq ptr %85, null
   br i1 %cmp6.i122, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit131, label %lor.lhs.false.i123
 
 lor.lhs.false.i123:                               ; preds = %if.then48, %if.end.i128
   %86 = phi ptr [ %88, %if.end.i128 ], [ %85, %if.then48 ]
-  %head.addr.07.i124 = phi ptr [ %86, %if.end.i128 ], [ %head.3, %if.then48 ]
+  %head.addr.07.i124 = phi ptr [ %86, %if.end.i128 ], [ %head.1, %if.then48 ]
   %link_newer.i125 = getelementptr inbounds i8, ptr %86, i64 248
   %87 = load ptr, ptr %link_newer.i125, align 8
   %cmp2.not.i126 = icmp eq ptr %87, null
@@ -2731,15 +2731,15 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St
   br label %if.then62
 
 if.then62:                                        ; preds = %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit155, %if.else
-  %head55.1 = phi ptr [ %100, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit155 ], [ %atomic-temp.i.0.i152, %if.else ]
-  %link_older5.i156 = getelementptr inbounds i8, ptr %head55.1, i64 240
+  %head55.0 = phi ptr [ %100, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE23compare_exchange_strongERS3_S3_St12memory_order.exit155 ], [ %atomic-temp.i.0.i152, %if.else ]
+  %link_older5.i156 = getelementptr inbounds i8, ptr %head55.0, i64 240
   %101 = load ptr, ptr %link_older5.i156, align 16
   %cmp6.i157 = icmp eq ptr %101, null
   br i1 %cmp6.i157, label %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit166, label %lor.lhs.false.i158
 
 lor.lhs.false.i158:                               ; preds = %if.then62, %if.end.i163
   %102 = phi ptr [ %104, %if.end.i163 ], [ %101, %if.then62 ]
-  %head.addr.07.i159 = phi ptr [ %102, %if.end.i163 ], [ %head55.1, %if.then62 ]
+  %head.addr.07.i159 = phi ptr [ %102, %if.end.i163 ], [ %head55.0, %if.then62 ]
   %link_newer.i160 = getelementptr inbounds i8, ptr %102, i64 248
   %103 = load ptr, ptr %link_newer.i160, align 8
   %cmp2.not.i161 = icmp eq ptr %103, null

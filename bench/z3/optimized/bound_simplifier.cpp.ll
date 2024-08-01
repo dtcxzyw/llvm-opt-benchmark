@@ -857,7 +857,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then2.i.i.i, %if
   br label %cleanup156
 
 cleanup156:                                       ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %for.end
-  %retval.1 = phi i32 [ 5, %for.end ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
+  %retval.2 = phi i32 [ 5, %for.end ], [ 4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
   %tobool.not.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i73
 
@@ -882,7 +882,7 @@ terminate.lpad.i79:                               ; preds = %if.then2.i.i.i78
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont133, %cleanup156, %if.then.i.i.i73, %if.then2.i.i.i78
-  %retval.1106 = phi i32 [ %retval.1, %cleanup156 ], [ %retval.1, %if.then.i.i.i73 ], [ %retval.1, %if.then2.i.i.i78 ], [ 5, %invoke.cont133 ]
+  %retval.2106 = phi i32 [ %retval.2, %cleanup156 ], [ %retval.2, %if.then.i.i.i73 ], [ %retval.2, %if.then2.i.i.i78 ], [ 5, %invoke.cont133 ]
   %41 = load ptr, ptr %m_buffer.i.i, align 8
   %42 = load i32, ptr %m_pos.i.i.i.i, align 8
   %idx.ext.i.i.i = zext i32 %42 to i64
@@ -944,7 +944,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 cleanup160:                                       ; preds = %if.end.i.i.i.i.i.i.i, %invoke.cont5.i.i, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit
-  %retval.2 = phi i32 [ %retval.0, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit ], [ %retval.1106, %invoke.cont5.i.i ], [ %retval.1106, %if.end.i.i.i.i.i.i.i ]
+  %retval.1 = phi i32 [ %retval.0, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit ], [ %retval.2106, %invoke.cont5.i.i ], [ %retval.2106, %if.end.i.i.i.i.i.i.i ]
   %51 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(16) %lo)
           to label %.noexc.i unwind label %terminate.lpad.i85
@@ -993,7 +993,7 @@ terminate.lpad.i91:                               ; preds = %.noexc.i92, %_ZN8ra
   unreachable
 
 _ZN8rationalD2Ev.exit94:                          ; preds = %.noexc.i92
-  ret i32 %retval.2
+  ret i32 %retval.1
 
 ehcleanup161:                                     ; preds = %lpad140, %ehcleanup, %lpad4
   %.pn23 = phi { ptr, i32 } [ %lpad.phi, %lpad140 ], [ %6, %lpad4 ], [ %.pn, %ehcleanup ]
@@ -4129,8 +4129,8 @@ invoke.cont15.if.end42_crit_edge:                 ; preds = %invoke.cont15
   br label %if.end42
 
 if.then:                                          ; preds = %invoke.cont15, %invoke.cont8
-  %x.2 = phi ptr [ %10, %invoke.cont8 ], [ %19, %invoke.cont15 ]
-  %call18 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_upperEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.2, ptr noundef nonnull align 8 dereferenceable(32) %hi, ptr noundef nonnull align 1 dereferenceable(1) %strict)
+  %x.0 = phi ptr [ %10, %invoke.cont8 ], [ %19, %invoke.cont15 ]
+  %call18 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_upperEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.0, ptr noundef nonnull align 8 dereferenceable(32) %hi, ptr noundef nonnull align 1 dereferenceable(1) %strict)
           to label %invoke.cont17 unwind label %lpad4
 
 invoke.cont17:                                    ; preds = %if.then
@@ -4236,7 +4236,7 @@ lpad4:                                            ; preds = %if.then2.i.i.i208, 
   resume { ptr, i32 } %34
 
 if.end:                                           ; preds = %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i, %invoke.cont21, %land.lhs.true19, %invoke.cont17
-  %call29 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_lowerEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.2, ptr noundef nonnull align 8 dereferenceable(32) %lo, ptr noundef nonnull align 1 dereferenceable(1) %strict)
+  %call29 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_lowerEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.0, ptr noundef nonnull align 8 dereferenceable(32) %lo, ptr noundef nonnull align 1 dereferenceable(1) %strict)
           to label %invoke.cont28 unwind label %lpad4
 
 invoke.cont28:                                    ; preds = %if.end
@@ -4422,8 +4422,8 @@ invoke.cont56:                                    ; preds = %land.lhs.true54
   br i1 %call.i135, label %if.then58, label %cleanup
 
 if.then58:                                        ; preds = %invoke.cont56, %invoke.cont48
-  %x.5 = phi ptr [ %56, %invoke.cont48 ], [ %63, %invoke.cont56 ]
-  %call60 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_lowerEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.5, ptr noundef nonnull align 8 dereferenceable(32) %lo, ptr noundef nonnull align 1 dereferenceable(1) %strict)
+  %x.1 = phi ptr [ %56, %invoke.cont48 ], [ %63, %invoke.cont56 ]
+  %call60 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_lowerEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.1, ptr noundef nonnull align 8 dereferenceable(32) %lo, ptr noundef nonnull align 1 dereferenceable(1) %strict)
           to label %invoke.cont59 unwind label %lpad4
 
 invoke.cont59:                                    ; preds = %if.then58
@@ -4521,7 +4521,7 @@ if.then2.i.i.i160:                                ; preds = %if.then.i.i.i155
           to label %cleanup.sink.split unwind label %lpad4
 
 if.end72:                                         ; preds = %call4.i.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i, %invoke.cont64, %land.lhs.true61, %invoke.cont59
-  %call74 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_upperEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.5, ptr noundef nonnull align 8 dereferenceable(32) %hi, ptr noundef nonnull align 1 dereferenceable(1) %strict)
+  %call74 = invoke noundef zeroext i1 @_ZN16bound_simplifier9has_upperEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.1, ptr noundef nonnull align 8 dereferenceable(32) %hi, ptr noundef nonnull align 1 dereferenceable(1) %strict)
           to label %invoke.cont73 unwind label %lpad4
 
 invoke.cont73:                                    ; preds = %if.end72
@@ -6526,7 +6526,7 @@ if.then97.invoke:                                 ; preds = %invoke.cont70, %inv
           to label %cleanup unwind label %lpad6
 
 cleanup:                                          ; preds = %if.then91.invoke, %if.then97.invoke, %invoke.cont17, %invoke.cont85, %invoke.cont62, %invoke.cont95, %invoke.cont76, %invoke.cont53, %invoke.cont34
-  %retval.0 = phi i1 [ false, %invoke.cont34 ], [ false, %invoke.cont53 ], [ false, %invoke.cont76 ], [ false, %invoke.cont95 ], [ false, %invoke.cont62 ], [ false, %invoke.cont85 ], [ false, %invoke.cont17 ], [ true, %if.then97.invoke ], [ true, %if.then91.invoke ]
+  %retval.1 = phi i1 [ false, %invoke.cont34 ], [ false, %invoke.cont53 ], [ false, %invoke.cont76 ], [ false, %invoke.cont95 ], [ false, %invoke.cont62 ], [ false, %invoke.cont85 ], [ false, %invoke.cont17 ], [ true, %if.then97.invoke ], [ true, %if.then91.invoke ]
   %48 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %n0)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -6559,8 +6559,8 @@ terminate.lpad.i86:                               ; preds = %.noexc.i87, %_ZN8ra
   unreachable
 
 return:                                           ; preds = %.noexc.i87, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %.noexc.i87 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %.noexc.i87 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7036,10 +7036,10 @@ invoke.cont90:                                    ; preds = %land.rhs.i.i.i97
   br label %if.end93
 
 if.end93:                                         ; preds = %invoke.cont90, %land.rhs.i.i.i97, %if.then88
-  %x.2 = phi ptr [ %46, %if.then88 ], [ %46, %land.rhs.i.i.i97 ], [ %spec.select, %invoke.cont90 ]
-  %y.2 = phi ptr [ %47, %if.then88 ], [ %47, %land.rhs.i.i.i97 ], [ %spec.select177, %invoke.cont90 ]
+  %x.0 = phi ptr [ %46, %if.then88 ], [ %46, %land.rhs.i.i.i97 ], [ %spec.select, %invoke.cont90 ]
+  %y.0 = phi ptr [ %47, %if.then88 ], [ %47, %land.rhs.i.i.i97 ], [ %spec.select177, %invoke.cont90 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i104)
-  %call.i105 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef %y.2, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i104)
+  %call.i105 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef %y.0, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i104)
           to label %invoke.cont95 unwind label %lpad6
 
 invoke.cont95:                                    ; preds = %if.end93
@@ -7077,7 +7077,7 @@ invoke.cont98:                                    ; preds = %invoke.cont95
   store i8 -1, ptr %m_lower_open.i.i, align 8
   %m_lower_dep.i.i = getelementptr inbounds i8, ptr %i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_lower_dep.i.i, i8 0, i64 16, i1 false)
-  invoke void @_ZN16bound_simplifier10get_boundsEP4exprR16_scoped_intervalI13dep_intervalsE(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.2, ptr noundef nonnull align 8 dereferenceable(96) %i)
+  invoke void @_ZN16bound_simplifier10get_boundsEP4exprR16_scoped_intervalI13dep_intervalsE(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.0, ptr noundef nonnull align 8 dereferenceable(96) %i)
           to label %invoke.cont108 unwind label %lpad99
 
 invoke.cont108:                                   ; preds = %invoke.cont98
@@ -7117,7 +7117,7 @@ cleanup.done.invoke.cont137_crit_edge:            ; preds = %cleanup.done
   br label %invoke.cont137
 
 if.then131:                                       ; preds = %cleanup.done
-  invoke void @_ZN16bound_simplifier12assert_lowerEP4exprRK8rationalb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.2, ptr noundef nonnull align 8 dereferenceable(32) %n, i1 noundef zeroext true)
+  invoke void @_ZN16bound_simplifier12assert_lowerEP4exprRK8rationalb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.0, ptr noundef nonnull align 8 dereferenceable(32) %n, i1 noundef zeroext true)
           to label %if.end169 unwind label %lpad103
 
 lpad99:                                           ; preds = %invoke.cont98
@@ -7155,7 +7155,7 @@ cleanup.done162:                                  ; preds = %invoke.cont154
   br i1 %call158, label %if.then166, label %if.end169
 
 if.then166:                                       ; preds = %cleanup.done162
-  invoke void @_ZN16bound_simplifier12assert_upperEP4exprRK8rationalb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.2, ptr noundef nonnull align 8 dereferenceable(32) %n, i1 noundef zeroext true)
+  invoke void @_ZN16bound_simplifier12assert_upperEP4exprRK8rationalb(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %x.0, ptr noundef nonnull align 8 dereferenceable(32) %n, i1 noundef zeroext true)
           to label %if.end169 unwind label %lpad103
 
 lpad156:                                          ; preds = %invoke.cont154

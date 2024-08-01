@@ -12593,8 +12593,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !96
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -15964,7 +15964,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i32 [ %call.i75, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i32 [ %call.i75, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -15986,8 +15986,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i32 [ %call.i81, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i81, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -22943,7 +22943,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi double [ %call.i73, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi double [ %call.i73, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -22965,8 +22965,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi double [ %call.i79, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret double %retval.1
+  %retval.0 = phi double [ %call.i79, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -28737,7 +28737,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi double [ %call.i67, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi double [ %call.i67, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -28759,8 +28759,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi double [ %call.i73, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret double %retval.1
+  %retval.0 = phi double [ %call.i73, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret double %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -33572,7 +33572,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i32 [ %call.i67, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i32 [ %call.i67, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -33594,8 +33594,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i32 [ %call.i73, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i73, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -38379,7 +38379,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i1 [ %call.i69, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i1 [ %call.i69, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -38401,8 +38401,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i1 [ %call.i76, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %call.i76, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -44176,7 +44176,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i32 [ %call.i61, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i32 [ %call.i61, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -44198,8 +44198,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i32 [ %call.i68, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i68, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -49921,7 +49921,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i32 [ %call.i61, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i32 [ %call.i61, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -49943,8 +49943,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i32 [ %call.i68, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i68, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -65932,8 +65932,8 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc:                 ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i, !llvm.loop !611
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %call.i.i.i16.i.i.i.i.i.i.i.noexc ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %call.i.i.i16.i.i.i.i.i.i.i.noexc ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   br label %invoke.cont78
@@ -66461,8 +66461,8 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc263:              ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i.i253, label %while.body.i.i.i.i.i.i.i249, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i241, !llvm.loop !611
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i241: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc263, %if.end.i.i.i.i.i.i.i232
-  %product.1.i.i.i.i.i.i.i239 = phi i64 [ %mul.i.i.i.i.i.i.i.i235, %if.end.i.i.i.i.i.i.i232 ], [ %mul.i20.i.i.i.i.i.i.i251, %call.i.i.i16.i.i.i.i.i.i.i.noexc263 ]
-  %shr.i.i.i.i.i.i.i.i240 = lshr i64 %product.1.i.i.i.i.i.i.i239, 32
+  %product.0.i.i.i.i.i.i.i239 = phi i64 [ %mul.i.i.i.i.i.i.i.i235, %if.end.i.i.i.i.i.i.i232 ], [ %mul.i20.i.i.i.i.i.i.i251, %call.i.i.i16.i.i.i.i.i.i.i.noexc263 ]
+  %shr.i.i.i.i.i.i.i.i240 = lshr i64 %product.0.i.i.i.i.i.i.i239, 32
   %retval.0.i.i.i.i.i.i.i243 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i240 to i32
   %add.i.i.i.i.i.i244 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i243, 1
   br label %invoke.cont120
@@ -66730,8 +66730,8 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc341:              ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i.i331, label %while.body.i.i.i.i.i.i.i327, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i319, !llvm.loop !611
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i319: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc341, %if.end.i.i.i.i.i.i.i310
-  %product.1.i.i.i.i.i.i.i317 = phi i64 [ %mul.i.i.i.i.i.i.i.i313, %if.end.i.i.i.i.i.i.i310 ], [ %mul.i20.i.i.i.i.i.i.i329, %call.i.i.i16.i.i.i.i.i.i.i.noexc341 ]
-  %shr.i.i.i.i.i.i.i.i318 = lshr i64 %product.1.i.i.i.i.i.i.i317, 32
+  %product.0.i.i.i.i.i.i.i317 = phi i64 [ %mul.i.i.i.i.i.i.i.i313, %if.end.i.i.i.i.i.i.i310 ], [ %mul.i20.i.i.i.i.i.i.i329, %call.i.i.i16.i.i.i.i.i.i.i.noexc341 ]
+  %shr.i.i.i.i.i.i.i.i318 = lshr i64 %product.0.i.i.i.i.i.i.i317, 32
   %retval.0.i.i.i.i.i.i.i321 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i318 to i32
   %add.i.i.i.i.i.i322 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i321, 1
   br label %invoke.cont145
@@ -66998,8 +66998,8 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc423:              ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i.i413, label %while.body.i.i.i.i.i.i.i409, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i401, !llvm.loop !611
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i401: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc423, %if.end.i.i.i.i.i.i.i392
-  %product.1.i.i.i.i.i.i.i399 = phi i64 [ %mul.i.i.i.i.i.i.i.i395, %if.end.i.i.i.i.i.i.i392 ], [ %mul.i20.i.i.i.i.i.i.i411, %call.i.i.i16.i.i.i.i.i.i.i.noexc423 ]
-  %shr.i.i.i.i.i.i.i.i400 = lshr i64 %product.1.i.i.i.i.i.i.i399, 32
+  %product.0.i.i.i.i.i.i.i399 = phi i64 [ %mul.i.i.i.i.i.i.i.i395, %if.end.i.i.i.i.i.i.i392 ], [ %mul.i20.i.i.i.i.i.i.i411, %call.i.i.i16.i.i.i.i.i.i.i.noexc423 ]
+  %shr.i.i.i.i.i.i.i.i400 = lshr i64 %product.0.i.i.i.i.i.i.i399, 32
   %retval.0.i.i.i.i.i.i.i403 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i400 to i32
   %add.i.i.i.i.i.i404 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i403, 1
   br label %invoke.cont170
@@ -67266,8 +67266,8 @@ call.i.i.i16.i.i.i.i.i.i.i.noexc505:              ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i.i495, label %while.body.i.i.i.i.i.i.i491, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i483, !llvm.loop !611
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i483: ; preds = %call.i.i.i16.i.i.i.i.i.i.i.noexc505, %if.end.i.i.i.i.i.i.i474
-  %product.1.i.i.i.i.i.i.i481 = phi i64 [ %mul.i.i.i.i.i.i.i.i477, %if.end.i.i.i.i.i.i.i474 ], [ %mul.i20.i.i.i.i.i.i.i493, %call.i.i.i16.i.i.i.i.i.i.i.noexc505 ]
-  %shr.i.i.i.i.i.i.i.i482 = lshr i64 %product.1.i.i.i.i.i.i.i481, 32
+  %product.0.i.i.i.i.i.i.i481 = phi i64 [ %mul.i.i.i.i.i.i.i.i477, %if.end.i.i.i.i.i.i.i474 ], [ %mul.i20.i.i.i.i.i.i.i493, %call.i.i.i16.i.i.i.i.i.i.i.noexc505 ]
+  %shr.i.i.i.i.i.i.i.i482 = lshr i64 %product.0.i.i.i.i.i.i.i481, 32
   %retval.0.i.i.i.i.i.i.i485 = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i482 to i32
   %add.i.i.i.i.i.i486 = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i485, 1
   br label %invoke.cont195
@@ -70871,7 +70871,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i32 [ %call.i65, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i32 [ %call.i65, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -70893,8 +70893,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i32 [ %call.i71, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i71, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -73682,8 +73682,8 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !691
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31, %if.then15, %if.end
-  %product.1 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i34, %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31 ]
-  %shr.i = lshr i32 %product.1, 16
+  %product.0 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i34, %_ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit31 ]
+  %shr.i = lshr i32 %product.0, 16
   %conv.i35 = trunc nuw i32 %shr.i to i16
   br label %return
 
@@ -73974,8 +73974,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !711
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit29 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -79277,7 +79277,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i32 [ %call.i61, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i32 [ %call.i61, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -79299,8 +79299,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i32 [ %call.i68, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call.i68, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -82863,14 +82863,14 @@ ehcleanup104:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %lpad2, %ehcleanup31, %ehcleanup62, %ehcleanup104
-  %results.sroa.0.1 = phi ptr [ %48, %ehcleanup104 ], [ %results.sroa.0.0, %lpad2 ], [ %4, %ehcleanup62 ], [ %4, %ehcleanup31 ]
+  %results.sroa.0.2 = phi ptr [ %48, %ehcleanup104 ], [ %results.sroa.0.0, %lpad2 ], [ %4, %ehcleanup62 ], [ %4, %ehcleanup31 ]
   %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %ehcleanup104 ], [ %8, %lpad2 ], [ %.pn3.pn, %ehcleanup62 ], [ %.pn.pn, %ehcleanup31 ]
   call void @_ZN4absl13MockingBitGenD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %gen) #26
-  %tobool.not.i.i.i112 = icmp eq ptr %results.sroa.0.1, null
+  %tobool.not.i.i.i112 = icmp eq ptr %results.sroa.0.2, null
   br i1 %tobool.not.i.i.i112, label %_ZNSt6vectorIiSaIiEED2Ev.exit114, label %if.then.i.i.i113
 
 if.then.i.i.i113:                                 ; preds = %ehcleanup106
-  call void @_ZdlPv(ptr noundef nonnull %results.sroa.0.1) #27
+  call void @_ZdlPv(ptr noundef nonnull %results.sroa.0.2) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit114
 
 _ZNSt6vectorIiSaIiEED2Ev.exit114:                 ; preds = %lpad.i, %ehcleanup106, %if.then.i.i.i113
@@ -82930,8 +82930,8 @@ call.i.i.i16.i.i.i.i.i.i.noexc.us:                ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i.us, label %while.body.i.i.i.i.i.i.us, label %if.end13.i.i.i.i.i.i.us, !llvm.loop !611
 
 if.end13.i.i.i.i.i.i.us:                          ; preds = %call.i.i.i16.i.i.i.i.i.i.noexc.us, %call.i.i.i.i.i.i.i.i.i.noexc.us
-  %product.1.i.i.i.i.i.i.us = phi i64 [ %mul.i.i.i.i.i.i.i.us, %call.i.i.i.i.i.i.i.i.i.noexc.us ], [ %mul.i20.i.i.i.i.i.i.us, %call.i.i.i16.i.i.i.i.i.i.noexc.us ]
-  %shr.i.i.i.i.i.i.i.us = lshr i64 %product.1.i.i.i.i.i.i.us, 32
+  %product.0.i.i.i.i.i.i.us = phi i64 [ %mul.i.i.i.i.i.i.i.us, %call.i.i.i.i.i.i.i.i.i.noexc.us ], [ %mul.i20.i.i.i.i.i.i.us, %call.i.i.i16.i.i.i.i.i.i.noexc.us ]
+  %shr.i.i.i.i.i.i.i.us = lshr i64 %product.0.i.i.i.i.i.i.us, 32
   %retval.0.i.i.i.i.i.i.us = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.us to i32
   %add.i.i.i.i.i.us = add nuw nsw i32 %retval.0.i.i.i.i.i.i.us, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
@@ -83012,8 +83012,8 @@ call.i.i.i16.i.i.i.i.i.i.noexc:                   ; preds = %while.body.i.i.i.i.
   br i1 %cmp10.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i, !llvm.loop !611
 
 if.end13.i.i.i.i.i.i:                             ; preds = %call.i.i.i16.i.i.i.i.i.i.noexc, %if.then6.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %product.1.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i, %call.i.i.i16.i.i.i.i.i.i.noexc ]
-  %shr.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i, %call.i.i.i16.i.i.i.i.i.i.noexc ]
+  %shr.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i
 
 _ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i: ; preds = %if.end13.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -94146,7 +94146,7 @@ ehcleanup111:                                     ; preds = %lpad107, %lpad104
   br label %ehcleanup112
 
 cleanup:                                          ; preds = %invoke.cont108, %invoke.cont67
-  %retval.0 = phi i64 [ %call.i75, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
+  %retval.1 = phi i64 [ %call.i75, %invoke.cont108 ], [ %call68, %invoke.cont67 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss37) #26
@@ -94168,8 +94168,8 @@ ehcleanup116:                                     ; preds = %ehcleanup114, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit, %invoke.cont19
-  %retval.1 = phi i64 [ %call.i81, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.0, %cleanup ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ %call.i81, %_ZN7testing8internal25UntypedFunctionMockerBase31UninterestingCallCleanupHandlerD2Ev.exit ], [ %call20, %invoke.cont19 ], [ %retval.1, %cleanup ]
+  ret i64 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup116, %ehcleanup35, %ehcleanup21
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %ehcleanup35 ], [ %.pn22.pn, %ehcleanup21 ], [ %.pn17.pn.pn.pn, %ehcleanup116 ]
@@ -98939,8 +98939,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingB
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !930
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit29, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -100581,8 +100581,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13Mocking
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !962
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit29, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -102544,8 +102544,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13Mocki
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !983
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit29, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13MockingBitGenEEEEEjRT_.exit29 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i33 = trunc nuw i64 %shr.i to i32
   br label %return
 

@@ -719,8 +719,8 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
 22:                                               ; preds = %.lr.ph51, %34
   %.val57 = phi i32 [ %.val47, %.lr.ph51 ], [ %.val, %34 ]
   %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %34 ]
-  %.050 = phi i32 [ 1000000000, %.lr.ph51 ], [ %.2, %34 ]
-  %.03748 = phi ptr [ null, %.lr.ph51 ], [ %.239, %34 ]
+  %.050 = phi i32 [ 1000000000, %.lr.ph51 ], [ %.1, %34 ]
+  %.03748 = phi ptr [ null, %.lr.ph51 ], [ %.138, %34 ]
   %.val43 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %.val43, i64 %indvars.iv54
   %24 = load ptr, ptr %23, align 8
@@ -743,15 +743,15 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
 
 34:                                               ; preds = %22, %30
   %.val = phi i32 [ %.val57, %22 ], [ %.val.pre, %30 ]
-  %.239 = phi ptr [ %.03748, %22 ], [ %spec.select, %30 ]
-  %.2 = phi i32 [ %.050, %22 ], [ %spec.select41, %30 ]
+  %.138 = phi ptr [ %.03748, %22 ], [ %spec.select, %30 ]
+  %.1 = phi i32 [ %.050, %22 ], [ %spec.select41, %30 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %35 = sext i32 %.val to i64
   %36 = icmp slt i64 %indvars.iv.next55, %35
   br i1 %36, label %22, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %34, %18
-  %.037.lcssa = phi ptr [ null, %18 ], [ %.239, %34 ]
+  %.037.lcssa = phi ptr [ null, %18 ], [ %.138, %34 ]
   %37 = tail call i32 @Aig_NodeDeref_rec(ptr noundef %.037.lcssa, i32 noundef 0, ptr noundef null, ptr noundef null)
   %38 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %38, align 4

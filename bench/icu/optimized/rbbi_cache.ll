@@ -956,7 +956,7 @@ if.then54:                                        ; preds = %if.else33, %if.end5
   br label %if.end59
 
 if.end59:                                         ; preds = %land.lhs.true38, %if.then41, %if.then54, %if.end52
-  %aBoundary.1 = phi i32 [ %conv58, %if.then54 ], [ %call50, %if.end52 ], [ %call36, %if.then41 ], [ %call36, %land.lhs.true38 ]
+  %aBoundary.2 = phi i32 [ %conv58, %if.then54 ], [ %call50, %if.end52 ], [ %call36, %if.then41 ], [ %call36, %land.lhs.true38 ]
   %14 = load ptr, ptr %fBI, align 8
   %fRuleStatusIndex = getelementptr inbounds i8, ptr %14, i64 640
   %15 = load i32, ptr %fRuleStatusIndex, align 8
@@ -974,21 +974,21 @@ if.end64:                                         ; preds = %if.else24
 
 if.then66:                                        ; preds = %if.else, %if.end59, %if.end64
   %ruleStatusIndex.090 = phi i16 [ 0, %if.end64 ], [ 0, %if.else ], [ %16, %if.end59 ]
-  %aBoundary.289 = phi i32 [ 0, %if.end64 ], [ 0, %if.else ], [ %aBoundary.1, %if.end59 ]
+  %aBoundary.089 = phi i32 [ 0, %if.end64 ], [ 0, %if.else ], [ %aBoundary.2, %if.end59 ]
   store i32 0, ptr %fStartBufIdx, align 8
   %fEndBufIdx.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %fEndBufIdx.i, align 4
   %fTextIdx.i = getelementptr inbounds i8, ptr %this, i64 24
-  store i32 %aBoundary.289, ptr %fTextIdx.i, align 8
+  store i32 %aBoundary.089, ptr %fTextIdx.i, align 8
   %fBufIdx.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %fBufIdx.i, align 4
-  store i32 %aBoundary.289, ptr %fBoundaries, align 8
+  store i32 %aBoundary.089, ptr %fBoundaries, align 8
   %fStatuses.i = getelementptr inbounds i8, ptr %this, i64 544
   store i16 %ruleStatusIndex.090, ptr %fStatuses.i, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else9, %land.lhs.true, %if.then66, %if.end64
-  %19 = phi i32 [ %7, %if.else9 ], [ %4, %land.lhs.true ], [ %aBoundary.289, %if.then66 ], [ %7, %if.end64 ]
+  %19 = phi i32 [ %7, %if.else9 ], [ %4, %land.lhs.true ], [ %aBoundary.089, %if.then66 ], [ %7, %if.end64 ]
   %fEndBufIdx69 = getelementptr inbounds i8, ptr %this, i64 20
   %cmp72 = icmp slt i32 %19, %position
   br i1 %cmp72, label %while.cond, label %if.end93
@@ -1581,9 +1581,9 @@ for.end.i:                                        ; preds = %for.cond.i, %if.end
   unreachable
 
 if.then:                                          ; preds = %cond.true.i26.i, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i
-  %pos.0 = phi i32 [ %11, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i ], [ %14, %cond.true.i26.i ]
-  %ruleStatusIdx.0.in = getelementptr inbounds i8, ptr %4, i64 56
-  %ruleStatusIdx.0 = load i32, ptr %ruleStatusIdx.0.in, align 8
+  %pos.1 = phi i32 [ %11, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i ], [ %14, %cond.true.i26.i ]
+  %ruleStatusIdx.1.in = getelementptr inbounds i8, ptr %4, i64 56
+  %ruleStatusIdx.1 = load i32, ptr %ruleStatusIdx.1.in, align 8
   %15 = load i32, ptr %fEndBufIdx, align 4
   %add.i = add nsw i32 %15, 1
   %and.i.i = and i32 %add.i, 127
@@ -1696,9 +1696,9 @@ for.end.i20:                                      ; preds = %for.cond.i28, %if.e
   unreachable
 
 if.then20:                                        ; preds = %cond.true.i26.i24, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i44
-  %pos.1 = phi i32 [ %31, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i44 ], [ %34, %cond.true.i26.i24 ]
-  %ruleStatusIdx.1.in = getelementptr inbounds i8, ptr %24, i64 56
-  %ruleStatusIdx.1 = load i32, ptr %ruleStatusIdx.1.in, align 8
+  %pos.2 = phi i32 [ %31, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i44 ], [ %34, %cond.true.i26.i24 ]
+  %ruleStatusIdx.2.in = getelementptr inbounds i8, ptr %24, i64 56
+  %ruleStatusIdx.2 = load i32, ptr %ruleStatusIdx.2.in, align 8
   %35 = load i32, ptr %fEndBufIdx, align 4
   %add.i51 = add nsw i32 %35, 1
   %and.i.i52 = and i32 %add.i51, 127
@@ -1787,8 +1787,8 @@ return.sink.split.sink.split:                     ; preds = %if.then20, %if.then
   %.sink = phi i32 [ %15, %if.then ], [ %35, %if.then20 ]
   %fStartBufIdx.i53.sink = phi ptr [ %fStartBufIdx.i, %if.then ], [ %fStartBufIdx.i53, %if.then20 ]
   %and.i.i52.sink130.ph = phi i32 [ %and.i.i, %if.then ], [ %and.i.i52, %if.then20 ]
-  %pos.1.sink128.ph = phi i32 [ %pos.0, %if.then ], [ %pos.1, %if.then20 ]
-  %ruleStatusIdx.1.sink.ph = phi i32 [ %ruleStatusIdx.0, %if.then ], [ %ruleStatusIdx.1, %if.then20 ]
+  %pos.2.sink128.ph = phi i32 [ %pos.1, %if.then ], [ %pos.2, %if.then20 ]
+  %ruleStatusIdx.2.sink.ph = phi i32 [ %ruleStatusIdx.1, %if.then ], [ %ruleStatusIdx.2, %if.then20 ]
   %add3.i65 = add i32 %.sink, 7
   %and.i6.i66 = and i32 %add3.i65, 127
   store i32 %and.i6.i66, ptr %fStartBufIdx.i53.sink, align 8
@@ -1796,19 +1796,19 @@ return.sink.split.sink.split:                     ; preds = %if.then20, %if.then
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then20, %if.then
   %and.i.i52.sink130 = phi i32 [ %and.i.i, %if.then ], [ %and.i.i52, %if.then20 ], [ %and.i.i52.sink130.ph, %return.sink.split.sink.split ]
-  %pos.1.sink128 = phi i32 [ %pos.0, %if.then ], [ %pos.1, %if.then20 ], [ %pos.1.sink128.ph, %return.sink.split.sink.split ]
-  %ruleStatusIdx.1.sink = phi i32 [ %ruleStatusIdx.0, %if.then ], [ %ruleStatusIdx.1, %if.then20 ], [ %ruleStatusIdx.1.sink.ph, %return.sink.split.sink.split ]
+  %pos.2.sink128 = phi i32 [ %pos.1, %if.then ], [ %pos.2, %if.then20 ], [ %pos.2.sink128.ph, %return.sink.split.sink.split ]
+  %ruleStatusIdx.2.sink = phi i32 [ %ruleStatusIdx.1, %if.then ], [ %ruleStatusIdx.2, %if.then20 ], [ %ruleStatusIdx.2.sink.ph, %return.sink.split.sink.split ]
   %idxprom.i57 = zext nneg i32 %and.i.i52.sink130 to i64
   %arrayidx.i58 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i57
-  store i32 %pos.1.sink128, ptr %arrayidx.i58, align 4
-  %conv.i59 = trunc i32 %ruleStatusIdx.1.sink to i16
+  store i32 %pos.2.sink128, ptr %arrayidx.i58, align 4
+  %conv.i59 = trunc i32 %ruleStatusIdx.2.sink to i16
   %arrayidx7.i61 = getelementptr inbounds [128 x i16], ptr %fStatuses, i64 0, i64 %idxprom.i57
   store i16 %conv.i59, ptr %arrayidx7.i61, align 2
   store i32 %and.i.i52.sink130, ptr %fEndBufIdx, align 4
   %fBufIdx.i62 = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %and.i.i52.sink130, ptr %fBufIdx.i62, align 4
   %fTextIdx.i63 = getelementptr inbounds i8, ptr %this, i64 24
-  store i32 %pos.1.sink128, ptr %fTextIdx.i63, align 8
+  store i32 %pos.2.sink128, ptr %fTextIdx.i63, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit101, %lor.lhs.false, %for.body, %return.sink.split, %if.end
@@ -1956,8 +1956,8 @@ if.then6:                                         ; preds = %_ZNK6icu_759UVector
   %cond.i19.i.sink = phi i32 [ %12, %cond.true.i20.i ], [ 0, %if.then23.i ], [ %cond.i30.i, %_ZNK6icu_759UVector3210elementAtiEi.exit35.i ]
   %cmp29.i = icmp eq i32 %cond.i19.i.sink, %5
   %cond.in.v.i = select i1 %cmp29.i, i64 52, i64 56
-  %positionStatusIdx.0.ph.in = getelementptr inbounds i8, ptr %4, i64 %cond.in.v.i
-  %positionStatusIdx.0.ph = load i32, ptr %positionStatusIdx.0.ph.in, align 4
+  %positionStatusIdx.3.ph.in = getelementptr inbounds i8, ptr %4, i64 %cond.in.v.i
+  %positionStatusIdx.3.ph = load i32, ptr %positionStatusIdx.3.ph.in, align 4
   %18 = load i32, ptr %fStartBufIdx, align 8
   %sub.i24 = add i32 %18, 127
   %and.i.i = and i32 %sub.i24, 127
@@ -1976,7 +1976,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePosit
   %idxprom.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i
   store i32 %cond.i19.i.sink, ptr %arrayidx.i, align 4
-  %conv.i26 = trunc i32 %positionStatusIdx.0.ph to i16
+  %conv.i26 = trunc i32 %positionStatusIdx.3.ph to i16
   %fStatuses.i = getelementptr inbounds i8, ptr %this, i64 544
   %arrayidx12.i = getelementptr inbounds [128 x i16], ptr %fStatuses.i, i64 0, i64 %idxprom.i
   store i16 %conv.i26, ptr %arrayidx12.i, align 2
@@ -2028,7 +2028,7 @@ if.then29:                                        ; preds = %if.then22
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then22, %if.then29, %if.else17
-  %position.1 = phi i32 [ %call20, %if.else17 ], [ %call31, %if.then29 ], [ %call20, %if.then22 ]
+  %position.0 = phi i32 [ %call20, %if.else17 ], [ %call31, %if.then29 ], [ %call20, %if.then22 ]
   %27 = load ptr, ptr %fBI, align 8
   %fRuleStatusIndex = getelementptr inbounds i8, ptr %27, i64 640
   %28 = load i32, ptr %fRuleStatusIndex, align 8
@@ -2036,9 +2036,9 @@ if.end33:                                         ; preds = %if.then22, %if.then
 
 do.cond:                                          ; preds = %do.body, %if.end13, %if.end33
   %backupPosition.1251 = phi i32 [ %call12, %if.end33 ], [ %call12, %if.end13 ], [ 0, %do.body ]
-  %position.2 = phi i32 [ %position.1, %if.end33 ], [ 0, %if.end13 ], [ 0, %do.body ]
+  %position.1 = phi i32 [ %position.0, %if.end33 ], [ 0, %if.end13 ], [ 0, %do.body ]
   %storemerge = phi i32 [ %28, %if.end33 ], [ 0, %if.end13 ], [ 0, %do.body ]
-  %cmp36.not = icmp slt i32 %position.2, %2
+  %cmp36.not = icmp slt i32 %position.1, %2
   br i1 %cmp36.not, label %do.end, label %do.body, !llvm.loop !16
 
 do.end:                                           ; preds = %do.cond
@@ -2066,7 +2066,7 @@ if.then.i30:                                      ; preds = %_ZN6icu_759UVector3
   %32 = load ptr, ptr %elements.i, align 8
   %idxprom.i31 = sext i32 %31 to i64
   %arrayidx.i32 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i31
-  store i32 %position.2, ptr %arrayidx.i32, align 4
+  store i32 %position.1, ptr %arrayidx.i32, align 4
   %33 = load i32, ptr %count.i, align 8
   %inc.i = add nsw i32 %33, 1
   store i32 %inc.i, ptr %count.i, align 8
@@ -2107,11 +2107,11 @@ _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52: ; preds = %_ZN6icu_759UV
   br label %do.body39
 
 do.body39:                                        ; preds = %do.cond70, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52
-  %position.3 = phi i32 [ %position.2, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %position.6262, %do.cond70 ]
-  %positionStatusIdx.1 = phi i32 [ %storemerge, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %positionStatusIdx.4264, %do.cond70 ]
+  %position.2 = phi i32 [ %position.1, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %position.3262, %do.cond70 ]
+  %positionStatusIdx.0 = phi i32 [ %storemerge, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit52 ], [ %positionStatusIdx.1264, %do.cond70 ]
   %39 = load ptr, ptr %fBI, align 8
   %fPosition41 = getelementptr inbounds i8, ptr %39, i64 636
-  store i32 %position.3, ptr %fPosition41, align 4
+  store i32 %position.2, ptr %fPosition41, align 4
   %40 = load ptr, ptr %fBI, align 8
   %call43 = tail call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextEv(ptr noundef nonnull align 8 dereferenceable(745) %40)
   %41 = load ptr, ptr %fBI, align 8
@@ -2129,16 +2129,16 @@ if.end48:                                         ; preds = %do.body39
 if.then51:                                        ; preds = %if.end48
   %fDictionaryCache53 = getelementptr inbounds i8, ptr %41, i64 656
   %44 = load ptr, ptr %fDictionaryCache53, align 8
-  tail call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache18populateDictionaryEiiii(ptr noundef nonnull align 8 dereferenceable(60) %44, i32 noundef %position.3, i32 noundef %call43, i32 noundef %positionStatusIdx.1, i32 noundef %42)
+  tail call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache18populateDictionaryEiiii(ptr noundef nonnull align 8 dereferenceable(60) %44, i32 noundef %position.2, i32 noundef %call43, i32 noundef %positionStatusIdx.0, i32 noundef %42)
   %45 = load ptr, ptr %fBI, align 8
   %fDictionaryCache55285 = getelementptr inbounds i8, ptr %45, i64 656
   %46 = load ptr, ptr %fDictionaryCache55285, align 8
   %fLimit.i53286 = getelementptr inbounds i8, ptr %46, i64 48
   %47 = load i32, ptr %fLimit.i53286, align 8
-  %cmp.not.i54287 = icmp sle i32 %47, %position.3
+  %cmp.not.i54287 = icmp sle i32 %47, %position.2
   %fStart.i55288 = getelementptr inbounds i8, ptr %46, i64 44
   %48 = load i32, ptr %fStart.i55288, align 4
-  %cmp2.i56289 = icmp sgt i32 %48, %position.3
+  %cmp2.i56289 = icmp sgt i32 %48, %position.2
   %or.cond.i290 = select i1 %cmp.not.i54287, i1 true, i1 %cmp2.i56289
   %fPositionInCache.i57291 = getelementptr inbounds i8, ptr %46, i64 40
   br i1 %or.cond.i290, label %if.end63.thread, label %if.end.i58
@@ -2151,9 +2151,9 @@ if.end.i58:                                       ; preds = %if.then51, %_ZN6icu
   %fPositionInCache.i57296 = phi ptr [ %fPositionInCache.i57, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %fPositionInCache.i57291, %if.then51 ]
   %49 = phi ptr [ %69, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %46, %if.then51 ]
   %tobool64.not295 = phi i1 [ false, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ true, %if.then51 ]
-  %prevPosition.0294 = phi i32 [ %position.5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %position.3, %if.then51 ]
-  %positionStatusIdx.2293 = phi i32 [ %positionStatusIdx.3, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %42, %if.then51 ]
-  %position.4292 = phi i32 [ %position.5, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %call43, %if.then51 ]
+  %prevPosition.0294 = phi i32 [ %position.6, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %position.2, %if.then51 ]
+  %positionStatusIdx.2293 = phi i32 [ %positionStatusIdx.4, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %42, %if.then51 ]
+  %position.4292 = phi i32 [ %position.6, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107 ], [ %call43, %if.then51 ]
   %50 = load i32, ptr %fPositionInCache.i57296, align 8
   %cmp4.i59 = icmp sgt i32 %50, -1
   %count.i.i60 = getelementptr inbounds i8, ptr %49, i64 16
@@ -2217,10 +2217,10 @@ for.end.i61:                                      ; preds = %if.end24.i, %for.co
   unreachable
 
 while.body:                                       ; preds = %cond.true.i26.i, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i
-  %position.5 = phi i32 [ %54, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i ], [ %57, %cond.true.i26.i ]
-  %positionStatusIdx.3.in = getelementptr inbounds i8, ptr %49, i64 56
-  %positionStatusIdx.3 = load i32, ptr %positionStatusIdx.3.in, align 8
-  %cmp58.not = icmp slt i32 %position.5, %2
+  %position.6 = phi i32 [ %54, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i ], [ %57, %cond.true.i26.i ]
+  %positionStatusIdx.4.in = getelementptr inbounds i8, ptr %49, i64 56
+  %positionStatusIdx.4 = load i32, ptr %positionStatusIdx.4.in, align 8
+  %cmp58.not = icmp slt i32 %position.6, %2
   br i1 %cmp58.not, label %if.end60, label %do.cond70
 
 if.end60:                                         ; preds = %while.body
@@ -2243,7 +2243,7 @@ if.then.i77:                                      ; preds = %_ZN6icu_759UVector3
   %61 = load ptr, ptr %elements.i78, align 8
   %idxprom.i79 = sext i32 %60 to i64
   %arrayidx.i80 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i79
-  store i32 %position.5, ptr %arrayidx.i80, align 4
+  store i32 %position.6, ptr %arrayidx.i80, align 4
   %62 = load i32, ptr %count.i, align 8
   %inc.i81 = add nsw i32 %62, 1
   store i32 %inc.i81, ptr %count.i, align 8
@@ -2272,7 +2272,7 @@ if.then.i95:                                      ; preds = %_ZN6icu_759UVector3
   %66 = load ptr, ptr %elements.i78, align 8
   %idxprom.i97 = sext i32 %65 to i64
   %arrayidx.i98 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i97
-  store i32 %positionStatusIdx.3, ptr %arrayidx.i98, align 4
+  store i32 %positionStatusIdx.4, ptr %arrayidx.i98, align 4
   %67 = load i32, ptr %count.i, align 8
   %inc.i99 = add nsw i32 %67, 1
   store i32 %inc.i99, ptr %count.i, align 8
@@ -2284,10 +2284,10 @@ _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit107: ; preds = %_ZN6icu_759U
   %69 = load ptr, ptr %fDictionaryCache55, align 8
   %fLimit.i53 = getelementptr inbounds i8, ptr %69, i64 48
   %70 = load i32, ptr %fLimit.i53, align 8
-  %cmp.not.i54 = icmp sle i32 %70, %position.5
+  %cmp.not.i54 = icmp sle i32 %70, %position.6
   %fStart.i55 = getelementptr inbounds i8, ptr %69, i64 44
   %71 = load i32, ptr %fStart.i55, align 4
-  %cmp2.i56 = icmp sgt i32 %71, %position.5
+  %cmp2.i56 = icmp sgt i32 %71, %position.6
   %or.cond.i = select i1 %cmp.not.i54, i1 true, i1 %cmp2.i56
   %fPositionInCache.i57 = getelementptr inbounds i8, ptr %69, i64 40
   br i1 %or.cond.i, label %if.end63.thread317, label %if.end.i58, !llvm.loop !17
@@ -2301,9 +2301,9 @@ if.end63:                                         ; preds = %if.then12.i
   br i1 %tobool64.not295, label %land.lhs.true, label %do.cond70
 
 land.lhs.true:                                    ; preds = %if.end63.thread, %if.end48, %if.end63
-  %positionStatusIdx.4263 = phi i32 [ %positionStatusIdx.2293, %if.end63 ], [ %42, %if.end48 ], [ %42, %if.end63.thread ]
-  %position.6261 = phi i32 [ %position.4292, %if.end63 ], [ %call43, %if.end48 ], [ %call43, %if.end63.thread ]
-  %cmp65 = icmp slt i32 %position.6261, %2
+  %positionStatusIdx.1263 = phi i32 [ %positionStatusIdx.2293, %if.end63 ], [ %42, %if.end48 ], [ %42, %if.end63.thread ]
+  %position.3261 = phi i32 [ %position.4292, %if.end63 ], [ %call43, %if.end48 ], [ %call43, %if.end63.thread ]
+  %cmp65 = icmp slt i32 %position.3261, %2
   br i1 %cmp65, label %if.then66, label %do.cond70
 
 if.then66:                                        ; preds = %land.lhs.true
@@ -2326,7 +2326,7 @@ if.then.i113:                                     ; preds = %_ZN6icu_759UVector3
   %75 = load ptr, ptr %elements.i78, align 8
   %idxprom.i115 = sext i32 %74 to i64
   %arrayidx.i116 = getelementptr inbounds i32, ptr %75, i64 %idxprom.i115
-  store i32 %position.6261, ptr %arrayidx.i116, align 4
+  store i32 %position.3261, ptr %arrayidx.i116, align 4
   %76 = load i32, ptr %count.i, align 8
   %inc.i117 = add nsw i32 %76, 1
   store i32 %inc.i117, ptr %count.i, align 8
@@ -2355,16 +2355,16 @@ if.then.i131:                                     ; preds = %_ZN6icu_759UVector3
   %80 = load ptr, ptr %elements.i78, align 8
   %idxprom.i133 = sext i32 %79 to i64
   %arrayidx.i134 = getelementptr inbounds i32, ptr %80, i64 %idxprom.i133
-  store i32 %positionStatusIdx.4263, ptr %arrayidx.i134, align 4
+  store i32 %positionStatusIdx.1263, ptr %arrayidx.i134, align 4
   %81 = load i32, ptr %count.i, align 8
   %inc.i135 = add nsw i32 %81, 1
   store i32 %inc.i135, ptr %count.i, align 8
   br label %do.cond70
 
 do.cond70:                                        ; preds = %while.body, %if.end63.thread317, %if.then.i131, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137, %if.end63, %land.lhs.true
-  %positionStatusIdx.4264 = phi i32 [ %positionStatusIdx.2293, %if.end63 ], [ %positionStatusIdx.4263, %land.lhs.true ], [ %positionStatusIdx.4263, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %positionStatusIdx.4263, %if.then.i131 ], [ %positionStatusIdx.3, %if.end63.thread317 ], [ %positionStatusIdx.3, %while.body ]
-  %position.6262 = phi i32 [ %position.4292, %if.end63 ], [ %position.6261, %land.lhs.true ], [ %position.6261, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %position.6261, %if.then.i131 ], [ %position.5, %if.end63.thread317 ], [ %position.5, %while.body ]
-  %cmp71 = icmp slt i32 %position.6262, %2
+  %positionStatusIdx.1264 = phi i32 [ %positionStatusIdx.2293, %if.end63 ], [ %positionStatusIdx.1263, %land.lhs.true ], [ %positionStatusIdx.1263, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %positionStatusIdx.1263, %if.then.i131 ], [ %positionStatusIdx.4, %if.end63.thread317 ], [ %positionStatusIdx.4, %while.body ]
+  %position.3262 = phi i32 [ %position.4292, %if.end63 ], [ %position.3261, %land.lhs.true ], [ %position.3261, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i137 ], [ %position.3261, %if.then.i131 ], [ %position.6, %if.end63.thread317 ], [ %position.6, %while.body ]
+  %cmp71 = icmp slt i32 %position.3262, %2
   br i1 %cmp71, label %do.body39, label %do.end72, !llvm.loop !18
 
 do.end72:                                         ; preds = %do.body39, %do.cond70

@@ -3431,37 +3431,37 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_linkage(ptr noundef %
   br label %64
 
 64:                                               ; preds = %54, %64
-  %.1112 = phi i32 [ %63, %54 ], [ %81, %64 ]
+  %.2112 = phi i32 [ %63, %54 ], [ %81, %64 ]
   %.0106111 = phi i32 [ %60, %54 ], [ %65, %64 ]
   %65 = add nsw i32 %.0106111, -1
-  %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1112) #5
-  %67 = add i32 %.1112, 2
+  %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2112) #5
+  %67 = add i32 %.2112, 2
   %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %67) #5
   %69 = load i32, ptr @hf_mpeg_descr_linkage_population_id, align 4
   %70 = zext i16 %66 to i32
   %71 = shl nuw i32 %70, 16
   %72 = zext i16 %68 to i32
   %73 = or disjoint i32 %71, %72
-  %74 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %69, ptr noundef %0, i32 noundef %.1112, i32 noundef 4, i32 noundef %73, ptr noundef nonnull @.str.750, i32 noundef %70, i32 noundef %72) #5
+  %74 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %69, ptr noundef %0, i32 noundef %.2112, i32 noundef 4, i32 noundef %73, ptr noundef nonnull @.str.750, i32 noundef %70, i32 noundef %72) #5
   %75 = load i32, ptr @ett_mpeg_descriptor_linkage_population_id, align 4
   %76 = tail call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75) #5
   %77 = load i32, ptr @hf_mpeg_descr_linkage_population_id_base, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %0, i32 noundef %.1112, i32 noundef 2, i32 noundef 0) #5
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %0, i32 noundef %.2112, i32 noundef 2, i32 noundef 0) #5
   %79 = load i32, ptr @hf_mpeg_descr_linkage_population_id_mask, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %79, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0) #5
-  %81 = add i32 %.1112, 4
+  %81 = add i32 %.2112, 4
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %.loopexit, label %64, !llvm.loop !10
 
 .loopexit:                                        ; preds = %64, %4, %41, %36, %37
-  %.2 = phi i32 [ %40, %37 ], [ %.0, %36 ], [ %44, %41 ], [ %18, %4 ], [ %81, %64 ]
-  %.not110 = icmp eq i32 %5, %.2
+  %.1 = phi i32 [ %40, %37 ], [ %.0, %36 ], [ %44, %41 ], [ %18, %4 ], [ %81, %64 ]
+  %.not110 = icmp eq i32 %5, %.1
   br i1 %.not110, label %86, label %82
 
 82:                                               ; preds = %.loopexit
-  %83 = sub i32 %5, %.2
+  %83 = sub i32 %5, %.1
   %84 = load i32, ptr @hf_mpeg_descr_linkage_private_data_byte, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %84, ptr noundef %0, i32 noundef %.2, i32 noundef %83, i32 noundef 0) #5
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %84, ptr noundef %0, i32 noundef %.1, i32 noundef %83, i32 noundef 0) #5
   br label %86
 
 86:                                               ; preds = %51, %82, %.loopexit
@@ -5531,10 +5531,10 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.i
   %.0114122.i = phi i8 [ %84, %.lr.ph.i ], [ 0, %76 ]
-  %.0115121.i = phi i32 [ %83, %.lr.ph.i ], [ %80, %76 ]
+  %.2121.i = phi i32 [ %83, %.lr.ph.i ], [ %80, %76 ]
   %81 = load i32, ptr @hf_mpeg_descr_ciplus_prot_brand_id, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %81, ptr noundef %0, i32 noundef %.0115121.i, i32 noundef 2, i32 noundef 0) #5
-  %83 = add i32 %.0115121.i, 2
+  %82 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %81, ptr noundef %0, i32 noundef %.2121.i, i32 noundef 2, i32 noundef 0) #5
+  %83 = add i32 %.2121.i, 2
   %84 = add nuw i8 %.0114122.i, 1
   %exitcond.not.i = icmp eq i8 %84, %77
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !32
@@ -5553,9 +5553,9 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   br label %91
 
 91:                                               ; preds = %18, %28, %42, %.loopexit.i, %87
-  %.2.i = phi i32 [ %39, %28 ], [ %67, %42 ], [ %86, %87 ], [ %.1.i, %.loopexit.i ], [ %27, %18 ]
+  %.0115.i = phi i32 [ %39, %28 ], [ %67, %42 ], [ %86, %87 ], [ %.1.i, %.loopexit.i ], [ %27, %18 ]
   %92 = load ptr, ptr %5, align 8
-  %93 = sub i32 %.2.i, %.033
+  %93 = sub i32 %.0115.i, %.033
   call void @proto_item_set_len(ptr noundef %92, i32 noundef %93) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %94 = icmp eq i32 %93, 0
@@ -5566,8 +5566,8 @@ define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 nounde
   br label %96
 
 96:                                               ; preds = %.sink.split, %91
-  %.1 = phi i32 [ %93, %91 ], [ %95, %.sink.split ]
-  %97 = add i32 %.1, %.033
+  %.024 = phi i32 [ %93, %91 ], [ %95, %.sink.split ]
+  %97 = add i32 %.024, %.033
   %98 = sub i32 %97, %1
   %99 = icmp ult i32 %98, %2
   br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !33

@@ -2067,7 +2067,7 @@ if.then23.i.i:                                    ; preds = %if.then9.i.i
   br label %while.body.i1250.i.backedge
 
 if.end28.i1252.i:                                 ; preds = %if.then9.i.i, %while.body.i1250.i
-  %num_block.i.2.i = phi i32 [ %spec.select.i, %if.then9.i.i ], [ %num_block.i.0.i, %while.body.i1250.i ]
+  %num_block.i.1.i = phi i32 [ %spec.select.i, %if.then9.i.i ], [ %num_block.i.0.i, %while.body.i1250.i ]
   %cmp29.i1254.i = icmp eq i32 %level.i1237.0.i, 0
   br i1 %cmp29.i1254.i, label %mmbit_compsize.exit.i, label %if.end34.i.i
 
@@ -2080,14 +2080,14 @@ if.end34.i.i:                                     ; preds = %if.end28.i1252.i
   br label %while.body.i1250.i.backedge
 
 while.body.i1250.i.backedge:                      ; preds = %if.end34.i.i, %if.then23.i.i
-  %num_block.i.0.i.be = phi i32 [ %spec.select.i, %if.then23.i.i ], [ %num_block.i.2.i, %if.end34.i.i ]
+  %num_block.i.0.i.be = phi i32 [ %spec.select.i, %if.then23.i.i ], [ %num_block.i.1.i, %if.end34.i.i ]
   %key_rem.i1239.0.i.be = phi i64 [ 0, %if.then23.i.i ], [ %add37.i.i, %if.end34.i.i ]
   %key.i1238.0.i.be = phi i32 [ %add25.i.i, %if.then23.i.i ], [ %shr.i1256.i, %if.end34.i.i ]
   %level.i1237.0.i.be = phi i32 [ %inc26.i.i, %if.then23.i.i ], [ %dec.i1253.i, %if.end34.i.i ]
   br label %while.body.i1250.i
 
 mmbit_compsize.exit.i:                            ; preds = %if.end28.i1252.i
-  %conv32.i.i = zext i32 %num_block.i.2.i to i64
+  %conv32.i.i = zext i32 %num_block.i.1.i to i64
   %mul33.i.i = shl nuw nsw i64 %conv32.i.i, 3
   %cmp.i1164.i = icmp ugt i64 %mul33.i.i, %sub.i
   br i1 %cmp.i1164.i, label %sc_compress.exit, label %while.body.i1174.i
@@ -2143,7 +2143,7 @@ if.then20.i1216.i:                                ; preds = %if.then11.i1187.i
   br label %if.end22.i1206.i
 
 if.end22.i1206.i:                                 ; preds = %if.then20.i1216.i, %if.then11.i1187.i
-  %comp.addr.i1151.1.i = phi ptr [ %add.ptr21.i1217.i, %if.then20.i1216.i ], [ %comp.addr.i1151.0.i, %if.then11.i1187.i ]
+  %comp.addr.i1151.2.i = phi ptr [ %add.ptr21.i1217.i, %if.then20.i1216.i ], [ %comp.addr.i1151.0.i, %if.then11.i1187.i ]
   %cmp23.i1207.i = icmp ult i32 %level.i1157.0.i, %conv.i.i1249.i
   %tobool.i1210.i = icmp ne i64 %and.i1200.i, 0
   %or.cond1.i = and i1 %cmp23.i1207.i, %tobool.i1210.i
@@ -2158,7 +2158,7 @@ if.then25.i1211.i:                                ; preds = %if.end22.i1206.i
   br label %while.body.i1174.i.backedge
 
 if.end28.i1177.i:                                 ; preds = %if.end22.i1206.i, %while.body.i1174.i
-  %comp.addr.i1151.2.i = phi ptr [ %comp.addr.i1151.1.i, %if.end22.i1206.i ], [ %comp.addr.i1151.0.i, %while.body.i1174.i ]
+  %comp.addr.i1151.1.i = phi ptr [ %comp.addr.i1151.2.i, %if.end22.i1206.i ], [ %comp.addr.i1151.0.i, %while.body.i1174.i ]
   %cmp29.i1179.i = icmp eq i32 %level.i1157.0.i, 0
   br i1 %cmp29.i1179.i, label %if.end.i, label %if.end32.i1180.i
 
@@ -2174,7 +2174,7 @@ while.body.i1174.i.backedge:                      ; preds = %if.end32.i1180.i, %
   %key_rem.i1159.0.i.be = phi i64 [ 0, %if.then25.i1211.i ], [ %add35.i1183.i, %if.end32.i1180.i ]
   %key.i1158.0.i.be = phi i32 [ %add.i1214.i, %if.then25.i1211.i ], [ %shr.i1185.i, %if.end32.i1180.i ]
   %level.i1157.0.i.be = phi i32 [ %inc.i1215.i, %if.then25.i1211.i ], [ %dec.i1178.i, %if.end32.i1180.i ]
-  %comp.addr.i1151.0.i.be = phi ptr [ %comp.addr.i1151.1.i, %if.then25.i1211.i ], [ %comp.addr.i1151.2.i, %if.end32.i1180.i ]
+  %comp.addr.i1151.0.i.be = phi ptr [ %comp.addr.i1151.2.i, %if.then25.i1211.i ], [ %comp.addr.i1151.1.i, %if.end32.i1180.i ]
   br label %while.body.i1174.i
 
 if.end.i:                                         ; preds = %if.end28.i1177.i, %if.then6.i1218.i, %if.then2.i1219.i
@@ -2250,7 +2250,7 @@ if.then23.i1357.i:                                ; preds = %if.then9.i1333.i
   br label %while.body.i1318.i.backedge
 
 if.end28.i1321.i:                                 ; preds = %if.then9.i1333.i, %while.body.i1318.i
-  %num_block.i1306.2.i = phi i32 [ %spec.select570.i, %if.then9.i1333.i ], [ %num_block.i1306.0.i, %while.body.i1318.i ]
+  %num_block.i1306.1.i = phi i32 [ %spec.select570.i, %if.then9.i1333.i ], [ %num_block.i1306.0.i, %while.body.i1318.i ]
   %cmp29.i1323.i = icmp eq i32 %level.i1303.0.i, 0
   br i1 %cmp29.i1323.i, label %mmbit_compsize.exit1370.i, label %if.end34.i1324.i
 
@@ -2263,14 +2263,14 @@ if.end34.i1324.i:                                 ; preds = %if.end28.i1321.i
   br label %while.body.i1318.i.backedge
 
 while.body.i1318.i.backedge:                      ; preds = %if.end34.i1324.i, %if.then23.i1357.i
-  %num_block.i1306.0.i.be = phi i32 [ %spec.select570.i, %if.then23.i1357.i ], [ %num_block.i1306.2.i, %if.end34.i1324.i ]
+  %num_block.i1306.0.i.be = phi i32 [ %spec.select570.i, %if.then23.i1357.i ], [ %num_block.i1306.1.i, %if.end34.i1324.i ]
   %key_rem.i1305.0.i.be = phi i64 [ 0, %if.then23.i1357.i ], [ %add37.i1327.i, %if.end34.i1324.i ]
   %key.i1304.0.i.be = phi i32 [ %add25.i1360.i, %if.then23.i1357.i ], [ %shr.i1329.i, %if.end34.i1324.i ]
   %level.i1303.0.i.be = phi i32 [ %inc26.i1361.i, %if.then23.i1357.i ], [ %dec.i1322.i, %if.end34.i1324.i ]
   br label %while.body.i1318.i
 
 mmbit_compsize.exit1370.i:                        ; preds = %if.end28.i1321.i
-  %conv32.i1331.i = zext i32 %num_block.i1306.2.i to i64
+  %conv32.i1331.i = zext i32 %num_block.i1306.1.i to i64
   %mul33.i1332.i = shl nuw nsw i64 %conv32.i1331.i, 3
   %cmp.i1068.i = icmp ugt i64 %mul33.i1332.i, %sub31.i
   br i1 %cmp.i1068.i, label %sc_compress.exit, label %while.body.i1078.i
@@ -2326,7 +2326,7 @@ if.then20.i1120.i:                                ; preds = %if.then11.i1091.i
   br label %if.end22.i1110.i
 
 if.end22.i1110.i:                                 ; preds = %if.then20.i1120.i, %if.then11.i1091.i
-  %comp.addr.i1055.1.i = phi ptr [ %add.ptr21.i1121.i, %if.then20.i1120.i ], [ %comp.addr.i1055.0.i, %if.then11.i1091.i ]
+  %comp.addr.i1055.2.i = phi ptr [ %add.ptr21.i1121.i, %if.then20.i1120.i ], [ %comp.addr.i1055.0.i, %if.then11.i1091.i ]
   %cmp23.i1111.i = icmp ult i32 %level.i1061.0.i, %conv.i.i1317.i
   %tobool.i1114.i = icmp ne i64 %and.i1104.i, 0
   %or.cond3.i = and i1 %cmp23.i1111.i, %tobool.i1114.i
@@ -2341,7 +2341,7 @@ if.then25.i1115.i:                                ; preds = %if.end22.i1110.i
   br label %while.body.i1078.i.backedge
 
 if.end28.i1081.i:                                 ; preds = %if.end22.i1110.i, %while.body.i1078.i
-  %comp.addr.i1055.2.i = phi ptr [ %comp.addr.i1055.1.i, %if.end22.i1110.i ], [ %comp.addr.i1055.0.i, %while.body.i1078.i ]
+  %comp.addr.i1055.1.i = phi ptr [ %comp.addr.i1055.2.i, %if.end22.i1110.i ], [ %comp.addr.i1055.0.i, %while.body.i1078.i ]
   %cmp29.i1083.i = icmp eq i32 %level.i1061.0.i, 0
   br i1 %cmp29.i1083.i, label %if.end35.i, label %if.end32.i1084.i
 
@@ -2357,7 +2357,7 @@ while.body.i1078.i.backedge:                      ; preds = %if.end32.i1084.i, %
   %key_rem.i1063.0.i.be = phi i64 [ 0, %if.then25.i1115.i ], [ %add35.i1087.i, %if.end32.i1084.i ]
   %key.i1062.0.i.be = phi i32 [ %add.i1118.i, %if.then25.i1115.i ], [ %shr.i1089.i, %if.end32.i1084.i ]
   %level.i1061.0.i.be = phi i32 [ %inc.i1119.i, %if.then25.i1115.i ], [ %dec.i1082.i, %if.end32.i1084.i ]
-  %comp.addr.i1055.0.i.be = phi ptr [ %comp.addr.i1055.1.i, %if.then25.i1115.i ], [ %comp.addr.i1055.2.i, %if.end32.i1084.i ]
+  %comp.addr.i1055.0.i.be = phi ptr [ %comp.addr.i1055.2.i, %if.then25.i1115.i ], [ %comp.addr.i1055.1.i, %if.end32.i1084.i ]
   br label %while.body.i1078.i
 
 if.end35.i:                                       ; preds = %if.end28.i1081.i, %if.then6.i1122.i, %if.then2.i1123.i
@@ -2428,7 +2428,7 @@ if.then23.i1451.i:                                ; preds = %if.then9.i1427.i
   br label %while.body.i1412.i.backedge
 
 if.end28.i1415.i:                                 ; preds = %if.then9.i1427.i, %while.body.i1412.i
-  %num_block.i1400.2.i = phi i32 [ %spec.select571.i, %if.then9.i1427.i ], [ %num_block.i1400.0.i, %while.body.i1412.i ]
+  %num_block.i1400.1.i = phi i32 [ %spec.select571.i, %if.then9.i1427.i ], [ %num_block.i1400.0.i, %while.body.i1412.i ]
   %cmp29.i1417.i = icmp eq i32 %level.i1397.0.i, 0
   br i1 %cmp29.i1417.i, label %mmbit_compsize.exit1464.i, label %if.end34.i1418.i
 
@@ -2441,14 +2441,14 @@ if.end34.i1418.i:                                 ; preds = %if.end28.i1415.i
   br label %while.body.i1412.i.backedge
 
 while.body.i1412.i.backedge:                      ; preds = %if.end34.i1418.i, %if.then23.i1451.i
-  %num_block.i1400.0.i.be = phi i32 [ %spec.select571.i, %if.then23.i1451.i ], [ %num_block.i1400.2.i, %if.end34.i1418.i ]
+  %num_block.i1400.0.i.be = phi i32 [ %spec.select571.i, %if.then23.i1451.i ], [ %num_block.i1400.1.i, %if.end34.i1418.i ]
   %key_rem.i1399.0.i.be = phi i64 [ 0, %if.then23.i1451.i ], [ %add37.i1421.i, %if.end34.i1418.i ]
   %key.i1398.0.i.be = phi i32 [ %add25.i1454.i, %if.then23.i1451.i ], [ %shr.i1423.i, %if.end34.i1418.i ]
   %level.i1397.0.i.be = phi i32 [ %inc26.i1455.i, %if.then23.i1451.i ], [ %dec.i1416.i, %if.end34.i1418.i ]
   br label %while.body.i1412.i
 
 mmbit_compsize.exit1464.i:                        ; preds = %if.end28.i1415.i
-  %conv32.i1425.i = zext i32 %num_block.i1400.2.i to i64
+  %conv32.i1425.i = zext i32 %num_block.i1400.1.i to i64
   %mul33.i1426.i = shl nuw nsw i64 %conv32.i1425.i, 3
   %cmp.i972.i = icmp ugt i64 %mul33.i1426.i, %sub47.i
   br i1 %cmp.i972.i, label %sc_compress.exit, label %while.body.i982.i
@@ -2504,7 +2504,7 @@ if.then20.i1024.i:                                ; preds = %if.then11.i995.i
   br label %if.end22.i1014.i
 
 if.end22.i1014.i:                                 ; preds = %if.then20.i1024.i, %if.then11.i995.i
-  %comp.addr.i959.1.i = phi ptr [ %add.ptr21.i1025.i, %if.then20.i1024.i ], [ %comp.addr.i959.0.i, %if.then11.i995.i ]
+  %comp.addr.i959.2.i = phi ptr [ %add.ptr21.i1025.i, %if.then20.i1024.i ], [ %comp.addr.i959.0.i, %if.then11.i995.i ]
   %cmp23.i1015.i = icmp ult i32 %level.i965.0.i, %conv.i.i1411.i
   %tobool.i1018.i = icmp ne i64 %and.i1008.i, 0
   %or.cond5.i = and i1 %cmp23.i1015.i, %tobool.i1018.i
@@ -2519,7 +2519,7 @@ if.then25.i1019.i:                                ; preds = %if.end22.i1014.i
   br label %while.body.i982.i.backedge
 
 if.end28.i985.i:                                  ; preds = %if.end22.i1014.i, %while.body.i982.i
-  %comp.addr.i959.2.i = phi ptr [ %comp.addr.i959.1.i, %if.end22.i1014.i ], [ %comp.addr.i959.0.i, %while.body.i982.i ]
+  %comp.addr.i959.1.i = phi ptr [ %comp.addr.i959.2.i, %if.end22.i1014.i ], [ %comp.addr.i959.0.i, %while.body.i982.i ]
   %cmp29.i987.i = icmp eq i32 %level.i965.0.i, 0
   br i1 %cmp29.i987.i, label %if.end51.i, label %if.end32.i988.i
 
@@ -2535,7 +2535,7 @@ while.body.i982.i.backedge:                       ; preds = %if.end32.i988.i, %i
   %key_rem.i967.0.i.be = phi i64 [ 0, %if.then25.i1019.i ], [ %add35.i991.i, %if.end32.i988.i ]
   %key.i966.0.i.be = phi i32 [ %add.i1022.i, %if.then25.i1019.i ], [ %shr.i993.i, %if.end32.i988.i ]
   %level.i965.0.i.be = phi i32 [ %inc.i1023.i, %if.then25.i1019.i ], [ %dec.i986.i, %if.end32.i988.i ]
-  %comp.addr.i959.0.i.be = phi ptr [ %comp.addr.i959.1.i, %if.then25.i1019.i ], [ %comp.addr.i959.2.i, %if.end32.i988.i ]
+  %comp.addr.i959.0.i.be = phi ptr [ %comp.addr.i959.2.i, %if.then25.i1019.i ], [ %comp.addr.i959.1.i, %if.end32.i988.i ]
   br label %while.body.i982.i
 
 if.end51.i:                                       ; preds = %if.end28.i985.i, %if.then6.i1026.i, %if.then2.i1027.i
@@ -2664,7 +2664,7 @@ if.then23.i1545.i:                                ; preds = %if.then9.i1521.i
   br label %while.body.i1506.i.backedge
 
 if.end28.i1509.i:                                 ; preds = %if.then9.i1521.i, %while.body.i1506.i
-  %num_block.i1494.2.i = phi i32 [ %spec.select572.i, %if.then9.i1521.i ], [ %num_block.i1494.0.i, %while.body.i1506.i ]
+  %num_block.i1494.1.i = phi i32 [ %spec.select572.i, %if.then9.i1521.i ], [ %num_block.i1494.0.i, %while.body.i1506.i ]
   %cmp29.i1511.i = icmp eq i32 %level.i1491.0.i, 0
   br i1 %cmp29.i1511.i, label %mmbit_compsize.exit1558.i, label %if.end34.i1512.i
 
@@ -2677,14 +2677,14 @@ if.end34.i1512.i:                                 ; preds = %if.end28.i1509.i
   br label %while.body.i1506.i.backedge
 
 while.body.i1506.i.backedge:                      ; preds = %if.end34.i1512.i, %if.then23.i1545.i
-  %num_block.i1494.0.i.be = phi i32 [ %spec.select572.i, %if.then23.i1545.i ], [ %num_block.i1494.2.i, %if.end34.i1512.i ]
+  %num_block.i1494.0.i.be = phi i32 [ %spec.select572.i, %if.then23.i1545.i ], [ %num_block.i1494.1.i, %if.end34.i1512.i ]
   %key_rem.i1493.0.i.be = phi i64 [ 0, %if.then23.i1545.i ], [ %add37.i1515.i, %if.end34.i1512.i ]
   %key.i1492.0.i.be = phi i32 [ %add25.i1548.i, %if.then23.i1545.i ], [ %shr.i1517.i, %if.end34.i1512.i ]
   %level.i1491.0.i.be = phi i32 [ %inc26.i1549.i, %if.then23.i1545.i ], [ %dec.i1510.i, %if.end34.i1512.i ]
   br label %while.body.i1506.i
 
 mmbit_compsize.exit1558.i:                        ; preds = %if.end28.i1509.i
-  %conv32.i1519.i = zext i32 %num_block.i1494.2.i to i64
+  %conv32.i1519.i = zext i32 %num_block.i1494.1.i to i64
   %mul33.i1520.i = shl nuw nsw i64 %conv32.i1519.i, 3
   %cmp.i876.i = icmp ugt i64 %mul33.i1520.i, %sub116.i
   br i1 %cmp.i876.i, label %sc_compress.exit, label %while.body.i886.i
@@ -2740,7 +2740,7 @@ if.then20.i928.i:                                 ; preds = %if.then11.i899.i
   br label %if.end22.i918.i
 
 if.end22.i918.i:                                  ; preds = %if.then20.i928.i, %if.then11.i899.i
-  %comp.addr.i863.1.i = phi ptr [ %add.ptr21.i929.i, %if.then20.i928.i ], [ %comp.addr.i863.0.i, %if.then11.i899.i ]
+  %comp.addr.i863.2.i = phi ptr [ %add.ptr21.i929.i, %if.then20.i928.i ], [ %comp.addr.i863.0.i, %if.then11.i899.i ]
   %cmp23.i919.i = icmp ult i32 %level.i869.0.i, %conv.i.i1505.i
   %tobool.i922.i = icmp ne i64 %and.i912.i, 0
   %or.cond7.i = and i1 %cmp23.i919.i, %tobool.i922.i
@@ -2755,7 +2755,7 @@ if.then25.i923.i:                                 ; preds = %if.end22.i918.i
   br label %while.body.i886.i.backedge
 
 if.end28.i889.i:                                  ; preds = %if.end22.i918.i, %while.body.i886.i
-  %comp.addr.i863.2.i = phi ptr [ %comp.addr.i863.1.i, %if.end22.i918.i ], [ %comp.addr.i863.0.i, %while.body.i886.i ]
+  %comp.addr.i863.1.i = phi ptr [ %comp.addr.i863.2.i, %if.end22.i918.i ], [ %comp.addr.i863.0.i, %while.body.i886.i ]
   %cmp29.i891.i = icmp eq i32 %level.i869.0.i, 0
   br i1 %cmp29.i891.i, label %if.end120.i, label %if.end32.i892.i
 
@@ -2771,7 +2771,7 @@ while.body.i886.i.backedge:                       ; preds = %if.end32.i892.i, %i
   %key_rem.i871.0.i.be = phi i64 [ 0, %if.then25.i923.i ], [ %add35.i895.i, %if.end32.i892.i ]
   %key.i870.0.i.be = phi i32 [ %add.i926.i, %if.then25.i923.i ], [ %shr.i897.i, %if.end32.i892.i ]
   %level.i869.0.i.be = phi i32 [ %inc.i927.i, %if.then25.i923.i ], [ %dec.i890.i, %if.end32.i892.i ]
-  %comp.addr.i863.0.i.be = phi ptr [ %comp.addr.i863.1.i, %if.then25.i923.i ], [ %comp.addr.i863.2.i, %if.end32.i892.i ]
+  %comp.addr.i863.0.i.be = phi ptr [ %comp.addr.i863.2.i, %if.then25.i923.i ], [ %comp.addr.i863.1.i, %if.end32.i892.i ]
   br label %while.body.i886.i
 
 if.end120.i:                                      ; preds = %if.end28.i889.i, %if.then6.i930.i, %if.then2.i931.i
@@ -2845,7 +2845,7 @@ if.then23.i1639.i:                                ; preds = %if.then9.i1615.i
   br label %while.body.i1600.i.backedge
 
 if.end28.i1603.i:                                 ; preds = %if.then9.i1615.i, %while.body.i1600.i
-  %num_block.i1588.2.i = phi i32 [ %spec.select573.i, %if.then9.i1615.i ], [ %num_block.i1588.0.i, %while.body.i1600.i ]
+  %num_block.i1588.1.i = phi i32 [ %spec.select573.i, %if.then9.i1615.i ], [ %num_block.i1588.0.i, %while.body.i1600.i ]
   %cmp29.i1605.i = icmp eq i32 %level.i1585.0.i, 0
   br i1 %cmp29.i1605.i, label %mmbit_compsize.exit1652.i, label %if.end34.i1606.i
 
@@ -2858,14 +2858,14 @@ if.end34.i1606.i:                                 ; preds = %if.end28.i1603.i
   br label %while.body.i1600.i.backedge
 
 while.body.i1600.i.backedge:                      ; preds = %if.end34.i1606.i, %if.then23.i1639.i
-  %num_block.i1588.0.i.be = phi i32 [ %spec.select573.i, %if.then23.i1639.i ], [ %num_block.i1588.2.i, %if.end34.i1606.i ]
+  %num_block.i1588.0.i.be = phi i32 [ %spec.select573.i, %if.then23.i1639.i ], [ %num_block.i1588.1.i, %if.end34.i1606.i ]
   %key_rem.i1587.0.i.be = phi i64 [ 0, %if.then23.i1639.i ], [ %add37.i1609.i, %if.end34.i1606.i ]
   %key.i1586.0.i.be = phi i32 [ %add25.i1642.i, %if.then23.i1639.i ], [ %shr.i1611.i, %if.end34.i1606.i ]
   %level.i1585.0.i.be = phi i32 [ %inc26.i1643.i, %if.then23.i1639.i ], [ %dec.i1604.i, %if.end34.i1606.i ]
   br label %while.body.i1600.i
 
 mmbit_compsize.exit1652.i:                        ; preds = %if.end28.i1603.i
-  %conv32.i1613.i = zext i32 %num_block.i1588.2.i to i64
+  %conv32.i1613.i = zext i32 %num_block.i1588.1.i to i64
   %mul33.i1614.i = shl nuw nsw i64 %conv32.i1613.i, 3
   %cmp.i780.i = icmp ugt i64 %mul33.i1614.i, %sub133.i
   br i1 %cmp.i780.i, label %sc_compress.exit, label %while.body.i790.i
@@ -2921,7 +2921,7 @@ if.then20.i832.i:                                 ; preds = %if.then11.i803.i
   br label %if.end22.i822.i
 
 if.end22.i822.i:                                  ; preds = %if.then20.i832.i, %if.then11.i803.i
-  %comp.addr.i767.1.i = phi ptr [ %add.ptr21.i833.i, %if.then20.i832.i ], [ %comp.addr.i767.0.i, %if.then11.i803.i ]
+  %comp.addr.i767.2.i = phi ptr [ %add.ptr21.i833.i, %if.then20.i832.i ], [ %comp.addr.i767.0.i, %if.then11.i803.i ]
   %cmp23.i823.i = icmp ult i32 %level.i773.0.i, %conv.i.i1599.i
   %tobool.i826.i = icmp ne i64 %and.i816.i, 0
   %or.cond9.i = and i1 %cmp23.i823.i, %tobool.i826.i
@@ -2936,7 +2936,7 @@ if.then25.i827.i:                                 ; preds = %if.end22.i822.i
   br label %while.body.i790.i.backedge
 
 if.end28.i793.i:                                  ; preds = %if.end22.i822.i, %while.body.i790.i
-  %comp.addr.i767.2.i = phi ptr [ %comp.addr.i767.1.i, %if.end22.i822.i ], [ %comp.addr.i767.0.i, %while.body.i790.i ]
+  %comp.addr.i767.1.i = phi ptr [ %comp.addr.i767.2.i, %if.end22.i822.i ], [ %comp.addr.i767.0.i, %while.body.i790.i ]
   %cmp29.i795.i = icmp eq i32 %level.i773.0.i, 0
   br i1 %cmp29.i795.i, label %if.end137.i, label %if.end32.i796.i
 
@@ -2952,7 +2952,7 @@ while.body.i790.i.backedge:                       ; preds = %if.end32.i796.i, %i
   %key_rem.i775.0.i.be = phi i64 [ 0, %if.then25.i827.i ], [ %add35.i799.i, %if.end32.i796.i ]
   %key.i774.0.i.be = phi i32 [ %add.i830.i, %if.then25.i827.i ], [ %shr.i801.i, %if.end32.i796.i ]
   %level.i773.0.i.be = phi i32 [ %inc.i831.i, %if.then25.i827.i ], [ %dec.i794.i, %if.end32.i796.i ]
-  %comp.addr.i767.0.i.be = phi ptr [ %comp.addr.i767.1.i, %if.then25.i827.i ], [ %comp.addr.i767.2.i, %if.end32.i796.i ]
+  %comp.addr.i767.0.i.be = phi ptr [ %comp.addr.i767.2.i, %if.then25.i827.i ], [ %comp.addr.i767.1.i, %if.end32.i796.i ]
   br label %while.body.i790.i
 
 if.end137.i:                                      ; preds = %if.end28.i793.i, %if.then6.i834.i, %if.then2.i835.i
@@ -3023,7 +3023,7 @@ if.then23.i1733.i:                                ; preds = %if.then9.i1709.i
   br label %while.body.i1694.i.backedge
 
 if.end28.i1697.i:                                 ; preds = %if.then9.i1709.i, %while.body.i1694.i
-  %num_block.i1682.2.i = phi i32 [ %spec.select574.i, %if.then9.i1709.i ], [ %num_block.i1682.0.i, %while.body.i1694.i ]
+  %num_block.i1682.1.i = phi i32 [ %spec.select574.i, %if.then9.i1709.i ], [ %num_block.i1682.0.i, %while.body.i1694.i ]
   %cmp29.i1699.i = icmp eq i32 %level.i1679.0.i, 0
   br i1 %cmp29.i1699.i, label %mmbit_compsize.exit1746.i, label %if.end34.i1700.i
 
@@ -3036,14 +3036,14 @@ if.end34.i1700.i:                                 ; preds = %if.end28.i1697.i
   br label %while.body.i1694.i.backedge
 
 while.body.i1694.i.backedge:                      ; preds = %if.end34.i1700.i, %if.then23.i1733.i
-  %num_block.i1682.0.i.be = phi i32 [ %spec.select574.i, %if.then23.i1733.i ], [ %num_block.i1682.2.i, %if.end34.i1700.i ]
+  %num_block.i1682.0.i.be = phi i32 [ %spec.select574.i, %if.then23.i1733.i ], [ %num_block.i1682.1.i, %if.end34.i1700.i ]
   %key_rem.i1681.0.i.be = phi i64 [ 0, %if.then23.i1733.i ], [ %add37.i1703.i, %if.end34.i1700.i ]
   %key.i1680.0.i.be = phi i32 [ %add25.i1736.i, %if.then23.i1733.i ], [ %shr.i1705.i, %if.end34.i1700.i ]
   %level.i1679.0.i.be = phi i32 [ %inc26.i1737.i, %if.then23.i1733.i ], [ %dec.i1698.i, %if.end34.i1700.i ]
   br label %while.body.i1694.i
 
 mmbit_compsize.exit1746.i:                        ; preds = %if.end28.i1697.i
-  %conv32.i1707.i = zext i32 %num_block.i1682.2.i to i64
+  %conv32.i1707.i = zext i32 %num_block.i1682.1.i to i64
   %mul33.i1708.i = shl nuw nsw i64 %conv32.i1707.i, 3
   %cmp.i717.i = icmp ugt i64 %mul33.i1708.i, %sub149.i
   br i1 %cmp.i717.i, label %sc_compress.exit, label %while.body.i724.i
@@ -3099,7 +3099,7 @@ if.then20.i.i:                                    ; preds = %if.then11.i728.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then20.i.i, %if.then11.i728.i
-  %comp.addr.i.1.i = phi ptr [ %add.ptr21.i.i, %if.then20.i.i ], [ %comp.addr.i.0.i, %if.then11.i728.i ]
+  %comp.addr.i.2.i = phi ptr [ %add.ptr21.i.i, %if.then20.i.i ], [ %comp.addr.i.0.i, %if.then11.i728.i ]
   %cmp23.i.i = icmp ult i32 %level.i712.0.i, %conv.i.i1693.i
   %tobool.i735.i = icmp ne i64 %and.i734.i, 0
   %or.cond11.i = and i1 %cmp23.i.i, %tobool.i735.i
@@ -3114,7 +3114,7 @@ if.then25.i.i:                                    ; preds = %if.end22.i.i
   br label %while.body.i724.i.backedge
 
 if.end28.i.i:                                     ; preds = %if.end22.i.i, %while.body.i724.i
-  %comp.addr.i.2.i = phi ptr [ %comp.addr.i.1.i, %if.end22.i.i ], [ %comp.addr.i.0.i, %while.body.i724.i ]
+  %comp.addr.i.1.i = phi ptr [ %comp.addr.i.2.i, %if.end22.i.i ], [ %comp.addr.i.0.i, %while.body.i724.i ]
   %cmp29.i.i = icmp eq i32 %level.i712.0.i, 0
   br i1 %cmp29.i.i, label %if.end153.i, label %if.end32.i.i
 
@@ -3130,7 +3130,7 @@ while.body.i724.i.backedge:                       ; preds = %if.end32.i.i, %if.t
   %key_rem.i714.0.i.be = phi i64 [ 0, %if.then25.i.i ], [ %add35.i.i, %if.end32.i.i ]
   %key.i713.0.i.be = phi i32 [ %add.i738.i, %if.then25.i.i ], [ %shr.i727.i, %if.end32.i.i ]
   %level.i712.0.i.be = phi i32 [ %inc.i739.i, %if.then25.i.i ], [ %dec.i726.i, %if.end32.i.i ]
-  %comp.addr.i.0.i.be = phi ptr [ %comp.addr.i.1.i, %if.then25.i.i ], [ %comp.addr.i.2.i, %if.end32.i.i ]
+  %comp.addr.i.0.i.be = phi ptr [ %comp.addr.i.2.i, %if.then25.i.i ], [ %comp.addr.i.1.i, %if.end32.i.i ]
   br label %while.body.i724.i
 
 if.end153.i:                                      ; preds = %if.end28.i.i, %if.then6.i740.i, %if.then2.i.i
@@ -3770,12 +3770,12 @@ if.then23.i1135.i:                                ; preds = %if.then9.i1111.i
   br label %while.body.i1096.i.backedge
 
 if.end28.i1099.i:                                 ; preds = %if.then9.i1111.i, %while.body.i1096.i
-  %num_block.i1084.2.i = phi i32 [ %spec.select.i, %if.then9.i1111.i ], [ %num_block.i1084.0.i, %while.body.i1096.i ]
+  %num_block.i1084.1.i = phi i32 [ %spec.select.i, %if.then9.i1111.i ], [ %num_block.i1084.0.i, %while.body.i1096.i ]
   %cmp29.i1101.i = icmp eq i32 %level.i1081.0.i, 0
   br i1 %cmp29.i1101.i, label %if.then31.i1108.i, label %if.end34.i1102.i
 
 if.then31.i1108.i:                                ; preds = %if.end28.i1099.i
-  %conv32.i1109.i = zext i32 %num_block.i1084.2.i to i64
+  %conv32.i1109.i = zext i32 %num_block.i1084.1.i to i64
   %mul33.i1110.i = shl nuw nsw i64 %conv32.i1109.i, 3
   br label %mmbit_compsize.exit1148.i
 
@@ -3788,7 +3788,7 @@ if.end34.i1102.i:                                 ; preds = %if.end28.i1099.i
   br label %while.body.i1096.i.backedge
 
 while.body.i1096.i.backedge:                      ; preds = %if.end34.i1102.i, %if.then23.i1135.i
-  %num_block.i1084.0.i.be = phi i32 [ %spec.select.i, %if.then23.i1135.i ], [ %num_block.i1084.2.i, %if.end34.i1102.i ]
+  %num_block.i1084.0.i.be = phi i32 [ %spec.select.i, %if.then23.i1135.i ], [ %num_block.i1084.1.i, %if.end34.i1102.i ]
   %key_rem.i1083.0.i.be = phi i64 [ 0, %if.then23.i1135.i ], [ %add37.i1105.i, %if.end34.i1102.i ]
   %key.i1082.0.i.be = phi i32 [ %add25.i1138.i, %if.then23.i1135.i ], [ %shr.i1107.i, %if.end34.i1102.i ]
   %level.i1081.0.i.be = phi i32 [ %inc26.i1139.i, %if.then23.i1135.i ], [ %dec.i1100.i, %if.end34.i1102.i ]
@@ -3872,12 +3872,12 @@ if.then23.i1041.i:                                ; preds = %if.then9.i1017.i
   br label %while.body.i1002.i.backedge
 
 if.end28.i1005.i:                                 ; preds = %if.then9.i1017.i, %while.body.i1002.i
-  %num_block.i990.2.i = phi i32 [ %spec.select360.i, %if.then9.i1017.i ], [ %num_block.i990.0.i, %while.body.i1002.i ]
+  %num_block.i990.1.i = phi i32 [ %spec.select360.i, %if.then9.i1017.i ], [ %num_block.i990.0.i, %while.body.i1002.i ]
   %cmp29.i1007.i = icmp eq i32 %level.i987.0.i, 0
   br i1 %cmp29.i1007.i, label %if.then31.i1014.i, label %if.end34.i1008.i
 
 if.then31.i1014.i:                                ; preds = %if.end28.i1005.i
-  %conv32.i1015.i = zext i32 %num_block.i990.2.i to i64
+  %conv32.i1015.i = zext i32 %num_block.i990.1.i to i64
   %mul33.i1016.i = shl nuw nsw i64 %conv32.i1015.i, 3
   br label %mmbit_compsize.exit1054.i
 
@@ -3890,7 +3890,7 @@ if.end34.i1008.i:                                 ; preds = %if.end28.i1005.i
   br label %while.body.i1002.i.backedge
 
 while.body.i1002.i.backedge:                      ; preds = %if.end34.i1008.i, %if.then23.i1041.i
-  %num_block.i990.0.i.be = phi i32 [ %spec.select360.i, %if.then23.i1041.i ], [ %num_block.i990.2.i, %if.end34.i1008.i ]
+  %num_block.i990.0.i.be = phi i32 [ %spec.select360.i, %if.then23.i1041.i ], [ %num_block.i990.1.i, %if.end34.i1008.i ]
   %key_rem.i989.0.i.be = phi i64 [ 0, %if.then23.i1041.i ], [ %add37.i1011.i, %if.end34.i1008.i ]
   %key.i988.0.i.be = phi i32 [ %add25.i1044.i, %if.then23.i1041.i ], [ %shr.i1013.i, %if.end34.i1008.i ]
   %level.i987.0.i.be = phi i32 [ %inc26.i1045.i, %if.then23.i1041.i ], [ %dec.i1006.i, %if.end34.i1008.i ]
@@ -3968,12 +3968,12 @@ if.then23.i947.i:                                 ; preds = %if.then9.i923.i
   br label %while.body.i908.i.backedge
 
 if.end28.i911.i:                                  ; preds = %if.then9.i923.i, %while.body.i908.i
-  %num_block.i896.2.i = phi i32 [ %spec.select361.i, %if.then9.i923.i ], [ %num_block.i896.0.i, %while.body.i908.i ]
+  %num_block.i896.1.i = phi i32 [ %spec.select361.i, %if.then9.i923.i ], [ %num_block.i896.0.i, %while.body.i908.i ]
   %cmp29.i913.i = icmp eq i32 %level.i893.0.i, 0
   br i1 %cmp29.i913.i, label %if.then31.i920.i, label %if.end34.i914.i
 
 if.then31.i920.i:                                 ; preds = %if.end28.i911.i
-  %conv32.i921.i = zext i32 %num_block.i896.2.i to i64
+  %conv32.i921.i = zext i32 %num_block.i896.1.i to i64
   %mul33.i922.i = shl nuw nsw i64 %conv32.i921.i, 3
   br label %mmbit_compsize.exit960.i
 
@@ -3986,7 +3986,7 @@ if.end34.i914.i:                                  ; preds = %if.end28.i911.i
   br label %while.body.i908.i.backedge
 
 while.body.i908.i.backedge:                       ; preds = %if.end34.i914.i, %if.then23.i947.i
-  %num_block.i896.0.i.be = phi i32 [ %spec.select361.i, %if.then23.i947.i ], [ %num_block.i896.2.i, %if.end34.i914.i ]
+  %num_block.i896.0.i.be = phi i32 [ %spec.select361.i, %if.then23.i947.i ], [ %num_block.i896.1.i, %if.end34.i914.i ]
   %key_rem.i895.0.i.be = phi i64 [ 0, %if.then23.i947.i ], [ %add37.i917.i, %if.end34.i914.i ]
   %key.i894.0.i.be = phi i32 [ %add25.i950.i, %if.then23.i947.i ], [ %shr.i919.i, %if.end34.i914.i ]
   %level.i893.0.i.be = phi i32 [ %inc26.i951.i, %if.then23.i947.i ], [ %dec.i912.i, %if.end34.i914.i ]
@@ -4087,12 +4087,12 @@ if.then23.i853.i:                                 ; preds = %if.then9.i829.i
   br label %while.body.i814.i.backedge
 
 if.end28.i817.i:                                  ; preds = %if.then9.i829.i, %while.body.i814.i
-  %num_block.i802.2.i = phi i32 [ %spec.select362.i, %if.then9.i829.i ], [ %num_block.i802.0.i, %while.body.i814.i ]
+  %num_block.i802.1.i = phi i32 [ %spec.select362.i, %if.then9.i829.i ], [ %num_block.i802.0.i, %while.body.i814.i ]
   %cmp29.i819.i = icmp eq i32 %level.i799.0.i, 0
   br i1 %cmp29.i819.i, label %if.then31.i826.i, label %if.end34.i820.i
 
 if.then31.i826.i:                                 ; preds = %if.end28.i817.i
-  %conv32.i827.i = zext i32 %num_block.i802.2.i to i64
+  %conv32.i827.i = zext i32 %num_block.i802.1.i to i64
   %mul33.i828.i = shl nuw nsw i64 %conv32.i827.i, 3
   br label %mmbit_compsize.exit866.i
 
@@ -4105,7 +4105,7 @@ if.end34.i820.i:                                  ; preds = %if.end28.i817.i
   br label %while.body.i814.i.backedge
 
 while.body.i814.i.backedge:                       ; preds = %if.end34.i820.i, %if.then23.i853.i
-  %num_block.i802.0.i.be = phi i32 [ %spec.select362.i, %if.then23.i853.i ], [ %num_block.i802.2.i, %if.end34.i820.i ]
+  %num_block.i802.0.i.be = phi i32 [ %spec.select362.i, %if.then23.i853.i ], [ %num_block.i802.1.i, %if.end34.i820.i ]
   %key_rem.i801.0.i.be = phi i64 [ 0, %if.then23.i853.i ], [ %add37.i823.i, %if.end34.i820.i ]
   %key.i800.0.i.be = phi i32 [ %add25.i856.i, %if.then23.i853.i ], [ %shr.i825.i, %if.end34.i820.i ]
   %level.i799.0.i.be = phi i32 [ %inc26.i857.i, %if.then23.i853.i ], [ %dec.i818.i, %if.end34.i820.i ]
@@ -4185,12 +4185,12 @@ if.then23.i759.i:                                 ; preds = %if.then9.i735.i
   br label %while.body.i720.i.backedge
 
 if.end28.i723.i:                                  ; preds = %if.then9.i735.i, %while.body.i720.i
-  %num_block.i708.2.i = phi i32 [ %spec.select363.i, %if.then9.i735.i ], [ %num_block.i708.0.i, %while.body.i720.i ]
+  %num_block.i708.1.i = phi i32 [ %spec.select363.i, %if.then9.i735.i ], [ %num_block.i708.0.i, %while.body.i720.i ]
   %cmp29.i725.i = icmp eq i32 %level.i705.0.i, 0
   br i1 %cmp29.i725.i, label %if.then31.i732.i, label %if.end34.i726.i
 
 if.then31.i732.i:                                 ; preds = %if.end28.i723.i
-  %conv32.i733.i = zext i32 %num_block.i708.2.i to i64
+  %conv32.i733.i = zext i32 %num_block.i708.1.i to i64
   %mul33.i734.i = shl nuw nsw i64 %conv32.i733.i, 3
   br label %mmbit_compsize.exit772.i
 
@@ -4203,7 +4203,7 @@ if.end34.i726.i:                                  ; preds = %if.end28.i723.i
   br label %while.body.i720.i.backedge
 
 while.body.i720.i.backedge:                       ; preds = %if.end34.i726.i, %if.then23.i759.i
-  %num_block.i708.0.i.be = phi i32 [ %spec.select363.i, %if.then23.i759.i ], [ %num_block.i708.2.i, %if.end34.i726.i ]
+  %num_block.i708.0.i.be = phi i32 [ %spec.select363.i, %if.then23.i759.i ], [ %num_block.i708.1.i, %if.end34.i726.i ]
   %key_rem.i707.0.i.be = phi i64 [ 0, %if.then23.i759.i ], [ %add37.i729.i, %if.end34.i726.i ]
   %key.i706.0.i.be = phi i32 [ %add25.i762.i, %if.then23.i759.i ], [ %shr.i731.i, %if.end34.i726.i ]
   %level.i705.0.i.be = phi i32 [ %inc26.i763.i, %if.then23.i759.i ], [ %dec.i724.i, %if.end34.i726.i ]
@@ -4280,12 +4280,12 @@ if.then23.i.i:                                    ; preds = %if.then9.i.i
   br label %while.body.i659.i.backedge
 
 if.end28.i.i:                                     ; preds = %if.then9.i.i, %while.body.i659.i
-  %num_block.i.2.i = phi i32 [ %spec.select364.i, %if.then9.i.i ], [ %num_block.i.0.i, %while.body.i659.i ]
+  %num_block.i.1.i = phi i32 [ %spec.select364.i, %if.then9.i.i ], [ %num_block.i.0.i, %while.body.i659.i ]
   %cmp29.i.i = icmp eq i32 %level.i648.0.i, 0
   br i1 %cmp29.i.i, label %if.then31.i.i, label %if.end34.i.i
 
 if.then31.i.i:                                    ; preds = %if.end28.i.i
-  %conv32.i.i = zext i32 %num_block.i.2.i to i64
+  %conv32.i.i = zext i32 %num_block.i.1.i to i64
   %mul33.i.i = shl nuw nsw i64 %conv32.i.i, 3
   br label %mmbit_compsize.exit.i
 
@@ -4298,7 +4298,7 @@ if.end34.i.i:                                     ; preds = %if.end28.i.i
   br label %while.body.i659.i.backedge
 
 while.body.i659.i.backedge:                       ; preds = %if.end34.i.i, %if.then23.i.i
-  %num_block.i.0.i.be = phi i32 [ %spec.select364.i, %if.then23.i.i ], [ %num_block.i.2.i, %if.end34.i.i ]
+  %num_block.i.0.i.be = phi i32 [ %spec.select364.i, %if.then23.i.i ], [ %num_block.i.1.i, %if.end34.i.i ]
   %key_rem.i650.0.i.be = phi i64 [ 0, %if.then23.i.i ], [ %add37.i.i, %if.end34.i.i ]
   %key.i649.0.i.be = phi i32 [ %add25.i.i, %if.then23.i.i ], [ %shr.i663.i, %if.end34.i.i ]
   %level.i648.0.i.be = phi i32 [ %inc26.i.i, %if.then23.i.i ], [ %dec.i661.i, %if.end34.i.i ]
@@ -5507,7 +5507,7 @@ if.then23.i655.i.i:                               ; preds = %if.then9.i631.i.i
   br label %while.body.i616.i.i.backedge
 
 if.end28.i619.i.i:                                ; preds = %if.then9.i631.i.i, %while.body.i616.i.i
-  %num_block.i604.2.i.i = phi i32 [ %spec.select.i.i, %if.then9.i631.i.i ], [ %num_block.i604.0.i.i, %while.body.i616.i.i ]
+  %num_block.i604.1.i.i = phi i32 [ %spec.select.i.i, %if.then9.i631.i.i ], [ %num_block.i604.0.i.i, %while.body.i616.i.i ]
   %cmp29.i621.i.i = icmp eq i32 %level.i601.0.i.i, 0
   br i1 %cmp29.i621.i.i, label %mmbit_compsize.exit668.i.i, label %if.end34.i622.i.i
 
@@ -5520,14 +5520,14 @@ if.end34.i622.i.i:                                ; preds = %if.end28.i619.i.i
   br label %while.body.i616.i.i.backedge
 
 while.body.i616.i.i.backedge:                     ; preds = %if.end34.i622.i.i, %if.then23.i655.i.i
-  %num_block.i604.0.i.i.be = phi i32 [ %spec.select.i.i, %if.then23.i655.i.i ], [ %num_block.i604.2.i.i, %if.end34.i622.i.i ]
+  %num_block.i604.0.i.i.be = phi i32 [ %spec.select.i.i, %if.then23.i655.i.i ], [ %num_block.i604.1.i.i, %if.end34.i622.i.i ]
   %key_rem.i603.0.i.i.be = phi i64 [ 0, %if.then23.i655.i.i ], [ %add37.i625.i.i, %if.end34.i622.i.i ]
   %key.i602.0.i.i.be = phi i32 [ %add25.i658.i.i, %if.then23.i655.i.i ], [ %shr.i627.i.i, %if.end34.i622.i.i ]
   %level.i601.0.i.i.be = phi i32 [ %inc26.i659.i.i, %if.then23.i655.i.i ], [ %dec.i620.i.i, %if.end34.i622.i.i ]
   br label %while.body.i616.i.i
 
 mmbit_compsize.exit668.i.i:                       ; preds = %if.end28.i619.i.i
-  %conv32.i629.i.i = zext i32 %num_block.i604.2.i.i to i64
+  %conv32.i629.i.i = zext i32 %num_block.i604.1.i.i to i64
   %mul33.i630.i.i = shl nuw nsw i64 %conv32.i629.i.i, 3
   %add.i379.i = add i64 %mul33.i630.i.i, %retval.0.i.i
   br label %if.end.i550.i.i
@@ -5601,7 +5601,7 @@ if.then23.i.i.i:                                  ; preds = %if.then9.i.i.i
   br label %while.body.i555.i.i.backedge
 
 if.end28.i.i.i:                                   ; preds = %if.then9.i.i.i, %while.body.i555.i.i
-  %num_block.i.2.i.i = phi i32 [ %spec.select238.i.i, %if.then9.i.i.i ], [ %num_block.i.0.i.i, %while.body.i555.i.i ]
+  %num_block.i.1.i.i = phi i32 [ %spec.select238.i.i, %if.then9.i.i.i ], [ %num_block.i.0.i.i, %while.body.i555.i.i ]
   %cmp29.i.i.i = icmp eq i32 %level.i544.0.i.i, 0
   br i1 %cmp29.i.i.i, label %if.end.i35.i.i, label %if.end34.i.i.i
 
@@ -5614,14 +5614,14 @@ if.end34.i.i.i:                                   ; preds = %if.end28.i.i.i
   br label %while.body.i555.i.i.backedge
 
 while.body.i555.i.i.backedge:                     ; preds = %if.end34.i.i.i, %if.then23.i.i.i
-  %num_block.i.0.i.i.be = phi i32 [ %spec.select238.i.i, %if.then23.i.i.i ], [ %num_block.i.2.i.i, %if.end34.i.i.i ]
+  %num_block.i.0.i.i.be = phi i32 [ %spec.select238.i.i, %if.then23.i.i.i ], [ %num_block.i.1.i.i, %if.end34.i.i.i ]
   %key_rem.i546.0.i.i.be = phi i64 [ 0, %if.then23.i.i.i ], [ %add37.i.i.i, %if.end34.i.i.i ]
   %key.i545.0.i.i.be = phi i32 [ %add25.i.i.i, %if.then23.i.i.i ], [ %shr.i559.i.i, %if.end34.i.i.i ]
   %level.i544.0.i.i.be = phi i32 [ %inc26.i.i.i, %if.then23.i.i.i ], [ %dec.i557.i.i, %if.end34.i.i.i ]
   br label %while.body.i555.i.i
 
 if.end.i35.i.i:                                   ; preds = %if.end28.i.i.i
-  %conv32.i.i.i = zext i32 %num_block.i.2.i.i to i64
+  %conv32.i.i.i = zext i32 %num_block.i.1.i.i to i64
   %mul33.i.i.i = shl nuw nsw i64 %conv32.i.i.i, 3
   %add11.i.i = add i64 %mul33.i.i.i, %add16.i.i
   br label %if.else.i41.i.i
@@ -7746,14 +7746,14 @@ if.then23.i:                                      ; preds = %if.then9.i
   br label %while.body.i715.backedge
 
 while.body.i715.backedge:                         ; preds = %if.then23.i, %if.end34.i
-  %num_block.i.0.be = phi i32 [ %spec.select, %if.then23.i ], [ %num_block.i.2, %if.end34.i ]
+  %num_block.i.0.be = phi i32 [ %spec.select, %if.then23.i ], [ %num_block.i.1, %if.end34.i ]
   %key_rem.i704.0.be = phi i64 [ 0, %if.then23.i ], [ %add37.i, %if.end34.i ]
   %key.i703.0.be = phi i32 [ %add25.i, %if.then23.i ], [ %shr.i721, %if.end34.i ]
   %level.i702.0.be = phi i32 [ %inc26.i, %if.then23.i ], [ %dec.i718, %if.end34.i ]
   br label %while.body.i715
 
 if.end28.i717:                                    ; preds = %if.then9.i, %while.body.i715
-  %num_block.i.2 = phi i32 [ %spec.select, %if.then9.i ], [ %num_block.i.0, %while.body.i715 ]
+  %num_block.i.1 = phi i32 [ %spec.select, %if.then9.i ], [ %num_block.i.0, %while.body.i715 ]
   %cmp29.i719 = icmp eq i32 %level.i702.0, 0
   br i1 %cmp29.i719, label %mmbit_compsize.exit, label %if.end34.i
 
@@ -7766,7 +7766,7 @@ if.end34.i:                                       ; preds = %if.end28.i717
   br label %while.body.i715.backedge
 
 mmbit_compsize.exit:                              ; preds = %if.end28.i717
-  %conv32.i = zext i32 %num_block.i.2 to i64
+  %conv32.i = zext i32 %num_block.i.1 to i64
   %mul33.i = shl nuw nsw i64 %conv32.i, 3
   %cmp.i629 = icmp ugt i64 %mul33.i, %sub
   br i1 %cmp.i629, label %return, label %while.body.i639
@@ -7822,7 +7822,7 @@ if.then20.i681:                                   ; preds = %if.then11.i652
   br label %if.end22.i671
 
 if.end22.i671:                                    ; preds = %if.then20.i681, %if.then11.i652
-  %comp.addr.i616.1 = phi ptr [ %add.ptr21.i682, %if.then20.i681 ], [ %comp.addr.i616.0, %if.then11.i652 ]
+  %comp.addr.i616.2 = phi ptr [ %add.ptr21.i682, %if.then20.i681 ], [ %comp.addr.i616.0, %if.then11.i652 ]
   %cmp23.i672 = icmp ult i32 %level.i622.0, %conv.i.i714
   %tobool.i675 = icmp ne i64 %and.i665, 0
   %or.cond1 = and i1 %cmp23.i672, %tobool.i675
@@ -7840,11 +7840,11 @@ while.body.i639.backedge:                         ; preds = %if.then25.i676, %if
   %key_rem.i624.0.be = phi i64 [ 0, %if.then25.i676 ], [ %add35.i648, %if.end32.i645 ]
   %key.i623.0.be = phi i32 [ %add.i679, %if.then25.i676 ], [ %shr.i650, %if.end32.i645 ]
   %level.i622.0.be = phi i32 [ %inc.i680, %if.then25.i676 ], [ %dec.i643, %if.end32.i645 ]
-  %comp.addr.i616.0.be = phi ptr [ %comp.addr.i616.1, %if.then25.i676 ], [ %comp.addr.i616.2, %if.end32.i645 ]
+  %comp.addr.i616.0.be = phi ptr [ %comp.addr.i616.2, %if.then25.i676 ], [ %comp.addr.i616.1, %if.end32.i645 ]
   br label %while.body.i639
 
 if.end28.i642:                                    ; preds = %if.end22.i671, %while.body.i639
-  %comp.addr.i616.2 = phi ptr [ %comp.addr.i616.1, %if.end22.i671 ], [ %comp.addr.i616.0, %while.body.i639 ]
+  %comp.addr.i616.1 = phi ptr [ %comp.addr.i616.2, %if.end22.i671 ], [ %comp.addr.i616.0, %while.body.i639 ]
   %cmp29.i644 = icmp eq i32 %level.i622.0, 0
   br i1 %cmp29.i644, label %if.end5, label %if.end32.i645
 
@@ -7923,14 +7923,14 @@ if.then23.i822:                                   ; preds = %if.then9.i798
   br label %while.body.i783.backedge
 
 while.body.i783.backedge:                         ; preds = %if.then23.i822, %if.end34.i789
-  %num_block.i771.0.be = phi i32 [ %spec.select303, %if.then23.i822 ], [ %num_block.i771.2, %if.end34.i789 ]
+  %num_block.i771.0.be = phi i32 [ %spec.select303, %if.then23.i822 ], [ %num_block.i771.1, %if.end34.i789 ]
   %key_rem.i770.0.be = phi i64 [ 0, %if.then23.i822 ], [ %add37.i792, %if.end34.i789 ]
   %key.i769.0.be = phi i32 [ %add25.i825, %if.then23.i822 ], [ %shr.i794, %if.end34.i789 ]
   %level.i768.0.be = phi i32 [ %inc26.i826, %if.then23.i822 ], [ %dec.i787, %if.end34.i789 ]
   br label %while.body.i783
 
 if.end28.i786:                                    ; preds = %if.then9.i798, %while.body.i783
-  %num_block.i771.2 = phi i32 [ %spec.select303, %if.then9.i798 ], [ %num_block.i771.0, %while.body.i783 ]
+  %num_block.i771.1 = phi i32 [ %spec.select303, %if.then9.i798 ], [ %num_block.i771.0, %while.body.i783 ]
   %cmp29.i788 = icmp eq i32 %level.i768.0, 0
   br i1 %cmp29.i788, label %mmbit_compsize.exit835, label %if.end34.i789
 
@@ -7943,7 +7943,7 @@ if.end34.i789:                                    ; preds = %if.end28.i786
   br label %while.body.i783.backedge
 
 mmbit_compsize.exit835:                           ; preds = %if.end28.i786
-  %conv32.i796 = zext i32 %num_block.i771.2 to i64
+  %conv32.i796 = zext i32 %num_block.i771.1 to i64
   %mul33.i797 = shl nuw nsw i64 %conv32.i796, 3
   %cmp.i566 = icmp ugt i64 %mul33.i797, %sub16
   br i1 %cmp.i566, label %return, label %while.body.i573
@@ -7999,7 +7999,7 @@ if.then20.i:                                      ; preds = %if.then11.i577
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then20.i, %if.then11.i577
-  %comp.addr.i.1 = phi ptr [ %add.ptr21.i, %if.then20.i ], [ %comp.addr.i.0, %if.then11.i577 ]
+  %comp.addr.i.2 = phi ptr [ %add.ptr21.i, %if.then20.i ], [ %comp.addr.i.0, %if.then11.i577 ]
   %cmp23.i = icmp ult i32 %level.i561.0, %conv.i.i782
   %tobool.i584 = icmp ne i64 %and.i583, 0
   %or.cond3 = and i1 %cmp23.i, %tobool.i584
@@ -8017,11 +8017,11 @@ while.body.i573.backedge:                         ; preds = %if.then25.i, %if.en
   %key_rem.i563.0.be = phi i64 [ 0, %if.then25.i ], [ %add35.i, %if.end32.i ]
   %key.i562.0.be = phi i32 [ %add.i587, %if.then25.i ], [ %shr.i576, %if.end32.i ]
   %level.i561.0.be = phi i32 [ %inc.i588, %if.then25.i ], [ %dec.i575, %if.end32.i ]
-  %comp.addr.i.0.be = phi ptr [ %comp.addr.i.1, %if.then25.i ], [ %comp.addr.i.2, %if.end32.i ]
+  %comp.addr.i.0.be = phi ptr [ %comp.addr.i.2, %if.then25.i ], [ %comp.addr.i.1, %if.end32.i ]
   br label %while.body.i573
 
 if.end28.i:                                       ; preds = %if.end22.i, %while.body.i573
-  %comp.addr.i.2 = phi ptr [ %comp.addr.i.1, %if.end22.i ], [ %comp.addr.i.0, %while.body.i573 ]
+  %comp.addr.i.1 = phi ptr [ %comp.addr.i.2, %if.end22.i ], [ %comp.addr.i.0, %while.body.i573 ]
   %cmp29.i = icmp eq i32 %level.i561.0, 0
   br i1 %cmp29.i, label %if.end20, label %if.end32.i
 

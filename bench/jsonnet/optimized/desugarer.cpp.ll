@@ -13216,19 +13216,19 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   br i1 %719, label %.body335, label %716
 
 .body335:                                         ; preds = %716, %482, %693, %508, %493
-  %.0112 = phi i1 [ true, %493 ], [ true, %508 ], [ true, %693 ], [ true, %482 ], [ false, %716 ]
+  %.3115 = phi i1 [ true, %493 ], [ true, %508 ], [ true, %693 ], [ true, %482 ], [ false, %716 ]
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %494, %493 ], [ %509, %508 ], [ %694, %693 ], [ %483, %482 ], [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn, %716 ]
   call void @_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #22
   br label %.body322
 
 .body322:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i6.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i7.i, %468, %691, %.body335
-  %.1113 = phi i1 [ %.0112, %.body335 ], [ true, %691 ], [ true, %468 ], [ true, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i7.i ], [ true, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i6.i ]
+  %.2114 = phi i1 [ %.3115, %.body335 ], [ true, %691 ], [ true, %468 ], [ true, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i7.i ], [ true, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i6.i ]
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body335 ], [ %692, %691 ], [ %469, %468 ], [ %449, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i7.i ], [ %449, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i6.i ]
   call void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #22
   br label %.body312
 
 .body312:                                         ; preds = %431, %428, %.body322
-  %.2114 = phi i1 [ %.1113, %.body322 ], [ true, %428 ], [ true, %431 ]
+  %.1113 = phi i1 [ %.2114, %.body322 ], [ true, %428 ], [ true, %431 ]
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body322 ], [ %429, %428 ], [ %429, %431 ]
   br label %720
 
@@ -13240,7 +13240,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   br i1 %723, label %.body299, label %720
 
 .body299:                                         ; preds = %720
-  br i1 %.2114, label %.preheader.preheader, label %_ZN7jsonnet8internal13UStringStreamD2Ev.exit236
+  br i1 %.1113, label %.preheader.preheader, label %_ZN7jsonnet8internal13UStringStreamD2Ev.exit236
 
 .preheader.preheader:                             ; preds = %.preheader561, %.body302.thread1301, %.body302.thread, %.body299
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1312 = phi { ptr, i32 } [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body299 ], [ %422, %.body302.thread1301 ], [ %423, %.body302.thread ], [ %eh.lpad-body3031300, %.preheader561 ]

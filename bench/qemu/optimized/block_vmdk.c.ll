@@ -740,7 +740,7 @@ if.then21:                                        ; preds = %if.end12
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end12
-  %hw_version.0 = phi ptr [ null, %if.then21 ], [ %call16, %if.end12 ]
+  %hw_version.1 = phi ptr [ null, %if.then21 ], [ %call16, %if.end12 ]
   %call23 = tail call ptr @qemu_opt_get_del(ptr noundef %opts, ptr noundef nonnull @.str.18) #15
   %call24 = tail call zeroext i1 @qemu_opt_get_bool_del(ptr noundef %opts, ptr noundef nonnull @.str.20, i1 noundef zeroext false) #15
   %tobool26.not = icmp eq ptr %call14, null
@@ -780,20 +780,20 @@ if.end40:                                         ; preds = %if.end32, %if.else3
   store ptr %call2, ptr %.compoundliteral.sroa.3.0.data.sroa_idx, align 8
   %.compoundliteral.sroa.4.0.data.sroa_idx = getelementptr inbounds i8, ptr %data, i64 24
   store ptr %opts, ptr %.compoundliteral.sroa.4.0.data.sroa_idx, align 8
-  %call47 = call i32 @vmdk_co_do_create(i64 noundef %and, i32 noundef %subformat.0, i32 noundef %adapter_type_enum.0, ptr noundef %call15, ptr noundef %hw_version.0, ptr noundef %call17, i1 noundef zeroext %call18, i1 noundef zeroext %call24, ptr noundef nonnull @vmdk_co_create_opts_cb, ptr noundef nonnull %data, ptr noundef %errp)
+  %call47 = call i32 @vmdk_co_do_create(i64 noundef %and, i32 noundef %subformat.0, i32 noundef %adapter_type_enum.0, ptr noundef %call15, ptr noundef %hw_version.1, ptr noundef %call17, i1 noundef zeroext %call18, i1 noundef zeroext %call24, ptr noundef nonnull @vmdk_co_create_opts_cb, ptr noundef nonnull %data, ptr noundef %errp)
   br label %exit
 
 exit:                                             ; preds = %if.else25.i, %if.then11.i, %if.then.i, %if.end40, %if.then38, %if.then30, %if.then
   %ret.0 = phi i32 [ -22, %if.then ], [ -22, %if.then30 ], [ -22, %if.then38 ], [ %call47, %if.end40 ], [ -22, %if.then.i ], [ -22, %if.then11.i ], [ -22, %if.else25.i ]
   %fmt.0 = phi ptr [ null, %if.then ], [ %call23, %if.then30 ], [ %call23, %if.then38 ], [ %call23, %if.end40 ], [ null, %if.then.i ], [ null, %if.then11.i ], [ null, %if.else25.i ]
   %toolsversion.0 = phi ptr [ null, %if.then ], [ %call17, %if.then30 ], [ %call17, %if.then38 ], [ %call17, %if.end40 ], [ null, %if.then.i ], [ null, %if.then11.i ], [ null, %if.else25.i ]
-  %hw_version.1 = phi ptr [ null, %if.then ], [ %hw_version.0, %if.then30 ], [ %hw_version.0, %if.then38 ], [ %hw_version.0, %if.end40 ], [ null, %if.then.i ], [ null, %if.then11.i ], [ null, %if.else25.i ]
+  %hw_version.0 = phi ptr [ null, %if.then ], [ %hw_version.1, %if.then30 ], [ %hw_version.1, %if.then38 ], [ %hw_version.1, %if.end40 ], [ null, %if.then.i ], [ null, %if.then11.i ], [ null, %if.else25.i ]
   %backing_file.0 = phi ptr [ null, %if.then ], [ %call15, %if.then30 ], [ %call15, %if.then38 ], [ %call15, %if.end40 ], [ null, %if.then.i ], [ null, %if.then11.i ], [ null, %if.else25.i ]
   %adapter_type.0 = phi ptr [ null, %if.then ], [ %call14, %if.then30 ], [ %call14, %if.then38 ], [ %call14, %if.end40 ], [ null, %if.then.i ], [ null, %if.then11.i ], [ null, %if.else25.i ]
   call void @g_free(ptr noundef %call7) #15
   call void @g_free(ptr noundef %adapter_type.0) #15
   call void @g_free(ptr noundef %backing_file.0) #15
-  call void @g_free(ptr noundef %hw_version.1) #15
+  call void @g_free(ptr noundef %hw_version.0) #15
   call void @g_free(ptr noundef %toolsversion.0) #15
   call void @g_free(ptr noundef %fmt.0) #15
   call void @g_free(ptr noundef null) #15
@@ -1314,7 +1314,7 @@ if.then8:                                         ; preds = %sw.bb6
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then8, %sw.bb6
-  %ret.0 = phi i32 [ %spec.select, %if.then8 ], [ 129, %sw.bb6 ]
+  %ret.1 = phi i32 [ %spec.select, %if.then8 ], [ 129, %sw.bb6 ]
   %10 = load ptr, ptr %extent.18.i, align 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %file, align 8
@@ -1327,14 +1327,14 @@ default.unreachable25:                            ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %if.end14, %sw.bb5, %sw.bb4
   %mul.pre-phi = phi i64 [ %mul.i, %if.end ], [ %.pre24, %if.end14 ], [ %mul.i, %sw.bb5 ], [ %mul.i, %sw.bb4 ]
-  %ret.1 = phi i32 [ -5, %if.end ], [ %ret.0, %if.end14 ], [ 2, %sw.bb5 ], [ 0, %sw.bb4 ]
+  %ret.0 = phi i32 [ -5, %if.end ], [ %ret.1, %if.end14 ], [ 2, %sw.bb5 ], [ 0, %sw.bb4 ]
   %sub = sub i64 %mul.pre-phi, %rem.i
   %cond = tail call i64 @llvm.smin.i64(i64 %sub, i64 %bytes)
   store i64 %cond, ptr %pnum, align 8
   br label %return
 
 return:                                           ; preds = %if.end5.i, %entry, %sw.epilog
-  %retval.0 = phi i32 [ %ret.1, %sw.epilog ], [ -5, %entry ], [ -5, %if.end5.i ]
+  %retval.0 = phi i32 [ %ret.0, %sw.epilog ], [ -5, %entry ], [ -5, %if.end5.i ]
   ret i32 %retval.0
 }
 
@@ -2299,8 +2299,8 @@ if.else.i:                                        ; preds = %if.end25
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %next_line.exit29
   %p.0.i284 = phi ptr [ %buf, %for.body.i.lr.ph ], [ %add.ptr.i25, %next_line.exit29 ]
-  %desc_file_dir.0.i283 = phi ptr [ null, %for.body.i.lr.ph ], [ %desc_file_dir.3.i, %next_line.exit29 ]
-  %extent.i.0282 = phi ptr [ null, %for.body.i.lr.ph ], [ %extent.i.3, %next_line.exit29 ]
+  %desc_file_dir.0.i283 = phi ptr [ null, %for.body.i.lr.ph ], [ %desc_file_dir.1.i, %next_line.exit29 ]
+  %extent.i.0282 = phi ptr [ null, %for.body.i.lr.ph ], [ %extent.i.1, %next_line.exit29 ]
   store i64 -1, ptr %flat_offset.i, align 8
   %call3.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %p.0.i284, ptr noundef nonnull @.str.59, ptr noundef nonnull %access.i, ptr noundef nonnull %sectors.i, ptr noundef nonnull %type.i, ptr noundef nonnull %fname.i, ptr noundef nonnull %flat_offset.i) #15
   %cmp.i = icmp slt i32 %call3.i, 4
@@ -2399,12 +2399,12 @@ if.then72.i:                                      ; preds = %if.then68.i
   br label %vmdk_parse_extents.exit
 
 if.end79.i:                                       ; preds = %if.then68.i, %if.else66.i
-  %desc_file_dir.1.i = phi ptr [ %desc_file_dir.0.i283, %if.else66.i ], [ %call70.i, %if.then68.i ]
-  %call81.i = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %desc_file_dir.1.i, ptr noundef nonnull %fname.i, ptr noundef null) #15
+  %desc_file_dir.3.i = phi ptr [ %desc_file_dir.0.i283, %if.else66.i ], [ %call70.i, %if.then68.i ]
+  %call81.i = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %desc_file_dir.3.i, ptr noundef nonnull %fname.i, ptr noundef null) #15
   br label %if.end82.i
 
 if.end82.i:                                       ; preds = %if.end79.i, %if.then63.i
-  %desc_file_dir.2.i = phi ptr [ %desc_file_dir.0.i283, %if.then63.i ], [ %desc_file_dir.1.i, %if.end79.i ]
+  %desc_file_dir.2.i = phi ptr [ %desc_file_dir.0.i283, %if.then63.i ], [ %desc_file_dir.3.i, %if.end79.i ]
   %extent_path.0.i = phi ptr [ %call65.i, %if.then63.i ], [ %call81.i, %if.end79.i ]
   %13 = load i32, ptr %num_extents.i, align 4
   %call84.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %extent_opt_prefix.i, i64 noundef 32, ptr noundef nonnull @.str.67, i32 noundef %13) #15
@@ -2515,10 +2515,10 @@ if.then113.i:                                     ; preds = %vmdk_add_extent.exi
   br label %vmdk_parse_extents.exit
 
 if.end114.i:                                      ; preds = %vmdk_add_extent.exit.thread, %vmdk_add_extent.exit
-  %extent.i.159 = phi ptr [ %arrayidx.i46, %vmdk_add_extent.exit.thread ], [ %extent.i.0282, %vmdk_add_extent.exit ]
+  %extent.i.359 = phi ptr [ %arrayidx.i46, %vmdk_add_extent.exit.thread ], [ %extent.i.0282, %vmdk_add_extent.exit ]
   %25 = load i64, ptr %flat_offset.i, align 8
   %shl.i = shl i64 %25, 9
-  %flat_start_offset.i = getelementptr inbounds i8, ptr %extent.i.159, i64 56
+  %flat_start_offset.i = getelementptr inbounds i8, ptr %extent.i.359, i64 56
   store i64 %shl.i, ptr %flat_start_offset.i, align 8
   br label %if.end153.i
 
@@ -2550,7 +2550,7 @@ if.end129.i:                                      ; preds = %if.then123.i
   br i1 %tobool130.not.i, label %if.end132.i, label %if.then131.i
 
 if.then131.i:                                     ; preds = %if.end129.i, %if.end129.i.thread
-  %ret.0.i62 = phi i32 [ -22, %if.end129.i.thread ], [ %call128.i, %if.end129.i ]
+  %ret.1.i62 = phi i32 [ -22, %if.end129.i.thread ], [ %call128.i, %if.end129.i ]
   call void @bdrv_graph_rdunlock_main_loop() #15
   call void @bdrv_graph_wrlock(ptr noundef null) #15
   call void @bdrv_unref_child(ptr noundef %bs, ptr noundef nonnull %call99.i) #15
@@ -2788,15 +2788,15 @@ if.else149.i:                                     ; preds = %if.else134.i
   br label %vmdk_parse_extents.exit
 
 if.end153.i:                                      ; preds = %if.end143.i, %if.end132.i, %if.end114.i
-  %extent.i.2 = phi ptr [ %extent.i.159, %if.end114.i ], [ %arrayidx.i, %if.end132.i ], [ %arrayidx148.i, %if.end143.i ]
+  %extent.i.2 = phi ptr [ %extent.i.359, %if.end114.i ], [ %arrayidx.i, %if.end132.i ], [ %arrayidx148.i, %if.end143.i ]
   %call155.i = call noalias ptr @g_strdup(ptr noundef nonnull %type.i) #15
   %type156.i = getelementptr inbounds i8, ptr %extent.i.2, i64 264
   store ptr %call155.i, ptr %type156.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end33.i.thread, %if.end153.i, %land.lhs.true50.i, %if.end33.i, %lor.lhs.false.i13, %for.body.i
-  %extent.i.3 = phi ptr [ %extent.i.0282, %for.body.i ], [ %extent.i.0282, %if.end33.i ], [ %extent.i.2, %if.end153.i ], [ %extent.i.0282, %land.lhs.true50.i ], [ %extent.i.0282, %lor.lhs.false.i13 ], [ %extent.i.0282, %if.end33.i.thread ]
-  %desc_file_dir.3.i = phi ptr [ %desc_file_dir.0.i283, %for.body.i ], [ %desc_file_dir.0.i283, %if.end33.i ], [ %desc_file_dir.2.i, %if.end153.i ], [ %desc_file_dir.0.i283, %land.lhs.true50.i ], [ %desc_file_dir.0.i283, %lor.lhs.false.i13 ], [ %desc_file_dir.0.i283, %if.end33.i.thread ]
+  %extent.i.1 = phi ptr [ %extent.i.0282, %for.body.i ], [ %extent.i.0282, %if.end33.i ], [ %extent.i.2, %if.end153.i ], [ %extent.i.0282, %land.lhs.true50.i ], [ %extent.i.0282, %lor.lhs.false.i13 ], [ %extent.i.0282, %if.end33.i.thread ]
+  %desc_file_dir.1.i = phi ptr [ %desc_file_dir.0.i283, %for.body.i ], [ %desc_file_dir.0.i283, %if.end33.i ], [ %desc_file_dir.2.i, %if.end153.i ], [ %desc_file_dir.0.i283, %land.lhs.true50.i ], [ %desc_file_dir.0.i283, %lor.lhs.false.i13 ], [ %desc_file_dir.0.i283, %if.end33.i.thread ]
   br label %while.cond.i22
 
 while.cond.i22:                                   ; preds = %if.end.i27, %for.inc.i
@@ -2855,8 +2855,8 @@ if.end162.i:                                      ; preds = %next_line.exit
   br label %vmdk_parse_extents.exit
 
 vmdk_parse_extents.exit:                          ; preds = %next_line.exit29, %while.cond.i22, %for.cond.i.preheader, %if.then72.i, %if.then101.i, %if.then113.i, %if.then131.i, %if.then142.i, %if.else149.i, %if.end162.i
-  %desc_file_dir.4.i = phi ptr [ %desc_file_dir.0.i283, %if.end162.i ], [ %desc_file_dir.2.i, %if.else149.i ], [ %desc_file_dir.2.i, %if.then142.i ], [ %desc_file_dir.2.i, %if.then131.i ], [ %desc_file_dir.2.i, %if.then113.i ], [ %desc_file_dir.2.i, %if.then101.i ], [ null, %if.then72.i ], [ null, %for.cond.i.preheader ], [ %desc_file_dir.3.i, %while.cond.i22 ], [ %desc_file_dir.3.i, %next_line.exit29 ]
-  %ret.1.i = phi i32 [ -22, %if.end162.i ], [ -95, %if.else149.i ], [ %retval.0.i35.ph, %if.then142.i ], [ %ret.0.i62, %if.then131.i ], [ %conv.i51, %if.then113.i ], [ -22, %if.then101.i ], [ -22, %if.then72.i ], [ 0, %for.cond.i.preheader ], [ 0, %while.cond.i22 ], [ 0, %next_line.exit29 ]
+  %desc_file_dir.4.i = phi ptr [ %desc_file_dir.0.i283, %if.end162.i ], [ %desc_file_dir.2.i, %if.else149.i ], [ %desc_file_dir.2.i, %if.then142.i ], [ %desc_file_dir.2.i, %if.then131.i ], [ %desc_file_dir.2.i, %if.then113.i ], [ %desc_file_dir.2.i, %if.then101.i ], [ null, %if.then72.i ], [ null, %for.cond.i.preheader ], [ %desc_file_dir.1.i, %while.cond.i22 ], [ %desc_file_dir.1.i, %next_line.exit29 ]
+  %ret.0.i = phi i32 [ -22, %if.end162.i ], [ -95, %if.else149.i ], [ %retval.0.i35.ph, %if.then142.i ], [ %ret.1.i62, %if.then131.i ], [ %conv.i51, %if.then113.i ], [ -22, %if.then101.i ], [ -22, %if.then72.i ], [ 0, %for.cond.i.preheader ], [ 0, %while.cond.i22 ], [ 0, %next_line.exit29 ]
   call void @g_free(ptr noundef %desc_file_dir.4.i) #15
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %access.i)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %type.i)
@@ -2868,7 +2868,7 @@ vmdk_parse_extents.exit:                          ; preds = %next_line.exit29, %
   br label %exit
 
 exit:                                             ; preds = %vmdk_parse_extents.exit, %if.then23, %if.then
-  %ret.0 = phi i32 [ -22, %if.then ], [ -95, %if.then23 ], [ %ret.1.i, %vmdk_parse_extents.exit ]
+  %ret.0 = phi i32 [ -22, %if.then ], [ -95, %if.then23 ], [ %ret.0.i, %vmdk_parse_extents.exit ]
   ret i32 %ret.0
 }
 
@@ -5133,14 +5133,14 @@ if.else:                                          ; preds = %entry
 if.end39.sink.split:                              ; preds = %if.else, %if.end23
   %.sink45 = phi ptr [ %6, %if.end23 ], [ %8, %if.else ]
   %.sink44 = phi i32 [ 13, %if.end23 ], [ 12, %if.else ]
-  %data.0.ph = phi ptr [ %call, %if.end23 ], [ null, %if.else ]
+  %data.1.ph = phi ptr [ %call, %if.end23 ], [ null, %if.else ]
   %n_bytes.addr.0.ph = phi i64 [ %add26, %if.end23 ], [ %n_bytes, %if.else ]
   %9 = load ptr, ptr %.sink45, align 8
   call void @bdrv_co_debug_event(ptr noundef %9, i32 noundef %.sink44) #15
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %if.else, %if.end23
-  %data.0 = phi ptr [ %call, %if.end23 ], [ null, %if.else ], [ %data.0.ph, %if.end39.sink.split ]
+  %data.1 = phi ptr [ %call, %if.end23 ], [ null, %if.else ], [ %data.1.ph, %if.end39.sink.split ]
   %n_bytes.addr.0 = phi i64 [ %add26, %if.end23 ], [ %n_bytes, %if.else ], [ %n_bytes.addr.0.ph, %if.end39.sink.split ]
   %add40 = add i64 %offset_in_cluster, %cluster_offset
   %10 = load ptr, ptr %extent, align 8
@@ -5165,9 +5165,9 @@ if.end53:                                         ; preds = %if.end39, %if.else4
   br label %out
 
 out:                                              ; preds = %if.end11, %if.end, %if.then, %lor.lhs.false, %land.lhs.true, %if.end53
-  %data.1 = phi ptr [ %data.0, %if.end53 ], [ null, %land.lhs.true ], [ null, %lor.lhs.false ], [ null, %if.then ], [ null, %if.end ], [ %call, %if.end11 ]
+  %data.0 = phi ptr [ %data.1, %if.end53 ], [ null, %land.lhs.true ], [ null, %lor.lhs.false ], [ null, %if.then ], [ null, %if.end ], [ %call, %if.end11 ]
   %ret.0 = phi i32 [ %spec.store.select, %if.end53 ], [ -22, %land.lhs.true ], [ -22, %lor.lhs.false ], [ -22, %if.then ], [ -22, %if.end ], [ -22, %if.end11 ]
-  call void @g_free(ptr noundef %data.1) #15
+  call void @g_free(ptr noundef %data.0) #15
   %13 = load i8, ptr %compressed, align 1
   %tobool59 = trunc i8 %13 to i1
   br i1 %tobool59, label %if.end61, label %if.then60

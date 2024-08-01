@@ -102,8 +102,8 @@ define internal fastcc void @nextFile(ptr nocapture noundef %0) unnamed_addr #0 
 
 11:                                               ; preds = %1
   %12 = icmp ne i32 %5, 0
-  %.1 = load ptr, ptr @stdin, align 8
-  %.not17 = icmp eq ptr %.1, null
+  %.0 = load ptr, ptr @stdin, align 8
+  %.not17 = icmp eq ptr %.0, null
   %or.cond = select i1 %12, i1 true, i1 %.not17
   br i1 %or.cond, label %.thread, label %.thread21
 
@@ -141,12 +141,12 @@ define internal fastcc void @nextFile(ptr nocapture noundef %0) unnamed_addr #0 
   br i1 %.not, label %.thread, label %13
 
 select.unfold:                                    ; preds = %13
-  %.1.old = load ptr, ptr @stdin, align 8
-  %.not17.old = icmp eq ptr %.1.old, null
+  %.0.old = load ptr, ptr @stdin, align 8
+  %.not17.old = icmp eq ptr %.0.old, null
   br i1 %.not17.old, label %.thread, label %.thread21
 
 .thread21:                                        ; preds = %17, %11, %select.unfold
-  %.124 = phi ptr [ %.1.old, %select.unfold ], [ %.1, %11 ], [ %18, %17 ]
+  %.024 = phi ptr [ %.0.old, %select.unfold ], [ %.0, %11 ], [ %18, %17 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 12
   %37 = load i32, ptr %36, align 4
   %.not.i = icmp eq i32 %37, 0
@@ -179,9 +179,9 @@ fileName.exit:                                    ; preds = %.thread21, %38, %40
   br label %.thread
 
 .thread:                                          ; preds = %19, %.preheader, %11, %fileName.exit, %select.unfold
-  %.120 = phi ptr [ %.124, %fileName.exit ], [ null, %select.unfold ], [ null, %11 ], [ null, %.preheader ], [ null, %19 ]
+  %.020 = phi ptr [ %.024, %fileName.exit ], [ null, %select.unfold ], [ null, %11 ], [ null, %.preheader ], [ null, %19 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.120, ptr %50, align 8
+  store ptr %.020, ptr %50, align 8
   ret void
 }
 

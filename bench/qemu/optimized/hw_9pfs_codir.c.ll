@@ -182,7 +182,7 @@ if.end14.lr.ph:                                   ; preds = %while.body.preheade
 if.end14.us:                                      ; preds = %if.end14.lr.ph, %if.end55.us
   %e.070.us = phi ptr [ %call28.us, %if.end55.us ], [ null, %if.end14.lr.ph ]
   %saved_dir_pos.069.us = phi i64 [ %.val.us, %if.end55.us ], [ %call, %if.end14.lr.ph ]
-  %size.068.us = phi i32 [ %add.us, %if.end55.us ], [ 0, %if.end14.lr.ph ]
+  %size.168.us = phi i32 [ %add.us, %if.end55.us ], [ 0, %if.end14.lr.ph ]
   %pdu.val36.us = load ptr, ptr %s1, align 8
   store i32 0, ptr %call.i, align 4
   %ops.i.us = getelementptr inbounds i8, ptr %pdu.val36.us, i64 24
@@ -202,7 +202,7 @@ if.end19.us:                                      ; preds = %if.end14.us
   %call20.us = call i64 @v9fs_readdir_response_size(ptr noundef nonnull %name) #7
   %conv21.us = trunc i64 %call20.us to i32
   call void @v9fs_string_free(ptr noundef nonnull %name) #7
-  %add.us = add i32 %size.068.us, %conv21.us
+  %add.us = add i32 %size.168.us, %conv21.us
   %cmp22.us = icmp sgt i32 %add.us, %maxsize
   br i1 %cmp22.us, label %while.end, label %if.end25.us
 
@@ -261,7 +261,7 @@ if.then10:                                        ; preds = %if.end
 if.end14:                                         ; preds = %if.end14.lr.ph, %qemu_dirent_dup.exit
   %e.070 = phi ptr [ %call28, %qemu_dirent_dup.exit ], [ null, %if.end14.lr.ph ]
   %saved_dir_pos.069 = phi i64 [ %.val, %qemu_dirent_dup.exit ], [ %call, %if.end14.lr.ph ]
-  %size.068 = phi i32 [ %add, %qemu_dirent_dup.exit ], [ 0, %if.end14.lr.ph ]
+  %size.168 = phi i32 [ %add, %qemu_dirent_dup.exit ], [ 0, %if.end14.lr.ph ]
   %pdu.val36 = load ptr, ptr %s1, align 8
   store i32 0, ptr %call.i, align 4
   %ops.i = getelementptr inbounds i8, ptr %pdu.val36, i64 24
@@ -281,7 +281,7 @@ if.end19:                                         ; preds = %if.end14
   %call20 = call i64 @v9fs_readdir_response_size(ptr noundef nonnull %name) #7
   %conv21 = trunc i64 %call20 to i32
   call void @v9fs_string_free(ptr noundef nonnull %name) #7
-  %add = add i32 %size.068, %conv21
+  %add = add i32 %size.168, %conv21
   %cmp22 = icmp sgt i32 %add, %maxsize
   br i1 %cmp22, label %while.end, label %if.end25
 
@@ -314,16 +314,16 @@ qemu_dirent_dup.exit:                             ; preds = %if.end25, %if.then.
   br i1 %tobool.not, label %if.end14, label %while.end
 
 while.end.sink.split:                             ; preds = %if.end14, %if.end46.us, %qemu_dirent_dup.exit.us, %if.end14.us
-  %size.063.ph = phi i32 [ %size.068.us, %if.end14.us ], [ %size.068.us, %qemu_dirent_dup.exit.us ], [ %size.068.us, %if.end46.us ], [ %size.068, %if.end14 ]
+  %size.163.ph = phi i32 [ %size.168.us, %if.end14.us ], [ %size.168.us, %qemu_dirent_dup.exit.us ], [ %size.168.us, %if.end46.us ], [ %size.168, %if.end14 ]
   %saved_dir_pos.059.ph = phi i64 [ %saved_dir_pos.069.us, %if.end14.us ], [ %saved_dir_pos.069.us, %qemu_dirent_dup.exit.us ], [ %saved_dir_pos.069.us, %if.end46.us ], [ %saved_dir_pos.069, %if.end14 ]
   %22 = load i32, ptr %call.i, align 4
   %sub.i = sub i32 0, %22
   br label %while.end
 
 while.end:                                        ; preds = %if.end19, %qemu_dirent_dup.exit, %if.end19.us, %if.end55.us, %while.end.sink.split, %while.body.preheader
-  %size.063 = phi i32 [ 0, %while.body.preheader ], [ %size.063.ph, %while.end.sink.split ], [ %size.068.us, %if.end19.us ], [ %add.us, %if.end55.us ], [ %size.068, %if.end19 ], [ %add, %qemu_dirent_dup.exit ]
+  %size.163 = phi i32 [ 0, %while.body.preheader ], [ %size.163.ph, %while.end.sink.split ], [ %size.168.us, %if.end19.us ], [ %add.us, %if.end55.us ], [ %size.168, %if.end19 ], [ %add, %qemu_dirent_dup.exit ]
   %saved_dir_pos.059 = phi i64 [ %call, %while.body.preheader ], [ %saved_dir_pos.059.ph, %while.end.sink.split ], [ %saved_dir_pos.069.us, %if.end19.us ], [ %.val.us, %if.end55.us ], [ %saved_dir_pos.069, %if.end19 ], [ %.val, %qemu_dirent_dup.exit ]
-  %err.0 = phi i32 [ -4, %while.body.preheader ], [ %sub.i, %while.end.sink.split ], [ 0, %if.end19.us ], [ -4, %if.end55.us ], [ 0, %if.end19 ], [ -4, %qemu_dirent_dup.exit ]
+  %err.1 = phi i32 [ -4, %while.body.preheader ], [ %sub.i, %while.end.sink.split ], [ 0, %if.end19.us ], [ -4, %if.end55.us ], [ 0, %if.end19 ], [ -4, %qemu_dirent_dup.exit ]
   %23 = load ptr, ptr %ops6, align 8
   %seekdir62 = getelementptr inbounds i8, ptr %23, i64 168
   %24 = load ptr, ptr %seekdir62, align 8
@@ -331,8 +331,8 @@ while.end:                                        ; preds = %if.end19, %qemu_dir
   br label %out
 
 out:                                              ; preds = %while.end, %if.then10
-  %err.1 = phi i32 [ %conv, %if.then10 ], [ %err.0, %while.end ]
-  %size.1 = phi i32 [ 0, %if.then10 ], [ %size.063, %while.end ]
+  %err.0 = phi i32 [ %conv, %if.then10 ], [ %err.1, %while.end ]
+  %size.0 = phi i32 [ 0, %if.then10 ], [ %size.163, %while.end ]
   %25 = load i32, ptr %proto_version.i, align 8
   %cmp.i42 = icmp eq i32 %25, 1
   br i1 %cmp.i42, label %if.then.i45, label %if.else.i43
@@ -349,9 +349,9 @@ if.else.i43:                                      ; preds = %out
 
 v9fs_readdir_unlock.exit:                         ; preds = %if.then.i45, %if.else.i43
   call void @v9fs_path_free(ptr noundef nonnull %path) #7
-  %cmp66 = icmp slt i32 %err.1, 0
-  %err.1.size.1 = select i1 %cmp66, i32 %err.1, i32 %size.1
-  ret i32 %err.1.size.1
+  %cmp66 = icmp slt i32 %err.0, 0
+  %err.0.size.0 = select i1 %cmp66, i32 %err.0, i32 %size.0
+  ret i32 %err.0.size.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

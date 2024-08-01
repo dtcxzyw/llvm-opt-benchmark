@@ -89,7 +89,7 @@ sw.bb16:                                          ; preds = %if.end6
   br i1 %tobool.not21.i, label %traverse_string.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %sw.bb16, %if.end44.i
-  %nchar.0 = phi i32 [ %inc.i, %if.end44.i ], [ 0, %sw.bb16 ]
+  %nchar.1 = phi i32 [ %inc.i, %if.end44.i ], [ 0, %sw.bb16 ]
   %p.addr.023.i = phi ptr [ %add.ptr.i, %if.end44.i ], [ %in, %sw.bb16 ]
   %len.addr.022.i = phi i32 [ %sub33.i, %if.end44.i ], [ %len.addr.0, %sw.bb16 ]
   %call.i = call i32 @UTF8_getc(ptr noundef %p.addr.023.i, i32 noundef %len.addr.022.i, ptr noundef nonnull %value.i) #7
@@ -105,7 +105,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %narrow.i.not.i, label %if.then20, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end.i
-  %inc.i = add nuw nsw i32 %nchar.0, 1
+  %inc.i = add nuw nsw i32 %nchar.1, 1
   %idx.ext.i = zext nneg i32 %call.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.023.i, i64 %idx.ext.i
   %sub33.i = sub nsw i32 %len.addr.022.i, %call.i
@@ -131,9 +131,9 @@ sw.default:                                       ; preds = %if.end6
   br label %return
 
 sw.epilog:                                        ; preds = %if.end6, %traverse_string.exit, %if.end14, %if.end9
-  %nchar.3 = phi i32 [ %nchar.2, %traverse_string.exit ], [ %shr15, %if.end14 ], [ %shr, %if.end9 ], [ %len.addr.0, %if.end6 ]
+  %nchar.0 = phi i32 [ %nchar.2, %traverse_string.exit ], [ %shr15, %if.end14 ], [ %shr, %if.end9 ], [ %len.addr.0, %if.end6 ]
   %cmp23 = icmp sgt i64 %minsize, 0
-  %conv25 = sext i32 %nchar.3 to i64
+  %conv25 = sext i32 %nchar.0 to i64
   %cmp26 = icmp slt i64 %conv25, %minsize
   %or.cond = select i1 %cmp23, i1 %cmp26, i1 false
   br i1 %or.cond, label %if.then28, label %if.end29
@@ -257,16 +257,16 @@ if.end91:                                         ; preds = %if.end83
   ]
 
 sw.bb92:                                          ; preds = %if.end91
-  store i32 %nchar.3, ptr %outlen, align 4
+  store i32 %nchar.0, ptr %outlen, align 4
   br label %sw.epilog98
 
 sw.bb93:                                          ; preds = %if.end91
-  %shl = shl i32 %nchar.3, 1
+  %shl = shl i32 %nchar.0, 1
   store i32 %shl, ptr %outlen, align 4
   br label %sw.epilog98
 
 sw.bb94:                                          ; preds = %if.end91
-  %shl95 = shl i32 %nchar.3, 2
+  %shl95 = shl i32 %nchar.0, 2
   store i32 %shl95, ptr %outlen, align 4
   br label %sw.epilog98
 
@@ -277,7 +277,7 @@ sw.bb96:                                          ; preds = %if.end91
   br label %sw.epilog98
 
 sw.epilog98:                                      ; preds = %sw.bb96, %sw.bb94, %sw.bb93, %sw.bb92, %if.end91
-  %5 = phi i32 [ 0, %if.end91 ], [ %.pre, %sw.bb96 ], [ %shl95, %sw.bb94 ], [ %shl, %sw.bb93 ], [ %nchar.3, %sw.bb92 ]
+  %5 = phi i32 [ 0, %if.end91 ], [ %.pre, %sw.bb96 ], [ %shl95, %sw.bb94 ], [ %shl, %sw.bb93 ], [ %nchar.0, %sw.bb92 ]
   %cpyfunc.0 = phi ptr [ null, %if.end91 ], [ @cpy_utf8, %sw.bb96 ], [ @cpy_univ, %sw.bb94 ], [ @cpy_bmp, %sw.bb93 ], [ @cpy_asc, %sw.bb92 ]
   %add = add nsw i32 %5, 1
   %conv99 = sext i32 %add to i64

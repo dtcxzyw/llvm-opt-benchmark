@@ -1803,7 +1803,7 @@ initialize_windowaggregate.exit.i.i:              ; preds = %458, %455
   br label %521
 
 521:                                              ; preds = %517, %510
-  %.082.i.i = phi i64 [ %520, %517 ], [ %486, %510 ]
+  %.1.i.i = phi i64 [ %520, %517 ], [ %486, %510 ]
   %522 = load i8, ptr %437, align 8
   %523 = trunc i8 %522 to i1
   br i1 %523, label %535, label %524
@@ -1835,9 +1835,9 @@ initialize_windowaggregate.exit.i.i:              ; preds = %458, %455
   br label %535
 
 535:                                              ; preds = %._crit_edge118.i.i, %534, %521, %495, %489
-  %.1.i.i = phi i64 [ %486, %489 ], [ %.082.i.i, %521 ], [ %.082.i.i, %._crit_edge118.i.i ], [ %.082.i.i, %534 ], [ %486, %495 ]
+  %.082.i.i = phi i64 [ %486, %489 ], [ %.1.i.i, %521 ], [ %.1.i.i, %._crit_edge118.i.i ], [ %.1.i.i, %534 ], [ %486, %495 ]
   store ptr %399, ptr @CurrentMemoryContext, align 8
-  store i64 %.1.i.i, ptr %480, align 8
+  store i64 %.082.i.i, ptr %480, align 8
   %536 = load i8, ptr %138, align 4
   %537 = and i8 %536, 1
   store i8 %537, ptr %437, align 8
@@ -2322,7 +2322,7 @@ initialize_windowaggregate.exit.i:                ; preds = %575, %572
   br label %775
 
 775:                                              ; preds = %771, %764, %752
-  %.0.i187.i = phi i64 [ %731, %752 ], [ %774, %771 ], [ %731, %764 ]
+  %.1.i187.i = phi i64 [ %731, %752 ], [ %774, %771 ], [ %731, %764 ]
   %776 = load i8, ptr %726, align 8
   %777 = trunc i8 %776 to i1
   br i1 %777, label %790, label %778
@@ -2355,9 +2355,9 @@ initialize_windowaggregate.exit.i:                ; preds = %575, %572
   br label %790
 
 790:                                              ; preds = %._crit_edge124.i.i, %789, %775, %748, %741
-  %.1.i188.i = phi i64 [ %731, %741 ], [ %.0.i187.i, %775 ], [ %.0.i187.i, %._crit_edge124.i.i ], [ %.0.i187.i, %789 ], [ %731, %748 ]
+  %.0.i188.i = phi i64 [ %731, %741 ], [ %.1.i187.i, %775 ], [ %.1.i187.i, %._crit_edge124.i.i ], [ %.1.i187.i, %789 ], [ %731, %748 ]
   store ptr %661, ptr @CurrentMemoryContext, align 8
-  store i64 %.1.i188.i, ptr %724, align 8
+  store i64 %.0.i188.i, ptr %724, align 8
   %791 = load i8, ptr %146, align 4
   %792 = and i8 %791, 1
   store i8 %792, ptr %726, align 8
@@ -3879,11 +3879,11 @@ define dso_local i64 @WinGetFuncArgInFrame(ptr nocapture noundef %0, i32 noundef
   %79 = icmp slt i64 %78, %68
   %or.cond154 = and i1 %.not, %79
   %80 = sext i1 %or.cond154 to i64
-  %.0115 = add i64 %71, %80
+  %.1 = add i64 %71, %80
   tail call fastcc void @update_frameheadpos(ptr noundef nonnull %9)
   %81 = getelementptr inbounds i8, ptr %9, i64 312
   %82 = load i64, ptr %81, align 8
-  %83 = icmp slt i64 %.0115, %82
+  %83 = icmp slt i64 %.1, %82
   br i1 %83, label %147, label %127
 
 84:                                               ; preds = %66
@@ -3907,11 +3907,11 @@ define dso_local i64 @WinGetFuncArgInFrame(ptr nocapture noundef %0, i32 noundef
   br label %95
 
 95:                                               ; preds = %93, %88, %84
-  %.1 = phi i64 [ %94, %93 ], [ %71, %88 ], [ %71, %84 ]
+  %.2 = phi i64 [ %94, %93 ], [ %71, %88 ], [ %71, %84 ]
   tail call fastcc void @update_frameheadpos(ptr noundef nonnull %9)
   %96 = getelementptr inbounds i8, ptr %9, i64 312
   %97 = load i64, ptr %96, align 8
-  %98 = icmp slt i64 %.1, %97
+  %98 = icmp slt i64 %.2, %97
   br i1 %98, label %147, label %127
 
 99:                                               ; preds = %66
@@ -3946,11 +3946,11 @@ define dso_local i64 @WinGetFuncArgInFrame(ptr nocapture noundef %0, i32 noundef
   br label %116
 
 116:                                              ; preds = %111, %114, %103, %99
-  %.2 = phi i64 [ %113, %111 ], [ %115, %114 ], [ %71, %103 ], [ %71, %99 ]
+  %.3 = phi i64 [ %113, %111 ], [ %115, %114 ], [ %71, %103 ], [ %71, %99 ]
   tail call fastcc void @update_frameheadpos(ptr noundef nonnull %9)
   %117 = getelementptr inbounds i8, ptr %9, i64 312
   %118 = load i64, ptr %117, align 8
-  %119 = icmp slt i64 %.2, %118
+  %119 = icmp slt i64 %.3, %118
   br i1 %119, label %147, label %127
 
 120:                                              ; preds = %66
@@ -3970,12 +3970,12 @@ define dso_local i64 @WinGetFuncArgInFrame(ptr nocapture noundef %0, i32 noundef
 
 127:                                              ; preds = %28, %116, %95, %76, %66, %19, %40, %35, %32, %53, %56, %46, %43
   %.0116 = phi i64 [ %23, %53 ], [ %23, %56 ], [ %23, %46 ], [ %23, %43 ], [ %23, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %19 ], [ %71, %66 ], [ %82, %76 ], [ %97, %95 ], [ %118, %116 ], [ %23, %28 ]
-  %.3 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %23, %46 ], [ %23, %43 ], [ %42, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %19 ], [ %71, %66 ], [ %.0115, %76 ], [ %.1, %95 ], [ %.2, %116 ], [ %spec.select, %28 ]
-  %128 = tail call fastcc zeroext i1 @window_gettupleslot(ptr noundef nonnull %0, i64 noundef %.3, ptr noundef %13)
+  %.0115 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %23, %46 ], [ %23, %43 ], [ %42, %40 ], [ %23, %35 ], [ %23, %32 ], [ %23, %19 ], [ %71, %66 ], [ %.1, %76 ], [ %.2, %95 ], [ %.3, %116 ], [ %spec.select, %28 ]
+  %128 = tail call fastcc zeroext i1 @window_gettupleslot(ptr noundef nonnull %0, i64 noundef %.0115, ptr noundef %13)
   br i1 %128, label %129, label %147
 
 129:                                              ; preds = %127
-  %130 = tail call fastcc i32 @row_is_in_frame(ptr noundef nonnull %9, i64 noundef %.3, ptr noundef %13)
+  %130 = tail call fastcc i32 @row_is_in_frame(ptr noundef nonnull %9, i64 noundef %.0115, ptr noundef %13)
   %131 = icmp slt i32 %130, 1
   br i1 %131, label %147, label %132
 

@@ -176,18 +176,18 @@ opal_datatype_span.exit81:                        ; preds = %75, %79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %94, %opal_datatype_span.exit81, %105, %70, %60
-  %.3 = phi i32 [ %114, %105 ], [ %67, %60 ], [ 0, %70 ], [ 0, %opal_datatype_span.exit81 ], [ %104, %.lr.ph ], [ 0, %94 ]
+  %.168 = phi i32 [ %114, %105 ], [ %67, %60 ], [ 0, %70 ], [ 0, %opal_datatype_span.exit81 ], [ %104, %.lr.ph ], [ 0, %94 ]
   %.not77 = icmp eq ptr %.065, null
   br i1 %.not77, label %115, label %.thread
 
 .thread:                                          ; preds = %48, %.loopexit
   %.187 = phi ptr [ %.065, %.loopexit ], [ %46, %48 ]
-  %.386 = phi i32 [ %.3, %.loopexit ], [ %57, %48 ]
+  %.16886 = phi i32 [ %.168, %.loopexit ], [ %57, %48 ]
   tail call void @free(ptr noundef nonnull %.187) #5
   br label %115
 
 115:                                              ; preds = %.loopexit, %.thread, %opal_datatype_span.exit
-  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.386, %.thread ], [ %.3, %.loopexit ]
+  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.16886, %.thread ], [ %.168, %.loopexit ]
   ret i32 %.0
 }
 

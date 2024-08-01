@@ -104,11 +104,11 @@ define void @_ZN5Ipopt13LibraryLoader11loadLibraryEv(ptr noundef nonnull align 8
 
 22:                                               ; preds = %18, %20
   %.pn17 = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  %.15 = phi i1 [ %.04, %20 ], [ true, %18 ]
+  %.26 = phi i1 [ %.04, %20 ], [ true, %18 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  br i1 %.15, label %.sink.split, label %41
+  br i1 %.26, label %.sink.split, label %41
 
 23:                                               ; preds = %1
   %24 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
@@ -157,11 +157,11 @@ define void @_ZN5Ipopt13LibraryLoader11loadLibraryEv(ptr noundef nonnull align 8
 
 39:                                               ; preds = %35, %37
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  %.1 = phi i1 [ %.0, %37 ], [ true, %35 ]
+  %.2 = phi i1 [ %.0, %37 ], [ true, %35 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  br i1 %.1, label %.sink.split, label %41
+  br i1 %.2, label %.sink.split, label %41
 
 40:                                               ; preds = %23
   ret void
@@ -397,11 +397,11 @@ define void @_ZN5Ipopt13LibraryLoader13unloadLibraryEv(ptr nocapture noundef non
 
 22:                                               ; preds = %18, %20
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  %.1 = phi i1 [ %.0, %20 ], [ true, %18 ]
+  %.2 = phi i1 [ %.0, %20 ], [ true, %18 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  br i1 %.1, label %23, label %25
+  br i1 %.2, label %23, label %25
 
 23:                                               ; preds = %.thread, %22
   %.pn.pn13 = phi { ptr, i32 } [ %17, %.thread ], [ %.pn, %22 ]
@@ -600,11 +600,11 @@ define noundef nonnull ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112
 
 59:                                               ; preds = %55, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
-  %.1 = phi i1 [ %.0, %57 ], [ true, %55 ]
+  %.2 = phi i1 [ %.0, %57 ], [ true, %55 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
-  br i1 %.1, label %60, label %61
+  br i1 %.2, label %60, label %61
 
 60:                                               ; preds = %.thread55, %59
   %.pn.pn59 = phi { ptr, i32 } [ %54, %.thread55 ], [ %.pn, %59 ]

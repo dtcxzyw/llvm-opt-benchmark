@@ -2573,7 +2573,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %.0202259 = phi float [ 0.000000e+00, %.lr.ph263 ], [ %201, %.loopexit242 ]
   %.0203258 = phi i32 [ %114, %.lr.ph263 ], [ %.1204, %.loopexit242 ]
   %.0206257 = phi i8 [ 0, %.lr.ph263 ], [ %.1207, %.loopexit242 ]
-  %.0208256 = phi i1 [ false, %.lr.ph263 ], [ %.2210, %.loopexit242 ]
+  %.0208256 = phi i1 [ false, %.lr.ph263 ], [ %.1209, %.loopexit242 ]
   %117 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %indvars.iv312
   %118 = load float, ptr %117, align 4
   %119 = load float, ptr %46, align 8
@@ -2605,7 +2605,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .preheader:                                       ; preds = %122, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %122 ]
-  %.0192248 = phi float [ %144, %.preheader ], [ 0.000000e+00, %122 ]
+  %.1193248 = phi float [ %144, %.preheader ], [ 0.000000e+00, %122 ]
   %138 = getelementptr inbounds float, ptr %.0201260, i64 %indvars.iv
   %139 = load float, ptr %138, align 4
   %140 = getelementptr inbounds float, ptr %.1287, i64 %indvars.iv
@@ -2613,13 +2613,13 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %142 = fsub float %139, %141
   %143 = getelementptr inbounds [512 x float], ptr %6, i64 0, i64 %indvars.iv
   store float %142, ptr %143, align 4
-  %144 = call float @llvm.fmuladd.f32(float %142, float %142, float %.0192248)
+  %144 = call float @llvm.fmuladd.f32(float %142, float %142, float %.1193248)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %54
   br i1 %exitcond.not, label %.loopexit243, label %.preheader, !llvm.loop !45
 
 .loopexit243:                                     ; preds = %.preheader, %125
-  %.1193 = phi float [ %137, %125 ], [ %144, %.preheader ]
+  %.0192 = phi float [ %137, %125 ], [ %144, %.preheader ]
   %145 = load float, ptr %49, align 4
   %146 = fcmp olt float %.0202259, %145
   br i1 %146, label %147, label %152
@@ -2627,17 +2627,17 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 147:                                              ; preds = %.loopexit243
   %148 = load float, ptr %50, align 8
   %149 = fmul float %124, %148
-  %150 = fcmp olt float %.1193, %149
+  %150 = fcmp olt float %.0192, %149
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %147
   br label %152
 
 152:                                              ; preds = %151, %147, %.loopexit243
-  %.1209 = phi i1 [ true, %151 ], [ %.0208256, %147 ], [ %.0208256, %.loopexit243 ]
+  %.2210 = phi i1 [ true, %151 ], [ %.0208256, %147 ], [ %.0208256, %.loopexit243 ]
   %153 = load float, ptr %51, align 8
   %154 = fmul float %124, %153
-  %155 = fcmp olt float %.1193, %154
+  %155 = fcmp olt float %.0192, %154
   br i1 %155, label %156, label %.loopexit242
 
 156:                                              ; preds = %152
@@ -2660,7 +2660,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   br i1 %exitcond306.not, label %167, label %161, !llvm.loop !46
 
 167:                                              ; preds = %161
-  %168 = fsub float %.1193, %124
+  %168 = fsub float %.0192, %124
   %169 = call float @llvm.fmuladd.f32(float %159, float %168, float %124)
   %170 = load float, ptr %52, align 8
   %171 = fcmp olt float %169, %170
@@ -2677,14 +2677,14 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %186
-  %176 = add nuw nsw i32 %.0196252, 1
+  %176 = add nuw nsw i32 %.1197252, 1
   %177 = zext nneg i32 %176 to i64
   %exitcond317.not = icmp eq i64 %indvars.iv312, %177
   br i1 %exitcond317.not, label %.loopexit242, label %.lr.ph, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv314 = phi i64 [ %indvars.iv312, %.lr.ph.preheader ], [ %indvars.iv.next315, %.loopexit ]
-  %.0196252 = phi i32 [ 0, %.lr.ph.preheader ], [ %176, %.loopexit ]
+  %.1197252 = phi i32 [ 0, %.lr.ph.preheader ], [ %176, %.loopexit ]
   %indvars.iv.next315 = add nsw i64 %indvars.iv314, -1
   %178 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %indvars.iv.next315
   %179 = load float, ptr %178, align 4
@@ -2714,10 +2714,10 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   br i1 %exitcond311.not, label %.loopexit, label %186, !llvm.loop !48
 
 .loopexit242:                                     ; preds = %.loopexit, %.lr.ph, %167, %152, %116
-  %.2210 = phi i1 [ %.0208256, %116 ], [ %.1209, %152 ], [ %.1209, %167 ], [ %.1209, %.lr.ph ], [ %.1209, %.loopexit ]
+  %.1209 = phi i1 [ %.0208256, %116 ], [ %.2210, %152 ], [ %.2210, %167 ], [ %.2210, %.lr.ph ], [ %.2210, %.loopexit ]
   %.1207 = phi i8 [ %.0206257, %116 ], [ %.0206257, %152 ], [ 1, %167 ], [ 1, %.lr.ph ], [ 1, %.loopexit ]
   %.0198 = phi float [ %120, %116 ], [ %120, %152 ], [ %158, %167 ], [ %158, %.lr.ph ], [ %158, %.loopexit ]
-  %.1197 = phi i32 [ 0, %116 ], [ 0, %152 ], [ 0, %167 ], [ %175, %.loopexit ], [ %.0196252, %.lr.ph ]
+  %.0196 = phi i32 [ 0, %116 ], [ 0, %152 ], [ 0, %167 ], [ %175, %.loopexit ], [ %.1197252, %.lr.ph ]
   %193 = load float, ptr %46, align 8
   %194 = fneg float %193
   %195 = fcmp olt float %.0198, %194
@@ -2725,7 +2725,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %.1204 = add nsw i32 %.0203258, %196
   %.1199 = select i1 %195, float 0.000000e+00, float %.0198
   %197 = trunc nuw nsw i64 %indvars.iv312 to i32
-  %198 = sub nsw i32 %197, %.1197
+  %198 = sub nsw i32 %197, %.0196
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %199
   store float %.1199, ptr %200, align 4
@@ -2761,7 +2761,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 ._crit_edge271:                                   ; preds = %.lr.ph270, %.lr.ph290, %._crit_edge
   %.0203.lcssa358 = phi i32 [ %.1204, %._crit_edge ], [ 0, %.lr.ph290 ], [ %.1204, %.lr.ph270 ]
   %.0206.lcssa357 = phi i8 [ %.1207, %._crit_edge ], [ 0, %.lr.ph290 ], [ %.1207, %.lr.ph270 ]
-  %.0208.lcssa356 = phi i1 [ %.2210, %._crit_edge ], [ false, %.lr.ph290 ], [ %.2210, %.lr.ph270 ]
+  %.0208.lcssa356 = phi i1 [ %.1209, %._crit_edge ], [ false, %.lr.ph290 ], [ %.1209, %.lr.ph270 ]
   %212 = trunc nuw i8 %.0206.lcssa357 to i1
   %213 = load float, ptr %31, align 4
   %214 = fcmp ule float %213, 0.000000e+00
@@ -2773,9 +2773,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %217 = icmp ne i32 %.0203.lcssa358, %216
   %218 = add nsw i32 %216, -1
   %219 = zext i1 %217 to i32
-  %.2205 = add nsw i32 %.0203.lcssa358, %219
+  %.3 = add nsw i32 %.0203.lcssa358, %219
   %220 = select i1 %217, i32 %.0203.lcssa358, i32 %218
-  %221 = icmp eq i32 %.2205, 1
+  %221 = icmp eq i32 %.3, 1
   %222 = sext i32 %220 to i64
   %223 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %222
   br i1 %221, label %224, label %225
@@ -2786,11 +2786,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 225:                                              ; preds = %215
   store float %213, ptr %223, align 4
-  %226 = icmp sgt i32 %.2205, 1
+  %226 = icmp sgt i32 %.3, 1
   br i1 %226, label %.lr.ph274.preheader, label %.loopexit245
 
 .lr.ph274.preheader:                              ; preds = %225
-  %227 = add nsw i32 %.2205, -1
+  %227 = add nsw i32 %.3, -1
   %wide.trip.count326 = zext nneg i32 %227 to i64
   br label %.lr.ph274
 
@@ -2825,7 +2825,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %240 = sext i32 %220 to i64
   %241 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %240, i32 1
   store float %239, ptr %241, align 4
-  %242 = icmp sgt i32 %.2205, 1
+  %242 = icmp sgt i32 %.3, 1
   br i1 %242, label %.lr.ph281.preheader, label %.loopexit244
 
 .lr.ph281.preheader:                              ; preds = %238
@@ -2871,8 +2871,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   br i1 %exitcond337.not, label %.loopexit241, label %257, !llvm.loop !54
 
 .loopexit244:                                     ; preds = %.lr.ph281, %.loopexit241, %238, %._crit_edge271
-  %.3 = phi i32 [ %.0203.lcssa358, %._crit_edge271 ], [ %.2205, %238 ], [ %.2205, %.loopexit241 ], [ %.2205, %.lr.ph281 ]
-  %264 = trunc i32 %.3 to i8
+  %.2205 = phi i32 [ %.0203.lcssa358, %._crit_edge271 ], [ %.3, %238 ], [ %.3, %.loopexit241 ], [ %.3, %.lr.ph281 ]
+  %264 = trunc i32 %.2205 to i8
   store i8 %264, ptr %112, align 1
   br i1 %.0208.lcssa356, label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread, label %265
 
@@ -2885,11 +2885,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   %269 = load float, ptr %50, align 8
   %270 = load float, ptr %49, align 4
   %271 = load float, ptr %57, align 4
-  %272 = icmp sgt i32 %.3, 0
+  %272 = icmp sgt i32 %.2205, 0
   br i1 %272, label %.lr.ph71.i, label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread
 
 .lr.ph71.i:                                       ; preds = %268
-  %273 = zext nneg i32 %.3 to i64
+  %273 = zext nneg i32 %.2205 to i64
   br label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %291, %.lr.ph71.i

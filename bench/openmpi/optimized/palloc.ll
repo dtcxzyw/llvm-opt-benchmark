@@ -1697,7 +1697,7 @@ define internal void @defhandler(i64 %0, i32 noundef %1, ptr nocapture readnone 
 
 .lr.ph:                                           ; preds = %10, %16
   %.026 = phi i64 [ %17, %16 ], [ 0, %10 ]
-  %.02025 = phi ptr [ %.1, %16 ], [ null, %10 ]
+  %.125 = phi ptr [ %.2, %16 ], [ null, %10 ]
   %11 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.026
   %12 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %11, ptr noundef nonnull @.str.71) #15
   br i1 %12, label %13, label %16
@@ -1708,13 +1708,13 @@ define internal void @defhandler(i64 %0, i32 noundef %1, ptr nocapture readnone 
   br label %16
 
 16:                                               ; preds = %.lr.ph, %13
-  %.1 = phi ptr [ %15, %13 ], [ %.02025, %.lr.ph ]
+  %.2 = phi ptr [ %15, %13 ], [ %.125, %.lr.ph ]
   %17 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %17, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %16
-  %18 = icmp eq ptr %.1, null
+  %18 = icmp eq ptr %.2, null
   br i1 %18, label %.thread, label %19
 
 .thread:                                          ; preds = %10, %._crit_edge
@@ -1722,14 +1722,14 @@ define internal void @defhandler(i64 %0, i32 noundef %1, ptr nocapture readnone 
   unreachable
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds i8, ptr %.1, i64 472
+  %20 = getelementptr inbounds i8, ptr %.2, i64 472
   store i32 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.1, i64 376
+  %21 = getelementptr inbounds i8, ptr %.2, i64 376
   %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %21) #15
-  %23 = getelementptr inbounds i8, ptr %.1, i64 464
+  %23 = getelementptr inbounds i8, ptr %.2, i64 464
   store volatile i8 0, ptr %23, align 8
   fence release
-  %24 = getelementptr inbounds i8, ptr %.1, i64 416
+  %24 = getelementptr inbounds i8, ptr %.2, i64 416
   %25 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %24) #15
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #15
   br label %27

@@ -103,12 +103,12 @@ if.end14.i.i:                                     ; preds = %if.end7.i.i
 for.cond.i.i:                                     ; preds = %if.end161.i.i, %if.end14.i.i
   %charnum.i.0.i = phi i32 [ 0, %if.end14.i.i ], [ %inc116.i.i, %if.end161.i.i ]
   %previous0.i.0.i = phi i1 [ true, %if.end14.i.i ], [ %tobool117.i.i, %if.end161.i.i ]
-  %bitCount.i.0.i = phi i32 [ 4, %if.end14.i.i ], [ %bitCount.i.6.i, %if.end161.i.i ]
+  %bitCount.i.0.i = phi i32 [ 4, %if.end14.i.i ], [ %bitCount.i.7.i, %if.end161.i.i ]
   %bitStream.i.0.i = phi i32 [ %shr.i.i, %if.end14.i.i ], [ %shr163.i.i, %if.end161.i.i ]
   %threshold.i.0.i = phi i32 [ %shl.i.i, %if.end14.i.i ], [ %threshold.i.1.i, %if.end161.i.i ]
-  %remaining.i.0.i = phi i32 [ %add15.i.i, %if.end14.i.i ], [ %remaining.i.1.i, %if.end161.i.i ]
+  %remaining.i.0.i = phi i32 [ %add15.i.i, %if.end14.i.i ], [ %remaining.i.2.i, %if.end161.i.i ]
   %nbBits.i.0.i = phi i32 [ %inc.i.i, %if.end14.i.i ], [ %nbBits.i.1.i, %if.end161.i.i ]
-  %ip.i.0.i = phi ptr [ %headerBuffer, %if.end14.i.i ], [ %ip.i.5.i, %if.end161.i.i ]
+  %ip.i.0.i = phi ptr [ %headerBuffer, %if.end14.i.i ], [ %ip.i.6.i, %if.end161.i.i ]
   br i1 %previous0.i.0.i, label %if.end84.i.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %for.cond.i.i
@@ -119,22 +119,22 @@ if.then18.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp21.i.i11, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.then18.i.i, %while.body.i.i
-  %ip.i.1.i14 = phi ptr [ %ip.i.2.i, %while.body.i.i ], [ %ip.i.0.i, %if.then18.i.i ]
-  %bitCount.i.1.i13 = phi i32 [ %bitCount.i.2.i, %while.body.i.i ], [ %bitCount.i.0.i, %if.then18.i.i ]
-  %charnum.i.1.i12 = phi i32 [ %add23.i.i, %while.body.i.i ], [ %charnum.i.0.i, %if.then18.i.i ]
-  %add23.i.i = add i32 %charnum.i.1.i12, 36
-  %cmp25.i.not.i = icmp ugt ptr %ip.i.1.i14, %add.ptr24.i.i
-  %add.ptr30.i.i = getelementptr inbounds i8, ptr %ip.i.1.i14, i64 3
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %ip.i.1.i14 to i64
+  %ip.i.2.i14 = phi ptr [ %ip.i.3.i, %while.body.i.i ], [ %ip.i.0.i, %if.then18.i.i ]
+  %bitCount.i.2.i13 = phi i32 [ %bitCount.i.3.i, %while.body.i.i ], [ %bitCount.i.0.i, %if.then18.i.i ]
+  %charnum.i.2.i12 = phi i32 [ %add23.i.i, %while.body.i.i ], [ %charnum.i.0.i, %if.then18.i.i ]
+  %add23.i.i = add i32 %charnum.i.2.i12, 36
+  %cmp25.i.not.i = icmp ugt ptr %ip.i.2.i14, %add.ptr24.i.i
+  %add.ptr30.i.i = getelementptr inbounds i8, ptr %ip.i.2.i14, i64 3
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %ip.i.2.i14 to i64
   %sub.ptr.sub.i.neg.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %sub.ptr.sub.i.tr.neg.i = trunc i64 %sub.ptr.sub.i.neg.i to i32
   %conv33.i.neg.i = shl i32 %sub.ptr.sub.i.tr.neg.i, 3
-  %sub.i.i = add i32 %conv33.i.neg.i, %bitCount.i.1.i13
+  %sub.i.i = add i32 %conv33.i.neg.i, %bitCount.i.2.i13
   %and34.i.i = and i32 %sub.i.i, 31
-  %bitCount.i.2.i = select i1 %cmp25.i.not.i, i32 %and34.i.i, i32 %bitCount.i.1.i13
-  %ip.i.2.i = select i1 %cmp25.i.not.i, ptr %add.ptr35.i.i, ptr %add.ptr30.i.i
-  %memPtr.val.i7 = load i32, ptr %ip.i.2.i, align 1
-  %shr38.i.i = lshr i32 %memPtr.val.i7, %bitCount.i.2.i
+  %bitCount.i.3.i = select i1 %cmp25.i.not.i, i32 %and34.i.i, i32 %bitCount.i.2.i13
+  %ip.i.3.i = select i1 %cmp25.i.not.i, ptr %add.ptr35.i.i, ptr %add.ptr30.i.i
+  %memPtr.val.i7 = load i32, ptr %ip.i.3.i, align 1
+  %shr38.i.i = lshr i32 %memPtr.val.i7, %bitCount.i.3.i
   %not39.i.i = xor i32 %shr38.i.i, -1
   %or40.i.i = or i32 %not39.i.i, -2147483648
   %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i.i, i1 true)
@@ -142,39 +142,39 @@ while.body.i.i:                                   ; preds = %if.then18.i.i, %whi
   br i1 %cmp21.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.then18.i.i
-  %charnum.i.1.i.lcssa = phi i32 [ %charnum.i.0.i, %if.then18.i.i ], [ %add23.i.i, %while.body.i.i ]
-  %bitCount.i.1.i.lcssa = phi i32 [ %bitCount.i.0.i, %if.then18.i.i ], [ %bitCount.i.2.i, %while.body.i.i ]
+  %charnum.i.2.i.lcssa = phi i32 [ %charnum.i.0.i, %if.then18.i.i ], [ %add23.i.i, %while.body.i.i ]
+  %bitCount.i.2.i.lcssa = phi i32 [ %bitCount.i.0.i, %if.then18.i.i ], [ %bitCount.i.3.i, %while.body.i.i ]
   %repeats.i.0.in.i.lcssa = phi i32 [ %1, %if.then18.i.i ], [ %2, %while.body.i.i ]
-  %bitStream.i.1.i.lcssa = phi i32 [ %bitStream.i.0.i, %if.then18.i.i ], [ %shr38.i.i, %while.body.i.i ]
-  %ip.i.1.i.lcssa = phi ptr [ %ip.i.0.i, %if.then18.i.i ], [ %ip.i.2.i, %while.body.i.i ]
+  %bitStream.i.2.i.lcssa = phi i32 [ %bitStream.i.0.i, %if.then18.i.i ], [ %shr38.i.i, %while.body.i.i ]
+  %ip.i.2.i.lcssa = phi ptr [ %ip.i.0.i, %if.then18.i.i ], [ %ip.i.3.i, %while.body.i.i ]
   %repeats.i.0.i = lshr i32 %repeats.i.0.in.i.lcssa, 1
   %mul43.i.i = mul nuw nsw i32 %repeats.i.0.i, 3
-  %add44.i.i = add i32 %mul43.i.i, %charnum.i.1.i.lcssa
+  %add44.i.i = add i32 %mul43.i.i, %charnum.i.2.i.lcssa
   %mul45.i.i = and i32 %repeats.i.0.in.i.lcssa, 30
-  %shr46.i.i = lshr i32 %bitStream.i.1.i.lcssa, %mul45.i.i
+  %shr46.i.i = lshr i32 %bitStream.i.2.i.lcssa, %mul45.i.i
   %and49.i.i = and i32 %shr46.i.i, 3
   %add50.i.i = add i32 %add44.i.i, %and49.i.i
-  %add48.i.i = add nuw nsw i32 %bitCount.i.1.i.lcssa, 2
+  %add48.i.i = add nuw nsw i32 %bitCount.i.2.i.lcssa, 2
   %add51.i.i = add nuw nsw i32 %add48.i.i, %mul45.i.i
   %cmp52.i.not.i = icmp ult i32 %add50.i.i, %add.i.i
   br i1 %cmp52.i.not.i, label %if.end55.i.i, label %for.end.i.i
 
 if.end55.i.i:                                     ; preds = %while.end.i.i
-  %cmp57.i.not.i = icmp ugt ptr %ip.i.1.i.lcssa, %add.ptr24.i.i
+  %cmp57.i.not.i = icmp ugt ptr %ip.i.2.i.lcssa, %add.ptr24.i.i
   %shr61.i.i = lshr i32 %add51.i.i, 3
   %idx.ext.i.i = zext nneg i32 %shr61.i.i to i64
-  %add.ptr62.i.i = getelementptr inbounds i8, ptr %ip.i.1.i.lcssa, i64 %idx.ext.i.i
+  %add.ptr62.i.i = getelementptr inbounds i8, ptr %ip.i.2.i.lcssa, i64 %idx.ext.i.i
   %cmp64.i.not.i = icmp ugt ptr %add.ptr62.i.i, %add.ptr35.i.i
   %or.cond = select i1 %cmp57.i.not.i, i1 %cmp64.i.not.i, i1 false
   br i1 %or.cond, label %if.else71.i.i, label %if.then66.i.i
 
 if.then66.i.i:                                    ; preds = %if.end55.i.i
-  %add.ptr69.i.i = getelementptr inbounds i8, ptr %ip.i.1.i.lcssa, i64 %idx.ext.i.i
+  %add.ptr69.i.i = getelementptr inbounds i8, ptr %ip.i.2.i.lcssa, i64 %idx.ext.i.i
   %and70.i.i = and i32 %add51.i.i, 7
   br label %if.end81.i.i
 
 if.else71.i.i:                                    ; preds = %if.end55.i.i
-  %sub.ptr.rhs.cast74.i.i = ptrtoint ptr %ip.i.1.i.lcssa to i64
+  %sub.ptr.rhs.cast74.i.i = ptrtoint ptr %ip.i.2.i.lcssa to i64
   %sub.ptr.sub75.i.neg.i = sub i64 %sub.ptr.rhs.cast74.i.i, %sub.ptr.lhs.cast73.i.i
   %sub.ptr.sub75.i.tr.neg.i = trunc i64 %sub.ptr.sub75.i.neg.i to i32
   %conv77.i.neg.i = shl i32 %sub.ptr.sub75.i.tr.neg.i, 3
@@ -183,22 +183,22 @@ if.else71.i.i:                                    ; preds = %if.end55.i.i
   br label %if.end81.i.i
 
 if.end81.i.i:                                     ; preds = %if.else71.i.i, %if.then66.i.i
-  %bitCount.i.3.i = phi i32 [ %and70.i.i, %if.then66.i.i ], [ %and79.i.i, %if.else71.i.i ]
-  %ip.i.3.i = phi ptr [ %add.ptr69.i.i, %if.then66.i.i ], [ %add.ptr35.i.i, %if.else71.i.i ]
-  %memPtr.val.i6 = load i32, ptr %ip.i.3.i, align 1
-  %shr83.i.i = lshr i32 %memPtr.val.i6, %bitCount.i.3.i
+  %bitCount.i.5.i = phi i32 [ %and70.i.i, %if.then66.i.i ], [ %and79.i.i, %if.else71.i.i ]
+  %ip.i.5.i = phi ptr [ %add.ptr69.i.i, %if.then66.i.i ], [ %add.ptr35.i.i, %if.else71.i.i ]
+  %memPtr.val.i6 = load i32, ptr %ip.i.5.i, align 1
+  %shr83.i.i = lshr i32 %memPtr.val.i6, %bitCount.i.5.i
   br label %if.end84.i.i
 
 if.end84.i.i:                                     ; preds = %if.end81.i.i, %for.cond.i.i
-  %charnum.i.2.i = phi i32 [ %add50.i.i, %if.end81.i.i ], [ %charnum.i.0.i, %for.cond.i.i ]
-  %bitCount.i.4.i = phi i32 [ %bitCount.i.3.i, %if.end81.i.i ], [ %bitCount.i.0.i, %for.cond.i.i ]
-  %bitStream.i.2.i = phi i32 [ %shr83.i.i, %if.end81.i.i ], [ %bitStream.i.0.i, %for.cond.i.i ]
-  %ip.i.4.i = phi ptr [ %ip.i.3.i, %if.end81.i.i ], [ %ip.i.0.i, %for.cond.i.i ]
+  %charnum.i.1.i = phi i32 [ %add50.i.i, %if.end81.i.i ], [ %charnum.i.0.i, %for.cond.i.i ]
+  %bitCount.i.1.i = phi i32 [ %bitCount.i.5.i, %if.end81.i.i ], [ %bitCount.i.0.i, %for.cond.i.i ]
+  %bitStream.i.1.i = phi i32 [ %shr83.i.i, %if.end81.i.i ], [ %bitStream.i.0.i, %for.cond.i.i ]
+  %ip.i.1.i = phi ptr [ %ip.i.5.i, %if.end81.i.i ], [ %ip.i.0.i, %for.cond.i.i ]
   %mul85.i.i = shl nsw i32 %threshold.i.0.i, 1
   %sub86.i.i = add nsw i32 %mul85.i.i, -1
   %sub87.i.i = sub nsw i32 %sub86.i.i, %remaining.i.0.i
   %sub88.i.i = add nsw i32 %threshold.i.0.i, -1
-  %and89.i.i = and i32 %bitStream.i.2.i, %sub88.i.i
+  %and89.i.i = and i32 %bitStream.i.1.i, %sub88.i.i
   %cmp90.i.i = icmp ult i32 %and89.i.i, %sub87.i.i
   br i1 %cmp90.i.i, label %if.then92.i.i, label %if.else97.i.i
 
@@ -207,7 +207,7 @@ if.then92.i.i:                                    ; preds = %if.end84.i.i
   br label %if.end107.i.i
 
 if.else97.i.i:                                    ; preds = %if.end84.i.i
-  %and100.i.i = and i32 %bitStream.i.2.i, %sub86.i.i
+  %and100.i.i = and i32 %bitStream.i.1.i, %sub86.i.i
   %cmp101.i.not.i = icmp slt i32 %and100.i.i, %threshold.i.0.i
   %sub104.i.i = select i1 %cmp101.i.not.i, i32 0, i32 %sub87.i.i
   %spec.select.i = sub nsw i32 %and100.i.i, %sub104.i.i
@@ -215,28 +215,28 @@ if.else97.i.i:                                    ; preds = %if.end84.i.i
 
 if.end107.i.i:                                    ; preds = %if.else97.i.i, %if.then92.i.i
   %sub95.i.pn.i = phi i32 [ %sub95.i.i, %if.then92.i.i ], [ %nbBits.i.0.i, %if.else97.i.i ]
-  %count.i.1.i = phi i32 [ %and89.i.i, %if.then92.i.i ], [ %spec.select.i, %if.else97.i.i ]
-  %bitCount.i.5.i = add nsw i32 %sub95.i.pn.i, %bitCount.i.4.i
-  %dec.i.i = add nsw i32 %count.i.1.i, -1
-  %cmp108.i.i = icmp sgt i32 %count.i.1.i, 0
-  %3 = sub i32 1, %count.i.1.i
-  %remaining.i.1.i.p = select i1 %cmp108.i.i, i32 %3, i32 %dec.i.i
-  %remaining.i.1.i = add i32 %remaining.i.1.i.p, %remaining.i.0.i
+  %count.i.0.i = phi i32 [ %and89.i.i, %if.then92.i.i ], [ %spec.select.i, %if.else97.i.i ]
+  %bitCount.i.6.i = add nsw i32 %sub95.i.pn.i, %bitCount.i.1.i
+  %dec.i.i = add nsw i32 %count.i.0.i, -1
+  %cmp108.i.i = icmp sgt i32 %count.i.0.i, 0
+  %3 = sub i32 1, %count.i.0.i
+  %remaining.i.2.i.p = select i1 %cmp108.i.i, i32 %3, i32 %dec.i.i
+  %remaining.i.2.i = add i32 %remaining.i.2.i.p, %remaining.i.0.i
   %conv115.i.i = trunc i32 %dec.i.i to i16
-  %inc116.i.i = add nuw i32 %charnum.i.2.i, 1
-  %idxprom.i.i = zext i32 %charnum.i.2.i to i64
+  %inc116.i.i = add nuw i32 %charnum.i.1.i, 1
+  %idxprom.i.i = zext i32 %charnum.i.1.i to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom.i.i
   store i16 %conv115.i.i, ptr %arrayidx.i.i, align 2
   %tobool117.i.i = icmp ne i32 %dec.i.i, 0
-  %cmp118.i.i = icmp slt i32 %remaining.i.1.i, %threshold.i.0.i
+  %cmp118.i.i = icmp slt i32 %remaining.i.2.i, %threshold.i.0.i
   br i1 %cmp118.i.i, label %if.then120.i.i, label %if.end129.i.i
 
 if.then120.i.i:                                   ; preds = %if.end107.i.i
-  %cmp121.i.i = icmp slt i32 %remaining.i.1.i, 2
+  %cmp121.i.i = icmp slt i32 %remaining.i.2.i, 2
   br i1 %cmp121.i.i, label %for.end.i.i, label %if.end124.i.i
 
 if.end124.i.i:                                    ; preds = %if.then120.i.i
-  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %remaining.i.1.i, i1 true)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %remaining.i.2.i, i1 true)
   %sub.i = xor i32 %4, 31
   %add126.i.i = sub nuw nsw i32 32, %4
   %shl128.i.i = shl nuw nsw i32 1, %sub.i
@@ -249,41 +249,41 @@ if.end129.i.i:                                    ; preds = %if.end124.i.i, %if.
   br i1 %cmp130.i.not.i, label %if.end133.i.i, label %for.end.i.i
 
 if.end133.i.i:                                    ; preds = %if.end129.i.i
-  %cmp135.i.not.i = icmp ugt ptr %ip.i.4.i, %add.ptr24.i.i
-  %shr140.i.i = ashr i32 %bitCount.i.5.i, 3
+  %cmp135.i.not.i = icmp ugt ptr %ip.i.1.i, %add.ptr24.i.i
+  %shr140.i.i = ashr i32 %bitCount.i.6.i, 3
   %idx.ext141.i.i = sext i32 %shr140.i.i to i64
-  %add.ptr142.i.i = getelementptr inbounds i8, ptr %ip.i.4.i, i64 %idx.ext141.i.i
+  %add.ptr142.i.i = getelementptr inbounds i8, ptr %ip.i.1.i, i64 %idx.ext141.i.i
   %cmp144.i.not.i = icmp ugt ptr %add.ptr142.i.i, %add.ptr35.i.i
   %or.cond22 = select i1 %cmp135.i.not.i, i1 %cmp144.i.not.i, i1 false
   br i1 %or.cond22, label %if.else151.i.i, label %if.then146.i.i
 
 if.then146.i.i:                                   ; preds = %if.end133.i.i
-  %add.ptr149.i.i = getelementptr inbounds i8, ptr %ip.i.4.i, i64 %idx.ext141.i.i
-  %and150.i.i = and i32 %bitCount.i.5.i, 7
+  %add.ptr149.i.i = getelementptr inbounds i8, ptr %ip.i.1.i, i64 %idx.ext141.i.i
+  %and150.i.i = and i32 %bitCount.i.6.i, 7
   br label %if.end161.i.i
 
 if.else151.i.i:                                   ; preds = %if.end133.i.i
-  %sub.ptr.rhs.cast154.i.i = ptrtoint ptr %ip.i.4.i to i64
+  %sub.ptr.rhs.cast154.i.i = ptrtoint ptr %ip.i.1.i to i64
   %sub.ptr.sub155.i.neg.i = sub i64 %sub.ptr.rhs.cast154.i.i, %sub.ptr.lhs.cast73.i.i
   %sub.ptr.sub155.i.tr.neg.i = trunc i64 %sub.ptr.sub155.i.neg.i to i32
   %conv157.i.neg.i = shl i32 %sub.ptr.sub155.i.tr.neg.i, 3
-  %sub158.i.i = add i32 %bitCount.i.5.i, %conv157.i.neg.i
+  %sub158.i.i = add i32 %bitCount.i.6.i, %conv157.i.neg.i
   %and159.i.i = and i32 %sub158.i.i, 31
   br label %if.end161.i.i
 
 if.end161.i.i:                                    ; preds = %if.else151.i.i, %if.then146.i.i
-  %bitCount.i.6.i = phi i32 [ %and150.i.i, %if.then146.i.i ], [ %and159.i.i, %if.else151.i.i ]
-  %ip.i.5.i = phi ptr [ %add.ptr149.i.i, %if.then146.i.i ], [ %add.ptr35.i.i, %if.else151.i.i ]
-  %memPtr.val.i = load i32, ptr %ip.i.5.i, align 1
-  %shr163.i.i = lshr i32 %memPtr.val.i, %bitCount.i.6.i
+  %bitCount.i.7.i = phi i32 [ %and150.i.i, %if.then146.i.i ], [ %and159.i.i, %if.else151.i.i ]
+  %ip.i.6.i = phi ptr [ %add.ptr149.i.i, %if.then146.i.i ], [ %add.ptr35.i.i, %if.else151.i.i ]
+  %memPtr.val.i = load i32, ptr %ip.i.6.i, align 1
+  %shr163.i.i = lshr i32 %memPtr.val.i, %bitCount.i.7.i
   br label %for.cond.i.i
 
 for.end.i.i:                                      ; preds = %if.end129.i.i, %if.then120.i.i, %while.end.i.i
   %charnum.i.3.i = phi i32 [ %add50.i.i, %while.end.i.i ], [ %inc116.i.i, %if.then120.i.i ], [ %inc116.i.i, %if.end129.i.i ]
-  %bitCount.i.7.i = phi i32 [ %add51.i.i, %while.end.i.i ], [ %bitCount.i.5.i, %if.then120.i.i ], [ %bitCount.i.5.i, %if.end129.i.i ]
-  %remaining.i.2.i = phi i32 [ %remaining.i.0.i, %while.end.i.i ], [ %remaining.i.1.i, %if.then120.i.i ], [ %remaining.i.1.i, %if.end129.i.i ]
-  %ip.i.6.i = phi ptr [ %ip.i.1.i.lcssa, %while.end.i.i ], [ %ip.i.4.i, %if.then120.i.i ], [ %ip.i.4.i, %if.end129.i.i ]
-  %cmp164.i.not.i = icmp eq i32 %remaining.i.2.i, 1
+  %bitCount.i.4.i = phi i32 [ %add51.i.i, %while.end.i.i ], [ %bitCount.i.6.i, %if.then120.i.i ], [ %bitCount.i.6.i, %if.end129.i.i ]
+  %remaining.i.1.i = phi i32 [ %remaining.i.0.i, %while.end.i.i ], [ %remaining.i.2.i, %if.then120.i.i ], [ %remaining.i.2.i, %if.end129.i.i ]
+  %ip.i.4.i = phi ptr [ %ip.i.2.i.lcssa, %while.end.i.i ], [ %ip.i.1.i, %if.then120.i.i ], [ %ip.i.1.i, %if.end129.i.i ]
+  %cmp164.i.not.i = icmp eq i32 %remaining.i.1.i, 1
   br i1 %cmp164.i.not.i, label %if.end167.i.i, label %FSE_readNCount_body_default.exit
 
 if.end167.i.i:                                    ; preds = %for.end.i.i
@@ -291,16 +291,16 @@ if.end167.i.i:                                    ; preds = %for.end.i.i
   br i1 %cmp168.i.i, label %FSE_readNCount_body_default.exit, label %if.end171.i.i
 
 if.end171.i.i:                                    ; preds = %if.end167.i.i
-  %cmp172.i.i = icmp sgt i32 %bitCount.i.7.i, 32
+  %cmp172.i.i = icmp sgt i32 %bitCount.i.4.i, 32
   br i1 %cmp172.i.i, label %FSE_readNCount_body_default.exit, label %if.end175.i.i
 
 if.end175.i.i:                                    ; preds = %if.end171.i.i
   %sub176.i.i = add i32 %charnum.i.3.i, -1
   store i32 %sub176.i.i, ptr %maxSVPtr, align 4
-  %add177.i.i = add nsw i32 %bitCount.i.7.i, 7
+  %add177.i.i = add nsw i32 %bitCount.i.4.i, 7
   %shr178.i.i = ashr i32 %add177.i.i, 3
   %idx.ext179.i.i = sext i32 %shr178.i.i to i64
-  %add.ptr180.i.i = getelementptr inbounds i8, ptr %ip.i.6.i, i64 %idx.ext179.i.i
+  %add.ptr180.i.i = getelementptr inbounds i8, ptr %ip.i.4.i, i64 %idx.ext179.i.i
   %sub.ptr.lhs.cast181.i.i = ptrtoint ptr %add.ptr180.i.i to i64
   %sub.ptr.rhs.cast182.i.i = ptrtoint ptr %headerBuffer to i64
   %sub.ptr.sub183.i.i = sub i64 %sub.ptr.lhs.cast181.i.i, %sub.ptr.rhs.cast182.i.i
@@ -363,12 +363,12 @@ if.end14.i:                                       ; preds = %if.end7.i
 for.cond.i:                                       ; preds = %if.end161.i, %if.end14.i
   %charnum.i.0 = phi i32 [ 0, %if.end14.i ], [ %inc116.i, %if.end161.i ]
   %previous0.i.0 = phi i1 [ true, %if.end14.i ], [ %tobool117.i, %if.end161.i ]
-  %bitCount.i.0 = phi i32 [ 4, %if.end14.i ], [ %bitCount.i.6, %if.end161.i ]
+  %bitCount.i.0 = phi i32 [ 4, %if.end14.i ], [ %bitCount.i.7, %if.end161.i ]
   %bitStream.i.0 = phi i32 [ %shr.i, %if.end14.i ], [ %shr163.i, %if.end161.i ]
   %threshold.i.0 = phi i32 [ %shl.i, %if.end14.i ], [ %threshold.i.1, %if.end161.i ]
-  %remaining.i.0 = phi i32 [ %add15.i, %if.end14.i ], [ %remaining.i.1, %if.end161.i ]
+  %remaining.i.0 = phi i32 [ %add15.i, %if.end14.i ], [ %remaining.i.2, %if.end161.i ]
   %nbBits.i.0 = phi i32 [ %inc.i, %if.end14.i ], [ %nbBits.i.1, %if.end161.i ]
-  %ip.i.0 = phi ptr [ %headerBuffer, %if.end14.i ], [ %ip.i.5, %if.end161.i ]
+  %ip.i.0 = phi ptr [ %headerBuffer, %if.end14.i ], [ %ip.i.6, %if.end161.i ]
   br i1 %previous0.i.0, label %if.end84.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %for.cond.i
@@ -379,22 +379,22 @@ if.then18.i:                                      ; preds = %for.cond.i
   br i1 %cmp21.i113, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then18.i, %while.body.i
-  %ip.i.1116 = phi ptr [ %ip.i.2, %while.body.i ], [ %ip.i.0, %if.then18.i ]
-  %bitCount.i.1115 = phi i32 [ %bitCount.i.2, %while.body.i ], [ %bitCount.i.0, %if.then18.i ]
-  %charnum.i.1114 = phi i32 [ %add23.i, %while.body.i ], [ %charnum.i.0, %if.then18.i ]
-  %add23.i = add i32 %charnum.i.1114, 36
-  %cmp25.i.not = icmp ugt ptr %ip.i.1116, %add.ptr24.i
-  %add.ptr30.i = getelementptr inbounds i8, ptr %ip.i.1116, i64 3
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %ip.i.1116 to i64
+  %ip.i.2116 = phi ptr [ %ip.i.3, %while.body.i ], [ %ip.i.0, %if.then18.i ]
+  %bitCount.i.2115 = phi i32 [ %bitCount.i.3, %while.body.i ], [ %bitCount.i.0, %if.then18.i ]
+  %charnum.i.2114 = phi i32 [ %add23.i, %while.body.i ], [ %charnum.i.0, %if.then18.i ]
+  %add23.i = add i32 %charnum.i.2114, 36
+  %cmp25.i.not = icmp ugt ptr %ip.i.2116, %add.ptr24.i
+  %add.ptr30.i = getelementptr inbounds i8, ptr %ip.i.2116, i64 3
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %ip.i.2116 to i64
   %sub.ptr.sub.i.neg = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast.i
   %sub.ptr.sub.i.tr.neg = trunc i64 %sub.ptr.sub.i.neg to i32
   %conv33.i.neg = shl i32 %sub.ptr.sub.i.tr.neg, 3
-  %sub.i = add i32 %conv33.i.neg, %bitCount.i.1115
+  %sub.i = add i32 %conv33.i.neg, %bitCount.i.2115
   %and34.i = and i32 %sub.i, 31
-  %bitCount.i.2 = select i1 %cmp25.i.not, i32 %and34.i, i32 %bitCount.i.1115
-  %ip.i.2 = select i1 %cmp25.i.not, ptr %add.ptr35.i, ptr %add.ptr30.i
-  %memPtr.val.i109 = load i32, ptr %ip.i.2, align 1
-  %shr38.i = lshr i32 %memPtr.val.i109, %bitCount.i.2
+  %bitCount.i.3 = select i1 %cmp25.i.not, i32 %and34.i, i32 %bitCount.i.2115
+  %ip.i.3 = select i1 %cmp25.i.not, ptr %add.ptr35.i, ptr %add.ptr30.i
+  %memPtr.val.i109 = load i32, ptr %ip.i.3, align 1
+  %shr38.i = lshr i32 %memPtr.val.i109, %bitCount.i.3
   %not39.i = xor i32 %shr38.i, -1
   %or40.i = or i32 %not39.i, -2147483648
   %2 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %or40.i, i1 true)
@@ -402,28 +402,28 @@ while.body.i:                                     ; preds = %if.then18.i, %while
   br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i, %if.then18.i
-  %charnum.i.1.lcssa = phi i32 [ %charnum.i.0, %if.then18.i ], [ %add23.i, %while.body.i ]
-  %bitCount.i.1.lcssa = phi i32 [ %bitCount.i.0, %if.then18.i ], [ %bitCount.i.2, %while.body.i ]
+  %charnum.i.2.lcssa = phi i32 [ %charnum.i.0, %if.then18.i ], [ %add23.i, %while.body.i ]
+  %bitCount.i.2.lcssa = phi i32 [ %bitCount.i.0, %if.then18.i ], [ %bitCount.i.3, %while.body.i ]
   %repeats.i.0.in.lcssa = phi i32 [ %1, %if.then18.i ], [ %2, %while.body.i ]
-  %bitStream.i.1.lcssa = phi i32 [ %bitStream.i.0, %if.then18.i ], [ %shr38.i, %while.body.i ]
-  %ip.i.1.lcssa = phi ptr [ %ip.i.0, %if.then18.i ], [ %ip.i.2, %while.body.i ]
+  %bitStream.i.2.lcssa = phi i32 [ %bitStream.i.0, %if.then18.i ], [ %shr38.i, %while.body.i ]
+  %ip.i.2.lcssa = phi ptr [ %ip.i.0, %if.then18.i ], [ %ip.i.3, %while.body.i ]
   %repeats.i.0 = lshr i32 %repeats.i.0.in.lcssa, 1
   %mul43.i = mul nuw nsw i32 %repeats.i.0, 3
-  %add44.i = add i32 %mul43.i, %charnum.i.1.lcssa
+  %add44.i = add i32 %mul43.i, %charnum.i.2.lcssa
   %mul45.i = and i32 %repeats.i.0.in.lcssa, 30
-  %shr46.i = lshr i32 %bitStream.i.1.lcssa, %mul45.i
+  %shr46.i = lshr i32 %bitStream.i.2.lcssa, %mul45.i
   %and49.i = and i32 %shr46.i, 3
   %add50.i = add i32 %add44.i, %and49.i
-  %add48.i = add nuw nsw i32 %bitCount.i.1.lcssa, 2
+  %add48.i = add nuw nsw i32 %bitCount.i.2.lcssa, 2
   %add51.i = add nuw nsw i32 %add48.i, %mul45.i
   %cmp52.i.not = icmp ult i32 %add50.i, %add.i
   br i1 %cmp52.i.not, label %if.end55.i, label %for.end.i
 
 if.end55.i:                                       ; preds = %while.end.i
-  %cmp57.i.not = icmp ugt ptr %ip.i.1.lcssa, %add.ptr24.i
+  %cmp57.i.not = icmp ugt ptr %ip.i.2.lcssa, %add.ptr24.i
   %shr61.i = lshr i32 %add51.i, 3
   %idx.ext.i = zext nneg i32 %shr61.i to i64
-  %add.ptr62.i = getelementptr inbounds i8, ptr %ip.i.1.lcssa, i64 %idx.ext.i
+  %add.ptr62.i = getelementptr inbounds i8, ptr %ip.i.2.lcssa, i64 %idx.ext.i
   %cmp64.i.not = icmp ugt ptr %add.ptr62.i, %add.ptr35.i
   %or.cond = select i1 %cmp57.i.not, i1 %cmp64.i.not, i1 false
   br i1 %or.cond, label %if.else71.i, label %if.then66.i
@@ -433,7 +433,7 @@ if.then66.i:                                      ; preds = %if.end55.i
   br label %if.end81.i
 
 if.else71.i:                                      ; preds = %if.end55.i
-  %sub.ptr.rhs.cast74.i = ptrtoint ptr %ip.i.1.lcssa to i64
+  %sub.ptr.rhs.cast74.i = ptrtoint ptr %ip.i.2.lcssa to i64
   %sub.ptr.sub75.i.neg = sub i64 %sub.ptr.rhs.cast74.i, %sub.ptr.lhs.cast73.i
   %sub.ptr.sub75.i.tr.neg = trunc i64 %sub.ptr.sub75.i.neg to i32
   %conv77.i.neg = shl i32 %sub.ptr.sub75.i.tr.neg, 3
@@ -442,22 +442,22 @@ if.else71.i:                                      ; preds = %if.end55.i
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.else71.i, %if.then66.i
-  %bitCount.i.3 = phi i32 [ %and70.i, %if.then66.i ], [ %and79.i, %if.else71.i ]
-  %ip.i.3 = phi ptr [ %add.ptr62.i, %if.then66.i ], [ %add.ptr35.i, %if.else71.i ]
-  %memPtr.val.i110 = load i32, ptr %ip.i.3, align 1
-  %shr83.i = lshr i32 %memPtr.val.i110, %bitCount.i.3
+  %bitCount.i.5 = phi i32 [ %and70.i, %if.then66.i ], [ %and79.i, %if.else71.i ]
+  %ip.i.5 = phi ptr [ %add.ptr62.i, %if.then66.i ], [ %add.ptr35.i, %if.else71.i ]
+  %memPtr.val.i110 = load i32, ptr %ip.i.5, align 1
+  %shr83.i = lshr i32 %memPtr.val.i110, %bitCount.i.5
   br label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.end81.i, %for.cond.i
-  %charnum.i.2 = phi i32 [ %add50.i, %if.end81.i ], [ %charnum.i.0, %for.cond.i ]
-  %bitCount.i.4 = phi i32 [ %bitCount.i.3, %if.end81.i ], [ %bitCount.i.0, %for.cond.i ]
-  %bitStream.i.2 = phi i32 [ %shr83.i, %if.end81.i ], [ %bitStream.i.0, %for.cond.i ]
-  %ip.i.4 = phi ptr [ %ip.i.3, %if.end81.i ], [ %ip.i.0, %for.cond.i ]
+  %charnum.i.1 = phi i32 [ %add50.i, %if.end81.i ], [ %charnum.i.0, %for.cond.i ]
+  %bitCount.i.1 = phi i32 [ %bitCount.i.5, %if.end81.i ], [ %bitCount.i.0, %for.cond.i ]
+  %bitStream.i.1 = phi i32 [ %shr83.i, %if.end81.i ], [ %bitStream.i.0, %for.cond.i ]
+  %ip.i.1 = phi ptr [ %ip.i.5, %if.end81.i ], [ %ip.i.0, %for.cond.i ]
   %mul85.i = shl nsw i32 %threshold.i.0, 1
   %sub86.i = add nsw i32 %mul85.i, -1
   %sub87.i = sub nsw i32 %sub86.i, %remaining.i.0
   %sub88.i = add nsw i32 %threshold.i.0, -1
-  %and89.i = and i32 %bitStream.i.2, %sub88.i
+  %and89.i = and i32 %bitStream.i.1, %sub88.i
   %cmp90.i = icmp ult i32 %and89.i, %sub87.i
   br i1 %cmp90.i, label %if.then92.i, label %if.else97.i
 
@@ -466,7 +466,7 @@ if.then92.i:                                      ; preds = %if.end84.i
   br label %if.end107.i
 
 if.else97.i:                                      ; preds = %if.end84.i
-  %and100.i = and i32 %bitStream.i.2, %sub86.i
+  %and100.i = and i32 %bitStream.i.1, %sub86.i
   %cmp101.i.not = icmp slt i32 %and100.i, %threshold.i.0
   %sub104.i = select i1 %cmp101.i.not, i32 0, i32 %sub87.i
   %spec.select = sub nsw i32 %and100.i, %sub104.i
@@ -474,28 +474,28 @@ if.else97.i:                                      ; preds = %if.end84.i
 
 if.end107.i:                                      ; preds = %if.else97.i, %if.then92.i
   %sub95.i.pn = phi i32 [ %sub95.i, %if.then92.i ], [ %nbBits.i.0, %if.else97.i ]
-  %count.i.1 = phi i32 [ %and89.i, %if.then92.i ], [ %spec.select, %if.else97.i ]
-  %bitCount.i.5 = add nsw i32 %sub95.i.pn, %bitCount.i.4
-  %dec.i = add nsw i32 %count.i.1, -1
-  %cmp108.i = icmp sgt i32 %count.i.1, 0
-  %3 = sub i32 1, %count.i.1
-  %remaining.i.1.p = select i1 %cmp108.i, i32 %3, i32 %dec.i
-  %remaining.i.1 = add i32 %remaining.i.1.p, %remaining.i.0
+  %count.i.0 = phi i32 [ %and89.i, %if.then92.i ], [ %spec.select, %if.else97.i ]
+  %bitCount.i.6 = add nsw i32 %sub95.i.pn, %bitCount.i.1
+  %dec.i = add nsw i32 %count.i.0, -1
+  %cmp108.i = icmp sgt i32 %count.i.0, 0
+  %3 = sub i32 1, %count.i.0
+  %remaining.i.2.p = select i1 %cmp108.i, i32 %3, i32 %dec.i
+  %remaining.i.2 = add i32 %remaining.i.2.p, %remaining.i.0
   %conv115.i = trunc i32 %dec.i to i16
-  %inc116.i = add nuw i32 %charnum.i.2, 1
-  %idxprom.i = zext i32 %charnum.i.2 to i64
+  %inc116.i = add nuw i32 %charnum.i.1, 1
+  %idxprom.i = zext i32 %charnum.i.1 to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %idxprom.i
   store i16 %conv115.i, ptr %arrayidx.i, align 2
   %tobool117.i = icmp ne i32 %dec.i, 0
-  %cmp118.i = icmp slt i32 %remaining.i.1, %threshold.i.0
+  %cmp118.i = icmp slt i32 %remaining.i.2, %threshold.i.0
   br i1 %cmp118.i, label %if.then120.i, label %if.end129.i
 
 if.then120.i:                                     ; preds = %if.end107.i
-  %cmp121.i = icmp slt i32 %remaining.i.1, 2
+  %cmp121.i = icmp slt i32 %remaining.i.2, 2
   br i1 %cmp121.i, label %for.end.i, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.then120.i
-  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %remaining.i.1, i1 true)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %remaining.i.2, i1 true)
   %sub.i111 = xor i32 %4, 31
   %add126.i = sub nuw nsw i32 32, %4
   %shl128.i = shl nuw nsw i32 1, %sub.i111
@@ -508,41 +508,41 @@ if.end129.i:                                      ; preds = %if.end124.i, %if.en
   br i1 %cmp130.i.not, label %if.end133.i, label %for.end.i
 
 if.end133.i:                                      ; preds = %if.end129.i
-  %cmp135.i.not = icmp ugt ptr %ip.i.4, %add.ptr24.i
-  %shr140.i = ashr i32 %bitCount.i.5, 3
+  %cmp135.i.not = icmp ugt ptr %ip.i.1, %add.ptr24.i
+  %shr140.i = ashr i32 %bitCount.i.6, 3
   %idx.ext141.i = sext i32 %shr140.i to i64
-  %add.ptr142.i = getelementptr inbounds i8, ptr %ip.i.4, i64 %idx.ext141.i
+  %add.ptr142.i = getelementptr inbounds i8, ptr %ip.i.1, i64 %idx.ext141.i
   %cmp144.i.not = icmp ugt ptr %add.ptr142.i, %add.ptr35.i
   %or.cond122 = select i1 %cmp135.i.not, i1 %cmp144.i.not, i1 false
   br i1 %or.cond122, label %if.else151.i, label %if.then146.i
 
 if.then146.i:                                     ; preds = %if.end133.i
-  %add.ptr149.i = getelementptr inbounds i8, ptr %ip.i.4, i64 %idx.ext141.i
-  %and150.i = and i32 %bitCount.i.5, 7
+  %add.ptr149.i = getelementptr inbounds i8, ptr %ip.i.1, i64 %idx.ext141.i
+  %and150.i = and i32 %bitCount.i.6, 7
   br label %if.end161.i
 
 if.else151.i:                                     ; preds = %if.end133.i
-  %sub.ptr.rhs.cast154.i = ptrtoint ptr %ip.i.4 to i64
+  %sub.ptr.rhs.cast154.i = ptrtoint ptr %ip.i.1 to i64
   %sub.ptr.sub155.i.neg = sub i64 %sub.ptr.rhs.cast154.i, %sub.ptr.lhs.cast73.i
   %sub.ptr.sub155.i.tr.neg = trunc i64 %sub.ptr.sub155.i.neg to i32
   %conv157.i.neg = shl i32 %sub.ptr.sub155.i.tr.neg, 3
-  %sub158.i = add i32 %bitCount.i.5, %conv157.i.neg
+  %sub158.i = add i32 %bitCount.i.6, %conv157.i.neg
   %and159.i = and i32 %sub158.i, 31
   br label %if.end161.i
 
 if.end161.i:                                      ; preds = %if.else151.i, %if.then146.i
-  %bitCount.i.6 = phi i32 [ %and150.i, %if.then146.i ], [ %and159.i, %if.else151.i ]
-  %ip.i.5 = phi ptr [ %add.ptr149.i, %if.then146.i ], [ %add.ptr35.i, %if.else151.i ]
-  %memPtr.val.i112 = load i32, ptr %ip.i.5, align 1
-  %shr163.i = lshr i32 %memPtr.val.i112, %bitCount.i.6
+  %bitCount.i.7 = phi i32 [ %and150.i, %if.then146.i ], [ %and159.i, %if.else151.i ]
+  %ip.i.6 = phi ptr [ %add.ptr149.i, %if.then146.i ], [ %add.ptr35.i, %if.else151.i ]
+  %memPtr.val.i112 = load i32, ptr %ip.i.6, align 1
+  %shr163.i = lshr i32 %memPtr.val.i112, %bitCount.i.7
   br label %for.cond.i
 
 for.end.i:                                        ; preds = %if.end129.i, %if.then120.i, %while.end.i
   %charnum.i.3 = phi i32 [ %add50.i, %while.end.i ], [ %inc116.i, %if.then120.i ], [ %inc116.i, %if.end129.i ]
-  %bitCount.i.7 = phi i32 [ %add51.i, %while.end.i ], [ %bitCount.i.5, %if.then120.i ], [ %bitCount.i.5, %if.end129.i ]
-  %remaining.i.2 = phi i32 [ %remaining.i.0, %while.end.i ], [ %remaining.i.1, %if.then120.i ], [ %remaining.i.1, %if.end129.i ]
-  %ip.i.6 = phi ptr [ %ip.i.1.lcssa, %while.end.i ], [ %ip.i.4, %if.then120.i ], [ %ip.i.4, %if.end129.i ]
-  %cmp164.i.not = icmp eq i32 %remaining.i.2, 1
+  %bitCount.i.4 = phi i32 [ %add51.i, %while.end.i ], [ %bitCount.i.6, %if.then120.i ], [ %bitCount.i.6, %if.end129.i ]
+  %remaining.i.1 = phi i32 [ %remaining.i.0, %while.end.i ], [ %remaining.i.2, %if.then120.i ], [ %remaining.i.2, %if.end129.i ]
+  %ip.i.4 = phi ptr [ %ip.i.2.lcssa, %while.end.i ], [ %ip.i.1, %if.then120.i ], [ %ip.i.1, %if.end129.i ]
+  %cmp164.i.not = icmp eq i32 %remaining.i.1, 1
   br i1 %cmp164.i.not, label %if.end167.i, label %FSE_readNCount_body.exit
 
 if.end167.i:                                      ; preds = %for.end.i
@@ -550,16 +550,16 @@ if.end167.i:                                      ; preds = %for.end.i
   br i1 %cmp168.i, label %FSE_readNCount_body.exit, label %if.end171.i
 
 if.end171.i:                                      ; preds = %if.end167.i
-  %cmp172.i = icmp sgt i32 %bitCount.i.7, 32
+  %cmp172.i = icmp sgt i32 %bitCount.i.4, 32
   br i1 %cmp172.i, label %FSE_readNCount_body.exit, label %if.end175.i
 
 if.end175.i:                                      ; preds = %if.end171.i
   %sub176.i = add i32 %charnum.i.3, -1
   store i32 %sub176.i, ptr %maxSVPtr, align 4
-  %add177.i = add nsw i32 %bitCount.i.7, 7
+  %add177.i = add nsw i32 %bitCount.i.4, 7
   %shr178.i = ashr i32 %add177.i, 3
   %idx.ext179.i = sext i32 %shr178.i to i64
-  %add.ptr180.i = getelementptr inbounds i8, ptr %ip.i.6, i64 %idx.ext179.i
+  %add.ptr180.i = getelementptr inbounds i8, ptr %ip.i.4, i64 %idx.ext179.i
   %sub.ptr.lhs.cast181.i = ptrtoint ptr %add.ptr180.i to i64
   %sub.ptr.rhs.cast182.i = ptrtoint ptr %headerBuffer to i64
   %sub.ptr.sub183.i = sub i64 %sub.ptr.lhs.cast181.i, %sub.ptr.rhs.cast182.i

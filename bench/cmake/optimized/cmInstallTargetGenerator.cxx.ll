@@ -2016,7 +2016,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 
 _ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit156: ; preds = %447, %444, %441, %_ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit154, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit142, %347
   %cond = phi i1 [ false, %347 ], [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit142 ], [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit154 ], [ true, %_ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit ], [ true, %441 ], [ true, %444 ], [ true, %447 ]
-  %.0 = phi i1 [ true, %347 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit142 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit154 ], [ false, %_ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit ], [ false, %441 ], [ false, %444 ], [ false, %447 ]
+  %.1 = phi i1 [ true, %347 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit142 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit154 ], [ false, %_ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit ], [ false, %441 ], [ false, %444 ], [ false, %447 ]
   %454 = getelementptr inbounds i8, ptr %28, i64 224
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %454) #19
   %455 = getelementptr inbounds i8, ptr %28, i64 192
@@ -2045,7 +2045,7 @@ _ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 461:                                              ; preds = %_ZNSt8optionalISt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit156
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
-  br i1 %.0, label %.critedge, label %463
+  br i1 %.1, label %.critedge, label %463
 
 462:                                              ; preds = %.body132, %.body77, %136, %116
   %.pn58.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn.pn, %.body77 ], [ %117, %116 ], [ %.pn47, %.body132 ], [ %137, %136 ]
@@ -5114,7 +5114,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 .lr.ph.i.i:                                       ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i", %358
   %.sroa.07.023.i.i = phi ptr [ %.sroa.07.0.i.i, %358 ], [ %.sroa.07.020.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i" ]
-  %.sroa.013.022.i.i = phi ptr [ %.sroa.013.1.i.i, %358 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i" ]
+  %.sroa.013.122.i.i = phi ptr [ %.sroa.013.2.i.i, %358 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i" ]
   %339 = load ptr, ptr %131, align 8
   %.not11.i.i.i.i.i.i.i = icmp eq ptr %339, null
   br i1 %.not11.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_E3$_0EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbT_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i
@@ -5171,26 +5171,26 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %354, label %358, label %355
 
 355:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_E3$_0EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbT_.exit.i.i"
-  %356 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.022.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.023.i.i) #19
-  %357 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i, i64 32
+  %356 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.122.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.023.i.i) #19
+  %357 = getelementptr inbounds i8, ptr %.sroa.013.122.i.i, i64 32
   br label %358
 
 358:                                              ; preds = %355, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_E3$_0EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbT_.exit.i.i"
-  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.022.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_E3$_0EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbT_.exit.i.i" ], [ %357, %355 ]
+  %.sroa.013.2.i.i = phi ptr [ %.sroa.013.122.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_E3$_0EclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEEEEbT_.exit.i.i" ], [ %357, %355 ]
   %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.023.i.i, i64 32
   %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %202
   br i1 %.not.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit", label %.lr.ph.i.i, !llvm.loop !101
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit": ; preds = %358, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i", %._crit_edge.i.i.i.i
-  %.sroa.013.2.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i" ], [ %202, %._crit_edge.i.i.i.i ], [ %.sroa.013.1.i.i, %358 ]
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SJ_E3$_0EEET_SM_SM_T0_.exit.i.i" ], [ %202, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %358 ]
   %359 = load ptr, ptr %201, align 8
-  %.not.i.i127 = icmp eq ptr %.sroa.013.2.i.i, %359
+  %.not.i.i127 = icmp eq ptr %.sroa.013.0.i.i, %359
   %.pre322 = load ptr, ptr %21, align 8
   br i1 %.not.i.i127, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i: ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit"
   %360 = ptrtoint ptr %.pre322 to i64
-  %361 = ptrtoint ptr %.sroa.013.2.i.i to i64
+  %361 = ptrtoint ptr %.sroa.013.0.i.i to i64
   %362 = sub i64 %361, %360
   %363 = getelementptr inbounds i8, ptr %.pre322, i64 %362
   br label %.lr.ph.i.i.i.i.i.i
@@ -5208,7 +5208,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit"
-  %365 = phi ptr [ %363, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i ], [ %.sroa.013.2.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit" ]
+  %365 = phi ptr [ %363, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i ], [ %.sroa.013.0.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit" ]
   %366 = phi ptr [ %.pre321, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i ], [ %.pre322, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN24cmInstallTargetGenerator19AddChrpathPatchRuleERSo23cmScriptGeneratorIndentRKS7_SH_E3$_0ET_SJ_SJ_T0_.exit" ]
   %367 = icmp eq ptr %366, %365
   br i1 %367, label %415, label %368

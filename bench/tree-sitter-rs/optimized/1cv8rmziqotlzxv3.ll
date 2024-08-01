@@ -240,7 +240,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 26:                                               ; preds = %.lr.ph272, %.split.us
   %.042271 = phi ptr [ %1, %.lr.ph272 ], [ %.1.ph, %.split.us ]
-  %.sroa.0.1270 = phi ptr [ %22, %.lr.ph272 ], [ %.sroa.0.2.ph, %.split.us ]
+  %.sroa.0.0270 = phi ptr [ %22, %.lr.ph272 ], [ %.sroa.0.1.ph, %.split.us ]
   %.sroa.061.0268 = phi ptr [ %3, %.lr.ph272 ], [ %28, %.split.us ]
   %.sroa.14.0256 = phi i64 [ undef, %.lr.ph272 ], [ %.us-phi222, %.split.us ]
   %.sroa.13.0255 = phi i64 [ undef, %.lr.ph272 ], [ %.us-phi221, %.split.us ]
@@ -304,7 +304,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %.sroa.11.1.ph = phi i64 [ %.us-phi236, %.loopexit ], [ %.sroa.11.0252, %44 ]
   %.sroa.13.1.ph = phi i64 [ %.us-phi239, %.loopexit ], [ %.sroa.13.0255, %44 ]
   %.sroa.14.1.ph = phi i64 [ %.us-phi240, %.loopexit ], [ %.sroa.14.0256, %44 ]
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.3195, %.loopexit ], [ %.sroa.0.1270, %44 ]
+  %.sroa.0.1.ph = phi ptr [ %.sroa.0.2195, %.loopexit ], [ %.sroa.0.0270, %44 ]
   %.1.ph = phi ptr [ %.2191, %.loopexit ], [ %.042271, %44 ]
   %.0.ph = phi i64 [ %.us-phi240, %.loopexit ], [ %32, %44 ]
   %.sroa.036.0.ph = phi i64 [ %.us-phi236, %.loopexit ], [ %.fca.0.extract, %44 ]
@@ -472,8 +472,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 .lr.ph:                                           ; preds = %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53"
   %84 = phi i64 [ %134, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %81, %.preheader ]
-  %.2249 = phi ptr [ %.sroa.0.3248, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.1.ph, %.preheader ]
-  %.sroa.0.3248 = phi ptr [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.sroa.0.2.ph, %.preheader ]
+  %.2249 = phi ptr [ %.sroa.0.2248, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.1.ph, %.preheader ]
+  %.sroa.0.2248 = phi ptr [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.sroa.0.1.ph, %.preheader ]
   %.sroa.1193.0247 = phi i64 [ %.sroa.1193.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.us-phi241, %.preheader ]
   %.sroa.590.0246 = phi i64 [ %.sroa.590.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.us-phi243, %.preheader ]
   %.sroa.089.0245 = phi i64 [ %.sroa.089.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.us-phi242, %.preheader ]
@@ -483,8 +483,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br i1 %87, label %88, label %90
 
 .loopexit:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53", %.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit", %99
-  %.sroa.0.3195 = phi ptr [ %.sroa.0.3248, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit" ], [ %.sroa.0.3248, %99 ], [ %.sroa.0.2.ph, %.preheader ], [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ]
-  %.2191 = phi ptr [ %.2249, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit" ], [ %.2249, %99 ], [ %.1.ph, %.preheader ], [ %.sroa.0.3248, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ]
+  %.sroa.0.2195 = phi ptr [ %.sroa.0.2248, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit" ], [ %.sroa.0.2248, %99 ], [ %.sroa.0.1.ph, %.preheader ], [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ]
+  %.2191 = phi ptr [ %.2249, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit" ], [ %.2249, %99 ], [ %.1.ph, %.preheader ], [ %.sroa.0.2248, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.068)
   br label %.outer
 
@@ -496,9 +496,9 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %.sroa.089.1 = phi i64 [ %123, %120 ], [ %.sroa.089.0245, %.lr.ph ]
   %.sroa.590.1 = phi i64 [ %125, %120 ], [ %.sroa.590.0246, %.lr.ph ]
   %.sroa.1193.1 = phi i64 [ %121, %120 ], [ %.sroa.1193.0247, %.lr.ph ]
-  %91 = icmp ne ptr %.sroa.0.3248, null
+  %91 = icmp ne ptr %.sroa.0.2248, null
   call void @llvm.assume(i1 %91)
-  %92 = icmp eq ptr %.sroa.0.3248, %17
+  %92 = icmp eq ptr %.sroa.0.2248, %17
   br i1 %92, label %135, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53"
 
 93:                                               ; preds = %88
@@ -598,8 +598,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br label %120
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53": ; preds = %90
-  %132 = getelementptr inbounds i8, ptr %.sroa.0.3248, i64 48
-  %133 = getelementptr inbounds i8, ptr %.sroa.0.3248, i64 32
+  %132 = getelementptr inbounds i8, ptr %.sroa.0.2248, i64 48
+  %133 = getelementptr inbounds i8, ptr %.sroa.0.2248, i64 32
   %134 = load i64, ptr %133, align 8, !noundef !4
   %.not49 = icmp ugt i64 %134, %.us-phi239
   br i1 %.not49, label %.loopexit, label %.lr.ph

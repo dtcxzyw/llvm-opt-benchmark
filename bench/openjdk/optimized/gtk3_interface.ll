@@ -8334,21 +8334,21 @@ define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0,
   br label %18
 
 18:                                               ; preds = %17, %14, %13, %10
-  %.2.i = phi double [ %..i, %13 ], [ %.76.i, %17 ], [ %..i, %10 ], [ %.76.i, %14 ]
+  %.162.i = phi double [ %..i, %13 ], [ %.76.i, %17 ], [ %..i, %10 ], [ %.76.i, %14 ]
   %.0.i = phi double [ %8, %13 ], [ %8, %17 ], [ %6, %10 ], [ %4, %14 ]
-  %19 = fadd double %.2.i, %.0.i
+  %19 = fadd double %.162.i, %.0.i
   %20 = fmul double %19, 5.000000e-01
-  %21 = fcmp une double %.2.i, %.0.i
+  %21 = fcmp une double %.162.i, %.0.i
   br i1 %21, label %22, label %rgb_to_hls.exit
 
 22:                                               ; preds = %18
   %23 = fcmp ugt double %20, 5.000000e-01
-  %24 = fsub double %.2.i, %.0.i
-  %25 = fsub double 2.000000e+00, %.2.i
+  %24 = fsub double %.162.i, %.0.i
+  %25 = fsub double 2.000000e+00, %.162.i
   %26 = fsub double %25, %.0.i
   %.sink.i = select i1 %23, double %26, double %19
   %27 = fdiv double %24, %.sink.i
-  %28 = fcmp oeq double %4, %.2.i
+  %28 = fcmp oeq double %4, %.162.i
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %22
@@ -8357,7 +8357,7 @@ define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0,
   br label %44
 
 32:                                               ; preds = %22
-  %33 = fcmp oeq double %6, %.2.i
+  %33 = fcmp oeq double %6, %.162.i
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
@@ -8367,7 +8367,7 @@ define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0,
   br label %44
 
 38:                                               ; preds = %32
-  %39 = fcmp oeq double %8, %.2.i
+  %39 = fcmp oeq double %8, %.162.i
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
@@ -8377,8 +8377,8 @@ define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0,
   br label %44
 
 44:                                               ; preds = %40, %38, %34, %29
-  %.063.i = phi double [ %31, %29 ], [ %37, %34 ], [ %43, %40 ], [ 0.000000e+00, %38 ]
-  %45 = fmul double %.063.i, 6.000000e+01
+  %.164.i = phi double [ %31, %29 ], [ %37, %34 ], [ %43, %40 ], [ 0.000000e+00, %38 ]
+  %45 = fmul double %.164.i, 6.000000e+01
   %46 = fcmp olt double %45, 0.000000e+00
   br i1 %46, label %47, label %rgb_to_hls.exit
 
@@ -8387,8 +8387,8 @@ define internal fastcc void @gtk3_style_shade(ptr nocapture noundef readonly %0,
   br label %rgb_to_hls.exit
 
 rgb_to_hls.exit:                                  ; preds = %18, %44, %47
-  %.164.i = phi double [ %48, %47 ], [ %45, %44 ], [ 0.000000e+00, %18 ]
-  %.1.i = phi double [ %27, %47 ], [ %27, %44 ], [ 0.000000e+00, %18 ]
+  %.063.i = phi double [ %48, %47 ], [ %45, %44 ], [ 0.000000e+00, %18 ]
+  %.060.i = phi double [ %27, %47 ], [ %27, %44 ], [ 0.000000e+00, %18 ]
   %49 = fmul double %20, %2
   %50 = fcmp ogt double %49, 1.000000e+00
   br i1 %50, label %54, label %51
@@ -8402,7 +8402,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 54:                                               ; preds = %rgb_to_hls.exit, %51, %53
   %.019 = phi double [ 0.000000e+00, %53 ], [ %49, %51 ], [ 1.000000e+00, %rgb_to_hls.exit ]
-  %55 = fmul double %.1.i, %2
+  %55 = fmul double %.060.i, %2
   %56 = fcmp ogt double %55, 1.000000e+00
   br i1 %56, label %60, label %57
 
@@ -8437,7 +8437,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   br i1 %72, label %hls_to_rgb.exit, label %73
 
 73:                                               ; preds = %69
-  %74 = fadd double %.164.i, 1.200000e+02
+  %74 = fadd double %.063.i, 1.200000e+02
   %75 = fcmp ogt double %74, 3.600000e+02
   br i1 %75, label %.lr.ph.i, label %.preheader87.i
 
@@ -8488,16 +8488,16 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 97:                                               ; preds = %91, %89, %87, %82
   %.079.i = phi double [ %86, %82 ], [ %96, %91 ], [ %.080.i, %87 ], [ %71, %89 ]
-  %98 = fcmp ogt double %.164.i, 3.600000e+02
+  %98 = fcmp ogt double %.063.i, 3.600000e+02
   br i1 %98, label %.lr.ph94.i, label %.preheader86.i
 
 .preheader86.i:                                   ; preds = %.lr.ph94.i, %97
-  %.2.lcssa.i = phi double [ %.164.i, %97 ], [ %100, %.lr.ph94.i ]
+  %.2.lcssa.i = phi double [ %.063.i, %97 ], [ %100, %.lr.ph94.i ]
   %99 = fcmp olt double %.2.lcssa.i, 0.000000e+00
   br i1 %99, label %.lr.ph97.i, label %._crit_edge98.i
 
 .lr.ph94.i:                                       ; preds = %97, %.lr.ph94.i
-  %.292.i = phi double [ %100, %.lr.ph94.i ], [ %.164.i, %97 ]
+  %.292.i = phi double [ %100, %.lr.ph94.i ], [ %.063.i, %97 ]
   %100 = fadd double %.292.i, -3.600000e+02
   %101 = fcmp ogt double %100, 3.600000e+02
   br i1 %101, label %.lr.ph94.i, label %.preheader86.i, !llvm.loop !40
@@ -8538,7 +8538,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 120:                                              ; preds = %114, %112, %110, %105
   %.078.i = phi double [ %109, %105 ], [ %119, %114 ], [ %.080.i, %110 ], [ %71, %112 ]
-  %121 = fadd double %.164.i, -1.200000e+02
+  %121 = fadd double %.063.i, -1.200000e+02
   %122 = fcmp ogt double %121, 3.600000e+02
   br i1 %122, label %.lr.ph102.i, label %.preheader.i
 

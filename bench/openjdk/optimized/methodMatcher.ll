@@ -321,7 +321,7 @@ define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE
   br label %35
 
 35:                                               ; preds = %7, %23, %26, %32, %22
-  %.0 = phi i1 [ %34, %32 ], [ %cmp, %22 ], [ false, %23 ], [ %31, %26 ], [ false, %7 ]
+  %.1 = phi i1 [ %34, %32 ], [ %cmp, %22 ], [ false, %23 ], [ %31, %26 ], [ false, %7 ]
   %36 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %38, label %37
@@ -343,8 +343,8 @@ define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %4, %5
-  %.1 = phi i1 [ %6, %5 ], [ true, %4 ], [ %.0, %38 ], [ %.0, %40 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %6, %5 ], [ true, %4 ], [ %.1, %38 ], [ %.1, %40 ]
+  ret i1 %.0
 }
 
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2

@@ -5144,7 +5144,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i129: ; preds = %_ZSt8_DestroyIP
   br label %665
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit131:       ; preds = %605, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i129, %465, %470
-  %.0 = phi i1 [ false, %470 ], [ false, %465 ], [ true, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i129 ], [ true, %605 ]
+  %.2 = phi i1 [ false, %470 ], [ false, %465 ], [ true, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i129 ], [ true, %605 ]
   %618 = load ptr, ptr %23, align 8
   %619 = getelementptr inbounds i8, ptr %23, i64 8
   %620 = load ptr, ptr %619, align 8
@@ -5287,7 +5287,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %716
 
 _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i155, %660, %647, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit149, %330
-  %.1 = phi i1 [ false, %330 ], [ %.0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit149 ], [ %.0, %647 ], [ %.0, %660 ], [ %.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i155 ]
+  %.1 = phi i1 [ false, %330 ], [ %.2, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit149 ], [ %.2, %647 ], [ %.2, %660 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i155 ]
   %668 = load ptr, ptr %14, align 8
   %669 = getelementptr inbounds i8, ptr %14, i64 8
   %670 = load ptr, ptr %669, align 8
@@ -5421,7 +5421,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i168: ; preds = %_ZSt8_DestroyIP
   br label %758
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit170:       ; preds = %715, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i168, %136
-  %.2 = phi i1 [ false, %136 ], [ %.1, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i168 ], [ %.1, %715 ]
+  %.0 = phi i1 [ false, %136 ], [ %.1, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i168 ], [ %.1, %715 ]
   %717 = load ptr, ptr %12, align 8
   %718 = load ptr, ptr %138, align 8
   %.not4.i.i.i.i171 = icmp eq ptr %717, %718
@@ -5523,7 +5523,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit186: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit179, %740, %753, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i185
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #17
-  ret i1 %.2
+  ret i1 %.0
 
 758:                                              ; preds = %716, %331
   %.pn35.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn.pn, %716 ], [ %332, %331 ]

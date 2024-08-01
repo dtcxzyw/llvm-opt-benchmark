@@ -2222,7 +2222,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 361:                                              ; preds = %.lr.ph212, %394
   %indvars.iv225 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next226, %394 ]
   %.val123211 = phi ptr [ %.val123207, %.lr.ph212 ], [ %.val123, %394 ]
-  %.2210 = phi i32 [ 0, %.lr.ph212 ], [ %.3, %394 ]
+  %.3210 = phi i32 [ 0, %.lr.ph212 ], [ %.4, %394 ]
   %362 = getelementptr i8, ptr %.val123211, i64 8
   %.val124.val = load ptr, ptr %362, align 8
   %363 = getelementptr inbounds ptr, ptr %.val124.val, i64 %indvars.iv225
@@ -2272,13 +2272,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not115, label %391, label %394
 
 391:                                              ; preds = %382
-  %392 = add nsw i32 %.2210, 1
+  %392 = add nsw i32 %.3210, 1
   %393 = or i32 %389, %181
   store i32 %393, ptr %388, align 4
   br label %394
 
 394:                                              ; preds = %374, %391, %382, %361
-  %.3 = phi i32 [ %.2210, %374 ], [ %.2210, %382 ], [ %392, %391 ], [ %.2210, %361 ]
+  %.4 = phi i32 [ %.3210, %374 ], [ %.3210, %382 ], [ %392, %391 ], [ %.3210, %361 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %395 = load ptr, ptr %0, align 8
   %396 = getelementptr i8, ptr %395, i64 64
@@ -2290,7 +2290,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %399, label %361, label %.critedge7, !llvm.loop !31
 
 .critedge7:                                       ; preds = %.critedge2, %394, %182, %.preheader
-  %.4 = phi i32 [ 0, %.preheader ], [ 0, %182 ], [ %.3, %394 ], [ %.1107, %.critedge2 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %182 ], [ %.4, %394 ], [ %.1107, %.critedge2 ]
   %.val11.i = load i32, ptr %34, align 4
   %400 = icmp sgt i32 %.val11.i, 0
   br i1 %400, label %.lr.ph.i153, label %.critedge.i
@@ -2342,7 +2342,7 @@ Vec_PtrFree.exit.i:                               ; preds = %408, %405
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %414
   call void @free(ptr noundef nonnull %20) #11
-  ret i32 %.4
+  ret i32 %.2
 }
 
 declare ptr @Abc_DfsLevelized(ptr noundef, i32 noundef) local_unnamed_addr #1

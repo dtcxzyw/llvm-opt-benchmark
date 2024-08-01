@@ -2293,23 +2293,23 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i9
   br label %for.body.i
 
 for.cond.cleanup.i:                               ; preds = %for.body.i, %if.then.i9
-  %agg.tmp2.i.i.i.sroa.10.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.10.0.copyload, %if.then.i9 ], [ %agg.tmp2.i.i.i.sroa.10.0.copyload44, %for.body.i ]
-  %agg.tmp2.i.i.i.sroa.0.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.0.0.copyload, %if.then.i9 ], [ %agg.tmp2.i.i.i.sroa.0.0.copyload43, %for.body.i ]
-  store <2 x ptr> %agg.tmp2.i.i.i.sroa.0.0, ptr %agg.tmp9.i, align 16, !tbaa !20, !noalias !112
+  %agg.tmp2.i.i.i.sroa.10.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.10.0.copyload, %if.then.i9 ], [ %agg.tmp2.i.i.i.sroa.10.0.copyload44, %for.body.i ]
+  %agg.tmp2.i.i.i.sroa.0.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.0.0.copyload, %if.then.i9 ], [ %agg.tmp2.i.i.i.sroa.0.0.copyload43, %for.body.i ]
+  store <2 x ptr> %agg.tmp2.i.i.i.sroa.0.1, ptr %agg.tmp9.i, align 16, !tbaa !20, !noalias !112
   %_M_last.i18.i = getelementptr inbounds i8, ptr %agg.tmp9.i, i64 16
-  store <2 x ptr> %agg.tmp2.i.i.i.sroa.10.0, ptr %_M_last.i18.i, align 16, !tbaa !20, !noalias !112
+  store <2 x ptr> %agg.tmp2.i.i.i.sroa.10.1, ptr %_M_last.i18.i, align 16, !tbaa !20, !noalias !112
   call void @_ZSt23__copy_move_backward_a1ILb1EPN13ProfilerGraph5PieceES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %agg.tmp9.i), !noalias !117
   br label %_ZSt24__copy_move_backward_ditILb1EN13ProfilerGraph5PieceERS1_PS1_St15_Deque_iteratorIS1_S2_S3_EET3_S4_IT0_T1_T2_ESA_S6_.exit
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %agg.tmp2.i.i.i.sroa.10.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.10.0.copyload, %for.body.lr.ph.i ], [ %agg.tmp2.i.i.i.sroa.10.0.copyload44, %for.body.i ]
-  %agg.tmp2.i.i.i.sroa.0.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.0.0.copyload, %for.body.lr.ph.i ], [ %agg.tmp2.i.i.i.sroa.0.0.copyload43, %for.body.i ]
+  %agg.tmp2.i.i.i.sroa.10.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.10.0.copyload, %for.body.lr.ph.i ], [ %agg.tmp2.i.i.i.sroa.10.0.copyload44, %for.body.i ]
+  %agg.tmp2.i.i.i.sroa.0.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i.sroa.0.0.copyload, %for.body.lr.ph.i ], [ %agg.tmp2.i.i.i.sroa.0.0.copyload43, %for.body.i ]
   %__node.036.i = phi ptr [ %__node.034.i, %for.body.lr.ph.i ], [ %__node.0.i, %for.body.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i) #18, !noalias !112
   %11 = load ptr, ptr %__node.036.i, align 8, !tbaa !20, !noalias !112
   %add.ptr6.i = getelementptr inbounds i8, ptr %11, i64 480
-  store <2 x ptr> %agg.tmp2.i.i.i.sroa.0.1, ptr %agg.tmp7.i, align 16, !tbaa !20, !noalias !112
-  store <2 x ptr> %agg.tmp2.i.i.i.sroa.10.1, ptr %_M_last.i24.i, align 16, !tbaa !20, !noalias !112
+  store <2 x ptr> %agg.tmp2.i.i.i.sroa.0.0, ptr %agg.tmp7.i, align 16, !tbaa !20, !noalias !112
+  store <2 x ptr> %agg.tmp2.i.i.i.sroa.10.0, ptr %_M_last.i24.i, align 16, !tbaa !20, !noalias !112
   call void @_ZSt23__copy_move_backward_a1ILb1EPN13ProfilerGraph5PieceES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %ref.tmp5.i, ptr noundef %11, ptr noundef nonnull %add.ptr6.i, ptr noundef nonnull %agg.tmp7.i), !noalias !112
   %agg.tmp2.i.i.i.sroa.0.0.copyload43 = load <2 x ptr>, ptr %ref.tmp5.i, align 16, !noalias !112
   %agg.tmp2.i.i.i.sroa.10.0.copyload44 = load <2 x ptr>, ptr %agg.tmp2.i.i.i.sroa.10.0.ref.tmp5.i.sroa_idx, align 16, !noalias !112
@@ -2426,23 +2426,23 @@ for.body.lr.ph.i26:                               ; preds = %if.then.i20
   br label %for.body.i28
 
 for.cond.cleanup.i33:                             ; preds = %for.body.i28, %if.then.i20
-  %agg.tmp2.i.i.i96.sroa.0.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.0.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.0.0.copyload58, %for.body.i28 ]
-  %agg.tmp2.i.i.i96.sroa.10.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
-  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.0.0, ptr %agg.tmp9.i15, align 16, !tbaa !20, !noalias !125
+  %agg.tmp2.i.i.i96.sroa.0.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.0.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.0.0.copyload58, %for.body.i28 ]
+  %agg.tmp2.i.i.i96.sroa.10.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
+  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.0.1, ptr %agg.tmp9.i15, align 16, !tbaa !20, !noalias !125
   %_M_last.i18.i35 = getelementptr inbounds i8, ptr %agg.tmp9.i15, i64 16
-  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.10.0, ptr %_M_last.i18.i35, align 16, !tbaa !20, !noalias !125
+  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.10.1, ptr %_M_last.i18.i35, align 16, !tbaa !20, !noalias !125
   call void @_ZSt14__copy_move_a1ILb1EPN13ProfilerGraph5PieceES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i97, ptr noundef %10, ptr noundef %9, ptr noundef nonnull %agg.tmp9.i15), !noalias !130
   br label %_ZSt15__copy_move_ditILb1EN13ProfilerGraph5PieceERS1_PS1_St15_Deque_iteratorIS1_S2_S3_EET3_S4_IT0_T1_T2_ESA_S6_.exit
 
 for.body.i28:                                     ; preds = %for.body.i28, %for.body.lr.ph.i26
-  %agg.tmp2.i.i.i96.sroa.0.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.0.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.0.0.copyload58, %for.body.i28 ]
-  %agg.tmp2.i.i.i96.sroa.10.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
+  %agg.tmp2.i.i.i96.sroa.0.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.0.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.0.0.copyload58, %for.body.i28 ]
+  %agg.tmp2.i.i.i96.sroa.10.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
   %__node.036.i29 = phi ptr [ %__node.034.i24, %for.body.lr.ph.i26 ], [ %__node.0.i31, %for.body.i28 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i13) #18, !noalias !125
   %23 = load ptr, ptr %__node.036.i29, align 8, !tbaa !20, !noalias !125
   %add.ptr6.i30 = getelementptr inbounds i8, ptr %23, i64 480
-  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.0.1, ptr %agg.tmp7.i14, align 16, !tbaa !20, !noalias !125
-  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.10.1, ptr %_M_last.i24.i27, align 16, !tbaa !20, !noalias !125
+  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.0.0, ptr %agg.tmp7.i14, align 16, !tbaa !20, !noalias !125
+  store <2 x ptr> %agg.tmp2.i.i.i96.sroa.10.0, ptr %_M_last.i24.i27, align 16, !tbaa !20, !noalias !125
   call void @_ZSt14__copy_move_a1ILb1EPN13ProfilerGraph5PieceES1_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS7_PS7_EE6__typeES5_S5_SA_(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %ref.tmp5.i13, ptr noundef %23, ptr noundef nonnull %add.ptr6.i30, ptr noundef nonnull %agg.tmp7.i14), !noalias !125
   %agg.tmp2.i.i.i96.sroa.0.0.copyload58 = load <2 x ptr>, ptr %ref.tmp5.i13, align 16, !noalias !125
   %agg.tmp2.i.i.i96.sroa.10.0.copyload59 = load <2 x ptr>, ptr %agg.tmp2.i.i.i96.sroa.10.0.ref.tmp5.i13.sroa_idx, align 16, !noalias !125

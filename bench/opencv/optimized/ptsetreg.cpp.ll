@@ -2243,7 +2243,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit123:              ; preds = %262
 282:                                              ; preds = %.preheader, %289
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %289 ]
   %.036138 = phi double [ 0.000000e+00, %.preheader ], [ %290, %289 ]
-  %.037137 = phi double [ 0.000000e+00, %.preheader ], [ %304, %289 ]
+  %.138137 = phi double [ 0.000000e+00, %.preheader ], [ %304, %289 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 9223372034707292160, ptr %8, align 8, !noalias !42
@@ -2285,7 +2285,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit123:              ; preds = %262
   %301 = getelementptr inbounds i8, ptr %297, i64 %300
   %302 = getelementptr inbounds double, ptr %301, i64 %indvars.iv
   %303 = load double, ptr %302, align 8
-  %304 = call double @llvm.fmuladd.f64(double %296, double %303, double %.037137)
+  %304 = call double @llvm.fmuladd.f64(double %296, double %303, double %.138137)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %310, label %282, !llvm.loop !45
 
@@ -2322,8 +2322,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit123:              ; preds = %262
   br label %313
 
 313:                                              ; preds = %310, %_ZNK2cv7MatExprcvNS_3MatEEv.exit123
-  %.138 = phi double [ %312, %310 ], [ 1.000000e+00, %_ZNK2cv7MatExprcvNS_3MatEEv.exit123 ]
-  invoke void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %54, double noundef %.138, ptr noundef nonnull align 8 dereferenceable(96) %47)
+  %.037 = phi double [ %312, %310 ], [ 1.000000e+00, %_ZNK2cv7MatExprcvNS_3MatEEv.exit123 ]
+  invoke void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %54, double noundef %.037, ptr noundef nonnull align 8 dereferenceable(96) %47)
           to label %314 unwind label %.loopexit.split-lp
 
 314:                                              ; preds = %313
@@ -7431,9 +7431,9 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
   br label %.loopexit.split-lp
 
 202:                                              ; preds = %.preheader, %.loopexit
-  %.051162 = phi i32 [ 0, %.preheader ], [ %.354, %.loopexit ]
+  %.051162 = phi i32 [ 0, %.preheader ], [ %.152, %.loopexit ]
   %.069161 = phi i32 [ 0, %.preheader ], [ %262, %.loopexit ]
-  %.070160 = phi i32 [ %spec.select, %.preheader ], [ %.373, %.loopexit ]
+  %.070160 = phi i32 [ %spec.select, %.preheader ], [ %.171, %.loopexit ]
   %203 = load i32, ptr %115, align 8
   %204 = icmp sgt i32 %68, %203
   br i1 %204, label %205, label %210
@@ -7514,8 +7514,8 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
 
 .lr.ph:                                           ; preds = %220, %261
   %.050158 = phi i32 [ %234, %261 ], [ 0, %220 ]
-  %.152157 = phi i32 [ %.253, %261 ], [ %.051162, %220 ]
-  %.171156 = phi i32 [ %.272, %261 ], [ %.070160, %220 ]
+  %.253157 = phi i32 [ %.354, %261 ], [ %.051162, %220 ]
+  %.272156 = phi i32 [ %.373, %261 ], [ %.070160, %220 ]
   %233 = mul nsw i32 %.050158, %223
   %234 = add nuw nsw i32 %.050158, 1
   %235 = mul nsw i32 %234, %223
@@ -7537,8 +7537,8 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
 239:                                              ; preds = %236
   %240 = load i32, ptr %115, align 8
   %241 = add nsw i32 %240, -1
-  %..152 = call i32 @llvm.smax.i32(i32 %.152157, i32 %241)
-  %242 = icmp sgt i32 %238, %..152
+  %..253 = call i32 @llvm.smax.i32(i32 %.253157, i32 %241)
+  %242 = icmp sgt i32 %238, %..253
   br i1 %242, label %243, label %261
 
 243:                                              ; preds = %239
@@ -7572,7 +7572,7 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
   %253 = sitofp i32 %252 to double
   %254 = fdiv double %253, %173
   %255 = load i32, ptr %115, align 8
-  %256 = invoke noundef i32 @_ZN2cv20RANSACUpdateNumItersEddii(double noundef %251, double noundef %254, i32 noundef %255, i32 noundef %.171156)
+  %256 = invoke noundef i32 @_ZN2cv20RANSACUpdateNumItersEddii(double noundef %251, double noundef %254, i32 noundef %255, i32 noundef %.272156)
           to label %261 unwind label %257
 
 257:                                              ; preds = %250, %236
@@ -7586,8 +7586,8 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
   br label %.body
 
 261:                                              ; preds = %250, %239
-  %.272 = phi i32 [ %.171156, %239 ], [ %256, %250 ]
-  %.253 = phi i32 [ %.152157, %239 ], [ %238, %250 ]
+  %.373 = phi i32 [ %.272156, %239 ], [ %256, %250 ]
+  %.354 = phi i32 [ %.253157, %239 ], [ %238, %250 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #20
   %exitcond.not = icmp eq i32 %234, %215
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !143
@@ -7598,14 +7598,14 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %261, %216
-  %.373 = phi i32 [ %.070160, %216 ], [ %.272, %261 ]
-  %.354 = phi i32 [ %.051162, %216 ], [ %.253, %261 ]
+  %.171 = phi i32 [ %.070160, %216 ], [ %.373, %261 ]
+  %.152 = phi i32 [ %.051162, %216 ], [ %.354, %261 ]
   %262 = add nuw nsw i32 %.069161, 1
-  %263 = icmp slt i32 %262, %.373
+  %263 = icmp slt i32 %262, %.171
   br i1 %263, label %202, label %.loopexit127, !llvm.loop !144
 
 .loopexit127:                                     ; preds = %.loopexit, %208
-  %.051147 = phi i32 [ %.051162, %208 ], [ %.354, %.loopexit ]
+  %.051147 = phi i32 [ %.051162, %208 ], [ %.152, %.loopexit ]
   %264 = icmp sgt i32 %.051147, 0
   br i1 %264, label %265, label %295
 
@@ -7674,7 +7674,7 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
           to label %296 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 296:                                              ; preds = %198, %295, %294, %208, %188
-  %.0 = phi i1 [ false, %188 ], [ false, %208 ], [ true, %294 ], [ false, %295 ], [ true, %198 ]
+  %.1 = phi i1 [ false, %188 ], [ false, %208 ], [ true, %294 ], [ false, %295 ], [ true, %198 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #20
   br label %297
@@ -7686,7 +7686,7 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
   br label %298
 
 297:                                              ; preds = %114, %296
-  %.1 = phi i1 [ %.0, %296 ], [ false, %114 ]
+  %.0 = phi i1 [ %.1, %296 ], [ false, %114 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #20
@@ -7695,7 +7695,7 @@ _ZNK2cv11_InputArray6getMatEi.exit114:            ; preds = %125, %128
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #20
-  ret i1 %.1
+  ret i1 %.0
 
 298:                                              ; preds = %.loopexit.split-lp, %113, %102, %89, %80
   %.pn99.pn = phi { ptr, i32 } [ %.pn99, %.loopexit.split-lp ], [ %.pn83, %113 ], [ %.pn81, %102 ], [ %.pn, %89 ], [ %81, %80 ]
@@ -8929,7 +8929,7 @@ _ZNK2cv11_InputArray6getMatEi.exit124:            ; preds = %127, %130
 
 230:                                              ; preds = %192, %.loopexit
   %.074174 = phi i32 [ 0, %192 ], [ %341, %.loopexit ]
-  %.075173 = phi double [ 0x7FEFFFFFFFFFFFFF, %192 ], [ %.378, %.loopexit ]
+  %.075173 = phi double [ 0x7FEFFFFFFFFFFFFF, %192 ], [ %.176, %.loopexit ]
   %231 = load i32, ptr %117, align 8
   %232 = icmp sgt i32 %72, %231
   br i1 %232, label %233, label %238
@@ -9010,7 +9010,7 @@ _ZNK2cv11_InputArray6getMatEi.exit124:            ; preds = %127, %130
 
 .lr.ph:                                           ; preds = %248, %339
   %.073172 = phi i32 [ %262, %339 ], [ 0, %248 ]
-  %.176171 = phi double [ %.277, %339 ], [ %.075173, %248 ]
+  %.277171 = phi double [ %.378, %339 ], [ %.075173, %248 ]
   %261 = mul nsw i32 %.073172, %251
   %262 = add nuw nsw i32 %.073172, 1
   %263 = mul nsw i32 %262, %251
@@ -9182,7 +9182,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %308, %315, %321
   %.0.i = phi ptr [ %310, %308 ], [ %320, %315 ], [ %332, %321 ]
   %333 = load float, ptr %.0.i, align 4
   %334 = fpext float %333 to double
-  %335 = fcmp ogt double %.176171, %334
+  %335 = fcmp ogt double %.277171, %334
   br i1 %335, label %336, label %339
 
 336:                                              ; preds = %_ZN2cv3Mat2atIfEERT_i.exit
@@ -9198,7 +9198,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %308, %315, %321
   br label %340
 
 339:                                              ; preds = %336, %_ZN2cv3Mat2atIfEERT_i.exit
-  %.277 = phi double [ %.176171, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %334, %336 ]
+  %.378 = phi double [ %.277171, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %334, %336 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #20
   %exitcond.not = icmp eq i32 %262, %243
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !166
@@ -9209,13 +9209,13 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %308, %315, %321
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %339, %244
-  %.378 = phi double [ %.075173, %244 ], [ %.277, %339 ]
+  %.176 = phi double [ %.075173, %244 ], [ %.378, %339 ]
   %341 = add nuw nsw i32 %.074174, 1
   %exitcond195.not = icmp eq i32 %341, %193
   br i1 %exitcond195.not, label %.loopexit140, label %230, !llvm.loop !167
 
 .loopexit140:                                     ; preds = %.loopexit, %236
-  %.075170 = phi double [ %.075173, %236 ], [ %.378, %.loopexit ]
+  %.075170 = phi double [ %.075173, %236 ], [ %.176, %.loopexit ]
   %342 = fcmp olt double %.075170, 0x7FEFFFFFFFFFFFFF
   br i1 %342, label %343, label %391
 

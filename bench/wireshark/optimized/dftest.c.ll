@@ -766,12 +766,12 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
 
 .lr.ph26:                                         ; preds = %9, %.lr.ph26
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph26 ], [ 0, %9 ]
-  %.124 = phi i32 [ %16, %.lr.ph26 ], [ %.016.lcssa, %9 ]
+  %.224 = phi i32 [ %16, %.lr.ph26 ], [ %.016.lcssa, %9 ]
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %14)
-  %16 = add i32 %.124, 1
+  %16 = add i32 %.224, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %10, align 8
   %18 = zext i32 %17 to i64
@@ -779,8 +779,8 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
   br i1 %19, label %.lr.ph26, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph26, %9, %._crit_edge
-  %.2 = phi i32 [ %.016.lcssa, %9 ], [ %.016.lcssa, %._crit_edge ], [ %16, %.lr.ph26 ]
-  %.not20 = icmp eq i32 %.2, 0
+  %.1 = phi i32 [ %.016.lcssa, %9 ], [ %.016.lcssa, %._crit_edge ], [ %16, %.lr.ph26 ]
+  %.not20 = icmp eq i32 %.1, 0
   br i1 %.not20, label %21, label %20
 
 20:                                               ; preds = %.loopexit

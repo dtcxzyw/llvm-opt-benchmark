@@ -1778,8 +1778,8 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 1
   %32 = and i32 %spec.select, -209
-  %.151 = select i1 %31, i32 %32, i32 %spec.select
-  %33 = and i32 %.151, 224
+  %.252 = select i1 %31, i32 %32, i32 %spec.select
+  %33 = and i32 %.252, 224
   %.not57 = icmp eq i32 %33, 0
   br i1 %.not57, label %40, label %34
 
@@ -1791,20 +1791,20 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
 
 38:                                               ; preds = %34
   tail call void @png_app_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #15
-  %39 = and i32 %.151, -225
+  %39 = and i32 %.252, -225
   br label %40
 
 40:                                               ; preds = %38, %34, %24
-  %.252 = phi i32 [ %39, %38 ], [ %.151, %34 ], [ %.151, %24 ]
-  %41 = lshr i32 %.252, 4
+  %.353 = phi i32 [ %39, %38 ], [ %.252, %34 ], [ %.252, %24 ]
+  %41 = lshr i32 %.353, 4
   %.lobit = and i32 %41, 1
-  %42 = lshr i32 %.252, 5
+  %42 = lshr i32 %.353, 5
   %43 = and i32 %42, 1
   %.1 = add nuw nsw i32 %.lobit, %43
-  %44 = lshr i32 %.252, 6
+  %44 = lshr i32 %.353, 6
   %45 = and i32 %44, 1
   %.2 = add nuw nsw i32 %.1, %45
-  %46 = lshr i32 %.252, 7
+  %46 = lshr i32 %.353, 7
   %47 = and i32 %46, 1
   %.3 = add nuw nsw i32 %.2, %47
   %48 = getelementptr inbounds i8, ptr %0, i64 620
@@ -1861,8 +1861,8 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   br label %83
 
 83:                                               ; preds = %75, %81, %77, %20
-  %.353 = phi i32 [ %.252, %81 ], [ %.252, %77 ], [ %.252, %75 ], [ %2, %20 ]
-  %84 = trunc i32 %.353 to i8
+  %.050 = phi i32 [ %.353, %81 ], [ %.353, %77 ], [ %.353, %75 ], [ %2, %20 ]
+  %84 = trunc i32 %.050 to i8
   %85 = getelementptr inbounds i8, ptr %0, i64 614
   store i8 %84, ptr %85, align 2
   br label %87
@@ -2365,7 +2365,7 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   br label %36
 
 36:                                               ; preds = %33, %32
-  %.0 = phi i32 [ %31, %32 ], [ %spec.select, %33 ]
+  %.1 = phi i32 [ %31, %32 ], [ %spec.select, %33 ]
   store i64 %.pre, ptr %2, align 8
   br label %.critedge
 
@@ -2378,7 +2378,7 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %19, %21, %36, %39, %37
-  %.025 = phi i32 [ %38, %37 ], [ %40, %39 ], [ %.0, %36 ], [ 0, %21 ], [ 0, %19 ], [ 0, %7 ]
+  %.025 = phi i32 [ %38, %37 ], [ %40, %39 ], [ %.1, %36 ], [ 0, %21 ], [ 0, %19 ], [ 0, %7 ]
   ret i32 %.025
 }
 

@@ -1996,7 +1996,7 @@ if.end34:                                         ; preds = %land.lhs.true30, %i
 
 if.end39:                                         ; preds = %if.end34, %if.end23
   %noptargs.1 = phi i64 [ %dec35, %if.end34 ], [ %noptargs.0, %if.end23 ]
-  %digest_size.0 = phi i32 [ %call28, %if.end34 ], [ 32, %if.end23 ]
+  %digest_size.1 = phi i32 [ %call28, %if.end34 ], [ 32, %if.end23 ]
   %arrayidx40 = getelementptr i8, ptr %cond1668, i64 16
   %5 = load ptr, ptr %arrayidx40, align 8
   %tobool41.not = icmp eq ptr %5, null
@@ -2070,7 +2070,7 @@ if.end89:                                         ; preds = %land.lhs.true85, %i
 
 if.end94:                                         ; preds = %if.end89, %if.end78
   %noptargs.5 = phi i64 [ %dec90, %if.end89 ], [ %noptargs.4, %if.end78 ]
-  %fanout.0 = phi i32 [ %call83, %if.end89 ], [ 1, %if.end78 ]
+  %fanout.1 = phi i32 [ %call83, %if.end89 ], [ 1, %if.end78 ]
   %arrayidx95 = getelementptr i8, ptr %cond1668, i64 48
   %9 = load ptr, ptr %arrayidx95, align 8
   %tobool96.not = icmp eq ptr %9, null
@@ -2093,7 +2093,7 @@ if.end105:                                        ; preds = %land.lhs.true101, %
 
 if.end110:                                        ; preds = %if.end105, %if.end94
   %noptargs.6 = phi i64 [ %dec106, %if.end105 ], [ %noptargs.5, %if.end94 ]
-  %depth.0 = phi i32 [ %call99, %if.end105 ], [ 1, %if.end94 ]
+  %depth.1 = phi i32 [ %call99, %if.end105 ], [ 1, %if.end94 ]
   %arrayidx111 = getelementptr i8, ptr %cond1668, i64 56
   %10 = load ptr, ptr %arrayidx111, align 8
   %tobool112.not = icmp eq ptr %10, null
@@ -2150,7 +2150,7 @@ if.end147:                                        ; preds = %land.lhs.true143, %
 
 if.end152:                                        ; preds = %if.end147, %if.end136
   %noptargs.9 = phi i64 [ %dec148, %if.end147 ], [ %noptargs.8, %if.end136 ]
-  %node_depth.0 = phi i32 [ %call141, %if.end147 ], [ 0, %if.end136 ]
+  %node_depth.1 = phi i32 [ %call141, %if.end147 ], [ 0, %if.end136 ]
   %arrayidx153 = getelementptr i8, ptr %cond1668, i64 80
   %13 = load ptr, ptr %arrayidx153, align 8
   %tobool154.not = icmp eq ptr %13, null
@@ -2173,7 +2173,7 @@ if.end163:                                        ; preds = %land.lhs.true159, %
 
 if.end168:                                        ; preds = %if.end163, %if.end152
   %noptargs.10 = phi i64 [ %dec164, %if.end163 ], [ %noptargs.9, %if.end152 ]
-  %inner_size.0 = phi i32 [ %call157, %if.end163 ], [ 0, %if.end152 ]
+  %inner_size.1 = phi i32 [ %call157, %if.end163 ], [ 0, %if.end152 ]
   %arrayidx169 = getelementptr i8, ptr %cond1668, i64 88
   %14 = load ptr, ptr %arrayidx169, align 8
   %tobool170.not = icmp eq ptr %14, null
@@ -2189,7 +2189,7 @@ if.end176:                                        ; preds = %if.then171
   br i1 %tobool178.not, label %skip_optional_kwonly, label %if.end181
 
 if.end181:                                        ; preds = %if.end176, %if.end168
-  %last_node.0 = phi i32 [ %call173, %if.end176 ], [ 0, %if.end168 ]
+  %last_node.1 = phi i32 [ %call173, %if.end176 ], [ 0, %if.end168 ]
   %arrayidx182 = getelementptr i8, ptr %cond1668, i64 96
   %15 = load ptr, ptr %arrayidx182, align 8
   %call183 = call i32 @PyObject_IsTrue(ptr noundef %15) #8
@@ -2197,12 +2197,12 @@ if.end181:                                        ; preds = %if.end176, %if.end1
   br i1 %cmp184, label %exit, label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.end181, %if.end176, %if.end163, %if.end147, %if.end131, %if.end118, %if.end105, %if.end89, %if.end73, %if.end60, %if.end47, %if.end34, %skip_optional_posonly
-  %digest_size.1 = phi i32 [ %digest_size.0, %if.end181 ], [ %digest_size.0, %if.end176 ], [ %digest_size.0, %if.end163 ], [ %digest_size.0, %if.end147 ], [ %digest_size.0, %if.end131 ], [ %digest_size.0, %if.end118 ], [ %digest_size.0, %if.end105 ], [ %digest_size.0, %if.end89 ], [ %digest_size.0, %if.end73 ], [ %digest_size.0, %if.end60 ], [ %digest_size.0, %if.end47 ], [ %call28, %if.end34 ], [ 32, %skip_optional_posonly ]
-  %fanout.1 = phi i32 [ %fanout.0, %if.end181 ], [ %fanout.0, %if.end176 ], [ %fanout.0, %if.end163 ], [ %fanout.0, %if.end147 ], [ %fanout.0, %if.end131 ], [ %fanout.0, %if.end118 ], [ %fanout.0, %if.end105 ], [ %call83, %if.end89 ], [ 1, %if.end73 ], [ 1, %if.end60 ], [ 1, %if.end47 ], [ 1, %if.end34 ], [ 1, %skip_optional_posonly ]
-  %depth.1 = phi i32 [ %depth.0, %if.end181 ], [ %depth.0, %if.end176 ], [ %depth.0, %if.end163 ], [ %depth.0, %if.end147 ], [ %depth.0, %if.end131 ], [ %depth.0, %if.end118 ], [ %call99, %if.end105 ], [ 1, %if.end89 ], [ 1, %if.end73 ], [ 1, %if.end60 ], [ 1, %if.end47 ], [ 1, %if.end34 ], [ 1, %skip_optional_posonly ]
-  %node_depth.1 = phi i32 [ %node_depth.0, %if.end181 ], [ %node_depth.0, %if.end176 ], [ %node_depth.0, %if.end163 ], [ %call141, %if.end147 ], [ 0, %if.end131 ], [ 0, %if.end118 ], [ 0, %if.end105 ], [ 0, %if.end89 ], [ 0, %if.end73 ], [ 0, %if.end60 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %skip_optional_posonly ]
-  %inner_size.1 = phi i32 [ %inner_size.0, %if.end181 ], [ %inner_size.0, %if.end176 ], [ %call157, %if.end163 ], [ 0, %if.end147 ], [ 0, %if.end131 ], [ 0, %if.end118 ], [ 0, %if.end105 ], [ 0, %if.end89 ], [ 0, %if.end73 ], [ 0, %if.end60 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %skip_optional_posonly ]
-  %last_node.1 = phi i32 [ %last_node.0, %if.end181 ], [ %call173, %if.end176 ], [ 0, %if.end163 ], [ 0, %if.end147 ], [ 0, %if.end131 ], [ 0, %if.end118 ], [ 0, %if.end105 ], [ 0, %if.end89 ], [ 0, %if.end73 ], [ 0, %if.end60 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %skip_optional_posonly ]
+  %digest_size.0 = phi i32 [ %digest_size.1, %if.end181 ], [ %digest_size.1, %if.end176 ], [ %digest_size.1, %if.end163 ], [ %digest_size.1, %if.end147 ], [ %digest_size.1, %if.end131 ], [ %digest_size.1, %if.end118 ], [ %digest_size.1, %if.end105 ], [ %digest_size.1, %if.end89 ], [ %digest_size.1, %if.end73 ], [ %digest_size.1, %if.end60 ], [ %digest_size.1, %if.end47 ], [ %call28, %if.end34 ], [ 32, %skip_optional_posonly ]
+  %fanout.0 = phi i32 [ %fanout.1, %if.end181 ], [ %fanout.1, %if.end176 ], [ %fanout.1, %if.end163 ], [ %fanout.1, %if.end147 ], [ %fanout.1, %if.end131 ], [ %fanout.1, %if.end118 ], [ %fanout.1, %if.end105 ], [ %call83, %if.end89 ], [ 1, %if.end73 ], [ 1, %if.end60 ], [ 1, %if.end47 ], [ 1, %if.end34 ], [ 1, %skip_optional_posonly ]
+  %depth.0 = phi i32 [ %depth.1, %if.end181 ], [ %depth.1, %if.end176 ], [ %depth.1, %if.end163 ], [ %depth.1, %if.end147 ], [ %depth.1, %if.end131 ], [ %depth.1, %if.end118 ], [ %call99, %if.end105 ], [ 1, %if.end89 ], [ 1, %if.end73 ], [ 1, %if.end60 ], [ 1, %if.end47 ], [ 1, %if.end34 ], [ 1, %skip_optional_posonly ]
+  %node_depth.0 = phi i32 [ %node_depth.1, %if.end181 ], [ %node_depth.1, %if.end176 ], [ %node_depth.1, %if.end163 ], [ %call141, %if.end147 ], [ 0, %if.end131 ], [ 0, %if.end118 ], [ 0, %if.end105 ], [ 0, %if.end89 ], [ 0, %if.end73 ], [ 0, %if.end60 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %skip_optional_posonly ]
+  %inner_size.0 = phi i32 [ %inner_size.1, %if.end181 ], [ %inner_size.1, %if.end176 ], [ %call157, %if.end163 ], [ 0, %if.end147 ], [ 0, %if.end131 ], [ 0, %if.end118 ], [ 0, %if.end105 ], [ 0, %if.end89 ], [ 0, %if.end73 ], [ 0, %if.end60 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %skip_optional_posonly ]
+  %last_node.0 = phi i32 [ %last_node.1, %if.end181 ], [ %call173, %if.end176 ], [ 0, %if.end163 ], [ 0, %if.end147 ], [ 0, %if.end131 ], [ 0, %if.end118 ], [ 0, %if.end105 ], [ 0, %if.end89 ], [ 0, %if.end73 ], [ 0, %if.end60 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %skip_optional_posonly ]
   %16 = load i64, ptr %leaf_size, align 8
   %17 = load i64, ptr %node_offset, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buf.i)
@@ -2220,7 +2220,7 @@ do.body.i.i:                                      ; preds = %skip_optional_kwonl
   store i8 0, ptr %use_mutex.i.i, align 2
   %param.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %param.i, i8 0, i64 32, i1 false)
-  %19 = add i32 %digest_size.1, -33
+  %19 = add i32 %digest_size.0, -33
   %or.cond.i = icmp ult i32 %19, -32
   br i1 %or.cond.i, label %if.then3.i, label %if.end5.i
 
@@ -2230,7 +2230,7 @@ if.then3.i:                                       ; preds = %do.body.i.i
   br label %if.then168.i
 
 if.end5.i:                                        ; preds = %do.body.i.i
-  %conv.i = trunc nuw nsw i32 %digest_size.1 to i8
+  %conv.i = trunc nuw nsw i32 %digest_size.0 to i8
   store i8 %conv.i, ptr %param.i, align 8
   %obj.i = getelementptr inbounds i8, ptr %salt, i64 8
   %21 = load ptr, ptr %obj.i, align 8
@@ -2286,7 +2286,7 @@ if.end33.i:                                       ; preds = %if.then27.i
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end33.i, %land.lhs.true24.i, %if.end20.i
-  %or.cond1.i = icmp ugt i32 %fanout.1, 255
+  %or.cond1.i = icmp ugt i32 %fanout.0, 255
   br i1 %or.cond1.i, label %if.then44.i, label %if.end45.i
 
 if.then44.i:                                      ; preds = %if.end38.i
@@ -2295,10 +2295,10 @@ if.then44.i:                                      ; preds = %if.end38.i
   br label %if.then168.i
 
 if.end45.i:                                       ; preds = %if.end38.i
-  %conv46.i = trunc nuw i32 %fanout.1 to i8
+  %conv46.i = trunc nuw i32 %fanout.0 to i8
   %fanout48.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 %conv46.i, ptr %fanout48.i, align 2
-  %30 = add i32 %depth.1, -256
+  %30 = add i32 %depth.0, -256
   %or.cond2.i = icmp ult i32 %30, -255
   br i1 %or.cond2.i, label %if.then54.i, label %if.end55.i
 
@@ -2308,7 +2308,7 @@ if.then54.i:                                      ; preds = %if.end45.i
   br label %if.then168.i
 
 if.end55.i:                                       ; preds = %if.end45.i
-  %conv56.i = trunc nuw i32 %depth.1 to i8
+  %conv56.i = trunc nuw i32 %depth.0 to i8
   %depth58.i = getelementptr inbounds i8, ptr %call.i.i, i64 19
   store i8 %conv56.i, ptr %depth58.i, align 1
   %cmp59.i = icmp ugt i64 %16, 4294967295
@@ -2367,7 +2367,7 @@ if.end68.i:                                       ; preds = %if.end62.i
   %shr12.i.i = lshr i64 %17, 40
   %conv13.i.i = trunc nuw i64 %shr12.i.i to i8
   store i8 %conv13.i.i, ptr %incdec.ptr11.i.i, align 1
-  %or.cond3.i = icmp ugt i32 %node_depth.1, 255
+  %or.cond3.i = icmp ugt i32 %node_depth.0, 255
   br i1 %or.cond3.i, label %if.then76.i, label %if.end77.i
 
 if.then76.i:                                      ; preds = %if.end68.i
@@ -2376,10 +2376,10 @@ if.then76.i:                                      ; preds = %if.end68.i
   br label %if.then168.i
 
 if.end77.i:                                       ; preds = %if.end68.i
-  %conv78.i = trunc nuw i32 %node_depth.1 to i8
+  %conv78.i = trunc nuw i32 %node_depth.0 to i8
   %node_depth80.i = getelementptr inbounds i8, ptr %call.i.i, i64 30
   store i8 %conv78.i, ptr %node_depth80.i, align 2
-  %or.cond4.i = icmp ugt i32 %inner_size.1, 32
+  %or.cond4.i = icmp ugt i32 %inner_size.0, 32
   br i1 %or.cond4.i, label %if.then86.i, label %if.end88.i
 
 if.then86.i:                                      ; preds = %if.end77.i
@@ -2388,7 +2388,7 @@ if.then86.i:                                      ; preds = %if.end77.i
   br label %if.then168.i
 
 if.end88.i:                                       ; preds = %if.end77.i
-  %conv89.i = trunc nuw nsw i32 %inner_size.1 to i8
+  %conv89.i = trunc nuw nsw i32 %inner_size.0 to i8
   %inner_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 31
   store i8 %conv89.i, ptr %inner_length.i, align 1
   %obj91.i = getelementptr inbounds i8, ptr %key, i64 8
@@ -2440,7 +2440,7 @@ PyBlake2_blake2s_init_param.exit.i:               ; preds = %for.body.i.i
   %42 = load i8, ptr %param.i, align 1
   %outlen.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 228
   store i8 %42, ptr %outlen.i.i, align 1
-  %conv114.i = trunc i32 %last_node.1 to i8
+  %conv114.i = trunc i32 %last_node.0 to i8
   %last_node116.i = getelementptr inbounds i8, ptr %call.i.i, i64 229
   store i8 %conv114.i, ptr %last_node116.i, align 1
   %key_length118.i = getelementptr inbounds i8, ptr %call.i.i, i64 17

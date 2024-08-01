@@ -401,15 +401,15 @@ define internal { double, double } @_ZL15nsper_s_inverse5PJ_XYP8PJconsts(double 
 107:                                              ; preds = %104, %101, %95, %77, %61
   %.sroa.0.1 = phi double [ %44, %61 ], [ %44, %104 ], [ %44, %101 ], [ %100, %95 ], [ %94, %77 ]
   %.sroa.9.1 = phi double [ %45, %61 ], [ %45, %104 ], [ %103, %101 ], [ %99, %95 ], [ %91, %77 ]
-  %.sroa.4.0 = phi double [ 0.000000e+00, %61 ], [ %106, %104 ], [ %102, %101 ], [ %98, %95 ], [ %86, %77 ]
+  %.sroa.4.1 = phi double [ 0.000000e+00, %61 ], [ %106, %104 ], [ %102, %101 ], [ %98, %95 ], [ %86, %77 ]
   %108 = tail call double @atan2(double noundef %.sroa.0.1, double noundef %.sroa.9.1) #8
   br label %109
 
 109:                                              ; preds = %49, %107, %59
-  %.sroa.4.1 = phi double [ %51, %49 ], [ 0.000000e+00, %59 ], [ %.sroa.4.0, %107 ]
+  %.sroa.4.0 = phi double [ %51, %49 ], [ 0.000000e+00, %59 ], [ %.sroa.4.1, %107 ]
   %.sroa.060.0 = phi double [ 0.000000e+00, %49 ], [ 0.000000e+00, %59 ], [ %108, %107 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.060.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -506,7 +506,7 @@ define internal { double, double } @_ZL15nsper_s_forward5PJ_LPP8PJconsts(double 
   br label %58
 
 58:                                               ; preds = %55, %51, %41, %30
-  %.sroa.6.1 = phi double [ %36, %30 ], [ %57, %55 ], [ %52, %51 ], [ %50, %41 ]
+  %.sroa.6.2 = phi double [ %36, %30 ], [ %57, %55 ], [ %52, %51 ], [ %50, %41 ]
   %59 = getelementptr inbounds i8, ptr %5, i64 100
   %60 = load i32, ptr %59, align 4
   %.not = icmp eq i32 %60, 0
@@ -518,7 +518,7 @@ define internal { double, double } @_ZL15nsper_s_forward5PJ_LPP8PJconsts(double 
   %64 = getelementptr inbounds i8, ptr %5, i64 72
   %65 = load double, ptr %64, align 8
   %66 = fmul double %39, %65
-  %67 = tail call double @llvm.fmuladd.f64(double %.sroa.6.1, double %63, double %66)
+  %67 = tail call double @llvm.fmuladd.f64(double %.sroa.6.2, double %63, double %66)
   %68 = getelementptr inbounds i8, ptr %5, i64 80
   %69 = load double, ptr %68, align 8
   %70 = fmul double %69, %67
@@ -528,7 +528,7 @@ define internal { double, double } @_ZL15nsper_s_forward5PJ_LPP8PJconsts(double 
   %74 = load double, ptr %73, align 8
   %75 = tail call double @llvm.fmuladd.f64(double %70, double %72, double %74)
   %76 = fdiv double 1.000000e+00, %75
-  %77 = fneg double %.sroa.6.1
+  %77 = fneg double %.sroa.6.2
   %78 = fmul double %65, %77
   %79 = tail call double @llvm.fmuladd.f64(double %39, double %63, double %78)
   %80 = fmul double %79, %74
@@ -537,10 +537,10 @@ define internal { double, double } @_ZL15nsper_s_forward5PJ_LPP8PJconsts(double 
   br label %83
 
 83:                                               ; preds = %58, %61, %28
-  %.sroa.6.2 = phi double [ %.sroa.6.0, %28 ], [ %82, %61 ], [ %.sroa.6.1, %58 ]
+  %.sroa.6.1 = phi double [ %.sroa.6.0, %28 ], [ %82, %61 ], [ %.sroa.6.2, %58 ]
   %.sroa.041.0 = phi double [ 0.000000e+00, %28 ], [ %81, %61 ], [ %39, %58 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.2, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.1, 1
   ret { double, double } %.fca.1.insert
 }
 

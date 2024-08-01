@@ -202,7 +202,7 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
 
 .preheader37:                                     ; preds = %3, %29
   %.040 = phi i64 [ %30, %29 ], [ 0, %3 ]
-  %.239 = phi ptr [ %.3, %29 ], [ null, %3 ]
+  %.339 = phi ptr [ %.4, %29 ], [ null, %3 ]
   %20 = getelementptr inbounds [64 x %struct.Branch], ptr %7, i64 0, i64 %.040
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -224,18 +224,18 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
   br label %RTreeLeafListAdd.exit
 
 RTreeLeafListAdd.exit:                            ; preds = %25, %27
-  store ptr %.239, ptr %26, align 8
+  store ptr %.339, ptr %26, align 8
   br label %29
 
 29:                                               ; preds = %.preheader37, %23, %RTreeLeafListAdd.exit
-  %.3 = phi ptr [ %26, %RTreeLeafListAdd.exit ], [ %.239, %23 ], [ %.239, %.preheader37 ]
+  %.4 = phi ptr [ %26, %RTreeLeafListAdd.exit ], [ %.339, %23 ], [ %.339, %.preheader37 ]
   %30 = add nuw nsw i64 %.040, 1
   %exitcond.not = icmp eq i64 %30, 64
   br i1 %exitcond.not, label %.loopexit, label %.preheader37
 
 .loopexit:                                        ; preds = %29, %18
-  %.4 = phi ptr [ %.1, %18 ], [ %.3, %29 ]
-  ret ptr %.4
+  %.2 = phi ptr [ %.1, %18 ], [ %.4, %29 ]
+  ret ptr %.2
 }
 
 declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #4

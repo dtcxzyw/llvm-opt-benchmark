@@ -4465,7 +4465,7 @@ for.body.preheader:                               ; preds = %if.then11
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %visited.0106 = phi i1 [ %visited.1, %for.inc ], [ true, %for.body.preheader ]
   %__begin4.0105 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
-  %d.0103 = phi i32 [ %d.1, %for.inc ], [ 0, %for.body.preheader ]
+  %d.1103 = phi i32 [ %d.2, %for.inc ], [ 0, %for.body.preheader ]
   %18 = load ptr, ptr %__begin4.0105, align 8
   %m_hash.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %18, i64 12
   %19 = load i32, ptr %m_hash.i.i.i.i.i.i.i11, align 4
@@ -4532,7 +4532,7 @@ if.then18:                                        ; preds = %if.then.i.i.i41, %i
   %retval.0.i.i.i40 = phi ptr [ %curr.133.i.i.i29, %if.then22.i.i.i34 ], [ %curr.031.i.i.i21, %if.then.i.i.i41 ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i40, i64 8
   %26 = load i32, ptr %m_value.i, align 8
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %d.0103, i32 %26)
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %d.1103, i32 %26)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body.i.i.i20, %for.body20.i.i.i28, %for.inc36.i.i.i31, %for.cond18.preheader.i.i.i26
@@ -4642,7 +4642,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61:   ; preds = %lor.lhs.false.i48, 
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61, %if.then18
-  %d.1 = phi i32 [ %.sroa.speculated, %if.then18 ], [ %d.0103, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61 ]
+  %d.2 = phi i32 [ %.sroa.speculated, %if.then18 ], [ %d.1103, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61 ]
   %visited.1 = phi i1 [ %visited.0106, %if.then18 ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit61 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.0105, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i10.ptr
@@ -4652,7 +4652,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %visited.1, label %for.end.if.end26_crit_edge, label %while.cond.backedge
 
 for.end.if.end26_crit_edge:                       ; preds = %if.then11, %for.end
-  %d.0.lcssa125 = phi i32 [ %d.1, %for.end ], [ 0, %if.then11 ]
+  %d.1.lcssa125 = phi i32 [ %d.2, %for.end ], [ 0, %if.then11 ]
   %.pre = load ptr, ptr %todo, align 8
   %arrayidx.i62.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -4
   %.pre121 = load i32, ptr %arrayidx.i62.phi.trans.insert, align 4
@@ -4662,10 +4662,10 @@ for.end.if.end26_crit_edge:                       ; preds = %if.then11, %for.end
 if.end26:                                         ; preds = %for.end.if.end26_crit_edge, %invoke.cont9
   %dec.i63.pre-phi = phi i32 [ %.pre122, %for.end.if.end26_crit_edge ], [ %5, %invoke.cont9 ]
   %36 = phi ptr [ %.pre, %for.end.if.end26_crit_edge ], [ %3, %invoke.cont9 ]
-  %d.2 = phi i32 [ %d.0.lcssa125, %for.end.if.end26_crit_edge ], [ 0, %invoke.cont9 ]
+  %d.0 = phi i32 [ %d.1.lcssa125, %for.end.if.end26_crit_edge ], [ 0, %invoke.cont9 ]
   %arrayidx.i62 = getelementptr inbounds i8, ptr %36, i64 -4
   store i32 %dec.i63.pre-phi, ptr %arrayidx.i62, align 4
-  %add = add i32 %d.2, 1
+  %add = add i32 %d.0, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %7, ptr %ref.tmp.i, align 8
   store i32 %add, ptr %m_value.i.i, align 8

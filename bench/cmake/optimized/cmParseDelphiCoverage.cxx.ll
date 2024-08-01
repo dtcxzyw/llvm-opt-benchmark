@@ -700,12 +700,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.preheader.backedge
 
 .loopexit55:                                      ; preds = %155, %152
-  %.0 = xor i1 %151, true
+  %.2 = xor i1 %151, true
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %19) #17
   br label %180
 
 180:                                              ; preds = %.loopexit55, %126
-  %.1 = phi i1 [ false, %126 ], [ %.0, %.loopexit55 ]
+  %.1 = phi i1 [ false, %126 ], [ %.2, %.loopexit55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #17
   call void @_ZN5cmsys4GlobD1Ev(ptr noundef nonnull align 8 dereferenceable(82) %14) #17
   br label %182
@@ -721,13 +721,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %183
 
 182:                                              ; preds = %180, %54
-  %.2 = phi i1 [ false, %54 ], [ %.1, %180 ]
+  %.0 = phi i1 [ false, %54 ], [ %.1, %180 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  ret i1 %.2
+  ret i1 %.0
 
 183:                                              ; preds = %.loopexit56, %.loopexit.split-lp57, %.body52, %92, %61
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %61 ], [ %.pn42.pn.pn, %.body52 ], [ %.pn, %92 ], [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ]

@@ -4650,8 +4650,8 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
 91:                                               ; preds = %.lr.ph1031, %.loopexit
   %92 = phi i32 [ %39, %.lr.ph1031 ], [ %1256, %.loopexit ]
   %indvars.iv1034 = phi i64 [ 0, %.lr.ph1031 ], [ %indvars.iv.next1035, %.loopexit ]
-  %.0351028 = phi i8 [ 0, %.lr.ph1031 ], [ %.3, %.loopexit ]
-  %.0361027 = phi double [ 0.000000e+00, %.lr.ph1031 ], [ %.339, %.loopexit ]
+  %.0351028 = phi i8 [ 0, %.lr.ph1031 ], [ %.1, %.loopexit ]
+  %.0361027 = phi double [ 0.000000e+00, %.lr.ph1031 ], [ %.137, %.loopexit ]
   %.not1042 = icmp eq i64 %indvars.iv1034, 0
   %93 = trunc nuw nsw i64 %indvars.iv1034 to i32
   br i1 %.not1042, label %94, label %96
@@ -4677,8 +4677,8 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
 102:                                              ; preds = %.lr.ph, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %103 = phi i32 [ %97, %.lr.ph ], [ %1253, %float8_lt.exit.thread ]
-  %.11024 = phi i8 [ %.0351028, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
-  %.1371023 = phi double [ %.0361027, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
+  %.21024 = phi i8 [ %.0351028, %.lr.ph ], [ %.3, %float8_lt.exit.thread ]
+  %.2381023 = phi double [ %.0361027, %.lr.ph ], [ %.339, %float8_lt.exit.thread ]
   %.not462 = icmp eq i64 %indvars.iv, 0
   %104 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not462, label %105, label %107
@@ -7410,13 +7410,13 @@ float8_lt.exit38.i:                               ; preds = %point_dt.exit.threa
 
 lseg_closept_lseg.exit:                           ; preds = %point_dt.exit.thread, %point_dt.exit, %float8_lt.exit38.i, %1244
   %.031.i = phi double [ %.0.i.i453, %1244 ], [ %.1.i, %float8_lt.exit38.i ], [ %.1.i, %point_dt.exit ], [ %.1.i, %point_dt.exit.thread ]
-  %1245 = trunc nuw i8 %.11024 to i1
+  %1245 = trunc nuw i8 %.21024 to i1
   br i1 %1245, label %1247, label %float8_lt.exit.thread
 
 lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit275
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  %1246 = trunc nuw i8 %.11024 to i1
+  %1246 = trunc nuw i8 %.21024 to i1
   br i1 %1246, label %float8_lt.exit, label %float8_lt.exit.thread
 
 1247:                                             ; preds = %lseg_closept_lseg.exit
@@ -7425,8 +7425,8 @@ lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit275
 
 float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %1247
   %.031.i456459 = phi double [ %.031.i, %1247 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
-  %1249 = fcmp uno double %.1371023, 0.000000e+00
-  %1250 = fcmp olt double %.031.i456459, %.1371023
+  %1249 = fcmp uno double %.2381023, 0.000000e+00
+  %1250 = fcmp olt double %.031.i456459, %.2381023
   %1251 = or i1 %1249, %1250
   br i1 %1251, label %1252, label %float8_lt.exit.thread
 
@@ -7434,8 +7434,8 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %1252, %105
-  %.238 = phi double [ %.1371023, %float8_lt.exit ], [ %.1371023, %105 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i456459, %1252 ], [ %.1371023, %1247 ]
-  %.2 = phi i8 [ %.11024, %float8_lt.exit ], [ %.11024, %105 ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1252 ], [ %.11024, %1247 ]
+  %.339 = phi double [ %.2381023, %float8_lt.exit ], [ %.2381023, %105 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i456459, %1252 ], [ %.2381023, %1247 ]
+  %.3 = phi i8 [ %.21024, %float8_lt.exit ], [ %.21024, %105 ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1252 ], [ %.21024, %1247 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1253 = load i32, ptr %42, align 4
   %1254 = sext i32 %1253 to i64
@@ -7448,16 +7448,16 @@ float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %96, %94
   %1256 = phi i32 [ %92, %94 ], [ %92, %96 ], [ %.pre1041, %.loopexit.loopexit ]
-  %.339 = phi double [ %.0361027, %94 ], [ %.0361027, %96 ], [ %.238, %.loopexit.loopexit ]
-  %.3 = phi i8 [ %.0351028, %94 ], [ %.0351028, %96 ], [ %.2, %.loopexit.loopexit ]
+  %.137 = phi double [ %.0361027, %94 ], [ %.0361027, %96 ], [ %.339, %.loopexit.loopexit ]
+  %.1 = phi i8 [ %.0351028, %94 ], [ %.0351028, %96 ], [ %.3, %.loopexit.loopexit ]
   %indvars.iv.next1035 = add nuw nsw i64 %indvars.iv1034, 1
   %1257 = sext i32 %1256 to i64
   %1258 = icmp slt i64 %indvars.iv.next1035, %1257
   br i1 %1258, label %91, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %1259 = trunc nuw i8 %.3 to i1
-  %1260 = bitcast double %.339 to i64
+  %1259 = trunc nuw i8 %.1 to i1
+  %1260 = bitcast double %.137 to i64
   br i1 %1259, label %1262, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
@@ -12023,11 +12023,11 @@ box_ov.exit:                                      ; preds = %19
   %47 = phi i32 [ %35, %.lr.ph154 ], [ %214, %._crit_edge ]
   %48 = phi i32 [ %.pre, %.lr.ph154 ], [ %215, %._crit_edge ]
   %indvars.iv161 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next162, %._crit_edge ]
-  %.027151 = phi i8 [ 0, %.lr.ph154 ], [ %.1.lcssa, %._crit_edge ]
+  %.1151 = phi i8 [ 0, %.lr.ph154 ], [ %.2.lcssa, %._crit_edge ]
   %49 = getelementptr [0 x %struct.Point], ptr %33, i64 0, i64 %indvars.iv161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
   %50 = icmp slt i32 %48, 1
-  %51 = trunc nuw i8 %.027151 to i1
+  %51 = trunc nuw i8 %.1151 to i1
   %.not30145 = select i1 %50, i1 true, i1 %51
   br i1 %.not30145, label %._crit_edge, label %.lr.ph.preheader
 
@@ -12425,7 +12425,7 @@ lseg_interpt_lseg.exit:                           ; preds = %point_dt.exit, %lin
   %.pre-phi = phi i1 [ %.0.i, %._crit_edge.loopexit ], [ %51, %46 ]
   %214 = phi i32 [ %.pre163, %._crit_edge.loopexit ], [ %47, %46 ]
   %215 = phi i32 [ %210, %._crit_edge.loopexit ], [ %48, %46 ]
-  %.1.lcssa = phi i8 [ %213, %._crit_edge.loopexit ], [ %.027151, %46 ]
+  %.2.lcssa = phi i8 [ %213, %._crit_edge.loopexit ], [ %.1151, %46 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %216 = sext i32 %214 to i64
@@ -12452,8 +12452,8 @@ lseg_interpt_lseg.exit:                           ; preds = %point_dt.exit, %lin
   br label %box_ov.exit.thread
 
 box_ov.exit.thread:                               ; preds = %2, %12, %19, %._crit_edge155.thread, %222, %._crit_edge155, %box_ov.exit
-  %.2 = phi i8 [ %.1.lcssa, %._crit_edge155 ], [ 0, %box_ov.exit ], [ 1, %._crit_edge155.thread ], [ %226, %222 ], [ 0, %19 ], [ 0, %12 ], [ 0, %2 ]
-  %227 = trunc nuw i8 %.2 to i1
+  %.027 = phi i8 [ %.2.lcssa, %._crit_edge155 ], [ 0, %box_ov.exit ], [ 1, %._crit_edge155.thread ], [ %226, %222 ], [ 0, %19 ], [ 0, %12 ], [ 0, %2 ]
+  %227 = trunc nuw i8 %.027 to i1
   ret i1 %227
 }
 

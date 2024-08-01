@@ -749,8 +749,8 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   br label %14
 
 14:                                               ; preds = %"_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us", %.split.us
-  %.sroa.3127.0.us = phi i64 [ %.sroa.0.sroa.10.0.copyload, %.split.us ], [ %.sroa.3127.3.us, %"_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us" ]
-  %.sroa.19.0.us = phi i64 [ %.sroa.0.sroa.8.0.copyload, %.split.us ], [ %.sroa.19.3.us, %"_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us" ]
+  %.sroa.3127.0.us = phi i64 [ %.sroa.0.sroa.10.0.copyload, %.split.us ], [ %.sroa.3127.1.us, %"_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us" ]
+  %.sroa.19.0.us = phi i64 [ %.sroa.0.sroa.8.0.copyload, %.split.us ], [ %.sroa.19.1.us, %"_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us" ]
   %.0.i.us = phi i64 [ 0, %.split.us ], [ %85, %"_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us" ]
   %15 = icmp eq i64 %.sroa.3127.0.us, -1
   %16 = add i64 %.sroa.19.0.us, %11
@@ -899,9 +899,9 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   br label %100
 
 "_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i.us": ; preds = %32, %73
-  %.sroa.3127.3.us = phi i64 [ -1, %73 ], [ 0, %32 ]
+  %.sroa.3127.1.us = phi i64 [ -1, %73 ], [ 0, %32 ]
   %.pn = phi i64 [ %63, %73 ], [ %20, %32 ]
-  %.sroa.19.3.us = add i64 %.pn, %.sroa.0.sroa.15.0.copyload
+  %.sroa.19.1.us = add i64 %.pn, %.sroa.0.sroa.15.0.copyload
   %85 = add i64 %.0.i.us, 1
   br label %14
 

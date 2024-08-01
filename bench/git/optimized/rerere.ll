@@ -978,17 +978,17 @@ if.end4.loopexit.split.loop.exit14.i.i.i:         ; preds = %for.body.i.i.i
   br label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %for.inc.i.i.i, %if.end4.loopexit.split.loop.exit14.i.i.i, %for.cond.preheader.i.i.i, %for.end.i.i
-  %variant.1.i.i.i = phi i32 [ %45, %for.end.i.i ], [ 0, %for.cond.preheader.i.i.i ], [ %49, %if.end4.loopexit.split.loop.exit14.i.i.i ], [ %46, %for.inc.i.i.i ]
-  %inc.i.i.i.i = add nuw nsw i32 %variant.1.i.i.i, 1
+  %variant.0.i.i.i = phi i32 [ %45, %for.end.i.i ], [ 0, %for.cond.preheader.i.i.i ], [ %49, %if.end4.loopexit.split.loop.exit14.i.i.i ], [ %46, %for.inc.i.i.i ]
+  %inc.i.i.i.i = add nuw nsw i32 %variant.0.i.i.i, 1
   %50 = load i32, ptr %44, align 8
-  %cmp.not.i.i.i.i = icmp sgt i32 %50, %variant.1.i.i.i
+  %cmp.not.i.i.i.i = icmp sgt i32 %50, %variant.0.i.i.i
   br i1 %cmp.not.i.i.i.i, label %do.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end4.i.i.i
   %51 = mul i32 %50, 3
   %mul.i.i.i.i = add i32 %51, 48
   %div.i.i.i.i = sdiv i32 %mul.i.i.i.i, 2
-  %cmp2.not.i.i.i.i = icmp sgt i32 %div.i.i.i.i, %variant.1.i.i.i
+  %cmp2.not.i.i.i.i = icmp sgt i32 %div.i.i.i.i, %variant.0.i.i.i
   %div.inc.i.i.i.i = select i1 %cmp2.not.i.i.i.i, i32 %div.i.i.i.i, i32 %inc.i.i.i.i
   store i32 %div.inc.i.i.i.i, ptr %44, align 8
   %status.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
@@ -1001,7 +1001,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end4.i.i.i
 do.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %if.end4.i.i.i
   %status_nr.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 4
   %53 = load i32, ptr %status_nr.i.i.i.i, align 4
-  %cmp14.not.i.i.i.i = icmp sgt i32 %53, %variant.1.i.i.i
+  %cmp14.not.i.i.i.i = icmp sgt i32 %53, %variant.0.i.i.i
   br i1 %cmp14.not.i.i.i.i, label %assign_variant.exit.i.i, label %if.then16.i.i.i.i
 
 if.then16.i.i.i.i:                                ; preds = %do.end.i.i.i.i
@@ -1016,8 +1016,8 @@ if.then16.i.i.i.i:                                ; preds = %do.end.i.i.i.i
   br label %assign_variant.exit.i.i
 
 assign_variant.exit.i.i:                          ; preds = %if.then16.i.i.i.i, %do.end.i.i.i.i
-  store i32 %variant.1.i.i.i, ptr %variant1.i.i, align 8
-  %cmp.i56.i.i = icmp slt i32 %variant.1.i.i.i, 1
+  store i32 %variant.0.i.i.i, ptr %variant1.i.i, align 8
+  %cmp.i56.i.i = icmp slt i32 %variant.0.i.i.i, 1
   %id.val7.i57.i.i = load ptr, ptr %13, align 8
   %name.i9.i58.i.i = getelementptr inbounds i8, ptr %id.val7.i57.i.i, i64 16
   br i1 %cmp.i56.i.i, label %if.then2.i62.i.i, label %if.end5.i59.i.i
@@ -1027,7 +1027,7 @@ if.then2.i62.i.i:                                 ; preds = %assign_variant.exit
   br label %rerere_path.exit64.i.i
 
 if.end5.i59.i.i:                                  ; preds = %assign_variant.exit.i.i
-  %call8.i60.i.i = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.2, ptr noundef nonnull %name.i9.i58.i.i, ptr noundef nonnull @.str.23, i32 noundef %variant.1.i.i.i) #14
+  %call8.i60.i.i = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str.2, ptr noundef nonnull %name.i9.i58.i.i, ptr noundef nonnull @.str.23, i32 noundef %variant.0.i.i.i) #14
   br label %rerere_path.exit64.i.i
 
 rerere_path.exit64.i.i:                           ; preds = %if.end5.i59.i.i, %if.then2.i62.i.i
@@ -1036,7 +1036,7 @@ rerere_path.exit64.i.i:                           ; preds = %if.end5.i59.i.i, %i
   %55 = load ptr, ptr %13, align 8
   %status45.i.i = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load ptr, ptr %status45.i.i, align 8
-  %idxprom46.i.i = sext i32 %variant.1.i.i.i to i64
+  %idxprom46.i.i = sext i32 %variant.0.i.i.i to i64
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %56, i64 %idxprom46.i.i
   %57 = load i8, ptr %arrayidx47.i.i, align 1
   %58 = and i8 %57, 1
@@ -2036,10 +2036,10 @@ is_rr_file.exit.i:                                ; preds = %if.end4.i.i
   br i1 %tobool12.not.i.not.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %is_rr_file.exit.i, %is_rr_file.exit.thread63.i
-  %variant.167.i = phi i32 [ 0, %is_rr_file.exit.thread63.i ], [ %conv7.i.i, %is_rr_file.exit.i ]
-  %inc.i.i = add nsw i32 %variant.167.i, 1
+  %variant.267.i = phi i32 [ 0, %is_rr_file.exit.thread63.i ], [ %conv7.i.i, %is_rr_file.exit.i ]
+  %inc.i.i = add nsw i32 %variant.267.i, 1
   %6 = load i32, ptr %call4, align 8
-  %cmp.not.i8.i = icmp sgt i32 %6, %variant.167.i
+  %cmp.not.i8.i = icmp sgt i32 %6, %variant.267.i
   %.pre88.pre.i = load ptr, ptr %status, align 8
   br i1 %cmp.not.i8.i, label %do.end.i.i, label %if.then.i9.i
 
@@ -2047,7 +2047,7 @@ if.then.i9.i:                                     ; preds = %if.then6.i
   %7 = mul i32 %6, 3
   %mul.i.i = add i32 %7, 48
   %div.i.i = sdiv i32 %mul.i.i, 2
-  %cmp2.not.i.i = icmp sgt i32 %div.i.i, %variant.167.i
+  %cmp2.not.i.i = icmp sgt i32 %div.i.i, %variant.267.i
   %div.inc.i.i = select i1 %cmp2.not.i.i, i32 %div.i.i, i32 %inc.i.i
   store i32 %div.inc.i.i, ptr %call4, align 8
   %conv.i.i = sext i32 %div.inc.i.i to i64
@@ -2058,7 +2058,7 @@ if.then.i9.i:                                     ; preds = %if.then6.i
 do.end.i.i:                                       ; preds = %if.then.i9.i, %if.then6.i
   %.pre88.i = phi ptr [ %call11.i.i, %if.then.i9.i ], [ %.pre88.pre.i, %if.then6.i ]
   %8 = load i32, ptr %status_nr, align 4
-  %cmp14.not.i.i = icmp sgt i32 %8, %variant.167.i
+  %cmp14.not.i.i = icmp sgt i32 %8, %variant.267.i
   br i1 %cmp14.not.i.i, label %fit_variant.exit.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %do.end.i.i
@@ -2073,7 +2073,7 @@ if.then16.i.i:                                    ; preds = %do.end.i.i
 
 fit_variant.exit.i:                               ; preds = %if.then16.i.i, %do.end.i.i
   %9 = phi ptr [ %.pre88.i, %do.end.i.i ], [ %.pre87.i, %if.then16.i.i ]
-  %idxprom.i = sext i32 %variant.167.i to i64
+  %idxprom.i = sext i32 %variant.267.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i, align 1
   %11 = or i8 %10, 1
@@ -2135,10 +2135,10 @@ is_rr_file.exit35.i:                              ; preds = %if.end4.i25.i
   br i1 %tobool12.not.i32.not.i, label %if.then12.i, label %if.end20.i
 
 if.then12.i:                                      ; preds = %is_rr_file.exit35.i, %is_rr_file.exit35.thread71.i
-  %variant.275.i = phi i32 [ 0, %is_rr_file.exit35.thread71.i ], [ %conv7.i29.i, %is_rr_file.exit35.i ]
-  %inc.i36.i = add nsw i32 %variant.275.i, 1
+  %variant.375.i = phi i32 [ 0, %is_rr_file.exit35.thread71.i ], [ %conv7.i29.i, %is_rr_file.exit35.i ]
+  %inc.i36.i = add nsw i32 %variant.375.i, 1
   %18 = load i32, ptr %call4, align 8
-  %cmp.not.i37.i = icmp sgt i32 %18, %variant.275.i
+  %cmp.not.i37.i = icmp sgt i32 %18, %variant.375.i
   %.pre86.pre.i = load ptr, ptr %status, align 8
   br i1 %cmp.not.i37.i, label %do.end.i46.i, label %if.then.i38.i
 
@@ -2146,7 +2146,7 @@ if.then.i38.i:                                    ; preds = %if.then12.i
   %19 = mul i32 %18, 3
   %mul.i39.i = add i32 %19, 48
   %div.i40.i = sdiv i32 %mul.i39.i, 2
-  %cmp2.not.i41.i = icmp sgt i32 %div.i40.i, %variant.275.i
+  %cmp2.not.i41.i = icmp sgt i32 %div.i40.i, %variant.375.i
   %div.inc.i42.i = select i1 %cmp2.not.i41.i, i32 %div.i40.i, i32 %inc.i36.i
   store i32 %div.inc.i42.i, ptr %call4, align 8
   %conv.i44.i = sext i32 %div.inc.i42.i to i64
@@ -2157,7 +2157,7 @@ if.then.i38.i:                                    ; preds = %if.then12.i
 do.end.i46.i:                                     ; preds = %if.then.i38.i, %if.then12.i
   %.pre86.i = phi ptr [ %call11.i45.i, %if.then.i38.i ], [ %.pre86.pre.i, %if.then12.i ]
   %20 = load i32, ptr %status_nr, align 4
-  %cmp14.not.i48.i = icmp sgt i32 %20, %variant.275.i
+  %cmp14.not.i48.i = icmp sgt i32 %20, %variant.375.i
   br i1 %cmp14.not.i48.i, label %fit_variant.exit55.i, label %if.then16.i49.i
 
 if.then16.i49.i:                                  ; preds = %do.end.i46.i
@@ -2172,7 +2172,7 @@ if.then16.i49.i:                                  ; preds = %do.end.i46.i
 
 fit_variant.exit55.i:                             ; preds = %if.then16.i49.i, %do.end.i46.i
   %21 = phi ptr [ %.pre86.i, %do.end.i46.i ], [ %.pre.i, %if.then16.i49.i ]
-  %idxprom14.i = sext i32 %variant.275.i to i64
+  %idxprom14.i = sext i32 %variant.375.i to i64
   %arrayidx15.i = getelementptr inbounds i8, ptr %21, i64 %idxprom14.i
   %22 = load i8, ptr %arrayidx15.i, align 1
   %23 = or i8 %22, 2
@@ -2601,7 +2601,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end12
-  %has_conflicts.020 = phi i32 [ 0, %while.body.lr.ph ], [ %has_conflicts.1, %if.end12 ]
+  %has_conflicts.020 = phi i32 [ 0, %while.body.lr.ph ], [ %has_conflicts.2, %if.end12 ]
   %7 = load ptr, ptr %buf2, align 8
   %scevgep.i = getelementptr i8, ptr %7, i64 %4
   br label %while.cond.i
@@ -2692,14 +2692,14 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then2.i.i.i, %if.end.i.i.i, %lor.lhs.false.i.i.i, %if.then.i13, %if.else, %if.then4.i, %rerere_io_putmem.exit
-  %has_conflicts.1 = phi i32 [ %call7, %rerere_io_putmem.exit ], [ %call7, %if.then4.i ], [ %has_conflicts.020, %if.else ], [ %has_conflicts.020, %if.then.i13 ], [ %has_conflicts.020, %lor.lhs.false.i.i.i ], [ %has_conflicts.020, %if.end.i.i.i ], [ %has_conflicts.020, %if.then2.i.i.i ]
+  %has_conflicts.2 = phi i32 [ %call7, %rerere_io_putmem.exit ], [ %call7, %if.then4.i ], [ %has_conflicts.020, %if.else ], [ %has_conflicts.020, %if.then.i13 ], [ %has_conflicts.020, %lor.lhs.false.i.i.i ], [ %has_conflicts.020, %if.end.i.i.i ], [ %has_conflicts.020, %if.then2.i.i.i ]
   %18 = load ptr, ptr %io, align 8
   %call = call i32 %18(ptr noundef nonnull %buf, ptr noundef nonnull %io) #14
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %while.body, label %while.end, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end12, %if.then5, %if.end
-  %has_conflicts.2 = phi i32 [ 0, %if.end ], [ -1, %if.then5 ], [ %has_conflicts.1, %if.end12 ]
+  %has_conflicts.1 = phi i32 [ 0, %if.end ], [ -1, %if.then5 ], [ %has_conflicts.2, %if.end12 ]
   call void @strbuf_release(ptr noundef nonnull %buf) #14
   call void @strbuf_release(ptr noundef nonnull %out) #14
   br i1 %tobool.not, label %if.end16, label %if.then14
@@ -2714,7 +2714,7 @@ if.then14:                                        ; preds = %while.end
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %while.end
-  ret i32 %has_conflicts.2
+  ret i32 %has_conflicts.1
 }
 
 ; Function Attrs: nounwind

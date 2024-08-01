@@ -3193,7 +3193,7 @@ Vec_IntPushOrder.exit:                            ; preds = %76, %Vec_IntGrow.ex
 
 .critedge:                                        ; preds = %4, %..critedge.loopexit_crit_edge, %91
   %97 = phi ptr [ %84, %91 ], [ %84, %..critedge.loopexit_crit_edge ], [ %7, %4 ]
-  %.1 = phi i32 [ %92, %91 ], [ -1, %..critedge.loopexit_crit_edge ], [ -1, %4 ]
+  %.037 = phi i32 [ %92, %91 ], [ -1, %..critedge.loopexit_crit_edge ], [ -1, %4 ]
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %98
 
@@ -3203,7 +3203,7 @@ Vec_IntPushOrder.exit:                            ; preds = %76, %Vec_IntGrow.ex
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %98
   tail call void @free(ptr noundef nonnull %5) #19
-  ret i32 %.1
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable

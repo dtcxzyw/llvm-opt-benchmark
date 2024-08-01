@@ -257,7 +257,7 @@ push_state.exit:                                  ; preds = %82
   br label %99
 
 99:                                               ; preds = %97, %push_state.exit
-  %.2 = phi i32 [ %98, %97 ], [ 20, %push_state.exit ]
+  %.3 = phi i32 [ %98, %97 ], [ 20, %push_state.exit ]
   call void @tableDestroy(ptr noundef %22) #9
   call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
   %100 = getelementptr inbounds i8, ptr %0, i64 48
@@ -307,7 +307,7 @@ push_state.exit:                                  ; preds = %82
   br label %124
 
 124:                                              ; preds = %122, %117
-  %.3 = phi i32 [ %123, %122 ], [ %116, %117 ]
+  %.4 = phi i32 [ %123, %122 ], [ %116, %117 ]
   call void @tableDestroy(ptr noundef %22) #9
   call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
   %125 = getelementptr inbounds i8, ptr %0, i64 48
@@ -428,7 +428,7 @@ push_state.exit:                                  ; preds = %82
   br label %177
 
 177:                                              ; preds = %175, %170
-  %.5 = phi i32 [ %176, %175 ], [ %169, %170 ]
+  %.7 = phi i32 [ %176, %175 ], [ %169, %170 ]
   call void @tableDestroy(ptr noundef %22) #9
   call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
   %178 = getelementptr inbounds i8, ptr %0, i64 48
@@ -477,7 +477,7 @@ push_state.exit:                                  ; preds = %82
   br label %.thread
 
 .thread:                                          ; preds = %191, %198, %193
-  %.6 = phi i32 [ %199, %198 ], [ %190, %193 ], [ %190, %191 ]
+  %.8 = phi i32 [ %199, %198 ], [ %190, %193 ], [ %190, %191 ]
   call void @tableDestroy(ptr noundef %22) #9
   call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
   %200 = getelementptr inbounds i8, ptr %0, i64 48
@@ -760,7 +760,7 @@ fmap_need_off_once_len.exit.thread.thread:        ; preds = %39, %313, %fmap_nee
   br label %325
 
 325:                                              ; preds = %14, %323, %208, %186, %133, %108, %38, %20, %13
-  %.0 = phi i32 [ 18, %20 ], [ -1, %38 ], [ %.6, %208 ], [ %.5, %186 ], [ %.3, %133 ], [ %.2, %108 ], [ %.9, %323 ], [ 20, %13 ], [ 20, %14 ]
+  %.0 = phi i32 [ 18, %20 ], [ -1, %38 ], [ %.8, %208 ], [ %.7, %186 ], [ %.4, %133 ], [ %.3, %108 ], [ %.9, %323 ], [ 20, %13 ], [ 20, %14 ]
   ret i32 %.0
 }
 
@@ -1057,7 +1057,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
 
 82:                                               ; preds = %.lr.ph270, %238
   %.0194268 = phi ptr [ %4, %.lr.ph270 ], [ %.1, %238 ]
-  %.3267 = phi i64 [ %.1196254, %.lr.ph270 ], [ %.5, %238 ]
+  %.3267 = phi i64 [ %.1196254, %.lr.ph270 ], [ %.4, %238 ]
   %83 = load i32, ptr %75, align 4
   switch i32 %83, label %.critedge236 [
     i32 0, label %84
@@ -1283,7 +1283,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
   br i1 %183, label %184, label %.critedge236
 
 184:                                              ; preds = %.thread, %182
-  %.4240 = phi i64 [ %181, %.thread ], [ 0, %182 ]
+  %.5240 = phi i64 [ %181, %.thread ], [ 0, %182 ]
   %185 = getelementptr inbounds i8, ptr %.0194268, i64 8
   store i64 0, ptr %77, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22) #9
@@ -1409,9 +1409,9 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
   br label %238
 
 238:                                              ; preds = %230, %237, %.critedge11, %210, %184, %171, %173, %.critedge7, %139, %.critedge5, %105
-  %.5 = phi i64 [ %232, %230 ], [ %232, %237 ], [ %204, %210 ], [ %204, %.critedge11 ], [ %.4240, %184 ], [ %172, %173 ], [ %172, %171 ], [ %125, %139 ], [ %125, %.critedge7 ], [ %103, %105 ], [ %103, %.critedge5 ]
+  %.4 = phi i64 [ %232, %230 ], [ %232, %237 ], [ %204, %210 ], [ %204, %.critedge11 ], [ %.5240, %184 ], [ %172, %173 ], [ %172, %171 ], [ %125, %139 ], [ %125, %.critedge7 ], [ %103, %105 ], [ %103, %.critedge5 ]
   %.1 = phi ptr [ %231, %230 ], [ %231, %237 ], [ %211, %210 ], [ %.0194268, %.critedge11 ], [ %185, %184 ], [ %174, %173 ], [ %158, %171 ], [ %128, %139 ], [ %.0194268, %.critedge7 ], [ %106, %105 ], [ %.0194268, %.critedge5 ]
-  %.not224 = icmp eq i64 %.5, 0
+  %.not224 = icmp eq i64 %.4, 0
   br i1 %.not224, label %.critedge236, label %82
 
 .critedge236:                                     ; preds = %22, %82, %182, %206, %220, %225, %234, %238, %.loopexit, %3, %169, %161, %138
@@ -1500,14 +1500,14 @@ define internal fastcc i32 @decode_and_scan(ptr nocapture noundef %0, ptr nounde
   br label %17
 
 17:                                               ; preds = %14, %11
-  %.0 = phi i32 [ %13, %11 ], [ %16, %14 ]
+  %.1 = phi i32 [ %13, %11 ], [ %16, %14 ]
   %18 = load i32, ptr %4, align 8
   %19 = tail call i32 @close(i32 noundef %18) #9
   store i32 -1, ptr %4, align 8
   br label %20
 
 20:                                               ; preds = %17, %2
-  %.1 = phi i32 [ %.0, %17 ], [ 0, %2 ]
+  %.0 = phi i32 [ %.1, %17 ], [ 0, %2 ]
   %21 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %31, label %22
@@ -1523,20 +1523,20 @@ define internal fastcc i32 @decode_and_scan(ptr nocapture noundef %0, ptr nounde
 27:                                               ; preds = %22
   %28 = tail call i32 @cli_unlink(ptr noundef nonnull %21) #9
   %.not18 = icmp eq i32 %28, 0
-  %spec.select = select i1 %.not18, i32 %.1, i32 10
+  %spec.select = select i1 %.not18, i32 %.0, i32 10
   %.pre = load ptr, ptr %0, align 8
   br label %29
 
 29:                                               ; preds = %27, %22
   %30 = phi ptr [ %21, %22 ], [ %.pre, %27 ]
-  %.2 = phi i32 [ %.1, %22 ], [ %spec.select, %27 ]
+  %.3 = phi i32 [ %.0, %22 ], [ %spec.select, %27 ]
   tail call void @free(ptr noundef %30) #9
   store ptr null, ptr %0, align 8
   br label %31
 
 31:                                               ; preds = %29, %20
-  %.3 = phi i32 [ %.2, %29 ], [ %.1, %20 ]
-  ret i32 %.3
+  %.2 = phi i32 [ %.3, %29 ], [ %.0, %20 ]
+  ret i32 %.2
 }
 
 declare i32 @cli_scan_ole10(i32 noundef, ptr noundef) local_unnamed_addr #1

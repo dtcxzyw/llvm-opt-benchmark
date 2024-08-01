@@ -413,9 +413,9 @@ define internal void @_ZN12_GLOBAL__N_112AttrmvcpPass7executeESt6vectorINSt7__cx
 
 53:                                               ; preds = %.lr.ph, %161
   %54 = phi ptr [ %45, %.lr.ph ], [ %164, %161 ]
-  %.01811 = phi i1 [ false, %.lr.ph ], [ %.1.ph, %161 ]
-  %.0531810 = phi i1 [ false, %.lr.ph ], [ %.154.ph, %161 ]
-  %.0561809 = phi i1 [ false, %.lr.ph ], [ %.157.ph, %161 ]
+  %.01811 = phi i1 [ false, %.lr.ph ], [ %.2.ph, %161 ]
+  %.0531810 = phi i1 [ false, %.lr.ph ], [ %.255.ph, %161 ]
+  %.0561809 = phi i1 [ false, %.lr.ph ], [ %.258.ph, %161 ]
   %.0591808 = phi i64 [ 1, %.lr.ph ], [ %162, %161 ]
   %55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %.0591808
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %55)
@@ -647,12 +647,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %.loopexit1317, %143
   br label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit382
 
 161:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %56, %61, %64
-  %.160.ph = phi i64 [ %.0591808, %64 ], [ %.0591808, %61 ], [ %.0591808, %56 ], [ %71, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
-  %.157.ph = phi i1 [ true, %64 ], [ %.0561809, %61 ], [ %.0561809, %56 ], [ %.0561809, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
-  %.154.ph = phi i1 [ %.0531810, %64 ], [ true, %61 ], [ %.0531810, %56 ], [ %.0531810, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
-  %.1.ph = phi i1 [ %.01811, %64 ], [ %.01811, %61 ], [ true, %56 ], [ %.01811, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.261.ph = phi i64 [ %.0591808, %64 ], [ %.0591808, %61 ], [ %.0591808, %56 ], [ %71, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.258.ph = phi i1 [ true, %64 ], [ %.0561809, %61 ], [ %.0561809, %56 ], [ %.0561809, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.255.ph = phi i1 [ %.0531810, %64 ], [ true, %61 ], [ %.0531810, %56 ], [ %.0531810, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.2.ph = phi i1 [ %.01811, %64 ], [ %.01811, %61 ], [ true, %56 ], [ %.01811, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
-  %162 = add i64 %.160.ph, 1
+  %162 = add i64 %.261.ph, 1
   %163 = load ptr, ptr %43, align 8
   %164 = load ptr, ptr %1, align 8
   %165 = ptrtoint ptr %163 to i64
@@ -664,9 +664,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %.loopexit1317, %143
 
 .loopexit1318:                                    ; preds = %161, %3, %159
   %.0591807 = phi i64 [ %.0591808, %159 ], [ 1, %3 ], [ %162, %161 ]
-  %.0561800 = phi i1 [ %.0561809, %159 ], [ false, %3 ], [ %.157.ph, %161 ]
-  %.0531793 = phi i1 [ %.0531810, %159 ], [ false, %3 ], [ %.154.ph, %161 ]
-  %.01786 = phi i1 [ %.01811, %159 ], [ false, %3 ], [ %.1.ph, %161 ]
+  %.0561800 = phi i1 [ %.0561809, %159 ], [ false, %3 ], [ %.258.ph, %161 ]
+  %.0531793 = phi i1 [ %.0531810, %159 ], [ false, %3 ], [ %.255.ph, %161 ]
+  %.01786 = phi i1 [ %.01811, %159 ], [ false, %3 ], [ %.2.ph, %161 ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %170 unwind label %.loopexit.split-lp1320
 

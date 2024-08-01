@@ -225,13 +225,13 @@ ubrk_setText_75.exit:                             ; preds = %call.i.noexc
   br label %cleanup
 
 cleanup:                                          ; preds = %ubrk_setText_75.exit, %if.end6, %invoke.cont
-  %retval.0 = phi ptr [ null, %invoke.cont ], [ %call1, %ubrk_setText_75.exit ], [ %call1, %if.end6 ]
+  %retval.1 = phi ptr [ null, %invoke.cont ], [ %call1, %ubrk_setText_75.exit ], [ %call1, %if.end6 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ruleString) #8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %lor.lhs.false ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %lor.lhs.false ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #1
@@ -313,8 +313,8 @@ delete.notnull.i18:                               ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %new.cont, %if.then.i, %if.then13, %if.end9, %delete.notnull.i18, %entry, %if.then1
-  %retval.1 = phi ptr [ null, %if.then1 ], [ null, %entry ], [ null, %delete.notnull.i18 ], [ %call3, %if.end9 ], [ %call3, %if.then13 ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then1 ], [ null, %entry ], [ null, %delete.notnull.i18 ], [ %call3, %if.end9 ], [ %call3, %if.then13 ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind

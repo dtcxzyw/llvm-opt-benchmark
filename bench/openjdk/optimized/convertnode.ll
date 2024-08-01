@@ -3132,18 +3132,18 @@ define hidden noundef zeroext i1 @_ZN7Compile13push_thru_addEP8PhaseGVNP4NodePK1
   br label %164
 
 164:                                              ; preds = %142, %100
-  %.060.in.i = phi i32 [ %104, %100 ], [ %148, %142 ]
-  %.059.in.i = phi i32 [ %110, %100 ], [ %153, %142 ]
+  %.161.in.i = phi i32 [ %104, %100 ], [ %148, %142 ]
+  %.1.in.i = phi i32 [ %110, %100 ], [ %153, %142 ]
   %.sink2.i.i = phi i32 [ %121, %100 ], [ %163, %142 ]
   %.sink1.i.i = phi ptr [ %8, %100 ], [ %9, %142 ]
   %165 = sext i32 %.sink2.i.i to i64
   store i64 %165, ptr %.sink1.i.i, align 8
-  %166 = icmp sgt i32 %.060.in.i, %.059.in.i
+  %166 = icmp sgt i32 %.161.in.i, %.1.in.i
   br i1 %166, label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit, label %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i
 
 _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; preds = %164
-  %.059.i = sext i32 %.059.in.i to i64
-  %.060.i = sext i32 %.060.in.i to i64
+  %.1.i = sext i32 %.1.in.i to i64
+  %.161.i = sext i32 %.161.in.i to i64
   %.0..0..0..0..0.52.i = load i64, ptr %8, align 8
   %.0..0..0..0..0.49.i = load i64, ptr %9, align 8
   %.not71.i = icmp sgt i64 %.0..0..0..0..0.52.i, %.0..0..0..0..0.49.i
@@ -3279,9 +3279,9 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; pre
 253:                                              ; preds = %232, %191
   %.0..0.50.i = phi i64 [ %206, %191 ], [ %252, %232 ]
   %.0..0.53.i = phi i64 [ %211, %191 ], [ %248, %232 ]
-  %.262.i = phi i64 [ %195, %191 ], [ %238, %232 ]
-  %.2.i = phi i64 [ %201, %191 ], [ %243, %232 ]
-  %254 = icmp sgt i64 %.262.i, %.2.i
+  %.363.i = phi i64 [ %195, %191 ], [ %238, %232 ]
+  %.3.i = phi i64 [ %201, %191 ], [ %243, %232 ]
+  %254 = icmp sgt i64 %.363.i, %.3.i
   %.not.i = icmp sgt i64 %.0..0.53.i, %.0..0.50.i
   %or.cond.i = or i1 %.not.i, %254
   br i1 %or.cond.i, label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit, label %255
@@ -3289,8 +3289,8 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; pre
 255:                                              ; preds = %253, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i
   %.0..0..i = phi i64 [ %.0..0..0..0..0.49.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.0..0.50.i, %253 ]
   %.0..0.51.i = phi i64 [ %.0..0..0..0..0.52.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.0..0.53.i, %253 ]
-  %.464.i = phi i64 [ %.060.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.262.i, %253 ]
-  %.4.i = phi i64 [ %.059.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.2.i, %253 ]
+  %.060.i = phi i64 [ %.161.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.363.i, %253 ]
+  %.059.i = phi i64 [ %.1.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.3.i, %253 ]
   %256 = load ptr, ptr %29, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 192
   %258 = load ptr, ptr %257, align 8
@@ -3301,7 +3301,7 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; pre
   %263 = tail call noundef signext i16 %262(ptr noundef nonnull align 8 dereferenceable(22) %39) #8
   %264 = tail call noundef i16 @llvm.smax.i16(i16 %259, i16 %263)
   %265 = sext i16 %264 to i32
-  %266 = tail call noundef ptr @_ZN11TypeInteger4makeElli9BasicType(i64 noundef %.464.i, i64 noundef %.4.i, i32 noundef %265, i8 noundef zeroext %6) #8
+  %266 = tail call noundef ptr @_ZN11TypeInteger4makeElli9BasicType(i64 noundef %.060.i, i64 noundef %.059.i, i32 noundef %265, i8 noundef zeroext %6) #8
   store ptr %266, ptr %3, align 8
   %267 = tail call noundef ptr @_ZN11TypeInteger4makeElli9BasicType(i64 noundef %.0..0.51.i, i64 noundef %.0..0..i, i32 noundef %265, i8 noundef zeroext %6) #8
   store ptr %267, ptr %4, align 8

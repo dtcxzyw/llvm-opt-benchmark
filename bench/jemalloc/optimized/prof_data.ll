@@ -418,13 +418,13 @@ if.then15.i:                                      ; preds = %if.else.i
   br i1 %cmp19.not27.i, label %for.end31.i, label %for.body20.i
 
 for.body20.i:                                     ; preds = %if.then15.i, %for.body20.i
-  %pathp.128.i = phi ptr [ %arrayidx25.i, %for.body20.i ], [ %arrayidx12.i.le, %if.then15.i ]
+  %pathp.228.i = phi ptr [ %arrayidx25.i, %for.body20.i ], [ %arrayidx12.i.le, %if.then15.i ]
   %10 = phi ptr [ %11, %for.body20.i ], [ %9, %if.then15.i ]
-  %cmp21.i = getelementptr inbounds i8, ptr %pathp.128.i, i64 8
+  %cmp21.i = getelementptr inbounds i8, ptr %pathp.228.i, i64 8
   store i32 -1, ptr %cmp21.i, align 8
   %tdata_link23.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %tdata_link23.i, align 8
-  %arrayidx25.i = getelementptr inbounds i8, ptr %pathp.128.i, i64 16
+  %arrayidx25.i = getelementptr inbounds i8, ptr %pathp.228.i, i64 16
   store ptr %11, ptr %arrayidx25.i, align 8
   %cmp19.not.i = icmp eq ptr %11, null
   br i1 %cmp19.not.i, label %for.end31.i, label %for.body20.i, !llvm.loop !5
@@ -437,8 +437,8 @@ for.inc29.i:                                      ; preds = %if.else.i, %if.then
 
 for.end31.i:                                      ; preds = %for.inc29.i, %for.body20.i, %if.then15.i, %entry
   %nodep.0.i = phi ptr [ %pathp.026.i, %if.then15.i ], [ null, %entry ], [ %pathp.026.i, %for.body20.i ], [ null, %for.inc29.i ]
-  %pathp.2.i = phi ptr [ %arrayidx12.i.le, %if.then15.i ], [ %path.i, %entry ], [ %arrayidx25.i, %for.body20.i ], [ %incdec.ptr30.i, %for.inc29.i ]
-  %incdec.ptr34.i = getelementptr inbounds i8, ptr %pathp.2.i, i64 -16
+  %pathp.1.i = phi ptr [ %arrayidx12.i.le, %if.then15.i ], [ %path.i, %entry ], [ %arrayidx25.i, %for.body20.i ], [ %incdec.ptr30.i, %for.inc29.i ]
+  %incdec.ptr34.i = getelementptr inbounds i8, ptr %pathp.1.i, i64 -16
   %12 = load ptr, ptr %incdec.ptr34.i, align 8
   %cmp36.not.i = icmp eq ptr %12, %tdata
   br i1 %cmp36.not.i, label %if.else123.i, label %if.then37.i
@@ -536,8 +536,8 @@ if.then143.i:                                     ; preds = %do.body133.i
   br label %tdata_tree_remove.exit
 
 if.else145.i:                                     ; preds = %do.body133.i
-  %arrayidx146.i = getelementptr inbounds i8, ptr %pathp.2.i, i64 -32
-  %cmp147.i = getelementptr inbounds i8, ptr %pathp.2.i, i64 -24
+  %arrayidx146.i = getelementptr inbounds i8, ptr %pathp.1.i, i64 -32
+  %cmp147.i = getelementptr inbounds i8, ptr %pathp.1.i, i64 -24
   %43 = load i32, ptr %cmp147.i, align 8
   %cmp148.i = icmp slt i32 %43, 0
   br i1 %cmp148.i, label %do.body151.i, label %do.body158.i
@@ -578,7 +578,7 @@ if.end182.i:                                      ; preds = %if.else174.i, %do.b
   br i1 %tobool187.not.i, label %if.end199.i, label %do.body191.i
 
 do.body191.i:                                     ; preds = %if.end182.i
-  %arrayidx192.i = getelementptr inbounds i8, ptr %pathp.2.i, i64 -32
+  %arrayidx192.i = getelementptr inbounds i8, ptr %pathp.1.i, i64 -32
   %53 = load ptr, ptr %arrayidx192.i, align 8
   %tdata_link194.i = getelementptr inbounds i8, ptr %53, i64 24
   store ptr null, ptr %tdata_link194.i, align 8
@@ -586,7 +586,7 @@ do.body191.i:                                     ; preds = %if.end182.i
 
 if.end199.i:                                      ; preds = %if.end182.i
   store ptr null, ptr %incdec.ptr34.i, align 8
-  %incdec.ptr201.i = getelementptr inbounds i8, ptr %pathp.2.i, i64 -32
+  %incdec.ptr201.i = getelementptr inbounds i8, ptr %pathp.1.i, i64 -32
   %cmp204.not34.i = icmp ult ptr %incdec.ptr201.i, %path.i
   br i1 %cmp204.not34.i, label %for.end895.i, label %do.end208.i
 
@@ -1398,13 +1398,13 @@ if.then15.i.i:                                    ; preds = %if.else.i.i
   br i1 %cmp19.not274.i.i, label %for.end31.i.i, label %for.body20.i.i
 
 for.body20.i.i:                                   ; preds = %if.then15.i.i, %for.body20.i.i
-  %pathp.1275.i.i = phi ptr [ %arrayidx25.i.i, %for.body20.i.i ], [ %arrayidx12.i.i.le, %if.then15.i.i ]
+  %pathp.2275.i.i = phi ptr [ %arrayidx25.i.i, %for.body20.i.i ], [ %arrayidx12.i.i.le, %if.then15.i.i ]
   %29 = phi ptr [ %30, %for.body20.i.i ], [ %28, %if.then15.i.i ]
-  %cmp21.i.i = getelementptr inbounds i8, ptr %pathp.1275.i.i, i64 8
+  %cmp21.i.i = getelementptr inbounds i8, ptr %pathp.2275.i.i, i64 8
   store i32 -1, ptr %cmp21.i.i, align 8
   %tctx_link23.i.i = getelementptr inbounds i8, ptr %29, i64 112
   %30 = load ptr, ptr %tctx_link23.i.i, align 8
-  %arrayidx25.i.i = getelementptr inbounds i8, ptr %pathp.1275.i.i, i64 16
+  %arrayidx25.i.i = getelementptr inbounds i8, ptr %pathp.2275.i.i, i64 16
   store ptr %30, ptr %arrayidx25.i.i, align 8
   %cmp19.not.i.i = icmp eq ptr %30, null
   br i1 %cmp19.not.i.i, label %for.end31.i.i, label %for.body20.i.i, !llvm.loop !9
@@ -1417,8 +1417,8 @@ for.inc29.i.i:                                    ; preds = %if.else.i.i, %if.th
 
 for.end31.i.i:                                    ; preds = %for.inc29.i.i, %for.body20.i.i, %if.then15.i.i, %sw.bb.i
   %nodep.0.i.i = phi ptr [ %pathp.0273.i.i, %if.then15.i.i ], [ null, %sw.bb.i ], [ %pathp.0273.i.i, %for.body20.i.i ], [ null, %for.inc29.i.i ]
-  %pathp.2.i.i = phi ptr [ %arrayidx12.i.i.le, %if.then15.i.i ], [ %path.i.i, %sw.bb.i ], [ %arrayidx25.i.i, %for.body20.i.i ], [ %incdec.ptr30.i.i, %for.inc29.i.i ]
-  %incdec.ptr34.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -16
+  %pathp.1.i.i = phi ptr [ %arrayidx12.i.i.le, %if.then15.i.i ], [ %path.i.i, %sw.bb.i ], [ %arrayidx25.i.i, %for.body20.i.i ], [ %incdec.ptr30.i.i, %for.inc29.i.i ]
+  %incdec.ptr34.i.i = getelementptr inbounds i8, ptr %pathp.1.i.i, i64 -16
   %31 = load ptr, ptr %incdec.ptr34.i.i, align 8
   %cmp36.not.i.i = icmp eq ptr %31, %tctx
   br i1 %cmp36.not.i.i, label %if.else123.i.i, label %if.then37.i.i
@@ -1516,8 +1516,8 @@ if.then143.i.i:                                   ; preds = %do.body133.i.i
   br label %tctx_tree_remove.exit.i
 
 if.else145.i.i:                                   ; preds = %do.body133.i.i
-  %arrayidx146.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -32
-  %cmp147.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -24
+  %arrayidx146.i.i = getelementptr inbounds i8, ptr %pathp.1.i.i, i64 -32
+  %cmp147.i.i = getelementptr inbounds i8, ptr %pathp.1.i.i, i64 -24
   %62 = load i32, ptr %cmp147.i.i, align 8
   %cmp148.i.i = icmp slt i32 %62, 0
   br i1 %cmp148.i.i, label %do.body151.i.i, label %do.body158.i.i
@@ -1558,7 +1558,7 @@ if.end182.i.i:                                    ; preds = %if.else174.i.i, %do
   br i1 %tobool187.not.i.i, label %if.end199.i.i, label %do.body191.i.i
 
 do.body191.i.i:                                   ; preds = %if.end182.i.i
-  %arrayidx192.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -32
+  %arrayidx192.i.i = getelementptr inbounds i8, ptr %pathp.1.i.i, i64 -32
   %72 = load ptr, ptr %arrayidx192.i.i, align 8
   %tctx_link194.i.i = getelementptr inbounds i8, ptr %72, i64 112
   store ptr null, ptr %tctx_link194.i.i, align 8
@@ -1566,7 +1566,7 @@ do.body191.i.i:                                   ; preds = %if.end182.i.i
 
 if.end199.i.i:                                    ; preds = %if.end182.i.i
   store ptr null, ptr %incdec.ptr34.i.i, align 8
-  %incdec.ptr201.i.i = getelementptr inbounds i8, ptr %pathp.2.i.i, i64 -32
+  %incdec.ptr201.i.i = getelementptr inbounds i8, ptr %pathp.1.i.i, i64 -32
   %cmp204.not281.i.i = icmp ult ptr %incdec.ptr201.i.i, %path.i.i
   br i1 %cmp204.not281.i.i, label %for.end895.i.i, label %do.end208.i.i
 

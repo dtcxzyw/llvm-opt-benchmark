@@ -75,7 +75,7 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIhSt11char_traitsIhEE.exit.
           to label %_ZN5ZXingL14AppendFromUtf8ESt17basic_string_viewIhSt11char_traitsIhEERNSt7__cxx1112basic_stringIwS1_IwESaIwEEE.exit unwind label %.loopexit.split-lp
 
 .lr.ph.i.i:                                       ; preds = %3, %.critedge.i.i
-  %.018.i.i = phi i64 [ %.2.i.i, %.critedge.i.i ], [ 0, %3 ]
+  %.018.i.i = phi i64 [ %.1.i.i, %.critedge.i.i ], [ 0, %3 ]
   %.01317.i.i = phi i64 [ %26, %.critedge.i.i ], [ 0, %3 ]
   %5 = getelementptr inbounds i8, ptr %2, i64 %.018.i.i
   %6 = load i8, ptr %5, align 1
@@ -110,22 +110,22 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIhSt11char_traitsIhEE.exit.
   br label %.critedge.i.i
 
 .preheader.i.i:                                   ; preds = %10, %21
-  %.1.in.i.i = phi i64 [ %.1.i.i, %21 ], [ %.018.i.i, %10 ]
-  %.1.i.i = add nuw i64 %.1.in.i.i, 1
-  %20 = icmp ult i64 %.1.i.i, %1
+  %.2.in.i.i = phi i64 [ %.2.i.i, %21 ], [ %.018.i.i, %10 ]
+  %.2.i.i = add nuw i64 %.2.in.i.i, 1
+  %20 = icmp ult i64 %.2.i.i, %1
   br i1 %20, label %21, label %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIhSt11char_traitsIhEE.exit.i
 
 21:                                               ; preds = %.preheader.i.i
-  %22 = getelementptr inbounds i8, ptr %2, i64 %.1.i.i
+  %22 = getelementptr inbounds i8, ptr %2, i64 %.2.i.i
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, -64
   %25 = icmp eq i8 %24, -128
   br i1 %25, label %.preheader.i.i, label %.critedge.i.i, !llvm.loop !4
 
 .critedge.i.i:                                    ; preds = %21, %18, %16, %14, %8
-  %.2.i.i = phi i64 [ %9, %8 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %.1.i.i, %21 ]
+  %.1.i.i = phi i64 [ %9, %8 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %.2.i.i, %21 ]
   %26 = add i64 %.01317.i.i, 1
-  %27 = icmp ult i64 %.2.i.i, %1
+  %27 = icmp ult i64 %.1.i.i, %1
   br i1 %27, label %.lr.ph.i.i, label %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIhSt11char_traitsIhEE.exit.thread27.i, !llvm.loop !6
 
 _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIhSt11char_traitsIhEE.exit.thread27.i: ; preds = %.critedge.i.i

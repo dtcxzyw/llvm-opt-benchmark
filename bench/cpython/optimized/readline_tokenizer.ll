@@ -180,8 +180,8 @@ if.else.i:                                        ; preds = %if.end4.i
   br i1 %tobool27.not.i, label %if.then.i.i, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.else.i, %do.end.i
-  %line.0.i = phi ptr [ %call17.i, %do.end.i ], [ %call.i, %if.else.i ]
-  %call33.i = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %line.0.i, ptr noundef nonnull %buflen.i) #5
+  %line.1.i = phi ptr [ %call17.i, %do.end.i ], [ %call.i, %if.else.i ]
+  %call33.i = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %line.1.i, ptr noundef nonnull %buflen.i) #5
   %cmp34.i = icmp eq ptr %call33.i, null
   br i1 %cmp34.i, label %if.then35.i, label %if.end37.i
 
@@ -210,19 +210,19 @@ if.end41.i:                                       ; preds = %if.end37.i
   %18 = load ptr, ptr %cur.i, align 8
   %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
   store ptr %18, ptr %line_start.i, align 8
-  %19 = load i64, ptr %line.0.i, align 8
+  %19 = load i64, ptr %line.1.i, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i57.not.i = icmp eq i64 %20, 0
   br i1 %cmp.i57.not.i, label %if.end.i.i, label %if.end3
 
 if.end.i.i:                                       ; preds = %if.end41.i
   %dec.i.i = add i64 %19, -1
-  store i64 %dec.i.i, ptr %line.0.i, align 8
+  store i64 %dec.i.i, ptr %line.1.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end3
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %line.0.i) #5
+  call void @_Py_Dealloc(ptr noundef nonnull %line.1.i) #5
   br label %if.end3
 
 if.then.i.i:                                      ; preds = %if.else.i, %if.then6.i
@@ -246,19 +246,19 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %tok_readline_string.exit.thread
 
 if.then.i39.i:                                    ; preds = %if.end37.i, %if.then35.i
-  %24 = load i64, ptr %line.0.i, align 8
+  %24 = load i64, ptr %line.1.i, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i2.not.i40.i = icmp eq i64 %25, 0
   br i1 %cmp.i2.not.i40.i, label %if.end.i.i42.i, label %tok_readline_string.exit.thread
 
 if.end.i.i42.i:                                   ; preds = %if.then.i39.i
   %dec.i.i43.i = add i64 %24, -1
-  store i64 %dec.i.i43.i, ptr %line.0.i, align 8
+  store i64 %dec.i.i43.i, ptr %line.1.i, align 8
   %cmp.i.i44.i = icmp eq i64 %dec.i.i43.i, 0
   br i1 %cmp.i.i44.i, label %if.then1.i.i45.i, label %tok_readline_string.exit.thread
 
 if.then1.i.i45.i:                                 ; preds = %if.end.i.i42.i
-  call void @_Py_Dealloc(ptr noundef nonnull %line.0.i) #5
+  call void @_Py_Dealloc(ptr noundef nonnull %line.1.i) #5
   br label %tok_readline_string.exit.thread
 
 tok_readline_string.exit.thread:                  ; preds = %if.then.i39.i, %if.end.i.i42.i, %if.then1.i.i45.i, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i, %if.then22.i, %if.end.i

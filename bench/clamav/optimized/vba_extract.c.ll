@@ -2080,12 +2080,12 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
 829:                                              ; preds = %826, %805
   %830 = phi i64 [ %822, %826 ], [ %801, %805 ]
   %.0606 = phi i16 [ %.0.copyload239, %826 ], [ %.0.copyload237, %805 ]
-  %.1595 = phi i64 [ %828, %826 ], [ %807, %805 ]
+  %.2 = phi i64 [ %828, %826 ], [ %807, %805 ]
   %831 = icmp eq i16 %.0606, 40
   br i1 %831, label %832, label %852
 
 832:                                              ; preds = %829
-  %833 = sub i64 %830, %.1595
+  %833 = sub i64 %830, %.2
   %834 = icmp ult i64 %833, 4
   br i1 %834, label %835, label %836
 
@@ -2094,9 +2094,9 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %.loopexit
 
 836:                                              ; preds = %832
-  %837 = getelementptr inbounds i8, ptr %55, i64 %.1595
+  %837 = getelementptr inbounds i8, ptr %55, i64 %.2
   %.0.copyload124 = load i32, ptr %837, align 1
-  %838 = add i64 %.1595, 4
+  %838 = add i64 %.2, 4
   %.not738 = icmp eq i32 %.0.copyload124, 0
   br i1 %.not738, label %840, label %839
 
@@ -2127,13 +2127,13 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
 849:                                              ; preds = %844
   %850 = getelementptr inbounds i8, ptr %55, i64 %838
   %.0.copyload241 = load i16, ptr %850, align 1
-  %851 = add i64 %.1595, 6
+  %851 = add i64 %.2, 6
   br label %852
 
 852:                                              ; preds = %849, %829
   %853 = phi i64 [ %845, %849 ], [ %830, %829 ]
   %.1607 = phi i16 [ %.0.copyload241, %849 ], [ %.0606, %829 ]
-  %.2 = phi i64 [ %851, %849 ], [ %.1595, %829 ]
+  %.3 = phi i64 [ %851, %849 ], [ %.2, %829 ]
   %.not740 = icmp eq i16 %.1607, 43
   br i1 %.not740, label %855, label %854
 
@@ -2142,7 +2142,7 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %.loopexit
 
 855:                                              ; preds = %852
-  %856 = sub i64 %853, %.2
+  %856 = sub i64 %853, %.3
   %857 = icmp ult i64 %856, 4
   br i1 %857, label %858, label %859
 
@@ -2151,9 +2151,9 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %.loopexit
 
 859:                                              ; preds = %855
-  %860 = getelementptr inbounds i8, ptr %55, i64 %.2
+  %860 = getelementptr inbounds i8, ptr %55, i64 %.3
   %.0.copyload126 = load i32, ptr %860, align 1
-  %861 = add i64 %.2, 4
+  %861 = add i64 %.3, 4
   %.not741 = icmp eq i32 %.0.copyload126, 0
   br i1 %.not741, label %863, label %862
 
@@ -2312,8 +2312,8 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %82
 
 .loopexit:                                        ; preds = %867, %102, %82, %920, %900, %877, %866, %862, %858, %854, %848, %843, %839, %835, %825, %820, %816, %812, %804, %799, %796, %790, %785, %781, %776, %765, %761, %756, %753, %748, %738, %734, %729, %726, %721, %711, %707, %702, %699, %689, %675, %671, %659, %651, %646, %643, %637, %633, %621, %613, %608, %605, %595, %581, %577, %565, %557, %552, %549, %543, %539, %527, %519, %514, %511, %501, %487, %483, %471, %463, %458, %455, %449, %445, %433, %429, %418, %416, %405, %403, %391, %386, %384, %374, %372, %362, %360, %355, %349, %337, %333, %326, %321, %318, %311, %306, %300, %295, %290, %284, %272, %268, %265, %260, %254, %242, %238, %235, %230, %224, %212, %208, %205, %200, %194, %183, %179, %176, %165, %163, %153, %151, %141, %139, %135, %127, %123, %119, %115, %110, %104, %101, %94, %88, %81, %64, %57
-  %.5 = phi ptr [ null, %57 ], [ null, %64 ], [ null, %81 ], [ null, %88 ], [ null, %94 ], [ null, %101 ], [ null, %433 ], [ null, %445 ], [ null, %455 ], [ null, %458 ], [ null, %463 ], [ null, %471 ], [ null, %483 ], [ null, %501 ], [ null, %511 ], [ null, %514 ], [ null, %519 ], [ null, %527 ], [ null, %539 ], [ null, %549 ], [ null, %552 ], [ null, %557 ], [ null, %565 ], [ null, %577 ], [ null, %595 ], [ null, %605 ], [ null, %608 ], [ null, %613 ], [ null, %621 ], [ null, %633 ], [ null, %643 ], [ null, %646 ], [ null, %651 ], [ null, %659 ], [ null, %671 ], [ null, %689 ], [ null, %699 ], [ null, %702 ], [ null, %707 ], [ null, %711 ], [ null, %721 ], [ null, %726 ], [ null, %729 ], [ null, %734 ], [ null, %738 ], [ null, %748 ], [ null, %753 ], [ null, %756 ], [ null, %761 ], [ null, %765 ], [ null, %776 ], [ null, %781 ], [ null, %785 ], [ null, %790 ], [ null, %796 ], [ null, %804 ], [ null, %812 ], [ null, %816 ], [ null, %820 ], [ null, %825 ], [ null, %835 ], [ null, %839 ], [ null, %843 ], [ null, %848 ], [ null, %854 ], [ null, %858 ], [ null, %862 ], [ null, %866 ], [ null, %877 ], [ %884, %900 ], [ %884, %920 ], [ null, %799 ], [ null, %675 ], [ null, %637 ], [ null, %581 ], [ null, %543 ], [ null, %487 ], [ null, %449 ], [ null, %418 ], [ null, %429 ], [ null, %405 ], [ null, %416 ], [ null, %386 ], [ null, %391 ], [ null, %403 ], [ null, %374 ], [ null, %384 ], [ null, %362 ], [ null, %372 ], [ null, %268 ], [ null, %272 ], [ null, %284 ], [ null, %295 ], [ null, %300 ], [ null, %306 ], [ null, %311 ], [ null, %318 ], [ null, %321 ], [ null, %326 ], [ null, %337 ], [ null, %349 ], [ null, %360 ], [ null, %355 ], [ null, %333 ], [ null, %290 ], [ null, %238 ], [ null, %242 ], [ null, %254 ], [ null, %265 ], [ null, %260 ], [ null, %208 ], [ null, %212 ], [ null, %224 ], [ null, %235 ], [ null, %230 ], [ null, %179 ], [ null, %183 ], [ null, %194 ], [ null, %205 ], [ null, %200 ], [ null, %165 ], [ null, %176 ], [ null, %153 ], [ null, %163 ], [ null, %141 ], [ null, %151 ], [ null, %104 ], [ null, %110 ], [ null, %135 ], [ null, %139 ], [ null, %127 ], [ null, %123 ], [ null, %119 ], [ null, %115 ], [ null, %82 ], [ null, %102 ], [ null, %867 ]
-  %.2598 = phi ptr [ null, %57 ], [ null, %64 ], [ null, %81 ], [ null, %88 ], [ null, %94 ], [ null, %101 ], [ null, %433 ], [ null, %445 ], [ null, %455 ], [ null, %458 ], [ null, %463 ], [ null, %471 ], [ null, %483 ], [ null, %501 ], [ null, %511 ], [ null, %514 ], [ null, %519 ], [ null, %527 ], [ null, %539 ], [ null, %549 ], [ null, %552 ], [ null, %557 ], [ null, %565 ], [ null, %577 ], [ null, %595 ], [ null, %605 ], [ null, %608 ], [ null, %613 ], [ null, %621 ], [ null, %633 ], [ null, %643 ], [ null, %646 ], [ null, %651 ], [ null, %659 ], [ null, %671 ], [ null, %689 ], [ null, %699 ], [ null, %702 ], [ null, %707 ], [ null, %711 ], [ null, %721 ], [ null, %726 ], [ null, %729 ], [ null, %734 ], [ null, %738 ], [ null, %748 ], [ null, %753 ], [ null, %756 ], [ null, %761 ], [ null, %765 ], [ null, %776 ], [ null, %781 ], [ null, %785 ], [ null, %790 ], [ null, %796 ], [ null, %804 ], [ null, %812 ], [ null, %816 ], [ null, %820 ], [ null, %825 ], [ null, %835 ], [ null, %839 ], [ null, %843 ], [ null, %848 ], [ null, %854 ], [ null, %858 ], [ null, %862 ], [ null, %866 ], [ %869, %877 ], [ %869, %900 ], [ %869, %920 ], [ null, %799 ], [ null, %675 ], [ null, %637 ], [ null, %581 ], [ null, %543 ], [ null, %487 ], [ null, %449 ], [ null, %418 ], [ null, %429 ], [ null, %405 ], [ null, %416 ], [ null, %386 ], [ null, %391 ], [ null, %403 ], [ null, %374 ], [ null, %384 ], [ null, %362 ], [ null, %372 ], [ null, %268 ], [ null, %272 ], [ null, %284 ], [ null, %295 ], [ null, %300 ], [ null, %306 ], [ null, %311 ], [ null, %318 ], [ null, %321 ], [ null, %326 ], [ null, %337 ], [ null, %349 ], [ null, %360 ], [ null, %355 ], [ null, %333 ], [ null, %290 ], [ null, %238 ], [ null, %242 ], [ null, %254 ], [ null, %265 ], [ null, %260 ], [ null, %208 ], [ null, %212 ], [ null, %224 ], [ null, %235 ], [ null, %230 ], [ null, %179 ], [ null, %183 ], [ null, %194 ], [ null, %205 ], [ null, %200 ], [ null, %165 ], [ null, %176 ], [ null, %153 ], [ null, %163 ], [ null, %141 ], [ null, %151 ], [ null, %104 ], [ null, %110 ], [ null, %135 ], [ null, %139 ], [ null, %127 ], [ null, %123 ], [ null, %119 ], [ null, %115 ], [ null, %82 ], [ null, %102 ], [ null, %867 ]
+  %.0602 = phi ptr [ null, %57 ], [ null, %64 ], [ null, %81 ], [ null, %88 ], [ null, %94 ], [ null, %101 ], [ null, %433 ], [ null, %445 ], [ null, %455 ], [ null, %458 ], [ null, %463 ], [ null, %471 ], [ null, %483 ], [ null, %501 ], [ null, %511 ], [ null, %514 ], [ null, %519 ], [ null, %527 ], [ null, %539 ], [ null, %549 ], [ null, %552 ], [ null, %557 ], [ null, %565 ], [ null, %577 ], [ null, %595 ], [ null, %605 ], [ null, %608 ], [ null, %613 ], [ null, %621 ], [ null, %633 ], [ null, %643 ], [ null, %646 ], [ null, %651 ], [ null, %659 ], [ null, %671 ], [ null, %689 ], [ null, %699 ], [ null, %702 ], [ null, %707 ], [ null, %711 ], [ null, %721 ], [ null, %726 ], [ null, %729 ], [ null, %734 ], [ null, %738 ], [ null, %748 ], [ null, %753 ], [ null, %756 ], [ null, %761 ], [ null, %765 ], [ null, %776 ], [ null, %781 ], [ null, %785 ], [ null, %790 ], [ null, %796 ], [ null, %804 ], [ null, %812 ], [ null, %816 ], [ null, %820 ], [ null, %825 ], [ null, %835 ], [ null, %839 ], [ null, %843 ], [ null, %848 ], [ null, %854 ], [ null, %858 ], [ null, %862 ], [ null, %866 ], [ null, %877 ], [ %884, %900 ], [ %884, %920 ], [ null, %799 ], [ null, %675 ], [ null, %637 ], [ null, %581 ], [ null, %543 ], [ null, %487 ], [ null, %449 ], [ null, %418 ], [ null, %429 ], [ null, %405 ], [ null, %416 ], [ null, %386 ], [ null, %391 ], [ null, %403 ], [ null, %374 ], [ null, %384 ], [ null, %362 ], [ null, %372 ], [ null, %268 ], [ null, %272 ], [ null, %284 ], [ null, %295 ], [ null, %300 ], [ null, %306 ], [ null, %311 ], [ null, %318 ], [ null, %321 ], [ null, %326 ], [ null, %337 ], [ null, %349 ], [ null, %360 ], [ null, %355 ], [ null, %333 ], [ null, %290 ], [ null, %238 ], [ null, %242 ], [ null, %254 ], [ null, %265 ], [ null, %260 ], [ null, %208 ], [ null, %212 ], [ null, %224 ], [ null, %235 ], [ null, %230 ], [ null, %179 ], [ null, %183 ], [ null, %194 ], [ null, %205 ], [ null, %200 ], [ null, %165 ], [ null, %176 ], [ null, %153 ], [ null, %163 ], [ null, %141 ], [ null, %151 ], [ null, %104 ], [ null, %110 ], [ null, %135 ], [ null, %139 ], [ null, %127 ], [ null, %123 ], [ null, %119 ], [ null, %115 ], [ null, %82 ], [ null, %102 ], [ null, %867 ]
+  %.0596 = phi ptr [ null, %57 ], [ null, %64 ], [ null, %81 ], [ null, %88 ], [ null, %94 ], [ null, %101 ], [ null, %433 ], [ null, %445 ], [ null, %455 ], [ null, %458 ], [ null, %463 ], [ null, %471 ], [ null, %483 ], [ null, %501 ], [ null, %511 ], [ null, %514 ], [ null, %519 ], [ null, %527 ], [ null, %539 ], [ null, %549 ], [ null, %552 ], [ null, %557 ], [ null, %565 ], [ null, %577 ], [ null, %595 ], [ null, %605 ], [ null, %608 ], [ null, %613 ], [ null, %621 ], [ null, %633 ], [ null, %643 ], [ null, %646 ], [ null, %651 ], [ null, %659 ], [ null, %671 ], [ null, %689 ], [ null, %699 ], [ null, %702 ], [ null, %707 ], [ null, %711 ], [ null, %721 ], [ null, %726 ], [ null, %729 ], [ null, %734 ], [ null, %738 ], [ null, %748 ], [ null, %753 ], [ null, %756 ], [ null, %761 ], [ null, %765 ], [ null, %776 ], [ null, %781 ], [ null, %785 ], [ null, %790 ], [ null, %796 ], [ null, %804 ], [ null, %812 ], [ null, %816 ], [ null, %820 ], [ null, %825 ], [ null, %835 ], [ null, %839 ], [ null, %843 ], [ null, %848 ], [ null, %854 ], [ null, %858 ], [ null, %862 ], [ null, %866 ], [ %869, %877 ], [ %869, %900 ], [ %869, %920 ], [ null, %799 ], [ null, %675 ], [ null, %637 ], [ null, %581 ], [ null, %543 ], [ null, %487 ], [ null, %449 ], [ null, %418 ], [ null, %429 ], [ null, %405 ], [ null, %416 ], [ null, %386 ], [ null, %391 ], [ null, %403 ], [ null, %374 ], [ null, %384 ], [ null, %362 ], [ null, %372 ], [ null, %268 ], [ null, %272 ], [ null, %284 ], [ null, %295 ], [ null, %300 ], [ null, %306 ], [ null, %311 ], [ null, %318 ], [ null, %321 ], [ null, %326 ], [ null, %337 ], [ null, %349 ], [ null, %360 ], [ null, %355 ], [ null, %333 ], [ null, %290 ], [ null, %238 ], [ null, %242 ], [ null, %254 ], [ null, %265 ], [ null, %260 ], [ null, %208 ], [ null, %212 ], [ null, %224 ], [ null, %235 ], [ null, %230 ], [ null, %179 ], [ null, %183 ], [ null, %194 ], [ null, %205 ], [ null, %200 ], [ null, %165 ], [ null, %176 ], [ null, %153 ], [ null, %163 ], [ null, %141 ], [ null, %151 ], [ null, %104 ], [ null, %110 ], [ null, %135 ], [ null, %139 ], [ null, %127 ], [ null, %123 ], [ null, %119 ], [ null, %115 ], [ null, %82 ], [ null, %102 ], [ null, %867 ]
   %.0592 = phi i32 [ 3, %57 ], [ %63, %64 ], [ 14, %81 ], [ 12, %88 ], [ 12, %94 ], [ 12, %101 ], [ 14, %433 ], [ 14, %445 ], [ 12, %455 ], [ 12, %458 ], [ 14, %463 ], [ 12, %471 ], [ 14, %483 ], [ 14, %501 ], [ 12, %511 ], [ 12, %514 ], [ 14, %519 ], [ 12, %527 ], [ 14, %539 ], [ 12, %549 ], [ 12, %552 ], [ 14, %557 ], [ 12, %565 ], [ 14, %577 ], [ 14, %595 ], [ 12, %605 ], [ 12, %608 ], [ 14, %613 ], [ 12, %621 ], [ 14, %633 ], [ 12, %643 ], [ 12, %646 ], [ 14, %651 ], [ 12, %659 ], [ 14, %671 ], [ 14, %689 ], [ 12, %699 ], [ 12, %702 ], [ 12, %707 ], [ 12, %711 ], [ 14, %721 ], [ 12, %726 ], [ 12, %729 ], [ 12, %734 ], [ 12, %738 ], [ 14, %748 ], [ 12, %753 ], [ 12, %756 ], [ 12, %761 ], [ 12, %765 ], [ 14, %776 ], [ 12, %781 ], [ 12, %785 ], [ 12, %790 ], [ 14, %796 ], [ 12, %804 ], [ 12, %812 ], [ 12, %816 ], [ 14, %820 ], [ 12, %825 ], [ 12, %835 ], [ 12, %839 ], [ 14, %843 ], [ 12, %848 ], [ 12, %854 ], [ 12, %858 ], [ 12, %862 ], [ 14, %866 ], [ 8, %877 ], [ 14, %900 ], [ 14, %920 ], [ 14, %799 ], [ 14, %675 ], [ 14, %637 ], [ 14, %581 ], [ 14, %543 ], [ 14, %487 ], [ 14, %449 ], [ 12, %418 ], [ 14, %429 ], [ 12, %405 ], [ 14, %416 ], [ 12, %386 ], [ 12, %391 ], [ 14, %403 ], [ 12, %374 ], [ 14, %384 ], [ 12, %362 ], [ 14, %372 ], [ 12, %268 ], [ 14, %272 ], [ 14, %284 ], [ 14, %295 ], [ 12, %300 ], [ 14, %306 ], [ 12, %311 ], [ 12, %318 ], [ 12, %321 ], [ 14, %326 ], [ 14, %337 ], [ 14, %349 ], [ 14, %360 ], [ 14, %355 ], [ 14, %333 ], [ 14, %290 ], [ 12, %238 ], [ 14, %242 ], [ 14, %254 ], [ 14, %265 ], [ 14, %260 ], [ 12, %208 ], [ 14, %212 ], [ 14, %224 ], [ 14, %235 ], [ 14, %230 ], [ 12, %179 ], [ 14, %183 ], [ 14, %194 ], [ 14, %205 ], [ 14, %200 ], [ 12, %165 ], [ 14, %176 ], [ 12, %153 ], [ 14, %163 ], [ 12, %141 ], [ 14, %151 ], [ 12, %104 ], [ 14, %110 ], [ 14, %135 ], [ 14, %139 ], [ 14, %127 ], [ 14, %123 ], [ 14, %119 ], [ 14, %115 ], [ 0, %82 ], [ 0, %102 ], [ 20, %867 ]
   %930 = icmp sgt i32 %52, -1
   br i1 %930, label %931, label %933
@@ -2330,11 +2330,11 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %935
 
 935:                                              ; preds = %934, %933
-  %.not808 = icmp eq ptr %.2598, null
+  %.not808 = icmp eq ptr %.0596, null
   br i1 %.not808, label %937, label %936
 
 936:                                              ; preds = %935
-  call void @free(ptr noundef nonnull %.2598) #17
+  call void @free(ptr noundef nonnull %.0596) #17
   br label %937
 
 937:                                              ; preds = %936, %935
@@ -2342,7 +2342,7 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br i1 %.not809, label %942, label %.thread848
 
 .thread848:                                       ; preds = %49, %937
-  %.5828840846854 = phi ptr [ %.5, %937 ], [ null, %49 ]
+  %.0602828840846854 = phi ptr [ %.0602, %937 ], [ null, %49 ]
   %.0592831838847852 = phi i32 [ %.0592, %937 ], [ 8, %49 ]
   %938 = load i32, ptr %5, align 4
   %939 = icmp sgt i32 %938, -1
@@ -2354,7 +2354,7 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %942
 
 942:                                              ; preds = %940, %.thread848, %937
-  %.5828840846855 = phi ptr [ %.5828840846854, %940 ], [ %.5828840846854, %.thread848 ], [ %.5, %937 ]
+  %.0602828840846855 = phi ptr [ %.0602828840846854, %940 ], [ %.0602828840846854, %.thread848 ], [ %.0602, %937 ]
   %.0592831838847853 = phi i32 [ %.0592831838847852, %940 ], [ %.0592831838847852, %.thread848 ], [ 0, %937 ]
   %943 = load ptr, ptr %12, align 8
   %.not810 = icmp eq ptr %943, null
@@ -2376,11 +2376,11 @@ thread-pre-split816.thread:                       ; preds = %685, %thread-pre-sp
   br label %948
 
 948:                                              ; preds = %947, %945
-  %.not812 = icmp eq ptr %.5828840846855, null
+  %.not812 = icmp eq ptr %.0602828840846855, null
   br i1 %.not812, label %950, label %949
 
 949:                                              ; preds = %948
-  call void @free(ptr noundef nonnull %.5828840846855) #17
+  call void @free(ptr noundef nonnull %.0602828840846855) #17
   br label %950
 
 950:                                              ; preds = %949, %948
@@ -3033,7 +3033,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 123:                                              ; preds = %.lr.ph, %200
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %200 ]
-  %.0106218 = phi ptr [ null, %.lr.ph ], [ %.1, %200 ]
+  %.0106218 = phi ptr [ null, %.lr.ph ], [ %.2, %200 ]
   %.0107217 = phi i16 [ 0, %.lr.ph ], [ %.1108, %200 ]
   %.0109216 = phi i32 [ 0, %.lr.ph ], [ %207, %200 ]
   %124 = load ptr, ptr %119, align 8
@@ -3073,9 +3073,9 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 140:                                              ; preds = %138, %132
   %141 = phi i16 [ %139, %138 ], [ %.0.i.i155, %132 ]
   %.1108 = phi i16 [ %139, %138 ], [ %.0107217, %132 ]
-  %.1 = phi ptr [ %136, %138 ], [ %.0106218, %132 ]
+  %.2 = phi ptr [ %136, %138 ], [ %.0106218, %132 ]
   %142 = zext i16 %141 to i64
-  %143 = call i64 @cli_readn(i32 noundef %24, ptr noundef %.1, i64 noundef %142) #17
+  %143 = call i64 @cli_readn(i32 noundef %24, ptr noundef %.2, i64 noundef %142) #17
   %144 = load i16, ptr %12, align 2
   %145 = zext i16 %144 to i64
   %.not131 = icmp eq i64 %143, %145
@@ -3088,7 +3088,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 148:                                              ; preds = %140
   %149 = zext i16 %144 to i32
-  %150 = call fastcc ptr @get_unicode_name(ptr noundef %.1, i32 noundef %149, i32 noundef %.0110)
+  %150 = call fastcc ptr @get_unicode_name(ptr noundef %.2, i32 noundef %149, i32 noundef %.0110)
   %151 = icmp eq ptr %150, null
   br i1 %151, label %read_uint16.exit156.thread.loopexit.split.loop.exit287, label %152
 
@@ -3242,12 +3242,12 @@ read_uint16.exit156.thread.loopexit.split.loop.exit290: ; preds = %134
 
 read_uint16.exit156.thread:                       ; preds = %200, %read_uint16.exit156.thread.loopexit.split.loop.exit, %read_uint16.exit156.thread.loopexit.split.loop.exit272, %read_uint16.exit156.thread.loopexit.split.loop.exit275, %read_uint16.exit156.thread.loopexit.split.loop.exit278, %read_uint16.exit156.thread.loopexit.split.loop.exit281, %read_uint16.exit156.thread.loopexit.split.loop.exit284, %read_uint16.exit156.thread.loopexit.split.loop.exit287, %read_uint16.exit156.thread.loopexit.split.loop.exit290, %166, %156, %146, %130
   %.0109215 = phi i32 [ %131, %130 ], [ %147, %146 ], [ %157, %156 ], [ %167, %166 ], [ %211, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %212, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %213, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %214, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %215, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %216, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %217, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %207, %200 ]
-  %.2 = phi ptr [ %.0106218, %130 ], [ %.1, %146 ], [ %.1, %156 ], [ %.1, %166 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %.0106218, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %.0106218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %.1, %200 ]
-  %.not138 = icmp eq ptr %.2, null
+  %.1 = phi ptr [ %.0106218, %130 ], [ %.2, %146 ], [ %.2, %156 ], [ %.2, %166 ], [ %.2, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %.2, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %.2, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %.2, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %.2, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %.0106218, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %.2, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %.0106218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %.2, %200 ]
+  %.not138 = icmp eq ptr %.1, null
   br i1 %.not138, label %read_uint16.exit156.thread.thread, label %219
 
 219:                                              ; preds = %read_uint16.exit156.thread
-  call void @free(ptr noundef nonnull %.2) #17
+  call void @free(ptr noundef nonnull %.1) #17
   br label %read_uint16.exit156.thread.thread
 
 read_uint16.exit156.thread.thread:                ; preds = %.preheader, %219, %read_uint16.exit156.thread
@@ -3292,7 +3292,7 @@ define internal fastcc i32 @vba_read_project_strings(i32 noundef %0, i32 noundef
   %.037 = phi i32 [ 0, %2 ], [ %61, %.backedge.backedge ]
   %.not = phi i1 [ false, %2 ], [ %or.cond, %.backedge.backedge ]
   %.034 = phi i16 [ 0, %2 ], [ %.135, %.backedge.backedge ]
-  %.0 = phi ptr [ null, %2 ], [ %.1, %.backedge.backedge ]
+  %.0 = phi ptr [ null, %2 ], [ %.2, %.backedge.backedge ]
   br i1 %.not, label %thread-pre-split, label %5
 
 5:                                                ; preds = %.backedge
@@ -3341,7 +3341,7 @@ thread-pre-split:                                 ; preds = %.backedge
 
 23:                                               ; preds = %21, %15
   %.135 = phi i16 [ %22, %21 ], [ %.034, %15 ]
-  %.1 = phi ptr [ %19, %21 ], [ %.0, %15 ]
+  %.2 = phi ptr [ %19, %21 ], [ %.0, %15 ]
   %24 = call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 1) #17
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %26, label %27
@@ -3353,7 +3353,7 @@ thread-pre-split:                                 ; preds = %.backedge
 27:                                               ; preds = %23
   %28 = load i16, ptr %4, align 2
   %29 = zext i16 %28 to i64
-  %30 = call i64 @cli_readn(i32 noundef %0, ptr noundef %.1, i64 noundef %29) #17
+  %30 = call i64 @cli_readn(i32 noundef %0, ptr noundef %.2, i64 noundef %29) #17
   %31 = load i16, ptr %4, align 2
   %32 = zext i16 %31 to i64
   %.not46 = icmp eq i64 %30, %32
@@ -3371,7 +3371,7 @@ thread-pre-split:                                 ; preds = %.backedge
 
 37:                                               ; preds = %27
   %38 = zext i16 %31 to i32
-  %39 = call fastcc ptr @get_unicode_name(ptr noundef %.1, i32 noundef %38, i32 noundef %1)
+  %39 = call fastcc ptr @get_unicode_name(ptr noundef %.2, i32 noundef %38, i32 noundef %1)
   %40 = load i16, ptr %4, align 2
   %41 = zext i16 %40 to i32
   %.not47 = icmp eq ptr %39, null
@@ -3405,7 +3405,7 @@ thread-pre-split:                                 ; preds = %.backedge
   br label %56
 
 56:                                               ; preds = %55, %49
-  %.138 = phi i32 [ 0, %55 ], [ %.037, %49 ]
+  %.239 = phi i32 [ 0, %55 ], [ %.037, %49 ]
   call void @free(ptr noundef %39) #17
   br label %read_uint16.exit.thread
 
@@ -3470,10 +3470,10 @@ vba56_test_middle.exit:                           ; preds = %67, %71, %.sink.spl
   br label %.backedge
 
 read_uint16.exit.thread:                          ; preds = %57, %5, %17, %33, %36, %11, %14, %66, %56, %26
-  %.239 = phi i32 [ 0, %14 ], [ %.037, %11 ], [ 0, %26 ], [ 0, %36 ], [ %.037, %33 ], [ %.138, %56 ], [ 0, %66 ], [ %.037, %57 ], [ 0, %5 ], [ 0, %17 ]
-  %.2 = phi ptr [ %.0, %14 ], [ %.0, %11 ], [ %.1, %26 ], [ %.1, %36 ], [ %.1, %33 ], [ %.1, %56 ], [ %.1, %66 ], [ %.1, %57 ], [ %.0, %5 ], [ %.0, %17 ]
-  call void @free(ptr noundef %.2) #17
-  ret i32 %.239
+  %.138 = phi i32 [ 0, %14 ], [ %.037, %11 ], [ 0, %26 ], [ 0, %36 ], [ %.037, %33 ], [ %.239, %56 ], [ 0, %66 ], [ %.037, %57 ], [ 0, %5 ], [ 0, %17 ]
+  %.1 = phi ptr [ %.0, %14 ], [ %.0, %11 ], [ %.2, %26 ], [ %.2, %36 ], [ %.2, %33 ], [ %.2, %56 ], [ %.2, %66 ], [ %.2, %57 ], [ %.0, %5 ], [ %.0, %17 ]
+  call void @free(ptr noundef %.1) #17
+  ret i32 %.138
 }
 
 ; Function Attrs: nounwind

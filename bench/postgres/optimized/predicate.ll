@@ -769,11 +769,11 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture 
   br label %.thread
 
 .thread:                                          ; preds = %14, %.lr.ph44, %.thread.loopexit.split.loop.exit, %3, %23, %19, %17
-  %.1 = phi i32 [ 0, %19 ], [ 0, %17 ], [ 0, %23 ], [ 0, %3 ], [ %36, %.thread.loopexit.split.loop.exit ], [ %smax, %.lr.ph44 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %17 ], [ 0, %23 ], [ 0, %3 ], [ %36, %.thread.loopexit.split.loop.exit ], [ %smax, %.lr.ph44 ], [ 0, %14 ]
   %37 = load ptr, ptr @MainLWLockArray, align 8
   %38 = getelementptr i8, ptr %37, i64 3584
   tail call void @LWLockRelease(ptr noundef %38) #12
-  ret i32 %.1
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

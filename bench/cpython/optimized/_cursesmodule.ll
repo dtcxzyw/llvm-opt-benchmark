@@ -3995,7 +3995,7 @@ if.end43.sink.split.i:                            ; preds = %cond.false35.i, %if
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end43.sink.split.i, %if.then29.i
-  %rtn.1.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
+  %rtn.2.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
   %16 = load i64, ptr %13, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i52.not.i = icmp eq i64 %17, 0
@@ -4012,7 +4012,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end43.i, %if.end24.i
-  %rtn.2.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.1.i, %if.end43.i ], [ %rtn.1.i, %if.then1.i.i ], [ %rtn.1.i, %if.end.i.i ]
+  %rtn.1.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.2.i, %if.end43.i ], [ %rtn.2.i, %if.then1.i.i ], [ %rtn.2.i, %if.end.i.i ]
   %funcname.0.i = phi ptr [ @.str.162, %if.end24.i ], [ @.str.73, %if.end43.i ], [ @.str.73, %if.then1.i.i ], [ @.str.73, %if.end.i.i ]
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
@@ -4023,7 +4023,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then46.i, %if.end44.i
-  %cmp.not.i.i = icmp eq i32 %rtn.2.i, -1
+  %cmp.not.i.i = icmp eq i32 %rtn.1.i, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_window_addnstr_impl.exit
 
 if.else.i.i:                                      ; preds = %if.end49.i
@@ -4177,7 +4177,7 @@ if.end43.sink.split.i:                            ; preds = %cond.false35.i, %if
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end43.sink.split.i, %if.then29.i
-  %rtn.1.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
+  %rtn.2.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
   %15 = load i64, ptr %12, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i52.not.i = icmp eq i64 %16, 0
@@ -4194,7 +4194,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end43.i, %if.end24.i
-  %rtn.2.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.1.i, %if.end43.i ], [ %rtn.1.i, %if.then1.i.i ], [ %rtn.1.i, %if.end.i.i ]
+  %rtn.1.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.2.i, %if.end43.i ], [ %rtn.2.i, %if.then1.i.i ], [ %rtn.2.i, %if.end.i.i ]
   %funcname.0.i = phi ptr [ @.str.169, %if.end24.i ], [ @.str.74, %if.end43.i ], [ @.str.74, %if.then1.i.i ], [ @.str.74, %if.end.i.i ]
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
@@ -4205,7 +4205,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then46.i, %if.end44.i
-  %cmp.not.i.i = icmp eq i32 %rtn.2.i, -1
+  %cmp.not.i.i = icmp eq i32 %rtn.1.i, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_window_addstr_impl.exit
 
 if.else.i.i:                                      ; preds = %if.end49.i
@@ -5030,14 +5030,14 @@ land.lhs.true.i.i:                                ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end.i
-  %encoding.addr.0.i.i = phi ptr [ null, %if.end.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
+  %encoding.addr.1.i.i = phi ptr [ null, %if.end.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %call10.i.i = call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp11.i.i, label %exit, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp eq ptr %encoding.addr.0.i.i, null
-  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.0.i.i
+  %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
+  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
   %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
   store ptr %call.i, ptr %win15.i.i, align 8
   %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i.i) #9
@@ -6190,7 +6190,7 @@ if.end43.sink.split.i:                            ; preds = %cond.false35.i, %if
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end43.sink.split.i, %if.then29.i
-  %rtn.1.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
+  %rtn.2.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
   %16 = load i64, ptr %13, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i52.not.i = icmp eq i64 %17, 0
@@ -6207,7 +6207,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end43.i, %if.end24.i
-  %rtn.2.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.1.i, %if.end43.i ], [ %rtn.1.i, %if.then1.i.i ], [ %rtn.1.i, %if.end.i.i ]
+  %rtn.1.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.2.i, %if.end43.i ], [ %rtn.2.i, %if.then1.i.i ], [ %rtn.2.i, %if.end.i.i ]
   %funcname.0.i = phi ptr [ @.str.223, %if.end24.i ], [ @.str.111, %if.end43.i ], [ @.str.111, %if.then1.i.i ], [ @.str.111, %if.end.i.i ]
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
@@ -6218,7 +6218,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then46.i, %if.end44.i
-  %cmp.not.i.i = icmp eq i32 %rtn.2.i, -1
+  %cmp.not.i.i = icmp eq i32 %rtn.1.i, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_window_insnstr_impl.exit
 
 if.else.i.i:                                      ; preds = %if.end49.i
@@ -6372,7 +6372,7 @@ if.end43.sink.split.i:                            ; preds = %cond.false35.i, %if
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end43.sink.split.i, %if.then29.i
-  %rtn.1.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
+  %rtn.2.i = phi i32 [ -1, %if.then29.i ], [ %call37.i, %if.end43.sink.split.i ]
   %15 = load i64, ptr %12, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i52.not.i = icmp eq i64 %16, 0
@@ -6389,7 +6389,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end43.i, %if.end24.i
-  %rtn.2.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.1.i, %if.end43.i ], [ %rtn.1.i, %if.then1.i.i ], [ %rtn.1.i, %if.end.i.i ]
+  %rtn.1.i = phi i32 [ %rtn.0.i, %if.end24.i ], [ %rtn.2.i, %if.end43.i ], [ %rtn.2.i, %if.then1.i.i ], [ %rtn.2.i, %if.end.i.i ]
   %funcname.0.i = phi ptr [ @.str.229, %if.end24.i ], [ @.str.112, %if.end43.i ], [ @.str.112, %if.then1.i.i ], [ @.str.112, %if.end.i.i ]
   br i1 %tobool.not.i, label %if.end49.i, label %if.then46.i
 
@@ -6400,7 +6400,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then46.i, %if.end44.i
-  %cmp.not.i.i = icmp eq i32 %rtn.2.i, -1
+  %cmp.not.i.i = icmp eq i32 %rtn.1.i, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_window_insstr_impl.exit
 
 if.else.i.i:                                      ; preds = %if.end49.i
@@ -7081,25 +7081,25 @@ if.end11:                                         ; preds = %if.end6
   br label %while.body
 
 while.body:                                       ; preds = %Py_DECREF.exit, %if.end11
-  %res.0 = phi ptr [ @_Py_NoneStruct, %if.end11 ], [ %call18, %Py_DECREF.exit ]
+  %res.1 = phi ptr [ @_Py_NoneStruct, %if.end11 ], [ %call18, %Py_DECREF.exit ]
   %call13 = call i64 @fread(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %call)
   %cmp14 = icmp slt i64 %call13, 1
   br i1 %cmp14, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %while.body
-  %3 = load i64, ptr %res.0, align 8
+  %3 = load i64, ptr %res.1, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i24.not = icmp eq i64 %4, 0
   br i1 %cmp.i24.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end16
   %dec.i = add i64 %3, -1
-  store i64 %dec.i, ptr %res.0, align 8
+  store i64 %dec.i, ptr %res.1, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %res.0) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %res.1) #9
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end16, %if.then1.i, %if.end.i
@@ -7108,12 +7108,12 @@ Py_DECREF.exit:                                   ; preds = %if.end16, %if.then1
   br i1 %cmp19, label %exit, label %while.body
 
 exit:                                             ; preds = %while.body, %Py_DECREF.exit, %PyCursesCheckERR.exit.thread, %if.end
-  %res.1 = phi ptr [ null, %if.end ], [ null, %PyCursesCheckERR.exit.thread ], [ null, %Py_DECREF.exit ], [ %res.0, %while.body ]
+  %res.0 = phi ptr [ null, %if.end ], [ null, %PyCursesCheckERR.exit.thread ], [ null, %Py_DECREF.exit ], [ %res.1, %while.body ]
   %call22 = call i32 @fclose(ptr noundef nonnull %call)
   br label %return
 
 return:                                           ; preds = %exit, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ %res.1, %exit ]
+  %retval.0 = phi ptr [ %call1, %if.then ], [ %res.0, %exit ]
   ret ptr %retval.0
 }
 
@@ -7581,13 +7581,13 @@ land.lhs.true.i.i:                                ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i.i
-  %encoding.addr.0.i.i = phi ptr [ null, %if.then.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
-  %cmp5.i.i = icmp eq ptr %encoding.addr.0.i.i, null
-  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.0.i.i
+  %encoding.addr.1.i.i = phi ptr [ null, %if.then.i.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
+  %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
+  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i, %if.end11.i
-  %encoding.addr.1.i.i = phi ptr [ %spec.store.select.i.i, %if.end.i.i ], [ %10, %if.end11.i ]
+  %encoding.addr.0.i.i = phi ptr [ %spec.store.select.i.i, %if.end.i.i ], [ %10, %if.end11.i ]
   %call10.i.i = call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp11.i.i, label %exit, label %if.end14.i.i
@@ -7595,7 +7595,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i, %if.end
 if.end14.i.i:                                     ; preds = %if.end9.i.i
   %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
   store ptr %win.0.i, ptr %win15.i.i, align 8
-  %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %encoding.addr.1.i.i) #9
+  %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %encoding.addr.0.i.i) #9
   %encoding17.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
   store ptr %call16.i.i, ptr %encoding17.i.i, align 8
   %cmp19.i.i = icmp eq ptr %call16.i.i, null
@@ -8165,7 +8165,7 @@ if.then32:                                        ; preds = %if.end28
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end28, %if.then32
-  %value.0 = phi i64 [ %conv35, %if.then32 ], [ -1, %if.end28 ]
+  %value.1 = phi i64 [ %conv35, %if.then32 ], [ -1, %if.end28 ]
   %19 = load i64, ptr %call24, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i64.not = icmp eq i64 %20, 0
@@ -8182,7 +8182,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end37, %if.then1.i, %if.end.i
-  %cmp38 = icmp slt i64 %value.0, 0
+  %cmp38 = icmp slt i64 %value.1, 0
   br i1 %cmp38, label %overflow, label %if.end56.thread
 
 if.else43:                                        ; preds = %if.else
@@ -8203,8 +8203,8 @@ if.else51:                                        ; preds = %if.else43
   br label %return
 
 if.end56.thread:                                  ; preds = %if.then, %Py_DECREF.exit, %PyUnicode_READ_CHAR.exit
-  %value.1.ph = phi i64 [ %conv15, %PyUnicode_READ_CHAR.exit ], [ %value.0, %Py_DECREF.exit ], [ %conv, %if.then ]
-  %conv5733 = trunc nsw i64 %value.1.ph to i32
+  %value.0.ph = phi i64 [ %conv15, %PyUnicode_READ_CHAR.exit ], [ %value.1, %Py_DECREF.exit ], [ %conv, %if.then ]
+  %conv5733 = trunc nsw i64 %value.0.ph to i32
   store i32 %conv5733, ptr %ch, align 4
   br label %return
 
@@ -9476,14 +9476,14 @@ land.lhs.true.i:                                  ; preds = %if.end31
   br label %if.end.i24
 
 if.end.i24:                                       ; preds = %land.lhs.true.i, %if.end31
-  %encoding.addr.0.i = phi ptr [ null, %if.end31 ], [ %spec.select.i, %land.lhs.true.i ]
+  %encoding.addr.1.i = phi ptr [ null, %if.end31 ], [ %spec.select.i, %land.lhs.true.i ]
   %call10.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.i, label %error, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end.i24
-  %cmp5.i = icmp eq ptr %encoding.addr.0.i, null
-  %spec.store.select.i = select i1 %cmp5.i, ptr @.str.186, ptr %encoding.addr.0.i
+  %cmp5.i = icmp eq ptr %encoding.addr.1.i, null
+  %spec.store.select.i = select i1 %cmp5.i, ptr @.str.186, ptr %encoding.addr.1.i
   %win15.i = getelementptr inbounds i8, ptr %call10.i, i64 16
   store ptr %call28, ptr %win15.i, align 8
   %call16.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i) #9
@@ -10100,14 +10100,14 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
   br label %if.end.i183.i
 
 if.end.i183.i:                                    ; preds = %land.lhs.true.i.i, %if.then.i
-  %encoding.addr.0.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
+  %encoding.addr.1.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %call10.i.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp11.i.i, label %_curses_initscr_impl.exit, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i183.i
-  %cmp5.i.i = icmp eq ptr %encoding.addr.0.i.i, null
-  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.0.i.i
+  %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
+  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
   %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
   store ptr %1, ptr %win15.i.i, align 8
   %call16.i.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i.i) #9
@@ -11465,9 +11465,9 @@ land.lhs.true.i186.i:                             ; preds = %do.end539.i
   br label %if.end.i189.i
 
 if.end.i189.i:                                    ; preds = %land.lhs.true.i186.i, %do.end539.i
-  %encoding.addr.0.i190.i = phi ptr [ null, %do.end539.i ], [ %spec.select.i188.i, %land.lhs.true.i186.i ]
-  %cmp5.i191.i = icmp eq ptr %encoding.addr.0.i190.i, null
-  %spec.store.select.i192.i = select i1 %cmp5.i191.i, ptr @.str.186, ptr %encoding.addr.0.i190.i
+  %encoding.addr.1.i190.i = phi ptr [ null, %do.end539.i ], [ %spec.select.i188.i, %land.lhs.true.i186.i ]
+  %cmp5.i191.i = icmp eq ptr %encoding.addr.1.i190.i, null
+  %spec.store.select.i192.i = select i1 %cmp5.i191.i, ptr @.str.186, ptr %encoding.addr.1.i190.i
   %call10.i193.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i194.i = icmp ne ptr %call10.i193.i, null
   tail call void @llvm.assume(i1 %cmp11.i194.i)
@@ -12011,14 +12011,14 @@ land.lhs.true.i.i:                                ; preds = %if.end3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end3.i
-  %encoding.addr.0.i.i = phi ptr [ null, %if.end3.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
+  %encoding.addr.1.i.i = phi ptr [ null, %if.end3.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %call10.i.i = call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp11.i.i, label %exit, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp eq ptr %encoding.addr.0.i.i, null
-  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.0.i.i
+  %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
+  %spec.store.select.i.i = select i1 %cmp5.i.i, ptr @.str.186, ptr %encoding.addr.1.i.i
   %win15.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
   store ptr %call.i, ptr %win15.i.i, align 8
   %call16.i.i = call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i.i) #9
@@ -13144,12 +13144,12 @@ if.else34:                                        ; preds = %if.else
   br label %exit
 
 if.end37:                                         ; preds = %if.then16, %if.end29
-  %term.0 = phi ptr [ %call26, %if.end29 ], [ null, %if.then16 ]
+  %term.2 = phi ptr [ %call26, %if.end29 ], [ null, %if.then16 ]
   %tobool38.not = icmp eq i64 %add2933, 1
   br i1 %tobool38.not, label %if.then.i, label %if.end41
 
 if.end41:                                         ; preds = %if.end37, %if.end14
-  %term.1 = phi ptr [ %term.0, %if.end37 ], [ null, %if.end14 ]
+  %term.1 = phi ptr [ %term.2, %if.end37 ], [ null, %if.end14 ]
   %arrayidx42 = getelementptr i8, ptr %cond1034, i64 8
   %9 = load ptr, ptr %arrayidx42, align 8
   %call43 = call i32 @PyLong_AsInt(ptr noundef %9) #9
@@ -13166,7 +13166,7 @@ skip_optional_pos:                                ; preds = %if.end41
   br label %if.end8.i
 
 if.then.i:                                        ; preds = %land.lhs.true45, %if.end37, %if.end
-  %term.2.ph = phi ptr [ null, %if.end ], [ %term.0, %if.end37 ], [ %term.1, %land.lhs.true45 ]
+  %term.0.ph = phi ptr [ null, %if.end ], [ %term.2, %if.end37 ], [ %term.1, %land.lhs.true45 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i)
   %call.i = call ptr @PySys_GetObject(ptr noundef nonnull @.str.438) #9
   %cmp1.i = icmp eq ptr %call.i, null
@@ -13185,13 +13185,13 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp5.i, label %_curses_setupterm_impl.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %skip_optional_pos, %if.end.i
-  %term.238 = phi ptr [ %term.2.ph, %if.end.i ], [ %term.1, %skip_optional_pos ]
+  %term.038 = phi ptr [ %term.0.ph, %if.end.i ], [ %term.1, %skip_optional_pos ]
   %fd.addr.0.i = phi i32 [ %call4.i, %if.end.i ], [ %call43, %skip_optional_pos ]
   %.b.i = load i1, ptr @initialised_setupterm, align 4
   br i1 %.b.i, label %if.end18.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end8.i
-  %call9.i = call i32 @setupterm(ptr noundef %term.238, i32 noundef %fd.addr.0.i, ptr noundef nonnull %err.i) #9
+  %call9.i = call i32 @setupterm(ptr noundef %term.038, i32 noundef %fd.addr.0.i, ptr noundef nonnull %err.i) #9
   %cmp10.i = icmp eq i32 %call9.i, -1
   br i1 %cmp10.i, label %if.then11.i, label %if.end18.i
 
@@ -13983,14 +13983,14 @@ land.lhs.true.i:                                  ; preds = %if.end3
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end3
-  %encoding.addr.0.i = phi ptr [ null, %if.end3 ], [ %spec.select.i, %land.lhs.true.i ]
+  %encoding.addr.1.i = phi ptr [ null, %if.end3 ], [ %spec.select.i, %land.lhs.true.i ]
   %call10.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.i, label %return, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end.i
-  %cmp5.i = icmp eq ptr %encoding.addr.0.i, null
-  %spec.store.select.i = select i1 %cmp5.i, ptr @.str.186, ptr %encoding.addr.0.i
+  %cmp5.i = icmp eq ptr %encoding.addr.1.i, null
+  %spec.store.select.i = select i1 %cmp5.i, ptr @.str.186, ptr %encoding.addr.1.i
   %win15.i = getelementptr inbounds i8, ptr %call10.i, i64 16
   store ptr %call, ptr %win15.i, align 8
   %call16.i = tail call ptr @_PyMem_Strdup(ptr noundef nonnull %spec.store.select.i) #9

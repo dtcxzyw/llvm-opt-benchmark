@@ -2655,7 +2655,7 @@ _ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit321
   br label %508
 
 508:                                              ; preds = %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit321, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit320, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit
-  %.034 = phi i1 [ true, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit ], [ true, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit320 ], [ %or.cond68.not, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit321 ]
+  %.135 = phi i1 [ true, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit ], [ true, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit320 ], [ %or.cond68.not, %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit321 ]
   %.not.i.i.i322 = icmp eq ptr %345, null
   br i1 %.not.i.i.i322, label %_ZN7QStringD2Ev.exit325, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i323
 
@@ -2813,8 +2813,8 @@ _ZN7QStringD2Ev.exit299:                          ; preds = %394, %_ZN7QStringD2
   br label %_ZN7QStringD2Ev.exit255
 
 _ZN5QListI7QStringED2Ev.exit367:                  ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i366, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i355, %_ZN5QListI7QStringED2Ev.exit353, %1
-  %.135 = phi i1 [ false, %1 ], [ %.034, %_ZN5QListI7QStringED2Ev.exit353 ], [ %.034, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i355 ], [ %.034, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i366 ]
-  ret i1 %.135
+  %.034 = phi i1 [ false, %1 ], [ %.135, %_ZN5QListI7QStringED2Ev.exit353 ], [ %.135, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i355 ], [ %.135, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i366 ]
+  ret i1 %.034
 
 _ZN7QStringD2Ev.exit255:                          ; preds = %356, %_ZN7QStringD2Ev.exit251, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i253, %392, %_ZN7QStringD2Ev.exit299
   %.sink374 = phi ptr [ %25, %_ZN7QStringD2Ev.exit299 ], [ %26, %392 ], [ %26, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i253 ], [ %26, %_ZN7QStringD2Ev.exit251 ], [ %26, %356 ]

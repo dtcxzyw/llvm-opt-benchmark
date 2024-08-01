@@ -272,7 +272,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph986:                                        ; preds = %.lr.ph986, %.lr.ph986.preheader
   %indvars.iv1266 = phi i64 [ 2, %.lr.ph986.preheader ], [ %indvars.iv.next1267, %.lr.ph986 ]
-  %.0820984 = phi double [ %132, %.lr.ph986.preheader ], [ %145, %.lr.ph986 ]
+  %.1984 = phi double [ %132, %.lr.ph986.preheader ], [ %145, %.lr.ph986 ]
   %.0847982 = phi double [ %132, %.lr.ph986.preheader ], [ %143, %.lr.ph986 ]
   %136 = getelementptr inbounds double, ptr %38, i64 %indvars.iv1266
   %137 = load double, ptr %136, align 8
@@ -283,8 +283,8 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %141 = fadd double %.0847982, %140
   %142 = fdiv double %.0847982, %141
   %143 = fmul double %138, %142
-  %144 = fcmp olt double %.0820984, %143
-  %145 = select i1 %144, double %.0820984, double %143
+  %144 = fcmp olt double %.1984, %143
+  %145 = select i1 %144, double %.1984, double %143
   %146 = fcmp oeq double %145, 0.000000e+00
   %indvars.iv.next1267 = add nuw nsw i64 %indvars.iv1266, 1
   %exitcond1270.not = icmp eq i64 %indvars.iv.next1267, %wide.trip.count1269
@@ -292,10 +292,10 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %or.cond1428, label %.loopexit913, label %.lr.ph986, !llvm.loop !7
 
 .loopexit913:                                     ; preds = %.lr.ph986, %134, %.thread1338
-  %.1 = phi double [ %132, %.thread1338 ], [ %132, %134 ], [ %145, %.lr.ph986 ]
+  %.0820 = phi double [ %132, %.thread1338 ], [ %132, %134 ], [ %145, %.lr.ph986 ]
   %147 = sitofp i32 %130 to double
   %148 = call double @sqrt(double noundef %147) #7
-  %149 = fdiv double %.1, %148
+  %149 = fdiv double %.0820, %148
   %150 = fmul double %149, 0x3D16A09E667F3BCD
   store double %150, ptr %17, align 8
   %151 = load i32, ptr %1, align 4
@@ -593,7 +593,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1048:                                       ; preds = %.lr.ph1048.preheader, %280
   %indvars.iv1283 = phi i64 [ %172, %.lr.ph1048.preheader ], [ %indvars.iv.next1284, %280 ]
-  %.21046 = phi double [ %273, %.lr.ph1048.preheader ], [ %288, %280 ]
+  %.31046 = phi double [ %273, %.lr.ph1048.preheader ], [ %288, %280 ]
   %.28491044 = phi double [ %273, %.lr.ph1048.preheader ], [ %286, %280 ]
   %275 = getelementptr inbounds double, ptr %39, i64 %indvars.iv1283
   %276 = load double, ptr %275, align 8
@@ -610,8 +610,8 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %284 = fadd double %.28491044, %277
   %285 = fdiv double %.28491044, %284
   %286 = fmul double %285, %283
-  %287 = fcmp olt double %.21046, %286
-  %288 = select i1 %287, double %.21046, double %286
+  %287 = fcmp olt double %.31046, %286
+  %288 = select i1 %287, double %.31046, double %286
   %indvars.iv.next1284 = add nsw i64 %indvars.iv1283, -1
   %.not874.not = icmp sgt i64 %indvars.iv.next1284, %274
   br i1 %.not874.not, label %.lr.ph1048, label %.loopexit, !llvm.loop !10
@@ -621,14 +621,14 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %290 = phi double [ %272, %280 ], [ %239, %256 ], [ %239, %244 ], [ %272, %271 ]
   %291 = phi i1 [ false, %280 ], [ true, %256 ], [ true, %244 ], [ false, %271 ]
   %.1835891 = phi i32 [ %.1835895, %280 ], [ 1, %256 ], [ 1, %244 ], [ %.1835895, %271 ]
-  %.3 = phi double [ %288, %280 ], [ %264, %256 ], [ %248, %244 ], [ %273, %271 ]
+  %.2 = phi double [ %288, %280 ], [ %264, %256 ], [ %248, %244 ], [ %273, %271 ]
   %.neg936 = xor i32 %.0846, -1
   store double 0x3CB0000000000000, ptr %17, align 8
   store double 0x3CACF68D45228FDF, ptr %18, align 8
   %292 = load i32, ptr %1, align 4
   %293 = sitofp i32 %292 to double
   %294 = fmul double %293, 0x3D16A09E667F3BCD
-  %295 = fdiv double %.3, %.2826915
+  %295 = fdiv double %.2, %.2826915
   %296 = fmul double %295, %294
   %297 = fcmp ugt double %296, 0x3CB0000000000000
   br i1 %297, label %298, label %.thread899

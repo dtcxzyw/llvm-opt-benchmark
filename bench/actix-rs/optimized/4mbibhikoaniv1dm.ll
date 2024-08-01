@@ -359,7 +359,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   br i1 %105, label %108, label %106
 
 106:                                              ; preds = %108, %.loopexit, %.outer32._crit_edge
-  %.1 = phi i8 [ %.3, %.loopexit ], [ %.0.ph.lcssa74, %108 ], [ %.0.ph.lcssa74, %.outer32._crit_edge ]
+  %.1 = phi i8 [ %.4, %.loopexit ], [ %.0.ph.lcssa74, %108 ], [ %.0.ph.lcssa74, %.outer32._crit_edge ]
   %107 = trunc nuw i8 %.1 to i1
   %.not101 = icmp eq ptr %1, null
   %or.cond102 = or i1 %.not101, %107
@@ -551,12 +551,12 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   %.163 = phi i8 [ %201, %199 ], [ %.062.ph208, %191 ], [ %.062.ph208, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit126" ]
   %.258 = phi i64 [ %186, %199 ], [ %.157.ph210, %191 ], [ %.157.ph210, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit126" ]
   %.254 = phi i64 [ %192, %199 ], [ %.153.ph211, %191 ], [ %.153.ph211, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit126" ]
-  %.4 = phi i8 [ 1, %199 ], [ %.2.ph212, %191 ], [ %.2.ph212, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit126" ]
+  %.5 = phi i8 [ 1, %199 ], [ %.3.ph212, %191 ], [ %.3.ph212, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit126" ]
   %190 = icmp ugt i64 %161, %.060
   br i1 %190, label %.lr.ph203, label %.loopexit
 
 .lr.ph203:                                        ; preds = %.lr.ph203.lr.ph, %.outer
-  %.2.ph212 = phi i8 [ %.0.ph.lcssa74, %.lr.ph203.lr.ph ], [ %.4, %.outer ]
+  %.3.ph212 = phi i8 [ %.0.ph.lcssa74, %.lr.ph203.lr.ph ], [ %.5, %.outer ]
   %.153.ph211 = phi i64 [ %.052.ph.lcssa79, %.lr.ph203.lr.ph ], [ %.254, %.outer ]
   %.157.ph210 = phi i64 [ %.056.ph.lcssa84, %.lr.ph203.lr.ph ], [ %.258, %.outer ]
   %.061.ph209 = phi i64 [ %151, %.lr.ph203.lr.ph ], [ %161, %.outer ]
@@ -590,7 +590,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   unreachable
 
 .loopexit:                                        ; preds = %194, %.outer, %160, %188, %155
-  %.3 = phi i8 [ %.0.ph.lcssa74, %155 ], [ %.2.ph212, %188 ], [ %.2.ph212, %160 ], [ %.4, %.outer ], [ 1, %194 ]
+  %.4 = phi i8 [ %.0.ph.lcssa74, %155 ], [ %.3.ph212, %188 ], [ %.3.ph212, %160 ], [ %.5, %.outer ], [ 1, %194 ]
   %203 = load i16, ptr %148, align 2, !noundef !4
   %204 = and i16 %203, 255
   %205 = zext nneg i16 %204 to i64
@@ -1349,16 +1349,16 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %93, label %129, label %133, !prof !5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread": ; preds = %.outer, %157
-  %.3.ph.lcssa14 = phi i8 [ %.3.ph23, %157 ], [ %.5, %.outer ]
+  %.2.ph.lcssa14 = phi i8 [ %.2.ph23, %157 ], [ %.5, %.outer ]
   %.not143 = icmp eq ptr %1, null
   br i1 %.not143, label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit, label %94
 
 94:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
-  %95 = trunc nuw i8 %.3.ph.lcssa14 to i1
+  %95 = trunc nuw i8 %.2.ph.lcssa14 to i1
   br i1 %95, label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit, label %100
 
 _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit: ; preds = %122, %118, %112, %100, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread", %94
-  %.4 = phi i8 [ %.3.ph.lcssa14, %94 ], [ %.3.ph.lcssa14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread" ], [ 0, %100 ], [ 0, %112 ], [ 0, %118 ], [ 1, %122 ]
+  %.4 = phi i8 [ %.2.ph.lcssa14, %94 ], [ %.2.ph.lcssa14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread" ], [ 0, %100 ], [ 0, %112 ], [ 0, %118 ], [ 1, %122 ]
   %96 = lshr i64 %7, 3
   %97 = and i64 %96, 3
   %98 = add nuw nsw i64 %29, %97
@@ -1452,14 +1452,14 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
   %.296 = phi i64 [ %.195.ph20, %140 ], [ %143, %152 ], [ %.195.ph20, %146 ]
   %.293 = phi i32 [ %.192.ph21, %140 ], [ %155, %152 ], [ %.192.ph21, %146 ]
   %.290 = phi i64 [ %.189.ph22, %140 ], [ %147, %152 ], [ %.189.ph22, %146 ]
-  %.5 = phi i8 [ %.3.ph23, %140 ], [ 1, %152 ], [ %.3.ph23, %146 ]
+  %.5 = phi i8 [ %.2.ph23, %140 ], [ 1, %152 ], [ %.2.ph23, %146 ]
   %.sroa.01.0.ptr15 = getelementptr inbounds i8, ptr %61, i64 %.sroa.01.0.add
   %145 = icmp eq i64 %.sroa.01.0.add, 16
   br i1 %145, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit", %.outer
   %.sroa.01.0.ptr1524 = phi ptr [ %61, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.ptr15, %.outer ]
-  %.3.ph23 = phi i8 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
+  %.2.ph23 = phi i8 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
   %.189.ph22 = phi i64 [ %.088, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.290, %.outer ]
   %.192.ph21 = phi i32 [ %.091, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.293, %.outer ]
   %.195.ph20 = phi i64 [ %.094, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.296, %.outer ]
@@ -1671,7 +1671,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %91, label %100, label %104, !prof !5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread": ; preds = %.outer, %128
-  %.3.ph.lcssa14 = phi i1 [ %.3.ph23, %128 ], [ %.5, %.outer ]
+  %.2.ph.lcssa14 = phi i1 [ %.2.ph23, %128 ], [ %.5, %.outer ]
   %92 = lshr i64 %6, 3
   %93 = and i64 %92, 1
   %94 = add nuw nsw i64 %27, %93
@@ -1682,7 +1682,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %97 = getelementptr inbounds [0 x i32], ptr %.val, i64 0, i64 %94
   %98 = trunc i64 %6 to i32
   store i32 %98, ptr %97, align 4
-  ret i1 %.3.ph.lcssa14
+  ret i1 %.2.ph.lcssa14
 
 99:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %94, i64 noundef %.val144, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
@@ -1724,14 +1724,14 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %.296 = phi i64 [ %.195.ph20, %111 ], [ %114, %123 ], [ %.195.ph20, %117 ]
   %.293 = phi i32 [ %.192.ph21, %111 ], [ %126, %123 ], [ %.192.ph21, %117 ]
   %.290 = phi i64 [ %.189.ph22, %111 ], [ %118, %123 ], [ %.189.ph22, %117 ]
-  %.5 = phi i1 [ %.3.ph23, %111 ], [ true, %123 ], [ %.3.ph23, %117 ]
+  %.5 = phi i1 [ %.2.ph23, %111 ], [ true, %123 ], [ %.2.ph23, %117 ]
   %.sroa.01.0.ptr15 = getelementptr inbounds i8, ptr %59, i64 %.sroa.01.0.add
   %116 = icmp eq i64 %.sroa.01.0.add, 8
   br i1 %116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit", %.outer
   %.sroa.01.0.ptr1524 = phi ptr [ %59, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.ptr15, %.outer ]
-  %.3.ph23 = phi i1 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
+  %.2.ph23 = phi i1 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
   %.189.ph22 = phi i64 [ %.088, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.290, %.outer ]
   %.192.ph21 = phi i32 [ %.091, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.293, %.outer ]
   %.195.ph20 = phi i64 [ %.094, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.296, %.outer ]
@@ -1943,7 +1943,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %91, label %100, label %104, !prof !5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread": ; preds = %.outer, %128
-  %.3.ph.lcssa14 = phi i1 [ %.3.ph23, %128 ], [ %.5, %.outer ]
+  %.2.ph.lcssa14 = phi i1 [ %.2.ph23, %128 ], [ %.5, %.outer ]
   %92 = lshr i64 %6, 3
   %93 = and i64 %92, 3
   %94 = add nuw nsw i64 %27, %93
@@ -1954,7 +1954,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %97 = getelementptr inbounds [0 x i32], ptr %.val, i64 0, i64 %94
   %98 = trunc i64 %6 to i32
   store i32 %98, ptr %97, align 4
-  ret i1 %.3.ph.lcssa14
+  ret i1 %.2.ph.lcssa14
 
 99:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %94, i64 noundef %.val144, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
@@ -1996,14 +1996,14 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %.296 = phi i64 [ %.195.ph20, %111 ], [ %114, %123 ], [ %.195.ph20, %117 ]
   %.293 = phi i32 [ %.192.ph21, %111 ], [ %126, %123 ], [ %.192.ph21, %117 ]
   %.290 = phi i64 [ %.189.ph22, %111 ], [ %118, %123 ], [ %.189.ph22, %117 ]
-  %.5 = phi i1 [ %.3.ph23, %111 ], [ true, %123 ], [ %.3.ph23, %117 ]
+  %.5 = phi i1 [ %.2.ph23, %111 ], [ true, %123 ], [ %.2.ph23, %117 ]
   %.sroa.01.0.ptr15 = getelementptr inbounds i8, ptr %59, i64 %.sroa.01.0.add
   %116 = icmp eq i64 %.sroa.01.0.add, 16
   br i1 %116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit", %.outer
   %.sroa.01.0.ptr1524 = phi ptr [ %59, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.ptr15, %.outer ]
-  %.3.ph23 = phi i1 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
+  %.2.ph23 = phi i1 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
   %.189.ph22 = phi i64 [ %.088, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.290, %.outer ]
   %.192.ph21 = phi i32 [ %.091, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.293, %.outer ]
   %.195.ph20 = phi i64 [ %.094, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.296, %.outer ]
@@ -7712,11 +7712,11 @@ default.unreachable5084:                          ; preds = %16
 
 148:                                              ; preds = %215, %.lr.ph.i
   %149 = phi i64 [ %.promoted2835, %.lr.ph.i ], [ %216, %215 ]
-  %.0115.i = phi i64 [ %3, %.lr.ph.i ], [ %.1.i, %215 ]
+  %.0115.i = phi i64 [ %3, %.lr.ph.i ], [ %.2.i, %215 ]
   %.sroa.0.0114.i = phi ptr [ %12, %.lr.ph.i ], [ %.sroa.0.1.i, %215 ]
   %.sroa.4.0113.i = phi i64 [ %13, %.lr.ph.i ], [ %.sroa.4.1.i, %215 ]
   %.069112.i = phi i64 [ %133, %.lr.ph.i ], [ %.170.i, %215 ]
-  %.071111.i = phi i64 [ %124, %.lr.ph.i ], [ %.172.i, %215 ]
+  %.071111.i = phi i64 [ %124, %.lr.ph.i ], [ %.273.i, %215 ]
   %.075110.i = phi i64 [ 0, %.lr.ph.i ], [ %.176.i, %215 ]
   %150 = sub i64 %125, %.0115.i
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.0115.i, i64 %123)
@@ -7897,21 +7897,21 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.ex
 215:                                              ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i", %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i, %162, %152
   %216 = phi i64 [ %305, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %149, %162 ], [ %149, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %149, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %149, %152 ]
   %.176.i = phi i64 [ %285, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %.075110.i, %162 ], [ %.075110.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %.075110.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %.075110.i, %152 ]
-  %.172.i = phi i64 [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %163, %162 ], [ %214, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %188, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %153, %152 ]
+  %.273.i = phi i64 [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %163, %162 ], [ %214, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %188, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %153, %152 ]
   %.170.i = phi i64 [ %227, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %.069112.i, %162 ], [ %.069112.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %.069112.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %.069112.i, %152 ]
   %.sroa.4.1.i = phi i64 [ %301, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %.sroa.4.0113.i, %162 ], [ %.sroa.4.0113.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %.sroa.4.0113.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %.sroa.4.0113.i, %152 ]
   %.sroa.0.1.i = phi ptr [ %300, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %.sroa.0.0114.i, %162 ], [ %.sroa.0.0114.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %.sroa.0.0114.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %.sroa.0.0114.i, %152 ]
-  %.1.i = phi i64 [ %388, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %125, %162 ], [ %157, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %189, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %154, %152 ]
+  %.2.i = phi i64 [ %388, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h96e01eb34e3ad1ffE.exit.i" ], [ %125, %162 ], [ %157, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.exit.i ], [ %189, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E.exit.i ], [ %154, %152 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %110), !noalias !1301
-  %217 = add i64 %.1.i, 8
+  %217 = add i64 %.2.i, 8
   %218 = icmp ult i64 %217, %125
   br i1 %218, label %148, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17hf008dd397a10d318E.exit
 
 .preheader.i:                                     ; preds = %148, %283
-  %.273.i = phi i64 [ %279, %283 ], [ %.071111.i, %148 ]
+  %.172.i = phi i64 [ %279, %283 ], [ %.071111.i, %148 ]
   %.066.in.i = phi i64 [ %.066.i, %283 ], [ %150, %148 ]
   %.064.i = phi i32 [ %284, %283 ], [ 0, %148 ]
-  %.2.i = phi i64 [ %221, %283 ], [ %.0115.i, %148 ]
+  %.1.i = phi i64 [ %221, %283 ], [ %.0115.i, %148 ]
   %.066.i = add i64 %.066.in.i, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109), !noalias !1301
   %219 = load i64, ptr %110, align 8, !noalias !1301
@@ -7921,14 +7921,14 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.ex
   store i64 %.065.i, ptr %109, align 8, !noalias !1301
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false), !noalias !1301
   store i64 2020, ptr %142, align 8, !noalias !1301
-  %221 = add i64 %.2.i, 1
+  %221 = add i64 %.1.i, 1
   %spec.store.select1.i = call i64 @llvm.umin.i64(i64 %221, i64 %123)
   %222 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h18d4e38899fee04dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %117, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %., ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %221, i64 noundef %.066.i, i64 noundef %spec.store.select1.i, i64 noundef %138, ptr noalias noundef nonnull align 8 dereferenceable(32) %109)
   br i1 %222, label %274, label %223
 
 223:                                              ; preds = %278, %274, %.preheader.i
-  %.374.i = phi i64 [ %279, %278 ], [ %.273.i, %274 ], [ %.273.i, %.preheader.i ]
-  %.3.i = phi i64 [ %221, %278 ], [ %.2.i, %274 ], [ %.2.i, %.preheader.i ]
+  %.374.i = phi i64 [ %279, %278 ], [ %.172.i, %274 ], [ %.172.i, %.preheader.i ]
+  %.3.i = phi i64 [ %221, %278 ], [ %.1.i, %274 ], [ %.1.i, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109), !noalias !1301
   %224 = load i64, ptr %110, align 8, !noalias !1301, !noundef !4
   %225 = shl i64 %224, 1
@@ -8038,10 +8038,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i: ; preds 
   br i1 %.not89.i, label %223, label %278
 
 278:                                              ; preds = %274
-  %279 = add i64 %.273.i, 1
+  %279 = add i64 %.172.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false), !noalias !1301
   %280 = icmp ult i32 %.064.i, 3
-  %281 = add i64 %.2.i, 9
+  %281 = add i64 %.1.i, 9
   %282 = icmp ult i64 %281, %125
   %or.cond6.i = and i1 %280, %282
   br i1 %or.cond6.i, label %283, label %223
@@ -8316,8 +8316,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i: ;
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17hf008dd397a10d318E.exit: ; preds = %215, %113
   %.075.lcssa.i = phi i64 [ 0, %113 ], [ %.176.i, %215 ]
-  %.071.lcssa.i = phi i64 [ %124, %113 ], [ %.172.i, %215 ]
-  %.0.lcssa.i = phi i64 [ %3, %113 ], [ %.1.i, %215 ]
+  %.071.lcssa.i = phi i64 [ %124, %113 ], [ %.273.i, %215 ]
+  %.0.lcssa.i = phi i64 [ %3, %113 ], [ %.2.i, %215 ]
   %389 = add i64 %.071.lcssa.i, %125
   %390 = sub i64 %389, %.0.lcssa.i
   store i64 %390, ptr %11, align 8, !alias.scope !1290, !noalias !1299
@@ -8380,11 +8380,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17hf008dd397a10d318
 
 425:                                              ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i", %.lr.ph.i37
   %426 = phi i64 [ %.promoted2834, %.lr.ph.i37 ], [ %497, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
-  %.0115.i41 = phi i64 [ %3, %.lr.ph.i37 ], [ %.1.i53, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
+  %.0115.i41 = phi i64 [ %3, %.lr.ph.i37 ], [ %.2.i53, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
   %.sroa.0.0114.i42 = phi ptr [ %12, %.lr.ph.i37 ], [ %.sroa.0.1.i52, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
   %.sroa.4.0113.i43 = phi i64 [ %13, %.lr.ph.i37 ], [ %.sroa.4.1.i51, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
   %.069112.i44 = phi i64 [ %410, %.lr.ph.i37 ], [ %.170.i50, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
-  %.071111.i45 = phi i64 [ %401, %.lr.ph.i37 ], [ %.172.i49, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
+  %.071111.i45 = phi i64 [ %401, %.lr.ph.i37 ], [ %.273.i49, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
   %.075110.i46 = phi i64 [ 0, %.lr.ph.i37 ], [ %.176.i48, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
   %427 = sub i64 %402, %.0115.i41
   %spec.store.select.i47 = tail call i64 @llvm.umin.i64(i64 %.0115.i41, i64 %400)
@@ -8568,21 +8568,21 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.ex
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i": ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i", %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i", %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i, %438, %429
   %497 = phi i64 [ %426, %438 ], [ %426, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %426, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %426, %429 ], [ %586, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %586, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
   %.176.i48 = phi i64 [ %.075110.i46, %438 ], [ %.075110.i46, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %.075110.i46, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %.075110.i46, %429 ], [ %566, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %566, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
-  %.172.i49 = phi i64 [ %439, %438 ], [ %496, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %467, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %430, %429 ], [ 0, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
+  %.273.i49 = phi i64 [ %439, %438 ], [ %496, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %467, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %430, %429 ], [ 0, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
   %.170.i50 = phi i64 [ %.069112.i44, %438 ], [ %.069112.i44, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %.069112.i44, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %.069112.i44, %429 ], [ %508, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %508, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
   %.sroa.4.1.i51 = phi i64 [ %.sroa.4.0113.i43, %438 ], [ %.sroa.4.0113.i43, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %.sroa.4.0113.i43, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %.sroa.4.0113.i43, %429 ], [ %582, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %582, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
   %.sroa.0.1.i52 = phi ptr [ %.sroa.0.0114.i42, %438 ], [ %.sroa.0.0114.i42, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %.sroa.0.0114.i42, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %.sroa.0.0114.i42, %429 ], [ %581, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %581, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
-  %.1.i53 = phi i64 [ %402, %438 ], [ %434, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %468, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %431, %429 ], [ %588, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %588, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
+  %.2.i53 = phi i64 [ %402, %438 ], [ %434, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i ], [ %468, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i ], [ %431, %429 ], [ %588, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17habb98694277811bcE.exit.i.i" ], [ %588, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %99), !noalias !1472
-  %498 = add i64 %.1.i53, 8
+  %498 = add i64 %.2.i53, 8
   %499 = icmp ult i64 %498, %402
   br i1 %499, label %425, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17h21486f25a8f7fe26E.exit
 
 .preheader.i69:                                   ; preds = %425, %564
-  %.273.i70 = phi i64 [ %560, %564 ], [ %.071111.i45, %425 ]
+  %.172.i70 = phi i64 [ %560, %564 ], [ %.071111.i45, %425 ]
   %.066.in.i71 = phi i64 [ %.066.i74, %564 ], [ %427, %425 ]
   %.064.i72 = phi i32 [ %565, %564 ], [ 0, %425 ]
-  %.2.i73 = phi i64 [ %502, %564 ], [ %.0115.i41, %425 ]
+  %.1.i73 = phi i64 [ %502, %564 ], [ %.0115.i41, %425 ]
   %.066.i74 = add i64 %.066.in.i71, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98), !noalias !1472
   %500 = load i64, ptr %99, align 8, !noalias !1472
@@ -8592,20 +8592,20 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.ex
   store i64 %.065.i76, ptr %98, align 8, !noalias !1472
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %418, i8 0, i64 16, i1 false), !noalias !1472
   store i64 2020, ptr %419, align 8, !noalias !1472
-  %502 = add i64 %.2.i73, 1
+  %502 = add i64 %.1.i73, 1
   %spec.store.select1.i77 = tail call i64 @llvm.umin.i64(i64 %502, i64 %400)
   %503 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h5709ef39877f7b90E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %394, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %502, i64 noundef %.066.i74, i64 noundef %spec.store.select1.i77, ptr noalias noundef nonnull align 8 dereferenceable(32) %98)
   br i1 %503, label %555, label %split.i
 
 split.i:                                          ; preds = %555, %.preheader.i69
-  %.pre144.i = tail call i64 @llvm.umin.i64(i64 %.2.i73, i64 %400)
+  %.pre144.i = tail call i64 @llvm.umin.i64(i64 %.1.i73, i64 %400)
   br label %504
 
 504:                                              ; preds = %._crit_edge143.i, %split.i
   %spec.store.select2.pre-phi.i = phi i64 [ %.pre144.i, %split.i ], [ %spec.store.select1.i77, %._crit_edge143.i ]
   %505 = phi i64 [ %500, %split.i ], [ %.pre.i, %._crit_edge143.i ]
-  %.374.i78 = phi i64 [ %.273.i70, %split.i ], [ %560, %._crit_edge143.i ]
-  %.3.i79 = phi i64 [ %.2.i73, %split.i ], [ %502, %._crit_edge143.i ]
+  %.374.i78 = phi i64 [ %.172.i70, %split.i ], [ %560, %._crit_edge143.i ]
+  %.3.i79 = phi i64 [ %.1.i73, %split.i ], [ %502, %._crit_edge143.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %98), !noalias !1472
   %506 = shl i64 %505, 1
   %507 = add i64 %506, %..i32
@@ -8713,10 +8713,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i81: ; pred
   br i1 %.not89.i111, label %split.i, label %559
 
 559:                                              ; preds = %555
-  %560 = add i64 %.273.i70, 1
+  %560 = add i64 %.172.i70, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false), !noalias !1472
   %561 = icmp ult i32 %.064.i72, 3
-  %562 = add i64 %.2.i73, 9
+  %562 = add i64 %.1.i73, 9
   %563 = icmp ult i64 %562, %402
   %or.cond6.i112 = and i1 %561, %563
   br i1 %or.cond6.i112, label %564, label %._crit_edge143.i
@@ -8991,8 +8991,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i84:
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17h21486f25a8f7fe26E.exit: ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i", %393
   %.075.lcssa.i34 = phi i64 [ 0, %393 ], [ %.176.i48, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
-  %.071.lcssa.i35 = phi i64 [ %401, %393 ], [ %.172.i49, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
-  %.0.lcssa.i36 = phi i64 [ %3, %393 ], [ %.1.i53, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
+  %.071.lcssa.i35 = phi i64 [ %401, %393 ], [ %.273.i49, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
+  %.0.lcssa.i36 = phi i64 [ %3, %393 ], [ %.2.i53, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i" ]
   %673 = add i64 %.071.lcssa.i35, %402
   %674 = sub i64 %673, %.0.lcssa.i36
   store i64 %674, ptr %11, align 8, !alias.scope !1460, !noalias !1469
@@ -9057,11 +9057,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h21486f25a8f7fe26
 
 712:                                              ; preds = %785, %.lr.ph.i119
   %713 = phi i64 [ %.promoted2833, %.lr.ph.i119 ], [ %786, %785 ]
-  %.0115.i123 = phi i64 [ %3, %.lr.ph.i119 ], [ %.1.i135, %785 ]
+  %.0115.i123 = phi i64 [ %3, %.lr.ph.i119 ], [ %.2.i135, %785 ]
   %.sroa.0.0114.i124 = phi ptr [ %12, %.lr.ph.i119 ], [ %.sroa.0.1.i134, %785 ]
   %.sroa.4.0113.i125 = phi i64 [ %13, %.lr.ph.i119 ], [ %.sroa.4.1.i133, %785 ]
   %.069112.i126 = phi i64 [ %697, %.lr.ph.i119 ], [ %.170.i132, %785 ]
-  %.071111.i127 = phi i64 [ %688, %.lr.ph.i119 ], [ %.172.i131, %785 ]
+  %.071111.i127 = phi i64 [ %688, %.lr.ph.i119 ], [ %.273.i131, %785 ]
   %.075110.i128 = phi i64 [ 0, %.lr.ph.i119 ], [ %.176.i130, %785 ]
   %714 = sub i64 %689, %.0115.i123
   %spec.store.select.i129 = call i64 @llvm.umin.i64(i64 %.0115.i123, i64 %687)
@@ -9248,21 +9248,21 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.ex
 785:                                              ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i", %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i, %726, %716
   %786 = phi i64 [ %875, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %713, %726 ], [ %713, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %713, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %713, %716 ]
   %.176.i130 = phi i64 [ %855, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %.075110.i128, %726 ], [ %.075110.i128, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %.075110.i128, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %.075110.i128, %716 ]
-  %.172.i131 = phi i64 [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %727, %726 ], [ %784, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %755, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %717, %716 ]
+  %.273.i131 = phi i64 [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %727, %726 ], [ %784, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %755, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %717, %716 ]
   %.170.i132 = phi i64 [ %797, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %.069112.i126, %726 ], [ %.069112.i126, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %.069112.i126, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %.069112.i126, %716 ]
   %.sroa.4.1.i133 = phi i64 [ %871, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %.sroa.4.0113.i125, %726 ], [ %.sroa.4.0113.i125, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %.sroa.4.0113.i125, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %.sroa.4.0113.i125, %716 ]
   %.sroa.0.1.i134 = phi ptr [ %870, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %.sroa.0.0114.i124, %726 ], [ %.sroa.0.0114.i124, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %.sroa.0.0114.i124, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %.sroa.0.0114.i124, %716 ]
-  %.1.i135 = phi i64 [ %967, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %689, %726 ], [ %721, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %756, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %718, %716 ]
+  %.2.i135 = phi i64 [ %967, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i" ], [ %689, %726 ], [ %721, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i ], [ %756, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i ], [ %718, %716 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88), !noalias !1641
-  %787 = add i64 %.1.i135, 8
+  %787 = add i64 %.2.i135, 8
   %788 = icmp ult i64 %787, %689
   br i1 %788, label %712, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17h69c4cc4c30a475c2E.exit
 
 .preheader.i153:                                  ; preds = %712, %853
-  %.273.i154 = phi i64 [ %849, %853 ], [ %.071111.i127, %712 ]
+  %.172.i154 = phi i64 [ %849, %853 ], [ %.071111.i127, %712 ]
   %.066.in.i155 = phi i64 [ %.066.i158, %853 ], [ %714, %712 ]
   %.064.i156 = phi i32 [ %854, %853 ], [ 0, %712 ]
-  %.2.i157 = phi i64 [ %791, %853 ], [ %.0115.i123, %712 ]
+  %.1.i157 = phi i64 [ %791, %853 ], [ %.0115.i123, %712 ]
   %.066.i158 = add i64 %.066.in.i155, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87), !noalias !1641
   %789 = load i64, ptr %88, align 8, !noalias !1641
@@ -9272,14 +9272,14 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.ex
   store i64 %.065.i160, ptr %87, align 8, !noalias !1641
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %705, i8 0, i64 16, i1 false), !noalias !1641
   store i64 2020, ptr %706, align 8, !noalias !1641
-  %791 = add i64 %.2.i157, 1
+  %791 = add i64 %.1.i157, 1
   %spec.store.select1.i161 = call i64 @llvm.umin.i64(i64 %791, i64 %687)
   %792 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h2a6bd6e188c91ee9E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %681, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.22, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %791, i64 noundef %.066.i158, i64 noundef %spec.store.select1.i161, i64 noundef %702, ptr noalias noundef nonnull align 8 dereferenceable(32) %87)
   br i1 %792, label %844, label %793
 
 793:                                              ; preds = %848, %844, %.preheader.i153
-  %.374.i162 = phi i64 [ %849, %848 ], [ %.273.i154, %844 ], [ %.273.i154, %.preheader.i153 ]
-  %.3.i163 = phi i64 [ %791, %848 ], [ %.2.i157, %844 ], [ %.2.i157, %.preheader.i153 ]
+  %.374.i162 = phi i64 [ %849, %848 ], [ %.172.i154, %844 ], [ %.172.i154, %.preheader.i153 ]
+  %.3.i163 = phi i64 [ %791, %848 ], [ %.1.i157, %844 ], [ %.1.i157, %.preheader.i153 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87), !noalias !1641
   %794 = load i64, ptr %88, align 8, !noalias !1641, !noundef !4
   %795 = shl i64 %794, 1
@@ -9389,10 +9389,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i166: ; pre
   br i1 %.not89.i198, label %793, label %848
 
 848:                                              ; preds = %844
-  %849 = add i64 %.273.i154, 1
+  %849 = add i64 %.172.i154, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %87, i64 32, i1 false), !noalias !1641
   %850 = icmp ult i32 %.064.i156, 3
-  %851 = add i64 %.2.i157, 9
+  %851 = add i64 %.1.i157, 9
   %852 = icmp ult i64 %851, %689
   %or.cond6.i199 = and i1 %850, %852
   br i1 %or.cond6.i199, label %853, label %793
@@ -9676,8 +9676,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i169
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17h69c4cc4c30a475c2E.exit: ; preds = %785, %677
   %.075.lcssa.i116 = phi i64 [ 0, %677 ], [ %.176.i130, %785 ]
-  %.071.lcssa.i117 = phi i64 [ %688, %677 ], [ %.172.i131, %785 ]
-  %.0.lcssa.i118 = phi i64 [ %3, %677 ], [ %.1.i135, %785 ]
+  %.071.lcssa.i117 = phi i64 [ %688, %677 ], [ %.273.i131, %785 ]
+  %.0.lcssa.i118 = phi i64 [ %3, %677 ], [ %.2.i135, %785 ]
   %968 = add i64 %.071.lcssa.i117, %689
   %969 = sub i64 %968, %.0.lcssa.i118
   store i64 %969, ptr %11, align 8, !alias.scope !1630, !noalias !1639
@@ -9740,11 +9740,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h69c4cc4c30a475c2
 
 1004:                                             ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i", %.lr.ph.i206
   %1005 = phi i64 [ %.promoted2832, %.lr.ph.i206 ], [ %1076, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
-  %.0115.i212 = phi i64 [ %3, %.lr.ph.i206 ], [ %.1.i224, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
+  %.0115.i212 = phi i64 [ %3, %.lr.ph.i206 ], [ %.2.i224, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
   %.sroa.0.0114.i213 = phi ptr [ %12, %.lr.ph.i206 ], [ %.sroa.0.1.i223, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
   %.sroa.4.0113.i214 = phi i64 [ %13, %.lr.ph.i206 ], [ %.sroa.4.1.i222, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
   %.069112.i215 = phi i64 [ %989, %.lr.ph.i206 ], [ %.170.i221, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
-  %.071111.i216 = phi i64 [ %980, %.lr.ph.i206 ], [ %.172.i220, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
+  %.071111.i216 = phi i64 [ %980, %.lr.ph.i206 ], [ %.273.i220, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
   %.075110.i217 = phi i64 [ 0, %.lr.ph.i206 ], [ %.176.i219, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
   %1006 = sub i64 %981, %.0115.i212
   %spec.store.select.i218 = tail call i64 @llvm.umin.i64(i64 %.0115.i212, i64 %979)
@@ -9928,21 +9928,21 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.ex
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i": ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i", %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i", %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i, %1017, %1008
   %1076 = phi i64 [ %1005, %1017 ], [ %1005, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %1005, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %1005, %1008 ], [ %1165, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1165, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
   %.176.i219 = phi i64 [ %.075110.i217, %1017 ], [ %.075110.i217, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %.075110.i217, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %.075110.i217, %1008 ], [ %1145, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1145, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
-  %.172.i220 = phi i64 [ %1018, %1017 ], [ %1075, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %1046, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %1009, %1008 ], [ 0, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
+  %.273.i220 = phi i64 [ %1018, %1017 ], [ %1075, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %1046, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %1009, %1008 ], [ 0, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ 0, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
   %.170.i221 = phi i64 [ %.069112.i215, %1017 ], [ %.069112.i215, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %.069112.i215, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %.069112.i215, %1008 ], [ %1087, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1087, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
   %.sroa.4.1.i222 = phi i64 [ %.sroa.4.0113.i214, %1017 ], [ %.sroa.4.0113.i214, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %.sroa.4.0113.i214, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %.sroa.4.0113.i214, %1008 ], [ %1161, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1161, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
   %.sroa.0.1.i223 = phi ptr [ %.sroa.0.0114.i213, %1017 ], [ %.sroa.0.0114.i213, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %.sroa.0.0114.i213, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %.sroa.0.0114.i213, %1008 ], [ %1160, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1160, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
-  %.1.i224 = phi i64 [ %981, %1017 ], [ %1013, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %1047, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %1010, %1008 ], [ %1167, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1167, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
+  %.2.i224 = phi i64 [ %981, %1017 ], [ %1013, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i ], [ %1047, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i ], [ %1010, %1008 ], [ %1167, %"_ZN6brotli3enc19backward_references20BasicHasher$LT$T$GT$18StoreRangeOptBasic17hb58b803f021d7d3bE.exit.i.i" ], [ %1167, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77), !noalias !1812
-  %1077 = add i64 %.1.i224, 8
+  %1077 = add i64 %.2.i224, 8
   %1078 = icmp ult i64 %1077, %981
   br i1 %1078, label %1004, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182E.exit
 
 .preheader.i240:                                  ; preds = %1004, %1143
-  %.273.i241 = phi i64 [ %1139, %1143 ], [ %.071111.i216, %1004 ]
+  %.172.i241 = phi i64 [ %1139, %1143 ], [ %.071111.i216, %1004 ]
   %.066.in.i242 = phi i64 [ %.066.i245, %1143 ], [ %1006, %1004 ]
   %.064.i243 = phi i32 [ %1144, %1143 ], [ 0, %1004 ]
-  %.2.i244 = phi i64 [ %1081, %1143 ], [ %.0115.i212, %1004 ]
+  %.1.i244 = phi i64 [ %1081, %1143 ], [ %.0115.i212, %1004 ]
   %.066.i245 = add i64 %.066.in.i242, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76), !noalias !1812
   %1079 = load i64, ptr %77, align 8, !noalias !1812
@@ -9952,20 +9952,20 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.ex
   store i64 %.065.i247, ptr %76, align 8, !noalias !1812
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %997, i8 0, i64 16, i1 false), !noalias !1812
   store i64 2020, ptr %998, align 8, !noalias !1812
-  %1081 = add i64 %.2.i244, 1
+  %1081 = add i64 %.1.i244, 1
   %spec.store.select1.i248 = tail call i64 @llvm.umin.i64(i64 %1081, i64 %979)
   %1082 = call fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17haccd165781ce8098E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %973, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %1081, i64 noundef %.066.i245, i64 noundef %spec.store.select1.i248, ptr noalias noundef nonnull align 8 dereferenceable(32) %76)
   br i1 %1082, label %1134, label %split.i249
 
 split.i249:                                       ; preds = %1134, %.preheader.i240
-  %.pre144.i250 = tail call i64 @llvm.umin.i64(i64 %.2.i244, i64 %979)
+  %.pre144.i250 = tail call i64 @llvm.umin.i64(i64 %.1.i244, i64 %979)
   br label %1083
 
 1083:                                             ; preds = %._crit_edge143.i287, %split.i249
   %spec.store.select2.pre-phi.i251 = phi i64 [ %.pre144.i250, %split.i249 ], [ %spec.store.select1.i248, %._crit_edge143.i287 ]
   %1084 = phi i64 [ %1079, %split.i249 ], [ %.pre.i288, %._crit_edge143.i287 ]
-  %.374.i252 = phi i64 [ %.273.i241, %split.i249 ], [ %1139, %._crit_edge143.i287 ]
-  %.3.i253 = phi i64 [ %.2.i244, %split.i249 ], [ %1081, %._crit_edge143.i287 ]
+  %.374.i252 = phi i64 [ %.172.i241, %split.i249 ], [ %1139, %._crit_edge143.i287 ]
+  %.3.i253 = phi i64 [ %.1.i244, %split.i249 ], [ %1081, %._crit_edge143.i287 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76), !noalias !1812
   %1085 = shl i64 %1084, 1
   %1086 = add i64 %1085, %..i201
@@ -10073,10 +10073,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i255: ; pre
   br i1 %.not89.i285, label %split.i249, label %1138
 
 1138:                                             ; preds = %1134
-  %1139 = add i64 %.273.i241, 1
+  %1139 = add i64 %.172.i241, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false), !noalias !1812
   %1140 = icmp ult i32 %.064.i243, 3
-  %1141 = add i64 %.2.i244, 9
+  %1141 = add i64 %.1.i244, 9
   %1142 = icmp ult i64 %1141, %981
   %or.cond6.i286 = and i1 %1140, %1142
   br i1 %or.cond6.i286, label %1143, label %._crit_edge143.i287
@@ -10351,8 +10351,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i258
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182E.exit: ; preds = %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i", %972
   %.075.lcssa.i203 = phi i64 [ 0, %972 ], [ %.176.i219, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
-  %.071.lcssa.i204 = phi i64 [ %980, %972 ], [ %.172.i220, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
-  %.0.lcssa.i205 = phi i64 [ %3, %972 ], [ %.1.i224, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
+  %.071.lcssa.i204 = phi i64 [ %980, %972 ], [ %.273.i220, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
+  %.0.lcssa.i205 = phi i64 [ %3, %972 ], [ %.2.i224, %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i" ]
   %1252 = add i64 %.071.lcssa.i204, %981
   %1253 = sub i64 %1252, %.0.lcssa.i205
   store i64 %1253, ptr %11, align 8, !alias.scope !1800, !noalias !1809
@@ -10427,11 +10427,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
 
 1299:                                             ; preds = %1713, %.lr.ph.i296
   %1300 = phi i64 [ %.promoted2831, %.lr.ph.i296 ], [ %1714, %1713 ]
-  %.0996.i = phi i64 [ %3, %.lr.ph.i296 ], [ %.1.i306, %1713 ]
+  %.0996.i = phi i64 [ %3, %.lr.ph.i296 ], [ %.2.i306, %1713 ]
   %.sroa.0.0995.i = phi ptr [ %12, %.lr.ph.i296 ], [ %.sroa.0.1.i305, %1713 ]
   %.sroa.4.0994.i = phi i64 [ %13, %.lr.ph.i296 ], [ %.sroa.4.1.i304, %1713 ]
   %.069993.i = phi i64 [ %1277, %.lr.ph.i296 ], [ %.170.i303, %1713 ]
-  %.071992.i = phi i64 [ %1267, %.lr.ph.i296 ], [ %.172.i302, %1713 ]
+  %.071992.i = phi i64 [ %1267, %.lr.ph.i296 ], [ %.273.i302, %1713 ]
   %.075991.i = phi i64 [ 0, %.lr.ph.i296 ], [ %.176.i301, %1713 ]
   %1301 = sub i64 %1268, %.0996.i
   %spec.store.select.i300 = call i64 @llvm.umin.i64(i64 %.0996.i, i64 %1266)
@@ -11103,21 +11103,21 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
 1713:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i", %1314, %1303
   %1714 = phi i64 [ %1804, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %1300, %1314 ], [ %1300, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %1300, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %1300, %1303 ]
   %.176.i301 = phi i64 [ %1783, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %.075991.i, %1314 ], [ %.075991.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %.075991.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %.075991.i, %1303 ]
-  %.172.i302 = phi i64 [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %1315, %1314 ], [ %1712, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %1491, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %1304, %1303 ]
+  %.273.i302 = phi i64 [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %1315, %1314 ], [ %1712, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %1491, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %1304, %1303 ]
   %.170.i303 = phi i64 [ %1725, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %.069993.i, %1314 ], [ %.069993.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %.069993.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %.069993.i, %1303 ]
   %.sroa.4.1.i304 = phi i64 [ %1799, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %.sroa.4.0994.i, %1314 ], [ %.sroa.4.0994.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %.sroa.4.0994.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %.sroa.4.0994.i, %1303 ]
   %.sroa.0.1.i305 = phi ptr [ %1798, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %.sroa.0.0995.i, %1314 ], [ %.sroa.0.0995.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %.sroa.0.0995.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %.sroa.0.0995.i, %1303 ]
-  %.1.i306 = phi i64 [ %2021, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %1268, %1314 ], [ %1308, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %1389, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %1305, %1303 ]
+  %.2.i306 = phi i64 [ %2021, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h1db4bb46355636ceE.exit.i" ], [ %1268, %1314 ], [ %1308, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i" ], [ %1389, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i" ], [ %1305, %1303 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66), !noalias !1983
-  %1715 = add i64 %.1.i306, 4
+  %1715 = add i64 %.2.i306, 4
   %1716 = icmp ult i64 %1715, %1268
   br i1 %1716, label %1299, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebdE.exit
 
 .preheader.i310:                                  ; preds = %1299, %1781
-  %.273.i311 = phi i64 [ %1777, %1781 ], [ %.071992.i, %1299 ]
+  %.172.i311 = phi i64 [ %1777, %1781 ], [ %.071992.i, %1299 ]
   %.066.in.i312 = phi i64 [ %.066.i315, %1781 ], [ %1301, %1299 ]
   %.064.i313 = phi i32 [ %1782, %1781 ], [ 0, %1299 ]
-  %.2.i314 = phi i64 [ %1719, %1781 ], [ %.0996.i, %1299 ]
+  %.1.i314 = phi i64 [ %1719, %1781 ], [ %.0996.i, %1299 ]
   %.066.i315 = add i64 %.066.in.i312, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !1983
   %1717 = load i64, ptr %66, align 8, !noalias !1983
@@ -11127,14 +11127,14 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   store i64 %.065.i317, ptr %65, align 8, !noalias !1983
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1291, i8 0, i64 16, i1 false), !noalias !1983
   store i64 2020, ptr %1292, align 8, !noalias !1983
-  %1719 = add i64 %.2.i314, 1
+  %1719 = add i64 %.1.i314, 1
   %spec.store.select1.i318 = call i64 @llvm.umin.i64(i64 %1719, i64 %1266)
   %1720 = call fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h679fc27c3370c0c0E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1260, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.24, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %1719, i64 noundef %.066.i315, i64 noundef %spec.store.select1.i318, i64 noundef %1282, ptr noalias noundef nonnull align 8 dereferenceable(32) %65)
   br i1 %1720, label %1772, label %1721
 
 1721:                                             ; preds = %1776, %1772, %.preheader.i310
-  %.374.i319 = phi i64 [ %1777, %1776 ], [ %.273.i311, %1772 ], [ %.273.i311, %.preheader.i310 ]
-  %.3.i320 = phi i64 [ %1719, %1776 ], [ %.2.i314, %1772 ], [ %.2.i314, %.preheader.i310 ]
+  %.374.i319 = phi i64 [ %1777, %1776 ], [ %.172.i311, %1772 ], [ %.172.i311, %.preheader.i310 ]
+  %.3.i320 = phi i64 [ %1719, %1776 ], [ %.1.i314, %1772 ], [ %.1.i314, %.preheader.i310 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65), !noalias !1983
   %1722 = load i64, ptr %66, align 8, !noalias !1983, !noundef !4
   %1723 = shl i64 %1722, 1
@@ -11244,10 +11244,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i323: ; pre
   br i1 %.not89.i339, label %1721, label %1776
 
 1776:                                             ; preds = %1772
-  %1777 = add i64 %.273.i311, 1
+  %1777 = add i64 %.172.i311, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false), !noalias !1983
   %1778 = icmp ult i32 %.064.i313, 3
-  %1779 = add i64 %.2.i314, 5
+  %1779 = add i64 %.1.i314, 5
   %1780 = icmp ult i64 %1779, %1268
   %or.cond6.i340 = and i1 %1778, %1780
   br i1 %or.cond6.i340, label %1781, label %1721
@@ -11713,8 +11713,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i326
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebdE.exit: ; preds = %1713, %1256
   %.075.lcssa.i293 = phi i64 [ 0, %1256 ], [ %.176.i301, %1713 ]
-  %.071.lcssa.i294 = phi i64 [ %1267, %1256 ], [ %.172.i302, %1713 ]
-  %.0.lcssa.i295 = phi i64 [ %3, %1256 ], [ %.1.i306, %1713 ]
+  %.071.lcssa.i294 = phi i64 [ %1267, %1256 ], [ %.273.i302, %1713 ]
+  %.0.lcssa.i295 = phi i64 [ %3, %1256 ], [ %.2.i306, %1713 ]
   %2022 = add i64 %.071.lcssa.i294, %1268
   %2023 = sub i64 %2022, %.0.lcssa.i295
   store i64 %2023, ptr %11, align 8, !alias.scope !1970, !noalias !1979
@@ -11785,11 +11785,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
 
 2065:                                             ; preds = %2461, %.lr.ph.i348
   %2066 = phi i64 [ %.promoted2830, %.lr.ph.i348 ], [ %2462, %2461 ]
-  %.0820.i = phi i64 [ %3, %.lr.ph.i348 ], [ %.1.i358, %2461 ]
+  %.0820.i = phi i64 [ %3, %.lr.ph.i348 ], [ %.2.i358, %2461 ]
   %.sroa.0.0819.i = phi ptr [ %12, %.lr.ph.i348 ], [ %.sroa.0.1.i357, %2461 ]
   %.sroa.4.0818.i = phi i64 [ %13, %.lr.ph.i348 ], [ %.sroa.4.1.i356, %2461 ]
   %.069817.i = phi i64 [ %2047, %.lr.ph.i348 ], [ %.170.i355, %2461 ]
-  %.071816.i = phi i64 [ %2037, %.lr.ph.i348 ], [ %.172.i354, %2461 ]
+  %.071816.i = phi i64 [ %2037, %.lr.ph.i348 ], [ %.273.i354, %2461 ]
   %.075815.i = phi i64 [ 0, %.lr.ph.i348 ], [ %.176.i353, %2461 ]
   %2067 = sub i64 %2038, %.0820.i
   %spec.store.select.i352 = call i64 @llvm.umin.i64(i64 %.0820.i, i64 %2036)
@@ -12439,21 +12439,21 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
 2461:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i", %2080, %2069
   %2462 = phi i64 [ %2552, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %2066, %2080 ], [ %2066, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %2066, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %2066, %2069 ]
   %.176.i353 = phi i64 [ %2531, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %.075815.i, %2080 ], [ %.075815.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %.075815.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %.075815.i, %2069 ]
-  %.172.i354 = phi i64 [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %2081, %2080 ], [ %2460, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %2248, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %2070, %2069 ]
+  %.273.i354 = phi i64 [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %2081, %2080 ], [ %2460, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %2248, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %2070, %2069 ]
   %.170.i355 = phi i64 [ %2473, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %.069817.i, %2080 ], [ %.069817.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %.069817.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %.069817.i, %2069 ]
   %.sroa.4.1.i356 = phi i64 [ %2547, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %.sroa.4.0818.i, %2080 ], [ %.sroa.4.0818.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %.sroa.4.0818.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %.sroa.4.0818.i, %2069 ]
   %.sroa.0.1.i357 = phi ptr [ %2546, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %.sroa.0.0819.i, %2080 ], [ %.sroa.0.0819.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %.sroa.0.0819.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %.sroa.0.0819.i, %2069 ]
-  %.1.i358 = phi i64 [ %2724, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %2038, %2080 ], [ %2074, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %2154, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %2071, %2069 ]
+  %.2.i358 = phi i64 [ %2724, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hdbda5fcc957f8f2fE.exit.i" ], [ %2038, %2080 ], [ %2074, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i" ], [ %2154, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i" ], [ %2071, %2069 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56), !noalias !2106
-  %2463 = add i64 %.1.i358, 4
+  %2463 = add i64 %.2.i358, 4
   %2464 = icmp ult i64 %2463, %2038
   br i1 %2464, label %2065, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49E.exit
 
 .preheader.i362:                                  ; preds = %2065, %2529
-  %.273.i363 = phi i64 [ %2525, %2529 ], [ %.071816.i, %2065 ]
+  %.172.i363 = phi i64 [ %2525, %2529 ], [ %.071816.i, %2065 ]
   %.066.in.i364 = phi i64 [ %.066.i367, %2529 ], [ %2067, %2065 ]
   %.064.i365 = phi i32 [ %2530, %2529 ], [ 0, %2065 ]
-  %.2.i366 = phi i64 [ %2467, %2529 ], [ %.0820.i, %2065 ]
+  %.1.i366 = phi i64 [ %2467, %2529 ], [ %.0820.i, %2065 ]
   %.066.i367 = add i64 %.066.in.i364, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55), !noalias !2106
   %2465 = load i64, ptr %56, align 8, !noalias !2106
@@ -12463,14 +12463,14 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   store i64 %.065.i369, ptr %55, align 8, !noalias !2106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2058, i8 0, i64 16, i1 false), !noalias !2106
   store i64 2020, ptr %2059, align 8, !noalias !2106
-  %2467 = add i64 %.2.i366, 1
+  %2467 = add i64 %.1.i366, 1
   %spec.store.select1.i370 = call i64 @llvm.umin.i64(i64 %2467, i64 %2036)
   %2468 = call fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17he43d18469aa321e9E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %2030, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.25, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %2467, i64 noundef %.066.i367, i64 noundef %spec.store.select1.i370, i64 noundef %2052, ptr noalias noundef nonnull align 8 dereferenceable(32) %55)
   br i1 %2468, label %2520, label %2469
 
 2469:                                             ; preds = %2524, %2520, %.preheader.i362
-  %.374.i371 = phi i64 [ %2525, %2524 ], [ %.273.i363, %2520 ], [ %.273.i363, %.preheader.i362 ]
-  %.3.i372 = phi i64 [ %2467, %2524 ], [ %.2.i366, %2520 ], [ %.2.i366, %.preheader.i362 ]
+  %.374.i371 = phi i64 [ %2525, %2524 ], [ %.172.i363, %2520 ], [ %.172.i363, %.preheader.i362 ]
+  %.3.i372 = phi i64 [ %2467, %2524 ], [ %.1.i366, %2520 ], [ %.1.i366, %.preheader.i362 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55), !noalias !2106
   %2470 = load i64, ptr %56, align 8, !noalias !2106, !noundef !4
   %2471 = shl i64 %2470, 1
@@ -12580,10 +12580,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i375: ; pre
   br i1 %.not89.i397, label %2469, label %2524
 
 2524:                                             ; preds = %2520
-  %2525 = add i64 %.273.i363, 1
+  %2525 = add i64 %.172.i363, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false), !noalias !2106
   %2526 = icmp ult i32 %.064.i365, 3
-  %2527 = add i64 %.2.i366, 5
+  %2527 = add i64 %.1.i366, 5
   %2528 = icmp ult i64 %2527, %2038
   %or.cond6.i398 = and i1 %2526, %2528
   br i1 %or.cond6.i398, label %2529, label %2469
@@ -12973,8 +12973,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i378
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49E.exit: ; preds = %2461, %2026
   %.075.lcssa.i345 = phi i64 [ 0, %2026 ], [ %.176.i353, %2461 ]
-  %.071.lcssa.i346 = phi i64 [ %2037, %2026 ], [ %.172.i354, %2461 ]
-  %.0.lcssa.i347 = phi i64 [ %3, %2026 ], [ %.1.i358, %2461 ]
+  %.071.lcssa.i346 = phi i64 [ %2037, %2026 ], [ %.273.i354, %2461 ]
+  %.0.lcssa.i347 = phi i64 [ %3, %2026 ], [ %.2.i358, %2461 ]
   %2725 = add i64 %.071.lcssa.i346, %2038
   %2726 = sub i64 %2725, %.0.lcssa.i347
   store i64 %2726, ptr %11, align 8, !alias.scope !2093, !noalias !2102
@@ -13045,11 +13045,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
 
 2768:                                             ; preds = %3164, %.lr.ph.i406
   %2769 = phi i64 [ %.promoted2829, %.lr.ph.i406 ], [ %3165, %3164 ]
-  %.0820.i410 = phi i64 [ %3, %.lr.ph.i406 ], [ %.1.i422, %3164 ]
+  %.0820.i410 = phi i64 [ %3, %.lr.ph.i406 ], [ %.2.i422, %3164 ]
   %.sroa.0.0819.i411 = phi ptr [ %12, %.lr.ph.i406 ], [ %.sroa.0.1.i421, %3164 ]
   %.sroa.4.0818.i412 = phi i64 [ %13, %.lr.ph.i406 ], [ %.sroa.4.1.i420, %3164 ]
   %.069817.i413 = phi i64 [ %2750, %.lr.ph.i406 ], [ %.170.i419, %3164 ]
-  %.071816.i414 = phi i64 [ %2740, %.lr.ph.i406 ], [ %.172.i418, %3164 ]
+  %.071816.i414 = phi i64 [ %2740, %.lr.ph.i406 ], [ %.273.i418, %3164 ]
   %.075815.i415 = phi i64 [ 0, %.lr.ph.i406 ], [ %.176.i417, %3164 ]
   %2770 = sub i64 %2741, %.0820.i410
   %spec.store.select.i416 = call i64 @llvm.umin.i64(i64 %.0820.i410, i64 %2739)
@@ -13699,21 +13699,21 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
 3164:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i", %2783, %2772
   %3165 = phi i64 [ %3255, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %2769, %2783 ], [ %2769, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %2769, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %2769, %2772 ]
   %.176.i417 = phi i64 [ %3234, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %.075815.i415, %2783 ], [ %.075815.i415, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %.075815.i415, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %.075815.i415, %2772 ]
-  %.172.i418 = phi i64 [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %2784, %2783 ], [ %3163, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %2951, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %2773, %2772 ]
+  %.273.i418 = phi i64 [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %2784, %2783 ], [ %3163, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %2951, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %2773, %2772 ]
   %.170.i419 = phi i64 [ %3176, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %.069817.i413, %2783 ], [ %.069817.i413, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %.069817.i413, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %.069817.i413, %2772 ]
   %.sroa.4.1.i420 = phi i64 [ %3250, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %.sroa.4.0818.i412, %2783 ], [ %.sroa.4.0818.i412, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %.sroa.4.0818.i412, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %.sroa.4.0818.i412, %2772 ]
   %.sroa.0.1.i421 = phi ptr [ %3249, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %.sroa.0.0819.i411, %2783 ], [ %.sroa.0.0819.i411, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %.sroa.0.0819.i411, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %.sroa.0.0819.i411, %2772 ]
-  %.1.i422 = phi i64 [ %3427, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %2741, %2783 ], [ %2777, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %2857, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %2774, %2772 ]
+  %.2.i422 = phi i64 [ %3427, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2e2ba41fad97d040E.exit.i" ], [ %2741, %2783 ], [ %2777, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i" ], [ %2857, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i" ], [ %2774, %2772 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45), !noalias !2218
-  %3166 = add i64 %.1.i422, 4
+  %3166 = add i64 %.2.i422, 4
   %3167 = icmp ult i64 %3166, %2741
   br i1 %3167, label %2768, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7E.exit
 
 .preheader.i426:                                  ; preds = %2768, %3232
-  %.273.i427 = phi i64 [ %3228, %3232 ], [ %.071816.i414, %2768 ]
+  %.172.i427 = phi i64 [ %3228, %3232 ], [ %.071816.i414, %2768 ]
   %.066.in.i428 = phi i64 [ %.066.i431, %3232 ], [ %2770, %2768 ]
   %.064.i429 = phi i32 [ %3233, %3232 ], [ 0, %2768 ]
-  %.2.i430 = phi i64 [ %3170, %3232 ], [ %.0820.i410, %2768 ]
+  %.1.i430 = phi i64 [ %3170, %3232 ], [ %.0820.i410, %2768 ]
   %.066.i431 = add i64 %.066.in.i428, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44), !noalias !2218
   %3168 = load i64, ptr %45, align 8, !noalias !2218
@@ -13723,14 +13723,14 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   store i64 %.065.i433, ptr %44, align 8, !noalias !2218
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2761, i8 0, i64 16, i1 false), !noalias !2218
   store i64 2020, ptr %2762, align 8, !noalias !2218
-  %3170 = add i64 %.2.i430, 1
+  %3170 = add i64 %.1.i430, 1
   %spec.store.select1.i434 = call i64 @llvm.umin.i64(i64 %3170, i64 %2739)
   %3171 = call fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h0afa1fb7cbfd2ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %2733, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.26, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %3170, i64 noundef %.066.i431, i64 noundef %spec.store.select1.i434, i64 noundef %2755, ptr noalias noundef nonnull align 8 dereferenceable(32) %44)
   br i1 %3171, label %3223, label %3172
 
 3172:                                             ; preds = %3227, %3223, %.preheader.i426
-  %.374.i435 = phi i64 [ %3228, %3227 ], [ %.273.i427, %3223 ], [ %.273.i427, %.preheader.i426 ]
-  %.3.i436 = phi i64 [ %3170, %3227 ], [ %.2.i430, %3223 ], [ %.2.i430, %.preheader.i426 ]
+  %.374.i435 = phi i64 [ %3228, %3227 ], [ %.172.i427, %3223 ], [ %.172.i427, %.preheader.i426 ]
+  %.3.i436 = phi i64 [ %3170, %3227 ], [ %.1.i430, %3223 ], [ %.1.i430, %.preheader.i426 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44), !noalias !2218
   %3173 = load i64, ptr %45, align 8, !noalias !2218, !noundef !4
   %3174 = shl i64 %3173, 1
@@ -13840,10 +13840,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i439: ; pre
   br i1 %.not89.i467, label %3172, label %3227
 
 3227:                                             ; preds = %3223
-  %3228 = add i64 %.273.i427, 1
+  %3228 = add i64 %.172.i427, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false), !noalias !2218
   %3229 = icmp ult i32 %.064.i429, 3
-  %3230 = add i64 %.2.i430, 5
+  %3230 = add i64 %.1.i430, 5
   %3231 = icmp ult i64 %3230, %2741
   %or.cond6.i468 = and i1 %3229, %3231
   br i1 %or.cond6.i468, label %3232, label %3172
@@ -14233,8 +14233,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i442
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7E.exit: ; preds = %3164, %2729
   %.075.lcssa.i403 = phi i64 [ 0, %2729 ], [ %.176.i417, %3164 ]
-  %.071.lcssa.i404 = phi i64 [ %2740, %2729 ], [ %.172.i418, %3164 ]
-  %.0.lcssa.i405 = phi i64 [ %3, %2729 ], [ %.1.i422, %3164 ]
+  %.071.lcssa.i404 = phi i64 [ %2740, %2729 ], [ %.273.i418, %3164 ]
+  %.0.lcssa.i405 = phi i64 [ %3, %2729 ], [ %.2.i422, %3164 ]
   %3428 = add i64 %.071.lcssa.i404, %2741
   %3429 = sub i64 %3428, %.0.lcssa.i405
   store i64 %3429, ptr %11, align 8, !alias.scope !2205, !noalias !2214
@@ -14308,11 +14308,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
 
 3474:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i", %.lr.ph.i476
   %3475 = phi i64 [ %.promoted2828, %.lr.ph.i476 ], [ %3574, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
-  %.097.i = phi i64 [ %3, %.lr.ph.i476 ], [ %.1.i486, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
+  %.097.i = phi i64 [ %3, %.lr.ph.i476 ], [ %.2.i486, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
   %.sroa.0.096.i = phi ptr [ %12, %.lr.ph.i476 ], [ %.sroa.0.1.i485, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
   %.sroa.4.095.i = phi i64 [ %13, %.lr.ph.i476 ], [ %.sroa.4.1.i484, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
   %.06994.i = phi i64 [ %3453, %.lr.ph.i476 ], [ %.170.i483, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
-  %.07193.i = phi i64 [ %3443, %.lr.ph.i476 ], [ %.172.i482, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
+  %.07193.i = phi i64 [ %3443, %.lr.ph.i476 ], [ %.273.i482, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
   %.07592.i = phi i64 [ 0, %.lr.ph.i476 ], [ %.176.i481, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
   %3476 = sub i64 %3444, %.097.i
   %spec.store.select.i480 = call i64 @llvm.umin.i64(i64 %.097.i, i64 %3442)
@@ -14535,21 +14535,21 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i": ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i", %3657, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i", %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i", %3493, %3478
   %3574 = phi i64 [ %3475, %3493 ], [ %3475, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %3475, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %3475, %3478 ], [ %3664, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3664, %3657 ]
   %.176.i481 = phi i64 [ %.07592.i, %3493 ], [ %.07592.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %.07592.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %.07592.i, %3478 ], [ %3643, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3643, %3657 ]
-  %.172.i482 = phi i64 [ %3494, %3493 ], [ %3573, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %3533, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %3479, %3478 ], [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ 0, %3657 ]
+  %.273.i482 = phi i64 [ %3494, %3493 ], [ %3573, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %3533, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %3479, %3478 ], [ 0, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ 0, %3657 ]
   %.170.i483 = phi i64 [ %.06994.i, %3493 ], [ %.06994.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %.06994.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %.06994.i, %3478 ], [ %3585, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3585, %3657 ]
   %.sroa.4.1.i484 = phi i64 [ %.sroa.4.095.i, %3493 ], [ %.sroa.4.095.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %.sroa.4.095.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %.sroa.4.095.i, %3478 ], [ %3659, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3659, %3657 ]
   %.sroa.0.1.i485 = phi ptr [ %.sroa.0.096.i, %3493 ], [ %.sroa.0.096.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %.sroa.0.096.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %.sroa.0.096.i, %3478 ], [ %3658, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3658, %3657 ]
-  %.1.i486 = phi i64 [ %3444, %3493 ], [ %3483, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %3534, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %3480, %3478 ], [ %.pre135.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3667, %3657 ]
+  %.2.i486 = phi i64 [ %3444, %3493 ], [ %3483, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf659cd5cf3a72c5cE.exit.i" ], [ %3534, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h7f98d9d8c75c5203E.exit.i" ], [ %3480, %3478 ], [ %.pre135.i, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.loopexit.i" ], [ %3667, %3657 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !2330
-  %3575 = add i64 %.1.i486, 8
+  %3575 = add i64 %.2.i486, 8
   %3576 = icmp ult i64 %3575, %3444
   br i1 %3576, label %3474, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17hc6b333d496a11798E.exit
 
 .preheader.i495:                                  ; preds = %3474, %3641
-  %.273.i496 = phi i64 [ %3637, %3641 ], [ %.07193.i, %3474 ]
+  %.172.i496 = phi i64 [ %3637, %3641 ], [ %.07193.i, %3474 ]
   %.066.in.i497 = phi i64 [ %.066.i500, %3641 ], [ %3476, %3474 ]
   %.064.i498 = phi i32 [ %3642, %3641 ], [ 0, %3474 ]
-  %.2.i499 = phi i64 [ %3579, %3641 ], [ %.097.i, %3474 ]
+  %.1.i499 = phi i64 [ %3579, %3641 ], [ %.097.i, %3474 ]
   %.066.i500 = add i64 %.066.in.i497, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !2330
   %3577 = load i64, ptr %34, align 8, !noalias !2330
@@ -14559,14 +14559,14 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
   store i64 %.065.i502, ptr %33, align 8, !noalias !2330
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3467, i8 0, i64 16, i1 false), !noalias !2330
   store i64 2020, ptr %3468, align 8, !noalias !2330
-  %3579 = add i64 %.2.i499, 1
+  %3579 = add i64 %.1.i499, 1
   %spec.store.select1.i503 = call i64 @llvm.umin.i64(i64 %3579, i64 %3442)
   %3580 = call fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h370ebb74519927a3E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %3436, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.27, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %3579, i64 noundef %.066.i500, i64 noundef %spec.store.select1.i503, i64 noundef %3458, ptr noalias noundef nonnull align 8 dereferenceable(32) %33)
   br i1 %3580, label %3632, label %3581
 
 3581:                                             ; preds = %3636, %3632, %.preheader.i495
-  %.374.i504 = phi i64 [ %3637, %3636 ], [ %.273.i496, %3632 ], [ %.273.i496, %.preheader.i495 ]
-  %.3.i505 = phi i64 [ %3579, %3636 ], [ %.2.i499, %3632 ], [ %.2.i499, %.preheader.i495 ]
+  %.374.i504 = phi i64 [ %3637, %3636 ], [ %.172.i496, %3632 ], [ %.172.i496, %.preheader.i495 ]
+  %.3.i505 = phi i64 [ %3579, %3636 ], [ %.1.i499, %3632 ], [ %.1.i499, %.preheader.i495 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33), !noalias !2330
   %3582 = load i64, ptr %34, align 8, !noalias !2330, !noundef !4
   %3583 = shl i64 %3582, 1
@@ -14676,10 +14676,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i508: ; pre
   br i1 %.not89.i521, label %3581, label %3636
 
 3636:                                             ; preds = %3632
-  %3637 = add i64 %.273.i496, 1
+  %3637 = add i64 %.172.i496, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !noalias !2330
   %3638 = icmp ult i32 %.064.i498, 3
-  %3639 = add i64 %.2.i499, 9
+  %3639 = add i64 %.1.i499, 9
   %3640 = icmp ult i64 %3639, %3444
   %or.cond6.i522 = and i1 %3638, %3640
   br i1 %or.cond6.i522, label %3641, label %3581
@@ -14856,8 +14856,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i511
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17hc6b333d496a11798E.exit: ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i", %3432
   %.075.lcssa.i473 = phi i64 [ 0, %3432 ], [ %.176.i481, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
-  %.071.lcssa.i474 = phi i64 [ %3443, %3432 ], [ %.172.i482, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
-  %.0.lcssa.i475 = phi i64 [ %3, %3432 ], [ %.1.i486, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
+  %.071.lcssa.i474 = phi i64 [ %3443, %3432 ], [ %.273.i482, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
+  %.0.lcssa.i475 = phi i64 [ %3, %3432 ], [ %.2.i486, %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h2522cb9a3832b484E.exit.i" ]
   %3711 = add i64 %.071.lcssa.i474, %3444
   %3712 = sub i64 %3711, %.0.lcssa.i475
   store i64 %3712, ptr %11, align 8, !alias.scope !2317, !noalias !2326
@@ -14926,11 +14926,11 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17hc6b333d496a11798
 
 3753:                                             ; preds = %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i", %.lr.ph.i529
   %3754 = phi i64 [ %.promoted, %.lr.ph.i529 ], [ %3845, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
-  %.0100.i = phi i64 [ %3, %.lr.ph.i529 ], [ %.1.i539, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
+  %.0100.i = phi i64 [ %3, %.lr.ph.i529 ], [ %.2.i539, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
   %.sroa.0.099.i = phi ptr [ %12, %.lr.ph.i529 ], [ %.sroa.0.1.i538, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
   %.sroa.4.098.i = phi i64 [ %13, %.lr.ph.i529 ], [ %.sroa.4.1.i537, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
   %.06997.i = phi i64 [ %3735, %.lr.ph.i529 ], [ %.170.i536, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
-  %.07196.i = phi i64 [ %3726, %.lr.ph.i529 ], [ %.172.i535, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
+  %.07196.i = phi i64 [ %3726, %.lr.ph.i529 ], [ %.273.i535, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
   %.07595.i = phi i64 [ 0, %.lr.ph.i529 ], [ %.176.i534, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
   %3755 = sub i64 %3727, %.0100.i
   %spec.store.select.i533 = call i64 @llvm.umin.i64(i64 %.0100.i, i64 %3725)
@@ -15138,21 +15138,21 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.ex
 "_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i": ; preds = %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i", %3928, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i, %3770, %3757
   %3845 = phi i64 [ %3754, %3770 ], [ %3754, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %3754, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %3754, %3757 ], [ %3935, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3935, %3928 ]
   %.176.i534 = phi i64 [ %.07595.i, %3770 ], [ %.07595.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %.07595.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %.07595.i, %3757 ], [ %3914, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3914, %3928 ]
-  %.172.i535 = phi i64 [ %3771, %3770 ], [ %3844, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %3807, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %3758, %3757 ], [ 0, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ 0, %3928 ]
+  %.273.i535 = phi i64 [ %3771, %3770 ], [ %3844, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %3807, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %3758, %3757 ], [ 0, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ 0, %3928 ]
   %.170.i536 = phi i64 [ %.06997.i, %3770 ], [ %.06997.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %.06997.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %.06997.i, %3757 ], [ %3856, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3856, %3928 ]
   %.sroa.4.1.i537 = phi i64 [ %.sroa.4.098.i, %3770 ], [ %.sroa.4.098.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %.sroa.4.098.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %.sroa.4.098.i, %3757 ], [ %3930, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3930, %3928 ]
   %.sroa.0.1.i538 = phi ptr [ %.sroa.0.099.i, %3770 ], [ %.sroa.0.099.i, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %.sroa.0.099.i, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %.sroa.0.099.i, %3757 ], [ %3929, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3929, %3928 ]
-  %.1.i539 = phi i64 [ %3727, %3770 ], [ %3762, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %3808, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %3759, %3757 ], [ %.pre141.i, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3938, %3928 ]
+  %.2.i539 = phi i64 [ %3727, %3770 ], [ %3762, %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.exit.i ], [ %3808, %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE.exit.i ], [ %3759, %3757 ], [ %.pre141.i, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.loopexit.i" ], [ %3938, %3928 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !2448
-  %3846 = add i64 %.1.i539, 4
+  %3846 = add i64 %.2.i539, 4
   %3847 = icmp ult i64 %3846, %3727
   br i1 %3847, label %3753, label %_ZN6brotli3enc19backward_references24CreateBackwardReferences17ha3478a2bab4f399dE.exit
 
 .preheader.i551:                                  ; preds = %3753, %3912
-  %.273.i552 = phi i64 [ %3908, %3912 ], [ %.07196.i, %3753 ]
+  %.172.i552 = phi i64 [ %3908, %3912 ], [ %.07196.i, %3753 ]
   %.066.in.i553 = phi i64 [ %.066.i556, %3912 ], [ %3755, %3753 ]
   %.064.i554 = phi i32 [ %3913, %3912 ], [ 0, %3753 ]
-  %.2.i555 = phi i64 [ %3850, %3912 ], [ %.0100.i, %3753 ]
+  %.1.i555 = phi i64 [ %3850, %3912 ], [ %.0100.i, %3753 ]
   %.066.i556 = add i64 %.066.in.i553, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !2448
   %3848 = load i64, ptr %25, align 8, !noalias !2448
@@ -15162,14 +15162,14 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.ex
   store i64 %.065.i558, ptr %24, align 8, !noalias !2448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3746, i8 0, i64 16, i1 false), !noalias !2448
   store i64 2020, ptr %3747, align 8, !noalias !2448
-  %3850 = add i64 %.2.i555, 1
+  %3850 = add i64 %.1.i555, 1
   %spec.store.select1.i559 = call i64 @llvm.umin.i64(i64 %3850, i64 %3725)
   %3851 = call fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h8e1e0555a90c5cf6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3719, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %.28, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 %9, i64 noundef %10, i64 noundef %3850, i64 noundef %.066.i556, i64 noundef %spec.store.select1.i559, i64 noundef %3740, ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
   br i1 %3851, label %3903, label %3852
 
 3852:                                             ; preds = %3907, %3903, %.preheader.i551
-  %.374.i560 = phi i64 [ %3908, %3907 ], [ %.273.i552, %3903 ], [ %.273.i552, %.preheader.i551 ]
-  %.3.i561 = phi i64 [ %3850, %3907 ], [ %.2.i555, %3903 ], [ %.2.i555, %.preheader.i551 ]
+  %.374.i560 = phi i64 [ %3908, %3907 ], [ %.172.i552, %3903 ], [ %.172.i552, %.preheader.i551 ]
+  %.3.i561 = phi i64 [ %3850, %3907 ], [ %.1.i555, %3903 ], [ %.1.i555, %.preheader.i551 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !2448
   %3853 = load i64, ptr %25, align 8, !noalias !2448, !noundef !4
   %3854 = shl i64 %3853, 1
@@ -15279,10 +15279,10 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.i564: ; pre
   br i1 %.not89.i578, label %3852, label %3907
 
 3907:                                             ; preds = %3903
-  %3908 = add i64 %.273.i552, 1
+  %3908 = add i64 %.172.i552, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !2448
   %3909 = icmp ult i32 %.064.i554, 3
-  %3910 = add i64 %.2.i555, 5
+  %3910 = add i64 %.1.i555, 5
   %3911 = icmp ult i64 %3910, %3727
   %or.cond6.i579 = and i1 %3909, %3911
   br i1 %or.cond6.i579, label %3912, label %3852
@@ -15447,8 +15447,8 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i567
 
 _ZN6brotli3enc19backward_references24CreateBackwardReferences17ha3478a2bab4f399dE.exit: ; preds = %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i", %3715
   %.075.lcssa.i526 = phi i64 [ 0, %3715 ], [ %.176.i534, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
-  %.071.lcssa.i527 = phi i64 [ %3726, %3715 ], [ %.172.i535, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
-  %.0.lcssa.i528 = phi i64 [ %3, %3715 ], [ %.1.i539, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
+  %.071.lcssa.i527 = phi i64 [ %3726, %3715 ], [ %.273.i535, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
+  %.0.lcssa.i528 = phi i64 [ %3, %3715 ], [ %.2.i539, %"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hf86dad08c50e4598E.exit.i" ]
   %3977 = add i64 %.071.lcssa.i527, %3727
   %3978 = sub i64 %3977, %.0.lcssa.i528
   store i64 %3978, ptr %11, align 8, !alias.scope !2436, !noalias !2445

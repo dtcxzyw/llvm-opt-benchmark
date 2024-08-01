@@ -201,15 +201,15 @@ define internal i32 @dissect_jpeg(ptr noundef %0, ptr nocapture noundef readonly
   br label %74
 
 74:                                               ; preds = %70, %54
-  %.1 = phi i32 [ %73, %70 ], [ %68, %54 ]
+  %.2 = phi i32 [ %73, %70 ], [ %68, %54 ]
   %75 = add nuw nsw i32 %69, 4
   tail call void @proto_item_set_len(ptr noundef %56, i32 noundef %75) #2
   br label %76
 
 76:                                               ; preds = %74, %51
-  %.2 = phi i32 [ %.1, %74 ], [ %.0, %51 ]
+  %.1 = phi i32 [ %.2, %74 ], [ %.0, %51 ]
   %77 = load i32, ptr @hf_rtp_jpeg_payload, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %77, ptr noundef %0, i32 noundef %.2, i32 noundef -1, i32 noundef 0) #2
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %77, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #2
   br label %79
 
 79:                                               ; preds = %76, %4

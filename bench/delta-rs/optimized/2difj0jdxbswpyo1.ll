@@ -3403,8 +3403,8 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br i1 %30, label %32, label %38, !prof !333
 
 31:                                               ; preds = %42, %25
-  %.sroa.4.0 = phi ptr [ %43, %42 ], [ %26, %25 ]
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %21, i64 64
+  %.sroa.4.1 = phi ptr [ %43, %42 ], [ %26, %25 ]
+  %.sroa.0.1 = getelementptr inbounds i8, ptr %21, i64 64
   br label %44
 
 32:                                               ; preds = %27
@@ -3434,10 +3434,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br label %31
 
 44:                                               ; preds = %4, %31
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %31 ], [ undef, %4 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %31 ], [ null, %4 ]
-  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %31 ], [ undef, %4 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %31 ], [ null, %4 ]
+  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %46
 }
 

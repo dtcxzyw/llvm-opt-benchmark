@@ -1046,8 +1046,8 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.
 
 .body30:                                          ; preds = %250, %150, %148, %138, %.body.i, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.exit53
   %.pn = phi { ptr, i32 } [ %eh.lpad-body37, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.exit53 ], [ %251, %250 ], [ %eh.lpad-body.i, %.body.i ], [ %139, %138 ], [ %.pn.pn20.i, %150 ], [ %149, %148 ]
-  %.013 = extractvalue { ptr, i32 } %.pn, 0
-  %.016 = extractvalue { ptr, i32 } %.pn, 1
+  %.3 = extractvalue { ptr, i32 } %.pn, 0
+  %.319 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZN3gmx21IFileOutputRedirectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #19
   br label %354
 
@@ -1183,8 +1183,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body56:                                          ; preds = %312, %288, %314
   %.pn27 = phi { ptr, i32 } [ %315, %314 ], [ %313, %312 ], [ %289, %288 ]
-  %.114 = extractvalue { ptr, i32 } %.pn27, 0
-  %.117 = extractvalue { ptr, i32 } %.pn27, 1
+  %.7 = extractvalue { ptr, i32 } %.pn27, 0
+  %.723 = extractvalue { ptr, i32 } %.pn27, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #19
   br label %350
 
@@ -1251,64 +1251,64 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %347 unwind label %343
 
 347:                                              ; preds = %._crit_edge, %335
-  %.0 = phi i32 [ 2, %335 ], [ 0, %._crit_edge ]
+  %.2 = phi i32 [ 2, %335 ], [ 0, %._crit_edge ]
   call void @_ZN3gmx11HelpManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #19
   br label %349
 
 348:                                              ; preds = %343, %329
-  %.218 = phi i32 [ %346, %343 ], [ %332, %329 ]
-  %.215 = phi ptr [ %345, %343 ], [ %331, %329 ]
+  %.824 = phi i32 [ %346, %343 ], [ %332, %329 ]
+  %.8 = phi ptr [ %345, %343 ], [ %331, %329 ]
   call void @_ZN3gmx11HelpManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #19
   br label %350
 
 349:                                              ; preds = %293, %347
-  %.1 = phi i32 [ %.0, %347 ], [ 0, %293 ]
+  %.1 = phi i32 [ %.2, %347 ], [ 0, %293 ]
   call void @_ZN3gmx22CommandLineHelpContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #19
   call void @_ZN3gmx9HelpLinksD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
   call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #19
   br label %353
 
 350:                                              ; preds = %348, %.body56, %308
-  %.319 = phi i32 [ %311, %308 ], [ %.117, %.body56 ], [ %.218, %348 ]
-  %.3 = phi ptr [ %310, %308 ], [ %.114, %.body56 ], [ %.215, %348 ]
+  %.622 = phi i32 [ %311, %308 ], [ %.723, %.body56 ], [ %.824, %348 ]
+  %.6 = phi ptr [ %310, %308 ], [ %.7, %.body56 ], [ %.8, %348 ]
   call void @_ZN3gmx22CommandLineHelpContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #19
   br label %351
 
 351:                                              ; preds = %350, %304
-  %.420 = phi i32 [ %.319, %350 ], [ %307, %304 ]
-  %.4 = phi ptr [ %.3, %350 ], [ %306, %304 ]
+  %.521 = phi i32 [ %.622, %350 ], [ %307, %304 ]
+  %.5 = phi ptr [ %.6, %350 ], [ %306, %304 ]
   call void @_ZN3gmx9HelpLinksD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #19
   br label %352
 
 352:                                              ; preds = %351, %300
-  %.521 = phi i32 [ %.420, %351 ], [ %303, %300 ]
-  %.5 = phi ptr [ %.4, %351 ], [ %302, %300 ]
+  %.420 = phi i32 [ %.521, %351 ], [ %303, %300 ]
+  %.4 = phi ptr [ %.5, %351 ], [ %302, %300 ]
   call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #19
   br label %354
 
 353:                                              ; preds = %349, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.exit
-  %.2 = phi i32 [ %.1, %349 ], [ 0, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.exit ]
+  %.0 = phi i32 [ %.1, %349 ], [ 0, %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_111IHelpExportESt14default_deleteIS2_EED2Ev.exit ]
   call void @_ZN3gmx7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  ret i32 %.2
+  ret i32 %.0
 
 354:                                              ; preds = %352, %.body30, %246, %242, %238
-  %.622 = phi i32 [ %.521, %352 ], [ %241, %238 ], [ %.016, %.body30 ], [ %249, %246 ], [ %245, %242 ]
-  %.6 = phi ptr [ %.5, %352 ], [ %240, %238 ], [ %.013, %.body30 ], [ %248, %246 ], [ %244, %242 ]
+  %.218 = phi i32 [ %.420, %352 ], [ %241, %238 ], [ %.319, %.body30 ], [ %249, %246 ], [ %245, %242 ]
+  %.215 = phi ptr [ %.4, %352 ], [ %240, %238 ], [ %.3, %.body30 ], [ %248, %246 ], [ %244, %242 ]
   call void @_ZN3gmx7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #19
   br label %355
 
 355:                                              ; preds = %354, %234
-  %.723 = phi i32 [ %.622, %354 ], [ %237, %234 ]
-  %.7 = phi ptr [ %.6, %354 ], [ %236, %234 ]
+  %.117 = phi i32 [ %.218, %354 ], [ %237, %234 ]
+  %.114 = phi ptr [ %.215, %354 ], [ %236, %234 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
   br label %356
 
 356:                                              ; preds = %355, %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit50
-  %.824 = phi i32 [ %.723, %355 ], [ %233, %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit50 ]
-  %.8 = phi ptr [ %.7, %355 ], [ %232, %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit50 ]
-  %357 = insertvalue { ptr, i32 } poison, ptr %.8, 0
-  %358 = insertvalue { ptr, i32 } %357, i32 %.824, 1
+  %.016 = phi i32 [ %.117, %355 ], [ %233, %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit50 ]
+  %.013 = phi ptr [ %.114, %355 ], [ %232, %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit50 ]
+  %357 = insertvalue { ptr, i32 } poison, ptr %.013, 0
+  %358 = insertvalue { ptr, i32 } %357, i32 %.016, 1
   resume { ptr, i32 } %358
 }
 

@@ -1306,13 +1306,13 @@ if.then79:                                        ; preds = %land.lhs.true76.cri
 
 end:                                              ; preds = %land.lhs.true68, %if.end66, %land.lhs.true76.critedge, %if.then79, %if.end10, %if.end7, %if.then19
   %13 = phi ptr [ null, %if.end7 ], [ %.pre, %if.then19 ], [ %.pre, %if.then79 ], [ %.pre, %land.lhs.true76.critedge ], [ %.pre, %if.end10 ], [ %.pre, %if.end66 ], [ %.pre, %land.lhs.true68 ]
-  %ret.2 = phi i32 [ 0, %if.end7 ], [ 0, %if.then19 ], [ 0, %if.then79 ], [ 0, %land.lhs.true76.critedge ], [ 0, %if.end10 ], [ 1, %if.end66 ], [ 1, %land.lhs.true68 ]
+  %ret.0 = phi i32 [ 0, %if.end7 ], [ 0, %if.then19 ], [ 0, %if.then79 ], [ 0, %land.lhs.true76.critedge ], [ 0, %if.end10 ], [ 1, %if.end66 ], [ 1, %land.lhs.true68 ]
   call void @OSSL_CMP_MSG_free(ptr noundef %call) #4
   call void @OSSL_CMP_MSG_free(ptr noundef %13) #4
   br label %return
 
 return:                                           ; preds = %end, %if.then6, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then6 ], [ %ret.2, %end ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then6 ], [ %ret.0, %end ]
   ret i32 %retval.0
 }
 
@@ -1441,20 +1441,20 @@ if.then10:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.then10, %if.end7
   %2 = phi ptr [ %.pre, %if.then10 ], [ %0, %if.end7 ]
-  %itavs.0 = phi ptr [ %call11, %if.then10 ], [ %1, %if.end7 ]
+  %itavs.1 = phi ptr [ %call11, %if.then10 ], [ %1, %if.end7 ]
   %value14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %value14, align 8
   br label %err
 
 err:                                              ; preds = %if.end3, %if.end, %if.end12
   %3 = phi ptr [ null, %if.end ], [ %.pre8, %if.end12 ], [ %.pre8, %if.end3 ]
-  %itavs.1 = phi ptr [ null, %if.end ], [ %itavs.0, %if.end12 ], [ null, %if.end3 ]
+  %itavs.0 = phi ptr [ null, %if.end ], [ %itavs.1, %if.end12 ], [ null, %if.end3 ]
   tail call void @OSSL_CMP_MSG_free(ptr noundef %call) #4
   tail call void @OSSL_CMP_MSG_free(ptr noundef %3) #4
   br label %return
 
 return:                                           ; preds = %err, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %itavs.1, %err ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %itavs.0, %err ]
   ret ptr %retval.0
 }
 

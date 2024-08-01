@@ -414,9 +414,9 @@ define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0,
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %16, %30
-  %.157 = phi i32 [ %spec.select, %30 ], [ %2, %8 ], [ %spec.select, %16 ], [ %2, %10 ]
+  %.04057 = phi i32 [ %spec.select, %30 ], [ %2, %8 ], [ %spec.select, %16 ], [ %2, %10 ]
   %35 = phi i32 [ %34, %30 ], [ 6, %8 ], [ 6, %16 ], [ 6, %10 ]
-  %36 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.157) #5
+  %36 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.04057) #5
   %37 = xor i16 %36, 1
   %38 = add i16 %37, 1
   %39 = and i16 %38, 3

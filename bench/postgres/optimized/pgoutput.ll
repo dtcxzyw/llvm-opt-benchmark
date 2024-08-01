@@ -884,7 +884,7 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
 160:                                              ; preds = %227, %.lr.ph.i
   %161 = phi i32 [ %153, %.lr.ph.i ], [ %228, %227 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %227 ]
-  %.083106.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %227 ]
+  %.083106.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %227 ]
   %162 = load ptr, ptr %156, align 8
   %163 = getelementptr i8, ptr %162, i64 %indvars.iv.i
   %164 = load i8, ptr %163, align 1
@@ -965,15 +965,15 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
 
 215:                                              ; preds = %198, %197
   %216 = phi i64 [ %189, %197 ], [ %.pre112.i, %198 ]
-  %.1.i = phi ptr [ %.083106.i, %197 ], [ %199, %198 ]
-  %217 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.2.i = phi ptr [ %.083106.i, %197 ], [ %199, %198 ]
+  %217 = getelementptr inbounds i8, ptr %.2.i, i64 24
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr i64, ptr %218, i64 %indvars.iv.i
   store i64 %216, ptr %219, align 8
   %220 = load ptr, ptr %157, align 8
   %221 = getelementptr i8, ptr %220, i64 %indvars.iv.i
   %222 = load i8, ptr %221, align 1
-  %223 = getelementptr inbounds i8, ptr %.1.i, i64 32
+  %223 = getelementptr inbounds i8, ptr %.2.i, i64 32
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr i8, ptr %224, i64 %indvars.iv.i
   %226 = and i8 %222, 1
@@ -983,14 +983,14 @@ slot_getallattrs.exit97.i:                        ; preds = %150, %slot_getallat
 
 227:                                              ; preds = %215, %193, %182, %175, %171, %166, %160
   %228 = phi i32 [ %161, %160 ], [ %161, %166 ], [ %161, %193 ], [ %.pre113.i, %215 ], [ %161, %182 ], [ %161, %175 ], [ %161, %171 ]
-  %.2.i = phi ptr [ %.083106.i, %160 ], [ %.083106.i, %166 ], [ %.083106.i, %193 ], [ %.1.i, %215 ], [ %.083106.i, %182 ], [ %.083106.i, %175 ], [ %.083106.i, %171 ]
+  %.1.i = phi ptr [ %.083106.i, %160 ], [ %.083106.i, %166 ], [ %.083106.i, %193 ], [ %.2.i, %215 ], [ %.083106.i, %182 ], [ %.083106.i, %175 ], [ %.083106.i, %171 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next.i, %229
   br i1 %230, label %160, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %227, %slot_getallattrs.exit97.i
-  %.083.lcssa.i = phi ptr [ null, %slot_getallattrs.exit97.i ], [ %.2.i, %227 ]
+  %.083.lcssa.i = phi ptr [ null, %slot_getallattrs.exit97.i ], [ %.1.i, %227 ]
   %231 = getelementptr inbounds i8, ptr %114, i64 8
   store ptr %.068, ptr %231, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -2066,9 +2066,9 @@ LoadPublications.exit:                            ; preds = %.lr.ph22.i, %41, %.
   br i1 %89, label %.lr.ph206, label %._crit_edge
 
 .lr.ph206:                                        ; preds = %.lr.ph, %154
-  %.0119176205 = phi ptr [ %.2121, %154 ], [ null, %.lr.ph ]
-  %.0108177204 = phi i32 [ %.2110, %154 ], [ 0, %.lr.ph ]
-  %.0106178203 = phi i32 [ %.2, %154 ], [ %31, %.lr.ph ]
+  %.0119176205 = phi ptr [ %.1120, %154 ], [ null, %.lr.ph ]
+  %.0108177204 = phi i32 [ %.1109, %154 ], [ 0, %.lr.ph ]
+  %.0106178203 = phi i32 [ %.1, %154 ], [ %31, %.lr.ph ]
   %indvars.iv202 = phi i64 [ %indvars.iv.next, %154 ], [ 0, %.lr.ph ]
   %90 = load ptr, ptr %87, align 8
   %91 = getelementptr %union.ListCell, ptr %90, i64 %indvars.iv202
@@ -2118,8 +2118,8 @@ list_length.exit:                                 ; preds = %97
   br label %119
 
 119:                                              ; preds = %114, %110, %109
-  %.1115 = phi i32 [ %93, %110 ], [ %93, %109 ], [ %spec.select, %114 ]
-  %.1112 = phi i32 [ 0, %110 ], [ 0, %109 ], [ %spec.select140, %114 ]
+  %.2116 = phi i32 [ %93, %110 ], [ %93, %109 ], [ %spec.select, %114 ]
+  %.2113 = phi i32 [ 0, %110 ], [ 0, %109 ], [ %spec.select140, %114 ]
   %.0107 = phi i1 [ false, %110 ], [ false, %109 ], [ true, %114 ]
   %120 = load i32, ptr %92, align 8
   %121 = call zeroext i1 @list_member_oid(ptr noundef %29, i32 noundef %120) #13
@@ -2132,8 +2132,8 @@ list_length.exit:                                 ; preds = %97
   br i1 %brmerge141, label %.thread162, label %154
 
 .thread162:                                       ; preds = %119, %122, %97, %list_length.exit
-  %.2116.ph = phi i32 [ %93, %97 ], [ %108, %list_length.exit ], [ %.1115, %122 ], [ %.1115, %119 ]
-  %.2113.ph = phi i32 [ 0, %97 ], [ %.val, %list_length.exit ], [ %.1112, %122 ], [ %.1112, %119 ]
+  %.1115.ph = phi i32 [ %93, %97 ], [ %108, %list_length.exit ], [ %.2116, %122 ], [ %.2116, %119 ]
+  %.1112.ph = phi i32 [ 0, %97 ], [ %.val, %list_length.exit ], [ %.2113, %122 ], [ %.2113, %119 ]
   br i1 %.not137, label %125, label %129
 
 125:                                              ; preds = %.thread162
@@ -2167,20 +2167,20 @@ list_length.exit:                                 ; preds = %97
   %148 = or i8 %147, %146
   %149 = and i8 %148, 1
   store i8 %149, ptr %65, align 1
-  %150 = icmp sgt i32 %.0108177204, %.2113.ph
+  %150 = icmp sgt i32 %.0108177204, %.1112.ph
   br i1 %150, label %154, label %151
 
 151:                                              ; preds = %129
-  %152 = icmp slt i32 %.0108177204, %.2113.ph
-  %.1120 = select i1 %152, ptr null, ptr %.0119176205
-  %.1 = select i1 %152, i32 %.2116.ph, i32 %.0106178203
-  %153 = call ptr @lappend(ptr noundef %.1120, ptr noundef nonnull %92) #13
+  %152 = icmp slt i32 %.0108177204, %.1112.ph
+  %.2121 = select i1 %152, ptr null, ptr %.0119176205
+  %.2 = select i1 %152, i32 %.1115.ph, i32 %.0106178203
+  %153 = call ptr @lappend(ptr noundef %.2121, ptr noundef nonnull %92) #13
   br label %154
 
 154:                                              ; preds = %122, %125, %151, %129
-  %.2121 = phi ptr [ %.0119176205, %129 ], [ %153, %151 ], [ %.0119176205, %125 ], [ %.0119176205, %122 ]
-  %.2110 = phi i32 [ %.0108177204, %129 ], [ %.2113.ph, %151 ], [ %.0108177204, %125 ], [ %.0108177204, %122 ]
-  %.2 = phi i32 [ %.0106178203, %129 ], [ %.1, %151 ], [ %.0106178203, %125 ], [ %.0106178203, %122 ]
+  %.1120 = phi ptr [ %.0119176205, %129 ], [ %153, %151 ], [ %.0119176205, %125 ], [ %.0119176205, %122 ]
+  %.1109 = phi i32 [ %.0108177204, %129 ], [ %.1112.ph, %151 ], [ %.0108177204, %125 ], [ %.0108177204, %122 ]
+  %.1 = phi i32 [ %.0106178203, %129 ], [ %.2, %151 ], [ %.0106178203, %125 ], [ %.0106178203, %122 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv202, 1
   %155 = load i32, ptr %86, align 4
   %156 = sext i32 %155 to i64
@@ -2188,8 +2188,8 @@ list_length.exit:                                 ; preds = %97
   br i1 %157, label %.lr.ph206, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %154, %.lr.ph, %81
-  %.0119.lcssa = phi ptr [ null, %81 ], [ null, %.lr.ph ], [ %.2121, %154 ]
-  %.0106.lcssa = phi i32 [ %31, %81 ], [ %31, %.lr.ph ], [ %.2, %154 ]
+  %.0119.lcssa = phi ptr [ null, %81 ], [ null, %.lr.ph ], [ %.1120, %154 ]
+  %.0106.lcssa = phi i32 [ %31, %81 ], [ %31, %.lr.ph ], [ %.1, %154 ]
   %158 = getelementptr inbounds i8, ptr %14, i64 72
   store i32 %.0106.lcssa, ptr %158, align 8
   %159 = load i8, ptr %62, align 8
@@ -2647,21 +2647,21 @@ pgoutput_ensure_entry_cxt.exit.i152:              ; preds = %369, %366
   br label %396
 
 396:                                              ; preds = %395, %._crit_edge.i153, %362
-  %.041.i = phi ptr [ null, %362 ], [ null, %395 ], [ %379, %._crit_edge.i153 ]
+  %.142.i = phi ptr [ null, %362 ], [ null, %395 ], [ %379, %._crit_edge.i153 ]
   call void @ReleaseSysCache(ptr noundef nonnull %361) #13
   br label %397
 
 397:                                              ; preds = %396, %356, %.lr.ph195
-  %.142.i = phi ptr [ null, %.lr.ph195 ], [ %.041.i, %396 ], [ null, %356 ]
+  %.041.i = phi ptr [ null, %.lr.ph195 ], [ %.142.i, %396 ], [ null, %356 ]
   br i1 %.03753.i194, label %398, label %399
 
 398:                                              ; preds = %397
-  store ptr %.142.i, ptr %60, align 8
+  store ptr %.041.i, ptr %60, align 8
   br label %413
 
 399:                                              ; preds = %397
   %400 = load ptr, ptr %60, align 8
-  %401 = call zeroext i1 @bms_equal(ptr noundef %400, ptr noundef %.142.i) #13
+  %401 = call zeroext i1 @bms_equal(ptr noundef %400, ptr noundef %.041.i) #13
   br i1 %401, label %413, label %402
 
 402:                                              ; preds = %399

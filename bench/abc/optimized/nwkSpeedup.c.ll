@@ -588,7 +588,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
 
 43:                                               ; preds = %.lr.ph72, %46
   %indvars.iv87 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next88, %46 ]
-  %.25070 = phi i32 [ 0, %.lr.ph72 ], [ %.3, %46 ]
+  %.370 = phi i32 [ 0, %.lr.ph72 ], [ %.4, %46 ]
   %44 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv87
   %45 = load ptr, ptr %44, align 8
   %.not55 = icmp eq ptr %45, null
@@ -604,7 +604,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %52 = trunc nuw nsw i64 %indvars.iv87 to i32
   %53 = shl nuw i32 1, %52
   %54 = select i1 %51, i32 %53, i32 0
-  %.3 = or i32 %54, %.25070
+  %.4 = or i32 %54, %.370
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %.critedge, label %43, !llvm.loop !15
@@ -623,7 +623,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
 
 60:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %.466 = phi i32 [ 0, %.lr.ph ], [ %.5, %63 ]
+  %.566 = phi i32 [ 0, %.lr.ph ], [ %.6, %63 ]
   %61 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %.not56 = icmp eq ptr %62, null
@@ -644,14 +644,14 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noun
   %74 = fcmp olt float %.val, %73
   %75 = shl nuw i32 1, %65
   %76 = select i1 %74, i32 %75, i32 0
-  %.5 = or i32 %76, %.466
+  %.6 = or i32 %76, %.566
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %60, !llvm.loop !16
 
 .critedge:                                        ; preds = %60, %63, %43, %46, %23, %20, %55, %39, %.preheader
-  %.6 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ 0, %55 ], [ %.149, %23 ], [ %.04876, %20 ], [ %.25070, %43 ], [ %.3, %46 ], [ %.466, %60 ], [ %.5, %63 ]
-  ret i32 %.6
+  %.250 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ 0, %55 ], [ %.149, %23 ], [ %.04876, %20 ], [ %.370, %43 ], [ %.4, %46 ], [ %.566, %60 ], [ %.6, %63 ]
+  ret i32 %.250
 }
 
 declare void @Nwk_ManDelayTraceSortPins(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

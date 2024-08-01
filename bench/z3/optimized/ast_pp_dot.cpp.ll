@@ -917,7 +917,7 @@ if.then.i:                                        ; preds = %for.body.i.i.i.i, %
 
 _ZN13ast_pp_dot_st6get_idEPK4expr.exit:           ; preds = %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i, %if.then.i
   %15 = phi i32 [ %4, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i ], [ %.pre, %if.then.i ]
-  %id.1.i = phi i32 [ %13, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i ], [ %14, %if.then.i ]
+  %id.0.i = phi i32 [ %13, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i ], [ %14, %if.then.i ]
   %cmp.not.i.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i.i, label %_ZNK11ast_manager15get_num_parentsEPK3app.exit, label %land.rhs.i.i
 
@@ -956,7 +956,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %m_out = getelementptr inbounds i8, ptr %this, i64 8
   %21 = load ptr, ptr %m_out, align 8
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.10)
-  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %id.1.i)
+  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %id.0.i)
   %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.11)
   call void @_ZNK13ast_pp_dot_st13label_of_exprB5cxx11EPK4expr(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef %5)
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1036,7 +1036,7 @@ invoke.cont31:                                    ; preds = %.noexc, %lor.lhs.fa
           to label %invoke.cont33 unwind label %lpad26
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call34, i32 noundef %id.1.i)
+  %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call34, i32 noundef %id.0.i)
           to label %invoke.cont35 unwind label %lpad26
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -1130,8 +1130,8 @@ if.then.i49:                                      ; preds = %for.body.i.i.i.i35,
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %.noexc67, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i59
-  %id.1.i53 = phi i32 [ %39, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i59 ], [ %40, %.noexc67 ]
-  %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call40, i32 noundef %id.1.i53)
+  %id.0.i53 = phi i32 [ %39, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i59 ], [ %40, %.noexc67 ]
+  %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call40, i32 noundef %id.0.i53)
           to label %invoke.cont43 unwind label %lpad26
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -1271,11 +1271,11 @@ if.then.i:                                        ; preds = %for.body.i.i.i.i, %
   br label %_ZN13ast_pp_dot_st6get_idEPK4expr.exit
 
 _ZN13ast_pp_dot_st6get_idEPK4expr.exit:           ; preds = %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i, %if.then.i
-  %id.1.i = phi i32 [ %7, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i ], [ %8, %if.then.i ]
+  %id.0.i = phi i32 [ %7, %_ZNK7obj_mapIK4exprjE4findEPS1_Rj.exit.i ], [ %8, %if.then.i ]
   %m_out = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %m_out, align 8
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.10)
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %id.1.i)
+  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %id.0.i)
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.17)
   call void @_ZNK13ast_pp_dot_st13label_of_exprB5cxx11EPK4expr(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef %e)
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)

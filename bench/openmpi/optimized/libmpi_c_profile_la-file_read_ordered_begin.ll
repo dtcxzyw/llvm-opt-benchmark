@@ -81,13 +81,13 @@ ompi_file_invalid.exit:                           ; preds = %12
   br i1 %or.cond52, label %31, label %.thread
 
 .thread:                                          ; preds = %12, %23, %20, %18, %ompi_file_invalid.exit
-  %.02841 = phi ptr [ %0, %23 ], [ %0, %20 ], [ %0, %18 ], [ @ompi_mpi_file_null, %ompi_file_invalid.exit ], [ @ompi_mpi_file_null, %12 ]
+  %.141 = phi ptr [ %0, %23 ], [ %0, %20 ], [ %0, %18 ], [ @ompi_mpi_file_null, %ompi_file_invalid.exit ], [ @ompi_mpi_file_null, %12 ]
   %.02940 = phi i32 [ 3, %23 ], [ 3, %20 ], [ 2, %18 ], [ 30, %ompi_file_invalid.exit ], [ 30, %12 ]
-  %26 = getelementptr inbounds i8, ptr %.02841, i64 128
+  %26 = getelementptr inbounds i8, ptr %.141, i64 128
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.02841, i64 136
+  %28 = getelementptr inbounds i8, ptr %.141, i64 136
   %29 = load i32, ptr %28, align 8
-  %30 = tail call i32 @ompi_errhandler_invoke(ptr noundef %27, ptr noundef nonnull %.02841, i32 noundef %29, i32 noundef %.02940, ptr noundef nonnull @FUNC_NAME) #4
+  %30 = tail call i32 @ompi_errhandler_invoke(ptr noundef %27, ptr noundef nonnull %.141, i32 noundef %29, i32 noundef %.02940, ptr noundef nonnull @FUNC_NAME) #4
   br label %72
 
 31:                                               ; preds = %23, %4

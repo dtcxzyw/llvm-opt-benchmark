@@ -377,7 +377,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignRecover(ptr noundef %
 
 46:                                               ; preds = %43, %36, %30
   %.044 = phi i64 [ %45, %43 ], [ 336, %36 ], [ %34, %30 ]
-  %.042 = phi ptr [ %40, %43 ], [ %11, %36 ], [ %11, %30 ]
+  %.1 = phi ptr [ %40, %43 ], [ %11, %36 ], [ %11, %30 ]
   %47 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %.044) #5
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %55
@@ -388,11 +388,11 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignRecover(ptr noundef %
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %12, align 8
   %54 = trunc i64 %53 to i32
-  call void %52(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %7, i32 noundef %54, ptr noundef nonnull %.042) #5
+  call void %52(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %7, i32 noundef %54, ptr noundef nonnull %.1) #5
   br label %55
 
 55:                                               ; preds = %46, %49, %22, %42
-  %.1 = phi ptr [ %11, %22 ], [ null, %42 ], [ %.042, %49 ], [ %.042, %46 ]
+  %.042 = phi ptr [ %11, %22 ], [ null, %42 ], [ %.1, %49 ], [ %.1, %46 ]
   %.not54 = icmp eq ptr %.043, %10
   br i1 %.not54, label %57, label %56
 
@@ -401,11 +401,11 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SignRecover(ptr noundef %
   br label %57
 
 57:                                               ; preds = %56, %55
-  %.not55 = icmp eq ptr %.1, %11
+  %.not55 = icmp eq ptr %.042, %11
   br i1 %.not55, label %59, label %58
 
 58:                                               ; preds = %57
-  call void @free(ptr noundef %.1) #5
+  call void @free(ptr noundef %.042) #5
   br label %59
 
 59:                                               ; preds = %58, %57
@@ -713,7 +713,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecover(ptr noundef
 
 46:                                               ; preds = %43, %36, %30
   %.044 = phi i64 [ %45, %43 ], [ 336, %36 ], [ %34, %30 ]
-  %.042 = phi ptr [ %40, %43 ], [ %11, %36 ], [ %11, %30 ]
+  %.1 = phi ptr [ %40, %43 ], [ %11, %36 ], [ %11, %30 ]
   %47 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %.044) #5
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %55
@@ -724,11 +724,11 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecover(ptr noundef
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %12, align 8
   %54 = trunc i64 %53 to i32
-  call void %52(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %7, i32 noundef %54, ptr noundef nonnull %.042) #5
+  call void %52(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %7, i32 noundef %54, ptr noundef nonnull %.1) #5
   br label %55
 
 55:                                               ; preds = %46, %49, %22, %42
-  %.1 = phi ptr [ %11, %22 ], [ null, %42 ], [ %.042, %49 ], [ %.042, %46 ]
+  %.042 = phi ptr [ %11, %22 ], [ null, %42 ], [ %.1, %49 ], [ %.1, %46 ]
   %.not54 = icmp eq ptr %.043, %10
   br i1 %.not54, label %57, label %56
 
@@ -737,11 +737,11 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1VerifyRecover(ptr noundef
   br label %57
 
 57:                                               ; preds = %56, %55
-  %.not55 = icmp eq ptr %.1, %11
+  %.not55 = icmp eq ptr %.042, %11
   br i1 %.not55, label %59, label %58
 
 58:                                               ; preds = %57
-  call void @free(ptr noundef %.1) #5
+  call void @free(ptr noundef %.042) #5
   br label %59
 
 59:                                               ; preds = %58, %57

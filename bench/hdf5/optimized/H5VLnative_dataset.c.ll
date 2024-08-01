@@ -179,7 +179,7 @@ define ptr @H5VL__native_dataset_create(ptr noundef %0, ptr nocapture noundef re
   br label %57
 
 57:                                               ; preds = %53, %50
-  %.129 = phi ptr [ null, %53 ], [ %37, %50 ]
+  %.2 = phi ptr [ null, %53 ], [ %37, %50 ]
   %58 = call i32 @H5O_dec_rc_by_loc(ptr noundef %51) #4
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %.thread
@@ -191,8 +191,8 @@ define ptr @H5VL__native_dataset_create(ptr noundef %0, ptr nocapture noundef re
   br label %.thread
 
 .thread:                                          ; preds = %39, %28, %21, %15, %46, %43, %60, %57
-  %.2 = phi ptr [ null, %60 ], [ %.129, %57 ], [ %44, %43 ], [ null, %46 ], [ null, %39 ], [ null, %28 ], [ null, %21 ], [ null, %15 ]
-  ret ptr %.2
+  %.129 = phi ptr [ null, %60 ], [ %.2, %57 ], [ %44, %43 ], [ null, %46 ], [ null, %39 ], [ null, %28 ], [ null, %21 ], [ null, %15 ]
+  ret ptr %.129
 }
 
 declare i32 @H5G_loc_real(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

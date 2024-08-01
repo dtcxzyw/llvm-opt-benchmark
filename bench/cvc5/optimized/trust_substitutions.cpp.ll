@@ -2580,7 +2580,7 @@ lpad172:                                          ; preds = %_ZN4cvc58internal12
   br label %ehcleanup180
 
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit561, %cond.true52
-  %retval.0 = phi ptr [ %call65, %cond.true52 ], [ %add.ptr, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit561 ]
+  %retval.1 = phi ptr [ %call65, %cond.true52 ], [ %add.ptr, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit561 ]
   %77 = load ptr, ptr %proven, align 8
   %bf.load.i.i562 = load i64, ptr %77, align 8
   %78 = and i64 %bf.load.i.i562, 1152920405095219200
@@ -2645,8 +2645,8 @@ ehcleanup182:                                     ; preds = %ehcleanup180, %lpad
   resume { ptr, i32 } %.pn8.pn
 
 return:                                           ; preds = %if.then13.i.i583, %if.then.i.i576, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit573, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit573 ], [ %retval.0, %if.then.i.i576 ], [ %retval.0, %if.then13.i.i583 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit573 ], [ %retval.1, %if.then.i.i576 ], [ %retval.1, %if.then13.i.i583 ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZNK4cvc58internal9TrustNode12getGeneratorEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0

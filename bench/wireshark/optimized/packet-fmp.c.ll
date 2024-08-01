@@ -1636,7 +1636,7 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %3, %dissect_fmp_VolumeDescription.exit
   %.027 = phi i32 [ %84, %dissect_fmp_VolumeDescription.exit ], [ %10, %3 ]
-  %.02026 = phi i32 [ %.3.i, %dissect_fmp_VolumeDescription.exit ], [ %13, %3 ]
+  %.02026 = phi i32 [ %.1.i, %dissect_fmp_VolumeDescription.exit ], [ %13, %3 ]
   %14 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.02026) #3
   %15 = load i32, ptr @hf_fmp_volume_desc, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %.02026, i32 noundef 4, i32 noundef 0) #3
@@ -1720,10 +1720,10 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
   br i1 %69, label %.lr.ph95.i, label %dissect_fmp_VolumeDescription.exit
 
 .lr.ph95.i:                                       ; preds = %60, %.lr.ph95.i
-  %.194.i = phi i32 [ %71, %.lr.ph95.i ], [ %68, %60 ]
+  %.294.i = phi i32 [ %71, %.lr.ph95.i ], [ %68, %60 ]
   %.18793.i = phi i32 [ %72, %.lr.ph95.i ], [ 0, %60 ]
   %70 = load i32, ptr @hf_fmp_volume, align 4
-  %71 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %70, i32 noundef %.194.i) #3
+  %71 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %70, i32 noundef %.294.i) #3
   %72 = add nuw nsw i32 %.18793.i, 1
   %exitcond105.not.i = icmp eq i32 %72, %65
   br i1 %exitcond105.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph95.i, !llvm.loop !9
@@ -1739,22 +1739,22 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
   br i1 %80, label %.lr.ph.i, label %dissect_fmp_VolumeDescription.exit
 
 .lr.ph.i:                                         ; preds = %73, %.lr.ph.i
-  %.292.i = phi i32 [ %82, %.lr.ph.i ], [ %79, %73 ]
+  %.392.i = phi i32 [ %82, %.lr.ph.i ], [ %79, %73 ]
   %.28891.i = phi i32 [ %83, %.lr.ph.i ], [ 0, %73 ]
   %81 = load i32, ptr @hf_fmp_volume, align 4
-  %82 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %81, i32 noundef %.292.i) #3
+  %82 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %81, i32 noundef %.392.i) #3
   %83 = add nuw nsw i32 %.28891.i, 1
   %exitcond.not.i = icmp eq i32 %83, %76
   br i1 %exitcond.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph.i, !llvm.loop !10
 
 dissect_fmp_VolumeDescription.exit:               ; preds = %.lr.ph.i, %.lr.ph95.i, %.lr.ph99.i, %.lr.ph, %20, %28, %42, %51, %60, %73
-  %.3.i = phi i32 [ %19, %.lr.ph ], [ %59, %51 ], [ %27, %20 ], [ %27, %42 ], [ %34, %28 ], [ %68, %60 ], [ %79, %73 ], [ %40, %.lr.ph99.i ], [ %71, %.lr.ph95.i ], [ %82, %.lr.ph.i ]
+  %.1.i = phi i32 [ %19, %.lr.ph ], [ %59, %51 ], [ %27, %20 ], [ %27, %42 ], [ %34, %28 ], [ %68, %60 ], [ %79, %73 ], [ %40, %.lr.ph99.i ], [ %71, %.lr.ph95.i ], [ %82, %.lr.ph.i ]
   %84 = add i32 %.027, -1
   %.not = icmp eq i32 %84, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dissect_fmp_VolumeDescription.exit, %3
-  %.020.lcssa = phi i32 [ %13, %3 ], [ %.3.i, %dissect_fmp_VolumeDescription.exit ]
+  %.020.lcssa = phi i32 [ %13, %3 ], [ %.1.i, %dissect_fmp_VolumeDescription.exit ]
   ret i32 %.020.lcssa
 }
 

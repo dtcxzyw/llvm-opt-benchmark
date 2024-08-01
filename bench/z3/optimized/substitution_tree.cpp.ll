@@ -4855,7 +4855,7 @@ for.body11.lr.ph:                                 ; preds = %_ZNK6vectorIP10ref_
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.inc29
-  %found_var.039 = phi i8 [ 0, %for.body11.lr.ph ], [ %found_var.3, %for.inc29 ]
+  %found_var.039 = phi i8 [ 0, %for.body11.lr.ph ], [ %found_var.1, %for.inc29 ]
   %__begin15.038 = phi ptr [ %4, %for.body11.lr.ph ], [ %incdec.ptr30, %for.inc29 ]
   %7 = load ptr, ptr %__begin15.038, align 8
   %cmp12 = icmp eq ptr %7, null
@@ -4879,8 +4879,8 @@ for.body18.preheader:                             ; preds = %_ZNK15ref_vector_co
 
 for.body18:                                       ; preds = %for.body18.preheader, %invoke.cont25
   %indvars.iv = phi i64 [ 0, %for.body18.preheader ], [ %indvars.iv.next, %invoke.cont25 ]
-  %found_var.136 = phi i8 [ %found_var.039, %for.body18.preheader ], [ %found_var.2, %invoke.cont25 ]
-  %tobool19 = trunc nuw i8 %found_var.136 to i1
+  %found_var.236 = phi i8 [ %found_var.039, %for.body18.preheader ], [ %found_var.3, %invoke.cont25 ]
+  %tobool19 = trunc nuw i8 %found_var.236 to i1
   br i1 %tobool19, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %for.body18
@@ -4888,7 +4888,7 @@ if.then20:                                        ; preds = %for.body18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %for.body18
-  %found_var.2 = phi i8 [ %found_var.136, %for.body18 ], [ 1, %if.then20 ]
+  %found_var.3 = phi i8 [ %found_var.236, %for.body18 ], [ 1, %if.then20 ]
   %10 = load ptr, ptr %m_nodes.i, align 8
   %arrayidx.i.i28 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx.i.i28, align 8
@@ -4914,13 +4914,13 @@ lpad:                                             ; preds = %invoke.cont, %if.en
   resume { ptr, i32 } %13
 
 for.inc29:                                        ; preds = %invoke.cont25, %if.end14, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %for.body11
-  %found_var.3 = phi i8 [ %found_var.039, %for.body11 ], [ %found_var.039, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %found_var.039, %if.end14 ], [ %found_var.2, %invoke.cont25 ]
+  %found_var.1 = phi i8 [ %found_var.039, %for.body11 ], [ %found_var.039, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %found_var.039, %if.end14 ], [ %found_var.3, %invoke.cont25 ]
   %incdec.ptr30 = getelementptr inbounds i8, ptr %__begin15.038, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr30, %add.ptr.i22
   br i1 %cmp10.not, label %for.end31, label %for.body11
 
 for.end31:                                        ; preds = %for.inc29
-  %14 = trunc nuw i8 %found_var.3 to i1
+  %14 = trunc nuw i8 %found_var.1 to i1
   br i1 %14, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %for.end31

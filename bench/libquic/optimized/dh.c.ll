@@ -277,7 +277,7 @@ if.then7:                                         ; preds = %if.end4
   br i1 %cmp9, label %if.end62, label %if.end13
 
 if.end13:                                         ; preds = %if.end4, %if.then7
-  %priv_key.0 = phi ptr [ %call8, %if.then7 ], [ %1, %if.end4 ]
+  %priv_key.1 = phi ptr [ %call8, %if.then7 ], [ %1, %if.end4 ]
   %pub_key14 = getelementptr inbounds i8, ptr %dh, i64 16
   %2 = load ptr, ptr %pub_key14, align 8
   %cmp15 = icmp eq ptr %2, null
@@ -289,7 +289,7 @@ if.then16:                                        ; preds = %if.end13
   br i1 %cmp18, label %if.end62, label %if.end23
 
 if.end23:                                         ; preds = %if.end13, %if.then16
-  %pub_key.0 = phi ptr [ %call17, %if.then16 ], [ %2, %if.end13 ]
+  %pub_key.1 = phi ptr [ %call17, %if.then16 ], [ %2, %if.end13 ]
   %method_mont_p = getelementptr inbounds i8, ptr %dh, i64 96
   %method_mont_p_lock = getelementptr inbounds i8, ptr %dh, i64 40
   %3 = load ptr, ptr %dh, align 8
@@ -307,23 +307,23 @@ if.then29:                                        ; preds = %if.end27
   br i1 %tobool30.not, label %if.else41, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.then29
-  %call3350 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.0, ptr noundef nonnull %4) #4
+  %call3350 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.1, ptr noundef nonnull %4) #4
   %tobool34.not51 = icmp eq i32 %call3350, 0
   br i1 %tobool34.not51, label %if.end62, label %do.cond
 
 do.cond:                                          ; preds = %do.body.preheader, %do.body.backedge
-  %call37 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.0) #4
+  %call37 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.1) #4
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %lor.rhs, label %do.body.backedge
 
 lor.rhs:                                          ; preds = %do.cond
-  %call39 = tail call i32 @BN_is_one(ptr noundef nonnull %priv_key.0) #4
+  %call39 = tail call i32 @BN_is_one(ptr noundef nonnull %priv_key.1) #4
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.end51, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %lor.rhs, %do.cond
   %5 = load ptr, ptr %q, align 8
-  %call33 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.0, ptr noundef %5) #4
+  %call33 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.1, ptr noundef %5) #4
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end62, label %do.cond, !llvm.loop !7
 
@@ -342,29 +342,29 @@ cond.false:                                       ; preds = %if.else41
 
 cond.end:                                         ; preds = %if.else41, %cond.false
   %cond = phi i32 [ %sub, %cond.false ], [ %6, %if.else41 ]
-  %call46 = tail call i32 @BN_rand(ptr noundef nonnull %priv_key.0, i32 noundef %cond, i32 noundef 0, i32 noundef 0) #4
+  %call46 = tail call i32 @BN_rand(ptr noundef nonnull %priv_key.1, i32 noundef %cond, i32 noundef 0, i32 noundef 0) #4
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.end62, label %if.end51
 
 if.end51:                                         ; preds = %lor.rhs, %cond.end, %if.end27
-  call void @BN_with_flags(ptr noundef nonnull %local_priv, ptr noundef nonnull %priv_key.0, i32 noundef 4) #4
+  call void @BN_with_flags(ptr noundef nonnull %local_priv, ptr noundef nonnull %priv_key.1, i32 noundef 4) #4
   %g = getelementptr inbounds i8, ptr %dh, i64 8
   %8 = load ptr, ptr %g, align 8
   %9 = load ptr, ptr %dh, align 8
   %10 = load ptr, ptr %method_mont_p, align 8
-  %call54 = call i32 @BN_mod_exp_mont(ptr noundef nonnull %pub_key.0, ptr noundef %8, ptr noundef nonnull %local_priv, ptr noundef %9, ptr noundef nonnull %call1, ptr noundef %10) #4
+  %call54 = call i32 @BN_mod_exp_mont(ptr noundef nonnull %pub_key.1, ptr noundef %8, ptr noundef nonnull %local_priv, ptr noundef %9, ptr noundef nonnull %call1, ptr noundef %10) #4
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %if.end62, label %if.end62.thread
 
 if.end62.thread:                                  ; preds = %if.end51
-  store ptr %pub_key.0, ptr %pub_key14, align 8
-  store ptr %priv_key.0, ptr %priv_key5, align 8
+  store ptr %pub_key.1, ptr %pub_key14, align 8
+  store ptr %priv_key.1, ptr %priv_key5, align 8
   br label %if.end66
 
 if.end62:                                         ; preds = %do.body.backedge, %if.end23, %cond.end, %if.end51, %if.then16, %if.then7, %if.end, %if.then, %do.body.preheader
   %ctx.0.ph = phi ptr [ %call1, %if.end23 ], [ %call1, %cond.end ], [ %call1, %if.end51 ], [ %call1, %if.then16 ], [ %call1, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %call1, %do.body.preheader ], [ %call1, %do.body.backedge ]
-  %pub_key.1.ph = phi ptr [ %pub_key.0, %if.end23 ], [ %pub_key.0, %cond.end ], [ %pub_key.0, %if.end51 ], [ null, %if.then16 ], [ null, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %pub_key.0, %do.body.preheader ], [ %pub_key.0, %do.body.backedge ]
-  %priv_key.1.ph = phi ptr [ %priv_key.0, %if.end23 ], [ %priv_key.0, %cond.end ], [ %priv_key.0, %if.end51 ], [ %priv_key.0, %if.then16 ], [ null, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %priv_key.0, %do.body.preheader ], [ %priv_key.0, %do.body.backedge ]
+  %pub_key.0.ph = phi ptr [ %pub_key.1, %if.end23 ], [ %pub_key.1, %cond.end ], [ %pub_key.1, %if.end51 ], [ null, %if.then16 ], [ null, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %pub_key.1, %do.body.preheader ], [ %pub_key.1, %do.body.backedge ]
+  %priv_key.0.ph = phi ptr [ %priv_key.1, %if.end23 ], [ %priv_key.1, %cond.end ], [ %priv_key.1, %if.end51 ], [ %priv_key.1, %if.then16 ], [ null, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %priv_key.1, %do.body.preheader ], [ %priv_key.1, %do.body.backedge ]
   call void @ERR_put_error(i32 noundef 5, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 305) #4
   %pub_key63.phi.trans.insert = getelementptr inbounds i8, ptr %dh, i64 16
   %.pre = load ptr, ptr %pub_key63.phi.trans.insert, align 8
@@ -372,20 +372,20 @@ if.end62:                                         ; preds = %do.body.backedge, %
   br i1 %11, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.end62
-  call void @BN_free(ptr noundef %pub_key.1.ph) #4
+  call void @BN_free(ptr noundef %pub_key.0.ph) #4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end62.thread, %if.then65, %if.end62
   %ok.04359 = phi i32 [ 1, %if.end62.thread ], [ 0, %if.then65 ], [ 0, %if.end62 ]
   %ctx.04558 = phi ptr [ %call1, %if.end62.thread ], [ %ctx.0.ph, %if.then65 ], [ %ctx.0.ph, %if.end62 ]
-  %priv_key.14957 = phi ptr [ %priv_key.0, %if.end62.thread ], [ %priv_key.1.ph, %if.then65 ], [ %priv_key.1.ph, %if.end62 ]
+  %priv_key.04957 = phi ptr [ %priv_key.1, %if.end62.thread ], [ %priv_key.0.ph, %if.then65 ], [ %priv_key.0.ph, %if.end62 ]
   %priv_key67 = getelementptr inbounds i8, ptr %dh, i64 24
   %12 = load ptr, ptr %priv_key67, align 8
   %cmp68 = icmp eq ptr %12, null
   br i1 %cmp68, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %if.end66
-  call void @BN_free(ptr noundef %priv_key.14957) #4
+  call void @BN_free(ptr noundef %priv_key.04957) #4
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then69, %if.end66

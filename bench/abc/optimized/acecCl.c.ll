@@ -1211,14 +1211,14 @@ Vec_IntPush.exit78:                               ; preds = %.Vec_IntGrow.exit10
   br label %.critedge
 
 .critedge:                                        ; preds = %185, %.critedge.sink.split, %Vec_IntAlloc.exit
-  %.2 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ null, %.critedge.sink.split ], [ %10, %185 ]
-  %190 = getelementptr i8, ptr %.2, i64 4
+  %.092 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ null, %.critedge.sink.split ], [ %10, %185 ]
+  %190 = getelementptr i8, ptr %.092, i64 4
   %.val3999 = load i32, ptr %190, align 4
   %191 = icmp sgt i32 %.val3999, 0
   br i1 %191, label %.lr.ph101, label %._crit_edge
 
 .lr.ph101:                                        ; preds = %.critedge
-  %192 = getelementptr i8, ptr %.2, i64 8
+  %192 = getelementptr i8, ptr %.092, i64 8
   br label %193
 
 193:                                              ; preds = %.lr.ph101, %193
@@ -1258,7 +1258,7 @@ Vec_IntPush.exit78:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %218, label %193, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %193, %.critedge
-  ret ptr %.2
+  ret ptr %.092
 }
 
 declare i32 @Gia_ObjRecognizeExor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

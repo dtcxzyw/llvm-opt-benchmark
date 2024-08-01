@@ -1832,7 +1832,7 @@ _ZN20b3AlignedObjectArrayI8b3MyFaceE9push_backERKS0_.exit: ; preds = %for.body.i
   br label %if.end402
 
 if.end402:                                        ; preds = %for.body374, %for.body374.us, %_ZN20b3AlignedObjectArrayI8b3MyFaceE9push_backERKS0_.exit
-  %did_merge.0.not = phi i1 [ false, %_ZN20b3AlignedObjectArrayI8b3MyFaceE9push_backERKS0_.exit ], [ true, %for.body374.us ], [ true, %for.body374 ]
+  %did_merge.1.not = phi i1 [ false, %_ZN20b3AlignedObjectArrayI8b3MyFaceE9push_backERKS0_.exit ], [ true, %for.body374.us ], [ true, %for.body374 ]
   %235 = load ptr, ptr %m_data.i.i350, align 8
   %tobool.not.i.i.i = icmp eq ptr %235, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit, label %if.then.i.i.i
@@ -1904,7 +1904,7 @@ _ZN20b3AlignedObjectArrayI15b3GrahamVector3ED2Ev.exit451: ; preds = %_ZN8b3MyFac
   store i32 0, ptr %m_capacity.i.i299, align 8
   %245 = load i32, ptr %m_size.i.i235, align 4
   %cmp411976 = icmp sgt i32 %245, 0
-  %or.cond = select i1 %did_merge.0.not, i1 %cmp411976, i1 false
+  %or.cond = select i1 %did_merge.1.not, i1 %cmp411976, i1 false
   br i1 %or.cond, label %for.body412.preheader, label %if.end426
 
 ehcleanup403:                                     ; preds = %lpad292, %lpad206

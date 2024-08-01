@@ -658,9 +658,9 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI9func_declP8uint_setE4findEPS0_RS2_.exit, %if.then
-  %s.1 = phi ptr [ %7, %_ZNK7obj_mapI9func_declP8uint_setE4findEPS0_RS2_.exit ], [ %call2, %if.then ]
+  %s.0 = phi ptr [ %7, %_ZNK7obj_mapI9func_declP8uint_setE4findEPS0_RS2_.exit ], [ %call2, %if.then ]
   %shr.i = lshr i32 %i, 5
-  %8 = load ptr, ptr %s.1, align 8
+  %8 = load ptr, ptr %s.0, align 8
   %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %while.cond.i.i.preheader, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
 
@@ -688,15 +688,15 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i:          ; preds = %while.cond.i.i
   br i1 %cmp3.i.i.not, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i, %while.cond.i.i
-  call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %s.1)
-  %.pr.pre.i.i = load ptr, ptr %s.1, align 8
+  call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %s.0)
+  %.pr.pre.i.i = load ptr, ptr %s.0, align 8
   br label %while.cond.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
   %arrayidx.i4.i = getelementptr inbounds i8, ptr %10, i64 -4
   store i32 %add10.i.ph, ptr %arrayidx.i4.i, align 4
   %cmp8.not17.i.i = icmp eq i32 %retval.0.i16.i.i.ph, %add10.i.ph
-  %.pre15.i = load ptr, ptr %s.1, align 8
+  %.pre15.i = load ptr, ptr %s.0, align 8
   br i1 %cmp8.not17.i.i, label %_ZN8uint_set6insertEj.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.end.i.i
@@ -706,7 +706,7 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %12 = sub nsw i64 %idx.ext6.i.i, %idx.ext.i.i
   %13 = shl nsw i64 %12, 2
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i.i, i8 0, i64 %13, i1 false)
-  %.pre.i = load ptr, ptr %s.1, align 8
+  %.pre.i = load ptr, ptr %s.0, align 8
   br label %_ZN8uint_set6insertEj.exit
 
 _ZN8uint_set6insertEj.exit:                       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %while.end.i.i, %for.body.preheader.i.i

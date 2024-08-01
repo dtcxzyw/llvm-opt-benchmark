@@ -234,7 +234,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
 
 47:                                               ; preds = %._crit_edge.us, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %43 ]
-  %.082135.us = phi i32 [ %.3.us, %._crit_edge.us ], [ 65535, %43 ]
+  %.082135.us = phi i32 [ %.4.us, %._crit_edge.us ], [ 65535, %43 ]
   %.084133.us = phi i32 [ %.185.lcssa.us, %._crit_edge.us ], [ %37, %43 ]
   %.087132.us = phi i32 [ %.188.lcssa.us, %._crit_edge.us ], [ %37, %43 ]
   %48 = getelementptr inbounds [4 x i32], ptr @_ZZ15rcGetDirOffsetXiE6offset, i64 0, i64 %indvars.iv
@@ -275,8 +275,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
 .loopexit.us:                                     ; preds = %.thread, %._crit_edge.us, %62, %47
   %.087120.us = phi i32 [ %.087132.us, %47 ], [ %.087132.us, %62 ], [ %.188.lcssa.us, %._crit_edge.us ], [ %.087132.us, %.thread ]
   %.084117.us = phi i32 [ %.084133.us, %47 ], [ %.084133.us, %62 ], [ %.185.lcssa.us, %._crit_edge.us ], [ %.084133.us, %.thread ]
-  %.4.us = phi i32 [ %24, %47 ], [ %24, %62 ], [ %.3.us, %._crit_edge.us ], [ %24, %.thread ]
-  %67 = icmp slt i32 %.4.us, %23
+  %.1.us = phi i32 [ %24, %47 ], [ %24, %62 ], [ %.4.us, %._crit_edge.us ], [ %24, %.thread ]
+  %67 = icmp slt i32 %.1.us, %23
   br i1 %67, label %73, label %68
 
 68:                                               ; preds = %.loopexit.us
@@ -296,7 +296,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
 
 .lr.ph.us:                                        ; preds = %.thread, %98
   %.080125.us = phi ptr [ %79, %98 ], [ %61, %.thread ]
-  %.1124.us = phi i32 [ %.2.us, %98 ], [ %.082135.us, %.thread ]
+  %.2124.us = phi i32 [ %.3.us, %98 ], [ %.082135.us, %.thread ]
   %.185123.us = phi i32 [ %.286.us, %98 ], [ %.084133.us, %.thread ]
   %.188122.us = phi i32 [ %.289.us, %98 ], [ %.087132.us, %.thread ]
   %75 = load i32, ptr %.080125.us, align 8
@@ -322,7 +322,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
 
 89:                                               ; preds = %83
   %90 = sub nsw i32 %77, %37
-  %91 = tail call noundef i32 @llvm.smin.i32(i32 %.1124.us, i32 %90)
+  %91 = tail call noundef i32 @llvm.smin.i32(i32 %.2124.us, i32 %90)
   %92 = tail call noundef i32 @llvm.abs.i32(i32 %90, i1 true)
   %.not106.us = icmp sgt i32 %92, %2
   br i1 %.not106.us, label %96, label %93
@@ -339,13 +339,13 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
 98:                                               ; preds = %96, %93, %83
   %.289.us = phi i32 [ %.188122.us, %83 ], [ %94, %93 ], [ %.188122.us, %96 ]
   %.286.us = phi i32 [ %.185123.us, %83 ], [ %95, %93 ], [ %.185123.us, %96 ]
-  %.2.us = phi i32 [ %.1124.us, %83 ], [ %91, %93 ], [ %91, %96 ]
+  %.3.us = phi i32 [ %.2124.us, %83 ], [ %91, %93 ], [ %91, %96 ]
   br i1 %.not105.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %96, %98, %62
   %.188.lcssa.us = phi i32 [ %.087132.us, %62 ], [ %.289.us, %98 ], [ %.188122.us, %96 ]
   %.185.lcssa.us = phi i32 [ %.084133.us, %62 ], [ %.286.us, %98 ], [ %.185123.us, %96 ]
-  %.3.us = phi i32 [ %.082135.us, %62 ], [ %.2.us, %98 ], [ %91, %96 ]
+  %.4.us = phi i32 [ %.082135.us, %62 ], [ %.3.us, %98 ], [ %91, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit.us, label %47, !llvm.loop !9

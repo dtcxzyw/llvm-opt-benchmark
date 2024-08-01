@@ -662,7 +662,7 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr nocapture noun
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %81 ]
-  %.077107.i = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.178.i, %81 ]
+  %.077107.i = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.279.i, %81 ]
   %.182106.i = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.283.i, %81 ]
   %63 = sext i32 %.182106.i to i64
   %64 = getelementptr inbounds i32, ptr %26, i64 %63
@@ -704,7 +704,7 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr nocapture noun
 
 81:                                               ; preds = %80, %75, %71
   %.283.i = phi i32 [ %72, %71 ], [ %.182106.i, %75 ], [ %78, %80 ]
-  %.178.i = phi i32 [ %.077107.i, %71 ], [ %76, %75 ], [ %79, %80 ]
+  %.279.i = phi i32 [ %.077107.i, %71 ], [ %76, %75 ], [ %79, %80 ]
   %82 = icmp eq i64 %indvars.iv.next, %56
   br i1 %82, label %Kf_SetMergeOrderOne.exit.thread, label %.lr.ph.i
 
@@ -743,20 +743,20 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr nocapture noun
   br label %.loopexit
 
 95:                                               ; preds = %77, %71
-  %.279.i = phi i32 [ %.077107.i, %71 ], [ %79, %77 ]
+  %.178.i = phi i32 [ %.077107.i, %71 ], [ %79, %77 ]
   %96 = trunc nuw nsw i64 %indvars.iv.next to i32
   %97 = add nsw i32 %51, %96
-  %98 = add nsw i32 %.279.i, %35
+  %98 = add nsw i32 %.178.i, %35
   %99 = icmp sgt i32 %97, %98
   br i1 %99, label %Kf_SetMergeOrderOne.exit.thread, label %.preheader102.i
 
 .preheader102.i:                                  ; preds = %95
-  %100 = icmp slt i32 %.279.i, %51
+  %100 = icmp slt i32 %.178.i, %51
   br i1 %100, label %.lr.ph114.preheader.i, label %.loopexit
 
 .lr.ph114.preheader.i:                            ; preds = %.preheader102.i
   %101 = and i64 %indvars.iv.next, 4294967295
-  %102 = sext i32 %.279.i to i64
+  %102 = sext i32 %.178.i to i64
   %wide.trip.count136.i = sext i32 %51 to i64
   br label %.lr.ph114.i
 
@@ -1484,8 +1484,8 @@ Vec_IntSum.exit:                                  ; preds = %81, %._crit_edge
   br label %99
 
 .loopexit181:                                     ; preds = %319, %.critedge2, %.preheader180
-  %.1121.lcssa242 = phi i64 [ %.3123, %.preheader180 ], [ %.0120, %.critedge2 ], [ %.3123, %319 ]
-  %.1128.lcssa241 = phi i32 [ %.5, %.preheader180 ], [ %.0127, %.critedge2 ], [ %.5, %319 ]
+  %.1121.lcssa242 = phi i64 [ %.2122, %.preheader180 ], [ %.0120, %.critedge2 ], [ %.2122, %319 ]
+  %.1128.lcssa241 = phi i32 [ %.2129, %.preheader180 ], [ %.0127, %.critedge2 ], [ %.2129, %319 ]
   %.1125.lcssa = phi i32 [ 0, %.preheader180 ], [ 0, %.critedge2 ], [ %.2126, %319 ]
   br label %99, !llvm.loop !25
 
@@ -1521,8 +1521,8 @@ Vec_IntSum.exit:                                  ; preds = %81, %._crit_edge
 
 .lr.ph195:                                        ; preds = %.critedge2, %310
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %310 ], [ 0, %.critedge2 ]
-  %.1121193 = phi i64 [ %.3123, %310 ], [ %.0120, %.critedge2 ]
-  %.1128192 = phi i32 [ %.5, %310 ], [ %.0127, %.critedge2 ]
+  %.1121193 = phi i64 [ %.2122, %310 ], [ %.0120, %.critedge2 ]
+  %.1128192 = phi i32 [ %.2129, %310 ], [ %.0127, %.critedge2 ]
   %105 = getelementptr inbounds [100 x %struct.Kf_ThData_t_], ptr %5, i64 0, i64 %indvars.iv214
   %106 = getelementptr inbounds i8, ptr %105, i64 12
   %107 = load i32, ptr %106, align 4
@@ -1756,7 +1756,7 @@ Abc_Clock.exit162:                                ; preds = %Kf_ObjSetCuts.exit,
 .lr.ph191:                                        ; preds = %Abc_Clock.exit162, %294
   %244 = phi ptr [ %295, %294 ], [ %238, %Abc_Clock.exit162 ]
   %.1118190 = phi i32 [ %296, %294 ], [ 0, %Abc_Clock.exit162 ]
-  %.2129189 = phi i32 [ %.3130, %294 ], [ %.1128192, %Abc_Clock.exit162 ]
+  %.4131189 = phi i32 [ %.5, %294 ], [ %.1128192, %Abc_Clock.exit162 ]
   %245 = getelementptr i8, ptr %244, i64 256
   %.val160 = load ptr, ptr %245, align 8
   %246 = getelementptr i8, ptr %.val160, i64 8
@@ -1853,13 +1853,13 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br label %292
 
 292:                                              ; preds = %Vec_IntPush.exit171, %259
-  %293 = add nsw i32 %.2129189, -1
+  %293 = add nsw i32 %.4131189, -1
   %.pre = load ptr, ptr %0, align 8
   br label %294
 
 294:                                              ; preds = %.lr.ph191, %292
   %295 = phi ptr [ %.pre, %292 ], [ %244, %.lr.ph191 ]
-  %.3130 = phi i32 [ %293, %292 ], [ %.2129189, %.lr.ph191 ]
+  %.5 = phi i32 [ %293, %292 ], [ %.4131189, %.lr.ph191 ]
   %296 = add nuw nsw i32 %.1118190, 1
   %297 = getelementptr i8, ptr %295, i64 248
   %.val159 = load ptr, ptr %297, align 8
@@ -1871,13 +1871,13 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %301, label %.lr.ph191, label %.critedge4, !llvm.loop !26
 
 .critedge4:                                       ; preds = %294, %Abc_Clock.exit162
-  %.2129.lcssa = phi i32 [ %.1128192, %Abc_Clock.exit162 ], [ %.3130, %294 ]
+  %.4131.lcssa = phi i32 [ %.1128192, %Abc_Clock.exit162 ], [ %.5, %294 ]
   store i32 -1, ptr %109, align 8
   br label %302
 
 302:                                              ; preds = %.critedge4, %108
-  %.4131 = phi i32 [ %.2129.lcssa, %.critedge4 ], [ %.1128192, %108 ]
-  %.2122 = phi i64 [ %237, %.critedge4 ], [ %.1121193, %108 ]
+  %.3130 = phi i32 [ %.4131.lcssa, %.critedge4 ], [ %.1128192, %108 ]
+  %.3123 = phi i64 [ %237, %.critedge4 ], [ %.1121193, %108 ]
   %.val151 = load i32, ptr %14, align 4
   %303 = icmp sgt i32 %.val151, 0
   br i1 %303, label %304, label %310
@@ -1894,8 +1894,8 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br label %310
 
 310:                                              ; preds = %302, %304, %.lr.ph195
-  %.5 = phi i32 [ %.1128192, %.lr.ph195 ], [ %.4131, %304 ], [ %.4131, %302 ]
-  %.3123 = phi i64 [ %.1121193, %.lr.ph195 ], [ %.2122, %304 ], [ %.2122, %302 ]
+  %.2129 = phi i32 [ %.1128192, %.lr.ph195 ], [ %.3130, %304 ], [ %.3130, %302 ]
+  %.2122 = phi i64 [ %.1121193, %.lr.ph195 ], [ %.3123, %304 ], [ %.3123, %302 ]
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
   br i1 %exitcond218.not, label %.preheader180, label %.lr.ph195, !llvm.loop !27

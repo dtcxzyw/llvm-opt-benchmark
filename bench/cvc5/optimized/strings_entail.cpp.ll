@@ -1001,7 +1001,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
 
 land.lhs.true:                                    ; preds = %while.cond.preheader, %if.end243
   %ret.0793 = phi i1 [ false, %while.cond.preheader ], [ %ret.4, %if.end243 ]
-  %sindex.0792 = phi i32 [ 0, %while.cond.preheader ], [ %sindex.5, %if.end243 ]
+  %sindex.0792 = phi i32 [ 0, %while.cond.preheader ], [ %sindex.4, %if.end243 ]
   %2 = load ptr, ptr %curr, align 8
   %3 = load ptr, ptr %zero, align 8
   %cmp.i.not = icmp eq ptr %2, %3
@@ -2205,8 +2205,8 @@ lpad179:                                          ; preds = %if.then13.i4.i395, 
   br label %ehcleanup185
 
 if.end184:                                        ; preds = %if.then13.i.i414, %if.then.i.i408, %invoke.cont180, %if.then13.i.i338, %if.then.i.i332, %invoke.cont155, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211
-  %sindex.1 = phi i32 [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211 ], [ %sindex.0792, %invoke.cont155 ], [ %sindex.0792, %if.then.i.i332 ], [ %sindex.0792, %if.then13.i.i338 ], [ %sindex.0792, %invoke.cont180 ], [ %sindex.0792, %if.then.i.i408 ], [ %sindex.0792, %if.then13.i.i414 ]
-  %ret.1 = phi i1 [ %ret.0793, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211 ], [ true, %invoke.cont155 ], [ true, %if.then.i.i332 ], [ true, %if.then13.i.i338 ], [ true, %invoke.cont180 ], [ true, %if.then.i.i408 ], [ true, %if.then13.i.i414 ]
+  %sindex.2 = phi i32 [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211 ], [ %sindex.0792, %invoke.cont155 ], [ %sindex.0792, %if.then.i.i332 ], [ %sindex.0792, %if.then13.i.i338 ], [ %sindex.0792, %invoke.cont180 ], [ %sindex.0792, %if.then.i.i408 ], [ %sindex.0792, %if.then13.i.i414 ]
+  %ret.2 = phi i1 [ %ret.0793, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit211 ], [ true, %invoke.cont155 ], [ true, %if.then.i.i332 ], [ true, %if.then13.i.i338 ], [ true, %invoke.cont180 ], [ true, %if.then.i.i408 ], [ true, %if.then13.i.i414 ]
   %159 = load ptr, ptr %next_s, align 8
   %bf.load.i.i417 = load i64, ptr %159, align 8
   %160 = and i64 %bf.load.i.i417, 1152920405095219200
@@ -2302,9 +2302,9 @@ ehcleanup187:                                     ; preds = %lpad50, %ehcleanup1
   br label %ehcleanup190
 
 if.end189:                                        ; preds = %if.then13.i.i447, %if.then.i.i441, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438, %invoke.cont34
-  %sindex.2 = phi i32 [ %sindex.0792, %invoke.cont34 ], [ %sindex.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438 ], [ %sindex.1, %if.then.i.i441 ], [ %sindex.1, %if.then13.i.i447 ]
-  %success.2 = phi i1 [ false, %invoke.cont34 ], [ %cmp.inv.i145, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438 ], [ %cmp.inv.i145, %if.then.i.i441 ], [ %cmp.inv.i145, %if.then13.i.i447 ]
-  %ret.2 = phi i1 [ %ret.0793, %invoke.cont34 ], [ %ret.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438 ], [ %ret.1, %if.then.i.i441 ], [ %ret.1, %if.then13.i.i447 ]
+  %sindex.3 = phi i32 [ %sindex.0792, %invoke.cont34 ], [ %sindex.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438 ], [ %sindex.2, %if.then.i.i441 ], [ %sindex.2, %if.then13.i.i447 ]
+  %success.3 = phi i1 [ false, %invoke.cont34 ], [ %cmp.inv.i145, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438 ], [ %cmp.inv.i145, %if.then.i.i441 ], [ %cmp.inv.i145, %if.then13.i.i447 ]
+  %ret.3 = phi i1 [ %ret.0793, %invoke.cont34 ], [ %ret.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit438 ], [ %ret.2, %if.then.i.i441 ], [ %ret.2, %if.then13.i.i447 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %lbr)
           to label %if.end191 unwind label %terminate.lpad.i.i450
 
@@ -2328,9 +2328,9 @@ terminate.lpad.i.i453:                            ; preds = %ehcleanup190
   unreachable
 
 if.end191:                                        ; preds = %if.end189, %invoke.cont27
-  %sindex.3 = phi i32 [ %sindex.0792, %invoke.cont27 ], [ %sindex.2, %if.end189 ]
-  %success.3 = phi i1 [ false, %invoke.cont27 ], [ %success.2, %if.end189 ]
-  %ret.3 = phi i1 [ %ret.0793, %invoke.cont27 ], [ %ret.2, %if.end189 ]
+  %sindex.1 = phi i32 [ %sindex.0792, %invoke.cont27 ], [ %sindex.3, %if.end189 ]
+  %success.1 = phi i1 [ false, %invoke.cont27 ], [ %success.3, %if.end189 ]
+  %ret.1 = phi i1 [ %ret.0793, %invoke.cont27 ], [ %ret.3, %if.end189 ]
   %174 = load ptr, ptr %lowerBound, align 8
   %bf.load.i.i456 = load i64, ptr %174, align 8
   %175 = and i64 %bf.load.i.i456, 1152920405095219200
@@ -2732,7 +2732,7 @@ lpad233:                                          ; preds = %invoke.cont232
 
 if.end241:                                        ; preds = %invoke.cont238, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit566
   %220 = phi ptr [ %.pre, %invoke.cont238 ], [ %.pre794, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit566 ]
-  %sindex.4 = phi i32 [ %inc240, %invoke.cont238 ], [ %sindex.0792, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit566 ]
+  %sindex.5 = phi i32 [ %inc240, %invoke.cont238 ], [ %sindex.0792, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit566 ]
   %bf.load.i.i595 = load i64, ptr %220, align 8
   %221 = and i64 %bf.load.i.i595, 1152920405095219200
   %cmp.not.i.i596 = icmp eq i64 %221, 1152920405095219200
@@ -2764,13 +2764,13 @@ ehcleanup242:                                     ; preds = %lpad223, %lpad225, 
   br label %ehcleanup335
 
 if.end243:                                        ; preds = %if.then13.i.i603, %if.then.i.i597, %if.end241, %if.then13.i.i464, %if.then.i.i458, %if.end191
-  %sindex.5 = phi i32 [ %sindex.3, %if.end191 ], [ %sindex.3, %if.then.i.i458 ], [ %sindex.3, %if.then13.i.i464 ], [ %sindex.4, %if.end241 ], [ %sindex.4, %if.then.i.i597 ], [ %sindex.4, %if.then13.i.i603 ]
-  %success.5 = phi i1 [ %success.3, %if.end191 ], [ %success.3, %if.then.i.i458 ], [ %success.3, %if.then13.i.i464 ], [ %call235, %if.end241 ], [ %call235, %if.then.i.i597 ], [ %call235, %if.then13.i.i603 ]
-  %ret.4 = phi i1 [ %ret.3, %if.end191 ], [ %ret.3, %if.then.i.i458 ], [ %ret.3, %if.then13.i.i464 ], [ %ret.0793, %if.end241 ], [ %ret.0793, %if.then.i.i597 ], [ %ret.0793, %if.then13.i.i603 ]
-  br i1 %success.5, label %land.lhs.true, label %while.end, !llvm.loop !42
+  %sindex.4 = phi i32 [ %sindex.1, %if.end191 ], [ %sindex.1, %if.then.i.i458 ], [ %sindex.1, %if.then13.i.i464 ], [ %sindex.5, %if.end241 ], [ %sindex.5, %if.then.i.i597 ], [ %sindex.5, %if.then13.i.i603 ]
+  %success.4 = phi i1 [ %success.1, %if.end191 ], [ %success.1, %if.then.i.i458 ], [ %success.1, %if.then13.i.i464 ], [ %call235, %if.end241 ], [ %call235, %if.then.i.i597 ], [ %call235, %if.then13.i.i603 ]
+  %ret.4 = phi i1 [ %ret.1, %if.end191 ], [ %ret.1, %if.then.i.i458 ], [ %ret.1, %if.then13.i.i464 ], [ %ret.0793, %if.end241 ], [ %ret.0793, %if.then.i.i597 ], [ %ret.0793, %if.then13.i.i603 ]
+  br i1 %success.4, label %land.lhs.true, label %while.end, !llvm.loop !42
 
 while.end:                                        ; preds = %land.lhs.true, %if.end243, %land.rhs
-  %sindex.0.lcssa = phi i32 [ %sindex.0792, %land.lhs.true ], [ %sindex.5, %if.end243 ], [ %sindex.0792, %land.rhs ]
+  %sindex.0.lcssa = phi i32 [ %sindex.0792, %land.lhs.true ], [ %sindex.4, %if.end243 ], [ %sindex.0792, %land.rhs ]
   %ret.0.lcssa = phi i1 [ %ret.0793, %land.lhs.true ], [ %ret.4, %if.end243 ], [ %ret.0793, %land.rhs ]
   br i1 %strict, label %land.lhs.true245, label %if.else249
 
@@ -4207,7 +4207,7 @@ for.cond209:                                      ; preds = %_ZN4cvc58internal12
   br i1 %cmp210.not, label %return, label %for.body211, !llvm.loop !50
 
 for.body211:                                      ; preds = %if.then204, %for.cond209
-  %retval.21275 = phi i32 [ undef, %if.then204 ], [ %retval.5, %for.cond209 ]
+  %retval.31275 = phi i32 [ undef, %if.then204 ], [ %retval.6, %for.cond209 ]
   %storemerge1273 = phi i32 [ 0, %if.then204 ], [ %inc500, %for.cond209 ]
   %121 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i530 = icmp eq i8 %121, 0
@@ -4602,7 +4602,7 @@ terminate.lpad.i689:                              ; preds = %if.then13.i.i688
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit679, %if.then.i.i682, %if.then13.i.i688
   %brmerge.not1285 = and i1 %call260, %computeRemainder
   %.mux = zext i1 %call260 to i32
-  %retval.2.mux = select i1 %call260, i32 %storemerge1273, i32 %retval.21275
+  %retval.3.mux = select i1 %call260, i32 %storemerge1273, i32 %retval.31275
   br i1 %brmerge.not1285, label %if.then299, label %cleanup473
 
 if.then299:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690
@@ -4978,7 +4978,7 @@ if.else.i1023:                                    ; preds = %if.then416
 
 cleanup473:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1013, %if.else.i1023, %if.end367, %invoke.cont414
   %spec.select = phi i32 [ %.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690 ], [ 1, %invoke.cont414 ], [ 1, %if.end367 ], [ 1, %if.else.i1023 ], [ 1, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1013 ]
-  %retval.3 = phi i32 [ %retval.2.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690 ], [ %storemerge1273, %invoke.cont414 ], [ %storemerge1273, %if.end367 ], [ %storemerge1273, %if.else.i1023 ], [ %storemerge1273, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1013 ]
+  %retval.5 = phi i32 [ %retval.3.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit690 ], [ %storemerge1273, %invoke.cont414 ], [ %storemerge1273, %if.end367 ], [ %storemerge1273, %if.else.i1023 ], [ %storemerge1273, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1013 ]
   %217 = load ptr, ptr %n1re_last, align 8
   %bf.load.i.i1200 = load i64, ptr %217, align 8
   %218 = and i64 %bf.load.i.i1200, 1152920405095219200
@@ -5054,7 +5054,7 @@ if.else478:                                       ; preds = %for.body235
 
 cleanup493:                                       ; preds = %if.else478, %for.cond231, %if.then13.i.i1219, %if.then.i.i1213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1210, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit604
   %cleanup.dest.slot.2 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit604 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1210 ], [ %spec.select, %if.then.i.i1213 ], [ %spec.select, %if.then13.i.i1219 ], [ 0, %for.cond231 ], [ 0, %if.else478 ]
-  %retval.5 = phi i32 [ %retval.21275, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit604 ], [ %retval.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1210 ], [ %retval.3, %if.then.i.i1213 ], [ %retval.3, %if.then13.i.i1219 ], [ %retval.21275, %for.cond231 ], [ %retval.21275, %if.else478 ]
+  %retval.6 = phi i32 [ %retval.31275, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit604 ], [ %retval.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1210 ], [ %retval.5, %if.then.i.i1213 ], [ %retval.5, %if.then13.i.i1219 ], [ %retval.31275, %for.cond231 ], [ %retval.31275, %if.else478 ]
   %227 = load ptr, ptr %n1re_first, align 8
   %bf.load.i.i1225 = load i64, ptr %227, align 8
   %228 = and i64 %bf.load.i.i1225, 1152920405095219200
@@ -5123,8 +5123,8 @@ ehcleanup498:                                     ; preds = %lpad.i.i545, %ehcle
   br label %common.resume
 
 return:                                           ; preds = %for.cond209, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1246, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit509, %for.cond, %for.cond.preheader, %if.else200
-  %retval.6 = phi i32 [ -1, %if.else200 ], [ -1, %for.cond.preheader ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit509 ], [ -1, %for.cond ], [ -1, %for.cond209 ], [ %retval.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1246 ]
-  ret i32 %retval.6
+  %retval.2 = phi i32 [ -1, %if.else200 ], [ -1, %for.cond.preheader ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit509 ], [ -1, %for.cond ], [ -1, %for.cond209 ], [ %retval.6, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1246 ]
+  ret i32 %retval.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6245,8 +6245,8 @@ if.end234:                                        ; preds = %_ZN4cvc58internal12
   br label %return
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit262, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit343, %if.else104, %if.then70, %invoke.cont94, %if.end84, %if.then44, %invoke.cont53, %if.then20, %invoke.cont27, %entry, %if.end234
-  %retval.5 = phi i1 [ false, %if.end234 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit262 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit343 ], [ true, %entry ], [ true, %invoke.cont27 ], [ true, %if.then20 ], [ true, %invoke.cont53 ], [ true, %if.then44 ], [ true, %if.end84 ], [ true, %invoke.cont94 ], [ true, %if.then70 ], [ false, %if.else104 ]
-  ret i1 %retval.5
+  %retval.0 = phi i1 [ false, %if.end234 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit262 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit343 ], [ true, %entry ], [ true, %invoke.cont27 ], [ true, %if.then20 ], [ true, %invoke.cont53 ], [ true, %if.then44 ], [ true, %if.end84 ], [ true, %invoke.cont94 ], [ true, %if.then70 ], [ false, %if.else104 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup211, %lpad212, %lpad.i.i, %lpad195, %lpad189, %lpad191, %lpad119, %ehcleanup133, %ehcleanup177, %lpad93, %lpad79, %lpad52, %lpad26
   %ref.tmp87.sink = phi ptr [ %ref.tmp87, %lpad93 ], [ %ref.tmp75, %lpad79 ], [ %ref.tmp47, %lpad52 ], [ %ref.tmp22, %lpad26 ], [ %start_pos, %ehcleanup177 ], [ %start_pos, %ehcleanup133 ], [ %start_pos, %lpad119 ], [ %agg.tmp187, %lpad191 ], [ %agg.tmp187, %lpad189 ], [ %xCtnW, %lpad195 ], [ %xCtnW, %lpad.i.i ], [ %xCtnW, %lpad212 ], [ %xCtnW, %ehcleanup211 ]
@@ -7083,7 +7083,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %retval.0914 = phi i1 [ undef, %entry ], [ %retval.3, %for.inc ]
+  %retval.0914 = phi i1 [ undef, %entry ], [ %retval.4, %for.inc ]
   %changed.0912 = phi i1 [ false, %entry ], [ %changed.6, %for.inc ]
   %cmp8 = phi i1 [ true, %entry ], [ false, %for.inc ]
   %cmp5 = phi i1 [ false, %entry ], [ true, %for.inc ]
@@ -7954,7 +7954,7 @@ lpad295:                                          ; preds = %if.then13.i4.i661, 
 
 if.end302:                                        ; preds = %if.then13.i.i680, %if.then.i.i674, %invoke.cont296, %if.then13.i.i605, %if.then.i.i599, %invoke.cont271, %if.then245, %cond.true225
   %removeComponent.2 = phi i1 [ %removeComponent.1, %cond.true225 ], [ true, %if.then245 ], [ %removeComponent.1, %invoke.cont271 ], [ %removeComponent.1, %if.then.i.i599 ], [ %removeComponent.1, %if.then13.i.i605 ], [ %removeComponent.1, %invoke.cont296 ], [ %removeComponent.1, %if.then.i.i674 ], [ %removeComponent.1, %if.then13.i.i680 ]
-  %changed.1 = phi i1 [ %changed.0912, %cond.true225 ], [ true, %if.then245 ], [ true, %invoke.cont271 ], [ true, %if.then.i.i599 ], [ true, %if.then13.i.i605 ], [ true, %invoke.cont296 ], [ true, %if.then.i.i674 ], [ true, %if.then13.i.i680 ]
+  %changed.2 = phi i1 [ %changed.0912, %cond.true225 ], [ true, %if.then245 ], [ true, %invoke.cont271 ], [ true, %if.then.i.i599 ], [ true, %if.then13.i.i605 ], [ true, %invoke.cont296 ], [ true, %if.then.i.i674 ], [ true, %if.then13.i.i680 ]
   %bf.load.i.i683 = load i64, ptr %25, align 8
   %95 = and i64 %bf.load.i.i683, 1152920405095219200
   %cmp.not.i.i684 = icmp eq i64 %95, 1152920405095219200
@@ -8091,23 +8091,23 @@ if.else328:                                       ; preds = %invoke.cont319
           to label %if.end345 unwind label %lpad323
 
 if.end345:                                        ; preds = %if.else328, %if.then322
-  %removeComponent.3.in.in = phi i1 [ %call325, %if.then322 ], [ %call342, %if.else328 ]
-  %removeComponent.3.in = xor i1 %removeComponent.3.in.in, true
+  %removeComponent.4.in.in = phi i1 [ %call325, %if.then322 ], [ %call342, %if.else328 ]
+  %removeComponent.4.in = xor i1 %removeComponent.4.in.in, true
   %111 = load ptr, ptr %t314, align 8
   %tobool.not.i.i.i.i711 = icmp eq ptr %111, null
   br i1 %tobool.not.i.i.i.i711, label %if.end349, label %if.then.i.i.i.i712
 
 if.then.i.i.i.i712:                               ; preds = %if.end345
   call void @_ZdlPv(ptr noundef nonnull %111) #21
-  br i1 %removeComponent.3.in.in, label %cleanup, label %cond.true354
+  br i1 %removeComponent.4.in.in, label %cleanup, label %cond.true354
 
 if.end349:                                        ; preds = %if.end345, %if.then13.i.i691, %if.then.i.i685, %if.end302
-  %removeComponent.4 = phi i1 [ %removeComponent.2, %if.end302 ], [ %removeComponent.2, %if.then.i.i685 ], [ %removeComponent.2, %if.then13.i.i691 ], [ %removeComponent.3.in, %if.end345 ]
-  %changed.2 = phi i1 [ %changed.1, %if.end302 ], [ %changed.1, %if.then.i.i685 ], [ %changed.1, %if.then13.i.i691 ], [ %changed.0912, %if.end345 ]
-  br i1 %removeComponent.4, label %cond.true354, label %cleanup
+  %removeComponent.3 = phi i1 [ %removeComponent.2, %if.end302 ], [ %removeComponent.2, %if.then.i.i685 ], [ %removeComponent.2, %if.then13.i.i691 ], [ %removeComponent.4.in, %if.end345 ]
+  %changed.3 = phi i1 [ %changed.2, %if.end302 ], [ %changed.2, %if.then.i.i685 ], [ %changed.2, %if.then13.i.i691 ], [ %changed.0912, %if.end345 ]
+  br i1 %removeComponent.3, label %cond.true354, label %cleanup
 
 cond.true354:                                     ; preds = %if.then.i.i.i.i712, %if.end349
-  %changed.2915 = phi i1 [ %changed.0912, %if.then.i.i.i.i712 ], [ %changed.2, %if.end349 ]
+  %changed.3915 = phi i1 [ %changed.0912, %if.then.i.i.i.i712 ], [ %changed.3, %if.end349 ]
   %112 = load ptr, ptr %n1, align 8
   %add.ptr.i760 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %112, i64 %conv17
   br i1 %cmp8866874, label %if.then367, label %if.else386
@@ -8246,9 +8246,9 @@ if.end395:                                        ; preds = %if.end390
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i.i712, %if.else304, %invoke.cont311, %if.end349, %if.end390, %if.end395
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.end390 ], [ 0, %if.end349 ], [ 0, %if.end395 ], [ 0, %invoke.cont311 ], [ 0, %if.else304 ], [ 0, %if.then.i.i.i.i712 ]
-  %changed.4 = phi i1 [ %changed.2915, %if.end390 ], [ %changed.2, %if.end349 ], [ true, %if.end395 ], [ %changed.0912, %invoke.cont311 ], [ %changed.0912, %if.else304 ], [ %changed.0912, %if.then.i.i.i.i712 ]
-  %retval.1 = phi i1 [ true, %if.end390 ], [ %retval.0914, %if.end349 ], [ %retval.0914, %if.end395 ], [ %retval.0914, %invoke.cont311 ], [ %retval.0914, %if.else304 ], [ %retval.0914, %if.then.i.i.i.i712 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %if.end390 ], [ 0, %if.end349 ], [ 0, %if.end395 ], [ 0, %invoke.cont311 ], [ 0, %if.else304 ], [ 0, %if.then.i.i.i.i712 ]
+  %changed.5 = phi i1 [ %changed.3915, %if.end390 ], [ %changed.3, %if.end349 ], [ true, %if.end395 ], [ %changed.0912, %invoke.cont311 ], [ %changed.0912, %if.else304 ], [ %changed.0912, %if.then.i.i.i.i712 ]
+  %retval.2 = phi i1 [ true, %if.end390 ], [ %retval.0914, %if.end349 ], [ %retval.0914, %if.end395 ], [ %retval.0914, %invoke.cont311 ], [ %retval.0914, %if.else304 ], [ %retval.0914, %if.then.i.i.i.i712 ]
   %131 = load ptr, ptr %sls, align 8
   %132 = load ptr, ptr %_M_finish.i807, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %131, %132
@@ -8353,9 +8353,9 @@ if.then.i.i.i827:                                 ; preds = %invoke.cont.i825
   br label %cleanup399
 
 cleanup399:                                       ; preds = %if.then.i.i.i827, %invoke.cont.i825, %cleanup.done
-  %cleanup.dest.slot.1 = phi i32 [ 1, %cleanup.done ], [ %cleanup.dest.slot.0, %invoke.cont.i825 ], [ %cleanup.dest.slot.0, %if.then.i.i.i827 ]
-  %changed.5 = phi i1 [ %changed.0912, %cleanup.done ], [ %changed.4, %invoke.cont.i825 ], [ %changed.4, %if.then.i.i.i827 ]
-  %retval.2 = phi i1 [ false, %cleanup.done ], [ %retval.1, %invoke.cont.i825 ], [ %retval.1, %if.then.i.i.i827 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %cleanup.done ], [ %cleanup.dest.slot.1, %invoke.cont.i825 ], [ %cleanup.dest.slot.1, %if.then.i.i.i827 ]
+  %changed.1 = phi i1 [ %changed.0912, %cleanup.done ], [ %changed.5, %invoke.cont.i825 ], [ %changed.5, %if.then.i.i.i827 ]
+  %retval.1 = phi i1 [ false, %cleanup.done ], [ %retval.2, %invoke.cont.i825 ], [ %retval.2, %if.then.i.i.i827 ]
   %145 = load ptr, ptr %n1cmp, align 8
   %bf.load.i.i831 = load i64, ptr %145, align 8
   %146 = and i64 %bf.load.i.i831, 1152920405095219200
@@ -8383,7 +8383,7 @@ terminate.lpad.i841:                              ; preds = %if.then13.i.i840
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842: ; preds = %cleanup399, %if.then.i.i833, %if.then13.i.i840
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %for.inc, label %return
 
 ehcleanup396:                                     ; preds = %lpad29.loopexit, %lpad29.loopexit.split-lp, %if.then.i.i.i.i, %lpad323, %ehcleanup303, %ehcleanup
@@ -8398,13 +8398,13 @@ ehcleanup400:                                     ; preds = %lpad21, %ehcleanup3
   resume { ptr, i32 } %.pn51.pn
 
 for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842, %lor.lhs.false4
-  %changed.6 = phi i1 [ %changed.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842 ], [ %changed.0912, %lor.lhs.false4 ]
-  %retval.3 = phi i1 [ %retval.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842 ], [ %retval.0914, %lor.lhs.false4 ]
+  %changed.6 = phi i1 [ %changed.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842 ], [ %changed.0912, %lor.lhs.false4 ]
+  %retval.4 = phi i1 [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842 ], [ %retval.0914, %lor.lhs.false4 ]
   br i1 %cmp8, label %for.body, label %return, !llvm.loop !84
 
 return:                                           ; preds = %for.inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842
-  %retval.4 = phi i1 [ %retval.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842 ], [ %changed.6, %for.inc ]
-  ret i1 %retval.4
+  %retval.3 = phi i1 [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit842 ], [ %changed.6, %for.inc ]
+  ret i1 %retval.3
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internal6theory7strings4Word7isEmptyENS0_12NodeTemplateILb0EEE(ptr noundef) local_unnamed_addr #0

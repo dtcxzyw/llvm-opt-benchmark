@@ -45,7 +45,7 @@ define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %phpdbg_mixed_read.exit, %5
   %.042 = phi i32 [ %2, %5 ], [ %43, %phpdbg_mixed_read.exit ]
-  %.040 = phi i32 [ 0, %5 ], [ %.3, %phpdbg_mixed_read.exit ]
+  %.040 = phi i32 [ 0, %5 ], [ %.141, %phpdbg_mixed_read.exit ]
   %7 = icmp slt i32 %.042, 1
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -57,7 +57,7 @@ define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_ad
 9:                                                ; preds = %.preheader, %32
   %10 = phi i32 [ %8, %.preheader ], [ %34, %32 ]
   %.061 = phi i32 [ %.040, %.preheader ], [ %33, %32 ]
-  %.14160 = phi i32 [ %.040, %.preheader ], [ %.2, %32 ]
+  %.260 = phi i32 [ %.040, %.preheader ], [ %.3, %32 ]
   %11 = sext i32 %.061 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1
@@ -67,7 +67,7 @@ define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_ad
   ]
 
 14:                                               ; preds = %9
-  %.reass = add i32 %.14160, %invariant.op
+  %.reass = add i32 %.260, %invariant.op
   %.not53 = icmp eq i32 %.061, %.reass
   br i1 %.not53, label %20, label %15
 
@@ -80,7 +80,7 @@ define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_ad
   br label %20
 
 20:                                               ; preds = %15, %14
-  %21 = add nsw i32 %.14160, -1
+  %21 = add nsw i32 %.260, -1
   %22 = add nsw i32 %.061, -1
   br label %32
 
@@ -107,19 +107,19 @@ define i32 @phpdbg_consume_stdin_line(ptr nocapture noundef %0) local_unnamed_ad
   br label %52
 
 32:                                               ; preds = %9, %20
-  %.2 = phi i32 [ %21, %20 ], [ %.14160, %9 ]
+  %.3 = phi i32 [ %21, %20 ], [ %.260, %9 ]
   %.1 = phi i32 [ %22, %20 ], [ %.061, %9 ]
   %33 = add nsw i32 %.1, 1
-  %34 = add nsw i32 %.2, %.042
+  %34 = add nsw i32 %.3, %.042
   %35 = icmp slt i32 %33, %34
   br i1 %35, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %32, %6
-  %.3 = phi i32 [ %.040, %6 ], [ %34, %32 ]
+  %.141 = phi i32 [ %.040, %6 ], [ %34, %32 ]
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1496), align 8
-  %37 = sext i32 %.3 to i64
+  %37 = sext i32 %.141 to i64
   %38 = getelementptr inbounds i8, ptr %0, i64 %37
-  %39 = sub nsw i32 500, %.3
+  %39 = sub nsw i32 500, %.141
   %40 = sext i32 %39 to i64
   br label %41
 
@@ -217,7 +217,7 @@ define i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   %17 = phi i64 [ %9, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %18 = phi ptr [ %14, %.lr.ph.i ], [ %42, %40 ]
-  %.03444.i = phi i32 [ 0, %.lr.ph.i ], [ %.135.i, %40 ]
+  %.03444.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = getelementptr inbounds i8, ptr %18, i64 1
   %20 = urem i64 %indvars.iv.next.i, %17
@@ -258,14 +258,14 @@ define i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
 40:                                               ; preds = %38, %._crit_edge55.i
   %.pre-phi58.i = phi i64 [ %.pre57.i, %._crit_edge55.i ], [ %31, %38 ]
   %41 = phi i64 [ %17, %._crit_edge55.i ], [ %.pre.i, %38 ]
-  %.135.i = phi i32 [ %.03444.i, %._crit_edge55.i ], [ %30, %38 ]
+  %.2.i = phi i32 [ %.03444.i, %._crit_edge55.i ], [ %30, %38 ]
   %42 = tail call ptr @memchr(ptr noundef nonnull %19, i32 noundef 10, i64 noundef %.pre-phi58.i) #11
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %._crit_edge.i, label %16
 
 ._crit_edge.i:                                    ; preds = %40, %33, %22
-  %.2.ph.i = phi i32 [ %.135.i, %40 ], [ %30, %33 ], [ %30, %22 ]
-  %.not39.i = icmp eq i32 %.2.ph.i, 0
+  %.135.ph.i = phi i32 [ %.2.i, %40 ], [ %30, %33 ], [ %30, %22 ]
+  %.not39.i = icmp eq i32 %.135.ph.i, 0
   br i1 %.not39.i, label %.critedge.i, label %43
 
 43:                                               ; preds = %._crit_edge.i
@@ -277,13 +277,13 @@ define i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   br i1 %.not40.i, label %phpdbg_output_pager.exit, label %47
 
 47:                                               ; preds = %43
-  %48 = sext i32 %.2.ph.i to i64
+  %48 = sext i32 %.135.ph.i to i64
   %49 = getelementptr inbounds i8, ptr %1, i64 %48
-  %50 = sub nsw i32 %2, %.2.ph.i
+  %50 = sub nsw i32 %2, %.135.ph.i
   %51 = sext i32 %50 to i64
   %52 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull %49, i64 noundef %51) #8
   %53 = trunc i64 %52 to i32
-  %54 = add i32 %.2.ph.i, %53
+  %54 = add i32 %.135.ph.i, %53
   br label %phpdbg_output_pager.exit
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %10
@@ -292,7 +292,7 @@ define i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   br label %phpdbg_output_pager.exit
 
 phpdbg_output_pager.exit:                         ; preds = %43, %47, %.critedge.i
-  %.3.i = phi i32 [ %54, %47 ], [ %56, %.critedge.i ], [ %.2.ph.i, %43 ]
+  %.3.i = phi i32 [ %54, %47 ], [ %56, %.critedge.i ], [ %.135.ph.i, %43 ]
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %4)
   br label %61
 

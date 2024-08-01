@@ -149,7 +149,7 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef 
 
 .preheader73:                                     ; preds = %.preheader73.preheader, %.loopexit
   %indvars.iv93 = phi i64 [ 0, %.preheader73.preheader ], [ %indvars.iv.next94, %.loopexit ]
-  %.084 = phi i64 [ %4, %.preheader73.preheader ], [ %.3, %.loopexit ]
+  %.084 = phi i64 [ %4, %.preheader73.preheader ], [ %.2, %.loopexit ]
   br label %32
 
 32:                                               ; preds = %.preheader73, %81
@@ -176,13 +176,13 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef 
   br i1 %49, label %.preheader, label %81
 
 .preheader:                                       ; preds = %48, %.preheader
-  %.2 = phi i64 [ %63, %.preheader ], [ %37, %48 ]
-  %50 = trunc i64 %.2 to i32
+  %.3 = phi i64 [ %63, %.preheader ], [ %37, %48 ]
+  %50 = trunc i64 %.3 to i32
   %51 = uitofp i32 %50 to float
   %52 = fmul float %51, 0x3DF0000000000000
-  %53 = and i64 %.2, 4294967295
+  %53 = and i64 %.3, 4294967295
   %54 = mul nuw i64 %53, 4164903690
-  %55 = lshr i64 %.2, 32
+  %55 = lshr i64 %.3, 32
   %56 = add nuw i64 %54, %55
   %57 = trunc i64 %56 to i32
   %58 = uitofp i32 %57 to float
@@ -238,7 +238,7 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef 
 
 .loopexit:                                        ; preds = %81, %32, %76
   %.068 = phi float [ %80, %76 ], [ %43, %32 ], [ %43, %81 ]
-  %.3 = phi i64 [ %63, %76 ], [ %88, %81 ], [ %37, %32 ]
+  %.2 = phi i64 [ %63, %76 ], [ %88, %81 ], [ %37, %32 ]
   %103 = getelementptr inbounds float, ptr %0, i64 %indvars.iv93
   store float %.068, ptr %103, align 4
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
@@ -246,7 +246,7 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.preheader73, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %30
-  %.0.lcssa = phi i64 [ %4, %30 ], [ %.3, %.loopexit ]
+  %.0.lcssa = phi i64 [ %4, %30 ], [ %.2, %.loopexit ]
   store i64 %.0.lcssa, ptr %2, align 8
   ret void
 }
@@ -1130,7 +1130,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit506:   ; preds = %.noexc505, %_ZN2cv1
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 408:                                              ; preds = %405, %393
-  %.0382 = phi ptr [ %395, %393 ], [ %382, %405 ]
+  %.1383 = phi ptr [ %395, %393 ], [ %382, %405 ]
   br i1 %363, label %409, label %.loopexit640
 
 409:                                              ; preds = %408
@@ -1147,9 +1147,9 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit506:   ; preds = %.noexc505, %_ZN2cv1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %413, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %415 = sub nsw i64 %indvars.iv, %413
-  %416 = getelementptr inbounds i8, ptr %.0382, i64 %415
+  %416 = getelementptr inbounds i8, ptr %.1383, i64 %415
   %417 = load i8, ptr %416, align 1
-  %418 = getelementptr inbounds i8, ptr %.0382, i64 %indvars.iv
+  %418 = getelementptr inbounds i8, ptr %.1383, i64 %indvars.iv
   store i8 %417, ptr %418, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %419 = icmp slt i64 %indvars.iv.next, %414
@@ -1207,7 +1207,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit506:   ; preds = %.noexc505, %_ZN2cv1
   br label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
 
 442:                                              ; preds = %439, %425
-  %.0384 = phi ptr [ %427, %425 ], [ %435, %439 ]
+  %.1385 = phi ptr [ %427, %425 ], [ %435, %439 ]
   br i1 %365, label %443, label %.loopexit639
 
 443:                                              ; preds = %442
@@ -1224,9 +1224,9 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit506:   ; preds = %.noexc505, %_ZN2cv1
 .lr.ph644:                                        ; preds = %.lr.ph644.preheader, %.lr.ph644
   %indvars.iv684 = phi i64 [ %447, %.lr.ph644.preheader ], [ %indvars.iv.next685, %.lr.ph644 ]
   %449 = sub nsw i64 %indvars.iv684, %447
-  %450 = getelementptr inbounds i8, ptr %.0384, i64 %449
+  %450 = getelementptr inbounds i8, ptr %.1385, i64 %449
   %451 = load i8, ptr %450, align 1
-  %452 = getelementptr inbounds i8, ptr %.0384, i64 %indvars.iv684
+  %452 = getelementptr inbounds i8, ptr %.1385, i64 %indvars.iv684
   store i8 %451, ptr %452, align 1
   %indvars.iv.next685 = add nsw i64 %indvars.iv684, 1
   %453 = icmp slt i64 %indvars.iv.next685, %448
@@ -1302,8 +1302,8 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit506:   ; preds = %.noexc505, %_ZN2cv1
 
 478:                                              ; preds = %.loopexit639, %351
   %.0387 = phi i1 [ false, %351 ], [ %458, %.loopexit639 ]
-  %.1385 = phi ptr [ null, %351 ], [ %.0384, %.loopexit639 ]
-  %.1383 = phi ptr [ null, %351 ], [ %.0382, %.loopexit639 ]
+  %.0384 = phi ptr [ null, %351 ], [ %.1385, %.loopexit639 ]
+  %.0382 = phi ptr [ null, %351 ], [ %.1383, %.loopexit639 ]
   %.2381 = phi ptr [ %.1380, %351 ], [ null, %.loopexit639 ]
   %.2378 = phi ptr [ %.1377, %351 ], [ null, %.loopexit639 ]
   %.2375 = phi ptr [ %.1374, %351 ], [ null, %.loopexit639 ]
@@ -1629,7 +1629,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit520:   ; preds = %500, %.noexc519
   %591 = mul nsw i32 %.sroa.speculated.us665, %67
   call fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef %.0362, i32 noundef %591, ptr noundef nonnull %0)
   %592 = load ptr, ptr %32, align 8
-  invoke void %.0370(ptr noundef %.0362, ptr noundef %592, i32 noundef %.sroa.speculated.us665, i32 noundef %67, ptr noundef %.1383, ptr noundef %.1385, i1 noundef zeroext %.0387)
+  invoke void %.0370(ptr noundef %.0362, ptr noundef %592, i32 noundef %.sroa.speculated.us665, i32 noundef %67, ptr noundef %.0382, ptr noundef %.0384, i1 noundef zeroext %.0387)
           to label %593 unwind label %.loopexit.split.split.us
 
 593:                                              ; preds = %.preheader.us
@@ -4394,10 +4394,10 @@ define internal void @_ZN2cvL11randBits_8uEPhiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
   %indvars.iv124.i = phi i64 [ 0, %.lr.ph111.preheader.i ], [ %indvars.iv.next125.i, %.lr.ph111.i ]
-  %.1110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
-  %75 = and i64 %.1110.i, 4294967295
+  %.2110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
+  %75 = and i64 %.2110.i, 4294967295
   %76 = mul nuw i64 %75, 4164903690
-  %77 = lshr i64 %.1110.i, 32
+  %77 = lshr i64 %.2110.i, 32
   %78 = add nuw i64 %76, %77
   %79 = trunc i64 %78 to i32
   %80 = getelementptr inbounds %"class.cv::Vec", ptr %3, i64 %indvars.iv124.i
@@ -4463,19 +4463,19 @@ define internal void @_ZN2cvL11randBits_8uEPhiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.299.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.2.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
-  %128 = icmp slt i32 %.299.i, %1
+  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IhEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
 .lr.ph116.preheader.i:                            ; preds = %.loopexit.i
-  %129 = zext nneg i32 %.299.i to i64
+  %129 = zext nneg i32 %.198.i to i64
   %wide.trip.count.i = zext i32 %1 to i64
   br label %.lr.ph116.i
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv127.i = phi i64 [ %129, %.lr.ph116.preheader.i ], [ %indvars.iv.next128.i, %.lr.ph116.i ]
-  %.3115.i = phi i64 [ %.2.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
+  %.3115.i = phi i64 [ %.1.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
   %130 = and i64 %.3115.i, 4294967295
   %131 = mul nuw i64 %130, 4164903690
   %132 = lshr i64 %.3115.i, 32
@@ -4497,7 +4497,7 @@ define internal void @_ZN2cvL11randBits_8uEPhiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   br i1 %exitcond.not.i, label %_ZN2cvL9randBits_IhEEvPT_iPmPKNS_3VecIiLi2EEEb.exit, label %.lr.ph116.i, !llvm.loop !89
 
 _ZN2cvL9randBits_IhEEvPT_iPmPKNS_3VecIiLi2EEEb.exit: ; preds = %.lr.ph116.i, %.loopexit.i
-  %.3.lcssa.i = phi i64 [ %.2.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
+  %.3.lcssa.i = phi i64 [ %.1.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
   store i64 %.3.lcssa.i, ptr %2, align 8
   ret void
 }
@@ -4600,10 +4600,10 @@ define internal void @_ZN2cvL11randBits_8sEPaiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
   %indvars.iv124.i = phi i64 [ 0, %.lr.ph111.preheader.i ], [ %indvars.iv.next125.i, %.lr.ph111.i ]
-  %.1110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
-  %75 = and i64 %.1110.i, 4294967295
+  %.2110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
+  %75 = and i64 %.2110.i, 4294967295
   %76 = mul nuw i64 %75, 4164903690
-  %77 = lshr i64 %.1110.i, 32
+  %77 = lshr i64 %.2110.i, 32
   %78 = add nuw i64 %76, %77
   %79 = trunc i64 %78 to i32
   %80 = getelementptr inbounds %"class.cv::Vec", ptr %3, i64 %indvars.iv124.i
@@ -4669,19 +4669,19 @@ define internal void @_ZN2cvL11randBits_8sEPaiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.299.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.2.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
-  %128 = icmp slt i32 %.299.i, %1
+  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IaEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
 .lr.ph116.preheader.i:                            ; preds = %.loopexit.i
-  %129 = zext nneg i32 %.299.i to i64
+  %129 = zext nneg i32 %.198.i to i64
   %wide.trip.count.i = zext i32 %1 to i64
   br label %.lr.ph116.i
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv127.i = phi i64 [ %129, %.lr.ph116.preheader.i ], [ %indvars.iv.next128.i, %.lr.ph116.i ]
-  %.3115.i = phi i64 [ %.2.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
+  %.3115.i = phi i64 [ %.1.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
   %130 = and i64 %.3115.i, 4294967295
   %131 = mul nuw i64 %130, 4164903690
   %132 = lshr i64 %.3115.i, 32
@@ -4703,7 +4703,7 @@ define internal void @_ZN2cvL11randBits_8sEPaiPmPKNS_3VecIiLi2EEEPvb(ptr nocaptu
   br i1 %exitcond.not.i, label %_ZN2cvL9randBits_IaEEvPT_iPmPKNS_3VecIiLi2EEEb.exit, label %.lr.ph116.i, !llvm.loop !92
 
 _ZN2cvL9randBits_IaEEvPT_iPmPKNS_3VecIiLi2EEEb.exit: ; preds = %.lr.ph116.i, %.loopexit.i
-  %.3.lcssa.i = phi i64 [ %.2.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
+  %.3.lcssa.i = phi i64 [ %.1.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
   store i64 %.3.lcssa.i, ptr %2, align 8
   ret void
 }
@@ -4806,10 +4806,10 @@ define internal void @_ZN2cvL12randBits_16uEPtiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
   %indvars.iv124.i = phi i64 [ 0, %.lr.ph111.preheader.i ], [ %indvars.iv.next125.i, %.lr.ph111.i ]
-  %.1110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
-  %75 = and i64 %.1110.i, 4294967295
+  %.2110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
+  %75 = and i64 %.2110.i, 4294967295
   %76 = mul nuw i64 %75, 4164903690
-  %77 = lshr i64 %.1110.i, 32
+  %77 = lshr i64 %.2110.i, 32
   %78 = add nuw i64 %76, %77
   %79 = trunc i64 %78 to i32
   %80 = getelementptr inbounds %"class.cv::Vec", ptr %3, i64 %indvars.iv124.i
@@ -4875,19 +4875,19 @@ define internal void @_ZN2cvL12randBits_16uEPtiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.299.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.2.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
-  %128 = icmp slt i32 %.299.i, %1
+  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_ItEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
 .lr.ph116.preheader.i:                            ; preds = %.loopexit.i
-  %129 = zext nneg i32 %.299.i to i64
+  %129 = zext nneg i32 %.198.i to i64
   %wide.trip.count.i = zext i32 %1 to i64
   br label %.lr.ph116.i
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv127.i = phi i64 [ %129, %.lr.ph116.preheader.i ], [ %indvars.iv.next128.i, %.lr.ph116.i ]
-  %.3115.i = phi i64 [ %.2.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
+  %.3115.i = phi i64 [ %.1.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
   %130 = and i64 %.3115.i, 4294967295
   %131 = mul nuw i64 %130, 4164903690
   %132 = lshr i64 %.3115.i, 32
@@ -4909,7 +4909,7 @@ define internal void @_ZN2cvL12randBits_16uEPtiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   br i1 %exitcond.not.i, label %_ZN2cvL9randBits_ItEEvPT_iPmPKNS_3VecIiLi2EEEb.exit, label %.lr.ph116.i, !llvm.loop !95
 
 _ZN2cvL9randBits_ItEEvPT_iPmPKNS_3VecIiLi2EEEb.exit: ; preds = %.lr.ph116.i, %.loopexit.i
-  %.3.lcssa.i = phi i64 [ %.2.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
+  %.3.lcssa.i = phi i64 [ %.1.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
   store i64 %.3.lcssa.i, ptr %2, align 8
   ret void
 }
@@ -5012,10 +5012,10 @@ define internal void @_ZN2cvL12randBits_16sEPsiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
   %indvars.iv124.i = phi i64 [ 0, %.lr.ph111.preheader.i ], [ %indvars.iv.next125.i, %.lr.ph111.i ]
-  %.1110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
-  %75 = and i64 %.1110.i, 4294967295
+  %.2110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %78, %.lr.ph111.i ]
+  %75 = and i64 %.2110.i, 4294967295
   %76 = mul nuw i64 %75, 4164903690
-  %77 = lshr i64 %.1110.i, 32
+  %77 = lshr i64 %.2110.i, 32
   %78 = add nuw i64 %76, %77
   %79 = trunc i64 %78 to i32
   %80 = getelementptr inbounds %"class.cv::Vec", ptr %3, i64 %indvars.iv124.i
@@ -5081,19 +5081,19 @@ define internal void @_ZN2cvL12randBits_16sEPsiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.299.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
-  %.2.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
-  %128 = icmp slt i32 %.299.i, %1
+  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %126, %.loopexit.loopexit.i ], [ %127, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %78, %.loopexit.loopexit.i ], [ %58, %.loopexit.loopexit118.i ]
+  %128 = icmp slt i32 %.198.i, %1
   br i1 %128, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IsEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
 .lr.ph116.preheader.i:                            ; preds = %.loopexit.i
-  %129 = zext nneg i32 %.299.i to i64
+  %129 = zext nneg i32 %.198.i to i64
   %wide.trip.count.i = zext i32 %1 to i64
   br label %.lr.ph116.i
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv127.i = phi i64 [ %129, %.lr.ph116.preheader.i ], [ %indvars.iv.next128.i, %.lr.ph116.i ]
-  %.3115.i = phi i64 [ %.2.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
+  %.3115.i = phi i64 [ %.1.i, %.lr.ph116.preheader.i ], [ %133, %.lr.ph116.i ]
   %130 = and i64 %.3115.i, 4294967295
   %131 = mul nuw i64 %130, 4164903690
   %132 = lshr i64 %.3115.i, 32
@@ -5115,7 +5115,7 @@ define internal void @_ZN2cvL12randBits_16sEPsiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   br i1 %exitcond.not.i, label %_ZN2cvL9randBits_IsEEvPT_iPmPKNS_3VecIiLi2EEEb.exit, label %.lr.ph116.i, !llvm.loop !98
 
 _ZN2cvL9randBits_IsEEvPT_iPmPKNS_3VecIiLi2EEEb.exit: ; preds = %.lr.ph116.i, %.loopexit.i
-  %.3.lcssa.i = phi i64 [ %.2.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
+  %.3.lcssa.i = phi i64 [ %.1.i, %.loopexit.i ], [ %133, %.lr.ph116.i ]
   store i64 %.3.lcssa.i, ptr %2, align 8
   ret void
 }
@@ -5206,10 +5206,10 @@ define internal void @_ZN2cvL12randBits_32sEPiiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
 
 .lr.ph111.i:                                      ; preds = %.lr.ph111.i, %.lr.ph111.preheader.i
   %indvars.iv124.i = phi i64 [ 0, %.lr.ph111.preheader.i ], [ %indvars.iv.next125.i, %.lr.ph111.i ]
-  %.1110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %66, %.lr.ph111.i ]
-  %63 = and i64 %.1110.i, 4294967295
+  %.2110.i = phi i64 [ %7, %.lr.ph111.preheader.i ], [ %66, %.lr.ph111.i ]
+  %63 = and i64 %.2110.i, 4294967295
   %64 = mul nuw i64 %63, 4164903690
-  %65 = lshr i64 %.1110.i, 32
+  %65 = lshr i64 %.2110.i, 32
   %66 = add nuw i64 %64, %65
   %67 = trunc i64 %66 to i32
   %68 = getelementptr inbounds %"class.cv::Vec", ptr %3, i64 %indvars.iv124.i
@@ -5263,19 +5263,19 @@ define internal void @_ZN2cvL12randBits_32sEPiiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit118.i, %.loopexit.loopexit.i, %.preheader.i, %.preheader102.i
-  %.299.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %102, %.loopexit.loopexit.i ], [ %103, %.loopexit.loopexit118.i ]
-  %.2.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %66, %.loopexit.loopexit.i ], [ %52, %.loopexit.loopexit118.i ]
-  %104 = icmp slt i32 %.299.i, %1
+  %.198.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader102.i ], [ %102, %.loopexit.loopexit.i ], [ %103, %.loopexit.loopexit118.i ]
+  %.1.i = phi i64 [ %7, %.preheader.i ], [ %7, %.preheader102.i ], [ %66, %.loopexit.loopexit.i ], [ %52, %.loopexit.loopexit118.i ]
+  %104 = icmp slt i32 %.198.i, %1
   br i1 %104, label %.lr.ph116.preheader.i, label %_ZN2cvL9randBits_IiEEvPT_iPmPKNS_3VecIiLi2EEEb.exit
 
 .lr.ph116.preheader.i:                            ; preds = %.loopexit.i
-  %105 = zext nneg i32 %.299.i to i64
+  %105 = zext nneg i32 %.198.i to i64
   %wide.trip.count.i = zext i32 %1 to i64
   br label %.lr.ph116.i
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv127.i = phi i64 [ %105, %.lr.ph116.preheader.i ], [ %indvars.iv.next128.i, %.lr.ph116.i ]
-  %.3115.i = phi i64 [ %.2.i, %.lr.ph116.preheader.i ], [ %109, %.lr.ph116.i ]
+  %.3115.i = phi i64 [ %.1.i, %.lr.ph116.preheader.i ], [ %109, %.lr.ph116.i ]
   %106 = and i64 %.3115.i, 4294967295
   %107 = mul nuw i64 %106, 4164903690
   %108 = lshr i64 %.3115.i, 32
@@ -5294,7 +5294,7 @@ define internal void @_ZN2cvL12randBits_32sEPiiPmPKNS_3VecIiLi2EEEPvb(ptr nocapt
   br i1 %exitcond.not.i, label %_ZN2cvL9randBits_IiEEvPT_iPmPKNS_3VecIiLi2EEEb.exit, label %.lr.ph116.i, !llvm.loop !101
 
 _ZN2cvL9randBits_IiEEvPT_iPmPKNS_3VecIiLi2EEEb.exit: ; preds = %.lr.ph116.i, %.loopexit.i
-  %.3.lcssa.i = phi i64 [ %.2.i, %.loopexit.i ], [ %109, %.lr.ph116.i ]
+  %.3.lcssa.i = phi i64 [ %.1.i, %.loopexit.i ], [ %109, %.lr.ph116.i ]
   store i64 %.3.lcssa.i, ptr %2, align 8
   ret void
 }

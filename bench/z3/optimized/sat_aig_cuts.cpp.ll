@@ -6640,7 +6640,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
   %indvars.iv = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next, %for.body16 ]
-  %result.187 = phi i64 [ 0, %for.body16.lr.ph ], [ %xor, %for.body16 ]
+  %result.287 = phi i64 [ 0, %for.body16.lr.ph ], [ %xor, %for.body16 ]
   %12 = trunc nuw i64 %indvars.iv to i32
   %add20 = add i32 %2, %12
   %idxprom.i34 = zext i32 %add20 to i64
@@ -6654,7 +6654,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %arrayidx.i42 = getelementptr inbounds %"struct.sat::cut_val", ptr %4, i64 %idxprom.i38
   %cond33.in = select i1 %tobool.i36.not, ptr %arrayidx.i42, ptr %m_f27
   %cond33 = load i64, ptr %cond33.in, align 8
-  %xor = xor i64 %cond33, %result.187
+  %xor = xor i64 %cond33, %result.287
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sw.epilog, label %for.body16, !llvm.loop !36
@@ -6716,12 +6716,12 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %for.body16, %for.body, %for.cond13.preheader, %for.cond.preheader, %sw.bb37
-  %result.2 = phi i64 [ %or, %sw.bb37 ], [ -1, %for.cond.preheader ], [ 0, %for.cond13.preheader ], [ %and, %for.body ], [ %xor, %for.body16 ]
+  %result.1 = phi i64 [ %or, %sw.bb37 ], [ -1, %for.cond.preheader ], [ 0, %for.cond13.preheader ], [ %and, %for.body ], [ %xor, %for.body16 ]
   %24 = load i8, ptr %n, align 8
   %25 = and i8 %24, 1
   %26 = zext nneg i8 %25 to i64
   %not88 = sub nsw i64 0, %26
-  %spec.select = xor i64 %result.2, %not88
+  %spec.select = xor i64 %result.1, %not88
   %not89 = xor i64 %spec.select, -1
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %spec.select, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %not89, 1

@@ -138,7 +138,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
 
 .lr.ph142:                                        ; preds = %.lr.ph, %.thread133
   %49 = phi ptr [ %75, %.thread133 ], [ %48, %.lr.ph ]
-  %.092118141 = phi ptr [ %49, %.thread133 ], [ %7, %.lr.ph ]
+  %.1118141 = phi ptr [ %49, %.thread133 ], [ %7, %.lr.ph ]
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %22
@@ -163,9 +163,9 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   br i1 %63, label %.thread132._crit_edge, label %.thread133
 
 .thread132._crit_edge:                            ; preds = %59, %.thread133, %.thread132, %.lr.ph
-  %.092118.lcssa = phi ptr [ %7, %.lr.ph ], [ %.092118141, %59 ], [ %49, %.thread133 ], [ %.092118141, %.thread132 ]
+  %.1118.lcssa = phi ptr [ %7, %.lr.ph ], [ %.1118141, %59 ], [ %49, %.thread133 ], [ %.1118141, %.thread132 ]
   %64 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #8
-  %65 = load ptr, ptr %.092118.lcssa, align 8
+  %65 = load ptr, ptr %.1118.lcssa, align 8
   store ptr %65, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %64, i64 8
   %67 = load <2 x i32>, ptr %21, align 8
@@ -184,7 +184,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   store i64 0, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %64, i64 64
   store i32 0, ptr %74, align 8
-  store ptr %64, ptr %.092118.lcssa, align 8
+  store ptr %64, ptr %.1118.lcssa, align 8
   br label %.loopexit
 
 .thread133:                                       ; preds = %.thread132, %59
@@ -193,7 +193,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   br i1 %.not106, label %.thread132._crit_edge, label %.lr.ph142
 
 .loopexit:                                        ; preds = %53, %26, %.thread132._crit_edge, %35, %8
-  %.1 = phi ptr [ %36, %35 ], [ %64, %.thread132._crit_edge ], [ %9, %8 ], [ %7, %26 ], [ %49, %53 ]
+  %.092 = phi ptr [ %36, %35 ], [ %64, %.thread132._crit_edge ], [ %9, %8 ], [ %7, %26 ], [ %49, %53 ]
   %76 = getelementptr inbounds i8, ptr %3, i64 36
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
@@ -203,13 +203,13 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   %80 = getelementptr inbounds i8, ptr %1, i64 24
   %81 = getelementptr inbounds i8, ptr %3, i64 40
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %80, ptr noundef nonnull %81) #6
-  %82 = getelementptr inbounds i8, ptr %.1, i64 40
+  %82 = getelementptr inbounds i8, ptr %.092, i64 40
   %83 = load i64, ptr %82, align 8
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %.1, i64 48
+  %86 = getelementptr inbounds i8, ptr %.092, i64 48
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %93
@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
 
 93:                                               ; preds = %89, %85, %79
   %94 = phi i64 [ %90, %89 ], [ 0, %85 ], [ %83, %79 ]
-  %95 = getelementptr inbounds i8, ptr %.1, i64 24
+  %95 = getelementptr inbounds i8, ptr %.092, i64 24
   %96 = load i64, ptr %95, align 8
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %98, label %._crit_edge
@@ -234,7 +234,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   br label %104
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %.1, i64 32
+  %99 = getelementptr inbounds i8, ptr %.092, i64 32
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, 0
   %.pre123 = load i64, ptr %6, align 8
@@ -265,7 +265,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   %110 = phi i64 [ %.pre123, %.thread135 ], [ %105, %107 ]
   %111 = getelementptr inbounds i8, ptr %6, i64 8
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %.1, i64 32
+  %113 = getelementptr inbounds i8, ptr %.092, i64 32
   %114 = load i32, ptr %113, align 8
   %115 = icmp slt i32 %112, %114
   br i1 %115, label %116, label %120
@@ -274,7 +274,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   %117 = phi i64 [ %105, %._crit_edge124 ], [ %110, %109 ]
   %118 = phi i32 [ %.pre125, %._crit_edge124 ], [ %112, %109 ]
   store i64 %117, ptr %95, align 8
-  %119 = getelementptr inbounds i8, ptr %.1, i64 32
+  %119 = getelementptr inbounds i8, ptr %.092, i64 32
   store i32 %118, ptr %119, align 8
   br label %120
 
@@ -295,7 +295,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   br i1 %124, label %127, label %._crit_edge129
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %.1, i64 48
+  %128 = getelementptr inbounds i8, ptr %.092, i64 48
   %129 = load i32, ptr %128, align 8
   %130 = icmp sgt i32 %126, %129
   br i1 %130, label %131, label %._crit_edge129
@@ -303,17 +303,17 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
 131:                                              ; preds = %._crit_edge126, %127
   %132 = phi i32 [ %.pre128, %._crit_edge126 ], [ %126, %127 ]
   store i64 %121, ptr %82, align 8
-  %133 = getelementptr inbounds i8, ptr %.1, i64 48
+  %133 = getelementptr inbounds i8, ptr %.092, i64 48
   store i32 %132, ptr %133, align 8
   br label %._crit_edge129
 
 ._crit_edge129:                                   ; preds = %123, %131, %127
   %134 = phi i32 [ %132, %131 ], [ %126, %127 ], [ %126, %123 ]
-  %135 = getelementptr inbounds i8, ptr %.1, i64 56
+  %135 = getelementptr inbounds i8, ptr %.092, i64 56
   %136 = load i64, ptr %135, align 8
   %137 = add i64 %136, %121
   store i64 %137, ptr %135, align 8
-  %138 = getelementptr inbounds i8, ptr %.1, i64 64
+  %138 = getelementptr inbounds i8, ptr %.092, i64 64
   %139 = load i32, ptr %138, align 8
   %140 = add i32 %139, %134
   store i32 %140, ptr %138, align 8
@@ -328,7 +328,7 @@ define internal range(i32 0, 2) i32 @rpcprogs_packet(ptr nocapture readnone %0, 
   br label %145
 
 145:                                              ; preds = %142, %._crit_edge129
-  %146 = getelementptr inbounds i8, ptr %.1, i64 16
+  %146 = getelementptr inbounds i8, ptr %.092, i64 16
   %147 = load i32, ptr %146, align 8
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 8

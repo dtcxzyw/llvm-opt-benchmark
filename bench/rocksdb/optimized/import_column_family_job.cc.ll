@@ -1574,7 +1574,7 @@ for.cond172:                                      ; preds = %invoke.cont257
   br i1 %cmp.i246.not, label %nrvo.skipdtor.critedge, label %for.body174
 
 for.body174:                                      ; preds = %for.body174.lr.ph, %for.cond172
-  %hardlink_files.0683 = phi i8 [ %99, %for.body174.lr.ph ], [ %hardlink_files.3, %for.cond172 ]
+  %hardlink_files.0683 = phi i8 [ %99, %for.body174.lr.ph ], [ %hardlink_files.2, %for.cond172 ]
   %__begin1166.sroa.0.0682 = phi ptr [ %96, %for.body174.lr.ph ], [ %incdec.ptr.i313, %for.cond172 ]
   %100 = load ptr, ptr %__begin1166.sroa.0.0682, align 8
   %_M_finish.i247 = getelementptr inbounds i8, ptr %__begin1166.sroa.0.0682, i64 8
@@ -1583,7 +1583,7 @@ for.body174:                                      ; preds = %for.body174.lr.ph, 
   br i1 %cmp.i248.not677, label %invoke.cont257, label %for.body183
 
 for.body183:                                      ; preds = %for.body174, %cleanup248
-  %hardlink_files.1679 = phi i8 [ %hardlink_files.2471, %cleanup248 ], [ %hardlink_files.0683, %for.body174 ]
+  %hardlink_files.1679 = phi i8 [ %hardlink_files.3471, %cleanup248 ], [ %hardlink_files.0683, %for.body174 ]
   %__begin2.sroa.0.0678 = phi ptr [ %incdec.ptr.i311, %cleanup248 ], [ %100, %for.body174 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %path_outside_db, ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.0678)
           to label %invoke.cont185 unwind label %lpad.loopexit
@@ -1874,7 +1874,7 @@ if.end227:                                        ; preds = %_ZNSt10shared_ptrIN
   br i1 %tobool197, label %invoke.cont239, label %if.then229
 
 if.then229:                                       ; preds = %invoke.cont196, %if.end227.thread, %if.end227
-  %hardlink_files.2470 = phi i8 [ 0, %if.end227.thread ], [ %hardlink_files.1679, %if.end227 ], [ %hardlink_files.1679, %invoke.cont196 ]
+  %hardlink_files.3470 = phi i8 [ 0, %if.end227.thread ], [ %hardlink_files.1679, %if.end227 ], [ %hardlink_files.1679, %invoke.cont196 ]
   %148 = load ptr, ptr %io_tracer_.i, align 8
   %cmp.i.not.i283 = icmp eq ptr %148, null
   br i1 %cmp.i.not.i283, label %_ZNK7rocksdb13FileSystemPtr3getEv.exit, label %land.lhs.true.i284
@@ -1946,13 +1946,13 @@ _ZN7rocksdb8IOStatusD2Ev.exit309:                 ; preds = %if.then.i288, %_ZN7
 
 invoke.cont239:                                   ; preds = %if.end227, %_ZN7rocksdb8IOStatusD2Ev.exit309
   %160 = phi i8 [ %142, %if.end227 ], [ %.pr723, %_ZN7rocksdb8IOStatusD2Ev.exit309 ]
-  %hardlink_files.2471 = phi i8 [ %hardlink_files.1679, %if.end227 ], [ %hardlink_files.2470, %_ZN7rocksdb8IOStatusD2Ev.exit309 ]
+  %hardlink_files.3471 = phi i8 [ %hardlink_files.1679, %if.end227 ], [ %hardlink_files.3470, %_ZN7rocksdb8IOStatusD2Ev.exit309 ]
   %cmp.i310 = icmp eq i8 %160, 0
   br i1 %cmp.i310, label %if.end242, label %invoke.cont257.critedge
 
 if.end242:                                        ; preds = %invoke.cont239
   %copy_file = getelementptr inbounds i8, ptr %__begin2.sroa.0.0678, i64 932
-  %lnot = and i8 %hardlink_files.2471, 1
+  %lnot = and i8 %hardlink_files.3471, 1
   %frombool244 = xor i8 %lnot, 1
   store i8 %frombool244, ptr %copy_file, align 4
   %internal_file_path245 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0678, i64 888
@@ -1982,7 +1982,7 @@ invoke.cont257.critedge:                          ; preds = %invoke.cont239
   br label %invoke.cont257
 
 invoke.cont257:                                   ; preds = %cleanup248, %for.body174, %invoke.cont257.critedge
-  %hardlink_files.3 = phi i8 [ %hardlink_files.2471, %invoke.cont257.critedge ], [ %hardlink_files.0683, %for.body174 ], [ %hardlink_files.2471, %cleanup248 ]
+  %hardlink_files.2 = phi i8 [ %hardlink_files.3471, %invoke.cont257.critedge ], [ %hardlink_files.0683, %for.body174 ], [ %hardlink_files.3471, %cleanup248 ]
   %161 = load i8, ptr %agg.result, align 8
   %cmp.i312 = icmp eq i8 %161, 0
   br i1 %cmp.i312, label %for.cond172, label %if.then266
@@ -2960,7 +2960,7 @@ if.then39:                                        ; preds = %invoke.cont37
   br label %cleanup398
 
 lpad24:                                           ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EED2Ev.exit, %if.end74, %if.end40
-  %status.sroa.52.1 = phi ptr [ %109, %if.end74 ], [ %62, %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EED2Ev.exit ], [ %62, %if.end40 ]
+  %status.sroa.52.2 = phi ptr [ %109, %if.end74 ], [ %62, %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EED2Ev.exit ], [ %62, %if.end40 ]
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup399
@@ -4142,7 +4142,7 @@ terminate.lpad.i.i.i415:                          ; preds = %if.then.i.i.i412
   unreachable
 
 cleanup396:                                       ; preds = %if.then.i.i.i412, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit409, %if.then.i.i.i344, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit341, %_ZN7rocksdb6StatusD2Ev.exit404
-  %status.sroa.52.2 = phi ptr [ null, %_ZN7rocksdb6StatusD2Ev.exit404 ], [ %109, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit341 ], [ %109, %if.then.i.i.i344 ], [ %109, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit409 ], [ %109, %if.then.i.i.i412 ]
+  %status.sroa.52.5 = phi ptr [ null, %_ZN7rocksdb6StatusD2Ev.exit404 ], [ %109, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit341 ], [ %109, %if.then.i.i.i344 ], [ %109, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit409 ], [ %109, %if.then.i.i.i412 ]
   %_M_refcount.i.i417 = getelementptr inbounds i8, ptr %props, i64 8
   %232 = load ptr, ptr %_M_refcount.i.i417, align 8
   %cmp.not.i.i.i418 = icmp eq ptr %232, null
@@ -4222,7 +4222,7 @@ ehcleanup397:                                     ; preds = %if.then.i.i.i361, %
   br label %ehcleanup399
 
 cleanup398:                                       ; preds = %if.end8.sink.split.i.i.i.i439, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i436, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i426, %cleanup396, %if.then73, %if.then39
-  %status.sroa.52.3 = phi ptr [ %status.sroa.52.2, %cleanup396 ], [ %status.sroa.52.2, %if.end8.sink.split.i.i.i.i439 ], [ %status.sroa.52.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i436 ], [ %status.sroa.52.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i426 ], [ null, %if.then73 ], [ null, %if.then39 ]
+  %status.sroa.52.3 = phi ptr [ %status.sroa.52.5, %cleanup396 ], [ %status.sroa.52.5, %if.end8.sink.split.i.i.i.i439 ], [ %status.sroa.52.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i436 ], [ %status.sroa.52.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i426 ], [ null, %if.then73 ], [ null, %if.then39 ]
   %243 = load ptr, ptr %sst_file_reader, align 8
   %cmp.not.i448 = icmp eq ptr %243, null
   br i1 %cmp.not.i448, label %_ZNSt10unique_ptrIN7rocksdb22RandomAccessFileReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb22RandomAccessFileReaderEEclEPS1_.exit.i
@@ -4264,7 +4264,7 @@ _ZNSt10unique_ptrIN7rocksdb11TableReaderESt14default_deleteIS1_EED2Ev.exit: ; pr
   br i1 %cmp.not.i.i466, label %_ZN7rocksdb6StatusD2Ev.exit468, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i467
 
 ehcleanup399:                                     ; preds = %lpad44, %ehcleanup397, %lpad67, %lpad32, %lpad24
-  %status.sroa.52.4 = phi ptr [ %109, %ehcleanup397 ], [ %status.sroa.52.1, %lpad24 ], [ %62, %lpad67 ], [ %62, %lpad44 ], [ %status.sroa.52.0, %lpad32 ]
+  %status.sroa.52.4 = phi ptr [ %109, %ehcleanup397 ], [ %status.sroa.52.2, %lpad24 ], [ %62, %lpad67 ], [ %62, %lpad44 ], [ %status.sroa.52.0, %lpad32 ]
   %.pn43.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn, %ehcleanup397 ], [ %79, %lpad24 ], [ %111, %lpad67 ], [ %110, %lpad44 ], [ %80, %lpad32 ]
   call void @_ZNSt10unique_ptrIN7rocksdb22RandomAccessFileReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sst_file_reader) #19
   %248 = load ptr, ptr %sst_file, align 8
@@ -4303,13 +4303,13 @@ _ZN7rocksdb6StatusD2Ev.exit468:                   ; preds = %if.then14, %_ZNSt10
   ret void
 
 ehcleanup405:                                     ; preds = %_ZNSt10unique_ptrIN7rocksdb11TableReaderESt14default_deleteIS1_EED2Ev.exit464, %lpad9, %lpad
-  %status.sroa.52.5 = phi ptr [ %status.sroa.52.4, %_ZNSt10unique_ptrIN7rocksdb11TableReaderESt14default_deleteIS1_EED2Ev.exit464 ], [ %status.sroa.52.0, %lpad ], [ null, %lpad9 ]
+  %status.sroa.52.1 = phi ptr [ %status.sroa.52.4, %_ZNSt10unique_ptrIN7rocksdb11TableReaderESt14default_deleteIS1_EED2Ev.exit464 ], [ %status.sroa.52.0, %lpad ], [ null, %lpad9 ]
   %.pn43.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn.pn, %_ZNSt10unique_ptrIN7rocksdb11TableReaderESt14default_deleteIS1_EED2Ev.exit464 ], [ %38, %lpad ], [ %39, %lpad9 ]
-  %cmp.not.i.i470 = icmp eq ptr %status.sroa.52.5, null
+  %cmp.not.i.i470 = icmp eq ptr %status.sroa.52.1, null
   br i1 %cmp.not.i.i470, label %_ZN7rocksdb6StatusD2Ev.exit472, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i471
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i471: ; preds = %ehcleanup405
-  call void @_ZdaPv(ptr noundef nonnull %status.sroa.52.5) #18
+  call void @_ZdaPv(ptr noundef nonnull %status.sroa.52.1) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit472
 
 _ZN7rocksdb6StatusD2Ev.exit472:                   ; preds = %ehcleanup405, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i471

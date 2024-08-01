@@ -413,7 +413,7 @@ for.body.lr.ph:                                   ; preds = %if.then16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.096 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %bytes_needed17.095 = phi i64 [ %call19, %for.body.lr.ph ], [ %bytes_needed17.3, %for.inc ]
+  %bytes_needed17.095 = phi i64 [ %call19, %for.body.lr.ph ], [ %bytes_needed17.1, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %arrayidx.i = getelementptr inbounds [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %i.096
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i)
@@ -503,16 +503,16 @@ get_random_device.exit:                           ; preds = %check_random_device
 
 while.body36:                                     ; preds = %get_random_device.exit, %if.end51
   %dec33113 = phi i32 [ %dec33, %if.end51 ], [ 2, %get_random_device.exit ]
-  %bytes_needed17.191112 = phi i64 [ %bytes_needed17.2, %if.end51 ], [ %bytes_needed17.095, %get_random_device.exit ]
-  %call37 = call ptr @ossl_rand_pool_add_begin(ptr noundef %pool, i64 noundef %bytes_needed17.191112) #11
-  %call38 = call i64 @read(i32 noundef %retval.0.i43, ptr noundef %call37, i64 noundef %bytes_needed17.191112) #11
+  %bytes_needed17.291112 = phi i64 [ %bytes_needed17.3, %if.end51 ], [ %bytes_needed17.095, %get_random_device.exit ]
+  %call37 = call ptr @ossl_rand_pool_add_begin(ptr noundef %pool, i64 noundef %bytes_needed17.291112) #11
+  %call38 = call i64 @read(i32 noundef %retval.0.i43, ptr noundef %call37, i64 noundef %bytes_needed17.291112) #11
   %cmp39 = icmp sgt i64 %call38, 0
   br i1 %cmp39, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %while.body36
   %mul41 = shl nsw i64 %call38, 3
   %call42 = call i32 @ossl_rand_pool_add_end(ptr noundef %pool, i64 noundef %call38, i64 noundef %mul41) #11
-  %sub43 = sub i64 %bytes_needed17.191112, %call38
+  %sub43 = sub i64 %bytes_needed17.291112, %call38
   br label %if.end51
 
 if.else44:                                        ; preds = %while.body36
@@ -526,9 +526,9 @@ land.lhs.true46:                                  ; preds = %if.else44
   br i1 %cmp48.not, label %if.end51, label %if.then55
 
 if.end51:                                         ; preds = %if.else44, %land.lhs.true46, %if.then40
-  %bytes_needed17.2 = phi i64 [ %sub43, %if.then40 ], [ %bytes_needed17.191112, %land.lhs.true46 ], [ %bytes_needed17.191112, %if.else44 ]
+  %bytes_needed17.3 = phi i64 [ %sub43, %if.then40 ], [ %bytes_needed17.291112, %land.lhs.true46 ], [ %bytes_needed17.291112, %if.else44 ]
   %attempts25.1 = phi i32 [ 3, %if.then40 ], [ %dec33113, %land.lhs.true46 ], [ %dec33113, %if.else44 ]
-  %cmp31.not = icmp ne i64 %bytes_needed17.2, 0
+  %cmp31.not = icmp ne i64 %bytes_needed17.3, 0
   %dec33 = add nsw i32 %attempts25.1, -1
   %cmp34 = icmp sgt i32 %attempts25.1, 0
   %or.cond114 = select i1 %cmp31.not, i1 %cmp34, i1 false
@@ -600,9 +600,9 @@ if.end56:                                         ; preds = %while.end52, %close
   br label %for.inc
 
 for.inc:                                          ; preds = %get_random_device.exit.thread, %get_random_device.exit, %if.end56
-  %bytes_needed17.3 = phi i64 [ %bytes_needed17.095, %get_random_device.exit ], [ %call57, %if.end56 ], [ %bytes_needed17.095, %get_random_device.exit.thread ]
+  %bytes_needed17.1 = phi i64 [ %bytes_needed17.095, %get_random_device.exit ], [ %call57, %if.end56 ], [ %bytes_needed17.095, %get_random_device.exit.thread ]
   %inc = add nuw nsw i64 %i.096, 1
-  %cmp20 = icmp ne i64 %bytes_needed17.3, 0
+  %cmp20 = icmp ne i64 %bytes_needed17.1, 0
   %cmp22 = icmp ult i64 %i.096, 3
   %32 = and i1 %cmp20, %cmp22
   br i1 %32, label %for.body, label %for.end, !llvm.loop !11

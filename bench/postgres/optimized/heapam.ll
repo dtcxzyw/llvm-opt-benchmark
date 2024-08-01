@@ -444,12 +444,12 @@ define dso_local void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %0
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %32, %38
-  %.08.i.i = phi i32 [ %39, %38 ], [ 0, %32 ]
+  %.1.i.i = phi i32 [ %39, %38 ], [ 0, %32 ]
   call void @pfree(ptr noundef nonnull %31) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %28, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %28 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %45
 
@@ -463,9 +463,9 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %28, %.loopexit.i.i
   br label %45
 
 45:                                               ; preds = %24, %43, %40, %HeapTupleGetUpdateXid.exit
-  %.0 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %44, %43 ], [ 2, %40 ], [ %27, %24 ]
+  %.1 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %44, %43 ], [ 2, %40 ], [ %27, %24 ]
   %46 = load i32, ptr @TransactionXmin, align 4
-  %47 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0, i32 noundef %46) #11
+  %47 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.1, i32 noundef %46) #11
   br i1 %47, label %67, label %59
 
 48:                                               ; preds = %8
@@ -490,13 +490,13 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %28, %.loopexit.i.i
   br label %59
 
 59:                                               ; preds = %.sink.split, %48, %12, %45
-  %.1 = phi i32 [ %.0, %45 ], [ 2, %12 ], [ 2, %48 ], [ %58, %.sink.split ]
+  %.0 = phi i32 [ %.1, %45 ], [ 2, %12 ], [ 2, %48 ], [ %58, %.sink.split ]
   %60 = call i32 @GetTopTransactionIdIfAny() #11
-  %61 = icmp eq i32 %.1, %60
+  %61 = icmp eq i32 %.0, %60
   br i1 %61, label %67, label %62
 
 62:                                               ; preds = %59
-  %63 = call i32 @SubTransGetTopmostTransaction(i32 noundef %.1) #11
+  %63 = call i32 @SubTransGetTopmostTransaction(i32 noundef %.0) #11
   %64 = load i32, ptr @TransactionXmin, align 4
   %65 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %63, i32 noundef %64) #11
   br i1 %65, label %67, label %66
@@ -1157,12 +1157,12 @@ BufferGetPage.exit:                               ; preds = %56, %62
   br label %97
 
 heapgettup_advance_block.exit:                    ; preds = %281, %261, %260, %heapgettup_initial_block.exit
-  %.0 = phi i32 [ %.0.i, %heapgettup_initial_block.exit ], [ %spec.store.select.i, %260 ], [ %265, %261 ], [ %282, %281 ]
-  %.not = icmp eq i32 %.0, -1
+  %.1 = phi i32 [ %.0.i, %heapgettup_initial_block.exit ], [ %spec.store.select.i, %260 ], [ %265, %261 ], [ %282, %281 ]
+  %.not = icmp eq i32 %.1, -1
   br i1 %.not, label %heapgettup_advance_block.exit.thread, label %76
 
 76:                                               ; preds = %heapgettup_advance_block.exit
-  call void @heapgetpage(ptr noundef nonnull %0, i32 noundef %.0)
+  call void @heapgetpage(ptr noundef nonnull %0, i32 noundef %.1)
   %77 = getelementptr inbounds i8, ptr %0, i64 76
   %78 = load i32, ptr %77, align 4
   %79 = icmp slt i32 %78, 0
@@ -1197,7 +1197,7 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   %.054 = phi i32 [ %96, %BufferGetPage.exit59 ], [ %70, %72 ], [ %70, %BufferGetPage.exit ]
   %.052 = phi i32 [ %93, %BufferGetPage.exit59 ], [ %75, %72 ], [ %69, %BufferGetPage.exit ]
   %.051 = phi ptr [ %.0.i.i58, %BufferGetPage.exit59 ], [ %.0.i.i, %72 ], [ %.0.i.i, %BufferGetPage.exit ]
-  %.1 = phi i32 [ %.0, %BufferGetPage.exit59 ], [ %52, %72 ], [ %52, %BufferGetPage.exit ]
+  %.0 = phi i32 [ %.1, %BufferGetPage.exit59 ], [ %52, %72 ], [ %52, %BufferGetPage.exit ]
   %98 = icmp sgt i32 %.052, 0
   br i1 %98, label %.lr.ph, label %._crit_edge
 
@@ -1206,9 +1206,9 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   %100 = getelementptr inbounds i8, ptr %.051, i64 24
   %101 = getelementptr inbounds i8, ptr %0, i64 104
   %102 = getelementptr inbounds i8, ptr %0, i64 92
-  %103 = lshr i32 %.1, 16
+  %103 = lshr i32 %.0, 16
   %104 = trunc nuw i32 %103 to i16
-  %105 = trunc i32 %.1 to i16
+  %105 = trunc i32 %.0 to i16
   %106 = getelementptr inbounds i8, ptr %0, i64 94
   %107 = getelementptr inbounds i8, ptr %0, i64 96
   %.not57 = icmp eq ptr %3, null
@@ -1463,7 +1463,7 @@ HeapKeyTest.exit:                                 ; preds = %145, %.lr.ph.split.
   br i1 %240, label %241, label %261
 
 241:                                              ; preds = %237
-  %242 = add i32 %.1, 1
+  %242 = add i32 %.0, 1
   %243 = getelementptr inbounds i8, ptr %0, i64 56
   %244 = load i32, ptr %243, align 8
   %.not29.i = icmp ult i32 %242, %244
@@ -1510,7 +1510,7 @@ HeapKeyTest.exit:                                 ; preds = %145, %.lr.ph.split.
 266:                                              ; preds = %._crit_edge
   %267 = getelementptr inbounds i8, ptr %0, i64 60
   %268 = load i32, ptr %267, align 4
-  %269 = icmp eq i32 %268, %.1
+  %269 = icmp eq i32 %268, %.0
   br i1 %269, label %heapgettup_advance_block.exit.thread, label %270, !llvm.loop !10
 
 270:                                              ; preds = %266
@@ -1526,7 +1526,7 @@ HeapKeyTest.exit:                                 ; preds = %145, %.lr.ph.split.
   br i1 %275, label %heapgettup_advance_block.exit.thread, label %276, !llvm.loop !10
 
 276:                                              ; preds = %273, %270
-  %277 = icmp eq i32 %.1, 0
+  %277 = icmp eq i32 %.0, 0
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %276
@@ -1535,7 +1535,7 @@ HeapKeyTest.exit:                                 ; preds = %145, %.lr.ph.split.
   br label %281
 
 281:                                              ; preds = %278, %276
-  %.024.i = phi i32 [ %280, %278 ], [ %.1, %276 ]
+  %.024.i = phi i32 [ %280, %278 ], [ %.0, %276 ]
   %282 = add i32 %.024.i, -1
   br label %heapgettup_advance_block.exit, !llvm.loop !10
 
@@ -1707,12 +1707,12 @@ BufferGetPage.exit.i:                             ; preds = %63, %57
   br label %heapgettup_continue_page.exit
 
 heapgettup_advance_block.exit:                    ; preds = %334, %314, %313, %heapgettup_initial_block.exit
-  %.0 = phi i32 [ %.0.i, %heapgettup_initial_block.exit ], [ %spec.store.select.i, %313 ], [ %318, %314 ], [ %335, %334 ]
-  %.not = icmp eq i32 %.0, -1
+  %.1 = phi i32 [ %.0.i, %heapgettup_initial_block.exit ], [ %spec.store.select.i, %313 ], [ %318, %314 ], [ %335, %334 ]
+  %.not = icmp eq i32 %.1, -1
   br i1 %.not, label %heapgettup_advance_block.exit.thread, label %94
 
 94:                                               ; preds = %heapgettup_advance_block.exit
-  call void @heapgetpage(ptr noundef nonnull %0, i32 noundef %.0)
+  call void @heapgetpage(ptr noundef nonnull %0, i32 noundef %.1)
   %95 = getelementptr inbounds i8, ptr %0, i64 76
   %96 = load i32, ptr %95, align 4
   call void @LockBuffer(i32 noundef %96, i32 noundef 1) #11
@@ -1752,10 +1752,10 @@ heapgettup_start_page.exit:                       ; preds = %98, %104
   br label %heapgettup_continue_page.exit
 
 heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettup_start_page.exit
-  %.168 = phi i16 [ %..i, %heapgettup_start_page.exit ], [ %73, %70 ], [ %spec.select.i, %83 ]
+  %.067 = phi i16 [ %..i, %heapgettup_start_page.exit ], [ %73, %70 ], [ %spec.select.i, %83 ]
   %.065 = phi i32 [ %116, %heapgettup_start_page.exit ], [ %82, %70 ], [ %93, %83 ]
   %.050 = phi ptr [ %.0.i.i.i55, %heapgettup_start_page.exit ], [ %.0.i.i.i, %70 ], [ %.0.i.i.i, %83 ]
-  %.1 = phi i32 [ %.0, %heapgettup_start_page.exit ], [ %52, %70 ], [ %52, %83 ]
+  %.0 = phi i32 [ %.1, %heapgettup_start_page.exit ], [ %52, %70 ], [ %52, %83 ]
   %118 = icmp sgt i32 %.065, 0
   br i1 %118, label %.lr.ph, label %._crit_edge
 
@@ -1763,9 +1763,9 @@ heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettu
   %119 = getelementptr inbounds i8, ptr %.050, i64 24
   %120 = getelementptr inbounds i8, ptr %0, i64 104
   %121 = getelementptr inbounds i8, ptr %0, i64 92
-  %122 = lshr i32 %.1, 16
+  %122 = lshr i32 %.0, 16
   %123 = trunc nuw i32 %122 to i16
-  %124 = trunc i32 %.1 to i16
+  %124 = trunc i32 %.0 to i16
   %125 = getelementptr inbounds i8, ptr %0, i64 94
   %126 = getelementptr inbounds i8, ptr %0, i64 96
   %127 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1776,8 +1776,8 @@ heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettu
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %148
   %.16686.us = phi i32 [ %149, %148 ], [ %.065, %.lr.ph ]
-  %.284.us = phi i16 [ %150, %148 ], [ %.168, %.lr.ph ]
-  %130 = zext i16 %.284.us to i64
+  %.16884.us = phi i16 [ %150, %148 ], [ %.067, %.lr.ph ]
+  %130 = zext i16 %.16884.us to i64
   %131 = add nsw i64 %130, -1
   %132 = getelementptr [0 x %struct.ItemIdData], ptr %119, i64 0, i64 %131
   %133 = load i32, ptr %132, align 4
@@ -1795,7 +1795,7 @@ heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettu
   store i32 %141, ptr %6, align 8
   store i16 %123, ptr %121, align 2
   store i16 %124, ptr %125, align 2
-  store i16 %.284.us, ptr %126, align 2
+  store i16 %.16884.us, ptr %126, align 2
   %142 = load ptr, ptr %127, align 8
   %143 = load i32, ptr %128, align 4
   %144 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %6, ptr noundef %142, i32 noundef %143) #11
@@ -1807,7 +1807,7 @@ heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettu
 
 148:                                              ; preds = %136, %.lr.ph.split.us
   %149 = add nsw i32 %.16686.us, -1
-  %150 = add i16 %.284.us, %129
+  %150 = add i16 %.16884.us, %129
   %151 = icmp sgt i32 %.16686.us, 1
   br i1 %151, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
 
@@ -1817,8 +1817,8 @@ heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettu
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %170
   %.16686.us88 = phi i32 [ %171, %170 ], [ %.065, %.lr.ph.split ]
-  %.284.us89 = phi i16 [ %172, %170 ], [ %.168, %.lr.ph.split ]
-  %152 = zext i16 %.284.us89 to i64
+  %.16884.us89 = phi i16 [ %172, %170 ], [ %.067, %.lr.ph.split ]
+  %152 = zext i16 %.16884.us89 to i64
   %153 = add nsw i64 %152, -1
   %154 = getelementptr [0 x %struct.ItemIdData], ptr %119, i64 0, i64 %153
   %155 = load i32, ptr %154, align 4
@@ -1836,7 +1836,7 @@ heapgettup_continue_page.exit:                    ; preds = %83, %70, %heapgettu
   store i32 %163, ptr %6, align 8
   store i16 %123, ptr %121, align 2
   store i16 %124, ptr %125, align 2
-  store i16 %.284.us89, ptr %126, align 2
+  store i16 %.16884.us89, ptr %126, align 2
   %164 = load ptr, ptr %127, align 8
   %165 = load i32, ptr %128, align 4
   %166 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %6, ptr noundef %164, i32 noundef %165) #11
@@ -1852,14 +1852,14 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
 
 170:                                              ; preds = %158, %.lr.ph.split.split.us
   %171 = add nsw i32 %.16686.us88, -1
-  %172 = add i16 %.284.us89, %129
+  %172 = add i16 %.16884.us89, %129
   %173 = icmp sgt i32 %.16686.us88, 1
   br i1 %173, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %283
   %.16686 = phi i32 [ %284, %283 ], [ %.065, %.lr.ph.split ]
-  %.284 = phi i16 [ %285, %283 ], [ %.168, %.lr.ph.split ]
-  %174 = zext i16 %.284 to i64
+  %.16884 = phi i16 [ %285, %283 ], [ %.067, %.lr.ph.split ]
+  %174 = zext i16 %.16884 to i64
   %175 = add nsw i64 %174, -1
   %176 = getelementptr [0 x %struct.ItemIdData], ptr %119, i64 0, i64 %175
   %177 = load i32, ptr %176, align 4
@@ -1877,7 +1877,7 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   store i32 %185, ptr %6, align 8
   store i16 %123, ptr %121, align 2
   store i16 %124, ptr %125, align 2
-  store i16 %.284, ptr %126, align 2
+  store i16 %.16884, ptr %126, align 2
   %186 = load ptr, ptr %127, align 8
   %187 = load i32, ptr %128, align 4
   %188 = call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %6, ptr noundef %186, i32 noundef %187) #11
@@ -2048,21 +2048,21 @@ HeapKeyTest.exit.thread:                          ; preds = %274, %heap_getattr.
   br label %283
 
 HeapKeyTest.exit:                                 ; preds = %196, %HeapKeyTest.exit.loopexit73.split.us
-  %.279 = phi i16 [ %.284.us89, %HeapKeyTest.exit.loopexit73.split.us ], [ %.284, %196 ]
+  %.16879 = phi i16 [ %.16884.us89, %HeapKeyTest.exit.loopexit73.split.us ], [ %.16884, %196 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %136, %HeapKeyTest.exit
-  %.278 = phi i16 [ %.279, %HeapKeyTest.exit ], [ %.284.us, %136 ]
+  %.16878 = phi i16 [ %.16879, %HeapKeyTest.exit ], [ %.16884.us, %136 ]
   %281 = load i32, ptr %128, align 4
   call void @LockBuffer(i32 noundef %281, i32 noundef 0) #11
   %282 = getelementptr inbounds i8, ptr %0, i64 70
-  store i16 %.278, ptr %282, align 2
+  store i16 %.16878, ptr %282, align 2
   br label %342
 
 283:                                              ; preds = %HeapKeyTest.exit.thread, %180, %.lr.ph.split.split
   %284 = add nsw i32 %.16686, -1
-  %285 = add i16 %.284, %129
+  %285 = add i16 %.16884, %129
   %286 = icmp sgt i32 %.16686, 1
   br i1 %286, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !11
 
@@ -2080,7 +2080,7 @@ HeapKeyTest.exit:                                 ; preds = %196, %HeapKeyTest.e
   br i1 %293, label %294, label %314
 
 294:                                              ; preds = %290
-  %295 = add i32 %.1, 1
+  %295 = add i32 %.0, 1
   %296 = getelementptr inbounds i8, ptr %0, i64 56
   %297 = load i32, ptr %296, align 8
   %.not29.i = icmp ult i32 %295, %297
@@ -2127,7 +2127,7 @@ HeapKeyTest.exit:                                 ; preds = %196, %HeapKeyTest.e
 319:                                              ; preds = %._crit_edge
   %320 = getelementptr inbounds i8, ptr %0, i64 60
   %321 = load i32, ptr %320, align 4
-  %322 = icmp eq i32 %321, %.1
+  %322 = icmp eq i32 %321, %.0
   br i1 %322, label %heapgettup_advance_block.exit.thread, label %323, !llvm.loop !12
 
 323:                                              ; preds = %319
@@ -2143,7 +2143,7 @@ HeapKeyTest.exit:                                 ; preds = %196, %HeapKeyTest.e
   br i1 %328, label %heapgettup_advance_block.exit.thread, label %329, !llvm.loop !12
 
 329:                                              ; preds = %326, %323
-  %330 = icmp eq i32 %.1, 0
+  %330 = icmp eq i32 %.0, 0
   br i1 %330, label %331, label %334
 
 331:                                              ; preds = %329
@@ -2152,7 +2152,7 @@ HeapKeyTest.exit:                                 ; preds = %196, %HeapKeyTest.e
   br label %334
 
 334:                                              ; preds = %331, %329
-  %.024.i = phi i32 [ %333, %331 ], [ %.1, %329 ]
+  %.024.i = phi i32 [ %333, %331 ], [ %.0, %329 ]
   %335 = add i32 %.024.i, -1
   br label %heapgettup_advance_block.exit, !llvm.loop !12
 
@@ -2716,7 +2716,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.068.ph116 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.2, %.outer ]
+  %.068.ph116 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.069.ph115 = phi i1 [ %28, %.lr.ph.lr.ph ], [ false, %.outer ]
   %.070.ph114 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %130, %.outer ]
   %.071.ph113 = phi i1 [ %6, %.lr.ph.lr.ph ], [ false, %.outer ]
@@ -2843,8 +2843,8 @@ BufferGetPage.exit:                               ; preds = %10, %16
   br label %97
 
 97:                                               ; preds = %95, %94
-  %.1 = phi ptr [ %.068.ph116, %94 ], [ %96, %95 ]
-  %98 = call zeroext i1 @HeapTupleIsSurelyDead(ptr noundef nonnull %4, ptr noundef %.1) #11
+  %.2 = phi ptr [ %.068.ph116, %94 ], [ %96, %95 ]
+  %98 = call zeroext i1 @HeapTupleIsSurelyDead(ptr noundef nonnull %4, ptr noundef %.2) #11
   br i1 %98, label %100, label %99
 
 99:                                               ; preds = %97
@@ -2852,7 +2852,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   br label %100
 
 100:                                              ; preds = %97, %99, %91, %90
-  %.2 = phi ptr [ %.1, %97 ], [ %.1, %99 ], [ %.068.ph116, %91 ], [ %.068.ph116, %90 ]
+  %.1 = phi ptr [ %.2, %97 ], [ %.2, %99 ], [ %.068.ph116, %91 ], [ %.068.ph116, %90 ]
   %101 = load ptr, ptr %31, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 18
   %103 = load i16, ptr %102, align 2
@@ -2909,17 +2909,17 @@ BufferGetPage.exit:                               ; preds = %10, %16
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %122, %128
-  %.08.i.i = phi i32 [ %129, %128 ], [ 0, %122 ]
+  %.1.i.i = phi i32 [ %129, %128 ], [ 0, %122 ]
   call void @pfree(ptr noundef nonnull %121) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %118, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %118 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.outer
 
 .outer:                                           ; preds = %113, %HeapTupleGetUpdateXid.exit
-  %130 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %117, %113 ]
+  %130 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %117, %113 ]
   %131 = icmp eq i16 %.val91, 0
   br i1 %131, label %.loopexit, label %.lr.ph
 
@@ -2965,14 +2965,14 @@ define dso_local i32 @HeapTupleGetUpdateXid(ptr nocapture noundef readonly %0) l
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %8, %14
-  %.08.i = phi i32 [ %15, %14 ], [ 0, %8 ]
+  %.1.i = phi i32 [ %15, %14 ], [ 0, %8 ]
   call void @pfree(ptr noundef nonnull %7) #11
   br label %MultiXactIdGetUpdateXid.exit
 
 MultiXactIdGetUpdateXid.exit:                     ; preds = %1, %.loopexit.i
-  %.1.i = phi i32 [ %.08.i, %.loopexit.i ], [ 0, %1 ]
+  %.08.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  ret i32 %.1.i
+  ret i32 %.08.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3170,17 +3170,17 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %79, %ItemPointerInd
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %104, %110
-  %.08.i.i = phi i32 [ %111, %110 ], [ 0, %104 ]
+  %.1.i.i = phi i32 [ %111, %110 ], [ 0, %104 ]
   call void @pfree(ptr noundef nonnull %103) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %100, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %100 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %100 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %112
 
 112:                                              ; preds = %91, %HeapTupleGetUpdateXid.exit
-  %113 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %99, %91 ]
+  %113 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %99, %91 ]
   call void @UnlockReleaseBuffer(i32 noundef %21) #11
   br label %13
 
@@ -4495,7 +4495,7 @@ heap_acquire_tuplock.exit.us:                     ; preds = %87, %85, %82
   br label %heap_acquire_tuplock.exit157.us
 
 heap_acquire_tuplock.exit157.us:                  ; preds = %107, %105
-  %.3.us = phi i8 [ %.0163.us, %105 ], [ 1, %107 ]
+  %.5.us = phi i8 [ %.0163.us, %105 ], [ 1, %107 ]
   call void @XactLockTableWait(i32 noundef %76, ptr noundef %0, ptr noundef nonnull %64, i32 noundef 2) #11
   call void @LockBuffer(i32 noundef %32, i32 noundef 2) #11
   %108 = load i32, ptr %11, align 4
@@ -4510,7 +4510,7 @@ heap_acquire_tuplock.exit157.us:                  ; preds = %107, %105
 
 .split.us.backedge:                               ; preds = %110, %112, %118, %91, %93, %99
   %.be = phi i32 [ %89, %99 ], [ %89, %93 ], [ 0, %91 ], [ %108, %118 ], [ %108, %112 ], [ 0, %110 ]
-  %.0163.us.be = phi i8 [ %.2.us, %99 ], [ %.2.us, %93 ], [ %.2.us, %91 ], [ %.3.us, %118 ], [ %.3.us, %112 ], [ %.3.us, %110 ]
+  %.0163.us.be = phi i8 [ %.2.us, %99 ], [ %.2.us, %93 ], [ %.2.us, %91 ], [ %.5.us, %118 ], [ %.5.us, %112 ], [ %.5.us, %110 ]
   br label %.split.us
 
 112:                                              ; preds = %110, %heap_acquire_tuplock.exit157.us
@@ -4588,7 +4588,7 @@ heap_acquire_tuplock.exit157.us:                  ; preds = %107, %105
   br label %UpdateXmaxHintBits.exit
 
 UpdateXmaxHintBits.exit:                          ; preds = %103, %99, %80, %141, %140, %.split209.us
-  %.4 = phi i8 [ %.3.us, %.split209.us ], [ %.3.us, %140 ], [ %.3.us, %141 ], [ %.0163.us, %80 ], [ %.2.us, %99 ], [ %.0163.us, %103 ]
+  %.3 = phi i8 [ %.5.us, %.split209.us ], [ %.5.us, %140 ], [ %.5.us, %141 ], [ %.0163.us, %80 ], [ %.2.us, %99 ], [ %.0163.us, %103 ]
   %142 = load ptr, ptr %61, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 20
   %144 = load i16, ptr %143, align 4
@@ -4612,7 +4612,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %103, %99, %80, %141
   br label %.thread170
 
 .loopexit:                                        ; preds = %70, %126, %UpdateXmaxHintBits.exit, %149
-  %.5 = phi i8 [ %.4, %UpdateXmaxHintBits.exit ], [ %.4, %149 ], [ 0, %126 ], [ %.0163.us, %70 ]
+  %.1164 = phi i8 [ %.3, %UpdateXmaxHintBits.exit ], [ %.3, %149 ], [ 0, %126 ], [ %.0163.us, %70 ]
   %.0114 = phi i32 [ 0, %UpdateXmaxHintBits.exit ], [ 0, %149 ], [ %128, %126 ], [ %72, %70 ]
   %155 = icmp ne ptr %3, null
   %156 = icmp eq i32 %.0114, 0
@@ -4628,7 +4628,7 @@ UpdateXmaxHintBits.exit:                          ; preds = %103, %99, %80, %141
 
 .thread170:                                       ; preds = %126, %151, %157, %159
   %.1175 = phi i32 [ %.0114, %159 ], [ 3, %157 ], [ %., %151 ], [ %128, %126 ]
-  %.5168174 = phi i8 [ %.5, %159 ], [ %.5, %157 ], [ %.4, %151 ], [ 0, %126 ]
+  %.1164168174 = phi i8 [ %.1164, %159 ], [ %.1164, %157 ], [ %.3, %151 ], [ 0, %126 ]
   %160 = load ptr, ptr %61, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %5, ptr noundef nonnull align 4 dereferenceable(6) %161, i64 6, i1 false)
@@ -4669,17 +4669,17 @@ UpdateXmaxHintBits.exit:                          ; preds = %103, %99, %80, %141
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %171, %177
-  %.08.i.i = phi i32 [ %178, %177 ], [ 0, %171 ]
+  %.1.i.i = phi i32 [ %178, %177 ], [ 0, %171 ]
   call void @pfree(ptr noundef nonnull %170) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %167, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %167 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %167 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %179
 
 179:                                              ; preds = %.thread170, %HeapTupleGetUpdateXid.exit
-  %180 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %166, %.thread170 ]
+  %180 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %166, %.thread170 ]
   %181 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %180, ptr %181, align 4
   %182 = icmp eq i32 %.1175, 2
@@ -4695,7 +4695,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %167, %.loopexit.i.i
   %187 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 %.sink, ptr %187, align 4
   call void @UnlockReleaseBuffer(i32 noundef %32) #11
-  %188 = trunc nuw i8 %.5168174 to i1
+  %188 = trunc nuw i8 %.1164168174 to i1
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %186
@@ -4994,7 +4994,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %167, %.loopexit.i.i
 352:                                              ; preds = %342, %346, %351
   call void @CacheInvalidateHeapTuple(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef null) #11
   call void @ReleaseBuffer(i32 noundef %32) #11
-  %353 = trunc nuw i8 %.5 to i1
+  %353 = trunc nuw i8 %.1164 to i1
   br i1 %353, label %354, label %355
 
 354:                                              ; preds = %352
@@ -5060,8 +5060,8 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %46
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %46 ], [ 0, %.lr.ph ]
-  %.02637.us.us = phi i8 [ %.1.us.us, %46 ], [ 0, %.lr.ph ]
-  %20 = trunc nuw i8 %.02637.us.us to i1
+  %.137.us.us = phi i8 [ %.2.us.us, %46 ], [ 0, %.lr.ph ]
+  %20 = trunc nuw i8 %.137.us.us to i1
   br i1 %20, label %._crit_edge, label %21
 
 21:                                               ; preds = %.lr.ph.split.us.split.us
@@ -5102,15 +5102,15 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
   br label %46
 
 46:                                               ; preds = %21, %45, %43, %41, %34
-  %.1.us.us = phi i8 [ %.02637.us.us, %43 ], [ 1, %45 ], [ %.02637.us.us, %41 ], [ %.02637.us.us, %34 ], [ %.02637.us.us, %21 ]
+  %.2.us.us = phi i8 [ %.137.us.us, %43 ], [ 1, %45 ], [ %.137.us.us, %41 ], [ %.137.us.us, %34 ], [ %.137.us.us, %21 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count56
   br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
-  %.02637 = phi i8 [ %.1, %78 ], [ 0, %.lr.ph ]
-  %47 = trunc nuw i8 %.02637 to i1
+  %.137 = phi i8 [ %.2, %78 ], [ 0, %.lr.ph ]
+  %47 = trunc nuw i8 %.137 to i1
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.split.split
@@ -5163,16 +5163,16 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
   br label %78
 
 78:                                               ; preds = %75, %73, %66, %65, %64, %77
-  %.1 = phi i8 [ %.02637, %64 ], [ %.02637, %65 ], [ %.02637, %73 ], [ 1, %77 ], [ %.02637, %75 ], [ %.02637, %66 ]
+  %.2 = phi i8 [ %.137, %64 ], [ %.137, %65 ], [ %.137, %73 ], [ 1, %77 ], [ %.137, %75 ], [ %.137, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %78, %48, %46, %.lr.ph.split.us.split.us, %.preheader
-  %.026.lcssa = phi i8 [ 0, %.preheader ], [ %.02637.us.us, %.lr.ph.split.us.split.us ], [ %.1.us.us, %46 ], [ %.02637, %48 ], [ %.1, %78 ]
+  %.1.lcssa = phi i8 [ 0, %.preheader ], [ %.137.us.us, %.lr.ph.split.us.split.us ], [ %.2.us.us, %46 ], [ %.137, %48 ], [ %.2, %78 ]
   %79 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %79) #11
-  %80 = trunc nuw i8 %.026.lcssa to i1
+  %80 = trunc nuw i8 %.1.lcssa to i1
   br label %81
 
 81:                                               ; preds = %11, %._crit_edge, %4
@@ -5400,14 +5400,14 @@ define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 nound
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %42, %48
-  %.08.i = phi i32 [ %49, %48 ], [ 0, %42 ]
+  %.1.i = phi i32 [ %49, %48 ], [ 0, %42 ]
   call void @pfree(ptr noundef nonnull %41) #11
   br label %MultiXactIdGetUpdateXid.exit
 
 MultiXactIdGetUpdateXid.exit:                     ; preds = %38, %.loopexit.i
-  %.1.i = phi i32 [ %.08.i, %.loopexit.i ], [ 0, %38 ]
+  %.08.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %50 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.1.i) #11
+  %50 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.08.i) #11
   br i1 %50, label %51, label %.outer._crit_edge
 
 51:                                               ; preds = %MultiXactIdGetUpdateXid.exit, %31
@@ -6215,7 +6215,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %.outer.backedge.i, 
   br label %heap_acquire_tuplock.exit
 
 heap_acquire_tuplock.exit:                        ; preds = %175, %173, %170
-  %.2386 = phi i8 [ %.0384, %170 ], [ %.0384, %173 ], [ 1, %175 ]
+  %.3387 = phi i8 [ %.0384, %170 ], [ %.0384, %173 ], [ 1, %175 ]
   %180 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %162, i32 noundef %.0283, i16 noundef zeroext %164, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %88, i32 noundef 1, ptr noundef nonnull %30)
   %181 = load i32, ptr %30, align 4
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #11
@@ -6237,8 +6237,8 @@ heap_acquire_tuplock.exit:                        ; preds = %175, %173, %170
 192:                                              ; preds = %._crit_edge498, %187
   %193 = phi i16 [ %184, %187 ], [ %.pre499, %._crit_edge498 ]
   %194 = phi ptr [ %182, %187 ], [ %.pre, %._crit_edge498 ]
-  %.3387 = phi i8 [ %.2386, %187 ], [ %.0384, %._crit_edge498 ]
-  %.0269 = phi i1 [ %188, %187 ], [ false, %._crit_edge498 ]
+  %.2386 = phi i8 [ %.3387, %187 ], [ %.0384, %._crit_edge498 ]
+  %.1270 = phi i1 [ %188, %187 ], [ false, %._crit_edge498 ]
   %195 = zext i16 %193 to i32
   %196 = and i32 %195, 128
   %.not295 = icmp ne i32 %196, 0
@@ -6321,7 +6321,7 @@ heap_acquire_tuplock.exit:                        ; preds = %175, %173, %170
   br label %heap_acquire_tuplock.exit340
 
 heap_acquire_tuplock.exit340:                     ; preds = %220, %222
-  %.4 = phi i8 [ %.0384, %220 ], [ 1, %222 ]
+  %.6 = phi i8 [ %.0384, %220 ], [ 1, %222 ]
   call void @XactLockTableWait(i32 noundef %162, ptr noundef %0, ptr noundef nonnull %88, i32 noundef 1) #11
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #11
   %227 = load ptr, ptr %85, align 8
@@ -6333,7 +6333,7 @@ heap_acquire_tuplock.exit340:                     ; preds = %220, %222
   br i1 %.not.i341.not, label %232, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %heap_acquire_tuplock.exit340, %232, %heap_acquire_tuplock.exit, %187, %301
-  %.0384.be = phi i8 [ %.6, %301 ], [ %.2386, %187 ], [ %.2386, %heap_acquire_tuplock.exit ], [ %.4, %232 ], [ %.4, %heap_acquire_tuplock.exit340 ]
+  %.0384.be = phi i8 [ %.1385, %301 ], [ %.3387, %187 ], [ %.3387, %heap_acquire_tuplock.exit ], [ %.6, %232 ], [ %.6, %heap_acquire_tuplock.exit340 ]
   br label %.backedge
 
 232:                                              ; preds = %heap_acquire_tuplock.exit340
@@ -6378,16 +6378,16 @@ heap_acquire_tuplock.exit340:                     ; preds = %220, %222
 
 .thread401:                                       ; preds = %247, %..thread401_crit_edge
   %252 = phi ptr [ %.pre500, %..thread401_crit_edge ], [ %248, %247 ]
-  %.5406 = phi i8 [ %.3387, %..thread401_crit_edge ], [ %.4, %247 ]
+  %.4406 = phi i8 [ %.2386, %..thread401_crit_edge ], [ %.6, %247 ]
   %253 = getelementptr inbounds i8, ptr %252, i64 12
   %254 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %88, ptr noundef nonnull %253) #11
   %. = select i1 %254, i32 4, i32 3
   br label %.thread420
 
 .thread396:                                       ; preds = %211, %213, %.thread390, %.thread393, %192, %217, %215, %247, %.backedge
-  %.6 = phi i8 [ %.0384, %.backedge ], [ %.4, %247 ], [ %.0384, %217 ], [ %.0384, %215 ], [ %.3387, %192 ], [ %.3387, %.thread393 ], [ %.3387, %.thread390 ], [ %.3387, %213 ], [ %.3387, %211 ]
-  %.2273 = phi i1 [ false, %.backedge ], [ true, %247 ], [ true, %217 ], [ true, %215 ], [ %169, %192 ], [ %169, %.thread393 ], [ %169, %.thread390 ], [ %169, %213 ], [ %169, %211 ]
-  %.2 = phi i1 [ false, %.backedge ], [ false, %247 ], [ true, %217 ], [ true, %215 ], [ %.0269, %192 ], [ %.0269, %.thread393 ], [ %.0269, %.thread390 ], [ %.0269, %213 ], [ %.0269, %211 ]
+  %.1385 = phi i8 [ %.0384, %.backedge ], [ %.6, %247 ], [ %.0384, %217 ], [ %.0384, %215 ], [ %.2386, %192 ], [ %.2386, %.thread393 ], [ %.2386, %.thread390 ], [ %.2386, %213 ], [ %.2386, %211 ]
+  %.0271 = phi i1 [ false, %.backedge ], [ true, %247 ], [ true, %217 ], [ true, %215 ], [ %169, %192 ], [ %169, %.thread393 ], [ %169, %.thread390 ], [ %169, %213 ], [ %169, %211 ]
+  %.0269 = phi i1 [ false, %.backedge ], [ false, %247 ], [ true, %217 ], [ true, %215 ], [ %.1270, %192 ], [ %.1270, %.thread393 ], [ %.1270, %.thread390 ], [ %.1270, %213 ], [ %.1270, %211 ]
   %.0262 = phi i32 [ %153, %.backedge ], [ 0, %247 ], [ 0, %217 ], [ 0, %215 ], [ 0, %192 ], [ 0, %.thread393 ], [ 0, %.thread390 ], [ 0, %213 ], [ 0, %211 ]
   %255 = icmp eq i32 %.0262, 0
   %or.cond = and i1 %151, %255
@@ -6402,7 +6402,7 @@ heap_acquire_tuplock.exit340:                     ; preds = %220, %222
 
 .thread420:                                       ; preds = %158, %256, %258, %.thread401
   %.1427 = phi i32 [ %., %.thread401 ], [ 5, %158 ], [ 3, %256 ], [ %.0262, %258 ]
-  %.6416426 = phi i8 [ %.5406, %.thread401 ], [ %.0384, %158 ], [ %.6, %256 ], [ %.6, %258 ]
+  %.1385416426 = phi i8 [ %.4406, %.thread401 ], [ %.0384, %158 ], [ %.1385, %256 ], [ %.1385, %258 ]
   %259 = load ptr, ptr %85, align 8
   %260 = getelementptr inbounds i8, ptr %259, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %6, ptr noundef nonnull align 4 dereferenceable(6) %260, i64 6, i1 false)
@@ -6443,17 +6443,17 @@ heap_acquire_tuplock.exit340:                     ; preds = %220, %222
   br label %.loopexit.i.i350
 
 .loopexit.i.i350:                                 ; preds = %270, %276
-  %.08.i.i351 = phi i32 [ %277, %276 ], [ 0, %270 ]
+  %.1.i.i351 = phi i32 [ %277, %276 ], [ 0, %270 ]
   call void @pfree(ptr noundef nonnull %269) #11
   br label %HeapTupleGetUpdateXid.exit352
 
 HeapTupleGetUpdateXid.exit352:                    ; preds = %266, %.loopexit.i.i350
-  %.1.i.i344 = phi i32 [ %.08.i.i351, %.loopexit.i.i350 ], [ 0, %266 ]
+  %.08.i.i344 = phi i32 [ %.1.i.i351, %.loopexit.i.i350 ], [ 0, %266 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %278
 
 278:                                              ; preds = %.thread420, %HeapTupleGetUpdateXid.exit352
-  %279 = phi i32 [ %.1.i.i344, %HeapTupleGetUpdateXid.exit352 ], [ %265, %.thread420 ]
+  %279 = phi i32 [ %.08.i.i344, %HeapTupleGetUpdateXid.exit352 ], [ %265, %.thread420 ]
   %280 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %279, ptr %280, align 4
   %281 = icmp eq i32 %.1427, 2
@@ -6469,7 +6469,7 @@ HeapTupleGetUpdateXid.exit352:                    ; preds = %266, %.loopexit.i.i
   %286 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %.sink, ptr %286, align 4
   call void @UnlockReleaseBuffer(i32 noundef %56) #11
-  %287 = trunc nuw i8 %.6416426 to i1
+  %287 = trunc nuw i8 %.1385416426 to i1
   br i1 %287, label %288, label %293
 
 288:                                              ; preds = %285
@@ -6529,8 +6529,8 @@ HeapTupleGetUpdateXid.exit352:                    ; preds = %266, %.loopexit.i.i
   %316 = and i32 %314, 4304
   %or.cond323 = icmp ne i32 %316, 4224
   %or.cond471.not488 = and i1 %.not298, %or.cond323
-  %.2273.not = xor i1 %.2273, true
-  %brmerge472 = select i1 %.2273.not, i1 true, i1 %.2
+  %.0271.not = xor i1 %.0271, true
+  %brmerge472 = select i1 %.0271.not, i1 true, i1 %.0269
   %or.cond473 = select i1 %or.cond471.not488, i1 %brmerge472, i1 false
   br i1 %or.cond473, label %317, label %.thread438
 
@@ -7671,7 +7671,7 @@ BufferGetPage.exit372:                            ; preds = %910, %916
   br label %936
 
 936:                                              ; preds = %935, %933
-  %937 = trunc nuw i8 %.6 to i1
+  %937 = trunc nuw i8 %.1385 to i1
   br i1 %937, label %938, label %943
 
 938:                                              ; preds = %936
@@ -7944,7 +7944,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %113 ]
-  %.1218423 = phi i1 [ %.0217, %.lr.ph.preheader ], [ %.2219, %113 ]
+  %.2219423 = phi i1 [ %.0217, %.lr.ph.preheader ], [ %.3, %113 ]
   %101 = load ptr, ptr %15, align 8
   %102 = getelementptr %struct.MultiXactMember, ptr %101, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4
@@ -7966,13 +7966,13 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   br label %.loopexit374
 
 113:                                              ; preds = %105, %.lr.ph
-  %.2219 = phi i1 [ %.1218423, %.lr.ph ], [ true, %105 ]
+  %.3 = phi i1 [ %.2219423, %.lr.ph ], [ true, %105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %113, %93
-  %.1218.lcssa = phi i1 [ %.0217, %93 ], [ %.2219, %113 ]
+  %.2219.lcssa = phi i1 [ %.0217, %93 ], [ %.3, %113 ]
   %114 = load ptr, ptr %15, align 8
   %.not234 = icmp eq ptr %114, null
   br i1 %.not234, label %128, label %115
@@ -8014,7 +8014,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   br i1 %or.cond, label %.thread, label %.loopexit374
 
 128:                                              ; preds = %115, %._crit_edge, %118, %116, %80
-  %.3 = phi i1 [ %.1218.lcssa, %115 ], [ %.1218.lcssa, %._crit_edge ], [ %.0217, %118 ], [ %.0217, %116 ], [ %.0217, %80 ]
+  %.1218 = phi i1 [ %.2219.lcssa, %115 ], [ %.2219.lcssa, %._crit_edge ], [ %.0217, %118 ], [ %.0217, %116 ], [ %.0217, %80 ]
   switch i32 %3, label %.thread [
     i32 0, label %129
     i32 1, label %..thread306_crit_edge
@@ -8071,7 +8071,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
 .thread306:                                       ; preds = %..thread306_crit_edge, %119
   %.pre-phi472 = phi i32 [ %.pre471, %..thread306_crit_edge ], [ %120, %119 ]
   %.pre-phi = phi i32 [ %.pre470, %..thread306_crit_edge ], [ %91, %119 ]
-  %.3309 = phi i1 [ %.3, %..thread306_crit_edge ], [ %.0217, %119 ]
+  %.1218309 = phi i1 [ %.1218, %..thread306_crit_edge ], [ %.0217, %119 ]
   %151 = and i32 %.pre-phi, 128
   %.not236 = icmp eq i32 %151, 0
   %152 = and i32 %.pre-phi, 4176
@@ -8126,7 +8126,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   br i1 %178, label %.critedge.thread349, label %.backedge.backedge
 
 .thread311.thread:                                ; preds = %121, %.thread311
-  %.3314482 = phi i1 [ %.3, %.thread311 ], [ %.0217, %121 ]
+  %.1218314482 = phi i1 [ %.1218, %.thread311 ], [ %.0217, %121 ]
   %.pre-phi474481 = phi i32 [ %.pre473, %.thread311 ], [ %91, %121 ]
   %179 = and i32 %.pre-phi474481, 80
   %180 = icmp eq i32 %179, 16
@@ -8150,7 +8150,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   br i1 %191, label %.critedge.thread349, label %.backedge.backedge
 
 .thread:                                          ; preds = %124, %128, %.thread306, %166, %.thread311.thread, %129
-  %.3304 = phi i1 [ %.3, %129 ], [ %.3, %166 ], [ %.3314482, %.thread311.thread ], [ %.3309, %.thread306 ], [ %.3, %128 ], [ %.0217, %124 ]
+  %.1218304 = phi i1 [ %.1218, %129 ], [ %.1218, %166 ], [ %.1218314482, %.thread311.thread ], [ %.1218309, %.thread306 ], [ %.1218, %128 ], [ %.0217, %124 ]
   %192 = and i16 %85, 4096
   %.not244 = icmp eq i16 %192, 0
   br i1 %.not244, label %193, label %206
@@ -8171,7 +8171,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   br i1 %.not.i292.not, label %202, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %195, %202, %181, %188, %168, %175, %146, %155
-  %.0217.be = phi i1 [ %.3, %146 ], [ %.3309, %155 ], [ %.3, %175 ], [ %.3, %168 ], [ %.3314482, %188 ], [ %.3314482, %181 ], [ %.3304, %202 ], [ %.3304, %195 ]
+  %.0217.be = phi i1 [ %.1218, %146 ], [ %.1218309, %155 ], [ %.1218, %175 ], [ %.1218, %168 ], [ %.1218314482, %188 ], [ %.1218314482, %181 ], [ %.1218304, %202 ], [ %.1218304, %195 ]
   br label %.backedge
 
 202:                                              ; preds = %195
@@ -8191,7 +8191,7 @@ BufferGetPage.exit290:                            ; preds = %48, %54
   br label %.critedge.thread
 
 210:                                              ; preds = %206
-  br i1 %.3304, label %heap_acquire_tuplock.exit.thread, label %211
+  br i1 %.1218304, label %heap_acquire_tuplock.exit.thread, label %211
 
 211:                                              ; preds = %210
   %212 = trunc i8 %.0297.ph to i1
@@ -8236,7 +8236,7 @@ heap_acquire_tuplock.exit:                        ; preds = %216
   br label %.critedge.thread
 
 heap_acquire_tuplock.exit.thread:                 ; preds = %213, %214, %216, %219, %211, %210
-  %.2299 = phi i8 [ %.0297.ph, %210 ], [ %.0297.ph, %211 ], [ 1, %219 ], [ 1, %216 ], [ 1, %214 ], [ 1, %213 ]
+  %.4301 = phi i8 [ %.0297.ph, %210 ], [ %.0297.ph, %211 ], [ 1, %219 ], [ 1, %216 ], [ 1, %214 ], [ 1, %213 ]
   %230 = zext i16 %85 to i32
   %231 = and i32 %230, 4096
   %.not245 = icmp eq i32 %231, 0
@@ -8345,8 +8345,8 @@ get_mxact_status_for_lock.exit:                   ; preds = %heap_acquire_tuploc
   br i1 %.not.i294.not, label %279, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %272, %279, %343
-  %.0297.ph.be = phi i8 [ %.3300355, %343 ], [ %.2299, %279 ], [ %.2299, %272 ]
-  %.0217.ph.be = phi i1 [ %.4356, %343 ], [ %.3304, %279 ], [ %.3304, %272 ]
+  %.0297.ph.be = phi i8 [ %.3300355, %343 ], [ %.4301, %279 ], [ %.4301, %272 ]
+  %.0217.ph.be = phi i1 [ %.4356, %343 ], [ %.1218304, %279 ], [ %.1218304, %272 ]
   %.0214.ph.be = phi i1 [ %.2216357, %343 ], [ false, %279 ], [ false, %272 ]
   br label %.outer
 
@@ -8410,8 +8410,8 @@ UpdateXmaxHintBits.exit:                          ; preds = %283, %284, %294, %2
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.backedge, %305, %140, %heap_acquire_tuplock.exit, %251, %236, %270, %208
-  %.0346 = phi i32 [ %., %305 ], [ %139, %140 ], [ 6, %heap_acquire_tuplock.exit ], [ 6, %251 ], [ 6, %236 ], [ %269, %270 ], [ %79, %208 ], [ %79, %.backedge ]
-  %.3300345 = phi i8 [ %.2299, %305 ], [ %.0297.ph, %140 ], [ %.0297.ph, %heap_acquire_tuplock.exit ], [ %.2299, %251 ], [ %.2299, %236 ], [ %.2299, %270 ], [ %.0297.ph, %208 ], [ %.0297.ph, %.backedge ]
+  %.2346 = phi i32 [ %., %305 ], [ %139, %140 ], [ 6, %heap_acquire_tuplock.exit ], [ 6, %251 ], [ 6, %236 ], [ %269, %270 ], [ %79, %208 ], [ %79, %.backedge ]
+  %.3300345 = phi i8 [ %.4301, %305 ], [ %.0297.ph, %140 ], [ %.0297.ph, %heap_acquire_tuplock.exit ], [ %.4301, %251 ], [ %.4301, %236 ], [ %.4301, %270 ], [ %.0297.ph, %208 ], [ %.0297.ph, %.backedge ]
   %309 = load ptr, ptr %68, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %7, ptr noundef nonnull align 4 dereferenceable(6) %310, i64 6, i1 false)
@@ -8453,20 +8453,20 @@ UpdateXmaxHintBits.exit:                          ; preds = %283, %284, %294, %2
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %321, %327
-  %.08.i.i = phi i32 [ %328, %327 ], [ 0, %321 ]
+  %.1.i.i = phi i32 [ %328, %327 ], [ 0, %321 ]
   call void @pfree(ptr noundef nonnull %320) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %317, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %317 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %317 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %329
 
 329:                                              ; preds = %.critedge.thread, %HeapTupleGetUpdateXid.exit
-  %330 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %316, %.critedge.thread ]
+  %330 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %316, %.critedge.thread ]
   %331 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %330, ptr %331, align 4
-  %332 = icmp eq i32 %.0346, 2
+  %332 = icmp eq i32 %.2346, 2
   br i1 %332, label %333, label %337
 
 333:                                              ; preds = %329
@@ -8483,8 +8483,8 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %317, %.loopexit.i.i
 
 .critedge.thread349:                              ; preds = %.backedge, %155, %188, %175, %142, %146, %202, %UpdateXmaxHintBits.exit, %303
   %.2216357 = phi i1 [ false, %UpdateXmaxHintBits.exit ], [ false, %303 ], [ %.0214, %.backedge ], [ false, %155 ], [ false, %146 ], [ false, %142 ], [ false, %175 ], [ false, %188 ], [ false, %202 ]
-  %.4356 = phi i1 [ %.3304, %UpdateXmaxHintBits.exit ], [ %.3304, %303 ], [ %.0217, %.backedge ], [ %.3309, %155 ], [ %.3, %146 ], [ %.3, %142 ], [ %.3, %175 ], [ %.3314482, %188 ], [ %.3304, %202 ]
-  %.3300355 = phi i8 [ %.2299, %UpdateXmaxHintBits.exit ], [ %.2299, %303 ], [ %.0297.ph, %202 ], [ %.0297.ph, %146 ], [ %.0297.ph, %142 ], [ %.0297.ph, %175 ], [ %.0297.ph, %188 ], [ %.0297.ph, %155 ], [ %.0297.ph, %.backedge ]
+  %.4356 = phi i1 [ %.1218304, %UpdateXmaxHintBits.exit ], [ %.1218304, %303 ], [ %.0217, %.backedge ], [ %.1218309, %155 ], [ %.1218, %146 ], [ %.1218, %142 ], [ %.1218, %175 ], [ %.1218314482, %188 ], [ %.1218304, %202 ]
+  %.3300355 = phi i8 [ %.4301, %UpdateXmaxHintBits.exit ], [ %.4301, %303 ], [ %.0297.ph, %202 ], [ %.0297.ph, %146 ], [ %.0297.ph, %142 ], [ %.0297.ph, %175 ], [ %.0297.ph, %188 ], [ %.0297.ph, %155 ], [ %.0297.ph, %.backedge ]
   %339 = load i32, ptr %10, align 4
   %340 = icmp eq i32 %339, 0
   br i1 %340, label %341, label %346
@@ -8658,15 +8658,15 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %317, %.loopexit.i.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %333, %337, %445
-  %.4301 = phi i8 [ %.3300355, %445 ], [ %.3300345, %333 ], [ %.3300345, %337 ], [ %.0297.ph, %.backedge ]
-  %.1 = phi i32 [ 0, %445 ], [ 2, %333 ], [ %.0346, %337 ], [ %79, %.backedge ]
+  %.1298 = phi i8 [ %.3300355, %445 ], [ %.3300345, %333 ], [ %.3300345, %337 ], [ %.0297.ph, %.backedge ]
+  %.0 = phi i32 [ 0, %445 ], [ 2, %333 ], [ %.2346, %337 ], [ %79, %.backedge ]
   %448 = load i32, ptr %6, align 4
   call void @LockBuffer(i32 noundef %448, i32 noundef 0) #11
   br label %.loopexit374
 
 .loopexit374:                                     ; preds = %124, %121, %119, %119, %118, %.loopexit, %112
-  %.5 = phi i8 [ %.4301, %.loopexit ], [ %.0297.ph, %112 ], [ %.0297.ph, %118 ], [ %.0297.ph, %119 ], [ %.0297.ph, %119 ], [ %.0297.ph, %121 ], [ %.0297.ph, %124 ]
-  %.2 = phi i32 [ %.1, %.loopexit ], [ 0, %112 ], [ 0, %124 ], [ 0, %121 ], [ 0, %119 ], [ 0, %119 ], [ %3, %118 ]
+  %.2299 = phi i8 [ %.1298, %.loopexit ], [ %.0297.ph, %112 ], [ %.0297.ph, %118 ], [ %.0297.ph, %119 ], [ %.0297.ph, %119 ], [ %.0297.ph, %121 ], [ %.0297.ph, %124 ]
+  %.1 = phi i32 [ %.0, %.loopexit ], [ 0, %112 ], [ 0, %124 ], [ 0, %121 ], [ 0, %119 ], [ 0, %119 ], [ %3, %118 ]
   %449 = load i32, ptr %10, align 4
   %.not373 = icmp eq i32 %449, 0
   br i1 %.not373, label %451, label %450
@@ -8676,7 +8676,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %317, %.loopexit.i.i
   br label %451
 
 451:                                              ; preds = %450, %.loopexit374
-  %452 = trunc i8 %.5 to i1
+  %452 = trunc i8 %.2299 to i1
   br i1 %452, label %453, label %455
 
 453:                                              ; preds = %451
@@ -8685,7 +8685,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %317, %.loopexit.i.i
   br label %455
 
 455:                                              ; preds = %453, %451
-  ret i32 %.2
+  ret i32 %.1
 }
 
 declare i32 @GetMultiXactIdMembers(i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
@@ -8769,7 +8769,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %5, %ItemPointerIndi
 .preheader.i:                                     ; preds = %272, %.preheader.lr.ph.i
   %45 = phi i32 [ %37, %.preheader.lr.ph.i ], [ %281, %272 ]
   %.050170.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %274, %272 ]
-  %.053168.i = phi i8 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %272 ]
+  %.053168.i = phi i8 [ 0, %.preheader.lr.ph.i ], [ %.154.i, %272 ]
   %46 = load i32, ptr %8, align 4
   %47 = icmp slt i32 %46, 0
   %48 = add nsw i32 %46, -1
@@ -9058,7 +9058,7 @@ BufferGetPage.exit87.i:                           ; preds = %159, %155
   br label %167
 
 167:                                              ; preds = %164, %BufferGetPage.exit87.i
-  %.154.i = phi i8 [ %.053168.i, %BufferGetPage.exit87.i ], [ %spec.select.i, %164 ]
+  %.2.i = phi i8 [ %.053168.i, %BufferGetPage.exit87.i ], [ %spec.select.i, %164 ]
   %168 = load volatile i32, ptr @CritSectionCount, align 4
   %169 = add i32 %168, 1
   store volatile i32 %169, ptr @CritSectionCount, align 4
@@ -9147,7 +9147,7 @@ BufferGetPage.exit89.i:                           ; preds = %209, %205
   %224 = or disjoint i16 %221, %223
   %225 = trunc nuw nsw i16 %224 to i8
   store i8 %225, ptr %43, align 2
-  %226 = and i8 %.154.i, 1
+  %226 = and i8 %.2.i, 1
   store i8 %226, ptr %44, align 1
   call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 8) #11
   %227 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 96) #11
@@ -9166,7 +9166,7 @@ BufferGetPage.exit89.i:                           ; preds = %209, %205
   br label %.loopexit105.i
 
 .loopexit105.i:                                   ; preds = %144, %232, %116
-  %.2.i = phi i8 [ %.154.i, %232 ], [ %.053168.i, %116 ], [ %.053168.i, %144 ]
+  %.154.i = phi i8 [ %.2.i, %232 ], [ %.053168.i, %116 ], [ %.053168.i, %144 ]
   %235 = load ptr, ptr %38, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 20
   %237 = load i16, ptr %236, align 4
@@ -9240,19 +9240,19 @@ ItemPointerIndicatesMovedPartitions.exit.thread.i: ; preds = %ItemPointerIndicat
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %264, %270
-  %.08.i.i.i = phi i32 [ %271, %270 ], [ 0, %264 ]
+  %.1.i.i.i = phi i32 [ %271, %270 ], [ 0, %264 ]
   call void @pfree(ptr noundef nonnull %263) #11
   br label %HeapTupleGetUpdateXid.exit.i
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %260
-  %.1.i.i.i = phi i32 [ %.08.i.i.i, %.loopexit.i.i.i ], [ 0, %260 ]
+  %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %260 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.pre210.i = load ptr, ptr %38, align 8
   br label %272
 
 272:                                              ; preds = %HeapTupleGetUpdateXid.exit.i, %253
   %273 = phi ptr [ %.pre210.i, %HeapTupleGetUpdateXid.exit.i ], [ %254, %253 ]
-  %274 = phi i32 [ %.1.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %259, %253 ]
+  %274 = phi i32 [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %259, %253 ]
   %275 = getelementptr inbounds i8, ptr %273, i64 12
   %.sroa.0.0.copyload91.i = load i16, ptr %275, align 2
   %.sroa.4.0..sroa_idx94.i = getelementptr inbounds i8, ptr %273, i64 14
@@ -9271,12 +9271,12 @@ HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %2
   br i1 %282, label %.preheader.i, label %.loopexit106.i
 
 .loopexit.i:                                      ; preds = %250, %ItemPointerIndicatesMovedPartitions.exit.thread.i, %ItemPointerIndicatesMovedPartitions.exit.i, %.loopexit105.i, %151, %86, %80, %127
-  %.0.i = phi i32 [ %114, %127 ], [ 0, %80 ], [ 0, %86 ], [ %145, %151 ], [ 0, %250 ], [ 0, %ItemPointerIndicatesMovedPartitions.exit.thread.i ], [ 0, %ItemPointerIndicatesMovedPartitions.exit.i ], [ 0, %.loopexit105.i ]
+  %.1.i = phi i32 [ %114, %127 ], [ 0, %80 ], [ 0, %86 ], [ %145, %151 ], [ 0, %250 ], [ 0, %ItemPointerIndicatesMovedPartitions.exit.thread.i ], [ 0, %ItemPointerIndicatesMovedPartitions.exit.i ], [ 0, %.loopexit105.i ]
   call void @UnlockReleaseBuffer(i32 noundef %46) #11
   br label %.loopexit106.i
 
 .loopexit106.i:                                   ; preds = %272, %.loopexit.i, %29
-  %.1.i = phi i32 [ %.0.i, %.loopexit.i ], [ 0, %29 ], [ 0, %272 ]
+  %.0.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %29 ], [ 0, %272 ]
   %283 = load i32, ptr %12, align 4
   %.not74.i = icmp eq i32 %283, 0
   br i1 %.not74.i, label %heap_lock_updated_tuple_rec.exit, label %284
@@ -9298,7 +9298,7 @@ heap_lock_updated_tuple_rec.exit:                 ; preds = %.loopexit106.i, %28
   br label %285
 
 285:                                              ; preds = %ItemPointerIndicatesMovedPartitions.exit, %ItemPointerIndicatesMovedPartitions.exit.thread, %heap_lock_updated_tuple_rec.exit
-  %.0 = phi i32 [ %.1.i, %heap_lock_updated_tuple_rec.exit ], [ 0, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ 0, %ItemPointerIndicatesMovedPartitions.exit ]
+  %.0 = phi i32 [ %.0.i, %heap_lock_updated_tuple_rec.exit ], [ 0, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ 0, %ItemPointerIndicatesMovedPartitions.exit ]
   ret i32 %.0
 }
 
@@ -9978,15 +9978,15 @@ thread-pre-split:                                 ; preds = %37, %33, %22
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %85, %91
-  %.08.i.i = phi i32 [ %92, %91 ], [ 0, %85 ]
+  %.1.i.i = phi i32 [ %92, %91 ], [ 0, %85 ]
   call void @pfree(ptr noundef nonnull %84) #11
   br label %MultiXactIdGetUpdateXid.exit.i
 
 MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %81
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %81 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %93 = load i32, ptr %1, align 4
-  %94 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.1.i.i, i32 noundef %93) #11
+  %94 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.08.i.i, i32 noundef %93) #11
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %MultiXactIdGetUpdateXid.exit.i
@@ -9994,18 +9994,18 @@ MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %81
   call void @llvm.assume(i1 %96)
   %97 = call i32 @errcode(i32 noundef 16779816) #11
   %98 = load i32, ptr %1, align 4
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i32 noundef %49, i32 noundef %.1.i.i, i32 noundef %98) #11
+  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i32 noundef %49, i32 noundef %.08.i.i, i32 noundef %98) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6092, ptr noundef nonnull @__func__.FreezeMultiXactId) #11
   unreachable
 
 100:                                              ; preds = %MultiXactIdGetUpdateXid.exit.i
   %101 = getelementptr inbounds i8, ptr %1, i64 8
   %102 = load i32, ptr %101, align 4
-  %103 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.1.i.i, i32 noundef %102) #11
+  %103 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.08.i.i, i32 noundef %102) #11
   br i1 %103, label %104, label %FreezeMultiXactId.exit.thread
 
 104:                                              ; preds = %100
-  %105 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.1.i.i) #11
+  %105 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.08.i.i) #11
   br i1 %105, label %106, label %FreezeMultiXactId.exit.thread
 
 106:                                              ; preds = %104
@@ -10013,7 +10013,7 @@ MultiXactIdGetUpdateXid.exit.i:                   ; preds = %.loopexit.i.i, %81
   call void @llvm.assume(i1 %107)
   %108 = call i32 @errcode(i32 noundef 16779816) #11
   %109 = load i32, ptr %101, align 4
-  %110 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %49, i32 noundef %.1.i.i, i32 noundef %109) #11
+  %110 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %49, i32 noundef %.08.i.i, i32 noundef %109) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6105, ptr noundef nonnull @__func__.FreezeMultiXactId) #11
   unreachable
 
@@ -10078,8 +10078,8 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
 139:                                              ; preds = %180, %.lr.ph.i
   %indvars.iv182.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next183.i, %180 ]
   %.0120168.i = phi i32 [ 0, %.lr.ph.i ], [ %.1121.i, %180 ]
-  %.0124167.i = phi i1 [ false, %.lr.ph.i ], [ %.2.i, %180 ]
-  %.0126166.i = phi i32 [ 0, %.lr.ph.i ], [ %.2128.i, %180 ]
+  %.0124167.i = phi i1 [ false, %.lr.ph.i ], [ %.1125.i, %180 ]
+  %.0126166.i = phi i32 [ 0, %.lr.ph.i ], [ %.1127.i, %180 ]
   %.0129165.i = phi i1 [ false, %.lr.ph.i ], [ %.1130.i, %180 ]
   %140 = load ptr, ptr %8, align 8
   %141 = getelementptr %struct.MultiXactMember, ptr %140, i64 %indvars.iv182.i
@@ -10137,7 +10137,7 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
   br i1 %169, label %170, label %180
 
 170:                                              ; preds = %168, %166, %164
-  %.1125.i = phi i1 [ %.0124167.i, %166 ], [ %.0124167.i, %164 ], [ true, %168 ]
+  %.2.i = phi i1 [ %.0124167.i, %166 ], [ %.0124167.i, %164 ], [ true, %168 ]
   %171 = load i32, ptr %138, align 4
   %172 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %142, i32 noundef %171) #11
   br i1 %172, label %173, label %.sink.split.i
@@ -10153,8 +10153,8 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
 
 .sink.split.i:                                    ; preds = %170, %150
   %.1130.ph.i = phi i1 [ true, %150 ], [ %.0129165.i, %170 ]
-  %.2128.ph.i = phi i32 [ %.0126166.i, %150 ], [ %142, %170 ]
-  %.2.ph.i = phi i1 [ %.0124167.i, %150 ], [ %.1125.i, %170 ]
+  %.1127.ph.i = phi i32 [ %.0126166.i, %150 ], [ %142, %170 ]
+  %.1125.ph.i = phi i1 [ %.0124167.i, %150 ], [ %.2.i, %170 ]
   %.1121.ph.i = add i32 %.0120168.i, 1
   %.pn.i = sext i32 %.0120168.i to i64
   %.sink194.i = getelementptr %struct.MultiXactMember, ptr %137, i64 %.pn.i
@@ -10166,8 +10166,8 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
 
 180:                                              ; preds = %.sink.split.i, %168, %148
   %.1130.i = phi i1 [ %.0129165.i, %168 ], [ %.0129165.i, %148 ], [ %.1130.ph.i, %.sink.split.i ]
-  %.2128.i = phi i32 [ 0, %168 ], [ %.0126166.i, %148 ], [ %.2128.ph.i, %.sink.split.i ]
-  %.2.i = phi i1 [ %.0124167.i, %168 ], [ %.0124167.i, %148 ], [ %.2.ph.i, %.sink.split.i ]
+  %.1127.i = phi i32 [ 0, %168 ], [ %.0126166.i, %148 ], [ %.1127.ph.i, %.sink.split.i ]
+  %.1125.i = phi i1 [ %.0124167.i, %168 ], [ %.0124167.i, %148 ], [ %.1125.ph.i, %.sink.split.i ]
   %.1121.i = phi i32 [ %.0120168.i, %168 ], [ %.0120168.i, %148 ], [ %.1121.ph.i, %.sink.split.i ]
   %indvars.iv.next183.i = add nuw nsw i64 %indvars.iv182.i, 1
   %exitcond185.not.i = icmp eq i64 %indvars.iv.next183.i, %wide.trip.count.i
@@ -10180,12 +10180,12 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
   br i1 %182, label %FreezeMultiXactId.exit, label %183
 
 183:                                              ; preds = %._crit_edge.i
-  %.not135.i = icmp eq i32 %.2128.i, 0
+  %.not135.i = icmp eq i32 %.1127.i, 0
   %brmerge.i = select i1 %.not135.i, i1 true, i1 %.1130.i
   br i1 %brmerge.i, label %185, label %184
 
 184:                                              ; preds = %183
-  %spec.select139.v.i = select i1 %.2.i, i16 20, i16 4
+  %spec.select139.v.i = select i1 %.1125.i, i16 20, i16 4
   br label %FreezeMultiXactId.exit
 
 185:                                              ; preds = %183
@@ -10194,14 +10194,14 @@ FreezeMultiXactId.exit.thread127:                 ; preds = %130, %134
 
 FreezeMultiXactId.exit.thread:                    ; preds = %111, %100, %104, %80, %51, %52
   %.0.ph = phi i16 [ 2, %52 ], [ 2, %51 ], [ 2, %80 ], [ 2, %104 ], [ 4, %100 ], [ 2, %111 ]
-  %.0.i.ph = phi i32 [ 0, %52 ], [ 0, %51 ], [ 0, %80 ], [ 0, %104 ], [ %.1.i.i, %100 ], [ 0, %111 ]
+  %.0.i.ph = phi i32 [ 0, %52 ], [ 0, %51 ], [ 0, %80 ], [ 0, %104 ], [ %.08.i.i, %100 ], [ 0, %111 ]
   store i8 1, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %187
 
 FreezeMultiXactId.exit:                           ; preds = %184, %185, %._crit_edge.i
   %spec.select139.sink.i = phi i16 [ %spec.select139.v.i, %184 ], [ 8, %185 ], [ 2, %._crit_edge.i ]
-  %.0116.i = phi i32 [ %.2128.i, %184 ], [ %186, %185 ], [ 0, %._crit_edge.i ]
+  %.0116.i = phi i32 [ %.1127.i, %184 ], [ %186, %185 ], [ 0, %._crit_edge.i ]
   call void @pfree(ptr noundef %137) #11
   store i8 1, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -10544,7 +10544,7 @@ define dso_local zeroext i1 @heap_tuple_should_freeze(ptr nocapture noundef read
 
 57:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %.278 = phi i1 [ %spec.select69, %.lr.ph ], [ %spec.select70, %64 ]
+  %.378 = phi i1 [ %spec.select69, %.lr.ph ], [ %spec.select70, %64 ]
   %58 = load ptr, ptr %5, align 8
   %59 = getelementptr %struct.MultiXactMember, ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
@@ -10559,7 +10559,7 @@ define dso_local zeroext i1 @heap_tuple_should_freeze(ptr nocapture noundef read
 64:                                               ; preds = %63, %57
   %65 = load i32, ptr %56, align 4
   %66 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %60, i32 noundef %65) #11
-  %spec.select70 = select i1 %66, i1 true, i1 %.278
+  %spec.select70 = select i1 %66, i1 true, i1 %.378
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !30
@@ -10573,7 +10573,7 @@ define dso_local zeroext i1 @heap_tuple_should_freeze(ptr nocapture noundef read
   br label %.thread75
 
 .thread75:                                        ; preds = %44, %25, %31, %40, %41, %35, %._crit_edge, %67
-  %.4 = phi i1 [ %spec.select70, %67 ], [ %spec.select70, %._crit_edge ], [ %.056, %35 ], [ %spec.select66, %31 ], [ true, %41 ], [ true, %40 ], [ %.056, %25 ], [ %spec.select69, %44 ]
+  %.1 = phi i1 [ %spec.select70, %67 ], [ %spec.select70, %._crit_edge ], [ %.056, %35 ], [ %spec.select66, %31 ], [ true, %41 ], [ true, %40 ], [ %.056, %25 ], [ %spec.select69, %44 ]
   %69 = load i16, ptr %6, align 4
   %.not65 = icmp ult i16 %69, 16384
   br i1 %.not65, label %78, label %70
@@ -10594,7 +10594,7 @@ define dso_local zeroext i1 @heap_tuple_should_freeze(ptr nocapture noundef read
   br label %78
 
 78:                                               ; preds = %74, %77, %70, %.thread75
-  %.5 = phi i1 [ %.4, %70 ], [ %.4, %.thread75 ], [ true, %77 ], [ true, %74 ]
+  %.5 = phi i1 [ %.1, %70 ], [ %.1, %.thread75 ], [ true, %77 ], [ true, %74 ]
   ret i1 %.5
 }
 
@@ -11125,19 +11125,19 @@ define dso_local void @HeapTupleHeaderAdvanceConflictHorizon(ptr nocapture nound
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %19, %25
-  %.08.i.i = phi i32 [ %26, %25 ], [ 0, %19 ]
+  %.1.i.i = phi i32 [ %26, %25 ], [ 0, %19 ]
   call void @pfree(ptr noundef nonnull %18) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %15, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %15 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pre = load i16, ptr %4, align 4
   br label %27
 
 27:                                               ; preds = %10, %HeapTupleGetUpdateXid.exit
   %28 = phi i16 [ %.pre, %HeapTupleGetUpdateXid.exit ], [ %5, %10 ]
-  %29 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %14, %10 ]
+  %29 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %14, %10 ]
   %.not24 = icmp ult i16 %28, 16384
   br i1 %.not24, label %.thread, label %30
 
@@ -11583,14 +11583,14 @@ index_delete_prefetch_buffer.exit:                ; preds = %157, %._crit_edge.l
   %.094254 = phi i16 [ 0, %.lr.ph258 ], [ %.195, %422 ]
   %.098251 = phi i1 [ false, %.lr.ph258 ], [ %.2, %422 ]
   %.0100250 = phi i32 [ 0, %.lr.ph258 ], [ %.2102, %422 ]
-  %.0103249 = phi i32 [ 0, %.lr.ph258 ], [ %.2105, %422 ]
-  %.0106248 = phi i32 [ %9, %.lr.ph258 ], [ %.2108, %422 ]
-  %.1110247 = phi i32 [ %.0109, %.lr.ph258 ], [ %.3, %422 ]
+  %.0103249 = phi i32 [ 0, %.lr.ph258 ], [ %.1104, %422 ]
+  %.0106248 = phi i32 [ %9, %.lr.ph258 ], [ %.1107, %422 ]
+  %.1110247 = phi i32 [ %.0109, %.lr.ph258 ], [ %.2111, %422 ]
   %.0112246 = phi i32 [ 0, %.lr.ph258 ], [ %.1113, %422 ]
   %.0114244 = phi i32 [ 0, %.lr.ph258 ], [ %.1115, %422 ]
   %.sroa.0.0243 = phi i32 [ %.0.lcssa.i151, %.lr.ph258 ], [ %.sroa.0.1, %422 ]
   %.sroa.5.0242 = phi i32 [ %.023.lcssa.i, %.lr.ph258 ], [ %.sroa.5.1, %422 ]
-  %.0195240 = phi i32 [ 0, %.lr.ph258 ], [ %.5, %422 ]
+  %.0195240 = phi i32 [ 0, %.lr.ph258 ], [ %.1196, %422 ]
   %179 = load ptr, ptr %13, align 8
   %180 = getelementptr %struct.TM_IndexDelete, ptr %179, i64 %indvars.iv
   %181 = load ptr, ptr %176, align 8
@@ -11639,9 +11639,9 @@ index_delete_prefetch_buffer.exit:                ; preds = %157, %._crit_edge.l
   br label %206
 
 206:                                              ; preds = %202, %204, %193
-  %.2111 = phi i32 [ %203, %202 ], [ %.1110247, %204 ], [ %.1110247, %193 ]
-  %.1107 = phi i32 [ %.0106248, %202 ], [ %205, %204 ], [ %.0106248, %193 ]
-  %.1104 = phi i32 [ %.0100250, %202 ], [ %.0100250, %204 ], [ %.0103249, %193 ]
+  %.3 = phi i32 [ %203, %202 ], [ %.1110247, %204 ], [ %.1110247, %193 ]
+  %.2108 = phi i32 [ %.0106248, %202 ], [ %205, %204 ], [ %.0106248, %193 ]
+  %.2105 = phi i32 [ %.0100250, %202 ], [ %.0100250, %204 ], [ %.0103249, %193 ]
   %.not201 = icmp eq i32 %.089256, 0
   br i1 %.not201, label %208, label %207
 
@@ -11740,9 +11740,9 @@ BufferGetPage.exit:                               ; preds = %228, %234
   %.sroa.5.1 = phi i32 [ %.023.lcssa.i159, %BufferGetPage.exit ], [ %.sroa.5.0242, %187 ]
   %.sroa.0.1 = phi i32 [ %.0.lcssa.i160, %BufferGetPage.exit ], [ %.sroa.0.0243, %187 ]
   %.1113 = phi i32 [ %215, %BufferGetPage.exit ], [ %.0112246, %187 ]
-  %.3 = phi i32 [ %.2111, %BufferGetPage.exit ], [ %.1110247, %187 ]
-  %.2108 = phi i32 [ %.1107, %BufferGetPage.exit ], [ %.0106248, %187 ]
-  %.2105 = phi i32 [ %.1104, %BufferGetPage.exit ], [ %.0103249, %187 ]
+  %.2111 = phi i32 [ %.3, %BufferGetPage.exit ], [ %.1110247, %187 ]
+  %.1107 = phi i32 [ %.2108, %BufferGetPage.exit ], [ %.0106248, %187 ]
+  %.1104 = phi i32 [ %.2105, %BufferGetPage.exit ], [ %.0103249, %187 ]
   %.195 = phi i16 [ %.0.i, %BufferGetPage.exit ], [ %.094254, %187 ]
   %.193 = phi ptr [ %.0.i.i181, %BufferGetPage.exit ], [ %.092255, %187 ]
   %.190 = phi i32 [ %214, %BufferGetPage.exit ], [ %.089256, %187 ]
@@ -11873,7 +11873,7 @@ index_delete_check_htid.exit:                     ; preds = %292, %293
   %327 = load i16, ptr %326, align 2
   %328 = sext i16 %327 to i32
   %329 = add i32 %.0100250, %328
-  %.not122 = icmp sge i32 %329, %.2108
+  %.not122 = icmp sge i32 %329, %.1107
   %spec.select = select i1 %.not122, i1 true, i1 %.098251
   br label %330
 
@@ -11888,7 +11888,7 @@ index_delete_check_htid.exit:                     ; preds = %292, %293
 .lr.ph:                                           ; preds = %330, %.outer
   %.091.ph236 = phi i16 [ %.val138, %.outer ], [ %.val139, %330 ]
   %.096.ph235 = phi i32 [ %418, %.outer ], [ 0, %330 ]
-  %.1196.ph234 = phi i32 [ %.3198, %.outer ], [ %.0195240, %330 ]
+  %.2197.ph234 = phi i32 [ %.5, %.outer ], [ %.0195240, %330 ]
   br label %332
 
 332:                                              ; preds = %.lr.ph, %339
@@ -11980,33 +11980,33 @@ index_delete_check_htid.exit:                     ; preds = %292, %293
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %367, %373
-  %.08.i.i.i = phi i32 [ %374, %373 ], [ 0, %367 ]
+  %.1.i.i.i = phi i32 [ %374, %373 ], [ 0, %367 ]
   call void @pfree(ptr noundef nonnull %366) #11
   br label %HeapTupleGetUpdateXid.exit.i
 
 HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %363
-  %.1.i.i.i = phi i32 [ %.08.i.i.i, %.loopexit.i.i.i ], [ 0, %363 ]
+  %.08.i.i.i = phi i32 [ %.1.i.i.i, %.loopexit.i.i.i ], [ 0, %363 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.pre.i184 = load i16, ptr %354, align 4
   br label %375
 
 375:                                              ; preds = %HeapTupleGetUpdateXid.exit.i, %358
   %376 = phi i16 [ %.pre.i184, %HeapTupleGetUpdateXid.exit.i ], [ %.pre290, %358 ]
-  %377 = phi i32 [ %.1.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %362, %358 ]
+  %377 = phi i32 [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %362, %358 ]
   %.not24.i183 = icmp ult i16 %376, 16384
   br i1 %.not24.i183, label %.thread.i, label %378
 
 378:                                              ; preds = %375
   %379 = getelementptr inbounds i8, ptr %346, i64 8
   %380 = load i32, ptr %379, align 4
-  %381 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.1196.ph234, i32 noundef %380) #11
-  %spec.select199 = select i1 %381, i32 %380, i32 %.1196.ph234
+  %381 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.2197.ph234, i32 noundef %380) #11
+  %spec.select199 = select i1 %381, i32 %380, i32 %.2197.ph234
   %.pre291 = load i16, ptr %354, align 4
   br label %.thread.i
 
 .thread.i:                                        ; preds = %378, %375
   %382 = phi i16 [ %376, %375 ], [ %.pre291, %378 ]
-  %.2197 = phi i32 [ %.1196.ph234, %375 ], [ %spec.select199, %378 ]
+  %.4 = phi i32 [ %.2197.ph234, %375 ], [ %spec.select199, %378 ]
   %383 = zext i16 %382 to i32
   %384 = and i32 %383, 256
   %.not26.i = icmp eq i32 %384, 0
@@ -12028,12 +12028,12 @@ HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %3
   br i1 %.not28.old.i, label %HeapTupleHeaderAdvanceConflictHorizon.exit, label %390
 
 390:                                              ; preds = %389, %387
-  %391 = call zeroext i1 @TransactionIdFollows(i32 noundef %377, i32 noundef %.2197) #11
-  %spec.select200 = select i1 %391, i32 %377, i32 %.2197
+  %391 = call zeroext i1 @TransactionIdFollows(i32 noundef %377, i32 noundef %.4) #11
+  %spec.select200 = select i1 %391, i32 %377, i32 %.4
   br label %HeapTupleHeaderAdvanceConflictHorizon.exit
 
 HeapTupleHeaderAdvanceConflictHorizon.exit:       ; preds = %390, %385, %387, %389
-  %.3198 = phi i32 [ %.2197, %387 ], [ %.2197, %385 ], [ %.2197, %389 ], [ %spec.select200, %390 ]
+  %.5 = phi i32 [ %.4, %387 ], [ %.4, %385 ], [ %.4, %389 ], [ %spec.select200, %390 ]
   %392 = getelementptr inbounds i8, ptr %346, i64 18
   %393 = load i16, ptr %392, align 2
   %394 = and i16 %393, 16384
@@ -12087,30 +12087,30 @@ HeapTupleHeaderAdvanceConflictHorizon.exit:       ; preds = %390, %385, %387, %3
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %410, %416
-  %.08.i.i = phi i32 [ %417, %416 ], [ 0, %410 ]
+  %.1.i.i = phi i32 [ %417, %416 ], [ 0, %410 ]
   call void @pfree(ptr noundef nonnull %409) #11
   br label %HeapTupleGetUpdateXid.exit
 
 HeapTupleGetUpdateXid.exit:                       ; preds = %406, %.loopexit.i.i
-  %.1.i.i = phi i32 [ %.08.i.i, %.loopexit.i.i ], [ 0, %406 ]
+  %.08.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %406 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.outer
 
 .outer:                                           ; preds = %402, %HeapTupleGetUpdateXid.exit
-  %418 = phi i32 [ %.1.i.i, %HeapTupleGetUpdateXid.exit ], [ %405, %402 ]
+  %418 = phi i32 [ %.08.i.i, %HeapTupleGetUpdateXid.exit ], [ %405, %402 ]
   %419 = add i16 %.val138, -1
   %or.cond128.not228 = icmp ult i16 %419, %.195
   br i1 %or.cond128.not228, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %HeapTupleHeaderAdvanceConflictHorizon.exit, %395, %351, %.outer, %339, %332, %330
-  %.4 = phi i32 [ %.0195240, %330 ], [ %.1196.ph234, %332 ], [ %.1196.ph234, %339 ], [ %.3198, %.outer ], [ %.1196.ph234, %351 ], [ %.3198, %395 ], [ %.3198, %HeapTupleHeaderAdvanceConflictHorizon.exit ]
+  %.3198 = phi i32 [ %.0195240, %330 ], [ %.2197.ph234, %332 ], [ %.2197.ph234, %339 ], [ %.5, %.outer ], [ %.2197.ph234, %351 ], [ %.5, %395 ], [ %.5, %HeapTupleHeaderAdvanceConflictHorizon.exit ]
   %420 = add nuw nsw i64 %indvars.iv, 1
   %421 = trunc nuw nsw i64 %420 to i32
   br label %422
 
 422:                                              ; preds = %._crit_edge293, %.loopexit
   %indvars.iv.next.pre-phi = phi i64 [ %.pre294, %._crit_edge293 ], [ %420, %.loopexit ]
-  %.5 = phi i32 [ %.0195240, %._crit_edge293 ], [ %.4, %.loopexit ]
+  %.1196 = phi i32 [ %.0195240, %._crit_edge293 ], [ %.3198, %.loopexit ]
   %.1115 = phi i32 [ %.0114244, %._crit_edge293 ], [ %421, %.loopexit ]
   %.2102 = phi i32 [ %.0100250, %._crit_edge293 ], [ %.1101, %.loopexit ]
   %.2 = phi i1 [ %.098251, %._crit_edge293 ], [ %.199, %.loopexit ]
@@ -12120,7 +12120,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %406, %.loopexit.i.i
   br i1 %425, label %178, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %422, %196, %197, %index_delete_prefetch_buffer.exit
-  %.0195.lcssa = phi i32 [ 0, %index_delete_prefetch_buffer.exit ], [ %.0195240, %197 ], [ %.0195240, %196 ], [ %.5, %422 ]
+  %.0195.lcssa = phi i32 [ 0, %index_delete_prefetch_buffer.exit ], [ %.0195240, %197 ], [ %.0195240, %196 ], [ %.1196, %422 ]
   %.0114.lcssa = phi i32 [ 0, %index_delete_prefetch_buffer.exit ], [ %.0114244, %197 ], [ %.0114244, %196 ], [ %.1115, %422 ]
   %.089.lcssa = phi i32 [ 0, %index_delete_prefetch_buffer.exit ], [ %.089256, %197 ], [ %.089256, %196 ], [ %.190, %422 ]
   call void @UnlockReleaseBuffer(i32 noundef %.089.lcssa) #11
@@ -15400,7 +15400,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %47
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %47 ], [ 0, %.lr.ph.split.us ]
   %24 = phi i1 [ %48, %47 ], [ false, %.lr.ph.split.us ]
-  %.02942.us.us = phi i32 [ %.130.us.us, %47 ], [ 0, %.lr.ph.split.us ]
+  %.13042.us.us = phi i32 [ %.231.us.us, %47 ], [ 0, %.lr.ph.split.us ]
   %25 = load ptr, ptr %9, align 8
   %26 = getelementptr %struct.MultiXactMember, ptr %25, i64 %indvars.iv77
   %27 = load i32, ptr %26, align 4
@@ -15428,11 +15428,11 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   br i1 %44, label %47, label %._crit_edge
 
 45:                                               ; preds = %.lr.ph.split.us.split.us
-  %46 = add i32 %.02942.us.us, 1
+  %46 = add i32 %.13042.us.us, 1
   br label %47
 
 47:                                               ; preds = %31, %45, %43
-  %.130.us.us = phi i32 [ %46, %45 ], [ %.02942.us.us, %43 ], [ %.02942.us.us, %31 ]
+  %.231.us.us = phi i32 [ %46, %45 ], [ %.13042.us.us, %43 ], [ %.13042.us.us, %31 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %48 = icmp uge i64 %indvars.iv.next78, %23
   %exitcond80 = icmp eq i64 %indvars.iv.next78, %wide.trip.count79
@@ -15441,7 +15441,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %75
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %75 ], [ 0, %.lr.ph.split.us ]
   %49 = phi i1 [ %76, %75 ], [ false, %.lr.ph.split.us ]
-  %.02942.us = phi i32 [ %.130.us, %75 ], [ 0, %.lr.ph.split.us ]
+  %.13042.us = phi i32 [ %.231.us, %75 ], [ 0, %.lr.ph.split.us ]
   %50 = load ptr, ptr %9, align 8
   %51 = getelementptr %struct.MultiXactMember, ptr %50, i64 %indvars.iv73
   %52 = load i32, ptr %51, align 4
@@ -15467,7 +15467,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
 68:                                               ; preds = %56
   %69 = call zeroext i1 @TransactionIdIsInProgress(i32 noundef %52) #11
   %70 = zext i1 %69 to i32
-  %spec.select.us = add i32 %.02942.us, %70
+  %spec.select.us = add i32 %.13042.us, %70
   br label %75
 
 71:                                               ; preds = %56
@@ -15475,11 +15475,11 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   br i1 %72, label %75, label %._crit_edge
 
 73:                                               ; preds = %.lr.ph.split.us.split
-  %74 = add i32 %.02942.us, 1
+  %74 = add i32 %.13042.us, 1
   br label %75
 
 75:                                               ; preds = %73, %71, %68
-  %.130.us = phi i32 [ %74, %73 ], [ %.02942.us, %71 ], [ %spec.select.us, %68 ]
+  %.231.us = phi i32 [ %74, %73 ], [ %.13042.us, %71 ], [ %spec.select.us, %68 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %76 = icmp uge i64 %indvars.iv.next74, %23
   %exitcond76 = icmp eq i64 %indvars.iv.next74, %wide.trip.count79
@@ -15490,7 +15490,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %98
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %98 ], [ 0, %.lr.ph.split ]
-  %.02942.us50 = phi i32 [ %.130.us52, %98 ], [ 0, %.lr.ph.split ]
+  %.13042.us50 = phi i32 [ %.231.us52, %98 ], [ 0, %.lr.ph.split ]
   %77 = load ptr, ptr %9, align 8
   %78 = getelementptr %struct.MultiXactMember, ptr %77, i64 %indvars.iv68
   %79 = load i32, ptr %78, align 4
@@ -15518,18 +15518,18 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   br label %98
 
 96:                                               ; preds = %.lr.ph.split.split.us
-  %97 = add i32 %.02942.us50, 1
+  %97 = add i32 %.13042.us50, 1
   br label %98
 
 98:                                               ; preds = %83, %96, %95
-  %.130.us52 = phi i32 [ %97, %96 ], [ %.02942.us50, %95 ], [ %.02942.us50, %83 ]
+  %.231.us52 = phi i32 [ %97, %96 ], [ %.13042.us50, %95 ], [ %.13042.us50, %83 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72 = icmp eq i64 %indvars.iv.next69, %wide.trip.count79
   br i1 %exitcond72, label %._crit_edge.loopexit63, label %.lr.ph.split.split.us, !llvm.loop !48
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %123
   %indvars.iv = phi i64 [ %indvars.iv.next, %123 ], [ 0, %.lr.ph.split ]
-  %.02942 = phi i32 [ %.130, %123 ], [ 0, %.lr.ph.split ]
+  %.13042 = phi i32 [ %.231, %123 ], [ 0, %.lr.ph.split ]
   %99 = load ptr, ptr %9, align 8
   %100 = getelementptr %struct.MultiXactMember, ptr %99, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4
@@ -15539,7 +15539,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %.lr.ph.split.split
-  %106 = add i32 %.02942, 1
+  %106 = add i32 %.13042, 1
   br label %123
 
 107:                                              ; preds = %.lr.ph.split.split
@@ -15559,7 +15559,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
 119:                                              ; preds = %107
   %120 = call zeroext i1 @TransactionIdIsInProgress(i32 noundef %101) #11
   %121 = zext i1 %120 to i32
-  %spec.select = add i32 %.02942, %121
+  %spec.select = add i32 %.13042, %121
   br label %123
 
 122:                                              ; preds = %107
@@ -15567,7 +15567,7 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   br label %123
 
 123:                                              ; preds = %119, %122, %105
-  %.130 = phi i32 [ %106, %105 ], [ %.02942, %122 ], [ %spec.select, %119 ]
+  %.231 = phi i32 [ %106, %105 ], [ %.13042, %122 ], [ %spec.select, %119 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count79
   br i1 %exitcond, label %._crit_edge.loopexit64, label %.lr.ph.split.split, !llvm.loop !48
@@ -15581,24 +15581,24 @@ define internal fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i32 nounde
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %75, %71, %47, %43, %._crit_edge.loopexit64, %._crit_edge.loopexit63, %.preheader
-  %.029.lcssa = phi i32 [ 0, %.preheader ], [ %.130.us52, %._crit_edge.loopexit63 ], [ %.130, %._crit_edge.loopexit64 ], [ %.02942.us.us, %43 ], [ %.130.us.us, %47 ], [ %.02942.us, %71 ], [ %.130.us, %75 ]
+  %.130.lcssa = phi i32 [ 0, %.preheader ], [ %.231.us52, %._crit_edge.loopexit63 ], [ %.231, %._crit_edge.loopexit64 ], [ %.13042.us.us, %43 ], [ %.231.us.us, %47 ], [ %.13042.us, %71 ], [ %.231.us, %75 ]
   %.lcssa = phi i1 [ true, %.preheader ], [ %124, %._crit_edge.loopexit63 ], [ %125, %._crit_edge.loopexit64 ], [ %24, %43 ], [ %48, %47 ], [ %49, %71 ], [ %76, %75 ]
   %126 = load ptr, ptr %9, align 8
   call void @pfree(ptr noundef %126) #11
   br label %.thread
 
 .thread:                                          ; preds = %8, %._crit_edge, %12
-  %.231 = phi i32 [ %.029.lcssa, %._crit_edge ], [ 0, %12 ], [ 0, %8 ]
-  %.3 = phi i1 [ %.lcssa, %._crit_edge ], [ true, %12 ], [ true, %8 ]
+  %.029 = phi i32 [ %.130.lcssa, %._crit_edge ], [ 0, %12 ], [ 0, %8 ]
+  %.0 = phi i1 [ %.lcssa, %._crit_edge ], [ true, %12 ], [ true, %8 ]
   %.not37 = icmp eq ptr %7, null
   br i1 %.not37, label %128, label %127
 
 127:                                              ; preds = %.thread
-  store i32 %.231, ptr %7, align 4
+  store i32 %.029, ptr %7, align 4
   br label %128
 
 128:                                              ; preds = %127, %.thread
-  ret i1 %.3
+  ret i1 %.0
 }
 
 declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

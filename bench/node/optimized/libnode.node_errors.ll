@@ -554,13 +554,13 @@ if.end14:                                         ; preds = %if.end6
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end6, %if.end14
-  %retval.sroa.0.0 = phi ptr [ %call4.i, %if.end14 ], [ null, %if.end6 ]
+  %retval.sroa.0.1 = phi ptr [ %call4.i, %if.end14 ], [ null, %if.end6 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #19
   br label %return
 
 return:                                           ; preds = %if.end2, %lor.lhs.false, %if.end, %entry, %cleanup
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ null, %entry ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %if.end2 ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %cleanup ], [ null, %entry ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %if.end2 ]
+  ret ptr %retval.sroa.0.0
 }
 
 declare noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -2303,7 +2303,7 @@ land.rhs.i24:                                     ; preds = %sw.bb
   br label %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit"
 
 "_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit": ; preds = %land.rhs.i24, %sw.bb
-  %stack_trace.sroa.0.0 = phi ptr [ null, %sw.bb ], [ %call29.i, %land.rhs.i24 ]
+  %stack_trace.sroa.0.2 = phi ptr [ null, %sw.bb ], [ %call29.i, %land.rhs.i24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i)
   %inspector_agent_.i.i32 = getelementptr inbounds i8, ptr %env, i64 2136
   %17 = load ptr, ptr %inspector_agent_.i.i32, align 8
@@ -2329,11 +2329,11 @@ land.rhs.i42:                                     ; preds = %"_ZZN4nodeL20Report
   %23 = inttoptr i64 %add1.i.i47 to ptr
   %call29.i48 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call2.i38, ptr %call2.i.i46, ptr %23, i32 noundef 1, ptr noundef nonnull %argv.i39) #19
   %cmp.i.i.not.i49 = icmp eq ptr %call29.i48, null
-  %spec.select324 = select i1 %cmp.i.i.not.i49, ptr %stack_trace.sroa.0.0, ptr %call29.i48
+  %spec.select324 = select i1 %cmp.i.i.not.i49, ptr %stack_trace.sroa.0.2, ptr %call29.i48
   br label %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52"
 
 "_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52": ; preds = %land.rhs.i42, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit"
-  %stack_trace.sroa.0.1 = phi ptr [ %stack_trace.sroa.0.0, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit" ], [ %spec.select324, %land.rhs.i42 ]
+  %stack_trace.sroa.0.3 = phi ptr [ %stack_trace.sroa.0.2, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit" ], [ %spec.select324, %land.rhs.i42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i39)
   br label %sw.epilog
 
@@ -2352,7 +2352,7 @@ sw.bb69:                                          ; preds = %if.else
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb69, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52"
-  %stack_trace.sroa.0.2 = phi ptr [ %stack_trace.sroa.0.1, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52" ], [ %call93, %sw.bb69 ]
+  %stack_trace.sroa.0.1 = phi ptr [ %stack_trace.sroa.0.3, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52" ], [ %call93, %sw.bb69 ]
   %principal_realm_.i.i59 = getelementptr inbounds i8, ptr %env, i64 2728
   %28 = load ptr, ptr %principal_realm_.i.i59, align 8
   %vtable.i60 = load ptr, ptr %28, align 8
@@ -2372,10 +2372,10 @@ if.then.i479:                                     ; preds = %sw.epilog
   br label %if.end130
 
 if.end130:                                        ; preds = %sw.epilog, %if.then.i479, %if.then40
-  %stack_trace.sroa.0.3 = phi ptr [ %stack_trace.sroa.0.2, %if.then.i479 ], [ %stack_trace.sroa.0.2, %sw.epilog ], [ %10, %if.then40 ]
+  %stack_trace.sroa.0.0 = phi ptr [ %stack_trace.sroa.0.1, %if.then.i479 ], [ %stack_trace.sroa.0.1, %sw.epilog ], [ %10, %if.then40 ]
   %arrow.sroa.0.0 = phi ptr [ null, %if.then.i479 ], [ %call121, %sw.epilog ], [ null, %if.then40 ]
   %32 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %trace, ptr noundef %32, ptr %stack_trace.sroa.0.3) #19
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %trace, ptr noundef %32, ptr %stack_trace.sroa.0.0) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp136) #19
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %report_message) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %report_message, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp136) #19
@@ -2386,7 +2386,7 @@ if.end130:                                        ; preds = %sw.epilog, %if.then
   br i1 %cmp.not, label %if.else153, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end130
-  %34 = load i64, ptr %stack_trace.sroa.0.3, align 8
+  %34 = load i64, ptr %stack_trace.sroa.0.0, align 8
   %and.i.i = and i64 %34, 3
   %cmp.i.i595 = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i595, label %if.end.i597, label %if.then140

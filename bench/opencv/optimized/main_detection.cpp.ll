@@ -4651,7 +4651,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit739:  ; preds = %_ZNSt6vectorIN2cv7P
   br label %1643
 
 1643:                                             ; preds = %894, %1642
-  %.0 = phi i32 [ 0, %1642 ], [ -1, %894 ]
+  %.1 = phi i32 [ 0, %1642 ], [ -1, %894 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %120) #17
   %1644 = load ptr, ptr %117, align 8
   %.not.i.i.i742 = icmp eq ptr %1644, null
@@ -4827,7 +4827,7 @@ _ZN2cv3PtrINS_9Feature2DEED2Ev.exit758:           ; preds = %_ZN2cv3PtrINS_9Feat
   br label %1717
 
 1717:                                             ; preds = %211, %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit758
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit758 ], [ 0, %211 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit758 ], [ 0, %211 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #17
@@ -4836,7 +4836,7 @@ _ZN2cv3PtrINS_9Feature2DEED2Ev.exit758:           ; preds = %_ZN2cv3PtrINS_9Feat
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #17
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
-  ret i32 %.1
+  ret i32 %.0
 
 1718:                                             ; preds = %.critedge
   %1719 = landingpad { ptr, i32 }

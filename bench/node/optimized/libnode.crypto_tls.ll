@@ -2196,14 +2196,14 @@ _ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.e
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.rhs, %cond.end, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit
-  %retval.0 = phi i32 [ %cond, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit ], [ 1, %cond.end ], [ 1, %lor.rhs ]
+  %retval.1 = phi i32 [ %cond, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE.exit ], [ 1, %cond.end ], [ 1, %lor.rhs ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #23
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #23
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ -1, %if.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ -1, %if.end ]
+  ret i32 %retval.0
 }
 
 declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #0
@@ -5650,7 +5650,7 @@ if.end164:                                        ; preds = %_ZNKSt14default_del
 
 cleanup:                                          ; preds = %if.end164, %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE5resetEPS1_.exit133
   %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0186, %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE5resetEPS1_.exit133 ], [ %bs.sroa.0.1, %if.end164 ]
-  %retval.0 = phi i32 [ -71, %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE5resetEPS1_.exit133 ], [ 0, %if.end164 ]
+  %retval.1 = phi i32 [ -71, %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE5resetEPS1_.exit133 ], [ 0, %if.end164 ]
   %call.i = call i32 @ERR_pop_to_mark() #23
   %cmp.not.i142 = icmp eq ptr %bs.sroa.0.2, null
   br i1 %cmp.not.i142, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143
@@ -5661,8 +5661,8 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143: ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143, %cleanup, %if.then.i.i60, %if.end42, %if.then62, %if.then6
-  %retval.1 = phi i32 [ -71, %if.then6 ], [ 0, %if.then62 ], [ 0, %if.end42 ], [ 0, %if.then.i.i60 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -71, %if.then6 ], [ 0, %if.then62 ], [ 0, %if.end42 ], [ 0, %if.then.i.i60 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i143 ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
@@ -7671,7 +7671,7 @@ if.end80:                                         ; preds = %if.end72
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %if.end72, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit, %lor.lhs.false, %if.end, %if.end80
-  %retval.0 = phi i32 [ %conv84, %if.end80 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %if.end72 ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
+  %retval.1 = phi i32 [ %conv84, %if.end80 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %if.end72 ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
   %26 = load ptr, ptr %buf_.i.i.i, align 8
   %cmp.i.i.i.i16 = icmp ne ptr %26, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %identity_utf8, i64 24
@@ -7684,9 +7684,9 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %cleanup85
 
 cleanup85:                                        ; preds = %if.then.i.i, %cleanup, %entry
-  %retval.1 = phi i32 [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #23
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare void @SSL_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -7878,7 +7878,7 @@ if.end193:                                        ; preds = %if.end183
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end183, %if.end193
-  %retval.0 = phi i32 [ %conv199, %if.end193 ], [ 0, %if.end183 ]
+  %retval.1 = phi i32 [ %conv199, %if.end193 ], [ 0, %if.end183 ]
   %cmp.i.i.i.i35 = icmp ne ptr %.pre, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %identity_buf, i64 24
   %cmp.i.i.i = icmp ne ptr %.pre, %buf_st_.i.i.i
@@ -7890,9 +7890,9 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %cleanup200
 
 cleanup200:                                       ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %if.then.i.i, %cleanup, %lor.lhs.false179, %if.end139, %if.end.i, %if.end130, %if.end82, %lor.lhs.false126, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit, %lor.lhs.false, %if.then
-  %retval.1 = phi i32 [ 0, %if.then ], [ 0, %lor.lhs.false ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %lor.lhs.false126 ], [ 0, %if.end82 ], [ 0, %if.end130 ], [ 0, %if.end.i ], [ 0, %if.end139 ], [ 0, %lor.lhs.false179 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %lor.lhs.false ], [ 0, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit ], [ 0, %lor.lhs.false126 ], [ 0, %if.end82 ], [ 0, %if.end130 ], [ 0, %if.end.i ], [ 0, %if.end139 ], [ 0, %lor.lhs.false179 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i ], [ 0, %_ZNK4node10BaseObject6objectEv.exit.i.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #23
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0

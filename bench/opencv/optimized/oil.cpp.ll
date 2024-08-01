@@ -790,7 +790,7 @@ _ZL9addSliderNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_iiiPiPFviPvE
   br label %245
 
 244:                                              ; preds = %.invoke, %242, %144
-  %.032 = phi i32 [ 0, %242 ], [ 0, %144 ], [ 1, %.invoke ]
+  %.133 = phi i32 [ 0, %242 ], [ 0, %144 ], [ 1, %.invoke ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
@@ -808,9 +808,9 @@ _ZL9addSliderNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_iiiPiPFviPvE
   br label %.body
 
 246:                                              ; preds = %47, %244
-  %.133 = phi i32 [ %.032, %244 ], [ 0, %47 ]
+  %.032 = phi i32 [ %.133, %244 ], [ 0, %47 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
-  ret i32 %.133
+  ret i32 %.032
 
 .body:                                            ; preds = %53, %56, %.body73, %52
   %.pn71 = phi { ptr, i32 } [ %.pn68.pn, %.body73 ], [ %.pn, %52 ], [ %54, %53 ], [ %57, %56 ]

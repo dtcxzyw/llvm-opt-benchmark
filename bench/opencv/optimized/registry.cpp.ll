@@ -423,7 +423,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %223
 
 _ZNSt10shared_ptrIN2cv11dnn_backend14NetworkBackendEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %47, %34, %13, %7
-  %.1 = phi i1 [ false, %7 ], [ %15, %13 ], [ %15, %34 ], [ %15, %47 ], [ %15, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
+  %.0 = phi i1 [ false, %7 ], [ %15, %13 ], [ %15, %34 ], [ %15, %47 ], [ %15, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
   %59 = getelementptr inbounds i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i14 = icmp eq ptr %60, null
@@ -498,7 +498,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN2cv11dnn_backend18IDNNBackendFactoryEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv11dnn_backend18IDNNBackendFactoryEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN2cv11dnn_backend14NetworkBackendEED2Ev.exit, %77, %90, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19
-  br i1 %.1, label %95, label %.critedge13
+  br i1 %.0, label %95, label %.critedge13
 
 95:                                               ; preds = %_ZNSt10shared_ptrIN2cv11dnn_backend18IDNNBackendFactoryEED2Ev.exit
   %96 = invoke noundef zeroext i1 @_ZN2cv3dnn14dnn4_v202405218openvino11checkTargetENS1_6TargetE(i32 noundef 0)

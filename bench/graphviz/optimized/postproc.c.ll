@@ -512,8 +512,8 @@ addXLabel.exit.i:                                 ; preds = %181, %176
 
 .lr.ph477.i:                                      ; preds = %186, %437
   %.1179473.i = phi ptr [ %440, %437 ], [ %190, %186 ]
-  %.2196472.i = phi ptr [ %.6200.i, %437 ], [ %189, %186 ]
-  %.2203471.i = phi ptr [ %.10.i, %437 ], [ %.1202.i, %186 ]
+  %.2196472.i = phi ptr [ %.4198.i, %437 ], [ %189, %186 ]
+  %.2203471.i = phi ptr [ %.5206.i, %437 ], [ %.1202.i, %186 ]
   %191 = phi <2 x double> [ %438, %437 ], [ %187, %186 ]
   %192 = phi <2 x double> [ %439, %437 ], [ %188, %186 ]
   %193 = getelementptr inbounds i8, ptr %.1179473.i, i64 16
@@ -609,7 +609,7 @@ addXLabel.exit291.i:                              ; preds = %235, %230
   br label %437
 
 243:                                              ; preds = %addXLabel.exit291.i, %addLabelObj.exit290.i
-  %.3204.i = phi ptr [ %.2203471.i, %addLabelObj.exit290.i ], [ %239, %addXLabel.exit291.i ]
+  %.4205.i = phi ptr [ %.2203471.i, %addLabelObj.exit290.i ], [ %239, %addXLabel.exit291.i ]
   %244 = phi <2 x double> [ %214, %addLabelObj.exit290.i ], [ %191, %addXLabel.exit291.i ]
   %245 = phi <2 x double> [ %217, %addLabelObj.exit290.i ], [ %192, %addXLabel.exit291.i ]
   %246 = getelementptr inbounds i8, ptr %.2196472.i, i64 40
@@ -618,7 +618,7 @@ addXLabel.exit291.i:                              ; preds = %235, %230
 
 247:                                              ; preds = %243, %.lr.ph477.i
   %248 = phi ptr [ %194, %.lr.ph477.i ], [ %.pre.i, %243 ]
-  %.4205.i = phi ptr [ %.2203471.i, %.lr.ph477.i ], [ %.3204.i, %243 ]
+  %.3204.i = phi ptr [ %.2203471.i, %.lr.ph477.i ], [ %.4205.i, %243 ]
   %.3197.i = phi ptr [ %.2196472.i, %.lr.ph477.i ], [ %246, %243 ]
   %249 = phi <2 x double> [ %191, %.lr.ph477.i ], [ %244, %243 ]
   %250 = phi <2 x double> [ %192, %.lr.ph477.i ], [ %245, %243 ]
@@ -715,24 +715,24 @@ edgeTailpoint.exit.i:                             ; preds = %.sink.split.i.i, %2
 293:                                              ; preds = %edgeTailpoint.exit.i
   %294 = getelementptr inbounds i8, ptr %252, i64 48
   %295 = load double, ptr %294, align 8
-  store double %295, ptr %.4205.i, align 8
+  store double %295, ptr %.3204.i, align 8
   %296 = load double, ptr %292, align 8
-  %297 = getelementptr inbounds i8, ptr %.4205.i, i64 8
+  %297 = getelementptr inbounds i8, ptr %.3204.i, i64 8
   store double %296, ptr %297, align 8
   br label %addXLabel.exit307.i
 
 298:                                              ; preds = %edgeTailpoint.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.4205.i, ptr noundef nonnull align 8 dereferenceable(16) %292, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.3204.i, ptr noundef nonnull align 8 dereferenceable(16) %292, i64 16, i1 false)
   br label %addXLabel.exit307.i
 
 addXLabel.exit307.i:                              ; preds = %298, %293
-  %299 = getelementptr inbounds i8, ptr %.4205.i, i64 32
+  %299 = getelementptr inbounds i8, ptr %.3204.i, i64 32
   store ptr %252, ptr %299, align 8
-  %300 = getelementptr inbounds i8, ptr %.4205.i, i64 40
+  %300 = getelementptr inbounds i8, ptr %.3204.i, i64 40
   store i8 0, ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %.3197.i, i64 32
-  store ptr %.4205.i, ptr %301, align 8
-  %302 = getelementptr inbounds i8, ptr %.4205.i, i64 48
+  store ptr %.3204.i, ptr %301, align 8
+  %302 = getelementptr inbounds i8, ptr %.3204.i, i64 48
   br label %306
 
 303:                                              ; preds = %275, %274
@@ -741,7 +741,7 @@ addXLabel.exit307.i:                              ; preds = %298, %293
   br label %437
 
 306:                                              ; preds = %addXLabel.exit307.i, %addLabelObj.exit305.i
-  %.5206.i = phi ptr [ %.4205.i, %addLabelObj.exit305.i ], [ %302, %addXLabel.exit307.i ]
+  %.7.i = phi ptr [ %.3204.i, %addLabelObj.exit305.i ], [ %302, %addXLabel.exit307.i ]
   %307 = phi <2 x double> [ %270, %addLabelObj.exit305.i ], [ %249, %addXLabel.exit307.i ]
   %308 = phi <2 x double> [ %273, %addLabelObj.exit305.i ], [ %250, %addXLabel.exit307.i ]
   %309 = getelementptr inbounds i8, ptr %.3197.i, i64 40
@@ -750,8 +750,8 @@ addXLabel.exit307.i:                              ; preds = %298, %293
 
 310:                                              ; preds = %306, %247
   %311 = phi ptr [ %248, %247 ], [ %.pre508.i, %306 ]
-  %.6207.i = phi ptr [ %.4205.i, %247 ], [ %.5206.i, %306 ]
-  %.4198.i = phi ptr [ %.3197.i, %247 ], [ %309, %306 ]
+  %.6207.i = phi ptr [ %.3204.i, %247 ], [ %.7.i, %306 ]
+  %.5199.i = phi ptr [ %.3197.i, %247 ], [ %309, %306 ]
   %312 = phi <2 x double> [ %249, %247 ], [ %307, %306 ]
   %313 = phi <2 x double> [ %250, %247 ], [ %308, %306 ]
   %314 = getelementptr inbounds i8, ptr %311, i64 128
@@ -773,19 +773,19 @@ addLabelObj.exit321.i:                            ; preds = %316
   %.515.i = select i1 %321, ptr %323, ptr %322
   %.516.i = select i1 %321, ptr %322, ptr %323
   %.sink506.i = load double, ptr %.515.i, align 8, !noalias !16
-  %324 = getelementptr inbounds i8, ptr %.4198.i, i64 16
+  %324 = getelementptr inbounds i8, ptr %.5199.i, i64 16
   store double %.sink506.i, ptr %324, align 8
   %.sink.i309.i = load double, ptr %.516.i, align 8, !noalias !16
-  %325 = getelementptr inbounds i8, ptr %.4198.i, i64 24
+  %325 = getelementptr inbounds i8, ptr %.5199.i, i64 24
   store double %.sink.i309.i, ptr %325, align 8, !noalias !16
   %326 = getelementptr inbounds i8, ptr %315, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.4198.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %326, i64 16, i1 false), !noalias !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.5199.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %326, i64 16, i1 false), !noalias !16
   %327 = insertelement <2 x double> poison, double %.sink506.i, i64 0
   %328 = insertelement <2 x double> %327, double %.sink.i309.i, i64 1
   %329 = fmul <2 x double> %328, <double 5.000000e-01, double 5.000000e-01>
-  %330 = load <2 x double>, ptr %.4198.i, align 8, !noalias !16
+  %330 = load <2 x double>, ptr %.5199.i, align 8, !noalias !16
   %331 = fsub <2 x double> %330, %329
-  store <2 x double> %331, ptr %.4198.i, align 8, !noalias !16
+  store <2 x double> %331, ptr %.5199.i, align 8, !noalias !16
   %332 = fcmp olt <2 x double> %312, %331
   %333 = select <2 x i1> %332, <2 x double> %312, <2 x double> %331
   %334 = fadd <2 x double> %328, %331
@@ -833,9 +833,9 @@ addLabelObj.exit321.i:                            ; preds = %316
 
 edgeHeadpoint.exit.i:                             ; preds = %.sink.split.i323.i, %341
   %359 = phi <2 x double> [ zeroinitializer, %341 ], [ %358, %.sink.split.i323.i ]
-  %360 = getelementptr inbounds i8, ptr %.4198.i, i64 16
+  %360 = getelementptr inbounds i8, ptr %.5199.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %360, i8 0, i64 16, i1 false)
-  store <2 x double> %359, ptr %.4198.i, align 8
+  store <2 x double> %359, ptr %.5199.i, align 8
   %361 = load i8, ptr @Flip, align 1
   %362 = trunc nuw i8 %361 to i1
   %363 = getelementptr inbounds i8, ptr %315, i64 40
@@ -859,7 +859,7 @@ addXLabel.exit329.i:                              ; preds = %369, %364
   store ptr %315, ptr %370, align 8
   %371 = getelementptr inbounds i8, ptr %.6207.i, i64 40
   store i8 0, ptr %371, align 8
-  %372 = getelementptr inbounds i8, ptr %.4198.i, i64 32
+  %372 = getelementptr inbounds i8, ptr %.5199.i, i64 32
   store ptr %.6207.i, ptr %372, align 8
   %373 = getelementptr inbounds i8, ptr %.6207.i, i64 48
   br label %377
@@ -870,17 +870,17 @@ addXLabel.exit329.i:                              ; preds = %369, %364
   br label %437
 
 377:                                              ; preds = %addXLabel.exit329.i, %addLabelObj.exit321.i
-  %.7.i = phi ptr [ %.6207.i, %addLabelObj.exit321.i ], [ %373, %addXLabel.exit329.i ]
+  %.9.i = phi ptr [ %.6207.i, %addLabelObj.exit321.i ], [ %373, %addXLabel.exit329.i ]
   %378 = phi <2 x double> [ %333, %addLabelObj.exit321.i ], [ %312, %addXLabel.exit329.i ]
   %379 = phi <2 x double> [ %336, %addLabelObj.exit321.i ], [ %313, %addXLabel.exit329.i ]
-  %380 = getelementptr inbounds i8, ptr %.4198.i, i64 40
+  %380 = getelementptr inbounds i8, ptr %.5199.i, i64 40
   %.pre509.i = load ptr, ptr %193, align 8
   br label %381
 
 381:                                              ; preds = %377, %310
   %382 = phi ptr [ %311, %310 ], [ %.pre509.i, %377 ]
-  %.8.i = phi ptr [ %.6207.i, %310 ], [ %.7.i, %377 ]
-  %.5199.i = phi ptr [ %.4198.i, %310 ], [ %380, %377 ]
+  %.8.i = phi ptr [ %.6207.i, %310 ], [ %.9.i, %377 ]
+  %.6200.i = phi ptr [ %.5199.i, %310 ], [ %380, %377 ]
   %383 = phi <2 x double> [ %312, %310 ], [ %378, %377 ]
   %384 = phi <2 x double> [ %313, %310 ], [ %379, %377 ]
   %385 = getelementptr inbounds i8, ptr %382, i64 144
@@ -902,19 +902,19 @@ addLabelObj.exit343.i:                            ; preds = %387
   %.517.i = select i1 %392, ptr %394, ptr %393
   %.518.i = select i1 %392, ptr %393, ptr %394
   %.sink507.i = load double, ptr %.517.i, align 8, !noalias !19
-  %395 = getelementptr inbounds i8, ptr %.5199.i, i64 16
+  %395 = getelementptr inbounds i8, ptr %.6200.i, i64 16
   store double %.sink507.i, ptr %395, align 8
   %.sink.i331.i = load double, ptr %.518.i, align 8, !noalias !19
-  %396 = getelementptr inbounds i8, ptr %.5199.i, i64 24
+  %396 = getelementptr inbounds i8, ptr %.6200.i, i64 24
   store double %.sink.i331.i, ptr %396, align 8, !noalias !19
   %397 = getelementptr inbounds i8, ptr %386, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.5199.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %397, i64 16, i1 false), !noalias !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.6200.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %397, i64 16, i1 false), !noalias !19
   %398 = insertelement <2 x double> poison, double %.sink507.i, i64 0
   %399 = insertelement <2 x double> %398, double %.sink.i331.i, i64 1
   %400 = fmul <2 x double> %399, <double 5.000000e-01, double 5.000000e-01>
-  %401 = load <2 x double>, ptr %.5199.i, align 8, !noalias !19
+  %401 = load <2 x double>, ptr %.6200.i, align 8, !noalias !19
   %402 = fsub <2 x double> %401, %400
-  store <2 x double> %402, ptr %.5199.i, align 8, !noalias !19
+  store <2 x double> %402, ptr %.6200.i, align 8, !noalias !19
   %403 = fcmp olt <2 x double> %383, %402
   %404 = select <2 x i1> %403, <2 x double> %383, <2 x double> %402
   %405 = fadd <2 x double> %399, %402
@@ -935,10 +935,10 @@ addLabelObj.exit343.i:                            ; preds = %387
   %413 = tail call { double, double } @edgeMidpoint(ptr noundef %0, ptr noundef nonnull %.1179473.i) #17
   %414 = extractvalue { double, double } %413, 0
   %415 = extractvalue { double, double } %413, 1
-  %416 = getelementptr inbounds i8, ptr %.5199.i, i64 16
+  %416 = getelementptr inbounds i8, ptr %.6200.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %416, i8 0, i64 16, i1 false)
-  store double %414, ptr %.5199.i, align 8
-  %.sroa.2.0..sroa_idx.i344.i = getelementptr inbounds i8, ptr %.5199.i, i64 8
+  store double %414, ptr %.6200.i, align 8
+  %.sroa.2.0..sroa_idx.i344.i = getelementptr inbounds i8, ptr %.6200.i, i64 8
   store double %415, ptr %.sroa.2.0..sroa_idx.i344.i, align 8
   %417 = load i8, ptr @Flip, align 1
   %418 = trunc nuw i8 %417 to i1
@@ -963,7 +963,7 @@ addXLabel.exit345.i:                              ; preds = %425, %420
   store ptr %386, ptr %426, align 8
   %427 = getelementptr inbounds i8, ptr %.8.i, i64 40
   store i8 0, ptr %427, align 8
-  %428 = getelementptr inbounds i8, ptr %.5199.i, i64 32
+  %428 = getelementptr inbounds i8, ptr %.6200.i, i64 32
   store ptr %.8.i, ptr %428, align 8
   %429 = getelementptr inbounds i8, ptr %.8.i, i64 48
   br label %433
@@ -974,15 +974,15 @@ addXLabel.exit345.i:                              ; preds = %425, %420
   br label %437
 
 433:                                              ; preds = %addXLabel.exit345.i, %addLabelObj.exit343.i
-  %.9.i = phi ptr [ %.8.i, %addLabelObj.exit343.i ], [ %429, %addXLabel.exit345.i ]
+  %.10.i = phi ptr [ %.8.i, %addLabelObj.exit343.i ], [ %429, %addXLabel.exit345.i ]
   %434 = phi <2 x double> [ %404, %addLabelObj.exit343.i ], [ %383, %addXLabel.exit345.i ]
   %435 = phi <2 x double> [ %407, %addLabelObj.exit343.i ], [ %384, %addXLabel.exit345.i ]
-  %436 = getelementptr inbounds i8, ptr %.5199.i, i64 40
+  %436 = getelementptr inbounds i8, ptr %.6200.i, i64 40
   br label %437
 
 437:                                              ; preds = %433, %430, %381, %374, %303, %240
-  %.10.i = phi ptr [ %.8.i, %381 ], [ %.9.i, %433 ], [ %.8.i, %430 ], [ %.6207.i, %374 ], [ %.4205.i, %303 ], [ %.2203471.i, %240 ]
-  %.6200.i = phi ptr [ %.5199.i, %381 ], [ %436, %433 ], [ %.5199.i, %430 ], [ %.4198.i, %374 ], [ %.3197.i, %303 ], [ %.2196472.i, %240 ]
+  %.5206.i = phi ptr [ %.8.i, %381 ], [ %.10.i, %433 ], [ %.8.i, %430 ], [ %.6207.i, %374 ], [ %.3204.i, %303 ], [ %.2203471.i, %240 ]
+  %.4198.i = phi ptr [ %.6200.i, %381 ], [ %436, %433 ], [ %.6200.i, %430 ], [ %.5199.i, %374 ], [ %.3197.i, %303 ], [ %.2196472.i, %240 ]
   %438 = phi <2 x double> [ %383, %381 ], [ %434, %433 ], [ %383, %430 ], [ %312, %374 ], [ %249, %303 ], [ %191, %240 ]
   %439 = phi <2 x double> [ %384, %381 ], [ %435, %433 ], [ %384, %430 ], [ %313, %374 ], [ %250, %303 ], [ %192, %240 ]
   %440 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.1179473.i) #17
@@ -990,8 +990,8 @@ addXLabel.exit345.i:                              ; preds = %425, %420
   br i1 %.not231.i, label %._crit_edge478.i, label %.lr.ph477.i
 
 ._crit_edge478.i:                                 ; preds = %437, %186
-  %.2203.lcssa.i = phi ptr [ %.1202.i, %186 ], [ %.10.i, %437 ]
-  %.2196.lcssa.i = phi ptr [ %189, %186 ], [ %.6200.i, %437 ]
+  %.2203.lcssa.i = phi ptr [ %.1202.i, %186 ], [ %.5206.i, %437 ]
+  %.2196.lcssa.i = phi ptr [ %189, %186 ], [ %.4198.i, %437 ]
   %441 = phi <2 x double> [ %187, %186 ], [ %438, %437 ]
   %442 = phi <2 x double> [ %188, %186 ], [ %439, %437 ]
   %443 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1492.i) #17

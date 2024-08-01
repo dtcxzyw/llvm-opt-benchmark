@@ -1538,14 +1538,14 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
 
 35:                                               ; preds = %37, %32
   %36 = phi i8 [ 58, %32 ], [ %.pre, %37 ]
-  %.1 = phi ptr [ %.039, %32 ], [ %38, %37 ]
+  %.2 = phi ptr [ %.039, %32 ], [ %38, %37 ]
   switch i8 %36, label %37 [
     i8 0, label %39
     i8 93, label %59
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.1, i64 1
+  %38 = getelementptr inbounds i8, ptr %.2, i64 1
   %.pre = load i8, ptr %38, align 1
   br label %35, !llvm.loop !20
 
@@ -1586,13 +1586,13 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   br label %Ver_ParsePrintErrorMessage.exit
 
 59:                                               ; preds = %35
-  %60 = getelementptr inbounds i8, ptr %.1, i64 1
+  %60 = getelementptr inbounds i8, ptr %.2, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 92
   br i1 %62, label %63, label %.loopexit
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.1, i64 2
+  %64 = getelementptr inbounds i8, ptr %.2, i64 2
   br label %65
 
 65:                                               ; preds = %67, %63
@@ -1612,9 +1612,9 @@ define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %65, %59, %69
-  %.2 = phi ptr [ %64, %69 ], [ %60, %59 ], [ %64, %65 ], [ %.039, %8 ]
+  %.1 = phi ptr [ %64, %69 ], [ %60, %59 ], [ %64, %65 ], [ %.039, %8 ]
   %.0 = phi i32 [ %34, %69 ], [ %34, %59 ], [ %34, %65 ], [ %7, %8 ]
-  store ptr %.2, ptr %1, align 8
+  store ptr %.1, ptr %1, align 8
   store i32 %7, ptr %2, align 4
   store i32 %.0, ptr %3, align 4
   br label %Ver_ParsePrintErrorMessage.exit
@@ -2861,8 +2861,8 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %.not.i.i388.i, label %Ver_ParseConnectBox.exit.thread, label %Ver_ParseConnectBox.exit.thread40
 
 270:                                              ; preds = %.critedge22.i, %.critedge20.i
-  %.5294.i = phi ptr [ %.1290.i, %.critedge20.i ], [ %239, %.critedge22.i ]
-  %271 = getelementptr inbounds i8, ptr %.5294.i, i64 8
+  %.2291.i = phi ptr [ %.1290.i, %.critedge20.i ], [ %239, %.critedge22.i ]
+  %271 = getelementptr inbounds i8, ptr %.2291.i, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %272, i64 4
   %.val318.i = load i32, ptr %273, align 4
@@ -3024,8 +3024,8 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br label %.critedge18.i
 
 340:                                              ; preds = %.critedge30.i, %.critedge28.i
-  %.11300.i = phi ptr [ %.7296.i, %.critedge28.i ], [ %326, %.critedge30.i ]
-  %341 = getelementptr inbounds i8, ptr %.11300.i, i64 8
+  %.8297.i = phi ptr [ %.7296.i, %.critedge28.i ], [ %326, %.critedge30.i ]
+  %341 = getelementptr inbounds i8, ptr %.8297.i, i64 8
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr i8, ptr %342, i64 4
   %.val313.i = load i32, ptr %343, align 4
@@ -3058,7 +3058,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 356:                                              ; preds = %353, %.lr.ph465.i
   %357 = getelementptr inbounds i8, ptr %0, i64 80
-  %358 = load ptr, ptr %.11300.i, align 8
+  %358 = load ptr, ptr %.8297.i, align 8
   %359 = call ptr @Abc_ObjName(ptr noundef %350) #19
   %360 = getelementptr inbounds i8, ptr %26, i64 8
   %361 = load ptr, ptr %360, align 8
@@ -3150,13 +3150,13 @@ Vec_PtrFree.exit394.i:                            ; preds = %378, %.critedge34.i
   br i1 %397, label %.lr.ph465.i, label %.critedge32.i, !llvm.loop !45
 
 .critedge32.i:                                    ; preds = %395, %340
-  %.7287.lcssa.i = phi i32 [ %.6286469.i, %340 ], [ %346, %395 ]
-  %398 = add nsw i32 %.7287.lcssa.i, -1
+  %.8288.lcssa.i = phi i32 [ %.6286469.i, %340 ], [ %346, %395 ]
+  %398 = add nsw i32 %.8288.lcssa.i, -1
   br label %.critedge18.i
 
 .critedge18.i:                                    ; preds = %.critedge32.i, %.thread406.i
-  %.8288.i = phi i32 [ %.6286469.i, %.thread406.i ], [ %398, %.critedge32.i ]
-  %399 = add nsw i32 %.8288.i, 1
+  %.7287.i = phi i32 [ %.6286469.i, %.thread406.i ], [ %398, %.critedge32.i ]
+  %399 = add nsw i32 %.7287.i, 1
   %.val367.i = load ptr, ptr %37, align 8
   %400 = getelementptr i8, ptr %.val367.i, i64 4
   %.val367.val.i = load i32, ptr %400, align 4
@@ -6925,8 +6925,8 @@ sub_1311:                                         ; preds = %sub_0310
   br label %288
 
 288:                                              ; preds = %276, %284, %282, %263
-  %.0155 = phi ptr [ %283, %282 ], [ %287, %284 ], [ %.val207, %276 ], [ %268, %263 ]
-  %289 = icmp eq ptr %.0155, null
+  %.1156 = phi ptr [ %283, %282 ], [ %287, %284 ], [ %.val207, %276 ], [ %268, %263 ]
+  %289 = icmp eq ptr %.1156, null
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %288
@@ -6934,10 +6934,10 @@ sub_1311:                                         ; preds = %sub_0310
   br label %Ver_ParsePrintErrorMessage.exit
 
 291:                                              ; preds = %288, %155, %Vec_PtrPush.exit248, %160
-  %.1156 = phi ptr [ %247, %Vec_PtrPush.exit248 ], [ %162, %160 ], [ %157, %155 ], [ %.0155, %288 ]
+  %.0155 = phi ptr [ %247, %Vec_PtrPush.exit248 ], [ %162, %160 ], [ %157, %155 ], [ %.1156, %288 ]
   %292 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 7) #19
   %293 = getelementptr inbounds i8, ptr %292, i64 56
-  store ptr %.1156, ptr %293, align 8
+  store ptr %.0155, ptr %293, align 8
   call void @Abc_ObjAddFanin(ptr noundef nonnull %.0.i227294, ptr noundef %292) #19
   %294 = load ptr, ptr %14, align 8
   %295 = getelementptr i8, ptr %294, i64 4

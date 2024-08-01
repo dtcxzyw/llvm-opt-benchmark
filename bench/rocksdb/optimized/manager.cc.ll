@@ -1814,7 +1814,7 @@ for.inc:                                          ; preds = %if.else.i10.i46, %i
   br i1 %33, label %for.body13, label %for.inc28, !llvm.loop !9
 
 for.inc28:                                        ; preds = %if.else.i.i27, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i, %for.inc, %if.else.i16, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit
-  %r.1.lcssa = phi i32 [ 0, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i16 ], [ 22, %if.else.i.i27 ], [ 22, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread13.i ], [ 22, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i ], [ %call26, %for.inc ]
+  %r.2.lcssa = phi i32 [ 0, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i16 ], [ 22, %if.else.i.i27 ], [ 22, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.thread13.i ], [ 22, %_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE4sizeEv.exit.i ], [ %call26, %for.inc ]
   %34 = load ptr, ptr %mutex, align 8
   %vtable.i64 = load ptr, ptr %34, align 8
   %vfn.i65 = getelementptr inbounds i8, ptr %vtable.i64, i64 32
@@ -1822,12 +1822,12 @@ for.inc28:                                        ; preds = %if.else.i.i27, %_ZN
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %34)
   %inc29 = add nuw i32 %i.089, 1
   %cmp = icmp ult i32 %inc29, %retval.0.i
-  %cmp2 = icmp eq i32 %r.1.lcssa, 0
+  %cmp2 = icmp eq i32 %r.2.lcssa, 0
   %36 = and i1 %cmp, %cmp2
   br i1 %36, label %for.body, label %for.end30, !llvm.loop !10
 
 for.end30:                                        ; preds = %if.else.i.i12, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i, %for.inc28, %if.else.i, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit
-  %r.0.lcssa = phi i32 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ 22, %if.else.i.i12 ], [ 22, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ 22, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %r.1.lcssa, %for.inc28 ]
+  %r.0.lcssa = phi i32 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ 22, %if.else.i.i12 ], [ 22, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ 22, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %r.2.lcssa, %for.inc28 ]
   %call.i.i67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex.i) #13
   ret i32 %r.0.lcssa
 }
@@ -1983,12 +1983,12 @@ for.body.lr.ph:                                   ; preds = %_ZNK4toku3omtIPNS_8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %lock_requests_pending.054 = phi i64 [ 0, %for.body.lr.ph ], [ %lock_requests_pending.2, %for.inc ]
+  %lock_requests_pending.154 = phi i64 [ 0, %for.body.lr.ph ], [ %lock_requests_pending.2, %for.inc ]
   %i.052 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %sto_end_early_time.051 = phi i64 [ 0, %for.body.lr.ph ], [ %sto_end_early_time.1, %for.inc ]
-  %sto_end_early_count.050 = phi i64 [ 0, %for.body.lr.ph ], [ %sto_end_early_count.1, %for.inc ]
-  %sto_num_eligible.049 = phi i64 [ 0, %for.body.lr.ph ], [ %sto_num_eligible.1, %for.inc ]
-  %lt_counters.sroa.14.047 = phi i64 [ %lt_counters.sroa.14.0.copyload, %for.body.lr.ph ], [ %lt_counters.sroa.14.2, %for.inc ]
+  %sto_end_early_time.151 = phi i64 [ 0, %for.body.lr.ph ], [ %sto_end_early_time.2, %for.inc ]
+  %sto_end_early_count.150 = phi i64 [ 0, %for.body.lr.ph ], [ %sto_end_early_count.2, %for.inc ]
+  %sto_num_eligible.149 = phi i64 [ 0, %for.body.lr.ph ], [ %sto_num_eligible.2, %for.inc ]
+  %lt_counters.sroa.14.147 = phi i64 [ %lt_counters.sroa.14.0.copyload, %for.body.lr.ph ], [ %lt_counters.sroa.14.2, %for.inc ]
   %13 = phi <4 x i64> [ %9, %for.body.lr.ph ], [ %41, %for.inc ]
   %14 = load i8, ptr %m_locktree_map, align 8
   %tobool.i.i = trunc i8 %14 to i1
@@ -2100,14 +2100,14 @@ if.else.i.i15:                                    ; preds = %if.else.i12
 if.end16:                                         ; preds = %if.else.i.i15, %if.else.i12, %if.then.i20
   %retval.0.i19 = phi i32 [ %30, %if.then.i20 ], [ %33, %if.else.i.i15 ], [ 0, %if.else.i12 ]
   %conv = zext i32 %retval.0.i19 to i64
-  %add = add i64 %lock_requests_pending.054, %conv
+  %add = add i64 %lock_requests_pending.154, %conv
   %call13 = call noundef ptr @_ZN4toku8locktree21get_lock_request_infoEv(ptr noundef nonnull align 8 dereferenceable(400) %25)
   %counters = getelementptr inbounds i8, ptr %call13, i64 56
   %34 = load <4 x i64>, ptr %counters, align 8
   %35 = add <4 x i64> %34, %13
   %timeout_count.i = getelementptr inbounds i8, ptr %call13, i64 88
   %36 = load i64, ptr %timeout_count.i, align 8
-  %add10.i = add i64 %36, %lt_counters.sroa.14.047
+  %add10.i = add i64 %36, %lt_counters.sroa.14.147
   %37 = load ptr, ptr %mutex, align 8
   %vtable.i22 = load ptr, ptr %37, align 8
   %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 32
@@ -2115,21 +2115,21 @@ if.end16:                                         ; preds = %if.else.i.i15, %if.
   call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37)
   %call17 = call noundef zeroext i1 @_ZNK4toku8locktree25sto_txnid_is_valid_unsafeEv(ptr noundef nonnull align 8 dereferenceable(400) %25)
   %conv18 = zext i1 %call17 to i64
-  %add19 = add i64 %sto_num_eligible.049, %conv18
+  %add19 = add i64 %sto_num_eligible.149, %conv18
   %m_sto_end_early_count = getelementptr inbounds i8, ptr %25, i64 384
   %39 = load i64, ptr %m_sto_end_early_count, align 8
-  %add20 = add i64 %39, %sto_end_early_count.050
+  %add20 = add i64 %39, %sto_end_early_count.150
   %m_sto_end_early_time = getelementptr inbounds i8, ptr %25, i64 392
   %40 = load i64, ptr %m_sto_end_early_time, align 8
-  %add21 = add i64 %40, %sto_end_early_time.051
+  %add21 = add i64 %40, %sto_end_early_time.151
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i.i8, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i, %if.end16
-  %lt_counters.sroa.14.2 = phi i64 [ %add10.i, %if.end16 ], [ %lt_counters.sroa.14.047, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %lt_counters.sroa.14.047, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %lt_counters.sroa.14.047, %if.else.i.i8 ]
-  %sto_num_eligible.1 = phi i64 [ %add19, %if.end16 ], [ %sto_num_eligible.049, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %sto_num_eligible.049, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %sto_num_eligible.049, %if.else.i.i8 ]
-  %sto_end_early_count.1 = phi i64 [ %add20, %if.end16 ], [ %sto_end_early_count.050, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %sto_end_early_count.050, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %sto_end_early_count.050, %if.else.i.i8 ]
-  %sto_end_early_time.1 = phi i64 [ %add21, %if.end16 ], [ %sto_end_early_time.051, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %sto_end_early_time.051, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %sto_end_early_time.051, %if.else.i.i8 ]
-  %lock_requests_pending.2 = phi i64 [ %add, %if.end16 ], [ %lock_requests_pending.054, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %lock_requests_pending.054, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %lock_requests_pending.054, %if.else.i.i8 ]
+  %lt_counters.sroa.14.2 = phi i64 [ %add10.i, %if.end16 ], [ %lt_counters.sroa.14.147, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %lt_counters.sroa.14.147, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %lt_counters.sroa.14.147, %if.else.i.i8 ]
+  %sto_num_eligible.2 = phi i64 [ %add19, %if.end16 ], [ %sto_num_eligible.149, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %sto_num_eligible.149, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %sto_num_eligible.149, %if.else.i.i8 ]
+  %sto_end_early_count.2 = phi i64 [ %add20, %if.end16 ], [ %sto_end_early_count.150, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %sto_end_early_count.150, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %sto_end_early_count.150, %if.else.i.i8 ]
+  %sto_end_early_time.2 = phi i64 [ %add21, %if.end16 ], [ %sto_end_early_time.151, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %sto_end_early_time.151, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %sto_end_early_time.151, %if.else.i.i8 ]
+  %lock_requests_pending.2 = phi i64 [ %add, %if.end16 ], [ %lock_requests_pending.154, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %lock_requests_pending.154, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %lock_requests_pending.154, %if.else.i.i8 ]
   %41 = phi <4 x i64> [ %35, %if.end16 ], [ %13, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.i ], [ %13, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit.thread13.i ], [ %13, %if.else.i.i8 ]
   %inc = add nuw i32 %i.052, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i
@@ -2141,28 +2141,28 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %if.else.i, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit
   %retval.0.i65 = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %42, %for.end.loopexit ]
-  %lt_counters.sroa.14.0.lcssa = phi i64 [ %lt_counters.sroa.14.0.copyload, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ %lt_counters.sroa.14.0.copyload, %if.else.i ], [ %lt_counters.sroa.14.2, %for.end.loopexit ]
-  %sto_num_eligible.0.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %sto_num_eligible.1, %for.end.loopexit ]
-  %sto_end_early_count.0.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %sto_end_early_count.1, %for.end.loopexit ]
-  %sto_end_early_time.0.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %sto_end_early_time.1, %for.end.loopexit ]
-  %lock_requests_pending.0.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %lock_requests_pending.2, %for.end.loopexit ]
+  %lt_counters.sroa.14.1.lcssa = phi i64 [ %lt_counters.sroa.14.0.copyload, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ %lt_counters.sroa.14.0.copyload, %if.else.i ], [ %lt_counters.sroa.14.2, %for.end.loopexit ]
+  %sto_num_eligible.1.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %sto_num_eligible.2, %for.end.loopexit ]
+  %sto_end_early_count.1.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %sto_end_early_count.2, %for.end.loopexit ]
+  %sto_end_early_time.1.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %sto_end_early_time.2, %for.end.loopexit ]
+  %lock_requests_pending.1.lcssa = phi i64 [ 0, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ 0, %if.else.i ], [ %lock_requests_pending.2, %for.end.loopexit ]
   %43 = phi <4 x i64> [ %9, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE4sizeEv.exit ], [ %9, %if.else.i ], [ %41, %for.end.loopexit ]
   %call.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %m_mutex) #13
   br label %if.end22
 
 if.end22:                                         ; preds = %for.end, %entry
-  %lt_counters.sroa.14.3 = phi i64 [ %lt_counters.sroa.14.0.lcssa, %for.end ], [ 0, %entry ]
-  %sto_num_eligible.2 = phi i64 [ %sto_num_eligible.0.lcssa, %for.end ], [ 0, %entry ]
-  %sto_end_early_count.2 = phi i64 [ %sto_end_early_count.0.lcssa, %for.end ], [ 0, %entry ]
-  %sto_end_early_time.2 = phi i64 [ %sto_end_early_time.0.lcssa, %for.end ], [ 0, %entry ]
+  %lt_counters.sroa.14.0 = phi i64 [ %lt_counters.sroa.14.1.lcssa, %for.end ], [ 0, %entry ]
+  %sto_num_eligible.0 = phi i64 [ %sto_num_eligible.1.lcssa, %for.end ], [ 0, %entry ]
+  %sto_end_early_count.0 = phi i64 [ %sto_end_early_count.1.lcssa, %for.end ], [ 0, %entry ]
+  %sto_end_early_time.0 = phi i64 [ %sto_end_early_time.1.lcssa, %for.end ], [ 0, %entry ]
   %num_locktrees.0 = phi i64 [ %retval.0.i65, %for.end ], [ 0, %entry ]
-  %lock_requests_pending.3 = phi i64 [ %lock_requests_pending.0.lcssa, %for.end ], [ 0, %entry ]
+  %lock_requests_pending.0 = phi i64 [ %lock_requests_pending.1.lcssa, %for.end ], [ 0, %entry ]
   %44 = phi <4 x i64> [ %43, %for.end ], [ zeroinitializer, %entry ]
   store i64 %num_locktrees.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 352), align 8
-  store i64 %lock_requests_pending.3, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 416), align 8
-  store i64 %sto_num_eligible.2, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 480), align 8
-  store i64 %sto_end_early_count.2, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 544), align 8
-  store i64 %sto_end_early_time.2, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 608), align 8
+  store i64 %lock_requests_pending.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 416), align 8
+  store i64 %sto_num_eligible.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 480), align 8
+  store i64 %sto_end_early_count.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 544), align 8
+  store i64 %sto_end_early_time.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 608), align 8
   %45 = extractelement <4 x i64> %44, i64 0
   store i64 %45, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 672), align 8
   %46 = extractelement <4 x i64> %44, i64 1
@@ -2171,7 +2171,7 @@ if.end22:                                         ; preds = %for.end, %entry
   store i64 %47, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 800), align 8
   %48 = extractelement <4 x i64> %44, i64 3
   store i64 %48, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 864), align 8
-  store i64 %lt_counters.sroa.14.3, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 928), align 8
+  store i64 %lt_counters.sroa.14.0, ptr getelementptr inbounds (i8, ptr @ltm_status, i64 928), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1217) %statp, ptr noundef nonnull align 8 dereferenceable(1217) @ltm_status, i64 1217, i1 false)
   ret void
 }

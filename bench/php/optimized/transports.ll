@@ -523,14 +523,14 @@ php_stream_xport_bind.exit:                       ; preds = %117
   br label %.thread190
 
 .thread190:                                       ; preds = %60, %171, %186, %172, %129, %143, %130, %100, %114, %101, %php_stream_xport_connect.exit, %77, %187, %115
-  %.1111 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %77 ], [ false, %187 ], [ false, %115 ], [ true, %101 ], [ true, %114 ], [ true, %100 ], [ true, %130 ], [ true, %143 ], [ true, %129 ], [ true, %172 ], [ true, %186 ], [ true, %171 ], [ false, %60 ]
+  %.2 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %77 ], [ false, %187 ], [ false, %115 ], [ true, %101 ], [ true, %114 ], [ true, %100 ], [ true, %130 ], [ true, %143 ], [ true, %129 ], [ true, %172 ], [ true, %186 ], [ true, %171 ], [ false, %60 ]
   store ptr %61, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   br label %192
 
 192:                                              ; preds = %.thread190, %57
-  %.2 = phi i1 [ %.1111, %.thread190 ], [ false, %57 ]
-  %.1 = phi i1 [ %63, %.thread190 ], [ false, %57 ]
-  %brmerge = or i1 %.2, %.1
+  %.0110 = phi i1 [ %.2, %.thread190 ], [ false, %57 ]
+  %.0109 = phi i1 [ %63, %.thread190 ], [ false, %57 ]
+  %brmerge = or i1 %.0110, %.0109
   %193 = load ptr, ptr %12, align 8
   br i1 %brmerge, label %194, label %._crit_edge
 
@@ -538,7 +538,7 @@ php_stream_xport_bind.exit:                       ; preds = %117
   %. = select i1 %.not, i32 3, i32 19
   %195 = call i32 @_php_stream_free(ptr noundef %193, i32 noundef %.) #14
   store ptr null, ptr %12, align 8
-  br i1 %.1, label %196, label %._crit_edge
+  br i1 %.0109, label %196, label %._crit_edge
 
 196:                                              ; preds = %194
   call void @_zend_bailout(ptr noundef nonnull @.str.10, i32 noundef 193) #17

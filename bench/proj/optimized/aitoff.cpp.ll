@@ -206,19 +206,19 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
 
 11:                                               ; preds = %.preheader, %162
   %.0143 = phi i32 [ %163, %162 ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi double [ %.sroa.12.3, %162 ], [ %1, %.preheader ]
-  %.sroa.0119.0 = phi double [ %.sroa.0119.2, %162 ], [ %0, %.preheader ]
+  %.sroa.12.1 = phi double [ %.sroa.12.4, %162 ], [ %1, %.preheader ]
+  %.sroa.0119.1 = phi double [ %.sroa.0119.3, %162 ], [ %0, %.preheader ]
   br label %12
 
 12:                                               ; preds = %110, %11
   %.0141 = phi i32 [ 0, %11 ], [ %111, %110 ]
-  %.sroa.12.1 = phi double [ %.sroa.12.0, %11 ], [ %104, %110 ]
-  %.sroa.0119.1 = phi double [ %.sroa.0119.0, %11 ], [ %105, %110 ]
-  %13 = fmul double %.sroa.0119.1, 5.000000e-01
+  %.sroa.12.2 = phi double [ %.sroa.12.1, %11 ], [ %104, %110 ]
+  %.sroa.0119.2 = phi double [ %.sroa.0119.1, %11 ], [ %105, %110 ]
+  %13 = fmul double %.sroa.0119.2, 5.000000e-01
   %14 = tail call double @sin(double noundef %13) #8
   %15 = tail call double @cos(double noundef %13) #8
-  %16 = tail call double @sin(double noundef %.sroa.12.1) #8
-  %17 = tail call double @cos(double noundef %.sroa.12.1) #8
+  %16 = tail call double @sin(double noundef %.sroa.12.2) #8
+  %17 = tail call double @cos(double noundef %.sroa.12.2) #8
   %18 = fmul double %15, %17
   %19 = fneg double %18
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %18, double 1.000000e+00)
@@ -280,9 +280,9 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
 
 71:                                               ; preds = %25
   %72 = load double, ptr %5, align 8
-  %73 = tail call double @llvm.fmuladd.f64(double %.sroa.0119.1, double %72, double %31)
+  %73 = tail call double @llvm.fmuladd.f64(double %.sroa.0119.2, double %72, double %31)
   %74 = fmul double %73, 5.000000e-01
-  %75 = fadd double %.sroa.12.1, %33
+  %75 = fadd double %.sroa.12.2, %33
   %76 = fmul double %75, 5.000000e-01
   %77 = fmul double %41, 5.000000e-01
   %78 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %72, i64 1
@@ -317,8 +317,8 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %101 = tail call double @llvm.fmuladd.f64(double %84, double %.0145, double %100)
   %102 = fdiv double %101, %96
   %103 = tail call double @fmod(double noundef %97, double noundef 0x400921FB54442D18) #8
-  %104 = fsub double %.sroa.12.1, %102
-  %105 = fsub double %.sroa.0119.1, %103
+  %104 = fsub double %.sroa.12.2, %102
+  %105 = fsub double %.sroa.0119.2, %103
   %106 = tail call double @llvm.fabs.f64(double %102)
   %107 = fcmp ogt double %106, 0x3D719799812DEA11
   %108 = tail call double @llvm.fabs.f64(double %103)
@@ -336,12 +336,12 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %112 = fcmp ogt double %104, 0x3FF921FB54442D18
   %113 = fadd double %104, 0xBFF921FB54442D18
   %114 = tail call double @llvm.fmuladd.f64(double %113, double -2.000000e+00, double %104)
-  %.sroa.12.2 = select i1 %112, double %114, double %104
-  %115 = fcmp olt double %.sroa.12.2, 0xBFF921FB54442D18
-  %116 = fadd double %.sroa.12.2, 0x3FF921FB54442D18
-  %117 = tail call double @llvm.fmuladd.f64(double %116, double -2.000000e+00, double %.sroa.12.2)
-  %.sroa.12.3 = select i1 %115, double %117, double %.sroa.12.2
-  %118 = tail call double @llvm.fabs.f64(double %.sroa.12.3)
+  %.sroa.12.3 = select i1 %112, double %114, double %104
+  %115 = fcmp olt double %.sroa.12.3, 0xBFF921FB54442D18
+  %116 = fadd double %.sroa.12.3, 0x3FF921FB54442D18
+  %117 = tail call double @llvm.fmuladd.f64(double %116, double -2.000000e+00, double %.sroa.12.3)
+  %.sroa.12.4 = select i1 %115, double %117, double %.sroa.12.3
+  %118 = tail call double @llvm.fabs.f64(double %.sroa.12.4)
   %119 = fadd double %118, 0xBFF921FB54442D18
   %120 = tail call double @llvm.fabs.f64(double %119)
   %121 = fcmp olt double %120, 0x3D719799812DEA11
@@ -356,9 +356,9 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   br label %126
 
 126:                                              ; preds = %125, %122, %.critedge
-  %.sroa.0119.2 = phi double [ 0.000000e+00, %125 ], [ %105, %122 ], [ %105, %.critedge ]
-  %127 = tail call double @cos(double noundef %.sroa.12.3) #8
-  %128 = fmul double %.sroa.0119.2, 5.000000e-01
+  %.sroa.0119.3 = phi double [ 0.000000e+00, %125 ], [ %105, %122 ], [ %105, %.critedge ]
+  %127 = tail call double @cos(double noundef %.sroa.12.4) #8
+  %128 = fmul double %.sroa.0119.3, 5.000000e-01
   %129 = tail call double @cos(double noundef %128) #8
   %130 = fmul double %127, %129
   %131 = tail call double @acos(double noundef %130) #8
@@ -369,12 +369,12 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %134 = tail call double @sin(double noundef %131) #8
   %135 = fdiv double 1.000000e+00, %134
   %136 = fmul double %131, 2.000000e+00
-  %137 = tail call double @cos(double noundef %.sroa.12.3) #8
+  %137 = tail call double @cos(double noundef %.sroa.12.4) #8
   %138 = fmul double %136, %137
   %139 = tail call double @sin(double noundef %128) #8
   %140 = fmul double %138, %139
   %141 = fmul double %135, %140
-  %142 = tail call double @sin(double noundef %.sroa.12.3) #8
+  %142 = tail call double @sin(double noundef %.sroa.12.4) #8
   %143 = fmul double %131, %142
   %144 = fmul double %135, %143
   br label %145
@@ -388,9 +388,9 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
 
 148:                                              ; preds = %145
   %149 = load double, ptr %5, align 8
-  %150 = tail call double @llvm.fmuladd.f64(double %.sroa.0119.2, double %149, double %.0139)
+  %150 = tail call double @llvm.fmuladd.f64(double %.sroa.0119.3, double %149, double %.0139)
   %151 = fmul double %150, 5.000000e-01
-  %152 = fadd double %.sroa.12.3, %.0
+  %152 = fadd double %.sroa.12.4, %.0
   %153 = fmul double %152, 5.000000e-01
   br label %154
 
@@ -425,10 +425,10 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %162, %3, %.critedge2, %166, %23
-  %.sroa.12.4 = phi double [ %.sroa.12.1, %23 ], [ %.sroa.12.3, %166 ], [ %.sroa.12.3, %.critedge2 ], [ 0.000000e+00, %3 ], [ %.sroa.12.3, %162 ]
-  %.sroa.0119.3 = phi double [ %.sroa.0119.1, %23 ], [ %.sroa.0119.2, %166 ], [ %.sroa.0119.2, %.critedge2 ], [ 0.000000e+00, %3 ], [ %.sroa.0119.2, %162 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0119.3, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.12.4, 1
+  %.sroa.12.0 = phi double [ %.sroa.12.2, %23 ], [ %.sroa.12.4, %166 ], [ %.sroa.12.4, %.critedge2 ], [ 0.000000e+00, %3 ], [ %.sroa.12.4, %162 ]
+  %.sroa.0119.0 = phi double [ %.sroa.0119.2, %23 ], [ %.sroa.0119.3, %166 ], [ %.sroa.0119.3, %.critedge2 ], [ 0.000000e+00, %3 ], [ %.sroa.0119.3, %162 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0119.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.12.0, 1
   ret { double, double } %.fca.1.insert
 }
 

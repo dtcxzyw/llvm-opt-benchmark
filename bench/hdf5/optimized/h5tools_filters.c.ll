@@ -60,7 +60,7 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
   br i1 %.not31, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %30
-  %.039.us.us = phi i32 [ %.1.us.us, %30 ], [ 1, %.lr.ph ]
+  %.139.us.us = phi i32 [ %.2.us.us, %30 ], [ 1, %.lr.ph ]
   %.01938.us.us = phi i32 [ %31, %30 ], [ 0, %.lr.ph ]
   %22 = tail call i32 @H5Pget_filter2(i64 noundef %1, i32 noundef %.01938.us.us, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef null) #5
   %23 = icmp slt i32 %22, 0
@@ -86,17 +86,17 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
 
 29:                                               ; preds = %26
   %.not32.us.us = icmp eq i32 %27, 0
-  %spec.select = select i1 %.not32.us.us, i32 0, i32 %.039.us.us
+  %spec.select = select i1 %.not32.us.us, i32 0, i32 %.139.us.us
   br label %30
 
 30:                                               ; preds = %29, %25, %24, %24, %24, %24, %24
-  %.1.us.us = phi i32 [ %.039.us.us, %24 ], [ %.039.us.us, %24 ], [ %.039.us.us, %24 ], [ %.039.us.us, %24 ], [ %.039.us.us, %24 ], [ 0, %25 ], [ %spec.select, %29 ]
+  %.2.us.us = phi i32 [ %.139.us.us, %24 ], [ %.139.us.us, %24 ], [ %.139.us.us, %24 ], [ %.139.us.us, %24 ], [ %.139.us.us, %24 ], [ 0, %25 ], [ %spec.select, %29 ]
   %31 = add nuw nsw i32 %.01938.us.us, 1
   %exitcond54.not = icmp eq i32 %31, %3
   br i1 %exitcond54.not, label %.loopexit, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %71
-  %.039 = phi i32 [ %.1, %71 ], [ 1, %.lr.ph ]
+  %.139 = phi i32 [ %.2, %71 ], [ 1, %.lr.ph ]
   %.01938 = phi i32 [ %72, %71 ], [ 0, %.lr.ph ]
   %32 = tail call i32 @H5Pget_filter2(i64 noundef %1, i32 noundef %.01938, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef null) #5
   %33 = icmp slt i32 %32, 0
@@ -180,14 +180,14 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
   br label %71
 
 71:                                               ; preds = %.sink.split, %68, %49, %49, %49, %49, %49
-  %.1 = phi i32 [ %.039, %68 ], [ %.039, %49 ], [ %.039, %49 ], [ %.039, %49 ], [ %.039, %49 ], [ %.039, %49 ], [ 0, %.sink.split ]
+  %.2 = phi i32 [ %.139, %68 ], [ %.139, %49 ], [ %.139, %49 ], [ %.139, %49 ], [ %.139, %49 ], [ %.139, %49 ], [ 0, %.sink.split ]
   %72 = add nuw nsw i32 %.01938, 1
   %exitcond.not = icmp eq i32 %72, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %71, %30, %.split41.us, %64, %60, %.split.us, %45, %41, %21, %5, %17, %13
-  %.2 = phi i32 [ -1, %13 ], [ -1, %17 ], [ -1, %5 ], [ 1, %21 ], [ -1, %41 ], [ -1, %45 ], [ -1, %.split.us ], [ -1, %60 ], [ -1, %64 ], [ -1, %.split41.us ], [ %.1.us.us, %30 ], [ %.1, %71 ]
-  ret i32 %.2
+  %.0 = phi i32 [ -1, %13 ], [ -1, %17 ], [ -1, %5 ], [ 1, %21 ], [ -1, %41 ], [ -1, %45 ], [ -1, %.split.us ], [ -1, %60 ], [ -1, %64 ], [ -1, %.split41.us ], [ %.2.us.us, %30 ], [ %.2, %71 ]
+  ret i32 %.0
 }
 
 declare i32 @H5Pget_nfilters(i64 noundef) local_unnamed_addr #1

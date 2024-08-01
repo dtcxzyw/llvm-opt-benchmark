@@ -10155,15 +10155,15 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 .lr.ph:                                           ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit
   %41 = phi ptr [ %87, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit ], [ %spec.select.i.i, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ]
-  %.sroa.024.046 = phi ptr [ %.06.i.i, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit ], [ %1, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.024.046, i64 32
+  %.sroa.024.146 = phi ptr [ %.06.i.i, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit ], [ %1, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.024.146, i64 32
   %43 = getelementptr inbounds i8, ptr %41, i64 32
   %44 = getelementptr inbounds i8, ptr %41, i64 64
   %45 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.sroa.024.046, i64 64
+  %46 = getelementptr inbounds i8, ptr %.sroa.024.146, i64 64
   %47 = getelementptr inbounds i8, ptr %41, i64 320
   %48 = load ptr, ptr %47, align 32
   %49 = icmp eq ptr %48, @_ZTIb
@@ -10180,7 +10180,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br label %_ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i.i.i
 
 _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSC_INSD_IdLm4EEEEENS5_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEE8destructEPKSt9type_infoPv.exit.i.i.i.i: ; preds = %53, %50, %.noexc
-  %54 = getelementptr inbounds i8, ptr %.sroa.024.046, i64 320
+  %54 = getelementptr inbounds i8, ptr %.sroa.024.146, i64 320
   %55 = load ptr, ptr %54, align 32
   store ptr %55, ptr %47, align 32
   %56 = icmp eq ptr %55, @_ZTIb
@@ -10197,7 +10197,7 @@ _ZN7mitsuba6detail14variant_helperIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_strin
           to label %62 unwind label %122
 
 62:                                               ; preds = %57, %60
-  %63 = getelementptr inbounds i8, ptr %.sroa.024.046, i64 352
+  %63 = getelementptr inbounds i8, ptr %.sroa.024.146, i64 352
   %64 = load i8, ptr %63, align 32
   %65 = getelementptr inbounds i8, ptr %41, i64 352
   %66 = and i8 %64, 1
@@ -10328,7 +10328,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache9__advanceB8ne190000Ev.exit: ; preds = %82, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache13__detach_nextEPNS_11__tree_nodeISA_PvEE.exit.i
   %113 = phi ptr [ null, %82 ], [ %.0.i.i6, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache13__detach_nextEPNS_11__tree_nodeISA_PvEE.exit.i ]
-  %114 = getelementptr inbounds i8, ptr %.sroa.024.046, i64 8
+  %114 = getelementptr inbounds i8, ptr %.sroa.024.146, i64 8
   %115 = load ptr, ptr %114, align 8
   %.not.i.i9 = icmp eq ptr %115, null
   br i1 %.not.i.i9, label %.preheader.i.i12, label %.preheader8.i.i
@@ -10340,7 +10340,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not.i.i.i11, label %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit, label %.preheader8.i.i, !llvm.loop !66
 
 .preheader.i.i12:                                 ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache9__advanceB8ne190000Ev.exit, %.preheader.i.i12
-  %.0.i.i13 = phi ptr [ %118, %.preheader.i.i12 ], [ %.sroa.024.046, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache9__advanceB8ne190000Ev.exit ]
+  %.0.i.i13 = phi ptr [ %118, %.preheader.i.i12 ], [ %.sroa.024.146, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCache9__advanceB8ne190000Ev.exit ]
   %117 = getelementptr inbounds i8, ptr %.0.i.i13, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
@@ -10367,7 +10367,7 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit
   %124 = phi ptr [ %.0.i.i.i, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ], [ %113, %.critedge.loopexit ]
   %125 = phi ptr [ %0, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ], [ %.pre, %.critedge.loopexit ]
-  %.sroa.024.0.lcssa = phi ptr [ %1, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ], [ %.06.i.i, %.critedge.loopexit ]
+  %.sroa.024.1.lcssa = phi ptr [ %1, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ], [ %.06.i.i, %.critedge.loopexit ]
   %.lcssa37 = phi ptr [ %spec.select.i.i, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheC2B8ne190000EPSF_.exit ], [ %87, %.critedge.loopexit ]
   tail call void @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE7destroyEPNS_11__tree_nodeISA_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef %.lcssa37) #26
   %.not.i14 = icmp eq ptr %124, null
@@ -10396,12 +10396,12 @@ _ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheD2B8ne190000Ev.exit
 
 _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheD2B8ne190000Ev.exit: ; preds = %.critedge.thread, %._crit_edge.i, %.critedge, %3
-  %.sroa.024.1 = phi ptr [ %1, %3 ], [ %.sroa.024.0.lcssa, %.critedge ], [ %.sroa.024.0.lcssa, %._crit_edge.i ], [ %1, %.critedge.thread ]
-  %.not3049 = icmp eq ptr %.sroa.024.1, %2
+  %.sroa.024.0 = phi ptr [ %1, %3 ], [ %.sroa.024.1.lcssa, %.critedge ], [ %.sroa.024.1.lcssa, %._crit_edge.i ], [ %1, %.critedge.thread ]
+  %.not3049 = icmp eq ptr %.sroa.024.0, %2
   br i1 %.not3049, label %._crit_edge, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheD2B8ne190000Ev.exit, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit22
-  %.sroa.024.250 = phi ptr [ %.06.i.i19, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit22 ], [ %.sroa.024.1, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheD2B8ne190000Ev.exit ]
+  %.sroa.024.250 = phi ptr [ %.06.i.i19, %_ZNSt3__121__tree_const_iteratorINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEEPNS_11__tree_nodeISA_PvEElEppB8ne190000Ev.exit22 ], [ %.sroa.024.0, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE18_DetachedTreeCacheD2B8ne190000Ev.exit ]
   %131 = getelementptr inbounds i8, ptr %.sroa.024.250, i64 32
   %132 = tail call ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryEEENS_19__map_value_compareIS7_SA_NS8_7SortKeyELb1EEENS5_ISA_EEE15__emplace_multiIJRKNS_4pairIKS7_S9_EEEEENS_15__tree_iteratorISA_PNS_11__tree_nodeISA_PvEElEEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 32 dereferenceable(352) %131)
   %133 = getelementptr inbounds i8, ptr %.sroa.024.250, i64 8
@@ -10815,8 +10815,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.1 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
-  ret ptr %.sroa.034.1
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  ret ptr %.sroa.034.0
 }
 
 ; Function Attrs: nounwind
@@ -11508,7 +11508,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
 
 136:                                              ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit, %119
   %137 = phi i8 [ %.pr, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %49, %119 ]
-  %.1113 = phi ptr [ %130, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %storemerge, %119 ]
+  %.0 = phi ptr [ %130, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %storemerge, %119 ]
   %138 = icmp eq i8 %137, 42
   br i1 %138, label %139, label %184
 
@@ -11587,25 +11587,25 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %181 = zext nneg i32 %.1 to i64
   %182 = getelementptr inbounds i8, ptr %180, i64 24
   store i64 %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %.1113, i64 1
+  %183 = getelementptr inbounds i8, ptr %.0, i64 1
   %.pre = load i8, ptr %183, align 1
   br label %184
 
 184:                                              ; preds = %.thread, %136
   %185 = phi i8 [ %.pre, %.thread ], [ %137, %136 ]
-  %.2 = phi ptr [ %183, %.thread ], [ %.1113, %136 ]
+  %.1113 = phi ptr [ %183, %.thread ], [ %.0, %136 ]
   %.164 = phi i1 [ true, %.thread ], [ %or.cond, %136 ]
   %186 = icmp ne i8 %185, 46
   br i1 %186, label %.preheader, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %.2, i64 1
+  %188 = getelementptr inbounds i8, ptr %.1113, i64 1
   %189 = load i8, ptr %188, align 1
   %190 = icmp eq i8 %189, 42
   br i1 %190, label %191, label %203
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %.2, i64 2
+  %192 = getelementptr inbounds i8, ptr %.1113, i64 2
   %193 = load i32, ptr %5, align 4
   %194 = icmp slt i32 %193, %6
   br i1 %194, label %195, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
@@ -11645,7 +11645,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   br i1 %214, label %215, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %.2, i64 2
+  %216 = getelementptr inbounds i8, ptr %.1113, i64 2
   %217 = load i8, ptr %216, align 1
   %218 = add i8 %217, -48
   %or.cond6.i96 = icmp ult i8 %218, 10
@@ -11660,7 +11660,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   br i1 %or.cond.i101, label %.lr.ph.i98, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, !llvm.loop !99
 
 _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %.lr.ph.i90, %215, %213, %195, %191
-  %.5 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
+  %.3 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
   %.059 = phi i32 [ %202, %195 ], [ 0, %191 ], [ 0, %213 ], [ 0, %215 ], [ %209, %.lr.ph.i90 ], [ 0, %.lr.ph.i98 ]
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr i8, ptr %223, i64 -24
@@ -11672,12 +11672,12 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, %184
-  %.7.ph = phi ptr [ %.2, %184 ], [ %.5, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
+  %.4.ph = phi ptr [ %.1113, %184 ], [ %.3, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
   br label %229
 
 229:                                              ; preds = %.preheader, %.critedge
-  %.7 = phi ptr [ %231, %.critedge ], [ %.7.ph, %.preheader ]
-  %230 = load i8, ptr %.7, align 1
+  %.4 = phi ptr [ %231, %.critedge ], [ %.4.ph, %.preheader ]
+  %230 = load i8, ptr %.4, align 1
   switch i8 %230, label %.critedge76 [
     i8 108, label %.critedge
     i8 104, label %.critedge
@@ -11703,7 +11703,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   ]
 
 .critedge:                                        ; preds = %229, %229, %229, %229, %229, %229
-  %231 = getelementptr inbounds i8, ptr %.7, i64 1
+  %231 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %229, !llvm.loop !100
 
 232:                                              ; preds = %229
@@ -11907,11 +11907,11 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.critedge76
 
 .critedge76:                                      ; preds = %229, %311, %.loopexit117, %.loopexit116, %.loopexit115, %.loopexit, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105
-  %360 = getelementptr inbounds i8, ptr %.7, i64 1
+  %360 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %.loopexit118
 
 .loopexit118:                                     ; preds = %229, %7, %.critedge76
-  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.7, %229 ]
+  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.4, %229 ]
   ret ptr %.066
 }
 
@@ -12397,8 +12397,8 @@ _ZNSt3__111__tree_nextB8ne190000IPNS_16__tree_node_baseIPvEEEET_S5_.exit.thread.
   br label %234
 
 .preheader:                                       ; preds = %56, %229
-  %.1114 = phi ptr [ %.6119, %229 ], [ %.0113, %56 ]
-  %.2 = phi ptr [ %.7, %229 ], [ %.1, %56 ]
+  %.1114 = phi ptr [ %.4117, %229 ], [ %.0113, %56 ]
+  %.2 = phi ptr [ %.5, %229 ], [ %.1, %56 ]
   %59 = getelementptr inbounds i8, ptr %.1114, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
@@ -12449,7 +12449,7 @@ _ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ;
 
 84:                                               ; preds = %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit, %66
   %.2115 = phi ptr [ %.1114, %66 ], [ %83, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
-  %.4 = phi ptr [ %.2, %66 ], [ %spec.select141, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
+  %.3 = phi ptr [ %.2, %66 ], [ %spec.select141, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit ]
   %85 = load ptr, ptr %.2115, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %91, label %87
@@ -12477,7 +12477,7 @@ _ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit: ;
   store i8 0, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %.2115, i64 16
   %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %.4
+  %103 = icmp eq ptr %102, %.3
   br i1 %103, label %108, label %104
 
 104:                                              ; preds = %99
@@ -12616,9 +12616,9 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit15
   br label %167
 
 167:                                              ; preds = %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit156, %149
-  %.4117 = phi ptr [ %.1114, %149 ], [ %166, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit156 ]
+  %.5118 = phi ptr [ %.1114, %149 ], [ %166, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit156 ]
   %.6 = phi ptr [ %.2, %149 ], [ %spec.select142, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit156 ]
-  %168 = load ptr, ptr %.4117, align 8
+  %168 = load ptr, ptr %.5118, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %174, label %170
 
@@ -12629,7 +12629,7 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit15
   br i1 %173, label %174, label %.thread170
 
 174:                                              ; preds = %170, %167
-  %175 = getelementptr inbounds i8, ptr %.4117, i64 8
+  %175 = getelementptr inbounds i8, ptr %.5118, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %182, label %178
@@ -12641,9 +12641,9 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit15
   br i1 %181, label %182, label %192
 
 182:                                              ; preds = %178, %174
-  %183 = getelementptr inbounds i8, ptr %.4117, i64 24
+  %183 = getelementptr inbounds i8, ptr %.5118, i64 24
   store i8 0, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %.4117, i64 16
+  %184 = getelementptr inbounds i8, ptr %.5118, i64 16
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load i8, ptr %186, align 8
@@ -12671,16 +12671,16 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit15
   br i1 %194, label %.thread170._crit_edge, label %209
 
 .thread170._crit_edge:                            ; preds = %.thread170
-  %.phi.trans.insert207 = getelementptr inbounds i8, ptr %.4117, i64 8
+  %.phi.trans.insert207 = getelementptr inbounds i8, ptr %.5118, i64 8
   %.pre208 = load ptr, ptr %.phi.trans.insert207, align 8
   br label %195
 
 195:                                              ; preds = %.thread170._crit_edge, %192
   %196 = phi ptr [ %.pre208, %.thread170._crit_edge ], [ %176, %192 ]
-  %197 = getelementptr inbounds i8, ptr %.4117, i64 8
+  %197 = getelementptr inbounds i8, ptr %.5118, i64 8
   %198 = getelementptr inbounds i8, ptr %196, i64 24
   store i8 1, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %.4117, i64 24
+  %199 = getelementptr inbounds i8, ptr %.5118, i64 24
   store i8 0, ptr %199, align 8
   %200 = load ptr, ptr %197, align 8
   %201 = load ptr, ptr %200, align 8
@@ -12690,34 +12690,34 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit15
 
 202:                                              ; preds = %195
   %203 = getelementptr inbounds i8, ptr %201, i64 16
-  store ptr %.4117, ptr %203, align 8
+  store ptr %.5118, ptr %203, align 8
   br label %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit160
 
 _ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit160: ; preds = %195, %202
-  %204 = getelementptr inbounds i8, ptr %.4117, i64 16
+  %204 = getelementptr inbounds i8, ptr %.5118, i64 16
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %200, i64 16
   store ptr %205, ptr %206, align 8
   %207 = load ptr, ptr %205, align 8
-  %208 = icmp eq ptr %207, %.4117
+  %208 = icmp eq ptr %207, %.5118
   %.sink.idx.i158 = select i1 %208, i64 0, i64 8
   %.sink.i159 = getelementptr inbounds i8, ptr %205, i64 %.sink.idx.i158
   store ptr %200, ptr %.sink.i159, align 8
-  store ptr %.4117, ptr %200, align 8
+  store ptr %.5118, ptr %200, align 8
   store ptr %200, ptr %204, align 8
   br label %209
 
 209:                                              ; preds = %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit160, %.thread170
-  %.5118 = phi ptr [ %200, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit160 ], [ %.4117, %.thread170 ]
-  %210 = getelementptr inbounds i8, ptr %.5118, i64 16
+  %.6119 = phi ptr [ %200, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit160 ], [ %.5118, %.thread170 ]
+  %210 = getelementptr inbounds i8, ptr %.6119, i64 16
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 24
   %213 = load i8, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %.5118, i64 24
+  %214 = getelementptr inbounds i8, ptr %.6119, i64 24
   %215 = and i8 %213, 1
   store i8 %215, ptr %214, align 8
   store i8 1, ptr %212, align 8
-  %216 = load ptr, ptr %.5118, align 8
+  %216 = load ptr, ptr %.6119, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 24
   store i8 1, ptr %217, align 8
   %218 = load ptr, ptr %210, align 8
@@ -12749,14 +12749,14 @@ _ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit16
 
 229:                                              ; preds = %182, %104
   %.sink240 = phi ptr [ %102, %104 ], [ %185, %182 ]
-  %.7 = phi ptr [ %.4, %104 ], [ %.6, %182 ]
+  %.5 = phi ptr [ %.3, %104 ], [ %.6, %182 ]
   %230 = getelementptr inbounds i8, ptr %.sink240, i64 16
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, %.sink240
   %spec.select172.idx = select i1 %233, i64 8, i64 0
   %spec.select172 = getelementptr inbounds i8, ptr %231, i64 %spec.select172.idx
-  %.6119 = load ptr, ptr %spec.select172, align 8
+  %.4117 = load ptr, ptr %spec.select172, align 8
   br label %.preheader, !llvm.loop !105
 
 234:                                              ; preds = %57, %_ZNSt3__119__tree_right_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit164, %190, %_ZNSt3__118__tree_left_rotateB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_.exit152, %108, %54

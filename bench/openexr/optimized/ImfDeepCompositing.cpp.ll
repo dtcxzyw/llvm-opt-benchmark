@@ -113,7 +113,7 @@ for.end12:                                        ; preds = %for.body8
           to label %if.end15 unwind label %if.then.i.i.i
 
 if.end15:                                         ; preds = %for.end12, %if.end
-  %sort_order.sroa.0.3 = phi ptr [ %call5.i.i.i.i41, %for.end12 ], [ null, %if.end ]
+  %sort_order.sroa.0.0 = phi ptr [ %call5.i.i.i.i41, %for.end12 ], [ null, %if.end ]
   %cmp1861 = icmp sgt i32 %num_samples, 0
   br i1 %cmp1861, label %for.body19.lr.ph, label %cleanup
 
@@ -147,7 +147,7 @@ for.body29.us.us:                                 ; preds = %for.cond27.preheade
   br i1 %exitcond89.not, label %for.cond27.for.inc39_crit_edge.us.us, label %for.body29.us.us, !llvm.loop !6
 
 for.cond27.preheader.us.us:                       ; preds = %for.body19.us.us
-  %add.ptr.i26.us.us = getelementptr inbounds i32, ptr %sort_order.sroa.0.3, i64 %indvars.iv90
+  %add.ptr.i26.us.us = getelementptr inbounds i32, ptr %sort_order.sroa.0.0, i64 %indvars.iv90
   %10 = load i32, ptr %add.ptr.i26.us.us, align 4
   %sub.us.us = fsub float 1.000000e+00, %5
   %idxprom32.us.us = sext i32 %10 to i64
@@ -188,11 +188,11 @@ for.cond27.for.inc39_crit_edge.us:                ; preds = %for.body29.us
   br i1 %exitcond84.not, label %cleanup, label %for.body19.us, !llvm.loop !7
 
 cleanup:                                          ; preds = %for.body19.us, %for.cond27.for.inc39_crit_edge.us, %for.body19.us.us, %for.cond27.for.inc39_crit_edge.us.us, %for.body19.lr.ph, %if.end15
-  %tobool.not.i.i.i27 = icmp eq ptr %sort_order.sroa.0.3, null
+  %tobool.not.i.i.i27 = icmp eq ptr %sort_order.sroa.0.0, null
   br i1 %tobool.not.i.i.i27, label %cleanup.cont, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %sort_order.sroa.0.3) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %sort_order.sroa.0.0) #11
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.then.i.i.i28, %cleanup, %for.end

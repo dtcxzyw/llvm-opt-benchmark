@@ -175,7 +175,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br label %7
 
 7:                                                ; preds = %.preheader, %35
-  %.04196 = phi i32 [ 0, %.preheader ], [ %.1, %35 ]
+  %.196 = phi i32 [ 0, %.preheader ], [ %.2, %35 ]
   %.04295 = phi i32 [ 1, %.preheader ], [ %36, %35 ]
   %8 = sext i32 %.04295 to i64
   %9 = getelementptr inbounds ptr, ptr %1, i64 %8
@@ -246,13 +246,13 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 35:                                               ; preds = %.sink.split, %18, %31
   %.143 = phi i32 [ %24, %31 ], [ %.04295, %18 ], [ %.143.ph, %.sink.split ]
-  %.1 = phi i32 [ %.04196, %31 ], [ 1, %18 ], [ %.04196, %.sink.split ]
+  %.2 = phi i32 [ %.196, %31 ], [ 1, %18 ], [ %.196, %.sink.split ]
   %36 = add nsw i32 %.143, 1
   %37 = icmp slt i32 %36, %0
   br i1 %37, label %7, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %35, %2
-  %.2 = phi i32 [ 0, %2 ], [ %.1, %35 ]
+  %.041 = phi i32 [ 0, %2 ], [ %.2, %35 ]
   %.b50 = load i1, ptr @lossless, align 4
   %.b = load i1, ptr @doYUV, align 4
   %or.cond5 = select i1 %.b50, i1 %.b, i1 false
@@ -294,7 +294,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %56 = mul i32 %50, 58065
   %57 = lshr i32 %56, 16
   store i32 %57, ptr @yellowToY, align 4
-  %.not = icmp eq i32 %.2, 0
+  %.not = icmp eq i32 %.041, 0
   br i1 %.not, label %89, label %.preheader.i
 
 .preheader.i:                                     ; preds = %45, %86
@@ -996,8 +996,8 @@ setVal.exit138.i:                                 ; preds = %318, %315, %312, %3
   br label %bufSizeTest.exit
 
 bufSizeTest.exit:                                 ; preds = %147, %155, %162, %173, %179, %186, %206, %219, %251, %258, %264, %270, %283, %296, %328, %335, %341, %347, %358
-  %.3.i = phi ptr [ null, %147 ], [ null, %155 ], [ null, %162 ], [ null, %173 ], [ null, %186 ], [ null, %206 ], [ %204, %219 ], [ %204, %251 ], [ null, %283 ], [ %281, %296 ], [ %281, %328 ], [ %281, %335 ], [ %281, %341 ], [ %281, %347 ], [ %204, %258 ], [ %204, %264 ], [ %204, %270 ], [ null, %358 ], [ null, %179 ]
-  call void @free(ptr noundef %.3.i) #19
+  %.0106.i = phi ptr [ null, %147 ], [ null, %155 ], [ null, %162 ], [ null, %173 ], [ null, %186 ], [ null, %206 ], [ %204, %219 ], [ %204, %251 ], [ null, %283 ], [ %281, %296 ], [ %281, %328 ], [ %281, %335 ], [ %281, %341 ], [ %281, %347 ], [ %204, %258 ], [ %204, %264 ], [ %204, %270 ], [ null, %358 ], [ null, %179 ]
+  call void @free(ptr noundef %.0106.i) #19
   %359 = load ptr, ptr %3, align 8
   call void @tj3Free(ptr noundef %359) #19
   call void @tj3Destroy(ptr noundef %145) #19
@@ -1869,7 +1869,7 @@ initBuf.exit.i:                                   ; preds = %._crit_edge.us.i.i,
   br label %compTest.exit
 
 340:                                              ; preds = %334, %328, %322, %303
-  %.0.i = phi ptr [ %calloc.i, %303 ], [ null, %322 ], [ null, %328 ], [ null, %334 ]
+  %.1.i = phi ptr [ %calloc.i, %303 ], [ null, %322 ], [ null, %328 ], [ null, %334 ]
   %.b109.i = load i1, ptr @lossless, align 4
   %341 = load i32, ptr @precision, align 4
   br i1 %.b109.i, label %342, label %344
@@ -1922,8 +1922,8 @@ writeJPEG.exit.i:                                 ; preds = %.critedge.i.i, %.th
   br label %compTest.exit
 
 compTest.exit:                                    ; preds = %107, %273, %279, %285, %290, %300, %309, %325, %331, %337, %writeJPEG.exit.i
-  %.1.i = phi ptr [ null, %107 ], [ null, %273 ], [ null, %279 ], [ null, %285 ], [ null, %290 ], [ %calloc.i, %300 ], [ %calloc.i, %309 ], [ %.0.i, %writeJPEG.exit.i ], [ null, %325 ], [ null, %331 ], [ null, %337 ]
-  call void @free(ptr noundef %.1.i) #19
+  %.0.i = phi ptr [ null, %107 ], [ null, %273 ], [ null, %279 ], [ null, %285 ], [ null, %290 ], [ %calloc.i, %300 ], [ %calloc.i, %309 ], [ %.1.i, %writeJPEG.exit.i ], [ null, %325 ], [ null, %331 ], [ null, %337 ]
+  call void @free(ptr noundef %.0.i) #19
   call void @free(ptr noundef %105) #19
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   %366 = load ptr, ptr %8, align 8
@@ -1956,9 +1956,9 @@ compTest.exit:                                    ; preds = %107, %273, %279, %2
 
 375:                                              ; preds = %._crit_edge, %85, %79, %71, %61, %54, %48, %37, %30, %22, %15
   %.068 = phi ptr [ null, %15 ], [ %17, %22 ], [ %17, %30 ], [ %17, %37 ], [ %17, %48 ], [ %17, %71 ], [ %17, %79 ], [ %17, %85 ], [ %17, %._crit_edge ], [ %17, %54 ], [ %17, %61 ]
-  %.1 = phi ptr [ null, %15 ], [ null, %22 ], [ %20, %30 ], [ %20, %37 ], [ %20, %48 ], [ %20, %71 ], [ %20, %79 ], [ %20, %85 ], [ %20, %._crit_edge ], [ %20, %54 ], [ %20, %61 ]
+  %.067 = phi ptr [ null, %15 ], [ null, %22 ], [ %20, %30 ], [ %20, %37 ], [ %20, %48 ], [ %20, %71 ], [ %20, %79 ], [ %20, %85 ], [ %20, %._crit_edge ], [ %20, %54 ], [ %20, %61 ]
   call void @tj3Destroy(ptr noundef %.068) #19
-  call void @tj3Destroy(ptr noundef %.1) #19
+  call void @tj3Destroy(ptr noundef %.067) #19
   %376 = load ptr, ptr %8, align 8
   call void @tj3Free(ptr noundef %376) #19
   ret void
@@ -2388,7 +2388,7 @@ initBitmap.exit:                                  ; preds = %162
   br label %334
 
 219:                                              ; preds = %207, %213, %201
-  %.0115 = phi ptr [ %202, %201 ], [ %208, %207 ], [ %214, %213 ]
+  %.1 = phi ptr [ %202, %201 ], [ %208, %207 ], [ %214, %213 ]
   %220 = load i32, ptr %8, align 4
   %.not161 = icmp eq i32 %220, 35
   %221 = load i32, ptr %9, align 4
@@ -2402,7 +2402,7 @@ initBitmap.exit:                                  ; preds = %162
 
 224:                                              ; preds = %219
   %225 = load i32, ptr %5, align 4
-  %226 = call fastcc i32 @cmpBitmap(ptr noundef nonnull %.0115, i32 noundef %18, i32 noundef %225, i32 noundef %3, i32 noundef 0)
+  %226 = call fastcc i32 @cmpBitmap(ptr noundef nonnull %.1, i32 noundef %18, i32 noundef %225, i32 noundef %3, i32 noundef 0)
   %.not163 = icmp eq i32 %226, 0
   br i1 %.not163, label %227, label %229
 
@@ -2415,7 +2415,7 @@ initBitmap.exit:                                  ; preds = %162
   br i1 %230, label %231, label %293
 
 231:                                              ; preds = %229
-  call void @tj3Free(ptr noundef nonnull %.0115) #19
+  call void @tj3Free(ptr noundef nonnull %.1) #19
   store i32 4, ptr %5, align 4
   %232 = load i32, ptr @precision, align 4
   switch i32 %232, label %245 [
@@ -2457,7 +2457,7 @@ initBitmap.exit:                                  ; preds = %162
   br label %334
 
 251:                                              ; preds = %239, %245, %233
-  %.1 = phi ptr [ %234, %233 ], [ %240, %239 ], [ %246, %245 ]
+  %.3 = phi ptr [ %234, %233 ], [ %240, %239 ], [ %246, %245 ]
   %252 = load i32, ptr %5, align 4
   %253 = sext i32 %252 to i64
   %254 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %253
@@ -2465,7 +2465,7 @@ initBitmap.exit:                                  ; preds = %162
   %256 = mul nsw i32 %255, 35
   %257 = add i32 %15, %256
   %258 = and i32 %257, %17
-  %259 = call fastcc i32 @cmpBitmap(ptr noundef nonnull %.1, i32 noundef %258, i32 noundef %252, i32 noundef %3, i32 noundef 1)
+  %259 = call fastcc i32 @cmpBitmap(ptr noundef nonnull %.3, i32 noundef %258, i32 noundef %252, i32 noundef %3, i32 noundef 1)
   %.not164 = icmp eq i32 %259, 0
   br i1 %.not164, label %260, label %262
 
@@ -2474,7 +2474,7 @@ initBitmap.exit:                                  ; preds = %162
   br label %334
 
 262:                                              ; preds = %251
-  call void @tj3Free(ptr noundef nonnull %.1) #19
+  call void @tj3Free(ptr noundef nonnull %.3) #19
   store i32 11, ptr %5, align 4
   %263 = load i32, ptr @precision, align 4
   switch i32 %263, label %276 [
@@ -2516,7 +2516,7 @@ initBitmap.exit:                                  ; preds = %162
   br label %334
 
 282:                                              ; preds = %270, %276, %264
-  %.2 = phi ptr [ %265, %264 ], [ %271, %270 ], [ %277, %276 ]
+  %.4 = phi ptr [ %265, %264 ], [ %271, %270 ], [ %277, %276 ]
   %283 = load i32, ptr %5, align 4
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds [12 x i32], ptr @tjPixelSize, i64 0, i64 %284
@@ -2524,7 +2524,7 @@ initBitmap.exit:                                  ; preds = %162
   %287 = mul nsw i32 %286, 35
   %288 = add i32 %15, %287
   %289 = and i32 %288, %17
-  %290 = call fastcc i32 @cmpBitmap(ptr noundef nonnull %.2, i32 noundef %289, i32 noundef %283, i32 noundef %3, i32 noundef 1)
+  %290 = call fastcc i32 @cmpBitmap(ptr noundef nonnull %.4, i32 noundef %289, i32 noundef %283, i32 noundef %3, i32 noundef 1)
   %.not165 = icmp eq i32 %290, 0
   br i1 %.not165, label %291, label %293
 
@@ -2533,8 +2533,8 @@ initBitmap.exit:                                  ; preds = %162
   br label %334
 
 293:                                              ; preds = %282, %229
-  %.3 = phi ptr [ %.2, %282 ], [ %.0115, %229 ]
-  call void @tj3Free(ptr noundef nonnull %.3) #19
+  %.2 = phi ptr [ %.4, %282 ], [ %.1, %229 ]
+  call void @tj3Free(ptr noundef nonnull %.2) #19
   %294 = load i32, ptr %10, align 4
   store i32 %294, ptr %5, align 4
   store i32 -1, ptr %10, align 4
@@ -2578,7 +2578,7 @@ initBitmap.exit:                                  ; preds = %162
   br label %334
 
 314:                                              ; preds = %302, %308, %296
-  %.4 = phi ptr [ %297, %296 ], [ %303, %302 ], [ %309, %308 ]
+  %.5 = phi ptr [ %297, %296 ], [ %303, %302 ], [ %309, %308 ]
   %315 = load i32, ptr %5, align 4
   %316 = icmp eq i32 %315, 6
   %317 = load i32, ptr %10, align 4
@@ -2611,18 +2611,18 @@ initBitmap.exit:                                  ; preds = %162
   br label %.thread
 
 .thread:                                          ; preds = %319, %328, %324
-  %.0116 = phi i32 [ -1, %328 ], [ 0, %324 ], [ 0, %319 ]
+  %.1117 = phi i32 [ -1, %328 ], [ 0, %324 ], [ 0, %319 ]
   %333 = call i32 @unlink(ptr noundef nonnull %6) #19
   br label %334
 
 334:                                              ; preds = %.thread, %311, %305, %299, %291, %279, %273, %267, %260, %248, %242, %236, %227, %222, %216, %210, %204, %197, %193, %188, %182, %176, %50, %27, %21
-  %.1117 = phi i32 [ 0, %21 ], [ 0, %27 ], [ 0, %50 ], [ 0, %176 ], [ 0, %197 ], [ 0, %204 ], [ -1, %222 ], [ 0, %236 ], [ 0, %267 ], [ 0, %299 ], [ %.0116, %.thread ], [ 0, %305 ], [ 0, %311 ], [ -1, %291 ], [ 0, %273 ], [ 0, %279 ], [ -1, %260 ], [ 0, %242 ], [ 0, %248 ], [ -1, %227 ], [ 0, %210 ], [ 0, %216 ], [ -1, %193 ], [ 0, %182 ], [ 0, %188 ]
-  %.5 = phi ptr [ null, %21 ], [ null, %27 ], [ null, %50 ], [ %48, %176 ], [ %48, %197 ], [ null, %204 ], [ %.0115, %222 ], [ null, %236 ], [ null, %267 ], [ null, %299 ], [ %.4, %.thread ], [ null, %305 ], [ null, %311 ], [ %.2, %291 ], [ null, %273 ], [ null, %279 ], [ %.1, %260 ], [ null, %242 ], [ null, %248 ], [ %.0115, %227 ], [ null, %210 ], [ null, %216 ], [ %48, %193 ], [ %48, %182 ], [ %48, %188 ]
+  %.0116 = phi i32 [ 0, %21 ], [ 0, %27 ], [ 0, %50 ], [ 0, %176 ], [ 0, %197 ], [ 0, %204 ], [ -1, %222 ], [ 0, %236 ], [ 0, %267 ], [ 0, %299 ], [ %.1117, %.thread ], [ 0, %305 ], [ 0, %311 ], [ -1, %291 ], [ 0, %273 ], [ 0, %279 ], [ -1, %260 ], [ 0, %242 ], [ 0, %248 ], [ -1, %227 ], [ 0, %210 ], [ 0, %216 ], [ -1, %193 ], [ 0, %182 ], [ 0, %188 ]
+  %.0115 = phi ptr [ null, %21 ], [ null, %27 ], [ null, %50 ], [ %48, %176 ], [ %48, %197 ], [ null, %204 ], [ %.1, %222 ], [ null, %236 ], [ null, %267 ], [ null, %299 ], [ %.5, %.thread ], [ null, %305 ], [ null, %311 ], [ %.4, %291 ], [ null, %273 ], [ null, %279 ], [ %.3, %260 ], [ null, %242 ], [ null, %248 ], [ %.1, %227 ], [ null, %210 ], [ null, %216 ], [ %48, %193 ], [ %48, %182 ], [ %48, %188 ]
   call void @tj3Destroy(ptr noundef %19) #19
-  call void @tj3Free(ptr noundef %.5) #19
+  call void @tj3Free(ptr noundef %.0115) #19
   %.b = load i1, ptr @exitStatus, align 4
-  %..1117 = select i1 %.b, i32 -1, i32 %.1117
-  ret i32 %..1117
+  %..0116 = select i1 %.b, i32 -1, i32 %.0116
+  ret i32 %..0116
 }
 
 declare ptr @tj3Init(i32 noundef) local_unnamed_addr #5
@@ -3949,7 +3949,7 @@ define internal fastcc void @_decompTest(ptr noundef %0, ptr noundef %1, i64 nou
   br label %482
 
 136:                                              ; preds = %118, %130, %124, %104
-  %.0126 = phi ptr [ %calloc, %104 ], [ null, %118 ], [ null, %124 ], [ null, %130 ]
+  %.1 = phi ptr [ %calloc, %104 ], [ null, %118 ], [ null, %124 ], [ null, %130 ]
   %137 = getelementptr inbounds [12 x i32], ptr @tjRedOffset, i64 0, i64 %38
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds [12 x i32], ptr @tjGreenOffset, i64 0, i64 %38
@@ -4772,9 +4772,9 @@ getVal.exit341.us.i:                              ; preds = %getVal.exit337.us.i
   br label %482
 
 482:                                              ; preds = %.loopexit, %133, %127, %121, %101, %89, %72, %67, %61, %55, %47, %34, %25, %19
-  %.1 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ null, %55 ], [ null, %61 ], [ null, %67 ], [ null, %72 ], [ %calloc, %89 ], [ %calloc, %101 ], [ %.0126, %.loopexit ], [ null, %121 ], [ null, %127 ], [ null, %133 ]
+  %.0126 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ null, %55 ], [ null, %61 ], [ null, %67 ], [ null, %72 ], [ %calloc, %89 ], [ %calloc, %101 ], [ %.1, %.loopexit ], [ null, %121 ], [ null, %127 ], [ null, %133 ]
   %.0 = phi ptr [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %47 ], [ %calloc437, %55 ], [ %calloc437, %61 ], [ %calloc437, %67 ], [ %calloc437, %72 ], [ %calloc437, %89 ], [ %calloc437, %101 ], [ %calloc437, %.loopexit ], [ %calloc437, %121 ], [ %calloc437, %127 ], [ %calloc437, %133 ]
-  tail call void @free(ptr noundef %.1) #19
+  tail call void @free(ptr noundef %.0126) #19
   tail call void @free(ptr noundef %.0) #19
   ret void
 }

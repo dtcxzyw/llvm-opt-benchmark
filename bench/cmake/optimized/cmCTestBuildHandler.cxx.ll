@@ -4127,7 +4127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280: ;
   br label %823
 
 808:                                              ; preds = %795, %713
-  %.0 = phi i32 [ %796, %795 ], [ -1, %713 ]
+  %.3 = phi i32 [ %796, %795 ], [ -1, %713 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %61) #21
   %809 = getelementptr inbounds i8, ptr %52, i64 664
   %810 = load ptr, ptr %809, align 8
@@ -4198,7 +4198,7 @@ _ZN21cmStringReplaceHelperD2Ev.exit:              ; preds = %_ZNSt6vectorIN21cmS
   br label %826
 
 825:                                              ; preds = %_ZN21cmStringReplaceHelperD2Ev.exit, %177
-  %.1 = phi i32 [ -1, %177 ], [ %.0, %_ZN21cmStringReplaceHelperD2Ev.exit ]
+  %.2 = phi i32 [ -1, %177 ], [ %.3, %_ZN21cmStringReplaceHelperD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   br label %827
 
@@ -4208,7 +4208,7 @@ _ZN21cmStringReplaceHelperD2Ev.exit:              ; preds = %_ZNSt6vectorIN21cmS
   br label %828
 
 827:                                              ; preds = %825, %153
-  %.2 = phi i32 [ -1, %153 ], [ %.1, %825 ]
+  %.1 = phi i32 [ -1, %153 ], [ %.2, %825 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   br label %829
 
@@ -4218,8 +4218,8 @@ _ZN21cmStringReplaceHelperD2Ev.exit:              ; preds = %_ZNSt6vectorIN21cmS
   br label %_ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit182
 
 829:                                              ; preds = %82, %827
-  %.3 = phi i32 [ %.2, %827 ], [ 0, %82 ]
-  ret i32 %.3
+  %.0 = phi i32 [ %.1, %827 ], [ 0, %82 ]
+  ret i32 %.0
 
 _ZN19cmCTestBuildHandler29cmCTestCompileErrorWarningRexD2Ev.exit182: ; preds = %141, %138, %828, %97
   %.pn176.pn = phi { ptr, i32 } [ %.pn171.pn, %828 ], [ %.pn, %97 ], [ %.pn176, %138 ], [ %.pn176, %141 ]
@@ -9637,7 +9637,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit:       ; preds = %.lr.ph
   br i1 %.not83, label %.loopexit94, label %.lr.ph
 
 .loopexit94:                                      ; preds = %96, %53, %83
-  %.039 = phi i32 [ 1, %83 ], [ 0, %53 ], [ 0, %96 ]
+  %.140 = phi i32 [ 1, %83 ], [ 0, %53 ], [ 0, %96 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 560
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %0, i64 568
@@ -9727,7 +9727,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit58:     ; preds = %.lr.ph115
   br i1 %.not84, label %.loopexit91, label %.lr.ph115
 
 .loopexit91:                                      ; preds = %134, %.loopexit94, %128, %49
-  %.140 = phi i32 [ 0, %49 ], [ 0, %128 ], [ %.039, %.loopexit94 ], [ %.039, %134 ]
+  %.039 = phi i32 [ 0, %49 ], [ 0, %128 ], [ %.140, %.loopexit94 ], [ %.140, %134 ]
   %137 = getelementptr inbounds i8, ptr %0, i64 1042
   %138 = load i8, ptr %137, align 2
   %139 = trunc i8 %138 to i1
@@ -9914,8 +9914,8 @@ _ZN5cmsys17RegularExpression4findEPKc.exit62:     ; preds = %.lr.ph124
 
 .thread:                                          ; preds = %214, %.loopexit87, %208, %.loopexit91
   %217 = phi i32 [ 0, %.loopexit91 ], [ 0, %208 ], [ %.not85102, %.loopexit87 ], [ %.not85102, %214 ]
-  %.not81 = icmp eq i32 %.140, 0
-  %.0 = select i1 %.not81, i32 %217, i32 2
+  %.not81 = icmp eq i32 %.039, 0
+  %.1 = select i1 %.not81, i32 %217, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %218
@@ -9927,8 +9927,8 @@ _ZN5cmsys17RegularExpression4findEPKc.exit62:     ; preds = %.lr.ph124
   br label %219
 
 218:                                              ; preds = %2, %.thread
-  %.1 = phi i32 [ %.0, %.thread ], [ 0, %2 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %.thread ], [ 0, %2 ]
+  ret i32 %.0
 
 219:                                              ; preds = %.loopexit.split-lp, %.body
   %.pn50.pn.pn = phi { ptr, i32 } [ %.pn50.pn, %.loopexit.split-lp ], [ %eh.lpad-body, %.body ]

@@ -513,7 +513,7 @@ common.resume:                                    ; preds = %89, %111, %130, %52
   br label %66
 
 66:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5f5219da1e2f4b07E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5f5219da1e2f4b07E.exit165"
-  %.0128 = phi i8 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5f5219da1e2f4b07E.exit165" ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5f5219da1e2f4b07E.exit" ]
+  %.1129 = phi i8 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5f5219da1e2f4b07E.exit165" ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5f5219da1e2f4b07E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %67 = load i64, ptr %60, align 8, !range !34, !alias.scope !90, !noundef !5
   %68 = icmp eq i64 %67, -9223372036854775808
@@ -547,7 +547,7 @@ common.resume:                                    ; preds = %89, %111, %130, %52
   br label %78
 
 78:                                               ; preds = %5, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd28c3938ef28e4e9E.exit"
-  %.1129 = phi i8 [ %.0128, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd28c3938ef28e4e9E.exit" ], [ 0, %5 ]
+  %.0128 = phi i8 [ %.1129, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd28c3938ef28e4e9E.exit" ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59)
   %79 = call noundef zeroext i1 @_ZN3std4path4Path11is_absolute17hab6b734b6194ad52E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br i1 %79, label %87, label %82
@@ -707,19 +707,19 @@ _ZN3std4path4Path4join17h3f8c1d5405bbf07dE.exit:  ; preds = %108
   br label %134
 
 130:                                              ; preds = %.body225, %132
-  %.1122 = phi i8 [ %.3, %.body225 ], [ %.2, %132 ]
+  %.3 = phi i8 [ %.2, %.body225 ], [ %.1122, %132 ]
   %.pn146.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn146.pn.pn.pn, %.body225 ], [ %133, %132 ]
-  %131 = trunc nuw i8 %.1122 to i1
+  %131 = trunc nuw i8 %.3 to i1
   br i1 %131, label %522, label %common.resume
 
 132:                                              ; preds = %501, %467, %124
-  %.2 = phi i8 [ 1, %124 ], [ %.3, %467 ], [ %.3, %501 ]
+  %.1122 = phi i8 [ 1, %124 ], [ %.2, %467 ], [ %.2, %501 ]
   %133 = landingpad { ptr, i32 }
           cleanup
   br label %130
 
 134:                                              ; preds = %124, %129
-  %.3 = phi i8 [ 1, %124 ], [ 0, %129 ]
+  %.2 = phi i8 [ 1, %124 ], [ 0, %129 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51)
   %135 = getelementptr inbounds i8, ptr %54, i64 8
@@ -1547,7 +1547,7 @@ _ZN3std4path7PathBuf4push17h0f27a9f147bb8fd8E.exit185: ; preds = %311, %272
   br i1 %381, label %389, label %399
 
 382:                                              ; preds = %.loopexit326
-  %383 = trunc nuw i8 %.1129 to i1
+  %383 = trunc nuw i8 %.0128 to i1
   br i1 %383, label %428, label %384
 
 384:                                              ; preds = %401, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h1c6a78c069d43a58E.exit", %399, %427, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h1c6a78c069d43a58E.exit220", %382, %.loopexit326
@@ -1592,7 +1592,7 @@ _ZN3std4path7PathBuf4push17h0f27a9f147bb8fd8E.exit185: ; preds = %311, %272
 
 399:                                              ; preds = %.noexc203
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %18), !noalias !323
-  %400 = trunc nuw i8 %.1129 to i1
+  %400 = trunc nuw i8 %.0128 to i1
   br i1 %400, label %416, label %384
 
 401:                                              ; preds = %395
@@ -1821,7 +1821,7 @@ _ZN3std4path7PathBuf4push17h0f27a9f147bb8fd8E.exit185: ; preds = %311, %272
 476:                                              ; preds = %474, %470, %.noexc228
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !440
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
-  %477 = trunc nuw i8 %.3 to i1
+  %477 = trunc nuw i8 %.2 to i1
   br i1 %477, label %478, label %123
 
 478:                                              ; preds = %476
@@ -1917,7 +1917,7 @@ _ZN3std4path7PathBuf4push17h0f27a9f147bb8fd8E.exit185: ; preds = %311, %272
 510:                                              ; preds = %508, %504, %.noexc238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !473
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
-  %511 = trunc nuw i8 %.3 to i1
+  %511 = trunc nuw i8 %.2 to i1
   br i1 %511, label %513, label %512
 
 512:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hb8e4026450e60633E.exit241", %510

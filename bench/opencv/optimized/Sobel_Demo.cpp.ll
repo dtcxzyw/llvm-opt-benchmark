@@ -361,9 +361,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %189
 
 149:                                              ; preds = %.preheader, %187
-  %.049 = phi i32 [ %.352, %187 ], [ %56, %.preheader ]
-  %.045 = phi i32 [ %.348, %187 ], [ %59, %.preheader ]
-  %.041 = phi i32 [ %.344, %187 ], [ %62, %.preheader ]
+  %.049 = phi i32 [ %.150, %187 ], [ %56, %.preheader ]
+  %.045 = phi i32 [ %.146, %187 ], [ %59, %.preheader ]
+  %.041 = phi i32 [ %.142, %187 ], [ %62, %.preheader ]
   store i32 0, ptr %71, align 8
   store i32 0, ptr %72, align 4
   store i32 16842752, ptr %26, align 8
@@ -518,23 +518,23 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %182 = icmp slt i32 %.049, 30
   %183 = add nsw i32 %.049, 2
   %184 = select i1 %182, i32 %183, i32 -1
-  %.150 = select i1 %or.cond, i32 %184, i32 %.049
+  %.251 = select i1 %or.cond, i32 %184, i32 %.049
   %or.cond5 = icmp eq i32 %181, 83
   %185 = zext i1 %or.cond5 to i32
-  %.146 = add nsw i32 %.045, %185
+  %.247 = add nsw i32 %.045, %185
   %or.cond8 = icmp eq i32 %181, 68
   %186 = zext i1 %or.cond8 to i32
-  %.142 = add nsw i32 %.041, %186
+  %.243 = add nsw i32 %.041, %186
   %or.cond11 = icmp eq i32 %181, 82
-  %.251 = select i1 %or.cond11, i32 -1, i32 %.150
-  %.247 = select i1 %or.cond11, i32 1, i32 %.146
-  %.243 = select i1 %or.cond11, i32 0, i32 %.142
+  %.352 = select i1 %or.cond11, i32 -1, i32 %.251
+  %.348 = select i1 %or.cond11, i32 1, i32 %.247
+  %.344 = select i1 %or.cond11, i32 0, i32 %.243
   br label %187
 
 187:                                              ; preds = %161, %180
-  %.352 = phi i32 [ %.251, %180 ], [ %.049, %161 ]
-  %.348 = phi i32 [ %.247, %180 ], [ %.045, %161 ]
-  %.344 = phi i32 [ %.243, %180 ], [ %.041, %161 ]
+  %.150 = phi i32 [ %.352, %180 ], [ %.049, %161 ]
+  %.146 = phi i32 [ %.348, %180 ], [ %.045, %161 ]
+  %.142 = phi i32 [ %.344, %180 ], [ %.041, %161 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #7
@@ -550,7 +550,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %189
 
 .loopexit:                                        ; preds = %187, %112
-  %.2 = phi i32 [ 1, %112 ], [ 0, %187 ]
+  %.0 = phi i32 [ 1, %112 ], [ 0, %187 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #7
@@ -558,7 +558,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #7
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  ret i32 %.2
+  ret i32 %.0
 
 189:                                              ; preds = %164, %162, %188, %148, %142
   %.pn100.pn = phi { ptr, i32 } [ %.pn100, %188 ], [ %143, %142 ], [ %.pn83, %148 ], [ %163, %162 ], [ %165, %164 ]

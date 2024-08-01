@@ -3894,7 +3894,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   br label %34
 
 34:                                               ; preds = %30, %26, %20, %19
-  %.1 = phi i1 [ true, %26 ], [ true, %20 ], [ true, %19 ], [ %narrow.not, %30 ]
+  %.082 = phi i1 [ true, %26 ], [ true, %20 ], [ true, %19 ], [ %narrow.not, %30 ]
   %.not92 = icmp eq ptr %16, null
   %.not93 = icmp eq ptr %16, %1
   %or.cond103 = or i1 %.not92, %.not93
@@ -3937,7 +3937,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
 
 55:                                               ; preds = %52, %48, %45, %41, %35, %34
   %.not96 = phi i1 [ true, %45 ], [ true, %41 ], [ true, %35 ], [ true, %34 ], [ %51, %48 ], [ %.not94, %52 ]
-  br i1 %.1, label %107, label %56
+  br i1 %.082, label %107, label %56
 
 56:                                               ; preds = %55
   store ptr null, ptr %7, align 8

@@ -3844,8 +3844,8 @@ for.body.lr.ph:                                   ; preds = %if.end19
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4cvc58internal8TypeNodeD2Ev.exit78
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
-  %retval.sroa.6.0152 = phi i8 [ 0, %for.body.lr.ph ], [ %retval.sroa.6.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
-  %retval.sroa.0.0151 = phi i64 [ 0, %for.body.lr.ph ], [ %call50, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
+  %retval.sroa.6.1152 = phi i8 [ 0, %for.body.lr.ph ], [ %retval.sroa.6.2, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
+  %retval.sroa.0.1151 = phi i64 [ 0, %for.body.lr.ph ], [ %call50, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
   invoke void @_ZNK4cvc58internal16DTypeConstructor10getArgTypeEm(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %tc, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 noundef %indvars.iv)
           to label %invoke.cont22 unwind label %lpad.loopexit
 
@@ -3952,7 +3952,7 @@ if.end46:                                         ; preds = %if.then13.i.i66, %i
           to label %invoke.cont47 unwind label %lpad41
 
 invoke.cont47:                                    ; preds = %if.end46
-  %call50 = invoke noundef i64 @_ZN4cvc58internal19maxCardinalityClassENS0_16CardinalityClassES1_(i64 noundef %retval.sroa.0.0151, i64 noundef %call48)
+  %call50 = invoke noundef i64 @_ZN4cvc58internal19maxCardinalityClassENS0_16CardinalityClassES1_(i64 noundef %retval.sroa.0.1151, i64 noundef %call48)
           to label %invoke.cont49 unwind label %lpad41
 
 invoke.cont49:                                    ; preds = %invoke.cont47
@@ -3960,7 +3960,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
   br i1 %cmp52.not, label %if.end60, label %if.then53
 
 if.then53:                                        ; preds = %invoke.cont49
-  %tobool55 = trunc nuw i8 %retval.sroa.6.0152 to i1
+  %tobool55 = trunc nuw i8 %retval.sroa.6.1152 to i1
   br i1 %tobool55, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then53
@@ -3977,7 +3977,7 @@ lor.end:                                          ; preds = %invoke.cont56, %if.
   br label %if.end60
 
 if.end60:                                         ; preds = %lor.end, %invoke.cont49
-  %retval.sroa.6.1 = phi i8 [ %retval.sroa.6.0152, %invoke.cont49 ], [ %frombool59, %lor.end ]
+  %retval.sroa.6.2 = phi i8 [ %retval.sroa.6.1152, %invoke.cont49 ], [ %frombool59, %lor.end ]
   %27 = load ptr, ptr %tc, align 8
   %bf.load.i.i67 = load i64, ptr %27, align 8
   %28 = and i64 %bf.load.i.i67, 1152920405095219200
@@ -4015,8 +4015,8 @@ ehcleanup:                                        ; preds = %lpad43, %lpad41
   br label %ehcleanup66
 
 for.end:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit78, %if.end19
-  %retval.sroa.0.0.lcssa = phi i64 [ 0, %if.end19 ], [ %call50, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
-  %retval.sroa.6.0.lcssa = phi i8 [ 0, %if.end19 ], [ %retval.sroa.6.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
+  %retval.sroa.0.1.lcssa = phi i64 [ 0, %if.end19 ], [ %call50, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
+  %retval.sroa.6.1.lcssa = phi i8 [ 0, %if.end19 ], [ %retval.sroa.6.2, %_ZN4cvc58internal8TypeNodeD2Ev.exit78 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %31 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -4067,9 +4067,9 @@ invoke.cont62:                                    ; preds = %lor.rhs.i, %if.then
   %second.i82 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  store i64 %retval.sroa.0.0.lcssa, ptr %second.i82, align 8
+  store i64 %retval.sroa.0.1.lcssa, ptr %second.i82, align 8
   %second3.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
-  %frombool.i86 = and i8 %retval.sroa.6.0.lcssa, 1
+  %frombool.i86 = and i8 %retval.sroa.6.1.lcssa, 1
   store i8 %frombool.i86, ptr %second3.i, align 8
   %cmp.not3.i.i.i.i88 = icmp eq ptr %.pr.i103, %11
   br i1 %cmp.not3.i.i.i.i88, label %invoke.cont.i104, label %for.body.i.i.i.i89
@@ -4167,10 +4167,10 @@ ehcleanup66:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i129, %invoke.cont.i127, %if.then
-  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.lcssa, %invoke.cont.i127 ], [ %retval.sroa.0.0.lcssa, %if.then.i.i.i129 ]
-  %retval.sroa.6.2 = phi i8 [ %retval.sroa.6.0.copyload, %if.then ], [ %retval.sroa.6.0.lcssa, %invoke.cont.i127 ], [ %retval.sroa.6.0.lcssa, %if.then.i.i.i129 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.6.2, 1
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.1.lcssa, %invoke.cont.i127 ], [ %retval.sroa.0.1.lcssa, %if.then.i.i.i129 ]
+  %retval.sroa.6.0 = phi i8 [ %retval.sroa.6.0.copyload, %if.then ], [ %retval.sroa.6.1.lcssa, %invoke.cont.i127 ], [ %retval.sroa.6.1.lcssa, %if.then.i.i.i129 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.6.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
@@ -6171,7 +6171,7 @@ lpad21:                                           ; preds = %invoke.cont20
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont29, %if.then34
-  %retval.0 = phi i32 [ %57, %if.then34 ], [ -1, %invoke.cont29 ]
+  %retval.1 = phi i32 [ %57, %if.then34 ], [ -1, %invoke.cont29 ]
   %61 = load ptr, ptr %domainType, align 8
   %bf.load.i.i104 = load i64, ptr %61, align 8
   %62 = and i64 %bf.load.i.i104, 1152920405095219200
@@ -6204,8 +6204,8 @@ ehcleanup:                                        ; preds = %lpad21, %lpad19
   br label %eh.resume
 
 return:                                           ; preds = %if.then13.i.i112, %if.then.i.i106, %cleanup, %if.then13
-  %retval.1 = phi i32 [ %conv, %if.then13 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i106 ], [ %retval.0, %if.then13.i.i112 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %conv, %if.then13 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i106 ], [ %retval.1, %if.then13.i.i112 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad16, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %58, %lpad16 ], [ %31, %lpad ]
@@ -11090,8 +11090,8 @@ ehcleanup382:                                     ; preds = %ehcleanup380, %ehcl
   br label %common.resume
 
 return:                                           ; preds = %if.then.i.i.i1249, %invoke.cont.i, %_ZNK4cvc58internal16DTypeConstructor10isResolvedEv.exit
-  %retval.5 = phi i1 [ false, %_ZNK4cvc58internal16DTypeConstructor10isResolvedEv.exit ], [ %cmp.i.not1305, %invoke.cont.i ], [ %cmp.i.not1305, %if.then.i.i.i1249 ]
-  ret i1 %retval.5
+  %retval.0 = phi i1 [ false, %_ZNK4cvc58internal16DTypeConstructor10isResolvedEv.exit ], [ %cmp.i.not1305, %invoke.cont.i ], [ %cmp.i.not1305, %if.then.i.i.i1249 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0

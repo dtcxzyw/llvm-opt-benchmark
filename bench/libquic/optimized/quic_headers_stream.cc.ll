@@ -880,12 +880,12 @@ _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; pre
 lpad25:                                           ; preds = %invoke.cont41, %if.end35
   %16 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i32 = icmp eq ptr %ack_listener.sroa.0.1, null
+  %tobool.not.i32 = icmp eq ptr %ack_listener.sroa.0.0, null
   br i1 %tobool.not.i32, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40, label %if.then.i33
 
 if.end35:                                         ; preds = %invoke.cont20.if.end35_crit_edge, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit
   %17 = phi i64 [ %.pre62, %invoke.cont20.if.end35_crit_edge ], [ %13, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
-  %ack_listener.sroa.0.1 = phi ptr [ null, %invoke.cont20.if.end35_crit_edge ], [ %call27, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
+  %ack_listener.sroa.0.0 = phi ptr [ null, %invoke.cont20.if.end35_crit_edge ], [ %call27, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
   %18 = load ptr, ptr %frame, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp36, ptr noundef %18, i64 noundef %17)
           to label %invoke.cont41 unwind label %lpad25
@@ -893,7 +893,7 @@ if.end35:                                         ; preds = %invoke.cont20.if.en
 invoke.cont41:                                    ; preds = %if.end35
   %19 = load ptr, ptr %agg.tmp36, align 8
   %20 = load i64, ptr %4, align 8
-  invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %19, i64 %20, i1 noundef zeroext false, ptr noundef %ack_listener.sroa.0.1)
+  invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %19, i64 %20, i1 noundef zeroext false, ptr noundef %ack_listener.sroa.0.0)
           to label %invoke.cont44 unwind label %lpad25
 
 invoke.cont44:                                    ; preds = %invoke.cont41
@@ -902,11 +902,11 @@ invoke.cont44:                                    ; preds = %invoke.cont41
   store i64 %add45, ptr %retval, align 8
   %sub46 = sub i64 %total_length.1, %.sroa.speculated
   %cmp47.not = icmp ugt i64 %total_length.1, %.sroa.speculated50
-  %tobool.not.i = icmp eq ptr %ack_listener.sroa.0.1, null
+  %tobool.not.i = icmp eq ptr %ack_listener.sroa.0.0, null
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont44
-  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.1, i64 8
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.0, i64 8
   %22 = load i32, ptr %add.ptr.i.i25, align 4
   %dec.i.i.i.i26 = add nsw i32 %22, -1
   store i32 %dec.i.i.i.i26, ptr %add.ptr.i.i25, align 4
@@ -914,10 +914,10 @@ if.then.i:                                        ; preds = %invoke.cont44
   br i1 %cmp.i.i.i.i27, label %delete.notnull.i.i.i28, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
 
 delete.notnull.i.i.i28:                           ; preds = %if.then.i
-  %vtable.i.i.i29 = load ptr, ptr %ack_listener.sroa.0.1, align 8
+  %vtable.i.i.i29 = load ptr, ptr %ack_listener.sroa.0.0, align 8
   %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 24
   %23 = load ptr, ptr %vfn.i.i.i30, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.1) #21
+  call void %23(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.0) #21
   br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
 
 _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit: ; preds = %invoke.cont44, %if.then.i, %delete.notnull.i.i.i28
@@ -949,7 +949,7 @@ for.inc:                                          ; preds = %do.cond
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 if.then.i33:                                      ; preds = %lpad25
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.1, i64 8
+  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %ack_listener.sroa.0.0, i64 8
   %27 = load i32, ptr %add.ptr.i.i34, align 4
   %dec.i.i.i.i35 = add nsw i32 %27, -1
   store i32 %dec.i.i.i.i35, ptr %add.ptr.i.i34, align 4
@@ -957,10 +957,10 @@ if.then.i33:                                      ; preds = %lpad25
   br i1 %cmp.i.i.i.i36, label %delete.notnull.i.i.i37, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
 
 delete.notnull.i.i.i37:                           ; preds = %if.then.i33
-  %vtable.i.i.i38 = load ptr, ptr %ack_listener.sroa.0.1, align 8
+  %vtable.i.i.i38 = load ptr, ptr %ack_listener.sroa.0.0, align 8
   %vfn.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i38, i64 24
   %28 = load ptr, ptr %vfn.i.i.i39, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.1) #21
+  call void %28(ptr noundef nonnull align 8 dereferenceable(12) %ack_listener.sroa.0.0) #21
   br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40
 
 _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit40: ; preds = %lpad25.thread, %lpad25, %if.then.i33, %delete.notnull.i.i.i37

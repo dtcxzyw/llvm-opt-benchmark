@@ -492,7 +492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; 
   br label %110
 
 109:                                              ; preds = %85, %106
-  %.0 = phi ptr [ %105, %106 ], [ null, %85 ]
+  %.1 = phi ptr [ %105, %106 ], [ null, %85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
   br label %111
 
@@ -502,10 +502,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; 
   br label %112
 
 111:                                              ; preds = %_ZNKSt8functionIFPN7xgboost6MetricEPKcEEclES4_.exit, %51, %109
-  %.1 = phi ptr [ %.0, %109 ], [ null, %51 ], [ %65, %_ZNKSt8functionIFPN7xgboost6MetricEPKcEEclES4_.exit ]
+  %.0 = phi ptr [ %.1, %109 ], [ null, %51 ], [ %65, %_ZNKSt8functionIFPN7xgboost6MetricEPKcEEclES4_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
-  ret ptr %.1
+  ret ptr %.0
 
 112:                                              ; preds = %110, %.body, %29
   %.pn30 = phi { ptr, i32 } [ %30, %29 ], [ %.pn28, %.body ], [ %.pn26, %110 ]

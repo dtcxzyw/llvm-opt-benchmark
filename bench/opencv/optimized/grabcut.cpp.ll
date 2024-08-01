@@ -1983,7 +1983,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit5.i: ; preds = %90, %_ZNSt6vect
   br label %115
 
 115:                                              ; preds = %51, %114
-  %.0 = phi i32 [ 0, %114 ], [ 1, %51 ]
+  %.1 = phi i32 [ 0, %114 ], [ 1, %51 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
   br label %117
 
@@ -1993,10 +1993,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit5.i: ; preds = %90, %_ZNSt6vect
   br label %118
 
 117:                                              ; preds = %28, %115
-  %.1 = phi i32 [ %.0, %115 ], [ 1, %28 ]
+  %.0 = phi i32 [ %.1, %115 ], [ 1, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  ret i32 %.1
+  ret i32 %.0
 
 118:                                              ; preds = %116, %53, %40
   %.pn24 = phi { ptr, i32 } [ %41, %40 ], [ %.pn22, %116 ], [ %54, %53 ]

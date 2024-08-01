@@ -1256,12 +1256,12 @@ phrase.exit:                                      ; preds = %217, %229, %233, %4
   br label %571
 
 571:                                              ; preds = %570, %564
-  %.sroa.0121.0 = phi i32 [ %.sroa.0121.0.copyload, %564 ], [ %.sroa.0121.0.copyload123, %570 ]
-  %.sroa.5124.0 = phi i32 [ %.sroa.5124.0.copyload, %564 ], [ %.sroa.5124.0.copyload126, %570 ]
-  %.sroa.7128.0 = phi i32 [ %.sroa.7128.0.copyload, %564 ], [ %.sroa.7128.0.copyload130, %570 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.9.0.copyload, %564 ], [ %.sroa.9.0.copyload133, %570 ]
-  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %564 ], [ %.sroa.10.0.copyload135, %570 ]
-  %.sroa.11.0 = phi i32 [ %.sroa.11.0.copyload, %564 ], [ %.sroa.11.0.copyload137, %570 ]
+  %.sroa.0121.1 = phi i32 [ %.sroa.0121.0.copyload, %564 ], [ %.sroa.0121.0.copyload123, %570 ]
+  %.sroa.5124.1 = phi i32 [ %.sroa.5124.0.copyload, %564 ], [ %.sroa.5124.0.copyload126, %570 ]
+  %.sroa.7128.1 = phi i32 [ %.sroa.7128.0.copyload, %564 ], [ %.sroa.7128.0.copyload130, %570 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0.copyload, %564 ], [ %.sroa.9.0.copyload133, %570 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.0.copyload, %564 ], [ %.sroa.10.0.copyload135, %570 ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.0.copyload, %564 ], [ %.sroa.11.0.copyload137, %570 ]
   %572 = load i64, ptr %565, align 8
   %573 = load i64, ptr %4, align 8
   %574 = add nsw i64 %573, %572
@@ -1269,19 +1269,19 @@ phrase.exit:                                      ; preds = %217, %229, %233, %4
   br label %575
 
 575:                                              ; preds = %.thread, %571, %563
-  %.sroa.0121.1 = phi i32 [ %.sroa.0121.0, %571 ], [ %.sroa.0121.0.copyload, %563 ], [ %.sroa.0121.0.copyload, %.thread ]
-  %.sroa.5124.1 = phi i32 [ %.sroa.5124.0, %571 ], [ %.sroa.5124.0.copyload, %563 ], [ %.sroa.5124.0.copyload, %.thread ]
-  %.sroa.7128.1 = phi i32 [ %.sroa.7128.0, %571 ], [ %.sroa.7128.0.copyload, %563 ], [ %.sroa.7128.0.copyload, %.thread ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %571 ], [ %.sroa.9.0.copyload, %563 ], [ %.sroa.9.0.copyload, %.thread ]
-  %.sroa.10.1 = phi i32 [ %.sroa.10.0, %571 ], [ %.sroa.10.0.copyload, %563 ], [ %.sroa.10.0.copyload, %.thread ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.0, %571 ], [ %.sroa.11.0.copyload, %563 ], [ %.sroa.11.0.copyload, %.thread ]
+  %.sroa.0121.0 = phi i32 [ %.sroa.0121.1, %571 ], [ %.sroa.0121.0.copyload, %563 ], [ %.sroa.0121.0.copyload, %.thread ]
+  %.sroa.5124.0 = phi i32 [ %.sroa.5124.1, %571 ], [ %.sroa.5124.0.copyload, %563 ], [ %.sroa.5124.0.copyload, %.thread ]
+  %.sroa.7128.0 = phi i32 [ %.sroa.7128.1, %571 ], [ %.sroa.7128.0.copyload, %563 ], [ %.sroa.7128.0.copyload, %.thread ]
+  %.sroa.9.0 = phi i32 [ %.sroa.9.1, %571 ], [ %.sroa.9.0.copyload, %563 ], [ %.sroa.9.0.copyload, %.thread ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.1, %571 ], [ %.sroa.10.0.copyload, %563 ], [ %.sroa.10.0.copyload, %.thread ]
+  %.sroa.11.0 = phi i32 [ %.sroa.11.1, %571 ], [ %.sroa.11.0.copyload, %563 ], [ %.sroa.11.0.copyload, %.thread ]
   %576 = getelementptr inbounds i8, ptr %6, i64 8
   %577 = load i32, ptr %576, align 8
   %.not89 = icmp eq i32 %577, 0
   br i1 %.not89, label %578, label %582
 
 578:                                              ; preds = %575
-  %579 = add nsw i32 %.sroa.11.1, 1900
+  %579 = add nsw i32 %.sroa.11.0, 1900
   %580 = sext i32 %579 to i64
   %581 = getelementptr inbounds i8, ptr %6, i64 88
   store i64 %580, ptr %581, align 8
@@ -1294,7 +1294,7 @@ phrase.exit:                                      ; preds = %217, %229, %233, %4
   br i1 %.not90, label %585, label %589
 
 585:                                              ; preds = %582
-  %586 = add nsw i32 %.sroa.10.1, 1
+  %586 = add nsw i32 %.sroa.10.0, 1
   %587 = sext i32 %586 to i64
   %588 = getelementptr inbounds i8, ptr %6, i64 72
   store i64 %587, ptr %588, align 8
@@ -1307,7 +1307,7 @@ phrase.exit:                                      ; preds = %217, %229, %233, %4
   br i1 %.not91, label %592, label %595
 
 592:                                              ; preds = %589
-  %593 = sext i32 %.sroa.9.1 to i64
+  %593 = sext i32 %.sroa.9.0 to i64
   %594 = getelementptr inbounds i8, ptr %6, i64 48
   store i64 %593, ptr %594, align 8
   br label %595
@@ -1370,9 +1370,9 @@ phrase.exit:                                      ; preds = %217, %229, %233, %4
   br i1 %.not97, label %636, label %641
 
 636:                                              ; preds = %632
-  %637 = sext i32 %.sroa.7128.1 to i64
-  %638 = sext i32 %.sroa.5124.1 to i64
-  %639 = sext i32 %.sroa.0121.1 to i64
+  %637 = sext i32 %.sroa.7128.0 to i64
+  %638 = sext i32 %.sroa.5124.0 to i64
+  %639 = sext i32 %.sroa.0121.0 to i64
   %.neg181 = mul nsw i64 %638, -60
   %.neg182 = mul nsw i64 %637, -3600
   %.neg183 = sub nsw i64 %.neg181, %639

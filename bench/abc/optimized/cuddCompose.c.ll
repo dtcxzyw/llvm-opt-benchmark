@@ -375,7 +375,7 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %85
 
 79:                                               ; preds = %67, %75
-  %.079 = phi ptr [ %76, %75 ], [ %55, %67 ]
+  %.1 = phi ptr [ %76, %75 ], [ %55, %67 ]
   %80 = load i32, ptr %61, align 4
   %81 = add i32 %80, -1
   store i32 %81, ptr %61, align 4
@@ -385,12 +385,12 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %84
 
 84:                                               ; preds = %24, %79
-  %.1 = phi ptr [ %29, %24 ], [ %.079, %79 ]
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 66, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %.1) #7
+  %.079 = phi ptr [ %29, %24 ], [ %.1, %79 ]
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 66, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %.079) #7
   br label %85
 
 85:                                               ; preds = %54, %24, %20, %17, %84, %78, %66
-  %.074 = phi ptr [ %.1, %84 ], [ null, %66 ], [ null, %78 ], [ %1, %17 ], [ %21, %20 ], [ null, %24 ], [ null, %54 ]
+  %.074 = phi ptr [ %.079, %84 ], [ null, %66 ], [ null, %78 ], [ %1, %17 ], [ %21, %20 ], [ null, %24 ], [ null, %54 ]
   ret ptr %.074
 }
 
@@ -2075,9 +2075,9 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   br label %89
 
 89:                                               ; preds = %82, %84
-  %.0156 = phi ptr [ %88, %84 ], [ %3, %82 ]
-  %.0155 = phi ptr [ %86, %84 ], [ %3, %82 ]
-  %90 = ptrtoint ptr %.0155 to i64
+  %.1157 = phi ptr [ %88, %84 ], [ %3, %82 ]
+  %.1 = phi ptr [ %86, %84 ], [ %3, %82 ]
+  %90 = ptrtoint ptr %.1 to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
   %93 = getelementptr inbounds i8, ptr %92, i64 4
@@ -2088,8 +2088,8 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
 
 96:                                               ; preds = %89, %75
   %.0158 = phi ptr [ %62, %75 ], [ %4, %89 ]
-  %.1157 = phi ptr [ %72, %75 ], [ %.0156, %89 ]
-  %.1 = phi ptr [ %72, %75 ], [ %.0155, %89 ]
+  %.0156 = phi ptr [ %72, %75 ], [ %.1157, %89 ]
+  %.0155 = phi ptr [ %72, %75 ], [ %.1, %89 ]
   %97 = sext i32 %5 to i64
   %98 = shl nsw i64 %97, 3
   %99 = tail call noalias ptr @malloc(i64 noundef %98) #8
@@ -2099,7 +2099,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
 101:                                              ; preds = %96
   %102 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %102, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0155) #7
   br label %164
 
 103:                                              ; preds = %96
@@ -2118,7 +2118,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %108, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0155) #7
   tail call void @free(ptr noundef nonnull %99) #7
   br label %164
 
@@ -2168,13 +2168,13 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds ptr, ptr %99, i64 %127
   store ptr null, ptr %129, align 8
-  %130 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %.0153, ptr noundef nonnull %99, ptr noundef %.1, ptr noundef %.0158, i32 noundef %5)
+  %130 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %.0153, ptr noundef nonnull %99, ptr noundef %.0155, ptr noundef %.0158, i32 noundef %5)
   tail call void @free(ptr noundef nonnull %99) #7
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %._crit_edge
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0155) #7
   tail call void @free(ptr noundef nonnull %104) #7
   br label %164
 
@@ -2186,13 +2186,13 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %138 = load i32, ptr %137, align 4
   %139 = add i32 %138, 1
   store i32 %139, ptr %137, align 4
-  %140 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %.0154, ptr noundef nonnull %104, ptr noundef %.1157, ptr noundef %.0158, i32 noundef %5)
+  %140 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr noundef %.0154, ptr noundef nonnull %104, ptr noundef %.0156, ptr noundef %.0158, i32 noundef %5)
   tail call void @free(ptr noundef nonnull %104) #7
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %133
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0155) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %130) #7
   br label %164
 
@@ -2204,7 +2204,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %148 = load i32, ptr %147, align 4
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0155) #7
   %150 = getelementptr inbounds ptr, ptr %2, i64 %127
   %151 = load ptr, ptr %150, align 8
   %152 = tail call ptr @cuddAddIteRecur(ptr noundef %0, ptr noundef %151, ptr noundef nonnull %130, ptr noundef nonnull %140) #7

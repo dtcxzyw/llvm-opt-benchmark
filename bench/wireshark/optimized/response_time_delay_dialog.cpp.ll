@@ -3800,14 +3800,14 @@ define linkonce_odr void @_ZNK5QListI7QStringE3midExx(ptr dead_on_unwind noalias
   br i1 %19, label %.thread.i, label %21
 
 .thread.i:                                        ; preds = %15, %17
-  %.138 = phi i64 [ %spec.select, %17 ], [ %14, %15 ]
-  %20 = icmp eq i64 %.138, %7
+  %.239 = phi i64 [ %spec.select, %17 ], [ %14, %15 ]
+  %20 = icmp eq i64 %.239, %7
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %.thread.i, %17
-  %.239 = phi i64 [ %.138, %.thread.i ], [ %spec.select, %17 ]
-  %.1 = phi i64 [ 0, %.thread.i ], [ %2, %17 ]
-  %22 = icmp sgt i64 %.239, 0
+  %.138 = phi i64 [ %.239, %.thread.i ], [ %spec.select, %17 ]
+  %.0 = phi i64 [ 0, %.thread.i ], [ %2, %17 ]
+  %22 = icmp sgt i64 %.138, 0
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %21, %4, %15
@@ -3832,15 +3832,15 @@ define linkonce_odr void @_ZNK5QListI7QStringE3midExx(ptr dead_on_unwind noalias
 
 32:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %33 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 24, i64 noundef 8, i64 noundef %.239, i32 noundef 1) #18
+  %33 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef nonnull %5, i64 noundef 24, i64 noundef 8, i64 noundef %.138, i32 noundef 1) #18
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 8) ]
   %34 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr %class.QString, ptr %36, i64 %.1
-  %38 = getelementptr %class.QString, ptr %37, i64 %.239
-  %.idx = mul i64 %.239, 24
+  %37 = getelementptr %class.QString, ptr %36, i64 %.0
+  %38 = getelementptr %class.QString, ptr %37, i64 %.138
+  %.idx = mul i64 %.138, 24
   %39 = icmp ne i64 %.idx, 0
   %40 = icmp ult ptr %37, %38
   %or.cond = and i1 %39, %40
@@ -7455,15 +7455,15 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i.i12: ; preds = %56
 
 .sink.split:                                      ; preds = %72, %75, %79, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i
   %.sink = phi ptr [ %39, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i ], [ %73, %79 ], [ %73, %75 ], [ %73, %72 ]
-  %.2.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i ], [ %1, %79 ], [ %1, %75 ], [ %1, %72 ]
+  %.0.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI8QVariantxEEvPT_T0_S3_.exit.i.i.i ], [ %1, %79 ], [ %1, %75 ], [ %1, %72 ]
   store ptr %.sink, ptr %11, align 8
   br label %81
 
 81:                                               ; preds = %.sink.split, %.critedge.i, %22, %.critedge.i14, %56
-  %.2 = phi ptr [ %1, %22 ], [ %1, %.critedge.i ], [ %1, %.critedge.i14 ], [ %1, %56 ], [ %.2.ph, %.sink.split ]
-  %82 = getelementptr i8, ptr %.2, i64 %9
+  %.0 = phi ptr [ %1, %22 ], [ %1, %.critedge.i ], [ %1, %.critedge.i14 ], [ %1, %56 ], [ %.0.ph, %.sink.split ]
+  %82 = getelementptr i8, ptr %.0, i64 %9
   %83 = load ptr, ptr %11, align 8
-  %84 = icmp ult ptr %.2, %82
+  %84 = icmp ult ptr %.0, %82
   br i1 %84, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i:                                         ; preds = %81
@@ -7472,7 +7472,7 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit.i.i12: ; preds = %56
 
 85:                                               ; preds = %.noexc22, %.lr.ph.i
   %86 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %90, %.noexc22 ]
-  %.010.i = phi ptr [ %.2, %.lr.ph.i ], [ %88, %.noexc22 ]
+  %.010.i = phi ptr [ %.0, %.lr.ph.i ], [ %88, %.noexc22 ]
   %87 = getelementptr %class.QVariant, ptr %83, i64 %86
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %.010.i)
           to label %.noexc22 unwind label %.loopexit

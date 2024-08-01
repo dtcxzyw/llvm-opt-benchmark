@@ -647,9 +647,9 @@ lpad120:                                          ; preds = %invoke.cont119
   unreachable
 
 cleanup126:                                       ; preds = %while.cond, %if.then.i.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %invoke.cont63, %invoke.cont90, %invoke.cont113, %invoke.cont99, %invoke.cont86, %invoke.cont32, %invoke.cont18
-  %retval.1 = phi i32 [ 0, %invoke.cont18 ], [ 0, %invoke.cont86 ], [ 0, %invoke.cont32 ], [ %call91, %invoke.cont99 ], [ %call91, %invoke.cont113 ], [ %call91, %invoke.cont90 ], [ 0, %invoke.cont63 ], [ 0, %if.then.i.i.i ], [ 0, %if.else.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %call91, %while.cond ]
+  %retval.0 = phi i32 [ 0, %invoke.cont18 ], [ 0, %invoke.cont86 ], [ 0, %invoke.cont32 ], [ %call91, %invoke.cont99 ], [ %call91, %invoke.cont113 ], [ %call91, %invoke.cont90 ], [ 0, %invoke.cont63 ], [ 0, %if.then.i.i.i ], [ 0, %if.else.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %call91, %while.cond ]
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %header) #13
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup127:                                     ; preds = %lpad, %lpad.i.i, %lpad98, %lpad75, %ehcleanup, %lpad27, %lpad12
   %.pn8 = phi { ptr, i32 } [ %2, %lpad12 ], [ %32, %lpad75 ], [ %44, %lpad98 ], [ %9, %lpad27 ], [ %.pn, %ehcleanup ], [ %1, %lpad ], [ %43, %lpad.i.i ]

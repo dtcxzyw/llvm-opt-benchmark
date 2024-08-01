@@ -1001,7 +1001,7 @@ for.body67:                                       ; preds = %invoke.cont61, %for
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc302
   %37 = phi ptr [ %32, %for.body77.lr.ph ], [ %123, %for.inc302 ]
   %pcSurface.0324 = phi ptr [ %add.ptr46, %for.body77.lr.ph ], [ %pcSurface.1, %for.inc302 ]
-  %iDefaultMatIndex.0323 = phi i32 [ -1, %for.body77.lr.ph ], [ %iDefaultMatIndex.2, %for.inc302 ]
+  %iDefaultMatIndex.0323 = phi i32 [ -1, %for.body77.lr.ph ], [ %iDefaultMatIndex.1, %for.inc302 ]
   %iNum.0322 = phi i32 [ 0, %for.body77.lr.ph ], [ %iNum.1, %for.inc302 ]
   %i72.0321 = phi i32 [ 0, %for.body77.lr.ph ], [ %inc303, %for.inc302 ]
   %ulNumVertices78 = getelementptr inbounds i8, ptr %pcSurface.0324, i64 84
@@ -1162,7 +1162,7 @@ if.else124:                                       ; preds = %if.else
   br label %if.end127
 
 if.end127:                                        ; preds = %if.else.i184, %if.else.i, %if.then.i180, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA64_KcmEEEvRS6_PT_DpOT0_.exit.i, %if.else124
-  %iDefaultMatIndex.1 = phi i32 [ %iDefaultMatIndex.0323, %if.else124 ], [ %iDefaultMatIndex.0323, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA64_KcmEEEvRS6_PT_DpOT0_.exit.i ], [ %conv120, %if.then.i180 ], [ %iDefaultMatIndex.0323, %if.else.i ], [ %conv120, %if.else.i184 ]
+  %iDefaultMatIndex.2 = phi i32 [ %iDefaultMatIndex.0323, %if.else124 ], [ %iDefaultMatIndex.0323, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA64_KcmEEEvRS6_PT_DpOT0_.exit.i ], [ %conv120, %if.then.i180 ], [ %iDefaultMatIndex.0323, %if.else.i ], [ %conv120, %if.else.i184 ]
   %55 = load i32, ptr %mNumVertices.i, align 4
   %conv129 = zext i32 %55 to i64
   %56 = mul nuw nsw i64 %conv129, 12
@@ -1556,7 +1556,7 @@ for.end298:                                       ; preds = %for.end284, %if.end
 for.inc302:                                       ; preds = %for.body77, %lor.lhs.false, %for.end298
   %123 = phi ptr [ %.pre347, %for.end298 ], [ %37, %lor.lhs.false ], [ %37, %for.body77 ]
   %iNum.1 = phi i32 [ %inc87, %for.end298 ], [ %iNum.0322, %lor.lhs.false ], [ %iNum.0322, %for.body77 ]
-  %iDefaultMatIndex.2 = phi i32 [ %iDefaultMatIndex.1, %for.end298 ], [ %iDefaultMatIndex.0323, %lor.lhs.false ], [ %iDefaultMatIndex.0323, %for.body77 ]
+  %iDefaultMatIndex.1 = phi i32 [ %iDefaultMatIndex.2, %for.end298 ], [ %iDefaultMatIndex.0323, %lor.lhs.false ], [ %iDefaultMatIndex.0323, %for.body77 ]
   %pcSurface.1 = phi ptr [ %add.ptr301, %for.end298 ], [ %pcSurface.0324, %lor.lhs.false ], [ %pcSurface.0324, %for.body77 ]
   %inc303 = add nuw i32 %i72.0321, 1
   %ulNumSurfaces75 = getelementptr inbounds i8, ptr %123, i64 84

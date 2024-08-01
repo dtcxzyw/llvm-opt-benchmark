@@ -2312,15 +2312,15 @@ opal_list_remove_first.exit620.thread:            ; preds = %979, %.preheader777
   br i1 %.not390, label %1021, label %.thread740
 
 .thread740:                                       ; preds = %1016, %1014, %1018
-  %.0309743 = phi i32 [ %1019, %1018 ], [ -18, %1014 ], [ %1011, %1016 ]
+  %.1310743 = phi i32 [ %1019, %1018 ], [ -18, %1014 ], [ %1011, %1016 ]
   %1020 = phi ptr [ %.pr.pre, %1018 ], [ %1012, %1014 ], [ %1012, %1016 ]
   call void @PMIx_Value_free(ptr noundef nonnull %1020, i64 noundef 1) #22
   store ptr null, ptr %25, align 8
   br label %1021
 
 1021:                                             ; preds = %1018, %.thread740
-  %.0309739 = phi i32 [ %1019, %1018 ], [ %.0309743, %.thread740 ]
-  %1022 = icmp eq i32 %.0309739, 0
+  %.1310739 = phi i32 [ %1019, %1018 ], [ %.1310743, %.thread740 ]
+  %1022 = icmp eq i32 %.1310739, 0
   %1023 = load ptr, ptr %23, align 8
   %1024 = icmp ne ptr %1023, null
   %or.cond = select i1 %1022, i1 %1024, i1 false
@@ -2495,15 +2495,15 @@ opal_obj_run_destructors.exit639:                 ; preds = %.lr.ph.i636, %1069
   br i1 %.not399, label %1101, label %.thread753
 
 .thread753:                                       ; preds = %1096, %1094, %1098
-  %.1310756 = phi i32 [ %1099, %1098 ], [ -18, %1094 ], [ %1091, %1096 ]
+  %.2756 = phi i32 [ %1099, %1098 ], [ -18, %1094 ], [ %1091, %1096 ]
   %1100 = phi ptr [ %.pr748.pre, %1098 ], [ %1092, %1094 ], [ %1092, %1096 ]
   call void @PMIx_Value_free(ptr noundef nonnull %1100, i64 noundef 1) #22
   store ptr null, ptr %29, align 8
   br label %1101
 
 1101:                                             ; preds = %1098, %.thread753
-  %.1310752 = phi i32 [ %1099, %1098 ], [ %.1310756, %.thread753 ]
-  %1102 = icmp eq i32 %.1310752, 0
+  %.2752 = phi i32 [ %1099, %1098 ], [ %.2756, %.thread753 ]
+  %1102 = icmp eq i32 %.2752, 0
   br i1 %1102, label %1103, label %.thread757
 
 1103:                                             ; preds = %1101
@@ -3040,8 +3040,8 @@ opal_obj_run_destructors.exit704:                 ; preds = %.lr.ph.i701, %1343
   br label %opal_obj_run_destructors.exit478
 
 opal_obj_run_destructors.exit478:                 ; preds = %.lr.ph.i573, %.lr.ph.i517, %.lr.ph.i629, %.lr.ph.i650, %opal_list_remove_first.exit641.thread, %opal_list_remove_first.exit620.thread, %opal_list_remove_first.exit564.thread, %opal_list_remove_first.exit508.thread, %173, %1354
-  %.2 = phi i32 [ %1355, %1354 ], [ %174, %173 ], [ %466, %opal_list_remove_first.exit508.thread ], [ %652, %opal_list_remove_first.exit564.thread ], [ %896, %opal_list_remove_first.exit620.thread ], [ %1124, %opal_list_remove_first.exit641.thread ], [ %1124, %.lr.ph.i650 ], [ %896, %.lr.ph.i629 ], [ %466, %.lr.ph.i517 ], [ %652, %.lr.ph.i573 ]
-  %.not420 = icmp eq i32 %.2, 0
+  %.0309 = phi i32 [ %1355, %1354 ], [ %174, %173 ], [ %466, %opal_list_remove_first.exit508.thread ], [ %652, %opal_list_remove_first.exit564.thread ], [ %896, %opal_list_remove_first.exit620.thread ], [ %1124, %opal_list_remove_first.exit641.thread ], [ %1124, %.lr.ph.i650 ], [ %896, %.lr.ph.i629 ], [ %466, %.lr.ph.i517 ], [ %652, %.lr.ph.i573 ]
+  %.not420 = icmp eq i32 %.0309, 0
   br i1 %.not420, label %opal_obj_run_destructors.exit478._crit_edge, label %opal_obj_run_destructors.exit478.thread
 
 opal_obj_run_destructors.exit478._crit_edge:      ; preds = %opal_obj_run_destructors.exit478
@@ -3049,7 +3049,7 @@ opal_obj_run_destructors.exit478._crit_edge:      ; preds = %opal_obj_run_destru
   br label %1380
 
 opal_obj_run_destructors.exit478.thread:          ; preds = %.lr.ph.i475, %.lr.ph.i678, %opal_list_remove_first.exit669.thread, %opal_list_remove_first.exit466.thread, %177, %108, %1351, %opal_obj_run_destructors.exit697, %188, %172, %opal_obj_run_destructors.exit478
-  %.2769 = phi i32 [ %.2, %opal_obj_run_destructors.exit478 ], [ -2, %opal_list_remove_first.exit669.thread ], [ -5, %opal_list_remove_first.exit466.thread ], [ -2, %177 ], [ -13, %108 ], [ %1353, %1351 ], [ %1330, %opal_obj_run_destructors.exit697 ], [ %187, %188 ], [ %171, %172 ], [ -2, %.lr.ph.i678 ], [ -5, %.lr.ph.i475 ]
+  %.0309769 = phi i32 [ %.0309, %opal_obj_run_destructors.exit478 ], [ -2, %opal_list_remove_first.exit669.thread ], [ -5, %opal_list_remove_first.exit466.thread ], [ -2, %177 ], [ -13, %108 ], [ %1353, %1351 ], [ %1330, %opal_obj_run_destructors.exit697 ], [ %187, %188 ], [ %171, %172 ], [ -2, %.lr.ph.i678 ], [ -5, %.lr.ph.i475 ]
   %1356 = load ptr, ptr %22, align 8
   %1357 = icmp ne ptr %1356, @ompi_mpi_comm_null
   %1358 = icmp ne ptr %1356, null
@@ -3107,12 +3107,12 @@ opal_obj_run_destructors.exit711:                 ; preds = %opal_obj_run_destru
 
 1380:                                             ; preds = %opal_obj_run_destructors.exit711, %opal_thread_add_fetch_32.exit706, %opal_obj_run_destructors.exit478._crit_edge, %opal_obj_run_destructors.exit478.thread
   %1381 = phi ptr [ %1356, %opal_obj_run_destructors.exit478.thread ], [ %.pre895, %opal_obj_run_destructors.exit478._crit_edge ], [ @ompi_mpi_comm_null, %opal_thread_add_fetch_32.exit706 ], [ @ompi_mpi_comm_null, %opal_obj_run_destructors.exit711 ]
-  %.2770 = phi i32 [ %.2769, %opal_obj_run_destructors.exit478.thread ], [ 0, %opal_obj_run_destructors.exit478._crit_edge ], [ %.2769, %opal_thread_add_fetch_32.exit706 ], [ %.2769, %opal_obj_run_destructors.exit711 ]
+  %.0309770 = phi i32 [ %.0309769, %opal_obj_run_destructors.exit478.thread ], [ 0, %opal_obj_run_destructors.exit478._crit_edge ], [ %.0309769, %opal_thread_add_fetch_32.exit706 ], [ %.0309769, %opal_obj_run_destructors.exit711 ]
   store ptr %1381, ptr %4, align 8
   br label %1382
 
 1382:                                             ; preds = %1380, %155
-  %.0302 = phi i32 [ %.2770, %1380 ], [ %154, %155 ]
+  %.0302 = phi i32 [ %.0309770, %1380 ], [ %154, %155 ]
   ret i32 %.0302
 }
 
@@ -3875,7 +3875,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %29
 
 46:                                               ; preds = %.lr.ph1731, %opal_obj_run_destructors.exit1565
   %indvars.iv1781 = phi i64 [ 0, %.lr.ph1731 ], [ %indvars.iv.next1782, %opal_obj_run_destructors.exit1565 ]
-  %.05271729 = phi i1 [ false, %.lr.ph1731 ], [ %.41645, %opal_obj_run_destructors.exit1565 ]
+  %.05271729 = phi i1 [ false, %.lr.ph1731 ], [ %.15281645, %opal_obj_run_destructors.exit1565 ]
   %47 = getelementptr inbounds %struct.pmix_app, ptr %36, i64 %indvars.iv1781
   %48 = load i32, ptr @opal_class_init_epoch, align 4
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
@@ -4086,7 +4086,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %142
 
 142:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %91
-  %.1528 = phi i1 [ true, %opal_obj_run_destructors.exit ], [ true, %opal_thread_add_fetch_32.exit ], [ %.05271729, %91 ]
+  %.2 = phi i1 [ true, %opal_obj_run_destructors.exit ], [ true, %opal_thread_add_fetch_32.exit ], [ %.05271729, %91 ]
   %143 = load ptr, ptr %89, align 8
   %144 = call i32 @ompi_info_get(ptr noundef %143, ptr noundef nonnull @.str.20, ptr noundef nonnull %14, ptr noundef nonnull %13) #22
   %145 = load i32, ptr %13, align 4
@@ -4195,7 +4195,7 @@ opal_obj_run_destructors.exit726:                 ; preds = %opal_obj_run_destru
   br label %192
 
 192:                                              ; preds = %opal_obj_run_destructors.exit726, %opal_thread_add_fetch_32.exit721, %142
-  %.2 = phi i1 [ true, %opal_obj_run_destructors.exit726 ], [ true, %opal_thread_add_fetch_32.exit721 ], [ %.1528, %142 ]
+  %.3 = phi i1 [ true, %opal_obj_run_destructors.exit726 ], [ true, %opal_thread_add_fetch_32.exit721 ], [ %.2, %142 ]
   %193 = call ptr @PMIx_Get_attribute_string(ptr noundef nonnull @.str.20) #22
   %194 = load ptr, ptr %89, align 8
   %195 = call i32 @ompi_info_get(ptr noundef %194, ptr noundef %193, ptr noundef nonnull %14, ptr noundef nonnull %13) #22
@@ -4305,7 +4305,7 @@ opal_obj_run_destructors.exit740:                 ; preds = %opal_obj_run_destru
   br label %243
 
 243:                                              ; preds = %opal_obj_run_destructors.exit740, %opal_thread_add_fetch_32.exit735, %192
-  %.3 = phi i1 [ true, %opal_obj_run_destructors.exit740 ], [ true, %opal_thread_add_fetch_32.exit735 ], [ %.2, %192 ]
+  %.4 = phi i1 [ true, %opal_obj_run_destructors.exit740 ], [ true, %opal_thread_add_fetch_32.exit735 ], [ %.3, %192 ]
   %244 = load ptr, ptr %89, align 8
   %245 = call i32 @ompi_info_get(ptr noundef %244, ptr noundef nonnull @.str.22, ptr noundef nonnull %14, ptr noundef nonnull %13) #22
   %246 = load i32, ptr %13, align 4
@@ -10678,7 +10678,7 @@ opal_obj_run_destructors.exit1544:                ; preds = %opal_obj_run_destru
   br i1 %.not666, label %.thread, label %3249
 
 .thread:                                          ; preds = %._crit_edge, %88, %3217
-  %.41646 = phi i1 [ %.3, %3217 ], [ %.05271729, %88 ], [ %.05271729, %._crit_edge ]
+  %.15281646 = phi i1 [ %.4, %3217 ], [ %.05271729, %88 ], [ %.05271729, %._crit_edge ]
   %3218 = call i32 @opal_getcwd(ptr noundef nonnull %24, i64 noundef 4097) #22
   %.not667 = icmp eq i32 %3218, 0
   br i1 %.not667, label %3226, label %3219
@@ -10756,7 +10756,7 @@ opal_obj_new.exit1551:                            ; preds = %.lr.ph.i.i1548, %32
   br label %3249
 
 3249:                                             ; preds = %opal_obj_new.exit1551, %3217
-  %.41645 = phi i1 [ %.41646, %opal_obj_new.exit1551 ], [ %.3, %3217 ]
+  %.15281645 = phi i1 [ %.15281646, %opal_obj_new.exit1551 ], [ %.4, %3217 ]
   %3250 = load volatile i64, ptr %44, align 8
   %.not670 = icmp eq i64 %3250, 0
   br i1 %.not670, label %.loopexit1671, label %3251
@@ -10878,7 +10878,7 @@ opal_obj_run_destructors.exit1565:                ; preds = %.lr.ph.i1562, %opal
   br i1 %exitcond.not, label %._crit_edge1732, label %46, !llvm.loop !63
 
 ._crit_edge1732:                                  ; preds = %opal_obj_run_destructors.exit1565
-  br i1 %.41645, label %3330, label %.critedge1755
+  br i1 %.15281645, label %3330, label %.critedge1755
 
 .critedge1755:                                    ; preds = %opal_obj_run_constructors.exit, %._crit_edge1732
   %3305 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_item_t_class, i64 56), align 8

@@ -2865,7 +2865,7 @@ if.end71:                                         ; preds = %invoke.cont65
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then68.invoke, %if.end71
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.end71 ], [ 4, %if.then68.invoke ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %if.end71 ], [ 4, %if.then68.invoke ]
   %46 = load ptr, ptr %identity_pairs, align 16
   %47 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %46, %47
@@ -2904,7 +2904,7 @@ ehcleanup:                                        ; preds = %lpad53, %lpad51
 
 cleanup74:                                        ; preds = %invoke.cont33, %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EED2Ev.exit
   %private_key.sink = phi ptr [ %private_key, %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EED2Ev.exit ], [ %ref.tmp32, %invoke.cont33 ]
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.0, %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EED2Ev.exit ], [ 4, %invoke.cont33 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.2, %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EED2Ev.exit ], [ 4, %invoke.cont33 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %private_key.sink) #26
   %49 = load i64, ptr %cert_error, align 8
   %and.i.i.i = and i64 %49, 1
@@ -2928,7 +2928,7 @@ ehcleanup75:                                      ; preds = %ehcleanup, %lpad43,
   br label %ehcleanup77
 
 cleanup76:                                        ; preds = %if.then.i.i, %cleanup74, %invoke.cont22
-  %cleanup.dest.slot.2 = phi i32 [ 4, %invoke.cont22 ], [ %cleanup.dest.slot.1, %cleanup74 ], [ %cleanup.dest.slot.1, %if.then.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 4, %invoke.cont22 ], [ %cleanup.dest.slot.1, %cleanup74 ], [ %cleanup.dest.slot.1, %if.then.i.i ]
   %52 = load i64, ptr %key_error, align 8
   %and.i.i.i64 = and i64 %52, 1
   %cmp.i.i.i65 = icmp eq i64 %and.i.i.i64, 0
@@ -2992,7 +2992,7 @@ terminate.lpad.i79:                               ; preds = %if.then.i.i.i77
   unreachable
 
 _ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit80: ; preds = %_ZZN9grpc_core30FileWatcherCertificateProvider32ReadIdentityKeyCertPairFromFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EN12SliceWrapperD2Ev.exit, %if.then.i.i75, %if.then.i.i.i77
-  %switch = icmp eq i32 %cleanup.dest.slot.2, 4
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 4
   br i1 %switch, label %for.inc, label %return
 
 ehcleanup77:                                      ; preds = %ehcleanup75, %lpad21, %lpad14

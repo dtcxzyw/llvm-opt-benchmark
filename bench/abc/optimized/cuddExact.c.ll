@@ -385,10 +385,10 @@ getMatrix.exit272:                                ; preds = %128, %.preheader.i2
 191:                                              ; preds = %.lr.ph524, %._crit_edge512
   %indvars.iv585 = phi i64 [ 1, %.lr.ph524 ], [ %indvars.iv.next586, %._crit_edge512 ]
   %indvars.iv573 = phi i32 [ %58, %.lr.ph524 ], [ %indvars.iv.next574, %._crit_edge512 ]
-  %.0213522 = phi ptr [ %131, %.lr.ph524 ], [ %.0214521, %._crit_edge512 ]
-  %.0214521 = phi ptr [ %118, %.lr.ph524 ], [ %.0213522, %._crit_edge512 ]
-  %.0216520 = phi ptr [ %121, %.lr.ph524 ], [ %.0218519, %._crit_edge512 ]
-  %.0218519 = phi ptr [ %105, %.lr.ph524 ], [ %.0216520, %._crit_edge512 ]
+  %.1522 = phi ptr [ %131, %.lr.ph524 ], [ %.1215521, %._crit_edge512 ]
+  %.1215521 = phi ptr [ %118, %.lr.ph524 ], [ %.1522, %._crit_edge512 ]
+  %.1217520 = phi ptr [ %121, %.lr.ph524 ], [ %.1219519, %._crit_edge512 ]
+  %.1219519 = phi ptr [ %105, %.lr.ph524 ], [ %.1217520, %._crit_edge512 ]
   %.0226517 = phi i32 [ %183, %.lr.ph524 ], [ %.1227.lcssa, %._crit_edge512 ]
   %.0230516 = phi i32 [ 1, %.lr.ph524 ], [ %.0231.lcssa, %._crit_edge512 ]
   %192 = sext i32 %indvars.iv573 to i64
@@ -413,11 +413,11 @@ getMatrix.exit272:                                ; preds = %128, %.preheader.i2
 
 202:                                              ; preds = %.lr.ph511, %.loopexit442
   %indvars.iv579 = phi i64 [ 0, %.lr.ph511 ], [ %indvars.iv.next580, %.loopexit442 ]
-  %.1227508 = phi i32 [ %.0226517, %.lr.ph511 ], [ %.4, %.loopexit442 ]
-  %.0231507 = phi i32 [ 0, %.lr.ph511 ], [ %.3234, %.loopexit442 ]
-  %203 = getelementptr inbounds ptr, ptr %.0216520, i64 %indvars.iv579
+  %.1227508 = phi i32 [ %.0226517, %.lr.ph511 ], [ %.2228, %.loopexit442 ]
+  %.0231507 = phi i32 [ 0, %.lr.ph511 ], [ %.1232, %.loopexit442 ]
+  %203 = getelementptr inbounds ptr, ptr %.1217520, i64 %indvars.iv579
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i32, ptr %.0213522, i64 %indvars.iv579
+  %205 = getelementptr inbounds i32, ptr %.1522, i64 %indvars.iv579
   %206 = load i32, ptr %205, align 4
   br i1 %184, label %.lr.ph.i276, label %.preheader.i273
 
@@ -608,8 +608,8 @@ updateUB.exit:                                    ; preds = %291, %.thread, %283
 
 297:                                              ; preds = %.lr.ph502, %checkSymmInfo.exit
   %indvars.iv575 = phi i64 [ %192, %.lr.ph502 ], [ %indvars.iv.next576.pre-phi, %checkSymmInfo.exit ]
-  %.2228500 = phi i32 [ %.0.i288, %.lr.ph502 ], [ %.3229, %checkSymmInfo.exit ]
-  %.1232499 = phi i32 [ %.0231507, %.lr.ph502 ], [ %.2233, %checkSymmInfo.exit ]
+  %.3229500 = phi i32 [ %.0.i288, %.lr.ph502 ], [ %.4, %checkSymmInfo.exit ]
+  %.2233499 = phi i32 [ %.0231507, %.lr.ph502 ], [ %.3234, %checkSymmInfo.exit ]
   %298 = load ptr, ptr %4, align 8
   %299 = trunc nsw i64 %indvars.iv575 to i32
   %300 = add i32 %188, %299
@@ -668,15 +668,15 @@ updateUB.exit:                                    ; preds = %291, %.thread, %283
   br i1 %exitcond.not.i301, label %.preheader57.i, label %.lr.ph.i297, !llvm.loop !17
 
 .preheader.i302:                                  ; preds = %.lr.ph62.i
-  %331 = icmp sgt i32 %.1232499, 0
+  %331 = icmp sgt i32 %.2233499, 0
   br i1 %331, label %.lr.ph65.preheader.i, label %._crit_edge70.i
 
 .preheader.thread.i:                              ; preds = %.preheader57.i
-  %332 = icmp slt i32 %.1232499, 1
+  %332 = icmp slt i32 %.2233499, 1
   br i1 %332, label %._crit_edge70.i, label %.lr.ph79.i
 
 .lr.ph65.preheader.i:                             ; preds = %.preheader.i302
-  %wide.trip.count.i304 = zext nneg i32 %.1232499 to i64
+  %wide.trip.count.i304 = zext nneg i32 %.2233499 to i64
   br label %.lr.ph65.i
 
 .lr.ph62.i:                                       ; preds = %.preheader57.i, %.lr.ph62.i
@@ -693,7 +693,7 @@ updateUB.exit:                                    ; preds = %291, %.thread, %283
 
 .lr.ph65.i:                                       ; preds = %._crit_edge.i305, %.lr.ph65.preheader.i
   %indvars.iv93.i = phi i64 [ 0, %.lr.ph65.preheader.i ], [ %indvars.iv.next94.i, %._crit_edge.i305 ]
-  %337 = getelementptr inbounds ptr, ptr %.0218519, i64 %indvars.iv93.i
+  %337 = getelementptr inbounds ptr, ptr %.1219519, i64 %indvars.iv93.i
   %338 = load ptr, ptr %337, align 8
   br label %339
 
@@ -724,21 +724,21 @@ updateUB.exit:                                    ; preds = %291, %.thread, %283
 
 ._crit_edge70.i:                                  ; preds = %._crit_edge.thread.i, %.preheader.thread.i, %.preheader.i302
   %.2.lcssa.i = phi i32 [ 0, %.preheader.i302 ], [ 0, %.preheader.thread.i ], [ %347, %._crit_edge.thread.i ]
-  %348 = icmp eq i32 %.2.lcssa.i, %.1232499
+  %348 = icmp eq i32 %.2.lcssa.i, %.2233499
   br i1 %348, label %.lr.ph79.i, label %349
 
 349:                                              ; preds = %._crit_edge70.i
   %350 = zext nneg i32 %.2.lcssa.i to i64
-  %351 = getelementptr inbounds i32, ptr %.0214521, i64 %350
+  %351 = getelementptr inbounds i32, ptr %.1215521, i64 %350
   %352 = load i32, ptr %351, align 4
   %353 = icmp sgt i32 %352, %326
   br i1 %353, label %.lr.ph79.i, label %updateEntry.exit
 
 .lr.ph79.i:                                       ; preds = %._crit_edge.i305, %.preheader.thread.i, %._crit_edge70.i, %349
   %354 = phi i32 [ 0, %349 ], [ 1, %._crit_edge70.i ], [ 1, %.preheader.thread.i ], [ 1, %._crit_edge.i305 ]
-  %.2.lcssa104.i = phi i32 [ %.2.lcssa.i, %349 ], [ %.1232499, %._crit_edge70.i ], [ %.1232499, %.preheader.thread.i ], [ %.1232499, %._crit_edge.i305 ]
+  %.2.lcssa104.i = phi i32 [ %.2.lcssa.i, %349 ], [ %.2233499, %._crit_edge70.i ], [ %.2233499, %.preheader.thread.i ], [ %.2233499, %._crit_edge.i305 ]
   %.pre.i = zext nneg i32 %.2.lcssa104.i to i64
-  %355 = getelementptr inbounds ptr, ptr %.0218519, i64 %.pre.i
+  %355 = getelementptr inbounds ptr, ptr %.1219519, i64 %.pre.i
   br label %356
 
 356:                                              ; preds = %356, %.lr.ph79.i
@@ -753,13 +753,13 @@ updateUB.exit:                                    ; preds = %291, %.thread, %283
   br i1 %exitcond101.not.i, label %._crit_edge80.i, label %356, !llvm.loop !21
 
 ._crit_edge80.i:                                  ; preds = %356
-  %361 = getelementptr inbounds i32, ptr %.0214521, i64 %.pre.i
+  %361 = getelementptr inbounds i32, ptr %.1215521, i64 %.pre.i
   store i32 %326, ptr %361, align 4
-  %362 = add nsw i32 %354, %.1232499
+  %362 = add nsw i32 %354, %.2233499
   br label %updateEntry.exit
 
 updateEntry.exit:                                 ; preds = %349, %._crit_edge80.i
-  %.0.i303 = phi i32 [ %362, %._crit_edge80.i ], [ %.1232499, %349 ]
+  %.0.i303 = phi i32 [ %362, %._crit_edge80.i ], [ %.2233499, %349 ]
   %363 = icmp eq i64 %indvars.iv575, 0
   br i1 %363, label %.loopexit442, label %364
 
@@ -854,15 +854,15 @@ pushDown.exit:                                    ; preds = %.lr.ph.i313, %.loop
   %396 = load i32, ptr %179, align 4
   %397 = load i32, ptr %180, align 8
   %398 = sub i32 %396, %397
-  %.not532 = icmp slt i32 %398, %.2228500
-  %.2228.mux = tail call i32 @llvm.smin.i32(i32 %398, i32 %.2228500)
+  %.not532 = icmp slt i32 %398, %.3229500
+  %.3229.mux = tail call i32 @llvm.smin.i32(i32 %398, i32 %.3229500)
   br i1 %.not532, label %.lr.ph.i334, label %checkSymmInfo.exit
 
 .thread352:                                       ; preds = %pushDown.exit
   %399 = load i32, ptr %179, align 4
   %400 = load i32, ptr %180, align 8
   %401 = sub i32 %399, %400
-  %spec.select436 = tail call i32 @llvm.smin.i32(i32 %401, i32 %.2228500)
+  %spec.select436 = tail call i32 @llvm.smin.i32(i32 %401, i32 %.3229500)
   br label %checkSymmInfo.exit
 
 .lr.ph.i334:                                      ; preds = %395
@@ -883,41 +883,41 @@ pushDown.exit:                                    ; preds = %.lr.ph.i313, %.loop
 
 checkSymmInfo.exit:                               ; preds = %369, %403, %.checkSymmInfo.exit_crit_edge, %.thread352, %395
   %indvars.iv.next576.pre-phi = phi i64 [ %.pre593, %.checkSymmInfo.exit_crit_edge ], [ %365, %.thread352 ], [ %365, %395 ], [ %365, %403 ], [ %365, %369 ]
-  %.2233 = phi i32 [ %.1232499, %.checkSymmInfo.exit_crit_edge ], [ %.0.i303, %.thread352 ], [ %.0.i303, %395 ], [ %.0.i303, %403 ], [ %.0.i303, %369 ]
-  %.3229 = phi i32 [ %.2228500, %.checkSymmInfo.exit_crit_edge ], [ %spec.select436, %.thread352 ], [ %.2228.mux, %395 ], [ %398, %403 ], [ %.2228500, %369 ]
+  %.3234 = phi i32 [ %.2233499, %.checkSymmInfo.exit_crit_edge ], [ %.0.i303, %.thread352 ], [ %.0.i303, %395 ], [ %.0.i303, %403 ], [ %.0.i303, %369 ]
+  %.4 = phi i32 [ %.3229500, %.checkSymmInfo.exit_crit_edge ], [ %spec.select436, %.thread352 ], [ %.3229.mux, %395 ], [ %398, %403 ], [ %.3229500, %369 ]
   %408 = icmp sgt i64 %indvars.iv575, 0
   br i1 %408, label %297, label %.loopexit442, !llvm.loop !24
 
 .loopexit442:                                     ; preds = %updateEntry.exit, %checkSymmInfo.exit, %updateUB.exit, %computeLB.exit
-  %.3234 = phi i32 [ %.0231507, %computeLB.exit ], [ %.0231507, %updateUB.exit ], [ %.0.i303, %updateEntry.exit ], [ %.2233, %checkSymmInfo.exit ]
-  %.4 = phi i32 [ %.1227508, %computeLB.exit ], [ %.0.i288, %updateUB.exit ], [ %.2228500, %updateEntry.exit ], [ %.3229, %checkSymmInfo.exit ]
+  %.1232 = phi i32 [ %.0231507, %computeLB.exit ], [ %.0231507, %updateUB.exit ], [ %.0.i303, %updateEntry.exit ], [ %.3234, %checkSymmInfo.exit ]
+  %.2228 = phi i32 [ %.1227508, %computeLB.exit ], [ %.0.i288, %updateUB.exit ], [ %.3229500, %updateEntry.exit ], [ %.4, %checkSymmInfo.exit ]
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %exitcond584.not = icmp eq i64 %indvars.iv.next580, %wide.trip.count583
   br i1 %exitcond584.not, label %._crit_edge512, label %202, !llvm.loop !25
 
 ._crit_edge512:                                   ; preds = %.loopexit442, %191
-  %.0231.lcssa = phi i32 [ 0, %191 ], [ %.3234, %.loopexit442 ]
-  %.1227.lcssa = phi i32 [ %.0226517, %191 ], [ %.4, %.loopexit442 ]
+  %.0231.lcssa = phi i32 [ 0, %191 ], [ %.1232, %.loopexit442 ]
+  %.1227.lcssa = phi i32 [ %.0226517, %191 ], [ %.2228, %.loopexit442 ]
   %indvars.iv.next586 = add nuw nsw i64 %indvars.iv585, 1
   %indvars.iv.next574 = add i32 %indvars.iv573, -1
   %exitcond590.not = icmp eq i64 %indvars.iv.next586, %wide.trip.count589
   br i1 %exitcond590.not, label %._crit_edge525, label %191, !llvm.loop !26
 
 ._crit_edge525:                                   ; preds = %._crit_edge512, %._crit_edge497
-  %.0218.lcssa = phi ptr [ %105, %._crit_edge497 ], [ %.0216520, %._crit_edge512 ]
-  %.0216.lcssa = phi ptr [ %121, %._crit_edge497 ], [ %.0218519, %._crit_edge512 ]
-  %.0214.lcssa = phi ptr [ %118, %._crit_edge497 ], [ %.0213522, %._crit_edge512 ]
-  %.0213.lcssa = phi ptr [ %131, %._crit_edge497 ], [ %.0214521, %._crit_edge512 ]
+  %.1219.lcssa = phi ptr [ %105, %._crit_edge497 ], [ %.1217520, %._crit_edge512 ]
+  %.1217.lcssa = phi ptr [ %121, %._crit_edge497 ], [ %.1219519, %._crit_edge512 ]
+  %.1215.lcssa = phi ptr [ %118, %._crit_edge497 ], [ %.1522, %._crit_edge512 ]
+  %.1.lcssa = phi ptr [ %131, %._crit_edge497 ], [ %.1215521, %._crit_edge512 ]
   %409 = tail call fastcc i32 @ddShuffle(ptr noundef %0, ptr noundef nonnull %136, i32 noundef %.0211.lcssa465, i32 noundef %.0212.lcssa)
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %ddShuffle.exit, label %411
 
 411:                                              ; preds = %._crit_edge525
-  tail call fastcc void @freeMatrix(ptr noundef %.0218.lcssa)
-  tail call fastcc void @freeMatrix(ptr noundef %.0216.lcssa)
+  tail call fastcc void @freeMatrix(ptr noundef %.1219.lcssa)
+  tail call fastcc void @freeMatrix(ptr noundef %.1217.lcssa)
   tail call void @free(ptr noundef %136) #8
-  tail call void @free(ptr noundef %.0213.lcssa) #8
-  tail call void @free(ptr noundef %.0214.lcssa) #8
+  tail call void @free(ptr noundef %.1.lcssa) #8
+  tail call void @free(ptr noundef %.1215.lcssa) #8
   tail call void @free(ptr noundef %143) #8
   tail call void @free(ptr noundef %140) #8
   br label %428
@@ -925,23 +925,23 @@ checkSymmInfo.exit:                               ; preds = %369, %403, %.checkS
 ddShuffle.exit:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i321, %._crit_edge525, %142, %138, %133, %getMatrix.exit272
   %.0221 = phi ptr [ null, %getMatrix.exit272 ], [ null, %133 ], [ null, %138 ], [ %140, %142 ], [ %140, %._crit_edge525 ], [ %140, %.lr.ph.i.i321 ], [ %140, %.lr.ph.i.i ]
   %.0220 = phi ptr [ null, %getMatrix.exit272 ], [ null, %133 ], [ null, %138 ], [ null, %142 ], [ %143, %._crit_edge525 ], [ %143, %.lr.ph.i.i321 ], [ %143, %.lr.ph.i.i ]
-  %.1219 = phi ptr [ %105, %getMatrix.exit272 ], [ %105, %133 ], [ %105, %138 ], [ %105, %142 ], [ %.0218.lcssa, %._crit_edge525 ], [ %.0218519, %.lr.ph.i.i321 ], [ %.0218519, %.lr.ph.i.i ]
-  %.1217 = phi ptr [ %121, %getMatrix.exit272 ], [ %121, %133 ], [ %121, %138 ], [ %121, %142 ], [ %.0216.lcssa, %._crit_edge525 ], [ %.0216520, %.lr.ph.i.i321 ], [ %.0216520, %.lr.ph.i.i ]
-  %.1215 = phi ptr [ %118, %getMatrix.exit272 ], [ %118, %133 ], [ %118, %138 ], [ %118, %142 ], [ %.0214.lcssa, %._crit_edge525 ], [ %.0214521, %.lr.ph.i.i321 ], [ %.0214521, %.lr.ph.i.i ]
-  %.1 = phi ptr [ null, %getMatrix.exit272 ], [ %131, %133 ], [ %131, %138 ], [ %131, %142 ], [ %.0213.lcssa, %._crit_edge525 ], [ %.0213522, %.lr.ph.i.i321 ], [ %.0213522, %.lr.ph.i.i ]
+  %.0218 = phi ptr [ %105, %getMatrix.exit272 ], [ %105, %133 ], [ %105, %138 ], [ %105, %142 ], [ %.1219.lcssa, %._crit_edge525 ], [ %.1219519, %.lr.ph.i.i321 ], [ %.1219519, %.lr.ph.i.i ]
+  %.0216 = phi ptr [ %121, %getMatrix.exit272 ], [ %121, %133 ], [ %121, %138 ], [ %121, %142 ], [ %.1217.lcssa, %._crit_edge525 ], [ %.1217520, %.lr.ph.i.i321 ], [ %.1217520, %.lr.ph.i.i ]
+  %.0214 = phi ptr [ %118, %getMatrix.exit272 ], [ %118, %133 ], [ %118, %138 ], [ %118, %142 ], [ %.1215.lcssa, %._crit_edge525 ], [ %.1215521, %.lr.ph.i.i321 ], [ %.1215521, %.lr.ph.i.i ]
+  %.0213 = phi ptr [ null, %getMatrix.exit272 ], [ %131, %133 ], [ %131, %138 ], [ %131, %142 ], [ %.1.lcssa, %._crit_edge525 ], [ %.1522, %.lr.ph.i.i321 ], [ %.1522, %.lr.ph.i.i ]
   %.0210 = phi ptr [ null, %getMatrix.exit272 ], [ null, %133 ], [ %136, %138 ], [ %136, %142 ], [ %136, %._crit_edge525 ], [ %136, %.lr.ph.i.i321 ], [ %136, %.lr.ph.i.i ]
-  %.not256 = icmp eq ptr %.1219, null
+  %.not256 = icmp eq ptr %.0218, null
   br i1 %.not256, label %414, label %ddShuffle.exit.thread370
 
 ddShuffle.exit.thread370:                         ; preds = %120, %127, %getMatrix.exit, %ddShuffle.exit
   %.0210385 = phi ptr [ %.0210, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
-  %.1384 = phi ptr [ %.1, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
-  %.1215383 = phi ptr [ %.1215, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ %118, %127 ], [ %118, %120 ]
-  %.1217382 = phi ptr [ %.1217, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
-  %.1219381 = phi ptr [ %.1219, %ddShuffle.exit ], [ %105, %getMatrix.exit ], [ %105, %127 ], [ %105, %120 ]
+  %.0213384 = phi ptr [ %.0213, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
+  %.0214383 = phi ptr [ %.0214, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ %118, %127 ], [ %118, %120 ]
+  %.0216382 = phi ptr [ %.0216, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
+  %.0218381 = phi ptr [ %.0218, %ddShuffle.exit ], [ %105, %getMatrix.exit ], [ %105, %127 ], [ %105, %120 ]
   %.0220380 = phi ptr [ %.0220, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
   %.0221379 = phi ptr [ %.0221, %ddShuffle.exit ], [ null, %getMatrix.exit ], [ null, %127 ], [ null, %120 ]
-  %412 = load ptr, ptr %.1219381, align 8
+  %412 = load ptr, ptr %.0218381, align 8
   %.not.i340 = icmp eq ptr %412, null
   br i1 %.not.i340, label %freeMatrix.exit, label %413
 
@@ -950,21 +950,21 @@ ddShuffle.exit.thread370:                         ; preds = %120, %127, %getMatr
   br label %freeMatrix.exit
 
 freeMatrix.exit:                                  ; preds = %ddShuffle.exit.thread370, %413
-  tail call void @free(ptr noundef nonnull %.1219381) #8
+  tail call void @free(ptr noundef nonnull %.0218381) #8
   br label %414
 
 414:                                              ; preds = %freeMatrix.exit, %ddShuffle.exit
   %.0210368 = phi ptr [ %.0210385, %freeMatrix.exit ], [ %.0210, %ddShuffle.exit ]
-  %.1367 = phi ptr [ %.1384, %freeMatrix.exit ], [ %.1, %ddShuffle.exit ]
-  %.1215366 = phi ptr [ %.1215383, %freeMatrix.exit ], [ %.1215, %ddShuffle.exit ]
-  %.1217365 = phi ptr [ %.1217382, %freeMatrix.exit ], [ %.1217, %ddShuffle.exit ]
+  %.0213367 = phi ptr [ %.0213384, %freeMatrix.exit ], [ %.0213, %ddShuffle.exit ]
+  %.0214366 = phi ptr [ %.0214383, %freeMatrix.exit ], [ %.0214, %ddShuffle.exit ]
+  %.0216365 = phi ptr [ %.0216382, %freeMatrix.exit ], [ %.0216, %ddShuffle.exit ]
   %.0220364 = phi ptr [ %.0220380, %freeMatrix.exit ], [ %.0220, %ddShuffle.exit ]
   %.0221363 = phi ptr [ %.0221379, %freeMatrix.exit ], [ %.0221, %ddShuffle.exit ]
-  %.not257 = icmp eq ptr %.1217365, null
+  %.not257 = icmp eq ptr %.0216365, null
   br i1 %.not257, label %418, label %415
 
 415:                                              ; preds = %414
-  %416 = load ptr, ptr %.1217365, align 8
+  %416 = load ptr, ptr %.0216365, align 8
   %.not.i341 = icmp eq ptr %416, null
   br i1 %.not.i341, label %freeMatrix.exit342, label %417
 
@@ -973,7 +973,7 @@ freeMatrix.exit:                                  ; preds = %ddShuffle.exit.thre
   br label %freeMatrix.exit342
 
 freeMatrix.exit342:                               ; preds = %415, %417
-  tail call void @free(ptr noundef nonnull %.1217365) #8
+  tail call void @free(ptr noundef nonnull %.0216365) #8
   br label %418
 
 418:                                              ; preds = %freeMatrix.exit342, %414
@@ -985,19 +985,19 @@ freeMatrix.exit342:                               ; preds = %415, %417
   br label %420
 
 420:                                              ; preds = %419, %418
-  %.not259 = icmp eq ptr %.1367, null
+  %.not259 = icmp eq ptr %.0213367, null
   br i1 %.not259, label %422, label %421
 
 421:                                              ; preds = %420
-  tail call void @free(ptr noundef nonnull %.1367) #8
+  tail call void @free(ptr noundef nonnull %.0213367) #8
   br label %422
 
 422:                                              ; preds = %421, %420
-  %.not260 = icmp eq ptr %.1215366, null
+  %.not260 = icmp eq ptr %.0214366, null
   br i1 %.not260, label %424, label %423
 
 423:                                              ; preds = %422
-  tail call void @free(ptr noundef nonnull %.1215366) #8
+  tail call void @free(ptr noundef nonnull %.0214366) #8
   br label %424
 
 424:                                              ; preds = %423, %422

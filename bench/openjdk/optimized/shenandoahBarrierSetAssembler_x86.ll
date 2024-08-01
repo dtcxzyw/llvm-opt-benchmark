@@ -1664,7 +1664,7 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
 
 54:                                               ; preds = %.preheader, %.critedge
   %.0194242 = phi i32 [ 0, %.preheader ], [ %59, %.critedge ]
-  %.sroa.0214.0241 = phi i32 [ -1, %.preheader ], [ %.sroa.0214.1, %.critedge ]
+  %.sroa.0214.1241 = phi i32 [ -1, %.preheader ], [ %.sroa.0214.2, %.critedge ]
   %55 = and i32 %.0194242, 2147483646
   %switch = icmp eq i32 %55, 4
   %.not235 = icmp eq i32 %.0194242, %2
@@ -1682,30 +1682,30 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   br i1 %.not237, label %.critedge, label %58
 
 58:                                               ; preds = %57
-  %.not238 = icmp eq i32 %.sroa.0214.0241, -1
+  %.not238 = icmp eq i32 %.sroa.0214.1241, -1
   br i1 %.not238, label %.critedge, label %60
 
 .critedge:                                        ; preds = %54, %58, %57, %56
-  %.sroa.0214.1 = phi i32 [ %.sroa.0214.0241, %56 ], [ %.sroa.0214.0241, %57 ], [ %.0194242, %58 ], [ %.sroa.0214.0241, %54 ]
+  %.sroa.0214.2 = phi i32 [ %.sroa.0214.1241, %56 ], [ %.sroa.0214.1241, %57 ], [ %.0194242, %58 ], [ %.sroa.0214.1241, %54 ]
   %59 = add nuw nsw i32 %.0194242, 1
   %exitcond.not = icmp eq i32 %59, 8
   br i1 %exitcond.not, label %60, label %54, !llvm.loop !6
 
 60:                                               ; preds = %58, %.critedge
-  %.sroa.0214.0.lcssa = phi i32 [ %.sroa.0214.0241, %58 ], [ %.sroa.0214.1, %.critedge ]
-  %.sroa.0124.0 = phi i32 [ %.0194242, %58 ], [ -1, %.critedge ]
-  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.0.lcssa) #6
-  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0124.0) #6
-  call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.0.lcssa, i32 %2) #6
+  %.sroa.0214.1.lcssa = phi i32 [ %.sroa.0214.1241, %58 ], [ %.sroa.0214.2, %.critedge ]
+  %.sroa.0124.1 = phi i32 [ %.0194242, %58 ], [ -1, %.critedge ]
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.1.lcssa) #6
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0124.1) #6
+  call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.1.lcssa, i32 %2) #6
   %61 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %62 = trunc i64 %61 to i32
-  call void @_ZN14MacroAssembler6shrptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.0.lcssa, i32 noundef %62) #6
+  call void @_ZN14MacroAssembler6shrptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.1.lcssa, i32 noundef %62) #6
   %63 = call noundef ptr @_ZN14ShenandoahHeap22in_cset_fast_test_addrEv() #6
   %64 = ptrtoint ptr %63 to i64
-  call void @_ZN14MacroAssembler6movptrE8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0124.0, i64 noundef %64) #6
-  store i32 %.sroa.0214.0.lcssa, ptr %12, align 8
+  call void @_ZN14MacroAssembler6movptrE8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0124.1, i64 noundef %64) #6
+  store i32 %.sroa.0214.1.lcssa, ptr %12, align 8
   %65 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %.sroa.0124.0, ptr %65, align 4
+  store i32 %.sroa.0124.1, ptr %65, align 4
   %66 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 -1, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %12, i64 12
@@ -1716,14 +1716,14 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   store ptr null, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %12, i64 40
   store i32 0, ptr %70, align 8
-  call void @_ZN14MacroAssembler7movboolE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.0.lcssa, ptr noundef nonnull %12) #6
-  call void @_ZN14MacroAssembler8testboolE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.0.lcssa) #6
+  call void @_ZN14MacroAssembler7movboolE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.1.lcssa, ptr noundef nonnull %12) #6
+  call void @_ZN14MacroAssembler8testboolE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.1.lcssa) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %9, i1 noundef zeroext true) #6
   br label %71
 
 71:                                               ; preds = %60, %5
-  %.sroa.0214.2 = phi i32 [ %.sroa.0214.0.lcssa, %60 ], [ -1, %5 ]
-  %.sroa.0124.1 = phi i32 [ %.sroa.0124.0, %60 ], [ -1, %5 ]
+  %.sroa.0214.0 = phi i32 [ %.sroa.0214.1.lcssa, %60 ], [ -1, %5 ]
+  %.sroa.0124.0 = phi i32 [ %.sroa.0124.1, %60 ], [ -1, %5 ]
   call fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not239 = icmp eq i32 %2, 0
   %72 = select i1 %.not239, i32 64, i32 72
@@ -2011,8 +2011,8 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP
   br i1 %34, label %187, label %188
 
 187:                                              ; preds = %186
-  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0124.1) #6
-  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.2) #6
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0124.0) #6
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.0214.0) #6
   br label %188
 
 188:                                              ; preds = %187, %186
@@ -2145,8 +2145,8 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %8
   br label %32
 
 32:                                               ; preds = %.critedge2, %30, %22
-  %.sroa.079.1 = phi i32 [ %4, %22 ], [ 7, %.critedge2 ], [ %6, %30 ]
-  %.1 = phi i1 [ false, %22 ], [ false, %.critedge2 ], [ true, %30 ]
+  %.sroa.079.0 = phi i32 [ %4, %22 ], [ 7, %.critedge2 ], [ %6, %30 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %.critedge2 ], [ true, %30 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
   %33 = getelementptr inbounds i8, ptr %10, i64 24
   %34 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2154,23 +2154,23 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #6
-  call void @_ZN19BarrierSetAssembler7load_atEP14MacroAssemblerm9BasicType8Register7AddressS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 %.sroa.079.1, ptr noundef nonnull %10, i32 %6, i32 %7) #6
+  call void @_ZN19BarrierSetAssembler7load_atEP14MacroAssemblerm9BasicType8Register7AddressS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 %.sroa.079.0, ptr noundef nonnull %10, i32 %6, i32 %7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
   %38 = getelementptr inbounds i8, ptr %11, i64 24
   %39 = load ptr, ptr %34, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(40) %38) #6
-  call void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP14MacroAssembler8Register7Addressm(ptr nonnull align 8 poison, ptr noundef %1, i32 %.sroa.079.1, ptr noundef nonnull %11, i64 noundef %2)
-  %.not95 = icmp eq i32 %.sroa.079.1, %4
+  call void @_ZN29ShenandoahBarrierSetAssembler22load_reference_barrierEP14MacroAssembler8Register7Addressm(ptr nonnull align 8 poison, ptr noundef %1, i32 %.sroa.079.0, ptr noundef nonnull %11, i64 noundef %2)
+  %.not95 = icmp eq i32 %.sroa.079.0, %4
   br i1 %.not95, label %50, label %42
 
 42:                                               ; preds = %32
-  call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %4, i32 %.sroa.079.1) #6
-  br i1 %.1, label %50, label %43
+  call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %4, i32 %.sroa.079.0) #6
+  br i1 %.0, label %50, label %43
 
 43:                                               ; preds = %42
-  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.079.1) #6
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %.sroa.079.0) #6
   br label %50
 
 44:                                               ; preds = %19

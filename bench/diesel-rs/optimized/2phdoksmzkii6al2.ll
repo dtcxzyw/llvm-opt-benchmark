@@ -4523,13 +4523,13 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
           to label %41 unwind label %39, !noalias !1291
 
 37:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i", %39
-  %.0.i = phi i8 [ %.1.i, %39 ], [ %.2.i, %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i" ]
+  %.1.i = phi i8 [ %.0.i, %39 ], [ %.4.i, %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i" ]
   %.pn43.i = phi { ptr, i32 } [ %40, %39 ], [ %.pn.i, %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i" ]
-  %38 = trunc nuw i8 %.0.i to i1
+  %38 = trunc nuw i8 %.1.i to i1
   br i1 %38, label %157, label %.thread
 
 39:                                               ; preds = %150, %143, %.noexc25
-  %.1.i = phi i8 [ 0, %143 ], [ %.4.i, %150 ], [ 1, %.noexc25 ]
+  %.0.i = phi i8 [ 0, %143 ], [ %.5.i, %150 ], [ 1, %.noexc25 ]
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %37
@@ -4566,13 +4566,13 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   br label %155
 
 "_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i": ; preds = %.body.i, %54, %47
-  %.2.i = phi i8 [ %.3.i, %47 ], [ 0, %.body.i ], [ 0, %54 ]
+  %.4.i = phi i8 [ %.2.i, %47 ], [ 0, %.body.i ], [ 0, %54 ]
   %.pn.i = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body.i, %.body.i ], [ %55, %54 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$diesel..mysql..connection..url..ConnectionOptions$GT$17h88e9805161736a63E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %21) #31
           to label %37 unwind label %151, !noalias !1291
 
 47:                                               ; preds = %144, %45
-  %.3.i = phi i8 [ 0, %144 ], [ 1, %45 ]
+  %.2.i = phi i8 [ 0, %144 ], [ 1, %45 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i"
@@ -4941,7 +4941,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   br label %150
 
 150:                                              ; preds = %149, %52
-  %.4.i = phi i8 [ 0, %149 ], [ 1, %52 ]
+  %.5.i = phi i8 [ 0, %149 ], [ 1, %52 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$diesel..mysql..connection..url..ConnectionOptions$GT$17h88e9805161736a63E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %21)
           to label %153 unwind label %39, !noalias !1291
 
@@ -4953,7 +4953,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
 
 153:                                              ; preds = %150
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %21), !noalias !1294
-  %154 = trunc nuw i8 %.4.i to i1
+  %154 = trunc nuw i8 %.5.i to i1
   br i1 %154, label %._crit_edge.i, label %.noexc26
 
 ._crit_edge.i:                                    ; preds = %153

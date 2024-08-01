@@ -634,7 +634,7 @@ _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds =
 
 .lr.ph:                                           ; preds = %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit, %116
   %.0862 = phi i32 [ %117, %116 ], [ 1, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit ]
-  %.sroa.5.061 = phi ptr [ %.sroa.5.2, %116 ], [ %62, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit ]
+  %.sroa.5.061 = phi ptr [ %.sroa.5.1, %116 ], [ %62, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit ]
   %66 = getelementptr i8, ptr %.sroa.5.061, i64 8
   %67 = load ptr, ptr %.sroa.5.061, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
@@ -729,7 +729,7 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i
           to label %_ZN20QMutableListIteratorIP19_recent_item_statusE6removeEv.exit unwind label %.loopexit
 
 _ZN20QMutableListIteratorIP19_recent_item_statusE6removeEv.exit: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i29, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i30, %76
-  %.sroa.5.1 = phi ptr [ %66, %76 ], [ %101, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i30 ], [ %101, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i29 ]
+  %.sroa.5.2 = phi ptr [ %66, %76 ], [ %101, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i30 ], [ %101, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i29 ]
   %105 = load ptr, ptr %67, align 8
   %.not.i.i.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i.i, label %_ZN19_recent_item_statusD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
@@ -777,13 +777,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %110
   br label %_ZN7QStringD2Ev.exit51
 
 116:                                              ; preds = %_ZN19_recent_item_statusD2Ev.exit, %74
-  %.sroa.5.2 = phi ptr [ %.sroa.5.1, %_ZN19_recent_item_statusD2Ev.exit ], [ %66, %74 ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %_ZN19_recent_item_statusD2Ev.exit ], [ %66, %74 ]
   %.19 = phi i32 [ %109, %_ZN19_recent_item_statusD2Ev.exit ], [ %.0862, %74 ]
   %117 = add i32 %.19, 1
   %118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   %119 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %120 = getelementptr ptr, ptr %118, i64 %119
-  %.not59 = icmp eq ptr %120, %.sroa.5.2
+  %.not59 = icmp eq ptr %120, %.sroa.5.1
   br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %116, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit
@@ -8162,7 +8162,7 @@ _ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit: ; preds =
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit, %56
-  %.sroa.5.017 = phi ptr [ %.sroa.5.2, %56 ], [ %15, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit ]
+  %.sroa.5.017 = phi ptr [ %.sroa.5.1, %56 ], [ %15, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit ]
   %19 = getelementptr i8, ptr %.sroa.5.017, i64 8
   %20 = load ptr, ptr %.sroa.5.017, align 8
   %21 = tail call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1) #26
@@ -8242,7 +8242,7 @@ _ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i
   br label %_ZN20QMutableListIteratorIP19_recent_item_statusE6removeEv.exit
 
 _ZN20QMutableListIteratorIP19_recent_item_statusE6removeEv.exit: ; preds = %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i6, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i7, %23
-  %.sroa.5.1 = phi ptr [ %19, %23 ], [ %48, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i7 ], [ %48, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i6 ]
+  %.sroa.5.2 = phi ptr [ %19, %23 ], [ %48, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.thread.i.i.i.i7 ], [ %48, %_ZNK17QArrayDataPointerIP19_recent_item_statusE11needsDetachEv.exit.i.i.i.i6 ]
   %52 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %_ZN19_recent_item_statusD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
@@ -8262,11 +8262,11 @@ _ZN19_recent_item_statusD2Ev.exit:                ; preds = %_ZN20QMutableListIt
   br label %56
 
 56:                                               ; preds = %_ZN19_recent_item_statusD2Ev.exit, %.lr.ph
-  %.sroa.5.2 = phi ptr [ %.sroa.5.1, %_ZN19_recent_item_statusD2Ev.exit ], [ %19, %.lr.ph ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %_ZN19_recent_item_statusD2Ev.exit ], [ %19, %.lr.ph ]
   %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 8), align 8
   %58 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16recent_captures_, i64 16), align 8
   %59 = getelementptr ptr, ptr %57, i64 %58
-  %.not = icmp eq ptr %59, %.sroa.5.2
+  %.not = icmp eq ptr %59, %.sroa.5.1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %56, %_ZN20QMutableListIteratorIP19_recent_item_statusEC2ER5QListIS1_E.exit
@@ -12313,15 +12313,15 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.i.i14: ; preds = %56
 
 .sink.split:                                      ; preds = %70, %74, %78, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i
   %.sink = phi ptr [ %38, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i ], [ %72, %78 ], [ %72, %74 ], [ %72, %70 ]
-  %.2.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i ], [ %1, %78 ], [ %1, %74 ], [ %1, %70 ]
+  %.0.ph = phi ptr [ %spec.select, %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i ], [ %1, %78 ], [ %1, %74 ], [ %1, %70 ]
   store ptr %.sink, ptr %11, align 8
   br label %80
 
 80:                                               ; preds = %.sink.split, %.critedge.i, %22, %.critedge.i16, %56
-  %.2 = phi ptr [ %1, %22 ], [ %1, %.critedge.i ], [ %1, %.critedge.i16 ], [ %1, %56 ], [ %.2.ph, %.sink.split ]
-  %81 = getelementptr i8, ptr %.2, i64 %9
+  %.0 = phi ptr [ %1, %22 ], [ %1, %.critedge.i ], [ %1, %.critedge.i16 ], [ %1, %56 ], [ %.0.ph, %.sink.split ]
+  %81 = getelementptr i8, ptr %.0, i64 %9
   %82 = load ptr, ptr %11, align 8
-  %83 = icmp ult ptr %.2, %81
+  %83 = icmp ult ptr %.0, %81
   br i1 %83, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
 
 .lr.ph.i:                                         ; preds = %80
@@ -12330,7 +12330,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.i.i14: ; preds = %56
 
 84:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i, %.lr.ph.i
   %85 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %98, %_ZN7QStringC2ERKS_.exit.i ]
-  %.010.i = phi ptr [ %.2, %.lr.ph.i ], [ %96, %_ZN7QStringC2ERKS_.exit.i ]
+  %.010.i = phi ptr [ %.0, %.lr.ph.i ], [ %96, %_ZN7QStringC2ERKS_.exit.i ]
   %86 = getelementptr %class.QString, ptr %82, i64 %85
   %87 = load ptr, ptr %.010.i, align 8
   store ptr %87, ptr %86, align 8

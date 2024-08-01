@@ -289,9 +289,9 @@ if.end.i.i:                                       ; preds = %_ZN4absl15LogSeveri
   br i1 %or.cond1.i.i, label %if.end7.thread.i.i, label %if.end7.i.i
 
 if.end7.thread.i.i:                               ; preds = %if.end.i.i, %if.end.thread.i.i
-  %p.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.thread.i.i ], [ %incdec.ptr51.i, %if.end.i.i ]
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
-  store i8 32, ptr %p.0.i, align 1
+  %p.4.i = phi ptr [ %incdec.ptr.i.i, %if.end.thread.i.i ], [ %incdec.ptr51.i, %if.end.i.i ]
+  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %p.4.i, i64 1
+  store i8 32, ptr %p.4.i, align 1
   br label %if.end13.thread.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
@@ -300,9 +300,9 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond2.i.i, label %if.end13.thread.i.i, label %if.end13.i.i
 
 if.end13.thread.i.i:                              ; preds = %if.end7.i.i, %if.end7.thread.i.i
-  %p.1.i = phi ptr [ %incdec.ptr6.i.i, %if.end7.thread.i.i ], [ %incdec.ptr51.i, %if.end7.i.i ]
-  %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %p.1.i, i64 1
-  store i8 32, ptr %p.1.i, align 1
+  %p.3.i = phi ptr [ %incdec.ptr6.i.i, %if.end7.thread.i.i ], [ %incdec.ptr51.i, %if.end7.i.i ]
+  %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %p.3.i, i64 1
+  store i8 32, ptr %p.3.i, align 1
   br label %if.end19.thread.i.i
 
 if.end13.i.i:                                     ; preds = %if.end7.i.i
@@ -322,9 +322,9 @@ if.end19.i.i:                                     ; preds = %if.end13.i.i
   br i1 %or.cond4.i.i, label %if.end25.thread.i.i, label %if.end25.i.i
 
 if.end25.thread.i.i:                              ; preds = %if.end19.i.i, %if.end19.thread.i.i
-  %p.3.i = phi ptr [ %incdec.ptr18.i.i, %if.end19.thread.i.i ], [ %incdec.ptr51.i, %if.end19.i.i ]
-  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %p.3.i, i64 1
-  store i8 32, ptr %p.3.i, align 1
+  %p.1.i = phi ptr [ %incdec.ptr18.i.i, %if.end19.thread.i.i ], [ %incdec.ptr51.i, %if.end19.i.i ]
+  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %p.1.i, i64 1
+  store i8 32, ptr %p.1.i, align 1
   br label %if.then29.i.i
 
 if.end25.i.i:                                     ; preds = %if.end19.i.i
@@ -333,9 +333,9 @@ if.end25.i.i:                                     ; preds = %if.end19.i.i
   br i1 %or.cond5.i.i, label %if.then29.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
 
 if.then29.i.i:                                    ; preds = %if.end25.i.i, %if.end25.thread.i.i
-  %p.4.i = phi ptr [ %incdec.ptr24.i.i, %if.end25.thread.i.i ], [ %incdec.ptr51.i, %if.end25.i.i ]
-  %incdec.ptr30.i.i = getelementptr inbounds i8, ptr %p.4.i, i64 1
-  store i8 32, ptr %p.4.i, align 1
+  %p.0.i = phi ptr [ %incdec.ptr24.i.i, %if.end25.thread.i.i ], [ %incdec.ptr51.i, %if.end25.i.i ]
+  %incdec.ptr30.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
+  store i8 32, ptr %p.0.i, align 1
   br label %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
 
 _ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i: ; preds = %if.then29.i.i, %if.end25.i.i

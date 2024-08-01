@@ -3372,7 +3372,7 @@ do.body414:                                       ; preds = %if.end348
           to label %cleanup unwind label %lpad6
 
 cleanup:                                          ; preds = %do.body414, %delete.notnull, %invoke.cont7, %lor.lhs.false, %invoke.cont407, %invoke.cont393, %invoke.cont344, %invoke.cont334, %invoke.cont285, %invoke.cont275, %invoke.cont222, %invoke.cont212, %if.then167, %invoke.cont157, %if.then48, %if.then41, %if.end29
-  %retval.0 = phi i32 [ %call22, %if.end29 ], [ 0, %invoke.cont157 ], [ -1, %if.then48 ], [ -1, %if.then41 ], [ -1, %invoke.cont212 ], [ 0, %invoke.cont222 ], [ -1, %invoke.cont275 ], [ 0, %invoke.cont285 ], [ -1, %invoke.cont334 ], [ 0, %invoke.cont344 ], [ -1, %invoke.cont393 ], [ 0, %invoke.cont407 ], [ -1, %if.then167 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont7 ], [ -1, %delete.notnull ], [ -1, %do.body414 ]
+  %retval.1 = phi i32 [ %call22, %if.end29 ], [ 0, %invoke.cont157 ], [ -1, %if.then48 ], [ -1, %if.then41 ], [ -1, %invoke.cont212 ], [ 0, %invoke.cont222 ], [ -1, %invoke.cont275 ], [ 0, %invoke.cont285 ], [ -1, %invoke.cont334 ], [ 0, %invoke.cont344 ], [ -1, %invoke.cont393 ], [ 0, %invoke.cont407 ], [ -1, %if.then167 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont7 ], [ -1, %delete.notnull ], [ -1, %do.body414 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %protocol) #29
   br label %cleanup425
@@ -3384,7 +3384,7 @@ ehcleanup422:                                     ; preds = %lpad359, %lpad300, 
   br label %ehcleanup426
 
 cleanup425:                                       ; preds = %invoke.cont, %cleanup, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ %retval.0, %cleanup ], [ -1, %invoke.cont ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.1, %cleanup ], [ -1, %invoke.cont ]
   br i1 %tobool, label %if.then.i94, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit
 
 if.then.i94:                                      ; preds = %cleanup425
@@ -3409,7 +3409,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i97
   unreachable
 
 _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %cleanup425, %if.then.i94, %if.then.i.i97
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup426:                                     ; preds = %ehcleanup422, %lpad
   %.pn49.pn = phi { ptr, i32 } [ %.pn49, %ehcleanup422 ], [ %4, %lpad ]
@@ -4862,9 +4862,9 @@ while.cond.preheader:                             ; preds = %switch.early.test, 
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
-  %call270.pn = phi ptr [ %call270, %while.cond.preheader ], [ %check.0, %while.cond.backedge ]
-  %check.0 = getelementptr inbounds i8, ptr %call270.pn, i64 1
-  %59 = load i8, ptr %check.0, align 1
+  %call270.pn = phi ptr [ %call270, %while.cond.preheader ], [ %check.1, %while.cond.backedge ]
+  %check.1 = getelementptr inbounds i8, ptr %call270.pn, i64 1
+  %59 = load i8, ptr %check.1, align 1
   %conv285 = sext i8 %59 to i32
   %call286 = call i32 @isalnum(i32 noundef %conv285) #31
   %tobool287.not = icmp eq i32 %call286, 0
@@ -5387,7 +5387,7 @@ ehcleanup688:                                     ; preds = %ehcleanup687, %lpad
   br label %ehcleanup689
 
 cleanup:                                          ; preds = %delete.notnull565, %delete.notnull523, %if.then480, %delete.notnull483, %delete.notnull467, %delete.notnull425, %if.then340, %delete.notnull, %invoke.cont233, %invoke.cont, %lor.lhs.false, %invoke.cont685, %delete.end580, %if.then245, %invoke.cont204
-  %retval.0 = phi i32 [ 0, %invoke.cont204 ], [ 0, %invoke.cont685 ], [ -1, %delete.end580 ], [ -1, %if.then245 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont ], [ 0, %invoke.cont233 ], [ -1, %delete.notnull ], [ -1, %if.then340 ], [ -1, %delete.notnull425 ], [ -1, %delete.notnull467 ], [ -1, %delete.notnull483 ], [ -1, %if.then480 ], [ -1, %delete.notnull523 ], [ -1, %delete.notnull565 ]
+  %retval.1 = phi i32 [ 0, %invoke.cont204 ], [ 0, %invoke.cont685 ], [ -1, %delete.end580 ], [ -1, %if.then245 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont ], [ 0, %invoke.cont233 ], [ -1, %delete.notnull ], [ -1, %if.then340 ], [ -1, %delete.notnull425 ], [ -1, %delete.notnull467 ], [ -1, %delete.notnull483 ], [ -1, %if.then480 ], [ -1, %delete.notnull523 ], [ -1, %delete.notnull565 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %protocol) #29
   br label %return
@@ -5399,8 +5399,8 @@ ehcleanup689:                                     ; preds = %lpad535, %lpad491, 
   resume { ptr, i32 } %.pn87.pn
 
 return:                                           ; preds = %if.end, %cleanup, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ %retval.0, %cleanup ], [ -1, %if.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.1, %cleanup ], [ -1, %if.end ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNK3zmq8object_t13find_endpointEPKc(ptr sret(%"struct.zmq::endpoint_t") align 8, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) local_unnamed_addr #2
@@ -5856,14 +5856,14 @@ if.then83:                                        ; preds = %invoke.cont79
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont79, %if.then83, %if.then52
-  %retval.0 = phi i32 [ -1, %if.then52 ], [ 0, %if.then83 ], [ 0, %invoke.cont79 ]
+  %retval.3 = phi i32 [ -1, %if.then52 ], [ 0, %if.then83 ], [ 0, %invoke.cont79 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %resolved_endpoint_uri) #29
   %.pre.pre.pre = load ptr, ptr %sync_lock, align 8
   br label %cleanup85
 
 cleanup85:                                        ; preds = %invoke.cont25, %cond.false29, %cleanup
   %.pre.pre = phi ptr [ %.pre.pre.pre, %cleanup ], [ %cond, %invoke.cont25 ], [ %cond, %cond.false29 ]
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont25 ], [ %call31, %cond.false29 ]
+  %retval.2 = phi i32 [ %retval.3, %cleanup ], [ 0, %invoke.cont25 ], [ %call31, %cond.false29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_uri_str) #29
   br label %cleanup86
 
@@ -5874,7 +5874,7 @@ ehcleanup:                                        ; preds = %lpad40, %cleanup.ac
 
 cleanup86:                                        ; preds = %invoke.cont11, %lor.lhs.false, %cleanup85
   %.pre = phi ptr [ %.pre.pre, %cleanup85 ], [ %cond, %lor.lhs.false ], [ %cond, %invoke.cont11 ]
-  %retval.2 = phi i32 [ %retval.1, %cleanup85 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont11 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup85 ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri_path) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri_protocol) #29
   br label %cleanup90
@@ -5887,7 +5887,7 @@ ehcleanup87:                                      ; preds = %ehcleanup, %lpad19,
 
 cleanup90:                                        ; preds = %invoke.cont, %cleanup86, %if.then4, %if.then
   %15 = phi ptr [ %cond, %if.then ], [ %cond, %if.then4 ], [ %.pre, %cleanup86 ], [ %cond, %invoke.cont ]
-  %retval.3 = phi i32 [ -1, %if.then ], [ -1, %if.then4 ], [ %retval.2, %cleanup86 ], [ -1, %invoke.cont ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then4 ], [ %retval.1, %cleanup86 ], [ -1, %invoke.cont ]
   %cmp.not.i15 = icmp eq ptr %15, null
   br i1 %cmp.not.i15, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit, label %if.then.i16
 
@@ -5913,7 +5913,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i19
   unreachable
 
 _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %cleanup90, %if.then.i16, %if.then.i.i19
-  ret i32 %retval.3
+  ret i32 %retval.0
 
 ehcleanup91:                                      ; preds = %ehcleanup87, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup87 ], [ %4, %lpad ]
@@ -7721,13 +7721,13 @@ call.i.noexc17:                                   ; preds = %if.then.i13
   br label %cleanup
 
 cleanup:                                          ; preds = %call.i.noexc17, %if.then50, %invoke.cont47, %invoke.cont32, %invoke.cont10, %lor.lhs.false, %sw.default, %if.then20
-  %retval.0 = phi i32 [ -1, %if.then20 ], [ -1, %sw.default ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont10 ], [ -1, %invoke.cont32 ], [ %call48, %invoke.cont47 ], [ -1, %if.then50 ], [ -1, %call.i.noexc17 ]
+  %retval.1 = phi i32 [ -1, %if.then20 ], [ -1, %sw.default ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont10 ], [ -1, %invoke.cont32 ], [ %call48, %invoke.cont47 ], [ -1, %if.then50 ], [ -1, %call.i.noexc17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %protocol) #29
   br label %cleanup54
 
 cleanup54:                                        ; preds = %if.then7, %cleanup, %if.then3, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ %retval.0, %cleanup ], [ 0, %if.then7 ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ %retval.1, %cleanup ], [ 0, %if.then7 ]
   %call.i.i20 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %_monitor_sync) #29
   %tobool.not.i.i21 = icmp eq i32 %call.i.i20, 0
   br i1 %tobool.not.i.i21, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %if.then.i.i22
@@ -7749,7 +7749,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i22
   unreachable
 
 _ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %cleanup54, %if.then.i.i22
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad9, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad9 ]

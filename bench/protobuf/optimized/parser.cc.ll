@@ -10254,7 +10254,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4
   br i1 %cmp.not42.i, label %if.then70, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %if.end.i
-  %frac_digits.044.i = phi i64 [ %inc.i, %if.end.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+  %frac_digits.144.i = phi i64 [ %inc.i, %if.end.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
   %__begin4.043.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
   %27 = load i8, ptr %__begin4.043.i, align 1
   %28 = add i8 %27, -48
@@ -10262,19 +10262,19 @@ for.body.i:                                       ; preds = %_ZNKSt17basic_strin
   br i1 %29, label %if.end.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %inc.i = add nuw i64 %frac_digits.044.i, 1
+  %inc.i = add nuw i64 %frac_digits.144.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.043.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i18.i
   br i1 %cmp.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, label %for.body.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i: ; preds = %if.end.i, %for.body.i
-  %frac_digits.0.lcssa.i = phi i64 [ %frac_digits.044.i, %for.body.i ], [ %sub.i.i, %if.end.i ]
-  %30 = add i64 %frac_digits.0.lcssa.i, -10
+  %frac_digits.1.lcssa.i = phi i64 [ %frac_digits.144.i, %for.body.i ], [ %sub.i.i, %if.end.i ]
+  %30 = add i64 %frac_digits.1.lcssa.i, -10
   %or.cond.i = icmp ult i64 %30, -9
   br i1 %or.cond.i, label %if.then70, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %frac_digits.0.lcssa.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %frac_digits.1.lcssa.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
   %call.i.i27.i61 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %.sroa.speculated.i.i, ptr nonnull %add.ptr.i.i, ptr noundef nonnull %val.i.i.i, i32 noundef 10)
           to label %call.i.i27.i.noexc unwind label %lpad
@@ -10285,8 +10285,8 @@ call.i.i27.i.noexc:                               ; preds = %lor.lhs.false10.i
   br i1 %call.i.i27.i61, label %if.end15.i, label %if.then70
 
 if.end15.i:                                       ; preds = %call.i.i27.i.noexc
-  %add.i = add nuw nsw i64 %frac_digits.0.lcssa.i, 1
-  %cmp.i.i28.not.i = icmp ugt i64 %sub.i, %frac_digits.0.lcssa.i
+  %add.i = add nuw nsw i64 %frac_digits.1.lcssa.i, 1
+  %cmp.i.i28.not.i = icmp ugt i64 %sub.i, %frac_digits.1.lcssa.i
   br i1 %cmp.i.i28.not.i, label %if.end18.i, label %if.then.i.i35.i.invoke
 
 if.then.i.i35.i.invoke:                           ; preds = %if.end15.i, %invoke.cont62
@@ -10301,14 +10301,14 @@ if.then.i.i35.i.cont:                             ; preds = %if.then.i.i35.i.inv
 if.end18.i:                                       ; preds = %if.end15.i
   %sub.i29.i = sub nuw i64 %sub.i, %add.i
   %add.ptr.i32.i = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %add.i
-  %34 = sub nuw nsw i64 9, %frac_digits.0.lcssa.i
-  %cmp2046.not.i = icmp eq i64 %frac_digits.0.lcssa.i, 9
+  %34 = sub nuw nsw i64 9, %frac_digits.1.lcssa.i
+  %cmp2046.not.i = icmp eq i64 %frac_digits.1.lcssa.i, 9
   br i1 %cmp2046.not.i, label %if.end78, label %for.body21.preheader.i
 
 for.body21.preheader.i:                           ; preds = %if.end18.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %invoke.cont64
   %rest.sroa.0.0 = phi i64 [ 0, %invoke.cont64 ], [ %sub.i29.i, %if.end18.i ], [ %sub.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   %rest.sroa.5.0 = phi ptr [ %add.ptr.i56, %invoke.cont64 ], [ %add.ptr.i32.i, %if.end18.i ], [ %add.ptr.i56, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
-  %frac_digits.157.i = phi i64 [ 9, %invoke.cont64 ], [ %34, %if.end18.i ], [ 9, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
+  %frac_digits.057.i = phi i64 [ 9, %invoke.cont64 ], [ %34, %if.end18.i ], [ 9, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   %frac_secs.056.i = phi i32 [ 0, %invoke.cont64 ], [ %31, %if.end18.i ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   br label %for.body21.i
 
@@ -10317,7 +10317,7 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %frac_secs.147.i = phi i32 [ %frac_secs.056.i, %for.body21.preheader.i ], [ %mul.i, %for.body21.i ]
   %mul.i = mul nsw i32 %frac_secs.147.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %frac_digits.157.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %frac_digits.057.i
   br i1 %exitcond.not.i, label %if.end78, label %for.body21.i, !llvm.loop !202
 
 if.then70:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, %call.i.i27.i.noexc
@@ -20415,8 +20415,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 if.end81:                                         ; preds = %sw.epilog, %for.end
-  %out.2 = phi ptr [ %add.ptr77, %sw.epilog ], [ %out.071, %for.end ]
-  %sub.ptr.lhs.cast85 = ptrtoint ptr %out.2 to i64
+  %out.1 = phi ptr [ %add.ptr77, %sw.epilog ], [ %out.071, %for.end ]
+  %sub.ptr.lhs.cast85 = ptrtoint ptr %out.1 to i64
   %sub.ptr.rhs.cast86 = ptrtoint ptr %base64.coerce0 to i64
   %sub.ptr.sub87 = sub i64 %sub.ptr.lhs.cast85, %sub.ptr.rhs.cast86
   %22 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -20570,7 +20570,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4ab
   br i1 %cmp.not42, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.end
-  %frac_digits.044 = phi i64 [ %inc, %if.end ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+  %frac_digits.144 = phi i64 [ %inc, %if.end ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %__begin4.043 = phi ptr [ %incdec.ptr, %if.end ], [ %add.ptr.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %0 = load i8, ptr %__begin4.043, align 1
   %1 = add i8 %0, -48
@@ -20578,19 +20578,19 @@ for.body:                                         ; preds = %_ZNKSt17basic_strin
   br i1 %2, label %if.end, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26
 
 if.end:                                           ; preds = %for.body
-  %inc = add nuw i64 %frac_digits.044, 1
+  %inc = add nuw i64 %frac_digits.144, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.043, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i18
   br i1 %cmp.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26, label %for.body
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26: ; preds = %for.body, %if.end
-  %frac_digits.0.lcssa = phi i64 [ %frac_digits.044, %for.body ], [ %sub.i, %if.end ]
-  %3 = add i64 %frac_digits.0.lcssa, -10
+  %frac_digits.1.lcssa = phi i64 [ %frac_digits.144, %for.body ], [ %sub.i, %if.end ]
+  %3 = add i64 %frac_digits.1.lcssa, -10
   %or.cond = icmp ult i64 %3, -9
   br i1 %or.cond, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %frac_digits.0.lcssa)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %frac_digits.1.lcssa)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)
   %call.i.i27 = call noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %.sroa.speculated.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %val.i.i, i32 noundef 10)
   %4 = load i32, ptr %val.i.i, align 4
@@ -20598,9 +20598,9 @@ lor.lhs.false10:                                  ; preds = %_ZNKSt17basic_strin
   br i1 %call.i.i27, label %if.end15, label %return
 
 if.end15:                                         ; preds = %lor.lhs.false10
-  %add = add nuw nsw i64 %frac_digits.0.lcssa, 1
+  %add = add nuw nsw i64 %frac_digits.1.lcssa, 1
   %5 = load i64, ptr %data, align 8
-  %cmp.i.i28.not = icmp ugt i64 %5, %frac_digits.0.lcssa
+  %cmp.i.i28.not = icmp ugt i64 %5, %frac_digits.1.lcssa
   br i1 %cmp.i.i28.not, label %if.end18, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %if.end15
@@ -20613,12 +20613,12 @@ if.end18:                                         ; preds = %if.end15
   %add.ptr.i32 = getelementptr inbounds i8, ptr %6, i64 %add
   store i64 %sub.i29, ptr %data, align 8
   store ptr %add.ptr.i32, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
-  %7 = sub nuw nsw i64 9, %frac_digits.0.lcssa
-  %cmp2046.not = icmp eq i64 %frac_digits.0.lcssa, 9
+  %7 = sub nuw nsw i64 9, %frac_digits.1.lcssa
+  %cmp2046.not = icmp eq i64 %frac_digits.1.lcssa, 9
   br i1 %cmp2046.not, label %return, label %for.body21.preheader
 
 for.body21.preheader:                             ; preds = %entry, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %if.end18
-  %frac_digits.157 = phi i64 [ %7, %if.end18 ], [ 9, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 9, %entry ]
+  %frac_digits.057 = phi i64 [ %7, %if.end18 ], [ 9, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 9, %entry ]
   %frac_secs.056 = phi i32 [ %4, %if.end18 ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ 0, %entry ]
   br label %for.body21
 
@@ -20627,7 +20627,7 @@ for.body21:                                       ; preds = %for.body21.preheade
   %frac_secs.147 = phi i32 [ %frac_secs.056, %for.body21.preheader ], [ %mul, %for.body21 ]
   %mul = mul nsw i32 %frac_secs.147, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %frac_digits.157
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %frac_digits.057
   br i1 %exitcond.not, label %return, label %for.body21, !llvm.loop !202
 
 return:                                           ; preds = %for.body21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.end18, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26, %lor.lhs.false10
@@ -24416,7 +24416,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN4
   br i1 %cmp.not42.i, label %if.then70, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %if.end.i
-  %frac_digits.044.i = phi i64 [ %inc.i, %if.end.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+  %frac_digits.144.i = phi i64 [ %inc.i, %if.end.i ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
   %__begin4.043.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %add.ptr.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
   %27 = load i8, ptr %__begin4.043.i, align 1
   %28 = add i8 %27, -48
@@ -24424,19 +24424,19 @@ for.body.i:                                       ; preds = %_ZNKSt17basic_strin
   br i1 %29, label %if.end.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %inc.i = add nuw i64 %frac_digits.044.i, 1
+  %inc.i = add nuw i64 %frac_digits.144.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.043.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i18.i
   br i1 %cmp.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, label %for.body.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i: ; preds = %if.end.i, %for.body.i
-  %frac_digits.0.lcssa.i = phi i64 [ %frac_digits.044.i, %for.body.i ], [ %sub.i.i, %if.end.i ]
-  %30 = add i64 %frac_digits.0.lcssa.i, -10
+  %frac_digits.1.lcssa.i = phi i64 [ %frac_digits.144.i, %for.body.i ], [ %sub.i.i, %if.end.i ]
+  %30 = add i64 %frac_digits.1.lcssa.i, -10
   %or.cond.i = icmp ult i64 %30, -9
   br i1 %or.cond.i, label %if.then70, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %frac_digits.0.lcssa.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %frac_digits.1.lcssa.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
   %call.i.i27.i61 = invoke noundef zeroext i1 @_ZN4absl12lts_2023080216numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %.sroa.speculated.i.i, ptr nonnull %add.ptr.i.i, ptr noundef nonnull %val.i.i.i, i32 noundef 10)
           to label %call.i.i27.i.noexc unwind label %lpad
@@ -24447,8 +24447,8 @@ call.i.i27.i.noexc:                               ; preds = %lor.lhs.false10.i
   br i1 %call.i.i27.i61, label %if.end15.i, label %if.then70
 
 if.end15.i:                                       ; preds = %call.i.i27.i.noexc
-  %add.i = add nuw nsw i64 %frac_digits.0.lcssa.i, 1
-  %cmp.i.i28.not.i = icmp ugt i64 %sub.i, %frac_digits.0.lcssa.i
+  %add.i = add nuw nsw i64 %frac_digits.1.lcssa.i, 1
+  %cmp.i.i28.not.i = icmp ugt i64 %sub.i, %frac_digits.1.lcssa.i
   br i1 %cmp.i.i28.not.i, label %if.end18.i, label %if.then.i.i35.i.invoke
 
 if.then.i.i35.i.invoke:                           ; preds = %if.end15.i, %invoke.cont62
@@ -24463,14 +24463,14 @@ if.then.i.i35.i.cont:                             ; preds = %if.then.i.i35.i.inv
 if.end18.i:                                       ; preds = %if.end15.i
   %sub.i29.i = sub nuw i64 %sub.i, %add.i
   %add.ptr.i32.i = getelementptr inbounds i8, ptr %add.ptr.i56, i64 %add.i
-  %34 = sub nuw nsw i64 9, %frac_digits.0.lcssa.i
-  %cmp2046.not.i = icmp eq i64 %frac_digits.0.lcssa.i, 9
+  %34 = sub nuw nsw i64 9, %frac_digits.1.lcssa.i
+  %cmp2046.not.i = icmp eq i64 %frac_digits.1.lcssa.i, 9
   br i1 %cmp2046.not.i, label %if.end78, label %for.body21.preheader.i
 
 for.body21.preheader.i:                           ; preds = %if.end18.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %invoke.cont64
   %rest.sroa.0.0 = phi i64 [ 0, %invoke.cont64 ], [ %sub.i29.i, %if.end18.i ], [ %sub.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   %rest.sroa.5.0 = phi ptr [ %add.ptr.i56, %invoke.cont64 ], [ %add.ptr.i32.i, %if.end18.i ], [ %add.ptr.i56, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
-  %frac_digits.157.i = phi i64 [ 9, %invoke.cont64 ], [ %34, %if.end18.i ], [ 9, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
+  %frac_digits.057.i = phi i64 [ 9, %invoke.cont64 ], [ %34, %if.end18.i ], [ 9, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   %frac_secs.056.i = phi i32 [ 0, %invoke.cont64 ], [ %31, %if.end18.i ], [ 0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   br label %for.body21.i
 
@@ -24479,7 +24479,7 @@ for.body21.i:                                     ; preds = %for.body21.i, %for.
   %frac_secs.147.i = phi i32 [ %frac_secs.056.i, %for.body21.preheader.i ], [ %mul.i, %for.body21.i ]
   %mul.i = mul nsw i32 %frac_secs.147.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %frac_digits.157.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %frac_digits.057.i
   br i1 %exitcond.not.i, label %if.end78, label %for.body21.i, !llvm.loop !202
 
 if.then70:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit26.i, %call.i.i27.i.noexc

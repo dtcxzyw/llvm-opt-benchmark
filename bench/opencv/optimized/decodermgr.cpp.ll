@@ -162,14 +162,14 @@ _ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit:     ; preds = %36, %41, %46
 
 51:                                               ; preds = %_ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit, %342
   %.044217 = phi i32 [ 0, %_ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit ], [ %343, %342 ]
-  %.sroa.0146.0216 = phi ptr [ null, %_ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit ], [ %.sroa.0146.2168, %342 ]
-  %52 = icmp eq ptr %.sroa.0146.0216, null
+  %.sroa.0146.1216 = phi ptr [ null, %_ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit ], [ %.sroa.0146.2168, %342 ]
+  %52 = icmp eq ptr %.sroa.0146.1216, null
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %.sroa.0146.0216, i64 68
+  %54 = getelementptr inbounds i8, ptr %.sroa.0146.1216, i64 68
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.0146.0216, i64 64
+  %56 = getelementptr inbounds i8, ptr %.sroa.0146.1216, i64 64
   %57 = load i32, ptr %56, align 8
   %58 = mul nsw i32 %57, %55
   %59 = icmp sgt i32 %17, %58
@@ -196,7 +196,7 @@ _ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit:     ; preds = %36, %41, %46
   br i1 %52, label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEEaSERKS4_.exit, label %69
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds i8, ptr %.sroa.0146.0216, i64 8
+  %70 = getelementptr inbounds i8, ptr %.sroa.0146.1216, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = add i32 %71, -1
   store i32 %72, ptr %70, align 8
@@ -205,10 +205,10 @@ _ZN5zxing3RefINS_11UnicomBlockEEaSEPS1_.exit:     ; preds = %36, %41, %46
 
 74:                                               ; preds = %69
   store i32 -559026175, ptr %70, align 8
-  %75 = load ptr, ptr %.sroa.0146.0216, align 8
+  %75 = load ptr, ptr %.sroa.0146.1216, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0146.0216) #15
+  call void %77(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0146.1216) #15
   %.pre = load ptr, ptr %7, align 8
   br label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEEaSERKS4_.exit
 
@@ -250,7 +250,7 @@ _ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEEaSERKS4_.exit: ; preds = %68, %69, 
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78
 
 .loopexit.split-lp189.loopexit:                   ; preds = %341, %93, %60
-  %.sroa.0146.1.ph.ph = phi ptr [ %.sroa.0146.2168, %341 ], [ %.sroa.0146.0216, %60 ], [ %.sroa.0146.0216, %93 ]
+  %.sroa.0146.0.ph.ph = phi ptr [ %.sroa.0146.2168, %341 ], [ %.sroa.0146.1216, %60 ], [ %.sroa.0146.1216, %93 ]
   %lpad.loopexit196 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78
@@ -268,14 +268,14 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread179: ; preds = %35
 
 93:                                               ; preds = %53
   %94 = load ptr, ptr %24, align 8
-  invoke void @_ZN2cv13wechat_qrcode9ImgSource5resetEPhii(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0146.0216, ptr noundef %94, i32 noundef %12, i32 noundef %14)
+  invoke void @_ZN2cv13wechat_qrcode9ImgSource5resetEPhii(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0146.1216, ptr noundef %94, i32 noundef %12, i32 noundef %14)
           to label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit.thread unwind label %.loopexit.split-lp189.loopexit
 
 _ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit: ; preds = %84, %79, %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEEaSERKS4_.exit
   br i1 %.not.i.i, label %98, label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit.thread
 
 _ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit.thread: ; preds = %93, %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit
-  %.sroa.0146.2167 = phi ptr [ %63, %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit ], [ %.sroa.0146.0216, %93 ]
+  %.sroa.0146.2167 = phi ptr [ %63, %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit ], [ %.sroa.0146.1216, %93 ]
   %95 = getelementptr inbounds i8, ptr %.sroa.0146.2167, i64 8
   %96 = load i32, ptr %95, align 8
   %97 = add i32 %96, 1
@@ -852,7 +852,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit: ; preds = %242, %.loop
   br i1 %exitcond.not, label %.loopexit187, label %51, !llvm.loop !20
 
 .loopexit187:                                     ; preds = %342, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, %.preheader
-  %.039 = phi i32 [ 0, %.preheader ], [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit ], [ -1, %342 ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit ], [ -1, %342 ]
   %.not.i107 = icmp eq ptr %.sroa.0146.2168, null
   br i1 %.not.i107, label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit108, label %344
 
@@ -934,15 +934,15 @@ _ZN5zxing8ArrayRefIhED2Ev.exit:                   ; preds = %371, %_ZNSt6vectorI
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78:  ; preds = %.loopexit188, %.loopexit.split-lp189.loopexit, %340, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit, %232, %227, %224, %213
-  %.sroa.0146.4 = phi ptr [ %.sroa.0146.2168, %213 ], [ %.sroa.0146.2168, %224 ], [ %.sroa.0146.2168, %227 ], [ %.sroa.0146.2168, %232 ], [ %.sroa.0146.2168, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit ], [ %.sroa.0146.2168, %340 ], [ %.sroa.0146.2168, %.loopexit188 ], [ %.sroa.0146.1.ph.ph, %.loopexit.split-lp189.loopexit ]
+  %.sroa.0146.3 = phi ptr [ %.sroa.0146.2168, %213 ], [ %.sroa.0146.2168, %224 ], [ %.sroa.0146.2168, %227 ], [ %.sroa.0146.2168, %232 ], [ %.sroa.0146.2168, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit ], [ %.sroa.0146.2168, %340 ], [ %.sroa.0146.2168, %.loopexit188 ], [ %.sroa.0146.0.ph.ph, %.loopexit.split-lp189.loopexit ]
   %.pn54 = phi { ptr, i32 } [ %214, %213 ], [ %225, %224 ], [ %225, %227 ], [ %225, %232 ], [ %.pn, %_ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit ], [ %.pn, %340 ], [ %lpad.loopexit190, %.loopexit188 ], [ %lpad.loopexit196, %.loopexit.split-lp189.loopexit ]
-  %.not.i115 = icmp eq ptr %.sroa.0146.4, null
+  %.not.i115 = icmp eq ptr %.sroa.0146.3, null
   br i1 %.not.i115, label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit116, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread: ; preds = %220, %215, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78
   %.pn54177 = phi { ptr, i32 } [ %.pn54, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78 ], [ %214, %215 ], [ %214, %220 ]
-  %.sroa.0146.4176 = phi ptr [ %.sroa.0146.4, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78 ], [ %.sroa.0146.2168, %215 ], [ %.sroa.0146.2168, %220 ]
-  %375 = getelementptr inbounds i8, ptr %.sroa.0146.4176, i64 8
+  %.sroa.0146.3176 = phi ptr [ %.sroa.0146.3, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78 ], [ %.sroa.0146.2168, %215 ], [ %.sroa.0146.2168, %220 ]
+  %375 = getelementptr inbounds i8, ptr %.sroa.0146.3176, i64 8
   %376 = load i32, ptr %375, align 8
   %377 = add i32 %376, -1
   store i32 %377, ptr %375, align 8
@@ -951,10 +951,10 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread: ; preds = %220, %215, %_
 
 379:                                              ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread
   store i32 -559026175, ptr %375, align 8
-  %380 = load ptr, ptr %.sroa.0146.4176, align 8
+  %380 = load ptr, ptr %.sroa.0146.3176, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8
-  call void %382(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0146.4176) #15
+  call void %382(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0146.3176) #15
   br label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit116
 
 _ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit116: ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread244, %379, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit78.thread179
@@ -1021,8 +1021,8 @@ _ZN5zxing8ArrayRefIhED2Ev.exit129:                ; preds = %88, %90, %_ZNSt6vec
   resume { ptr, i32 } %.pn54.pn.pn
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZN5zxing8ArrayRefIhED2Ev.exit, %5
-  %.1 = phi i32 [ -1, %5 ], [ %.039, %_ZN5zxing8ArrayRefIhED2Ev.exit ]
-  ret i32 %.1
+  %.039 = phi i32 [ -1, %5 ], [ %.1, %_ZN5zxing8ArrayRefIhED2Ev.exit ]
+  ret i32 %.039
 }
 
 declare i32 @__gxx_personality_v0(...)

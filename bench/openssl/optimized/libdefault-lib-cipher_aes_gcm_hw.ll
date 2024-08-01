@@ -109,19 +109,19 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %ares.042 = phi i32 [ %2, %while.body.lr.ph ], [ %rem, %while.body ]
-  %aad.addr.041 = phi ptr [ %aad, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
-  %aad_len.addr.040 = phi i64 [ %aad_len, %while.body.lr.ph ], [ %dec, %while.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %aad.addr.041, i64 1
-  %3 = load i8, ptr %aad.addr.041, align 1
-  %sub = sub i32 15, %ares.042
+  %ares.142 = phi i32 [ %2, %while.body.lr.ph ], [ %rem, %while.body ]
+  %aad.addr.141 = phi ptr [ %aad, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
+  %aad_len.addr.140 = phi i64 [ %aad_len, %while.body.lr.ph ], [ %dec, %while.body ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %aad.addr.141, i64 1
+  %3 = load i8, ptr %aad.addr.141, align 1
+  %sub = sub i32 15, %ares.142
   %idxprom = zext i32 %sub to i64
   %arrayidx14 = getelementptr inbounds [16 x i8], ptr %Xi, i64 0, i64 %idxprom
   %4 = load i8, ptr %arrayidx14, align 1
   %xor38 = xor i8 %4, %3
   store i8 %xor38, ptr %arrayidx14, align 1
-  %dec = add nsw i64 %aad_len.addr.040, -1
-  %add17 = add i32 %ares.042, 1
+  %dec = add nsw i64 %aad_len.addr.140, -1
+  %add17 = add i32 %ares.142, 1
   %rem = and i32 %add17, 15
   %cmp12 = icmp ne i32 %rem, 0
   %cmp13 = icmp ne i64 %dec, 0
@@ -138,21 +138,21 @@ if.then20:                                        ; preds = %while.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.end6
-  %aad_len.addr.1 = phi i64 [ %dec, %if.then20 ], [ %aad_len, %if.end6 ]
-  %aad.addr.1 = phi ptr [ %incdec.ptr, %if.then20 ], [ %aad, %if.end6 ]
-  %and = and i64 %aad_len.addr.1, -16
+  %aad_len.addr.0 = phi i64 [ %dec, %if.then20 ], [ %aad_len, %if.end6 ]
+  %aad.addr.0 = phi ptr [ %incdec.ptr, %if.then20 ], [ %aad, %if.end6 ]
+  %and = and i64 %aad_len.addr.0, -16
   %cmp25.not = icmp eq i64 %and, 0
   br i1 %cmp25.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  tail call void @ossl_aes_gcm_update_aad_avx512(ptr noundef nonnull %gcm, ptr noundef %aad.addr.1, i64 noundef %and) #4
-  %add.ptr = getelementptr inbounds i8, ptr %aad.addr.1, i64 %and
-  %sub28 = and i64 %aad_len.addr.1, 15
+  tail call void @ossl_aes_gcm_update_aad_avx512(ptr noundef nonnull %gcm, ptr noundef %aad.addr.0, i64 noundef %and) #4
+  %add.ptr = getelementptr inbounds i8, ptr %aad.addr.0, i64 %and
+  %sub28 = and i64 %aad_len.addr.0, 15
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then27, %if.end24
-  %aad_len.addr.2 = phi i64 [ %sub28, %if.then27 ], [ %aad_len.addr.1, %if.end24 ]
-  %aad.addr.2 = phi ptr [ %add.ptr, %if.then27 ], [ %aad.addr.1, %if.end24 ]
+  %aad_len.addr.2 = phi i64 [ %sub28, %if.then27 ], [ %aad_len.addr.0, %if.end24 ]
+  %aad.addr.2 = phi ptr [ %add.ptr, %if.then27 ], [ %aad.addr.0, %if.end24 ]
   %cmp30.not = icmp eq i64 %aad_len.addr.2, 0
   br i1 %cmp30.not, label %return.sink.split, label %if.then32
 

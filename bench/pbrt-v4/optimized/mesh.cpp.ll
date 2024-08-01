@@ -942,55 +942,55 @@ sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
   br label %sw.bb9.i.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %sw.bb.i.i.i, %while.end.i.i.i
-  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
+  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 5
   %3 = load i8, ptr %arrayidx10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %3 to i64
   %shl12.i.i.i = shl nuw nsw i64 %conv11.i.i.i, 40
-  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.1.i.i.i
+  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.2.i.i.i
   br label %sw.bb14.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %sw.bb9.i.i.i, %while.end.i.i.i
-  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
+  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 4
   %4 = load i8, ptr %arrayidx15.i.i.i, align 1
   %conv16.i.i.i = zext i8 %4 to i64
   %shl17.i.i.i = shl nuw nsw i64 %conv16.i.i.i, 32
-  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.2.i.i.i
+  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.3.i.i.i
   br label %sw.bb19.i.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %sw.bb14.i.i.i, %while.end.i.i.i
-  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
+  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 3
   %5 = load i8, ptr %arrayidx20.i.i.i, align 1
   %conv21.i.i.i = zext i8 %5 to i64
   %shl22.i.i.i = shl nuw nsw i64 %conv21.i.i.i, 24
-  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.3.i.i.i
+  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.4.i.i.i
   br label %sw.bb24.i.i.i
 
 sw.bb24.i.i.i:                                    ; preds = %sw.bb19.i.i.i, %while.end.i.i.i
-  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
+  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 2
   %6 = load i8, ptr %arrayidx25.i.i.i, align 1
   %conv26.i.i.i = zext i8 %6 to i64
   %shl27.i.i.i = shl nuw nsw i64 %conv26.i.i.i, 16
-  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.4.i.i.i
+  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.5.i.i.i
   br label %sw.bb29.i.i.i
 
 sw.bb29.i.i.i:                                    ; preds = %sw.bb24.i.i.i, %while.end.i.i.i
-  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
+  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 1
   %7 = load i8, ptr %arrayidx30.i.i.i, align 1
   %conv31.i.i.i = zext i8 %7 to i64
   %shl32.i.i.i = shl nuw nsw i64 %conv31.i.i.i, 8
-  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.5.i.i.i
+  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.6.i.i.i
   br label %sw.bb34.i.i.i
 
 sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %while.end.i.i.i
-  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
+  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
   %8 = load i8, ptr %key.addr.0.lcssa.i.i.i, align 1
   %conv36.i.i.i = zext i8 %8 to i64
-  %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
+  %xor37.i.i.i = xor i64 %h.7.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit
 
@@ -998,9 +998,9 @@ default.unreachable:                              ; preds = %while.end.i.i.i50, 
   unreachable
 
 _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit:      ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
-  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
-  %shr39.i.i.i = lshr i64 %h.7.i.i.i, 47
-  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.7.i.i.i
+  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
+  %shr39.i.i.i = lshr i64 %h.1.i.i.i, 47
+  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.1.i.i.i
   %mul41.i.i.i = mul i64 %xor40.i.i.i, -4132994306676758123
   %shr42.i.i.i = lshr i64 %mul41.i.i.i, 47
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
@@ -1151,62 +1151,62 @@ sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
   br label %sw.bb9.i.i.i90
 
 sw.bb9.i.i.i90:                                   ; preds = %sw.bb.i.i.i96, %while.end.i.i.i50
-  %h.1.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
+  %h.2.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
   %arrayidx10.i.i.i92 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 5
   %23 = load i8, ptr %arrayidx10.i.i.i92, align 1
   %conv11.i.i.i93 = zext i8 %23 to i64
   %shl12.i.i.i94 = shl nuw nsw i64 %conv11.i.i.i93, 40
-  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.1.i.i.i91
+  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.2.i.i.i91
   br label %sw.bb14.i.i.i84
 
 sw.bb14.i.i.i84:                                  ; preds = %sw.bb9.i.i.i90, %while.end.i.i.i50
-  %h.2.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
+  %h.3.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
   %arrayidx15.i.i.i86 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 4
   %24 = load i8, ptr %arrayidx15.i.i.i86, align 1
   %conv16.i.i.i87 = zext i8 %24 to i64
   %shl17.i.i.i88 = shl nuw nsw i64 %conv16.i.i.i87, 32
-  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.2.i.i.i85
+  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.3.i.i.i85
   br label %sw.bb19.i.i.i78
 
 sw.bb19.i.i.i78:                                  ; preds = %sw.bb14.i.i.i84, %while.end.i.i.i50
-  %h.3.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
+  %h.4.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
   %arrayidx20.i.i.i80 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 3
   %25 = load i8, ptr %arrayidx20.i.i.i80, align 1
   %conv21.i.i.i81 = zext i8 %25 to i64
   %shl22.i.i.i82 = shl nuw nsw i64 %conv21.i.i.i81, 24
-  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.3.i.i.i79
+  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.4.i.i.i79
   br label %sw.bb24.i.i.i72
 
 sw.bb24.i.i.i72:                                  ; preds = %sw.bb19.i.i.i78, %while.end.i.i.i50
-  %h.4.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
+  %h.5.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
   %arrayidx25.i.i.i74 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 2
   %26 = load i8, ptr %arrayidx25.i.i.i74, align 1
   %conv26.i.i.i75 = zext i8 %26 to i64
   %shl27.i.i.i76 = shl nuw nsw i64 %conv26.i.i.i75, 16
-  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.4.i.i.i73
+  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.5.i.i.i73
   br label %sw.bb29.i.i.i66
 
 sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %while.end.i.i.i50
-  %h.5.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
+  %h.6.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
   %arrayidx30.i.i.i68 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 1
   %27 = load i8, ptr %arrayidx30.i.i.i68, align 1
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
-  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
+  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.6.i.i.i67
   br label %sw.bb34.i.i.i61
 
 sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+  %h.7.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
   %conv36.i.i.i63 = zext i8 %28 to i64
-  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %xor37.i.i.i64 = xor i64 %h.7.i.i.i62, %conv36.i.i.i63
   %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102
 
 _ZN4pbrt11BufferCacheIiE6BufferC2EPKim.exit102:   ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
-  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
-  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
-  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %h.1.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.1.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.1.i.i.i54
   %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
   %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
   %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
@@ -1387,55 +1387,55 @@ sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
   br label %sw.bb9.i.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %sw.bb.i.i.i, %while.end.i.i.i
-  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
+  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 5
   %3 = load i8, ptr %arrayidx10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %3 to i64
   %shl12.i.i.i = shl nuw nsw i64 %conv11.i.i.i, 40
-  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.1.i.i.i
+  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.2.i.i.i
   br label %sw.bb14.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %sw.bb9.i.i.i, %while.end.i.i.i
-  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
+  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 4
   %4 = load i8, ptr %arrayidx15.i.i.i, align 1
   %conv16.i.i.i = zext i8 %4 to i64
   %shl17.i.i.i = shl nuw nsw i64 %conv16.i.i.i, 32
-  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.2.i.i.i
+  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.3.i.i.i
   br label %sw.bb19.i.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %sw.bb14.i.i.i, %while.end.i.i.i
-  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
+  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 3
   %5 = load i8, ptr %arrayidx20.i.i.i, align 1
   %conv21.i.i.i = zext i8 %5 to i64
   %shl22.i.i.i = shl nuw nsw i64 %conv21.i.i.i, 24
-  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.3.i.i.i
+  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.4.i.i.i
   br label %sw.bb24.i.i.i
 
 sw.bb24.i.i.i:                                    ; preds = %sw.bb19.i.i.i, %while.end.i.i.i
-  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
+  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 2
   %6 = load i8, ptr %arrayidx25.i.i.i, align 1
   %conv26.i.i.i = zext i8 %6 to i64
   %shl27.i.i.i = shl nuw nsw i64 %conv26.i.i.i, 16
-  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.4.i.i.i
+  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.5.i.i.i
   br label %sw.bb29.i.i.i
 
 sw.bb29.i.i.i:                                    ; preds = %sw.bb24.i.i.i, %while.end.i.i.i
-  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
+  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 1
   %7 = load i8, ptr %arrayidx30.i.i.i, align 1
   %conv31.i.i.i = zext i8 %7 to i64
   %shl32.i.i.i = shl nuw nsw i64 %conv31.i.i.i, 8
-  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.5.i.i.i
+  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.6.i.i.i
   br label %sw.bb34.i.i.i
 
 sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %while.end.i.i.i
-  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
+  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
   %8 = load i8, ptr %key.addr.0.lcssa.i.i.i, align 1
   %conv36.i.i.i = zext i8 %8 to i64
-  %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
+  %xor37.i.i.i = xor i64 %h.7.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit
 
@@ -1443,9 +1443,9 @@ default.unreachable:                              ; preds = %while.end.i.i.i50, 
   unreachable
 
 _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
-  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
-  %shr39.i.i.i = lshr i64 %h.7.i.i.i, 47
-  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.7.i.i.i
+  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
+  %shr39.i.i.i = lshr i64 %h.1.i.i.i, 47
+  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.1.i.i.i
   %mul41.i.i.i = mul i64 %xor40.i.i.i, -4132994306676758123
   %shr42.i.i.i = lshr i64 %mul41.i.i.i, 47
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
@@ -1596,62 +1596,62 @@ sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
   br label %sw.bb9.i.i.i90
 
 sw.bb9.i.i.i90:                                   ; preds = %sw.bb.i.i.i96, %while.end.i.i.i50
-  %h.1.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
+  %h.2.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
   %arrayidx10.i.i.i92 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 5
   %23 = load i8, ptr %arrayidx10.i.i.i92, align 1
   %conv11.i.i.i93 = zext i8 %23 to i64
   %shl12.i.i.i94 = shl nuw nsw i64 %conv11.i.i.i93, 40
-  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.1.i.i.i91
+  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.2.i.i.i91
   br label %sw.bb14.i.i.i84
 
 sw.bb14.i.i.i84:                                  ; preds = %sw.bb9.i.i.i90, %while.end.i.i.i50
-  %h.2.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
+  %h.3.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
   %arrayidx15.i.i.i86 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 4
   %24 = load i8, ptr %arrayidx15.i.i.i86, align 1
   %conv16.i.i.i87 = zext i8 %24 to i64
   %shl17.i.i.i88 = shl nuw nsw i64 %conv16.i.i.i87, 32
-  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.2.i.i.i85
+  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.3.i.i.i85
   br label %sw.bb19.i.i.i78
 
 sw.bb19.i.i.i78:                                  ; preds = %sw.bb14.i.i.i84, %while.end.i.i.i50
-  %h.3.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
+  %h.4.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
   %arrayidx20.i.i.i80 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 3
   %25 = load i8, ptr %arrayidx20.i.i.i80, align 1
   %conv21.i.i.i81 = zext i8 %25 to i64
   %shl22.i.i.i82 = shl nuw nsw i64 %conv21.i.i.i81, 24
-  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.3.i.i.i79
+  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.4.i.i.i79
   br label %sw.bb24.i.i.i72
 
 sw.bb24.i.i.i72:                                  ; preds = %sw.bb19.i.i.i78, %while.end.i.i.i50
-  %h.4.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
+  %h.5.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
   %arrayidx25.i.i.i74 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 2
   %26 = load i8, ptr %arrayidx25.i.i.i74, align 1
   %conv26.i.i.i75 = zext i8 %26 to i64
   %shl27.i.i.i76 = shl nuw nsw i64 %conv26.i.i.i75, 16
-  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.4.i.i.i73
+  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.5.i.i.i73
   br label %sw.bb29.i.i.i66
 
 sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %while.end.i.i.i50
-  %h.5.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
+  %h.6.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
   %arrayidx30.i.i.i68 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 1
   %27 = load i8, ptr %arrayidx30.i.i.i68, align 1
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
-  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
+  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.6.i.i.i67
   br label %sw.bb34.i.i.i61
 
 sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+  %h.7.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
   %conv36.i.i.i63 = zext i8 %28 to i64
-  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %xor37.i.i.i64 = xor i64 %h.7.i.i.i62, %conv36.i.i.i63
   %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102
 
 _ZN4pbrt11BufferCacheINS_6Point3IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
-  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
-  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
-  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %h.1.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.1.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.1.i.i.i54
   %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
   %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
   %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
@@ -1760,55 +1760,55 @@ sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
   br label %sw.bb9.i.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %sw.bb.i.i.i, %while.end.i.i.i
-  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
+  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 5
   %3 = load i8, ptr %arrayidx10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %3 to i64
   %shl12.i.i.i = shl nuw nsw i64 %conv11.i.i.i, 40
-  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.1.i.i.i
+  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.2.i.i.i
   br label %sw.bb14.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %sw.bb9.i.i.i, %while.end.i.i.i
-  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
+  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 4
   %4 = load i8, ptr %arrayidx15.i.i.i, align 1
   %conv16.i.i.i = zext i8 %4 to i64
   %shl17.i.i.i = shl nuw nsw i64 %conv16.i.i.i, 32
-  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.2.i.i.i
+  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.3.i.i.i
   br label %sw.bb19.i.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %sw.bb14.i.i.i, %while.end.i.i.i
-  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
+  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 3
   %5 = load i8, ptr %arrayidx20.i.i.i, align 1
   %conv21.i.i.i = zext i8 %5 to i64
   %shl22.i.i.i = shl nuw nsw i64 %conv21.i.i.i, 24
-  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.3.i.i.i
+  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.4.i.i.i
   br label %sw.bb24.i.i.i
 
 sw.bb24.i.i.i:                                    ; preds = %sw.bb19.i.i.i, %while.end.i.i.i
-  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
+  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 2
   %6 = load i8, ptr %arrayidx25.i.i.i, align 1
   %conv26.i.i.i = zext i8 %6 to i64
   %shl27.i.i.i = shl nuw nsw i64 %conv26.i.i.i, 16
-  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.4.i.i.i
+  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.5.i.i.i
   br label %sw.bb29.i.i.i
 
 sw.bb29.i.i.i:                                    ; preds = %sw.bb24.i.i.i, %while.end.i.i.i
-  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
+  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 1
   %7 = load i8, ptr %arrayidx30.i.i.i, align 1
   %conv31.i.i.i = zext i8 %7 to i64
   %shl32.i.i.i = shl nuw nsw i64 %conv31.i.i.i, 8
-  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.5.i.i.i
+  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.6.i.i.i
   br label %sw.bb34.i.i.i
 
 sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %while.end.i.i.i
-  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
+  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
   %8 = load i8, ptr %key.addr.0.lcssa.i.i.i, align 1
   %conv36.i.i.i = zext i8 %8 to i64
-  %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
+  %xor37.i.i.i = xor i64 %h.7.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit
 
@@ -1816,9 +1816,9 @@ default.unreachable:                              ; preds = %while.end.i.i.i50, 
   unreachable
 
 _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
-  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
-  %shr39.i.i.i = lshr i64 %h.7.i.i.i, 47
-  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.7.i.i.i
+  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
+  %shr39.i.i.i = lshr i64 %h.1.i.i.i, 47
+  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.1.i.i.i
   %mul41.i.i.i = mul i64 %xor40.i.i.i, -4132994306676758123
   %shr42.i.i.i = lshr i64 %mul41.i.i.i, 47
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
@@ -1969,62 +1969,62 @@ sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
   br label %sw.bb9.i.i.i90
 
 sw.bb9.i.i.i90:                                   ; preds = %sw.bb.i.i.i96, %while.end.i.i.i50
-  %h.1.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
+  %h.2.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
   %arrayidx10.i.i.i92 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 5
   %23 = load i8, ptr %arrayidx10.i.i.i92, align 1
   %conv11.i.i.i93 = zext i8 %23 to i64
   %shl12.i.i.i94 = shl nuw nsw i64 %conv11.i.i.i93, 40
-  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.1.i.i.i91
+  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.2.i.i.i91
   br label %sw.bb14.i.i.i84
 
 sw.bb14.i.i.i84:                                  ; preds = %sw.bb9.i.i.i90, %while.end.i.i.i50
-  %h.2.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
+  %h.3.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
   %arrayidx15.i.i.i86 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 4
   %24 = load i8, ptr %arrayidx15.i.i.i86, align 1
   %conv16.i.i.i87 = zext i8 %24 to i64
   %shl17.i.i.i88 = shl nuw nsw i64 %conv16.i.i.i87, 32
-  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.2.i.i.i85
+  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.3.i.i.i85
   br label %sw.bb19.i.i.i78
 
 sw.bb19.i.i.i78:                                  ; preds = %sw.bb14.i.i.i84, %while.end.i.i.i50
-  %h.3.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
+  %h.4.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
   %arrayidx20.i.i.i80 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 3
   %25 = load i8, ptr %arrayidx20.i.i.i80, align 1
   %conv21.i.i.i81 = zext i8 %25 to i64
   %shl22.i.i.i82 = shl nuw nsw i64 %conv21.i.i.i81, 24
-  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.3.i.i.i79
+  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.4.i.i.i79
   br label %sw.bb24.i.i.i72
 
 sw.bb24.i.i.i72:                                  ; preds = %sw.bb19.i.i.i78, %while.end.i.i.i50
-  %h.4.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
+  %h.5.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
   %arrayidx25.i.i.i74 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 2
   %26 = load i8, ptr %arrayidx25.i.i.i74, align 1
   %conv26.i.i.i75 = zext i8 %26 to i64
   %shl27.i.i.i76 = shl nuw nsw i64 %conv26.i.i.i75, 16
-  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.4.i.i.i73
+  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.5.i.i.i73
   br label %sw.bb29.i.i.i66
 
 sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %while.end.i.i.i50
-  %h.5.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
+  %h.6.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
   %arrayidx30.i.i.i68 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 1
   %27 = load i8, ptr %arrayidx30.i.i.i68, align 1
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
-  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
+  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.6.i.i.i67
   br label %sw.bb34.i.i.i61
 
 sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+  %h.7.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
   %conv36.i.i.i63 = zext i8 %28 to i64
-  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %xor37.i.i.i64 = xor i64 %h.7.i.i.i62, %conv36.i.i.i63
   %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102
 
 _ZN4pbrt11BufferCacheINS_6Point2IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
-  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
-  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
-  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %h.1.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.1.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.1.i.i.i54
   %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
   %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
   %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
@@ -2194,55 +2194,55 @@ sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
   br label %sw.bb9.i.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %sw.bb.i.i.i, %while.end.i.i.i
-  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
+  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 5
   %3 = load i8, ptr %arrayidx10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %3 to i64
   %shl12.i.i.i = shl nuw nsw i64 %conv11.i.i.i, 40
-  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.1.i.i.i
+  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.2.i.i.i
   br label %sw.bb14.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %sw.bb9.i.i.i, %while.end.i.i.i
-  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
+  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 4
   %4 = load i8, ptr %arrayidx15.i.i.i, align 1
   %conv16.i.i.i = zext i8 %4 to i64
   %shl17.i.i.i = shl nuw nsw i64 %conv16.i.i.i, 32
-  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.2.i.i.i
+  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.3.i.i.i
   br label %sw.bb19.i.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %sw.bb14.i.i.i, %while.end.i.i.i
-  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
+  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 3
   %5 = load i8, ptr %arrayidx20.i.i.i, align 1
   %conv21.i.i.i = zext i8 %5 to i64
   %shl22.i.i.i = shl nuw nsw i64 %conv21.i.i.i, 24
-  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.3.i.i.i
+  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.4.i.i.i
   br label %sw.bb24.i.i.i
 
 sw.bb24.i.i.i:                                    ; preds = %sw.bb19.i.i.i, %while.end.i.i.i
-  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
+  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 2
   %6 = load i8, ptr %arrayidx25.i.i.i, align 1
   %conv26.i.i.i = zext i8 %6 to i64
   %shl27.i.i.i = shl nuw nsw i64 %conv26.i.i.i, 16
-  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.4.i.i.i
+  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.5.i.i.i
   br label %sw.bb29.i.i.i
 
 sw.bb29.i.i.i:                                    ; preds = %sw.bb24.i.i.i, %while.end.i.i.i
-  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
+  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 1
   %7 = load i8, ptr %arrayidx30.i.i.i, align 1
   %conv31.i.i.i = zext i8 %7 to i64
   %shl32.i.i.i = shl nuw nsw i64 %conv31.i.i.i, 8
-  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.5.i.i.i
+  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.6.i.i.i
   br label %sw.bb34.i.i.i
 
 sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %while.end.i.i.i
-  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
+  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
   %8 = load i8, ptr %key.addr.0.lcssa.i.i.i, align 1
   %conv36.i.i.i = zext i8 %8 to i64
-  %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
+  %xor37.i.i.i = xor i64 %h.7.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit
 
@@ -2250,9 +2250,9 @@ default.unreachable:                              ; preds = %while.end.i.i.i50, 
   unreachable
 
 _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
-  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
-  %shr39.i.i.i = lshr i64 %h.7.i.i.i, 47
-  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.7.i.i.i
+  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
+  %shr39.i.i.i = lshr i64 %h.1.i.i.i, 47
+  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.1.i.i.i
   %mul41.i.i.i = mul i64 %xor40.i.i.i, -4132994306676758123
   %shr42.i.i.i = lshr i64 %mul41.i.i.i, 47
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
@@ -2403,62 +2403,62 @@ sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
   br label %sw.bb9.i.i.i90
 
 sw.bb9.i.i.i90:                                   ; preds = %sw.bb.i.i.i96, %while.end.i.i.i50
-  %h.1.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
+  %h.2.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
   %arrayidx10.i.i.i92 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 5
   %23 = load i8, ptr %arrayidx10.i.i.i92, align 1
   %conv11.i.i.i93 = zext i8 %23 to i64
   %shl12.i.i.i94 = shl nuw nsw i64 %conv11.i.i.i93, 40
-  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.1.i.i.i91
+  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.2.i.i.i91
   br label %sw.bb14.i.i.i84
 
 sw.bb14.i.i.i84:                                  ; preds = %sw.bb9.i.i.i90, %while.end.i.i.i50
-  %h.2.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
+  %h.3.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
   %arrayidx15.i.i.i86 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 4
   %24 = load i8, ptr %arrayidx15.i.i.i86, align 1
   %conv16.i.i.i87 = zext i8 %24 to i64
   %shl17.i.i.i88 = shl nuw nsw i64 %conv16.i.i.i87, 32
-  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.2.i.i.i85
+  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.3.i.i.i85
   br label %sw.bb19.i.i.i78
 
 sw.bb19.i.i.i78:                                  ; preds = %sw.bb14.i.i.i84, %while.end.i.i.i50
-  %h.3.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
+  %h.4.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
   %arrayidx20.i.i.i80 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 3
   %25 = load i8, ptr %arrayidx20.i.i.i80, align 1
   %conv21.i.i.i81 = zext i8 %25 to i64
   %shl22.i.i.i82 = shl nuw nsw i64 %conv21.i.i.i81, 24
-  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.3.i.i.i79
+  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.4.i.i.i79
   br label %sw.bb24.i.i.i72
 
 sw.bb24.i.i.i72:                                  ; preds = %sw.bb19.i.i.i78, %while.end.i.i.i50
-  %h.4.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
+  %h.5.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
   %arrayidx25.i.i.i74 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 2
   %26 = load i8, ptr %arrayidx25.i.i.i74, align 1
   %conv26.i.i.i75 = zext i8 %26 to i64
   %shl27.i.i.i76 = shl nuw nsw i64 %conv26.i.i.i75, 16
-  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.4.i.i.i73
+  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.5.i.i.i73
   br label %sw.bb29.i.i.i66
 
 sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %while.end.i.i.i50
-  %h.5.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
+  %h.6.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
   %arrayidx30.i.i.i68 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 1
   %27 = load i8, ptr %arrayidx30.i.i.i68, align 1
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
-  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
+  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.6.i.i.i67
   br label %sw.bb34.i.i.i61
 
 sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+  %h.7.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
   %conv36.i.i.i63 = zext i8 %28 to i64
-  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %xor37.i.i.i64 = xor i64 %h.7.i.i.i62, %conv36.i.i.i63
   %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102
 
 _ZN4pbrt11BufferCacheINS_7Normal3IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
-  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
-  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
-  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %h.1.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.1.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.1.i.i.i54
   %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
   %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
   %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57
@@ -2595,55 +2595,55 @@ sw.bb.i.i.i:                                      ; preds = %while.end.i.i.i
   br label %sw.bb9.i.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %sw.bb.i.i.i, %while.end.i.i.i
-  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
+  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor8.i.i.i, %sw.bb.i.i.i ]
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 5
   %3 = load i8, ptr %arrayidx10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %3 to i64
   %shl12.i.i.i = shl nuw nsw i64 %conv11.i.i.i, 40
-  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.1.i.i.i
+  %xor13.i.i.i = xor i64 %shl12.i.i.i, %h.2.i.i.i
   br label %sw.bb14.i.i.i
 
 sw.bb14.i.i.i:                                    ; preds = %sw.bb9.i.i.i, %while.end.i.i.i
-  %h.2.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
+  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor13.i.i.i, %sw.bb9.i.i.i ]
   %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 4
   %4 = load i8, ptr %arrayidx15.i.i.i, align 1
   %conv16.i.i.i = zext i8 %4 to i64
   %shl17.i.i.i = shl nuw nsw i64 %conv16.i.i.i, 32
-  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.2.i.i.i
+  %xor18.i.i.i = xor i64 %shl17.i.i.i, %h.3.i.i.i
   br label %sw.bb19.i.i.i
 
 sw.bb19.i.i.i:                                    ; preds = %sw.bb14.i.i.i, %while.end.i.i.i
-  %h.3.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
+  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor18.i.i.i, %sw.bb14.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 3
   %5 = load i8, ptr %arrayidx20.i.i.i, align 1
   %conv21.i.i.i = zext i8 %5 to i64
   %shl22.i.i.i = shl nuw nsw i64 %conv21.i.i.i, 24
-  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.3.i.i.i
+  %xor23.i.i.i = xor i64 %shl22.i.i.i, %h.4.i.i.i
   br label %sw.bb24.i.i.i
 
 sw.bb24.i.i.i:                                    ; preds = %sw.bb19.i.i.i, %while.end.i.i.i
-  %h.4.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
+  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor23.i.i.i, %sw.bb19.i.i.i ]
   %arrayidx25.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 2
   %6 = load i8, ptr %arrayidx25.i.i.i, align 1
   %conv26.i.i.i = zext i8 %6 to i64
   %shl27.i.i.i = shl nuw nsw i64 %conv26.i.i.i, 16
-  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.4.i.i.i
+  %xor28.i.i.i = xor i64 %shl27.i.i.i, %h.5.i.i.i
   br label %sw.bb29.i.i.i
 
 sw.bb29.i.i.i:                                    ; preds = %sw.bb24.i.i.i, %while.end.i.i.i
-  %h.5.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
+  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor28.i.i.i, %sw.bb24.i.i.i ]
   %arrayidx30.i.i.i = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i, i64 1
   %7 = load i8, ptr %arrayidx30.i.i.i, align 1
   %conv31.i.i.i = zext i8 %7 to i64
   %shl32.i.i.i = shl nuw nsw i64 %conv31.i.i.i, 8
-  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.5.i.i.i
+  %xor33.i.i.i = xor i64 %shl32.i.i.i, %h.6.i.i.i
   br label %sw.bb34.i.i.i
 
 sw.bb34.i.i.i:                                    ; preds = %sw.bb29.i.i.i, %while.end.i.i.i
-  %h.6.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
+  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %xor33.i.i.i, %sw.bb29.i.i.i ]
   %8 = load i8, ptr %key.addr.0.lcssa.i.i.i, align 1
   %conv36.i.i.i = zext i8 %8 to i64
-  %xor37.i.i.i = xor i64 %h.6.i.i.i, %conv36.i.i.i
+  %xor37.i.i.i = xor i64 %h.7.i.i.i, %conv36.i.i.i
   %mul38.i.i.i = mul i64 %xor37.i.i.i, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit
 
@@ -2651,9 +2651,9 @@ default.unreachable:                              ; preds = %while.end.i.i.i50, 
   unreachable
 
 _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit: ; preds = %while.end.i.i.i, %sw.bb34.i.i.i
-  %h.7.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
-  %shr39.i.i.i = lshr i64 %h.7.i.i.i, 47
-  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.7.i.i.i
+  %h.1.i.i.i = phi i64 [ %h.0.lcssa.i.i.i, %while.end.i.i.i ], [ %mul38.i.i.i, %sw.bb34.i.i.i ]
+  %shr39.i.i.i = lshr i64 %h.1.i.i.i, 47
+  %xor40.i.i.i = xor i64 %shr39.i.i.i, %h.1.i.i.i
   %mul41.i.i.i = mul i64 %xor40.i.i.i, -4132994306676758123
   %shr42.i.i.i = lshr i64 %mul41.i.i.i, 47
   %xor43.i.i.i = xor i64 %shr42.i.i.i, %mul41.i.i.i
@@ -2804,62 +2804,62 @@ sw.bb.i.i.i96:                                    ; preds = %while.end.i.i.i50
   br label %sw.bb9.i.i.i90
 
 sw.bb9.i.i.i90:                                   ; preds = %sw.bb.i.i.i96, %while.end.i.i.i50
-  %h.1.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
+  %h.2.i.i.i91 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor8.i.i.i100, %sw.bb.i.i.i96 ]
   %arrayidx10.i.i.i92 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 5
   %23 = load i8, ptr %arrayidx10.i.i.i92, align 1
   %conv11.i.i.i93 = zext i8 %23 to i64
   %shl12.i.i.i94 = shl nuw nsw i64 %conv11.i.i.i93, 40
-  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.1.i.i.i91
+  %xor13.i.i.i95 = xor i64 %shl12.i.i.i94, %h.2.i.i.i91
   br label %sw.bb14.i.i.i84
 
 sw.bb14.i.i.i84:                                  ; preds = %sw.bb9.i.i.i90, %while.end.i.i.i50
-  %h.2.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
+  %h.3.i.i.i85 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor13.i.i.i95, %sw.bb9.i.i.i90 ]
   %arrayidx15.i.i.i86 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 4
   %24 = load i8, ptr %arrayidx15.i.i.i86, align 1
   %conv16.i.i.i87 = zext i8 %24 to i64
   %shl17.i.i.i88 = shl nuw nsw i64 %conv16.i.i.i87, 32
-  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.2.i.i.i85
+  %xor18.i.i.i89 = xor i64 %shl17.i.i.i88, %h.3.i.i.i85
   br label %sw.bb19.i.i.i78
 
 sw.bb19.i.i.i78:                                  ; preds = %sw.bb14.i.i.i84, %while.end.i.i.i50
-  %h.3.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
+  %h.4.i.i.i79 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor18.i.i.i89, %sw.bb14.i.i.i84 ]
   %arrayidx20.i.i.i80 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 3
   %25 = load i8, ptr %arrayidx20.i.i.i80, align 1
   %conv21.i.i.i81 = zext i8 %25 to i64
   %shl22.i.i.i82 = shl nuw nsw i64 %conv21.i.i.i81, 24
-  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.3.i.i.i79
+  %xor23.i.i.i83 = xor i64 %shl22.i.i.i82, %h.4.i.i.i79
   br label %sw.bb24.i.i.i72
 
 sw.bb24.i.i.i72:                                  ; preds = %sw.bb19.i.i.i78, %while.end.i.i.i50
-  %h.4.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
+  %h.5.i.i.i73 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor23.i.i.i83, %sw.bb19.i.i.i78 ]
   %arrayidx25.i.i.i74 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 2
   %26 = load i8, ptr %arrayidx25.i.i.i74, align 1
   %conv26.i.i.i75 = zext i8 %26 to i64
   %shl27.i.i.i76 = shl nuw nsw i64 %conv26.i.i.i75, 16
-  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.4.i.i.i73
+  %xor28.i.i.i77 = xor i64 %shl27.i.i.i76, %h.5.i.i.i73
   br label %sw.bb29.i.i.i66
 
 sw.bb29.i.i.i66:                                  ; preds = %sw.bb24.i.i.i72, %while.end.i.i.i50
-  %h.5.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
+  %h.6.i.i.i67 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor28.i.i.i77, %sw.bb24.i.i.i72 ]
   %arrayidx30.i.i.i68 = getelementptr inbounds i8, ptr %key.addr.0.lcssa.i.i.i52, i64 1
   %27 = load i8, ptr %arrayidx30.i.i.i68, align 1
   %conv31.i.i.i69 = zext i8 %27 to i64
   %shl32.i.i.i70 = shl nuw nsw i64 %conv31.i.i.i69, 8
-  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.5.i.i.i67
+  %xor33.i.i.i71 = xor i64 %shl32.i.i.i70, %h.6.i.i.i67
   br label %sw.bb34.i.i.i61
 
 sw.bb34.i.i.i61:                                  ; preds = %sw.bb29.i.i.i66, %while.end.i.i.i50
-  %h.6.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
+  %h.7.i.i.i62 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %xor33.i.i.i71, %sw.bb29.i.i.i66 ]
   %28 = load i8, ptr %key.addr.0.lcssa.i.i.i52, align 1
   %conv36.i.i.i63 = zext i8 %28 to i64
-  %xor37.i.i.i64 = xor i64 %h.6.i.i.i62, %conv36.i.i.i63
+  %xor37.i.i.i64 = xor i64 %h.7.i.i.i62, %conv36.i.i.i63
   %mul38.i.i.i65 = mul i64 %xor37.i.i.i64, -4132994306676758123
   br label %_ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102
 
 _ZN4pbrt11BufferCacheINS_7Vector3IfEEE6BufferC2EPKS2_m.exit102: ; preds = %while.end.i.i.i50, %sw.bb34.i.i.i61
-  %h.7.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
-  %shr39.i.i.i55 = lshr i64 %h.7.i.i.i54, 47
-  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.7.i.i.i54
+  %h.1.i.i.i54 = phi i64 [ %h.0.lcssa.i.i.i51, %while.end.i.i.i50 ], [ %mul38.i.i.i65, %sw.bb34.i.i.i61 ]
+  %shr39.i.i.i55 = lshr i64 %h.1.i.i.i54, 47
+  %xor40.i.i.i56 = xor i64 %shr39.i.i.i55, %h.1.i.i.i54
   %mul41.i.i.i57 = mul i64 %xor40.i.i.i56, -4132994306676758123
   %shr42.i.i.i58 = lshr i64 %mul41.i.i.i57, 47
   %xor43.i.i.i59 = xor i64 %shr42.i.i.i58, %mul41.i.i.i57

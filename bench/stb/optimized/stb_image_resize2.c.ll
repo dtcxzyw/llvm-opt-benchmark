@@ -194,12 +194,12 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
-  %sd.0 = phi ptr [ %src, %if.then ], [ %add.ptr3, %do.body ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.0) #24, !srcloc !9
-  %0 = load <4 x float>, ptr %sd.0, align 1
-  %add.ptr2 = getelementptr inbounds i8, ptr %sd.0, i64 %sub.ptr.sub
+  %sd.1 = phi ptr [ %src, %if.then ], [ %add.ptr3, %do.body ]
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.1) #24, !srcloc !9
+  %0 = load <4 x float>, ptr %sd.1, align 1
+  %add.ptr2 = getelementptr inbounds i8, ptr %sd.1, i64 %sub.ptr.sub
   store <4 x float> %0, ptr %add.ptr2, align 1
-  %add.ptr3 = getelementptr inbounds i8, ptr %sd.0, i64 16
+  %add.ptr3 = getelementptr inbounds i8, ptr %sd.1, i64 16
   %cmp4 = icmp ult ptr %add.ptr3, %add.ptr1
   br i1 %cmp4, label %do.body, label %do.end, !llvm.loop !10
 
@@ -863,8 +863,8 @@ if.then:                                          ; preds = %entry
 
 if.end22:                                         ; preds = %if.then, %entry
   %last.0 = phi i32 [ %conv7, %entry ], [ %spec.select10, %if.then ]
-  %first.1 = phi i32 [ %conv, %entry ], [ %spec.select, %if.then ]
-  store i32 %first.1, ptr %first_pixel, align 4
+  %first.0 = phi i32 [ %conv, %entry ], [ %spec.select, %if.then ]
+  store i32 %first.0, ptr %first_pixel, align 4
   store i32 %last.0, ptr %last_pixel, align 4
   ret void
 }
@@ -923,14 +923,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp16.not.i = icmp sgt i32 %mul15.i, %conv7.i
   %spec.select10.i = select i1 %cmp16.not.i, i32 %conv7.i, i32 %sub20.i
   %last.0.i = select i1 %cmp.i, i32 %spec.select10.i, i32 %conv7.i
-  %first.1.i = select i1 %cmp.i, i32 %spec.select.i, i32 %conv.i
-  %cmp6.not27 = icmp slt i32 %last.0.i, %first.1.i
+  %first.0.i = select i1 %cmp.i, i32 %spec.select.i, i32 %conv.i
+  %cmp6.not27 = icmp slt i32 %last.0.i, %first.0.i
   br i1 %cmp6.not27, label %for.end, label %for.body8
 
 for.body8:                                        ; preds = %for.body, %for.inc
-  %last_non_zero.030 = phi i32 [ %last_non_zero.2, %for.inc ], [ -1, %for.body ]
+  %last_non_zero.030 = phi i32 [ %last_non_zero.1, %for.inc ], [ -1, %for.body ]
   %i.029 = phi i32 [ %inc23, %for.inc ], [ 0, %for.body ]
-  %in_first_pixel.028 = phi i32 [ %in_first_pixel.1, %for.inc ], [ %first.1.i, %for.body ]
+  %in_first_pixel.028 = phi i32 [ %in_first_pixel.1, %for.inc ], [ %first.0.i, %for.body ]
   %add9 = add nsw i32 %i.029, %in_first_pixel.028
   %conv10 = sitofp i32 %add9 to float
   %add11 = fadd float %conv10, 5.000000e-01
@@ -949,7 +949,7 @@ if.then20:                                        ; preds = %if.then17
   br label %for.inc
 
 if.end22:                                         ; preds = %for.body8, %if.then17
-  %last_non_zero.1 = phi i32 [ %last_non_zero.030, %if.then17 ], [ %i.029, %for.body8 ]
+  %last_non_zero.2 = phi i32 [ %last_non_zero.030, %if.then17 ], [ %i.029, %for.body8 ]
   %coeff.0 = phi float [ 0.000000e+00, %if.then17 ], [ %call, %for.body8 ]
   %idxprom = sext i32 %i.029 to i64
   %arrayidx = getelementptr inbounds float, ptr %coefficient_group.addr.034, i64 %idxprom
@@ -959,15 +959,15 @@ if.end22:                                         ; preds = %for.body8, %if.then
 for.inc:                                          ; preds = %if.end22, %if.then20
   %in_first_pixel.1 = phi i32 [ %inc, %if.then20 ], [ %in_first_pixel.028, %if.end22 ]
   %i.1 = phi i32 [ -1, %if.then20 ], [ %i.029, %if.end22 ]
-  %last_non_zero.2 = phi i32 [ %last_non_zero.030, %if.then20 ], [ %last_non_zero.1, %if.end22 ]
+  %last_non_zero.1 = phi i32 [ %last_non_zero.030, %if.then20 ], [ %last_non_zero.2, %if.end22 ]
   %inc23 = add nsw i32 %i.1, 1
   %sub = sub nsw i32 %last.0.i, %in_first_pixel.1
   %cmp6.not.not = icmp slt i32 %i.1, %sub
   br i1 %cmp6.not.not, label %for.body8, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.body
-  %in_first_pixel.0.lcssa = phi i32 [ %first.1.i, %for.body ], [ %in_first_pixel.1, %for.inc ]
-  %last_non_zero.0.lcssa = phi i32 [ -1, %for.body ], [ %last_non_zero.2, %for.inc ]
+  %in_first_pixel.0.lcssa = phi i32 [ %first.0.i, %for.body ], [ %in_first_pixel.1, %for.inc ]
+  %last_non_zero.0.lcssa = phi i32 [ -1, %for.body ], [ %last_non_zero.1, %for.inc ]
   %add24 = add nsw i32 %last_non_zero.0.lcssa, %in_first_pixel.0.lcssa
   store i32 %in_first_pixel.0.lcssa, ptr %contributors.addr.035, align 4
   %n1 = getelementptr inbounds i8, ptr %contributors.addr.035, i64 4
@@ -1126,7 +1126,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc51
   %in_pixel.046 = phi i32 [ %start, %for.body.lr.ph ], [ %inc52, %for.inc51 ]
-  %first_out_inited.045 = phi i32 [ -1, %for.body.lr.ph ], [ %first_out_inited.3, %for.inc51 ]
+  %first_out_inited.045 = phi i32 [ -1, %for.body.lr.ph ], [ %first_out_inited.1, %for.inc51 ]
   %conv = sitofp i32 %in_pixel.046 to float
   %add = fadd float %conv, 5.000000e-01
   %mul = fmul float %0, %add
@@ -1175,7 +1175,7 @@ for.body21.lr.ph:                                 ; preds = %if.end16
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %first_out_inited.142 = phi i32 [ %first_out_inited.045, %for.body21.lr.ph ], [ %first_out_inited.2, %for.inc ]
+  %first_out_inited.242 = phi i32 [ %first_out_inited.045, %for.body21.lr.ph ], [ %first_out_inited.3, %for.inc ]
   %11 = add nuw nsw i64 %indvars.iv, %8
   %12 = trunc nuw nsw i64 %11 to i32
   %conv23 = uitofp nneg i32 %12 to float
@@ -1189,7 +1189,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %14 = mul nsw i64 %11, %6
   %add.ptr = getelementptr inbounds float, ptr %coefficient_group, i64 %14
   %add.ptr36 = getelementptr inbounds %struct.stbir__contributors, ptr %contributors, i64 %11
-  %15 = sext i32 %first_out_inited.142 to i64
+  %15 = sext i32 %first_out_inited.242 to i64
   %cmp37 = icmp sgt i64 %11, %15
   br i1 %cmp37, label %if.then39, label %if.else
 
@@ -1223,14 +1223,14 @@ if.end45:                                         ; preds = %if.else.if.end45_cr
 
 for.inc:                                          ; preds = %if.then39, %if.end45
   %add.ptr.sink = phi ptr [ %add.ptr, %if.then39 ], [ %arrayidx49, %if.end45 ]
-  %first_out_inited.2 = phi i32 [ %12, %if.then39 ], [ %first_out_inited.142, %if.end45 ]
+  %first_out_inited.3 = phi i32 [ %12, %if.then39 ], [ %first_out_inited.242, %if.end45 ]
   store float %spec.store.select, ptr %add.ptr.sink, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc51, label %for.body21, !llvm.loop !20
 
 for.inc51:                                        ; preds = %for.inc, %if.end16, %for.body
-  %first_out_inited.3 = phi i32 [ %first_out_inited.045, %for.body ], [ %first_out_inited.045, %if.end16 ], [ %first_out_inited.2, %for.inc ]
+  %first_out_inited.1 = phi i32 [ %first_out_inited.045, %for.body ], [ %first_out_inited.045, %if.end16 ], [ %first_out_inited.3, %for.inc ]
   %inc52 = add i32 %in_pixel.046, 1
   %exitcond50.not = icmp eq i32 %inc52, %end
   br i1 %exitcond50.not, label %for.end53, label %for.body, !llvm.loop !21
@@ -1372,12 +1372,12 @@ if.then.i:                                        ; preds = %for.end46
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i
-  %sd.0.i = phi ptr [ %coefficient_group, %if.then.i ], [ %add.ptr3.i, %do.body.i ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.0.i) #24, !srcloc !9
-  %16 = load <4 x float>, ptr %sd.0.i, align 1
-  %add.ptr2.i = getelementptr inbounds i8, ptr %sd.0.i, i64 %add.ptr49.idx
+  %sd.1.i = phi ptr [ %coefficient_group, %if.then.i ], [ %add.ptr3.i, %do.body.i ]
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %sd.1.i) #24, !srcloc !9
+  %16 = load <4 x float>, ptr %sd.1.i, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %sd.1.i, i64 %add.ptr49.idx
   store <4 x float> %16, ptr %add.ptr2.i, align 1
-  %add.ptr3.i = getelementptr inbounds i8, ptr %sd.0.i, i64 16
+  %add.ptr3.i = getelementptr inbounds i8, ptr %sd.1.i, i64 16
   %cmp4.i = icmp ult ptr %add.ptr3.i, %add.ptr1.i
   br i1 %cmp4.i, label %do.body.i, label %do.end.i, !llvm.loop !10
 
@@ -1414,9 +1414,9 @@ for.body57.lr.ph:                                 ; preds = %if.end53
 
 for.body57:                                       ; preds = %for.body57.lr.ph, %if.end218
   %n.2304 = phi i32 [ 0, %for.body57.lr.ph ], [ %inc223, %if.end218 ]
-  %lowest.0303 = phi i32 [ 2147483647, %for.body57.lr.ph ], [ %lowest.3, %if.end218 ]
-  %highest.0302 = phi i32 [ -2147483647, %for.body57.lr.ph ], [ %highest.3, %if.end218 ]
-  %widest.0301 = phi i32 [ -1, %for.body57.lr.ph ], [ %widest.2, %if.end218 ]
+  %lowest.0303 = phi i32 [ 2147483647, %for.body57.lr.ph ], [ %lowest.1, %if.end218 ]
+  %highest.0302 = phi i32 [ -2147483647, %for.body57.lr.ph ], [ %highest.1, %if.end218 ]
+  %widest.0301 = phi i32 [ -1, %for.body57.lr.ph ], [ %widest.1, %if.end218 ]
   %coeffs.1300 = phi ptr [ %coefficient_group, %for.body57.lr.ph ], [ %add.ptr221, %if.end218 ]
   %contribs.1299 = phi ptr [ %contributors, %for.body57.lr.ph ], [ %incdec.ptr219, %if.end218 ]
   br i1 %cmp59, label %if.then61, label %if.else96
@@ -1843,14 +1843,14 @@ while.end:                                        ; preds = %land.rhs174
 
 if.then191:                                       ; preds = %while.end
   %spec.select149 = tail call i32 @llvm.smin.i32(i32 %83, i32 %lowest.0303)
-  %highest.1 = tail call i32 @llvm.smax.i32(i32 %sub185, i32 %highest.0302)
+  %highest.3 = tail call i32 @llvm.smax.i32(i32 %sub185, i32 %highest.0302)
   %spec.select150 = tail call i32 @llvm.smax.i32(i32 %88, i32 %widest.0301)
   br label %if.end208
 
 if.end208:                                        ; preds = %while.end.thread, %if.then191, %while.end
   %diff.0316 = phi i32 [ %88, %while.end ], [ %88, %if.then191 ], [ 0, %while.end.thread ]
-  %widest.1 = phi i32 [ %widest.0301, %while.end ], [ %spec.select150, %if.then191 ], [ %widest.0301, %while.end.thread ]
-  %highest.2 = phi i32 [ %highest.0302, %while.end ], [ %highest.1, %if.then191 ], [ %highest.0302, %while.end.thread ]
+  %widest.2 = phi i32 [ %widest.0301, %while.end ], [ %spec.select150, %if.then191 ], [ %widest.0301, %while.end.thread ]
+  %highest.2 = phi i32 [ %highest.0302, %while.end ], [ %highest.3, %if.then191 ], [ %highest.0302, %while.end.thread ]
   %lowest.2 = phi i32 [ %lowest.0303, %while.end ], [ %spec.select149, %if.then191 ], [ %lowest.0303, %while.end.thread ]
   %cmp210296 = icmp slt i32 %diff.0316, %coefficient_width
   br i1 %cmp210296, label %for.body212.preheader, label %if.end218
@@ -1868,9 +1868,9 @@ for.body212.preheader:                            ; preds = %if.end208
   br label %if.end218
 
 if.end218:                                        ; preds = %for.body212.preheader, %if.end208, %if.end163
-  %widest.2 = phi i32 [ %widest.0301, %if.end163 ], [ %widest.1, %if.end208 ], [ %widest.1, %for.body212.preheader ]
-  %highest.3 = phi i32 [ %highest.0302, %if.end163 ], [ %highest.2, %if.end208 ], [ %highest.2, %for.body212.preheader ]
-  %lowest.3 = phi i32 [ %lowest.0303, %if.end163 ], [ %lowest.2, %if.end208 ], [ %lowest.2, %for.body212.preheader ]
+  %widest.1 = phi i32 [ %widest.0301, %if.end163 ], [ %widest.2, %if.end208 ], [ %widest.2, %for.body212.preheader ]
+  %highest.1 = phi i32 [ %highest.0302, %if.end163 ], [ %highest.2, %if.end208 ], [ %highest.2, %for.body212.preheader ]
+  %lowest.1 = phi i32 [ %lowest.0303, %if.end163 ], [ %lowest.2, %if.end208 ], [ %lowest.2, %for.body212.preheader ]
   %incdec.ptr219 = getelementptr inbounds i8, ptr %contribs.1299, i64 8
   %add.ptr221 = getelementptr float, ptr %coeffs.1300, i64 %idx.ext220
   %inc223 = add nuw nsw i32 %n.2304, 1
@@ -1878,9 +1878,9 @@ if.end218:                                        ; preds = %for.body212.prehead
   br i1 %exitcond353.not, label %for.end224, label %for.body57, !llvm.loop !31
 
 for.end224:                                       ; preds = %if.end218, %if.end53
-  %widest.0.lcssa = phi i32 [ -1, %if.end53 ], [ %widest.2, %if.end218 ]
-  %highest.0.lcssa = phi i32 [ -2147483647, %if.end53 ], [ %highest.3, %if.end218 ]
-  %lowest.0.lcssa = phi i32 [ 2147483647, %if.end53 ], [ %lowest.3, %if.end218 ]
+  %widest.0.lcssa = phi i32 [ -1, %if.end53 ], [ %widest.1, %if.end218 ]
+  %highest.0.lcssa = phi i32 [ -2147483647, %if.end53 ], [ %highest.1, %if.end218 ]
+  %lowest.0.lcssa = phi i32 [ 2147483647, %if.end53 ], [ %lowest.1, %if.end218 ]
   store i32 %lowest.0.lcssa, ptr %filter_info, align 4
   %highest226 = getelementptr inbounds i8, ptr %filter_info, i64 4
   store i32 %highest.0.lcssa, ptr %highest226, align 4
@@ -11123,12 +11123,12 @@ entry:
   br i1 %cmp.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %do.body
-  %decode.0 = phi ptr [ %add.ptr30, %do.body ], [ %add.ptr3, %entry ]
-  %out.0 = phi ptr [ %add.ptr31, %do.body ], [ %out_buffer, %entry ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.0) #24, !srcloc !356
-  %add.ptr4 = getelementptr inbounds i8, ptr %decode.0, i64 -32
+  %decode.1 = phi ptr [ %add.ptr30, %do.body ], [ %add.ptr3, %entry ]
+  %out.1 = phi ptr [ %add.ptr31, %do.body ], [ %out_buffer, %entry ]
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.1) #24, !srcloc !356
+  %add.ptr4 = getelementptr inbounds i8, ptr %decode.1, i64 -32
   %0 = load <4 x float>, ptr %add.ptr4, align 1
-  %add.ptr6 = getelementptr inbounds i8, ptr %decode.0, i64 -16
+  %add.ptr6 = getelementptr inbounds i8, ptr %decode.1, i64 -16
   %1 = load <4 x float>, ptr %add.ptr6, align 1
   %2 = bitcast <4 x float> %0 to <2 x i64>
   %3 = shufflevector <4 x float> %0, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
@@ -11139,35 +11139,35 @@ do.body:                                          ; preds = %entry, %do.body
   %mul.i49 = fmul <4 x float> %3, %6
   %mul.i = fmul <4 x float> %5, %7
   %vecext.i54 = extractelement <2 x i64> %2, i64 0
-  store i64 %vecext.i54, ptr %out.0, align 1
-  %add.ptr22 = getelementptr inbounds i8, ptr %out.0, i64 8
+  store i64 %vecext.i54, ptr %out.1, align 1
+  %add.ptr22 = getelementptr inbounds i8, ptr %out.1, i64 8
   store <4 x float> %mul.i49, ptr %add.ptr22, align 1
-  %add.ptr23 = getelementptr inbounds i8, ptr %out.0, i64 12
+  %add.ptr23 = getelementptr inbounds i8, ptr %out.1, i64 12
   %8 = bitcast <4 x float> %0 to <2 x double>
   %vecext.i69 = extractelement <2 x double> %8, i64 1
   store double %vecext.i69, ptr %add.ptr23, align 1
-  %add.ptr25 = getelementptr inbounds i8, ptr %out.0, i64 24
+  %add.ptr25 = getelementptr inbounds i8, ptr %out.1, i64 24
   %vecext.i = extractelement <2 x i64> %4, i64 0
   store i64 %vecext.i, ptr %add.ptr25, align 1
-  %add.ptr27 = getelementptr inbounds i8, ptr %out.0, i64 32
+  %add.ptr27 = getelementptr inbounds i8, ptr %out.1, i64 32
   store <4 x float> %mul.i, ptr %add.ptr27, align 1
-  %add.ptr28 = getelementptr inbounds i8, ptr %out.0, i64 36
+  %add.ptr28 = getelementptr inbounds i8, ptr %out.1, i64 36
   %9 = bitcast <4 x float> %1 to <2 x double>
   %vecext.i66 = extractelement <2 x double> %9, i64 1
   store double %vecext.i66, ptr %add.ptr28, align 1
-  %add.ptr30 = getelementptr inbounds i8, ptr %decode.0, i64 32
-  %add.ptr31 = getelementptr inbounds i8, ptr %out.0, i64 48
+  %add.ptr30 = getelementptr inbounds i8, ptr %decode.1, i64 32
+  %add.ptr31 = getelementptr inbounds i8, ptr %out.1, i64 48
   %cmp32.not = icmp ugt ptr %add.ptr30, %add.ptr
   br i1 %cmp32.not, label %if.end, label %do.body, !llvm.loop !357
 
 if.end:                                           ; preds = %do.body, %entry
-  %10 = phi ptr [ %add.ptr2, %entry ], [ %decode.0, %do.body ]
-  %out.1 = phi ptr [ %out_buffer, %entry ], [ %add.ptr31, %do.body ]
+  %10 = phi ptr [ %add.ptr2, %entry ], [ %decode.1, %do.body ]
+  %out.0 = phi ptr [ %out_buffer, %entry ], [ %add.ptr31, %do.body ]
   %cmp3438 = icmp ult ptr %10, %add.ptr
   br i1 %cmp3438, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end, %while.body
-  %out.240 = phi ptr [ %add.ptr40, %while.body ], [ %out.1, %if.end ]
+  %out.240 = phi ptr [ %add.ptr40, %while.body ], [ %out.0, %if.end ]
   %decode.239 = phi ptr [ %add.ptr41, %while.body ], [ %10, %if.end ]
   %11 = load <2 x float>, ptr %decode.239, align 4
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.239) #24, !srcloc !358
@@ -26117,8 +26117,8 @@ if.then:                                          ; preds = %entry
   %cmp10.not.i = icmp sgt i32 %conv.i, %sub9.i
   %sub14.i = sub nsw i32 1, %3
   %spec.select.i = select i1 %cmp10.not.i, i32 %conv.i, i32 %sub14.i
-  %first.1.i = select i1 %cmp.i, i32 %spec.select.i, i32 %conv.i
-  store i32 %first.1.i, ptr %range, align 4
+  %first.0.i = select i1 %cmp.i, i32 %spec.select.i, i32 %conv.i
+  store i32 %first.0.i, ptr %range, align 4
   %output_sub_size = getelementptr inbounds i8, ptr %samp, i64 36
   %7 = load i32, ptr %output_sub_size, align 4
   %sub = add nsw i32 %7, -1
@@ -26163,8 +26163,8 @@ if.then12:                                        ; preds = %entry
   %cmp10.not.i127 = icmp sgt i32 %conv.i118, %sub9.i126
   %sub14.i128 = sub nsw i32 1, %3
   %spec.select.i129 = select i1 %cmp10.not.i127, i32 %conv.i118, i32 %sub14.i128
-  %first.1.i124 = select i1 %cmp.i122, i32 %spec.select.i129, i32 %conv.i118
-  store i32 %first.1.i124, ptr %range, align 4
+  %first.0.i124 = select i1 %cmp.i122, i32 %spec.select.i129, i32 %conv.i118
+  store i32 %first.0.i124, ptr %range, align 4
   %conv22 = sitofp i32 %9 to float
   %add1.i137 = fadd float %1, %conv22
   %mul.i138 = fmul float %5, %add1.i137

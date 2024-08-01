@@ -807,7 +807,7 @@ _persist_free_msg_members.exit.i:                 ; preds = %96, %95
   br label %125
 
 125:                                              ; preds = %121, %118, %115, %113, %111
-  %.3.i = phi i1 [ %.268.i, %111 ], [ true, %121 ], [ true, %118 ], [ true, %115 ], [ true, %113 ]
+  %.4.i = phi i1 [ %.268.i, %111 ], [ true, %121 ], [ true, %118 ], [ true, %115 ], [ true, %113 ]
   %126 = load ptr, ptr %6, align 8
   %.not89.i = icmp eq ptr %126, null
   br i1 %.not89.i, label %128, label %127
@@ -821,11 +821,11 @@ _persist_free_msg_members.exit.i:                 ; preds = %96, %95
   br label %129
 
 129:                                              ; preds = %128, %109
-  %.4.i = phi i1 [ %.3.i, %128 ], [ %.268.i, %109 ]
+  %.3.i = phi i1 [ %.4.i, %128 ], [ %.268.i, %109 ]
   %130 = load ptr, ptr %35, align 8
   %131 = load i64, ptr %130, align 8
   %.not82.i = icmp ne i64 %131, 0
-  %.not83.i = or i1 %.4.i, %.not82.i
+  %.not83.i = or i1 %.3.i, %.not82.i
   br i1 %.not83.i, label %.loopexit91.i, label %51, !llvm.loop !11
 
 .loopexit91.i:                                    ; preds = %129, %53, %51, %65, %56, %33
@@ -1221,8 +1221,8 @@ _comm_fail_log.exit:                              ; preds = %54, %60
   br label %81
 
 81:                                               ; preds = %72, %63
-  %.040 = phi i32 [ %74, %72 ], [ %67, %63 ]
-  %.not48 = icmp eq i32 %.040, 0
+  %.1 = phi i32 [ %74, %72 ], [ %67, %63 ]
+  %.not48 = icmp eq i32 %.1, 0
   br i1 %.not48, label %_close_fd.exit, label %82
 
 82:                                               ; preds = %81
@@ -1274,12 +1274,12 @@ _close_fd.exit:                                   ; preds = %95, %93, %81
   br label %slurm_persist_free_rc_msg.exit
 
 slurm_persist_free_rc_msg.exit:                   ; preds = %_close_fd.exit.thread, %_close_fd.exit, %98
-  %.156 = phi i32 [ -1, %_close_fd.exit.thread ], [ %.040, %_close_fd.exit ], [ %.040, %98 ]
+  %.04056 = phi i32 [ -1, %_close_fd.exit.thread ], [ %.1, %_close_fd.exit ], [ %.1, %98 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %99
 
 99:                                               ; preds = %10, %slurm_persist_free_rc_msg.exit
-  %.041 = phi i32 [ %.156, %slurm_persist_free_rc_msg.exit ], [ -1, %10 ]
+  %.041 = phi i32 [ %.04056, %slurm_persist_free_rc_msg.exit ], [ -1, %10 ]
   ret i32 %.041
 }
 
@@ -2157,15 +2157,15 @@ define range(i32 -1, 2003) i32 @slurm_persist_send_msg(ptr noundef %0, ptr nound
   br i1 %10, label %.loopexit37, label %27
 
 .loopexit37:                                      ; preds = %.lr.ph, %8
-  %.0 = phi i32 [ 0, %8 ], [ %.1, %.lr.ph ]
+  %.1 = phi i32 [ 0, %8 ], [ %.0, %.lr.ph ]
   %11 = tail call ptr @__errno_location() #13
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 2002
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %.loopexit37
-  %15 = add nsw i32 %.0, 1
-  %16 = icmp sgt i32 %.0, 3
+  %15 = add nsw i32 %.1, 1
+  %16 = icmp sgt i32 %.1, 3
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14
@@ -2192,7 +2192,7 @@ slurm_persist_conn_reopen.exit:                   ; preds = %21, %23
 
 27:                                               ; preds = %slurm_persist_conn_reopen.exit, %8
   %.026 = phi i32 [ %26, %slurm_persist_conn_reopen.exit ], [ %9, %8 ]
-  %.1 = phi i32 [ %15, %slurm_persist_conn_reopen.exit ], [ 0, %8 ]
+  %.0 = phi i32 [ %15, %slurm_persist_conn_reopen.exit ], [ 0, %8 ]
   %28 = icmp slt i32 %.026, 1
   br i1 %28, label %.loopexit, label %29
 

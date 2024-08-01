@@ -156,27 +156,27 @@ fail_async_init:                                  ; preds = %if.end23
   br label %fail_mutex_init
 
 fail_mutex_init:                                  ; preds = %if.end19, %fail_async_init
-  %err.0 = phi i32 [ %call20, %if.end19 ], [ %call24, %fail_async_init ]
+  %err.4 = phi i32 [ %call20, %if.end19 ], [ %call24, %fail_async_init ]
   tail call void @uv_rwlock_destroy(ptr noundef nonnull %cloexec_lock) #4
   br label %fail_rwlock_init
 
 fail_rwlock_init:                                 ; preds = %if.end15, %fail_mutex_init
-  %err.1 = phi i32 [ %call16, %if.end15 ], [ %err.0, %fail_mutex_init ]
+  %err.3 = phi i32 [ %call16, %if.end15 ], [ %err.4, %fail_mutex_init ]
   tail call void @uv__signal_loop_cleanup(ptr noundef nonnull %loop) #4
   br label %fail_signal_init
 
 fail_signal_init:                                 ; preds = %if.end11, %fail_rwlock_init
-  %err.2 = phi i32 [ %call12, %if.end11 ], [ %err.1, %fail_rwlock_init ]
+  %err.2 = phi i32 [ %call12, %if.end11 ], [ %err.3, %fail_rwlock_init ]
   tail call void @uv__platform_loop_delete(ptr noundef nonnull %loop) #4
   br label %fail_platform_init
 
 fail_platform_init:                               ; preds = %if.end4, %fail_signal_init
-  %err.3 = phi i32 [ %call8, %if.end4 ], [ %err.2, %fail_signal_init ]
+  %err.1 = phi i32 [ %call8, %if.end4 ], [ %err.2, %fail_signal_init ]
   tail call void @uv_mutex_destroy(ptr noundef nonnull %lock) #4
   br label %fail_metrics_mutex_init
 
 fail_metrics_mutex_init:                          ; preds = %if.end, %fail_platform_init
-  %err.4 = phi i32 [ %call2, %if.end ], [ %err.3, %fail_platform_init ]
+  %err.0 = phi i32 [ %call2, %if.end ], [ %err.1, %fail_platform_init ]
   tail call void @uv__free(ptr noundef nonnull %call) #4
   store ptr null, ptr %internal_fields, align 8
   %watchers59 = getelementptr inbounds i8, ptr %loop, i64 104
@@ -187,7 +187,7 @@ fail_metrics_mutex_init:                          ; preds = %if.end, %fail_platf
   br label %return
 
 return:                                           ; preds = %entry, %fail_metrics_mutex_init, %do.end51
-  %retval.0 = phi i32 [ %err.4, %fail_metrics_mutex_init ], [ 0, %do.end51 ], [ -12, %entry ]
+  %retval.0 = phi i32 [ %err.0, %fail_metrics_mutex_init ], [ 0, %do.end51 ], [ -12, %entry ]
   ret i32 %retval.0
 }
 

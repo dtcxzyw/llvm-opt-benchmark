@@ -1846,11 +1846,11 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %_a.0345355 = phi i32 [ -1, %for.body21.lr.ph ], [ %_a.0345356, %for.inc ]
   %18 = phi i32 [ 0, %for.body21.lr.ph ], [ %46, %for.inc ]
   %_a.0345352 = phi i32 [ -1, %for.body21.lr.ph ], [ %_a.0345353, %for.inc ]
-  %iPhong.0346 = phi i32 [ -1, %for.body21.lr.ph ], [ %iPhong.2, %for.inc ]
+  %iPhong.1346 = phi i32 [ -1, %for.body21.lr.ph ], [ %iPhong.2, %for.inc ]
   %_a.0345 = phi i32 [ 0, %for.body21.lr.ph ], [ %inc, %for.inc ]
-  %eOpacity.0344 = phi i32 [ 0, %for.body21.lr.ph ], [ %eOpacity.2, %for.inc ]
-  %iOpacity.0343 = phi i32 [ -1, %for.body21.lr.ph ], [ %iOpacity.2, %for.inc ]
-  %ePhong.0342 = phi i32 [ 0, %for.body21.lr.ph ], [ %ePhong.2, %for.inc ]
+  %eOpacity.1344 = phi i32 [ 0, %for.body21.lr.ph ], [ %eOpacity.2, %for.inc ]
+  %iOpacity.1343 = phi i32 [ -1, %for.body21.lr.ph ], [ %iOpacity.2, %for.inc ]
+  %ePhong.1342 = phi i32 [ 0, %for.body21.lr.ph ], [ %ePhong.2, %for.inc ]
   %a.sroa.0.0341 = phi ptr [ %6, %for.body21.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %_a.0338340 = phi i32 [ -1, %for.body21.lr.ph ], [ %_a.0337, %for.inc ]
   %19 = phi i32 [ 0, %for.body21.lr.ph ], [ %47, %for.inc ]
@@ -1960,10 +1960,10 @@ for.inc:                                          ; preds = %if.end, %if.end28.t
   %_a.0345353 = phi i32 [ %_a.0345352, %for.body21 ], [ %_a.0345352, %if.then39 ], [ %_a.0345352, %if.then48 ], [ %_a.0345352, %if.then59 ], [ %_a.0345352, %if.then70 ], [ %_a.0345352, %if.then81 ], [ %_a.0345352, %if.then92 ], [ %_a.0345352, %if.then103 ], [ %_a.0345352, %if.then114 ], [ %_a.0345352, %if.then125 ], [ %_a.0345352, %if.then136 ], [ %_a.0345352, %if.then147 ], [ %_a.0345, %if.then158 ], [ %_a.0345352, %if.end28.thread ], [ %_a.0345352, %if.then32 ], [ %_a.0345352, %if.end ]
   %47 = phi i32 [ %19, %for.body21 ], [ %24, %if.then39 ], [ %19, %if.then48 ], [ %19, %if.then59 ], [ %19, %if.then70 ], [ %19, %if.then81 ], [ %19, %if.then92 ], [ %19, %if.then103 ], [ %19, %if.then114 ], [ %19, %if.then125 ], [ %19, %if.then136 ], [ %19, %if.then147 ], [ %19, %if.then158 ], [ %19, %if.end28.thread ], [ %19, %if.then32 ], [ %19, %if.end ]
   %_a.0337 = phi i32 [ %_a.0338340, %for.body21 ], [ %_a.0345, %if.then39 ], [ %_a.0338340, %if.then48 ], [ %_a.0338340, %if.then59 ], [ %_a.0338340, %if.then70 ], [ %_a.0338340, %if.then81 ], [ %_a.0338340, %if.then92 ], [ %_a.0338340, %if.then103 ], [ %_a.0338340, %if.then114 ], [ %_a.0338340, %if.then125 ], [ %_a.0338340, %if.then136 ], [ %_a.0338340, %if.then147 ], [ %_a.0338340, %if.then158 ], [ %_a.0338340, %if.end28.thread ], [ %_a.0338340, %if.then32 ], [ %_a.0338340, %if.end ]
-  %ePhong.2 = phi i32 [ %ePhong.0342, %for.body21 ], [ %ePhong.0342, %if.then39 ], [ %ePhong.0342, %if.then48 ], [ %ePhong.0342, %if.then59 ], [ %ePhong.0342, %if.then70 ], [ %ePhong.0342, %if.then81 ], [ %ePhong.0342, %if.then92 ], [ %ePhong.0342, %if.then103 ], [ %ePhong.0342, %if.then114 ], [ %ePhong.0342, %if.then125 ], [ %ePhong.0342, %if.then136 ], [ %ePhong.0342, %if.then147 ], [ %ePhong.0342, %if.then158 ], [ %22, %if.end28.thread ], [ %ePhong.0342, %if.then32 ], [ %ePhong.0342, %if.end ]
-  %iOpacity.2 = phi i32 [ %iOpacity.0343, %for.body21 ], [ %iOpacity.0343, %if.then39 ], [ %iOpacity.0343, %if.then48 ], [ %iOpacity.0343, %if.then59 ], [ %iOpacity.0343, %if.then70 ], [ %iOpacity.0343, %if.then81 ], [ %iOpacity.0343, %if.then92 ], [ %iOpacity.0343, %if.then103 ], [ %iOpacity.0343, %if.then114 ], [ %iOpacity.0343, %if.then125 ], [ %iOpacity.0343, %if.then136 ], [ %iOpacity.0343, %if.then147 ], [ %iOpacity.0343, %if.then158 ], [ %iOpacity.0343, %if.end28.thread ], [ %_a.0345, %if.then32 ], [ %iOpacity.0343, %if.end ]
-  %eOpacity.2 = phi i32 [ %eOpacity.0344, %for.body21 ], [ %eOpacity.0344, %if.then39 ], [ %eOpacity.0344, %if.then48 ], [ %eOpacity.0344, %if.then59 ], [ %eOpacity.0344, %if.then70 ], [ %eOpacity.0344, %if.then81 ], [ %eOpacity.0344, %if.then92 ], [ %eOpacity.0344, %if.then103 ], [ %eOpacity.0344, %if.then114 ], [ %eOpacity.0344, %if.then125 ], [ %eOpacity.0344, %if.then136 ], [ %eOpacity.0344, %if.then147 ], [ %eOpacity.0344, %if.then158 ], [ %eOpacity.0344, %if.end28.thread ], [ %23, %if.then32 ], [ %eOpacity.0344, %if.end ]
-  %iPhong.2 = phi i32 [ %iPhong.0346, %for.body21 ], [ %iPhong.0346, %if.then39 ], [ %iPhong.0346, %if.then48 ], [ %iPhong.0346, %if.then59 ], [ %iPhong.0346, %if.then70 ], [ %iPhong.0346, %if.then81 ], [ %iPhong.0346, %if.then92 ], [ %iPhong.0346, %if.then103 ], [ %iPhong.0346, %if.then114 ], [ %iPhong.0346, %if.then125 ], [ %iPhong.0346, %if.then136 ], [ %iPhong.0346, %if.then147 ], [ %iPhong.0346, %if.then158 ], [ %_a.0345, %if.end28.thread ], [ %iPhong.0346, %if.then32 ], [ %iPhong.0346, %if.end ]
+  %ePhong.2 = phi i32 [ %ePhong.1342, %for.body21 ], [ %ePhong.1342, %if.then39 ], [ %ePhong.1342, %if.then48 ], [ %ePhong.1342, %if.then59 ], [ %ePhong.1342, %if.then70 ], [ %ePhong.1342, %if.then81 ], [ %ePhong.1342, %if.then92 ], [ %ePhong.1342, %if.then103 ], [ %ePhong.1342, %if.then114 ], [ %ePhong.1342, %if.then125 ], [ %ePhong.1342, %if.then136 ], [ %ePhong.1342, %if.then147 ], [ %ePhong.1342, %if.then158 ], [ %22, %if.end28.thread ], [ %ePhong.1342, %if.then32 ], [ %ePhong.1342, %if.end ]
+  %iOpacity.2 = phi i32 [ %iOpacity.1343, %for.body21 ], [ %iOpacity.1343, %if.then39 ], [ %iOpacity.1343, %if.then48 ], [ %iOpacity.1343, %if.then59 ], [ %iOpacity.1343, %if.then70 ], [ %iOpacity.1343, %if.then81 ], [ %iOpacity.1343, %if.then92 ], [ %iOpacity.1343, %if.then103 ], [ %iOpacity.1343, %if.then114 ], [ %iOpacity.1343, %if.then125 ], [ %iOpacity.1343, %if.then136 ], [ %iOpacity.1343, %if.then147 ], [ %iOpacity.1343, %if.then158 ], [ %iOpacity.1343, %if.end28.thread ], [ %_a.0345, %if.then32 ], [ %iOpacity.1343, %if.end ]
+  %eOpacity.2 = phi i32 [ %eOpacity.1344, %for.body21 ], [ %eOpacity.1344, %if.then39 ], [ %eOpacity.1344, %if.then48 ], [ %eOpacity.1344, %if.then59 ], [ %eOpacity.1344, %if.then70 ], [ %eOpacity.1344, %if.then81 ], [ %eOpacity.1344, %if.then92 ], [ %eOpacity.1344, %if.then103 ], [ %eOpacity.1344, %if.then114 ], [ %eOpacity.1344, %if.then125 ], [ %eOpacity.1344, %if.then136 ], [ %eOpacity.1344, %if.then147 ], [ %eOpacity.1344, %if.then158 ], [ %eOpacity.1344, %if.end28.thread ], [ %23, %if.then32 ], [ %eOpacity.1344, %if.end ]
+  %iPhong.2 = phi i32 [ %iPhong.1346, %for.body21 ], [ %iPhong.1346, %if.then39 ], [ %iPhong.1346, %if.then48 ], [ %iPhong.1346, %if.then59 ], [ %iPhong.1346, %if.then70 ], [ %iPhong.1346, %if.then81 ], [ %iPhong.1346, %if.then92 ], [ %iPhong.1346, %if.then103 ], [ %iPhong.1346, %if.then114 ], [ %iPhong.1346, %if.then125 ], [ %iPhong.1346, %if.then136 ], [ %iPhong.1346, %if.then147 ], [ %iPhong.1346, %if.then158 ], [ %_a.0345, %if.end28.thread ], [ %iPhong.1346, %if.then32 ], [ %iPhong.1346, %if.end ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %a.sroa.0.0341, i64 48
   %inc = add i32 %_a.0345, 1
   %cmp.i32.not = icmp eq ptr %incdec.ptr.i, %7
@@ -2012,10 +2012,10 @@ for.cond14.for.end190_crit_edge:                  ; preds = %for.inc
 for.end190:                                       ; preds = %for.cond14.for.end190_crit_edge, %if.then
   %.lcssa = phi i32 [ %47, %for.cond14.for.end190_crit_edge ], [ 0, %if.then ]
   %_a.0338.lcssa = phi i32 [ %_a.0337, %for.cond14.for.end190_crit_edge ], [ -1, %if.then ]
-  %ePhong.0.lcssa = phi i32 [ %ePhong.2, %for.cond14.for.end190_crit_edge ], [ 0, %if.then ]
-  %iOpacity.0.lcssa = phi i32 [ %iOpacity.2, %for.cond14.for.end190_crit_edge ], [ -1, %if.then ]
-  %eOpacity.0.lcssa = phi i32 [ %eOpacity.2, %for.cond14.for.end190_crit_edge ], [ 0, %if.then ]
-  %iPhong.0.lcssa = phi i32 [ %iPhong.2, %for.cond14.for.end190_crit_edge ], [ -1, %if.then ]
+  %ePhong.1.lcssa = phi i32 [ %ePhong.2, %for.cond14.for.end190_crit_edge ], [ 0, %if.then ]
+  %iOpacity.1.lcssa = phi i32 [ %iOpacity.2, %for.cond14.for.end190_crit_edge ], [ -1, %if.then ]
+  %eOpacity.1.lcssa = phi i32 [ %eOpacity.2, %for.cond14.for.end190_crit_edge ], [ 0, %if.then ]
+  %iPhong.1.lcssa = phi i32 [ %iPhong.2, %for.cond14.for.end190_crit_edge ], [ -1, %if.then ]
   store i32 %_a.0338.lcssa, ptr %aaiPositions, align 16
   store i32 %.lcssa, ptr %aaiTypes, align 16
   %cmp191.not = icmp eq ptr %5, null
@@ -2033,9 +2033,9 @@ for.body203.lr.ph:                                ; preds = %if.then192
   %arrayidx215 = getelementptr inbounds i8, ptr %aaiTypes, i64 16
   %arrayidx220 = getelementptr inbounds i8, ptr %aaiPositions, i64 32
   %arrayidx222 = getelementptr inbounds i8, ptr %aaiTypes, i64 32
-  %cmp225.not = icmp eq i32 %iPhong.0.lcssa, -1
-  %conv.i = sext i32 %iPhong.0.lcssa to i64
-  %cmp239.not = icmp eq i32 %iOpacity.0.lcssa, -1
+  %cmp225.not = icmp eq i32 %iPhong.1.lcssa, -1
+  %conv.i = sext i32 %iPhong.1.lcssa to i64
+  %cmp239.not = icmp eq i32 %iOpacity.1.lcssa, -1
   %data.i = getelementptr inbounds i8, ptr %name, i64 4
   %_M_finish.i78 = getelementptr inbounds i8, ptr %pvOut, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %pvOut, i64 16
@@ -2093,7 +2093,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   %54 = load ptr, ptr %add.ptr.i.i, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %54, align 8
   %v.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
-  switch i32 %ePhong.0.lcssa, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread [
+  switch i32 %ePhong.1.lcssa, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread [
     i32 6, label %sw.bb.i
     i32 7, label %sw.bb1.i
     i32 5, label %sw.bb2.i
@@ -2179,7 +2179,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   %60 = load ptr, ptr %add.ptr.i.i51, align 8
   %agg.tmp241.sroa.0.0.copyload = load i64, ptr %60, align 8
   %v.sroa.0.sroa.0.0.extract.trunc.i53 = trunc i64 %agg.tmp241.sroa.0.0.copyload to i32
-  switch i32 %eOpacity.0.lcssa, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62 [
+  switch i32 %eOpacity.1.lcssa, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62 [
     i32 6, label %sw.bb.i61
     i32 7, label %sw.bb1.i59
     i32 5, label %sw.bb2.i57

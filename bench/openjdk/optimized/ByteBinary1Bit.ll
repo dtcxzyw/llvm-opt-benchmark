@@ -1621,10 +1621,10 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
 63:                                               ; preds = %210, %11
   %.0191 = phi ptr [ %1, %11 ], [ %213, %210 ]
   %.0188 = phi ptr [ %0, %11 ], [ %215, %210 ]
-  %.0184 = phi i32 [ 0, %11 ], [ %.3187, %210 ]
-  %.0180 = phi i32 [ 0, %11 ], [ %.3183, %210 ]
-  %.0175 = phi i32 [ 0, %11 ], [ %.4179, %210 ]
-  %.0171 = phi i32 [ 0, %11 ], [ %.3174, %210 ]
+  %.0184 = phi i32 [ 0, %11 ], [ %.2186, %210 ]
+  %.0180 = phi i32 [ 0, %11 ], [ %.2182, %210 ]
+  %.0175 = phi i32 [ 0, %11 ], [ %.2177, %210 ]
+  %.0171 = phi i32 [ 0, %11 ], [ %.2173, %210 ]
   %.0167 = phi i32 [ 255, %11 ], [ %.3170, %210 ]
   %.0166 = phi i32 [ %6, %11 ], [ %219, %210 ]
   %.1164 = phi ptr [ %.0163, %11 ], [ %.5, %210 ]
@@ -1641,10 +1641,10 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
 
 73:                                               ; preds = %207, %63
   %.1189 = phi ptr [ %.0188, %63 ], [ %.2190, %207 ]
-  %.1185 = phi i32 [ %.0184, %63 ], [ %.3187, %207 ]
-  %.1181 = phi i32 [ %.0180, %63 ], [ %.3183, %207 ]
-  %.1176 = phi i32 [ %.0175, %63 ], [ %.4179, %207 ]
-  %.1172 = phi i32 [ %.0171, %63 ], [ %.3174, %207 ]
+  %.1185 = phi i32 [ %.0184, %63 ], [ %.2186, %207 ]
+  %.1181 = phi i32 [ %.0180, %63 ], [ %.2182, %207 ]
+  %.1176 = phi i32 [ %.0175, %63 ], [ %.2177, %207 ]
+  %.1172 = phi i32 [ %.0171, %63 ], [ %.2173, %207 ]
   %.1168 = phi i32 [ %.0167, %63 ], [ %.3170, %207 ]
   %.2165 = phi ptr [ %.1164, %63 ], [ %.4, %207 ]
   %.0161 = phi i32 [ %66, %63 ], [ %.1162, %207 ]
@@ -1699,8 +1699,8 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %101
 
 101:                                              ; preds = %90, %89
-  %.2186 = phi i32 [ %95, %90 ], [ %.1185, %89 ]
-  %.2173 = phi i32 [ %100, %90 ], [ %.1172, %89 ]
+  %.3187 = phi i32 [ %95, %90 ], [ %.1185, %89 ]
+  %.3174 = phi i32 [ %100, %90 ], [ %.1172, %89 ]
   br i1 %spec.select, label %102, label %105
 
 102:                                              ; preds = %101
@@ -1709,12 +1709,12 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %105
 
 105:                                              ; preds = %102, %101
-  %.2182 = phi i32 [ %103, %102 ], [ %.1181, %101 ]
-  %.2177 = phi i32 [ %104, %102 ], [ %.1176, %101 ]
-  %106 = and i32 %.2177, %27
+  %.3183 = phi i32 [ %103, %102 ], [ %.1181, %101 ]
+  %.3178 = phi i32 [ %104, %102 ], [ %.1176, %101 ]
+  %106 = and i32 %.3178, %27
   %107 = xor i32 %106, %30
   %108 = add nsw i32 %107, %33
-  %109 = and i32 %.2173, %37
+  %109 = and i32 %.3174, %37
   %110 = xor i32 %109, %40
   %111 = add nsw i32 %110, %43
   %.not206 = icmp eq i32 %.2169, 255
@@ -1742,7 +1742,7 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
 
 124:                                              ; preds = %123
   %125 = sext i32 %.0145 to i64
-  %126 = zext nneg i32 %.2173 to i64
+  %126 = zext nneg i32 %.3174 to i64
   %127 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %125, i64 %126
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
@@ -1750,11 +1750,11 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   br i1 %.not208, label %152, label %130
 
 130:                                              ; preds = %124
-  %131 = lshr i32 %.2186, 16
+  %131 = lshr i32 %.3187, 16
   %132 = and i32 %131, 255
-  %133 = lshr i32 %.2186, 8
+  %133 = lshr i32 %.3187, 8
   %134 = and i32 %133, 255
-  %135 = and i32 %.2186, 255
+  %135 = and i32 %.3187, 255
   %.not209 = icmp eq i8 %128, -1
   br i1 %.not209, label %152, label %136
 
@@ -1788,7 +1788,7 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
 
 153:                                              ; preds = %152
   %154 = sext i32 %.0144 to i64
-  %155 = zext nneg i32 %.2177 to i64
+  %155 = zext nneg i32 %.3178 to i64
   %156 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %154, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
@@ -1797,11 +1797,11 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   br i1 %.not211, label %184, label %160
 
 160:                                              ; preds = %153
-  %161 = lshr i32 %.2182, 16
+  %161 = lshr i32 %.3183, 16
   %162 = and i32 %161, 255
-  %163 = lshr i32 %.2182, 8
+  %163 = lshr i32 %.3183, 8
   %164 = and i32 %163, 255
-  %165 = and i32 %.2182, 255
+  %165 = and i32 %.3183, 255
   %.not212 = icmp eq i8 %157, -1
   br i1 %.not212, label %180, label %166
 
@@ -1831,7 +1831,7 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %184
 
 184:                                              ; preds = %153, %180, %152
-  %.3178 = phi i32 [ %158, %180 ], [ 0, %153 ], [ %.2177, %152 ]
+  %.4179 = phi i32 [ %158, %180 ], [ 0, %153 ], [ %.3178, %152 ]
   %.1154 = phi i32 [ %159, %180 ], [ %159, %153 ], [ %.0153, %152 ]
   %.1151 = phi i32 [ %181, %180 ], [ %.0150, %153 ], [ %.0150, %152 ]
   %.1148 = phi i32 [ %182, %180 ], [ %.0147, %153 ], [ %.0147, %152 ]
@@ -1870,10 +1870,10 @@ define hidden void @ByteBinary1BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %207
 
 207:                                              ; preds = %150, %85, %200
-  %.3187 = phi i32 [ %.2186, %200 ], [ %.1185, %85 ], [ %.2186, %150 ]
-  %.3183 = phi i32 [ %.2182, %200 ], [ %.1181, %85 ], [ %.2182, %150 ]
-  %.4179 = phi i32 [ %.3178, %200 ], [ %.1176, %85 ], [ %.2177, %150 ]
-  %.3174 = phi i32 [ %.2173, %200 ], [ %.1172, %85 ], [ %.2173, %150 ]
+  %.2186 = phi i32 [ %.3187, %200 ], [ %.1185, %85 ], [ %.3187, %150 ]
+  %.2182 = phi i32 [ %.3183, %200 ], [ %.1181, %85 ], [ %.3183, %150 ]
+  %.2177 = phi i32 [ %.4179, %200 ], [ %.1176, %85 ], [ %.3178, %150 ]
+  %.2173 = phi i32 [ %.3174, %200 ], [ %.1172, %85 ], [ %.3174, %150 ]
   %.3170 = phi i32 [ %.2169, %200 ], [ 0, %85 ], [ %.2169, %150 ]
   %.4 = phi ptr [ %.3, %200 ], [ %86, %85 ], [ %.3, %150 ]
   %.2160 = add nsw i32 %.1159, -1
@@ -1966,11 +1966,11 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
 
 65:                                               ; preds = %223, %11
   %.0199 = phi ptr [ %0, %11 ], [ %231, %223 ]
-  %.0195 = phi i32 [ 0, %11 ], [ %.3198, %223 ]
+  %.0195 = phi i32 [ 0, %11 ], [ %.2197, %223 ]
   %.0192 = phi ptr [ %1, %11 ], [ %228, %223 ]
-  %.0188 = phi i32 [ 0, %11 ], [ %.3191, %223 ]
-  %.0183 = phi i32 [ 0, %11 ], [ %.4187, %223 ]
-  %.0179 = phi i32 [ 0, %11 ], [ %.3182, %223 ]
+  %.0188 = phi i32 [ 0, %11 ], [ %.2190, %223 ]
+  %.0183 = phi i32 [ 0, %11 ], [ %.2185, %223 ]
+  %.0179 = phi i32 [ 0, %11 ], [ %.2181, %223 ]
   %.0175 = phi i32 [ 255, %11 ], [ %.3178, %223 ]
   %.0174 = phi i32 [ %6, %11 ], [ %235, %223 ]
   %.1172 = phi ptr [ %.0171, %11 ], [ %.5, %223 ]
@@ -1986,11 +1986,11 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %75
 
 75:                                               ; preds = %220, %65
-  %.1196 = phi i32 [ %.0195, %65 ], [ %.3198, %220 ]
+  %.1196 = phi i32 [ %.0195, %65 ], [ %.2197, %220 ]
   %.1193 = phi ptr [ %.0192, %65 ], [ %.2194, %220 ]
-  %.1189 = phi i32 [ %.0188, %65 ], [ %.3191, %220 ]
-  %.1184 = phi i32 [ %.0183, %65 ], [ %.4187, %220 ]
-  %.1180 = phi i32 [ %.0179, %65 ], [ %.3182, %220 ]
+  %.1189 = phi i32 [ %.0188, %65 ], [ %.2190, %220 ]
+  %.1184 = phi i32 [ %.0183, %65 ], [ %.2185, %220 ]
+  %.1180 = phi i32 [ %.0179, %65 ], [ %.2181, %220 ]
   %.1176 = phi i32 [ %.0175, %65 ], [ %.3178, %220 ]
   %.2173 = phi ptr [ %.1172, %65 ], [ %.4, %220 ]
   %.0169 = phi i32 [ %68, %65 ], [ %.1170, %220 ]
@@ -2041,8 +2041,8 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %99
 
 99:                                               ; preds = %92, %91
-  %.2197 = phi i32 [ %93, %92 ], [ %.1196, %91 ]
-  %.2181 = phi i32 [ %98, %92 ], [ %.1180, %91 ]
+  %.3198 = phi i32 [ %93, %92 ], [ %.1196, %91 ]
+  %.3182 = phi i32 [ %98, %92 ], [ %.1180, %91 ]
   br i1 %spec.select, label %100, label %107
 
 100:                                              ; preds = %99
@@ -2055,12 +2055,12 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %107
 
 107:                                              ; preds = %100, %99
-  %.2190 = phi i32 [ %105, %100 ], [ %.1189, %99 ]
-  %.2185 = phi i32 [ %106, %100 ], [ %.1184, %99 ]
-  %108 = and i32 %.2185, %27
+  %.3191 = phi i32 [ %105, %100 ], [ %.1189, %99 ]
+  %.3186 = phi i32 [ %106, %100 ], [ %.1184, %99 ]
+  %108 = and i32 %.3186, %27
   %109 = xor i32 %108, %30
   %110 = add nsw i32 %109, %33
-  %111 = and i32 %.2181, %37
+  %111 = and i32 %.3182, %37
   %112 = xor i32 %111, %40
   %113 = add nsw i32 %112, %43
   %.not214 = icmp eq i32 %.2177, 255
@@ -2088,7 +2088,7 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
 
 126:                                              ; preds = %125
   %127 = sext i32 %.0152 to i64
-  %128 = zext nneg i32 %.2181 to i64
+  %128 = zext nneg i32 %.3182 to i64
   %129 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
@@ -2096,11 +2096,11 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br i1 %.not216, label %154, label %132
 
 132:                                              ; preds = %126
-  %133 = lshr i32 %.2197, 16
+  %133 = lshr i32 %.3198, 16
   %134 = and i32 %133, 255
-  %135 = lshr i32 %.2197, 8
+  %135 = lshr i32 %.3198, 8
   %136 = and i32 %135, 255
-  %137 = and i32 %.2197, 255
+  %137 = and i32 %.3198, 255
   %.not217 = icmp eq i8 %130, -1
   br i1 %.not217, label %154, label %138
 
@@ -2134,7 +2134,7 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
 
 155:                                              ; preds = %154
   %156 = sext i32 %.0151 to i64
-  %157 = zext nneg i32 %.2185 to i64
+  %157 = zext nneg i32 %.3186 to i64
   %158 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %156, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
@@ -2143,11 +2143,11 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br i1 %.not219, label %186, label %162
 
 162:                                              ; preds = %155
-  %163 = lshr i32 %.2190, 16
+  %163 = lshr i32 %.3191, 16
   %164 = and i32 %163, 255
-  %165 = lshr i32 %.2190, 8
+  %165 = lshr i32 %.3191, 8
   %166 = and i32 %165, 255
-  %167 = and i32 %.2190, 255
+  %167 = and i32 %.3191, 255
   %.not220 = icmp eq i8 %159, -1
   br i1 %.not220, label %182, label %168
 
@@ -2177,7 +2177,7 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %186
 
 186:                                              ; preds = %155, %182, %154
-  %.3186 = phi i32 [ %160, %182 ], [ 0, %155 ], [ %.2185, %154 ]
+  %.4187 = phi i32 [ %160, %182 ], [ 0, %155 ], [ %.3186, %154 ]
   %.1161 = phi i32 [ %161, %182 ], [ %161, %155 ], [ %.0160, %154 ]
   %.1158 = phi i32 [ %183, %182 ], [ %.0157, %155 ], [ %.0157, %154 ]
   %.1155 = phi i32 [ %184, %182 ], [ %.0154, %155 ], [ %.0154, %154 ]
@@ -2226,10 +2226,10 @@ define hidden void @IntArgbToByteBinary1BitAlphaMaskBlit(ptr noundef %0, ptr nou
   br label %220
 
 220:                                              ; preds = %152, %87, %202
-  %.3198 = phi i32 [ %.2197, %202 ], [ %.1196, %87 ], [ %.2197, %152 ]
-  %.3191 = phi i32 [ %.2190, %202 ], [ %.1189, %87 ], [ %.2190, %152 ]
-  %.4187 = phi i32 [ %.3186, %202 ], [ %.1184, %87 ], [ %.2185, %152 ]
-  %.3182 = phi i32 [ %.2181, %202 ], [ %.1180, %87 ], [ %.2181, %152 ]
+  %.2197 = phi i32 [ %.3198, %202 ], [ %.1196, %87 ], [ %.3198, %152 ]
+  %.2190 = phi i32 [ %.3191, %202 ], [ %.1189, %87 ], [ %.3191, %152 ]
+  %.2185 = phi i32 [ %.4187, %202 ], [ %.1184, %87 ], [ %.3186, %152 ]
+  %.2181 = phi i32 [ %.3182, %202 ], [ %.1180, %87 ], [ %.3182, %152 ]
   %.3178 = phi i32 [ %.2177, %202 ], [ 0, %87 ], [ %.2177, %152 ]
   %.4 = phi ptr [ %.3, %202 ], [ %88, %87 ], [ %.3, %152 ]
   %.2165 = phi i32 [ %219, %202 ], [ %.1164, %87 ], [ %.1164, %152 ]
@@ -2348,9 +2348,9 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
 
 75:                                               ; preds = %212, %._crit_edge
   %.0183 = phi ptr [ %0, %._crit_edge ], [ %218, %212 ]
-  %.0177 = phi i32 [ %61, %._crit_edge ], [ %.5182, %212 ]
-  %.0173 = phi i32 [ 0, %._crit_edge ], [ %.3176, %212 ]
-  %.0168 = phi i32 [ 0, %._crit_edge ], [ %.4172, %212 ]
+  %.0177 = phi i32 [ %61, %._crit_edge ], [ %.3180, %212 ]
+  %.0173 = phi i32 [ 0, %._crit_edge ], [ %.2175, %212 ]
+  %.0168 = phi i32 [ 0, %._crit_edge ], [ %.2170, %212 ]
   %.0161 = phi i32 [ 255, %._crit_edge ], [ %.3164, %212 ]
   %.0160 = phi i32 [ %5, %._crit_edge ], [ %222, %212 ]
   %.1158 = phi ptr [ %.0157, %._crit_edge ], [ %.5, %212 ]
@@ -2366,9 +2366,9 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br label %85
 
 85:                                               ; preds = %209, %75
-  %.1178 = phi i32 [ %.0177, %75 ], [ %.5182, %209 ]
-  %.1174 = phi i32 [ %.0173, %75 ], [ %.3176, %209 ]
-  %.1169 = phi i32 [ %.0168, %75 ], [ %.4172, %209 ]
+  %.1178 = phi i32 [ %.0177, %75 ], [ %.3180, %209 ]
+  %.1174 = phi i32 [ %.0173, %75 ], [ %.2175, %209 ]
+  %.1169 = phi i32 [ %.0168, %75 ], [ %.2170, %209 ]
   %.1162 = phi i32 [ %.0161, %75 ], [ %.3164, %209 ]
   %.2159 = phi ptr [ %.1158, %75 ], [ %.4, %209 ]
   %.0155 = phi i32 [ %78, %75 ], [ %.1156, %209 ]
@@ -2423,9 +2423,9 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br label %110
 
 110:                                              ; preds = %103, %102
-  %.2175 = phi i32 [ %108, %103 ], [ %.1174, %102 ]
-  %.2170 = phi i32 [ %109, %103 ], [ %.1169, %102 ]
-  %111 = and i32 %.2170, %39
+  %.3176 = phi i32 [ %108, %103 ], [ %.1174, %102 ]
+  %.3171 = phi i32 [ %109, %103 ], [ %.1169, %102 ]
+  %111 = and i32 %.3171, %39
   %112 = xor i32 %111, %42
   %113 = add nsw i32 %112, %45
   %.not196 = icmp eq i32 %.2163, 255
@@ -2446,7 +2446,7 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br label %125
 
 125:                                              ; preds = %114, %110
-  %.3180 = phi i32 [ %124, %114 ], [ %.2179, %110 ]
+  %.4181 = phi i32 [ %124, %114 ], [ %.2179, %110 ]
   %.0138 = phi i32 [ %119, %114 ], [ %113, %110 ]
   switch i32 %.0138, label %126 [
     i32 0, label %140
@@ -2470,7 +2470,7 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br label %142
 
 140:                                              ; preds = %125
-  %141 = icmp eq i32 %.3180, 255
+  %141 = icmp eq i32 %.4181, 255
   br i1 %141, label %209, label %142
 
 142:                                              ; preds = %140, %125, %126
@@ -2478,12 +2478,12 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   %.0143 = phi i32 [ %133, %126 ], [ %.0165, %125 ], [ 0, %140 ]
   %.0140 = phi i32 [ %136, %126 ], [ %.0166, %125 ], [ 0, %140 ]
   %.0139 = phi i32 [ %139, %126 ], [ %.0167, %125 ], [ 0, %140 ]
-  %.not198 = icmp eq i32 %.3180, 0
+  %.not198 = icmp eq i32 %.4181, 0
   br i1 %.not198, label %174, label %143
 
 143:                                              ; preds = %142
-  %144 = sext i32 %.3180 to i64
-  %145 = zext nneg i32 %.2170 to i64
+  %144 = sext i32 %.4181 to i64
+  %145 = zext nneg i32 %.3171 to i64
   %146 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %144, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
@@ -2492,11 +2492,11 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br i1 %.not199, label %174, label %150
 
 150:                                              ; preds = %143
-  %151 = lshr i32 %.2175, 16
+  %151 = lshr i32 %.3176, 16
   %152 = and i32 %151, 255
-  %153 = lshr i32 %.2175, 8
+  %153 = lshr i32 %.3176, 8
   %154 = and i32 %153, 255
-  %155 = and i32 %.2175, 255
+  %155 = and i32 %.3176, 255
   %.not200 = icmp eq i8 %147, -1
   br i1 %.not200, label %170, label %156
 
@@ -2526,8 +2526,8 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br label %174
 
 174:                                              ; preds = %143, %170, %142
-  %.4181 = phi i32 [ %148, %170 ], [ 0, %143 ], [ 0, %142 ]
-  %.3171 = phi i32 [ %148, %170 ], [ 0, %143 ], [ %.2170, %142 ]
+  %.5182 = phi i32 [ %148, %170 ], [ 0, %143 ], [ 0, %142 ]
+  %.4172 = phi i32 [ %148, %170 ], [ 0, %143 ], [ %.3171, %142 ]
   %.1147 = phi i32 [ %149, %170 ], [ %149, %143 ], [ %.0146, %142 ]
   %.1144 = phi i32 [ %171, %170 ], [ %.0143, %143 ], [ %.0143, %142 ]
   %.1141 = phi i32 [ %172, %170 ], [ %.0140, %143 ], [ %.0140, %142 ]
@@ -2577,9 +2577,9 @@ define hidden void @ByteBinary1BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   br label %209
 
 209:                                              ; preds = %140, %97, %191
-  %.5182 = phi i32 [ %.4181, %191 ], [ %.1178, %97 ], [ 255, %140 ]
-  %.3176 = phi i32 [ %.2175, %191 ], [ %.1174, %97 ], [ %.2175, %140 ]
-  %.4172 = phi i32 [ %.3171, %191 ], [ %.1169, %97 ], [ %.2170, %140 ]
+  %.3180 = phi i32 [ %.5182, %191 ], [ %.1178, %97 ], [ 255, %140 ]
+  %.2175 = phi i32 [ %.3176, %191 ], [ %.1174, %97 ], [ %.3176, %140 ]
+  %.2170 = phi i32 [ %.4172, %191 ], [ %.1169, %97 ], [ %.3171, %140 ]
   %.3164 = phi i32 [ %.2163, %191 ], [ 0, %97 ], [ %.2163, %140 ]
   %.4 = phi ptr [ %.3, %191 ], [ %98, %97 ], [ %.3, %140 ]
   %.2151 = phi i32 [ %208, %191 ], [ %.1150, %97 ], [ %.1150, %140 ]

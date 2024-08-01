@@ -248,8 +248,8 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
 
 65:                                               ; preds = %.lr.ph, %154
   %66 = phi i64 [ %61, %.lr.ph ], [ %.reass, %154 ]
-  %.2202 = phi i32 [ %.1205, %.lr.ph ], [ %.4, %154 ]
-  %.1151201 = phi i64 [ %.0150204, %.lr.ph ], [ %.3153, %154 ]
+  %.2202 = phi i32 [ %.1205, %.lr.ph ], [ %.3, %154 ]
+  %.1151201 = phi i64 [ %.0150204, %.lr.ph ], [ %.2152, %154 ]
   %.0154200 = phi i64 [ %63, %.lr.ph ], [ %155, %154 ]
   %67 = getelementptr inbounds i16, ptr %56, i64 %.0154200
   %68 = load <4 x i16>, ptr %67, align 2
@@ -403,23 +403,23 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   br label %152
 
 152:                                              ; preds = %141, %148, %144
-  %.1155 = phi i64 [ %.0154200, %141 ], [ %64, %148 ], [ %.0154200, %144 ]
-  %.2152 = phi i64 [ %.1151201, %141 ], [ %151, %148 ], [ %.1151201, %144 ]
-  %153 = add i64 %.1155, 4
+  %.2156 = phi i64 [ %.0154200, %141 ], [ %64, %148 ], [ %.0154200, %144 ]
+  %.3153 = phi i64 [ %.1151201, %141 ], [ %151, %148 ], [ %.1151201, %144 ]
+  %153 = add i64 %.2156, 4
   br label %154
 
 154:                                              ; preds = %131, %133, %65, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread, %152, %139
-  %.2156 = phi i64 [ %153, %152 ], [ %.0154200, %139 ], [ %.0154200, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %64, %65 ], [ %64, %133 ], [ %64, %131 ]
-  %.3153 = phi i64 [ %.2152, %152 ], [ %.1151201, %139 ], [ %.1151201, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.1151201, %65 ], [ %.1151201, %133 ], [ %.1151201, %131 ]
-  %.4 = phi i32 [ 2, %152 ], [ %.2202, %139 ], [ %.2202, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.2202, %65 ], [ %spec.store.select, %133 ], [ %.2202, %131 ]
-  %155 = add i64 %.2156, 2
-  %.reass = add i64 %.2156, 6
+  %.1155 = phi i64 [ %153, %152 ], [ %.0154200, %139 ], [ %.0154200, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %64, %65 ], [ %64, %133 ], [ %64, %131 ]
+  %.2152 = phi i64 [ %.3153, %152 ], [ %.1151201, %139 ], [ %.1151201, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.1151201, %65 ], [ %.1151201, %133 ], [ %.1151201, %131 ]
+  %.3 = phi i32 [ 2, %152 ], [ %.2202, %139 ], [ %.2202, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.2202, %65 ], [ %spec.store.select, %133 ], [ %.2202, %131 ]
+  %155 = add i64 %.1155, 2
+  %.reass = add i64 %.1155, 6
   %156 = icmp ult i64 %.reass, %invariant.umin
   br i1 %156, label %65, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %154, %54
-  %.1151.lcssa = phi i64 [ %.0150204, %54 ], [ %.3153, %154 ]
-  %.2.lcssa = phi i32 [ %.1205, %54 ], [ %.4, %154 ]
+  %.1151.lcssa = phi i64 [ %.0150204, %54 ], [ %.2152, %154 ]
+  %.2.lcssa = phi i32 [ %.1205, %54 ], [ %.3, %154 ]
   %157 = sext i32 %.2.lcssa to i64
   %158 = add i64 %.1151.lcssa, %157
   %159 = icmp ult i64 %158, %15
@@ -460,7 +460,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
 
 175:                                              ; preds = %.lr.ph214, %314
   %176 = phi i64 [ %171, %.lr.ph214 ], [ %.reass217, %314 ]
-  %.1158212 = phi i64 [ %.0157218, %.lr.ph214 ], [ %.3160, %314 ]
+  %.1158212 = phi i64 [ %.0157218, %.lr.ph214 ], [ %.2159, %314 ]
   %.0163211 = phi i64 [ %173, %.lr.ph214 ], [ %315, %314 ]
   %177 = load ptr, ptr %162, align 8
   %178 = trunc i64 %.1158212 to i32
@@ -633,23 +633,23 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %309 = icmp sgt i32 %305, %308
   %310 = add i32 %.1.lcssa, %308
   %311 = sub i32 %305, %310
-  %.1164 = select i1 %309, i64 %174, i64 %.0163211
+  %.2165 = select i1 %309, i64 %174, i64 %.0163211
   %narrow = select i1 %309, i32 %311, i32 0
   %312 = sext i32 %narrow to i64
-  %.2159 = add i64 %.1158212, %312
-  %313 = add i64 %.1164, 4
+  %.3160 = add i64 %.1158212, %312
+  %313 = add i64 %.2165, 4
   br label %314
 
 314:                                              ; preds = %175, %189, %201, %301, %263, %258, %247, %212
-  %.2165 = phi i64 [ %.0163211, %212 ], [ %313, %301 ], [ %.0163211, %263 ], [ %.0163211, %258 ], [ %.0163211, %247 ], [ %.0163211, %201 ], [ %.0163211, %189 ], [ %.0163211, %175 ]
-  %.3160 = phi i64 [ %.1158212, %212 ], [ %.2159, %301 ], [ %.1158212, %263 ], [ %.1158212, %258 ], [ %.1158212, %247 ], [ %.1158212, %201 ], [ %.1158212, %189 ], [ %.1158212, %175 ]
-  %315 = add i64 %.2165, 2
-  %.reass217 = add i64 %.2165, 6
+  %.1164 = phi i64 [ %.0163211, %212 ], [ %313, %301 ], [ %.0163211, %263 ], [ %.0163211, %258 ], [ %.0163211, %247 ], [ %.0163211, %201 ], [ %.0163211, %189 ], [ %.0163211, %175 ]
+  %.2159 = phi i64 [ %.1158212, %212 ], [ %.3160, %301 ], [ %.1158212, %263 ], [ %.1158212, %258 ], [ %.1158212, %247 ], [ %.1158212, %201 ], [ %.1158212, %189 ], [ %.1158212, %175 ]
+  %315 = add i64 %.1164, 2
+  %.reass217 = add i64 %.1164, 6
   %316 = icmp ult i64 %.reass217, %170
   br i1 %316, label %175, label %._crit_edge215, !llvm.loop !10
 
 ._crit_edge215:                                   ; preds = %314, %164
-  %.1158.lcssa = phi i64 [ %.0157218, %164 ], [ %.3160, %314 ]
+  %.1158.lcssa = phi i64 [ %.0157218, %164 ], [ %.2159, %314 ]
   %317 = add i64 %.1158.lcssa, %163
   %318 = icmp ult i64 %317, %15
   br i1 %318, label %164, label %._crit_edge221, !llvm.loop !11
@@ -985,7 +985,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
 
 65:                                               ; preds = %38, %.loopexit
   %indvars.iv129 = phi i64 [ 0, %38 ], [ %indvars.iv.next130, %.loopexit ]
-  %.090120 = phi float [ %26, %38 ], [ %.4, %.loopexit ]
+  %.090120 = phi float [ %26, %38 ], [ %.1, %.loopexit ]
   %66 = getelementptr inbounds [7 x float], ptr %5, i64 0, i64 %indvars.iv129
   %67 = load float, ptr %66, align 4
   %68 = fcmp uge float %67, 0.000000e+00
@@ -1030,7 +1030,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
 
 93:                                               ; preds = %82, %159
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %159 ]
-  %.1118 = phi float [ %.090120, %82 ], [ %.3, %159 ]
+  %.2118 = phi float [ %.090120, %82 ], [ %.3, %159 ]
   %94 = getelementptr inbounds [7 x float], ptr %7, i64 0, i64 %indvars.iv
   %95 = load float, ptr %94, align 4
   %96 = fcmp uge float %95, 0.000000e+00
@@ -1039,7 +1039,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   br i1 %or.cond103, label %98, label %159
 
 98:                                               ; preds = %93
-  %99 = fptoui float %.1118 to i64
+  %99 = fptoui float %.2118 to i64
   %100 = fptoui float %95 to i64
   %101 = load ptr, ptr %64, align 8
   %102 = getelementptr inbounds %"class.std::vector.52", ptr %101, i64 %99
@@ -1158,24 +1158,24 @@ _ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_
   br label %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit
 
 _ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit: ; preds = %_ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %128, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread
-  %.2 = phi float [ %.1118, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread ], [ %116, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit ], [ %119, %128 ], [ %119, %_ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
-  %154 = fcmp uno float %.2, 0.000000e+00
+  %.4 = phi float [ %.2118, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread ], [ %116, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit ], [ %119, %128 ], [ %119, %_ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %154 = fcmp uno float %.4, 0.000000e+00
   br i1 %154, label %159, label %155
 
 155:                                              ; preds = %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit
   %156 = fadd float %40, %77
   %157 = fmul float %156, 5.000000e-01
-  %158 = tail call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18tryToPushToCentersEfffNS1_15CrossCheckStateES2_(ptr noundef nonnull align 8 dereferenceable(88) %0, float noundef %73, float noundef %.2, float noundef %157, i32 noundef %10, i32 noundef %76)
+  %158 = tail call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18tryToPushToCentersEfffNS1_15CrossCheckStateES2_(ptr noundef nonnull align 8 dereferenceable(88) %0, float noundef %73, float noundef %.4, float noundef %157, i32 noundef %10, i32 noundef %76)
   br label %.loopexit107
 
 159:                                              ; preds = %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit, %93
-  %.3 = phi float [ %.1118, %93 ], [ %.2, %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit ]
+  %.3 = phi float [ %.2118, %93 ], [ %.4, %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !15
 
 .loopexit:                                        ; preds = %159, %70, %65
-  %.4 = phi float [ %.090120, %65 ], [ %.090120, %70 ], [ %.3, %159 ]
+  %.1 = phi float [ %.090120, %65 ], [ %.090120, %70 ], [ %.3, %159 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 3
   br i1 %exitcond132.not, label %.loopexit107, label %65, !llvm.loop !16
@@ -1214,7 +1214,7 @@ define hidden noundef range(i32 -1073741824, 1073741824) i32 @_ZN5zxing6qrcode19
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.loopexit
   %indvars.iv110 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next111.pre-phi, %.loopexit ]
-  %.sroa.0.089 = phi ptr [ null, %.lr.ph91.preheader ], [ %.sroa.0.3, %.loopexit ]
+  %.sroa.0.089 = phi ptr [ null, %.lr.ph91.preheader ], [ %.sroa.0.4, %.loopexit ]
   %.sroa.041.088 = phi ptr [ null, %.lr.ph91.preheader ], [ %18, %.loopexit ]
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds %"class.zxing::Ref.21", ptr %16, i64 %indvars.iv110
@@ -1282,7 +1282,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %23, %24, %29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %119
   %indvars.iv = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next, %119 ]
-  %.sroa.0.186 = phi ptr [ %.sroa.0.089, %.lr.ph.preheader ], [ %49, %119 ]
+  %.sroa.0.286 = phi ptr [ %.sroa.0.089, %.lr.ph.preheader ], [ %49, %119 ]
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds %"class.zxing::Ref.21", ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
@@ -1297,11 +1297,11 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %23, %24, %29
   br label %54
 
 54:                                               ; preds = %50, %.lr.ph
-  %.not5.i.i27 = icmp eq ptr %.sroa.0.186, null
+  %.not5.i.i27 = icmp eq ptr %.sroa.0.286, null
   br i1 %.not5.i.i27, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit28, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.186, i64 8
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.286, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = add i32 %57, -1
   store i32 %58, ptr %56, align 8
@@ -1310,10 +1310,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %23, %24, %29
 
 60:                                               ; preds = %55
   store i32 -559026175, ptr %56, align 8
-  %61 = load ptr, ptr %.sroa.0.186, align 8
+  %61 = load ptr, ptr %.sroa.0.286, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.186) #22
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.286) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit28
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit28: ; preds = %54, %55, %60
@@ -1396,15 +1396,15 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit28: ; preds = %54, %55, %6
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit64
-  %.sroa.0.2.ph = phi ptr [ %49, %.loopexit64 ], [ %.sroa.0.089, %.loopexit.split-lp.loopexit ], [ %49, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0.1.ph = phi ptr [ %49, %.loopexit64 ], [ %.sroa.0.089, %.loopexit.split-lp.loopexit ], [ %49, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit64 ], [ %lpad.loopexit65, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp66, %.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i = icmp eq ptr %.sroa.0.2.ph, null
+  %.not.i = icmp eq ptr %.sroa.0.1.ph, null
   br i1 %.not.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit, label %101
 
 101:                                              ; preds = %.thread, %.loopexit.split-lp
   %lpad.phi52 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.phi, %.loopexit.split-lp ]
-  %.sroa.0.251 = phi ptr [ %49, %.thread ], [ %.sroa.0.2.ph, %.loopexit.split-lp ]
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.251, i64 8
+  %.sroa.0.151 = phi ptr [ %49, %.thread ], [ %.sroa.0.1.ph, %.loopexit.split-lp ]
+  %102 = getelementptr inbounds i8, ptr %.sroa.0.151, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = add i32 %103, -1
   store i32 %104, ptr %102, align 8
@@ -1413,10 +1413,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit28: ; preds = %54, %55, %6
 
 106:                                              ; preds = %101
   store i32 -559026175, ptr %102, align 8
-  %107 = load ptr, ptr %.sroa.0.251, align 8
+  %107 = load ptr, ptr %.sroa.0.151, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.251) #22
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.151) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %.loopexit.split-lp, %101, %106
@@ -1450,19 +1450,19 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit30: ; preds = %_ZN5zxing3RefIN
 
 .loopexit:                                        ; preds = %119, %..loopexit_crit_edge, %38
   %indvars.iv.next111.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %42, %38 ], [ %42, %119 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.089, %..loopexit_crit_edge ], [ %.sroa.0.089, %38 ], [ %49, %119 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.089, %..loopexit_crit_edge ], [ %.sroa.0.089, %38 ], [ %49, %119 ]
   %exitcond113.not = icmp eq i64 %indvars.iv.next111.pre-phi, %wide.trip.count
   br i1 %exitcond113.not, label %._crit_edge, label %.lr.ph91, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit
   store i32 %10, ptr %13, align 8
-  %.not.i31 = icmp eq ptr %.sroa.0.3, null
+  %.not.i31 = icmp eq ptr %.sroa.0.4, null
   br i1 %.not.i31, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32, label %120
 
 120:                                              ; preds = %.thread54, %._crit_edge
-  %.062 = phi i32 [ %100, %.thread54 ], [ 0, %._crit_edge ]
-  %.sroa.0.461 = phi ptr [ %49, %.thread54 ], [ %.sroa.0.3, %._crit_edge ]
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.461, i64 8
+  %.162 = phi i32 [ %100, %.thread54 ], [ 0, %._crit_edge ]
+  %.sroa.0.361 = phi ptr [ %49, %.thread54 ], [ %.sroa.0.4, %._crit_edge ]
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.361, i64 8
   %122 = load i32, ptr %121, align 8
   %123 = add i32 %122, -1
   store i32 %123, ptr %121, align 8
@@ -1471,14 +1471,14 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit30: ; preds = %_ZN5zxing3RefIN
 
 125:                                              ; preds = %120
   store i32 -559026175, ptr %121, align 8
-  %126 = load ptr, ptr %.sroa.0.461, align 8
+  %126 = load ptr, ptr %.sroa.0.361, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  tail call void %128(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.461) #22
+  tail call void %128(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.361) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32: ; preds = %125, %120, %._crit_edge
-  %.063 = phi i32 [ 0, %._crit_edge ], [ %.062, %120 ], [ %.062, %125 ]
+  %.163 = phi i32 [ 0, %._crit_edge ], [ %.162, %120 ], [ %.162, %125 ]
   %129 = getelementptr inbounds i8, ptr %18, i64 8
   %130 = load i32, ptr %129, align 8
   %131 = add i32 %130, -1
@@ -1495,8 +1495,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32: ; preds = %125, %120, %._c
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit34
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit34: ; preds = %133, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32, %12, %1
-  %.1 = phi i32 [ 0, %1 ], [ 0, %12 ], [ %.063, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32 ], [ %.063, %133 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %12 ], [ %.163, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit32 ], [ %.163, %133 ]
+  ret i32 %.0
 }
 
 declare noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEii(ptr noundef nonnull align 8 dereferenceable(160), i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2211,8 +2211,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit200: ; preds = %_ZN5zxing3RefI
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477
 
 .loopexit.split-lp549:                            ; preds = %147, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit, %242, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit228, %366, %375, %378
-  %.sroa.15.0.ph = phi ptr [ null, %147 ], [ %150, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit ], [ %.sroa.15.1, %242 ], [ %246, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit228 ], [ %.sroa.15.2, %366 ], [ %.sroa.15.2, %378 ], [ %.sroa.15.2, %375 ]
-  %.sroa.0511.0.ph = phi ptr [ null, %147 ], [ %148, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit ], [ %.sroa.0511.1, %242 ], [ %244, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit228 ], [ %.sroa.0511.2, %366 ], [ %.sroa.0511.2, %378 ], [ %.sroa.0511.2, %375 ]
+  %.sroa.15.1.ph = phi ptr [ null, %147 ], [ %150, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit ], [ %.sroa.15.0, %242 ], [ %246, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit228 ], [ %.sroa.15.3, %366 ], [ %.sroa.15.3, %378 ], [ %.sroa.15.3, %375 ]
+  %.sroa.0511.1.ph = phi ptr [ null, %147 ], [ %148, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit ], [ %.sroa.0511.0, %242 ], [ %244, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit228 ], [ %.sroa.0511.3, %366 ], [ %.sroa.0511.3, %378 ], [ %.sroa.0511.3, %375 ]
   %lpad.loopexit.split-lp551 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477
@@ -2283,8 +2283,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206: ; preds = %227, %222, %_Z
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202: ; preds = %205, %200, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit200, %155, %145
-  %.sroa.15.1 = phi ptr [ null, %145 ], [ %150, %155 ], [ %150, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit200 ], [ %150, %200 ], [ %150, %205 ]
-  %.sroa.0511.1 = phi ptr [ null, %145 ], [ %148, %155 ], [ %148, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit200 ], [ %148, %200 ], [ %148, %205 ]
+  %.sroa.15.0 = phi ptr [ null, %145 ], [ %150, %155 ], [ %150, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit200 ], [ %150, %200 ], [ %150, %205 ]
+  %.sroa.0511.0 = phi ptr [ null, %145 ], [ %148, %155 ], [ %148, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit200 ], [ %148, %200 ], [ %148, %205 ]
   %241 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder22FP_IS_SELECT_FILE_BESTE, align 4
   %.not122 = icmp eq i32 %241, 0
   br i1 %.not122, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit246, label %242
@@ -2297,12 +2297,12 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202: ; preds = %205, %200, %_Z
   %244 = load ptr, ptr %14, align 8
   %245 = getelementptr inbounds i8, ptr %14, i64 8
   %246 = load ptr, ptr %245, align 8
-  %.not4.i.i.i.i.i.i209 = icmp eq ptr %.sroa.0511.1, %.sroa.15.1
+  %.not4.i.i.i.i.i.i209 = icmp eq ptr %.sroa.0511.0, %.sroa.15.0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i209, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i215, label %.lr.ph.i.i.i.i.i.i210
 
 .lr.ph.i.i.i.i.i.i210:                            ; preds = %243, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i213
-  %.05.i.i.i.i.i.i211 = phi ptr [ %257, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i213 ], [ %.sroa.0511.1, %243 ]
+  %.05.i.i.i.i.i.i211 = phi ptr [ %257, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i213 ], [ %.sroa.0511.0, %243 ]
   %247 = load ptr, ptr %.05.i.i.i.i.i.i211, align 8
   %.not.i.i.i.i.i.i.i.i212 = icmp eq ptr %247, null
   br i1 %.not.i.i.i.i.i.i.i.i212, label %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i213, label %248
@@ -2325,15 +2325,15 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202: ; preds = %205, %200, %_Z
 
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i213: ; preds = %253, %248, %.lr.ph.i.i.i.i.i.i210
   %257 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i211, i64 8
-  %.not.i.i.i.i.i.i214 = icmp eq ptr %257, %.sroa.15.1
+  %.not.i.i.i.i.i.i214 = icmp eq ptr %257, %.sroa.15.0
   br i1 %.not.i.i.i.i.i.i214, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i215, label %.lr.ph.i.i.i.i.i.i210, !llvm.loop !20
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i215: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i213, %243
-  %.not.i.i.i.i.i216 = icmp eq ptr %.sroa.0511.1, null
+  %.not.i.i.i.i.i216 = icmp eq ptr %.sroa.0511.0, null
   br i1 %.not.i.i.i.i.i216, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit217, label %258
 
 258:                                              ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i215
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0511.1) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0511.0) #21
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit217
 
 _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EEaSEOS6_.exit217: ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i.i.i215, %258
@@ -2568,8 +2568,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250: ; preds = %350, %345, %_Z
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit246: ; preds = %328, %323, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit244, %278, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202
-  %.sroa.15.2 = phi ptr [ %.sroa.15.1, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202 ], [ %246, %278 ], [ %246, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit244 ], [ %246, %323 ], [ %246, %328 ]
-  %.sroa.0511.2 = phi ptr [ %.sroa.0511.1, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202 ], [ %244, %278 ], [ %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit244 ], [ %244, %323 ], [ %244, %328 ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202 ], [ %246, %278 ], [ %246, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit244 ], [ %246, %323 ], [ %246, %328 ]
+  %.sroa.0511.3 = phi ptr [ %.sroa.0511.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit202 ], [ %244, %278 ], [ %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit244 ], [ %244, %323 ], [ %244, %328 ]
   %364 = load ptr, ptr %37, align 8
   %365 = load ptr, ptr %38, align 8
   %.not.i.i253 = icmp eq ptr %364, %365
@@ -4618,11 +4618,11 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit: ; preds = %1269, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i450
-  %.not4.i.i.i.i454 = icmp eq ptr %.sroa.0511.2, %.sroa.15.2
+  %.not4.i.i.i.i454 = icmp eq ptr %.sroa.0511.3, %.sroa.15.3
   br i1 %.not4.i.i.i.i454, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i462, label %.lr.ph.i.i.i.i455
 
 .lr.ph.i.i.i.i455:                                ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i458
-  %.05.i.i.i.i456 = phi ptr [ %1280, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i458 ], [ %.sroa.0511.2, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
+  %.05.i.i.i.i456 = phi ptr [ %1280, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i458 ], [ %.sroa.0511.3, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit ]
   %1270 = load ptr, ptr %.05.i.i.i.i456, align 8
   %.not.i.i.i.i.i.i457 = icmp eq ptr %1270, null
   br i1 %.not.i.i.i.i.i.i457, label %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i458, label %1271
@@ -4645,15 +4645,15 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit: ; preds = %1269, %_ZSt8_
 
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i458: ; preds = %1276, %1271, %.lr.ph.i.i.i.i455
   %1280 = getelementptr inbounds i8, ptr %.05.i.i.i.i456, i64 8
-  %.not.i.i.i.i459 = icmp eq ptr %1280, %.sroa.15.2
+  %.not.i.i.i.i459 = icmp eq ptr %1280, %.sroa.15.3
   br i1 %.not.i.i.i.i459, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i462, label %.lr.ph.i.i.i.i455, !llvm.loop !20
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i462: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i458, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit
-  %.not.i.i.i463 = icmp eq ptr %.sroa.0511.2, null
+  %.not.i.i.i463 = icmp eq ptr %.sroa.0511.3, null
   br i1 %.not.i.i.i463, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit464, label %1281
 
 1281:                                             ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i462
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0511.2) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0511.3) #21
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit464
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit304: ; preds = %.loopexit543, %.loopexit.split-lp544, %653, %648, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit308, %621, %616, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit302, %_ZNSt6vectorIdSaIdEED2Ev.exit332, %459
@@ -4705,14 +4705,14 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   br label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477
 
 _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477: ; preds = %.loopexit548, %.loopexit.split-lp549, %1297, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i473, %360, %355, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250, %237, %232, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206
-  %.sroa.15.3 = phi ptr [ %150, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206 ], [ %150, %232 ], [ %150, %237 ], [ %246, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250 ], [ %246, %355 ], [ %246, %360 ], [ %.sroa.15.2, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i473 ], [ %.sroa.15.2, %1297 ], [ %.sroa.15.2, %.loopexit548 ], [ %.sroa.15.0.ph, %.loopexit.split-lp549 ]
-  %.sroa.0511.3 = phi ptr [ %148, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206 ], [ %148, %232 ], [ %148, %237 ], [ %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250 ], [ %244, %355 ], [ %244, %360 ], [ %.sroa.0511.2, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i473 ], [ %.sroa.0511.2, %1297 ], [ %.sroa.0511.2, %.loopexit548 ], [ %.sroa.0511.0.ph, %.loopexit.split-lp549 ]
+  %.sroa.15.2 = phi ptr [ %150, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206 ], [ %150, %232 ], [ %150, %237 ], [ %246, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250 ], [ %246, %355 ], [ %246, %360 ], [ %.sroa.15.3, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i473 ], [ %.sroa.15.3, %1297 ], [ %.sroa.15.3, %.loopexit548 ], [ %.sroa.15.1.ph, %.loopexit.split-lp549 ]
+  %.sroa.0511.2 = phi ptr [ %148, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206 ], [ %148, %232 ], [ %148, %237 ], [ %244, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250 ], [ %244, %355 ], [ %244, %360 ], [ %.sroa.0511.3, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i473 ], [ %.sroa.0511.3, %1297 ], [ %.sroa.0511.3, %.loopexit548 ], [ %.sroa.0511.1.ph, %.loopexit.split-lp549 ]
   %.pn153.pn = phi { ptr, i32 } [ %210, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit206 ], [ %210, %232 ], [ %210, %237 ], [ %333, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit250 ], [ %333, %355 ], [ %333, %360 ], [ %.pn153, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i473 ], [ %.pn153, %1297 ], [ %lpad.loopexit550, %.loopexit548 ], [ %lpad.loopexit.split-lp551, %.loopexit.split-lp549 ]
-  %.not4.i.i.i.i478 = icmp eq ptr %.sroa.0511.3, %.sroa.15.3
+  %.not4.i.i.i.i478 = icmp eq ptr %.sroa.0511.2, %.sroa.15.2
   br i1 %.not4.i.i.i.i478, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i486, label %.lr.ph.i.i.i.i479
 
 .lr.ph.i.i.i.i479:                                ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i482
-  %.05.i.i.i.i480 = phi ptr [ %1308, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i482 ], [ %.sroa.0511.3, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477 ]
+  %.05.i.i.i.i480 = phi ptr [ %1308, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i482 ], [ %.sroa.0511.2, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477 ]
   %1298 = load ptr, ptr %.05.i.i.i.i480, align 8
   %.not.i.i.i.i.i.i481 = icmp eq ptr %1298, null
   br i1 %.not.i.i.i.i.i.i481, label %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i482, label %1299
@@ -4735,15 +4735,15 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477: ; preds = %.loopexit5
 
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i482: ; preds = %1304, %1299, %.lr.ph.i.i.i.i479
   %1308 = getelementptr inbounds i8, ptr %.05.i.i.i.i480, i64 8
-  %.not.i.i.i.i483 = icmp eq ptr %1308, %.sroa.15.3
+  %.not.i.i.i.i483 = icmp eq ptr %1308, %.sroa.15.2
   br i1 %.not.i.i.i.i483, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i486, label %.lr.ph.i.i.i.i479, !llvm.loop !20
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i486: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i482, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit477
-  %.not.i.i.i487 = icmp eq ptr %.sroa.0511.3, null
+  %.not.i.i.i487 = icmp eq ptr %.sroa.0511.2, null
   br i1 %.not.i.i.i487, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit182, label %1309
 
 1309:                                             ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i486
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0511.3) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0511.2) #21
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit182
 
 _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EED2Ev.exit464: ; preds = %1281, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.i462, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit176
@@ -7369,8 +7369,8 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit118: ; preds = %324, %319
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %331, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit118, %300
-  %.sroa.0153.1 = phi ptr [ %.sroa.0153.0, %300 ], [ %.sroa.0143.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit118 ], [ %.sroa.0143.0, %331 ]
-  %.sroa.0143.1 = phi ptr [ %.sroa.0143.0, %300 ], [ %.sroa.0153.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit118 ], [ %.sroa.0153.0, %331 ]
+  %.sroa.0153.2 = phi ptr [ %.sroa.0153.0, %300 ], [ %.sroa.0143.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit118 ], [ %.sroa.0143.0, %331 ]
+  %.sroa.0143.2 = phi ptr [ %.sroa.0143.0, %300 ], [ %.sroa.0153.0, %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit118 ], [ %.sroa.0153.0, %331 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %335 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
           to label %336 unwind label %406
@@ -7383,7 +7383,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %331, %_ZN5zxing3R
   %339 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %337, ptr %339, align 8
   store ptr %337, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %.sroa.0143.1, i64 8
+  %340 = getelementptr inbounds i8, ptr %.sroa.0143.2, i64 8
   %341 = load i32, ptr %340, align 8
   %342 = add i32 %341, 1
   store i32 %342, ptr %340, align 8
@@ -7408,7 +7408,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %331, %_ZN5zxing3R
   br label %353
 
 353:                                              ; preds = %336, %344, %349
-  store ptr %.sroa.0143.1, ptr %335, align 8
+  store ptr %.sroa.0143.2, ptr %335, align 8
   %354 = load ptr, ptr %0, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 8
   %356 = getelementptr inbounds i8, ptr %.sroa.0163.0, i64 8
@@ -7438,7 +7438,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %331, %_ZN5zxing3R
 369:                                              ; preds = %353, %360, %365
   store ptr %.sroa.0163.0, ptr %355, align 8
   %370 = getelementptr inbounds i8, ptr %354, i64 16
-  %371 = getelementptr inbounds i8, ptr %.sroa.0153.1, i64 8
+  %371 = getelementptr inbounds i8, ptr %.sroa.0153.2, i64 8
   %372 = load i32, ptr %371, align 8
   %373 = add i32 %372, 1
   store i32 %373, ptr %371, align 8
@@ -7463,7 +7463,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %331, %_ZN5zxing3R
   br label %384
 
 384:                                              ; preds = %380, %375, %369
-  store ptr %.sroa.0153.1, ptr %370, align 8
+  store ptr %.sroa.0153.2, ptr %370, align 8
   %385 = load i32, ptr %340, align 8
   %386 = add i32 %385, -1
   store i32 %386, ptr %340, align 8
@@ -7472,10 +7472,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %331, %_ZN5zxing3R
 
 388:                                              ; preds = %384
   store i32 -559026175, ptr %340, align 8
-  %389 = load ptr, ptr %.sroa.0143.1, align 8
+  %389 = load ptr, ptr %.sroa.0143.2, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 8
   %391 = load ptr, ptr %390, align 8
-  tail call void %391(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0143.1) #22
+  tail call void %391(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0143.2) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit131
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit131: ; preds = %388, %384
@@ -7487,10 +7487,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit131: ; preds = %388, %384
 
 395:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit131
   store i32 -559026175, ptr %371, align 8
-  %396 = load ptr, ptr %.sroa.0153.1, align 8
+  %396 = load ptr, ptr %.sroa.0153.2, align 8
   %397 = getelementptr inbounds i8, ptr %396, i64 8
   %398 = load ptr, ptr %397, align 8
-  tail call void %398(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0153.1) #22
+  tail call void %398(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0153.2) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit133
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit133: ; preds = %395, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit131
@@ -7517,10 +7517,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit135: ; preds = %_ZN5zxing3RefI
   br label %408
 
 408:                                              ; preds = %216, %406
-  %.sroa.0153.2 = phi ptr [ %.sroa.0153.1, %406 ], [ %.sroa.0153.0, %216 ]
-  %.sroa.0143.2 = phi ptr [ %.sroa.0143.1, %406 ], [ %.sroa.0143.0, %216 ]
+  %.sroa.0153.1 = phi ptr [ %.sroa.0153.2, %406 ], [ %.sroa.0153.0, %216 ]
+  %.sroa.0143.1 = phi ptr [ %.sroa.0143.2, %406 ], [ %.sroa.0143.0, %216 ]
   %.pn23 = phi { ptr, i32 } [ %407, %406 ], [ %217, %216 ]
-  %409 = getelementptr inbounds i8, ptr %.sroa.0143.2, i64 8
+  %409 = getelementptr inbounds i8, ptr %.sroa.0143.1, i64 8
   %410 = load i32, ptr %409, align 8
   %411 = add i32 %410, -1
   store i32 %411, ptr %409, align 8
@@ -7529,18 +7529,18 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit135: ; preds = %_ZN5zxing3RefI
 
 413:                                              ; preds = %408
   store i32 -559026175, ptr %409, align 8
-  %414 = load ptr, ptr %.sroa.0143.2, align 8
+  %414 = load ptr, ptr %.sroa.0143.1, align 8
   %415 = getelementptr inbounds i8, ptr %414, i64 8
   %416 = load ptr, ptr %415, align 8
-  tail call void %416(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0143.2) #22
+  tail call void %416(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0143.1) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit137
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit137: ; preds = %408, %413
-  %.not.i138 = icmp eq ptr %.sroa.0153.2, null
+  %.not.i138 = icmp eq ptr %.sroa.0153.1, null
   br i1 %.not.i138, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit139, label %417
 
 417:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit137
-  %418 = getelementptr inbounds i8, ptr %.sroa.0153.2, i64 8
+  %418 = getelementptr inbounds i8, ptr %.sroa.0153.1, i64 8
   %419 = load i32, ptr %418, align 8
   %420 = add i32 %419, -1
   store i32 %420, ptr %418, align 8
@@ -7549,10 +7549,10 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit137: ; preds = %408, %413
 
 422:                                              ; preds = %417
   store i32 -559026175, ptr %418, align 8
-  %423 = load ptr, ptr %.sroa.0153.2, align 8
+  %423 = load ptr, ptr %.sroa.0153.1, align 8
   %424 = getelementptr inbounds i8, ptr %423, i64 8
   %425 = load ptr, ptr %424, align 8
-  tail call void %425(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0153.2) #22
+  tail call void %425(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0153.1) #22
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit139
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit139: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit137, %417, %422
@@ -11352,7 +11352,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
 
 124:                                              ; preds = %.lr.ph192, %128
   %125 = phi i32 [ 0, %.lr.ph192 ], [ %129, %128 ]
-  %.6191 = phi i32 [ %.4.lcssa, %.lr.ph192 ], [ %130, %128 ]
+  %.7191 = phi i32 [ %.4.lcssa, %.lr.ph192 ], [ %130, %128 ]
   %.6117190 = phi ptr [ %.4115.lcssa, %.lr.ph192 ], [ %131, %128 ]
   %126 = load i8, ptr %.6117190, align 1
   %127 = trunc i8 %126 to i1
@@ -11361,21 +11361,21 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
 128:                                              ; preds = %124
   %129 = add nuw nsw i32 %125, 1
   store i32 %129, ptr %112, align 16
-  %130 = add i32 %.6191, 1
+  %130 = add i32 %.7191, 1
   %131 = getelementptr inbounds i8, ptr %.6117190, i64 %56
   %exitcond230.not = icmp eq i32 %130, %11
   br i1 %exitcond230.not, label %.critedge12, label %124, !llvm.loop !64
 
 .critedge12:                                      ; preds = %124, %128, %.preheader141
   %132 = phi i32 [ 0, %.preheader141 ], [ %129, %128 ], [ %125, %124 ]
-  %.6.lcssa = phi i32 [ %.4.lcssa, %.preheader141 ], [ %11, %128 ], [ %.6191, %124 ]
+  %.7.lcssa = phi i32 [ %.4.lcssa, %.preheader141 ], [ %11, %128 ], [ %.7191, %124 ]
   %.not128 = icmp slt i32 %132, %3
   %spec.select136 = select i1 %.not128, i32 %spec.select, i32 2
   br label %133
 
 133:                                              ; preds = %.critedge12, %.critedge10
   %134 = phi i32 [ %123, %.critedge10 ], [ %132, %.critedge12 ]
-  %.7 = phi i32 [ %.5.lcssa, %.critedge10 ], [ %.6.lcssa, %.critedge12 ]
+  %.6 = phi i32 [ %.5.lcssa, %.critedge10 ], [ %.7.lcssa, %.critedge12 ]
   %.1 = phi i32 [ %spec.select, %.critedge10 ], [ %spec.select136, %.critedge12 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
   %135 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder18INTEGER_MATH_SHIFTE, align 4
@@ -11500,7 +11500,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %202 = sitofp i32 %196 to float
   %203 = fdiv float %202, 7.000000e+00
   store float %203, ptr %5, align 4
-  %204 = sub nsw i32 %.7, %134
+  %204 = sub nsw i32 %.6, %134
   %205 = sitofp i32 %204 to float
   %206 = add nuw i32 %108, %69
   %207 = add i32 %206, %96
@@ -11795,29 +11795,29 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
 
 .critedge12.sink.split:                           ; preds = %124, %..critedge12_crit_edge171
   %.lcssa269.sink = phi i32 [ %120, %..critedge12_crit_edge171 ], [ %107, %124 ]
-  %.6.lcssa.ph = phi i32 [ %126, %..critedge12_crit_edge171 ], [ %11, %124 ]
+  %.7.lcssa.ph = phi i32 [ %126, %..critedge12_crit_edge171 ], [ %11, %124 ]
   store i32 %.lcssa269.sink, ptr %105, align 16
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.sink.split, %.preheader126
   %127 = phi i32 [ 0, %.preheader126 ], [ %.lcssa269.sink, %.critedge12.sink.split ]
-  %.6.lcssa = phi i32 [ %.4.lcssa, %.preheader126 ], [ %.6.lcssa.ph, %.critedge12.sink.split ]
+  %.7.lcssa = phi i32 [ %.4.lcssa, %.preheader126 ], [ %.7.lcssa.ph, %.critedge12.sink.split ]
   %.not112 = icmp slt i32 %127, %3
   %spec.select121 = select i1 %.not112, i32 %spec.select, i32 2
   br label %128
 
 128:                                              ; preds = %.critedge12, %.critedge10
   %.promoted193 = phi i32 [ %.lcssa177, %.critedge10 ], [ %127, %.critedge12 ]
-  %.7 = phi i32 [ %.5.lcssa, %.critedge10 ], [ %.6.lcssa, %.critedge12 ]
+  %.6 = phi i32 [ %.5.lcssa, %.critedge10 ], [ %.7.lcssa, %.critedge12 ]
   %.1 = phi i32 [ %spec.select, %.critedge10 ], [ %spec.select121, %.critedge12 ]
-  %129 = icmp slt i32 %.7, %11
+  %129 = icmp slt i32 %.6, %11
   br i1 %129, label %.lr.ph189, label %.critedge14
 
 .lr.ph189:                                        ; preds = %128
   %130 = getelementptr inbounds i8, ptr %8, i64 16
-  %131 = sext i32 %.7 to i64
+  %131 = sext i32 %.6 to i64
   %132 = add i32 %11, %.promoted193
-  %133 = sub i32 %132, %.7
+  %133 = sub i32 %132, %.6
   br label %134
 
 134:                                              ; preds = %.lr.ph189, %139
@@ -11847,7 +11847,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
 
 .critedge14:                                      ; preds = %.critedge14.sink.split, %128
   %142 = phi i32 [ %.promoted193, %128 ], [ %.lcssa266.sink, %.critedge14.sink.split ]
-  %.8.lcssa = phi i32 [ %.7, %128 ], [ %.8.lcssa.ph, %.critedge14.sink.split ]
+  %.8.lcssa = phi i32 [ %.6, %128 ], [ %.8.lcssa.ph, %.critedge14.sink.split ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
   %143 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder18INTEGER_MATH_SHIFTE, align 4
   %144 = shl i32 3, %143

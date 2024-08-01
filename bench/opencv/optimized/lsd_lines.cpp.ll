@@ -670,7 +670,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit68: ; preds = %240, %238, %163
   br label %241
 
 _ZN2cv3PtrINS_19LineSegmentDetectorEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %224, %211, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit, %80
-  %.0 = phi i32 [ 1, %80 ], [ 0, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit ], [ 0, %211 ], [ 0, %224 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.1 = phi i32 [ 1, %80 ], [ 0, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit ], [ 0, %211 ], [ 0, %224 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
   br label %243
@@ -686,9 +686,9 @@ _ZN2cv3PtrINS_19LineSegmentDetectorEED2Ev.exit:   ; preds = %_ZNSt16_Sp_counted_
   br label %244
 
 243:                                              ; preds = %44, %_ZN2cv3PtrINS_19LineSegmentDetectorEED2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_19LineSegmentDetectorEED2Ev.exit ], [ 0, %44 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_19LineSegmentDetectorEED2Ev.exit ], [ 0, %44 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  ret i32 %.1
+  ret i32 %.0
 
 244:                                              ; preds = %242, %86, %55, %54
   %.pn61 = phi { ptr, i32 } [ %56, %55 ], [ %.pn58.pn, %242 ], [ %.pn36.pn, %86 ], [ %.pn34, %54 ]

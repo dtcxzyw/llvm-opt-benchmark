@@ -1611,7 +1611,7 @@ for.body80.lr.ph:                                 ; preds = %if.then72
   br label %for.body80
 
 for.cond183.preheader:                            ; preds = %for.inc180
-  %tobool184.not = icmp eq i32 %pass23.3, 0
+  %tobool184.not = icmp eq i32 %pass23.4, 0
   br i1 %tobool184.not, label %if.end411, label %for.body190.lr.ph
 
 for.body190.lr.ph:                                ; preds = %for.cond183.preheader
@@ -1627,7 +1627,7 @@ for.body190.lr.ph:                                ; preds = %for.cond183.prehead
 
 for.body80:                                       ; preds = %for.body80.lr.ph, %for.inc180
   %indvars.iv689 = phi i64 [ 0, %for.body80.lr.ph ], [ %indvars.iv.next690, %for.inc180 ]
-  %pass23.2659 = phi i32 [ 0, %for.body80.lr.ph ], [ %pass23.3, %for.inc180 ]
+  %pass23.3659 = phi i32 [ 0, %for.body80.lr.ph ], [ %pass23.4, %for.inc180 ]
   %arrayidx83 = getelementptr inbounds i32, ptr %arrayidx3, i64 %indvars.iv689
   %23 = load i32, ptr %arrayidx83, align 4
   %and84 = and i32 %23, 65535
@@ -2068,7 +2068,7 @@ snap_pref.exit423:                                ; preds = %if.then.i421, %if.e
   br label %for.inc180
 
 for.inc180:                                       ; preds = %for.inc158, %if.end123, %snap_pref.exit423, %land.lhs.true164, %if.else161, %if.then93
-  %pass23.3 = phi i32 [ %pass23.2659, %if.then93 ], [ 1, %if.end123 ], [ %pass23.2659, %if.else161 ], [ %pass23.2659, %land.lhs.true164 ], [ %pass23.2659, %snap_pref.exit423 ], [ 1, %for.inc158 ]
+  %pass23.4 = phi i32 [ %pass23.3659, %if.then93 ], [ 1, %if.end123 ], [ %pass23.3659, %if.else161 ], [ %pass23.3659, %land.lhs.true164 ], [ %pass23.3659, %snap_pref.exit423 ], [ 1, %for.inc158 ]
   %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
   %exitcond693.not = icmp eq i64 %indvars.iv.next690, %wide.trip.count692
   br i1 %exitcond693.not, label %for.cond183.preheader, label %for.body80, !llvm.loop !29
@@ -2366,7 +2366,7 @@ if.else317:                                       ; preds = %if.then300
   br label %if.end319
 
 if.end319:                                        ; preds = %if.else317, %if.then308
-  %key.0 = phi i32 [ %call316, %if.then308 ], [ %call318, %if.else317 ]
+  %key.1 = phi i32 [ %call316, %if.then308 ], [ %call318, %if.else317 ]
   %125 = load i8, ptr %o296, align 1
   switch i8 %125, label %if.end363 [
     i8 57, label %if.then328
@@ -2399,16 +2399,16 @@ land.lhs.true354:                                 ; preds = %if.then342
   %arrayidx351 = getelementptr inbounds %union.IRIns, ptr %130, i64 %idxprom350
   %op2355 = getelementptr inbounds i8, ptr %arrayidx351, i64 2
   %131 = load i16, ptr %op2355, align 2
-  %132 = trunc i32 %key.0 to i16
+  %132 = trunc i32 %key.1 to i16
   %cmp357 = icmp eq i16 %131, %132
   br i1 %cmp357, label %skip_newref, label %if.end363
 
 if.end363:                                        ; preds = %if.end319, %if.then328, %if.then342, %land.lhs.true354, %if.then289
   %conv365.pre-phi = phi i16 [ %conv334, %if.end319 ], [ %.pre702, %if.then328 ], [ %conv334, %if.then342 ], [ %conv334, %land.lhs.true354 ], [ %conv334, %if.then289 ]
-  %key.1 = phi i32 [ %key.0, %if.end319 ], [ %key.0, %if.then328 ], [ %key.0, %if.then342 ], [ %key.0, %land.lhs.true354 ], [ %conv295, %if.then289 ]
+  %key.0 = phi i32 [ %key.1, %if.end319 ], [ %key.1, %if.then328 ], [ %key.1, %if.then342 ], [ %key.1, %land.lhs.true354 ], [ %conv295, %if.then289 ]
   %ot364 = getelementptr inbounds i8, ptr %arrayidx293, i64 4
   %133 = load i16, ptr %ot364, align 4
-  %conv366 = trunc i32 %key.1 to i16
+  %conv366 = trunc i32 %key.0 to i16
   store i16 %133, ptr %ot1.i.i453, align 4
   store i16 %conv365.pre-phi, ptr %fold.i.i452, align 8
   store i16 %conv366, ptr %op2.i.i454, align 2
@@ -2607,7 +2607,7 @@ for.inc408:                                       ; preds = %for.inc403, %for.in
   br i1 %cmp186, label %for.body190, label %if.end411, !llvm.loop !31
 
 if.end411:                                        ; preds = %for.inc408, %if.then72, %entry, %for.cond183.preheader, %for.end
-  %pass23.4 = phi i1 [ true, %for.end ], [ true, %for.cond183.preheader ], [ true, %entry ], [ true, %if.then72 ], [ false, %for.inc408 ]
+  %pass23.2 = phi i1 [ true, %for.end ], [ true, %for.cond183.preheader ], [ true, %entry ], [ true, %if.then72 ], [ false, %for.inc408 ]
   %slot412 = getelementptr inbounds i8, ptr %J, i64 604
   %baseslot413 = getelementptr inbounds i8, ptr %J, i64 176
   %154 = load i32, ptr %baseslot413, align 8
@@ -2622,7 +2622,7 @@ if.end411:                                        ; preds = %for.inc408, %if.the
   %maxslot = getelementptr inbounds i8, ptr %J, i64 172
   store i32 %sub, ptr %maxslot, align 4
   tail call void @lj_snap_add(ptr noundef %J)
-  br i1 %pass23.4, label %if.end420, label %if.then418
+  br i1 %pass23.2, label %if.end420, label %if.then418
 
 if.then418:                                       ; preds = %if.end411
   %fold.i = getelementptr inbounds i8, ptr %J, i64 184

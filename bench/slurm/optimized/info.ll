@@ -114,7 +114,7 @@ define noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 .lr.ph:                                           ; preds = %16, %59
   %storemerge2429 = phi ptr [ %storemerge24, %59 ], [ %storemerge2425, %16 ]
-  %.028 = phi ptr [ %.2, %59 ], [ null, %16 ]
+  %.028 = phi ptr [ %.1, %59 ], [ null, %16 ]
   %.01527 = phi ptr [ %storemerge.in, %59 ], [ @nag_req_list, %16 ]
   %31 = getelementptr inbounds i8, ptr %storemerge2429, i64 8
   %32 = call i32 @slurm_xstrncmp(ptr noundef %0, ptr noundef nonnull %31, i64 noundef 64) #5
@@ -148,10 +148,10 @@ define noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %46
 
 46:                                               ; preds = %44, %43
-  %.1 = phi ptr [ %.028, %43 ], [ %45, %44 ]
+  %.2 = phi ptr [ %.028, %43 ], [ %45, %44 ]
   %47 = load ptr, ptr %3, align 8
   %48 = load i32, ptr %47, align 8
-  %49 = call i32 @client_resp_send(ptr noundef %.1, i32 noundef %48) #5
+  %49 = call i32 @client_resp_send(ptr noundef %.2, i32 noundef %48) #5
   %.not23 = icmp eq i32 %49, 0
   br i1 %.not23, label %55, label %50
 
@@ -172,18 +172,18 @@ define noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 59:                                               ; preds = %55, %33
   %storemerge.in = phi ptr [ %.01527, %55 ], [ %35, %33 ]
-  %.2 = phi ptr [ %.1, %55 ], [ %.028, %33 ]
+  %.1 = phi ptr [ %.2, %55 ], [ %.028, %33 ]
   %storemerge24 = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge24, ptr %3, align 8
   %.not19 = icmp eq ptr %storemerge24, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %59
-  %.not20 = icmp eq ptr %.2, null
+  %.not20 = icmp eq ptr %.1, null
   br i1 %.not20, label %._crit_edge.thread, label %60
 
 60:                                               ; preds = %._crit_edge
-  call void @client_resp_free(ptr noundef nonnull %.2) #5
+  call void @client_resp_free(ptr noundef nonnull %.1) #5
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %16, %60, %._crit_edge

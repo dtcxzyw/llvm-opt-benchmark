@@ -2049,7 +2049,7 @@ Psr_ManUtilSkipSpaces.exit.i263.preheader:        ; preds = %268, %263, %261, %.
 
 Psr_ManUtilSkipSpaces.exit.i263:                  ; preds = %Psr_ManUtilSkipSpaces.exit.i263.backedge, %Psr_ManUtilSkipSpaces.exit.i263.preheader
   %278 = phi ptr [ %.ph1869, %Psr_ManUtilSkipSpaces.exit.i263.preheader ], [ %.be1873, %Psr_ManUtilSkipSpaces.exit.i263.backedge ]
-  %.042.i = phi i32 [ 0, %Psr_ManUtilSkipSpaces.exit.i263.preheader ], [ %.2.i, %Psr_ManUtilSkipSpaces.exit.i263.backedge ]
+  %.042.i = phi i32 [ 0, %Psr_ManUtilSkipSpaces.exit.i263.preheader ], [ %.143.i, %Psr_ManUtilSkipSpaces.exit.i263.backedge ]
   %.041.i = phi i32 [ -1, %Psr_ManUtilSkipSpaces.exit.i263.preheader ], [ %.1.i278, %Psr_ManUtilSkipSpaces.exit.i263.backedge ]
   %.val17.val.i.i264 = load i8, ptr %278, align 1
   %.not.i.i265 = icmp eq i8 %.val17.val.i.i264, 92
@@ -2315,7 +2315,7 @@ Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i: ; preds = %339, %334, %3
 Psr_ManUtilSkipSpaces.exit104.thread.i:           ; preds = %.preheader.i86.i, %Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i, %321
   %.val17.val.i106.i = phi i8 [ %.val17.val.i106.pr.i, %Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i ], [ %.val55.val.i, %321 ], [ %330, %.preheader.i86.i ]
   %349 = phi ptr [ %.ph.i290, %Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i ], [ %.val55.i, %321 ], [ %329, %.preheader.i86.i ]
-  %.143.i = phi i32 [ %323, %Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i ], [ %.042.i, %321 ], [ %323, %.preheader.i86.i ]
+  %.2.i = phi i32 [ %323, %Psr_ManUtilSkipSpaces.exit104.threadthread-pre-split.i ], [ %.042.i, %321 ], [ %323, %.preheader.i86.i ]
   %.not.i107.i = icmp eq i8 %.val17.val.i106.i, 92
   br i1 %.not.i107.i, label %350, label %Psr_ManUtilSkipSpaces.exit104.thread.thread.i
 
@@ -2332,7 +2332,7 @@ Psr_ManUtilSkipSpaces.exit104.thread.i:           ; preds = %.preheader.i86.i, %
   br i1 %.not18.i122.i, label %Psr_ManReadName.exit123.i, label %352, !llvm.loop !12
 
 Psr_ManUtilSkipSpaces.exit104.thread.thread.i:    ; preds = %332, %Psr_ManUtilSkipSpaces.exit104.thread.i
-  %.143261.i = phi i32 [ %.143.i, %Psr_ManUtilSkipSpaces.exit104.thread.i ], [ %323, %332 ]
+  %.2261.i = phi i32 [ %.2.i, %Psr_ManUtilSkipSpaces.exit104.thread.i ], [ %323, %332 ]
   %354 = phi ptr [ %349, %Psr_ManUtilSkipSpaces.exit104.thread.i ], [ %329, %332 ]
   %.val17.val.i106259.i = phi i8 [ %.val17.val.i106.i, %Psr_ManUtilSkipSpaces.exit104.thread.i ], [ 47, %332 ]
   %355 = and i8 %.val17.val.i106259.i, -33
@@ -2360,7 +2360,7 @@ Psr_ManUtilSkipSpaces.exit104.thread.thread.i:    ; preds = %332, %Psr_ManUtilSk
   br i1 %narrow.i.not.i116.i, label %Psr_ManReadName.exit123.i, label %.preheader.i110.i, !llvm.loop !13
 
 Psr_ManReadName.exit123.i:                        ; preds = %.preheader.i110.i, %352
-  %.143260.i = phi i32 [ %.143.i, %352 ], [ %.143261.i, %.preheader.i110.i ]
+  %.2260.i = phi i32 [ %.2.i, %352 ], [ %.2261.i, %.preheader.i110.i ]
   %365 = phi ptr [ %storemerge15.i120.i, %352 ], [ %storemerge.i112.i, %.preheader.i110.i ]
   %.0.i118.i = phi ptr [ %351, %352 ], [ %354, %.preheader.i110.i ]
   %366 = load ptr, ptr %29, align 8
@@ -2373,7 +2373,7 @@ Psr_ManReadName.exit123.thread.i:                 ; preds = %Psr_ManReadName.exi
   br label %Psr_ManReadArguments.exit.thread
 
 369:                                              ; preds = %Psr_ManReadName.exit123.i, %.loopexit180.i276
-  %.2.i = phi i32 [ %.143260.i, %Psr_ManReadName.exit123.i ], [ %.042.i, %.loopexit180.i276 ]
+  %.143.i = phi i32 [ %.2260.i, %Psr_ManReadName.exit123.i ], [ %.042.i, %.loopexit180.i276 ]
   %.1.i278 = phi i32 [ %296, %Psr_ManReadName.exit123.i ], [ %.041.i, %.loopexit180.i276 ]
   %.0.i279 = phi i32 [ %367, %Psr_ManReadName.exit123.i ], [ %296, %.loopexit180.i276 ]
   %370 = icmp sgt i32 %.1.i278, 0
@@ -2517,7 +2517,7 @@ Vec_IntPush.exit131.i:                            ; preds = %433, %Vec_IntGrow.e
   store i32 %437, ptr %409, align 4
   %438 = sext i32 %436 to i64
   %439 = getelementptr inbounds i32, ptr %435, i64 %438
-  store i32 %.2.i, ptr %439, align 4
+  store i32 %.143.i, ptr %439, align 4
   %440 = load ptr, ptr %41, align 8
   %441 = getelementptr inbounds i8, ptr %440, i64 16
   %442 = shl i32 %.0.i279, 2

@@ -278,13 +278,13 @@ switch.early.test.i:                              ; preds = %32
 
 96:                                               ; preds = %94, %92
   %.pn.i = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
-  %.1.i = phi i1 [ %.0.i, %94 ], [ true, %92 ]
+  %.3.i = phi i1 [ %.0.i, %94 ], [ true, %92 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
   br label %97
 
 97:                                               ; preds = %96, %90
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %96 ], [ %91, %90 ]
-  %.2.i = phi i1 [ %.1.i, %96 ], [ true, %90 ]
+  %.2.i = phi i1 [ %.3.i, %96 ], [ true, %90 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
   br i1 %.2.i, label %98, label %common.resume

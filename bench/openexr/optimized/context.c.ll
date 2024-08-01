@@ -178,7 +178,7 @@ if.then20:                                        ; preds = %if.then.i14, %if.th
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end, %if.then20, %if.then4
-  %rv.2 = phi i32 [ %call21, %if.then20 ], [ %call6, %if.then4 ], [ %call4.i, %if.end ]
+  %rv.0 = phi i32 [ %call21, %if.then20 ], [ %call6, %if.then4 ], [ %call4.i, %if.end ]
   %call24 = call i32 @exr_finish(ptr noundef nonnull %ret)
   br label %if.end27
 
@@ -188,7 +188,7 @@ if.else26:                                        ; preds = %land.lhs.true, %fil
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then, %if.end23, %if.else26
-  %rv.3 = phi i32 [ %rv.2, %if.end23 ], [ 3, %if.else26 ], [ 1, %if.then ]
+  %rv.3 = phi i32 [ %rv.0, %if.end23 ], [ 3, %if.else26 ], [ 1, %if.then ]
   ret i32 %rv.3
 }
 
@@ -396,7 +396,7 @@ if.then20.i:                                      ; preds = %if.then13.i
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then20.i, %if.then13.i, %land.lhs.true9.i, %if.else.i, %if.then2.i, %land.lhs.true.i, %if.then2
-  %rv.0 = phi i32 [ 0, %if.then2 ], [ %call22.i, %if.then20.i ], [ 0, %if.then13.i ], [ 0, %land.lhs.true9.i ], [ 0, %if.then2.i ], [ 0, %if.else.i ], [ 0, %land.lhs.true.i ]
+  %rv.1 = phi i32 [ 0, %if.then2 ], [ %call22.i, %if.then20.i ], [ 0, %if.then13.i ], [ 0, %land.lhs.true9.i ], [ 0, %if.then2.i ], [ 0, %if.else.i ], [ 0, %land.lhs.true.i ]
   %destroy_fn = getelementptr inbounds i8, ptr %0, i64 144
   %10 = load ptr, ptr %destroy_fn, align 8
   %tobool16.not = icmp eq ptr %10, null
@@ -414,12 +414,12 @@ if.end19:                                         ; preds = %if.then17, %if.end1
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end19, %if.end
-  %rv.1 = phi i32 [ %rv.0, %if.end19 ], [ 0, %if.end ]
+  %rv.0 = phi i32 [ %rv.1, %if.end19 ], [ 0, %if.end ]
   store ptr null, ptr %pctxt, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end20
-  %retval.0 = phi i32 [ %rv.1, %if.end20 ], [ 2, %entry ]
+  %retval.0 = phi i32 [ %rv.0, %if.end20 ], [ 2, %entry ]
   ret i32 %retval.0
 }
 
@@ -561,7 +561,7 @@ if.end29:                                         ; preds = %if.then21, %if.then
   br i1 %cmp30.not, label %if.end43, label %if.then32
 
 if.then32:                                        ; preds = %if.end18, %if.then9, %if.end29
-  %rv.219 = phi i32 [ %call27, %if.end29 ], [ %call17, %if.end18 ], [ %call11, %if.then9 ]
+  %rv.019 = phi i32 [ %call27, %if.end29 ], [ %call17, %if.end18 ], [ %call11, %if.then9 ]
   %call33 = call i32 @exr_finish(ptr noundef nonnull %ret)
   br label %if.end43
 
@@ -578,7 +578,7 @@ if.then40:                                        ; preds = %if.else36
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else36, %if.then40, %if.then6, %if.then32, %if.end29
-  %rv.3 = phi i32 [ %rv.219, %if.then32 ], [ 0, %if.end29 ], [ 1, %if.then6 ], [ 3, %if.then40 ], [ 3, %if.else36 ]
+  %rv.3 = phi i32 [ %rv.019, %if.then32 ], [ 0, %if.end29 ], [ 1, %if.then6 ], [ 3, %if.then40 ], [ 3, %if.else36 ]
   %25 = load ptr, ptr %ret, align 8
   store ptr %25, ptr %ctxt, align 8
   br label %return
@@ -790,12 +790,12 @@ if.then21:                                        ; preds = %if.then13, %if.end1
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %if.then6
-  %rv.1 = phi i32 [ %call8, %if.then6 ], [ %call22, %if.then21 ]
-  %cmp26.not = icmp eq i32 %rv.1, 0
+  %rv.0 = phi i32 [ %call8, %if.then6 ], [ %call22, %if.then21 ]
+  %cmp26.not = icmp eq i32 %rv.0, 0
   br i1 %cmp26.not, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end18, %if.end25
-  %rv.120 = phi i32 [ %rv.1, %if.end25 ], [ %retval.0.i, %if.end18 ]
+  %rv.020 = phi i32 [ %rv.0, %if.end25 ], [ %retval.0.i, %if.end18 ]
   %call29 = call i32 @exr_finish(ptr noundef nonnull %ret)
   br label %if.end34
 
@@ -805,7 +805,7 @@ if.else32:                                        ; preds = %land.lhs.true, %if.
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then3, %if.then28, %if.end25, %if.else32
-  %rv.2 = phi i32 [ %rv.120, %if.then28 ], [ 0, %if.end25 ], [ 3, %if.else32 ], [ 1, %if.then3 ]
+  %rv.2 = phi i32 [ %rv.020, %if.then28 ], [ 0, %if.end25 ], [ 3, %if.else32 ], [ 1, %if.then3 ]
   %30 = load ptr, ptr %ret, align 8
   store ptr %30, ptr %ctxt, align 8
   br label %return

@@ -1797,7 +1797,7 @@ if.end113:                                        ; preds = %if.then86, %invoke.
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.then86, %cleanup.done103, %cleanup.done, %if.end113, %invoke.cont60, %if.then54
-  %retval.0 = phi i1 [ %cmp55, %if.then54 ], [ %cmp62, %invoke.cont60 ], [ %cmp114, %if.end113 ], [ false, %cleanup.done ], [ false, %if.then86 ], [ false, %cleanup.done103 ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
+  %retval.1 = phi i1 [ %cmp55, %if.then54 ], [ %cmp62, %invoke.cont60 ], [ %cmp114, %if.end113 ], [ false, %cleanup.done ], [ false, %if.then86 ], [ false, %cleanup.done103 ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
   %45 = load ptr, ptr %nn, align 8
   %bf.load.i.i294 = load i64, ptr %45, align 8
   %46 = and i64 %bf.load.i.i294, 1152920405095219200
@@ -1830,8 +1830,8 @@ ehcleanup:                                        ; preds = %lpad97, %lpad73, %l
   br label %common.resume
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then13.i.i302, %if.then.i.i296, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i296 ], [ %retval.0, %if.then13.i.i302 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i296 ], [ %retval.1, %if.then13.i.i302 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i1 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
@@ -4674,7 +4674,7 @@ lpad54:                                           ; preds = %if.then57, %invoke.
   br label %ehcleanup80
 
 if.end:                                           ; preds = %invoke.cont58, %invoke.cont55
-  %pol.0 = phi i32 [ %cond, %invoke.cont58 ], [ 0, %invoke.cont55 ]
+  %pol.1 = phi i32 [ %cond, %invoke.cont58 ], [ 0, %invoke.cont55 ]
   %21 = load ptr, ptr %rep, align 8
   %bf.load.i.i249 = load i64, ptr %21, align 8
   %22 = and i64 %bf.load.i.i249, 1152920405095219200
@@ -4702,7 +4702,7 @@ terminate.lpad.i258:                              ; preds = %if.then13.i.i257
   unreachable
 
 if.end61:                                         ; preds = %if.then13.i.i257, %if.then.i.i251, %if.end, %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %pol.1 = phi i32 [ 0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %pol.0, %if.end ], [ %pol.0, %if.then.i.i251 ], [ %pol.0, %if.then13.i.i257 ]
+  %pol.0 = phi i32 [ 0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %pol.1, %if.end ], [ %pol.1, %if.then.i.i251 ], [ %pol.1, %if.then13.i.i257 ]
   %25 = load ptr, ptr %__begin3.sroa.0.0338, align 8
   store ptr %25, ptr %agg.tmp62, align 8
   %bf.load.i.i259 = load i64, ptr %25, align 8
@@ -4731,7 +4731,7 @@ if.then13.i.i265:                                 ; preds = %if.else.i.i263
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %if.else.i.i263, %if.then.i.i267, %if.then13.i.i265
-  %call66 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory7strings10ExtfSolver17shouldDoReductionEiNS0_12NodeTemplateILb1EEEi(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %effort, ptr noundef nonnull %agg.tmp62, i32 noundef %pol.1)
+  %call66 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory7strings10ExtfSolver17shouldDoReductionEiNS0_12NodeTemplateILb1EEEi(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %effort, ptr noundef nonnull %agg.tmp62, i32 noundef %pol.0)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont63
@@ -4793,7 +4793,7 @@ if.then13.i.i290:                                 ; preds = %if.else.i.i288
           to label %invoke.cont70 unwind label %lpad
 
 invoke.cont70:                                    ; preds = %if.else.i.i288, %if.then.i.i292, %if.then13.i.i290
-  invoke void @_ZN4cvc58internal6theory7strings10ExtfSolver11doReductionENS0_12NodeTemplateILb1EEEi(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %agg.tmp69, i32 noundef %pol.1)
+  invoke void @_ZN4cvc58internal6theory7strings10ExtfSolver11doReductionENS0_12NodeTemplateILb1EEEi(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %agg.tmp69, i32 noundef %pol.0)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont70

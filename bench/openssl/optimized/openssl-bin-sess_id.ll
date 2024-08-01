@@ -150,8 +150,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then2.i
-  %x.0.i = phi ptr [ %call3.i, %if.then2.i ], [ %call4.i, %if.else.i ]
-  %cmp6.i = icmp eq ptr %x.0.i, null
+  %x.1.i = phi ptr [ %call3.i, %if.then2.i ], [ %call4.i, %if.else.i ]
+  %cmp6.i = icmp eq ptr %x.1.i, null
   br i1 %cmp6.i, label %if.then7.i, label %if.end31
 
 if.then7.i:                                       ; preds = %if.end5.i
@@ -167,7 +167,7 @@ load_sess_id.exit.thread:                         ; preds = %if.end27, %if.then7
 
 if.end31:                                         ; preds = %if.end5.i
   %call10.i = call i32 @BIO_free(ptr noundef nonnull %call.i) #3
-  %call32 = call ptr @SSL_SESSION_get0_peer(ptr noundef nonnull %x.0.i) #3
+  %call32 = call ptr @SSL_SESSION_get0_peer(ptr noundef nonnull %x.1.i) #3
   %cmp33.not = icmp eq ptr %context.0, null
   br i1 %cmp33.not, label %if.end45, label %if.then34
 
@@ -183,7 +183,7 @@ if.then37:                                        ; preds = %if.then34
 
 if.end39:                                         ; preds = %if.then34
   %conv = trunc nuw nsw i64 %call35 to i32
-  %call40 = call i32 @SSL_SESSION_set1_id_context(ptr noundef nonnull %x.0.i, ptr noundef nonnull %context.0, i32 noundef %conv) #3
+  %call40 = call i32 @SSL_SESSION_set1_id_context(ptr noundef nonnull %x.1.i, ptr noundef nonnull %context.0, i32 noundef %conv) #3
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.then42, label %if.end45
 
@@ -208,7 +208,7 @@ if.end54:                                         ; preds = %if.then48
   br i1 %tobool47, label %if.then56, label %if.end67
 
 if.then56:                                        ; preds = %if.end54
-  %call57 = call i32 @SSL_SESSION_print(ptr noundef nonnull %call49, ptr noundef nonnull %x.0.i) #3
+  %call57 = call i32 @SSL_SESSION_print(ptr noundef nonnull %call49, ptr noundef nonnull %x.1.i) #3
   %tobool58.not = icmp eq i32 %cert.0, 0
   br i1 %tobool58.not, label %if.end67, label %if.then59
 
@@ -239,15 +239,15 @@ if.then70:                                        ; preds = %if.end67
   ]
 
 if.then73:                                        ; preds = %if.then70
-  %call74 = call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_SSL_SESSION, ptr noundef nonnull %call49, ptr noundef nonnull %x.0.i) #3
+  %call74 = call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_SSL_SESSION, ptr noundef nonnull %call49, ptr noundef nonnull %x.1.i) #3
   br label %if.end89
 
 if.then78:                                        ; preds = %if.then70
-  %call79 = call i32 @PEM_write_bio_SSL_SESSION(ptr noundef nonnull %call49, ptr noundef nonnull %x.0.i) #3
+  %call79 = call i32 @PEM_write_bio_SSL_SESSION(ptr noundef nonnull %call49, ptr noundef nonnull %x.1.i) #3
   br label %if.end89
 
 if.then83:                                        ; preds = %if.then70
-  %call84 = call i32 @SSL_SESSION_print_keylog(ptr noundef nonnull %call49, ptr noundef nonnull %x.0.i) #3
+  %call84 = call i32 @SSL_SESSION_print_keylog(ptr noundef nonnull %call49, ptr noundef nonnull %x.1.i) #3
   br label %if.end89
 
 if.else85:                                        ; preds = %if.then70
@@ -301,10 +301,10 @@ if.then114:                                       ; preds = %if.end112
   br label %end
 
 end:                                              ; preds = %if.then62, %if.end45, %load_sess_id.exit.thread, %if.end89, %if.end112, %if.else94, %if.then48, %if.then114, %if.else109, %if.then91, %if.else85, %if.then42, %if.then37, %sw.bb3, %opthelp
-  %out.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then37 ], [ null, %if.then48 ], [ %call49, %if.then114 ], [ %call49, %if.else109 ], [ %call49, %if.then91 ], [ %call49, %if.else85 ], [ null, %if.then42 ], [ %call49, %if.else94 ], [ %call49, %if.end112 ], [ %call49, %if.end89 ], [ null, %load_sess_id.exit.thread ], [ null, %if.end45 ], [ %call49, %if.then62 ]
+  %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then37 ], [ null, %if.then48 ], [ %call49, %if.then114 ], [ %call49, %if.else109 ], [ %call49, %if.then91 ], [ %call49, %if.else85 ], [ null, %if.then42 ], [ %call49, %if.else94 ], [ %call49, %if.end112 ], [ %call49, %if.end89 ], [ null, %load_sess_id.exit.thread ], [ null, %if.end45 ], [ %call49, %if.then62 ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.then37 ], [ 1, %if.then48 ], [ 1, %if.then114 ], [ 1, %if.else109 ], [ 1, %if.then91 ], [ 1, %if.else85 ], [ 1, %if.then42 ], [ 0, %if.else94 ], [ 0, %if.end112 ], [ 0, %if.end89 ], [ 1, %load_sess_id.exit.thread ], [ 0, %if.end45 ], [ 0, %if.then62 ]
-  %x.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ %x.0.i, %if.then37 ], [ %x.0.i, %if.then48 ], [ %x.0.i, %if.then114 ], [ %x.0.i, %if.else109 ], [ %x.0.i, %if.then91 ], [ %x.0.i, %if.else85 ], [ %x.0.i, %if.then42 ], [ %x.0.i, %if.else94 ], [ %x.0.i, %if.end112 ], [ %x.0.i, %if.end89 ], [ null, %load_sess_id.exit.thread ], [ %x.0.i, %if.end45 ], [ %x.0.i, %if.then62 ]
-  call void @BIO_free_all(ptr noundef %out.1) #3
+  %x.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ %x.1.i, %if.then37 ], [ %x.1.i, %if.then48 ], [ %x.1.i, %if.then114 ], [ %x.1.i, %if.else109 ], [ %x.1.i, %if.then91 ], [ %x.1.i, %if.else85 ], [ %x.1.i, %if.then42 ], [ %x.1.i, %if.else94 ], [ %x.1.i, %if.end112 ], [ %x.1.i, %if.end89 ], [ null, %load_sess_id.exit.thread ], [ %x.1.i, %if.end45 ], [ %x.1.i, %if.then62 ]
+  call void @BIO_free_all(ptr noundef %out.0) #3
   call void @SSL_SESSION_free(ptr noundef %x.0) #3
   ret i32 %ret.0
 }

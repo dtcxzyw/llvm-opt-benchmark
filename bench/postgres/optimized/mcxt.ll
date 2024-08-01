@@ -516,17 +516,17 @@ define dso_local i64 @MemoryContextMemAllocated(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.011 = phi ptr [ %.0, %.lr.ph ], [ %.08, %5 ]
-  %.0710 = phi i64 [ %8, %.lr.ph ], [ %4, %5 ]
+  %.110 = phi i64 [ %8, %.lr.ph ], [ %4, %5 ]
   %7 = tail call i64 @MemoryContextMemAllocated(ptr noundef nonnull %.011, i1 noundef zeroext true)
-  %8 = add i64 %7, %.0710
+  %8 = add i64 %7, %.110
   %9 = getelementptr inbounds i8, ptr %.011, i64 48
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %2
-  %.1 = phi i64 [ %4, %2 ], [ %4, %5 ], [ %8, %.lr.ph ]
-  ret i64 %.1
+  %.07 = phi i64 [ %4, %2 ], [ %4, %5 ], [ %8, %.lr.ph ]
+  ret i64 %.07
 }
 
 ; Function Attrs: nounwind uwtable

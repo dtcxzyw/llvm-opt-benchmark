@@ -89165,9 +89165,9 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i108: ; preds = 
   br i1 %.not127188, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit110, label %.lr.ph192
 
 .lr.ph192:                                        ; preds = %178, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
-  %.056190 = phi i32 [ %183, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ 0, %178 ]
+  %.1190 = phi i32 [ %183, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ 0, %178 ]
   %.sroa.0124.0189 = phi ptr [ %298, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %180, %178 ]
-  %183 = add nuw nsw i32 %.056190, 1
+  %183 = add nuw nsw i32 %.1190, 1
   %184 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   br i1 %184, label %188, label %185
 
@@ -89432,7 +89432,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %262, %255, %249, %2
   br i1 %.not127, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit110, label %.lr.ph192
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit110:              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %178, %166, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i108, %146
-  %.1 = phi i32 [ 3, %146 ], [ 3, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i108 ], [ 3, %166 ], [ 0, %178 ], [ %183, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.056 = phi i32 [ 3, %146 ], [ 3, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i108 ], [ 3, %166 ], [ 0, %178 ], [ %183, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   %299 = icmp sgt i32 %2, -1
   br i1 %299, label %300, label %309
 
@@ -89467,7 +89467,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit110:              ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %.sink.split unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 312:                                              ; preds = %309
-  %313 = icmp ugt i32 %.1, 1
+  %313 = icmp ugt i32 %.056, 1
   br i1 %313, label %314, label %317
 
 314:                                              ; preds = %312

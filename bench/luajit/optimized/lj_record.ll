@@ -1696,13 +1696,13 @@ immutable_mt.sink.split:                          ; preds = %if.else34, %if.then
   br label %immutable_mt
 
 immutable_mt:                                     ; preds = %immutable_mt.sink.split, %if.end92
-  %mt.0 = phi ptr [ %18, %if.end92 ], [ %9, %immutable_mt.sink.split ]
+  %mt.1 = phi ptr [ %18, %if.end92 ], [ %9, %immutable_mt.sink.split ]
   %gcroot = getelementptr inbounds i8, ptr %J, i64 -304
   %idxprom = zext i32 %mm to i64
   %arrayidx = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %idxprom
   %10 = load i64, ptr %arrayidx, align 8
   %11 = inttoptr i64 %10 to ptr
-  %call43 = tail call ptr @lj_tab_getstr(ptr noundef %mt.0, ptr noundef %11) #7
+  %call43 = tail call ptr @lj_tab_getstr(ptr noundef %mt.1, ptr noundef %11) #7
   %tobool.not = icmp eq ptr %call43, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -1735,7 +1735,7 @@ if.end57:                                         ; preds = %if.end47, %if.end47
   %mobj = getelementptr inbounds i8, ptr %ix, i64 64
   store i32 %call64, ptr %mobj, align 8
   %mtv = getelementptr inbounds i8, ptr %ix, i64 32
-  store ptr %mt.0, ptr %mtv, align 8
+  store ptr %mt.1, ptr %mtv, align 8
   %mt65 = getelementptr inbounds i8, ptr %ix, i64 60
   store i32 32767, ptr %mt65, align 4
   br label %return
@@ -1775,7 +1775,7 @@ if.end98:                                         ; preds = %if.end92
 
 if.end120:                                        ; preds = %if.then9, %if.then
   %.sink = phi i16 [ 5, %if.then ], [ 11, %if.then9 ]
-  %mt.1 = phi ptr [ %4, %if.then ], [ %9, %if.then9 ]
+  %mt.0 = phi ptr [ %4, %if.then ], [ %9, %if.then9 ]
   %conv68 = trunc i32 %0 to i16
   %fold.i170 = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i171 = getelementptr inbounds i8, ptr %J, i64 188
@@ -1786,7 +1786,7 @@ if.end120:                                        ; preds = %if.then9, %if.then
   %call69 = tail call i32 @lj_opt_fold(ptr noundef %J) #7
   %tab70 = getelementptr inbounds i8, ptr %mix, i64 48
   store i32 %call69, ptr %tab70, align 8
-  %tobool121.not = icmp eq ptr %mt.1, null
+  %tobool121.not = icmp eq ptr %mt.0, null
   %cond126 = select i1 %tobool121.not, i32 32767, i32 %call69
   %mt127 = getelementptr inbounds i8, ptr %ix, i64 60
   store i32 %cond126, ptr %mt127, align 4
@@ -1804,7 +1804,7 @@ if.end120:                                        ; preds = %if.then9, %if.then
   br label %nocheck
 
 nocheck:                                          ; preds = %if.end120, %if.end98
-  %mt.2 = phi ptr [ %mt.1, %if.end120 ], [ %18, %if.end98 ]
+  %mt.2 = phi ptr [ %mt.0, %if.end120 ], [ %18, %if.end98 ]
   %tobool136.not = icmp eq ptr %mt.2, null
   br i1 %tobool136.not, label %return, label %if.then137
 
@@ -3802,8 +3802,8 @@ if.else327:                                       ; preds = %if.else
   br i1 %or.cond485, label %if.end343, label %sw.epilog957
 
 if.end343.thread:                                 ; preds = %if.then316, %if.then324
-  %rc.2.ph = phi i32 [ %call326, %if.then324 ], [ %rc.1, %if.then316 ]
-  %ra.1.ph = phi i32 [ %ra.0, %if.then324 ], [ %call318, %if.then316 ]
+  %rc.8.ph = phi i32 [ %call326, %if.then324 ], [ %rc.1, %if.then316 ]
+  %ra.2.ph = phi i32 [ %ra.0, %if.then324 ], [ %call318, %if.then316 ]
   tail call fastcc void @rec_comp_prep(ptr noundef nonnull %J)
   br label %if.then348
 
@@ -3817,8 +3817,8 @@ if.end343:                                        ; preds = %if.else327, %if.the
   ]
 
 if.then348:                                       ; preds = %if.end343.thread, %if.end343
-  %ra.1589 = phi i32 [ %ra.1.ph, %if.end343.thread ], [ %ra.0, %if.end343 ]
-  %rc.2588 = phi i32 [ %rc.2.ph, %if.end343.thread ], [ %rc.1, %if.end343 ]
+  %ra.2589 = phi i32 [ %ra.2.ph, %if.end343.thread ], [ %ra.0, %if.end343 ]
+  %rc.8588 = phi i32 [ %rc.8.ph, %if.end343.thread ], [ %rc.1, %if.end343 ]
   %and349 = shl i32 %64, 2
   %111 = and i32 %and349, 4
   %spec.select = xor i32 %111, %and136
@@ -3866,14 +3866,14 @@ if.else393:                                       ; preds = %if.end343
 
 if.end396:                                        ; preds = %if.then348, %if.then366, %if.then379
   %ta.1 = phi i32 [ 147, %if.then379 ], [ 147, %if.then366 ], [ 142, %if.then348 ]
-  %rc.3 = phi i32 [ %call392, %if.then379 ], [ %rc.1, %if.then366 ], [ %rc.2588, %if.then348 ]
-  %irop.2 = phi i32 [ %spec.select487, %if.then379 ], [ %spec.select486, %if.then366 ], [ %spec.select500, %if.then348 ]
-  %ra.2 = phi i32 [ %call391, %if.then379 ], [ %ra.0, %if.then366 ], [ %ra.1589, %if.then348 ]
-  %shl397 = shl nuw nsw i32 %irop.2, 8
+  %rc.9 = phi i32 [ %call392, %if.then379 ], [ %rc.1, %if.then366 ], [ %rc.8588, %if.then348 ]
+  %irop.1 = phi i32 [ %spec.select487, %if.then379 ], [ %spec.select486, %if.then366 ], [ %spec.select500, %if.then348 ]
+  %ra.3 = phi i32 [ %call391, %if.then379 ], [ %ra.0, %if.then366 ], [ %ra.2589, %if.then348 ]
+  %shl397 = shl nuw nsw i32 %irop.1, 8
   %or399 = or disjoint i32 %shl397, %ta.1
   %conv400 = trunc nuw i32 %or399 to i16
-  %conv401 = trunc i32 %ra.2 to i16
-  %conv402 = trunc i32 %rc.3 to i16
+  %conv401 = trunc i32 %ra.3 to i16
+  %conv402 = trunc i32 %rc.9 to i16
   %fold.i1033 = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i1034 = getelementptr inbounds i8, ptr %J, i64 188
   store i16 %conv400, ptr %ot1.i1034, align 4
@@ -3882,7 +3882,7 @@ if.end396:                                        ; preds = %if.then348, %if.the
   store i16 %conv402, ptr %op2.i1037, align 2
   %call403 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
   %120 = load ptr, ptr %pc125, align 8
-  %xor405 = xor i32 %irop.2, %64
+  %xor405 = xor i32 %irop.1, %64
   %and406 = and i32 %xor405, 1
   tail call fastcc void @rec_comp_fixup(ptr noundef nonnull %J, ptr noundef %120, i32 noundef %and406)
   br label %sw.epilog957
@@ -3952,7 +3952,7 @@ sw.bb460:                                         ; preds = %sw.epilog247, %sw.e
   br label %sw.bb473
 
 sw.bb473:                                         ; preds = %sw.bb460, %sw.epilog247, %sw.epilog247
-  %rc.4 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %spec.select491, %sw.bb460 ]
+  %rc.2 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %spec.select491, %sw.bb460 ]
   %arrayidx474 = getelementptr inbounds i8, ptr %54, i64 4
   %127 = load i32, ptr %arrayidx474, align 4
   %shr475 = lshr i32 %127, 8
@@ -3981,12 +3981,12 @@ if.then494:                                       ; preds = %sw.bb486
   br label %if.end497
 
 if.end497:                                        ; preds = %sw.bb486, %if.then494, %if.then489
-  %ra.3 = phi i32 [ %call490, %if.then489 ], [ %call495, %if.then494 ], [ %ra.0, %sw.bb486 ]
+  %ra.4 = phi i32 [ %call490, %if.then489 ], [ %call495, %if.then494 ], [ %ra.0, %sw.bb486 ]
   %base498 = getelementptr inbounds i8, ptr %J, i64 160
   %129 = load ptr, ptr %base498, align 8
   %idxprom501 = zext nneg i32 %and138 to i64
   %arrayidx502 = getelementptr inbounds i32, ptr %129, i64 %idxprom501
-  store i32 %ra.3, ptr %arrayidx502, align 4
+  store i32 %ra.4, ptr %arrayidx502, align 4
   br label %sw.epilog957
 
 sw.bb503:                                         ; preds = %sw.epilog247
@@ -4069,7 +4069,7 @@ sw.bb551:                                         ; preds = %sw.epilog247, %sw.e
   br i1 %cmp564, label %recmod, label %sw.bb568
 
 sw.bb568:                                         ; preds = %sw.bb551, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247
-  %rc.5 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
+  %rc.3 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
   %rb.1 = phi i32 [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rc.1, %sw.bb551 ]
   %134 = lshr i16 %65, 11
   %shr572 = zext nneg i16 %134 to i32
@@ -4083,11 +4083,11 @@ sw.bb568:                                         ; preds = %sw.bb551, %sw.epilo
   br i1 %or.cond493, label %land.lhs.true582, label %if.else598
 
 land.lhs.true582:                                 ; preds = %sw.bb568
-  %shr583 = lshr i32 %rc.5, 24
+  %shr583 = lshr i32 %rc.3, 24
   %and584 = and i32 %shr583, 30
   %sub585 = add nsw i32 %and584, -14
   %cmp586 = icmp ult i32 %sub585, 6
-  %and589 = and i32 %rc.5, 520093696
+  %and589 = and i32 %rc.3, 520093696
   %cmp590 = icmp eq i32 %and589, 67108864
   %or.cond494 = select i1 %cmp586, i1 true, i1 %cmp590
   br i1 %or.cond494, label %if.then592, label %if.else598
@@ -4095,7 +4095,7 @@ land.lhs.true582:                                 ; preds = %sw.bb568
 if.then592:                                       ; preds = %land.lhs.true582
   %keyv594 = getelementptr inbounds i8, ptr %ix, i64 8
   %add596 = add nuw nsw i32 %shr572, 31
-  %call597 = call i32 @lj_opt_narrow_arith(ptr noundef nonnull %J, i32 noundef %rb.1, i32 noundef %rc.5, ptr noundef nonnull %ix, ptr noundef nonnull %keyv594, i32 noundef %add596) #7
+  %call597 = call i32 @lj_opt_narrow_arith(ptr noundef nonnull %J, i32 noundef %rb.1, i32 noundef %rc.3, ptr noundef nonnull %ix, ptr noundef nonnull %keyv594, i32 noundef %add596) #7
   br label %sw.epilog957
 
 if.else598:                                       ; preds = %land.lhs.true582, %sw.bb568
@@ -4103,7 +4103,7 @@ if.else598:                                       ; preds = %land.lhs.true582, %
   br label %if.end986
 
 recmod:                                           ; preds = %sw.epilog247, %sw.epilog247, %sw.bb551
-  %rc.6 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
+  %rc.10 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
   %rb.2 = phi i32 [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rc.1, %sw.bb551 ]
   %shr602 = lshr i32 %rb.2, 24
   %and603 = and i32 %shr602, 30
@@ -4115,18 +4115,18 @@ recmod:                                           ; preds = %sw.epilog247, %sw.e
   br i1 %or.cond495, label %land.lhs.true611, label %if.else625
 
 land.lhs.true611:                                 ; preds = %recmod
-  %shr612 = lshr i32 %rc.6, 24
+  %shr612 = lshr i32 %rc.10, 24
   %and613 = and i32 %shr612, 30
   %sub614 = add nsw i32 %and613, -14
   %cmp615 = icmp ult i32 %sub614, 6
-  %and618 = and i32 %rc.6, 520093696
+  %and618 = and i32 %rc.10, 520093696
   %cmp619 = icmp eq i32 %and618, 67108864
   %or.cond496 = select i1 %cmp615, i1 true, i1 %cmp619
   br i1 %or.cond496, label %if.then621, label %if.else625
 
 if.then621:                                       ; preds = %land.lhs.true611
   %keyv623 = getelementptr inbounds i8, ptr %ix, i64 8
-  %call624 = call i32 @lj_opt_narrow_mod(ptr noundef nonnull %J, i32 noundef %rb.2, i32 noundef %rc.6, ptr noundef nonnull %ix, ptr noundef nonnull %keyv623) #7
+  %call624 = call i32 @lj_opt_narrow_mod(ptr noundef nonnull %J, i32 noundef %rb.2, i32 noundef %rc.10, ptr noundef nonnull %ix, ptr noundef nonnull %keyv623) #7
   br label %sw.epilog957
 
 if.else625:                                       ; preds = %land.lhs.true611, %recmod
@@ -4213,17 +4213,17 @@ while.body.lr.ph:                                 ; preds = %if.end683
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %ra.4601 = phi i32 [ %ra.0, %while.body.lr.ph ], [ %inc687, %while.body ]
+  %ra.5601 = phi i32 [ %ra.0, %while.body.lr.ph ], [ %inc687, %while.body ]
   %139 = load ptr, ptr %base686, align 8
-  %inc687 = add i32 %ra.4601, 1
-  %idxprom688 = zext i32 %ra.4601 to i64
+  %inc687 = add i32 %ra.5601, 1
+  %idxprom688 = zext i32 %ra.5601 to i64
   %arrayidx689 = getelementptr inbounds i32, ptr %139, i64 %idxprom688
   store i32 32767, ptr %arrayidx689, align 4
   %cmp684.not = icmp ugt i32 %inc687, %rc.1
   br i1 %cmp684.not, label %while.end, label %while.body, !llvm.loop !24
 
 while.end:                                        ; preds = %while.body, %if.end683
-  %ra.4.lcssa = phi i32 [ %ra.0, %if.end683 ], [ %inc687, %while.body ]
+  %ra.5.lcssa = phi i32 [ %ra.0, %if.end683 ], [ %inc687, %while.body ]
   %140 = load i32, ptr %maxslot675, align 4
   %cmp691.not = icmp ult i32 %rc.1, %140
   br i1 %cmp691.not, label %sw.epilog957, label %if.then693
@@ -4448,8 +4448,8 @@ sw.bb827:                                         ; preds = %sw.epilog247
   br label %sw.bb839
 
 sw.bb839:                                         ; preds = %sw.bb827, %sw.epilog247
-  %rc.7 = phi i32 [ %rc.1, %sw.epilog247 ], [ %sub838, %sw.bb827 ]
-  %conv840 = zext i32 %rc.7 to i64
+  %rc.4 = phi i32 [ %rc.1, %sw.epilog247 ], [ %sub838, %sw.bb827 ]
+  %conv840 = zext i32 %rc.4 to i64
   %sub841 = add nsw i64 %conv840, -1
   tail call void @lj_record_call(ptr noundef nonnull %J, i32 noundef %ra.0, i64 noundef %sub841)
   br label %sw.epilog957
@@ -4470,8 +4470,8 @@ sw.bb842:                                         ; preds = %sw.epilog247
   br label %sw.bb854
 
 sw.bb854:                                         ; preds = %sw.bb842, %sw.epilog247
-  %rc.8 = phi i32 [ %rc.1, %sw.epilog247 ], [ %sub853, %sw.bb842 ]
-  %conv855 = zext i32 %rc.8 to i64
+  %rc.5 = phi i32 [ %rc.1, %sw.epilog247 ], [ %sub853, %sw.bb842 ]
+  %conv855 = zext i32 %rc.5 to i64
   %sub856 = add nsw i64 %conv855, -1
   tail call void @lj_record_tailcall(ptr noundef nonnull %J, i32 noundef %ra.0, i64 noundef %sub856)
   br label %sw.epilog957
@@ -4498,9 +4498,9 @@ sw.bb860:                                         ; preds = %sw.epilog247
   br label %sw.bb872
 
 sw.bb872:                                         ; preds = %sw.bb860, %sw.epilog247, %sw.epilog247, %sw.epilog247
-  %rc.9 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %add871, %sw.bb860 ]
+  %rc.6 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %add871, %sw.bb860 ]
   tail call fastcc void @rec_profile_ret(ptr noundef nonnull %J)
-  %conv873 = zext i32 %rc.9 to i64
+  %conv873 = zext i32 %rc.6 to i64
   %sub874 = add nsw i64 %conv873, -1
   tail call void @lj_record_ret(ptr noundef nonnull %J, i32 noundef %ra.0, i64 noundef %sub874)
   br label %sw.epilog957
@@ -4679,38 +4679,38 @@ sw.bb956:                                         ; preds = %sw.default951, %sw.
   unreachable
 
 sw.epilog957:                                     ; preds = %switch.early.test, %sw.epilog247, %sw.bb938, %if.then942, %sw.bb882, %if.then886, %sw.bb875, %if.then879, %while.end, %if.then693, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.bb657, %if.then661, %if.then648, %if.then621, %if.then592, %if.then541, %if.then516, %if.then523, %sw.bb473, %if.then480, %if.else453, %if.then456, %if.then445, %land.lhs.true275, %if.end396, %if.else327, %if.then954, %sw.bb950, %sw.bb948, %sw.bb947, %sw.bb946, %sw.bb945, %rec_loop.exit584, %sw.bb912, %sw.bb903, %rec_loop.exit, %sw.bb899, %sw.bb897, %sw.bb892, %sw.bb872, %sw.bb857, %sw.bb854, %sw.bb839, %cond.end804, %sw.bb741, %sw.bb739, %sw.bb729, %sw.bb726, %sw.bb723, %sw.bb710, %sw.bb708, %sw.bb706, %sw.bb697, %sw.bb670, %sw.bb655, %sw.bb503, %if.end497, %if.then416, %if.else393, %if.then255
-  %rc.10 = phi i32 [ %rc.1, %if.then954 ], [ %rc.1, %sw.bb950 ], [ %rc.1, %sw.bb948 ], [ %rc.1, %sw.bb947 ], [ %rc.1, %sw.bb946 ], [ %rc.1, %sw.bb945 ], [ %rc.1, %if.then942 ], [ %rc.1, %sw.bb938 ], [ %rc.1, %rec_loop.exit584 ], [ %rc.1, %sw.bb912 ], [ %rc.1, %sw.bb903 ], [ %rc.1, %rec_loop.exit ], [ %rc.1, %sw.bb899 ], [ %rc.1, %sw.bb897 ], [ %rc.1, %sw.bb892 ], [ %rc.1, %if.then886 ], [ %rc.1, %sw.bb882 ], [ %rc.1, %if.then879 ], [ %rc.1, %sw.bb875 ], [ %rc.9, %sw.bb872 ], [ %rc.1, %sw.bb857 ], [ %rc.8, %sw.bb854 ], [ %rc.7, %sw.bb839 ], [ %rc.1, %cond.end804 ], [ %call751, %sw.bb741 ], [ %call.i, %sw.bb739 ], [ %rc.1, %sw.bb729 ], [ %call728, %sw.bb726 ], [ %call725, %sw.bb723 ], [ %call718, %sw.bb710 ], [ %rc.1, %sw.bb708 ], [ %call707, %sw.bb706 ], [ %call705, %sw.bb697 ], [ %rc.1, %if.then693 ], [ %rc.1, %while.end ], [ %call673, %sw.bb670 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %if.then661 ], [ %rc.1, %sw.bb657 ], [ %call656, %sw.bb655 ], [ %call651, %if.then648 ], [ %call624, %if.then621 ], [ %call597, %if.then592 ], [ %call543, %if.then541 ], [ %call518, %if.then516 ], [ %call525, %if.then523 ], [ %cond511, %sw.bb503 ], [ %rc.1, %if.end497 ], [ %rc.4, %if.then480 ], [ %rc.4, %sw.bb473 ], [ %rc.1, %if.then416 ], [ %rc.1, %if.then445 ], [ %rc.1, %if.then456 ], [ %rc.1, %if.else453 ], [ %rc.1, %if.then255 ], [ %rc.1, %land.lhs.true275 ], [ %rc.3, %if.end396 ], [ %rc.1, %if.else393 ], [ %rc.1, %if.else327 ], [ %rc.1, %switch.early.test ]
-  %ra.5 = phi i32 [ %ra.0, %if.then954 ], [ %ra.0, %sw.bb950 ], [ %ra.0, %sw.bb948 ], [ %ra.0, %sw.bb947 ], [ %ra.0, %sw.bb946 ], [ %ra.0, %sw.bb945 ], [ %ra.0, %if.then942 ], [ %ra.0, %sw.bb938 ], [ %ra.0, %rec_loop.exit584 ], [ %ra.0, %sw.bb912 ], [ %ra.0, %sw.bb903 ], [ %ra.0, %rec_loop.exit ], [ %ra.0, %sw.bb899 ], [ %ra.0, %sw.bb897 ], [ %ra.0, %sw.bb892 ], [ %ra.0, %if.then886 ], [ %ra.0, %sw.bb882 ], [ %ra.0, %if.then879 ], [ %ra.0, %sw.bb875 ], [ %ra.0, %sw.bb872 ], [ %ra.0, %sw.bb857 ], [ %ra.0, %sw.bb854 ], [ %ra.0, %sw.bb839 ], [ %ra.0, %cond.end804 ], [ %ra.0, %sw.bb741 ], [ %ra.0, %sw.bb739 ], [ %ra.0, %sw.bb729 ], [ %ra.0, %sw.bb726 ], [ %ra.0, %sw.bb723 ], [ %ra.0, %sw.bb710 ], [ %ra.0, %sw.bb708 ], [ %ra.0, %sw.bb706 ], [ %ra.0, %sw.bb697 ], [ %ra.4.lcssa, %if.then693 ], [ %ra.4.lcssa, %while.end ], [ %ra.0, %sw.bb670 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %if.then661 ], [ %ra.0, %sw.bb657 ], [ %ra.0, %sw.bb655 ], [ %ra.0, %if.then648 ], [ %ra.0, %if.then621 ], [ %ra.0, %if.then592 ], [ %ra.0, %if.then541 ], [ %ra.0, %if.then516 ], [ %ra.0, %if.then523 ], [ %ra.0, %sw.bb503 ], [ %ra.3, %if.end497 ], [ %ra.0, %if.then480 ], [ %ra.0, %sw.bb473 ], [ %ra.0, %if.then416 ], [ %ra.0, %if.then445 ], [ %ra.0, %if.then456 ], [ %ra.0, %if.else453 ], [ %ra.0, %if.then255 ], [ %ra.0, %land.lhs.true275 ], [ %ra.2, %if.end396 ], [ %ra.0, %if.else393 ], [ %ra.0, %if.else327 ], [ %ra.0, %switch.early.test ]
+  %rc.7 = phi i32 [ %rc.1, %if.then954 ], [ %rc.1, %sw.bb950 ], [ %rc.1, %sw.bb948 ], [ %rc.1, %sw.bb947 ], [ %rc.1, %sw.bb946 ], [ %rc.1, %sw.bb945 ], [ %rc.1, %if.then942 ], [ %rc.1, %sw.bb938 ], [ %rc.1, %rec_loop.exit584 ], [ %rc.1, %sw.bb912 ], [ %rc.1, %sw.bb903 ], [ %rc.1, %rec_loop.exit ], [ %rc.1, %sw.bb899 ], [ %rc.1, %sw.bb897 ], [ %rc.1, %sw.bb892 ], [ %rc.1, %if.then886 ], [ %rc.1, %sw.bb882 ], [ %rc.1, %if.then879 ], [ %rc.1, %sw.bb875 ], [ %rc.6, %sw.bb872 ], [ %rc.1, %sw.bb857 ], [ %rc.5, %sw.bb854 ], [ %rc.4, %sw.bb839 ], [ %rc.1, %cond.end804 ], [ %call751, %sw.bb741 ], [ %call.i, %sw.bb739 ], [ %rc.1, %sw.bb729 ], [ %call728, %sw.bb726 ], [ %call725, %sw.bb723 ], [ %call718, %sw.bb710 ], [ %rc.1, %sw.bb708 ], [ %call707, %sw.bb706 ], [ %call705, %sw.bb697 ], [ %rc.1, %if.then693 ], [ %rc.1, %while.end ], [ %call673, %sw.bb670 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %if.then661 ], [ %rc.1, %sw.bb657 ], [ %call656, %sw.bb655 ], [ %call651, %if.then648 ], [ %call624, %if.then621 ], [ %call597, %if.then592 ], [ %call543, %if.then541 ], [ %call518, %if.then516 ], [ %call525, %if.then523 ], [ %cond511, %sw.bb503 ], [ %rc.1, %if.end497 ], [ %rc.2, %if.then480 ], [ %rc.2, %sw.bb473 ], [ %rc.1, %if.then416 ], [ %rc.1, %if.then445 ], [ %rc.1, %if.then456 ], [ %rc.1, %if.else453 ], [ %rc.1, %if.then255 ], [ %rc.1, %land.lhs.true275 ], [ %rc.9, %if.end396 ], [ %rc.1, %if.else393 ], [ %rc.1, %if.else327 ], [ %rc.1, %switch.early.test ]
+  %ra.1 = phi i32 [ %ra.0, %if.then954 ], [ %ra.0, %sw.bb950 ], [ %ra.0, %sw.bb948 ], [ %ra.0, %sw.bb947 ], [ %ra.0, %sw.bb946 ], [ %ra.0, %sw.bb945 ], [ %ra.0, %if.then942 ], [ %ra.0, %sw.bb938 ], [ %ra.0, %rec_loop.exit584 ], [ %ra.0, %sw.bb912 ], [ %ra.0, %sw.bb903 ], [ %ra.0, %rec_loop.exit ], [ %ra.0, %sw.bb899 ], [ %ra.0, %sw.bb897 ], [ %ra.0, %sw.bb892 ], [ %ra.0, %if.then886 ], [ %ra.0, %sw.bb882 ], [ %ra.0, %if.then879 ], [ %ra.0, %sw.bb875 ], [ %ra.0, %sw.bb872 ], [ %ra.0, %sw.bb857 ], [ %ra.0, %sw.bb854 ], [ %ra.0, %sw.bb839 ], [ %ra.0, %cond.end804 ], [ %ra.0, %sw.bb741 ], [ %ra.0, %sw.bb739 ], [ %ra.0, %sw.bb729 ], [ %ra.0, %sw.bb726 ], [ %ra.0, %sw.bb723 ], [ %ra.0, %sw.bb710 ], [ %ra.0, %sw.bb708 ], [ %ra.0, %sw.bb706 ], [ %ra.0, %sw.bb697 ], [ %ra.5.lcssa, %if.then693 ], [ %ra.5.lcssa, %while.end ], [ %ra.0, %sw.bb670 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %if.then661 ], [ %ra.0, %sw.bb657 ], [ %ra.0, %sw.bb655 ], [ %ra.0, %if.then648 ], [ %ra.0, %if.then621 ], [ %ra.0, %if.then592 ], [ %ra.0, %if.then541 ], [ %ra.0, %if.then516 ], [ %ra.0, %if.then523 ], [ %ra.0, %sw.bb503 ], [ %ra.4, %if.end497 ], [ %ra.0, %if.then480 ], [ %ra.0, %sw.bb473 ], [ %ra.0, %if.then416 ], [ %ra.0, %if.then445 ], [ %ra.0, %if.then456 ], [ %ra.0, %if.else453 ], [ %ra.0, %if.then255 ], [ %ra.0, %land.lhs.true275 ], [ %ra.3, %if.end396 ], [ %ra.0, %if.else393 ], [ %ra.0, %if.else327 ], [ %ra.0, %switch.early.test ]
   %cmp962 = icmp eq i16 %66, 1
-  %tobool965 = icmp ne i32 %rc.10, 0
+  %tobool965 = icmp ne i32 %rc.7, 0
   %or.cond7 = select i1 %cmp962, i1 %tobool965, i1 false
   br i1 %or.cond7, label %if.then966, label %if.end986
 
 if.then966:                                       ; preds = %sw.epilog957
   %base967 = getelementptr inbounds i8, ptr %J, i64 160
   %206 = load ptr, ptr %base967, align 8
-  %idxprom968 = zext i32 %ra.5 to i64
+  %idxprom968 = zext i32 %ra.1 to i64
   %arrayidx969 = getelementptr inbounds i32, ptr %206, i64 %idxprom968
-  store i32 %rc.10, ptr %arrayidx969, align 4
+  store i32 %rc.7, ptr %arrayidx969, align 4
   %maxslot970 = getelementptr inbounds i8, ptr %J, i64 172
   %207 = load i32, ptr %maxslot970, align 4
-  %cmp971.not = icmp ult i32 %ra.5, %207
+  %cmp971.not = icmp ult i32 %ra.1, %207
   br i1 %cmp971.not, label %if.end986, label %if.then973
 
 if.then973:                                       ; preds = %if.then966
-  %cmp975 = icmp ugt i32 %ra.5, %207
+  %cmp975 = icmp ugt i32 %ra.1, %207
   br i1 %cmp975, label %if.then977, label %if.end982
 
 if.then977:                                       ; preds = %if.then973
   %208 = load ptr, ptr %base967, align 8
-  %sub979 = add i32 %ra.5, -1
+  %sub979 = add i32 %ra.1, -1
   %idxprom980 = zext i32 %sub979 to i64
   %arrayidx981 = getelementptr inbounds i32, ptr %208, i64 %idxprom980
   store i32 0, ptr %arrayidx981, align 4
   br label %if.end982
 
 if.end982:                                        ; preds = %if.then977, %if.then973
-  %add983 = add i32 %ra.5, 1
+  %add983 = add i32 %ra.1, 1
   store i32 %add983, ptr %maxslot970, align 4
   br label %if.end986
 
@@ -6335,8 +6335,8 @@ if.then185:                                       ; preds = %if.then181
   br label %if.end188
 
 if.end188:                                        ; preds = %if.then185, %if.then181
-  %tridx.0 = phi i32 [ %call187, %if.then185 ], [ %51, %if.then181 ]
-  %conv189 = trunc i32 %tridx.0 to i16
+  %tridx.1 = phi i32 [ %call187, %if.then185 ], [ %51, %if.then181 ]
+  %conv189 = trunc i32 %tridx.1 to i16
   store i16 23443, ptr %ot1.i460, align 4
   store i16 %conv189, ptr %fold.i459, align 8
   store i16 8814, ptr %op2.i463, align 2
@@ -6344,8 +6344,8 @@ if.end188:                                        ; preds = %if.then185, %if.the
   br label %if.end191
 
 if.end191:                                        ; preds = %if.end188, %land.lhs.true
-  %tridx.1 = phi i32 [ %51, %land.lhs.true ], [ %call190, %if.end188 ]
-  %conv196 = and i32 %tridx.1, 32768
+  %tridx.0 = phi i32 [ %51, %land.lhs.true ], [ %call190, %if.end188 ]
+  %conv196 = and i32 %tridx.0, 32768
   %cmp197.not.not = icmp eq i32 %conv196, 0
   %cmp200.not.not = icmp sgt i64 %sub3, %conv170
   br i1 %cmp197.not.not, label %if.then199, label %if.else212.thread
@@ -6372,7 +6372,7 @@ if.else212.thread:                                ; preds = %if.end191
   br i1 %cmp200.not.not, label %if.then215, label %if.then246
 
 if.then215:                                       ; preds = %if.else212.thread, %if.else212
-  %tridx.1258266 = phi i32 [ %tridx.1, %if.else212.thread ], [ %51, %if.else212 ]
+  %tridx.0258266 = phi i32 [ %tridx.0, %if.else212.thread ], [ %51, %if.else212 ]
   %conv216 = trunc i32 %call65 to i16
   %sub217 = sub nuw nsw i32 -19, %add66
   %call218 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %sub217) #7
@@ -6404,7 +6404,7 @@ if.end227:                                        ; preds = %if.then215, %if.the
   br i1 %cmp175.not, label %if.then234, label %if.end289
 
 if.then234:                                       ; preds = %if.end227
-  %conv235 = trunc i32 %tridx.1258266 to i16
+  %conv235 = trunc i32 %tridx.0258266 to i16
   %call236 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef -1) #7
   %conv237 = trunc i32 %call236 to i16
   store i16 10515, ptr %ot1.i460, align 4
@@ -6417,7 +6417,7 @@ if.then234:                                       ; preds = %if.end227
 
 if.then246:                                       ; preds = %if.else212.thread
   %call243270 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %add67) #7
-  %conv247 = trunc i32 %tridx.1 to i16
+  %conv247 = trunc i32 %tridx.0 to i16
   %call248 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef 3) #7
   %conv249 = trunc i32 %call248 to i16
   store i16 9235, ptr %ot1.i460, align 4
@@ -6438,8 +6438,8 @@ if.else254:                                       ; preds = %if.else212
   br label %if.end256
 
 if.end256:                                        ; preds = %if.else254, %if.then246
-  %tridx.1258267272 = phi i32 [ %tridx.1, %if.then246 ], [ %51, %if.else254 ]
-  %tr.0 = phi i32 [ 32767, %if.then246 ], [ %call255, %if.else254 ]
+  %tridx.0258267272 = phi i32 [ %tridx.0, %if.then246 ], [ %51, %if.else254 ]
+  %tr.1 = phi i32 [ 32767, %if.then246 ], [ %call255, %if.else254 ]
   %tmp242.0 = phi i32 [ %call253, %if.then246 ], [ %call243, %if.else254 ]
   %conv257 = trunc i32 %call65 to i16
   %conv258 = trunc i32 %tmp242.0 to i16
@@ -6451,8 +6451,8 @@ if.end256:                                        ; preds = %if.else254, %if.the
 
 if.end261:                                        ; preds = %if.end256, %if.then234, %if.then199
   %frofs.0 = phi i32 [ %sub211, %if.then199 ], [ %add67, %if.then234 ], [ %add67, %if.end256 ]
-  %tridx.2 = phi i32 [ %tridx.1, %if.then199 ], [ %call238, %if.then234 ], [ %tridx.1258267272, %if.end256 ]
-  %tr.1 = phi i32 [ 32767, %if.then199 ], [ %call231, %if.then234 ], [ %tr.0, %if.end256 ]
+  %tridx.2 = phi i32 [ %tridx.0, %if.then199 ], [ %call238, %if.then234 ], [ %tridx.0258267272, %if.end256 ]
+  %tr.0 = phi i32 [ 32767, %if.then199 ], [ %call231, %if.then234 ], [ %tr.1, %if.end256 ]
   %cmp265.not.not = icmp sgt i64 %sub3, %conv170
   %or.cond219 = select i1 %cmp175.not, i1 %cmp265.not.not, i1 false
   br i1 %or.cond219, label %if.then267, label %if.end289
@@ -6504,7 +6504,7 @@ if.then267:                                       ; preds = %if.end261
   br label %if.end289
 
 if.end289:                                        ; preds = %if.end227, %if.then267, %if.end261
-  %tr.2 = phi i32 [ %tr.0.i250, %if.then267 ], [ %tr.1, %if.end261 ], [ %call231, %if.end227 ]
+  %tr.2 = phi i32 [ %tr.0.i250, %if.then267 ], [ %tr.0, %if.end261 ], [ %call231, %if.end227 ]
   %59 = load ptr, ptr %base20.i, align 8
   %sub292 = add i32 %dst, -3
   %idxprom293 = zext i32 %sub292 to i64

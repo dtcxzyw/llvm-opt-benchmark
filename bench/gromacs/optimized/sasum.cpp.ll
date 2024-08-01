@@ -48,11 +48,11 @@ define float @sasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv79 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next80, %.preheader ]
-  %.169 = phi float [ 0.000000e+00, %.preheader.preheader ], [ %24, %.preheader ]
+  %.269 = phi float [ 0.000000e+00, %.preheader.preheader ], [ %24, %.preheader ]
   %21 = getelementptr inbounds float, ptr %6, i64 %indvars.iv79
   %22 = load float, ptr %21, align 4
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
-  %24 = fadd float %.169, %23
+  %24 = fadd float %.269, %23
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
   br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !6
@@ -62,7 +62,7 @@ define float @sasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25, %17
-  %.2 = phi float [ %24, %25 ], [ 0.000000e+00, %17 ]
+  %.1 = phi float [ %24, %25 ], [ 0.000000e+00, %17 ]
   %.not6270.not = icmp slt i32 %18, %.fr
   br i1 %.not6270.not, label %.lr.ph73.preheader, label %.loopexit
 
@@ -73,7 +73,7 @@ define float @sasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv82 = phi i64 [ %29, %.lr.ph73.preheader ], [ %indvars.iv.next83, %.lr.ph73 ]
-  %.372 = phi float [ %.2, %.lr.ph73.preheader ], [ %53, %.lr.ph73 ]
+  %.372 = phi float [ %.1, %.lr.ph73.preheader ], [ %53, %.lr.ph73 ]
   %30 = getelementptr inbounds float, ptr %6, i64 %indvars.iv82
   %31 = load float, ptr %30, align 4
   %32 = tail call noundef float @llvm.fabs.f32(float %31)
@@ -104,7 +104,7 @@ define float @sasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %.not62, label %.loopexit, label %.lr.ph73, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph73, %27, %25, %3
-  %.0 = phi float [ 0.000000e+00, %3 ], [ %24, %25 ], [ %.2, %27 ], [ %53, %.lr.ph73 ], [ %15, %.lr.ph ]
+  %.0 = phi float [ 0.000000e+00, %3 ], [ %24, %25 ], [ %.1, %27 ], [ %53, %.lr.ph73 ], [ %15, %.lr.ph ]
   ret float %.0
 }
 

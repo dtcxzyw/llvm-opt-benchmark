@@ -301,13 +301,13 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br label %95
 
 95:                                               ; preds = %._crit_edge78, %84
-  %.0 = phi i32 [ 0, %84 ], [ 1, %._crit_edge78 ]
+  %.1 = phi i32 [ 0, %84 ], [ 1, %._crit_edge78 ]
   call void @llvm.stackrestore.p0(ptr %72)
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %42, %95, %19, %16, %13, %10
-  %.1 = phi i32 [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %.0, %95 ], [ 1, %42 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %.1, %95 ], [ 1, %42 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -1494,17 +1494,17 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit246:       ; preds = %_ZSt8_DestroyIPN6ca
   br label %314
 
 314:                                              ; preds = %302, %.loopexit275
-  %.160 = phi i1 [ %313, %.loopexit275 ], [ false, %302 ]
-  %.156 = phi ptr [ %114, %.loopexit275 ], [ %.055, %302 ]
+  %.261 = phi i1 [ %313, %.loopexit275 ], [ false, %302 ]
+  %.358 = phi ptr [ %114, %.loopexit275 ], [ %.055, %302 ]
   %.pn72.pn = phi { ptr, i32 } [ %.pn72, %.loopexit275 ], [ %303, %302 ]
   call void @_ZN6casadi6MatrixINS_6SXElemEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #18
   call void @_ZN6casadi6MatrixINS_6SXElemEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #18
-  %315 = icmp eq ptr %23, %.156
-  %or.cond = select i1 %.160, i1 true, i1 %315
+  %315 = icmp eq ptr %23, %.358
+  %or.cond = select i1 %.261, i1 true, i1 %315
   br i1 %or.cond, label %.loopexit274, label %.preheader
 
 .preheader:                                       ; preds = %314, %.preheader
-  %316 = phi ptr [ %317, %.preheader ], [ %.156, %314 ]
+  %316 = phi ptr [ %317, %.preheader ], [ %.358, %314 ]
   %317 = getelementptr inbounds i8, ptr %316, i64 -40
   call void @_ZN6casadi6MatrixINS_6SXElemEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %317) #18
   %318 = icmp eq ptr %317, %23

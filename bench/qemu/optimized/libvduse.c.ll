@@ -469,7 +469,7 @@ if.then37:                                        ; preds = %if.end35.thread, %i
 if.end40:                                         ; preds = %if.end35, %if.end35.thread54, %entry
   %i.0 = phi i32 [ %idx, %entry ], [ 0, %if.end35.thread54 ], [ 0, %if.end35 ]
   %max.0 = phi i32 [ %2, %entry ], [ %div29, %if.end35.thread54 ], [ %div29, %if.end35 ]
-  %desc.1 = phi ptr [ %0, %entry ], [ %desc_buf, %if.end35.thread54 ], [ %call21, %if.end35 ]
+  %desc.0 = phi ptr [ %0, %entry ], [ %desc_buf, %if.end35.thread54 ], [ %call21, %if.end35 ]
   br label %do.body
 
 do.body:                                          ; preds = %if.end.i, %if.end40
@@ -477,7 +477,7 @@ do.body:                                          ; preds = %if.end.i, %if.end40
   %17 = phi i32 [ 0, %if.end40 ], [ %27, %if.end.i ]
   %i.1 = phi i32 [ %i.0, %if.end40 ], [ %conv4.i, %if.end.i ]
   %idxprom41 = zext i32 %i.1 to i64
-  %flags43 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom41, i32 2
+  %flags43 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom41, i32 2
   %18 = load i16, ptr %flags43, align 4
   %19 = and i16 %18, 2
   %tobool47.not = icmp eq i16 %19, 0
@@ -487,9 +487,9 @@ if.then48:                                        ; preds = %do.body
   %idx.ext = zext i32 %16 to i64
   %add.ptr = getelementptr %struct.iovec, ptr %iov, i64 %idx.ext
   %sub = sub i32 1024, %16
-  %arrayidx51 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom41
+  %arrayidx51 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom41
   %20 = load i64, ptr %arrayidx51, align 8
-  %len56 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom41, i32 1
+  %len56 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom41, i32 1
   %21 = load i32, ptr %len56, align 8
   %conv58 = zext i32 %21 to i64
   %vq.val = load ptr, ptr %dev2, align 8
@@ -510,9 +510,9 @@ if.then63:                                        ; preds = %if.else
   br label %return
 
 if.end65:                                         ; preds = %if.else
-  %arrayidx68 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom41
+  %arrayidx68 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom41
   %24 = load i64, ptr %arrayidx68, align 8
-  %len73 = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom41, i32 1
+  %len73 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom41, i32 1
   %25 = load i32, ptr %len73, align 8
   %conv75 = zext i32 %25 to i64
   %vq.val31 = load ptr, ptr %dev2, align 8
@@ -537,7 +537,7 @@ if.then82:                                        ; preds = %if.end79
 
 if.end84:                                         ; preds = %if.end79
   %idxprom.i = sext i32 %i.1 to i64
-  %arrayidx.i = getelementptr %struct.vring_desc, ptr %desc.1, i64 %idxprom.i
+  %arrayidx.i = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom.i
   %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %30 = load i16, ptr %flags.i, align 4
   %31 = and i16 %30, 1
@@ -2049,19 +2049,19 @@ if.then20:                                        ; preds = %if.then16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.then16
-  %ret.0 = phi i32 [ %sub, %if.then20 ], [ 0, %if.then16 ]
+  %ret.1 = phi i32 [ %sub, %if.then20 ], [ 0, %if.then16 ]
   %12 = load i32, ptr %ctrl_fd, align 4
   %call24 = tail call i32 @close(i32 noundef %12) #19
   store i32 -1, ptr %ctrl_fd, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end22, %if.end13
-  %ret.1 = phi i32 [ %ret.0, %if.end22 ], [ 0, %if.end13 ]
+  %ret.0 = phi i32 [ %ret.1, %if.end22 ], [ 0, %if.end13 ]
   %name27 = getelementptr inbounds i8, ptr %dev, i64 8208
   %13 = load ptr, ptr %name27, align 8
   tail call void @free(ptr noundef %13) #19
   tail call void @free(ptr noundef nonnull %dev) #19
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind

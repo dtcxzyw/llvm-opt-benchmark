@@ -3292,19 +3292,19 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113: ; preds = %
   br label %_ZNK5Block4headEv.exit125
 
 .loopexit:                                        ; preds = %_ZNK9VectorSet4testEj.exit135.thread, %_ZN9VectorSet3setEj.exit127
-  %.sroa.16.3.lcssa = phi ptr [ %.sroa.16.2183, %_ZN9VectorSet3setEj.exit127 ], [ %.sroa.16.6, %_ZNK9VectorSet4testEj.exit135.thread ]
+  %.sroa.16.1.lcssa = phi ptr [ %.sroa.16.0183, %_ZN9VectorSet3setEj.exit127 ], [ %.sroa.16.2, %_ZNK9VectorSet4testEj.exit135.thread ]
   %.sroa.27.1.lcssa = phi i32 [ %450, %_ZN9VectorSet3setEj.exit127 ], [ %.sroa.27.2, %_ZNK9VectorSet4testEj.exit135.thread ]
-  %.sroa.0.2.lcssa = phi i32 [ %.sroa.0.1185, %_ZN9VectorSet3setEj.exit127 ], [ %.sroa.0.4, %_ZNK9VectorSet4testEj.exit135.thread ]
+  %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.0185, %_ZN9VectorSet3setEj.exit127 ], [ %.sroa.0.2, %_ZNK9VectorSet4testEj.exit135.thread ]
   %.not66 = icmp eq i32 %.sroa.27.1.lcssa, 0
   br i1 %.not66, label %548, label %_ZNK5Block4headEv.exit125, !llvm.loop !20
 
 _ZNK5Block4headEv.exit125:                        ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113, %.loopexit
-  %.sroa.0.1185 = phi i32 [ 8, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113 ], [ %.sroa.0.2.lcssa, %.loopexit ]
+  %.sroa.0.0185 = phi i32 [ 8, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113 ], [ %.sroa.0.1.lcssa, %.loopexit ]
   %.sroa.27.0184 = phi i32 [ 1, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113 ], [ %.sroa.27.1.lcssa, %.loopexit ]
-  %.sroa.16.2183 = phi ptr [ %.0.i.i.i.i114, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113 ], [ %.sroa.16.3.lcssa, %.loopexit ]
+  %.sroa.16.0183 = phi ptr [ %.0.i.i.i.i114, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i113 ], [ %.sroa.16.1.lcssa, %.loopexit ]
   %450 = add i32 %.sroa.27.0184, -1
   %451 = zext i32 %450 to i64
-  %452 = getelementptr inbounds ptr, ptr %.sroa.16.2183, i64 %451
+  %452 = getelementptr inbounds ptr, ptr %.sroa.16.0183, i64 %451
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 24
   %455 = load i32, ptr %454, align 8
@@ -3349,9 +3349,9 @@ _ZN9VectorSet3setEj.exit127:                      ; preds = %_ZNK5Block4headEv.e
 477:                                              ; preds = %.lr.ph180, %_ZNK9VectorSet4testEj.exit135.thread
   %478 = phi i32 [ %475, %.lr.ph180 ], [ %545, %_ZNK9VectorSet4testEj.exit135.thread ]
   %indvars.iv189 = phi i64 [ 0, %.lr.ph180 ], [ %indvars.iv.next190, %_ZNK9VectorSet4testEj.exit135.thread ]
-  %.sroa.0.2178 = phi i32 [ %.sroa.0.1185, %.lr.ph180 ], [ %.sroa.0.4, %_ZNK9VectorSet4testEj.exit135.thread ]
+  %.sroa.0.1178 = phi i32 [ %.sroa.0.0185, %.lr.ph180 ], [ %.sroa.0.2, %_ZNK9VectorSet4testEj.exit135.thread ]
   %.sroa.27.1177 = phi i32 [ %450, %.lr.ph180 ], [ %.sroa.27.2, %_ZNK9VectorSet4testEj.exit135.thread ]
-  %.sroa.16.3176 = phi ptr [ %.sroa.16.2183, %.lr.ph180 ], [ %.sroa.16.6, %_ZNK9VectorSet4testEj.exit135.thread ]
+  %.sroa.16.1176 = phi ptr [ %.sroa.16.0183, %.lr.ph180 ], [ %.sroa.16.2, %_ZNK9VectorSet4testEj.exit135.thread ]
   %479 = load ptr, ptr %476, align 8
   %480 = getelementptr inbounds ptr, ptr %479, i64 %indvars.iv189
   %481 = load ptr, ptr %480, align 8
@@ -3414,11 +3414,11 @@ _ZNK9VectorSet4testEj.exit135:                    ; preds = %_ZNK9VectorSet4test
 
 516:                                              ; preds = %_ZNK9VectorSet4testEj.exit135
   %517 = add i32 %.sroa.27.1177, 1
-  %.not.i.i136 = icmp ugt i32 %.sroa.0.2178, %.sroa.27.1177
+  %.not.i.i136 = icmp ugt i32 %.sroa.0.1178, %.sroa.27.1177
   br i1 %.not.i.i136, label %_ZN10Block_List4pushEP5Block.exit145, label %518
 
 518:                                              ; preds = %516
-  %.not.i.i.i137 = icmp eq i32 %.sroa.0.2178, 0
+  %.not.i.i.i137 = icmp eq i32 %.sroa.0.1178, 0
   br i1 %.not.i.i.i137, label %519, label %_ZN11Block_Array4growEj.exit.i.i138
 
 519:                                              ; preds = %518
@@ -3445,8 +3445,8 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i142: ; preds =
   br label %_ZN11Block_Array4growEj.exit.i.i138
 
 _ZN11Block_Array4growEj.exit.i.i138:              ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i142, %518
-  %.sroa.16.4 = phi ptr [ %.0.i.i.i.i.i143, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i142 ], [ %.sroa.16.3176, %518 ]
-  %529 = phi i32 [ 1, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i142 ], [ %.sroa.0.2178, %518 ]
+  %.sroa.16.5 = phi ptr [ %.0.i.i.i.i.i143, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i142 ], [ %.sroa.16.1176, %518 ]
+  %529 = phi i32 [ 1, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i142 ], [ %.sroa.0.1178, %518 ]
   %530 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %517)
   %or.cond.i.i.i.i.i139 = icmp eq i32 %530, 1
   %531 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %517, i1 true)
@@ -3457,7 +3457,7 @@ _ZN11Block_Array4growEj.exit.i.i138:              ; preds = %_ZN5Arena7AmallocEm
   %535 = shl nuw nsw i64 %534, 3
   %536 = zext i32 %.0.i.i6.i.i.i140 to i64
   %537 = shl nuw nsw i64 %536, 3
-  %538 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %436, ptr noundef %.sroa.16.4, i64 noundef %535, i64 noundef %537, i32 noundef 0) #12
+  %538 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %436, ptr noundef %.sroa.16.5, i64 noundef %535, i64 noundef %537, i32 noundef 0) #12
   %539 = getelementptr inbounds ptr, ptr %538, i64 %534
   %540 = sub i32 %.0.i.i6.i.i.i140, %529
   %541 = zext i32 %540 to i64
@@ -3466,19 +3466,19 @@ _ZN11Block_Array4growEj.exit.i.i138:              ; preds = %_ZN5Arena7AmallocEm
   br label %_ZN10Block_List4pushEP5Block.exit145
 
 _ZN10Block_List4pushEP5Block.exit145:             ; preds = %516, %_ZN11Block_Array4growEj.exit.i.i138
-  %.sroa.16.5 = phi ptr [ %.sroa.16.3176, %516 ], [ %538, %_ZN11Block_Array4growEj.exit.i.i138 ]
-  %.sroa.0.3 = phi i32 [ %.sroa.0.2178, %516 ], [ %.0.i.i6.i.i.i140, %_ZN11Block_Array4growEj.exit.i.i138 ]
+  %.sroa.16.6 = phi ptr [ %.sroa.16.1176, %516 ], [ %538, %_ZN11Block_Array4growEj.exit.i.i138 ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.1178, %516 ], [ %.0.i.i6.i.i.i140, %_ZN11Block_Array4growEj.exit.i.i138 ]
   %543 = zext i32 %.sroa.27.1177 to i64
-  %544 = getelementptr inbounds ptr, ptr %.sroa.16.5, i64 %543
+  %544 = getelementptr inbounds ptr, ptr %.sroa.16.6, i64 %543
   store ptr %481, ptr %544, align 8
   %.pre = load i32, ptr %474, align 8
   br label %_ZNK9VectorSet4testEj.exit135.thread
 
 _ZNK9VectorSet4testEj.exit135.thread:             ; preds = %_ZNK9VectorSet4testEj.exit.thread, %477, %_ZNK9VectorSet4testEj.exit, %_ZNK9VectorSet4testEj.exit135, %_ZN10Block_List4pushEP5Block.exit145
   %545 = phi i32 [ %478, %477 ], [ %478, %_ZNK9VectorSet4testEj.exit ], [ %.pre, %_ZN10Block_List4pushEP5Block.exit145 ], [ %478, %_ZNK9VectorSet4testEj.exit135 ], [ %478, %_ZNK9VectorSet4testEj.exit.thread ]
-  %.sroa.16.6 = phi ptr [ %.sroa.16.3176, %477 ], [ %.sroa.16.3176, %_ZNK9VectorSet4testEj.exit ], [ %.sroa.16.5, %_ZN10Block_List4pushEP5Block.exit145 ], [ %.sroa.16.3176, %_ZNK9VectorSet4testEj.exit135 ], [ %.sroa.16.3176, %_ZNK9VectorSet4testEj.exit.thread ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.1176, %477 ], [ %.sroa.16.1176, %_ZNK9VectorSet4testEj.exit ], [ %.sroa.16.6, %_ZN10Block_List4pushEP5Block.exit145 ], [ %.sroa.16.1176, %_ZNK9VectorSet4testEj.exit135 ], [ %.sroa.16.1176, %_ZNK9VectorSet4testEj.exit.thread ]
   %.sroa.27.2 = phi i32 [ %.sroa.27.1177, %477 ], [ %.sroa.27.1177, %_ZNK9VectorSet4testEj.exit ], [ %517, %_ZN10Block_List4pushEP5Block.exit145 ], [ %.sroa.27.1177, %_ZNK9VectorSet4testEj.exit135 ], [ %.sroa.27.1177, %_ZNK9VectorSet4testEj.exit.thread ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.2178, %477 ], [ %.sroa.0.2178, %_ZNK9VectorSet4testEj.exit ], [ %.sroa.0.3, %_ZN10Block_List4pushEP5Block.exit145 ], [ %.sroa.0.2178, %_ZNK9VectorSet4testEj.exit135 ], [ %.sroa.0.2178, %_ZNK9VectorSet4testEj.exit.thread ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1178, %477 ], [ %.sroa.0.1178, %_ZNK9VectorSet4testEj.exit ], [ %.sroa.0.4, %_ZN10Block_List4pushEP5Block.exit145 ], [ %.sroa.0.1178, %_ZNK9VectorSet4testEj.exit135 ], [ %.sroa.0.1178, %_ZNK9VectorSet4testEj.exit.thread ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %546 = zext i32 %545 to i64
   %547 = icmp ult i64 %indvars.iv.next190, %546
@@ -5768,9 +5768,9 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %19,
 27:                                               ; preds = %.lr.ph, %_ZNK5Block24is_trivially_unreachableEv.exit.thread
   %28 = phi i32 [ %22, %.lr.ph ], [ %75, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
-  %.sroa.0.072 = phi i32 [ 8, %.lr.ph ], [ %.sroa.0.2, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
+  %.sroa.0.072 = phi i32 [ 8, %.lr.ph ], [ %.sroa.0.1, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
   %.sroa.27.071 = phi i32 [ 0, %.lr.ph ], [ %.sroa.27.1, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
-  %.sroa.16.070 = phi ptr [ %.0.i.i.i.i, %.lr.ph ], [ %.sroa.16.3, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
+  %.sroa.16.070 = phi ptr [ %.0.i.i.i.i, %.lr.ph ], [ %.sroa.16.1, %_ZNK5Block24is_trivially_unreachableEv.exit.thread ]
   %29 = load ptr, ptr %23, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
@@ -5829,7 +5829,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i: ; preds = %5
   br label %_ZN11Block_Array4growEj.exit.i.i
 
 _ZN11Block_Array4growEj.exit.i.i:                 ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i, %48
-  %.sroa.16.1 = phi ptr [ %.0.i.i.i.i.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i ], [ %.sroa.16.070, %48 ]
+  %.sroa.16.5 = phi ptr [ %.0.i.i.i.i.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i ], [ %.sroa.16.070, %48 ]
   %59 = phi i32 [ 1, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i ], [ %.sroa.0.072, %48 ]
   %60 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %47)
   %or.cond.i.i.i.i.i = icmp eq i32 %60, 1
@@ -5841,7 +5841,7 @@ _ZN11Block_Array4growEj.exit.i.i:                 ; preds = %_ZN5Arena7AmallocEm
   %65 = shl nuw nsw i64 %64, 3
   %66 = zext i32 %.0.i.i6.i.i.i to i64
   %67 = shl nuw nsw i64 %66, 3
-  %68 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %.sroa.16.1, i64 noundef %65, i64 noundef %67, i32 noundef 0) #12
+  %68 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %.sroa.16.5, i64 noundef %65, i64 noundef %67, i32 noundef 0) #12
   %69 = getelementptr inbounds ptr, ptr %68, i64 %64
   %70 = sub i32 %.0.i.i6.i.i.i, %59
   %71 = zext i32 %70 to i64
@@ -5850,38 +5850,38 @@ _ZN11Block_Array4growEj.exit.i.i:                 ; preds = %_ZN5Arena7AmallocEm
   br label %_ZN10Block_List4pushEP5Block.exit
 
 _ZN10Block_List4pushEP5Block.exit:                ; preds = %46, %_ZN11Block_Array4growEj.exit.i.i
-  %.sroa.16.2 = phi ptr [ %.sroa.16.070, %46 ], [ %68, %_ZN11Block_Array4growEj.exit.i.i ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.072, %46 ], [ %.0.i.i6.i.i.i, %_ZN11Block_Array4growEj.exit.i.i ]
+  %.sroa.16.6 = phi ptr [ %.sroa.16.070, %46 ], [ %68, %_ZN11Block_Array4growEj.exit.i.i ]
+  %.sroa.0.5 = phi i32 [ %.sroa.0.072, %46 ], [ %.0.i.i6.i.i.i, %_ZN11Block_Array4growEj.exit.i.i ]
   %73 = zext i32 %.sroa.27.071 to i64
-  %74 = getelementptr inbounds ptr, ptr %.sroa.16.2, i64 %73
+  %74 = getelementptr inbounds ptr, ptr %.sroa.16.6, i64 %73
   store ptr %31, ptr %74, align 8
   %.pre = load i32, ptr %21, align 8
   br label %_ZNK5Block24is_trivially_unreachableEv.exit.thread
 
 _ZNK5Block24is_trivially_unreachableEv.exit.thread: ; preds = %27, %_ZNK5Block4headEv.exit.i, %_ZN10Block_List4pushEP5Block.exit
   %75 = phi i32 [ %.pre, %_ZN10Block_List4pushEP5Block.exit ], [ %28, %_ZNK5Block4headEv.exit.i ], [ %28, %27 ]
-  %.sroa.16.3 = phi ptr [ %.sroa.16.2, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.16.070, %_ZNK5Block4headEv.exit.i ], [ %.sroa.16.070, %27 ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.6, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.16.070, %_ZNK5Block4headEv.exit.i ], [ %.sroa.16.070, %27 ]
   %.sroa.27.1 = phi i32 [ %47, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.27.071, %_ZNK5Block4headEv.exit.i ], [ %.sroa.27.071, %27 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.0.072, %_ZNK5Block4headEv.exit.i ], [ %.sroa.0.072, %27 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.5, %_ZN10Block_List4pushEP5Block.exit ], [ %.sroa.0.072, %_ZNK5Block4headEv.exit.i ], [ %.sroa.0.072, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = zext i32 %75 to i64
   %77 = icmp ult i64 %indvars.iv.next, %76
   br i1 %77, label %27, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_ZNK5Block24is_trivially_unreachableEv.exit34.thread, %_ZN10Block_List6removeEj.exit
-  %.sroa.16.5.lcssa = phi ptr [ %.sroa.16.492, %_ZN10Block_List6removeEj.exit ], [ %.sroa.16.8, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
+  %.sroa.16.3.lcssa = phi ptr [ %.sroa.16.292, %_ZN10Block_List6removeEj.exit ], [ %.sroa.16.4, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
   %.sroa.27.3.lcssa = phi i32 [ %79, %_ZN10Block_List6removeEj.exit ], [ %.sroa.27.4, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
-  %.sroa.0.4.lcssa = phi i32 [ %.sroa.0.394, %_ZN10Block_List6removeEj.exit ], [ %.sroa.0.6, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
+  %.sroa.0.3.lcssa = phi i32 [ %.sroa.0.294, %_ZN10Block_List6removeEj.exit ], [ %.sroa.0.4, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
   %.not = icmp eq i32 %.sroa.27.3.lcssa, 0
   br i1 %.not, label %._crit_edge96, label %78, !llvm.loop !35
 
 78:                                               ; preds = %.lr.ph95, %.loopexit
-  %.sroa.0.394 = phi i32 [ %.sroa.0.2, %.lr.ph95 ], [ %.sroa.0.4.lcssa, %.loopexit ]
+  %.sroa.0.294 = phi i32 [ %.sroa.0.1, %.lr.ph95 ], [ %.sroa.0.3.lcssa, %.loopexit ]
   %.sroa.27.293 = phi i32 [ %.sroa.27.1, %.lr.ph95 ], [ %.sroa.27.3.lcssa, %.loopexit ]
-  %.sroa.16.492 = phi ptr [ %.sroa.16.3, %.lr.ph95 ], [ %.sroa.16.5.lcssa, %.loopexit ]
+  %.sroa.16.292 = phi ptr [ %.sroa.16.1, %.lr.ph95 ], [ %.sroa.16.3.lcssa, %.loopexit ]
   %79 = add i32 %.sroa.27.293, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.sroa.16.492, i64 %80
+  %81 = getelementptr inbounds ptr, ptr %.sroa.16.292, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 76
   %84 = load i32, ptr %83, align 4
@@ -5967,9 +5967,9 @@ _ZN10Block_List6removeEj.exit:                    ; preds = %._crit_edge, %_ZN4C
 
 120:                                              ; preds = %.lr.ph87, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread
   %indvars.iv106 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next107, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
-  %.sroa.0.485 = phi i32 [ %.sroa.0.394, %.lr.ph87 ], [ %.sroa.0.6, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
+  %.sroa.0.385 = phi i32 [ %.sroa.0.294, %.lr.ph87 ], [ %.sroa.0.4, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
   %.sroa.27.384 = phi i32 [ %79, %.lr.ph87 ], [ %.sroa.27.4, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
-  %.sroa.16.583 = phi ptr [ %.sroa.16.492, %.lr.ph87 ], [ %.sroa.16.8, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
+  %.sroa.16.383 = phi ptr [ %.sroa.16.292, %.lr.ph87 ], [ %.sroa.16.4, %_ZNK5Block24is_trivially_unreachableEv.exit34.thread ]
   %121 = load ptr, ptr %119, align 8
   %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv106
   %123 = load ptr, ptr %122, align 8
@@ -6049,11 +6049,11 @@ _ZNK5Block4headEv.exit.i32:                       ; preds = %._crit_edge82
 
 164:                                              ; preds = %_ZNK5Block4headEv.exit.i32
   %165 = add i32 %.sroa.27.384, 1
-  %.not.i.i35 = icmp ugt i32 %.sroa.0.485, %.sroa.27.384
+  %.not.i.i35 = icmp ugt i32 %.sroa.0.385, %.sroa.27.384
   br i1 %.not.i.i35, label %_ZN10Block_List4pushEP5Block.exit44, label %166
 
 166:                                              ; preds = %164
-  %.not.i.i.i36 = icmp eq i32 %.sroa.0.485, 0
+  %.not.i.i.i36 = icmp eq i32 %.sroa.0.385, 0
   br i1 %.not.i.i.i36, label %167, label %_ZN11Block_Array4growEj.exit.i.i37
 
 167:                                              ; preds = %166
@@ -6080,8 +6080,8 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i41: ; preds = 
   br label %_ZN11Block_Array4growEj.exit.i.i37
 
 _ZN11Block_Array4growEj.exit.i.i37:               ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i41, %166
-  %.sroa.16.6 = phi ptr [ %.0.i.i.i.i.i42, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i41 ], [ %.sroa.16.583, %166 ]
-  %177 = phi i32 [ 1, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i41 ], [ %.sroa.0.485, %166 ]
+  %.sroa.16.7 = phi ptr [ %.0.i.i.i.i.i42, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i41 ], [ %.sroa.16.383, %166 ]
+  %177 = phi i32 [ 1, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i41 ], [ %.sroa.0.385, %166 ]
   %178 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %165)
   %or.cond.i.i.i.i.i38 = icmp eq i32 %178, 1
   %179 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %165, i1 true)
@@ -6092,7 +6092,7 @@ _ZN11Block_Array4growEj.exit.i.i37:               ; preds = %_ZN5Arena7AmallocEm
   %183 = shl nuw nsw i64 %182, 3
   %184 = zext i32 %.0.i.i6.i.i.i39 to i64
   %185 = shl nuw nsw i64 %184, 3
-  %186 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %.sroa.16.6, i64 noundef %183, i64 noundef %185, i32 noundef 0) #12
+  %186 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %.sroa.16.7, i64 noundef %183, i64 noundef %185, i32 noundef 0) #12
   %187 = getelementptr inbounds ptr, ptr %186, i64 %182
   %188 = sub i32 %.0.i.i6.i.i.i39, %177
   %189 = zext i32 %188 to i64
@@ -6101,17 +6101,17 @@ _ZN11Block_Array4growEj.exit.i.i37:               ; preds = %_ZN5Arena7AmallocEm
   br label %_ZN10Block_List4pushEP5Block.exit44
 
 _ZN10Block_List4pushEP5Block.exit44:              ; preds = %164, %_ZN11Block_Array4growEj.exit.i.i37
-  %.sroa.16.7 = phi ptr [ %.sroa.16.583, %164 ], [ %186, %_ZN11Block_Array4growEj.exit.i.i37 ]
-  %.sroa.0.5 = phi i32 [ %.sroa.0.485, %164 ], [ %.0.i.i6.i.i.i39, %_ZN11Block_Array4growEj.exit.i.i37 ]
+  %.sroa.16.8 = phi ptr [ %.sroa.16.383, %164 ], [ %186, %_ZN11Block_Array4growEj.exit.i.i37 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.385, %164 ], [ %.0.i.i6.i.i.i39, %_ZN11Block_Array4growEj.exit.i.i37 ]
   %191 = zext i32 %.sroa.27.384 to i64
-  %192 = getelementptr inbounds ptr, ptr %.sroa.16.7, i64 %191
+  %192 = getelementptr inbounds ptr, ptr %.sroa.16.8, i64 %191
   store ptr %123, ptr %192, align 8
   br label %_ZNK5Block24is_trivially_unreachableEv.exit34.thread
 
 _ZNK5Block24is_trivially_unreachableEv.exit34.thread: ; preds = %._crit_edge82, %_ZNK5Block4headEv.exit.i32, %_ZN10Block_List4pushEP5Block.exit44
-  %.sroa.16.8 = phi ptr [ %.sroa.16.7, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.16.583, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.16.583, %._crit_edge82 ]
+  %.sroa.16.4 = phi ptr [ %.sroa.16.8, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.16.383, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.16.383, %._crit_edge82 ]
   %.sroa.27.4 = phi i32 [ %165, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.27.384, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.27.384, %._crit_edge82 ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.5, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.0.485, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.0.485, %._crit_edge82 ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.6, %_ZN10Block_List4pushEP5Block.exit44 ], [ %.sroa.0.385, %_ZNK5Block4headEv.exit.i32 ], [ %.sroa.0.385, %._crit_edge82 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %193 = load i32, ptr %117, align 8
   %194 = zext i32 %193 to i64
@@ -6197,8 +6197,8 @@ define hidden void @_ZN8PhaseCFG16postalloc_expandEP13PhaseRegAlloc(ptr nocaptur
 28:                                               ; preds = %.lr.ph399, %445
   %29 = phi i32 [ %24, %.lr.ph399 ], [ %446, %445 ]
   %.075397 = phi i32 [ 0, %.lr.ph399 ], [ %447, %445 ]
-  %.sroa.35.1396 = phi ptr [ %.sroa.35.0408, %.lr.ph399 ], [ %.sroa.35.9, %445 ]
-  %.sroa.20.1395 = phi i32 [ %.sroa.20.0407, %.lr.ph399 ], [ %.sroa.20.9, %445 ]
+  %.sroa.35.1396 = phi ptr [ %.sroa.35.0408, %.lr.ph399 ], [ %.sroa.35.7, %445 ]
+  %.sroa.20.1395 = phi i32 [ %.sroa.20.0407, %.lr.ph399 ], [ %.sroa.20.7, %445 ]
   %.sroa.17.1394 = phi ptr [ %.sroa.17.0406, %.lr.ph399 ], [ %.sroa.17.5, %445 ]
   %.sroa.10.1393 = phi i32 [ %.sroa.10.0405, %.lr.ph399 ], [ %.sroa.10.5, %445 ]
   %30 = load i32, ptr %25, align 8
@@ -6246,8 +6246,8 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %28, %32
 51:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %.1349 = phi i32 [ %.075397, %.lr.ph ], [ %.2, %92 ]
-  %.sroa.35.2347 = phi ptr [ %.sroa.35.1396, %.lr.ph ], [ %.sroa.35.4, %92 ]
-  %.sroa.20.2346 = phi i32 [ %.sroa.20.1395, %.lr.ph ], [ %.sroa.20.4, %92 ]
+  %.sroa.35.2347 = phi ptr [ %.sroa.35.1396, %.lr.ph ], [ %.sroa.35.3, %92 ]
+  %.sroa.20.2346 = phi i32 [ %.sroa.20.1395, %.lr.ph ], [ %.sroa.20.3, %92 ]
   %.sroa.0257.0344 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0257.1, %92 ]
   %52 = load ptr, ptr %50, align 8
   %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
@@ -6313,11 +6313,11 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i:     ; preds = %60
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i125, !llvm.loop !39
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %60
-  %.sroa.20.3 = phi i32 [ %.sroa.20.2346, %60 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
-  %.sroa.35.3 = phi ptr [ %.sroa.35.2347, %60 ], [ %71, %.preheader16.i ], [ %71, %.lr.ph19.preheader.i ]
+  %.sroa.20.8 = phi i32 [ %.sroa.20.2346, %60 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
+  %.sroa.35.8 = phi ptr [ %.sroa.35.2347, %60 ], [ %71, %.preheader16.i ], [ %71, %.lr.ph19.preheader.i ]
   %85 = add nsw i32 %.sroa.0257.0344, 1
   %86 = sext i32 %.sroa.0257.0344 to i64
-  %87 = getelementptr inbounds ptr, ptr %.sroa.35.3, i64 %86
+  %87 = getelementptr inbounds ptr, ptr %.sroa.35.8, i64 %86
   store ptr %54, ptr %87, align 8
   %88 = load ptr, ptr %50, align 8
   %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv
@@ -6328,8 +6328,8 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit: ; p
 
 92:                                               ; preds = %51, %55, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit
   %.sroa.0257.1 = phi i32 [ %.sroa.0257.0344, %51 ], [ %85, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.0257.0344, %55 ]
-  %.sroa.20.4 = phi i32 [ %.sroa.20.2346, %51 ], [ %.sroa.20.3, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.20.2346, %55 ]
-  %.sroa.35.4 = phi ptr [ %.sroa.35.2347, %51 ], [ %.sroa.35.3, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.35.2347, %55 ]
+  %.sroa.20.3 = phi i32 [ %.sroa.20.2346, %51 ], [ %.sroa.20.8, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.20.2346, %55 ]
+  %.sroa.35.3 = phi ptr [ %.sroa.35.2347, %51 ], [ %.sroa.35.8, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.35.2347, %55 ]
   %.2 = phi i32 [ %.1349, %51 ], [ %91, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.1349, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond428.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6337,8 +6337,8 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit: ; p
 
 ._crit_edge:                                      ; preds = %92, %47
   %.sroa.0257.0.lcssa = phi i32 [ 0, %47 ], [ %.sroa.0257.1, %92 ]
-  %.sroa.20.2.lcssa = phi i32 [ %.sroa.20.1395, %47 ], [ %.sroa.20.4, %92 ]
-  %.sroa.35.2.lcssa = phi ptr [ %.sroa.35.1396, %47 ], [ %.sroa.35.4, %92 ]
+  %.sroa.20.2.lcssa = phi i32 [ %.sroa.20.1395, %47 ], [ %.sroa.20.3, %92 ]
+  %.sroa.35.2.lcssa = phi ptr [ %.sroa.35.1396, %47 ], [ %.sroa.35.3, %92 ]
   %.1.lcssa = phi i32 [ %.075397, %47 ], [ %.2, %92 ]
   %93 = load ptr, ptr %10, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 592
@@ -6398,12 +6398,12 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit: ; p
 
 117:                                              ; preds = %.lr.ph366, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85
   %.073364 = phi i32 [ 0, %.lr.ph366 ], [ %185, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
-  %.sroa.35.5363 = phi ptr [ %.sroa.35.2.lcssa, %.lr.ph366 ], [ %.sroa.35.7, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
-  %.sroa.20.5362 = phi i32 [ %.sroa.20.2.lcssa, %.lr.ph366 ], [ %.sroa.20.7, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
+  %.sroa.35.5363 = phi ptr [ %.sroa.35.2.lcssa, %.lr.ph366 ], [ %.sroa.35.6, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
+  %.sroa.20.5362 = phi i32 [ %.sroa.20.2.lcssa, %.lr.ph366 ], [ %.sroa.20.6, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
   %.sroa.0257.2360 = phi i32 [ %.sroa.0257.0.lcssa, %.lr.ph366 ], [ %.sroa.0257.3, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
-  %.sroa.17.2359 = phi ptr [ %.sroa.17.1394, %.lr.ph366 ], [ %.sroa.17.4, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
+  %.sroa.17.3359 = phi ptr [ %.sroa.17.1394, %.lr.ph366 ], [ %.sroa.17.4, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
   %.sroa.0.0357 = phi i32 [ 0, %.lr.ph366 ], [ %.sroa.0.1, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
-  %.sroa.10.2356 = phi i32 [ %.sroa.10.1393, %.lr.ph366 ], [ %.sroa.10.4, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
+  %.sroa.10.3356 = phi i32 [ %.sroa.10.1393, %.lr.ph366 ], [ %.sroa.10.4, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85 ]
   %118 = load ptr, ptr %115, align 8
   %119 = zext i32 %.073364 to i64
   %120 = getelementptr inbounds ptr, ptr %118, i64 %119
@@ -6474,13 +6474,13 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i129:  ; preds = %132
   br i1 %exitcond429.not, label %.preheader16.i131, label %.lr.ph.i140, !llvm.loop !39
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82: ; preds = %.lr.ph19.preheader.i136, %.preheader16.i131, %132
-  %.sroa.20.6 = phi i32 [ %.sroa.20.5362, %132 ], [ %.0.i.i.i.i.i80, %.preheader16.i131 ], [ %.0.i.i.i.i.i80, %.lr.ph19.preheader.i136 ]
-  %.sroa.35.6 = phi ptr [ %.sroa.35.5363, %132 ], [ %143, %.preheader16.i131 ], [ %143, %.lr.ph19.preheader.i136 ]
+  %.sroa.20.9 = phi i32 [ %.sroa.20.5362, %132 ], [ %.0.i.i.i.i.i80, %.preheader16.i131 ], [ %.0.i.i.i.i.i80, %.lr.ph19.preheader.i136 ]
+  %.sroa.35.9 = phi ptr [ %.sroa.35.5363, %132 ], [ %143, %.preheader16.i131 ], [ %143, %.lr.ph19.preheader.i136 ]
   %157 = add nsw i32 %.sroa.0257.2360, 1
   br label %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85
 
 158:                                              ; preds = %126, %117
-  %159 = icmp eq i32 %.sroa.0.0357, %.sroa.10.2356
+  %159 = icmp eq i32 %.sroa.0.0357, %.sroa.10.3356
   %160 = add nsw i32 %.sroa.0.0357, 1
   br i1 %159, label %_ZN13GrowableArrayIP4NodeE8allocateEv.exit.i146, label %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85
 
@@ -6522,7 +6522,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i146:  ; preds = %158
 .lr.ph.i157:                                      ; preds = %.lr.ph.i157.preheader, %.lr.ph.i157
   %indvars.iv.i158 = phi i64 [ %indvars.iv.next.i159, %.lr.ph.i157 ], [ 0, %.lr.ph.i157.preheader ]
   %180 = getelementptr inbounds ptr, ptr %169, i64 %indvars.iv.i158
-  %181 = getelementptr inbounds ptr, ptr %.sroa.17.2359, i64 %indvars.iv.i158
+  %181 = getelementptr inbounds ptr, ptr %.sroa.17.3359, i64 %indvars.iv.i158
   %182 = load ptr, ptr %181, align 8
   store ptr %182, ptr %180, align 8
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i158, 1
@@ -6531,15 +6531,15 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i146:  ; preds = %158
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit85: ; preds = %.preheader16.i148, %.lr.ph19.preheader.i153, %158, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82
   %.sroa.0257.2360.sink = phi i32 [ %.sroa.0257.2360, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.0.0357, %158 ], [ %.sroa.0.0357, %.lr.ph19.preheader.i153 ], [ %.sroa.0.0357, %.preheader16.i148 ]
-  %.sroa.35.6.sink = phi ptr [ %.sroa.35.6, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.17.2359, %158 ], [ %169, %.lr.ph19.preheader.i153 ], [ %169, %.preheader16.i148 ]
-  %.sroa.10.4 = phi i32 [ %.sroa.10.2356, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.10.2356, %158 ], [ %.0.i.i.i.i.i83, %.lr.ph19.preheader.i153 ], [ %.0.i.i.i.i.i83, %.preheader16.i148 ]
+  %.sroa.35.9.sink = phi ptr [ %.sroa.35.9, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.17.3359, %158 ], [ %169, %.lr.ph19.preheader.i153 ], [ %169, %.preheader16.i148 ]
+  %.sroa.10.4 = phi i32 [ %.sroa.10.3356, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.10.3356, %158 ], [ %.0.i.i.i.i.i83, %.lr.ph19.preheader.i153 ], [ %.0.i.i.i.i.i83, %.preheader16.i148 ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0357, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %160, %158 ], [ %160, %.lr.ph19.preheader.i153 ], [ %160, %.preheader16.i148 ]
-  %.sroa.17.4 = phi ptr [ %.sroa.17.2359, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.17.2359, %158 ], [ %169, %.lr.ph19.preheader.i153 ], [ %169, %.preheader16.i148 ]
+  %.sroa.17.4 = phi ptr [ %.sroa.17.3359, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.17.3359, %158 ], [ %169, %.lr.ph19.preheader.i153 ], [ %169, %.preheader16.i148 ]
   %.sroa.0257.3 = phi i32 [ %157, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.0257.2360, %158 ], [ %.sroa.0257.2360, %.lr.ph19.preheader.i153 ], [ %.sroa.0257.2360, %.preheader16.i148 ]
-  %.sroa.20.7 = phi i32 [ %.sroa.20.6, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.20.5362, %158 ], [ %.sroa.20.5362, %.lr.ph19.preheader.i153 ], [ %.sroa.20.5362, %.preheader16.i148 ]
-  %.sroa.35.7 = phi ptr [ %.sroa.35.6, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.35.5363, %158 ], [ %.sroa.35.5363, %.lr.ph19.preheader.i153 ], [ %.sroa.35.5363, %.preheader16.i148 ]
+  %.sroa.20.6 = phi i32 [ %.sroa.20.9, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.20.5362, %158 ], [ %.sroa.20.5362, %.lr.ph19.preheader.i153 ], [ %.sroa.20.5362, %.preheader16.i148 ]
+  %.sroa.35.6 = phi ptr [ %.sroa.35.9, %_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit82 ], [ %.sroa.35.5363, %158 ], [ %.sroa.35.5363, %.lr.ph19.preheader.i153 ], [ %.sroa.35.5363, %.preheader16.i148 ]
   %183 = sext i32 %.sroa.0257.2360.sink to i64
-  %184 = getelementptr inbounds ptr, ptr %.sroa.35.6.sink, i64 %183
+  %184 = getelementptr inbounds ptr, ptr %.sroa.35.9.sink, i64 %183
   store ptr %121, ptr %184, align 8
   %185 = add nuw i32 %.073364, 1
   %186 = load i32, ptr %113, align 8
@@ -6788,11 +6788,11 @@ _ZN4Node8set_precEjPS_.exit:                      ; preds = %304, %_ZN4Node7del_
   br i1 %exitcond443.not, label %._crit_edge383, label %.lr.ph382, !llvm.loop !46
 
 ._crit_edge383:                                   ; preds = %._crit_edge380, %.loopexit, %.preheader305
-  %.sroa.35.5.lcssa475 = phi ptr [ %.sroa.35.7, %.preheader305 ], [ %.sroa.35.2.lcssa, %.loopexit ], [ %.sroa.35.7, %._crit_edge380 ]
-  %.sroa.20.5.lcssa474 = phi i32 [ %.sroa.20.7, %.preheader305 ], [ %.sroa.20.2.lcssa, %.loopexit ], [ %.sroa.20.7, %._crit_edge380 ]
+  %.sroa.35.5.lcssa475 = phi ptr [ %.sroa.35.6, %.preheader305 ], [ %.sroa.35.2.lcssa, %.loopexit ], [ %.sroa.35.6, %._crit_edge380 ]
+  %.sroa.20.5.lcssa474 = phi i32 [ %.sroa.20.6, %.preheader305 ], [ %.sroa.20.2.lcssa, %.loopexit ], [ %.sroa.20.6, %._crit_edge380 ]
   %.sroa.0257.2.lcssa472 = phi i32 [ %.sroa.0257.3, %.preheader305 ], [ %.sroa.0257.0.lcssa, %.loopexit ], [ %.sroa.0257.3, %._crit_edge380 ]
-  %.sroa.17.2.lcssa471 = phi ptr [ %.sroa.17.4, %.preheader305 ], [ %.sroa.17.1394, %.loopexit ], [ %.sroa.17.4, %._crit_edge380 ]
-  %.sroa.10.2.lcssa470 = phi i32 [ %.sroa.10.4, %.preheader305 ], [ %.sroa.10.1393, %.loopexit ], [ %.sroa.10.4, %._crit_edge380 ]
+  %.sroa.17.3.lcssa471 = phi ptr [ %.sroa.17.4, %.preheader305 ], [ %.sroa.17.1394, %.loopexit ], [ %.sroa.17.4, %._crit_edge380 ]
+  %.sroa.10.3.lcssa470 = phi i32 [ %.sroa.10.4, %.preheader305 ], [ %.sroa.10.1393, %.loopexit ], [ %.sroa.10.4, %._crit_edge380 ]
   %313 = load i32, ptr %23, align 8
   %.not.i93 = icmp eq i32 %313, 0
   br i1 %.not.i93, label %._crit_edge.i, label %.lr.ph.i
@@ -6978,10 +6978,10 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i163:  ; preds = %._crit_edge387
   br i1 %exitcond447.not, label %.preheader16.i165, label %.lr.ph.i174, !llvm.loop !39
 
 _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit98: ; preds = %.lr.ph19.preheader.i170, %.preheader16.i165, %._crit_edge387
-  %.sroa.20.8 = phi i32 [ %.sroa.20.5.lcssa474, %._crit_edge387 ], [ %.0.i.i.i.i.i96, %.preheader16.i165 ], [ %.0.i.i.i.i.i96, %.lr.ph19.preheader.i170 ]
-  %.sroa.35.8 = phi ptr [ %.sroa.35.5.lcssa475, %._crit_edge387 ], [ %386, %.preheader16.i165 ], [ %386, %.lr.ph19.preheader.i170 ]
+  %.sroa.20.10 = phi i32 [ %.sroa.20.5.lcssa474, %._crit_edge387 ], [ %.0.i.i.i.i.i96, %.preheader16.i165 ], [ %.0.i.i.i.i.i96, %.lr.ph19.preheader.i170 ]
+  %.sroa.35.10 = phi ptr [ %.sroa.35.5.lcssa475, %._crit_edge387 ], [ %386, %.preheader16.i165 ], [ %386, %.lr.ph19.preheader.i170 ]
   %400 = sext i32 %.sroa.0257.2.lcssa472 to i64
-  %401 = getelementptr inbounds ptr, ptr %.sroa.35.8, i64 %400
+  %401 = getelementptr inbounds ptr, ptr %.sroa.35.10, i64 %400
   store ptr %37, ptr %401, align 8
   %402 = add i32 %.1.lcssa, -1
   %.not303389 = icmp slt i32 %.sroa.0257.2.lcssa472, 0
@@ -6997,7 +6997,7 @@ _ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE4pushERKS1_.exit98: ;
   %.pre459462 = phi i32 [ %.pre459.pre, %.lr.ph391.preheader ], [ %.pre459463, %_ZNK5Block8containsEPK4Node.exit.thread300 ]
   %404 = phi i32 [ %.pre459.pre, %.lr.ph391.preheader ], [ %430, %_ZNK5Block8containsEPK4Node.exit.thread300 ]
   %indvars.iv449 = phi i64 [ 0, %.lr.ph391.preheader ], [ %indvars.iv.next450, %_ZNK5Block8containsEPK4Node.exit.thread300 ]
-  %405 = getelementptr inbounds ptr, ptr %.sroa.35.8, i64 %indvars.iv449
+  %405 = getelementptr inbounds ptr, ptr %.sroa.35.10, i64 %indvars.iv449
   %406 = load ptr, ptr %405, align 8
   %.not.i.i99 = icmp eq i32 %404, 0
   br i1 %.not.i.i99, label %_ZNK5Block8containsEPK4Node.exit.thread300, label %.lr.ph.i.i100
@@ -7119,10 +7119,10 @@ _ZNK5Block9find_nodeEPK4Node.exit116:             ; preds = %_ZNK5Block8get_node
 
 445:                                              ; preds = %._crit_edge457, %_ZNK5Block9find_nodeEPK4Node.exit116, %._crit_edge392, %_ZNK5Block8get_nodeEj.exit
   %446 = phi i32 [ %.pre459, %._crit_edge392 ], [ %.pre459, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.pre458, %._crit_edge457 ], [ %29, %_ZNK5Block8get_nodeEj.exit ]
-  %.sroa.10.5 = phi i32 [ %.sroa.10.2.lcssa470, %._crit_edge392 ], [ %.sroa.10.2.lcssa470, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.10.1393, %._crit_edge457 ], [ %.sroa.10.1393, %_ZNK5Block8get_nodeEj.exit ]
-  %.sroa.17.5 = phi ptr [ %.sroa.17.2.lcssa471, %._crit_edge392 ], [ %.sroa.17.2.lcssa471, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.17.1394, %._crit_edge457 ], [ %.sroa.17.1394, %_ZNK5Block8get_nodeEj.exit ]
-  %.sroa.20.9 = phi i32 [ %.sroa.20.8, %._crit_edge392 ], [ %.sroa.20.8, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.20.1395, %._crit_edge457 ], [ %.sroa.20.1395, %_ZNK5Block8get_nodeEj.exit ]
-  %.sroa.35.9 = phi ptr [ %.sroa.35.8, %._crit_edge392 ], [ %.sroa.35.8, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.35.1396, %._crit_edge457 ], [ %.sroa.35.1396, %_ZNK5Block8get_nodeEj.exit ]
+  %.sroa.10.5 = phi i32 [ %.sroa.10.3.lcssa470, %._crit_edge392 ], [ %.sroa.10.3.lcssa470, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.10.1393, %._crit_edge457 ], [ %.sroa.10.1393, %_ZNK5Block8get_nodeEj.exit ]
+  %.sroa.17.5 = phi ptr [ %.sroa.17.3.lcssa471, %._crit_edge392 ], [ %.sroa.17.3.lcssa471, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.17.1394, %._crit_edge457 ], [ %.sroa.17.1394, %_ZNK5Block8get_nodeEj.exit ]
+  %.sroa.20.7 = phi i32 [ %.sroa.20.10, %._crit_edge392 ], [ %.sroa.20.10, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.20.1395, %._crit_edge457 ], [ %.sroa.20.1395, %_ZNK5Block8get_nodeEj.exit ]
+  %.sroa.35.7 = phi ptr [ %.sroa.35.10, %._crit_edge392 ], [ %.sroa.35.10, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.sroa.35.1396, %._crit_edge457 ], [ %.sroa.35.1396, %_ZNK5Block8get_nodeEj.exit ]
   %.3 = phi i32 [ %402, %._crit_edge392 ], [ %444, %_ZNK5Block9find_nodeEPK4Node.exit116 ], [ %.075397, %._crit_edge457 ], [ %.075397, %_ZNK5Block8get_nodeEj.exit ]
   %447 = add i32 %.3, 1
   %448 = icmp ult i32 %447, %446
@@ -7136,8 +7136,8 @@ _ZNK5Block9find_nodeEPK4Node.exit116:             ; preds = %_ZNK5Block8get_node
   %449 = phi i32 [ %19, %18 ], [ %.pre460, %._crit_edge400.loopexit ]
   %.sroa.10.1.lcssa = phi i32 [ %.sroa.10.0405, %18 ], [ %.sroa.10.5, %._crit_edge400.loopexit ]
   %.sroa.17.1.lcssa = phi ptr [ %.sroa.17.0406, %18 ], [ %.sroa.17.5, %._crit_edge400.loopexit ]
-  %.sroa.20.1.lcssa = phi i32 [ %.sroa.20.0407, %18 ], [ %.sroa.20.9, %._crit_edge400.loopexit ]
-  %.sroa.35.1.lcssa = phi ptr [ %.sroa.35.0408, %18 ], [ %.sroa.35.9, %._crit_edge400.loopexit ]
+  %.sroa.20.1.lcssa = phi i32 [ %.sroa.20.0407, %18 ], [ %.sroa.20.7, %._crit_edge400.loopexit ]
+  %.sroa.35.1.lcssa = phi ptr [ %.sroa.35.0408, %18 ], [ %.sroa.35.7, %._crit_edge400.loopexit ]
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %450 = zext i32 %449 to i64
   %451 = icmp ult i64 %indvars.iv.next455, %450

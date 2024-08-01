@@ -188,12 +188,12 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
 
 .lr.ph.i.i:                                       ; preds = %99, %.lr.ph.i.preheader.i
   %.06084.i.i = phi i64 [ %100, %99 ], [ 0, %.lr.ph.i.preheader.i ]
-  %.06183.i.i = phi i8 [ %.2.i.i, %99 ], [ 0, %.lr.ph.i.preheader.i ]
+  %.06183.i.i = phi i8 [ %.3.i.i, %99 ], [ 0, %.lr.ph.i.preheader.i ]
   %88 = trunc nuw i8 %.06183.i.i to i1
   br i1 %88, label %._crit_edge.i.i, label %91
 
 ._crit_edge.i.i:                                  ; preds = %99, %.lr.ph.i.i, %74
-  %.061.lcssa.i.i = phi i8 [ 0, %74 ], [ %.2.i.i, %99 ], [ %.06183.i.i, %.lr.ph.i.i ]
+  %.061.lcssa.i.i = phi i8 [ 0, %74 ], [ %.3.i.i, %99 ], [ %.06183.i.i, %.lr.ph.i.i ]
   %.060.lcssa.i.i = phi i64 [ 0, %74 ], [ %100, %99 ], [ %.06084.i.i, %.lr.ph.i.i ]
   %89 = add i64 %.060.lcssa.i.i, %70
   %90 = icmp ult i64 %89, %2
@@ -226,7 +226,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
 
 .preheader.i.i:                                   ; preds = %92, %106
   %.sroa.025.082.i.i = phi i64 [ %102, %106 ], [ 0, %92 ]
-  %.16281.i.i = phi i8 [ %.2.i.i, %106 ], [ %.06183.i.i, %92 ]
+  %.281.i.i = phi i8 [ %.3.i.i, %106 ], [ %.06183.i.i, %92 ]
   %102 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %.sroa.025.082.i.i, i64 1)
   %103 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.025.082.i.i
   %104 = load i16, ptr %103, align 2, !noundef !3
@@ -234,14 +234,14 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %108, %.preheader.i.i
-  %.2.i.i = phi i8 [ %.16281.i.i, %.preheader.i.i ], [ %114, %108 ]
+  %.3.i.i = phi i8 [ %.281.i.i, %.preheader.i.i ], [ %114, %108 ]
   %107 = icmp ugt i64 %102, 3
   br i1 %107, label %99, label %.preheader.i.i
 
 108:                                              ; preds = %.preheader.i.i
   %109 = shl nuw nsw i64 %.sroa.025.082.i.i, 4
   %110 = or disjoint i64 %109, %.06084.i.i
-  %111 = trunc nuw i8 %.16281.i.i to i1
+  %111 = trunc nuw i8 %.281.i.i to i1
   %112 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr nonnull align 8 %10, i64 %110, i16 %104, i1 zeroext %111)
   %113 = or i1 %112, %111
   %114 = zext i1 %113 to i8
@@ -249,12 +249,12 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
 
 .lr.ph92.i.i:                                     ; preds = %123, %.lr.ph92.i.preheader.i
   %.190.i.i = phi i64 [ %124, %123 ], [ %.060.lcssa.i.i, %.lr.ph92.i.preheader.i ]
-  %.389.i.i = phi i8 [ %.4.i.i, %123 ], [ %.061.lcssa.i.i, %.lr.ph92.i.preheader.i ]
-  %115 = trunc nuw i8 %.389.i.i to i1
+  %.16289.i.i = phi i8 [ %.5.i.i, %123 ], [ %.061.lcssa.i.i, %.lr.ph92.i.preheader.i ]
+  %115 = trunc nuw i8 %.16289.i.i to i1
   br i1 %115, label %._crit_edge93.i.i, label %120
 
 ._crit_edge93.i.i:                                ; preds = %123, %.lr.ph92.i.i, %._crit_edge.i.i
-  %.3.lcssa.i.i = phi i8 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ %.4.i.i, %123 ], [ %.389.i.i, %.lr.ph92.i.i ]
+  %.162.lcssa.i.i = phi i8 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %123 ], [ %.16289.i.i, %.lr.ph92.i.i ]
   %116 = sub i64 %2, %55
   %117 = add i64 %116, -16
   %118 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %117)
@@ -267,7 +267,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %126, %120
-  %.4.i.i = phi i8 [ %.389.i.i, %120 ], [ %128, %126 ]
+  %.5.i.i = phi i8 [ %.16289.i.i, %120 ], [ %128, %126 ]
   %124 = add i64 %.190.i.i, 16
   %.reass46.i = add i64 %invariant.op45.i, %.190.i.i
   %125 = icmp ult i64 %.reass46.i, %2
@@ -279,7 +279,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br label %123
 
 129:                                              ; preds = %._crit_edge93.i.i
-  %130 = trunc nuw i8 %.3.lcssa.i.i to i1
+  %130 = trunc nuw i8 %.162.lcssa.i.i to i1
   %131 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr nonnull align 8 %10, i64 %117, i16 %118, i1 zeroext %130)
   %132 = or i1 %131, %130
   %133 = zext i1 %132 to i8
@@ -497,7 +497,7 @@ _ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE.exit.i: ; preds = %57
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h6e84c689914ec3c0E.exit"
 
 232:                                              ; preds = %.thread99.i.i, %129, %._crit_edge93.i.i
-  %.0.i.ph.i = phi i8 [ %139, %.thread99.i.i ], [ %.3.lcssa.i.i, %._crit_edge93.i.i ], [ %133, %129 ]
+  %.0.i.ph.i = phi i8 [ %139, %.thread99.i.i ], [ %.162.lcssa.i.i, %._crit_edge93.i.i ], [ %133, %129 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

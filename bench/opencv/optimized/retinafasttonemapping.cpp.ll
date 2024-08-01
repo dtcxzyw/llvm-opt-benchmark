@@ -342,14 +342,14 @@ define linkonce_odr hidden void @_ZN2cv11bioinspired25RetinaFastToneMappingImplC
 
 28:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  %.1 = phi i1 [ %.0, %26 ], [ true, %24 ]
+  %.3 = phi i1 [ %.0, %26 ], [ true, %24 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   br label %29
 
 29:                                               ; preds = %22, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %28 ], [ %23, %22 ]
-  %.2 = phi i1 [ %.1, %28 ], [ true, %22 ]
+  %.2 = phi i1 [ %.3, %28 ], [ true, %22 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
@@ -1506,14 +1506,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %26, %29
   br label %47
 
 47:                                               ; preds = %45, %43
-  %.140 = phi i1 [ %.039, %45 ], [ true, %43 ]
+  %.342 = phi i1 [ %.039, %45 ], [ true, %43 ]
   %.pn56 = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   br label %48
 
 48:                                               ; preds = %41, %47
-  %.241 = phi i1 [ %.140, %47 ], [ true, %41 ]
+  %.241 = phi i1 [ %.342, %47 ], [ true, %41 ]
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %47 ], [ %42, %41 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16

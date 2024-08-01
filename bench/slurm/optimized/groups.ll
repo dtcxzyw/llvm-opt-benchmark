@@ -222,7 +222,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
   %.2 = phi i32 [ %.3, %96 ], [ 0, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %96 ], [ 0, %._crit_edge.i ]
   %79 = phi ptr [ %101, %96 ], [ %78, %._crit_edge.i ]
-  %.091.i = phi i32 [ %.2.i, %96 ], [ 0, %._crit_edge.i ]
+  %.091.i = phi i32 [ %.1.i, %96 ], [ 0, %._crit_edge.i ]
   %80 = call i32 @uid_from_string(ptr noundef nonnull %79, ptr noundef nonnull %8) #12
   %81 = icmp slt i32 %80, 0
   %82 = load i32, ptr %8, align 4
@@ -244,7 +244,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
 
 90:                                               ; preds = %85, %84
   %91 = phi i32 [ %.pre.i, %85 ], [ %82, %84 ]
-  %.1.i = phi i32 [ %86, %85 ], [ %.091.i, %84 ]
+  %.2.i = phi i32 [ %86, %85 ], [ %.091.i, %84 ]
   %92 = load ptr, ptr %7, align 8
   %93 = add nsw i32 %.2, 1
   %94 = sext i32 %.2 to i64
@@ -254,7 +254,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
 
 96:                                               ; preds = %90, %.lr.ph93.i
   %.3 = phi i32 [ %.2, %.lr.ph93.i ], [ %93, %90 ]
-  %.2.i = phi i32 [ %.091.i, %.lr.ph93.i ], [ %.1.i, %90 ]
+  %.1.i = phi i32 [ %.091.i, %.lr.ph93.i ], [ %.2.i, %90 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %97 = load ptr, ptr %5, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 24
@@ -266,12 +266,12 @@ _get_group_members.exit.thread89:                 ; preds = %59
 
 ._crit_edge94.i:                                  ; preds = %96, %._crit_edge.i
   %.4 = phi i32 [ 0, %._crit_edge.i ], [ %.3, %96 ]
-  %.0.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.i, %96 ]
+  %.0.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %96 ]
   call void @setgrent() #12
   br label %.outer80.i
 
 .outer80.i:                                       ; preds = %111, %._crit_edge94.i
-  %.5 = phi i32 [ %.4, %._crit_edge94.i ], [ %.6, %111 ]
+  %.5 = phi i32 [ %.4, %._crit_edge94.i ], [ %.8, %111 ]
   %.163.ph.i = phi i32 [ %.062.lcssa.i, %._crit_edge94.i ], [ %112, %111 ]
   %.3.ph.i = phi i32 [ %.0.lcssa.i, %._crit_edge94.i ], [ %.3.lcssa.i, %111 ]
   call void @slurm_seterrno(i32 noundef 0) #12
@@ -285,8 +285,8 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br i1 %or.cond3102.i, label %._crit_edge105.i, label %.lr.ph104.i
 
 ._crit_edge105.i:                                 ; preds = %.loopexit.i, %.outer80.i
-  %.6 = phi i32 [ %.5, %.outer80.i ], [ %.10, %.loopexit.i ]
-  %.3.lcssa.i = phi i32 [ %.3.ph.i, %.outer80.i ], [ %.7.i, %.loopexit.i ]
+  %.8 = phi i32 [ %.5, %.outer80.i ], [ %.7, %.loopexit.i ]
+  %.3.lcssa.i = phi i32 [ %.3.ph.i, %.outer80.i ], [ %.4.i, %.loopexit.i ]
   %108 = tail call ptr @__errno_location() #13
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, 34
@@ -299,9 +299,9 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br label %.outer80.i
 
 .lr.ph104.i:                                      ; preds = %.outer80.i, %.loopexit.i
-  %.7 = phi i32 [ %.10, %.loopexit.i ], [ %.5, %.outer80.i ]
+  %.6 = phi i32 [ %.7, %.loopexit.i ], [ %.5, %.outer80.i ]
   %115 = phi ptr [ %159, %.loopexit.i ], [ %106, %.outer80.i ]
-  %.3103.i = phi i32 [ %.7.i, %.loopexit.i ], [ %.3.ph.i, %.outer80.i ]
+  %.3103.i = phi i32 [ %.4.i, %.loopexit.i ], [ %.3.ph.i, %.outer80.i ]
   %116 = getelementptr inbounds i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, %75
@@ -333,10 +333,10 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br i1 %.not7396.i, label %.loopexit.i, label %.lr.ph100.i
 
 .lr.ph100.i:                                      ; preds = %128, %150
-  %.8 = phi i32 [ %.9, %150 ], [ %.7, %128 ]
+  %.10 = phi i32 [ %.11, %150 ], [ %.6, %128 ]
   %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %150 ], [ 0, %128 ]
   %133 = phi ptr [ %155, %150 ], [ %132, %128 ]
-  %.498.i = phi i32 [ %.6.i, %150 ], [ %.3103.i, %128 ]
+  %.598.i = phi i32 [ %.6.i, %150 ], [ %.3103.i, %128 ]
   %134 = call i32 @uid_from_string(ptr noundef nonnull %133, ptr noundef nonnull %8) #12
   %135 = icmp slt i32 %134, 0
   %136 = load i32, ptr %8, align 4
@@ -345,11 +345,11 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br i1 %or.cond7.i, label %150, label %138
 
 138:                                              ; preds = %.lr.ph100.i
-  %.not74.i = icmp sgt i32 %.498.i, %.8
+  %.not74.i = icmp sgt i32 %.598.i, %.10
   br i1 %.not74.i, label %144, label %139
 
 139:                                              ; preds = %138
-  %140 = add nsw i32 %.498.i, 100
+  %140 = add nsw i32 %.598.i, 100
   %141 = sext i32 %140 to i64
   %142 = shl nsw i64 %141, 2
   %143 = call ptr @slurm_xrecalloc(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %142, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__func__._get_group_members) #12
@@ -358,17 +358,17 @@ _get_group_members.exit.thread89:                 ; preds = %59
 
 144:                                              ; preds = %139, %138
   %145 = phi i32 [ %.pre116.i, %139 ], [ %136, %138 ]
-  %.5.i = phi i32 [ %140, %139 ], [ %.498.i, %138 ]
+  %.7.i = phi i32 [ %140, %139 ], [ %.598.i, %138 ]
   %146 = load ptr, ptr %7, align 8
-  %147 = add nsw i32 %.8, 1
-  %148 = sext i32 %.8 to i64
+  %147 = add nsw i32 %.10, 1
+  %148 = sext i32 %.10 to i64
   %149 = getelementptr inbounds i32, ptr %146, i64 %148
   store i32 %145, ptr %149, align 4
   br label %150
 
 150:                                              ; preds = %144, %.lr.ph100.i
-  %.9 = phi i32 [ %.8, %.lr.ph100.i ], [ %147, %144 ]
-  %.6.i = phi i32 [ %.498.i, %.lr.ph100.i ], [ %.5.i, %144 ]
+  %.11 = phi i32 [ %.10, %.lr.ph100.i ], [ %147, %144 ]
+  %.6.i = phi i32 [ %.598.i, %.lr.ph100.i ], [ %.7.i, %144 ]
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %151 = load ptr, ptr %5, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 24
@@ -379,8 +379,8 @@ _get_group_members.exit.thread89:                 ; preds = %59
   br i1 %.not73.i, label %.loopexit.i, label %.lr.ph100.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %150, %128, %.lr.ph104.i
-  %.10 = phi i32 [ %.7, %128 ], [ %.7, %.lr.ph104.i ], [ %.9, %150 ]
-  %.7.i = phi i32 [ %.3103.i, %128 ], [ %.3103.i, %.lr.ph104.i ], [ %.6.i, %150 ]
+  %.7 = phi i32 [ %.6, %128 ], [ %.6, %.lr.ph104.i ], [ %.11, %150 ]
+  %.4.i = phi i32 [ %.3103.i, %128 ], [ %.3103.i, %.lr.ph104.i ], [ %.6.i, %150 ]
   call void @slurm_seterrno(i32 noundef 0) #12
   %156 = load ptr, ptr %3, align 8
   %157 = call i32 @getgrent_r(ptr noundef nonnull %4, ptr noundef %156, i64 noundef %103, ptr noundef nonnull %5) #12
@@ -393,7 +393,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
 161:                                              ; preds = %._crit_edge105.i
   call void @endgrent() #12
   call void @setpwent() #12
-  %162 = sext i32 %.6 to i64
+  %162 = sext i32 %.8 to i64
   br label %.outer.i
 
 .outer.i:                                         ; preds = %178, %161

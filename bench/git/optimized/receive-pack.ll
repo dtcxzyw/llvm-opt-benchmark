@@ -1615,7 +1615,7 @@ reject_updates_to_hidden.exit.i:                  ; preds = %for.inc.i54.i
   br i1 %tobool22.not.i104, label %if.end39.i, label %for.body26.i
 
 for.body26.i:                                     ; preds = %reject_updates_to_hidden.exit.i, %for.inc36.i
-  %run_proc_receive.0114.i = phi i32 [ %run_proc_receive.1.i, %for.inc36.i ], [ 0, %reject_updates_to_hidden.exit.i ]
+  %run_proc_receive.1114.i = phi i32 [ %run_proc_receive.2.i, %for.inc36.i ], [ 0, %reject_updates_to_hidden.exit.i ]
   %cmd.1113.i = phi ptr [ %168, %for.inc36.i ], [ %34, %reject_updates_to_hidden.exit.i ]
   %error_string.i57.i = getelementptr inbounds i8, ptr %cmd.1113.i, i64 8
   %141 = load ptr, ptr %error_string.i57.i, align 8
@@ -1869,13 +1869,13 @@ if.then33.i:                                      ; preds = %if.else43.i.i, %if.
   br label %for.inc36.i
 
 for.inc36.i:                                      ; preds = %for.inc.i68.i, %if.then33.i, %if.end30.i, %should_process_cmd.exit.i, %for.body26.i
-  %run_proc_receive.1.i = phi i32 [ 1, %if.then33.i ], [ %run_proc_receive.0114.i, %should_process_cmd.exit.i ], [ %run_proc_receive.0114.i, %for.body26.i ], [ %run_proc_receive.0114.i, %if.end30.i ], [ %run_proc_receive.0114.i, %for.inc.i68.i ]
+  %run_proc_receive.2.i = phi i32 [ 1, %if.then33.i ], [ %run_proc_receive.1114.i, %should_process_cmd.exit.i ], [ %run_proc_receive.1114.i, %for.body26.i ], [ %run_proc_receive.1114.i, %if.end30.i ], [ %run_proc_receive.1114.i, %for.inc.i68.i ]
   %168 = load ptr, ptr %cmd.1113.i, align 8
   %tobool25.not.i = icmp eq ptr %168, null
   br i1 %tobool25.not.i, label %if.end39.i, label %for.body26.i, !llvm.loop !21
 
 if.end39.i:                                       ; preds = %for.inc36.i, %reject_updates_to_hidden.exit.i
-  %run_proc_receive.2.i = phi i32 [ 0, %reject_updates_to_hidden.exit.i ], [ %run_proc_receive.1.i, %for.inc36.i ]
+  %run_proc_receive.0.i = phi i32 [ 0, %reject_updates_to_hidden.exit.i ], [ %run_proc_receive.2.i, %for.inc36.i ]
   %call40.i = call fastcc i32 @run_receive_hook(ptr noundef %34, ptr noundef nonnull @.str.110, i32 noundef 0, ptr noundef nonnull %push_options)
   %tobool41.not.i = icmp eq i32 %call40.i, 0
   br i1 %tobool41.not.i, label %land.rhs57.i, label %for.body45.i
@@ -2123,7 +2123,7 @@ check_aliased_updates.exit.i:                     ; preds = %for.inc5.i.i
   %call83.i = call ptr @resolve_refdup(ptr noundef nonnull @.str.113, i32 noundef 0, ptr noundef null, ptr noundef null) #16
   store ptr %call83.i, ptr @head_name_to_free, align 8
   store ptr %call83.i, ptr @head_name, align 8
-  %tobool84.not.i = icmp eq i32 %run_proc_receive.2.i, 0
+  %tobool84.not.i = icmp eq i32 %run_proc_receive.0.i, 0
   br i1 %tobool84.not.i, label %check_aliased_updates.exit.if.end112_crit_edge.i, label %land.lhs.true.i106
 
 check_aliased_updates.exit.if.end112_crit_edge.i: ; preds = %check_aliased_updates.exit.i
@@ -4589,12 +4589,12 @@ for.cond.preheader:                               ; preds = %if.end41
   br label %for.cond.outer.outer
 
 for.cond.outer.outer:                             ; preds = %for.cond.preheader, %if.then62
-  %version.0.ph.ph = phi i32 [ 0, %for.cond.preheader ], [ %call56, %if.then62 ]
-  %hook_use_push_options.0.ph.ph = phi i32 [ 0, %for.cond.preheader ], [ %spec.select, %if.then62 ]
+  %version.1.ph.ph = phi i32 [ 0, %for.cond.preheader ], [ %call56, %if.then62 ]
+  %hook_use_push_options.1.ph.ph = phi i32 [ 0, %for.cond.preheader ], [ %spec.select, %if.then62 ]
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.outer, %if.then53
-  %version.0.ph = phi i32 [ %call56, %if.then53 ], [ %version.0.ph.ph, %for.cond.outer.outer ]
+  %version.1.ph = phi i32 [ %call56, %if.then53 ], [ %version.1.ph.ph, %for.cond.outer.outer ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
@@ -4635,7 +4635,7 @@ if.then62:                                        ; preds = %if.then53
   %add.ptr65 = getelementptr inbounds i8, ptr %add.ptr64, i64 1
   %call66 = call i32 @parse_feature_request(ptr noundef nonnull %add.ptr65, ptr noundef nonnull @.str.69) #16
   %tobool67.not = icmp eq i32 %call66, 0
-  %spec.select = select i1 %tobool67.not, i32 %hook_use_push_options.0.ph.ph, i32 1
+  %spec.select = select i1 %tobool67.not, i32 %hook_use_push_options.1.ph.ph, i32 1
   br label %for.cond.outer.outer
 
 if.then74:                                        ; preds = %for.cond, %if.end36, %if.end41
@@ -4644,7 +4644,7 @@ if.then74:                                        ; preds = %for.cond, %if.end36
   br label %cleanup
 
 if.end75:                                         ; preds = %for.cond
-  %switch = icmp ult i32 %version.0.ph, 2
+  %switch = icmp ult i32 %version.1.ph, 2
   br i1 %switch, label %for.cond76.preheader, label %sw.default
 
 for.cond76.preheader:                             ; preds = %if.end75
@@ -4652,7 +4652,7 @@ for.cond76.preheader:                             ; preds = %if.end75
   br i1 %tobool77.not61, label %if.end99, label %for.body
 
 sw.default:                                       ; preds = %if.end75
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %errmsg, ptr noundef nonnull @.str.133, i32 noundef %version.0.ph) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %errmsg, ptr noundef nonnull @.str.133, i32 noundef %version.1.ph) #16
   br label %cleanup
 
 for.body:                                         ; preds = %for.cond76.preheader, %for.inc
@@ -4695,12 +4695,12 @@ if.end99:                                         ; preds = %for.inc, %for.cond7
   br i1 %tobool100.not, label %if.end102, label %if.then101
 
 if.then101:                                       ; preds = %if.end86, %if.end99
-  %code.653 = phi i32 [ %call98, %if.end99 ], [ %call90, %if.end86 ]
+  %code.753 = phi i32 [ %call98, %if.end99 ], [ %call90, %if.end86 ]
   call void @strbuf_add(ptr noundef nonnull %errmsg, ptr noundef nonnull @.str.135, i64 noundef 43) #16
   br label %cleanup
 
 if.end102:                                        ; preds = %if.end99
-  %tobool103.not = icmp eq i32 %hook_use_push_options.0.ph.ph, 0
+  %tobool103.not = icmp eq i32 %hook_use_push_options.1.ph.ph, 0
   br i1 %tobool103.not, label %if.end127, label %if.then104
 
 if.then104:                                       ; preds = %if.end102
@@ -4739,7 +4739,7 @@ if.end123:                                        ; preds = %land.rhs, %land.rhs
   br i1 %tobool124.not, label %if.end127, label %if.then125
 
 if.then125:                                       ; preds = %for.body111, %if.end123
-  %code.958 = phi i32 [ %call122, %if.end123 ], [ %call113, %for.body111 ]
+  %code.1058 = phi i32 [ %call122, %if.end123 ], [ %call113, %for.body111 ]
   call void @strbuf_add(ptr noundef nonnull %errmsg, ptr noundef nonnull @.str.136, i64 noundef 47) #16
   br label %cleanup
 
@@ -4748,7 +4748,7 @@ if.end127:                                        ; preds = %if.end123, %if.end1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end127, %if.then125, %if.then101, %sw.default, %if.then74
-  %code.10 = phi i32 [ %code.248, %if.then74 ], [ -1, %sw.default ], [ %code.653, %if.then101 ], [ %code.958, %if.then125 ], [ %call128, %if.end127 ]
+  %code.3 = phi i32 [ %code.248, %if.then74 ], [ -1, %sw.default ], [ %code.753, %if.then101 ], [ %code.1058, %if.then125 ], [ %call128, %if.end127 ]
   %24 = load i32, ptr %in, align 8
   %call130 = call i32 @close(i32 noundef %24) #16
   %25 = load i32, ptr %out, align 4
@@ -4763,7 +4763,7 @@ if.then134:                                       ; preds = %cleanup
 if.end136:                                        ; preds = %if.then134, %cleanup
   %call137 = call i32 @finish_command(ptr noundef nonnull %proc) #16
   %tobool138.not = icmp eq i32 %call137, 0
-  %spec.select37 = select i1 %tobool138.not, i32 %code.10, i32 -1
+  %spec.select37 = select i1 %tobool138.not, i32 %code.3, i32 -1
   %len141 = getelementptr inbounds i8, ptr %errmsg, i64 8
   %26 = load i64, ptr %len141, align 8
   %cmp142.not = icmp eq i64 %26, 0
@@ -5212,7 +5212,7 @@ for.cond.backedge:                                ; preds = %if.then126, %if.els
   %new_report.0.be = phi i32 [ 0, %if.then95 ], [ 0, %if.then112 ], [ 0, %if.then106 ], [ %new_report.0104, %if.then6 ], [ 1, %if.end113.tail ], [ %new_report.0104, %if.then18 ], [ %new_report.0104, %if.then15 ], [ 0, %if.then54 ], [ 0, %if.then71 ], [ 0, %if.then75 ], [ 0, %if.else72 ], [ 0, %if.then65 ], [ 0, %xstrdup_or_null.exit ], [ 0, %if.else128 ], [ 0, %if.then126 ]
   %code.0.be = phi i32 [ -1, %if.then95 ], [ -1, %if.then112 ], [ -1, %if.then106 ], [ -1, %if.then6 ], [ %code.0105, %if.end113.tail ], [ -1, %if.then18 ], [ -1, %if.then15 ], [ %code.0105, %if.then54 ], [ %code.0105, %if.then71 ], [ %code.0105, %if.then75 ], [ %code.0105, %if.else72 ], [ %code.0105, %if.then65 ], [ %code.0105, %xstrdup_or_null.exit ], [ -1, %if.else128 ], [ -1, %if.then126 ]
   %once.0.be = phi i32 [ %once.0106, %if.then95 ], [ %once.0106, %if.then112 ], [ %once.0106, %if.then106 ], [ %once.0106, %if.then6 ], [ %once.0106, %if.end113.tail ], [ 1, %if.then18 ], [ %inc16, %if.then15 ], [ %once.0106, %if.then54 ], [ %once.0106, %if.then71 ], [ %once.0106, %if.then75 ], [ %once.0106, %if.else72 ], [ %once.0106, %if.then65 ], [ %once.0106, %xstrdup_or_null.exit ], [ %once.0106, %if.else128 ], [ %once.0106, %if.then126 ]
-  %report.0.be = phi ptr [ null, %if.then95 ], [ null, %if.then112 ], [ null, %if.then106 ], [ %report.0108, %if.then6 ], [ null, %if.end113.tail ], [ %report.0108, %if.then18 ], [ %report.0108, %if.then15 ], [ %report.3, %if.then54 ], [ %report.3, %if.then71 ], [ %report.3, %if.then75 ], [ %report.3, %if.else72 ], [ %report.3, %if.then65 ], [ %report.3, %xstrdup_or_null.exit ], [ null, %if.else128 ], [ null, %if.then126 ]
+  %report.0.be = phi ptr [ null, %if.then95 ], [ null, %if.then112 ], [ null, %if.then106 ], [ %report.0108, %if.then6 ], [ null, %if.end113.tail ], [ %report.0108, %if.then18 ], [ %report.0108, %if.then15 ], [ %report.1, %if.then54 ], [ %report.1, %if.then71 ], [ %report.1, %if.then75 ], [ %report.1, %if.else72 ], [ %report.1, %if.then65 ], [ %report.1, %xstrdup_or_null.exit ], [ null, %if.else128 ], [ null, %if.then126 ]
   %hint.0.be = phi ptr [ %hint.0109, %if.then95 ], [ %hint.2, %if.then112 ], [ null, %if.then106 ], [ %hint.0109, %if.then6 ], [ %hint.2, %if.end113.tail ], [ %hint.0109, %if.then18 ], [ %hint.0109, %if.then15 ], [ %hint.0109, %if.then54 ], [ %hint.0109, %if.then71 ], [ %hint.0109, %if.then75 ], [ %hint.0109, %if.else72 ], [ %hint.0109, %if.then65 ], [ %hint.0109, %xstrdup_or_null.exit ], [ %hint.2, %if.else128 ], [ %hint.2, %if.then126 ]
   %call = call i32 @packet_reader_read(ptr noundef %reader) #16
   %cmp.not = icmp eq i32 %call, 1
@@ -5254,14 +5254,14 @@ if.then22:                                        ; preds = %if.end20
   br i1 %tobool24.not, label %if.end36.sink.split, label %while.cond
 
 while.cond:                                       ; preds = %if.then22, %while.cond
-  %report.1 = phi ptr [ %2, %while.cond ], [ %1, %if.then22 ]
-  %next = getelementptr inbounds i8, ptr %report.1, i64 32
+  %report.3 = phi ptr [ %2, %while.cond ], [ %1, %if.then22 ]
+  %next = getelementptr inbounds i8, ptr %report.3, i64 32
   %2 = load ptr, ptr %next, align 8
   %tobool30.not = icmp eq ptr %2, null
   br i1 %tobool30.not, label %while.end, label %while.cond, !llvm.loop !47
 
 while.end:                                        ; preds = %while.cond
-  %next.le = getelementptr inbounds i8, ptr %report.1, i64 32
+  %next.le = getelementptr inbounds i8, ptr %report.3, i64 32
   br label %if.end36.sink.split
 
 if.end36.sink.split:                              ; preds = %if.then22, %while.end
@@ -5271,7 +5271,7 @@ if.end36.sink.split:                              ; preds = %if.then22, %while.e
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end36.sink.split, %if.end20
-  %report.3 = phi ptr [ %report.0108, %if.end20 ], [ %call26, %if.end36.sink.split ]
+  %report.1 = phi ptr [ %report.0108, %if.end20 ], [ %call26, %if.end36.sink.split ]
   %call37 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, i32 noundef 32) #18
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %if.end41, label %if.then39
@@ -5298,7 +5298,7 @@ cond.true.i:                                      ; preds = %if.then44
 
 xstrdup_or_null.exit:                             ; preds = %if.then44, %cond.true.i
   %cond.i = phi ptr [ %call.i70, %cond.true.i ], [ null, %if.then44 ]
-  store ptr %cond.i, ptr %report.3, align 8
+  store ptr %cond.i, ptr %report.1, align 8
   br label %for.cond.backedge
 
 if.else46:                                        ; preds = %if.end41
@@ -5323,7 +5323,7 @@ if.then54:                                        ; preds = %land.lhs.true51
   %3 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call.i71, i64 32
   store i32 %3, ptr %algo3.i.i, align 4
-  %old_oid56 = getelementptr inbounds i8, ptr %report.3, i64 8
+  %old_oid56 = getelementptr inbounds i8, ptr %report.1, i64 8
   store ptr %call.i71, ptr %old_oid56, align 8
   br label %for.cond.backedge
 
@@ -5346,7 +5346,7 @@ if.then65:                                        ; preds = %land.lhs.true62
   %5 = load i32, ptr %algo.i.i73, align 4
   %algo3.i.i74 = getelementptr inbounds i8, ptr %call.i72, i64 32
   store i32 %5, ptr %algo3.i.i74, align 4
-  %new_oid67 = getelementptr inbounds i8, ptr %report.3, i64 16
+  %new_oid67 = getelementptr inbounds i8, ptr %report.1, i64 16
   store ptr %call.i72, ptr %new_oid67, align 8
   br label %for.cond.backedge
 
@@ -5356,7 +5356,7 @@ if.else68:                                        ; preds = %land.lhs.true62, %i
   br i1 %tobool70.not, label %if.then71, label %if.else72
 
 if.then71:                                        ; preds = %if.else68
-  %forced_update = getelementptr inbounds i8, ptr %report.3, i64 24
+  %forced_update = getelementptr inbounds i8, ptr %report.1, i64 24
   %bf.load = load i8, ptr %forced_update, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %forced_update, align 8
@@ -6247,7 +6247,7 @@ if.then117:                                       ; preds = %if.end114
   br label %if.end119
 
 if.end119:                                        ; preds = %if.end114, %if.then117
-  %ret.0 = phi ptr [ @.str.180, %if.then117 ], [ null, %if.end114 ]
+  %ret.1 = phi ptr [ @.str.180, %if.then117 ], [ null, %if.end114 ]
   call void @strbuf_release(ptr noundef nonnull %err) #16
   br label %out
 
@@ -6287,14 +6287,14 @@ if.then132:                                       ; preds = %if.end129
   br label %if.end135
 
 if.end135:                                        ; preds = %if.end129, %if.then132
-  %ret.1 = phi ptr [ @.str.183, %if.then132 ], [ null, %if.end129 ]
+  %ret.2 = phi ptr [ @.str.183, %if.then132 ], [ null, %if.end129 ]
   call void @strbuf_release(ptr noundef nonnull %err121) #16
   br label %out
 
 out:                                              ; preds = %update_worktree.exit.thread, %land.lhs.true125, %sw.bb15, %if.then16, %if.end119, %if.end135, %update_worktree.exit, %if.then92, %if.then87, %if.then81, %if.end54, %if.then40, %if.then25, %if.then
-  %ret.2 = phi ptr [ @.str.158, %if.then ], [ @.str.176, %if.then92 ], [ %retval1.0.i, %update_worktree.exit ], [ %ret.0, %if.end119 ], [ %ret.1, %if.end135 ], [ @.str.172, %if.then81 ], [ @.str.174, %if.then87 ], [ @.str.166, %if.then40 ], [ @.str.169, %if.end54 ], [ @.str.163, %if.then25 ], [ @.str.161, %if.then16 ], [ @.str.161, %sw.bb15 ], [ @.str.182, %land.lhs.true125 ], [ @.str.189, %update_worktree.exit.thread ]
+  %ret.0 = phi ptr [ @.str.158, %if.then ], [ @.str.176, %if.then92 ], [ %retval1.0.i, %update_worktree.exit ], [ %ret.1, %if.end119 ], [ %ret.2, %if.end135 ], [ @.str.172, %if.then81 ], [ @.str.174, %if.then87 ], [ @.str.166, %if.then40 ], [ @.str.169, %if.end54 ], [ @.str.163, %if.then25 ], [ @.str.161, %if.then16 ], [ @.str.161, %sw.bb15 ], [ @.str.182, %land.lhs.true125 ], [ @.str.189, %update_worktree.exit.thread ]
   call void @free_worktrees(ptr noundef %call) #16
-  ret ptr %ret.2
+  ret ptr %ret.0
 }
 
 declare i32 @ref_transaction_commit(ptr noundef, ptr noundef) local_unnamed_addr #2

@@ -835,17 +835,17 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
 
 .thread131:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99", %17
   %.051 = phi i32 [ 16, %17 ], [ %spec.select144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
-  %.150 = phi i64 [ 1, %17 ], [ %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
+  %.049 = phi i64 [ 1, %17 ], [ %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
   %.148 = phi i64 [ %18, %17 ], [ %.047.ph170175183, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
-  %.1 = phi i64 [ %2, %17 ], [ %spec.select145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
+  %.0 = phi i64 [ %2, %17 ], [ %spec.select145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %.not.i100 = icmp ugt i64 %.148, %.1
+  %.not.i100 = icmp ugt i64 %.148, %.0
   br i1 %.not.i100, label %67, label %52
 
 52:                                               ; preds = %.thread131.thread, %.thread131
-  %.1194 = phi i64 [ %.047.ph170175183, %.thread131.thread ], [ %.1, %.thread131 ]
+  %.0194 = phi i64 [ %.047.ph170175183, %.thread131.thread ], [ %.0, %.thread131 ]
   %.148192 = phi i64 [ %.047.ph170175183, %.thread131.thread ], [ %.148, %.thread131 ]
-  %.150191 = phi i64 [ %31, %.thread131.thread ], [ %.150, %.thread131 ]
+  %.049191 = phi i64 [ %31, %.thread131.thread ], [ %.049, %.thread131 ]
   %.051190 = phi i32 [ 8, %.thread131.thread ], [ %.051, %.thread131 ]
   %53 = icmp eq i64 %.148192, 0
   br i1 %53, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104", label %54
@@ -865,38 +865,38 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
   br i1 %59, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104", label %67
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i108", %55, %52
-  %60 = icmp eq i64 %.1194, 0
+  %60 = icmp eq i64 %.0194, 0
   br i1 %60, label %68, label %61
 
 61:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104"
-  %.not.i5.i105 = icmp ult i64 %.1194, %2
+  %.not.i5.i105 = icmp ult i64 %.0194, %2
   br i1 %.not.i5.i105, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107", label %62
 
 62:                                               ; preds = %61
-  %63 = icmp eq i64 %.1194, %2
+  %63 = icmp eq i64 %.0194, %2
   br i1 %63, label %68, label %67
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107": ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 %.1194
+  %64 = getelementptr inbounds i8, ptr %1, i64 %.0194
   %65 = load i8, ptr %64, align 1, !alias.scope !121, !noundef !4
   %66 = icmp sgt i8 %65, -65
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i108", %.thread131, %55, %62
-  %.1195 = phi i64 [ %.1194, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107" ], [ %.1194, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i108" ], [ %.1, %.thread131 ], [ %.1194, %55 ], [ %.1194, %62 ]
+  %.0195 = phi i64 [ %.0194, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107" ], [ %.0194, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i108" ], [ %.0, %.thread131 ], [ %.0194, %55 ], [ %.0194, %62 ]
   %.148193 = phi i64 [ %.148192, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107" ], [ %.148192, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i108" ], [ %.148, %.thread131 ], [ %.148192, %55 ], [ %.148192, %62 ]
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.148193, i64 noundef %.1195, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13accb9a4f1adf839dc9dd6c82dc791e.51) #12
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.148193, i64 noundef %.0195, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13accb9a4f1adf839dc9dd6c82dc791e.51) #12
   unreachable
 
 68:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107", %62, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104"
   %69 = getelementptr inbounds i8, ptr %1, i64 %.148192
-  %70 = sub i64 %.1194, %.148192
+  %70 = sub i64 %.0194, %.148192
   call void @"_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17hf41f6e5d064fa014E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %70, i32 noundef %.051190)
   %71 = load i8, ptr %4, align 8, !range !124, !noundef !4
   %trunc = trunc nuw i8 %71 to i1
   %72 = getelementptr inbounds i8, ptr %4, i64 8
   %73 = load i64, ptr %72, align 8
-  %74 = mul i64 %73, %.150191
+  %74 = mul i64 %73, %.049191
   %.sink154 = select i1 %trunc, ptr @anon.13accb9a4f1adf839dc9dd6c82dc791e.52, ptr null
   %.sink = select i1 %trunc, i64 12, i64 %74
   store ptr %.sink154, ptr %0, align 8

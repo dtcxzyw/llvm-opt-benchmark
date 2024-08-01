@@ -123,7 +123,7 @@ define internal { double, double } @_ZL16vandg4_s_forward5PJ_LPP8PJconsts(double
   %62 = fmul double %61, 0x3FF921FB54442D18
   %63 = fcmp olt double %0, 0.000000e+00
   %64 = fneg double %56
-  %.sroa.054.0 = select i1 %63, double %64, double %56
+  %.sroa.054.1 = select i1 %63, double %64, double %56
   %65 = fcmp olt double %1, 0.000000e+00
   br i1 %65, label %66, label %68
 
@@ -133,8 +133,8 @@ define internal { double, double } @_ZL16vandg4_s_forward5PJ_LPP8PJconsts(double
 
 68:                                               ; preds = %6, %9, %3, %66, %13
   %.sroa.7.0 = phi double [ %67, %66 ], [ %62, %13 ], [ 0.000000e+00, %3 ], [ %1, %9 ], [ %1, %6 ]
-  %.sroa.054.1 = phi double [ %.sroa.054.0, %66 ], [ %.sroa.054.0, %13 ], [ %0, %3 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %6 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.054.1, 0
+  %.sroa.054.0 = phi double [ %.sroa.054.1, %66 ], [ %.sroa.054.1, %13 ], [ %0, %3 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %6 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.054.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
   ret { double, double } %.fca.1.insert
 }

@@ -4024,7 +4024,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i625: ; preds = %.lr.ph.i.i.i.i6
   br label %1545
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit627:       ; preds = %1464, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i625, %292
-  %.0 = phi i32 [ -1, %292 ], [ 0, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i625 ], [ 0, %1464 ]
+  %.1 = phi i32 [ -1, %292 ], [ 0, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i625 ], [ 0, %1464 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %29) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #17
@@ -4278,8 +4278,8 @@ _ZN2cv16structured_light17SinusoidalPattern6ParamsD2Ev.exit652: ; preds = %1547,
   resume { ptr, i32 } %.pn300.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
 _ZN2cv16structured_light17SinusoidalPattern6ParamsD2Ev.exit: ; preds = %1544, %_ZN2cv3PtrINS_16structured_light17SinusoidalPatternEED2Ev.exit, %175
-  %.1 = phi i32 [ -1, %175 ], [ %.0, %_ZN2cv3PtrINS_16structured_light17SinusoidalPatternEED2Ev.exit ], [ %.0, %1544 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %175 ], [ %.1, %_ZN2cv3PtrINS_16structured_light17SinusoidalPatternEED2Ev.exit ], [ %.1, %1544 ]
+  ret i32 %.0
 }
 
 declare void @_ZN2cv16structured_light17SinusoidalPattern6ParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0

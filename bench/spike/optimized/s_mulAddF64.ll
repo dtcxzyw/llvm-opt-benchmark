@@ -184,7 +184,7 @@ softfloat_shiftRightJam64.exit:                   ; preds = %92, %85, %95, %96
   %.sroa.030.0 = phi i64 [ %98, %96 ], [ undef, %95 ], [ undef, %85 ], [ undef, %92 ]
   %.sroa.3.0 = phi i64 [ %99, %96 ], [ undef, %95 ], [ undef, %85 ], [ undef, %92 ]
   %.sroa.23.1 = phi i64 [ %.sroa.23.0, %96 ], [ %.sroa.23.0, %95 ], [ %91, %85 ], [ %94, %92 ]
-  %.1172 = phi i64 [ %.0171, %96 ], [ %.0171, %95 ], [ %.0165, %85 ], [ %.0165, %92 ]
+  %.2 = phi i64 [ %.0171, %96 ], [ %.0171, %95 ], [ %.0165, %85 ], [ %.0165, %92 ]
   %100 = xor i1 %19, %13
   br i1 %100, label %122, label %105
 
@@ -221,7 +221,7 @@ softfloat_shiftRightJam64.exit.thread:            ; preds = %79
   br i1 %118, label %119, label %171
 
 119:                                              ; preds = %114
-  %120 = add nsw i64 %.1172, -1
+  %120 = add nsw i64 %.2, -1
   %121 = shl nuw nsw i64 %117, 1
   br label %171
 
@@ -231,7 +231,7 @@ softfloat_shiftRightJam64.exit.thread:            ; preds = %79
 .thread248:                                       ; preds = %softfloat_shiftRightJam64.exit.thread, %122
   %.sroa.045.1234257 = phi i64 [ %.sroa.045.0, %122 ], [ %104, %softfloat_shiftRightJam64.exit.thread ]
   %.sroa.23.1236256 = phi i64 [ %.sroa.23.1, %122 ], [ %101, %softfloat_shiftRightJam64.exit.thread ]
-  %.1172238255 = phi i64 [ %.1172, %122 ], [ %.0165, %softfloat_shiftRightJam64.exit.thread ]
+  %.2238255 = phi i64 [ %.2, %122 ], [ %.0165, %softfloat_shiftRightJam64.exit.thread ]
   %123 = sub i64 0, %.sroa.045.1234257
   %124 = sub i64 %76, %.sroa.23.1236256
   %125 = icmp ne i64 %.sroa.045.1234257, 0
@@ -270,19 +270,19 @@ softfloat_shiftRightJam64.exit.thread:            ; preds = %79
   br label %142
 
 142:                                              ; preds = %137, %132, %131, %.thread248
-  %.1172238254 = phi i64 [ %.1172238255, %.thread248 ], [ %.1172, %137 ], [ %.1172, %132 ], [ %.1172, %131 ]
+  %.2238254 = phi i64 [ %.2238255, %.thread248 ], [ %.2, %137 ], [ %.2, %132 ], [ %.2, %131 ]
   %.sroa.045.2 = phi i64 [ %123, %.thread248 ], [ %138, %137 ], [ %134, %132 ], [ %.sroa.045.0, %131 ]
   %.sroa.23.2 = phi i64 [ %126, %.thread248 ], [ %141, %137 ], [ %136, %132 ], [ %129, %131 ]
-  %.0167 = phi i1 [ %13, %.thread248 ], [ %19, %137 ], [ %133, %132 ], [ %19, %131 ]
+  %.1 = phi i1 [ %13, %.thread248 ], [ %19, %137 ], [ %133, %132 ], [ %19, %131 ]
   %.not202 = icmp eq i64 %.sroa.23.2, 0
-  %143 = add nsw i64 %.1172238254, -64
+  %143 = add nsw i64 %.2238254, -64
   %.sroa.045.3 = select i1 %.not202, i64 0, i64 %.sroa.045.2
   %.sroa.23.3 = select i1 %.not202, i64 %.sroa.045.2, i64 %.sroa.23.2
-  %.2 = select i1 %.not202, i64 %143, i64 %.1172238254
+  %.3 = select i1 %.not202, i64 %143, i64 %.2238254
   %144 = tail call zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %.sroa.23.3) #3
   %145 = add i8 %144, -1
   %146 = sext i8 %145 to i64
-  %147 = sub nsw i64 %.2, %146
+  %147 = sub nsw i64 %.3, %146
   %148 = icmp slt i8 %145, 0
   br i1 %148, label %149, label %158
 
@@ -310,18 +310,18 @@ softfloat_shiftRightJam64.exit.thread:            ; preds = %79
   br label %167
 
 167:                                              ; preds = %158, %149
-  %.1174 = phi i64 [ %157, %149 ], [ %165, %158 ]
+  %.2175 = phi i64 [ %157, %149 ], [ %165, %158 ]
   %.sroa.045.4 = phi i64 [ %.sroa.045.3, %149 ], [ %166, %158 ]
   %168 = icmp ne i64 %.sroa.045.4, 0
   %169 = zext i1 %168 to i64
-  %170 = or i64 %.1174, %169
+  %170 = or i64 %.2175, %169
   br label %171
 
 171:                                              ; preds = %167, %119, %114, %64
-  %.2175 = phi i64 [ %121, %119 ], [ %117, %114 ], [ %170, %167 ], [ %69, %64 ]
-  %.3 = phi i64 [ %120, %119 ], [ %.1172, %114 ], [ %147, %167 ], [ %65, %64 ]
-  %.1 = phi i1 [ %19, %119 ], [ %19, %114 ], [ %.0167, %167 ], [ %19, %64 ]
-  %172 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %.1, i64 noundef %.3, i64 noundef %.2175) #3
+  %.0173 = phi i64 [ %121, %119 ], [ %117, %114 ], [ %170, %167 ], [ %69, %64 ]
+  %.1172 = phi i64 [ %120, %119 ], [ %.2, %114 ], [ %147, %167 ], [ %65, %64 ]
+  %.0167 = phi i1 [ %19, %119 ], [ %19, %114 ], [ %.1, %167 ], [ %19, %64 ]
+  %172 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %.0167, i64 noundef %.1172, i64 noundef %.0173) #3
   br label %191
 
 173:                                              ; preds = %29, %21, %22

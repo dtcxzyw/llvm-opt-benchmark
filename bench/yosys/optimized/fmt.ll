@@ -1287,8 +1287,8 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
   br label %366
 
 366:                                              ; preds = %363, %360
-  %.5 = phi i64 [ %364, %363 ], [ %.4, %360 ]
-  %367 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.5)
+  %.6 = phi i64 [ %364, %363 ], [ %.4, %360 ]
+  %367 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.6)
           to label %368 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 368:                                              ; preds = %366
@@ -1297,7 +1297,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %370, label %.sink.split177, label %371
 
 371:                                              ; preds = %368
-  %372 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.5)
+  %372 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.6)
           to label %373 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 373:                                              ; preds = %371
@@ -1311,13 +1311,13 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
   br label %376
 
 376:                                              ; preds = %.sink.split177, %373
-  %377 = add i64 %.5, 1
+  %377 = add i64 %.6, 1
   %378 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %379
 
 379:                                              ; preds = %376, %.loopexit
-  %.6 = phi i64 [ %377, %376 ], [ %.4, %.loopexit ]
-  %380 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.6)
+  %.5 = phi i64 [ %377, %376 ], [ %.4, %.loopexit ]
+  %380 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.5)
           to label %381 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 381:                                              ; preds = %379
@@ -1424,7 +1424,7 @@ _ZN5Yosys7FmtPartD2Ev.exit99:                     ; preds = %_ZSt8_DestroyIPN5Yo
           to label %411 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 411:                                              ; preds = %154, %170, %408, %_ZN5Yosys7FmtPartD2Ev.exit99, %166
-  %.7 = phi i64 [ %155, %154 ], [ %167, %166 ], [ %.054158, %170 ], [ %.6, %_ZN5Yosys7FmtPartD2Ev.exit99 ], [ %.054158, %408 ]
+  %.7 = phi i64 [ %155, %154 ], [ %167, %166 ], [ %.054158, %170 ], [ %.5, %_ZN5Yosys7FmtPartD2Ev.exit99 ], [ %.054158, %408 ]
   %412 = add i64 %.7, 1
   %413 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   %414 = icmp ult i64 %412, %413

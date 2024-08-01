@@ -406,8 +406,8 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 return:                                           ; preds = %land.lhs.true, %_ZN2qe12array_plugin8solve_eqEP3appP4expr.exit, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %cleanup
-  %retval.1 = phi i1 [ %cmp, %cleanup ], [ %cmp, %invoke.cont8.i.i ], [ %cmp, %if.then.i.i.i.i.i ], [ true, %_ZN2qe12array_plugin8solve_eqEP3appP4expr.exit ], [ true, %land.lhs.true ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp, %cleanup ], [ %cmp, %invoke.cont8.i.i ], [ %cmp, %if.then.i.i.i.i.i ], [ true, %_ZN2qe12array_plugin8solve_eqEP3appP4expr.exit ], [ true, %land.lhs.true ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1733,8 +1733,8 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %invoke.cont24, %invoke.cont22, %if.then.i.i.i, %if.then2.i.i.i, %if.end27, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %invoke.cont24 ], [ true, %invoke.cont22 ], [ true, %if.then.i.i.i ], [ true, %if.then2.i.i.i ], [ %call29, %if.end27 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %invoke.cont24 ], [ true, %invoke.cont22 ], [ true, %if.then.i.i.i ], [ true, %if.then2.i.i.i ], [ %call29, %if.end27 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN17expr_safe_replace18apply_substitutionEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

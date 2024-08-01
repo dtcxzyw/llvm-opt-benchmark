@@ -366,8 +366,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %for.end14, %call5.i.i.i.i2.i.i.noexc
-  %uniqueVertices.sroa.16.0693 = phi ptr [ %call5.i.i.i.i87, %call5.i.i.i.i2.i.i.noexc ], [ null, %for.end14 ]
-  %uniqueVertices.sroa.25.0692 = phi ptr [ %add.ptr21.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %for.end14 ]
+  %uniqueVertices.sroa.16.2693 = phi ptr [ %call5.i.i.i.i87, %call5.i.i.i.i2.i.i.noexc ], [ null, %for.end14 ]
+  %uniqueVertices.sroa.25.2692 = phi ptr [ %add.ptr21.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %for.end14 ]
   %replaceIndex.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i90, %call5.i.i.i.i2.i.i.noexc ], [ null, %for.end14 ]
   invoke void @_ZN6Assimp11SpatialSortC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %_vertexFinder)
           to label %invoke.cont26 unwind label %lpad25
@@ -681,9 +681,9 @@ invoke.cont86.lr.ph:                              ; preds = %for.cond80.preheade
 invoke.cont86:                                    ; preds = %invoke.cont86.lr.ph, %for.inc129
   %indvars.iv665 = phi i64 [ 0, %invoke.cont86.lr.ph ], [ %indvars.iv.next666, %for.inc129 ]
   %newIndex.0604 = phi i32 [ 0, %invoke.cont86.lr.ph ], [ %newIndex.1, %for.inc129 ]
-  %uniqueVertices.sroa.0.1601 = phi ptr [ %uniqueVertices.sroa.16.0693, %invoke.cont86.lr.ph ], [ %uniqueVertices.sroa.0.6, %for.inc129 ]
-  %uniqueVertices.sroa.16.1600 = phi ptr [ %uniqueVertices.sroa.16.0693, %invoke.cont86.lr.ph ], [ %uniqueVertices.sroa.16.3, %for.inc129 ]
-  %uniqueVertices.sroa.25.1599 = phi ptr [ %uniqueVertices.sroa.25.0692, %invoke.cont86.lr.ph ], [ %uniqueVertices.sroa.25.3, %for.inc129 ]
+  %uniqueVertices.sroa.0.6601 = phi ptr [ %uniqueVertices.sroa.16.2693, %invoke.cont86.lr.ph ], [ %uniqueVertices.sroa.0.7, %for.inc129 ]
+  %uniqueVertices.sroa.16.0600 = phi ptr [ %uniqueVertices.sroa.16.2693, %invoke.cont86.lr.ph ], [ %uniqueVertices.sroa.16.1, %for.inc129 ]
+  %uniqueVertices.sroa.25.0599 = phi ptr [ %uniqueVertices.sroa.25.2692, %invoke.cont86.lr.ph ], [ %uniqueVertices.sroa.25.1, %for.inc129 ]
   %49 = load ptr, ptr %usedVertexIndicesMask, align 8
   %50 = trunc nuw i64 %indvars.iv665 to i32
   %div.i.i.i.i.i164531532533 = lshr i64 %indvars.iv665, 6
@@ -706,7 +706,7 @@ lpad77.loopexit.split-lp.loopexit:                ; preds = %cond.true.i.i.i.i, 
   br label %ehcleanup
 
 lpad77.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i207, %if.then.i.i.i.i, %invoke.cont74, %invoke.cont140, %if.then139, %land.lhs.true, %for.end131
-  %uniqueVertices.sroa.0.2.ph.ph = phi ptr [ %uniqueVertices.sroa.0.1601, %if.then.i.i.i.i ], [ %uniqueVertices.sroa.0.5, %if.then.i.i.i207 ], [ %uniqueVertices.sroa.0.1.lcssa, %invoke.cont140 ], [ %uniqueVertices.sroa.0.1.lcssa, %if.then139 ], [ %uniqueVertices.sroa.0.1.lcssa, %land.lhs.true ], [ %uniqueVertices.sroa.0.1.lcssa, %for.end131 ], [ %uniqueVertices.sroa.16.0693, %invoke.cont74 ]
+  %uniqueVertices.sroa.0.5.ph.ph = phi ptr [ %uniqueVertices.sroa.0.6601, %if.then.i.i.i.i ], [ %uniqueVertices.sroa.0.10, %if.then.i.i.i207 ], [ %uniqueVertices.sroa.0.6.lcssa, %invoke.cont140 ], [ %uniqueVertices.sroa.0.6.lcssa, %if.then139 ], [ %uniqueVertices.sroa.0.6.lcssa, %land.lhs.true ], [ %uniqueVertices.sroa.0.6.lcssa, %for.end131 ], [ %uniqueVertices.sroa.16.2693, %invoke.cont74 ]
   %lpad.loopexit.split-lp550 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -793,16 +793,16 @@ invoke.cont101:                                   ; preds = %if.then100
   %inc103 = add nsw i32 %newIndex.0604, 1
   %add.ptr.i183 = getelementptr inbounds i32, ptr %replaceIndex.sroa.0.0, i64 %indvars.iv665
   store i32 %newIndex.0604, ptr %add.ptr.i183, align 4
-  %cmp.not.i.i186 = icmp eq ptr %uniqueVertices.sroa.16.1600, %uniqueVertices.sroa.25.1599
+  %cmp.not.i.i186 = icmp eq ptr %uniqueVertices.sroa.16.0600, %uniqueVertices.sroa.25.0599
   br i1 %cmp.not.i.i186, label %if.else.i.i, label %if.then.i.i187
 
 if.then.i.i187:                                   ; preds = %invoke.cont101
-  store i32 %50, ptr %uniqueVertices.sroa.16.1600, align 4
+  store i32 %50, ptr %uniqueVertices.sroa.16.0600, align 4
   br label %invoke.cont107
 
 if.else.i.i:                                      ; preds = %invoke.cont101
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %uniqueVertices.sroa.16.1600 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %uniqueVertices.sroa.0.1601 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %uniqueVertices.sroa.16.0600 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %uniqueVertices.sroa.0.6601 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i188 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i.i188, label %if.then.i.i.i.i, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
@@ -837,16 +837,16 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.
   br i1 %cmp.i.i.i.i.i.i192, label %if.then.i.i.i.i.i.i194, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i194:                           ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %uniqueVertices.sroa.0.1601, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %uniqueVertices.sroa.0.6601, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i194, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i193 = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %uniqueVertices.sroa.0.1601, null
+  %tobool.not.i.i.i.i = icmp eq ptr %uniqueVertices.sroa.0.6601, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %uniqueVertices.sroa.0.1601) #18
+  call void @_ZdlPv(ptr noundef nonnull %uniqueVertices.sroa.0.6601) #18
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
@@ -854,10 +854,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %invoke.cont107
 
 invoke.cont107:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i187
-  %uniqueVertices.sroa.25.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %uniqueVertices.sroa.25.1599, %if.then.i.i187 ]
-  %add.ptr.i.i.i.i.i.i193.pn = phi ptr [ %add.ptr.i.i.i.i.i.i193, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %uniqueVertices.sroa.16.1600, %if.then.i.i187 ]
-  %uniqueVertices.sroa.0.5 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %uniqueVertices.sroa.0.1601, %if.then.i.i187 ]
-  %uniqueVertices.sroa.16.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i193.pn, i64 4
+  %uniqueVertices.sroa.25.3 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %uniqueVertices.sroa.25.0599, %if.then.i.i187 ]
+  %add.ptr.i.i.i.i.i.i193.pn = phi ptr [ %add.ptr.i.i.i.i.i.i193, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %uniqueVertices.sroa.16.0600, %if.then.i.i187 ]
+  %uniqueVertices.sroa.0.10 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %uniqueVertices.sroa.0.6601, %if.then.i.i187 ]
+  %uniqueVertices.sroa.16.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i193.pn, i64 4
   br i1 %cmp45.not, label %for.inc129, label %for.cond111.preheader
 
 for.cond111.preheader:                            ; preds = %invoke.cont107
@@ -960,9 +960,9 @@ if.else:                                          ; preds = %invoke.cont92
   br label %for.inc129
 
 for.inc129:                                       ; preds = %for.inc119, %for.cond111.preheader, %if.else, %invoke.cont107, %invoke.cont86
-  %uniqueVertices.sroa.25.3 = phi ptr [ %uniqueVertices.sroa.25.2, %invoke.cont107 ], [ %uniqueVertices.sroa.25.1599, %if.else ], [ %uniqueVertices.sroa.25.1599, %invoke.cont86 ], [ %uniqueVertices.sroa.25.2, %for.cond111.preheader ], [ %uniqueVertices.sroa.25.2, %for.inc119 ]
-  %uniqueVertices.sroa.16.3 = phi ptr [ %uniqueVertices.sroa.16.2, %invoke.cont107 ], [ %uniqueVertices.sroa.16.1600, %if.else ], [ %uniqueVertices.sroa.16.1600, %invoke.cont86 ], [ %uniqueVertices.sroa.16.2, %for.cond111.preheader ], [ %uniqueVertices.sroa.16.2, %for.inc119 ]
-  %uniqueVertices.sroa.0.6 = phi ptr [ %uniqueVertices.sroa.0.5, %invoke.cont107 ], [ %uniqueVertices.sroa.0.1601, %if.else ], [ %uniqueVertices.sroa.0.1601, %invoke.cont86 ], [ %uniqueVertices.sroa.0.5, %for.cond111.preheader ], [ %uniqueVertices.sroa.0.5, %for.inc119 ]
+  %uniqueVertices.sroa.25.1 = phi ptr [ %uniqueVertices.sroa.25.3, %invoke.cont107 ], [ %uniqueVertices.sroa.25.0599, %if.else ], [ %uniqueVertices.sroa.25.0599, %invoke.cont86 ], [ %uniqueVertices.sroa.25.3, %for.cond111.preheader ], [ %uniqueVertices.sroa.25.3, %for.inc119 ]
+  %uniqueVertices.sroa.16.1 = phi ptr [ %uniqueVertices.sroa.16.3, %invoke.cont107 ], [ %uniqueVertices.sroa.16.0600, %if.else ], [ %uniqueVertices.sroa.16.0600, %invoke.cont86 ], [ %uniqueVertices.sroa.16.3, %for.cond111.preheader ], [ %uniqueVertices.sroa.16.3, %for.inc119 ]
+  %uniqueVertices.sroa.0.7 = phi ptr [ %uniqueVertices.sroa.0.10, %invoke.cont107 ], [ %uniqueVertices.sroa.0.6601, %if.else ], [ %uniqueVertices.sroa.0.6601, %invoke.cont86 ], [ %uniqueVertices.sroa.0.10, %for.cond111.preheader ], [ %uniqueVertices.sroa.0.10, %for.inc119 ]
   %newIndex.1 = phi i32 [ %inc103, %invoke.cont107 ], [ %newIndex.0604, %if.else ], [ %newIndex.0604, %invoke.cont86 ], [ %inc103, %for.cond111.preheader ], [ %inc103, %for.inc119 ]
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
   %68 = load i32, ptr %mNumVertices.i, align 4
@@ -971,8 +971,8 @@ for.inc129:                                       ; preds = %for.inc119, %for.co
   br i1 %cmp82, label %invoke.cont86, label %for.end131, !llvm.loop !16
 
 for.end131:                                       ; preds = %for.inc129, %for.cond80.preheader
-  %uniqueVertices.sroa.16.1.lcssa = phi ptr [ %uniqueVertices.sroa.16.0693, %for.cond80.preheader ], [ %uniqueVertices.sroa.16.3, %for.inc129 ]
-  %uniqueVertices.sroa.0.1.lcssa = phi ptr [ %uniqueVertices.sroa.16.0693, %for.cond80.preheader ], [ %uniqueVertices.sroa.0.6, %for.inc129 ]
+  %uniqueVertices.sroa.16.0.lcssa = phi ptr [ %uniqueVertices.sroa.16.2693, %for.cond80.preheader ], [ %uniqueVertices.sroa.16.1, %for.inc129 ]
+  %uniqueVertices.sroa.0.6.lcssa = phi ptr [ %uniqueVertices.sroa.16.2693, %for.cond80.preheader ], [ %uniqueVertices.sroa.0.7, %for.inc129 ]
   %call133 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
           to label %invoke.cont132 unwind label %lpad77.loopexit.split-lp.loopexit.split-lp
 
@@ -1000,8 +1000,8 @@ invoke.cont140:                                   ; preds = %if.then139
   %data = getelementptr inbounds i8, ptr %pMesh, i64 240
   %cond = select i1 %tobool143.not, ptr @.str.8, ptr %data
   store ptr %cond, ptr %ref.tmp142, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %uniqueVertices.sroa.16.1.lcssa to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %uniqueVertices.sroa.0.1.lcssa to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %uniqueVertices.sroa.16.0.lcssa to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %uniqueVertices.sroa.0.6.lcssa to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   store i64 %sub.ptr.div.i, ptr %ref.tmp146, align 8
@@ -1017,8 +1017,8 @@ invoke.cont140:                                   ; preds = %if.then139
           to label %if.end156 unwind label %lpad77.loopexit.split-lp.loopexit.split-lp
 
 if.end156:                                        ; preds = %invoke.cont140, %invoke.cont134, %invoke.cont132
-  %sub.ptr.lhs.cast.i.i219 = ptrtoint ptr %uniqueVertices.sroa.16.1.lcssa to i64
-  %sub.ptr.rhs.cast.i.i220 = ptrtoint ptr %uniqueVertices.sroa.0.1.lcssa to i64
+  %sub.ptr.lhs.cast.i.i219 = ptrtoint ptr %uniqueVertices.sroa.16.0.lcssa to i64
+  %sub.ptr.rhs.cast.i.i220 = ptrtoint ptr %uniqueVertices.sroa.0.6.lcssa to i64
   %sub.ptr.sub.i.i221 = sub i64 %sub.ptr.lhs.cast.i.i219, %sub.ptr.rhs.cast.i.i220
   %sub.ptr.div.i.i222 = lshr exact i64 %sub.ptr.sub.i.i221, 2
   %conv.i = trunc i64 %sub.ptr.div.i.i222 to i32
@@ -1051,7 +1051,7 @@ for.body.preheader.i:                             ; preds = %invoke.cont.i
 
 for.body.i227:                                    ; preds = %for.body.i227, %for.body.preheader.i
   %indvars.iv.i228 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i232, %for.body.i227 ]
-  %add.ptr.i.i229 = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.1.lcssa, i64 %indvars.iv.i228
+  %add.ptr.i.i229 = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.6.lcssa, i64 %indvars.iv.i228
   %78 = load i32, ptr %add.ptr.i.i229, align 4
   %conv9.i = sext i32 %78 to i64
   %arrayidx.i.i230 = getelementptr inbounds %class.aiVector3t, ptr %73, i64 %conv9.i
@@ -1104,7 +1104,7 @@ for.body34.preheader.i:                           ; preds = %invoke.cont19.i
 
 for.body34.i:                                     ; preds = %for.body34.i, %for.body34.preheader.i
   %indvars.iv165.i = phi i64 [ 0, %for.body34.preheader.i ], [ %indvars.iv.next166.i, %for.body34.i ]
-  %add.ptr.i78.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.1.lcssa, i64 %indvars.iv165.i
+  %add.ptr.i78.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.6.lcssa, i64 %indvars.iv165.i
   %89 = load i32, ptr %add.ptr.i78.i, align 4
   %conv37.i = sext i32 %89 to i64
   %arrayidx.i79.i = getelementptr inbounds %class.aiVector3t, ptr %83, i64 %conv37.i
@@ -1157,7 +1157,7 @@ for.body68.preheader.i:                           ; preds = %invoke.cont53.i
 
 for.body68.i:                                     ; preds = %for.body68.i, %for.body68.preheader.i
   %indvars.iv168.i = phi i64 [ 0, %for.body68.preheader.i ], [ %indvars.iv.next169.i, %for.body68.i ]
-  %add.ptr.i88.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.1.lcssa, i64 %indvars.iv168.i
+  %add.ptr.i88.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.6.lcssa, i64 %indvars.iv168.i
   %100 = load i32, ptr %add.ptr.i88.i, align 4
   %conv71.i = sext i32 %100 to i64
   %arrayidx.i89.i = getelementptr inbounds %class.aiVector3t, ptr %94, i64 %conv71.i
@@ -1210,7 +1210,7 @@ for.body102.preheader.i:                          ; preds = %invoke.cont87.i
 
 for.body102.i:                                    ; preds = %for.body102.i, %for.body102.preheader.i
   %indvars.iv171.i = phi i64 [ 0, %for.body102.preheader.i ], [ %indvars.iv.next172.i, %for.body102.i ]
-  %add.ptr.i98.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.1.lcssa, i64 %indvars.iv171.i
+  %add.ptr.i98.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.6.lcssa, i64 %indvars.iv171.i
   %111 = load i32, ptr %add.ptr.i98.i, align 4
   %conv105.i = sext i32 %111 to i64
   %arrayidx.i99.i = getelementptr inbounds %class.aiVector3t, ptr %105, i64 %conv105.i
@@ -1258,7 +1258,7 @@ for.body140.preheader.i:                          ; preds = %for.body118.i
 
 for.body140.i:                                    ; preds = %for.body140.i, %for.body140.preheader.i
   %indvars.iv174.i = phi i64 [ 0, %for.body140.preheader.i ], [ %indvars.iv.next175.i, %for.body140.i ]
-  %add.ptr.i107.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.1.lcssa, i64 %indvars.iv174.i
+  %add.ptr.i107.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.6.lcssa, i64 %indvars.iv174.i
   %120 = load i32, ptr %add.ptr.i107.i, align 4
   %conv143.i = sext i32 %120 to i64
   %arrayidx.i108.i = getelementptr inbounds %class.aiColor4t, ptr %116, i64 %conv143.i
@@ -1311,7 +1311,7 @@ for.body183.preheader.i:                          ; preds = %for.body160.i
 
 for.body183.i:                                    ; preds = %for.body183.i, %for.body183.preheader.i
   %indvars.iv180.i = phi i64 [ 0, %for.body183.preheader.i ], [ %indvars.iv.next181.i, %for.body183.i ]
-  %add.ptr.i125.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.1.lcssa, i64 %indvars.iv180.i
+  %add.ptr.i125.i = getelementptr inbounds i32, ptr %uniqueVertices.sroa.0.6.lcssa, i64 %indvars.iv180.i
   %132 = load i32, ptr %add.ptr.i125.i, align 4
   %conv186.i = sext i32 %132 to i64
   %arrayidx.i126.i = getelementptr inbounds %class.aiVector3t, ptr %125, i64 %conv186.i
@@ -1799,8 +1799,8 @@ _ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; pred
   br label %invoke.cont212
 
 invoke.cont212:                                   ; preds = %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE13_M_deallocateEPS0_m.exit.i, %for.body207
-  %newWeights.sroa.0.1 = phi ptr [ %call5.i.i.i.i328, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ null, %for.body207 ]
-  %newWeights.sroa.18.1 = phi ptr [ %add.ptr21.i325, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ null, %for.body207 ]
+  %newWeights.sroa.0.5 = phi ptr [ %call5.i.i.i.i328, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ null, %for.body207 ]
+  %newWeights.sroa.18.4 = phi ptr [ %add.ptr21.i325, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE13_M_deallocateEPS0_m.exit.i ], [ null, %for.body207 ]
   %mWeights = getelementptr inbounds i8, ptr %228, i64 1048
   %231 = load ptr, ptr %mWeights, align 8
   %cmp213.not = icmp eq ptr %231, null
@@ -1813,9 +1813,9 @@ for.cond216.preheader:                            ; preds = %invoke.cont212
 
 for.body219:                                      ; preds = %for.cond216.preheader, %for.inc236
   %indvars.iv677 = phi i64 [ %indvars.iv.next678, %for.inc236 ], [ 0, %for.cond216.preheader ]
-  %newWeights.sroa.18.2615 = phi ptr [ %newWeights.sroa.18.4, %for.inc236 ], [ %newWeights.sroa.18.1, %for.cond216.preheader ]
-  %newWeights.sroa.10.2614 = phi ptr [ %newWeights.sroa.10.4, %for.inc236 ], [ %newWeights.sroa.0.1, %for.cond216.preheader ]
-  %newWeights.sroa.0.2613 = phi ptr [ %newWeights.sroa.0.5, %for.inc236 ], [ %newWeights.sroa.0.1, %for.cond216.preheader ]
+  %newWeights.sroa.18.1615 = phi ptr [ %newWeights.sroa.18.2, %for.inc236 ], [ %newWeights.sroa.18.4, %for.cond216.preheader ]
+  %newWeights.sroa.10.1614 = phi ptr [ %newWeights.sroa.10.2, %for.inc236 ], [ %newWeights.sroa.0.5, %for.cond216.preheader ]
+  %newWeights.sroa.0.2613 = phi ptr [ %newWeights.sroa.0.3, %for.inc236 ], [ %newWeights.sroa.0.5, %for.cond216.preheader ]
   %233 = load ptr, ptr %mWeights, align 8
   %arrayidx222 = getelementptr inbounds %struct.aiVertexWeight, ptr %233, i64 %indvars.iv677
   %234 = load i32, ptr %arrayidx222, align 4
@@ -1828,18 +1828,18 @@ for.body219:                                      ; preds = %for.cond216.prehead
 if.then228:                                       ; preds = %for.body219
   %mWeight = getelementptr inbounds i8, ptr %arrayidx222, i64 4
   %236 = load float, ptr %mWeight, align 4
-  %cmp.not.i333 = icmp eq ptr %newWeights.sroa.10.2614, %newWeights.sroa.18.2615
+  %cmp.not.i333 = icmp eq ptr %newWeights.sroa.10.1614, %newWeights.sroa.18.1615
   br i1 %cmp.not.i333, label %if.else.i337, label %if.then.i334
 
 if.then.i334:                                     ; preds = %if.then228
-  store i32 %235, ptr %newWeights.sroa.10.2614, align 4
-  %.sroa_idx = getelementptr inbounds i8, ptr %newWeights.sroa.10.2614, i64 4
+  store i32 %235, ptr %newWeights.sroa.10.1614, align 4
+  %.sroa_idx = getelementptr inbounds i8, ptr %newWeights.sroa.10.1614, i64 4
   store float %236, ptr %.sroa_idx, align 4
-  %incdec.ptr.i335 = getelementptr inbounds i8, ptr %newWeights.sroa.10.2614, i64 8
+  %incdec.ptr.i335 = getelementptr inbounds i8, ptr %newWeights.sroa.10.1614, i64 8
   br label %for.inc236
 
 if.else.i337:                                     ; preds = %if.then228
-  %sub.ptr.lhs.cast.i.i.i.i338 = ptrtoint ptr %newWeights.sroa.18.2615 to i64
+  %sub.ptr.lhs.cast.i.i.i.i338 = ptrtoint ptr %newWeights.sroa.18.1615 to i64
   %sub.ptr.rhs.cast.i.i.i.i339 = ptrtoint ptr %newWeights.sroa.0.2613 to i64
   %sub.ptr.sub.i.i.i.i340 = sub i64 %sub.ptr.lhs.cast.i.i.i.i338, %sub.ptr.rhs.cast.i.i.i.i339
   %cmp.i.i.i341 = icmp eq i64 %sub.ptr.sub.i.i.i.i340, 9223372036854775800
@@ -1873,7 +1873,7 @@ _ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = 
   store i32 %235, ptr %add.ptr.i.i351, align 4
   %add.ptr.i.i351.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i351, i64 4
   store float %236, ptr %add.ptr.i.i351.sroa_idx, align 4
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %newWeights.sroa.0.2613, %newWeights.sroa.18.2615
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %newWeights.sroa.0.2613, %newWeights.sroa.18.1615
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i352
 
 for.body.i.i.i.i.i352:                            ; preds = %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i352
@@ -1885,7 +1885,7 @@ for.body.i.i.i.i.i352:                            ; preds = %_ZNSt12_Vector_base
   store i64 %238, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !36, !noalias !39
   %incdec.ptr.i.i.i.i.i353 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i354 = icmp eq ptr %incdec.ptr.i.i.i.i.i353, %newWeights.sroa.18.2615
+  %cmp.not.i.i.i.i.i354 = icmp eq ptr %incdec.ptr.i.i.i.i.i353, %newWeights.sroa.18.1615
   br i1 %cmp.not.i.i.i.i.i354, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i352, !llvm.loop !41
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i: ; preds = %for.body.i.i.i.i.i352, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i
@@ -1908,7 +1908,7 @@ lpad211.loopexit:                                 ; preds = %cond.true.i.i.i348
   br label %lpad211
 
 lpad211.loopexit.split-lp.loopexit:               ; preds = %delete.end, %invoke.cont240, %if.else239
-  %newWeights.sroa.0.4.ph.ph = phi ptr [ %newWeights.sroa.0.5, %delete.end ], [ %newWeights.sroa.0.1, %invoke.cont240 ], [ %newWeights.sroa.0.1, %if.else239 ]
+  %newWeights.sroa.0.1.ph.ph = phi ptr [ %newWeights.sroa.0.3, %delete.end ], [ %newWeights.sroa.0.5, %invoke.cont240 ], [ %newWeights.sroa.0.5, %if.else239 ]
   %lpad.loopexit544 = landingpad { ptr, i32 }
           cleanup
   br label %lpad211
@@ -1919,19 +1919,19 @@ lpad211.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.then.i.i.i358
   br label %lpad211
 
 lpad211:                                          ; preds = %lpad211.loopexit.split-lp.loopexit, %lpad211.loopexit.split-lp.loopexit.split-lp, %lpad211.loopexit
-  %newWeights.sroa.0.4 = phi ptr [ %newWeights.sroa.0.2613, %lpad211.loopexit ], [ %newWeights.sroa.0.4.ph.ph, %lpad211.loopexit.split-lp.loopexit ], [ %newWeights.sroa.0.2613, %lpad211.loopexit.split-lp.loopexit.split-lp ]
+  %newWeights.sroa.0.1 = phi ptr [ %newWeights.sroa.0.2613, %lpad211.loopexit ], [ %newWeights.sroa.0.1.ph.ph, %lpad211.loopexit.split-lp.loopexit ], [ %newWeights.sroa.0.2613, %lpad211.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad211.loopexit ], [ %lpad.loopexit544, %lpad211.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp545, %lpad211.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i363 = icmp eq ptr %newWeights.sroa.0.4, null
+  %tobool.not.i.i.i363 = icmp eq ptr %newWeights.sroa.0.1, null
   br i1 %tobool.not.i.i.i363, label %ehcleanup, label %if.then.i.i.i364
 
 if.then.i.i.i364:                                 ; preds = %lpad211
-  call void @_ZdlPv(ptr noundef nonnull %newWeights.sroa.0.4) #18
+  call void @_ZdlPv(ptr noundef nonnull %newWeights.sroa.0.1) #18
   br label %ehcleanup
 
 for.inc236:                                       ; preds = %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %if.then.i334, %for.body219
-  %newWeights.sroa.0.5 = phi ptr [ %newWeights.sroa.0.2613, %for.body219 ], [ %cond.i10.i.i350, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %newWeights.sroa.0.2613, %if.then.i334 ]
-  %newWeights.sroa.10.4 = phi ptr [ %newWeights.sroa.10.2614, %for.body219 ], [ %incdec.ptr.i.i355, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %incdec.ptr.i335, %if.then.i334 ]
-  %newWeights.sroa.18.4 = phi ptr [ %newWeights.sroa.18.2615, %for.body219 ], [ %add.ptr19.i.i357, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %newWeights.sroa.18.2615, %if.then.i334 ]
+  %newWeights.sroa.0.3 = phi ptr [ %newWeights.sroa.0.2613, %for.body219 ], [ %cond.i10.i.i350, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %newWeights.sroa.0.2613, %if.then.i334 ]
+  %newWeights.sroa.10.2 = phi ptr [ %newWeights.sroa.10.1614, %for.body219 ], [ %incdec.ptr.i.i355, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %incdec.ptr.i335, %if.then.i334 ]
+  %newWeights.sroa.18.2 = phi ptr [ %newWeights.sroa.18.1615, %for.body219 ], [ %add.ptr19.i.i357, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %newWeights.sroa.18.1615, %if.then.i334 ]
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %239 = load i32, ptr %mNumWeights, align 4
   %240 = zext i32 %239 to i64
@@ -1947,11 +1947,11 @@ invoke.cont240:                                   ; preds = %if.else239
           to label %if.end261 unwind label %lpad211.loopexit.split-lp.loopexit
 
 if.end243:                                        ; preds = %for.inc236
-  %sub.ptr.lhs.cast.i366 = ptrtoint ptr %newWeights.sroa.10.4 to i64
-  %sub.ptr.rhs.cast.i367 = ptrtoint ptr %newWeights.sroa.0.5 to i64
+  %sub.ptr.lhs.cast.i366 = ptrtoint ptr %newWeights.sroa.10.2 to i64
+  %sub.ptr.rhs.cast.i367 = ptrtoint ptr %newWeights.sroa.0.3 to i64
   %sub.ptr.sub.i368 = sub i64 %sub.ptr.lhs.cast.i366, %sub.ptr.rhs.cast.i367
   %sub.ptr.div.i369 = ashr exact i64 %sub.ptr.sub.i368, 3
-  %cmp245.not = icmp eq ptr %newWeights.sroa.10.4, %newWeights.sroa.0.5
+  %cmp245.not = icmp eq ptr %newWeights.sroa.10.2, %newWeights.sroa.0.3
   br i1 %cmp245.not, label %if.end261, label %if.then246
 
 if.then246:                                       ; preds = %if.end243
@@ -1984,16 +1984,16 @@ arrayctor.cont:                                   ; preds = %new.ctorloop, %invo
   %243 = load i32, ptr %mNumWeights, align 4
   %conv259 = zext i32 %243 to i64
   %mul260 = shl nuw nsw i64 %conv259, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call254, ptr nonnull align 4 %newWeights.sroa.0.5, i64 %mul260, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call254, ptr nonnull align 4 %newWeights.sroa.0.3, i64 %mul260, i1 false)
   br label %if.end261
 
 if.end261:                                        ; preds = %for.cond216.preheader, %invoke.cont240, %arrayctor.cont, %if.end243
-  %newWeights.sroa.0.6701 = phi ptr [ %newWeights.sroa.0.5, %arrayctor.cont ], [ %newWeights.sroa.0.5, %if.end243 ], [ %newWeights.sroa.0.1, %invoke.cont240 ], [ %newWeights.sroa.0.1, %for.cond216.preheader ]
-  %tobool.not.i.i.i378 = icmp eq ptr %newWeights.sroa.0.6701, null
+  %newWeights.sroa.0.4701 = phi ptr [ %newWeights.sroa.0.3, %arrayctor.cont ], [ %newWeights.sroa.0.3, %if.end243 ], [ %newWeights.sroa.0.5, %invoke.cont240 ], [ %newWeights.sroa.0.5, %for.cond216.preheader ]
+  %tobool.not.i.i.i378 = icmp eq ptr %newWeights.sroa.0.4701, null
   br i1 %tobool.not.i.i.i378, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit380, label %if.then.i.i.i379
 
 if.then.i.i.i379:                                 ; preds = %if.end261
-  call void @_ZdlPv(ptr noundef nonnull %newWeights.sroa.0.6701) #18
+  call void @_ZdlPv(ptr noundef nonnull %newWeights.sroa.0.4701) #18
   br label %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit380
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit380: ; preds = %if.end261, %if.then.i.i.i379
@@ -2070,11 +2070,11 @@ if.then.i.i.i398:                                 ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit399
 
 _ZNSt6vectorIjSaIjEED2Ev.exit399:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i398
-  %tobool.not.i.i.i401 = icmp eq ptr %uniqueVertices.sroa.0.1.lcssa, null
+  %tobool.not.i.i.i401 = icmp eq ptr %uniqueVertices.sroa.0.6.lcssa, null
   br i1 %tobool.not.i.i.i401, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i402
 
 if.then.i.i.i402:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit399
-  call void @_ZdlPv(ptr noundef nonnull %uniqueVertices.sroa.0.1.lcssa) #18
+  call void @_ZdlPv(ptr noundef nonnull %uniqueVertices.sroa.0.6.lcssa) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit399, %if.then.i.i.i402
@@ -2094,25 +2094,25 @@ if.then.i.i.i404:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %return
 
 ehcleanup:                                        ; preds = %lpad77.loopexit, %lpad77.loopexit.split-lp.loopexit.split-lp, %lpad77.loopexit.split-lp.loopexit, %if.then.i.i.i364, %lpad211, %lpad211.thread, %eh.resume.i, %eh.resume.i256
-  %uniqueVertices.sroa.0.7 = phi ptr [ %uniqueVertices.sroa.0.1.lcssa, %eh.resume.i ], [ %uniqueVertices.sroa.0.1.lcssa, %eh.resume.i256 ], [ %uniqueVertices.sroa.0.1.lcssa, %lpad211.thread ], [ %uniqueVertices.sroa.0.1.lcssa, %lpad211 ], [ %uniqueVertices.sroa.0.1.lcssa, %if.then.i.i.i364 ], [ %uniqueVertices.sroa.0.5, %lpad77.loopexit ], [ %uniqueVertices.sroa.0.1601, %lpad77.loopexit.split-lp.loopexit ], [ %uniqueVertices.sroa.0.2.ph.ph, %lpad77.loopexit.split-lp.loopexit.split-lp ]
+  %uniqueVertices.sroa.0.8 = phi ptr [ %uniqueVertices.sroa.0.6.lcssa, %eh.resume.i ], [ %uniqueVertices.sroa.0.6.lcssa, %eh.resume.i256 ], [ %uniqueVertices.sroa.0.6.lcssa, %lpad211.thread ], [ %uniqueVertices.sroa.0.6.lcssa, %lpad211 ], [ %uniqueVertices.sroa.0.6.lcssa, %if.then.i.i.i364 ], [ %uniqueVertices.sroa.0.10, %lpad77.loopexit ], [ %uniqueVertices.sroa.0.6601, %lpad77.loopexit.split-lp.loopexit ], [ %uniqueVertices.sroa.0.5.ph.ph, %lpad77.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %.pn.i257, %eh.resume.i256 ], [ %230, %lpad211.thread ], [ %lpad.phi, %lpad211 ], [ %lpad.phi, %if.then.i.i.i364 ], [ %lpad.loopexit547, %lpad77.loopexit ], [ %lpad.loopexit549, %lpad77.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp550, %lpad77.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt13unordered_mapIN6Assimp6VertexEiSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %vertex2Index) #20
   br label %if.then.i.i.i412
 
 if.then.i.i.i412:                                 ; preds = %lpad50.loopexit, %lpad50.loopexit.split-lp, %lpad.i.i, %ehcleanup
-  %uniqueVertices.sroa.0.8 = phi ptr [ %uniqueVertices.sroa.0.7, %ehcleanup ], [ %uniqueVertices.sroa.16.0693, %lpad.i.i ], [ %uniqueVertices.sroa.16.0693, %lpad50.loopexit.split-lp ], [ %uniqueVertices.sroa.16.0693, %lpad50.loopexit ]
+  %uniqueVertices.sroa.0.4 = phi ptr [ %uniqueVertices.sroa.0.8, %ehcleanup ], [ %uniqueVertices.sroa.16.2693, %lpad.i.i ], [ %uniqueVertices.sroa.16.2693, %lpad50.loopexit.split-lp ], [ %uniqueVertices.sroa.16.2693, %lpad50.loopexit ]
   %.pn74 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %44, %lpad.i.i ], [ %lpad.loopexit.split-lp, %lpad50.loopexit.split-lp ], [ %lpad.loopexit552, %lpad50.loopexit ]
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %uniqueAnimatedVertices) #20
   br label %ehcleanup268
 
 ehcleanup268:                                     ; preds = %if.then.i.i.i412, %lpad29
-  %uniqueVertices.sroa.0.10 = phi ptr [ %uniqueVertices.sroa.16.0693, %lpad29 ], [ %uniqueVertices.sroa.0.8, %if.then.i.i.i412 ]
+  %uniqueVertices.sroa.0.2 = phi ptr [ %uniqueVertices.sroa.16.2693, %lpad29 ], [ %uniqueVertices.sroa.0.4, %if.then.i.i.i412 ]
   %.pn74.pn.pn = phi { ptr, i32 } [ %29, %lpad29 ], [ %.pn74, %if.then.i.i.i412 ]
   call void @_ZN6Assimp11SpatialSortD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %_vertexFinder) #20
   br label %ehcleanup269
 
 ehcleanup269:                                     ; preds = %ehcleanup268, %lpad25
-  %uniqueVertices.sroa.0.11 = phi ptr [ %uniqueVertices.sroa.0.10, %ehcleanup268 ], [ %uniqueVertices.sroa.16.0693, %lpad25 ]
+  %uniqueVertices.sroa.0.1 = phi ptr [ %uniqueVertices.sroa.0.2, %ehcleanup268 ], [ %uniqueVertices.sroa.16.2693, %lpad25 ]
   %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %ehcleanup268 ], [ %28, %lpad25 ]
   %tobool.not.i.i.i415 = icmp eq ptr %replaceIndex.sroa.0.0, null
   br i1 %tobool.not.i.i.i415, label %ehcleanup270, label %if.then.i.i.i416
@@ -2122,13 +2122,13 @@ if.then.i.i.i416:                                 ; preds = %ehcleanup269
   br label %ehcleanup270
 
 ehcleanup270:                                     ; preds = %if.then.i.i.i416, %ehcleanup269
-  %tobool.not.i.i.i419 = icmp eq ptr %uniqueVertices.sroa.0.11, null
+  %tobool.not.i.i.i419 = icmp eq ptr %uniqueVertices.sroa.0.1, null
   br i1 %tobool.not.i.i.i419, label %ehcleanup271, label %if.then.i.i.i420
 
 if.then.i.i.i420:                                 ; preds = %ehcleanup270.thread702, %ehcleanup270
   %.pn74.pn.pn.pn.pn707 = phi { ptr, i32 } [ %27, %ehcleanup270.thread702 ], [ %.pn74.pn.pn.pn, %ehcleanup270 ]
-  %uniqueVertices.sroa.0.12706 = phi ptr [ %call5.i.i.i.i87, %ehcleanup270.thread702 ], [ %uniqueVertices.sroa.0.11, %ehcleanup270 ]
-  call void @_ZdlPv(ptr noundef nonnull %uniqueVertices.sroa.0.12706) #18
+  %uniqueVertices.sroa.0.0706 = phi ptr [ %call5.i.i.i.i87, %ehcleanup270.thread702 ], [ %uniqueVertices.sroa.0.1, %ehcleanup270 ]
+  call void @_ZdlPv(ptr noundef nonnull %uniqueVertices.sroa.0.0706) #18
   br label %ehcleanup271
 
 ehcleanup271:                                     ; preds = %if.then.i.i.i420, %ehcleanup270, %ehcleanup270.thread, %lpad

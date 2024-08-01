@@ -232,9 +232,9 @@ err.thread:                                       ; preds = %if.then
   br label %if.then55
 
 if.end3:                                          ; preds = %entry, %if.then
-  %ret.0 = phi ptr [ %call1.i, %if.then ], [ %params, %entry ]
-  store i32 1, ptr %ret.0, align 8
-  %fieldID = getelementptr inbounds i8, ptr %ret.0, i64 8
+  %ret.1 = phi ptr [ %call1.i, %if.then ], [ %params, %entry ]
+  store i32 1, ptr %ret.1, align 8
+  %fieldID = getelementptr inbounds i8, ptr %ret.1, i64 8
   %0 = load ptr, ptr %fieldID, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %k1.i)
@@ -436,8 +436,8 @@ if.else99.i:                                      ; preds = %if.end6.i
   br label %ec_asn1_group2fieldid.exit.thread41
 
 ec_asn1_group2fieldid.exit.thread41:              ; preds = %if.then5.i, %if.then11.i, %if.then20.i, %if.then14.i, %if.then28.i, %if.then35.i, %if.then40.i, %if.then54.i, %if.then60.i, %if.then44.i, %if.then75.i, %if.then65.i, %if.then95.i, %if.else99.i
-  %tmp.1.i.ph = phi ptr [ null, %if.else99.i ], [ null, %if.then95.i ], [ null, %if.then65.i ], [ null, %if.then75.i ], [ null, %if.then44.i ], [ null, %if.then60.i ], [ null, %if.then54.i ], [ null, %if.then40.i ], [ null, %if.then35.i ], [ null, %if.then28.i ], [ %call9.i, %if.then14.i ], [ %call9.i, %if.then20.i ], [ null, %if.then11.i ], [ null, %if.then5.i ]
-  call void @BN_free(ptr noundef %tmp.1.i.ph) #8
+  %tmp.0.i.ph = phi ptr [ null, %if.else99.i ], [ null, %if.then95.i ], [ null, %if.then65.i ], [ null, %if.then75.i ], [ null, %if.then44.i ], [ null, %if.then60.i ], [ null, %if.then54.i ], [ null, %if.then40.i ], [ null, %if.then35.i ], [ null, %if.then28.i ], [ %call9.i, %if.then14.i ], [ %call9.i, %if.then20.i ], [ null, %if.then11.i ], [ null, %if.then5.i ]
+  call void @BN_free(ptr noundef %tmp.0.i.ph) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k2.i)
@@ -445,13 +445,13 @@ ec_asn1_group2fieldid.exit.thread41:              ; preds = %if.then5.i, %if.the
   br label %err
 
 if.end6:                                          ; preds = %if.else89.i, %if.end76.i, %if.end55.i, %if.end15.i
-  %tmp.1.i = phi ptr [ %call9.i, %if.end15.i ], [ null, %if.end55.i ], [ null, %if.end76.i ], [ null, %if.else89.i ]
-  call void @BN_free(ptr noundef %tmp.1.i) #8
+  %tmp.0.i = phi ptr [ %call9.i, %if.end15.i ], [ null, %if.end55.i ], [ null, %if.end76.i ], [ null, %if.else89.i ]
+  call void @BN_free(ptr noundef %tmp.0.i) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k3.i)
-  %curve = getelementptr inbounds i8, ptr %ret.0, i64 16
+  %curve = getelementptr inbounds i8, ptr %ret.1, i64 16
   %9 = load ptr, ptr %curve, align 8
   %tobool1.i.not = icmp eq ptr %9, null
   br i1 %tobool1.i.not, label %err, label %lor.lhs.false2.i
@@ -591,7 +591,7 @@ if.end14:                                         ; preds = %ec_asn1_group2curve
   br i1 %cmp17, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.end14
-  %base = getelementptr inbounds i8, ptr %ret.0, i64 24
+  %base = getelementptr inbounds i8, ptr %ret.1, i64 24
   %20 = load ptr, ptr %base, align 8
   %cmp20 = icmp eq ptr %20, null
   br i1 %cmp20, label %land.lhs.true, label %if.end25
@@ -617,7 +617,7 @@ if.end25:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp28, label %err, label %if.end31
 
 if.end31:                                         ; preds = %if.end25
-  %order = getelementptr inbounds i8, ptr %ret.0, i64 32
+  %order = getelementptr inbounds i8, ptr %ret.1, i64 32
   %24 = load ptr, ptr %order, align 8
   %call32 = call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %call27, ptr noundef %24) #8
   store ptr %call32, ptr %order, align 8
@@ -634,7 +634,7 @@ if.end39:                                         ; preds = %if.end31
   br i1 %cmp41.not, label %return, label %if.then43
 
 if.then43:                                        ; preds = %if.end39
-  %cofactor = getelementptr inbounds i8, ptr %ret.0, i64 40
+  %cofactor = getelementptr inbounds i8, ptr %ret.1, i64 40
   %25 = load ptr, ptr %cofactor, align 8
   %call44 = call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %call40, ptr noundef %25) #8
   store ptr %call44, ptr %cofactor, align 8
@@ -654,12 +654,12 @@ err:                                              ; preds = %if.end25, %if.end14
   br i1 %cmp, label %if.then55, label %return
 
 if.then55:                                        ; preds = %err.thread, %err
-  %ret.148 = phi ptr [ null, %err.thread ], [ %ret.0, %err ]
-  call void @ASN1_item_free(ptr noundef %ret.148, ptr noundef nonnull @ECPARAMETERS_it.local_it) #8
+  %ret.048 = phi ptr [ null, %err.thread ], [ %ret.1, %err ]
+  call void @ASN1_item_free(ptr noundef %ret.048, ptr noundef nonnull @ECPARAMETERS_it.local_it) #8
   br label %return
 
 return:                                           ; preds = %err, %if.then55, %if.end39, %if.then43
-  %retval.0 = phi ptr [ %ret.0, %if.then43 ], [ %ret.0, %if.end39 ], [ null, %if.then55 ], [ null, %err ]
+  %retval.0 = phi ptr [ %ret.1, %if.then43 ], [ %ret.1, %if.end39 ], [ null, %if.then55 ], [ null, %err ]
   ret ptr %retval.0
 }
 
@@ -1009,10 +1009,10 @@ if.end178:                                        ; preds = %if.end172
   br label %if.end182
 
 if.end182:                                        ; preds = %if.end178, %if.end147
-  %p.0 = phi ptr [ %call56, %if.end147 ], [ %call161, %if.end178 ]
+  %p.1 = phi ptr [ %call56, %if.end147 ], [ %call161, %if.end178 ]
   %field_bits.0.in = phi i32 [ %17, %if.end147 ], [ %call173, %if.end178 ]
-  %ret.0 = phi ptr [ %call148, %if.end147 ], [ %call179, %if.end178 ]
-  %cmp183 = icmp eq ptr %ret.0, null
+  %ret.1 = phi ptr [ %call148, %if.end147 ], [ %call179, %if.end178 ]
+  %cmp183 = icmp eq ptr %ret.1, null
   br i1 %cmp183, label %if.then329.sink.split, label %if.end186
 
 if.end186:                                        ; preds = %if.end182
@@ -1028,7 +1028,7 @@ if.then190:                                       ; preds = %if.end186
   br i1 %cmp194, label %if.then329.sink.split, label %if.end197
 
 if.end197:                                        ; preds = %if.then190
-  %seed198 = getelementptr inbounds i8, ptr %ret.0, i64 48
+  %seed198 = getelementptr inbounds i8, ptr %ret.1, i64 48
   %34 = load ptr, ptr %seed198, align 8
   tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str.2, i32 noundef 698) #8
   %35 = load ptr, ptr %curve, align 8
@@ -1053,7 +1053,7 @@ if.end208:                                        ; preds = %if.end197
   %42 = load ptr, ptr %seed211, align 8
   %43 = load i32, ptr %42, align 8
   %conv220 = sext i32 %43 to i64
-  %seed_len = getelementptr inbounds i8, ptr %ret.0, i64 56
+  %seed_len = getelementptr inbounds i8, ptr %ret.1, i64 56
   store i64 %conv220, ptr %seed_len, align 8
   br label %if.end221
 
@@ -1081,7 +1081,7 @@ lor.lhs.false232:                                 ; preds = %lor.lhs.false227
   br i1 %cmp235, label %if.then329.sink.split, label %if.end238
 
 if.end238:                                        ; preds = %lor.lhs.false232
-  %call239 = tail call ptr @EC_POINT_new(ptr noundef nonnull %ret.0) #8
+  %call239 = tail call ptr @EC_POINT_new(ptr noundef nonnull %ret.1) #8
   %cmp240 = icmp eq ptr %call239, null
   br i1 %cmp240, label %if.then329, label %if.end243
 
@@ -1092,13 +1092,13 @@ if.end243:                                        ; preds = %if.end238
   %50 = load i8, ptr %49, align 1
   %51 = and i8 %50, -2
   %and = zext i8 %51 to i32
-  tail call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %ret.0, i32 noundef %and) #8
+  tail call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %ret.1, i32 noundef %and) #8
   %52 = load ptr, ptr %base, align 8
   %data248 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %data248, align 8
   %54 = load i32, ptr %52, align 8
   %conv251 = sext i32 %54 to i64
-  %call252 = tail call i32 @EC_POINT_oct2point(ptr noundef nonnull %ret.0, ptr noundef nonnull %call239, ptr noundef %53, i64 noundef %conv251, ptr noundef null) #8
+  %call252 = tail call i32 @EC_POINT_oct2point(ptr noundef nonnull %ret.1, ptr noundef nonnull %call239, ptr noundef %53, i64 noundef %conv251, ptr noundef null) #8
   %tobool253.not = icmp eq i32 %call252, 0
   br i1 %tobool253.not, label %if.then329.sink.split, label %if.end255
 
@@ -1140,8 +1140,8 @@ if.else278:                                       ; preds = %if.end274
   br i1 %cmp281, label %if.then329.sink.split, label %if.end285
 
 if.end285:                                        ; preds = %if.else278, %if.then277
-  %b.0 = phi ptr [ null, %if.then277 ], [ %call41, %if.else278 ]
-  %call286 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %ret.0, ptr noundef nonnull %call239, ptr noundef nonnull %call, ptr noundef %b.0) #8
+  %b.1 = phi ptr [ null, %if.then277 ], [ %call41, %if.else278 ]
+  %call286 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %ret.1, ptr noundef nonnull %call239, ptr noundef nonnull %call, ptr noundef %b.1) #8
   %tobool287.not = icmp eq i32 %call286, 0
   br i1 %tobool287.not, label %if.then329.sink.split, label %if.end289
 
@@ -1151,7 +1151,7 @@ if.end289:                                        ; preds = %if.end285
   br i1 %cmp291, label %if.then329.sink.split, label %if.end294
 
 if.end294:                                        ; preds = %if.end289
-  %call295 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %ret.0) #8
+  %call295 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %ret.1) #8
   %cmp296 = icmp eq ptr %call295, null
   br i1 %cmp296, label %if.then329.sink.split, label %lor.lhs.false298
 
@@ -1176,7 +1176,7 @@ if.then310:                                       ; preds = %if.end306
   br i1 %cmp312, label %if.then329.sink.split, label %if.end315
 
 if.end315:                                        ; preds = %if.then310
-  tail call void @EC_GROUP_free(ptr noundef nonnull %ret.0) #8
+  tail call void @EC_GROUP_free(ptr noundef nonnull %ret.1) #8
   tail call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %call311, i32 noundef 0) #8
   %57 = load ptr, ptr %curve, align 8
   %seed317 = getelementptr inbounds i8, ptr %57, i64 16
@@ -1192,12 +1192,12 @@ err:                                              ; preds = %if.end315
 if.then329.sink.split:                            ; preds = %if.then310, %if.end294, %lor.lhs.false298, %lor.lhs.false302, %if.end289, %if.end285, %if.else278, %if.end268, %if.end261, %lor.lhs.false264, %if.end255, %if.end243, %if.end221, %lor.lhs.false224, %lor.lhs.false227, %lor.lhs.false232, %if.then190, %if.end182, %if.end44, %if.end172, %if.end165, %lor.lhs.false168, %if.end158, %if.then152, %if.end60, %if.end99, %land.lhs.true103, %land.lhs.true107, %if.then94, %if.end67, %if.then64, %if.end55, %if.then49, %if.end34, %if.end26, %if.end, %lor.lhs.false8, %lor.lhs.false12, %lor.lhs.false16, %lor.lhs.false20, %entry, %lor.lhs.false, %lor.lhs.false3, %if.else145
   %.sink155 = phi i32 [ 642, %if.else145 ], [ 533, %lor.lhs.false3 ], [ 533, %lor.lhs.false ], [ 533, %entry ], [ 546, %lor.lhs.false20 ], [ 546, %lor.lhs.false16 ], [ 546, %lor.lhs.false12 ], [ 546, %lor.lhs.false8 ], [ 546, %if.end ], [ 551, %if.end26 ], [ 556, %if.end34 ], [ 576, %if.then49 ], [ 581, %if.end55 ], [ 592, %if.then64 ], [ 599, %if.end67 ], [ 615, %if.then94 ], [ 622, %land.lhs.true107 ], [ 622, %land.lhs.true103 ], [ 622, %if.end99 ], [ 638, %if.end60 ], [ 654, %if.then152 ], [ 659, %if.end158 ], [ 664, %lor.lhs.false168 ], [ 664, %if.end165 ], [ 670, %if.end172 ], [ 677, %if.end44 ], [ 682, %if.end182 ], [ 695, %if.then190 ], [ 710, %lor.lhs.false232 ], [ 710, %lor.lhs.false227 ], [ 710, %lor.lhs.false224 ], [ 710, %if.end221 ], [ 724, %if.end243 ], [ 730, %if.end255 ], [ 734, %lor.lhs.false264 ], [ 734, %if.end261 ], [ 738, %if.end268 ], [ 747, %if.else278 ], [ 752, %if.end285 ], [ 769, %if.end289 ], [ 775, %lor.lhs.false302 ], [ 775, %lor.lhs.false298 ], [ 775, %if.end294 ], [ 800, %if.then310 ]
   %.sink = phi i32 [ 115, %if.else145 ], [ 115, %lor.lhs.false3 ], [ 115, %lor.lhs.false ], [ 115, %entry ], [ 115, %lor.lhs.false20 ], [ 115, %lor.lhs.false16 ], [ 115, %lor.lhs.false12 ], [ 115, %lor.lhs.false8 ], [ 115, %if.end ], [ 524291, %if.end26 ], [ 524291, %if.end34 ], [ 143, %if.then49 ], [ 524291, %if.end55 ], [ 115, %if.then64 ], [ 137, %if.end67 ], [ 115, %if.then94 ], [ 132, %land.lhs.true107 ], [ 132, %land.lhs.true103 ], [ 132, %if.end99 ], [ 126, %if.end60 ], [ 115, %if.then152 ], [ 524301, %if.end158 ], [ 103, %lor.lhs.false168 ], [ 103, %if.end165 ], [ 143, %if.end172 ], [ 103, %if.end44 ], [ 524304, %if.end182 ], [ 115, %if.then190 ], [ 115, %lor.lhs.false232 ], [ 115, %lor.lhs.false227 ], [ 115, %lor.lhs.false224 ], [ 115, %if.end221 ], [ 524304, %if.end243 ], [ 524301, %if.end255 ], [ 122, %lor.lhs.false264 ], [ 122, %if.end261 ], [ 122, %if.end268 ], [ 524301, %if.else278 ], [ 524304, %if.end285 ], [ 524291, %if.end289 ], [ 524304, %lor.lhs.false302 ], [ 524304, %lor.lhs.false298 ], [ 524304, %if.end294 ], [ 524304, %if.then310 ]
-  %ret.2143.ph = phi ptr [ null, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ null, %if.then64 ], [ null, %if.end67 ], [ null, %if.then94 ], [ null, %land.lhs.true107 ], [ null, %land.lhs.true103 ], [ null, %if.end99 ], [ null, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ null, %lor.lhs.false168 ], [ null, %if.end165 ], [ null, %if.end172 ], [ null, %if.end44 ], [ null, %if.end182 ], [ %ret.0, %if.then190 ], [ %ret.0, %lor.lhs.false232 ], [ %ret.0, %lor.lhs.false227 ], [ %ret.0, %lor.lhs.false224 ], [ %ret.0, %if.end221 ], [ %ret.0, %if.end243 ], [ %ret.0, %if.end255 ], [ %ret.0, %lor.lhs.false264 ], [ %ret.0, %if.end261 ], [ %ret.0, %if.end268 ], [ %ret.0, %if.else278 ], [ %ret.0, %if.end285 ], [ %ret.0, %if.end289 ], [ %ret.0, %lor.lhs.false302 ], [ %ret.0, %lor.lhs.false298 ], [ %ret.0, %if.end294 ], [ %ret.0, %if.then310 ]
+  %ret.0143.ph = phi ptr [ null, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ null, %if.then64 ], [ null, %if.end67 ], [ null, %if.then94 ], [ null, %land.lhs.true107 ], [ null, %land.lhs.true103 ], [ null, %if.end99 ], [ null, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ null, %lor.lhs.false168 ], [ null, %if.end165 ], [ null, %if.end172 ], [ null, %if.end44 ], [ null, %if.end182 ], [ %ret.1, %if.then190 ], [ %ret.1, %lor.lhs.false232 ], [ %ret.1, %lor.lhs.false227 ], [ %ret.1, %lor.lhs.false224 ], [ %ret.1, %if.end221 ], [ %ret.1, %if.end243 ], [ %ret.1, %if.end255 ], [ %ret.1, %lor.lhs.false264 ], [ %ret.1, %if.end261 ], [ %ret.1, %if.end268 ], [ %ret.1, %if.else278 ], [ %ret.1, %if.end285 ], [ %ret.1, %if.end289 ], [ %ret.1, %lor.lhs.false302 ], [ %ret.1, %lor.lhs.false298 ], [ %ret.1, %if.end294 ], [ %ret.1, %if.then310 ]
   %ctx.0142.ph = phi ptr [ null, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ null, %if.then64 ], [ null, %if.end67 ], [ null, %if.then94 ], [ null, %land.lhs.true107 ], [ null, %land.lhs.true103 ], [ null, %if.end99 ], [ null, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ null, %lor.lhs.false168 ], [ null, %if.end165 ], [ null, %if.end172 ], [ null, %if.end44 ], [ null, %if.end182 ], [ null, %if.then190 ], [ null, %lor.lhs.false232 ], [ null, %lor.lhs.false227 ], [ null, %lor.lhs.false224 ], [ null, %if.end221 ], [ null, %if.end243 ], [ null, %if.end255 ], [ null, %lor.lhs.false264 ], [ null, %if.end261 ], [ null, %if.end268 ], [ null, %if.else278 ], [ null, %if.end285 ], [ null, %if.end289 ], [ %call290, %lor.lhs.false302 ], [ %call290, %lor.lhs.false298 ], [ %call290, %if.end294 ], [ %call290, %if.then310 ]
   %point.0140.ph = phi ptr [ null, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ null, %if.then64 ], [ null, %if.end67 ], [ null, %if.then94 ], [ null, %land.lhs.true107 ], [ null, %land.lhs.true103 ], [ null, %if.end99 ], [ null, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ null, %lor.lhs.false168 ], [ null, %if.end165 ], [ null, %if.end172 ], [ null, %if.end44 ], [ null, %if.end182 ], [ null, %if.then190 ], [ null, %lor.lhs.false232 ], [ null, %lor.lhs.false227 ], [ null, %lor.lhs.false224 ], [ null, %if.end221 ], [ %call239, %if.end243 ], [ %call239, %if.end255 ], [ %call239, %lor.lhs.false264 ], [ %call239, %if.end261 ], [ %call239, %if.end268 ], [ %call239, %if.else278 ], [ %call239, %if.end285 ], [ %call239, %if.end289 ], [ %call239, %lor.lhs.false302 ], [ %call239, %lor.lhs.false298 ], [ %call239, %if.end294 ], [ %call239, %if.then310 ]
-  %b.1138.ph = phi ptr [ %call41, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ %call41, %if.then49 ], [ %call41, %if.end55 ], [ %call41, %if.then64 ], [ %call41, %if.end67 ], [ %call41, %if.then94 ], [ %call41, %land.lhs.true107 ], [ %call41, %land.lhs.true103 ], [ %call41, %if.end99 ], [ %call41, %if.end60 ], [ %call41, %if.then152 ], [ %call41, %if.end158 ], [ %call41, %lor.lhs.false168 ], [ %call41, %if.end165 ], [ %call41, %if.end172 ], [ %call41, %if.end44 ], [ %call41, %if.end182 ], [ %call41, %if.then190 ], [ %call41, %lor.lhs.false232 ], [ %call41, %lor.lhs.false227 ], [ %call41, %lor.lhs.false224 ], [ %call41, %if.end221 ], [ %call41, %if.end243 ], [ %call41, %if.end255 ], [ %call41, %lor.lhs.false264 ], [ %call41, %if.end261 ], [ %call41, %if.end268 ], [ %call41, %if.else278 ], [ %b.0, %if.end285 ], [ %b.0, %if.end289 ], [ %b.0, %lor.lhs.false302 ], [ %b.0, %lor.lhs.false298 ], [ %b.0, %if.end294 ], [ %b.0, %if.then310 ]
+  %b.0138.ph = phi ptr [ %call41, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ %call41, %if.then49 ], [ %call41, %if.end55 ], [ %call41, %if.then64 ], [ %call41, %if.end67 ], [ %call41, %if.then94 ], [ %call41, %land.lhs.true107 ], [ %call41, %land.lhs.true103 ], [ %call41, %if.end99 ], [ %call41, %if.end60 ], [ %call41, %if.then152 ], [ %call41, %if.end158 ], [ %call41, %lor.lhs.false168 ], [ %call41, %if.end165 ], [ %call41, %if.end172 ], [ %call41, %if.end44 ], [ %call41, %if.end182 ], [ %call41, %if.then190 ], [ %call41, %lor.lhs.false232 ], [ %call41, %lor.lhs.false227 ], [ %call41, %lor.lhs.false224 ], [ %call41, %if.end221 ], [ %call41, %if.end243 ], [ %call41, %if.end255 ], [ %call41, %lor.lhs.false264 ], [ %call41, %if.end261 ], [ %call41, %if.end268 ], [ %call41, %if.else278 ], [ %b.1, %if.end285 ], [ %b.1, %if.end289 ], [ %b.1, %lor.lhs.false302 ], [ %b.1, %lor.lhs.false298 ], [ %b.1, %if.end294 ], [ %b.1, %if.then310 ]
   %a.0136.ph = phi ptr [ %call, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ %call, %if.end34 ], [ %call, %if.then49 ], [ %call, %if.end55 ], [ %call, %if.then64 ], [ %call, %if.end67 ], [ %call, %if.then94 ], [ %call, %land.lhs.true107 ], [ %call, %land.lhs.true103 ], [ %call, %if.end99 ], [ %call, %if.end60 ], [ %call, %if.then152 ], [ %call, %if.end158 ], [ %call, %lor.lhs.false168 ], [ %call, %if.end165 ], [ %call, %if.end172 ], [ %call, %if.end44 ], [ %call, %if.end182 ], [ %call, %if.then190 ], [ %call, %lor.lhs.false232 ], [ %call, %lor.lhs.false227 ], [ %call, %lor.lhs.false224 ], [ %call, %if.end221 ], [ %call, %if.end243 ], [ %call, %if.end255 ], [ %call, %lor.lhs.false264 ], [ %call, %if.end261 ], [ %call, %if.end268 ], [ %call, %if.else278 ], [ %call, %if.end285 ], [ %call, %if.end289 ], [ %call, %lor.lhs.false302 ], [ %call, %lor.lhs.false298 ], [ %call, %if.end294 ], [ %call, %if.then310 ]
-  %p.1134.ph = phi ptr [ %call56, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ %call56, %if.then64 ], [ %call56, %if.end67 ], [ %call56, %if.then94 ], [ %call56, %land.lhs.true107 ], [ %call56, %land.lhs.true103 ], [ %call56, %if.end99 ], [ %call56, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ %call161, %lor.lhs.false168 ], [ %call161, %if.end165 ], [ %call161, %if.end172 ], [ null, %if.end44 ], [ %p.0, %if.end182 ], [ %p.0, %if.then190 ], [ %p.0, %lor.lhs.false232 ], [ %p.0, %lor.lhs.false227 ], [ %p.0, %lor.lhs.false224 ], [ %p.0, %if.end221 ], [ %p.0, %if.end243 ], [ %p.0, %if.end255 ], [ %p.0, %lor.lhs.false264 ], [ %p.0, %if.end261 ], [ %p.0, %if.end268 ], [ %p.0, %if.else278 ], [ %p.0, %if.end285 ], [ %p.0, %if.end289 ], [ %p.0, %lor.lhs.false302 ], [ %p.0, %lor.lhs.false298 ], [ %p.0, %if.end294 ], [ %p.0, %if.then310 ]
+  %p.0134.ph = phi ptr [ %call56, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ %call56, %if.then64 ], [ %call56, %if.end67 ], [ %call56, %if.then94 ], [ %call56, %land.lhs.true107 ], [ %call56, %land.lhs.true103 ], [ %call56, %if.end99 ], [ %call56, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ %call161, %lor.lhs.false168 ], [ %call161, %if.end165 ], [ %call161, %if.end172 ], [ null, %if.end44 ], [ %p.1, %if.end182 ], [ %p.1, %if.then190 ], [ %p.1, %lor.lhs.false232 ], [ %p.1, %lor.lhs.false227 ], [ %p.1, %lor.lhs.false224 ], [ %p.1, %if.end221 ], [ %p.1, %if.end243 ], [ %p.1, %if.end255 ], [ %p.1, %lor.lhs.false264 ], [ %p.1, %if.end261 ], [ %p.1, %if.end268 ], [ %p.1, %if.else278 ], [ %p.1, %if.end285 ], [ %p.1, %if.end289 ], [ %p.1, %lor.lhs.false302 ], [ %p.1, %lor.lhs.false298 ], [ %p.1, %if.end294 ], [ %p.1, %if.then310 ]
   %dup.0132.ph = phi ptr [ null, %if.else145 ], [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false16 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ null, %if.end26 ], [ null, %if.end34 ], [ null, %if.then49 ], [ null, %if.end55 ], [ null, %if.then64 ], [ null, %if.end67 ], [ null, %if.then94 ], [ null, %land.lhs.true107 ], [ null, %land.lhs.true103 ], [ null, %if.end99 ], [ null, %if.end60 ], [ null, %if.then152 ], [ null, %if.end158 ], [ null, %lor.lhs.false168 ], [ null, %if.end165 ], [ null, %if.end172 ], [ null, %if.end44 ], [ null, %if.end182 ], [ null, %if.then190 ], [ null, %lor.lhs.false232 ], [ null, %lor.lhs.false227 ], [ null, %lor.lhs.false224 ], [ null, %if.end221 ], [ null, %if.end243 ], [ null, %if.end255 ], [ null, %lor.lhs.false264 ], [ null, %if.end261 ], [ null, %if.end268 ], [ null, %if.else278 ], [ null, %if.end285 ], [ null, %if.end289 ], [ %call295, %lor.lhs.false302 ], [ %call295, %lor.lhs.false298 ], [ %call295, %if.end294 ], [ %call295, %if.then310 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink155, ptr noundef nonnull @__func__.EC_GROUP_new_from_ecparameters) #8
@@ -1205,28 +1205,28 @@ if.then329.sink.split:                            ; preds = %if.then310, %if.end
   br label %if.then329
 
 if.then329:                                       ; preds = %if.then329.sink.split, %if.end116, %if.end121, %if.end126, %if.end131, %if.end136, %if.end77, %if.end82, %if.end87, %if.end238, %if.end197, %err
-  %ret.2143 = phi ptr [ %call311, %err ], [ null, %if.end116 ], [ null, %if.end121 ], [ null, %if.end126 ], [ null, %if.end131 ], [ null, %if.end136 ], [ null, %if.end77 ], [ null, %if.end82 ], [ null, %if.end87 ], [ %ret.0, %if.end238 ], [ %ret.0, %if.end197 ], [ %ret.2143.ph, %if.then329.sink.split ]
+  %ret.0143 = phi ptr [ %call311, %err ], [ null, %if.end116 ], [ null, %if.end121 ], [ null, %if.end126 ], [ null, %if.end131 ], [ null, %if.end136 ], [ null, %if.end77 ], [ null, %if.end82 ], [ null, %if.end87 ], [ %ret.1, %if.end238 ], [ %ret.1, %if.end197 ], [ %ret.0143.ph, %if.then329.sink.split ]
   %ctx.0142 = phi ptr [ %call290, %err ], [ null, %if.end116 ], [ null, %if.end121 ], [ null, %if.end126 ], [ null, %if.end131 ], [ null, %if.end136 ], [ null, %if.end77 ], [ null, %if.end82 ], [ null, %if.end87 ], [ null, %if.end238 ], [ null, %if.end197 ], [ %ctx.0142.ph, %if.then329.sink.split ]
   %point.0140 = phi ptr [ %call239, %err ], [ null, %if.end116 ], [ null, %if.end121 ], [ null, %if.end126 ], [ null, %if.end131 ], [ null, %if.end136 ], [ null, %if.end77 ], [ null, %if.end82 ], [ null, %if.end87 ], [ null, %if.end238 ], [ null, %if.end197 ], [ %point.0140.ph, %if.then329.sink.split ]
-  %b.1138 = phi ptr [ %b.0, %err ], [ %call41, %if.end116 ], [ %call41, %if.end121 ], [ %call41, %if.end126 ], [ %call41, %if.end131 ], [ %call41, %if.end136 ], [ %call41, %if.end77 ], [ %call41, %if.end82 ], [ %call41, %if.end87 ], [ %call41, %if.end238 ], [ %call41, %if.end197 ], [ %b.1138.ph, %if.then329.sink.split ]
+  %b.0138 = phi ptr [ %b.1, %err ], [ %call41, %if.end116 ], [ %call41, %if.end121 ], [ %call41, %if.end126 ], [ %call41, %if.end131 ], [ %call41, %if.end136 ], [ %call41, %if.end77 ], [ %call41, %if.end82 ], [ %call41, %if.end87 ], [ %call41, %if.end238 ], [ %call41, %if.end197 ], [ %b.0138.ph, %if.then329.sink.split ]
   %a.0136 = phi ptr [ %call, %err ], [ %call, %if.end116 ], [ %call, %if.end121 ], [ %call, %if.end126 ], [ %call, %if.end131 ], [ %call, %if.end136 ], [ %call, %if.end77 ], [ %call, %if.end82 ], [ %call, %if.end87 ], [ %call, %if.end238 ], [ %call, %if.end197 ], [ %a.0136.ph, %if.then329.sink.split ]
-  %p.1134 = phi ptr [ %p.0, %err ], [ %call56, %if.end116 ], [ %call56, %if.end121 ], [ %call56, %if.end126 ], [ %call56, %if.end131 ], [ %call56, %if.end136 ], [ %call56, %if.end77 ], [ %call56, %if.end82 ], [ %call56, %if.end87 ], [ %p.0, %if.end238 ], [ %p.0, %if.end197 ], [ %p.1134.ph, %if.then329.sink.split ]
+  %p.0134 = phi ptr [ %p.1, %err ], [ %call56, %if.end116 ], [ %call56, %if.end121 ], [ %call56, %if.end126 ], [ %call56, %if.end131 ], [ %call56, %if.end136 ], [ %call56, %if.end77 ], [ %call56, %if.end82 ], [ %call56, %if.end87 ], [ %p.1, %if.end238 ], [ %p.1, %if.end197 ], [ %p.0134.ph, %if.then329.sink.split ]
   %dup.0132 = phi ptr [ %call295, %err ], [ null, %if.end116 ], [ null, %if.end121 ], [ null, %if.end126 ], [ null, %if.end131 ], [ null, %if.end136 ], [ null, %if.end77 ], [ null, %if.end82 ], [ null, %if.end87 ], [ null, %if.end238 ], [ null, %if.end197 ], [ %dup.0132.ph, %if.then329.sink.split ]
-  tail call void @EC_GROUP_free(ptr noundef %ret.2143) #8
+  tail call void @EC_GROUP_free(ptr noundef %ret.0143) #8
   br label %if.end330
 
 if.end330:                                        ; preds = %if.end306, %if.end315, %if.then329, %err
   %ctx.0141 = phi ptr [ %call290, %err ], [ %ctx.0142, %if.then329 ], [ %call290, %if.end315 ], [ %call290, %if.end306 ]
   %point.0139 = phi ptr [ %call239, %err ], [ %point.0140, %if.then329 ], [ %call239, %if.end315 ], [ %call239, %if.end306 ]
-  %b.1137 = phi ptr [ %b.0, %err ], [ %b.1138, %if.then329 ], [ %b.0, %if.end315 ], [ %b.0, %if.end306 ]
+  %b.0137 = phi ptr [ %b.1, %err ], [ %b.0138, %if.then329 ], [ %b.1, %if.end315 ], [ %b.1, %if.end306 ]
   %a.0135 = phi ptr [ %call, %err ], [ %a.0136, %if.then329 ], [ %call, %if.end315 ], [ %call, %if.end306 ]
-  %p.1133 = phi ptr [ %p.0, %err ], [ %p.1134, %if.then329 ], [ %p.0, %if.end315 ], [ %p.0, %if.end306 ]
+  %p.0133 = phi ptr [ %p.1, %err ], [ %p.0134, %if.then329 ], [ %p.1, %if.end315 ], [ %p.1, %if.end306 ]
   %dup.0131 = phi ptr [ %call295, %err ], [ %dup.0132, %if.then329 ], [ %call295, %if.end315 ], [ %call295, %if.end306 ]
-  %ret.3 = phi ptr [ %call311, %err ], [ null, %if.then329 ], [ %call311, %if.end315 ], [ %ret.0, %if.end306 ]
+  %ret.3 = phi ptr [ %call311, %err ], [ null, %if.then329 ], [ %call311, %if.end315 ], [ %ret.1, %if.end306 ]
   tail call void @EC_GROUP_free(ptr noundef %dup.0131) #8
-  tail call void @BN_free(ptr noundef %p.1133) #8
+  tail call void @BN_free(ptr noundef %p.0133) #8
   tail call void @BN_free(ptr noundef %a.0135) #8
-  tail call void @BN_free(ptr noundef %b.1137) #8
+  tail call void @BN_free(ptr noundef %b.0137) #8
   tail call void @EC_POINT_free(ptr noundef %point.0139) #8
   tail call void @BN_CTX_free(ptr noundef %ctx.0141) #8
   ret ptr %ret.3
@@ -1466,14 +1466,14 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp5, label %err.sink.split, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false, %if.then3
-  %ret.0 = phi ptr [ %call4, %if.then3 ], [ %1, %lor.lhs.false ]
+  %ret.1 = phi ptr [ %call4, %if.then3 ], [ %1, %lor.lhs.false ]
   %parameters = getelementptr inbounds i8, ptr %call1.i, i64 16
   %2 = load ptr, ptr %parameters, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end20, label %if.then9
 
 if.then9:                                         ; preds = %if.end8
-  %group = getelementptr inbounds i8, ptr %ret.0, i64 24
+  %group = getelementptr inbounds i8, ptr %ret.1, i64 24
   %3 = load ptr, ptr %group, align 8
   call void @EC_GROUP_free(ptr noundef %3) #8
   %4 = load ptr, ptr %parameters, align 8
@@ -1494,14 +1494,14 @@ if.then17:                                        ; preds = %land.lhs.true
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then9, %land.lhs.true, %if.then17, %if.end8
-  %group21 = getelementptr inbounds i8, ptr %ret.0, i64 24
+  %group21 = getelementptr inbounds i8, ptr %ret.1, i64 24
   %7 = load ptr, ptr %group21, align 8
   %cmp22 = icmp eq ptr %7, null
   br i1 %cmp22, label %err.sink.split, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
   %8 = load i32, ptr %call1.i, align 8
-  %version25 = getelementptr inbounds i8, ptr %ret.0, i64 16
+  %version25 = getelementptr inbounds i8, ptr %ret.1, i64 16
   store i32 %8, ptr %version25, align 8
   %privateKey = getelementptr inbounds i8, ptr %call1.i, i64 8
   %9 = load ptr, ptr %privateKey, align 8
@@ -1512,7 +1512,7 @@ if.then27:                                        ; preds = %if.end24
   %call29 = call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %9) #8
   %call30 = call i32 @ASN1_STRING_length(ptr noundef nonnull %9) #8
   %conv = sext i32 %call30 to i64
-  %call31 = call i32 @EC_KEY_oct2priv(ptr noundef nonnull %ret.0, ptr noundef %call29, i64 noundef %conv) #8
+  %call31 = call i32 @EC_KEY_oct2priv(ptr noundef nonnull %ret.1, ptr noundef %call29, i64 noundef %conv) #8
   %cmp32 = icmp eq i32 %call31, 0
   br i1 %cmp32, label %err, label %if.end37
 
@@ -1523,11 +1523,11 @@ if.end37:                                         ; preds = %if.then27
   br i1 %cmp40, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %if.end37
-  call void @EC_KEY_set_flags(ptr noundef nonnull %ret.0, i32 noundef 4) #8
+  call void @EC_KEY_set_flags(ptr noundef nonnull %ret.1, i32 noundef 4) #8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end37
-  %pub_key = getelementptr inbounds i8, ptr %ret.0, i64 32
+  %pub_key = getelementptr inbounds i8, ptr %ret.1, i64 32
   %11 = load ptr, ptr %pub_key, align 8
   call void @EC_POINT_clear_free(ptr noundef %11) #8
   %12 = load ptr, ptr %group21, align 8
@@ -1547,7 +1547,7 @@ if.then53:                                        ; preds = %if.end51
   %14 = load ptr, ptr %publicKey, align 8
   %call57 = call i32 @ASN1_STRING_length(ptr noundef %14) #8
   %conv58 = sext i32 %call57 to i64
-  %call59 = call i32 @EC_KEY_oct2key(ptr noundef nonnull %ret.0, ptr noundef %call55, i64 noundef %conv58, ptr noundef null) #8
+  %call59 = call i32 @EC_KEY_oct2key(ptr noundef nonnull %ret.1, ptr noundef %call55, i64 noundef %conv58, ptr noundef null) #8
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %err.sink.split, label %if.end76
 
@@ -1560,12 +1560,12 @@ if.else63:                                        ; preds = %if.end51
   br i1 %cmp65, label %err, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %if.else63
-  %call71 = call i32 %17(ptr noundef nonnull %ret.0) #8
+  %call71 = call i32 %17(ptr noundef nonnull %ret.1) #8
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %err, label %if.end75
 
 if.end75:                                         ; preds = %lor.lhs.false67
-  %enc_flag = getelementptr inbounds i8, ptr %ret.0, i64 48
+  %enc_flag = getelementptr inbounds i8, ptr %ret.1, i64 48
   %18 = load i32, ptr %enc_flag, align 8
   %or = or i32 %18, 2
   store i32 %or, ptr %enc_flag, align 8
@@ -1575,14 +1575,14 @@ if.end76:                                         ; preds = %if.then53, %if.end7
   br i1 %cmp1, label %if.end79, label %if.then78
 
 if.then78:                                        ; preds = %if.end76
-  store ptr %ret.0, ptr %a, align 8
+  store ptr %ret.1, ptr %a, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then78, %if.end76
   call void @ASN1_item_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @EC_PRIVATEKEY_it.local_it) #8
   %19 = load ptr, ptr %p, align 8
   store ptr %19, ptr %in, align 8
-  %dirty_cnt = getelementptr inbounds i8, ptr %ret.0, i64 96
+  %dirty_cnt = getelementptr inbounds i8, ptr %ret.1, i64 96
   %20 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %20, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -1591,23 +1591,23 @@ if.end79:                                         ; preds = %if.then78, %if.end7
 err.sink.split:                                   ; preds = %if.then53, %if.end43, %if.end24, %if.end20, %if.then3
   %.sink44 = phi i32 [ 944, %if.then3 ], [ 959, %if.end20 ], [ 971, %if.end24 ], [ 981, %if.end43 ], [ 992, %if.then53 ]
   %.sink = phi i32 [ 524304, %if.then3 ], [ 524304, %if.end20 ], [ 125, %if.end24 ], [ 524304, %if.end43 ], [ 524304, %if.then53 ]
-  %ret.1.ph = phi ptr [ null, %if.then3 ], [ %ret.0, %if.end20 ], [ %ret.0, %if.end24 ], [ %ret.0, %if.end43 ], [ %ret.0, %if.then53 ]
+  %ret.0.ph = phi ptr [ null, %if.then3 ], [ %ret.1, %if.end20 ], [ %ret.1, %if.end24 ], [ %ret.1, %if.end43 ], [ %ret.1, %if.then53 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink44, ptr noundef nonnull @__func__.d2i_ECPrivateKey) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.else63, %lor.lhs.false67, %if.then27
-  %ret.1 = phi ptr [ %ret.0, %if.then27 ], [ %ret.0, %if.else63 ], [ %ret.0, %lor.lhs.false67 ], [ %ret.1.ph, %err.sink.split ]
+  %ret.0 = phi ptr [ %ret.1, %if.then27 ], [ %ret.1, %if.else63 ], [ %ret.1, %lor.lhs.false67 ], [ %ret.0.ph, %err.sink.split ]
   br i1 %cmp1, label %if.then85, label %lor.lhs.false82
 
 lor.lhs.false82:                                  ; preds = %err
   %21 = load ptr, ptr %a, align 8
-  %cmp83.not = icmp eq ptr %21, %ret.1
+  %cmp83.not = icmp eq ptr %21, %ret.0
   br i1 %cmp83.not, label %if.end86, label %if.then85
 
 if.then85:                                        ; preds = %lor.lhs.false82, %err
-  call void @EC_KEY_free(ptr noundef %ret.1) #8
+  call void @EC_KEY_free(ptr noundef %ret.0) #8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then85, %lor.lhs.false82
@@ -1615,7 +1615,7 @@ if.end86:                                         ; preds = %if.then85, %lor.lhs
   br label %return
 
 return:                                           ; preds = %entry, %if.end86, %if.end79
-  %retval.0 = phi ptr [ null, %if.end86 ], [ %ret.0, %if.end79 ], [ null, %entry ]
+  %retval.0 = phi ptr [ null, %if.end86 ], [ %ret.1, %if.end79 ], [ null, %entry ]
   ret ptr %retval.0
 }
 

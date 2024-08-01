@@ -171,18 +171,18 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph.i:                                         ; preds = %.preheader104.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %45, %.preheader104.i ]
-  %.1107.i = phi i64 [ %102, %.lr.ph.i ], [ %92, %.preheader104.i ]
+  %.2107.i = phi i64 [ %102, %.lr.ph.i ], [ %92, %.preheader104.i ]
   %99 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
-  %102 = mul nsw i64 %.1107.i, %101
+  %102 = mul nsw i64 %.2107.i, %101
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %103 = icmp sgt i64 %indvars.iv.next.i, %indvars.iv160
   br i1 %103, label %.lr.ph.i, label %.loopexit103.i, !llvm.loop !7
 
 .loopexit103.i:                                   ; preds = %.lr.ph.i, %.lr.ph111.i, %.preheader102.i, %.preheader104.i
-  %.2.i = phi i64 [ %92, %.preheader102.i ], [ %92, %.preheader104.i ], [ %98, %.lr.ph111.i ], [ %102, %.lr.ph.i ]
-  %104 = call i32 @ompi_datatype_create_hvector(i32 noundef %89, i32 noundef %..i, i64 noundef %.2.i, ptr noundef %74, ptr noundef %9) #6
+  %.1.i = phi i64 [ %92, %.preheader102.i ], [ %92, %.preheader104.i ], [ %98, %.lr.ph111.i ], [ %102, %.lr.ph.i ]
+  %104 = call i32 @ompi_datatype_create_hvector(i32 noundef %89, i32 noundef %..i, i64 noundef %.1.i, ptr noundef %74, ptr noundef %9) #6
   %.not94.i = icmp eq i32 %104, 0
   br i1 %.not94.i, label %105, label %cyclic.exit
 
@@ -196,7 +196,7 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
   store ptr %74, ptr %46, align 8
   store i64 0, ptr %12, align 16
   %108 = sext i32 %89 to i64
-  %109 = mul nsw i64 %.2.i, %108
+  %109 = mul nsw i64 %.1.i, %108
   store i64 %109, ptr %47, align 8
   store i32 1, ptr %11, align 4
   store i32 %90, ptr %48, align 4
@@ -297,9 +297,9 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
   br label %142
 
 142:                                              ; preds = %137, %cyclic.exit, %56
-  %.0107 = phi i32 [ %141, %137 ], [ %.081.i, %cyclic.exit ], [ %66, %56 ]
+  %.1 = phi i32 [ %141, %137 ], [ %.081.i, %cyclic.exit ], [ %66, %56 ]
   %143 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %15) #6
-  %.not124 = icmp eq i32 %.0107, 0
+  %.not124 = icmp eq i32 %.1, 0
   br i1 %.not124, label %144, label %.loopexit
 
 144:                                              ; preds = %142
@@ -366,13 +366,13 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %142, %.thread, %171, %173, %37
-  %.1 = phi i32 [ %40, %37 ], [ %169, %171 ], [ 0, %173 ], [ 13, %.thread ], [ %.0107, %142 ]
+  %.0107 = phi i32 [ %40, %37 ], [ %169, %171 ], [ 0, %173 ], [ 13, %.thread ], [ %.1, %142 ]
   call void @free(ptr noundef %39) #6
   call void @free(ptr noundef %25) #6
   br label %176
 
 176:                                              ; preds = %.loopexit, %17
-  %.0115 = phi i32 [ %18, %17 ], [ %.1, %.loopexit ]
+  %.0115 = phi i32 [ %18, %17 ], [ %.0107, %.loopexit ]
   ret i32 %.0115
 }
 
@@ -472,19 +472,19 @@ define internal fastcc i32 @block(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv94 = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next95, %.lr.ph ]
-  %.sroa.2.184 = phi i64 [ %7, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.sroa.2.284 = phi i64 [ %7, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, -1
   %45 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next95
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
-  %48 = mul nsw i64 %.sroa.2.184, %47
+  %48 = mul nsw i64 %.sroa.2.284, %47
   %.not74.not = icmp sgt i64 %indvars.iv.next95, %12
   br i1 %.not74.not, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph88, %.preheader77, %.preheader
-  %.sroa.2.2 = phi i64 [ %7, %.preheader ], [ %7, %.preheader77 ], [ %44, %.lr.ph88 ], [ %48, %.lr.ph ]
+  %.sroa.2.1 = phi i64 [ %7, %.preheader ], [ %7, %.preheader77 ], [ %44, %.lr.ph88 ], [ %48, %.lr.ph ]
   %49 = load ptr, ptr %9, align 8
-  %50 = tail call i32 @opal_datatype_resize(ptr noundef %49, i64 noundef 0, i64 noundef %.sroa.2.2) #6
+  %50 = tail call i32 @opal_datatype_resize(ptr noundef %49, i64 noundef 0, i64 noundef %.sroa.2.1) #6
   br label %51
 
 51:                                               ; preds = %.loopexit, %35, %28

@@ -2726,33 +2726,33 @@ _ZN8AstScope4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ;
   br i1 %.0, label %85, label %87
 
 85:                                               ; preds = %.thread82, %83
-  %.23291 = phi i1 [ false, %.thread82 ], [ %.030, %83 ]
-  %.23690 = phi i1 [ false, %.thread82 ], [ %.034, %83 ]
+  %.591 = phi i1 [ false, %.thread82 ], [ %.030, %83 ]
+  %.690 = phi i1 [ false, %.thread82 ], [ %.034, %83 ]
   %.pn89 = phi { ptr, i32 } [ %82, %.thread82 ], [ %84, %83 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   br label %86
 
 86:                                               ; preds = %80, %85
   %.pn.pn.ph = phi { ptr, i32 } [ %81, %80 ], [ %.pn89, %85 ]
-  %.337.ph = phi i1 [ false, %80 ], [ %.23690, %85 ]
-  %.333.ph = phi i1 [ false, %80 ], [ %.23291, %85 ]
+  %.539.ph = phi i1 [ false, %80 ], [ %.690, %85 ]
+  %.4.ph = phi i1 [ false, %80 ], [ %.591, %85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
-  br i1 %.333.ph, label %88, label %89
+  br i1 %.4.ph, label %88, label %89
 
 87:                                               ; preds = %83
   br i1 %.030, label %88, label %89
 
 88:                                               ; preds = %86, %87
-  %.539117 = phi i1 [ %.337.ph, %86 ], [ %.034, %87 ]
+  %.337117 = phi i1 [ %.539.ph, %86 ], [ %.034, %87 ]
   %.pn.pn.pn.pn116 = phi { ptr, i32 } [ %.pn.pn.ph, %86 ], [ %84, %87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  br i1 %.539117, label %90, label %.body
+  br i1 %.337117, label %90, label %.body
 
 89:                                               ; preds = %86, %87
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %84, %87 ], [ %.pn.pn.ph, %86 ]
-  %.6 = phi i1 [ %.034, %87 ], [ %.337.ph, %86 ]
-  br i1 %.6, label %90, label %.body
+  %.236 = phi i1 [ %.034, %87 ], [ %.539.ph, %86 ]
+  br i1 %.236, label %90, label %.body
 
 90:                                               ; preds = %88, %89
   %.pn.pn.pn.pn.pn123 = phi { ptr, i32 } [ %.pn.pn.pn.pn116, %88 ], [ %.pn.pn.pn.pn.pn, %89 ]

@@ -1319,7 +1319,7 @@ is_publishable_class.exit.thread:                 ; preds = %.lr.ph.split, %35, 
 
 .lr.ph37:                                         ; preds = %53, %is_publishable_class.exit31.thread
   %56 = phi ptr [ %78, %is_publishable_class.exit31.thread ], [ %55, %53 ]
-  %.235 = phi ptr [ %.3, %is_publishable_class.exit31.thread ], [ %.0.lcssa, %53 ]
+  %.335 = phi ptr [ %.4, %is_publishable_class.exit31.thread ], [ %.0.lcssa, %53 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 22
@@ -1353,17 +1353,17 @@ is_publishable_class.exit31:                      ; preds = %66
   br i1 %75, label %is_publishable_class.exit31.thread, label %76
 
 76:                                               ; preds = %72
-  %77 = call ptr @lappend_oid(ptr noundef %.235, i32 noundef %63) #6
+  %77 = call ptr @lappend_oid(ptr noundef %.335, i32 noundef %63) #6
   br label %is_publishable_class.exit31.thread
 
 is_publishable_class.exit31.thread:               ; preds = %.lr.ph37, %66, %76, %72, %is_publishable_class.exit31
-  %.3 = phi ptr [ %.235, %72 ], [ %77, %76 ], [ %.235, %is_publishable_class.exit31 ], [ %.235, %66 ], [ %.235, %.lr.ph37 ]
+  %.4 = phi ptr [ %.335, %72 ], [ %77, %76 ], [ %.335, %is_publishable_class.exit31 ], [ %.335, %66 ], [ %.335, %.lr.ph37 ]
   %78 = call ptr @heap_getnext(ptr noundef %54, i32 noundef 1) #6
   %.not27 = icmp eq ptr %78, null
   br i1 %.not27, label %._crit_edge38, label %.lr.ph37, !llvm.loop !15
 
 ._crit_edge38:                                    ; preds = %is_publishable_class.exit31.thread, %53
-  %.2.lcssa = phi ptr [ %.0.lcssa, %53 ], [ %.3, %is_publishable_class.exit31.thread ]
+  %.3.lcssa = phi ptr [ %.0.lcssa, %53 ], [ %.4, %is_publishable_class.exit31.thread ]
   %79 = load ptr, ptr %54, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 312
   %81 = load ptr, ptr %80, align 8
@@ -1373,9 +1373,9 @@ is_publishable_class.exit31.thread:               ; preds = %.lr.ph37, %66, %76,
   br label %84
 
 84:                                               ; preds = %._crit_edge38, %._crit_edge
-  %.4 = phi ptr [ %.2.lcssa, %._crit_edge38 ], [ %.0.lcssa, %._crit_edge ]
+  %.2 = phi ptr [ %.3.lcssa, %._crit_edge38 ], [ %.0.lcssa, %._crit_edge ]
   call void @table_close(ptr noundef %3, i32 noundef 1) #6
-  ret ptr %.4
+  ret ptr %.2
 }
 
 declare ptr @table_beginscan_catalog(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

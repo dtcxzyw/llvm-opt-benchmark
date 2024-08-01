@@ -612,8 +612,8 @@ _ZN2cv3PtrINS_22HistogramCostExtractorEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_31Th
 
 247:                                              ; preds = %.preheader, %348
   %.053167 = phi i32 [ 1, %.preheader ], [ %349, %348 ]
-  %.054166 = phi float [ 0x47EFFFFFE0000000, %.preheader ], [ %.256, %348 ]
-  %.057165 = phi i32 [ 0, %.preheader ], [ %.259, %348 ]
+  %.054166 = phi float [ 0x47EFFFFFE0000000, %.preheader ], [ %.155, %348 ]
+  %.057165 = phi i32 [ 0, %.preheader ], [ %.158, %348 ]
   %248 = icmp eq i32 %.053167, %83
   br i1 %248, label %348, label %274
 
@@ -798,8 +798,8 @@ _ZN2cv3PtrINS_22HistogramCostExtractorEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_31Th
 
 304:                                              ; preds = %298
   %305 = fcmp olt float %303, %.054166
-  %.158 = select i1 %305, i32 %.053167, i32 %.057165
-  %.155 = select i1 %305, float %303, float %.054166
+  %.259 = select i1 %305, i32 %.053167, i32 %.057165
+  %.256 = select i1 %305, float %303, float %.054166
   %306 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.8)
           to label %331 unwind label %327
 
@@ -932,8 +932,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %345, %347
   br label %348
 
 348:                                              ; preds = %247, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
-  %.259 = phi i32 [ %.057165, %247 ], [ %.158, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
-  %.256 = phi float [ %.054166, %247 ], [ %.155, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
+  %.158 = phi i32 [ %.057165, %247 ], [ %.259, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
+  %.155 = phi float [ %.054166, %247 ], [ %.256, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit ]
   %349 = add nuw nsw i32 %.053167, 1
   %exitcond.not = icmp eq i32 %349, 21
   br i1 %exitcond.not, label %359, label %247, !llvm.loop !5
@@ -996,7 +996,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit125: ; preds = %357, %355, %315, %3
           to label %365 unwind label %430
 
 365:                                              ; preds = %362
-  %366 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %364, i32 noundef %.259)
+  %366 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %364, i32 noundef %.158)
           to label %367 unwind label %430
 
 367:                                              ; preds = %365

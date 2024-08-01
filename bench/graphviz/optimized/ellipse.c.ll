@@ -256,10 +256,10 @@ gv_alloc.exit.preheader.i:                        ; preds = %gv_alloc.exit.prehe
   br i1 %185, label %.lr.ph.i, label %gv_alloc.exit.i
 
 gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %gv_alloc.exit.preheader.i
-  %.2.i = phi i1 [ false, %gv_alloc.exit.preheader.i ], [ %182, %.lr.ph.i ]
+  %.1117.i = phi i1 [ false, %gv_alloc.exit.preheader.i ], [ %182, %.lr.ph.i ]
   %186 = shl i32 %.0114131.i, 1
   %187 = icmp sgt i32 %186, 1023
-  %.not123.i = or i1 %187, %.2.i
+  %.not123.i = or i1 %187, %.1117.i
   br i1 %.not123.i, label %188, label %gv_alloc.exit.preheader.i
 
 188:                                              ; preds = %gv_alloc.exit.i

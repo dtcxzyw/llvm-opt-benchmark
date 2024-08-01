@@ -3366,10 +3366,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 31:                                               ; preds = %39, %32, %25
   %storemerge39 = phi i64 [ %., %25 ], [ 1, %39 ], [ 2, %32 ]
   %storemerge38 = phi i64 [ %.sroa.48.0.copyload, %25 ], [ %41, %39 ], [ undef, %32 ]
-  %.sroa.4.0 = phi ptr [ %21, %25 ], [ %35, %39 ], [ %35, %32 ]
+  %.sroa.4.1 = phi ptr [ %21, %25 ], [ %35, %39 ], [ %35, %32 ]
   store i64 %storemerge39, ptr %0, align 8
   store i64 %storemerge38, ptr %22, align 8
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %21, i64 72
+  %.sroa.0.1 = getelementptr inbounds i8, ptr %21, i64 72
   br label %42
 
 32:                                               ; preds = %27
@@ -3391,10 +3391,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br label %31
 
 42:                                               ; preds = %4, %31
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %31 ], [ undef, %4 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %31 ], [ null, %4 ]
-  %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %31 ], [ undef, %4 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %31 ], [ null, %4 ]
+  %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %44
 }
 

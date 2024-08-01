@@ -605,7 +605,7 @@ define void @_Z16gmx_calc_com_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr noundef %
 18:                                               ; preds = %.lr.ph, %61
   %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %61 ]
   %.05378 = phi float [ 0.000000e+00, %.lr.ph ], [ %62, %61 ]
-  %.06976 = phi i32 [ 0, %.lr.ph ], [ %.170, %61 ]
+  %.06976 = phi i32 [ 0, %.lr.ph ], [ %.271, %61 ]
   %19 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv93
   %20 = load i32, ptr %19, align 4
   %21 = load ptr, ptr %15, align 8
@@ -619,10 +619,10 @@ define void @_Z16gmx_calc_com_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr noundef %
   br label %29
 
 29:                                               ; preds = %38, %18
-  %.170 = phi i32 [ %.06976, %18 ], [ %41, %38 ]
+  %.271 = phi i32 [ %.06976, %18 ], [ %41, %38 ]
   %.026.i.i.i = phi i32 [ %27, %18 ], [ %.127.i.i.i, %38 ]
   %.0.i.i.i = phi i32 [ -1, %18 ], [ %.1.i.i.i, %38 ]
-  %30 = sext i32 %.170 to i64
+  %30 = sext i32 %.271 to i64
   %31 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %28, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -637,8 +637,8 @@ define void @_Z16gmx_calc_com_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr noundef %
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %38
 
 38:                                               ; preds = %35, %29
-  %.127.i.i.i = phi i32 [ %.170, %29 ], [ %.026.i.i.i, %35 ]
-  %.1.i.i.i = phi i32 [ %.0.i.i.i, %29 ], [ %.170, %35 ]
+  %.127.i.i.i = phi i32 [ %.271, %29 ], [ %.026.i.i.i, %35 ]
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %29 ], [ %.271, %35 ]
   %39 = add i32 %.127.i.i.i, 1
   %40 = add i32 %39, %.1.i.i.i
   %41 = ashr i32 %40, 1
@@ -713,7 +713,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %35
 .lr.ph85.us:                                      ; preds = %117, %.lr.ph85.us.preheader
   %indvars.iv100 = phi i64 [ %indvars.iv.next101.mux, %117 ], [ 0, %.lr.ph85.us.preheader ]
   %.05682.us = phi i1 [ %.2.us.mux, %117 ], [ false, %.lr.ph85.us.preheader ]
-  %.27181.us = phi i32 [ %.3.us.mux, %117 ], [ 0, %.lr.ph85.us.preheader ]
+  %.17081.us = phi i32 [ %.3.us.mux, %117 ], [ 0, %.lr.ph85.us.preheader ]
   %77 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv100
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %72, align 8
@@ -727,7 +727,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %35
   br label %87
 
 87:                                               ; preds = %131, %.lr.ph85.us
-  %.3.us = phi i32 [ %.27181.us, %.lr.ph85.us ], [ %134, %131 ]
+  %.3.us = phi i32 [ %.17081.us, %.lr.ph85.us ], [ %134, %131 ]
   %.026.i.i.i61.us = phi i32 [ %85, %.lr.ph85.us ], [ %.127.i.i.i65.us, %131 ]
   %.0.i.i.i62.us = phi i32 [ -1, %.lr.ph85.us ], [ %.1.i.i.i66.us, %131 ]
   %88 = sext i32 %.3.us to i64

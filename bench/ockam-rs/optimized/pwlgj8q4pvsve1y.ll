@@ -7172,14 +7172,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %.body.i.i222
 
 2506:                                             ; preds = %2502, %2499, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i", %.thread267.i.i.i
-  %.sroa.0193.0.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx83.i, %2502 ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx83.i, %2499 ], [ %.sroa.0.i.i, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i" ], [ %.sroa.0.i.i, %.thread267.i.i.i ]
-  %.sroa.0193.0.i.i.i = phi i64 [ 1, %2502 ], [ 1, %2499 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i" ], [ 0, %.thread267.i.i.i ]
-  %.sroa.4194.0.i.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i.i227, %2502 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i.i227, %2499 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i" ], [ %.sroa.0198.0.copyload.i.i.i, %.thread267.i.i.i ]
+  %.sroa.0193.1.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx83.i, %2502 ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep.sroa_idx83.i, %2499 ], [ %.sroa.0.i.i, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i" ], [ %.sroa.0.i.i, %.thread267.i.i.i ]
+  %.sroa.0193.1.i.i.i = phi i64 [ 1, %2502 ], [ 1, %2499 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i" ], [ 0, %.thread267.i.i.i ]
+  %.sroa.4194.1.i.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i.i227, %2502 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i.i227, %2499 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread.i.i.i" ], [ %.sroa.0198.0.copyload.i.i.i, %.thread267.i.i.i ]
   %2507 = getelementptr inbounds i8, ptr %1, i64 536
   store i8 0, ptr %2507, align 8, !noalias !603
-  store i64 %.sroa.0193.0.i.i.i, ptr %71, align 8, !alias.scope !600, !noalias !803
+  store i64 %.sroa.0193.1.i.i.i, ptr %71, align 8, !alias.scope !600, !noalias !803
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr %.sroa.4194.0.i.i.i, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !alias.scope !600, !noalias !803
+  store ptr %.sroa.4194.1.i.i.i, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8, !alias.scope !600, !noalias !803
   %.sroa.7195.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %71, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7195.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7195.i.i.i, i64 224, i1 false), !noalias !803
   store i8 1, ptr %1978, align 1, !noalias !603
@@ -7187,7 +7187,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.3.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   store <2 x i64> <i64 240, i64 16>, ptr %.sroa.0.i.i, align 16, !noalias !591
-  %2508 = load i64, ptr %.sroa.0193.0.i.sroa.phi.i.i, align 8, !noalias !591, !noundef !4
+  %2508 = load i64, ptr %.sroa.0193.1.i.sroa.phi.i.i, align 8, !noalias !591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %71, i64 %2508, i1 false), !noalias !591
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %71)
@@ -8118,7 +8118,7 @@ default.unreachable46:                            ; preds = %207, %41, %3
   br label %187
 
 187:                                              ; preds = %262, %186
-  %.sroa.5198.0.i = phi ptr [ %.sroa.0166.0221226.i, %262 ], [ %181, %186 ]
+  %.sroa.5198.0.i = phi ptr [ %.sroa.0166.0221225.i, %262 ], [ %181, %186 ]
   %188 = getelementptr inbounds i8, ptr %1, i64 432
   call void @llvm.experimental.noalias.scope.decl(metadata !932)
   call void @llvm.experimental.noalias.scope.decl(metadata !935)
@@ -8389,7 +8389,7 @@ default.unreachable46:                            ; preds = %207, %41, %3
   br label %.body127.i
 
 262:                                              ; preds = %236, %232
-  %.sroa.0166.0221226.i = phi ptr [ %.sroa.0206.0.copyload.i, %236 ], [ %229, %232 ]
+  %.sroa.0166.0221225.i = phi ptr [ %.sroa.0206.0.copyload.i, %236 ], [ %229, %232 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !866
   br label %187
 

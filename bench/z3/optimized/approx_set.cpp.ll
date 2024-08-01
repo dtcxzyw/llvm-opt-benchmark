@@ -30,7 +30,7 @@ entry:
 for.body:                                         ; preds = %entry, %if.end6
   %i.09 = phi i32 [ 0, %entry ], [ %inc, %if.end6 ]
   %s.08 = phi i64 [ %0, %entry ], [ %shr, %if.end6 ]
-  %first.07 = phi i1 [ true, %entry ], [ %first.2, %if.end6 ]
+  %first.07 = phi i1 [ true, %entry ], [ %first.1, %if.end6 ]
   %and = and i64 %s.08, 1
   %cmp2.not = icmp eq i64 %and, 0
   br i1 %cmp2.not, label %if.end6, label %if.then
@@ -47,7 +47,7 @@ if.end:                                           ; preds = %if.then, %if.else
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %for.body
-  %first.2 = phi i1 [ false, %if.end ], [ %first.07, %for.body ]
+  %first.1 = phi i1 [ false, %if.end ], [ %first.07, %for.body ]
   %shr = lshr i64 %s.08, 1
   %inc = add nuw nsw i32 %i.09, 1
   %exitcond.not = icmp eq i32 %inc, 64

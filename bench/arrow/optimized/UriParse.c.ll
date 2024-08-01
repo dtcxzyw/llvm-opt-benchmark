@@ -1237,9 +1237,9 @@ if.then179:                                       ; preds = %sw.epilog
 do.body:                                          ; preds = %if.end, %sw.epilog429
   %first.addr.2 = phi ptr [ %incdec.ptr430, %sw.epilog429 ], [ %first.addr.0471, %if.end ]
   %zipperEver.1 = phi i32 [ %zipperEver.2, %sw.epilog429 ], [ %zipperEver.0472, %if.end ]
-  %quadsDone.1 = phi i32 [ %quadsDone.3, %sw.epilog429 ], [ %quadsDone.0473, %if.end ]
-  %digitCount.3 = phi i32 [ %digitCount.5, %sw.epilog429 ], [ 0, %if.end ]
-  %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.5, %sw.epilog429 ], [ %quadsAfterZipperCount.0476, %if.end ]
+  %quadsDone.1 = phi i32 [ %quadsDone.2, %sw.epilog429 ], [ %quadsDone.0473, %if.end ]
+  %digitCount.3 = phi i32 [ %digitCount.4, %sw.epilog429 ], [ 0, %if.end ]
+  %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.2, %sw.epilog429 ], [ %quadsAfterZipperCount.0476, %if.end ]
   %letterAmong.0 = phi i32 [ %letterAmong.1, %sw.epilog429 ], [ 0, %if.end ]
   %30 = load i8, ptr %first.addr.2, align 1
   switch i8 %30, label %sw.default428 [
@@ -1336,16 +1336,16 @@ if.else230:                                       ; preds = %if.then222
   br label %if.end240
 
 if.end240:                                        ; preds = %if.else230, %if.then223
-  %quadsAfterZipperCount.2 = phi i32 [ %inc229, %if.then223 ], [ %quadsAfterZipperCount.1, %if.else230 ]
+  %quadsAfterZipperCount.4 = phi i32 [ %inc229, %if.then223 ], [ %quadsAfterZipperCount.1, %if.else230 ]
   %inc241 = add nsw i32 %quadsDone.1, 1
   br label %if.end242
 
 if.end242:                                        ; preds = %if.end240, %sw.bb219
-  %quadsDone.2 = phi i32 [ %inc241, %if.end240 ], [ %quadsDone.1, %sw.bb219 ]
-  %digitCount.4 = phi i32 [ 0, %if.end240 ], [ %digitCount.3, %sw.bb219 ]
-  %quadsAfterZipperCount.3 = phi i32 [ %quadsAfterZipperCount.2, %if.end240 ], [ %quadsAfterZipperCount.1, %sw.bb219 ]
+  %quadsDone.3 = phi i32 [ %inc241, %if.end240 ], [ %quadsDone.1, %sw.bb219 ]
+  %digitCount.5 = phi i32 [ 0, %if.end240 ], [ %digitCount.3, %sw.bb219 ]
+  %quadsAfterZipperCount.3 = phi i32 [ %quadsAfterZipperCount.4, %if.end240 ], [ %quadsAfterZipperCount.1, %sw.bb219 ]
   %sub243 = sub nuw nsw i32 8, %zipperEver.1
-  %cmp244.not = icmp slt i32 %quadsDone.2, %sub243
+  %cmp244.not = icmp slt i32 %quadsDone.3, %sub243
   br i1 %cmp244.not, label %if.end247, label %if.then246
 
 if.then246:                                       ; preds = %if.end242
@@ -1390,7 +1390,7 @@ if.then264:                                       ; preds = %if.then257
   br label %return
 
 if.end265:                                        ; preds = %if.then257
-  %mul261 = shl nsw i32 %quadsDone.2, 1
+  %mul261 = shl nsw i32 %quadsDone.3, 1
   %40 = load ptr, ptr %state, align 8
   %ip6268 = getelementptr inbounds i8, ptr %40, i64 56
   %41 = load ptr, ptr %ip6268, align 8
@@ -1575,12 +1575,12 @@ if.else399:                                       ; preds = %land.lhs.true380
   br label %if.end410
 
 if.end410:                                        ; preds = %if.then392, %if.else399, %if.end387
-  %quadsAfterZipperCount.4 = phi i32 [ %inc398, %if.then392 ], [ %quadsAfterZipperCount.1, %if.else399 ], [ %quadsAfterZipperCount.1, %if.end387 ]
+  %quadsAfterZipperCount.5 = phi i32 [ %inc398, %if.then392 ], [ %quadsAfterZipperCount.1, %if.else399 ], [ %quadsAfterZipperCount.1, %if.end387 ]
   %56 = load ptr, ptr %state, align 8
   %ip6413 = getelementptr inbounds i8, ptr %56, i64 56
   %57 = load ptr, ptr %ip6413, align 8
   %add.ptr416 = getelementptr inbounds i8, ptr %57, i64 16
-  %mul417 = shl nsw i32 %quadsAfterZipperCount.4, 1
+  %mul417 = shl nsw i32 %quadsAfterZipperCount.5, 1
   %idx.ext418 = sext i32 %mul417 to i64
   %idx.neg419 = sub nsw i64 0, %idx.ext418
   %add.ptr420 = getelementptr inbounds i8, ptr %add.ptr416, i64 %idx.neg419
@@ -1611,13 +1611,13 @@ sw.epilog429.sink.split:                          ; preds = %sw.bb207, %sw.bb195
   br label %sw.epilog429
 
 sw.epilog429:                                     ; preds = %sw.epilog429.sink.split, %if.end252, %if.end279
-  %first.addr.4 = phi ptr [ %add.ptr248, %if.end279 ], [ %first.addr.2, %if.end252 ], [ %first.addr.2, %sw.epilog429.sink.split ]
+  %first.addr.3 = phi ptr [ %add.ptr248, %if.end279 ], [ %first.addr.2, %if.end252 ], [ %first.addr.2, %sw.epilog429.sink.split ]
   %zipperEver.2 = phi i32 [ 1, %if.end279 ], [ %zipperEver.1, %if.end252 ], [ %zipperEver.1, %sw.epilog429.sink.split ]
-  %quadsDone.3 = phi i32 [ %quadsDone.2, %if.end279 ], [ %quadsDone.2, %if.end252 ], [ %quadsDone.1, %sw.epilog429.sink.split ]
-  %digitCount.5 = phi i32 [ %digitCount.4, %if.end279 ], [ %digitCount.4, %if.end252 ], [ %inc218, %sw.epilog429.sink.split ]
-  %quadsAfterZipperCount.5 = phi i32 [ %quadsAfterZipperCount.3, %if.end279 ], [ %quadsAfterZipperCount.3, %if.end252 ], [ %quadsAfterZipperCount.1, %sw.epilog429.sink.split ]
+  %quadsDone.2 = phi i32 [ %quadsDone.3, %if.end279 ], [ %quadsDone.3, %if.end252 ], [ %quadsDone.1, %sw.epilog429.sink.split ]
+  %digitCount.4 = phi i32 [ %digitCount.5, %if.end279 ], [ %digitCount.5, %if.end252 ], [ %inc218, %sw.epilog429.sink.split ]
+  %quadsAfterZipperCount.2 = phi i32 [ %quadsAfterZipperCount.3, %if.end279 ], [ %quadsAfterZipperCount.3, %if.end252 ], [ %quadsAfterZipperCount.1, %sw.epilog429.sink.split ]
   %letterAmong.1 = phi i32 [ 0, %if.end279 ], [ 0, %if.end252 ], [ %letterAmong.1.ph, %sw.epilog429.sink.split ]
-  %incdec.ptr430 = getelementptr inbounds i8, ptr %first.addr.4, i64 1
+  %incdec.ptr430 = getelementptr inbounds i8, ptr %first.addr.3, i64 1
   %cmp431.not = icmp ult ptr %incdec.ptr430, %afterLast
   br i1 %cmp431.not, label %do.body, label %if.then433, !llvm.loop !6
 
@@ -2872,9 +2872,9 @@ if.then176:                                       ; preds = %sw.epilog
 do.body:                                          ; preds = %if.end, %sw.epilog420
   %first.addr.2 = phi ptr [ %incdec.ptr421, %sw.epilog420 ], [ %first.addr.0471, %if.end ]
   %zipperEver.1 = phi i32 [ %zipperEver.2, %sw.epilog420 ], [ %zipperEver.0472, %if.end ]
-  %quadsDone.1 = phi i32 [ %quadsDone.3, %sw.epilog420 ], [ %quadsDone.0473, %if.end ]
-  %digitCount.3 = phi i32 [ %digitCount.5, %sw.epilog420 ], [ 0, %if.end ]
-  %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.5, %sw.epilog420 ], [ %quadsAfterZipperCount.0476, %if.end ]
+  %quadsDone.1 = phi i32 [ %quadsDone.2, %sw.epilog420 ], [ %quadsDone.0473, %if.end ]
+  %digitCount.3 = phi i32 [ %digitCount.4, %sw.epilog420 ], [ 0, %if.end ]
+  %quadsAfterZipperCount.1 = phi i32 [ %quadsAfterZipperCount.2, %sw.epilog420 ], [ %quadsAfterZipperCount.0476, %if.end ]
   %letterAmong.0 = phi i32 [ %letterAmong.1, %sw.epilog420 ], [ 0, %if.end ]
   %31 = load i32, ptr %first.addr.2, align 4
   switch i32 %31, label %sw.default419 [
@@ -2971,16 +2971,16 @@ if.else223:                                       ; preds = %if.then215
   br label %if.end233
 
 if.end233:                                        ; preds = %if.else223, %if.then216
-  %quadsAfterZipperCount.2 = phi i32 [ %inc222, %if.then216 ], [ %quadsAfterZipperCount.1, %if.else223 ]
+  %quadsAfterZipperCount.4 = phi i32 [ %inc222, %if.then216 ], [ %quadsAfterZipperCount.1, %if.else223 ]
   %inc234 = add nsw i32 %quadsDone.1, 1
   br label %if.end235
 
 if.end235:                                        ; preds = %if.end233, %sw.bb212
-  %quadsDone.2 = phi i32 [ %inc234, %if.end233 ], [ %quadsDone.1, %sw.bb212 ]
-  %digitCount.4 = phi i32 [ 0, %if.end233 ], [ %digitCount.3, %sw.bb212 ]
-  %quadsAfterZipperCount.3 = phi i32 [ %quadsAfterZipperCount.2, %if.end233 ], [ %quadsAfterZipperCount.1, %sw.bb212 ]
+  %quadsDone.3 = phi i32 [ %inc234, %if.end233 ], [ %quadsDone.1, %sw.bb212 ]
+  %digitCount.5 = phi i32 [ 0, %if.end233 ], [ %digitCount.3, %sw.bb212 ]
+  %quadsAfterZipperCount.3 = phi i32 [ %quadsAfterZipperCount.4, %if.end233 ], [ %quadsAfterZipperCount.1, %sw.bb212 ]
   %sub236 = sub nuw nsw i32 8, %zipperEver.1
-  %cmp237.not = icmp slt i32 %quadsDone.2, %sub236
+  %cmp237.not = icmp slt i32 %quadsDone.3, %sub236
   br i1 %cmp237.not, label %if.end240, label %if.then239
 
 if.then239:                                       ; preds = %if.end235
@@ -3025,7 +3025,7 @@ if.then256:                                       ; preds = %if.then249
   br label %return
 
 if.end257:                                        ; preds = %if.then249
-  %mul253 = shl nsw i32 %quadsDone.2, 1
+  %mul253 = shl nsw i32 %quadsDone.3, 1
   %41 = load ptr, ptr %state, align 8
   %ip6260 = getelementptr inbounds i8, ptr %41, i64 56
   %42 = load ptr, ptr %ip6260, align 8
@@ -3210,12 +3210,12 @@ if.else390:                                       ; preds = %land.lhs.true371
   br label %if.end401
 
 if.end401:                                        ; preds = %if.then383, %if.else390, %if.end378
-  %quadsAfterZipperCount.4 = phi i32 [ %inc389, %if.then383 ], [ %quadsAfterZipperCount.1, %if.else390 ], [ %quadsAfterZipperCount.1, %if.end378 ]
+  %quadsAfterZipperCount.5 = phi i32 [ %inc389, %if.then383 ], [ %quadsAfterZipperCount.1, %if.else390 ], [ %quadsAfterZipperCount.1, %if.end378 ]
   %57 = load ptr, ptr %state, align 8
   %ip6404 = getelementptr inbounds i8, ptr %57, i64 56
   %58 = load ptr, ptr %ip6404, align 8
   %add.ptr407 = getelementptr inbounds i8, ptr %58, i64 16
-  %mul408 = shl nsw i32 %quadsAfterZipperCount.4, 1
+  %mul408 = shl nsw i32 %quadsAfterZipperCount.5, 1
   %idx.ext409 = sext i32 %mul408 to i64
   %idx.neg410 = sub nsw i64 0, %idx.ext409
   %add.ptr411 = getelementptr inbounds i8, ptr %add.ptr407, i64 %idx.neg410
@@ -3247,13 +3247,13 @@ sw.epilog420.sink.split:                          ; preds = %sw.bb201, %sw.bb190
   br label %sw.epilog420
 
 sw.epilog420:                                     ; preds = %sw.epilog420.sink.split, %if.end245, %if.end271
-  %first.addr.4 = phi ptr [ %add.ptr241, %if.end271 ], [ %first.addr.2, %if.end245 ], [ %first.addr.2, %sw.epilog420.sink.split ]
+  %first.addr.3 = phi ptr [ %add.ptr241, %if.end271 ], [ %first.addr.2, %if.end245 ], [ %first.addr.2, %sw.epilog420.sink.split ]
   %zipperEver.2 = phi i32 [ 1, %if.end271 ], [ %zipperEver.1, %if.end245 ], [ %zipperEver.1, %sw.epilog420.sink.split ]
-  %quadsDone.3 = phi i32 [ %quadsDone.2, %if.end271 ], [ %quadsDone.2, %if.end245 ], [ %quadsDone.1, %sw.epilog420.sink.split ]
-  %digitCount.5 = phi i32 [ %digitCount.4, %if.end271 ], [ %digitCount.4, %if.end245 ], [ %inc211, %sw.epilog420.sink.split ]
-  %quadsAfterZipperCount.5 = phi i32 [ %quadsAfterZipperCount.3, %if.end271 ], [ %quadsAfterZipperCount.3, %if.end245 ], [ %quadsAfterZipperCount.1, %sw.epilog420.sink.split ]
+  %quadsDone.2 = phi i32 [ %quadsDone.3, %if.end271 ], [ %quadsDone.3, %if.end245 ], [ %quadsDone.1, %sw.epilog420.sink.split ]
+  %digitCount.4 = phi i32 [ %digitCount.5, %if.end271 ], [ %digitCount.5, %if.end245 ], [ %inc211, %sw.epilog420.sink.split ]
+  %quadsAfterZipperCount.2 = phi i32 [ %quadsAfterZipperCount.3, %if.end271 ], [ %quadsAfterZipperCount.3, %if.end245 ], [ %quadsAfterZipperCount.1, %sw.epilog420.sink.split ]
   %letterAmong.1 = phi i32 [ 0, %if.end271 ], [ 0, %if.end245 ], [ %letterAmong.1.ph, %sw.epilog420.sink.split ]
-  %incdec.ptr421 = getelementptr inbounds i8, ptr %first.addr.4, i64 4
+  %incdec.ptr421 = getelementptr inbounds i8, ptr %first.addr.3, i64 4
   %cmp422.not = icmp ult ptr %incdec.ptr421, %afterLast
   br i1 %cmp422.not, label %do.body, label %if.then424, !llvm.loop !8
 

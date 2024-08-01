@@ -3710,7 +3710,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit167: ; preds = %_ZNSt6v
   br label %571
 
 571:                                              ; preds = %395, %391, %379, %348, %._crit_edge233, %300, %567
-  %.0 = phi i1 [ %570, %567 ], [ false, %300 ], [ false, %._crit_edge233 ], [ false, %348 ], [ false, %379 ], [ false, %391 ], [ false, %395 ]
+  %.2 = phi i1 [ %570, %567 ], [ false, %300 ], [ false, %._crit_edge233 ], [ false, %348 ], [ false, %379 ], [ false, %391 ], [ false, %395 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #21
   br label %573
 
@@ -3720,7 +3720,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit167: ; preds = %_ZNSt6v
   br label %588
 
 573:                                              ; preds = %._crit_edge, %571
-  %.1 = phi i1 [ %.0, %571 ], [ false, %._crit_edge ]
+  %.1 = phi i1 [ %.2, %571 ], [ false, %._crit_edge ]
   %574 = load ptr, ptr %23, align 8
   %.not.i.i.i202 = icmp eq ptr %574, null
   br i1 %.not.i.i.i202, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit203, label %575
@@ -3818,8 +3818,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit213:  ; preds = %.body, %594
   resume { ptr, i32 } %.pn121.pn
 
 _ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EED2Ev.exit: ; preds = %587, %_ZSt8_DestroyIPSt6vectorIN2cv6DMatchESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %11
-  %.2 = phi i1 [ false, %11 ], [ %.1, %_ZSt8_DestroyIPSt6vectorIN2cv6DMatchESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i ], [ %.1, %587 ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %11 ], [ %.1, %_ZSt8_DestroyIPSt6vectorIN2cv6DMatchESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i ], [ %.1, %587 ]
+  ret i1 %.0
 }
 
 declare void @_ZNK2cv17DescriptorMatcher8knnMatchERKNS_11_InputArrayES3_RSt6vectorIS4_INS_6DMatchESaIS5_EESaIS7_EEiS3_b(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
@@ -4391,7 +4391,7 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit58: ; preds = %218, %20
   br label %233
 
 233:                                              ; preds = %130, %229
-  %.0 = phi i1 [ %232, %229 ], [ false, %130 ]
+  %.1 = phi i1 [ %232, %229 ], [ false, %130 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #21
   %234 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %234, null
@@ -4465,7 +4465,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit62:  ; preds = %246, %244, %111
   br label %255
 
 248:                                              ; preds = %51, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
-  %.1 = phi i1 [ %.0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit ], [ false, %51 ]
+  %.0 = phi i1 [ %.1, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit ], [ false, %51 ]
   %249 = load ptr, ptr %17, align 8
   %.not.i.i.i63 = icmp eq ptr %249, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, label %250
@@ -4495,7 +4495,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN2cv6P
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit66:  ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit, %254
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #21
-  ret i1 %.1
+  ret i1 %.0
 
 255:                                              ; preds = %247, %.body, %107, %52
   %.pn44.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn, %247 ], [ %65, %.body ], [ %108, %107 ], [ %53, %52 ]

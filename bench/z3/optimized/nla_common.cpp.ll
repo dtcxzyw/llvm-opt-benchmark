@@ -1288,7 +1288,7 @@ _ZN3nla11nex_creator11mul_factory2mkEv.exit:      ; preds = %lor.lhs.false.i.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %.noexc.i100, %_ZN3nla11nex_creator11mul_factory2mkEv.exit
-  %retval.0 = phi ptr [ %call.i144160, %_ZN3nla11nex_creator11mul_factory2mkEv.exit ], [ %call81, %.noexc.i100 ]
+  %retval.1 = phi ptr [ %call.i144160, %_ZN3nla11nex_creator11mul_factory2mkEv.exit ], [ %call81, %.noexc.i100 ]
   %92 = load ptr, ptr %m_args.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %92, null
   br i1 %tobool.not.i.i.i, label %_ZN6vectorIN3nla7nex_powELb1EjED2Ev.exit.i, label %if.then.i.i.i164
@@ -1327,8 +1327,8 @@ ehcleanup:                                        ; preds = %lpad33.loopexit, %l
   br label %eh.resume
 
 return:                                           ; preds = %.noexc.i.i, %.noexc.i40, %.noexc.i, %_ZN3nla11nex_creator6mk_varEj.exit
-  %retval.1 = phi ptr [ %call28, %_ZN3nla11nex_creator6mk_varEj.exit ], [ %call8, %.noexc.i ], [ %call20, %.noexc.i40 ], [ %retval.0, %.noexc.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call28, %_ZN3nla11nex_creator6mk_varEj.exit ], [ %call8, %.noexc.i ], [ %call20, %.noexc.i40 ], [ %retval.1, %.noexc.i.i ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad18, %lpad
   %.pn33 = phi { ptr, i32 } [ %9, %lpad ], [ %17, %lpad18 ], [ %.pn, %ehcleanup ]

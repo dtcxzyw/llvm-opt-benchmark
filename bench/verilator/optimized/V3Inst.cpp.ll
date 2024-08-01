@@ -2180,8 +2180,8 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i221:   ; preds = %441, %438, %.noexc2
   br label %458
 
 _ZN6AstPin5exprpEP7AstNode.exit228:               ; preds = %449, %_ZN10AstAssignWC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit
-  %.0110 = phi ptr [ %375, %_ZN10AstAssignWC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit ], [ %391, %449 ]
-  invoke void @_ZN7AstNode11addNextHereEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.0110)
+  %.1111 = phi ptr [ %375, %_ZN10AstAssignWC2EP8FileLineP11AstNodeExprS3_P7AstNode.exit ], [ %391, %449 ]
+  invoke void @_ZN7AstNode11addNextHereEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.1111)
           to label %457 unwind label %269
 
 457:                                              ; preds = %_ZN6AstPin5exprpEP7AstNode.exit228
@@ -2194,7 +2194,7 @@ _ZN6AstPin5exprpEP7AstNode.exit228:               ; preds = %449, %_ZN10AstAssig
   br label %459
 
 .critedge2:                                       ; preds = %22, %19, %71, %83, %457, %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit, %_ZNK7AstNode5widthEv.exit, %75
-  %.0 = phi ptr [ null, %75 ], [ null, %83 ], [ %.0110, %457 ], [ null, %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit ], [ null, %_ZNK7AstNode5widthEv.exit ], [ null, %71 ], [ null, %19 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %75 ], [ null, %83 ], [ %.1111, %457 ], [ null, %_ZN7AstNode9privateIsI8AstConstPS_EEbPKS_.exit ], [ null, %_ZNK7AstNode5widthEv.exit ], [ null, %71 ], [ null, %19 ], [ null, %22 ]
   ret ptr %.0
 
 459:                                              ; preds = %458, %.body, %36, %30

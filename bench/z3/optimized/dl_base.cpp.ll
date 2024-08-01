@@ -3461,8 +3461,8 @@ ehcleanup50:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i56, %cleanup49, %if.then
-  %retval.2 = phi i1 [ %call3, %if.then ], [ %lnot.i59, %cleanup49 ], [ %lnot.i59, %if.then.i.i.i56 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %call3, %if.then ], [ %lnot.i59, %cleanup49 ], [ %lnot.i59, %if.then.i.i.i56 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

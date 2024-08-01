@@ -1240,7 +1240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit152: ;
   br label %341
 
 341:                                              ; preds = %.critedge, %290, %336, %308, %58
-  %.2 = phi ptr [ null, %58 ], [ %331, %336 ], [ null, %290 ], [ null, %308 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %58 ], [ %331, %336 ], [ null, %290 ], [ null, %308 ], [ null, %.critedge ]
   %342 = load ptr, ptr %6, align 8
   %343 = getelementptr inbounds i8, ptr %6, i64 8
   %344 = load ptr, ptr %343, align 8
@@ -1268,7 +1268,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN6cmListD2Ev.exit
 
 _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %347
-  ret ptr %.2
+  ret ptr %.0
 
 .body:                                            ; preds = %44, %42, %.body150, %.body145, %.body111, %.body102, %.body96, %.body91, %.body86, %.body82
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %.body86 ], [ %.pn75, %.body150 ], [ %.pn72.pn, %.body111 ], [ %.pn54, %.body102 ], [ %.pn52, %.body145 ], [ %.pn50, %.body96 ], [ %.pn48, %.body91 ], [ %.pn, %.body82 ], [ %45, %44 ], [ %43, %42 ]

@@ -7355,9 +7355,9 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h148130449e459950E.exit": ; preds = %11, %14
   %.sroa.8.0..sroa_idx13.sink = phi ptr [ %.sroa.8.0..sroa_idx13, %14 ], [ %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, %11 ]
   %17 = phi i64 [ %15, %14 ], [ %12, %11 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.copyload11, %14 ], [ %.sroa.4.sroa.0.0.copyload, %11 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload11, %14 ], [ %.sroa.4.sroa.0.0.copyload, %11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx13.sink, i64 40, i1 false)
-  %18 = icmp eq ptr %.sroa.0.1, null
+  %18 = icmp eq ptr %.sroa.0.0, null
   br i1 %18, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h148130449e459950E.exit", %13
@@ -7367,7 +7367,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 19:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h148130449e459950E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.415.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
-  store ptr %.sroa.0.1, ptr %3, align 8
+  store ptr %.sroa.0.0, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8)
   call void @llvm.experimental.noalias.scope.decl(metadata !852)
   call void @llvm.experimental.noalias.scope.decl(metadata !855)
@@ -7408,7 +7408,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   br i1 %.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit.thread"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit": ; preds = %25
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.0.1, ptr nonnull readonly %.sroa.0.0.copyload6.i, i64 %.val7), !alias.scope !868
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.0.0, ptr nonnull readonly %.sroa.0.0.copyload6.i, i64 %.val7), !alias.scope !868
   %.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not, label %26, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit.thread"
 
@@ -7464,9 +7464,9 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef0ebead65d7524cE.exit": ; preds = %10, %14
   %.sroa.8.0..sroa_idx13.sink = phi ptr [ %.sroa.8.0..sroa_idx13, %14 ], [ %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, %10 ]
   %16 = phi ptr [ %15, %14 ], [ %11, %10 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0.copyload11, %14 ], [ %.sroa.4.sroa.0.0.copyload, %10 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload11, %14 ], [ %.sroa.4.sroa.0.0.copyload, %10 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx13.sink, i64 40, i1 false)
-  %17 = icmp eq ptr %.sroa.0.1, null
+  %17 = icmp eq ptr %.sroa.0.0, null
   br i1 %17, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef0ebead65d7524cE.exit", %12
@@ -7476,7 +7476,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 18:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef0ebead65d7524cE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.415.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
-  store ptr %.sroa.0.1, ptr %3, align 8
+  store ptr %.sroa.0.0, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8)
   call void @llvm.experimental.noalias.scope.decl(metadata !877)
   call void @llvm.experimental.noalias.scope.decl(metadata !880)
@@ -7516,7 +7516,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   br i1 %.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit.thread"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit": ; preds = %24
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.0.1, ptr nonnull readonly %.sroa.0.0.copyload6.i, i64 %.val7), !alias.scope !893
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly %.sroa.0.0, ptr nonnull readonly %.sroa.0.0.copyload6.i, i64 %.val7), !alias.scope !893
   %.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not, label %25, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h0402b83ecd78f2a1E.exit.thread"
 
@@ -14028,8 +14028,8 @@ define hidden noundef align 8 dereferenceable_or_null(232) ptr @"_ZN5alloc11coll
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h124afdc4711421d0E.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h124afdc4711421d0E.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14083,8 +14083,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN5alloc11collec
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h644275ccef41525bE.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h644275ccef41525bE.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14138,8 +14138,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h1b661bc8fde4b85fE.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h1b661bc8fde4b85fE.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14193,8 +14193,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h021614af71a1bbb2E.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h021614af71a1bbb2E.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -15717,8 +15717,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hc71d7408e9165f77E.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hc71d7408e9165f77E.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22539,7 +22539,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 
 .body:                                            ; preds = %28, %52, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %29, %28 ], [ %lpad.phi3.i, %52 ]
-  %.03 = phi i1 [ true, %11 ], [ %.1, %28 ], [ false, %52 ]
+  %.03 = phi i1 [ true, %11 ], [ %.2, %28 ], [ false, %52 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17h14cc91574ad0d357E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #26
           to label %68 unwind label %69
 
@@ -22577,7 +22577,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
           to label %30 unwind label %11
 
 28:                                               ; preds = %60, %56, %51, %46, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hbe43f663fb172319E.exit"
-  %.1 = phi i1 [ false, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hbe43f663fb172319E.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
+  %.2 = phi i1 [ false, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hbe43f663fb172319E.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -22736,7 +22736,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 
 .body:                                            ; preds = %28, %52, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %29, %28 ], [ %lpad.phi3.i, %52 ]
-  %.03 = phi i1 [ true, %11 ], [ %.1, %28 ], [ false, %52 ]
+  %.03 = phi i1 [ true, %11 ], [ %.2, %28 ], [ false, %52 ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17hd1fe5fad932d4d01E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #26
           to label %68 unwind label %69
 
@@ -22774,7 +22774,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
           to label %30 unwind label %11
 
 28:                                               ; preds = %60, %56, %51, %46, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h228f27197d39233bE.exit"
-  %.1 = phi i1 [ false, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h228f27197d39233bE.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
+  %.2 = phi i1 [ false, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h228f27197d39233bE.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -32970,7 +32970,7 @@ common.ret:                                       ; preds = %3841, %3825, %3011,
   br label %3832
 
 1517:                                             ; preds = %3828, %3014, %1506, %344
-  %.2 = phi ptr [ %343, %344 ], [ %.fca.1.extract, %1506 ], [ %.fca.1.extract66, %3014 ], [ %.fca.1.extract72, %3828 ]
+  %.3 = phi ptr [ %343, %344 ], [ %.fca.1.extract, %1506 ], [ %.fca.1.extract66, %3014 ], [ %.fca.1.extract72, %3828 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %195), !noalias !4315
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9860d331864bad50E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %195, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
           to label %.noexc130 unwind label %3830
@@ -39810,9 +39810,9 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.10997783940595946757.e
   br label %368
 
 3841:                                             ; preds = %3853, %3836, %3847
-  %.3 = phi ptr [ null, %3836 ], [ %.2, %3853 ], [ %.2, %3847 ]
+  %.1 = phi ptr [ null, %3836 ], [ %.3, %3853 ], [ %.3, %3847 ]
   store i8 1, ptr %300, align 2
-  %3842 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.3, 1
+  %3842 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 3843:                                             ; preds = %1524, %1520, %.noexc130

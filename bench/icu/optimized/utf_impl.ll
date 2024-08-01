@@ -388,13 +388,13 @@ if.end120:                                        ; preds = %if.else88
 
 if.end128:                                        ; preds = %if.end120, %if.then90
   %conv102.sink = phi i8 [ %conv93, %if.then90 ], [ %conv102, %if.end120 ]
-  %offset.1 = phi i32 [ 1, %if.then90 ], [ 2, %if.end120 ]
+  %offset.0 = phi i32 [ 1, %if.then90 ], [ 2, %if.end120 ]
   store i8 %conv102.sink, ptr %add.ptr, align 1
   %21 = trunc i32 %16 to i8
   %22 = and i8 %21, 63
   %conv131 = or disjoint i8 %22, -128
-  %inc132 = add nuw nsw i32 %offset.1, 1
-  %idxprom133 = zext nneg i32 %offset.1 to i64
+  %inc132 = add nuw nsw i32 %offset.0, 1
+  %idxprom133 = zext nneg i32 %offset.0 to i64
   %arrayidx134 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom133
   store i8 %conv131, ptr %arrayidx134, align 1
   br label %do.end

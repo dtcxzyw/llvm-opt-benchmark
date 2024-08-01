@@ -190,7 +190,7 @@ define hidden void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list
 37:                                               ; preds = %34, %26
   %.026 = phi i64 [ %31, %26 ], [ %spec.select, %34 ]
   %.025 = phi ptr [ %32, %26 ], [ %36, %34 ]
-  %.1 = phi i64 [ 0, %26 ], [ %35, %34 ]
+  %.2 = phi i64 [ 0, %26 ], [ %35, %34 ]
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %3)
   %38 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef %.025, i64 noundef %.026, ptr noundef %2, ptr noundef nonnull %5) #7
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -204,7 +204,7 @@ define hidden void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list
 41:                                               ; preds = %37
   %narrow = add nuw i32 %38, 1
   %42 = zext i32 %narrow to i64
-  %43 = add i64 %.1, %42
+  %43 = add i64 %.2, %42
   %44 = load i64, ptr %22, align 8
   %45 = load i64, ptr %23, align 8
   %46 = sub i64 %44, %45

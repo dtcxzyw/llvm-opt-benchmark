@@ -940,7 +940,7 @@ ApplySortComparator.exit.thread169.thread174.i.i: ; preds = %ApplySortComparator
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %ApplySortComparator.exit.thread169.i.i, %ApplySortComparator.exit.i.i, %506, %._crit_edge.i.i, %ApplySortComparator.exit.thread169.thread.i.i, %495, %491, %385, %384
-  %.1122.i.i = phi i1 [ true, %384 ], [ %512, %._crit_edge.i.i ], [ false, %385 ], [ false, %491 ], [ false, %495 ], [ true, %ApplySortComparator.exit.thread169.thread.i.i ], [ false, %506 ], [ true, %ApplySortComparator.exit.thread169.i.i ], [ false, %ApplySortComparator.exit.i.i ]
+  %.0121.i.i = phi i1 [ true, %384 ], [ %512, %._crit_edge.i.i ], [ false, %385 ], [ false, %491 ], [ false, %495 ], [ true, %ApplySortComparator.exit.thread169.thread.i.i ], [ false, %506 ], [ true, %ApplySortComparator.exit.thread169.i.i ], [ false, %ApplySortComparator.exit.i.i ]
   %513 = icmp eq ptr %.0.i.i16, null
   br i1 %513, label %514, label %547
 
@@ -1005,7 +1005,7 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
 
 547:                                              ; preds = %_bt_pagestate.exit.i.i, %.thread.i.i
   %.1.i.i = phi ptr [ %515, %_bt_pagestate.exit.i.i ], [ %.0.i.i16, %.thread.i.i ]
-  br i1 %.1122.i.i, label %548, label %551
+  br i1 %.0121.i.i, label %548, label %551
 
 548:                                              ; preds = %547
   call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0117.i.i, i64 noundef 0)
@@ -1058,9 +1058,9 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
 
 .lr.ph198.i.i:                                    ; preds = %.thread227.i.i, %634
   %570 = phi ptr [ %637, %634 ], [ %569, %.thread227.i.i ]
-  %.2196.i.i = phi ptr [ %.3.i.i, %634 ], [ null, %.thread227.i.i ]
+  %.3196.i.i = phi ptr [ %.4.i.i, %634 ], [ null, %.thread227.i.i ]
   %.1128195.i.i = phi i64 [ %635, %634 ], [ 0, %.thread227.i.i ]
-  %571 = icmp eq ptr %.2196.i.i, null
+  %571 = icmp eq ptr %.3196.i.i, null
   br i1 %571, label %572, label %606
 
 572:                                              ; preds = %.lr.ph198.i.i
@@ -1143,7 +1143,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %596, %572
   br i1 %615, label %617, label %618
 
 617:                                              ; preds = %613
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.2196.i.i, ptr noundef %616, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3196.i.i, ptr noundef %616, i64 noundef 0)
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
 618:                                              ; preds = %613
@@ -1162,7 +1162,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %596, %572
   %629 = zext i16 %.val17.i.i.i to i64
   %630 = or disjoint i64 %628, %629
   %631 = sub nsw i64 %625, %630
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.2196.i.i, ptr noundef nonnull %621, i64 noundef %631)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3196.i.i, ptr noundef nonnull %621, i64 noundef %631)
   call void @pfree(ptr noundef nonnull %621) #10
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
@@ -1174,13 +1174,13 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %618, %617
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %_bt_sort_dedup_finish_pending.exit.i.i, %_bt_pagestate.exit151.i.i
-  %.3.ph.i.i = phi ptr [ %.2196.i.i, %_bt_sort_dedup_finish_pending.exit.i.i ], [ %573, %_bt_pagestate.exit151.i.i ]
+  %.4.ph.i.i = phi ptr [ %.3196.i.i, %_bt_sort_dedup_finish_pending.exit.i.i ], [ %573, %_bt_pagestate.exit151.i.i ]
   %633 = call ptr @CopyIndexTuple(ptr noundef nonnull %570) #10
   call void @_bt_dedup_start_pending(ptr noundef nonnull %560, ptr noundef %633, i16 noundef zeroext 0) #10
   br label %634
 
 634:                                              ; preds = %.sink.split.i.i, %611
-  %.3.i.i = phi ptr [ %.2196.i.i, %611 ], [ %.3.ph.i.i, %.sink.split.i.i ]
+  %.4.i.i = phi ptr [ %.3196.i.i, %611 ], [ %.4.ph.i.i, %.sink.split.i.i ]
   %635 = add i64 %.1128195.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %635) #10
   %636 = load ptr, ptr %310, align 8
@@ -1195,7 +1195,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %618, %617
   br i1 %639, label %641, label %642
 
 641:                                              ; preds = %._crit_edge199.i.i
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3.i.i, ptr noundef %640, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.4.i.i, ptr noundef %640, i64 noundef 0)
   br label %_bt_sort_dedup_finish_pending.exit155.i.i
 
 642:                                              ; preds = %._crit_edge199.i.i
@@ -1214,7 +1214,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %618, %617
   %653 = zext i16 %.val17.i154.i.i to i64
   %654 = or disjoint i64 %652, %653
   %655 = sub nsw i64 %649, %654
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3.i.i, ptr noundef nonnull %645, i64 noundef %655)
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.4.i.i, ptr noundef nonnull %645, i64 noundef %655)
   call void @pfree(ptr noundef nonnull %645) #10
   br label %_bt_sort_dedup_finish_pending.exit155.i.i
 
@@ -1228,15 +1228,15 @@ _bt_sort_dedup_finish_pending.exit155.i.i:        ; preds = %642, %641
   br label %._crit_edge199.thread.i.i
 
 ._crit_edge199.thread.i.i:                        ; preds = %_bt_sort_dedup_finish_pending.exit155.i.i, %.thread227.i.i
-  %.2.lcssa230.i.i = phi ptr [ %.3.i.i, %_bt_sort_dedup_finish_pending.exit155.i.i ], [ null, %.thread227.i.i ]
+  %.3.lcssa230.i.i = phi ptr [ %.4.i.i, %_bt_sort_dedup_finish_pending.exit155.i.i ], [ null, %.thread227.i.i ]
   call void @pfree(ptr noundef nonnull %560) #10
   br label %.loopexit.i.i
 
 .lr.ph193.i.i:                                    ; preds = %.preheader.i.i, %693
   %658 = phi ptr [ %696, %693 ], [ %559, %.preheader.i.i ]
-  %.4192.i.i = phi ptr [ %.5.i.i, %693 ], [ null, %.preheader.i.i ]
+  %.5192.i.i = phi ptr [ %.6.i.i, %693 ], [ null, %.preheader.i.i ]
   %.2129191.i.i = phi i64 [ %694, %693 ], [ 0, %.preheader.i.i ]
-  %659 = icmp eq ptr %.4192.i.i, null
+  %659 = icmp eq ptr %.5192.i.i, null
   br i1 %659, label %660, label %693
 
 660:                                              ; preds = %.lr.ph193.i.i
@@ -1299,8 +1299,8 @@ _bt_pagestate.exit159.i.i:                        ; preds = %684, %660
   br label %693
 
 693:                                              ; preds = %_bt_pagestate.exit159.i.i, %.lr.ph193.i.i
-  %.5.i.i = phi ptr [ %661, %_bt_pagestate.exit159.i.i ], [ %.4192.i.i, %.lr.ph193.i.i ]
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.5.i.i, ptr noundef nonnull %658, i64 noundef 0)
+  %.6.i.i = phi ptr [ %661, %_bt_pagestate.exit159.i.i ], [ %.5192.i.i, %.lr.ph193.i.i ]
+  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.6.i.i, ptr noundef nonnull %658, i64 noundef 0)
   %694 = add i64 %.2129191.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %694) #10
   %695 = load ptr, ptr %310, align 8
@@ -1309,12 +1309,12 @@ _bt_pagestate.exit159.i.i:                        ; preds = %684, %660
   br i1 %.not137.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph193.i.i, !llvm.loop !13
 
 .loopexit.i.i:                                    ; preds = %._crit_edge199.thread.i.i, %556
-  %.6.i.i = phi ptr [ %.0.i.i16, %556 ], [ %.2.lcssa230.i.i, %._crit_edge199.thread.i.i ]
-  %.not31.i.i.i = icmp eq ptr %.6.i.i, null
+  %.2.i.i = phi ptr [ %.0.i.i16, %556 ], [ %.3.lcssa230.i.i, %._crit_edge199.thread.i.i ]
+  %.not31.i.i.i = icmp eq ptr %.2.i.i, null
   br i1 %.not31.i.i.i, label %_bt_leafbuild.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %693, %.loopexit.i.i
-  %.034.i.i.i.ph = phi ptr [ %.6.i.i, %.loopexit.i.i ], [ %.5.i.i, %693 ]
+  %.034.i.i.i.ph = phi ptr [ %.2.i.i, %.loopexit.i.i ], [ %.6.i.i, %693 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_bt_slideleft.exit.i.i.i

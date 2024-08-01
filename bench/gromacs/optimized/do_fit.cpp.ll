@@ -1251,7 +1251,7 @@ define void @_Z12reset_x_ndimiiPKiiS0_PA3_fPKf(i32 noundef %0, i32 noundef %1, p
 
 .lr.ph.us83:                                      ; preds = %.lr.ph.us83.preheader, %._crit_edge.us84
   %indvars.iv119 = phi i64 [ 0, %.lr.ph.us83.preheader ], [ %indvars.iv.next120, %._crit_edge.us84 ]
-  %.15580.us = phi float [ 0.000000e+00, %.lr.ph.us83.preheader ], [ %50, %._crit_edge.us84 ]
+  %.280.us = phi float [ 0.000000e+00, %.lr.ph.us83.preheader ], [ %50, %._crit_edge.us84 ]
   %42 = getelementptr inbounds float, ptr %6, i64 %indvars.iv119
   %43 = load float, ptr %42, align 4
   br label %44
@@ -1269,7 +1269,7 @@ define void @_Z12reset_x_ndimiiPKiiS0_PA3_fPKf(i32 noundef %0, i32 noundef %1, p
   br i1 %exitcond118.not, label %._crit_edge.us84, label %44, !llvm.loop !29
 
 ._crit_edge.us84:                                 ; preds = %44
-  %50 = fadd float %.15580.us, %43
+  %50 = fadd float %.280.us, %43
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
   br i1 %exitcond123.not, label %.loopexit71, label %.lr.ph.us83, !llvm.loop !30
@@ -1289,16 +1289,16 @@ define void @_Z12reset_x_ndimiiPKiiS0_PA3_fPKf(i32 noundef %0, i32 noundef %1, p
 
 .lr.ph81.split:                                   ; preds = %.lr.ph81, %.lr.ph81.split
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph81.split ], [ 0, %.lr.ph81 ]
-  %.15580 = phi float [ %59, %.lr.ph81.split ], [ 0.000000e+00, %.lr.ph81 ]
+  %.280 = phi float [ %59, %.lr.ph81.split ], [ 0.000000e+00, %.lr.ph81 ]
   %57 = getelementptr inbounds float, ptr %6, i64 %indvars.iv109
   %58 = load float, ptr %57, align 4
-  %59 = fadd float %.15580, %58
+  %59 = fadd float %.280, %58
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count122
   br i1 %exitcond113.not, label %.loopexit71, label %.lr.ph81.split, !llvm.loop !30
 
 .loopexit71:                                      ; preds = %.lr.ph77.split, %._crit_edge.us, %.lr.ph81.split, %._crit_edge.us84, %.preheader72, %.preheader70
-  %.2 = phi float [ 0.000000e+00, %.preheader70 ], [ 0.000000e+00, %.preheader72 ], [ %50, %._crit_edge.us84 ], [ %59, %.lr.ph81.split ], [ %40, %._crit_edge.us ], [ %56, %.lr.ph77.split ]
+  %.155 = phi float [ 0.000000e+00, %.preheader70 ], [ 0.000000e+00, %.preheader72 ], [ %50, %._crit_edge.us84 ], [ %59, %.lr.ph81.split ], [ %40, %._crit_edge.us ], [ %56, %.lr.ph77.split ]
   %60 = icmp sgt i32 %0, 0
   br i1 %60, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1310,7 +1310,7 @@ define void @_Z12reset_x_ndimiiPKiiS0_PA3_fPKf(i32 noundef %0, i32 noundef %1, p
   %indvars.iv124 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next125, %.lr.ph ]
   %61 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %indvars.iv124
   %62 = load float, ptr %61, align 4
-  %63 = fdiv float %62, %.2
+  %63 = fdiv float %62, %.155
   store float %63, ptr %61, align 4
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127

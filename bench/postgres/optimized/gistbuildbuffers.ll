@@ -755,7 +755,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
 
 50:                                               ; preds = %.lr.ph122.us, %.thread102.us
   %indvars.iv136 = phi i64 [ 0, %.lr.ph122.us ], [ %indvars.iv.next137, %.thread102.us ]
-  %.087118.us = phi i32 [ 0, %.lr.ph122.us ], [ %.188106.us, %.thread102.us ]
+  %.087118.us = phi i32 [ 0, %.lr.ph122.us ], [ %.289106.us, %.thread102.us ]
   %51 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv136
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 10
@@ -764,11 +764,11 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   br i1 %55, label %.lr.ph115.us, label %._crit_edge123.us
 
 ._crit_edge116.us:                                ; preds = %100
-  br i1 %.1.us, label %._crit_edge123.us, label %.thread102.us
+  br i1 %.2.us, label %._crit_edge123.us, label %.thread102.us
 
 ._crit_edge123.us:                                ; preds = %50, %.thread102.us, %._crit_edge116.us
-  %.3.us = phi i32 [ %.289.us, %._crit_edge116.us ], [ %.188106.us, %.thread102.us ], [ %.087118.us, %50 ]
-  %56 = sext i32 %.3.us to i64
+  %.188.us = phi i32 [ %.3.us, %._crit_edge116.us ], [ %.289106.us, %.thread102.us ], [ %.087118.us, %50 ]
+  %56 = sext i32 %.188.us to i64
   %57 = getelementptr %struct.RelocationBufferInfo, ptr %39, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 1064
   %59 = load ptr, ptr %58, align 8
@@ -795,8 +795,8 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
 
 71:                                               ; preds = %.lr.ph115.us, %100
   %indvars.iv134 = phi i64 [ 0, %.lr.ph115.us ], [ %indvars.iv.next135, %100 ]
-  %.084112.us = phi i1 [ true, %.lr.ph115.us ], [ %.1.us, %100 ]
-  %.188111.us = phi i32 [ %.087118.us, %.lr.ph115.us ], [ %.289.us, %100 ]
+  %.084112.us = phi i1 [ true, %.lr.ph115.us ], [ %.2.us, %100 ]
+  %.289111.us = phi i32 [ %.087118.us, %.lr.ph115.us ], [ %.3.us, %100 ]
   %72 = getelementptr [32 x %struct.GISTENTRY], ptr %51, i64 0, i64 %indvars.iv134
   %73 = getelementptr [32 x i8], ptr %103, i64 0, i64 %indvars.iv134
   %74 = load i8, ptr %73, align 1
@@ -808,7 +808,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   %80 = trunc nuw nsw i64 %indvars.iv134 to i32
   %81 = call float @gistpenalty(ptr noundef %1, i32 noundef %80, ptr noundef %72, i1 noundef zeroext %75, ptr noundef %76, i1 noundef zeroext %79) #5
   %82 = fcmp ule float %81, 0.000000e+00
-  %.1.us = select i1 %82, i1 %.084112.us, i1 false
+  %.2.us = select i1 %82, i1 %.084112.us, i1 false
   %83 = getelementptr [32 x float], ptr %13, i64 0, i64 %indvars.iv134
   %84 = load float, ptr %83, align 4
   %85 = fcmp olt float %84, 0.000000e+00
@@ -828,7 +828,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
   br label %100
 
 .thread102.us:                                    ; preds = %87, %._crit_edge116.us
-  %.188106.us = phi i32 [ %.289.us, %._crit_edge116.us ], [ %.188111.us, %87 ]
+  %.289106.us = phi i32 [ %.3.us, %._crit_edge116.us ], [ %.289111.us, %87 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge123.us, label %50, !llvm.loop !9
@@ -852,7 +852,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
 
 100:                                              ; preds = %._crit_edge, %97, %89
   %.pre-phi = phi i32 [ %.pre140, %._crit_edge ], [ %93, %97 ], [ %93, %89 ]
-  %.289.us = phi i32 [ %.188111.us, %._crit_edge ], [ %104, %97 ], [ %104, %89 ]
+  %.3.us = phi i32 [ %.289111.us, %._crit_edge ], [ %104, %97 ], [ %104, %89 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %101 = sext i32 %.pre-phi to i64
   %102 = icmp slt i64 %indvars.iv.next135, %101

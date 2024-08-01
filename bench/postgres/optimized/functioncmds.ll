@@ -1031,7 +1031,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %103
 
 103:                                              ; preds = %98, %97
-  %.0157 = phi ptr [ null, %97 ], [ %102, %98 ]
+  %.1158 = phi ptr [ null, %97 ], [ %102, %98 ]
   %.not75.i = icmp eq ptr %.159.i, null
   br i1 %.not75.i, label %107, label %104
 
@@ -1053,7 +1053,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread169.i
 
 .thread169.i:                                     ; preds = %.lr.ph.i, %108, %107, %30
-  %.1158 = phi ptr [ null, %30 ], [ %.0157, %107 ], [ %.0157, %108 ], [ null, %.lr.ph.i ]
+  %.2 = phi ptr [ null, %30 ], [ %.1158, %107 ], [ %.1158, %108 ], [ null, %.lr.ph.i ]
   %.1156 = phi ptr [ null, %30 ], [ %.0155, %107 ], [ %.0155, %108 ], [ null, %.lr.ph.i ]
   %.0154 = phi i8 [ 0, %30 ], [ 0, %107 ], [ %112, %108 ], [ 0, %.lr.ph.i ]
   %.1143 = phi ptr [ null, %30 ], [ %.0142, %107 ], [ %.0142, %108 ], [ null, %.lr.ph.i ]
@@ -1194,7 +1194,7 @@ update_proconfig_value.exit.i:                    ; preds = %168, %.lr.ph.i.i, %
   unreachable
 
 181:                                              ; preds = %173, %update_proconfig_value.exit.i
-  %.0147 = phi float [ -1.000000e+00, %update_proconfig_value.exit.i ], [ %175, %173 ]
+  %.1148 = phi float [ -1.000000e+00, %update_proconfig_value.exit.i ], [ %175, %173 ]
   %182 = load ptr, ptr %10, align 8
   %.not83.i = icmp eq ptr %182, null
   br i1 %.not83.i, label %191, label %183
@@ -1214,7 +1214,7 @@ update_proconfig_value.exit.i:                    ; preds = %168, %.lr.ph.i.i, %
   unreachable
 
 191:                                              ; preds = %183, %181
-  %.0145 = phi float [ -1.000000e+00, %181 ], [ %185, %183 ]
+  %.1146 = phi float [ -1.000000e+00, %181 ], [ %185, %183 ]
   %192 = load ptr, ptr %11, align 8
   %.not84.i = icmp eq ptr %192, null
   br i1 %.not84.i, label %195, label %193
@@ -1248,7 +1248,7 @@ compute_function_attributes.exit:                 ; preds = %195, %197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %.not83 = icmp eq ptr %.1158, null
+  %.not83 = icmp eq ptr %.2, null
   br i1 %.not83, label %201, label %208
 
 201:                                              ; preds = %compute_function_attributes.exit
@@ -1266,8 +1266,8 @@ compute_function_attributes.exit:                 ; preds = %195, %197
   unreachable
 
 208:                                              ; preds = %201, %compute_function_attributes.exit
-  %.2 = phi ptr [ %.1158, %compute_function_attributes.exit ], [ @.str.18, %201 ]
-  %209 = ptrtoint ptr %.2 to i64
+  %.0157 = phi ptr [ %.2, %compute_function_attributes.exit ], [ @.str.18, %201 ]
+  %209 = ptrtoint ptr %.0157 to i64
   %210 = call ptr @SearchSysCache1(i32 noundef 33, i64 noundef %209) #8
   %.not85 = icmp eq ptr %210, null
   br i1 %.not85, label %211, label %219
@@ -1276,8 +1276,8 @@ compute_function_attributes.exit:                 ; preds = %195, %197
   %212 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %212)
   %213 = call i32 @errcode(i32 noundef 67137668) #8
-  %214 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %.2) #8
-  %215 = call zeroext i1 @extension_file_exists(ptr noundef nonnull %.2) #8
+  %214 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %.0157) #8
+  %215 = call zeroext i1 @extension_file_exists(ptr noundef nonnull %.0157) #8
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %211
@@ -1352,7 +1352,7 @@ compute_function_attributes.exit:                 ; preds = %195, %197
 
 250:                                              ; preds = %.lr.ph, %250
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %250 ]
-  %.0219 = phi ptr [ null, %.lr.ph ], [ %258, %250 ]
+  %.1219 = phi ptr [ null, %.lr.ph ], [ %258, %250 ]
   %251 = load ptr, ptr %249, align 8
   %252 = getelementptr %union.ListCell, ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8
@@ -1361,7 +1361,7 @@ compute_function_attributes.exit:                 ; preds = %195, %197
   %.not98 = icmp eq i32 %255, 0
   %256 = select i1 %.not98, i32 %254, i32 %255
   %257 = call i32 @get_transform_oid(i32 noundef %256, i32 noundef %226, i1 noundef zeroext false)
-  %258 = call ptr @lappend_oid(ptr noundef %.0219, i32 noundef %256) #8
+  %258 = call ptr @lappend_oid(ptr noundef %.1219, i32 noundef %256) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %259 = load i32, ptr %247, align 4
   %260 = sext i32 %259 to i64
@@ -1369,7 +1369,7 @@ compute_function_attributes.exit:                 ; preds = %195, %197
   br i1 %.not89, label %250, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %250, %.preheader, %246
-  %.1 = phi ptr [ null, %246 ], [ null, %.preheader ], [ %258, %250 ]
+  %.0 = phi ptr [ null, %246 ], [ null, %.preheader ], [ %258, %250 ]
   %261 = getelementptr inbounds i8, ptr %1, i64 16
   %262 = load ptr, ptr %261, align 8
   %263 = load i8, ptr %31, align 4
@@ -1547,11 +1547,11 @@ compute_return_type.exit:                         ; preds = %333, %336
 351:                                              ; preds = %345, %compute_return_type.exit, %268
   %.0160 = phi i32 [ %270, %268 ], [ %.0.i, %compute_return_type.exit ], [ %346, %345 ]
   %.0159 = phi i8 [ 0, %268 ], [ %338, %compute_return_type.exit ], [ 0, %345 ]
-  %.not95 = icmp eq ptr %.1, null
+  %.not95 = icmp eq ptr %.0, null
   br i1 %.not95, label %368, label %list_length.exit
 
 list_length.exit:                                 ; preds = %351
-  %352 = getelementptr inbounds i8, ptr %.1, i64 4
+  %352 = getelementptr inbounds i8, ptr %.0, i64 4
   %353 = load i32, ptr %352, align 4
   %354 = sext i32 %353 to i64
   %355 = shl nsw i64 %354, 3
@@ -1561,7 +1561,7 @@ list_length.exit:                                 ; preds = %351
   br i1 %.not97221, label %.lr.ph224, label %list_length.exit103
 
 .lr.ph224:                                        ; preds = %list_length.exit
-  %358 = getelementptr inbounds i8, ptr %.1, i64 16
+  %358 = getelementptr inbounds i8, ptr %.0, i64 16
   br label %359
 
 359:                                              ; preds = %.lr.ph224, %359
@@ -1859,7 +1859,7 @@ list_length.exit131.i:                            ; preds = %411
   %509 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %509)
   %510 = call i32 @errcode(i32 noundef 50724996) #8
-  %511 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.88, ptr noundef nonnull %.2) #8
+  %511 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.88, ptr noundef nonnull %.0157) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 992, ptr noundef nonnull @__func__.interpret_AS_clause) #8
   unreachable
 
@@ -1877,7 +1877,7 @@ interpret_AS_clause.exit:                         ; preds = %514, %sub_0.i111, %
   %.0163 = phi ptr [ null, %500 ], [ null, %512 ], [ %398, %list_length.exit.i ], [ %398, %sub_1.i113 ], [ %398, %sub_0.i111 ], [ null, %514 ]
   %.0162 = phi ptr [ %501, %500 ], [ %505, %512 ], [ %369, %list_length.exit.i ], [ %410, %sub_1.i113 ], [ %405, %sub_0.i111 ], [ %spec.select, %514 ]
   %.0161 = phi ptr [ %storemerge.i, %500 ], [ null, %512 ], [ null, %list_length.exit.i ], [ null, %sub_1.i113 ], [ null, %sub_0.i111 ], [ null, %514 ]
-  %516 = fcmp olt float %.0147, 0.000000e+00
+  %516 = fcmp olt float %.1148, 0.000000e+00
   br i1 %516, label %517, label %520
 
 517:                                              ; preds = %interpret_AS_clause.exit
@@ -1889,8 +1889,8 @@ interpret_AS_clause.exit:                         ; preds = %514, %sub_0.i111, %
   br label %520
 
 520:                                              ; preds = %517, %519, %interpret_AS_clause.exit
-  %.1148 = phi float [ 1.000000e+02, %519 ], [ %.0147, %interpret_AS_clause.exit ], [ 1.000000e+00, %517 ]
-  %521 = fcmp olt float %.0145, 0.000000e+00
+  %.0147 = phi float [ 1.000000e+02, %519 ], [ %.1148, %interpret_AS_clause.exit ], [ 1.000000e+00, %517 ]
+  %521 = fcmp olt float %.1146, 0.000000e+00
   %522 = trunc i8 %.0159 to i1
   br i1 %521, label %523, label %525
 
@@ -1913,7 +1913,7 @@ interpret_AS_clause.exit:                         ; preds = %514, %sub_0.i111, %
 
 530:                                              ; preds = %523, %525, %524
   %.pre-phi = phi i1 [ true, %523 ], [ true, %525 ], [ false, %524 ]
-  %.1146 = phi float [ 1.000000e+03, %523 ], [ %.0145, %525 ], [ 0.000000e+00, %524 ]
+  %.0145 = phi float [ 1.000000e+03, %523 ], [ %.1146, %525 ], [ 0.000000e+00, %524 ]
   %531 = load ptr, ptr %13, align 8
   %532 = getelementptr inbounds i8, ptr %1, i64 5
   %533 = load i8, ptr %532, align 1
@@ -1936,7 +1936,7 @@ interpret_AS_clause.exit:                         ; preds = %514, %sub_0.i111, %
   %550 = load ptr, ptr %20, align 8
   %551 = ptrtoint ptr %.072 to i64
   %552 = ptrtoint ptr %.0149 to i64
-  %553 = call { i64, i32 } @ProcedureCreate(ptr noundef %531, i32 noundef %25, i1 noundef zeroext %534, i1 noundef zeroext %.pre-phi, i32 noundef %.0160, i32 noundef %535, i32 noundef %226, i32 noundef %238, ptr noundef %.0162, ptr noundef %.0163, ptr noundef %.0161, i8 noundef signext %540, i1 noundef zeroext %541, i1 noundef zeroext %239, i1 noundef zeroext %542, i8 noundef signext %.0150, i8 noundef signext %.0141, ptr noundef %543, i64 noundef %545, i64 noundef %547, i64 noundef %549, ptr noundef %550, i64 noundef %551, i64 noundef %552, i32 noundef %.0144, float noundef %.1148, float noundef %.1146) #8
+  %553 = call { i64, i32 } @ProcedureCreate(ptr noundef %531, i32 noundef %25, i1 noundef zeroext %534, i1 noundef zeroext %.pre-phi, i32 noundef %.0160, i32 noundef %535, i32 noundef %226, i32 noundef %238, ptr noundef %.0162, ptr noundef %.0163, ptr noundef %.0161, i8 noundef signext %540, i1 noundef zeroext %541, i1 noundef zeroext %239, i1 noundef zeroext %542, i8 noundef signext %.0150, i8 noundef signext %.0141, ptr noundef %543, i64 noundef %545, i64 noundef %547, i64 noundef %549, ptr noundef %550, i64 noundef %551, i64 noundef %552, i32 noundef %.0144, float noundef %.0147, float noundef %.0145) #8
   ret { i64, i32 } %553
 }
 

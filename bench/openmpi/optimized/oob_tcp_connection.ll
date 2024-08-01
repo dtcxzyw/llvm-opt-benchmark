@@ -1270,7 +1270,7 @@ pmix_list_remove_first.exit:                      ; preds = %pmix_list_remove_fi
   br label %pmix_list_remove_first.exit.thread
 
 pmix_list_remove_first.exit.thread:               ; preds = %pmix_list_remove_first.exit, %pmix_obj_new_tma.exit327, %96, %312, %368, %pmix_obj_new_tma.exit320, %616, %558
-  %.0241 = phi ptr [ null, %96 ], [ %119, %558 ], [ %119, %616 ], [ %119, %pmix_obj_new_tma.exit320 ], [ %119, %312 ], [ %119, %368 ], [ %119, %pmix_obj_new_tma.exit327 ], [ %119, %pmix_list_remove_first.exit ]
+  %.1242 = phi ptr [ null, %96 ], [ %119, %558 ], [ %119, %616 ], [ %119, %pmix_obj_new_tma.exit320 ], [ %119, %312 ], [ %119, %368 ], [ %119, %pmix_obj_new_tma.exit327 ], [ %119, %pmix_list_remove_first.exit ]
   %618 = call i32 @pthread_mutex_lock(ptr noundef %2) #13
   %619 = icmp eq i32 %618, 35
   br i1 %619, label %620, label %622
@@ -1325,12 +1325,12 @@ pmix_obj_run_destructors.exit333:                 ; preds = %.lr.ph.i330, %628
   br label %642
 
 642:                                              ; preds = %639, %641, %408, %410, %622, %391, %581
-  %.1242 = phi ptr [ %.0241, %622 ], [ %119, %581 ], [ %119, %391 ], [ %119, %410 ], [ %119, %408 ], [ %.0241, %641 ], [ %.0241, %639 ]
-  %.not288 = icmp eq ptr %.1242, null
+  %.0241 = phi ptr [ %.1242, %622 ], [ %119, %581 ], [ %119, %391 ], [ %119, %410 ], [ %119, %408 ], [ %.1242, %641 ], [ %.1242, %639 ]
+  %.not288 = icmp eq ptr %.0241, null
   br i1 %.not288, label %644, label %643
 
 643:                                              ; preds = %642
-  call void @free(ptr noundef nonnull %.1242) #13
+  call void @free(ptr noundef nonnull %.0241) #13
   br label %644
 
 644:                                              ; preds = %642, %643

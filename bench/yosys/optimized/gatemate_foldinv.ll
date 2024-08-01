@@ -4164,13 +4164,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit501:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 .body412:                                         ; preds = %.body417, %759
   %.pn = phi { ptr, i32 } [ %760, %759 ], [ %eh.lpad-body.i, %.body417 ]
-  %.0 = phi i1 [ true, %759 ], [ false, %.body417 ]
+  %.31 = phi i1 [ true, %759 ], [ false, %.body417 ]
   call fastcc void @_ZN12_GLOBAL__N_17LUTTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %19) #17
   br label %1622
 
 1622:                                             ; preds = %.body412, %.body408, %1617
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body412 ], [ %750, %.body408 ], [ %1618, %1617 ]
-  %.1 = phi i1 [ %.0, %.body412 ], [ true, %.body408 ], [ true, %1617 ]
+  %.30 = phi i1 [ %.31, %.body412 ], [ true, %.body408 ], [ true, %1617 ]
   %1623 = getelementptr inbounds i8, ptr %21, i64 60
   br label %1624
 
@@ -4187,94 +4187,94 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit501:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 .body399:                                         ; preds = %714, %1628
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %1628 ], [ %715, %714 ]
-  %.123 = phi i1 [ false, %1628 ], [ true, %714 ]
-  %.3 = phi i1 [ %.1, %1628 ], [ true, %714 ]
+  %.931 = phi i1 [ false, %1628 ], [ true, %714 ]
+  %.28 = phi i1 [ %.30, %1628 ], [ true, %714 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %26) #17
   br label %.body394
 
 .body394:                                         ; preds = %695, %.body399
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body399 ], [ %696, %695 ]
-  %.224 = phi i1 [ %.123, %.body399 ], [ true, %695 ]
-  %.4 = phi i1 [ %.3, %.body399 ], [ true, %695 ]
+  %.830 = phi i1 [ %.931, %.body399 ], [ true, %695 ]
+  %.27 = phi i1 [ %.28, %.body399 ], [ true, %695 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %654) #17
-  %1629 = xor i1 %.224, true
+  %1629 = xor i1 %.830, true
   br label %.body385
 
 .body385:                                         ; preds = %661, %.body394
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body394 ], [ %662, %661 ]
-  %.538 = phi ptr [ %678, %.body394 ], [ %625, %661 ]
-  %.325 = phi i1 [ %1629, %.body394 ], [ false, %661 ]
-  %.5 = phi i1 [ %.4, %.body394 ], [ true, %661 ]
+  %.1144 = phi ptr [ %678, %.body394 ], [ %625, %661 ]
+  %.729 = phi i1 [ %1629, %.body394 ], [ false, %661 ]
+  %.26 = phi i1 [ %.27, %.body394 ], [ true, %661 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %25) #17
   br label %.body380
 
 .body380:                                         ; preds = %642, %.body385
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body385 ], [ %643, %642 ]
-  %.639 = phi ptr [ %.538, %.body385 ], [ %625, %642 ]
-  %.426 = phi i1 [ %.325, %.body385 ], [ false, %642 ]
-  %.6 = phi i1 [ %.5, %.body385 ], [ true, %642 ]
+  %.1043 = phi ptr [ %.1144, %.body385 ], [ %625, %642 ]
+  %.628 = phi i1 [ %.729, %.body385 ], [ false, %642 ]
+  %.25 = phi i1 [ %.26, %.body385 ], [ true, %642 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %601) #17
   br label %.body371
 
 .body371:                                         ; preds = %608, %.body380
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %.body380 ], [ %609, %608 ]
-  %.740 = phi ptr [ %.639, %.body380 ], [ %572, %608 ]
-  %.527 = phi i1 [ %.426, %.body380 ], [ false, %608 ]
-  %.7 = phi i1 [ %.6, %.body380 ], [ true, %608 ]
+  %.942 = phi ptr [ %.1043, %.body380 ], [ %572, %608 ]
+  %.527 = phi i1 [ %.628, %.body380 ], [ false, %608 ]
+  %.24 = phi i1 [ %.25, %.body380 ], [ true, %608 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #17
   br label %.body366
 
 .body366:                                         ; preds = %589, %.body371
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body371 ], [ %590, %589 ]
-  %.841 = phi ptr [ %.740, %.body371 ], [ %572, %589 ]
-  %.628 = phi i1 [ %.527, %.body371 ], [ false, %589 ]
-  %.8 = phi i1 [ %.7, %.body371 ], [ true, %589 ]
+  %.841 = phi ptr [ %.942, %.body371 ], [ %572, %589 ]
+  %.426 = phi i1 [ %.527, %.body371 ], [ false, %589 ]
+  %.23 = phi i1 [ %.24, %.body371 ], [ true, %589 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %548) #17
   br label %.body357
 
 .body357:                                         ; preds = %555, %.body366
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body366 ], [ %556, %555 ]
-  %.942 = phi ptr [ %.841, %.body366 ], [ %519, %555 ]
-  %.729 = phi i1 [ %.628, %.body366 ], [ false, %555 ]
-  %.9 = phi i1 [ %.8, %.body366 ], [ true, %555 ]
+  %.740 = phi ptr [ %.841, %.body366 ], [ %519, %555 ]
+  %.325 = phi i1 [ %.426, %.body366 ], [ false, %555 ]
+  %.22 = phi i1 [ %.23, %.body366 ], [ true, %555 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #17
   br label %.body338
 
 .body338:                                         ; preds = %.body357, %536
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body357 ], [ %537, %536 ]
-  %.1043 = phi ptr [ %.942, %.body357 ], [ %519, %536 ]
-  %.830 = phi i1 [ %.729, %.body357 ], [ false, %536 ]
-  %.10 = phi i1 [ %.9, %.body357 ], [ true, %536 ]
+  %.639 = phi ptr [ %.740, %.body357 ], [ %519, %536 ]
+  %.224 = phi i1 [ %.325, %.body357 ], [ false, %536 ]
+  %.21 = phi i1 [ %.22, %.body357 ], [ true, %536 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %496) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #17
-  %1630 = icmp eq ptr %21, %.1043
-  %or.cond = select i1 %.830, i1 true, i1 %1630
+  %1630 = icmp eq ptr %21, %.639
+  %or.cond = select i1 %.224, i1 true, i1 %1630
   br i1 %or.cond, label %.body338.thread, label %.preheader607
 
 .preheader607:                                    ; preds = %.body338, %.preheader607
-  %1631 = phi ptr [ %1632, %.preheader607 ], [ %.1043, %.body338 ]
+  %1631 = phi ptr [ %1632, %.preheader607 ], [ %.639, %.body338 ]
   %1632 = getelementptr inbounds i8, ptr %1631, i64 -12
   call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinEED2Ev(ptr noundef nonnull align 4 dereferenceable(12) %1632) #17
   %1633 = icmp eq ptr %1632, %21
   br i1 %1633, label %.body338.thread, label %.preheader607
 
 .body338.thread:                                  ; preds = %.preheader607, %484, %.body338.thread554, %.body338
-  %.12552 = phi i1 [ %.10, %.body338 ], [ true, %.body338.thread554 ], [ true, %484 ], [ %.10, %.preheader607 ]
+  %.19552 = phi i1 [ %.21, %.body338 ], [ true, %.body338.thread554 ], [ true, %484 ], [ %.21, %.preheader607 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn551 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body338 ], [ %503, %.body338.thread554 ], [ %485, %484 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader607 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #17
   br label %.body327
 
 .body327:                                         ; preds = %446, %465, %.body338.thread
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn551, %.body338.thread ], [ %447, %446 ], [ %466, %465 ]
-  %.276 = phi ptr [ %448, %.body338.thread ], [ %188, %446 ], [ %448, %465 ]
-  %.13 = phi i1 [ %.12552, %.body338.thread ], [ true, %446 ], [ true, %465 ]
+  %.2094 = phi ptr [ %448, %.body338.thread ], [ %188, %446 ], [ %448, %465 ]
+  %.18 = phi i1 [ %.19552, %.body338.thread ], [ true, %446 ], [ true, %465 ]
   call fastcc void @_ZN12_GLOBAL__N_17LUTTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #17
   br label %1634
 
 1634:                                             ; preds = %.body327, %.body323, %1615
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body327 ], [ %437, %.body323 ], [ %1616, %1615 ]
-  %.377 = phi ptr [ %.276, %.body327 ], [ %188, %.body323 ], [ %188, %1615 ]
-  %.14 = phi i1 [ %.13, %.body327 ], [ true, %.body323 ], [ true, %1615 ]
+  %.1993 = phi ptr [ %.2094, %.body327 ], [ %188, %.body323 ], [ %188, %1615 ]
+  %.17 = phi i1 [ %.18, %.body327 ], [ true, %.body323 ], [ true, %1615 ]
   %1635 = getelementptr inbounds i8, ptr %13, i64 48
   br label %1636
 
@@ -4291,85 +4291,85 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit501:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 .body314:                                         ; preds = %401, %1640
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1640 ], [ %402, %401 ]
-  %.579 = phi ptr [ %.377, %1640 ], [ %188, %401 ]
-  %.147 = phi i1 [ true, %1640 ], [ false, %401 ]
-  %.16 = phi i1 [ %.14, %1640 ], [ true, %401 ]
+  %.1791 = phi ptr [ %.1993, %1640 ], [ %188, %401 ]
+  %.753 = phi i1 [ true, %1640 ], [ false, %401 ]
+  %.15 = phi i1 [ %.17, %1640 ], [ true, %401 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #17
   br label %.body309
 
 .body309:                                         ; preds = %382, %.body314
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body314 ], [ %383, %382 ]
-  %.680 = phi ptr [ %.579, %.body314 ], [ %188, %382 ]
-  %.248 = phi i1 [ %.147, %.body314 ], [ false, %382 ]
-  %.17 = phi i1 [ %.16, %.body314 ], [ true, %382 ]
+  %.1690 = phi ptr [ %.1791, %.body314 ], [ %188, %382 ]
+  %.652 = phi i1 [ %.753, %.body314 ], [ false, %382 ]
+  %.14 = phi i1 [ %.15, %.body314 ], [ true, %382 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %341) #17
   br label %.body300
 
 .body300:                                         ; preds = %348, %.body309
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body309 ], [ %349, %348 ]
-  %.781 = phi ptr [ %.680, %.body309 ], [ %188, %348 ]
-  %.459 = phi ptr [ %365, %.body309 ], [ %312, %348 ]
-  %.349 = phi i1 [ %.248, %.body309 ], [ false, %348 ]
-  %.18 = phi i1 [ %.17, %.body309 ], [ true, %348 ]
+  %.1589 = phi ptr [ %.1690, %.body309 ], [ %188, %348 ]
+  %.863 = phi ptr [ %365, %.body309 ], [ %312, %348 ]
+  %.551 = phi i1 [ %.652, %.body309 ], [ false, %348 ]
+  %.13 = phi i1 [ %.14, %.body309 ], [ true, %348 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %16) #17
   br label %.body295
 
 .body295:                                         ; preds = %329, %.body300
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body300 ], [ %330, %329 ]
-  %.882 = phi ptr [ %.781, %.body300 ], [ %188, %329 ]
-  %.560 = phi ptr [ %.459, %.body300 ], [ %312, %329 ]
-  %.450 = phi i1 [ %.349, %.body300 ], [ false, %329 ]
-  %.19 = phi i1 [ %.18, %.body300 ], [ true, %329 ]
+  %.1488 = phi ptr [ %.1589, %.body300 ], [ %188, %329 ]
+  %.762 = phi ptr [ %.863, %.body300 ], [ %312, %329 ]
+  %.450 = phi i1 [ %.551, %.body300 ], [ false, %329 ]
+  %.12 = phi i1 [ %.13, %.body300 ], [ true, %329 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %288) #17
   br label %.body286
 
 .body286:                                         ; preds = %295, %.body295
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body295 ], [ %296, %295 ]
-  %.983 = phi ptr [ %.882, %.body295 ], [ %188, %295 ]
-  %.661 = phi ptr [ %.560, %.body295 ], [ %259, %295 ]
-  %.551 = phi i1 [ %.450, %.body295 ], [ false, %295 ]
-  %.20 = phi i1 [ %.19, %.body295 ], [ true, %295 ]
+  %.1387 = phi ptr [ %.1488, %.body295 ], [ %188, %295 ]
+  %.661 = phi ptr [ %.762, %.body295 ], [ %259, %295 ]
+  %.349 = phi i1 [ %.450, %.body295 ], [ false, %295 ]
+  %.11 = phi i1 [ %.12, %.body295 ], [ true, %295 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %15) #17
   br label %.body267
 
 .body267:                                         ; preds = %.body286, %276
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body286 ], [ %277, %276 ]
-  %.1084 = phi ptr [ %.983, %.body286 ], [ %188, %276 ]
-  %.762 = phi ptr [ %.661, %.body286 ], [ %259, %276 ]
-  %.652 = phi i1 [ %.551, %.body286 ], [ false, %276 ]
-  %.21 = phi i1 [ %.20, %.body286 ], [ true, %276 ]
+  %.1286 = phi ptr [ %.1387, %.body286 ], [ %188, %276 ]
+  %.560 = phi ptr [ %.661, %.body286 ], [ %259, %276 ]
+  %.248 = phi i1 [ %.349, %.body286 ], [ false, %276 ]
+  %.10 = phi i1 [ %.11, %.body286 ], [ true, %276 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %236) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %14) #17
-  %1641 = icmp eq ptr %13, %.762
-  %or.cond4 = select i1 %.652, i1 true, i1 %1641
+  %1641 = icmp eq ptr %13, %.560
+  %or.cond4 = select i1 %.248, i1 true, i1 %1641
   br i1 %or.cond4, label %.body267.thread, label %.preheader606
 
 .preheader606:                                    ; preds = %.body267, %.preheader606
-  %1642 = phi ptr [ %1643, %.preheader606 ], [ %.762, %.body267 ]
+  %1642 = phi ptr [ %1643, %.preheader606 ], [ %.560, %.body267 ]
   %1643 = getelementptr inbounds i8, ptr %1642, i64 -12
   call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinEED2Ev(ptr noundef nonnull align 4 dereferenceable(12) %1643) #17
   %1644 = icmp eq ptr %1643, %13
   br i1 %1644, label %.body267.thread, label %.preheader606
 
 .body267.thread:                                  ; preds = %.preheader606, %224, %.body267.thread570, %.body267
-  %.23568 = phi i1 [ %.21, %.body267 ], [ true, %.body267.thread570 ], [ true, %224 ], [ %.21, %.preheader606 ]
-  %.1286567 = phi ptr [ %.1084, %.body267 ], [ %188, %.body267.thread570 ], [ %188, %224 ], [ %.1084, %.preheader606 ]
+  %.8568 = phi i1 [ %.10, %.body267 ], [ true, %.body267.thread570 ], [ true, %224 ], [ %.10, %.preheader606 ]
+  %.1084567 = phi ptr [ %.1286, %.body267 ], [ %188, %.body267.thread570 ], [ %188, %224 ], [ %.1286, %.preheader606 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn566 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body267 ], [ %243, %.body267.thread570 ], [ %225, %224 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader606 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #17
-  %1645 = xor i1 %.23568, true
+  %1645 = xor i1 %.8568, true
   br label %.body257
 
 .body257:                                         ; preds = %186, %205, %.body267.thread
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn566, %.body267.thread ], [ %187, %186 ], [ %206, %205 ]
-  %.1387 = phi ptr [ %.1286567, %.body267.thread ], [ %3, %186 ], [ %188, %205 ]
-  %.24 = phi i1 [ %1645, %.body267.thread ], [ false, %186 ], [ false, %205 ]
+  %.983 = phi ptr [ %.1084567, %.body267.thread ], [ %3, %186 ], [ %188, %205 ]
+  %.7 = phi i1 [ %1645, %.body267.thread ], [ false, %186 ], [ false, %205 ]
   call fastcc void @_ZN12_GLOBAL__N_17LUTTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #17
   br label %1646
 
 1646:                                             ; preds = %.body257, %.body253, %1613
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body257 ], [ %177, %.body253 ], [ %1614, %1613 ]
-  %.1488 = phi ptr [ %.1387, %.body257 ], [ %3, %.body253 ], [ %3, %1613 ]
-  %.25 = phi i1 [ %.24, %.body257 ], [ false, %.body253 ], [ false, %1613 ]
+  %.882 = phi ptr [ %.983, %.body257 ], [ %3, %.body253 ], [ %3, %1613 ]
+  %.6 = phi i1 [ %.7, %.body257 ], [ false, %.body253 ], [ false, %1613 ]
   %1647 = getelementptr inbounds i8, ptr %7, i64 24
   br label %1648
 
@@ -4386,17 +4386,17 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit501:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 .body244:                                         ; preds = %141, %1652
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1652 ], [ %142, %141 ]
-  %.1690 = phi ptr [ %.1488, %1652 ], [ %3, %141 ]
-  %.166 = phi i1 [ true, %1652 ], [ false, %141 ]
-  %.27 = phi i1 [ %.25, %1652 ], [ false, %141 ]
+  %.680 = phi ptr [ %.882, %1652 ], [ %3, %141 ]
+  %.368 = phi i1 [ true, %1652 ], [ false, %141 ]
+  %.4 = phi i1 [ %.6, %1652 ], [ false, %141 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #17
   br label %.body229
 
 .body229:                                         ; preds = %.body244, %122
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body244 ], [ %123, %122 ]
-  %.1791 = phi ptr [ %.1690, %.body244 ], [ %3, %122 ]
-  %.267 = phi i1 [ %.166, %.body244 ], [ false, %122 ]
-  %.28 = phi i1 [ %.27, %.body244 ], [ false, %122 ]
+  %.579 = phi ptr [ %.680, %.body244 ], [ %3, %122 ]
+  %.267 = phi i1 [ %.368, %.body244 ], [ false, %122 ]
+  %.3 = phi i1 [ %.4, %.body244 ], [ false, %122 ]
   call fastcc void @_ZN12_GLOBAL__N_16LUTPinD2Ev(i32 %82) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #17
   br i1 %.267, label %.body, label %.preheader605.preheader
@@ -4412,12 +4412,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit501:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 .body:                                            ; preds = %.preheader605.preheader, %.body229
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  %1653 = icmp eq ptr %3, %.1791
-  %or.cond10 = select i1 %.28, i1 true, i1 %1653
+  %1653 = icmp eq ptr %3, %.579
+  %or.cond10 = select i1 %.3, i1 true, i1 %1653
   br i1 %or.cond10, label %.body.thread, label %.preheader
 
 .preheader:                                       ; preds = %.body, %.preheader
-  %1654 = phi ptr [ %1655, %.preheader ], [ %.1791, %.body ]
+  %1654 = phi ptr [ %1655, %.preheader ], [ %.579, %.body ]
   %1655 = getelementptr inbounds i8, ptr %1654, i64 -72
   call fastcc void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_17LUTTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %1655) #17
   %1656 = icmp eq ptr %1655, %3
@@ -7758,8 +7758,8 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev.exit.i: ; preds = %1319, %1
 
 ._crit_edge1104.i:                                ; preds = %._crit_edge1104.loopexit1133.i, %.lr.ph1103.i, %1326
   %1348 = phi ptr [ %1327, %1326 ], [ %.pre1283.i, %._crit_edge1104.loopexit1133.i ], [ %1327, %.lr.ph1103.i ]
-  %.sroa.6.0.lcssa.i = phi ptr [ null, %1326 ], [ %.sroa.6.3.i, %._crit_edge1104.loopexit1133.i ], [ null, %.lr.ph1103.i ]
-  %.sroa.0699.0.lcssa.i = phi ptr [ null, %1326 ], [ %.sroa.0699.6.i, %._crit_edge1104.loopexit1133.i ], [ null, %.lr.ph1103.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ null, %1326 ], [ %.sroa.6.1.i, %._crit_edge1104.loopexit1133.i ], [ null, %.lr.ph1103.i ]
+  %.sroa.0699.1.lcssa.i = phi ptr [ null, %1326 ], [ %.sroa.0699.3.i, %._crit_edge1104.loopexit1133.i ], [ null, %.lr.ph1103.i ]
   %.not.i.i.i118.i = icmp eq ptr %1348, null
   br i1 %.not.i.i.i118.i, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit119.i, label %1349
 
@@ -7768,7 +7768,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev.exit.i: ; preds = %1319, %1
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit119.i
 
 _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit119.i: ; preds = %1349, %._crit_edge1104.i
-  %.not7351124.i = icmp eq ptr %.sroa.0699.0.lcssa.i, %.sroa.6.0.lcssa.i
+  %.not7351124.i = icmp eq ptr %.sroa.0699.1.lcssa.i, %.sroa.6.0.lcssa.i
   br i1 %.not7351124.i, label %._crit_edge1130.i, label %.lr.ph1129.i
 
 .lr.ph1129.i:                                     ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit119.i
@@ -7814,15 +7814,15 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit119.i: ; preds = %1349, %._cri
   br label %.body198.i
 
 .loopexit.split-lp776.i:                          ; preds = %.invoke1431.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit.i
-  %.sroa.0699.1.ph.i = phi ptr [ null, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit.i ], [ %.sroa.0699.0.lcssa.i, %.invoke1431.i ]
+  %.sroa.0699.0.ph.i = phi ptr [ null, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit.i ], [ %.sroa.0699.1.lcssa.i, %.invoke1431.i ]
   %lpad.loopexit.split-lp778.i = landingpad { ptr, i32 }
           cleanup
   br label %.body198.i
 
 .lr.ph1103.split.i:                               ; preds = %.lr.ph1103.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i
-  %.sroa.0699.01101.i = phi ptr [ %.sroa.0699.6.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ null, %.lr.ph1103.i ]
-  %.sroa.6.01100.i = phi ptr [ %.sroa.6.3.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ null, %.lr.ph1103.i ]
-  %.sroa.11.01099.i = phi ptr [ %.sroa.11.3.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ null, %.lr.ph1103.i ]
+  %.sroa.0699.11101.i = phi ptr [ %.sroa.0699.3.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ null, %.lr.ph1103.i ]
+  %.sroa.6.01100.i = phi ptr [ %.sroa.6.1.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ null, %.lr.ph1103.i ]
+  %.sroa.11.01099.i = phi ptr [ %.sroa.11.1.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ null, %.lr.ph1103.i ]
   %.sroa.0696.01098.i = phi ptr [ %1514, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i ], [ %1327, %.lr.ph1103.i ]
   %1384 = load ptr, ptr %.sroa.0696.01098.i, align 8
   %1385 = getelementptr inbounds i8, ptr %1384, i64 76
@@ -8052,7 +8052,7 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i.i109
 
 1481:                                             ; preds = %1471
   %1482 = ptrtoint ptr %.sroa.6.01100.i to i64
-  %1483 = ptrtoint ptr %.sroa.0699.01101.i to i64
+  %1483 = ptrtoint ptr %.sroa.0699.11101.i to i64
   %1484 = sub i64 %1482, %1483
   %1485 = icmp eq i64 %1484, 9223372036854775792
   br i1 %1485, label %1486, label %_ZNKSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -8086,12 +8086,12 @@ _ZNKSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE12_M_check_lenEmPKc.exit.i
   %1497 = getelementptr inbounds i8, ptr %1496, i64 8
   %1498 = load ptr, ptr %1476, align 8
   store ptr %1498, ptr %1497, align 8
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0699.01101.i, %.sroa.6.01100.i
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0699.11101.i, %.sroa.6.01100.i
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i, label %.lr.ph.i.i.i.i.i.i137.i
 
 .lr.ph.i.i.i.i.i.i137.i:                          ; preds = %.noexc141.i, %.lr.ph.i.i.i.i.i.i137.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %1500, %.lr.ph.i.i.i.i.i.i137.i ], [ %1495, %.noexc141.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %1499, %.lr.ph.i.i.i.i.i.i137.i ], [ %.sroa.0699.01101.i, %.noexc141.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %1499, %.lr.ph.i.i.i.i.i.i137.i ], [ %.sroa.0699.11101.i, %.noexc141.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !123
   %1499 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
   %1500 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 16
@@ -8101,11 +8101,11 @@ _ZNKSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE12_M_check_lenEmPKc.exit.i
 _ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i137.i, %.noexc141.i
   %.0.lcssa.i.i.i.i.i.i139.i = phi ptr [ %1495, %.noexc141.i ], [ %1500, %.lr.ph.i.i.i.i.i.i137.i ]
   %1501 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i139.i, i64 16
-  %.not.i34.i.i.i = icmp eq ptr %.sroa.0699.01101.i, null
+  %.not.i34.i.i.i = icmp eq ptr %.sroa.0699.11101.i, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %1502
 
 1502:                                             ; preds = %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0699.01101.i) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0699.11101.i) #18
   br label %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %1502, %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i
@@ -8115,7 +8115,7 @@ _ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9
 _ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE12emplace_backIJRS4_S9_EEEvDpOT_.exit.i: ; preds = %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %1477, %1467, %1434
   %.sroa.11.2.i = phi ptr [ %.sroa.11.01099.i, %1434 ], [ %.sroa.11.01099.i, %1467 ], [ %1503, %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.11.01099.i, %1477 ]
   %.sroa.6.2.i = phi ptr [ %.sroa.6.01100.i, %1434 ], [ %.sroa.6.01100.i, %1467 ], [ %1501, %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %1480, %1477 ]
-  %.sroa.0699.5.i = phi ptr [ %.sroa.0699.01101.i, %1434 ], [ %.sroa.0699.01101.i, %1467 ], [ %1495, %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.0699.01101.i, %1477 ]
+  %.sroa.0699.4.i = phi ptr [ %.sroa.0699.11101.i, %1434 ], [ %.sroa.0699.11101.i, %1467 ], [ %1495, %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EE17_M_realloc_insertIJRS4_S9_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %.sroa.0699.11101.i, %1477 ]
   %1504 = load ptr, ptr %1336, align 8
   %.not.i.i.i.i142.i = icmp eq ptr %1504, null
   br i1 %.not.i.i.i.i142.i, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i143.i, label %1505
@@ -8160,9 +8160,9 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i: ; preds 
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i:            ; preds = %1422, %1513, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i, %1430, %._crit_edge.i.i120.i, %.lr.ph1103.split.i
-  %.sroa.11.3.i = phi ptr [ %.sroa.11.01099.i, %1430 ], [ %.sroa.11.2.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i ], [ %.sroa.11.2.i, %1513 ], [ %.sroa.11.01099.i, %._crit_edge.i.i120.i ], [ %.sroa.11.01099.i, %.lr.ph1103.split.i ], [ %.sroa.11.01099.i, %1422 ]
-  %.sroa.6.3.i = phi ptr [ %.sroa.6.01100.i, %1430 ], [ %.sroa.6.2.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i ], [ %.sroa.6.2.i, %1513 ], [ %.sroa.6.01100.i, %._crit_edge.i.i120.i ], [ %.sroa.6.01100.i, %.lr.ph1103.split.i ], [ %.sroa.6.01100.i, %1422 ]
-  %.sroa.0699.6.i = phi ptr [ %.sroa.0699.01101.i, %1430 ], [ %.sroa.0699.5.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i ], [ %.sroa.0699.5.i, %1513 ], [ %.sroa.0699.01101.i, %._crit_edge.i.i120.i ], [ %.sroa.0699.01101.i, %.lr.ph1103.split.i ], [ %.sroa.0699.01101.i, %1422 ]
+  %.sroa.11.1.i = phi ptr [ %.sroa.11.01099.i, %1430 ], [ %.sroa.11.2.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i ], [ %.sroa.11.2.i, %1513 ], [ %.sroa.11.01099.i, %._crit_edge.i.i120.i ], [ %.sroa.11.01099.i, %.lr.ph1103.split.i ], [ %.sroa.11.01099.i, %1422 ]
+  %.sroa.6.1.i = phi ptr [ %.sroa.6.01100.i, %1430 ], [ %.sroa.6.2.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i ], [ %.sroa.6.2.i, %1513 ], [ %.sroa.6.01100.i, %._crit_edge.i.i120.i ], [ %.sroa.6.01100.i, %.lr.ph1103.split.i ], [ %.sroa.6.01100.i, %1422 ]
+  %.sroa.0699.3.i = phi ptr [ %.sroa.0699.11101.i, %1430 ], [ %.sroa.0699.4.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i152.i ], [ %.sroa.0699.4.i, %1513 ], [ %.sroa.0699.11101.i, %._crit_edge.i.i120.i ], [ %.sroa.0699.11101.i, %.lr.ph1103.split.i ], [ %.sroa.0699.11101.i, %1422 ]
   %1514 = getelementptr inbounds i8, ptr %.sroa.0696.01098.i, i64 8
   %.not734.i = icmp eq ptr %1514, %1329
   br i1 %.not734.i, label %._crit_edge1104.loopexit1133.i, label %.lr.ph1103.split.i, !llvm.loop !128
@@ -8178,7 +8178,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit154.i:            ; preds = %1422, %1513, %_ZSt8
   br label %.body198.i
 
 1518:                                             ; preds = %.loopexit741.i, %.lr.ph1129.i
-  %.sroa.0681.01125.i = phi ptr [ %.sroa.0699.0.lcssa.i, %.lr.ph1129.i ], [ %2161, %.loopexit741.i ]
+  %.sroa.0681.01125.i = phi ptr [ %.sroa.0699.1.lcssa.i, %.lr.ph1129.i ], [ %2161, %.loopexit741.i ]
   %.sroa.017.0.copyload.i = load ptr, ptr %.sroa.0681.01125.i, align 8
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0681.01125.i, i64 8
   %.sroa.218.0.copyload.i = load ptr, ptr %.sroa.218.0..sroa_idx.i, align 8
@@ -10002,11 +10002,11 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_5ConstEED2Ev.exit.i: ; preds = %2157, %215
   br i1 %.not735.i, label %._crit_edge1130.i, label %1518
 
 ._crit_edge1130.i:                                ; preds = %.loopexit741.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit119.i
-  %.not.i.i.i306.i = icmp eq ptr %.sroa.0699.0.lcssa.i, null
+  %.not.i.i.i306.i = icmp eq ptr %.sroa.0699.1.lcssa.i, null
   br i1 %.not.i.i.i306.i, label %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EED2Ev.exit.i, label %2162
 
 2162:                                             ; preds = %._crit_edge1130.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0699.0.lcssa.i) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0699.1.lcssa.i) #18
   br label %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIPN5Yosys5RTLIL4CellES4_ESaIS5_EED2Ev.exit.i: ; preds = %2162, %._crit_edge1130.i
@@ -10029,13 +10029,13 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
   br label %_ZN12_GLOBAL__N_113FoldInvWorker21fold_output_invertersEv.exit
 
 .body198.i:                                       ; preds = %.body277.i, %1872, %.body222.i, %1727, %1726, %.body398.i, %1517, %1515, %.loopexit.split-lp776.i, %.loopexit775.i
-  %.sroa.0699.7.i = phi ptr [ %.sroa.0699.0.lcssa.i, %.body222.i ], [ %.sroa.0699.0.lcssa.i, %.body277.i ], [ %.sroa.0699.0.lcssa.i, %1727 ], [ %.sroa.0699.0.lcssa.i, %1726 ], [ %.sroa.0699.0.lcssa.i, %.body398.i ], [ %.sroa.0699.0.lcssa.i, %1872 ], [ %.sroa.0699.01101.i, %1515 ], [ %.sroa.0699.01101.i, %1517 ], [ %.sroa.0699.0.lcssa.i, %.loopexit775.i ], [ %.sroa.0699.1.ph.i, %.loopexit.split-lp776.i ]
+  %.sroa.0699.2.i = phi ptr [ %.sroa.0699.1.lcssa.i, %.body222.i ], [ %.sroa.0699.1.lcssa.i, %.body277.i ], [ %.sroa.0699.1.lcssa.i, %1727 ], [ %.sroa.0699.1.lcssa.i, %1726 ], [ %.sroa.0699.1.lcssa.i, %.body398.i ], [ %.sroa.0699.1.lcssa.i, %1872 ], [ %.sroa.0699.11101.i, %1515 ], [ %.sroa.0699.11101.i, %1517 ], [ %.sroa.0699.1.lcssa.i, %.loopexit775.i ], [ %.sroa.0699.0.ph.i, %.loopexit.split-lp776.i ]
   %.pn59.pn.i = phi { ptr, i32 } [ %.pn57.i, %.body222.i ], [ %.pn54.pn.i, %.body277.i ], [ %1728, %1727 ], [ %.pn.pn.pn.pn.i, %1726 ], [ %eh.lpad-body399.i, %.body398.i ], [ %lpad.phi.i, %1872 ], [ %.pn59.i, %1515 ], [ %.pn59.i, %1517 ], [ %lpad.loopexit777.i, %.loopexit775.i ], [ %lpad.loopexit.split-lp778.i, %.loopexit.split-lp776.i ]
-  %.not.i.i.i309.i = icmp eq ptr %.sroa.0699.7.i, null
+  %.not.i.i.i309.i = icmp eq ptr %.sroa.0699.2.i, null
   br i1 %.not.i.i.i309.i, label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit117.i, label %2168
 
 2168:                                             ; preds = %.body198.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0699.7.i) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0699.2.i) #18
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit117.i
 
 _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit117.i: ; preds = %2168, %.body198.i, %1325, %.body.i30, %633

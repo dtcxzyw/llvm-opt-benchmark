@@ -336,7 +336,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %29, %26
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58, %63
   %.157.us = phi ptr [ %65, %63 ], [ %2, %.lr.ph58 ]
-  %.256.us = phi i64 [ %.3.us, %63 ], [ 0, %.lr.ph58 ]
+  %.356.us = phi i64 [ %.4.us, %63 ], [ 0, %.lr.ph58 ]
   %.03554.us = phi i64 [ %66, %63 ], [ 0, %.lr.ph58 ]
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
@@ -366,11 +366,11 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %57, %54
   %61 = phi i64 [ %60, %57 ], [ %56, %54 ]
   store float %48, ptr %4, align 4
   store i64 %61, ptr %5, align 8
-  %62 = add i64 %.256.us, 1
+  %62 = add i64 %.356.us, 1
   br label %63
 
 63:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %.lr.ph58.split.us
-  %.3.us = phi i64 [ %62, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.256.us, %.lr.ph58.split.us ]
+  %.4.us = phi i64 [ %62, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.356.us, %.lr.ph58.split.us ]
   %64 = load i64, ptr %44, align 8
   %65 = getelementptr inbounds i8, ptr %.157.us, i64 %64
   %66 = add nuw i64 %.03554.us, 1
@@ -494,7 +494,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %112, %_Z
 
 .lr.ph58.split:                                   ; preds = %.lr.ph58, %181
   %.157 = phi ptr [ %183, %181 ], [ %2, %.lr.ph58 ]
-  %.256 = phi i64 [ %.3, %181 ], [ 0, %.lr.ph58 ]
+  %.356 = phi i64 [ %.4, %181 ], [ 0, %.lr.ph58 ]
   %.03554 = phi i64 [ %184, %181 ], [ 0, %.lr.ph58 ]
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 16
@@ -596,11 +596,11 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %171, %_Z
   store float %129, ptr %178, align 4
   %179 = getelementptr inbounds i64, ptr %42, i64 %.0.lcssa.i.i46.ph
   store i64 %142, ptr %179, align 8
-  %180 = add i64 %.256, 1
+  %180 = add i64 %.356, 1
   br label %181
 
 181:                                              ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph58.split
-  %.3 = phi i64 [ %180, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.256, %.lr.ph58.split ]
+  %.4 = phi i64 [ %180, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.356, %.lr.ph58.split ]
   %182 = load i64, ptr %44, align 8
   %183 = getelementptr inbounds i8, ptr %.157, i64 %182
   %184 = add nuw i64 %.03554, 1
@@ -608,8 +608,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %171, %_Z
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph58.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %122, %35, %181, %63, %.preheader48, %.preheader
-  %.4 = phi i64 [ 0, %.preheader ], [ 0, %.preheader48 ], [ %.3.us, %63 ], [ %.3, %181 ], [ %.134.us, %35 ], [ %.134, %122 ]
-  ret i64 %.4
+  %.2 = phi i64 [ 0, %.preheader ], [ 0, %.preheader48 ], [ %.4.us, %63 ], [ %.4, %181 ], [ %.134.us, %35 ], [ %.134, %122 ]
+  ret i64 %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -682,7 +682,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %.lr.ph.split.u
   br i1 %42, label %.lr.ph41.split.us, label %.lr.ph41.split
 
 .lr.ph41.split.us:                                ; preds = %.lr.ph41, %56
-  %.240.us = phi i64 [ %.3.us, %56 ], [ 0, %.lr.ph41 ]
+  %.340.us = phi i64 [ %.4.us, %56 ], [ 0, %.lr.ph41 ]
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
@@ -700,11 +700,11 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %.lr.ph41.split
   %54 = extractvalue { i64, ptr } %46, 0
   store float %51, ptr %2, align 4
   store i64 %54, ptr %3, align 8
-  %55 = add i64 %.240.us, 1
+  %55 = add i64 %.340.us, 1
   br label %56
 
 56:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %.lr.ph41.split.us
-  %.3.us = phi i64 [ %55, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.240.us, %.lr.ph41.split.us ]
+  %.4.us = phi i64 [ %55, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.340.us, %.lr.ph41.split.us ]
   %57 = load i64, ptr %5, align 8
   %58 = add i64 %57, 1
   store i64 %58, ptr %5, align 8
@@ -828,7 +828,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %106, %_Z
   br i1 %125, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .lr.ph41.split:                                   ; preds = %.lr.ph41, %176
-  %.240 = phi i64 [ %.3, %176 ], [ 0, %.lr.ph41 ]
+  %.340 = phi i64 [ %.4, %176 ], [ 0, %.lr.ph41 ]
   %126 = load ptr, ptr %1, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 32
   %128 = load ptr, ptr %127, align 8
@@ -918,11 +918,11 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %166, %_Z
   store float %134, ptr %173, align 4
   %174 = getelementptr inbounds i64, ptr %41, i64 %.0.lcssa.i.i35.ph
   store i64 %137, ptr %174, align 8
-  %175 = add i64 %.240, 1
+  %175 = add i64 %.340, 1
   br label %176
 
 176:                                              ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph41.split
-  %.3 = phi i64 [ %175, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.240, %.lr.ph41.split ]
+  %.4 = phi i64 [ %175, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.340, %.lr.ph41.split ]
   %177 = load i64, ptr %5, align 8
   %178 = add i64 %177, 1
   store i64 %178, ptr %5, align 8
@@ -937,8 +937,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %166, %_Z
   br i1 %185, label %.lr.ph41.split, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %116, %30, %176, %56, %.preheader37, %.preheader
-  %.4 = phi i64 [ 0, %.preheader ], [ 0, %.preheader37 ], [ %.3.us, %56 ], [ %.3, %176 ], [ %.1.us, %30 ], [ %.1, %116 ]
-  ret i64 %.4
+  %.2 = phi i64 [ 0, %.preheader ], [ 0, %.preheader37 ], [ %.4.us, %56 ], [ %.4, %176 ], [ %.1.us, %30 ], [ %.1, %116 ]
+  ret i64 %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7946,7 +7946,7 @@ _ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.
 
 160:                                              ; preds = %134, %155
   %161 = phi ptr [ %.pre, %155 ], [ %129, %134 ]
-  %.0 = phi i64 [ %.129, %155 ], [ 0, %134 ]
+  %.1 = phi i64 [ %.129, %155 ], [ 0, %134 ]
   %.not.i54 = icmp eq ptr %161, null
   br i1 %.not.i54, label %_ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit56, label %162
 
@@ -7990,14 +7990,14 @@ _ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.
 
 _ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit52: ; preds = %.body, %_ZNKSt14default_deleteIN5faiss21InvertedListsIteratorEEclEPS1_.exit.i51, %89, %87
   %.pn44 = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ], [ %90, %_ZNKSt14default_deleteIN5faiss21InvertedListsIteratorEEclEPS1_.exit.i51 ], [ %eh.lpad-body, %.body ]
-  %.131 = extractvalue { ptr, i32 } %.pn44, 1
+  %.2 = extractvalue { ptr, i32 } %.pn44, 1
   %180 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %181 = icmp eq i32 %.131, %180
+  %181 = icmp eq i32 %.2, %180
   br i1 %181, label %182, label %223
 
 182:                                              ; preds = %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit52
-  %.133 = extractvalue { ptr, i32 } %.pn44, 0
-  %183 = call ptr @__cxa_begin_catch(ptr %.133) #23
+  %.234 = extractvalue { ptr, i32 } %.pn44, 0
+  %183 = call ptr @__cxa_begin_catch(ptr %.234) #23
   %184 = getelementptr inbounds i8, ptr %0, i64 64
   %185 = load ptr, ptr %184, align 8
   %186 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %185) #23
@@ -8089,8 +8089,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %182
           to label %223 unwind label %224
 
 _ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit56, %_ZNKSt14default_deleteIN5faiss21InvertedListsIteratorEEclEPS1_.exit.i, %78, %39, %6, %204
-  %.1 = phi i64 [ 0, %204 ], [ 0, %6 ], [ 0, %39 ], [ %83, %78 ], [ %83, %_ZNKSt14default_deleteIN5faiss21InvertedListsIteratorEEclEPS1_.exit.i ], [ %.0, %_ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit56 ]
-  ret i64 %.1
+  %.0 = phi i64 [ 0, %204 ], [ 0, %6 ], [ 0, %39 ], [ %83, %78 ], [ %83, %_ZNKSt14default_deleteIN5faiss21InvertedListsIteratorEEclEPS1_.exit.i ], [ %.1, %_ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.exit56 ]
+  ret i64 %.0
 
 223:                                              ; preds = %222, %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit52, %38
   %.merged = phi { ptr, i32 } [ %.pn46.pn.pn, %222 ], [ %.pn44, %_ZNSt10unique_ptrIN5faiss21InvertedListsIteratorESt14default_deleteIS1_EED2Ev.exit52 ], [ %.pn, %38 ]

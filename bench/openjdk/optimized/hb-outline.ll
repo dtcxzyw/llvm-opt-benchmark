@@ -70,8 +70,8 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit: ; preds = %_ZN9
   %37 = phi float [ %120, %112 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
   %38 = phi float [ %121, %112 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
   %39 = phi float [ %122, %112 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %.sroa.9.0203 = phi i32 [ %.sroa.9.5, %112 ], [ %.sroa.speculated.i.i, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %.sroa.0178.0202 = phi ptr [ %.sroa.0178.5, %112 ], [ %29, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %.sroa.9.0203 = phi i32 [ %.sroa.9.1, %112 ], [ %.sroa.speculated.i.i, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %.sroa.0178.0202 = phi ptr [ %.sroa.0178.1, %112 ], [ %29, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
   %40 = add i32 %.sroa.9.0203, -1
   %41 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 12
   %.sroa.07.0.copyload = load float, ptr %.sroa.0178.0202, align 4
@@ -175,8 +175,8 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135: ; preds = %_
   %.not.i.i.i132 = icmp eq i32 %40, 0
   %78 = add i32 %.sroa.9.0203, -2
   %79 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 24
-  %.sroa.0178.2 = select i1 %.not.i.i.i132, ptr %41, ptr %79
-  %.sroa.9.2 = select i1 %.not.i.i.i132, i32 0, i32 %78
+  %.sroa.0178.3 = select i1 %.not.i.i.i132, ptr %41, ptr %79
+  %.sroa.9.3 = select i1 %.not.i.i.i132, i32 0, i32 %78
   %spec.select.i.i137 = select i1 %.not.i.i.i132, ptr @_hb_NullPool, ptr %41
   %.sroa.04.0.copyload = load float, ptr %spec.select.i.i137, align 4
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i.i137, i64 4
@@ -223,17 +223,17 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147: ; preds = %_
   %.not.i.i.i144 = icmp eq i32 %40, 0
   %95 = add i32 %.sroa.9.0203, -2
   %96 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 24
-  %.sroa.0178.3 = select i1 %.not.i.i.i144, ptr %41, ptr %96
-  %.sroa.9.3 = select i1 %.not.i.i.i144, i32 0, i32 %95
+  %.sroa.0178.4 = select i1 %.not.i.i.i144, ptr %41, ptr %96
+  %.sroa.9.4 = select i1 %.not.i.i.i144, i32 0, i32 %95
   %spec.select.i.i149 = select i1 %.not.i.i.i144, ptr @_hb_NullPool, ptr %41
   %.sroa.01.0.copyload = load float, ptr %spec.select.i.i149, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i.i149, i64 4
   %.sroa.22.0.copyload = load float, ptr %.sroa.22.0..sroa_idx, align 4
-  %.not.i.i.i153.not = icmp eq i32 %.sroa.9.3, 0
-  %.sroa.0178.4.idx = select i1 %.not.i.i.i153.not, i64 0, i64 12
-  %.sroa.0178.4 = getelementptr inbounds i8, ptr %.sroa.0178.3, i64 %.sroa.0178.4.idx
-  %.sroa.9.4 = call i32 @llvm.usub.sat.i32(i32 %.sroa.9.3, i32 1)
-  %spec.select.i.i158 = select i1 %.not.i.i.i153.not, ptr @_hb_NullPool, ptr %.sroa.0178.3
+  %.not.i.i.i153.not = icmp eq i32 %.sroa.9.4, 0
+  %.sroa.0178.5.idx = select i1 %.not.i.i.i153.not, i64 0, i64 12
+  %.sroa.0178.5 = getelementptr inbounds i8, ptr %.sroa.0178.4, i64 %.sroa.0178.5.idx
+  %.sroa.9.5 = call i32 @llvm.usub.sat.i32(i32 %.sroa.9.4, i32 1)
+  %spec.select.i.i158 = select i1 %.not.i.i.i153.not, ptr @_hb_NullPool, ptr %.sroa.0178.4
   %.sroa.0.0.copyload = load float, ptr %spec.select.i.i158, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i.i158, i64 4
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
@@ -278,8 +278,8 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 .sink.split:                                      ; preds = %42, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
   %.sroa.0.0.copyload.sink = phi float [ %.sroa.0.0.copyload, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.04.0.copyload, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %.sroa.07.0.copyload, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %.sroa.07.0.copyload, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %.sroa.07.0.copyload, %42 ]
   %.sroa.2.0.copyload.sink = phi float [ %.sroa.2.0.copyload, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.25.0.copyload, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %.sroa.5.0.copyload, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %.sroa.5.0.copyload, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %.sroa.5.0.copyload, %42 ]
-  %.sroa.0178.5.ph = phi ptr [ %.sroa.0178.4, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.0178.2, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %41, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %41, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %41, %42 ]
-  %.sroa.9.5.ph = phi i32 [ %.sroa.9.4, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.9.2, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %40, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %40, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %40, %42 ]
+  %.sroa.0178.1.ph = phi ptr [ %.sroa.0178.5, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.0178.3, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %41, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %41, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %41, %42 ]
+  %.sroa.9.1.ph = phi i32 [ %.sroa.9.5, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.9.3, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %40, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %40, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %40, %42 ]
   store float %.sroa.0.0.copyload.sink, ptr %13, align 4
   store float %.sroa.2.0.copyload.sink, ptr %14, align 4
   br label %112
@@ -295,9 +295,9 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
   %120 = phi float [ %37, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
   %121 = phi float [ %38, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
   %122 = phi float [ %39, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
-  %.sroa.0178.5 = phi ptr [ %41, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0178.5.ph, %.sink.split ]
-  %.sroa.9.5 = phi i32 [ %40, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.9.5.ph, %.sink.split ]
-  %.not200 = icmp eq i32 %.sroa.9.5, 0
+  %.sroa.0178.1 = phi ptr [ %41, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0178.1.ph, %.sink.split ]
+  %.sroa.9.1 = phi i32 [ %40, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.9.1.ph, %.sink.split ]
+  %.not200 = icmp eq i32 %.sroa.9.1, 0
   br i1 %.not200, label %._crit_edge, label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %112
@@ -552,10 +552,10 @@ _ZN11hb_vector_tIjLb0EEixEi.exit:                 ; preds = %52, %53
   br i1 %60, label %.lr.ph134, label %._crit_edge
 
 .lr.ph134:                                        ; preds = %_ZN11hb_vector_tIjLb0EEixEi.exit, %.loopexit
-  %.0133 = phi i32 [ %.3, %.loopexit ], [ -1, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.0133 = phi i32 [ %.1, %.loopexit ], [ -1, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %.075132 = phi i32 [ %176, %.loopexit ], [ %.086135, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
-  %.076131 = phi i32 [ %.379, %.loopexit ], [ %57, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
-  %.081130 = phi float [ %.384, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.076131 = phi i32 [ %.177, %.loopexit ], [ %57, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.081130 = phi float [ %.182, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %.0117125 = phi float [ %.1118, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %61 = phi <2 x float> [ %172, %.loopexit ], [ zeroinitializer, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %62 = phi <2 x float> [ %173, %.loopexit ], [ zeroinitializer, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
@@ -659,8 +659,8 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %88, %89
 
 110:                                              ; preds = %107
   %111 = icmp slt i32 %.0133, 0
-  %.182 = select i1 %111, float %.0117125, float %.081130
-  %.1 = select i1 %111, i32 %.076131, i32 %.0133
+  %.283 = select i1 %111, float %.0117125, float %.081130
+  %.2 = select i1 %111, i32 %.076131, i32 %.0133
   %112 = select i1 %111, <2 x float> %62, <2 x float> %61
   %113 = fmul <2 x float> %62, %108
   %114 = extractelement <2 x float> %113, i64 0
@@ -722,9 +722,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %88, %89
   br label %151
 
 151:                                              ; preds = %.lr.ph, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
-  %.177124 = phi i32 [ %.076131, %.lr.ph ], [ %171, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.278124 = phi i32 [ %.076131, %.lr.ph ], [ %171, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
   %152 = load i32, ptr %9, align 4
-  %.not.i102 = icmp ugt i32 %152, %.177124
+  %.not.i102 = icmp ugt i32 %152, %.278124
   br i1 %.not.i102, label %154, label %153
 
 153:                                              ; preds = %151
@@ -733,7 +733,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %88, %89
 
 154:                                              ; preds = %151
   %155 = load ptr, ptr %48, align 8
-  %156 = zext i32 %.177124 to i64
+  %156 = zext i32 %.278124 to i64
   %157 = getelementptr inbounds %struct.hb_outline_point_t, ptr %155, i64 %156
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
 
@@ -743,7 +743,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %153, %154
   %159 = fadd float %149, %158
   store float %159, ptr %.0.i103, align 4
   %160 = load i32, ptr %9, align 4
-  %.not.i105 = icmp ugt i32 %160, %.177124
+  %.not.i105 = icmp ugt i32 %160, %.278124
   br i1 %.not.i105, label %162, label %161
 
 161:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
@@ -752,7 +752,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %153, %154
 
 162:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
   %163 = load ptr, ptr %48, align 8
-  %164 = zext i32 %.177124 to i64
+  %164 = zext i32 %.278124 to i64
   %165 = getelementptr inbounds %struct.hb_outline_point_t, ptr %163, i64 %164
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
 
@@ -762,24 +762,24 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %161, %162
   %167 = load float, ptr %166, align 4
   %168 = fadd float %150, %167
   store float %168, ptr %166, align 4
-  %169 = icmp slt i32 %.177124, %57
-  %170 = add nsw i32 %.177124, 1
+  %169 = icmp slt i32 %.278124, %57
+  %170 = add nsw i32 %.278124, 1
   %171 = select i1 %169, i32 %170, i32 %.086135
   %.not89 = icmp eq i32 %171, %.075132
   br i1 %.not89, label %.loopexit, label %151, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107, %148, %107, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
   %.1118 = phi float [ %.0117125, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0116, %107 ], [ %.0116, %148 ], [ %.0116, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %.384 = phi float [ %.081130, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.081130, %107 ], [ %.182, %148 ], [ %.182, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %.379 = phi i32 [ %.076131, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.075132, %107 ], [ %.075132, %148 ], [ %.075132, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %.3 = phi i32 [ %.0133, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0133, %107 ], [ %.1, %148 ], [ %.1, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.182 = phi float [ %.081130, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.081130, %107 ], [ %.283, %148 ], [ %.283, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.177 = phi i32 [ %.076131, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.075132, %107 ], [ %.075132, %148 ], [ %.075132, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.1 = phi i32 [ %.0133, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0133, %107 ], [ %.2, %148 ], [ %.2, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
   %172 = phi <2 x float> [ %61, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %61, %107 ], [ %112, %148 ], [ %112, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
   %173 = phi <2 x float> [ %62, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %108, %107 ], [ %108, %148 ], [ %108, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
   %174 = icmp slt i32 %.075132, %57
   %175 = add nsw i32 %.075132, 1
   %176 = select i1 %174, i32 %175, i32 %.086135
-  %177 = icmp ne i32 %176, %.379
-  %178 = icmp ne i32 %.379, %.3
+  %177 = icmp ne i32 %176, %.177
+  %178 = icmp ne i32 %.177, %.1
   %179 = and i1 %177, %178
   br i1 %179, label %.lr.ph134, label %._crit_edge.loopexit, !llvm.loop !10
 
@@ -830,23 +830,23 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t
   br label %6
 
 6:                                                ; preds = %4, %.lr.ph
-  %.0 = phi ptr [ %3, %.lr.ph ], [ %5, %4 ]
-  %7 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %3, %.lr.ph ], [ %5, %4 ]
+  %7 = ptrtoint ptr %.1 to i64
   %8 = cmpxchg weak ptr %0, i64 0, i64 %7 acq_rel monotonic, align 8
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %.split.loop.exit11, label %10
 
 10:                                               ; preds = %6
-  %.not.i = icmp eq ptr %.0, null
+  %.not.i = icmp eq ptr %.1, null
   br i1 %.not.i, label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call noundef ptr @hb_draw_funcs_get_empty()
-  %.not3.i = icmp eq ptr %12, %.0
+  %.not3.i = icmp eq ptr %12, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %13
 
 13:                                               ; preds = %11
-  tail call void @hb_draw_funcs_destroy(ptr noundef nonnull %.0)
+  tail call void @hb_draw_funcs_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit
 
 _ZN16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit: ; preds = %10, %11, %13
@@ -860,7 +860,7 @@ _ZN16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loa
   br label %.split.loop.exit11
 
 .split.loop.exit11:                               ; preds = %6, %.split.loop.exit
-  %.07 = phi ptr [ %15, %.split.loop.exit ], [ %.0, %6 ]
+  %.07 = phi ptr [ %15, %.split.loop.exit ], [ %.1, %6 ]
   ret ptr %.07
 }
 
@@ -888,9 +888,9 @@ define internal void @_ZL32hb_outline_recording_pen_move_toP15hb_draw_funcs_tPvP
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
-  %14 = lshr i32 %.01542.i.i, 1
-  %15 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
+  %14 = lshr i32 %.142.i.i, 1
+  %15 = add i32 %.142.i.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ult i32 %16, %11
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -914,9 +914,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i: ; preds = %24, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %9, %.thread.i.i ], [ %25, %24 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %1, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %9, %.thread.i.i ], [ %25, %24 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -967,9 +967,9 @@ define internal void @_ZL32hb_outline_recording_pen_line_toP15hb_draw_funcs_tPvP
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
-  %14 = lshr i32 %.01542.i.i, 1
-  %15 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
+  %14 = lshr i32 %.142.i.i, 1
+  %15 = add i32 %.142.i.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ult i32 %16, %11
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -993,9 +993,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i: ; preds = %24, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %9, %.thread.i.i ], [ %25, %24 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %1, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %9, %.thread.i.i ], [ %25, %24 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -1046,9 +1046,9 @@ define internal void @_ZL37hb_outline_recording_pen_quadratic_toP15hb_draw_funcs
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %15, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %18, %.preheader.i.i ], [ %11, %15 ]
-  %16 = lshr i32 %.01542.i.i, 1
-  %17 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %18, %.preheader.i.i ], [ %11, %15 ]
+  %16 = lshr i32 %.142.i.i, 1
+  %17 = add i32 %.142.i.i, 8
   %18 = add i32 %17, %16
   %19 = icmp ult i32 %18, %13
   br i1 %19, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -1072,9 +1072,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i: ; preds = %26, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %11, %.thread.i.i ], [ %27, %26 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %1, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %11, %.thread.i.i ], [ %27, %26 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -1117,9 +1117,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   br i1 %.not.i.i8, label %.preheader.i.i11, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i9
 
 .preheader.i.i11:                                 ; preds = %39, %.preheader.i.i11
-  %.01542.i.i12 = phi i32 [ %42, %.preheader.i.i11 ], [ %35, %39 ]
-  %40 = lshr i32 %.01542.i.i12, 1
-  %41 = add i32 %.01542.i.i12, 8
+  %.142.i.i12 = phi i32 [ %42, %.preheader.i.i11 ], [ %35, %39 ]
+  %40 = lshr i32 %.142.i.i12, 1
+  %41 = add i32 %.142.i.i12, 8
   %42 = add i32 %41, %40
   %43 = icmp ult i32 %42, %37
   br i1 %43, label %.preheader.i.i11, label %.thread.i.i13, !llvm.loop !12
@@ -1143,9 +1143,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i17, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i18, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i9
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i18: ; preds = %50, %.thread.i.i13
-  %.138.sink.i.ph.in.i19 = phi i32 [ %35, %.thread.i.i13 ], [ %51, %50 ]
-  %.138.sink.i.ph.i20 = xor i32 %.138.sink.i.ph.in.i19, -1
-  store i32 %.138.sink.i.ph.i20, ptr %1, align 8
+  %.01538.sink.i.ph.in.i19 = phi i32 [ %35, %.thread.i.i13 ], [ %51, %50 ]
+  %.01538.sink.i.ph.i20 = xor i32 %.01538.sink.i.ph.in.i19, -1
+  store i32 %.01538.sink.i.ph.i20, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i21
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i16: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i14
@@ -1196,9 +1196,9 @@ define internal void @_ZL33hb_outline_recording_pen_cubic_toP15hb_draw_funcs_tPv
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %20, %.preheader.i.i ], [ %13, %17 ]
-  %18 = lshr i32 %.01542.i.i, 1
-  %19 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %20, %.preheader.i.i ], [ %13, %17 ]
+  %18 = lshr i32 %.142.i.i, 1
+  %19 = add i32 %.142.i.i, 8
   %20 = add i32 %19, %18
   %21 = icmp ult i32 %20, %15
   br i1 %21, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -1222,9 +1222,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i: ; preds = %28, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %13, %.thread.i.i ], [ %29, %28 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %1, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %13, %.thread.i.i ], [ %29, %28 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -1267,9 +1267,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
   br i1 %.not.i.i11, label %.preheader.i.i14, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i12
 
 .preheader.i.i14:                                 ; preds = %41, %.preheader.i.i14
-  %.01542.i.i15 = phi i32 [ %44, %.preheader.i.i14 ], [ %37, %41 ]
-  %42 = lshr i32 %.01542.i.i15, 1
-  %43 = add i32 %.01542.i.i15, 8
+  %.142.i.i15 = phi i32 [ %44, %.preheader.i.i14 ], [ %37, %41 ]
+  %42 = lshr i32 %.142.i.i15, 1
+  %43 = add i32 %.142.i.i15, 8
   %44 = add i32 %43, %42
   %45 = icmp ult i32 %44, %39
   br i1 %45, label %.preheader.i.i14, label %.thread.i.i16, !llvm.loop !12
@@ -1293,9 +1293,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i20, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i21, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i12
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i21: ; preds = %52, %.thread.i.i16
-  %.138.sink.i.ph.in.i22 = phi i32 [ %37, %.thread.i.i16 ], [ %53, %52 ]
-  %.138.sink.i.ph.i23 = xor i32 %.138.sink.i.ph.in.i22, -1
-  store i32 %.138.sink.i.ph.i23, ptr %1, align 8
+  %.01538.sink.i.ph.in.i22 = phi i32 [ %37, %.thread.i.i16 ], [ %53, %52 ]
+  %.01538.sink.i.ph.i23 = xor i32 %.01538.sink.i.ph.in.i22, -1
+  store i32 %.01538.sink.i.ph.i23, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i24
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i19: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i17
@@ -1338,9 +1338,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit25: ; preds
   br i1 %.not.i.i27, label %.preheader.i.i30, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i28
 
 .preheader.i.i30:                                 ; preds = %65, %.preheader.i.i30
-  %.01542.i.i31 = phi i32 [ %68, %.preheader.i.i30 ], [ %61, %65 ]
-  %66 = lshr i32 %.01542.i.i31, 1
-  %67 = add i32 %.01542.i.i31, 8
+  %.142.i.i31 = phi i32 [ %68, %.preheader.i.i30 ], [ %61, %65 ]
+  %66 = lshr i32 %.142.i.i31, 1
+  %67 = add i32 %.142.i.i31, 8
   %68 = add i32 %67, %66
   %69 = icmp ult i32 %68, %63
   br i1 %69, label %.preheader.i.i30, label %.thread.i.i32, !llvm.loop !12
@@ -1364,9 +1364,9 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   br i1 %.not21.i.i36, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i37, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i28
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread9.i37: ; preds = %76, %.thread.i.i32
-  %.138.sink.i.ph.in.i38 = phi i32 [ %61, %.thread.i.i32 ], [ %77, %76 ]
-  %.138.sink.i.ph.i39 = xor i32 %.138.sink.i.ph.in.i38, -1
-  store i32 %.138.sink.i.ph.i39, ptr %1, align 8
+  %.01538.sink.i.ph.in.i38 = phi i32 [ %61, %.thread.i.i32 ], [ %77, %76 ]
+  %.01538.sink.i.ph.i39 = xor i32 %.01538.sink.i.ph.in.i38, -1
+  store i32 %.01538.sink.i.ph.i39, ptr %1, align 8
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread6.i40
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i35: ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i33
@@ -1419,9 +1419,9 @@ define internal void @_ZL35hb_outline_recording_pen_close_pathP15hb_draw_funcs_t
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
-  %14 = lshr i32 %.01542.i.i, 1
-  %15 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %16, %.preheader.i.i ], [ %9, %13 ]
+  %14 = lshr i32 %.142.i.i, 1
+  %15 = add i32 %.142.i.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ult i32 %16, %11
   br i1 %17, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !13
@@ -1445,9 +1445,9 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   br i1 %.not21.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread9.i:  ; preds = %24, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %9, %.thread.i.i ], [ %25, %24 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %5, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %9, %.thread.i.i ], [ %25, %24 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %5, align 8
   br label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIjLb0EE5allocEjb.exit.i:          ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i

@@ -296,7 +296,7 @@ for.body34:                                       ; preds = %for.body34.preheade
   %indvars.iv106 = phi i64 [ 1, %for.body34.preheader ], [ %indvars.iv.next107, %if.end75 ]
   %pcontact.0103 = phi ptr [ %37, %for.body34.preheader ], [ %pcontact.1, %if.end75 ]
   %last_key.0102 = phi i32 [ %33, %for.body34.preheader ], [ %40, %if.end75 ]
-  %coincident_count.0101 = phi i32 [ 0, %for.body34.preheader ], [ %coincident_count.2, %if.end75 ]
+  %coincident_count.0101 = phi i32 [ 0, %for.body34.preheader ], [ %coincident_count.1, %if.end75 ]
   %39 = load ptr, ptr %m_data.i.i31, align 8
   %arrayidx.i74 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %39, i64 %indvars.iv106
   %40 = load i32, ptr %arrayidx.i74, align 4
@@ -389,7 +389,7 @@ if.end.i:                                         ; preds = %for.end.i
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end.i, %for.end.i, %if.else63
-  %coincident_count.1 = phi i32 [ %coincident_count.0101, %if.else63 ], [ 0, %for.end.i ], [ 0, %if.end.i ]
+  %coincident_count.2 = phi i32 [ %coincident_count.0101, %if.else63 ], [ 0, %for.end.i ], [ 0, %if.end.i ]
   invoke void @_ZN20btAlignedObjectArrayI11GIM_CONTACTE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i80)
           to label %invoke.cont69 unwind label %lpad.loopexit
 
@@ -404,7 +404,7 @@ invoke.cont69:                                    ; preds = %if.end68
 
 if.end75:                                         ; preds = %if.then47, %if.then48, %if.then57, %if.else, %invoke.cont69
   %62 = phi i32 [ %38, %if.then47 ], [ %38, %if.then57 ], [ %38, %if.then48 ], [ %38, %if.else ], [ %.pre111, %invoke.cont69 ]
-  %coincident_count.2 = phi i32 [ 0, %if.then47 ], [ %inc58, %if.then57 ], [ %coincident_count.0101, %if.then48 ], [ %coincident_count.0101, %if.else ], [ %coincident_count.1, %invoke.cont69 ]
+  %coincident_count.1 = phi i32 [ 0, %if.then47 ], [ %inc58, %if.then57 ], [ %coincident_count.0101, %if.then48 ], [ %coincident_count.0101, %if.else ], [ %coincident_count.2, %invoke.cont69 ]
   %pcontact.1 = phi ptr [ %pcontact.0103, %if.then47 ], [ %pcontact.0103, %if.then57 ], [ %pcontact.0103, %if.then48 ], [ %pcontact.0103, %if.else ], [ %arrayidx.i86, %invoke.cont69 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %63 = sext i32 %62 to i64

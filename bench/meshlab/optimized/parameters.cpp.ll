@@ -634,7 +634,7 @@ _ZN10Parameters5resetEv.exit.preheader:           ; preds = %4
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i.i
 
 _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i.i: ; preds = %.noexc, %31
-  %.01827.i = phi double [ 0.000000e+00, %31 ], [ %.1.i, %.noexc ]
+  %.01827.i = phi double [ 0.000000e+00, %31 ], [ %.2.i, %.noexc ]
   %.01926.i = phi double [ 0.000000e+00, %31 ], [ %256, %.noexc ]
   %.02125.i = phi i32 [ 0, %31 ], [ %257, %.noexc ]
   %33 = load float, ptr %7, align 8
@@ -955,7 +955,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54.i: ; preds = %.
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %253)
   %254 = fpext float %sqrt.i.i to double
   %255 = fcmp olt double %.01827.i, %254
-  %.1.i = select i1 %255, double %254, double %.01827.i
+  %.2.i = select i1 %255, double %254, double %.01827.i
   %256 = call double @llvm.fmuladd.f64(double %254, double %254, double %.01926.i)
   %257 = add nuw nsw i32 %.02125.i, 1
   %exitcond.not.i7 = icmp eq i32 %257, 8
@@ -972,7 +972,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54.i: ; preds = %.
   br label %_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit
 
 _ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit: ; preds = %261, %258
-  %.0.i = phi double [ %263, %261 ], [ %.1.i, %258 ]
+  %.0.i = phi double [ %263, %261 ], [ %.2.i, %258 ]
   %264 = fdiv double 1.000000e+00, %.0.i
   %265 = getelementptr inbounds [7 x double], ptr %3, i64 0, i64 %indvars.iv
   store double %264, ptr %265, align 8
@@ -1567,7 +1567,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   br label %8
 
 8:                                                ; preds = %.lr.ph, %42
-  %.02436 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %42 ]
+  %.02436 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %42 ]
   %.02535 = phi double [ 0.000000e+00, %.lr.ph ], [ %.126, %42 ]
   %.02734 = phi i32 [ 0, %.lr.ph ], [ %.128, %42 ]
   %.02933 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
@@ -1607,7 +1607,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
 37:                                               ; preds = %8
   %38 = fpext float %sqrt.i to double
   %39 = fcmp olt double %.02436, %38
-  %.1 = select i1 %39, double %38, double %.02436
+  %.2 = select i1 %39, double %38, double %.02436
   %40 = tail call double @llvm.fmuladd.f64(double %38, double %38, double %.02535)
   %41 = add nsw i32 %.02734, 1
   br label %42
@@ -1615,7 +1615,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
 42:                                               ; preds = %8, %37
   %.128 = phi i32 [ %.02734, %8 ], [ %41, %37 ]
   %.126 = phi double [ %.02535, %8 ], [ %40, %37 ]
-  %.2 = phi double [ %.02436, %8 ], [ %.1, %37 ]
+  %.1 = phi double [ %.02436, %8 ], [ %.2, %37 ]
   %43 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %43, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !30
@@ -1627,7 +1627,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.027.lcssa = phi double [ 0.000000e+00, %4 ], [ %44, %._crit_edge.loopexit ]
   %.025.lcssa = phi double [ 0.000000e+00, %4 ], [ %.126, %._crit_edge.loopexit ]
-  %.024.lcssa = phi double [ 0.000000e+00, %4 ], [ %.2, %._crit_edge.loopexit ]
+  %.024.lcssa = phi double [ 0.000000e+00, %4 ], [ %.1, %._crit_edge.loopexit ]
   %45 = getelementptr inbounds i8, ptr %0, i64 113
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
@@ -1660,7 +1660,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   br label %7
 
 7:                                                ; preds = %2, %7
-  %.01827 = phi double [ 0.000000e+00, %2 ], [ %.1, %7 ]
+  %.01827 = phi double [ 0.000000e+00, %2 ], [ %.2, %7 ]
   %.01926 = phi double [ 0.000000e+00, %2 ], [ %29, %7 ]
   %.02125 = phi i32 [ 0, %2 ], [ %30, %7 ]
   %.zext = and i32 %.02125, 1
@@ -1690,7 +1690,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %26)
   %27 = fpext float %sqrt.i to double
   %28 = fcmp olt double %.01827, %27
-  %.1 = select i1 %28, double %27, double %.01827
+  %.2 = select i1 %28, double %27, double %.01827
   %29 = tail call double @llvm.fmuladd.f64(double %27, double %27, double %.01926)
   %30 = add nuw nsw i32 %.02125, 1
   %exitcond.not = icmp eq i32 %30, 8
@@ -1708,7 +1708,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   br label %38
 
 38:                                               ; preds = %31, %35
-  %.0 = phi double [ %37, %35 ], [ %.1, %31 ]
+  %.0 = phi double [ %37, %35 ], [ %.2, %31 ]
   ret double %.0
 }
 
@@ -1985,7 +1985,7 @@ define noundef double @_ZN10Parameters9pixelDiffEv(ptr noundef nonnull align 8 d
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc, %1
-  %.01827.i = phi double [ 0.000000e+00, %1 ], [ %.1.i, %.noexc ]
+  %.01827.i = phi double [ 0.000000e+00, %1 ], [ %.2.i, %.noexc ]
   %.01926.i = phi double [ 0.000000e+00, %1 ], [ %28, %.noexc ]
   %.02125.i = phi i32 [ 0, %1 ], [ %29, %.noexc ]
   %.zext.i = and i32 %.02125.i, 1
@@ -2015,7 +2015,7 @@ define noundef double @_ZN10Parameters9pixelDiffEv(ptr noundef nonnull align 8 d
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %25)
   %26 = fpext float %sqrt.i.i to double
   %27 = fcmp olt double %.01827.i, %26
-  %.1.i = select i1 %27, double %26, double %.01827.i
+  %.2.i = select i1 %27, double %26, double %.01827.i
   %28 = call double @llvm.fmuladd.f64(double %26, double %26, double %.01926.i)
   %29 = add nuw nsw i32 %.02125.i, 1
   %exitcond.not.i = icmp eq i32 %29, 8
@@ -2033,7 +2033,7 @@ define noundef double @_ZN10Parameters9pixelDiffEv(ptr noundef nonnull align 8 d
   br label %_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit
 
 _ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit: ; preds = %34, %30
-  %.0.i = phi double [ %36, %34 ], [ %.1.i, %30 ]
+  %.0.i = phi double [ %36, %34 ], [ %.2.i, %30 ]
   ret double %.0.i
 }
 
@@ -2798,36 +2798,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #24
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #24
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #24
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #24
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

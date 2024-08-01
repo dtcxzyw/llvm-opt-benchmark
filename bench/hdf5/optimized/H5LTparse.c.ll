@@ -86,29 +86,29 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %10
 
 8:                                                ; preds = %596, %69
-  %.0247 = phi ptr [ %575, %596 ], [ %72, %69 ]
-  %.0241 = phi ptr [ %574, %596 ], [ %.2243, %69 ]
-  %.0232.shrunk = phi i8 [ %.in, %596 ], [ %71, %69 ]
-  %.0232 = zext i8 %.0232.shrunk to i32
-  %9 = getelementptr inbounds i8, ptr %.0241, i64 1
+  %.1248 = phi ptr [ %575, %596 ], [ %72, %69 ]
+  %.1242 = phi ptr [ %574, %596 ], [ %.2243, %69 ]
+  %.1.shrunk = phi i8 [ %.in, %596 ], [ %71, %69 ]
+  %.1 = zext i8 %.1.shrunk to i32
+  %9 = getelementptr inbounds i8, ptr %.1242, i64 1
   br label %10
 
 10:                                               ; preds = %8, %0
-  %.1248 = phi ptr [ %2, %0 ], [ %.0247, %8 ]
+  %.0247 = phi ptr [ %2, %0 ], [ %.1248, %8 ]
   %.0245 = phi ptr [ %2, %0 ], [ %.1246, %8 ]
-  %.1242 = phi ptr [ %1, %0 ], [ %9, %8 ]
+  %.0241 = phi ptr [ %1, %0 ], [ %9, %8 ]
   %.0238 = phi ptr [ %1, %0 ], [ %.1239, %8 ]
   %.0236 = phi i64 [ 200, %0 ], [ %.1237, %8 ]
-  %.1 = phi i32 [ 0, %0 ], [ %.0232, %8 ]
-  %11 = trunc nuw i32 %.1 to i8
-  store i8 %11, ptr %.1242, align 1
+  %.0232 = phi i32 [ 0, %0 ], [ %.1, %8 ]
+  %11 = trunc nuw i32 %.0232 to i8
+  store i8 %11, ptr %.0241, align 1
   %12 = getelementptr inbounds i8, ptr %.0238, i64 %.0236
   %13 = getelementptr inbounds i8, ptr %12, i64 -1
-  %.not = icmp ugt ptr %13, %.1242
+  %.not = icmp ugt ptr %13, %.0241
   br i1 %.not, label %35, label %14
 
 14:                                               ; preds = %10
-  %15 = ptrtoint ptr %.1242 to i64
+  %15 = ptrtoint ptr %.0241 to i64
   %16 = ptrtoint ptr %.0238 to i64
   %17 = sub i64 %15, %16
   %18 = add nsw i64 %17, 1
@@ -146,16 +146,16 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not286, label %35, label %.loopexit.thread
 
 35:                                               ; preds = %31, %10
-  %.2249 = phi ptr [ %34, %31 ], [ %.1248, %10 ]
+  %.2249 = phi ptr [ %34, %31 ], [ %.0247, %10 ]
   %.1246 = phi ptr [ %28, %31 ], [ %.0245, %10 ]
-  %.2243 = phi ptr [ %32, %31 ], [ %.1242, %10 ]
+  %.2243 = phi ptr [ %32, %31 ], [ %.0241, %10 ]
   %.1239 = phi ptr [ %24, %31 ], [ %.0238, %10 ]
   %.1237 = phi i64 [ %spec.store.select, %31 ], [ %.0236, %10 ]
-  %36 = icmp eq i32 %.1, 61
+  %36 = icmp eq i32 %.0232, 61
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
-  %38 = zext nneg i32 %.1 to i64
+  %38 = zext nneg i32 %.0232 to i64
   %39 = getelementptr inbounds [137 x i16], ptr @yypact, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = sext i16 %40 to i32

@@ -122,7 +122,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .outer532:                                        ; preds = %375, %48
   %.0469.ph = phi i32 [ %80, %375 ], [ 1, %48 ]
-  %.0451.ph = phi i32 [ %.3, %375 ], [ 0, %48 ]
+  %.0451.ph = phi i32 [ %.2453, %375 ], [ 0, %48 ]
   %52 = load i32, ptr %1, align 4
   %53 = icmp sgt i32 %.0469.ph, %52
   br i1 %53, label %.outer532._crit_edge, label %.lr.ph
@@ -491,7 +491,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.outer
 
 242:                                              ; preds = %.outer528, %370
-  %.2453 = phi i32 [ %296, %370 ], [ %.2453.ph, %.outer528 ]
+  %.3 = phi i32 [ %296, %370 ], [ %.3.ph, %.outer528 ]
   br i1 %.not490, label %.thread520, label %243
 
 243:                                              ; preds = %242
@@ -578,7 +578,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .outer528:                                        ; preds = %.outer528.backedge, %.preheader526
   %.2460.ph = phi i32 [ %.0458, %.preheader526 ], [ %.2460.ph.be, %.outer528.backedge ]
-  %.2453.ph = phi i32 [ %.0451.ph, %.preheader526 ], [ %.2453, %.outer528.backedge ]
+  %.3.ph = phi i32 [ %.0451.ph, %.preheader526 ], [ %.3, %.outer528.backedge ]
   %.not490 = icmp eq i32 %.2460.ph, %.0454
   %286 = sext i32 %.2460.ph to i64
   %287 = getelementptr inbounds float, ptr %26, i64 %286
@@ -590,11 +590,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %242
 
 293:                                              ; preds = %263
-  %294 = icmp eq i32 %.2453, %50
+  %294 = icmp eq i32 %.3, %50
   br i1 %294, label %.loopexit, label %295
 
 295:                                              ; preds = %293
-  %296 = add nsw i32 %.2453, 1
+  %296 = add nsw i32 %.3, 1
   %297 = load float, ptr %290, align 4
   %298 = fsub float %297, %261
   %299 = fpext float %298 to double
@@ -727,7 +727,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.outer528
 
 .loopexit:                                        ; preds = %374, %282, %241, %158, %293, %162
-  %.3 = phi i32 [ %50, %162 ], [ %50, %293 ], [ %.1452, %158 ], [ %.1452, %241 ], [ %.2453, %282 ], [ %.2453, %374 ]
+  %.2453 = phi i32 [ %50, %162 ], [ %50, %293 ], [ %.1452, %158 ], [ %.1452, %241 ], [ %.3, %282 ], [ %.3, %374 ]
   %.not = xor i1 %94, true
   %brmerge = or i1 %.not, %99
   %.mux = select i1 %.not, ptr %25, ptr %24
@@ -741,7 +741,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %375
 
 375:                                              ; preds = %.loopexit, %.sink.split728
-  %376 = icmp slt i32 %.3, %50
+  %376 = icmp slt i32 %.2453, %50
   br i1 %376, label %.outer532, label %377
 
 377:                                              ; preds = %375

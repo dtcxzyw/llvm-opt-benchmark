@@ -444,7 +444,7 @@ opal_pointer_array_get_item.exit51.thread69:      ; preds = %37, %40, %opal_poin
   br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %85
-  %.1.lcssa = phi i1 [ %.078, %85 ], [ true, %.lr.ph ]
+  %.2.lcssa = phi i1 [ %.078, %85 ], [ true, %.lr.ph ]
   %95 = getelementptr inbounds i8, ptr %.03072, i64 8
   %96 = load i8, ptr @opal_uses_threads, align 1
   %97 = trunc i8 %96 to i1
@@ -486,11 +486,11 @@ opal_thread_add_fetch_32.exit53:                  ; preds = %98, %101
 
 opal_obj_run_destructors.exit58:                  ; preds = %.lr.ph.i55, %106
   tail call void @free(ptr noundef %.03072) #8
-  br i1 %.1.lcssa, label %opal_pointer_array_get_item.exit51.thread, label %115
+  br i1 %.2.lcssa, label %opal_pointer_array_get_item.exit51.thread, label %115
 
 114:                                              ; preds = %opal_thread_add_fetch_32.exit53, %82, %opal_pointer_array_get_item.exit51.thread69
-  %.3 = phi i1 [ %.078, %opal_pointer_array_get_item.exit51.thread69 ], [ %.1.lcssa, %opal_thread_add_fetch_32.exit53 ], [ %.078, %82 ]
-  br i1 %.3, label %opal_pointer_array_get_item.exit51.thread, label %115
+  %.1 = phi i1 [ %.078, %opal_pointer_array_get_item.exit51.thread69 ], [ %.2.lcssa, %opal_thread_add_fetch_32.exit53 ], [ %.078, %82 ]
+  br i1 %.1, label %opal_pointer_array_get_item.exit51.thread, label %115
 
 115:                                              ; preds = %opal_obj_run_destructors.exit58, %114
   %116 = load i8, ptr @ompi_debug_show_handle_leaks, align 1

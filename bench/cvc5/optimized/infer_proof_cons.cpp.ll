@@ -8382,7 +8382,7 @@ ehcleanup1193:                                    ; preds = %lpad1075, %lpad1062
   br label %ehcleanup1195
 
 if.end1194:                                       ; preds = %if.then13.i.i3239, %if.then.i.i3232, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3229, %land.lhs.true1018, %cond.end1013
-  %success.2 = phi i1 [ false, %land.lhs.true1018 ], [ false, %cond.end1013 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3229 ], [ true, %if.then.i.i3232 ], [ true, %if.then13.i.i3239 ]
+  %success.3 = phi i1 [ false, %land.lhs.true1018 ], [ false, %cond.end1013 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3229 ], [ true, %if.then.i.i3232 ], [ true, %if.then13.i.i3239 ]
   %771 = load ptr, ptr %tester2, align 8
   %bf.load.i.i3242 = load i64, ptr %771, align 8
   %772 = and i64 %bf.load.i.i3242, 1152920405095219200
@@ -8715,8 +8715,8 @@ ehcleanup1239:                                    ; preds = %ehcleanup1225, %lpa
   br label %ehcleanup1336
 
 sw.epilog:                                        ; preds = %if.then13.i.i3263, %if.then.i.i3256, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3253, %if.then13.i.i2687, %if.then.i.i2680, %if.end938, %if.then13.i.i1207, %if.then.i.i1200, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1197
-  %success.3 = phi i1 [ %cmp.i739, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1197 ], [ %cmp.i739, %if.then.i.i1200 ], [ %cmp.i739, %if.then13.i.i1207 ], [ %cmp670.not, %if.end938 ], [ %cmp670.not, %if.then.i.i2680 ], [ %cmp670.not, %if.then13.i.i2687 ], [ %success.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3253 ], [ %success.2, %if.then.i.i3256 ], [ %success.2, %if.then13.i.i3263 ]
-  br i1 %success.3, label %if.end1335, label %cond.true1264
+  %success.1 = phi i1 [ %cmp.i739, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1197 ], [ %cmp.i739, %if.then.i.i1200 ], [ %cmp.i739, %if.then13.i.i1207 ], [ %cmp670.not, %if.end938 ], [ %cmp670.not, %if.then.i.i2680 ], [ %cmp670.not, %if.then13.i.i2687 ], [ %success.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3253 ], [ %success.3, %if.then.i.i3256 ], [ %success.3, %if.then13.i.i3263 ]
+  br i1 %success.1, label %if.end1335, label %cond.true1264
 
 cond.true1264:                                    ; preds = %invoke.cont37, %sw.epilog, %sw.bb438, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1237
   %808 = load ptr, ptr %conc, align 8
@@ -9915,7 +9915,7 @@ lpad21.body:                                      ; preds = %lpad.i.i, %lpad21
 
 if.end:                                           ; preds = %if.end3.i.i.i.i.i62, %lor.lhs.false.i.i.i.i.i65, %for.cond.i.i.i79, %invoke.cont22.if.end_crit_edge, %call2.i.i.i.i.noexc86, %if.else.i74
   %45 = phi ptr [ %.pre147, %invoke.cont22.if.end_crit_edge ], [ %38, %if.else.i74 ], [ %.pre148, %call2.i.i.i.i.noexc86 ], [ %25, %for.cond.i.i.i79 ], [ %.pre148, %lor.lhs.false.i.i.i.i.i65 ], [ %.pre148, %if.end3.i.i.i.i.i62 ]
-  %it.sroa.0.0 = phi ptr [ null, %invoke.cont22.if.end_crit_edge ], [ %39, %if.else.i74 ], [ null, %call2.i.i.i.i.noexc86 ], [ null, %for.cond.i.i.i79 ], [ null, %lor.lhs.false.i.i.i.i.i65 ], [ null, %if.end3.i.i.i.i.i62 ]
+  %it.sroa.0.1 = phi ptr [ null, %invoke.cont22.if.end_crit_edge ], [ %39, %if.else.i74 ], [ null, %call2.i.i.i.i.noexc86 ], [ null, %for.cond.i.i.i79 ], [ null, %lor.lhs.false.i.i.i.i.i65 ], [ null, %if.end3.i.i.i.i.i62 ]
   %bf.load.i.i = load i64, ptr %45, align 8
   %46 = and i64 %bf.load.i.i, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %46, 1152920405095219200
@@ -9942,7 +9942,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 invoke.cont32:                                    ; preds = %if.end, %if.then.i.i, %if.then13.i.i
-  %cmp.i89.not = icmp eq ptr %it.sroa.0.0, null
+  %cmp.i89.not = icmp eq ptr %it.sroa.0.1, null
   br i1 %cmp.i89.not, label %cond.false37, label %invoke.cont57
 
 cond.false37:                                     ; preds = %invoke.cont32
@@ -9976,12 +9976,12 @@ lpad42:                                           ; preds = %invoke.cont47, %inv
   unreachable
 
 invoke.cont57:                                    ; preds = %invoke.cont14, %invoke.cont32
-  %it.sroa.0.1130 = phi ptr [ %it.sroa.0.0, %invoke.cont32 ], [ %17, %invoke.cont14 ]
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.1130, i64 48
+  %it.sroa.0.0130 = phi ptr [ %it.sroa.0.1, %invoke.cont32 ], [ %17, %invoke.cont14 ]
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.0130, i64 48
   %50 = load ptr, ptr %second, align 8
   store ptr %50, ptr %di, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %di, i64 8
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1130, i64 56
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0130, i64 56
   %51 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %51, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %51, null

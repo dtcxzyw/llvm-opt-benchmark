@@ -9100,8 +9100,8 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   br label %111
 
 111:                                              ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47, %83, %3, %20, %110, %85, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %.1 = phi i1 [ true, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47 ], [ false, %110 ], [ %89, %85 ], [ %63, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %20 ], [ true, %3 ], [ false, %83 ]
-  ret i1 %.1
+  %.024 = phi i1 [ true, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit47 ], [ false, %110 ], [ %89, %85 ], [ %63, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %20 ], [ true, %3 ], [ false, %83 ]
+  ret i1 %.024
 
 112:                                              ; preds = %105, %76, %71
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %105 ], [ %.pn33, %76 ], [ %.pn, %71 ]
@@ -9978,14 +9978,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 138:                                              ; preds = %96, %94
   %.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
-  %.127 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.026 = extractvalue { ptr, i32 } %.pn.pn, 1
   %139 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %140 = icmp eq i32 %.127, %139
+  %140 = icmp eq i32 %.026, %139
   br i1 %140, label %141, label %341
 
 141:                                              ; preds = %138
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %142 = call ptr @__cxa_begin_catch(ptr %.1) #26
+  %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %142 = call ptr @__cxa_begin_catch(ptr %.0) #26
   call void @__cxa_end_catch()
   br label %143
 

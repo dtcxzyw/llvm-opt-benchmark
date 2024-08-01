@@ -329,8 +329,8 @@ getFile.exit:                                     ; preds = %102
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %getFile.exit.thread36, %getFile.exit
-  %.1.i39 = phi ptr [ %119, %getFile.exit.thread36 ], [ %134, %getFile.exit ]
-  %135 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.1.i39) #10
+  %.0.i39 = phi ptr [ %119, %getFile.exit.thread36 ], [ %134, %getFile.exit ]
+  %135 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i39) #10
   %.not1225 = icmp eq ptr %135, null
   br i1 %.not1225, label %.preheader19, label %.lr.ph
 
@@ -349,7 +349,7 @@ getFile.exit:                                     ; preds = %102
   %141 = tail call i32 @agwrite(ptr noundef nonnull %136, ptr noundef %140) #10
   %142 = load ptr, ptr @outFile, align 8
   %143 = tail call i32 @fflush(ptr noundef %142)
-  %144 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.1.i39) #10
+  %144 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i39) #10
   %.not12 = icmp eq ptr %144, null
   br i1 %.not12, label %.preheader19.outer, label %.lr.ph
 

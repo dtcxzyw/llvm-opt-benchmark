@@ -8838,7 +8838,7 @@ while.body.preheader.i.i:                         ; preds = %if.then69
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
   %52 = phi ptr [ %56, %while.body.i.i ], [ %.pre.i.i, %while.body.preheader.i.i ]
   %incdec.ptr.i10.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %incdec.ptr.i7.i.i, %while.body.preheader.i.i ]
-  %retval.sroa.0.09.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %50, %while.body.preheader.i.i ]
+  %retval.sroa.0.19.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %50, %while.body.preheader.i.i ]
   %53 = load ptr, ptr %incdec.ptr.i10.i.i, align 8
   %54 = getelementptr i8, ptr %52, i64 32
   %.val.i.i.i = load i64, ptr %54, align 8
@@ -8846,14 +8846,14 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %.val1.i.i.i = load i64, ptr %55, align 8
   %cmp.i.i.i.i = icmp ult i64 %.val.i.i.i, %.val1.i.i.i
   %56 = select i1 %cmp.i.i.i.i, ptr %53, ptr %52
-  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i10.i.i, ptr %retval.sroa.0.09.i.i
+  %spec.select.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i10.i.i, ptr %retval.sroa.0.19.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i10.i.i, i64 8
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %51
   br i1 %cmp.i3.not.i.i, label %invoke.cont80, label %while.body.i.i, !llvm.loop !60
 
 invoke.cont80:                                    ; preds = %while.body.i.i, %if.then69
-  %retval.sroa.0.2.i.i = phi ptr [ %50, %if.then69 ], [ %spec.select.i.i, %while.body.i.i ]
-  %57 = load ptr, ptr %retval.sroa.0.2.i.i, align 8
+  %retval.sroa.0.0.i.i = phi ptr [ %50, %if.then69 ], [ %spec.select.i.i, %while.body.i.i ]
+  %57 = load ptr, ptr %retval.sroa.0.0.i.i, align 8
   %largest_seqno = getelementptr inbounds i8, ptr %57, i64 32
   %58 = load i64, ptr %largest_seqno, align 8
   %cmp84.not = icmp eq i64 %58, 0
@@ -11086,7 +11086,7 @@ lpad70:                                           ; preds = %lpad70.loopexit.spl
 
 ehcleanup:                                        ; preds = %lpad68, %lpad.i38, %lpad70
   %.pn = phi { ptr, i32 } [ %lpad.phi126, %lpad70 ], [ %59, %lpad68 ], [ %42, %lpad.i38 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad70 ], [ true, %lpad68 ], [ true, %lpad.i38 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.0, %lpad70 ], [ true, %lpad68 ], [ true, %lpad.i38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp67) #21
   %60 = load ptr, ptr %agg.tmp65, align 8
   %tobool.not.i.i.i83 = icmp eq ptr %60, null
@@ -11103,10 +11103,10 @@ ehcleanup75.thread:                               ; preds = %if.then.i.i.i36, %l
 
 ehcleanup75:                                      ; preds = %lpad59, %ehcleanup, %if.then.i.i.i84
   %.pn.pn = phi { ptr, i32 } [ %58, %lpad59 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i84 ]
-  %cleanup.isactive.2 = phi i1 [ true, %lpad59 ], [ %cleanup.isactive.1, %ehcleanup ], [ %cleanup.isactive.1, %if.then.i.i.i84 ]
+  %cleanup.isactive.3 = phi i1 [ true, %lpad59 ], [ %cleanup.isactive.4, %ehcleanup ], [ %cleanup.isactive.4, %if.then.i.i.i84 ]
   call void @_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #21
   call void @_ZN7rocksdb20CompactionInputFilesD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp51) #21
-  br i1 %cleanup.isactive.2, label %cleanup.action, label %ehcleanup92
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup92
 
 cleanup.action:                                   ; preds = %ehcleanup75.thread, %ehcleanup88.thread, %ehcleanup75
   %.pn.pn.pn.pn115 = phi { ptr, i32 } [ %57, %ehcleanup88.thread ], [ %.pn.pn, %ehcleanup75 ], [ %.pn.pn.pn.ph, %ehcleanup75.thread ]

@@ -4583,8 +4583,8 @@ if.then.i57:                                      ; preds = %15
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then.i57, %15, %if.end
-  %collision_test_needed.2 = phi i32 [ %call, %if.end ], [ %16, %15 ], [ %16, %if.then.i57 ]
-  %tobool9.not = icmp eq i32 %collision_test_needed.2, 0
+  %collision_test_needed.1 = phi i32 [ %call, %if.end ], [ %16, %15 ], [ %16, %if.then.i57 ]
+  %tobool9.not = icmp eq i32 %collision_test_needed.1, 0
   br i1 %tobool9.not, label %if.end42, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
@@ -4639,8 +4639,8 @@ if.then24:                                        ; preds = %unlock_mutex.exit69
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %unlock_mutex.exit69
-  %new_data.0 = phi ptr [ null, %unlock_mutex.exit69 ], [ %call.i70, %if.then24 ]
-  %data.addr.0 = phi ptr [ %data, %unlock_mutex.exit69 ], [ %call.i70, %if.then24 ]
+  %new_data.1 = phi ptr [ null, %unlock_mutex.exit69 ], [ %call.i70, %if.then24 ]
+  %data.addr.1 = phi ptr [ %data, %unlock_mutex.exit69 ], [ %call.i70, %if.then24 ]
   %tobool27.not = icmp eq ptr %call22, null
   br i1 %tobool27.not, label %if.then28, label %if.end31
 
@@ -4659,7 +4659,7 @@ if.end31:                                         ; preds = %if.end26
   br i1 %or.cond46, label %lor.lhs.false35, label %if.then38
 
 lor.lhs.false35:                                  ; preds = %if.end31
-  %bcmp = call i32 @bcmp(ptr %data.addr.0, ptr nonnull %call22, i64 %size)
+  %bcmp = call i32 @bcmp(ptr %data.addr.1, ptr nonnull %call22, i64 %size)
   %cmp37.not = icmp eq i32 %bcmp, 0
   br i1 %cmp37.not, label %if.end41, label %if.then38
 
@@ -4674,8 +4674,8 @@ if.end41:                                         ; preds = %lor.lhs.false35
   br label %if.end42
 
 if.end42:                                         ; preds = %entry, %if.end41, %if.end8
-  %new_data.1 = phi ptr [ %new_data.0, %if.end41 ], [ null, %if.end8 ], [ null, %entry ]
-  %data.addr.1 = phi ptr [ %data.addr.0, %if.end41 ], [ %data, %if.end8 ], [ %data, %entry ]
+  %new_data.0 = phi ptr [ %new_data.1, %if.end41 ], [ null, %if.end8 ], [ null, %entry ]
+  %data.addr.0 = phi ptr [ %data.addr.1, %if.end41 ], [ %data, %if.end8 ], [ %data, %entry ]
   %.b41 = load i1, ptr @strict, align 4
   %.b42 = load i1, ptr @do_fsck_object, align 4
   %or.cond1 = select i1 %.b41, i1 true, i1 %.b42
@@ -4713,7 +4713,7 @@ if.else:                                          ; preds = %if.then48
   unreachable
 
 land.lhs.true57:                                  ; preds = %if.then51
-  %call59 = call i32 @fsck_object(ptr noundef nonnull %call49, ptr noundef %data.addr.1, i64 noundef %size, ptr noundef nonnull @fsck_options) #23
+  %call59 = call i32 @fsck_object(ptr noundef nonnull %call49, ptr noundef %data.addr.0, i64 noundef %size, ptr noundef nonnull @fsck_options) #23
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.end114, label %if.then61
 
@@ -4723,7 +4723,7 @@ if.then61:                                        ; preds = %land.lhs.true57
   unreachable
 
 if.else64:                                        ; preds = %lock_mutex.exit75
-  %call65 = call ptr @parse_object_buffer(ptr noundef %22, ptr noundef %oid, i32 noundef %type, i64 noundef %size, ptr noundef %data.addr.1, ptr noundef nonnull %eaten) #23
+  %call65 = call ptr @parse_object_buffer(ptr noundef %22, ptr noundef %oid, i32 noundef %type, i64 noundef %size, ptr noundef %data.addr.0, ptr noundef nonnull %eaten) #23
   %tobool66.not = icmp eq ptr %call65, null
   br i1 %tobool66.not, label %if.then67, label %if.end70
 
@@ -4738,7 +4738,7 @@ if.end70:                                         ; preds = %if.else64
   br i1 %.b43, label %land.lhs.true72, label %if.end77
 
 land.lhs.true72:                                  ; preds = %if.end70
-  %call73 = call i32 @fsck_object(ptr noundef nonnull %call65, ptr noundef %data.addr.1, i64 noundef %size, ptr noundef nonnull @fsck_options) #23
+  %call73 = call i32 @fsck_object(ptr noundef nonnull %call65, ptr noundef %data.addr.0, i64 noundef %size, ptr noundef nonnull @fsck_options) #23
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.end77, label %if.then75
 
@@ -4784,7 +4784,7 @@ if.end95:                                         ; preds = %if.then91, %if.end8
 
 if.then100:                                       ; preds = %if.end95
   %call101 = call ptr @detach_commit_buffer(ptr noundef nonnull %call65, ptr noundef null) #23
-  %cmp102.not = icmp eq ptr %call101, %data.addr.1
+  %cmp102.not = icmp eq ptr %call101, %data.addr.0
   br i1 %cmp102.not, label %if.then100.if.end105_crit_edge, label %if.then103
 
 if.then100.if.end105_crit_edge:                   ; preds = %if.then100
@@ -4810,7 +4810,7 @@ if.then.i78:                                      ; preds = %if.end114
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then.i78, %if.end114, %if.end42
-  call void @free(ptr noundef %new_data.1) #23
+  call void @free(ptr noundef %new_data.0) #23
   ret void
 }
 
@@ -5380,7 +5380,7 @@ if.else33:                                        ; preds = %if.else
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else33, %if.end29
-  %child_obj.0 = phi ptr [ %add.ptr21, %if.end29 ], [ %add.ptr39, %if.else33 ]
+  %child_obj.1 = phi ptr [ %add.ptr21, %if.end29 ], [ %add.ptr39, %if.else33 ]
   %28 = load i32, ptr %ref_first, align 8
   %29 = load i32, ptr %ref_last, align 4
   %cmp46 = icmp sgt i32 %28, %29
@@ -5418,7 +5418,7 @@ if.end53:                                         ; preds = %if.then51, %land.lh
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end53, %if.end10
-  %child_obj.1 = phi ptr [ %arrayidx13, %if.end10 ], [ %child_obj.0, %if.end53 ]
+  %child_obj.0 = phi ptr [ %arrayidx13, %if.end10 ], [ %child_obj.1, %if.end53 ]
   %parent.0 = phi ptr [ null, %if.end10 ], [ %add.ptr, %if.end53 ]
   %.b.i62 = load i1, ptr @threads_active, align 4
   br i1 %.b.i62, label %if.then.i63, label %unlock_mutex.exit65
@@ -5438,7 +5438,7 @@ if.then58:                                        ; preds = %unlock_mutex.exit65
 
 if.then.i67:                                      ; preds = %if.then58
   %35 = load ptr, ptr @objects, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %child_obj.1 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %child_obj.0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %obj.i = getelementptr inbounds i8, ptr %parent.0, i64 8
@@ -5494,12 +5494,12 @@ unlock_mutex.exit.i:                              ; preds = %if.then.i24.i, %if.
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %unlock_mutex.exit.i, %if.then58
-  %call.i26.i = call fastcc ptr @unpack_data(ptr noundef readonly %child_obj.1, ptr noundef null, ptr noundef null)
+  %call.i26.i = call fastcc ptr @unpack_data(ptr noundef readonly %child_obj.0, ptr noundef null, ptr noundef null)
   %data.i = getelementptr inbounds i8, ptr %parent.0, i64 56
   %43 = load ptr, ptr %data.i, align 8
   %size.i = getelementptr inbounds i8, ptr %parent.0, i64 64
   %44 = load i64, ptr %size.i, align 8
-  %size20.i = getelementptr inbounds i8, ptr %child_obj.1, i64 48
+  %size20.i = getelementptr inbounds i8, ptr %child_obj.0, i64 48
   %45 = load i64, ptr %size20.i, align 8
   %call21.i = call ptr @patch_delta(ptr noundef %43, i64 noundef %44, ptr noundef %call.i26.i, i64 noundef %45, ptr noundef nonnull %result_size.i) #23
   call void @free(ptr noundef %call.i26.i) #23
@@ -5507,7 +5507,7 @@ if.end19.i:                                       ; preds = %unlock_mutex.exit.i
   br i1 %tobool22.not.i, label %if.then23.i, label %if.end25.i
 
 if.then23.i:                                      ; preds = %if.end19.i
-  %offset.i = getelementptr inbounds i8, ptr %child_obj.1, i64 40
+  %offset.i = getelementptr inbounds i8, ptr %child_obj.0, i64 40
   %46 = load i64, ptr %offset.i, align 8
   %call24.i = call fastcc ptr @_(ptr noundef nonnull @.str.88)
   call void (i64, ptr, ...) @bad_object(i64 noundef %46, ptr noundef %call24.i) #26
@@ -5518,15 +5518,15 @@ if.end25.i:                                       ; preds = %if.end19.i
   %hash_algo.i = getelementptr inbounds i8, ptr %47, i64 256
   %48 = load ptr, ptr %hash_algo.i, align 8
   %49 = load i64, ptr %result_size.i, align 8
-  %real_type.i = getelementptr inbounds i8, ptr %child_obj.1, i64 58
+  %real_type.i = getelementptr inbounds i8, ptr %child_obj.0, i64 58
   %50 = load i8, ptr %real_type.i, align 2
   %conv26.i = sext i8 %50 to i32
-  call void @hash_object_file(ptr noundef %48, ptr noundef nonnull %call21.i, i64 noundef %49, i32 noundef %conv26.i, ptr noundef nonnull %child_obj.1) #23
+  call void @hash_object_file(ptr noundef %48, ptr noundef nonnull %call21.i, i64 noundef %49, i32 noundef %conv26.i, ptr noundef nonnull %child_obj.0) #23
   %51 = load i64, ptr %result_size.i, align 8
   %52 = load i8, ptr %real_type.i, align 2
   %conv29.i = sext i8 %52 to i32
-  call fastcc void @sha1_object(ptr noundef nonnull %call21.i, ptr noundef null, i64 noundef %51, i32 noundef %conv29.i, ptr noundef nonnull %child_obj.1)
-  %call32.i = call fastcc ptr @make_base(ptr noundef nonnull %child_obj.1, ptr noundef nonnull %parent.0)
+  call fastcc void @sha1_object(ptr noundef nonnull %call21.i, ptr noundef null, i64 noundef %51, i32 noundef %conv29.i, ptr noundef nonnull %child_obj.0)
+  %call32.i = call fastcc ptr @make_base(ptr noundef nonnull %child_obj.0, ptr noundef nonnull %parent.0)
   %data33.i = getelementptr inbounds i8, ptr %call32.i, i64 56
   store ptr %call21.i, ptr %data33.i, align 8
   %53 = load i64, ptr %result_size.i, align 8
@@ -5567,17 +5567,17 @@ do.body:                                          ; preds = %resolve_delta.exit
   br label %if.end74
 
 if.else65:                                        ; preds = %unlock_mutex.exit65
-  %call66 = call fastcc ptr @make_base(ptr noundef %child_obj.1, ptr noundef null)
+  %call66 = call fastcc ptr @make_base(ptr noundef %child_obj.0, ptr noundef null)
   %children_remaining67 = getelementptr inbounds i8, ptr %call66, i64 36
   %58 = load i32, ptr %children_remaining67, align 4
   %tobool68.not = icmp eq i32 %58, 0
   br i1 %tobool68.not, label %if.end74, label %if.then69
 
 if.then69:                                        ; preds = %if.else65
-  %call.i69 = call fastcc ptr @unpack_data(ptr noundef readonly %child_obj.1, ptr noundef null, ptr noundef null)
+  %call.i69 = call fastcc ptr @unpack_data(ptr noundef readonly %child_obj.0, ptr noundef null, ptr noundef null)
   %data71 = getelementptr inbounds i8, ptr %call66, i64 56
   store ptr %call.i69, ptr %data71, align 8
-  %size = getelementptr inbounds i8, ptr %child_obj.1, i64 48
+  %size = getelementptr inbounds i8, ptr %child_obj.0, i64 48
   %59 = load i64, ptr %size, align 8
   %size72 = getelementptr inbounds i8, ptr %call66, i64 64
   store i64 %59, ptr %size72, align 8
@@ -5724,10 +5724,10 @@ if.then:                                          ; preds = %entry
 
 land.rhs:                                         ; preds = %if.then, %do.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.end ], [ 0, %if.then ]
-  %c.addr.048 = phi ptr [ %8, %do.end ], [ %c, %if.then ]
+  %c.addr.148 = phi ptr [ %8, %do.end ], [ %c, %if.then ]
   %delta_alloc.047 = phi i32 [ %delta_alloc.2, %do.end ], [ 0, %if.then ]
   %delta.045 = phi ptr [ %delta.1, %do.end ], [ null, %if.then ]
-  %data4 = getelementptr inbounds i8, ptr %c.addr.048, i64 56
+  %data4 = getelementptr inbounds i8, ptr %c.addr.148, i64 56
   %4 = load ptr, ptr %data4, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %do.body, label %while.end.split.loop.exit
@@ -5763,8 +5763,8 @@ do.end:                                           ; preds = %do.body, %st_mult.e
   %delta.1 = phi ptr [ %call19, %st_mult.exit ], [ %delta.045, %do.body ]
   %delta_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %delta_alloc.047, %do.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %delta.1, i64 %indvars.iv
-  store ptr %c.addr.048, ptr %arrayidx, align 8
-  %8 = load ptr, ptr %c.addr.048, align 8
+  store ptr %c.addr.148, ptr %arrayidx, align 8
+  %8 = load ptr, ptr %c.addr.148, align 8
   %obj2 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %obj2, align 8
   %type = getelementptr inbounds i8, ptr %9, i64 57
@@ -5780,24 +5780,24 @@ while.end.split.loop.exit:                        ; preds = %land.rhs
 while.end:                                        ; preds = %do.end, %while.end.split.loop.exit
   %delta.0.lcssa = phi ptr [ %delta.045, %while.end.split.loop.exit ], [ %delta.1, %do.end ]
   %delta_nr.0.lcssa = phi i32 [ %12, %while.end.split.loop.exit ], [ %indvars, %do.end ]
-  %c.addr.0.lcssa = phi ptr [ %c.addr.048, %while.end.split.loop.exit ], [ %8, %do.end ]
+  %c.addr.1.lcssa = phi ptr [ %c.addr.148, %while.end.split.loop.exit ], [ %8, %do.end ]
   %tobool21.not = icmp eq i32 %delta_nr.0.lcssa, 0
   br i1 %tobool21.not, label %if.end28.thread, label %if.end28
 
 if.end28.thread:                                  ; preds = %while.end, %if.then
-  %c.addr.0.lcssa73 = phi ptr [ %c.addr.0.lcssa, %while.end ], [ %c, %if.then ]
+  %c.addr.1.lcssa73 = phi ptr [ %c.addr.1.lcssa, %while.end ], [ %c, %if.then ]
   %delta.0.lcssa70 = phi ptr [ %delta.0.lcssa, %while.end ], [ null, %if.then ]
   %call.i = tail call fastcc ptr @unpack_data(ptr noundef readonly %1, ptr noundef null, ptr noundef null)
-  %data24 = getelementptr inbounds i8, ptr %c.addr.0.lcssa73, i64 56
+  %data24 = getelementptr inbounds i8, ptr %c.addr.1.lcssa73, i64 56
   store ptr %call.i, ptr %data24, align 8
   %size = getelementptr inbounds i8, ptr %1, i64 48
   %13 = load i64, ptr %size, align 8
-  %size25 = getelementptr inbounds i8, ptr %c.addr.0.lcssa73, i64 64
+  %size25 = getelementptr inbounds i8, ptr %c.addr.1.lcssa73, i64 64
   store i64 %13, ptr %size25, align 8
   %14 = load i64, ptr @base_cache_used, align 8
   %add27 = add i64 %14, %13
   store i64 %add27, ptr @base_cache_used, align 8
-  tail call fastcc void @prune_base_data(ptr noundef nonnull %c.addr.0.lcssa73)
+  tail call fastcc void @prune_base_data(ptr noundef nonnull %c.addr.1.lcssa73)
   br label %for.end
 
 if.end28:                                         ; preds = %while.end
@@ -5850,9 +5850,9 @@ if.end48:                                         ; preds = %for.body
 
 for.end:                                          ; preds = %if.end48, %if.end28.thread, %if.end28
   %delta.0.lcssa6979 = phi ptr [ %delta.0.lcssa, %if.end28 ], [ %delta.0.lcssa70, %if.end28.thread ], [ %delta.0.lcssa, %if.end48 ]
-  %c.addr.1.lcssa = phi ptr [ %c.addr.0.lcssa, %if.end28 ], [ %c.addr.0.lcssa73, %if.end28.thread ], [ %16, %if.end48 ]
+  %c.addr.2.lcssa = phi ptr [ %c.addr.1.lcssa, %if.end28 ], [ %c.addr.1.lcssa73, %if.end28.thread ], [ %16, %if.end48 ]
   tail call void @free(ptr noundef %delta.0.lcssa6979) #23
-  %data52.phi.trans.insert = getelementptr inbounds i8, ptr %c.addr.1.lcssa, i64 56
+  %data52.phi.trans.insert = getelementptr inbounds i8, ptr %c.addr.2.lcssa, i64 56
   %.pre = load ptr, ptr %data52.phi.trans.insert, align 8
   br label %if.end51
 

@@ -2945,7 +2945,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br i1 %exitcond.not, label %.loopexit, label %75
 
 .loopexit:                                        ; preds = %78, %75, %.preheader, %64
-  %.2 = phi i1 [ false, %64 ], [ false, %.preheader ], [ false, %78 ], [ true, %75 ]
+  %.0329 = phi i1 [ false, %64 ], [ false, %.preheader ], [ false, %78 ], [ true, %75 ]
   %80 = getelementptr inbounds i8, ptr %0, i64 504
   %81 = load i8, ptr %80, align 8
   %82 = trunc i8 %81 to i1
@@ -3058,7 +3058,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br label %332
 
 151:                                              ; preds = %83
-  br i1 %.2, label %155, label %152
+  br i1 %.0329, label %155, label %152
 
 152:                                              ; preds = %151
   %153 = load i8, ptr %69, align 1
@@ -3258,7 +3258,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br i1 %or.cond, label %269, label %320
 
 269:                                              ; preds = %.critedge
-  br i1 %.2, label %273, label %270
+  br i1 %.0329, label %273, label %270
 
 270:                                              ; preds = %269
   %271 = load i8, ptr %69, align 1

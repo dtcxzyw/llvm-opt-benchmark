@@ -2252,7 +2252,7 @@ lpad123:                                          ; preds = %if.then13.i4.i, %if
   br label %ehcleanup175
 
 if.end:                                           ; preds = %if.else.i.i712, %if.then.i5.i, %cond.true130, %if.then13.i4.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit514
-  %exc_arg.0 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit514 ], [ 1, %if.then13.i4.i ], [ 1, %cond.true130 ], [ 1, %if.then.i5.i ], [ 1, %if.else.i.i712 ]
+  %exc_arg.2 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit514 ], [ 1, %if.then13.i4.i ], [ 1, %cond.true130 ], [ 1, %if.then.i5.i ], [ 1, %if.else.i.i712 ]
   %44 = load ptr, ptr %bx, align 8
   %bf.load.i.i718 = load i64, ptr %44, align 8
   %45 = and i64 %bf.load.i.i718, 1152920405095219200
@@ -2280,7 +2280,7 @@ terminate.lpad.i727:                              ; preds = %if.then13.i.i726
   unreachable
 
 if.end174:                                        ; preds = %if.then13.i.i726, %if.then.i.i720, %if.end, %invoke.cont109
-  %exc_arg.1 = phi i8 [ 0, %invoke.cont109 ], [ %exc_arg.0, %if.end ], [ %exc_arg.0, %if.then.i.i720 ], [ %exc_arg.0, %if.then13.i.i726 ]
+  %exc_arg.1 = phi i8 [ 0, %invoke.cont109 ], [ %exc_arg.2, %if.end ], [ %exc_arg.2, %if.then.i.i720 ], [ %exc_arg.2, %if.then13.i.i726 ]
   %48 = load ptr, ptr %xtn, align 8
   %bf.load.i.i729 = load i64, ptr %48, align 8
   %49 = and i64 %bf.load.i.i729, 1152920405095219200
@@ -2317,7 +2317,7 @@ if.end177:                                        ; preds = %if.then13.i.i737, %
   br i1 %tobool, label %if.end284, label %if.then178
 
 if.then178:                                       ; preds = %invoke.cont106, %if.end177
-  %exc_arg.21097 = phi i8 [ %exc_arg.1, %if.end177 ], [ 0, %invoke.cont106 ]
+  %exc_arg.01097 = phi i8 [ %exc_arg.1, %if.end177 ], [ 0, %invoke.cont106 ]
   %d_enum = getelementptr inbounds i8, ptr %this, i64 32
   %52 = load ptr, ptr %d_enum, align 8
   %53 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -2548,11 +2548,11 @@ lpad192:                                          ; preds = %invoke.cont191
 
 for.end.loopexit:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit806, %for.cond
   %cmp.not.lcssa.ph = phi i1 [ %cmp.not, %for.cond ], [ %cmp.not1104, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit806 ]
-  %83 = select i1 %cmp.not.lcssa.ph, i8 %exc_arg.21097, i8 1
+  %83 = select i1 %cmp.not.lcssa.ph, i8 %exc_arg.01097, i8 1
   br label %if.end284
 
 if.end284:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit767, %for.end.loopexit, %cond.true, %invoke.cont179, %if.end177
-  %exc_arg.3 = phi i8 [ %exc_arg.1, %if.end177 ], [ %exc_arg.21097, %invoke.cont179 ], [ 1, %cond.true ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit767 ], [ %83, %for.end.loopexit ]
+  %exc_arg.3 = phi i8 [ %exc_arg.1, %if.end177 ], [ %exc_arg.01097, %invoke.cont179 ], [ 1, %cond.true ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit767 ], [ %83, %for.end.loopexit ]
   %84 = load ptr, ptr %nbvr, align 8
   %bf.load.i.i1031 = load i64, ptr %84, align 8
   %85 = and i64 %bf.load.i.i1031, 1152920405095219200

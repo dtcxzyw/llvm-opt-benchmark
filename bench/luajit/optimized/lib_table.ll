@@ -214,22 +214,22 @@ for.inc:                                          ; preds = %cond.end26, %if.the
   br i1 %cmp9, label %for.body, label %if.end30, !llvm.loop !7
 
 if.end30:                                         ; preds = %for.inc, %if.end, %entry
-  %i.1 = phi i32 [ %add, %entry ], [ %call8, %if.end ], [ %call8, %for.inc ]
+  %i.0 = phi i32 [ %add, %entry ], [ %call8, %if.end ], [ %call8, %for.inc ]
   %asize32 = getelementptr inbounds i8, ptr %call, i64 48
   %13 = load i32, ptr %asize32, align 8
-  %cmp33 = icmp ult i32 %i.1, %13
+  %cmp33 = icmp ult i32 %i.0, %13
   br i1 %cmp33, label %cond.true35, label %cond.false40
 
 cond.true35:                                      ; preds = %if.end30
   %array36 = getelementptr inbounds i8, ptr %call, i64 16
   %14 = load i64, ptr %array36, align 8
   %15 = inttoptr i64 %14 to ptr
-  %idxprom38 = sext i32 %i.1 to i64
+  %idxprom38 = sext i32 %i.0 to i64
   %arrayidx39 = getelementptr inbounds %union.TValue, ptr %15, i64 %idxprom38
   br label %cond.end42
 
 cond.false40:                                     ; preds = %if.end30
-  %call41 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %i.1) #3
+  %call41 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %i.0) #3
   br label %cond.end42
 
 cond.end42:                                       ; preds = %cond.false40, %cond.true35

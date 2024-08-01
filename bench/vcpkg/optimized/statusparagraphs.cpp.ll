@@ -324,10 +324,10 @@ define dso_local void @_ZNK5vcpkg16StatusParagraphs26get_installed_package_viewE
 
 10:                                               ; preds = %.lr.ph, %.critedge
   %.sroa.018.047 = phi ptr [ null, %.lr.ph ], [ %.sroa.018.1, %.critedge ]
-  %.sroa.5.046 = phi ptr [ null, %.lr.ph ], [ %.sroa.5.2, %.critedge ]
-  %.sroa.11.045 = phi ptr [ null, %.lr.ph ], [ %.sroa.11.2, %.critedge ]
+  %.sroa.5.046 = phi ptr [ null, %.lr.ph ], [ %.sroa.5.1, %.critedge ]
+  %.sroa.11.045 = phi ptr [ null, %.lr.ph ], [ %.sroa.11.1, %.critedge ]
   %.sroa.017.044 = phi ptr [ %6, %.lr.ph ], [ %11, %.critedge ]
-  %.sroa.16.043 = phi ptr [ null, %.lr.ph ], [ %.sroa.16.2, %.critedge ]
+  %.sroa.16.043 = phi ptr [ null, %.lr.ph ], [ %.sroa.16.1, %.critedge ]
   %11 = getelementptr inbounds i8, ptr %.sroa.017.044, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg11PackageSpec4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %12)
@@ -482,9 +482,9 @@ _ZN5vcpkg20InstalledPackageViewD2Ev.exit:         ; preds = %70, %71
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %46, %32, %74, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %30
-  %.sroa.16.2 = phi ptr [ %.sroa.16.043, %74 ], [ %.sroa.16.043, %32 ], [ %.sroa.16.043, %30 ], [ %.sroa.16.043, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %69, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.16.043, %46 ], [ %.sroa.16.043, %16 ]
-  %.sroa.11.2 = phi ptr [ %.sroa.11.045, %74 ], [ %.sroa.11.045, %32 ], [ %.sroa.11.045, %30 ], [ %.sroa.11.045, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %67, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %47, %46 ], [ %.sroa.11.045, %16 ]
-  %.sroa.5.2 = phi ptr [ %.sroa.5.046, %74 ], [ %.sroa.5.046, %32 ], [ %.sroa.5.046, %30 ], [ %.sroa.5.046, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %62, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.5.046, %46 ], [ %.sroa.5.046, %16 ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.043, %74 ], [ %.sroa.16.043, %32 ], [ %.sroa.16.043, %30 ], [ %.sroa.16.043, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %69, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.16.043, %46 ], [ %.sroa.16.043, %16 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.045, %74 ], [ %.sroa.11.045, %32 ], [ %.sroa.11.045, %30 ], [ %.sroa.11.045, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %67, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %47, %46 ], [ %.sroa.11.045, %16 ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.046, %74 ], [ %.sroa.5.046, %32 ], [ %.sroa.5.046, %30 ], [ %.sroa.5.046, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %62, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.5.046, %46 ], [ %.sroa.5.046, %16 ]
   %.sroa.018.1 = phi ptr [ %75, %74 ], [ %.sroa.018.047, %32 ], [ %.sroa.018.047, %30 ], [ %.sroa.018.047, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.sroa.018.047, %_ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.018.047, %46 ], [ %.sroa.018.047, %16 ]
   %.not32 = icmp eq ptr %11, %7
   br i1 %.not32, label %._crit_edge, label %10
@@ -498,21 +498,21 @@ _ZN5vcpkg20InstalledPackageViewD2Ev.exit:         ; preds = %70, %71
   store i8 1, ptr %0, align 8
   store ptr %.sroa.018.1, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.5.2, ptr %77, align 8
+  store ptr %.sroa.5.1, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.11.2, ptr %78, align 8
+  store ptr %.sroa.11.1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.2, ptr %79, align 8
+  store ptr %.sroa.16.1, ptr %79, align 8
   br label %_ZN5vcpkg20InstalledPackageViewD2Ev.exit14
 
 80:                                               ; preds = %._crit_edge
   store i8 0, ptr %0, align 8
   store i8 0, ptr %76, align 8
-  %.not.i.i.i.i13 = icmp eq ptr %.sroa.5.2, null
+  %.not.i.i.i.i13 = icmp eq ptr %.sroa.5.1, null
   br i1 %.not.i.i.i.i13, label %_ZN5vcpkg20InstalledPackageViewD2Ev.exit14, label %81
 
 81:                                               ; preds = %80
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.5.2) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.5.1) #18
   br label %_ZN5vcpkg20InstalledPackageViewD2Ev.exit14
 
 _ZN5vcpkg20InstalledPackageViewD2Ev.exit14:       ; preds = %.thread60, %.thread, %80, %81

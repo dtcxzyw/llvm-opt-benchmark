@@ -1270,7 +1270,7 @@ do.body.i:                                        ; preds = %do.cond.i, %while.b
   %length.0.i = phi i32 [ 0, %while.body ], [ %length.1.i, %do.cond.i ]
   %dequeue.0.i = phi i64 [ %ring.0.val, %while.body ], [ %dequeue.1.i, %do.cond.i ]
   %ccs.0.i = phi i8 [ %ring.0.val98, %while.body ], [ %ccs.1.i, %do.cond.i ]
-  %control_td_set.0.i = phi i1 [ false, %while.body ], [ %control_td_set.2.i, %do.cond.i ]
+  %control_td_set.0.i = phi i1 [ false, %while.body ], [ %control_td_set.1.i, %do.cond.i ]
   %link_cnt.0.i = phi i32 [ 0, %while.body ], [ %link_cnt.1.i, %do.cond.i ]
   %51 = load ptr, ptr %as.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
@@ -1340,7 +1340,7 @@ do.cond.i:                                        ; preds = %land.lhs.true.i122,
   %length.1.i = phi i32 [ %add.i121, %if.end73.i ], [ %add.i121, %land.lhs.true.i122 ], [ %add.i121, %if.end64.i ], [ %length.0.i, %if.end52.i ]
   %dequeue.1.i = phi i64 [ %add65.i, %if.end73.i ], [ %add65.i, %land.lhs.true.i122 ], [ %add65.i, %if.end64.i ], [ %54, %if.end52.i ]
   %ccs.1.i = phi i8 [ %ccs.0.i, %if.end73.i ], [ %ccs.0.i, %land.lhs.true.i122 ], [ %ccs.0.i, %if.end64.i ], [ %spec.select.i, %if.end52.i ]
-  %control_td_set.2.i = phi i1 [ true, %if.end73.i ], [ false, %land.lhs.true.i122 ], [ true, %if.end64.i ], [ %control_td_set.0.i, %if.end52.i ]
+  %control_td_set.1.i = phi i1 [ true, %if.end73.i ], [ false, %land.lhs.true.i122 ], [ true, %if.end64.i ], [ %control_td_set.0.i, %if.end52.i ]
   %link_cnt.1.i = phi i32 [ %link_cnt.0.i, %if.end73.i ], [ %link_cnt.0.i, %land.lhs.true.i122 ], [ %link_cnt.0.i, %if.end64.i ], [ %inc.i, %if.end52.i ]
   %cmp80.i = icmp slt i32 %length.1.i, 131072
   br i1 %cmp80.i, label %do.body.i, label %do.body83.i, !llvm.loop !12
@@ -3218,7 +3218,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end65
   %4 = phi i32 [ %2, %for.body.lr.ph ], [ %19, %if.end65 ]
-  %edtla.055 = phi i32 [ 0, %for.body.lr.ph ], [ %edtla.3, %if.end65 ]
+  %edtla.055 = phi i32 [ 0, %for.body.lr.ph ], [ %edtla.2, %if.end65 ]
   %i.054 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end65 ]
   %left.053 = phi i32 [ %3, %for.body.lr.ph ], [ %left.147, %if.end65 ]
   %shortpkt.052 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select35, %if.end65 ]
@@ -3259,24 +3259,24 @@ if.then8:                                         ; preds = %sw.bb4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %sw.bb4
-  %shortpkt.1 = phi i8 [ %shortpkt.052, %sw.bb4 ], [ %spec.select, %if.then8 ]
-  %chunk.0 = phi i32 [ %and6, %sw.bb4 ], [ %left.053, %if.then8 ]
-  %sub = sub i32 %left.053, %chunk.0
-  %add = add i32 %chunk.0, %edtla.055
+  %shortpkt.2 = phi i8 [ %shortpkt.052, %sw.bb4 ], [ %spec.select, %if.then8 ]
+  %chunk.1 = phi i32 [ %and6, %sw.bb4 ], [ %left.053, %if.then8 ]
+  %sub = sub i32 %left.053, %chunk.1
+  %add = add i32 %chunk.1, %edtla.055
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end13, %sw.bb, %for.body
-  %shortpkt.2 = phi i8 [ %shortpkt.052, %for.body ], [ %shortpkt.1, %if.end13 ], [ %shortpkt.052, %sw.bb ]
+  %shortpkt.1 = phi i8 [ %shortpkt.052, %for.body ], [ %shortpkt.2, %if.end13 ], [ %shortpkt.052, %sw.bb ]
   %left.1 = phi i32 [ %left.053, %for.body ], [ %sub, %if.end13 ], [ %left.053, %sw.bb ]
   %edtla.1 = phi i32 [ %edtla.055, %for.body ], [ %add, %if.end13 ], [ %edtla.055, %sw.bb ]
-  %chunk.1 = phi i32 [ 0, %for.body ], [ %chunk.0, %if.end13 ], [ %spec.store.select, %sw.bb ]
+  %chunk.0 = phi i32 [ 0, %for.body ], [ %chunk.1, %if.end13 ], [ %spec.store.select, %sw.bb ]
   br i1 %reported.051, label %if.end65, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body, %sw.epilog
-  %chunk.149 = phi i32 [ %chunk.1, %sw.epilog ], [ 0, %for.body ]
+  %chunk.049 = phi i32 [ %chunk.0, %sw.epilog ], [ 0, %for.body ]
   %edtla.148 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.055, %for.body ]
   %left.146 = phi i32 [ %left.1, %sw.epilog ], [ %left.053, %for.body ]
-  %shortpkt.244 = phi i8 [ %shortpkt.2, %sw.epilog ], [ 0, %for.body ]
+  %shortpkt.144 = phi i8 [ %shortpkt.1, %sw.epilog ], [ 0, %for.body ]
   %and16 = and i32 %6, 32
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %lor.lhs.false, label %land.lhs.true.if.then28_crit_edge
@@ -3286,7 +3286,7 @@ land.lhs.true.if.then28_crit_edge:                ; preds = %land.lhs.true
   br label %if.then28
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %tobool18 = trunc nuw i8 %shortpkt.244 to i1
+  %tobool18 = trunc nuw i8 %shortpkt.144 to i1
   %and21 = and i32 %6, 4
   %tobool22.not = icmp ne i32 %and21, 0
   %or.cond33.not = and i1 %tobool22.not, %tobool18
@@ -3313,14 +3313,14 @@ if.then28:                                        ; preds = %land.lhs.true.if.th
   %status34 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %14 = load i32, ptr %status34, align 8
   %and35 = and i32 %14, 131071
-  %sub36 = sub nsw i32 %and35, %chunk.149
+  %sub36 = sub nsw i32 %and35, %chunk.049
   store i32 %sub36, ptr %length, align 8
   store i32 0, ptr %flags, align 4
   %addr = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %15 = load i64, ptr %addr, align 8
   store i64 %15, ptr %ptr, align 8
   %cmp38 = icmp eq i32 %10, 1
-  %tobool41 = trunc nuw i8 %shortpkt.244 to i1
+  %tobool41 = trunc nuw i8 %shortpkt.144 to i1
   %cond = select i1 %tobool41, i32 13, i32 1
   %storemerge = select i1 %cmp38, i32 %cond, i32 %10
   store i32 %storemerge, ptr %ccode44, align 4
@@ -3337,7 +3337,7 @@ if.then51:                                        ; preds = %if.then28
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then51, %if.then28
-  %edtla.2 = phi i32 [ 0, %if.then51 ], [ %edtla.148, %if.then28 ]
+  %edtla.3 = phi i32 [ 0, %if.then51 ], [ %edtla.148, %if.then28 ]
   %shr58 = lshr i32 %14, 22
   call fastcc void @xhci_event(ptr noundef %1, ptr noundef nonnull %event, i32 noundef %shr58)
   %18 = load i32, ptr %status9, align 8
@@ -3353,13 +3353,13 @@ if.end65:                                         ; preds = %if.end56.if.end65_c
   %19 = phi i32 [ %4, %sw.epilog ], [ %.pre58, %if.end56.if.end65_crit_edge ], [ %4, %lor.lhs.false23 ]
   %20 = phi i32 [ %6, %sw.epilog ], [ %.pre57, %if.end56.if.end65_crit_edge ], [ %6, %lor.lhs.false23 ]
   %left.147 = phi i32 [ %left.1, %sw.epilog ], [ %left.146, %if.end56.if.end65_crit_edge ], [ %left.146, %lor.lhs.false23 ]
-  %shortpkt.245 = phi i8 [ %shortpkt.2, %sw.epilog ], [ %shortpkt.244, %if.end56.if.end65_crit_edge ], [ %shortpkt.244, %lor.lhs.false23 ]
+  %shortpkt.145 = phi i8 [ %shortpkt.1, %sw.epilog ], [ %shortpkt.144, %if.end56.if.end65_crit_edge ], [ %shortpkt.144, %lor.lhs.false23 ]
   %reported.2 = phi i1 [ true, %sw.epilog ], [ true, %if.end56.if.end65_crit_edge ], [ false, %lor.lhs.false23 ]
-  %edtla.3 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.2, %if.end56.if.end65_crit_edge ], [ %edtla.148, %lor.lhs.false23 ]
+  %edtla.2 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.3, %if.end56.if.end65_crit_edge ], [ %edtla.148, %lor.lhs.false23 ]
   %21 = and i32 %20, 64512
   %cond1 = icmp ne i32 %21, 2048
   %spec.select34 = and i1 %cond1, %reported.2
-  %spec.select35 = select i1 %cond1, i8 %shortpkt.245, i8 0
+  %spec.select35 = select i1 %cond1, i8 %shortpkt.145, i8 0
   %inc = add nuw i32 %i.054, 1
   %cmp = icmp ult i32 %inc, %19
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15

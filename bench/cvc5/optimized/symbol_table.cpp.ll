@@ -2546,7 +2546,7 @@ if.end9.i.i.i.i556:                               ; preds = %if.end8.sink.split.
   br label %cleanup144
 
 cleanup144:                                       ; preds = %invoke.cont99, %if.end9.i.i.i.i556, %invoke.cont141, %cleanup.thread
-  %retval.2 = phi i1 [ false, %cleanup.thread ], [ true, %invoke.cont141 ], [ true, %if.end9.i.i.i.i556 ], [ false, %invoke.cont99 ]
+  %retval.1 = phi i1 [ false, %cleanup.thread ], [ true, %invoke.cont141 ], [ true, %if.end9.i.i.i.i556 ], [ false, %invoke.cont99 ]
   %128 = load ptr, ptr %argTypes, align 16
   %129 = load ptr, ptr %_M_finish.i321, align 8
   %cmp.not3.i.i.i.i578 = icmp eq ptr %128, %129
@@ -2575,7 +2575,7 @@ if.then.i.i.i587:                                 ; preds = %invoke.cont.i585
 _ZNSt6vectorIN4cvc54SortESaIS1_EED2Ev.exit588:    ; preds = %invoke.cont.i585, %if.then.i.i.i587
   call void @_ZN4cvc54SortD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %rangeType) #19
   call void @_ZN4cvc54SortD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %t) #19
-  ret i1 %retval.2
+  ret i1 %retval.1
 
 ehcleanup145:                                     ; preds = %lpad25.loopexit, %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad25.loopexit.split-lp.loopexit, %lpad98, %lpad74, %lpad49
   %.pn11 = phi { ptr, i32 } [ %lpad.phi614, %lpad74 ], [ %107, %lpad98 ], [ %73, %lpad49 ], [ %lpad.loopexit, %lpad25.loopexit ], [ %lpad.loopexit619, %lpad25.loopexit.split-lp.loopexit ], [ %lpad.loopexit622, %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit624, %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp625, %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]

@@ -1105,7 +1105,7 @@ translate_to_c.exit81:                            ; preds = %198, %202, %205, %2
   br label %216
 
 216:                                              ; preds = %translate_to_aint.exit79, %translate_to_fint.exit77, %translate_to_c.exit81
-  %.1 = phi i32 [ %215, %translate_to_c.exit81 ], [ %177, %translate_to_fint.exit77 ], [ %197, %translate_to_aint.exit79 ]
+  %.2 = phi i32 [ %215, %translate_to_c.exit81 ], [ %177, %translate_to_fint.exit77 ], [ %197, %translate_to_aint.exit79 ]
   %217 = load i8, ptr @opal_uses_threads, align 1
   %218 = trunc i8 %217 to i1
   br i1 %218, label %.sink.split, label %298
@@ -1259,19 +1259,19 @@ translate_to_c.exit87:                            ; preds = %276, %280, %283, %2
   br label %294
 
 294:                                              ; preds = %translate_to_aint.exit85, %translate_to_fint.exit83, %translate_to_c.exit87
-  %.2 = phi i32 [ %293, %translate_to_c.exit87 ], [ %255, %translate_to_fint.exit83 ], [ %275, %translate_to_aint.exit85 ]
+  %.3 = phi i32 [ %293, %translate_to_c.exit87 ], [ %255, %translate_to_fint.exit83 ], [ %275, %translate_to_aint.exit85 ]
   %295 = load i8, ptr @opal_uses_threads, align 1
   %296 = trunc i8 %295 to i1
   br i1 %296, label %.sink.split, label %298
 
 .sink.split:                                      ; preds = %294, %216, %138
-  %.3.ph = phi i32 [ %.042, %138 ], [ %.1, %216 ], [ %.2, %294 ]
+  %.1.ph = phi i32 [ %.042, %138 ], [ %.2, %216 ], [ %.3, %294 ]
   %297 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
   br label %298
 
 298:                                              ; preds = %.sink.split, %294, %216, %138
-  %.3 = phi i32 [ %.2, %294 ], [ %.1, %216 ], [ %.042, %138 ], [ %.3.ph, %.sink.split ]
-  %.not66 = icmp eq i32 %.3, 0
+  %.1 = phi i32 [ %.3, %294 ], [ %.2, %216 ], [ %.042, %138 ], [ %.1.ph, %.sink.split ]
+  %.not66 = icmp eq i32 %.1, 0
   br i1 %.not66, label %.thread, label %opal_thread_add_fetch_32.exit91
 
 .thread:                                          ; preds = %62, %298
@@ -1369,7 +1369,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %opal_thread_add_fetch_32.exit91
 
 opal_thread_add_fetch_32.exit91:                  ; preds = %343, %341, %328, %320, %298, %6, %31, %35
-  %.0 = phi i32 [ -5, %35 ], [ -5, %31 ], [ -5, %6 ], [ %.3, %298 ], [ -5, %320 ], [ %334, %328 ], [ 0, %341 ], [ 0, %343 ]
+  %.0 = phi i32 [ -5, %35 ], [ -5, %31 ], [ -5, %6 ], [ %.1, %298 ], [ -5, %320 ], [ %334, %328 ], [ 0, %341 ], [ 0, %343 ]
   ret i32 %.0
 }
 
@@ -2505,7 +2505,7 @@ translate_to_c.exit97:                            ; preds = %238, %242, %245, %2
   br label %262
 
 262:                                              ; preds = %translate_to_aint.exit95, %translate_to_fint.exit93, %233, %207, %258, %translate_to_c.exit97
-  %.159 = phi i32 [ 0, %207 ], [ 0, %233 ], [ 0, %258 ], [ %256, %translate_to_c.exit97 ], [ %206, %translate_to_fint.exit93 ], [ %232, %translate_to_aint.exit95 ]
+  %.2 = phi i32 [ 0, %207 ], [ 0, %233 ], [ 0, %258 ], [ %256, %translate_to_c.exit97 ], [ %206, %translate_to_fint.exit93 ], [ %232, %translate_to_aint.exit95 ]
   %263 = load i8, ptr @opal_uses_threads, align 1
   %264 = trunc i8 %263 to i1
   br i1 %264, label %.sink.split, label %361
@@ -2693,19 +2693,19 @@ translate_to_c.exit103:                           ; preds = %333, %337, %340, %3
   br label %357
 
 357:                                              ; preds = %translate_to_aint.exit101, %translate_to_fint.exit99, %328, %302, %353, %translate_to_c.exit103
-  %.2 = phi i32 [ 0, %302 ], [ 0, %328 ], [ 0, %353 ], [ %351, %translate_to_c.exit103 ], [ %301, %translate_to_fint.exit99 ], [ %327, %translate_to_aint.exit101 ]
+  %.3 = phi i32 [ 0, %302 ], [ 0, %328 ], [ 0, %353 ], [ %351, %translate_to_c.exit103 ], [ %301, %translate_to_fint.exit99 ], [ %327, %translate_to_aint.exit101 ]
   %358 = load i8, ptr @opal_uses_threads, align 1
   %359 = trunc i8 %358 to i1
   br i1 %359, label %.sink.split, label %361
 
 .sink.split:                                      ; preds = %357, %262, %167
-  %.3.ph = phi i32 [ %.058, %167 ], [ %.159, %262 ], [ %.2, %357 ]
+  %.159.ph = phi i32 [ %.058, %167 ], [ %.2, %262 ], [ %.3, %357 ]
   %360 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
   br label %361
 
 361:                                              ; preds = %.sink.split, %357, %262, %167
-  %.3 = phi i32 [ %.2, %357 ], [ %.159, %262 ], [ %.058, %167 ], [ %.3.ph, %.sink.split ]
-  %.not86 = icmp eq i32 %.3, 0
+  %.159 = phi i32 [ %.3, %357 ], [ %.2, %262 ], [ %.058, %167 ], [ %.159.ph, %.sink.split ]
+  %.not86 = icmp eq i32 %.159, 0
   br i1 %.not86, label %.thread, label %362
 
 362:                                              ; preds = %361
@@ -2840,7 +2840,7 @@ opal_obj_run_destructors.exit112:                 ; preds = %.lr.ph.i109, %411
   br i1 %421, label %54, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %396, %54, %419, %48, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
-  %.1 = phi i32 [ %.3, %opal_obj_run_destructors.exit ], [ %.3, %opal_thread_add_fetch_32.exit ], [ 0, %48 ], [ %398, %396 ], [ 17, %54 ], [ 0, %419 ]
+  %.1 = phi i32 [ %.159, %opal_obj_run_destructors.exit ], [ %.159, %opal_thread_add_fetch_32.exit ], [ 0, %48 ], [ %398, %396 ], [ 17, %54 ], [ 0, %419 ]
   fence release
   %422 = load i8, ptr @opal_uses_threads, align 1
   %423 = trunc i8 %422 to i1
@@ -3096,7 +3096,7 @@ translate_to_c.exit:                              ; preds = %101, %105, %108, %1
   br label %119
 
 119:                                              ; preds = %translate_to_aint.exit, %translate_to_fint.exit, %translate_to_c.exit
-  %.0 = phi i32 [ %118, %translate_to_c.exit ], [ %80, %translate_to_fint.exit ], [ %100, %translate_to_aint.exit ]
+  %.1 = phi i32 [ %118, %translate_to_c.exit ], [ %80, %translate_to_fint.exit ], [ %100, %translate_to_aint.exit ]
   %120 = load i8, ptr @opal_uses_threads, align 1
   %121 = trunc i8 %120 to i1
   br i1 %121, label %.sink.split, label %279
@@ -3250,7 +3250,7 @@ translate_to_c.exit68:                            ; preds = %179, %183, %186, %1
   br label %197
 
 197:                                              ; preds = %translate_to_aint.exit66, %translate_to_fint.exit64, %translate_to_c.exit68
-  %.1 = phi i32 [ %196, %translate_to_c.exit68 ], [ %158, %translate_to_fint.exit64 ], [ %178, %translate_to_aint.exit66 ]
+  %.3 = phi i32 [ %196, %translate_to_c.exit68 ], [ %158, %translate_to_fint.exit64 ], [ %178, %translate_to_aint.exit66 ]
   %198 = load i8, ptr @opal_uses_threads, align 1
   %199 = trunc i8 %198 to i1
   br i1 %199, label %.sink.split, label %279
@@ -3404,19 +3404,19 @@ translate_to_c.exit74:                            ; preds = %257, %261, %264, %2
   br label %275
 
 275:                                              ; preds = %translate_to_aint.exit72, %translate_to_fint.exit70, %translate_to_c.exit74
-  %.2 = phi i32 [ %274, %translate_to_c.exit74 ], [ %236, %translate_to_fint.exit70 ], [ %256, %translate_to_aint.exit72 ]
+  %.4 = phi i32 [ %274, %translate_to_c.exit74 ], [ %236, %translate_to_fint.exit70 ], [ %256, %translate_to_aint.exit72 ]
   %276 = load i8, ptr @opal_uses_threads, align 1
   %277 = trunc i8 %276 to i1
   br i1 %277, label %.sink.split, label %279
 
 .sink.split:                                      ; preds = %275, %197, %119
-  %.3.ph = phi i32 [ %.0, %119 ], [ %.1, %197 ], [ %.2, %275 ]
+  %.2.ph = phi i32 [ %.1, %119 ], [ %.3, %197 ], [ %.4, %275 ]
   %278 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @attribute_lock, i64 16)) #13
   br label %279
 
 279:                                              ; preds = %.sink.split, %275, %197, %119
-  %.3 = phi i32 [ %.2, %275 ], [ %.1, %197 ], [ %.0, %119 ], [ %.3.ph, %.sink.split ]
-  %.not54 = icmp eq i32 %.3, 0
+  %.2 = phi i32 [ %.4, %275 ], [ %.3, %197 ], [ %.1, %119 ], [ %.2.ph, %.sink.split ]
+  %.not54 = icmp eq i32 %.2, 0
   br i1 %.not54, label %.thread, label %.thread85
 
 .thread:                                          ; preds = %43, %279
@@ -3523,8 +3523,8 @@ opal_obj_run_destructors.exit82:                  ; preds = %opal_obj_run_destru
   br label %.thread85
 
 .thread85:                                        ; preds = %39, %5, %30, %34, %40, %279, %opal_obj_run_destructors.exit82, %opal_thread_add_fetch_32.exit77
-  %.487 = phi i32 [ 0, %opal_obj_run_destructors.exit82 ], [ 0, %opal_thread_add_fetch_32.exit77 ], [ -5, %39 ], [ -5, %5 ], [ -5, %30 ], [ -5, %34 ], [ %41, %40 ], [ %.3, %279 ]
-  ret i32 %.487
+  %.087 = phi i32 [ 0, %opal_obj_run_destructors.exit82 ], [ 0, %opal_thread_add_fetch_32.exit77 ], [ -5, %39 ], [ -5, %5 ], [ -5, %30 ], [ -5, %34 ], [ %41, %40 ], [ %.2, %279 ]
+  ret i32 %.087
 }
 
 ; Function Attrs: nounwind uwtable

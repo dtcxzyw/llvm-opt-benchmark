@@ -429,9 +429,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1091,13 +1091,13 @@ if.else9.i:                                       ; preds = %if.else.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else9.i, %if.then7.i, %if.end9, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.end9 ]
+  %retval.1 = phi ptr [ null, %if.end ], [ %fBuffer.i, %if.then7.i ], [ %7, %if.else9.i ], [ null, %if.end9 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %readOnlyAlias) #16
   br label %return
 
 return:                                           ; preds = %return.sink.split.i, %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ], [ null, %return.sink.split.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ], [ null, %return.sink.split.i ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind

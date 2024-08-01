@@ -1688,12 +1688,12 @@ cleanup.sink.split:                               ; preds = %if.end85, %do.end59
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end85, %do.end28
-  %retval.0 = phi i32 [ %call30, %do.end28 ], [ 0, %if.end85 ], [ %.sink, %cleanup.sink.split ]
+  %retval.2 = phi i32 [ %call30, %do.end28 ], [ 0, %if.end85 ], [ %.sink, %cleanup.sink.split ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   br label %cleanup98
 
 cleanup98:                                        ; preds = %cleanup, %if.then24, %if.then18
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 1, %if.then24 ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 1, %if.then24 ], [ 1, %if.then18 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -1727,8 +1727,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup98, %_ZN2v81
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.2 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
@@ -2137,12 +2137,12 @@ cleanup298.sink.split:                            ; preds = %if.end294, %do.end6
   br label %cleanup298
 
 cleanup298:                                       ; preds = %if.then162, %do.body127, %do.body110, %if.end92, %cleanup298.sink.split, %if.end294, %if.end38, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit
-  %retval.1 = phi i32 [ %call288, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit ], [ %call43, %if.end38 ], [ 0, %if.end294 ], [ %.sink, %cleanup298.sink.split ], [ %call179, %if.then162 ], [ %call135, %do.body127 ], [ %call117, %do.body110 ], [ %call95, %if.end92 ]
+  %retval.2 = phi i32 [ %call288, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit ], [ %call43, %if.end38 ], [ 0, %if.end294 ], [ %.sink, %cleanup298.sink.split ], [ %call179, %if.then162 ], [ %call135, %do.body127 ], [ %call117, %do.body110 ], [ %call95, %if.end92 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   br label %cleanup299
 
 cleanup299:                                       ; preds = %cleanup298, %if.then33, %if.then24, %if.then18
-  %retval.2 = phi i32 [ %retval.1, %cleanup298 ], [ 1, %if.then33 ], [ 1, %if.then24 ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup298 ], [ 1, %if.then33 ], [ 1, %if.then24 ], [ 1, %if.then18 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i94, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2176,8 +2176,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup299, %_ZN2v8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.3 = phi i32 [ %retval.2, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.3
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2814,7 +2814,7 @@ cond.false:                                       ; preds = %for.end
   br label %cleanup274
 
 cleanup274:                                       ; preds = %if.then142, %do.body90, %do.body77, %cleanup194, %cleanup, %if.then33.i, %if.then14.i, %cond.false, %for.end, %if.then262, %if.then51, %if.then31, %if.then20
-  %retval.4 = phi i32 [ 2, %if.then51 ], [ %cond136, %cleanup ], [ %cond189, %cleanup194 ], [ %cond264, %if.then262 ], [ 1, %if.then31 ], [ 1, %if.then20 ], [ 10, %cond.false ], [ 0, %for.end ], [ 9, %if.then14.i ], [ 4, %if.then33.i ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
+  %retval.1 = phi i32 [ 2, %if.then51 ], [ %cond136, %cleanup ], [ %cond189, %cleanup194 ], [ %cond264, %if.then262 ], [ 1, %if.then31 ], [ 1, %if.then20 ], [ 10, %cond.false ], [ 0, %for.end ], [ 9, %if.then14.i ], [ 4, %if.then33.i ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i96, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2848,8 +2848,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup274, %_ZN2v8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.5 = phi i32 [ %retval.4, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.5
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2984,7 +2984,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i55, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3018,8 +3018,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
@@ -3133,7 +3133,7 @@ cleanup.sink.split:                               ; preds = %do.end98, %do.end39
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end98
-  %retval.0 = phi i32 [ 0, %do.end98 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end98 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3167,8 +3167,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
@@ -3282,7 +3282,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
-  %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3316,8 +3316,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -3428,7 +3428,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3462,8 +3462,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -3582,7 +3582,7 @@ cleanup.sink.split:                               ; preds = %if.end87, %do.end36
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end87
-  %retval.0 = phi i32 [ 0, %if.end87 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end87 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3616,8 +3616,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -3735,7 +3735,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %_ZN2v
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
-  %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i47, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3769,8 +3769,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -3892,7 +3892,7 @@ cleanup.sink.split:                               ; preds = %do.end125, %do.end7
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end125
-  %retval.0 = phi i32 [ 0, %do.end125 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end125 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -3926,8 +3926,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4047,7 +4047,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
-  %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4081,8 +4081,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4199,7 +4199,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4233,8 +4233,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4342,7 +4342,7 @@ cleanup.sink.split:                               ; preds = %do.end83, %do.end32
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end83
-  %retval.0 = phi i32 [ 0, %do.end83 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end83 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4376,8 +4376,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef, ptr) local_unnamed_addr #0
@@ -4489,7 +4489,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
-  %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4523,8 +4523,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
@@ -4633,7 +4633,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4667,8 +4667,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
@@ -4783,7 +4783,7 @@ cleanup.sink.split:                               ; preds = %if.end72, %do.end25
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end72
-  %retval.0 = phi i32 [ 0, %if.end72 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end72 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i34, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4817,8 +4817,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
@@ -4939,7 +4939,7 @@ cleanup.sink.split:                               ; preds = %do.end68, %do.end25
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
-  %retval.0 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -4973,8 +4973,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
@@ -5080,7 +5080,7 @@ cleanup.sink.split:                               ; preds = %do.end68, %do.end25
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
-  %retval.0 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5114,8 +5114,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5271,7 +5271,7 @@ cleanup.sink.split:                               ; preds = %do.end39, %do.end28
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end39
-  %retval.0 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5305,8 +5305,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -5400,7 +5400,7 @@ cleanup.sink.split:                               ; preds = %do.end35, %do.end14
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end35
-  %retval.0 = phi i32 [ 0, %do.end35 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end35 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5434,8 +5434,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK2v85Value12StrictEqualsENS_5LocalIS0_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
@@ -5533,7 +5533,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -5567,8 +5567,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86Object12GetPrototypeEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -6724,7 +6724,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -6758,8 +6758,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -8112,7 +8112,7 @@ if.end98:                                         ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end98, %if.then80, %if.then54, %if.then42, %if.then26, %if.then18
-  %retval.0 = phi i32 [ %cond82, %if.then80 ], [ 0, %if.end98 ], [ 1, %if.then54 ], [ 1, %if.then42 ], [ 1, %if.then26 ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ %cond82, %if.then80 ], [ 0, %if.end98 ], [ 1, %if.then54 ], [ 1, %if.then42 ], [ 1, %if.then26 ], [ 1, %if.then18 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i42, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8146,8 +8146,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -8286,7 +8286,7 @@ do.end21:                                         ; preds = %do.end14
   br label %cleanup
 
 cleanup:                                          ; preds = %do.end21, %if.then18
-  %retval.0 = phi i32 [ 0, %do.end21 ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ 0, %do.end21 ], [ 1, %if.then18 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i21, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8320,8 +8320,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
@@ -8459,7 +8459,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8493,8 +8493,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8630,7 +8630,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8664,8 +8664,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8801,7 +8801,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8835,8 +8835,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8972,7 +8972,7 @@ do.end62:                                         ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -9006,8 +9006,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10271,7 +10271,7 @@ cleanup.sink.split:                               ; preds = %do.end28, %do.end14
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end28
-  %retval.0 = phi i32 [ 0, %do.end28 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end28 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10305,8 +10305,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZNK2v85Value9ToBooleanEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
@@ -10403,7 +10403,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10437,8 +10437,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZNK2v85Value8ToNumberENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
@@ -10535,7 +10535,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10569,8 +10569,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10665,7 +10665,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -10699,8 +10699,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
@@ -10877,7 +10877,7 @@ cleanup.sink.split.i:                             ; preds = %do.end140.i, %do.bo
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %do.end140.i
-  %retval.0.i = phi i32 [ 0, %do.end140.i ], [ %.sink.i, %cleanup.sink.split.i ]
+  %retval.1.i = phi i32 [ 0, %do.end140.i ], [ %.sink.i, %cleanup.sink.split.i ]
   %call.i.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
   br i1 %call.i.i, label %if.then.i50.i, label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
@@ -10911,9 +10911,9 @@ _ZN6v8impl8TryCatchD2Ev.exit.i:                   ; preds = %if.end.i7.i.i, %_ZN
   br label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit
 
 _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit: ; preds = %entry, %if.then4.i, %if.then10.i, %_ZN6v8impl8TryCatchD2Ev.exit.i
-  %retval.1.i = phi i32 [ %retval.0.i, %_ZN6v8impl8TryCatchD2Ev.exit.i ], [ %cond.i, %if.then10.i ], [ 10, %if.then4.i ], [ 1, %entry ]
+  %retval.0.i = phi i32 [ %retval.1.i, %_ZN6v8impl8TryCatchD2Ev.exit.i ], [ %cond.i, %if.then10.i ], [ 10, %if.then4.i ], [ 1, %entry ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %try_catch.i)
-  ret i32 %retval.1.i
+  ret i32 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11091,7 +11091,7 @@ cleanup.sink.split:                               ; preds = %if.end134, %_ZN2v81
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end134
-  %retval.0 = phi i32 [ 0, %if.end134 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end134 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11125,8 +11125,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11249,7 +11249,7 @@ if.end35:                                         ; preds = %if.then29, %do.end2
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end35, %if.then18
-  %retval.0 = phi i32 [ 0, %if.end35 ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ 0, %if.end35 ], [ 1, %if.then18 ]
   %call.i24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i24, label %if.then.i25, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11283,8 +11283,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -11470,7 +11470,7 @@ cleanup.sink.split:                               ; preds = %do.end160, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end160
-  %retval.0 = phi i32 [ 0, %do.end160 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end160 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i60, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11504,8 +11504,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11725,7 +11725,7 @@ cleanup.sink.split:                               ; preds = %cleanup.sink.split.
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end152
-  %retval.0 = phi i32 [ 0, %if.end152 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end152 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i51, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -11759,8 +11759,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -12656,7 +12656,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -12690,8 +12690,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZNK2v88Function11NewInstanceENS_5LocalINS_7ContextEEEiPNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -12809,7 +12809,7 @@ cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8F
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZNKR2v85MaybeIbE8FromJustEv.exit
-  %retval.0 = phi i32 [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i50, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -12843,8 +12843,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare i16 @_ZN2v85Value10InstanceOfENS_5LocalINS_7ContextEEENS1_INS_6ObjectEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -13146,7 +13146,7 @@ cleanup.sink.split:                               ; preds = %if.end30, %do.end14
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end30
-  %retval.0 = phi i32 [ 0, %if.end30 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end30 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i24, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -13180,8 +13180,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -13897,7 +13897,7 @@ cleanup.sink.split:                               ; preds = %sw.epilog, %do.end3
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %sw.epilog
-  %retval.0 = phi i32 [ 0, %sw.epilog ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %sw.epilog ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i190, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -13931,8 +13931,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v89Int8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr, i64 noundef, i64 noundef) local_unnamed_addr #0
@@ -14085,7 +14085,7 @@ cleanup.sink.split:                               ; preds = %if.end50, %do.end28
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end50
-  %retval.0 = phi i32 [ 0, %if.end50 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end50 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14119,8 +14119,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v88DataView3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr, i64 noundef, i64 noundef) local_unnamed_addr #0
@@ -14419,7 +14419,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14453,8 +14453,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v87Promise8Resolver3NewENS_5LocalINS_7ContextEEE(ptr) local_unnamed_addr #0
@@ -14593,7 +14593,7 @@ cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86G
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end67
-  %retval.0 = phi i32 [ 0, %do.end67 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end67 ], [ %.sink, %cleanup.sink.split ]
   %call.i37 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i37, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14627,8 +14627,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14791,7 +14791,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -14825,8 +14825,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v84Date3NewENS_5LocalINS_7ContextEEEd(ptr, double noundef) local_unnamed_addr #0
@@ -14984,7 +14984,7 @@ cleanup.sink.split:                               ; preds = %do.end39, %do.end28
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end39
-  %retval.0 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -15018,8 +15018,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef double @_ZNK2v84Date7ValueOfEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -15137,7 +15137,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -15171,8 +15171,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN2v86Script7CompileENS_5LocalINS_7ContextEEENS1_INS_6StringEEEPNS_12ScriptOriginE(ptr, ptr, ptr noundef) local_unnamed_addr #0

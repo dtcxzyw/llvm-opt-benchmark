@@ -1652,8 +1652,8 @@ terminate.lpad.i.i:                               ; preds = %cleanup214
   unreachable
 
 return:                                           ; preds = %cleanup214, %if.end13, %if.then4, %land.lhs.true, %switch.early.test, %switch.early.test, %entry, %if.then11
-  %retval.3 = phi i1 [ true, %if.then11 ], [ false, %entry ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %land.lhs.true ], [ false, %if.then4 ], [ true, %if.end13 ], [ true, %cleanup214 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ true, %if.then11 ], [ false, %entry ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %land.lhs.true ], [ false, %if.then4 ], [ true, %if.end13 ], [ true, %cleanup214 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internal6theory5arith20isTranscendentalKindENS0_4kind6Kind_tE(i32 noundef) local_unnamed_addr #0

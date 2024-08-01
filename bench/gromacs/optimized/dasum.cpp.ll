@@ -48,11 +48,11 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv79 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next80, %.preheader ]
-  %.169 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %24, %.preheader ]
+  %.269 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %24, %.preheader ]
   %21 = getelementptr inbounds double, ptr %6, i64 %indvars.iv79
   %22 = load double, ptr %21, align 8
   %23 = tail call noundef double @llvm.fabs.f64(double %22)
-  %24 = fadd double %.169, %23
+  %24 = fadd double %.269, %23
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
   br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !6
@@ -62,7 +62,7 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25, %17
-  %.2 = phi double [ %24, %25 ], [ 0.000000e+00, %17 ]
+  %.1 = phi double [ %24, %25 ], [ 0.000000e+00, %17 ]
   %.not6270.not = icmp slt i32 %18, %.fr
   br i1 %.not6270.not, label %.lr.ph73.preheader, label %.loopexit
 
@@ -73,7 +73,7 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv82 = phi i64 [ %29, %.lr.ph73.preheader ], [ %indvars.iv.next83, %.lr.ph73 ]
-  %.372 = phi double [ %.2, %.lr.ph73.preheader ], [ %53, %.lr.ph73 ]
+  %.372 = phi double [ %.1, %.lr.ph73.preheader ], [ %53, %.lr.ph73 ]
   %30 = getelementptr inbounds double, ptr %6, i64 %indvars.iv82
   %31 = load double, ptr %30, align 8
   %32 = tail call noundef double @llvm.fabs.f64(double %31)
@@ -104,7 +104,7 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %.not62, label %.loopexit, label %.lr.ph73, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph73, %27, %25, %3
-  %.0 = phi double [ 0.000000e+00, %3 ], [ %24, %25 ], [ %.2, %27 ], [ %53, %.lr.ph73 ], [ %15, %.lr.ph ]
+  %.0 = phi double [ 0.000000e+00, %3 ], [ %24, %25 ], [ %.1, %27 ], [ %53, %.lr.ph73 ], [ %15, %.lr.ph ]
   ret double %.0
 }
 

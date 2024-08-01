@@ -149,13 +149,13 @@ define dso_local noundef ptr @_ZN20cmCMakePresetsErrors9getPresetEP11cmJSONState
   br label %27
 
 27:                                               ; preds = %20, %23
-  %.0 = phi ptr [ %26, %23 ], [ null, %20 ]
+  %.1 = phi ptr [ %26, %23 ], [ null, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   br label %28
 
 28:                                               ; preds = %1, %27
-  %.1 = phi ptr [ %.0, %27 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %27 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0

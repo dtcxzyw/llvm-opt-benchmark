@@ -459,12 +459,12 @@ for.inc:                                          ; preds = %_ZN4cvc58internal12
   br i1 %cmp.i6.not, label %return.loopexit, label %for.body
 
 return.loopexit:                                  ; preds = %for.inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %retval.2.ph = xor i1 %switch, true
+  %retval.0.ph = xor i1 %switch, true
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.end, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %retval.2 = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %if.end ], [ %retval.2.ph, %return.loopexit ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %if.end ], [ %retval.0.ph, %return.loopexit ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -1603,7 +1603,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
   br label %276
 
 276:                                              ; preds = %274, %272
-  %.0148.i = phi i32 [ 1, %272 ], [ %275, %274 ]
+  %.1.i = phi i32 [ 1, %272 ], [ %275, %274 ]
   %277 = getelementptr inbounds i8, ptr %10, i64 32
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 96
@@ -1693,15 +1693,15 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
   br label %327
 
 327:                                              ; preds = %324, %314
-  %.1.i = phi i32 [ 2, %324 ], [ 1, %314 ]
+  %.2.i = phi i32 [ 2, %324 ], [ 1, %314 ]
   %328 = and i32 %181, 1
   %.not159.i = icmp eq i32 %328, 0
   br i1 %.not159.i, label %dissect_v3_msg.exit, label %329
 
 329:                                              ; preds = %327
   %330 = load i32, ptr @hf_tcpclv3_shutdown_delay, align 4
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %330, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0) #10
-  %332 = add nuw nsw i32 %.1.i, 1
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %330, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef 0) #10
+  %332 = add nuw nsw i32 %.2.i, 1
   br label %dissect_v3_msg.exit
 
 333:                                              ; preds = %173
@@ -1790,7 +1790,7 @@ proto_item_set_generated.exit178.i:               ; preds = %370, %367, %tcpcl_p
   br label %dissect_v3_msg.exit
 
 dissect_v3_msg.exit:                              ; preds = %173, %200, %265, %proto_item_set_generated.exit173.i, %311, %327, %329, %proto_item_set_generated.exit178.i, %375, %378
-  %.0.i172 = phi i32 [ 0, %200 ], [ 0, %378 ], [ 2, %375 ], [ 2, %proto_item_set_generated.exit178.i ], [ %332, %329 ], [ %.1.i, %327 ], [ %.0148.i, %311 ], [ %.0148.i, %proto_item_set_generated.exit173.i ], [ %266, %265 ], [ 1, %173 ]
+  %.0.i172 = phi i32 [ 0, %200 ], [ 0, %378 ], [ 2, %375 ], [ 2, %proto_item_set_generated.exit178.i ], [ %332, %329 ], [ %.2.i, %327 ], [ %.1.i, %311 ], [ %.1.i, %proto_item_set_generated.exit173.i ], [ %266, %265 ], [ 1, %173 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %proto_item_set_generated.exit170
@@ -2274,11 +2274,11 @@ tcpcl_peer_associate_transfer.exit.i179:          ; preds = %627, %tcpcl_frame_l
   br label %648
 
 648:                                              ; preds = %._crit_edge.i, %553
-  %.0.i177 = phi i32 [ %647, %._crit_edge.i ], [ 10, %553 ]
-  %649 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0.i177, i32 noundef 0) #10
+  %.1.i177 = phi i32 [ %647, %._crit_edge.i ], [ 10, %553 ]
+  %649 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.1.i177, i32 noundef 0) #10
   %650 = load i32, ptr @hf_tcpclv4_xfer_segment_data_len, align 4
-  %651 = tail call ptr @proto_tree_add_uint64(ptr noundef %385, i32 noundef %650, ptr noundef %0, i32 noundef %.0.i177, i32 noundef 8, i64 noundef %649) #10
-  %652 = add i32 %.0.i177, 8
+  %651 = tail call ptr @proto_tree_add_uint64(ptr noundef %385, i32 noundef %650, ptr noundef %0, i32 noundef %.1.i177, i32 noundef 8, i64 noundef %649) #10
+  %652 = add i32 %.1.i177, 8
   %653 = getelementptr inbounds i8, ptr %10, i64 32
   %654 = load ptr, ptr %653, align 8
   %655 = getelementptr inbounds i8, ptr %654, i64 64
@@ -2452,8 +2452,8 @@ get_clamped_length.exit.i178:                     ; preds = %667, %665, %662
 
 .thread524.i:                                     ; preds = %733, %724, %721, %712, %711, %709, %683, %681, %551, %tcpcl_frame_loc_compare.exit.i, %542, %proto_item_set_generated.exit.i182, %519, %518, %499, %480, %tcpcl_frame_loc_equal.exit.thread.i, %tcpcl_frame_loc_equal.exit.i, %467, %381
   %.0455.i = phi i32 [ 0, %733 ], [ 0, %724 ], [ 0, %381 ], [ 0, %721 ], [ 0, %712 ], [ 0, %711 ], [ 0, %709 ], [ %.0.i511.i, %683 ], [ %.0.i511.i, %681 ], [ 0, %551 ], [ 0, %tcpcl_frame_loc_compare.exit.i ], [ 0, %519 ], [ 0, %518 ], [ 0, %tcpcl_frame_loc_equal.exit.i ], [ 0, %tcpcl_frame_loc_equal.exit.thread.i ], [ 0, %467 ], [ 0, %480 ], [ 0, %499 ], [ 0, %proto_item_set_generated.exit.i182 ], [ 0, %542 ]
-  %.1.i173 = phi i32 [ 1, %733 ], [ 3, %724 ], [ 1, %381 ], [ 10, %721 ], [ 10, %712 ], [ 18, %711 ], [ 18, %709 ], [ %671, %683 ], [ %671, %681 ], [ 3, %551 ], [ 3, %tcpcl_frame_loc_compare.exit.i ], [ 3, %519 ], [ 3, %518 ], [ %464, %tcpcl_frame_loc_equal.exit.i ], [ %464, %tcpcl_frame_loc_equal.exit.thread.i ], [ %464, %467 ], [ %464, %480 ], [ 3, %499 ], [ 3, %proto_item_set_generated.exit.i182 ], [ 3, %542 ]
-  %735 = sub i32 %.1.i173, %.0455.i
+  %.0.i173 = phi i32 [ 1, %733 ], [ 3, %724 ], [ 1, %381 ], [ 10, %721 ], [ 10, %712 ], [ 18, %711 ], [ 18, %709 ], [ %671, %683 ], [ %671, %681 ], [ 3, %551 ], [ 3, %tcpcl_frame_loc_compare.exit.i ], [ 3, %519 ], [ 3, %518 ], [ %464, %tcpcl_frame_loc_equal.exit.i ], [ %464, %tcpcl_frame_loc_equal.exit.thread.i ], [ %464, %467 ], [ %464, %480 ], [ 3, %499 ], [ 3, %proto_item_set_generated.exit.i182 ], [ 3, %542 ]
+  %735 = sub i32 %.0.i173, %.0455.i
   call void @proto_item_set_len(ptr noundef %383, i32 noundef %735) #10
   %736 = call ptr @wmem_strbuf_get_str(ptr noundef %392) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %383, ptr noundef nonnull @.str.300, ptr noundef %390, ptr noundef %736) #10
@@ -2587,7 +2587,7 @@ dissect_v4_msg.exit:                              ; preds = %765, %767, %proto_i
   br label %proto_item_set_generated.exit170
 
 proto_item_set_generated.exit170:                 ; preds = %166, %163, %157, %170, %dissect_v3_msg.exit, %dissect_v4_msg.exit, %136, %proto_item_set_generated.exit
-  %.1 = phi i32 [ %.0139, %proto_item_set_generated.exit ], [ %.0139, %136 ], [ %.0.i172, %dissect_v3_msg.exit ], [ %.1.i173, %dissect_v4_msg.exit ], [ 0, %170 ], [ %.0139, %157 ], [ %.0139, %163 ], [ %.0139, %166 ]
+  %.1 = phi i32 [ %.0139, %proto_item_set_generated.exit ], [ %.0139, %136 ], [ %.0.i172, %dissect_v3_msg.exit ], [ %.0.i173, %dissect_v4_msg.exit ], [ 0, %170 ], [ %.0139, %157 ], [ %.0139, %163 ], [ %.0139, %166 ]
   %799 = call i32 @proto_item_get_len(ptr noundef %.0140) #10
   %800 = icmp slt i32 %799, 1
   br i1 %800, label %801, label %805
@@ -2714,8 +2714,8 @@ get_clamped_length.exit:                          ; preds = %9
   br label %30
 
 30:                                               ; preds = %20, %2, %2, %28, %18, %get_clamped_length.exit
-  %.1 = phi i32 [ %29, %28 ], [ %5, %2 ], [ %5, %2 ], [ %19, %18 ], [ %14, %get_clamped_length.exit ], [ %spec.select32, %20 ]
-  %31 = sub i32 %.1, %1
+  %.027 = phi i32 [ %29, %28 ], [ %5, %2 ], [ %5, %2 ], [ %19, %18 ], [ %14, %get_clamped_length.exit ], [ %spec.select32, %20 ]
+  %31 = sub i32 %.027, %1
   br label %32
 
 32:                                               ; preds = %2, %25, %15, %9, %30
@@ -2785,13 +2785,13 @@ define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnam
   br label %35
 
 35:                                               ; preds = %32, %25
-  %.050 = phi i32 [ %34, %32 ], [ %27, %25 ]
-  %36 = add i32 %.050, 8
+  %.1 = phi i32 [ %34, %32 ], [ %27, %25 ]
+  %36 = add i32 %.1, 8
   %37 = icmp slt i32 %22, %36
   br i1 %37, label %48, label %get_clamped_length.exit
 
 get_clamped_length.exit:                          ; preds = %35
-  %38 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.050, i32 noundef 0) #10
+  %38 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.1, i32 noundef 0) #10
   %spec.select1 = tail call i64 @llvm.umin.i64(i64 %38, i64 2147483647)
   %spec.select = trunc nuw nsw i64 %spec.select1 to i32
   %39 = add i32 %36, %spec.select
@@ -2810,8 +2810,8 @@ get_clamped_length.exit:                          ; preds = %35
   br label %46
 
 46:                                               ; preds = %2, %44, %42, %40, %get_clamped_length.exit, %19, %16
-  %.1 = phi i32 [ %45, %44 ], [ %4, %2 ], [ %43, %42 ], [ %41, %40 ], [ %39, %get_clamped_length.exit ], [ %20, %19 ], [ %18, %16 ]
-  %47 = sub i32 %.1, %1
+  %.050 = phi i32 [ %45, %44 ], [ %4, %2 ], [ %43, %42 ], [ %41, %40 ], [ %39, %get_clamped_length.exit ], [ %20, %19 ], [ %18, %16 ]
+  %47 = sub i32 %.050, %1
   br label %48
 
 48:                                               ; preds = %2, %35, %29, %21, %9, %5, %46

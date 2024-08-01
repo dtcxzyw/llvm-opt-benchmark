@@ -972,7 +972,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %315, %318
 .lr.ph329:                                        ; preds = %.lr.ph329.preheader, %.lr.ph329
   %321 = phi ptr [ %.pre, %.lr.ph329.preheader ], [ %330, %.lr.ph329 ]
   %indvars.iv387 = phi i64 [ 0, %.lr.ph329.preheader ], [ %indvars.iv.next388, %.lr.ph329 ]
-  %.0209327 = phi double [ 0.000000e+00, %.lr.ph329.preheader ], [ %334, %.lr.ph329 ]
+  %.1210327 = phi double [ 0.000000e+00, %.lr.ph329.preheader ], [ %334, %.lr.ph329 ]
   %322 = load ptr, ptr %14, align 8
   %323 = getelementptr inbounds float, ptr %322, i64 %indvars.iv387
   %324 = load float, ptr %323, align 4
@@ -985,7 +985,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %315, %318
   %331 = getelementptr inbounds float, ptr %330, i64 %indvars.iv387
   %332 = load float, ptr %331, align 4
   %333 = fpext float %332 to double
-  %334 = fadd double %.0209327, %333
+  %334 = fadd double %.1210327, %333
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %335 = load i32, ptr %12, align 4
   %336 = sext i32 %335 to i64
@@ -1021,20 +1021,20 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit267:       ; preds = %315, %318
   br label %.body252
 
 ._crit_edge330:                                   ; preds = %.lr.ph329, %_ZNSt10filesystem7__cxx114pathD2Ev.exit267
-  %.0209.lcssa = phi double [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit267 ], [ %334, %.lr.ph329 ]
+  %.1210.lcssa = phi double [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit267 ], [ %334, %.lr.ph329 ]
   invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %314)
           to label %344 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 344:                                              ; preds = %._crit_edge330
   %345 = load i32, ptr %12, align 4
   %346 = sitofp i32 %345 to double
-  %347 = fdiv double %.0209.lcssa, %346
+  %347 = fdiv double %.1210.lcssa, %346
   %348 = load ptr, ptr @stderr, align 8
   %349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.71, double noundef %347) #19
   br label %350
 
 350:                                              ; preds = %344, %300
-  %.1210 = phi double [ %347, %344 ], [ 0.000000e+00, %300 ]
+  %.0209 = phi double [ %347, %344 ], [ 0.000000e+00, %300 ]
   %351 = load ptr, ptr %15, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.51, i32 noundef 349, ptr noundef %351)
           to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1079,7 +1079,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %350
   br i1 %or.cond373, label %.preheader309.preheader, label %.loopexit311
 
 .preheader309.preheader:                          ; preds = %368
-  %372 = fptrunc double %.1210 to float
+  %372 = fptrunc double %.0209 to float
   %373 = fneg float %372
   %wide.trip.count399 = zext nneg i32 %121 to i64
   br label %.preheader309
@@ -1102,7 +1102,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %350
   %380 = call float @llvm.fabs.f32(float %379)
   %381 = fcmp olt float %380, 0x3FF0C15240000000
   %382 = fpext float %379 to double
-  %383 = fsub double %382, %.1210
+  %383 = fsub double %382, %.0209
   %384 = fptrunc double %383 to float
   %storemerge.us = select i1 %381, float %384, float %373
   store float %storemerge.us, ptr %378, align 4
@@ -1120,7 +1120,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %350
   %391 = call float @llvm.fabs.f32(float %390)
   %392 = fcmp ogt float %391, 0x3FF0C15240000000
   %393 = fpext float %390 to double
-  %394 = fsub double %393, %.1210
+  %394 = fsub double %393, %.0209
   %395 = fptrunc double %394 to float
   %storemerge = select i1 %392, float %395, float %373
   store float %storemerge, ptr %389, align 4
@@ -1277,7 +1277,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %350
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %467
   %indvars.iv406 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next407, %467 ]
   %.0180342 = phi float [ %461, %.lr.ph344.preheader ], [ %468, %467 ]
-  %.1186341 = phi double [ 0.000000e+00, %.lr.ph344.preheader ], [ %470, %467 ]
+  %.2341 = phi double [ 0.000000e+00, %.lr.ph344.preheader ], [ %470, %467 ]
   %462 = load ptr, ptr %16, align 8
   %463 = getelementptr inbounds float, ptr %462, i64 %indvars.iv406
   %464 = load float, ptr %463, align 4
@@ -1288,7 +1288,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %350
 467:                                              ; preds = %.lr.ph344
   %468 = fadd float %.0180342, %466
   %469 = fpext float %468 to double
-  %470 = fadd double %.1186341, %469
+  %470 = fadd double %.2341, %469
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %471 = load i32, ptr %12, align 4
   %472 = sext i32 %471 to i64
@@ -1297,9 +1297,9 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %350
 
 .loopexit302:                                     ; preds = %467, %._crit_edge350, %457, %428
   %474 = phi i32 [ %429, %428 ], [ %458, %457 ], [ %454, %._crit_edge350 ], [ %471, %467 ]
-  %.2 = phi double [ 0.000000e+00, %428 ], [ 0.000000e+00, %457 ], [ %445, %._crit_edge350 ], [ %470, %467 ]
+  %.1186 = phi double [ 0.000000e+00, %428 ], [ 0.000000e+00, %457 ], [ %445, %._crit_edge350 ], [ %470, %467 ]
   %475 = sitofp i32 %474 to double
-  %476 = fdiv double %.2, %475
+  %476 = fdiv double %.1186, %475
   %477 = fptrunc double %476 to float
   %478 = invoke noundef float @_Z23correctRadianAngleRangef(float noundef %477)
           to label %479 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

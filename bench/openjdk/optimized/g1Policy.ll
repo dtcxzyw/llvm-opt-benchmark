@@ -1188,14 +1188,14 @@ define hidden noundef double @_ZNK8G1Policy34predict_retained_regions_evac_timeE
 ._crit_edge:                                      ; preds = %20, %12, %1
   %.018.lcssa = phi double [ 0.000000e+00, %1 ], [ %.01830, %12 ], [ %36, %20 ]
   %.0.lcssa = phi i32 [ 0, %1 ], [ %umin, %12 ], [ %11, %20 ]
-  %.2 = phi i32 [ 0, %1 ], [ %spec.select, %12 ], [ %spec.select, %20 ]
+  %.1 = phi i32 [ 0, %1 ], [ %spec.select, %12 ], [ %spec.select, %20 ]
   %37 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not26 = icmp eq ptr %37, null
   br i1 %.not26, label %40, label %38
 
 38:                                               ; preds = %._crit_edge
   %39 = load i32, ptr %4, align 4
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, i32 noundef %.0.lcssa, i32 noundef %39, i32 noundef %.2, double noundef %.018.lcssa)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, i32 noundef %.0.lcssa, i32 noundef %39, i32 noundef %.1, double noundef %.018.lcssa)
   br label %40
 
 40:                                               ; preds = %._crit_edge, %38
@@ -4693,7 +4693,7 @@ define hidden noundef double @_ZN8G1Policy30select_candidates_from_markingEP25G1
   br label %41
 
 41:                                               ; preds = %.lr.ph, %93
-  %.0134 = phi double [ %2, %.lr.ph ], [ %.1, %93 ]
+  %.0134 = phi double [ %2, %.lr.ph ], [ %.2, %93 ]
   %.055133 = phi i32 [ 0, %.lr.ph ], [ %.156, %93 ]
   %.057132 = phi i32 [ 0, %.lr.ph ], [ %.158, %93 ]
   %.059131 = phi i32 [ 0, %.lr.ph ], [ %.160, %93 ]
@@ -4803,7 +4803,7 @@ define hidden noundef double @_ZN8G1Policy30select_candidates_from_markingEP25G1
   %.160 = phi i32 [ %.059131, %61 ], [ %.059131, %77 ], [ %.059131, %73 ], [ %.059131, %84 ], [ %90, %88 ]
   %.158 = phi i32 [ %.057132, %61 ], [ %74, %77 ], [ %74, %73 ], [ %86, %84 ], [ %.057132, %88 ]
   %.156 = phi i32 [ %.055133, %61 ], [ %78, %77 ], [ %.055133, %73 ], [ %.055133, %84 ], [ %.055133, %88 ]
-  %.1 = phi double [ %.0134, %61 ], [ %70, %77 ], [ %70, %73 ], [ %70, %84 ], [ %68, %88 ]
+  %.2 = phi double [ %.0134, %61 ], [ %70, %77 ], [ %70, %73 ], [ %70, %84 ], [ %68, %88 ]
   %94 = add i32 %.sroa.3.0127, 1
   %95 = load i32, ptr %1, align 4
   %.not88 = icmp eq i32 %94, %95
@@ -4811,7 +4811,7 @@ define hidden noundef double @_ZN8G1Policy30select_candidates_from_markingEP25G1
 
 _ZL20print_finish_messagePKcb.exit.sink.split:    ; preds = %91, %80, %43
   %.str.46.sink = phi ptr [ @.str.43, %43 ], [ @.str.45, %80 ], [ @.str.46, %91 ]
-  %.2.ph = phi double [ %.0134, %43 ], [ %70, %80 ], [ 0.000000e+00, %91 ]
+  %.1.ph = phi double [ %.0134, %43 ], [ %70, %80 ], [ 0.000000e+00, %91 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, ptr noundef nonnull %.str.46.sink)
   br label %_ZL20print_finish_messagePKcb.exit
 
@@ -4823,7 +4823,7 @@ _ZL20print_finish_messagePKcb.exit:               ; preds = %93, %_ZL20print_fin
   %.059108 = phi i32 [ %.059131, %43 ], [ %.059131, %80 ], [ %.059131, %91 ], [ 0, %37 ], [ %.059131, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.160, %93 ]
   %.057104 = phi i32 [ %.057132, %43 ], [ %.057132, %80 ], [ %.057132, %91 ], [ 0, %37 ], [ %.057132, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.158, %93 ]
   %.055100 = phi i32 [ %.055133, %43 ], [ %.055133, %80 ], [ %.055133, %91 ], [ 0, %37 ], [ %.055133, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.156, %93 ]
-  %.2 = phi double [ %.0134, %43 ], [ %70, %80 ], [ 0.000000e+00, %91 ], [ %2, %37 ], [ %.2.ph, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.1, %93 ]
+  %.1 = phi double [ %.0134, %43 ], [ %70, %80 ], [ 0.000000e+00, %91 ], [ %2, %37 ], [ %.1.ph, %_ZL20print_finish_messagePKcb.exit.sink.split ], [ %.2, %93 ]
   %96 = load i32, ptr %1, align 4
   %97 = icmp eq i32 %.sroa.3.0124, %96
   br i1 %97, label %98, label %101
@@ -4856,11 +4856,11 @@ _ZL20print_finish_messagePKcb.exit:               ; preds = %93, %_ZL20print_fin
   br i1 %.not92, label %108, label %107
 
 107:                                              ; preds = %105
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.49, i32 noundef %.057104, i32 noundef %.059108, i32 noundef %.061112, double noundef %.063116, double noundef %.065120, double noundef %.2)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.49, i32 noundef %.057104, i32 noundef %.059108, i32 noundef %.061112, double noundef %.063116, double noundef %.065120, double noundef %.1)
   br label %108
 
 108:                                              ; preds = %105, %107
-  ret double %.2
+  ret double %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4915,13 +4915,13 @@ define hidden void @_ZN8G1Policy31select_candidates_from_retainedEP25G1Collectio
 
 23:                                               ; preds = %.lr.ph, %80
   %.095 = phi double [ %14, %.lr.ph ], [ %.1, %80 ]
-  %.05494 = phi i32 [ 0, %.lr.ph ], [ %.2, %80 ]
-  %.05693 = phi i32 [ 0, %.lr.ph ], [ %.258, %80 ]
-  %.05992 = phi i32 [ 0, %.lr.ph ], [ %.3, %80 ]
+  %.05494 = phi i32 [ 0, %.lr.ph ], [ %.155, %80 ]
+  %.05693 = phi i32 [ 0, %.lr.ph ], [ %.157, %80 ]
+  %.05992 = phi i32 [ 0, %.lr.ph ], [ %.160, %80 ]
   %.06291 = phi i32 [ 0, %.lr.ph ], [ %.163, %80 ]
-  %.06490 = phi double [ 0.000000e+00, %.lr.ph ], [ %.266, %80 ]
+  %.06490 = phi double [ 0.000000e+00, %.lr.ph ], [ %.165, %80 ]
   %.06789 = phi double [ %12, %.lr.ph ], [ %.168, %80 ]
-  %.06988 = phi double [ 0.000000e+00, %.lr.ph ], [ %.271, %80 ]
+  %.06988 = phi double [ 0.000000e+00, %.lr.ph ], [ %.170, %80 ]
   %.sroa.2.087 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
   %24 = load ptr, ptr %20, align 8
   %25 = sext i32 %.sroa.2.087 to i64
@@ -4990,7 +4990,7 @@ define hidden void @_ZN8G1Policy31select_candidates_from_retainedEP25G1Collectio
   %65 = fadd double %.06490, %41
   %not. = xor i1 %42, true
   %66 = zext i1 %not. to i32
-  %.160 = add i32 %.05992, %66
+  %.261 = add i32 %.05992, %66
   tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %27) #18
   %67 = add i32 %.05494, 1
   br label %73
@@ -5006,11 +5006,11 @@ define hidden void @_ZN8G1Policy31select_candidates_from_retainedEP25G1Collectio
   br label %73
 
 73:                                               ; preds = %70, %64
-  %.170 = phi double [ %.06988, %64 ], [ %71, %70 ]
-  %.165 = phi double [ %65, %64 ], [ %.06490, %70 ]
-  %.261 = phi i32 [ %.160, %64 ], [ %.05992, %70 ]
-  %.157 = phi i32 [ %.05693, %64 ], [ %72, %70 ]
-  %.155 = phi i32 [ %67, %64 ], [ %.05494, %70 ]
+  %.271 = phi double [ %.06988, %64 ], [ %71, %70 ]
+  %.266 = phi double [ %65, %64 ], [ %.06490, %70 ]
+  %.3 = phi i32 [ %.261, %64 ], [ %.05992, %70 ]
+  %.258 = phi i32 [ %.05693, %64 ], [ %72, %70 ]
+  %.2 = phi i32 [ %67, %64 ], [ %.05494, %70 ]
   %74 = fsub double %.095, %41
   %75 = fcmp olt double %74, 0.000000e+00
   %76 = select i1 %75, double 0.000000e+00, double %74
@@ -5020,26 +5020,26 @@ define hidden void @_ZN8G1Policy31select_candidates_from_retainedEP25G1Collectio
   br label %80
 
 80:                                               ; preds = %61, %53, %54, %73
-  %.271 = phi double [ %.06988, %54 ], [ %.06988, %53 ], [ %.06988, %61 ], [ %.170, %73 ]
+  %.170 = phi double [ %.06988, %54 ], [ %.06988, %53 ], [ %.06988, %61 ], [ %.271, %73 ]
   %.168 = phi double [ %.06789, %54 ], [ %.06789, %53 ], [ %.06789, %61 ], [ %79, %73 ]
-  %.266 = phi double [ %.06490, %54 ], [ %.06490, %53 ], [ %.06490, %61 ], [ %.165, %73 ]
+  %.165 = phi double [ %.06490, %54 ], [ %.06490, %53 ], [ %.06490, %61 ], [ %.266, %73 ]
   %.163 = phi i32 [ %46, %54 ], [ %46, %53 ], [ %46, %61 ], [ %.06291, %73 ]
-  %.3 = phi i32 [ %.05992, %54 ], [ %.05992, %53 ], [ %.05992, %61 ], [ %.261, %73 ]
-  %.258 = phi i32 [ %.05693, %54 ], [ %.05693, %53 ], [ %.05693, %61 ], [ %.157, %73 ]
-  %.2 = phi i32 [ %.05494, %54 ], [ %.05494, %53 ], [ %.05494, %61 ], [ %.155, %73 ]
+  %.160 = phi i32 [ %.05992, %54 ], [ %.05992, %53 ], [ %.05992, %61 ], [ %.3, %73 ]
+  %.157 = phi i32 [ %.05693, %54 ], [ %.05693, %53 ], [ %.05693, %61 ], [ %.258, %73 ]
+  %.155 = phi i32 [ %.05494, %54 ], [ %.05494, %53 ], [ %.05494, %61 ], [ %.2, %73 ]
   %.1 = phi double [ %.095, %54 ], [ %.095, %53 ], [ %.095, %61 ], [ %76, %73 ]
   %81 = add nuw i32 %.sroa.2.087, 1
   %.not79 = icmp eq i32 %81, %19
   br i1 %.not79, label %._crit_edge.loopexit, label %23
 
 ._crit_edge.loopexit:                             ; preds = %68, %80
-  %.069.lcssa.ph = phi double [ %.271, %80 ], [ %.06988, %68 ]
+  %.069.lcssa.ph = phi double [ %.170, %80 ], [ %.06988, %68 ]
   %.067.lcssa.ph = phi double [ %.168, %80 ], [ %.06789, %68 ]
-  %.064.lcssa.ph = phi double [ %.266, %80 ], [ %.06490, %68 ]
+  %.064.lcssa.ph = phi double [ %.165, %80 ], [ %.06490, %68 ]
   %.062.lcssa.ph = phi i32 [ %.163, %80 ], [ %.06291, %68 ]
-  %.059.lcssa.ph = phi i32 [ %.3, %80 ], [ %.05992, %68 ]
-  %.056.lcssa.ph = phi i32 [ %.258, %80 ], [ %.05693, %68 ]
-  %.054.lcssa.ph = phi i32 [ %.2, %80 ], [ %.05494, %68 ]
+  %.059.lcssa.ph = phi i32 [ %.160, %80 ], [ %.05992, %68 ]
+  %.056.lcssa.ph = phi i32 [ %.157, %80 ], [ %.05693, %68 ]
+  %.054.lcssa.ph = phi i32 [ %.155, %80 ], [ %.05494, %68 ]
   %.0.lcssa.ph = phi double [ %.1, %80 ], [ %.095, %68 ]
   %.pre = load i32, ptr %1, align 4
   br label %._crit_edge
@@ -11364,9 +11364,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -11613,9 +11613,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit

@@ -160,12 +160,12 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br label %.thread.us.i.us
 
 .thread.us.i.us:                                  ; preds = %67, %.split.us.i.us
-  %.17295.us.i.us = phi ptr [ %68, %67 ], [ %.071106.us.i.us, %.split.us.i.us ]
+  %.395.us.i.us = phi ptr [ %68, %67 ], [ %.071106.us.i.us, %.split.us.i.us ]
   %69 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv141.i.us
   %70 = load i32, ptr %69, align 4
-  %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.17295.us.i.us, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %70) #9
+  %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.us.i.us, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %70) #9
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %.17295.us.i.us, i64 %72
+  %73 = getelementptr inbounds i8, ptr %.395.us.i.us, i64 %72
   %indvars.iv.next142.i.us = add nuw nsw i64 %indvars.iv141.i.us, 1
   %exitcond144.not.i.us = icmp eq i64 %indvars.iv.next142.i.us, 8
   br i1 %exitcond144.not.i.us, label %.loopexit.i, label %.split.us.i.us, !llvm.loop !8
@@ -188,12 +188,12 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %76, %75
-  %.17295.us.i = phi ptr [ %77, %76 ], [ %.071106.us.i, %75 ]
+  %.395.us.i = phi ptr [ %77, %76 ], [ %.071106.us.i, %75 ]
   %78 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv141.i
   %79 = load i32, ptr %78, align 4
-  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.17295.us.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %79) #9
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.us.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %79) #9
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %.17295.us.i, i64 %81
+  %82 = getelementptr inbounds i8, ptr %.395.us.i, i64 %81
   br label %87
 
 83:                                               ; preds = %.split.us.i
@@ -240,12 +240,12 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %96, label %.split118.us.i, label %.thread.us114.i
 
 .thread.us114.i:                                  ; preds = %94, %93
-  %.17295.us115.i = phi ptr [ %95, %94 ], [ %.071106.us109.i, %93 ]
+  %.395.us115.i = phi ptr [ %95, %94 ], [ %.071106.us109.i, %93 ]
   %97 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv153.i
   %98 = load i32, ptr %97, align 4
-  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.17295.us115.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %98) #9
+  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.us115.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %98) #9
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %.17295.us115.i, i64 %100
+  %101 = getelementptr inbounds i8, ptr %.395.us115.i, i64 %100
   br label %105
 
 102:                                              ; preds = %.split.split.us.split.i
@@ -336,12 +336,12 @@ inet_ntop4.exit.i:                                ; preds = %.split118.us.i
   br label %.loopexit.i
 
 .thread.i:                                        ; preds = %118, %112, %111
-  %.17295.i = phi ptr [ %113, %118 ], [ %113, %112 ], [ %.071106.i, %111 ]
+  %.395.i = phi ptr [ %113, %118 ], [ %113, %112 ], [ %.071106.i, %111 ]
   %143 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv145.i
   %144 = load i32, ptr %143, align 4
-  %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.17295.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %144) #9
+  %145 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.395.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %144) #9
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i8, ptr %.17295.i, i64 %146
+  %147 = getelementptr inbounds i8, ptr %.395.i, i64 %146
   br label %148
 
 148:                                              ; preds = %.thread.i, %109, %108
@@ -351,18 +351,18 @@ inet_ntop4.exit.i:                                ; preds = %.split118.us.i
   br i1 %exitcond148.not.i, label %.loopexit.i, label %.split.split.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.thread.us.i.us, %87, %148, %105, %139
-  %.3.i = phi ptr [ %142, %139 ], [ %.273.us116.i, %105 ], [ %.273.i, %148 ], [ %.273.us.i, %87 ], [ %73, %.thread.us.i.us ]
+  %.172.i = phi ptr [ %142, %139 ], [ %.273.us116.i, %105 ], [ %.273.i, %148 ], [ %.273.us.i, %87 ], [ %73, %.thread.us.i.us ]
   %149 = icmp eq i32 %58, 8
   %or.cond88.i = select i1 %.not76.i, i1 %149, i1 false
   br i1 %or.cond88.i, label %150, label %152
 
 150:                                              ; preds = %.loopexit.i
-  %151 = getelementptr inbounds i8, ptr %.3.i, i64 1
-  store i8 58, ptr %.3.i, align 1
+  %151 = getelementptr inbounds i8, ptr %.172.i, i64 1
+  store i8 58, ptr %.172.i, align 1
   br label %152
 
 152:                                              ; preds = %150, %.loopexit.i
-  %.4.i = phi ptr [ %151, %150 ], [ %.3.i, %.loopexit.i ]
+  %.4.i = phi ptr [ %151, %150 ], [ %.172.i, %.loopexit.i ]
   %153 = getelementptr inbounds i8, ptr %.4.i, i64 1
   store i8 0, ptr %.4.i, align 1
   %154 = ptrtoint ptr %153 to i64

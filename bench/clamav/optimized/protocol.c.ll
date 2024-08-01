@@ -485,20 +485,20 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %.not163, label %.thread204, label %189
 
 189:                                              ; preds = %187
-  %190 = add nsw i32 %.0.ph, 1
+  %190 = add nsw i32 %.1.ph, 1
   %191 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @onas_dsresult.last_filename, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096) #14
   store i8 0, ptr getelementptr inbounds (i8, ptr @onas_dsresult.last_filename, i64 4096), align 16
   br label %.thread204
 
 192:                                              ; preds = %185
-  %193 = add nsw i32 %.0.ph, 1
+  %193 = add nsw i32 %.1.ph, 1
   br i1 %.not154, label %.thread202, label %194
 
 194:                                              ; preds = %192
   br i1 %138, label %.thread204, label %198
 
 .thread204:                                       ; preds = %187, %189, %194
-  %.1200206 = phi i32 [ %193, %194 ], [ %.0.ph, %187 ], [ %190, %189 ]
+  %.3200206 = phi i32 [ %193, %194 ], [ %.1.ph, %187 ], [ %190, %189 ]
   %195 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %.0116197) #14
   %196 = load ptr, ptr @action, align 8
   %.not165 = icmp eq ptr %196, null
@@ -522,12 +522,12 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %.thread202
 
 .thread202:                                       ; preds = %186, %197, %.thread204, %202, %198, %192
-  %.1201 = phi i32 [ %.1200206, %197 ], [ %.1200206, %.thread204 ], [ %193, %202 ], [ %193, %198 ], [ %193, %192 ], [ %.0.ph, %186 ]
+  %.3201 = phi i32 [ %.3200206, %197 ], [ %.3200206, %.thread204 ], [ %193, %202 ], [ %193, %198 ], [ %193, %192 ], [ %.1.ph, %186 ]
   br i1 %.not184, label %.outer.backedge, label %.sink.split
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
   %.not149.ph = phi i1 [ true, %.preheader ], [ false, %.outer.backedge ]
-  %.0.ph = phi i32 [ 0, %.preheader ], [ %.0.ph.be, %.outer.backedge ]
+  %.1.ph = phi i32 [ 0, %.preheader ], [ %.1.ph.be, %.outer.backedge ]
   br label %145
 
 204:                                              ; preds = %.thread194
@@ -671,12 +671,12 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 
 .sink.split:                                      ; preds = %255, %244, %222, %.thread202
   %.sink = phi i32 [ 1, %.thread202 ], [ 34, %255 ], [ 16, %244 ], [ 11, %222 ]
-  %.2.ph = phi i32 [ %.1201, %.thread202 ], [ %.0.ph, %222 ], [ %.0.ph, %244 ], [ %.0.ph, %255 ]
+  %.2.ph = phi i32 [ %.3201, %.thread202 ], [ %.1.ph, %222 ], [ %.1.ph, %244 ], [ %.1.ph, %255 ]
   store i32 %.sink, ptr %8, align 4
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.sink.split, %.thread202
-  %.0.ph.be = phi i32 [ %.1201, %.thread202 ], [ %.2.ph, %.sink.split ]
+  %.1.ph.be = phi i32 [ %.3201, %.thread202 ], [ %.2.ph, %.sink.split ]
   br label %.outer
 
 256:                                              ; preds = %145
@@ -725,7 +725,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %278
 
 278:                                              ; preds = %.thread, %275, %277, %264, %269, %258, %260, %180, %181, %147, %148, %139, %142, %41, %46, %27, %29, %256, %270, %53
-  %.3 = phi i32 [ %.0.ph, %256 ], [ %.0.ph, %270 ], [ -1, %53 ], [ -1, %29 ], [ -1, %27 ], [ -1, %46 ], [ -1, %41 ], [ %.0115, %142 ], [ %.0115, %139 ], [ -1, %148 ], [ -1, %147 ], [ -1, %181 ], [ -1, %180 ], [ -1, %260 ], [ -1, %258 ], [ -1, %269 ], [ -1, %264 ], [ -1, %277 ], [ -1, %275 ], [ 0, %.thread ]
+  %.0 = phi i32 [ %.1.ph, %256 ], [ %.1.ph, %270 ], [ -1, %53 ], [ -1, %29 ], [ -1, %27 ], [ -1, %46 ], [ -1, %41 ], [ %.0115, %142 ], [ %.0115, %139 ], [ -1, %148 ], [ -1, %147 ], [ -1, %181 ], [ -1, %180 ], [ -1, %260 ], [ -1, %258 ], [ -1, %269 ], [ -1, %264 ], [ -1, %277 ], [ -1, %275 ], [ 0, %.thread ]
   %279 = icmp sgt i32 %22, 0
   br i1 %279, label %280, label %282
 
@@ -734,7 +734,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %282
 
 282:                                              ; preds = %280, %278
-  ret i32 %.3
+  ret i32 %.0
 }
 
 declare i32 @onas_get_sockd() local_unnamed_addr #1

@@ -281,9 +281,9 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
 
 .outer:                                           ; preds = %.loopexit, %.loopexit42
   %.031.ph = phi i32 [ %.132, %.loopexit ], [ 0, %.loopexit42 ]
-  %.028.ph = phi i64 [ %.230, %.loopexit ], [ 0, %.loopexit42 ]
+  %.028.ph = phi i64 [ %.129, %.loopexit ], [ 0, %.loopexit42 ]
   %.026.ph = phi i64 [ %.127, %.loopexit ], [ 0, %.loopexit42 ]
-  %.0.ph = phi i32 [ %.3, %.loopexit ], [ 10, %.loopexit42 ]
+  %.0.ph = phi i32 [ %.1, %.loopexit ], [ 10, %.loopexit42 ]
   br label %20
 
 20:                                               ; preds = %.outer, %22
@@ -313,7 +313,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %33, %30
-  %.1 = phi i32 [ 10, %33 ], [ %31, %30 ]
+  %.2 = phi i32 [ 10, %33 ], [ %31, %30 ]
   %35 = getelementptr inbounds i8, ptr %21, i64 26
   %36 = load i8, ptr %35, align 2
   %37 = trunc i8 %36 to i1
@@ -351,7 +351,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %55, label %.lr.ph52._crit_edge, label %.lr.ph78, !llvm.loop !9
 
 .lr.ph52._crit_edge:                              ; preds = %.lr.ph52, %.lr.ph52.preheader
-  %.251.lcssa = phi i32 [ %.1, %.lr.ph52.preheader ], [ 10, %.lr.ph52 ]
+  %.351.lcssa = phi i32 [ %.2, %.lr.ph52.preheader ], [ 10, %.lr.ph52 ]
   %56 = phi <2 x i64> [ %39, %.lr.ph52.preheader ], [ %49, %.lr.ph52 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
@@ -421,9 +421,9 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %88, %34, %70, %68, %.lr.ph52._crit_edge, %27
   %.132 = phi i32 [ %65, %70 ], [ %65, %68 ], [ %65, %.lr.ph52._crit_edge ], [ %.031.ph, %27 ], [ %.031.ph, %34 ], [ %.031.ph, %88 ]
-  %.230 = phi i64 [ %spec.select, %70 ], [ %spec.select, %68 ], [ %spec.select, %.lr.ph52._crit_edge ], [ %.028.ph, %27 ], [ %.028.ph, %34 ], [ %.028.ph, %88 ]
+  %.129 = phi i64 [ %spec.select, %70 ], [ %spec.select, %68 ], [ %spec.select, %.lr.ph52._crit_edge ], [ %.028.ph, %27 ], [ %.028.ph, %34 ], [ %.028.ph, %88 ]
   %.127 = phi i64 [ %64, %70 ], [ %64, %68 ], [ %64, %.lr.ph52._crit_edge ], [ %.026.ph, %27 ], [ %.026.ph, %34 ], [ %.026.ph, %88 ]
-  %.3 = phi i32 [ %.251.lcssa, %70 ], [ %.251.lcssa, %68 ], [ %.251.lcssa, %.lr.ph52._crit_edge ], [ %.0.ph, %27 ], [ %.1, %34 ], [ 10, %88 ]
+  %.1 = phi i32 [ %.351.lcssa, %70 ], [ %.351.lcssa, %68 ], [ %.351.lcssa, %.lr.ph52._crit_edge ], [ %.0.ph, %27 ], [ %.2, %34 ], [ 10, %88 ]
   %91 = load ptr, ptr @pendingOps, align 8
   %92 = call ptr @hash_search(ptr noundef %91, ptr noundef nonnull %21, i32 noundef 2, ptr noundef null) #9
   %93 = icmp eq ptr %92, null

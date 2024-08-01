@@ -790,7 +790,7 @@ if.end5.i:                                        ; preds = %if.end.i17
   br label %uint32_converter.exit
 
 uint32_converter.exit:                            ; preds = %if.then2, %if.then4.i, %if.end5.i
-  %preset.0 = phi i32 [ %conv.i, %if.end5.i ], [ 6, %if.then4.i ], [ 6, %if.then2 ]
+  %preset.1 = phi i32 [ %conv.i, %if.end5.i ], [ 6, %if.then4.i ], [ 6, %if.then2 ]
   %tobool.not = phi i1 [ false, %if.end5.i ], [ true, %if.then4.i ], [ true, %if.then2 ]
   %2 = load ptr, ptr %preset_obj, align 8
   %3 = load i64, ptr %2, align 8
@@ -812,7 +812,7 @@ Py_DECREF.exit:                                   ; preds = %uint32_converter.ex
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %Py_DECREF.exit, %if.end
-  %preset.1 = phi i32 [ 6, %if.end ], [ %preset.0, %Py_DECREF.exit ]
+  %preset.0 = phi i32 [ 6, %if.end ], [ %preset.1, %Py_DECREF.exit ]
   %call7 = call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 112) #9
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -822,7 +822,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = call zeroext i8 @lzma_lzma_preset(ptr noundef nonnull %call7, i32 noundef %preset.1) #9
+  %call12 = call zeroext i8 @lzma_lzma_preset(ptr noundef nonnull %call7, i32 noundef %preset.0) #9
   %tobool13.not = icmp eq i8 %call12, 0
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
@@ -830,7 +830,7 @@ if.then14:                                        ; preds = %if.end11
   call void @PyMem_Free(ptr noundef nonnull %call7) #9
   %error = getelementptr inbounds i8, ptr %state, i64 16
   %5 = load ptr, ptr %error, align 8
-  %call15 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.17, i32 noundef %preset.1) #9
+  %call15 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.17, i32 noundef %preset.0) #9
   br label %return
 
 if.end16:                                         ; preds = %if.end11
@@ -1490,7 +1490,7 @@ uint32_converter.exit:                            ; preds = %if.end.i25
   br label %if.end17
 
 if.end17:                                         ; preds = %uint32_converter.exit, %if.end11
-  %preset.1 = phi i32 [ %conv.i, %uint32_converter.exit ], [ 6, %if.end11 ]
+  %preset.0 = phi i32 [ %conv.i, %uint32_converter.exit ], [ 6, %if.end11 ]
   %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %9 = load ptr, ptr %tp_alloc, align 8
   %call18 = call ptr %9(ptr noundef %type, i64 noundef 0) #9
@@ -1556,13 +1556,13 @@ if.then32:                                        ; preds = %sw.bb
 if.end33:                                         ; preds = %if.then32, %sw.bb
   %15 = phi i32 [ 4, %if.then32 ], [ %14, %sw.bb ]
   %16 = load ptr, ptr %filterspecs, align 8
-  %call35 = call fastcc i32 @Compressor_init_xz(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %15, i32 noundef %preset.1, ptr noundef %16)
+  %call35 = call fastcc i32 @Compressor_init_xz(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %15, i32 noundef %preset.0, ptr noundef %16)
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %return, label %error
 
 sw.bb39:                                          ; preds = %if.end30
   %17 = load ptr, ptr %filterspecs, align 8
-  %call41 = call fastcc i32 @Compressor_init_alone(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %preset.1, ptr noundef %17)
+  %call41 = call fastcc i32 @Compressor_init_alone(ptr noundef %call, ptr noundef nonnull %lzs, i32 noundef %preset.0, ptr noundef %17)
   %cmp42.not = icmp eq i32 %call41, 0
   br i1 %cmp42.not, label %return, label %error
 
@@ -2370,7 +2370,7 @@ if.end17:                                         ; preds = %if.end7
   br i1 %cmp.not4.i, label %if.end19, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end17.thread, %if.end17
-  %lzret.08 = phi i32 [ %call15, %if.end17.thread ], [ 11, %if.end17 ]
+  %lzret.18 = phi i32 [ %call15, %if.end17.thread ], [ 11, %if.end17 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -2387,13 +2387,13 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp.not.i, label %if.end19, label %for.body.i, !llvm.loop !6
 
 if.end19:                                         ; preds = %for.body.i, %if.end17, %if.end
-  %lzret.1 = phi i32 [ %call3, %if.end ], [ 11, %if.end17 ], [ %lzret.08, %for.body.i ]
+  %lzret.0 = phi i32 [ %call3, %if.end ], [ 11, %if.end17 ], [ %lzret.18, %for.body.i ]
   %call20 = call ptr @PyErr_Occurred() #9
   %tobool21.not = icmp eq ptr %call20, null
   br i1 %tobool21.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end19
-  %call22 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %lzret.1)
+  %call22 = call fastcc i32 @catch_lzma_error(ptr noundef %state, i32 noundef %lzret.0)
   %sext = sub nsw i32 0, %call22
   br label %return
 
@@ -2692,7 +2692,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 
 if.end34:                                         ; preds = %if.end30, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %add2631, %if.end20 ]
-  %format.0 = phi i32 [ %call24, %if.end30 ], [ 0, %if.end20 ]
+  %format.1 = phi i32 [ %call24, %if.end30 ], [ 0, %if.end20 ]
   %arrayidx35 = getelementptr i8, ptr %cond1632, i64 8
   %4 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %4, null
@@ -2703,23 +2703,23 @@ if.then37:                                        ; preds = %if.end34
   br i1 %tobool40.not, label %skip_optional_pos, label %if.end43
 
 if.end43:                                         ; preds = %if.then37, %if.end34
-  %memlimit.0 = phi ptr [ %4, %if.then37 ], [ @_Py_NoneStruct, %if.end34 ]
+  %memlimit.1 = phi ptr [ %4, %if.then37 ], [ @_Py_NoneStruct, %if.end34 ]
   %arrayidx44 = getelementptr i8, ptr %cond1632, i64 16
   %5 = load ptr, ptr %arrayidx44, align 8
   br label %skip_optional_pos
 
 skip_optional_pos.thread:                         ; preds = %if.end30, %if.end
-  %format.1.ph = phi i32 [ 0, %if.end ], [ %call24, %if.end30 ]
+  %format.0.ph = phi i32 [ 0, %if.end ], [ %call24, %if.end30 ]
   %call.i36 = call ptr @PyType_GetModuleState(ptr noundef %type) #9
-  %cmp8.i38 = icmp eq i32 %format.1.ph, 3
+  %cmp8.i38 = icmp eq i32 %format.0.ph, 3
   br label %if.end7.i
 
 skip_optional_pos:                                ; preds = %if.then37, %if.end43
-  %memlimit.1 = phi ptr [ %memlimit.0, %if.end43 ], [ %4, %if.then37 ]
+  %memlimit.0 = phi ptr [ %memlimit.1, %if.end43 ], [ %4, %if.then37 ]
   %filters.0 = phi ptr [ %5, %if.end43 ], [ @_Py_NoneStruct, %if.then37 ]
   %call.i = call ptr @PyType_GetModuleState(ptr noundef %type) #9
-  %cmp.not.i = icmp eq ptr %memlimit.1, @_Py_NoneStruct
-  %cmp8.i = icmp eq i32 %format.0, 3
+  %cmp.not.i = icmp eq ptr %memlimit.0, @_Py_NoneStruct
+  %cmp8.i = icmp eq i32 %format.1, 3
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %skip_optional_pos
@@ -2731,7 +2731,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %call3.i = call i64 @PyLong_AsUnsignedLongLong(ptr noundef %memlimit.1) #9
+  %call3.i = call i64 @PyLong_AsUnsignedLongLong(ptr noundef %memlimit.0) #9
   %call4.i = call ptr @PyErr_Occurred() #9
   %tobool.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool.not.i, label %if.else.i, label %exit
@@ -2740,7 +2740,7 @@ if.end7.i:                                        ; preds = %skip_optional_pos.t
   %cmp8.i45 = phi i1 [ %cmp8.i38, %skip_optional_pos.thread ], [ %cmp8.i, %skip_optional_pos ]
   %call.i44 = phi ptr [ %call.i36, %skip_optional_pos.thread ], [ %call.i, %skip_optional_pos ]
   %filters.042 = phi ptr [ @_Py_NoneStruct, %skip_optional_pos.thread ], [ %filters.0, %skip_optional_pos ]
-  %format.140 = phi i32 [ %format.1.ph, %skip_optional_pos.thread ], [ %format.0, %skip_optional_pos ]
+  %format.040 = phi i32 [ %format.0.ph, %skip_optional_pos.thread ], [ %format.1, %skip_optional_pos ]
   %cmp9.i = icmp eq ptr %filters.042, @_Py_NoneStruct
   %or.cond.i = and i1 %cmp8.i45, %cmp9.i
   br i1 %or.cond.i, label %if.then10.i, label %if.else.i
@@ -2753,9 +2753,9 @@ if.then10.i:                                      ; preds = %if.end7.i
 if.else.i:                                        ; preds = %if.end7.i, %if.end.i
   %call.i43 = phi ptr [ %call.i44, %if.end7.i ], [ %call.i, %if.end.i ]
   %filters.041 = phi ptr [ %filters.042, %if.end7.i ], [ %filters.0, %if.end.i ]
-  %format.139 = phi i32 [ %format.140, %if.end7.i ], [ %format.0, %if.end.i ]
+  %format.039 = phi i32 [ %format.040, %if.end7.i ], [ %format.1, %if.end.i ]
   %memlimit_.051.i = phi i64 [ -1, %if.end7.i ], [ %call3.i, %if.end.i ]
-  %cmp11.i = icmp ne i32 %format.139, 3
+  %cmp11.i = icmp ne i32 %format.039, 3
   %cmp13.i = icmp ne ptr %filters.041, @_Py_NoneStruct
   %or.cond1.i = and i1 %cmp13.i, %cmp11.i
   br i1 %or.cond1.i, label %if.then14.i, label %if.end16.i
@@ -2850,7 +2850,7 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
   br i1 %cmp33.i, label %error.i, label %if.end35.i
 
 if.end35.i:                                       ; preds = %Py_XDECREF.exit.i
-  switch i32 %format.139, label %sw.default.i [
+  switch i32 %format.039, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb42.i
     i32 2, label %sw.bb49.i
@@ -2884,7 +2884,7 @@ sw.bb57.i:                                        ; preds = %if.end35.i
 
 sw.default.i:                                     ; preds = %if.end35.i
   %17 = load ptr, ptr @PyExc_ValueError, align 8
-  %call64.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.80, i32 noundef %format.139) #9
+  %call64.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.80, i32 noundef %format.039) #9
   br label %error.i
 
 error.i:                                          ; preds = %sw.default.i, %sw.bb57.i, %sw.bb49.i, %sw.bb42.i, %sw.bb.i, %Py_XDECREF.exit.i

@@ -199,9 +199,9 @@ ir_perf_timestamp.exit:                           ; preds = %5, %8
   br label %23
 
 23:                                               ; preds = %ir_perf_timestamp.exit, %20, %0
-  %.1.shrunk = phi i1 [ %.not, %20 ], [ %.not, %ir_perf_timestamp.exit ], [ true, %0 ]
-  %.1 = zext i1 %.1.shrunk to i32
-  ret i32 %.1
+  %.0.shrunk = phi i1 [ %.not, %20 ], [ %.not, %ir_perf_timestamp.exit ], [ true, %0 ]
+  %.0 = zext i1 %.0.shrunk to i32
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

@@ -634,7 +634,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %59, label %50, label %.loopexit
 
 .loopexit:                                        ; preds = %37, %53, %50, %Vec_IntStartFull.exit, %.preheader, %.critedge
-  %.3 = phi i32 [ -1, %.critedge ], [ %42, %.preheader ], [ -1, %Vec_IntStartFull.exit ], [ %58, %53 ], [ 1, %50 ], [ %42, %37 ]
+  %.2 = phi i32 [ -1, %.critedge ], [ %42, %.preheader ], [ -1, %Vec_IntStartFull.exit ], [ %58, %53 ], [ 1, %50 ], [ %42, %37 ]
   %60 = load ptr, ptr %5, align 8
   %.not34 = icmp eq ptr %60, null
   br i1 %.not34, label %67, label %61
@@ -709,7 +709,7 @@ Abc_Clock.exit49:                                 ; preds = %77, %80
   br label %90
 
 90:                                               ; preds = %Abc_Clock.exit49, %Vec_IntFreeP.exit47
-  ret i32 %.3
+  ret i32 %.2
 }
 
 declare i32 @Llb_ManModelCheckAig(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

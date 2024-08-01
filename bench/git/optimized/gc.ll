@@ -764,7 +764,7 @@ _.exit16.i:                                       ; preds = %if.end3.i13.i, %if.
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_.exit16.i, %if.else.i, %_.exit11.i
-  %ret.0.i = phi i32 [ %call14.i, %_.exit11.i ], [ 1, %_.exit16.i ], [ 0, %if.else.i ]
+  %ret.1.i = phi i32 [ %call14.i, %_.exit11.i ], [ 1, %_.exit16.i ], [ 0, %if.else.i ]
   call void @strbuf_release(ptr noundef nonnull %sb.i) #20
   br label %report_last_gc_error.exit
 
@@ -775,11 +775,11 @@ report_last_gc_error.exit.thread:                 ; preds = %if.then.i, %if.end6
   br label %if.end170
 
 report_last_gc_error.exit:                        ; preds = %_.exit.i, %if.end19.i
-  %ret.1.i = phi i32 [ %call5.i, %_.exit.i ], [ %ret.0.i, %if.end19.i ]
+  %ret.0.i = phi i32 [ %call5.i, %_.exit.i ], [ %ret.1.i, %if.end19.i ]
   call void @free(ptr noundef %call.i23) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
-  switch i32 %ret.1.i, label %if.then168 [
+  switch i32 %ret.0.i, label %if.then168 [
     i32 1, label %return
     i32 0, label %if.end170
   ]
@@ -1114,7 +1114,7 @@ if.then290:                                       ; preds = %if.end288
   br label %return
 
 return:                                           ; preds = %if.end288, %if.then290, %if.then196, %if.end170, %report_last_gc_error.exit, %if.then144, %if.then168
-  %retval.0 = phi i32 [ %ret.1.i, %if.then168 ], [ 0, %if.then144 ], [ 0, %report_last_gc_error.exit ], [ 0, %if.end170 ], [ 0, %if.then196 ], [ 0, %if.then290 ], [ 0, %if.end288 ]
+  %retval.0 = phi i32 [ %ret.0.i, %if.then168 ], [ 0, %if.then144 ], [ 0, %report_last_gc_error.exit ], [ 0, %if.end170 ], [ 0, %if.then196 ], [ 0, %if.then290 ], [ 0, %if.end288 ]
   ret i32 %retval.0
 }
 
@@ -2360,7 +2360,7 @@ for.body15.i.preheader:                           ; preds = %if.then10.i, %for.e
 
 for.body15.i:                                     ; preds = %for.body15.i.preheader, %for.inc72.i
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %for.inc72.i ], [ 0, %for.body15.i.preheader ]
-  %result.034.i = phi i32 [ %result.2.i, %for.inc72.i ], [ 0, %for.body15.i.preheader ]
+  %result.034.i = phi i32 [ %result.1.i, %for.inc72.i ], [ 0, %for.body15.i.preheader ]
   br i1 %cmp8.i, label %land.lhs.true26.i, label %land.lhs.true17.i
 
 land.lhs.true17.i:                                ; preds = %for.body15.i
@@ -2429,13 +2429,13 @@ _.exit32.i:                                       ; preds = %if.end3.i29.i, %if.
   br label %if.end68.i
 
 if.end68.i:                                       ; preds = %_.exit32.i, %if.end54.i
-  %result.1.i = phi i32 [ 1, %_.exit32.i ], [ %result.034.i, %if.end54.i ]
+  %result.2.i = phi i32 [ 1, %_.exit32.i ], [ %result.034.i, %if.end54.i ]
   %30 = load ptr, ptr %arrayidx56.i, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.112, i32 noundef 1361, ptr noundef nonnull @.str.158, ptr noundef %30, ptr noundef %12) #20
   br label %for.inc72.i
 
 for.inc72.i:                                      ; preds = %if.end68.i, %land.lhs.true46.i, %lor.lhs.false.i, %land.lhs.true34.i, %land.lhs.true26.i, %land.lhs.true17.i
-  %result.2.i = phi i32 [ %result.034.i, %land.lhs.true17.i ], [ %result.034.i, %land.lhs.true46.i ], [ %result.1.i, %if.end68.i ], [ %result.034.i, %lor.lhs.false.i ], [ %result.034.i, %land.lhs.true34.i ], [ %result.034.i, %land.lhs.true26.i ]
+  %result.1.i = phi i32 [ %result.034.i, %land.lhs.true17.i ], [ %result.034.i, %land.lhs.true46.i ], [ %result.2.i, %if.end68.i ], [ %result.034.i, %lor.lhs.false.i ], [ %result.034.i, %land.lhs.true34.i ], [ %result.034.i, %land.lhs.true26.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next38.i, 6
   br i1 %exitcond.not.i9, label %for.end74.i, label %for.body15.i, !llvm.loop !13
@@ -2445,7 +2445,7 @@ for.end74.i:                                      ; preds = %for.inc72.i
   br label %maintenance_run_tasks.exit
 
 maintenance_run_tasks.exit:                       ; preds = %if.end.i15, %for.end74.i
-  %retval.0.i = phi i32 [ 0, %if.end.i15 ], [ %result.2.i, %for.end74.i ]
+  %retval.0.i = phi i32 [ 0, %if.end.i15 ], [ %result.1.i, %for.end74.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i)
   ret i32 %retval.0.i
 }
@@ -5106,8 +5106,8 @@ _.exit12:                                         ; preds = %if.then21, %if.end3
   br label %return
 
 return.critedge:                                  ; preds = %if.end.i, %_.exit25.i, %_.exit20.i, %_.exit.i
-  %schedule_pattern.1.i.ph = phi ptr [ null, %if.end.i ], [ %call15.i, %_.exit25.i ], [ %call15.i, %_.exit20.i ], [ null, %_.exit.i ]
-  tail call void @free(ptr noundef %schedule_pattern.1.i.ph) #20
+  %schedule_pattern.0.i.ph = phi ptr [ null, %if.end.i ], [ %call15.i, %_.exit25.i ], [ %call15.i, %_.exit20.i ], [ null, %_.exit.i ]
+  tail call void @free(ptr noundef %schedule_pattern.0.i.ph) #20
   tail call void @free(ptr noundef %call1.i) #20
   tail call void @free(ptr noundef %call.i.i) #20
   br label %return

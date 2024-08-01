@@ -516,35 +516,35 @@ if.then.i.i116:                                   ; preds = %for.body.i103
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.then.i.i116
-  %p.0.i.i = phi ptr [ %incdec.ptr.i.i105, %if.then.i.i116 ], [ %incdec.ptr7.i.i, %do.body.i.i ]
-  %v.0.i.i = phi i32 [ %and.i.i, %if.then.i.i116 ], [ %or.i.i, %do.body.i.i ]
+  %p.1.i.i = phi ptr [ %incdec.ptr.i.i105, %if.then.i.i116 ], [ %incdec.ptr7.i.i, %do.body.i.i ]
+  %v.1.i.i = phi i32 [ %and.i.i, %if.then.i.i116 ], [ %or.i.i, %do.body.i.i ]
   %sh.0.i.i = phi i32 [ -1, %if.then.i.i116 ], [ %add.i.i117, %do.body.i.i ]
-  %59 = load i8, ptr %p.0.i.i, align 1
+  %59 = load i8, ptr %p.1.i.i, align 1
   %60 = and i8 %59, 127
   %and6.i.i = zext nneg i8 %60 to i32
   %add.i.i117 = add nsw i32 %sh.0.i.i, 7
   %shl.i.i = shl i32 %and6.i.i, %add.i.i117
-  %or.i.i = or i32 %shl.i.i, %v.0.i.i
-  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 1
+  %or.i.i = or i32 %shl.i.i, %v.1.i.i
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 1
   %cmp9.i.i = icmp slt i8 %59, 0
   br i1 %cmp9.i.i, label %do.body.i.i, label %bcread_uleb128_33.exit.i, !llvm.loop !9
 
 bcread_uleb128_33.exit.i:                         ; preds = %do.body.i.i, %for.body.i103
-  %p.1.i.i = phi ptr [ %incdec.ptr.i.i105, %for.body.i103 ], [ %incdec.ptr7.i.i, %do.body.i.i ]
-  %v.1.i.i = phi i32 [ %shr.i.i, %for.body.i103 ], [ %or.i.i, %do.body.i.i ]
-  store ptr %p.1.i.i, ptr %p.i84, align 8
+  %p.0.i.i = phi ptr [ %incdec.ptr.i.i105, %for.body.i103 ], [ %incdec.ptr7.i.i, %do.body.i.i ]
+  %v.0.i.i = phi i32 [ %shr.i.i, %for.body.i103 ], [ %or.i.i, %do.body.i.i ]
+  store ptr %p.0.i.i, ptr %p.i84, align 8
   %tobool.not.i107 = icmp eq i8 %57, 0
   br i1 %tobool.not.i107, label %if.else.i115, label %if.then.i108
 
 if.then.i108:                                     ; preds = %bcread_uleb128_33.exit.i
-  store i32 %v.1.i.i, ptr %o.02.i, align 8
+  store i32 %v.0.i.i, ptr %o.02.i, align 8
   %call.i.i109 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %p.i84) #9
   %hi.i110 = getelementptr inbounds i8, ptr %o.02.i, i64 4
   store i32 %call.i.i109, ptr %hi.i110, align 4
   br label %for.inc.i111
 
 if.else.i115:                                     ; preds = %bcread_uleb128_33.exit.i
-  %conv.i.i = sitofp i32 %v.1.i.i to double
+  %conv.i.i = sitofp i32 %v.0.i.i to double
   store double %conv.i.i, ptr %o.02.i, align 8
   br label %for.inc.i111
 
@@ -646,14 +646,14 @@ while.cond.preheader.i:                           ; preds = %bcread_dbg.exit
   br label %while.cond.i.outer
 
 while.cond.i.outer:                               ; preds = %lor.rhs.i, %while.cond.preheader.i
-  %p.0.i.ph = phi ptr [ %incdec.ptr.i137, %lor.rhs.i ], [ %70, %while.cond.preheader.i ]
+  %p.1.i.ph = phi ptr [ %incdec.ptr.i137, %lor.rhs.i ], [ %70, %while.cond.preheader.i ]
   %n.0.i.ph = phi i32 [ %dec.i, %lor.rhs.i ], [ %conv.i136, %while.cond.preheader.i ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.outer, %while.cond.i
-  %p.0.i = phi ptr [ %incdec.ptr.i137, %while.cond.i ], [ %p.0.i.ph, %while.cond.i.outer ]
-  %incdec.ptr.i137 = getelementptr inbounds i8, ptr %p.0.i, i64 1
-  %71 = load i8, ptr %p.0.i, align 1
+  %p.1.i = phi ptr [ %incdec.ptr.i137, %while.cond.i ], [ %p.1.i.ph, %while.cond.i.outer ]
+  %incdec.ptr.i137 = getelementptr inbounds i8, ptr %p.1.i, i64 1
+  %71 = load i8, ptr %p.1.i, align 1
   %tobool2.not.i = icmp eq i8 %71, 0
   br i1 %tobool2.not.i, label %lor.rhs.i, label %while.cond.i, !llvm.loop !13
 
@@ -667,9 +667,9 @@ bcread_varinfo.exit.loopexit:                     ; preds = %lor.rhs.i
   br label %bcread_varinfo.exit
 
 bcread_varinfo.exit:                              ; preds = %bcread_varinfo.exit.loopexit, %bcread_dbg.exit
-  %p.1.i = phi i64 [ %call25.val78, %bcread_dbg.exit ], [ %72, %bcread_varinfo.exit.loopexit ]
+  %p.0.i = phi i64 [ %call25.val78, %bcread_dbg.exit ], [ %72, %bcread_varinfo.exit.loopexit ]
   %varinfo = getelementptr inbounds i8, ptr %call25, i64 96
-  store i64 %p.1.i, ptr %varinfo, align 8
+  store i64 %p.0.i, ptr %varinfo, align 8
   br label %if.end74
 
 if.else:                                          ; preds = %bcread_knum.exit
@@ -1140,16 +1140,16 @@ lj_buf_need.exit96:                               ; preds = %if.else, %if.then.i
 
 if.end23:                                         ; preds = %if.then12, %if.then16, %lj_buf_need.exit96
   %idx.ext.pre-phi = phi i64 [ %.pre84, %if.then16 ], [ %conv22, %lj_buf_need.exit96 ], [ %.pre84, %if.then12 ]
-  %p.0 = phi ptr [ %7, %if.then16 ], [ %retval.i79.0, %lj_buf_need.exit96 ], [ %7, %if.then12 ]
-  store ptr %p.0, ptr %p2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext.pre-phi
+  %p.1 = phi ptr [ %7, %if.then16 ], [ %retval.i79.0, %lj_buf_need.exit96 ], [ %7, %if.then12 ]
+  store ptr %p.1, ptr %p2, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %p.1, i64 %idx.ext.pre-phi
   store ptr %add.ptr, ptr %pe, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %do.body, %if.end23
   %idx.ext27.pre-phi = phi i64 [ %idx.ext.pre-phi, %if.end23 ], [ 0, %do.body ]
-  %p.1 = phi ptr [ %p.0, %if.end23 ], [ %7, %do.body ]
-  %add.ptr28 = getelementptr inbounds i8, ptr %p.1, i64 %idx.ext27.pre-phi
+  %p.0 = phi ptr [ %p.1, %if.end23 ], [ %7, %do.body ]
+  %add.ptr28 = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext27.pre-phi
   store ptr %add.ptr28, ptr %sb, align 8
   %12 = load ptr, ptr %rfunc, align 8
   %13 = load ptr, ptr %L, align 8

@@ -427,9 +427,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2319,7 +2319,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %storemerge.lcssa = phi i32 [ %add, %if.then33 ], [ %add47, %land.rhs.while.end.loopexit.split.loop.exit133_crit_edge ], [ %add, %land.rhs.preheader ], [ %add47, %while.end.loopexit ]
   %.lcssa = phi i32 [ %inc30, %if.then33 ], [ %19, %land.rhs.while.end.loopexit.split.loop.exit133_crit_edge ], [ %inc30, %land.rhs.preheader ], [ %11, %while.end.loopexit ]
   %cmp36.lcssa = phi i1 [ false, %if.then33 ], [ %cmp36.le, %land.rhs.while.end.loopexit.split.loop.exit133_crit_edge ], [ true, %land.rhs.preheader ], [ %cmp36.le162, %while.end.loopexit ]
-  %u.1 = phi i32 [ %conv31, %if.then33 ], [ %conv41, %land.rhs.while.end.loopexit.split.loop.exit133_crit_edge ], [ %conv41144, %land.rhs.preheader ], [ %conv41148, %while.end.loopexit ]
+  %u.2 = phi i32 [ %conv31, %if.then33 ], [ %conv41, %land.rhs.while.end.loopexit.split.loop.exit133_crit_edge ], [ %conv41144, %land.rhs.preheader ], [ %conv41148, %while.end.loopexit ]
   %newLength_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %storemerge.lcssa, ptr %newLength_, align 4
   %tobool49.not = icmp eq i8 %onlyChanges, 0
@@ -2347,17 +2347,17 @@ if.end56:                                         ; preds = %_ZN6icu_755Edits8It
 
 if.end61:                                         ; preds = %if.end56, %if.end28
   %22 = phi i32 [ %inc58, %if.end56 ], [ %inc30, %if.end28 ]
-  %u.2 = phi i32 [ %u.1, %if.end56 ], [ %conv31, %if.end28 ]
+  %u.0 = phi i32 [ %u.2, %if.end56 ], [ %conv31, %if.end28 ]
   %changed62 = getelementptr inbounds i8, ptr %this, i64 23
   store i8 1, ptr %changed62, align 1
-  %cmp63 = icmp ult i32 %u.2, 28672
+  %cmp63 = icmp ult i32 %u.0, 28672
   br i1 %cmp63, label %if.then64, label %if.else81
 
 if.then64:                                        ; preds = %if.end61
-  %shr = lshr i32 %u.2, 12
-  %shr65 = lshr i32 %u.2, 9
+  %shr = lshr i32 %u.0, 12
+  %shr65 = lshr i32 %u.0, 9
   %and = and i32 %shr65, 7
-  %and66 = and i32 %u.2, 511
+  %and66 = and i32 %u.0, 511
   %add67 = add nuw nsw i32 %and66, 1
   %coarse = getelementptr inbounds i8, ptr %this, i64 21
   %23 = load i8, ptr %coarse, align 1
@@ -2386,7 +2386,7 @@ if.then77:                                        ; preds = %if.else73
   br label %return
 
 if.else81:                                        ; preds = %if.end61
-  %shr82 = lshr i32 %u.2, 6
+  %shr82 = lshr i32 %u.0, 6
   %and83 = and i32 %shr82, 63
   %cmp.i39 = icmp ult i32 %and83, 61
   br i1 %cmp.i39, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit, label %if.else.i
@@ -2427,7 +2427,7 @@ _ZN6icu_755Edits8Iterator10readLengthEi.exit:     ; preds = %if.else81, %if.then
   %retval.0.i = phi i32 [ %and.i, %if.then3.i ], [ %or19.i, %if.else4.i ], [ %and83, %if.else81 ]
   %oldLength_85 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %retval.0.i, ptr %oldLength_85, align 8
-  %and86 = and i32 %u.2, 63
+  %and86 = and i32 %u.0, 63
   %cmp.i40 = icmp ult i32 %and86, 61
   br i1 %cmp.i40, label %_ZN6icu_755Edits8Iterator10readLengthEi.exit63, label %if.else.i41
 
@@ -2446,7 +2446,7 @@ if.then3.i57:                                     ; preds = %if.else.i41
   br label %_ZN6icu_755Edits8Iterator10readLengthEi.exit63
 
 if.else4.i43:                                     ; preds = %if.else.i41
-  %and5.i44 = shl i32 %u.2, 30
+  %and5.i44 = shl i32 %u.0, 30
   %shl.i45 = and i32 %and5.i44, 1073741824
   %33 = load i16, ptr %arrayidx.i61, align 2
   %34 = and i16 %33, 32767

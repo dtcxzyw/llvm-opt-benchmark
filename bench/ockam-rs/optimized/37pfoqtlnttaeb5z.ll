@@ -725,8 +725,8 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core5error4code1_86_$LT$impl$u20$
   br label %14
 
 14:                                               ; preds = %11, %2, %7
-  %.0 = phi ptr [ %5, %2 ], [ %9, %7 ], [ %13, %11 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %5, %2 ], [ %9, %7 ], [ %13, %11 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7394,7 +7394,7 @@ default.unreachable1101:                          ; preds = %2
   br label %653
 
 106:                                              ; preds = %.thread1059, %644, %647, %910
-  %.0159 = phi ptr [ %872, %910 ], [ %.71058, %647 ], [ %.5, %644 ], [ %148, %.thread1059 ]
+  %.0159 = phi ptr [ %872, %910 ], [ %.71058, %647 ], [ %.6, %644 ], [ %148, %.thread1059 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 656
   %108 = load i8, ptr %107, align 8, !range !73, !noundef !5
   %109 = trunc nuw i8 %108 to i1
@@ -7721,7 +7721,7 @@ default.unreachable1101:                          ; preds = %2
           to label %252 unwind label %250
 
 223:                                              ; preds = %642, %533
-  %.0161 = phi i8 [ %.1162, %642 ], [ %.2163, %533 ]
+  %.0161 = phi i8 [ %.1162, %642 ], [ %.3164, %533 ]
   %.pn351.pn = phi { ptr, i32 } [ %643, %642 ], [ %.pn346.pn, %533 ]
   %224 = trunc nuw i8 %.0161 to i1
   br i1 %224, label %.thread1002, label %.body430
@@ -8253,7 +8253,7 @@ default.unreachable1101:                          ; preds = %2
   br label %477
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit487": ; preds = %504, %384
-  %.2 = phi ptr [ %385, %384 ], [ %505, %504 ]
+  %.3 = phi ptr [ %385, %384 ], [ %505, %504 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1261
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf5a4976ecaa1dddE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %291)
           to label %.noexc488 unwind label %508
@@ -8674,7 +8674,7 @@ default.unreachable1101:                          ; preds = %2
   br label %532
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit": ; preds = %288, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h3aa4a142b7b83ccaE.exit"
-  %.4 = phi ptr [ %.2, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h3aa4a142b7b83ccaE.exit" ], [ %289, %288 ]
+  %.4 = phi ptr [ %.3, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$core..net..socket_addr..SocketAddr$GT$$GT$17h3aa4a142b7b83ccaE.exit" ], [ %289, %288 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit590"
 
@@ -8736,7 +8736,7 @@ default.unreachable1101:                          ; preds = %2
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit590": ; preds = %635, %641, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit"
   %.1162 = phi i8 [ 0, %641 ], [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit" ], [ 1, %635 ]
-  %.5 = phi ptr [ %264, %641 ], [ %.4, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit" ], [ %636, %635 ]
+  %.6 = phi ptr [ %264, %641 ], [ %.4, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h12153031e4fed4a4E.exit" ], [ %636, %635 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1327
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb7d61c66a55662cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
           to label %.noexc540 unwind label %642
@@ -8769,7 +8769,7 @@ default.unreachable1101:                          ; preds = %2
   br label %533
 
 533:                                              ; preds = %637, %566, %541, %547, %267, %640, %258, %532
-  %.2163 = phi i8 [ 0, %258 ], [ 1, %640 ], [ 1, %532 ], [ 1, %267 ], [ 1, %547 ], [ 1, %541 ], [ 1, %566 ], [ 1, %637 ]
+  %.3164 = phi i8 [ 0, %258 ], [ 1, %640 ], [ 1, %532 ], [ 1, %267 ], [ 1, %547 ], [ 1, %541 ], [ 1, %566 ], [ 1, %637 ]
   %.pn346.pn = phi { ptr, i32 } [ %259, %258 ], [ %.pn338.pn.pn.pn, %640 ], [ %.pn318.pn.pn, %532 ], [ %268, %267 ], [ %548, %547 ], [ %542, %541 ], [ %.pn328.pn.pn.pn.pn.pn, %566 ], [ %638, %637 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h30dc414a52625d46E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #28
           to label %223 unwind label %517
@@ -9172,7 +9172,7 @@ default.unreachable1101:                          ; preds = %2
   br label %106
 
 647:                                              ; preds = %.thread1055, %644
-  %.71058 = phi ptr [ %256, %.thread1055 ], [ %.5, %644 ]
+  %.71058 = phi ptr [ %256, %.thread1055 ], [ %.6, %644 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17he5e246ff67f28f5dE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %115)
           to label %106 unwind label %140
 
@@ -9905,9 +9905,9 @@ common.ret:                                       ; preds = %888, %"_ZN96_$LT$fu
   br label %888
 
 888:                                              ; preds = %911, %887, %106
-  %.9 = phi ptr [ null, %887 ], [ %.0159, %911 ], [ %.0159, %106 ]
+  %.1160 = phi ptr [ null, %887 ], [ %.0159, %911 ], [ %.0159, %106 ]
   store i8 1, ptr %103, align 1
-  %889 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.9, 1
+  %889 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1160, 1
   br label %common.ret
 
 890:                                              ; preds = %870

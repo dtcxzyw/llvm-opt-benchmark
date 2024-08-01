@@ -1009,12 +1009,12 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
   br i1 %345, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %363, %.preheader163.i
-  %.166.lcssa.i = phi i8 [ %.065.i, %.preheader163.i ], [ %.368.i, %363 ]
+  %.166.lcssa.i = phi i8 [ %.065.i, %.preheader163.i ], [ %.267.i, %363 ]
   br label %.outer.i.outer
 
 .lr.ph.i:                                         ; preds = %.preheader163.i, %363
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %363 ], [ 0, %.preheader163.i ]
-  %.166176.i = phi i8 [ %.368.i, %363 ], [ %.065.i, %.preheader163.i ]
+  %.166176.i = phi i8 [ %.267.i, %363 ], [ %.065.i, %.preheader163.i ]
   %346 = trunc nuw i8 %.166176.i to i1
   br i1 %346, label %347, label %.critedge.i
 
@@ -1072,8 +1072,8 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
   br label %359
 
 359:                                              ; preds = %357, %349
-  %.267.i = phi i8 [ %spec.select.i, %357 ], [ %.166176.i, %349 ]
-  %360 = trunc nuw i8 %.267.i to i1
+  %.368.i = phi i8 [ %spec.select.i, %357 ], [ %.166176.i, %349 ]
+  %360 = trunc nuw i8 %.368.i to i1
   br i1 %360, label %361, label %363
 
 361:                                              ; preds = %359
@@ -1082,12 +1082,12 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
 
 .sink.split.i:                                    ; preds = %361, %353
   %.sink.i = phi ptr [ %355, %353 ], [ %362, %361 ]
-  %.368.ph.i = phi i8 [ 0, %353 ], [ %.267.i, %361 ]
+  %.267.ph.i = phi i8 [ 0, %353 ], [ %.368.i, %361 ]
   store i8 32, ptr %.sink.i, align 1
   br label %363
 
 363:                                              ; preds = %.sink.split.i, %359
-  %.368.i = phi i8 [ %.267.i, %359 ], [ %.368.ph.i, %.sink.split.i ]
+  %.267.i = phi i8 [ %.368.i, %359 ], [ %.267.ph.i, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %364 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   %sext.i = shl i64 %364, 32

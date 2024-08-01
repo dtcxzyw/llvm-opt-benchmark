@@ -2037,7 +2037,7 @@ _ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i: ; preds = %27
   br label %_ZN7QStringD2Ev.exit48
 
 _ZN5QListI11QModelIndexED2Ev.exit:                ; preds = %33, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i, %27, %14, %1
-  %.1 = phi i1 [ true, %1 ], [ false, %14 ], [ %30, %27 ], [ %30, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i ], [ %30, %33 ]
+  %.0 = phi i1 [ true, %1 ], [ false, %14 ], [ %30, %27 ], [ %30, %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i ], [ %30, %33 ]
   %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 42), align 2
   %37 = call { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.0.0.copyload)
   %38 = extractvalue { i64, i64 } %37, 0
@@ -2066,7 +2066,7 @@ _ZN5QListI11QModelIndexED2Ev.exit:                ; preds = %33, %_ZN17QArrayDat
 48:                                               ; preds = %41
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   %50 = load ptr, ptr %49, align 8
-  br i1 %.1, label %51, label %56
+  br i1 %.0, label %51, label %56
 
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -2218,7 +2218,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit40
 
 _ZN7QStringD2Ev.exit40:                           ; preds = %_ZN7QStringD2Ev.exit36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38, %98
-  ret i1 %.1
+  ret i1 %.0
 
 _ZN7QStringD2Ev.exit32:                           ; preds = %90, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30, %_ZN7QStringD2Ev.exit28, %78
   %.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %.pn, %_ZN7QStringD2Ev.exit28 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30 ], [ %.pn, %90 ]

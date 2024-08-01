@@ -2616,20 +2616,20 @@ if.end.i.i40:                                     ; preds = %if.end58
 
 do.body:                                          ; preds = %if.then51.do.body_crit_edge, %if.end.i.i40
   %24 = phi i32 [ %.pre, %if.then51.do.body_crit_edge ], [ %add.i.i, %if.end.i.i40 ]
-  %value.0 = phi ptr [ %call9, %if.then51.do.body_crit_edge ], [ @_Py_NoneStruct, %if.end.i.i40 ]
+  %value.1 = phi ptr [ %call9, %if.then51.do.body_crit_edge ], [ @_Py_NoneStruct, %if.end.i.i40 ]
   %25 = load ptr, ptr %arrayidx18, align 8
   %add.i.i41 = add i32 %24, 1
   %cmp.i.i42 = icmp eq i32 %add.i.i41, 0
   br i1 %cmp.i.i42, label %_Py_NewRef.exit44, label %if.end.i.i43
 
 if.end.i.i43:                                     ; preds = %do.body
-  store i32 %add.i.i41, ptr %value.0, align 8
+  store i32 %add.i.i41, ptr %value.1, align 8
   br label %_Py_NewRef.exit44
 
 _Py_NewRef.exit44:                                ; preds = %do.body.thread, %do.body, %if.end.i.i43
   %26 = phi ptr [ %23, %do.body.thread ], [ %25, %do.body ], [ %25, %if.end.i.i43 ]
-  %value.080 = phi ptr [ @_Py_NoneStruct, %do.body.thread ], [ %value.0, %do.body ], [ %value.0, %if.end.i.i43 ]
-  store ptr %value.080, ptr %arrayidx18, align 8
+  %value.180 = phi ptr [ @_Py_NoneStruct, %do.body.thread ], [ %value.1, %do.body ], [ %value.1, %if.end.i.i43 ]
+  store ptr %value.180, ptr %arrayidx18, align 8
   %cmp.not.i45 = icmp eq ptr %26, null
   br i1 %cmp.not.i45, label %if.then.i55, label %if.then.i46
 
@@ -2653,20 +2653,20 @@ if.end65:                                         ; preds = %if.then1.i.i, %if.e
   br i1 %cmp10, label %for.inc, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.then1.i.i52, %if.end.i.i49, %if.then.i46, %_Py_NewRef.exit44, %if.end65
-  %value.169 = phi ptr [ %call9, %if.end65 ], [ %value.080, %_Py_NewRef.exit44 ], [ %value.080, %if.then.i46 ], [ %value.080, %if.end.i.i49 ], [ %value.080, %if.then1.i.i52 ]
-  %29 = load i64, ptr %value.169, align 8
+  %value.069 = phi ptr [ %call9, %if.end65 ], [ %value.180, %_Py_NewRef.exit44 ], [ %value.180, %if.then.i46 ], [ %value.180, %if.end.i.i49 ], [ %value.180, %if.then1.i.i52 ]
+  %29 = load i64, ptr %value.069, align 8
   %30 = and i64 %29, 2147483648
   %cmp.i2.not.i56 = icmp eq i64 %30, 0
   br i1 %cmp.i2.not.i56, label %if.end.i.i58, label %for.inc
 
 if.end.i.i58:                                     ; preds = %if.then.i55
   %dec.i.i59 = add i64 %29, -1
-  store i64 %dec.i.i59, ptr %value.169, align 8
+  store i64 %dec.i.i59, ptr %value.069, align 8
   %cmp.i.i60 = icmp eq i64 %dec.i.i59, 0
   br i1 %cmp.i.i60, label %if.then1.i.i61, label %for.inc
 
 if.then1.i.i61:                                   ; preds = %if.end.i.i58
-  tail call void @_Py_Dealloc(ptr noundef nonnull %value.169) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %value.069) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then1.i.i61, %if.end.i.i58, %if.then.i55, %if.end65, %if.then12, %land.lhs.true
@@ -4050,7 +4050,7 @@ while.cond.loopexit:                              ; preds = %if.end211, %for.end
   br i1 %tobool21.not, label %while.end213, label %for.cond22.outer.backedge
 
 for.cond22.outer.backedge:                        ; preds = %while.cond.loopexit, %if.end48, %if.end48, %if.end48, %if.end48, %while.end173, %sw.bb153, %sw.bb148, %if.end145, %sw.bb127, %sw.bb123, %sw.bb115, %sw.bb111, %sw.bb106, %sw.bb93, %sw.bb88, %sw.bb77, %sw.bb72, %sw.bb62, %sw.bb
-  %todo.1.ph.be = phi i32 [ 0, %while.cond.loopexit ], [ %todo.1.ph, %while.end173 ], [ %todo.1.ph, %sw.bb153 ], [ %todo.1.ph, %sw.bb148 ], [ %todo.1.ph, %if.end145 ], [ %todo.1.ph, %sw.bb127 ], [ %todo.1.ph, %sw.bb123 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %sw.bb115 ], [ %todo.1.ph, %sw.bb111 ], [ %todo.1.ph, %sw.bb106 ], [ %todo.1.ph, %sw.bb93 ], [ %todo.1.ph, %sw.bb88 ], [ %todo.2, %sw.bb77 ], [ %todo.1.ph, %sw.bb72 ], [ %todo.1.ph, %sw.bb62 ], [ %todo.1.ph, %sw.bb ]
+  %todo.1.ph.be = phi i32 [ 0, %while.cond.loopexit ], [ %todo.1.ph, %while.end173 ], [ %todo.1.ph, %sw.bb153 ], [ %todo.1.ph, %sw.bb148 ], [ %todo.1.ph, %if.end145 ], [ %todo.1.ph, %sw.bb127 ], [ %todo.1.ph, %sw.bb123 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %if.end48 ], [ %todo.1.ph, %sw.bb115 ], [ %todo.1.ph, %sw.bb111 ], [ %todo.1.ph, %sw.bb106 ], [ %todo.1.ph, %sw.bb93 ], [ %todo.1.ph, %sw.bb88 ], [ %todo.3, %sw.bb77 ], [ %todo.1.ph, %sw.bb72 ], [ %todo.1.ph, %sw.bb62 ], [ %todo.1.ph, %sw.bb ]
   %i.0.ph.be = phi i32 [ 0, %while.cond.loopexit ], [ %add44, %while.end173 ], [ %add44, %sw.bb153 ], [ %add44, %sw.bb148 ], [ %add44, %if.end145 ], [ %add44, %sw.bb127 ], [ %add44, %sw.bb123 ], [ %add44, %if.end48 ], [ %add44, %if.end48 ], [ %add44, %if.end48 ], [ %add44, %if.end48 ], [ %add44, %sw.bb115 ], [ %add44, %sw.bb111 ], [ %add44, %sw.bb106 ], [ %add44, %sw.bb93 ], [ %add44, %sw.bb88 ], [ %add44, %sw.bb77 ], [ %add44, %sw.bb72 ], [ %add44, %sw.bb62 ], [ %add44, %sw.bb ]
   br label %for.cond22.outer, !llvm.loop !24
 
@@ -4172,7 +4172,7 @@ sw.bb77:                                          ; preds = %if.end48, %if.end48
   %cmp80 = icmp eq i64 %7, -2
   %cmp82 = icmp slt i32 %sub, %i.1.lcssa
   %or.cond = and i1 %cmp82, %cmp80
-  %todo.2 = select i1 %or.cond, i32 1, i32 %todo.1.ph
+  %todo.3 = select i1 %or.cond, i32 1, i32 %todo.1.ph
   store i64 %3, ptr %arrayidx79, align 8
   br label %for.cond22.outer.backedge
 

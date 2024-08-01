@@ -24,8 +24,8 @@ switch.lookup:                                    ; preds = %1
   br label %6
 
 6:                                                ; preds = %1, %switch.lookup
-  %.1 = phi i8 [ %switch.masked, %switch.lookup ], [ 7, %1 ]
-  ret i8 %.1
+  %.0 = phi i8 [ %switch.masked, %switch.lookup ], [ 7, %1 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -45,14 +45,14 @@ define range(i8 31, 65) i8 @"_ZN111_$LT$cranelift_codegen_meta..shared..types..F
   br label %4
 
 4:                                                ; preds = %1, %3
-  %.0 = phi i8 [ 64, %3 ], [ 32, %1 ]
+  %.1 = phi i8 [ 64, %3 ], [ 32, %1 ]
   %5 = add nuw nsw i8 %2, 1
   store i8 %5, ptr %0, align 1
   br label %6
 
 6:                                                ; preds = %1, %4
-  %.1 = phi i8 [ %.0, %4 ], [ 31, %1 ]
-  ret i8 %.1
+  %.0 = phi i8 [ %.1, %4 ], [ 31, %1 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -72,14 +72,14 @@ define range(i8 31, 65) i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..R
   br label %4
 
 4:                                                ; preds = %1, %3
-  %.0 = phi i8 [ 64, %3 ], [ 32, %1 ]
+  %.1 = phi i8 [ 64, %3 ], [ 32, %1 ]
   %5 = add nuw nsw i8 %2, 1
   store i8 %5, ptr %0, align 1
   br label %6
 
 6:                                                ; preds = %1, %4
-  %.1 = phi i8 [ %.0, %4 ], [ 31, %1 ]
-  ret i8 %.1
+  %.0 = phi i8 [ %.1, %4 ], [ 31, %1 ]
+  ret i8 %.0
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

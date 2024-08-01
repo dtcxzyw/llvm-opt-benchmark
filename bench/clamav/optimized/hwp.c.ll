@@ -620,7 +620,7 @@ define internal fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef 
 
 28:                                               ; preds = %.preheader, %55
   %.074 = phi i64 [ %.175, %55 ], [ %2, %.preheader ]
-  %.0 = phi i64 [ %.1, %55 ], [ 0, %.preheader ]
+  %.0 = phi i64 [ %.2, %55 ], [ 0, %.preheader ]
   %29 = load i32, ptr %22, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %42
@@ -681,7 +681,7 @@ fmap_readn.exit.thread:                           ; preds = %35, %33
   br label %71
 
 55:                                               ; preds = %50, %42
-  %.1 = phi i64 [ %.0, %42 ], [ %48, %50 ]
+  %.2 = phi i64 [ %.0, %42 ], [ %48, %50 ]
   store ptr %10, ptr %21, align 8
   store i32 8192, ptr %23, align 8
   %56 = icmp eq i32 %43, 0
@@ -694,7 +694,7 @@ fmap_readn.exit.thread:                           ; preds = %35, %33
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %8, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56, ptr noundef %3, i64 noundef %.1, ptr noundef %59) #9
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56, ptr noundef %3, i64 noundef %.2, ptr noundef %59) #9
   %or.cond5.not = icmp eq i32 %43, 1
   br i1 %or.cond5.not, label %64, label %61
 
@@ -705,8 +705,8 @@ fmap_readn.exit.thread:                           ; preds = %35, %33
   br i1 %or.cond526, label %61, label %.thread29
 
 61:                                               ; preds = %.thread23, %58
-  %.228 = phi i64 [ %.0, %.thread23 ], [ %.1, %58 ]
-  %62 = icmp eq i64 %.228, 0
+  %.128 = phi i64 [ %.0, %.thread23 ], [ %.2, %58 ]
+  %62 = icmp eq i64 %.128, 0
   br i1 %62, label %63, label %.thread10
 
 63:                                               ; preds = %61
@@ -730,19 +730,19 @@ fmap_readn.exit.thread:                           ; preds = %35, %33
   br label %71
 
 71:                                               ; preds = %64, %.thread29, %63, %53, %fmap_readn.exit.thread, %27
-  %.383 = phi i32 [ 7, %27 ], [ 7, %fmap_readn.exit.thread ], [ 7, %63 ], [ %67, %64 ], [ %70, %.thread29 ], [ 14, %53 ]
+  %.080 = phi i32 [ 7, %27 ], [ 7, %fmap_readn.exit.thread ], [ 7, %63 ], [ %67, %64 ], [ %70, %.thread29 ], [ 14, %53 ]
   %72 = call i32 @inflateEnd(ptr noundef nonnull %7) #9
   %.not102 = icmp eq i32 %72, 0
   br i1 %.not102, label %75, label %73
 
 73:                                               ; preds = %71
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.60, ptr noundef %3) #9
-  %74 = icmp eq i32 %.383, 0
-  %spec.store.select = select i1 %74, i32 7, i32 %.383
+  %74 = icmp eq i32 %.080, 0
+  %spec.store.select = select i1 %74, i32 7, i32 %.080
   br label %75
 
 75:                                               ; preds = %73, %71
-  %.484 = phi i32 [ %spec.store.select, %73 ], [ %.383, %71 ]
+  %.484 = phi i32 [ %spec.store.select, %73 ], [ %.080, %71 ]
   %76 = load i32, ptr %6, align 4
   %77 = call i32 @close(i32 noundef %76) #9
   %78 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1676,7 +1676,7 @@ thread-pre-split141.i:                            ; preds = %180
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %276, %275, %273, %269, %267, %263, %258, %257, %247, %243, %237, %224, %223, %212, %211
-  %.1.i = phi i32 [ %277, %276 ], [ 0, %275 ], [ 0, %273 ], [ 0, %269 ], [ 0, %267 ], [ 0, %263 ], [ %262, %258 ], [ 0, %257 ], [ 0, %247 ], [ 0, %243 ], [ %225, %224 ], [ 0, %223 ], [ %216, %212 ], [ 0, %211 ], [ 0, %237 ], [ %242, %.lr.ph.i ]
+  %.084.i = phi i32 [ %277, %276 ], [ 0, %275 ], [ 0, %273 ], [ 0, %269 ], [ 0, %267 ], [ 0, %263 ], [ %262, %258 ], [ 0, %257 ], [ 0, %247 ], [ 0, %243 ], [ %225, %224 ], [ 0, %223 ], [ %216, %212 ], [ 0, %211 ], [ 0, %237 ], [ %242, %.lr.ph.i ]
   %278 = load i64, ptr %8, align 8
   %279 = add i64 %278, %189
   store i64 %279, ptr %8, align 8
@@ -1691,7 +1691,7 @@ thread-pre-split141.i:                            ; preds = %180
 
 parsehwp3_infoblk_1.exit:                         ; preds = %167, %171, %203, %.loopexit.i
   %280 = phi i64 [ %279, %.loopexit.i ], [ %156, %171 ], [ %156, %167 ], [ %181, %203 ]
-  %.0.i95 = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %171 ], [ 0, %167 ], [ 0, %203 ]
+  %.0.i95 = phi i32 [ %.084.i, %.loopexit.i ], [ 0, %171 ], [ 0, %167 ], [ 0, %203 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

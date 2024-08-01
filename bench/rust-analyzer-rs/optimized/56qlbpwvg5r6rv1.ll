@@ -374,8 +374,8 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
   br i1 %.not2757, label %._crit_edge62, label %.lr.ph61
 
 .preheader:                                       ; preds = %._crit_edge, %.thread.i30
-  %.248 = phi i32 [ %spec.select49, %.thread.i30 ], [ %.046.lcssa, %._crit_edge ]
-  %20 = icmp ult i32 %.248, 7
+  %.147 = phi i32 [ %spec.select49, %.thread.i30 ], [ %.046.lcssa, %._crit_edge ]
+  %20 = icmp ult i32 %.147, 7
   br i1 %20, label %.preheader.i31, label %21
 
 21:                                               ; preds = %.preheader
@@ -383,9 +383,9 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
   br label %.thread.i30
 
 .thread.i30:                                      ; preds = %.preheader.i31, %21
-  %22 = icmp ult i32 %.248, 11
+  %22 = icmp ult i32 %.147, 11
   %23 = zext i1 %22 to i32
-  %spec.select49 = add nuw nsw i32 %.248, %23
+  %spec.select49 = add nuw nsw i32 %.147, %23
   %24 = load atomic i64, ptr %15 acquire, align 8
   %.old2 = icmp eq i64 %24, 0
   br i1 %.old2, label %.preheader, label %.loopexit
@@ -394,7 +394,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$20disc
   %.sroa.01.08.i32 = phi i32 [ %25, %.preheader.i31 ], [ 0, %.preheader ]
   %25 = add nuw nsw i32 %.sroa.01.08.i32, 1
   tail call void @llvm.x86.sse2.pause() #2
-  %.sroa.01.0.highbits.i33 = lshr i32 %25, %.248
+  %.sroa.01.0.highbits.i33 = lshr i32 %25, %.147
   %26 = icmp eq i32 %.sroa.01.0.highbits.i33, 0
   br i1 %26, label %.preheader.i31, label %.thread.i30
 

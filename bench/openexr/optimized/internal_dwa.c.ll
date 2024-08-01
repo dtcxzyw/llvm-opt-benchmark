@@ -78,13 +78,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %rv.0 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
+  %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
   call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwaa)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %rv.1 = phi i32 [ %rv.0, %if.end ], [ %call1, %entry ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ %rv.1, %if.end ], [ %call1, %entry ]
+  ret i32 %rv.0
 }
 
 declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -139,7 +139,7 @@ if.then3.i:                                       ; preds = %check_for_x86_simd.
 
 if.end4.i:                                        ; preds = %if.then3.i, %check_for_x86_simd.exit.i, %if.else26.i.i, %if.end.i.i, %if.end.i
   %avx.019.i = phi i32 [ 1, %if.then3.i ], [ %and13.lobit.i.i, %check_for_x86_simd.exit.i ], [ 0, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.else26.i.i ]
-  %regs.sroa.11.2.i1018.i = phi i32 [ %3, %if.then3.i ], [ %3, %check_for_x86_simd.exit.i ], [ %3, %if.end.i.i ], [ 0, %if.end.i ], [ %3, %if.else26.i.i ]
+  %regs.sroa.11.0.i1018.i = phi i32 [ %3, %if.then3.i ], [ %3, %check_for_x86_simd.exit.i ], [ %3, %if.end.i.i ], [ 0, %if.end.i ], [ %3, %if.else26.i.i ]
   store ptr @dctInverse8x8_scalar_0, ptr @dctInverse8x8_0, align 8
   store ptr @dctInverse8x8_scalar_1, ptr @dctInverse8x8_1, align 8
   store ptr @dctInverse8x8_scalar_2, ptr @dctInverse8x8_2, align 8
@@ -152,7 +152,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %check_
   br i1 %tobool5.not.i, label %if.else.i, label %if.end10.sink.split.i
 
 if.else.i:                                        ; preds = %if.end4.i
-  %tobool7.not.i = icmp eq i32 %regs.sroa.11.2.i1018.i, 0
+  %tobool7.not.i = icmp eq i32 %regs.sroa.11.0.i1018.i, 0
   br i1 %tobool7.not.i, label %initializeFuncs.exit, label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.else.i, %if.end4.i
@@ -999,8 +999,8 @@ for.inc157:                                       ; preds = %LossyDctEncoderCsc_
 for.body165:                                      ; preds = %for.body165.lr.ph, %for.inc267
   %113 = phi i32 [ %85, %for.body165.lr.ph ], [ %154, %for.inc267 ]
   %indvars.iv307 = phi i64 [ 0, %for.body165.lr.ph ], [ %indvars.iv.next308, %for.inc267 ]
-  %packedAcEnd.2290 = phi ptr [ %packedAcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedAcEnd.4, %for.inc267 ]
-  %packedDcEnd.2289 = phi ptr [ %packedDcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedDcEnd.4, %for.inc267 ]
+  %packedAcEnd.2290 = phi ptr [ %packedAcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedAcEnd.3, %for.inc267 ]
+  %packedDcEnd.2289 = phi ptr [ %packedDcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedDcEnd.3, %for.inc267 ]
   %114 = load ptr, ptr %_channelData167, align 8
   %arrayidx169 = getelementptr inbounds %struct._ChannelData, ptr %114, i64 %indvars.iv307
   %chan170 = getelementptr inbounds i8, ptr %arrayidx169, i64 448
@@ -1166,16 +1166,16 @@ for.end263:                                       ; preds = %for.body256, %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.end233, %for.cond209.preheader, %sw.bb, %for.end263
-  %packedDcEnd.3 = phi ptr [ %packedDcEnd.2289, %for.end263 ], [ %add.ptr201, %sw.bb ], [ %packedDcEnd.2289, %for.cond209.preheader ], [ %packedDcEnd.2289, %for.end233 ]
-  %packedAcEnd.3 = phi ptr [ %packedAcEnd.2290, %for.end263 ], [ %add.ptr198, %sw.bb ], [ %packedAcEnd.2290, %for.cond209.preheader ], [ %packedAcEnd.2290, %for.end233 ]
+  %packedDcEnd.4 = phi ptr [ %packedDcEnd.2289, %for.end263 ], [ %add.ptr201, %sw.bb ], [ %packedDcEnd.2289, %for.cond209.preheader ], [ %packedDcEnd.2289, %for.end233 ]
+  %packedAcEnd.4 = phi ptr [ %packedAcEnd.2290, %for.end263 ], [ %add.ptr198, %sw.bb ], [ %packedAcEnd.2290, %for.cond209.preheader ], [ %packedAcEnd.2290, %for.end233 ]
   store i32 1, ptr %processed171, align 32
   %.pre316 = load i32, ptr %_numChannels.i222, align 8
   br label %for.inc267
 
 for.inc267:                                       ; preds = %for.body165, %sw.epilog
   %154 = phi i32 [ %113, %for.body165 ], [ %.pre316, %sw.epilog ]
-  %packedDcEnd.4 = phi ptr [ %packedDcEnd.2289, %for.body165 ], [ %packedDcEnd.3, %sw.epilog ]
-  %packedAcEnd.4 = phi ptr [ %packedAcEnd.2290, %for.body165 ], [ %packedAcEnd.3, %sw.epilog ]
+  %packedDcEnd.3 = phi ptr [ %packedDcEnd.2289, %for.body165 ], [ %packedDcEnd.4, %sw.epilog ]
+  %packedAcEnd.3 = phi ptr [ %packedAcEnd.2290, %for.body165 ], [ %packedAcEnd.4, %sw.epilog ]
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %155 = sext i32 %154 to i64
   %cmp163 = icmp slt i64 %indvars.iv.next308, %155
@@ -1204,7 +1204,7 @@ if.end280:                                        ; preds = %if.then272
   br label %if.end283
 
 if.end283:                                        ; preds = %if.end280, %for.end269
-  %nWritten.1 = phi i64 [ %add, %for.end269 ], [ %add282, %if.end280 ]
+  %nWritten.0 = phi i64 [ %add, %for.end269 ], [ %add282, %if.end280 ]
   %outDataPtr.0 = phi ptr [ %curp.0.lcssa50.i, %for.end269 ], [ %add.ptr281, %if.end280 ]
   %161 = load i64, ptr %add.ptr20, align 8
   %cmp284.not = icmp eq i64 %161, 0
@@ -1269,11 +1269,11 @@ if.end320:                                        ; preds = %sw.bb310
 sw.epilog322:                                     ; preds = %sw.bb288.sw.epilog322_crit_edge, %if.end320
   %178 = phi i64 [ %.pre317, %sw.bb288.sw.epilog322_crit_edge ], [ %177, %if.end320 ]
   %add.ptr323 = getelementptr inbounds i8, ptr %outDataPtr.0, i64 %178
-  %add324 = add i64 %178, %nWritten.1
+  %add324 = add i64 %178, %nWritten.0
   br label %if.end325
 
 if.end325:                                        ; preds = %sw.epilog322, %if.end283
-  %nWritten.2 = phi i64 [ %nWritten.1, %if.end283 ], [ %add324, %sw.epilog322 ]
+  %nWritten.1 = phi i64 [ %nWritten.0, %if.end283 ], [ %add324, %sw.epilog322 ]
   %outDataPtr.1 = phi ptr [ %outDataPtr.0, %if.end283 ], [ %add.ptr323, %sw.epilog322 ]
   %179 = load i64, ptr %add.ptr21, align 8
   %cmp326.not = icmp eq i64 %179, 0
@@ -1310,11 +1310,11 @@ if.end352:                                        ; preds = %if.end339
   %188 = load i64, ptr %compBytes, align 8
   store i64 %188, ptr %add.ptr16, align 8
   %add.ptr353 = getelementptr inbounds i8, ptr %outDataPtr.1, i64 %188
-  %add354 = add i64 %188, %nWritten.2
+  %add354 = add i64 %188, %nWritten.1
   br label %if.end355
 
 if.end355:                                        ; preds = %if.end352, %if.end325
-  %nWritten.3 = phi i64 [ %nWritten.2, %if.end325 ], [ %add354, %if.end352 ]
+  %nWritten.2 = phi i64 [ %nWritten.1, %if.end325 ], [ %add354, %if.end352 ]
   %outDataPtr.2 = phi ptr [ %outDataPtr.1, %if.end325 ], [ %add.ptr353, %if.end352 ]
   %189 = load i64, ptr %add.ptr19, align 8
   %cmp356.not = icmp eq i64 %189, 0
@@ -1342,11 +1342,11 @@ if.end371:                                        ; preds = %if.then358
   %196 = load i64, ptr %compBytes359, align 8
   store i64 %196, ptr %add.ptr17, align 8
   %add.ptr372 = getelementptr inbounds i8, ptr %outDataPtr.2, i64 %196
-  %add373 = add i64 %196, %nWritten.3
+  %add373 = add i64 %196, %nWritten.2
   br label %if.end374
 
 if.end374:                                        ; preds = %if.end371, %if.end355
-  %nWritten.4 = phi i64 [ %nWritten.3, %if.end355 ], [ %add373, %if.end371 ]
+  %nWritten.3 = phi i64 [ %nWritten.2, %if.end355 ], [ %add373, %if.end371 ]
   %outDataPtr.3 = phi ptr [ %outDataPtr.2, %if.end355 ], [ %add.ptr372, %if.end371 ]
   %197 = ptrtoint ptr %outDataPtr.3 to i64
   %198 = load ptr, ptr %me, align 8
@@ -1354,13 +1354,13 @@ if.end374:                                        ; preds = %if.end371, %if.end3
   %199 = load ptr, ptr %compressed_buffer376, align 8
   %200 = ptrtoint ptr %199 to i64
   %sub377 = sub i64 %197, %200
-  %cmp378.not = icmp eq i64 %nWritten.4, %sub377
+  %cmp378.not = icmp eq i64 %nWritten.3, %sub377
   br i1 %cmp378.not, label %if.end381, label %return
 
 if.end381:                                        ; preds = %if.end374
   %packed_bytes = getelementptr inbounds i8, ptr %198, i64 104
   %201 = load i64, ptr %packed_bytes, align 8
-  %cmp383.not = icmp ult i64 %nWritten.4, %201
+  %cmp383.not = icmp ult i64 %nWritten.3, %201
   br i1 %cmp383.not, label %return.sink.split, label %if.then385
 
 if.then385:                                       ; preds = %if.end381
@@ -1378,7 +1378,7 @@ return.sink.split.sink.split:                     ; preds = %if.then385, %if.the
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end381
   %.sink330 = phi ptr [ %198, %if.end381 ], [ %203, %return.sink.split.sink.split ]
-  %.sink = phi i64 [ %nWritten.4, %if.end381 ], [ %204, %return.sink.split.sink.split ]
+  %.sink = phi i64 [ %nWritten.3, %if.end381 ], [ %204, %return.sink.split.sink.split ]
   %compressed_bytes395 = getelementptr inbounds i8, ptr %.sink330, i64 168
   store i64 %.sink, ptr %compressed_bytes395, align 8
   br label %return
@@ -1591,13 +1591,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %rv.0 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
+  %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
   call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwab)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %rv.1 = phi i32 [ %rv.0, %if.end ], [ %call1, %entry ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ %rv.1, %if.end ], [ %call1, %entry ]
+  ret i32 %rv.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1621,13 +1621,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %rv.0 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
+  %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
   call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwaa)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %rv.1 = phi i32 [ %rv.0, %if.end ], [ %call1, %entry ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ %rv.1, %if.end ], [ %call1, %entry ]
+  ret i32 %rv.0
 }
 
 declare i32 @internal_decode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1836,18 +1836,18 @@ if.then21.i:                                      ; preds = %if.then17.i
 
 for.body.i:                                       ; preds = %if.then21.i, %Classifier_read.exit76.i
   %i.0111.i = phi i64 [ %inc29.i, %Classifier_read.exit76.i ], [ 0, %if.then21.i ]
-  %dataSize.2110.i = phi i64 [ %dataSize.3.i, %Classifier_read.exit76.i ], [ %sub9.i, %if.then21.i ]
+  %dataSize.1110.i = phi i64 [ %dataSize.3.i, %Classifier_read.exit76.i ], [ %sub9.i, %if.then21.i ]
   %readPtr.0109.i = phi ptr [ %readPtr.1.i, %Classifier_read.exit76.i ], [ %add.ptr.i, %if.then21.i ]
   %13 = load ptr, ptr %alloc_fn18.i, align 8
   %14 = load ptr, ptr %_channelRules.i, align 8
   %arrayidx.i = getelementptr inbounds %struct._Classifier, ptr %14, i64 %i.0111.i
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %suffix.i31.i)
-  %cmp.i32.i = icmp ult i64 %dataSize.2110.i, 4
+  %cmp.i32.i = icmp ult i64 %dataSize.1110.i, 4
   br i1 %cmp.i32.i, label %Classifier_read.exit76.i, label %if.end.i33.i
 
 if.end.i33.i:                                     ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %suffix.i31.i, i8 0, i64 129, i1 false)
-  %sub.i34.i = add i64 %dataSize.2110.i, -3
+  %sub.i34.i = add i64 %dataSize.1110.i, -3
   br label %for.body.i35.i
 
 for.body.i35.i:                                   ; preds = %if.end8.i41.i, %if.end.i33.i
@@ -1917,14 +1917,14 @@ if.end53.i73.i:                                   ; preds = %if.end44.i69.i
 
 Classifier_read.exit76.i:                         ; preds = %if.end8.i41.i, %for.body.i35.i, %if.end53.i73.i, %if.end44.i69.i, %if.end37.i64.i, %if.end16.i50.i, %if.end14.i46.i, %for.body.i
   %readPtr.1.i = phi ptr [ %readPtr.0109.i, %for.body.i ], [ %readPtr.0109.i, %if.end14.i46.i ], [ %add.ptr25.i57.i, %if.end16.i50.i ], [ %add.ptr25.i57.i, %if.end37.i64.i ], [ %add.ptr25.i57.i, %if.end44.i69.i ], [ %add.ptr25.i57.i, %if.end53.i73.i ], [ %readPtr.0109.i, %for.body.i35.i ], [ %readPtr.0109.i, %if.end8.i41.i ]
-  %dataSize.3.i = phi i64 [ %dataSize.2110.i, %for.body.i ], [ %dataSize.2110.i, %if.end14.i46.i ], [ %sub27.i58.i, %if.end16.i50.i ], [ %sub27.i58.i, %if.end37.i64.i ], [ %sub27.i58.i, %if.end44.i69.i ], [ %sub27.i58.i, %if.end53.i73.i ], [ %dataSize.2110.i, %for.body.i35.i ], [ %dataSize.2110.i, %if.end8.i41.i ]
+  %dataSize.3.i = phi i64 [ %dataSize.1110.i, %for.body.i ], [ %dataSize.1110.i, %if.end14.i46.i ], [ %sub27.i58.i, %if.end16.i50.i ], [ %sub27.i58.i, %if.end37.i64.i ], [ %sub27.i58.i, %if.end44.i69.i ], [ %sub27.i58.i, %if.end53.i73.i ], [ %dataSize.1110.i, %for.body.i35.i ], [ %dataSize.1110.i, %if.end8.i41.i ]
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %suffix.i31.i)
   %inc29.i = add nuw i64 %i.0111.i, 1
   %exitcond.not.i = icmp eq i64 %inc29.i, %nRules.0.lcssa127.i
   br i1 %exitcond.not.i, label %if.end51, label %for.body.i, !llvm.loop !30
 
 if.end51:                                         ; preds = %Classifier_read.exit76.i, %if.then46, %if.then21.i
-  %dataPtr.1 = phi ptr [ %add.ptr14, %if.then46 ], [ %add.ptr8.i, %if.then21.i ], [ %add.ptr8.i, %Classifier_read.exit76.i ]
+  %dataPtr.0 = phi ptr [ %add.ptr14, %if.then46 ], [ %add.ptr8.i, %if.then21.i ], [ %add.ptr8.i, %Classifier_read.exit76.i ]
   %call52 = call fastcc i32 @DwaCompressor_initializeBuffers(ptr noundef %me, ptr noundef nonnull %outBufferSize)
   %cmp53.not = icmp eq i32 %call52, 0
   br i1 %cmp53.not, label %if.end55, label %return
@@ -1941,19 +1941,19 @@ if.end55:                                         ; preds = %if.end51
   %22 = load ptr, ptr %_packedAcBuffer, align 8
   %_packedDcBuffer = getelementptr inbounds i8, ptr %me, i64 104
   %23 = load ptr, ptr %_packedDcBuffer, align 8
-  %add.ptr64 = getelementptr inbounds i8, ptr %dataPtr.1, i64 %counters.sroa.3.0.copyload
+  %add.ptr64 = getelementptr inbounds i8, ptr %dataPtr.0, i64 %counters.sroa.3.0.copyload
   %add.ptr65 = getelementptr inbounds i8, ptr %add.ptr64, i64 %counters.sroa.4.0.copyload
   %add.ptr66 = getelementptr inbounds i8, ptr %add.ptr65, i64 %counters.sroa.5.0.copyload
-  %cmp67 = icmp ugt ptr %dataPtr.1, %add.ptr
+  %cmp67 = icmp ugt ptr %dataPtr.0, %add.ptr
   %cmp69 = icmp slt i64 %counters.sroa.3.0.copyload, 0
   %or.cond257 = select i1 %cmp67, i1 true, i1 %cmp69
   %cmp71 = icmp ugt ptr %add.ptr64, %add.ptr
   %or.cond258 = select i1 %or.cond257, i1 true, i1 %cmp71
-  %cmp73 = icmp ugt ptr %dataPtr.1, %add.ptr65
+  %cmp73 = icmp ugt ptr %dataPtr.0, %add.ptr65
   %or.cond259 = select i1 %or.cond258, i1 true, i1 %cmp73
   %cmp75 = icmp ugt ptr %add.ptr65, %add.ptr
   %or.cond260 = select i1 %or.cond259, i1 true, i1 %cmp75
-  %cmp77 = icmp ugt ptr %dataPtr.1, %add.ptr66
+  %cmp77 = icmp ugt ptr %dataPtr.0, %add.ptr66
   %or.cond261 = select i1 %or.cond260, i1 true, i1 %cmp77
   %cmp79 = icmp ugt ptr %add.ptr66, %add.ptr
   %or.cond262 = select i1 %or.cond261, i1 true, i1 %cmp79
@@ -1983,7 +1983,7 @@ if.end94:                                         ; preds = %if.then90
   %26 = load ptr, ptr %context, align 8
   %_planarUncBuffer = getelementptr inbounds i8, ptr %me, i64 136
   %27 = load ptr, ptr %_planarUncBuffer, align 8
-  %call97 = tail call i32 @exr_uncompress_buffer(ptr noundef %26, ptr noundef %dataPtr.1, i64 noundef %counters.sroa.3.0.copyload, ptr noundef %27, i64 noundef %counters.sroa.2.0.copyload, ptr noundef null) #16
+  %call97 = tail call i32 @exr_uncompress_buffer(ptr noundef %26, ptr noundef %dataPtr.0, i64 noundef %counters.sroa.3.0.copyload, ptr noundef %27, i64 noundef %counters.sroa.2.0.copyload, ptr noundef null) #16
   %cmp98.not = icmp eq i32 %call97, 0
   br i1 %cmp98.not, label %if.end101, label %return
 
@@ -2361,9 +2361,9 @@ for.inc310:                                       ; preds = %if.end256
 for.body318:                                      ; preds = %for.body318.lr.ph, %for.inc467
   %102 = phi i32 [ %80, %for.body318.lr.ph ], [ %150, %for.inc467 ]
   %indvars.iv355 = phi i64 [ 0, %for.body318.lr.ph ], [ %indvars.iv.next356, %for.inc467 ]
-  %totalDcUncompressedCount.1330 = phi i64 [ %totalDcUncompressedCount.0.lcssa, %for.body318.lr.ph ], [ %totalDcUncompressedCount.3, %for.inc467 ]
-  %packedAcBufferEnd.2329 = phi ptr [ %packedAcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedAcBufferEnd.4, %for.inc467 ]
-  %packedDcBufferEnd.2327 = phi ptr [ %packedDcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedDcBufferEnd.4, %for.inc467 ]
+  %totalDcUncompressedCount.1330 = phi i64 [ %totalDcUncompressedCount.0.lcssa, %for.body318.lr.ph ], [ %totalDcUncompressedCount.2, %for.inc467 ]
+  %packedAcBufferEnd.2329 = phi ptr [ %packedAcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedAcBufferEnd.3, %for.inc467 ]
+  %packedDcBufferEnd.2327 = phi ptr [ %packedDcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedDcBufferEnd.3, %for.inc467 ]
   %103 = load ptr, ptr %_channelData320, align 8
   %arrayidx322 = getelementptr inbounds %struct._ChannelData, ptr %103, i64 %indvars.iv355
   %chan324 = getelementptr inbounds i8, ptr %arrayidx322, i64 448
@@ -2601,18 +2601,18 @@ for.inc460:                                       ; preds = %for.body436, %if.en
   br i1 %cmp434.not.not, label %for.body436, label %sw.epilog465, !llvm.loop !38
 
 sw.epilog465:                                     ; preds = %for.inc460, %for.inc419, %for.inc419.us, %sw.bb422, %sw.bb362, %LossyDctDecoder_construct.exit
-  %packedDcBufferEnd.3 = phi ptr [ %add.ptr355, %LossyDctDecoder_construct.exit ], [ %packedDcBufferEnd.2327, %sw.bb362 ], [ %packedDcBufferEnd.2327, %sw.bb422 ], [ %packedDcBufferEnd.2327, %for.inc419.us ], [ %packedDcBufferEnd.2327, %for.inc419 ], [ %packedDcBufferEnd.2327, %for.inc460 ]
-  %packedAcBufferEnd.3 = phi ptr [ %add.ptr352, %LossyDctDecoder_construct.exit ], [ %packedAcBufferEnd.2329, %sw.bb362 ], [ %packedAcBufferEnd.2329, %sw.bb422 ], [ %packedAcBufferEnd.2329, %for.inc419.us ], [ %packedAcBufferEnd.2329, %for.inc419 ], [ %packedAcBufferEnd.2329, %for.inc460 ]
-  %totalDcUncompressedCount.2 = phi i64 [ %sub357, %LossyDctDecoder_construct.exit ], [ %totalDcUncompressedCount.1330, %sw.bb362 ], [ %totalDcUncompressedCount.1330, %sw.bb422 ], [ %totalDcUncompressedCount.1330, %for.inc419.us ], [ %totalDcUncompressedCount.1330, %for.inc419 ], [ %totalDcUncompressedCount.1330, %for.inc460 ]
+  %packedDcBufferEnd.4 = phi ptr [ %add.ptr355, %LossyDctDecoder_construct.exit ], [ %packedDcBufferEnd.2327, %sw.bb362 ], [ %packedDcBufferEnd.2327, %sw.bb422 ], [ %packedDcBufferEnd.2327, %for.inc419.us ], [ %packedDcBufferEnd.2327, %for.inc419 ], [ %packedDcBufferEnd.2327, %for.inc460 ]
+  %packedAcBufferEnd.4 = phi ptr [ %add.ptr352, %LossyDctDecoder_construct.exit ], [ %packedAcBufferEnd.2329, %sw.bb362 ], [ %packedAcBufferEnd.2329, %sw.bb422 ], [ %packedAcBufferEnd.2329, %for.inc419.us ], [ %packedAcBufferEnd.2329, %for.inc419 ], [ %packedAcBufferEnd.2329, %for.inc460 ]
+  %totalDcUncompressedCount.3 = phi i64 [ %sub357, %LossyDctDecoder_construct.exit ], [ %totalDcUncompressedCount.1330, %sw.bb362 ], [ %totalDcUncompressedCount.1330, %sw.bb422 ], [ %totalDcUncompressedCount.1330, %for.inc419.us ], [ %totalDcUncompressedCount.1330, %for.inc419 ], [ %totalDcUncompressedCount.1330, %for.inc460 ]
   store i32 1, ptr %processed328, align 32
   %.pre363 = load i32, ptr %_numChannels, align 8
   br label %for.inc467
 
 for.inc467:                                       ; preds = %for.body318, %sw.epilog465
   %150 = phi i32 [ %102, %for.body318 ], [ %.pre363, %sw.epilog465 ]
-  %packedDcBufferEnd.4 = phi ptr [ %packedDcBufferEnd.2327, %for.body318 ], [ %packedDcBufferEnd.3, %sw.epilog465 ]
-  %packedAcBufferEnd.4 = phi ptr [ %packedAcBufferEnd.2329, %for.body318 ], [ %packedAcBufferEnd.3, %sw.epilog465 ]
-  %totalDcUncompressedCount.3 = phi i64 [ %totalDcUncompressedCount.1330, %for.body318 ], [ %totalDcUncompressedCount.2, %sw.epilog465 ]
+  %packedDcBufferEnd.3 = phi ptr [ %packedDcBufferEnd.2327, %for.body318 ], [ %packedDcBufferEnd.4, %sw.epilog465 ]
+  %packedAcBufferEnd.3 = phi ptr [ %packedAcBufferEnd.2329, %for.body318 ], [ %packedAcBufferEnd.4, %sw.epilog465 ]
+  %totalDcUncompressedCount.2 = phi i64 [ %totalDcUncompressedCount.1330, %for.body318 ], [ %totalDcUncompressedCount.3, %sw.epilog465 ]
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %151 = sext i32 %150 to i64
   %cmp316 = icmp slt i64 %indvars.iv.next356, %151
@@ -2644,13 +2644,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %rv.0 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
+  %rv.1 = phi i32 [ %call5, %if.then4 ], [ %call2, %if.then ]
   call fastcc void @DwaCompressor_destroy(ptr noundef nonnull %dwaa)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %rv.1 = phi i32 [ %rv.0, %if.end ], [ %call1, %entry ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ %rv.1, %if.end ], [ %call1, %entry ]
+  ret i32 %rv.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -7132,7 +7132,7 @@ for.body25.preheader:                             ; preds = %if.end20
 
 for.body25:                                       ; preds = %for.body25.preheader, %for.inc74
   %indvars.iv156 = phi i64 [ 0, %for.body25.preheader ], [ %indvars.iv.next157, %for.inc74 ]
-  %tmpHalfBufferPtr.1128 = phi ptr [ %tmpHalfBufferPtr.0, %for.body25.preheader ], [ %tmpHalfBufferPtr.3, %for.inc74 ]
+  %tmpHalfBufferPtr.1128 = phi ptr [ %tmpHalfBufferPtr.0, %for.body25.preheader ], [ %tmpHalfBufferPtr.2, %for.inc74 ]
   %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %chanData, i64 0, i64 %indvars.iv156
   %10 = load ptr, ptr %arrayidx27, align 8
   %_type28 = getelementptr inbounds i8, ptr %10, i64 416
@@ -7153,7 +7153,7 @@ for.body37:                                       ; preds = %for.body37.preheade
   %13 = phi ptr [ %10, %for.body37.preheader ], [ %27, %for.end64 ]
   %14 = phi i32 [ %.pre, %for.body37.preheader ], [ %28, %for.end64 ]
   %indvars.iv153 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next154, %for.end64 ]
-  %tmpHalfBufferPtr.2124 = phi ptr [ %tmpHalfBufferPtr.1128, %for.body37.preheader ], [ %add.ptr, %for.end64 ]
+  %tmpHalfBufferPtr.3124 = phi ptr [ %tmpHalfBufferPtr.1128, %for.body37.preheader ], [ %add.ptr, %for.end64 ]
   %_rows = getelementptr inbounds i8, ptr %13, i64 392
   %15 = load ptr, ptr %_rows, align 8
   %arrayidx41 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv153
@@ -7255,7 +7255,7 @@ if.then65.i.i:                                    ; preds = %lor.lhs.false.i.i, 
 
 float_to_half.exit:                               ; preds = %if.then6.i.i, %if.end.i.i, %if.then29.i.i, %if.end33.i.i, %if.end43.i.i, %lor.lhs.false.i.i, %if.then65.i.i
   %retval.0.i.i = phi i16 [ %conv23.i.i, %if.end.i.i ], [ %conv32.i.i, %if.then29.i.i ], [ %conv42.i.i, %if.end33.i.i ], [ %conv8.i.i, %if.then6.i.i ], [ %conv.i.i, %if.end43.i.i ], [ %inc.i.i, %if.then65.i.i ], [ %conv56.i.i, %lor.lhs.false.i.i ]
-  %arrayidx61 = getelementptr inbounds i16, ptr %tmpHalfBufferPtr.2124, i64 %indvars.iv150
+  %arrayidx61 = getelementptr inbounds i16, ptr %tmpHalfBufferPtr.3124, i64 %indvars.iv150
   store i16 %retval.0.i.i, ptr %arrayidx61, align 2
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %24 = load i32, ptr %_width, align 4
@@ -7273,10 +7273,10 @@ for.end64:                                        ; preds = %for.end64.loopexit,
   %26 = phi ptr [ %.pre206, %for.end64.loopexit ], [ %15, %for.body37 ]
   %27 = phi ptr [ %.pre205, %for.end64.loopexit ], [ %13, %for.body37 ]
   %arrayidx69 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv153
-  store ptr %tmpHalfBufferPtr.2124, ptr %arrayidx69, align 8
+  store ptr %tmpHalfBufferPtr.3124, ptr %arrayidx69, align 8
   %28 = load i32, ptr %_width, align 4
   %idx.ext = sext i32 %28 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %tmpHalfBufferPtr.2124, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %tmpHalfBufferPtr.3124, i64 %idx.ext
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %29 = load i32, ptr %_height, align 8
   %30 = sext i32 %29 to i64
@@ -7284,7 +7284,7 @@ for.end64:                                        ; preds = %for.end64.loopexit,
   br i1 %cmp35, label %for.body37, label %for.inc74, !llvm.loop !65
 
 for.inc74:                                        ; preds = %for.end64, %for.cond33.preheader, %for.body25
-  %tmpHalfBufferPtr.3 = phi ptr [ %tmpHalfBufferPtr.1128, %for.body25 ], [ %tmpHalfBufferPtr.1128, %for.cond33.preheader ], [ %add.ptr, %for.end64 ]
+  %tmpHalfBufferPtr.2 = phi ptr [ %tmpHalfBufferPtr.1128, %for.body25 ], [ %tmpHalfBufferPtr.1128, %for.cond33.preheader ], [ %add.ptr, %for.end64 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
   br i1 %exitcond160.not, label %for.end76, label %for.body25, !llvm.loop !66

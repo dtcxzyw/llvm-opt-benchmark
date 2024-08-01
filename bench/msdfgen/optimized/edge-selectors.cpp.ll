@@ -790,9 +790,9 @@ if.then7.i:                                       ; preds = %land.lhs.true5.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then55, %if.then.i93, %if.then7.i, %land.lhs.true5.i, %if.end.i
-  %pd.1 = phi double [ %fneg62, %if.end.i ], [ %fneg62, %land.lhs.true5.i ], [ %fneg62, %if.then7.i ], [ %15, %if.then.i93 ], [ %15, %if.then55 ]
+  %pd.0 = phi double [ %fneg62, %if.end.i ], [ %fneg62, %land.lhs.true5.i ], [ %fneg62, %if.then7.i ], [ %15, %if.then.i93 ], [ %15, %if.then55 ]
   %aPseudoDistance = getelementptr inbounds i8, ptr %cache, i64 40
-  store double %pd.1, ptr %aPseudoDistance, align 8
+  store double %pd.0, ptr %aPseudoDistance, align 8
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end, %_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd.exit
@@ -1577,9 +1577,9 @@ if.then7.i262:                                    ; preds = %land.lhs.true5.i259
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then85, %if.then.i233, %if.then7.i262, %land.lhs.true5.i259, %if.end.i257, %if.end104
-  %pd.1 = phi double [ %fneg92, %if.end104 ], [ %fneg92, %if.end.i257 ], [ %fneg92, %land.lhs.true5.i259 ], [ %fneg92, %if.then7.i262 ], [ %44, %if.then.i233 ], [ %44, %if.then85 ]
+  %pd.0 = phi double [ %fneg92, %if.end104 ], [ %fneg92, %if.end.i257 ], [ %fneg92, %land.lhs.true5.i259 ], [ %fneg92, %if.then7.i262 ], [ %44, %if.then.i233 ], [ %44, %if.then85 ]
   %aPseudoDistance = getelementptr inbounds i8, ptr %cache, i64 40
-  store double %pd.1, ptr %aPseudoDistance, align 8
+  store double %pd.0, ptr %aPseudoDistance, align 8
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end111, %if.end33

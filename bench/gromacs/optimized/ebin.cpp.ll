@@ -536,7 +536,7 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %39
   %.049.us.us = phi ptr [ %.1.us.us, %39 ], [ %19, %.lr.ph.split.us ]
-  %.03348.us.us = phi ptr [ %.2.us.us, %39 ], [ %22, %.lr.ph.split.us ]
+  %.03348.us.us = phi ptr [ %.134.us.us, %39 ], [ %22, %.lr.ph.split.us ]
   %.sroa.0.047.us.us = phi ptr [ %41, %39 ], [ %4, %.lr.ph.split.us ]
   %.sroa.040.046.us.us = phi ptr [ %40, %39 ], [ %2, %.lr.ph.split.us ]
   %24 = load i8, ptr %.sroa.040.046.us.us, align 1
@@ -563,7 +563,7 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
   br label %39
 
 39:                                               ; preds = %26, %.lr.ph.split.us.split.us
-  %.2.us.us = phi ptr [ %37, %26 ], [ %.03348.us.us, %.lr.ph.split.us.split.us ]
+  %.134.us.us = phi ptr [ %37, %26 ], [ %.03348.us.us, %.lr.ph.split.us.split.us ]
   %.1.us.us = phi ptr [ %38, %26 ], [ %.049.us.us, %.lr.ph.split.us.split.us ]
   %40 = getelementptr inbounds i8, ptr %.sroa.040.046.us.us, i64 1
   %41 = getelementptr inbounds i8, ptr %.sroa.0.047.us.us, i64 4
@@ -572,7 +572,7 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %65
   %.049.us = phi ptr [ %.1.us, %65 ], [ %19, %.lr.ph.split.us ]
-  %.03348.us = phi ptr [ %.2.us, %65 ], [ %22, %.lr.ph.split.us ]
+  %.03348.us = phi ptr [ %.134.us, %65 ], [ %22, %.lr.ph.split.us ]
   %.sroa.0.047.us = phi ptr [ %67, %65 ], [ %4, %.lr.ph.split.us ]
   %.sroa.040.046.us = phi ptr [ %66, %65 ], [ %2, %.lr.ph.split.us ]
   %42 = load i8, ptr %.sroa.040.046.us, align 1
@@ -607,7 +607,7 @@ define void @_Z16add_ebin_indexedP6t_ebiniN3gmx8ArrayRefIbEENS2_IKfEEb(ptr nocap
   br label %65
 
 65:                                               ; preds = %44, %.lr.ph.split.us.split
-  %.2.us = phi ptr [ %63, %44 ], [ %.03348.us, %.lr.ph.split.us.split ]
+  %.134.us = phi ptr [ %63, %44 ], [ %.03348.us, %.lr.ph.split.us.split ]
   %.1.us = phi ptr [ %64, %44 ], [ %.049.us, %.lr.ph.split.us.split ]
   %66 = getelementptr inbounds i8, ptr %.sroa.040.046.us, i64 1
   %67 = getelementptr inbounds i8, ptr %.sroa.0.047.us, i64 4
@@ -724,9 +724,9 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   %28 = add nsw i32 %3, %2
   %spec.select = select i1 %.not, i32 %15, i32 %28
   %29 = icmp sgt i32 %spec.select, %2
-  br i1 %29, label %.lr.ph114, label %._crit_edge.thread
+  br i1 %29, label %.lr.ph113, label %._crit_edge.thread
 
-.lr.ph114:                                        ; preds = %27
+.lr.ph113:                                        ; preds = %27
   %30 = icmp sgt i32 %4, 0
   %31 = getelementptr inbounds i8, ptr %1, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 48
@@ -734,25 +734,25 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   %34 = getelementptr inbounds i8, ptr %1, i64 32
   br label %35
 
-35:                                               ; preds = %.lr.ph114, %94
-  %.063113 = phi i32 [ %2, %.lr.ph114 ], [ %.3.lcssa, %94 ]
-  %.066112 = phi i32 [ 0, %.lr.ph114 ], [ %95, %94 ]
+35:                                               ; preds = %.lr.ph113, %94
+  %.063112 = phi i32 [ %2, %.lr.ph113 ], [ %.3.lcssa, %94 ]
+  %.066111 = phi i32 [ 0, %.lr.ph113 ], [ %95, %94 ]
   br i1 %6, label %.preheader, label %55
 
 .preheader:                                       ; preds = %35
   br i1 %30, label %.lr.ph.preheader, label %.critedge.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %36 = zext i32 %.063113 to i64
+  %36 = zext i32 %.063112 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %indvars.iv = phi i64 [ %36, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
-  %.16782 = phi i32 [ %.066112, %.lr.ph.preheader ], [ %.268, %51 ]
-  %.07081 = phi i32 [ 0, %.lr.ph.preheader ], [ %52, %51 ]
+  %.26881 = phi i32 [ %.066111, %.lr.ph.preheader ], [ %.369, %51 ]
+  %.07080 = phi i32 [ 0, %.lr.ph.preheader ], [ %52, %51 ]
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = icmp sgt i32 %spec.select, %37
-  %39 = icmp sgt i32 %.16782, -1
+  %39 = icmp sgt i32 %.26881, -1
   %or.cond = and i1 %38, %39
   br i1 %or.cond, label %40, label %.critedge
 
@@ -774,15 +774,15 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %51
 
 51:                                               ; preds = %46, %49
-  %.268 = phi i32 [ %48, %46 ], [ %50, %49 ]
-  %52 = add nuw nsw i32 %.07081, 1
+  %.369 = phi i32 [ %48, %46 ], [ %50, %49 ]
+  %52 = add nuw nsw i32 %.07080, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %52, %4
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %51, %.lr.ph
-  %.167.lcssa = phi i32 [ %.268, %51 ], [ %.16782, %.lr.ph ]
-  %53 = icmp sgt i32 %.167.lcssa, -1
+  %.268.lcssa = phi i32 [ %.369, %51 ], [ %.26881, %.lr.ph ]
+  %53 = icmp sgt i32 %.268.lcssa, -1
   br i1 %53, label %.critedge.thread, label %55
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
@@ -790,57 +790,57 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %55
 
 55:                                               ; preds = %.critedge, %.critedge.thread, %35
-  %.4 = phi i32 [ %.066112, %35 ], [ %54, %.critedge.thread ], [ %.167.lcssa, %.critedge ]
-  br i1 %30, label %.lr.ph89, label %.critedge2
+  %.167 = phi i32 [ %.066111, %35 ], [ %54, %.critedge.thread ], [ %.268.lcssa, %.critedge ]
+  br i1 %30, label %.lr.ph88, label %.critedge2
 
-.lr.ph89:                                         ; preds = %55
-  switch i32 %5, label %.lr.ph89.split [
-    i32 0, label %.lr.ph89.split.us.preheader
-    i32 1, label %.lr.ph89.split.us98.preheader
+.lr.ph88:                                         ; preds = %55
+  switch i32 %5, label %.lr.ph88.split [
+    i32 0, label %.lr.ph88.split.us.preheader
+    i32 1, label %.lr.ph88.split.us97.preheader
   ]
 
-.lr.ph89.split.us98.preheader:                    ; preds = %.lr.ph89
-  %56 = zext i32 %.063113 to i64
-  %57 = add i32 %.063113, %4
-  br label %.lr.ph89.split.us98
+.lr.ph88.split.us97.preheader:                    ; preds = %.lr.ph88
+  %56 = zext i32 %.063112 to i64
+  %57 = add i32 %.063112, %4
+  br label %.lr.ph88.split.us97
 
-.lr.ph89.split.us.preheader:                      ; preds = %.lr.ph89
-  %58 = zext i32 %.063113 to i64
-  %59 = add i32 %.063113, %4
-  br label %.lr.ph89.split.us
+.lr.ph88.split.us.preheader:                      ; preds = %.lr.ph88
+  %58 = zext i32 %.063112 to i64
+  %59 = add i32 %.063112, %4
+  br label %.lr.ph88.split.us
 
-.lr.ph89.split.us:                                ; preds = %.lr.ph89.split.us.preheader, %63
-  %indvars.iv124 = phi i64 [ %58, %.lr.ph89.split.us.preheader ], [ %indvars.iv.next125, %63 ]
-  %.587.us = phi i32 [ %.4, %.lr.ph89.split.us.preheader ], [ %68, %63 ]
-  %.17186.us = phi i32 [ 0, %.lr.ph89.split.us.preheader ], [ %69, %63 ]
-  %60 = trunc nuw i64 %indvars.iv124 to i32
+.lr.ph88.split.us:                                ; preds = %.lr.ph88.split.us.preheader, %63
+  %indvars.iv123 = phi i64 [ %58, %.lr.ph88.split.us.preheader ], [ %indvars.iv.next124, %63 ]
+  %.586.us = phi i32 [ %.167, %.lr.ph88.split.us.preheader ], [ %68, %63 ]
+  %.17185.us = phi i32 [ 0, %.lr.ph88.split.us.preheader ], [ %69, %63 ]
+  %60 = trunc nuw i64 %indvars.iv123 to i32
   %61 = icmp sgt i32 %spec.select, %60
-  %62 = icmp sgt i32 %.587.us, -1
+  %62 = icmp sgt i32 %.586.us, -1
   %or.cond5.us = and i1 %61, %62
   br i1 %or.cond5.us, label %63, label %.critedge2
 
-63:                                               ; preds = %.lr.ph89.split.us
+63:                                               ; preds = %.lr.ph88.split.us
   %64 = load ptr, ptr %34, align 8
-  %65 = getelementptr inbounds %struct.t_energy, ptr %64, i64 %indvars.iv124
+  %65 = getelementptr inbounds %struct.t_energy, ptr %64, i64 %indvars.iv123
   %66 = load float, ptr %65, align 8
   %67 = fpext float %66 to double
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, double noundef %67) #15
-  %69 = add nuw nsw i32 %.17186.us, 1
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond127.not = icmp eq i32 %69, %4
-  br i1 %exitcond127.not, label %.critedge2, label %.lr.ph89.split.us, !llvm.loop !13
+  %69 = add nuw nsw i32 %.17185.us, 1
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond126.not = icmp eq i32 %69, %4
+  br i1 %exitcond126.not, label %.critedge2, label %.lr.ph88.split.us, !llvm.loop !13
 
-.lr.ph89.split.us98:                              ; preds = %.lr.ph89.split.us98.preheader, %85
-  %indvars.iv120 = phi i64 [ %56, %.lr.ph89.split.us98.preheader ], [ %indvars.iv.next121, %85 ]
-  %.587.us100 = phi i32 [ %.4, %.lr.ph89.split.us98.preheader ], [ %.6.us103, %85 ]
-  %.17186.us101 = phi i32 [ 0, %.lr.ph89.split.us98.preheader ], [ %86, %85 ]
-  %70 = trunc nuw i64 %indvars.iv120 to i32
+.lr.ph88.split.us97:                              ; preds = %.lr.ph88.split.us97.preheader, %85
+  %indvars.iv119 = phi i64 [ %56, %.lr.ph88.split.us97.preheader ], [ %indvars.iv.next120, %85 ]
+  %.586.us99 = phi i32 [ %.167, %.lr.ph88.split.us97.preheader ], [ %.6.us102, %85 ]
+  %.17185.us100 = phi i32 [ 0, %.lr.ph88.split.us97.preheader ], [ %86, %85 ]
+  %70 = trunc nuw i64 %indvars.iv119 to i32
   %71 = icmp sgt i32 %spec.select, %70
-  %72 = icmp sgt i32 %.587.us100, -1
-  %or.cond5.us102 = and i1 %71, %72
-  br i1 %or.cond5.us102, label %73, label %.critedge2
+  %72 = icmp sgt i32 %.586.us99, -1
+  %or.cond5.us101 = and i1 %71, %72
+  br i1 %or.cond5.us101, label %73, label %.critedge2
 
-73:                                               ; preds = %.lr.ph89.split.us98
+73:                                               ; preds = %.lr.ph88.split.us97
   %74 = load i64, ptr %32, align 8
   %75 = icmp sgt i64 %74, 0
   br i1 %75, label %78, label %76
@@ -851,7 +851,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 78:                                               ; preds = %73
   %79 = load ptr, ptr %33, align 8
-  %80 = getelementptr inbounds %struct.t_energy, ptr %79, i64 %indvars.iv120, i32 2
+  %80 = getelementptr inbounds %struct.t_energy, ptr %79, i64 %indvars.iv119, i32 2
   %81 = load double, ptr %80, align 8
   %82 = uitofp nneg i64 %74 to double
   %83 = fdiv double %81, %82
@@ -859,19 +859,19 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   br label %85
 
 85:                                               ; preds = %78, %76
-  %.6.us103 = phi i32 [ %84, %78 ], [ %77, %76 ]
-  %86 = add nuw nsw i32 %.17186.us101, 1
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond123.not = icmp eq i32 %86, %4
-  br i1 %exitcond123.not, label %.critedge2, label %.lr.ph89.split.us98, !llvm.loop !13
+  %.6.us102 = phi i32 [ %84, %78 ], [ %77, %76 ]
+  %86 = add nuw nsw i32 %.17185.us100, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond122.not = icmp eq i32 %86, %4
+  br i1 %exitcond122.not, label %.critedge2, label %.lr.ph88.split.us97, !llvm.loop !13
 
-.lr.ph89.split:                                   ; preds = %.lr.ph89
-  %87 = icmp slt i32 %.063113, %spec.select
-  %88 = icmp sgt i32 %.4, -1
+.lr.ph88.split:                                   ; preds = %.lr.ph88
+  %87 = icmp slt i32 %.063112, %spec.select
+  %88 = icmp sgt i32 %.167, -1
   %or.cond5 = and i1 %87, %88
   br i1 %or.cond5, label %89, label %.critedge2
 
-89:                                               ; preds = %.lr.ph89.split
+89:                                               ; preds = %.lr.ph88.split
   call void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(120) @.str.1, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 327, ptr noundef nonnull @.str.22, i32 noundef %5) #14
           to label %90 unwind label %91
@@ -884,11 +884,11 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
           cleanup
   br label %103
 
-.critedge2:                                       ; preds = %85, %.lr.ph89.split.us98, %63, %.lr.ph89.split.us, %.lr.ph89.split, %55
-  %.5.lcssa = phi i32 [ %.4, %55 ], [ %.4, %.lr.ph89.split ], [ %.587.us, %.lr.ph89.split.us ], [ %68, %63 ], [ %.587.us100, %.lr.ph89.split.us98 ], [ %.6.us103, %85 ]
-  %.3.lcssa = phi i32 [ %.063113, %55 ], [ %.063113, %.lr.ph89.split ], [ %60, %.lr.ph89.split.us ], [ %59, %63 ], [ %70, %.lr.ph89.split.us98 ], [ %57, %85 ]
+.critedge2:                                       ; preds = %85, %.lr.ph88.split.us97, %63, %.lr.ph88.split.us, %.lr.ph88.split, %55
+  %.5.lcssa = phi i32 [ %.167, %55 ], [ %.167, %.lr.ph88.split ], [ %.586.us, %.lr.ph88.split.us ], [ %68, %63 ], [ %.586.us99, %.lr.ph88.split.us97 ], [ %.6.us102, %85 ]
+  %.3.lcssa = phi i32 [ %.063112, %55 ], [ %.063112, %.lr.ph88.split ], [ %60, %.lr.ph88.split.us ], [ %59, %63 ], [ %70, %.lr.ph88.split.us97 ], [ %57, %85 ]
   %93 = icmp sgt i32 %.5.lcssa, -1
-  br i1 %93, label %94, label %._crit_edge.thread132
+  br i1 %93, label %94, label %._crit_edge.thread131
 
 94:                                               ; preds = %.critedge2
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18) #15
@@ -899,17 +899,17 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
 
 ._crit_edge:                                      ; preds = %94
   %99 = icmp slt i32 %95, 0
-  br i1 %99, label %._crit_edge.thread132, label %._crit_edge.thread
+  br i1 %99, label %._crit_edge.thread131, label %._crit_edge.thread
 
-._crit_edge.thread132:                            ; preds = %.critedge2, %._crit_edge
+._crit_edge.thread131:                            ; preds = %.critedge2, %._crit_edge
   call void @_ZNSt10filesystem7__cxx114pathC2IA120_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(120) @.str.1, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 337, ptr noundef nonnull @.str.23) #14
           to label %100 unwind label %101
 
-100:                                              ; preds = %._crit_edge.thread132
+100:                                              ; preds = %._crit_edge.thread131
   unreachable
 
-101:                                              ; preds = %._crit_edge.thread132
+101:                                              ; preds = %._crit_edge.thread131
   %102 = landingpad { ptr, i32 }
           cleanup
   br label %103

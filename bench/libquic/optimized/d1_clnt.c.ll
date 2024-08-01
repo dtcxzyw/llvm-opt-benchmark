@@ -322,7 +322,7 @@ if.end89:                                         ; preds = %if.then85
 
 if.end103:                                        ; preds = %sw.bb80, %if.end89
   %.sink173 = phi i32 [ %.174, %if.end89 ], [ 4416, %sw.bb80 ]
-  %skip.1 = phi i32 [ 0, %if.end89 ], [ 1, %sw.bb80 ]
+  %skip.2 = phi i32 [ 0, %if.end89 ], [ 1, %sw.bb80 ]
   store i32 %.sink173, ptr %state8, align 4
   store i32 0, ptr %init_num270, align 8
   br label %sw.epilog
@@ -583,11 +583,11 @@ sw.default:                                       ; preds = %for.cond
   br label %end
 
 sw.epilog:                                        ; preds = %if.end188, %if.end38, %if.then41, %if.end276, %if.end259, %if.end253, %if.end242, %if.end235, %if.end229, %if.end174, %if.end159, %if.end152, %if.end130, %if.end123, %if.end116, %if.end109, %if.end103, %if.end78, %if.end59, %if.end24
-  %skip.2 = phi i32 [ 0, %if.end276 ], [ 0, %if.end259 ], [ 0, %if.end253 ], [ 0, %if.end242 ], [ 0, %if.end235 ], [ 0, %if.end229 ], [ 0, %if.end188 ], [ 0, %if.end174 ], [ 0, %if.end159 ], [ 0, %if.end152 ], [ 0, %if.end130 ], [ 0, %if.end123 ], [ 0, %if.end116 ], [ 0, %if.end109 ], [ %skip.1, %if.end103 ], [ 0, %if.end78 ], [ 0, %if.end59 ], [ 0, %if.then41 ], [ 0, %if.end38 ], [ 0, %if.end24 ]
+  %skip.1 = phi i32 [ 0, %if.end276 ], [ 0, %if.end259 ], [ 0, %if.end253 ], [ 0, %if.end242 ], [ 0, %if.end235 ], [ 0, %if.end229 ], [ 0, %if.end188 ], [ 0, %if.end174 ], [ 0, %if.end159 ], [ 0, %if.end152 ], [ 0, %if.end130 ], [ 0, %if.end123 ], [ 0, %if.end116 ], [ 0, %if.end109 ], [ %skip.2, %if.end103 ], [ 0, %if.end78 ], [ 0, %if.end59 ], [ 0, %if.then41 ], [ 0, %if.end38 ], [ 0, %if.end24 ]
   %46 = load ptr, ptr %s3277, align 8
   %reuse_message = getelementptr inbounds i8, ptr %46, i64 452
   %47 = load i32, ptr %reuse_message, align 4
-  %48 = or i32 %47, %skip.2
+  %48 = or i32 %47, %skip.1
   %or.cond.not166 = icmp eq i32 %48, 0
   %or.cond1 = and i1 %cmp294, %or.cond.not166
   br i1 %or.cond1, label %land.lhs.true295, label %for.cond.backedge
@@ -608,8 +608,8 @@ if.then298:                                       ; preds = %land.lhs.true295
 
 end:                                              ; preds = %if.end249, %if.end188, %if.end20, %if.then14, %lor.lhs.false, %sw.bb255, %sw.bb245, %sw.bb238, %sw.bb231, %if.end202, %if.end184, %sw.bb170, %sw.bb155, %sw.bb148, %sw.bb126, %sw.bb119, %sw.bb112, %sw.bb105, %if.then85, %sw.bb61, %dtls1_get_hello_verify.exit, %sw.bb26, %dtls1_get_hello_verify.exit.thread170, %sw.default, %if.end286, %if.then275
   %ret.0 = phi i32 [ -1, %sw.default ], [ 1, %if.end286 ], [ -1, %if.then275 ], [ -1, %dtls1_get_hello_verify.exit.thread170 ], [ -1, %if.end249 ], [ -1, %if.end188 ], [ -1, %if.end20 ], [ -1, %if.then14 ], [ -1, %lor.lhs.false ], [ %call27, %sw.bb26 ], [ %conv.i, %dtls1_get_hello_verify.exit ], [ %call62, %sw.bb61 ], [ %call86, %if.then85 ], [ %call106, %sw.bb105 ], [ %call113, %sw.bb112 ], [ %call120, %sw.bb119 ], [ %call127, %sw.bb126 ], [ %call149, %sw.bb148 ], [ %call156, %sw.bb155 ], [ %call171, %sw.bb170 ], [ %call185, %if.end184 ], [ %call203, %if.end202 ], [ %call232, %sw.bb231 ], [ %call239, %sw.bb238 ], [ %call246, %sw.bb245 ], [ %call256, %sw.bb255 ]
-  %buf.3 = phi ptr [ null, %sw.default ], [ null, %if.end286 ], [ null, %if.then275 ], [ null, %dtls1_get_hello_verify.exit.thread170 ], [ null, %if.end249 ], [ null, %if.end188 ], [ null, %if.end20 ], [ null, %if.then14 ], [ %call, %lor.lhs.false ], [ null, %sw.bb26 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %sw.bb61 ], [ null, %if.then85 ], [ null, %sw.bb105 ], [ null, %sw.bb112 ], [ null, %sw.bb119 ], [ null, %sw.bb126 ], [ null, %sw.bb148 ], [ null, %sw.bb155 ], [ null, %sw.bb170 ], [ null, %if.end184 ], [ null, %if.end202 ], [ null, %sw.bb231 ], [ null, %sw.bb238 ], [ null, %sw.bb245 ], [ null, %sw.bb255 ]
-  call void @BUF_MEM_free(ptr noundef %buf.3) #4
+  %buf.2 = phi ptr [ null, %sw.default ], [ null, %if.end286 ], [ null, %if.then275 ], [ null, %dtls1_get_hello_verify.exit.thread170 ], [ null, %if.end249 ], [ null, %if.end188 ], [ null, %if.end20 ], [ null, %if.then14 ], [ %call, %lor.lhs.false ], [ null, %sw.bb26 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %sw.bb61 ], [ null, %if.then85 ], [ null, %sw.bb105 ], [ null, %sw.bb112 ], [ null, %sw.bb119 ], [ null, %sw.bb126 ], [ null, %sw.bb148 ], [ null, %sw.bb155 ], [ null, %sw.bb170 ], [ null, %if.end184 ], [ null, %if.end202 ], [ null, %sw.bb231 ], [ null, %sw.bb238 ], [ null, %sw.bb245 ], [ null, %sw.bb255 ]
+  call void @BUF_MEM_free(ptr noundef %buf.2) #4
   br i1 %cmp10.not, label %if.end306, label %if.then305
 
 if.then305:                                       ; preds = %end

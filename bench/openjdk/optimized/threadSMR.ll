@@ -861,7 +861,7 @@ define hidden noundef ptr @_ZNK11ThreadsList29find_JavaThread_from_java_tidEl(pt
 
 8:                                                ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.01725 = phi ptr [ undef, %.lr.ph ], [ %.2, %32 ]
+  %.01725 = phi ptr [ undef, %.lr.ph ], [ %.3, %32 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -912,7 +912,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %30, %31
   br i1 %27, label %32, label %.loopexit23
 
 32:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %8, %13
-  %.2 = phi ptr [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.01725, %13 ], [ %.01725, %8 ]
+  %.3 = phi ptr [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.01725, %13 ], [ %.01725, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %5, align 4
   %34 = zext i32 %33 to i64
@@ -931,8 +931,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %30, %31
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %_ZN11MutexLockerD2Ev.exit, %36, %.loopexit
-  %.3 = phi ptr [ null, %.loopexit ], [ %3, %36 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ null, %.loopexit ], [ %3, %36 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ]
+  ret ptr %.2
 }
 
 declare void @_ZN13ThreadIdTable15lazy_initializeEPK11ThreadsList(ptr noundef) local_unnamed_addr #3
@@ -2200,7 +2200,7 @@ define hidden void @_ZN17ThreadsSMRSupport24wait_until_not_protectedEP10JavaThre
   br label %6
 
 6:                                                ; preds = %71, %1
-  %.011 = phi i1 [ false, %1 ], [ %.2, %71 ]
+  %.011 = phi i1 [ false, %1 ], [ %.1, %71 ]
   %7 = load ptr, ptr @Threads_lock, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %8
@@ -2331,7 +2331,7 @@ _ZNK11ThreadsList8includesEPK10JavaThread.exit.thread: ; preds = %44, %.preheade
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !28
 
 .loopexit:                                        ; preds = %_ZNK11ThreadsList8includesEPK10JavaThread.exit.thread, %_ZNK11ThreadsList8includesEPK10JavaThread.exit.thread.us, %_ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit, %15, %20, %12
-  %.2 = phi i1 [ %.011, %12 ], [ true, %15 ], [ true, %20 ], [ true, %_ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit ], [ true, %_ZNK11ThreadsList8includesEPK10JavaThread.exit.thread.us ], [ true, %_ZNK11ThreadsList8includesEPK10JavaThread.exit.thread ]
+  %.1 = phi i1 [ %.011, %12 ], [ true, %15 ], [ true, %20 ], [ true, %_ZN17ThreadsSMRSupport10threads_doEP13ThreadClosure.exit ], [ true, %_ZNK11ThreadsList8includesEPK10JavaThread.exit.thread.us ], [ true, %_ZNK11ThreadsList8includesEPK10JavaThread.exit.thread ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %53
 
 53:                                               ; preds = %.loopexit

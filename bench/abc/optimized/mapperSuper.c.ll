@@ -50,8 +50,8 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not78.i, label %.loopexit73.i, label %.preheader72.i
 
 .preheader72.i:                                   ; preds = %10, %.preheader72.i.backedge
-  %.1.i = phi ptr [ %.1.i.be, %.preheader72.i.backedge ], [ %3, %10 ]
-  %12 = load i8, ptr %.1.i, align 1
+  %.2.i = phi ptr [ %.2.i.be, %.preheader72.i.backedge ], [ %3, %10 ]
+  %12 = load i8, ptr %.2.i, align 1
   switch i8 %12, label %.loopexit73.i [
     i8 32, label %.critedge.i
     i8 13, label %.critedge.i
@@ -61,11 +61,11 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   ]
 
 .critedge.i:                                      ; preds = %.preheader72.i, %.preheader72.i, %.preheader72.i
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %13 = getelementptr inbounds i8, ptr %.2.i, i64 1
   br label %.preheader72.i.backedge
 
 .preheader72.i.backedge:                          ; preds = %.critedge.i, %14
-  %.1.i.be = phi ptr [ %13, %.critedge.i ], [ %3, %14 ]
+  %.2.i.be = phi ptr [ %13, %.critedge.i ], [ %3, %14 ]
   br label %.preheader72.i, !llvm.loop !4
 
 14:                                               ; preds = %.preheader72.i, %.preheader72.i
@@ -74,8 +74,8 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not.i, label %.loopexit73.i, label %.preheader72.i.backedge
 
 .loopexit73.i:                                    ; preds = %14, %.preheader72.i, %10
-  %.2.i = phi ptr [ null, %10 ], [ %.1.i, %.preheader72.i ], [ %.1.i, %14 ]
-  %16 = call ptr @strtok(ptr noundef %.2.i, ptr noundef nonnull @.str.8) #12
+  %.1.i = phi ptr [ null, %10 ], [ %.2.i, %.preheader72.i ], [ %.2.i, %14 ]
+  %16 = call ptr @strtok(ptr noundef %.1.i, ptr noundef nonnull @.str.8) #12
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str.9) #13
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %22

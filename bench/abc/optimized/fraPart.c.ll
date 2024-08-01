@@ -439,7 +439,7 @@ Vec_IntAlloc.exit178:                             ; preds = %Vec_IntAlloc.exit, 
   %183 = phi ptr [ %178, %.lr.ph275 ], [ %388, %387 ]
   %indvars.iv291 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next292, %387 ]
   %.0104274 = phi double [ 0.000000e+00, %.lr.ph275 ], [ %.1, %387 ]
-  %.0105273 = phi i32 [ 0, %.lr.ph275 ], [ %.2, %387 ]
+  %.0105273 = phi i32 [ 0, %.lr.ph275 ], [ %.1106, %387 ]
   %.0109272 = phi i32 [ 0, %.lr.ph275 ], [ %.1110, %387 ]
   %.0111271 = phi i32 [ 0, %.lr.ph275 ], [ %.1112, %387 ]
   %.val132 = load ptr, ptr %181, align 8
@@ -901,7 +901,7 @@ Vec_IntPush.exit199:                              ; preds = %.Vec_IntGrow.exit10
 387:                                              ; preds = %.thread, %374, %182, %379
   %.1112 = phi i32 [ %.0111271, %182 ], [ %371, %374 ], [ %371, %379 ], [ %371, %.thread ]
   %.1110 = phi i32 [ %.0109272, %182 ], [ %372, %374 ], [ %372, %379 ], [ %372, %.thread ]
-  %.2 = phi i32 [ %.0105273, %182 ], [ %spec.select, %374 ], [ %spec.select, %379 ], [ %spec.select, %.thread ]
+  %.1106 = phi i32 [ %.0105273, %182 ], [ %spec.select, %374 ], [ %spec.select, %379 ], [ %spec.select, %.thread ]
   %.1 = phi double [ %.0104274, %182 ], [ %377, %374 ], [ %377, %379 ], [ %373, %.thread ]
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %388 = load ptr, ptr %28, align 8
@@ -914,7 +914,7 @@ Vec_IntPush.exit199:                              ; preds = %.Vec_IntGrow.exit10
 .critedge6:                                       ; preds = %387, %Vec_IntAlloc.exit178
   %.0111.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit178 ], [ %.1112, %387 ]
   %.0109.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit178 ], [ %.1110, %387 ]
-  %.0105.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit178 ], [ %.2, %387 ]
+  %.0105.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit178 ], [ %.1106, %387 ]
   %.0104.lcssa = phi double [ 0.000000e+00, %Vec_IntAlloc.exit178 ], [ %.1, %387 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

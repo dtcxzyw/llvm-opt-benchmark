@@ -362,14 +362,14 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %.thread.i, %85, %78, %77
-  %.085 = phi ptr [ %58, %77 ], [ %20, %78 ], [ %20, %85 ], [ %20, %.thread.i ]
+  %.1 = phi ptr [ %58, %77 ], [ %20, %78 ], [ %20, %85 ], [ %20, %.thread.i ]
   store <2 x i32> %40, ptr %39, align 4
   store i32 %42, ptr %41, align 4
   br label %89
 
 89:                                               ; preds = %Vec_IntFreeP.exit, %34, %33
-  %.1 = phi ptr [ %.085, %Vec_IntFreeP.exit ], [ %20, %34 ], [ %20, %33 ]
-  %90 = call ptr @Gia_ManAreaBalance(ptr noundef %.1, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #15
+  %.085 = phi ptr [ %.1, %Vec_IntFreeP.exit ], [ %20, %34 ], [ %20, %33 ]
+  %90 = call ptr @Gia_ManAreaBalance(ptr noundef %.085, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #15
   br i1 %.not90, label %92, label %91
 
 91:                                               ; preds = %89
@@ -377,7 +377,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %85, %78
   br label %92
 
 92:                                               ; preds = %91, %89
-  call void @Gia_ManStop(ptr noundef %.1) #15
+  call void @Gia_ManStop(ptr noundef %.085) #15
   br i1 %.not, label %95, label %93
 
 93:                                               ; preds = %92

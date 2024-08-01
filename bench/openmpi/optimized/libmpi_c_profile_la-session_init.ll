@@ -121,8 +121,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %45
 
 45:                                               ; preds = %17, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %16
-  %.1 = phi i32 [ %spec.select, %opal_obj_run_destructors.exit ], [ %spec.select, %opal_thread_add_fetch_32.exit ], [ 0, %17 ], [ 0, %16 ]
-  %46 = call i32 @ompi_mpi_instance_init(i32 noundef %.1, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #6
+  %.017 = phi i32 [ %spec.select, %opal_obj_run_destructors.exit ], [ %spec.select, %opal_thread_add_fetch_32.exit ], [ 0, %17 ], [ 0, %16 ]
+  %46 = call i32 @ompi_mpi_instance_init(i32 noundef %.017, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #6
   %.not22 = icmp eq i32 %46, 0
   br i1 %.not22, label %79, label %47
 

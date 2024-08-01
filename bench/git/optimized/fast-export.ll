@@ -1048,8 +1048,8 @@ for.inc.i.i:                                      ; preds = %do.cond.i.i.i
   br i1 %exitcond.not.i.i, label %anonymize_refname.exit.i, label %for.body.i.i, !llvm.loop !11
 
 anonymize_refname.exit.i:                         ; preds = %for.inc.i.i, %if.then.i.i22
-  %refname.addr.2.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i22 ], [ %56, %for.inc.i.i ]
-  call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.2.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
+  %refname.addr.1.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i22 ], [ %56, %for.inc.i.i ]
+  call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.1.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   call fastcc void @anonymize_ident_line(ptr noundef nonnull %committer.i, ptr noundef nonnull %committer_end.i)
   call fastcc void @anonymize_ident_line(ptr noundef nonnull %author.i, ptr noundef nonnull %author_end.i)
@@ -2204,8 +2204,8 @@ for.inc.i.i:                                      ; preds = %do.cond.i.i.i
   br i1 %exitcond.not.i.i, label %anonymize_refname.exit.i, label %for.body.i.i, !llvm.loop !11
 
 anonymize_refname.exit.i:                         ; preds = %for.inc.i.i, %if.then.i.i
-  %refname.addr.2.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i ], [ %4, %for.inc.i.i ]
-  call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.2.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
+  %refname.addr.1.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i ], [ %4, %for.inc.i.i ]
+  call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.1.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   br i1 %tobool20.not.i, label %if.end67.i, label %if.then39.i
 
@@ -2532,8 +2532,8 @@ for.inc.i:                                        ; preds = %do.cond.i.i19
   br i1 %exitcond.not.i, label %anonymize_refname.exit, label %for.body.i, !llvm.loop !11
 
 anonymize_refname.exit:                           ; preds = %for.inc.i, %if.then.i22
-  %refname.addr.2.i = phi ptr [ %str.addr.0.i.i17, %if.then.i22 ], [ %4, %for.inc.i ]
-  call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.2.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
+  %refname.addr.1.i = phi ptr [ %str.addr.0.i.i17, %if.then.i22 ], [ %4, %for.inc.i ]
+  call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.1.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
   br label %if.end
 

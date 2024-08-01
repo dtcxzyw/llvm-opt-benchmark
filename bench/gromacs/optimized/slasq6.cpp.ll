@@ -116,11 +116,11 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %106
   %indvars.iv = phi i64 [ %71, %.lr.ph.preheader ], [ %indvars.iv.next, %106 ]
-  %.2286 = phi float [ %23, %.lr.ph.preheader ], [ %110, %106 ]
-  %.2261284 = phi float [ %25, %.lr.ph.preheader ], [ %.3262, %106 ]
+  %.3286 = phi float [ %23, %.lr.ph.preheader ], [ %110, %106 ]
+  %.3262284 = phi float [ %25, %.lr.ph.preheader ], [ %.4263, %106 ]
   %73 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
   %74 = load float, ptr %73, align 4
-  %75 = fadd float %.2261284, %74
+  %75 = fadd float %.3262284, %74
   %76 = getelementptr i8, ptr %73, i64 -12
   store float %75, ptr %76, align 4
   %77 = tail call noundef float @llvm.fabs.f32(float %75)
@@ -152,41 +152,41 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %94 = fdiv float %87, %75
   %95 = fmul float %74, %94
   store float %95, ptr %92, align 4
-  %96 = fmul float %.2261284, %94
+  %96 = fmul float %.3262284, %94
   br label %102
 
 97:                                               ; preds = %84
   %98 = fdiv float %74, %75
   %99 = fmul float %98, %87
   store float %99, ptr %92, align 4
-  %100 = fdiv float %.2261284, %75
+  %100 = fdiv float %.3262284, %75
   %101 = fmul float %100, %87
   br label %102
 
 102:                                              ; preds = %93, %97, %79
-  %.3262 = phi float [ %83, %79 ], [ %96, %93 ], [ %101, %97 ]
-  %.3 = phi float [ 0.000000e+00, %79 ], [ %.2286, %93 ], [ %.2286, %97 ]
+  %.4263 = phi float [ %83, %79 ], [ %96, %93 ], [ %101, %97 ]
+  %.4 = phi float [ 0.000000e+00, %79 ], [ %.3286, %93 ], [ %.3286, %97 ]
   %103 = load float, ptr %4, align 4
-  %104 = fcmp olt float %.3262, %103
+  %104 = fcmp olt float %.4263, %103
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %102
-  store float %.3262, ptr %4, align 4
+  store float %.4263, ptr %4, align 4
   br label %106
 
 106:                                              ; preds = %105, %102
   %107 = getelementptr i8, ptr %73, i64 -4
   %108 = load float, ptr %107, align 4
-  %109 = fcmp olt float %.3, %108
-  %110 = select i1 %109, float %.3, float %108
+  %109 = fcmp olt float %.4, %108
+  %110 = select i1 %109, float %.4, float %108
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
   %.not = icmp sgt i64 %indvars.iv.next, %72
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %106, %66, %70, %33
-  %.4263 = phi float [ %25, %33 ], [ %25, %70 ], [ %.1260, %66 ], [ %.3262, %106 ]
-  %.4 = phi float [ %23, %33 ], [ %23, %70 ], [ %69, %66 ], [ %110, %106 ]
-  store float %.4263, ptr %9, align 4
+  %.2261 = phi float [ %25, %33 ], [ %25, %70 ], [ %.1260, %66 ], [ %.4263, %106 ]
+  %.2 = phi float [ %23, %33 ], [ %23, %70 ], [ %69, %66 ], [ %110, %106 ]
+  store float %.2261, ptr %9, align 4
   %111 = load float, ptr %4, align 4
   store float %111, ptr %6, align 4
   %112 = load i32, ptr %1, align 4
@@ -253,7 +253,7 @@ define void @slasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 154:                                              ; preds = %140, %146, %130
   %155 = phi float [ %.pre, %130 ], [ %145, %140 ], [ %153, %146 ]
-  %.5 = phi float [ 0.000000e+00, %130 ], [ %.4, %140 ], [ %.4, %146 ]
+  %.5 = phi float [ 0.000000e+00, %130 ], [ %.2, %140 ], [ %.2, %146 ]
   %156 = load float, ptr %4, align 4
   %157 = fcmp olt float %155, %156
   br i1 %157, label %158, label %159

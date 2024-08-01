@@ -5836,56 +5836,56 @@ _ZN7QStringD2Ev.exit116.sink.split:               ; preds = %_ZN17QArrayDataPoin
 
 _ZN7QStringD2Ev.exit116:                          ; preds = %_ZN7QStringD2Ev.exit116.sink.split, %61, %84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170, %_ZN7QStringD2Ev.exit168, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142, %_ZN7QStringD2Ev.exit140, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114, %_ZN7QStringD2Ev.exit112, %150, %_ZN7QStringD2Ev.exit100, %1
   %.047 = phi i1 [ false, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ false, %150 ], [ %96, %_ZN7QStringD2Ev.exit112 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ false, %_ZN7QStringD2Ev.exit140 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ false, %_ZN7QStringD2Ev.exit168 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ %.047.ph, %_ZN7QStringD2Ev.exit116.sink.split ]
-  %.246.shrunk = phi i1 [ %89, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ %89, %150 ], [ %89, %_ZN7QStringD2Ev.exit112 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ %89, %_ZN7QStringD2Ev.exit140 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %89, %_ZN7QStringD2Ev.exit168 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ %89, %_ZN7QStringD2Ev.exit116.sink.split ]
-  %.131 = phi i1 [ %96, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ %96, %150 ], [ %96, %_ZN7QStringD2Ev.exit112 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ %96, %_ZN7QStringD2Ev.exit140 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %96, %_ZN7QStringD2Ev.exit168 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ %96, %_ZN7QStringD2Ev.exit116.sink.split ]
-  %.128 = phi i1 [ true, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ true, %150 ], [ true, %_ZN7QStringD2Ev.exit112 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ true, %_ZN7QStringD2Ev.exit140 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ true, %_ZN7QStringD2Ev.exit168 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ true, %_ZN7QStringD2Ev.exit116.sink.split ]
-  %.1 = phi i1 [ %65, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ %65, %150 ], [ %65, %_ZN7QStringD2Ev.exit112 ], [ %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ %65, %_ZN7QStringD2Ev.exit140 ], [ %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %65, %_ZN7QStringD2Ev.exit168 ], [ %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ %65, %84 ], [ false, %61 ], [ %65, %_ZN7QStringD2Ev.exit116.sink.split ]
+  %.044.shrunk = phi i1 [ %89, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ %89, %150 ], [ %89, %_ZN7QStringD2Ev.exit112 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ %89, %_ZN7QStringD2Ev.exit140 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %89, %_ZN7QStringD2Ev.exit168 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ %89, %_ZN7QStringD2Ev.exit116.sink.split ]
+  %.030 = phi i1 [ %96, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ %96, %150 ], [ %96, %_ZN7QStringD2Ev.exit112 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ %96, %_ZN7QStringD2Ev.exit140 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %96, %_ZN7QStringD2Ev.exit168 ], [ %96, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ %96, %_ZN7QStringD2Ev.exit116.sink.split ]
+  %.027 = phi i1 [ true, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ true, %150 ], [ true, %_ZN7QStringD2Ev.exit112 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ true, %_ZN7QStringD2Ev.exit140 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ true, %_ZN7QStringD2Ev.exit168 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ false, %84 ], [ false, %61 ], [ true, %_ZN7QStringD2Ev.exit116.sink.split ]
+  %.0 = phi i1 [ %65, %_ZN7QStringD2Ev.exit100 ], [ false, %1 ], [ %65, %150 ], [ %65, %_ZN7QStringD2Ev.exit112 ], [ %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i114 ], [ %65, %_ZN7QStringD2Ev.exit140 ], [ %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %65, %_ZN7QStringD2Ev.exit168 ], [ %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i170 ], [ %65, %84 ], [ false, %61 ], [ %65, %_ZN7QStringD2Ev.exit116.sink.split ]
   %281 = load ptr, ptr %32, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 104
   %283 = load ptr, ptr %282, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %283, i1 noundef zeroext %.1)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %283, i1 noundef zeroext %.0)
           to label %284 unwind label %72
 
 284:                                              ; preds = %_ZN7QStringD2Ev.exit116
   %285 = load ptr, ptr %32, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 128
   %287 = load ptr, ptr %286, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %287, i1 noundef zeroext %.1)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %287, i1 noundef zeroext %.0)
           to label %288 unwind label %72
 
 288:                                              ; preds = %284
   %289 = load ptr, ptr %32, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 120
   %291 = load ptr, ptr %290, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %291, i1 noundef zeroext %.1)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %291, i1 noundef zeroext %.0)
           to label %292 unwind label %72
 
 292:                                              ; preds = %288
   %293 = load ptr, ptr %32, align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 160
   %295 = load ptr, ptr %294, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %295, i1 noundef zeroext %.128)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %295, i1 noundef zeroext %.027)
           to label %296 unwind label %72
 
 296:                                              ; preds = %292
   %297 = load ptr, ptr %32, align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 168
   %299 = load ptr, ptr %298, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %299, i1 noundef zeroext %.128)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %299, i1 noundef zeroext %.027)
           to label %300 unwind label %72
 
 300:                                              ; preds = %296
   %301 = load ptr, ptr %32, align 8
   %302 = getelementptr inbounds i8, ptr %301, i64 184
   %303 = load ptr, ptr %302, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %303, i1 noundef zeroext %.131)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %303, i1 noundef zeroext %.030)
           to label %304 unwind label %72
 
 304:                                              ; preds = %300
   %305 = load ptr, ptr %32, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 192
   %307 = load ptr, ptr %306, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %307, i1 noundef zeroext %.131)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %307, i1 noundef zeroext %.030)
           to label %308 unwind label %72
 
 308:                                              ; preds = %304
@@ -5900,14 +5900,14 @@ _ZN7QStringD2Ev.exit116:                          ; preds = %_ZN7QStringD2Ev.exi
   %314 = load ptr, ptr %32, align 8
   %315 = getelementptr inbounds i8, ptr %314, i64 216
   %316 = load ptr, ptr %315, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %316, i1 noundef zeroext %.246.shrunk)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %316, i1 noundef zeroext %.044.shrunk)
           to label %317 unwind label %72
 
 317:                                              ; preds = %313
   %318 = load ptr, ptr %32, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 224
   %320 = load ptr, ptr %319, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %320, i1 noundef zeroext %.246.shrunk)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %320, i1 noundef zeroext %.044.shrunk)
           to label %321 unwind label %72
 
 321:                                              ; preds = %317
@@ -12540,8 +12540,8 @@ _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ;
 .lr.ph:                                           ; preds = %62, %.lr.ph
   %.02988 = phi i64 [ %70, %.lr.ph ], [ 0, %62 ]
   %.sroa.0.087 = phi ptr [ %67, %.lr.ph ], [ %48, %62 ]
-  %.sroa.041.286 = phi ptr [ %66, %.lr.ph ], [ %64, %62 ]
-  %66 = getelementptr i8, ptr %.sroa.041.286, i64 -8
+  %.sroa.041.386 = phi ptr [ %66, %.lr.ph ], [ %64, %62 ]
+  %66 = getelementptr i8, ptr %.sroa.041.386, i64 -8
   %67 = getelementptr i8, ptr %.sroa.0.087, i64 -8
   %68 = load ptr, ptr %66, align 8
   %69 = load ptr, ptr %67, align 8
@@ -12552,13 +12552,13 @@ _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ;
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62
-  %.sroa.041.2.lcssa = phi ptr [ %64, %62 ], [ %.sroa.041.0, %.lr.ph ]
+  %.sroa.041.3.lcssa = phi ptr [ %64, %62 ], [ %.sroa.041.0, %.lr.ph ]
   %71 = srem i64 %.078, %25
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %_ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %44
-  %.sroa.041.0.be = phi ptr [ %.sroa.041.1.lcssa, %44 ], [ %.sroa.041.2.lcssa, %._crit_edge ]
+  %.sroa.041.0.be = phi ptr [ %.sroa.041.1.lcssa, %44 ], [ %.sroa.041.3.lcssa, %._crit_edge ]
   %.079.be = phi i64 [ %45, %44 ], [ %71, %._crit_edge ]
   %.078.be = phi i64 [ %.079, %44 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !91

@@ -1410,15 +1410,15 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   br label %106
 
 106:                                              ; preds = %100, %95
-  %.057 = phi i64 [ %105, %100 ], [ 0, %95 ]
+  %.1 = phi i64 [ %105, %100 ], [ 0, %95 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %.0.i, ptr %107, align 8
   br label %108
 
 108:                                              ; preds = %106, %61
-  %.1 = phi i64 [ %.057, %106 ], [ 0, %61 ]
+  %.057 = phi i64 [ %.1, %106 ], [ 0, %61 ]
   store i32 %.056, ptr %17, align 8
-  %109 = add i64 %.1, 24
+  %109 = add i64 %.057, 24
   %110 = tail call noalias ptr @calloc(i64 noundef %109, i64 noundef 1) #12
   %111 = getelementptr i8, ptr %2, i64 216
   %.val = load i32, ptr %111, align 8
@@ -1434,14 +1434,14 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %118 = load i32, ptr %54, align 4
   %119 = getelementptr inbounds i8, ptr %110, i64 12
   store i32 %118, ptr %119, align 4
-  %.not61 = icmp eq i64 %.1, 0
+  %.not61 = icmp eq i64 %.057, 0
   br i1 %.not61, label %126, label %120
 
 120:                                              ; preds = %108
   %121 = getelementptr inbounds i8, ptr %110, i64 24
   %122 = getelementptr inbounds i8, ptr %0, i64 104
   %123 = load ptr, ptr %122, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr align 1 %123, i64 %.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr align 1 %123, i64 %.057, i1 false)
   %124 = ptrtoint ptr %3 to i64
   %125 = getelementptr inbounds i8, ptr %110, i64 16
   store i64 %124, ptr %125, align 8

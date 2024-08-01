@@ -4410,13 +4410,13 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
 
 38:                                               ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
-  %.0153236 = phi i32 [ 0, %.lr.ph ], [ %.2, %144 ]
+  %.0153236 = phi i32 [ 0, %.lr.ph ], [ %.1, %144 ]
   %.0154235 = phi i32 [ 0, %.lr.ph ], [ %.1155, %144 ]
   %.0157234 = phi i32 [ 0, %.lr.ph ], [ %.1158, %144 ]
-  %.0163232 = phi i32 [ 0, %.lr.ph ], [ %.2165, %144 ]
-  %.0166231 = phi ptr [ null, %.lr.ph ], [ %.2168, %144 ]
-  %.0169230 = phi ptr [ null, %.lr.ph ], [ %.2171, %144 ]
-  %.0172229 = phi i1 [ true, %.lr.ph ], [ %.2174, %144 ]
+  %.0163232 = phi i32 [ 0, %.lr.ph ], [ %.1164, %144 ]
+  %.0166231 = phi ptr [ null, %.lr.ph ], [ %.1167, %144 ]
+  %.0169230 = phi ptr [ null, %.lr.ph ], [ %.1170, %144 ]
+  %.0172229 = phi i1 [ true, %.lr.ph ], [ %.1173, %144 ]
   %.0175228 = phi i1 [ false, %.lr.ph ], [ %.1176, %144 ]
   %.0177227 = phi i1 [ false, %.lr.ph ], [ %.1178, %144 ]
   %39 = load ptr, ptr %37, align 8
@@ -4512,10 +4512,10 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
   unreachable
 
 92:                                               ; preds = %86, %71
-  %.1170 = phi ptr [ %76, %71 ], [ %.0169230, %86 ]
-  %.1167 = phi ptr [ %74, %71 ], [ %.0166231, %86 ]
-  %.1164 = phi i32 [ %62, %71 ], [ %.0163232, %86 ]
-  %.1 = phi i32 [ %66, %71 ], [ %.0153236, %86 ]
+  %.2171 = phi ptr [ %76, %71 ], [ %.0169230, %86 ]
+  %.2168 = phi ptr [ %74, %71 ], [ %.0166231, %86 ]
+  %.2165 = phi i32 [ %62, %71 ], [ %.0163232, %86 ]
+  %.2 = phi i32 [ %66, %71 ], [ %.0153236, %86 ]
   %93 = getelementptr inbounds i8, ptr %48, i64 8
   %94 = load i32, ptr %93, align 4
   %.not191 = icmp eq i32 %94, 0
@@ -4599,13 +4599,13 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
 144:                                              ; preds = %60, %38, %136
   %.1178 = phi i1 [ %142, %136 ], [ %.0177227, %38 ], [ %.0177227, %60 ]
   %.1176 = phi i1 [ %.0175228, %136 ], [ true, %38 ], [ true, %60 ]
-  %.2174 = phi i1 [ false, %136 ], [ %.0172229, %38 ], [ %.0172229, %60 ]
-  %.2171 = phi ptr [ %.1170, %136 ], [ %.0169230, %38 ], [ %.0169230, %60 ]
-  %.2168 = phi ptr [ %.1167, %136 ], [ %.0166231, %38 ], [ %.0166231, %60 ]
-  %.2165 = phi i32 [ %.1164, %136 ], [ %.0163232, %38 ], [ %.0163232, %60 ]
+  %.1173 = phi i1 [ false, %136 ], [ %.0172229, %38 ], [ %.0172229, %60 ]
+  %.1170 = phi ptr [ %.2171, %136 ], [ %.0169230, %38 ], [ %.0169230, %60 ]
+  %.1167 = phi ptr [ %.2168, %136 ], [ %.0166231, %38 ], [ %.0166231, %60 ]
+  %.1164 = phi i32 [ %.2165, %136 ], [ %.0163232, %38 ], [ %.0163232, %60 ]
   %.1158 = phi i32 [ %143, %136 ], [ %.0157234, %38 ], [ %.0157234, %60 ]
   %.1155 = phi i32 [ %130, %136 ], [ %.0154235, %38 ], [ %.0154235, %60 ]
-  %.2 = phi i32 [ %.1, %136 ], [ %.0153236, %38 ], [ %.0153236, %60 ]
+  %.1 = phi i32 [ %.2, %136 ], [ %.0153236, %38 ], [ %.0153236, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !15
@@ -4614,7 +4614,7 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
   br i1 %.1176, label %145, label %153
 
 145:                                              ; preds = %._crit_edge
-  %146 = icmp eq i32 %.2, 0
+  %146 = icmp eq i32 %.1, 0
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %145
@@ -4632,21 +4632,21 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
 153:                                              ; preds = %._crit_edge
   store i32 %.1158, ptr %3, align 16
   store i32 1, ptr %4, align 16
-  %154 = icmp sgt i32 %.2, 1
+  %154 = icmp sgt i32 %.1, 1
   br i1 %154, label %.lr.ph245.preheader, label %._crit_edge246
 
 .lr.ph245.preheader:                              ; preds = %153
-  %wide.trip.count260 = zext nneg i32 %.2 to i64
+  %wide.trip.count260 = zext nneg i32 %.1 to i64
   br label %.lr.ph245
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
   %indvars.iv257 = phi i64 [ 1, %.lr.ph245.preheader ], [ %indvars.iv.next258, %.lr.ph245 ]
   %155 = add nsw i64 %indvars.iv257, -1
-  %156 = getelementptr i32, ptr %.2168, i64 %155
+  %156 = getelementptr i32, ptr %.1167, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = getelementptr [6 x i32], ptr %3, i64 0, i64 %indvars.iv257
   store i32 %157, ptr %158, align 4
-  %159 = getelementptr i32, ptr %.2171, i64 %155
+  %159 = getelementptr i32, ptr %.1170, i64 %155
   %160 = load i32, ptr %159, align 4
   %161 = getelementptr [6 x i32], ptr %4, i64 0, i64 %indvars.iv257
   store i32 %160, ptr %161, align 4
@@ -4658,7 +4658,7 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
   %.0177.lcssa279294 = phi i1 [ false, %.thread ], [ %.1178, %153 ], [ %.1178, %.lr.ph245 ]
   %.0157.lcssa282293 = phi i32 [ 0, %.thread ], [ %.1158, %153 ], [ %.1158, %.lr.ph245 ]
   %.0154.lcssa283292 = phi i32 [ 0, %.thread ], [ %.1155, %153 ], [ %.1155, %.lr.ph245 ]
-  %.0153.lcssa284291 = phi i32 [ 0, %.thread ], [ %.2, %153 ], [ %.2, %.lr.ph245 ]
+  %.0153.lcssa284291 = phi i32 [ 0, %.thread ], [ %.1, %153 ], [ %.1, %.lr.ph245 ]
   %162 = call i32 @ArrayGetNItems(i32 noundef %.0153.lcssa284291, ptr noundef nonnull %3) #15
   call void @ArrayCheckBounds(i32 noundef %.0153.lcssa284291, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %163 = shl i32 %.0153.lcssa284291, 3
@@ -5806,7 +5806,7 @@ define dso_local void @ExecEvalScalarArrayOp(ptr nocapture readnone %0, ptr noun
   %.087120 = phi i32 [ 1, %.lr.ph ], [ %.1, %154 ]
   %.088119 = phi ptr [ %73, %.lr.ph ], [ %.189, %154 ]
   %.090117 = phi ptr [ %74, %.lr.ph ], [ %.191135140, %154 ]
-  %.092116 = phi i8 [ 0, %.lr.ph ], [ %.193, %154 ]
+  %.092116 = phi i8 [ 0, %.lr.ph ], [ %.2, %154 ]
   %.not105 = icmp eq ptr %.088119, null
   br i1 %.not105, label %89, label %84
 
@@ -5966,7 +5966,7 @@ fetch_att.exit.thread:                            ; preds = %111, %127, %fetch_a
 
 154:                                              ; preds = %.thread137, %147, %152, %153
   %.191135140 = phi ptr [ %.191136, %152 ], [ %.191136, %153 ], [ %.191136, %147 ], [ %.090117, %.thread137 ]
-  %.193 = phi i8 [ %.092116, %152 ], [ %.092116, %153 ], [ 1, %147 ], [ 1, %.thread137 ]
+  %.2 = phi i8 [ %.092116, %152 ], [ %.092116, %153 ], [ 1, %147 ], [ 1, %.thread137 ]
   %155 = shl i32 %.087120, 1
   %156 = icmp eq i32 %155, 256
   %spec.select.idx = zext i1 %156 to i64
@@ -5979,12 +5979,12 @@ fetch_att.exit.thread:                            ; preds = %111, %127, %fetch_a
   br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %154, %152, %153
-  %.2.ph = phi i8 [ %.193, %154 ], [ 0, %152 ], [ 0, %153 ]
+  %.193.ph = phi i8 [ %.2, %154 ], [ 0, %152 ], [ 0, %153 ]
   %.085.ph = phi i64 [ %59, %154 ], [ 1, %152 ], [ 0, %153 ]
   %158 = load ptr, ptr %19, align 8
   store i64 %.085.ph, ptr %158, align 8
   %159 = load ptr, ptr %14, align 8
-  %160 = and i8 %.2.ph, 1
+  %160 = and i8 %.193.ph, 1
   store i8 %160, ptr %159, align 1
   br label %161
 

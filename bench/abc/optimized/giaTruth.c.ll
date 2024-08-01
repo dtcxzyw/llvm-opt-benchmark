@@ -3589,8 +3589,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 .lr.ph:                                           ; preds = %63, %539
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %539 ], [ 0, %63 ]
   %.val105209 = phi ptr [ %.val105, %539 ], [ %.val105204, %63 ]
-  %.079207 = phi i32 [ %.3, %539 ], [ -1, %63 ]
-  %.082206 = phi i32 [ %.385, %539 ], [ -1, %63 ]
+  %.079207 = phi i32 [ %.180, %539 ], [ -1, %63 ]
+  %.082206 = phi i32 [ %.183, %539 ], [ -1, %63 ]
   %.val96 = load ptr, ptr %64, align 8
   %68 = getelementptr i8, ptr %.val105209, i64 8
   %.val97.val = load ptr, ptr %68, align 8
@@ -3699,9 +3699,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %119
 
 119:                                              ; preds = %117, %115
-  %.180 = phi i32 [ %.val106, %117 ], [ %.079207, %115 ]
+  %.281 = phi i32 [ %.val106, %117 ], [ %.079207, %115 ]
   %120 = trunc nuw nsw i64 %indvars.iv234 to i32
-  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.180, i32 noundef %120)
+  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.281, i32 noundef %120)
   br label %539
 
 121:                                              ; preds = %109
@@ -3719,9 +3719,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %127
 
 127:                                              ; preds = %125, %123
-  %.183 = phi i32 [ %.val107, %125 ], [ %.082206, %123 ]
+  %.284 = phi i32 [ %.val107, %125 ], [ %.082206, %123 ]
   %128 = trunc nuw nsw i64 %indvars.iv234 to i32
-  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.183, i32 noundef %128)
+  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.284, i32 noundef %128)
   br label %539
 
 129:                                              ; preds = %121
@@ -4021,9 +4021,9 @@ Abc_TtMinimumBase.exit.thread:                    ; preds = %129, %.lr.ph.split.
   br label %242
 
 242:                                              ; preds = %240, %Abc_TtMinimumBase.exit.thread
-  %.281 = phi i32 [ %.val108, %240 ], [ %.079207, %Abc_TtMinimumBase.exit.thread ]
+  %.3 = phi i32 [ %.val108, %240 ], [ %.079207, %Abc_TtMinimumBase.exit.thread ]
   %243 = trunc nuw nsw i64 %indvars.iv234 to i32
-  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.281, i32 noundef %243)
+  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.3, i32 noundef %243)
   br label %539
 
 244:                                              ; preds = %Abc_TtMinimumBase.exit
@@ -4036,9 +4036,9 @@ Abc_TtMinimumBase.exit.thread:                    ; preds = %129, %.lr.ph.split.
   br label %248
 
 248:                                              ; preds = %246, %244
-  %.284 = phi i32 [ %.val109, %246 ], [ %.082206, %244 ]
+  %.385 = phi i32 [ %.val109, %246 ], [ %.082206, %244 ]
   %249 = trunc nuw nsw i64 %indvars.iv234 to i32
-  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.284, i32 noundef %249)
+  call fastcc void @Vec_WecPush(ptr noundef nonnull %8, i32 noundef %.385, i32 noundef %249)
   br label %539
 
 250:                                              ; preds = %Abc_TtMinimumBase.exit
@@ -4636,8 +4636,8 @@ Vec_MemHashInsert.exit._crit_edge:                ; preds = %Vec_MemHashInsert.e
   br label %539
 
 539:                                              ; preds = %534, %248, %242, %127, %119, %Vec_IntPush.exit
-  %.385 = phi i32 [ %.082206, %Vec_IntPush.exit ], [ %.082206, %119 ], [ %.183, %127 ], [ %.082206, %242 ], [ %.284, %248 ], [ %.082206, %534 ]
-  %.3 = phi i32 [ %.079207, %Vec_IntPush.exit ], [ %.180, %119 ], [ %.079207, %127 ], [ %.281, %242 ], [ %.079207, %248 ], [ %.079207, %534 ]
+  %.183 = phi i32 [ %.082206, %Vec_IntPush.exit ], [ %.082206, %119 ], [ %.284, %127 ], [ %.082206, %242 ], [ %.385, %248 ], [ %.082206, %534 ]
+  %.180 = phi i32 [ %.079207, %Vec_IntPush.exit ], [ %.281, %119 ], [ %.079207, %127 ], [ %.3, %242 ], [ %.079207, %248 ], [ %.079207, %534 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %.val104 = load i32, ptr %65, align 8
   %.val105 = load ptr, ptr %16, align 8

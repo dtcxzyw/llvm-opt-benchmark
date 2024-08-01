@@ -388,14 +388,14 @@ edid_desc_next.exit158:                           ; preds = %if.end.i140, %if.th
   br label %for.body.i
 
 while.cond.preheader.i:                           ; preds = %for.inc.i
-  %cmp4937.i = icmp slt i32 %std.2.i, 54
+  %cmp4937.i = icmp slt i32 %std.1.i, 54
   br i1 %cmp4937.i, label %while.body.preheader.i, label %if.end.i182
 
 while.body.preheader.i:                           ; preds = %while.cond.preheader.i
-  %28 = sext i32 %std.2.i to i64
+  %28 = sext i32 %std.1.i to i64
   %scevgep.i = getelementptr i8, ptr %edid, i64 %28
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %std.2.i, i32 52)
-  %reass.sub = sub i32 %smax.i, %std.2.i
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %std.1.i, i32 52)
+  %reass.sub = sub i32 %smax.i, %std.1.i
   %29 = add i32 %reass.sub, 1
   %30 = and i32 %29, -2
   %31 = zext i32 %30 to i64
@@ -405,7 +405,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
 
 for.body.i:                                       ; preds = %for.inc.i, %edid_desc_next.exit158
   %indvars.iv.i162 = phi i64 [ 0, %edid_desc_next.exit158 ], [ %indvars.iv.next.i168, %for.inc.i ]
-  %std.035.i = phi i32 [ 38, %edid_desc_next.exit158 ], [ %std.2.i, %for.inc.i ]
+  %std.035.i = phi i32 [ 38, %edid_desc_next.exit158 ], [ %std.1.i, %for.inc.i ]
   %add.ptr.i163 = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162
   br i1 %tobool.not.i159, label %lor.lhs.false.i, label %land.lhs.true.i
 
@@ -518,7 +518,7 @@ if.then29.i:                                      ; preds = %if.else24.i
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then29.i, %if.else24.i, %41, %if.end25.i.i, %if.else16.i.i, %if.then9.i
-  %std.1.i = phi i32 [ %std.035.i, %if.then9.i ], [ %std.035.i, %if.then29.i ], [ %std.035.i, %if.else24.i ], [ %add.i170, %41 ], [ %std.035.i, %if.else16.i.i ], [ %std.035.i, %if.end25.i.i ]
+  %std.2.i = phi i32 [ %std.035.i, %if.then9.i ], [ %std.035.i, %if.then29.i ], [ %std.035.i, %if.else24.i ], [ %add.i170, %41 ], [ %std.035.i, %if.else16.i.i ], [ %std.035.i, %if.end25.i.i ]
   br i1 %tobool41.not.i, label %for.inc.i, label %land.lhs.true42.i
 
 land.lhs.true42.i:                                ; preds = %if.end40.i
@@ -542,7 +542,7 @@ if.then45.i:                                      ; preds = %land.lhs.true42.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then45.i, %land.lhs.true42.i, %if.end40.i, %land.lhs.true5.i, %land.lhs.true.i
-  %std.2.i = phi i32 [ %std.035.i, %land.lhs.true.i ], [ %std.035.i, %land.lhs.true5.i ], [ %std.1.i, %if.then45.i ], [ %std.1.i, %land.lhs.true42.i ], [ %std.1.i, %if.end40.i ]
+  %std.1.i = phi i32 [ %std.035.i, %land.lhs.true.i ], [ %std.035.i, %land.lhs.true5.i ], [ %std.2.i, %if.then45.i ], [ %std.2.i, %land.lhs.true42.i ], [ %std.2.i, %if.end40.i ]
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i162, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, 22
   br i1 %exitcond.not.i169, label %while.cond.preheader.i, label %for.body.i, !llvm.loop !7

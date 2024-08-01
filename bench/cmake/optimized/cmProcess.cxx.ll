@@ -1275,7 +1275,7 @@ _ZN9cmProcess10StartTimerEv.exit:                 ; preds = %306, %314
   br label %319
 
 319:                                              ; preds = %_ZN9cmProcess10StartTimerEv.exit, %300, %270
-  %.0 = phi i1 [ false, %270 ], [ false, %300 ], [ true, %_ZN9cmProcess10StartTimerEv.exit ]
+  %.3 = phi i1 [ false, %270 ], [ false, %300 ], [ true, %_ZN9cmProcess10StartTimerEv.exit ]
   %320 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %320, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %321
@@ -1294,7 +1294,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %319, %321
   br label %324
 
 323:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %174
-  %.1 = phi i1 [ false, %174 ], [ %.0, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
+  %.2 = phi i1 [ false, %174 ], [ %.3, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
   call void @_ZN2cm19uv_handle_ptr_base_I9uv_pipe_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
   call void @_ZN2cm19uv_handle_ptr_base_I9uv_pipe_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   br label %326
@@ -1310,7 +1310,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %319, %321
   br label %327
 
 326:                                              ; preds = %323, %143
-  %.2 = phi i1 [ false, %143 ], [ %.1, %323 ]
+  %.1 = phi i1 [ false, %143 ], [ %.2, %323 ]
   call void @_ZN2cm19uv_handle_ptr_base_I10uv_timer_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %328
 
@@ -1320,8 +1320,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %319, %321
   resume { ptr, i32 } %.pn53.pn
 
 328:                                              ; preds = %3, %326
-  %.3 = phi i1 [ %.2, %326 ], [ false, %3 ]
-  ret i1 %.3
+  %.0 = phi i1 [ %.1, %326 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind

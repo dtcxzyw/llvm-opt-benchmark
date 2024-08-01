@@ -2512,7 +2512,7 @@ _ZN5cmsys13RegExpCompile7regnodeEc.exit52:        ; preds = %52, %56
 _ZN5cmsys13RegExpCompile7regnodeEc.exit53:        ; preds = %68, %64, %_ZN5cmsys13RegExpCompile7regnodeEc.exit52
   %72 = phi ptr [ %60, %_ZN5cmsys13RegExpCompile7regnodeEc.exit52 ], [ @_ZN5cmsysL8regdummyE, %64 ], [ %71, %68 ]
   %73 = phi ptr [ %62, %_ZN5cmsys13RegExpCompile7regnodeEc.exit52 ], [ %5, %64 ], [ %.pre93, %68 ]
-  %.032 = phi ptr [ %49, %_ZN5cmsys13RegExpCompile7regnodeEc.exit52 ], [ @_ZN5cmsysL8regdummyE, %64 ], [ %49, %68 ]
+  %.133 = phi ptr [ %49, %_ZN5cmsys13RegExpCompile7regnodeEc.exit52 ], [ @_ZN5cmsysL8regdummyE, %64 ], [ %49, %68 ]
   %74 = load i8, ptr %73, align 1
   switch i8 %74, label %_ZN5cmsys13RegExpCompile4regcEc.exit [
     i8 93, label %75
@@ -2935,7 +2935,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit69:           ; preds = %224, %227
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %234, %232, %27, %23, %15, %11, %_ZN5cmsys13RegExpCompile7regnodeEc.exit51, %140, %147, %_ZN5cmsys13RegExpCompile4regcEc.exit66, %144, %187, %157, %153, %152, %139, %112
-  %.0 = phi ptr [ null, %187 ], [ null, %157 ], [ null, %153 ], [ null, %152 ], [ null, %112 ], [ null, %139 ], [ null, %144 ], [ %160, %_ZN5cmsys13RegExpCompile4regcEc.exit66 ], [ %145, %147 ], [ %.032, %140 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit51 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ %204, %232 ], [ %204, %234 ]
+  %.0 = phi ptr [ null, %187 ], [ null, %157 ], [ null, %153 ], [ null, %152 ], [ null, %112 ], [ null, %139 ], [ null, %144 ], [ %160, %_ZN5cmsys13RegExpCompile4regcEc.exit66 ], [ %145, %147 ], [ %.133, %140 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit51 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ %204, %232 ], [ %204, %234 ]
   ret ptr %.0
 }
 
@@ -3632,42 +3632,42 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   br label %.critedge
 
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
-  %.02454 = phi ptr [ %17, %.lr.ph55 ], [ %3, %.preheader ]
-  %.02553 = phi i32 [ %16, %.lr.ph55 ], [ 0, %.preheader ]
-  %16 = add nuw nsw i32 %.02553, 1
-  %17 = getelementptr inbounds i8, ptr %.02454, i64 1
+  %.154 = phi ptr [ %17, %.lr.ph55 ], [ %3, %.preheader ]
+  %.12653 = phi i32 [ %16, %.lr.ph55 ], [ 0, %.preheader ]
+  %16 = add nuw nsw i32 %.12653, 1
+  %17 = getelementptr inbounds i8, ptr %.154, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %8, %18
   br i1 %19, label %.lr.ph55, label %.critedge, !llvm.loop !27
 
 .lr.ph47:                                         ; preds = %.preheader33, %23
   %20 = phi i8 [ %26, %23 ], [ %7, %.preheader33 ]
-  %.146 = phi ptr [ %25, %23 ], [ %3, %.preheader33 ]
-  %.12645 = phi i32 [ %24, %23 ], [ 0, %.preheader33 ]
+  %.246 = phi ptr [ %25, %23 ], [ %3, %.preheader33 ]
+  %.22745 = phi i32 [ %24, %23 ], [ 0, %.preheader33 ]
   %21 = sext i8 %20 to i32
   %22 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %21) #16
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %.critedge, label %23
 
 23:                                               ; preds = %.lr.ph47
-  %24 = add nuw nsw i32 %.12645, 1
-  %25 = getelementptr inbounds i8, ptr %.146, i64 1
+  %24 = add nuw nsw i32 %.22745, 1
+  %25 = getelementptr inbounds i8, ptr %.246, i64 1
   %26 = load i8, ptr %25, align 1
   %.not31 = icmp eq i8 %26, 0
   br i1 %.not31, label %.critedge, label %.lr.ph47, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader35, %31
   %27 = phi i8 [ %34, %31 ], [ %6, %.preheader35 ]
-  %.239 = phi ptr [ %33, %31 ], [ %3, %.preheader35 ]
-  %.22738 = phi i32 [ %32, %31 ], [ 0, %.preheader35 ]
+  %.339 = phi ptr [ %33, %31 ], [ %3, %.preheader35 ]
+  %.32838 = phi i32 [ %32, %31 ], [ 0, %.preheader35 ]
   %28 = sext i8 %27 to i32
   %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %28) #16
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %.lr.ph
-  %32 = add nuw nsw i32 %.22738, 1
-  %33 = getelementptr inbounds i8, ptr %.239, i64 1
+  %32 = add nuw nsw i32 %.32838, 1
+  %33 = getelementptr inbounds i8, ptr %.339, i64 1
   %34 = load i8, ptr %33, align 1
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !29
@@ -3677,13 +3677,13 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   br label %36
 
 .critedge:                                        ; preds = %31, %.lr.ph, %23, %.lr.ph47, %.lr.ph55, %.preheader35, %.preheader33, %.preheader, %11
-  %.328 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ 0, %.preheader35 ], [ %16, %.lr.ph55 ], [ %24, %23 ], [ %.12645, %.lr.ph47 ], [ %32, %31 ], [ %.22738, %.lr.ph ]
-  %.3 = phi ptr [ %15, %11 ], [ %3, %.preheader ], [ %3, %.preheader33 ], [ %3, %.preheader35 ], [ %17, %.lr.ph55 ], [ %25, %23 ], [ %.146, %.lr.ph47 ], [ %33, %31 ], [ %.239, %.lr.ph ]
-  store ptr %.3, ptr %0, align 8
+  %.025 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ 0, %.preheader35 ], [ %16, %.lr.ph55 ], [ %24, %23 ], [ %.22745, %.lr.ph47 ], [ %32, %31 ], [ %.32838, %.lr.ph ]
+  %.024 = phi ptr [ %15, %11 ], [ %3, %.preheader ], [ %3, %.preheader33 ], [ %3, %.preheader35 ], [ %17, %.lr.ph55 ], [ %25, %23 ], [ %.246, %.lr.ph47 ], [ %33, %31 ], [ %.339, %.lr.ph ]
+  store ptr %.024, ptr %0, align 8
   br label %36
 
 36:                                               ; preds = %.critedge, %35
-  %.0 = phi i32 [ 0, %35 ], [ %.328, %.critedge ]
+  %.0 = phi i32 [ 0, %35 ], [ %.025, %.critedge ]
   ret i32 %.0
 }
 

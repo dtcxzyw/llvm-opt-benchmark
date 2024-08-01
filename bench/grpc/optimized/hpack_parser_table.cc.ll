@@ -8958,7 +8958,7 @@ if.end15.i:                                       ; preds = %if.end9.i
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit:    ; preds = %if.then.i, %.noexc, %if.then13.i, %.noexc5
-  %ref.tmp2.sroa.0.0 = phi ptr [ %3, %if.then13.i ], [ %ref.tmp2.sroa.0.0.copyload17, %.noexc5 ], [ %ref.tmp2.sroa.0.0.copyload, %.noexc ], [ %3, %if.then.i ]
+  %ref.tmp2.sroa.0.1 = phi ptr [ %3, %if.then13.i ], [ %ref.tmp2.sroa.0.0.copyload17, %.noexc5 ], [ %ref.tmp2.sroa.0.0.copyload, %.noexc ], [ %3, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16.i)
   br label %_ZN9grpc_core5SliceD2Ev.exit15
@@ -8971,12 +8971,12 @@ cond.false:                                       ; preds = %invoke.cont
   br label %_ZN9grpc_core5SliceD2Ev.exit15
 
 _ZN9grpc_core5SliceD2Ev.exit15:                   ; preds = %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit, %cond.false
-  %ref.tmp2.sroa.0.1 = phi ptr [ %ref.tmp2.sroa.0.0, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ], [ %ref.tmp.i6.sroa.0.0.copyload, %cond.false ]
+  %ref.tmp2.sroa.0.0 = phi ptr [ %ref.tmp2.sroa.0.1, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ], [ %ref.tmp.i6.sroa.0.0.copyload, %cond.false ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %second.i = getelementptr inbounds i8, ptr %call, i64 32
   %ref.tmp.i1.i.sroa.4.0.second.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1.i.sroa.4.0.second.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.sroa.8, i64 24, i1 false)
-  store ptr %ref.tmp2.sroa.0.1, ptr %second.i, align 8
+  store ptr %ref.tmp2.sroa.0.0, ptr %second.i, align 8
   store ptr %call, ptr %value_, align 8
   ret void
 

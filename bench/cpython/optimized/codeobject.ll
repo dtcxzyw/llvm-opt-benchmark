@@ -7385,7 +7385,7 @@ if.end38:                                         ; preds = %land.lhs.true34, %i
 
 if.end42:                                         ; preds = %if.end38, %if.end28
   %noptargs.0 = phi i64 [ %dec, %if.end38 ], [ %add, %if.end28 ]
-  %co_argcount.0 = phi i32 [ %call32, %if.end38 ], [ %1, %if.end28 ]
+  %co_argcount.1 = phi i32 [ %call32, %if.end38 ], [ %1, %if.end28 ]
   %arrayidx43 = getelementptr i8, ptr %cond24166, i64 8
   %18 = load ptr, ptr %arrayidx43, align 8
   %tobool44.not = icmp eq ptr %18, null
@@ -7408,7 +7408,7 @@ if.end53:                                         ; preds = %land.lhs.true49, %i
 
 if.end58:                                         ; preds = %if.end53, %if.end42
   %noptargs.1 = phi i64 [ %dec54, %if.end53 ], [ %noptargs.0, %if.end42 ]
-  %co_posonlyargcount.0 = phi i32 [ %call47, %if.end53 ], [ %2, %if.end42 ]
+  %co_posonlyargcount.1 = phi i32 [ %call47, %if.end53 ], [ %2, %if.end42 ]
   %arrayidx59 = getelementptr i8, ptr %cond24166, i64 16
   %19 = load ptr, ptr %arrayidx59, align 8
   %tobool60.not = icmp eq ptr %19, null
@@ -7431,7 +7431,7 @@ if.end69:                                         ; preds = %land.lhs.true65, %i
 
 if.end74:                                         ; preds = %if.end69, %if.end58
   %noptargs.2 = phi i64 [ %dec70, %if.end69 ], [ %noptargs.1, %if.end58 ]
-  %co_kwonlyargcount.0 = phi i32 [ %call63, %if.end69 ], [ %3, %if.end58 ]
+  %co_kwonlyargcount.1 = phi i32 [ %call63, %if.end69 ], [ %3, %if.end58 ]
   %arrayidx75 = getelementptr i8, ptr %cond24166, i64 24
   %20 = load ptr, ptr %arrayidx75, align 8
   %tobool76.not = icmp eq ptr %20, null
@@ -7454,7 +7454,7 @@ if.end85:                                         ; preds = %land.lhs.true81, %i
 
 if.end90:                                         ; preds = %if.end85, %if.end74
   %noptargs.3 = phi i64 [ %dec86, %if.end85 ], [ %noptargs.2, %if.end74 ]
-  %co_nlocals.0 = phi i32 [ %call79, %if.end85 ], [ %4, %if.end74 ]
+  %co_nlocals.1 = phi i32 [ %call79, %if.end85 ], [ %4, %if.end74 ]
   %arrayidx91 = getelementptr i8, ptr %cond24166, i64 32
   %21 = load ptr, ptr %arrayidx91, align 8
   %tobool92.not = icmp eq ptr %21, null
@@ -7477,7 +7477,7 @@ if.end101:                                        ; preds = %land.lhs.true97, %i
 
 if.end106:                                        ; preds = %if.end101, %if.end90
   %noptargs.4 = phi i64 [ %dec102, %if.end101 ], [ %noptargs.3, %if.end90 ]
-  %co_stacksize.0 = phi i32 [ %call95, %if.end101 ], [ %5, %if.end90 ]
+  %co_stacksize.1 = phi i32 [ %call95, %if.end101 ], [ %5, %if.end90 ]
   %arrayidx107 = getelementptr i8, ptr %cond24166, i64 40
   %22 = load ptr, ptr %arrayidx107, align 8
   %tobool108.not = icmp eq ptr %22, null
@@ -7500,7 +7500,7 @@ if.end117:                                        ; preds = %land.lhs.true113, %
 
 if.end122:                                        ; preds = %if.end117, %if.end106
   %noptargs.5 = phi i64 [ %dec118, %if.end117 ], [ %noptargs.4, %if.end106 ]
-  %co_flags.0 = phi i32 [ %call111, %if.end117 ], [ %6, %if.end106 ]
+  %co_flags.1 = phi i32 [ %call111, %if.end117 ], [ %6, %if.end106 ]
   %arrayidx123 = getelementptr i8, ptr %cond24166, i64 48
   %23 = load ptr, ptr %arrayidx123, align 8
   %tobool124.not = icmp eq ptr %23, null
@@ -7523,7 +7523,7 @@ if.end133:                                        ; preds = %land.lhs.true129, %
 
 if.end138:                                        ; preds = %if.end133, %if.end122
   %noptargs.6 = phi i64 [ %dec134, %if.end133 ], [ %noptargs.5, %if.end122 ]
-  %co_firstlineno.0 = phi i32 [ %call127, %if.end133 ], [ %7, %if.end122 ]
+  %co_firstlineno.1 = phi i32 [ %call127, %if.end133 ], [ %7, %if.end122 ]
   %arrayidx139 = getelementptr i8, ptr %cond24166, i64 56
   %24 = load ptr, ptr %arrayidx139, align 8
   %tobool140.not = icmp eq ptr %24, null
@@ -7574,7 +7574,7 @@ if.end164:                                        ; preds = %if.then157
 
 if.end170:                                        ; preds = %if.end164, %if.end154
   %noptargs.8 = phi i64 [ %dec166, %if.end164 ], [ %noptargs.7, %if.end154 ]
-  %co_consts.0 = phi ptr [ %28, %if.end164 ], [ %8, %if.end154 ]
+  %co_consts.1 = phi ptr [ %28, %if.end164 ], [ %8, %if.end154 ]
   %arrayidx171 = getelementptr i8, ptr %cond24166, i64 72
   %32 = load ptr, ptr %arrayidx171, align 8
   %tobool172.not = icmp eq ptr %32, null
@@ -7600,7 +7600,7 @@ if.end180:                                        ; preds = %if.then173
 
 if.end186:                                        ; preds = %if.end180, %if.end170
   %noptargs.9 = phi i64 [ %dec182, %if.end180 ], [ %noptargs.8, %if.end170 ]
-  %co_names.0 = phi ptr [ %32, %if.end180 ], [ %9, %if.end170 ]
+  %co_names.1 = phi ptr [ %32, %if.end180 ], [ %9, %if.end170 ]
   %arrayidx187 = getelementptr i8, ptr %cond24166, i64 80
   %36 = load ptr, ptr %arrayidx187, align 8
   %tobool188.not = icmp eq ptr %36, null
@@ -7701,7 +7701,7 @@ if.end244:                                        ; preds = %if.then237
 
 if.end250:                                        ; preds = %if.end244, %if.end234
   %noptargs.13 = phi i64 [ %dec246, %if.end244 ], [ %noptargs.12, %if.end234 ]
-  %co_filename.0 = phi ptr [ %48, %if.end244 ], [ %10, %if.end234 ]
+  %co_filename.1 = phi ptr [ %48, %if.end244 ], [ %10, %if.end234 ]
   %arrayidx251 = getelementptr i8, ptr %cond24166, i64 112
   %52 = load ptr, ptr %arrayidx251, align 8
   %tobool252.not = icmp eq ptr %52, null
@@ -7727,7 +7727,7 @@ if.end260:                                        ; preds = %if.then253
 
 if.end266:                                        ; preds = %if.end260, %if.end250
   %noptargs.14 = phi i64 [ %dec262, %if.end260 ], [ %noptargs.13, %if.end250 ]
-  %co_name.0 = phi ptr [ %52, %if.end260 ], [ %11, %if.end250 ]
+  %co_name.1 = phi ptr [ %52, %if.end260 ], [ %11, %if.end250 ]
   %arrayidx267 = getelementptr i8, ptr %cond24166, i64 120
   %56 = load ptr, ptr %arrayidx267, align 8
   %tobool268.not = icmp eq ptr %56, null
@@ -7753,7 +7753,7 @@ if.end276:                                        ; preds = %if.then269
 
 if.end282:                                        ; preds = %if.end276, %if.end266
   %noptargs.15 = phi i64 [ %dec278, %if.end276 ], [ %noptargs.14, %if.end266 ]
-  %co_qualname.0 = phi ptr [ %56, %if.end276 ], [ %12, %if.end266 ]
+  %co_qualname.1 = phi ptr [ %56, %if.end276 ], [ %12, %if.end266 ]
   %arrayidx283 = getelementptr i8, ptr %cond24166, i64 128
   %60 = load ptr, ptr %arrayidx283, align 8
   %tobool284.not = icmp eq ptr %60, null
@@ -7777,7 +7777,7 @@ if.end292:                                        ; preds = %if.then285
   br i1 %tobool295.not, label %skip_optional_kwonly, label %if.end298
 
 if.end298:                                        ; preds = %if.end292, %if.end282
-  %co_linetable.0 = phi ptr [ %60, %if.end292 ], [ %13, %if.end282 ]
+  %co_linetable.1 = phi ptr [ %60, %if.end292 ], [ %13, %if.end282 ]
   %arrayidx299 = getelementptr i8, ptr %cond24166, i64 136
   %64 = load ptr, ptr %arrayidx299, align 8
   %65 = getelementptr i8, ptr %64, i64 8
@@ -7793,25 +7793,25 @@ if.then303:                                       ; preds = %if.end298
   br label %exit
 
 skip_optional_kwonly:                             ; preds = %if.end298, %if.end292, %if.end276, %if.end260, %if.end244, %if.end228, %if.end212, %if.end196, %if.end180, %if.end164, %if.end148, %if.end133, %if.end117, %if.end101, %if.end85, %if.end69, %if.end53, %if.end38, %if.end
-  %co_argcount.1 = phi i32 [ %co_argcount.0, %if.end292 ], [ %co_argcount.0, %if.end276 ], [ %co_argcount.0, %if.end260 ], [ %co_argcount.0, %if.end244 ], [ %co_argcount.0, %if.end228 ], [ %co_argcount.0, %if.end212 ], [ %co_argcount.0, %if.end196 ], [ %co_argcount.0, %if.end180 ], [ %co_argcount.0, %if.end164 ], [ %co_argcount.0, %if.end148 ], [ %co_argcount.0, %if.end133 ], [ %co_argcount.0, %if.end117 ], [ %co_argcount.0, %if.end101 ], [ %co_argcount.0, %if.end85 ], [ %co_argcount.0, %if.end69 ], [ %co_argcount.0, %if.end53 ], [ %call32, %if.end38 ], [ %1, %if.end ], [ %co_argcount.0, %if.end298 ]
-  %co_posonlyargcount.1 = phi i32 [ %co_posonlyargcount.0, %if.end292 ], [ %co_posonlyargcount.0, %if.end276 ], [ %co_posonlyargcount.0, %if.end260 ], [ %co_posonlyargcount.0, %if.end244 ], [ %co_posonlyargcount.0, %if.end228 ], [ %co_posonlyargcount.0, %if.end212 ], [ %co_posonlyargcount.0, %if.end196 ], [ %co_posonlyargcount.0, %if.end180 ], [ %co_posonlyargcount.0, %if.end164 ], [ %co_posonlyargcount.0, %if.end148 ], [ %co_posonlyargcount.0, %if.end133 ], [ %co_posonlyargcount.0, %if.end117 ], [ %co_posonlyargcount.0, %if.end101 ], [ %co_posonlyargcount.0, %if.end85 ], [ %co_posonlyargcount.0, %if.end69 ], [ %call47, %if.end53 ], [ %2, %if.end38 ], [ %2, %if.end ], [ %co_posonlyargcount.0, %if.end298 ]
-  %co_kwonlyargcount.1 = phi i32 [ %co_kwonlyargcount.0, %if.end292 ], [ %co_kwonlyargcount.0, %if.end276 ], [ %co_kwonlyargcount.0, %if.end260 ], [ %co_kwonlyargcount.0, %if.end244 ], [ %co_kwonlyargcount.0, %if.end228 ], [ %co_kwonlyargcount.0, %if.end212 ], [ %co_kwonlyargcount.0, %if.end196 ], [ %co_kwonlyargcount.0, %if.end180 ], [ %co_kwonlyargcount.0, %if.end164 ], [ %co_kwonlyargcount.0, %if.end148 ], [ %co_kwonlyargcount.0, %if.end133 ], [ %co_kwonlyargcount.0, %if.end117 ], [ %co_kwonlyargcount.0, %if.end101 ], [ %co_kwonlyargcount.0, %if.end85 ], [ %call63, %if.end69 ], [ %3, %if.end53 ], [ %3, %if.end38 ], [ %3, %if.end ], [ %co_kwonlyargcount.0, %if.end298 ]
-  %co_nlocals.1 = phi i32 [ %co_nlocals.0, %if.end292 ], [ %co_nlocals.0, %if.end276 ], [ %co_nlocals.0, %if.end260 ], [ %co_nlocals.0, %if.end244 ], [ %co_nlocals.0, %if.end228 ], [ %co_nlocals.0, %if.end212 ], [ %co_nlocals.0, %if.end196 ], [ %co_nlocals.0, %if.end180 ], [ %co_nlocals.0, %if.end164 ], [ %co_nlocals.0, %if.end148 ], [ %co_nlocals.0, %if.end133 ], [ %co_nlocals.0, %if.end117 ], [ %co_nlocals.0, %if.end101 ], [ %call79, %if.end85 ], [ %4, %if.end69 ], [ %4, %if.end53 ], [ %4, %if.end38 ], [ %4, %if.end ], [ %co_nlocals.0, %if.end298 ]
-  %co_stacksize.1 = phi i32 [ %co_stacksize.0, %if.end292 ], [ %co_stacksize.0, %if.end276 ], [ %co_stacksize.0, %if.end260 ], [ %co_stacksize.0, %if.end244 ], [ %co_stacksize.0, %if.end228 ], [ %co_stacksize.0, %if.end212 ], [ %co_stacksize.0, %if.end196 ], [ %co_stacksize.0, %if.end180 ], [ %co_stacksize.0, %if.end164 ], [ %co_stacksize.0, %if.end148 ], [ %co_stacksize.0, %if.end133 ], [ %co_stacksize.0, %if.end117 ], [ %call95, %if.end101 ], [ %5, %if.end85 ], [ %5, %if.end69 ], [ %5, %if.end53 ], [ %5, %if.end38 ], [ %5, %if.end ], [ %co_stacksize.0, %if.end298 ]
-  %co_flags.1 = phi i32 [ %co_flags.0, %if.end292 ], [ %co_flags.0, %if.end276 ], [ %co_flags.0, %if.end260 ], [ %co_flags.0, %if.end244 ], [ %co_flags.0, %if.end228 ], [ %co_flags.0, %if.end212 ], [ %co_flags.0, %if.end196 ], [ %co_flags.0, %if.end180 ], [ %co_flags.0, %if.end164 ], [ %co_flags.0, %if.end148 ], [ %co_flags.0, %if.end133 ], [ %call111, %if.end117 ], [ %6, %if.end101 ], [ %6, %if.end85 ], [ %6, %if.end69 ], [ %6, %if.end53 ], [ %6, %if.end38 ], [ %6, %if.end ], [ %co_flags.0, %if.end298 ]
-  %co_firstlineno.1 = phi i32 [ %co_firstlineno.0, %if.end292 ], [ %co_firstlineno.0, %if.end276 ], [ %co_firstlineno.0, %if.end260 ], [ %co_firstlineno.0, %if.end244 ], [ %co_firstlineno.0, %if.end228 ], [ %co_firstlineno.0, %if.end212 ], [ %co_firstlineno.0, %if.end196 ], [ %co_firstlineno.0, %if.end180 ], [ %co_firstlineno.0, %if.end164 ], [ %co_firstlineno.0, %if.end148 ], [ %call127, %if.end133 ], [ %7, %if.end117 ], [ %7, %if.end101 ], [ %7, %if.end85 ], [ %7, %if.end69 ], [ %7, %if.end53 ], [ %7, %if.end38 ], [ %7, %if.end ], [ %co_firstlineno.0, %if.end298 ]
-  %co_code.1 = phi ptr [ %24, %if.end292 ], [ %24, %if.end276 ], [ %24, %if.end260 ], [ %24, %if.end244 ], [ %24, %if.end228 ], [ %24, %if.end212 ], [ %24, %if.end196 ], [ %24, %if.end180 ], [ %24, %if.end164 ], [ %24, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %24, %if.end298 ]
-  %co_consts.1 = phi ptr [ %co_consts.0, %if.end292 ], [ %co_consts.0, %if.end276 ], [ %co_consts.0, %if.end260 ], [ %co_consts.0, %if.end244 ], [ %co_consts.0, %if.end228 ], [ %co_consts.0, %if.end212 ], [ %co_consts.0, %if.end196 ], [ %co_consts.0, %if.end180 ], [ %28, %if.end164 ], [ %8, %if.end148 ], [ %8, %if.end133 ], [ %8, %if.end117 ], [ %8, %if.end101 ], [ %8, %if.end85 ], [ %8, %if.end69 ], [ %8, %if.end53 ], [ %8, %if.end38 ], [ %8, %if.end ], [ %co_consts.0, %if.end298 ]
-  %co_names.1 = phi ptr [ %co_names.0, %if.end292 ], [ %co_names.0, %if.end276 ], [ %co_names.0, %if.end260 ], [ %co_names.0, %if.end244 ], [ %co_names.0, %if.end228 ], [ %co_names.0, %if.end212 ], [ %co_names.0, %if.end196 ], [ %32, %if.end180 ], [ %9, %if.end164 ], [ %9, %if.end148 ], [ %9, %if.end133 ], [ %9, %if.end117 ], [ %9, %if.end101 ], [ %9, %if.end85 ], [ %9, %if.end69 ], [ %9, %if.end53 ], [ %9, %if.end38 ], [ %9, %if.end ], [ %co_names.0, %if.end298 ]
-  %co_varnames.1 = phi ptr [ %36, %if.end292 ], [ %36, %if.end276 ], [ %36, %if.end260 ], [ %36, %if.end244 ], [ %36, %if.end228 ], [ %36, %if.end212 ], [ %36, %if.end196 ], [ null, %if.end180 ], [ null, %if.end164 ], [ null, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %36, %if.end298 ]
-  %co_freevars.1 = phi ptr [ %40, %if.end292 ], [ %40, %if.end276 ], [ %40, %if.end260 ], [ %40, %if.end244 ], [ %40, %if.end228 ], [ %40, %if.end212 ], [ null, %if.end196 ], [ null, %if.end180 ], [ null, %if.end164 ], [ null, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %40, %if.end298 ]
-  %co_cellvars.1 = phi ptr [ %44, %if.end292 ], [ %44, %if.end276 ], [ %44, %if.end260 ], [ %44, %if.end244 ], [ %44, %if.end228 ], [ null, %if.end212 ], [ null, %if.end196 ], [ null, %if.end180 ], [ null, %if.end164 ], [ null, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %44, %if.end298 ]
-  %co_filename.1 = phi ptr [ %co_filename.0, %if.end292 ], [ %co_filename.0, %if.end276 ], [ %co_filename.0, %if.end260 ], [ %48, %if.end244 ], [ %10, %if.end228 ], [ %10, %if.end212 ], [ %10, %if.end196 ], [ %10, %if.end180 ], [ %10, %if.end164 ], [ %10, %if.end148 ], [ %10, %if.end133 ], [ %10, %if.end117 ], [ %10, %if.end101 ], [ %10, %if.end85 ], [ %10, %if.end69 ], [ %10, %if.end53 ], [ %10, %if.end38 ], [ %10, %if.end ], [ %co_filename.0, %if.end298 ]
-  %co_name.1 = phi ptr [ %co_name.0, %if.end292 ], [ %co_name.0, %if.end276 ], [ %52, %if.end260 ], [ %11, %if.end244 ], [ %11, %if.end228 ], [ %11, %if.end212 ], [ %11, %if.end196 ], [ %11, %if.end180 ], [ %11, %if.end164 ], [ %11, %if.end148 ], [ %11, %if.end133 ], [ %11, %if.end117 ], [ %11, %if.end101 ], [ %11, %if.end85 ], [ %11, %if.end69 ], [ %11, %if.end53 ], [ %11, %if.end38 ], [ %11, %if.end ], [ %co_name.0, %if.end298 ]
-  %co_qualname.1 = phi ptr [ %co_qualname.0, %if.end292 ], [ %56, %if.end276 ], [ %12, %if.end260 ], [ %12, %if.end244 ], [ %12, %if.end228 ], [ %12, %if.end212 ], [ %12, %if.end196 ], [ %12, %if.end180 ], [ %12, %if.end164 ], [ %12, %if.end148 ], [ %12, %if.end133 ], [ %12, %if.end117 ], [ %12, %if.end101 ], [ %12, %if.end85 ], [ %12, %if.end69 ], [ %12, %if.end53 ], [ %12, %if.end38 ], [ %12, %if.end ], [ %co_qualname.0, %if.end298 ]
-  %co_linetable.1 = phi ptr [ %60, %if.end292 ], [ %13, %if.end276 ], [ %13, %if.end260 ], [ %13, %if.end244 ], [ %13, %if.end228 ], [ %13, %if.end212 ], [ %13, %if.end196 ], [ %13, %if.end180 ], [ %13, %if.end164 ], [ %13, %if.end148 ], [ %13, %if.end133 ], [ %13, %if.end117 ], [ %13, %if.end101 ], [ %13, %if.end85 ], [ %13, %if.end69 ], [ %13, %if.end53 ], [ %13, %if.end38 ], [ %13, %if.end ], [ %co_linetable.0, %if.end298 ]
+  %co_argcount.0 = phi i32 [ %co_argcount.1, %if.end292 ], [ %co_argcount.1, %if.end276 ], [ %co_argcount.1, %if.end260 ], [ %co_argcount.1, %if.end244 ], [ %co_argcount.1, %if.end228 ], [ %co_argcount.1, %if.end212 ], [ %co_argcount.1, %if.end196 ], [ %co_argcount.1, %if.end180 ], [ %co_argcount.1, %if.end164 ], [ %co_argcount.1, %if.end148 ], [ %co_argcount.1, %if.end133 ], [ %co_argcount.1, %if.end117 ], [ %co_argcount.1, %if.end101 ], [ %co_argcount.1, %if.end85 ], [ %co_argcount.1, %if.end69 ], [ %co_argcount.1, %if.end53 ], [ %call32, %if.end38 ], [ %1, %if.end ], [ %co_argcount.1, %if.end298 ]
+  %co_posonlyargcount.0 = phi i32 [ %co_posonlyargcount.1, %if.end292 ], [ %co_posonlyargcount.1, %if.end276 ], [ %co_posonlyargcount.1, %if.end260 ], [ %co_posonlyargcount.1, %if.end244 ], [ %co_posonlyargcount.1, %if.end228 ], [ %co_posonlyargcount.1, %if.end212 ], [ %co_posonlyargcount.1, %if.end196 ], [ %co_posonlyargcount.1, %if.end180 ], [ %co_posonlyargcount.1, %if.end164 ], [ %co_posonlyargcount.1, %if.end148 ], [ %co_posonlyargcount.1, %if.end133 ], [ %co_posonlyargcount.1, %if.end117 ], [ %co_posonlyargcount.1, %if.end101 ], [ %co_posonlyargcount.1, %if.end85 ], [ %co_posonlyargcount.1, %if.end69 ], [ %call47, %if.end53 ], [ %2, %if.end38 ], [ %2, %if.end ], [ %co_posonlyargcount.1, %if.end298 ]
+  %co_kwonlyargcount.0 = phi i32 [ %co_kwonlyargcount.1, %if.end292 ], [ %co_kwonlyargcount.1, %if.end276 ], [ %co_kwonlyargcount.1, %if.end260 ], [ %co_kwonlyargcount.1, %if.end244 ], [ %co_kwonlyargcount.1, %if.end228 ], [ %co_kwonlyargcount.1, %if.end212 ], [ %co_kwonlyargcount.1, %if.end196 ], [ %co_kwonlyargcount.1, %if.end180 ], [ %co_kwonlyargcount.1, %if.end164 ], [ %co_kwonlyargcount.1, %if.end148 ], [ %co_kwonlyargcount.1, %if.end133 ], [ %co_kwonlyargcount.1, %if.end117 ], [ %co_kwonlyargcount.1, %if.end101 ], [ %co_kwonlyargcount.1, %if.end85 ], [ %call63, %if.end69 ], [ %3, %if.end53 ], [ %3, %if.end38 ], [ %3, %if.end ], [ %co_kwonlyargcount.1, %if.end298 ]
+  %co_nlocals.0 = phi i32 [ %co_nlocals.1, %if.end292 ], [ %co_nlocals.1, %if.end276 ], [ %co_nlocals.1, %if.end260 ], [ %co_nlocals.1, %if.end244 ], [ %co_nlocals.1, %if.end228 ], [ %co_nlocals.1, %if.end212 ], [ %co_nlocals.1, %if.end196 ], [ %co_nlocals.1, %if.end180 ], [ %co_nlocals.1, %if.end164 ], [ %co_nlocals.1, %if.end148 ], [ %co_nlocals.1, %if.end133 ], [ %co_nlocals.1, %if.end117 ], [ %co_nlocals.1, %if.end101 ], [ %call79, %if.end85 ], [ %4, %if.end69 ], [ %4, %if.end53 ], [ %4, %if.end38 ], [ %4, %if.end ], [ %co_nlocals.1, %if.end298 ]
+  %co_stacksize.0 = phi i32 [ %co_stacksize.1, %if.end292 ], [ %co_stacksize.1, %if.end276 ], [ %co_stacksize.1, %if.end260 ], [ %co_stacksize.1, %if.end244 ], [ %co_stacksize.1, %if.end228 ], [ %co_stacksize.1, %if.end212 ], [ %co_stacksize.1, %if.end196 ], [ %co_stacksize.1, %if.end180 ], [ %co_stacksize.1, %if.end164 ], [ %co_stacksize.1, %if.end148 ], [ %co_stacksize.1, %if.end133 ], [ %co_stacksize.1, %if.end117 ], [ %call95, %if.end101 ], [ %5, %if.end85 ], [ %5, %if.end69 ], [ %5, %if.end53 ], [ %5, %if.end38 ], [ %5, %if.end ], [ %co_stacksize.1, %if.end298 ]
+  %co_flags.0 = phi i32 [ %co_flags.1, %if.end292 ], [ %co_flags.1, %if.end276 ], [ %co_flags.1, %if.end260 ], [ %co_flags.1, %if.end244 ], [ %co_flags.1, %if.end228 ], [ %co_flags.1, %if.end212 ], [ %co_flags.1, %if.end196 ], [ %co_flags.1, %if.end180 ], [ %co_flags.1, %if.end164 ], [ %co_flags.1, %if.end148 ], [ %co_flags.1, %if.end133 ], [ %call111, %if.end117 ], [ %6, %if.end101 ], [ %6, %if.end85 ], [ %6, %if.end69 ], [ %6, %if.end53 ], [ %6, %if.end38 ], [ %6, %if.end ], [ %co_flags.1, %if.end298 ]
+  %co_firstlineno.0 = phi i32 [ %co_firstlineno.1, %if.end292 ], [ %co_firstlineno.1, %if.end276 ], [ %co_firstlineno.1, %if.end260 ], [ %co_firstlineno.1, %if.end244 ], [ %co_firstlineno.1, %if.end228 ], [ %co_firstlineno.1, %if.end212 ], [ %co_firstlineno.1, %if.end196 ], [ %co_firstlineno.1, %if.end180 ], [ %co_firstlineno.1, %if.end164 ], [ %co_firstlineno.1, %if.end148 ], [ %call127, %if.end133 ], [ %7, %if.end117 ], [ %7, %if.end101 ], [ %7, %if.end85 ], [ %7, %if.end69 ], [ %7, %if.end53 ], [ %7, %if.end38 ], [ %7, %if.end ], [ %co_firstlineno.1, %if.end298 ]
+  %co_code.0 = phi ptr [ %24, %if.end292 ], [ %24, %if.end276 ], [ %24, %if.end260 ], [ %24, %if.end244 ], [ %24, %if.end228 ], [ %24, %if.end212 ], [ %24, %if.end196 ], [ %24, %if.end180 ], [ %24, %if.end164 ], [ %24, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %24, %if.end298 ]
+  %co_consts.0 = phi ptr [ %co_consts.1, %if.end292 ], [ %co_consts.1, %if.end276 ], [ %co_consts.1, %if.end260 ], [ %co_consts.1, %if.end244 ], [ %co_consts.1, %if.end228 ], [ %co_consts.1, %if.end212 ], [ %co_consts.1, %if.end196 ], [ %co_consts.1, %if.end180 ], [ %28, %if.end164 ], [ %8, %if.end148 ], [ %8, %if.end133 ], [ %8, %if.end117 ], [ %8, %if.end101 ], [ %8, %if.end85 ], [ %8, %if.end69 ], [ %8, %if.end53 ], [ %8, %if.end38 ], [ %8, %if.end ], [ %co_consts.1, %if.end298 ]
+  %co_names.0 = phi ptr [ %co_names.1, %if.end292 ], [ %co_names.1, %if.end276 ], [ %co_names.1, %if.end260 ], [ %co_names.1, %if.end244 ], [ %co_names.1, %if.end228 ], [ %co_names.1, %if.end212 ], [ %co_names.1, %if.end196 ], [ %32, %if.end180 ], [ %9, %if.end164 ], [ %9, %if.end148 ], [ %9, %if.end133 ], [ %9, %if.end117 ], [ %9, %if.end101 ], [ %9, %if.end85 ], [ %9, %if.end69 ], [ %9, %if.end53 ], [ %9, %if.end38 ], [ %9, %if.end ], [ %co_names.1, %if.end298 ]
+  %co_varnames.0 = phi ptr [ %36, %if.end292 ], [ %36, %if.end276 ], [ %36, %if.end260 ], [ %36, %if.end244 ], [ %36, %if.end228 ], [ %36, %if.end212 ], [ %36, %if.end196 ], [ null, %if.end180 ], [ null, %if.end164 ], [ null, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %36, %if.end298 ]
+  %co_freevars.0 = phi ptr [ %40, %if.end292 ], [ %40, %if.end276 ], [ %40, %if.end260 ], [ %40, %if.end244 ], [ %40, %if.end228 ], [ %40, %if.end212 ], [ null, %if.end196 ], [ null, %if.end180 ], [ null, %if.end164 ], [ null, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %40, %if.end298 ]
+  %co_cellvars.0 = phi ptr [ %44, %if.end292 ], [ %44, %if.end276 ], [ %44, %if.end260 ], [ %44, %if.end244 ], [ %44, %if.end228 ], [ null, %if.end212 ], [ null, %if.end196 ], [ null, %if.end180 ], [ null, %if.end164 ], [ null, %if.end148 ], [ null, %if.end133 ], [ null, %if.end117 ], [ null, %if.end101 ], [ null, %if.end85 ], [ null, %if.end69 ], [ null, %if.end53 ], [ null, %if.end38 ], [ null, %if.end ], [ %44, %if.end298 ]
+  %co_filename.0 = phi ptr [ %co_filename.1, %if.end292 ], [ %co_filename.1, %if.end276 ], [ %co_filename.1, %if.end260 ], [ %48, %if.end244 ], [ %10, %if.end228 ], [ %10, %if.end212 ], [ %10, %if.end196 ], [ %10, %if.end180 ], [ %10, %if.end164 ], [ %10, %if.end148 ], [ %10, %if.end133 ], [ %10, %if.end117 ], [ %10, %if.end101 ], [ %10, %if.end85 ], [ %10, %if.end69 ], [ %10, %if.end53 ], [ %10, %if.end38 ], [ %10, %if.end ], [ %co_filename.1, %if.end298 ]
+  %co_name.0 = phi ptr [ %co_name.1, %if.end292 ], [ %co_name.1, %if.end276 ], [ %52, %if.end260 ], [ %11, %if.end244 ], [ %11, %if.end228 ], [ %11, %if.end212 ], [ %11, %if.end196 ], [ %11, %if.end180 ], [ %11, %if.end164 ], [ %11, %if.end148 ], [ %11, %if.end133 ], [ %11, %if.end117 ], [ %11, %if.end101 ], [ %11, %if.end85 ], [ %11, %if.end69 ], [ %11, %if.end53 ], [ %11, %if.end38 ], [ %11, %if.end ], [ %co_name.1, %if.end298 ]
+  %co_qualname.0 = phi ptr [ %co_qualname.1, %if.end292 ], [ %56, %if.end276 ], [ %12, %if.end260 ], [ %12, %if.end244 ], [ %12, %if.end228 ], [ %12, %if.end212 ], [ %12, %if.end196 ], [ %12, %if.end180 ], [ %12, %if.end164 ], [ %12, %if.end148 ], [ %12, %if.end133 ], [ %12, %if.end117 ], [ %12, %if.end101 ], [ %12, %if.end85 ], [ %12, %if.end69 ], [ %12, %if.end53 ], [ %12, %if.end38 ], [ %12, %if.end ], [ %co_qualname.1, %if.end298 ]
+  %co_linetable.0 = phi ptr [ %60, %if.end292 ], [ %13, %if.end276 ], [ %13, %if.end260 ], [ %13, %if.end244 ], [ %13, %if.end228 ], [ %13, %if.end212 ], [ %13, %if.end196 ], [ %13, %if.end180 ], [ %13, %if.end164 ], [ %13, %if.end148 ], [ %13, %if.end133 ], [ %13, %if.end117 ], [ %13, %if.end101 ], [ %13, %if.end85 ], [ %13, %if.end69 ], [ %13, %if.end53 ], [ %13, %if.end38 ], [ %13, %if.end ], [ %co_linetable.1, %if.end298 ]
   %co_exceptiontable.0 = phi ptr [ %14, %if.end292 ], [ %14, %if.end276 ], [ %14, %if.end260 ], [ %14, %if.end244 ], [ %14, %if.end228 ], [ %14, %if.end212 ], [ %14, %if.end196 ], [ %14, %if.end180 ], [ %14, %if.end164 ], [ %14, %if.end148 ], [ %14, %if.end133 ], [ %14, %if.end117 ], [ %14, %if.end101 ], [ %14, %if.end85 ], [ %14, %if.end69 ], [ %14, %if.end53 ], [ %14, %if.end38 ], [ %14, %if.end ], [ %64, %if.end298 ]
-  %cmp.i163 = icmp slt i32 %co_argcount.1, 0
+  %cmp.i163 = icmp slt i32 %co_argcount.0, 0
   br i1 %cmp.i163, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %skip_optional_kwonly
@@ -7820,7 +7820,7 @@ if.then.i:                                        ; preds = %skip_optional_kwonl
   br label %exit
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
-  %cmp1.i = icmp slt i32 %co_posonlyargcount.1, 0
+  %cmp1.i = icmp slt i32 %co_posonlyargcount.0, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -7829,7 +7829,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %cmp4.i = icmp slt i32 %co_kwonlyargcount.1, 0
+  %cmp4.i = icmp slt i32 %co_kwonlyargcount.0, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -7838,7 +7838,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %exit
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %cmp7.i = icmp slt i32 %co_nlocals.1, 0
+  %cmp7.i = icmp slt i32 %co_nlocals.0, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.end6.i
@@ -7847,7 +7847,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   br label %exit
 
 if.end9.i:                                        ; preds = %if.end6.i
-  %cmp10.i = icmp slt i32 %co_stacksize.1, 0
+  %cmp10.i = icmp slt i32 %co_stacksize.0, 0
   br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -7856,7 +7856,7 @@ if.then11.i:                                      ; preds = %if.end9.i
   br label %exit
 
 if.end12.i:                                       ; preds = %if.end9.i
-  %cmp13.i = icmp slt i32 %co_flags.1, 0
+  %cmp13.i = icmp slt i32 %co_flags.0, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %if.end12.i
@@ -7865,7 +7865,7 @@ if.then14.i:                                      ; preds = %if.end12.i
   br label %exit
 
 if.end15.i:                                       ; preds = %if.end12.i
-  %cmp16.i = icmp slt i32 %co_firstlineno.1, 0
+  %cmp16.i = icmp slt i32 %co_firstlineno.0, 0
   br i1 %cmp16.i, label %if.then17.i, label %if.end18.i
 
 if.then17.i:                                      ; preds = %if.end15.i
@@ -7874,7 +7874,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   br label %exit
 
 if.end18.i:                                       ; preds = %if.end15.i
-  %cmp19.i = icmp eq ptr %co_code.1, null
+  %cmp19.i = icmp eq ptr %co_code.0, null
   br i1 %cmp19.i, label %if.then20.i, label %if.end24.i
 
 if.then20.i:                                      ; preds = %if.end18.i
@@ -7883,9 +7883,9 @@ if.then20.i:                                      ; preds = %if.end18.i
   br i1 %cmp21.i, label %exit, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then20.i, %if.end18.i
-  %co_code.addr.0.i = phi ptr [ %co_code.1, %if.end18.i ], [ %call.i, %if.then20.i ]
+  %co_code.addr.0.i = phi ptr [ %co_code.0, %if.end18.i ], [ %call.i, %if.then20.i ]
   %code.0.i = phi ptr [ null, %if.end18.i ], [ %call.i, %if.then20.i ]
-  %call25.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull %co_code.addr.0.i, ptr noundef %co_filename.1, ptr noundef %co_name.1, i32 noundef %co_argcount.1, i32 noundef %co_posonlyargcount.1, i32 noundef %co_kwonlyargcount.1, i32 noundef %co_nlocals.1, i32 noundef %co_stacksize.1, i32 noundef %co_flags.1) #13
+  %call25.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull %co_code.addr.0.i, ptr noundef %co_filename.0, ptr noundef %co_name.0, i32 noundef %co_argcount.0, i32 noundef %co_posonlyargcount.0, i32 noundef %co_kwonlyargcount.0, i32 noundef %co_nlocals.0, i32 noundef %co_stacksize.0, i32 noundef %co_flags.0) #13
   %cmp26.i = icmp slt i32 %call25.i, 0
   br i1 %cmp26.i, label %if.then27.i, label %if.end28.i
 
@@ -7894,7 +7894,7 @@ if.then27.i:                                      ; preds = %if.end24.i
   br label %exit
 
 if.end28.i:                                       ; preds = %if.end24.i
-  %cmp29.i = icmp eq ptr %co_varnames.1, null
+  %cmp29.i = icmp eq ptr %co_varnames.0, null
   br i1 %cmp29.i, label %if.then30.i, label %if.end36.i
 
 if.then30.i:                                      ; preds = %if.end28.i
@@ -7904,9 +7904,9 @@ if.then30.i:                                      ; preds = %if.end28.i
   br i1 %cmp33.i, label %error.i, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then30.i, %if.end28.i
-  %co_varnames.addr.0.i = phi ptr [ %co_varnames.1, %if.end28.i ], [ %call32.i, %if.then30.i ]
+  %co_varnames.addr.0.i = phi ptr [ %co_varnames.0, %if.end28.i ], [ %call32.i, %if.then30.i ]
   %varnames.0.i = phi ptr [ null, %if.end28.i ], [ %call32.i, %if.then30.i ]
-  %cmp37.i = icmp eq ptr %co_cellvars.1, null
+  %cmp37.i = icmp eq ptr %co_cellvars.0, null
   br i1 %cmp37.i, label %if.then38.i, label %if.end43.i
 
 if.then38.i:                                      ; preds = %if.end36.i
@@ -7917,9 +7917,9 @@ if.then38.i:                                      ; preds = %if.end36.i
   br i1 %cmp40.i, label %error.i, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then38.i, %if.end36.i
-  %co_cellvars.addr.0.i = phi ptr [ %co_cellvars.1, %if.end36.i ], [ %call39.i, %if.then38.i ]
-  %cellvars.0.i = phi ptr [ null, %if.end36.i ], [ %call39.i, %if.then38.i ]
-  %cmp44.i = icmp eq ptr %co_freevars.1, null
+  %co_cellvars.addr.0.i = phi ptr [ %co_cellvars.0, %if.end36.i ], [ %call39.i, %if.then38.i ]
+  %cellvars.1.i = phi ptr [ null, %if.end36.i ], [ %call39.i, %if.then38.i ]
+  %cmp44.i = icmp eq ptr %co_freevars.0, null
   br i1 %cmp44.i, label %if.then45.i, label %if.end50.i
 
 if.then45.i:                                      ; preds = %if.end43.i
@@ -7930,16 +7930,16 @@ if.then45.i:                                      ; preds = %if.end43.i
   br i1 %cmp47.i, label %error.i, label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then45.i, %if.end43.i
-  %co_freevars.addr.0.i = phi ptr [ %co_freevars.1, %if.end43.i ], [ %call46.i, %if.then45.i ]
-  %freevars.0.i = phi ptr [ null, %if.end43.i ], [ %call46.i, %if.then45.i ]
-  %call.i.i = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %co_argcount.1, i32 noundef %co_posonlyargcount.1, i32 noundef %co_kwonlyargcount.1, i32 noundef %co_nlocals.1, i32 noundef %co_stacksize.1, i32 noundef %co_flags.1, ptr noundef nonnull %co_code.addr.0.i, ptr noundef %co_consts.1, ptr noundef %co_names.1, ptr noundef nonnull %co_varnames.addr.0.i, ptr noundef nonnull %co_freevars.addr.0.i, ptr noundef nonnull %co_cellvars.addr.0.i, ptr noundef %co_filename.1, ptr noundef %co_name.1, ptr noundef %co_qualname.1, i32 noundef %co_firstlineno.1, ptr noundef %co_linetable.1, ptr noundef %co_exceptiontable.0)
+  %co_freevars.addr.0.i = phi ptr [ %co_freevars.0, %if.end43.i ], [ %call46.i, %if.then45.i ]
+  %freevars.1.i = phi ptr [ null, %if.end43.i ], [ %call46.i, %if.then45.i ]
+  %call.i.i = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %co_argcount.0, i32 noundef %co_posonlyargcount.0, i32 noundef %co_kwonlyargcount.0, i32 noundef %co_nlocals.0, i32 noundef %co_stacksize.0, i32 noundef %co_flags.0, ptr noundef nonnull %co_code.addr.0.i, ptr noundef %co_consts.0, ptr noundef %co_names.0, ptr noundef nonnull %co_varnames.addr.0.i, ptr noundef nonnull %co_freevars.addr.0.i, ptr noundef nonnull %co_cellvars.addr.0.i, ptr noundef %co_filename.0, ptr noundef %co_name.0, ptr noundef %co_qualname.0, i32 noundef %co_firstlineno.0, ptr noundef %co_linetable.0, ptr noundef %co_exceptiontable.0)
   br label %error.i
 
 error.i:                                          ; preds = %if.end50.i, %if.then45.i, %if.then38.i, %if.then30.i
   %co.0.i = phi ptr [ null, %if.then30.i ], [ null, %if.then38.i ], [ null, %if.then45.i ], [ %call.i.i, %if.end50.i ]
   %varnames.1.i = phi ptr [ null, %if.then30.i ], [ %varnames.0.i, %if.then38.i ], [ %varnames.0.i, %if.then45.i ], [ %varnames.0.i, %if.end50.i ]
-  %cellvars.1.i = phi ptr [ null, %if.then30.i ], [ null, %if.then38.i ], [ %cellvars.0.i, %if.then45.i ], [ %cellvars.0.i, %if.end50.i ]
-  %freevars.1.i = phi ptr [ null, %if.then30.i ], [ null, %if.then38.i ], [ null, %if.then45.i ], [ %freevars.0.i, %if.end50.i ]
+  %cellvars.0.i = phi ptr [ null, %if.then30.i ], [ null, %if.then38.i ], [ %cellvars.1.i, %if.then45.i ], [ %cellvars.1.i, %if.end50.i ]
+  %freevars.0.i = phi ptr [ null, %if.then30.i ], [ null, %if.then38.i ], [ null, %if.then45.i ], [ %freevars.1.i, %if.end50.i ]
   %cmp.not.i.i = icmp eq ptr %code.0.i, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
@@ -7980,43 +7980,43 @@ if.then1.i.i42.i:                                 ; preds = %if.end.i.i39.i
   br label %Py_XDECREF.exit43.i
 
 Py_XDECREF.exit43.i:                              ; preds = %if.then1.i.i42.i, %if.end.i.i39.i, %if.then.i37.i, %Py_XDECREF.exit.i
-  %cmp.not.i44.i = icmp eq ptr %cellvars.1.i, null
+  %cmp.not.i44.i = icmp eq ptr %cellvars.0.i, null
   br i1 %cmp.not.i44.i, label %Py_XDECREF.exit51.i, label %if.then.i45.i
 
 if.then.i45.i:                                    ; preds = %Py_XDECREF.exit43.i
-  %82 = load i64, ptr %cellvars.1.i, align 8
+  %82 = load i64, ptr %cellvars.0.i, align 8
   %83 = and i64 %82, 2147483648
   %cmp.i2.not.i46.i = icmp eq i64 %83, 0
   br i1 %cmp.i2.not.i46.i, label %if.end.i.i47.i, label %Py_XDECREF.exit51.i
 
 if.end.i.i47.i:                                   ; preds = %if.then.i45.i
   %dec.i.i48.i = add i64 %82, -1
-  store i64 %dec.i.i48.i, ptr %cellvars.1.i, align 8
+  store i64 %dec.i.i48.i, ptr %cellvars.0.i, align 8
   %cmp.i.i49.i = icmp eq i64 %dec.i.i48.i, 0
   br i1 %cmp.i.i49.i, label %if.then1.i.i50.i, label %Py_XDECREF.exit51.i
 
 if.then1.i.i50.i:                                 ; preds = %if.end.i.i47.i
-  call void @_Py_Dealloc(ptr noundef nonnull %cellvars.1.i) #13
+  call void @_Py_Dealloc(ptr noundef nonnull %cellvars.0.i) #13
   br label %Py_XDECREF.exit51.i
 
 Py_XDECREF.exit51.i:                              ; preds = %if.then1.i.i50.i, %if.end.i.i47.i, %if.then.i45.i, %Py_XDECREF.exit43.i
-  %cmp.not.i52.i = icmp eq ptr %freevars.1.i, null
+  %cmp.not.i52.i = icmp eq ptr %freevars.0.i, null
   br i1 %cmp.not.i52.i, label %exit, label %if.then.i53.i
 
 if.then.i53.i:                                    ; preds = %Py_XDECREF.exit51.i
-  %84 = load i64, ptr %freevars.1.i, align 8
+  %84 = load i64, ptr %freevars.0.i, align 8
   %85 = and i64 %84, 2147483648
   %cmp.i2.not.i54.i = icmp eq i64 %85, 0
   br i1 %cmp.i2.not.i54.i, label %if.end.i.i55.i, label %exit
 
 if.end.i.i55.i:                                   ; preds = %if.then.i53.i
   %dec.i.i56.i = add i64 %84, -1
-  store i64 %dec.i.i56.i, ptr %freevars.1.i, align 8
+  store i64 %dec.i.i56.i, ptr %freevars.0.i, align 8
   %cmp.i.i57.i = icmp eq i64 %dec.i.i56.i, 0
   br i1 %cmp.i.i57.i, label %if.then1.i.i58.i, label %exit
 
 if.then1.i.i58.i:                                 ; preds = %if.end.i.i55.i
-  call void @_Py_Dealloc(ptr noundef nonnull %freevars.1.i) #13
+  call void @_Py_Dealloc(ptr noundef nonnull %freevars.0.i) #13
   br label %exit
 
 exit:                                             ; preds = %if.then1.i.i58.i, %if.end.i.i55.i, %if.then.i53.i, %Py_XDECREF.exit51.i, %if.then27.i, %if.then20.i, %if.then17.i, %if.then14.i, %if.then11.i, %if.then8.i, %if.then5.i, %if.then2.i, %if.then.i, %land.lhs.true129, %land.lhs.true113, %land.lhs.true97, %land.lhs.true81, %land.lhs.true65, %land.lhs.true49, %land.lhs.true34, %cond.end23, %if.then303, %if.then290, %if.then274, %if.then258, %if.then242, %if.then226, %if.then210, %if.then194, %if.then178, %if.then162, %if.then146
@@ -8143,7 +8143,7 @@ if.end.i5.preheader.i:                            ; preds = %if.end.i
 if.end.i5.i:                                      ; preds = %if.end15.i, %if.end.i5.preheader.i
   %code_offset.053.i = phi i32 [ %code_offset.1.i, %if.end15.i ], [ 0, %if.end.i5.preheader.i ]
   %line.052.i = phi i32 [ %line.1.i, %if.end15.i ], [ %1, %if.end.i5.preheader.i ]
-  %table_offset.051.i = phi i32 [ %table_offset.7.i, %if.end15.i ], [ 0, %if.end.i5.preheader.i ]
+  %table_offset.051.i = phi i32 [ %table_offset.1.i, %if.end15.i ], [ 0, %if.end.i5.preheader.i ]
   %bounds.sroa.4.050.i = phi i32 [ %add10.i.i.i, %if.end15.i ], [ 0, %if.end.i5.preheader.i ]
   %bounds.sroa.9.049.i = phi i32 [ %add.i.i.i, %if.end15.i ], [ %4, %if.end.i5.preheader.i ]
   %bounds.sroa.14.048.i = phi ptr [ %incdec.ptr.i.i.i, %if.end15.i ], [ %ob_sval.i.i.i, %if.end.i5.preheader.i ]
@@ -8228,7 +8228,7 @@ if.then4.i:                                       ; preds = %while.body.i
   br i1 %cmp87.i.i, label %while.body.i.i, label %while.cond1.preheader.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.end.i10.i, %if.then4.i
-  %table_offset.1.i = phi i32 [ %table_offset.051.i, %if.then4.i ], [ %add.i.i9.i, %if.end.i10.i ]
+  %table_offset.2.i = phi i32 [ %table_offset.051.i, %if.then4.i ], [ %add.i.i9.i, %if.end.i10.i ]
   %bdelta.addr.0.lcssa.i.i = phi i32 [ %sub.i, %if.then4.i ], [ %sub.i.i, %if.end.i10.i ]
   %cmp289.i.i = icmp sgt i32 %sub7.i, 127
   br i1 %cmp289.i.i, label %while.body3.preheader.i.i, label %while.cond10.preheader.i.i
@@ -8238,12 +8238,12 @@ while.body3.preheader.i.i:                        ; preds = %while.cond1.prehead
   br label %while.body3.i.i
 
 while.body.i.i:                                   ; preds = %if.then4.i, %if.end.i10.i
-  %table_offset.2.i = phi i32 [ %add.i.i9.i, %if.end.i10.i ], [ %table_offset.051.i, %if.then4.i ]
+  %table_offset.6.i = phi i32 [ %add.i.i9.i, %if.end.i10.i ], [ %table_offset.051.i, %if.then4.i ]
   %bdelta.addr.088.i.i = phi i32 [ %sub.i.i, %if.end.i10.i ], [ %sub.i, %if.then4.i ]
   %15 = load ptr, ptr %bytes.i, align 8
   %16 = getelementptr i8, ptr %15, i64 16
   %.val.i.i.i = load i64, ptr %16, align 8
-  %add.i.i9.i = add i32 %table_offset.2.i, 2
+  %add.i.i9.i = add i32 %table_offset.6.i, 2
   %conv.i.i.i = sext i32 %add.i.i9.i to i64
   %cmp.not.i.i.i = icmp sgt i64 %.val.i.i.i, %conv.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i10.i, label %if.then.i.i.i
@@ -8261,7 +8261,7 @@ if.then.if.end6_crit_edge.i.i.i:                  ; preds = %if.then.i.i.i
 if.end.i10.i:                                     ; preds = %if.then.if.end6_crit_edge.i.i.i, %while.body.i.i
   %17 = phi ptr [ %.pre.i.i.i, %if.then.if.end6_crit_edge.i.i.i ], [ %15, %while.body.i.i ]
   %ob_sval.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
-  %idx.ext.i.i.i = sext i32 %table_offset.2.i to i64
+  %idx.ext.i.i.i = sext i32 %table_offset.6.i to i64
   %add.ptr.i.i11.i = getelementptr i8, ptr %ob_sval.i.i.i.i, i64 %idx.ext.i.i.i
   %incdec.ptr.i.i12.i = getelementptr i8, ptr %add.ptr.i.i11.i, i64 1
   store i8 -1, ptr %add.ptr.i.i11.i, align 1
@@ -8279,13 +8279,13 @@ while.body12.preheader.i.i:                       ; preds = %while.cond10.prehea
   br label %while.body12.i.i
 
 while.body3.i.i:                                  ; preds = %if.end7.i.i, %while.body3.preheader.i.i
-  %table_offset.3.i = phi i32 [ %table_offset.1.i, %while.body3.preheader.i.i ], [ %add.i16.i.i, %if.end7.i.i ]
+  %table_offset.5.i = phi i32 [ %table_offset.2.i, %while.body3.preheader.i.i ], [ %add.i16.i.i, %if.end7.i.i ]
   %ldelta.addr.091.i.i = phi i32 [ %sub7.i, %while.body3.preheader.i.i ], [ %sub8.i.i, %if.end7.i.i ]
   %bdelta.addr.190.i.i = phi i8 [ %14, %while.body3.preheader.i.i ], [ 0, %if.end7.i.i ]
   %19 = load ptr, ptr %bytes.i, align 8
   %20 = getelementptr i8, ptr %19, i64 16
   %.val.i15.i.i = load i64, ptr %20, align 8
-  %add.i16.i.i = add i32 %table_offset.3.i, 2
+  %add.i16.i.i = add i32 %table_offset.5.i, 2
   %conv.i17.i.i = sext i32 %add.i16.i.i to i64
   %cmp.not.i18.i.i = icmp sgt i64 %.val.i15.i.i, %conv.i17.i.i
   br i1 %cmp.not.i18.i.i, label %if.end7.i.i, label %if.then.i19.i.i
@@ -8303,7 +8303,7 @@ if.then.if.end6_crit_edge.i23.i.i:                ; preds = %if.then.i19.i.i
 if.end7.i.i:                                      ; preds = %if.then.if.end6_crit_edge.i23.i.i, %while.body3.i.i
   %21 = phi ptr [ %.pre.i24.i.i, %if.then.if.end6_crit_edge.i23.i.i ], [ %19, %while.body3.i.i ]
   %ob_sval.i.i27.i.i = getelementptr inbounds i8, ptr %21, i64 32
-  %idx.ext.i28.i.i = sext i32 %table_offset.3.i to i64
+  %idx.ext.i28.i.i = sext i32 %table_offset.5.i to i64
   %add.ptr.i29.i.i = getelementptr i8, ptr %ob_sval.i.i27.i.i, i64 %idx.ext.i28.i.i
   %incdec.ptr.i30.i.i = getelementptr i8, ptr %add.ptr.i29.i.i, i64 1
   store i8 %bdelta.addr.190.i.i, ptr %add.ptr.i29.i.i, align 1
@@ -8313,7 +8313,7 @@ if.end7.i.i:                                      ; preds = %if.then.if.end6_cri
   br i1 %cmp2.i.i, label %while.body3.i.i, label %while.end17.i.i, !llvm.loop !40
 
 while.body12.i.i:                                 ; preds = %if.end16.i.i, %while.body12.preheader.i.i
-  %table_offset.4.i = phi i32 [ %table_offset.1.i, %while.body12.preheader.i.i ], [ %add.i35.i.i, %if.end16.i.i ]
+  %table_offset.4.i = phi i32 [ %table_offset.2.i, %while.body12.preheader.i.i ], [ %add.i35.i.i, %if.end16.i.i ]
   %ldelta.addr.196.i.i = phi i32 [ %sub7.i, %while.body12.preheader.i.i ], [ %add.i.i, %if.end16.i.i ]
   %bdelta.addr.295.i.i = phi i8 [ %18, %while.body12.preheader.i.i ], [ 0, %if.end16.i.i ]
   %22 = load ptr, ptr %bytes.i, align 8
@@ -8347,13 +8347,13 @@ if.end16.i.i:                                     ; preds = %if.then.if.end6_cri
   br i1 %cmp11.i.i, label %while.body12.i.i, label %while.end17.i.i, !llvm.loop !41
 
 while.end17.i.i:                                  ; preds = %if.end16.i.i, %if.end7.i.i, %while.cond10.preheader.i.i
-  %table_offset.5.i = phi i32 [ %table_offset.1.i, %while.cond10.preheader.i.i ], [ %add.i16.i.i, %if.end7.i.i ], [ %add.i35.i.i, %if.end16.i.i ]
+  %table_offset.3.i = phi i32 [ %table_offset.2.i, %while.cond10.preheader.i.i ], [ %add.i16.i.i, %if.end7.i.i ], [ %add.i35.i.i, %if.end16.i.i ]
   %bdelta.addr.2.lcssa.i.i = phi i32 [ %bdelta.addr.0.lcssa.i.i, %while.cond10.preheader.i.i ], [ 0, %if.end7.i.i ], [ 0, %if.end16.i.i ]
   %ldelta.addr.1.lcssa.i.i = phi i32 [ %sub7.i, %while.cond10.preheader.i.i ], [ %sub8.i.i, %if.end7.i.i ], [ %add.i.i, %if.end16.i.i ]
   %25 = load ptr, ptr %bytes.i, align 8
   %26 = getelementptr i8, ptr %25, i64 16
   %.val.i54.i.i = load i64, ptr %26, align 8
-  %add.i55.i.i = add i32 %table_offset.5.i, 2
+  %add.i55.i.i = add i32 %table_offset.3.i, 2
   %conv.i56.i.i = sext i32 %add.i55.i.i to i64
   %cmp.not.i57.i.i = icmp sgt i64 %.val.i54.i.i, %conv.i56.i.i
   br i1 %cmp.not.i57.i.i, label %if.end11.i, label %if.then.i58.i.i
@@ -8388,7 +8388,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i:                                       ; preds = %if.then.if.end6_crit_edge.i62.i.i, %while.end17.i.i
   %30 = phi ptr [ %.pre.i63.i.i, %if.then.if.end6_crit_edge.i62.i.i ], [ %25, %while.end17.i.i ]
   %ob_sval.i.i66.i.i = getelementptr inbounds i8, ptr %30, i64 32
-  %idx.ext.i67.i.i = sext i32 %table_offset.5.i to i64
+  %idx.ext.i67.i.i = sext i32 %table_offset.3.i to i64
   %add.ptr.i68.i.i = getelementptr i8, ptr %ob_sval.i.i66.i.i, i64 %idx.ext.i67.i.i
   %conv8.i69.i.i = trunc i32 %bdelta.addr.2.lcssa.i.i to i8
   %incdec.ptr.i70.i.i = getelementptr i8, ptr %add.ptr.i68.i.i, i64 1
@@ -8398,13 +8398,13 @@ if.end11.i:                                       ; preds = %if.then.if.end6_cri
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end11.i, %while.body.i
-  %table_offset.7.i = phi i32 [ %table_offset.051.i, %while.body.i ], [ %add.i55.i.i, %if.end11.i ]
+  %table_offset.1.i = phi i32 [ %table_offset.051.i, %while.body.i ], [ %add.i55.i.i, %if.end11.i ]
   %line.1.i = phi i32 [ %line.052.i, %while.body.i ], [ %add.i.i.i, %if.end11.i ]
   %code_offset.1.i = phi i32 [ %code_offset.053.i, %while.body.i ], [ %bounds.sroa.4.050.i, %if.end11.i ]
   br i1 %cmp.i3.i.i, label %if.end.i5.i, label %while.end.loopexit.i, !llvm.loop !42
 
 while.end.loopexit.i:                             ; preds = %if.end15.i
-  %31 = sext i32 %table_offset.7.i to i64
+  %31 = sext i32 %table_offset.1.i to i64
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end.i
@@ -8534,8 +8534,8 @@ if.else:                                          ; preds = %if.end20
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then21
-  %ourfreevars.0 = phi ptr [ %call22, %if.then21 ], [ %call23, %if.else ]
-  %cmp25 = icmp eq ptr %ourfreevars.0, null
+  %ourfreevars.1 = phi ptr [ %call22, %if.then21 ], [ %call23, %if.else ]
+  %cmp25 = icmp eq ptr %ourfreevars.1, null
   br i1 %cmp25, label %if.then.i, label %if.end27
 
 if.end27:                                         ; preds = %if.end24
@@ -8551,18 +8551,18 @@ if.else31:                                        ; preds = %if.end27
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else31, %if.then29
-  %ourcellvars.0 = phi ptr [ %call30, %if.then29 ], [ %call32, %if.else31 ]
-  %cmp34 = icmp eq ptr %ourcellvars.0, null
+  %ourcellvars.1 = phi ptr [ %call30, %if.then29 ], [ %call32, %if.else31 ]
+  %cmp34 = icmp eq ptr %ourcellvars.1, null
   br i1 %cmp34, label %if.then.i, label %if.end36
 
 if.end36:                                         ; preds = %if.end33
-  %call.i = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr noundef nonnull %call13, ptr noundef nonnull %call17, ptr noundef nonnull %ourfreevars.0, ptr noundef nonnull %ourcellvars.0, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable)
+  %call.i = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr noundef nonnull %call13, ptr noundef nonnull %call17, ptr noundef nonnull %ourfreevars.1, ptr noundef nonnull %ourcellvars.1, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable)
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end36, %if.end16, %if.end24, %if.end33
   %co.0 = phi ptr [ null, %if.end16 ], [ null, %if.end24 ], [ null, %if.end33 ], [ %call.i, %if.end36 ]
-  %ourfreevars.1 = phi ptr [ null, %if.end16 ], [ null, %if.end24 ], [ %ourfreevars.0, %if.end33 ], [ %ourfreevars.0, %if.end36 ]
-  %ourcellvars.1 = phi ptr [ null, %if.end16 ], [ null, %if.end24 ], [ null, %if.end33 ], [ %ourcellvars.0, %if.end36 ]
+  %ourfreevars.0 = phi ptr [ null, %if.end16 ], [ null, %if.end24 ], [ %ourfreevars.1, %if.end33 ], [ %ourfreevars.1, %if.end36 ]
+  %ourcellvars.0 = phi ptr [ null, %if.end16 ], [ null, %if.end24 ], [ null, %if.end33 ], [ %ourcellvars.1, %if.end36 ]
   %4 = load i64, ptr %call13, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i2.not.i = icmp eq i64 %5, 0
@@ -8598,43 +8598,43 @@ if.then1.i.i30:                                   ; preds = %if.end.i.i27
   br label %Py_XDECREF.exit31
 
 Py_XDECREF.exit31:                                ; preds = %Py_XDECREF.exit, %if.then.i25, %if.end.i.i27, %if.then1.i.i30
-  %cmp.not.i32 = icmp eq ptr %ourfreevars.1, null
+  %cmp.not.i32 = icmp eq ptr %ourfreevars.0, null
   br i1 %cmp.not.i32, label %Py_XDECREF.exit39, label %if.then.i33
 
 if.then.i33:                                      ; preds = %Py_XDECREF.exit31
-  %8 = load i64, ptr %ourfreevars.1, align 8
+  %8 = load i64, ptr %ourfreevars.0, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i34 = icmp eq i64 %9, 0
   br i1 %cmp.i2.not.i34, label %if.end.i.i35, label %Py_XDECREF.exit39
 
 if.end.i.i35:                                     ; preds = %if.then.i33
   %dec.i.i36 = add i64 %8, -1
-  store i64 %dec.i.i36, ptr %ourfreevars.1, align 8
+  store i64 %dec.i.i36, ptr %ourfreevars.0, align 8
   %cmp.i.i37 = icmp eq i64 %dec.i.i36, 0
   br i1 %cmp.i.i37, label %if.then1.i.i38, label %Py_XDECREF.exit39
 
 if.then1.i.i38:                                   ; preds = %if.end.i.i35
-  tail call void @_Py_Dealloc(ptr noundef nonnull %ourfreevars.1) #13
+  tail call void @_Py_Dealloc(ptr noundef nonnull %ourfreevars.0) #13
   br label %Py_XDECREF.exit39
 
 Py_XDECREF.exit39:                                ; preds = %Py_XDECREF.exit31, %if.then.i33, %if.end.i.i35, %if.then1.i.i38
-  %cmp.not.i40 = icmp eq ptr %ourcellvars.1, null
+  %cmp.not.i40 = icmp eq ptr %ourcellvars.0, null
   br i1 %cmp.not.i40, label %Py_XDECREF.exit47, label %if.then.i41
 
 if.then.i41:                                      ; preds = %Py_XDECREF.exit39
-  %10 = load i64, ptr %ourcellvars.1, align 8
+  %10 = load i64, ptr %ourcellvars.0, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i2.not.i42 = icmp eq i64 %11, 0
   br i1 %cmp.i2.not.i42, label %if.end.i.i43, label %Py_XDECREF.exit47
 
 if.end.i.i43:                                     ; preds = %if.then.i41
   %dec.i.i44 = add i64 %10, -1
-  store i64 %dec.i.i44, ptr %ourcellvars.1, align 8
+  store i64 %dec.i.i44, ptr %ourcellvars.0, align 8
   %cmp.i.i45 = icmp eq i64 %dec.i.i44, 0
   br i1 %cmp.i.i45, label %if.then1.i.i46, label %Py_XDECREF.exit47
 
 if.then1.i.i46:                                   ; preds = %if.end.i.i43
-  tail call void @_Py_Dealloc(ptr noundef nonnull %ourcellvars.1) #13
+  tail call void @_Py_Dealloc(ptr noundef nonnull %ourcellvars.0) #13
   br label %Py_XDECREF.exit47
 
 Py_XDECREF.exit47:                                ; preds = %entry, %if.then2, %if.then5, %if.then8, %if.then11, %if.end12, %Py_XDECREF.exit39, %if.then.i41, %if.end.i.i43, %if.then1.i.i46

@@ -1486,16 +1486,16 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
 
 153:                                              ; preds = %.lr.ph, %proto_item_set_generated.exit299
   %.0279308 = phi i32 [ 0, %.lr.ph ], [ %154, %proto_item_set_generated.exit299 ]
-  %.1307 = phi i32 [ 1, %.lr.ph ], [ %184, %proto_item_set_generated.exit299 ]
+  %.2307 = phi i32 [ 1, %.lr.ph ], [ %184, %proto_item_set_generated.exit299 ]
   %154 = add i32 %.0279308, 1
   %155 = load i32, ptr @ett_gsm_a_poly_pnt, align 4
-  %156 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1307, i32 noundef 6, i32 noundef %155, ptr noundef nonnull %8, ptr noundef nonnull @.str.37, i32 noundef %154) #6
+  %156 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.2307, i32 noundef 6, i32 noundef %155, ptr noundef nonnull %8, ptr noundef nonnull @.str.37, i32 noundef %154) #6
   %157 = load i32, ptr @hf_gsm_a_geo_loc_sign_of_lat, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %0, i32 noundef %.1307, i32 noundef 1, i32 noundef 0) #6
-  %159 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.1307) #6
+  %158 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %0, i32 noundef %.2307, i32 noundef 1, i32 noundef 0) #6
+  %159 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.2307) #6
   store i32 %159, ptr %5, align 4
   %160 = load i32, ptr @hf_gsm_a_geo_loc_deg_of_lat, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %160, ptr noundef %0, i32 noundef %.1307, i32 noundef 3, i32 noundef 0) #6
+  %161 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %160, ptr noundef %0, i32 noundef %.2307, i32 noundef 3, i32 noundef 0) #6
   %162 = load ptr, ptr %152, align 8
   %163 = load i32, ptr %5, align 4
   %164 = and i32 %163, 8388608
@@ -1507,7 +1507,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %169 = fmul double %168, 9.000000e+01
   %170 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %162, ptr noundef nonnull @.str.30, ptr noundef nonnull %165, double noundef %169) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %161, ptr noundef nonnull @.str.33, ptr noundef %170) #6
-  %171 = add i32 %.1307, 3
+  %171 = add i32 %.2307, 3
   %172 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %171) #6
   %173 = and i32 %172, 8388608
   %.not289 = icmp eq i32 %173, 0
@@ -1523,14 +1523,14 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %182 = fmul double %181, 3.600000e+02
   %183 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %178, ptr noundef nonnull @.str.34, double noundef %182) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %177, ptr noundef nonnull @.str.33, ptr noundef %183) #6
-  %184 = add i32 %.1307, 6
+  %184 = add i32 %.2307, 6
   %185 = load i32, ptr %7, align 4
   %186 = add i32 %185, -1
   store i32 %186, ptr %7, align 4
   %187 = load ptr, ptr %152, align 8
   %188 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %187, ptr noundef nonnull @.str.36, ptr noundef %170, ptr noundef %183) #6
   %189 = load i32, ptr @hf_gsm_a_geo_loc_osm_uri, align 4
-  %190 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.1307, i32 noundef 6, ptr noundef %188) #6
+  %190 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.2307, i32 noundef 6, ptr noundef %188) #6
   %.not.i294 = icmp eq ptr %190, null
   br i1 %.not.i294, label %proto_item_set_generated.exit299, label %191
 
@@ -2189,8 +2189,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %88
 
 88:                                               ; preds = %74, %86, %78, %switch.lookup
-  %.073 = phi i16 [ %40, %74 ], [ %84, %86 ], [ %84, %78 ], [ 0, %switch.lookup ]
-  %89 = add i16 %.073, 2
+  %.1 = phi i16 [ %40, %74 ], [ %84, %86 ], [ %84, %78 ], [ 0, %switch.lookup ]
+  %89 = add i16 %.1, 2
   br label %90
 
 90:                                               ; preds = %33, %88, %50, %31
@@ -2432,10 +2432,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %97
 
 97:                                               ; preds = %83, %95, %87, %switch.lookup
-  %.084 = phi i16 [ %.081, %83 ], [ %93, %95 ], [ %93, %87 ], [ 0, %switch.lookup ]
+  %.1 = phi i16 [ %.081, %83 ], [ %93, %95 ], [ %93, %87 ], [ 0, %switch.lookup ]
   %98 = trunc nuw nsw i32 %.083 to i16
   %99 = add nuw nsw i16 %98, 1
-  %100 = add i16 %99, %.084
+  %100 = add i16 %99, %.1
   br label %101
 
 101:                                              ; preds = %33, %97, %57, %31
@@ -2652,8 +2652,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %87
 
 87:                                               ; preds = %73, %85, %77, %switch.lookup
-  %.068 = phi i16 [ %39, %73 ], [ %83, %85 ], [ %83, %77 ], [ 0, %switch.lookup ]
-  %88 = add i16 %.068, 3
+  %.1 = phi i16 [ %39, %73 ], [ %83, %85 ], [ %83, %77 ], [ 0, %switch.lookup ]
+  %88 = add i16 %.1, 3
   br label %89
 
 89:                                               ; preds = %33, %87, %49, %31
@@ -2857,8 +2857,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %78
 
 78:                                               ; preds = %68, %76, %65
-  %.055 = phi i16 [ 1, %65 ], [ %74, %76 ], [ %74, %68 ]
-  %79 = add i16 %.055, 1
+  %.1 = phi i16 [ 1, %65 ], [ %74, %76 ], [ %74, %68 ]
+  %79 = add i16 %.1, 1
   %80 = load ptr, ptr %9, align 8
   %81 = zext i16 %79 to i32
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81) #6
@@ -3056,14 +3056,14 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %79
 
 79:                                               ; preds = %70, %77, %67
-  %.055 = phi i16 [ 1, %67 ], [ %75, %77 ], [ %75, %70 ]
+  %.1 = phi i16 [ 1, %67 ], [ %75, %77 ], [ %75, %70 ]
   %80 = load ptr, ptr %9, align 8
-  %81 = zext i16 %.055 to i32
+  %81 = zext i16 %.1 to i32
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81) #6
   br label %82
 
 82:                                               ; preds = %32, %79, %47, %30
-  %.0 = phi i16 [ 0, %30 ], [ 0, %47 ], [ %.055, %79 ], [ 0, %32 ]
+  %.0 = phi i16 [ 0, %30 ], [ 0, %47 ], [ %.1, %79 ], [ 0, %32 ]
   ret i16 %.0
 }
 
@@ -4168,15 +4168,15 @@ define zeroext i16 @de_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %128
 
 128:                                              ; preds = %126, %109
-  %.0192 = phi i32 [ %127, %126 ], [ %124, %109 ]
+  %.1 = phi i32 [ %127, %126 ], [ %124, %109 ]
   %129 = and i32 %10, 32
   %.not201 = icmp eq i32 %129, 0
   br i1 %.not201, label %145, label %130
 
 130:                                              ; preds = %128
   %131 = load i32, ptr @hf_gsm_a_mbs_session_id, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %131, ptr noundef %0, i32 noundef %.0192, i32 noundef 1, i32 noundef 0) #6
-  %133 = add i32 %.0192, 1
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %131, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
+  %133 = add i32 %.1, 1
   br label %145
 
 134:                                              ; preds = %7
@@ -4198,15 +4198,15 @@ define zeroext i16 @de_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %145
 
 145:                                              ; preds = %128, %130, %63, %65, %143, %107, %91, %26
-  %.1 = phi i32 [ %144, %143 ], [ %133, %130 ], [ %.0192, %128 ], [ %108, %107 ], [ %92, %91 ], [ %64, %63 ], [ %64, %65 ], [ %27, %26 ]
-  %146 = sub i32 %.1, %3
+  %.0192 = phi i32 [ %144, %143 ], [ %133, %130 ], [ %.1, %128 ], [ %108, %107 ], [ %92, %91 ], [ %64, %63 ], [ %64, %65 ], [ %27, %26 ]
+  %146 = sub i32 %.0192, %3
   %147 = icmp ult i32 %146, %4
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %145
   %149 = sub nuw i32 %4, %146
-  %150 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %149) #6
-  %151 = add i32 %149, %.1
+  %150 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_extraneous_data, ptr noundef %0, i32 noundef %.0192, i32 noundef %149) #6
+  %151 = add i32 %149, %.0192
   %.pre = sub i32 %151, %3
   br label %152
 
@@ -4659,10 +4659,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %236
 
 236:                                              ; preds = %232, %212
-  %.6 = phi i32 [ %235, %232 ], [ %229, %212 ]
+  %.7 = phi i32 [ %235, %232 ], [ %229, %212 ]
   %237 = load i32, ptr @hf_gsm_a_8_psk_rf_power_capability_2_present, align 4
-  %238 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %224, i32 noundef %237, ptr noundef %0, i32 noundef %.6, i32 noundef 1, ptr noundef nonnull %15, i32 noundef 0) #6
-  %239 = add i32 %.6, 1
+  %238 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %224, i32 noundef %237, ptr noundef %0, i32 noundef %.7, i32 noundef 1, ptr noundef nonnull %15, i32 noundef 0) #6
+  %239 = add i32 %.7, 1
   %240 = load i64, ptr %15, align 8
   %241 = icmp eq i64 %240, 1
   br i1 %241, label %242, label %246
@@ -4670,12 +4670,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
 242:                                              ; preds = %236
   %243 = load i32, ptr @hf_gsm_a_8_psk_rf_power_capability_2, align 4
   %244 = call ptr @proto_tree_add_bits_item(ptr noundef %224, i32 noundef %243, ptr noundef %0, i32 noundef %239, i32 noundef 2, i32 noundef 0) #6
-  %245 = add i32 %.6, 3
+  %245 = add i32 %.7, 3
   br label %246
 
 246:                                              ; preds = %242, %236
-  %.7 = phi i32 [ %245, %242 ], [ %239, %236 ]
-  %247 = sub i32 %.7, %209
+  %.8 = phi i32 [ %245, %242 ], [ %239, %236 ]
+  %247 = sub i32 %.8, %209
   %248 = lshr i32 %247, 3
   %249 = and i32 %247, 7
   %.not = icmp ne i32 %249, 0
@@ -4686,8 +4686,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %252
 
 252:                                              ; preds = %246, %206
-  %.8 = phi i32 [ %.7, %246 ], [ %209, %206 ]
-  %253 = sub i32 %75, %.8
+  %.6 = phi i32 [ %.8, %246 ], [ %209, %206 ]
+  %253 = sub i32 %75, %.6
   %254 = icmp slt i32 %253, 1
   br i1 %254, label %255, label %259
 
@@ -4701,8 +4701,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 259:                                              ; preds = %252
   %260 = load i32, ptr @hf_gsm_a_gsm_400_band_info_present, align 4
-  %261 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %260, ptr noundef %0, i32 noundef %.8, i32 noundef 1, ptr noundef nonnull %16, i32 noundef 0) #6
-  %262 = add i32 %.8, 1
+  %261 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %260, ptr noundef %0, i32 noundef %.6, i32 noundef 1, ptr noundef nonnull %16, i32 noundef 0) #6
+  %262 = add i32 %.6, 1
   %263 = load i64, ptr %16, align 8
   %264 = icmp eq i64 %263, 1
   br i1 %264, label %265, label %272
@@ -4710,10 +4710,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 265:                                              ; preds = %259
   %266 = load i32, ptr @hf_gsm_a_gsm_400_bands_supported, align 4
   %267 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %266, ptr noundef %0, i32 noundef %262, i32 noundef 2, i32 noundef 0) #6
-  %268 = add i32 %.8, 3
+  %268 = add i32 %.6, 3
   %269 = load i32, ptr @hf_gsm_a_gsm_400_assoc_radio_cap, align 4
   %270 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef 0) #6
-  %271 = add i32 %.8, 7
+  %271 = add i32 %.6, 7
   br label %272
 
 272:                                              ; preds = %265, %259

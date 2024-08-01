@@ -728,7 +728,7 @@ define internal fastcc void @spgWalk(ptr noundef %0, ptr noundef %1, i1 noundef 
   br label %42
 
 42:                                               ; preds = %.lr.ph124, %spgFreeSearchItem.exit
-  %.0123 = phi i32 [ 0, %.lr.ph124 ], [ %.3, %spgFreeSearchItem.exit ]
+  %.0123 = phi i32 [ 0, %.lr.ph124 ], [ %.2, %spgFreeSearchItem.exit ]
   %.val = load ptr, ptr %7, align 8
   %43 = getelementptr inbounds i8, ptr %.val, i64 16
   %44 = load ptr, ptr %43, align 8
@@ -748,7 +748,7 @@ spgGetNextQueueItem.exit:                         ; preds = %42
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader87
-  %.1 = phi i32 [ %.0123, %.preheader87 ], [ %.2, %.backedge.backedge ]
+  %.1 = phi i32 [ %.0123, %.preheader87 ], [ %.3, %.backedge.backedge ]
   %52 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %54, label %53
@@ -807,13 +807,13 @@ spgGetNextQueueItem.exit:                         ; preds = %42
   br label %82
 
 82:                                               ; preds = %.sink.split, %78
-  %.2 = phi i32 [ %.1, %78 ], [ %81, %.sink.split ]
-  %83 = icmp slt i32 %.2, 0
+  %.3 = phi i32 [ %.1, %78 ], [ %81, %.sink.split ]
+  %83 = icmp slt i32 %.3, 0
   br i1 %83, label %84, label %90
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %86 = xor i32 %.2, -1
+  %86 = xor i32 %.3, -1
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr ptr, ptr %85, i64 %87
   %89 = load ptr, ptr %88, align 8
@@ -821,7 +821,7 @@ spgGetNextQueueItem.exit:                         ; preds = %42
 
 90:                                               ; preds = %82
   %91 = load ptr, ptr @BufferBlocks, align 8
-  %92 = add nsw i32 %.2, -1
+  %92 = add nsw i32 %.3, -1
   %93 = sext i32 %92 to i64
   %94 = shl nsw i64 %93, 13
   %95 = getelementptr i8, ptr %91, i64 %94
@@ -1195,7 +1195,7 @@ spgInnerTest.exit:                                ; preds = %ItemPointerIsValid.
   br label %.loopexit86
 
 .loopexit86:                                      ; preds = %.lr.ph, %.preheader, %.preheader85, %spgInnerTest.exit, %57
-  %.3 = phi i32 [ %.1, %57 ], [ %.2, %spgInnerTest.exit ], [ %.2, %.preheader85 ], [ %.2, %.preheader ], [ %.2, %.lr.ph ]
+  %.2 = phi i32 [ %.1, %57 ], [ %.3, %spgInnerTest.exit ], [ %.3, %.preheader85 ], [ %.3, %.preheader ], [ %.3, %.lr.ph ]
   %277 = load i8, ptr %48, align 1
   %278 = trunc i8 %277 to i1
   br i1 %278, label %279, label %282
@@ -1252,7 +1252,7 @@ spgFreeSearchItem.exit:                           ; preds = %294, %297
   br i1 %302, label %42, label %spgGetNextQueueItem.exit.thread, !llvm.loop !18
 
 spgGetNextQueueItem.exit.thread:                  ; preds = %spgFreeSearchItem.exit, %spgGetNextQueueItem.exit, %42
-  %.0.lcssa.ph = phi i32 [ %.3, %spgFreeSearchItem.exit ], [ %.0123, %spgGetNextQueueItem.exit ], [ %.0123, %42 ]
+  %.0.lcssa.ph = phi i32 [ %.2, %spgFreeSearchItem.exit ], [ %.0123, %spgGetNextQueueItem.exit ], [ %.0123, %42 ]
   %.not74 = icmp eq i32 %.0.lcssa.ph, 0
   br i1 %.not74, label %304, label %303
 

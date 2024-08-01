@@ -787,7 +787,7 @@ dissect_someip_sd_pdu_option_unknown.exit.i:      ; preds = %264, %261, %248
   br i1 %.not67.i, label %dissect_someip_sd_pdu_options.exit, label %94, !llvm.loop !6
 
 dissect_someip_sd_pdu_options.exit:               ; preds = %268, %.preheader.i, %92, %107
-  %.095 = phi i32 [ 0, %92 ], [ 0, %107 ], [ 0, %.preheader.i ], [ %269, %268 ]
+  %.1 = phi i32 [ 0, %92 ], [ 0, %107 ], [ 0, %.preheader.i ], [ %269, %268 ]
   %272 = load i32, ptr %24, align 4
   %273 = add i32 %272, %68
   br label %thread-pre-split
@@ -797,14 +797,14 @@ dissect_someip_sd_pdu_options.exit:               ; preds = %268, %.preheader.i,
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %65, %274, %dissect_someip_sd_pdu_options.exit, %63
-  %.1.ph = phi i32 [ %.095, %dissect_someip_sd_pdu_options.exit ], [ 0, %274 ], [ 0, %65 ], [ 0, %63 ]
+  %.095.ph = phi i32 [ %.1, %dissect_someip_sd_pdu_options.exit ], [ 0, %274 ], [ 0, %65 ], [ 0, %63 ]
   %.079.ph = phi i32 [ %273, %dissect_someip_sd_pdu_options.exit ], [ %68, %274 ], [ %68, %65 ], [ %62, %63 ]
   %.pr = load i32, ptr %23, align 4
   br label %276
 
 276:                                              ; preds = %thread-pre-split, %55
   %277 = phi i32 [ %.pr, %thread-pre-split ], [ %61, %55 ]
-  %.1 = phi i32 [ %.1.ph, %thread-pre-split ], [ 0, %55 ]
+  %.095 = phi i32 [ %.095.ph, %thread-pre-split ], [ 0, %55 ]
   %.079 = phi i32 [ %.079.ph, %thread-pre-split ], [ %62, %55 ]
   %278 = icmp ugt i32 %277, 15
   br i1 %278, label %.lr.ph.i92, label %581
@@ -1174,7 +1174,7 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
   %475 = load i32, ptr %10, align 4
   %476 = load i32, ptr %12, align 4
   %477 = add i32 %476, %475
-  %invariant.umin.i.i.i = call i32 @llvm.umin.i32(i32 %477, i32 %.1)
+  %invariant.umin.i.i.i = call i32 @llvm.umin.i32(i32 %477, i32 %.095)
   %478 = icmp ugt i32 %invariant.umin.i.i.i, %475
   br i1 %478, label %.lr.ph.preheader.i.i.i, label %someip_sd_register_ports.exit.i.i
 
@@ -1225,7 +1225,7 @@ someip_sd_register_ports.exit.i.i:                ; preds = %492, %474
   %493 = load i32, ptr %11, align 4
   %494 = load i32, ptr %13, align 4
   %495 = add i32 %494, %493
-  %invariant.umin.i216.i.i = call i32 @llvm.umin.i32(i32 %495, i32 %.1)
+  %invariant.umin.i216.i.i = call i32 @llvm.umin.i32(i32 %495, i32 %.095)
   %496 = icmp ugt i32 %invariant.umin.i216.i.i, %493
   br i1 %496, label %.lr.ph.preheader.i217.i.i, label %someip_sd_register_ports.exit226.i.i
 

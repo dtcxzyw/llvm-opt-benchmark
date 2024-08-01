@@ -510,14 +510,14 @@ if.else34:                                        ; preds = %if.else
   br label %exit
 
 if.end37:                                         ; preds = %if.then16, %if.end29
-  %encoding.0 = phi ptr [ %call26, %if.end29 ], [ null, %if.then16 ]
+  %encoding.2 = phi ptr [ %call26, %if.end29 ], [ null, %if.then16 ]
   %dec = add i64 %add4044, -1
   %tobool38.not = icmp eq i64 %dec, 0
   br i1 %tobool38.not, label %if.then5.i, label %if.end41
 
 if.end41:                                         ; preds = %if.end37, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.end37 ], [ %add4044, %if.end14 ]
-  %encoding.1 = phi ptr [ %encoding.0, %if.end37 ], [ null, %if.end14 ]
+  %encoding.1 = phi ptr [ %encoding.2, %if.end37 ], [ null, %if.end14 ]
   %arrayidx42 = getelementptr i8, ptr %cond1045, i64 8
   %9 = load ptr, ptr %arrayidx42, align 8
   %tobool43.not = icmp eq ptr %9, null
@@ -557,24 +557,24 @@ if.else63:                                        ; preds = %if.else48
   br label %exit
 
 if.end66:                                         ; preds = %if.then44, %if.end58
-  %namespace_separator.0 = phi ptr [ %call55, %if.end58 ], [ null, %if.then44 ]
+  %namespace_separator.2 = phi ptr [ %call55, %if.end58 ], [ null, %if.then44 ]
   %tobool68.not = icmp eq i64 %noptargs.0, 1
   br i1 %tobool68.not, label %skip_optional_pos, label %if.end71
 
 if.end71:                                         ; preds = %if.end66, %if.end41
-  %namespace_separator.1 = phi ptr [ %namespace_separator.0, %if.end66 ], [ null, %if.end41 ]
+  %namespace_separator.1 = phi ptr [ %namespace_separator.2, %if.end66 ], [ null, %if.end41 ]
   %arrayidx72 = getelementptr i8, ptr %cond1045, i64 16
   %15 = load ptr, ptr %arrayidx72, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end66, %if.end71
-  %namespace_separator.2 = phi ptr [ %namespace_separator.1, %if.end71 ], [ %namespace_separator.0, %if.end66 ]
+  %namespace_separator.0 = phi ptr [ %namespace_separator.1, %if.end71 ], [ %namespace_separator.2, %if.end66 ]
   %intern.0 = phi ptr [ %15, %if.end71 ], [ null, %if.end66 ]
-  %cmp.not.i = icmp eq ptr %namespace_separator.2, null
+  %cmp.not.i = icmp eq ptr %namespace_separator.0, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_optional_pos
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %namespace_separator.2) #9
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %namespace_separator.0) #9
   %cmp1.i = icmp ugt i64 %call.i, 1
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
@@ -592,8 +592,8 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else9.i
 
 if.then5.i:                                       ; preds = %if.end, %if.end37, %if.else.i
-  %namespace_separator.2515867 = phi ptr [ %namespace_separator.2, %if.else.i ], [ null, %if.end37 ], [ null, %if.end ]
-  %encoding.2506066 = phi ptr [ %encoding.1, %if.else.i ], [ %encoding.0, %if.end37 ], [ null, %if.end ]
+  %namespace_separator.0515867 = phi ptr [ %namespace_separator.0, %if.else.i ], [ null, %if.end37 ], [ null, %if.end ]
+  %encoding.0506066 = phi ptr [ %encoding.1, %if.else.i ], [ %encoding.2, %if.end37 ], [ null, %if.end ]
   %call6.i = call ptr @PyDict_New() #8
   %tobool.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool.not.i, label %exit, label %if.end16.i
@@ -613,8 +613,8 @@ if.then13.i:                                      ; preds = %if.else9.i
   br label %exit
 
 if.end16.i:                                       ; preds = %if.else9.i, %if.then5.i, %if.end.i
-  %encoding.25061 = phi ptr [ %encoding.1, %if.else9.i ], [ %encoding.1, %if.end.i ], [ %encoding.2506066, %if.then5.i ]
-  %namespace_separator.25159 = phi ptr [ %namespace_separator.2, %if.else9.i ], [ %namespace_separator.2, %if.end.i ], [ %namespace_separator.2515867, %if.then5.i ]
+  %encoding.05061 = phi ptr [ %encoding.1, %if.else9.i ], [ %encoding.1, %if.end.i ], [ %encoding.0506066, %if.then5.i ]
+  %namespace_separator.05159 = phi ptr [ %namespace_separator.0, %if.else9.i ], [ %namespace_separator.0, %if.end.i ], [ %namespace_separator.0515867, %if.then5.i ]
   %intern.addr.0.i = phi ptr [ %intern.0, %if.else9.i ], [ null, %if.end.i ], [ %call6.i, %if.then5.i ]
   %tobool19.not.i = phi i1 [ true, %if.else9.i ], [ true, %if.end.i ], [ false, %if.then5.i ]
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #8
@@ -650,7 +650,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 _Py_XNewRef.exit.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i13.i
   %intern2.i.i = getelementptr inbounds i8, ptr %call.i11.i, i64 56
   store ptr %intern.addr.0.i, ptr %intern2.i.i, align 8
-  %call3.i.i = call ptr @PyExpat_XML_ParserCreate_MM(ptr noundef %encoding.25061, ptr noundef nonnull @ExpatMemoryHandler, ptr noundef %namespace_separator.25159) #8
+  %call3.i.i = call ptr @PyExpat_XML_ParserCreate_MM(ptr noundef %encoding.05061, ptr noundef nonnull @ExpatMemoryHandler, ptr noundef %namespace_separator.05159) #8
   %itself.i.i = getelementptr inbounds i8, ptr %call.i11.i, i64 16
   store ptr %call3.i.i, ptr %itself.i.i, align 8
   %cmp5.i.i = icmp eq ptr %call3.i.i, null
@@ -1022,23 +1022,23 @@ if.then8:                                         ; preds = %if.end6
   br label %if.end11
 
 while.cond:                                       ; preds = %if.end6, %while.cond
-  %max.0 = phi i32 [ %add, %while.cond ], [ 0, %if.end6 ]
-  %idxprom = sext i32 %max.0 to i64
+  %max.1 = phi i32 [ %add, %while.cond ], [ 0, %if.end6 ]
+  %idxprom = sext i32 %max.1 to i64
   %arrayidx = getelementptr ptr, ptr %atts, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
   %cmp10.not = icmp eq ptr %6, null
-  %add = add i32 %max.0, 2
+  %add = add i32 %max.1, 2
   br i1 %cmp10.not, label %if.end11, label %while.cond, !llvm.loop !8
 
 if.end11:                                         ; preds = %while.cond, %if.then8
-  %max.1 = phi i32 [ %call9, %if.then8 ], [ %max.0, %while.cond ]
+  %max.0 = phi i32 [ %call9, %if.then8 ], [ %max.1, %while.cond ]
   %ordered_attributes = getelementptr inbounds i8, ptr %userData, i64 24
   %7 = load i32, ptr %ordered_attributes, align 8
   %tobool12.not = icmp eq i32 %7, 0
   br i1 %tobool12.not, label %if.else15, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %conv = sext i32 %max.1 to i64
+  %conv = sext i32 %max.0 to i64
   %call14 = tail call ptr @PyList_New(i64 noundef %conv) #8
   br label %if.end17
 
@@ -1052,7 +1052,7 @@ if.end17:                                         ; preds = %if.else15, %if.then
   br i1 %cmp18, label %if.then20, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end17
-  %cmp22137 = icmp sgt i32 %max.1, 0
+  %cmp22137 = icmp sgt i32 %max.0, 0
   br i1 %cmp22137, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -1389,7 +1389,7 @@ if.then1.i95:                                     ; preds = %if.end.i92
 
 for.inc:                                          ; preds = %if.then41, %if.end.i92, %if.then1.i95, %Py_DECREF.exit106
   %add52 = add i32 %i.0138, 2
-  %cmp22 = icmp slt i32 %add52, %max.1
+  %cmp22 = icmp slt i32 %add52, %max.0
   br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

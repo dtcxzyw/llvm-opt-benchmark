@@ -489,9 +489,9 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %pages.sroa.0.1179 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.0.3, %for.inc ]
-  %pages.sroa.10.1178 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.10.2, %for.inc ]
-  %pages.sroa.19.1177 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %pages.sroa.19.2, %for.inc ]
+  %pages.sroa.0.1179 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.0.4, %for.inc ]
+  %pages.sroa.10.0178 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.10.2, %for.inc ]
+  %pages.sroa.19.0177 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %pages.sroa.19.2, %for.inc ]
   %arrayidx.i.i = getelementptr inbounds [12 x i32], ptr %sizeCounts, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx.i.i, align 4
   %conv63 = sext i32 %25 to i64
@@ -564,20 +564,20 @@ if.else.i:                                        ; preds = %if.then70
   br label %if.end84
 
 lpad57.loopexit:                                  ; preds = %invoke.cont114, %cond.true.i.i.i
-  %pages.sroa.0.2.ph = phi ptr [ %pages.sroa.0.1179, %cond.true.i.i.i ], [ %pages.sroa.0.3, %invoke.cont114 ]
+  %pages.sroa.0.0.ph = phi ptr [ %pages.sroa.0.1179, %cond.true.i.i.i ], [ %pages.sroa.0.4, %invoke.cont114 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 lpad57.loopexit.split-lp:                         ; preds = %if.then86, %if.then136, %if.then.i72, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i, %if.then.i.i.i, %if.then.i106, %if.end.i104, %if.then.i.i116
-  %pages.sroa.0.2.ph153 = phi ptr [ null, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i ], [ %pages.sroa.0.1179, %if.then.i.i.i ], [ %pages.sroa.0.1179, %if.then86 ], [ %pages.sroa.0.1158, %if.then136 ], [ %pages.sroa.0.1158, %if.end.i104 ], [ %pages.sroa.0.1158, %if.then.i106 ], [ %pages.sroa.0.1158214, %if.then.i.i116 ], [ null, %if.then.i72 ]
+  %pages.sroa.0.0.ph153 = phi ptr [ null, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i ], [ %pages.sroa.0.1179, %if.then.i.i.i ], [ %pages.sroa.0.1179, %if.then86 ], [ %pages.sroa.0.1158, %if.then136 ], [ %pages.sroa.0.1158, %if.end.i104 ], [ %pages.sroa.0.1158, %if.then.i106 ], [ %pages.sroa.0.1158214, %if.then.i.i116 ], [ null, %if.then.i72 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 if.end84:                                         ; preds = %if.else.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit.i
-  %ptr.1 = phi ptr [ %call2.i.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit.i ], [ %call2.i16.i, %if.else.i ]
-  %cmp85 = icmp eq ptr %ptr.1, null
+  %ptr.0 = phi ptr [ %call2.i.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit.i ], [ %call2.i16.i, %if.else.i ]
+  %cmp85 = icmp eq ptr %ptr.0, null
   br i1 %cmp85, label %if.then86, label %if.end113
 
 if.then86:                                        ; preds = %if.end84, %if.then2.i, %if.end.i
@@ -660,15 +660,15 @@ ehcleanup112:                                     ; preds = %lpad109, %lpad99, %
   br label %ehcleanup179
 
 if.end113:                                        ; preds = %if.end84
-  %cmp.not.i85 = icmp eq ptr %pages.sroa.10.1178, %pages.sroa.19.1177
+  %cmp.not.i85 = icmp eq ptr %pages.sroa.10.0178, %pages.sroa.19.0177
   br i1 %cmp.not.i85, label %if.else.i88, label %if.then.i86
 
 if.then.i86:                                      ; preds = %if.end113
-  store ptr %ptr.1, ptr %pages.sroa.10.1178, align 8
+  store ptr %ptr.0, ptr %pages.sroa.10.0178, align 8
   br label %invoke.cont114
 
 if.else.i88:                                      ; preds = %if.end113
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %pages.sroa.10.1178 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %pages.sroa.10.0178 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %pages.sroa.0.1179 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i89 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -699,7 +699,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPvSaI
 _ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i92, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  store ptr %ptr.1, ptr %add.ptr.i.i, align 8
+  store ptr %ptr.0, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
 
@@ -721,11 +721,11 @@ _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iterat
   br label %invoke.cont114
 
 invoke.cont114:                                   ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %if.then.i86
-  %pages.sroa.19.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.19.1177, %if.then.i86 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.10.1178, %if.then.i86 ]
-  %pages.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.0.1179, %if.then.i86 ]
+  %pages.sroa.19.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.19.0177, %if.then.i86 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.10.0178, %if.then.i86 ]
+  %pages.sroa.0.4 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.0.1179, %if.then.i86 ]
   %conv116 = trunc i64 %mul to i32
-  invoke void @_ZN8facebook5velox6memory10Allocation6appendEPhi(ptr noundef nonnull align 8 dereferenceable(36) %out, ptr noundef nonnull %ptr.1, i32 noundef %conv116)
+  invoke void @_ZN8facebook5velox6memory10Allocation6appendEPhi(ptr noundef nonnull align 8 dereferenceable(36) %out, ptr noundef nonnull %ptr.0, i32 noundef %conv116)
           to label %for.inc unwind label %lpad57.loopexit
 
 for.inc:                                          ; preds = %invoke.cont114
@@ -738,9 +738,9 @@ for.inc:                                          ; preds = %invoke.cont114
 
 for.end:                                          ; preds = %for.inc, %invoke.cont110
   %conv120.pre-phi = phi i64 [ %.pre200, %invoke.cont110 ], [ %47, %for.inc ]
-  %pages.sroa.10.1167 = phi ptr [ %pages.sroa.10.1178, %invoke.cont110 ], [ %pages.sroa.10.2, %for.inc ]
-  %pages.sroa.0.1158 = phi ptr [ %pages.sroa.0.1179, %invoke.cont110 ], [ %pages.sroa.0.3, %for.inc ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %pages.sroa.10.1167 to i64
+  %pages.sroa.10.0167 = phi ptr [ %pages.sroa.10.0178, %invoke.cont110 ], [ %pages.sroa.10.2, %for.inc ]
+  %pages.sroa.0.1158 = phi ptr [ %pages.sroa.0.1179, %invoke.cont110 ], [ %pages.sroa.0.4, %for.inc ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %pages.sroa.10.0167 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %pages.sroa.0.1158 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
@@ -748,7 +748,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   br i1 %cmp121.not, label %if.end163, label %for.cond126.preheader
 
 for.cond126.preheader:                            ; preds = %for.end
-  %cmp.i95.not182 = icmp eq ptr %pages.sroa.0.1158, %pages.sroa.10.1167
+  %cmp.i95.not182 = icmp eq ptr %pages.sroa.0.1158, %pages.sroa.10.0167
   br i1 %cmp.i95.not182, label %for.end133, label %for.body128
 
 for.body128:                                      ; preds = %for.cond126.preheader, %for.body128
@@ -756,7 +756,7 @@ for.body128:                                      ; preds = %for.cond126.prehead
   %48 = load ptr, ptr %__begin3.sroa.0.0183, align 8
   call void @free(ptr noundef %48) #20
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0183, i64 8
-  %cmp.i95.not = icmp eq ptr %incdec.ptr.i96, %pages.sroa.10.1167
+  %cmp.i95.not = icmp eq ptr %incdec.ptr.i96, %pages.sroa.10.0167
   br i1 %cmp.i95.not, label %for.end133, label %for.body128
 
 for.end133:                                       ; preds = %for.body128, %for.cond126.preheader
@@ -872,7 +872,7 @@ if.then.i113:                                     ; preds = %if.end161
 
 if.end163:                                        ; preds = %if.end.i69, %for.end
   %pages.sroa.0.1158214 = phi ptr [ %pages.sroa.0.1158, %for.end ], [ null, %if.end.i69 ]
-  %pages.sroa.10.1167213 = phi ptr [ %pages.sroa.10.1167, %for.end ], [ null, %if.end.i69 ]
+  %pages.sroa.10.0167213 = phi ptr [ %pages.sroa.10.0167, %for.end ], [ null, %if.end.i69 ]
   %mallocsMutex_ = getelementptr inbounds i8, ptr %this, i64 904
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mallocsMutex_) #20
   %tobool.not.i.i115 = icmp eq i32 %call1.i.i.i, 0
@@ -889,7 +889,7 @@ invoke.cont164:                                   ; preds = %if.end163
   %mallocs_ = getelementptr inbounds i8, ptr %this, i64 944
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %mallocs_, ptr %__node_gen.i.i, align 8
-  %cmp.i.not3.i.i.i = icmp eq ptr %pages.sroa.0.1158214, %pages.sroa.10.1167213
+  %cmp.i.not3.i.i.i = icmp eq ptr %pages.sroa.0.1158214, %pages.sroa.10.0167213
   br i1 %cmp.i.not3.i.i.i, label %invoke.cont174, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont164, %call3.i.i.i.i.noexc
@@ -899,7 +899,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont164, %ca
 
 call3.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i, i64 8
-  %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %pages.sroa.10.1167213
+  %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %pages.sroa.10.0167213
   br i1 %cmp.i.not.i.i.i, label %invoke.cont174, label %for.body.i.i.i, !llvm.loop !10
 
 invoke.cont174:                                   ; preds = %call3.i.i.i.i.noexc, %invoke.cont164
@@ -928,18 +928,18 @@ if.then.i.i.i123:                                 ; preds = %cleanup
   br label %return
 
 ehcleanup179:                                     ; preds = %lpad57.loopexit, %lpad57.loopexit.split-lp, %lpad173, %ehcleanup158, %ehcleanup112, %lpad93
-  %pages.sroa.0.4 = phi ptr [ %pages.sroa.0.1158214, %lpad173 ], [ %pages.sroa.0.1158, %ehcleanup158 ], [ %pages.sroa.0.1179, %ehcleanup112 ], [ %pages.sroa.0.1179, %lpad93 ], [ %pages.sroa.0.2.ph, %lpad57.loopexit ], [ %pages.sroa.0.2.ph153, %lpad57.loopexit.split-lp ]
+  %pages.sroa.0.2 = phi ptr [ %pages.sroa.0.1158214, %lpad173 ], [ %pages.sroa.0.1158, %ehcleanup158 ], [ %pages.sroa.0.1179, %ehcleanup112 ], [ %pages.sroa.0.1179, %lpad93 ], [ %pages.sroa.0.0.ph, %lpad57.loopexit ], [ %pages.sroa.0.0.ph153, %lpad57.loopexit.split-lp ]
   %.pn38 = phi { ptr, i32 } [ %59, %lpad173 ], [ %.pn36, %ehcleanup158 ], [ %.pn34, %ehcleanup112 ], [ %41, %lpad93 ], [ %lpad.loopexit, %lpad57.loopexit ], [ %lpad.loopexit.split-lp, %lpad57.loopexit.split-lp ]
-  %tobool.not.i.i.i124 = icmp eq ptr %pages.sroa.0.4, null
+  %tobool.not.i.i.i124 = icmp eq ptr %pages.sroa.0.2, null
   br i1 %tobool.not.i.i.i124, label %eh.resume, label %if.then.i.i.i125
 
 if.then.i.i.i125:                                 ; preds = %ehcleanup179
-  call void @_ZdlPv(ptr noundef nonnull %pages.sroa.0.4) #28
+  call void @_ZdlPv(ptr noundef nonnull %pages.sroa.0.2) #28
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i123, %cleanup, %if.then8, %land.lhs.true10, %_ZNKSt8functionIFvlbEEclElb.exit50, %if.then, %land.lhs.true, %_ZNKSt8functionIFvlbEEclElb.exit
-  %retval.1 = phi i1 [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit50 ], [ false, %land.lhs.true10 ], [ false, %if.then8 ], [ %cmp121.not218, %cleanup ], [ %cmp121.not218, %if.then.i.i.i123 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNKSt8functionIFvlbEEclElb.exit ], [ true, %land.lhs.true ], [ true, %if.then ], [ false, %_ZNKSt8functionIFvlbEEclElb.exit50 ], [ false, %land.lhs.true10 ], [ false, %if.then8 ], [ %cmp121.not218, %cleanup ], [ %cmp121.not218, %if.then.i.i.i123 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i125, %ehcleanup179, %ehcleanup53, %lpad
   %lpad.val182.merged = phi { ptr, i32 } [ %.pn32, %ehcleanup53 ], [ %12, %lpad ], [ %.pn38, %ehcleanup179 ], [ %.pn38, %if.then.i.i.i125 ]

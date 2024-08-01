@@ -915,8 +915,8 @@ while.body.lr.ph.i.i:                             ; preds = %if.then38.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end78.i.i, %while.body.lr.ph.i.i
-  %alloc.0123.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %alloc.3.i.i, %if.end78.i.i ]
-  %queued_cmd.0122.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %queued_cmd.2.i.i, %if.end78.i.i ]
+  %alloc.0123.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %alloc.1.i.i, %if.end78.i.i ]
+  %queued_cmd.0122.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %queued_cmd.1.i.i, %if.end78.i.i ]
   %nr.0121.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %nr.1.i.i, %if.end78.i.i ]
   %30 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %30, 0
@@ -1087,8 +1087,8 @@ st_mult.exit.i.i:                                 ; preds = %if.then57.i.i
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %st_mult.exit.i.i, %do.body.i.i
-  %queued_cmd.1.i.i = phi ptr [ %call70.i.i, %st_mult.exit.i.i ], [ %queued_cmd.0122.i.i, %do.body.i.i ]
-  %alloc.2.i.i = phi i64 [ %add.div30.i.i, %st_mult.exit.i.i ], [ %alloc.0123.i.i, %do.body.i.i ]
+  %queued_cmd.2.i.i = phi ptr [ %call70.i.i, %st_mult.exit.i.i ], [ %queued_cmd.0122.i.i, %do.body.i.i ]
+  %alloc.3.i.i = phi i64 [ %add.div30.i.i, %st_mult.exit.i.i ], [ %alloc.0123.i.i, %do.body.i.i ]
   %fn72.i.i = getelementptr inbounds i8, ptr %arrayidx16.i.i, i64 8
   %49 = load ptr, ptr %fn72.i.i, align 8
   %tobool.not.i38.i.i = icmp eq ptr %p.0.ph.i.i, null
@@ -1100,7 +1100,7 @@ cond.true.i.i.i:                                  ; preds = %do.end.i.i
 
 xstrdup_or_null.exit.i.i:                         ; preds = %cond.true.i.i.i, %do.end.i.i
   %cond.i.i.i = phi ptr [ %call.i39.i.i, %cond.true.i.i.i ], [ null, %do.end.i.i ]
-  %arrayidx76.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.1.i.i, i64 %nr.0121.i.i
+  %arrayidx76.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.2.i.i, i64 %nr.0121.i.i
   store ptr %49, ptr %arrayidx76.i.i, align 8
   %call2.sroa.3.0.arrayidx76.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx76.i.i, i64 8
   store ptr %cond.i.i.i, ptr %call2.sroa.3.0.arrayidx76.sroa_idx.i.i, align 8
@@ -1108,8 +1108,8 @@ xstrdup_or_null.exit.i.i:                         ; preds = %cond.true.i.i.i, %d
 
 if.end78.i.i:                                     ; preds = %do.body.i33.i.i, %xstrdup_or_null.exit.i.i, %if.then53.i.i, %dispatch_calls.exit.i.i
   %nr.1.i.i = phi i64 [ %nr.0121.i.i, %if.then53.i.i ], [ %add.i.i, %xstrdup_or_null.exit.i.i ], [ 0, %dispatch_calls.exit.i.i ], [ 0, %do.body.i33.i.i ]
-  %queued_cmd.2.i.i = phi ptr [ %queued_cmd.0122.i.i, %if.then53.i.i ], [ %queued_cmd.1.i.i, %xstrdup_or_null.exit.i.i ], [ %queued_cmd.0122.i.i, %dispatch_calls.exit.i.i ], [ %queued_cmd.0122.i.i, %do.body.i33.i.i ]
-  %alloc.3.i.i = phi i64 [ %alloc.0123.i.i, %if.then53.i.i ], [ %alloc.2.i.i, %xstrdup_or_null.exit.i.i ], [ %alloc.0123.i.i, %dispatch_calls.exit.i.i ], [ %alloc.0123.i.i, %do.body.i33.i.i ]
+  %queued_cmd.1.i.i = phi ptr [ %queued_cmd.0122.i.i, %if.then53.i.i ], [ %queued_cmd.2.i.i, %xstrdup_or_null.exit.i.i ], [ %queued_cmd.0122.i.i, %dispatch_calls.exit.i.i ], [ %queued_cmd.0122.i.i, %do.body.i33.i.i ]
+  %alloc.1.i.i = phi i64 [ %alloc.0123.i.i, %if.then53.i.i ], [ %alloc.3.i.i, %xstrdup_or_null.exit.i.i ], [ %alloc.0123.i.i, %dispatch_calls.exit.i.i ], [ %alloc.0123.i.i, %do.body.i33.i.i ]
   %50 = load ptr, ptr @stdin, align 8
   %51 = load i8, ptr %input_delim6368, align 4
   %conv.i.i = sext i8 %51 to i32
@@ -1150,7 +1150,7 @@ if.then.i53.i.i:                                  ; preds = %if.then85.i.i
 
 for.body.i47.i.i:                                 ; preds = %for.body.i47.i.i, %for.body.preheader.i45.i.i
   %indvars.iv.i48.i.i = phi i64 [ 0, %for.body.preheader.i45.i.i ], [ %indvars.iv.next.i51.i.i, %for.body.i47.i.i ]
-  %arrayidx.i49.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.2.i.i, i64 %indvars.iv.i48.i.i
+  %arrayidx.i49.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.1.i.i, i64 %indvars.iv.i48.i.i
   %54 = load ptr, ptr %arrayidx.i49.i.i, align 8
   %line.i50.i.i = getelementptr inbounds i8, ptr %arrayidx.i49.i.i, i64 8
   %55 = load ptr, ptr %line.i50.i.i, align 8
@@ -1166,7 +1166,7 @@ dispatch_calls.exit55.i.i:                        ; preds = %for.body.i47.i.i, %
 
 do.body.i57.i.i:                                  ; preds = %do.body.i57.i.i, %dispatch_calls.exit55.i.i
   %i.07.i58.i.i = phi i64 [ %inc.i60.i.i, %do.body.i57.i.i ], [ 0, %dispatch_calls.exit55.i.i ]
-  %line.i59.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.2.i.i, i64 %i.07.i58.i.i, i32 1
+  %line.i59.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.1.i.i, i64 %i.07.i58.i.i, i32 1
   %57 = load ptr, ptr %line.i59.i.i, align 8
   call void @free(ptr noundef %57) #13
   store ptr null, ptr %line.i59.i.i, align 8
@@ -1183,7 +1183,7 @@ do.body.i64.i.i.preheader:                        ; preds = %if.end87.i.i, %land
 
 do.body.i64.i.i:                                  ; preds = %do.body.i64.i.i.preheader, %do.body.i64.i.i
   %i.07.i65.i.i = phi i64 [ %inc.i67.i.i, %do.body.i64.i.i ], [ 0, %do.body.i64.i.i.preheader ]
-  %line.i66.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.2.i.i, i64 %i.07.i65.i.i, i32 1
+  %line.i66.i.i = getelementptr inbounds %struct.queued_cmd, ptr %queued_cmd.1.i.i, i64 %i.07.i65.i.i, i32 1
   %58 = load ptr, ptr %line.i66.i.i, align 8
   call void @free(ptr noundef %58) #13
   store ptr null, ptr %line.i66.i.i, align 8
@@ -1192,7 +1192,7 @@ do.body.i64.i.i:                                  ; preds = %do.body.i64.i.i.pre
   br i1 %exitcond135.not.i.i, label %batch_objects_command.exit.i, label %do.body.i64.i.i, !llvm.loop !9
 
 batch_objects_command.exit.i:                     ; preds = %do.body.i64.i.i, %do.body.i57.i.i, %if.end87.i.i, %if.then38.i
-  %queued_cmd.0.lcssa145.i.i = phi ptr [ %queued_cmd.2.i.i, %if.end87.i.i ], [ null, %if.then38.i ], [ %queued_cmd.2.i.i, %do.body.i57.i.i ], [ %queued_cmd.2.i.i, %do.body.i64.i.i ]
+  %queued_cmd.0.lcssa145.i.i = phi ptr [ %queued_cmd.1.i.i, %if.end87.i.i ], [ null, %if.then38.i ], [ %queued_cmd.1.i.i, %do.body.i57.i.i ], [ %queued_cmd.1.i.i, %do.body.i64.i.i ]
   call void @free(ptr noundef %queued_cmd.0.lcssa145.i.i) #13
   call void @strbuf_release(ptr noundef nonnull %input.i.i) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %input.i.i)
@@ -1216,7 +1216,7 @@ while.cond49.preheader.i:                         ; preds = %if.then45.i
 
 land.rhs.i:                                       ; preds = %while.cond49.preheader.i, %while.body55.i
   %61 = phi i8 [ %64, %while.body55.i ], [ %60, %while.cond49.preheader.i ]
-  %p.029.i = phi ptr [ %incdec.ptr.i, %while.body55.i ], [ %call46.i, %while.cond49.preheader.i ]
+  %p.129.i = phi ptr [ %incdec.ptr.i, %while.body55.i ], [ %call46.i, %while.cond49.preheader.i ]
   %conv50.i = zext nneg i8 %61 to i64
   %memchr.bounds.i = icmp ugt i8 %61, 63
   %62 = shl nuw i64 1, %conv50.i
@@ -1226,21 +1226,21 @@ land.rhs.i:                                       ; preds = %while.cond49.prehea
   br i1 %memchr19.not.i, label %if.end56.loopexit.i, label %while.body55.i
 
 while.body55.i:                                   ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.029.i, i64 1
-  store i8 0, ptr %p.029.i, align 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.129.i, i64 1
+  store i8 0, ptr %p.129.i, align 1
   %64 = load i8, ptr %incdec.ptr.i, align 1
   %tobool51.not.i = icmp eq i8 %64, 0
   br i1 %tobool51.not.i, label %if.end56.loopexit.i, label %land.rhs.i, !llvm.loop !11
 
 if.end56.loopexit.i:                              ; preds = %while.body55.i, %land.rhs.i
-  %p.1.ph.i = phi ptr [ %p.029.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body55.i ]
+  %p.0.ph.i = phi ptr [ %p.129.i, %land.rhs.i ], [ %incdec.ptr.i, %while.body55.i ]
   %.pre.pre.i = load ptr, ptr %buf.i, align 8
   br label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end56.loopexit.i, %while.cond49.preheader.i, %if.then45.i
   %.pre.i = phi ptr [ %.pre42.i, %if.then45.i ], [ %.pre42.i, %while.cond49.preheader.i ], [ %.pre.pre.i, %if.end56.loopexit.i ]
-  %p.1.i = phi ptr [ null, %if.then45.i ], [ %call46.i, %while.cond49.preheader.i ], [ %p.1.ph.i, %if.end56.loopexit.i ]
-  store ptr %p.1.i, ptr %rest.i, align 8
+  %p.0.i = phi ptr [ null, %if.then45.i ], [ %call46.i, %while.cond49.preheader.i ], [ %p.0.ph.i, %if.end56.loopexit.i ]
+  store ptr %p.0.i, ptr %rest.i, align 8
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end56.i, %while.body.i

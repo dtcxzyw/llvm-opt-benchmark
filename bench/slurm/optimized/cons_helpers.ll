@@ -242,7 +242,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
-  %.074107 = phi i32 [ %.1, %78 ], [ %.073, %.lr.ph ]
+  %.1107 = phi i32 [ %.2, %78 ], [ %.073, %.lr.ph ]
   %74 = load ptr, ptr %64, align 8
   %75 = call i32 @slurm_bit_test(ptr noundef %74, i64 noundef %indvars.iv) #2
   %.not92 = icmp eq i32 %75, 0
@@ -250,12 +250,12 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 
 76:                                               ; preds = %.lr.ph.split
   call void @slurm_bit_clear(ptr noundef %45, i64 noundef %indvars.iv) #2
-  %77 = add nsw i32 %.074107, -1
+  %77 = add nsw i32 %.1107, -1
   %.not94 = icmp eq i32 %77, 0
   br i1 %.not94, label %.thread, label %78
 
 78:                                               ; preds = %.lr.ph.split, %76
-  %.1 = phi i32 [ %.074107, %.lr.ph.split ], [ %77, %76 ]
+  %.2 = phi i32 [ %.1107, %.lr.ph.split ], [ %77, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i16, ptr %42, align 8
   %80 = zext i16 %79 to i64
@@ -263,8 +263,8 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   br i1 %81, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %78, %70, %.preheader104, %63
-  %.2 = phi i32 [ %.073, %63 ], [ %.073, %.preheader104 ], [ %.073, %70 ], [ %.1, %78 ]
-  %82 = icmp eq i32 %.2, 0
+  %.074 = phi i32 [ %.073, %63 ], [ %.073, %.preheader104 ], [ %.073, %70 ], [ %.2, %78 ]
+  %82 = icmp eq i32 %.074, 0
   %or.cond4.not97 = select i1 %.not93, i1 true, i1 %82
   %83 = icmp eq i16 %.073.in, -2
   %or.cond6 = or i1 %83, %or.cond4.not97
@@ -298,7 +298,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   %.075 = phi i32 [ 1, %90 ], [ -1, %94 ]
   %.071 = phi i32 [ %89, %90 ], [ -1, %94 ]
   %.070 = phi i32 [ 0, %90 ], [ %95, %94 ]
-  %101 = icmp sgt i32 %.2, 0
+  %101 = icmp sgt i32 %.074, 0
   %102 = icmp ne i32 %.070, %.071
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.preheader.lr.ph, label %.thread
@@ -309,7 +309,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   br i1 %.not120, label %.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.3114.us = phi i32 [ %.5.us, %._crit_edge.us ], [ %.2, %.preheader.lr.ph ]
+  %.3114.us = phi i32 [ %.5.us, %._crit_edge.us ], [ %.074, %.preheader.lr.ph ]
   %.078113.us = phi i32 [ %119, %._crit_edge.us ], [ %.070, %.preheader.lr.ph ]
   br label %105
 

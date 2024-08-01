@@ -1169,7 +1169,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %tobool.not.i.i.i, label %hd_map_find.exit.i.i, label %for.body.i.i.i, !llvm.loop !12
 
 hd_map_find.exit.i.i:                             ; preds = %for.inc.us51.i.i.i, %for.inc.i.i.i, %for.body.i.i.i, %for.inc.us.us.i.i.i, %for.inc.us.i.i.i, %name_eq.exit.us.i.i.i, %cond.end.i
-  %res.3.i.i.i = phi ptr [ null, %cond.end.i ], [ %p.030.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %for.inc.us.i.i.i ], [ %res.2.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %p.030.i.i.i, %for.body.i.i.i ], [ null, %for.inc.i.i.i ], [ %res.2.us52.i.i.i, %for.inc.us51.i.i.i ]
+  %res.1.i.i.i = phi ptr [ null, %cond.end.i ], [ %p.030.us.i.i.i, %name_eq.exit.us.i.i.i ], [ null, %for.inc.us.i.i.i ], [ %res.2.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %p.030.i.i.i, %for.body.i.i.i ], [ null, %for.inc.i.i.i ], [ %res.2.us52.i.i.i, %for.inc.us51.i.i.i ]
   %41 = icmp ult i32 %call.i, 61
   br i1 %41, label %if.then.i.i, label %if.end.i.i54
 
@@ -1212,13 +1212,13 @@ for.inc.i21.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end23.i, !llvm.loop !13
 
 if.end.i.i54:                                     ; preds = %hd_map_find.exit.i.i
-  %cmp7.i.i = icmp eq ptr %res.3.i.i.i, null
+  %cmp7.i.i = icmp eq ptr %res.1.i.i.i, null
   br i1 %cmp7.i.i, label %if.end23.thread87.i, label %search_hd_table.exit.i
 
 search_hd_table.exit.thread.i:                    ; preds = %value_eq.exit.us47.i.i.i, %value_eq.exit.us.us.i.i.i
-  %res.3.i2731.i.ph.i = phi ptr [ %p.030.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %p.030.us35.i.i.i, %value_eq.exit.us47.i.i.i ]
+  %res.1.i2731.i.ph.i = phi ptr [ %p.030.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %p.030.us35.i.i.i, %value_eq.exit.us47.i.i.i ]
   %48 = load i32, ptr %next_seq.i118.i, align 8
-  %seq.i119.i = getelementptr inbounds i8, ptr %res.3.i2731.i.ph.i, i64 72
+  %seq.i119.i = getelementptr inbounds i8, ptr %res.1.i2731.i.ph.i, i64 72
   %49 = load i32, ptr %seq.i119.i, align 8
   %50 = xor i32 %49, -1
   %sub11.i120.i = add i32 %48, 61
@@ -1228,7 +1228,7 @@ search_hd_table.exit.thread.i:                    ; preds = %value_eq.exit.us47.
 
 search_hd_table.exit.i:                           ; preds = %if.end.i.i54
   %51 = load i32, ptr %next_seq.i118.i, align 8
-  %seq.i.i = getelementptr inbounds i8, ptr %res.3.i.i.i, i64 72
+  %seq.i.i = getelementptr inbounds i8, ptr %res.1.i.i.i, i64 72
   %52 = load i32, ptr %seq.i.i, align 8
   %53 = xor i32 %52, -1
   %sub11.i.i = add i32 %51, 61
@@ -1866,7 +1866,7 @@ for.body.lr.ph:                                   ; preds = %do.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
-  %in.addr.0535 = phi ptr [ %in, %for.body.lr.ph ], [ %in.addr.2, %sw.epilog ]
+  %in.addr.0535 = phi ptr [ %in, %for.body.lr.ph ], [ %in.addr.1, %sw.epilog ]
   %5 = load i32, ptr %state, align 4
   switch i32 %5, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1941,7 +1941,7 @@ if.end55:                                         ; preds = %if.else34, %if.else
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end55, %do.end31, %if.end24
-  %in.addr.1 = phi ptr [ %in.addr.0535, %if.end24 ], [ %in.addr.0535, %do.end31 ], [ %spec.select, %if.end55 ]
+  %in.addr.2 = phi ptr [ %in.addr.0535, %if.end24 ], [ %in.addr.0535, %do.end31 ], [ %spec.select, %if.end55 ]
   store i64 0, ptr %left234, align 8
   store i64 0, ptr %shift235, align 8
   br label %sw.epilog
@@ -2706,9 +2706,9 @@ if.end364:                                        ; preds = %if.end360
   br label %return
 
 sw.epilog:                                        ; preds = %if.end271, %if.end219, %if.end192, %if.end174, %if.else132, %hd_context_shrink_table_size.exit, %if.end74, %for.body
-  %in.addr.2 = phi ptr [ %in.addr.0535, %for.body ], [ %add.ptr244630, %if.end271 ], [ %add.ptr211, %if.end219 ], [ %add.ptr184, %if.end192 ], [ %add.ptr151605, %if.end174 ], [ %add.ptr114, %if.else132 ], [ %add.ptr84, %hd_context_shrink_table_size.exit ], [ %in.addr.1, %if.end74 ]
+  %in.addr.1 = phi ptr [ %in.addr.0535, %for.body ], [ %add.ptr244630, %if.end271 ], [ %add.ptr211, %if.end219 ], [ %add.ptr184, %if.end192 ], [ %add.ptr151605, %if.end174 ], [ %add.ptr114, %if.else132 ], [ %add.ptr84, %hd_context_shrink_table_size.exit ], [ %in.addr.2, %if.end74 ]
   %tobool3 = phi i1 [ false, %for.body ], [ true, %if.end271 ], [ false, %if.end219 ], [ false, %if.end192 ], [ false, %if.end174 ], [ false, %if.else132 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %if.end74 ]
-  %cmp = icmp ne ptr %in.addr.2, %add.ptr
+  %cmp = icmp ne ptr %in.addr.1, %add.ptr
   %98 = or i1 %cmp, %tobool3
   br i1 %98, label %for.body, label %do.end376, !llvm.loop !19
 

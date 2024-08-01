@@ -197,10 +197,10 @@ define hidden { i32, i32 } @_ZN11proc_macro23imp7Literal7subspan17h83a9d963fb54a
   br label %11
 
 11:                                               ; preds = %6, %3
-  %.sroa.4.1 = phi i32 [ undef, %3 ], [ %9, %6 ]
-  %.sroa.0.1 = phi i32 [ 0, %3 ], [ %spec.select3, %6 ]
-  %12 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %13 = insertvalue { i32, i32 } %12, i32 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i32 [ undef, %3 ], [ %9, %6 ]
+  %.sroa.0.0 = phi i32 [ 0, %3 ], [ %spec.select3, %6 ]
+  %12 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %13 = insertvalue { i32, i32 } %12, i32 %.sroa.4.0, 1
   ret { i32, i32 } %13
 }
 

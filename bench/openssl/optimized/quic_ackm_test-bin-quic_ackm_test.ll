@@ -786,7 +786,7 @@ for.body27.i:                                     ; preds = %for.inc231.i, %for.
   %6 = phi i32 [ %4, %for.body27.lr.ph.i ], [ %49, %for.inc231.i ]
   %s.1121.i = phi ptr [ %0, %for.body27.lr.ph.i ], [ %incdec.ptr232.i, %for.inc231.i ]
   %txi.0120.i = phi i64 [ 0, %for.body27.lr.ph.i ], [ %txi.1.i, %for.inc231.i ]
-  %opn.0118.i = phi i64 [ 0, %for.body27.lr.ph.i ], [ %inc233.i, %for.inc231.i ]
+  %opn.1118.i = phi i64 [ 0, %for.body27.lr.ph.i ], [ %inc233.i, %for.inc231.i ]
   %time_advance.i = getelementptr inbounds i8, ptr %s.1121.i, i64 8
   %7 = load i64, ptr %time_advance.i, align 8
   %8 = load i64, ptr @fake_time.0, align 8
@@ -1056,17 +1056,17 @@ sw.bb224.i:                                       ; preds = %for.body27.i
 for.inc231.i:                                     ; preds = %for.cond155.i, %for.cond107.i, %for.cond63.i, %for.cond35.i, %sw.bb224.i, %sw.bb209.i, %if.end207.i, %for.cond155.preheader.i, %sw.bb62.i, %for.cond35.preheader.i
   %txi.1.i = phi i64 [ %txi.0120.i, %sw.bb224.i ], [ %txi.0120.i, %sw.bb209.i ], [ %inc208.i, %if.end207.i ], [ %txi.0120.i, %for.cond35.preheader.i ], [ %txi.0120.i, %sw.bb62.i ], [ %txi.0120.i, %for.cond155.preheader.i ], [ %txi.0120.i, %for.cond35.i ], [ %txi.0120.i, %for.cond63.i ], [ %txi.0120.i, %for.cond107.i ], [ %txi.0120.i, %for.cond155.i ]
   %incdec.ptr232.i = getelementptr inbounds i8, ptr %s.1121.i, i64 64
-  %inc233.i = add i64 %opn.0118.i, 1
+  %inc233.i = add i64 %opn.1118.i, 1
   %49 = load i32, ptr %incdec.ptr232.i, align 8
   %cmp26.not.i = icmp eq i32 %49, 0
   br i1 %cmp26.not.i, label %test_rx_ack_actual.exit, label %for.body27.i, !llvm.loop !19
 
 if.then236.i:                                     ; preds = %sw.bb209.i, %sw.bb180.i, %if.end149.i, %sw.bb143.i, %land.end.i, %sw.bb80.i, %for.body27.i, %if.end167.i, %for.body159.i, %if.end126.i, %land.lhs.true.i, %for.body66.i, %if.end52.i, %for.body38.i, %if.end17.i, %for.end12.i, %entry
-  %opn.1.ph.i = phi i64 [ 0, %entry ], [ 0, %for.end12.i ], [ 0, %if.end17.i ], [ %opn.0118.i, %for.body38.i ], [ %opn.0118.i, %if.end52.i ], [ %opn.0118.i, %for.body66.i ], [ %opn.0118.i, %land.lhs.true.i ], [ %opn.0118.i, %if.end126.i ], [ %opn.0118.i, %for.body159.i ], [ %opn.0118.i, %if.end167.i ], [ %opn.0118.i, %for.body27.i ], [ %opn.0118.i, %sw.bb80.i ], [ %opn.0118.i, %land.end.i ], [ %opn.0118.i, %sw.bb143.i ], [ %opn.0118.i, %if.end149.i ], [ %opn.0118.i, %sw.bb180.i ], [ %opn.0118.i, %sw.bb209.i ]
+  %opn.0.ph.i = phi i64 [ 0, %entry ], [ 0, %for.end12.i ], [ 0, %if.end17.i ], [ %opn.1118.i, %for.body38.i ], [ %opn.1118.i, %if.end52.i ], [ %opn.1118.i, %for.body66.i ], [ %opn.1118.i, %land.lhs.true.i ], [ %opn.1118.i, %if.end126.i ], [ %opn.1118.i, %for.body159.i ], [ %opn.1118.i, %if.end167.i ], [ %opn.1118.i, %for.body27.i ], [ %opn.1118.i, %sw.bb80.i ], [ %opn.1118.i, %land.end.i ], [ %opn.1118.i, %sw.bb143.i ], [ %opn.1118.i, %if.end149.i ], [ %opn.1118.i, %sw.bb180.i ], [ %opn.1118.i, %sw.bb209.i ]
   %txs.0.ph.i = phi ptr [ null, %entry ], [ %call13.i, %for.end12.i ], [ %call13.i, %if.end17.i ], [ %call13.i, %for.body38.i ], [ %call13.i, %if.end52.i ], [ %call13.i, %for.body66.i ], [ %call13.i, %land.lhs.true.i ], [ %call13.i, %if.end126.i ], [ %call13.i, %for.body159.i ], [ %call13.i, %if.end167.i ], [ %call13.i, %for.body27.i ], [ %call13.i, %sw.bb80.i ], [ %call13.i, %land.end.i ], [ %call13.i, %sw.bb143.i ], [ %call13.i, %if.end149.i ], [ %call13.i, %sw.bb180.i ], [ %call13.i, %sw.bb209.i ]
   %pkts.0.ph.i = phi ptr [ null, %entry ], [ null, %for.end12.i ], [ %call19.i, %if.end17.i ], [ %call19.i, %for.body38.i ], [ %call19.i, %if.end52.i ], [ %call19.i, %for.body66.i ], [ %call19.i, %land.lhs.true.i ], [ %call19.i, %if.end126.i ], [ %call19.i, %for.body159.i ], [ %call19.i, %if.end167.i ], [ %call19.i, %for.body27.i ], [ %call19.i, %sw.bb80.i ], [ %call19.i, %land.end.i ], [ %call19.i, %sw.bb143.i ], [ %call19.i, %if.end149.i ], [ %call19.i, %sw.bb180.i ], [ %call19.i, %sw.bb209.i ]
   %add237.i = add nuw nsw i32 %rem, 1
-  %add238.i = add i64 %opn.1.ph.i, 1
+  %add238.i = add i64 %opn.0.ph.i, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 1074, ptr noundef nonnull @.str.72, i32 noundef %add237.i, i64 noundef %add238.i) #9
   br label %test_rx_ack_actual.exit
 

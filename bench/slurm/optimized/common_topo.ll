@@ -713,8 +713,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not113, label %.preheader145, label %.lr.ph160, !llvm.loop !13
 
 .lr.ph178:                                        ; preds = %.preheader145, %146
-  %.079177 = phi i32 [ %.3140, %146 ], [ %76, %.preheader145 ]
-  %.085176 = phi i32 [ %.186, %146 ], [ %70, %.preheader145 ]
+  %.079177 = phi i32 [ %.281140, %146 ], [ %76, %.preheader145 ]
+  %.186176 = phi i32 [ %.287, %146 ], [ %70, %.preheader145 ]
   %.089172 = phi i32 [ %147, %146 ], [ 1, %.preheader145 ]
   %94 = load ptr, ptr %13, align 8
   %95 = load ptr, ptr %3, align 8
@@ -732,8 +732,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.lr.ph166.split.us, label %.lr.ph166.split
 
 .lr.ph166.split.us:                               ; preds = %.lr.ph166, %113
-  %.0164.us = phi i32 [ %.1.us, %113 ], [ 1, %.lr.ph166 ]
-  %.180163.us = phi i32 [ %.281.us, %113 ], [ %.079177, %.lr.ph166 ]
+  %.0164.us = phi i32 [ %.2.us, %113 ], [ 1, %.lr.ph166 ]
+  %.180163.us = phi i32 [ %.3.us, %113 ], [ %.079177, %.lr.ph166 ]
   %100 = load i32, ptr %2, align 4
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds ptr, ptr %6, i64 %101
@@ -763,8 +763,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 113:                                              ; preds = %._crit_edge197, %.lr.ph166.split.us
   %114 = phi i32 [ %.pre198, %._crit_edge197 ], [ %100, %.lr.ph166.split.us ]
-  %.281.us = phi i32 [ %111, %._crit_edge197 ], [ %.180163.us, %.lr.ph166.split.us ]
-  %.1.us = phi i32 [ 0, %._crit_edge197 ], [ %.0164.us, %.lr.ph166.split.us ]
+  %.3.us = phi i32 [ %111, %._crit_edge197 ], [ %.180163.us, %.lr.ph166.split.us ]
+  %.2.us = phi i32 [ 0, %._crit_edge197 ], [ %.0164.us, %.lr.ph166.split.us ]
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %2, align 4
   %116 = load ptr, ptr %13, align 8
@@ -773,8 +773,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not115.us, label %._crit_edge167, label %.lr.ph166.split.us, !llvm.loop !14
 
 .lr.ph166.split:                                  ; preds = %.lr.ph166, %135
-  %.0164 = phi i32 [ %.1, %135 ], [ 1, %.lr.ph166 ]
-  %.180163 = phi i32 [ %.281, %135 ], [ %.079177, %.lr.ph166 ]
+  %.0164 = phi i32 [ %.2, %135 ], [ 1, %.lr.ph166 ]
+  %.180163 = phi i32 [ %.3, %135 ], [ %.079177, %.lr.ph166 ]
   %118 = load i32, ptr %2, align 4
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds ptr, ptr %6, i64 %119
@@ -812,8 +812,8 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 135:                                              ; preds = %._crit_edge194, %.lr.ph166.split, %125
   %136 = phi i32 [ %.pre196, %125 ], [ %.pre195, %._crit_edge194 ], [ %118, %.lr.ph166.split ]
-  %.281 = phi i32 [ %.180163, %125 ], [ %133, %._crit_edge194 ], [ %.180163, %.lr.ph166.split ]
-  %.1 = phi i32 [ %.0164, %125 ], [ 0, %._crit_edge194 ], [ %.0164, %.lr.ph166.split ]
+  %.3 = phi i32 [ %.180163, %125 ], [ %133, %._crit_edge194 ], [ %.180163, %.lr.ph166.split ]
+  %.2 = phi i32 [ %.0164, %125 ], [ 0, %._crit_edge194 ], [ %.0164, %.lr.ph166.split ]
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %2, align 4
   %138 = load ptr, ptr %13, align 8
@@ -822,34 +822,34 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not115, label %._crit_edge167, label %.lr.ph166.split, !llvm.loop !14
 
 ._crit_edge167:                                   ; preds = %135, %113, %.lr.ph178
-  %.180.lcssa = phi i32 [ %.079177, %.lr.ph178 ], [ %.281.us, %113 ], [ %.281, %135 ]
-  %.0.lcssa = phi i32 [ 1, %.lr.ph178 ], [ %.1.us, %113 ], [ %.1, %135 ]
+  %.180.lcssa = phi i32 [ %.079177, %.lr.ph178 ], [ %.3.us, %113 ], [ %.3, %135 ]
+  %.0.lcssa = phi i32 [ 1, %.lr.ph178 ], [ %.2.us, %113 ], [ %.2, %135 ]
   %140 = icmp ne i32 %.0.lcssa, 0
   %141 = icmp ne i32 %.089172, 1
   %or.cond = and i1 %141, %140
   br i1 %or.cond, label %146, label %.thread
 
 .thread:                                          ; preds = %127, %107, %._crit_edge167
-  %.3139 = phi i32 [ %.180.lcssa, %._crit_edge167 ], [ %111, %107 ], [ %133, %127 ]
+  %.281139 = phi i32 [ %.180.lcssa, %._crit_edge167 ], [ %111, %107 ], [ %133, %127 ]
   %142 = call i32 @eval_nodes(ptr noundef nonnull %0) #6
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %.thread141, label %144
 
 144:                                              ; preds = %.thread
   %145 = load i32, ptr %77, align 8
-  %.not121 = icmp ugt i32 %.3139, %145
+  %.not121 = icmp ugt i32 %.281139, %145
   br i1 %.not121, label %146, label %.thread143
 
 146:                                              ; preds = %144, %._crit_edge167
-  %.3140 = phi i32 [ %.180.lcssa, %._crit_edge167 ], [ %.3139, %144 ]
-  %.186 = phi i32 [ %.085176, %._crit_edge167 ], [ %142, %144 ]
+  %.281140 = phi i32 [ %.180.lcssa, %._crit_edge167 ], [ %.281139, %144 ]
+  %.287 = phi i32 [ %.186176, %._crit_edge167 ], [ %142, %144 ]
   %147 = add nuw nsw i32 %.089172, 1
   %exitcond.not = icmp eq i32 %147, %.184
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph178, !llvm.loop !15
 
 .loopexit:                                        ; preds = %146, %.preheader145, %80
-  %.287 = phi i32 [ %81, %80 ], [ %70, %.preheader145 ], [ %.186, %146 ]
-  %148 = icmp eq i32 %.287, 0
+  %.085 = phi i32 [ %81, %80 ], [ %70, %.preheader145 ], [ %.287, %146 ]
+  %148 = icmp eq i32 %.085, 0
   br i1 %148, label %.thread141, label %.thread143
 
 .thread141:                                       ; preds = %.thread, %64, %.loopexit
@@ -869,7 +869,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not124180, label %.thread143, label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %.preheader, %197
-  %.388181 = phi i32 [ %.5, %197 ], [ 0, %.preheader ]
+  %.388181 = phi i32 [ %.4, %197 ], [ 0, %.preheader ]
   %156 = load ptr, ptr %4, align 8
   %157 = load i32, ptr %2, align 4
   %158 = sext i32 %157 to i64
@@ -924,7 +924,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br label %193
 
 193:                                              ; preds = %189, %187
-  %.4 = phi i32 [ %.388181, %187 ], [ %spec.select135, %189 ]
+  %.5 = phi i32 [ %.388181, %187 ], [ %spec.select135, %189 ]
   %194 = load ptr, ptr %13, align 8
   %195 = load i32, ptr %2, align 4
   %196 = sext i32 %195 to i64
@@ -934,7 +934,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 197:                                              ; preds = %165, %193, %.lr.ph182, %161
   %198 = phi i32 [ %.pre199, %193 ], [ %181, %165 ], [ %157, %161 ], [ %157, %.lr.ph182 ]
-  %.5 = phi i32 [ %.4, %193 ], [ %.388181, %165 ], [ %.388181, %161 ], [ %.388181, %.lr.ph182 ]
+  %.4 = phi i32 [ %.5, %193 ], [ %.388181, %165 ], [ %.388181, %161 ], [ %.388181, %.lr.ph182 ]
   %199 = add nsw i32 %198, 1
   store i32 %199, ptr %2, align 4
   %200 = load ptr, ptr %13, align 8
@@ -943,7 +943,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not124, label %.thread143, label %.lr.ph182, !llvm.loop !16
 
 .thread143:                                       ; preds = %144, %197, %.preheader147, %.preheader, %.loopexit, %.thread141
-  %.6 = phi i32 [ 0, %.thread141 ], [ %.287, %.loopexit ], [ 0, %.preheader ], [ %70, %.preheader147 ], [ %.5, %197 ], [ %142, %144 ]
+  %.6 = phi i32 [ 0, %.thread141 ], [ %.085, %.loopexit ], [ 0, %.preheader ], [ %70, %.preheader147 ], [ %.4, %197 ], [ %142, %144 ]
   %202 = load ptr, ptr %3, align 8
   %.not125 = icmp eq ptr %202, null
   br i1 %.not125, label %204, label %203

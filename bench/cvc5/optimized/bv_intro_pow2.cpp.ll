@@ -2183,8 +2183,8 @@ ehcleanup112:                                     ; preds = %lpad94, %lpad88, %l
   br label %eh.resume
 
 return:                                           ; preds = %if.end35, %if.then13.i.i153, %if.then.i.i147, %cleanup.done107, %if.end48, %land.rhs18, %land.rhs, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ false, %land.rhs ], [ false, %land.rhs18 ], [ false, %if.end35 ], [ false, %if.end48 ], [ %23, %cleanup.done107 ], [ %23, %if.then.i.i147 ], [ %23, %if.then13.i.i153 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %entry ], [ false, %land.rhs ], [ false, %land.rhs18 ], [ false, %if.end35 ], [ false, %if.end48 ], [ %23, %cleanup.done107 ], [ %23, %if.then.i.i147 ], [ %23, %if.then13.i.i153 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup112, %ehcleanup10.i, %lpad75
   %.pn6.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup112 ], [ %28, %lpad75 ], [ %.pn2.i, %ehcleanup10.i ]

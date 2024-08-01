@@ -1044,12 +1044,12 @@ define range(i32 -1, 1) i32 @H5L__move(ptr noundef %0, ptr noundef %1, ptr nound
 
 33:                                               ; preds = %._crit_edge, %6
   %34 = phi i32 [ %.pre, %._crit_edge ], [ 0, %6 ]
-  %.1 = phi i32 [ %spec.select, %._crit_edge ], [ 0, %6 ]
+  %.014 = phi i32 [ %spec.select, %._crit_edge ], [ 0, %6 ]
   %35 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %2, ptr %35, align 8
   store ptr %3, ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %8, i64 24
-  store i32 %.1, ptr %36, align 8
+  store i32 %.014, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %34, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %8, i64 28
@@ -1954,7 +1954,7 @@ define internal range(i32 -1, 1) i32 @H5L__link_cb(ptr nocapture noundef readonl
   br label %.thread110
 
 54:                                               ; preds = %38, %47, %16
-  %.064 = phi i1 [ true, %38 ], [ false, %47 ], [ false, %16 ]
+  %.165 = phi i1 [ true, %38 ], [ false, %47 ], [ false, %16 ]
   %55 = load ptr, ptr %17, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   store i64 0, ptr %56, align 8
@@ -2146,7 +2146,7 @@ H5L_find_class.exit:                              ; preds = %H5L__find_class_idx
   %.066 = phi i1 [ false, %66 ], [ false, %86 ], [ false, %102 ], [ false, %.loopexit ], [ false, %134 ], [ true, %142 ], [ true, %149 ], [ true, %162 ], [ true, %153 ], [ false, %H5L_find_class.exit ], [ false, %106 ]
   %.063 = phi i32 [ -1, %66 ], [ -1, %86 ], [ -1, %102 ], [ -1, %.loopexit ], [ -1, %134 ], [ -1, %142 ], [ -1, %149 ], [ -1, %162 ], [ 0, %153 ], [ 0, %H5L_find_class.exit ], [ 0, %106 ]
   %.0 = phi ptr [ null, %66 ], [ null, %86 ], [ null, %102 ], [ null, %.loopexit ], [ null, %134 ], [ null, %142 ], [ %140, %149 ], [ %140, %162 ], [ %140, %153 ], [ null, %H5L_find_class.exit ], [ null, %106 ]
-  br i1 %.064, label %167, label %181
+  br i1 %.165, label %167, label %181
 
 167:                                              ; preds = %166
   %168 = getelementptr inbounds i8, ptr %11, i64 16

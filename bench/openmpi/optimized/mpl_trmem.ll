@@ -1112,7 +1112,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
 
 43:                                               ; preds = %.lr.ph, %106
   %.056 = phi ptr [ %21, %.lr.ph ], [ %108, %106 ]
-  %.04255 = phi i32 [ 0, %.lr.ph ], [ %.1, %106 ]
+  %.155 = phi i32 [ 0, %.lr.ph ], [ %.2, %106 ]
   store volatile i64 1296236546, ptr %4, align 16
   %44 = ptrtoint ptr %.056 to i64
   store volatile i64 %44, ptr %22, align 8
@@ -1129,7 +1129,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br i1 %.not47, label %67, label %48
 
 48:                                               ; preds = %43
-  %.not51 = icmp eq i32 %.04255, 0
+  %.not51 = icmp eq i32 %.155, 0
   br i1 %.not51, label %49, label %55
 
 49:                                               ; preds = %48
@@ -1145,7 +1145,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br label %55
 
 55:                                               ; preds = %51, %53, %48
-  %56 = add nsw i32 %.04255, 1
+  %56 = add nsw i32 %.155, 1
   %57 = load ptr, ptr @stderr, align 8
   %58 = load i32, ptr @world_rank, align 4
   %59 = getelementptr inbounds i8, ptr %.056, i64 160
@@ -1186,7 +1186,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br i1 %.not48, label %106, label %75
 
 75:                                               ; preds = %67
-  %.not49 = icmp eq i32 %.04255, 0
+  %.not49 = icmp eq i32 %.155, 0
   br i1 %.not49, label %76, label %82
 
 76:                                               ; preds = %75
@@ -1202,7 +1202,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br label %82
 
 82:                                               ; preds = %78, %80, %75
-  %83 = add nsw i32 %.04255, 1
+  %83 = add nsw i32 %.155, 1
   %84 = getelementptr inbounds i8, ptr %.056, i64 76
   %85 = getelementptr inbounds i8, ptr %.056, i64 123
   store i8 0, ptr %85, align 1
@@ -1236,7 +1236,7 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br label %106
 
 106:                                              ; preds = %96, %67
-  %.1 = phi i32 [ %83, %96 ], [ %.04255, %67 ]
+  %.2 = phi i32 [ %83, %96 ], [ %.155, %67 ]
   %107 = getelementptr inbounds i8, ptr %.056, i64 136
   %108 = load volatile ptr, ptr %107, align 8
   store volatile i64 1296236544, ptr %10, align 16
@@ -1261,8 +1261,8 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   br i1 %.not46, label %.loopexit, label %43, !llvm.loop !23
 
 .loopexit:                                        ; preds = %106, %20, %55, %17
-  %.2 = phi i32 [ 1, %17 ], [ %56, %55 ], [ 0, %20 ], [ %.1, %106 ]
-  ret i32 %.2
+  %.042 = phi i32 [ 1, %17 ], [ %56, %55 ], [ 0, %20 ], [ %.2, %106 ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable

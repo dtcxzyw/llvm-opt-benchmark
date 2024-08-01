@@ -34,12 +34,12 @@ if.then11:                                        ; preds = %if.then7
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.then7
-  %ret.0 = phi i32 [ %call13, %if.then11 ], [ %call9, %if.then7 ]
+  %ret.1 = phi i32 [ %call13, %if.then11 ], [ %call9, %if.then7 ]
   call void @wc_AesFree(ptr noundef nonnull %aes) #2
   br label %return
 
 return:                                           ; preds = %if.end, %if.end14, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %ret.0, %if.end14 ], [ %call, %if.end ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %ret.1, %if.end14 ], [ %call, %if.end ]
   ret i32 %retval.0
 }
 
@@ -69,13 +69,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %ret.0 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
+  %ret.1 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
   call void @wc_AesFree(ptr noundef nonnull %aes) #2
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %entry
-  %ret.1 = phi i32 [ %ret.0, %if.end ], [ %call, %entry ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %ret.1, %if.end ], [ %call, %entry ]
+  ret i32 %ret.0
 }
 
 declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -204,12 +204,12 @@ if.else69:                                        ; preds = %if.end62.thread88
   br label %if.then75
 
 if.then75:                                        ; preds = %if.end62.thread88, %if.then66, %if.else69, %if.end62
-  %ret.3.ph = phi i32 [ %call60, %if.end62.thread88 ], [ %call57, %if.end62 ], [ %call71, %if.else69 ], [ %call68, %if.then66 ]
+  %ret.4.ph = phi i32 [ %call60, %if.end62.thread88 ], [ %call57, %if.end62 ], [ %call71, %if.else69 ], [ %call68, %if.then66 ]
   call void @wc_AesFree(ptr noundef nonnull %aes) #2
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then75, %sw.bb49
-  %ret.393 = phi i32 [ %ret.3.ph, %if.then75 ], [ %call51, %sw.bb49 ]
+  %ret.493 = phi i32 [ %ret.4.ph, %if.then75 ], [ %call51, %sw.bb49 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
@@ -222,7 +222,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp5.i.not, label %for.cond.preheader.i56, label %for.body.i, !llvm.loop !6
 
 for.cond.preheader.i56:                           ; preds = %for.body.i, %if.end46, %if.then48, %sw.bb16, %if.then11, %if.end
-  %ret.4 = phi i32 [ %ret.1, %if.end46 ], [ -133, %if.then48 ], [ -133, %if.end ], [ -133, %if.then11 ], [ -175, %sw.bb16 ], [ %ret.393, %for.body.i ]
+  %ret.2 = phi i32 [ %ret.1, %if.end46 ], [ -133, %if.then48 ], [ -133, %if.end ], [ -133, %if.then11 ], [ -175, %sw.bb16 ], [ %ret.493, %for.body.i ]
   br label %for.body.i69
 
 for.body.i69:                                     ; preds = %for.cond.preheader.i56, %for.body.i69
@@ -235,7 +235,7 @@ for.body.i69:                                     ; preds = %for.cond.preheader.
   br i1 %cmp5.i74.not, label %return, label %for.body.i69, !llvm.loop !6
 
 return:                                           ; preds = %for.body.i69, %entry
-  %retval.0 = phi i32 [ -279, %entry ], [ %ret.4, %for.body.i69 ]
+  %retval.0 = phi i32 [ -279, %entry ], [ %ret.2, %for.body.i69 ]
   ret i32 %retval.0
 }
 

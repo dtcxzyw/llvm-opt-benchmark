@@ -951,12 +951,12 @@ php_replace_controlchars_ex.exit902:              ; preds = %296, %321, %299, %p
   br label %325
 
 325:                                              ; preds = %php_replace_controlchars_ex.exit902, %binary_strcspn.exit892
-  %.1 = phi ptr [ %324, %php_replace_controlchars_ex.exit902 ], [ %.0790, %binary_strcspn.exit892 ]
-  %326 = icmp ult ptr %.1, %9
+  %.2 = phi ptr [ %324, %php_replace_controlchars_ex.exit902 ], [ %.0790, %binary_strcspn.exit892 ]
+  %326 = icmp ult ptr %.2, %9
   br i1 %326, label %327, label %334
 
 327:                                              ; preds = %325
-  %328 = load i8, ptr %.1, align 1
+  %328 = load i8, ptr %.2, align 1
   %329 = icmp eq i8 %328, 91
   br i1 %329, label %330, label %334
 
@@ -967,13 +967,13 @@ php_replace_controlchars_ex.exit902:              ; preds = %296, %321, %299, %p
   br i1 %333, label %..thread_crit_edge, label %334
 
 ..thread_crit_edge:                               ; preds = %330
-  %.pre = ptrtoint ptr %.1 to i64
+  %.pre = ptrtoint ptr %.2 to i64
   br label %.thread
 
 334:                                              ; preds = %325, %327, %330
-  %335 = ptrtoint ptr %.1 to i64
+  %335 = ptrtoint ptr %.2 to i64
   %336 = sub i64 %238, %335
-  %337 = call ptr @memrchr(ptr noundef %.1, i32 noundef 58, i64 noundef %336) #18
+  %337 = call ptr @memrchr(ptr noundef %.2, i32 noundef 58, i64 noundef %336) #18
   %.not847 = icmp eq ptr %337, null
   br i1 %.not847, label %.thread, label %338
 
@@ -1043,7 +1043,7 @@ php_replace_controlchars_ex.exit902:              ; preds = %296, %321, %299, %p
   %367 = getelementptr inbounds i8, ptr %364, i64 16
   store i64 %358, ptr %367, align 8
   %368 = getelementptr inbounds i8, ptr %364, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %368, ptr align 1 %.1, i64 %358, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %368, ptr align 1 %.2, i64 %358, i1 false)
   %369 = getelementptr inbounds [1 x i8], ptr %368, i64 0, i64 %358
   store i8 0, ptr %369, align 1
   %370 = getelementptr inbounds i8, ptr %8, i64 24
@@ -1082,11 +1082,11 @@ php_replace_controlchars_ex.exit912:              ; preds = %383, %361
   br i1 %386, label %php_replace_controlchars_ex.exit, label %php_replace_controlchars_ex.exit880
 
 php_replace_controlchars_ex.exit880:              ; preds = %115, %93, %164, %php_replace_controlchars_ex.exit912, %php_replace_controlchars_ex.exit885, %145, %218, %221, %224, %.thread963, %210, %213, %161, %31, %34, %37
-  %.2 = phi ptr [ %0, %213 ], [ %0, %210 ], [ %0, %.thread963 ], [ %0, %37 ], [ %0, %34 ], [ %0, %31 ], [ %149, %161 ], [ %0, %224 ], [ %0, %221 ], [ %0, %218 ], [ %spec.select, %164 ], [ %44, %145 ], [ %44, %php_replace_controlchars_ex.exit885 ], [ %spec.select.i890, %php_replace_controlchars_ex.exit912 ], [ %44, %93 ], [ %44, %115 ]
+  %.1 = phi ptr [ %0, %213 ], [ %0, %210 ], [ %0, %.thread963 ], [ %0, %37 ], [ %0, %34 ], [ %0, %31 ], [ %149, %161 ], [ %0, %224 ], [ %0, %221 ], [ %0, %218 ], [ %spec.select, %164 ], [ %44, %145 ], [ %44, %php_replace_controlchars_ex.exit885 ], [ %spec.select.i890, %php_replace_controlchars_ex.exit912 ], [ %44, %93 ], [ %44, %115 ]
   %387 = ptrtoint ptr %9 to i64
-  %388 = ptrtoint ptr %.2 to i64
+  %388 = ptrtoint ptr %.1 to i64
   %389 = sub i64 %387, %388
-  %390 = call ptr @memchr(ptr noundef %.2, i32 noundef 35, i64 noundef %389) #18
+  %390 = call ptr @memchr(ptr noundef %.1, i32 noundef 35, i64 noundef %389) #18
   %.not849 = icmp eq ptr %390, null
   br i1 %.not849, label %php_replace_controlchars_ex.exit917, label %391
 
@@ -1153,7 +1153,7 @@ php_replace_controlchars_ex.exit917:              ; preds = %418, %394, %421, %p
   %.0791 = phi ptr [ %9, %php_replace_controlchars_ex.exit880 ], [ %390, %421 ], [ %390, %394 ], [ %390, %418 ]
   %424 = ptrtoint ptr %.0791 to i64
   %425 = sub i64 %424, %388
-  %426 = call ptr @memchr(ptr noundef %.2, i32 noundef 63, i64 noundef %425) #18
+  %426 = call ptr @memchr(ptr noundef %.1, i32 noundef 63, i64 noundef %425) #18
   %.not850 = icmp eq ptr %426, null
   br i1 %.not850, label %php_replace_controlchars_ex.exit922, label %427
 
@@ -1218,8 +1218,8 @@ php_replace_controlchars_ex.exit917:              ; preds = %418, %394, %421, %p
 
 php_replace_controlchars_ex.exit922:              ; preds = %454, %430, %457, %php_replace_controlchars_ex.exit917
   %.1792 = phi ptr [ %.0791, %php_replace_controlchars_ex.exit917 ], [ %426, %457 ], [ %426, %430 ], [ %426, %454 ]
-  %460 = icmp ult ptr %.2, %.1792
-  %461 = icmp eq ptr %.2, %9
+  %460 = icmp ult ptr %.1, %.1792
+  %461 = icmp eq ptr %.1, %9
   %or.cond873 = select i1 %460, i1 true, i1 %461
   br i1 %or.cond873, label %462, label %php_replace_controlchars_ex.exit
 
@@ -1237,7 +1237,7 @@ php_replace_controlchars_ex.exit922:              ; preds = %454, %430, %457, %p
   %470 = getelementptr inbounds i8, ptr %467, i64 16
   store i64 %464, ptr %470, align 8
   %471 = getelementptr inbounds i8, ptr %467, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %471, ptr align 1 %.2, i64 %464, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %471, ptr align 1 %.1, i64 %464, i1 false)
   %472 = getelementptr inbounds [1 x i8], ptr %471, i64 0, i64 %464
   store i8 0, ptr %472, align 1
   %473 = getelementptr inbounds i8, ptr %8, i64 40
@@ -1876,13 +1876,13 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
 
 .preheader:                                       ; preds = %.loopexit, %2
   %.0668.lcssa = phi ptr [ %0, %2 ], [ %14, %.loopexit ]
-  %.0667.lcssa = phi ptr [ %10, %2 ], [ %.3, %.loopexit ]
+  %.0667.lcssa = phi ptr [ %10, %2 ], [ %.1, %.loopexit ]
   %13 = icmp ult ptr %.0668.lcssa, %4
   br i1 %13, label %.lr.ph688, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %14 = phi ptr [ %64, %.loopexit ], [ %12, %.lr.ph.preheader ]
-  %.0667684 = phi ptr [ %.3, %.loopexit ], [ %10, %.lr.ph.preheader ]
+  %.0667684 = phi ptr [ %.1, %.loopexit ], [ %10, %.lr.ph.preheader ]
   %.0668683 = phi ptr [ %14, %.loopexit ], [ %0, %.lr.ph.preheader ]
   %15 = load <2 x i64>, ptr %.0668683, align 1
   %16 = bitcast <2 x i64> %15 to <16 x i8>
@@ -1928,7 +1928,7 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
 
 42:                                               ; preds = %41, %61
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %61 ]
-  %.1681 = phi ptr [ %.0667684, %41 ], [ %63, %61 ]
+  %.2681 = phi ptr [ %.0667684, %41 ], [ %63, %61 ]
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   %44 = shl nuw nsw i32 1, %43
   %45 = and i32 %44, %37
@@ -1940,15 +1940,15 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
   br label %61
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %.1681, i64 1
-  store i8 37, ptr %.1681, align 1
+  %49 = getelementptr inbounds i8, ptr %.2681, i64 1
+  store i8 37, ptr %.2681, align 1
   %50 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   %51 = load i8, ptr %50, align 1
   %52 = lshr i8 %51, 4
   %53 = zext nneg i8 %52 to i64
   %54 = getelementptr inbounds [17 x i8], ptr @hexchars, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %.1681, i64 2
+  %56 = getelementptr inbounds i8, ptr %.2681, i64 2
   store i8 %55, ptr %49, align 1
   %57 = load i8, ptr %50, align 1
   %58 = and i8 %57, 15
@@ -1959,16 +1959,16 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
 61:                                               ; preds = %48, %46
   %.sink693 = phi ptr [ %60, %48 ], [ %47, %46 ]
   %.sink692 = phi i64 [ 3, %48 ], [ 1, %46 ]
-  %.sink691 = phi ptr [ %56, %48 ], [ %.1681, %46 ]
+  %.sink691 = phi ptr [ %56, %48 ], [ %.2681, %46 ]
   %62 = load i8, ptr %.sink693, align 1
-  %63 = getelementptr inbounds i8, ptr %.1681, i64 %.sink692
+  %63 = getelementptr inbounds i8, ptr %.2681, i64 %.sink692
   store i8 %62, ptr %.sink691, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit, label %42
 
 .loopexit:                                        ; preds = %61, %39
-  %.3 = phi ptr [ %40, %39 ], [ %63, %61 ]
+  %.1 = phi ptr [ %40, %39 ], [ %63, %61 ]
   %64 = getelementptr inbounds i8, ptr %14, i64 16
   %65 = icmp ult ptr %64, %4
   br i1 %65, label %.lr.ph, label %.preheader
@@ -2365,13 +2365,13 @@ define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_un
 
 .preheader:                                       ; preds = %.loopexit, %2
   %.0668.lcssa = phi ptr [ %0, %2 ], [ %14, %.loopexit ]
-  %.0667.lcssa = phi ptr [ %10, %2 ], [ %.3, %.loopexit ]
+  %.0667.lcssa = phi ptr [ %10, %2 ], [ %.1, %.loopexit ]
   %13 = icmp ult ptr %.0668.lcssa, %4
   br i1 %13, label %.lr.ph688, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %14 = phi ptr [ %58, %.loopexit ], [ %12, %.lr.ph.preheader ]
-  %.0667684 = phi ptr [ %.3, %.loopexit ], [ %10, %.lr.ph.preheader ]
+  %.0667684 = phi ptr [ %.1, %.loopexit ], [ %10, %.lr.ph.preheader ]
   %.0668683 = phi ptr [ %14, %.loopexit ], [ %0, %.lr.ph.preheader ]
   %15 = load <2 x i64>, ptr %.0668683, align 1
   %16 = bitcast <2 x i64> %15 to <16 x i8>
@@ -2404,7 +2404,7 @@ define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_un
 
 36:                                               ; preds = %35, %55
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %55 ]
-  %.1681 = phi ptr [ %.0667684, %35 ], [ %57, %55 ]
+  %.2681 = phi ptr [ %.0667684, %35 ], [ %57, %55 ]
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = shl nuw nsw i32 1, %37
   %39 = and i32 %38, %31
@@ -2416,15 +2416,15 @@ define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_un
   br label %55
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %.1681, i64 1
-  store i8 37, ptr %.1681, align 1
+  %43 = getelementptr inbounds i8, ptr %.2681, i64 1
+  store i8 37, ptr %.2681, align 1
   %44 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %46 = lshr i8 %45, 4
   %47 = zext nneg i8 %46 to i64
   %48 = getelementptr inbounds [17 x i8], ptr @hexchars, i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds i8, ptr %.1681, i64 2
+  %50 = getelementptr inbounds i8, ptr %.2681, i64 2
   store i8 %49, ptr %43, align 1
   %51 = load i8, ptr %44, align 1
   %52 = and i8 %51, 15
@@ -2435,16 +2435,16 @@ define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_un
 55:                                               ; preds = %42, %40
   %.sink693 = phi ptr [ %54, %42 ], [ %41, %40 ]
   %.sink692 = phi i64 [ 3, %42 ], [ 1, %40 ]
-  %.sink691 = phi ptr [ %50, %42 ], [ %.1681, %40 ]
+  %.sink691 = phi ptr [ %50, %42 ], [ %.2681, %40 ]
   %56 = load i8, ptr %.sink693, align 1
-  %57 = getelementptr inbounds i8, ptr %.1681, i64 %.sink692
+  %57 = getelementptr inbounds i8, ptr %.2681, i64 %.sink692
   store i8 %56, ptr %.sink691, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit, label %36
 
 .loopexit:                                        ; preds = %55, %33
-  %.3 = phi ptr [ %34, %33 ], [ %57, %55 ]
+  %.1 = phi ptr [ %34, %33 ], [ %57, %55 ]
   %58 = getelementptr inbounds i8, ptr %14, i64 16
   %59 = icmp ult ptr %58, %4
   br i1 %59, label %.lr.ph, label %.preheader

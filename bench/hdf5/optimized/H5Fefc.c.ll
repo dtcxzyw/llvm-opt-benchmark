@@ -212,25 +212,25 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
 
 79:                                               ; preds = %.thread
   %80 = getelementptr inbounds i8, ptr %0, i64 16
-  %.1101139 = load ptr, ptr %80, align 8
-  %.not120140 = icmp eq ptr %.1101139, null
+  %.3139 = load ptr, ptr %80, align 8
+  %.not120140 = icmp eq ptr %.3139, null
   br i1 %.not120140, label %.critedge127, label %.lr.ph
 
 .lr.ph:                                           ; preds = %79, %83
-  %.1101141 = phi ptr [ %.1101, %83 ], [ %.1101139, %79 ]
-  %81 = getelementptr inbounds i8, ptr %.1101141, i64 32
+  %.3141 = phi ptr [ %.3, %83 ], [ %.3139, %79 ]
+  %81 = getelementptr inbounds i8, ptr %.3141, i64 32
   %82 = load i32, ptr %81, align 8
   %.not121 = icmp eq i32 %82, 0
   br i1 %.not121, label %.critedge, label %83
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds i8, ptr %.1101141, i64 24
-  %.1101 = load ptr, ptr %84, align 8
-  %.not120 = icmp eq ptr %.1101, null
+  %84 = getelementptr inbounds i8, ptr %.3141, i64 24
+  %.3 = load ptr, ptr %84, align 8
+  %.not120 = icmp eq ptr %.3, null
   br i1 %.not120, label %.critedge127, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  %85 = call fastcc i32 @H5F__efc_remove_ent(ptr noundef nonnull %0, ptr noundef nonnull %.1101141)
+  %85 = call fastcc i32 @H5F__efc_remove_ent(ptr noundef nonnull %0, ptr noundef nonnull %.3141)
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %115
 
@@ -281,9 +281,9 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
   br label %.thread133
 
 115:                                              ; preds = %108, %.critedge
-  %.2102 = phi ptr [ %.1101141, %.critedge ], [ %109, %108 ]
+  %.4 = phi ptr [ %.3141, %.critedge ], [ %109, %108 ]
   %116 = call noalias ptr @H5MM_strdup(ptr noundef %1) #4
-  store ptr %116, ptr %.2102, align 8
+  store ptr %116, ptr %.4, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %122
 
@@ -295,7 +295,7 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
 
 122:                                              ; preds = %115
   %123 = call ptr @H5F_open(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #4
-  %124 = getelementptr inbounds i8, ptr %.2102, i64 8
+  %124 = getelementptr inbounds i8, ptr %.4, i64 8
   store ptr %123, ptr %124, align 8
   %125 = icmp eq ptr %123, null
   br i1 %125, label %126, label %130
@@ -324,8 +324,8 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
   %141 = add i32 %140, 1
   store i32 %141, ptr %139, align 8
   %142 = load ptr, ptr %0, align 8
-  %143 = load ptr, ptr %.2102, align 8
-  %144 = call i32 @H5SL_insert(ptr noundef %142, ptr noundef nonnull %.2102, ptr noundef %143) #4
+  %143 = load ptr, ptr %.4, align 8
+  %144 = call i32 @H5SL_insert(ptr noundef %142, ptr noundef nonnull %.4, ptr noundef %143) #4
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %150
 
@@ -338,31 +338,31 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
 150:                                              ; preds = %137
   %151 = getelementptr inbounds i8, ptr %0, i64 8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %.2102, i64 16
+  %153 = getelementptr inbounds i8, ptr %.4, i64 16
   store ptr %152, ptr %153, align 8
   %.not122 = icmp eq ptr %152, null
   br i1 %.not122, label %156, label %154
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds i8, ptr %152, i64 24
-  store ptr %.2102, ptr %155, align 8
+  store ptr %.4, ptr %155, align 8
   br label %156
 
 156:                                              ; preds = %154, %150
-  %157 = getelementptr inbounds i8, ptr %.2102, i64 24
+  %157 = getelementptr inbounds i8, ptr %.4, i64 24
   store ptr null, ptr %157, align 8
-  store ptr %.2102, ptr %151, align 8
+  store ptr %.4, ptr %151, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 16
   %159 = load ptr, ptr %158, align 8
   %.not123 = icmp eq ptr %159, null
   br i1 %.not123, label %160, label %161
 
 160:                                              ; preds = %156
-  store ptr %.2102, ptr %158, align 8
+  store ptr %.4, ptr %158, align 8
   br label %161
 
 161:                                              ; preds = %160, %156
-  %162 = getelementptr inbounds i8, ptr %.2102, i64 32
+  %162 = getelementptr inbounds i8, ptr %.4, i64 32
   store i32 1, ptr %162, align 8
   %163 = load i32, ptr %74, align 8
   %164 = add i32 %163, 1
@@ -378,7 +378,7 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
 .sink.split:                                      ; preds = %161, %60, %63
   %.sink158 = phi ptr [ %59, %63 ], [ %59, %60 ], [ %169, %161 ]
   %.not119130.ph = phi i1 [ false, %63 ], [ false, %60 ], [ true, %161 ]
-  %.3.ph = phi ptr [ %59, %63 ], [ %59, %60 ], [ %.2102, %161 ]
+  %.2102.ph = phi ptr [ %59, %63 ], [ %59, %60 ], [ %.4, %161 ]
   %170 = getelementptr inbounds i8, ptr %.sink158, i64 32
   %171 = load i32, ptr %170, align 8
   %172 = add i32 %171, 1
@@ -387,8 +387,8 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
 
 173:                                              ; preds = %.sink.split, %161
   %.not119130 = phi i1 [ true, %161 ], [ %.not119130.ph, %.sink.split ]
-  %.3 = phi ptr [ %.2102, %161 ], [ %.3.ph, %.sink.split ]
-  %174 = getelementptr inbounds i8, ptr %.3, i64 8
+  %.2102 = phi ptr [ %.4, %161 ], [ %.2102.ph, %.sink.split ]
+  %174 = getelementptr inbounds i8, ptr %.2102, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, null
   br i1 %176, label %177, label %.thread133
@@ -397,8 +397,8 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
   br i1 %.not119130, label %.thread143, label %.thread143.thread
 
 .thread143:                                       ; preds = %146, %133, %177
-  %.4148150 = phi ptr [ %.3, %177 ], [ %.2102, %146 ], [ %.2102, %133 ]
-  %178 = getelementptr inbounds i8, ptr %.4148150, i64 8
+  %.0100148150 = phi ptr [ %.2102, %177 ], [ %.4, %146 ], [ %.4, %133 ]
+  %178 = getelementptr inbounds i8, ptr %.0100148150, i64 8
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 32
   %181 = load i32, ptr %180, align 8
@@ -416,16 +416,16 @@ define ptr @H5F__efc_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 no
   br label %.thread143.thread
 
 .thread143.thread:                                ; preds = %87, %118, %126, %.thread143, %186, %177
-  %.4148149 = phi ptr [ %.4148150, %.thread143 ], [ %.4148150, %186 ], [ %.3, %177 ], [ %.1101141, %87 ], [ %.2102, %118 ], [ %.2102, %126 ]
-  %190 = load ptr, ptr %.4148149, align 8
+  %.0100148149 = phi ptr [ %.0100148150, %.thread143 ], [ %.0100148150, %186 ], [ %.2102, %177 ], [ %.3141, %87 ], [ %.4, %118 ], [ %.4, %126 ]
+  %190 = load ptr, ptr %.0100148149, align 8
   %191 = call ptr @H5MM_xfree(ptr noundef %190) #4
-  store ptr %191, ptr %.4148149, align 8
-  %192 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_efc_ent_t_reg_free_list, ptr noundef nonnull %.4148149) #4
+  store ptr %191, ptr %.0100148149, align 8
+  %192 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5F_efc_ent_t_reg_free_list, ptr noundef nonnull %.0100148149) #4
   br label %.thread133
 
 .thread133:                                       ; preds = %38, %31, %54, %111, %100, %93, %23, %16, %9, %42, %104, %.thread143.thread, %173
-  %.2 = phi ptr [ null, %.thread143.thread ], [ %175, %173 ], [ %29, %42 ], [ null, %38 ], [ null, %31 ], [ null, %54 ], [ null, %111 ], [ %91, %104 ], [ null, %100 ], [ null, %93 ], [ null, %23 ], [ null, %16 ], [ null, %9 ]
-  ret ptr %.2
+  %.1 = phi ptr [ null, %.thread143.thread ], [ %175, %173 ], [ %29, %42 ], [ null, %38 ], [ null, %31 ], [ null, %54 ], [ null, %111 ], [ %91, %104 ], [ null, %100 ], [ null, %93 ], [ null, %23 ], [ null, %16 ], [ null, %9 ]
+  ret ptr %.1
 }
 
 declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1

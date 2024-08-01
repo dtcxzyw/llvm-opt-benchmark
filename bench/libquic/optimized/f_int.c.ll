@@ -52,7 +52,7 @@ if.then7:                                         ; preds = %if.end5
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end39
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end39 ]
-  %n.119 = phi i32 [ %n.0, %for.body.lr.ph ], [ %add40, %if.end39 ]
+  %n.219 = phi i32 [ %n.0, %for.body.lr.ph ], [ %add40, %if.end39 ]
   %cmp14.not = icmp ne i64 %indvars.iv, 0
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %2, 35
@@ -66,11 +66,11 @@ if.then16:                                        ; preds = %for.body
   br i1 %cmp18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16
-  %add21 = add nsw i32 %n.119, 2
+  %add21 = add nsw i32 %n.219, 2
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %for.body
-  %n.2 = phi i32 [ %add21, %if.end20 ], [ %n.119, %for.body ]
+  %n.3 = phi i32 [ %add21, %if.end20 ], [ %n.219, %for.body ]
   %3 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
@@ -90,7 +90,7 @@ if.end22:                                         ; preds = %if.end20, %for.body
   br i1 %cmp36.not, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end22
-  %add40 = add nsw i32 %n.2, 2
+  %add40 = add nsw i32 %n.3, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %a, align 8
   %11 = sext i32 %10 to i64

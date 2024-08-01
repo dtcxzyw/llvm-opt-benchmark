@@ -8649,7 +8649,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEaSEOS4_.exit
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEaSEOS4_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %97, %84, %65, %61
-  %.sroa.435.0 = phi i16 [ %62, %61 ], [ undef, %65 ], [ undef, %84 ], [ undef, %97 ], [ undef, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.sroa.435.1 = phi i16 [ %62, %61 ], [ undef, %65 ], [ undef, %84 ], [ undef, %97 ], [ undef, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   %102 = load i8, ptr %11, align 8
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit
@@ -8846,10 +8846,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %227
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24, %185, %172, %154, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit
-  %.sroa.435.1 = phi i16 [ %.sroa.435.0, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.435.0.extract.trunc, %154 ], [ %.sroa.435.0.extract.trunc, %172 ], [ %.sroa.435.0.extract.trunc, %185 ], [ %.sroa.435.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
-  %.sroa.034.1 = phi i8 [ 0, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.034.0.extract.trunc, %154 ], [ %.sroa.034.0.extract.trunc, %172 ], [ %.sroa.034.0.extract.trunc, %185 ], [ %.sroa.034.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
-  %.sroa.6.0 = phi i16 [ undef, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.6.0.extract.trunc, %154 ], [ %.sroa.6.0.extract.trunc, %172 ], [ %.sroa.6.0.extract.trunc, %185 ], [ %.sroa.6.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
-  %.sroa.4.sroa.0.0 = phi i24 [ undef, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.4.0.extract.trunc, %154 ], [ %.sroa.4.0.extract.trunc, %172 ], [ %.sroa.4.0.extract.trunc, %185 ], [ %.sroa.4.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
+  %.sroa.435.2 = phi i16 [ %.sroa.435.1, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.435.0.extract.trunc, %154 ], [ %.sroa.435.0.extract.trunc, %172 ], [ %.sroa.435.0.extract.trunc, %185 ], [ %.sroa.435.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
+  %.sroa.034.2 = phi i8 [ 0, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.034.0.extract.trunc, %154 ], [ %.sroa.034.0.extract.trunc, %172 ], [ %.sroa.034.0.extract.trunc, %185 ], [ %.sroa.034.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
+  %.sroa.6.1 = phi i16 [ undef, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.6.0.extract.trunc, %154 ], [ %.sroa.6.0.extract.trunc, %172 ], [ %.sroa.6.0.extract.trunc, %185 ], [ %.sroa.6.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
+  %.sroa.4.sroa.0.1 = phi i24 [ undef, %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit ], [ %.sroa.4.0.extract.trunc, %154 ], [ %.sroa.4.0.extract.trunc, %172 ], [ %.sroa.4.0.extract.trunc, %185 ], [ %.sroa.4.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i24 ]
   %192 = load ptr, ptr %19, align 8
   %.not.i.i.i26 = icmp eq ptr %192, null
   br i1 %.not.i.i.i26, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32, label %193
@@ -8930,19 +8930,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31, %222, %209, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25
-  %.sroa.435.2 = phi i16 [ %.sroa.435.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.435.1, %209 ], [ %.sroa.435.1, %222 ], [ %.sroa.435.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.034.2 = phi i8 [ %.sroa.034.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.034.1, %209 ], [ %.sroa.034.1, %222 ], [ %.sroa.034.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.6.1 = phi i16 [ %.sroa.6.0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.6.0, %209 ], [ %.sroa.6.0, %222 ], [ %.sroa.6.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.4.sroa.0.1 = phi i24 [ %.sroa.4.sroa.0.0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.4.sroa.0.0, %209 ], [ %.sroa.4.sroa.0.0, %222 ], [ %.sroa.4.sroa.0.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.6.0.insert.ext = zext i16 %.sroa.6.1 to i64
+  %.sroa.435.0 = phi i16 [ %.sroa.435.2, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.435.2, %209 ], [ %.sroa.435.2, %222 ], [ %.sroa.435.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.034.0 = phi i8 [ %.sroa.034.2, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.034.2, %209 ], [ %.sroa.034.2, %222 ], [ %.sroa.034.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.6.0 = phi i16 [ %.sroa.6.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.6.1, %209 ], [ %.sroa.6.1, %222 ], [ %.sroa.6.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.4.sroa.0.0 = phi i24 [ %.sroa.4.sroa.0.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.4.sroa.0.1, %209 ], [ %.sroa.4.sroa.0.1, %222 ], [ %.sroa.4.sroa.0.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.6.0.insert.ext = zext i16 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 48
-  %.sroa.435.0.insert.ext = zext i16 %.sroa.435.2 to i64
+  %.sroa.435.0.insert.ext = zext i16 %.sroa.435.0 to i64
   %.sroa.435.0.insert.shift = shl nuw nsw i64 %.sroa.435.0.insert.ext, 32
   %.sroa.435.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.435.0.insert.shift
-  %.sroa.4.0.insert.ext = zext i24 %.sroa.4.sroa.0.1 to i64
+  %.sroa.4.0.insert.ext = zext i24 %.sroa.4.sroa.0.0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
   %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.435.0.insert.insert, %.sroa.4.0.insert.shift
-  %.sroa.034.0.insert.ext = zext i8 %.sroa.034.2 to i64
+  %.sroa.034.0.insert.ext = zext i8 %.sroa.034.0 to i64
   %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.034.0.insert.ext
   ret i64 %.sroa.034.0.insert.insert
 }
@@ -11983,8 +11983,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12: ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread, %7, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, %118, %131, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
   %.sroa.4.sroa.0.035 = phi i64 [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.4.0.extract.shift, %118 ], [ %.sroa.4.0.extract.shift, %131 ], [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
   %.sroa.6.034 = phi i64 [ %.sroa.6.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.6.0.extract.shift, %118 ], [ %.sroa.6.0.extract.shift, %131 ], [ %.sroa.6.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
-  %.sroa.024.133 = phi i64 [ %65, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %65, %118 ], [ %65, %131 ], [ %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
-  %.sroa.425.132 = phi i16 [ %.sroa.425.0.extract.trunc, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.425.0.extract.trunc, %118 ], [ %.sroa.425.0.extract.trunc, %131 ], [ %.sroa.425.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 8, %7 ], [ %54, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
+  %.sroa.024.033 = phi i64 [ %65, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %65, %118 ], [ %65, %131 ], [ %65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
+  %.sroa.425.032 = phi i16 [ %.sroa.425.0.extract.trunc, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.425.0.extract.trunc, %118 ], [ %.sroa.425.0.extract.trunc, %131 ], [ %.sroa.425.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 8, %7 ], [ %54, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
   %136 = getelementptr inbounds i8, ptr %4, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i.i.i13 = icmp eq ptr %137, null
@@ -12060,13 +12060,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit19: ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12, %154, %167, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.034, 48
-  %.sroa.425.0.insert.ext = zext i16 %.sroa.425.132 to i64
+  %.sroa.425.0.insert.ext = zext i16 %.sroa.425.032 to i64
   %.sroa.425.0.insert.shift = shl nuw nsw i64 %.sroa.425.0.insert.ext, 32
   %.sroa.425.0.insert.insert = or disjoint i64 %.sroa.425.0.insert.shift, %.sroa.6.0.insert.shift
   %.sroa.4.0.insert.ext = shl nuw i64 %.sroa.4.sroa.0.035, 8
   %.sroa.4.0.insert.shift = and i64 %.sroa.4.0.insert.ext, 4294967040
   %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.425.0.insert.insert, %.sroa.4.0.insert.shift
-  %.sroa.024.0.insert.ext = and i64 %.sroa.024.133, 255
+  %.sroa.024.0.insert.ext = and i64 %.sroa.024.033, 255
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.024.0.insert.ext
   ret i64 %.sroa.024.0.insert.insert
 

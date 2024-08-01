@@ -435,9 +435,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -536,8 +536,8 @@ delete.notnull.i:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %invoke.cont2, %delete.notnull.i, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call1, %invoke.cont2 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call1, %invoke.cont2 ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZN6icu_7513ListFormatter14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -584,8 +584,8 @@ delete.notnull.i:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %invoke.cont2, %delete.notnull.i, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call1, %invoke.cont2 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call1, %invoke.cont2 ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZN6icu_7513ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -825,7 +825,7 @@ ehcleanup:                                        ; preds = %lpad26, %lpad19
   br label %ehcleanup29
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont27
-  %retval.0 = phi i32 [ %call28, %invoke.cont27 ], [ -1, %invoke.cont9 ]
+  %retval.1 = phi i32 [ %call28, %invoke.cont27 ], [ -1, %invoke.cont9 ]
   %7 = load ptr, ptr %maybeOwner, align 8
   %isnull.i = icmp eq ptr %7, null
   br i1 %isnull.i, label %arraydestroy.body32.preheader, label %delete.notnull.i
@@ -874,8 +874,8 @@ arraydestroy.body39:                              ; preds = %arraydestroy.body39
   br i1 %arraydestroy.done42, label %eh.resume, label %arraydestroy.body39
 
 return:                                           ; preds = %arraydestroy.body32, %entry, %if.then3
-  %retval.1 = phi i32 [ -1, %if.then3 ], [ -1, %entry ], [ %retval.0, %arraydestroy.body32 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %entry ], [ %retval.1, %arraydestroy.body32 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body39
   resume { ptr, i32 } %.pn.pn

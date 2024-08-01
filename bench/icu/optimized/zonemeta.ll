@@ -241,7 +241,7 @@ while.end64:                                      ; preds = %if.end63, %if.else
 
 if.end74:                                         ; preds = %while.end64, %if.then39, %if.then52, %if.end37
   %isInputCanonical.1 = phi i8 [ %isInputCanonical.061, %if.then52 ], [ %isInputCanonical.061, %if.then39 ], [ 1, %if.end37 ], [ %.isInputCanonical.0, %while.end64 ]
-  %canonicalID.2 = phi ptr [ null, %if.then52 ], [ %call43, %if.then39 ], [ %call36, %if.end37 ], [ %call50.call66, %while.end64 ]
+  %canonicalID.1 = phi ptr [ null, %if.then52 ], [ %call43, %if.then39 ], [ %call36, %if.end37 ], [ %call50.call66, %while.end64 ]
   call void @ures_close_75(ptr noundef %call29)
   call void @ures_close_75(ptr noundef %call28)
   %20 = load i32, ptr %status, align 4
@@ -262,7 +262,7 @@ if.then81:                                        ; preds = %if.then77
 
 if.then84:                                        ; preds = %if.then81
   %22 = load ptr, ptr @_ZL17gCanonicalIDCache, align 8
-  %call85 = call ptr @uhash_put_75(ptr noundef %22, ptr noundef nonnull %call.i, ptr noundef %canonicalID.2, ptr noundef nonnull %status)
+  %call85 = call ptr @uhash_put_75(ptr noundef %22, ptr noundef nonnull %call.i, ptr noundef %canonicalID.1, ptr noundef nonnull %status)
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then81, %if.then84, %if.then77
@@ -274,13 +274,13 @@ if.end87:                                         ; preds = %if.then81, %if.then
 
 if.then91:                                        ; preds = %if.end87
   %24 = load ptr, ptr @_ZL17gCanonicalIDCache, align 8
-  %call92 = call ptr @uhash_get_75(ptr noundef %24, ptr noundef %canonicalID.2)
+  %call92 = call ptr @uhash_get_75(ptr noundef %24, ptr noundef %canonicalID.1)
   %cmp93 = icmp eq ptr %call92, null
   br i1 %cmp93, label %if.then94, label %if.end97
 
 if.then94:                                        ; preds = %if.then91
   %25 = load ptr, ptr @_ZL17gCanonicalIDCache, align 8
-  %call95 = call ptr @uhash_put_75(ptr noundef %25, ptr noundef %canonicalID.2, ptr noundef %canonicalID.2, ptr noundef nonnull %status)
+  %call95 = call ptr @uhash_put_75(ptr noundef %25, ptr noundef %canonicalID.1, ptr noundef %canonicalID.1, ptr noundef nonnull %status)
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then91, %if.then94, %if.end87
@@ -288,7 +288,7 @@ if.end97:                                         ; preds = %if.then91, %if.then
   br label %return
 
 return:                                           ; preds = %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread, %if.end74, %if.end97, %if.end15, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, %entry, %if.then14, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %if.then14 ], [ null, %entry ], [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %call17, %if.end15 ], [ %canonicalID.2, %if.end97 ], [ %canonicalID.2, %if.end74 ], [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread ]
+  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %if.then14 ], [ null, %entry ], [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %call17, %if.end15 ], [ %canonicalID.1, %if.end97 ], [ %canonicalID.1, %if.end74 ], [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -1291,7 +1291,7 @@ lpad1.loopexit:                                   ; preds = %while.cond23, %whil
   br label %ehcleanup112
 
 lpad1.loopexit.split-lp:                          ; preds = %invoke.cont, %invoke.cont2, %invoke.cont9, %while.end, %while.end101, %if.end104, %invoke.cont3, %if.then.i
-  %mzMappings.sroa.0.0.ph = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont2 ], [ null, %invoke.cont3 ], [ null, %if.then.i ], [ null, %invoke.cont9 ], [ null, %while.end ], [ %mzMappings.sroa.0.7, %while.end101 ], [ %mzMappings.sroa.0.8, %if.end104 ]
+  %mzMappings.sroa.0.0.ph = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont2 ], [ null, %invoke.cont3 ], [ null, %if.then.i ], [ null, %invoke.cont9 ], [ null, %while.end ], [ %mzMappings.sroa.0.4, %while.end101 ], [ %mzMappings.sroa.0.1, %if.end104 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup112
@@ -1310,7 +1310,7 @@ invoke.cont17:                                    ; preds = %while.end
   br i1 %cmp.i22, label %if.end104, label %while.cond23.outer
 
 while.cond23.outer:                               ; preds = %invoke.cont17, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit
-  %mzMappings.sroa.0.2.ph = phi ptr [ %mzMappings.sroa.0.4, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ], [ null, %invoke.cont17 ]
+  %mzMappings.sroa.0.3.ph = phi ptr [ %mzMappings.sroa.0.7, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ], [ null, %invoke.cont17 ]
   %mz.0.ph = phi ptr [ %call29, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ], [ null, %invoke.cont17 ]
   br label %while.cond23
 
@@ -1398,7 +1398,7 @@ if.end63:                                         ; preds = %invoke.cont57
   store double %call47, ptr %from68, align 8
   %to71 = getelementptr inbounds i8, ptr %call56, i64 16
   store double %call49, ptr %to71, align 8
-  %cmp.i35.not = icmp eq ptr %mzMappings.sroa.0.2.ph, null
+  %cmp.i35.not = icmp eq ptr %mzMappings.sroa.0.3.ph, null
   br i1 %cmp.i35.not, label %if.then75, label %if.end90
 
 if.then75:                                        ; preds = %if.end63
@@ -1435,8 +1435,8 @@ _ZN6icu_7512LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
   br label %delete.notnull.i45
 
 if.end90:                                         ; preds = %new.cont83, %if.end63
-  %mzMappings.sroa.0.4 = phi ptr [ %mzMappings.sroa.0.2.ph, %if.end63 ], [ %call76, %new.cont83 ]
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.4, ptr noundef nonnull %call56, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %mzMappings.sroa.0.7 = phi ptr [ %mzMappings.sroa.0.3.ph, %if.end63 ], [ %call76, %new.cont83 ]
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.7, ptr noundef nonnull %call56, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit unwind label %ehcleanup.thread
 
 cleanup:                                          ; preds = %invoke.cont57
@@ -1460,13 +1460,13 @@ delete.notnull.i48:                               ; preds = %new.notnull78
   br label %ehcleanup112.thread
 
 while.end101:                                     ; preds = %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit, %invoke.cont24, %cleanup.thread, %delete.notnull.i45, %cleanup
-  %mzMappings.sroa.0.7 = phi ptr [ %mzMappings.sroa.0.2.ph, %delete.notnull.i45 ], [ %mzMappings.sroa.0.2.ph, %cleanup ], [ %mzMappings.sroa.0.2.ph, %cleanup.thread ], [ %mzMappings.sroa.0.2.ph, %invoke.cont24 ], [ %mzMappings.sroa.0.4, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
+  %mzMappings.sroa.0.4 = phi ptr [ %mzMappings.sroa.0.3.ph, %delete.notnull.i45 ], [ %mzMappings.sroa.0.3.ph, %cleanup ], [ %mzMappings.sroa.0.3.ph, %cleanup.thread ], [ %mzMappings.sroa.0.3.ph, %invoke.cont24 ], [ %mzMappings.sroa.0.7, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
   %mz.1 = phi ptr [ %call29, %delete.notnull.i45 ], [ %call29, %cleanup ], [ %call29, %cleanup.thread ], [ %mz.0, %invoke.cont24 ], [ %call29, %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
   invoke void @ures_close_75(ptr noundef %mz.1)
           to label %if.end104 unwind label %lpad1.loopexit.split-lp
 
 if.end104:                                        ; preds = %invoke.cont17, %while.end101, %invoke.cont5
-  %mzMappings.sroa.0.8 = phi ptr [ null, %invoke.cont5 ], [ null, %invoke.cont17 ], [ %mzMappings.sroa.0.7, %while.end101 ]
+  %mzMappings.sroa.0.1 = phi ptr [ null, %invoke.cont5 ], [ null, %invoke.cont17 ], [ %mzMappings.sroa.0.4, %while.end101 ]
   invoke void @ures_close_75(ptr noundef %call)
           to label %invoke.cont105 unwind label %lpad1.loopexit.split-lp
 
@@ -1477,18 +1477,18 @@ invoke.cont105:                                   ; preds = %if.end104
   br i1 %cmp.i51, label %cond.end, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
 
 cond.end:                                         ; preds = %invoke.cont105
-  %isnull.i53 = icmp eq ptr %mzMappings.sroa.0.8, null
+  %isnull.i53 = icmp eq ptr %mzMappings.sroa.0.1, null
   br i1 %isnull.i53, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit, label %delete.notnull.i54
 
 delete.notnull.i54:                               ; preds = %cond.end
-  %vtable.i55 = load ptr, ptr %mzMappings.sroa.0.8, align 8
+  %vtable.i55 = load ptr, ptr %mzMappings.sroa.0.1, align 8
   %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 8
   %20 = load ptr, ptr %vfn.i56, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.8) #13
+  call void %20(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.1) #13
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %invoke.cont105, %cond.end, %delete.notnull.i54
-  %cond102 = phi ptr [ null, %cond.end ], [ null, %delete.notnull.i54 ], [ %mzMappings.sroa.0.8, %invoke.cont105 ]
+  %cond102 = phi ptr [ null, %cond.end ], [ null, %delete.notnull.i54 ], [ %mzMappings.sroa.0.1, %invoke.cont105 ]
   ret ptr %cond102
 
 ehcleanup112.thread:                              ; preds = %lpad.i, %delete.notnull.i48
@@ -1497,17 +1497,17 @@ ehcleanup112.thread:                              ; preds = %lpad.i, %delete.not
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63
 
 ehcleanup112:                                     ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %ehcleanup.thread
-  %mzMappings.sroa.0.10 = phi ptr [ %mzMappings.sroa.0.4, %ehcleanup.thread ], [ %mzMappings.sroa.0.2.ph, %lpad1.loopexit ], [ %mzMappings.sroa.0.0.ph, %lpad1.loopexit.split-lp ]
+  %mzMappings.sroa.0.2 = phi ptr [ %mzMappings.sroa.0.7, %ehcleanup.thread ], [ %mzMappings.sroa.0.3.ph, %lpad1.loopexit ], [ %mzMappings.sroa.0.0.ph, %lpad1.loopexit.split-lp ]
   %.pn16 = phi { ptr, i32 } [ %13, %ehcleanup.thread ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalID) #13
-  %isnull.i58 = icmp eq ptr %mzMappings.sroa.0.10, null
+  %isnull.i58 = icmp eq ptr %mzMappings.sroa.0.2, null
   br i1 %isnull.i58, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63, label %delete.notnull.i59
 
 delete.notnull.i59:                               ; preds = %ehcleanup112
-  %vtable.i60 = load ptr, ptr %mzMappings.sroa.0.10, align 8
+  %vtable.i60 = load ptr, ptr %mzMappings.sroa.0.2, align 8
   %vfn.i61 = getelementptr inbounds i8, ptr %vtable.i60, i64 8
   %21 = load ptr, ptr %vfn.i61, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.10) #13
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.2) #13
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63: ; preds = %ehcleanup112.thread, %ehcleanup112, %delete.notnull.i59
@@ -1640,7 +1640,7 @@ for.cond88.preheader:                             ; preds = %for.end85
 
 for.body94:                                       ; preds = %for.cond88.preheader, %for.inc118
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %for.inc118 ], [ 11, %for.cond88.preheader ]
-  %hour.0104 = phi i32 [ %add115, %for.inc118 ], [ 0, %for.cond88.preheader ]
+  %hour.1104 = phi i32 [ %add115, %for.inc118 ], [ 0, %for.cond88.preheader ]
   %arrayidx96 = getelementptr inbounds i16, ptr %text, i64 %indvars.iv119
   %9 = load i16, ptr %arrayidx96, align 2
   %conv97 = zext i16 %9 to i32
@@ -1656,7 +1656,7 @@ for.cond121.preheader.thread180:                  ; preds = %for.body94
   br label %return
 
 for.inc118:                                       ; preds = %for.body94
-  %mul114 = mul nsw i32 %hour.0104, 10
+  %mul114 = mul nsw i32 %hour.1104, 10
   %add115 = add nsw i32 %cond111, %mul114
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %cmp89 = icmp ugt i64 %indvars.iv119, 11
@@ -1664,7 +1664,7 @@ for.inc118:                                       ; preds = %for.body94
 
 for.body127:                                      ; preds = %for.inc118, %for.inc151
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %for.inc151 ], [ 14, %for.inc118 ]
-  %min.0109 = phi i32 [ %add148, %for.inc151 ], [ 0, %for.inc118 ]
+  %min.1109 = phi i32 [ %add148, %for.inc151 ], [ 0, %for.inc118 ]
   %arrayidx129 = getelementptr inbounds i16, ptr %text, i64 %indvars.iv122
   %11 = load i16, ptr %arrayidx129, align 2
   %conv130 = zext i16 %11 to i32
@@ -1680,16 +1680,16 @@ for.inc151.thread:                                ; preds = %for.body127
   br label %if.end154.loopexit
 
 for.inc151:                                       ; preds = %for.body127
-  %mul147 = mul nsw i32 %min.0109, 10
+  %mul147 = mul nsw i32 %min.1109, 10
   %add148 = add nsw i32 %cond144, %mul147
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %cmp122 = icmp ugt i64 %indvars.iv122, 14
   br i1 %cmp122, label %if.end154.loopexit, label %for.body127, !llvm.loop !16
 
 if.end154.loopexit:                               ; preds = %for.inc151, %for.inc151.thread
-  %min.1172 = phi i32 [ %min.0109, %for.inc151.thread ], [ %add148, %for.inc151 ]
+  %min.2172 = phi i32 [ %min.1109, %for.inc151.thread ], [ %add148, %for.inc151 ]
   %13 = phi i32 [ 3, %for.inc151.thread ], [ %status.promoted102, %for.inc151 ]
-  %14 = mul nsw i32 %min.1172, 60000
+  %14 = mul nsw i32 %min.2172, 60000
   %15 = sitofp i32 %14 to double
   %16 = mul nsw i32 %add115, 3600000
   %17 = sitofp i32 %16 to double
@@ -1697,15 +1697,15 @@ if.end154.loopexit:                               ; preds = %for.inc151, %for.in
 
 if.end154:                                        ; preds = %if.end154.loopexit, %for.end85
   %18 = phi i32 [ %status.promoted102, %for.end85 ], [ %13, %if.end154.loopexit ]
-  %hour.2 = phi double [ 0.000000e+00, %for.end85 ], [ %17, %if.end154.loopexit ]
-  %min.2 = phi double [ 0.000000e+00, %for.end85 ], [ %15, %if.end154.loopexit ]
+  %hour.0 = phi double [ 0.000000e+00, %for.end85 ], [ %17, %if.end154.loopexit ]
+  %min.0 = phi double [ 0.000000e+00, %for.end85 ], [ %15, %if.end154.loopexit ]
   %cmp.i82 = icmp sgt i32 %18, 0
   br i1 %cmp.i82, label %return, label %if.then157
 
 if.then157:                                       ; preds = %if.end154
   %call159 = tail call noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef %year.0.lcssa132142, i32 noundef %month.0.lcssa143, i32 noundef %day.0.lcssa)
-  %19 = tail call double @llvm.fmuladd.f64(double %call159, double 8.640000e+07, double %hour.2)
-  %add165 = fadd double %19, %min.2
+  %19 = tail call double @llvm.fmuladd.f64(double %call159, double 8.640000e+07, double %hour.0)
+  %add165 = fadd double %19, %min.0
   br label %return
 
 return:                                           ; preds = %for.cond121.preheader.thread180, %for.cond88.preheader, %if.end154, %entry, %if.then157, %if.then3
@@ -1810,9 +1810,9 @@ if.then25:                                        ; preds = %if.then16
 
 if.end27:                                         ; preds = %if.then10, %if.then16, %if.then25
   %9 = phi i32 [ 0, %if.then25 ], [ %8, %if.then16 ], [ %3, %if.then10 ]
-  %tzid.0 = phi ptr [ %call23, %if.then25 ], [ %call23, %if.then16 ], [ null, %if.then10 ]
+  %tzid.1 = phi ptr [ %call23, %if.then25 ], [ %call23, %if.then16 ], [ null, %if.then10 ]
   %cmp.i40 = icmp slt i32 %9, 1
-  %cmp30 = icmp eq ptr %tzid.0, null
+  %cmp30 = icmp eq ptr %tzid.1, null
   %or.cond = select i1 %cmp.i40, i1 %cmp30, i1 false
   br i1 %or.cond, label %if.then31, label %if.end34
 
@@ -1821,9 +1821,9 @@ if.then31:                                        ; preds = %if.end27
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end27, %if.then31
-  %tzid.1 = phi ptr [ %call32, %if.then31 ], [ %tzid.0, %if.end27 ]
+  %tzid.0 = phi ptr [ %call32, %if.then31 ], [ %tzid.1, %if.end27 ]
   call void @ures_close_75(ptr noundef %call4)
-  %cmp35 = icmp eq ptr %tzid.1, null
+  %cmp35 = icmp eq ptr %tzid.0, null
   br i1 %cmp35, label %if.then36, label %if.else
 
 if.then36:                                        ; preds = %if.end34.thread, %if.end34
@@ -1841,7 +1841,7 @@ if.else:                                          ; preds = %if.end34
   %fLength.i.i = getelementptr inbounds i8, ptr %result, i64 12
   %13 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %13, i32 %shr.i.i.i
-  %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %tzid.1, i32 noundef 0, i32 noundef %10)
+  %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %tzid.0, i32 noundef 0, i32 noundef %10)
   br label %return
 
 return:                                           ; preds = %if.then36, %if.else, %if.then
@@ -2047,7 +2047,7 @@ invoke.cont75:                                    ; preds = %if.then70
           to label %cleanup81 unwind label %lpad64.thread
 
 lpad64.thread:                                    ; preds = %invoke.cont75, %if.then70
-  %uMzID.sroa.0.0.ph = phi ptr [ %call32, %if.then70 ], [ null, %invoke.cont75 ]
+  %uMzID.sroa.0.3.ph = phi ptr [ %call32, %if.then70 ], [ null, %invoke.cont75 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2062,7 +2062,7 @@ delete.notnull.i:                                 ; preds = %if.end63
   br label %ehcleanup
 
 delete.notnull.i27:                               ; preds = %invoke.cont67, %invoke.cont59
-  %cleanup.dest.slot.0.ph = phi i32 [ 0, %invoke.cont67 ], [ 3, %invoke.cont59 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 0, %invoke.cont67 ], [ 3, %invoke.cont59 ]
   %vtable.i28 = load ptr, ptr %call46, align 8
   %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 8
   %14 = load ptr, ptr %vfn.i29, align 8
@@ -2070,9 +2070,9 @@ delete.notnull.i27:                               ; preds = %invoke.cont67, %inv
   br label %cleanup81
 
 cleanup81:                                        ; preds = %new.cont58, %if.then.i, %invoke.cont75, %delete.notnull.i27, %if.then38
-  %uMzID.sroa.0.2 = phi ptr [ null, %if.then38 ], [ %call32, %delete.notnull.i27 ], [ null, %invoke.cont75 ], [ %call32, %if.then.i ], [ %call32, %new.cont58 ]
-  %cleanup.dest.slot.1 = phi i32 [ 3, %if.then38 ], [ %cleanup.dest.slot.0.ph, %delete.notnull.i27 ], [ 0, %invoke.cont75 ], [ 3, %if.then.i ], [ 3, %new.cont58 ]
-  invoke void @uprv_free_75(ptr noundef %uMzID.sroa.0.2)
+  %uMzID.sroa.0.0 = phi ptr [ null, %if.then38 ], [ %call32, %delete.notnull.i27 ], [ null, %invoke.cont75 ], [ %call32, %if.then.i ], [ %call32, %new.cont58 ]
+  %cleanup.dest.slot.0 = phi i32 [ 3, %if.then38 ], [ %cleanup.dest.slot.1.ph, %delete.notnull.i27 ], [ 0, %invoke.cont75 ], [ 3, %if.then.i ], [ 3, %new.cont58 ]
+  invoke void @uprv_free_75(ptr noundef %uMzID.sroa.0.0)
           to label %_ZN6icu_7511LocalMemoryIDsED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup81
@@ -2083,16 +2083,16 @@ terminate.lpad.i:                                 ; preds = %cleanup81
   unreachable
 
 _ZN6icu_7511LocalMemoryIDsED2Ev.exit:             ; preds = %cleanup81
-  %switch = icmp ne i32 %cleanup.dest.slot.1, 0
+  %switch = icmp ne i32 %cleanup.dest.slot.0, 0
   %17 = load i32, ptr %status, align 4
   %cmp.i17 = icmp sgt i32 %17, 0
   %or.cond66 = select i1 %switch, i1 true, i1 %cmp.i17
   br i1 %or.cond66, label %while.end, label %land.rhs
 
 ehcleanup:                                        ; preds = %delete.notnull.i, %lpad64.thread, %lpad51, %lpad34
-  %uMzID.sroa.0.3 = phi ptr [ %call32, %lpad51 ], [ %call32, %lpad34 ], [ %uMzID.sroa.0.0.ph, %lpad64.thread ], [ %call32, %delete.notnull.i ]
+  %uMzID.sroa.0.1 = phi ptr [ %call32, %lpad51 ], [ %call32, %lpad34 ], [ %uMzID.sroa.0.3.ph, %lpad64.thread ], [ %call32, %delete.notnull.i ]
   %.pn = phi { ptr, i32 } [ %9, %lpad51 ], [ %6, %lpad34 ], [ %lpad.thr_comm, %lpad64.thread ], [ %lpad.thr_comm.split-lp, %delete.notnull.i ]
-  invoke void @uprv_free_75(ptr noundef %uMzID.sroa.0.3)
+  invoke void @uprv_free_75(ptr noundef %uMzID.sroa.0.1)
           to label %ehcleanup94 unwind label %terminate.lpad.i31
 
 terminate.lpad.i31:                               ; preds = %ehcleanup

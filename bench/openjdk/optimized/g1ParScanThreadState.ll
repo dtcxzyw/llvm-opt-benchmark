@@ -2381,7 +2381,7 @@ _ZN7oopDesc16size_given_klassEP5Klass.exit:       ; preds = %28, %31, %38, %58
   br label %_ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit
 
 _ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit: ; preds = %69, %82, %87
-  %.1 = phi i32 [ %83, %82 ], [ 0, %69 ], [ %83, %87 ]
+  %.3 = phi i32 [ %83, %82 ], [ 0, %69 ], [ %83, %87 ]
   %.sroa.05.0.i = phi i8 [ %.sroa.04.0.extract.trunc.i, %82 ], [ 0, %69 ], [ 0, %87 ]
   %88 = phi i1 [ true, %82 ], [ false, %69 ], [ false, %87 ]
   %.sroa.36.0.i = phi i8 [ 0, %82 ], [ 1, %69 ], [ 1, %87 ]
@@ -2453,7 +2453,7 @@ _ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit: ; preds = %_ZNK15
   br i1 %130, label %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread, label %135
 
 _ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread: ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit
-  %131 = call noundef ptr @_ZN20G1ParScanThreadState18allocate_copy_slowEP16G1HeapRegionAttrP7oopDescmjj(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %.0.i98, i32 noundef %.1, i32 noundef %109)
+  %131 = call noundef ptr @_ZN20G1ParScanThreadState18allocate_copy_slowEP16G1HeapRegionAttrP7oopDescmjj(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %.0.i98, i32 noundef %.3, i32 noundef %109)
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %135
 
@@ -2561,11 +2561,11 @@ _ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %135, %1
   br i1 %186, label %187, label %229
 
 187:                                              ; preds = %175
-  %.not116 = icmp eq i32 %.1, 15
+  %.not116 = icmp eq i32 %.3, 15
   br i1 %.not116, label %223, label %188
 
 188:                                              ; preds = %187
-  %189 = add nuw nsw i32 %.1, 1
+  %189 = add nuw nsw i32 %.3, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %190 = load volatile i64, ptr %.093, align 8
   store i64 %190, ptr %5, align 8
@@ -2626,9 +2626,9 @@ _ZN7oopDesc8incr_ageEv.exit:                      ; preds = %_ZNK8markWord8incr_
   br label %223
 
 223:                                              ; preds = %_ZN7oopDesc8incr_ageEv.exit, %187
-  %.2 = phi i32 [ %189, %_ZN7oopDesc8incr_ageEv.exit ], [ 15, %187 ]
+  %.0114 = phi i32 [ %189, %_ZN7oopDesc8incr_ageEv.exit ], [ 15, %187 ]
   %224 = getelementptr inbounds i8, ptr %0, i64 112
-  %225 = zext nneg i32 %.2 to i64
+  %225 = zext nneg i32 %.0114 to i64
   %226 = getelementptr inbounds [16 x i64], ptr %224, i64 0, i64 %225
   %227 = load i64, ptr %226, align 8
   %228 = add i64 %227, %.0.i98
@@ -2670,7 +2670,7 @@ _ZN7oopDesc8incr_ageEv.exit:                      ; preds = %_ZNK8markWord8incr_
   br label %_ZN20G1ParScanThreadState24update_bot_after_copyingEP7oopDescm.exit
 
 _ZN20G1ParScanThreadState24update_bot_after_copyingEP7oopDescm.exit: ; preds = %239, %229, %223
-  %.3 = phi i32 [ %.2, %223 ], [ %.1, %229 ], [ %.1, %239 ]
+  %.1 = phi i32 [ %.0114, %223 ], [ %.3, %229 ], [ %.3, %239 ]
   %258 = getelementptr inbounds i8, ptr %.0.i, i64 12
   %259 = load i32, ptr %258, align 4
   %260 = icmp sgt i32 %259, 4
@@ -2747,12 +2747,12 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDe
 
 295:                                              ; preds = %293
   %296 = load i32, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4
-  %297 = icmp eq i32 %296, %.3
+  %297 = icmp eq i32 %296, %.1
   br i1 %297, label %300, label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
 _ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit: ; preds = %293
   %298 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %299 = icmp ugt i32 %298, %.3
+  %299 = icmp ugt i32 %298, %.1
   br i1 %299, label %300, label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
 300:                                              ; preds = %295, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit
@@ -2922,7 +2922,7 @@ _ZN7oopDesc16size_given_klassEP5Klass.exit:       ; preds = %28, %31, %38, %58
   br label %_ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit
 
 _ZN20G1ParScanThreadState16next_region_attrE16G1HeapRegionAttr8markWordRj.exit: ; preds = %69, %82, %87
-  %.1 = phi i32 [ %83, %82 ], [ 0, %69 ], [ %83, %87 ]
+  %.3 = phi i32 [ %83, %82 ], [ 0, %69 ], [ %83, %87 ]
   %.sroa.05.0.i = phi i8 [ %.sroa.04.0.extract.trunc.i, %82 ], [ 0, %69 ], [ 0, %87 ]
   %88 = phi i1 [ true, %82 ], [ false, %69 ], [ false, %87 ]
   %.sroa.36.0.i = phi i8 [ 0, %82 ], [ 1, %69 ], [ 1, %87 ]
@@ -2994,7 +2994,7 @@ _ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit: ; preds = %_ZNK15
   br i1 %130, label %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread, label %135
 
 _ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread: ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit
-  %131 = call noundef ptr @_ZN20G1ParScanThreadState18allocate_copy_slowEP16G1HeapRegionAttrP7oopDescmjj(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %.0.i85, i32 noundef %.1, i32 noundef %109)
+  %131 = call noundef ptr @_ZN20G1ParScanThreadState18allocate_copy_slowEP16G1HeapRegionAttrP7oopDescmjj(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull %7, ptr noundef nonnull %2, i64 noundef %.0.i85, i32 noundef %.3, i32 noundef %109)
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %135
 
@@ -3102,11 +3102,11 @@ _ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %135, %1
   br i1 %186, label %187, label %229
 
 187:                                              ; preds = %175
-  %.not103 = icmp eq i32 %.1, 15
+  %.not103 = icmp eq i32 %.3, 15
   br i1 %.not103, label %223, label %188
 
 188:                                              ; preds = %187
-  %189 = add nuw nsw i32 %.1, 1
+  %189 = add nuw nsw i32 %.3, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %190 = load volatile i64, ptr %.080, align 8
   store i64 %190, ptr %5, align 8
@@ -3167,9 +3167,9 @@ _ZN7oopDesc8incr_ageEv.exit:                      ; preds = %_ZNK8markWord8incr_
   br label %223
 
 223:                                              ; preds = %_ZN7oopDesc8incr_ageEv.exit, %187
-  %.2 = phi i32 [ %189, %_ZN7oopDesc8incr_ageEv.exit ], [ 15, %187 ]
+  %.0101 = phi i32 [ %189, %_ZN7oopDesc8incr_ageEv.exit ], [ 15, %187 ]
   %224 = getelementptr inbounds i8, ptr %0, i64 112
-  %225 = zext nneg i32 %.2 to i64
+  %225 = zext nneg i32 %.0101 to i64
   %226 = getelementptr inbounds [16 x i64], ptr %224, i64 0, i64 %225
   %227 = load i64, ptr %226, align 8
   %228 = add i64 %227, %.0.i85
@@ -3211,7 +3211,7 @@ _ZN7oopDesc8incr_ageEv.exit:                      ; preds = %_ZNK8markWord8incr_
   br label %_ZN20G1ParScanThreadState24update_bot_after_copyingEP7oopDescm.exit
 
 _ZN20G1ParScanThreadState24update_bot_after_copyingEP7oopDescm.exit: ; preds = %239, %229, %223
-  %.3 = phi i32 [ %.2, %223 ], [ %.1, %229 ], [ %.1, %239 ]
+  %.1 = phi i32 [ %.0101, %223 ], [ %.3, %229 ], [ %.3, %239 ]
   %258 = getelementptr inbounds i8, ptr %.0.i, i64 12
   %259 = load i32, ptr %258, align 4
   %260 = icmp sgt i32 %259, 4
@@ -3288,12 +3288,12 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDe
 
 295:                                              ; preds = %293
   %296 = load i32, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4
-  %297 = icmp eq i32 %296, %.3
+  %297 = icmp eq i32 %296, %.1
   br i1 %297, label %300, label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
 _ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit: ; preds = %293
   %298 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %299 = icmp ugt i32 %298, %.3
+  %299 = icmp ugt i32 %298, %.1
   br i1 %299, label %300, label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
 300:                                              ; preds = %295, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit
@@ -11297,9 +11297,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -11543,9 +11543,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
@@ -16259,7 +16259,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
-  %.1 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
+  %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds i8, ptr %8, i64 516
   br label %27
 
@@ -16277,13 +16277,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %35 = load i32, ptr %9, align 8
   %36 = urem i32 %.0.i.i41, %35
   %37 = icmp eq i32 %36, %1
-  %38 = icmp eq i32 %36, %.1
+  %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
   br i1 %39, label %27, label %40, !llvm.loop !81
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
-  %42 = zext i32 %.1 to i64
+  %42 = zext i32 %.034 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 128
@@ -16377,7 +16377,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %99, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
 
 _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %88, %70
-  %.036 = phi i32 [ %36, %70 ], [ %.1, %88 ]
+  %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
   br label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
 
@@ -19455,9 +19455,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop25G1ScanEvacuatedObjClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -19648,9 +19648,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc25G1ScanEvacuatedObjClosureEEvP17stackChunkOopDescPT0_PlS8_.exit

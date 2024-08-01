@@ -1050,9 +1050,9 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   br label %16
 
 16:                                               ; preds = %35, %12
-  %.0103 = phi ptr [ %0, %12 ], [ %31, %35 ]
-  %.0101 = phi ptr [ %10, %12 ], [ %32, %35 ]
-  %.099 = phi i64 [ %1, %12 ], [ %33, %35 ]
+  %.1104 = phi ptr [ %0, %12 ], [ %31, %35 ]
+  %.1102 = phi ptr [ %10, %12 ], [ %32, %35 ]
+  %.1100 = phi i64 [ %1, %12 ], [ %33, %35 ]
   %.098 = phi <4 x i64> [ %15, %12 ], [ %37, %35 ]
   %17 = bitcast <4 x i64> %.098 to <32 x i8>
   %18 = shufflevector <32 x i8> %17, <32 x i8> poison, <32 x i32> <i32 5, i32 4, i32 6, i32 5, i32 8, i32 7, i32 9, i32 8, i32 11, i32 10, i32 12, i32 11, i32 14, i32 13, i32 15, i32 14, i32 17, i32 16, i32 18, i32 17, i32 20, i32 19, i32 21, i32 20, i32 23, i32 22, i32 24, i32 23, i32 26, i32 25, i32 27, i32 26>
@@ -1069,15 +1069,15 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %28 = add nuw <32 x i8> %26, %.neg.i
   %29 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %28)
   %30 = add <32 x i8> %29, %25
-  store <32 x i8> %30, ptr %.0101, align 1
-  %31 = getelementptr inbounds i8, ptr %.0103, i64 24
-  %32 = getelementptr inbounds i8, ptr %.0101, i64 32
-  %33 = add i64 %.099, -24
+  store <32 x i8> %30, ptr %.1102, align 1
+  %31 = getelementptr inbounds i8, ptr %.1104, i64 24
+  %32 = getelementptr inbounds i8, ptr %.1102, i64 32
+  %33 = add i64 %.1100, -24
   %34 = icmp ult i64 %33, 28
   br i1 %34, label %.lr.ph.preheader, label %35
 
 35:                                               ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %.0103, i64 20
+  %36 = getelementptr inbounds i8, ptr %.1104, i64 20
   %37 = load <4 x i64>, ptr %36, align 1
   br label %16
 

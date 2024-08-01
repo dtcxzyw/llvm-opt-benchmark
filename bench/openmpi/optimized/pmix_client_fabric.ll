@@ -1130,14 +1130,14 @@ define internal void @frecv(ptr nocapture noundef readonly %0, ptr nocapture rea
   ]
 
 .sink.split:                                      ; preds = %115, %109, %76, %70, %48, %40
-  %.292.sink = phi i32 [ %54, %48 ], [ -20, %40 ], [ %84, %76 ], [ -20, %70 ], [ %123, %115 ], [ -20, %109 ]
+  %.392.sink = phi i32 [ %54, %48 ], [ -20, %40 ], [ %84, %76 ], [ -20, %70 ], [ %123, %115 ], [ -20, %109 ]
   %.sink93 = phi i32 [ 105, %48 ], [ 105, %40 ], [ 116, %76 ], [ 116, %70 ], [ 124, %115 ], [ 124, %109 ]
-  %124 = call ptr @PMIx_Error_string(i32 noundef %.292.sink) #9
+  %124 = call ptr @PMIx_Error_string(i32 noundef %.392.sink) #9
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %124, ptr noundef nonnull @.str.3, i32 noundef %.sink93) #9
   br label %125
 
 125:                                              ; preds = %.sink.split, %115, %115, %76, %48, %16, %20, %85, %55
-  %.3 = phi i32 [ 0, %55 ], [ %123, %115 ], [ %84, %85 ], [ -25, %20 ], [ -25, %16 ], [ %54, %48 ], [ %84, %76 ], [ %123, %115 ], [ %.292.sink, %.sink.split ]
+  %.0 = phi i32 [ 0, %55 ], [ %123, %115 ], [ %84, %85 ], [ -25, %20 ], [ -25, %16 ], [ %54, %48 ], [ %84, %76 ], [ %123, %115 ], [ %.392.sink, %.sink.split ]
   %126 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond83 = icmp ult i32 %126, 64
   br i1 %or.cond83, label %127, label %133
@@ -1162,7 +1162,7 @@ define internal void @frecv(ptr nocapture noundef readonly %0, ptr nocapture rea
 136:                                              ; preds = %133
   %137 = getelementptr inbounds i8, ptr %3, i64 696
   %138 = load ptr, ptr %137, align 8
-  call void %135(i32 noundef %.3, ptr noundef %138) #9
+  call void %135(i32 noundef %.0, ptr noundef %138) #9
   %139 = call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #9
   %140 = icmp eq i32 %139, 35
   br i1 %140, label %141, label %143

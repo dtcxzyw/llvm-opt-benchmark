@@ -92,7 +92,7 @@ define void @slurm_chk_memset(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %27
 
 27:                                               ; preds = %26, %24, %22, %20, %17, %15
-  %.1 = phi ptr [ @.str, %15 ], [ %.str..str.4, %17 ], [ %.str..str.4, %20 ], [ %.str..str.4, %22 ], [ %.str..str.4, %24 ], [ %.str..str.4, %26 ]
+  %.018 = phi ptr [ @.str, %15 ], [ %.str..str.4, %17 ], [ %.str..str.4, %20 ], [ %.str..str.4, %22 ], [ %.str..str.4, %24 ], [ %.str..str.4, %26 ]
   %.017 = phi ptr [ @.str.2, %15 ], [ @.str.5, %17 ], [ @.str.6, %20 ], [ @.str.7, %22 ], [ @.str.8, %24 ], [ %.str.10..str.9, %26 ]
   %.0 = phi ptr [ @.str.1, %15 ], [ @.str.3, %17 ], [ @.str.3, %20 ], [ @.str.3, %22 ], [ @.str.3, %24 ], [ %.str.1..str.3, %26 ]
   %28 = load ptr, ptr @stderr, align 8
@@ -149,7 +149,7 @@ _memset_to_str.exit:                              ; preds = %nodemask_isset_comp
   store i8 0, ptr %55, align 1
   %.not.i = icmp eq ptr %spec.select45.i, null
   %56 = select i1 %.not.i, ptr %.03680.i, ptr %spec.select45.i
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.11, ptr noundef nonnull %.1, ptr noundef nonnull %.017, ptr noundef %31, i32 noundef %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull %56, ptr noundef nonnull %.0) #8
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.11, ptr noundef nonnull %.018, ptr noundef nonnull %.017, ptr noundef %31, i32 noundef %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull %56, ptr noundef nonnull %.0) #8
   br label %58
 
 58:                                               ; preds = %2, %_memset_to_str.exit

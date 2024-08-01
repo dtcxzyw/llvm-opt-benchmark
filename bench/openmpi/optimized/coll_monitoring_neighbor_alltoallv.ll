@@ -31,8 +31,8 @@ define i32 @mca_coll_monitoring_neighbor_alltoallv(ptr noundef %0, ptr noundef %
 
 26:                                               ; preds = %.lr.ph, %143
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %143 ]
-  %.077 = phi i32 [ 0, %.lr.ph ], [ %.2, %143 ]
-  %.04174 = phi i64 [ 0, %.lr.ph ], [ %.4, %143 ]
+  %.077 = phi i32 [ 0, %.lr.ph ], [ %.1, %143 ]
+  %.04174 = phi i64 [ 0, %.lr.ph ], [ %.142, %143 ]
   store i32 -2, ptr %13, align 4
   store i32 -2, ptr %14, align 4
   %27 = load ptr, ptr %23, align 8
@@ -146,19 +146,19 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %79
   br label %89
 
 89:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %83
-  %.142 = phi i64 [ %88, %83 ], [ %.04174, %mca_common_monitoring_get_world_rank.exit ]
+  %.3 = phi i64 [ %88, %83 ], [ %.04174, %mca_common_monitoring_get_world_rank.exit ]
   %90 = add nsw i32 %.077, 1
   br label %.thread
 
 .thread:                                          ; preds = %33, %31, %89, %37
-  %.243 = phi i64 [ %.04174, %37 ], [ %.142, %89 ], [ %.04174, %31 ], [ %.04174, %33 ]
-  %.1 = phi i32 [ %.077, %37 ], [ %90, %89 ], [ %.077, %31 ], [ %.077, %33 ]
+  %.243 = phi i64 [ %.04174, %37 ], [ %.3, %89 ], [ %.04174, %31 ], [ %.04174, %33 ]
+  %.2 = phi i32 [ %.077, %37 ], [ %90, %89 ], [ %.077, %31 ], [ %.077, %33 ]
   %91 = load i32, ptr %14, align 4
   %.not48 = icmp eq i32 %91, -2
   br i1 %.not48, label %143, label %92
 
 92:                                               ; preds = %.thread
-  %93 = sext i32 %.1 to i64
+  %93 = sext i32 %.2 to i64
   %94 = getelementptr inbounds i32, ptr %1, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = load ptr, ptr %25, align 8
@@ -244,13 +244,13 @@ mca_common_monitoring_get_world_rank.exit58:      ; preds = %131
   br label %141
 
 141:                                              ; preds = %mca_common_monitoring_get_world_rank.exit58, %135
-  %.3 = phi i64 [ %140, %135 ], [ %.243, %mca_common_monitoring_get_world_rank.exit58 ]
-  %142 = add nsw i32 %.1, 1
+  %.4 = phi i64 [ %140, %135 ], [ %.243, %mca_common_monitoring_get_world_rank.exit58 ]
+  %142 = add nsw i32 %.2, 1
   br label %143
 
 143:                                              ; preds = %.thread, %141, %33
-  %.4 = phi i64 [ %.243, %.thread ], [ %.3, %141 ], [ %.04174, %33 ]
-  %.2 = phi i32 [ %.1, %.thread ], [ %142, %141 ], [ %.077, %33 ]
+  %.142 = phi i64 [ %.243, %.thread ], [ %.4, %141 ], [ %.04174, %33 ]
+  %.1 = phi i32 [ %.2, %.thread ], [ %142, %141 ], [ %.077, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr %20, align 8
   %145 = sext i32 %144 to i64
@@ -258,7 +258,7 @@ mca_common_monitoring_get_world_rank.exit58:      ; preds = %131
   br i1 %146, label %26, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %143, %10
-  %.041.lcssa = phi i64 [ 0, %10 ], [ %.4, %143 ]
+  %.041.lcssa = phi i64 [ 0, %10 ], [ %.142, %143 ]
   %147 = getelementptr inbounds i8, ptr %9, i64 1704
   %148 = load ptr, ptr %147, align 8
   call void @mca_common_monitoring_coll_a2a(i64 noundef %.041.lcssa, ptr noundef %148) #3
@@ -301,8 +301,8 @@ define i32 @mca_coll_monitoring_ineighbor_alltoallv(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
-  %.078 = phi i32 [ 0, %.lr.ph ], [ %.2, %144 ]
-  %.04275 = phi i64 [ 0, %.lr.ph ], [ %.4, %144 ]
+  %.078 = phi i32 [ 0, %.lr.ph ], [ %.1, %144 ]
+  %.04275 = phi i64 [ 0, %.lr.ph ], [ %.143, %144 ]
   store i32 -2, ptr %14, align 4
   store i32 -2, ptr %15, align 4
   %28 = load ptr, ptr %24, align 8
@@ -416,19 +416,19 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %80
   br label %90
 
 90:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %84
-  %.143 = phi i64 [ %89, %84 ], [ %.04275, %mca_common_monitoring_get_world_rank.exit ]
+  %.3 = phi i64 [ %89, %84 ], [ %.04275, %mca_common_monitoring_get_world_rank.exit ]
   %91 = add nsw i32 %.078, 1
   br label %.thread
 
 .thread:                                          ; preds = %34, %32, %90, %38
-  %.244 = phi i64 [ %.04275, %38 ], [ %.143, %90 ], [ %.04275, %32 ], [ %.04275, %34 ]
-  %.1 = phi i32 [ %.078, %38 ], [ %91, %90 ], [ %.078, %32 ], [ %.078, %34 ]
+  %.244 = phi i64 [ %.04275, %38 ], [ %.3, %90 ], [ %.04275, %32 ], [ %.04275, %34 ]
+  %.2 = phi i32 [ %.078, %38 ], [ %91, %90 ], [ %.078, %32 ], [ %.078, %34 ]
   %92 = load i32, ptr %15, align 4
   %.not49 = icmp eq i32 %92, -2
   br i1 %.not49, label %144, label %93
 
 93:                                               ; preds = %.thread
-  %94 = sext i32 %.1 to i64
+  %94 = sext i32 %.2 to i64
   %95 = getelementptr inbounds i32, ptr %1, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = load ptr, ptr %26, align 8
@@ -514,13 +514,13 @@ mca_common_monitoring_get_world_rank.exit59:      ; preds = %132
   br label %142
 
 142:                                              ; preds = %mca_common_monitoring_get_world_rank.exit59, %136
-  %.3 = phi i64 [ %141, %136 ], [ %.244, %mca_common_monitoring_get_world_rank.exit59 ]
-  %143 = add nsw i32 %.1, 1
+  %.4 = phi i64 [ %141, %136 ], [ %.244, %mca_common_monitoring_get_world_rank.exit59 ]
+  %143 = add nsw i32 %.2, 1
   br label %144
 
 144:                                              ; preds = %.thread, %142, %34
-  %.4 = phi i64 [ %.244, %.thread ], [ %.3, %142 ], [ %.04275, %34 ]
-  %.2 = phi i32 [ %.1, %.thread ], [ %143, %142 ], [ %.078, %34 ]
+  %.143 = phi i64 [ %.244, %.thread ], [ %.4, %142 ], [ %.04275, %34 ]
+  %.1 = phi i32 [ %.2, %.thread ], [ %143, %142 ], [ %.078, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %145 = load i32, ptr %21, align 8
   %146 = sext i32 %145 to i64
@@ -528,7 +528,7 @@ mca_common_monitoring_get_world_rank.exit59:      ; preds = %132
   br i1 %147, label %27, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %144, %11
-  %.042.lcssa = phi i64 [ 0, %11 ], [ %.4, %144 ]
+  %.042.lcssa = phi i64 [ 0, %11 ], [ %.143, %144 ]
   %148 = getelementptr inbounds i8, ptr %10, i64 1704
   %149 = load ptr, ptr %148, align 8
   call void @mca_common_monitoring_coll_a2a(i64 noundef %.042.lcssa, ptr noundef %149) #3

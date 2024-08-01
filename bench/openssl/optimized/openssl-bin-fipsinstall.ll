@@ -163,7 +163,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %module_fname.0 = phi ptr [ null, %if.end ], [ %module_fname.0.be, %while.cond.backedge ]
   %parent_config.0 = phi ptr [ null, %if.end ], [ %parent_config.0.be, %while.cond.backedge ]
   %gotkey.0 = phi i32 [ 0, %if.end ], [ %gotkey.0.be, %while.cond.backedge ]
-  %verify.0 = phi i32 [ 0, %if.end ], [ %verify.0.be, %while.cond.backedge ]
+  %verify.1 = phi i32 [ 0, %if.end ], [ %verify.1.be, %while.cond.backedge ]
   %call2 = tail call i32 @opt_next() #5
   switch i32 %call2, label %while.cond.backedge [
     i32 0, label %while.end
@@ -322,7 +322,7 @@ while.cond.backedge:                              ; preds = %if.else, %if.end54,
   %module_fname.0.be = phi ptr [ %module_fname.0, %if.end74 ], [ %module_fname.0, %sw.bb66 ], [ %module_fname.0, %sw.bb65 ], [ %module_fname.0, %sw.bb45 ], [ %module_fname.0, %sw.bb43 ], [ %module_fname.0, %sw.bb41 ], [ %call40, %sw.bb39 ], [ %module_fname.0, %sw.bb37 ], [ %module_fname.0, %sw.bb35 ], [ %module_fname.0, %sw.bb33 ], [ %module_fname.0, %sw.bb32 ], [ %module_fname.0, %sw.bb27 ], [ %module_fname.0, %sw.bb23 ], [ %module_fname.0, %if.end19 ], [ %module_fname.0, %if.end14 ], [ %module_fname.0, %sw.bb10 ], [ %module_fname.0, %sw.bb8 ], [ %module_fname.0, %sw.bb6 ], [ %module_fname.0, %while.cond ], [ %module_fname.0, %if.end54 ], [ %module_fname.0, %if.else ]
   %parent_config.0.be = phi ptr [ %parent_config.0, %if.end74 ], [ %parent_config.0, %sw.bb66 ], [ %parent_config.0, %sw.bb65 ], [ %call46, %sw.bb45 ], [ %parent_config.0, %sw.bb43 ], [ %parent_config.0, %sw.bb41 ], [ %parent_config.0, %sw.bb39 ], [ %parent_config.0, %sw.bb37 ], [ %parent_config.0, %sw.bb35 ], [ %parent_config.0, %sw.bb33 ], [ %parent_config.0, %sw.bb32 ], [ %parent_config.0, %sw.bb27 ], [ %parent_config.0, %sw.bb23 ], [ %parent_config.0, %if.end19 ], [ %parent_config.0, %if.end14 ], [ %parent_config.0, %sw.bb10 ], [ %parent_config.0, %sw.bb8 ], [ %parent_config.0, %sw.bb6 ], [ %parent_config.0, %while.cond ], [ %parent_config.0, %if.end54 ], [ %parent_config.0, %if.else ]
   %gotkey.0.be = phi i32 [ %gotkey.0, %if.end74 ], [ %gotkey.0, %sw.bb66 ], [ %gotkey.0, %sw.bb65 ], [ %gotkey.0, %sw.bb45 ], [ %gotkey.0, %sw.bb43 ], [ %gotkey.0, %sw.bb41 ], [ %gotkey.0, %sw.bb39 ], [ %gotkey.0, %sw.bb37 ], [ %gotkey.0, %sw.bb35 ], [ %gotkey.0, %sw.bb33 ], [ %gotkey.0, %sw.bb32 ], [ %gotkey.0, %sw.bb27 ], [ %gotkey.0, %sw.bb23 ], [ %gotkey.0, %if.end19 ], [ %gotkey.0, %if.end14 ], [ %gotkey.0, %sw.bb10 ], [ %gotkey.0, %sw.bb8 ], [ %gotkey.0, %sw.bb6 ], [ %gotkey.0, %while.cond ], [ 1, %if.end54 ], [ %gotkey.0, %if.else ]
-  %verify.0.be = phi i32 [ %verify.0, %if.end74 ], [ %verify.0, %sw.bb66 ], [ 1, %sw.bb65 ], [ %verify.0, %sw.bb45 ], [ %verify.0, %sw.bb43 ], [ %verify.0, %sw.bb41 ], [ %verify.0, %sw.bb39 ], [ %verify.0, %sw.bb37 ], [ %verify.0, %sw.bb35 ], [ %verify.0, %sw.bb33 ], [ %verify.0, %sw.bb32 ], [ %verify.0, %sw.bb27 ], [ %verify.0, %sw.bb23 ], [ %verify.0, %if.end19 ], [ %verify.0, %if.end14 ], [ %verify.0, %sw.bb10 ], [ %verify.0, %sw.bb8 ], [ %verify.0, %sw.bb6 ], [ %verify.0, %while.cond ], [ %verify.0, %if.end54 ], [ %verify.0, %if.else ]
+  %verify.1.be = phi i32 [ %verify.1, %if.end74 ], [ %verify.1, %sw.bb66 ], [ 1, %sw.bb65 ], [ %verify.1, %sw.bb45 ], [ %verify.1, %sw.bb43 ], [ %verify.1, %sw.bb41 ], [ %verify.1, %sw.bb39 ], [ %verify.1, %sw.bb37 ], [ %verify.1, %sw.bb35 ], [ %verify.1, %sw.bb33 ], [ %verify.1, %sw.bb32 ], [ %verify.1, %sw.bb27 ], [ %verify.1, %sw.bb23 ], [ %verify.1, %if.end19 ], [ %verify.1, %if.end14 ], [ %verify.1, %sw.bb10 ], [ %verify.1, %sw.bb8 ], [ %verify.1, %sw.bb6 ], [ %verify.1, %while.cond ], [ %verify.1, %if.end54 ], [ %verify.1, %if.else ]
   br label %while.cond, !llvm.loop !5
 
 sw.bb65:                                          ; preds = %while.cond
@@ -355,7 +355,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool79.not, label %opthelp, label %if.end81
 
 if.end81:                                         ; preds = %while.end
-  %tobool82 = icmp ne i32 %verify.0, 0
+  %tobool82 = icmp ne i32 %verify.1, 0
   %cmp83 = icmp eq ptr %in_fname.0, null
   %or.cond = select i1 %tobool82, i1 %cmp83, i1 false
   br i1 %or.cond, label %if.then84, label %if.end86
@@ -411,7 +411,7 @@ if.end111:                                        ; preds = %if.then107
   br i1 %tobool113.not, label %if.then243, label %if.end116
 
 if.end116:                                        ; preds = %if.end111, %if.end104
-  %module_path.0 = phi ptr [ %call108, %if.end111 ], [ null, %if.end104 ]
+  %module_path.2 = phi ptr [ %call108, %if.end111 ], [ null, %if.end104 ]
   %.b54 = load i1, ptr @self_test_log, align 4
   %not..b54 = xor i1 %.b54, true
   %6 = load ptr, ptr @self_test_corrupt_desc, align 8
@@ -542,7 +542,7 @@ if.else199:                                       ; preds = %if.end184
   br label %if.end200
 
 if.end200:                                        ; preds = %if.end193, %if.else199
-  %mem_bio.0 = phi ptr [ %call189, %if.end193 ], [ null, %if.else199 ]
+  %mem_bio.2 = phi ptr [ %call189, %if.end193 ], [ null, %if.else199 ]
   %15 = load i64, ptr %module_mac_len, align 8
   br i1 %tobool82, label %if.then202, label %if.else213
 
@@ -613,22 +613,22 @@ end:                                              ; preds = %if.then91
   br i1 %tobool93.not, label %if.then243, label %cleanup
 
 if.then243:                                       ; preds = %check_non_pedantic_fips.exit64.thread, %check_non_pedantic_fips.exit59.thread, %check_non_pedantic_fips.exit.thread, %if.end111, %land.lhs.true124, %land.lhs.true132, %if.then169, %if.end180, %if.end193, %if.end218, %if.end230, %if.then228, %if.else213, %if.then202, %if.then191, %if.then178, %if.then161, %if.then157, %if.then152, %if.end143, %if.then141, %if.then107, %if.then88, %entry, %if.then95, %end
-  %conf.193 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ null, %if.end180 ], [ null, %if.end193 ], [ %call215, %if.end218 ], [ %call215, %if.end230 ], [ %call215, %if.then228 ], [ null, %if.else213 ], [ null, %if.then202 ], [ null, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
+  %conf.093 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ null, %if.end180 ], [ null, %if.end193 ], [ %call215, %if.end218 ], [ %call215, %if.end230 ], [ %call215, %if.then228 ], [ null, %if.else213 ], [ null, %if.then202 ], [ null, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
   %mac.092 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ %call150, %if.then169 ], [ %call150, %if.end180 ], [ %call150, %if.end193 ], [ %call150, %if.end218 ], [ %call150, %if.end230 ], [ %call150, %if.then228 ], [ %call150, %if.else213 ], [ %call150, %if.then202 ], [ %call150, %if.then191 ], [ %call150, %if.then178 ], [ %call150, %if.then161 ], [ %call150, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
   %read_buffer.091 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ %call144, %if.then169 ], [ %call144, %if.end180 ], [ %call144, %if.end193 ], [ %call144, %if.end218 ], [ %call144, %if.end230 ], [ %call144, %if.then228 ], [ %call144, %if.else213 ], [ %call144, %if.then202 ], [ %call144, %if.then191 ], [ %call144, %if.then178 ], [ %call144, %if.then161 ], [ %call144, %if.then157 ], [ %call144, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
-  %verify.290 = phi i32 [ %verify.0, %end ], [ %verify.0, %if.then95 ], [ %verify.0, %check_non_pedantic_fips.exit64.thread ], [ %verify.0, %check_non_pedantic_fips.exit59.thread ], [ %verify.0, %check_non_pedantic_fips.exit.thread ], [ %verify.0, %if.end111 ], [ %verify.0, %land.lhs.true124 ], [ %verify.0, %land.lhs.true132 ], [ %verify.0, %if.then169 ], [ %verify.0, %if.end180 ], [ %verify.0, %if.end193 ], [ 0, %if.end218 ], [ 0, %if.end230 ], [ 0, %if.then228 ], [ 0, %if.else213 ], [ 1, %if.then202 ], [ %verify.0, %if.then191 ], [ %verify.0, %if.then178 ], [ %verify.0, %if.then161 ], [ %verify.0, %if.then157 ], [ %verify.0, %if.then152 ], [ %verify.0, %if.end143 ], [ %verify.0, %if.then141 ], [ %verify.0, %if.then107 ], [ %verify.0, %if.then88 ], [ 0, %entry ]
+  %verify.090 = phi i32 [ %verify.1, %end ], [ %verify.1, %if.then95 ], [ %verify.1, %check_non_pedantic_fips.exit64.thread ], [ %verify.1, %check_non_pedantic_fips.exit59.thread ], [ %verify.1, %check_non_pedantic_fips.exit.thread ], [ %verify.1, %if.end111 ], [ %verify.1, %land.lhs.true124 ], [ %verify.1, %land.lhs.true132 ], [ %verify.1, %if.then169 ], [ %verify.1, %if.end180 ], [ %verify.1, %if.end193 ], [ 0, %if.end218 ], [ 0, %if.end230 ], [ 0, %if.then228 ], [ 0, %if.else213 ], [ 1, %if.then202 ], [ %verify.1, %if.then191 ], [ %verify.1, %if.then178 ], [ %verify.1, %if.then161 ], [ %verify.1, %if.then157 ], [ %verify.1, %if.then152 ], [ %verify.1, %if.end143 ], [ %verify.1, %if.then141 ], [ %verify.1, %if.then107 ], [ %verify.1, %if.then88 ], [ 0, %entry ]
   %ctx2.089 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ %call176, %if.end180 ], [ %call176, %if.end193 ], [ %call176, %if.end218 ], [ %call176, %if.end230 ], [ %call176, %if.then228 ], [ %call176, %if.else213 ], [ %call176, %if.then202 ], [ %call176, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
   %ctx.088 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ %call155, %if.then169 ], [ %call155, %if.end180 ], [ %call155, %if.end193 ], [ %call155, %if.end218 ], [ %call155, %if.end230 ], [ %call155, %if.then228 ], [ %call155, %if.else213 ], [ %call155, %if.then202 ], [ %call155, %if.then191 ], [ %call155, %if.then178 ], [ %call155, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
-  %module_path.187 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ %call108, %if.end111 ], [ %module_path.0, %land.lhs.true124 ], [ %module_path.0, %land.lhs.true132 ], [ %module_path.0, %if.then169 ], [ %module_path.0, %if.end180 ], [ %module_path.0, %if.end193 ], [ %module_path.0, %if.end218 ], [ %module_path.0, %if.end230 ], [ %module_path.0, %if.then228 ], [ %module_path.0, %if.else213 ], [ %module_path.0, %if.then202 ], [ %module_path.0, %if.then191 ], [ %module_path.0, %if.then178 ], [ %module_path.0, %if.then161 ], [ %module_path.0, %if.then157 ], [ %module_path.0, %if.then152 ], [ %module_path.0, %if.end143 ], [ %module_path.0, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
-  %fout.186 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ null, %if.end180 ], [ null, %if.end193 ], [ null, %if.end218 ], [ %cond226, %if.end230 ], [ null, %if.then228 ], [ null, %if.else213 ], [ null, %if.then202 ], [ null, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
-  %mem_bio.185 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ null, %if.end180 ], [ %call189, %if.end193 ], [ %mem_bio.0, %if.end218 ], [ %mem_bio.0, %if.end230 ], [ %mem_bio.0, %if.then228 ], [ %mem_bio.0, %if.else213 ], [ %mem_bio.0, %if.then202 ], [ null, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
+  %module_path.087 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ %call108, %if.end111 ], [ %module_path.2, %land.lhs.true124 ], [ %module_path.2, %land.lhs.true132 ], [ %module_path.2, %if.then169 ], [ %module_path.2, %if.end180 ], [ %module_path.2, %if.end193 ], [ %module_path.2, %if.end218 ], [ %module_path.2, %if.end230 ], [ %module_path.2, %if.then228 ], [ %module_path.2, %if.else213 ], [ %module_path.2, %if.then202 ], [ %module_path.2, %if.then191 ], [ %module_path.2, %if.then178 ], [ %module_path.2, %if.then161 ], [ %module_path.2, %if.then157 ], [ %module_path.2, %if.then152 ], [ %module_path.2, %if.end143 ], [ %module_path.2, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
+  %fout.086 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ null, %if.end180 ], [ null, %if.end193 ], [ null, %if.end218 ], [ %cond226, %if.end230 ], [ null, %if.then228 ], [ null, %if.else213 ], [ null, %if.then202 ], [ null, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
+  %mem_bio.085 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ null, %if.then169 ], [ null, %if.end180 ], [ %call189, %if.end193 ], [ %mem_bio.2, %if.end218 ], [ %mem_bio.2, %if.end230 ], [ %mem_bio.2, %if.then228 ], [ %mem_bio.2, %if.else213 ], [ %mem_bio.2, %if.then202 ], [ null, %if.then191 ], [ null, %if.then178 ], [ null, %if.then161 ], [ null, %if.then157 ], [ null, %if.then152 ], [ null, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
   %module_bio.084 = phi ptr [ null, %end ], [ null, %if.then95 ], [ null, %check_non_pedantic_fips.exit64.thread ], [ null, %check_non_pedantic_fips.exit59.thread ], [ null, %check_non_pedantic_fips.exit.thread ], [ null, %if.end111 ], [ null, %land.lhs.true124 ], [ null, %land.lhs.true132 ], [ %call139, %if.then169 ], [ %call139, %if.end180 ], [ %call139, %if.end193 ], [ %call139, %if.end218 ], [ %call139, %if.end230 ], [ %call139, %if.then228 ], [ %call139, %if.else213 ], [ %call139, %if.then202 ], [ %call139, %if.then191 ], [ %call139, %if.then178 ], [ %call139, %if.then161 ], [ %call139, %if.then157 ], [ %call139, %if.then152 ], [ %call139, %if.end143 ], [ null, %if.then141 ], [ null, %if.then107 ], [ null, %if.then88 ], [ null, %entry ]
   %.b = load i1, ptr @quiet, align 4
   br i1 %.b, label %if.end249, label %if.then245
 
 if.then245:                                       ; preds = %if.then243
   %22 = load ptr, ptr @bio_err, align 8
-  %tobool246.not = icmp eq i32 %verify.290, 0
+  %tobool246.not = icmp eq i32 %verify.090, 0
   %cond247 = select i1 %tobool246.not, ptr @.str.72, ptr @.str.71
   %call248 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.70, ptr noundef nonnull %cond247) #5
   br label %if.end249
@@ -640,29 +640,29 @@ if.end249:                                        ; preds = %if.then245, %if.the
 
 cleanup:                                          ; preds = %if.then210, %if.end208, %if.then238, %if.end236, %sw.bb5, %if.then95, %end, %if.end249, %opthelp
   %module_bio.1 = phi ptr [ %module_bio.084, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %call139, %if.then210 ], [ %call139, %if.end208 ], [ %call139, %if.then238 ], [ %call139, %if.end236 ], [ null, %sw.bb5 ]
-  %mem_bio.2 = phi ptr [ %mem_bio.185, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %mem_bio.0, %if.then210 ], [ %mem_bio.0, %if.end208 ], [ %mem_bio.0, %if.then238 ], [ %mem_bio.0, %if.end236 ], [ null, %sw.bb5 ]
-  %fout.2 = phi ptr [ %fout.186, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ null, %if.then210 ], [ null, %if.end208 ], [ %cond226, %if.then238 ], [ %cond226, %if.end236 ], [ null, %sw.bb5 ]
-  %module_path.2 = phi ptr [ %module_path.187, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %module_path.0, %if.then210 ], [ %module_path.0, %if.end208 ], [ %module_path.0, %if.then238 ], [ %module_path.0, %if.end236 ], [ null, %sw.bb5 ]
+  %mem_bio.1 = phi ptr [ %mem_bio.085, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %mem_bio.2, %if.then210 ], [ %mem_bio.2, %if.end208 ], [ %mem_bio.2, %if.then238 ], [ %mem_bio.2, %if.end236 ], [ null, %sw.bb5 ]
+  %fout.1 = phi ptr [ %fout.086, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ null, %if.then210 ], [ null, %if.end208 ], [ %cond226, %if.then238 ], [ %cond226, %if.end236 ], [ null, %sw.bb5 ]
+  %module_path.1 = phi ptr [ %module_path.087, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %module_path.2, %if.then210 ], [ %module_path.2, %if.end208 ], [ %module_path.2, %if.then238 ], [ %module_path.2, %if.end236 ], [ null, %sw.bb5 ]
   %ctx.1 = phi ptr [ %ctx.088, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %call155, %if.then210 ], [ %call155, %if.end208 ], [ %call155, %if.then238 ], [ %call155, %if.end236 ], [ null, %sw.bb5 ]
   %ctx2.1 = phi ptr [ %ctx2.089, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %call176, %if.then210 ], [ %call176, %if.end208 ], [ %call176, %if.then238 ], [ %call176, %if.end236 ], [ null, %sw.bb5 ]
   %read_buffer.1 = phi ptr [ %read_buffer.091, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %call144, %if.then210 ], [ %call144, %if.end208 ], [ %call144, %if.then238 ], [ %call144, %if.end236 ], [ null, %sw.bb5 ]
   %mac.1 = phi ptr [ %mac.092, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ %call150, %if.then210 ], [ %call150, %if.end208 ], [ %call150, %if.then238 ], [ %call150, %if.end236 ], [ null, %sw.bb5 ]
-  %conf.2 = phi ptr [ %conf.193, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ null, %if.then210 ], [ null, %if.end208 ], [ %call215, %if.then238 ], [ %call215, %if.end236 ], [ null, %sw.bb5 ]
+  %conf.1 = phi ptr [ %conf.093, %if.end249 ], [ null, %end ], [ null, %opthelp ], [ null, %if.then95 ], [ null, %if.then210 ], [ null, %if.end208 ], [ %call215, %if.then238 ], [ %call215, %if.end236 ], [ null, %sw.bb5 ]
   %ret.1 = phi i32 [ 1, %if.end249 ], [ 0, %end ], [ 1, %opthelp ], [ 0, %if.then95 ], [ 0, %if.then210 ], [ 0, %if.end208 ], [ 0, %if.then238 ], [ 0, %if.end236 ], [ 0, %sw.bb5 ]
-  call void @CRYPTO_free(ptr noundef %module_path.2, ptr noundef nonnull @.str.56, i32 noundef 611) #5
-  %call251 = call i32 @BIO_free(ptr noundef %fout.2) #5
-  %call252 = call i32 @BIO_free(ptr noundef %mem_bio.2) #5
+  call void @CRYPTO_free(ptr noundef %module_path.1, ptr noundef nonnull @.str.56, i32 noundef 611) #5
+  %call251 = call i32 @BIO_free(ptr noundef %fout.1) #5
+  %call252 = call i32 @BIO_free(ptr noundef %mem_bio.1) #5
   %call253 = call i32 @BIO_free(ptr noundef %module_bio.1) #5
   call void @OPENSSL_sk_free(ptr noundef %call) #5
   call void @EVP_MAC_free(ptr noundef %mac.1) #5
   call void @EVP_MAC_CTX_free(ptr noundef %ctx2.1) #5
   call void @EVP_MAC_CTX_free(ptr noundef %ctx.1) #5
   call void @CRYPTO_free(ptr noundef %read_buffer.1, ptr noundef nonnull @.str.56, i32 noundef 619) #5
-  %cmp.not.i = icmp eq ptr %conf.2, null
+  %cmp.not.i = icmp eq ptr %conf.1, null
   br i1 %cmp.not.i, label %free_config_and_unload.exit, label %if.then.i66
 
 if.then.i66:                                      ; preds = %cleanup
-  call void @NCONF_free(ptr noundef nonnull %conf.2) #5
+  call void @NCONF_free(ptr noundef nonnull %conf.1) #5
   call void @CONF_modules_unload(i32 noundef 1) #5
   br label %free_config_and_unload.exit
 
@@ -986,9 +986,9 @@ if.then46:                                        ; preds = %lor.lhs.false43, %i
 end:                                              ; preds = %if.end22, %lor.lhs.false43, %entry, %if.then46, %if.then36, %if.then31, %if.then20, %if.then10, %if.then5
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then5 ], [ 0, %if.then10 ], [ 0, %if.then20 ], [ 0, %if.then31 ], [ 0, %if.then36 ], [ 0, %if.then46 ], [ 1, %lor.lhs.false43 ], [ 1, %if.end22 ]
   %buf1.0 = phi ptr [ null, %entry ], [ null, %if.then5 ], [ null, %if.then10 ], [ %call13, %if.then20 ], [ %call13, %if.then31 ], [ %call13, %if.then36 ], [ %call13, %if.then46 ], [ %call13, %lor.lhs.false43 ], [ %call13, %if.end22 ]
-  %buf2.1 = phi ptr [ null, %entry ], [ null, %if.then5 ], [ null, %if.then10 ], [ null, %if.then20 ], [ null, %if.then31 ], [ null, %if.then36 ], [ %call39, %if.then46 ], [ %call39, %lor.lhs.false43 ], [ null, %if.end22 ]
+  %buf2.0 = phi ptr [ null, %entry ], [ null, %if.then5 ], [ null, %if.then10 ], [ null, %if.then20 ], [ null, %if.then31 ], [ null, %if.then36 ], [ %call39, %if.then46 ], [ %call39, %lor.lhs.false43 ], [ null, %if.end22 ]
   call void @CRYPTO_free(ptr noundef %buf1.0, ptr noundef nonnull @.str.56, i32 noundef 350) #5
-  call void @CRYPTO_free(ptr noundef %buf2.1, ptr noundef nonnull @.str.56, i32 noundef 351) #5
+  call void @CRYPTO_free(ptr noundef %buf2.0, ptr noundef nonnull @.str.56, i32 noundef 351) #5
   call void @NCONF_free(ptr noundef %call) #5
   ret i32 %ret.0
 }

@@ -1809,9 +1809,9 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   br label %88
 
 68:                                               ; preds = %64, %61
-  %.188 = phi ptr [ %65, %64 ], [ %62, %61 ]
-  %69 = call i64 @iconv(ptr noundef %.188, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #17
-  %70 = call i32 @iconv_close(ptr noundef %.188) #17
+  %.3 = phi ptr [ %65, %64 ], [ %62, %61 ]
+  %69 = call i64 @iconv(ptr noundef %.3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #17
+  %70 = call i32 @iconv_close(ptr noundef %.3) #17
   %71 = icmp eq i64 %69, -1
   br i1 %71, label %72, label %79
 
@@ -1861,9 +1861,9 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
 
 .loopexit:                                        ; preds = %75, %.loopexit.loopexit155, %85, %21, %23, %41
   %.192 = phi ptr [ %82, %85 ], [ %18, %41 ], [ %18, %23 ], [ %18, %21 ], [ %18, %.loopexit.loopexit155 ], [ null, %75 ]
-  %.190 = phi i64 [ %87, %85 ], [ %1, %41 ], [ %1, %23 ], [ %1, %21 ], [ %1, %.loopexit.loopexit155 ], [ %56, %75 ]
+  %.089 = phi i64 [ %87, %85 ], [ %1, %41 ], [ %1, %23 ], [ %1, %21 ], [ %1, %.loopexit.loopexit155 ], [ %56, %75 ]
   store ptr %.192, ptr %3, align 8
-  store i64 %.190, ptr %4, align 8
+  store i64 %.089, ptr %4, align 8
   br label %.thread115
 
 88:                                               ; preds = %76, %77, %78, %84, %67
@@ -2204,8 +2204,8 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not, label %.loopexit, label %29
 
 29:                                               ; preds = %26, %28
-  %.135 = phi i32 [ %.02737, %26 ], [ %30, %28 ]
-  %30 = add nuw i32 %.135, 1
+  %.235 = phi i32 [ %.02737, %26 ], [ %30, %28 ]
+  %30 = add nuw i32 %.235, 1
   %.not = icmp ult i32 %30, %1
   br i1 %.not, label %31, label %.loopexit32
 
@@ -2218,8 +2218,8 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr nocapture noundef readonly %0, i32 no
   br i1 %or.cond, label %28, label %.loopexit32
 
 .loopexit:                                        ; preds = %28, %.lr.ph
-  %.2 = phi i32 [ %.02737, %.lr.ph ], [ %27, %28 ]
-  %36 = add i32 %.2, 1
+  %.1 = phi i32 [ %.02737, %.lr.ph ], [ %27, %28 ]
+  %36 = add i32 %.1, 1
   %37 = icmp ult i32 %36, %1
   br i1 %37, label %.lr.ph, label %.loopexit32
 

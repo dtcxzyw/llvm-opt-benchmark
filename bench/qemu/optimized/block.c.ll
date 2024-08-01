@@ -5599,7 +5599,7 @@ if.then5:                                         ; preds = %if.end3
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end3
-  %tmp_parent_options.0 = phi ptr [ %call6, %if.then5 ], [ null, %if.end3 ]
+  %tmp_parent_options.1 = phi ptr [ %call6, %if.then5 ], [ null, %if.end3 ]
   %parent_options.addr.0 = phi ptr [ %call6, %if.then5 ], [ %parent_options, %if.end3 ]
   %1 = load i32, ptr %bs, align 8
   %and = and i32 %1, -257
@@ -5647,7 +5647,7 @@ if.then26:                                        ; preds = %if.else22
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %if.else22
-  %implicit_backing.0 = phi i1 [ %tobool30.not, %if.then26 ], [ false, %if.else22 ]
+  %implicit_backing.1 = phi i1 [ %tobool30.not, %if.then26 ], [ false, %if.else22 ]
   %call32 = call ptr @bdrv_get_full_backing_filename(ptr noundef nonnull %bs, ptr noundef nonnull %local_err)
   %7 = load ptr, ptr %local_err, align 8
   %tobool33.not = icmp eq ptr %7, null
@@ -5680,8 +5680,8 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %free_exit
 
 if.end47:                                         ; preds = %if.end31, %if.end7, %lor.lhs.false
-  %implicit_backing.1 = phi i1 [ false, %if.end7 ], [ false, %lor.lhs.false ], [ %implicit_backing.0, %if.end31 ]
-  %backing_filename.0 = phi ptr [ null, %if.end7 ], [ null, %lor.lhs.false ], [ %call32, %if.end31 ]
+  %implicit_backing.0 = phi i1 [ false, %if.end7 ], [ false, %lor.lhs.false ], [ %implicit_backing.1, %if.end31 ]
+  %backing_filename.1 = phi ptr [ null, %if.end7 ], [ null, %lor.lhs.false ], [ %call32, %if.end31 ]
   %drv = getelementptr inbounds i8, ptr %bs, i64 16
   %10 = load ptr, ptr %drv, align 8
   %tobool48.not = icmp eq ptr %10, null
@@ -5756,7 +5756,7 @@ if.else.i57:                                      ; preds = %land.lhs.true.i56, 
 
 bdrv_backing_role.exit:                           ; preds = %land.lhs.true.i56, %if.else.i57
   %retval.0.i = phi i32 [ 8, %if.else.i57 ], [ 20, %land.lhs.true.i56 ]
-  %call78 = call ptr @bdrv_open_inherit(ptr noundef %backing_filename.0, ptr noundef %call9, ptr noundef %17, i32 noundef 0, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef %retval.0.i, ptr noundef %errp)
+  %call78 = call ptr @bdrv_open_inherit(ptr noundef %backing_filename.1, ptr noundef %call9, ptr noundef %17, i32 noundef 0, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef %retval.0.i, ptr noundef %errp)
   %tobool79.not = icmp eq ptr %call78, null
   br i1 %tobool79.not, label %if.then80, label %if.end82
 
@@ -5768,7 +5768,7 @@ if.then80:                                        ; preds = %bdrv_backing_role.e
   br label %free_exit
 
 if.end82:                                         ; preds = %bdrv_backing_role.exit
-  br i1 %implicit_backing.1, label %if.then84, label %bdrv_get_aio_context.exit
+  br i1 %implicit_backing.0, label %if.then84, label %bdrv_get_aio_context.exit
 
 if.then84:                                        ; preds = %if.end82
   call void @bdrv_refresh_filename(ptr noundef nonnull %call78)
@@ -5793,13 +5793,13 @@ if.end94:                                         ; preds = %bdrv_get_aio_contex
 
 free_exit:                                        ; preds = %if.then5.i53, %land.lhs.true.i50, %if.then52, %if.then5.i, %land.lhs.true.i, %if.then34, %bdrv_get_aio_context.exit, %if.end94, %if.then80, %if.then19
   %ret.0 = phi i32 [ %call90, %bdrv_get_aio_context.exit ], [ 0, %if.end94 ], [ -22, %if.then80 ], [ 0, %if.then19 ], [ -22, %if.then34 ], [ -22, %land.lhs.true.i ], [ -22, %if.then5.i ], [ -22, %if.then52 ], [ -22, %land.lhs.true.i50 ], [ -22, %if.then5.i53 ]
-  %backing_filename.1 = phi ptr [ %backing_filename.0, %bdrv_get_aio_context.exit ], [ %backing_filename.0, %if.end94 ], [ %backing_filename.0, %if.then80 ], [ null, %if.then19 ], [ %call32, %if.then34 ], [ %call32, %land.lhs.true.i ], [ %call32, %if.then5.i ], [ %backing_filename.0, %if.then52 ], [ %backing_filename.0, %land.lhs.true.i50 ], [ %backing_filename.0, %if.then5.i53 ]
-  call void @g_free(ptr noundef %backing_filename.1) #31
-  %tobool96.not = icmp eq ptr %tmp_parent_options.0, null
+  %backing_filename.0 = phi ptr [ %backing_filename.1, %bdrv_get_aio_context.exit ], [ %backing_filename.1, %if.end94 ], [ %backing_filename.1, %if.then80 ], [ null, %if.then19 ], [ %call32, %if.then34 ], [ %call32, %land.lhs.true.i ], [ %call32, %if.then5.i ], [ %backing_filename.1, %if.then52 ], [ %backing_filename.1, %land.lhs.true.i50 ], [ %backing_filename.1, %if.then5.i53 ]
+  call void @g_free(ptr noundef %backing_filename.0) #31
+  %tobool96.not = icmp eq ptr %tmp_parent_options.1, null
   br i1 %tobool96.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %lor.lhs.false.i60
 
 lor.lhs.false.i60:                                ; preds = %free_exit
-  %refcnt.i61 = getelementptr inbounds i8, ptr %tmp_parent_options.0, i64 8
+  %refcnt.i61 = getelementptr inbounds i8, ptr %tmp_parent_options.1, i64 8
   %21 = load i64, ptr %refcnt.i61, align 8
   %tobool1.not.i62 = icmp eq i64 %21, 0
   br i1 %tobool1.not.i62, label %if.else.i67, label %land.lhs.true.i63
@@ -5815,7 +5815,7 @@ land.lhs.true.i63:                                ; preds = %lor.lhs.false.i60
   br i1 %cmp.i65, label %if.then5.i66, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then5.i66:                                     ; preds = %land.lhs.true.i63
-  call void @qobject_destroy(ptr noundef nonnull %tmp_parent_options.0) #31
+  call void @qobject_destroy(ptr noundef nonnull %tmp_parent_options.1) #31
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %free_exit.thread, %free_exit, %land.lhs.true.i63, %if.then5.i66
@@ -6335,7 +6335,7 @@ bdrv_temp_snapshot_options.exit:                  ; preds = %if.then74
 if.end76:                                         ; preds = %bdrv_temp_snapshot_options.exit, %if.end71
   %29 = phi i32 [ %storemerge, %if.end71 ], [ %.pre, %bdrv_temp_snapshot_options.exit ]
   %snapshot_flags.0 = phi i32 [ 0, %if.end71 ], [ %or.i124, %bdrv_temp_snapshot_options.exit ]
-  %snapshot_options.0 = phi ptr [ null, %if.end71 ], [ %call75, %bdrv_temp_snapshot_options.exit ]
+  %snapshot_options.1 = phi ptr [ null, %if.end71 ], [ %call75, %bdrv_temp_snapshot_options.exit ]
   store i32 %29, ptr %call39, align 8
   %options78 = getelementptr inbounds i8, ptr %call39, i64 16856
   store ptr %options.addr.0, ptr %options78, align 8
@@ -6574,15 +6574,15 @@ if.else147:                                       ; preds = %if.end131
   br i1 %tobool132.not, label %if.then149, label %if.end151
 
 if.then149:                                       ; preds = %if.end131.thread, %if.else147
-  %ctx.0303314 = phi ptr [ %call, %if.end131.thread ], [ %39, %if.else147 ]
-  %file.0305313 = phi ptr [ null, %if.end131.thread ], [ %call124, %if.else147 ]
+  %ctx.1303314 = phi ptr [ %call, %if.end131.thread ], [ %39, %if.else147 ]
+  %file.1305313 = phi ptr [ null, %if.end131.thread ], [ %call124, %if.else147 ]
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 4154, ptr noundef nonnull @__func__.bdrv_open_inherit, ptr noundef nonnull @.str.225) #31
   br label %fail
 
 if.end151:                                        ; preds = %if.end131.thread, %if.else147, %if.end144
   %tobool138307 = phi i1 [ true, %if.end144 ], [ %tobool138, %if.else147 ], [ false, %if.end131.thread ]
-  %file.0304 = phi ptr [ %call124, %if.end144 ], [ %call124, %if.else147 ], [ null, %if.end131.thread ]
-  %ctx.0302 = phi ptr [ %39, %if.end144 ], [ %39, %if.else147 ], [ %call, %if.end131.thread ]
+  %file.1304 = phi ptr [ %call124, %if.end144 ], [ %call124, %if.else147 ], [ null, %if.end131.thread ]
+  %ctx.1302 = phi ptr [ %39, %if.end144 ], [ %39, %if.else147 ], [ %call, %if.end131.thread ]
   %drv.2 = phi ptr [ %drv.1.i.lcssa.sink.i.ph, %if.end144 ], [ %drv.1, %if.else147 ], [ %drv.1, %if.end131.thread ]
   %45 = load i32, ptr %flags.addr, align 4
   %and152 = and i32 %45, 32768
@@ -6705,15 +6705,15 @@ if.then27.i:                                      ; preds = %land.lhs.true24.i
   br label %bdrv_open_common.exit.thread
 
 if.end28.i:                                       ; preds = %land.lhs.true24.i, %if.end21.i
-  %cmp29.not.i = icmp eq ptr %file.0304, null
+  %cmp29.not.i = icmp eq ptr %file.1304, null
   br i1 %cmp29.not.i, label %if.else34.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end28.i
   call void @bdrv_graph_rdlock_main_loop() #31
-  %call31.i = call ptr @blk_bs(ptr noundef nonnull %file.0304) #31
+  %call31.i = call ptr @blk_bs(ptr noundef nonnull %file.1304) #31
   call void @bdrv_refresh_filename(ptr noundef %call31.i)
   call void @bdrv_graph_rdunlock_main_loop() #31
-  %call32.i = call ptr @blk_bs(ptr noundef nonnull %file.0304) #31
+  %call32.i = call ptr @blk_bs(ptr noundef nonnull %file.1304) #31
   %filename33.i = getelementptr inbounds i8, ptr %call32.i, i64 49
   br label %if.end36.i
 
@@ -6943,7 +6943,7 @@ bdrv_get_aio_context.exit195:                     ; preds = %bdrv_open_common.ex
 
 if.then182:                                       ; preds = %bdrv_get_aio_context.exit195
   call void @aio_context_acquire(ptr noundef %76) #31
-  call void @blk_unref(ptr noundef nonnull %file.0304) #31
+  call void @blk_unref(ptr noundef nonnull %file.1304) #31
   call void @aio_context_release(ptr noundef %76) #31
   br label %if.end183
 
@@ -7014,7 +7014,7 @@ if.end216:                                        ; preds = %for.end
   br i1 %tobool227.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then228
 
 if.then228:                                       ; preds = %if.end216
-  %call229 = call fastcc ptr @bdrv_append_temp_snapshot(ptr noundef nonnull %call39, i32 noundef %snapshot_flags.0, ptr noundef %snapshot_options.0, ptr noundef nonnull %local_err)
+  %call229 = call fastcc ptr @bdrv_append_temp_snapshot(ptr noundef nonnull %call39, i32 noundef %snapshot_flags.0, ptr noundef %snapshot_options.1, ptr noundef nonnull %local_err)
   %88 = load ptr, ptr %local_err, align 8
   %tobool230.not = icmp eq ptr %88, null
   br i1 %tobool230.not, label %if.end232, label %close_and_fail
@@ -7027,16 +7027,16 @@ if.end232:                                        ; preds = %if.then228
 
 fail:                                             ; preds = %bdrv_open_common.exit.thread, %find_image_format.exit, %bdrv_fill_options.exit.thread, %bdrv_open_common.exit, %bdrv_get_aio_context.exit, %if.then115, %parse_json_protocol.exit, %if.then149, %if.then85
   %options.addr.1 = phi ptr [ %call79, %find_image_format.exit ], [ %call79, %bdrv_open_common.exit ], [ %call79, %if.then149 ], [ %call79, %bdrv_get_aio_context.exit ], [ %call79, %if.then115 ], [ %call79, %if.then85 ], [ %options.addr.0, %parse_json_protocol.exit ], [ %options.addr.0, %bdrv_fill_options.exit.thread ], [ %call79, %bdrv_open_common.exit.thread ]
-  %ctx.1 = phi ptr [ %39, %find_image_format.exit ], [ %ctx.0302, %bdrv_open_common.exit ], [ %ctx.0303314, %if.then149 ], [ %39, %bdrv_get_aio_context.exit ], [ %call, %if.then115 ], [ %call, %if.then85 ], [ %call, %parse_json_protocol.exit ], [ %call, %bdrv_fill_options.exit.thread ], [ %ctx.0302, %bdrv_open_common.exit.thread ]
-  %snapshot_options.1 = phi ptr [ %snapshot_options.0, %find_image_format.exit ], [ %snapshot_options.0, %bdrv_open_common.exit ], [ %snapshot_options.0, %if.then149 ], [ %snapshot_options.0, %bdrv_get_aio_context.exit ], [ %snapshot_options.0, %if.then115 ], [ %snapshot_options.0, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %snapshot_options.0, %bdrv_open_common.exit.thread ]
-  %file.1 = phi ptr [ %call124, %find_image_format.exit ], [ %file.0304, %bdrv_open_common.exit ], [ %file.0305313, %if.then149 ], [ %call124, %bdrv_get_aio_context.exit ], [ null, %if.then115 ], [ null, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %file.0304, %bdrv_open_common.exit.thread ]
-  call void @aio_context_acquire(ptr noundef %ctx.1) #31
-  call void @blk_unref(ptr noundef %file.1) #31
-  %tobool235.not = icmp eq ptr %snapshot_options.1, null
+  %ctx.0 = phi ptr [ %39, %find_image_format.exit ], [ %ctx.1302, %bdrv_open_common.exit ], [ %ctx.1303314, %if.then149 ], [ %39, %bdrv_get_aio_context.exit ], [ %call, %if.then115 ], [ %call, %if.then85 ], [ %call, %parse_json_protocol.exit ], [ %call, %bdrv_fill_options.exit.thread ], [ %ctx.1302, %bdrv_open_common.exit.thread ]
+  %snapshot_options.0 = phi ptr [ %snapshot_options.1, %find_image_format.exit ], [ %snapshot_options.1, %bdrv_open_common.exit ], [ %snapshot_options.1, %if.then149 ], [ %snapshot_options.1, %bdrv_get_aio_context.exit ], [ %snapshot_options.1, %if.then115 ], [ %snapshot_options.1, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %snapshot_options.1, %bdrv_open_common.exit.thread ]
+  %file.0 = phi ptr [ %call124, %find_image_format.exit ], [ %file.1304, %bdrv_open_common.exit ], [ %file.1305313, %if.then149 ], [ %call124, %bdrv_get_aio_context.exit ], [ null, %if.then115 ], [ null, %if.then85 ], [ null, %parse_json_protocol.exit ], [ null, %bdrv_fill_options.exit.thread ], [ %file.1304, %bdrv_open_common.exit.thread ]
+  call void @aio_context_acquire(ptr noundef %ctx.0) #31
+  call void @blk_unref(ptr noundef %file.0) #31
+  %tobool235.not = icmp eq ptr %snapshot_options.0, null
   br i1 %tobool235.not, label %qobject_unref_impl.exit206, label %lor.lhs.false.i197
 
 lor.lhs.false.i197:                               ; preds = %fail
-  %refcnt.i198 = getelementptr inbounds i8, ptr %snapshot_options.1, i64 8
+  %refcnt.i198 = getelementptr inbounds i8, ptr %snapshot_options.0, i64 8
   %89 = load i64, ptr %refcnt.i198, align 8
   %tobool1.not.i199 = icmp eq i64 %89, 0
   br i1 %tobool1.not.i199, label %if.else.i205, label %land.lhs.true.i200
@@ -7052,7 +7052,7 @@ land.lhs.true.i200:                               ; preds = %lor.lhs.false.i197
   br i1 %cmp.i202, label %if.then5.i204, label %qobject_unref_impl.exit206
 
 if.then5.i204:                                    ; preds = %land.lhs.true.i200
-  call void @qobject_destroy(ptr noundef nonnull %snapshot_options.1) #31
+  call void @qobject_destroy(ptr noundef nonnull %snapshot_options.0) #31
   br label %qobject_unref_impl.exit206
 
 qobject_unref_impl.exit206:                       ; preds = %fail, %land.lhs.true.i200, %if.then5.i204
@@ -7134,14 +7134,14 @@ if.then5.i237:                                    ; preds = %land.lhs.true.i233
 qobject_unref_impl.exit239:                       ; preds = %qobject_unref_impl.exit228, %land.lhs.true.i233, %if.then5.i237
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options255, i8 0, i64 16, i1 false)
   call void @bdrv_unref(ptr noundef nonnull %call39)
-  call void @aio_context_release(ptr noundef %ctx.1) #31
+  call void @aio_context_release(ptr noundef %ctx.0) #31
   %95 = load ptr, ptr %local_err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %95) #31
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 close_and_fail:                                   ; preds = %if.then228, %if.then210, %if.else212, %if.then187
   %options.addr.2 = phi ptr [ %call79, %if.then187 ], [ null, %if.then228 ], [ %call79, %if.else212 ], [ %call79, %if.then210 ]
-  %snapshot_options.2 = phi ptr [ %snapshot_options.0, %if.then187 ], [ null, %if.then228 ], [ %snapshot_options.0, %if.else212 ], [ %snapshot_options.0, %if.then210 ]
+  %snapshot_options.2 = phi ptr [ %snapshot_options.1, %if.then187 ], [ null, %if.then228 ], [ %snapshot_options.1, %if.else212 ], [ %snapshot_options.1, %if.then210 ]
   call void @aio_context_acquire(ptr noundef %76) #31
   call void @bdrv_unref(ptr noundef nonnull %call39)
   call void @aio_context_release(ptr noundef %76) #31
@@ -7380,7 +7380,7 @@ if.else17.i:                                      ; preds = %if.end4.i
   br i1 %tobool21.not42.i, label %while.cond.outer.i.backedge, label %for.body.i
 
 for.body.i:                                       ; preds = %if.else17.i, %for.inc.i
-  %option_given.044.i = phi i1 [ %option_given.1.i, %for.inc.i ], [ false, %if.else17.i ]
+  %option_given.144.i = phi i1 [ %option_given.2.i, %for.inc.i ], [ false, %if.else17.i ]
   %entry18.043.i = phi ptr [ %call42.i, %for.inc.i ], [ %call20.i, %if.else17.i ]
   %call22.i = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry18.043.i) #31
   %26 = load ptr, ptr %retval.0.i.i, align 8
@@ -7406,16 +7406,16 @@ qobject_ref_impl.exit35.i:                        ; preds = %if.then.i31.i, %if.
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %qobject_ref_impl.exit35.i, %for.body.i
-  %option_given.1.i = phi i1 [ true, %qobject_ref_impl.exit35.i ], [ %option_given.044.i, %for.body.i ]
+  %option_given.2.i = phi i1 [ true, %qobject_ref_impl.exit35.i ], [ %option_given.144.i, %for.body.i ]
   %28 = load ptr, ptr %options.i, align 8
   %call42.i = tail call ptr @qdict_next(ptr noundef %28, ptr noundef nonnull %entry18.043.i) #31
   %tobool21.not.i = icmp eq ptr %call42.i, null
   br i1 %tobool21.not.i, label %if.end43.i, label %for.body.i, !llvm.loop !29
 
 if.end43.i:                                       ; preds = %for.inc.i, %qobject_ref_impl.exit.i
-  %option_given.2.i = phi i1 [ true, %qobject_ref_impl.exit.i ], [ %option_given.1.i, %for.inc.i ]
-  %option_given.2.not.i = xor i1 %option_given.2.i, true
-  %brmerge.i = select i1 %tobool44.i, i1 true, i1 %option_given.2.not.i
+  %option_given.0.i = phi i1 [ true, %qobject_ref_impl.exit.i ], [ %option_given.2.i, %for.inc.i ]
+  %option_given.0.not.i = xor i1 %option_given.0.i, true
+  %brmerge.i = select i1 %tobool44.i, i1 true, i1 %option_given.0.not.i
   br i1 %brmerge.i, label %while.cond.outer.i.backedge, label %land.lhs.true47.i
 
 land.lhs.true47.i:                                ; preds = %if.end43.i
@@ -9019,7 +9019,7 @@ if.then157.sink.split.i:                          ; preds = %glib_autoptr_cleanu
   br label %if.then157.i
 
 if.then157.i:                                     ; preds = %if.then157.sink.split.i, %if.end84.i, %if.end79.i
-  %ret.1.i = phi i32 [ %call80.i, %if.end79.i ], [ %call86.i, %if.end84.i ], [ -22, %if.then157.sink.split.i ]
+  %ret.0.i = phi i32 [ %call80.i, %if.end79.i ], [ %call86.i, %if.end84.i ], [ -22, %if.then157.sink.split.i ]
   %bdrv_reopen_abort.i = getelementptr inbounds i8, ptr %9, i64 128
   %76 = load ptr, ptr %bdrv_reopen_abort.i, align 8
   %tobool158.not.i = icmp eq ptr %76, null
@@ -9030,7 +9030,7 @@ if.then159.i:                                     ; preds = %if.then157.i
   br label %if.end162.i
 
 if.end162.i:                                      ; preds = %if.then159.i, %if.then157.i, %qobject_ref_impl.exit.i, %bdrv_get_device_or_node_name.exit, %if.else60.i, %if.then59.i, %bdrv_reset_options_allowed.exit.i, %if.then44.i, %if.then34.i, %if.then29.i, %do.end.i
-  %ret.1120.i = phi i32 [ %ret.1.i, %if.then157.i ], [ %ret.1.i, %if.then159.i ], [ -22, %do.end.i ], [ -1, %bdrv_get_device_or_node_name.exit ], [ 0, %qobject_ref_impl.exit.i ], [ %call55.i, %if.else60.i ], [ %call55.i, %if.then59.i ], [ -22, %bdrv_reset_options_allowed.exit.i ], [ %retval.0.i88.i, %if.then44.i ], [ -22, %if.then34.i ], [ -22, %if.then29.i ]
+  %ret.0120.i = phi i32 [ %ret.0.i, %if.then157.i ], [ %ret.0.i, %if.then159.i ], [ -22, %do.end.i ], [ -1, %bdrv_get_device_or_node_name.exit ], [ 0, %qobject_ref_impl.exit.i ], [ %call55.i, %if.else60.i ], [ %call55.i, %if.then59.i ], [ -22, %bdrv_reset_options_allowed.exit.i ], [ %retval.0.i88.i, %if.then44.i ], [ -22, %if.then34.i ], [ -22, %if.then29.i ]
   %discard.0119.i = phi ptr [ %call23.i, %if.then157.i ], [ %call23.i, %if.then159.i ], [ null, %do.end.i ], [ %call23.i, %bdrv_get_device_or_node_name.exit ], [ %call23.i, %qobject_ref_impl.exit.i ], [ %call23.i, %if.else60.i ], [ %call23.i, %if.then59.i ], [ %call23.i, %bdrv_reset_options_allowed.exit.i ], [ %call23.i, %if.then44.i ], [ %call23.i, %if.then34.i ], [ %call23.i, %if.then29.i ]
   call void @qemu_opts_del(ptr noundef %call12.i) #31
   %tobool164.not.i = icmp eq ptr %call11.i, null
@@ -9060,7 +9060,7 @@ bdrv_reopen_prepare.exit:                         ; preds = %if.end162.i, %land.
   call void @g_free(ptr noundef %discard.0119.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   call void @aio_context_release(ptr noundef %5) #31
-  %cmp33 = icmp slt i32 %ret.1120.i, 0
+  %cmp33 = icmp slt i32 %ret.0120.i, 0
   br i1 %cmp33, label %abort, label %if.end35
 
 if.end35:                                         ; preds = %bdrv_reopen_prepare.exit
@@ -9072,10 +9072,10 @@ if.end35:                                         ; preds = %bdrv_reopen_prepare
 
 for.body41:                                       ; preds = %for.cond39.preheader, %for.inc56
   %bs_entry.2166 = phi ptr [ %bs_entry.2, %for.inc56 ], [ %bs_entry.2163.pre, %for.cond39.preheader ]
-  %refresh_list.0165 = phi ptr [ %refresh_list.2, %for.inc56 ], [ null, %for.cond39.preheader ]
+  %refresh_list.1165 = phi ptr [ %refresh_list.3, %for.inc56 ], [ null, %for.cond39.preheader ]
   %state43 = getelementptr inbounds i8, ptr %bs_entry.2166, i64 8
   %78 = load ptr, ptr %state43, align 8
-  %call45 = call ptr @g_slist_prepend(ptr noundef %refresh_list.0165, ptr noundef %78) #31
+  %call45 = call ptr @g_slist_prepend(ptr noundef %refresh_list.1165, ptr noundef %78) #31
   %old_backing_bs = getelementptr inbounds i8, ptr %bs_entry.2166, i64 32
   %79 = load ptr, ptr %old_backing_bs, align 8
   %tobool46.not = icmp eq ptr %79, null
@@ -9086,27 +9086,27 @@ if.then47:                                        ; preds = %for.body41
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then47, %for.body41
-  %refresh_list.1 = phi ptr [ %call45, %for.body41 ], [ %call49, %if.then47 ]
+  %refresh_list.2 = phi ptr [ %call45, %for.body41 ], [ %call49, %if.then47 ]
   %old_file_bs = getelementptr inbounds i8, ptr %bs_entry.2166, i64 40
   %80 = load ptr, ptr %old_file_bs, align 8
   %tobool51.not = icmp eq ptr %80, null
   br i1 %tobool51.not, label %for.inc56, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
-  %call54 = call ptr @g_slist_prepend(ptr noundef %refresh_list.1, ptr noundef nonnull %80) #31
+  %call54 = call ptr @g_slist_prepend(ptr noundef %refresh_list.2, ptr noundef nonnull %80) #31
   br label %for.inc56
 
 for.inc56:                                        ; preds = %if.end50, %if.then52
-  %refresh_list.2 = phi ptr [ %refresh_list.1, %if.end50 ], [ %call54, %if.then52 ]
+  %refresh_list.3 = phi ptr [ %refresh_list.2, %if.end50 ], [ %call54, %if.then52 ]
   %entry57 = getelementptr inbounds i8, ptr %bs_entry.2166, i64 72
   %bs_entry.2 = load ptr, ptr %entry57, align 8
   %tobool40.not = icmp eq ptr %bs_entry.2, null
   br i1 %tobool40.not, label %for.end58, label %for.body41, !llvm.loop !41
 
 for.end58:                                        ; preds = %for.inc56, %for.cond.preheader, %for.cond19.preheader, %for.cond39.preheader
-  %refresh_list.0.lcssa = phi ptr [ null, %for.cond39.preheader ], [ null, %for.cond19.preheader ], [ null, %for.cond.preheader ], [ %refresh_list.2, %for.inc56 ]
+  %refresh_list.1.lcssa = phi ptr [ null, %for.cond39.preheader ], [ null, %for.cond19.preheader ], [ null, %for.cond.preheader ], [ %refresh_list.3, %for.inc56 ]
   call void @bdrv_graph_rdlock_main_loop() #31
-  %call59 = call fastcc i32 @bdrv_list_refresh_perms(ptr noundef %refresh_list.0.lcssa, ptr noundef nonnull %bs_queue, ptr noundef %call, ptr noundef %errp)
+  %call59 = call fastcc i32 @bdrv_list_refresh_perms(ptr noundef %refresh_list.1.lcssa, ptr noundef nonnull %bs_queue, ptr noundef %call, ptr noundef %errp)
   call void @bdrv_graph_rdunlock_main_loop() #31
   %cmp60 = icmp slt i32 %call59, 0
   br i1 %cmp60, label %abort, label %if.end62
@@ -9343,8 +9343,8 @@ for.inc93:                                        ; preds = %for.body82, %bdrv_g
   br i1 %tobool81.not, label %cleanup, label %for.body82, !llvm.loop !44
 
 abort:                                            ; preds = %bdrv_reopen_prepare.exit, %for.end58, %if.then16
-  %refresh_list.3 = phi ptr [ %refresh_list.0.lcssa, %for.end58 ], [ null, %if.then16 ], [ null, %bdrv_reopen_prepare.exit ]
-  %ret.0 = phi i32 [ %call59, %for.end58 ], [ %call14, %if.then16 ], [ %ret.1120.i, %bdrv_reopen_prepare.exit ]
+  %refresh_list.0 = phi ptr [ %refresh_list.1.lcssa, %for.end58 ], [ null, %if.then16 ], [ null, %bdrv_reopen_prepare.exit ]
+  %ret.0 = phi i32 [ %call59, %for.end58 ], [ %call14, %if.then16 ], [ %ret.0120.i, %bdrv_reopen_prepare.exit ]
   call void @bdrv_graph_wrlock(ptr noundef null) #31
   call void @tran_abort(ptr noundef %call) #31
   call void @bdrv_graph_wrunlock(ptr noundef null) #31
@@ -9415,7 +9415,7 @@ for.inc111:                                       ; preds = %land.rhs, %bdrv_reo
   br i1 %tobool100.not, label %cleanup, label %land.rhs, !llvm.loop !45
 
 cleanup:                                          ; preds = %for.inc93, %for.inc111, %for.end76, %abort
-  %refresh_list.4 = phi ptr [ %refresh_list.3, %abort ], [ %refresh_list.0.lcssa, %for.end76 ], [ %refresh_list.3, %for.inc111 ], [ %refresh_list.0.lcssa, %for.inc93 ]
+  %refresh_list.4 = phi ptr [ %refresh_list.0, %abort ], [ %refresh_list.1.lcssa, %for.end76 ], [ %refresh_list.0, %for.inc111 ], [ %refresh_list.1.lcssa, %for.inc93 ]
   %ret.1 = phi i32 [ %ret.0, %abort ], [ 0, %for.end76 ], [ %ret.0, %for.inc111 ], [ 0, %for.inc93 ]
   call void @bdrv_reopen_queue_free(ptr noundef nonnull %bs_queue)
   %tobool.not.i.i126 = icmp eq ptr %refresh_list.4, null
@@ -9695,8 +9695,8 @@ if.else24:                                        ; preds = %while.cond.preheade
   unreachable
 
 for.cond:                                         ; preds = %if.end21, %for.cond.backedge
-  %to_cow_parent.0 = phi ptr [ %to_cow_parent.0.be, %for.cond.backedge ], [ %from, %if.end21 ]
-  %call.i31 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %to_cow_parent.0)
+  %to_cow_parent.1 = phi ptr [ %to_cow_parent.1.be, %for.cond.backedge ], [ %from, %if.end21 ]
+  %call.i31 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %to_cow_parent.1)
   %tobool.not.i.i = icmp eq ptr %call.i31, null
   br i1 %tobool.not.i.i, label %bdrv_filter_or_cow_bs.exit, label %cond.true.i.i
 
@@ -9710,12 +9710,12 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %for.cond, %cond.tru
   br i1 %cmp27.not, label %if.end29, label %for.inc
 
 for.inc:                                          ; preds = %bdrv_filter_or_cow_bs.exit
-  %call.i32 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %to_cow_parent.0)
+  %call.i32 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %to_cow_parent.1)
   %tobool.not.i.i33 = icmp eq ptr %call.i32, null
   br i1 %tobool.not.i.i33, label %for.cond.backedge, label %cond.true.i.i34
 
 for.cond.backedge:                                ; preds = %for.inc, %cond.true.i.i34
-  %to_cow_parent.0.be = phi ptr [ %7, %cond.true.i.i34 ], [ null, %for.inc ]
+  %to_cow_parent.1.be = phi ptr [ %7, %cond.true.i.i34 ], [ null, %for.inc ]
   br label %for.cond, !llvm.loop !48
 
 cond.true.i.i34:                                  ; preds = %for.inc
@@ -9733,7 +9733,7 @@ if.end29.thread:                                  ; preds = %if.end15
   br i1 %cmp3243, label %if.then.i, label %out
 
 if.then36:                                        ; preds = %if.end29
-  %call37 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %to_cow_parent.0)
+  %call37 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %to_cow_parent.1)
   tail call fastcc void @bdrv_remove_child(ptr noundef %call37, ptr noundef %call)
   br label %out
 

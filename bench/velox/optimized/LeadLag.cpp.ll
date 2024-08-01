@@ -1129,163 +1129,163 @@ ehcleanup:                                        ; preds = %arraydestroy.body94
 
 ehcleanup99:                                      ; preds = %lpad83, %lpad.i130, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %53, %lpad83 ], [ %14, %lpad.i130 ]
-  %cleanup.isactive.1 = phi i1 [ %56, %ehcleanup ], [ false, %lpad83 ], [ false, %lpad.i130 ]
+  %cleanup.isactive.22 = phi i1 [ %56, %ehcleanup ], [ false, %lpad83 ], [ false, %lpad.i130 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82) #24
   br label %ehcleanup100
 
 ehcleanup100:                                     ; preds = %ehcleanup99, %lpad78
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup99 ], [ %52, %lpad78 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup99 ], [ false, %lpad78 ]
+  %cleanup.isactive.21 = phi i1 [ %cleanup.isactive.22, %ehcleanup99 ], [ false, %lpad78 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #24
   br label %ehcleanup101
 
 ehcleanup101:                                     ; preds = %lpad76, %lpad.i122, %ehcleanup100
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup100 ], [ %51, %lpad76 ], [ %13, %lpad.i122 ]
-  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.2, %ehcleanup100 ], [ false, %lpad76 ], [ false, %lpad.i122 ]
+  %cleanup.isactive.20 = phi i1 [ %cleanup.isactive.21, %ehcleanup100 ], [ false, %lpad76 ], [ false, %lpad.i122 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #24
   br label %ehcleanup102
 
 ehcleanup102:                                     ; preds = %ehcleanup101, %lpad71
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup101 ], [ %50, %lpad71 ]
-  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.3, %ehcleanup101 ], [ false, %lpad71 ]
+  %cleanup.isactive.19 = phi i1 [ %cleanup.isactive.20, %ehcleanup101 ], [ false, %lpad71 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #24
   br label %ehcleanup103
 
 ehcleanup103:                                     ; preds = %lpad69, %lpad.i114, %ehcleanup102
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup102 ], [ %49, %lpad69 ], [ %12, %lpad.i114 ]
-  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.4, %ehcleanup102 ], [ false, %lpad69 ], [ false, %lpad.i114 ]
+  %cleanup.isactive.18 = phi i1 [ %cleanup.isactive.19, %ehcleanup102 ], [ false, %lpad69 ], [ false, %lpad.i114 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #24
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %ehcleanup103, %lpad64
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup103 ], [ %48, %lpad64 ]
-  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.5, %ehcleanup103 ], [ false, %lpad64 ]
+  %cleanup.isactive.17 = phi i1 [ %cleanup.isactive.18, %ehcleanup103 ], [ false, %lpad64 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60) #24
   br label %ehcleanup105
 
 ehcleanup105:                                     ; preds = %lpad62, %lpad.i106, %ehcleanup104
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup104 ], [ %47, %lpad62 ], [ %11, %lpad.i106 ]
-  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.6, %ehcleanup104 ], [ false, %lpad62 ], [ false, %lpad.i106 ]
+  %cleanup.isactive.16 = phi i1 [ %cleanup.isactive.17, %ehcleanup104 ], [ false, %lpad62 ], [ false, %lpad.i106 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61) #24
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %ehcleanup105, %lpad57
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup105 ], [ %46, %lpad57 ]
-  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.7, %ehcleanup105 ], [ false, %lpad57 ]
+  %cleanup.isactive.15 = phi i1 [ %cleanup.isactive.16, %ehcleanup105 ], [ false, %lpad57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #24
   br label %ehcleanup107
 
 ehcleanup107:                                     ; preds = %lpad55, %lpad.i98, %ehcleanup106
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup106 ], [ %45, %lpad55 ], [ %10, %lpad.i98 ]
-  %cleanup.isactive.9 = phi i1 [ %cleanup.isactive.8, %ehcleanup106 ], [ false, %lpad55 ], [ false, %lpad.i98 ]
+  %cleanup.isactive.14 = phi i1 [ %cleanup.isactive.15, %ehcleanup106 ], [ false, %lpad55 ], [ false, %lpad.i98 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp52) #24
   br label %ehcleanup109
 
 ehcleanup109:                                     ; preds = %ehcleanup107, %lpad47
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element51, %ehcleanup107 ], [ %arrayinit.element, %lpad47 ]
+  %arrayinit.endOfInit.13 = phi ptr [ %arrayinit.element51, %ehcleanup107 ], [ %arrayinit.element, %lpad47 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup107 ], [ %44, %lpad47 ]
-  %cleanup.isactive.10 = phi i1 [ %cleanup.isactive.9, %ehcleanup107 ], [ false, %lpad47 ]
+  %cleanup.isactive.13 = phi i1 [ %cleanup.isactive.14, %ehcleanup107 ], [ false, %lpad47 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #24
   br label %ehcleanup110
 
 ehcleanup110:                                     ; preds = %lpad45, %lpad.i79, %ehcleanup109
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %ehcleanup109 ], [ %arrayinit.element, %lpad.i79 ], [ %arrayinit.element, %lpad45 ]
+  %arrayinit.endOfInit.12 = phi ptr [ %arrayinit.endOfInit.13, %ehcleanup109 ], [ %arrayinit.element, %lpad.i79 ], [ %arrayinit.element, %lpad45 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup109 ], [ %8, %lpad.i79 ], [ %43, %lpad45 ]
-  %cleanup.isactive.11 = phi i1 [ %cleanup.isactive.10, %ehcleanup109 ], [ false, %lpad.i79 ], [ false, %lpad45 ]
+  %cleanup.isactive.12 = phi i1 [ %cleanup.isactive.13, %ehcleanup109 ], [ false, %lpad.i79 ], [ false, %lpad45 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #24
   br label %ehcleanup111
 
 ehcleanup111:                                     ; preds = %ehcleanup110, %lpad40
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup110 ], [ %arrayinit.element, %lpad40 ]
+  %arrayinit.endOfInit.11 = phi ptr [ %arrayinit.endOfInit.12, %ehcleanup110 ], [ %arrayinit.element, %lpad40 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup110 ], [ %42, %lpad40 ]
-  %cleanup.isactive.12 = phi i1 [ %cleanup.isactive.11, %ehcleanup110 ], [ false, %lpad40 ]
+  %cleanup.isactive.11 = phi i1 [ %cleanup.isactive.12, %ehcleanup110 ], [ false, %lpad40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #24
   br label %ehcleanup112
 
 ehcleanup112:                                     ; preds = %lpad38, %lpad.i71, %ehcleanup111
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup111 ], [ %arrayinit.element, %lpad.i71 ], [ %arrayinit.element, %lpad38 ]
+  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.endOfInit.11, %ehcleanup111 ], [ %arrayinit.element, %lpad.i71 ], [ %arrayinit.element, %lpad38 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup111 ], [ %7, %lpad.i71 ], [ %41, %lpad38 ]
-  %cleanup.isactive.13 = phi i1 [ %cleanup.isactive.12, %ehcleanup111 ], [ false, %lpad.i71 ], [ false, %lpad38 ]
+  %cleanup.isactive.10 = phi i1 [ %cleanup.isactive.11, %ehcleanup111 ], [ false, %lpad.i71 ], [ false, %lpad38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #24
   br label %ehcleanup113
 
 ehcleanup113:                                     ; preds = %ehcleanup112, %lpad33
-  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup112 ], [ %arrayinit.element, %lpad33 ]
+  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.endOfInit.10, %ehcleanup112 ], [ %arrayinit.element, %lpad33 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup112 ], [ %40, %lpad33 ]
-  %cleanup.isactive.14 = phi i1 [ %cleanup.isactive.13, %ehcleanup112 ], [ false, %lpad33 ]
+  %cleanup.isactive.9 = phi i1 [ %cleanup.isactive.10, %ehcleanup112 ], [ false, %lpad33 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #24
   br label %ehcleanup114
 
 ehcleanup114:                                     ; preds = %lpad31, %lpad.i63, %ehcleanup113
-  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup113 ], [ %arrayinit.element, %lpad.i63 ], [ %arrayinit.element, %lpad31 ]
+  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.9, %ehcleanup113 ], [ %arrayinit.element, %lpad.i63 ], [ %arrayinit.element, %lpad31 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup113 ], [ %6, %lpad.i63 ], [ %39, %lpad31 ]
-  %cleanup.isactive.15 = phi i1 [ %cleanup.isactive.14, %ehcleanup113 ], [ false, %lpad.i63 ], [ false, %lpad31 ]
+  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.9, %ehcleanup113 ], [ false, %lpad.i63 ], [ false, %lpad31 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #24
   br label %ehcleanup115
 
 ehcleanup115:                                     ; preds = %ehcleanup114, %lpad26
-  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.endOfInit.5, %ehcleanup114 ], [ %arrayinit.element, %lpad26 ]
+  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.endOfInit.8, %ehcleanup114 ], [ %arrayinit.element, %lpad26 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup114 ], [ %38, %lpad26 ]
-  %cleanup.isactive.16 = phi i1 [ %cleanup.isactive.15, %ehcleanup114 ], [ false, %lpad26 ]
+  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.8, %ehcleanup114 ], [ false, %lpad26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #24
   br label %ehcleanup116
 
 ehcleanup116:                                     ; preds = %lpad24, %lpad.i55, %ehcleanup115
-  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup115 ], [ %arrayinit.element, %lpad.i55 ], [ %arrayinit.element, %lpad24 ]
+  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.endOfInit.7, %ehcleanup115 ], [ %arrayinit.element, %lpad.i55 ], [ %arrayinit.element, %lpad24 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup115 ], [ %5, %lpad.i55 ], [ %37, %lpad24 ]
-  %cleanup.isactive.17 = phi i1 [ %cleanup.isactive.16, %ehcleanup115 ], [ false, %lpad.i55 ], [ false, %lpad24 ]
+  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.7, %ehcleanup115 ], [ false, %lpad.i55 ], [ false, %lpad24 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp21) #24
   br label %ehcleanup118
 
 ehcleanup118:                                     ; preds = %ehcleanup116, %lpad17
-  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.7, %ehcleanup116 ], [ %ref.tmp, %lpad17 ]
+  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup116 ], [ %ref.tmp, %lpad17 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup116 ], [ %36, %lpad17 ]
-  %cleanup.isactive.18 = phi i1 [ %cleanup.isactive.17, %ehcleanup116 ], [ false, %lpad17 ]
+  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.6, %ehcleanup116 ], [ false, %lpad17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #24
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %lpad15, %lpad.i36, %ehcleanup118
-  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.endOfInit.8, %ehcleanup118 ], [ %ref.tmp, %lpad.i36 ], [ %ref.tmp, %lpad15 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.5, %ehcleanup118 ], [ %ref.tmp, %lpad.i36 ], [ %ref.tmp, %lpad15 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup118 ], [ %3, %lpad.i36 ], [ %35, %lpad15 ]
-  %cleanup.isactive.19 = phi i1 [ %cleanup.isactive.18, %ehcleanup118 ], [ false, %lpad.i36 ], [ false, %lpad15 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.5, %ehcleanup118 ], [ false, %lpad.i36 ], [ false, %lpad15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #24
   br label %ehcleanup120
 
 ehcleanup120:                                     ; preds = %ehcleanup119, %lpad10
-  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.endOfInit.9, %ehcleanup119 ], [ %ref.tmp, %lpad10 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup119 ], [ %ref.tmp, %lpad10 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup119 ], [ %34, %lpad10 ]
-  %cleanup.isactive.20 = phi i1 [ %cleanup.isactive.19, %ehcleanup119 ], [ false, %lpad10 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup119 ], [ false, %lpad10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #24
   br label %ehcleanup121
 
 ehcleanup121:                                     ; preds = %lpad8, %lpad.i28, %ehcleanup120
-  %arrayinit.endOfInit.11 = phi ptr [ %arrayinit.endOfInit.10, %ehcleanup120 ], [ %ref.tmp, %lpad.i28 ], [ %ref.tmp, %lpad8 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup120 ], [ %ref.tmp, %lpad.i28 ], [ %ref.tmp, %lpad8 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup120 ], [ %2, %lpad.i28 ], [ %33, %lpad8 ]
-  %cleanup.isactive.21 = phi i1 [ %cleanup.isactive.20, %ehcleanup120 ], [ false, %lpad.i28 ], [ false, %lpad8 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.3, %ehcleanup120 ], [ false, %lpad.i28 ], [ false, %lpad8 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #24
   br label %ehcleanup122
 
 ehcleanup122:                                     ; preds = %ehcleanup121, %lpad4
-  %arrayinit.endOfInit.12 = phi ptr [ %arrayinit.endOfInit.11, %ehcleanup121 ], [ %ref.tmp, %lpad4 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup121 ], [ %ref.tmp, %lpad4 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup121 ], [ %32, %lpad4 ]
-  %cleanup.isactive.22 = phi i1 [ %cleanup.isactive.21, %ehcleanup121 ], [ false, %lpad4 ]
+  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.2, %ehcleanup121 ], [ false, %lpad4 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
   br label %ehcleanup123
 
 ehcleanup123:                                     ; preds = %lpad, %lpad.i, %ehcleanup122
-  %arrayinit.endOfInit.13 = phi ptr [ %arrayinit.endOfInit.12, %ehcleanup122 ], [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ]
+  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup122 ], [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup122 ], [ %1, %lpad.i ], [ %31, %lpad ]
-  %cleanup.isactive.23 = phi i1 [ %cleanup.isactive.22, %ehcleanup122 ], [ false, %lpad.i ], [ false, %lpad ]
+  %cleanup.isactive.0 = phi i1 [ %cleanup.isactive.1, %ehcleanup122 ], [ false, %lpad.i ], [ false, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1) #24
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.13
-  %or.cond = select i1 %cleanup.isactive.23, i1 true, i1 %arraydestroy.isempty
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.0
+  %or.cond = select i1 %cleanup.isactive.0, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %eh.resume, label %arraydestroy.body126
 
 arraydestroy.body126:                             ; preds = %ehcleanup123, %arraydestroy.body126
-  %arraydestroy.elementPast127 = phi ptr [ %arraydestroy.element128, %arraydestroy.body126 ], [ %arrayinit.endOfInit.13, %ehcleanup123 ]
+  %arraydestroy.elementPast127 = phi ptr [ %arraydestroy.element128, %arraydestroy.body126 ], [ %arrayinit.endOfInit.0, %ehcleanup123 ]
   %arraydestroy.element128 = getelementptr inbounds i8, ptr %arraydestroy.elementPast127, i64 -16
   call void @_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element128) #24
   %arraydestroy.done129 = icmp eq ptr %arraydestroy.element128, %ref.tmp
@@ -6536,9 +6536,9 @@ for.body24.lr.ph.i:                               ; preds = %if.end.i.i129
 for.body24.i:                                     ; preds = %for.inc33.i, %for.body24.lr.ph.i
   %indvars.iv113.i = phi i64 [ 0, %for.body24.lr.ph.i ], [ %indvars.iv.next114.i, %for.inc33.i ]
   %135 = phi ptr [ %134, %for.body24.lr.ph.i ], [ %141, %for.inc33.i ]
-  %defaultValueRowNumbers.sroa.0.1102.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.0.4.i, %for.inc33.i ]
-  %defaultValueRowNumbers.sroa.12.1101.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.12.3.i, %for.inc33.i ]
-  %defaultValueRowNumbers.sroa.21.1100.i = phi ptr [ %add.ptr21.i.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.21.3.i, %for.inc33.i ]
+  %defaultValueRowNumbers.sroa.0.1102.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.0.2.i, %for.inc33.i ]
+  %defaultValueRowNumbers.sroa.12.0101.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.12.1.i, %for.inc33.i ]
+  %defaultValueRowNumbers.sroa.21.0100.i = phi ptr [ %add.ptr21.i.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.21.1.i, %for.inc33.i ]
   %add.ptr.i26.i = getelementptr inbounds i32, ptr %135, i64 %indvars.iv113.i
   %136 = load i32, ptr %add.ptr.i26.i, align 4
   %cmp28.i = icmp eq i32 %136, -2
@@ -6548,16 +6548,16 @@ if.then29.i:                                      ; preds = %for.body24.i
   %137 = load i32, ptr %partitionOffset_.i130, align 8
   %138 = trunc nuw nsw i64 %indvars.iv113.i to i32
   %add30.i = add nsw i32 %137, %138
-  %cmp.not.i.i.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.1101.i, %defaultValueRowNumbers.sroa.21.1100.i
+  %cmp.not.i.i.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.0101.i, %defaultValueRowNumbers.sroa.21.0100.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i29.i
 
 if.then.i.i29.i:                                  ; preds = %if.then29.i
-  store i32 %add30.i, ptr %defaultValueRowNumbers.sroa.12.1101.i, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.12.1101.i, i64 4
+  store i32 %add30.i, ptr %defaultValueRowNumbers.sroa.12.0101.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.12.0101.i, i64 4
   br label %for.inc33.i
 
 if.else.i.i.i:                                    ; preds = %if.then29.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.1101.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.0101.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.1102.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i137 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775804
@@ -6616,7 +6616,7 @@ lpad.loopexit.i:                                  ; preds = %cond.true.i.i.i.i.i
   br label %lpad.i132
 
 lpad.loopexit.split-lp.i:                         ; preds = %invoke.cont46.i, %if.end.i35.i, %if.then.i.i.i.i.i140
-  %defaultValueRowNumbers.sroa.0.184.i = phi ptr [ %defaultValueRowNumbers.sroa.0.4.i, %invoke.cont46.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i.i.i.i140 ], [ %defaultValueRowNumbers.sroa.0.4.i, %if.end.i35.i ]
+  %defaultValueRowNumbers.sroa.0.184.i = phi ptr [ %defaultValueRowNumbers.sroa.0.2.i, %invoke.cont46.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i.i.i.i140 ], [ %defaultValueRowNumbers.sroa.0.2.i, %if.end.i35.i ]
   %lpad.loopexit.split-lp80.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i132
@@ -6628,15 +6628,15 @@ lpad.i132:                                        ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i.i, label %common.resume, label %if.then.i.i.i.i133
 
 if.then.i.i.i.i133:                               ; preds = %lpad.thread75.i, %lpad.i132
-  %defaultValueRowNumbers.sroa.0.185.i = phi ptr [ %defaultValueRowNumbers.sroa.0.4.i, %lpad.thread75.i ], [ %defaultValueRowNumbers.sroa.0.183.i, %lpad.i132 ]
+  %defaultValueRowNumbers.sroa.0.185.i = phi ptr [ %defaultValueRowNumbers.sroa.0.2.i, %lpad.thread75.i ], [ %defaultValueRowNumbers.sroa.0.183.i, %lpad.i132 ]
   %lpad.thr_comm.split-lp7078.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp7076.i, %lpad.thread75.i ], [ %lpad.phi.i, %lpad.i132 ]
   call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.185.i) #22
   br label %common.resume
 
 for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %if.then.i.i29.i, %for.body24.i
-  %defaultValueRowNumbers.sroa.21.3.i = phi ptr [ %defaultValueRowNumbers.sroa.21.1100.i, %for.body24.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.21.1100.i, %if.then.i.i29.i ]
-  %defaultValueRowNumbers.sroa.12.3.i = phi ptr [ %defaultValueRowNumbers.sroa.12.1101.i, %for.body24.i ], [ %incdec.ptr.i.i.i.i139, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i29.i ]
-  %defaultValueRowNumbers.sroa.0.4.i = phi ptr [ %defaultValueRowNumbers.sroa.0.1102.i, %for.body24.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i29.i ]
+  %defaultValueRowNumbers.sroa.21.1.i = phi ptr [ %defaultValueRowNumbers.sroa.21.0100.i, %for.body24.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.21.0100.i, %if.then.i.i29.i ]
+  %defaultValueRowNumbers.sroa.12.1.i = phi ptr [ %defaultValueRowNumbers.sroa.12.0101.i, %for.body24.i ], [ %incdec.ptr.i.i.i.i139, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i29.i ]
+  %defaultValueRowNumbers.sroa.0.2.i = phi ptr [ %defaultValueRowNumbers.sroa.0.1102.i, %for.body24.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i29.i ]
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
   %140 = load ptr, ptr %_M_finish.i.i, align 8
   %141 = load ptr, ptr %rowNumbers_, align 8
@@ -6648,7 +6648,7 @@ for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp23.i, label %for.body24.i, label %for.end35.i, !llvm.loop !58
 
 for.end35.i:                                      ; preds = %for.inc33.i
-  %cmp.i.i.i131 = icmp eq ptr %defaultValueRowNumbers.sroa.0.4.i, %defaultValueRowNumbers.sroa.12.3.i
+  %cmp.i.i.i131 = icmp eq ptr %defaultValueRowNumbers.sroa.0.2.i, %defaultValueRowNumbers.sroa.12.1.i
   br i1 %cmp.i.i.i131, label %cleanup.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end35.i
@@ -6667,13 +6667,13 @@ invoke.cont46.i:                                  ; preds = %if.end38.i
   %defaultValueIndex_39.i = getelementptr inbounds i8, ptr %this, i64 116
   %143 = load ptr, ptr %partition_, align 8
   %144 = load i32, ptr %defaultValueIndex_39.i, align 4
-  %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.3.i to i64
-  %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.4.i to i64
+  %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.1.i to i64
+  %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.2.i to i64
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
   %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 2
-  %add.ptr.i43.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.4.i, i64 %sub.ptr.div.i42.i
+  %add.ptr.i43.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %sub.ptr.div.i42.i
   %defaultValues_.i = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %143, i32 noundef %144, ptr %defaultValueRowNumbers.sroa.0.4.i, ptr %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
+  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %143, i32 noundef %144, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
           to label %for.body53.lr.ph.i unwind label %lpad.loopexit.split-lp.i
 
 for.body53.lr.ph.i:                               ; preds = %invoke.cont46.i
@@ -6684,7 +6684,7 @@ for.body53.i:                                     ; preds = %for.inc64.i, %for.b
   %indvars.iv116.i = phi i64 [ 0, %for.body53.lr.ph.i ], [ %indvars.iv.next117.i, %for.inc64.i ]
   %145 = load ptr, ptr %result, align 8
   %146 = load ptr, ptr %defaultValues_.i, align 8
-  %add.ptr.i50.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.4.i, i64 %indvars.iv116.i
+  %add.ptr.i50.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %indvars.iv116.i
   %147 = load i32, ptr %add.ptr.i50.i, align 4
   %add59.i = add nsw i32 %147, %resultOffset
   %148 = load i32, ptr %partitionOffset_.i130, align 8
@@ -6707,11 +6707,11 @@ for.inc64.i:                                      ; preds = %for.body53.i
   br i1 %exitcond.not.i136, label %if.then.i.i.i52.i, label %for.body53.i, !llvm.loop !59
 
 cleanup.i:                                        ; preds = %for.end35.i
-  %tobool.not.i.i.i51.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.3.i, null
+  %tobool.not.i.i.i51.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.1.i, null
   br i1 %tobool.not.i.i.i51.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit, label %if.then.i.i.i52.i
 
 if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %cleanup.i
-  call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.4.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.2.i) #22
   br label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit
 
 _ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit: ; preds = %for.inc.i119, %for.cond.preheader.i, %land.lhs.true.i, %if.end.i.i129, %cleanup.i, %if.then.i.i.i52.i
@@ -11092,9 +11092,9 @@ for.body24.lr.ph.i:                               ; preds = %if.end.i.i134
 for.body24.i:                                     ; preds = %for.inc33.i, %for.body24.lr.ph.i
   %indvars.iv113.i = phi i64 [ 0, %for.body24.lr.ph.i ], [ %indvars.iv.next114.i, %for.inc33.i ]
   %139 = phi ptr [ %138, %for.body24.lr.ph.i ], [ %145, %for.inc33.i ]
-  %defaultValueRowNumbers.sroa.0.1102.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.0.4.i, %for.inc33.i ]
-  %defaultValueRowNumbers.sroa.12.1101.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.12.3.i, %for.inc33.i ]
-  %defaultValueRowNumbers.sroa.21.1100.i = phi ptr [ %add.ptr21.i.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.21.3.i, %for.inc33.i ]
+  %defaultValueRowNumbers.sroa.0.1102.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.0.2.i, %for.inc33.i ]
+  %defaultValueRowNumbers.sroa.12.0101.i = phi ptr [ %call5.i.i.i.i20.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.12.1.i, %for.inc33.i ]
+  %defaultValueRowNumbers.sroa.21.0100.i = phi ptr [ %add.ptr21.i.i, %for.body24.lr.ph.i ], [ %defaultValueRowNumbers.sroa.21.1.i, %for.inc33.i ]
   %add.ptr.i26.i = getelementptr inbounds i32, ptr %139, i64 %indvars.iv113.i
   %140 = load i32, ptr %add.ptr.i26.i, align 4
   %cmp28.i = icmp eq i32 %140, -2
@@ -11104,16 +11104,16 @@ if.then29.i:                                      ; preds = %for.body24.i
   %141 = load i32, ptr %partitionOffset_.i135, align 8
   %142 = trunc nuw nsw i64 %indvars.iv113.i to i32
   %add30.i = add nsw i32 %141, %142
-  %cmp.not.i.i.i142 = icmp eq ptr %defaultValueRowNumbers.sroa.12.1101.i, %defaultValueRowNumbers.sroa.21.1100.i
+  %cmp.not.i.i.i142 = icmp eq ptr %defaultValueRowNumbers.sroa.12.0101.i, %defaultValueRowNumbers.sroa.21.0100.i
   br i1 %cmp.not.i.i.i142, label %if.else.i.i.i, label %if.then.i.i29.i
 
 if.then.i.i29.i:                                  ; preds = %if.then29.i
-  store i32 %add30.i, ptr %defaultValueRowNumbers.sroa.12.1101.i, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.12.1101.i, i64 4
+  store i32 %add30.i, ptr %defaultValueRowNumbers.sroa.12.0101.i, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %defaultValueRowNumbers.sroa.12.0101.i, i64 4
   br label %for.inc33.i
 
 if.else.i.i.i:                                    ; preds = %if.then29.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.1101.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.0101.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.1102.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i143 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775804
@@ -11172,7 +11172,7 @@ lpad.loopexit.i:                                  ; preds = %cond.true.i.i.i.i.i
   br label %lpad.i137
 
 lpad.loopexit.split-lp.i:                         ; preds = %invoke.cont46.i, %if.end.i35.i, %if.then.i.i.i.i.i146
-  %defaultValueRowNumbers.sroa.0.184.i = phi ptr [ %defaultValueRowNumbers.sroa.0.4.i, %invoke.cont46.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i.i.i.i146 ], [ %defaultValueRowNumbers.sroa.0.4.i, %if.end.i35.i ]
+  %defaultValueRowNumbers.sroa.0.184.i = phi ptr [ %defaultValueRowNumbers.sroa.0.2.i, %invoke.cont46.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i.i.i.i146 ], [ %defaultValueRowNumbers.sroa.0.2.i, %if.end.i35.i ]
   %lpad.loopexit.split-lp80.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i137
@@ -11184,15 +11184,15 @@ lpad.i137:                                        ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i.i, label %common.resume, label %if.then.i.i.i.i138
 
 if.then.i.i.i.i138:                               ; preds = %lpad.thread75.i, %lpad.i137
-  %defaultValueRowNumbers.sroa.0.185.i = phi ptr [ %defaultValueRowNumbers.sroa.0.4.i, %lpad.thread75.i ], [ %defaultValueRowNumbers.sroa.0.183.i, %lpad.i137 ]
+  %defaultValueRowNumbers.sroa.0.185.i = phi ptr [ %defaultValueRowNumbers.sroa.0.2.i, %lpad.thread75.i ], [ %defaultValueRowNumbers.sroa.0.183.i, %lpad.i137 ]
   %lpad.thr_comm.split-lp7078.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp7076.i, %lpad.thread75.i ], [ %lpad.phi.i, %lpad.i137 ]
   call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.185.i) #22
   br label %common.resume
 
 for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %if.then.i.i29.i, %for.body24.i
-  %defaultValueRowNumbers.sroa.21.3.i = phi ptr [ %defaultValueRowNumbers.sroa.21.1100.i, %for.body24.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.21.1100.i, %if.then.i.i29.i ]
-  %defaultValueRowNumbers.sroa.12.3.i = phi ptr [ %defaultValueRowNumbers.sroa.12.1101.i, %for.body24.i ], [ %incdec.ptr.i.i.i.i145, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i29.i ]
-  %defaultValueRowNumbers.sroa.0.4.i = phi ptr [ %defaultValueRowNumbers.sroa.0.1102.i, %for.body24.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i29.i ]
+  %defaultValueRowNumbers.sroa.21.1.i = phi ptr [ %defaultValueRowNumbers.sroa.21.0100.i, %for.body24.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.21.0100.i, %if.then.i.i29.i ]
+  %defaultValueRowNumbers.sroa.12.1.i = phi ptr [ %defaultValueRowNumbers.sroa.12.0101.i, %for.body24.i ], [ %incdec.ptr.i.i.i.i145, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i29.i ]
+  %defaultValueRowNumbers.sroa.0.2.i = phi ptr [ %defaultValueRowNumbers.sroa.0.1102.i, %for.body24.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.0.1102.i, %if.then.i.i29.i ]
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
   %144 = load ptr, ptr %_M_finish.i.i, align 8
   %145 = load ptr, ptr %rowNumbers_, align 8
@@ -11204,7 +11204,7 @@ for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp23.i, label %for.body24.i, label %for.end35.i, !llvm.loop !107
 
 for.end35.i:                                      ; preds = %for.inc33.i
-  %cmp.i.i.i136 = icmp eq ptr %defaultValueRowNumbers.sroa.0.4.i, %defaultValueRowNumbers.sroa.12.3.i
+  %cmp.i.i.i136 = icmp eq ptr %defaultValueRowNumbers.sroa.0.2.i, %defaultValueRowNumbers.sroa.12.1.i
   br i1 %cmp.i.i.i136, label %cleanup.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end35.i
@@ -11223,13 +11223,13 @@ invoke.cont46.i:                                  ; preds = %if.end38.i
   %defaultValueIndex_39.i = getelementptr inbounds i8, ptr %this, i64 116
   %147 = load ptr, ptr %partition_, align 8
   %148 = load i32, ptr %defaultValueIndex_39.i, align 4
-  %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.3.i to i64
-  %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.4.i to i64
+  %sub.ptr.lhs.cast.i39.i = ptrtoint ptr %defaultValueRowNumbers.sroa.12.1.i to i64
+  %sub.ptr.rhs.cast.i40.i = ptrtoint ptr %defaultValueRowNumbers.sroa.0.2.i to i64
   %sub.ptr.sub.i41.i = sub i64 %sub.ptr.lhs.cast.i39.i, %sub.ptr.rhs.cast.i40.i
   %sub.ptr.div.i42.i = ashr exact i64 %sub.ptr.sub.i41.i, 2
-  %add.ptr.i43.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.4.i, i64 %sub.ptr.div.i42.i
+  %add.ptr.i43.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %sub.ptr.div.i42.i
   %defaultValues_.i = getelementptr inbounds i8, ptr %this, i64 168
-  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %147, i32 noundef %148, ptr %defaultValueRowNumbers.sroa.0.4.i, ptr %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
+  invoke void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %147, i32 noundef %148, ptr %defaultValueRowNumbers.sroa.0.2.i, ptr %add.ptr.i43.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %defaultValues_.i)
           to label %for.body53.lr.ph.i unwind label %lpad.loopexit.split-lp.i
 
 for.body53.lr.ph.i:                               ; preds = %invoke.cont46.i
@@ -11240,7 +11240,7 @@ for.body53.i:                                     ; preds = %for.inc64.i, %for.b
   %indvars.iv116.i = phi i64 [ 0, %for.body53.lr.ph.i ], [ %indvars.iv.next117.i, %for.inc64.i ]
   %149 = load ptr, ptr %result, align 8
   %150 = load ptr, ptr %defaultValues_.i, align 8
-  %add.ptr.i50.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.4.i, i64 %indvars.iv116.i
+  %add.ptr.i50.i = getelementptr inbounds i32, ptr %defaultValueRowNumbers.sroa.0.2.i, i64 %indvars.iv116.i
   %151 = load i32, ptr %add.ptr.i50.i, align 4
   %add59.i = add nsw i32 %151, %resultOffset
   %152 = load i32, ptr %partitionOffset_.i135, align 8
@@ -11263,11 +11263,11 @@ for.inc64.i:                                      ; preds = %for.body53.i
   br i1 %exitcond.not.i141, label %if.then.i.i.i52.i, label %for.body53.i, !llvm.loop !108
 
 cleanup.i:                                        ; preds = %for.end35.i
-  %tobool.not.i.i.i51.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.3.i, null
+  %tobool.not.i.i.i51.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.1.i, null
   br i1 %tobool.not.i.i.i51.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit, label %if.then.i.i.i52.i
 
 if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %cleanup.i
-  call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.4.i) #22
+  call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.2.i) #22
   br label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit
 
 _ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit: ; preds = %for.inc.i124, %for.cond.preheader.i, %land.lhs.true.i, %if.end.i.i134, %cleanup.i, %if.then.i.i.i52.i

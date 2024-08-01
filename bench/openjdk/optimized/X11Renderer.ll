@@ -784,12 +784,12 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
   br label %85
 
 85:                                               ; preds = %82, %79
-  %.0 = phi i8 [ %81, %79 ], [ %84, %82 ]
+  %.1 = phi i8 [ %81, %79 ], [ %84, %82 ]
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 1784
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %77, i32 noundef 2) #10
-  %89 = icmp eq i8 %.0, 0
+  %89 = icmp eq i8 %.1, 0
   %90 = load ptr, ptr %0, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 1784
   %92 = load ptr, ptr %91, align 8

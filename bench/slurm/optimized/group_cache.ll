@@ -298,14 +298,14 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %_init_or_reinit_entry.exit.i
 
 _init_or_reinit_entry.exit.i:                     ; preds = %115, %109
-  %.039.i = phi ptr [ %.0.i.i, %115 ], [ %25, %109 ]
+  %.1.i = phi ptr [ %.0.i.i, %115 ], [ %25, %109 ]
   call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %117 = getelementptr inbounds i8, ptr %.039.i, i64 8
-  %118 = getelementptr inbounds i8, ptr %.039.i, i64 4
-  %119 = getelementptr inbounds i8, ptr %.039.i, i64 24
-  %120 = getelementptr inbounds i8, ptr %.039.i, i64 16
+  %117 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %118 = getelementptr inbounds i8, ptr %.1.i, i64 4
+  %119 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %120 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %121 = load ptr, ptr %117, align 8
   %122 = load i32, ptr %118, align 4
   %123 = load ptr, ptr %119, align 8
@@ -345,12 +345,12 @@ _init_or_reinit_entry.exit.i:                     ; preds = %115, %109
   br i1 %140, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %_init_or_reinit_entry.exit.i, %34, %33
-  %.1.i = phi ptr [ %25, %34 ], [ %25, %33 ], [ %.039.i, %_init_or_reinit_entry.exit.i ], [ %.039.i, %.lr.ph.i ]
-  %141 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %.039.i = phi ptr [ %25, %34 ], [ %25, %33 ], [ %.1.i, %_init_or_reinit_entry.exit.i ], [ %.1.i, %.lr.ph.i ]
+  %141 = getelementptr inbounds i8, ptr %.039.i, i64 16
   %142 = load i32, ptr %141, align 8
   call void @slurm_xfree(ptr noundef %3) #10
   %143 = load i32, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %144 = getelementptr inbounds i8, ptr %.039.i, i64 24
   %145 = load ptr, ptr %144, align 8
   %.not.i26.i = icmp eq i32 %143, 0
   br i1 %.not.i26.i, label %copy_gids.exit.i, label %146

@@ -151,15 +151,15 @@ define zeroext i1 @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt
           to label %66 unwind label %.loopexit73.i
 
 65:                                               ; preds = %82, %72, %.loopexit.split-lp74.i, %.loopexit73.i
-  %.038.i = phi i1 [ false, %82 ], [ true, %72 ], [ %.139.ph.i, %.loopexit73.i ], [ %.not115.i.not, %.loopexit.split-lp74.i ]
-  %.035.i = phi i1 [ false, %82 ], [ false, %72 ], [ %.136.ph.i, %.loopexit73.i ], [ false, %.loopexit.split-lp74.i ]
+  %.139.i = phi i1 [ false, %82 ], [ true, %72 ], [ %.038.ph.i, %.loopexit73.i ], [ %.not115.i.not, %.loopexit.split-lp74.i ]
+  %.136.i = phi i1 [ false, %82 ], [ false, %72 ], [ %.035.ph.i, %.loopexit73.i ], [ false, %.loopexit.split-lp74.i ]
   %.pn47.i = phi { ptr, i32 } [ %.pn45.i, %82 ], [ %.pn.i, %72 ], [ %lpad.loopexit76.i, %.loopexit73.i ], [ %lpad.loopexit.split-lp77.i, %.loopexit.split-lp74.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %18) #7
           to label %125 unwind label %101
 
 .loopexit73.i:                                    ; preds = %88, %86, %79, %75, %69, %66, %64
-  %.139.ph.i = phi i1 [ true, %64 ], [ true, %66 ], [ true, %69 ], [ true, %75 ], [ false, %79 ], [ false, %86 ], [ false, %88 ]
-  %.136.ph.i = phi i1 [ true, %64 ], [ true, %66 ], [ false, %69 ], [ false, %75 ], [ false, %79 ], [ false, %86 ], [ false, %88 ]
+  %.038.ph.i = phi i1 [ true, %64 ], [ true, %66 ], [ true, %69 ], [ true, %75 ], [ false, %79 ], [ false, %86 ], [ false, %88 ]
+  %.035.ph.i = phi i1 [ true, %64 ], [ true, %66 ], [ false, %69 ], [ false, %75 ], [ false, %79 ], [ false, %86 ], [ false, %88 ]
   %lpad.loopexit76.i = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -384,10 +384,10 @@ define zeroext i1 @"_ZN66_$LT$cranelift_isle..error..Errors$u20$as$u20$core..fmt
           to label %60 unwind label %101
 
 125:                                              ; preds = %65
-  br i1 %.035.i, label %127, label %126
+  br i1 %.136.i, label %127, label %126
 
 126:                                              ; preds = %127, %125
-  br i1 %.038.i, label %128, label %60
+  br i1 %.139.i, label %128, label %60
 
 127:                                              ; preds = %125
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..diagnostic..Label$LT$usize$GT$$GT$$GT$17h79187072814c3983E"(ptr nonnull align 8 %48) #7

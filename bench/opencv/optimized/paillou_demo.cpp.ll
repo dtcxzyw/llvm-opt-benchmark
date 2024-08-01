@@ -290,7 +290,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
   br label %87
 
 86:                                               ; preds = %58, %30
-  %.014 = phi i32 [ 1, %30 ], [ 0, %58 ]
+  %.115 = phi i32 [ 1, %30 ], [ 0, %58 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #10
   br label %88
 
@@ -300,8 +300,8 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
   br label %89
 
 88:                                               ; preds = %86, %20
-  %.115 = phi i32 [ 1, %20 ], [ %.014, %86 ]
-  ret i32 %.115
+  %.014 = phi i32 [ 1, %20 ], [ %.115, %86 ]
+  ret i32 %.014
 
 89:                                               ; preds = %87, %36
   %.pn28.pn = phi { ptr, i32 } [ %.pn28, %87 ], [ %.pn, %36 ]
@@ -776,12 +776,12 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %56 = phi double [ %59, %.lr.ph.i.i ], [ %.ph, %.lr.ph.i.i.preheader ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 8, %.lr.ph.i.i.preheader ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %18, %.lr.ph.i.i.preheader ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %18, %.lr.ph.i.i.preheader ]
   %.ptr = getelementptr inbounds i8, ptr %18, i64 %.idx
   %57 = load double, ptr %.ptr, align 8
   %58 = fcmp olt double %56, %57
   %59 = select i1 %58, double %57, double %56
-  %spec.select.i.i = select i1 %58, ptr %.ptr, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %58, ptr %.ptr, ptr %.sroa.02.110.i.i
   %.add = add nuw nsw i64 %.idx, 8
   %.not.i.i = icmp eq i64 %.add, 24
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i25, label %.lr.ph.i.i, !llvm.loop !7
@@ -795,12 +795,12 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
 .lr.ph.i.i27:                                     ; preds = %.lr.ph.i.i27, %.lr.ph.preheader.i.i25
   %61 = phi double [ %64, %.lr.ph.i.i27 ], [ %.pre.i.i26, %.lr.ph.preheader.i.i25 ]
   %.idx57 = phi i64 [ %.add58, %.lr.ph.i.i27 ], [ 8, %.lr.ph.preheader.i.i25 ]
-  %.sroa.02.010.i.i28 = phi ptr [ %spec.select.i.i29, %.lr.ph.i.i27 ], [ %16, %.lr.ph.preheader.i.i25 ]
+  %.sroa.02.110.i.i28 = phi ptr [ %spec.select.i.i29, %.lr.ph.i.i27 ], [ %16, %.lr.ph.preheader.i.i25 ]
   %.ptr59 = getelementptr inbounds i8, ptr %16, i64 %.idx57
   %62 = load double, ptr %.ptr59, align 8
   %63 = fcmp olt double %62, %61
   %64 = select i1 %63, double %62, double %61
-  %spec.select.i.i29 = select i1 %63, ptr %.ptr59, ptr %.sroa.02.010.i.i28
+  %spec.select.i.i29 = select i1 %63, ptr %.ptr59, ptr %.sroa.02.110.i.i28
   %.add58 = add nuw nsw i64 %.idx57, 8
   %.not.i.i30 = icmp eq i64 %.add58, 24
   br i1 %.not.i.i30, label %65, label %.lr.ph.i.i27, !llvm.loop !8

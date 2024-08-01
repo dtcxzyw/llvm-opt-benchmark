@@ -1331,8 +1331,8 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
   br label %157
 
 157:                                              ; preds = %153, %154
-  %.1349 = phi i64 [ %156, %154 ], [ %101, %153 ]
-  %158 = icmp slt i64 %.1349, 0
+  %.2350 = phi i64 [ %156, %154 ], [ %101, %153 ]
+  %158 = icmp slt i64 %.2350, 0
   br i1 %158, label %159, label %163
 
 159:                                              ; preds = %157
@@ -1347,7 +1347,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
   br label %.thread419
 
 .thread419:                                       ; preds = %145, %163, %151
-  %.2350 = phi i64 [ %.1349, %163 ], [ %.0348, %151 ], [ 0, %145 ]
+  %.1349 = phi i64 [ %.2350, %163 ], [ %.0348, %151 ], [ 0, %145 ]
   switch i32 %.sroa.38.0.copyload241, label %165 [
     i32 2, label %164
     i32 0, label %164
@@ -1363,15 +1363,15 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
   br label %.loopexit448
 
 169:                                              ; preds = %164
-  call void @H5T__bit_set(ptr noundef %96, i64 noundef %.2350, i64 noundef 1, i1 noundef zeroext false) #10
+  call void @H5T__bit_set(ptr noundef %96, i64 noundef %.1349, i64 noundef 1, i1 noundef zeroext false) #10
   br label %171
 
 170:                                              ; preds = %164
-  %spec.select402 = add i64 %.2350, %106
+  %spec.select402 = add i64 %.1349, %106
   br label %171
 
 171:                                              ; preds = %170, %169
-  %.0351 = phi i64 [ %.2350, %169 ], [ %spec.select402, %170 ]
+  %.0351 = phi i64 [ %.1349, %169 ], [ %spec.select402, %170 ]
   %172 = icmp ugt i64 %.0351, %.sroa.25.0.copyload227
   br i1 %172, label %173, label %211
 
@@ -1458,7 +1458,7 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
 214:                                              ; preds = %205, %.thread429, %201, %209, %211
   %invariant.op454.pn = phi i64 [ %invariant.op, %209 ], [ %.sroa.23.0.copyload223.mux.mux, %205 ], [ %.sroa.23.0.copyload223, %201 ], [ %.sroa.23.0.copyload223, %211 ], [ %.sroa.23.0.copyload223, %.thread429 ]
   %.1 = phi i32 [ %.0347426, %209 ], [ %.0347426, %205 ], [ %.0347426, %201 ], [ 0, %211 ], [ %.0347426, %.thread429 ]
-  %.0359 = add i64 %.2350, %invariant.op454.pn
+  %.0359 = add i64 %.1349, %invariant.op454.pn
   %exp2 = call double @exp2(double %110) #10
   %215 = fadd double %exp2, -1.000000e+00
   %216 = fptoui double %215 to i64
@@ -1501,14 +1501,14 @@ define range(i32 -1, 1) i32 @H5T__conv_i_f(ptr noundef readonly %0, ptr noundef 
   br i1 %or.cond23, label %.thread, label %.thread431
 
 .thread:                                          ; preds = %218, %236
-  %.2469 = phi i32 [ %231, %236 ], [ %.1, %218 ]
+  %.3469 = phi i32 [ %231, %236 ], [ %.1, %218 ]
   call void @llvm.memset.p0.i64(ptr align 1 %96, i8 0, i64 %95, i1 false)
   br label %239
 
 239:                                              ; preds = %.thread, %214
   %.1360 = phi i64 [ %216, %.thread ], [ %.0359, %214 ]
-  %.3 = phi i32 [ %.2469, %.thread ], [ %.1, %214 ]
-  %240 = icmp eq i32 %.3, 0
+  %.2 = phi i32 [ %.3469, %.thread ], [ %.1, %214 ]
+  %240 = icmp eq i32 %.2, 0
   br i1 %240, label %241, label %.thread431
 
 241:                                              ; preds = %239

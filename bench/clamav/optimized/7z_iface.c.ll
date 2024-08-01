@@ -98,10 +98,10 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 37:                                               ; preds = %.lr.ph131, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next, %123 ]
-  %.065129 = phi i32 [ 0, %.lr.ph131 ], [ %.1, %123 ]
-  %.066128 = phi i32 [ 0, %.lr.ph131 ], [ %.268, %123 ]
-  %.074126 = phi i32 [ 256, %.lr.ph131 ], [ %.377, %123 ]
-  %.080125 = phi ptr [ %6, %.lr.ph131 ], [ %.383, %123 ]
+  %.1129 = phi i32 [ 0, %.lr.ph131 ], [ %.3, %123 ]
+  %.066128 = phi i32 [ 0, %.lr.ph131 ], [ %.167, %123 ]
+  %.175126 = phi i32 [ 256, %.lr.ph131 ], [ %.377, %123 ]
+  %.181125 = phi ptr [ %6, %.lr.ph131 ], [ %.383, %123 ]
   store i64 0, ptr %10, align 8
   store i64 0, ptr %11, align 8
   %38 = load ptr, ptr %32, align 8
@@ -131,15 +131,15 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 50:                                               ; preds = %48
   %51 = call i64 @SzArEx_GetFileNameUtf16(ptr noundef nonnull %5, i64 noundef %indvars.iv, ptr noundef null) #6
   %52 = trunc i64 %51 to i32
-  %53 = icmp slt i32 %.074126, %52
+  %53 = icmp slt i32 %.175126, %52
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %50
-  %55 = icmp sgt i32 %.074126, 256
+  %55 = icmp sgt i32 %.175126, 256
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  call void @free(ptr noundef %.080125) #6
+  call void @free(ptr noundef %.181125) #6
   br label %57
 
 57:                                               ; preds = %56, %54
@@ -150,9 +150,9 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %.not105, label %.loopexit, label %61
 
 61:                                               ; preds = %50, %57
-  %.181 = phi ptr [ %.080125, %50 ], [ %60, %57 ]
-  %.175 = phi i32 [ %.074126, %50 ], [ %52, %57 ]
-  %62 = call i64 @SzArEx_GetFileNameUtf16(ptr noundef nonnull %5, i64 noundef %indvars.iv, ptr noundef %.181) #6
+  %.585 = phi ptr [ %.181125, %50 ], [ %60, %57 ]
+  %.579 = phi i32 [ %.175126, %50 ], [ %52, %57 ]
+  %62 = call i64 @SzArEx_GetFileNameUtf16(ptr noundef nonnull %5, i64 noundef %indvars.iv, ptr noundef %.585) #6
   %sext = shl i64 %51, 32
   %.not166 = icmp eq i64 %sext, 0
   br i1 %.not166, label %._crit_edge, label %.lr.ph.preheader
@@ -164,22 +164,22 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.063124 = phi i64 [ %68, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %64 = getelementptr inbounds i16, ptr %.181, i64 %.063124
+  %64 = getelementptr inbounds i16, ptr %.585, i64 %.063124
   %65 = load i16, ptr %64, align 2
   %66 = trunc i16 %65 to i8
-  %67 = getelementptr inbounds i8, ptr %.181, i64 %.063124
+  %67 = getelementptr inbounds i8, ptr %.585, i64 %.063124
   store i8 %66, ptr %67, align 1
   %68 = add nuw i64 %.063124, 1
   %exitcond.not = icmp eq i64 %68, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48, %61
-  %.276175 = phi i32 [ %.175, %61 ], [ %.074126, %48 ], [ %.175, %.lr.ph ]
-  %.282174 = phi ptr [ %.181, %61 ], [ %.080125, %48 ], [ %.181, %.lr.ph ]
+  %.478175 = phi i32 [ %.579, %61 ], [ %.175126, %48 ], [ %.579, %.lr.ph ]
+  %.484174 = phi ptr [ %.585, %61 ], [ %.181125, %48 ], [ %.585, %.lr.ph ]
   %.063.lcssa = phi i64 [ 0, %61 ], [ 0, %48 ], [ %umax, %.lr.ph ]
-  %69 = getelementptr inbounds i8, ptr %.282174, i64 %.063.lcssa
+  %69 = getelementptr inbounds i8, ptr %.484174, i64 %.063.lcssa
   store i8 0, ptr %69, align 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef %.282174) #6
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef %.484174) #6
   %70 = trunc nuw i64 %indvars.iv to i32
   %71 = call i32 @SzArEx_Extract(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %70, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @allocImp, ptr noundef nonnull @allocTempImp) #6
   %72 = icmp eq i32 %71, 18
@@ -200,7 +200,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %.not107, label %80, label %.loopexit
 
 80:                                               ; preds = %73, %78, %._crit_edge
-  %.167 = phi i32 [ 1, %78 ], [ 1, %73 ], [ %.066128, %._crit_edge ]
+  %.268 = phi i32 [ 1, %78 ], [ 1, %73 ], [ %.066128, %._crit_edge ]
   %81 = load i64, ptr %45, align 8
   %82 = getelementptr inbounds i8, ptr %39, i64 27
   %83 = load i8, ptr %82, align 1
@@ -214,7 +214,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 87:                                               ; preds = %80, %84
   %88 = phi i32 [ %86, %84 ], [ 0, %80 ]
-  %89 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %.282174, i64 noundef 0, i64 noundef %81, i32 noundef %.167, i32 noundef %70, i32 noundef %88) #6
+  %89 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %.484174, i64 noundef 0, i64 noundef %81, i32 noundef %.268, i32 noundef %70, i32 noundef %88) #6
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %.loopexit, label %91
 
@@ -255,7 +255,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %109 = call i64 @cli_writen(i32 noundef %104, ptr noundef %107, i64 noundef %108) #6
   %110 = load i32, ptr %13, align 4
   %111 = load ptr, ptr %12, align 8
-  %112 = call i32 @cli_magic_scan_desc(i32 noundef %110, ptr noundef %111, ptr noundef nonnull %0, ptr noundef nonnull %.282174, i32 noundef 0) #6
+  %112 = call i32 @cli_magic_scan_desc(i32 noundef %110, ptr noundef %111, ptr noundef nonnull %0, ptr noundef nonnull %.484174, i32 noundef 0) #6
   %113 = load i32, ptr %13, align 4
   %114 = call i32 @close(i32 noundef %113) #6
   %115 = load ptr, ptr %36, align 8
@@ -282,10 +282,10 @@ select.unfold:                                    ; preds = %118, %102
   br i1 %.not114, label %123, label %.loopexit
 
 123:                                              ; preds = %92, %select.unfold, %98, %44, %41
-  %.383 = phi ptr [ %.080125, %41 ], [ %.080125, %44 ], [ %.282174, %92 ], [ %.282174, %98 ], [ %.282174, %select.unfold ]
-  %.377 = phi i32 [ %.074126, %41 ], [ %.074126, %44 ], [ %.276175, %92 ], [ %.276175, %98 ], [ %.276175, %select.unfold ]
-  %.268 = phi i32 [ %.066128, %41 ], [ %.066128, %44 ], [ %.167, %92 ], [ %.167, %98 ], [ %.167, %select.unfold ]
-  %.1 = phi i32 [ %.065129, %41 ], [ %.065129, %44 ], [ %71, %92 ], [ 0, %98 ], [ 0, %select.unfold ]
+  %.383 = phi ptr [ %.181125, %41 ], [ %.181125, %44 ], [ %.484174, %92 ], [ %.484174, %98 ], [ %.484174, %select.unfold ]
+  %.377 = phi i32 [ %.175126, %41 ], [ %.175126, %44 ], [ %.478175, %92 ], [ %.478175, %98 ], [ %.478175, %select.unfold ]
+  %.167 = phi i32 [ %.066128, %41 ], [ %.066128, %44 ], [ %.268, %92 ], [ %.268, %98 ], [ %.268, %select.unfold ]
+  %.3 = phi i32 [ %.1129, %41 ], [ %.1129, %44 ], [ %71, %92 ], [ 0, %98 ], [ 0, %select.unfold ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = load i32, ptr %30, align 8
   %125 = zext i32 %124 to i64
@@ -293,30 +293,30 @@ select.unfold:                                    ; preds = %118, %102
   br i1 %126, label %37, label %.loopexit
 
 .thread117:                                       ; preds = %27, %2, %21
-  %.5.ph = phi i32 [ 0, %21 ], [ 0, %2 ], [ %28, %27 ]
+  %.070.ph = phi i32 [ 0, %21 ], [ 0, %2 ], [ %28, %27 ]
   call void @SzArEx_Free(ptr noundef nonnull %5, ptr noundef nonnull @allocImp) #6
   br label %131
 
 .loopexit:                                        ; preds = %87, %57, %select.unfold, %99, %78, %37, %123, %29, %.thread
-  %.484 = phi ptr [ %.282174, %.thread ], [ %6, %29 ], [ %.383, %123 ], [ %.080125, %37 ], [ %.282174, %78 ], [ %.282174, %99 ], [ %.282174, %select.unfold ], [ null, %57 ], [ %.282174, %87 ]
-  %.478 = phi i32 [ %.276175, %.thread ], [ 256, %29 ], [ %.377, %123 ], [ %.074126, %37 ], [ %.276175, %78 ], [ %.276175, %99 ], [ %.276175, %select.unfold ], [ %.074126, %57 ], [ %.276175, %87 ]
-  %.4 = phi i32 [ 10, %.thread ], [ 0, %29 ], [ 0, %123 ], [ %40, %37 ], [ %79, %78 ], [ %101, %99 ], [ %112, %select.unfold ], [ 20, %57 ], [ 1, %87 ]
-  %.2 = phi i32 [ 0, %.thread ], [ 0, %29 ], [ %.1, %123 ], [ %.065129, %37 ], [ 18, %78 ], [ 0, %99 ], [ 0, %select.unfold ], [ %.065129, %57 ], [ %71, %87 ]
+  %.282 = phi ptr [ %.484174, %.thread ], [ %6, %29 ], [ %.383, %123 ], [ %.181125, %37 ], [ %.484174, %78 ], [ %.484174, %99 ], [ %.484174, %select.unfold ], [ null, %57 ], [ %.484174, %87 ]
+  %.276 = phi i32 [ %.478175, %.thread ], [ 256, %29 ], [ %.377, %123 ], [ %.175126, %37 ], [ %.478175, %78 ], [ %.478175, %99 ], [ %.478175, %select.unfold ], [ %.175126, %57 ], [ %.478175, %87 ]
+  %.272 = phi i32 [ 10, %.thread ], [ 0, %29 ], [ 0, %123 ], [ %40, %37 ], [ %79, %78 ], [ %101, %99 ], [ %112, %select.unfold ], [ 20, %57 ], [ 1, %87 ]
+  %.2 = phi i32 [ 0, %.thread ], [ 0, %29 ], [ %.3, %123 ], [ %.1129, %37 ], [ 18, %78 ], [ 0, %99 ], [ 0, %select.unfold ], [ %.1129, %57 ], [ %71, %87 ]
   %127 = load ptr, ptr getelementptr inbounds (i8, ptr @allocImp, i64 8), align 8
   %128 = load ptr, ptr %8, align 8
   call void %127(ptr noundef nonnull @allocImp, ptr noundef %128) #6
-  %129 = icmp sgt i32 %.478, 256
+  %129 = icmp sgt i32 %.276, 256
   call void @SzArEx_Free(ptr noundef nonnull %5, ptr noundef nonnull @allocImp) #6
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %.484) #6
+  call void @free(ptr noundef %.282) #6
   br label %131
 
 131:                                              ; preds = %.thread117, %130, %.loopexit
-  %.3123 = phi i32 [ %20, %.thread117 ], [ %.2, %130 ], [ %.2, %.loopexit ]
-  %.5122 = phi i32 [ %.5.ph, %.thread117 ], [ %.4, %130 ], [ %.4, %.loopexit ]
-  switch i32 %.3123, label %137 [
+  %.065123 = phi i32 [ %20, %.thread117 ], [ %.2, %130 ], [ %.2, %.loopexit ]
+  %.070122 = phi i32 [ %.070.ph, %.thread117 ], [ %.272, %130 ], [ %.272, %.loopexit ]
+  switch i32 %.065123, label %137 [
     i32 0, label %132
     i32 4, label %133
     i32 2, label %134
@@ -345,11 +345,11 @@ select.unfold:                                    ; preds = %118, %102
   br label %138
 
 137:                                              ; preds = %131
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %.3123) #6
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %.065123) #6
   br label %138
 
 138:                                              ; preds = %132, %134, %136, %137, %135, %133
-  ret i32 %.5122
+  ret i32 %.070122
 }
 
 ; Function Attrs: nounwind uwtable

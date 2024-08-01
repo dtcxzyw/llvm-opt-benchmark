@@ -124,9 +124,9 @@ if.then17:                                        ; preds = %if.then14
 if.end29:                                         ; preds = %if.then17, %if.then14
   %.pre = phi i32 [ %.pre.pre, %if.then17 ], [ %.pre110, %if.then14 ]
   %12 = phi i32 [ %add28, %if.then17 ], [ %9, %if.then14 ]
-  %in.addr.1 = phi ptr [ %add.ptr, %if.then17 ], [ %in.addr.091, %if.then14 ]
-  %inl.addr.1 = phi i32 [ %sub25, %if.then17 ], [ %inl.addr.092, %if.then14 ]
-  %num.1 = phi i32 [ %add26, %if.then17 ], [ %num.093, %if.then14 ]
+  %in.addr.2 = phi ptr [ %add.ptr, %if.then17 ], [ %in.addr.091, %if.then14 ]
+  %inl.addr.2 = phi i32 [ %sub25, %if.then17 ], [ %inl.addr.092, %if.then14 ]
+  %num.2 = phi i32 [ %add26, %if.then17 ], [ %num.093, %if.then14 ]
   br label %for.cond30
 
 for.cond30:                                       ; preds = %if.end46, %if.end29
@@ -146,8 +146,8 @@ if.then39:                                        ; preds = %for.cond30
   br i1 %cmp40, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.then39
-  %cmp43 = icmp sgt i32 %num.1, 0
-  %cond = select i1 %cmp43, i32 %num.1, i32 %call
+  %cmp43 = icmp sgt i32 %num.2, 0
+  %cond = select i1 %cmp43, i32 %num.2, i32 %call
   br label %return
 
 if.end46:                                         ; preds = %for.cond30
@@ -161,16 +161,16 @@ if.end46:                                         ; preds = %for.cond30
   br i1 %cmp52, label %if.end56, label %for.cond30
 
 if.end56:                                         ; preds = %if.end46, %if.end10
-  %in.addr.2 = phi ptr [ %in.addr.091, %if.end10 ], [ %in.addr.1, %if.end46 ]
-  %inl.addr.2 = phi i32 [ %inl.addr.092, %if.end10 ], [ %inl.addr.1, %if.end46 ]
-  %num.2 = phi i32 [ %num.093, %if.end10 ], [ %num.1, %if.end46 ]
+  %in.addr.1 = phi ptr [ %in.addr.091, %if.end10 ], [ %in.addr.2, %if.end46 ]
+  %inl.addr.1 = phi i32 [ %inl.addr.092, %if.end10 ], [ %inl.addr.2, %if.end46 ]
+  %num.1 = phi i32 [ %num.093, %if.end10 ], [ %num.2, %if.end46 ]
   store i32 0, ptr %obuf_off, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end76, %if.end56
-  %in.addr.3 = phi ptr [ %in.addr.2, %if.end56 ], [ %add.ptr79, %if.end76 ]
-  %inl.addr.3 = phi i32 [ %inl.addr.2, %if.end56 ], [ %sub80, %if.end76 ]
-  %num.3 = phi i32 [ %num.2, %if.end56 ], [ %add77, %if.end76 ]
+  %in.addr.3 = phi ptr [ %in.addr.1, %if.end56 ], [ %add.ptr79, %if.end76 ]
+  %inl.addr.3 = phi i32 [ %inl.addr.1, %if.end56 ], [ %sub80, %if.end76 ]
+  %num.3 = phi i32 [ %num.1, %if.end56 ], [ %add77, %if.end76 ]
   %19 = load i32, ptr %obuf_size, align 4
   %cmp59.not = icmp slt i32 %inl.addr.3, %19
   br i1 %cmp59.not, label %for.cond.loopexit, label %while.body
@@ -200,7 +200,7 @@ if.end76:                                         ; preds = %while.body
   br i1 %cmp81, label %return, label %while.cond, !llvm.loop !7
 
 return:                                           ; preds = %if.end76, %if.then65, %if.then39, %entry, %lor.lhs.false, %if.then68, %if.then42, %if.then3
-  %retval.0 = phi i32 [ %add9, %if.then3 ], [ %cond, %if.then42 ], [ %cond74, %if.then68 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %num.1, %if.then39 ], [ %num.3, %if.then65 ], [ %add77, %if.end76 ]
+  %retval.0 = phi i32 [ %add9, %if.then3 ], [ %cond, %if.then42 ], [ %cond74, %if.then68 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %num.2, %if.then39 ], [ %num.3, %if.then65 ], [ %add77, %if.end76 ]
   ret i32 %retval.0
 }
 

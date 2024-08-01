@@ -46,8 +46,8 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
-  %.135 = phi ptr [ %21, %.preheader.preheader ], [ %22, %.preheader.backedge ]
-  %22 = getelementptr inbounds i8, ptr %.135, i64 -1
+  %.2 = phi ptr [ %21, %.preheader.preheader ], [ %22, %.preheader.backedge ]
+  %22 = getelementptr inbounds i8, ptr %.2, i64 -1
   %23 = icmp ugt ptr %22, %4
   br i1 %23, label %24, label %.critedge
 
@@ -106,7 +106,7 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
   %46 = getelementptr inbounds i8, ptr %28, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 47
-  %spec.select72 = select i1 %48, ptr %.135, ptr %22
+  %spec.select72 = select i1 %48, ptr %.2, ptr %22
   br label %49
 
 49:                                               ; preds = %43, %41

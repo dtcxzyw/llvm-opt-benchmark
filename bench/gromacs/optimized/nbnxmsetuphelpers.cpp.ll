@@ -197,7 +197,7 @@ define noundef range(i64 0, 256) i64 @_ZN5nblib19findNumEnergyGroupsEN3gmx8Array
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %5 = phi i64 [ %13, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %6 = phi ptr [ %14, %.lr.ph.i.i ], [ %4, %.lr.ph.preheader.i.i ]
-  %.sroa.07.011.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %0, %.lr.ph.preheader.i.i ]
+  %.sroa.07.111.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %0, %.lr.ph.preheader.i.i ]
   %7 = trunc i64 %5 to i32
   %8 = load i64, ptr %6, align 8
   %9 = trunc i64 %8 to i32
@@ -205,14 +205,14 @@ define noundef range(i64 0, 256) i64 @_ZN5nblib19findNumEnergyGroupsEN3gmx8Array
   %11 = and i32 %9, 255
   %12 = icmp ult i32 %10, %11
   %13 = select i1 %12, i64 %8, i64 %5
-  %spec.select.i.i = select i1 %12, ptr %6, ptr %.sroa.07.011.i.i
+  %spec.select.i.i = select i1 %12, ptr %6, ptr %.sroa.07.111.i.i
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %.not.i.i = icmp eq ptr %14, %1
   br i1 %.not.i.i, label %"_ZSt11max_elementIN3gmx12ArrayRefIterIlEEZN5nblib19findNumEnergyGroupsENS0_8ArrayRefIlEEE3$_0ET_S7_S7_T0_.exit", label %.lr.ph.i.i, !llvm.loop !5
 
 "_ZSt11max_elementIN3gmx12ArrayRefIterIlEEZN5nblib19findNumEnergyGroupsENS0_8ArrayRefIlEEE3$_0ET_S7_S7_T0_.exit": ; preds = %.lr.ph.i.i, %2
-  %.sroa.07.2.i.i = phi ptr [ %0, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %15 = load i64, ptr %.sroa.07.2.i.i, align 8
+  %.sroa.07.0.i.i = phi ptr [ %0, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %15 = load i64, ptr %.sroa.07.0.i.i, align 8
   %16 = add i64 %15, 1
   %17 = and i64 %16, 255
   ret i64 %17

@@ -1448,7 +1448,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
 
 129:                                              ; preds = %.lr.ph, %.loopexit97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit97 ]
-  %.sroa.0.0114 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.2, %.loopexit97 ]
+  %.sroa.0.0114 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %.loopexit97 ]
   %130 = shl nuw nsw i64 %indvars.iv, 1
   %131 = load ptr, ptr %96, align 8
   %132 = getelementptr inbounds i64, ptr %131, i64 %130
@@ -1526,7 +1526,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i:                 ; preds = %146
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
   %.034113 = phi i64 [ %186, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ 0, %.preheader.preheader ]
-  %.sroa.0.1112 = phi i32 [ %.pre, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %.sroa.0.0114, %.preheader.preheader ]
+  %.sroa.0.2112 = phi i32 [ %.pre, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %.sroa.0.0114, %.preheader.preheader ]
   %152 = add nsw i64 %.034113, %133
   br label %153
 
@@ -1565,8 +1565,8 @@ _ZNKSt8functionIFjiEEclEi.exit.i80:               ; preds = %153
   %170 = sub i64 %168, %169
   %171 = sdiv exact i64 %170, 12
   %172 = trunc i64 %171 to i32
-  %.not.i = icmp ult i32 %.sroa.0.1112, %172
-  %.pre = add i32 %.sroa.0.1112, 1
+  %.not.i = icmp ult i32 %.sroa.0.2112, %172
+  %.pre = add i32 %.sroa.0.2112, 1
   br i1 %.not.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %173
 
 173:                                              ; preds = %162
@@ -1599,7 +1599,7 @@ _ZNKSt8functionIFjiEEclEi.exit.i80:               ; preds = %153
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i: ; preds = %162, %182, %180, %178, %.noexc85
   %183 = phi ptr [ %167, %182 ], [ %167, %180 ], [ %167, %178 ], [ %.pre.i, %.noexc85 ], [ %167, %162 ]
-  %184 = zext i32 %.sroa.0.1112 to i64
+  %184 = zext i32 %.sroa.0.2112 to i64
   %185 = getelementptr inbounds %"struct.std::array", ptr %183, i64 %184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %185, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -1608,13 +1608,13 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
   br i1 %exitcond117.not, label %.loopexit97, label %.preheader, !llvm.loop !21
 
 .loopexit97:                                      ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %129
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0114, %129 ], [ %.pre, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0114, %129 ], [ %.pre, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond119.not, label %._crit_edge.loopexit, label %129, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit97
-  %187 = zext i32 %.sroa.0.2 to i64
+  %187 = zext i32 %.sroa.0.1 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %122

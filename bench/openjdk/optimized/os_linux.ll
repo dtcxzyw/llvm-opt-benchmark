@@ -2145,8 +2145,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %149, %._crit_edge, 
   br label %.thread
 
 .thread:                                          ; preds = %154, %152, %3, %76, %14
-  %.1 = phi i1 [ false, %14 ], [ false, %76 ], [ false, %3 ], [ %.not85, %152 ], [ %.not85, %154 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %14 ], [ false, %76 ], [ false, %3 ], [ %.not85, %152 ], [ %.not85, %154 ]
+  ret i1 %.0
 }
 
 declare void @_ZN8OSThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(196)) unnamed_addr #1
@@ -3381,7 +3381,7 @@ define hidden noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef %0, ptr noundef %1
   br label %27
 
 27:                                               ; preds = %25, %22
-  %.067 = phi ptr [ null, %22 ], [ %26, %25 ]
+  %.168 = phi ptr [ null, %22 ], [ %26, %25 ]
   %28 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %29 = trunc i8 %28 to i1
   store volatile i32 6, ptr %19, align 4
@@ -3432,7 +3432,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %45 = load i8, ptr @LoadExecStackDllInVMThread, align 1
   %46 = trunc i8 %45 to i1
   %47 = load ptr, ptr %44, align 8
-  %spec.select85 = select i1 %46, ptr %47, ptr %.067
+  %spec.select85 = select i1 %46, ptr %47, ptr %.168
   %48 = getelementptr inbounds i8, ptr %18, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !18
@@ -4978,7 +4978,7 @@ define hidden void @_ZN2os17pd_print_cpu_infoEP12outputStreamPcm(ptr noundef %0,
   br label %11
 
 11:                                               ; preds = %22, %.lr.ph.i
-  %.023.i = phi i1 [ false, %.lr.ph.i ], [ %.2.i, %22 ]
+  %.023.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %22 ]
   %12 = tail call ptr @fgets(ptr noundef %1, i32 noundef %10, ptr noundef nonnull %8)
   %.not19.i = icmp eq ptr %12, null
   br i1 %.not19.i, label %22, label %13
@@ -4998,7 +4998,7 @@ define hidden void @_ZN2os17pd_print_cpu_infoEP12outputStreamPcm(ptr noundef %0,
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.1.i = phi i1 [ true, %16 ], [ %.023.i, %13 ]
+  %.2.i = phi i1 [ true, %16 ], [ %.023.i, %13 ]
   %19 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.304) #27
   %.not21.i = icmp eq ptr %19, null
   br i1 %.not21.i, label %22, label %20
@@ -5009,7 +5009,7 @@ define hidden void @_ZN2os17pd_print_cpu_infoEP12outputStreamPcm(ptr noundef %0,
   br label %_ZL26print_model_name_and_flagsP12outputStreamPcm.exit.thread7
 
 22:                                               ; preds = %18, %11
-  %.2.i = phi i1 [ %.1.i, %18 ], [ %.023.i, %11 ]
+  %.1.i = phi i1 [ %.2.i, %18 ], [ %.023.i, %11 ]
   %23 = tail call i32 @feof(ptr noundef nonnull %8) #26
   %.not18.i = icmp eq i32 %23, 0
   br i1 %.not18.i, label %11, label %_ZL26print_model_name_and_flagsP12outputStreamPcm.exit, !llvm.loop !28
@@ -8499,13 +8499,13 @@ define hidden noundef i32 @_ZN2os5Linux17get_namespace_pidEi(i32 noundef %0) loc
   br i1 %.not13, label %.lr.ph, label %.critedge, !llvm.loop !45
 
 .critedge:                                        ; preds = %.lr.ph, %14, %9, %.preheader15, %11
-  %.0 = phi i32 [ %12, %11 ], [ -1, %.preheader15 ], [ -1, %9 ], [ -1, %14 ], [ -1, %.lr.ph ]
+  %.1 = phi i32 [ %12, %11 ], [ -1, %.preheader15 ], [ -1, %9 ], [ -1, %14 ], [ -1, %.lr.ph ]
   %16 = call i32 @fclose(ptr noundef nonnull %6)
   br label %17
 
 17:                                               ; preds = %.critedge, %1
-  %.1 = phi i32 [ %.0, %.critedge ], [ -1, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %.critedge ], [ -1, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -12386,8 +12386,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 

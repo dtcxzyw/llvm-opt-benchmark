@@ -8208,8 +8208,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 
 375:                                              ; preds = %374, %278
   %.pn119.pn.pn = phi { ptr, i32 } [ %.pn119.pn, %374 ], [ %279, %278 ]
-  %.32 = extractvalue { ptr, i32 } %.pn119.pn.pn, 0
-  %376 = call ptr @__cxa_begin_catch(ptr %.32) #23
+  %.23 = extractvalue { ptr, i32 } %.pn119.pn.pn, 0
+  %376 = call ptr @__cxa_begin_catch(ptr %.23) #23
   %377 = add nsw i32 %153, 1
   call void @__cxa_end_catch()
   br label %378
@@ -14034,8 +14034,8 @@ define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(p
 
 48:                                               ; preds = %46, %45, %40, %35, %30
   %.pn13 = phi { ptr, i32 } [ %47, %46 ], [ %.pn12, %45 ], [ %.pn11, %40 ], [ %.pn10, %35 ], [ %.pn, %30 ]
-  %.4 = extractvalue { ptr, i32 } %.pn13, 0
-  %49 = call ptr @__cxa_begin_catch(ptr %.4) #23
+  %.1 = extractvalue { ptr, i32 } %.pn13, 0
+  %49 = call ptr @__cxa_begin_catch(ptr %.1) #23
   invoke void @__cxa_end_catch()
           to label %50 unwind label %55
 
@@ -18950,8 +18950,8 @@ _ZNK2mu14ParserByteCode7GetBaseEv.exit36:         ; preds = %73
 .body26:                                          ; preds = %35, %82, %57, %104, %99, %56, %51
   %.pn24 = phi { ptr, i32 } [ %.pn21, %104 ], [ %.pn20, %99 ], [ %.pn18, %56 ], [ %.pn, %51 ], [ %36, %35 ], [ %58, %57 ], [ %83, %82 ]
   %.2 = phi i32 [ %.1, %104 ], [ %.1, %99 ], [ 0, %56 ], [ 0, %51 ], [ 0, %35 ], [ %.0, %57 ], [ %.1, %82 ]
-  %.4 = extractvalue { ptr, i32 } %.pn24, 0
-  %105 = call ptr @__cxa_begin_catch(ptr %.4) #23
+  %.115 = extractvalue { ptr, i32 } %.pn24, 0
+  %105 = call ptr @__cxa_begin_catch(ptr %.115) #23
   %106 = add nuw nsw i32 %.2, 1
   invoke void @__cxa_end_catch()
           to label %.thread unwind label %112
@@ -19024,8 +19024,8 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester8IsHexValEPKcPiPd(p
 11:                                               ; preds = %3
   %12 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %12, 48
-  %.not12 = icmp eq i8 %9, 120
-  %or.cond = and i1 %.not12, %.not
+  %.not13 = icmp eq i8 %9, 120
+  %or.cond = and i1 %.not13, %.not
   br i1 %or.cond, label %13, label %40
 
 13:                                               ; preds = %11
@@ -19096,12 +19096,12 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester8IsHexValEPKcPiPd(p
   br label %40
 
 40:                                               ; preds = %3, %11, %39
-  %.1 = phi i32 [ 1, %39 ], [ 0, %11 ], [ 0, %3 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1, %39 ], [ 0, %11 ], [ 0, %3 ]
+  ret i32 %.0
 
 41:                                               ; preds = %30, %29
-  %.pn14 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %29 ]
-  resume { ptr, i32 } %.pn14
+  %.pn15 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %29 ]
+  resume { ptr, i32 } %.pn15
 }
 
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
@@ -19811,14 +19811,14 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__
 
 178:                                              ; preds = %177, %108
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %177 ], [ %109, %108 ]
-  %.1435 = extractvalue { ptr, i32 } %.pn62.pn, 1
+  %.021 = extractvalue { ptr, i32 } %.pn62.pn, 1
   %179 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
-  %180 = icmp eq i32 %.1435, %179
+  %180 = icmp eq i32 %.021, %179
   br i1 %180, label %181, label %224
 
 181:                                              ; preds = %178
-  %.14 = extractvalue { ptr, i32 } %.pn62.pn, 0
-  %182 = call ptr @__cxa_begin_catch(ptr %.14) #23
+  %.020 = extractvalue { ptr, i32 } %.pn62.pn, 0
+  %182 = call ptr @__cxa_begin_catch(ptr %.020) #23
   br i1 %3, label %183, label %186
 
 183:                                              ; preds = %181
@@ -21694,7 +21694,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
   br label %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419
 
 516:                                              ; preds = %982, %979, %977, %974, %972, %969, %967, %964, %962, %959, %957, %954, %952, %950, %948, %945, %943, %924, %503, %501, %500, %228, %197
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %982 ], [ %.sroa.0.2, %979 ], [ %.sroa.0.2, %977 ], [ %.sroa.0.2, %974 ], [ %.sroa.0.2, %972 ], [ %.sroa.0.2, %969 ], [ %.sroa.0.2, %967 ], [ %.sroa.0.2, %964 ], [ %.sroa.0.2, %962 ], [ %.sroa.0.2, %959 ], [ %.sroa.0.2, %957 ], [ %.sroa.0.2, %954 ], [ %.sroa.0.2, %952 ], [ %.sroa.0.2, %950 ], [ %.sroa.0.2, %948 ], [ %.sroa.0.2, %945 ], [ %.sroa.0.2, %943 ], [ %.sroa.0.1, %924 ], [ %198, %503 ], [ %198, %501 ], [ %198, %500 ], [ %198, %228 ], [ null, %197 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.4, %982 ], [ %.sroa.0.4, %979 ], [ %.sroa.0.4, %977 ], [ %.sroa.0.4, %974 ], [ %.sroa.0.4, %972 ], [ %.sroa.0.4, %969 ], [ %.sroa.0.4, %967 ], [ %.sroa.0.4, %964 ], [ %.sroa.0.4, %962 ], [ %.sroa.0.4, %959 ], [ %.sroa.0.4, %957 ], [ %.sroa.0.4, %954 ], [ %.sroa.0.4, %952 ], [ %.sroa.0.4, %950 ], [ %.sroa.0.4, %948 ], [ %.sroa.0.4, %945 ], [ %.sroa.0.4, %943 ], [ %.sroa.0.5, %924 ], [ %198, %503 ], [ %198, %501 ], [ %198, %500 ], [ %198, %228 ], [ null, %197 ]
   %.044 = phi i32 [ 1, %982 ], [ 1, %979 ], [ 1, %977 ], [ 1, %974 ], [ 1, %972 ], [ 1, %969 ], [ 1, %967 ], [ 1, %964 ], [ 1, %962 ], [ 1, %959 ], [ 1, %957 ], [ 1, %954 ], [ 1, %952 ], [ 1, %950 ], [ 1, %948 ], [ 1, %945 ], [ 1, %943 ], [ 0, %924 ], [ 0, %503 ], [ 0, %501 ], [ 0, %500 ], [ 0, %228 ], [ 0, %197 ]
   %517 = landingpad { ptr, i32 }
           catch ptr @_ZTIN2mu11ParserErrorE
@@ -21731,8 +21731,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 528:                                              ; preds = %526, %524
   %.pn = phi { ptr, i32 } [ %527, %526 ], [ %525, %524 ]
-  %.048 = extractvalue { ptr, i32 } %.pn, 0
-  %.054 = extractvalue { ptr, i32 } %.pn, 1
+  %.351 = extractvalue { ptr, i32 } %.pn, 0
+  %.357 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #23
   br label %988
 
@@ -21753,8 +21753,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 533:                                              ; preds = %531, %529
   %.pn130 = phi { ptr, i32 } [ %532, %531 ], [ %530, %529 ]
-  %.149 = extractvalue { ptr, i32 } %.pn130, 0
-  %.155 = extractvalue { ptr, i32 } %.pn130, 1
+  %.452 = extractvalue { ptr, i32 } %.pn130, 0
+  %.458 = extractvalue { ptr, i32 } %.pn130, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #23
   br label %988
 
@@ -21775,8 +21775,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 538:                                              ; preds = %536, %534
   %.pn132 = phi { ptr, i32 } [ %537, %536 ], [ %535, %534 ]
-  %.250 = extractvalue { ptr, i32 } %.pn132, 0
-  %.256 = extractvalue { ptr, i32 } %.pn132, 1
+  %.5 = extractvalue { ptr, i32 } %.pn132, 0
+  %.559 = extractvalue { ptr, i32 } %.pn132, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #23
   br label %988
 
@@ -21797,8 +21797,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 543:                                              ; preds = %541, %539
   %.pn134 = phi { ptr, i32 } [ %542, %541 ], [ %540, %539 ]
-  %.351 = extractvalue { ptr, i32 } %.pn134, 0
-  %.357 = extractvalue { ptr, i32 } %.pn134, 1
+  %.6 = extractvalue { ptr, i32 } %.pn134, 0
+  %.660 = extractvalue { ptr, i32 } %.pn134, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #23
   br label %988
 
@@ -21819,8 +21819,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 548:                                              ; preds = %546, %544
   %.pn136 = phi { ptr, i32 } [ %547, %546 ], [ %545, %544 ]
-  %.452 = extractvalue { ptr, i32 } %.pn136, 0
-  %.458 = extractvalue { ptr, i32 } %.pn136, 1
+  %.7 = extractvalue { ptr, i32 } %.pn136, 0
+  %.761 = extractvalue { ptr, i32 } %.pn136, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #23
   br label %988
 
@@ -21854,8 +21854,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 556:                                              ; preds = %555, %549
   %.pn138.pn = phi { ptr, i32 } [ %.pn138, %555 ], [ %550, %549 ]
-  %.6 = extractvalue { ptr, i32 } %.pn138.pn, 0
-  %.660 = extractvalue { ptr, i32 } %.pn138.pn, 1
+  %.8 = extractvalue { ptr, i32 } %.pn138.pn, 0
+  %.862 = extractvalue { ptr, i32 } %.pn138.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #23
   br label %988
 
@@ -21889,8 +21889,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 564:                                              ; preds = %563, %557
   %.pn141.pn = phi { ptr, i32 } [ %.pn141, %563 ], [ %558, %557 ]
-  %.8 = extractvalue { ptr, i32 } %.pn141.pn, 0
-  %.862 = extractvalue { ptr, i32 } %.pn141.pn, 1
+  %.10 = extractvalue { ptr, i32 } %.pn141.pn, 0
+  %.1064 = extractvalue { ptr, i32 } %.pn141.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #23
   br label %988
 
@@ -21911,8 +21911,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 569:                                              ; preds = %567, %565
   %.pn144 = phi { ptr, i32 } [ %568, %567 ], [ %566, %565 ]
-  %.9 = extractvalue { ptr, i32 } %.pn144, 0
-  %.963 = extractvalue { ptr, i32 } %.pn144, 1
+  %.12 = extractvalue { ptr, i32 } %.pn144, 0
+  %.1266 = extractvalue { ptr, i32 } %.pn144, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #23
   br label %988
 
@@ -21933,8 +21933,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 574:                                              ; preds = %572, %570
   %.pn146 = phi { ptr, i32 } [ %573, %572 ], [ %571, %570 ]
-  %.10 = extractvalue { ptr, i32 } %.pn146, 0
-  %.1064 = extractvalue { ptr, i32 } %.pn146, 1
+  %.13 = extractvalue { ptr, i32 } %.pn146, 0
+  %.1367 = extractvalue { ptr, i32 } %.pn146, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #23
   br label %988
 
@@ -21955,8 +21955,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 579:                                              ; preds = %577, %575
   %.pn148 = phi { ptr, i32 } [ %578, %577 ], [ %576, %575 ]
-  %.11 = extractvalue { ptr, i32 } %.pn148, 0
-  %.1165 = extractvalue { ptr, i32 } %.pn148, 1
+  %.14 = extractvalue { ptr, i32 } %.pn148, 0
+  %.1468 = extractvalue { ptr, i32 } %.pn148, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #23
   br label %988
 
@@ -21977,8 +21977,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 584:                                              ; preds = %582, %580
   %.pn150 = phi { ptr, i32 } [ %583, %582 ], [ %581, %580 ]
-  %.12 = extractvalue { ptr, i32 } %.pn150, 0
-  %.1266 = extractvalue { ptr, i32 } %.pn150, 1
+  %.15 = extractvalue { ptr, i32 } %.pn150, 0
+  %.1569 = extractvalue { ptr, i32 } %.pn150, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #23
   br label %988
 
@@ -21999,8 +21999,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 589:                                              ; preds = %587, %585
   %.pn152 = phi { ptr, i32 } [ %588, %587 ], [ %586, %585 ]
-  %.13 = extractvalue { ptr, i32 } %.pn152, 0
-  %.1367 = extractvalue { ptr, i32 } %.pn152, 1
+  %.16 = extractvalue { ptr, i32 } %.pn152, 0
+  %.1670 = extractvalue { ptr, i32 } %.pn152, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #23
   br label %988
 
@@ -22025,8 +22025,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 594:                                              ; preds = %.body, %590
   %.pn154 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %591, %590 ]
-  %.14 = extractvalue { ptr, i32 } %.pn154, 0
-  %.1468 = extractvalue { ptr, i32 } %.pn154, 1
+  %.17 = extractvalue { ptr, i32 } %.pn154, 0
+  %.1771 = extractvalue { ptr, i32 } %.pn154, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #23
   br label %988
 
@@ -22051,8 +22051,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 599:                                              ; preds = %.body267, %595
   %.pn156 = phi { ptr, i32 } [ %eh.lpad-body268, %.body267 ], [ %596, %595 ]
-  %.15 = extractvalue { ptr, i32 } %.pn156, 0
-  %.1569 = extractvalue { ptr, i32 } %.pn156, 1
+  %.18 = extractvalue { ptr, i32 } %.pn156, 0
+  %.1872 = extractvalue { ptr, i32 } %.pn156, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #23
   br label %988
 
@@ -22077,8 +22077,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 604:                                              ; preds = %.body271, %600
   %.pn158 = phi { ptr, i32 } [ %eh.lpad-body272, %.body271 ], [ %601, %600 ]
-  %.16 = extractvalue { ptr, i32 } %.pn158, 0
-  %.1670 = extractvalue { ptr, i32 } %.pn158, 1
+  %.19 = extractvalue { ptr, i32 } %.pn158, 0
+  %.1973 = extractvalue { ptr, i32 } %.pn158, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #23
   br label %988
 
@@ -22103,8 +22103,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 609:                                              ; preds = %.body274, %605
   %.pn160 = phi { ptr, i32 } [ %eh.lpad-body275, %.body274 ], [ %606, %605 ]
-  %.17 = extractvalue { ptr, i32 } %.pn160, 0
-  %.1771 = extractvalue { ptr, i32 } %.pn160, 1
+  %.20 = extractvalue { ptr, i32 } %.pn160, 0
+  %.2074 = extractvalue { ptr, i32 } %.pn160, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #23
   br label %988
 
@@ -22129,8 +22129,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 614:                                              ; preds = %.body277, %610
   %.pn162 = phi { ptr, i32 } [ %eh.lpad-body278, %.body277 ], [ %611, %610 ]
-  %.18 = extractvalue { ptr, i32 } %.pn162, 0
-  %.1872 = extractvalue { ptr, i32 } %.pn162, 1
+  %.21 = extractvalue { ptr, i32 } %.pn162, 0
+  %.2175 = extractvalue { ptr, i32 } %.pn162, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #23
   br label %988
 
@@ -22155,8 +22155,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 619:                                              ; preds = %.body281, %615
   %.pn164 = phi { ptr, i32 } [ %eh.lpad-body282, %.body281 ], [ %616, %615 ]
-  %.19 = extractvalue { ptr, i32 } %.pn164, 0
-  %.1973 = extractvalue { ptr, i32 } %.pn164, 1
+  %.22 = extractvalue { ptr, i32 } %.pn164, 0
+  %.2276 = extractvalue { ptr, i32 } %.pn164, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #23
   br label %988
 
@@ -22181,8 +22181,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 624:                                              ; preds = %.body284, %620
   %.pn166 = phi { ptr, i32 } [ %eh.lpad-body285, %.body284 ], [ %621, %620 ]
-  %.20 = extractvalue { ptr, i32 } %.pn166, 0
-  %.2074 = extractvalue { ptr, i32 } %.pn166, 1
+  %.23 = extractvalue { ptr, i32 } %.pn166, 0
+  %.2377 = extractvalue { ptr, i32 } %.pn166, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #23
   br label %988
 
@@ -22207,8 +22207,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 629:                                              ; preds = %.body288, %625
   %.pn168 = phi { ptr, i32 } [ %eh.lpad-body289, %.body288 ], [ %626, %625 ]
-  %.21 = extractvalue { ptr, i32 } %.pn168, 0
-  %.2175 = extractvalue { ptr, i32 } %.pn168, 1
+  %.24 = extractvalue { ptr, i32 } %.pn168, 0
+  %.2478 = extractvalue { ptr, i32 } %.pn168, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #23
   br label %988
 
@@ -22233,8 +22233,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 634:                                              ; preds = %.body292, %630
   %.pn170 = phi { ptr, i32 } [ %eh.lpad-body293, %.body292 ], [ %631, %630 ]
-  %.22 = extractvalue { ptr, i32 } %.pn170, 0
-  %.2276 = extractvalue { ptr, i32 } %.pn170, 1
+  %.25 = extractvalue { ptr, i32 } %.pn170, 0
+  %.2579 = extractvalue { ptr, i32 } %.pn170, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #23
   br label %988
 
@@ -22259,8 +22259,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 639:                                              ; preds = %.body295, %635
   %.pn172 = phi { ptr, i32 } [ %eh.lpad-body296, %.body295 ], [ %636, %635 ]
-  %.23 = extractvalue { ptr, i32 } %.pn172, 0
-  %.2377 = extractvalue { ptr, i32 } %.pn172, 1
+  %.26 = extractvalue { ptr, i32 } %.pn172, 0
+  %.2680 = extractvalue { ptr, i32 } %.pn172, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #23
   br label %988
 
@@ -22285,8 +22285,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 644:                                              ; preds = %.body299, %640
   %.pn174 = phi { ptr, i32 } [ %eh.lpad-body300, %.body299 ], [ %641, %640 ]
-  %.24 = extractvalue { ptr, i32 } %.pn174, 0
-  %.2478 = extractvalue { ptr, i32 } %.pn174, 1
+  %.27 = extractvalue { ptr, i32 } %.pn174, 0
+  %.2781 = extractvalue { ptr, i32 } %.pn174, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #23
   br label %988
 
@@ -22311,8 +22311,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 649:                                              ; preds = %.body303, %645
   %.pn176 = phi { ptr, i32 } [ %eh.lpad-body304, %.body303 ], [ %646, %645 ]
-  %.25 = extractvalue { ptr, i32 } %.pn176, 0
-  %.2579 = extractvalue { ptr, i32 } %.pn176, 1
+  %.28 = extractvalue { ptr, i32 } %.pn176, 0
+  %.2882 = extractvalue { ptr, i32 } %.pn176, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #23
   br label %988
 
@@ -22337,8 +22337,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 654:                                              ; preds = %.body307, %650
   %.pn178 = phi { ptr, i32 } [ %eh.lpad-body308, %.body307 ], [ %651, %650 ]
-  %.26 = extractvalue { ptr, i32 } %.pn178, 0
-  %.2680 = extractvalue { ptr, i32 } %.pn178, 1
+  %.29 = extractvalue { ptr, i32 } %.pn178, 0
+  %.2983 = extractvalue { ptr, i32 } %.pn178, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #23
   br label %988
 
@@ -22363,8 +22363,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 659:                                              ; preds = %.body310, %655
   %.pn180 = phi { ptr, i32 } [ %eh.lpad-body311, %.body310 ], [ %656, %655 ]
-  %.27 = extractvalue { ptr, i32 } %.pn180, 0
-  %.2781 = extractvalue { ptr, i32 } %.pn180, 1
+  %.30 = extractvalue { ptr, i32 } %.pn180, 0
+  %.3084 = extractvalue { ptr, i32 } %.pn180, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #23
   br label %988
 
@@ -22389,8 +22389,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 664:                                              ; preds = %.body314, %660
   %.pn182 = phi { ptr, i32 } [ %eh.lpad-body315, %.body314 ], [ %661, %660 ]
-  %.28 = extractvalue { ptr, i32 } %.pn182, 0
-  %.2882 = extractvalue { ptr, i32 } %.pn182, 1
+  %.31 = extractvalue { ptr, i32 } %.pn182, 0
+  %.3185 = extractvalue { ptr, i32 } %.pn182, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #23
   br label %988
 
@@ -22415,8 +22415,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 669:                                              ; preds = %.body318, %665
   %.pn184 = phi { ptr, i32 } [ %eh.lpad-body319, %.body318 ], [ %666, %665 ]
-  %.29 = extractvalue { ptr, i32 } %.pn184, 0
-  %.2983 = extractvalue { ptr, i32 } %.pn184, 1
+  %.32 = extractvalue { ptr, i32 } %.pn184, 0
+  %.3286 = extractvalue { ptr, i32 } %.pn184, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #23
   br label %988
 
@@ -22441,8 +22441,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 674:                                              ; preds = %.body322, %670
   %.pn186 = phi { ptr, i32 } [ %eh.lpad-body323, %.body322 ], [ %671, %670 ]
-  %.30 = extractvalue { ptr, i32 } %.pn186, 0
-  %.3084 = extractvalue { ptr, i32 } %.pn186, 1
+  %.33 = extractvalue { ptr, i32 } %.pn186, 0
+  %.3387 = extractvalue { ptr, i32 } %.pn186, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #23
   br label %988
 
@@ -22463,8 +22463,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 679:                                              ; preds = %677, %675
   %.pn188 = phi { ptr, i32 } [ %678, %677 ], [ %676, %675 ]
-  %.31 = extractvalue { ptr, i32 } %.pn188, 0
-  %.3185 = extractvalue { ptr, i32 } %.pn188, 1
+  %.34 = extractvalue { ptr, i32 } %.pn188, 0
+  %.3488 = extractvalue { ptr, i32 } %.pn188, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #23
   br label %988
 
@@ -22485,8 +22485,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 684:                                              ; preds = %682, %680
   %.pn190 = phi { ptr, i32 } [ %683, %682 ], [ %681, %680 ]
-  %.32 = extractvalue { ptr, i32 } %.pn190, 0
-  %.3286 = extractvalue { ptr, i32 } %.pn190, 1
+  %.35 = extractvalue { ptr, i32 } %.pn190, 0
+  %.3589 = extractvalue { ptr, i32 } %.pn190, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #23
   br label %988
 
@@ -22507,8 +22507,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 689:                                              ; preds = %687, %685
   %.pn192 = phi { ptr, i32 } [ %688, %687 ], [ %686, %685 ]
-  %.33 = extractvalue { ptr, i32 } %.pn192, 0
-  %.3387 = extractvalue { ptr, i32 } %.pn192, 1
+  %.36 = extractvalue { ptr, i32 } %.pn192, 0
+  %.3690 = extractvalue { ptr, i32 } %.pn192, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #23
   br label %988
 
@@ -22533,8 +22533,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 694:                                              ; preds = %.body326, %690
   %.pn194 = phi { ptr, i32 } [ %eh.lpad-body327, %.body326 ], [ %691, %690 ]
-  %.34 = extractvalue { ptr, i32 } %.pn194, 0
-  %.3488 = extractvalue { ptr, i32 } %.pn194, 1
+  %.37 = extractvalue { ptr, i32 } %.pn194, 0
+  %.3791 = extractvalue { ptr, i32 } %.pn194, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #23
   br label %988
 
@@ -22559,8 +22559,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 699:                                              ; preds = %.body330, %695
   %.pn196 = phi { ptr, i32 } [ %eh.lpad-body331, %.body330 ], [ %696, %695 ]
-  %.35 = extractvalue { ptr, i32 } %.pn196, 0
-  %.3589 = extractvalue { ptr, i32 } %.pn196, 1
+  %.38 = extractvalue { ptr, i32 } %.pn196, 0
+  %.3892 = extractvalue { ptr, i32 } %.pn196, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #23
   br label %988
 
@@ -22585,8 +22585,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 704:                                              ; preds = %.body334, %700
   %.pn198 = phi { ptr, i32 } [ %eh.lpad-body335, %.body334 ], [ %701, %700 ]
-  %.36 = extractvalue { ptr, i32 } %.pn198, 0
-  %.3690 = extractvalue { ptr, i32 } %.pn198, 1
+  %.39 = extractvalue { ptr, i32 } %.pn198, 0
+  %.3993 = extractvalue { ptr, i32 } %.pn198, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #23
   br label %988
 
@@ -22611,8 +22611,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 709:                                              ; preds = %.body337, %705
   %.pn200 = phi { ptr, i32 } [ %eh.lpad-body338, %.body337 ], [ %706, %705 ]
-  %.37 = extractvalue { ptr, i32 } %.pn200, 0
-  %.3791 = extractvalue { ptr, i32 } %.pn200, 1
+  %.40 = extractvalue { ptr, i32 } %.pn200, 0
+  %.4094 = extractvalue { ptr, i32 } %.pn200, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #23
   br label %988
 
@@ -22637,8 +22637,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 714:                                              ; preds = %.body340, %710
   %.pn202 = phi { ptr, i32 } [ %eh.lpad-body341, %.body340 ], [ %711, %710 ]
-  %.38 = extractvalue { ptr, i32 } %.pn202, 0
-  %.3892 = extractvalue { ptr, i32 } %.pn202, 1
+  %.41 = extractvalue { ptr, i32 } %.pn202, 0
+  %.4195 = extractvalue { ptr, i32 } %.pn202, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #23
   br label %988
 
@@ -22663,8 +22663,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 719:                                              ; preds = %.body344, %715
   %.pn204 = phi { ptr, i32 } [ %eh.lpad-body345, %.body344 ], [ %716, %715 ]
-  %.39 = extractvalue { ptr, i32 } %.pn204, 0
-  %.3993 = extractvalue { ptr, i32 } %.pn204, 1
+  %.42 = extractvalue { ptr, i32 } %.pn204, 0
+  %.4296 = extractvalue { ptr, i32 } %.pn204, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #23
   br label %988
 
@@ -22689,8 +22689,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 724:                                              ; preds = %.body348, %720
   %.pn206 = phi { ptr, i32 } [ %eh.lpad-body349, %.body348 ], [ %721, %720 ]
-  %.40 = extractvalue { ptr, i32 } %.pn206, 0
-  %.4094 = extractvalue { ptr, i32 } %.pn206, 1
+  %.43 = extractvalue { ptr, i32 } %.pn206, 0
+  %.4397 = extractvalue { ptr, i32 } %.pn206, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #23
   br label %988
 
@@ -22715,8 +22715,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 729:                                              ; preds = %.body351, %725
   %.pn208 = phi { ptr, i32 } [ %eh.lpad-body352, %.body351 ], [ %726, %725 ]
-  %.41 = extractvalue { ptr, i32 } %.pn208, 0
-  %.4195 = extractvalue { ptr, i32 } %.pn208, 1
+  %.44 = extractvalue { ptr, i32 } %.pn208, 0
+  %.4498 = extractvalue { ptr, i32 } %.pn208, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #23
   br label %988
 
@@ -22741,8 +22741,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 734:                                              ; preds = %.body354, %730
   %.pn210 = phi { ptr, i32 } [ %eh.lpad-body355, %.body354 ], [ %731, %730 ]
-  %.42 = extractvalue { ptr, i32 } %.pn210, 0
-  %.4296 = extractvalue { ptr, i32 } %.pn210, 1
+  %.45 = extractvalue { ptr, i32 } %.pn210, 0
+  %.4599 = extractvalue { ptr, i32 } %.pn210, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %135) #23
   br label %988
 
@@ -22767,8 +22767,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 739:                                              ; preds = %.body357, %735
   %.pn212 = phi { ptr, i32 } [ %eh.lpad-body358, %.body357 ], [ %736, %735 ]
-  %.43 = extractvalue { ptr, i32 } %.pn212, 0
-  %.4397 = extractvalue { ptr, i32 } %.pn212, 1
+  %.46 = extractvalue { ptr, i32 } %.pn212, 0
+  %.46100 = extractvalue { ptr, i32 } %.pn212, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #23
   br label %988
 
@@ -22793,8 +22793,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 744:                                              ; preds = %.body360, %740
   %.pn214 = phi { ptr, i32 } [ %eh.lpad-body361, %.body360 ], [ %741, %740 ]
-  %.44 = extractvalue { ptr, i32 } %.pn214, 0
-  %.4498 = extractvalue { ptr, i32 } %.pn214, 1
+  %.47 = extractvalue { ptr, i32 } %.pn214, 0
+  %.47101 = extractvalue { ptr, i32 } %.pn214, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %139) #23
   br label %988
 
@@ -22819,8 +22819,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 749:                                              ; preds = %.body363, %745
   %.pn216 = phi { ptr, i32 } [ %eh.lpad-body364, %.body363 ], [ %746, %745 ]
-  %.45 = extractvalue { ptr, i32 } %.pn216, 0
-  %.4599 = extractvalue { ptr, i32 } %.pn216, 1
+  %.48 = extractvalue { ptr, i32 } %.pn216, 0
+  %.48102 = extractvalue { ptr, i32 } %.pn216, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %141) #23
   br label %988
 
@@ -22845,8 +22845,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 754:                                              ; preds = %.body367, %750
   %.pn218 = phi { ptr, i32 } [ %eh.lpad-body368, %.body367 ], [ %751, %750 ]
-  %.46 = extractvalue { ptr, i32 } %.pn218, 0
-  %.46100 = extractvalue { ptr, i32 } %.pn218, 1
+  %.49 = extractvalue { ptr, i32 } %.pn218, 0
+  %.49103 = extractvalue { ptr, i32 } %.pn218, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #23
   br label %988
 
@@ -22871,8 +22871,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 759:                                              ; preds = %.body371, %755
   %.pn220 = phi { ptr, i32 } [ %eh.lpad-body372, %.body371 ], [ %756, %755 ]
-  %.47 = extractvalue { ptr, i32 } %.pn220, 0
-  %.47101 = extractvalue { ptr, i32 } %.pn220, 1
+  %.50 = extractvalue { ptr, i32 } %.pn220, 0
+  %.50104 = extractvalue { ptr, i32 } %.pn220, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %145) #23
   br label %988
 
@@ -22897,8 +22897,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 764:                                              ; preds = %.body375, %760
   %.pn222 = phi { ptr, i32 } [ %eh.lpad-body376, %.body375 ], [ %761, %760 ]
-  %.48 = extractvalue { ptr, i32 } %.pn222, 0
-  %.48102 = extractvalue { ptr, i32 } %.pn222, 1
+  %.51 = extractvalue { ptr, i32 } %.pn222, 0
+  %.51105 = extractvalue { ptr, i32 } %.pn222, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #23
   br label %988
 
@@ -22923,8 +22923,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 769:                                              ; preds = %.body378, %765
   %.pn224 = phi { ptr, i32 } [ %eh.lpad-body379, %.body378 ], [ %766, %765 ]
-  %.49 = extractvalue { ptr, i32 } %.pn224, 0
-  %.49103 = extractvalue { ptr, i32 } %.pn224, 1
+  %.52 = extractvalue { ptr, i32 } %.pn224, 0
+  %.52106 = extractvalue { ptr, i32 } %.pn224, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #23
   br label %988
 
@@ -22949,8 +22949,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 774:                                              ; preds = %.body381, %770
   %.pn226 = phi { ptr, i32 } [ %eh.lpad-body382, %.body381 ], [ %771, %770 ]
-  %.50 = extractvalue { ptr, i32 } %.pn226, 0
-  %.50104 = extractvalue { ptr, i32 } %.pn226, 1
+  %.53 = extractvalue { ptr, i32 } %.pn226, 0
+  %.53107 = extractvalue { ptr, i32 } %.pn226, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %151) #23
   br label %988
 
@@ -22975,8 +22975,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 779:                                              ; preds = %.body384, %775
   %.pn228 = phi { ptr, i32 } [ %eh.lpad-body385, %.body384 ], [ %776, %775 ]
-  %.51 = extractvalue { ptr, i32 } %.pn228, 0
-  %.51105 = extractvalue { ptr, i32 } %.pn228, 1
+  %.54 = extractvalue { ptr, i32 } %.pn228, 0
+  %.54108 = extractvalue { ptr, i32 } %.pn228, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %153) #23
   br label %988
 
@@ -23001,8 +23001,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 784:                                              ; preds = %.body387, %780
   %.pn230 = phi { ptr, i32 } [ %eh.lpad-body388, %.body387 ], [ %781, %780 ]
-  %.52 = extractvalue { ptr, i32 } %.pn230, 0
-  %.52106 = extractvalue { ptr, i32 } %.pn230, 1
+  %.55 = extractvalue { ptr, i32 } %.pn230, 0
+  %.55109 = extractvalue { ptr, i32 } %.pn230, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #23
   br label %988
 
@@ -23027,8 +23027,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 789:                                              ; preds = %.body391, %785
   %.pn232 = phi { ptr, i32 } [ %eh.lpad-body392, %.body391 ], [ %786, %785 ]
-  %.53 = extractvalue { ptr, i32 } %.pn232, 0
-  %.53107 = extractvalue { ptr, i32 } %.pn232, 1
+  %.56 = extractvalue { ptr, i32 } %.pn232, 0
+  %.56110 = extractvalue { ptr, i32 } %.pn232, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %157) #23
   br label %988
 
@@ -23053,8 +23053,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 794:                                              ; preds = %.body395, %790
   %.pn234 = phi { ptr, i32 } [ %eh.lpad-body396, %.body395 ], [ %791, %790 ]
-  %.54 = extractvalue { ptr, i32 } %.pn234, 0
-  %.54108 = extractvalue { ptr, i32 } %.pn234, 1
+  %.57 = extractvalue { ptr, i32 } %.pn234, 0
+  %.57111 = extractvalue { ptr, i32 } %.pn234, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %159) #23
   br label %988
 
@@ -23079,8 +23079,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 799:                                              ; preds = %.body399, %795
   %.pn236 = phi { ptr, i32 } [ %eh.lpad-body400, %.body399 ], [ %796, %795 ]
-  %.55 = extractvalue { ptr, i32 } %.pn236, 0
-  %.55109 = extractvalue { ptr, i32 } %.pn236, 1
+  %.58 = extractvalue { ptr, i32 } %.pn236, 0
+  %.58112 = extractvalue { ptr, i32 } %.pn236, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #23
   br label %988
 
@@ -23105,8 +23105,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 804:                                              ; preds = %.body403, %800
   %.pn238 = phi { ptr, i32 } [ %eh.lpad-body404, %.body403 ], [ %801, %800 ]
-  %.56 = extractvalue { ptr, i32 } %.pn238, 0
-  %.56110 = extractvalue { ptr, i32 } %.pn238, 1
+  %.59 = extractvalue { ptr, i32 } %.pn238, 0
+  %.59113 = extractvalue { ptr, i32 } %.pn238, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %163) #23
   br label %988
 
@@ -23131,8 +23131,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 809:                                              ; preds = %.body406, %805
   %.pn240 = phi { ptr, i32 } [ %eh.lpad-body407, %.body406 ], [ %806, %805 ]
-  %.57 = extractvalue { ptr, i32 } %.pn240, 0
-  %.57111 = extractvalue { ptr, i32 } %.pn240, 1
+  %.60 = extractvalue { ptr, i32 } %.pn240, 0
+  %.60114 = extractvalue { ptr, i32 } %.pn240, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %165) #23
   br label %988
 
@@ -23153,8 +23153,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 814:                                              ; preds = %812, %810
   %.pn242 = phi { ptr, i32 } [ %813, %812 ], [ %811, %810 ]
-  %.58 = extractvalue { ptr, i32 } %.pn242, 0
-  %.58112 = extractvalue { ptr, i32 } %.pn242, 1
+  %.61 = extractvalue { ptr, i32 } %.pn242, 0
+  %.61115 = extractvalue { ptr, i32 } %.pn242, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %167) #23
   br label %988
 
@@ -23175,8 +23175,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 819:                                              ; preds = %817, %815
   %.pn244 = phi { ptr, i32 } [ %818, %817 ], [ %816, %815 ]
-  %.59 = extractvalue { ptr, i32 } %.pn244, 0
-  %.59113 = extractvalue { ptr, i32 } %.pn244, 1
+  %.62 = extractvalue { ptr, i32 } %.pn244, 0
+  %.62116 = extractvalue { ptr, i32 } %.pn244, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %169) #23
   br label %988
 
@@ -23197,8 +23197,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 824:                                              ; preds = %822, %820
   %.pn246 = phi { ptr, i32 } [ %823, %822 ], [ %821, %820 ]
-  %.60 = extractvalue { ptr, i32 } %.pn246, 0
-  %.60114 = extractvalue { ptr, i32 } %.pn246, 1
+  %.63 = extractvalue { ptr, i32 } %.pn246, 0
+  %.63117 = extractvalue { ptr, i32 } %.pn246, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %171) #23
   br label %988
 
@@ -23219,8 +23219,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 829:                                              ; preds = %827, %825
   %.pn248 = phi { ptr, i32 } [ %828, %827 ], [ %826, %825 ]
-  %.61 = extractvalue { ptr, i32 } %.pn248, 0
-  %.61115 = extractvalue { ptr, i32 } %.pn248, 1
+  %.64 = extractvalue { ptr, i32 } %.pn248, 0
+  %.64118 = extractvalue { ptr, i32 } %.pn248, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %173) #23
   br label %988
 
@@ -23241,8 +23241,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 834:                                              ; preds = %832, %830
   %.pn250 = phi { ptr, i32 } [ %833, %832 ], [ %831, %830 ]
-  %.62 = extractvalue { ptr, i32 } %.pn250, 0
-  %.62116 = extractvalue { ptr, i32 } %.pn250, 1
+  %.65 = extractvalue { ptr, i32 } %.pn250, 0
+  %.65119 = extractvalue { ptr, i32 } %.pn250, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %175) #23
   br label %988
 
@@ -23263,8 +23263,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 839:                                              ; preds = %837, %835
   %.pn252 = phi { ptr, i32 } [ %838, %837 ], [ %836, %835 ]
-  %.63 = extractvalue { ptr, i32 } %.pn252, 0
-  %.63117 = extractvalue { ptr, i32 } %.pn252, 1
+  %.66 = extractvalue { ptr, i32 } %.pn252, 0
+  %.66120 = extractvalue { ptr, i32 } %.pn252, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %177) #23
   br label %988
 
@@ -23285,8 +23285,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 844:                                              ; preds = %842, %840
   %.pn254 = phi { ptr, i32 } [ %843, %842 ], [ %841, %840 ]
-  %.64 = extractvalue { ptr, i32 } %.pn254, 0
-  %.64118 = extractvalue { ptr, i32 } %.pn254, 1
+  %.67 = extractvalue { ptr, i32 } %.pn254, 0
+  %.67121 = extractvalue { ptr, i32 } %.pn254, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %179) #23
   br label %988
 
@@ -23307,8 +23307,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 849:                                              ; preds = %847, %845
   %.pn256 = phi { ptr, i32 } [ %848, %847 ], [ %846, %845 ]
-  %.65 = extractvalue { ptr, i32 } %.pn256, 0
-  %.65119 = extractvalue { ptr, i32 } %.pn256, 1
+  %.68 = extractvalue { ptr, i32 } %.pn256, 0
+  %.68122 = extractvalue { ptr, i32 } %.pn256, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %181) #23
   br label %988
 
@@ -23329,8 +23329,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
 
 854:                                              ; preds = %852, %850
   %.pn258 = phi { ptr, i32 } [ %853, %852 ], [ %851, %850 ]
-  %.66 = extractvalue { ptr, i32 } %.pn258, 0
-  %.66120 = extractvalue { ptr, i32 } %.pn258, 1
+  %.69 = extractvalue { ptr, i32 } %.pn258, 0
+  %.69123 = extractvalue { ptr, i32 } %.pn258, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %183) #23
   br label %988
 
@@ -23494,17 +23494,17 @@ _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
   br label %910
 
 910:                                              ; preds = %909, %903
-  %.sroa.0.1 = phi ptr [ null, %909 ], [ %198, %903 ]
+  %.sroa.0.5 = phi ptr [ null, %909 ], [ %198, %903 ]
   %.pn260.pn = phi { ptr, i32 } [ %.pn260, %909 ], [ %904, %903 ]
-  %.68 = extractvalue { ptr, i32 } %.pn260.pn, 0
-  %.68122 = extractvalue { ptr, i32 } %.pn260.pn, 1
+  %.70 = extractvalue { ptr, i32 } %.pn260.pn, 0
+  %.70124 = extractvalue { ptr, i32 } %.pn260.pn, 1
   call void @_ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #23
   %911 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %912 = icmp eq i32 %.68122, %911
+  %912 = icmp eq i32 %.70124, %911
   br i1 %912, label %913, label %988
 
 913:                                              ; preds = %910
-  %914 = call ptr @__cxa_begin_catch(ptr %.68) #23
+  %914 = call ptr @__cxa_begin_catch(ptr %.70) #23
   %915 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.591)
           to label %916 unwind label %937
 
@@ -23525,7 +23525,7 @@ _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
           to label %_ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev.exit unwind label %516
 
 _ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev.exit:       ; preds = %902, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i, %924
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %924 ], [ null, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i ], [ null, %902 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.5, %924 ], [ null, %_ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i ], [ null, %902 ]
   br label %925
 
 925:                                              ; preds = %_ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev.exit, %925
@@ -23639,21 +23639,21 @@ _ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev.exit:       ; preds = %902, %_ZSt8_Destroy
 984:                                              ; preds = %982, %941
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %48) #23
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %47) #23
-  %.not.i416 = icmp eq ptr %.sroa.0.2, null
+  %.not.i416 = icmp eq ptr %.sroa.0.4, null
   br i1 %.not.i416, label %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i: ; preds = %984
-  %985 = load ptr, ptr %.sroa.0.2, align 8
+  %985 = load ptr, ptr %.sroa.0.4, align 8
   %986 = getelementptr inbounds i8, ptr %985, i64 8
   %987 = load ptr, ptr %986, align 8
-  call void %987(ptr noundef nonnull align 8 dereferenceable(596) %.sroa.0.2) #23
+  call void %987(ptr noundef nonnull align 8 dereferenceable(596) %.sroa.0.4) #23
   br label %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit
 
 988:                                              ; preds = %516, %520, %528, %533, %538, %543, %548, %556, %564, %569, %574, %579, %584, %589, %594, %599, %604, %609, %614, %619, %624, %629, %634, %639, %644, %649, %654, %659, %664, %669, %674, %679, %684, %689, %694, %699, %704, %709, %714, %719, %724, %729, %734, %739, %744, %749, %754, %759, %764, %769, %774, %779, %784, %789, %794, %799, %804, %809, %814, %819, %824, %829, %834, %839, %844, %849, %854, %910, %859, %937, %855
-  %.sroa.0.3 = phi ptr [ %198, %859 ], [ %198, %855 ], [ %.sroa.0.0, %516 ], [ %.sroa.0.1, %937 ], [ %.sroa.0.1, %910 ], [ %198, %854 ], [ %198, %849 ], [ %198, %844 ], [ %198, %839 ], [ %198, %834 ], [ %198, %829 ], [ %198, %824 ], [ %198, %819 ], [ %198, %814 ], [ %198, %809 ], [ %198, %804 ], [ %198, %799 ], [ %198, %794 ], [ %198, %789 ], [ %198, %784 ], [ %198, %779 ], [ %198, %774 ], [ %198, %769 ], [ %198, %764 ], [ %198, %759 ], [ %198, %754 ], [ %198, %749 ], [ %198, %744 ], [ %198, %739 ], [ %198, %734 ], [ %198, %729 ], [ %198, %724 ], [ %198, %719 ], [ %198, %714 ], [ %198, %709 ], [ %198, %704 ], [ %198, %699 ], [ %198, %694 ], [ %198, %689 ], [ %198, %684 ], [ %198, %679 ], [ %198, %674 ], [ %198, %669 ], [ %198, %664 ], [ %198, %659 ], [ %198, %654 ], [ %198, %649 ], [ %198, %644 ], [ %198, %639 ], [ %198, %634 ], [ %198, %629 ], [ %198, %624 ], [ %198, %619 ], [ %198, %614 ], [ %198, %609 ], [ %198, %604 ], [ %198, %599 ], [ %198, %594 ], [ %198, %589 ], [ %198, %584 ], [ %198, %579 ], [ %198, %574 ], [ %198, %569 ], [ %198, %564 ], [ %198, %556 ], [ %198, %548 ], [ %198, %543 ], [ %198, %538 ], [ %198, %533 ], [ %198, %528 ], [ null, %520 ]
-  %.69123 = phi i32 [ %862, %859 ], [ %858, %855 ], [ %519, %516 ], [ %940, %937 ], [ %.68122, %910 ], [ %.66120, %854 ], [ %.65119, %849 ], [ %.64118, %844 ], [ %.63117, %839 ], [ %.62116, %834 ], [ %.61115, %829 ], [ %.60114, %824 ], [ %.59113, %819 ], [ %.58112, %814 ], [ %.57111, %809 ], [ %.56110, %804 ], [ %.55109, %799 ], [ %.54108, %794 ], [ %.53107, %789 ], [ %.52106, %784 ], [ %.51105, %779 ], [ %.50104, %774 ], [ %.49103, %769 ], [ %.48102, %764 ], [ %.47101, %759 ], [ %.46100, %754 ], [ %.4599, %749 ], [ %.4498, %744 ], [ %.4397, %739 ], [ %.4296, %734 ], [ %.4195, %729 ], [ %.4094, %724 ], [ %.3993, %719 ], [ %.3892, %714 ], [ %.3791, %709 ], [ %.3690, %704 ], [ %.3589, %699 ], [ %.3488, %694 ], [ %.3387, %689 ], [ %.3286, %684 ], [ %.3185, %679 ], [ %.3084, %674 ], [ %.2983, %669 ], [ %.2882, %664 ], [ %.2781, %659 ], [ %.2680, %654 ], [ %.2579, %649 ], [ %.2478, %644 ], [ %.2377, %639 ], [ %.2276, %634 ], [ %.2175, %629 ], [ %.2074, %624 ], [ %.1973, %619 ], [ %.1872, %614 ], [ %.1771, %609 ], [ %.1670, %604 ], [ %.1569, %599 ], [ %.1468, %594 ], [ %.1367, %589 ], [ %.1266, %584 ], [ %.1165, %579 ], [ %.1064, %574 ], [ %.963, %569 ], [ %.862, %564 ], [ %.660, %556 ], [ %.458, %548 ], [ %.357, %543 ], [ %.256, %538 ], [ %.155, %533 ], [ %.054, %528 ], [ %523, %520 ]
-  %.69 = phi ptr [ %861, %859 ], [ %857, %855 ], [ %518, %516 ], [ %939, %937 ], [ %.68, %910 ], [ %.66, %854 ], [ %.65, %849 ], [ %.64, %844 ], [ %.63, %839 ], [ %.62, %834 ], [ %.61, %829 ], [ %.60, %824 ], [ %.59, %819 ], [ %.58, %814 ], [ %.57, %809 ], [ %.56, %804 ], [ %.55, %799 ], [ %.54, %794 ], [ %.53, %789 ], [ %.52, %784 ], [ %.51, %779 ], [ %.50, %774 ], [ %.49, %769 ], [ %.48, %764 ], [ %.47, %759 ], [ %.46, %754 ], [ %.45, %749 ], [ %.44, %744 ], [ %.43, %739 ], [ %.42, %734 ], [ %.41, %729 ], [ %.40, %724 ], [ %.39, %719 ], [ %.38, %714 ], [ %.37, %709 ], [ %.36, %704 ], [ %.35, %699 ], [ %.34, %694 ], [ %.33, %689 ], [ %.32, %684 ], [ %.31, %679 ], [ %.30, %674 ], [ %.29, %669 ], [ %.28, %664 ], [ %.27, %659 ], [ %.26, %654 ], [ %.25, %649 ], [ %.24, %644 ], [ %.23, %639 ], [ %.22, %634 ], [ %.21, %629 ], [ %.20, %624 ], [ %.19, %619 ], [ %.18, %614 ], [ %.17, %609 ], [ %.16, %604 ], [ %.15, %599 ], [ %.14, %594 ], [ %.13, %589 ], [ %.12, %584 ], [ %.11, %579 ], [ %.10, %574 ], [ %.9, %569 ], [ %.8, %564 ], [ %.6, %556 ], [ %.452, %548 ], [ %.351, %543 ], [ %.250, %538 ], [ %.149, %533 ], [ %.048, %528 ], [ %522, %520 ]
-  %.145 = phi i32 [ 0, %859 ], [ 0, %855 ], [ %.044, %516 ], [ 0, %937 ], [ 0, %910 ], [ 0, %854 ], [ 0, %849 ], [ 0, %844 ], [ 0, %839 ], [ 0, %834 ], [ 0, %829 ], [ 0, %824 ], [ 0, %819 ], [ 0, %814 ], [ 0, %809 ], [ 0, %804 ], [ 0, %799 ], [ 0, %794 ], [ 0, %789 ], [ 0, %784 ], [ 0, %779 ], [ 0, %774 ], [ 0, %769 ], [ 0, %764 ], [ 0, %759 ], [ 0, %754 ], [ 0, %749 ], [ 0, %744 ], [ 0, %739 ], [ 0, %734 ], [ 0, %729 ], [ 0, %724 ], [ 0, %719 ], [ 0, %714 ], [ 0, %709 ], [ 0, %704 ], [ 0, %699 ], [ 0, %694 ], [ 0, %689 ], [ 0, %684 ], [ 0, %679 ], [ 0, %674 ], [ 0, %669 ], [ 0, %664 ], [ 0, %659 ], [ 0, %654 ], [ 0, %649 ], [ 0, %644 ], [ 0, %639 ], [ 0, %634 ], [ 0, %629 ], [ 0, %624 ], [ 0, %619 ], [ 0, %614 ], [ 0, %609 ], [ 0, %604 ], [ 0, %599 ], [ 0, %594 ], [ 0, %589 ], [ 0, %584 ], [ 0, %579 ], [ 0, %574 ], [ 0, %569 ], [ 0, %564 ], [ 0, %556 ], [ 0, %548 ], [ 0, %543 ], [ 0, %538 ], [ 0, %533 ], [ 0, %528 ], [ 0, %520 ]
+  %.sroa.0.3 = phi ptr [ %198, %859 ], [ %198, %855 ], [ %.sroa.0.0, %516 ], [ %.sroa.0.5, %937 ], [ %.sroa.0.5, %910 ], [ %198, %854 ], [ %198, %849 ], [ %198, %844 ], [ %198, %839 ], [ %198, %834 ], [ %198, %829 ], [ %198, %824 ], [ %198, %819 ], [ %198, %814 ], [ %198, %809 ], [ %198, %804 ], [ %198, %799 ], [ %198, %794 ], [ %198, %789 ], [ %198, %784 ], [ %198, %779 ], [ %198, %774 ], [ %198, %769 ], [ %198, %764 ], [ %198, %759 ], [ %198, %754 ], [ %198, %749 ], [ %198, %744 ], [ %198, %739 ], [ %198, %734 ], [ %198, %729 ], [ %198, %724 ], [ %198, %719 ], [ %198, %714 ], [ %198, %709 ], [ %198, %704 ], [ %198, %699 ], [ %198, %694 ], [ %198, %689 ], [ %198, %684 ], [ %198, %679 ], [ %198, %674 ], [ %198, %669 ], [ %198, %664 ], [ %198, %659 ], [ %198, %654 ], [ %198, %649 ], [ %198, %644 ], [ %198, %639 ], [ %198, %634 ], [ %198, %629 ], [ %198, %624 ], [ %198, %619 ], [ %198, %614 ], [ %198, %609 ], [ %198, %604 ], [ %198, %599 ], [ %198, %594 ], [ %198, %589 ], [ %198, %584 ], [ %198, %579 ], [ %198, %574 ], [ %198, %569 ], [ %198, %564 ], [ %198, %556 ], [ %198, %548 ], [ %198, %543 ], [ %198, %538 ], [ %198, %533 ], [ %198, %528 ], [ null, %520 ]
+  %.256 = phi i32 [ %862, %859 ], [ %858, %855 ], [ %519, %516 ], [ %940, %937 ], [ %.70124, %910 ], [ %.69123, %854 ], [ %.68122, %849 ], [ %.67121, %844 ], [ %.66120, %839 ], [ %.65119, %834 ], [ %.64118, %829 ], [ %.63117, %824 ], [ %.62116, %819 ], [ %.61115, %814 ], [ %.60114, %809 ], [ %.59113, %804 ], [ %.58112, %799 ], [ %.57111, %794 ], [ %.56110, %789 ], [ %.55109, %784 ], [ %.54108, %779 ], [ %.53107, %774 ], [ %.52106, %769 ], [ %.51105, %764 ], [ %.50104, %759 ], [ %.49103, %754 ], [ %.48102, %749 ], [ %.47101, %744 ], [ %.46100, %739 ], [ %.4599, %734 ], [ %.4498, %729 ], [ %.4397, %724 ], [ %.4296, %719 ], [ %.4195, %714 ], [ %.4094, %709 ], [ %.3993, %704 ], [ %.3892, %699 ], [ %.3791, %694 ], [ %.3690, %689 ], [ %.3589, %684 ], [ %.3488, %679 ], [ %.3387, %674 ], [ %.3286, %669 ], [ %.3185, %664 ], [ %.3084, %659 ], [ %.2983, %654 ], [ %.2882, %649 ], [ %.2781, %644 ], [ %.2680, %639 ], [ %.2579, %634 ], [ %.2478, %629 ], [ %.2377, %624 ], [ %.2276, %619 ], [ %.2175, %614 ], [ %.2074, %609 ], [ %.1973, %604 ], [ %.1872, %599 ], [ %.1771, %594 ], [ %.1670, %589 ], [ %.1569, %584 ], [ %.1468, %579 ], [ %.1367, %574 ], [ %.1266, %569 ], [ %.1064, %564 ], [ %.862, %556 ], [ %.761, %548 ], [ %.660, %543 ], [ %.559, %538 ], [ %.458, %533 ], [ %.357, %528 ], [ %523, %520 ]
+  %.250 = phi ptr [ %861, %859 ], [ %857, %855 ], [ %518, %516 ], [ %939, %937 ], [ %.70, %910 ], [ %.69, %854 ], [ %.68, %849 ], [ %.67, %844 ], [ %.66, %839 ], [ %.65, %834 ], [ %.64, %829 ], [ %.63, %824 ], [ %.62, %819 ], [ %.61, %814 ], [ %.60, %809 ], [ %.59, %804 ], [ %.58, %799 ], [ %.57, %794 ], [ %.56, %789 ], [ %.55, %784 ], [ %.54, %779 ], [ %.53, %774 ], [ %.52, %769 ], [ %.51, %764 ], [ %.50, %759 ], [ %.49, %754 ], [ %.48, %749 ], [ %.47, %744 ], [ %.46, %739 ], [ %.45, %734 ], [ %.44, %729 ], [ %.43, %724 ], [ %.42, %719 ], [ %.41, %714 ], [ %.40, %709 ], [ %.39, %704 ], [ %.38, %699 ], [ %.37, %694 ], [ %.36, %689 ], [ %.35, %684 ], [ %.34, %679 ], [ %.33, %674 ], [ %.32, %669 ], [ %.31, %664 ], [ %.30, %659 ], [ %.29, %654 ], [ %.28, %649 ], [ %.27, %644 ], [ %.26, %639 ], [ %.25, %634 ], [ %.24, %629 ], [ %.23, %624 ], [ %.22, %619 ], [ %.21, %614 ], [ %.20, %609 ], [ %.19, %604 ], [ %.18, %599 ], [ %.17, %594 ], [ %.16, %589 ], [ %.15, %584 ], [ %.14, %579 ], [ %.13, %574 ], [ %.12, %569 ], [ %.10, %564 ], [ %.8, %556 ], [ %.7, %548 ], [ %.6, %543 ], [ %.5, %538 ], [ %.452, %533 ], [ %.351, %528 ], [ %522, %520 ]
+  %.3 = phi i32 [ 0, %859 ], [ 0, %855 ], [ %.044, %516 ], [ 0, %937 ], [ 0, %910 ], [ 0, %854 ], [ 0, %849 ], [ 0, %844 ], [ 0, %839 ], [ 0, %834 ], [ 0, %829 ], [ 0, %824 ], [ 0, %819 ], [ 0, %814 ], [ 0, %809 ], [ 0, %804 ], [ 0, %799 ], [ 0, %794 ], [ 0, %789 ], [ 0, %784 ], [ 0, %779 ], [ 0, %774 ], [ 0, %769 ], [ 0, %764 ], [ 0, %759 ], [ 0, %754 ], [ 0, %749 ], [ 0, %744 ], [ 0, %739 ], [ 0, %734 ], [ 0, %729 ], [ 0, %724 ], [ 0, %719 ], [ 0, %714 ], [ 0, %709 ], [ 0, %704 ], [ 0, %699 ], [ 0, %694 ], [ 0, %689 ], [ 0, %684 ], [ 0, %679 ], [ 0, %674 ], [ 0, %669 ], [ 0, %664 ], [ 0, %659 ], [ 0, %654 ], [ 0, %649 ], [ 0, %644 ], [ 0, %639 ], [ 0, %634 ], [ 0, %629 ], [ 0, %624 ], [ 0, %619 ], [ 0, %614 ], [ 0, %609 ], [ 0, %604 ], [ 0, %599 ], [ 0, %594 ], [ 0, %589 ], [ 0, %584 ], [ 0, %579 ], [ 0, %574 ], [ 0, %569 ], [ 0, %564 ], [ 0, %556 ], [ 0, %548 ], [ 0, %543 ], [ 0, %538 ], [ 0, %533 ], [ 0, %528 ], [ 0, %520 ]
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %48) #23
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %47) #23
   %.not.i417 = icmp eq ptr %.sroa.0.3, null
@@ -23667,15 +23667,15 @@ _ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418: ; preds = %988
   br label %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419
 
 _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419: ; preds = %.thread503, %.thread494, %988, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418
-  %.3502 = phi i32 [ 0, %.thread494 ], [ %.145, %988 ], [ %.145, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ 0, %.thread503 ]
-  %.71501 = phi ptr [ %511, %.thread494 ], [ %.69, %988 ], [ %.69, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ %514, %.thread503 ]
-  %.71125500 = phi i32 [ %512, %.thread494 ], [ %.69123, %988 ], [ %.69123, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ %515, %.thread503 ]
+  %.145502 = phi i32 [ 0, %.thread494 ], [ %.3, %988 ], [ %.3, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ 0, %.thread503 ]
+  %.048501 = phi ptr [ %511, %.thread494 ], [ %.250, %988 ], [ %.250, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ %514, %.thread503 ]
+  %.054500 = phi i32 [ %512, %.thread494 ], [ %.256, %988 ], [ %.256, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ %515, %.thread503 ]
   %992 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
-  %993 = icmp eq i32 %.71125500, %992
+  %993 = icmp eq i32 %.054500, %992
   br i1 %993, label %994, label %1008
 
 994:                                              ; preds = %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419
-  %995 = call ptr @__cxa_begin_catch(ptr %.71501) #23
+  %995 = call ptr @__cxa_begin_catch(ptr %.048501) #23
   br i1 %3, label %996, label %1056
 
 996:                                              ; preds = %994
@@ -23700,8 +23700,8 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419: ; preds = %.
 
 1008:                                             ; preds = %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419
   %1009 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %1010 = icmp eq i32 %.71125500, %1009
-  %1011 = call ptr @__cxa_begin_catch(ptr %.71501) #23
+  %1010 = icmp eq i32 %.054500, %1009
+  %1011 = call ptr @__cxa_begin_catch(ptr %.048501) #23
   br i1 %1010, label %1012, label %1028
 
 1012:                                             ; preds = %1008
@@ -23796,13 +23796,13 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419: ; preds = %.
           to label %1056 unwind label %1040
 
 1056:                                             ; preds = %.invoke, %994
-  %spec.select265 = phi i32 [ %.3502, %994 ], [ 1, %.invoke ]
+  %spec.select265 = phi i32 [ %.145502, %994 ], [ 1, %.invoke ]
   call void @__cxa_end_catch()
   br label %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i, %984, %1056, %1035, %1027
-  %.1 = phi i32 [ 1, %1027 ], [ 1, %1035 ], [ %spec.select265, %1056 ], [ %942, %984 ], [ %942, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i ]
-  ret i32 %.1
+  %.043 = phi i32 [ 1, %1027 ], [ 1, %1035 ], [ %spec.select265, %1056 ], [ %942, %984 ], [ %942, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i ]
+  ret i32 %.043
 
 1057:                                             ; preds = %1040, %1038, %1036
   %.pn263 = phi { ptr, i32 } [ %1041, %1040 ], [ %1039, %1038 ], [ %1037, %1036 ]
@@ -24135,18 +24135,18 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt
 
 131:                                              ; preds = %71, %70, %65, %60, %55, %50
   %.pn55 = phi { ptr, i32 } [ %72, %71 ], [ %.pn53, %70 ], [ %.pn51, %65 ], [ %.pn49, %60 ], [ %.pn47, %55 ], [ %.pn, %50 ]
-  %.1 = phi i32 [ %.0, %71 ], [ 0, %70 ], [ 0, %65 ], [ 0, %60 ], [ 0, %55 ], [ 0, %50 ]
+  %.2 = phi i32 [ %.0, %71 ], [ 0, %70 ], [ 0, %65 ], [ 0, %60 ], [ 0, %55 ], [ 0, %50 ]
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %9) #23
   br label %132
 
 132:                                              ; preds = %131, %44
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %131 ], [ %45, %44 ]
-  %.2 = phi i32 [ %.1, %131 ], [ 0, %44 ]
-  %.6 = extractvalue { ptr, i32 } %.pn55.pn, 1
-  %.643 = extractvalue { ptr, i32 } %.pn55.pn, 0
+  %.1 = phi i32 [ %.2, %131 ], [ 0, %44 ]
+  %.032 = extractvalue { ptr, i32 } %.pn55.pn, 1
+  %.037 = extractvalue { ptr, i32 } %.pn55.pn, 0
   %133 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
-  %134 = icmp eq i32 %.6, %133
-  %135 = call ptr @__cxa_begin_catch(ptr %.643) #23
+  %134 = icmp eq i32 %.032, %133
+  %135 = call ptr @__cxa_begin_catch(ptr %.037) #23
   br i1 %134, label %136, label %149
 
 136:                                              ; preds = %132
@@ -24206,13 +24206,13 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt
           to label %163 unwind label %164
 
 161:                                              ; preds = %147, %136
-  %.3 = phi i32 [ %.2, %136 ], [ 1, %147 ]
+  %.4 = phi i32 [ %.1, %136 ], [ 1, %147 ]
   call void @__cxa_end_catch()
   br label %162
 
 162:                                              ; preds = %161, %156, %130
-  %.4 = phi i32 [ %74, %130 ], [ %.3, %161 ], [ 1, %156 ]
-  ret i32 %.4
+  %.3 = phi i32 [ %74, %130 ], [ %.4, %161 ], [ 1, %156 ]
+  ret i32 %.3
 
 163:                                              ; preds = %159, %157
   %.pn58 = phi { ptr, i32 } [ %160, %159 ], [ %158, %157 ]
@@ -24490,18 +24490,18 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7
 
 93:                                               ; preds = %71, %73, %69, %68, %63, %58, %53, %48
   %.pn46 = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %.pn44, %68 ], [ %.pn42, %63 ], [ %.pn40, %58 ], [ %.pn38, %53 ], [ %.pn, %48 ]
-  %.1 = phi i32 [ 0, %73 ], [ 0, %71 ], [ %.0, %69 ], [ 0, %68 ], [ 0, %63 ], [ 0, %58 ], [ 0, %53 ], [ 0, %48 ]
+  %.2 = phi i32 [ 0, %73 ], [ 0, %71 ], [ %.0, %69 ], [ 0, %68 ], [ 0, %63 ], [ 0, %58 ], [ 0, %53 ], [ 0, %48 ]
   call void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %6) #23
   br label %94
 
 94:                                               ; preds = %93, %42
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %93 ], [ %43, %42 ]
-  %.2 = phi i32 [ %.1, %93 ], [ 0, %42 ]
-  %.6 = extractvalue { ptr, i32 } %.pn46.pn, 1
-  %.633 = extractvalue { ptr, i32 } %.pn46.pn, 0
+  %.1 = phi i32 [ %.2, %93 ], [ 0, %42 ]
+  %.022 = extractvalue { ptr, i32 } %.pn46.pn, 1
+  %.027 = extractvalue { ptr, i32 } %.pn46.pn, 0
   %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
-  %96 = icmp eq i32 %.6, %95
-  %97 = call ptr @__cxa_begin_catch(ptr %.633) #23
+  %96 = icmp eq i32 %.022, %95
+  %97 = call ptr @__cxa_begin_catch(ptr %.027) #23
   br i1 %96, label %98, label %111
 
 98:                                               ; preds = %94
@@ -24561,13 +24561,13 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7
           to label %125 unwind label %126
 
 123:                                              ; preds = %109, %98
-  %.3 = phi i32 [ %.2, %98 ], [ 1, %109 ]
+  %.4 = phi i32 [ %.1, %98 ], [ 1, %109 ]
   call void @__cxa_end_catch()
   br label %124
 
 124:                                              ; preds = %123, %118, %92
-  %.4 = phi i32 [ %.3, %123 ], [ 1, %118 ], [ %not., %92 ]
-  ret i32 %.4
+  %.3 = phi i32 [ %.4, %123 ], [ 1, %118 ], [ %not., %92 ]
+  ret i32 %.3
 
 125:                                              ; preds = %121, %119
   %.pn49 = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ]
@@ -24730,14 +24730,14 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarCha
 
 48:                                               ; preds = %47, %26
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %47 ], [ %27, %26 ]
-  %.2 = extractvalue { ptr, i32 } %.pn22.pn, 1
-  %.219 = extractvalue { ptr, i32 } %.pn22.pn, 0
+  %.016 = extractvalue { ptr, i32 } %.pn22.pn, 1
+  %.017 = extractvalue { ptr, i32 } %.pn22.pn, 0
   %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
-  %50 = icmp eq i32 %.2, %49
+  %50 = icmp eq i32 %.016, %49
   br i1 %50, label %51, label %66
 
 51:                                               ; preds = %48
-  %52 = call ptr @__cxa_begin_catch(ptr %.219) #23
+  %52 = call ptr @__cxa_begin_catch(ptr %.017) #23
   %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.600)
           to label %54 unwind label %98
 
@@ -24768,8 +24768,8 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarCha
 
 66:                                               ; preds = %48
   %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %68 = icmp eq i32 %.2, %67
-  %69 = call ptr @__cxa_begin_catch(ptr %.219) #23
+  %68 = icmp eq i32 %.016, %67
+  %69 = call ptr @__cxa_begin_catch(ptr %.017) #23
   br i1 %68, label %70, label %86
 
 70:                                               ; preds = %66

@@ -1912,7 +1912,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr nocapture 
 .lr.ph128:                                        ; preds = %.preheader117, %.loopexit
   %.093127 = phi i32 [ %.1, %.loopexit ], [ %33, %.preheader117 ]
   %.094126 = phi i32 [ %100, %.loopexit ], [ 0, %.preheader117 ]
-  %.097125 = phi i32 [ %.3, %.loopexit ], [ 0, %.preheader117 ]
+  %.097125 = phi i32 [ %.198, %.loopexit ], [ 0, %.preheader117 ]
   %.1100124 = phi i32 [ %.2101, %.loopexit ], [ %spec.select, %.preheader117 ]
   %55 = add nsw i32 %.094126, %.1100124
   %56 = icmp sgt i32 %55, %7
@@ -2013,7 +2013,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit129, %.loopexit.loopexit, %.preheader115, %.preheader, %81
-  %.3 = phi i32 [ %.097125, %81 ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %95, %.loopexit.loopexit ], [ %96, %.loopexit.loopexit129 ]
+  %.198 = phi i32 [ %.097125, %81 ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %95, %.loopexit.loopexit ], [ %96, %.loopexit.loopexit129 ]
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 1784
   %99 = load ptr, ptr %98, align 8
@@ -2128,7 +2128,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr nocapture 
 .lr.ph128:                                        ; preds = %.preheader117, %55
   %.093127 = phi i32 [ %.1, %55 ], [ %33, %.preheader117 ]
   %.094126 = phi i32 [ %56, %55 ], [ 0, %.preheader117 ]
-  %.097125 = phi i32 [ %.3, %55 ], [ 0, %.preheader117 ]
+  %.097125 = phi i32 [ %.198, %55 ], [ 0, %.preheader117 ]
   %.1100124 = phi i32 [ %.2101, %55 ], [ %spec.select, %.preheader117 ]
   %58 = add nsw i32 %.094126, %.1100124
   %59 = icmp sgt i32 %58, %7
@@ -2210,7 +2210,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit129, %.loopexit.loopexit, %.preheader115, %.preheader, %71
-  %.3 = phi i32 [ %.097125, %71 ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %85, %.loopexit.loopexit ], [ %86, %.loopexit.loopexit129 ]
+  %.198 = phi i32 [ %.097125, %71 ], [ %.097125, %.preheader ], [ %.097125, %.preheader115 ], [ %85, %.loopexit.loopexit ], [ %86, %.loopexit.loopexit129 ]
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 1784
   %89 = load ptr, ptr %88, align 8

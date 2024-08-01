@@ -538,13 +538,13 @@ invoke.cont11:                                    ; preds = %invoke.cont8
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit5 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit5: ; preds = %invoke.cont11, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ %call16, %invoke.cont11 ]
+  %retval.1 = phi i1 [ false, %invoke.cont ], [ %call16, %invoke.cont11 ]
   tail call void @_ZdaPv(ptr noundef nonnull %call3) #15
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit5
-  %retval.1 = phi i1 [ %retval.0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit5 ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit5 ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6

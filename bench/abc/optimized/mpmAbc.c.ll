@@ -697,7 +697,7 @@ Mig_ObjIsCi.exit:                                 ; preds = %Mig_ObjIsTerm.exit.
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Mig_ObjSibl.exit
-  %.0139 = phi i32 [ %.2, %Mig_ObjSibl.exit ], [ 0, %.lr.ph.preheader ]
+  %.0139 = phi i32 [ %.1, %Mig_ObjSibl.exit ], [ 0, %.lr.ph.preheader ]
   %.071138 = phi ptr [ %202, %Mig_ObjSibl.exit ], [ %2, %.lr.ph.preheader ]
   %72 = load i32, ptr %.071138, align 4
   %73 = icmp ult i32 %72, -2
@@ -810,7 +810,7 @@ Mig_ObjFanin2.exit:                               ; preds = %Mig_ObjIsNode3.exit
 
 Mig_ObjIsNode3.exit.thread:                       ; preds = %120, %Mig_ObjIsNode3.exit, %144
   %.071.val92 = phi i32 [ %.071.val92.pr.pre, %144 ], [ %.val.i, %Mig_ObjIsNode3.exit ], [ %.val.i, %120 ]
-  %.1 = phi i32 [ %147, %144 ], [ %.0139, %Mig_ObjIsNode3.exit ], [ %.0139, %120 ]
+  %.2 = phi i32 [ %147, %144 ], [ %.0139, %Mig_ObjIsNode3.exit ], [ %.0139, %120 ]
   %.071.val91 = load i32, ptr %.071138, align 4
   %148 = and i32 %.071.val91, 1
   %149 = xor i32 %148, %93
@@ -830,7 +830,7 @@ Mig_ObjIsMux.exit:                                ; preds = %153
   br i1 %156, label %Mig_ObjIsXor.exit, label %157
 
 157:                                              ; preds = %Mig_ObjIsMux.exit
-  %158 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.1, i32 noundef %151, i32 noundef %149) #16
+  %158 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.2, i32 noundef %151, i32 noundef %149) #16
   br label %175
 
 Mig_ObjIsXor.exit:                                ; preds = %Mig_ObjIsMux.exit
@@ -857,7 +857,7 @@ Mig_ObjIsMux.exit102:                             ; preds = %164
   br i1 %167, label %Mig_ObjIsXor.exit105, label %168
 
 168:                                              ; preds = %Mig_ObjIsMux.exit102
-  %169 = tail call fastcc i32 @Gia_ManAppendMux(ptr noundef %0, i32 noundef %.1, i32 noundef %151, i32 noundef %149)
+  %169 = tail call fastcc i32 @Gia_ManAppendMux(ptr noundef %0, i32 noundef %.2, i32 noundef %151, i32 noundef %149)
   br label %175
 
 Mig_ObjIsXor.exit105:                             ; preds = %Mig_ObjIsMux.exit102
@@ -886,7 +886,7 @@ Mig_ObjIsXor.exit105.thread:                      ; preds = %164, %Mig_ObjIsXor.
   br label %.loopexit
 
 179:                                              ; preds = %Mig_ObjFanin2.exit, %Mig_ObjFanin1.exit, %Mig_ObjFanin0.exit
-  %.2 = phi i32 [ %.0139, %Mig_ObjFanin0.exit ], [ %.0139, %Mig_ObjFanin1.exit ], [ -1, %Mig_ObjFanin2.exit ]
+  %.1 = phi i32 [ %.0139, %Mig_ObjFanin0.exit ], [ %.0139, %Mig_ObjFanin1.exit ], [ -1, %Mig_ObjFanin2.exit ]
   %180 = getelementptr i8, ptr %.071138, i64 12
   %.val.i.i.i106 = load i32, ptr %180, align 4
   %181 = lshr i32 %.val.i.i.i106, 1
@@ -1582,8 +1582,8 @@ Mig_ManCleanCopy.exit:                            ; preds = %Vec_IntStart.exit18
   %.0.val174278 = phi i32 [ %.0.val174, %Mig_ObjIsTerm.exit.thread ], [ %.0.val174274, %76 ]
   %82 = phi ptr [ %588, %Mig_ObjIsTerm.exit.thread ], [ %80, %76 ]
   %.0277 = phi ptr [ %587, %Mig_ObjIsTerm.exit.thread ], [ %79, %76 ]
-  %.1276 = phi i32 [ %.3, %Mig_ObjIsTerm.exit.thread ], [ %.0125284, %76 ]
-  %.1132275 = phi ptr [ %.4, %Mig_ObjIsTerm.exit.thread ], [ %.0131283, %76 ]
+  %.1276 = phi i32 [ %.2, %Mig_ObjIsTerm.exit.thread ], [ %.0125284, %76 ]
+  %.1132275 = phi ptr [ %.2133, %Mig_ObjIsTerm.exit.thread ], [ %.0131283, %76 ]
   %.val175 = load ptr, ptr %58, align 8
   %83 = lshr i32 %.0.val174278, 1
   %84 = zext nneg i32 %83 to i64
@@ -1818,10 +1818,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %224
 
 224:                                              ; preds = %220, %202
-  %.2133 = phi ptr [ %219, %202 ], [ %.1132275, %220 ]
+  %.3134 = phi ptr [ %219, %202 ], [ %.1132275, %220 ]
   %.0.val = load i32, ptr %82, align 4
   %225 = lshr i32 %.0.val, 1
-  %226 = call i32 @Gia_ManFromIfLogicNode(ptr noundef null, ptr noundef %21, i32 noundef %225, ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef %.2133, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef null, i32 noundef 0, i32 noundef 0) #16
+  %226 = call i32 @Gia_ManFromIfLogicNode(ptr noundef null, ptr noundef %21, i32 noundef %225, ptr noundef nonnull %26, ptr noundef nonnull %30, ptr noundef %.3134, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef null, i32 noundef 0, i32 noundef 0) #16
   %227 = load i32, ptr %120, align 4
   %228 = lshr i32 %227, 25
   %229 = xor i32 %228, %227
@@ -2533,8 +2533,8 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   br label %576
 
 576:                                              ; preds = %Gia_ManAppendCi.exit, %Vec_IntPush.exit236, %Mig_ObjIsCo.exit.thread, %Gia_ManAppendCo.exit, %224, %Vec_IntPush.exit206
-  %.3134 = phi ptr [ %.2133, %224 ], [ %.1132275, %Vec_IntPush.exit206 ], [ %.1132275, %Gia_ManAppendCi.exit ], [ %.1132275, %Gia_ManAppendCo.exit ], [ %.1132275, %Vec_IntPush.exit236 ], [ %.1132275, %Mig_ObjIsCo.exit.thread ]
-  %.2 = phi i32 [ %231, %224 ], [ %233, %Vec_IntPush.exit206 ], [ %412, %Gia_ManAppendCi.exit ], [ %518, %Gia_ManAppendCo.exit ], [ 0, %Vec_IntPush.exit236 ], [ %.1276, %Mig_ObjIsCo.exit.thread ]
+  %.4 = phi ptr [ %.3134, %224 ], [ %.1132275, %Vec_IntPush.exit206 ], [ %.1132275, %Gia_ManAppendCi.exit ], [ %.1132275, %Gia_ManAppendCo.exit ], [ %.1132275, %Vec_IntPush.exit236 ], [ %.1132275, %Mig_ObjIsCo.exit.thread ]
+  %.3 = phi i32 [ %231, %224 ], [ %233, %Vec_IntPush.exit206 ], [ %412, %Gia_ManAppendCi.exit ], [ %518, %Gia_ManAppendCo.exit ], [ 0, %Vec_IntPush.exit236 ], [ %.1276, %Mig_ObjIsCo.exit.thread ]
   %.val.i.i237 = load i32, ptr %82, align 4
   %577 = lshr i32 %.val.i.i237, 1
   %578 = and i32 %577, 4095
@@ -2547,12 +2547,12 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   %.val2.i = load ptr, ptr %584, align 8
   %585 = zext nneg i32 %577 to i64
   %586 = getelementptr inbounds i32, ptr %.val2.i, i64 %585
-  store i32 %.2, ptr %586, align 4
+  store i32 %.3, ptr %586, align 4
   br label %Mig_ObjIsTerm.exit.thread
 
 Mig_ObjIsTerm.exit.thread:                        ; preds = %89, %Mig_ObjIsTerm.exit, %576
-  %.4 = phi ptr [ %.3134, %576 ], [ %.1132275, %Mig_ObjIsTerm.exit ], [ %.1132275, %89 ]
-  %.3 = phi i32 [ %.2, %576 ], [ %.1276, %Mig_ObjIsTerm.exit ], [ %.1276, %89 ]
+  %.2133 = phi ptr [ %.4, %576 ], [ %.1132275, %Mig_ObjIsTerm.exit ], [ %.1132275, %89 ]
+  %.2 = phi i32 [ %.3, %576 ], [ %.1276, %Mig_ObjIsTerm.exit ], [ %.1276, %89 ]
   %587 = getelementptr inbounds i8, ptr %.0277, i64 16
   %588 = getelementptr i8, ptr %.0277, i64 28
   %.0.val174 = load i32, ptr %588, align 4
@@ -2565,8 +2565,8 @@ Mig_ObjIsTerm.exit.thread:                        ; preds = %89, %Mig_ObjIsTerm.
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %76
   %590 = phi ptr [ %77, %76 ], [ %.pre304, %._crit_edge.loopexit ]
-  %.1132.lcssa = phi ptr [ %.0131283, %76 ], [ %.4, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.0125284, %76 ], [ %.3, %._crit_edge.loopexit ]
+  %.1132.lcssa = phi ptr [ %.0131283, %76 ], [ %.2133, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.0125284, %76 ], [ %.2, %._crit_edge.loopexit ]
   %591 = getelementptr inbounds i8, ptr %590, i64 80
   %592 = load i32, ptr %591, align 8
   %593 = add nsw i32 %592, 1

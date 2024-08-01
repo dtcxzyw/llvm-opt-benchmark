@@ -501,10 +501,10 @@ cleanup80.sink.split:                             ; preds = %invoke.cont36, %inv
   br label %cleanup80
 
 cleanup80:                                        ; preds = %invoke.cont78, %cleanup80.sink.split, %invoke.cont6, %invoke.cont8
-  %retval.2 = phi i1 [ false, %invoke.cont8 ], [ false, %invoke.cont6 ], [ false, %cleanup80.sink.split ], [ true, %invoke.cont78 ]
+  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %invoke.cont6 ], [ false, %cleanup80.sink.split ], [ true, %invoke.cont78 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %file2) #11
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %file1) #11
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad5.loopexit, %lpad5.loopexit.split-lp, %lpad10
   %.pn = phi { ptr, i32 } [ %2, %lpad10 ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp ]
@@ -1069,8 +1069,8 @@ ehcleanup70:                                      ; preds = %lpad22.split, %lpad
   br label %common.resume
 
 return:                                           ; preds = %cleanup.action, %cleanup.done15, %cleanup
-  %retval.1 = phi i32 [ %.us-phi26, %cleanup ], [ 0, %cleanup.done15 ], [ 0, %cleanup.action ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %.us-phi26, %cleanup ], [ 0, %cleanup.done15 ], [ 0, %cleanup.action ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind

@@ -2102,15 +2102,15 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %44, %.lr.ph.i.i
-  %.sroa.8.0 = phi i64 [ %8, %.lr.ph.i.i ], [ %.sroa.8.2, %44 ]
-  %.sroa.0.0 = phi ptr [ %6, %.lr.ph.i.i ], [ %.sroa.0.2, %44 ]
+  %.sroa.8.1 = phi i64 [ %8, %.lr.ph.i.i ], [ %.sroa.8.3, %44 ]
+  %.sroa.0.1 = phi ptr [ %6, %.lr.ph.i.i ], [ %.sroa.0.3, %44 ]
   %.03043.i.i = phi i32 [ %14, %.lr.ph.i.i ], [ %46, %44 ]
   %.03142.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %45, %44 ]
   %16 = lshr i32 %.03142.i.i, 16
   %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
-  store i8 %17, ptr %.sroa.0.0, align 1
-  %19 = add i64 %.sroa.8.0, -1
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 1
+  store i8 %17, ptr %.sroa.0.1, align 1
+  %19 = add i64 %.sroa.8.1, -1
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %29
 
@@ -2129,16 +2129,16 @@ dump_buffer.exit.i.i:                             ; preds = %21
   br label %29
 
 29:                                               ; preds = %dump_buffer.exit.i.i, %15
-  %.sroa.8.1 = phi i64 [ %28, %dump_buffer.exit.i.i ], [ %19, %15 ]
-  %.sroa.0.1 = phi ptr [ %26, %dump_buffer.exit.i.i ], [ %18, %15 ]
+  %.sroa.8.2 = phi i64 [ %28, %dump_buffer.exit.i.i ], [ %19, %15 ]
+  %.sroa.0.2 = phi ptr [ %26, %dump_buffer.exit.i.i ], [ %18, %15 ]
   %30 = and i32 %.03142.i.i, 16711680
   %31 = icmp eq i32 %30, 16711680
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 1
-  store i8 0, ptr %.sroa.0.1, align 1
-  %34 = add i64 %.sroa.8.1, -1
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 1
+  store i8 0, ptr %.sroa.0.2, align 1
+  %34 = add i64 %.sroa.8.2, -1
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %44
 
@@ -2157,8 +2157,8 @@ dump_buffer.exit35.i.i:                           ; preds = %36
   br label %44
 
 44:                                               ; preds = %dump_buffer.exit35.i.i, %32, %29
-  %.sroa.8.2 = phi i64 [ %43, %dump_buffer.exit35.i.i ], [ %34, %32 ], [ %.sroa.8.1, %29 ]
-  %.sroa.0.2 = phi ptr [ %41, %dump_buffer.exit35.i.i ], [ %33, %32 ], [ %.sroa.0.1, %29 ]
+  %.sroa.8.3 = phi i64 [ %43, %dump_buffer.exit35.i.i ], [ %34, %32 ], [ %.sroa.8.2, %29 ]
+  %.sroa.0.3 = phi ptr [ %41, %dump_buffer.exit35.i.i ], [ %33, %32 ], [ %.sroa.0.2, %29 ]
   %45 = shl i32 %.03142.i.i, 8
   %46 = add nsw i32 %.03043.i.i, -8
   %47 = icmp sgt i32 %.03043.i.i, 15
@@ -2175,8 +2175,8 @@ dump_buffer.exit35.i.i:                           ; preds = %36
   br label %flush_bits.exit
 
 flush_bits.exit:                                  ; preds = %44, %1, %48
-  %.sroa.0.433 = phi ptr [ %.sroa.0.4.ph, %48 ], [ %6, %1 ], [ %.sroa.0.2, %44 ]
-  %.sroa.8.431 = phi i64 [ 0, %48 ], [ %8, %1 ], [ %.sroa.8.2, %44 ]
+  %.sroa.0.433 = phi ptr [ %.sroa.0.4.ph, %48 ], [ %6, %1 ], [ %.sroa.0.3, %44 ]
+  %.sroa.8.431 = phi i64 [ 0, %48 ], [ %8, %1 ], [ %.sroa.8.3, %44 ]
   %.sroa.16.029 = phi i32 [ %.sroa.16.16.copyload15, %48 ], [ 0, %1 ], [ 0, %44 ]
   %.sroa.20.027 = phi i32 [ %.sroa.20.16.copyload17, %48 ], [ 0, %1 ], [ 0, %44 ]
   %53 = load ptr, ptr %4, align 8

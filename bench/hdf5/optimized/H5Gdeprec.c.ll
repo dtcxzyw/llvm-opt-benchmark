@@ -267,7 +267,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gcreate1(i64 noundef %0, ptr n
   br label %112
 
 77:                                               ; preds = %39, %69
-  %.045 = phi i64 [ %49, %69 ], [ %40, %39 ]
+  %.146 = phi i64 [ %49, %69 ], [ %40, %39 ]
   %78 = call i32 @H5CX_set_loc(i64 noundef %0) #4
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %84
@@ -297,7 +297,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gcreate1(i64 noundef %0, ptr n
   %94 = load i64, ptr @H5P_LST_LINK_CREATE_ID_g, align 8
   %95 = load i64, ptr @H5P_LST_GROUP_ACCESS_ID_g, align 8
   %96 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %97 = call ptr @H5VL_group_create(ptr noundef nonnull %87, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %94, i64 noundef %.045, i64 noundef %95, i64 noundef %96, ptr noundef null) #4
+  %97 = call ptr @H5VL_group_create(ptr noundef nonnull %87, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %94, i64 noundef %.146, i64 noundef %95, i64 noundef %96, ptr noundef null) #4
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %103
 
@@ -323,17 +323,17 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gcreate1(i64 noundef %0, ptr n
 112:                                              ; preds = %103, %108, %99, %89, %80, %73, %65, %58, %51
   %.048 = phi i1 [ false, %51 ], [ false, %58 ], [ false, %65 ], [ false, %73 ], [ false, %80 ], [ false, %89 ], [ false, %99 ], [ true, %108 ], [ true, %103 ]
   %.047 = phi ptr [ undef, %51 ], [ undef, %58 ], [ undef, %65 ], [ undef, %73 ], [ undef, %80 ], [ null, %89 ], [ %87, %99 ], [ %87, %108 ], [ %87, %103 ]
-  %.146 = phi i64 [ %49, %51 ], [ %49, %58 ], [ %49, %65 ], [ %49, %73 ], [ %.045, %80 ], [ %.045, %89 ], [ %.045, %99 ], [ %.045, %108 ], [ %.045, %103 ]
+  %.045 = phi i64 [ %49, %51 ], [ %49, %58 ], [ %49, %65 ], [ %49, %73 ], [ %.146, %80 ], [ %.146, %89 ], [ %.146, %99 ], [ %.146, %108 ], [ %.146, %103 ]
   %.042 = phi i64 [ -1, %51 ], [ -1, %58 ], [ -1, %65 ], [ -1, %73 ], [ -1, %80 ], [ -1, %89 ], [ -1, %99 ], [ -1, %108 ], [ %106, %103 ]
   %.0 = phi i1 [ true, %51 ], [ true, %58 ], [ true, %65 ], [ true, %73 ], [ true, %80 ], [ true, %89 ], [ true, %99 ], [ true, %108 ], [ false, %103 ]
-  %.not62 = icmp eq i64 %.146, -1
+  %.not62 = icmp eq i64 %.045, -1
   %113 = load i64, ptr @H5P_LST_GROUP_CREATE_ID_g, align 8
-  %.not63 = icmp eq i64 %.146, %113
+  %.not63 = icmp eq i64 %.045, %113
   %or.cond64 = select i1 %.not62, i1 true, i1 %.not63
   br i1 %or.cond64, label %121, label %114
 
 114:                                              ; preds = %112
-  %115 = call i32 @H5I_dec_ref(i64 noundef %.146) #4
+  %115 = call i32 @H5I_dec_ref(i64 noundef %.045) #4
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %121
 

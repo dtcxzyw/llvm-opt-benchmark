@@ -1672,10 +1672,10 @@ default.unreachable606:                           ; preds = %._crit_edge
   br label %620
 
 617:                                              ; preds = %602, %620, %624, %625, %629, %633
-  %.4252.ph = phi i8 [ 1, %602 ], [ 1, %624 ], [ 1, %625 ], [ %.5253, %620 ], [ %.5253, %629 ], [ %.5253, %633 ]
+  %.3251.ph = phi i8 [ 1, %602 ], [ 1, %624 ], [ 1, %625 ], [ %.5253, %620 ], [ %.5253, %629 ], [ %.5253, %633 ]
   %lpad.thr_comm.split-lp413 = landingpad { ptr, i32 }
           cleanup
-  %618 = trunc nuw i8 %.4252.ph to i1
+  %618 = trunc nuw i8 %.3251.ph to i1
   %619 = load i64, ptr %102, align 8, !range !10, !noundef !3
   %.not321 = icmp ne i64 %619, -9223372036854775808
   %brmerge.not = select i1 %.not321, i1 %618, i1 false

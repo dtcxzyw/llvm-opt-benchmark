@@ -696,17 +696,17 @@ land.end97:                                       ; preds = %land.rhs93, %if.els
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then77, %land.rhs83, %land.end97
-  %res.0 = phi i32 [ %land.ext98, %land.end97 ], [ 0, %if.then77 ], [ %2, %land.rhs83 ]
+  %res.1 = phi i32 [ %land.ext98, %land.end97 ], [ 0, %if.then77 ], [ %2, %land.rhs83 ]
   %call101 = call i32 @BIO_free(ptr noundef nonnull %cond59) #7
   br label %err
 
 err:                                              ; preds = %cond.end58, %if.end100, %if.end19
-  %res.1 = phi i32 [ 0, %if.end19 ], [ %res.0, %if.end100 ], [ 0, %cond.end58 ]
+  %res.0 = phi i32 [ 0, %if.end19 ], [ %res.1, %if.end100 ], [ 0, %cond.end58 ]
   %call103 = call i32 @BIO_free(ptr noundef %req.1) #7
   %call104 = call i32 @BIO_free(ptr noundef %call1) #7
   %call105 = call i32 @BIO_free(ptr noundef %call3) #7
   call void @OPENSSL_sk_pop_free(ptr noundef null, ptr noundef nonnull @X509V3_conf_free) #7
-  ret i32 %res.1
+  ret i32 %res.0
 }
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
@@ -779,8 +779,8 @@ land.end14.i:                                     ; preds = %land.rhs5.i, %land.
 
 if.end.i:                                         ; preds = %land.end14.i, %land.end.i
   %9 = phi i1 [ true, %land.end.i ], [ false, %land.end14.i ]
-  %hdr.4.i = phi ptr [ %add.ptr.i, %land.end.i ], [ %hdr.3.i, %land.end14.i ]
-  %call19.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hdr.4.i, i32 noundef 32) #8
+  %hdr.2.i = phi ptr [ %add.ptr.i, %land.end.i ], [ %hdr.3.i, %land.end14.i ]
+  %call19.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %hdr.2.i, i32 noundef 32) #8
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %mock_http_server.exit, label %if.end23.i
 
@@ -830,7 +830,7 @@ if.end46.i:                                       ; preds = %lor.lhs.false41.i
   br i1 %or.cond.i, label %mock_http_server.exit, label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end46.i
-  %call54.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %hdr.4.i, ptr noundef nonnull dereferenceable(17) @.str.91, i64 noundef 16) #8
+  %call54.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %hdr.2.i, ptr noundef nonnull dereferenceable(17) @.str.91, i64 noundef 16) #8
   %cmp55.i = icmp eq i32 %call54.i, 0
   br i1 %cmp55.i, label %if.end65.i, label %if.then57.i
 
@@ -1039,25 +1039,25 @@ land.rhs26:                                       ; preds = %land.lhs.true23
   br label %if.end33
 
 if.end33:                                         ; preds = %land.lhs.true23, %land.rhs26, %land.lhs.true14, %land.rhs17
-  %res.1.in = phi i1 [ false, %land.lhs.true14 ], [ %tobool20, %land.rhs17 ], [ false, %land.lhs.true23 ], [ %tobool30, %land.rhs26 ]
+  %res.2.in = phi i1 [ false, %land.lhs.true14 ], [ %tobool20, %land.rhs17 ], [ false, %land.lhs.true23 ], [ %tobool30, %land.rhs26 ]
   %call34 = call i32 @BIO_free(ptr noundef %call9) #7
   %call35 = call i64 @BIO_ctrl(ptr noundef %call3, i32 noundef 1, i64 noundef 0, ptr noundef null) #7
   %inc = add nuw nsw i32 %i.021, 1
   %cmp8 = icmp ult i32 %i.021, 2
-  %2 = select i1 %res.1.in, i1 %cmp8, i1 false
+  %2 = select i1 %res.2.in, i1 %cmp8, i1 false
   br i1 %2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end33
-  %res.1 = zext i1 %res.1.in to i32
+  %res.2 = zext i1 %res.2.in to i32
   %3 = load ptr, ptr %rctx, align 8
-  %call37 = call i32 @OSSL_HTTP_close(ptr noundef %3, i32 noundef %res.1) #7
+  %call37 = call i32 @OSSL_HTTP_close(ptr noundef %3, i32 noundef %res.2) #7
   br label %err
 
 err:                                              ; preds = %entry, %for.end
-  %res.2 = phi i32 [ 0, %entry ], [ %res.1, %for.end ]
+  %res.0 = phi i32 [ 0, %entry ], [ %res.2, %for.end ]
   %call38 = call i32 @BIO_free(ptr noundef %call1) #7
   %call39 = call i32 @BIO_free(ptr noundef %call3) #7
-  ret i32 %res.2
+  ret i32 %res.0
 }
 
 declare i32 @OSSL_HTTP_is_alive(ptr noundef) local_unnamed_addr #1

@@ -768,7 +768,7 @@ if.then:                                          ; preds = %entry
   %cmp = fcmp olt float %add14, %62
   %sub = fsub float %62, %2
   %storemerge = select i1 %cmp, float %62, float %add14
-  %deltaImpulse.0 = select i1 %cmp, float %sub, float %61
+  %deltaImpulse.1 = select i1 %cmp, float %sub, float %61
   store float %storemerge, ptr %m_appliedPushImpulse, align 8
   %m_originalBody.i = getelementptr inbounds i8, ptr %bodyA, i64 240
   %63 = load ptr, ptr %m_originalBody.i, align 8
@@ -781,14 +781,14 @@ if.then.i:                                        ; preds = %if.then
   %64 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %10, %64
   %m_invMass.i = getelementptr inbounds i8, ptr %bodyA, i64 128
-  %mul8.i.i = fmul float %deltaImpulse.0, %mul14.i
+  %mul8.i.i = fmul float %deltaImpulse.1, %mul14.i
   %m_linearFactor.i = getelementptr inbounds i8, ptr %bodyA, i64 112
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %bodyA, i64 120
   %65 = load float, ptr %arrayidx13.i.i, align 8
   %mul14.i.i = fmul float %mul8.i.i, %65
   %66 = load <2 x float>, ptr %m_invMass.i, align 8
   %67 = fmul <2 x float> %7, %66
-  %68 = insertelement <2 x float> poison, float %deltaImpulse.0, i64 0
+  %68 = insertelement <2 x float> poison, float %deltaImpulse.1, i64 0
   %69 = shufflevector <2 x float> %68, <2 x float> poison, <2 x i32> zeroinitializer
   %70 = fmul <2 x float> %69, %67
   %71 = load <2 x float>, ptr %m_linearFactor.i, align 8
@@ -802,7 +802,7 @@ if.then.i:                                        ; preds = %if.then
   %m_angularFactor.i = getelementptr inbounds i8, ptr %bodyA, i64 96
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %bodyA, i64 104
   %76 = load float, ptr %arrayidx7.i.i.i, align 8
-  %mul8.i.i.i = fmul float %deltaImpulse.0, %76
+  %mul8.i.i.i = fmul float %deltaImpulse.1, %76
   %arrayidx11.i15.i = getelementptr inbounds i8, ptr %c, i64 72
   %77 = load float, ptr %arrayidx11.i15.i, align 8
   %mul14.i17.i = fmul float %mul8.i.i.i, %77
@@ -831,7 +831,7 @@ if.then.i71:                                      ; preds = %_ZN12btSolverBody24
   %87 = load float, ptr %arrayidx13.i62, align 8
   %mul14.i63 = fmul float %86, %87
   %m_invMass.i56 = getelementptr inbounds i8, ptr %bodyB, i64 128
-  %mul8.i.i76 = fmul float %deltaImpulse.0, %mul14.i63
+  %mul8.i.i76 = fmul float %deltaImpulse.1, %mul14.i63
   %m_linearFactor.i77 = getelementptr inbounds i8, ptr %bodyB, i64 112
   %arrayidx13.i.i81 = getelementptr inbounds i8, ptr %bodyB, i64 120
   %88 = load float, ptr %arrayidx13.i.i81, align 8
@@ -839,7 +839,7 @@ if.then.i71:                                      ; preds = %_ZN12btSolverBody24
   %89 = load <2 x float>, ptr %m_contactNormal2, align 8
   %90 = load <2 x float>, ptr %m_invMass.i56, align 8
   %91 = fmul <2 x float> %89, %90
-  %92 = insertelement <2 x float> poison, float %deltaImpulse.0, i64 0
+  %92 = insertelement <2 x float> poison, float %deltaImpulse.1, i64 0
   %93 = shufflevector <2 x float> %92, <2 x float> poison, <2 x i32> zeroinitializer
   %94 = fmul <2 x float> %93, %91
   %95 = load <2 x float>, ptr %m_linearFactor.i77, align 8
@@ -853,7 +853,7 @@ if.then.i71:                                      ; preds = %_ZN12btSolverBody24
   %m_angularFactor.i89 = getelementptr inbounds i8, ptr %bodyB, i64 96
   %arrayidx7.i.i.i93 = getelementptr inbounds i8, ptr %bodyB, i64 104
   %100 = load float, ptr %arrayidx7.i.i.i93, align 8
-  %mul8.i.i.i94 = fmul float %deltaImpulse.0, %100
+  %mul8.i.i.i94 = fmul float %deltaImpulse.1, %100
   %arrayidx11.i15.i98 = getelementptr inbounds i8, ptr %c, i64 88
   %101 = load float, ptr %arrayidx11.i15.i98, align 8
   %mul14.i17.i99 = fmul float %mul8.i.i.i94, %101
@@ -870,16 +870,16 @@ if.then.i71:                                      ; preds = %_ZN12btSolverBody24
   br label %_ZN12btSolverBody24internalApplyPushImpulseERK9btVector3S2_f.exit106
 
 _ZN12btSolverBody24internalApplyPushImpulseERK9btVector3S2_f.exit106: ; preds = %_ZN12btSolverBody24internalApplyPushImpulseERK9btVector3S2_f.exit, %if.then.i71
-  %109 = fpext float %deltaImpulse.0 to double
+  %109 = fpext float %deltaImpulse.1 to double
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZN12btSolverBody24internalApplyPushImpulseERK9btVector3S2_f.exit106, %entry
-  %deltaImpulse.1 = phi double [ %109, %_ZN12btSolverBody24internalApplyPushImpulseERK9btVector3S2_f.exit106 ], [ 0.000000e+00, %entry ]
+  %deltaImpulse.0 = phi double [ %109, %_ZN12btSolverBody24internalApplyPushImpulseERK9btVector3S2_f.exit106 ], [ 0.000000e+00, %entry ]
   %m_jacDiagABInv30 = getelementptr inbounds i8, ptr %c, i64 108
   %110 = load float, ptr %m_jacDiagABInv30, align 4
   %conv31 = fpext float %110 to double
   %div = fdiv double 1.000000e+00, %conv31
-  %mul = fmul double %deltaImpulse.1, %div
+  %mul = fmul double %deltaImpulse.0, %div
   %conv32 = fptrunc double %mul to float
   ret float %conv32
 }
@@ -3743,8 +3743,8 @@ if.then.i177:                                     ; preds = %_ZN20btAlignedObjec
   br label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit
 
 _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit, %if.then.i177
-  %vel1.sroa.0.1 = phi <2 x float> [ %75, %if.then.i177 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
-  %vel1.sroa.4.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i, %if.then.i177 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
+  %vel1.sroa.0.2 = phi <2 x float> [ %75, %if.then.i177 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
+  %vel1.sroa.4.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i, %if.then.i177 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
   %76 = load ptr, ptr %m_originalBody.i178, align 8
   %tobool.not.i179 = icmp eq ptr %76, null
   br i1 %tobool.not.i179, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit212, label %if.then.i180
@@ -3779,10 +3779,10 @@ if.then.i180:                                     ; preds = %_ZNK12btSolverBody3
   br label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit212
 
 _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit212: ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, %if.then.i180
-  %vel2.sroa.0.1 = phi <2 x float> [ %97, %if.then.i180 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
-  %vel2.sroa.4.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i209, %if.then.i180 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
-  %98 = fsub <2 x float> %vel1.sroa.0.1, %vel2.sroa.0.1
-  %99 = fsub <2 x float> %vel1.sroa.4.1, %vel2.sroa.4.1
+  %vel2.sroa.0.2 = phi <2 x float> [ %97, %if.then.i180 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
+  %vel2.sroa.4.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i30.i209, %if.then.i180 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
+  %98 = fsub <2 x float> %vel1.sroa.0.2, %vel2.sroa.0.2
+  %99 = fsub <2 x float> %vel1.sroa.4.2, %vel2.sroa.4.2
   %sub14.i219 = extractelement <2 x float> %99, i64 0
   %m_normalWorldOnB = getelementptr inbounds i8, ptr %arrayidx.i158, i64 64
   %100 = load float, ptr %m_normalWorldOnB, align 4
@@ -6793,7 +6793,7 @@ for.body146.lr.ph:                                ; preds = %if.then137
 
 for.body146:                                      ; preds = %for.body146.lr.ph, %for.inc239
   %indvars.iv410 = phi i64 [ 0, %for.body146.lr.ph ], [ %indvars.iv.next411, %for.inc239 ]
-  %leastSquaresResidual.2375 = phi float [ %leastSquaresResidual.0.lcssa, %for.body146.lr.ph ], [ %leastSquaresResidual.4, %for.inc239 ]
+  %leastSquaresResidual.3375 = phi float [ %leastSquaresResidual.0.lcssa, %for.body146.lr.ph ], [ %leastSquaresResidual.5, %for.inc239 ]
   %51 = load ptr, ptr %m_data.i218, align 8
   %arrayidx.i220 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv410
   %52 = load i32, ptr %arrayidx.i220, align 4
@@ -6815,8 +6815,8 @@ for.body146:                                      ; preds = %for.body146.lr.ph, 
 
 invoke.cont162:                                   ; preds = %for.body146
   %mul165 = fmul float %call.i230, %call.i230
-  %cmp.i231 = fcmp ogt float %leastSquaresResidual.2375, %mul165
-  %.sroa.speculated333 = select i1 %cmp.i231, float %leastSquaresResidual.2375, float %mul165
+  %cmp.i231 = fcmp ogt float %leastSquaresResidual.3375, %mul165
+  %.sroa.speculated333 = select i1 %cmp.i231, float %leastSquaresResidual.3375, float %mul165
   %m_appliedImpulse = getelementptr inbounds i8, ptr %arrayidx.i223, i64 100
   %58 = load float, ptr %m_appliedImpulse, align 4
   %59 = trunc nuw nsw i64 %indvars.iv410 to i32
@@ -6902,7 +6902,7 @@ invoke.cont230:                                   ; preds = %if.then213
   br label %for.inc239
 
 for.inc239:                                       ; preds = %invoke.cont162, %if.end198, %invoke.cont230
-  %leastSquaresResidual.4 = phi float [ %.sroa.speculated331, %if.end198 ], [ %.sroa.speculated329, %invoke.cont230 ], [ %.sroa.speculated333, %invoke.cont162 ]
+  %leastSquaresResidual.5 = phi float [ %.sroa.speculated331, %if.end198 ], [ %.sroa.speculated329, %invoke.cont230 ], [ %.sroa.speculated333, %invoke.cont162 ]
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond414.not = icmp eq i64 %indvars.iv.next411, %wide.trip.count413
   br i1 %exitcond414.not, label %if.end321, label %for.body146, !llvm.loop !28
@@ -6920,7 +6920,7 @@ for.body249.lr.ph:                                ; preds = %if.else
 
 for.body249:                                      ; preds = %for.body249.lr.ph, %invoke.cont266
   %indvars.iv415 = phi i64 [ 0, %for.body249.lr.ph ], [ %indvars.iv.next416, %invoke.cont266 ]
-  %leastSquaresResidual.5379 = phi float [ %leastSquaresResidual.0.lcssa, %for.body249.lr.ph ], [ %.sroa.speculated327, %invoke.cont266 ]
+  %leastSquaresResidual.7379 = phi float [ %leastSquaresResidual.0.lcssa, %for.body249.lr.ph ], [ %.sroa.speculated327, %invoke.cont266 ]
   %89 = load ptr, ptr %m_data.i268, align 8
   %arrayidx.i270 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv415
   %90 = load i32, ptr %arrayidx.i270, align 4
@@ -6942,14 +6942,14 @@ for.body249:                                      ; preds = %for.body249.lr.ph, 
 
 invoke.cont266:                                   ; preds = %for.body249
   %mul269 = fmul float %call.i281, %call.i281
-  %cmp.i283 = fcmp ogt float %leastSquaresResidual.5379, %mul269
-  %.sroa.speculated327 = select i1 %cmp.i283, float %leastSquaresResidual.5379, float %mul269
+  %cmp.i283 = fcmp ogt float %leastSquaresResidual.7379, %mul269
+  %.sroa.speculated327 = select i1 %cmp.i283, float %leastSquaresResidual.7379, float %mul269
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count418
   br i1 %exitcond419.not, label %for.end274, label %for.body249, !llvm.loop !29
 
 for.end274:                                       ; preds = %invoke.cont266, %if.else
-  %leastSquaresResidual.5.lcssa = phi float [ %leastSquaresResidual.0.lcssa, %if.else ], [ %.sroa.speculated327, %invoke.cont266 ]
+  %leastSquaresResidual.7.lcssa = phi float [ %leastSquaresResidual.0.lcssa, %if.else ], [ %.sroa.speculated327, %invoke.cont266 ]
   %96 = load i32, ptr %m_size.i104, align 4
   %cmp279382 = icmp sgt i32 %96, 0
   br i1 %cmp279382, label %for.body280.lr.ph, label %if.end321
@@ -6965,7 +6965,7 @@ for.body280.lr.ph:                                ; preds = %for.end274
 
 for.body280:                                      ; preds = %for.body280.lr.ph, %for.inc318
   %indvars.iv420 = phi i64 [ 0, %for.body280.lr.ph ], [ %indvars.iv.next421, %for.inc318 ]
-  %leastSquaresResidual.6383 = phi float [ %leastSquaresResidual.5.lcssa, %for.body280.lr.ph ], [ %leastSquaresResidual.7, %for.inc318 ]
+  %leastSquaresResidual.8383 = phi float [ %leastSquaresResidual.7.lcssa, %for.body280.lr.ph ], [ %leastSquaresResidual.9, %for.inc318 ]
   %97 = load ptr, ptr %m_data.i286, align 8
   %arrayidx.i288 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv420
   %98 = load i32, ptr %arrayidx.i288, align 4
@@ -7007,18 +7007,18 @@ if.then294:                                       ; preds = %for.body280
 
 invoke.cont311:                                   ; preds = %if.then294
   %mul314 = fmul float %call.i302, %call.i302
-  %cmp.i304 = fcmp ogt float %leastSquaresResidual.6383, %mul314
-  %.sroa.speculated325 = select i1 %cmp.i304, float %leastSquaresResidual.6383, float %mul314
+  %cmp.i304 = fcmp ogt float %leastSquaresResidual.8383, %mul314
+  %.sroa.speculated325 = select i1 %cmp.i304, float %leastSquaresResidual.8383, float %mul314
   br label %for.inc318
 
 for.inc318:                                       ; preds = %for.body280, %invoke.cont311
-  %leastSquaresResidual.7 = phi float [ %.sroa.speculated325, %invoke.cont311 ], [ %leastSquaresResidual.6383, %for.body280 ]
+  %leastSquaresResidual.9 = phi float [ %.sroa.speculated325, %invoke.cont311 ], [ %leastSquaresResidual.8383, %for.body280 ]
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
   br i1 %exitcond424.not, label %if.end321, label %for.body280, !llvm.loop !30
 
 if.end321:                                        ; preds = %for.inc239, %for.inc318, %if.then137, %for.end274
-  %leastSquaresResidual.8 = phi float [ %leastSquaresResidual.5.lcssa, %for.end274 ], [ %leastSquaresResidual.0.lcssa, %if.then137 ], [ %leastSquaresResidual.7, %for.inc318 ], [ %leastSquaresResidual.4, %for.inc239 ]
+  %leastSquaresResidual.6 = phi float [ %leastSquaresResidual.7.lcssa, %for.end274 ], [ %leastSquaresResidual.0.lcssa, %if.then137 ], [ %leastSquaresResidual.9, %for.inc318 ], [ %leastSquaresResidual.5, %for.inc239 ]
   %m_size.i306 = getelementptr inbounds i8, ptr %this, i64 140
   %114 = load i32, ptr %m_size.i306, align 4
   %cmp326386 = icmp sgt i32 %114, 0
@@ -7034,7 +7034,7 @@ for.body327.lr.ph:                                ; preds = %if.end321
 
 for.body327:                                      ; preds = %for.body327.lr.ph, %for.inc365
   %indvars.iv425 = phi i64 [ 0, %for.body327.lr.ph ], [ %indvars.iv.next426, %for.inc365 ]
-  %leastSquaresResidual.9387 = phi float [ %leastSquaresResidual.8, %for.body327.lr.ph ], [ %leastSquaresResidual.10, %for.inc365 ]
+  %leastSquaresResidual.10387 = phi float [ %leastSquaresResidual.6, %for.body327.lr.ph ], [ %leastSquaresResidual.11, %for.inc365 ]
   %115 = load ptr, ptr %m_data.i307, align 8
   %arrayidx.i309 = getelementptr inbounds %struct.btSolverConstraint, ptr %115, i64 %indvars.iv425
   %m_frictionIndex333 = getelementptr inbounds i8, ptr %arrayidx.i309, i64 148
@@ -7072,20 +7072,20 @@ if.then338:                                       ; preds = %for.body327
 
 invoke.cont358:                                   ; preds = %if.then338
   %mul361 = fmul float %call.i320, %call.i320
-  %cmp.i322 = fcmp ogt float %leastSquaresResidual.9387, %mul361
-  %.sroa.speculated = select i1 %cmp.i322, float %leastSquaresResidual.9387, float %mul361
+  %cmp.i322 = fcmp ogt float %leastSquaresResidual.10387, %mul361
+  %.sroa.speculated = select i1 %cmp.i322, float %leastSquaresResidual.10387, float %mul361
   br label %for.inc365
 
 for.inc365:                                       ; preds = %for.body327, %invoke.cont358
-  %leastSquaresResidual.10 = phi float [ %.sroa.speculated, %invoke.cont358 ], [ %leastSquaresResidual.9387, %for.body327 ]
+  %leastSquaresResidual.11 = phi float [ %.sroa.speculated, %invoke.cont358 ], [ %leastSquaresResidual.10387, %for.body327 ]
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next426, %wide.trip.count428
   br i1 %exitcond429.not, label %if.end368, label %for.body327, !llvm.loop !31
 
 if.end368:                                        ; preds = %for.inc365, %if.end321, %for.end96
-  %leastSquaresResidual.11 = phi float [ %leastSquaresResidual.0.lcssa, %for.end96 ], [ %leastSquaresResidual.8, %if.end321 ], [ %leastSquaresResidual.10, %for.inc365 ]
+  %leastSquaresResidual.2 = phi float [ %leastSquaresResidual.0.lcssa, %for.end96 ], [ %leastSquaresResidual.6, %if.end321 ], [ %leastSquaresResidual.11, %for.inc365 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #22
-  ret float %leastSquaresResidual.11
+  ret float %leastSquaresResidual.2
 }
 
 ; Function Attrs: mustprogress uwtable

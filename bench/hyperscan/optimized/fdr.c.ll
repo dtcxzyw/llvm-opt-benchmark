@@ -573,11 +573,11 @@ for.body.us:                                      ; preds = %getInitState.exit, 
   br label %for.cond17.us
 
 for.cond17.us:                                    ; preds = %do_confirm_fdr.exit1562.us, %for.body.us
-  %control.addr.1.us = phi i64 [ %control.addr.01936.us, %for.body.us ], [ %control.addr.48.us, %do_confirm_fdr.exit1562.us ]
-  %floodBackoff.1.us = phi i32 [ %floodBackoff.01937.us, %for.body.us ], [ %floodBackoff.3.us, %do_confirm_fdr.exit1562.us ]
+  %control.addr.1.us = phi i64 [ %control.addr.01936.us, %for.body.us ], [ %control.addr.44.us, %do_confirm_fdr.exit1562.us ]
+  %floodBackoff.1.us = phi i32 [ %floodBackoff.01937.us, %for.body.us ], [ %floodBackoff.2.us, %do_confirm_fdr.exit1562.us ]
   %itPtr.0.us = phi ptr [ %47, %for.body.us ], [ %add.ptr37.us, %do_confirm_fdr.exit1562.us ]
   %state.1.us = phi <2 x i64> [ %or.i2205.us, %for.body.us ], [ %cast124.i.us, %do_confirm_fdr.exit1562.us ]
-  %last_match_id.1.us = phi i32 [ %last_match_id.01939.us, %for.body.us ], [ %last_match_id.11.us, %do_confirm_fdr.exit1562.us ]
+  %last_match_id.1.us = phi i32 [ %last_match_id.01939.us, %for.body.us ], [ %last_match_id.7.us, %do_confirm_fdr.exit1562.us ]
   %tryFloodDetect.0.us = phi ptr [ %46, %for.body.us ], [ %tryFloodDetect.1.us, %do_confirm_fdr.exit1562.us ]
   %add.ptr18.us = getelementptr inbounds i8, ptr %itPtr.0.us, i64 16
   %cmp19.not.us = icmp ugt ptr %add.ptr18.us, %48
@@ -645,14 +645,14 @@ if.end32.i806.us:                                 ; preds = %if.end.i802.us
   br label %for.cond.i814.us
 
 for.cond.i814.us:                                 ; preds = %lor.lhs.false57.i1255.us, %if.end32.i806.us
-  %j.i741.0.us = phi i32 [ %sub39.i813.us, %if.end32.i806.us ], [ %add40.i815.us, %lor.lhs.false57.i1255.us ]
-  %add40.i815.us = add i32 %j.i741.0.us, 32
+  %j.i741.1.us = phi i32 [ %sub39.i813.us, %if.end32.i806.us ], [ %add40.i815.us, %lor.lhs.false57.i1255.us ]
+  %add40.i815.us = add i32 %j.i741.1.us, 32
   %conv41.i816.us = zext i32 %add40.i815.us to i64
   %cmp42.i817.us = icmp ugt i64 %cond.i771.us, %conv41.i816.us
   br i1 %cmp42.i817.us, label %for.body.i1242.us, label %for.cond69.i819.us.preheader
 
 for.body.i1242.us:                                ; preds = %for.cond.i814.us
-  %idx.ext44.i1243.us = zext i32 %j.i741.0.us to i64
+  %idx.ext44.i1243.us = zext i32 %j.i741.1.us to i64
   %add.ptr45.i1244.us = getelementptr inbounds i8, ptr %49, i64 %idx.ext44.i1243.us
   %add.ptr54.i1253.us = getelementptr inbounds i8, ptr %add.ptr45.i1244.us, i64 24
   %62 = load i64, ptr %add.ptr54.i1253.us, align 8
@@ -676,11 +676,11 @@ for.cond69.i819.us.preheader:                     ; preds = %lor.lhs.false57.i12
   br label %for.cond69.i819.us
 
 for.cond69.i819.us:                               ; preds = %for.cond69.i819.us.preheader, %for.body74.i1235.us
-  %j.i741.1.us = phi i32 [ %add70.i820.us, %for.body74.i1235.us ], [ %j.i741.0.us, %for.cond69.i819.us.preheader ]
-  %add70.i820.us = add i32 %j.i741.1.us, 8
+  %j.i741.2.us = phi i32 [ %add70.i820.us, %for.body74.i1235.us ], [ %j.i741.1.us, %for.cond69.i819.us.preheader ]
+  %add70.i820.us = add i32 %j.i741.2.us, 8
   %conv71.i821.us = zext i32 %add70.i820.us to i64
   %cmp72.i822.us = icmp ugt i64 %cond.i771.us, %conv71.i821.us
-  %idx.ext76.i1236.us = zext i32 %j.i741.1.us to i64
+  %idx.ext76.i1236.us = zext i32 %j.i741.2.us to i64
   br i1 %cmp72.i822.us, label %for.body74.i1235.us, label %for.end84.i823.us
 
 for.body74.i1235.us:                              ; preds = %for.cond69.i819.us
@@ -695,15 +695,15 @@ for.end84.i823.us:                                ; preds = %for.body74.i1235.us
 
 for.body89.i1226.us:                              ; preds = %for.end84.i823.us, %if.end98.i1232.us
   %conv86.i8251895.us = phi i64 [ %conv86.i825.us, %if.end98.i1232.us ], [ %idx.ext76.i1236.us, %for.end84.i823.us ]
-  %j.i741.21894.us = phi i32 [ %inc.i1233.us, %if.end98.i1232.us ], [ %j.i741.1.us, %for.end84.i823.us ]
+  %j.i741.31894.us = phi i32 [ %inc.i1233.us, %if.end98.i1232.us ], [ %j.i741.2.us, %for.end84.i823.us ]
   %add.ptr92.i1228.us = getelementptr inbounds i8, ptr %49, i64 %conv86.i8251895.us
   %67 = load i8, ptr %add.ptr92.i1228.us, align 1
   %cmp95.i1231.not.us = icmp eq i8 %67, %53
   br i1 %cmp95.i1231.not.us, label %if.end98.i1232.us, label %for.end100.i827.us
 
 for.end100.i827.us:                               ; preds = %if.end98.i1232.us, %for.body89.i1226.us, %for.end84.i823.us
-  %j.i741.2.lcssa.us = phi i32 [ %j.i741.1.us, %for.end84.i823.us ], [ %j.i741.21894.us, %for.body89.i1226.us ], [ %inc.i1233.us, %if.end98.i1232.us ]
-  %cmp101.i828.us = icmp ugt i32 %j.i741.2.lcssa.us, %conv8.i775.us
+  %j.i741.3.lcssa.us = phi i32 [ %j.i741.2.us, %for.end84.i823.us ], [ %j.i741.31894.us, %for.body89.i1226.us ], [ %inc.i1233.us, %if.end98.i1232.us ]
+  %cmp101.i828.us = icmp ugt i32 %j.i741.3.lcssa.us, %conv8.i775.us
   br i1 %cmp101.i828.us, label %if.then103.i849.us, label %if.else.i829.us
 
 if.else.i829.us:                                  ; preds = %for.end100.i827.us
@@ -711,7 +711,7 @@ if.else.i829.us:                                  ; preds = %for.end100.i827.us
   br label %floodout.i832.us
 
 if.then103.i849.us:                               ; preds = %for.end100.i827.us
-  %dec.i850.us = add i32 %j.i741.2.lcssa.us, -1
+  %dec.i850.us = add i32 %j.i741.3.lcssa.us, -1
   %sub104.i851.us = sub i32 %dec.i850.us, %conv8.i775.us
   %div.i8521761.us = and i32 %sub104.i851.us, -16
   %tobool.i856.not.us = icmp eq i16 %59, 0
@@ -733,15 +733,15 @@ if.then114.i863.us:                               ; preds = %land.lhs.true.i860.
 
 land.rhs287.i939.us:                              ; preds = %land.rhs287.i939.lr.ph.us, %if.end361.i900.us
   %indvars.iv2054 = phi i64 [ 0, %land.rhs287.i939.lr.ph.us ], [ %indvars.iv.next2055, %if.end361.i900.us ]
-  %control.addr.161899.us = phi i64 [ %control.addr.1.us, %land.rhs287.i939.lr.ph.us ], [ %control.addr.22.us, %if.end361.i900.us ]
+  %control.addr.191899.us = phi i64 [ %control.addr.1.us, %land.rhs287.i939.lr.ph.us ], [ %control.addr.25.us, %if.end361.i900.us ]
   %69 = load i64, ptr %arrayidx13.i785.us, align 8
-  %and289.i940.us = and i64 %69, %control.addr.161899.us
+  %and289.i940.us = and i64 %69, %control.addr.191899.us
   %tobool290.i941.not.us = icmp eq i64 %and289.i940.us, 0
   br i1 %tobool290.i941.not.us, label %if.end516.i857.us, label %for.body292.i872.us
 
 for.body292.i872.us:                              ; preds = %land.rhs287.i939.us
   %70 = load i64, ptr %groups293.i873.us, align 8
-  %and295.i874.us = and i64 %70, %control.addr.161899.us
+  %and295.i874.us = and i64 %70, %control.addr.191899.us
   %tobool296.i875.not.us = icmp eq i64 %and295.i874.us, 0
   br i1 %tobool296.i875.not.us, label %if.end303.i876.us, label %if.then297.i934.us
 
@@ -753,9 +753,9 @@ if.then297.i934.us:                               ; preds = %for.body292.i872.us
   br label %if.end303.i876.us
 
 if.end303.i876.us:                                ; preds = %if.then297.i934.us, %for.body292.i872.us
-  %control.addr.17.us = phi i64 [ %call302.i938.us, %if.then297.i934.us ], [ %control.addr.161899.us, %for.body292.i872.us ]
+  %control.addr.20.us = phi i64 [ %call302.i938.us, %if.then297.i934.us ], [ %control.addr.191899.us, %for.body292.i872.us ]
   %72 = load i64, ptr %arrayidx305.i878.us, align 8
-  %and306.i879.us = and i64 %72, %control.addr.17.us
+  %and306.i879.us = and i64 %72, %control.addr.20.us
   %tobool307.i880.not.us = icmp eq i64 %and306.i879.us, 0
   br i1 %tobool307.i880.not.us, label %if.end314.i881.us, label %if.then308.i928.us
 
@@ -767,9 +767,9 @@ if.then308.i928.us:                               ; preds = %if.end303.i876.us
   br label %if.end314.i881.us
 
 if.end314.i881.us:                                ; preds = %if.then308.i928.us, %if.end303.i876.us
-  %control.addr.18.us = phi i64 [ %call313.i933.us, %if.then308.i928.us ], [ %control.addr.17.us, %if.end303.i876.us ]
+  %control.addr.21.us = phi i64 [ %call313.i933.us, %if.then308.i928.us ], [ %control.addr.20.us, %if.end303.i876.us ]
   %74 = load i64, ptr %arrayidx316.i883.us, align 8
-  %and317.i884.us = and i64 %74, %control.addr.18.us
+  %and317.i884.us = and i64 %74, %control.addr.21.us
   %tobool318.i885.not.us = icmp eq i64 %and317.i884.us, 0
   br i1 %tobool318.i885.not.us, label %if.end325.i886.us, label %if.then319.i922.us
 
@@ -781,9 +781,9 @@ if.then319.i922.us:                               ; preds = %if.end314.i881.us
   br label %if.end325.i886.us
 
 if.end325.i886.us:                                ; preds = %if.then319.i922.us, %if.end314.i881.us
-  %control.addr.19.us = phi i64 [ %call324.i927.us, %if.then319.i922.us ], [ %control.addr.18.us, %if.end314.i881.us ]
+  %control.addr.22.us = phi i64 [ %call324.i927.us, %if.then319.i922.us ], [ %control.addr.21.us, %if.end314.i881.us ]
   %76 = load i64, ptr %groups293.i873.us, align 8
-  %and328.i888.us = and i64 %76, %control.addr.19.us
+  %and328.i888.us = and i64 %76, %control.addr.22.us
   %tobool329.i889.not.us = icmp eq i64 %and328.i888.us, 0
   br i1 %tobool329.i889.not.us, label %if.end337.i890.us, label %if.then330.i916.us
 
@@ -796,9 +796,9 @@ if.then330.i916.us:                               ; preds = %if.end325.i886.us
   br label %if.end337.i890.us
 
 if.end337.i890.us:                                ; preds = %if.then330.i916.us, %if.end325.i886.us
-  %control.addr.20.us = phi i64 [ %call336.i921.us, %if.then330.i916.us ], [ %control.addr.19.us, %if.end325.i886.us ]
+  %control.addr.23.us = phi i64 [ %call336.i921.us, %if.then330.i916.us ], [ %control.addr.22.us, %if.end325.i886.us ]
   %79 = load i64, ptr %arrayidx305.i878.us, align 8
-  %and340.i893.us = and i64 %79, %control.addr.20.us
+  %and340.i893.us = and i64 %79, %control.addr.23.us
   %tobool341.i894.not.us = icmp eq i64 %and340.i893.us, 0
   br i1 %tobool341.i894.not.us, label %if.end349.i895.us, label %if.then342.i909.us
 
@@ -811,9 +811,9 @@ if.then342.i909.us:                               ; preds = %if.end337.i890.us
   br label %if.end349.i895.us
 
 if.end349.i895.us:                                ; preds = %if.then342.i909.us, %if.end337.i890.us
-  %control.addr.21.us = phi i64 [ %call348.i915.us, %if.then342.i909.us ], [ %control.addr.20.us, %if.end337.i890.us ]
+  %control.addr.24.us = phi i64 [ %call348.i915.us, %if.then342.i909.us ], [ %control.addr.23.us, %if.end337.i890.us ]
   %82 = load i64, ptr %arrayidx316.i883.us, align 8
-  %and352.i898.us = and i64 %82, %control.addr.21.us
+  %and352.i898.us = and i64 %82, %control.addr.24.us
   %tobool353.i899.not.us = icmp eq i64 %and352.i898.us, 0
   br i1 %tobool353.i899.not.us, label %if.end361.i900.us, label %if.then354.i902.us
 
@@ -826,22 +826,22 @@ if.then354.i902.us:                               ; preds = %if.end349.i895.us
   br label %if.end361.i900.us
 
 if.end361.i900.us:                                ; preds = %if.then354.i902.us, %if.end349.i895.us
-  %control.addr.22.us = phi i64 [ %call360.i908.us, %if.then354.i902.us ], [ %control.addr.21.us, %if.end349.i895.us ]
+  %control.addr.25.us = phi i64 [ %call360.i908.us, %if.then354.i902.us ], [ %control.addr.24.us, %if.end349.i895.us ]
   %indvars.iv.next2055 = add nuw nsw i64 %indvars.iv2054, 2
   %cmp285.i868.us = icmp ult i64 %indvars.iv.next2055, %231
   br i1 %cmp285.i868.us, label %land.rhs287.i939.us, label %if.end516.i857.us, !llvm.loop !8
 
 land.rhs179.i1035.us:                             ; preds = %land.rhs179.i1035.lr.ph.us, %if.end278.i983.us
   %indvars.iv2057 = phi i64 [ 0, %land.rhs179.i1035.lr.ph.us ], [ %indvars.iv.next2058, %if.end278.i983.us ]
-  %control.addr.71904.us = phi i64 [ %control.addr.1.us, %land.rhs179.i1035.lr.ph.us ], [ %control.addr.15.us, %if.end278.i983.us ]
+  %control.addr.101904.us = phi i64 [ %control.addr.1.us, %land.rhs179.i1035.lr.ph.us ], [ %control.addr.18.us, %if.end278.i983.us ]
   %85 = load i64, ptr %arrayidx13.i785.us, align 8
-  %and181.i1036.us = and i64 %85, %control.addr.71904.us
+  %and181.i1036.us = and i64 %85, %control.addr.101904.us
   %tobool182.i1037.not.us = icmp eq i64 %and181.i1036.us, 0
   br i1 %tobool182.i1037.not.us, label %if.end516.i857.us, label %for.body184.i947.us
 
 for.body184.i947.us:                              ; preds = %land.rhs179.i1035.us
   %86 = load i64, ptr %groups185.i948.us, align 8
-  %and187.i949.us = and i64 %86, %control.addr.71904.us
+  %and187.i949.us = and i64 %86, %control.addr.101904.us
   %tobool188.i950.not.us = icmp eq i64 %and187.i949.us, 0
   br i1 %tobool188.i950.not.us, label %if.end195.i951.us, label %if.then189.i1030.us
 
@@ -853,9 +853,9 @@ if.then189.i1030.us:                              ; preds = %for.body184.i947.us
   br label %if.end195.i951.us
 
 if.end195.i951.us:                                ; preds = %if.then189.i1030.us, %for.body184.i947.us
-  %control.addr.8.us = phi i64 [ %call194.i1034.us, %if.then189.i1030.us ], [ %control.addr.71904.us, %for.body184.i947.us ]
+  %control.addr.11.us = phi i64 [ %call194.i1034.us, %if.then189.i1030.us ], [ %control.addr.101904.us, %for.body184.i947.us ]
   %88 = load i64, ptr %arrayidx197.i953.us, align 8
-  %and198.i954.us = and i64 %88, %control.addr.8.us
+  %and198.i954.us = and i64 %88, %control.addr.11.us
   %tobool199.i955.not.us = icmp eq i64 %and198.i954.us, 0
   br i1 %tobool199.i955.not.us, label %if.end206.i956.us, label %if.then200.i1024.us
 
@@ -867,9 +867,9 @@ if.then200.i1024.us:                              ; preds = %if.end195.i951.us
   br label %if.end206.i956.us
 
 if.end206.i956.us:                                ; preds = %if.then200.i1024.us, %if.end195.i951.us
-  %control.addr.9.us = phi i64 [ %call205.i1029.us, %if.then200.i1024.us ], [ %control.addr.8.us, %if.end195.i951.us ]
+  %control.addr.12.us = phi i64 [ %call205.i1029.us, %if.then200.i1024.us ], [ %control.addr.11.us, %if.end195.i951.us ]
   %90 = load i64, ptr %groups185.i948.us, align 8
-  %and209.i958.us = and i64 %90, %control.addr.9.us
+  %and209.i958.us = and i64 %90, %control.addr.12.us
   %tobool210.i959.not.us = icmp eq i64 %and209.i958.us, 0
   br i1 %tobool210.i959.not.us, label %if.end218.i960.us, label %if.then211.i1018.us
 
@@ -882,9 +882,9 @@ if.then211.i1018.us:                              ; preds = %if.end206.i956.us
   br label %if.end218.i960.us
 
 if.end218.i960.us:                                ; preds = %if.then211.i1018.us, %if.end206.i956.us
-  %control.addr.10.us = phi i64 [ %call217.i1023.us, %if.then211.i1018.us ], [ %control.addr.9.us, %if.end206.i956.us ]
+  %control.addr.13.us = phi i64 [ %call217.i1023.us, %if.then211.i1018.us ], [ %control.addr.12.us, %if.end206.i956.us ]
   %93 = load i64, ptr %arrayidx197.i953.us, align 8
-  %and221.i963.us = and i64 %93, %control.addr.10.us
+  %and221.i963.us = and i64 %93, %control.addr.13.us
   %tobool222.i964.not.us = icmp eq i64 %and221.i963.us, 0
   br i1 %tobool222.i964.not.us, label %if.end230.i965.us, label %if.then223.i1011.us
 
@@ -897,9 +897,9 @@ if.then223.i1011.us:                              ; preds = %if.end218.i960.us
   br label %if.end230.i965.us
 
 if.end230.i965.us:                                ; preds = %if.then223.i1011.us, %if.end218.i960.us
-  %control.addr.11.us = phi i64 [ %call229.i1017.us, %if.then223.i1011.us ], [ %control.addr.10.us, %if.end218.i960.us ]
+  %control.addr.14.us = phi i64 [ %call229.i1017.us, %if.then223.i1011.us ], [ %control.addr.13.us, %if.end218.i960.us ]
   %96 = load i64, ptr %groups185.i948.us, align 8
-  %and233.i967.us = and i64 %96, %control.addr.11.us
+  %and233.i967.us = and i64 %96, %control.addr.14.us
   %tobool234.i968.not.us = icmp eq i64 %and233.i967.us, 0
   br i1 %tobool234.i968.not.us, label %if.end242.i969.us, label %if.then235.i1005.us
 
@@ -912,9 +912,9 @@ if.then235.i1005.us:                              ; preds = %if.end230.i965.us
   br label %if.end242.i969.us
 
 if.end242.i969.us:                                ; preds = %if.then235.i1005.us, %if.end230.i965.us
-  %control.addr.12.us = phi i64 [ %call241.i1010.us, %if.then235.i1005.us ], [ %control.addr.11.us, %if.end230.i965.us ]
+  %control.addr.15.us = phi i64 [ %call241.i1010.us, %if.then235.i1005.us ], [ %control.addr.14.us, %if.end230.i965.us ]
   %99 = load i64, ptr %arrayidx197.i953.us, align 8
-  %and245.i972.us = and i64 %99, %control.addr.12.us
+  %and245.i972.us = and i64 %99, %control.addr.15.us
   %tobool246.i973.not.us = icmp eq i64 %and245.i972.us, 0
   br i1 %tobool246.i973.not.us, label %if.end254.i974.us, label %if.then247.i998.us
 
@@ -927,9 +927,9 @@ if.then247.i998.us:                               ; preds = %if.end242.i969.us
   br label %if.end254.i974.us
 
 if.end254.i974.us:                                ; preds = %if.then247.i998.us, %if.end242.i969.us
-  %control.addr.13.us = phi i64 [ %call253.i1004.us, %if.then247.i998.us ], [ %control.addr.12.us, %if.end242.i969.us ]
+  %control.addr.16.us = phi i64 [ %call253.i1004.us, %if.then247.i998.us ], [ %control.addr.15.us, %if.end242.i969.us ]
   %102 = load i64, ptr %groups185.i948.us, align 8
-  %and257.i976.us = and i64 %102, %control.addr.13.us
+  %and257.i976.us = and i64 %102, %control.addr.16.us
   %tobool258.i977.not.us = icmp eq i64 %and257.i976.us, 0
   br i1 %tobool258.i977.not.us, label %if.end266.i978.us, label %if.then259.i992.us
 
@@ -942,9 +942,9 @@ if.then259.i992.us:                               ; preds = %if.end254.i974.us
   br label %if.end266.i978.us
 
 if.end266.i978.us:                                ; preds = %if.then259.i992.us, %if.end254.i974.us
-  %control.addr.14.us = phi i64 [ %call265.i997.us, %if.then259.i992.us ], [ %control.addr.13.us, %if.end254.i974.us ]
+  %control.addr.17.us = phi i64 [ %call265.i997.us, %if.then259.i992.us ], [ %control.addr.16.us, %if.end254.i974.us ]
   %105 = load i64, ptr %arrayidx197.i953.us, align 8
-  %and269.i981.us = and i64 %105, %control.addr.14.us
+  %and269.i981.us = and i64 %105, %control.addr.17.us
   %tobool270.i982.not.us = icmp eq i64 %and269.i981.us, 0
   br i1 %tobool270.i982.not.us, label %if.end278.i983.us, label %if.then271.i985.us
 
@@ -957,22 +957,22 @@ if.then271.i985.us:                               ; preds = %if.end266.i978.us
   br label %if.end278.i983.us
 
 if.end278.i983.us:                                ; preds = %if.then271.i985.us, %if.end266.i978.us
-  %control.addr.15.us = phi i64 [ %call277.i991.us, %if.then271.i985.us ], [ %control.addr.14.us, %if.end266.i978.us ]
+  %control.addr.18.us = phi i64 [ %call277.i991.us, %if.then271.i985.us ], [ %control.addr.17.us, %if.end266.i978.us ]
   %indvars.iv.next2058 = add nuw nsw i64 %indvars.iv2057, 4
   %cmp177.i944.us = icmp ult i64 %indvars.iv.next2058, %232
   br i1 %cmp177.i944.us, label %land.rhs179.i1035.us, label %if.end516.i857.us, !llvm.loop !9
 
 land.rhs.i1084.us:                                ; preds = %land.rhs.i1084.lr.ph.us, %if.end170.i1059.us
   %indvars.iv2060 = phi i64 [ 0, %land.rhs.i1084.lr.ph.us ], [ %indvars.iv.next2061, %if.end170.i1059.us ]
-  %control.addr.21909.us = phi i64 [ %control.addr.1.us, %land.rhs.i1084.lr.ph.us ], [ %control.addr.6.us, %if.end170.i1059.us ]
+  %control.addr.51909.us = phi i64 [ %control.addr.1.us, %land.rhs.i1084.lr.ph.us ], [ %control.addr.9.us, %if.end170.i1059.us ]
   %108 = load i64, ptr %arrayidx13.i785.us, align 8
-  %and121.i1085.us = and i64 %108, %control.addr.21909.us
+  %and121.i1085.us = and i64 %108, %control.addr.51909.us
   %tobool122.i1086.not.us = icmp eq i64 %and121.i1085.us, 0
   br i1 %tobool122.i1086.not.us, label %if.end516.i857.us, label %for.body123.i1043.us
 
 for.body123.i1043.us:                             ; preds = %land.rhs.i1084.us
   %109 = load i64, ptr %groups.i1044.us, align 8
-  %and127.i1045.us = and i64 %109, %control.addr.21909.us
+  %and127.i1045.us = and i64 %109, %control.addr.51909.us
   %tobool128.i1046.not.us = icmp eq i64 %and127.i1045.us, 0
   br i1 %tobool128.i1046.not.us, label %if.end170.i1059.us, label %if.end134.i1047.us
 
@@ -1014,22 +1014,22 @@ if.then163.i1061.us:                              ; preds = %if.end158.i1055.us
   br label %if.end170.i1059.us
 
 if.end170.i1059.us:                               ; preds = %for.body123.i1043.us, %if.end134.i1047.us, %if.end146.i1051.us, %if.then163.i1061.us, %if.end158.i1055.us
-  %control.addr.6.us = phi i64 [ %call169.i1066.us, %if.then163.i1061.us ], [ %call157.i1072.us, %if.end158.i1055.us ], [ %call145.i1078.us, %if.end146.i1051.us ], [ %call.i1083.us, %if.end134.i1047.us ], [ %control.addr.21909.us, %for.body123.i1043.us ]
+  %control.addr.9.us = phi i64 [ %call169.i1066.us, %if.then163.i1061.us ], [ %call157.i1072.us, %if.end158.i1055.us ], [ %call145.i1078.us, %if.end146.i1051.us ], [ %call.i1083.us, %if.end134.i1047.us ], [ %control.addr.51909.us, %for.body123.i1043.us ]
   %indvars.iv.next2061 = add nuw nsw i64 %indvars.iv2060, 4
   %cmp118.i1040.us = icmp ult i64 %indvars.iv.next2061, %233
   br i1 %cmp118.i1040.us, label %land.rhs.i1084.us, label %if.end516.i857.us, !llvm.loop !10
 
 land.rhs369.i1223.us:                             ; preds = %land.rhs369.i1223.lr.ph.us, %for.end512.i1140.us
   %indvars.iv2069 = phi i64 [ 0, %land.rhs369.i1223.lr.ph.us ], [ %indvars.iv.next2070, %for.end512.i1140.us ]
-  %control.addr.231924.us = phi i64 [ %control.addr.1.us, %land.rhs369.i1223.lr.ph.us ], [ %control.addr.34.lcssa.us, %for.end512.i1140.us ]
+  %control.addr.261924.us = phi i64 [ %control.addr.1.us, %land.rhs369.i1223.lr.ph.us ], [ %control.addr.37.lcssa.us, %for.end512.i1140.us ]
   %114 = load i64, ptr %arrayidx13.i785.us, align 8
-  %and371.i1224.us = and i64 %114, %control.addr.231924.us
+  %and371.i1224.us = and i64 %114, %control.addr.261924.us
   %tobool372.i1225.not.us = icmp eq i64 %and371.i1224.us, 0
   br i1 %tobool372.i1225.not.us, label %if.end516.i857.us, label %for.body374.i1092.us
 
 for.body374.i1092.us:                             ; preds = %land.rhs369.i1223.us
   %115 = load i64, ptr %groups375.i1093.us, align 8
-  %and377.i1094.us = and i64 %115, %control.addr.231924.us
+  %and377.i1094.us = and i64 %115, %control.addr.261924.us
   %tobool378.i1095.not.us = icmp eq i64 %and377.i1094.us, 0
   br i1 %tobool378.i1095.not.us, label %if.end385.i1096.us, label %if.then379.i1218.us
 
@@ -1041,9 +1041,9 @@ if.then379.i1218.us:                              ; preds = %for.body374.i1092.u
   br label %if.end385.i1096.us
 
 if.end385.i1096.us:                               ; preds = %if.then379.i1218.us, %for.body374.i1092.us
-  %control.addr.24.us = phi i64 [ %call384.i1222.us, %if.then379.i1218.us ], [ %control.addr.231924.us, %for.body374.i1092.us ]
+  %control.addr.27.us = phi i64 [ %call384.i1222.us, %if.then379.i1218.us ], [ %control.addr.261924.us, %for.body374.i1092.us ]
   %117 = load i64, ptr %arrayidx387.i1098.us, align 8
-  %and388.i1099.us = and i64 %117, %control.addr.24.us
+  %and388.i1099.us = and i64 %117, %control.addr.27.us
   %tobool389.i1100.not.us = icmp eq i64 %and388.i1099.us, 0
   br i1 %tobool389.i1100.not.us, label %if.end396.i1101.us, label %if.then390.i1212.us
 
@@ -1055,9 +1055,9 @@ if.then390.i1212.us:                              ; preds = %if.end385.i1096.us
   br label %if.end396.i1101.us
 
 if.end396.i1101.us:                               ; preds = %if.then390.i1212.us, %if.end385.i1096.us
-  %control.addr.25.us = phi i64 [ %call395.i1217.us, %if.then390.i1212.us ], [ %control.addr.24.us, %if.end385.i1096.us ]
+  %control.addr.28.us = phi i64 [ %call395.i1217.us, %if.then390.i1212.us ], [ %control.addr.27.us, %if.end385.i1096.us ]
   %119 = load i64, ptr %arrayidx398.i1103.us, align 8
-  %and399.i1104.us = and i64 %119, %control.addr.25.us
+  %and399.i1104.us = and i64 %119, %control.addr.28.us
   %tobool400.i1105.not.us = icmp eq i64 %and399.i1104.us, 0
   br i1 %tobool400.i1105.not.us, label %if.end407.i1106.us, label %if.then401.i1206.us
 
@@ -1069,9 +1069,9 @@ if.then401.i1206.us:                              ; preds = %if.end396.i1101.us
   br label %if.end407.i1106.us
 
 if.end407.i1106.us:                               ; preds = %if.then401.i1206.us, %if.end396.i1101.us
-  %control.addr.26.us = phi i64 [ %call406.i1211.us, %if.then401.i1206.us ], [ %control.addr.25.us, %if.end396.i1101.us ]
+  %control.addr.29.us = phi i64 [ %call406.i1211.us, %if.then401.i1206.us ], [ %control.addr.28.us, %if.end396.i1101.us ]
   %121 = load i64, ptr %arrayidx409.i1108.us, align 8
-  %and410.i1109.us = and i64 %121, %control.addr.26.us
+  %and410.i1109.us = and i64 %121, %control.addr.29.us
   %tobool411.i1110.not.us = icmp eq i64 %and410.i1109.us, 0
   br i1 %tobool411.i1110.not.us, label %if.end418.i1111.us, label %if.then412.i1200.us
 
@@ -1083,15 +1083,15 @@ if.then412.i1200.us:                              ; preds = %if.end407.i1106.us
   br label %if.end418.i1111.us
 
 if.end418.i1111.us:                               ; preds = %if.then412.i1200.us, %if.end407.i1106.us
-  %control.addr.27.us = phi i64 [ %call417.i1205.us, %if.then412.i1200.us ], [ %control.addr.26.us, %if.end407.i1106.us ]
+  %control.addr.30.us = phi i64 [ %call417.i1205.us, %if.then412.i1200.us ], [ %control.addr.29.us, %if.end407.i1106.us ]
   %123 = load i16, ptr %idCount.i799.us, align 4
   %cmp422.i11151914.us = icmp ugt i16 %123, 4
   br i1 %cmp422.i11151914.us, label %for.body424.i1185.lr.ph.us, label %for.end440.i1116.us
 
 for.end440.i1116.us:                              ; preds = %if.end437.i1191.us, %if.end418.i1111.us
-  %control.addr.28.lcssa.us = phi i64 [ %control.addr.27.us, %if.end418.i1111.us ], [ %control.addr.29.us, %if.end437.i1191.us ]
+  %control.addr.31.lcssa.us = phi i64 [ %control.addr.30.us, %if.end418.i1111.us ], [ %control.addr.32.us, %if.end437.i1191.us ]
   %124 = load i64, ptr %groups375.i1093.us, align 8
-  %and443.i1118.us = and i64 %124, %control.addr.28.lcssa.us
+  %and443.i1118.us = and i64 %124, %control.addr.31.lcssa.us
   %tobool444.i1119.not.us = icmp eq i64 %and443.i1118.us, 0
   br i1 %tobool444.i1119.not.us, label %if.end452.i1120.us, label %if.then445.i1179.us
 
@@ -1104,9 +1104,9 @@ if.then445.i1179.us:                              ; preds = %for.end440.i1116.us
   br label %if.end452.i1120.us
 
 if.end452.i1120.us:                               ; preds = %if.then445.i1179.us, %for.end440.i1116.us
-  %control.addr.30.us = phi i64 [ %call451.i1184.us, %if.then445.i1179.us ], [ %control.addr.28.lcssa.us, %for.end440.i1116.us ]
+  %control.addr.33.us = phi i64 [ %call451.i1184.us, %if.then445.i1179.us ], [ %control.addr.31.lcssa.us, %for.end440.i1116.us ]
   %127 = load i64, ptr %arrayidx387.i1098.us, align 8
-  %and455.i1123.us = and i64 %127, %control.addr.30.us
+  %and455.i1123.us = and i64 %127, %control.addr.33.us
   %tobool456.i1124.not.us = icmp eq i64 %and455.i1123.us, 0
   br i1 %tobool456.i1124.not.us, label %if.end464.i1125.us, label %if.then457.i1172.us
 
@@ -1119,9 +1119,9 @@ if.then457.i1172.us:                              ; preds = %if.end452.i1120.us
   br label %if.end464.i1125.us
 
 if.end464.i1125.us:                               ; preds = %if.then457.i1172.us, %if.end452.i1120.us
-  %control.addr.31.us = phi i64 [ %call463.i1178.us, %if.then457.i1172.us ], [ %control.addr.30.us, %if.end452.i1120.us ]
+  %control.addr.34.us = phi i64 [ %call463.i1178.us, %if.then457.i1172.us ], [ %control.addr.33.us, %if.end452.i1120.us ]
   %130 = load i64, ptr %arrayidx398.i1103.us, align 8
-  %and467.i1128.us = and i64 %130, %control.addr.31.us
+  %and467.i1128.us = and i64 %130, %control.addr.34.us
   %tobool468.i1129.not.us = icmp eq i64 %and467.i1128.us, 0
   br i1 %tobool468.i1129.not.us, label %if.end476.i1130.us, label %if.then469.i1165.us
 
@@ -1134,9 +1134,9 @@ if.then469.i1165.us:                              ; preds = %if.end464.i1125.us
   br label %if.end476.i1130.us
 
 if.end476.i1130.us:                               ; preds = %if.then469.i1165.us, %if.end464.i1125.us
-  %control.addr.32.us = phi i64 [ %call475.i1171.us, %if.then469.i1165.us ], [ %control.addr.31.us, %if.end464.i1125.us ]
+  %control.addr.35.us = phi i64 [ %call475.i1171.us, %if.then469.i1165.us ], [ %control.addr.34.us, %if.end464.i1125.us ]
   %133 = load i64, ptr %arrayidx409.i1108.us, align 8
-  %and479.i1133.us = and i64 %133, %control.addr.32.us
+  %and479.i1133.us = and i64 %133, %control.addr.35.us
   %tobool480.i1134.not.us = icmp eq i64 %and479.i1133.us, 0
   br i1 %tobool480.i1134.not.us, label %if.end488.i1135.us, label %if.then481.i1158.us
 
@@ -1149,13 +1149,13 @@ if.then481.i1158.us:                              ; preds = %if.end476.i1130.us
   br label %if.end488.i1135.us
 
 if.end488.i1135.us:                               ; preds = %if.then481.i1158.us, %if.end476.i1130.us
-  %control.addr.33.us = phi i64 [ %call487.i1164.us, %if.then481.i1158.us ], [ %control.addr.32.us, %if.end476.i1130.us ]
+  %control.addr.36.us = phi i64 [ %call487.i1164.us, %if.then481.i1158.us ], [ %control.addr.35.us, %if.end476.i1130.us ]
   %136 = load i16, ptr %idCount.i799.us, align 4
   %cmp493.i11391919.us = icmp ugt i16 %136, 4
   br i1 %cmp493.i11391919.us, label %for.body495.i1142.lr.ph.us, label %for.end512.i1140.us
 
 for.end512.i1140.us:                              ; preds = %if.end509.i1148.us, %if.end488.i1135.us
-  %control.addr.34.lcssa.us = phi i64 [ %control.addr.33.us, %if.end488.i1135.us ], [ %control.addr.35.us, %if.end509.i1148.us ]
+  %control.addr.37.lcssa.us = phi i64 [ %control.addr.36.us, %if.end488.i1135.us ], [ %control.addr.38.us, %if.end509.i1148.us ]
   %indvars.iv.next2070 = add nuw nsw i64 %indvars.iv2069, 2
   %cmp367.i1089.us = icmp ult i64 %indvars.iv.next2070, %235
   br i1 %cmp367.i1089.us, label %land.rhs369.i1223.us, label %if.end516.i857.us, !llvm.loop !11
@@ -1163,10 +1163,10 @@ for.end512.i1140.us:                              ; preds = %if.end509.i1148.us,
 for.body495.i1142.us:                             ; preds = %for.body495.i1142.lr.ph.us, %if.end509.i1148.us
   %137 = phi i16 [ %136, %for.body495.i1142.lr.ph.us ], [ %140, %if.end509.i1148.us ]
   %indvars.iv2066 = phi i64 [ 4, %for.body495.i1142.lr.ph.us ], [ %indvars.iv.next2067, %if.end509.i1148.us ]
-  %control.addr.341920.us = phi i64 [ %control.addr.33.us, %for.body495.i1142.lr.ph.us ], [ %control.addr.35.us, %if.end509.i1148.us ]
+  %control.addr.371920.us = phi i64 [ %control.addr.36.us, %for.body495.i1142.lr.ph.us ], [ %control.addr.38.us, %if.end509.i1148.us ]
   %arrayidx498.i1145.us = getelementptr inbounds [16 x i64], ptr %groups375.i1093.us, i64 0, i64 %indvars.iv2066
   %138 = load i64, ptr %arrayidx498.i1145.us, align 8
-  %and499.i1146.us = and i64 %138, %control.addr.341920.us
+  %and499.i1146.us = and i64 %138, %control.addr.371920.us
   %tobool500.i1147.not.us = icmp eq i64 %and499.i1146.us, 0
   br i1 %tobool500.i1147.not.us, label %if.end509.i1148.us, label %if.then501.i1150.us
 
@@ -1179,7 +1179,7 @@ if.then501.i1150.us:                              ; preds = %for.body495.i1142.u
 
 if.end509.i1148.us:                               ; preds = %if.then501.i1150.us, %for.body495.i1142.us
   %140 = phi i16 [ %.pre2092, %if.then501.i1150.us ], [ %137, %for.body495.i1142.us ]
-  %control.addr.35.us = phi i64 [ %call508.i1157.us, %if.then501.i1150.us ], [ %control.addr.341920.us, %for.body495.i1142.us ]
+  %control.addr.38.us = phi i64 [ %call508.i1157.us, %if.then501.i1150.us ], [ %control.addr.371920.us, %for.body495.i1142.us ]
   %indvars.iv.next2067 = add nuw nsw i64 %indvars.iv2066, 1
   %141 = zext i16 %140 to i64
   %cmp493.i1139.us = icmp ult i64 %indvars.iv.next2067, %141
@@ -1188,10 +1188,10 @@ if.end509.i1148.us:                               ; preds = %if.then501.i1150.us
 for.body424.i1185.us:                             ; preds = %for.body424.i1185.lr.ph.us, %if.end437.i1191.us
   %142 = phi i16 [ %123, %for.body424.i1185.lr.ph.us ], [ %145, %if.end437.i1191.us ]
   %indvars.iv2063 = phi i64 [ 4, %for.body424.i1185.lr.ph.us ], [ %indvars.iv.next2064, %if.end437.i1191.us ]
-  %control.addr.281915.us = phi i64 [ %control.addr.27.us, %for.body424.i1185.lr.ph.us ], [ %control.addr.29.us, %if.end437.i1191.us ]
+  %control.addr.311915.us = phi i64 [ %control.addr.30.us, %for.body424.i1185.lr.ph.us ], [ %control.addr.32.us, %if.end437.i1191.us ]
   %arrayidx427.i1188.us = getelementptr inbounds [16 x i64], ptr %groups375.i1093.us, i64 0, i64 %indvars.iv2063
   %143 = load i64, ptr %arrayidx427.i1188.us, align 8
-  %and428.i1189.us = and i64 %143, %control.addr.281915.us
+  %and428.i1189.us = and i64 %143, %control.addr.311915.us
   %tobool429.i1190.not.us = icmp eq i64 %and428.i1189.us, 0
   br i1 %tobool429.i1190.not.us, label %if.end437.i1191.us, label %if.then430.i1193.us
 
@@ -1204,20 +1204,20 @@ if.then430.i1193.us:                              ; preds = %for.body424.i1185.u
 
 if.end437.i1191.us:                               ; preds = %if.then430.i1193.us, %for.body424.i1185.us
   %145 = phi i16 [ %.pre2091, %if.then430.i1193.us ], [ %142, %for.body424.i1185.us ]
-  %control.addr.29.us = phi i64 [ %call436.i1199.us, %if.then430.i1193.us ], [ %control.addr.281915.us, %for.body424.i1185.us ]
+  %control.addr.32.us = phi i64 [ %call436.i1199.us, %if.then430.i1193.us ], [ %control.addr.311915.us, %for.body424.i1185.us ]
   %indvars.iv.next2064 = add nuw nsw i64 %indvars.iv2063, 1
   %146 = zext i16 %145 to i64
   %cmp422.i1115.us = icmp ult i64 %indvars.iv.next2064, %146
   br i1 %cmp422.i1115.us, label %for.body424.i1185.us, label %for.end440.i1116.us, !llvm.loop !13
 
 if.end516.i857.us:                                ; preds = %if.end361.i900.us, %land.rhs287.i939.us, %if.end278.i983.us, %land.rhs179.i1035.us, %if.end170.i1059.us, %land.rhs.i1084.us, %for.end512.i1140.us, %land.rhs369.i1223.us, %for.cond284.i867.preheader.us, %for.cond176.i943.preheader.us, %for.cond117.i1039.preheader.us, %for.cond366.i1088.preheader.us, %land.lhs.true.i860.us, %if.then103.i849.us
-  %control.addr.36.us = phi i64 [ %control.addr.1.us, %land.lhs.true.i860.us ], [ %control.addr.1.us, %if.then103.i849.us ], [ %control.addr.1.us, %for.cond366.i1088.preheader.us ], [ %control.addr.1.us, %for.cond117.i1039.preheader.us ], [ %control.addr.1.us, %for.cond176.i943.preheader.us ], [ %control.addr.1.us, %for.cond284.i867.preheader.us ], [ %control.addr.231924.us, %land.rhs369.i1223.us ], [ %control.addr.34.lcssa.us, %for.end512.i1140.us ], [ %control.addr.21909.us, %land.rhs.i1084.us ], [ %control.addr.6.us, %if.end170.i1059.us ], [ %control.addr.71904.us, %land.rhs179.i1035.us ], [ %control.addr.15.us, %if.end278.i983.us ], [ %control.addr.161899.us, %land.rhs287.i939.us ], [ %control.addr.22.us, %if.end361.i900.us ]
+  %control.addr.4.us = phi i64 [ %control.addr.1.us, %land.lhs.true.i860.us ], [ %control.addr.1.us, %if.then103.i849.us ], [ %control.addr.1.us, %for.cond366.i1088.preheader.us ], [ %control.addr.1.us, %for.cond117.i1039.preheader.us ], [ %control.addr.1.us, %for.cond176.i943.preheader.us ], [ %control.addr.1.us, %for.cond284.i867.preheader.us ], [ %control.addr.261924.us, %land.rhs369.i1223.us ], [ %control.addr.37.lcssa.us, %for.end512.i1140.us ], [ %control.addr.51909.us, %land.rhs.i1084.us ], [ %control.addr.9.us, %if.end170.i1059.us ], [ %control.addr.101904.us, %land.rhs179.i1035.us ], [ %control.addr.18.us, %if.end278.i983.us ], [ %control.addr.191899.us, %land.rhs287.i939.us ], [ %control.addr.25.us, %if.end361.i900.us ]
   %idx.ext517.i858.us = zext i32 %div.i8521761.us to i64
   %add.ptr518.i859.us = getelementptr inbounds i8, ptr %itPtr.0.us, i64 %idx.ext517.i858.us
   br label %floodout.i832.us
 
 if.end98.i1232.us:                                ; preds = %for.body89.i1226.us
-  %inc.i1233.us = add i32 %j.i741.21894.us, 1
+  %inc.i1233.us = add i32 %j.i741.31894.us, 1
   %conv86.i825.us = zext i32 %inc.i1233.us to i64
   %cmp87.i826.us = icmp ugt i64 %cond.i771.us, %conv86.i825.us
   br i1 %cmp87.i826.us, label %for.body89.i1226.us, label %for.end100.i827.us, !llvm.loop !14
@@ -1231,27 +1231,27 @@ if.then.i1266.us:                                 ; preds = %lor.lhs.false.i798.
   br label %floodout.i832.us
 
 floodout.i832.us:                                 ; preds = %if.then.i1266.us, %if.then30.i1264.us, %if.end516.i857.us, %if.else.i829.us
-  %control.addr.37.us = phi i64 [ %control.addr.1.us, %if.then.i1266.us ], [ %control.addr.1.us, %if.then30.i1264.us ], [ %control.addr.36.us, %if.end516.i857.us ], [ %control.addr.1.us, %if.else.i829.us ]
-  %floodBackoff.2.us = phi i32 [ %mul26.i1267.us, %if.then.i1266.us ], [ %mul31.i1265.us, %if.then30.i1264.us ], [ %floodBackoff.1.us, %if.end516.i857.us ], [ %mul519.i830.us, %if.else.i829.us ]
-  %j.i741.3.us = phi i32 [ %conv8.i775.us, %if.then.i1266.us ], [ %conv8.i775.us, %if.then30.i1264.us ], [ %dec.i850.us, %if.end516.i857.us ], [ %j.i741.2.lcssa.us, %if.else.i829.us ]
+  %control.addr.3.us = phi i64 [ %control.addr.1.us, %if.then.i1266.us ], [ %control.addr.1.us, %if.then30.i1264.us ], [ %control.addr.4.us, %if.end516.i857.us ], [ %control.addr.1.us, %if.else.i829.us ]
+  %floodBackoff.3.us = phi i32 [ %mul26.i1267.us, %if.then.i1266.us ], [ %mul31.i1265.us, %if.then30.i1264.us ], [ %floodBackoff.1.us, %if.end516.i857.us ], [ %mul519.i830.us, %if.else.i829.us ]
+  %j.i741.0.us = phi i32 [ %conv8.i775.us, %if.then.i1266.us ], [ %conv8.i775.us, %if.then30.i1264.us ], [ %dec.i850.us, %if.end516.i857.us ], [ %j.i741.3.lcssa.us, %if.else.i829.us ]
   %ptr.i738.0.us = phi ptr [ %itPtr.0.us, %if.then.i1266.us ], [ %itPtr.0.us, %if.then30.i1264.us ], [ %add.ptr518.i859.us, %if.end516.i857.us ], [ %itPtr.0.us, %if.else.i829.us ]
-  %add521.i833.us = add i32 %j.i741.3.us, %floodBackoff.2.us
+  %add521.i833.us = add i32 %j.i741.0.us, %floodBackoff.3.us
   %conv522.i834.us = zext i32 %add521.i833.us to i64
   %sub523.i835.us = add i64 %cond.i771.us, -128
   %cmp524.i836.us = icmp ugt i64 %sub523.i835.us, %conv522.i834.us
-  %cond532.i843.us = call i32 @llvm.umax.i32(i32 %j.i741.3.us, i32 %conv8.i775.us)
+  %cond532.i843.us = call i32 @llvm.umax.i32(i32 %j.i741.0.us, i32 %conv8.i775.us)
   %idx.ext533.i844.us = zext i32 %cond532.i843.us to i64
   %add.ptr534.i845.us = getelementptr inbounds i8, ptr %49, i64 %idx.ext533.i844.us
-  %idx.ext535.i846.us = zext i32 %floodBackoff.2.us to i64
+  %idx.ext535.i846.us = zext i32 %floodBackoff.3.us to i64
   %add.ptr536.i847.us = getelementptr inbounds i8, ptr %add.ptr534.i845.us, i64 %idx.ext535.i846.us
   %add.ptr538.i838.us = getelementptr inbounds i8, ptr %49, i64 %cond.i771.us
   %tryFloodDetect.addr.i730.0.us = select i1 %cmp524.i836.us, ptr %add.ptr536.i847.us, ptr %add.ptr538.i838.us
-  %cmp27.us = icmp eq i64 %control.addr.37.us, 0
+  %cmp27.us = icmp eq i64 %control.addr.3.us, 0
   br i1 %cmp27.us, label %return, label %if.end36.us
 
 if.end36.us:                                      ; preds = %floodout.i832.us, %for.body21.us
-  %control.addr.38.us = phi i64 [ %control.addr.37.us, %floodout.i832.us ], [ %control.addr.1.us, %for.body21.us ]
-  %floodBackoff.3.us = phi i32 [ %floodBackoff.2.us, %floodout.i832.us ], [ %floodBackoff.1.us, %for.body21.us ]
+  %control.addr.2.us = phi i64 [ %control.addr.3.us, %floodout.i832.us ], [ %control.addr.1.us, %for.body21.us ]
+  %floodBackoff.2.us = phi i32 [ %floodBackoff.3.us, %floodout.i832.us ], [ %floodBackoff.1.us, %for.body21.us ]
   %itPtr.1.us = phi ptr [ %ptr.i738.0.us, %floodout.i832.us ], [ %itPtr.0.us, %for.body21.us ]
   %tryFloodDetect.1.us = phi ptr [ %tryFloodDetect.addr.i730.0.us, %floodout.i832.us ], [ %tryFloodDetect.0.us, %for.body21.us ]
   %add.ptr37.us = getelementptr inbounds i8, ptr %itPtr.1.us, i64 16
@@ -1437,8 +1437,8 @@ if.end.i1588.us:                                  ; preds = %if.end36.us
 
 do.body.i1591.us:                                 ; preds = %do.cond.i1601.us, %if.end.i1588.us
   %184 = phi i64 [ %xor.i.us, %if.end.i1588.us ], [ %205, %do.cond.i1601.us ]
-  %control.addr.39.us = phi i64 [ %control.addr.38.us, %if.end.i1588.us ], [ %control.addr.42.us, %do.cond.i1601.us ]
-  %last_match_id.2.us = phi i32 [ %last_match_id.1.us, %if.end.i1588.us ], [ %last_match_id.5.us, %do.cond.i1601.us ]
+  %control.addr.40.us = phi i64 [ %control.addr.2.us, %if.end.i1588.us ], [ %control.addr.41.us, %do.cond.i1601.us ]
+  %last_match_id.3.us = phi i32 [ %last_match_id.1.us, %if.end.i1588.us ], [ %last_match_id.4.us, %do.cond.i1601.us ]
   %185 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %184) #8, !srcloc !15
   %asmresult.i.us = extractvalue { i64, i64 } %185, 0
   %asmresult1.i.us = extractvalue { i64, i64 } %185, 1
@@ -1455,7 +1455,7 @@ if.end8.i1607.us:                                 ; preds = %do.body.i1591.us
   %add.ptr.i1609.us = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext.i1608.us
   %groups.i1610.us = getelementptr inbounds i8, ptr %add.ptr.i1609.us, i64 24
   %187 = load i64, ptr %groups.i1610.us, align 8
-  %and.i1611.us = and i64 %187, %control.addr.39.us
+  %and.i1611.us = and i64 %187, %control.addr.40.us
   %tobool9.i1612.not.us = icmp eq i64 %and.i1611.us, 0
   br i1 %tobool9.i1612.not.us, label %do.cond.i1601.us, label %if.end11.i1614.us
 
@@ -1498,8 +1498,8 @@ if.end.i2495.us:                                  ; preds = %if.end11.i1614.us
   br label %do.body.i2498.us
 
 do.body.i2498.us:                                 ; preds = %out.i.us, %if.end.i2495.us
-  %control.addr.40.us = phi i64 [ %control.addr.39.us, %if.end.i2495.us ], [ %control.addr.41.us, %out.i.us ]
-  %last_match_id.3.us = phi i32 [ %last_match_id.2.us, %if.end.i2495.us ], [ %last_match_id.4.us, %out.i.us ]
+  %control.addr.42.us = phi i64 [ %control.addr.40.us, %if.end.i2495.us ], [ %control.addr.43.us, %out.i.us ]
+  %last_match_id.5.us = phi i32 [ %last_match_id.3.us, %if.end.i2495.us ], [ %last_match_id.6.us, %out.i.us ]
   %li.i.0.us = phi ptr [ %add.ptr.i2497.us, %if.end.i2495.us ], [ %incdec.ptr.i.us, %out.i.us ]
   %msk.i.us = getelementptr inbounds i8, ptr %li.i.0.us, i64 8
   %195 = load i64, ptr %msk.i.us, align 8
@@ -1511,7 +1511,7 @@ do.body.i2498.us:                                 ; preds = %out.i.us, %if.end.i
 if.end15.i.us:                                    ; preds = %do.body.i2498.us
   %id.i.us = getelementptr inbounds i8, ptr %li.i.0.us, i64 24
   %197 = load i32, ptr %id.i.us, align 8
-  %cmp16.i.us = icmp eq i32 %last_match_id.3.us, %197
+  %cmp16.i.us = icmp eq i32 %last_match_id.5.us, %197
   br i1 %cmp16.i.us, label %land.lhs.true.i2513.us, label %if.end22.i.us
 
 land.lhs.true.i2513.us:                           ; preds = %if.end15.i.us
@@ -1541,7 +1541,7 @@ if.then30.i2509.us:                               ; preds = %if.end22.i.us
 if.end38.i.us:                                    ; preds = %if.then30.i2509.us, %if.end22.i.us
   %groups.i2506.us = getelementptr inbounds i8, ptr %li.i.0.us, i64 16
   %202 = load i64, ptr %groups.i2506.us, align 8
-  %and39.i.us = and i64 %202, %control.addr.40.us
+  %and39.i.us = and i64 %202, %control.addr.42.us
   %tobool40.i.not.us = icmp eq i64 %and39.i.us, 0
   br i1 %tobool40.i.not.us, label %out.i.us, label %if.end50.i.us
 
@@ -1551,8 +1551,8 @@ if.end50.i.us:                                    ; preds = %if.end38.i.us
   br label %out.i.us
 
 out.i.us:                                         ; preds = %if.end50.i.us, %if.end38.i.us, %if.then30.i2509.us, %land.lhs.true.i2513.us, %do.body.i2498.us
-  %control.addr.41.us = phi i64 [ %control.addr.40.us, %do.body.i2498.us ], [ %control.addr.40.us, %land.lhs.true.i2513.us ], [ %control.addr.40.us, %if.then30.i2509.us ], [ %control.addr.40.us, %if.end38.i.us ], [ %call53.i.us, %if.end50.i.us ]
-  %last_match_id.4.us = phi i32 [ %last_match_id.3.us, %do.body.i2498.us ], [ %last_match_id.3.us, %land.lhs.true.i2513.us ], [ %last_match_id.3.us, %if.then30.i2509.us ], [ %last_match_id.3.us, %if.end38.i.us ], [ %197, %if.end50.i.us ]
+  %control.addr.43.us = phi i64 [ %control.addr.42.us, %do.body.i2498.us ], [ %control.addr.42.us, %land.lhs.true.i2513.us ], [ %control.addr.42.us, %if.then30.i2509.us ], [ %control.addr.42.us, %if.end38.i.us ], [ %call53.i.us, %if.end50.i.us ]
+  %last_match_id.6.us = phi i32 [ %last_match_id.5.us, %do.body.i2498.us ], [ %last_match_id.5.us, %land.lhs.true.i2513.us ], [ %last_match_id.5.us, %if.then30.i2509.us ], [ %last_match_id.5.us, %if.end38.i.us ], [ %197, %if.end50.i.us ]
   %next.i.us = getelementptr inbounds i8, ptr %li.i.0.us, i64 30
   %204 = load i8, ptr %next.i.us, align 2
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %li.i.0.us, i64 32
@@ -1566,8 +1566,8 @@ do.end.i.us:                                      ; preds = %out.i.us
 
 do.cond.i1601.us:                                 ; preds = %do.end.i.us, %if.end11.i1614.us, %if.end8.i1607.us, %do.body.i1591.us
   %205 = phi i64 [ %asmresult1.i.us, %if.end11.i1614.us ], [ %.pre2093, %do.end.i.us ], [ %asmresult1.i.us, %if.end8.i1607.us ], [ %asmresult1.i.us, %do.body.i1591.us ]
-  %control.addr.42.us = phi i64 [ %control.addr.39.us, %if.end11.i1614.us ], [ %control.addr.41.us, %do.end.i.us ], [ %control.addr.39.us, %if.end8.i1607.us ], [ %control.addr.39.us, %do.body.i1591.us ]
-  %last_match_id.5.us = phi i32 [ %last_match_id.2.us, %if.end11.i1614.us ], [ %last_match_id.4.us, %do.end.i.us ], [ %last_match_id.2.us, %if.end8.i1607.us ], [ %last_match_id.2.us, %do.body.i1591.us ]
+  %control.addr.41.us = phi i64 [ %control.addr.40.us, %if.end11.i1614.us ], [ %control.addr.43.us, %do.end.i.us ], [ %control.addr.40.us, %if.end8.i1607.us ], [ %control.addr.40.us, %do.body.i1591.us ]
+  %last_match_id.4.us = phi i32 [ %last_match_id.3.us, %if.end11.i1614.us ], [ %last_match_id.6.us, %do.end.i.us ], [ %last_match_id.3.us, %if.end8.i1607.us ], [ %last_match_id.3.us, %do.body.i1591.us ]
   %tobool20.i1602.not.us = icmp eq i64 %205, 0
   br i1 %tobool20.i1602.not.us, label %do_confirm_fdr.exit1626thread-pre-split.us, label %do.body.i1591.us, !llvm.loop !17
 
@@ -1577,8 +1577,8 @@ do_confirm_fdr.exit1626thread-pre-split.us:       ; preds = %do.cond.i1601.us
 
 do_confirm_fdr.exit1626.us:                       ; preds = %do_confirm_fdr.exit1626thread-pre-split.us, %if.end36.us
   %206 = phi i64 [ %.pr.us, %do_confirm_fdr.exit1626thread-pre-split.us ], [ %xor125.i.us, %if.end36.us ]
-  %control.addr.43.us = phi i64 [ %control.addr.42.us, %do_confirm_fdr.exit1626thread-pre-split.us ], [ %control.addr.38.us, %if.end36.us ]
-  %last_match_id.6.us = phi i32 [ %last_match_id.5.us, %do_confirm_fdr.exit1626thread-pre-split.us ], [ %last_match_id.1.us, %if.end36.us ]
+  %control.addr.39.us = phi i64 [ %control.addr.41.us, %do_confirm_fdr.exit1626thread-pre-split.us ], [ %control.addr.2.us, %if.end36.us ]
+  %last_match_id.2.us = phi i32 [ %last_match_id.4.us, %do_confirm_fdr.exit1626thread-pre-split.us ], [ %last_match_id.1.us, %if.end36.us ]
   %tobool.i1519.not.us = icmp eq i64 %206, 0
   br i1 %tobool.i1519.not.us, label %do_confirm_fdr.exit1562.us, label %if.end.i1524.us
 
@@ -1591,8 +1591,8 @@ if.end.i1524.us:                                  ; preds = %do_confirm_fdr.exit
 
 do.body.i1527.us:                                 ; preds = %do.cond.i1537.us, %if.end.i1524.us
   %209 = phi i64 [ %206, %if.end.i1524.us ], [ %230, %do.cond.i1537.us ]
-  %control.addr.44.us = phi i64 [ %control.addr.43.us, %if.end.i1524.us ], [ %control.addr.47.us, %do.cond.i1537.us ]
-  %last_match_id.7.us = phi i32 [ %last_match_id.6.us, %if.end.i1524.us ], [ %last_match_id.10.us, %do.cond.i1537.us ]
+  %control.addr.45.us = phi i64 [ %control.addr.39.us, %if.end.i1524.us ], [ %control.addr.46.us, %do.cond.i1537.us ]
+  %last_match_id.8.us = phi i32 [ %last_match_id.2.us, %if.end.i1524.us ], [ %last_match_id.9.us, %do.cond.i1537.us ]
   %210 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %209) #8, !srcloc !15
   %asmresult.i2455.us = extractvalue { i64, i64 } %210, 0
   %asmresult1.i2456.us = extractvalue { i64, i64 } %210, 1
@@ -1611,7 +1611,7 @@ if.end8.i1543.us:                                 ; preds = %do.body.i1527.us
   %add.ptr.i1545.us = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext.i1544.us
   %groups.i1546.us = getelementptr inbounds i8, ptr %add.ptr.i1545.us, i64 24
   %212 = load i64, ptr %groups.i1546.us, align 8
-  %and.i1547.us = and i64 %212, %control.addr.44.us
+  %and.i1547.us = and i64 %212, %control.addr.45.us
   %tobool9.i1548.not.us = icmp eq i64 %and.i1547.us, 0
   br i1 %tobool9.i1548.not.us, label %do.cond.i1537.us, label %if.end11.i1550.us
 
@@ -1654,8 +1654,8 @@ if.end.i2544.us:                                  ; preds = %if.end11.i1550.us
   br label %do.body.i2550.us
 
 do.body.i2550.us:                                 ; preds = %out.i2582.us, %if.end.i2544.us
-  %control.addr.45.us = phi i64 [ %control.addr.44.us, %if.end.i2544.us ], [ %control.addr.46.us, %out.i2582.us ]
-  %last_match_id.8.us = phi i32 [ %last_match_id.7.us, %if.end.i2544.us ], [ %last_match_id.9.us, %out.i2582.us ]
+  %control.addr.47.us = phi i64 [ %control.addr.45.us, %if.end.i2544.us ], [ %control.addr.48.us, %out.i2582.us ]
+  %last_match_id.10.us = phi i32 [ %last_match_id.8.us, %if.end.i2544.us ], [ %last_match_id.11.us, %out.i2582.us ]
   %li.i2527.0.us = phi ptr [ %add.ptr.i2546.us, %if.end.i2544.us ], [ %incdec.ptr.i2584.us, %out.i2582.us ]
   %msk.i2551.us = getelementptr inbounds i8, ptr %li.i2527.0.us, i64 8
   %220 = load i64, ptr %msk.i2551.us, align 8
@@ -1667,7 +1667,7 @@ do.body.i2550.us:                                 ; preds = %out.i2582.us, %if.e
 if.end15.i2557.us:                                ; preds = %do.body.i2550.us
   %id.i2558.us = getelementptr inbounds i8, ptr %li.i2527.0.us, i64 24
   %222 = load i32, ptr %id.i2558.us, align 8
-  %cmp16.i2559.us = icmp eq i32 %last_match_id.8.us, %222
+  %cmp16.i2559.us = icmp eq i32 %last_match_id.10.us, %222
   br i1 %cmp16.i2559.us, label %land.lhs.true.i2600.us, label %if.end22.i2560.us
 
 land.lhs.true.i2600.us:                           ; preds = %if.end15.i2557.us
@@ -1697,7 +1697,7 @@ if.then30.i2590.us:                               ; preds = %if.end22.i2560.us
 if.end38.i2569.us:                                ; preds = %if.then30.i2590.us, %if.end22.i2560.us
   %groups.i2570.us = getelementptr inbounds i8, ptr %li.i2527.0.us, i64 16
   %227 = load i64, ptr %groups.i2570.us, align 8
-  %and39.i2571.us = and i64 %227, %control.addr.45.us
+  %and39.i2571.us = and i64 %227, %control.addr.47.us
   %tobool40.i2572.not.us = icmp eq i64 %and39.i2571.us, 0
   br i1 %tobool40.i2572.not.us, label %out.i2582.us, label %if.end50.i2577.us
 
@@ -1707,8 +1707,8 @@ if.end50.i2577.us:                                ; preds = %if.end38.i2569.us
   br label %out.i2582.us
 
 out.i2582.us:                                     ; preds = %if.end50.i2577.us, %if.end38.i2569.us, %if.then30.i2590.us, %land.lhs.true.i2600.us, %do.body.i2550.us
-  %control.addr.46.us = phi i64 [ %control.addr.45.us, %do.body.i2550.us ], [ %control.addr.45.us, %land.lhs.true.i2600.us ], [ %control.addr.45.us, %if.then30.i2590.us ], [ %control.addr.45.us, %if.end38.i2569.us ], [ %call53.i2581.us, %if.end50.i2577.us ]
-  %last_match_id.9.us = phi i32 [ %last_match_id.8.us, %do.body.i2550.us ], [ %last_match_id.8.us, %land.lhs.true.i2600.us ], [ %last_match_id.8.us, %if.then30.i2590.us ], [ %last_match_id.8.us, %if.end38.i2569.us ], [ %222, %if.end50.i2577.us ]
+  %control.addr.48.us = phi i64 [ %control.addr.47.us, %do.body.i2550.us ], [ %control.addr.47.us, %land.lhs.true.i2600.us ], [ %control.addr.47.us, %if.then30.i2590.us ], [ %control.addr.47.us, %if.end38.i2569.us ], [ %call53.i2581.us, %if.end50.i2577.us ]
+  %last_match_id.11.us = phi i32 [ %last_match_id.10.us, %do.body.i2550.us ], [ %last_match_id.10.us, %land.lhs.true.i2600.us ], [ %last_match_id.10.us, %if.then30.i2590.us ], [ %last_match_id.10.us, %if.end38.i2569.us ], [ %222, %if.end50.i2577.us ]
   %next.i2583.us = getelementptr inbounds i8, ptr %li.i2527.0.us, i64 30
   %229 = load i8, ptr %next.i2583.us, align 2
   %incdec.ptr.i2584.us = getelementptr inbounds i8, ptr %li.i2527.0.us, i64 32
@@ -1722,15 +1722,15 @@ do.end.i2587.us:                                  ; preds = %out.i2582.us
 
 do.cond.i1537.us:                                 ; preds = %do.end.i2587.us, %if.end11.i1550.us, %if.end8.i1543.us, %do.body.i1527.us
   %230 = phi i64 [ %asmresult1.i2456.us, %if.end11.i1550.us ], [ %.pre2094, %do.end.i2587.us ], [ %asmresult1.i2456.us, %if.end8.i1543.us ], [ %asmresult1.i2456.us, %do.body.i1527.us ]
-  %control.addr.47.us = phi i64 [ %control.addr.44.us, %if.end11.i1550.us ], [ %control.addr.46.us, %do.end.i2587.us ], [ %control.addr.44.us, %if.end8.i1543.us ], [ %control.addr.44.us, %do.body.i1527.us ]
-  %last_match_id.10.us = phi i32 [ %last_match_id.7.us, %if.end11.i1550.us ], [ %last_match_id.9.us, %do.end.i2587.us ], [ %last_match_id.7.us, %if.end8.i1543.us ], [ %last_match_id.7.us, %do.body.i1527.us ]
+  %control.addr.46.us = phi i64 [ %control.addr.45.us, %if.end11.i1550.us ], [ %control.addr.48.us, %do.end.i2587.us ], [ %control.addr.45.us, %if.end8.i1543.us ], [ %control.addr.45.us, %do.body.i1527.us ]
+  %last_match_id.9.us = phi i32 [ %last_match_id.8.us, %if.end11.i1550.us ], [ %last_match_id.11.us, %do.end.i2587.us ], [ %last_match_id.8.us, %if.end8.i1543.us ], [ %last_match_id.8.us, %do.body.i1527.us ]
   %tobool20.i1538.not.us = icmp eq i64 %230, 0
   br i1 %tobool20.i1538.not.us, label %do_confirm_fdr.exit1562.us, label %do.body.i1527.us, !llvm.loop !17
 
 do_confirm_fdr.exit1562.us:                       ; preds = %do.cond.i1537.us, %do_confirm_fdr.exit1626.us
-  %control.addr.48.us = phi i64 [ %control.addr.43.us, %do_confirm_fdr.exit1626.us ], [ %control.addr.47.us, %do.cond.i1537.us ]
-  %last_match_id.11.us = phi i32 [ %last_match_id.6.us, %do_confirm_fdr.exit1626.us ], [ %last_match_id.10.us, %do.cond.i1537.us ]
-  %cmp38.us = icmp eq i64 %control.addr.48.us, 0
+  %control.addr.44.us = phi i64 [ %control.addr.39.us, %do_confirm_fdr.exit1626.us ], [ %control.addr.46.us, %do.cond.i1537.us ]
+  %last_match_id.7.us = phi i32 [ %last_match_id.2.us, %do_confirm_fdr.exit1626.us ], [ %last_match_id.9.us, %do.cond.i1537.us ]
+  %cmp38.us = icmp eq i64 %control.addr.44.us, 0
   br i1 %cmp38.us, label %return, label %for.cond17.us, !llvm.loop !18
 
 for.cond366.i1088.preheader.us:                   ; preds = %if.then114.i863.us
@@ -1835,11 +1835,11 @@ for.body.us1942:                                  ; preds = %getInitState.exit, 
   br label %for.cond58.us
 
 for.cond58.us:                                    ; preds = %do_confirm_fdr.exit1434.us, %for.body.us1942
-  %control.addr.49.us = phi i64 [ %control.addr.01936.us1947, %for.body.us1942 ], [ %control.addr.96.us, %do_confirm_fdr.exit1434.us ]
-  %floodBackoff.4.us = phi i32 [ %floodBackoff.01937.us1946, %for.body.us1942 ], [ %floodBackoff.6.us, %do_confirm_fdr.exit1434.us ]
+  %control.addr.49.us = phi i64 [ %control.addr.01936.us1947, %for.body.us1942 ], [ %control.addr.92.us, %do_confirm_fdr.exit1434.us ]
+  %floodBackoff.4.us = phi i32 [ %floodBackoff.01937.us1946, %for.body.us1942 ], [ %floodBackoff.5.us, %do_confirm_fdr.exit1434.us ]
   %itPtr57.0.us = phi ptr [ %243, %for.body.us1942 ], [ %add.ptr84.us, %do_confirm_fdr.exit1434.us ]
   %state.2.us = phi <2 x i64> [ %or.i2205.us1954, %for.body.us1942 ], [ %cast60.i.us, %do_confirm_fdr.exit1434.us ]
-  %last_match_id.12.us = phi i32 [ %last_match_id.01939.us1944, %for.body.us1942 ], [ %last_match_id.22.us, %do_confirm_fdr.exit1434.us ]
+  %last_match_id.12.us = phi i32 [ %last_match_id.01939.us1944, %for.body.us1942 ], [ %last_match_id.18.us, %do_confirm_fdr.exit1434.us ]
   %tryFloodDetect51.0.us = phi ptr [ %242, %for.body.us1942 ], [ %tryFloodDetect51.1.us, %do_confirm_fdr.exit1434.us ]
   %add.ptr59.us = getelementptr inbounds i8, ptr %itPtr57.0.us, i64 16
   %cmp60.not.us = icmp ugt ptr %add.ptr59.us, %244
@@ -1907,14 +1907,14 @@ if.end32.i260.us:                                 ; preds = %if.end.i256.us
   br label %for.cond.i268.us
 
 for.cond.i268.us:                                 ; preds = %lor.lhs.false57.i709.us, %if.end32.i260.us
-  %j.i195.0.us = phi i32 [ %sub39.i267.us, %if.end32.i260.us ], [ %add40.i269.us, %lor.lhs.false57.i709.us ]
-  %add40.i269.us = add i32 %j.i195.0.us, 32
+  %j.i195.1.us = phi i32 [ %sub39.i267.us, %if.end32.i260.us ], [ %add40.i269.us, %lor.lhs.false57.i709.us ]
+  %add40.i269.us = add i32 %j.i195.1.us, 32
   %conv41.i270.us = zext i32 %add40.i269.us to i64
   %cmp42.i271.us = icmp ugt i64 %cond.i225.us, %conv41.i270.us
   br i1 %cmp42.i271.us, label %for.body.i696.us, label %for.cond69.i273.us.preheader
 
 for.body.i696.us:                                 ; preds = %for.cond.i268.us
-  %idx.ext44.i697.us = zext i32 %j.i195.0.us to i64
+  %idx.ext44.i697.us = zext i32 %j.i195.1.us to i64
   %add.ptr45.i698.us = getelementptr inbounds i8, ptr %245, i64 %idx.ext44.i697.us
   %add.ptr54.i707.us = getelementptr inbounds i8, ptr %add.ptr45.i698.us, i64 24
   %258 = load i64, ptr %add.ptr54.i707.us, align 8
@@ -1938,11 +1938,11 @@ for.cond69.i273.us.preheader:                     ; preds = %lor.lhs.false57.i70
   br label %for.cond69.i273.us
 
 for.cond69.i273.us:                               ; preds = %for.cond69.i273.us.preheader, %for.body74.i689.us
-  %j.i195.1.us = phi i32 [ %add70.i274.us, %for.body74.i689.us ], [ %j.i195.0.us, %for.cond69.i273.us.preheader ]
-  %add70.i274.us = add i32 %j.i195.1.us, 8
+  %j.i195.2.us = phi i32 [ %add70.i274.us, %for.body74.i689.us ], [ %j.i195.1.us, %for.cond69.i273.us.preheader ]
+  %add70.i274.us = add i32 %j.i195.2.us, 8
   %conv71.i275.us = zext i32 %add70.i274.us to i64
   %cmp72.i276.us = icmp ugt i64 %cond.i225.us, %conv71.i275.us
-  %idx.ext76.i690.us = zext i32 %j.i195.1.us to i64
+  %idx.ext76.i690.us = zext i32 %j.i195.2.us to i64
   br i1 %cmp72.i276.us, label %for.body74.i689.us, label %for.end84.i277.us
 
 for.body74.i689.us:                               ; preds = %for.cond69.i273.us
@@ -1957,15 +1957,15 @@ for.end84.i277.us:                                ; preds = %for.body74.i689.us,
 
 for.body89.i680.us:                               ; preds = %for.end84.i277.us, %if.end98.i686.us
   %conv86.i2791851.us = phi i64 [ %conv86.i279.us, %if.end98.i686.us ], [ %idx.ext76.i690.us, %for.end84.i277.us ]
-  %j.i195.21850.us = phi i32 [ %inc.i687.us, %if.end98.i686.us ], [ %j.i195.1.us, %for.end84.i277.us ]
+  %j.i195.31850.us = phi i32 [ %inc.i687.us, %if.end98.i686.us ], [ %j.i195.2.us, %for.end84.i277.us ]
   %add.ptr92.i682.us = getelementptr inbounds i8, ptr %245, i64 %conv86.i2791851.us
   %263 = load i8, ptr %add.ptr92.i682.us, align 1
   %cmp95.i685.not.us = icmp eq i8 %263, %249
   br i1 %cmp95.i685.not.us, label %if.end98.i686.us, label %for.end100.i281.us
 
 for.end100.i281.us:                               ; preds = %if.end98.i686.us, %for.body89.i680.us, %for.end84.i277.us
-  %j.i195.2.lcssa.us = phi i32 [ %j.i195.1.us, %for.end84.i277.us ], [ %j.i195.21850.us, %for.body89.i680.us ], [ %inc.i687.us, %if.end98.i686.us ]
-  %cmp101.i282.us = icmp ugt i32 %j.i195.2.lcssa.us, %conv8.i229.us
+  %j.i195.3.lcssa.us = phi i32 [ %j.i195.2.us, %for.end84.i277.us ], [ %j.i195.31850.us, %for.body89.i680.us ], [ %inc.i687.us, %if.end98.i686.us ]
+  %cmp101.i282.us = icmp ugt i32 %j.i195.3.lcssa.us, %conv8.i229.us
   br i1 %cmp101.i282.us, label %if.then103.i303.us, label %if.else.i283.us
 
 if.else.i283.us:                                  ; preds = %for.end100.i281.us
@@ -1973,7 +1973,7 @@ if.else.i283.us:                                  ; preds = %for.end100.i281.us
   br label %floodout.i286.us
 
 if.then103.i303.us:                               ; preds = %for.end100.i281.us
-  %dec.i304.us = add i32 %j.i195.2.lcssa.us, -1
+  %dec.i304.us = add i32 %j.i195.3.lcssa.us, -1
   %sub104.i305.us = sub i32 %dec.i304.us, %conv8.i229.us
   %div.i3061758.us = and i32 %sub104.i305.us, -16
   %tobool.i310.not.us = icmp eq i16 %255, 0
@@ -1995,15 +1995,15 @@ if.then114.i317.us:                               ; preds = %land.lhs.true.i314.
 
 land.rhs287.i393.us:                              ; preds = %land.rhs287.i393.lr.ph.us, %if.end361.i354.us
   %indvars.iv2035 = phi i64 [ 0, %land.rhs287.i393.lr.ph.us ], [ %indvars.iv.next2036, %if.end361.i354.us ]
-  %control.addr.641855.us = phi i64 [ %control.addr.49.us, %land.rhs287.i393.lr.ph.us ], [ %control.addr.70.us, %if.end361.i354.us ]
+  %control.addr.671855.us = phi i64 [ %control.addr.49.us, %land.rhs287.i393.lr.ph.us ], [ %control.addr.73.us, %if.end361.i354.us ]
   %265 = load i64, ptr %arrayidx13.i239.us, align 8
-  %and289.i394.us = and i64 %265, %control.addr.641855.us
+  %and289.i394.us = and i64 %265, %control.addr.671855.us
   %tobool290.i395.not.us = icmp eq i64 %and289.i394.us, 0
   br i1 %tobool290.i395.not.us, label %if.end516.i311.us, label %for.body292.i326.us
 
 for.body292.i326.us:                              ; preds = %land.rhs287.i393.us
   %266 = load i64, ptr %groups293.i327.us, align 8
-  %and295.i328.us = and i64 %266, %control.addr.641855.us
+  %and295.i328.us = and i64 %266, %control.addr.671855.us
   %tobool296.i329.not.us = icmp eq i64 %and295.i328.us, 0
   br i1 %tobool296.i329.not.us, label %if.end303.i330.us, label %if.then297.i388.us
 
@@ -2015,9 +2015,9 @@ if.then297.i388.us:                               ; preds = %for.body292.i326.us
   br label %if.end303.i330.us
 
 if.end303.i330.us:                                ; preds = %if.then297.i388.us, %for.body292.i326.us
-  %control.addr.65.us = phi i64 [ %call302.i392.us, %if.then297.i388.us ], [ %control.addr.641855.us, %for.body292.i326.us ]
+  %control.addr.68.us = phi i64 [ %call302.i392.us, %if.then297.i388.us ], [ %control.addr.671855.us, %for.body292.i326.us ]
   %268 = load i64, ptr %arrayidx305.i332.us, align 8
-  %and306.i333.us = and i64 %268, %control.addr.65.us
+  %and306.i333.us = and i64 %268, %control.addr.68.us
   %tobool307.i334.not.us = icmp eq i64 %and306.i333.us, 0
   br i1 %tobool307.i334.not.us, label %if.end314.i335.us, label %if.then308.i382.us
 
@@ -2029,9 +2029,9 @@ if.then308.i382.us:                               ; preds = %if.end303.i330.us
   br label %if.end314.i335.us
 
 if.end314.i335.us:                                ; preds = %if.then308.i382.us, %if.end303.i330.us
-  %control.addr.66.us = phi i64 [ %call313.i387.us, %if.then308.i382.us ], [ %control.addr.65.us, %if.end303.i330.us ]
+  %control.addr.69.us = phi i64 [ %call313.i387.us, %if.then308.i382.us ], [ %control.addr.68.us, %if.end303.i330.us ]
   %270 = load i64, ptr %arrayidx316.i337.us, align 8
-  %and317.i338.us = and i64 %270, %control.addr.66.us
+  %and317.i338.us = and i64 %270, %control.addr.69.us
   %tobool318.i339.not.us = icmp eq i64 %and317.i338.us, 0
   br i1 %tobool318.i339.not.us, label %if.end325.i340.us, label %if.then319.i376.us
 
@@ -2043,9 +2043,9 @@ if.then319.i376.us:                               ; preds = %if.end314.i335.us
   br label %if.end325.i340.us
 
 if.end325.i340.us:                                ; preds = %if.then319.i376.us, %if.end314.i335.us
-  %control.addr.67.us = phi i64 [ %call324.i381.us, %if.then319.i376.us ], [ %control.addr.66.us, %if.end314.i335.us ]
+  %control.addr.70.us = phi i64 [ %call324.i381.us, %if.then319.i376.us ], [ %control.addr.69.us, %if.end314.i335.us ]
   %272 = load i64, ptr %groups293.i327.us, align 8
-  %and328.i342.us = and i64 %272, %control.addr.67.us
+  %and328.i342.us = and i64 %272, %control.addr.70.us
   %tobool329.i343.not.us = icmp eq i64 %and328.i342.us, 0
   br i1 %tobool329.i343.not.us, label %if.end337.i344.us, label %if.then330.i370.us
 
@@ -2058,9 +2058,9 @@ if.then330.i370.us:                               ; preds = %if.end325.i340.us
   br label %if.end337.i344.us
 
 if.end337.i344.us:                                ; preds = %if.then330.i370.us, %if.end325.i340.us
-  %control.addr.68.us = phi i64 [ %call336.i375.us, %if.then330.i370.us ], [ %control.addr.67.us, %if.end325.i340.us ]
+  %control.addr.71.us = phi i64 [ %call336.i375.us, %if.then330.i370.us ], [ %control.addr.70.us, %if.end325.i340.us ]
   %275 = load i64, ptr %arrayidx305.i332.us, align 8
-  %and340.i347.us = and i64 %275, %control.addr.68.us
+  %and340.i347.us = and i64 %275, %control.addr.71.us
   %tobool341.i348.not.us = icmp eq i64 %and340.i347.us, 0
   br i1 %tobool341.i348.not.us, label %if.end349.i349.us, label %if.then342.i363.us
 
@@ -2073,9 +2073,9 @@ if.then342.i363.us:                               ; preds = %if.end337.i344.us
   br label %if.end349.i349.us
 
 if.end349.i349.us:                                ; preds = %if.then342.i363.us, %if.end337.i344.us
-  %control.addr.69.us = phi i64 [ %call348.i369.us, %if.then342.i363.us ], [ %control.addr.68.us, %if.end337.i344.us ]
+  %control.addr.72.us = phi i64 [ %call348.i369.us, %if.then342.i363.us ], [ %control.addr.71.us, %if.end337.i344.us ]
   %278 = load i64, ptr %arrayidx316.i337.us, align 8
-  %and352.i352.us = and i64 %278, %control.addr.69.us
+  %and352.i352.us = and i64 %278, %control.addr.72.us
   %tobool353.i353.not.us = icmp eq i64 %and352.i352.us, 0
   br i1 %tobool353.i353.not.us, label %if.end361.i354.us, label %if.then354.i356.us
 
@@ -2088,22 +2088,22 @@ if.then354.i356.us:                               ; preds = %if.end349.i349.us
   br label %if.end361.i354.us
 
 if.end361.i354.us:                                ; preds = %if.then354.i356.us, %if.end349.i349.us
-  %control.addr.70.us = phi i64 [ %call360.i362.us, %if.then354.i356.us ], [ %control.addr.69.us, %if.end349.i349.us ]
+  %control.addr.73.us = phi i64 [ %call360.i362.us, %if.then354.i356.us ], [ %control.addr.72.us, %if.end349.i349.us ]
   %indvars.iv.next2036 = add nuw nsw i64 %indvars.iv2035, 2
   %cmp285.i322.us = icmp ult i64 %indvars.iv.next2036, %411
   br i1 %cmp285.i322.us, label %land.rhs287.i393.us, label %if.end516.i311.us, !llvm.loop !8
 
 land.rhs179.i489.us:                              ; preds = %land.rhs179.i489.lr.ph.us, %if.end278.i437.us
   %indvars.iv2038 = phi i64 [ 0, %land.rhs179.i489.lr.ph.us ], [ %indvars.iv.next2039, %if.end278.i437.us ]
-  %control.addr.551860.us = phi i64 [ %control.addr.49.us, %land.rhs179.i489.lr.ph.us ], [ %control.addr.63.us, %if.end278.i437.us ]
+  %control.addr.581860.us = phi i64 [ %control.addr.49.us, %land.rhs179.i489.lr.ph.us ], [ %control.addr.66.us, %if.end278.i437.us ]
   %281 = load i64, ptr %arrayidx13.i239.us, align 8
-  %and181.i490.us = and i64 %281, %control.addr.551860.us
+  %and181.i490.us = and i64 %281, %control.addr.581860.us
   %tobool182.i491.not.us = icmp eq i64 %and181.i490.us, 0
   br i1 %tobool182.i491.not.us, label %if.end516.i311.us, label %for.body184.i401.us
 
 for.body184.i401.us:                              ; preds = %land.rhs179.i489.us
   %282 = load i64, ptr %groups185.i402.us, align 8
-  %and187.i403.us = and i64 %282, %control.addr.551860.us
+  %and187.i403.us = and i64 %282, %control.addr.581860.us
   %tobool188.i404.not.us = icmp eq i64 %and187.i403.us, 0
   br i1 %tobool188.i404.not.us, label %if.end195.i405.us, label %if.then189.i484.us
 
@@ -2115,9 +2115,9 @@ if.then189.i484.us:                               ; preds = %for.body184.i401.us
   br label %if.end195.i405.us
 
 if.end195.i405.us:                                ; preds = %if.then189.i484.us, %for.body184.i401.us
-  %control.addr.56.us = phi i64 [ %call194.i488.us, %if.then189.i484.us ], [ %control.addr.551860.us, %for.body184.i401.us ]
+  %control.addr.59.us = phi i64 [ %call194.i488.us, %if.then189.i484.us ], [ %control.addr.581860.us, %for.body184.i401.us ]
   %284 = load i64, ptr %arrayidx197.i407.us, align 8
-  %and198.i408.us = and i64 %284, %control.addr.56.us
+  %and198.i408.us = and i64 %284, %control.addr.59.us
   %tobool199.i409.not.us = icmp eq i64 %and198.i408.us, 0
   br i1 %tobool199.i409.not.us, label %if.end206.i410.us, label %if.then200.i478.us
 
@@ -2129,9 +2129,9 @@ if.then200.i478.us:                               ; preds = %if.end195.i405.us
   br label %if.end206.i410.us
 
 if.end206.i410.us:                                ; preds = %if.then200.i478.us, %if.end195.i405.us
-  %control.addr.57.us = phi i64 [ %call205.i483.us, %if.then200.i478.us ], [ %control.addr.56.us, %if.end195.i405.us ]
+  %control.addr.60.us = phi i64 [ %call205.i483.us, %if.then200.i478.us ], [ %control.addr.59.us, %if.end195.i405.us ]
   %286 = load i64, ptr %groups185.i402.us, align 8
-  %and209.i412.us = and i64 %286, %control.addr.57.us
+  %and209.i412.us = and i64 %286, %control.addr.60.us
   %tobool210.i413.not.us = icmp eq i64 %and209.i412.us, 0
   br i1 %tobool210.i413.not.us, label %if.end218.i414.us, label %if.then211.i472.us
 
@@ -2144,9 +2144,9 @@ if.then211.i472.us:                               ; preds = %if.end206.i410.us
   br label %if.end218.i414.us
 
 if.end218.i414.us:                                ; preds = %if.then211.i472.us, %if.end206.i410.us
-  %control.addr.58.us = phi i64 [ %call217.i477.us, %if.then211.i472.us ], [ %control.addr.57.us, %if.end206.i410.us ]
+  %control.addr.61.us = phi i64 [ %call217.i477.us, %if.then211.i472.us ], [ %control.addr.60.us, %if.end206.i410.us ]
   %289 = load i64, ptr %arrayidx197.i407.us, align 8
-  %and221.i417.us = and i64 %289, %control.addr.58.us
+  %and221.i417.us = and i64 %289, %control.addr.61.us
   %tobool222.i418.not.us = icmp eq i64 %and221.i417.us, 0
   br i1 %tobool222.i418.not.us, label %if.end230.i419.us, label %if.then223.i465.us
 
@@ -2159,9 +2159,9 @@ if.then223.i465.us:                               ; preds = %if.end218.i414.us
   br label %if.end230.i419.us
 
 if.end230.i419.us:                                ; preds = %if.then223.i465.us, %if.end218.i414.us
-  %control.addr.59.us = phi i64 [ %call229.i471.us, %if.then223.i465.us ], [ %control.addr.58.us, %if.end218.i414.us ]
+  %control.addr.62.us = phi i64 [ %call229.i471.us, %if.then223.i465.us ], [ %control.addr.61.us, %if.end218.i414.us ]
   %292 = load i64, ptr %groups185.i402.us, align 8
-  %and233.i421.us = and i64 %292, %control.addr.59.us
+  %and233.i421.us = and i64 %292, %control.addr.62.us
   %tobool234.i422.not.us = icmp eq i64 %and233.i421.us, 0
   br i1 %tobool234.i422.not.us, label %if.end242.i423.us, label %if.then235.i459.us
 
@@ -2174,9 +2174,9 @@ if.then235.i459.us:                               ; preds = %if.end230.i419.us
   br label %if.end242.i423.us
 
 if.end242.i423.us:                                ; preds = %if.then235.i459.us, %if.end230.i419.us
-  %control.addr.60.us = phi i64 [ %call241.i464.us, %if.then235.i459.us ], [ %control.addr.59.us, %if.end230.i419.us ]
+  %control.addr.63.us = phi i64 [ %call241.i464.us, %if.then235.i459.us ], [ %control.addr.62.us, %if.end230.i419.us ]
   %295 = load i64, ptr %arrayidx197.i407.us, align 8
-  %and245.i426.us = and i64 %295, %control.addr.60.us
+  %and245.i426.us = and i64 %295, %control.addr.63.us
   %tobool246.i427.not.us = icmp eq i64 %and245.i426.us, 0
   br i1 %tobool246.i427.not.us, label %if.end254.i428.us, label %if.then247.i452.us
 
@@ -2189,9 +2189,9 @@ if.then247.i452.us:                               ; preds = %if.end242.i423.us
   br label %if.end254.i428.us
 
 if.end254.i428.us:                                ; preds = %if.then247.i452.us, %if.end242.i423.us
-  %control.addr.61.us = phi i64 [ %call253.i458.us, %if.then247.i452.us ], [ %control.addr.60.us, %if.end242.i423.us ]
+  %control.addr.64.us = phi i64 [ %call253.i458.us, %if.then247.i452.us ], [ %control.addr.63.us, %if.end242.i423.us ]
   %298 = load i64, ptr %groups185.i402.us, align 8
-  %and257.i430.us = and i64 %298, %control.addr.61.us
+  %and257.i430.us = and i64 %298, %control.addr.64.us
   %tobool258.i431.not.us = icmp eq i64 %and257.i430.us, 0
   br i1 %tobool258.i431.not.us, label %if.end266.i432.us, label %if.then259.i446.us
 
@@ -2204,9 +2204,9 @@ if.then259.i446.us:                               ; preds = %if.end254.i428.us
   br label %if.end266.i432.us
 
 if.end266.i432.us:                                ; preds = %if.then259.i446.us, %if.end254.i428.us
-  %control.addr.62.us = phi i64 [ %call265.i451.us, %if.then259.i446.us ], [ %control.addr.61.us, %if.end254.i428.us ]
+  %control.addr.65.us = phi i64 [ %call265.i451.us, %if.then259.i446.us ], [ %control.addr.64.us, %if.end254.i428.us ]
   %301 = load i64, ptr %arrayidx197.i407.us, align 8
-  %and269.i435.us = and i64 %301, %control.addr.62.us
+  %and269.i435.us = and i64 %301, %control.addr.65.us
   %tobool270.i436.not.us = icmp eq i64 %and269.i435.us, 0
   br i1 %tobool270.i436.not.us, label %if.end278.i437.us, label %if.then271.i439.us
 
@@ -2219,22 +2219,22 @@ if.then271.i439.us:                               ; preds = %if.end266.i432.us
   br label %if.end278.i437.us
 
 if.end278.i437.us:                                ; preds = %if.then271.i439.us, %if.end266.i432.us
-  %control.addr.63.us = phi i64 [ %call277.i445.us, %if.then271.i439.us ], [ %control.addr.62.us, %if.end266.i432.us ]
+  %control.addr.66.us = phi i64 [ %call277.i445.us, %if.then271.i439.us ], [ %control.addr.65.us, %if.end266.i432.us ]
   %indvars.iv.next2039 = add nuw nsw i64 %indvars.iv2038, 4
   %cmp177.i398.us = icmp ult i64 %indvars.iv.next2039, %412
   br i1 %cmp177.i398.us, label %land.rhs179.i489.us, label %if.end516.i311.us, !llvm.loop !9
 
 land.rhs.i538.us:                                 ; preds = %land.rhs.i538.lr.ph.us, %if.end170.i513.us
   %indvars.iv2041 = phi i64 [ 0, %land.rhs.i538.lr.ph.us ], [ %indvars.iv.next2042, %if.end170.i513.us ]
-  %control.addr.501865.us = phi i64 [ %control.addr.49.us, %land.rhs.i538.lr.ph.us ], [ %control.addr.54.us, %if.end170.i513.us ]
+  %control.addr.531865.us = phi i64 [ %control.addr.49.us, %land.rhs.i538.lr.ph.us ], [ %control.addr.57.us, %if.end170.i513.us ]
   %304 = load i64, ptr %arrayidx13.i239.us, align 8
-  %and121.i539.us = and i64 %304, %control.addr.501865.us
+  %and121.i539.us = and i64 %304, %control.addr.531865.us
   %tobool122.i540.not.us = icmp eq i64 %and121.i539.us, 0
   br i1 %tobool122.i540.not.us, label %if.end516.i311.us, label %for.body123.i497.us
 
 for.body123.i497.us:                              ; preds = %land.rhs.i538.us
   %305 = load i64, ptr %groups.i498.us, align 8
-  %and127.i499.us = and i64 %305, %control.addr.501865.us
+  %and127.i499.us = and i64 %305, %control.addr.531865.us
   %tobool128.i500.not.us = icmp eq i64 %and127.i499.us, 0
   br i1 %tobool128.i500.not.us, label %if.end170.i513.us, label %if.end134.i501.us
 
@@ -2276,22 +2276,22 @@ if.then163.i515.us:                               ; preds = %if.end158.i509.us
   br label %if.end170.i513.us
 
 if.end170.i513.us:                                ; preds = %for.body123.i497.us, %if.end134.i501.us, %if.end146.i505.us, %if.then163.i515.us, %if.end158.i509.us
-  %control.addr.54.us = phi i64 [ %call169.i520.us, %if.then163.i515.us ], [ %call157.i526.us, %if.end158.i509.us ], [ %call145.i532.us, %if.end146.i505.us ], [ %call.i537.us, %if.end134.i501.us ], [ %control.addr.501865.us, %for.body123.i497.us ]
+  %control.addr.57.us = phi i64 [ %call169.i520.us, %if.then163.i515.us ], [ %call157.i526.us, %if.end158.i509.us ], [ %call145.i532.us, %if.end146.i505.us ], [ %call.i537.us, %if.end134.i501.us ], [ %control.addr.531865.us, %for.body123.i497.us ]
   %indvars.iv.next2042 = add nuw nsw i64 %indvars.iv2041, 4
   %cmp118.i494.us = icmp ult i64 %indvars.iv.next2042, %413
   br i1 %cmp118.i494.us, label %land.rhs.i538.us, label %if.end516.i311.us, !llvm.loop !10
 
 land.rhs369.i677.us:                              ; preds = %land.rhs369.i677.lr.ph.us, %for.end512.i594.us
   %indvars.iv2050 = phi i64 [ 0, %land.rhs369.i677.lr.ph.us ], [ %indvars.iv.next2051, %for.end512.i594.us ]
-  %control.addr.711880.us = phi i64 [ %control.addr.49.us, %land.rhs369.i677.lr.ph.us ], [ %control.addr.82.lcssa.us, %for.end512.i594.us ]
+  %control.addr.741880.us = phi i64 [ %control.addr.49.us, %land.rhs369.i677.lr.ph.us ], [ %control.addr.85.lcssa.us, %for.end512.i594.us ]
   %310 = load i64, ptr %arrayidx13.i239.us, align 8
-  %and371.i678.us = and i64 %310, %control.addr.711880.us
+  %and371.i678.us = and i64 %310, %control.addr.741880.us
   %tobool372.i679.not.us = icmp eq i64 %and371.i678.us, 0
   br i1 %tobool372.i679.not.us, label %if.end516.i311.us, label %for.body374.i546.us
 
 for.body374.i546.us:                              ; preds = %land.rhs369.i677.us
   %311 = load i64, ptr %groups375.i547.us, align 8
-  %and377.i548.us = and i64 %311, %control.addr.711880.us
+  %and377.i548.us = and i64 %311, %control.addr.741880.us
   %tobool378.i549.not.us = icmp eq i64 %and377.i548.us, 0
   br i1 %tobool378.i549.not.us, label %if.end385.i550.us, label %if.then379.i672.us
 
@@ -2303,9 +2303,9 @@ if.then379.i672.us:                               ; preds = %for.body374.i546.us
   br label %if.end385.i550.us
 
 if.end385.i550.us:                                ; preds = %if.then379.i672.us, %for.body374.i546.us
-  %control.addr.72.us = phi i64 [ %call384.i676.us, %if.then379.i672.us ], [ %control.addr.711880.us, %for.body374.i546.us ]
+  %control.addr.75.us = phi i64 [ %call384.i676.us, %if.then379.i672.us ], [ %control.addr.741880.us, %for.body374.i546.us ]
   %313 = load i64, ptr %arrayidx387.i552.us, align 8
-  %and388.i553.us = and i64 %313, %control.addr.72.us
+  %and388.i553.us = and i64 %313, %control.addr.75.us
   %tobool389.i554.not.us = icmp eq i64 %and388.i553.us, 0
   br i1 %tobool389.i554.not.us, label %if.end396.i555.us, label %if.then390.i666.us
 
@@ -2317,9 +2317,9 @@ if.then390.i666.us:                               ; preds = %if.end385.i550.us
   br label %if.end396.i555.us
 
 if.end396.i555.us:                                ; preds = %if.then390.i666.us, %if.end385.i550.us
-  %control.addr.73.us = phi i64 [ %call395.i671.us, %if.then390.i666.us ], [ %control.addr.72.us, %if.end385.i550.us ]
+  %control.addr.76.us = phi i64 [ %call395.i671.us, %if.then390.i666.us ], [ %control.addr.75.us, %if.end385.i550.us ]
   %315 = load i64, ptr %arrayidx398.i557.us, align 8
-  %and399.i558.us = and i64 %315, %control.addr.73.us
+  %and399.i558.us = and i64 %315, %control.addr.76.us
   %tobool400.i559.not.us = icmp eq i64 %and399.i558.us, 0
   br i1 %tobool400.i559.not.us, label %if.end407.i560.us, label %if.then401.i660.us
 
@@ -2331,9 +2331,9 @@ if.then401.i660.us:                               ; preds = %if.end396.i555.us
   br label %if.end407.i560.us
 
 if.end407.i560.us:                                ; preds = %if.then401.i660.us, %if.end396.i555.us
-  %control.addr.74.us = phi i64 [ %call406.i665.us, %if.then401.i660.us ], [ %control.addr.73.us, %if.end396.i555.us ]
+  %control.addr.77.us = phi i64 [ %call406.i665.us, %if.then401.i660.us ], [ %control.addr.76.us, %if.end396.i555.us ]
   %317 = load i64, ptr %arrayidx409.i562.us, align 8
-  %and410.i563.us = and i64 %317, %control.addr.74.us
+  %and410.i563.us = and i64 %317, %control.addr.77.us
   %tobool411.i564.not.us = icmp eq i64 %and410.i563.us, 0
   br i1 %tobool411.i564.not.us, label %if.end418.i565.us, label %if.then412.i654.us
 
@@ -2345,15 +2345,15 @@ if.then412.i654.us:                               ; preds = %if.end407.i560.us
   br label %if.end418.i565.us
 
 if.end418.i565.us:                                ; preds = %if.then412.i654.us, %if.end407.i560.us
-  %control.addr.75.us = phi i64 [ %call417.i659.us, %if.then412.i654.us ], [ %control.addr.74.us, %if.end407.i560.us ]
+  %control.addr.78.us = phi i64 [ %call417.i659.us, %if.then412.i654.us ], [ %control.addr.77.us, %if.end407.i560.us ]
   %319 = load i16, ptr %idCount.i253.us, align 4
   %cmp422.i5691870.us = icmp ugt i16 %319, 4
   br i1 %cmp422.i5691870.us, label %for.body424.i639.lr.ph.us, label %for.end440.i570.us
 
 for.end440.i570.us:                               ; preds = %if.end437.i645.us, %if.end418.i565.us
-  %control.addr.76.lcssa.us = phi i64 [ %control.addr.75.us, %if.end418.i565.us ], [ %control.addr.77.us, %if.end437.i645.us ]
+  %control.addr.79.lcssa.us = phi i64 [ %control.addr.78.us, %if.end418.i565.us ], [ %control.addr.80.us, %if.end437.i645.us ]
   %320 = load i64, ptr %groups375.i547.us, align 8
-  %and443.i572.us = and i64 %320, %control.addr.76.lcssa.us
+  %and443.i572.us = and i64 %320, %control.addr.79.lcssa.us
   %tobool444.i573.not.us = icmp eq i64 %and443.i572.us, 0
   br i1 %tobool444.i573.not.us, label %if.end452.i574.us, label %if.then445.i633.us
 
@@ -2366,9 +2366,9 @@ if.then445.i633.us:                               ; preds = %for.end440.i570.us
   br label %if.end452.i574.us
 
 if.end452.i574.us:                                ; preds = %if.then445.i633.us, %for.end440.i570.us
-  %control.addr.78.us = phi i64 [ %call451.i638.us, %if.then445.i633.us ], [ %control.addr.76.lcssa.us, %for.end440.i570.us ]
+  %control.addr.81.us = phi i64 [ %call451.i638.us, %if.then445.i633.us ], [ %control.addr.79.lcssa.us, %for.end440.i570.us ]
   %323 = load i64, ptr %arrayidx387.i552.us, align 8
-  %and455.i577.us = and i64 %323, %control.addr.78.us
+  %and455.i577.us = and i64 %323, %control.addr.81.us
   %tobool456.i578.not.us = icmp eq i64 %and455.i577.us, 0
   br i1 %tobool456.i578.not.us, label %if.end464.i579.us, label %if.then457.i626.us
 
@@ -2381,9 +2381,9 @@ if.then457.i626.us:                               ; preds = %if.end452.i574.us
   br label %if.end464.i579.us
 
 if.end464.i579.us:                                ; preds = %if.then457.i626.us, %if.end452.i574.us
-  %control.addr.79.us = phi i64 [ %call463.i632.us, %if.then457.i626.us ], [ %control.addr.78.us, %if.end452.i574.us ]
+  %control.addr.82.us = phi i64 [ %call463.i632.us, %if.then457.i626.us ], [ %control.addr.81.us, %if.end452.i574.us ]
   %326 = load i64, ptr %arrayidx398.i557.us, align 8
-  %and467.i582.us = and i64 %326, %control.addr.79.us
+  %and467.i582.us = and i64 %326, %control.addr.82.us
   %tobool468.i583.not.us = icmp eq i64 %and467.i582.us, 0
   br i1 %tobool468.i583.not.us, label %if.end476.i584.us, label %if.then469.i619.us
 
@@ -2396,9 +2396,9 @@ if.then469.i619.us:                               ; preds = %if.end464.i579.us
   br label %if.end476.i584.us
 
 if.end476.i584.us:                                ; preds = %if.then469.i619.us, %if.end464.i579.us
-  %control.addr.80.us = phi i64 [ %call475.i625.us, %if.then469.i619.us ], [ %control.addr.79.us, %if.end464.i579.us ]
+  %control.addr.83.us = phi i64 [ %call475.i625.us, %if.then469.i619.us ], [ %control.addr.82.us, %if.end464.i579.us ]
   %329 = load i64, ptr %arrayidx409.i562.us, align 8
-  %and479.i587.us = and i64 %329, %control.addr.80.us
+  %and479.i587.us = and i64 %329, %control.addr.83.us
   %tobool480.i588.not.us = icmp eq i64 %and479.i587.us, 0
   br i1 %tobool480.i588.not.us, label %if.end488.i589.us, label %if.then481.i612.us
 
@@ -2411,13 +2411,13 @@ if.then481.i612.us:                               ; preds = %if.end476.i584.us
   br label %if.end488.i589.us
 
 if.end488.i589.us:                                ; preds = %if.then481.i612.us, %if.end476.i584.us
-  %control.addr.81.us = phi i64 [ %call487.i618.us, %if.then481.i612.us ], [ %control.addr.80.us, %if.end476.i584.us ]
+  %control.addr.84.us = phi i64 [ %call487.i618.us, %if.then481.i612.us ], [ %control.addr.83.us, %if.end476.i584.us ]
   %332 = load i16, ptr %idCount.i253.us, align 4
   %cmp493.i5931875.us = icmp ugt i16 %332, 4
   br i1 %cmp493.i5931875.us, label %for.body495.i596.lr.ph.us, label %for.end512.i594.us
 
 for.end512.i594.us:                               ; preds = %if.end509.i602.us, %if.end488.i589.us
-  %control.addr.82.lcssa.us = phi i64 [ %control.addr.81.us, %if.end488.i589.us ], [ %control.addr.83.us, %if.end509.i602.us ]
+  %control.addr.85.lcssa.us = phi i64 [ %control.addr.84.us, %if.end488.i589.us ], [ %control.addr.86.us, %if.end509.i602.us ]
   %indvars.iv.next2051 = add nuw nsw i64 %indvars.iv2050, 2
   %cmp367.i543.us = icmp ult i64 %indvars.iv.next2051, %415
   br i1 %cmp367.i543.us, label %land.rhs369.i677.us, label %if.end516.i311.us, !llvm.loop !11
@@ -2425,10 +2425,10 @@ for.end512.i594.us:                               ; preds = %if.end509.i602.us, 
 for.body495.i596.us:                              ; preds = %for.body495.i596.lr.ph.us, %if.end509.i602.us
   %333 = phi i16 [ %332, %for.body495.i596.lr.ph.us ], [ %336, %if.end509.i602.us ]
   %indvars.iv2047 = phi i64 [ 4, %for.body495.i596.lr.ph.us ], [ %indvars.iv.next2048, %if.end509.i602.us ]
-  %control.addr.821876.us = phi i64 [ %control.addr.81.us, %for.body495.i596.lr.ph.us ], [ %control.addr.83.us, %if.end509.i602.us ]
+  %control.addr.851876.us = phi i64 [ %control.addr.84.us, %for.body495.i596.lr.ph.us ], [ %control.addr.86.us, %if.end509.i602.us ]
   %arrayidx498.i599.us = getelementptr inbounds [16 x i64], ptr %groups375.i547.us, i64 0, i64 %indvars.iv2047
   %334 = load i64, ptr %arrayidx498.i599.us, align 8
-  %and499.i600.us = and i64 %334, %control.addr.821876.us
+  %and499.i600.us = and i64 %334, %control.addr.851876.us
   %tobool500.i601.not.us = icmp eq i64 %and499.i600.us, 0
   br i1 %tobool500.i601.not.us, label %if.end509.i602.us, label %if.then501.i604.us
 
@@ -2441,7 +2441,7 @@ if.then501.i604.us:                               ; preds = %for.body495.i596.us
 
 if.end509.i602.us:                                ; preds = %if.then501.i604.us, %for.body495.i596.us
   %336 = phi i16 [ %.pre2085, %if.then501.i604.us ], [ %333, %for.body495.i596.us ]
-  %control.addr.83.us = phi i64 [ %call508.i611.us, %if.then501.i604.us ], [ %control.addr.821876.us, %for.body495.i596.us ]
+  %control.addr.86.us = phi i64 [ %call508.i611.us, %if.then501.i604.us ], [ %control.addr.851876.us, %for.body495.i596.us ]
   %indvars.iv.next2048 = add nuw nsw i64 %indvars.iv2047, 1
   %337 = zext i16 %336 to i64
   %cmp493.i593.us = icmp ult i64 %indvars.iv.next2048, %337
@@ -2450,10 +2450,10 @@ if.end509.i602.us:                                ; preds = %if.then501.i604.us,
 for.body424.i639.us:                              ; preds = %for.body424.i639.lr.ph.us, %if.end437.i645.us
   %338 = phi i16 [ %319, %for.body424.i639.lr.ph.us ], [ %341, %if.end437.i645.us ]
   %indvars.iv2044 = phi i64 [ 4, %for.body424.i639.lr.ph.us ], [ %indvars.iv.next2045, %if.end437.i645.us ]
-  %control.addr.761871.us = phi i64 [ %control.addr.75.us, %for.body424.i639.lr.ph.us ], [ %control.addr.77.us, %if.end437.i645.us ]
+  %control.addr.791871.us = phi i64 [ %control.addr.78.us, %for.body424.i639.lr.ph.us ], [ %control.addr.80.us, %if.end437.i645.us ]
   %arrayidx427.i642.us = getelementptr inbounds [16 x i64], ptr %groups375.i547.us, i64 0, i64 %indvars.iv2044
   %339 = load i64, ptr %arrayidx427.i642.us, align 8
-  %and428.i643.us = and i64 %339, %control.addr.761871.us
+  %and428.i643.us = and i64 %339, %control.addr.791871.us
   %tobool429.i644.not.us = icmp eq i64 %and428.i643.us, 0
   br i1 %tobool429.i644.not.us, label %if.end437.i645.us, label %if.then430.i647.us
 
@@ -2466,20 +2466,20 @@ if.then430.i647.us:                               ; preds = %for.body424.i639.us
 
 if.end437.i645.us:                                ; preds = %if.then430.i647.us, %for.body424.i639.us
   %341 = phi i16 [ %.pre2084, %if.then430.i647.us ], [ %338, %for.body424.i639.us ]
-  %control.addr.77.us = phi i64 [ %call436.i653.us, %if.then430.i647.us ], [ %control.addr.761871.us, %for.body424.i639.us ]
+  %control.addr.80.us = phi i64 [ %call436.i653.us, %if.then430.i647.us ], [ %control.addr.791871.us, %for.body424.i639.us ]
   %indvars.iv.next2045 = add nuw nsw i64 %indvars.iv2044, 1
   %342 = zext i16 %341 to i64
   %cmp422.i569.us = icmp ult i64 %indvars.iv.next2045, %342
   br i1 %cmp422.i569.us, label %for.body424.i639.us, label %for.end440.i570.us, !llvm.loop !13
 
 if.end516.i311.us:                                ; preds = %if.end361.i354.us, %land.rhs287.i393.us, %if.end278.i437.us, %land.rhs179.i489.us, %if.end170.i513.us, %land.rhs.i538.us, %for.end512.i594.us, %land.rhs369.i677.us, %for.cond284.i321.preheader.us, %for.cond176.i397.preheader.us, %for.cond117.i493.preheader.us, %for.cond366.i542.preheader.us, %land.lhs.true.i314.us, %if.then103.i303.us
-  %control.addr.84.us = phi i64 [ %control.addr.49.us, %land.lhs.true.i314.us ], [ %control.addr.49.us, %if.then103.i303.us ], [ %control.addr.49.us, %for.cond366.i542.preheader.us ], [ %control.addr.49.us, %for.cond117.i493.preheader.us ], [ %control.addr.49.us, %for.cond176.i397.preheader.us ], [ %control.addr.49.us, %for.cond284.i321.preheader.us ], [ %control.addr.711880.us, %land.rhs369.i677.us ], [ %control.addr.82.lcssa.us, %for.end512.i594.us ], [ %control.addr.501865.us, %land.rhs.i538.us ], [ %control.addr.54.us, %if.end170.i513.us ], [ %control.addr.551860.us, %land.rhs179.i489.us ], [ %control.addr.63.us, %if.end278.i437.us ], [ %control.addr.641855.us, %land.rhs287.i393.us ], [ %control.addr.70.us, %if.end361.i354.us ]
+  %control.addr.52.us = phi i64 [ %control.addr.49.us, %land.lhs.true.i314.us ], [ %control.addr.49.us, %if.then103.i303.us ], [ %control.addr.49.us, %for.cond366.i542.preheader.us ], [ %control.addr.49.us, %for.cond117.i493.preheader.us ], [ %control.addr.49.us, %for.cond176.i397.preheader.us ], [ %control.addr.49.us, %for.cond284.i321.preheader.us ], [ %control.addr.741880.us, %land.rhs369.i677.us ], [ %control.addr.85.lcssa.us, %for.end512.i594.us ], [ %control.addr.531865.us, %land.rhs.i538.us ], [ %control.addr.57.us, %if.end170.i513.us ], [ %control.addr.581860.us, %land.rhs179.i489.us ], [ %control.addr.66.us, %if.end278.i437.us ], [ %control.addr.671855.us, %land.rhs287.i393.us ], [ %control.addr.73.us, %if.end361.i354.us ]
   %idx.ext517.i312.us = zext i32 %div.i3061758.us to i64
   %add.ptr518.i313.us = getelementptr inbounds i8, ptr %itPtr57.0.us, i64 %idx.ext517.i312.us
   br label %floodout.i286.us
 
 if.end98.i686.us:                                 ; preds = %for.body89.i680.us
-  %inc.i687.us = add i32 %j.i195.21850.us, 1
+  %inc.i687.us = add i32 %j.i195.31850.us, 1
   %conv86.i279.us = zext i32 %inc.i687.us to i64
   %cmp87.i280.us = icmp ugt i64 %cond.i225.us, %conv86.i279.us
   br i1 %cmp87.i280.us, label %for.body89.i680.us, label %for.end100.i281.us, !llvm.loop !14
@@ -2493,27 +2493,27 @@ if.then.i720.us:                                  ; preds = %lor.lhs.false.i252.
   br label %floodout.i286.us
 
 floodout.i286.us:                                 ; preds = %if.then.i720.us, %if.then30.i718.us, %if.end516.i311.us, %if.else.i283.us
-  %control.addr.85.us = phi i64 [ %control.addr.49.us, %if.then.i720.us ], [ %control.addr.49.us, %if.then30.i718.us ], [ %control.addr.84.us, %if.end516.i311.us ], [ %control.addr.49.us, %if.else.i283.us ]
-  %floodBackoff.5.us = phi i32 [ %mul26.i721.us, %if.then.i720.us ], [ %mul31.i719.us, %if.then30.i718.us ], [ %floodBackoff.4.us, %if.end516.i311.us ], [ %mul519.i284.us, %if.else.i283.us ]
-  %j.i195.3.us = phi i32 [ %conv8.i229.us, %if.then.i720.us ], [ %conv8.i229.us, %if.then30.i718.us ], [ %dec.i304.us, %if.end516.i311.us ], [ %j.i195.2.lcssa.us, %if.else.i283.us ]
+  %control.addr.51.us = phi i64 [ %control.addr.49.us, %if.then.i720.us ], [ %control.addr.49.us, %if.then30.i718.us ], [ %control.addr.52.us, %if.end516.i311.us ], [ %control.addr.49.us, %if.else.i283.us ]
+  %floodBackoff.6.us = phi i32 [ %mul26.i721.us, %if.then.i720.us ], [ %mul31.i719.us, %if.then30.i718.us ], [ %floodBackoff.4.us, %if.end516.i311.us ], [ %mul519.i284.us, %if.else.i283.us ]
+  %j.i195.0.us = phi i32 [ %conv8.i229.us, %if.then.i720.us ], [ %conv8.i229.us, %if.then30.i718.us ], [ %dec.i304.us, %if.end516.i311.us ], [ %j.i195.3.lcssa.us, %if.else.i283.us ]
   %ptr.i192.0.us = phi ptr [ %itPtr57.0.us, %if.then.i720.us ], [ %itPtr57.0.us, %if.then30.i718.us ], [ %add.ptr518.i313.us, %if.end516.i311.us ], [ %itPtr57.0.us, %if.else.i283.us ]
-  %add521.i287.us = add i32 %j.i195.3.us, %floodBackoff.5.us
+  %add521.i287.us = add i32 %j.i195.0.us, %floodBackoff.6.us
   %conv522.i288.us = zext i32 %add521.i287.us to i64
   %sub523.i289.us = add i64 %cond.i225.us, -128
   %cmp524.i290.us = icmp ugt i64 %sub523.i289.us, %conv522.i288.us
-  %cond532.i297.us = call i32 @llvm.umax.i32(i32 %j.i195.3.us, i32 %conv8.i229.us)
+  %cond532.i297.us = call i32 @llvm.umax.i32(i32 %j.i195.0.us, i32 %conv8.i229.us)
   %idx.ext533.i298.us = zext i32 %cond532.i297.us to i64
   %add.ptr534.i299.us = getelementptr inbounds i8, ptr %245, i64 %idx.ext533.i298.us
-  %idx.ext535.i300.us = zext i32 %floodBackoff.5.us to i64
+  %idx.ext535.i300.us = zext i32 %floodBackoff.6.us to i64
   %add.ptr536.i301.us = getelementptr inbounds i8, ptr %add.ptr534.i299.us, i64 %idx.ext535.i300.us
   %add.ptr538.i292.us = getelementptr inbounds i8, ptr %245, i64 %cond.i225.us
   %tryFloodDetect.addr.i184.0.us = select i1 %cmp524.i290.us, ptr %add.ptr536.i301.us, ptr %add.ptr538.i292.us
-  %cmp73.us = icmp eq i64 %control.addr.85.us, 0
+  %cmp73.us = icmp eq i64 %control.addr.51.us, 0
   br i1 %cmp73.us, label %return, label %if.end83.us
 
 if.end83.us:                                      ; preds = %floodout.i286.us, %for.body62.us
-  %control.addr.86.us = phi i64 [ %control.addr.85.us, %floodout.i286.us ], [ %control.addr.49.us, %for.body62.us ]
-  %floodBackoff.6.us = phi i32 [ %floodBackoff.5.us, %floodout.i286.us ], [ %floodBackoff.4.us, %for.body62.us ]
+  %control.addr.50.us = phi i64 [ %control.addr.51.us, %floodout.i286.us ], [ %control.addr.49.us, %for.body62.us ]
+  %floodBackoff.5.us = phi i32 [ %floodBackoff.6.us, %floodout.i286.us ], [ %floodBackoff.4.us, %for.body62.us ]
   %itPtr57.1.us = phi ptr [ %ptr.i192.0.us, %floodout.i286.us ], [ %itPtr57.0.us, %for.body62.us ]
   %tryFloodDetect51.1.us = phi ptr [ %tryFloodDetect.addr.i184.0.us, %floodout.i286.us ], [ %tryFloodDetect51.0.us, %for.body62.us ]
   %add.ptr84.us = getelementptr inbounds i8, ptr %itPtr57.1.us, i64 16
@@ -2619,8 +2619,8 @@ if.end.i1460.us:                                  ; preds = %if.end83.us
 
 do.body.i1463.us:                                 ; preds = %do.cond.i1473.us, %if.end.i1460.us
   %364 = phi i64 [ %xor.i1696.us, %if.end.i1460.us ], [ %385, %do.cond.i1473.us ]
-  %control.addr.87.us = phi i64 [ %control.addr.86.us, %if.end.i1460.us ], [ %control.addr.90.us, %do.cond.i1473.us ]
-  %last_match_id.13.us = phi i32 [ %last_match_id.12.us, %if.end.i1460.us ], [ %last_match_id.16.us, %do.cond.i1473.us ]
+  %control.addr.88.us = phi i64 [ %control.addr.50.us, %if.end.i1460.us ], [ %control.addr.89.us, %do.cond.i1473.us ]
+  %last_match_id.14.us = phi i32 [ %last_match_id.12.us, %if.end.i1460.us ], [ %last_match_id.15.us, %do.cond.i1473.us ]
   %365 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %364) #8, !srcloc !15
   %asmresult.i2461.us = extractvalue { i64, i64 } %365, 0
   %asmresult1.i2462.us = extractvalue { i64, i64 } %365, 1
@@ -2637,7 +2637,7 @@ if.end8.i1479.us:                                 ; preds = %do.body.i1463.us
   %add.ptr.i1481.us = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext.i1480.us
   %groups.i1482.us = getelementptr inbounds i8, ptr %add.ptr.i1481.us, i64 24
   %367 = load i64, ptr %groups.i1482.us, align 8
-  %and.i1483.us = and i64 %367, %control.addr.87.us
+  %and.i1483.us = and i64 %367, %control.addr.88.us
   %tobool9.i1484.not.us = icmp eq i64 %and.i1483.us, 0
   br i1 %tobool9.i1484.not.us, label %do.cond.i1473.us, label %if.end11.i1486.us
 
@@ -2680,8 +2680,8 @@ if.end.i2637.us:                                  ; preds = %if.end11.i1486.us
   br label %do.body.i2643.us
 
 do.body.i2643.us:                                 ; preds = %out.i2675.us, %if.end.i2637.us
-  %control.addr.88.us = phi i64 [ %control.addr.87.us, %if.end.i2637.us ], [ %control.addr.89.us, %out.i2675.us ]
-  %last_match_id.14.us = phi i32 [ %last_match_id.13.us, %if.end.i2637.us ], [ %last_match_id.15.us, %out.i2675.us ]
+  %control.addr.90.us = phi i64 [ %control.addr.88.us, %if.end.i2637.us ], [ %control.addr.91.us, %out.i2675.us ]
+  %last_match_id.16.us = phi i32 [ %last_match_id.14.us, %if.end.i2637.us ], [ %last_match_id.17.us, %out.i2675.us ]
   %li.i2620.0.us = phi ptr [ %add.ptr.i2639.us, %if.end.i2637.us ], [ %incdec.ptr.i2677.us, %out.i2675.us ]
   %msk.i2644.us = getelementptr inbounds i8, ptr %li.i2620.0.us, i64 8
   %375 = load i64, ptr %msk.i2644.us, align 8
@@ -2693,7 +2693,7 @@ do.body.i2643.us:                                 ; preds = %out.i2675.us, %if.e
 if.end15.i2650.us:                                ; preds = %do.body.i2643.us
   %id.i2651.us = getelementptr inbounds i8, ptr %li.i2620.0.us, i64 24
   %377 = load i32, ptr %id.i2651.us, align 8
-  %cmp16.i2652.us = icmp eq i32 %last_match_id.14.us, %377
+  %cmp16.i2652.us = icmp eq i32 %last_match_id.16.us, %377
   br i1 %cmp16.i2652.us, label %land.lhs.true.i2693.us, label %if.end22.i2653.us
 
 land.lhs.true.i2693.us:                           ; preds = %if.end15.i2650.us
@@ -2723,7 +2723,7 @@ if.then30.i2683.us:                               ; preds = %if.end22.i2653.us
 if.end38.i2662.us:                                ; preds = %if.then30.i2683.us, %if.end22.i2653.us
   %groups.i2663.us = getelementptr inbounds i8, ptr %li.i2620.0.us, i64 16
   %382 = load i64, ptr %groups.i2663.us, align 8
-  %and39.i2664.us = and i64 %382, %control.addr.88.us
+  %and39.i2664.us = and i64 %382, %control.addr.90.us
   %tobool40.i2665.not.us = icmp eq i64 %and39.i2664.us, 0
   br i1 %tobool40.i2665.not.us, label %out.i2675.us, label %if.end50.i2670.us
 
@@ -2733,8 +2733,8 @@ if.end50.i2670.us:                                ; preds = %if.end38.i2662.us
   br label %out.i2675.us
 
 out.i2675.us:                                     ; preds = %if.end50.i2670.us, %if.end38.i2662.us, %if.then30.i2683.us, %land.lhs.true.i2693.us, %do.body.i2643.us
-  %control.addr.89.us = phi i64 [ %control.addr.88.us, %do.body.i2643.us ], [ %control.addr.88.us, %land.lhs.true.i2693.us ], [ %control.addr.88.us, %if.then30.i2683.us ], [ %control.addr.88.us, %if.end38.i2662.us ], [ %call53.i2674.us, %if.end50.i2670.us ]
-  %last_match_id.15.us = phi i32 [ %last_match_id.14.us, %do.body.i2643.us ], [ %last_match_id.14.us, %land.lhs.true.i2693.us ], [ %last_match_id.14.us, %if.then30.i2683.us ], [ %last_match_id.14.us, %if.end38.i2662.us ], [ %377, %if.end50.i2670.us ]
+  %control.addr.91.us = phi i64 [ %control.addr.90.us, %do.body.i2643.us ], [ %control.addr.90.us, %land.lhs.true.i2693.us ], [ %control.addr.90.us, %if.then30.i2683.us ], [ %control.addr.90.us, %if.end38.i2662.us ], [ %call53.i2674.us, %if.end50.i2670.us ]
+  %last_match_id.17.us = phi i32 [ %last_match_id.16.us, %do.body.i2643.us ], [ %last_match_id.16.us, %land.lhs.true.i2693.us ], [ %last_match_id.16.us, %if.then30.i2683.us ], [ %last_match_id.16.us, %if.end38.i2662.us ], [ %377, %if.end50.i2670.us ]
   %next.i2676.us = getelementptr inbounds i8, ptr %li.i2620.0.us, i64 30
   %384 = load i8, ptr %next.i2676.us, align 2
   %incdec.ptr.i2677.us = getelementptr inbounds i8, ptr %li.i2620.0.us, i64 32
@@ -2748,8 +2748,8 @@ do.end.i2680.us:                                  ; preds = %out.i2675.us
 
 do.cond.i1473.us:                                 ; preds = %do.end.i2680.us, %if.end11.i1486.us, %if.end8.i1479.us, %do.body.i1463.us
   %385 = phi i64 [ %asmresult1.i2462.us, %if.end11.i1486.us ], [ %.pre2086, %do.end.i2680.us ], [ %asmresult1.i2462.us, %if.end8.i1479.us ], [ %asmresult1.i2462.us, %do.body.i1463.us ]
-  %control.addr.90.us = phi i64 [ %control.addr.87.us, %if.end11.i1486.us ], [ %control.addr.89.us, %do.end.i2680.us ], [ %control.addr.87.us, %if.end8.i1479.us ], [ %control.addr.87.us, %do.body.i1463.us ]
-  %last_match_id.16.us = phi i32 [ %last_match_id.13.us, %if.end11.i1486.us ], [ %last_match_id.15.us, %do.end.i2680.us ], [ %last_match_id.13.us, %if.end8.i1479.us ], [ %last_match_id.13.us, %do.body.i1463.us ]
+  %control.addr.89.us = phi i64 [ %control.addr.88.us, %if.end11.i1486.us ], [ %control.addr.91.us, %do.end.i2680.us ], [ %control.addr.88.us, %if.end8.i1479.us ], [ %control.addr.88.us, %do.body.i1463.us ]
+  %last_match_id.15.us = phi i32 [ %last_match_id.14.us, %if.end11.i1486.us ], [ %last_match_id.17.us, %do.end.i2680.us ], [ %last_match_id.14.us, %if.end8.i1479.us ], [ %last_match_id.14.us, %do.body.i1463.us ]
   %tobool20.i1474.not.us = icmp eq i64 %385, 0
   br i1 %tobool20.i1474.not.us, label %do_confirm_fdr.exit1498thread-pre-split.us, label %do.body.i1463.us, !llvm.loop !17
 
@@ -2759,8 +2759,8 @@ do_confirm_fdr.exit1498thread-pre-split.us:       ; preds = %do.cond.i1473.us
 
 do_confirm_fdr.exit1498.us:                       ; preds = %do_confirm_fdr.exit1498thread-pre-split.us, %if.end83.us
   %386 = phi i64 [ %.pr1779.us, %do_confirm_fdr.exit1498thread-pre-split.us ], [ %xor61.i.us, %if.end83.us ]
-  %control.addr.91.us = phi i64 [ %control.addr.90.us, %do_confirm_fdr.exit1498thread-pre-split.us ], [ %control.addr.86.us, %if.end83.us ]
-  %last_match_id.17.us = phi i32 [ %last_match_id.16.us, %do_confirm_fdr.exit1498thread-pre-split.us ], [ %last_match_id.12.us, %if.end83.us ]
+  %control.addr.87.us = phi i64 [ %control.addr.89.us, %do_confirm_fdr.exit1498thread-pre-split.us ], [ %control.addr.50.us, %if.end83.us ]
+  %last_match_id.13.us = phi i32 [ %last_match_id.15.us, %do_confirm_fdr.exit1498thread-pre-split.us ], [ %last_match_id.12.us, %if.end83.us ]
   %tobool.i1391.not.us = icmp eq i64 %386, 0
   br i1 %tobool.i1391.not.us, label %do_confirm_fdr.exit1434.us, label %if.end.i1396.us
 
@@ -2773,8 +2773,8 @@ if.end.i1396.us:                                  ; preds = %do_confirm_fdr.exit
 
 do.body.i1399.us:                                 ; preds = %do.cond.i1409.us, %if.end.i1396.us
   %389 = phi i64 [ %386, %if.end.i1396.us ], [ %410, %do.cond.i1409.us ]
-  %control.addr.92.us = phi i64 [ %control.addr.91.us, %if.end.i1396.us ], [ %control.addr.95.us, %do.cond.i1409.us ]
-  %last_match_id.18.us = phi i32 [ %last_match_id.17.us, %if.end.i1396.us ], [ %last_match_id.21.us, %do.cond.i1409.us ]
+  %control.addr.93.us = phi i64 [ %control.addr.87.us, %if.end.i1396.us ], [ %control.addr.94.us, %do.cond.i1409.us ]
+  %last_match_id.19.us = phi i32 [ %last_match_id.13.us, %if.end.i1396.us ], [ %last_match_id.20.us, %do.cond.i1409.us ]
   %390 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %389) #8, !srcloc !15
   %asmresult.i2467.us = extractvalue { i64, i64 } %390, 0
   %asmresult1.i2468.us = extractvalue { i64, i64 } %390, 1
@@ -2793,7 +2793,7 @@ if.end8.i1415.us:                                 ; preds = %do.body.i1399.us
   %add.ptr.i1417.us = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext.i1416.us
   %groups.i1418.us = getelementptr inbounds i8, ptr %add.ptr.i1417.us, i64 24
   %392 = load i64, ptr %groups.i1418.us, align 8
-  %and.i1419.us = and i64 %392, %control.addr.92.us
+  %and.i1419.us = and i64 %392, %control.addr.93.us
   %tobool9.i1420.not.us = icmp eq i64 %and.i1419.us, 0
   br i1 %tobool9.i1420.not.us, label %do.cond.i1409.us, label %if.end11.i1422.us
 
@@ -2836,8 +2836,8 @@ if.end.i2730.us:                                  ; preds = %if.end11.i1422.us
   br label %do.body.i2736.us
 
 do.body.i2736.us:                                 ; preds = %out.i2768.us, %if.end.i2730.us
-  %control.addr.93.us = phi i64 [ %control.addr.92.us, %if.end.i2730.us ], [ %control.addr.94.us, %out.i2768.us ]
-  %last_match_id.19.us = phi i32 [ %last_match_id.18.us, %if.end.i2730.us ], [ %last_match_id.20.us, %out.i2768.us ]
+  %control.addr.95.us = phi i64 [ %control.addr.93.us, %if.end.i2730.us ], [ %control.addr.96.us, %out.i2768.us ]
+  %last_match_id.21.us = phi i32 [ %last_match_id.19.us, %if.end.i2730.us ], [ %last_match_id.22.us, %out.i2768.us ]
   %li.i2713.0.us = phi ptr [ %add.ptr.i2732.us, %if.end.i2730.us ], [ %incdec.ptr.i2770.us, %out.i2768.us ]
   %msk.i2737.us = getelementptr inbounds i8, ptr %li.i2713.0.us, i64 8
   %400 = load i64, ptr %msk.i2737.us, align 8
@@ -2849,7 +2849,7 @@ do.body.i2736.us:                                 ; preds = %out.i2768.us, %if.e
 if.end15.i2743.us:                                ; preds = %do.body.i2736.us
   %id.i2744.us = getelementptr inbounds i8, ptr %li.i2713.0.us, i64 24
   %402 = load i32, ptr %id.i2744.us, align 8
-  %cmp16.i2745.us = icmp eq i32 %last_match_id.19.us, %402
+  %cmp16.i2745.us = icmp eq i32 %last_match_id.21.us, %402
   br i1 %cmp16.i2745.us, label %land.lhs.true.i2786.us, label %if.end22.i2746.us
 
 land.lhs.true.i2786.us:                           ; preds = %if.end15.i2743.us
@@ -2879,7 +2879,7 @@ if.then30.i2776.us:                               ; preds = %if.end22.i2746.us
 if.end38.i2755.us:                                ; preds = %if.then30.i2776.us, %if.end22.i2746.us
   %groups.i2756.us = getelementptr inbounds i8, ptr %li.i2713.0.us, i64 16
   %407 = load i64, ptr %groups.i2756.us, align 8
-  %and39.i2757.us = and i64 %407, %control.addr.93.us
+  %and39.i2757.us = and i64 %407, %control.addr.95.us
   %tobool40.i2758.not.us = icmp eq i64 %and39.i2757.us, 0
   br i1 %tobool40.i2758.not.us, label %out.i2768.us, label %if.end50.i2763.us
 
@@ -2889,8 +2889,8 @@ if.end50.i2763.us:                                ; preds = %if.end38.i2755.us
   br label %out.i2768.us
 
 out.i2768.us:                                     ; preds = %if.end50.i2763.us, %if.end38.i2755.us, %if.then30.i2776.us, %land.lhs.true.i2786.us, %do.body.i2736.us
-  %control.addr.94.us = phi i64 [ %control.addr.93.us, %do.body.i2736.us ], [ %control.addr.93.us, %land.lhs.true.i2786.us ], [ %control.addr.93.us, %if.then30.i2776.us ], [ %control.addr.93.us, %if.end38.i2755.us ], [ %call53.i2767.us, %if.end50.i2763.us ]
-  %last_match_id.20.us = phi i32 [ %last_match_id.19.us, %do.body.i2736.us ], [ %last_match_id.19.us, %land.lhs.true.i2786.us ], [ %last_match_id.19.us, %if.then30.i2776.us ], [ %last_match_id.19.us, %if.end38.i2755.us ], [ %402, %if.end50.i2763.us ]
+  %control.addr.96.us = phi i64 [ %control.addr.95.us, %do.body.i2736.us ], [ %control.addr.95.us, %land.lhs.true.i2786.us ], [ %control.addr.95.us, %if.then30.i2776.us ], [ %control.addr.95.us, %if.end38.i2755.us ], [ %call53.i2767.us, %if.end50.i2763.us ]
+  %last_match_id.22.us = phi i32 [ %last_match_id.21.us, %do.body.i2736.us ], [ %last_match_id.21.us, %land.lhs.true.i2786.us ], [ %last_match_id.21.us, %if.then30.i2776.us ], [ %last_match_id.21.us, %if.end38.i2755.us ], [ %402, %if.end50.i2763.us ]
   %next.i2769.us = getelementptr inbounds i8, ptr %li.i2713.0.us, i64 30
   %409 = load i8, ptr %next.i2769.us, align 2
   %incdec.ptr.i2770.us = getelementptr inbounds i8, ptr %li.i2713.0.us, i64 32
@@ -2904,15 +2904,15 @@ do.end.i2773.us:                                  ; preds = %out.i2768.us
 
 do.cond.i1409.us:                                 ; preds = %do.end.i2773.us, %if.end11.i1422.us, %if.end8.i1415.us, %do.body.i1399.us
   %410 = phi i64 [ %asmresult1.i2468.us, %if.end11.i1422.us ], [ %.pre2087, %do.end.i2773.us ], [ %asmresult1.i2468.us, %if.end8.i1415.us ], [ %asmresult1.i2468.us, %do.body.i1399.us ]
-  %control.addr.95.us = phi i64 [ %control.addr.92.us, %if.end11.i1422.us ], [ %control.addr.94.us, %do.end.i2773.us ], [ %control.addr.92.us, %if.end8.i1415.us ], [ %control.addr.92.us, %do.body.i1399.us ]
-  %last_match_id.21.us = phi i32 [ %last_match_id.18.us, %if.end11.i1422.us ], [ %last_match_id.20.us, %do.end.i2773.us ], [ %last_match_id.18.us, %if.end8.i1415.us ], [ %last_match_id.18.us, %do.body.i1399.us ]
+  %control.addr.94.us = phi i64 [ %control.addr.93.us, %if.end11.i1422.us ], [ %control.addr.96.us, %do.end.i2773.us ], [ %control.addr.93.us, %if.end8.i1415.us ], [ %control.addr.93.us, %do.body.i1399.us ]
+  %last_match_id.20.us = phi i32 [ %last_match_id.19.us, %if.end11.i1422.us ], [ %last_match_id.22.us, %do.end.i2773.us ], [ %last_match_id.19.us, %if.end8.i1415.us ], [ %last_match_id.19.us, %do.body.i1399.us ]
   %tobool20.i1410.not.us = icmp eq i64 %410, 0
   br i1 %tobool20.i1410.not.us, label %do_confirm_fdr.exit1434.us, label %do.body.i1399.us, !llvm.loop !17
 
 do_confirm_fdr.exit1434.us:                       ; preds = %do.cond.i1409.us, %do_confirm_fdr.exit1498.us
-  %control.addr.96.us = phi i64 [ %control.addr.91.us, %do_confirm_fdr.exit1498.us ], [ %control.addr.95.us, %do.cond.i1409.us ]
-  %last_match_id.22.us = phi i32 [ %last_match_id.17.us, %do_confirm_fdr.exit1498.us ], [ %last_match_id.21.us, %do.cond.i1409.us ]
-  %cmp87.us = icmp eq i64 %control.addr.96.us, 0
+  %control.addr.92.us = phi i64 [ %control.addr.87.us, %do_confirm_fdr.exit1498.us ], [ %control.addr.94.us, %do.cond.i1409.us ]
+  %last_match_id.18.us = phi i32 [ %last_match_id.13.us, %do_confirm_fdr.exit1498.us ], [ %last_match_id.20.us, %do.cond.i1409.us ]
+  %cmp87.us = icmp eq i64 %control.addr.92.us, 0
   br i1 %cmp87.us, label %return, label %for.cond58.us, !llvm.loop !20
 
 for.cond366.i542.preheader.us:                    ; preds = %if.then114.i317.us
@@ -3017,11 +3017,11 @@ for.body.us1963:                                  ; preds = %getInitState.exit, 
   br label %for.cond110.us
 
 for.cond110.us:                                   ; preds = %do_confirm_fdr.exit.us, %for.body.us1963
-  %control.addr.97.us = phi i64 [ %control.addr.01936.us1968, %for.body.us1963 ], [ %control.addr.144.us, %do_confirm_fdr.exit.us ]
-  %floodBackoff.7.us = phi i32 [ %floodBackoff.01937.us1967, %for.body.us1963 ], [ %floodBackoff.9.us, %do_confirm_fdr.exit.us ]
+  %control.addr.97.us = phi i64 [ %control.addr.01936.us1968, %for.body.us1963 ], [ %control.addr.140.us, %do_confirm_fdr.exit.us ]
+  %floodBackoff.7.us = phi i32 [ %floodBackoff.01937.us1967, %for.body.us1963 ], [ %floodBackoff.8.us, %do_confirm_fdr.exit.us ]
   %itPtr109.0.us = phi ptr [ %423, %for.body.us1963 ], [ %add.ptr136.us, %do_confirm_fdr.exit.us ]
   %state.3.us = phi <2 x i64> [ %or.i2205.us1975, %for.body.us1963 ], [ %cast28.i.us, %do_confirm_fdr.exit.us ]
-  %last_match_id.23.us = phi i32 [ %last_match_id.01939.us1965, %for.body.us1963 ], [ %last_match_id.33.us, %do_confirm_fdr.exit.us ]
+  %last_match_id.23.us = phi i32 [ %last_match_id.01939.us1965, %for.body.us1963 ], [ %last_match_id.29.us, %do_confirm_fdr.exit.us ]
   %tryFloodDetect103.0.us = phi ptr [ %422, %for.body.us1963 ], [ %tryFloodDetect103.1.us, %do_confirm_fdr.exit.us ]
   %add.ptr111.us = getelementptr inbounds i8, ptr %itPtr109.0.us, i64 16
   %cmp112.not.us = icmp ugt ptr %add.ptr111.us, %424
@@ -3089,14 +3089,14 @@ if.end32.i.us:                                    ; preds = %if.end.i174.us
   br label %for.cond.i.us
 
 for.cond.i.us:                                    ; preds = %lor.lhs.false57.i.us, %if.end32.i.us
-  %j.i.0.us = phi i32 [ %sub39.i.us, %if.end32.i.us ], [ %add40.i.us, %lor.lhs.false57.i.us ]
-  %add40.i.us = add i32 %j.i.0.us, 32
+  %j.i.1.us = phi i32 [ %sub39.i.us, %if.end32.i.us ], [ %add40.i.us, %lor.lhs.false57.i.us ]
+  %add40.i.us = add i32 %j.i.1.us, 32
   %conv41.i.us = zext i32 %add40.i.us to i64
   %cmp42.i.us = icmp ugt i64 %cond.i.us, %conv41.i.us
   br i1 %cmp42.i.us, label %for.body.i.us, label %for.cond69.i.us.preheader
 
 for.body.i.us:                                    ; preds = %for.cond.i.us
-  %idx.ext44.i.us = zext i32 %j.i.0.us to i64
+  %idx.ext44.i.us = zext i32 %j.i.1.us to i64
   %add.ptr45.i.us = getelementptr inbounds i8, ptr %425, i64 %idx.ext44.i.us
   %add.ptr54.i.us = getelementptr inbounds i8, ptr %add.ptr45.i.us, i64 24
   %438 = load i64, ptr %add.ptr54.i.us, align 8
@@ -3120,11 +3120,11 @@ for.cond69.i.us.preheader:                        ; preds = %lor.lhs.false57.i.u
   br label %for.cond69.i.us
 
 for.cond69.i.us:                                  ; preds = %for.cond69.i.us.preheader, %for.body74.i.us
-  %j.i.1.us = phi i32 [ %add70.i.us, %for.body74.i.us ], [ %j.i.0.us, %for.cond69.i.us.preheader ]
-  %add70.i.us = add i32 %j.i.1.us, 8
+  %j.i.2.us = phi i32 [ %add70.i.us, %for.body74.i.us ], [ %j.i.1.us, %for.cond69.i.us.preheader ]
+  %add70.i.us = add i32 %j.i.2.us, 8
   %conv71.i.us = zext i32 %add70.i.us to i64
   %cmp72.i.us = icmp ugt i64 %cond.i.us, %conv71.i.us
-  %idx.ext76.i.us = zext i32 %j.i.1.us to i64
+  %idx.ext76.i.us = zext i32 %j.i.2.us to i64
   br i1 %cmp72.i.us, label %for.body74.i.us, label %for.end84.i.us
 
 for.body74.i.us:                                  ; preds = %for.cond69.i.us
@@ -3139,15 +3139,15 @@ for.end84.i.us:                                   ; preds = %for.body74.i.us, %f
 
 for.body89.i.us:                                  ; preds = %for.end84.i.us, %if.end98.i.us
   %conv86.i1810.us = phi i64 [ %conv86.i.us, %if.end98.i.us ], [ %idx.ext76.i.us, %for.end84.i.us ]
-  %j.i.21809.us = phi i32 [ %inc.i178.us, %if.end98.i.us ], [ %j.i.1.us, %for.end84.i.us ]
+  %j.i.31809.us = phi i32 [ %inc.i178.us, %if.end98.i.us ], [ %j.i.2.us, %for.end84.i.us ]
   %add.ptr92.i.us = getelementptr inbounds i8, ptr %425, i64 %conv86.i1810.us
   %443 = load i8, ptr %add.ptr92.i.us, align 1
   %cmp95.i.not.us = icmp eq i8 %443, %429
   br i1 %cmp95.i.not.us, label %if.end98.i.us, label %for.end100.i.us
 
 for.end100.i.us:                                  ; preds = %if.end98.i.us, %for.body89.i.us, %for.end84.i.us
-  %j.i.2.lcssa.us = phi i32 [ %j.i.1.us, %for.end84.i.us ], [ %j.i.21809.us, %for.body89.i.us ], [ %inc.i178.us, %if.end98.i.us ]
-  %cmp101.i.us = icmp ugt i32 %j.i.2.lcssa.us, %conv8.i.us
+  %j.i.3.lcssa.us = phi i32 [ %j.i.2.us, %for.end84.i.us ], [ %j.i.31809.us, %for.body89.i.us ], [ %inc.i178.us, %if.end98.i.us ]
+  %cmp101.i.us = icmp ugt i32 %j.i.3.lcssa.us, %conv8.i.us
   br i1 %cmp101.i.us, label %if.then103.i.us, label %if.else.i175.us
 
 if.else.i175.us:                                  ; preds = %for.end100.i.us
@@ -3155,7 +3155,7 @@ if.else.i175.us:                                  ; preds = %for.end100.i.us
   br label %floodout.i.us
 
 if.then103.i.us:                                  ; preds = %for.end100.i.us
-  %dec.i.us = add i32 %j.i.2.lcssa.us, -1
+  %dec.i.us = add i32 %j.i.3.lcssa.us, -1
   %sub104.i.us = sub i32 %dec.i.us, %conv8.i.us
   %div.i1755.us = and i32 %sub104.i.us, -16
   %tobool.i176.not.us = icmp eq i16 %435, 0
@@ -3177,15 +3177,15 @@ if.then114.i.us:                                  ; preds = %land.lhs.true.i.us
 
 land.rhs287.i.us:                                 ; preds = %land.rhs287.i.lr.ph.us, %if.end361.i.us
   %indvars.iv = phi i64 [ 0, %land.rhs287.i.lr.ph.us ], [ %indvars.iv.next, %if.end361.i.us ]
-  %control.addr.1121813.us = phi i64 [ %control.addr.97.us, %land.rhs287.i.lr.ph.us ], [ %control.addr.118.us, %if.end361.i.us ]
+  %control.addr.1151813.us = phi i64 [ %control.addr.97.us, %land.rhs287.i.lr.ph.us ], [ %control.addr.121.us, %if.end361.i.us ]
   %445 = load i64, ptr %arrayidx13.i.us, align 8
-  %and289.i.us = and i64 %445, %control.addr.1121813.us
+  %and289.i.us = and i64 %445, %control.addr.1151813.us
   %tobool290.i.not.us = icmp eq i64 %and289.i.us, 0
   br i1 %tobool290.i.not.us, label %if.end516.i.us, label %for.body292.i.us
 
 for.body292.i.us:                                 ; preds = %land.rhs287.i.us
   %446 = load i64, ptr %groups293.i.us, align 8
-  %and295.i.us = and i64 %446, %control.addr.1121813.us
+  %and295.i.us = and i64 %446, %control.addr.1151813.us
   %tobool296.i.not.us = icmp eq i64 %and295.i.us, 0
   br i1 %tobool296.i.not.us, label %if.end303.i.us, label %if.then297.i.us
 
@@ -3197,9 +3197,9 @@ if.then297.i.us:                                  ; preds = %for.body292.i.us
   br label %if.end303.i.us
 
 if.end303.i.us:                                   ; preds = %if.then297.i.us, %for.body292.i.us
-  %control.addr.113.us = phi i64 [ %call302.i.us, %if.then297.i.us ], [ %control.addr.1121813.us, %for.body292.i.us ]
+  %control.addr.116.us = phi i64 [ %call302.i.us, %if.then297.i.us ], [ %control.addr.1151813.us, %for.body292.i.us ]
   %448 = load i64, ptr %arrayidx305.i.us, align 8
-  %and306.i.us = and i64 %448, %control.addr.113.us
+  %and306.i.us = and i64 %448, %control.addr.116.us
   %tobool307.i.not.us = icmp eq i64 %and306.i.us, 0
   br i1 %tobool307.i.not.us, label %if.end314.i.us, label %if.then308.i.us
 
@@ -3211,9 +3211,9 @@ if.then308.i.us:                                  ; preds = %if.end303.i.us
   br label %if.end314.i.us
 
 if.end314.i.us:                                   ; preds = %if.then308.i.us, %if.end303.i.us
-  %control.addr.114.us = phi i64 [ %call313.i.us, %if.then308.i.us ], [ %control.addr.113.us, %if.end303.i.us ]
+  %control.addr.117.us = phi i64 [ %call313.i.us, %if.then308.i.us ], [ %control.addr.116.us, %if.end303.i.us ]
   %450 = load i64, ptr %arrayidx316.i.us, align 8
-  %and317.i.us = and i64 %450, %control.addr.114.us
+  %and317.i.us = and i64 %450, %control.addr.117.us
   %tobool318.i.not.us = icmp eq i64 %and317.i.us, 0
   br i1 %tobool318.i.not.us, label %if.end325.i.us, label %if.then319.i.us
 
@@ -3225,9 +3225,9 @@ if.then319.i.us:                                  ; preds = %if.end314.i.us
   br label %if.end325.i.us
 
 if.end325.i.us:                                   ; preds = %if.then319.i.us, %if.end314.i.us
-  %control.addr.115.us = phi i64 [ %call324.i.us, %if.then319.i.us ], [ %control.addr.114.us, %if.end314.i.us ]
+  %control.addr.118.us = phi i64 [ %call324.i.us, %if.then319.i.us ], [ %control.addr.117.us, %if.end314.i.us ]
   %452 = load i64, ptr %groups293.i.us, align 8
-  %and328.i.us = and i64 %452, %control.addr.115.us
+  %and328.i.us = and i64 %452, %control.addr.118.us
   %tobool329.i.not.us = icmp eq i64 %and328.i.us, 0
   br i1 %tobool329.i.not.us, label %if.end337.i.us, label %if.then330.i.us
 
@@ -3240,9 +3240,9 @@ if.then330.i.us:                                  ; preds = %if.end325.i.us
   br label %if.end337.i.us
 
 if.end337.i.us:                                   ; preds = %if.then330.i.us, %if.end325.i.us
-  %control.addr.116.us = phi i64 [ %call336.i.us, %if.then330.i.us ], [ %control.addr.115.us, %if.end325.i.us ]
+  %control.addr.119.us = phi i64 [ %call336.i.us, %if.then330.i.us ], [ %control.addr.118.us, %if.end325.i.us ]
   %455 = load i64, ptr %arrayidx305.i.us, align 8
-  %and340.i.us = and i64 %455, %control.addr.116.us
+  %and340.i.us = and i64 %455, %control.addr.119.us
   %tobool341.i.not.us = icmp eq i64 %and340.i.us, 0
   br i1 %tobool341.i.not.us, label %if.end349.i.us, label %if.then342.i.us
 
@@ -3255,9 +3255,9 @@ if.then342.i.us:                                  ; preds = %if.end337.i.us
   br label %if.end349.i.us
 
 if.end349.i.us:                                   ; preds = %if.then342.i.us, %if.end337.i.us
-  %control.addr.117.us = phi i64 [ %call348.i.us, %if.then342.i.us ], [ %control.addr.116.us, %if.end337.i.us ]
+  %control.addr.120.us = phi i64 [ %call348.i.us, %if.then342.i.us ], [ %control.addr.119.us, %if.end337.i.us ]
   %458 = load i64, ptr %arrayidx316.i.us, align 8
-  %and352.i.us = and i64 %458, %control.addr.117.us
+  %and352.i.us = and i64 %458, %control.addr.120.us
   %tobool353.i.not.us = icmp eq i64 %and352.i.us, 0
   br i1 %tobool353.i.not.us, label %if.end361.i.us, label %if.then354.i.us
 
@@ -3270,22 +3270,22 @@ if.then354.i.us:                                  ; preds = %if.end349.i.us
   br label %if.end361.i.us
 
 if.end361.i.us:                                   ; preds = %if.then354.i.us, %if.end349.i.us
-  %control.addr.118.us = phi i64 [ %call360.i.us, %if.then354.i.us ], [ %control.addr.117.us, %if.end349.i.us ]
+  %control.addr.121.us = phi i64 [ %call360.i.us, %if.then354.i.us ], [ %control.addr.120.us, %if.end349.i.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %cmp285.i.us = icmp ult i64 %indvars.iv.next, %581
   br i1 %cmp285.i.us, label %land.rhs287.i.us, label %if.end516.i.us, !llvm.loop !8
 
 land.rhs179.i.us:                                 ; preds = %land.rhs179.i.lr.ph.us, %if.end278.i.us
   %indvars.iv2020 = phi i64 [ 0, %land.rhs179.i.lr.ph.us ], [ %indvars.iv.next2021, %if.end278.i.us ]
-  %control.addr.1031818.us = phi i64 [ %control.addr.97.us, %land.rhs179.i.lr.ph.us ], [ %control.addr.111.us, %if.end278.i.us ]
+  %control.addr.1061818.us = phi i64 [ %control.addr.97.us, %land.rhs179.i.lr.ph.us ], [ %control.addr.114.us, %if.end278.i.us ]
   %461 = load i64, ptr %arrayidx13.i.us, align 8
-  %and181.i.us = and i64 %461, %control.addr.1031818.us
+  %and181.i.us = and i64 %461, %control.addr.1061818.us
   %tobool182.i.not.us = icmp eq i64 %and181.i.us, 0
   br i1 %tobool182.i.not.us, label %if.end516.i.us, label %for.body184.i.us
 
 for.body184.i.us:                                 ; preds = %land.rhs179.i.us
   %462 = load i64, ptr %groups185.i.us, align 8
-  %and187.i.us = and i64 %462, %control.addr.1031818.us
+  %and187.i.us = and i64 %462, %control.addr.1061818.us
   %tobool188.i.not.us = icmp eq i64 %and187.i.us, 0
   br i1 %tobool188.i.not.us, label %if.end195.i.us, label %if.then189.i.us
 
@@ -3297,9 +3297,9 @@ if.then189.i.us:                                  ; preds = %for.body184.i.us
   br label %if.end195.i.us
 
 if.end195.i.us:                                   ; preds = %if.then189.i.us, %for.body184.i.us
-  %control.addr.104.us = phi i64 [ %call194.i.us, %if.then189.i.us ], [ %control.addr.1031818.us, %for.body184.i.us ]
+  %control.addr.107.us = phi i64 [ %call194.i.us, %if.then189.i.us ], [ %control.addr.1061818.us, %for.body184.i.us ]
   %464 = load i64, ptr %arrayidx197.i.us, align 8
-  %and198.i.us = and i64 %464, %control.addr.104.us
+  %and198.i.us = and i64 %464, %control.addr.107.us
   %tobool199.i.not.us = icmp eq i64 %and198.i.us, 0
   br i1 %tobool199.i.not.us, label %if.end206.i.us, label %if.then200.i.us
 
@@ -3311,9 +3311,9 @@ if.then200.i.us:                                  ; preds = %if.end195.i.us
   br label %if.end206.i.us
 
 if.end206.i.us:                                   ; preds = %if.then200.i.us, %if.end195.i.us
-  %control.addr.105.us = phi i64 [ %call205.i.us, %if.then200.i.us ], [ %control.addr.104.us, %if.end195.i.us ]
+  %control.addr.108.us = phi i64 [ %call205.i.us, %if.then200.i.us ], [ %control.addr.107.us, %if.end195.i.us ]
   %466 = load i64, ptr %groups185.i.us, align 8
-  %and209.i.us = and i64 %466, %control.addr.105.us
+  %and209.i.us = and i64 %466, %control.addr.108.us
   %tobool210.i.not.us = icmp eq i64 %and209.i.us, 0
   br i1 %tobool210.i.not.us, label %if.end218.i.us, label %if.then211.i.us
 
@@ -3326,9 +3326,9 @@ if.then211.i.us:                                  ; preds = %if.end206.i.us
   br label %if.end218.i.us
 
 if.end218.i.us:                                   ; preds = %if.then211.i.us, %if.end206.i.us
-  %control.addr.106.us = phi i64 [ %call217.i.us, %if.then211.i.us ], [ %control.addr.105.us, %if.end206.i.us ]
+  %control.addr.109.us = phi i64 [ %call217.i.us, %if.then211.i.us ], [ %control.addr.108.us, %if.end206.i.us ]
   %469 = load i64, ptr %arrayidx197.i.us, align 8
-  %and221.i.us = and i64 %469, %control.addr.106.us
+  %and221.i.us = and i64 %469, %control.addr.109.us
   %tobool222.i.not.us = icmp eq i64 %and221.i.us, 0
   br i1 %tobool222.i.not.us, label %if.end230.i.us, label %if.then223.i.us
 
@@ -3341,9 +3341,9 @@ if.then223.i.us:                                  ; preds = %if.end218.i.us
   br label %if.end230.i.us
 
 if.end230.i.us:                                   ; preds = %if.then223.i.us, %if.end218.i.us
-  %control.addr.107.us = phi i64 [ %call229.i.us, %if.then223.i.us ], [ %control.addr.106.us, %if.end218.i.us ]
+  %control.addr.110.us = phi i64 [ %call229.i.us, %if.then223.i.us ], [ %control.addr.109.us, %if.end218.i.us ]
   %472 = load i64, ptr %groups185.i.us, align 8
-  %and233.i.us = and i64 %472, %control.addr.107.us
+  %and233.i.us = and i64 %472, %control.addr.110.us
   %tobool234.i.not.us = icmp eq i64 %and233.i.us, 0
   br i1 %tobool234.i.not.us, label %if.end242.i.us, label %if.then235.i.us
 
@@ -3356,9 +3356,9 @@ if.then235.i.us:                                  ; preds = %if.end230.i.us
   br label %if.end242.i.us
 
 if.end242.i.us:                                   ; preds = %if.then235.i.us, %if.end230.i.us
-  %control.addr.108.us = phi i64 [ %call241.i.us, %if.then235.i.us ], [ %control.addr.107.us, %if.end230.i.us ]
+  %control.addr.111.us = phi i64 [ %call241.i.us, %if.then235.i.us ], [ %control.addr.110.us, %if.end230.i.us ]
   %475 = load i64, ptr %arrayidx197.i.us, align 8
-  %and245.i.us = and i64 %475, %control.addr.108.us
+  %and245.i.us = and i64 %475, %control.addr.111.us
   %tobool246.i.not.us = icmp eq i64 %and245.i.us, 0
   br i1 %tobool246.i.not.us, label %if.end254.i.us, label %if.then247.i.us
 
@@ -3371,9 +3371,9 @@ if.then247.i.us:                                  ; preds = %if.end242.i.us
   br label %if.end254.i.us
 
 if.end254.i.us:                                   ; preds = %if.then247.i.us, %if.end242.i.us
-  %control.addr.109.us = phi i64 [ %call253.i.us, %if.then247.i.us ], [ %control.addr.108.us, %if.end242.i.us ]
+  %control.addr.112.us = phi i64 [ %call253.i.us, %if.then247.i.us ], [ %control.addr.111.us, %if.end242.i.us ]
   %478 = load i64, ptr %groups185.i.us, align 8
-  %and257.i.us = and i64 %478, %control.addr.109.us
+  %and257.i.us = and i64 %478, %control.addr.112.us
   %tobool258.i.not.us = icmp eq i64 %and257.i.us, 0
   br i1 %tobool258.i.not.us, label %if.end266.i.us, label %if.then259.i.us
 
@@ -3386,9 +3386,9 @@ if.then259.i.us:                                  ; preds = %if.end254.i.us
   br label %if.end266.i.us
 
 if.end266.i.us:                                   ; preds = %if.then259.i.us, %if.end254.i.us
-  %control.addr.110.us = phi i64 [ %call265.i.us, %if.then259.i.us ], [ %control.addr.109.us, %if.end254.i.us ]
+  %control.addr.113.us = phi i64 [ %call265.i.us, %if.then259.i.us ], [ %control.addr.112.us, %if.end254.i.us ]
   %481 = load i64, ptr %arrayidx197.i.us, align 8
-  %and269.i.us = and i64 %481, %control.addr.110.us
+  %and269.i.us = and i64 %481, %control.addr.113.us
   %tobool270.i.not.us = icmp eq i64 %and269.i.us, 0
   br i1 %tobool270.i.not.us, label %if.end278.i.us, label %if.then271.i.us
 
@@ -3401,22 +3401,22 @@ if.then271.i.us:                                  ; preds = %if.end266.i.us
   br label %if.end278.i.us
 
 if.end278.i.us:                                   ; preds = %if.then271.i.us, %if.end266.i.us
-  %control.addr.111.us = phi i64 [ %call277.i.us, %if.then271.i.us ], [ %control.addr.110.us, %if.end266.i.us ]
+  %control.addr.114.us = phi i64 [ %call277.i.us, %if.then271.i.us ], [ %control.addr.113.us, %if.end266.i.us ]
   %indvars.iv.next2021 = add nuw nsw i64 %indvars.iv2020, 4
   %cmp177.i.us = icmp ult i64 %indvars.iv.next2021, %582
   br i1 %cmp177.i.us, label %land.rhs179.i.us, label %if.end516.i.us, !llvm.loop !9
 
 land.rhs.i.us:                                    ; preds = %land.rhs.i.lr.ph.us, %if.end170.i.us
   %indvars.iv2023 = phi i64 [ 0, %land.rhs.i.lr.ph.us ], [ %indvars.iv.next2024, %if.end170.i.us ]
-  %control.addr.981823.us = phi i64 [ %control.addr.97.us, %land.rhs.i.lr.ph.us ], [ %control.addr.102.us, %if.end170.i.us ]
+  %control.addr.1011823.us = phi i64 [ %control.addr.97.us, %land.rhs.i.lr.ph.us ], [ %control.addr.105.us, %if.end170.i.us ]
   %484 = load i64, ptr %arrayidx13.i.us, align 8
-  %and121.i.us = and i64 %484, %control.addr.981823.us
+  %and121.i.us = and i64 %484, %control.addr.1011823.us
   %tobool122.i.not.us = icmp eq i64 %and121.i.us, 0
   br i1 %tobool122.i.not.us, label %if.end516.i.us, label %for.body123.i.us
 
 for.body123.i.us:                                 ; preds = %land.rhs.i.us
   %485 = load i64, ptr %groups.i.us, align 8
-  %and127.i.us = and i64 %485, %control.addr.981823.us
+  %and127.i.us = and i64 %485, %control.addr.1011823.us
   %tobool128.i.not.us = icmp eq i64 %and127.i.us, 0
   br i1 %tobool128.i.not.us, label %if.end170.i.us, label %if.end134.i.us
 
@@ -3458,22 +3458,22 @@ if.then163.i.us:                                  ; preds = %if.end158.i.us
   br label %if.end170.i.us
 
 if.end170.i.us:                                   ; preds = %for.body123.i.us, %if.end134.i.us, %if.end146.i.us, %if.then163.i.us, %if.end158.i.us
-  %control.addr.102.us = phi i64 [ %call169.i.us, %if.then163.i.us ], [ %call157.i.us, %if.end158.i.us ], [ %call145.i.us, %if.end146.i.us ], [ %call.i177.us, %if.end134.i.us ], [ %control.addr.981823.us, %for.body123.i.us ]
+  %control.addr.105.us = phi i64 [ %call169.i.us, %if.then163.i.us ], [ %call157.i.us, %if.end158.i.us ], [ %call145.i.us, %if.end146.i.us ], [ %call.i177.us, %if.end134.i.us ], [ %control.addr.1011823.us, %for.body123.i.us ]
   %indvars.iv.next2024 = add nuw nsw i64 %indvars.iv2023, 4
   %cmp118.i.us = icmp ult i64 %indvars.iv.next2024, %583
   br i1 %cmp118.i.us, label %land.rhs.i.us, label %if.end516.i.us, !llvm.loop !10
 
 land.rhs369.i.us:                                 ; preds = %land.rhs369.i.lr.ph.us, %for.end512.i.us
   %indvars.iv2032 = phi i64 [ 0, %land.rhs369.i.lr.ph.us ], [ %indvars.iv.next2033, %for.end512.i.us ]
-  %control.addr.1191838.us = phi i64 [ %control.addr.97.us, %land.rhs369.i.lr.ph.us ], [ %control.addr.130.lcssa.us, %for.end512.i.us ]
+  %control.addr.1221838.us = phi i64 [ %control.addr.97.us, %land.rhs369.i.lr.ph.us ], [ %control.addr.133.lcssa.us, %for.end512.i.us ]
   %490 = load i64, ptr %arrayidx13.i.us, align 8
-  %and371.i.us = and i64 %490, %control.addr.1191838.us
+  %and371.i.us = and i64 %490, %control.addr.1221838.us
   %tobool372.i.not.us = icmp eq i64 %and371.i.us, 0
   br i1 %tobool372.i.not.us, label %if.end516.i.us, label %for.body374.i.us
 
 for.body374.i.us:                                 ; preds = %land.rhs369.i.us
   %491 = load i64, ptr %groups375.i.us, align 8
-  %and377.i.us = and i64 %491, %control.addr.1191838.us
+  %and377.i.us = and i64 %491, %control.addr.1221838.us
   %tobool378.i.not.us = icmp eq i64 %and377.i.us, 0
   br i1 %tobool378.i.not.us, label %if.end385.i.us, label %if.then379.i.us
 
@@ -3485,9 +3485,9 @@ if.then379.i.us:                                  ; preds = %for.body374.i.us
   br label %if.end385.i.us
 
 if.end385.i.us:                                   ; preds = %if.then379.i.us, %for.body374.i.us
-  %control.addr.120.us = phi i64 [ %call384.i.us, %if.then379.i.us ], [ %control.addr.1191838.us, %for.body374.i.us ]
+  %control.addr.123.us = phi i64 [ %call384.i.us, %if.then379.i.us ], [ %control.addr.1221838.us, %for.body374.i.us ]
   %493 = load i64, ptr %arrayidx387.i.us, align 8
-  %and388.i.us = and i64 %493, %control.addr.120.us
+  %and388.i.us = and i64 %493, %control.addr.123.us
   %tobool389.i.not.us = icmp eq i64 %and388.i.us, 0
   br i1 %tobool389.i.not.us, label %if.end396.i.us, label %if.then390.i.us
 
@@ -3499,9 +3499,9 @@ if.then390.i.us:                                  ; preds = %if.end385.i.us
   br label %if.end396.i.us
 
 if.end396.i.us:                                   ; preds = %if.then390.i.us, %if.end385.i.us
-  %control.addr.121.us = phi i64 [ %call395.i.us, %if.then390.i.us ], [ %control.addr.120.us, %if.end385.i.us ]
+  %control.addr.124.us = phi i64 [ %call395.i.us, %if.then390.i.us ], [ %control.addr.123.us, %if.end385.i.us ]
   %495 = load i64, ptr %arrayidx398.i.us, align 8
-  %and399.i.us = and i64 %495, %control.addr.121.us
+  %and399.i.us = and i64 %495, %control.addr.124.us
   %tobool400.i.not.us = icmp eq i64 %and399.i.us, 0
   br i1 %tobool400.i.not.us, label %if.end407.i.us, label %if.then401.i.us
 
@@ -3513,9 +3513,9 @@ if.then401.i.us:                                  ; preds = %if.end396.i.us
   br label %if.end407.i.us
 
 if.end407.i.us:                                   ; preds = %if.then401.i.us, %if.end396.i.us
-  %control.addr.122.us = phi i64 [ %call406.i.us, %if.then401.i.us ], [ %control.addr.121.us, %if.end396.i.us ]
+  %control.addr.125.us = phi i64 [ %call406.i.us, %if.then401.i.us ], [ %control.addr.124.us, %if.end396.i.us ]
   %497 = load i64, ptr %arrayidx409.i.us, align 8
-  %and410.i.us = and i64 %497, %control.addr.122.us
+  %and410.i.us = and i64 %497, %control.addr.125.us
   %tobool411.i.not.us = icmp eq i64 %and410.i.us, 0
   br i1 %tobool411.i.not.us, label %if.end418.i.us, label %if.then412.i.us
 
@@ -3527,15 +3527,15 @@ if.then412.i.us:                                  ; preds = %if.end407.i.us
   br label %if.end418.i.us
 
 if.end418.i.us:                                   ; preds = %if.then412.i.us, %if.end407.i.us
-  %control.addr.123.us = phi i64 [ %call417.i.us, %if.then412.i.us ], [ %control.addr.122.us, %if.end407.i.us ]
+  %control.addr.126.us = phi i64 [ %call417.i.us, %if.then412.i.us ], [ %control.addr.125.us, %if.end407.i.us ]
   %499 = load i16, ptr %idCount.i.us, align 4
   %cmp422.i1828.us = icmp ugt i16 %499, 4
   br i1 %cmp422.i1828.us, label %for.body424.i.lr.ph.us, label %for.end440.i.us
 
 for.end440.i.us:                                  ; preds = %if.end437.i.us, %if.end418.i.us
-  %control.addr.124.lcssa.us = phi i64 [ %control.addr.123.us, %if.end418.i.us ], [ %control.addr.125.us, %if.end437.i.us ]
+  %control.addr.127.lcssa.us = phi i64 [ %control.addr.126.us, %if.end418.i.us ], [ %control.addr.128.us, %if.end437.i.us ]
   %500 = load i64, ptr %groups375.i.us, align 8
-  %and443.i.us = and i64 %500, %control.addr.124.lcssa.us
+  %and443.i.us = and i64 %500, %control.addr.127.lcssa.us
   %tobool444.i.not.us = icmp eq i64 %and443.i.us, 0
   br i1 %tobool444.i.not.us, label %if.end452.i.us, label %if.then445.i.us
 
@@ -3548,9 +3548,9 @@ if.then445.i.us:                                  ; preds = %for.end440.i.us
   br label %if.end452.i.us
 
 if.end452.i.us:                                   ; preds = %if.then445.i.us, %for.end440.i.us
-  %control.addr.126.us = phi i64 [ %call451.i.us, %if.then445.i.us ], [ %control.addr.124.lcssa.us, %for.end440.i.us ]
+  %control.addr.129.us = phi i64 [ %call451.i.us, %if.then445.i.us ], [ %control.addr.127.lcssa.us, %for.end440.i.us ]
   %503 = load i64, ptr %arrayidx387.i.us, align 8
-  %and455.i.us = and i64 %503, %control.addr.126.us
+  %and455.i.us = and i64 %503, %control.addr.129.us
   %tobool456.i.not.us = icmp eq i64 %and455.i.us, 0
   br i1 %tobool456.i.not.us, label %if.end464.i.us, label %if.then457.i.us
 
@@ -3563,9 +3563,9 @@ if.then457.i.us:                                  ; preds = %if.end452.i.us
   br label %if.end464.i.us
 
 if.end464.i.us:                                   ; preds = %if.then457.i.us, %if.end452.i.us
-  %control.addr.127.us = phi i64 [ %call463.i.us, %if.then457.i.us ], [ %control.addr.126.us, %if.end452.i.us ]
+  %control.addr.130.us = phi i64 [ %call463.i.us, %if.then457.i.us ], [ %control.addr.129.us, %if.end452.i.us ]
   %506 = load i64, ptr %arrayidx398.i.us, align 8
-  %and467.i.us = and i64 %506, %control.addr.127.us
+  %and467.i.us = and i64 %506, %control.addr.130.us
   %tobool468.i.not.us = icmp eq i64 %and467.i.us, 0
   br i1 %tobool468.i.not.us, label %if.end476.i.us, label %if.then469.i.us
 
@@ -3578,9 +3578,9 @@ if.then469.i.us:                                  ; preds = %if.end464.i.us
   br label %if.end476.i.us
 
 if.end476.i.us:                                   ; preds = %if.then469.i.us, %if.end464.i.us
-  %control.addr.128.us = phi i64 [ %call475.i.us, %if.then469.i.us ], [ %control.addr.127.us, %if.end464.i.us ]
+  %control.addr.131.us = phi i64 [ %call475.i.us, %if.then469.i.us ], [ %control.addr.130.us, %if.end464.i.us ]
   %509 = load i64, ptr %arrayidx409.i.us, align 8
-  %and479.i.us = and i64 %509, %control.addr.128.us
+  %and479.i.us = and i64 %509, %control.addr.131.us
   %tobool480.i.not.us = icmp eq i64 %and479.i.us, 0
   br i1 %tobool480.i.not.us, label %if.end488.i.us, label %if.then481.i.us
 
@@ -3593,13 +3593,13 @@ if.then481.i.us:                                  ; preds = %if.end476.i.us
   br label %if.end488.i.us
 
 if.end488.i.us:                                   ; preds = %if.then481.i.us, %if.end476.i.us
-  %control.addr.129.us = phi i64 [ %call487.i.us, %if.then481.i.us ], [ %control.addr.128.us, %if.end476.i.us ]
+  %control.addr.132.us = phi i64 [ %call487.i.us, %if.then481.i.us ], [ %control.addr.131.us, %if.end476.i.us ]
   %512 = load i16, ptr %idCount.i.us, align 4
   %cmp493.i1833.us = icmp ugt i16 %512, 4
   br i1 %cmp493.i1833.us, label %for.body495.i.lr.ph.us, label %for.end512.i.us
 
 for.end512.i.us:                                  ; preds = %if.end509.i.us, %if.end488.i.us
-  %control.addr.130.lcssa.us = phi i64 [ %control.addr.129.us, %if.end488.i.us ], [ %control.addr.131.us, %if.end509.i.us ]
+  %control.addr.133.lcssa.us = phi i64 [ %control.addr.132.us, %if.end488.i.us ], [ %control.addr.134.us, %if.end509.i.us ]
   %indvars.iv.next2033 = add nuw nsw i64 %indvars.iv2032, 2
   %cmp367.i.us = icmp ult i64 %indvars.iv.next2033, %585
   br i1 %cmp367.i.us, label %land.rhs369.i.us, label %if.end516.i.us, !llvm.loop !11
@@ -3607,10 +3607,10 @@ for.end512.i.us:                                  ; preds = %if.end509.i.us, %if
 for.body495.i.us:                                 ; preds = %for.body495.i.lr.ph.us, %if.end509.i.us
   %513 = phi i16 [ %512, %for.body495.i.lr.ph.us ], [ %516, %if.end509.i.us ]
   %indvars.iv2029 = phi i64 [ 4, %for.body495.i.lr.ph.us ], [ %indvars.iv.next2030, %if.end509.i.us ]
-  %control.addr.1301834.us = phi i64 [ %control.addr.129.us, %for.body495.i.lr.ph.us ], [ %control.addr.131.us, %if.end509.i.us ]
+  %control.addr.1331834.us = phi i64 [ %control.addr.132.us, %for.body495.i.lr.ph.us ], [ %control.addr.134.us, %if.end509.i.us ]
   %arrayidx498.i.us = getelementptr inbounds [16 x i64], ptr %groups375.i.us, i64 0, i64 %indvars.iv2029
   %514 = load i64, ptr %arrayidx498.i.us, align 8
-  %and499.i.us = and i64 %514, %control.addr.1301834.us
+  %and499.i.us = and i64 %514, %control.addr.1331834.us
   %tobool500.i.not.us = icmp eq i64 %and499.i.us, 0
   br i1 %tobool500.i.not.us, label %if.end509.i.us, label %if.then501.i.us
 
@@ -3623,7 +3623,7 @@ if.then501.i.us:                                  ; preds = %for.body495.i.us
 
 if.end509.i.us:                                   ; preds = %if.then501.i.us, %for.body495.i.us
   %516 = phi i16 [ %.pre2078, %if.then501.i.us ], [ %513, %for.body495.i.us ]
-  %control.addr.131.us = phi i64 [ %call508.i.us, %if.then501.i.us ], [ %control.addr.1301834.us, %for.body495.i.us ]
+  %control.addr.134.us = phi i64 [ %call508.i.us, %if.then501.i.us ], [ %control.addr.1331834.us, %for.body495.i.us ]
   %indvars.iv.next2030 = add nuw nsw i64 %indvars.iv2029, 1
   %517 = zext i16 %516 to i64
   %cmp493.i.us = icmp ult i64 %indvars.iv.next2030, %517
@@ -3632,10 +3632,10 @@ if.end509.i.us:                                   ; preds = %if.then501.i.us, %f
 for.body424.i.us:                                 ; preds = %for.body424.i.lr.ph.us, %if.end437.i.us
   %518 = phi i16 [ %499, %for.body424.i.lr.ph.us ], [ %521, %if.end437.i.us ]
   %indvars.iv2026 = phi i64 [ 4, %for.body424.i.lr.ph.us ], [ %indvars.iv.next2027, %if.end437.i.us ]
-  %control.addr.1241829.us = phi i64 [ %control.addr.123.us, %for.body424.i.lr.ph.us ], [ %control.addr.125.us, %if.end437.i.us ]
+  %control.addr.1271829.us = phi i64 [ %control.addr.126.us, %for.body424.i.lr.ph.us ], [ %control.addr.128.us, %if.end437.i.us ]
   %arrayidx427.i.us = getelementptr inbounds [16 x i64], ptr %groups375.i.us, i64 0, i64 %indvars.iv2026
   %519 = load i64, ptr %arrayidx427.i.us, align 8
-  %and428.i.us = and i64 %519, %control.addr.1241829.us
+  %and428.i.us = and i64 %519, %control.addr.1271829.us
   %tobool429.i.not.us = icmp eq i64 %and428.i.us, 0
   br i1 %tobool429.i.not.us, label %if.end437.i.us, label %if.then430.i.us
 
@@ -3648,20 +3648,20 @@ if.then430.i.us:                                  ; preds = %for.body424.i.us
 
 if.end437.i.us:                                   ; preds = %if.then430.i.us, %for.body424.i.us
   %521 = phi i16 [ %.pre2077, %if.then430.i.us ], [ %518, %for.body424.i.us ]
-  %control.addr.125.us = phi i64 [ %call436.i.us, %if.then430.i.us ], [ %control.addr.1241829.us, %for.body424.i.us ]
+  %control.addr.128.us = phi i64 [ %call436.i.us, %if.then430.i.us ], [ %control.addr.1271829.us, %for.body424.i.us ]
   %indvars.iv.next2027 = add nuw nsw i64 %indvars.iv2026, 1
   %522 = zext i16 %521 to i64
   %cmp422.i.us = icmp ult i64 %indvars.iv.next2027, %522
   br i1 %cmp422.i.us, label %for.body424.i.us, label %for.end440.i.us, !llvm.loop !13
 
 if.end516.i.us:                                   ; preds = %if.end361.i.us, %land.rhs287.i.us, %if.end278.i.us, %land.rhs179.i.us, %if.end170.i.us, %land.rhs.i.us, %for.end512.i.us, %land.rhs369.i.us, %for.cond284.i.preheader.us, %for.cond176.i.preheader.us, %for.cond117.i.preheader.us, %for.cond366.i.preheader.us, %land.lhs.true.i.us, %if.then103.i.us
-  %control.addr.132.us = phi i64 [ %control.addr.97.us, %land.lhs.true.i.us ], [ %control.addr.97.us, %if.then103.i.us ], [ %control.addr.97.us, %for.cond366.i.preheader.us ], [ %control.addr.97.us, %for.cond117.i.preheader.us ], [ %control.addr.97.us, %for.cond176.i.preheader.us ], [ %control.addr.97.us, %for.cond284.i.preheader.us ], [ %control.addr.1191838.us, %land.rhs369.i.us ], [ %control.addr.130.lcssa.us, %for.end512.i.us ], [ %control.addr.981823.us, %land.rhs.i.us ], [ %control.addr.102.us, %if.end170.i.us ], [ %control.addr.1031818.us, %land.rhs179.i.us ], [ %control.addr.111.us, %if.end278.i.us ], [ %control.addr.1121813.us, %land.rhs287.i.us ], [ %control.addr.118.us, %if.end361.i.us ]
+  %control.addr.100.us = phi i64 [ %control.addr.97.us, %land.lhs.true.i.us ], [ %control.addr.97.us, %if.then103.i.us ], [ %control.addr.97.us, %for.cond366.i.preheader.us ], [ %control.addr.97.us, %for.cond117.i.preheader.us ], [ %control.addr.97.us, %for.cond176.i.preheader.us ], [ %control.addr.97.us, %for.cond284.i.preheader.us ], [ %control.addr.1221838.us, %land.rhs369.i.us ], [ %control.addr.133.lcssa.us, %for.end512.i.us ], [ %control.addr.1011823.us, %land.rhs.i.us ], [ %control.addr.105.us, %if.end170.i.us ], [ %control.addr.1061818.us, %land.rhs179.i.us ], [ %control.addr.114.us, %if.end278.i.us ], [ %control.addr.1151813.us, %land.rhs287.i.us ], [ %control.addr.121.us, %if.end361.i.us ]
   %idx.ext517.i.us = zext i32 %div.i1755.us to i64
   %add.ptr518.i.us = getelementptr inbounds i8, ptr %itPtr109.0.us, i64 %idx.ext517.i.us
   br label %floodout.i.us
 
 if.end98.i.us:                                    ; preds = %for.body89.i.us
-  %inc.i178.us = add i32 %j.i.21809.us, 1
+  %inc.i178.us = add i32 %j.i.31809.us, 1
   %conv86.i.us = zext i32 %inc.i178.us to i64
   %cmp87.i.us = icmp ugt i64 %cond.i.us, %conv86.i.us
   br i1 %cmp87.i.us, label %for.body89.i.us, label %for.end100.i.us, !llvm.loop !14
@@ -3675,27 +3675,27 @@ if.then.i179.us:                                  ; preds = %lor.lhs.false.i.us,
   br label %floodout.i.us
 
 floodout.i.us:                                    ; preds = %if.then.i179.us, %if.then30.i.us, %if.end516.i.us, %if.else.i175.us
-  %control.addr.133.us = phi i64 [ %control.addr.97.us, %if.then.i179.us ], [ %control.addr.97.us, %if.then30.i.us ], [ %control.addr.132.us, %if.end516.i.us ], [ %control.addr.97.us, %if.else.i175.us ]
-  %floodBackoff.8.us = phi i32 [ %mul26.i.us, %if.then.i179.us ], [ %mul31.i.us, %if.then30.i.us ], [ %floodBackoff.7.us, %if.end516.i.us ], [ %mul519.i.us, %if.else.i175.us ]
-  %j.i.3.us = phi i32 [ %conv8.i.us, %if.then.i179.us ], [ %conv8.i.us, %if.then30.i.us ], [ %dec.i.us, %if.end516.i.us ], [ %j.i.2.lcssa.us, %if.else.i175.us ]
+  %control.addr.99.us = phi i64 [ %control.addr.97.us, %if.then.i179.us ], [ %control.addr.97.us, %if.then30.i.us ], [ %control.addr.100.us, %if.end516.i.us ], [ %control.addr.97.us, %if.else.i175.us ]
+  %floodBackoff.9.us = phi i32 [ %mul26.i.us, %if.then.i179.us ], [ %mul31.i.us, %if.then30.i.us ], [ %floodBackoff.7.us, %if.end516.i.us ], [ %mul519.i.us, %if.else.i175.us ]
+  %j.i.0.us = phi i32 [ %conv8.i.us, %if.then.i179.us ], [ %conv8.i.us, %if.then30.i.us ], [ %dec.i.us, %if.end516.i.us ], [ %j.i.3.lcssa.us, %if.else.i175.us ]
   %ptr.i168.0.us = phi ptr [ %itPtr109.0.us, %if.then.i179.us ], [ %itPtr109.0.us, %if.then30.i.us ], [ %add.ptr518.i.us, %if.end516.i.us ], [ %itPtr109.0.us, %if.else.i175.us ]
-  %add521.i.us = add i32 %j.i.3.us, %floodBackoff.8.us
+  %add521.i.us = add i32 %j.i.0.us, %floodBackoff.9.us
   %conv522.i.us = zext i32 %add521.i.us to i64
   %sub523.i.us = add i64 %cond.i.us, -128
   %cmp524.i.us = icmp ugt i64 %sub523.i.us, %conv522.i.us
-  %cond532.i.us = call i32 @llvm.umax.i32(i32 %j.i.3.us, i32 %conv8.i.us)
+  %cond532.i.us = call i32 @llvm.umax.i32(i32 %j.i.0.us, i32 %conv8.i.us)
   %idx.ext533.i.us = zext i32 %cond532.i.us to i64
   %add.ptr534.i.us = getelementptr inbounds i8, ptr %425, i64 %idx.ext533.i.us
-  %idx.ext535.i.us = zext i32 %floodBackoff.8.us to i64
+  %idx.ext535.i.us = zext i32 %floodBackoff.9.us to i64
   %add.ptr536.i.us = getelementptr inbounds i8, ptr %add.ptr534.i.us, i64 %idx.ext535.i.us
   %add.ptr538.i.us = getelementptr inbounds i8, ptr %425, i64 %cond.i.us
   %tryFloodDetect.addr.i.0.us = select i1 %cmp524.i.us, ptr %add.ptr536.i.us, ptr %add.ptr538.i.us
-  %cmp125.us = icmp eq i64 %control.addr.133.us, 0
+  %cmp125.us = icmp eq i64 %control.addr.99.us, 0
   br i1 %cmp125.us, label %return, label %if.end135.us
 
 if.end135.us:                                     ; preds = %floodout.i.us, %for.body114.us
-  %control.addr.134.us = phi i64 [ %control.addr.133.us, %floodout.i.us ], [ %control.addr.97.us, %for.body114.us ]
-  %floodBackoff.9.us = phi i32 [ %floodBackoff.8.us, %floodout.i.us ], [ %floodBackoff.7.us, %for.body114.us ]
+  %control.addr.98.us = phi i64 [ %control.addr.99.us, %floodout.i.us ], [ %control.addr.97.us, %for.body114.us ]
+  %floodBackoff.8.us = phi i32 [ %floodBackoff.9.us, %floodout.i.us ], [ %floodBackoff.7.us, %for.body114.us ]
   %itPtr109.1.us = phi ptr [ %ptr.i168.0.us, %floodout.i.us ], [ %itPtr109.0.us, %for.body114.us ]
   %tryFloodDetect103.1.us = phi ptr [ %tryFloodDetect.addr.i.0.us, %floodout.i.us ], [ %tryFloodDetect103.0.us, %for.body114.us ]
   %add.ptr136.us = getelementptr inbounds i8, ptr %itPtr109.1.us, i64 16
@@ -3757,8 +3757,8 @@ if.end.i1332.us:                                  ; preds = %if.end135.us
 
 do.body.i1335.us:                                 ; preds = %do.cond.i1345.us, %if.end.i1332.us
   %534 = phi i64 [ %xor.i1737.us, %if.end.i1332.us ], [ %555, %do.cond.i1345.us ]
-  %control.addr.135.us = phi i64 [ %control.addr.134.us, %if.end.i1332.us ], [ %control.addr.138.us, %do.cond.i1345.us ]
-  %last_match_id.24.us = phi i32 [ %last_match_id.23.us, %if.end.i1332.us ], [ %last_match_id.27.us, %do.cond.i1345.us ]
+  %control.addr.136.us = phi i64 [ %control.addr.98.us, %if.end.i1332.us ], [ %control.addr.137.us, %do.cond.i1345.us ]
+  %last_match_id.25.us = phi i32 [ %last_match_id.23.us, %if.end.i1332.us ], [ %last_match_id.26.us, %do.cond.i1345.us ]
   %535 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %534) #8, !srcloc !15
   %asmresult.i2473.us = extractvalue { i64, i64 } %535, 0
   %asmresult1.i2474.us = extractvalue { i64, i64 } %535, 1
@@ -3775,7 +3775,7 @@ if.end8.i1351.us:                                 ; preds = %do.body.i1335.us
   %add.ptr.i1353.us = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext.i1352.us
   %groups.i1354.us = getelementptr inbounds i8, ptr %add.ptr.i1353.us, i64 24
   %537 = load i64, ptr %groups.i1354.us, align 8
-  %and.i1355.us = and i64 %537, %control.addr.135.us
+  %and.i1355.us = and i64 %537, %control.addr.136.us
   %tobool9.i1356.not.us = icmp eq i64 %and.i1355.us, 0
   br i1 %tobool9.i1356.not.us, label %do.cond.i1345.us, label %if.end11.i1358.us
 
@@ -3818,8 +3818,8 @@ if.end.i2823.us:                                  ; preds = %if.end11.i1358.us
   br label %do.body.i2829.us
 
 do.body.i2829.us:                                 ; preds = %out.i2861.us, %if.end.i2823.us
-  %control.addr.136.us = phi i64 [ %control.addr.135.us, %if.end.i2823.us ], [ %control.addr.137.us, %out.i2861.us ]
-  %last_match_id.25.us = phi i32 [ %last_match_id.24.us, %if.end.i2823.us ], [ %last_match_id.26.us, %out.i2861.us ]
+  %control.addr.138.us = phi i64 [ %control.addr.136.us, %if.end.i2823.us ], [ %control.addr.139.us, %out.i2861.us ]
+  %last_match_id.27.us = phi i32 [ %last_match_id.25.us, %if.end.i2823.us ], [ %last_match_id.28.us, %out.i2861.us ]
   %li.i2806.0.us = phi ptr [ %add.ptr.i2825.us, %if.end.i2823.us ], [ %incdec.ptr.i2863.us, %out.i2861.us ]
   %msk.i2830.us = getelementptr inbounds i8, ptr %li.i2806.0.us, i64 8
   %545 = load i64, ptr %msk.i2830.us, align 8
@@ -3831,7 +3831,7 @@ do.body.i2829.us:                                 ; preds = %out.i2861.us, %if.e
 if.end15.i2836.us:                                ; preds = %do.body.i2829.us
   %id.i2837.us = getelementptr inbounds i8, ptr %li.i2806.0.us, i64 24
   %547 = load i32, ptr %id.i2837.us, align 8
-  %cmp16.i2838.us = icmp eq i32 %last_match_id.25.us, %547
+  %cmp16.i2838.us = icmp eq i32 %last_match_id.27.us, %547
   br i1 %cmp16.i2838.us, label %land.lhs.true.i2879.us, label %if.end22.i2839.us
 
 land.lhs.true.i2879.us:                           ; preds = %if.end15.i2836.us
@@ -3861,7 +3861,7 @@ if.then30.i2869.us:                               ; preds = %if.end22.i2839.us
 if.end38.i2848.us:                                ; preds = %if.then30.i2869.us, %if.end22.i2839.us
   %groups.i2849.us = getelementptr inbounds i8, ptr %li.i2806.0.us, i64 16
   %552 = load i64, ptr %groups.i2849.us, align 8
-  %and39.i2850.us = and i64 %552, %control.addr.136.us
+  %and39.i2850.us = and i64 %552, %control.addr.138.us
   %tobool40.i2851.not.us = icmp eq i64 %and39.i2850.us, 0
   br i1 %tobool40.i2851.not.us, label %out.i2861.us, label %if.end50.i2856.us
 
@@ -3871,8 +3871,8 @@ if.end50.i2856.us:                                ; preds = %if.end38.i2848.us
   br label %out.i2861.us
 
 out.i2861.us:                                     ; preds = %if.end50.i2856.us, %if.end38.i2848.us, %if.then30.i2869.us, %land.lhs.true.i2879.us, %do.body.i2829.us
-  %control.addr.137.us = phi i64 [ %control.addr.136.us, %do.body.i2829.us ], [ %control.addr.136.us, %land.lhs.true.i2879.us ], [ %control.addr.136.us, %if.then30.i2869.us ], [ %control.addr.136.us, %if.end38.i2848.us ], [ %call53.i2860.us, %if.end50.i2856.us ]
-  %last_match_id.26.us = phi i32 [ %last_match_id.25.us, %do.body.i2829.us ], [ %last_match_id.25.us, %land.lhs.true.i2879.us ], [ %last_match_id.25.us, %if.then30.i2869.us ], [ %last_match_id.25.us, %if.end38.i2848.us ], [ %547, %if.end50.i2856.us ]
+  %control.addr.139.us = phi i64 [ %control.addr.138.us, %do.body.i2829.us ], [ %control.addr.138.us, %land.lhs.true.i2879.us ], [ %control.addr.138.us, %if.then30.i2869.us ], [ %control.addr.138.us, %if.end38.i2848.us ], [ %call53.i2860.us, %if.end50.i2856.us ]
+  %last_match_id.28.us = phi i32 [ %last_match_id.27.us, %do.body.i2829.us ], [ %last_match_id.27.us, %land.lhs.true.i2879.us ], [ %last_match_id.27.us, %if.then30.i2869.us ], [ %last_match_id.27.us, %if.end38.i2848.us ], [ %547, %if.end50.i2856.us ]
   %next.i2862.us = getelementptr inbounds i8, ptr %li.i2806.0.us, i64 30
   %554 = load i8, ptr %next.i2862.us, align 2
   %incdec.ptr.i2863.us = getelementptr inbounds i8, ptr %li.i2806.0.us, i64 32
@@ -3886,8 +3886,8 @@ do.end.i2866.us:                                  ; preds = %out.i2861.us
 
 do.cond.i1345.us:                                 ; preds = %do.end.i2866.us, %if.end11.i1358.us, %if.end8.i1351.us, %do.body.i1335.us
   %555 = phi i64 [ %asmresult1.i2474.us, %if.end11.i1358.us ], [ %.pre2079, %do.end.i2866.us ], [ %asmresult1.i2474.us, %if.end8.i1351.us ], [ %asmresult1.i2474.us, %do.body.i1335.us ]
-  %control.addr.138.us = phi i64 [ %control.addr.135.us, %if.end11.i1358.us ], [ %control.addr.137.us, %do.end.i2866.us ], [ %control.addr.135.us, %if.end8.i1351.us ], [ %control.addr.135.us, %do.body.i1335.us ]
-  %last_match_id.27.us = phi i32 [ %last_match_id.24.us, %if.end11.i1358.us ], [ %last_match_id.26.us, %do.end.i2866.us ], [ %last_match_id.24.us, %if.end8.i1351.us ], [ %last_match_id.24.us, %do.body.i1335.us ]
+  %control.addr.137.us = phi i64 [ %control.addr.136.us, %if.end11.i1358.us ], [ %control.addr.139.us, %do.end.i2866.us ], [ %control.addr.136.us, %if.end8.i1351.us ], [ %control.addr.136.us, %do.body.i1335.us ]
+  %last_match_id.26.us = phi i32 [ %last_match_id.25.us, %if.end11.i1358.us ], [ %last_match_id.28.us, %do.end.i2866.us ], [ %last_match_id.25.us, %if.end8.i1351.us ], [ %last_match_id.25.us, %do.body.i1335.us ]
   %tobool20.i1346.not.us = icmp eq i64 %555, 0
   br i1 %tobool20.i1346.not.us, label %do_confirm_fdr.exit1370thread-pre-split.us, label %do.body.i1335.us, !llvm.loop !17
 
@@ -3897,8 +3897,8 @@ do_confirm_fdr.exit1370thread-pre-split.us:       ; preds = %do.cond.i1345.us
 
 do_confirm_fdr.exit1370.us:                       ; preds = %do_confirm_fdr.exit1370thread-pre-split.us, %if.end135.us
   %556 = phi i64 [ %.pr1780.us, %do_confirm_fdr.exit1370thread-pre-split.us ], [ %xor29.i.us, %if.end135.us ]
-  %control.addr.139.us = phi i64 [ %control.addr.138.us, %do_confirm_fdr.exit1370thread-pre-split.us ], [ %control.addr.134.us, %if.end135.us ]
-  %last_match_id.28.us = phi i32 [ %last_match_id.27.us, %do_confirm_fdr.exit1370thread-pre-split.us ], [ %last_match_id.23.us, %if.end135.us ]
+  %control.addr.135.us = phi i64 [ %control.addr.137.us, %do_confirm_fdr.exit1370thread-pre-split.us ], [ %control.addr.98.us, %if.end135.us ]
+  %last_match_id.24.us = phi i32 [ %last_match_id.26.us, %do_confirm_fdr.exit1370thread-pre-split.us ], [ %last_match_id.23.us, %if.end135.us ]
   %tobool.i1288.not.us = icmp eq i64 %556, 0
   br i1 %tobool.i1288.not.us, label %do_confirm_fdr.exit.us, label %if.end.i1290.us
 
@@ -3911,8 +3911,8 @@ if.end.i1290.us:                                  ; preds = %do_confirm_fdr.exit
 
 do.body.i.us:                                     ; preds = %do.cond.i.us, %if.end.i1290.us
   %559 = phi i64 [ %556, %if.end.i1290.us ], [ %580, %do.cond.i.us ]
-  %control.addr.140.us = phi i64 [ %control.addr.139.us, %if.end.i1290.us ], [ %control.addr.143.us, %do.cond.i.us ]
-  %last_match_id.29.us = phi i32 [ %last_match_id.28.us, %if.end.i1290.us ], [ %last_match_id.32.us, %do.cond.i.us ]
+  %control.addr.141.us = phi i64 [ %control.addr.135.us, %if.end.i1290.us ], [ %control.addr.142.us, %do.cond.i.us ]
+  %last_match_id.30.us = phi i32 [ %last_match_id.24.us, %if.end.i1290.us ], [ %last_match_id.31.us, %do.cond.i.us ]
   %560 = call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %559) #8, !srcloc !15
   %asmresult.i2479.us = extractvalue { i64, i64 } %560, 0
   %asmresult1.i2480.us = extractvalue { i64, i64 } %560, 1
@@ -3931,7 +3931,7 @@ if.end8.i.us:                                     ; preds = %do.body.i.us
   %add.ptr.i1298.us = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext.i1297.us
   %groups.i1299.us = getelementptr inbounds i8, ptr %add.ptr.i1298.us, i64 24
   %562 = load i64, ptr %groups.i1299.us, align 8
-  %and.i1300.us = and i64 %562, %control.addr.140.us
+  %and.i1300.us = and i64 %562, %control.addr.141.us
   %tobool9.i.not.us = icmp eq i64 %and.i1300.us, 0
   br i1 %tobool9.i.not.us, label %do.cond.i.us, label %if.end11.i.us
 
@@ -3974,8 +3974,8 @@ if.end.i2916.us:                                  ; preds = %if.end11.i.us
   br label %do.body.i2922.us
 
 do.body.i2922.us:                                 ; preds = %out.i2954.us, %if.end.i2916.us
-  %control.addr.141.us = phi i64 [ %control.addr.140.us, %if.end.i2916.us ], [ %control.addr.142.us, %out.i2954.us ]
-  %last_match_id.30.us = phi i32 [ %last_match_id.29.us, %if.end.i2916.us ], [ %last_match_id.31.us, %out.i2954.us ]
+  %control.addr.143.us = phi i64 [ %control.addr.141.us, %if.end.i2916.us ], [ %control.addr.144.us, %out.i2954.us ]
+  %last_match_id.32.us = phi i32 [ %last_match_id.30.us, %if.end.i2916.us ], [ %last_match_id.33.us, %out.i2954.us ]
   %li.i2899.0.us = phi ptr [ %add.ptr.i2918.us, %if.end.i2916.us ], [ %incdec.ptr.i2956.us, %out.i2954.us ]
   %msk.i2923.us = getelementptr inbounds i8, ptr %li.i2899.0.us, i64 8
   %570 = load i64, ptr %msk.i2923.us, align 8
@@ -3987,7 +3987,7 @@ do.body.i2922.us:                                 ; preds = %out.i2954.us, %if.e
 if.end15.i2929.us:                                ; preds = %do.body.i2922.us
   %id.i2930.us = getelementptr inbounds i8, ptr %li.i2899.0.us, i64 24
   %572 = load i32, ptr %id.i2930.us, align 8
-  %cmp16.i2931.us = icmp eq i32 %last_match_id.30.us, %572
+  %cmp16.i2931.us = icmp eq i32 %last_match_id.32.us, %572
   br i1 %cmp16.i2931.us, label %land.lhs.true.i2972.us, label %if.end22.i2932.us
 
 land.lhs.true.i2972.us:                           ; preds = %if.end15.i2929.us
@@ -4017,7 +4017,7 @@ if.then30.i2962.us:                               ; preds = %if.end22.i2932.us
 if.end38.i2941.us:                                ; preds = %if.then30.i2962.us, %if.end22.i2932.us
   %groups.i2942.us = getelementptr inbounds i8, ptr %li.i2899.0.us, i64 16
   %577 = load i64, ptr %groups.i2942.us, align 8
-  %and39.i2943.us = and i64 %577, %control.addr.141.us
+  %and39.i2943.us = and i64 %577, %control.addr.143.us
   %tobool40.i2944.not.us = icmp eq i64 %and39.i2943.us, 0
   br i1 %tobool40.i2944.not.us, label %out.i2954.us, label %if.end50.i2949.us
 
@@ -4027,8 +4027,8 @@ if.end50.i2949.us:                                ; preds = %if.end38.i2941.us
   br label %out.i2954.us
 
 out.i2954.us:                                     ; preds = %if.end50.i2949.us, %if.end38.i2941.us, %if.then30.i2962.us, %land.lhs.true.i2972.us, %do.body.i2922.us
-  %control.addr.142.us = phi i64 [ %control.addr.141.us, %do.body.i2922.us ], [ %control.addr.141.us, %land.lhs.true.i2972.us ], [ %control.addr.141.us, %if.then30.i2962.us ], [ %control.addr.141.us, %if.end38.i2941.us ], [ %call53.i2953.us, %if.end50.i2949.us ]
-  %last_match_id.31.us = phi i32 [ %last_match_id.30.us, %do.body.i2922.us ], [ %last_match_id.30.us, %land.lhs.true.i2972.us ], [ %last_match_id.30.us, %if.then30.i2962.us ], [ %last_match_id.30.us, %if.end38.i2941.us ], [ %572, %if.end50.i2949.us ]
+  %control.addr.144.us = phi i64 [ %control.addr.143.us, %do.body.i2922.us ], [ %control.addr.143.us, %land.lhs.true.i2972.us ], [ %control.addr.143.us, %if.then30.i2962.us ], [ %control.addr.143.us, %if.end38.i2941.us ], [ %call53.i2953.us, %if.end50.i2949.us ]
+  %last_match_id.33.us = phi i32 [ %last_match_id.32.us, %do.body.i2922.us ], [ %last_match_id.32.us, %land.lhs.true.i2972.us ], [ %last_match_id.32.us, %if.then30.i2962.us ], [ %last_match_id.32.us, %if.end38.i2941.us ], [ %572, %if.end50.i2949.us ]
   %next.i2955.us = getelementptr inbounds i8, ptr %li.i2899.0.us, i64 30
   %579 = load i8, ptr %next.i2955.us, align 2
   %incdec.ptr.i2956.us = getelementptr inbounds i8, ptr %li.i2899.0.us, i64 32
@@ -4042,15 +4042,15 @@ do.end.i2959.us:                                  ; preds = %out.i2954.us
 
 do.cond.i.us:                                     ; preds = %do.end.i2959.us, %if.end11.i.us, %if.end8.i.us, %do.body.i.us
   %580 = phi i64 [ %asmresult1.i2480.us, %if.end11.i.us ], [ %.pre2080, %do.end.i2959.us ], [ %asmresult1.i2480.us, %if.end8.i.us ], [ %asmresult1.i2480.us, %do.body.i.us ]
-  %control.addr.143.us = phi i64 [ %control.addr.140.us, %if.end11.i.us ], [ %control.addr.142.us, %do.end.i2959.us ], [ %control.addr.140.us, %if.end8.i.us ], [ %control.addr.140.us, %do.body.i.us ]
-  %last_match_id.32.us = phi i32 [ %last_match_id.29.us, %if.end11.i.us ], [ %last_match_id.31.us, %do.end.i2959.us ], [ %last_match_id.29.us, %if.end8.i.us ], [ %last_match_id.29.us, %do.body.i.us ]
+  %control.addr.142.us = phi i64 [ %control.addr.141.us, %if.end11.i.us ], [ %control.addr.144.us, %do.end.i2959.us ], [ %control.addr.141.us, %if.end8.i.us ], [ %control.addr.141.us, %do.body.i.us ]
+  %last_match_id.31.us = phi i32 [ %last_match_id.30.us, %if.end11.i.us ], [ %last_match_id.33.us, %do.end.i2959.us ], [ %last_match_id.30.us, %if.end8.i.us ], [ %last_match_id.30.us, %do.body.i.us ]
   %tobool20.i.not.us = icmp eq i64 %580, 0
   br i1 %tobool20.i.not.us, label %do_confirm_fdr.exit.us, label %do.body.i.us, !llvm.loop !17
 
 do_confirm_fdr.exit.us:                           ; preds = %do.cond.i.us, %do_confirm_fdr.exit1370.us
-  %control.addr.144.us = phi i64 [ %control.addr.139.us, %do_confirm_fdr.exit1370.us ], [ %control.addr.143.us, %do.cond.i.us ]
-  %last_match_id.33.us = phi i32 [ %last_match_id.28.us, %do_confirm_fdr.exit1370.us ], [ %last_match_id.32.us, %do.cond.i.us ]
-  %cmp139.us = icmp eq i64 %control.addr.144.us, 0
+  %control.addr.140.us = phi i64 [ %control.addr.135.us, %do_confirm_fdr.exit1370.us ], [ %control.addr.142.us, %do.cond.i.us ]
+  %last_match_id.29.us = phi i32 [ %last_match_id.24.us, %do_confirm_fdr.exit1370.us ], [ %last_match_id.31.us, %do.cond.i.us ]
+  %cmp139.us = icmp eq i64 %control.addr.140.us, 0
   br i1 %cmp139.us, label %return, label %for.cond110.us, !llvm.loop !21
 
 for.cond366.i.preheader.us:                       ; preds = %if.then114.i.us

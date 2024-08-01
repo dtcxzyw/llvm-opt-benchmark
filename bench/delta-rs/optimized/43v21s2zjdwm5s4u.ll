@@ -1243,13 +1243,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %122
   br label %153
 
 163:                                              ; preds = %.thread, %164, %68
-  %.0 = phi i8 [ %.1, %164 ], [ 0, %.thread ], [ 0, %68 ]
+  %.1 = phi i8 [ %.0, %164 ], [ 0, %.thread ], [ 0, %68 ]
   %.pn63 = phi { ptr, i32 } [ %165, %164 ], [ %.pn107, %.thread ], [ %lpad.thr_comm.split-lp, %68 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hde1de4256b4d7853E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #14
           to label %177 unwind label %183
 
 164:                                              ; preds = %167, %154, %67
-  %.1 = phi i8 [ 1, %67 ], [ 0, %154 ], [ 0, %167 ]
+  %.0 = phi i8 [ 1, %67 ], [ 0, %154 ], [ 0, %167 ]
   %165 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -1290,7 +1290,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %122
           to label %181 unwind label %179
 
 177:                                              ; preds = %179, %163
-  %.3 = phi i8 [ %.4, %179 ], [ %.0, %163 ]
+  %.3 = phi i8 [ %.4, %179 ], [ %.1, %163 ]
   %.pn65 = phi { ptr, i32 } [ %180, %179 ], [ %.pn63, %163 ]
   %178 = load i64, ptr %25, align 8, !range !6, !noundef !4
   %.not67 = icmp eq i64 %178, -9223372036854775808

@@ -602,19 +602,19 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
 
 .split:                                           ; preds = %22, %._crit_edge
   %30 = phi i32 [ %102, %._crit_edge ], [ %24, %22 ]
-  %.080 = phi ptr [ %.383, %._crit_edge ], [ %3, %22 ]
-  %.076 = phi i32 [ %.379, %._crit_edge ], [ 1, %22 ]
-  %.072 = phi ptr [ %.3, %._crit_edge ], [ %1, %22 ]
+  %.080 = phi ptr [ %.282, %._crit_edge ], [ %3, %22 ]
+  %.076 = phi i32 [ %.278, %._crit_edge ], [ 1, %22 ]
+  %.072 = phi ptr [ %.2, %._crit_edge ], [ %1, %22 ]
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %.split106.us
 
 .lr.ph:                                           ; preds = %.split, %101
   %32 = phi i32 [ %102, %101 ], [ %30, %.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.split ]
-  %.1101 = phi ptr [ %.3, %101 ], [ %.072, %.split ]
+  %.1101 = phi ptr [ %.2, %101 ], [ %.072, %.split ]
   %.07499 = phi i32 [ %.175, %101 ], [ 0, %.split ]
-  %.17798 = phi i32 [ %.379, %101 ], [ %.076, %.split ]
-  %.18197 = phi ptr [ %.383, %101 ], [ %.080, %.split ]
+  %.17798 = phi i32 [ %.278, %101 ], [ %.076, %.split ]
+  %.18197 = phi ptr [ %.282, %101 ], [ %.080, %.split ]
   %33 = getelementptr inbounds [4 x %struct._IStateCoder], ptr %25, i64 0, i64 %indvars.iv
   %34 = icmp eq i64 %indvars.iv, 0
   br i1 %34, label %35, label %38
@@ -698,7 +698,7 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br label %83
 
 83:                                               ; preds = %78, %74
-  %.282 = phi ptr [ %77, %74 ], [ %.18197, %78 ]
+  %.383 = phi ptr [ %77, %74 ], [ %.18197, %78 ]
   %84 = load i32, ptr %23, align 8
   %85 = add nsw i32 %84, -1
   %86 = zext i32 %85 to i64
@@ -723,7 +723,7 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br label %97
 
 97:                                               ; preds = %93, %89
-  %.2 = phi ptr [ %92, %89 ], [ %.1101, %93 ]
+  %.3 = phi ptr [ %92, %89 ], [ %.1101, %93 ]
   %.not90 = icmp eq i32 %71, 0
   br i1 %.not90, label %98, label %.loopexit
 
@@ -737,10 +737,10 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
 
 101:                                              ; preds = %98, %58
   %102 = phi i32 [ %32, %58 ], [ %.pre, %98 ]
-  %.383 = phi ptr [ %.18197, %58 ], [ %.282, %98 ]
-  %.379 = phi i32 [ %.17798, %58 ], [ %spec.select91, %98 ]
+  %.282 = phi ptr [ %.18197, %58 ], [ %.383, %98 ]
+  %.278 = phi i32 [ %.17798, %58 ], [ %spec.select91, %98 ]
   %.175 = phi i32 [ %.07499, %58 ], [ %spec.select92, %98 ]
-  %.3 = phi ptr [ %.1101, %58 ], [ %.2, %98 ]
+  %.2 = phi ptr [ %.1101, %58 ], [ %.3, %98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
@@ -751,7 +751,7 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %.not86, label %.split106.us, label %.split, !llvm.loop !6
 
 .split106.us:                                     ; preds = %.split, %._crit_edge
-  %.177.lcssa113 = phi i32 [ %.379, %._crit_edge ], [ %.076, %.split ]
+  %.177.lcssa113 = phi i32 [ %.278, %._crit_edge ], [ %.076, %.split ]
   %105 = icmp eq i32 %.177.lcssa113, 0
   br i1 %105, label %.loopexit, label %.split106.us.thread
 

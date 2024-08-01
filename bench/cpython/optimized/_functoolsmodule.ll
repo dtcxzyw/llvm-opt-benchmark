@@ -1213,19 +1213,19 @@ for.cond.preheader:                               ; preds = %if.end10
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
-  %args.addr.0 = phi ptr [ %call11, %for.cond.preheader ], [ %args.addr.1, %for.cond.backedge ]
-  %args.addr.0.val = load i64, ptr %args.addr.0, align 8
-  %cmp16 = icmp sgt i64 %args.addr.0.val, 1
+  %args.addr.1 = phi ptr [ %call11, %for.cond.preheader ], [ %args.addr.2, %for.cond.backedge ]
+  %args.addr.1.val = load i64, ptr %args.addr.1, align 8
+  %cmp16 = icmp sgt i64 %args.addr.1.val, 1
   br i1 %cmp16, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %for.cond
-  %9 = and i64 %args.addr.0.val, 2147483648
+  %9 = and i64 %args.addr.1.val, 2147483648
   %cmp.i84.not = icmp eq i64 %9, 0
   br i1 %cmp.i84.not, label %if.end.i77, label %Py_DECREF.exit82
 
 if.end.i77:                                       ; preds = %if.then17
-  %dec.i78 = add nsw i64 %args.addr.0.val, -1
-  store i64 %dec.i78, ptr %args.addr.0, align 8
+  %dec.i78 = add nsw i64 %args.addr.1.val, -1
+  store i64 %dec.i78, ptr %args.addr.1, align 8
   br label %Py_DECREF.exit82
 
 Py_DECREF.exit82:                                 ; preds = %if.end.i77, %if.then17
@@ -1234,7 +1234,7 @@ Py_DECREF.exit82:                                 ; preds = %if.end.i77, %if.the
   br i1 %cmp19, label %Py_XDECREF.exit56, label %if.end22
 
 if.end22:                                         ; preds = %Py_DECREF.exit82, %for.cond
-  %args.addr.1 = phi ptr [ %call18, %Py_DECREF.exit82 ], [ %args.addr.0, %for.cond ]
+  %args.addr.2 = phi ptr [ %call18, %Py_DECREF.exit82 ], [ %args.addr.1, %for.cond ]
   %call23 = call ptr @PyIter_Next(ptr noundef nonnull %call3) #6
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %if.then25, label %if.end30
@@ -1254,7 +1254,7 @@ if.then32:                                        ; preds = %if.end30
   br label %for.cond.backedge
 
 do.body:                                          ; preds = %if.end30
-  %ob_item = getelementptr inbounds i8, ptr %args.addr.1, i64 24
+  %ob_item = getelementptr inbounds i8, ptr %args.addr.2, i64 24
   %11 = load ptr, ptr %ob_item, align 8
   store ptr %10, ptr %ob_item, align 8
   %cmp.not.i29 = icmp eq ptr %11, null
@@ -1277,7 +1277,7 @@ if.then1.i.i36:                                   ; preds = %if.end.i.i33
   br label %Py_XDECREF.exit37
 
 Py_XDECREF.exit37:                                ; preds = %do.body, %if.then.i30, %if.end.i.i33, %if.then1.i.i36
-  %arrayidx37 = getelementptr i8, ptr %args.addr.1, i64 32
+  %arrayidx37 = getelementptr i8, ptr %args.addr.2, i64 32
   %14 = load ptr, ptr %arrayidx37, align 8
   store ptr %call23, ptr %arrayidx37, align 8
   %cmp.not.i38 = icmp eq ptr %14, null
@@ -1301,15 +1301,15 @@ if.then1.i.i45:                                   ; preds = %if.end.i.i42
 
 Py_XDECREF.exit46:                                ; preds = %Py_XDECREF.exit37, %if.then.i39, %if.end.i.i42, %if.then1.i.i45
   %17 = load ptr, ptr %func, align 8
-  %call40 = call ptr @PyObject_Call(ptr noundef %17, ptr noundef nonnull %args.addr.1, ptr noundef null) #6
+  %call40 = call ptr @PyObject_Call(ptr noundef %17, ptr noundef nonnull %args.addr.2, ptr noundef null) #6
   store ptr %call40, ptr %result, align 8
   %cmp41 = icmp eq ptr %call40, null
   br i1 %cmp41, label %if.then.i49, label %if.end43
 
 if.end43:                                         ; preds = %Py_XDECREF.exit46
-  %18 = getelementptr i8, ptr %args.addr.1, i64 -16
-  %args.addr.1.val = load i64, ptr %18, align 8
-  %cmp.i47.not = icmp eq i64 %args.addr.1.val, 0
+  %18 = getelementptr i8, ptr %args.addr.2, i64 -16
+  %args.addr.2.val = load i64, ptr %18, align 8
+  %cmp.i47.not = icmp eq i64 %args.addr.2.val, 0
   br i1 %cmp.i47.not, label %if.then46, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end43, %if.then46, %if.then32
@@ -1326,7 +1326,7 @@ if.then46:                                        ; preds = %if.end43
   %23 = inttoptr i64 %22 to ptr
   %24 = ptrtoint ptr %18 to i64
   store i64 %24, ptr %23, align 8
-  %_gc_prev.i.i = getelementptr i8, ptr %args.addr.1, i64 -8
+  %_gc_prev.i.i = getelementptr i8, ptr %args.addr.2, i64 -8
   %25 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i.i = and i64 %25, 3
   %or.i.i = or i64 %and.i.i, %22
@@ -1337,19 +1337,19 @@ if.then46:                                        ; preds = %if.end43
   br label %for.cond.backedge
 
 for.end:                                          ; preds = %if.then25
-  %27 = load i64, ptr %args.addr.1, align 8
+  %27 = load i64, ptr %args.addr.2, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i87.not = icmp eq i64 %28, 0
   br i1 %cmp.i87.not, label %if.end.i68, label %Py_DECREF.exit73
 
 if.end.i68:                                       ; preds = %for.end
   %dec.i69 = add i64 %27, -1
-  store i64 %dec.i69, ptr %args.addr.1, align 8
+  store i64 %dec.i69, ptr %args.addr.2, align 8
   %cmp.i70 = icmp eq i64 %dec.i69, 0
   br i1 %cmp.i70, label %if.then1.i71, label %Py_DECREF.exit73
 
 if.then1.i71:                                     ; preds = %if.end.i68
-  call void @_Py_Dealloc(ptr noundef nonnull %args.addr.1) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %args.addr.2) #6
   br label %Py_DECREF.exit73
 
 Py_DECREF.exit73:                                 ; preds = %for.end, %if.then1.i71, %if.end.i68
@@ -1383,19 +1383,19 @@ Py_DECREF.exit64:                                 ; preds = %if.end51, %if.then1
   br label %return
 
 if.then.i49:                                      ; preds = %Py_XDECREF.exit46, %if.then25
-  %34 = load i64, ptr %args.addr.1, align 8
+  %34 = load i64, ptr %args.addr.2, align 8
   %35 = and i64 %34, 2147483648
   %cmp.i2.not.i50 = icmp eq i64 %35, 0
   br i1 %cmp.i2.not.i50, label %if.end.i.i52, label %Py_XDECREF.exit56
 
 if.end.i.i52:                                     ; preds = %if.then.i49
   %dec.i.i53 = add i64 %34, -1
-  store i64 %dec.i.i53, ptr %args.addr.1, align 8
+  store i64 %dec.i.i53, ptr %args.addr.2, align 8
   %cmp.i.i54 = icmp eq i64 %dec.i.i53, 0
   br i1 %cmp.i.i54, label %if.then1.i.i55, label %Py_XDECREF.exit56
 
 if.then1.i.i55:                                   ; preds = %if.end.i.i52
-  call void @_Py_Dealloc(ptr noundef nonnull %args.addr.1) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %args.addr.2) #6
   br label %Py_XDECREF.exit56
 
 Py_XDECREF.exit56:                                ; preds = %Py_DECREF.exit82, %if.end10, %if.then.i49, %if.end.i.i52, %if.then1.i.i55
@@ -4423,15 +4423,15 @@ _Py_NewRef.exit57:                                ; preds = %if.then36, %if.end.
   %arrayidx.i59 = getelementptr [1 x ptr], ptr %ob_item.i58, i64 0, i64 %key_pos.0.lcssa
   store ptr %kwd_mark, ptr %arrayidx.i59, align 8
   store i64 0, ptr %pos, align 8
-  %key_pos.189 = add i64 %key_pos.0.lcssa, 1
+  %key_pos.289 = add i64 %key_pos.0.lcssa, 1
   %call4090 = call i32 @PyDict_Next(ptr noundef %kwds, ptr noundef nonnull %pos, ptr noundef nonnull %keyword, ptr noundef nonnull %value) #6
   %tobool41.not91 = icmp eq i32 %call4090, 0
   br i1 %tobool41.not91, label %if.end48, label %for.body42
 
 for.body42:                                       ; preds = %_Py_NewRef.exit57, %_Py_NewRef.exit69
-  %key_pos.193 = phi i64 [ %key_pos.1.reass, %_Py_NewRef.exit69 ], [ %key_pos.189, %_Py_NewRef.exit57 ]
-  %key_pos.1.in92 = phi i64 [ %inc43, %_Py_NewRef.exit69 ], [ %key_pos.0.lcssa, %_Py_NewRef.exit57 ]
-  %inc43 = add i64 %key_pos.1.in92, 2
+  %key_pos.293 = phi i64 [ %key_pos.2.reass, %_Py_NewRef.exit69 ], [ %key_pos.289, %_Py_NewRef.exit57 ]
+  %key_pos.2.in92 = phi i64 [ %inc43, %_Py_NewRef.exit69 ], [ %key_pos.0.lcssa, %_Py_NewRef.exit57 ]
+  %inc43 = add i64 %key_pos.2.in92, 2
   %10 = load ptr, ptr %keyword, align 8
   %11 = load i32, ptr %10, align 8
   %add.i.i60 = add i32 %11, 1
@@ -4443,7 +4443,7 @@ if.end.i.i62:                                     ; preds = %for.body42
   br label %_Py_NewRef.exit63
 
 _Py_NewRef.exit63:                                ; preds = %for.body42, %if.end.i.i62
-  %arrayidx.i65 = getelementptr [1 x ptr], ptr %ob_item.i58, i64 0, i64 %key_pos.193
+  %arrayidx.i65 = getelementptr [1 x ptr], ptr %ob_item.i58, i64 0, i64 %key_pos.293
   store ptr %10, ptr %arrayidx.i65, align 8
   %12 = load ptr, ptr %value, align 8
   %13 = load i32, ptr %12, align 8
@@ -4458,13 +4458,13 @@ if.end.i.i68:                                     ; preds = %_Py_NewRef.exit63
 _Py_NewRef.exit69:                                ; preds = %_Py_NewRef.exit63, %if.end.i.i68
   %arrayidx.i71 = getelementptr [1 x ptr], ptr %ob_item.i58, i64 0, i64 %inc43
   store ptr %12, ptr %arrayidx.i71, align 8
-  %key_pos.1.reass = add i64 %key_pos.1.in92, 3
+  %key_pos.2.reass = add i64 %key_pos.2.in92, 3
   %call40 = call i32 @PyDict_Next(ptr noundef %kwds, ptr noundef nonnull %pos, ptr noundef nonnull %keyword, ptr noundef nonnull %value) #6
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.end48, label %for.body42, !llvm.loop !11
 
 if.end48:                                         ; preds = %_Py_NewRef.exit69, %_Py_NewRef.exit57, %for.end
-  %key_pos.2 = phi i64 [ %key_pos.0.lcssa, %for.end ], [ %key_pos.189, %_Py_NewRef.exit57 ], [ %key_pos.1.reass, %_Py_NewRef.exit69 ]
+  %key_pos.1 = phi i64 [ %key_pos.0.lcssa, %for.end ], [ %key_pos.289, %_Py_NewRef.exit57 ], [ %key_pos.2.reass, %_Py_NewRef.exit69 ]
   br i1 %tobool1, label %for.cond51.preheader, label %return
 
 for.cond51.preheader:                             ; preds = %if.end48
@@ -4479,7 +4479,7 @@ for.body54.lr.ph:                                 ; preds = %for.cond51.preheade
   br label %for.body54
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %_Py_NewRef.exit75
-  %key_pos.398 = phi i64 [ %key_pos.2, %for.body54.lr.ph ], [ %inc59, %_Py_NewRef.exit75 ]
+  %key_pos.398 = phi i64 [ %key_pos.1, %for.body54.lr.ph ], [ %inc59, %_Py_NewRef.exit75 ]
   %storemerge3697 = phi i64 [ 0, %for.body54.lr.ph ], [ %inc62, %_Py_NewRef.exit75 ]
   %arrayidx57 = getelementptr [1 x ptr], ptr %ob_item56, i64 0, i64 %storemerge3697
   %14 = load ptr, ptr %arrayidx57, align 8
@@ -4507,7 +4507,7 @@ _Py_NewRef.exit75:                                ; preds = %for.body54, %if.end
   br i1 %cmp53, label %for.body54, label %for.end63, !llvm.loop !12
 
 for.end63:                                        ; preds = %_Py_NewRef.exit75, %for.cond51.preheader
-  %key_pos.3.lcssa = phi i64 [ %key_pos.2, %for.cond51.preheader ], [ %inc59, %_Py_NewRef.exit75 ]
+  %key_pos.3.lcssa = phi i64 [ %key_pos.1, %for.cond51.preheader ], [ %inc59, %_Py_NewRef.exit75 ]
   br i1 %tobool2, label %if.then65, label %return
 
 if.then65:                                        ; preds = %for.end63

@@ -7417,7 +7417,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK8expr2var3endEv
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %6 = phi ptr [ %call, %for.body.lr.ph ], [ %42, %for.inc ]
-  %ok.0132 = phi i1 [ true, %for.body.lr.ph ], [ %ok.2, %for.inc ]
+  %ok.0132 = phi i1 [ true, %for.body.lr.ph ], [ %ok.1, %for.inc ]
   %__begin2.0131 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %m_value = getelementptr inbounds i8, ptr %__begin2.0131, i64 8
   %7 = load i32, ptr %m_value, align 8
@@ -7638,20 +7638,20 @@ lpad40:                                           ; preds = %catch38
 try.cont:                                         ; preds = %invoke.cont34.try.cont_crit_edge, %_ZNK10arith_util6pluginEv.exit.i
   %40 = phi ptr [ %.pre, %invoke.cont34.try.cont_crit_edge ], [ %6, %_ZNK10arith_util6pluginEv.exit.i ]
   %v.0 = phi ptr [ %call.i28, %invoke.cont34.try.cont_crit_edge ], [ %call2.i23, %_ZNK10arith_util6pluginEv.exit.i ]
-  %ok.1 = phi i1 [ false, %invoke.cont34.try.cont_crit_edge ], [ %ok.0132, %_ZNK10arith_util6pluginEv.exit.i ]
+  %ok.2 = phi i1 [ false, %invoke.cont34.try.cont_crit_edge ], [ %ok.0132, %_ZNK10arith_util6pluginEv.exit.i ]
   %41 = load ptr, ptr %m_decl.i.i.i, align 8
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef %41, ptr noundef %v.0)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %for.body.i.i, %for.inc36.i.i, %for.body20.i.i, %for.cond18.preheader.i.i, %for.body, %land.lhs.true.i, %try.cont, %invoke.cont7
   %42 = phi ptr [ %40, %try.cont ], [ %6, %invoke.cont7 ], [ %6, %land.lhs.true.i ], [ %6, %for.body ], [ %6, %for.cond18.preheader.i.i ], [ %6, %for.body20.i.i ], [ %6, %for.inc36.i.i ], [ %6, %for.body.i.i ]
-  %ok.2 = phi i1 [ %ok.1, %try.cont ], [ %ok.0132, %invoke.cont7 ], [ %ok.0132, %land.lhs.true.i ], [ %ok.0132, %for.body ], [ %ok.0132, %for.cond18.preheader.i.i ], [ %ok.0132, %for.body20.i.i ], [ %ok.0132, %for.inc36.i.i ], [ %ok.0132, %for.body.i.i ]
+  %ok.1 = phi i1 [ %ok.2, %try.cont ], [ %ok.0132, %invoke.cont7 ], [ %ok.0132, %land.lhs.true.i ], [ %ok.0132, %for.body ], [ %ok.0132, %for.cond18.preheader.i.i ], [ %ok.0132, %for.body20.i.i ], [ %ok.0132, %for.inc36.i.i ], [ %ok.0132, %for.body.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0131, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %invoke.cont50, label %for.body
 
 invoke.cont50:                                    ; preds = %for.inc, %invoke.cont3, %_ZNK8expr2var3endEv.exit
-  %ok.0.lcssa = phi i1 [ true, %_ZNK8expr2var3endEv.exit ], [ true, %invoke.cont3 ], [ %ok.2, %for.inc ]
+  %ok.0.lcssa = phi i1 [ true, %_ZNK8expr2var3endEv.exit ], [ true, %invoke.cont3 ], [ %ok.1, %for.inc ]
   %m_mapping.i29 = getelementptr inbounds i8, ptr %this, i64 224
   %43 = load ptr, ptr %m_mapping.i29, align 8
   %cmp.i.i.i31 = icmp eq ptr %43, null

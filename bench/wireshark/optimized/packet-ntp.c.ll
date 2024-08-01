@@ -2166,7 +2166,7 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   br i1 %.not177, label %.preheader, label %157
 
 .preheader:                                       ; preds = %142, %.preheader
-  %.0198 = phi i16 [ %156, %.preheader ], [ %132, %142 ]
+  %.1198 = phi i16 [ %156, %.preheader ], [ %132, %142 ]
   %.0157197 = phi i32 [ %155, %.preheader ], [ 12, %142 ]
   %143 = load i32, ptr @hf_ntpctrl_item, align 4
   %144 = and i32 %.0157197, 65535
@@ -2181,7 +2181,7 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   %153 = load i32, ptr @ett_ntpctrl_status, align 4
   %154 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %151, i32 noundef %152, i32 noundef %153, ptr noundef nonnull @peer_status_flags, i32 noundef 0) #6
   %155 = add nuw nsw i32 %151, 2
-  %156 = add i16 %.0198, -4
+  %156 = add i16 %.1198, -4
   %.not178 = icmp eq i16 %156, 0
   br i1 %.not178, label %.loopexit, label %.preheader, !llvm.loop !10
 
@@ -2218,7 +2218,7 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   br label %.thread.sink.split
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %157, %136, %167, %127
-  %.1 = phi i16 [ %132, %136 ], [ %132, %167 ], [ 0, %127 ], [ %132, %157 ], [ 0, %.preheader ], [ %132, %.lr.ph ]
+  %.0 = phi i16 [ %132, %136 ], [ %132, %167 ], [ 0, %127 ], [ %132, %157 ], [ 0, %.preheader ], [ %132, %.lr.ph ]
   br i1 %.not, label %.thread, label %212
 
 .thread.sink.split:                               ; preds = %136, %136, %172, %171, %170
@@ -2228,7 +2228,7 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.loopexit
-  %.in = phi i16 [ %.1, %.loopexit ], [ %132, %.thread.sink.split ]
+  %.in = phi i16 [ %.0, %.loopexit ], [ %132, %.thread.sink.split ]
   %175 = add i16 %.in, 12
   %176 = zext i16 %175 to i32
   %177 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %176) #6

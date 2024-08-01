@@ -5125,12 +5125,12 @@ _ZN23SplitReorderBaseVisitor9scanBlockEP7AstNode.exit: ; preds = %_ZN23SplitReor
   br label %76
 
 76:                                               ; preds = %76, %75
-  %.0 = phi ptr [ %1, %75 ], [ %78, %76 ]
-  %77 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.1 = phi ptr [ %1, %75 ], [ %78, %76 ]
+  %77 = getelementptr inbounds i8, ptr %.1, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, %.0
+  %81 = icmp eq ptr %80, %.1
   br i1 %81, label %76, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %76
@@ -5138,7 +5138,7 @@ _ZN23SplitReorderBaseVisitor9scanBlockEP7AstNode.exit: ; preds = %_ZN23SplitReor
   br label %83
 
 83:                                               ; preds = %.lr.ph, %83
-  %.02439 = phi ptr [ %.0, %.lr.ph ], [ %92, %83 ]
+  %.02439 = phi ptr [ %.1, %.lr.ph ], [ %92, %83 ]
   %84 = getelementptr inbounds i8, ptr %.02439, i64 136
   %85 = load i32, ptr %84, align 8
   %86 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
@@ -5154,12 +5154,12 @@ _ZN23SplitReorderBaseVisitor9scanBlockEP7AstNode.exit: ; preds = %_ZN23SplitReor
   br i1 %.not30, label %.loopexit, label %83, !llvm.loop !26
 
 .loopexit:                                        ; preds = %83, %60, %72, %22
-  %.1 = phi ptr [ %1, %72 ], [ %1, %60 ], [ %1, %22 ], [ %.0, %83 ]
-  %93 = getelementptr inbounds i8, ptr %.1, i64 128
+  %.0 = phi ptr [ %1, %72 ], [ %1, %60 ], [ %1, %22 ], [ %.1, %83 ]
+  %93 = getelementptr inbounds i8, ptr %.0, i64 128
   %94 = select i1 %9, i64 %11, i64 0
   store i64 %94, ptr %93, align 8
   %95 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
-  %96 = getelementptr inbounds i8, ptr %.1, i64 136
+  %96 = getelementptr inbounds i8, ptr %.0, i64 136
   store i32 %95, ptr %96, align 8
   br label %97
 

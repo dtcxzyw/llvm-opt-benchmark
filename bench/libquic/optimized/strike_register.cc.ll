@@ -2121,7 +2121,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt4pai
   br label %invoke.cont131
 
 invoke.cont131:                                   ; preds = %_ZNSt6vectorISt4pairIjbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, %if.then.i20.i.i.i, %if.then.i.i129
-  %new_bits.sroa.0.1 = phi ptr [ %cond.i.i.i.i316, %if.then.i.i129 ], [ %call5.i.i.i.i.i.i136, %if.then.i20.i.i.i ], [ %call5.i.i.i.i.i.i136, %_ZNSt6vectorISt4pairIjbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i ]
+  %new_bits.sroa.0.3 = phi ptr [ %cond.i.i.i.i316, %if.then.i.i129 ], [ %call5.i.i.i.i.i.i136, %if.then.i20.i.i.i ], [ %call5.i.i.i.i.i.i136, %_ZNSt6vectorISt4pairIjbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i ]
   %42 = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not5.i.i.i139 = icmp eq ptr %42, null
   br i1 %cmp.not5.i.i.i139, label %invoke.cont134.thread, label %while.body.i.i.i141
@@ -2166,7 +2166,7 @@ invoke.cont137:                                   ; preds = %if.else.i163
   br i1 %tobool.not.i168, label %if.end151, label %if.else143
 
 lpad129.loopexit:                                 ; preds = %if.else143, %if.else163, %invoke.cont172, %_ZNKSt6vectorISt4pairIjbESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %if.else.i163, %if.else.i198, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i233
-  %new_bits.sroa.0.2.ph = phi ptr [ %cond.i.i.i.i316, %_ZNKSt6vectorISt4pairIjbESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %new_bits.sroa.0.1, %if.else.i163 ], [ %new_bits.sroa.0.1, %if.else143 ], [ %new_bits.sroa.0.1, %if.else.i198 ], [ %new_bits.sroa.0.1, %if.else163 ], [ %new_bits.sroa.0.1, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i233 ], [ %new_bits.sroa.0.1, %invoke.cont172 ]
+  %new_bits.sroa.0.1.ph = phi ptr [ %cond.i.i.i.i316, %_ZNKSt6vectorISt4pairIjbESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %new_bits.sroa.0.3, %if.else.i163 ], [ %new_bits.sroa.0.3, %if.else143 ], [ %new_bits.sroa.0.3, %if.else.i198 ], [ %new_bits.sroa.0.3, %if.else163 ], [ %new_bits.sroa.0.3, %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i233 ], [ %new_bits.sroa.0.3, %invoke.cont172 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad129
@@ -2177,13 +2177,13 @@ lpad129.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i
   br label %lpad129
 
 lpad129:                                          ; preds = %lpad129.loopexit.split-lp, %lpad129.loopexit
-  %new_bits.sroa.0.2 = phi ptr [ %new_bits.sroa.0.2.ph, %lpad129.loopexit ], [ %cond.i.i.i.i316, %lpad129.loopexit.split-lp ]
+  %new_bits.sroa.0.1 = phi ptr [ %new_bits.sroa.0.1.ph, %lpad129.loopexit ], [ %cond.i.i.i.i316, %lpad129.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad129.loopexit ], [ %lpad.loopexit.split-lp, %lpad129.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %new_bits.sroa.0.2, null
+  %tobool.not.i.i.i = icmp eq ptr %new_bits.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %common.resume, label %if.then.i.i.i170
 
 if.then.i.i.i170:                                 ; preds = %lpad129
-  call void @_ZdlPv(ptr noundef nonnull %new_bits.sroa.0.2) #24
+  call void @_ZdlPv(ptr noundef nonnull %new_bits.sroa.0.1) #24
   br label %common.resume
 
 if.else143:                                       ; preds = %invoke.cont137
@@ -2314,11 +2314,11 @@ invoke.cont172:                                   ; preds = %call5.i.i.i.i.i.i.i
           to label %invoke.cont175 unwind label %lpad129.loopexit
 
 invoke.cont175:                                   ; preds = %invoke.cont172
-  %tobool.not.i.i.i249 = icmp eq ptr %new_bits.sroa.0.1, null
+  %tobool.not.i.i.i249 = icmp eq ptr %new_bits.sroa.0.3, null
   br i1 %tobool.not.i.i.i249, label %for.inc177, label %if.then.i.i.i250
 
 if.then.i.i.i250:                                 ; preds = %invoke.cont175
-  call void @_ZdlPv(ptr noundef nonnull %new_bits.sroa.0.1) #24
+  call void @_ZdlPv(ptr noundef nonnull %new_bits.sroa.0.3) #24
   br label %for.inc177
 
 for.inc177:                                       ; preds = %for.inc, %_ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit, %if.then.i.i.i250, %invoke.cont175

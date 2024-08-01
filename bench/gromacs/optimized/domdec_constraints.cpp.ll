@@ -896,7 +896,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit77:              ; preds = %_ZNSt6vectorIiSaIiE
   %44 = phi i32 [ %26, %.lr.ph149 ], [ %276, %.loopexit131 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next, %.loopexit131 ]
   %.0148 = phi i32 [ 0, %.lr.ph149 ], [ %.3, %.loopexit131 ]
-  %.0125145 = phi i32 [ 0, %.lr.ph149 ], [ %.2127, %.loopexit131 ]
+  %.0125145 = phi i32 [ 0, %.lr.ph149 ], [ %.1126, %.loopexit131 ]
   %45 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 1048576
@@ -918,10 +918,10 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit77:              ; preds = %_ZNSt6vectorIiSaIiE
   br label %60
 
 60:                                               ; preds = %69, %48
-  %.1126 = phi i32 [ %.0125145, %48 ], [ %72, %69 ]
+  %.2127 = phi i32 [ %.0125145, %48 ], [ %72, %69 ]
   %.026.i = phi i32 [ %58, %48 ], [ %.127.i, %69 ]
   %.0.i = phi i32 [ -1, %48 ], [ %.1.i, %69 ]
-  %61 = sext i32 %.1126 to i64
+  %61 = sext i32 %.2127 to i64
   %62 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %59, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
@@ -935,8 +935,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit77:              ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %69
 
 69:                                               ; preds = %66, %60
-  %.127.i = phi i32 [ %.1126, %60 ], [ %.026.i, %66 ]
-  %.1.i = phi i32 [ %.0.i, %60 ], [ %.1126, %66 ]
+  %.127.i = phi i32 [ %.2127, %60 ], [ %.026.i, %66 ]
+  %.1.i = phi i32 [ %.0.i, %60 ], [ %.2127, %66 ]
   %70 = add i32 %.127.i, 1
   %71 = add i32 %70, %.1.i
   %72 = ashr i32 %71, 1
@@ -1336,7 +1336,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %_ZNSt12_Vector_base
 
 .loopexit131:                                     ; preds = %.loopexit131.loopexit, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, %43
   %276 = phi i32 [ %44, %43 ], [ %44, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit ], [ %.pre, %.loopexit131.loopexit ]
-  %.2127 = phi i32 [ %.0125145, %43 ], [ %.1126, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit ], [ %.1126, %.loopexit131.loopexit ]
+  %.1126 = phi i32 [ %.0125145, %43 ], [ %.2127, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit ], [ %.2127, %.loopexit131.loopexit ]
   %.3 = phi i32 [ %.0148, %43 ], [ %.0148, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit ], [ %.2, %.loopexit131.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %277 = sext i32 %276 to i64
@@ -1557,7 +1557,7 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %77, %82
 
 .lr.ph98.i.split.us:                              ; preds = %.lr.ph98.i.split.us.preheader, %_ZN15InteractionList9push_backILm3EEEviRKSt5arrayIiXT_EE.exit.i.us
   %indvars.iv110.i.us = phi i64 [ %indvars.iv.next111.i.us, %_ZN15InteractionList9push_backILm3EEEviRKSt5arrayIiXT_EE.exit.i.us ], [ %109, %.lr.ph98.i.split.us.preheader ]
-  %.07695.i.us = phi i32 [ %.278.i.us, %_ZN15InteractionList9push_backILm3EEEviRKSt5arrayIiXT_EE.exit.i.us ], [ 0, %.lr.ph98.i.split.us.preheader ]
+  %.07695.i.us = phi i32 [ %.177.i.us, %_ZN15InteractionList9push_backILm3EEEviRKSt5arrayIiXT_EE.exit.i.us ], [ 0, %.lr.ph98.i.split.us.preheader ]
   %110 = getelementptr inbounds i64, ptr %95, i64 %indvars.iv110.i.us
   %111 = load i64, ptr %110, align 8
   %112 = and i64 %111, 2097152
@@ -1579,10 +1579,10 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %77, %82
   br label %125
 
 125:                                              ; preds = %289, %113
-  %.177.i.us = phi i32 [ %.07695.i.us, %113 ], [ %292, %289 ]
+  %.278.i.us = phi i32 [ %.07695.i.us, %113 ], [ %292, %289 ]
   %.026.i.i.us = phi i32 [ %123, %113 ], [ %.127.i.i.us, %289 ]
   %.0.i.i.us = phi i32 [ -1, %113 ], [ %.1.i.i.us, %289 ]
-  %126 = sext i32 %.177.i.us to i64
+  %126 = sext i32 %.278.i.us to i64
   %127 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %124, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4
@@ -1923,15 +1923,15 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.us:        ; preds = %_ZNSt12_Vector_base
   br i1 %exitcond.not.i.i.us, label %_ZN15InteractionList9push_backILm3EEEviRKSt5arrayIiXT_EE.exit.i.us, label %281, !llvm.loop !23
 
 289:                                              ; preds = %131, %125
-  %.127.i.i.us = phi i32 [ %.177.i.us, %125 ], [ %.026.i.i.us, %131 ]
-  %.1.i.i.us = phi i32 [ %.0.i.i.us, %125 ], [ %.177.i.us, %131 ]
+  %.127.i.i.us = phi i32 [ %.278.i.us, %125 ], [ %.026.i.i.us, %131 ]
+  %.1.i.i.us = phi i32 [ %.0.i.i.us, %125 ], [ %.278.i.us, %131 ]
   %290 = add i32 %.127.i.i.us, 1
   %291 = add i32 %290, %.1.i.i.us
   %292 = ashr i32 %291, 1
   br label %125, !llvm.loop !18
 
 _ZN15InteractionList9push_backILm3EEEviRKSt5arrayIiXT_EE.exit.i.us: ; preds = %281, %._crit_edge.i.us, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i.us, %.lr.ph98.i.split.us
-  %.278.i.us = phi i32 [ %.07695.i.us, %.lr.ph98.i.split.us ], [ %.177.i.us, %._crit_edge.i.us ], [ %.177.i.us, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i.us ], [ %.177.i.us, %281 ]
+  %.177.i.us = phi i32 [ %.07695.i.us, %.lr.ph98.i.split.us ], [ %.278.i.us, %._crit_edge.i.us ], [ %.278.i.us, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i.us ], [ %.278.i.us, %281 ]
   %indvars.iv.next111.i.us = add nsw i64 %indvars.iv110.i.us, 1
   %lftr.wideiv.i.us = trunc i64 %indvars.iv.next111.i.us to i32
   %exitcond113.not.i.us = icmp eq i32 %69, %lftr.wideiv.i.us
@@ -2548,20 +2548,20 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit104:        ; preds = %249, %_ZNSt6vectorI
   br i1 %298, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %288, %302
-  %.02025.i.i = phi i64 [ %303, %302 ], [ %291, %288 ]
-  %299 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %280, i64 %.02025.i.i
+  %.125.i.i = phi i64 [ %303, %302 ], [ %291, %288 ]
+  %299 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %280, i64 %.125.i.i
   %300 = load i32, ptr %299, align 4
   %301 = icmp sgt i32 %300, -1
   br i1 %301, label %302, label %.critedge.i.i
 
 302:                                              ; preds = %.lr.ph.i.i
-  %303 = add i64 %.02025.i.i, 1
+  %303 = add i64 %.125.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %303, %297
   br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %288
-  %.020.lcssa.i.i = phi i64 [ %291, %288 ], [ %.02025.i.i, %.lr.ph.i.i ]
-  %304 = icmp eq i64 %.020.lcssa.i.i, %297
+  %.1.lcssa.i.i = phi i64 [ %291, %288 ], [ %.125.i.i, %.lr.ph.i.i ]
+  %304 = icmp eq i64 %.1.lcssa.i.i, %297
   br i1 %304, label %.critedge.thread.i.i, label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 .critedge.thread.i.i:                             ; preds = %302, %.critedge.i.i
@@ -2582,9 +2582,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit104:        ; preds = %249, %_ZNSt6vectorI
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %307, %306, %305, %.critedge.i.i
-  %.020.lcssa36.i.i = phi i64 [ -1, %307 ], [ -1, %306 ], [ %297, %305 ], [ %.020.lcssa.i.i, %.critedge.i.i ]
+  %.1.lcssa36.i.i = phi i64 [ -1, %307 ], [ -1, %306 ], [ %297, %305 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
   %308 = phi ptr [ %280, %307 ], [ %280, %306 ], [ %.pre.i.i, %305 ], [ %280, %.critedge.i.i ]
-  %309 = trunc i64 %.020.lcssa36.i.i to i32
+  %309 = trunc i64 %.1.lcssa36.i.i to i32
   %310 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %308, i64 %284, i32 2
   store i32 %309, ptr %310, align 4
   %311 = add i32 %309, 1
@@ -2594,11 +2594,11 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = 
 
 _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit104, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
   %312 = phi ptr [ %.pre34.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %280, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit104 ]
-  %.1.i.i = phi i64 [ %.020.lcssa36.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %279, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit104 ]
-  %313 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %312, i64 %.1.i.i
+  %.020.i.i = phi i64 [ %.1.lcssa36.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %279, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit104 ]
+  %313 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %312, i64 %.020.i.i
   store i32 %230, ptr %313, align 4
   %314 = load ptr, ptr %275, align 8
-  %315 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %314, i64 %.1.i.i, i32 1
+  %315 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %314, i64 %.020.i.i, i32 1
   store i32 -2, ptr %315, align 4
   %316 = getelementptr inbounds i8, ptr %275, i64 32
   %317 = load i32, ptr %316, align 8

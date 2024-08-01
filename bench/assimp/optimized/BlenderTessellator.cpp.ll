@@ -1684,10 +1684,10 @@ _ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit: ; pre
 
 for.body:                                         ; preds = %for.body, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit
   %i.0103 = phi i32 [ 0, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %inc, %for.body ]
-  %retval.sroa.0.0102 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.1, %for.body ]
+  %retval.sroa.0.0102 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.2, %for.body ]
   %lastV.sroa.0.0101 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.0.vec.extract77, %for.body ]
   %lastV.sroa.3.0100 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.4.vec.extract88, %for.body ]
-  %lastV.sroa.4.099 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.16.1, %for.body ]
+  %lastV.sroa.4.099 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.16.2, %for.body ]
   %retval.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0102, i64 0
   %retval.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0102, i64 1
   %63 = shufflevector <2 x float> %retval.sroa.0.0102, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -1712,13 +1712,13 @@ for.body:                                         ; preds = %for.body, %_ZNK6Ass
   %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
   %78 = fmul <2 x float> %69, %77
   %mul3.i.i47 = fmul float %71, %div.i.i
-  %retval.sroa.0.1 = select i1 %cmp.i, <2 x float> %69, <2 x float> %78
-  %retval.sroa.16.1 = select i1 %cmp.i, float %71, float %mul3.i.i47
-  %retval.sroa.0.0.vec.extract77 = extractelement <2 x float> %retval.sroa.0.1, i64 0
+  %retval.sroa.0.2 = select i1 %cmp.i, <2 x float> %69, <2 x float> %78
+  %retval.sroa.16.2 = select i1 %cmp.i, float %71, float %mul3.i.i47
+  %retval.sroa.0.0.vec.extract77 = extractelement <2 x float> %retval.sroa.0.2, i64 0
   %sub.i = fsub float %retval.sroa.0.0.vec.extract77, %lastV.sroa.0.0101
-  %retval.sroa.0.4.vec.extract88 = extractelement <2 x float> %retval.sroa.0.1, i64 1
+  %retval.sroa.0.4.vec.extract88 = extractelement <2 x float> %retval.sroa.0.2, i64 1
   %sub3.i = fsub float %retval.sroa.0.4.vec.extract88, %lastV.sroa.3.0100
-  %sub5.i = fsub float %retval.sroa.16.1, %lastV.sroa.4.099
+  %sub5.i = fsub float %retval.sroa.16.2, %lastV.sroa.4.099
   %mul4.i = fmul float %sub3.i, %sub3.i
   %79 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i)
   %80 = tail call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %79)
@@ -1729,8 +1729,8 @@ for.body:                                         ; preds = %for.body, %_ZNK6Ass
   br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.16.1, 1
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.2, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.16.2, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

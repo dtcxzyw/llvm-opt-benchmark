@@ -1997,12 +1997,12 @@ if.end13.i:                                       ; preds = %if.else.i
   br i1 %cmp15.i, label %err.i, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end13.i, %if.then3.i
-  %pctx.0.i = phi ptr [ %7, %if.then3.i ], [ %call10.i, %if.end13.i ]
+  %pctx.1.i = phi ptr [ %7, %if.then3.i ], [ %call10.i, %if.end13.i ]
   %key.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   %9 = load ptr, ptr %key.i, align 8
   %keylen.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 40
   %10 = load i64, ptr %keylen.i, align 8
-  %call19.i = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %pctx.0.i, ptr noundef null, ptr noundef nonnull %eklen.i, ptr noundef %9, i64 noundef %10) #6
+  %call19.i = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %pctx.1.i, ptr noundef null, ptr noundef nonnull %eklen.i, ptr noundef %9, i64 noundef %10) #6
   %cmp20.i = icmp slt i32 %call19.i, 1
   br i1 %cmp20.i, label %err.i, label %if.end22.i
 
@@ -2015,7 +2015,7 @@ if.end22.i:                                       ; preds = %if.end18.i
 if.end26.i:                                       ; preds = %if.end22.i
   %12 = load ptr, ptr %key.i, align 8
   %13 = load i64, ptr %keylen.i, align 8
-  %call29.i = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %pctx.0.i, ptr noundef nonnull %call23.i, ptr noundef nonnull %eklen.i, ptr noundef %12, i64 noundef %13) #6
+  %call29.i = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %pctx.1.i, ptr noundef nonnull %call23.i, ptr noundef nonnull %eklen.i, ptr noundef %12, i64 noundef %13) #6
   %cmp30.i = icmp slt i32 %call29.i, 1
   br i1 %cmp30.i, label %err.i, label %if.end32.i
 
@@ -2028,10 +2028,10 @@ if.end32.i:                                       ; preds = %if.end26.i
   br label %err.i
 
 err.i:                                            ; preds = %if.end32.i, %if.end26.i, %if.end22.i, %if.end18.i, %if.end13.i, %if.then3.i
-  %pctx.1.i = phi ptr [ %pctx.0.i, %if.end18.i ], [ %pctx.0.i, %if.end22.i ], [ %pctx.0.i, %if.end26.i ], [ %pctx.0.i, %if.end32.i ], [ %7, %if.then3.i ], [ %call10.i, %if.end13.i ]
+  %pctx.0.i = phi ptr [ %pctx.1.i, %if.end18.i ], [ %pctx.1.i, %if.end22.i ], [ %pctx.1.i, %if.end26.i ], [ %pctx.1.i, %if.end32.i ], [ %7, %if.then3.i ], [ %call10.i, %if.end13.i ]
   %ek.0.i = phi ptr [ null, %if.end18.i ], [ null, %if.end22.i ], [ %call23.i, %if.end26.i ], [ null, %if.end32.i ], [ null, %if.then3.i ], [ null, %if.end13.i ]
   %ret.0.i = phi i32 [ 0, %if.end18.i ], [ 0, %if.end22.i ], [ 0, %if.end26.i ], [ 1, %if.end32.i ], [ 0, %if.then3.i ], [ 0, %if.end13.i ]
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %pctx.1.i) #6
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %pctx.0.i) #6
   store ptr null, ptr %pctx2.i, align 8
   call void @CRYPTO_free(ptr noundef %ek.0.i, ptr noundef nonnull @.str, i32 noundef 566) #6
   br label %cms_RecipientInfo_ktri_encrypt.exit

@@ -2043,14 +2043,14 @@ do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   br i1 %cmp.i.i.i, label %do.body.i.i.i, label %skip_prefix.exit.i.i, !llvm.loop !11
 
 skip_prefix.exit.i.i:                             ; preds = %do.cond.i.i.i, %do.body.i.i.i
-  %branch_name.0.i.i = phi ptr [ null, %do.cond.i.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
+  %branch_name.1.i.i = phi ptr [ null, %do.cond.i.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
   %21 = load ptr, ptr %fp.i.i, align 8
-  %call35.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.78, ptr noundef %branch_name.0.i.i, i32 noundef %conv3.i.i)
+  %call35.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.78, ptr noundef %branch_name.1.i.i, i32 noundef %conv3.i.i)
   br label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %skip_prefix.exit.i.i, %if.else22.i.i, %if.then20.i.i
-  %branch_name.1.i.i = phi ptr [ %17, %if.then20.i.i ], [ %branch_name.0.i.i, %skip_prefix.exit.i.i ], [ %spec.select.i.i, %if.else22.i.i ]
-  %call37.i.i = tail call ptr @branch_get(ptr noundef %branch_name.1.i.i) #19
+  %branch_name.0.i.i = phi ptr [ %17, %if.then20.i.i ], [ %branch_name.1.i.i, %skip_prefix.exit.i.i ], [ %spec.select.i.i, %if.else22.i.i ]
+  %call37.i.i = tail call ptr @branch_get(ptr noundef %branch_name.0.i.i) #19
   store ptr null, ptr %base.i.i, align 8
   %ahead_behind_flags.i.i = getelementptr inbounds i8, ptr %s, i64 812
   %22 = load i32, ptr %ahead_behind_flags.i.i, align 4
@@ -2755,7 +2755,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i23, label %do.body.i.i, label %if.end39.i, !llvm.loop !11
 
 if.end39.i:                                       ; preds = %do.cond.i.i, %do.body.i.i, %if.end3.i113.i, %if.else33.i, %if.end3.i108.i, %if.else30.i, %if.end3.i103.i, %if.then28.i, %if.end.i71
-  %branch_name.1.i = phi ptr [ %128, %if.end.i71 ], [ %129, %if.then28.i ], [ %129, %if.end3.i103.i ], [ %129, %if.else30.i ], [ %129, %if.end3.i108.i ], [ @.str.29, %if.else33.i ], [ @.str.29, %if.end3.i113.i ], [ %122, %do.cond.i.i ], [ %scevgep.i, %do.body.i.i ]
+  %branch_name.0.i = phi ptr [ %128, %if.end.i71 ], [ %129, %if.then28.i ], [ %129, %if.end3.i103.i ], [ %129, %if.else30.i ], [ %129, %if.end3.i108.i ], [ @.str.29, %if.else33.i ], [ @.str.29, %if.end3.i113.i ], [ %122, %do.cond.i.i ], [ %scevgep.i, %do.body.i.i ]
   %branch_status_color.0.i = phi ptr [ %c.0.i91.i, %if.end.i71 ], [ %c.0.i91.i, %if.then28.i ], [ %c.0.i91.i, %if.end3.i103.i ], [ %c.0.i91.i, %if.else30.i ], [ %c.0.i91.i, %if.end3.i108.i ], [ %c.0.i91.i, %if.else33.i ], [ %c.0.i91.i, %if.end3.i113.i ], [ %c.0.i84.i, %do.body.i.i ], [ %c.0.i84.i, %do.cond.i.i ]
   %on_what.1.i = phi ptr [ %on_what.0.i, %if.end.i71 ], [ @.str.96, %if.then28.i ], [ %call.i104.i, %if.end3.i103.i ], [ @.str.97, %if.else30.i ], [ %call.i109.i, %if.end3.i108.i ], [ @.str.98, %if.else33.i ], [ %call.i114.i, %if.end3.i113.i ], [ %retval.0.i.i, %do.body.i.i ], [ %retval.0.i.i, %do.cond.i.i ]
   %135 = load i32, ptr %use_color.i.i, align 8
@@ -2764,7 +2764,7 @@ if.end39.i:                                       ; preds = %do.cond.i.i, %do.bo
   %c.0.i123.i = select i1 %tobool.not.i120.i, ptr @.str.29, ptr %color_palette.i.i
   tail call void (ptr, ptr, ptr, ...) @status_printf(ptr noundef nonnull %s, ptr noundef nonnull %c.0.i123.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.29)
   tail call void (ptr, ptr, ptr, ...) @status_printf_more(ptr noundef nonnull %s, ptr noundef %branch_status_color.0.i, ptr noundef nonnull @.str.10, ptr noundef %on_what.1.i)
-  tail call void (ptr, ptr, ptr, ...) @status_printf_more(ptr noundef nonnull %s, ptr noundef nonnull %spec.select.i.i17, ptr noundef nonnull @.str.74, ptr noundef %branch_name.1.i)
+  tail call void (ptr, ptr, ptr, ...) @status_printf_more(ptr noundef nonnull %s, ptr noundef nonnull %spec.select.i.i17, ptr noundef nonnull @.str.74, ptr noundef %branch_name.0.i)
   %is_initial.i = getelementptr inbounds i8, ptr %s, i64 8
   %136 = load i32, ptr %is_initial.i, align 8
   %tobool41.not.i = icmp eq i32 %136, 0
@@ -4213,7 +4213,7 @@ for.body.lr.ph.i.i248.i:                          ; preds = %wt_longstatus_print
   br label %for.body.i.i249.i
 
 for.body.i.i249.i:                                ; preds = %for.inc.i.i252.i, %for.body.lr.ph.i.i248.i
-  %dirty_submodules.0.i.i = phi i32 [ 0, %for.body.lr.ph.i.i248.i ], [ %dirty_submodules.2.i.i, %for.inc.i.i252.i ]
+  %dirty_submodules.0.i.i = phi i32 [ 0, %for.body.lr.ph.i.i248.i ], [ %dirty_submodules.1.i.i, %for.inc.i.i252.i ]
   %.pre1415.i.i.i = phi i64 [ %.pr451486.i, %for.body.lr.ph.i.i248.i ], [ %.pre1416.i.i.i, %for.inc.i.i252.i ]
   %298 = phi i64 [ %.pr451486.i, %for.body.lr.ph.i.i248.i ], [ %301, %for.inc.i.i252.i ]
   %indvars.iv.i.i250.i = phi i64 [ 0, %for.body.lr.ph.i.i248.i ], [ %indvars.iv.next.i.i253.i, %for.inc.i.i252.i ]
@@ -4239,7 +4239,7 @@ if.end.i.i285.i:                                  ; preds = %for.body.i.i249.i
   br label %for.inc.i.i252.i
 
 for.inc.i.i252.i:                                 ; preds = %if.end.i.i285.i, %for.body.i.i249.i, %for.body.i.i249.i
-  %dirty_submodules.2.i.i = phi i32 [ %spec.select.i287.i, %if.end.i.i285.i ], [ %dirty_submodules.0.i.i, %for.body.i.i249.i ], [ %dirty_submodules.0.i.i, %for.body.i.i249.i ]
+  %dirty_submodules.1.i.i = phi i32 [ %spec.select.i287.i, %if.end.i.i285.i ], [ %dirty_submodules.0.i.i, %for.body.i.i249.i ], [ %dirty_submodules.0.i.i, %for.body.i.i249.i ]
   %.pre1416.i.i.i = phi i64 [ %spec.select21.i.i, %if.end.i.i285.i ], [ %.pre1415.i.i.i, %for.body.i.i249.i ], [ %.pre1415.i.i.i, %for.body.i.i249.i ]
   %301 = phi i64 [ %spec.select21.i.i, %if.end.i.i285.i ], [ %298, %for.body.i.i249.i ], [ %298, %for.body.i.i249.i ]
   %changes.1.i.i.i = phi i32 [ %spec.select.i.i.i, %if.end.i.i285.i ], [ %changes.010.i.i.i, %for.body.i.i249.i ], [ %changes.010.i.i.i, %for.body.i.i249.i ]
@@ -4296,7 +4296,7 @@ if.end3.i23.i.i.i:                                ; preds = %if.end6.i.i.i
 _.exit26.i.i.i:                                   ; preds = %if.end3.i23.i.i.i, %if.end6.i.i.i
   %retval.0.i25.i.i.i = phi ptr [ %call.i24.i.i.i, %if.end3.i23.i.i.i ], [ @.str.222, %if.end6.i.i.i ]
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef nonnull %c.0.i.i.i261.i, ptr noundef %retval.0.i25.i.i.i)
-  %tobool8.not.i.i270.i = icmp eq i32 %dirty_submodules.2.i.i, 0
+  %tobool8.not.i.i270.i = icmp eq i32 %dirty_submodules.1.i.i, 0
   br i1 %tobool8.not.i.i270.i, label %wt_longstatus_print_dirty_header.exit.i.i, label %if.then9.i.i271.i
 
 if.then9.i.i271.i:                                ; preds = %_.exit26.i.i.i

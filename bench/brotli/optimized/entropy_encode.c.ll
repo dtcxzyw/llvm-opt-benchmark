@@ -819,20 +819,20 @@ land.rhs.preheader:                               ; preds = %for.cond22.preheade
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body30
   %k.093 = phi i64 [ %k.0, %for.body30 ], [ %k.090, %land.rhs.preheader ]
-  %reps.092 = phi i64 [ %inc31, %for.body30 ], [ 1, %land.rhs.preheader ]
+  %reps.192 = phi i64 [ %inc31, %for.body30 ], [ 1, %land.rhs.preheader ]
   %arrayidx25 = getelementptr inbounds i8, ptr %depth, i64 %k.093
   %9 = load i8, ptr %arrayidx25, align 1
   %cmp28 = icmp eq i8 %9, %7
   br i1 %cmp28, label %for.body30, label %if.end35
 
 for.body30:                                       ; preds = %land.rhs
-  %inc31 = add i64 %reps.092, 1
+  %inc31 = add i64 %reps.192, 1
   %k.0 = add nuw i64 %k.093, 1
   %exitcond104.not = icmp eq i64 %k.0, %new_length.0.lcssa107
   br i1 %exitcond104.not, label %if.end35, label %land.rhs, !llvm.loop !23
 
 if.end35:                                         ; preds = %for.body30, %land.rhs
-  %reps.0.lcssa = phi i64 [ %8, %for.body30 ], [ %reps.092, %land.rhs ]
+  %reps.1.lcssa = phi i64 [ %8, %for.body30 ], [ %reps.192, %land.rhs ]
   br i1 %cmp17, label %if.then39, label %if.else40
 
 if.end35.thread119:                               ; preds = %for.cond22.preheader
@@ -842,7 +842,7 @@ if.end35.thread:                                  ; preds = %for.body11
   br i1 %cmp17, label %for.body.preheader.i, label %if.else40
 
 if.then39:                                        ; preds = %if.end35
-  %cmp.i30 = icmp eq i64 %reps.0.lcssa, 11
+  %cmp.i30 = icmp eq i64 %reps.1.lcssa, 11
   br i1 %cmp.i30, label %if.end.thread.i, label %if.end.i
 
 if.end.thread.i:                                  ; preds = %if.then39
@@ -858,20 +858,20 @@ if.end.thread.i:                                  ; preds = %if.then39
   br label %if.else.i
 
 if.end.i:                                         ; preds = %if.then39
-  %cmp2.i = icmp ult i64 %reps.0.lcssa, 3
+  %cmp2.i = icmp ult i64 %reps.1.lcssa, 3
   br i1 %cmp2.i, label %for.cond.preheader.i, label %if.end.if.else_crit_edge.i
 
 if.end.if.else_crit_edge.i:                       ; preds = %if.end.i
   %.pre52.i = load i64, ptr %tree_size, align 8
-  %13 = add i64 %reps.0.lcssa, -3
+  %13 = add i64 %reps.1.lcssa, -3
   br label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %cmp442.not.i = icmp eq i64 %reps.0.lcssa, 0
+  %cmp442.not.i = icmp eq i64 %reps.1.lcssa, 0
   br i1 %cmp442.not.i, label %if.end41, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end35.thread119, %if.end35.thread, %for.cond.preheader.i
-  %reps.169747780 = phi i64 [ %reps.0.lcssa, %for.cond.preheader.i ], [ 1, %if.end35.thread ], [ 1, %if.end35.thread119 ]
+  %reps.069747780 = phi i64 [ %reps.1.lcssa, %for.cond.preheader.i ], [ 1, %if.end35.thread ], [ 1, %if.end35.thread119 ]
   %.pre.i32 = load i64, ptr %tree_size, align 8
   br label %for.body.i33
 
@@ -887,11 +887,11 @@ for.body.i33:                                     ; preds = %for.body.i33, %for.
   %inc7.i = add i64 %16, 1
   store i64 %inc7.i, ptr %tree_size, align 8
   %inc8.i = add nuw nsw i64 %i.043.i, 1
-  %exitcond.not.i34 = icmp eq i64 %inc8.i, %reps.169747780
+  %exitcond.not.i34 = icmp eq i64 %inc8.i, %reps.069747780
   br i1 %exitcond.not.i34, label %if.end41, label %for.body.i33, !llvm.loop !24
 
 if.else.i:                                        ; preds = %if.end.if.else_crit_edge.i, %if.end.thread.i
-  %reps.16973 = phi i64 [ 11, %if.end.thread.i ], [ %reps.0.lcssa, %if.end.if.else_crit_edge.i ]
+  %reps.06973 = phi i64 [ 11, %if.end.thread.i ], [ %reps.1.lcssa, %if.end.if.else_crit_edge.i ]
   %17 = phi i64 [ %inc.i36, %if.end.thread.i ], [ %.pre52.i, %if.end.if.else_crit_edge.i ]
   %repetitions.addr.040.i = phi i64 [ 7, %if.end.thread.i ], [ %13, %if.end.if.else_crit_edge.i ]
   %arrayidx944.i = getelementptr inbounds i8, ptr %tree, i64 %17
@@ -970,7 +970,7 @@ while.body.i29.i:                                 ; preds = %Reverse.exit.i, %wh
   br i1 %cmp.i36.i, label %while.body.i29.i, label %if.end41, !llvm.loop !25
 
 if.else40:                                        ; preds = %if.end35.thread119, %if.end35.thread, %if.end35
-  %reps.168 = phi i64 [ 1, %if.end35.thread ], [ %reps.0.lcssa, %if.end35 ], [ 1, %if.end35.thread119 ]
+  %reps.068 = phi i64 [ 1, %if.end35.thread ], [ %reps.1.lcssa, %if.end35 ], [ 1, %if.end35.thread119 ]
   %cmp.not.i = icmp eq i8 %previous_value.099, %7
   br i1 %cmp.not.i, label %if.end.i40, label %if.then.i
 
@@ -984,11 +984,11 @@ if.then.i:                                        ; preds = %if.else40
   %33 = load i64, ptr %tree_size, align 8
   %inc.i39 = add i64 %33, 1
   store i64 %inc.i39, ptr %tree_size, align 8
-  %dec.i = add i64 %reps.168, -1
+  %dec.i = add i64 %reps.068, -1
   br label %if.end.i40
 
 if.end.i40:                                       ; preds = %if.then.i, %if.else40
-  %repetitions.addr.0.i = phi i64 [ %dec.i, %if.then.i ], [ %reps.168, %if.else40 ]
+  %repetitions.addr.0.i = phi i64 [ %dec.i, %if.then.i ], [ %reps.068, %if.else40 ]
   %cmp4.i = icmp eq i64 %repetitions.addr.0.i, 7
   br i1 %cmp4.i, label %if.end11.thread.i, label %if.end11.i
 
@@ -1115,9 +1115,9 @@ while.body.i38.i:                                 ; preds = %Reverse.exit.i49, %
   br i1 %cmp.i45.i, label %while.body.i38.i, label %if.end41, !llvm.loop !25
 
 if.end41:                                         ; preds = %for.body.i63, %while.body.i38.i, %for.body.i33, %while.body.i29.i, %Reverse.exit.i49, %for.cond.preheader.i60, %Reverse.exit.i, %for.cond.preheader.i
-  %reps.167 = phi i64 [ 0, %for.cond.preheader.i ], [ %reps.16973, %Reverse.exit.i ], [ %reps.168, %for.cond.preheader.i60 ], [ %reps.168, %Reverse.exit.i49 ], [ %reps.16973, %while.body.i29.i ], [ %reps.169747780, %for.body.i33 ], [ %reps.168, %while.body.i38.i ], [ %reps.168, %for.body.i63 ]
+  %reps.067 = phi i64 [ 0, %for.cond.preheader.i ], [ %reps.06973, %Reverse.exit.i ], [ %reps.068, %for.cond.preheader.i60 ], [ %reps.068, %Reverse.exit.i49 ], [ %reps.06973, %while.body.i29.i ], [ %reps.069747780, %for.body.i33 ], [ %reps.068, %while.body.i38.i ], [ %reps.068, %for.body.i63 ]
   %previous_value.1 = phi i8 [ %previous_value.099, %for.cond.preheader.i ], [ %previous_value.099, %Reverse.exit.i ], [ %7, %for.cond.preheader.i60 ], [ %7, %Reverse.exit.i49 ], [ %previous_value.099, %while.body.i29.i ], [ %previous_value.099, %for.body.i33 ], [ %7, %while.body.i38.i ], [ %7, %for.body.i63 ]
-  %add42 = add i64 %reps.167, %i.197
+  %add42 = add i64 %reps.067, %i.197
   %cmp9 = icmp ult i64 %add42, %new_length.0.lcssa107
   br i1 %cmp9, label %for.body11, label %for.end43, !llvm.loop !27
 

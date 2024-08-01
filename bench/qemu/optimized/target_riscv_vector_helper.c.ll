@@ -76023,9 +76023,9 @@ while.body.i.preheader:                           ; preds = %while.cond.preheade
   %and.i41.i.masked.numleadingzeros = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %and.i41.i.masked, i1 true)
   %and.i41.i.masked.leadingonepos = xor i64 %and.i41.i.masked.numleadingzeros, 63
   %while.body.i.backedgetakencount = sub nuw nsw i64 8, %and.i41.i.masked.leadingonepos
-  %frac.087.i = shl nuw nsw i64 %and.i41.i, %while.body.i.backedgetakencount
+  %frac.187.i = shl nuw nsw i64 %and.i41.i, %while.body.i.backedgetakencount
   %22 = sub nsw i64 54, %and.i41.i.masked.numleadingzeros
-  %shl6.i = shl nuw nsw i64 %frac.087.i, 2
+  %shl6.i = shl nuw nsw i64 %frac.187.i, 2
   %and.i = and i64 %shl6.i, 1020
   br label %frsqrt7.exit
 
@@ -76035,18 +76035,18 @@ if.end.thread95.i:                                ; preds = %while.cond.preheade
   br label %frsqrt7.exit
 
 frsqrt7.exit:                                     ; preds = %if.end37.i.i, %if.end.thread95.i, %while.body.i.preheader
-  %exp.194.i = phi i64 [ %22, %while.body.i.preheader ], [ 0, %if.end.thread95.i ], [ %and.i31.i, %if.end37.i.i ]
-  %frac.193.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and99.i, %if.end.thread95.i ], [ %and.i41.i, %if.end37.i.i ]
-  %and9.i = shl nsw i64 %exp.194.i, 6
+  %exp.094.i = phi i64 [ %22, %while.body.i.preheader ], [ 0, %if.end.thread95.i ], [ %and.i31.i, %if.end37.i.i ]
+  %frac.093.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and99.i, %if.end.thread95.i ], [ %and.i41.i, %if.end37.i.i ]
+  %and9.i = shl nsw i64 %exp.094.i, 6
   %shl10.i = and i64 %and9.i, 64
-  %shr14.i = lshr i64 %frac.193.i, 4
+  %shr14.i = lshr i64 %frac.093.i, 4
   %or.i = or disjoint i64 %shl10.i, %shr14.i
   %arrayidx.i23 = getelementptr [128 x i8], ptr @__const.frsqrt7.lookup_table, i64 0, i64 %or.i
   %23 = load i8, ptr %arrayidx.i23, align 1
   %conv15.i = zext i8 %23 to i64
   %shl18.i = shl nuw nsw i64 %conv15.i, 3
   %24 = and i64 %shl18.i, 1016
-  %25 = shl nsw i64 %exp.194.i, 9
+  %25 = shl nsw i64 %exp.094.i, 9
   %26 = sub nsw i64 22528, %25
   %and8.i.i = and i64 %26, 31744
   %shr.i.i = and i64 %conv38.i.i, 32768
@@ -76216,9 +76216,9 @@ while.body.i.preheader:                           ; preds = %while.cond.preheade
   %and.i41.i.masked.numleadingzeros = tail call range(i64 42, 65) i64 @llvm.ctlz.i64(i64 %and.i41.i.masked, i1 true)
   %and.i41.i.masked.leadingonepos = xor i64 %and.i41.i.masked.numleadingzeros, 63
   %while.body.i.backedgetakencount = sub nuw nsw i64 21, %and.i41.i.masked.leadingonepos
-  %frac.087.i = shl nuw nsw i64 %and.i41.i, %while.body.i.backedgetakencount
+  %frac.187.i = shl nuw nsw i64 %and.i41.i, %while.body.i.backedgetakencount
   %19 = sub nsw i64 41, %and.i41.i.masked.numleadingzeros
-  %shl6.i = shl nuw nsw i64 %frac.087.i, 2
+  %shl6.i = shl nuw nsw i64 %frac.187.i, 2
   %and.i = and i64 %shl6.i, 8388604
   br label %frsqrt7.exit
 
@@ -76228,18 +76228,18 @@ if.end.thread95.i:                                ; preds = %while.cond.preheade
   br label %frsqrt7.exit
 
 frsqrt7.exit:                                     ; preds = %if.end37.i.i, %if.end.thread95.i, %while.body.i.preheader
-  %exp.194.i = phi i64 [ %19, %while.body.i.preheader ], [ 0, %if.end.thread95.i ], [ %and.i31.i, %if.end37.i.i ]
-  %frac.193.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and99.i, %if.end.thread95.i ], [ %and.i41.i, %if.end37.i.i ]
-  %and9.i = shl nsw i64 %exp.194.i, 6
+  %exp.094.i = phi i64 [ %19, %while.body.i.preheader ], [ 0, %if.end.thread95.i ], [ %and.i31.i, %if.end37.i.i ]
+  %frac.093.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and99.i, %if.end.thread95.i ], [ %and.i41.i, %if.end37.i.i ]
+  %and9.i = shl nsw i64 %exp.094.i, 6
   %shl10.i = and i64 %and9.i, 64
-  %shr14.i = lshr i64 %frac.193.i, 17
+  %shr14.i = lshr i64 %frac.093.i, 17
   %or.i = or disjoint i64 %shl10.i, %shr14.i
   %arrayidx.i25 = getelementptr [128 x i8], ptr @__const.frsqrt7.lookup_table, i64 0, i64 %or.i
   %20 = load i8, ptr %arrayidx.i25, align 1
   %conv15.i = zext i8 %20 to i64
   %shl18.i = shl nuw nsw i64 %conv15.i, 16
   %21 = and i64 %shl18.i, 8323072
-  %22 = shl nsw i64 %exp.194.i, 22
+  %22 = shl nsw i64 %exp.094.i, 22
   %23 = sub nsw i64 1593835520, %22
   %and8.i.i = and i64 %23, 2139095040
   %shr.i.i = and i64 %conv38.i.i, 2147483648
@@ -76407,9 +76407,9 @@ while.body.i.preheader:                           ; preds = %while.cond.preheade
   %and.i41.i.masked.numleadingzeros = tail call range(i64 13, 65) i64 @llvm.ctlz.i64(i64 %and.i41.i.masked, i1 true)
   %and.i41.i.masked.leadingonepos = xor i64 %and.i41.i.masked.numleadingzeros, 63
   %while.body.i.backedgetakencount = sub nuw nsw i64 50, %and.i41.i.masked.leadingonepos
-  %frac.087.i = shl i64 %11, %while.body.i.backedgetakencount
+  %frac.187.i = shl i64 %11, %while.body.i.backedgetakencount
   %19 = sub nsw i64 12, %and.i41.i.masked.numleadingzeros
-  %shl6.i = shl i64 %frac.087.i, 2
+  %shl6.i = shl i64 %frac.187.i, 2
   %and.i = and i64 %shl6.i, 4503599627370492
   br label %frsqrt7.exit
 
@@ -76419,18 +76419,18 @@ if.end.thread95.i:                                ; preds = %while.cond.preheade
   br label %frsqrt7.exit
 
 frsqrt7.exit:                                     ; preds = %if.end37.i.i, %if.end.thread95.i, %while.body.i.preheader
-  %exp.194.i = phi i64 [ %19, %while.body.i.preheader ], [ 0, %if.end.thread95.i ], [ %and.i31.i, %if.end37.i.i ]
-  %frac.193.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and99.i, %if.end.thread95.i ], [ %and.i41.i, %if.end37.i.i ]
-  %and9.i = shl nsw i64 %exp.194.i, 6
+  %exp.094.i = phi i64 [ %19, %while.body.i.preheader ], [ 0, %if.end.thread95.i ], [ %and.i31.i, %if.end37.i.i ]
+  %frac.093.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and99.i, %if.end.thread95.i ], [ %and.i41.i, %if.end37.i.i ]
+  %and9.i = shl nsw i64 %exp.094.i, 6
   %shl10.i = and i64 %and9.i, 64
-  %shr14.i = lshr i64 %frac.193.i, 46
+  %shr14.i = lshr i64 %frac.093.i, 46
   %or.i = or disjoint i64 %shl10.i, %shr14.i
   %arrayidx.i25 = getelementptr [128 x i8], ptr @__const.frsqrt7.lookup_table, i64 0, i64 %or.i
   %20 = load i8, ptr %arrayidx.i25, align 1
   %conv15.i = zext i8 %20 to i64
   %shl18.i = shl nuw nsw i64 %conv15.i, 45
   %21 = and i64 %shl18.i, 4468415255281664
-  %22 = shl nsw i64 %exp.194.i, 51
+  %22 = shl nsw i64 %exp.094.i, 51
   %23 = sub i64 6908521828386340864, %22
   %and8.i.i = and i64 %23, 9218868437227405312
   %shr.i.i = and i64 %11, -9223372036854775808
@@ -100197,18 +100197,18 @@ while.end.thread:                                 ; preds = %while.cond.preheade
   br label %if.end49
 
 while.body:                                       ; preds = %while.cond.preheader.split, %while.body
-  %exp.0115 = phi i64 [ %dec, %while.body ], [ 0, %while.cond.preheader.split ]
-  %frac.0114 = phi i64 [ %shl, %while.body ], [ %and.i68, %while.cond.preheader.split ]
-  %dec = add i64 %exp.0115, -1
-  %shl = shl i64 %frac.0114, 1
+  %exp.1115 = phi i64 [ %dec, %while.body ], [ 0, %while.cond.preheader.split ]
+  %frac.1114 = phi i64 [ %shl, %while.body ], [ %and.i68, %while.cond.preheader.split ]
+  %dec = add i64 %exp.1115, -1
+  %shl = shl i64 %frac.1114, 1
   %3 = and i64 %shl, %1
   %cmp5 = icmp eq i64 %3, 0
   br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !627
 
 while.end:                                        ; preds = %while.body
-  %shl6 = shl i64 %frac.0114, 2
+  %shl6 = shl i64 %frac.1114, 2
   %and = and i64 %shl6, %shr6.i67
-  %or.cond1 = icmp ugt i64 %exp.0115, 1
+  %or.cond1 = icmp ugt i64 %exp.1115, 1
   br i1 %or.cond1, label %if.then12, label %if.end49
 
 if.then12:                                        ; preds = %while.end
@@ -100244,11 +100244,11 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %return
 
 if.end49:                                         ; preds = %while.end.thread, %while.end, %extract64.exit70
-  %frac.1 = phi i64 [ %and, %while.end ], [ %and.i68, %extract64.exit70 ], [ %and120, %while.end.thread ]
-  %exp.1 = phi i64 [ %dec, %while.end ], [ %and.i58, %extract64.exit70 ], [ 0, %while.end.thread ]
+  %frac.0 = phi i64 [ %and, %while.end ], [ %and.i68, %extract64.exit70 ], [ %and120, %while.end.thread ]
+  %exp.0 = phi i64 [ %dec, %while.end ], [ %and.i58, %extract64.exit70 ], [ 0, %while.end.thread ]
   %sub50 = add nsw i32 %frac_size, -7
   %sh_prom51 = zext nneg i32 %sub50 to i64
-  %shr52 = lshr i64 %frac.1, %sh_prom51
+  %shr52 = lshr i64 %frac.0, %sh_prom51
   %sext = shl i64 %shr52, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr [128 x i8], ptr @__const.frec7.lookup_table, i64 0, i64 %idxprom
@@ -100259,9 +100259,9 @@ if.end49:                                         ; preds = %while.end.thread, %
   %sh_prom60 = zext nneg i32 %sub59 to i64
   %shr61 = lshr i64 -1, %sh_prom60
   %mul = shl nuw nsw i64 %shr61, 1
-  %not = xor i64 %exp.1, -1
+  %not = xor i64 %exp.0, -1
   %add63 = add i64 %mul, %not
-  %8 = sub i64 %mul, %exp.1
+  %8 = sub i64 %mul, %exp.0
   %or.cond4 = icmp ult i64 %8, 2
   br i1 %or.cond4, label %if.then69, label %if.end80
 

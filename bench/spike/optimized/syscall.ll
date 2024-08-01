@@ -1060,7 +1060,7 @@ define noundef i64 @_ZN9syscall_t10sys_getcwdEmmmmmmm(ptr nocapture noundef nonn
 
 43:                                               ; preds = %27, %38
   %44 = phi i64 [ %39, %38 ], [ %29, %27 ]
-  %.0 = phi i64 [ %40, %38 ], [ -12, %27 ]
+  %.1 = phi i64 [ %40, %38 ], [ -12, %27 ]
   %45 = load ptr, ptr %11, align 8
   %46 = getelementptr inbounds i8, ptr %11, i64 16
   %47 = icmp eq ptr %45, %46
@@ -1080,7 +1080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %49
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %16
-  %.1 = phi i64 [ %20, %16 ], [ %.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.0 = phi i64 [ %20, %16 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %50 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %51
@@ -1091,7 +1091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %49, %51
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  ret i64 %.1
+  ret i64 %.0
 
 52:                                               ; preds = %41, %23
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %24, %23 ]

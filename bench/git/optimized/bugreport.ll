@@ -508,7 +508,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end79, !llvm.loop !7
 
 if.end79:                                         ; preds = %do.body.i, %do.cond.i, %if.end72
-  %user_relative_path.1 = phi ptr [ %.pre47, %if.end72 ], [ %str.addr.0.i, %do.body.i ], [ %.pre47, %do.cond.i ]
+  %user_relative_path.0 = phi ptr [ %.pre47, %if.end72 ], [ %str.addr.0.i, %do.body.i ], [ %.pre47, %do.cond.i ]
   %47 = load ptr, ptr @stderr, align 8
   %48 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i39 = icmp eq i32 %48, 0
@@ -520,7 +520,7 @@ if.end3.i40:                                      ; preds = %if.end79
 
 _.exit43:                                         ; preds = %if.end79, %if.end3.i40
   %retval.0.i42 = phi ptr [ %call.i41, %if.end3.i40 ], [ @.str.21, %if.end79 ]
-  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef %retval.0.i42, ptr noundef %user_relative_path.1) #16
+  %call81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef %retval.0.i42, ptr noundef %user_relative_path.0) #16
   call void @free(ptr noundef %call44) #12
   call void @strbuf_release(ptr noundef nonnull %buffer) #12
   %49 = load ptr, ptr %buf, align 8

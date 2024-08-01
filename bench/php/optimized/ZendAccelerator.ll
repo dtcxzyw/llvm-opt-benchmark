@@ -1329,7 +1329,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br label %129
 
 129:                                              ; preds = %119, %128, %123, %116
-  %.0191 = phi ptr [ %117, %116 ], [ null, %123 ], [ null, %128 ], [ null, %119 ]
+  %.1192 = phi ptr [ %117, %116 ], [ null, %123 ], [ null, %128 ], [ null, %119 ]
   call void @zend_shared_alloc_unlock() #24
   %130 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
   %131 = trunc i8 %130 to i1
@@ -1352,7 +1352,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br label %139
 
 139:                                              ; preds = %133, %138
-  %.not239 = icmp eq ptr %.0191, null
+  %.not239 = icmp eq ptr %.1192, null
   br i1 %.not239, label %331, label %..thread267_crit_edge
 
 ..thread267_crit_edge:                            ; preds = %139
@@ -1361,9 +1361,9 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 
 .thread267:                                       ; preds = %99, %..thread267_crit_edge, %61
   %140 = phi ptr [ %.pre301, %..thread267_crit_edge ], [ %58, %61 ], [ %.pre299, %99 ]
-  %.1192270 = phi ptr [ %.0191, %..thread267_crit_edge ], [ %.0.i260.ph306, %61 ], [ %90, %99 ]
+  %.0191270 = phi ptr [ %.1192, %..thread267_crit_edge ], [ %.0.i260.ph306, %61 ], [ %90, %99 ]
   %141 = getelementptr inbounds i8, ptr %3, i64 31
-  %142 = ptrtoint ptr %.1192270 to i64
+  %142 = ptrtoint ptr %.0191270 to i64
   %143 = getelementptr inbounds i8, ptr %140, i64 168
   %144 = ptrtoint ptr %143 to i64
   %145 = sub i64 %142, %144
@@ -1569,7 +1569,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br label %253
 
 253:                                              ; preds = %240, %251, %252, %244, %236
-  %.0189 = phi ptr [ %237, %236 ], [ null, %244 ], [ null, %252 ], [ null, %251 ], [ null, %240 ]
+  %.1 = phi ptr [ %237, %236 ], [ null, %244 ], [ null, %252 ], [ null, %251 ], [ null, %240 ]
   call void @zend_shared_alloc_unlock() #24
   %254 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
   %255 = trunc i8 %254 to i1
@@ -1592,7 +1592,7 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
   br label %263
 
 263:                                              ; preds = %257, %262
-  %.not251 = icmp eq ptr %.0189, null
+  %.not251 = icmp eq ptr %.1, null
   br i1 %.not251, label %331, label %..thread276_crit_edge
 
 ..thread276_crit_edge:                            ; preds = %263
@@ -1601,9 +1601,9 @@ php_is_stream_path.exit.thread:                   ; preds = %14, %16, %php_is_st
 
 .thread276:                                       ; preds = %218, %..thread276_crit_edge, %180
   %264 = phi ptr [ %.pre304, %..thread276_crit_edge ], [ %177, %180 ], [ %.pre302, %218 ]
-  %.1279 = phi ptr [ %.0189, %..thread276_crit_edge ], [ %163, %180 ], [ %209, %218 ]
+  %.0189279 = phi ptr [ %.1, %..thread276_crit_edge ], [ %163, %180 ], [ %209, %218 ]
   %265 = getelementptr inbounds i8, ptr %4, i64 31
-  %266 = ptrtoint ptr %.1279 to i64
+  %266 = ptrtoint ptr %.0189279 to i64
   %267 = getelementptr inbounds i8, ptr %264, i64 168
   %268 = ptrtoint ptr %267 to i64
   %269 = sub i64 %266, %268
@@ -3045,7 +3045,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not155, label %.critedge.thread, label %.thread191
 
 .critedge.thread:                                 ; preds = %106, %97, %99, %php_is_stream_path.exit, %is_cacheable_stream_path.exit, %.critedge
-  %.0133190 = phi ptr [ %88, %.critedge ], [ null, %is_cacheable_stream_path.exit ], [ null, %php_is_stream_path.exit ], [ null, %99 ], [ null, %97 ], [ null, %106 ]
+  %.1134190 = phi ptr [ %88, %.critedge ], [ null, %is_cacheable_stream_path.exit ], [ null, %php_is_stream_path.exit ], [ null, %99 ], [ null, %97 ], [ null, %106 ]
   %114 = getelementptr inbounds i8, ptr %0, i64 56
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, 0
@@ -3092,7 +3092,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
 136:                                              ; preds = %132
   %137 = getelementptr inbounds i8, ptr %135, i64 24
   %138 = load ptr, ptr %137, align 8
-  %.not158 = icmp eq ptr %.0133190, null
+  %.not158 = icmp eq ptr %.1134190, null
   br i1 %.not158, label %159, label %139
 
 139:                                              ; preds = %136
@@ -3115,7 +3115,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
 
 149:                                              ; preds = %143, %148
   call void @zend_shared_alloc_lock() #24
-  call fastcc void @zend_accel_add_key(ptr noundef nonnull %.0133190, ptr noundef nonnull %135)
+  call fastcc void @zend_accel_add_key(ptr noundef nonnull %.1134190, ptr noundef nonnull %135)
   call void @zend_shared_alloc_unlock() #24
   %150 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
   %151 = trunc i8 %150 to i1
@@ -3138,8 +3138,8 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br label %.thread191
 
 .thread191:                                       ; preds = %.critedge, %139, %158, %153, %82
-  %.1134.ph = phi ptr [ %spec.select, %82 ], [ %.0133190, %153 ], [ %.0133190, %158 ], [ %.0133190, %139 ], [ %88, %.critedge ]
-  %.1.ph = phi ptr [ %64, %82 ], [ %138, %153 ], [ %138, %158 ], [ %138, %139 ], [ %113, %.critedge ]
+  %.0133.ph = phi ptr [ %spec.select, %82 ], [ %.1134190, %153 ], [ %.1134190, %158 ], [ %.1134190, %139 ], [ %88, %.critedge ]
+  %.0132.ph = phi ptr [ %64, %82 ], [ %138, %153 ], [ %138, %158 ], [ %138, %139 ], [ %113, %.critedge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %160
 
@@ -3153,16 +3153,16 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not161, label %164, label %160
 
 160:                                              ; preds = %.thread191, %159
-  %.1197 = phi ptr [ %.1.ph, %.thread191 ], [ %138, %159 ]
-  %.1134195 = phi ptr [ %.1134.ph, %.thread191 ], [ null, %159 ]
-  %161 = getelementptr inbounds i8, ptr %.1197, i64 384
+  %.0132197 = phi ptr [ %.0132.ph, %.thread191 ], [ %138, %159 ]
+  %.0133195 = phi ptr [ %.0133.ph, %.thread191 ], [ null, %159 ]
+  %161 = getelementptr inbounds i8, ptr %.0132197, i64 384
   %162 = load i8, ptr %161, align 8
   %163 = trunc i8 %162 to i1
-  %spec.store.select = select i1 %163, ptr null, ptr %.1197
+  %spec.store.select = select i1 %163, ptr null, ptr %.0132197
   br label %164
 
 164:                                              ; preds = %.thread199, %160, %159
-  %.1134196 = phi ptr [ %.1134195, %160 ], [ null, %159 ], [ %.0133190, %.thread199 ]
+  %.0133196 = phi ptr [ %.0133195, %160 ], [ null, %159 ], [ %.1134190, %.thread199 ]
   %.2 = phi ptr [ %spec.store.select, %160 ], [ null, %159 ], [ null, %.thread199 ]
   %165 = load i8, ptr @accel_globals, align 8
   %166 = trunc i8 %165 to i1
@@ -3383,7 +3383,7 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   br i1 %.not166, label %.thread215, label %273
 
 273:                                              ; preds = %272
-  %274 = call fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %266, ptr noundef %.1134196, ptr noundef nonnull %5)
+  %274 = call fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %266, ptr noundef %.0133196, ptr noundef nonnull %5)
   %.not167 = icmp eq ptr %274, null
   br i1 %.not167, label %.thread215, label %286
 
@@ -4815,7 +4815,7 @@ define internal fastcc void @accel_interned_strings_restore_state() unnamed_addr
   br i1 %19, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %0, %32
-  %.021 = phi i32 [ %55, %32 ], [ 0, %0 ]
+  %.1 = phi i32 [ %55, %32 ], [ 0, %0 ]
   %.0 = phi ptr [ %54, %32 ], [ %15, %0 ]
   %20 = getelementptr inbounds i8, ptr %.0, i64 4
   %21 = load i32, ptr %20, align 4
@@ -4866,7 +4866,7 @@ define internal fastcc void @accel_interned_strings_restore_state() unnamed_addr
   %52 = add i64 %51, 36
   %53 = and i64 %52, -8
   %54 = getelementptr inbounds i8, ptr %.0, i64 %53
-  %55 = add i32 %.021, 1
+  %55 = add i32 %.1, 1
   %56 = icmp ult ptr %54, %11
   br i1 %56, label %.preheader, label %.loopexit.loopexit
 
@@ -4876,9 +4876,9 @@ define internal fastcc void @accel_interned_strings_restore_state() unnamed_addr
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %0
   %57 = phi ptr [ %9, %0 ], [ %.pre26, %.loopexit.loopexit ]
-  %.1 = phi i32 [ 0, %0 ], [ %55, %.loopexit.loopexit ]
+  %.021 = phi i32 [ 0, %0 ], [ %55, %.loopexit.loopexit ]
   %58 = getelementptr inbounds i8, ptr %57, i64 172
-  store i32 %.1, ptr %58, align 4
+  store i32 %.021, ptr %58, align 4
   ret void
 }
 
@@ -7221,7 +7221,7 @@ define internal ptr @zend_accel_inheritance_cache_get(ptr nocapture noundef read
 .lr.ph104:                                        ; preds = %.preheader, %38
   %30 = phi ptr [ %34, %38 ], [ %27, %.preheader ]
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %38 ], [ 0, %.preheader ]
-  %.059102 = phi i1 [ %.160, %38 ], [ false, %.preheader ]
+  %.160102 = phi i1 [ %.2, %38 ], [ false, %.preheader ]
   %31 = getelementptr inbounds %struct._zend_class_dependency, ptr %30, i64 %indvars.iv131
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @zend_lookup_class_ex(ptr noundef %32, ptr noundef null, i32 noundef 128) #24
@@ -7236,7 +7236,7 @@ define internal ptr @zend_accel_inheritance_cache_get(ptr nocapture noundef read
   br i1 %.not71, label %38, label %.loopexit
 
 38:                                               ; preds = %37, %.lr.ph104
-  %.160 = phi i1 [ %.059102, %.lr.ph104 ], [ true, %37 ]
+  %.2 = phi i1 [ %.160102, %.lr.ph104 ], [ true, %37 ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %39 = load i32, ptr %28, align 8
   %40 = zext i32 %39 to i64
@@ -7249,7 +7249,7 @@ define internal ptr @zend_accel_inheritance_cache_get(ptr nocapture noundef read
   br i1 %.not66, label %.loopexit91, label %13
 
 .preheader._crit_edge:                            ; preds = %38
-  br i1 %.160, label %.preheader90, label %.thread85
+  br i1 %.2, label %.preheader90, label %.thread85
 
 .preheader90:                                     ; preds = %.preheader._crit_edge
   %.not118 = icmp eq i32 %39, 0
@@ -7490,7 +7490,7 @@ accel_restart_is_active.exit:                     ; preds = %32
 .lr.ph187.us:                                     ; preds = %.preheader.us, %86
   %78 = phi ptr [ %82, %86 ], [ %77, %.preheader.us ]
   %indvars.iv226 = phi i64 [ %indvars.iv.next227, %86 ], [ 0, %.preheader.us ]
-  %.0124185.us = phi i1 [ %.1125.us, %86 ], [ false, %.preheader.us ]
+  %.1125185.us = phi i1 [ %.2.us, %86 ], [ false, %.preheader.us ]
   %79 = getelementptr inbounds %struct._zend_class_dependency, ptr %78, i64 %indvars.iv226
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @zend_lookup_class_ex(ptr noundef %80, ptr noundef null, i32 noundef 128) #24
@@ -7505,7 +7505,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   br i1 %.not155.us, label %86, label %.loopexit171.us
 
 86:                                               ; preds = %85, %.lr.ph187.us
-  %.1125.us = phi i1 [ %.0124185.us, %.lr.ph187.us ], [ true, %85 ]
+  %.2.us = phi i1 [ %.1125185.us, %.lr.ph187.us ], [ true, %85 ]
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %87 = load i32, ptr %96, align 8
   %88 = zext i32 %87 to i64
@@ -7545,7 +7545,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   br label %90
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.us, %86
-  %.2 = phi i1 [ %.1125.us, %86 ], [ false, %.preheader.us ], [ false, %._crit_edge.us ]
+  %.0124 = phi i1 [ %.2.us, %86 ], [ false, %.preheader.us ], [ false, %._crit_edge.us ]
   call void @zend_shared_alloc_unlock() #24
   %102 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 54), align 2
   %103 = trunc i8 %102 to i1
@@ -7556,7 +7556,7 @@ accel_restart_is_active.exit:                     ; preds = %32
   br label %105
 
 105:                                              ; preds = %.loopexit, %104
-  br i1 %.2, label %232, label %106
+  br i1 %.0124, label %232, label %106
 
 106:                                              ; preds = %105
   %107 = load ptr, ptr @accel_shared_globals, align 8
@@ -9960,8 +9960,8 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
   br label %388
 
 388:                                              ; preds = %466, %.lr.ph.i156
-  %.0108.i = phi ptr [ null, %.lr.ph.i156 ], [ %.2.i158, %466 ]
-  %.077107.i = phi i1 [ false, %.lr.ph.i156 ], [ %.279.i, %466 ]
+  %.0108.i = phi ptr [ null, %.lr.ph.i156 ], [ %.1.i158, %466 ]
+  %.077107.i = phi i1 [ false, %.lr.ph.i156 ], [ %.178.i, %466 ]
   %.080106.i = phi ptr [ %383, %.lr.ph.i156 ], [ %389, %466 ]
   %.081105.i = phi i32 [ %376, %.lr.ph.i156 ], [ %467, %466 ]
   %389 = getelementptr inbounds i8, ptr %.080106.i, i64 -32
@@ -10033,7 +10033,7 @@ preload_try_strip_filename.exit.i:                ; preds = %.preheader.i.i
   br i1 %.077107.i, label %.thread99.i, label %.thread.i
 
 .thread99.i:                                      ; preds = %423, %420, %401
-  %.1103.i = phi ptr [ %.0108.i, %423 ], [ %399, %401 ], [ %399, %420 ]
+  %.2103.i = phi ptr [ %.0108.i, %423 ], [ %399, %401 ], [ %399, %420 ]
   %424 = getelementptr inbounds i8, ptr %.080106.i, i64 -8
   %425 = load ptr, ptr %424, align 8
   %426 = load i32, ptr %371, align 8
@@ -10101,19 +10101,19 @@ preload_try_strip_filename.exit.i:                ; preds = %.preheader.i.i
   br label %465
 
 .thread.i:                                        ; preds = %423, %420, %preload_try_strip_filename.exit.i, %408, %404, %400
-  %.198.i = phi ptr [ %.0108.i, %423 ], [ null, %400 ], [ %399, %408 ], [ %399, %404 ], [ %399, %420 ], [ %399, %preload_try_strip_filename.exit.i ]
+  %.298.i = phi ptr [ %.0108.i, %423 ], [ null, %400 ], [ %399, %408 ], [ %399, %404 ], [ %399, %420 ], [ %399, %preload_try_strip_filename.exit.i ]
   call void %370(ptr noundef nonnull %389) #24
   br label %465
 
 465:                                              ; preds = %.thread.i, %448
-  %.197.i = phi ptr [ %.198.i, %.thread.i ], [ %.1103.i, %448 ]
-  %.17895.i = phi i1 [ false, %.thread.i ], [ true, %448 ]
+  %.297.i = phi ptr [ %.298.i, %.thread.i ], [ %.2103.i, %448 ]
+  %.27995.i = phi i1 [ false, %.thread.i ], [ true, %448 ]
   call void @zend_hash_del_bucket(ptr noundef %367, ptr noundef nonnull %389) #24
   br label %466
 
 466:                                              ; preds = %465, %388
-  %.279.i = phi i1 [ %.077107.i, %388 ], [ %.17895.i, %465 ]
-  %.2.i158 = phi ptr [ %.0108.i, %388 ], [ %.197.i, %465 ]
+  %.178.i = phi i1 [ %.077107.i, %388 ], [ %.27995.i, %465 ]
+  %.1.i158 = phi ptr [ %.0108.i, %388 ], [ %.297.i, %465 ]
   %467 = add i32 %.081105.i, -1
   %.not84.i = icmp eq i32 %467, 0
   br i1 %.not84.i, label %preload_move_user_functions.exit, label %388
@@ -10155,8 +10155,8 @@ preload_move_user_functions.exit:                 ; preds = %393, %466, %preload
   br label %492
 
 492:                                              ; preds = %570, %.lr.ph.i160
-  %.0110.i = phi ptr [ null, %.lr.ph.i160 ], [ %.2.i163, %570 ]
-  %.081109.i = phi i1 [ false, %.lr.ph.i160 ], [ %.283.i, %570 ]
+  %.0110.i = phi ptr [ null, %.lr.ph.i160 ], [ %.1.i163, %570 ]
+  %.081109.i = phi i1 [ false, %.lr.ph.i160 ], [ %.182.i, %570 ]
   %.084108.i = phi ptr [ %487, %.lr.ph.i160 ], [ %571, %570 ]
   %493 = getelementptr inbounds i8, ptr %.084108.i, i64 8
   %494 = load i8, ptr %493, align 8
@@ -10224,7 +10224,7 @@ preload_try_strip_filename.exit.i172:             ; preds = %.preheader.i.i169
   br i1 %.081109.i, label %.thread102.i, label %.thread.i166
 
 .thread102.i:                                     ; preds = %525, %522, %503
-  %.1106.i = phi ptr [ %.0110.i, %525 ], [ %501, %503 ], [ %501, %522 ]
+  %.2106.i = phi ptr [ %.0110.i, %525 ], [ %501, %503 ], [ %501, %522 ]
   %526 = getelementptr inbounds i8, ptr %.084108.i, i64 24
   %527 = load ptr, ptr %526, align 8
   %528 = load i32, ptr %472, align 8
@@ -10294,19 +10294,19 @@ preload_try_strip_filename.exit.i172:             ; preds = %.preheader.i.i169
   br label %569
 
 .thread.i166:                                     ; preds = %525, %522, %preload_try_strip_filename.exit.i172, %510, %506, %502
-  %.1101.i = phi ptr [ %.0110.i, %525 ], [ null, %502 ], [ %501, %510 ], [ %501, %506 ], [ %501, %522 ], [ %501, %preload_try_strip_filename.exit.i172 ]
+  %.2101.i = phi ptr [ %.0110.i, %525 ], [ null, %502 ], [ %501, %510 ], [ %501, %506 ], [ %501, %522 ], [ %501, %preload_try_strip_filename.exit.i172 ]
   call void %471(ptr noundef nonnull %.084108.i) #24
   br label %569
 
 569:                                              ; preds = %.thread.i166, %552
-  %.1100.i = phi ptr [ %.1101.i, %.thread.i166 ], [ %.1106.i, %552 ]
-  %.18298.i = phi i1 [ false, %.thread.i166 ], [ true, %552 ]
+  %.2100.i = phi ptr [ %.2101.i, %.thread.i166 ], [ %.2106.i, %552 ]
+  %.28398.i = phi i1 [ false, %.thread.i166 ], [ true, %552 ]
   call void @zend_hash_del_bucket(ptr noundef %468, ptr noundef nonnull %.084108.i) #24
   br label %570
 
 570:                                              ; preds = %569, %492
-  %.283.i = phi i1 [ %.081109.i, %492 ], [ %.18298.i, %569 ]
-  %.2.i163 = phi ptr [ %.0110.i, %492 ], [ %.1100.i, %569 ]
+  %.182.i = phi i1 [ %.081109.i, %492 ], [ %.28398.i, %569 ]
+  %.1.i163 = phi ptr [ %.0110.i, %492 ], [ %.2100.i, %569 ]
   %571 = getelementptr inbounds i8, ptr %.084108.i, i64 32
   %.not87.i164 = icmp eq ptr %571, %482
   br i1 %.not87.i164, label %preload_move_user_classes.exit, label %492
@@ -11039,7 +11039,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %.lr.ph339
 
 .lr.ph339:                                        ; preds = %.lr.ph339.preheader, %194
-  %.0231337 = phi i1 [ %.2, %194 ], [ false, %.lr.ph339.preheader ]
+  %.0231337 = phi i1 [ %.1, %194 ], [ false, %.lr.ph339.preheader ]
   %.0232336 = phi ptr [ %195, %194 ], [ %18, %.lr.ph339.preheader ]
   %19 = getelementptr inbounds i8, ptr %.0232336, i64 8
   %20 = load i8, ptr %19, align 8
@@ -11355,7 +11355,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %181
 
 181:                                              ; preds = %._crit_edge, %137
-  %.1 = phi i1 [ true, %137 ], [ %.0231337, %._crit_edge ]
+  %.2 = phi i1 [ true, %137 ], [ %.0231337, %._crit_edge ]
   store ptr %134, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
@@ -11389,13 +11389,13 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %194
 
 194:                                              ; preds = %181, %192, %193, %185, %.loopexit392, %111, %112, %104, %41, %52, %53, %45, %22, %.lr.ph339
-  %.2 = phi i1 [ %.0231337, %.lr.ph339 ], [ %.0231337, %112 ], [ %.0231337, %111 ], [ %.0231337, %104 ], [ %.0231337, %.loopexit392 ], [ %.1, %193 ], [ %.1, %192 ], [ %.1, %185 ], [ %.1, %181 ], [ %.0231337, %53 ], [ %.0231337, %52 ], [ %.0231337, %45 ], [ %.0231337, %41 ], [ %.0231337, %22 ]
+  %.1 = phi i1 [ %.0231337, %.lr.ph339 ], [ %.0231337, %112 ], [ %.0231337, %111 ], [ %.0231337, %104 ], [ %.0231337, %.loopexit392 ], [ %.2, %193 ], [ %.2, %192 ], [ %.2, %185 ], [ %.2, %181 ], [ %.0231337, %53 ], [ %.0231337, %52 ], [ %.0231337, %45 ], [ %.0231337, %41 ], [ %.0231337, %22 ]
   %195 = getelementptr inbounds i8, ptr %.0232336, i64 32
   %.not242 = icmp eq ptr %195, %13
   br i1 %.not242, label %._crit_edge340, label %.lr.ph339
 
 ._crit_edge340:                                   ; preds = %194
-  br i1 %.2, label %5, label %.preheader
+  br i1 %.1, label %5, label %.preheader
 
 .preheader:                                       ; preds = %5, %._crit_edge340
   %196 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
@@ -11432,7 +11432,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %.lr.ph349
 
 .lr.ph349:                                        ; preds = %.lr.ph349.preheader, %314
-  %.3347 = phi i1 [ %.5, %314 ], [ false, %.lr.ph349.preheader ]
+  %.3347 = phi i1 [ %.4, %314 ], [ false, %.lr.ph349.preheader ]
   %.0234346 = phi i32 [ %315, %314 ], [ %205, %.lr.ph349.preheader ]
   %.0235345 = phi ptr [ %213, %314 ], [ %212, %.lr.ph349.preheader ]
   %213 = getelementptr inbounds i8, ptr %.0235345, i64 -32
@@ -11543,7 +11543,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
 .lr.ph91.i:                                       ; preds = %262, %277
   %264 = phi i32 [ %278, %277 ], [ %263, %262 ]
   %indvars.iv.i286 = phi i64 [ %indvars.iv.next.i287, %277 ], [ 0, %262 ]
-  %.290.i = phi i8 [ %.3.i, %277 ], [ %.057.lcssa115.i, %262 ]
+  %.390.i = phi i8 [ %.4.i, %277 ], [ %.057.lcssa115.i, %262 ]
   %.05989.i = phi i1 [ %.160.i, %277 ], [ true, %262 ]
   %265 = load ptr, ptr %230, align 8
   %266 = getelementptr inbounds %struct._zval_struct, ptr %265, i64 %indvars.iv.i286
@@ -11561,14 +11561,14 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   %276 = call i32 @zval_update_constant_ex(ptr noundef nonnull %266, ptr noundef %275) #24
   %.not77.i = icmp eq i32 %276, 0
   %spec.select.i = select i1 %.not77.i, i1 %.05989.i, i1 false
-  %spec.select78.i = select i1 %.not77.i, i8 %.290.i, i8 0
+  %spec.select78.i = select i1 %.not77.i, i8 %.390.i, i8 0
   %.pre.i = load i32, ptr %229, align 8
   br label %277
 
 277:                                              ; preds = %270, %.lr.ph91.i
   %278 = phi i32 [ %264, %.lr.ph91.i ], [ %.pre.i, %270 ]
   %.160.i = phi i1 [ %.05989.i, %.lr.ph91.i ], [ %spec.select.i, %270 ]
-  %.3.i = phi i8 [ %.290.i, %.lr.ph91.i ], [ %spec.select78.i, %270 ]
+  %.4.i = phi i8 [ %.390.i, %.lr.ph91.i ], [ %spec.select78.i, %270 ]
   %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i286, 1
   %279 = zext i32 %278 to i64
   %280 = icmp ult i64 %indvars.iv.next.i287, %279
@@ -11584,7 +11584,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br label %284
 
 284:                                              ; preds = %281, %._crit_edge92.i, %262
-  %.4.i = phi i8 [ %.3.i, %281 ], [ %.3.i, %._crit_edge92.i ], [ %.057.lcssa115.i, %262 ]
+  %.2.i = phi i8 [ %.4.i, %281 ], [ %.4.i, %._crit_edge92.i ], [ %.057.lcssa115.i, %262 ]
   %285 = load i32, ptr %232, align 4
   %.not73.i288 = icmp eq i32 %285, 0
   br i1 %.not73.i288, label %305, label %286
@@ -11611,7 +11611,7 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
 .lr.ph103.i:                                      ; preds = %301, %.lr.ph103.preheader.i
   %.0100.i = phi i1 [ %.1.i, %301 ], [ true, %.lr.ph103.preheader.i ]
   %.05699.i = phi i32 [ %302, %301 ], [ %292, %.lr.ph103.preheader.i ]
-  %.598.i = phi i8 [ %.6.i, %301 ], [ %.4.i, %.lr.ph103.preheader.i ]
+  %.598.i = phi i8 [ %.6.i, %301 ], [ %.2.i, %.lr.ph103.preheader.i ]
   %.pn97.i = phi ptr [ %.068101.i, %301 ], [ %295, %.lr.ph103.preheader.i ]
   %.068101.i = getelementptr inbounds i8, ptr %.pn97.i, i64 -16
   %296 = getelementptr inbounds i8, ptr %.pn97.i, i64 -8
@@ -11637,14 +11637,14 @@ define internal fastcc void @preload_link() unnamed_addr #0 {
   br i1 %.1.i, label %._crit_edge104.thread.i, label %305
 
 ._crit_edge104.thread.i:                          ; preds = %._crit_edge104.i, %288
-  %.5.lcssa120.i = phi i8 [ %.6.i, %._crit_edge104.i ], [ %.4.i, %288 ]
+  %.5.lcssa120.i = phi i8 [ %.6.i, %._crit_edge104.i ], [ %.2.i, %288 ]
   %303 = load i32, ptr %222, align 4
   %304 = and i32 %303, -67108865
   store i32 %304, ptr %222, align 4
   br label %305
 
 305:                                              ; preds = %._crit_edge104.thread.i, %._crit_edge104.i, %284
-  %.7.i = phi i8 [ %.5.lcssa120.i, %._crit_edge104.thread.i ], [ %.6.i, %._crit_edge104.i ], [ %.4.i, %284 ]
+  %.7.i = phi i8 [ %.5.lcssa120.i, %._crit_edge104.thread.i ], [ %.6.i, %._crit_edge104.i ], [ %.2.i, %284 ]
   %306 = trunc nuw i8 %.7.i to i1
   %not..i = xor i1 %.062.lcssa113.i, true
   %307 = select i1 %not..i, i1 true, i1 %306
@@ -11673,13 +11673,13 @@ preload_try_resolve_constants.exit:               ; preds = %308
   br label %314
 
 314:                                              ; preds = %221, %312, %.lr.ph349
-  %.5 = phi i1 [ %.3347, %.lr.ph349 ], [ %313, %312 ], [ %.3347, %221 ]
+  %.4 = phi i1 [ %.3347, %.lr.ph349 ], [ %313, %312 ], [ %.3347, %221 ]
   %315 = add i32 %.0234346, -1
   %.not244 = icmp eq i32 %315, 0
   br i1 %.not244, label %._crit_edge350, label %.lr.ph349
 
 ._crit_edge350:                                   ; preds = %314, %217
-  %.3.lcssa = phi i1 [ %.3347, %217 ], [ %.5, %314 ]
+  %.3.lcssa = phi i1 [ %.3347, %217 ], [ %.4, %314 ]
   br i1 %.3.lcssa, label %.preheader.split, label %._crit_edge350..split.loopexit_crit_edge, !llvm.loop !6
 
 ._crit_edge350..split.loopexit_crit_edge:         ; preds = %._crit_edge350
@@ -11857,13 +11857,13 @@ preload_try_resolve_constants.exit:               ; preds = %308
 .sink.split:                                      ; preds = %384, %397
   %.sink401 = phi ptr [ %392, %397 ], [ %379, %384 ]
   %indvars.iv92.i302.lcssa.sink = phi i64 [ %indvars.iv92.i302, %397 ], [ %indvars.iv.i296, %384 ]
-  %.sroa.0.1.ph = phi ptr [ @.str.92, %397 ], [ @.str.91, %384 ]
+  %.sroa.0.3.ph = phi ptr [ @.str.92, %397 ], [ @.str.91, %384 ]
   %403 = load ptr, ptr %.sink401, align 8
   %404 = getelementptr inbounds %struct._zend_class_name, ptr %403, i64 %indvars.iv92.i302.lcssa.sink
   br label %405
 
 405:                                              ; preds = %.sink.split, %375
-  %.sroa.0.1 = phi ptr [ @.str.90, %375 ], [ %.sroa.0.1.ph, %.sink.split ]
+  %.sroa.0.3 = phi ptr [ @.str.90, %375 ], [ %.sroa.0.3.ph, %.sink.split ]
   %.sink.i307 = phi ptr [ %357, %375 ], [ %404, %.sink.split ]
   %406 = load ptr, ptr %.sink.i307, align 8
   %407 = getelementptr inbounds i8, ptr %406, i64 24
@@ -11873,7 +11873,7 @@ preload_try_resolve_constants.exit:               ; preds = %308
   %411 = load i32, ptr %410, align 8
   %412 = load ptr, ptr %341, align 8
   %413 = getelementptr inbounds i8, ptr %412, i64 24
-  call void (i32, ptr, i32, ptr, ...) @zend_error_at(i32 noundef 2, ptr noundef %409, i32 noundef %411, ptr noundef nonnull @.str.88, ptr noundef nonnull %413, ptr noundef nonnull %.sroa.0.1, ptr noundef nonnull %407) #24
+  call void (i32, ptr, i32, ptr, ...) @zend_error_at(i32 noundef 2, ptr noundef %409, i32 noundef %411, ptr noundef nonnull @.str.88, ptr noundef nonnull %413, ptr noundef nonnull %.sroa.0.3, ptr noundef nonnull %407) #24
   br label %425
 
 .loopexit326:                                     ; preds = %393, %.loopexit79.i299

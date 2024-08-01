@@ -2124,16 +2124,16 @@ if.then15.i15:                                    ; preds = %while.cond.i11
   %idxprom20.i = sext i32 %j.0.i.ph to i64
   %arrayidx21.i = getelementptr inbounds i8, ptr %spec.select, i64 %idxprom20.i
   store i8 10, ptr %arrayidx21.i, align 1
-  %j.126.i = add i32 %j.0.i.ph, 1
+  %j.226.i = add i32 %j.0.i.ph, 1
   %cmp2227.i = icmp sgt i32 %n.0.i, 0
   br i1 %cmp2227.i, label %for.body.preheader.i, label %while.cond.i11.outer.backedge
 
 for.body.preheader.i:                             ; preds = %if.then15.i15
-  %20 = sext i32 %j.126.i to i64
+  %20 = sext i32 %j.226.i to i64
   %scevgep.i = getelementptr i8, ptr %spec.select, i64 %20
   %21 = zext nneg i32 %n.0.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 10, i64 %21, i1 false)
-  %22 = add i32 %j.126.i, %n.0.i
+  %22 = add i32 %j.226.i, %n.0.i
   br label %while.cond.i11.outer.backedge
 
 if.else27.i:                                      ; preds = %land.lhs.true.i17, %while.cond.i11
@@ -2144,7 +2144,7 @@ if.else27.i:                                      ; preds = %land.lhs.true.i17, 
   br label %while.cond.i11.outer.backedge
 
 while.cond.i11.outer.backedge:                    ; preds = %if.else27.i, %if.then15.i15, %for.body.preheader.i
-  %j.0.i.ph.be = phi i32 [ %22, %for.body.preheader.i ], [ %j.126.i, %if.then15.i15 ], [ %inc31.i, %if.else27.i ]
+  %j.0.i.ph.be = phi i32 [ %22, %for.body.preheader.i ], [ %j.226.i, %if.then15.i15 ], [ %inc31.i, %if.else27.i ]
   %n.0.i.ph.be = phi i32 [ 0, %for.body.preheader.i ], [ %n.0.i, %if.then15.i15 ], [ %n.0.i, %if.else27.i ]
   %i.0.i12.ph.be = add nsw i32 %i.0.i12, 1
   br label %while.cond.i11.outer, !llvm.loop !22

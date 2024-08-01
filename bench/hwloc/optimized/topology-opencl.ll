@@ -132,7 +132,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 
 49:                                               ; preds = %.lr.ph176, %186
   %indvars.iv182 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next183, %186 ]
-  %.088175 = phi i32 [ 0, %.lr.ph176 ], [ %.3, %186 ]
+  %.088175 = phi i32 [ 0, %.lr.ph176 ], [ %.189, %186 ]
   %50 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv182
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @clGetDeviceIDs(ptr noundef %51, i64 noundef 4294967295, i32 noundef 0, ptr noundef null, ptr noundef nonnull %10) #9
@@ -162,7 +162,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %182
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %182 ]
-  %.189164 = phi i32 [ %.088175, %.lr.ph.preheader ], [ %.2, %182 ]
+  %.2164 = phi i32 [ %.088175, %.lr.ph.preheader ], [ %.3, %182 ]
   store ptr null, ptr %11, align 8
   %63 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
@@ -358,16 +358,16 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br label %178
 
 176:                                              ; preds = %144, %154, %167
-  %.3127.ph = phi i32 [ %storemerge.i, %167 ], [ 0, %154 ], [ %145, %144 ]
-  %.3121.ph = phi i32 [ %172, %167 ], [ %156, %154 ], [ %146, %144 ]
-  %.3116.ph = phi i32 [ %174, %167 ], [ %158, %154 ], [ %147, %144 ]
-  %.2111.ph = phi i32 [ %175, %167 ], [ %160, %154 ], [ %148, %144 ]
+  %.5129.ph = phi i32 [ %storemerge.i, %167 ], [ 0, %154 ], [ %145, %144 ]
+  %.5123.ph = phi i32 [ %172, %167 ], [ %156, %154 ], [ %146, %144 ]
+  %.5.ph = phi i32 [ %174, %167 ], [ %158, %154 ], [ %147, %144 ]
+  %.4.ph = phi i32 [ %175, %167 ], [ %160, %154 ], [ %148, %144 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %177 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %17, i32 noundef %.3127.ph, i32 noundef %.3121.ph, i32 noundef %.3116.ph, i32 noundef %.2111.ph) #9
+  %177 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %17, i32 noundef %.5129.ph, i32 noundef %.5123.ph, i32 noundef %.5.ph, i32 noundef %.4.ph) #9
   %.not105 = icmp eq ptr %177, null
   br i1 %.not105, label %178, label %180
 
@@ -378,11 +378,11 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 180:                                              ; preds = %178, %176
   %.1 = phi ptr [ %177, %176 ], [ %179, %178 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %17, ptr noundef %.1, ptr noundef nonnull %70) #9
-  %181 = add i32 %.189164, 1
+  %181 = add i32 %.2164, 1
   br label %182
 
 182:                                              ; preds = %.lr.ph, %180
-  %.2 = phi i32 [ %.189164, %.lr.ph ], [ %181, %180 ]
+  %.3 = phi i32 [ %.2164, %.lr.ph ], [ %181, %180 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = load i32, ptr %10, align 4
   %184 = zext i32 %183 to i64
@@ -390,12 +390,12 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %185, label %.lr.ph, label %.sink.split, !llvm.loop !4
 
 .sink.split:                                      ; preds = %182, %58
-  %.3.ph = phi i32 [ %.088175, %58 ], [ %.2, %182 ]
+  %.189.ph = phi i32 [ %.088175, %58 ], [ %.3, %182 ]
   call void @free(ptr noundef nonnull %57) #9
   br label %186
 
 186:                                              ; preds = %.sink.split, %53, %49
-  %.3 = phi i32 [ %.088175, %53 ], [ %.088175, %49 ], [ %.3.ph, %.sink.split ]
+  %.189 = phi i32 [ %.088175, %53 ], [ %.088175, %49 ], [ %.189.ph, %.sink.split ]
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %187 = load i32, ptr %9, align 4
   %188 = zext i32 %187 to i64
@@ -404,7 +404,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 
 ._crit_edge177:                                   ; preds = %186
   call void @free(ptr noundef %36) #9
-  %.not95 = icmp eq i32 %.3, 0
+  %.not95 = icmp eq i32 %.189, 0
   br i1 %.not95, label %193, label %190
 
 190:                                              ; preds = %._crit_edge177

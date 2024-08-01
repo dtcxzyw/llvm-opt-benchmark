@@ -2615,7 +2615,7 @@ common.resume:                                    ; preds = %541, %535, %497, %4
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i
-  %.1.i = phi ptr [ %89, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit ], [ %92, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
+  %.018.i = phi ptr [ %89, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit ], [ %92, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
   %97 = getelementptr inbounds i8, ptr %0, i64 170
   %98 = load i8, ptr %97, align 2
   %99 = trunc i8 %98 to i1
@@ -2628,7 +2628,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit:
   br i1 %99, label %104, label %107
 
 104:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull %100, ptr noundef %101, ptr noundef nonnull %.1.i, i32 noundef 1, i1 noundef zeroext true)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull %100, ptr noundef %101, ptr noundef nonnull %.018.i, i32 noundef 1, i1 noundef zeroext true)
           to label %_ZN10OrderGraph11addSoftEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit unwind label %105
 
 105:                                              ; preds = %104
@@ -2638,7 +2638,7 @@ _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit:
   br label %common.resume
 
 107:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull %100, ptr noundef %101, ptr noundef nonnull %.1.i, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull %100, ptr noundef %101, ptr noundef nonnull %.018.i, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addSoftEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit unwind label %108
 
 108:                                              ; preds = %107
@@ -2732,14 +2732,14 @@ _ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %141
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit133: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit56, %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i
-  %.1.i132 = phi ptr [ %140, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit56 ], [ %143, %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
+  %.018.i132 = phi ptr [ %140, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit56 ], [ %143, %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
   %148 = load ptr, ptr %88, align 8
   %149 = load ptr, ptr %11, align 8
   %150 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull %148, ptr noundef nonnull %.1.i132, ptr noundef %149, i32 noundef 2, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull %148, ptr noundef nonnull %.018.i132, ptr noundef %149, i32 noundef 2, i1 noundef zeroext false)
           to label %.sink.split unwind label %152
 
 152:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit133
@@ -2842,14 +2842,14 @@ _ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %194
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit136: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit64, %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i
-  %.1.i135 = phi ptr [ %193, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit64 ], [ %196, %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
+  %.018.i135 = phi ptr [ %193, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit64 ], [ %196, %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
   %201 = load ptr, ptr %191, align 8
   %202 = load ptr, ptr %11, align 8
   %203 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %204, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %203, ptr noundef nonnull %201, ptr noundef %202, ptr noundef nonnull %.1.i135, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %203, ptr noundef nonnull %201, ptr noundef %202, ptr noundef nonnull %.018.i135, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addHardEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit65 unwind label %205
 
 205:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit136
@@ -2942,14 +2942,14 @@ _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i139: ; preds = %237
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit140: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit73, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i139
-  %.1.i138 = phi ptr [ %236, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit73 ], [ %239, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i139 ]
+  %.018.i138 = phi ptr [ %236, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit73 ], [ %239, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i139 ]
   %244 = load ptr, ptr %191, align 8
   %245 = load ptr, ptr %11, align 8
   %246 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %247, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull %244, ptr noundef %245, ptr noundef nonnull %.1.i138, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull %244, ptr noundef %245, ptr noundef nonnull %.018.i138, i32 noundef 32, i1 noundef zeroext false)
           to label %.sink.split unwind label %248
 
 248:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit140
@@ -3036,14 +3036,14 @@ _ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i143: ; preds = %278
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit144: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit82, %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i143
-  %.1.i142 = phi ptr [ %277, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit82 ], [ %280, %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i143 ]
+  %.018.i142 = phi ptr [ %277, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit82 ], [ %280, %_ZN18OrderVarPordVertexC2EP10OrderGraphP11AstVarScope.exit.i143 ]
   %285 = load ptr, ptr %275, align 8
   %286 = load ptr, ptr %11, align 8
   %287 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %287, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %288, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull %285, ptr noundef nonnull %.1.i142, ptr noundef %286, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull %285, ptr noundef nonnull %.018.i142, ptr noundef %286, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addHardEdgeEP14OrderVarVertexP16OrderLogicVertexi.exit83 unwind label %289
 
 289:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit144
@@ -3136,14 +3136,14 @@ _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i147: ; preds = %321
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit148: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit91, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i147
-  %.1.i146 = phi ptr [ %320, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit91 ], [ %323, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i147 ]
+  %.018.i146 = phi ptr [ %320, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit91 ], [ %323, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i147 ]
   %328 = load ptr, ptr %275, align 8
   %329 = load ptr, ptr %11, align 8
   %330 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %330, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %331, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull %328, ptr noundef %329, ptr noundef nonnull %.1.i146, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull %328, ptr noundef %329, ptr noundef nonnull %.018.i146, i32 noundef 32, i1 noundef zeroext false)
           to label %.sink.split unwind label %332
 
 332:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit148
@@ -3288,14 +3288,14 @@ _ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i151: ; preds = %392
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit152: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit103, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i151
-  %.1.i150 = phi ptr [ %391, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit103 ], [ %394, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i151 ]
+  %.018.i150 = phi ptr [ %391, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit103 ], [ %394, %_ZN17OrderVarStdVertexC2EP10OrderGraphP11AstVarScope.exit.i151 ]
   %399 = load ptr, ptr %390, align 8
   %400 = load ptr, ptr %11, align 8
   %401 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %401, align 8
   %402 = getelementptr inbounds i8, ptr %401, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %402, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %401, ptr noundef nonnull %399, ptr noundef nonnull %.1.i150, ptr noundef %400, i32 noundef 8, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %401, ptr noundef nonnull %399, ptr noundef nonnull %.018.i150, ptr noundef %400, i32 noundef 8, i1 noundef zeroext false)
           to label %.sink.split168 unwind label %403
 
 403:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit152
@@ -3398,14 +3398,14 @@ _ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i: ; preds = %445
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit155: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit112, %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i
-  %.1.i154 = phi ptr [ %444, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit112 ], [ %447, %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
+  %.018.i154 = phi ptr [ %444, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit112 ], [ %447, %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i ]
   %452 = load ptr, ptr %442, align 8
   %453 = load ptr, ptr %11, align 8
   %454 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %454, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %455, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull %452, ptr noundef nonnull %.1.i154, ptr noundef %453, i32 noundef 3, i1 noundef zeroext true)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull %452, ptr noundef nonnull %.018.i154, ptr noundef %453, i32 noundef 3, i1 noundef zeroext true)
           to label %.sink.split168 unwind label %456
 
 456:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit155
@@ -3492,14 +3492,14 @@ _ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i158: ; preds = %486
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit159: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit120, %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i158
-  %.1.i157 = phi ptr [ %485, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit120 ], [ %488, %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i158 ]
+  %.018.i157 = phi ptr [ %485, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit120 ], [ %488, %_ZN17OrderVarPreVertexC2EP10OrderGraphP11AstVarScope.exit.i158 ]
   %493 = load ptr, ptr %483, align 8
   %494 = load ptr, ptr %11, align 8
   %495 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %495, align 8
   %496 = getelementptr inbounds i8, ptr %495, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %496, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %495, ptr noundef nonnull %493, ptr noundef %494, ptr noundef nonnull %.1.i157, i32 noundef 32, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %495, ptr noundef nonnull %493, ptr noundef %494, ptr noundef nonnull %.018.i157, i32 noundef 32, i1 noundef zeroext false)
           to label %_ZN10OrderGraph11addHardEdgeEP16OrderLogicVertexP14OrderVarVertexi.exit121 unwind label %497
 
 497:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit159
@@ -3593,14 +3593,14 @@ _ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i162: ; preds = %530
   br label %common.resume
 
 _ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit163: ; preds = %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit129, %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i162
-  %.1.i161 = phi ptr [ %529, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit129 ], [ %532, %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i162 ]
+  %.018.i161 = phi ptr [ %529, %_ZN17OrderGraphBuilder12getVarVertexEP11AstVarScopeN9OrderUser13VarVertexTypeE.exit129 ], [ %532, %_ZN18OrderVarPostVertexC2EP10OrderGraphP11AstVarScope.exit.i162 ]
   %537 = load ptr, ptr %483, align 8
   %538 = load ptr, ptr %11, align 8
   %539 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %539, align 8
   %540 = getelementptr inbounds i8, ptr %539, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %540, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull %537, ptr noundef %538, ptr noundef nonnull %.1.i161, i32 noundef 2, i1 noundef zeroext false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %539, ptr noundef nonnull %537, ptr noundef %538, ptr noundef nonnull %.018.i161, i32 noundef 2, i1 noundef zeroext false)
           to label %.sink.split168 unwind label %541
 
 541:                                              ; preds = %_ZN9OrderUser12getVarVertexEP10OrderGraphP11AstVarScopeNS_13VarVertexTypeE.exit163
@@ -4985,61 +4985,61 @@ _ZNSt6vectorIPK7AstNodeSaIS2_EED2Ev.exit:         ; preds = %9, %11
   br label %31
 
 31:                                               ; preds = %30, %27
-  %.177.idx = phi i64 [ %.076.idx, %27 ], [ %.076.add, %30 ]
+  %.4.idx = phi i64 [ %.076.idx, %27 ], [ %.076.add, %30 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not19.i = icmp eq ptr %33, null
   br i1 %.not19.i, label %35, label %34
 
 34:                                               ; preds = %31
-  %.177.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.177.idx
-  %.177.add = add nuw nsw i64 %.177.idx, 8
-  store ptr %33, ptr %.177.ptr, align 8
+  %.4.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.4.idx
+  %.4.add = add nuw nsw i64 %.4.idx, 8
+  store ptr %33, ptr %.4.ptr, align 8
   br label %35
 
 35:                                               ; preds = %34, %31
-  %.2.idx = phi i64 [ %.177.idx, %31 ], [ %.177.add, %34 ]
+  %.5.idx = phi i64 [ %.4.idx, %31 ], [ %.4.add, %34 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not20.i = icmp eq ptr %37, null
   br i1 %.not20.i, label %39, label %38
 
 38:                                               ; preds = %35
-  %.2.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.2.idx
-  %.2.add = add nuw nsw i64 %.2.idx, 8
-  store ptr %37, ptr %.2.ptr, align 8
+  %.5.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.5.idx
+  %.5.add = add nuw nsw i64 %.5.idx, 8
+  store ptr %37, ptr %.5.ptr, align 8
   br label %39
 
 39:                                               ; preds = %38, %35
-  %.3.idx = phi i64 [ %.2.idx, %35 ], [ %.2.add, %38 ]
+  %.6.idx = phi i64 [ %.5.idx, %35 ], [ %.5.add, %38 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not21.i = icmp eq ptr %41, null
   br i1 %.not21.i, label %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit, label %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread
 
 _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread: ; preds = %39
-  %.3.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.3.idx
-  %.3.add = add nuw nsw i64 %.3.idx, 8
-  store ptr %41, ptr %.3.ptr, align 8
+  %.6.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.6.idx
+  %.6.add = add nuw nsw i64 %.6.idx, 8
+  store ptr %41, ptr %.6.ptr, align 8
   br label %.lr.ph.preheader
 
 _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit: ; preds = %21, %39
-  %.4.idx = phi i64 [ %.076.idx, %21 ], [ %.3.idx, %39 ]
-  %42 = icmp ugt i64 %.4.idx, 16
+  %.7.idx = phi i64 [ %.076.idx, %21 ], [ %.6.idx, %39 ]
+  %42 = icmp ugt i64 %.7.idx, 16
   br i1 %42, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit
-  %.4.idx92 = phi i64 [ %.3.add, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread ], [ %.4.idx, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit ]
-  %.4.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.4.idx92
+  %.7.idx92 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit ]
+  %.7.ptr = getelementptr inbounds i8, ptr %.pre, i64 %.7.idx92
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26
   %.07382 = phi ptr [ %.1, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26 ], [ %13, %.lr.ph.preheader ]
   %.07481 = phi ptr [ %.175, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26 ], [ %.ptr83, %.lr.ph.preheader ]
-  %.580 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26 ], [ %.4.ptr, %.lr.ph.preheader ]
-  %43 = getelementptr inbounds i8, ptr %.580, i64 -8
+  %.17780 = phi ptr [ %.11, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26 ], [ %.7.ptr, %.lr.ph.preheader ]
+  %43 = getelementptr inbounds i8, ptr %.17780, i64 -8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.580, i64 -24
+  %45 = getelementptr inbounds i8, ptr %.17780, i64 -24
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   call void @llvm.prefetch.p0(ptr nonnull %47, i32 0, i32 3, i32 1)
@@ -5093,7 +5093,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br label %73
 
 73:                                               ; preds = %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20, %.lr.ph
-  %.6 = phi ptr [ %43, %.lr.ph ], [ %70, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20 ]
+  %.2 = phi ptr [ %43, %.lr.ph ], [ %70, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20 ]
   %.175 = phi ptr [ %.07481, %.lr.ph ], [ %69, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20 ]
   %.1 = phi ptr [ %.07382, %.lr.ph ], [ %72, %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit20 ]
   %74 = getelementptr inbounds i8, ptr %44, i64 8
@@ -5102,12 +5102,12 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br i1 %.not16, label %78, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %.6, i64 8
-  store ptr %75, ptr %.6, align 8
+  %77 = getelementptr inbounds i8, ptr %.2, i64 8
+  store ptr %75, ptr %.2, align 8
   br label %78
 
 78:                                               ; preds = %76, %73
-  %.7 = phi ptr [ %.6, %73 ], [ %77, %76 ]
+  %.3 = phi ptr [ %.2, %73 ], [ %77, %76 ]
   %79 = getelementptr inbounds i8, ptr %44, i64 64
   %.sroa.0.0.copyload.i.i.i21 = load i16, ptr %79, align 8
   %80 = icmp eq i16 %.sroa.0.0.copyload.i.i.i21, 316
@@ -5130,12 +5130,12 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br i1 %.not.i22, label %92, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %.7, i64 8
-  store ptr %89, ptr %.7, align 8
+  %91 = getelementptr inbounds i8, ptr %.3, i64 8
+  store ptr %89, ptr %.3, align 8
   br label %92
 
 92:                                               ; preds = %90, %87
-  %.8 = phi ptr [ %.7, %87 ], [ %91, %90 ]
+  %.8 = phi ptr [ %.3, %87 ], [ %91, %90 ]
   %93 = getelementptr inbounds i8, ptr %44, i64 40
   %94 = load ptr, ptr %93, align 8
   %.not19.i23 = icmp eq ptr %94, null
@@ -5171,7 +5171,7 @@ _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlP
   br label %_ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26
 
 _ZZN7AstNode11foreachImplIK9AstVarRefZN17OrderGraphBuilder5visitEP9AstActiveEUlPS2_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPSA_E_clESH_.exit26: ; preds = %81, %102, %105
-  %.11 = phi ptr [ %.7, %81 ], [ %.10, %102 ], [ %106, %105 ]
+  %.11 = phi ptr [ %.3, %81 ], [ %.10, %102 ], [ %106, %105 ]
   %107 = icmp ugt ptr %.11, %.175
   br i1 %107, label %.lr.ph, label %._crit_edge
 

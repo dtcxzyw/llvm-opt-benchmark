@@ -903,7 +903,7 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
 
 28:                                               ; preds = %do_file_type.exit.thread, %do_file_type.exit
   %29 = phi i1 [ %23, %do_file_type.exit.thread ], [ %27, %do_file_type.exit ]
-  %.0.i255 = phi i32 [ 42, %do_file_type.exit.thread ], [ %.0.i, %do_file_type.exit ]
+  %.0.i256 = phi i32 [ 42, %do_file_type.exit.thread ], [ %.0.i, %do_file_type.exit ]
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %31, label %30
 
@@ -913,7 +913,7 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
   br label %31
 
 31:                                               ; preds = %30, %28
-  switch i32 %.0.i255, label %216 [
+  switch i32 %.0.i256, label %216 [
     i32 1, label %32
     i32 2, label %76
     i32 42, label %109
@@ -976,7 +976,7 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
   br label %52
 
 52:                                               ; preds = %51, %48, %47, %42, %39, %37
-  %.1.i = phi i32 [ 0, %47 ], [ %spec.select.i, %51 ], [ 0, %39 ], [ 0, %37 ], [ 0, %42 ], [ 0, %48 ]
+  %.021.i = phi i32 [ 0, %47 ], [ %spec.select.i, %51 ], [ 0, %39 ], [ 0, %37 ], [ 0, %42 ], [ 0, %48 ]
   tail call void @X509_free(ptr noundef %38) #13
   %53 = tail call i32 @BIO_free(ptr noundef nonnull %36) #13
   br label %SSL_CTX_use_certificate_chain_blob.exit
@@ -986,7 +986,7 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
   br label %SSL_CTX_use_certificate_chain_blob.exit
 
 SSL_CTX_use_certificate_chain_blob.exit:          ; preds = %52, %54
-  %56 = phi i32 [ %55, %54 ], [ %.1.i, %52 ]
+  %56 = phi i32 [ %55, %54 ], [ %.021.i, %52 ]
   %.not197 = icmp eq i32 %56, 1
   br i1 %.not197, label %217, label %SSL_CTX_use_certificate_chain_blob.exit.thread
 
@@ -1011,26 +1011,26 @@ SSL_CTX_use_certificate_chain_blob.exit.thread:   ; preds = %33, %SSL_CTX_use_ce
   br label %68
 
 68:                                               ; preds = %62, %SSL_CTX_use_certificate_chain_blob.exit.thread
-  %.021.i = phi i64 [ %65, %62 ], [ 256, %SSL_CTX_use_certificate_chain_blob.exit.thread ]
-  %.0.i222 = phi ptr [ %67, %62 ], [ %10, %SSL_CTX_use_certificate_chain_blob.exit.thread ]
-  call void @ERR_error_string_n(i64 noundef %58, ptr noundef nonnull %.0.i222, i64 noundef %.021.i) #13
-  %69 = load i8, ptr %.0.i222, align 1
-  %.not.i223 = icmp eq i8 %69, 0
-  br i1 %.not.i223, label %70, label %ossl_strerror.exit
+  %.021.i222 = phi i64 [ %65, %62 ], [ 256, %SSL_CTX_use_certificate_chain_blob.exit.thread ]
+  %.0.i223 = phi ptr [ %67, %62 ], [ %10, %SSL_CTX_use_certificate_chain_blob.exit.thread ]
+  call void @ERR_error_string_n(i64 noundef %58, ptr noundef nonnull %.0.i223, i64 noundef %.021.i222) #13
+  %69 = load i8, ptr %.0.i223, align 1
+  %.not.i224 = icmp eq i8 %69, 0
+  br i1 %.not.i224, label %70, label %ossl_strerror.exit
 
 70:                                               ; preds = %68
   %.not23.i = icmp eq i64 %58, 0
   %71 = select i1 %.not23.i, i64 8, i64 13
-  %72 = icmp ult i64 %71, %.021.i
+  %72 = icmp ult i64 %71, %.021.i222
   br i1 %72, label %73, label %ossl_strerror.exit
 
 73:                                               ; preds = %70
   %74 = select i1 %.not23.i, ptr @.str.74, ptr @.str.73
-  %75 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i222, ptr noundef nonnull dereferenceable(1) %74) #13
+  %75 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i223, ptr noundef nonnull dereferenceable(1) %74) #13
   br label %ossl_strerror.exit
 
 ossl_strerror.exit:                               ; preds = %68, %70, %73
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %57, ptr noundef nonnull %.0.i222) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %57, ptr noundef nonnull %.0.i223) #13
   br label %296
 
 76:                                               ; preds = %31
@@ -1042,8 +1042,8 @@ ossl_strerror.exit:                               ; preds = %68, %70, %73
   %.val218 = load i64, ptr %78, align 8
   %79 = trunc i64 %.val218 to i32
   %80 = tail call ptr @BIO_new_mem_buf(ptr noundef %.val217, i32 noundef %79) #13
-  %.not.i224 = icmp eq ptr %80, null
-  br i1 %.not.i224, label %SSL_CTX_use_certificate_blob.exit.thread, label %81
+  %.not.i225 = icmp eq ptr %80, null
+  br i1 %.not.i225, label %SSL_CTX_use_certificate_blob.exit.thread, label %81
 
 81:                                               ; preds = %77
   %82 = tail call ptr @d2i_X509_bio(ptr noundef nonnull %80, ptr noundef null) #13
@@ -1090,42 +1090,42 @@ SSL_CTX_use_certificate_blob.exit.thread:         ; preds = %77, %SSL_CTX_use_ce
   br label %101
 
 101:                                              ; preds = %95, %SSL_CTX_use_certificate_blob.exit.thread
-  %.021.i226 = phi i64 [ %98, %95 ], [ 256, %SSL_CTX_use_certificate_blob.exit.thread ]
-  %.0.i227 = phi ptr [ %100, %95 ], [ %10, %SSL_CTX_use_certificate_blob.exit.thread ]
-  call void @ERR_error_string_n(i64 noundef %91, ptr noundef nonnull %.0.i227, i64 noundef %.021.i226) #13
-  %102 = load i8, ptr %.0.i227, align 1
-  %.not.i228 = icmp eq i8 %102, 0
-  br i1 %.not.i228, label %103, label %ossl_strerror.exit230
+  %.021.i227 = phi i64 [ %98, %95 ], [ 256, %SSL_CTX_use_certificate_blob.exit.thread ]
+  %.0.i228 = phi ptr [ %100, %95 ], [ %10, %SSL_CTX_use_certificate_blob.exit.thread ]
+  call void @ERR_error_string_n(i64 noundef %91, ptr noundef nonnull %.0.i228, i64 noundef %.021.i227) #13
+  %102 = load i8, ptr %.0.i228, align 1
+  %.not.i229 = icmp eq i8 %102, 0
+  br i1 %.not.i229, label %103, label %ossl_strerror.exit231
 
 103:                                              ; preds = %101
-  %.not23.i229 = icmp eq i64 %91, 0
-  %104 = select i1 %.not23.i229, i64 8, i64 13
-  %105 = icmp ult i64 %104, %.021.i226
-  br i1 %105, label %106, label %ossl_strerror.exit230
+  %.not23.i230 = icmp eq i64 %91, 0
+  %104 = select i1 %.not23.i230, i64 8, i64 13
+  %105 = icmp ult i64 %104, %.021.i227
+  br i1 %105, label %106, label %ossl_strerror.exit231
 
 106:                                              ; preds = %103
-  %107 = select i1 %.not23.i229, ptr @.str.74, ptr @.str.73
-  %108 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i227, ptr noundef nonnull dereferenceable(1) %107) #13
-  br label %ossl_strerror.exit230
+  %107 = select i1 %.not23.i230, ptr @.str.74, ptr @.str.73
+  %108 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i228, ptr noundef nonnull dereferenceable(1) %107) #13
+  br label %ossl_strerror.exit231
 
-ossl_strerror.exit230:                            ; preds = %101, %103, %106
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %90, ptr noundef nonnull %.0.i227) #13
+ossl_strerror.exit231:                            ; preds = %101, %103, %106
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %90, ptr noundef nonnull %.0.i228) #13
   br label %296
 
 109:                                              ; preds = %31
   %110 = getelementptr inbounds i8, ptr %0, i64 3600
   %111 = load ptr, ptr %110, align 8
   %.not189 = icmp eq ptr %111, null
-  br i1 %.not189, label %112, label %.thread259
+  br i1 %.not189, label %112, label %.thread260
 
 112:                                              ; preds = %109
-  %.not.i231 = icmp eq ptr %2, null
-  br i1 %.not.i231, label %.thread, label %is_pkcs11_uri.exit
+  %.not.i232 = icmp eq ptr %2, null
+  br i1 %.not.i232, label %.thread, label %is_pkcs11_uri.exit
 
 is_pkcs11_uri.exit:                               ; preds = %112
   %113 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull @.str.75, i64 noundef 7) #13
-  %.not294 = icmp eq i32 %113, 0
-  br i1 %.not294, label %116, label %114
+  %.not295 = icmp eq i32 %113, 0
+  br i1 %.not295, label %116, label %114
 
 114:                                              ; preds = %is_pkcs11_uri.exit
   %115 = tail call i32 @ossl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull @.str.40)
@@ -1135,9 +1135,9 @@ is_pkcs11_uri.exit:                               ; preds = %112
 116:                                              ; preds = %is_pkcs11_uri.exit, %114
   %.pr = load ptr, ptr %110, align 8
   %.not191 = icmp eq ptr %.pr, null
-  br i1 %.not191, label %.thread, label %.thread259
+  br i1 %.not191, label %.thread, label %.thread260
 
-.thread259:                                       ; preds = %109, %116
+.thread260:                                       ; preds = %109, %116
   %117 = phi ptr [ %.pr, %116 ], [ %111, %109 ]
   store ptr %2, ptr %12, align 8
   %118 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1146,11 +1146,11 @@ is_pkcs11_uri.exit:                               ; preds = %112
   %.not192 = icmp eq i32 %119, 0
   br i1 %.not192, label %120, label %121
 
-120:                                              ; preds = %.thread259
+120:                                              ; preds = %.thread260
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #13
   br label %296
 
-121:                                              ; preds = %.thread259
+121:                                              ; preds = %.thread260
   %122 = load ptr, ptr %110, align 8
   %123 = call i32 @ENGINE_ctrl_cmd(ptr noundef %122, ptr noundef nonnull @.str.41, i64 noundef 0, ptr noundef nonnull %12, ptr noundef null, i32 noundef 1) #13
   %.not193 = icmp eq i32 %123, 0
@@ -1224,26 +1224,26 @@ is_pkcs11_uri.exit:                               ; preds = %112
   br label %155
 
 155:                                              ; preds = %149, %144
-  %.021.i232 = phi i64 [ %152, %149 ], [ 256, %144 ]
-  %.0.i233 = phi ptr [ %154, %149 ], [ %10, %144 ]
-  call void @ERR_error_string_n(i64 noundef %145, ptr noundef nonnull %.0.i233, i64 noundef %.021.i232) #13
-  %156 = load i8, ptr %.0.i233, align 1
-  %.not.i234 = icmp eq i8 %156, 0
-  br i1 %.not.i234, label %157, label %ossl_strerror.exit236
+  %.021.i233 = phi i64 [ %152, %149 ], [ 256, %144 ]
+  %.0.i234 = phi ptr [ %154, %149 ], [ %10, %144 ]
+  call void @ERR_error_string_n(i64 noundef %145, ptr noundef nonnull %.0.i234, i64 noundef %.021.i233) #13
+  %156 = load i8, ptr %.0.i234, align 1
+  %.not.i235 = icmp eq i8 %156, 0
+  br i1 %.not.i235, label %157, label %ossl_strerror.exit237
 
 157:                                              ; preds = %155
-  %.not23.i235 = icmp eq i64 %145, 0
-  %158 = select i1 %.not23.i235, i64 8, i64 13
-  %159 = icmp ult i64 %158, %.021.i232
-  br i1 %159, label %160, label %ossl_strerror.exit236
+  %.not23.i236 = icmp eq i64 %145, 0
+  %158 = select i1 %.not23.i236, i64 8, i64 13
+  %159 = icmp ult i64 %158, %.021.i233
+  br i1 %159, label %160, label %ossl_strerror.exit237
 
 160:                                              ; preds = %157
-  %161 = select i1 %.not23.i235, ptr @.str.74, ptr @.str.73
-  %162 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i233, ptr noundef nonnull dereferenceable(1) %161) #13
-  br label %ossl_strerror.exit236
+  %161 = select i1 %.not23.i236, ptr @.str.74, ptr @.str.73
+  %162 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i234, ptr noundef nonnull dereferenceable(1) %161) #13
+  br label %ossl_strerror.exit237
 
-ossl_strerror.exit236:                            ; preds = %155, %157, %160
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %.0.i233) #13
+ossl_strerror.exit237:                            ; preds = %155, %157, %160
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %.0.i234) #13
   br label %296
 
 163:                                              ; preds = %137
@@ -1386,66 +1386,66 @@ ossl_strerror.exit236:                            ; preds = %155, %157, %160
   %218 = icmp ne ptr %5, null
   %219 = icmp ne ptr %6, null
   %or.cond5 = or i1 %218, %219
-  br i1 %or.cond5, label %220, label %do_file_type.exit245
+  br i1 %or.cond5, label %220, label %do_file_type.exit246
 
 220:                                              ; preds = %217
-  %.not.i237 = icmp eq ptr %7, null
-  br i1 %.not.i237, label %do_file_type.exit245.thread, label %221
+  %.not.i238 = icmp eq ptr %7, null
+  br i1 %.not.i238, label %do_file_type.exit246.thread, label %221
 
 221:                                              ; preds = %220
   %222 = load i8, ptr %7, align 1
-  %.not7.i238 = icmp eq i8 %222, 0
-  br i1 %.not7.i238, label %do_file_type.exit245.thread, label %223
+  %.not7.i239 = icmp eq i8 %222, 0
+  br i1 %.not7.i239, label %do_file_type.exit246.thread, label %223
 
 223:                                              ; preds = %221
   %224 = call i32 @curl_strequal(ptr noundef nonnull %7, ptr noundef nonnull @.str.60) #13
-  %.not8.i239 = icmp eq i32 %224, 0
-  br i1 %.not8.i239, label %225, label %do_file_type.exit245.thread
+  %.not8.i240 = icmp eq i32 %224, 0
+  br i1 %.not8.i240, label %225, label %do_file_type.exit246.thread
 
 225:                                              ; preds = %223
   %226 = call i32 @curl_strequal(ptr noundef nonnull %7, ptr noundef nonnull @.str.70) #13
-  %.not9.i241 = icmp eq i32 %226, 0
-  br i1 %.not9.i241, label %227, label %do_file_type.exit245.thread274
+  %.not9.i242 = icmp eq i32 %226, 0
+  br i1 %.not9.i242, label %227, label %do_file_type.exit246.thread275
 
 227:                                              ; preds = %225
   %228 = call i32 @curl_strequal(ptr noundef nonnull %7, ptr noundef nonnull @.str.71) #13
-  %.not10.i242 = icmp eq i32 %228, 0
-  br i1 %.not10.i242, label %229, label %do_file_type.exit245.thread278
+  %.not10.i243 = icmp eq i32 %228, 0
+  br i1 %.not10.i243, label %229, label %do_file_type.exit246.thread279
 
 229:                                              ; preds = %227
   %230 = call i32 @curl_strequal(ptr noundef nonnull %7, ptr noundef nonnull @.str.72) #13
-  %.not11.i243 = icmp eq i32 %230, 0
-  br i1 %.not11.i243, label %do_file_type.exit245.thread270, label %do_file_type.exit245.thread283
+  %.not11.i244 = icmp eq i32 %230, 0
+  br i1 %.not11.i244, label %do_file_type.exit246.thread271, label %do_file_type.exit246.thread284
 
-do_file_type.exit245:                             ; preds = %217
-  switch i32 %.0.i255, label %do_file_type.exit245.thread270 [
-    i32 1, label %do_file_type.exit245.thread
-    i32 2, label %do_file_type.exit245.thread274
-    i32 42, label %do_file_type.exit245.thread278
-    i32 43, label %do_file_type.exit245.thread283
+do_file_type.exit246:                             ; preds = %217
+  switch i32 %.0.i256, label %do_file_type.exit246.thread271 [
+    i32 1, label %do_file_type.exit246.thread
+    i32 2, label %do_file_type.exit246.thread275
+    i32 42, label %do_file_type.exit246.thread279
+    i32 43, label %do_file_type.exit246.thread284
   ]
 
-do_file_type.exit245.thread:                      ; preds = %223, %220, %221, %do_file_type.exit245
-  %.0158269 = phi ptr [ %2, %do_file_type.exit245 ], [ %5, %221 ], [ %5, %220 ], [ %5, %223 ]
-  %.0159267 = phi ptr [ %3, %do_file_type.exit245 ], [ %6, %221 ], [ %6, %220 ], [ %6, %223 ]
-  br i1 %.not198, label %do_file_type.exit245.thread274, label %276
+do_file_type.exit246.thread:                      ; preds = %223, %220, %221, %do_file_type.exit246
+  %.0158270 = phi ptr [ %2, %do_file_type.exit246 ], [ %5, %221 ], [ %5, %220 ], [ %5, %223 ]
+  %.0159268 = phi ptr [ %3, %do_file_type.exit246 ], [ %6, %221 ], [ %6, %220 ], [ %6, %223 ]
+  br i1 %.not198, label %do_file_type.exit246.thread275, label %276
 
-do_file_type.exit245.thread274:                   ; preds = %225, %do_file_type.exit245.thread, %do_file_type.exit245
-  %.0158268 = phi ptr [ %.0158269, %do_file_type.exit245.thread ], [ %2, %do_file_type.exit245 ], [ %5, %225 ]
-  %.0159266 = phi ptr [ %.0159267, %do_file_type.exit245.thread ], [ %3, %do_file_type.exit245 ], [ %6, %225 ]
-  %switch = phi i1 [ true, %do_file_type.exit245.thread ], [ false, %do_file_type.exit245 ], [ false, %225 ]
-  %.0161264 = phi i32 [ 1, %do_file_type.exit245.thread ], [ %.0.i255, %do_file_type.exit245 ], [ 2, %225 ]
-  %.not206 = icmp eq ptr %.0159266, null
+do_file_type.exit246.thread275:                   ; preds = %225, %do_file_type.exit246.thread, %do_file_type.exit246
+  %.0158269 = phi ptr [ %.0158270, %do_file_type.exit246.thread ], [ %2, %do_file_type.exit246 ], [ %5, %225 ]
+  %.0159267 = phi ptr [ %.0159268, %do_file_type.exit246.thread ], [ %3, %do_file_type.exit246 ], [ %6, %225 ]
+  %switch = phi i1 [ true, %do_file_type.exit246.thread ], [ false, %do_file_type.exit246 ], [ false, %225 ]
+  %.0161265 = phi i32 [ 1, %do_file_type.exit246.thread ], [ %.0.i256, %do_file_type.exit246 ], [ 2, %225 ]
+  %.not206 = icmp eq ptr %.0159267, null
   br i1 %.not206, label %245, label %231
 
-231:                                              ; preds = %do_file_type.exit245.thread274
-  %.0159.val = load ptr, ptr %.0159266, align 8
-  %232 = getelementptr i8, ptr %.0159266, i64 8
+231:                                              ; preds = %do_file_type.exit246.thread275
+  %.0159.val = load ptr, ptr %.0159267, align 8
+  %232 = getelementptr i8, ptr %.0159267, i64 8
   %.0159.val219 = load i64, ptr %232, align 8
   %233 = trunc i64 %.0159.val219 to i32
   %234 = call ptr @BIO_new_mem_buf(ptr noundef %.0159.val, i32 noundef %233) #13
-  %.not.i246 = icmp eq ptr %234, null
-  br i1 %.not.i246, label %SSL_CTX_use_PrivateKey_blob.exit.thread, label %235
+  %.not.i247 = icmp eq ptr %234, null
+  br i1 %.not.i247, label %SSL_CTX_use_PrivateKey_blob.exit.thread, label %235
 
 235:                                              ; preds = %231
   br i1 %switch, label %236, label %238
@@ -1460,8 +1460,8 @@ do_file_type.exit245.thread274:                   ; preds = %225, %do_file_type.
 
 240:                                              ; preds = %238, %236
   %.014.i = phi ptr [ %237, %236 ], [ %239, %238 ]
-  %.not18.i247 = icmp eq ptr %.014.i, null
-  br i1 %.not18.i247, label %243, label %241
+  %.not18.i248 = icmp eq ptr %.014.i, null
+  br i1 %.not18.i248, label %243, label %241
 
 241:                                              ; preds = %240
   %242 = call i32 @SSL_CTX_use_PrivateKey(ptr noundef %1, ptr noundef nonnull %.014.i) #13
@@ -1469,63 +1469,63 @@ do_file_type.exit245.thread274:                   ; preds = %225, %do_file_type.
   br label %243
 
 243:                                              ; preds = %241, %240
-  %.015.i248 = phi i32 [ %242, %241 ], [ 0, %240 ]
+  %.015.i249 = phi i32 [ %242, %241 ], [ 0, %240 ]
   %244 = call i32 @BIO_free(ptr noundef nonnull %234) #13
   br label %SSL_CTX_use_PrivateKey_blob.exit
 
-245:                                              ; preds = %do_file_type.exit245.thread274
-  %246 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %1, ptr noundef %.0158268, i32 noundef %.0161264) #13
+245:                                              ; preds = %do_file_type.exit246.thread275
+  %246 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %1, ptr noundef %.0158269, i32 noundef %.0161265) #13
   br label %SSL_CTX_use_PrivateKey_blob.exit
 
 SSL_CTX_use_PrivateKey_blob.exit:                 ; preds = %243, %245
-  %247 = phi i32 [ %246, %245 ], [ %.015.i248, %243 ]
+  %247 = phi i32 [ %246, %245 ], [ %.015.i249, %243 ]
   %.not207 = icmp eq i32 %247, 1
   br i1 %.not207, label %276, label %SSL_CTX_use_PrivateKey_blob.exit.thread
 
 SSL_CTX_use_PrivateKey_blob.exit.thread:          ; preds = %231, %SSL_CTX_use_PrivateKey_blob.exit
-  %.not208 = icmp eq ptr %.0158268, null
-  %248 = select i1 %.not208, ptr @.str.51, ptr %.0158268
+  %.not208 = icmp eq ptr %.0158269, null
+  %248 = select i1 %.not208, ptr @.str.51, ptr %.0158269
   %.not209 = icmp eq ptr %7, null
   %249 = select i1 %.not209, ptr @.str.60, ptr %7
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %248, ptr noundef nonnull %249) #13
   br label %296
 
-do_file_type.exit245.thread278:                   ; preds = %227, %do_file_type.exit245
-  %.0158282 = phi ptr [ %2, %do_file_type.exit245 ], [ %5, %227 ]
+do_file_type.exit246.thread279:                   ; preds = %227, %do_file_type.exit246
+  %.0158283 = phi ptr [ %2, %do_file_type.exit246 ], [ %5, %227 ]
   %250 = getelementptr inbounds i8, ptr %0, i64 3600
   %251 = load ptr, ptr %250, align 8
   %.not199 = icmp eq ptr %251, null
-  br i1 %.not199, label %252, label %.thread292
+  br i1 %.not199, label %252, label %.thread293
 
-252:                                              ; preds = %do_file_type.exit245.thread278
-  %.not.i250 = icmp eq ptr %.0158282, null
-  br i1 %.not.i250, label %.thread290, label %is_pkcs11_uri.exit251
+252:                                              ; preds = %do_file_type.exit246.thread279
+  %.not.i251 = icmp eq ptr %.0158283, null
+  br i1 %.not.i251, label %.thread291, label %is_pkcs11_uri.exit252
 
-is_pkcs11_uri.exit251:                            ; preds = %252
-  %253 = call i32 @curl_strnequal(ptr noundef nonnull %.0158282, ptr noundef nonnull @.str.75, i64 noundef 7) #13
-  %.not295 = icmp eq i32 %253, 0
-  br i1 %.not295, label %256, label %254
+is_pkcs11_uri.exit252:                            ; preds = %252
+  %253 = call i32 @curl_strnequal(ptr noundef nonnull %.0158283, ptr noundef nonnull @.str.75, i64 noundef 7) #13
+  %.not296 = icmp eq i32 %253, 0
+  br i1 %.not296, label %256, label %254
 
-254:                                              ; preds = %is_pkcs11_uri.exit251
+254:                                              ; preds = %is_pkcs11_uri.exit252
   %255 = call i32 @ossl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull @.str.40)
   %.not200 = icmp eq i32 %255, 0
   br i1 %.not200, label %256, label %296
 
-256:                                              ; preds = %is_pkcs11_uri.exit251, %254
-  %.pr289 = load ptr, ptr %250, align 8
-  %.not201 = icmp eq ptr %.pr289, null
-  br i1 %.not201, label %.thread290, label %.thread292
+256:                                              ; preds = %is_pkcs11_uri.exit252, %254
+  %.pr290 = load ptr, ptr %250, align 8
+  %.not201 = icmp eq ptr %.pr290, null
+  br i1 %.not201, label %.thread291, label %.thread293
 
-.thread292:                                       ; preds = %do_file_type.exit245.thread278, %256
+.thread293:                                       ; preds = %do_file_type.exit246.thread279, %256
   %257 = call ptr @UI_create_method(ptr noundef nonnull @.str.61) #13
   %.not202 = icmp eq ptr %257, null
   br i1 %.not202, label %258, label %259
 
-258:                                              ; preds = %.thread292
+258:                                              ; preds = %.thread293
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #13
   br label %296
 
-259:                                              ; preds = %.thread292
+259:                                              ; preds = %.thread293
   %260 = call ptr @UI_OpenSSL() #13
   %261 = call ptr @UI_method_get_opener(ptr noundef %260) #13
   %262 = call i32 @UI_method_set_opener(ptr noundef nonnull %257, ptr noundef %261) #13
@@ -1535,7 +1535,7 @@ is_pkcs11_uri.exit251:                            ; preds = %252
   %266 = call i32 @UI_method_set_reader(ptr noundef nonnull %257, ptr noundef nonnull @ssl_ui_reader) #13
   %267 = call i32 @UI_method_set_writer(ptr noundef nonnull %257, ptr noundef nonnull @ssl_ui_writer) #13
   %268 = load ptr, ptr %250, align 8
-  %269 = call ptr @ENGINE_load_private_key(ptr noundef %268, ptr noundef %.0158282, ptr noundef nonnull %257, ptr noundef %8) #13
+  %269 = call ptr @ENGINE_load_private_key(ptr noundef %268, ptr noundef %.0158283, ptr noundef nonnull %257, ptr noundef %8) #13
   call void @UI_destroy_method(ptr noundef nonnull %257) #13
   %.not203 = icmp eq ptr %269, null
   br i1 %.not203, label %270, label %271
@@ -1558,22 +1558,22 @@ is_pkcs11_uri.exit251:                            ; preds = %252
   call void @EVP_PKEY_free(ptr noundef nonnull %269) #13
   br label %276
 
-.thread290:                                       ; preds = %252, %256
+.thread291:                                       ; preds = %252, %256
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #13
   br label %296
 
-do_file_type.exit245.thread283:                   ; preds = %229, %do_file_type.exit245
+do_file_type.exit246.thread284:                   ; preds = %229, %do_file_type.exit246
   br i1 %.not198, label %275, label %276
 
-275:                                              ; preds = %do_file_type.exit245.thread283
+275:                                              ; preds = %do_file_type.exit246.thread284
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.66) #13
   br label %296
 
-do_file_type.exit245.thread270:                   ; preds = %229, %do_file_type.exit245
+do_file_type.exit246.thread271:                   ; preds = %229, %do_file_type.exit246
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.67) #13
   br label %296
 
-276:                                              ; preds = %do_file_type.exit245.thread283, %SSL_CTX_use_PrivateKey_blob.exit, %do_file_type.exit245.thread, %274
+276:                                              ; preds = %do_file_type.exit246.thread284, %SSL_CTX_use_PrivateKey_blob.exit, %do_file_type.exit246.thread, %274
   %277 = call ptr @SSL_new(ptr noundef %1) #13
   %.not210 = icmp eq ptr %277, null
   br i1 %.not210, label %278, label %279
@@ -1623,8 +1623,8 @@ do_file_type.exit245.thread270:                   ; preds = %229, %do_file_type.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.69) #13
   br label %296
 
-296:                                              ; preds = %do_file_type.exit, %293, %289, %254, %114, %295, %278, %do_file_type.exit245.thread270, %275, %.thread290, %273, %270, %258, %SSL_CTX_use_PrivateKey_blob.exit.thread, %216, %.critedge, %182, %178, %173, %166, %ossl_strerror.exit236, %.thread, %132, %129, %124, %120, %ossl_strerror.exit230, %ossl_strerror.exit
-  %.0 = phi i32 [ 0, %216 ], [ 0, %do_file_type.exit245.thread270 ], [ 0, %295 ], [ 0, %278 ], [ 0, %275 ], [ 0, %273 ], [ 0, %270 ], [ 0, %258 ], [ 0, %.thread290 ], [ 0, %SSL_CTX_use_PrivateKey_blob.exit.thread ], [ 0, %.critedge ], [ 0, %182 ], [ 0, %178 ], [ 0, %ossl_strerror.exit236 ], [ 0, %173 ], [ 0, %166 ], [ 0, %132 ], [ 0, %129 ], [ 0, %124 ], [ 0, %120 ], [ 0, %.thread ], [ 0, %ossl_strerror.exit230 ], [ 0, %ossl_strerror.exit ], [ 0, %114 ], [ 0, %254 ], [ 1, %289 ], [ 1, %293 ], [ 1, %do_file_type.exit ]
+296:                                              ; preds = %do_file_type.exit, %293, %289, %254, %114, %295, %278, %do_file_type.exit246.thread271, %275, %.thread291, %273, %270, %258, %SSL_CTX_use_PrivateKey_blob.exit.thread, %216, %.critedge, %182, %178, %173, %166, %ossl_strerror.exit237, %.thread, %132, %129, %124, %120, %ossl_strerror.exit231, %ossl_strerror.exit
+  %.0 = phi i32 [ 0, %216 ], [ 0, %do_file_type.exit246.thread271 ], [ 0, %295 ], [ 0, %278 ], [ 0, %275 ], [ 0, %273 ], [ 0, %270 ], [ 0, %258 ], [ 0, %.thread291 ], [ 0, %SSL_CTX_use_PrivateKey_blob.exit.thread ], [ 0, %.critedge ], [ 0, %182 ], [ 0, %178 ], [ 0, %ossl_strerror.exit237 ], [ 0, %173 ], [ 0, %166 ], [ 0, %132 ], [ 0, %129 ], [ 0, %124 ], [ 0, %120 ], [ 0, %.thread ], [ 0, %ossl_strerror.exit231 ], [ 0, %ossl_strerror.exit ], [ 0, %114 ], [ 0, %254 ], [ 1, %289 ], [ 1, %293 ], [ 1, %do_file_type.exit ]
   ret i32 %.0
 }
 
@@ -1688,8 +1688,8 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %subj_alt_hostcheck.exit.us
-  %.085172.us = phi i1 [ %.186.us212, %subj_alt_hostcheck.exit.us ], [ false, %.lr.ph ]
-  %.088171.us = phi i1 [ %.189.us210, %subj_alt_hostcheck.exit.us ], [ false, %.lr.ph ]
+  %.186172.us = phi i1 [ %.287.us212, %subj_alt_hostcheck.exit.us ], [ false, %.lr.ph ]
+  %.189171.us = phi i1 [ %.290.us210, %subj_alt_hostcheck.exit.us ], [ false, %.lr.ph ]
   %.095168.us = phi i32 [ %47, %subj_alt_hostcheck.exit.us ], [ 0, %.lr.ph ]
   %28 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %22, i32 noundef %.095168.us) #13
   %29 = load i32, ptr %28, align 8
@@ -1730,8 +1730,8 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
   br label %subj_alt_hostcheck.exit.us
 
 subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.us, %39, %43, %46, %.thread
-  %.186.us212 = phi i1 [ true, %.thread ], [ %.085172.us, %30 ], [ true, %46 ], [ true, %43 ], [ true, %39 ], [ %.085172.us, %.lr.ph.split.us ]
-  %.189.us210 = phi i1 [ %.088171.us, %.thread ], [ %.088171.us, %30 ], [ %.088171.us, %46 ], [ %.088171.us, %43 ], [ %.088171.us, %39 ], [ true, %.lr.ph.split.us ]
+  %.287.us212 = phi i1 [ true, %.thread ], [ %.186172.us, %30 ], [ true, %46 ], [ true, %43 ], [ true, %39 ], [ %.186172.us, %.lr.ph.split.us ]
+  %.290.us210 = phi i1 [ %.189171.us, %.thread ], [ %.189171.us, %30 ], [ %.189171.us, %46 ], [ %.189171.us, %43 ], [ %.189171.us, %39 ], [ true, %.lr.ph.split.us ]
   %.194.us = phi i1 [ false, %.thread ], [ false, %30 ], [ %42, %46 ], [ %42, %43 ], [ %42, %39 ], [ false, %.lr.ph.split.us ]
   %47 = add nuw nsw i32 %.095168.us, 1
   %48 = icmp sge i32 %47, %24
@@ -1739,8 +1739,8 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %.not116.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split.us179:                               ; preds = %.lr.ph, %.thread217
-  %.085172.us180 = phi i1 [ %.186.us187221, %.thread217 ], [ false, %.lr.ph ]
-  %.088171.us181 = phi i1 [ %.189.us186220, %.thread217 ], [ false, %.lr.ph ]
+  %.186172.us180 = phi i1 [ %.287.us187221, %.thread217 ], [ false, %.lr.ph ]
+  %.189171.us181 = phi i1 [ %.290.us186220, %.thread217 ], [ false, %.lr.ph ]
   %.091170.us182 = phi i1 [ %.192.us189, %.thread217 ], [ false, %.lr.ph ]
   %.095168.us184 = phi i32 [ %65, %.thread217 ], [ 0, %.lr.ph ]
   %49 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %22, i32 noundef %.095168.us184) #13
@@ -1783,16 +1783,16 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br label %.thread217
 
 .thread217:                                       ; preds = %.lr.ph.split.us179, %.fold.split.us185, %59, %63, %60, %51
-  %.186.us187221 = phi i1 [ %.085172.us180, %59 ], [ %.085172.us180, %63 ], [ %.085172.us180, %60 ], [ %.085172.us180, %51 ], [ %.085172.us180, %.fold.split.us185 ], [ true, %.lr.ph.split.us179 ]
-  %.189.us186220 = phi i1 [ true, %59 ], [ true, %63 ], [ true, %60 ], [ true, %51 ], [ %.088171.us181, %.fold.split.us185 ], [ %.088171.us181, %.lr.ph.split.us179 ]
+  %.287.us187221 = phi i1 [ %.186172.us180, %59 ], [ %.186172.us180, %63 ], [ %.186172.us180, %60 ], [ %.186172.us180, %51 ], [ %.186172.us180, %.fold.split.us185 ], [ true, %.lr.ph.split.us179 ]
+  %.290.us186220 = phi i1 [ true, %59 ], [ true, %63 ], [ true, %60 ], [ true, %51 ], [ %.189171.us181, %.fold.split.us185 ], [ %.189171.us181, %.lr.ph.split.us179 ]
   %.192.us189 = phi i1 [ %.091170.us182.mux, %59 ], [ true, %63 ], [ true, %60 ], [ %.091170.us182, %51 ], [ %.091170.us182, %.fold.split.us185 ], [ %.091170.us182, %.lr.ph.split.us179 ]
   %65 = add nuw nsw i32 %.095168.us184, 1
   %exitcond.not = icmp eq i32 %65, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us179, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %77
-  %.085172 = phi i1 [ %.186, %77 ], [ false, %.lr.ph ]
-  %.088171 = phi i1 [ %.189, %77 ], [ false, %.lr.ph ]
+  %.186172 = phi i1 [ %.287, %77 ], [ false, %.lr.ph ]
+  %.189171 = phi i1 [ %.290, %77 ], [ false, %.lr.ph ]
   %.095168 = phi i32 [ %78, %77 ], [ 0, %.lr.ph ]
   %66 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %22, i32 noundef %.095168) #13
   %67 = load i32, ptr %66, align 8
@@ -1808,8 +1808,8 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br label %69
 
 69:                                               ; preds = %.lr.ph.split, %.fold.split, %68
-  %.189 = phi i1 [ true, %68 ], [ %.088171, %.lr.ph.split ], [ %.088171, %.fold.split ]
-  %.186 = phi i1 [ %.085172, %68 ], [ true, %.lr.ph.split ], [ %.085172, %.fold.split ]
+  %.290 = phi i1 [ true, %68 ], [ %.189171, %.lr.ph.split ], [ %.189171, %.fold.split ]
+  %.287 = phi i1 [ %.186172, %68 ], [ true, %.lr.ph.split ], [ %.186172, %.fold.split ]
   %70 = icmp eq i32 %67, %.078.fr
   br i1 %70, label %71, label %77
 
@@ -1827,22 +1827,22 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %exitcond204.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge.thread:                               ; preds = %77, %23
-  %.088.lcssa.ph = phi i1 [ false, %23 ], [ %.189, %77 ]
-  %.085.lcssa.ph = phi i1 [ false, %23 ], [ %.186, %77 ]
+  %.189.lcssa.ph = phi i1 [ false, %23 ], [ %.290, %77 ]
+  %.186.lcssa.ph = phi i1 [ false, %23 ], [ %.287, %77 ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %22) #13
   br label %79
 
 ._crit_edge:                                      ; preds = %.thread217, %subj_alt_hostcheck.exit.us
   %.093.lcssa = phi i1 [ %.194.us, %subj_alt_hostcheck.exit.us ], [ %.192.us189, %.thread217 ]
-  %.088.lcssa = phi i1 [ %.189.us210, %subj_alt_hostcheck.exit.us ], [ %.189.us186220, %.thread217 ]
-  %.085.lcssa = phi i1 [ %.186.us212, %subj_alt_hostcheck.exit.us ], [ %.186.us187221, %.thread217 ]
+  %.189.lcssa = phi i1 [ %.290.us210, %subj_alt_hostcheck.exit.us ], [ %.290.us186220, %.thread217 ]
+  %.186.lcssa = phi i1 [ %.287.us212, %subj_alt_hostcheck.exit.us ], [ %.287.us187221, %.thread217 ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %22) #13
   br i1 %.093.lcssa, label %.thread164, label %79
 
 79:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.085.lcssa226 = phi i1 [ %.085.lcssa.ph, %._crit_edge.thread ], [ %.085.lcssa, %._crit_edge ]
-  %.088.lcssa225 = phi i1 [ %.088.lcssa.ph, %._crit_edge.thread ], [ %.088.lcssa, %._crit_edge ]
-  %brmerge167 = select i1 %.085.lcssa226, i1 true, i1 %.088.lcssa225
+  %.186.lcssa226 = phi i1 [ %.186.lcssa.ph, %._crit_edge.thread ], [ %.186.lcssa, %._crit_edge ]
+  %.189.lcssa225 = phi i1 [ %.189.lcssa.ph, %._crit_edge.thread ], [ %.189.lcssa, %._crit_edge ]
+  %brmerge167 = select i1 %.186.lcssa226, i1 true, i1 %.189.lcssa225
   br i1 %brmerge167, label %80, label %.thread143
 
 80:                                               ; preds = %79
@@ -1875,17 +1875,17 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %.not117, label %.thread159, label %.preheader
 
 .preheader:                                       ; preds = %.thread143, %.preheader
-  %.081 = phi i32 [ %92, %.preheader ], [ -1, %.thread143 ]
-  %92 = call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %91, i32 noundef 13, i32 noundef %.081) #13
+  %.182 = phi i32 [ %92, %.preheader ], [ -1, %.thread143 ]
+  %92 = call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %91, i32 noundef 13, i32 noundef %.182) #13
   %93 = icmp sgt i32 %92, -1
   br i1 %93, label %.preheader, label %94, !llvm.loop !13
 
 94:                                               ; preds = %.preheader
-  %95 = icmp sgt i32 %.081, -1
+  %95 = icmp sgt i32 %.182, -1
   br i1 %95, label %96, label %.thread159
 
 96:                                               ; preds = %94
-  %97 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %91, i32 noundef %.081) #13
+  %97 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %91, i32 noundef %.182) #13
   %98 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %97) #13
   %.not118 = icmp eq ptr %98, null
   br i1 %.not118, label %.thread159, label %99
@@ -1923,11 +1923,11 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br i1 %.not120, label %.thread159, label %114
 
 114:                                              ; preds = %.thread231, %112
-  %.080.ph236 = phi i32 [ %103, %.thread231 ], [ %113, %112 ]
+  %.1.ph236 = phi i32 [ %103, %.thread231 ], [ %113, %112 ]
   %.pr235 = phi ptr [ %108, %.thread231 ], [ %.pr.pre, %112 ]
   %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pr235) #14
   %116 = call i32 @curlx_uztosi(i64 noundef %115) #13
-  %.not121 = icmp eq i32 %116, %.080.ph236
+  %.not121 = icmp eq i32 %116, %.1.ph236
   br i1 %.not121, label %.thread145, label %117
 
 117:                                              ; preds = %114
@@ -1944,7 +1944,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br label %133
 
 118:                                              ; preds = %.thread145
-  %119 = sext i32 %.080.ph236 to i64
+  %119 = sext i32 %.1.ph236 to i64
   %120 = load ptr, ptr %2, align 8
   %121 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef nonnull %.pr158.pre, i64 noundef %119, ptr noundef %120, i64 noundef %8) #13
   br i1 %121, label %126, label %122
@@ -1973,7 +1973,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br label %133
 
 133:                                              ; preds = %117, %.thread159, %131, %127, %126, %122
-  %.2.ph = phi i32 [ 60, %117 ], [ 60, %.thread159 ], [ 60, %122 ], [ 0, %126 ], [ 0, %127 ], [ 0, %131 ]
+  %.3.ph = phi i32 [ 60, %117 ], [ 60, %.thread159 ], [ 60, %122 ], [ 0, %126 ], [ 0, %127 ], [ 0, %131 ]
   %.pr163 = load ptr, ptr %6, align 8
   %.not126 = icmp eq ptr %.pr163, null
   br i1 %.not126, label %.thread164, label %134
@@ -1983,8 +1983,8 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   br label %.thread164
 
 .thread164:                                       ; preds = %._crit_edge, %105, %88, %134, %133
-  %.3 = phi i32 [ 60, %88 ], [ %.2.ph, %134 ], [ %.2.ph, %133 ], [ 0, %._crit_edge ], [ 27, %105 ]
-  ret i32 %.3
+  %.083 = phi i32 [ 60, %88 ], [ %.3.ph, %134 ], [ %.3.ph, %133 ], [ 0, %._crit_edge ], [ 27, %105 ]
+  ret i32 %.083
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2245,7 +2245,7 @@ load_cacert_from_memory.exit.thread121.i:         ; preds = %105
   br label %116
 
 116:                                              ; preds = %114, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %115, %114 ], [ %.036.i.i, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %115, %114 ], [ %.036.i.i, %.lr.ph.i.i ]
   %117 = getelementptr inbounds i8, ptr %110, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not33.i.i = icmp eq ptr %118, null
@@ -2257,12 +2257,12 @@ load_cacert_from_memory.exit.thread121.i:         ; preds = %105
   br i1 %.not34.i.i, label %load_cacert_from_memory.exit.i, label %121
 
 121:                                              ; preds = %119
-  %122 = add nsw i32 %.1.i.i, 1
+  %122 = add nsw i32 %.2.i.i, 1
   br label %123
 
 123:                                              ; preds = %121, %116
-  %.2.i.i = phi i32 [ %122, %121 ], [ %.1.i.i, %116 ]
-  %124 = freeze i32 %.2.i.i
+  %.3.i.i = phi i32 [ %122, %121 ], [ %.2.i.i, %116 ]
+  %124 = freeze i32 %.3.i.i
   %125 = add nuw nsw i32 %.02335.i.i, 1
   %126 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %106) #13
   %127 = icmp slt i32 %125, %126
@@ -2274,14 +2274,14 @@ load_cacert_from_memory.exit.thread121.i:         ; preds = %105
   br label %load_cacert_from_memory.exit.i
 
 load_cacert_from_memory.exit.i:                   ; preds = %119, %112, %._crit_edge.loopexit.i.i, %.preheader.i.i
-  %.3.i.i = phi i32 [ 77, %.preheader.i.i ], [ %spec.select, %._crit_edge.loopexit.i.i ], [ 77, %112 ], [ 77, %119 ]
+  %.1.i.i = phi i32 [ 77, %.preheader.i.i ], [ %spec.select, %._crit_edge.loopexit.i.i ], [ 77, %112 ], [ 77, %119 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %106, ptr noundef nonnull @X509_INFO_free) #13
   %129 = tail call i32 @BIO_free(ptr noundef nonnull %104) #13
-  %.not103.i = icmp eq i32 %.3.i.i, 0
+  %.not103.i = icmp eq i32 %.1.i.i, 0
   br i1 %.not103.i, label %130, label %load_cacert_from_memory.exit.thread.i
 
 load_cacert_from_memory.exit.thread.i:            ; preds = %load_cacert_from_memory.exit.i, %load_cacert_from_memory.exit.thread121.i, %101, %97
-  %.024.i120.i = phi i32 [ %.3.i.i, %load_cacert_from_memory.exit.i ], [ 77, %load_cacert_from_memory.exit.thread121.i ], [ 27, %101 ], [ 77, %97 ]
+  %.024.i120.i = phi i32 [ %.1.i.i, %load_cacert_from_memory.exit.i ], [ 77, %load_cacert_from_memory.exit.thread121.i ], [ 27, %101 ], [ 77, %97 ]
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.79) #13
   br label %set_cached_x509_store.exit
 
@@ -2683,7 +2683,7 @@ ossl_strerror.exit:                               ; preds = %53, %switch.lookup,
   br i1 %.not49, label %.critedge, label %19, !llvm.loop !15
 
 .critedge:                                        ; preds = %24, %24, %65, %36, %33, %62, %61, %ossl_strerror.exit
-  %.0.lcssa = phi i32 [ 0, %36 ], [ 0, %33 ], [ -1, %62 ], [ 0, %61 ], [ 0, %ossl_strerror.exit ], [ 0, %65 ], [ 0, %24 ], [ 0, %24 ]
+  %.1.lcssa = phi i32 [ 0, %36 ], [ 0, %33 ], [ -1, %62 ], [ 0, %61 ], [ 0, %ossl_strerror.exit ], [ 0, %65 ], [ 0, %24 ], [ 0, %24 ]
   %67 = load i64, ptr %18, align 2
   %68 = and i64 %67, 268435456
   %.not55 = icmp eq i64 %68, 0
@@ -2728,8 +2728,8 @@ ossl_strerror.exit:                               ; preds = %53, %switch.lookup,
   br label %83
 
 83:                                               ; preds = %81, %15
-  %.2 = phi i32 [ %.0.lcssa, %81 ], [ 0, %15 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %.1.lcssa, %81 ], [ 0, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6020,12 +6020,12 @@ define internal range(i32 0, 2) i32 @ossl_new_session_cb(ptr noundef %0, ptr nou
   br label %35
 
 35:                                               ; preds = %31, %34, %29
-  %.033 = phi i32 [ 0, %29 ], [ 0, %34 ], [ %spec.select, %31 ]
+  %.134 = phi i32 [ 0, %29 ], [ 0, %34 ], [ %spec.select, %31 ]
   call void @Curl_ssl_sessionid_unlock(ptr noundef nonnull %11) #13
   br label %.thread44
 
 .thread44:                                        ; preds = %2, %6, %12, %35, %9
-  %.032 = phi i32 [ 0, %9 ], [ %.033, %35 ], [ 0, %12 ], [ 0, %6 ], [ 0, %2 ]
+  %.032 = phi i32 [ 0, %9 ], [ %.134, %35 ], [ 0, %12 ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %.032
 }
 

@@ -1893,7 +1893,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
   br label %419
 
 .body234:                                         ; preds = %.thread347
-  br i1 %.2333, label %455, label %.body265
+  br i1 %.3333, label %455, label %.body265
 
 .loopexit411:                                     ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hefbcd0d5b0d02b63E.llvm.8351105841907204142.exit.i238"
   %lpad.loopexit413 = landingpad { ptr, i32 }
@@ -1959,13 +1959,13 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %52, %50
   br label %.thread347
 
 .thread364.loopexit:                              ; preds = %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i224, %381, %373, %367, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit290", %291, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit276", %248, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit", %156, %128, %108, %185, %204, %392
-  %.3.ph.ph = phi i1 [ false, %392 ], [ false, %204 ], [ true, %185 ], [ true, %108 ], [ true, %128 ], [ true, %156 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit" ], [ false, %248 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit276" ], [ false, %291 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit290" ], [ false, %367 ], [ false, %373 ], [ false, %381 ], [ false, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i224 ]
+  %.2.ph.ph = phi i1 [ false, %392 ], [ false, %204 ], [ true, %185 ], [ true, %108 ], [ true, %128 ], [ true, %156 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit" ], [ false, %248 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit276" ], [ false, %291 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit290" ], [ false, %367 ], [ false, %373 ], [ false, %381 ], [ false, %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i224 ]
   %lpad.loopexit408 = landingpad { ptr, i32 }
           cleanup
   br label %.thread347
 
 .thread364.loopexit.split-lp:                     ; preds = %.invoke, %334, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit283", %205, %219, %262
-  %.3.ph.ph407 = phi i1 [ false, %262 ], [ false, %219 ], [ false, %205 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit283" ], [ false, %334 ], [ true, %.invoke ]
+  %.2.ph.ph407 = phi i1 [ false, %262 ], [ false, %219 ], [ false, %205 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit283" ], [ false, %334 ], [ true, %.invoke ]
   %lpad.loopexit.split-lp409 = landingpad { ptr, i32 }
           cleanup
   br label %.thread347
@@ -3006,7 +3006,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i245: ; preds = %403,
 
 .thread347:                                       ; preds = %.thread364.loopexit, %.thread364.loopexit.split-lp, %200, %211, %221, %255, %264, %298, %340, %.body288, %.body281, %.body274, %.body268, %.thread343, %.thread339, %.thread335
   %.pn334 = phi { ptr, i32 } [ %125, %.thread335 ], [ %152, %.thread339 ], [ %180, %.thread343 ], [ %241, %.body268 ], [ %284, %.body274 ], [ %326, %.body281 ], [ %360, %.body288 ], [ %201, %200 ], [ %212, %211 ], [ %222, %221 ], [ %256, %255 ], [ %265, %264 ], [ %299, %298 ], [ %341, %340 ], [ %lpad.loopexit408, %.thread364.loopexit ], [ %lpad.loopexit.split-lp409, %.thread364.loopexit.split-lp ]
-  %.2333 = phi i1 [ true, %.thread335 ], [ true, %.thread339 ], [ true, %.thread343 ], [ false, %.body268 ], [ false, %.body274 ], [ false, %.body281 ], [ false, %.body288 ], [ false, %200 ], [ false, %211 ], [ false, %221 ], [ false, %255 ], [ false, %264 ], [ false, %298 ], [ false, %340 ], [ %.3.ph.ph, %.thread364.loopexit ], [ %.3.ph.ph407, %.thread364.loopexit.split-lp ]
+  %.3333 = phi i1 [ true, %.thread335 ], [ true, %.thread339 ], [ true, %.thread343 ], [ false, %.body268 ], [ false, %.body274 ], [ false, %.body281 ], [ false, %.body288 ], [ false, %200 ], [ false, %211 ], [ false, %221 ], [ false, %255 ], [ false, %264 ], [ false, %298 ], [ false, %340 ], [ %.2.ph.ph, %.thread364.loopexit ], [ %.2.ph.ph407, %.thread364.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h9e71df783a6e347aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %37) #16
           to label %.body234 unwind label %209
 
@@ -3105,7 +3105,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %417
 
 .body125:                                         ; preds = %.thread218
-  br i1 %.2204, label %418, label %common.resume
+  br i1 %.3204, label %418, label %common.resume
 
 28:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
@@ -3176,7 +3176,7 @@ define void @"_ZN3syn8generics7parsing75_$LT$impl$u20$syn..parse..Parse$u20$for$
   br label %.thread218
 
 .thread243:                                       ; preds = %.invoke, %28, %54, %82, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit", %161, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit161", %196, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit168", %243, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit175", %278, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit182", %331, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit189", %366
-  %.3.ph = phi i1 [ false, %366 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit189" ], [ false, %331 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit182" ], [ false, %278 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit175" ], [ false, %243 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit168" ], [ false, %196 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit161" ], [ false, %161 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit" ], [ true, %82 ], [ true, %54 ], [ true, %28 ], [ true, %.invoke ]
+  %.2.ph = phi i1 [ false, %366 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit189" ], [ false, %331 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit182" ], [ false, %278 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit175" ], [ false, %243 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit168" ], [ false, %196 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit161" ], [ false, %161 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d9ddf05681ade5dE.llvm.8351105841907204142.exit" ], [ true, %82 ], [ true, %54 ], [ true, %28 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread218
@@ -4193,7 +4193,7 @@ common.resume:                                    ; preds = %.body125, %418, %28
 
 .thread218:                                       ; preds = %120, %206, %292, %.body187, %.body180, %.body173, %.body166, %.body159, %.body153, %.thread243, %.thread214, %.thread210, %.thread206
   %.pn205 = phi { ptr, i32 } [ %51, %.thread206 ], [ %78, %.thread210 ], [ %106, %.thread214 ], [ %lpad.thr_comm, %.thread243 ], [ %153, %.body153 ], [ %188, %.body159 ], [ %235, %.body166 ], [ %270, %.body173 ], [ %323, %.body180 ], [ %358, %.body187 ], [ %121, %120 ], [ %207, %206 ], [ %293, %292 ]
-  %.2204 = phi i1 [ true, %.thread206 ], [ true, %.thread210 ], [ true, %.thread214 ], [ %.3.ph, %.thread243 ], [ false, %.body153 ], [ false, %.body159 ], [ false, %.body166 ], [ false, %.body173 ], [ false, %.body180 ], [ false, %.body187 ], [ false, %120 ], [ false, %206 ], [ false, %292 ]
+  %.3204 = phi i1 [ true, %.thread206 ], [ true, %.thread210 ], [ true, %.thread214 ], [ %.2.ph, %.thread243 ], [ false, %.body153 ], [ false, %.body159 ], [ false, %.body166 ], [ false, %.body173 ], [ false, %.body180 ], [ false, %.body187 ], [ false, %120 ], [ false, %206 ], [ false, %292 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h9e71df783a6e347aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21) #16
           to label %.body125 unwind label %204
 

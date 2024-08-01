@@ -410,7 +410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101: ;
 
 .body94:                                          ; preds = %77, %38, %.body99
   %.pn = phi { ptr, i32 } [ %eh.lpad-body100, %.body99 ], [ %78, %77 ], [ %39, %38 ]
-  %.052 = phi ptr [ %40, %.body99 ], [ %36, %77 ], [ %36, %38 ]
+  %.254 = phi ptr [ %40, %.body99 ], [ %36, %77 ], [ %36, %38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #11
   br label %.body
 
@@ -421,7 +421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101: ;
 
 .body:                                            ; preds = %.body94, %34, %75
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body94 ], [ %76, %75 ], [ %35, %34 ]
-  %.153 = phi ptr [ %.052, %.body94 ], [ %32, %75 ], [ %32, %34 ]
+  %.153 = phi ptr [ %.254, %.body94 ], [ %32, %75 ], [ %32, %34 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
   br label %81

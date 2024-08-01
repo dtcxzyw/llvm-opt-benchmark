@@ -2429,40 +2429,40 @@ define noundef float @_Z19dd_cutoff_multibodyPK12gmx_domdec_t(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02728 = phi float [ %17, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
+  %.128 = phi float [ %17, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
   %21 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 %23
   %25 = load float, ptr %24, align 4
-  %26 = fcmp olt float %25, %.02728
-  %.sroa.speculated = select i1 %26, float %25, float %.02728
+  %26 = fcmp olt float %25, %.128
+  %.sroa.speculated = select i1 %26, float %25, float %.128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.027.lcssa = phi float [ %17, %11 ], [ %.sroa.speculated, %.lr.ph ]
+  %.1.lcssa = phi float [ %17, %11 ], [ %.sroa.speculated, %.lr.ph ]
   %27 = getelementptr inbounds i8, ptr %3, i64 508
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %._crit_edge
-  %31 = fcmp olt float %.027.lcssa, %9
-  %.sroa.speculated25 = select i1 %31, float %9, float %.027.lcssa
+  %31 = fcmp olt float %.1.lcssa, %9
+  %.sroa.speculated25 = select i1 %31, float %9, float %.1.lcssa
   br label %36
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds i8, ptr %3, i64 492
   %34 = load float, ptr %33, align 4
-  %35 = fcmp olt float %34, %.027.lcssa
-  %.sroa.speculated22 = select i1 %35, float %34, float %.027.lcssa
+  %35 = fcmp olt float %34, %.1.lcssa
+  %.sroa.speculated22 = select i1 %35, float %34, float %.1.lcssa
   br label %36
 
 36:                                               ; preds = %7, %32, %30, %1
-  %.1 = phi float [ %.sroa.speculated25, %30 ], [ %.sroa.speculated22, %32 ], [ -1.000000e+00, %1 ], [ %9, %7 ]
-  ret float %.1
+  %.027 = phi float [ %.sroa.speculated25, %30 ], [ %.sroa.speculated22, %32 ], [ -1.000000e+00, %1 ], [ %9, %7 ]
+  ret float %.027
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2498,43 +2498,43 @@ define noundef float @_Z17dd_cutoff_twobodyPK12gmx_domdec_t(ptr nocapture nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.02728.i = phi float [ %17, %.lr.ph.preheader.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
+  %.128.i = phi float [ %17, %.lr.ph.preheader.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %21 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 %23
   %25 = load float, ptr %24, align 4
-  %26 = fcmp olt float %25, %.02728.i
-  %.sroa.speculated.i = select i1 %26, float %25, float %.02728.i
+  %26 = fcmp olt float %25, %.128.i
+  %.sroa.speculated.i = select i1 %26, float %25, float %.128.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
-  %.027.lcssa.i = phi float [ %17, %11 ], [ %.sroa.speculated.i, %.lr.ph.i ]
+  %.1.lcssa.i = phi float [ %17, %11 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %27 = getelementptr inbounds i8, ptr %3, i64 508
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = fcmp olt float %.027.lcssa.i, %9
-  %.sroa.speculated25.i = select i1 %31, float %9, float %.027.lcssa.i
+  %31 = fcmp olt float %.1.lcssa.i, %9
+  %.sroa.speculated25.i = select i1 %31, float %9, float %.1.lcssa.i
   br label %_Z19dd_cutoff_multibodyPK12gmx_domdec_t.exit
 
 32:                                               ; preds = %._crit_edge.i
   %33 = getelementptr inbounds i8, ptr %3, i64 492
   %34 = load float, ptr %33, align 4
-  %35 = fcmp olt float %34, %.027.lcssa.i
-  %.sroa.speculated22.i = select i1 %35, float %34, float %.027.lcssa.i
+  %35 = fcmp olt float %34, %.1.lcssa.i
+  %.sroa.speculated22.i = select i1 %35, float %34, float %.1.lcssa.i
   br label %_Z19dd_cutoff_multibodyPK12gmx_domdec_t.exit
 
 _Z19dd_cutoff_multibodyPK12gmx_domdec_t.exit:     ; preds = %1, %7, %30, %32
-  %.1.i = phi float [ %.sroa.speculated25.i, %30 ], [ %.sroa.speculated22.i, %32 ], [ -1.000000e+00, %1 ], [ %9, %7 ]
+  %.027.i = phi float [ %.sroa.speculated25.i, %30 ], [ %.sroa.speculated22.i, %32 ], [ -1.000000e+00, %1 ], [ %9, %7 ]
   %36 = getelementptr inbounds i8, ptr %3, i64 492
   %37 = load float, ptr %36, align 4
-  %38 = fcmp olt float %37, %.1.i
-  %.sroa.speculated = select i1 %38, float %.1.i, float %37
+  %38 = fcmp olt float %37, %.027.i
+  %.sroa.speculated = select i1 %38, float %.027.i, float %37
   ret float %.sroa.speculated
 }
 
@@ -5789,12 +5789,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .sink.split.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i, %.noexc59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i, %249, %256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
   %.sink.i.i = phi ptr [ %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i ], [ %57, %.noexc59 ], [ %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i ], [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i ], [ %60, %249 ], [ %60, %256 ]
-  %.140.ph.i.i = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i ], [ 1, %.noexc59 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i ], [ %switch.load, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i ], [ 1, %249 ], [ 1, %256 ]
+  %.039.ph.i.i = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i ], [ 1, %.noexc59 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i ], [ %switch.load, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i ], [ 1, %249 ], [ 1, %256 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #25, !noalias !50
   br label %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i
 
 _ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i: ; preds = %.sink.split.i.i, %238
-  %.140.i.i = phi i32 [ %switch.load, %238 ], [ %.140.ph.i.i, %.sink.split.i.i ]
+  %.039.i.i = phi i32 [ %switch.load, %238 ], [ %.039.ph.i.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51), !noalias !50
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52), !noalias !50
@@ -5819,7 +5819,7 @@ _ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12Mdrun
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25, !noalias !50
   %268 = getelementptr inbounds i8, ptr %66, i64 32
   store i8 0, ptr %268, align 8, !noalias !50
-  %269 = zext nneg i32 %.140.i.i to i64
+  %269 = zext nneg i32 %.039.i.i to i64
   %270 = getelementptr inbounds [6 x ptr], ptr @_ZZL17enumValueToString8DlbStateE13dlbStateNames, i64 0, i64 %269
   %271 = load ptr, ptr %270, align 8, !noalias !50
   %272 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull @.str.82, ptr noundef %271)
@@ -5857,7 +5857,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit28.i: ; preds = %273
   store i32 %150, ptr %84, align 8
   store i32 %151, ptr %85, align 4
   store i32 %152, ptr %86, align 8
-  store i32 %.140.i.i, ptr %87, align 4
+  store i32 %.039.i.i, ptr %87, align 4
   %280 = icmp sgt i32 %148, 1
   br i1 %280, label %281, label %286
 

@@ -479,8 +479,8 @@ if.end.i75:                                       ; preds = %land.rhs
   br i1 %or.cond130.not, label %for.inc58, label %if.then49
 
 if.then49:                                        ; preds = %if.end.i75, %if.then.i74, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
-  %escapeOffset.sroa.0.2 = phi i32 [ %escapeOffset.sroa.0.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.0.0.extract.trunc.i, %if.then.i74 ], [ %escapeOffset.sroa.0.0, %if.end.i75 ]
-  %escapeOffset.sroa.6.2 = phi i8 [ %escapeOffset.sroa.6.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.3.0.extract.trunc.i, %if.then.i74 ], [ %escapeOffset.sroa.6.0, %if.end.i75 ]
+  %escapeOffset.sroa.0.1 = phi i32 [ %escapeOffset.sroa.0.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.0.0.extract.trunc.i, %if.then.i74 ], [ %escapeOffset.sroa.0.0, %if.end.i75 ]
+  %escapeOffset.sroa.6.1 = phi i8 [ %escapeOffset.sroa.6.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.3.0.extract.trunc.i, %if.then.i74 ], [ %escapeOffset.sroa.6.0, %if.end.i75 ]
   %36 = load ptr, ptr %auxPrefixes_, align 8, !noalias !13
   %37 = load i32, ptr %NumBuckets.i.i.i.i.i77, align 8, !noalias !13
   %cmp.i.i.i78 = icmp eq i32 %37, 0
@@ -530,18 +530,18 @@ if.end.i107:                                      ; preds = %if.then12.i.i.i104,
   %41 = load i32, ptr %prefixLength, align 4
   store i32 %41, ptr %call.i.i, align 4, !noalias !13
   %second.i.i2.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
-  %escapeOffset.sroa.6.0.insert.ext114 = zext i8 %escapeOffset.sroa.6.2 to i64
+  %escapeOffset.sroa.6.0.insert.ext114 = zext i8 %escapeOffset.sroa.6.1 to i64
   %escapeOffset.sroa.6.0.insert.shift115 = shl nuw nsw i64 %escapeOffset.sroa.6.0.insert.ext114, 32
-  %escapeOffset.sroa.0.0.insert.ext111 = zext i32 %escapeOffset.sroa.0.2 to i64
+  %escapeOffset.sroa.0.0.insert.ext111 = zext i32 %escapeOffset.sroa.0.1 to i64
   %escapeOffset.sroa.0.0.insert.insert113 = or disjoint i64 %escapeOffset.sroa.6.0.insert.shift115, %escapeOffset.sroa.0.0.insert.ext111
   store i64 %escapeOffset.sroa.0.0.insert.insert113, ptr %second.i.i2.i, align 4, !noalias !13
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIjS4_S6_S9_Lb0EEEbERKjDpOT_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIjS4_S6_S9_Lb0EEEbERKjDpOT_.exit: ; preds = %if.end13.i.i.i90, %if.end.i.i.i79, %if.end.i107
   %42 = phi i32 [ %add, %if.end.i.i.i79 ], [ %41, %if.end.i107 ], [ %add, %if.end13.i.i.i90 ]
-  %escapeOffset.sroa.6.0.insert.ext = zext i8 %escapeOffset.sroa.6.2 to i64
+  %escapeOffset.sroa.6.0.insert.ext = zext i8 %escapeOffset.sroa.6.1 to i64
   %escapeOffset.sroa.6.0.insert.shift = shl nuw nsw i64 %escapeOffset.sroa.6.0.insert.ext, 32
-  %escapeOffset.sroa.0.0.insert.ext = zext i32 %escapeOffset.sroa.0.2 to i64
+  %escapeOffset.sroa.0.0.insert.ext = zext i32 %escapeOffset.sroa.0.1 to i64
   %escapeOffset.sroa.0.0.insert.insert = or disjoint i64 %escapeOffset.sroa.6.0.insert.shift, %escapeOffset.sroa.0.0.insert.ext
   store i32 %42, ptr %longest, align 8
   store i64 %escapeOffset.sroa.0.0.insert.insert, ptr %ref.tmp53.sroa.2.0.longest.sroa_idx, align 4

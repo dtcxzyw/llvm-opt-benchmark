@@ -46,28 +46,28 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %28 = shufflevector <16 x i8> %27, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %29 = bitcast <16 x i8> %28 to <2 x i64>
   %30 = load <2 x i64>, ptr %3, align 1
-  %.0214226 = add i64 %2, -64
-  %.0213227 = getelementptr inbounds i8, ptr %1, i64 64
-  %31 = icmp ugt i64 %.0214226, 63
+  %.1215226 = add i64 %2, -64
+  %.1227 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = icmp ugt i64 %.1215226, 63
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.0213234 = phi ptr [ %.0213, %.lr.ph ], [ %.0213227, %18 ]
-  %.0214233 = phi i64 [ %.0214, %.lr.ph ], [ %.0214226, %18 ]
-  %.pn232 = phi ptr [ %.0213234, %.lr.ph ], [ %1, %18 ]
-  %.0217231 = phi <2 x i64> [ %59, %.lr.ph ], [ %14, %18 ]
+  %.1234 = phi ptr [ %.1, %.lr.ph ], [ %.1227, %18 ]
+  %.1215233 = phi i64 [ %.1215, %.lr.ph ], [ %.1215226, %18 ]
+  %.pn232 = phi ptr [ %.1234, %.lr.ph ], [ %1, %18 ]
+  %.1218231 = phi <2 x i64> [ %59, %.lr.ph ], [ %14, %18 ]
   %.0220230 = phi <2 x i64> [ %60, %.lr.ph ], [ %21, %18 ]
   %.0221229 = phi <2 x i64> [ %61, %.lr.ph ], [ %25, %18 ]
   %.0222228 = phi <2 x i64> [ %62, %.lr.ph ], [ %29, %18 ]
-  %32 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0217231, <2 x i64> %30, i8 0)
+  %32 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1218231, <2 x i64> %30, i8 0)
   %33 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0220230, <2 x i64> %30, i8 0)
   %34 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0221229, <2 x i64> %30, i8 0)
   %35 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0222228, <2 x i64> %30, i8 0)
-  %36 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0217231, <2 x i64> %30, i8 17)
+  %36 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1218231, <2 x i64> %30, i8 17)
   %37 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0220230, <2 x i64> %30, i8 17)
   %38 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0221229, <2 x i64> %30, i8 17)
   %39 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0222228, <2 x i64> %30, i8 17)
-  %40 = load <16 x i8>, ptr %.0213234, align 1
+  %40 = load <16 x i8>, ptr %.1234, align 1
   %41 = shufflevector <16 x i8> %40, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %42 = bitcast <16 x i8> %41 to <2 x i64>
   %43 = getelementptr inbounds i8, ptr %.pn232, i64 80
@@ -90,22 +90,22 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %60 = xor <2 x i64> %56, %46
   %61 = xor <2 x i64> %57, %50
   %62 = xor <2 x i64> %58, %54
-  %.0214 = add i64 %.0214233, -64
-  %.0213 = getelementptr inbounds i8, ptr %.0213234, i64 64
-  %63 = icmp ugt i64 %.0214, 63
+  %.1215 = add i64 %.1215233, -64
+  %.1 = getelementptr inbounds i8, ptr %.1234, i64 64
+  %63 = icmp ugt i64 %.1215, 63
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %.0222.lcssa = phi <2 x i64> [ %29, %18 ], [ %62, %.lr.ph ]
   %.0221.lcssa = phi <2 x i64> [ %25, %18 ], [ %61, %.lr.ph ]
   %.0220.lcssa = phi <2 x i64> [ %21, %18 ], [ %60, %.lr.ph ]
-  %.0217.lcssa = phi <2 x i64> [ %14, %18 ], [ %59, %.lr.ph ]
-  %.0214.lcssa = phi i64 [ %.0214226, %18 ], [ %.0214, %.lr.ph ]
-  %.0213.lcssa = phi ptr [ %.0213227, %18 ], [ %.0213, %.lr.ph ]
+  %.1218.lcssa = phi <2 x i64> [ %14, %18 ], [ %59, %.lr.ph ]
+  %.1215.lcssa = phi i64 [ %.1215226, %18 ], [ %.1215, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.1227, %18 ], [ %.1, %.lr.ph ]
   %64 = getelementptr inbounds i8, ptr %3, i64 16
   %65 = load <2 x i64>, ptr %64, align 1
-  %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0217.lcssa, <2 x i64> %65, i8 0)
-  %67 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0217.lcssa, <2 x i64> %65, i8 17)
+  %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1218.lcssa, <2 x i64> %65, i8 0)
+  %67 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1218.lcssa, <2 x i64> %65, i8 17)
   %68 = xor <2 x i64> %66, %.0220.lcssa
   %69 = xor <2 x i64> %68, %67
   %70 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %69, <2 x i64> %65, i8 0)
@@ -120,16 +120,16 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
 
 78:                                               ; preds = %._crit_edge255, %._crit_edge
   %79 = phi <2 x i64> [ %65, %._crit_edge ], [ %.pre, %._crit_edge255 ]
-  %.1218 = phi <2 x i64> [ %77, %._crit_edge ], [ %14, %._crit_edge255 ]
-  %.1215 = phi i64 [ %.0214.lcssa, %._crit_edge ], [ %16, %._crit_edge255 ]
-  %.1 = phi ptr [ %.0213.lcssa, %._crit_edge ], [ %15, %._crit_edge255 ]
-  %80 = icmp ugt i64 %.1215, 15
+  %.0217 = phi <2 x i64> [ %77, %._crit_edge ], [ %14, %._crit_edge255 ]
+  %.0214 = phi i64 [ %.1215.lcssa, %._crit_edge ], [ %16, %._crit_edge255 ]
+  %.0213 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %15, %._crit_edge255 ]
+  %80 = icmp ugt i64 %.0214, 15
   br i1 %80, label %.lr.ph244, label %._crit_edge245
 
 .lr.ph244:                                        ; preds = %78, %.lr.ph244
-  %.2242 = phi ptr [ %88, %.lr.ph244 ], [ %.1, %78 ]
-  %.2216241 = phi i64 [ %89, %.lr.ph244 ], [ %.1215, %78 ]
-  %.2219240 = phi <2 x i64> [ %87, %.lr.ph244 ], [ %.1218, %78 ]
+  %.2242 = phi ptr [ %88, %.lr.ph244 ], [ %.0213, %78 ]
+  %.2216241 = phi i64 [ %89, %.lr.ph244 ], [ %.0214, %78 ]
+  %.2219240 = phi <2 x i64> [ %87, %.lr.ph244 ], [ %.0217, %78 ]
   %81 = load <16 x i8>, ptr %.2242, align 1
   %82 = shufflevector <16 x i8> %81, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %83 = bitcast <16 x i8> %82 to <2 x i64>
@@ -143,8 +143,8 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %90, label %.lr.ph244, label %._crit_edge245
 
 ._crit_edge245:                                   ; preds = %.lr.ph244, %78
-  %.2219.lcssa = phi <2 x i64> [ %.1218, %78 ], [ %87, %.lr.ph244 ]
-  %.2216.lcssa = phi i64 [ %.1215, %78 ], [ %89, %.lr.ph244 ]
+  %.2219.lcssa = phi <2 x i64> [ %.0217, %78 ], [ %87, %.lr.ph244 ]
+  %.2216.lcssa = phi i64 [ %.0214, %78 ], [ %89, %.lr.ph244 ]
   %91 = getelementptr inbounds i8, ptr %3, i64 32
   %92 = load <2 x i64>, ptr %91, align 1
   %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2219.lcssa, <2 x i64> %92, i8 17)
@@ -209,28 +209,28 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %19 = getelementptr inbounds i8, ptr %1, i64 48
   %20 = load <2 x i64>, ptr %19, align 1
   %21 = load <2 x i64>, ptr %3, align 1
-  %.0173185 = add i64 %2, -64
-  %.0172186 = getelementptr inbounds i8, ptr %1, i64 64
-  %22 = icmp ugt i64 %.0173185, 63
+  %.1174185 = add i64 %2, -64
+  %.1186 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = icmp ugt i64 %.1174185, 63
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.0172193 = phi ptr [ %.0172, %.lr.ph ], [ %.0172186, %15 ]
-  %.0173192 = phi i64 [ %.0173, %.lr.ph ], [ %.0173185, %15 ]
-  %.pn191 = phi ptr [ %.0172193, %.lr.ph ], [ %1, %15 ]
-  %.0176190 = phi <2 x i64> [ %42, %.lr.ph ], [ %11, %15 ]
+  %.1193 = phi ptr [ %.1, %.lr.ph ], [ %.1186, %15 ]
+  %.1174192 = phi i64 [ %.1174, %.lr.ph ], [ %.1174185, %15 ]
+  %.pn191 = phi ptr [ %.1193, %.lr.ph ], [ %1, %15 ]
+  %.1177190 = phi <2 x i64> [ %42, %.lr.ph ], [ %11, %15 ]
   %.0179189 = phi <2 x i64> [ %43, %.lr.ph ], [ %16, %15 ]
   %.0180188 = phi <2 x i64> [ %44, %.lr.ph ], [ %18, %15 ]
   %.0181187 = phi <2 x i64> [ %45, %.lr.ph ], [ %20, %15 ]
-  %23 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0176190, <2 x i64> %21, i8 0)
+  %23 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1177190, <2 x i64> %21, i8 0)
   %24 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0179189, <2 x i64> %21, i8 0)
   %25 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0180188, <2 x i64> %21, i8 0)
   %26 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0181187, <2 x i64> %21, i8 0)
-  %27 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0176190, <2 x i64> %21, i8 17)
+  %27 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1177190, <2 x i64> %21, i8 17)
   %28 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0179189, <2 x i64> %21, i8 17)
   %29 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0180188, <2 x i64> %21, i8 17)
   %30 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0181187, <2 x i64> %21, i8 17)
-  %31 = load <2 x i64>, ptr %.0172193, align 1
+  %31 = load <2 x i64>, ptr %.1193, align 1
   %32 = getelementptr inbounds i8, ptr %.pn191, i64 80
   %33 = load <2 x i64>, ptr %32, align 1
   %34 = getelementptr inbounds i8, ptr %.pn191, i64 96
@@ -245,22 +245,22 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %43 = xor <2 x i64> %39, %33
   %44 = xor <2 x i64> %40, %35
   %45 = xor <2 x i64> %41, %37
-  %.0173 = add i64 %.0173192, -64
-  %.0172 = getelementptr inbounds i8, ptr %.0172193, i64 64
-  %46 = icmp ugt i64 %.0173, 63
+  %.1174 = add i64 %.1174192, -64
+  %.1 = getelementptr inbounds i8, ptr %.1193, i64 64
+  %46 = icmp ugt i64 %.1174, 63
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.0181.lcssa = phi <2 x i64> [ %20, %15 ], [ %45, %.lr.ph ]
   %.0180.lcssa = phi <2 x i64> [ %18, %15 ], [ %44, %.lr.ph ]
   %.0179.lcssa = phi <2 x i64> [ %16, %15 ], [ %43, %.lr.ph ]
-  %.0176.lcssa = phi <2 x i64> [ %11, %15 ], [ %42, %.lr.ph ]
-  %.0173.lcssa = phi i64 [ %.0173185, %15 ], [ %.0173, %.lr.ph ]
-  %.0172.lcssa = phi ptr [ %.0172186, %15 ], [ %.0172, %.lr.ph ]
+  %.1177.lcssa = phi <2 x i64> [ %11, %15 ], [ %42, %.lr.ph ]
+  %.1174.lcssa = phi i64 [ %.1174185, %15 ], [ %.1174, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.1186, %15 ], [ %.1, %.lr.ph ]
   %47 = getelementptr inbounds i8, ptr %3, i64 16
   %48 = load <2 x i64>, ptr %47, align 1
-  %49 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0176.lcssa, <2 x i64> %48, i8 0)
-  %50 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0176.lcssa, <2 x i64> %48, i8 17)
+  %49 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1177.lcssa, <2 x i64> %48, i8 0)
+  %50 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1177.lcssa, <2 x i64> %48, i8 17)
   %51 = xor <2 x i64> %49, %.0179.lcssa
   %52 = xor <2 x i64> %51, %50
   %53 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %52, <2 x i64> %48, i8 0)
@@ -275,16 +275,16 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
 
 61:                                               ; preds = %._crit_edge214, %._crit_edge
   %62 = phi <2 x i64> [ %48, %._crit_edge ], [ %.pre, %._crit_edge214 ]
-  %.1177 = phi <2 x i64> [ %60, %._crit_edge ], [ %11, %._crit_edge214 ]
-  %.1174 = phi i64 [ %.0173.lcssa, %._crit_edge ], [ %13, %._crit_edge214 ]
-  %.1 = phi ptr [ %.0172.lcssa, %._crit_edge ], [ %12, %._crit_edge214 ]
-  %63 = icmp ugt i64 %.1174, 15
+  %.0176 = phi <2 x i64> [ %60, %._crit_edge ], [ %11, %._crit_edge214 ]
+  %.0173 = phi i64 [ %.1174.lcssa, %._crit_edge ], [ %13, %._crit_edge214 ]
+  %.0172 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %12, %._crit_edge214 ]
+  %63 = icmp ugt i64 %.0173, 15
   br i1 %63, label %.lr.ph203, label %._crit_edge204
 
 .lr.ph203:                                        ; preds = %61, %.lr.ph203
-  %.2201 = phi ptr [ %69, %.lr.ph203 ], [ %.1, %61 ]
-  %.2175200 = phi i64 [ %70, %.lr.ph203 ], [ %.1174, %61 ]
-  %.2178199 = phi <2 x i64> [ %68, %.lr.ph203 ], [ %.1177, %61 ]
+  %.2201 = phi ptr [ %69, %.lr.ph203 ], [ %.0172, %61 ]
+  %.2175200 = phi i64 [ %70, %.lr.ph203 ], [ %.0173, %61 ]
+  %.2178199 = phi <2 x i64> [ %68, %.lr.ph203 ], [ %.0176, %61 ]
   %64 = load <2 x i64>, ptr %.2201, align 1
   %65 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2178199, <2 x i64> %62, i8 0)
   %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2178199, <2 x i64> %62, i8 17)
@@ -296,8 +296,8 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   br i1 %71, label %.lr.ph203, label %._crit_edge204
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %61
-  %.2178.lcssa = phi <2 x i64> [ %.1177, %61 ], [ %68, %.lr.ph203 ]
-  %.2175.lcssa = phi i64 [ %.1174, %61 ], [ %70, %.lr.ph203 ]
+  %.2178.lcssa = phi <2 x i64> [ %.0176, %61 ], [ %68, %.lr.ph203 ]
+  %.2175.lcssa = phi i64 [ %.0173, %61 ], [ %70, %.lr.ph203 ]
   %72 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2178.lcssa, <2 x i64> %62, i8 16)
   %73 = shufflevector <2 x i64> %.2178.lcssa, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %74 = xor <2 x i64> %72, %73

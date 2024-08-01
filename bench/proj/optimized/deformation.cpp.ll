@@ -1098,13 +1098,13 @@ define internal fastcc noundef zeroext i1 @_ZL30pj_deformation_get_grid_valuesP8
   br label %65
 
 65:                                               ; preds = %53, %56, %46, %58
-  %.0 = phi i1 [ true, %58 ], [ false, %46 ], [ %57, %56 ], [ false, %53 ]
+  %.1 = phi i1 [ true, %58 ], [ false, %46 ], [ %57, %56 ], [ false, %53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   br label %66
 
 66:                                               ; preds = %6, %65, %25, %18
-  %.1 = phi i1 [ true, %18 ], [ false, %25 ], [ %.0, %65 ], [ false, %6 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %18 ], [ false, %25 ], [ %.1, %65 ], [ false, %6 ]
+  ret i1 %.0
 }
 
 declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1

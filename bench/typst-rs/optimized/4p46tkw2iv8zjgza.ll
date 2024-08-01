@@ -1356,13 +1356,13 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   br label %208
 
 98:                                               ; preds = %112, %100
-  %.0317 = phi i8 [ %.1, %100 ], [ %.2, %112 ]
+  %.1 = phi i8 [ %.0317, %100 ], [ %.3, %112 ]
   %.pn356 = phi { ptr, i32 } [ %101, %100 ], [ %.pn354, %112 ]
-  %99 = trunc nuw i8 %.0317 to i1
+  %99 = trunc nuw i8 %.1 to i1
   br i1 %99, label %218, label %75
 
 100:                                              ; preds = %179, %95, %161
-  %.1 = phi i8 [ 0, %161 ], [ 1, %95 ], [ %.4, %179 ]
+  %.0317 = phi i8 [ 0, %161 ], [ 1, %95 ], [ %.4, %179 ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %98
@@ -1396,7 +1396,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   unreachable
 
 112:                                              ; preds = %.loopexit490, %.loopexit.split-lp491, %137
-  %.2 = phi i8 [ 0, %137 ], [ 1, %.loopexit490 ], [ %.3.ph, %.loopexit.split-lp491 ]
+  %.3 = phi i8 [ 0, %137 ], [ 1, %.loopexit490 ], [ %.2.ph, %.loopexit.split-lp491 ]
   %.pn354 = phi { ptr, i32 } [ %.pn350, %137 ], [ %lpad.loopexit492, %.loopexit490 ], [ %lpad.loopexit.split-lp493, %.loopexit.split-lp491 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #22
           to label %98 unwind label %176
@@ -1407,7 +1407,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   br label %112
 
 .loopexit.split-lp491:                            ; preds = %114, %136, %166, %193, %201, %107
-  %.3.ph = phi i8 [ 1, %107 ], [ 1, %201 ], [ 1, %193 ], [ 0, %114 ], [ 0, %136 ], [ 0, %166 ]
+  %.2.ph = phi i8 [ 1, %107 ], [ 1, %201 ], [ 1, %193 ], [ 0, %114 ], [ 0, %136 ], [ 0, %166 ]
   %lpad.loopexit.split-lp493 = landingpad { ptr, i32 }
           cleanup
   br label %112

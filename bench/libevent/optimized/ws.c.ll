@@ -368,8 +368,8 @@ ws_gen_accept_key.exit:                           ; preds = %for.body.i.i
   %25 = load i8, ptr %arrayidx85.i.i, align 4
   %26 = getelementptr inbounds i8, ptr %p.043.i.i, i64 6
   store i8 %25, ptr %26, align 1
-  %p.1.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 7
-  store i8 61, ptr %p.1.i.i, align 1
+  %p.2.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 7
+  store i8 61, ptr %p.2.i.i, align 1
   %incdec.ptr87.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 8
   store i8 0, ptr %incdec.ptr87.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
@@ -593,9 +593,9 @@ if.then29.i:                                      ; preds = %if.else.i
 for.body.i:                                       ; preds = %if.then29.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 56, %if.then29.i ]
   %tmp64.048.i = phi i64 [ %or.i, %for.body.i ], [ 0, %if.then29.i ]
-  %pos.046.i = phi i64 [ %inc.i, %for.body.i ], [ 2, %if.then29.i ]
-  %inc.i = add nuw nsw i64 %pos.046.i, 1
-  %arrayidx36.i = getelementptr inbounds i8, ptr %call4, i64 %pos.046.i
+  %pos.146.i = phi i64 [ %inc.i, %for.body.i ], [ 2, %if.then29.i ]
+  %inc.i = add nuw nsw i64 %pos.146.i, 1
+  %arrayidx36.i = getelementptr inbounds i8, ptr %call4, i64 %pos.146.i
   %5 = load i8, ptr %arrayidx36.i, align 1
   %conv37.i = zext i8 %5 to i64
   %shl.i = shl i64 %conv37.i, %indvars.iv.i
@@ -614,12 +614,12 @@ if.then40.i:                                      ; preds = %for.end.i
   br label %if.end8.thread
 
 if.end45.i:                                       ; preds = %for.end.i, %if.end24.i, %if.then16.i
-  %pos.1.i = phi i64 [ 2, %if.then16.i ], [ 4, %if.end24.i ], [ 10, %for.end.i ]
+  %pos.0.i = phi i64 [ 2, %if.then16.i ], [ 4, %if.end24.i ], [ 10, %for.end.i ]
   %payload_len.0.i = phi i64 [ %conv17.i, %if.then16.i ], [ %conv25.i, %if.end24.i ], [ %or.i, %for.end.i ]
   %6 = lshr i8 %3, 5
   %7 = and i8 %6, 4
   %conv48.i = zext nneg i8 %7 to i64
-  %add46.i = add nuw nsw i64 %pos.1.i, %conv48.i
+  %add46.i = add nuw nsw i64 %pos.0.i, %conv48.i
   %add49.i = add nuw nsw i64 %add46.i, %payload_len.0.i
   %cmp50.i = icmp ugt i64 %add49.i, %call365
   br i1 %cmp50.i, label %bailout, label %if.end53.i
@@ -629,8 +629,8 @@ if.end53.i:                                       ; preds = %if.end45.i
   br i1 %tobool54.not.i, label %if.end73.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end53.i
-  %add.ptr57.i = getelementptr inbounds i8, ptr %call4, i64 %pos.1.i
-  %add58.i = add nuw nsw i64 %pos.1.i, 4
+  %add.ptr57.i = getelementptr inbounds i8, ptr %call4, i64 %pos.0.i
+  %add58.i = add nuw nsw i64 %pos.0.i, 4
   %add.ptr59.i = getelementptr inbounds i8, ptr %call4, i64 %add58.i
   %cmp6149.not.i = icmp eq i64 %payload_len.0.i, 0
   br i1 %cmp6149.not.i, label %if.end73.i, label %for.body63.i
@@ -649,7 +649,7 @@ for.body63.i:                                     ; preds = %if.then55.i, %for.b
   br i1 %exitcond52.not.i, label %if.end73.i, label %for.body63.i, !llvm.loop !7
 
 if.end73.i:                                       ; preds = %for.body63.i, %if.then55.i, %if.end53.i
-  %pos.2.i = phi i64 [ %pos.1.i, %if.end53.i ], [ %add58.i, %if.then55.i ], [ %add58.i, %for.body63.i ]
+  %pos.2.i = phi i64 [ %pos.0.i, %if.end53.i ], [ %add58.i, %if.then55.i ], [ %add58.i, %for.body63.i ]
   %add.ptr74.i = getelementptr inbounds i8, ptr %call4, i64 %pos.2.i
   %10 = add nsw i8 %and.i, -3
   %or.cond.i = icmp ult i8 %10, 5
@@ -849,11 +849,11 @@ if.else19.i:                                      ; preds = %if.else.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.else19.i
   %indvars.iv.i = phi i64 [ 56, %if.else19.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %pos.018.i = phi i64 [ 2, %if.else19.i ], [ %inc27.i, %for.body.i ]
+  %pos.118.i = phi i64 [ 2, %if.else19.i ], [ %inc27.i, %for.body.i ]
   %shr24.i = lshr i64 %str_len, %indvars.iv.i
   %conv26.i = trunc i64 %shr24.i to i8
-  %inc27.i = add nuw nsw i64 %pos.018.i, 1
-  %arrayidx28.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 %pos.018.i
+  %inc27.i = add nuw nsw i64 %pos.118.i, 1
+  %arrayidx28.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 %pos.118.i
   store i8 %conv26.i, ptr %arrayidx28.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
   %exitcond.not.i = icmp eq i64 %inc27.i, 10
@@ -861,14 +861,14 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
 
 if.end29.sink.split.i:                            ; preds = %if.then9.i, %entry
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then9.i ], [ %.sink.i.sroa.gep3, %entry ]
-  %pos.1.ph.i = phi i64 [ 4, %if.then9.i ], [ 2, %entry ]
+  %pos.0.ph.i = phi i64 [ 4, %if.then9.i ], [ 2, %entry ]
   %conv16.i = trunc i64 %str_len to i8
   store i8 %conv16.i, ptr %.sink.i.sroa.phi, align 1
   br label %make_ws_frame.exit
 
 make_ws_frame.exit:                               ; preds = %for.body.i, %if.end29.sink.split.i
-  %pos.1.i = phi i64 [ %pos.1.ph.i, %if.end29.sink.split.i ], [ 10, %for.body.i ]
-  %call.i = call i32 @evbuffer_add(ptr noundef %call, ptr noundef nonnull %header.i, i64 noundef %pos.1.i) #9
+  %pos.0.i = phi i64 [ %pos.0.ph.i, %if.end29.sink.split.i ], [ 10, %for.body.i ]
+  %call.i = call i32 @evbuffer_add(ptr noundef %call, ptr noundef nonnull %header.i, i64 noundef %pos.0.i) #9
   %call30.i = call i32 @evbuffer_add(ptr noundef %call, ptr noundef %packet_str, i64 noundef %str_len) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %header.i)
   %3 = load ptr, ptr %bufev, align 8

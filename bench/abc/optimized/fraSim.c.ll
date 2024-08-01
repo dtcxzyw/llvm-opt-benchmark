@@ -3398,12 +3398,12 @@ Vec_StrFreeP.exit:                                ; preds = %44, %48
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %49, %6, %Vec_StrFreeP.exit
-  %.1 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %7, %6 ], [ %7, %49 ]
+  %.027 = phi ptr [ null, %Vec_StrFreeP.exit ], [ %7, %6 ], [ %7, %49 ]
   %51 = tail call i32 @fclose(ptr noundef nonnull %2)
   br label %52
 
 52:                                               ; preds = %.loopexit, %4
-  %.0 = phi ptr [ null, %4 ], [ %.1, %.loopexit ]
+  %.0 = phi ptr [ null, %4 ], [ %.027, %.loopexit ]
   ret ptr %.0
 }
 

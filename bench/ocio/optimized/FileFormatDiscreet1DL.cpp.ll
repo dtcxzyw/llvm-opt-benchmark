@@ -505,7 +505,7 @@ if.then66.invoke.i:                               ; preds = %if.then54.i, %if.th
           to label %cleanup.thread.i unwind label %lpad23.i
 
 if.end71.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %if.then54.i, %if.end52.i
-  %depthScaled.0.i = phi i32 [ 0, %if.end52.i ], [ 8, %if.then54.i ], [ 10, %sw.bb1.i.i ], [ 12, %sw.bb2.i.i ], [ %cond.i.i, %sw.bb3.i.i ]
+  %depthScaled.2.i = phi i32 [ 0, %if.end52.i ], [ 8, %if.then54.i ], [ 10, %sw.bb1.i.i ], [ 12, %sw.bb2.i.i ], [ %cond.i.i, %sw.bb3.i.i ]
   %24 = load i32, ptr %numtables.i, align 4
   %25 = load i32, ptr %length.i, align 4
   %call73.i = invoke fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils10IMLutAllocEPPNS1_11IMLutStructEii(ptr noundef nonnull %lut.i, i32 noundef %24, i32 noundef %25)
@@ -515,7 +515,7 @@ invoke.cont72.i:                                  ; preds = %if.end71.i
   br i1 %call73.i, label %cleanup.i, label %cleanup.thread.i
 
 cleanup.thread.i:                                 ; preds = %invoke.cont72.i, %if.then66.invoke.i
-  %status.0.ph.i = phi i32 [ 3, %invoke.cont72.i ], [ 4, %if.then66.invoke.i ]
+  %status.2.ph.i = phi i32 [ 3, %invoke.cont72.i ], [ 4, %if.then66.invoke.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %subStr.i) #24
   br label %if.then
 
@@ -524,8 +524,8 @@ cleanup.i:                                        ; preds = %invoke.cont72.i
   br label %if.end77.i
 
 if.end77.i:                                       ; preds = %cleanup.i, %invoke.cont10.i
-  %depthScaled.2.i = phi i32 [ 0, %invoke.cont10.i ], [ %depthScaled.0.i, %cleanup.i ]
-  %tablestart.1.i = phi i32 [ 1, %invoke.cont10.i ], [ 0, %cleanup.i ]
+  %depthScaled.0.i = phi i32 [ 0, %invoke.cont10.i ], [ %depthScaled.2.i, %cleanup.i ]
+  %tablestart.0.i = phi i32 [ 1, %invoke.cont10.i ], [ 0, %cleanup.i ]
   %26 = load i32, ptr %numtables.i, align 4
   %cmp78124.i = icmp sgt i32 %26, 0
   br i1 %cmp78124.i, label %for.body.lr.ph.i, label %if.end94.i
@@ -559,7 +559,7 @@ call16.i.i.noexc:                                 ; preds = %for.body.i
 
 while.body.i.i:                                   ; preds = %call16.i.i.noexc, %call.i38.i.noexc
   %add.i.i111 = phi i32 [ %add.i.i, %call.i38.i.noexc ], [ %add.i.i.lcssa117120, %call16.i.i.noexc ]
-  %Count.017.i.i = phi i32 [ %Count.1.i.i, %call.i38.i.noexc ], [ %tablestart.1.i, %call16.i.i.noexc ]
+  %Count.017.i.i = phi i32 [ %Count.1.i.i, %call.i38.i.noexc ], [ %tablestart.0.i, %call16.i.i.noexc ]
   %add.i.i = add nsw i32 %add.i.i111, 1
   %call1.i.i21 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7getlineEPcl(ptr noundef nonnull align 8 dereferenceable(16) %istream, ptr noundef nonnull %InString.i.i, i64 noundef 200)
           to label %call1.i.i.noexc unwind label %lpad.loopexit
@@ -886,7 +886,7 @@ if.then86.i:                                      ; preds = %for.end.i
   br label %if.end94.i
 
 if.end94.i:                                       ; preds = %if.then86.i, %for.end.i, %if.end77.i
-  %cmp95.i = icmp eq i32 %depthScaled.2.i, 0
+  %cmp95.i = icmp eq i32 %depthScaled.0.i, 0
   br i1 %cmp95.i, label %if.then96.i, label %if.then109.i
 
 if.then96.i:                                      ; preds = %if.end94.i
@@ -980,7 +980,7 @@ if.end51.i.i:                                     ; preds = %if.then37.i.i, %if.
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.end51.i.i, %if.then37.i.i, %if.then18.i.i, %if.then14.i.i, %if.then7.i.i, %if.then3.i.i
-  %retval.0.i56.i = phi i32 [ 12, %if.then14.i.i ], [ 0, %if.end51.i.i ], [ 8, %if.then3.i.i ], [ 10, %if.then7.i.i ], [ %..i.i, %if.then18.i.i ], [ -32, %if.then37.i.i ]
+  %retval.1.i.i = phi i32 [ 12, %if.then14.i.i ], [ 0, %if.end51.i.i ], [ 8, %if.then3.i.i ], [ 10, %if.then7.i.i ], [ %..i.i, %if.then18.i.i ], [ -32, %if.then37.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lowerFileName.i.i) #24
   br label %if.end107.i
 
@@ -1001,16 +1001,16 @@ ehcleanup106.i:                                   ; preds = %lpad102.i, %lpad100
   br label %ehcleanup90
 
 if.end107.i:                                      ; preds = %cleanup.i.i, %invoke.cont101.i
-  %retval.1.i.i = phi i32 [ %retval.0.i56.i, %cleanup.i.i ], [ 0, %invoke.cont101.i ]
+  %retval.0.i56.i = phi i32 [ %retval.1.i.i, %cleanup.i.i ], [ 0, %invoke.cont101.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lowerFileName.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp99.i) #24
-  %cmp108.not.i = icmp eq i32 %retval.1.i.i, 0
+  %cmp108.not.i = icmp eq i32 %retval.0.i56.i, 0
   br i1 %cmp108.not.i, label %if.end110.i, label %if.then109.i
 
 if.then109.i:                                     ; preds = %if.end107.i, %if.end94.i
-  %depthScaled.3101.i = phi i32 [ %retval.1.i.i, %if.end107.i ], [ %depthScaled.2.i, %if.end94.i ]
+  %depthScaled.3101.i = phi i32 [ %retval.0.i56.i, %if.end107.i ], [ %depthScaled.0.i, %if.end94.i ]
   %74 = load ptr, ptr %lut.i, align 8
   %targetBitDepth.i = getelementptr inbounds i8, ptr %74, i64 12
   store i32 %depthScaled.3101.i, ptr %targetBitDepth.i, align 4
@@ -1100,7 +1100,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i64.i: 
   br label %if.then
 
 if.then:                                          ; preds = %cleanup.thread.i, %call.i.noexc, %call4.i.noexc, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i.i, %if.then83.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i64.i, %call115.i.noexc
-  %status.3.i.ph = phi i32 [ 4, %call115.i.noexc ], [ 4, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i64.i ], [ %retval.0.i35.i, %if.then83.i ], [ %retval.0.i35.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i.i ], [ 3, %call4.i.noexc ], [ 1, %call.i.noexc ], [ %status.0.ph.i, %cleanup.thread.i ]
+  %status.0.i.ph = phi i32 [ 4, %call115.i.noexc ], [ 4, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i64.i ], [ %retval.0.i35.i, %if.then83.i ], [ %retval.0.i35.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit.i.i ], [ 3, %call4.i.noexc ], [ 1, %call.i.noexc ], [ %status.2.ph.i, %cleanup.thread.i ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %InString.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lut.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %numtables.i)
@@ -1141,7 +1141,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad6
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  %switch.tableidx = add nsw i32 %status.3.i.ph, -1
+  %switch.tableidx = add nsw i32 %status.0.i.ph, -1
   %86 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE, i64 0, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1149,7 +1149,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %invoke.cont20 unwind label %lpad6
 
 invoke.cont20:                                    ; preds = %invoke.cont16
-  %cmp22 = icmp eq i32 %status.3.i.ph, 4
+  %cmp22 = icmp eq i32 %status.0.i.ph, 4
   br i1 %cmp22, label %if.then23, label %if.end
 
 if.then23:                                        ; preds = %invoke.cont20

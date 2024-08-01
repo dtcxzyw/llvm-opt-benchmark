@@ -549,7 +549,7 @@ if.end241:                                        ; preds = %invoke.cont236, %in
           to label %while.cond unwind label %lpad37.loopexit.split-lp.loopexit.split-lp, !llvm.loop !7
 
 cleanup:                                          ; preds = %land.end153, %invoke.cont226, %invoke.cont236, %invoke.cont189, %invoke.cont202, %invoke.cont214, %invoke.cont167, %if.end159
-  %retval.0 = phi i8 [ 0, %if.end159 ], [ 0, %invoke.cont167 ], [ 0, %invoke.cont214 ], [ 0, %invoke.cont202 ], [ 0, %invoke.cont189 ], [ 0, %invoke.cont236 ], [ 0, %invoke.cont226 ], [ 1, %land.end153 ]
+  %retval.1 = phi i8 [ 0, %if.end159 ], [ 0, %invoke.cont167 ], [ 0, %invoke.cont214 ], [ 0, %invoke.cont202 ], [ 0, %invoke.cont189 ], [ 0, %invoke.cont236 ], [ 0, %invoke.cont226 ], [ 1, %land.end153 ]
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tr2) #10
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tr1) #10
   br label %return
@@ -560,8 +560,8 @@ ehcleanup:                                        ; preds = %lpad37, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.else, %lor.lhs.false30, %if.then19, %lor.lhs.false, %lor.lhs.false23, %if.end11, %if.end5, %if.end, %entry, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end5 ], [ 0, %if.end11 ], [ 0, %lor.lhs.false23 ], [ 0, %lor.lhs.false ], [ 0, %if.then19 ], [ 0, %lor.lhs.false30 ], [ 0, %if.else ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %entry ], [ 1, %if.end ], [ 0, %if.end5 ], [ 0, %if.end11 ], [ 0, %lor.lhs.false23 ], [ 0, %lor.lhs.false ], [ 0, %if.then19 ], [ 0, %lor.lhs.false30 ], [ 0, %if.else ]
+  ret i8 %retval.0
 }
 
 declare void @_ZN6icu_7518TimeZoneTransitionC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -2360,7 +2360,7 @@ terminate.lpad.i248:                              ; preds = %ehcleanup482
   unreachable
 
 cleanup483:                                       ; preds = %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit, %cleanup481, %invoke.cont33, %if.end71, %if.then70, %if.then27
-  %orgRules.sroa.0.0 = phi ptr [ %call10, %if.then70 ], [ null, %if.end71 ], [ %call10, %invoke.cont33 ], [ %call10, %if.then27 ], [ %call10, %cleanup481 ], [ %call10, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit ]
+  %orgRules.sroa.0.1 = phi ptr [ %call10, %if.then70 ], [ null, %if.end71 ], [ %call10, %invoke.cont33 ], [ %call10, %if.then27 ], [ %call10, %cleanup481 ], [ %call10, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit ]
   invoke void @uprv_free_75(ptr noundef %call21)
           to label %cleanup485 unwind label %terminate.lpad.i250
 
@@ -2384,15 +2384,15 @@ terminate.lpad.i251:                              ; preds = %ehcleanup484
   unreachable
 
 cleanup485:                                       ; preds = %cleanup483
-  %isnull.i253 = icmp eq ptr %orgRules.sroa.0.0, null
+  %isnull.i253 = icmp eq ptr %orgRules.sroa.0.1, null
   br i1 %isnull.i253, label %cleanup487, label %delete.notnull.i254
 
 delete.notnull.i254:                              ; preds = %invoke.cont13, %cleanup485
-  %orgRules.sroa.0.1402 = phi ptr [ %orgRules.sroa.0.0, %cleanup485 ], [ %call10, %invoke.cont13 ]
-  %vtable.i255 = load ptr, ptr %orgRules.sroa.0.1402, align 8
+  %orgRules.sroa.0.0402 = phi ptr [ %orgRules.sroa.0.1, %cleanup485 ], [ %call10, %invoke.cont13 ]
+  %vtable.i255 = load ptr, ptr %orgRules.sroa.0.0402, align 8
   %vfn.i256 = getelementptr inbounds i8, ptr %vtable.i255, i64 8
   %90 = load ptr, ptr %vfn.i256, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(40) %orgRules.sroa.0.1402) #10
+  call void %90(ptr noundef nonnull align 8 dereferenceable(40) %orgRules.sroa.0.0402) #10
   br label %cleanup487
 
 ehcleanup486:                                     ; preds = %ehcleanup484

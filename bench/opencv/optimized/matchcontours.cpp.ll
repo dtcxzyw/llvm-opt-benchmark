@@ -113,9 +113,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
 
 .preheader122:                                    ; preds = %15, %72
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %72 ], [ 0, %15 ]
-  %.2133 = phi i8 [ %.3, %72 ], [ 0, %15 ]
-  %.279132 = phi i8 [ %.380, %72 ], [ 0, %15 ]
-  %.286131 = phi double [ %.387, %72 ], [ 0.000000e+00, %15 ]
+  %.3133 = phi i8 [ %.4, %72 ], [ 0, %15 ]
+  %.380132 = phi i8 [ %.481, %72 ], [ 0, %15 ]
+  %.387131 = phi double [ %.488, %72 ], [ 0.000000e+00, %15 ]
   %46 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv140
   %47 = load double, ptr %46, align 8
   %48 = call double @llvm.fabs.f64(double %47)
@@ -123,9 +123,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %50 = load double, ptr %49, align 8
   %51 = call double @llvm.fabs.f64(double %50)
   %52 = fcmp ueq double %47, 0.000000e+00
-  %.380 = select i1 %52, i8 %.279132, i8 1
+  %.481 = select i1 %52, i8 %.380132, i8 1
   %53 = fcmp ueq double %50, 0.000000e+00
-  %.3 = select i1 %53, i8 %.2133, i8 1
+  %.4 = select i1 %53, i8 %.3133, i8 1
   %54 = fcmp ogt double %48, 1.000000e-05
   %55 = fcmp ogt double %51, 1.000000e-05
   %or.cond118 = select i1 %54, i1 %55, i1 false
@@ -147,20 +147,20 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %68 = fsub <2 x double> %67, %shift150
   %69 = extractelement <2 x double> %68, i64 0
   %70 = call double @llvm.fabs.f64(double %69)
-  %71 = fadd double %.286131, %70
+  %71 = fadd double %.387131, %70
   br label %72
 
 72:                                               ; preds = %.preheader122, %56
-  %.387 = phi double [ %71, %56 ], [ %.286131, %.preheader122 ]
+  %.488 = phi double [ %71, %56 ], [ %.387131, %.preheader122 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next141, 7
   br i1 %exitcond142.not, label %.loopexit, label %.preheader122, !llvm.loop !6
 
 .preheader124:                                    ; preds = %15, %102
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %15 ]
-  %.4129 = phi i8 [ %.5, %102 ], [ 0, %15 ]
-  %.481128 = phi i8 [ %.582, %102 ], [ 0, %15 ]
-  %.488127 = phi double [ %.589, %102 ], [ 0.000000e+00, %15 ]
+  %.5129 = phi i8 [ %.6, %102 ], [ 0, %15 ]
+  %.582128 = phi i8 [ %.683, %102 ], [ 0, %15 ]
+  %.589127 = phi double [ %.690, %102 ], [ 0.000000e+00, %15 ]
   %73 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv
   %74 = load double, ptr %73, align 8
   %75 = call double @llvm.fabs.f64(double %74)
@@ -168,9 +168,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %77 = load double, ptr %76, align 8
   %78 = call double @llvm.fabs.f64(double %77)
   %79 = fcmp ueq double %74, 0.000000e+00
-  %.582 = select i1 %79, i8 %.481128, i8 1
+  %.683 = select i1 %79, i8 %.582128, i8 1
   %80 = fcmp ueq double %77, 0.000000e+00
-  %.5 = select i1 %80, i8 %.4129, i8 1
+  %.6 = select i1 %80, i8 %.5129, i8 1
   %81 = fcmp ogt double %75, 1.000000e-05
   %82 = fcmp ogt double %78, 1.000000e-05
   %or.cond121 = select i1 %81, i1 %82, i1 false
@@ -193,14 +193,14 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %97 = fsub double %96, %95
   %98 = fdiv double %97, %96
   %99 = call double @llvm.fabs.f64(double %98)
-  %100 = fcmp olt double %.488127, %99
+  %100 = fcmp olt double %.589127, %99
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %83
   br label %102
 
 102:                                              ; preds = %.preheader124, %101, %83
-  %.589 = phi double [ %99, %101 ], [ %.488127, %83 ], [ %.488127, %.preheader124 ]
+  %.690 = phi double [ %99, %101 ], [ %.589127, %83 ], [ %.589127, %.preheader124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %.loopexit, label %.preheader124, !llvm.loop !7
@@ -234,9 +234,9 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   br label %119
 
 .loopexit:                                        ; preds = %102, %72, %45
-  %.690 = phi double [ %.185, %45 ], [ %.387, %72 ], [ %.589, %102 ]
-  %.683 = phi i8 [ %.178, %45 ], [ %.380, %72 ], [ %.582, %102 ]
-  %.6 = phi i8 [ %.176, %45 ], [ %.3, %72 ], [ %.5, %102 ]
+  %.286 = phi double [ %.185, %45 ], [ %.488, %72 ], [ %.690, %102 ]
+  %.279 = phi i8 [ %.178, %45 ], [ %.481, %72 ], [ %.683, %102 ]
+  %.2 = phi i8 [ %.176, %45 ], [ %.4, %72 ], [ %.6, %102 ]
   %111 = getelementptr inbounds i8, ptr %5, i64 8
   %112 = load i32, ptr %111, align 8
   %.not.i = icmp eq i32 %112, 0
@@ -254,10 +254,10 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %113
-  %117 = xor i8 %.6, %.683
+  %117 = xor i8 %.2, %.279
   %118 = and i8 %117, 1
   %.not = icmp eq i8 %118, 0
-  %.7 = select i1 %.not, double %.690, double 0x7FEFFFFFFFFFFFFF
+  %.7 = select i1 %.not, double %.286, double 0x7FEFFFFFFFFFFFFF
   ret double %.7
 
 119:                                              ; preds = %110, %16

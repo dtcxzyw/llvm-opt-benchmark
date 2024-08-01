@@ -1070,8 +1070,8 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   unreachable
 
 .thread:                                          ; preds = %265, %267, %262
-  %.191 = phi ptr [ %263, %262 ], [ %269, %267 ], [ %266, %265 ]
-  call fastcc void @expand_dbname_patterns(ptr noundef nonnull %.191)
+  %.090 = phi ptr [ %263, %262 ], [ %269, %267 ], [ %266, %265 ]
+  call fastcc void @expand_dbname_patterns(ptr noundef nonnull %.090)
   %272 = load ptr, ptr @filename, align 8
   %.not142 = icmp eq ptr %272, null
   br i1 %.not142, label %277, label %273
@@ -1098,7 +1098,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.not144, label %284, label %280
 
 280:                                              ; preds = %279
-  %281 = call i32 @PQsetClientEncoding(ptr noundef nonnull %.191, ptr noundef nonnull %.0102) #14
+  %281 = call i32 @PQsetClientEncoding(ptr noundef nonnull %.090, ptr noundef nonnull %.0102) #14
   %282 = icmp slt i32 %281, 0
   br i1 %282, label %283, label %284
 
@@ -1108,8 +1108,8 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   unreachable
 
 284:                                              ; preds = %280, %279
-  %285 = call i32 @PQclientEncoding(ptr noundef nonnull %.191) #14
-  %286 = call ptr @PQparameterStatus(ptr noundef nonnull %.191, ptr noundef nonnull @.str.107) #14
+  %285 = call i32 @PQclientEncoding(ptr noundef nonnull %.090) #14
+  %286 = call ptr @PQparameterStatus(ptr noundef nonnull %.090, ptr noundef nonnull @.str.107) #14
   %.not145 = icmp eq ptr %286, null
   %spec.store.select = select i1 %.not145, ptr @.str.108, ptr %286
   %.not146 = icmp eq ptr %.0104, null
@@ -1120,7 +1120,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   %289 = call ptr @fmtId(ptr noundef nonnull %.0104) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %288, ptr noundef nonnull @.str.109, ptr noundef %289) #14
   %290 = load ptr, ptr %288, align 8
-  call fastcc void @executeCommand(ptr noundef nonnull %.191, ptr noundef %290)
+  call fastcc void @executeCommand(ptr noundef nonnull %.090, ptr noundef %290)
   call void @destroyPQExpBuffer(ptr noundef nonnull %288) #14
   br label %291
 
@@ -1130,7 +1130,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.not147, label %294, label %293
 
 293:                                              ; preds = %291
-  call fastcc void @executeCommand(ptr noundef nonnull %.191, ptr noundef nonnull @.str.110)
+  call fastcc void @executeCommand(ptr noundef nonnull %.090, ptr noundef nonnull @.str.110)
   br label %294
 
 294:                                              ; preds = %293, %291
@@ -1178,7 +1178,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %317, label %319, label %318
 
 318:                                              ; preds = %316
-  call fastcc void @dropDBs(ptr noundef nonnull %.191)
+  call fastcc void @dropDBs(ptr noundef nonnull %.090)
   br label %319
 
 319:                                              ; preds = %315, %318, %316
@@ -1188,7 +1188,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %or.cond, label %323, label %322
 
 322:                                              ; preds = %319
-  call fastcc void @dropTablespaces(ptr noundef nonnull %.191)
+  call fastcc void @dropTablespaces(ptr noundef nonnull %.090)
   br label %323
 
 323:                                              ; preds = %322, %319
@@ -1196,7 +1196,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %324, label %.thread242, label %.thread244
 
 .thread244:                                       ; preds = %323
-  call fastcc void @dropRoles(ptr noundef nonnull %.191)
+  call fastcc void @dropRoles(ptr noundef nonnull %.090)
   br label %326
 
 325:                                              ; preds = %314
@@ -1204,8 +1204,8 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.pre237, label %.thread242, label %326
 
 326:                                              ; preds = %.thread244, %325
-  call fastcc void @dumpRoles(ptr noundef nonnull %.191)
-  call fastcc void @dumpRoleMembership(ptr noundef nonnull %.191)
+  call fastcc void @dumpRoles(ptr noundef nonnull %.090)
+  call fastcc void @dumpRoleMembership(ptr noundef nonnull %.090)
   %327 = load i32, ptr @server_version, align 4
   %328 = icmp sgt i32 %327, 149999
   br i1 %328, label %329, label %.thread242
@@ -1215,7 +1215,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.b115150, label %.thread242, label %330
 
 330:                                              ; preds = %329
-  call fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %.191)
+  call fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %.090)
   br label %.thread242
 
 .thread242:                                       ; preds = %323, %326, %329, %330, %325
@@ -1225,7 +1225,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %or.cond3, label %334, label %333
 
 333:                                              ; preds = %.thread242
-  call fastcc void @dumpTablespaces(ptr noundef nonnull %.191)
+  call fastcc void @dumpTablespaces(ptr noundef nonnull %.090)
   br label %334
 
 334:                                              ; preds = %.thread242, %333, %311
@@ -1237,11 +1237,11 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %336, label %338, label %337
 
 337:                                              ; preds = %335
-  call fastcc void @dumpDatabases(ptr noundef nonnull %.191)
+  call fastcc void @dumpDatabases(ptr noundef nonnull %.090)
   br label %338
 
 338:                                              ; preds = %334, %337, %335
-  call void @PQfinish(ptr noundef nonnull %.191) #14
+  call void @PQfinish(ptr noundef nonnull %.090) #14
   %.b113151 = load i1, ptr @verbose, align 1
   br i1 %.b113151, label %339, label %340
 

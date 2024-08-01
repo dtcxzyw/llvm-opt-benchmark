@@ -1708,7 +1708,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
 114:                                              ; preds = %.lr.ph185, %130
   %.val120218 = phi i32 [ %.val120181, %.lr.ph185 ], [ %.val120, %130 ]
   %indvars.iv211 = phi i64 [ 1, %.lr.ph185 ], [ %indvars.iv.next212, %130 ]
-  %.0183 = phi i32 [ 0, %.lr.ph185 ], [ %.1, %130 ]
+  %.0183 = phi i32 [ 0, %.lr.ph185 ], [ %.2, %130 ]
   %.val142 = load ptr, ptr %112, align 8
   %115 = getelementptr inbounds i32, ptr %.val142, i64 %indvars.iv211
   %116 = load i32, ptr %115, align 4
@@ -1744,15 +1744,15 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
 
 130:                                              ; preds = %._crit_edge217, %117, %117, %117, %114
   %.val120 = phi i32 [ %.val120218, %114 ], [ %.val120218, %117 ], [ %.val120.pre, %._crit_edge217 ], [ %.val120218, %117 ], [ %.val120218, %117 ]
-  %.1 = phi i32 [ %.0183, %114 ], [ %.0183, %117 ], [ %128, %._crit_edge217 ], [ %.0183, %117 ], [ %.0183, %117 ]
+  %.2 = phi i32 [ %.0183, %114 ], [ %.0183, %117 ], [ %128, %._crit_edge217 ], [ %.0183, %117 ], [ %.0183, %117 ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %131 = sext i32 %.val120 to i64
   %132 = icmp slt i64 %indvars.iv.next212, %131
   br i1 %132, label %114, label %._crit_edge186, !llvm.loop !19
 
 ._crit_edge186:                                   ; preds = %130, %120, %109
-  %.2 = phi i32 [ 0, %109 ], [ 5, %120 ], [ %.1, %130 ]
-  %133 = icmp slt i32 %.2, %.185
+  %.1 = phi i32 [ 0, %109 ], [ 5, %120 ], [ %.2, %130 ]
+  %133 = icmp slt i32 %.1, %.185
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %._crit_edge186
@@ -1811,8 +1811,8 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
   br i1 %155, label %139, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %153, %91, %.critedge2.preheader, %135, %.critedge2._crit_edge, %149, %77, %62
-  %.4 = phi i32 [ 0, %62 ], [ 0, %77 ], [ 0, %149 ], [ 1, %.critedge2._crit_edge ], [ 1, %135 ], [ 1, %.critedge2.preheader ], [ 1, %91 ], [ 1, %153 ]
-  ret i32 %.4
+  %.193 = phi i32 [ 0, %62 ], [ 0, %77 ], [ 0, %149 ], [ 1, %.critedge2._crit_edge ], [ 1, %135 ], [ 1, %.critedge2.preheader ], [ 1, %91 ], [ 1, %153 ]
+  ret i32 %.193
 }
 
 ; Function Attrs: nounwind uwtable

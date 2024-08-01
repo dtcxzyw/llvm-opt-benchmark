@@ -359,7 +359,7 @@ terminate.lpad.i.i8:                              ; preds = %ehcleanup
   unreachable
 
 if.end13:                                         ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit, %invoke.cont
-  %mc.0 = phi i1 [ false, %invoke.cont ], [ %call12, %_ZN4cvc58internal7IntegerD2Ev.exit ]
+  %mc.1 = phi i1 [ false, %invoke.cont ], [ %call12, %_ZN4cvc58internal7IntegerD2Ev.exit ]
   invoke void @__gmpz_clear(ptr noundef nonnull %c)
           to label %return unwind label %terminate.lpad.i.i.i
 
@@ -386,7 +386,7 @@ _ZN4cvc58internal11CardinalityD2Ev.exit11:        ; preds = %ehcleanup14
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.end13, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %mc.0, %if.end13 ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %mc.1, %if.end13 ]
   ret i1 %retval.0
 }
 
@@ -667,7 +667,7 @@ lpad23:                                           ; preds = %invoke.cont22
   br label %ehcleanup30
 
 cleanup:                                          ; preds = %if.then13.i.i60, %if.then.i.i54, %invoke.cont24, %land.lhs.true
-  %retval.0 = phi i1 [ true, %land.lhs.true ], [ %call25, %invoke.cont24 ], [ %call25, %if.then.i.i54 ], [ %call25, %if.then13.i.i60 ]
+  %retval.1 = phi i1 [ true, %land.lhs.true ], [ %call25, %invoke.cont24 ], [ %call25, %if.then.i.i54 ], [ %call25, %if.then13.i.i60 ]
   %24 = load ptr, ptr %tn, align 8
   %bf.load.i.i62 = load i64, ptr %24, align 8
   %25 = and i64 %bf.load.i.i62, 1152920405095219200
@@ -700,8 +700,8 @@ ehcleanup30:                                      ; preds = %lpad23, %lpad16
   br label %eh.resume
 
 return:                                           ; preds = %if.then13.i.i70, %if.then.i.i64, %cleanup, %cleanup.done12
-  %retval.1 = phi i1 [ true, %cleanup.done12 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i64 ], [ %retval.0, %if.then13.i.i70 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %cleanup.done12 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i64 ], [ %retval.1, %if.then13.i.i70 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %cleanup.action14, %ehcleanup30
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup30 ], [ %.pn, %cleanup.action14 ]

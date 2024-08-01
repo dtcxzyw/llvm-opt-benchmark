@@ -212,18 +212,18 @@ for.body32.lr.ph:                                 ; preds = %_ZNK11ast_manager5i
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
   %indvars.iv95 = phi i64 [ 0, %for.body32.lr.ph ], [ %indvars.iv.next96, %for.body32 ]
-  %count.190 = phi i32 [ %call4, %for.body32.lr.ph ], [ %.sroa.speculated, %for.body32 ]
+  %count.290 = phi i32 [ %call4, %for.body32.lr.ph ], [ %.sroa.speculated, %for.body32 ]
   %arrayidx.i64 = getelementptr inbounds [0 x ptr], ptr %m_args.i62, i64 0, i64 %indvars.iv95
   %19 = load ptr, ptr %arrayidx.i64, align 8
   %call35 = tail call noundef i32 @_ZN3smt15check_at_labels19count_at_labels_posEP4expr(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef %19)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %count.190, i32 %call35)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %count.290, i32 %call35)
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %if.end43, label %for.body32, !llvm.loop !6
 
 if.end43:                                         ; preds = %for.body32, %for.body, %land.rhs.i.i, %for.cond.preheader, %if.end, %if.then11, %_ZNK11ast_manager5is_orEPK4expr.exit, %if.then17
-  %count.2 = phi i32 [ %call13, %if.then11 ], [ %.sroa.speculated69, %if.then17 ], [ %call4, %_ZNK11ast_manager5is_orEPK4expr.exit ], [ %call4, %if.end ], [ %call4, %for.cond.preheader ], [ %call4, %land.rhs.i.i ], [ %add, %for.body ], [ %.sroa.speculated, %for.body32 ]
-  %cmp44 = icmp ugt i32 %count.2, 1
+  %count.1 = phi i32 [ %call13, %if.then11 ], [ %.sroa.speculated69, %if.then17 ], [ %call4, %_ZNK11ast_manager5is_orEPK4expr.exit ], [ %call4, %if.end ], [ %call4, %for.cond.preheader ], [ %call4, %land.rhs.i.i ], [ %add, %for.body ], [ %.sroa.speculated, %for.body32 ]
+  %cmp44 = icmp ugt i32 %count.1, 1
   br i1 %cmp44, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end43
@@ -237,7 +237,7 @@ if.then45:                                        ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %if.end43, %land.lhs.true, %if.then45, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %count.2, %if.then45 ], [ %count.2, %land.lhs.true ], [ %count.2, %if.end43 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %count.1, %if.then45 ], [ %count.1, %land.lhs.true ], [ %count.1, %if.end43 ]
   ret i32 %retval.0
 }
 
@@ -281,14 +281,14 @@ if.then:                                          ; preds = %invoke.cont3, %invo
   br i1 %cmp11.not10, label %if.end15, label %for.body
 
 for.body:                                         ; preds = %if.then, %invoke.cont12
-  %count.012 = phi i32 [ %spec.select, %invoke.cont12 ], [ 0, %if.then ]
+  %count.112 = phi i32 [ %spec.select, %invoke.cont12 ], [ 0, %if.then ]
   %it.011 = phi ptr [ %incdec.ptr, %invoke.cont12 ], [ %5, %if.then ]
   %call13 = invoke noundef zeroext i1 @_ZNK6symbol8containsEc(ptr noundef nonnull align 8 dereferenceable(8) %it.011, i8 noundef signext 64)
           to label %invoke.cont12 unwind label %lpad.loopexit
 
 invoke.cont12:                                    ; preds = %for.body
   %add = zext i1 %call13 to i32
-  %spec.select = add i32 %count.012, %add
+  %spec.select = add i32 %count.112, %add
   %incdec.ptr = getelementptr inbounds i8, ptr %it.011, i64 8
   %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp11.not, label %if.end15, label %for.body, !llvm.loop !7
@@ -309,7 +309,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end15:                                         ; preds = %invoke.cont12, %if.then, %invoke.cont3
-  %count.2 = phi i32 [ 0, %invoke.cont3 ], [ 0, %if.then ], [ %spec.select, %invoke.cont12 ]
+  %count.0 = phi i32 [ 0, %invoke.cont3 ], [ 0, %if.then ], [ %spec.select, %invoke.cont12 ]
   %7 = load ptr, ptr %lbls, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, %m_initial_buffer.i
   %cmp.i.i.i.i = icmp eq ptr %7, null
@@ -328,7 +328,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN6bufferI6symbolLb1ELj16EED2Ev.exit:            ; preds = %if.end15, %if.end.i.i.i.i
-  ret i32 %count.2
+  ret i32 %count.0
 }
 
 declare noundef zeroext i1 @_ZNK11ast_manager12is_label_litEPK4exprR6bufferI6symbolLb1ELj16EE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
@@ -472,18 +472,18 @@ for.body31.lr.ph:                                 ; preds = %_ZNK11ast_manager6i
 
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.body31
   %indvars.iv83 = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next84, %for.body31 ]
-  %count.178 = phi i32 [ %call4, %for.body31.lr.ph ], [ %.sroa.speculated, %for.body31 ]
+  %count.278 = phi i32 [ %call4, %for.body31.lr.ph ], [ %.sroa.speculated, %for.body31 ]
   %arrayidx.i61 = getelementptr inbounds [0 x ptr], ptr %m_args.i59, i64 0, i64 %indvars.iv83
   %19 = load ptr, ptr %arrayidx.i61, align 8
   %call33 = tail call noundef i32 @_ZN3smt15check_at_labels19count_at_labels_negEP4expr(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef %19)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %count.178, i32 %call33)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %count.278, i32 %call33)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %if.end41, label %for.body31, !llvm.loop !9
 
 if.end41:                                         ; preds = %for.body31, %for.body, %land.rhs.i.i, %for.cond.preheader, %if.end, %if.then11, %_ZNK11ast_manager6is_andEPK4expr.exit, %if.then17
-  %count.2 = phi i32 [ %call13, %if.then11 ], [ %add23, %if.then17 ], [ %call4, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %call4, %if.end ], [ %call4, %for.cond.preheader ], [ %call4, %land.rhs.i.i ], [ %add, %for.body ], [ %.sroa.speculated, %for.body31 ]
-  %cmp42 = icmp ugt i32 %count.2, 1
+  %count.1 = phi i32 [ %call13, %if.then11 ], [ %add23, %if.then17 ], [ %call4, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %call4, %if.end ], [ %call4, %for.cond.preheader ], [ %call4, %land.rhs.i.i ], [ %add, %for.body ], [ %.sroa.speculated, %for.body31 ]
+  %cmp42 = icmp ugt i32 %count.1, 1
   br i1 %cmp42, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end41
@@ -497,7 +497,7 @@ if.then43:                                        ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %if.end41, %land.lhs.true, %if.then43, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %count.2, %if.then43 ], [ %count.2, %land.lhs.true ], [ %count.2, %if.end41 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %count.1, %if.then43 ], [ %count.1, %land.lhs.true ], [ %count.1, %if.end41 ]
   ret i32 %retval.0
 }
 

@@ -418,13 +418,13 @@ define internal void @_ZN9toolchain11cargo_proxy17h9fa4f94eaa271414E(ptr noalias
   br i1 %21, label %22, label %.thread.i
 
 22:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit.i", %19
-  %.sroa.0.015 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit.i" ], [ %.sroa.0.0.copyload, %19 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.015, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit.i" ], [ %.sroa.0.0.copyload, %19 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !127
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !127
   br label %_ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit
 
 .thread.i:                                        ; preds = %16, %19
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload, %19 ], [ -9223372036854775808, %16 ]
+  %.sroa.0.015 = phi i64 [ %.sroa.0.0.copyload, %19 ], [ -9223372036854775808, %16 ]
   %23 = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !131
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0108648349ed49ecE.llvm.1604671798424797212"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !127
@@ -474,14 +474,14 @@ _ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i: ; preds = %31
   br i1 %35, label %36, label %.noexc12.i
 
 36:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i", %33
-  %.sroa.0.2 = phi i64 [ %.sroa.0.3, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i" ], [ %.sroa.0.0.copyload13, %33 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.2, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$camino..Utf8PathBuf$C$camino..FromPathBufError$GT$$GT$17h9b363a5617d94d51E.exit14.i" ], [ %.sroa.0.0.copyload13, %33 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !127
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !127
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !127
   br label %_ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit
 
 .noexc12.i:                                       ; preds = %_ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i, %33
-  %.sroa.0.3 = phi i64 [ %.sroa.0.0.copyload13, %33 ], [ -9223372036854775808, %_ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0.copyload13, %33 ], [ -9223372036854775808, %_ZN3std4path7PathBuf4push17hb88c95f70a595294E.exit.i ]
   %37 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !148
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0108648349ed49ecE.llvm.1604671798424797212"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !127
@@ -519,7 +519,7 @@ common.resume:                                    ; preds = %58, %45
   unreachable
 
 _ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit: ; preds = %22, %36
-  %.sroa.0.4 = phi i64 [ %.sroa.0.2, %36 ], [ %.sroa.0.015, %22 ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.3, %36 ], [ %.sroa.0.1, %22 ]
   %48 = icmp eq i64 %.sroa.0.4, -9223372036854775808
   br i1 %48, label %53, label %49
 

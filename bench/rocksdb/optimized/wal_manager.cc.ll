@@ -1415,7 +1415,7 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %cleanup, %if.end20, %if.then.i.i103, %.noexc104
-  %cleanup.dest.slot.1.ph = phi i32 [ 0, %.noexc104 ], [ 0, %if.then.i.i103 ], [ 3, %if.end20 ], [ 3, %cleanup ]
+  %cleanup.dest.slot.0.ph = phi i32 [ 0, %.noexc104 ], [ 0, %if.then.i.i103 ], [ 3, %if.end20 ], [ 3, %cleanup ]
   %73 = load ptr, ptr %state_16.i, align 8
   %cmp.not.i.i108 = icmp eq ptr %73, null
   br i1 %cmp.not.i.i108, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i109
@@ -1426,7 +1426,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i109, %nrvo.unused
   store ptr null, ptr %state_16.i, align 8
-  switch i32 %cleanup.dest.slot.1.ph, label %cleanup103 [
+  switch i32 %cleanup.dest.slot.0.ph, label %cleanup103 [
     i32 0, label %for.inc
     i32 3, label %for.inc
   ]
@@ -2190,7 +2190,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.body.preheader, %if.else
   %start.021 = phi i64 [ %start.1, %if.else ], [ 0, %while.body.preheader ]
-  %end.020 = phi i64 [ %end.1, %if.else ], [ %sub, %while.body.preheader ]
+  %end.020 = phi i64 [ %end.2, %if.else ], [ %sub, %while.body.preheader ]
   %sub2 = sub nsw i64 %end.020, %start.021
   %div = sdiv i64 %sub2, 2
   %add = add nsw i64 %div, %start.021
@@ -2221,18 +2221,18 @@ if.else:                                          ; preds = %_ZNSt6vectorISt10un
   %cmp7 = icmp ult i64 %call5, %target
   %add9 = add nuw nsw i64 %add, 1
   %sub11 = add nsw i64 %add, -1
-  %end.1 = select i1 %cmp7, i64 %end.020, i64 %sub11
+  %end.2 = select i1 %cmp7, i64 %end.020, i64 %sub11
   %start.1 = select i1 %cmp7, i64 %add9, i64 %start.021
-  %cmp.not = icmp slt i64 %end.1, %start.1
+  %cmp.not = icmp slt i64 %end.2, %start.1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !28
 
 while.end:                                        ; preds = %if.else, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE2atEm.exit
-  %end.2.ph = phi i64 [ %end.1, %if.else ], [ %add, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE2atEm.exit ]
+  %end.1.ph = phi i64 [ %end.2, %if.else ], [ %add, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE2atEm.exit ]
   %.pre = load ptr, ptr %all_logs, align 8
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %end.2.ph, i64 0)
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %end.1.ph, i64 0)
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %.pre, i64 %.sroa.speculated
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %add.ptr.i to i64
-  %cmp.i.not.i.i = icmp slt i64 %end.2.ph, 1
+  %cmp.i.not.i.i = icmp slt i64 %end.1.ph, 1
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %while.end
@@ -3031,7 +3031,7 @@ terminate.lpad.i135:                              ; preds = %lpad167
 
 cleanup.thread:                                   ; preds = %invoke.cont107, %invoke.cont161, %invoke.cont84, %if.then138, %if.end114, %invoke.cont110, %invoke.cont168
   %log_file_size.1.ph = phi i64 [ %log_file_size.0253, %invoke.cont168 ], [ %log_file_size.0253, %invoke.cont110 ], [ %log_file_size.0253, %invoke.cont84 ], [ %log_file_size.0253, %invoke.cont107 ], [ %.sroa.speculated, %if.then138 ], [ %log_file_size.0253, %invoke.cont161 ], [ %log_file_size.0253, %if.end114 ]
-  %log_files_num.2.ph = phi i64 [ %log_files_num.0254, %invoke.cont168 ], [ %log_files_num.0254, %invoke.cont110 ], [ %log_files_num.0254, %invoke.cont84 ], [ %log_files_num.0254, %invoke.cont107 ], [ %inc, %if.then138 ], [ %log_files_num.0254, %invoke.cont161 ], [ %log_files_num.0254, %if.end114 ]
+  %log_files_num.1.ph = phi i64 [ %log_files_num.0254, %invoke.cont168 ], [ %log_files_num.0254, %invoke.cont110 ], [ %log_files_num.0254, %invoke.cont84 ], [ %log_files_num.0254, %invoke.cont107 ], [ %inc, %if.then138 ], [ %log_files_num.0254, %invoke.cont161 ], [ %log_files_num.0254, %if.end114 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_path) #17
   br label %for.inc
 
@@ -3047,7 +3047,7 @@ ehcleanup:                                        ; preds = %lpad69.loopexit, %l
 
 for.inc:                                          ; preds = %cleanup.thread, %invoke.cont54
   %log_file_size.2 = phi i64 [ %log_file_size.0253, %invoke.cont54 ], [ %log_file_size.1.ph, %cleanup.thread ]
-  %log_files_num.3 = phi i64 [ %log_files_num.0254, %invoke.cont54 ], [ %log_files_num.2.ph, %cleanup.thread ]
+  %log_files_num.3 = phi i64 [ %log_files_num.0254, %invoke.cont54 ], [ %log_files_num.1.ph, %cleanup.thread ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0252, i64 32
   %cmp.i32.not = icmp eq ptr %incdec.ptr.i, %30
   br i1 %cmp.i32.not, label %for.end, label %for.body
@@ -3780,7 +3780,7 @@ cleanup109.thread:                                ; preds = %cleanup.done
   br label %return
 
 lpad31:                                           ; preds = %if.then97, %if.then58, %if.then30
-  %s.sroa.41.0 = phi ptr [ %s.sroa.41.4, %if.then97 ], [ %s.sroa.41.2, %if.then58 ], [ null, %if.then30 ]
+  %s.sroa.41.0 = phi ptr [ %s.sroa.41.6, %if.then97 ], [ %s.sroa.41.4, %if.then58 ], [ null, %if.then30 ]
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup110
@@ -3797,7 +3797,7 @@ invoke.cont56:                                    ; preds = %cleanup.done
   br label %if.then58
 
 if.then58:                                        ; preds = %invoke.cont56, %cleanup.cont
-  %s.sroa.41.2 = phi ptr [ %23, %invoke.cont56 ], [ null, %cleanup.cont ]
+  %s.sroa.41.4 = phi ptr [ %23, %invoke.cont56 ], [ null, %cleanup.cont ]
   %wal_dir_59 = getelementptr inbounds i8, ptr %this, i64 328
   %30 = load ptr, ptr %wal_dir_59, align 8
   invoke void @_ZN7rocksdb19ArchivedLogFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %archived_file, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef %number)
@@ -3825,11 +3825,11 @@ invoke.cont63:                                    ; preds = %invoke.cont60
   %state_.i52 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   %37 = load ptr, ptr %state_.i52, align 8
   store ptr null, ptr %state_.i52, align 8
-  %tobool.not.i.i.i.i.i54 = icmp eq ptr %s.sroa.41.2, null
+  %tobool.not.i.i.i.i.i54 = icmp eq ptr %s.sroa.41.4, null
   br i1 %tobool.not.i.i.i.i.i54, label %invoke.cont65, label %_ZN7rocksdb6StatusaSEOS0_.exit56
 
 _ZN7rocksdb6StatusaSEOS0_.exit56:                 ; preds = %invoke.cont63
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.41.2) #16
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.41.4) #16
   %.pr116 = load ptr, ptr %state_.i52, align 8
   %cmp.not.i.i58 = icmp eq ptr %.pr116, null
   br i1 %cmp.not.i.i58, label %invoke.cont65, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i59
@@ -3869,7 +3869,7 @@ cleanup.done80:                                   ; preds = %_ZNKSt14default_del
   br i1 %cmp.i62, label %cleanup109, label %invoke.cont93
 
 lpad62:                                           ; preds = %land.rhs67, %invoke.cont60
-  %s.sroa.41.3 = phi ptr [ %37, %land.rhs67 ], [ %s.sroa.41.2, %invoke.cont60 ]
+  %s.sroa.41.5 = phi ptr [ %37, %land.rhs67 ], [ %s.sroa.41.4, %invoke.cont60 ]
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %archived_file) #17
@@ -3885,7 +3885,7 @@ land.lhs.true95:                                  ; preds = %invoke.cont65, %inv
   %s.sroa.17.0 = phi i8 [ %19, %invoke.cont37 ], [ %33, %invoke.cont65 ]
   %s.sroa.23.0 = phi i8 [ %frombool.i, %invoke.cont37 ], [ %34, %invoke.cont65 ]
   %s.sroa.29.0 = phi i8 [ %frombool12.i, %invoke.cont37 ], [ %35, %invoke.cont65 ]
-  %s.sroa.41.4 = phi ptr [ %23, %invoke.cont37 ], [ %37, %invoke.cont65 ]
+  %s.sroa.41.6 = phi ptr [ %23, %invoke.cont37 ], [ %37, %invoke.cont65 ]
   %s.sroa.35.0 = phi i8 [ %22, %invoke.cont37 ], [ %36, %invoke.cont65 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %archived_file.sink) #17
   %43 = load i64, ptr %sequence, align 8
@@ -3934,7 +3934,7 @@ if.end108:                                        ; preds = %invoke.cont93, %inv
   %s.sroa.17.1 = phi i8 [ %s.sroa.17.0, %land.lhs.true95 ], [ %s.sroa.17.0, %invoke.cont105 ], [ %33, %invoke.cont93 ]
   %s.sroa.23.1 = phi i8 [ %s.sroa.23.0, %land.lhs.true95 ], [ %s.sroa.23.0, %invoke.cont105 ], [ %34, %invoke.cont93 ]
   %s.sroa.29.1 = phi i8 [ %s.sroa.29.0, %land.lhs.true95 ], [ %s.sroa.29.0, %invoke.cont105 ], [ %35, %invoke.cont93 ]
-  %s.sroa.41.5 = phi ptr [ %s.sroa.41.4, %land.lhs.true95 ], [ %s.sroa.41.4, %invoke.cont105 ], [ %37, %invoke.cont93 ]
+  %s.sroa.41.7 = phi ptr [ %s.sroa.41.6, %land.lhs.true95 ], [ %s.sroa.41.6, %invoke.cont105 ], [ %37, %invoke.cont93 ]
   %s.sroa.35.1 = phi i8 [ %s.sroa.35.0, %land.lhs.true95 ], [ %s.sroa.35.0, %invoke.cont105 ], [ %36, %invoke.cont93 ]
   %state_.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %s.sroa.0.1, ptr %agg.result, align 8
@@ -3950,7 +3950,7 @@ if.end108:                                        ; preds = %invoke.cont93, %inv
   store i8 %frombool12.i.i86, ptr %data_loss_11.i.i85, align 4
   %scope_14.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %s.sroa.35.1, ptr %scope_14.i.i88, align 1
-  store ptr %s.sroa.41.5, ptr %state_.i.i74, align 8
+  store ptr %s.sroa.41.7, ptr %state_.i.i74, align 8
   br label %return
 
 cleanup109:                                       ; preds = %cleanup.done80
@@ -3966,13 +3966,13 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %return
 
 ehcleanup110:                                     ; preds = %lpad103, %lpad62, %lpad34, %lpad31
-  %s.sroa.41.7 = phi ptr [ %s.sroa.41.4, %lpad103 ], [ %s.sroa.41.0, %lpad31 ], [ %s.sroa.41.3, %lpad62 ], [ %s.sroa.41.1, %lpad34 ]
+  %s.sroa.41.2 = phi ptr [ %s.sroa.41.6, %lpad103 ], [ %s.sroa.41.0, %lpad31 ], [ %s.sroa.41.5, %lpad62 ], [ %s.sroa.41.1, %lpad34 ]
   %.pn15 = phi { ptr, i32 } [ %47, %lpad103 ], [ %28, %lpad31 ], [ %42, %lpad62 ], [ %29, %lpad34 ]
-  %cmp.not.i.i98 = icmp eq ptr %s.sroa.41.7, null
+  %cmp.not.i.i98 = icmp eq ptr %s.sroa.41.2, null
   br i1 %cmp.not.i.i98, label %eh.resume, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i99
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i99: ; preds = %ehcleanup110
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.41.7) #16
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.41.2) #16
   br label %eh.resume
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i95, %cleanup109, %if.end108, %cleanup109.thread, %_ZN7rocksdb9MutexLockD2Ev.exit23, %invoke.cont13

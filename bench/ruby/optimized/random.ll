@@ -2990,16 +2990,16 @@ define internal fastcc noundef i64 @rand_init(ptr nocapture noundef readonly %0,
   br label %32
 
 32:                                               ; preds = %27, %24
-  %.025 = phi i64 [ %spec.store.select, %24 ], [ %spec.select28, %27 ]
+  %.1 = phi i64 [ %spec.store.select, %24 ], [ %spec.select28, %27 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %.025) #22
+  call void %34(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %.1) #22
   br label %35
 
 35:                                               ; preds = %32, %20
   %36 = phi ptr [ %17, %20 ], [ %26, %32 ]
-  %.1 = phi i64 [ %spec.store.select, %20 ], [ %.025, %32 ]
-  %37 = shl i64 %.1, 2
+  %.025 = phi i64 [ %spec.store.select, %20 ], [ %.1, %32 ]
+  %37 = shl i64 %.025, 2
   call void @explicit_bzero(ptr noundef nonnull %36, i64 noundef %37) #22
   call void @rb_free_tmp_buffer(ptr noundef nonnull %4) #22
   ret i64 %2

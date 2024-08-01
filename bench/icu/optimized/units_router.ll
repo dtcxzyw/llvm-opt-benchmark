@@ -484,9 +484,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1016,12 +1016,12 @@ ehcleanup:                                        ; preds = %lpad54, %lpad52
   br label %ehcleanup64
 
 cleanup:                                          ; preds = %invoke.cont57, %if.then48
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then48 ], [ %., %invoke.cont57 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then48 ], [ %., %invoke.cont57 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #10
   br label %cleanup65
 
 cleanup65:                                        ; preds = %invoke.cont27, %cleanup
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.0, %cleanup ], [ 1, %invoke.cont27 ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.1, %cleanup ], [ 1, %invoke.cont27 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i49) #10
   %40 = load i32, ptr %singleUnits.i50, align 8
   %cmp3.i.i.i51 = icmp sgt i32 %40, 0
@@ -1066,7 +1066,7 @@ terminate.lpad.i.i.i.i57:                         ; preds = %if.then.i.i.i.i.i55
   unreachable
 
 _ZN6icu_7515MeasureUnitImplD2Ev.exit69:           ; preds = %for.end.i.i.i52, %if.then.i.i.i.i.i55
-  %cond = icmp ne i32 %cleanup.dest.slot.1, 0
+  %cond = icmp ne i32 %cleanup.dest.slot.0, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %cond, i1 true, i1 %exitcond.not

@@ -807,8 +807,8 @@ define i32 @cli_ftw(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocaptur
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 1
   %18 = load i8, ptr %17, align 1
-  %.not61 = icmp eq i8 %18, 0
-  br i1 %.not61, label %34, label %thread-pre-split
+  %.not60 = icmp eq i8 %18, 0
+  br i1 %.not60, label %34, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %16
   %19 = icmp eq i8 %15, 47
@@ -816,23 +816,23 @@ thread-pre-split:                                 ; preds = %16
 
 20:                                               ; preds = %thread-pre-split, %22
   %21 = phi i1 [ %19, %thread-pre-split ], [ true, %22 ]
-  %.050 = phi ptr [ %0, %thread-pre-split ], [ %23, %22 ]
+  %.151 = phi ptr [ %0, %thread-pre-split ], [ %23, %22 ]
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.050, i64 1
+  %23 = getelementptr inbounds i8, ptr %.151, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 47
   br i1 %25, label %20, label %.critedge
 
 .critedge:                                        ; preds = %20, %22
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #23
-  %27 = getelementptr inbounds i8, ptr %.050, i64 %26
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.151) #23
+  %27 = getelementptr inbounds i8, ptr %.151, i64 %26
   br label %28
 
 28:                                               ; preds = %30, %.critedge
   %.0 = phi ptr [ %27, %.critedge ], [ %31, %30 ]
-  %29 = icmp ugt ptr %.0, %.050
+  %29 = icmp ugt ptr %.0, %.151
   br i1 %29, label %30, label %.critedge3
 
 30:                                               ; preds = %28
@@ -846,19 +846,19 @@ thread-pre-split:                                 ; preds = %16
   br label %34
 
 34:                                               ; preds = %.critedge3, %16, %14
-  %.151 = phi ptr [ %.050, %.critedge3 ], [ %0, %16 ], [ %0, %14 ]
+  %.050 = phi ptr [ %.151, %.critedge3 ], [ %0, %16 ], [ %0, %14 ]
   br i1 %13, label %35, label %.thread
 
 35:                                               ; preds = %34
-  %36 = tail call i32 %5(ptr noundef %.151, ptr noundef %4) #22
+  %36 = tail call i32 %5(ptr noundef %.050, ptr noundef %4) #22
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %cli_safer_strdup.exit.thread, label %.thread
 
 .thread:                                          ; preds = %6, %35, %34
-  %.15171 = phi ptr [ %.151, %35 ], [ %.151, %34 ], [ %0, %6 ]
-  %38 = call fastcc i32 @handle_filetype(ptr noundef %.15171, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
-  %.not62 = icmp eq i32 %38, 0
-  br i1 %.not62, label %39, label %cli_safer_strdup.exit.thread
+  %.05070 = phi ptr [ %.050, %35 ], [ %.050, %34 ], [ %0, %6 ]
+  %38 = call fastcc i32 @handle_filetype(ptr noundef %.05070, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %.not61 = icmp eq i32 %38, 0
+  br i1 %.not61, label %39, label %cli_safer_strdup.exit.thread
 
 39:                                               ; preds = %.thread
   %40 = load i32, ptr %8, align 4
@@ -868,15 +868,15 @@ thread-pre-split:                                 ; preds = %16
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %10, align 4
-  %.not64 = icmp eq i32 %44, 0
-  %. = select i1 %.not64, ptr null, ptr %7
+  %.not63 = icmp eq i32 %44, 0
+  %. = select i1 %.not63, ptr null, ptr %7
   %45 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %., ptr %45, align 8
   %46 = icmp eq i32 %40, 2
   %47 = zext i1 %46 to i32
   %48 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 %47, ptr %48, align 8
-  %49 = icmp eq ptr %.15171, null
+  %49 = icmp eq ptr %.05070, null
   br i1 %46, label %50, label %61
 
 50:                                               ; preds = %43
@@ -887,62 +887,62 @@ thread-pre-split:                                 ; preds = %16
   br label %cli_safer_strdup.exit.thread
 
 52:                                               ; preds = %50
-  %53 = call noalias ptr @strdup(ptr noundef nonnull readonly %.15171) #22
+  %53 = call noalias ptr @strdup(ptr noundef nonnull readonly %.05070) #22
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %54, label %cli_safer_strdup.exit
 
 54:                                               ; preds = %52
   call void @perror(ptr noundef nonnull @.str.20) #25
-  %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.15171) #23
+  %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.05070) #23
   %56 = trunc i64 %55 to i32
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21, i32 noundef %56)
   br label %cli_safer_strdup.exit.thread
 
 cli_safer_strdup.exit:                            ; preds = %52
-  %57 = call i32 %3(ptr noundef %., ptr noundef nonnull %53, ptr noundef nonnull %.15171, i32 noundef 1, ptr noundef %4) #22
-  %.not65 = icmp eq i32 %57, 0
-  br i1 %.not65, label %58, label %cli_safer_strdup.exit.thread
+  %57 = call i32 %3(ptr noundef %., ptr noundef nonnull %53, ptr noundef nonnull %.05070, i32 noundef 1, ptr noundef %4) #22
+  %.not64 = icmp eq i32 %57, 0
+  br i1 %.not64, label %58, label %cli_safer_strdup.exit.thread
 
 58:                                               ; preds = %cli_safer_strdup.exit
-  %.pr74 = load i32, ptr %48, align 8
-  %.not66 = icmp eq i32 %.pr74, 0
-  br i1 %.not66, label %.thread77, label %59
+  %.pr73 = load i32, ptr %48, align 8
+  %.not65 = icmp eq i32 %.pr73, 0
+  br i1 %.not65, label %.thread76, label %59
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.15171, ptr %60, align 8
+  store ptr %.05070, ptr %60, align 8
   br label %67
 
 61:                                               ; preds = %43
-  br i1 %49, label %62, label %.thread77
+  br i1 %49, label %62, label %.thread76
 
 62:                                               ; preds = %61
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.19)
   br label %cli_safer_strdup.exit.thread
 
-.thread77:                                        ; preds = %58, %61
-  %63 = call noalias ptr @strdup(ptr noundef nonnull readonly %.15171) #22
-  %.not.i67 = icmp eq ptr %63, null
-  br i1 %.not.i67, label %64, label %cli_safer_strdup.exit69
+.thread76:                                        ; preds = %58, %61
+  %63 = call noalias ptr @strdup(ptr noundef nonnull readonly %.05070) #22
+  %.not.i66 = icmp eq ptr %63, null
+  br i1 %.not.i66, label %64, label %cli_safer_strdup.exit68
 
-64:                                               ; preds = %.thread77
+64:                                               ; preds = %.thread76
   call void @perror(ptr noundef nonnull @.str.20) #25
-  %65 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.15171) #23
+  %65 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.05070) #23
   %66 = trunc i64 %65 to i32
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.21, i32 noundef %66)
   br label %cli_safer_strdup.exit.thread
 
-cli_safer_strdup.exit69:                          ; preds = %.thread77
+cli_safer_strdup.exit68:                          ; preds = %.thread76
   store ptr %63, ptr %9, align 8
   br label %67
 
-67:                                               ; preds = %cli_safer_strdup.exit69, %59
+67:                                               ; preds = %cli_safer_strdup.exit68, %59
   %68 = call fastcc i32 @handle_entry(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %cli_safer_strdup.exit.thread
 
 cli_safer_strdup.exit.thread:                     ; preds = %64, %62, %54, %51, %39, %35, %cli_safer_strdup.exit, %.thread, %67
-  %.149 = phi i32 [ %38, %.thread ], [ %57, %cli_safer_strdup.exit ], [ %68, %67 ], [ 0, %35 ], [ 0, %39 ], [ 0, %51 ], [ 0, %54 ], [ 0, %62 ], [ 0, %64 ]
-  ret i32 %.149
+  %.048 = phi i32 [ %38, %.thread ], [ %57, %cli_safer_strdup.exit ], [ %68, %67 ], [ 0, %35 ], [ 0, %39 ], [ 0, %51 ], [ 0, %54 ], [ 0, %62 ], [ 0, %64 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -986,8 +986,8 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
 
 22:                                               ; preds = %21, %._crit_edge.i, %12
   %23 = phi i32 [ 1, %21 ], [ 1, %12 ], [ %.pre.i, %._crit_edge.i ]
-  %.028.i = phi i32 [ 1, %21 ], [ 1, %12 ], [ 0, %._crit_edge.i ]
-  %.0.i = phi i32 [ 0, %21 ], [ 0, %12 ], [ 1, %._crit_edge.i ]
+  %.129.i = phi i32 [ 1, %21 ], [ 1, %12 ], [ 0, %._crit_edge.i ]
+  %.1.i = phi i32 [ 0, %21 ], [ 0, %12 ], [ 1, %._crit_edge.i ]
   %24 = icmp eq i32 %23, 1
   %.not34.i = icmp eq i32 %11, 0
   %or.cond.i = and i1 %.not34.i, %24
@@ -995,9 +995,9 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
 
 25:                                               ; preds = %22, %7
   %26 = phi i32 [ %23, %22 ], [ %9, %7 ]
-  %.129.i = phi i32 [ %.028.i, %22 ], [ %8, %7 ]
-  %.1.i = phi i32 [ %.0.i, %22 ], [ 0, %7 ]
-  %.not35.i = icmp eq i32 %.129.i, 0
+  %.028.i = phi i32 [ %.129.i, %22 ], [ %8, %7 ]
+  %.0.i = phi i32 [ %.1.i, %22 ], [ 0, %7 ]
+  %.not35.i = icmp eq i32 %.028.i, 0
   br i1 %.not35.i, label %29, label %.thread.i
 
 .thread.i:                                        ; preds = %25, %10
@@ -1011,7 +1011,7 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
 
 29:                                               ; preds = %.thread._crit_edge.i, %25
   %30 = phi i32 [ %26, %25 ], [ %.pre47.i, %.thread._crit_edge.i ]
-  %.2.i = phi i32 [ %.1.i, %25 ], [ 1, %.thread._crit_edge.i ]
+  %.2.i = phi i32 [ %.0.i, %25 ], [ 1, %.thread._crit_edge.i ]
   %switch42.i = icmp ult i32 %30, 2
   br i1 %switch42.i, label %31, label %51
 

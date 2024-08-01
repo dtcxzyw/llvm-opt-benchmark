@@ -3392,7 +3392,7 @@ if.then372:                                       ; preds = %if.then354
   br label %if.end381
 
 if.end381:                                        ; preds = %if.then372, %if.then354
-  %mA.0 = phi float [ %228, %if.then372 ], [ %div350, %if.then354 ]
+  %mA.1 = phi float [ %228, %if.then372 ], [ %div350, %if.then354 ]
   %tobool384 = fcmp une float %194, 0.000000e+00
   br i1 %tobool384, label %if.then385, label %if.end395
 
@@ -3436,7 +3436,7 @@ if.end395:                                        ; preds = %if.end347.thread, %
   %247 = phi float [ %194, %if.then385 ], [ %194, %if.end381 ], [ %177, %if.end347.thread ]
   %248 = phi float [ %192, %if.then385 ], [ %192, %if.end381 ], [ %175, %if.end347.thread ]
   %vel319.0474 = phi float [ %sub324, %if.then385 ], [ %sub324, %if.end381 ], [ %sub346, %if.end347.thread ]
-  %mA.1 = phi float [ %mA.0, %if.then385 ], [ %mA.0, %if.end381 ], [ %div350470, %if.end347.thread ]
+  %mA.0 = phi float [ %mA.1, %if.then385 ], [ %mA.1, %if.end381 ], [ %div350470, %if.end347.thread ]
   %mB.0 = phi float [ %246, %if.then385 ], [ %div352, %if.end381 ], [ %div352473, %if.end347.thread ]
   %cmp398 = fcmp oeq float %248, 0.000000e+00
   br i1 %cmp398, label %if.end410, label %if.else400
@@ -3446,13 +3446,13 @@ if.else400:                                       ; preds = %if.end395
   br i1 %cmp403, label %if.end410, label %if.else405
 
 if.else405:                                       ; preds = %if.else400
-  %mul406 = fmul float %mA.1, %mB.0
-  %add407 = fadd float %mA.1, %mB.0
+  %mul406 = fmul float %mA.0, %mB.0
+  %add407 = fadd float %mA.0, %mB.0
   %div408 = fdiv float %mul406, %add407
   br label %if.end410
 
 if.end410:                                        ; preds = %if.else400, %if.end395, %if.else405
-  %m.0 = phi float [ %div408, %if.else405 ], [ %mB.0, %if.end395 ], [ %mA.1, %if.else400 ]
+  %m.0 = phi float [ %div408, %if.else405 ], [ %mB.0, %if.end395 ], [ %mA.0, %if.else400 ]
   %div411 = fdiv float %106, %m.0
   %call.i = tail call noundef float @sqrtf(float noundef %div411) #21
   %m_springStiffnessLimited = getelementptr inbounds i8, ptr %limot, i64 56

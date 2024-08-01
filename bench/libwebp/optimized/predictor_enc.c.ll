@@ -1084,9 +1084,9 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
 
 139:                                              ; preds = %136, %GetPredictionCostCrossColorBlue.exit.i
   %indvars.iv99.i = phi i64 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %indvars.iv.next100.i, %136 ]
-  %.093.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.2.i52, %136 ]
-  %.05792.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.259.i, %136 ]
-  %.06390.i = phi float [ %135, %GetPredictionCostCrossColorBlue.exit.i ], [ %.265.i, %136 ]
+  %.093.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.4.i, %136 ]
+  %.05792.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.461.i, %136 ]
+  %.06390.i = phi float [ %135, %GetPredictionCostCrossColorBlue.exit.i ], [ %.366.i, %136 ]
   %140 = getelementptr inbounds [7 x i8], ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 0, i64 %indvars.iv99.i
   %141 = load i8, ptr %140, align 1
   %142 = sext i8 %141 to i32
@@ -1096,19 +1096,19 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
 
 144:                                              ; preds = %GetPredictionCostCrossColorBlue.exit84.i, %139
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ 0, %139 ]
-  %.189.i = phi i32 [ %.2.i52, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.093.i, %139 ]
-  %.15888.i = phi i32 [ %.259.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.05792.i, %139 ]
-  %.16487.i = phi float [ %.265.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.06390.i, %139 ]
+  %.289.i = phi i32 [ %.4.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.093.i, %139 ]
+  %.25988.i = phi i32 [ %.461.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.05792.i, %139 ]
+  %.16487.i = phi float [ %.366.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.06390.i, %139 ]
   %145 = getelementptr inbounds [8 x [2 x i8]], ptr @__const.GetBestGreenRedToBlue.offset, i64 0, i64 %indvars.iv.i
   %146 = load i8, ptr %145, align 2
   %147 = sext i8 %146 to i32
   %148 = mul nsw i32 %147, %142
-  %149 = add nsw i32 %148, %.189.i
+  %149 = add nsw i32 %148, %.289.i
   %150 = getelementptr inbounds i8, ptr %145, i64 1
   %151 = load i8, ptr %150, align 1
   %152 = sext i8 %151 to i32
   %153 = mul nsw i32 %152, %142
-  %154 = add nsw i32 %153, %.15888.i
+  %154 = add nsw i32 %153, %.25988.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %12, i8 0, i64 1024, i1 false)
   %155 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8
@@ -1164,9 +1164,9 @@ GetPredictionCostCrossColorBlue.exit84.i:         ; preds = %161
   %.5.i.i = select i1 %187, float %188, float %.4.i.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
   %189 = fcmp olt float %.5.i.i, %.16487.i
-  %.265.i = select i1 %189, float %.5.i.i, float %.16487.i
-  %.259.i = select i1 %189, i32 %154, i32 %.15888.i
-  %.2.i52 = select i1 %189, i32 %149, i32 %.189.i
+  %.366.i = select i1 %189, float %.5.i.i, float %.16487.i
+  %.461.i = select i1 %189, i32 %154, i32 %.25988.i
+  %.4.i = select i1 %189, i32 %149, i32 %.289.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %190 = icmp ult i64 %indvars.iv.i, 7
   %or.cond94.i = and i1 %or.cond.not96.i, %190
@@ -1175,17 +1175,17 @@ GetPredictionCostCrossColorBlue.exit84.i:         ; preds = %161
 191:                                              ; preds = %GetPredictionCostCrossColorBlue.exit84.i
   %192 = add nsw i64 %indvars.iv99.i, -4
   %193 = icmp ult i64 %192, 3
-  %194 = or i32 %.2.i52, %.259.i
+  %194 = or i32 %.4.i, %.461.i
   %195 = icmp eq i32 %194, 0
   %or.cond5.i = select i1 %193, i1 %195, i1 false
   br i1 %or.cond5.i, label %GetBestGreenRedToBlue.exit, label %136
 
 GetBestGreenRedToBlue.exit:                       ; preds = %136, %191
-  %.461.i = phi i32 [ 0, %191 ], [ %.259.i, %136 ]
-  %.4.i = phi i32 [ 0, %191 ], [ %.2.i52, %136 ]
-  %196 = trunc i32 %.461.i to i24
+  %.158.i = phi i32 [ 0, %191 ], [ %.461.i, %136 ]
+  %.1.i = phi i32 [ 0, %191 ], [ %.4.i, %136 ]
+  %196 = trunc i32 %.158.i to i24
   %.sroa.5.0.insert.ext = shl i24 %196, 16
-  %197 = trunc i32 %.4.i to i24
+  %197 = trunc i32 %.1.i to i24
   %.sroa.3.0.insert.ext = shl i24 %197, 8
   %.sroa.3.0.insert.shift = and i24 %.sroa.3.0.insert.ext, 65280
   %.sroa.3.0.insert.insert = or disjoint i24 %.sroa.3.0.insert.shift, %.sroa.5.0.insert.ext

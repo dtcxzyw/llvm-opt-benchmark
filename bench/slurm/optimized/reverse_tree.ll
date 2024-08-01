@@ -39,15 +39,15 @@ define void @reverse_tree_info(i32 noundef %0, i32 noundef %1, i32 noundef %2, p
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
   %.013.i.i = phi i32 [ %17, %.lr.ph.i.i ], [ 1, %.lr.ph.i ]
-  %.01012.i.i = phi i32 [ %16, %.lr.ph.i.i ], [ %2, %.lr.ph.i ]
-  %16 = mul nsw i32 %.01012.i.i, %2
+  %.112.i.i = phi i32 [ %16, %.lr.ph.i.i ], [ %2, %.lr.ph.i ]
+  %16 = mul nsw i32 %.112.i.i, %2
   %17 = add nuw nsw i32 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %17, %.078.i
   br i1 %exitcond.not.i.i, label %int_pow.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 int_pow.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %.1.i.i = phi i32 [ %2, %.lr.ph.i ], [ %16, %.lr.ph.i.i ]
-  %18 = add nsw i32 %.1.i.i, %.09.i
+  %.010.i.i = phi i32 [ %2, %.lr.ph.i ], [ %16, %.lr.ph.i.i ]
+  %18 = add nsw i32 %.010.i.i, %.09.i
   %19 = add nuw nsw i32 %.078.i, 1
   %20 = icmp slt i32 %18, %13
   br i1 %20, label %.lr.ph.i, label %dep.exit, !llvm.loop !8
@@ -74,15 +74,15 @@ dep.exit:                                         ; preds = %int_pow.exit.i, %12
 
 .lr.ph.i.i37:                                     ; preds = %25, %.lr.ph.i.i37
   %.013.i.i38 = phi i32 [ %27, %.lr.ph.i.i37 ], [ 1, %25 ]
-  %.01012.i.i39 = phi i32 [ %26, %.lr.ph.i.i37 ], [ %2, %25 ]
-  %26 = mul nsw i32 %.01012.i.i39, %2
+  %.112.i.i39 = phi i32 [ %26, %.lr.ph.i.i37 ], [ %2, %25 ]
+  %26 = mul nsw i32 %.112.i.i39, %2
   %27 = add nuw nsw i32 %.013.i.i38, 1
   %exitcond.not.i.i40 = icmp eq i32 %.013.i.i38, %.07.lcssa.i
   br i1 %exitcond.not.i.i40, label %geometric_series.exit, label %.lr.ph.i.i37, !llvm.loop !6
 
 geometric_series.exit:                            ; preds = %.lr.ph.i.i37, %25
-  %.1.i.i36 = phi i32 [ %2, %25 ], [ %26, %.lr.ph.i.i37 ]
-  %28 = sub nsw i32 1, %.1.i.i36
+  %.010.i.i36 = phi i32 [ %2, %25 ], [ %26, %.lr.ph.i.i37 ]
+  %28 = sub nsw i32 1, %.010.i.i36
   %29 = sub nsw i32 1, %2
   %30 = sdiv i32 %28, %29
   %31 = sdiv i32 %30, %2
@@ -174,15 +174,15 @@ define i32 @reverse_tree_direct_children(i32 noundef %0, i32 noundef %1, i32 nou
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
   %.013.i.i = phi i32 [ %12, %.lr.ph.i.i ], [ 1, %.lr.ph.i ]
-  %.01012.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ %2, %.lr.ph.i ]
-  %11 = mul nsw i32 %.01012.i.i, %2
+  %.112.i.i = phi i32 [ %11, %.lr.ph.i.i ], [ %2, %.lr.ph.i ]
+  %11 = mul nsw i32 %.112.i.i, %2
   %12 = add nuw nsw i32 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %12, %.078.i
   br i1 %exitcond.not.i.i, label %int_pow.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 int_pow.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %.1.i.i = phi i32 [ %2, %.lr.ph.i ], [ %11, %.lr.ph.i.i ]
-  %13 = add nsw i32 %.1.i.i, %.09.i
+  %.010.i.i = phi i32 [ %2, %.lr.ph.i ], [ %11, %.lr.ph.i.i ]
+  %13 = add nsw i32 %.010.i.i, %.09.i
   %14 = add nuw nsw i32 %.078.i, 1
   %15 = icmp slt i32 %13, %8
   br i1 %15, label %.lr.ph.i, label %dep.exit, !llvm.loop !8
@@ -216,15 +216,15 @@ dep.exit:                                         ; preds = %int_pow.exit.i, %7
 
 .lr.ph.i.i30:                                     ; preds = %.preheader.i.i, %.lr.ph.i.i30
   %.013.i.i31 = phi i32 [ %26, %.lr.ph.i.i30 ], [ 1, %.preheader.i.i ]
-  %.01012.i.i32 = phi i32 [ %25, %.lr.ph.i.i30 ], [ %2, %.preheader.i.i ]
-  %25 = mul nsw i32 %.01012.i.i32, %2
+  %.112.i.i32 = phi i32 [ %25, %.lr.ph.i.i30 ], [ %2, %.preheader.i.i ]
+  %25 = mul nsw i32 %.112.i.i32, %2
   %26 = add nuw nsw i32 %.013.i.i31, 1
   %exitcond.not.i.i33 = icmp eq i32 %.013.i.i31, %18
   br i1 %exitcond.not.i.i33, label %int_pow.exit.i28, label %.lr.ph.i.i30, !llvm.loop !6
 
 int_pow.exit.i28:                                 ; preds = %.lr.ph.i.i30, %24, %.preheader.i.i, %22
-  %.1.i.i29 = phi i32 [ %2, %24 ], [ 1, %22 ], [ %2, %.preheader.i.i ], [ %25, %.lr.ph.i.i30 ]
-  %27 = sub nsw i32 1, %.1.i.i29
+  %.010.i.i29 = phi i32 [ %2, %24 ], [ 1, %22 ], [ %2, %.preheader.i.i ], [ %25, %.lr.ph.i.i30 ]
+  %27 = sub nsw i32 1, %.010.i.i29
   %28 = sub nsw i32 1, %2
   %29 = sdiv i32 %27, %28
   br label %geometric_series.exit

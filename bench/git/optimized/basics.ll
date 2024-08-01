@@ -148,10 +148,10 @@ entry:
   br i1 %cmp20, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end10
-  %names.024 = phi ptr [ %names.2, %if.end10 ], [ null, %entry ]
+  %names.024 = phi ptr [ %names.1, %if.end10 ], [ null, %entry ]
   %p.023 = phi ptr [ %add.ptr11, %if.end10 ], [ %buf, %entry ]
   %names_len.022 = phi i64 [ %names_len.1, %if.end10 ], [ 0, %entry ]
-  %names_cap.021 = phi i64 [ %names_cap.2, %if.end10 ], [ 0, %entry ]
+  %names_cap.021 = phi i64 [ %names_cap.1, %if.end10 ], [ 0, %entry ]
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.023, i32 noundef 10) #9
   %tobool.not = icmp ne ptr %call, null
   %cmp1 = icmp ult ptr %call, %add.ptr
@@ -179,25 +179,25 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.then3
-  %names_cap.1 = phi i64 [ %add, %if.then5 ], [ %names_cap.021, %if.then3 ]
-  %names.1 = phi ptr [ %call7, %if.then5 ], [ %names.024, %if.then3 ]
+  %names_cap.2 = phi i64 [ %add, %if.then5 ], [ %names_cap.021, %if.then3 ]
+  %names.2 = phi ptr [ %call7, %if.then5 ], [ %names.024, %if.then3 ]
   %call9 = tail call ptr @xstrdup(ptr noundef %p.023) #8
   %inc = add i64 %names_len.022, 1
-  %arrayidx = getelementptr inbounds ptr, ptr %names.1, i64 %names_len.022
+  %arrayidx = getelementptr inbounds ptr, ptr %names.2, i64 %names_len.022
   store ptr %call9, ptr %arrayidx, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end8, %if.end
-  %names_cap.2 = phi i64 [ %names_cap.1, %if.end8 ], [ %names_cap.021, %if.end ]
+  %names_cap.1 = phi i64 [ %names_cap.2, %if.end8 ], [ %names_cap.021, %if.end ]
   %names_len.1 = phi i64 [ %inc, %if.end8 ], [ %names_len.022, %if.end ]
-  %names.2 = phi ptr [ %names.1, %if.end8 ], [ %names.024, %if.end ]
+  %names.1 = phi ptr [ %names.2, %if.end8 ], [ %names.024, %if.end ]
   %add.ptr11 = getelementptr inbounds i8, ptr %next.0, i64 1
   %cmp = icmp ult ptr %add.ptr11, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end10, %entry
   %names_len.0.lcssa = phi i64 [ 0, %entry ], [ %names_len.1, %if.end10 ]
-  %names.0.lcssa = phi ptr [ null, %entry ], [ %names.2, %if.end10 ]
+  %names.0.lcssa = phi ptr [ null, %entry ], [ %names.1, %if.end10 ]
   %add12 = shl i64 %names_len.0.lcssa, 3
   %mul13 = add i64 %add12, 8
   %call14 = tail call ptr @reftable_realloc(ptr noundef %names.0.lcssa, i64 noundef %mul13) #8

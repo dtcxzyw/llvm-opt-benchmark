@@ -578,9 +578,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1548,7 +1548,7 @@ if.then420:                                       ; preds = %invoke.cont415
   br label %cleanup
 
 cleanup.thread:                                   ; preds = %if.then200, %if.then209, %if.then231, %invoke.cont245, %invoke.cont259, %if.then267, %if.then278, %invoke.cont188
-  %retval.0.ph = phi i32 [ %89, %invoke.cont188 ], [ 3, %if.then278 ], [ 3, %if.then267 ], [ %106, %invoke.cont259 ], [ %101, %invoke.cont245 ], [ 1, %if.then231 ], [ 1, %if.then209 ], [ 1, %if.then200 ]
+  %retval.2.ph = phi i32 [ %89, %invoke.cont188 ], [ 3, %if.then278 ], [ 3, %if.then267 ], [ %106, %invoke.cont259 ], [ %101, %invoke.cont245 ], [ 1, %if.then231 ], [ 1, %if.then209 ], [ 1, %if.then200 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %poolFileName) #18
   br label %cleanup530
 
@@ -1822,7 +1822,7 @@ invoke.cont524:                                   ; preds = %if.end523
   br label %cleanup530
 
 cleanup530:                                       ; preds = %cleanup.thread, %invoke.cont524, %if.then157, %invoke.cont148
-  %retval.1 = phi i32 [ %75, %invoke.cont148 ], [ 7, %if.then157 ], [ %spec.select136, %invoke.cont524 ], [ %retval.0.ph, %cleanup.thread ]
+  %retval.1 = phi i32 [ %75, %invoke.cont148 ], [ 7, %if.then157 ], [ %spec.select136, %invoke.cont524 ], [ %retval.2.ph, %cleanup.thread ]
   %176 = load ptr, ptr %newPoolBundle, align 8
   %isnull.i164 = icmp eq ptr %176, null
   br i1 %isnull.i164, label %return, label %delete.notnull.i165
@@ -1838,8 +1838,8 @@ ehcleanup531:                                     ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %.pn133
 
 return:                                           ; preds = %delete.notnull.i165, %cleanup530, %if.then59, %if.then71
-  %retval.2 = phi i32 [ %cond, %if.then71 ], [ 0, %if.then59 ], [ %retval.1, %cleanup530 ], [ %retval.1, %delete.notnull.i165 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %cond, %if.then71 ], [ 0, %if.then59 ], [ %retval.1, %cleanup530 ], [ %retval.1, %delete.notnull.i165 ]
+  ret i32 %retval.0
 }
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -2339,12 +2339,12 @@ invoke.cont180:                                   ; preds = %invoke.cont173
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont161, %invoke.cont180
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont180 ], [ 1, %invoke.cont161 ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %invoke.cont180 ], [ 1, %invoke.cont161 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %currentLine) #18
   br label %cleanup185
 
 cleanup185:                                       ; preds = %invoke.cont141, %cleanup
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont141 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont141 ], [ %cleanup.dest.slot.2, %cleanup ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %f) #18
   call void @_ZN25SimpleRuleBasedPathFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %filter) #18
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %filterFileName) #18

@@ -188,7 +188,7 @@ sccp_context_init.exit:                           ; preds = %50, %.preheader.i
 72:                                               ; preds = %.lr.ph, %114
   %73 = phi i32 [ %68, %.lr.ph ], [ %115, %114 ]
   %indvars.iv = phi i64 [ %71, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %.04566 = phi i32 [ 1, %.lr.ph ], [ %.2, %114 ]
+  %.04566 = phi i32 [ 1, %.lr.ph ], [ %.1, %114 ]
   %74 = load ptr, ptr %34, align 8
   %75 = getelementptr inbounds %struct._zval_struct, ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds i8, ptr %75, i64 8
@@ -269,7 +269,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
 
 114:                                              ; preds = %72, %scp_dump_value.exit
   %115 = phi i32 [ %.pre, %scp_dump_value.exit ], [ %73, %72 ]
-  %.2 = phi i32 [ 0, %scp_dump_value.exit ], [ %.04566, %72 ]
+  %.1 = phi i32 [ 0, %scp_dump_value.exit ], [ %.04566, %72 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
@@ -301,7 +301,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
 
 134:                                              ; preds = %288, %.lr.ph126.i
   %indvars.iv.i50 = phi i64 [ %133, %.lr.ph126.i ], [ %indvars.iv.next.i51, %288 ]
-  %.098123.i = phi i32 [ 0, %.lr.ph126.i ], [ %.4.i, %288 ]
+  %.098123.i = phi i32 [ 0, %.lr.ph126.i ], [ %.1.i, %288 ]
   %indvars.iv.next.i51 = add nsw i64 %indvars.iv.i50, -1
   %135 = load ptr, ptr %126, align 8
   %136 = getelementptr inbounds %struct._zend_ssa_var, ptr %135, i64 %indvars.iv.next.i51
@@ -383,7 +383,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
   br label %179
 
 179:                                              ; preds = %281, %.lr.ph.i53
-  %.1120.i = phi i32 [ %.098123.i, %.lr.ph.i53 ], [ %.3.i, %281 ]
+  %.2120.i = phi i32 [ %.098123.i, %.lr.ph.i53 ], [ %.3.i, %281 ]
   %.099118.i = phi i32 [ %176, %.lr.ph.i53 ], [ %.0.i62, %281 ]
   %180 = load ptr, ptr %127, align 8
   %181 = zext nneg i32 %.099118.i to i64
@@ -543,7 +543,7 @@ try_replace_op1.exit.thread.i:                    ; preds = %185, %229, %224, %2
   %233 = load i8, ptr %196, align 4
   %234 = icmp eq i8 %233, 0
   %235 = zext i1 %234 to i32
-  %spec.select.i = add nsw i32 %.1120.i, %235
+  %spec.select.i = add nsw i32 %.2120.i, %235
   %236 = getelementptr inbounds i8, ptr %182, i64 12
   %237 = load i32, ptr %236, align 4
   %238 = icmp eq i32 %237, -1
@@ -572,7 +572,7 @@ try_replace_op1.exit.thread.i:                    ; preds = %185, %229, %224, %2
 247:                                              ; preds = %246, %try_replace_op1.exit.thread.i
   %248 = phi ptr [ %195, %246 ], [ %231, %try_replace_op1.exit.thread.i ]
   %.0.i62 = phi i32 [ %.0.i61, %246 ], [ %.0.i63, %try_replace_op1.exit.thread.i ]
-  %.3.i = phi i32 [ %spec.select.i, %246 ], [ %.1120.i, %try_replace_op1.exit.thread.i ]
+  %.3.i = phi i32 [ %spec.select.i, %246 ], [ %.2120.i, %try_replace_op1.exit.thread.i ]
   %249 = getelementptr i8, ptr %182, i64 4
   %.val110.i = load i32, ptr %249, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -664,7 +664,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %2
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %._crit_edge75
   %283 = phi ptr [ %137, %._crit_edge75 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.1.lcssa.i = phi i32 [ %.098123.i, %._crit_edge75 ], [ %.3.i, %._crit_edge.loopexit.i ]
+  %.2.lcssa.i = phi i32 [ %.098123.i, %._crit_edge75 ], [ %.3.i, %._crit_edge.loopexit.i ]
   %284 = getelementptr %struct._zval_struct, ptr %283, i64 %indvars.iv.next.i51, i32 1
   %.val109.i = load i8, ptr %284, align 8
   %spec.select.i115.i = icmp ult i8 %.val109.i, -2
@@ -672,11 +672,11 @@ try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %2
 
 285:                                              ; preds = %._crit_edge.i
   %286 = call fastcc i32 @try_remove_definition(ptr noundef nonnull readonly %8, i32 noundef %.pre76, ptr noundef %136, ptr noundef %.0100.i)
-  %287 = add nsw i32 %286, %.1.lcssa.i
+  %287 = add nsw i32 %286, %.2.lcssa.i
   br label %288
 
 288:                                              ; preds = %285, %._crit_edge.i, %173, %168, %164
-  %.4.i = phi i32 [ %171, %168 ], [ %.098123.i, %164 ], [ %287, %285 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.098123.i, %173 ]
+  %.1.i = phi i32 [ %171, %168 ], [ %.098123.i, %164 ], [ %287, %285 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %.098123.i, %173 ]
   %289 = load i32, ptr %124, align 8
   %290 = sext i32 %289 to i64
   %.not.not.i = icmp sgt i64 %indvars.iv.next.i51, %290
@@ -694,7 +694,7 @@ replace_constant_operands.exit.loopexit:          ; preds = %288
 replace_constant_operands.exit:                   ; preds = %replace_constant_operands.exit.loopexit, %.loopexit
   %291 = phi i32 [ %123, %.loopexit ], [ %.pre74, %replace_constant_operands.exit.loopexit ]
   %292 = phi i32 [ %125, %.loopexit ], [ %.pre71, %replace_constant_operands.exit.loopexit ]
-  %.098.lcssa.i = phi i32 [ 0, %.loopexit ], [ %.4.i, %replace_constant_operands.exit.loopexit ]
+  %.098.lcssa.i = phi i32 [ 0, %.loopexit ], [ %.1.i, %replace_constant_operands.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %293 = icmp slt i32 %292, %291
   br i1 %293, label %.lr.ph.i56, label %sccp_context_free.exit
@@ -5830,9 +5830,9 @@ get_op1_value.exit:                               ; preds = %19, %27
   br i1 %201, label %.lr.ph, label %.loopexit
 
 202:                                              ; preds = %192, %108, %98, %95, %91, %71
-  %.2 = phi i32 [ %195, %192 ], [ %113, %108 ], [ %100, %98 ], [ %97, %95 ], [ %94, %91 ], [ %74, %71 ]
+  %.1 = phi i32 [ %195, %192 ], [ %113, %108 ], [ %100, %98 ], [ %97, %95 ], [ %94, %91 ], [ %74, %71 ]
   %203 = load ptr, ptr %2, align 8
-  %204 = sext i32 %.2 to i64
+  %204 = sext i32 %.1 to i64
   %205 = getelementptr inbounds i32, ptr %203, i64 %204
   %206 = load i32, ptr %205, align 4
   call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %206) #13

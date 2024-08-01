@@ -60,9 +60,9 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %37 = icmp ult i64 %36, 32
   %38 = add i64 %30, %spec.store.select
   %39 = sub i64 %38, %24
-  %.082 = select i1 %37, i64 %38, i64 %30
+  %.183 = select i1 %37, i64 %38, i64 %30
   %.078 = select i1 %37, i64 %39, i64 %36
-  %.079.in = add i64 %.082, -16
+  %.079.in = add i64 %.183, -16
   %.079 = inttoptr i64 %.079.in to ptr
   %40 = and i64 %33, 2
   %.not96 = icmp eq i64 %40, 0
@@ -95,9 +95,9 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   br label %58
 
 58:                                               ; preds = %53, %31
-  %.080 = phi ptr [ %44, %53 ], [ %27, %31 ]
+  %.181 = phi ptr [ %44, %53 ], [ %27, %31 ]
   %.1 = phi i64 [ %57, %53 ], [ %.078, %31 ]
-  %59 = getelementptr inbounds i8, ptr %.080, i64 8
+  %59 = getelementptr inbounds i8, ptr %.181, i64 8
   store i64 %.1, ptr %59, align 8
   %60 = ptrtoint ptr %35 to i64
   %61 = sub i64 %60, %.079.in
@@ -110,25 +110,25 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %66 = and i64 %65, -3
   store i64 %66, ptr %64, align 8
   %67 = add i64 %61, -8
-  tail call void @mm_addfreechunk(ptr noundef %0, ptr noundef nonnull %.080) #5
-  %68 = inttoptr i64 %.082 to ptr
+  tail call void @mm_addfreechunk(ptr noundef %0, ptr noundef nonnull %.181) #5
+  %68 = inttoptr i64 %.183 to ptr
   br label %69
 
 69:                                               ; preds = %58, %23
   %.084 = phi i64 [ %67, %58 ], [ %17, %23 ]
-  %.183 = phi ptr [ %68, %58 ], [ %21, %23 ]
-  %.181 = phi ptr [ %.079, %58 ], [ %27, %23 ]
+  %.082 = phi ptr [ %68, %58 ], [ %21, %23 ]
+  %.080 = phi ptr [ %.079, %58 ], [ %27, %23 ]
   %70 = add i64 %spec.store.select1, 23
   %71 = and i64 %70, -16
   %72 = icmp ugt i64 %.084, %71
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %69
-  tail call void @mm_shrinkchunk(ptr noundef %0, ptr noundef %.181, i64 noundef %71) #5
+  tail call void @mm_shrinkchunk(ptr noundef %0, ptr noundef %.080, i64 noundef %71) #5
   br label %74
 
 74:                                               ; preds = %73, %69
-  %75 = getelementptr inbounds i8, ptr %.181, i64 8
+  %75 = getelementptr inbounds i8, ptr %.080, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, -4
   %78 = getelementptr inbounds i8, ptr %0, i64 56
@@ -149,7 +149,7 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   br label %86
 
 86:                                               ; preds = %20, %12, %5, %3, %85, %10
-  %.0 = phi ptr [ %11, %10 ], [ %.183, %85 ], [ null, %3 ], [ null, %5 ], [ null, %12 ], [ null, %20 ]
+  %.0 = phi ptr [ %11, %10 ], [ %.082, %85 ], [ null, %3 ], [ null, %5 ], [ null, %12 ], [ null, %20 ]
   ret ptr %.0
 }
 

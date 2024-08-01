@@ -251,17 +251,17 @@ if.then49:                                        ; preds = %if.then44
   br label %free_virtio
 
 free_virtio:                                      ; preds = %if.then44, %if.then49, %if.then23
-  %vhostfd.1 = phi i32 [ -1, %if.then44 ], [ -1, %if.then49 ], [ %vhostfd.0, %if.then23 ]
+  %vhostfd.2 = phi i32 [ -1, %if.then44 ], [ -1, %if.then49 ], [ %vhostfd.0, %if.then23 ]
   call void @virtio_scsi_common_unrealize(ptr noundef %dev) #11
   br label %close_fd
 
 close_fd:                                         ; preds = %free_virtio, %if.then20
-  %vhostfd.2 = phi i32 [ %vhostfd.0, %if.then20 ], [ %vhostfd.1, %free_virtio ]
-  %cmp52 = icmp sgt i32 %vhostfd.2, -1
+  %vhostfd.1 = phi i32 [ %vhostfd.0, %if.then20 ], [ %vhostfd.2, %free_virtio ]
+  %cmp52 = icmp sgt i32 %vhostfd.1, -1
   br i1 %cmp52, label %if.then54, label %return
 
 if.then54:                                        ; preds = %close_fd
-  %call55 = call i32 @close(i32 noundef %vhostfd.2) #11
+  %call55 = call i32 @close(i32 noundef %vhostfd.1) #11
   br label %return
 
 return:                                           ; preds = %close_fd, %if.then54, %if.end45, %if.then14, %if.then10, %if.then

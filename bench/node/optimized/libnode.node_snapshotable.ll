@@ -7108,13 +7108,13 @@ if.end37:                                         ; preds = %_ZNRSt8optionalISt1
 
 cleanup:                                          ; preds = %if.end37, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit
   %cond2 = phi i1 [ false, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit ], [ %cmp42.not, %if.end37 ]
-  %retval.0 = phi i32 [ 1, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit ], [ %cond.i, %if.end37 ]
+  %retval.2 = phi i32 [ 1, %_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit ], [ %cond.i, %if.end37 ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call17) #23
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end, %cleanup
   %cond1 = phi i1 [ true, %if.end ], [ %cond2, %cleanup ]
-  %retval.2 = phi i32 [ undef, %if.end ], [ %retval.0, %cleanup ]
+  %retval.3 = phi i32 [ undef, %if.end ], [ %retval.2, %cleanup ]
   %call.i.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #23
   br i1 %call.i.i, label %if.then.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigEE3$_0ED2Ev.exit"
 
@@ -7134,7 +7134,7 @@ cleanup.cont50:                                   ; preds = %"_ZN4node16OnScopeL
   br label %cleanup53
 
 cleanup53:                                        ; preds = %for.body, %if.then, %"_ZN4node16OnScopeLeaveImplIZNS_29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigEE3$_0ED2Ev.exit", %cleanup.cont50
-  %retval.3 = phi i32 [ %call52, %cleanup.cont50 ], [ %retval.2, %"_ZN4node16OnScopeLeaveImplIZNS_29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigEE3$_0ED2Ev.exit" ], [ 10, %if.then ], [ 10, %for.body ]
+  %retval.0 = phi i32 [ %call52, %cleanup.cont50 ], [ %retval.3, %"_ZN4node16OnScopeLeaveImplIZNS_29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigEE3$_0ED2Ev.exit" ], [ 10, %if.then ], [ 10, %for.body ]
   %11 = load ptr, ptr %setup, align 8
   %cmp.not.i19 = icmp eq ptr %11, null
   br i1 %cmp.not.i19, label %_ZNSt10unique_ptrIN4node22CommonEnvironmentSetupESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node22CommonEnvironmentSetupEEclEPS1_.exit.i
@@ -7173,7 +7173,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPNSt7
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %if.then.i.i.i
-  ret i32 %retval.3
+  ret i32 %retval.0
 }
 
 declare void @_ZN4node22CommonEnvironmentSetup21CreateForSnapshottingEPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKSB_SE_RKNS_14SnapshotConfigE(ptr sret(%"class.std::unique_ptr.93") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
@@ -8081,7 +8081,7 @@ _ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic
 
 if.end12:                                         ; preds = %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit, %entry
   %5 = phi ptr [ %.pre, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ %out_path, %entry ]
-  %builder_script_optional.sroa.3.1 = phi i8 [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %entry ]
+  %builder_script_optional.sroa.3.0 = phi i8 [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %entry ]
   %builder_script_optional.sroa.2.0 = phi ptr [ %.sink.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ undef, %entry ]
   %builder_script_optional.sroa.0.0 = phi i64 [ %.sink2.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ undef, %entry ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %out, ptr noundef %5, i32 noundef 20) #23
@@ -8122,7 +8122,7 @@ if.end16:                                         ; preds = %if.end12
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp12.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
   store ptr %builder_script_optional.sroa.2.0, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp12.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp12.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
-  store i8 %builder_script_optional.sroa.3.1, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp12.sroa_idx, align 8
+  store i8 %builder_script_optional.sroa.3.0, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp12.sroa_idx, align 8
   %call.i = call noundef i32 @_ZN4node29BuildSnapshotWithoutCodeCacheEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_St8optionalISt17basic_string_viewIcS6_EERKNS_14SnapshotConfigE(ptr noundef nonnull %data, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(24) %exec_args, ptr noundef nonnull byval(%"class.std::optional.85") align 8 %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(48) %config)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i13, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread16
@@ -8163,19 +8163,19 @@ if.then26:                                        ; preds = %if.end20
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread16, %if.end20, %if.then26, %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit
-  %retval.0 = phi i32 [ 1, %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit ], [ 1, %if.then26 ], [ 0, %if.end20 ], [ %call.i, %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread16 ]
+  %retval.2 = phi i32 [ 1, %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit ], [ 1, %if.then26 ], [ 0, %if.end20 ], [ %call.i, %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread16 ]
   call void @_ZN4node12SnapshotDataD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %data) #23
   br label %cleanup31
 
 cleanup31:                                        ; preds = %cleanup, %if.then15
-  %retval.1 = phi i32 [ 1, %if.then15 ], [ %retval.0, %cleanup ]
+  %retval.1 = phi i32 [ 1, %if.then15 ], [ %retval.2, %cleanup ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %out) #23
   br label %cleanup32
 
 cleanup32:                                        ; preds = %cleanup31, %if.then7
-  %retval.2 = phi i32 [ 1, %if.then7 ], [ %retval.1, %cleanup31 ]
+  %retval.0 = phi i32 [ 1, %if.then7 ], [ %retval.1, %cleanup31 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %builder_script_content) #23
-  ret i32 %retval.2
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind

@@ -269,25 +269,25 @@ if.end30.loopexit:                                ; preds = %while.body
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.loopexit, %if.then23
-  %first_char_pos.1 = phi i32 [ 4, %if.then23 ], [ %21, %if.end30.loopexit ]
+  %first_char_pos.0 = phi i32 [ 4, %if.then23 ], [ %21, %if.end30.loopexit ]
   %min_exponent_width_ = getelementptr inbounds i8, ptr %this, i64 44
   %22 = load i32, ptr %min_exponent_width_, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %22, i32 5)
-  %sub3257 = sub nsw i32 5, %first_char_pos.1
+  %sub3257 = sub nsw i32 5, %first_char_pos.0
   %cmp3358 = icmp slt i32 %sub3257, %.sroa.speculated
   br i1 %cmp3358, label %while.body34.preheader, label %while.end38
 
 while.body34.preheader:                           ; preds = %if.end30
-  %23 = add i32 %first_char_pos.1, -1
+  %23 = add i32 %first_char_pos.0, -1
   %24 = sext i32 %23 to i64
-  %25 = add i32 %first_char_pos.1, %.sroa.speculated
+  %25 = add i32 %first_char_pos.0, %.sroa.speculated
   %26 = add i32 %25, -6
   %27 = zext i32 %26 to i64
   %28 = sub nsw i64 %24, %27
   %scevgep = getelementptr i8, ptr %buffer, i64 %28
   %29 = add nuw nsw i64 %27, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %29, i1 false)
-  %30 = sext i32 %first_char_pos.1 to i64
+  %30 = sext i32 %first_char_pos.0 to i64
   %31 = sext i32 %.sroa.speculated to i64
   br label %while.body34
 
@@ -304,7 +304,7 @@ while.end38.loopexit:                             ; preds = %while.body34
   br label %while.end38
 
 while.end38:                                      ; preds = %while.end38.loopexit, %if.end30
-  %first_char_pos.2.lcssa = phi i32 [ %first_char_pos.1, %if.end30 ], [ %34, %while.end38.loopexit ]
+  %first_char_pos.2.lcssa = phi i32 [ %first_char_pos.0, %if.end30 ], [ %34, %while.end38.loopexit ]
   %sub32.lcssa = phi i32 [ %sub3257, %if.end30 ], [ %33, %while.end38.loopexit ]
   %idxprom39 = sext i32 %first_char_pos.2.lcssa to i64
   %arrayidx40 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %idxprom39

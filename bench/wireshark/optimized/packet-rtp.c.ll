@@ -1392,31 +1392,31 @@ define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr 
 
 73:                                               ; preds = %67, %73
   %.0149166 = phi i32 [ 0, %67 ], [ %78, %73 ]
-  %.1151165 = phi i32 [ %.0150, %67 ], [ %77, %73 ]
-  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1151165) #11
+  %.2165 = phi i32 [ %.0150, %67 ], [ %77, %73 ]
+  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2165) #11
   %75 = load i32, ptr @hf_rtp_csrc_item, align 4
-  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %72, i32 noundef %75, ptr noundef %0, i32 noundef %.1151165, i32 noundef 4, i32 noundef %74, ptr noundef nonnull @.str.9, i32 noundef %.0149166, i32 noundef %74) #11
-  %77 = add i32 %.1151165, 4
+  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %72, i32 noundef %75, ptr noundef %0, i32 noundef %.2165, i32 noundef 4, i32 noundef %74, ptr noundef nonnull @.str.9, i32 noundef %.0149166, i32 noundef %74) #11
+  %77 = add i32 %.2165, 4
   %78 = add nuw nsw i32 %.0149166, 1
   %exitcond.not = icmp eq i32 %78, %21
   br i1 %exitcond.not, label %.loopexit164, label %73, !llvm.loop !7
 
 .loopexit164:                                     ; preds = %73, %66
-  %.2 = phi i32 [ %.0150, %66 ], [ %77, %73 ]
+  %.1151 = phi i32 [ %.0150, %66 ], [ %77, %73 ]
   %.not161 = icmp eq i32 %20, 0
   br i1 %.not161, label %.loopexit, label %79
 
 79:                                               ; preds = %.loopexit164
-  %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #11
+  %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1151) #11
   %81 = zext i16 %80 to i32
   %82 = load i32, ptr @hf_rtp_prof_define, align 4
-  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %.0148, i32 noundef %82, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef %81) #11
-  %84 = add i32 %.2, 2
+  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %.0148, i32 noundef %82, ptr noundef %0, i32 noundef %.1151, i32 noundef 2, i32 noundef %81) #11
+  %84 = add i32 %.1151, 2
   %85 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %84) #11
   %86 = zext i16 %85 to i32
   %87 = load i32, ptr @hf_rtp_length, align 4
   %88 = tail call ptr @proto_tree_add_uint(ptr noundef %.0148, i32 noundef %87, ptr noundef %0, i32 noundef %84, i32 noundef 2, i32 noundef %86) #11
-  %89 = add i32 %.2, 4
+  %89 = add i32 %.1151, 4
   %.not162 = icmp eq i16 %85, 0
   br i1 %.not162, label %.loopexit, label %90
 
@@ -1430,17 +1430,17 @@ define noundef i32 @dissect_rtp_shim_header(ptr noundef %0, i32 noundef %1, ptr 
 
 96:                                               ; preds = %90, %96
   %.1168 = phi i32 [ 0, %90 ], [ %100, %96 ]
-  %.3167 = phi i32 [ %89, %90 ], [ %99, %96 ]
+  %.4167 = phi i32 [ %89, %90 ], [ %99, %96 ]
   %97 = load i32, ptr @hf_rtp_hdr_ext, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %97, ptr noundef %0, i32 noundef %.3167, i32 noundef 4, i32 noundef 0) #11
-  %99 = add i32 %.3167, 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %97, ptr noundef %0, i32 noundef %.4167, i32 noundef 4, i32 noundef 0) #11
+  %99 = add i32 %.4167, 4
   %100 = add nuw nsw i32 %.1168, 1
   %exitcond170.not = icmp eq i32 %100, %86
   br i1 %exitcond170.not, label %.loopexit, label %96, !llvm.loop !8
 
 .loopexit:                                        ; preds = %96, %79, %.loopexit164
-  %.4 = phi i32 [ %89, %79 ], [ %.2, %.loopexit164 ], [ %99, %96 ]
-  %101 = sub i32 %.4, %1
+  %.3 = phi i32 [ %89, %79 ], [ %.1151, %.loopexit164 ], [ %99, %96 ]
+  %101 = sub i32 %.3, %1
   tail call void @proto_item_set_len(ptr noundef %.0147, i32 noundef %101) #11
   br label %102
 
@@ -2175,7 +2175,7 @@ calculate_extended_timestamp.exit.i:              ; preds = %267, %265
   br label %rtp_dyn_payload_get_full.exit.thread
 
 rtp_dyn_payload_get_full.exit.thread:             ; preds = %301, %299, %.critedge, %309, %314, %312, %303
-  %.2 = phi ptr [ null, %309 ], [ null, %312 ], [ null, %314 ], [ %304, %303 ], [ null, %.critedge ], [ null, %299 ], [ null, %301 ]
+  %.0563 = phi ptr [ null, %309 ], [ null, %312 ], [ null, %314 ], [ %304, %303 ], [ null, %.critedge ], [ null, %299 ], [ null, %301 ]
   %315 = load ptr, ptr %285, align 8
   %.not504 = icmp eq ptr %315, null
   br i1 %.not504, label %320, label %316
@@ -2205,7 +2205,7 @@ rtp_dyn_payload_get_full.exit.thread:             ; preds = %301, %299, %.crited
   br label %329
 
 .critedge538:                                     ; preds = %320
-  %.not506 = icmp eq ptr %.2, null
+  %.not506 = icmp eq ptr %.0563, null
   br i1 %.not506, label %327, label %329
 
 327:                                              ; preds = %.critedge538
@@ -2213,7 +2213,7 @@ rtp_dyn_payload_get_full.exit.thread:             ; preds = %301, %299, %.crited
   br label %329
 
 329:                                              ; preds = %327, %.critedge538, %325, %323, %318, %316
-  %.0460 = phi ptr [ %319, %318 ], [ @.str.2, %316 ], [ %326, %325 ], [ @.str.2, %323 ], [ %328, %327 ], [ %.2, %.critedge538 ]
+  %.0460 = phi ptr [ %319, %318 ], [ @.str.2, %316 ], [ %326, %325 ], [ @.str.2, %323 ], [ %328, %327 ], [ %.0563, %.critedge538 ]
   %330 = load ptr, ptr %283, align 8
   %331 = select i1 %.not491, ptr @.str.321, ptr @.str.320
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %330, i32 noundef 25, ptr noundef nonnull @.str.319, ptr noundef %.0460, i32 noundef %123, i32 noundef %129, i32 noundef %121, ptr noundef nonnull %331) #11
@@ -3299,14 +3299,14 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %52, %61, %57, %72
-  %.1157.sink = phi ptr [ %73, %72 ], [ null, %52 ], [ %62, %61 ], [ null, %57 ]
-  %.2.ph = phi ptr [ null, %72 ], [ null, %52 ], [ %62, %61 ], [ null, %57 ]
+  %.2.sink = phi ptr [ %73, %72 ], [ null, %52 ], [ %62, %61 ], [ null, %57 ]
+  %.0156.ph = phi ptr [ null, %72 ], [ null, %52 ], [ %62, %61 ], [ null, %57 ]
   %74 = getelementptr inbounds i8, ptr %38, i64 16
-  store ptr %.1157.sink, ptr %74, align 8
+  store ptr %.2.sink, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %.sink.split, %69, %35
-  %.2 = phi ptr [ null, %69 ], [ null, %35 ], [ %.2.ph, %.sink.split ]
+  %.0156 = phi ptr [ null, %69 ], [ null, %35 ], [ %.0156.ph, %.sink.split ]
   %.0..0..0..0.88 = load volatile i32, ptr %5, align 4
   %.not149 = icmp sgt i8 %40, -1
   %76 = select i1 %.not149, i32 1, i32 4
@@ -3317,12 +3317,12 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
   %80 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %0, i32 noundef %.0..0..0..0.89, i32 noundef 1, i32 noundef 0) #11
   %81 = load i32, ptr @hf_rtp_payload_type, align 4
   %.0..0..0..0.90 = load volatile i32, ptr %5, align 4
-  %.not150 = icmp eq ptr %.2, null
+  %.not150 = icmp eq ptr %.0156, null
   %82 = load i32, ptr %38, align 8
   br i1 %.not150, label %86, label %83
 
 83:                                               ; preds = %75
-  %84 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %78, i32 noundef %81, ptr noundef %0, i32 noundef %.0..0..0..0.90, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.333, ptr noundef nonnull %.2, i32 noundef %82) #11
+  %84 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %78, i32 noundef %81, ptr noundef %0, i32 noundef %.0..0..0..0.90, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.333, ptr noundef nonnull %.0156, i32 noundef %82) #11
   %85 = load ptr, ptr %8, align 8
   br label %93
 
@@ -3337,7 +3337,7 @@ define internal i32 @dissect_rtp_rfc2198(ptr noundef %0, ptr noundef %1, ptr nou
 
 93:                                               ; preds = %83, %86
   %94 = phi ptr [ %90, %86 ], [ %85, %83 ]
-  %95 = phi ptr [ %92, %86 ], [ %.2, %83 ]
+  %95 = phi ptr [ %92, %86 ], [ %.0156, %83 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef nonnull @.str.334, ptr noundef %95) #11
   %.0..0..0..0.91 = load volatile i32, ptr %5, align 4
   %96 = add i32 %.0..0..0..0.91, 1

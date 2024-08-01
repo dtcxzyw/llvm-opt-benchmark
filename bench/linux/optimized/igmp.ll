@@ -5923,7 +5923,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
   br label %94
 
 94:                                               ; preds = %230, %.thread18
-  %.0 = phi ptr [ null, %.thread18 ], [ %.3.ph, %230 ]
+  %.1 = phi ptr [ null, %.thread18 ], [ %.2.ph, %230 ]
   %95 = phi ptr [ %84, %.thread18 ], [ %.ph30, %230 ]
   %96 = phi i32 [ 1, %.thread18 ], [ %.ph28, %230 ]
   %97 = phi i32 [ 0, %.thread18 ], [ %.ph27, %230 ]
@@ -6000,13 +6000,13 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
   br i1 %144, label %232, label %145
 
 145:                                              ; preds = %143
-  %146 = icmp eq ptr %.0, null
+  %146 = icmp eq ptr %.1, null
   br i1 %146, label %151, label %147
 
 147:                                              ; preds = %145
   %148 = trunc i32 %98 to i16
   %149 = tail call i16 @llvm.bswap.i16(i16 %148)
-  %150 = getelementptr inbounds i8, ptr %.0, i64 2
+  %150 = getelementptr inbounds i8, ptr %.1, i64 2
   store i16 %149, ptr %150, align 2
   br label %151
 
@@ -6089,7 +6089,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
 
 204:                                              ; preds = %.thread22, %203
   %205 = phi ptr [ %186, %.thread22 ], [ %95, %203 ]
-  %.124 = phi ptr [ %187, %.thread22 ], [ %.0, %203 ]
+  %.424 = phi ptr [ %187, %.thread22 ], [ %.1, %203 ]
   %206 = phi i32 [ %179, %.thread22 ], [ %98, %203 ]
   %207 = tail call ptr @skb_put(ptr noundef nonnull %205, i32 noundef 4) #14
   %208 = getelementptr inbounds i8, ptr %100, i64 24
@@ -6107,7 +6107,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
 
 216:                                              ; preds = %212, %113
   %217 = phi i8 [ %214, %212 ], [ %115, %113 ]
-  %.2 = phi ptr [ %.124, %212 ], [ %.0, %113 ]
+  %.3 = phi ptr [ %.424, %212 ], [ %.1, %113 ]
   %218 = phi i32 [ %210, %212 ], [ %98, %113 ]
   %219 = phi i32 [ %211, %212 ], [ %97, %113 ]
   %220 = phi i32 [ 0, %212 ], [ %96, %113 ]
@@ -6128,7 +6128,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
   br label %230
 
 230:                                              ; preds = %226, %94, %216, %204, %212
-  %.3.ph = phi ptr [ %.124, %204 ], [ %.2, %216 ], [ %.2, %226 ], [ %.124, %212 ], [ %.0, %94 ]
+  %.2.ph = phi ptr [ %.424, %204 ], [ %.3, %216 ], [ %.3, %226 ], [ %.424, %212 ], [ %.1, %94 ]
   %.ph25 = phi ptr [ %100, %204 ], [ %100, %216 ], [ %99, %226 ], [ %100, %212 ], [ %100, %94 ]
   %.ph26 = phi i32 [ %210, %204 ], [ %218, %216 ], [ %218, %226 ], [ %210, %212 ], [ %98, %94 ]
   %.ph27 = phi i32 [ %211, %204 ], [ %219, %216 ], [ %219, %226 ], [ %211, %212 ], [ %97, %94 ]
@@ -6141,7 +6141,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
   %233 = phi ptr [ %.ph30, %230 ], [ %95, %143 ]
   %234 = phi i32 [ %.ph27, %230 ], [ %97, %143 ]
   %235 = phi i32 [ %.ph26, %230 ], [ %98, %143 ]
-  %.333 = phi ptr [ %.3.ph, %230 ], [ %.0, %143 ]
+  %.233 = phi ptr [ %.2.ph, %230 ], [ %.1, %143 ]
   %236 = icmp eq i32 %234, 0
   %237 = trunc i32 %235 to i16
   br i1 %236, label %.thread42, label %add_grhead.exit
@@ -6149,7 +6149,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
 .thread42:                                        ; preds = %82, %24, %232
   %238 = phi ptr [ %233, %232 ], [ %.ph, %82 ], [ %0, %24 ]
   %239 = phi i16 [ %237, %232 ], [ 0, %82 ], [ 0, %24 ]
-  %.444 = phi ptr [ %.333, %232 ], [ null, %82 ], [ null, %24 ]
+  %.044 = phi ptr [ %.233, %232 ], [ null, %82 ], [ null, %24 ]
   %240 = add nsw i32 %2, -5
   %241 = icmp ult i32 %240, 2
   br i1 %241, label %.thread38, label %242
@@ -6222,14 +6222,14 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef %1, i
 
 add_grhead.exit:                                  ; preds = %269, %264, %242, %232
   %288 = phi i16 [ %239, %242 ], [ %237, %232 ], [ %239, %264 ], [ %239, %269 ]
-  %.6 = phi ptr [ %.444, %242 ], [ %.333, %232 ], [ %.444, %264 ], [ %271, %269 ]
+  %.5 = phi ptr [ %.044, %242 ], [ %.233, %232 ], [ %.044, %264 ], [ %271, %269 ]
   %289 = phi ptr [ %238, %242 ], [ %233, %232 ], [ null, %264 ], [ %270, %269 ]
-  %290 = icmp eq ptr %.6, null
+  %290 = icmp eq ptr %.5, null
   br i1 %290, label %294, label %291
 
 291:                                              ; preds = %add_grhead.exit
   %292 = tail call i16 @llvm.bswap.i16(i16 %288)
-  %293 = getelementptr inbounds i8, ptr %.6, i64 2
+  %293 = getelementptr inbounds i8, ptr %.5, i64 2
   store i16 %292, ptr %293, align 2
   br label %294
 

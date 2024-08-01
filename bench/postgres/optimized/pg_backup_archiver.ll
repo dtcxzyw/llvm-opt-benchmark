@@ -4083,7 +4083,7 @@ define internal fastcc range(i32 0, 13) i32 @restore_toc_entry(ptr noundef %0, p
   br label %inhibit_data_for_failed_table.exit
 
 inhibit_data_for_failed_table.exit:               ; preds = %76, %69, %61, %51, %48, %68, %39
-  %.0 = phi i32 [ %.mux, %48 ], [ 0, %39 ], [ 10, %68 ], [ 0, %51 ], [ 0, %61 ], [ 0, %69 ], [ 0, %76 ]
+  %.1 = phi i32 [ %.mux, %48 ], [ 0, %39 ], [ 10, %68 ], [ 0, %51 ], [ 0, %61 ], [ 0, %69 ], [ 0, %76 ]
   %83 = load ptr, ptr %40, align 8
   %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(9) @.str.15) #24
   %85 = icmp eq i32 %84, 0
@@ -4150,7 +4150,7 @@ _reconnectToDB.exit:                              ; preds = %99, %RestoringToDB.
   br label %110
 
 110:                                              ; preds = %86, %_reconnectToDB.exit, %26
-  %.1 = phi i32 [ %.0, %_reconnectToDB.exit ], [ %.0, %86 ], [ 0, %26 ]
+  %.0 = phi i32 [ %.1, %_reconnectToDB.exit ], [ %.1, %86 ], [ 0, %26 ]
   %111 = and i32 %28, 2
   %.not110 = icmp eq i32 %111, 0
   br i1 %.not110, label %_enableTriggersIfNecessary.exit, label %112
@@ -4374,9 +4374,9 @@ _enableTriggersIfNecessary.exit:                  ; preds = %206, %203, %199, %1
   %220 = getelementptr inbounds i8, ptr %0, i64 92
   %221 = load i32, ptr %220, align 4
   %222 = icmp sgt i32 %221, 0
-  %223 = icmp eq i32 %.1, 0
+  %223 = icmp eq i32 %.0, 0
   %or.cond = and i1 %223, %222
-  %spec.store.select = select i1 %or.cond, i32 12, i32 %.1
+  %spec.store.select = select i1 %or.cond, i32 12, i32 %.0
   ret i32 %spec.store.select
 }
 

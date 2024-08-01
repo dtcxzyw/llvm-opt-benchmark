@@ -5928,7 +5928,7 @@ ehcleanup.i:                                      ; preds = %arraydestroy.body63
 
 ehcleanup68.i:                                    ; preds = %ehcleanup.i, %lpad52.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %44, %lpad52.i ]
-  %cleanup.isactive.1.i = phi i1 [ %47, %ehcleanup.i ], [ false, %lpad52.i ]
+  %cleanup.isactive.7.i = phi i1 [ %47, %ehcleanup.i ], [ false, %lpad52.i ]
   %_M_manager.i.i103.i = getelementptr inbounds i8, ptr %ref.tmp51.i, i64 16
   %48 = load ptr, ptr %_M_manager.i.i103.i, align 8
   %tobool.not.i.i104.i = icmp eq ptr %48, null
@@ -5983,21 +5983,21 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
 
 ehcleanup72.i:                                    ; preds = %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit120.i, %lpad39.i, %lpad.i1
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit120.i ], [ %43, %lpad39.i ], [ %8, %lpad.i1 ]
-  %cleanup.isactive.2.i = phi i1 [ %cleanup.isactive.1.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit120.i ], [ false, %lpad39.i ], [ false, %lpad.i1 ]
+  %cleanup.isactive.6.i = phi i1 [ %cleanup.isactive.7.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit120.i ], [ false, %lpad39.i ], [ false, %lpad.i1 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38.i) #23
   br label %ehcleanup73.i
 
 ehcleanup73.i:                                    ; preds = %ehcleanup72.i, %lpad34.i, %lpad.i30.i
-  %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.element36.i, %ehcleanup72.i ], [ %arrayinit.element.i, %lpad.i30.i ], [ %arrayinit.element.i, %lpad34.i ]
+  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.element36.i, %ehcleanup72.i ], [ %arrayinit.element.i, %lpad.i30.i ], [ %arrayinit.element.i, %lpad34.i ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup72.i ], [ %5, %lpad.i30.i ], [ %42, %lpad34.i ]
-  %cleanup.isactive.3.i = phi i1 [ %cleanup.isactive.2.i, %ehcleanup72.i ], [ false, %lpad.i30.i ], [ false, %lpad34.i ]
+  %cleanup.isactive.5.i = phi i1 [ %cleanup.isactive.6.i, %ehcleanup72.i ], [ false, %lpad.i30.i ], [ false, %lpad34.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp21.i) #23
   br label %ehcleanup74.i
 
 ehcleanup74.i:                                    ; preds = %ehcleanup73.i, %lpad32.i
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup73.i ], [ %arrayinit.element.i, %lpad32.i ]
+  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup73.i ], [ %arrayinit.element.i, %lpad32.i ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %ehcleanup73.i ], [ %41, %lpad32.i ]
-  %cleanup.isactive.4.i = phi i1 [ %cleanup.isactive.3.i, %ehcleanup73.i ], [ false, %lpad32.i ]
+  %cleanup.isactive.4.i = phi i1 [ %cleanup.isactive.5.i, %ehcleanup73.i ], [ false, %lpad32.i ]
   %_M_manager.i.i121.i = getelementptr inbounds i8, ptr %ref.tmp31.i, i64 16
   %57 = load ptr, ptr %_M_manager.i.i121.i, align 8
   %tobool.not.i.i122.i = icmp eq ptr %57, null
@@ -6051,23 +6051,23 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
   br label %ehcleanup78.i
 
 ehcleanup78.i:                                    ; preds = %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit138.i, %lpad19.i, %lpad.i18.i
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit138.i ], [ %arrayinit.element.i, %lpad.i18.i ], [ %arrayinit.element.i, %lpad19.i ]
+  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.4.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit138.i ], [ %arrayinit.element.i, %lpad.i18.i ], [ %arrayinit.element.i, %lpad19.i ]
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit138.i ], [ %4, %lpad.i18.i ], [ %40, %lpad19.i ]
-  %cleanup.isactive.5.i = phi i1 [ %cleanup.isactive.4.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit138.i ], [ false, %lpad.i18.i ], [ false, %lpad19.i ]
+  %cleanup.isactive.3.i = phi i1 [ %cleanup.isactive.4.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit138.i ], [ false, %lpad.i18.i ], [ false, %lpad19.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i) #23
   br label %ehcleanup79.i
 
 ehcleanup79.i:                                    ; preds = %ehcleanup78.i, %lpad15.i, %lpad.i13.i
-  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup78.i ], [ %ref.tmp.i, %lpad.i13.i ], [ %ref.tmp.i, %lpad15.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup78.i ], [ %ref.tmp.i, %lpad.i13.i ], [ %ref.tmp.i, %lpad15.i ]
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup78.i ], [ %3, %lpad.i13.i ], [ %39, %lpad15.i ]
-  %cleanup.isactive.6.i = phi i1 [ %cleanup.isactive.5.i, %ehcleanup78.i ], [ false, %lpad.i13.i ], [ false, %lpad15.i ]
+  %cleanup.isactive.2.i = phi i1 [ %cleanup.isactive.3.i, %ehcleanup78.i ], [ false, %lpad.i13.i ], [ false, %lpad15.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp3.i) #23
   br label %ehcleanup80.i
 
 ehcleanup80.i:                                    ; preds = %ehcleanup79.i, %lpad13.i
-  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup79.i ], [ %ref.tmp.i, %lpad13.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup79.i ], [ %ref.tmp.i, %lpad13.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup79.i ], [ %38, %lpad13.i ]
-  %cleanup.isactive.7.i = phi i1 [ %cleanup.isactive.6.i, %ehcleanup79.i ], [ false, %lpad13.i ]
+  %cleanup.isactive.1.i = phi i1 [ %cleanup.isactive.2.i, %ehcleanup79.i ], [ false, %lpad13.i ]
   %_M_manager.i.i139.i = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 16
   %66 = load ptr, ptr %_M_manager.i.i139.i, align 8
   %tobool.not.i.i140.i = icmp eq ptr %66, null
@@ -6124,12 +6124,12 @@ ehcleanup84.thread.i:                             ; preds = %lpad.i, %lpad.i9
 ehcleanup84.i:                                    ; preds = %if.then.i.i153.i, %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit150.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #23
-  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp.i, %arrayinit.endOfInit.4.i
-  %or.cond.i = select i1 %cleanup.isactive.7.i, i1 true, i1 %arraydestroy.isempty.i
+  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp.i, %arrayinit.endOfInit.1.i
+  %or.cond.i = select i1 %cleanup.isactive.1.i, i1 true, i1 %arraydestroy.isempty.i
   br i1 %or.cond.i, label %eh.resume.i, label %arraydestroy.body86.i
 
 arraydestroy.body86.i:                            ; preds = %ehcleanup84.i, %arraydestroy.body86.i
-  %arraydestroy.elementPast87.i = phi ptr [ %arraydestroy.element88.i, %arraydestroy.body86.i ], [ %arrayinit.endOfInit.4.i, %ehcleanup84.i ]
+  %arraydestroy.elementPast87.i = phi ptr [ %arraydestroy.element88.i, %arraydestroy.body86.i ], [ %arrayinit.endOfInit.1.i, %ehcleanup84.i ]
   %arraydestroy.element88.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast87.i, i64 -216
   %second.i157.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast87.i, i64 -184
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %second.i157.i) #23

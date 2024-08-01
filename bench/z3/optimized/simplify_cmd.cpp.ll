@@ -857,8 +857,8 @@ invoke.cont101:                                   ; preds = %invoke.cont98
           to label %if.end105 unwind label %lpad35
 
 ehcleanup:                                        ; preds = %lpad76, %lpad51, %lpad69, %catch.fallthrough
-  %ehselector.slot.0 = phi i32 [ %45, %lpad69 ], [ %48, %lpad76 ], [ %42, %lpad51 ], [ %31, %catch.fallthrough ]
-  %exn.slot.0 = phi ptr [ %44, %lpad69 ], [ %47, %lpad76 ], [ %41, %lpad51 ], [ %30, %catch.fallthrough ]
+  %ehselector.slot.9 = phi i32 [ %45, %lpad69 ], [ %48, %lpad76 ], [ %42, %lpad51 ], [ %31, %catch.fallthrough ]
+  %exn.slot.9 = phi ptr [ %44, %lpad69 ], [ %47, %lpad76 ], [ %41, %lpad51 ], [ %30, %catch.fallthrough ]
   %57 = load i8, ptr %m_running.i.i, align 8
   %tobool.i.i41 = trunc i8 %57 to i1
   br i1 %tobool.i.i41, label %if.then.i.i42, label %ehcleanup83
@@ -879,14 +879,14 @@ ehcleanup83:                                      ; preds = %if.then.i.i42, %ehc
   br label %ehcleanup84
 
 ehcleanup84:                                      ; preds = %ehcleanup83, %lpad43
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.0, %ehcleanup83 ], [ %28, %lpad43 ]
-  %exn.slot.2 = phi ptr [ %exn.slot.0, %ehcleanup83 ], [ %27, %lpad43 ]
+  %ehselector.slot.7 = phi i32 [ %ehselector.slot.9, %ehcleanup83 ], [ %28, %lpad43 ]
+  %exn.slot.7 = phi ptr [ %exn.slot.9, %ehcleanup83 ], [ %27, %lpad43 ]
   call void @_ZN13scoped_ctrl_cD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ctrlc) #13
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %ehcleanup84, %lpad41
-  %ehselector.slot.3 = phi i32 [ %ehselector.slot.2, %ehcleanup84 ], [ %25, %lpad41 ]
-  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup84 ], [ %24, %lpad41 ]
+  %ehselector.slot.6 = phi i32 [ %ehselector.slot.7, %ehcleanup84 ], [ %25, %lpad41 ]
+  %exn.slot.6 = phi ptr [ %exn.slot.7, %ehcleanup84 ], [ %24, %lpad41 ]
   invoke void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 dereferenceable(40) %14)
           to label %ehcleanup245 unwind label %terminate.lpad.i50
 
@@ -1274,35 +1274,35 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   ret void
 
 ehcleanup245:                                     ; preds = %ehcleanup85, %lpad145, %lpad117, %lpad35
-  %ehselector.slot.4 = phi i32 [ %75, %lpad145 ], [ %22, %lpad35 ], [ %69, %lpad117 ], [ %ehselector.slot.3, %ehcleanup85 ]
-  %exn.slot.4 = phi ptr [ %74, %lpad145 ], [ %21, %lpad35 ], [ %68, %lpad117 ], [ %exn.slot.3, %ehcleanup85 ]
+  %ehselector.slot.5 = phi i32 [ %75, %lpad145 ], [ %22, %lpad35 ], [ %69, %lpad117 ], [ %ehselector.slot.6, %ehcleanup85 ]
+  %exn.slot.5 = phi ptr [ %74, %lpad145 ], [ %21, %lpad35 ], [ %68, %lpad117 ], [ %exn.slot.6, %ehcleanup85 ]
   call void @_ZN9cancel_ehI8reslimitED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %eh) #13
   br label %ehcleanup246
 
 ehcleanup246:                                     ; preds = %ehcleanup245, %lpad19
-  %ehselector.slot.5 = phi i32 [ %ehselector.slot.4, %ehcleanup245 ], [ %19, %lpad19 ]
-  %exn.slot.5 = phi ptr [ %exn.slot.4, %ehcleanup245 ], [ %18, %lpad19 ]
+  %ehselector.slot.4 = phi i32 [ %ehselector.slot.5, %ehcleanup245 ], [ %19, %lpad19 ]
+  %exn.slot.4 = phi ptr [ %exn.slot.5, %ehcleanup245 ], [ %18, %lpad19 ]
   call void @_ZN9th_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %solver) #13
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %s) #13
   br label %ehcleanup248
 
 ehcleanup248:                                     ; preds = %ehcleanup246, %lpad6
-  %ehselector.slot.7 = phi i32 [ %ehselector.slot.5, %ehcleanup246 ], [ %11, %lpad6 ]
-  %exn.slot.7 = phi ptr [ %exn.slot.5, %ehcleanup246 ], [ %10, %lpad6 ]
+  %ehselector.slot.2 = phi i32 [ %ehselector.slot.4, %ehcleanup246 ], [ %11, %lpad6 ]
+  %exn.slot.2 = phi ptr [ %exn.slot.4, %ehcleanup246 ], [ %10, %lpad6 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pr) #13
   br label %ehcleanup249
 
 ehcleanup249:                                     ; preds = %ehcleanup248, %lpad2
-  %ehselector.slot.8 = phi i32 [ %ehselector.slot.7, %ehcleanup248 ], [ %8, %lpad2 ]
-  %exn.slot.8 = phi ptr [ %exn.slot.7, %ehcleanup248 ], [ %7, %lpad2 ]
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup248 ], [ %8, %lpad2 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup248 ], [ %7, %lpad2 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup249, %lpad
-  %ehselector.slot.9 = phi i32 [ %3, %lpad ], [ %ehselector.slot.8, %ehcleanup249 ]
-  %exn.slot.9 = phi ptr [ %2, %lpad ], [ %exn.slot.8, %ehcleanup249 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.9, 0
-  %lpad.val252 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.9, 1
+  %ehselector.slot.0 = phi i32 [ %3, %lpad ], [ %ehselector.slot.1, %ehcleanup249 ]
+  %exn.slot.0 = phi ptr [ %2, %lpad ], [ %exn.slot.1, %ehcleanup249 ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val252 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val252
 
 terminate.lpad:                                   ; preds = %lpad76, %lpad51

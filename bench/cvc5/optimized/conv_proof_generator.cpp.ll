@@ -8720,7 +8720,7 @@ invoke.cont597:                                   ; preds = %if.else593
   br i1 %cmp.i2714.not5025, label %if.end629.thread5066, label %for.body603
 
 for.body603:                                      ; preds = %invoke.cont597, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803
-  %childChanged.25027 = phi i1 [ %556, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803 ], [ %childChanged.0.shrunk, %invoke.cont597 ]
+  %childChanged.35027 = phi i1 [ %556, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803 ], [ %childChanged.0.shrunk, %invoke.cont597 ]
   %__begin7.sroa.0.05026 = phi ptr [ %incdec.ptr.i2804, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803 ], [ %spec.select.i.i2704, %invoke.cont597 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %537 = load ptr, ptr %__begin7.sroa.0.05026, align 8, !noalias !55
@@ -8819,7 +8819,7 @@ lor.lhs.false.i.i.i.i2744:                        ; preds = %if.end3.i.i.i.i2741
 
 invoke.cont609:                                   ; preds = %lor.lhs.false.i.i.i.i2744, %if.end3.i.i.i.i2741, %for.cond.i.i.i.i2749, %for.body.i.i2759, %for.cond.i.i2755, %if.end.i.i.i.i2736, %call2.i.i.i.noexc2762
   %retval.sroa.0.1.i.i2748 = phi ptr [ null, %call2.i.i.i.noexc2762 ], [ %545, %if.end.i.i.i.i2736 ], [ null, %for.cond.i.i2755 ], [ %retval.sroa.0.0.i.i2757, %for.body.i.i2759 ], [ %552, %for.cond.i.i.i.i2749 ], [ null, %if.end3.i.i.i.i2741 ], [ null, %lor.lhs.false.i.i.i.i2744 ]
-  br i1 %childChanged.25027, label %lor.end619, label %lor.rhs614
+  br i1 %childChanged.35027, label %lor.end619, label %lor.rhs614
 
 lor.rhs614:                                       ; preds = %invoke.cont609
   %second616 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i2748, i64 16
@@ -8913,8 +8913,8 @@ lpad608:                                          ; preds = %if.else.i2788, %if.
   br label %ehcleanup971
 
 if.end629:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2695, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803
-  %childChanged.3.in = phi i1 [ %556, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803 ], [ %518, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2695 ]
-  br i1 %childChanged.3.in, label %if.then631, label %if.else795
+  %childChanged.2.in = phi i1 [ %556, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2803 ], [ %518, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2695 ]
+  br i1 %childChanged.2.in, label %if.then631, label %if.else795
 
 if.end629.thread5066:                             ; preds = %invoke.cont597
   br i1 %childChanged.0.shrunk, label %if.then631, label %if.end809
@@ -10906,7 +10906,7 @@ ehcleanup807:                                     ; preds = %lpad803, %lpad801
   br label %ehcleanup971
 
 if.end809:                                        ; preds = %if.end629.thread5066, %if.then13.i.i3669, %if.then.i.i3662, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3659, %if.then.i.i.i3599, %invoke.cont.i3597, %if.else795
-  %childChanged.3.in5061 = phi i1 [ false, %if.then13.i.i3669 ], [ false, %if.then.i.i3662 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3659 ], [ true, %if.then.i.i.i3599 ], [ true, %invoke.cont.i3597 ], [ false, %if.else795 ], [ false, %if.end629.thread5066 ]
+  %childChanged.2.in5061 = phi i1 [ false, %if.then13.i.i3669 ], [ false, %if.then.i.i3662 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3659 ], [ true, %if.then.i.i.i3599 ], [ true, %invoke.cont.i3597 ], [ false, %if.else795 ], [ false, %if.end629.thread5066 ]
   %777 = load ptr, ptr %retHash, align 8
   store ptr %777, ptr %agg.tmp810, align 8
   %bf.load.i.i3672 = load i64, ptr %777, align 8
@@ -11578,7 +11578,7 @@ lpad.i.i4101:                                     ; preds = %init.i.i4099
 invoke.cont893:                                   ; preds = %invoke.cont.i.i4102, %init.check.i.i4097, %if.else892
   %840 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %cmp.i4096 = icmp ne ptr %836, %840
-  %brmerge.not = and i1 %childChanged.3.in5061, %cmp.i4096
+  %brmerge.not = and i1 %childChanged.2.in5061, %cmp.i4096
   br i1 %brmerge.not, label %if.then897, label %if.end923
 
 if.then897:                                       ; preds = %invoke.cont893

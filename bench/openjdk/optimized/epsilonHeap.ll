@@ -706,21 +706,21 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   br label %24
 
 24:                                               ; preds = %14, %18, %23, %9
-  %.033 = phi i64 [ 0, %23 ], [ %11, %18 ], [ %11, %14 ], [ %11, %9 ]
-  %.032 = phi i64 [ %17, %23 ], [ %17, %18 ], [ %17, %14 ], [ 0, %9 ]
-  %.not42 = icmp ult i64 %.033, %2
+  %.134 = phi i64 [ 0, %23 ], [ %11, %18 ], [ %11, %14 ], [ %11, %9 ]
+  %.1 = phi i64 [ %17, %23 ], [ %17, %18 ], [ %17, %14 ], [ 0, %9 ]
+  %.not42 = icmp ult i64 %.134, %2
   br i1 %.not42, label %25, label %30
 
 25:                                               ; preds = %24
-  %26 = uitofp i64 %.033 to double
+  %26 = uitofp i64 %.134 to double
   %27 = load double, ptr @EpsilonTLABElasticity, align 8
   %28 = fmul double %27, %26
   %29 = fptoui double %28 to i64
   br label %30
 
 30:                                               ; preds = %24, %25, %4
-  %.134 = phi i64 [ %.033, %24 ], [ %.033, %25 ], [ %2, %4 ]
-  %.1 = phi i64 [ %.032, %24 ], [ %.032, %25 ], [ 0, %4 ]
+  %.033 = phi i64 [ %.134, %24 ], [ %.134, %25 ], [ %2, %4 ]
+  %.032 = phi i64 [ %.1, %24 ], [ %.1, %25 ], [ 0, %4 ]
   %.031 = phi i64 [ %2, %24 ], [ %29, %25 ], [ %2, %4 ]
   %.0.shrunk.not = phi i1 [ false, %24 ], [ true, %25 ], [ false, %4 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 432
@@ -766,7 +766,7 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   %65 = load i64, ptr %31, align 8
   %66 = lshr i64 %65, 7
   %67 = and i64 %66, 18014398509481983
-  %68 = lshr i64 %.134, 7
+  %68 = lshr i64 %.033, 7
   %69 = and i64 %68, 18014398509481983
   %70 = lshr i64 %41, 7
   %71 = and i64 %70, 18014398509481983
@@ -807,7 +807,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %77, %75, %30
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %6, i64 48
-  store i64 %.1, ptr %83, align 8
+  store i64 %.032, ptr %83, align 8
   br label %84
 
 84:                                               ; preds = %82, %79

@@ -148,12 +148,12 @@ define dso_local i32 @Curl_socket_check(i32 noundef %0, i32 noundef %1, i32 noun
   %48 = and i16 %46, 34
   %.not61 = icmp eq i16 %48, 0
   %49 = or disjoint i32 %spec.select, 4
-  %.1 = select i1 %.not61, i32 %spec.select, i32 %49
+  %.2 = select i1 %.not61, i32 %spec.select, i32 %49
   br label %50
 
 50:                                               ; preds = %44, %43
   %.351 = phi i32 [ 1, %44 ], [ 0, %43 ]
-  %.2 = phi i32 [ %.1, %44 ], [ 0, %43 ]
+  %.0 = phi i32 [ %.2, %44 ], [ 0, %43 ]
   br i1 %.not58, label %60, label %51
 
 51:                                               ; preds = %50
@@ -162,18 +162,18 @@ define dso_local i32 @Curl_socket_check(i32 noundef %0, i32 noundef %1, i32 noun
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 89
   %.not62 = icmp eq i16 %55, 0
-  %56 = or i32 %.2, 8
-  %spec.select66 = select i1 %.not62, i32 %.2, i32 %56
+  %56 = or i32 %.0, 8
+  %spec.select66 = select i1 %.not62, i32 %.0, i32 %56
   %57 = and i16 %54, 34
   %.not63 = icmp eq i16 %57, 0
   %58 = or i32 %spec.select66, 4
-  %.4 = select i1 %.not63, i32 %spec.select66, i32 %58
+  %.5 = select i1 %.not63, i32 %spec.select66, i32 %58
   %59 = add nuw nsw i32 %.351, 1
   br label %60
 
 60:                                               ; preds = %51, %50
   %.452 = phi i32 [ %59, %51 ], [ %.351, %50 ]
-  %.5 = phi i32 [ %.4, %51 ], [ %.2, %50 ]
+  %.3 = phi i32 [ %.5, %51 ], [ %.0, %50 ]
   br i1 %.not59, label %Curl_wait_ms.exit, label %61
 
 61:                                               ; preds = %60
@@ -182,8 +182,8 @@ define dso_local i32 @Curl_socket_check(i32 noundef %0, i32 noundef %1, i32 noun
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 260
   %.not64 = icmp eq i16 %65, 0
-  %66 = or i32 %.5, 2
-  %spec.select67 = select i1 %.not64, i32 %.5, i32 %66
+  %66 = or i32 %.3, 2
+  %spec.select67 = select i1 %.not64, i32 %.3, i32 %66
   %67 = and i16 %64, 58
   %.not65 = icmp eq i16 %67, 0
   %68 = or i32 %spec.select67, 4
@@ -191,7 +191,7 @@ define dso_local i32 @Curl_socket_check(i32 noundef %0, i32 noundef %1, i32 noun
   br label %Curl_wait_ms.exit
 
 Curl_wait_ms.exit:                                ; preds = %21, %17, %13, %11, %8, %61, %60, %40
-  %.053 = phi i32 [ %41, %40 ], [ %.5, %60 ], [ %spec.select68, %61 ], [ -1, %11 ], [ 0, %8 ], [ -1, %21 ], [ %16, %13 ], [ 0, %17 ]
+  %.053 = phi i32 [ %41, %40 ], [ %.3, %60 ], [ %spec.select68, %61 ], [ -1, %11 ], [ 0, %8 ], [ -1, %21 ], [ %16, %13 ], [ 0, %17 ]
   ret i32 %.053
 }
 

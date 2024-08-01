@@ -898,7 +898,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 
 .loopexit397:                                     ; preds = %.preheader244, %.lr.ph277
   %indvars.iv = phi i64 [ 0, %.lr.ph277 ], [ %indvars.iv.next, %.preheader244 ]
-  %.0183276 = phi ptr [ %38, %.lr.ph277 ], [ %.1184, %.preheader244 ]
+  %.0183276 = phi ptr [ %38, %.lr.ph277 ], [ %.2, %.preheader244 ]
   %.1192274 = phi ptr [ %.0191, %.lr.ph277 ], [ %151, %.preheader244 ]
   %53 = ptrtoint ptr %.1192274 to i64
   %54 = sub i64 %52, %53
@@ -974,8 +974,8 @@ phpdbg_clean.exit:                                ; preds = %15, %19
   br i1 %.not218, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %.critedge2, %.preheader
-  %.6 = phi ptr [ %79, %.preheader ], [ %.4.lcssa, %.critedge2 ]
-  %79 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.7 = phi ptr [ %79, %.preheader ], [ %.4.lcssa, %.critedge2 ]
+  %79 = getelementptr inbounds i8, ptr %.7, i64 1
   %80 = load i8, ptr %79, align 1
   switch i8 %80, label %81 [
     i8 32, label %.preheader
@@ -1020,7 +1020,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 
 99:                                               ; preds = %95, %90
   %100 = phi i8 [ %.pre, %95 ], [ %57, %90 ]
-  %.1184 = phi ptr [ %98, %95 ], [ %.0183276, %90 ]
+  %.2 = phi ptr [ %98, %95 ], [ %.0183276, %90 ]
   switch i8 %100, label %103 [
     i8 39, label %101
     i8 34, label %101
@@ -1142,7 +1142,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 
 140:                                              ; preds = %137, %86, %81
   %.0189275312 = phi i32 [ %59, %81 ], [ %59, %86 ], [ %92, %137 ]
-  %.2 = phi ptr [ %.0183276, %81 ], [ %.0183276, %86 ], [ %.1184, %137 ]
+  %.1184 = phi ptr [ %.0183276, %81 ], [ %.0183276, %86 ], [ %.2, %137 ]
   call void @_efree(ptr noundef %56) #24
   %.not294 = icmp eq i32 %.0189275312, 0
   br i1 %.not294, label %._crit_edge, label %.lr.ph289.preheader
@@ -1153,7 +1153,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 
 .lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
   %indvars.iv322 = phi i64 [ 0, %.lr.ph289.preheader ], [ %indvars.iv.next323, %.lr.ph289 ]
-  %141 = getelementptr inbounds ptr, ptr %.2, i64 %indvars.iv322
+  %141 = getelementptr inbounds ptr, ptr %.1184, i64 %indvars.iv322
   %142 = load ptr, ptr %141, align 8
   call void @_efree(ptr noundef %142) #24
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
@@ -1161,7 +1161,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph289
 
 ._crit_edge:                                      ; preds = %.lr.ph289, %140
-  call void @_efree(ptr noundef %.2) #24
+  call void @_efree(ptr noundef %.1184) #24
   store i8 %48, ptr %47, align 1
   br label %349
 
@@ -1173,15 +1173,15 @@ phpdbg_clean.exit:                                ; preds = %15, %19
   %147 = sub i64 %145, %146
   %148 = call ptr @_erealloc(ptr noundef %56, i64 noundef %147) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %149 = getelementptr inbounds ptr, ptr %.1184, i64 %indvars.iv.next
+  %149 = getelementptr inbounds ptr, ptr %.2, i64 %indvars.iv.next
   store ptr %148, ptr %149, align 8
   %150 = load i8, ptr %.10.lcssa, align 1
   %.not215 = icmp eq i8 %150, 0
   br i1 %.not215, label %.loopexit247.loopexit, label %.preheader244
 
 .preheader244:                                    ; preds = %143, %.preheader244
-  %.12 = phi ptr [ %151, %.preheader244 ], [ %.10.lcssa, %143 ]
-  %151 = getelementptr inbounds i8, ptr %.12, i64 1
+  %.13 = phi ptr [ %151, %.preheader244 ], [ %.10.lcssa, %143 ]
+  %151 = getelementptr inbounds i8, ptr %.13, i64 1
   %152 = load i8, ptr %151, align 1
   switch i8 %152, label %.loopexit397 [
     i8 32, label %.preheader244
@@ -1194,7 +1194,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 
 .loopexit247:                                     ; preds = %49, %.loopexit247.loopexit, %89
   %.0189258 = phi i32 [ %59, %89 ], [ %153, %.loopexit247.loopexit ], [ 0, %49 ]
-  %.0183254 = phi ptr [ %.0183276, %89 ], [ %.1184, %.loopexit247.loopexit ], [ %38, %49 ]
+  %.0183254 = phi ptr [ %.0183276, %89 ], [ %.2, %.loopexit247.loopexit ], [ %38, %49 ]
   store i8 %48, ptr %47, align 1
   %154 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
   %155 = load ptr, ptr %154, align 8

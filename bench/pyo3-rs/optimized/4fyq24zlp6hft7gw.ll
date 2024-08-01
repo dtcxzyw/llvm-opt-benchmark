@@ -713,7 +713,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
           to label %210 unwind label %208
 
 .thread188:                                       ; preds = %.body, %239, %.thread, %208
-  %.sroa.067.0 = phi i1 [ true, %.thread ], [ false, %239 ], [ true, %208 ], [ %.sroa.067.3, %.body ]
+  %.sroa.067.0 = phi i1 [ true, %.thread ], [ false, %239 ], [ true, %208 ], [ %.sroa.067.5, %.body ]
   %.pn154.pn = phi { ptr, i32 } [ %.pn154187, %.thread ], [ %lpad.thr_comm.split-lp, %239 ], [ %209, %208 ], [ %.pn152, %.body ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %196) #8
           to label %1045 unwind label %1052
@@ -2495,7 +2495,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
   unreachable
 
 .body:                                            ; preds = %974, %867, %250, %728, %987
-  %.sroa.067.3 = phi i1 [ false, %987 ], [ true, %250 ], [ %.sroa.067.4, %728 ], [ false, %867 ], [ false, %974 ]
+  %.sroa.067.5 = phi i1 [ false, %987 ], [ true, %250 ], [ %.sroa.067.4, %728 ], [ false, %867 ], [ false, %974 ]
   %.pn152 = phi { ptr, i32 } [ %.pn149.pn, %987 ], [ %.pn99.i, %250 ], [ %729, %728 ], [ %.pn27.i, %867 ], [ %.pn25.i, %974 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %137) #8
           to label %.thread188 unwind label %1052

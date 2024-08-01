@@ -831,8 +831,8 @@ isempty_RL.exit.thread:                           ; preds = %70, %64, %61
 copy_input_until_stop.exit:                       ; preds = %160, %220, %157, %98, %.lr.ph14.preheader, %.lr.ph.i37, %.lr.ph95.i, %.preheader85.i, %.preheader.i
   %225 = phi i32 [ %88, %.preheader.i ], [ %88, %.preheader85.i ], [ %88, %.lr.ph95.i ], [ %88, %.lr.ph.i37 ], [ %88, %.lr.ph14.preheader ], [ %159, %98 ], [ %159, %157 ], [ %224, %220 ], [ %224, %160 ]
   %226 = phi i32 [ %87, %.preheader.i ], [ %87, %.preheader85.i ], [ %87, %.lr.ph95.i ], [ %87, %.lr.ph.i37 ], [ %87, %.lr.ph14.preheader ], [ %158, %98 ], [ %158, %157 ], [ %223, %220 ], [ %223, %160 ]
-  %.2.i = phi i8 [ 0, %.preheader.i ], [ 0, %.preheader85.i ], [ 0, %.lr.ph95.i ], [ 0, %.lr.ph.i37 ], [ 0, %.lr.ph14.preheader ], [ 1, %98 ], [ 1, %157 ], [ 1, %220 ], [ 1, %160 ]
-  %227 = or i8 %.2.i, %.0.ph
+  %.1.i = phi i8 [ 0, %.preheader.i ], [ 0, %.preheader85.i ], [ 0, %.lr.ph95.i ], [ 0, %.lr.ph.i37 ], [ 0, %.lr.ph14.preheader ], [ 1, %98 ], [ 1, %157 ], [ 1, %220 ], [ 1, %160 ]
+  %227 = or i8 %.1.i, %.0.ph
   %228 = load i32, ptr %7, align 8
   %.not33 = icmp eq i32 %228, 2
   br i1 %.not33, label %239, label %229
@@ -882,8 +882,8 @@ flush_RL.exit:                                    ; preds = %232, %235
 
 isempty_RL.exit:                                  ; preds = %82, %79, %70, %67, %240, %copy_output_until_stop.exit
   %.231 = phi i8 [ %59, %copy_output_until_stop.exit ], [ %.1307, %240 ], [ %59, %67 ], [ %59, %70 ], [ %59, %79 ], [ %59, %82 ]
-  %.2 = phi i8 [ %.0.ph, %copy_output_until_stop.exit ], [ %227, %240 ], [ %.0.ph, %67 ], [ %.0.ph, %70 ], [ %.0.ph, %79 ], [ %.0.ph, %82 ]
-  %245 = icmp ne i8 %.2, 0
+  %.1 = phi i8 [ %.0.ph, %copy_output_until_stop.exit ], [ %227, %240 ], [ %.0.ph, %67 ], [ %.0.ph, %70 ], [ %.0.ph, %79 ], [ %.0.ph, %82 ]
+  %245 = icmp ne i8 %.1, 0
   %246 = icmp ne i8 %.231, 0
   %247 = select i1 %245, i1 true, i1 %246
   %248 = zext i1 %247 to i8
@@ -2214,10 +2214,10 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %.0264.i = phi i32 [ %664, %659 ], [ %.0264.i.be, %.backedge.i57.backedge ]
   %.0261.i = phi i32 [ %662, %659 ], [ %.0261.i.be, %.backedge.i57.backedge ]
   %.0257.i = phi i32 [ %666, %659 ], [ %.0257.i.be, %.backedge.i57.backedge ]
-  %.0252.i = phi ptr [ %669, %659 ], [ %.3255.i, %.backedge.i57.backedge ]
-  %.0247.i = phi i32 [ %671, %659 ], [ %.3250.i, %.backedge.i57.backedge ]
+  %.0252.i = phi ptr [ %669, %659 ], [ %.1253.i, %.backedge.i57.backedge ]
+  %.0247.i = phi i32 [ %671, %659 ], [ %.1248.i, %.backedge.i57.backedge ]
   %.0243.i = phi i8 [ %661, %659 ], [ %710, %.backedge.i57.backedge ]
-  %.0242.i = phi i32 [ %660, %659 ], [ %.3.i, %.backedge.i57.backedge ]
+  %.0242.i = phi i32 [ %660, %659 ], [ %.1.i, %.backedge.i57.backedge ]
   %676 = icmp sgt i32 %.0261.i, 0
   br i1 %676, label %.preheader.i58, label %705
 
@@ -2230,85 +2230,85 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br label %679
 
 679:                                              ; preds = %681, %.lr.ph344.i
-  %.1343.i = phi i32 [ %.0242.i, %.lr.ph344.i ], [ %688, %681 ]
-  %.1248342.i = phi i32 [ %.0247.i, %.lr.ph344.i ], [ %691, %681 ]
-  %.1253341.i = phi ptr [ %.0252.i, %.lr.ph344.i ], [ %690, %681 ]
+  %.2343.i = phi i32 [ %.0242.i, %.lr.ph344.i ], [ %688, %681 ]
+  %.2249342.i = phi i32 [ %.0247.i, %.lr.ph344.i ], [ %691, %681 ]
+  %.2254341.i = phi ptr [ %.0252.i, %.lr.ph344.i ], [ %690, %681 ]
   %.1262340.i = phi i32 [ %.0261.i, %.lr.ph344.i ], [ %689, %681 ]
   %680 = icmp eq i32 %.1262340.i, 1
   br i1 %680, label %.loopexit320.i, label %681
 
 681:                                              ; preds = %679
-  store i8 %.0243.i, ptr %.1253341.i, align 1
-  %682 = shl i32 %.1343.i, 8
-  %683 = lshr i32 %.1343.i, 24
+  store i8 %.0243.i, ptr %.2254341.i, align 1
+  %682 = shl i32 %.2343.i, 8
+  %683 = lshr i32 %.2343.i, 24
   %684 = xor i32 %683, %678
   %685 = zext nneg i32 %684 to i64
   %686 = getelementptr inbounds [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %685
   %687 = load i32, ptr %686, align 4
   %688 = xor i32 %687, %682
   %689 = add nsw i32 %.1262340.i, -1
-  %690 = getelementptr inbounds i8, ptr %.1253341.i, i64 1
-  %691 = add i32 %.1248342.i, -1
+  %690 = getelementptr inbounds i8, ptr %.2254341.i, i64 1
+  %691 = add i32 %.2249342.i, -1
   %692 = icmp eq i32 %691, 0
   br i1 %692, label %.loopexit.i, label %679
 
 .loopexit320.i:                                   ; preds = %679, %718, %711
-  %.1269.i = phi i32 [ %716, %718 ], [ %716, %711 ], [ %.0268.i, %679 ]
-  %.1265.i = phi i32 [ %.2266.i, %718 ], [ %717, %711 ], [ %.0264.i, %679 ]
-  %.1258.i = phi i32 [ %715, %718 ], [ %715, %711 ], [ %.0257.i, %679 ]
-  %.2254.i = phi ptr [ %.3255.i, %718 ], [ %.3255.i, %711 ], [ %.1253341.i, %679 ]
-  %.2249.i = phi i32 [ %.3250.i, %718 ], [ %.3250.i, %711 ], [ %.1248342.i, %679 ]
-  %.1244.i = phi i8 [ %710, %718 ], [ %710, %711 ], [ %.0243.i, %679 ]
-  %.2.i = phi i32 [ %.3.i, %718 ], [ %.3.i, %711 ], [ %.1343.i, %679 ]
-  %693 = icmp eq i32 %.2249.i, 0
+  %.3271.i = phi i32 [ %716, %718 ], [ %716, %711 ], [ %.0268.i, %679 ]
+  %.3267.i = phi i32 [ %.1265.i, %718 ], [ %717, %711 ], [ %.0264.i, %679 ]
+  %.3260.i = phi i32 [ %715, %718 ], [ %715, %711 ], [ %.0257.i, %679 ]
+  %.4256.i = phi ptr [ %.1253.i, %718 ], [ %.1253.i, %711 ], [ %.2254341.i, %679 ]
+  %.4251.i = phi i32 [ %.1248.i, %718 ], [ %.1248.i, %711 ], [ %.2249342.i, %679 ]
+  %.3246.i = phi i8 [ %710, %718 ], [ %710, %711 ], [ %.0243.i, %679 ]
+  %.4.i = phi i32 [ %.1.i, %718 ], [ %.1.i, %711 ], [ %.2343.i, %679 ]
+  %693 = icmp eq i32 %.4251.i, 0
   br i1 %693, label %.loopexit.i, label %694
 
 694:                                              ; preds = %.loopexit320.i
-  store i8 %.1244.i, ptr %.2254.i, align 1
-  %695 = shl i32 %.2.i, 8
-  %696 = lshr i32 %.2.i, 24
-  %697 = zext i8 %.1244.i to i32
+  store i8 %.3246.i, ptr %.4256.i, align 1
+  %695 = shl i32 %.4.i, 8
+  %696 = lshr i32 %.4.i, 24
+  %697 = zext i8 %.3246.i to i32
   %698 = xor i32 %696, %697
   %699 = zext nneg i32 %698 to i64
   %700 = getelementptr inbounds [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %699
   %701 = load i32, ptr %700, align 4
   %702 = xor i32 %701, %695
-  %703 = getelementptr inbounds i8, ptr %.2254.i, i64 1
-  %704 = add i32 %.2249.i, -1
+  %703 = getelementptr inbounds i8, ptr %.4256.i, i64 1
+  %704 = add i32 %.4251.i, -1
   br label %705
 
 705:                                              ; preds = %694, %.backedge.i57
-  %.2270.i = phi i32 [ %.1269.i, %694 ], [ %.0268.i, %.backedge.i57 ]
-  %.2266.i = phi i32 [ %.1265.i, %694 ], [ %.0264.i, %.backedge.i57 ]
-  %.2259.i = phi i32 [ %.1258.i, %694 ], [ %.0257.i, %.backedge.i57 ]
-  %.3255.i = phi ptr [ %703, %694 ], [ %.0252.i, %.backedge.i57 ]
-  %.3250.i = phi i32 [ %704, %694 ], [ %.0247.i, %.backedge.i57 ]
-  %.2245.i = phi i8 [ %.1244.i, %694 ], [ %.0243.i, %.backedge.i57 ]
-  %.3.i = phi i32 [ %702, %694 ], [ %.0242.i, %.backedge.i57 ]
-  %706 = icmp sgt i32 %.2270.i, %674
+  %.1269.i = phi i32 [ %.3271.i, %694 ], [ %.0268.i, %.backedge.i57 ]
+  %.1265.i = phi i32 [ %.3267.i, %694 ], [ %.0264.i, %.backedge.i57 ]
+  %.1258.i = phi i32 [ %.3260.i, %694 ], [ %.0257.i, %.backedge.i57 ]
+  %.1253.i = phi ptr [ %703, %694 ], [ %.0252.i, %.backedge.i57 ]
+  %.1248.i = phi i32 [ %704, %694 ], [ %.0247.i, %.backedge.i57 ]
+  %.1244.i = phi i8 [ %.3246.i, %694 ], [ %.0243.i, %.backedge.i57 ]
+  %.1.i = phi i32 [ %702, %694 ], [ %.0242.i, %.backedge.i57 ]
+  %706 = icmp sgt i32 %.1269.i, %674
   br i1 %706, label %unRLE_obuf_to_output_SMALL.exit.thread, label %707
 
 707:                                              ; preds = %705
-  %708 = icmp eq i32 %.2270.i, %674
+  %708 = icmp eq i32 %.1269.i, %674
   br i1 %708, label %.loopexit.i, label %709
 
 709:                                              ; preds = %707
-  %710 = trunc i32 %.2266.i to i8
-  %.not297.i = icmp ult i32 %.2259.i, %675
+  %710 = trunc i32 %.1265.i to i8
+  %.not297.i = icmp ult i32 %.1258.i, %675
   br i1 %.not297.i, label %711, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 711:                                              ; preds = %709
-  %712 = zext i32 %.2259.i to i64
+  %712 = zext i32 %.1258.i to i64
   %713 = getelementptr inbounds i32, ptr %665, i64 %712
   %714 = load i32, ptr %713, align 4
   %715 = lshr i32 %714, 8
-  %716 = add nsw i32 %.2270.i, 1
+  %716 = add nsw i32 %.1269.i, 1
   %717 = and i32 %714, 255
-  %.not298.i = icmp eq i32 %717, %.2266.i
+  %.not298.i = icmp eq i32 %717, %.1265.i
   br i1 %.not298.i, label %718, label %.loopexit320.i
 
 718:                                              ; preds = %711
-  %719 = icmp eq i32 %.2270.i, %673
+  %719 = icmp eq i32 %.1269.i, %673
   br i1 %719, label %.loopexit320.i, label %720
 
 720:                                              ; preds = %718
@@ -2320,13 +2320,13 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %723 = getelementptr inbounds i32, ptr %665, i64 %722
   %724 = load i32, ptr %723, align 4
   %725 = lshr i32 %724, 8
-  %726 = add nsw i32 %.2270.i, 2
+  %726 = add nsw i32 %.1269.i, 2
   %727 = icmp eq i32 %726, %674
   br i1 %727, label %.backedge.i57.backedge, label %728
 
 728:                                              ; preds = %721
   %729 = and i32 %724, 255
-  %.not300.i = icmp eq i32 %729, %.2266.i
+  %.not300.i = icmp eq i32 %729, %.1265.i
   br i1 %.not300.i, label %730, label %.backedge.i57.backedge
 
 730:                                              ; preds = %728
@@ -2338,13 +2338,13 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %733 = getelementptr inbounds i32, ptr %665, i64 %732
   %734 = load i32, ptr %733, align 4
   %735 = lshr i32 %734, 8
-  %736 = add nsw i32 %.2270.i, 3
+  %736 = add nsw i32 %.1269.i, 3
   %737 = icmp eq i32 %736, %674
   br i1 %737, label %.backedge.i57.backedge, label %738
 
 738:                                              ; preds = %731
   %739 = and i32 %734, 255
-  %.not302.i = icmp eq i32 %739, %.2266.i
+  %.not302.i = icmp eq i32 %739, %.1265.i
   br i1 %.not302.i, label %740, label %.backedge.i57.backedge
 
 740:                                              ; preds = %738
@@ -2367,29 +2367,29 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %751 = load i32, ptr %750, align 4
   %752 = and i32 %751, 255
   %753 = lshr i32 %751, 8
-  %754 = add nsw i32 %.2270.i, 5
+  %754 = add nsw i32 %.1269.i, 5
   br label %.backedge.i57.backedge
 
 .backedge.i57.backedge:                           ; preds = %746, %738, %731, %728, %721
   %.0268.i.be = phi i32 [ %674, %721 ], [ %674, %731 ], [ %754, %746 ], [ %726, %728 ], [ %736, %738 ]
-  %.0264.i.be = phi i32 [ %.2266.i, %721 ], [ %.2266.i, %731 ], [ %752, %746 ], [ %729, %728 ], [ %739, %738 ]
+  %.0264.i.be = phi i32 [ %.1265.i, %721 ], [ %.1265.i, %731 ], [ %752, %746 ], [ %729, %728 ], [ %739, %738 ]
   %.0261.i.be = phi i32 [ 2, %721 ], [ 3, %731 ], [ %748, %746 ], [ 2, %728 ], [ 3, %738 ]
   %.0257.i.be = phi i32 [ %725, %721 ], [ %735, %731 ], [ %753, %746 ], [ %725, %728 ], [ %735, %738 ]
   br label %.backedge.i57
 
 .loopexit.i:                                      ; preds = %707, %.loopexit320.i, %.preheader.i58, %681
-  %.3271.i = phi i32 [ %.0268.i, %681 ], [ %.1269.i, %.loopexit320.i ], [ %674, %707 ], [ %.0268.i, %.preheader.i58 ]
-  %.3267.i = phi i32 [ %.0264.i, %681 ], [ %.1265.i, %.loopexit320.i ], [ %.2266.i, %707 ], [ %.0264.i, %.preheader.i58 ]
+  %.2270.i = phi i32 [ %.0268.i, %681 ], [ %.3271.i, %.loopexit320.i ], [ %674, %707 ], [ %.0268.i, %.preheader.i58 ]
+  %.2266.i = phi i32 [ %.0264.i, %681 ], [ %.3267.i, %.loopexit320.i ], [ %.1265.i, %707 ], [ %.0264.i, %.preheader.i58 ]
   %.2263.i = phi i32 [ %689, %681 ], [ 1, %.loopexit320.i ], [ 0, %707 ], [ %.0261.i, %.preheader.i58 ]
-  %.3260.i = phi i32 [ %.0257.i, %681 ], [ %.1258.i, %.loopexit320.i ], [ %.2259.i, %707 ], [ %.0257.i, %.preheader.i58 ]
-  %.4256.i = phi ptr [ %690, %681 ], [ %.2254.i, %.loopexit320.i ], [ %.3255.i, %707 ], [ %.0252.i, %.preheader.i58 ]
-  %.4251.i = phi i32 [ 0, %681 ], [ 0, %.loopexit320.i ], [ %.3250.i, %707 ], [ 0, %.preheader.i58 ]
-  %.3246.i = phi i8 [ %.0243.i, %681 ], [ %.1244.i, %.loopexit320.i ], [ %.2245.i, %707 ], [ %.0243.i, %.preheader.i58 ]
-  %.4.i = phi i32 [ %688, %681 ], [ %.2.i, %.loopexit320.i ], [ %.3.i, %707 ], [ %.0242.i, %.preheader.i58 ]
+  %.2259.i = phi i32 [ %.0257.i, %681 ], [ %.3260.i, %.loopexit320.i ], [ %.1258.i, %707 ], [ %.0257.i, %.preheader.i58 ]
+  %.3255.i = phi ptr [ %690, %681 ], [ %.4256.i, %.loopexit320.i ], [ %.1253.i, %707 ], [ %.0252.i, %.preheader.i58 ]
+  %.3250.i = phi i32 [ 0, %681 ], [ 0, %.loopexit320.i ], [ %.1248.i, %707 ], [ 0, %.preheader.i58 ]
+  %.2245.i = phi i8 [ %.0243.i, %681 ], [ %.3246.i, %.loopexit320.i ], [ %.1244.i, %707 ], [ %.0243.i, %.preheader.i58 ]
+  %.3.i = phi i32 [ %688, %681 ], [ %.4.i, %.loopexit320.i ], [ %.1.i, %707 ], [ %.0242.i, %.preheader.i58 ]
   %755 = load ptr, ptr %5, align 8
   %756 = getelementptr inbounds i8, ptr %755, i64 36
   %757 = load i32, ptr %756, align 4
-  %758 = sub i32 %671, %.4251.i
+  %758 = sub i32 %671, %.3250.i
   %759 = add i32 %758, %757
   store i32 %759, ptr %756, align 4
   %760 = load ptr, ptr %5, align 8
@@ -2408,18 +2408,18 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 
 768:                                              ; preds = %764, %.loopexit.i
   %769 = phi ptr [ %.pre374.i56, %764 ], [ %760, %.loopexit.i ]
-  store i32 %.4.i, ptr %14, align 8
-  store i8 %.3246.i, ptr %13, align 4
+  store i32 %.3.i, ptr %14, align 8
+  store i8 %.2245.i, ptr %13, align 4
   store i32 %.2263.i, ptr %12, align 8
-  store i32 %.3271.i, ptr %15, align 4
-  store i32 %.3267.i, ptr %17, align 8
+  store i32 %.2270.i, ptr %15, align 4
+  store i32 %.2266.i, ptr %17, align 8
   store ptr %665, ptr %25, align 8
-  store i32 %.3260.i, ptr %18, align 4
+  store i32 %.2259.i, ptr %18, align 4
   %770 = getelementptr inbounds i8, ptr %769, i64 24
-  store ptr %.4256.i, ptr %770, align 8
+  store ptr %.3255.i, ptr %770, align 8
   %771 = load ptr, ptr %5, align 8
   %772 = getelementptr inbounds i8, ptr %771, i64 32
-  store i32 %.4251.i, ptr %772, align 8
+  store i32 %.3250.i, ptr %772, align 8
   br label %unRLE_obuf_to_output_SMALL.exit
 
 unRLE_obuf_to_output_SMALL.exit:                  ; preds = %82, %.backedge363.i, %76, %336, %.backedge.i, %330, %528, %.backedge326.i, %523, %.preheader360.i, %.preheader353.i, %.preheader324.i, %768

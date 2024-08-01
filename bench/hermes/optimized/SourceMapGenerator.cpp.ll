@@ -928,9 +928,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 for.body10:                                       ; preds = %for.body, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit
   %inputSeg.sroa.0.i.sroa.6.1370 = phi i32 [ %inputSeg.sroa.0.i.sroa.6.2419441, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %inputSeg.sroa.0.i.sroa.6.0391, %for.body ]
-  %agg.tmp20.sroa.0.1369 = phi ptr [ %agg.tmp20.sroa.0.3446, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.0.0390, %for.body ]
-  %agg.tmp20.sroa.3.1368 = phi ptr [ %agg.tmp20.sroa.3.3445, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.3.0389, %for.body ]
-  %agg.tmp20.sroa.5.1367 = phi ptr [ %agg.tmp20.sroa.5.3444, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.5.0388, %for.body ]
+  %agg.tmp20.sroa.0.1369 = phi ptr [ %agg.tmp20.sroa.0.2446, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.0.0390, %for.body ]
+  %agg.tmp20.sroa.3.1368 = phi ptr [ %agg.tmp20.sroa.3.2445, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.3.0389, %for.body ]
+  %agg.tmp20.sroa.5.1367 = phi ptr [ %agg.tmp20.sroa.5.2444, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.5.0388, %for.body ]
   %inputSeg.sroa.0.i.sroa.5.1366 = phi i32 [ %inputSeg.sroa.0.i.sroa.5.2418442, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %inputSeg.sroa.0.i.sroa.5.0387, %for.body ]
   %newLine.sroa.0.1363 = phi ptr [ %newLine.sroa.0.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ null, %for.body ]
   %newLine.sroa.7.1362 = phi ptr [ %newLine.sroa.7.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ null, %for.body ]
@@ -1040,9 +1040,9 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
 
 _ZNK6hermes9SourceMap17getSourceMetadataEj.exit:  ; preds = %if.then, %if.end.i, %if.then.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i
   %agg.tmp20.sroa.8.0 = phi i8 [ %18, %if.then.i.i.i ], [ %18, %if.else.i.i.i.i.i.i.i.i.i ], [ %18, %if.then.i.i.i.i.i.i.i.i.i ], [ %18, %if.end.i ], [ 0, %if.then ]
-  %agg.tmp20.sroa.5.2 = phi ptr [ null, %if.then.i.i.i ], [ %21, %if.else.i.i.i.i.i.i.i.i.i ], [ %21, %if.then.i.i.i.i.i.i.i.i.i ], [ %agg.tmp20.sroa.5.1367, %if.end.i ], [ %agg.tmp20.sroa.5.1367, %if.then ]
-  %agg.tmp20.sroa.3.2 = phi ptr [ %20, %if.then.i.i.i ], [ %20, %if.else.i.i.i.i.i.i.i.i.i ], [ %20, %if.then.i.i.i.i.i.i.i.i.i ], [ %agg.tmp20.sroa.3.1368, %if.end.i ], [ %agg.tmp20.sroa.3.1368, %if.then ]
-  %agg.tmp20.sroa.0.2 = phi ptr [ %19, %if.then.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i.i ], [ %19, %if.then.i.i.i.i.i.i.i.i.i ], [ %agg.tmp20.sroa.0.1369, %if.end.i ], [ %agg.tmp20.sroa.0.1369, %if.then ]
+  %agg.tmp20.sroa.5.3 = phi ptr [ null, %if.then.i.i.i ], [ %21, %if.else.i.i.i.i.i.i.i.i.i ], [ %21, %if.then.i.i.i.i.i.i.i.i.i ], [ %agg.tmp20.sroa.5.1367, %if.end.i ], [ %agg.tmp20.sroa.5.1367, %if.then ]
+  %agg.tmp20.sroa.3.3 = phi ptr [ %20, %if.then.i.i.i ], [ %20, %if.else.i.i.i.i.i.i.i.i.i ], [ %20, %if.then.i.i.i.i.i.i.i.i.i ], [ %agg.tmp20.sroa.3.1368, %if.end.i ], [ %agg.tmp20.sroa.3.1368, %if.then ]
+  %agg.tmp20.sroa.0.3 = phi ptr [ %19, %if.then.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i.i ], [ %19, %if.then.i.i.i.i.i.i.i.i.i ], [ %agg.tmp20.sroa.0.1369, %if.end.i ], [ %agg.tmp20.sroa.0.1369, %if.then ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i)
@@ -1363,7 +1363,7 @@ if.end.i40:                                       ; preds = %_ZSt8_DestroyIPN4ll
   br i1 %tobool.i.i, label %land.lhs.true.i43, label %if.end
 
 land.lhs.true.i43:                                ; preds = %if.end.i40
-  %69 = load i32, ptr %agg.tmp20.sroa.0.2, align 4
+  %69 = load i32, ptr %agg.tmp20.sroa.0.3, align 4
   %cmp10.not.i = icmp eq i32 %69, 5
   br i1 %cmp10.not.i, label %if.then.i.i.i50, label %if.then11.i
 
@@ -1373,23 +1373,23 @@ if.then11.i:                                      ; preds = %land.lhs.true.i43
   %hasVal.i179 = getelementptr inbounds i8, ptr %add.ptr.i.i44, i64 24
   %71 = load i8, ptr %hasVal.i179, align 8
   %tobool.i180 = trunc i8 %71 to i1
-  store ptr %agg.tmp20.sroa.0.2, ptr %add.ptr.i.i44, align 8
+  store ptr %agg.tmp20.sroa.0.3, ptr %add.ptr.i.i44, align 8
   %allocator_.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i44, i64 8
-  store ptr %agg.tmp20.sroa.3.2, ptr %allocator_.i.i, align 8
+  store ptr %agg.tmp20.sroa.3.3, ptr %allocator_.i.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i44, i64 16
   br i1 %tobool.i180, label %if.then.i182, label %if.else.i
 
 if.then.i182:                                     ; preds = %if.then11.i
   %72 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %agg.tmp20.sroa.5.2, %72
+  %cmp.not.i.i.i.i.i = icmp eq ptr %agg.tmp20.sroa.5.3, %72
   br i1 %cmp.not.i.i.i.i.i, label %if.then.i.i.i50, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i182
-  %cmp3.not.i.i.i.i.i = icmp eq ptr %agg.tmp20.sroa.5.2, null
+  %cmp3.not.i.i.i.i.i = icmp eq ptr %agg.tmp20.sroa.5.3, null
   br i1 %cmp3.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.then4.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.2, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.3, i64 8
   %73 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %73, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i183
@@ -1482,16 +1482,16 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end9.i.i.i.i.i
 
 if.end9.i.i.i.i.i:                                ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i190, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i
-  store ptr %agg.tmp20.sroa.5.2, ptr %_M_refcount.i.i.i.i, align 8
+  store ptr %agg.tmp20.sroa.5.3, ptr %_M_refcount.i.i.i.i, align 8
   br label %if.then.i.i.i50
 
 if.else.i:                                        ; preds = %if.then11.i
-  store ptr %agg.tmp20.sroa.5.2, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i6.i = icmp eq ptr %agg.tmp20.sroa.5.2, null
+  store ptr %agg.tmp20.sroa.5.3, ptr %_M_refcount.i.i.i.i, align 8
+  %cmp.not.i.i.i.i6.i = icmp eq ptr %agg.tmp20.sroa.5.3, null
   br i1 %cmp.not.i.i.i.i6.i, label %_ZN6hermes6parser15JSONSharedValueC2ERKS1_.exit.i, label %if.then.i.i.i.i7.i
 
 if.then.i.i.i.i7.i:                               ; preds = %if.else.i
-  %_M_use_count.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.2, i64 8
+  %_M_use_count.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.3, i64 8
   %87 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i9.i = icmp eq i8 %87, 0
   br i1 %tobool.i.not.i.i.i.i.i9.i, label %if.else.i.i.i.i.i.i12.i, label %if.then.i.i.i.i.i.i10.i
@@ -1511,11 +1511,11 @@ _ZN6hermes6parser15JSONSharedValueC2ERKS1_.exit.i: ; preds = %if.else.i.i.i.i.i.
   br label %if.then.i.i.i50
 
 if.then.i.i.i50:                                  ; preds = %_ZN6hermes6parser15JSONSharedValueC2ERKS1_.exit.i, %if.end9.i.i.i.i.i, %if.then.i182, %land.lhs.true.i43
-  %cmp.not.i.i.i.i.i.i.i52 = icmp eq ptr %agg.tmp20.sroa.5.2, null
+  %cmp.not.i.i.i.i.i.i.i52 = icmp eq ptr %agg.tmp20.sroa.5.3, null
   br i1 %cmp.not.i.i.i.i.i.i.i52, label %if.end, label %if.then.i.i.i.i.i.i.i53
 
 if.then.i.i.i.i.i.i.i53:                          ; preds = %if.then.i.i.i50
-  %_M_use_count.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.2, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.3, i64 8
   %90 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i54 acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %90, 4294967297
   %91 = trunc i64 %90 to i32
@@ -1523,12 +1523,12 @@ if.then.i.i.i.i.i.i.i53:                          ; preds = %if.then.i.i.i50
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i53
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i54, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.2, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp20.sroa.5.2, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp20.sroa.5.3, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %92 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.sroa.5.2) #16
+  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.sroa.5.3) #16
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i53
@@ -1551,11 +1551,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %if.end
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp20.sroa.5.2, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp20.sroa.5.3, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %95 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.sroa.5.2) #16
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.2, i64 12
+  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.sroa.5.3) #16
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20.sroa.5.3, i64 12
   %96 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %96, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1576,10 +1576,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %if.end
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp20.sroa.5.2, align 8
+  %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp20.sroa.5.3, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %99 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %99(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.sroa.5.2) #16
+  call void %99(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.sroa.5.3) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i50, %if.end.i40
@@ -1875,9 +1875,9 @@ _ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129: ; preds = %if.end8.sink.sp
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit, %land.lhs.true, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113, %land.lhs.true30
-  %agg.tmp20.sroa.0.3446 = phi ptr [ %agg.tmp20.sroa.0.1369, %land.lhs.true30 ], [ %agg.tmp20.sroa.0.1369, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.0.1369, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.0.1369, %land.lhs.true ], [ %agg.tmp20.sroa.0.1369, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.0.2, %if.end ]
-  %agg.tmp20.sroa.3.3445 = phi ptr [ %agg.tmp20.sroa.3.1368, %land.lhs.true30 ], [ %agg.tmp20.sroa.3.1368, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.3.1368, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.3.1368, %land.lhs.true ], [ %agg.tmp20.sroa.3.1368, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.3.2, %if.end ]
-  %agg.tmp20.sroa.5.3444 = phi ptr [ %agg.tmp20.sroa.5.1367, %land.lhs.true30 ], [ %agg.tmp20.sroa.5.1367, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.5.1367, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.5.1367, %land.lhs.true ], [ %agg.tmp20.sroa.5.1367, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.5.2, %if.end ]
+  %agg.tmp20.sroa.0.2446 = phi ptr [ %agg.tmp20.sroa.0.1369, %land.lhs.true30 ], [ %agg.tmp20.sroa.0.1369, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.0.1369, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.0.1369, %land.lhs.true ], [ %agg.tmp20.sroa.0.1369, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.0.3, %if.end ]
+  %agg.tmp20.sroa.3.2445 = phi ptr [ %agg.tmp20.sroa.3.1368, %land.lhs.true30 ], [ %agg.tmp20.sroa.3.1368, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.3.1368, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.3.1368, %land.lhs.true ], [ %agg.tmp20.sroa.3.1368, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.3.3, %if.end ]
+  %agg.tmp20.sroa.5.2444 = phi ptr [ %agg.tmp20.sroa.5.1367, %land.lhs.true30 ], [ %agg.tmp20.sroa.5.1367, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.5.1367, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.5.1367, %land.lhs.true ], [ %agg.tmp20.sroa.5.1367, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.5.3, %if.end ]
   %inputSeg.sroa.0.i.sroa.5.2418442 = phi i32 [ %inputSeg.sroa.0.i.sroa.5.1366, %land.lhs.true30 ], [ %inputSeg.sroa.0.i.sroa.5.1366, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %inputSeg.sroa.0.i.sroa.5.1366, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %inputSeg.sroa.0.i.sroa.5.0.copyload, %land.lhs.true ], [ %inputSeg.sroa.0.i.sroa.5.0.copyload, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %inputSeg.sroa.0.i.sroa.5.0.copyload, %if.end ]
   %inputSeg.sroa.0.i.sroa.6.2419441 = phi i32 [ %inputSeg.sroa.0.i.sroa.6.1370, %land.lhs.true30 ], [ %inputSeg.sroa.0.i.sroa.6.1370, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %inputSeg.sroa.0.i.sroa.6.1370, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %inputSeg.sroa.0.i.sroa.6.0.copyload, %land.lhs.true ], [ %inputSeg.sroa.0.i.sroa.6.0.copyload, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %inputSeg.sroa.0.i.sroa.6.0.copyload, %if.end ]
   %newSeg.sroa.0.0.copyload422439 = phi i32 [ %newSeg.sroa.0.0.copyload413, %land.lhs.true30 ], [ %newSeg.sroa.0.0.copyload413, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.0.0.copyload413, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %newSeg.sroa.0.0.copyload, %land.lhs.true ], [ %newSeg.sroa.0.0.copyload, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %newSeg.sroa.0.0.copyload, %if.end ]
@@ -1986,9 +1986,9 @@ for.end:                                          ; preds = %_ZNSt6vectorIN6herm
   %newLine.sroa.7.1.lcssa = phi ptr [ null, %for.body ], [ %newLine.sroa.7.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %newLine.sroa.0.1.lcssa = phi ptr [ null, %for.body ], [ %newLine.sroa.0.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %inputSeg.sroa.0.i.sroa.5.1.lcssa = phi i32 [ %inputSeg.sroa.0.i.sroa.5.0387, %for.body ], [ %inputSeg.sroa.0.i.sroa.5.2418442, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
-  %agg.tmp20.sroa.5.1.lcssa = phi ptr [ %agg.tmp20.sroa.5.0388, %for.body ], [ %agg.tmp20.sroa.5.3444, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
-  %agg.tmp20.sroa.3.1.lcssa = phi ptr [ %agg.tmp20.sroa.3.0389, %for.body ], [ %agg.tmp20.sroa.3.3445, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
-  %agg.tmp20.sroa.0.1.lcssa = phi ptr [ %agg.tmp20.sroa.0.0390, %for.body ], [ %agg.tmp20.sroa.0.3446, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
+  %agg.tmp20.sroa.5.1.lcssa = phi ptr [ %agg.tmp20.sroa.5.0388, %for.body ], [ %agg.tmp20.sroa.5.2444, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
+  %agg.tmp20.sroa.3.1.lcssa = phi ptr [ %agg.tmp20.sroa.3.0389, %for.body ], [ %agg.tmp20.sroa.3.2445, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
+  %agg.tmp20.sroa.0.1.lcssa = phi ptr [ %agg.tmp20.sroa.0.0390, %for.body ], [ %agg.tmp20.sroa.0.2446, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %inputSeg.sroa.0.i.sroa.6.1.lcssa = phi i32 [ %inputSeg.sroa.0.i.sroa.6.0391, %for.body ], [ %inputSeg.sroa.0.i.sroa.6.2419441, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %149 = load ptr, ptr %_M_finish.i.i151, align 8
   %150 = load ptr, ptr %lines_.i, align 8
@@ -2480,18 +2480,18 @@ if.end8.i:                                        ; preds = %_ZN4llvh9StringRefC
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIjSaIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
 land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.body.i6.i12.i12.i
-  %retval.sroa.0.2.i7.i = phi ptr [ %incdec.ptr.i.i13.i13.i, %while.body.i6.i12.i12.i ], [ %13, %if.end8.i ]
-  %15 = load i32, ptr %retval.sroa.0.2.i7.i, align 4
+  %retval.sroa.0.3.i7.i = phi ptr [ %incdec.ptr.i.i13.i13.i, %while.body.i6.i12.i12.i ], [ %13, %if.end8.i ]
+  %15 = load i32, ptr %retval.sroa.0.3.i7.i, align 4
   %switch.i5.i11.i8.i = icmp ugt i32 %15, -3
   br i1 %switch.i5.i11.i8.i, label %while.body.i6.i12.i12.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIjSaIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5beginEv.exit
 
 while.body.i6.i12.i12.i:                          ; preds = %land.rhs.i4.i9.i6.i
-  %incdec.ptr.i.i13.i13.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i7.i, i64 32
+  %incdec.ptr.i.i13.i13.i = getelementptr inbounds i8, ptr %retval.sroa.0.3.i7.i, i64 32
   %cmp.not.i7.i14.i14.i = icmp eq ptr %incdec.ptr.i.i13.i13.i, %add.ptr.i.i.i
   br i1 %cmp.not.i7.i14.i14.i, label %for.end39, label %land.rhs.i4.i9.i6.i, !llvm.loop !67
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIjSaIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %if.end8.i
-  %add.ptr.i.i.pn16.i = phi ptr [ %13, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
+  %add.ptr.i.i.pn16.i = phi ptr [ %13, %if.end8.i ], [ %retval.sroa.0.3.i7.i, %land.rhs.i4.i9.i6.i ]
   %cmp.i.i22.not40 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i.i
   br i1 %cmp.i.i22.not40, label %for.end39, label %for.body31
 

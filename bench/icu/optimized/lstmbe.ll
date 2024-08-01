@@ -537,9 +537,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2990,7 +2990,7 @@ for.end117:                                       ; preds = %for.inc116, %invoke
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont108, %for.end117
-  %retval.0 = phi i32 [ %sub120, %for.end117 ], [ 0, %invoke.cont108 ]
+  %retval.3 = phi i32 [ %sub120, %for.end117 ], [ 0, %invoke.cont108 ]
   call void @_ZN6icu_757Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %backwardRow) #20
   call void @_ZN6icu_757Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %forwardRow) #20
   br label %cleanup124
@@ -3001,7 +3001,7 @@ ehcleanup121:                                     ; preds = %lpad67.loopexit, %l
   br label %ehcleanup125
 
 cleanup124:                                       ; preds = %call.i.noexc113, %if.then5.i112, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %if.then5.i112 ], [ 0, %call.i.noexc113 ]
+  %retval.2 = phi i32 [ %retval.3, %cleanup ], [ 0, %if.then5.i112 ], [ 0, %call.i.noexc113 ]
   call void @_ZN6icu_757Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fbRow) #20
   call void @_ZN6icu_757Array2DD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hBackward) #20
   call void @_ZN6icu_757Array1DD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %logp) #20
@@ -3037,7 +3037,7 @@ ehcleanup133:                                     ; preds = %ehcleanup131, %lpad
   br label %ehcleanup135
 
 cleanup134:                                       ; preds = %invoke.cont15, %invoke.cont, %cleanup124
-  %retval.2 = phi i32 [ %retval.1, %cleanup124 ], [ 0, %invoke.cont ], [ 0, %invoke.cont15 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup124 ], [ 0, %invoke.cont ], [ 0, %invoke.cont15 ]
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %indices) #20
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %offsets) #20
   br label %return
@@ -3053,8 +3053,8 @@ ehcleanup137:                                     ; preds = %ehcleanup135, %lpad
   resume { ptr, i32 } %.pn49.pn.pn.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %if.end, %entry, %cleanup134
-  %retval.3 = phi i32 [ %retval.2, %cleanup134 ], [ 0, %entry ], [ 0, %if.end ]
-  ret i32 %retval.3
+  %retval.0 = phi i32 [ %retval.1, %cleanup134 ], [ 0, %entry ], [ 0, %if.end ]
+  ret i32 %retval.0
 }
 
 declare signext i8 @utext_moveIndex32_75(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -3430,7 +3430,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %new.notnull.i, %if.end26, %cleanup, %if.then.i
-  %retval.018 = phi ptr [ null, %cleanup ], [ null, %if.then.i ], [ null, %if.end26 ], [ %call.i, %new.notnull.i ]
+  %retval.218 = phi ptr [ null, %cleanup ], [ null, %if.then.i ], [ null, %if.end26 ], [ %call.i, %new.notnull.i ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %namebuf) #20
   br label %cleanup32
 
@@ -3440,7 +3440,7 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad9
   br label %ehcleanup33
 
 cleanup32:                                        ; preds = %if.end, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
-  %retval.1 = phi ptr [ %retval.018, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ null, %if.end ]
+  %retval.1 = phi ptr [ %retval.218, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ null, %if.end ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %name) #20
   br label %return
 
@@ -3450,8 +3450,8 @@ ehcleanup33:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %cleanup32
-  %retval.2 = phi ptr [ %retval.1, %cleanup32 ], [ null, %entry ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %retval.1, %cleanup32 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
@@ -3568,7 +3568,7 @@ if.else:                                          ; preds = %invoke.cont7
   br label %cleanup
 
 cleanup:                                          ; preds = %new.cont, %if.else, %delete.notnull17
-  %retval.0 = phi ptr [ null, %delete.notnull17 ], [ null, %if.else ], [ %call9, %new.cont ]
+  %retval.1 = phi ptr [ null, %delete.notnull17 ], [ null, %if.else ], [ %call9, %new.cont ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %unicodeSet) #20
   br label %cleanup20
 
@@ -3578,9 +3578,9 @@ ehcleanup:                                        ; preds = %lpad10, %lpad6
   br label %ehcleanup21
 
 cleanup20:                                        ; preds = %sw.default, %delete.notnull, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %delete.notnull ], [ null, %sw.default ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %delete.notnull ], [ null, %sw.default ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unicodeSetString) #20
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad ]

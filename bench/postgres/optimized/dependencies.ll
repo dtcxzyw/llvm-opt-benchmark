@@ -162,7 +162,7 @@ DependencyGenerator_next.exit:                    ; preds = %25
   %.270.i = phi i32 [ %86, %85 ], [ 1, %._crit_edge.i ]
   %.04869.i = phi i32 [ %.149.i, %85 ], [ 1, %._crit_edge.i ]
   %.05068.i = phi i32 [ %.252.i, %85 ], [ 0, %._crit_edge.i ]
-  %.05367.i = phi i32 [ %.255.i, %85 ], [ 0, %._crit_edge.i ]
+  %.05367.i = phi i32 [ %.154.i, %85 ], [ 0, %._crit_edge.i ]
   %70 = icmp eq i32 %.270.i, %69
   br i1 %70, label %78, label %71
 
@@ -191,7 +191,7 @@ DependencyGenerator_next.exit:                    ; preds = %25
   br label %85
 
 85:                                               ; preds = %81, %78
-  %.255.i = phi i32 [ 0, %78 ], [ %spec.select61.i, %81 ]
+  %.154.i = phi i32 [ 0, %78 ], [ %spec.select61.i, %81 ]
   %.252.i = phi i32 [ %spec.select.i, %78 ], [ %.05068.i, %81 ]
   %.149.i = phi i32 [ 1, %78 ], [ %84, %81 ]
   %86 = add i32 %.270.i, 1
@@ -902,7 +902,7 @@ list_length.exit244.thread:                       ; preds = %33
   br i1 %50, label %.lr.ph430, label %._crit_edge
 
 .lr.ph430:                                        ; preds = %.lr.ph288, %83
-  %.0212286429 = phi i32 [ %.2214, %83 ], [ 0, %.lr.ph288 ]
+  %.0212286429 = phi i32 [ %.1213, %83 ], [ 0, %.lr.ph288 ]
   %indvars.iv360428 = phi i64 [ %indvars.iv.next361, %83 ], [ 0, %.lr.ph288 ]
   %51 = load ptr, ptr %47, align 8
   %52 = getelementptr %union.ListCell, ptr %51, i64 %indvars.iv360428
@@ -970,12 +970,12 @@ thread-pre-split.thread:                          ; preds = %73, %66, %thread-pr
 
 .sink.split:                                      ; preds = %thread-pre-split, %thread-pre-split.thread, %61
   %.sink = phi i16 [ %62, %61 ], [ %82, %thread-pre-split.thread ], [ %75, %thread-pre-split ]
-  %.2214.ph = phi i32 [ %.0212286429, %61 ], [ %78, %thread-pre-split.thread ], [ %.0212286429, %thread-pre-split ]
+  %.1213.ph = phi i32 [ %.0212286429, %61 ], [ %78, %thread-pre-split.thread ], [ %.0212286429, %thread-pre-split ]
   store i16 %.sink, ptr %54, align 2
   br label %83
 
 83:                                               ; preds = %.sink.split, %63, %.lr.ph430
-  %.2214 = phi i32 [ %.0212286429, %.lr.ph430 ], [ %.0212286429, %63 ], [ %.2214.ph, %.sink.split ]
+  %.1213 = phi i32 [ %.0212286429, %.lr.ph430 ], [ %.0212286429, %63 ], [ %.1213.ph, %.sink.split ]
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360428, 1
   %84 = load i32, ptr %46, align 4
   %85 = sext i32 %84 to i64
@@ -986,7 +986,7 @@ thread-pre-split.thread:                          ; preds = %73, %66, %thread-pr
   %87 = phi ptr [ %36, %list_length.exit244.thread ], [ %46, %.lr.ph288 ], [ %46, %83 ]
   %88 = phi ptr [ %35, %list_length.exit244.thread ], [ %45, %.lr.ph288 ], [ %45, %83 ]
   %89 = phi ptr [ %34, %list_length.exit244.thread ], [ %41, %.lr.ph288 ], [ %41, %83 ]
-  %.0212.lcssa = phi i32 [ 0, %list_length.exit244.thread ], [ 0, %.lr.ph288 ], [ %.2214, %83 ]
+  %.0212.lcssa = phi i32 [ 0, %list_length.exit244.thread ], [ 0, %.lr.ph288 ], [ %.1213, %83 ]
   %.0212.lcssa.fr = freeze i32 %.0212.lcssa
   %90 = icmp sgt i32 %.0212.lcssa.fr, 0
   %91 = shl i32 %.0212.lcssa.fr, 16

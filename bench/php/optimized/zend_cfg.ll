@@ -996,7 +996,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %299
   %.0667814 = phi ptr [ %300, %299 ], [ %282, %.lr.ph.preheader ]
   %.0669813 = phi i32 [ %301, %299 ], [ %274, %.lr.ph.preheader ]
-  %.21812 = phi i32 [ %.23, %299 ], [ %.1678817, %.lr.ph.preheader ]
+  %.21812 = phi i32 [ %.22, %299 ], [ %.1678817, %.lr.ph.preheader ]
   %283 = getelementptr inbounds i8, ptr %.0667814, i64 8
   %284 = load i8, ptr %283, align 8
   %285 = icmp eq i8 %284, 0
@@ -1022,7 +1022,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   br label %299
 
 299:                                              ; preds = %.lr.ph, %286
-  %.23 = phi i32 [ %.21812, %.lr.ph ], [ %spec.select797, %286 ]
+  %.22 = phi i32 [ %.21812, %.lr.ph ], [ %spec.select797, %286 ]
   %300 = getelementptr inbounds i8, ptr %.0667814, i64 %280
   %301 = add i32 %.0669813, -1
   %.not750 = icmp eq i32 %301, 0
@@ -1034,7 +1034,7 @@ define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %270
   %302 = phi ptr [ %49, %270 ], [ %.pre, %._crit_edge.loopexit ]
-  %.21.lcssa = phi i32 [ %.1678817, %270 ], [ %.23, %._crit_edge.loopexit ]
+  %.21.lcssa = phi i32 [ %.1678817, %270 ], [ %.22, %._crit_edge.loopexit ]
   %303 = getelementptr inbounds i8, ptr %50, i64 20
   %304 = load i32, ptr %303, align 4
   %305 = sext i32 %304 to i64
@@ -1166,7 +1166,7 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %47
 
 366:                                              ; preds = %.lr.ph826, %404
   %indvars.iv853 = phi i64 [ 0, %.lr.ph826 ], [ %indvars.iv.next854, %404 ]
-  %.28825 = phi i32 [ %.1678.lcssa874, %.lr.ph826 ], [ %.35, %404 ]
+  %.29825 = phi i32 [ %.1678.lcssa874, %.lr.ph826 ], [ %.36, %404 ]
   %367 = load ptr, ptr %365, align 8
   %368 = getelementptr inbounds %struct._zend_try_catch_element, ptr %367, i64 %indvars.iv853
   %369 = load i32, ptr %368, align 4
@@ -1175,7 +1175,7 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %47
   %372 = load i32, ptr %371, align 4
   %.not735 = icmp eq i32 %372, 0
   %373 = zext i1 %.not735 to i32
-  %spec.select802 = add nsw i32 %.28825, %373
+  %spec.select802 = add nsw i32 %.29825, %373
   %374 = add i32 %372, 1
   store i32 %374, ptr %371, align 4
   %375 = load ptr, ptr %365, align 8
@@ -1236,7 +1236,7 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %47
   br label %404
 
 404:                                              ; preds = %394, %398
-  %.35 = phi i32 [ %spec.select805, %398 ], [ %.33, %394 ]
+  %.36 = phi i32 [ %spec.select805, %398 ], [ %.33, %394 ]
   %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
   %405 = load i32, ptr %362, align 4
   %406 = sext i32 %405 to i64
@@ -1244,9 +1244,9 @@ zend_optimizer_is_loop_var_free.exit:             ; preds = %47
   br i1 %407, label %366, label %.loopexit
 
 .loopexit:                                        ; preds = %404, %._crit_edge820.thread
-  %.36 = phi i32 [ %.1678.lcssa874, %._crit_edge820.thread ], [ %.35, %404 ]
+  %.28 = phi i32 [ %.1678.lcssa874, %._crit_edge820.thread ], [ %.36, %404 ]
   %408 = zext i1 %.0674 to i32
-  %409 = add nsw i32 %.36, %408
+  %409 = add nsw i32 %.28, %408
   store i32 %409, ptr %3, align 8
   %410 = sext i32 %409 to i64
   %411 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %410, i64 64) #10, !srcloc !6
@@ -2449,8 +2449,8 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
 
 .preheader234:                                    ; preds = %.preheader234.lr.ph, %.preheader233._crit_edge
   %.0166257 = phi i32 [ 0, %.preheader234.lr.ph ], [ %98, %.preheader233._crit_edge ]
-  %.sroa.17.1256 = phi i32 [ 1, %.preheader234.lr.ph ], [ %100, %.preheader233._crit_edge ]
-  %42 = sext i32 %.sroa.17.1256 to i64
+  %.sroa.17.0256 = phi i32 [ 1, %.preheader234.lr.ph ], [ %100, %.preheader233._crit_edge ]
+  %42 = sext i32 %.sroa.17.0256 to i64
   br label %43
 
 43:                                               ; preds = %.backedge235, %.preheader234
@@ -2559,11 +2559,11 @@ zend_worklist_push.exit188.thread:                ; preds = %88, %81
   br i1 %exitcond.not, label %.preheader233._crit_edge, label %81
 
 .preheader233._crit_edge:                         ; preds = %.preheader233, %zend_worklist_push.exit188.thread
-  %.sroa.17.2301 = trunc i64 %indvars.iv306 to i32
+  %.sroa.17.1301 = trunc i64 %indvars.iv306 to i32
   %98 = add nsw i32 %.2168, 1
   %99 = getelementptr inbounds i32, ptr %35, i64 %46
   store i32 %.2168, ptr %99, align 4
-  %100 = add nsw i32 %.sroa.17.2301, -1
+  %100 = add nsw i32 %.sroa.17.1301, -1
   %.not = icmp eq i32 %100, 0
   br i1 %.not, label %._crit_edge258, label %.preheader234
 
@@ -2664,7 +2664,7 @@ zend_worklist_push.exit188.thread:                ; preds = %88, %81
   br label %135
 
 .preheader:                                       ; preds = %zend_worklist_push.exit190
-  %.not178285 = icmp eq i32 %.sroa.17.11, 0
+  %.not178285 = icmp eq i32 %.sroa.17.7, 0
   br i1 %.not178285, label %.outer.backedge, label %.lr.ph287
 
 .outer.backedge:                                  ; preds = %.backedge, %.preheader
@@ -2673,7 +2673,7 @@ zend_worklist_push.exit188.thread:                ; preds = %88, %81
 135:                                              ; preds = %.lr.ph277, %zend_worklist_push.exit190
   %.3276 = phi i32 [ 0, %.lr.ph277 ], [ %204, %zend_worklist_push.exit190 ]
   %.1170275 = phi i32 [ %.0169.ph, %.lr.ph277 ], [ %.2171, %zend_worklist_push.exit190 ]
-  %.sroa.17.9274 = phi i32 [ 0, %.lr.ph277 ], [ %.sroa.17.11, %zend_worklist_push.exit190 ]
+  %.sroa.17.6274 = phi i32 [ 0, %.lr.ph277 ], [ %.sroa.17.7, %zend_worklist_push.exit190 ]
   %136 = load ptr, ptr %103, align 8
   %137 = add nsw i32 %.pre320, %.3276
   %138 = sext i32 %137 to i64
@@ -2710,7 +2710,7 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %142
   %158 = or i32 %157, 65536
   store i32 %158, ptr %134, align 8
   %159 = and i32 %.1170275, -9
-  %.not180 = icmp eq i32 %.sroa.17.9274, 0
+  %.not180 = icmp eq i32 %.sroa.17.6274, 0
   br i1 %.not180, label %160, label %166
 
 160:                                              ; preds = %156
@@ -2747,10 +2747,10 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %142
   %183 = load i64, ptr %182, align 8
   %184 = or i64 %183, %179
   store i64 %184, ptr %182, align 8
-  %185 = icmp slt i32 %.sroa.17.9274, %22
+  %185 = icmp slt i32 %.sroa.17.6274, %22
   tail call void @llvm.assume(i1 %185)
-  %186 = add nsw i32 %.sroa.17.9274, 1
-  %187 = sext i32 %.sroa.17.9274 to i64
+  %186 = add nsw i32 %.sroa.17.6274, 1
+  %187 = sext i32 %.sroa.17.6274 to i64
   %188 = getelementptr inbounds i32, ptr %23, i64 %187
   store i32 %140, ptr %188, align 4
   br label %zend_worklist_push.exit190
@@ -2778,15 +2778,15 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %142
   br label %zend_worklist_push.exit190
 
 zend_worklist_push.exit190:                       ; preds = %176, %166, %199, %194, %189, %135
-  %.sroa.17.11 = phi i32 [ %.sroa.17.9274, %135 ], [ %.sroa.17.9274, %199 ], [ %.sroa.17.9274, %194 ], [ %.sroa.17.9274, %189 ], [ %186, %176 ], [ %.sroa.17.9274, %166 ]
+  %.sroa.17.7 = phi i32 [ %.sroa.17.6274, %135 ], [ %.sroa.17.6274, %199 ], [ %.sroa.17.6274, %194 ], [ %.sroa.17.6274, %189 ], [ %186, %176 ], [ %.sroa.17.6274, %166 ]
   %.2171 = phi i32 [ %.1170275, %135 ], [ %203, %199 ], [ %.1170275, %194 ], [ %.1170275, %189 ], [ %159, %176 ], [ %159, %166 ]
   %204 = add nuw nsw i32 %.3276, 1
   %205 = icmp slt i32 %204, %126
   br i1 %205, label %135, label %.preheader
 
 .lr.ph287:                                        ; preds = %.preheader, %.backedge
-  %.sroa.17.12286 = phi i32 [ %.sroa.17.12.be, %.backedge ], [ %.sroa.17.11, %.preheader ]
-  %206 = add nsw i32 %.sroa.17.12286, -1
+  %.sroa.17.8286 = phi i32 [ %.sroa.17.8.be, %.backedge ], [ %.sroa.17.7, %.preheader ]
+  %206 = add nsw i32 %.sroa.17.8286, -1
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %23, i64 %207
   %209 = load i32, ptr %208, align 4
@@ -2829,7 +2829,7 @@ zend_worklist_push.exit190:                       ; preds = %176, %166, %199, %1
 
 229:                                              ; preds = %.lr.ph283, %zend_worklist_push.exit192
   %.0161281 = phi i32 [ 0, %.lr.ph283 ], [ %256, %zend_worklist_push.exit192 ]
-  %.sroa.17.13280 = phi i32 [ %206, %.lr.ph283 ], [ %.sroa.17.14, %zend_worklist_push.exit192 ]
+  %.sroa.17.10280 = phi i32 [ %206, %.lr.ph283 ], [ %.sroa.17.15, %zend_worklist_push.exit192 ]
   %230 = add nsw i32 %.pre322, %.0161281
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i32, ptr %227, i64 %231
@@ -2858,23 +2858,23 @@ zend_worklist_push.exit190:                       ; preds = %176, %166, %199, %1
   %250 = load i64, ptr %249, align 8
   %251 = or i64 %250, %246
   store i64 %251, ptr %249, align 8
-  %252 = icmp slt i32 %.sroa.17.13280, %22
+  %252 = icmp slt i32 %.sroa.17.10280, %22
   tail call void @llvm.assume(i1 %252)
-  %253 = add nsw i32 %.sroa.17.13280, 1
-  %254 = sext i32 %.sroa.17.13280 to i64
+  %253 = add nsw i32 %.sroa.17.10280, 1
+  %254 = sext i32 %.sroa.17.10280 to i64
   %255 = getelementptr inbounds i32, ptr %23, i64 %254
   store i32 %233, ptr %255, align 4
   br label %zend_worklist_push.exit192
 
 zend_worklist_push.exit192:                       ; preds = %229, %243
-  %.sroa.17.14 = phi i32 [ %253, %243 ], [ %.sroa.17.13280, %229 ]
+  %.sroa.17.15 = phi i32 [ %253, %243 ], [ %.sroa.17.10280, %229 ]
   %256 = add nuw nsw i32 %.0161281, 1
   %257 = icmp slt i32 %256, %225
   br i1 %257, label %229, label %.backedge
 
 .backedge:                                        ; preds = %zend_worklist_push.exit192, %216, %223, %218
-  %.sroa.17.12.be = phi i32 [ %206, %218 ], [ %206, %216 ], [ %206, %223 ], [ %.sroa.17.14, %zend_worklist_push.exit192 ]
-  %.not178 = icmp eq i32 %.sroa.17.12.be, 0
+  %.sroa.17.8.be = phi i32 [ %206, %218 ], [ %206, %216 ], [ %206, %223 ], [ %.sroa.17.15, %zend_worklist_push.exit192 ]
+  %.not178 = icmp eq i32 %.sroa.17.8.be, 0
   br i1 %.not178, label %.outer.backedge, label %.lr.ph287
 
 258:                                              ; preds = %116

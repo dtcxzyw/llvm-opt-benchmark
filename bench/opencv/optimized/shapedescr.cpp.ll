@@ -263,7 +263,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
   br label %93
 
 93:                                               ; preds = %115, %.lr.ph.i
-  %.0 = phi float [ %92, %.lr.ph.i ], [ %.1, %115 ]
+  %.1 = phi float [ %92, %.lr.ph.i ], [ %.2, %115 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i, %115 ]
   %94 = phi <2 x float> [ %81, %.lr.ph.i ], [ %116, %115 ]
   %95 = getelementptr inbounds %"class.cv::Point_", ptr %40, i64 %indvars.iv.i
@@ -280,7 +280,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
   %106 = call double @llvm.fmuladd.f64(double %103, double %103, double %105)
   %sqrt.i33.i = call noundef double @llvm.sqrt.f64(double %106)
   %107 = fptrunc double %sqrt.i33.i to float
-  %108 = fcmp ogt float %.0, %107
+  %108 = fcmp ogt float %.1, %107
   br i1 %108, label %115, label %109
 
 109:                                              ; preds = %93
@@ -300,7 +300,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
   br label %115
 
 115:                                              ; preds = %113, %.noexc51, %93
-  %.1 = phi float [ %.0, %93 ], [ %111, %113 ], [ %.0, %.noexc51 ]
+  %.2 = phi float [ %.1, %93 ], [ %111, %113 ], [ %.1, %.noexc51 ]
   %116 = phi <2 x float> [ %94, %93 ], [ %114, %113 ], [ %94, %.noexc51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -337,7 +337,7 @@ _ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit: ; preds = %11
   br label %135
 
 135:                                              ; preds = %159, %.lr.ph.i53
-  %.3 = phi float [ %134, %.lr.ph.i53 ], [ %.4, %159 ]
+  %.4 = phi float [ %134, %.lr.ph.i53 ], [ %.5, %159 ]
   %indvars.iv.i55 = phi i64 [ 2, %.lr.ph.i53 ], [ %indvars.iv.next.i57, %159 ]
   %136 = phi <2 x float> [ %121, %.lr.ph.i53 ], [ %160, %159 ]
   %137 = getelementptr inbounds %"class.cv::Point_.0", ptr %40, i64 %indvars.iv.i55
@@ -356,7 +356,7 @@ _ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit: ; preds = %11
   %150 = call double @llvm.fmuladd.f64(double %147, double %147, double %149)
   %sqrt.i33.i56 = call noundef double @llvm.sqrt.f64(double %150)
   %151 = fptrunc double %sqrt.i33.i56 to float
-  %152 = fcmp ogt float %.3, %151
+  %152 = fcmp ogt float %.4, %151
   br i1 %152, label %159, label %153
 
 153:                                              ; preds = %135
@@ -376,7 +376,7 @@ _ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit: ; preds = %11
   br label %159
 
 159:                                              ; preds = %157, %.noexc59, %135
-  %.4 = phi float [ %.3, %135 ], [ %155, %157 ], [ %.3, %.noexc59 ]
+  %.5 = phi float [ %.4, %135 ], [ %155, %157 ], [ %.4, %.noexc59 ]
   %160 = phi <2 x float> [ %136, %135 ], [ %158, %157 ], [ %136, %.noexc59 ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
@@ -388,13 +388,13 @@ _ZN2cvL22findMinEnclosingCircleINS_6Point_IiEEEEvPKT_iRNS1_IfEERf.exit: ; preds 
   br label %161
 
 161:                                              ; preds = %_ZN2cvL22findMinEnclosingCircleINS_6Point_IiEEEEvPKT_iRNS1_IfEERf.exit, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit
-  %.6 = phi float [ %.1, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit ], [ %.4, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IiEEEEvPKT_iRNS1_IfEERf.exit ]
+  %.0 = phi float [ %.2, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit ], [ %.5, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IiEEEEvPKT_iRNS1_IfEERf.exit ]
   %162 = phi <2 x float> [ %116, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IfEEEEvPKT_iRS2_Rf.exit ], [ %160, %_ZN2cvL22findMinEnclosingCircleINS_6Point_IiEEEEvPKT_iRNS1_IfEERf.exit ]
   store <2 x float> %162, ptr %1, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %161, %60, %47
-  %.sink = phi float [ 0x3F1A36E2E0000000, %47 ], [ %75, %60 ], [ %.6, %161 ]
+  %.sink = phi float [ 0x3F1A36E2E0000000, %47 ], [ %75, %60 ], [ %.0, %161 ]
   store float %.sink, ptr %2, align 4
   br label %163
 
@@ -3994,15 +3994,15 @@ common.resume:                                    ; preds = %59, %31, %70, %56
 
 98:                                               ; preds = %195, %.lr.ph.i
   %99 = phi ptr [ %77, %.lr.ph.i ], [ %196, %195 ]
-  %.0126195.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %195 ]
+  %.0126195.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %195 ]
   %.0127194.i = phi i32 [ %72, %.lr.ph.i ], [ %101, %195 ]
   %100 = phi i1 [ true, %.lr.ph.i ], [ false, %195 ]
-  %.0134193.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2136.i, %195 ]
+  %.0134193.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1135.i, %195 ]
   %.0137192.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %108, %195 ]
   %.0139191.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %109, %195 ]
-  %.0141190.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2143.i, %195 ]
-  %.0144189.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2146.i, %195 ]
-  %.0147188.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2149.i, %195 ]
+  %.0141190.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1142.i, %195 ]
+  %.0144189.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1145.i, %195 ]
+  %.0147188.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1148.i, %195 ]
   %.0151187.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1152.i, %195 ]
   %101 = add nsw i32 %.0127194.i, -1
   %102 = load ptr, ptr %78, align 8
@@ -4146,32 +4146,32 @@ common.resume:                                    ; preds = %59, %31, %70, %56
 
 192:                                              ; preds = %188, %179, %163, %132
   %193 = phi ptr [ %134, %132 ], [ %180, %179 ], [ %99, %163 ], [ %99, %188 ]
-  %.1148.i = phi double [ 0.000000e+00, %132 ], [ %187, %179 ], [ %.0147188.i, %163 ], [ %191, %188 ]
-  %.1145.i = phi double [ %109, %132 ], [ %168, %179 ], [ %.0144189.i, %163 ], [ %.0144189.i, %188 ]
-  %.1142.i = phi double [ %108, %132 ], [ %167, %179 ], [ %.0141190.i, %163 ], [ %.0141190.i, %188 ]
-  %.1135.i = phi double [ 0.000000e+00, %132 ], [ 0.000000e+00, %179 ], [ %.0134193.i, %163 ], [ %.0134193.i, %188 ]
-  %.1.i = phi i32 [ %137, %132 ], [ %184, %179 ], [ %.0126195.i, %163 ], [ %.0126195.i, %188 ]
-  %194 = fadd double %.1148.i, %.1135.i
+  %.2149.i = phi double [ 0.000000e+00, %132 ], [ %187, %179 ], [ %.0147188.i, %163 ], [ %191, %188 ]
+  %.2146.i = phi double [ %109, %132 ], [ %168, %179 ], [ %.0144189.i, %163 ], [ %.0144189.i, %188 ]
+  %.2143.i = phi double [ %108, %132 ], [ %167, %179 ], [ %.0141190.i, %163 ], [ %.0141190.i, %188 ]
+  %.2136.i = phi double [ 0.000000e+00, %132 ], [ 0.000000e+00, %179 ], [ %.0134193.i, %163 ], [ %.0134193.i, %188 ]
+  %.2.i = phi i32 [ %137, %132 ], [ %184, %179 ], [ %.0126195.i, %163 ], [ %.0126195.i, %188 ]
+  %194 = fadd double %.2149.i, %.2136.i
   br label %195
 
 195:                                              ; preds = %192, %107
   %196 = phi ptr [ %193, %192 ], [ %99, %107 ]
   %.1152.i = phi double [ %114, %192 ], [ 0.000000e+00, %107 ]
-  %.2149.i = phi double [ %.1148.i, %192 ], [ %.0147188.i, %107 ]
-  %.2146.i = phi double [ %.1145.i, %192 ], [ %109, %107 ]
-  %.2143.i = phi double [ %.1142.i, %192 ], [ %108, %107 ]
-  %.2136.i = phi double [ %194, %192 ], [ %.0134193.i, %107 ]
-  %.2.i = phi i32 [ %.1.i, %192 ], [ %.0126195.i, %107 ]
+  %.1148.i = phi double [ %.2149.i, %192 ], [ %.0147188.i, %107 ]
+  %.1145.i = phi double [ %.2146.i, %192 ], [ %109, %107 ]
+  %.1142.i = phi double [ %.2143.i, %192 ], [ %108, %107 ]
+  %.1135.i = phi double [ %194, %192 ], [ %.0134193.i, %107 ]
+  %.1.i = phi i32 [ %.2.i, %192 ], [ %.0126195.i, %107 ]
   %197 = icmp ugt i32 %.0127194.i, 1
   br i1 %197, label %98, label %._crit_edge.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %195
   %.pre209.i = load i32, ptr %5, align 4
-  %198 = fneg double %.2143.i
+  %198 = fneg double %.1142.i
   %199 = fmul double %109, %198
-  %200 = call double @llvm.fmuladd.f64(double %108, double %.2146.i, double %199)
-  %201 = fadd double %.2136.i, %200
-  %.not161.i = icmp slt i32 %.2.i, %.pre209.i
+  %200 = call double @llvm.fmuladd.f64(double %108, double %.1145.i, double %199)
+  %201 = fadd double %.1135.i, %200
+  %.not161.i = icmp slt i32 %.1.i, %.pre209.i
   br i1 %.not161.i, label %203, label %202
 
 202:                                              ; preds = %._crit_edge.i
@@ -4181,14 +4181,14 @@ common.resume:                                    ; preds = %59, %31, %70, %56
 203:                                              ; preds = %202, %._crit_edge.i
   %204 = fmul double %201, 5.000000e-01
   %205 = load ptr, ptr %8, align 8
-  %206 = sext i32 %.2.i to i64
+  %206 = sext i32 %.1.i to i64
   %207 = getelementptr inbounds double, ptr %205, i64 %206
   store double %204, ptr %207, align 8
-  %.not162201.i = icmp slt i32 %.2.i, 0
+  %.not162201.i = icmp slt i32 %.1.i, 0
   br i1 %.not162201.i, label %._crit_edge206.i, label %.lr.ph205.preheader.i
 
 .lr.ph205.preheader.i:                            ; preds = %203
-  %208 = add nuw i32 %.2.i, 1
+  %208 = add nuw i32 %.1.i, 1
   %wide.trip.count.i = zext i32 %208 to i64
   br label %.lr.ph205.i
 
@@ -4374,7 +4374,7 @@ define double @cvArcLength(ptr noundef %0, i64 %1, i32 noundef %2) local_unnamed
   br label %66
 
 66:                                               ; preds = %.lr.ph83, %.loopexit
-  %.05282 = phi double [ 0.000000e+00, %.lr.ph83 ], [ %.2, %.loopexit ]
+  %.182 = phi double [ 0.000000e+00, %.lr.ph83 ], [ %.3, %.loopexit ]
   %.05381 = phi i32 [ 0, %.lr.ph83 ], [ %110, %.loopexit ]
   %.05480 = phi i32 [ 0, %.lr.ph83 ], [ %.256, %.loopexit ]
   %67 = load ptr, ptr %54, align 8
@@ -4448,11 +4448,11 @@ define double @cvArcLength(ptr noundef %0, i64 %1, i32 noundef %2) local_unnamed
 
 104:                                              ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ %103, %.lr.ph ], [ %indvars.iv.next, %104 ]
-  %.178 = phi double [ %.05282, %.lr.ph ], [ %107, %104 ]
+  %.278 = phi double [ %.182, %.lr.ph ], [ %107, %104 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %105 = load float, ptr %gep, align 4
   %106 = fpext float %105 to double
-  %107 = fadd double %.178, %106
+  %107 = fadd double %.278, %106
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %108 = trunc nuw i64 %indvars.iv to i32
   %109 = icmp sgt i32 %108, 1
@@ -4460,14 +4460,14 @@ define double @cvArcLength(ptr noundef %0, i64 %1, i32 noundef %2) local_unnamed
 
 .loopexit:                                        ; preds = %104, %100, %89
   %.256 = phi i32 [ %97, %89 ], [ %97, %100 ], [ 0, %104 ]
-  %.2 = phi double [ %.05282, %89 ], [ %.05282, %100 ], [ %107, %104 ]
+  %.3 = phi double [ %.182, %89 ], [ %.182, %100 ], [ %107, %104 ]
   %110 = add nuw nsw i32 %.05381, 1
   %exitcond.not = icmp eq i32 %110, %53
   br i1 %exitcond.not, label %.loopexit76, label %66, !llvm.loop !52
 
 .loopexit76:                                      ; preds = %.loopexit, %61, %40
-  %.3 = phi double [ 0.000000e+00, %40 ], [ 0.000000e+00, %61 ], [ %.2, %.loopexit ]
-  ret double %.3
+  %.052 = phi double [ 0.000000e+00, %40 ], [ 0.000000e+00, %61 ], [ %.3, %.loopexit ]
+  ret double %.052
 }
 
 declare void @cvStartReadSeq(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -4869,20 +4869,20 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
 
 _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit: ; preds = %104, %122, %125, %128
   %.063 = phi float [ %152, %128 ], [ %116, %125 ], [ %116, %122 ], [ %116, %104 ]
-  %.sroa.048.2 = phi <2 x float> [ %145, %128 ], [ %127, %125 ], [ %124, %122 ], [ %51, %104 ]
+  %.sroa.048.4 = phi <2 x float> [ %145, %128 ], [ %127, %125 ], [ %124, %122 ], [ %51, %104 ]
   %153 = fcmp ogt float %.063, 0.000000e+00
   br i1 %153, label %154, label %157
 
 154:                                              ; preds = %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit
-  %155 = extractelement <2 x float> %.sroa.048.2, i64 0
-  %156 = extractelement <2 x float> %.sroa.048.2, i64 1
+  %155 = extractelement <2 x float> %.sroa.048.4, i64 0
+  %156 = extractelement <2 x float> %.sroa.048.4, i64 1
   br label %157
 
 157:                                              ; preds = %154, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit, %81
   %.1 = phi float [ %.062, %81 ], [ %.063, %154 ], [ %.062, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %158 = phi float [ %82, %81 ], [ %156, %154 ], [ %82, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %159 = phi float [ %83, %81 ], [ %155, %154 ], [ %83, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
-  %160 = phi <2 x float> [ %84, %81 ], [ %.sroa.048.2, %154 ], [ %84, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
+  %160 = phi <2 x float> [ %84, %81 ], [ %.sroa.048.4, %154 ], [ %84, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv
   br i1 %exitcond.not.i, label %_ZN2cvL14findThirdPointINS_6Point_IfEEEEvPKT_iiRS2_Rf.exit, label %81, !llvm.loop !56
@@ -5018,7 +5018,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   br label %96
 
 96:                                               ; preds = %170, %52
-  %.sroa.0.1 = phi <2 x float> [ %57, %52 ], [ %.sroa.0.2, %170 ]
+  %.sroa.0.2 = phi <2 x float> [ %57, %52 ], [ %.sroa.0.3, %170 ]
   %.050 = phi float [ %70, %52 ], [ %.1, %170 ]
   %indvars.iv.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i, %170 ]
   %97 = phi <2 x float> [ %57, %52 ], [ %171, %170 ]
@@ -5115,7 +5115,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i
 
 _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i: ; preds = %119, %143, %140, %137
-  %.sroa.0.1.i = phi <2 x float> [ %160, %143 ], [ %142, %140 ], [ %139, %137 ], [ %83, %119 ]
+  %.sroa.0.2.i = phi <2 x float> [ %160, %143 ], [ %142, %140 ], [ %139, %137 ], [ %83, %119 ]
   %.061.i = phi float [ %167, %143 ], [ %131, %140 ], [ %131, %137 ], [ %131, %119 ]
   %168 = fcmp ogt float %.061.i, 0.000000e+00
   br i1 %168, label %169, label %170
@@ -5124,9 +5124,9 @@ _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i: ; preds = %119, %143, %140
   br label %170
 
 170:                                              ; preds = %169, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i, %96
-  %.sroa.0.2 = phi <2 x float> [ %.sroa.0.1, %96 ], [ %.sroa.0.1.i, %169 ], [ %.sroa.0.1, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i ]
+  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.2, %96 ], [ %.sroa.0.2.i, %169 ], [ %.sroa.0.2, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i ]
   %.1 = phi float [ %.050, %96 ], [ %.061.i, %169 ], [ %.050, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i ]
-  %171 = phi <2 x float> [ %97, %96 ], [ %.sroa.0.1.i, %169 ], [ %97, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i ]
+  %171 = phi <2 x float> [ %97, %96 ], [ %.sroa.0.2.i, %169 ], [ %97, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv
   br i1 %exitcond.not.i, label %_ZN2cvL14findThirdPointINS_6Point_IiEEEEvPKT_iiRNS1_IfEERf.exit, label %96, !llvm.loop !58
@@ -5137,11 +5137,11 @@ _ZN2cvL14findThirdPointINS_6Point_IiEEEEvPKT_iiRNS1_IfEERf.exit: ; preds = %170
 
 173:                                              ; preds = %_ZN2cvL14findThirdPointINS_6Point_IiEEEEvPKT_iiRNS1_IfEERf.exit
   store float %.1, ptr %3, align 4
-  store <2 x float> %.sroa.0.2, ptr %2, align 4
+  store <2 x float> %.sroa.0.3, ptr %2, align 4
   br label %174
 
 174:                                              ; preds = %173, %_ZN2cvL14findThirdPointINS_6Point_IiEEEEvPKT_iiRNS1_IfEERf.exit, %.lr.ph
-  %175 = phi <2 x float> [ %.sroa.0.2, %173 ], [ %37, %_ZN2cvL14findThirdPointINS_6Point_IiEEEEvPKT_iiRNS1_IfEERf.exit ], [ %37, %.lr.ph ]
+  %175 = phi <2 x float> [ %.sroa.0.3, %173 ], [ %37, %_ZN2cvL14findThirdPointINS_6Point_IiEEEEvPKT_iiRNS1_IfEERf.exit ], [ %37, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59

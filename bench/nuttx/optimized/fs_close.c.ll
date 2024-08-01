@@ -27,14 +27,14 @@ define i32 @file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %10, %7, %4
-  %.0 = phi i32 [ %11, %10 ], [ 0, %7 ], [ 0, %4 ]
+  %.1 = phi i32 [ %11, %10 ], [ 0, %7 ], [ 0, %4 ]
   tail call void @inode_release(ptr noundef nonnull %3) #3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %13
 
 13:                                               ; preds = %12, %1
-  %.1 = phi i32 [ %.0, %12 ], [ 0, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %12 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 declare void @inode_release(ptr noundef) local_unnamed_addr #1

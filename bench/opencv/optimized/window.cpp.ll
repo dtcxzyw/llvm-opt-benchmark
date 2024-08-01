@@ -5137,7 +5137,7 @@ _ZN2cv4implL13getWindowsMapB5cxx11Ev.exit93:      ; preds = %301, %304, %306
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv15highgui_backend12UIWindowBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RS6_INS8_10UITrackbarEEEEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit95 unwind label %269
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv15highgui_backend12UIWindowBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RS6_INS8_10UITrackbarEEEEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit95: ; preds = %313, %295, %272
-  %.1 = phi i32 [ 0, %272 ], [ 0, %295 ], [ 1, %313 ]
+  %.2 = phi i32 [ 0, %272 ], [ 0, %295 ], [ 1, %313 ]
   %315 = getelementptr inbounds i8, ptr %15, i64 8
   %316 = load ptr, ptr %315, align 8
   %.not.i.i.i96 = icmp eq ptr %316, null
@@ -5202,7 +5202,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2c
 _ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split.sink.split: ; preds = %317, %233
   %.sink134 = phi ptr [ %234, %233 ], [ %318, %317 ]
   %.sink133 = phi ptr [ %232, %233 ], [ %316, %317 ]
-  %.2.ph.ph = phi i32 [ %.0, %233 ], [ %.1, %317 ]
+  %.1.ph.ph = phi i32 [ %.0, %233 ], [ %.2, %317 ]
   store i32 0, ptr %.sink134, align 8
   %344 = getelementptr inbounds i8, ptr %.sink133, i64 12
   store i32 0, ptr %344, align 4
@@ -5214,7 +5214,7 @@ _ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split.sink
 
 _ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split.sink.split, %341, %257
   %.sink127 = phi ptr [ %232, %257 ], [ %316, %341 ], [ %.sink133, %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split.sink.split ]
-  %.2.ph = phi i32 [ %.0, %257 ], [ %.1, %341 ], [ %.2.ph.ph, %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split.sink.split ]
+  %.1.ph = phi i32 [ %.0, %257 ], [ %.2, %341 ], [ %.1.ph.ph, %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split.sink.split ]
   %348 = load ptr, ptr %.sink127, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 24
   %350 = load ptr, ptr %349, align 8
@@ -5222,7 +5222,7 @@ _ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split: ; p
   br label %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split, %341, %328, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv15highgui_backend12UIWindowBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RS6_INS8_10UITrackbarEEEEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit95, %257, %244, %_ZNSt10shared_ptrIN2cv15highgui_backend10UITrackbarEED2Ev.exit, %68
-  %.2 = phi i32 [ undef, %68 ], [ %.0, %_ZNSt10shared_ptrIN2cv15highgui_backend10UITrackbarEED2Ev.exit ], [ %.0, %244 ], [ %.0, %257 ], [ %.1, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv15highgui_backend12UIWindowBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RS6_INS8_10UITrackbarEEEEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit95 ], [ %.1, %328 ], [ %.1, %341 ], [ %.2.ph, %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split ]
+  %.1 = phi i32 [ undef, %68 ], [ %.0, %_ZNSt10shared_ptrIN2cv15highgui_backend10UITrackbarEED2Ev.exit ], [ %.0, %244 ], [ %.0, %257 ], [ %.2, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN2cv15highgui_backend12UIWindowBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRSE_RS6_INS8_10UITrackbarEEEEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_.exit95 ], [ %.2, %328 ], [ %.2, %341 ], [ %.1.ph, %_ZNSt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEED2Ev.exit.sink.split ]
   %351 = getelementptr inbounds i8, ptr %10, i64 8
   %352 = load ptr, ptr %351, align 8
   %.not.i.i.i103 = icmp eq ptr %352, null
@@ -5317,7 +5317,7 @@ _ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit: ; preds = %_ZNSt10s
   br label %.body
 
 395:                                              ; preds = %388, %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit
-  %.3 = phi i32 [ %.2, %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit ], [ %391, %388 ]
+  %.3 = phi i32 [ %.1, %_ZNSt10shared_ptrIN2cv15highgui_backend8UIWindowEED2Ev.exit ], [ %391, %388 ]
   %396 = getelementptr inbounds i8, ptr %7, i64 8
   %397 = load i32, ptr %396, align 8
   %.not.i109 = icmp eq i32 %397, 0

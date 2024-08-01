@@ -1339,7 +1339,7 @@ pmix_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i477, %571
 
 .loopexit:                                        ; preds = %630, %614, %620
   %.0294575 = phi ptr [ %.0294601, %620 ], [ %.0294599, %614 ], [ %.0294, %630 ]
-  %.0310 = phi i8 [ 1, %620 ], [ 0, %614 ], [ 0, %630 ]
+  %.1311 = phi i8 [ 1, %620 ], [ 0, %614 ], [ 0, %630 ]
   %632 = getelementptr inbounds i8, ptr %.0294575, i64 144
   %633 = load i32, ptr %632, align 8
   %634 = icmp slt i32 %633, 0
@@ -1354,18 +1354,18 @@ pmix_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i477, %571
   %641 = getelementptr inbounds ptr, ptr %639, i64 %640
   %642 = load ptr, ptr %641, align 8
   %643 = icmp eq ptr %642, null
-  %spec.select = select i1 %643, i8 0, i8 %.0310
+  %spec.select = select i1 %643, i8 0, i8 %.1311
   %644 = trunc nuw i8 %spec.select to i1
   br i1 %644, label %.thread552, label %.thread556
 
 .thread552:                                       ; preds = %609, %638
-  %.1311555 = phi i8 [ %spec.select, %638 ], [ 1, %609 ]
+  %.2312555 = phi i8 [ %spec.select, %638 ], [ 1, %609 ]
   %645 = trunc nuw i8 %.0306.lcssa to i1
   br i1 %645, label %pmix_obj_run_destructors.exit415, label %.thread556
 
 .thread556:                                       ; preds = %.loopexit, %606, %.thread552, %638
   %646 = phi i1 [ true, %.thread552 ], [ false, %638 ], [ false, %606 ], [ false, %.loopexit ]
-  %.1311554 = phi i8 [ %.1311555, %.thread552 ], [ %spec.select, %638 ], [ 0, %606 ], [ 0, %.loopexit ]
+  %.2312554 = phi i8 [ %.2312555, %.thread552 ], [ %spec.select, %638 ], [ 0, %606 ], [ 0, %.loopexit ]
   %647 = trunc nuw i8 %.0306.lcssa to i1
   %648 = load ptr, ptr %7, align 8
   br i1 %647, label %649, label %651
@@ -1733,7 +1733,7 @@ pmix_obj_run_destructors.exit515:                 ; preds = %.lr.ph.i512, %791
   br label %827
 
 827:                                              ; preds = %818, %820, %825, %753, %649, %650, %532
-  %.2312 = phi i8 [ 0, %532 ], [ %.1311554, %650 ], [ %.1311554, %649 ], [ %.1311554, %753 ], [ %.1311554, %825 ], [ %.1311554, %820 ], [ %.1311554, %818 ]
+  %.0310 = phi i8 [ 0, %532 ], [ %.2312554, %650 ], [ %.2312554, %649 ], [ %.2312554, %753 ], [ %.2312554, %825 ], [ %.2312554, %820 ], [ %.2312554, %818 ]
   %828 = load i32, ptr %5, align 4
   %829 = load ptr, ptr %7, align 8
   %830 = trunc nuw i8 %.0308.lcssa to i1
@@ -1747,7 +1747,7 @@ pmix_obj_run_destructors.exit515:                 ; preds = %.lr.ph.i512, %791
   br label %pmix_obj_run_destructors.exit415
 
 833:                                              ; preds = %827
-  %834 = trunc nuw i8 %.2312 to i1
+  %834 = trunc nuw i8 %.0310 to i1
   br i1 %834, label %pmix_obj_run_destructors.exit415, label %835
 
 835:                                              ; preds = %833
@@ -3387,20 +3387,20 @@ pmix_obj_run_constructors.exit143:                ; preds = %.lr.ph.i140, %152
   br label %220
 
 220:                                              ; preds = %217, %184
-  %.3 = phi i32 [ %186, %184 ], [ %219, %217 ]
-  switch i32 %.3, label %.thread234 [
+  %.2 = phi i32 [ %186, %184 ], [ %219, %217 ]
+  switch i32 %.2, label %.thread234 [
     i32 0, label %.thread238
     i32 -2, label %222
   ]
 
 .thread234:                                       ; preds = %197, %.thread220, %220
-  %.3236 = phi i32 [ %.3, %220 ], [ -47, %.thread220 ], [ -47, %197 ]
-  %221 = call ptr @PMIx_Error_string(i32 noundef %.3236) #13
+  %.2236 = phi i32 [ %.2, %220 ], [ -47, %.thread220 ], [ -47, %197 ]
+  %221 = call ptr @PMIx_Error_string(i32 noundef %.2236) #13
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %221, ptr noundef nonnull @.str.3, i32 noundef 910) #13
   br label %222
 
 222:                                              ; preds = %220, %.thread234
-  %.3237 = phi i32 [ %.3, %220 ], [ %.3236, %.thread234 ]
+  %.2237 = phi i32 [ %.2, %220 ], [ %.2236, %.thread234 ]
   %223 = load ptr, ptr %153, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 48
   %225 = load ptr, ptr %224, align 8
@@ -3867,7 +3867,7 @@ pmix_obj_run_destructors.exit213:                 ; preds = %.lr.ph.i210, %pmix_
   br i1 %.not.i217, label %pmix_obj_run_destructors.exit, label %.lr.ph.i215, !llvm.loop !9
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i131, %.lr.ph.i200, %.lr.ph.i215, %.lr.ph.i185, %.lr.ph.i170, %.lr.ph.i155, %443, %pmix_obj_run_destructors.exit198, %pmix_obj_run_destructors.exit183, %pmix_obj_run_destructors.exit168, %pmix_obj_run_destructors.exit153, %46, %pmix_obj_run_destructors.exit213
-  %.094 = phi i32 [ -46, %pmix_obj_run_destructors.exit213 ], [ %45, %46 ], [ %.3237, %pmix_obj_run_destructors.exit153 ], [ %.4225, %pmix_obj_run_destructors.exit168 ], [ %.5229, %pmix_obj_run_destructors.exit183 ], [ %.6233, %pmix_obj_run_destructors.exit198 ], [ %.7, %443 ], [ %.3237, %.lr.ph.i155 ], [ %.4225, %.lr.ph.i170 ], [ %.5229, %.lr.ph.i185 ], [ %.7, %.lr.ph.i215 ], [ %.6233, %.lr.ph.i200 ], [ %45, %.lr.ph.i131 ]
+  %.094 = phi i32 [ -46, %pmix_obj_run_destructors.exit213 ], [ %45, %46 ], [ %.2237, %pmix_obj_run_destructors.exit153 ], [ %.4225, %pmix_obj_run_destructors.exit168 ], [ %.5229, %pmix_obj_run_destructors.exit183 ], [ %.6233, %pmix_obj_run_destructors.exit198 ], [ %.7, %443 ], [ %.2237, %.lr.ph.i155 ], [ %.4225, %.lr.ph.i170 ], [ %.5229, %.lr.ph.i185 ], [ %.7, %.lr.ph.i215 ], [ %.6233, %.lr.ph.i200 ], [ %45, %.lr.ph.i131 ]
   ret i32 %.094
 }
 
@@ -5654,21 +5654,21 @@ pmix_obj_new_tma.exit275:                         ; preds = %.lr.ph.i.i272, %341
   br label %446
 
 446:                                              ; preds = %441, %415
-  %.6 = phi i32 [ %419, %415 ], [ %445, %441 ]
-  switch i32 %.6, label %.thread442 [
+  %.5 = phi i32 [ %419, %415 ], [ %445, %441 ]
+  switch i32 %.5, label %.thread442 [
     i32 0, label %.thread446
     i32 -2, label %.loopexit326
   ]
 
 .thread442:                                       ; preds = %421, %395, %446
-  %.6444 = phi i32 [ %.6, %446 ], [ -47, %395 ], [ -47, %421 ]
-  %447 = call ptr @PMIx_Error_string(i32 noundef %.6444) #13
+  %.5444 = phi i32 [ %.5, %446 ], [ -47, %395 ], [ -47, %421 ]
+  %447 = call ptr @PMIx_Error_string(i32 noundef %.5444) #13
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %447, ptr noundef nonnull @.str.3, i32 noundef 1218) #13
   br label %.loopexit326
 
 .loopexit326:                                     ; preds = %446, %.thread442
-  %.6388 = phi i32 [ %.6444, %.thread442 ], [ %.6, %446 ]
-  store i32 %.6388, ptr %61, align 4
+  %.5388 = phi i32 [ %.5444, %.thread442 ], [ %.5, %446 ]
+  store i32 %.5388, ptr %61, align 4
   br label %pmix_obj_run_destructors.exit
 
 .thread446:                                       ; preds = %425, %399, %446

@@ -1518,18 +1518,18 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br label %293
 
 293:                                              ; preds = %291, %289
-  %.1.i = phi ptr [ %292, %291 ], [ %0, %289 ]
+  %.2.i = phi ptr [ %292, %291 ], [ %0, %289 ]
   %294 = load ptr, ptr @atm_type_aal2_table, align 8
   %295 = getelementptr inbounds i8, ptr %4, i64 5
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
-  %298 = tail call i32 @dissector_try_uint(ptr noundef %294, i32 noundef %297, ptr noundef %.1.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %298 = tail call i32 @dissector_try_uint(ptr noundef %294, i32 noundef %297, ptr noundef %.2.i, ptr noundef nonnull %1, ptr noundef %2) #10
   %.not191.i = icmp eq i32 %298, 0
   br i1 %.not191.i, label %.thread202.i, label %dissect_reassembled_pdu.exit
 
 .thread202.i:                                     ; preds = %293, %275, %270, %211, %202, %196, %194
-  %.2205.i = phi ptr [ %.1.i, %293 ], [ %.0.i, %194 ], [ %.0.i, %275 ], [ %.0.i, %202 ], [ %.0.i, %211 ], [ %.0.i, %196 ], [ %.0.i, %270 ]
-  %299 = call i32 @call_data_dissector(ptr noundef %.2205.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %.1205.i = phi ptr [ %.2.i, %293 ], [ %.0.i, %194 ], [ %.0.i, %275 ], [ %.0.i, %202 ], [ %.0.i, %211 ], [ %.0.i, %196 ], [ %.0.i, %270 ]
+  %299 = call i32 @call_data_dissector(ptr noundef %.1205.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 dissect_reassembled_pdu.exit:                     ; preds = %183, %199, %205, %224, %229, %238, %253, %267, %272, %293, %.thread202.i

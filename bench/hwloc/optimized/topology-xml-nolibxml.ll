@@ -397,14 +397,14 @@ hwloc__nolibxml_import_find_child.exit:           ; preds = %67, %71
   br i1 %76, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %79
-  %.04059 = phi ptr [ %81, %79 ], [ null, %.preheader ]
+  %.159 = phi ptr [ %81, %79 ], [ null, %.preheader ]
   %77 = load ptr, ptr %10, align 8
   %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(8) @.str.45) #23
   %.not50 = icmp eq i32 %78, 0
   br i1 %.not50, label %79, label %hwloc__nolibxml_import_find_child.exit.thread
 
 79:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef %.04059) #20
+  tail call void @free(ptr noundef %.159) #20
   %80 = load ptr, ptr %11, align 8
   %81 = tail call noalias ptr @strdup(ptr noundef %80) #20
   %82 = call i32 @hwloc__nolibxml_import_next_attr(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11)
@@ -412,7 +412,7 @@ hwloc__nolibxml_import_find_child.exit:           ; preds = %67, %71
   br i1 %83, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %79, %.preheader
-  %.040.lcssa = phi ptr [ null, %.preheader ], [ %81, %79 ]
+  %.1.lcssa = phi ptr [ null, %.preheader ], [ %81, %79 ]
   %84 = call i32 @hwloc__xml_import_diff(ptr noundef nonnull %7, ptr noundef %4) #20
   %85 = icmp eq ptr %5, null
   %86 = icmp ne i32 %84, 0
@@ -420,11 +420,11 @@ hwloc__nolibxml_import_find_child.exit:           ; preds = %67, %71
   br i1 %or.cond, label %88, label %87
 
 87:                                               ; preds = %._crit_edge
-  store ptr %.040.lcssa, ptr %5, align 8
+  store ptr %.1.lcssa, ptr %5, align 8
   br label %89
 
 88:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef %.040.lcssa) #20
+  call void @free(ptr noundef %.1.lcssa) #20
   br label %89
 
 89:                                               ; preds = %88, %87
@@ -432,9 +432,9 @@ hwloc__nolibxml_import_find_child.exit:           ; preds = %67, %71
   br label %90
 
 hwloc__nolibxml_import_find_child.exit.thread:    ; preds = %.critedge, %.lr.ph, %52, %67, %56, %30, %hwloc__nolibxml_import_find_child.exit
-  %.1 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ null, %30 ], [ null, %56 ], [ null, %67 ], [ null, %52 ], [ %.04059, %.lr.ph ], [ null, %.critedge ]
+  %.040 = phi ptr [ null, %hwloc__nolibxml_import_find_child.exit ], [ null, %30 ], [ null, %56 ], [ null, %67 ], [ null, %52 ], [ %.159, %.lr.ph ], [ null, %.critedge ]
   tail call void @free(ptr noundef %23) #20
-  tail call void @free(ptr noundef %.1) #20
+  tail call void @free(ptr noundef %.040) #20
   br label %90
 
 90:                                               ; preds = %hwloc__nolibxml_import_find_child.exit.thread, %13, %19, %89

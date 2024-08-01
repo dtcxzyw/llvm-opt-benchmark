@@ -1975,13 +1975,13 @@ lpad:                                             ; preds = %for.body.i
   resume { ptr, i32 } %11
 
 cleanup:                                          ; preds = %invoke.cont, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %retval.0 = phi i1 [ true, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %cmp8.not, %invoke.cont ]
+  %retval.1 = phi i1 [ true, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %cmp8.not, %invoke.cont ]
   %call1.i.i.i21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %sizeClassBalanceMutex_) #23
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %if.end.i ], [ false, %if.then2.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %if.end.i ], [ false, %if.then2.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2205,7 +2205,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %10 = phi ptr [ %9, %for.body12.lr.ph ], [ %35, %for.inc67 ]
   %11 = phi ptr [ %8, %for.body12.lr.ph ], [ %36, %for.inc67 ]
   %indvars.iv96 = phi i64 [ %indvars.iv, %for.body12.lr.ph ], [ %indvars.iv.next97, %for.inc67 ]
-  %numFreed.086 = phi i64 [ 0, %for.body12.lr.ph ], [ %numFreed.3, %for.inc67 ]
+  %numFreed.086 = phi i64 [ 0, %for.body12.lr.ph ], [ %numFreed.1, %for.inc67 ]
   %add.ptr.i.i31 = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %10, i64 %indvars.iv96
   %retval.sroa.0.0.copyload.i32 = load i64, ptr %add.ptr.i.i31, align 8
   %and.i33 = and i64 %retval.sroa.0.0.copyload.i32, 281474976710655
@@ -2256,7 +2256,7 @@ for.body31.preheader:                             ; preds = %if.end23
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.inc64
   %indvars.iv92 = phi i64 [ %17, %for.body31.preheader ], [ %indvars.iv.next93, %for.inc64 ]
-  %numFreed.178 = phi i64 [ %numFreed.086, %for.body31.preheader ], [ %numFreed.2, %for.inc64 ]
+  %numFreed.278 = phi i64 [ %numFreed.086, %for.body31.preheader ], [ %numFreed.3, %for.inc64 ]
   %19 = load ptr, ptr %pageAllocated_, align 8
   %div2.i = lshr i64 %indvars.iv92, 6
   %arrayidx.i = getelementptr inbounds i64, ptr %19, i64 %div2.i
@@ -2352,11 +2352,11 @@ if.end58:                                         ; preds = %if.end51.if.end58_c
   %and3.i = and i8 %33, %32
   store i8 %and3.i, ptr %arrayidx2.i, align 1
   %34 = load i64, ptr %unitSize_.i, align 8
-  %add63 = add i64 %34, %numFreed.178
+  %add63 = add i64 %34, %numFreed.278
   br label %for.inc64
 
 for.inc64:                                        ; preds = %if.end58, %invoke.cont49
-  %numFreed.2 = phi i64 [ %add63, %if.end58 ], [ %numFreed.178, %invoke.cont49 ]
+  %numFreed.3 = phi i64 [ %add63, %if.end58 ], [ %numFreed.278, %invoke.cont49 ]
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
   %cmp30 = icmp slt i64 %indvars.iv.next93, %18
   br i1 %cmp30, label %for.body31, label %for.inc67.loopexit, !llvm.loop !35
@@ -2369,7 +2369,7 @@ for.inc67.loopexit:                               ; preds = %for.inc64
 for.inc67:                                        ; preds = %for.inc67.loopexit, %if.end23, %for.body12
   %35 = phi ptr [ %10, %for.body12 ], [ %10, %if.end23 ], [ %.pre100, %for.inc67.loopexit ]
   %36 = phi ptr [ %11, %for.body12 ], [ %11, %if.end23 ], [ %.pre99, %for.inc67.loopexit ]
-  %numFreed.3 = phi i64 [ %numFreed.086, %for.body12 ], [ %numFreed.086, %if.end23 ], [ %numFreed.2, %for.inc67.loopexit ]
+  %numFreed.1 = phi i64 [ %numFreed.086, %for.body12 ], [ %numFreed.086, %if.end23 ], [ %numFreed.3, %for.inc67.loopexit ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %35 to i64
@@ -2380,7 +2380,7 @@ for.inc67:                                        ; preds = %for.inc67.loopexit,
   br i1 %cmp11, label %for.body12, label %for.end69, !llvm.loop !36
 
 for.end69:                                        ; preds = %for.inc67, %for.cond9.preheader
-  %numFreed.0.lcssa = phi i64 [ 0, %for.cond9.preheader ], [ %numFreed.3, %for.inc67 ]
+  %numFreed.0.lcssa = phi i64 [ 0, %for.cond9.preheader ], [ %numFreed.1, %for.inc67 ]
   %call1.i.i.i61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #23
   br label %return
 
@@ -3927,7 +3927,7 @@ _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %if.end44, %invoke
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt8functionIFvlbEED2Ev.exit, %_ZN8facebook5velox6memory10Allocation5clearEv.exit
-  %retval.0 = phi ptr [ %18, %_ZN8facebook5velox6memory10Allocation5clearEv.exit ], [ null, %_ZNSt8functionIFvlbEED2Ev.exit ]
+  %retval.1 = phi ptr [ %18, %_ZN8facebook5velox6memory10Allocation5clearEv.exit ], [ null, %_ZNSt8functionIFvlbEED2Ev.exit ]
   call void @_ZN8facebook5velox6memory10AllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %allocation) #23
   br label %return
 
@@ -3998,7 +3998,7 @@ if.end63:                                         ; preds = %_ZNSt8functionIFvlb
           to label %cleanup67 unwind label %lpad51
 
 cleanup67:                                        ; preds = %if.end63, %_ZNSt8functionIFvlbEED2Ev.exit41
-  %retval.1 = phi ptr [ null, %_ZNSt8functionIFvlbEED2Ev.exit41 ], [ %28, %if.end63 ]
+  %retval.2 = phi ptr [ null, %_ZNSt8functionIFvlbEED2Ev.exit41 ], [ %28, %if.end63 ]
   call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %allocation49) #23
   br label %return
 
@@ -4008,8 +4008,8 @@ ehcleanup68:                                      ; preds = %if.then.i.i44, %lpa
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont19, %seqcst.i, %cleanup67, %cleanup
-  %retval.2 = phi ptr [ %retval.0, %cleanup ], [ %retval.1, %cleanup67 ], [ %cond, %seqcst.i ], [ null, %invoke.cont19 ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %retval.2, %cleanup67 ], [ %cond, %seqcst.i ], [ null, %invoke.cont19 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup68, %ehcleanup, %lpad
   %.pn22 = phi { ptr, i32 } [ %2, %lpad ], [ %.pn20, %ehcleanup ], [ %.pn, %ehcleanup68 ]
@@ -5251,7 +5251,7 @@ for.body.preheader:                               ; preds = %for.cond
 for.body:                                         ; preds = %for.body.preheader, %for.inc55
   %indvars.iv61 = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next62, %for.inc55 ]
   %anyFound.050 = phi i1 [ false, %for.body.preheader ], [ %anyFound.1, %for.inc55 ]
-  %needed.148 = phi i32 [ %needed.0, %for.body.preheader ], [ %needed.6, %for.inc55 ]
+  %needed.148 = phi i32 [ %needed.0, %for.body.preheader ], [ %needed.2, %for.inc55 ]
   %1 = load ptr, ptr %pageAllocated_.i, align 8
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv61
   %2 = load <4 x i64>, ptr %add.ptr.i, align 1
@@ -5281,7 +5281,7 @@ if.end:                                           ; preds = %for.body
 
 for.body.i.i:                                     ; preds = %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %10, %if.end ]
-  %needed.2 = phi i32 [ %needed.4, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %needed.148, %if.end ]
+  %needed.3 = phi i32 [ %needed.5, %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i" ], [ %needed.148, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %11 = lshr exact i64 %indvars.iv, 3
   %arrayidx.i66.i.i = getelementptr inbounds i8, ptr %bits, i64 %11
@@ -5290,9 +5290,9 @@ for.body.i.i:                                     ; preds = %"_ZZN8facebook5velo
   br i1 %tobool4.not.i68.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i
 
 while.body.i72.i.i:                               ; preds = %for.body.i.i, %if.end7.i75.i.i
-  %needed.3 = phi i32 [ %dec.i.i94.i.i, %if.end7.i75.i.i ], [ %needed.2, %for.body.i.i ]
+  %needed.4 = phi i32 [ %dec.i.i94.i.i, %if.end7.i75.i.i ], [ %needed.3, %for.body.i.i ]
   %word.07.i73.i.i = phi i64 [ %and.i96.i.i, %if.end7.i75.i.i ], [ %12, %for.body.i.i ]
-  %tobool.not.i.not.not.i74.i.i = icmp eq i32 %needed.3, 0
+  %tobool.not.i.not.not.i74.i.i = icmp eq i32 %needed.4, 0
   br i1 %tobool.not.i.not.not.i74.i.i, label %return, label %if.end7.i75.i.i
 
 if.end7.i75.i.i:                                  ; preds = %while.body.i72.i.i
@@ -5318,19 +5318,19 @@ if.end7.i75.i.i:                                  ; preds = %while.body.i72.i.i
   %add.ptr.i.i92.i.i = getelementptr inbounds i8, ptr %16, i64 %mul.i.i.i91.i.i
   %conv5.i.i93.i.i = trunc i64 %17 to i32
   tail call void @_ZN8facebook5velox6memory10Allocation6appendEPhi(ptr noundef nonnull align 8 dereferenceable(36) %allocation, ptr noundef %add.ptr.i.i92.i.i, i32 noundef %conv5.i.i93.i.i)
-  %dec.i.i94.i.i = add nsw i32 %needed.3, -1
+  %dec.i.i94.i.i = add nsw i32 %needed.4, -1
   %sub.i95.i.i = add i64 %word.07.i73.i.i, -1
   %and.i96.i.i = and i64 %sub.i95.i.i, %word.07.i73.i.i
   %tobool5.not.i97.i.i = icmp eq i64 %and.i96.i.i, 0
   br i1 %tobool5.not.i97.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i, !llvm.loop !59
 
 "_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i": ; preds = %if.end7.i75.i.i, %for.body.i.i
-  %needed.4 = phi i32 [ %needed.2, %for.body.i.i ], [ %dec.i.i94.i.i, %if.end7.i75.i.i ]
+  %needed.5 = phi i32 [ %needed.3, %for.body.i.i ], [ %dec.i.i94.i.i, %if.end7.i75.i.i ]
   %cmp19.i.i = icmp ult i64 %indvars.iv, 129
   br i1 %cmp19.i.i, label %for.body.i.i, label %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit", !llvm.loop !60
 
 "_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit": ; preds = %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i"
-  %cmp31 = icmp eq i32 %needed.4, 0
+  %cmp31 = icmp eq i32 %needed.5, 0
   br i1 %cmp31, label %for.cond36.preheader, label %for.inc55
 
 for.cond36.preheader:                             ; preds = %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit"
@@ -5373,7 +5373,7 @@ for.end:                                          ; preds = %for.cond36
 
 for.inc55:                                        ; preds = %for.body.for.inc55_crit_edge, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit"
   %.pre-phi = phi i32 [ %.pre, %for.body.for.inc55_crit_edge ], [ %8, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
-  %needed.6 = phi i32 [ %needed.148, %for.body.for.inc55_crit_edge ], [ %needed.4, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
+  %needed.2 = phi i32 [ %needed.148, %for.body.for.inc55_crit_edge ], [ %needed.5, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
   %anyFound.1 = phi i1 [ %anyFound.050, %for.body.for.inc55_crit_edge ], [ true, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
   %add56 = add nuw i32 %.pre-phi, 4
   %cmp = icmp ult i32 %add56, %add
@@ -5381,7 +5381,7 @@ for.inc55:                                        ; preds = %for.body.for.inc55_
   br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !62
 
 for.end57:                                        ; preds = %for.inc55, %for.cond
-  %needed.1.lcssa = phi i32 [ %needed.0, %for.cond ], [ %needed.6, %for.inc55 ]
+  %needed.1.lcssa = phi i32 [ %needed.0, %for.cond ], [ %needed.2, %for.inc55 ]
   %anyFound.0.lcssa = phi i1 [ false, %for.cond ], [ %anyFound.1, %for.inc55 ]
   %27 = load ptr, ptr %mappedFreeLookup_58, align 8
   %rem.i.i15 = and i32 %call, 7

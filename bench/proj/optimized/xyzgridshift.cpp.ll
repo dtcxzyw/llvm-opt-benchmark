@@ -1103,13 +1103,13 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
   br label %100
 
 100:                                              ; preds = %84, %87, %77, %89
-  %.0 = phi i1 [ true, %89 ], [ false, %77 ], [ %88, %87 ], [ false, %84 ]
+  %.1 = phi i1 [ true, %89 ], [ false, %77 ], [ %88, %87 ], [ false, %84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
   br label %101
 
 101:                                              ; preds = %41, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %100, %56, %49
-  %.1 = phi i1 [ true, %49 ], [ false, %56 ], [ %.0, %100 ], [ false, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit ], [ false, %41 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %49 ], [ false, %56 ], [ %.1, %100 ], [ false, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EED2Ev.exit ], [ false, %41 ]
+  ret i1 %.0
 }
 
 declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1

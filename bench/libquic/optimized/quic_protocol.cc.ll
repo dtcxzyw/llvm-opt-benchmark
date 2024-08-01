@@ -6379,7 +6379,7 @@ while.cond.i.i.preheader.lr.ph:                   ; preds = %_ZNK3net11IntervalS
   br label %while.cond.i.i.preheader
 
 while.cond.i.i.preheader:                         ; preds = %while.cond.i.i.preheader.lr.ph, %if.end34
-  %mine.sroa.0.098 = phi ptr [ %retval.sroa.0.0.i.i, %while.cond.i.i.preheader.lr.ph ], [ %mine.sroa.0.4, %if.end34 ]
+  %mine.sroa.0.098 = phi ptr [ %retval.sroa.0.0.i.i, %while.cond.i.i.preheader.lr.ph ], [ %mine.sroa.0.1, %if.end34 ]
   %theirs.sroa.0.097 = phi ptr [ %retval.sroa.0.0.i.i48, %while.cond.i.i.preheader.lr.ph ], [ %22, %if.end34 ]
   %max_.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %mine.sroa.0.098, i64 40
   %.pre107 = load i64, ptr %max_.i.i.i.i.i.phi.trans.insert, align 8
@@ -6387,9 +6387,9 @@ while.cond.i.i.preheader:                         ; preds = %while.cond.i.i.preh
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.end51.i.i
   %21 = phi i64 [ %27, %while.end51.i.i ], [ %.pre107, %while.cond.i.i.preheader ]
-  %mine.sroa.0.1 = phi ptr [ %mine.sroa.0.2, %while.end51.i.i ], [ %mine.sroa.0.098, %while.cond.i.i.preheader ]
+  %mine.sroa.0.2 = phi ptr [ %mine.sroa.0.3, %while.end51.i.i ], [ %mine.sroa.0.098, %while.cond.i.i.preheader ]
   %22 = phi ptr [ %.lcssa43.i.i, %while.end51.i.i ], [ %theirs.sroa.0.097, %while.cond.i.i.preheader ]
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %mine.sroa.0.1, i64 32
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %mine.sroa.0.2, i64 32
   %23 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp ult i64 %23, %21
   br i1 %cmp.i.not.i.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i, label %while.body.i.i
@@ -6407,7 +6407,7 @@ _ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i:  ; preds = %while.cond.i.i
   br i1 %spec.select.i.i.i, label %if.end.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i, %while.cond.i.i
-  %cmp.i29.not44.i.i = icmp eq ptr %mine.sroa.0.1, %add.ptr.i.i.i.i.i
+  %cmp.i29.not44.i.i = icmp eq ptr %mine.sroa.0.2, %add.ptr.i.i.i.i.i
   br i1 %cmp.i29.not44.i.i, label %while.end, label %land.rhs.i.i.preheader
 
 land.rhs.i.i.preheader:                           ; preds = %while.body.i.i
@@ -6416,19 +6416,19 @@ land.rhs.i.i.preheader:                           ; preds = %while.body.i.i
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body24.i.i
-  %mine.sroa.0.2 = phi ptr [ %call.i.i.i56, %while.body24.i.i ], [ %mine.sroa.0.1, %land.rhs.i.i.preheader ]
-  %max_.i.i.i55 = getelementptr inbounds i8, ptr %mine.sroa.0.2, i64 40
+  %mine.sroa.0.3 = phi ptr [ %call.i.i.i56, %while.body24.i.i ], [ %mine.sroa.0.2, %land.rhs.i.i.preheader ]
+  %max_.i.i.i55 = getelementptr inbounds i8, ptr %mine.sroa.0.3, i64 40
   %27 = load i64, ptr %max_.i.i.i55, align 8
   %cmp23.not.i.i = icmp ugt i64 %27, %26
   br i1 %cmp23.not.i.i, label %while.end.i.i, label %while.body24.i.i
 
 while.body24.i.i:                                 ; preds = %land.rhs.i.i
-  %call.i.i.i56 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mine.sroa.0.2) #29
+  %call.i.i.i56 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mine.sroa.0.3) #29
   %cmp.i29.not.i.i = icmp eq ptr %call.i.i.i56, %add.ptr.i.i.i.i.i
   br i1 %cmp.i29.not.i.i, label %while.end, label %land.rhs.i.i, !llvm.loop !44
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp.i33.i.i = icmp eq ptr %mine.sroa.0.2, %add.ptr.i.i.i.i.i
+  %cmp.i33.i.i = icmp eq ptr %mine.sroa.0.3, %add.ptr.i.i.i.i.i
   br i1 %cmp.i33.i.i, label %while.end, label %while.cond36.preheader.i.i
 
 while.cond36.preheader.i.i:                       ; preds = %while.end.i.i
@@ -6436,7 +6436,7 @@ while.cond36.preheader.i.i:                       ; preds = %while.end.i.i
   br i1 %cmp.i35.not46.i.i, label %while.end51.i.i, label %land.rhs42.i.i.preheader
 
 land.rhs42.i.i.preheader:                         ; preds = %while.cond36.preheader.i.i
-  %_M_storage.i.i38.i.i = getelementptr inbounds i8, ptr %mine.sroa.0.2, i64 32
+  %_M_storage.i.i38.i.i = getelementptr inbounds i8, ptr %mine.sroa.0.3, i64 32
   %28 = load i64, ptr %_M_storage.i.i38.i.i, align 8
   br label %land.rhs42.i.i
 
@@ -6460,8 +6460,8 @@ while.end51.i.i:                                  ; preds = %while.body49.i.i, %
 if.end.i:                                         ; preds = %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i
   %_M_storage.i.i26.i.i.le = getelementptr inbounds i8, ptr %22, i64 32
   %max_.i.i3.i.i.i.le = getelementptr inbounds i8, ptr %22, i64 40
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mine.sroa.0.1) #29
-  %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %mine.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mine.sroa.0.2) #29
+  %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %mine.sroa.0.2, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #28
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #26
   %30 = load i64, ptr %_M_node_count.i.i.i, align 8
   %dec.i.i.i = add i64 %30, -1
@@ -6550,8 +6550,8 @@ if.then30:                                        ; preds = %if.end28
   br label %if.end34
 
 if.end34:                                         ; preds = %land.lhs.true54.i, %if.then30, %if.end28
-  %mine.sroa.0.4 = phi ptr [ %call.i, %if.end28 ], [ %38, %if.then30 ], [ %call.i, %land.lhs.true54.i ]
-  %cmp.i.i.i54 = icmp eq ptr %mine.sroa.0.4, %add.ptr.i.i.i.i.i
+  %mine.sroa.0.1 = phi ptr [ %call.i, %if.end28 ], [ %38, %if.then30 ], [ %call.i, %land.lhs.true54.i ]
+  %cmp.i.i.i54 = icmp eq ptr %mine.sroa.0.1, %add.ptr.i.i.i.i.i
   %cmp.i25.i.i = icmp eq ptr %22, %add.ptr.i.i.i.i.i22
   %or.cond = select i1 %cmp.i.i.i54, i1 true, i1 %cmp.i25.i.i
   br i1 %or.cond, label %while.end, label %while.cond.i.i.preheader, !llvm.loop !47

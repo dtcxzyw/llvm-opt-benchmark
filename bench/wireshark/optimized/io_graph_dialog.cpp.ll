@@ -13504,7 +13504,7 @@ define void @_ZN13IOGraphDialog16updateStatisticsEv(ptr noundef nonnull align 8 
 
 45:                                               ; preds = %.lr.ph, %_ZNK13IOGraphDialog14graphIsEnabledEi.exit
   %.0621 = phi i32 [ 0, %.lr.ph ], [ %58, %_ZNK13IOGraphDialog14graphIsEnabledEi.exit ]
-  %.0720 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZNK13IOGraphDialog14graphIsEnabledEi.exit ]
+  %.120 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZNK13IOGraphDialog14graphIsEnabledEi.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -13536,7 +13536,7 @@ _ZNK13IOGraphDialog14graphIsEnabledEi.exit:       ; preds = %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %57 = zext i1 %56 to i32
-  %spec.select = add i32 %.0720, %57
+  %spec.select = add i32 %.120, %57
   %58 = add nuw nsw i32 %.0621, 1
   %59 = load ptr, ptr %34, align 8
   store i32 -1, ptr %5, align 8
@@ -13554,14 +13554,14 @@ _ZNK13IOGraphDialog14graphIsEnabledEi.exit:       ; preds = %45
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %32
-  %.2 = phi i1 [ false, %32 ], [ false, %.preheader ], [ %65, %.loopexit.loopexit ]
+  %.07 = phi i1 [ false, %32 ], [ false, %.preheader ], [ %65, %.loopexit.loopexit ]
   %66 = getelementptr inbounds i8, ptr %0, i64 64
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %67)
   %69 = getelementptr inbounds i8, ptr %67, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = select i1 %68, ptr %70, ptr null
-  call void @_ZN13IOGraphDialog15recalcGraphDataEP13_capture_fileb(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %71, i1 noundef zeroext %.2)
+  call void @_ZN13IOGraphDialog15recalcGraphDataEP13_capture_fileb(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %71, i1 noundef zeroext %.07)
   %72 = getelementptr inbounds i8, ptr %0, i64 216
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 192
@@ -15919,7 +15919,7 @@ define void @_ZN13IOGraphDialog39on_intervalComboBox_currentIndexChangedEi(ptr n
 
 23:                                               ; preds = %.lr.ph, %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread ]
-  %.016 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread ]
+  %.116 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread ]
   %24 = load i64, ptr %21, align 8
   %25 = icmp ugt i64 %24, %indvars.iv
   br i1 %25, label %_ZNK5QListIP7IOGraphE5valueExS1_.exit, label %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread
@@ -15937,7 +15937,7 @@ _ZNK5QListIP7IOGraphE5valueExS1_.exit:            ; preds = %23
   %31 = getelementptr inbounds i8, ptr %28, i64 80
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
-  %spec.select = select i1 %33, i1 true, i1 %.016
+  %spec.select = select i1 %33, i1 true, i1 %.116
   br label %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread
 
 34:                                               ; preds = %2
@@ -15947,7 +15947,7 @@ _ZNK5QListIP7IOGraphE5valueExS1_.exit:            ; preds = %23
   resume { ptr, i32 } %35
 
 _ZNK5QListIP7IOGraphE5valueExS1_.exit.thread:     ; preds = %23, %29, %_ZNK5QListIP7IOGraphE5valueExS1_.exit
-  %.1 = phi i1 [ %.016, %_ZNK5QListIP7IOGraphE5valueExS1_.exit ], [ %spec.select, %29 ], [ %.016, %23 ]
+  %.2 = phi i1 [ %.116, %_ZNK5QListIP7IOGraphE5valueExS1_.exit ], [ %spec.select, %29 ], [ %.116, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load ptr, ptr %12, align 8
   store i32 -1, ptr %4, align 8
@@ -15962,7 +15962,7 @@ _ZNK5QListIP7IOGraphE5valueExS1_.exit.thread:     ; preds = %23, %29, %_ZNK5QLis
   br i1 %42, label %23, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %_ZNK5QListIP7IOGraphE5valueExS1_.exit.thread
-  br i1 %.1, label %43, label %.thread
+  br i1 %.2, label %43, label %.thread
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds i8, ptr %0, i64 314
@@ -18652,7 +18652,7 @@ define void @_ZNK13IOGraphDialog7makeCsvER11QTextStream(ptr nocapture noundef no
 55:                                               ; preds = %.preheader131, %_ZN7QStringD2Ev.exit84
   %56 = phi ptr [ %33, %.preheader131 ], [ %.pre, %_ZN7QStringD2Ev.exit84 ]
   %indvars.iv = phi i64 [ 0, %.preheader131 ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit84 ]
-  %.034 = phi i32 [ 0, %.preheader131 ], [ %.236, %_ZN7QStringD2Ev.exit84 ]
+  %.135 = phi i32 [ 0, %.preheader131 ], [ %.337, %_ZN7QStringD2Ev.exit84 ]
   store i32 -1, ptr %13, align 8
   store i32 -1, ptr %34, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
@@ -18728,7 +18728,7 @@ define void @_ZNK13IOGraphDialog7makeCsvER11QTextStream(ptr nocapture noundef no
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 38000208
   %89 = load i32, ptr %88, align 8
-  %spec.select = call i32 @llvm.smax.i32(i32 %.034, i32 %89)
+  %spec.select = call i32 @llvm.smax.i32(i32 %.135, i32 %89)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %90 = getelementptr inbounds i8, ptr %87, i64 56
   %91 = load ptr, ptr %90, align 8, !noalias !99
@@ -19076,13 +19076,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i106:   ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 _ZN7QStringD2Ev.exit84:                           ; preds = %156, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82, %153, %76, %78
-  %.236 = phi i32 [ %.034, %78 ], [ %.034, %76 ], [ %spec.select, %153 ], [ %spec.select, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82 ], [ %spec.select, %156 ]
+  %.337 = phi i32 [ %.135, %78 ], [ %.135, %76 ], [ %spec.select, %153 ], [ %spec.select, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82 ], [ %spec.select, %156 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pre = load ptr, ptr %32, align 8
   br label %55, !llvm.loop !105
 
 .loopexit135:                                     ; preds = %61, %31
-  %.337 = phi i32 [ 0, %31 ], [ %.034, %61 ]
+  %.034 = phi i32 [ 0, %31 ], [ %.135, %61 ]
   %194 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef signext 10)
           to label %.lr.ph149 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -19192,7 +19192,7 @@ _ZNK7IOGraph12getItemValueEiPK13_capture_file.exit: ; preds = %224, %.lr.ph
 
 242:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit
   %243 = add i32 %.038148, 1
-  %.not40 = icmp sgt i32 %243, %.337
+  %.not40 = icmp sgt i32 %243, %.034
   br i1 %.not40, label %._crit_edge150, label %200, !llvm.loop !110
 
 ._crit_edge150:                                   ; preds = %242
@@ -21022,8 +21022,8 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit110:     ; preds = %112, %108, %_ZN14QS
   %138 = phi i64 [ %152, %143 ], [ %132, %121 ]
   %139 = phi i32 [ %151, %143 ], [ %131, %121 ]
   %.055165 = phi i64 [ %153, %143 ], [ %132, %121 ]
-  %.059164 = phi double [ %149, %143 ], [ %130, %121 ]
-  %.073163 = phi i32 [ %150, %143 ], [ 1, %121 ]
+  %.160164 = phi double [ %149, %143 ], [ %130, %121 ]
+  %.174163 = phi i32 [ %150, %143 ], [ 1, %121 ]
   %140 = load i32, ptr %118, align 8
   %141 = sext i32 %140 to i64
   %142 = mul nsw i64 %138, %141
@@ -21036,8 +21036,8 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit110:     ; preds = %112, %108, %_ZN14QS
   %146 = load i32, ptr %124, align 8
   %147 = load i32, ptr %126, align 8
   %148 = call noundef double @get_io_graph_item(ptr noundef nonnull %123, i32 noundef %146, i32 noundef %145, i32 noundef %147, ptr noundef %1, i32 noundef %139, i32 noundef %140)
-  %149 = fadd double %.059164, %148
-  %150 = add i32 %.073163, 1
+  %149 = fadd double %.160164, %148
+  %150 = add i32 %.174163, 1
   %151 = load i32, ptr %122, align 4
   %152 = sext i32 %151 to i64
   %153 = add i64 %.055165, %152
@@ -21049,16 +21049,16 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit110:     ; preds = %112, %108, %_ZN14QS
   br i1 %158, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !126
 
 .critedge.loopexit:                               ; preds = %143, %.lr.ph
-  %.073.lcssa.ph = phi i32 [ %.073163, %.lr.ph ], [ %150, %143 ]
-  %.059.lcssa.ph = phi double [ %.059164, %.lr.ph ], [ %149, %143 ]
+  %.174.lcssa.ph = phi i32 [ %.174163, %.lr.ph ], [ %150, %143 ]
+  %.160.lcssa.ph = phi double [ %.160164, %.lr.ph ], [ %149, %143 ]
   %.055.lcssa.ph = phi i64 [ %.055165, %.lr.ph ], [ %153, %143 ]
   %159 = trunc i64 %.055.lcssa.ph to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %121, %.critedge.loopexit, %117, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit110
-  %.174 = phi i32 [ 0, %117 ], [ 0, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit110 ], [ 1, %121 ], [ %.073.lcssa.ph, %.critedge.loopexit ]
+  %.073 = phi i32 [ 0, %117 ], [ 0, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit110 ], [ 1, %121 ], [ %.174.lcssa.ph, %.critedge.loopexit ]
   %.061 = phi i32 [ 0, %117 ], [ 0, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit110 ], [ %131, %121 ], [ %159, %.critedge.loopexit ]
-  %.160 = phi double [ 0.000000e+00, %117 ], [ 0.000000e+00, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit110 ], [ %130, %121 ], [ %.059.lcssa.ph, %.critedge.loopexit ]
+  %.059 = phi double [ 0.000000e+00, %117 ], [ 0.000000e+00, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit110 ], [ %130, %121 ], [ %.160.lcssa.ph, %.critedge.loopexit ]
   %160 = getelementptr inbounds i8, ptr %0, i64 38000208
   %161 = load i32, ptr %160, align 8
   %.not88172 = icmp slt i32 %161, 0
@@ -21083,11 +21083,11 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit110:     ; preds = %112, %108, %_ZN14QS
 
 174:                                              ; preds = %.lr.ph179, %288
   %.054178 = phi i32 [ 0, %.lr.ph179 ], [ %289, %288 ]
-  %.2177 = phi double [ %.160, %.lr.ph179 ], [ %.5, %288 ]
-  %.162176 = phi i32 [ %.061, %.lr.ph179 ], [ %.364, %288 ]
-  %.065175 = phi i32 [ 0, %.lr.ph179 ], [ %.368, %288 ]
-  %.069174 = phi i32 [ 0, %.lr.ph179 ], [ %.372, %288 ]
-  %.275173 = phi i32 [ %.174, %.lr.ph179 ], [ %.578, %288 ]
+  %.2177 = phi double [ %.059, %.lr.ph179 ], [ %.3, %288 ]
+  %.162176 = phi i32 [ %.061, %.lr.ph179 ], [ %.263, %288 ]
+  %.065175 = phi i32 [ 0, %.lr.ph179 ], [ %.166, %288 ]
+  %.069174 = phi i32 [ 0, %.lr.ph179 ], [ %.170, %288 ]
+  %.275173 = phi i32 [ %.073, %.lr.ph179 ], [ %.376, %288 ]
   %175 = sitofp i32 %.054178 to double
   %176 = load i32, ptr %162, align 4
   %177 = sitofp i32 %176 to double
@@ -21249,32 +21249,32 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121: ; preds = %2
 
 250:                                              ; preds = %240, %236
   %251 = phi i32 [ %248, %240 ], [ %.pre, %236 ]
-  %.376 = phi i32 [ %241, %240 ], [ %.275173, %236 ]
-  %.170 = phi i32 [ %.069174, %240 ], [ %237, %236 ]
-  %.166 = phi i32 [ %249, %240 ], [ %.065175, %236 ]
-  %.3 = phi double [ %247, %240 ], [ %.2177, %236 ]
+  %.578 = phi i32 [ %241, %240 ], [ %.275173, %236 ]
+  %.372 = phi i32 [ %.069174, %240 ], [ %237, %236 ]
+  %.368 = phi i32 [ %249, %240 ], [ %.065175, %236 ]
+  %.5 = phi double [ %247, %240 ], [ %.2177, %236 ]
   %252 = load i32, ptr %160, align 8
   %253 = mul i32 %251, %252
   %.not93 = icmp ugt i32 %.162176, %253
   br i1 %.not93, label %263, label %254
 
 254:                                              ; preds = %250
-  %255 = add i32 %.376, 1
+  %255 = add i32 %.578, 1
   %256 = sdiv i32 %.162176, %251
   %257 = load i32, ptr %166, align 8
   %258 = load i32, ptr %167, align 8
   %259 = call noundef double @get_io_graph_item(ptr noundef nonnull %165, i32 noundef %257, i32 noundef %256, i32 noundef %258, ptr noundef %1, i32 noundef %251, i32 noundef %252)
-  %260 = fadd double %.3, %259
+  %260 = fadd double %.5, %259
   %261 = load i32, ptr %162, align 4
   %262 = add i32 %261, %.162176
   br label %263
 
 263:                                              ; preds = %250, %254, %235
-  %.477 = phi i32 [ %255, %254 ], [ %.376, %250 ], [ %.275173, %235 ]
-  %.271 = phi i32 [ %.170, %254 ], [ %.170, %250 ], [ %.069174, %235 ]
-  %.267 = phi i32 [ %.166, %254 ], [ %.166, %250 ], [ %.065175, %235 ]
-  %.263 = phi i32 [ %262, %254 ], [ %.162176, %250 ], [ %.162176, %235 ]
-  %.4 = phi double [ %260, %254 ], [ %.3, %250 ], [ %.2177, %235 ]
+  %.477 = phi i32 [ %255, %254 ], [ %.578, %250 ], [ %.275173, %235 ]
+  %.271 = phi i32 [ %.372, %254 ], [ %.372, %250 ], [ %.069174, %235 ]
+  %.267 = phi i32 [ %.368, %254 ], [ %.368, %250 ], [ %.065175, %235 ]
+  %.364 = phi i32 [ %262, %254 ], [ %.162176, %250 ], [ %.162176, %235 ]
+  %.4 = phi double [ %260, %254 ], [ %.5, %250 ], [ %.2177, %235 ]
   %.not94 = icmp eq i32 %.477, 0
   br i1 %.not94, label %267, label %264
 
@@ -21284,11 +21284,11 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121: ; preds = %2
   br label %267
 
 267:                                              ; preds = %263, %264, %.critedge98.thread
-  %.578 = phi i32 [ %.477, %264 ], [ 0, %263 ], [ %.275173, %.critedge98.thread ]
-  %.372 = phi i32 [ %.271, %264 ], [ %.271, %263 ], [ %.069174, %.critedge98.thread ]
-  %.368 = phi i32 [ %.267, %264 ], [ %.267, %263 ], [ %.065175, %.critedge98.thread ]
-  %.364 = phi i32 [ %.263, %264 ], [ %.263, %263 ], [ %.162176, %.critedge98.thread ]
-  %.5 = phi double [ %.4, %264 ], [ %.4, %263 ], [ %.2177, %.critedge98.thread ]
+  %.376 = phi i32 [ %.477, %264 ], [ 0, %263 ], [ %.275173, %.critedge98.thread ]
+  %.170 = phi i32 [ %.271, %264 ], [ %.271, %263 ], [ %.069174, %.critedge98.thread ]
+  %.166 = phi i32 [ %.267, %264 ], [ %.267, %263 ], [ %.065175, %.critedge98.thread ]
+  %.263 = phi i32 [ %.364, %264 ], [ %.364, %263 ], [ %.162176, %.critedge98.thread ]
+  %.3 = phi double [ %.4, %264 ], [ %.4, %263 ], [ %.2177, %.critedge98.thread ]
   %.0 = phi double [ %266, %264 ], [ %233, %263 ], [ %233, %.critedge98.thread ]
   %268 = load i32, ptr %168, align 4
   %269 = uitofp i32 %268 to double

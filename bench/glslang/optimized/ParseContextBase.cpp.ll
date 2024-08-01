@@ -1191,13 +1191,13 @@ define noundef zeroext i1 @_ZN7glslang17TParseContextBase16lValueErrorCheckERKNS
   br label %.thread61
 
 .thread61:                                        ; preds = %49, %21, %21, %30, %59, %60, %61, %62
-  %.1.ph = phi ptr [ @.str.4, %21 ], [ @.str.4, %21 ], [ @.str.5, %30 ], [ @.str.12, %59 ], [ @.str.13, %60 ], [ @.str.14, %61 ], [ @.str.15, %62 ], [ @.str.11, %49 ]
+  %.046.ph = phi ptr [ @.str.4, %21 ], [ @.str.4, %21 ], [ @.str.5, %30 ], [ @.str.12, %59 ], [ @.str.13, %60 ], [ @.str.14, %61 ], [ @.str.15, %62 ], [ @.str.11, %49 ]
   %63 = icmp eq ptr %9, null
   br label %90
 
 64:                                               ; preds = %31, %54, %46, %49
-  %.1 = phi ptr [ null, %49 ], [ %spec.select54, %46 ], [ %spec.select55, %54 ], [ %spec.select56, %31 ]
-  %65 = icmp eq ptr %.1, null
+  %.046 = phi ptr [ null, %49 ], [ %spec.select54, %46 ], [ %spec.select55, %54 ], [ %spec.select56, %31 ]
+  %65 = icmp eq ptr %.046, null
   %66 = icmp eq ptr %9, null
   %67 = and i1 %66, %.not
   %or.cond3 = and i1 %67, %65
@@ -1246,7 +1246,7 @@ define noundef zeroext i1 @_ZN7glslang17TParseContextBase16lValueErrorCheckERKNS
   br label %156
 
 90:                                               ; preds = %.thread61, %72
-  %.16063 = phi ptr [ %.1.ph, %.thread61 ], [ %.1, %72 ]
+  %.0466063 = phi ptr [ %.046.ph, %.thread61 ], [ %.046, %72 ]
   %91 = phi i1 [ %63, %.thread61 ], [ %66, %72 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %92 = call noundef ptr @_ZN7glslang13TIntermediate18traverseLValueBaseEPKNS_12TIntermTypedEbbSt8functionIFbRK11TIntermNodeEE(ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %5) #16
@@ -1266,7 +1266,7 @@ _ZNSt8functionIFbRK11TIntermNodeEED2Ev.exit:      ; preds = %90, %95
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 344
   %100 = load ptr, ptr %99, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %100(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %.047, ptr noundef nonnull %.16063) #16
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %100(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %.047, ptr noundef nonnull %.0466063) #16
   br label %156
 
 101:                                              ; preds = %_ZNSt8functionIFbRK11TIntermNodeEED2Ev.exit
@@ -1320,7 +1320,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %110
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 344
   %138 = load ptr, ptr %137, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %138(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %135, ptr noundef nonnull %.16063) #16
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %138(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %135, ptr noundef nonnull %.0466063) #16
   br label %156
 
 _ZN7glslang11IsAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread65: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %110
@@ -1337,14 +1337,14 @@ _ZN7glslang11IsAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14poo
   %149 = load ptr, ptr %0, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 344
   %151 = load ptr, ptr %150, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %151(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %148, ptr noundef nonnull %.16063) #16
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %151(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.18, ptr noundef %148, ptr noundef nonnull %.0466063) #16
   br label %156
 
 152:                                              ; preds = %102, %101
   %153 = load ptr, ptr %0, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 344
   %155 = load ptr, ptr %154, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %155(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull %.16063) #16
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %155(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull %.0466063) #16
   br label %156
 
 156:                                              ; preds = %97, %125, %_ZN7glslang11IsAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread65, %152, %73, %86, %77, %68
@@ -2241,9 +2241,9 @@ define noundef ptr @_ZN7glslang17TParseContextBase14selectFunctionENS_7TVectorIP
   br label %18
 
 18:                                               ; preds = %.lr.ph138, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit
-  %.sroa.3.0137 = phi ptr [ null, %.lr.ph138 ], [ %.sroa.3.2, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
-  %.sroa.12.0136 = phi ptr [ null, %.lr.ph138 ], [ %.sroa.12.2, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
-  %.sroa.20.0135 = phi ptr [ null, %.lr.ph138 ], [ %.sroa.20.2, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
+  %.sroa.3.0137 = phi ptr [ null, %.lr.ph138 ], [ %.sroa.3.1, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
+  %.sroa.12.0136 = phi ptr [ null, %.lr.ph138 ], [ %.sroa.12.1, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
+  %.sroa.20.0135 = phi ptr [ null, %.lr.ph138 ], [ %.sroa.20.1, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
   %.sroa.095.0134 = phi ptr [ %13, %.lr.ph138 ], [ %143, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
   %19 = load ptr, ptr %.sroa.095.0134, align 8
   %20 = load ptr, ptr %2, align 8
@@ -2459,17 +2459,17 @@ _ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_inser
   br label %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit
 
 _ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit: ; preds = %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i, %120, %18, %29
-  %.sroa.20.2 = phi ptr [ %.sroa.20.0135, %18 ], [ %.sroa.20.0135, %29 ], [ %142, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i ], [ %.sroa.20.0135, %120 ], [ %.sroa.20.0135, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46 ], [ %.sroa.20.0135, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.0136, %18 ], [ %.sroa.12.0136, %29 ], [ %141, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i ], [ %121, %120 ], [ %.sroa.12.0136, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46 ], [ %.sroa.12.0136, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit ]
-  %.sroa.3.2 = phi ptr [ %.sroa.3.0137, %18 ], [ %.sroa.3.0137, %29 ], [ %136, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i ], [ %.sroa.3.0137, %120 ], [ %.sroa.3.0137, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46 ], [ %.sroa.3.0137, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.0135, %18 ], [ %.sroa.20.0135, %29 ], [ %142, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i ], [ %.sroa.20.0135, %120 ], [ %.sroa.20.0135, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46 ], [ %.sroa.20.0135, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0136, %18 ], [ %.sroa.12.0136, %29 ], [ %141, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i ], [ %121, %120 ], [ %.sroa.12.0136, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46 ], [ %.sroa.12.0136, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit ]
+  %.sroa.3.1 = phi ptr [ %.sroa.3.0137, %18 ], [ %.sroa.3.0137, %29 ], [ %136, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S6_EEDpOT_.exit.i.i ], [ %.sroa.3.0137, %120 ], [ %.sroa.3.0137, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit46 ], [ %.sroa.3.0137, %_ZNKSt8functionIFbRKN7glslang5TTypeES3_NS0_9TOperatorEiEEclES3_S3_S4_i.exit ]
   %143 = getelementptr inbounds i8, ptr %.sroa.095.0134, i64 8
   %144 = load ptr, ptr %14, align 8
   %.not117 = icmp eq ptr %143, %144
   br i1 %.not117, label %._crit_edge, label %18, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit, %6
-  %.sroa.12.0.lcssa = phi ptr [ null, %6 ], [ %.sroa.12.2, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
-  %.sroa.3.0.lcssa = phi ptr [ null, %6 ], [ %.sroa.3.2, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
+  %.sroa.12.0.lcssa = phi ptr [ null, %6 ], [ %.sroa.12.1, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
+  %.sroa.3.0.lcssa = phi ptr [ null, %6 ], [ %.sroa.3.1, %_ZNSt6vectorIPKN7glslang9TFunctionENS0_14pool_allocatorIS3_EEE9push_backEOS3_.exit ]
   %145 = ptrtoint ptr %.sroa.12.0.lcssa to i64
   %146 = ptrtoint ptr %.sroa.3.0.lcssa to i64
   %147 = sub i64 %145, %146

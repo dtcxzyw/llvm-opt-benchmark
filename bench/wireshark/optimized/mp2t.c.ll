@@ -51,7 +51,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 .preheader72:                                     ; preds = %14, %43
   %.057 = phi i32 [ %.259, %43 ], [ 0, %14 ]
-  %.054 = phi i8 [ %.2, %43 ], [ 0, %14 ]
+  %.054 = phi i8 [ %.3, %43 ], [ 0, %14 ]
   %20 = load ptr, ptr %0, align 8
   %21 = zext i8 %.054 to i32
   %22 = add nuw nsw i32 %21, 188
@@ -105,12 +105,12 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 43:                                               ; preds = %.thread, %31
   %.259 = phi i32 [ %32, %31 ], [ 0, %.thread ]
-  %.2 = phi i8 [ %.054, %31 ], [ %41, %.thread ]
+  %.3 = phi i8 [ %.054, %31 ], [ %41, %.thread ]
   %44 = icmp ult i32 %.259, 10
   br i1 %44, label %.preheader72, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %26
-  %.3 = phi i8 [ %.054, %26 ], [ %.2, %43 ]
+  %.1 = phi i8 [ %.054, %26 ], [ %.3, %43 ]
   %45 = load ptr, ptr %0, align 8
   %46 = call i64 @file_seek(ptr noundef %45, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
   %47 = icmp eq i64 %46, -1
@@ -118,7 +118,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 48:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %5)
-  %49 = zext i8 %.3 to i32
+  %49 = zext i8 %.1 to i32
   %50 = add nuw nsw i32 %49, 188
   %51 = getelementptr inbounds i8, ptr %5, i64 3
   %52 = getelementptr inbounds i8, ptr %5, i64 4
@@ -135,8 +135,8 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 62:                                               ; preds = %.backedge.i.i, %48
   %63 = phi i32 [ 1, %48 ], [ %78, %.backedge.i.i ]
-  %.05676.i = phi i32 [ %15, %48 ], [ %64, %.backedge.i.i ]
-  %64 = add nuw nsw i32 %.05676.i, 1
+  %.176.i = phi i32 [ %15, %48 ], [ %64, %.backedge.i.i ]
+  %64 = add nuw nsw i32 %.176.i, 1
   %65 = load ptr, ptr %0, align 8
   %66 = call i32 @wtap_read_bytes_or_eof(ptr noundef %65, ptr noundef nonnull %5, i32 noundef %50, ptr noundef %1, ptr noundef %2) #6
   %.not.i.i = icmp eq i32 %66, 0
@@ -227,13 +227,13 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br label %122
 
 122:                                              ; preds = %143, %82
-  %.278.i = phi i32 [ %64, %82 ], [ %125, %143 ]
+  %.05678.i = phi i32 [ %64, %82 ], [ %125, %143 ]
   call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %4)
   br label %123
 
 123:                                              ; preds = %.backedge.i38.i, %122
   %124 = phi i32 [ 1, %122 ], [ %139, %.backedge.i38.i ]
-  %.377.i = phi i32 [ %.278.i, %122 ], [ %125, %.backedge.i38.i ]
+  %.377.i = phi i32 [ %.05678.i, %122 ], [ %125, %.backedge.i38.i ]
   %125 = add i32 %.377.i, 1
   %126 = load ptr, ptr %0, align 8
   %127 = call i32 @wtap_read_bytes_or_eof(ptr noundef %126, ptr noundef nonnull %4, i32 noundef %50, ptr noundef %1, ptr noundef %2) #6
@@ -292,7 +292,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   %152 = or disjoint i16 %.masked.i46.i, %151
   call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4)
   %153 = icmp ne i16 %110, %152
-  %154 = icmp eq i32 %.377.i, %.05676.i
+  %154 = icmp eq i32 %.377.i, %.176.i
   %155 = select i1 %153, i1 true, i1 %154
   br i1 %155, label %122, label %156, !llvm.loop !9
 
@@ -322,7 +322,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 176:                                              ; preds = %156
   %177 = sub nuw nsw i64 %175, %106
-  %178 = sub i32 %.377.i, %.05676.i
+  %178 = sub i32 %.377.i, %.176.i
   %179 = zext i32 %178 to i64
   %180 = mul i64 %179, 40608000000
   %181 = udiv i64 %180, %177
@@ -355,7 +355,7 @@ mp2t_bits_per_second.exit:                        ; preds = %140, %79, %176
   store ptr %194, ptr %195, align 8
   store i32 %15, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %194, i64 16
-  store i8 %.3, ptr %196, align 8
+  store i8 %.1, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %194, i64 8
   store i64 %.066, ptr %197, align 8
   br label %mp2t_bits_per_second.exit.thread

@@ -140,15 +140,15 @@ if.then43:                                        ; preds = %if.then40
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then43, %if.then40
-  %name_id.0 = phi i32 [ %call44, %if.then43 ], [ %cond185663, %if.then40 ]
-  %cmp47.not = icmp eq i32 %name_id.0, 0
+  %name_id.2 = phi i32 [ %call44, %if.then43 ], [ %cond185663, %if.then40 ]
+  %cmp47.not = icmp eq i32 %name_id.2, 0
   br i1 %cmp47.not, label %if.end52, label %if.then49
 
 if.then49:                                        ; preds = %if.end45
-  %5 = icmp ult i32 %name_id.0, 8388608
+  %5 = icmp ult i32 %name_id.2, 8388608
   %6 = icmp ult i32 %operation_id, 256
   %or.cond.i50 = and i1 %6, %5
-  %shl.i51 = shl nuw nsw i32 %name_id.0, 8
+  %shl.i51 = shl nuw nsw i32 %name_id.2, 8
   %or.i52 = add nuw nsw i32 %shl.i51, %operation_id
   %retval.0.i53 = select i1 %or.cond.i50, i32 %or.i52, i32 0
   %7 = load ptr, ptr %prov.addr, align 8
@@ -157,7 +157,7 @@ if.then49:                                        ; preds = %if.end45
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end45, %if.then49, %if.then33
-  %name_id.1 = phi i32 [ %name_id.0, %if.then49 ], [ 0, %if.end45 ], [ %cond185663, %if.then33 ]
+  %name_id.1 = phi i32 [ %name_id.2, %if.then49 ], [ 0, %if.end45 ], [ %cond185663, %if.then33 ]
   %bf.load54 = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.clear55 = and i8 %bf.load54, 1
   %.not = icmp eq i8 %bf.clear55, 0
@@ -166,8 +166,8 @@ if.end52:                                         ; preds = %if.end45, %if.then4
 
 if.end59:                                         ; preds = %if.end52, %lor.lhs.false30
   %unsupported.0 = phi i32 [ %9, %if.end52 ], [ 524557, %lor.lhs.false30 ]
-  %name_id.2 = phi i32 [ %name_id.1, %if.end52 ], [ %call15, %lor.lhs.false30 ]
-  %cmp60 = icmp ne i32 %name_id.2, 0
+  %name_id.0 = phi i32 [ %name_id.1, %if.end52 ], [ %call15, %lor.lhs.false30 ]
+  %cmp60 = icmp ne i32 %name_id.0, 0
   %or.cond1 = or i1 %cmp12, %cmp60
   %10 = load ptr, ptr %method, align 8
   %cmp66 = icmp eq ptr %10, null
@@ -179,7 +179,7 @@ if.then68:                                        ; preds = %if.end59
   br i1 %cmp71, label %if.then73, label %if.end75
 
 if.then73:                                        ; preds = %if.then68
-  %call74 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %call2, i32 noundef %name_id.2, i64 noundef 0) #4
+  %call74 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %call2, i32 noundef %name_id.0, i64 noundef 0) #4
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then73, %if.then68
@@ -191,7 +191,7 @@ if.end75:                                         ; preds = %if.then73, %if.then
   %cmp78 = icmp eq ptr %name.addr.0, null
   %cond83 = select i1 %cmp78, ptr @.str.6, ptr %name.addr.0
   %cond89 = select i1 %cmp.not, ptr @.str.6, ptr %properties
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %unsupported.0, ptr noundef nonnull @.str.5, ptr noundef %call77, ptr noundef nonnull %cond83, i32 noundef %name_id.2, ptr noundef nonnull %cond89) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %unsupported.0, ptr noundef nonnull @.str.5, ptr noundef %call77, ptr noundef nonnull %cond83, i32 noundef %name_id.0, ptr noundef nonnull %cond89) #4
   %.pre = load ptr, ptr %method, align 8
   br label %return
 

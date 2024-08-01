@@ -2768,7 +2768,7 @@ _ZN4Luau12TypeIteratorINS_16IntersectionTypeEE7advanceEv.exit.i: ; preds = %_ZN4
 
 .loopexit39:                                      ; preds = %49, %33, %69
   %.0.i.i50 = phi i1 [ false, %69 ], [ true, %33 ], [ true, %49 ]
-  %.sroa.4.0 = phi ptr [ %61, %69 ], [ undef, %33 ], [ undef, %49 ]
+  %.sroa.4.1 = phi ptr [ %61, %69 ], [ undef, %33 ], [ undef, %49 ]
   %100 = getelementptr inbounds i8, ptr %7, i64 32
   %101 = load ptr, ptr %100, align 8
   %.not.i.i.i26 = icmp eq ptr %101, null
@@ -2811,10 +2811,10 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %18,
   br label %114
 
 114:                                              ; preds = %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit28, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread, %17
-  %.sroa.034.1 = phi i32 [ 0, %17 ], [ 3, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ 0, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit28 ]
-  %.sroa.4.1 = phi ptr [ %1, %17 ], [ %1, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ %.sroa.4.0, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit28 ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.034.1, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.4.1, 1
+  %.sroa.034.0 = phi i32 [ 0, %17 ], [ 3, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ 0, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit28 ]
+  %.sroa.4.0 = phi ptr [ %1, %17 ], [ %1, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ %.sroa.4.1, %_ZN4Luau12TypeIteratorINS_16IntersectionTypeEED2Ev.exit28 ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.034.0, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i32, ptr } %.fca.1.insert
 }
 
@@ -7707,7 +7707,7 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS
   br label %_ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit41
 
 94:                                               ; preds = %67, %71
-  %.0 = phi ptr [ %24, %71 ], [ %68, %67 ]
+  %.1 = phi ptr [ %24, %71 ], [ %68, %67 ]
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4Luau14Instantiation2E, i64 16), ptr %14, align 8
   %95 = load ptr, ptr %62, align 8
   %.not.i.i.i = icmp eq ptr %95, null
@@ -7733,7 +7733,7 @@ _ZN4Luau14Instantiation2D2Ev.exit:                ; preds = %_ZN4Luau12DenseHash
   br i1 %70, label %99, label %_ZN4Luau12DenseHashMapIPKNS_4TypeESt6vectorIS3_SaIS3_EENS_16DenseHashPointerESt8equal_toIS3_EEaSEOSA_.exit
 
 99:                                               ; preds = %37, %_ZN4Luau14Instantiation2D2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN4Luau14Instantiation2D2Ev.exit ], [ %24, %37 ]
+  %.0 = phi ptr [ %.1, %_ZN4Luau14Instantiation2D2Ev.exit ], [ %24, %37 ]
   br i1 %36, label %103, label %100
 
 100:                                              ; preds = %99
@@ -7751,7 +7751,7 @@ _ZN4Luau14Instantiation2D2Ev.exit:                ; preds = %_ZN4Luau12DenseHash
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %106, i8 0, i64 32, i1 false)
   store i32 0, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.1, ptr %107, align 8
+  store ptr %.0, ptr %107, align 8
   store i8 1, ptr %104, align 8
   store ptr %17, ptr %105, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 32

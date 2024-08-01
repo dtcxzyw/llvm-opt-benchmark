@@ -3273,7 +3273,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 
 .lr.ph74.i:                                       ; preds = %.loopexit.i, %.lr.ph74.preheader.i
   %indvars.iv81.i = phi i64 [ %45, %.lr.ph74.preheader.i ], [ %indvars.iv.next82.i, %.loopexit.i ]
-  %.173.i = phi i32 [ %.0.lcssa.i, %.lr.ph74.preheader.i ], [ %.3.i, %.loopexit.i ]
+  %.173.i = phi i32 [ %.0.lcssa.i, %.lr.ph74.preheader.i ], [ %.2.i, %.loopexit.i ]
   %51 = load ptr, ptr @node_record_table_ptr, align 8
   %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv81.i
   %53 = load ptr, ptr %52, align 8
@@ -3306,14 +3306,14 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %61
-  %.270.i = phi i32 [ %.173.i, %61 ], [ %71, %.critedge.i ]
+  %.370.i = phi i32 [ %.173.i, %61 ], [ %71, %.critedge.i ]
   %.04869.i = phi i16 [ 0, %61 ], [ %82, %.critedge.i ]
-  %71 = add i32 %.270.i, %70
-  %72 = icmp ult i32 %.270.i, %71
+  %71 = add i32 %.370.i, %70
+  %72 = icmp ult i32 %.370.i, %71
   br i1 %72, label %.lr.ph67.preheader.i, label %.critedge.i
 
 .lr.ph67.preheader.i:                             ; preds = %.preheader.i
-  %73 = zext i32 %.270.i to i64
+  %73 = zext i32 %.370.i to i64
   %74 = zext i32 %71 to i64
   br label %.lr.ph67.i
 
@@ -3331,7 +3331,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 
 79:                                               ; preds = %.lr.ph67.i
   %80 = load ptr, ptr %28, align 8
-  %.reass.i = add i32 %invariant.op.i, %.270.i
+  %.reass.i = add i32 %invariant.op.i, %.370.i
   %81 = zext i32 %.reass.i to i64
   tail call void @bit_nset(ptr noundef %80, i64 noundef %73, i64 noundef %81) #9
   br label %.critedge.i
@@ -3342,7 +3342,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   br i1 %exitcond80.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !37
 
 .loopexit.i:                                      ; preds = %.critedge.i, %58
-  %.3.i = phi i32 [ %60, %58 ], [ %71, %.critedge.i ]
+  %.2.i = phi i32 [ %60, %58 ], [ %71, %.critedge.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %83 = icmp ult i64 %indvars.iv81.i, %sext
   br i1 %83, label %.lr.ph74.i, label %_fill_sockets.exit.thread, !llvm.loop !38

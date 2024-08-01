@@ -111,9 +111,9 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   br label %50
 
 50:                                               ; preds = %45, %42, %38, %35
-  %.0 = phi i64 [ %37, %35 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select, %45 ]
+  %.1 = phi i64 [ %37, %35 ], [ %40, %38 ], [ %44, %42 ], [ %spec.select, %45 ]
   %51 = sub nsw i64 0, %33
-  %52 = and i64 %.0, %51
+  %52 = and i64 %.1, %51
   %.not51 = icmp ne i64 %52, %0
   %or.cond58.not = select i1 %2, i1 %.not51, i1 false
   br i1 %or.cond58.not, label %53, label %56

@@ -1263,7 +1263,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture nounde
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -1271,17 +1271,17 @@ define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi double [ %15, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds float, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
-  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.129.us.i)
+  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !25
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi double [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %16 = getelementptr inbounds float, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -1313,8 +1313,8 @@ _ZN2cvL9normL2SqrIfdEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL2_IfdEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_IfdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrIfdEET0_PKT_i.exit.i
-  %.3.i = phi double [ %24, %_ZN2cvL9normL2SqrIfdEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.024.i = phi double [ %24, %_ZN2cvL9normL2SqrIfdEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.024.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -1343,7 +1343,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture nounde
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -1352,18 +1352,18 @@ define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi double [ %16, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi double [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds float, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fpext float %14 to double
-  %16 = fadd double %.127.us.i, %15
+  %16 = fadd double %.227.us.i, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !27
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi double [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %17 = getelementptr inbounds float, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -1396,8 +1396,8 @@ _ZN2cvL6normL1IfdEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %18
   br label %_ZN2cv7normL1_IfdEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_IfdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1IfdEET0_PKT_i.exit.i
-  %.3.i = phi double [ %26, %_ZN2cvL6normL1IfdEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.021.i = phi double [ %26, %_ZN2cvL6normL1IfdEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.021.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -1424,7 +1424,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture nound
 .lr.ph36.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph36.split.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph36.split.us.preheader.i ], [ %indvars.iv.next41.i, %..loopexit_crit_edge.us.i ]
   %.01834.us.i = phi ptr [ %0, %.lr.ph36.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.02833.us.i = phi float [ %6, %.lr.ph36.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.133.us.i = phi float [ %6, %.lr.ph36.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv40.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -1432,18 +1432,18 @@ define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture nound
 
 .preheader.us.i:                                  ; preds = %.lr.ph36.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph36.split.us.i ]
-  %.131.us.i = phi float [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.02833.us.i, %.lr.ph36.split.us.i ]
+  %.231.us.i = phi float [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.133.us.i, %.lr.ph36.split.us.i ]
   %12 = getelementptr inbounds float, ptr %.01834.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
-  %15 = fcmp olt float %.131.us.i, %14
-  %.sroa.speculated.us.i = select i1 %15, float %14, float %.131.us.i
+  %15 = fcmp olt float %.231.us.i, %14
+  %.sroa.speculated.us.i = select i1 %15, float %14, float %.231.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !29
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph36.split.us.i
-  %.2.us.i = phi float [ %.02833.us.i, %.lr.ph36.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi float [ %.133.us.i, %.lr.ph36.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %16 = getelementptr inbounds float, ptr %.01834.us.i, i64 %9
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
@@ -1477,8 +1477,8 @@ _ZN2cvL7normInfIffEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv8normInf_IffEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_IffEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader29.i, %.lr.ph36.i, %_ZN2cvL7normInfIffEET0_PKT_i.exit.i
-  %.3.i = phi float [ %.sroa.speculated23.i, %_ZN2cvL7normInfIffEET0_PKT_i.exit.i ], [ %6, %.preheader29.i ], [ %6, %.lr.ph36.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store float %.3.i, ptr %2, align 4
+  %.028.i = phi float [ %.sroa.speculated23.i, %_ZN2cvL7normInfIffEET0_PKT_i.exit.i ], [ %6, %.preheader29.i ], [ %6, %.lr.ph36.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store float %.028.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -2585,7 +2585,7 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit237:         ; preds = %434, %_ZNK2cv3Mat8e
   br label %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215
 
 _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215:    ; preds = %.lr.ph.i.i.i219, %.lr.ph.i.i.i210, %456, %163, %153, %458, %453, %450, %448, %274, %234, %.loopexit298, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit
-  %.0136 = phi double [ %151, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit ], [ %184, %.loopexit298 ], [ %275, %274 ], [ %233, %234 ], [ %449, %448 ], [ %452, %450 ], [ %455, %453 ], [ %459, %458 ], [ 0.000000e+00, %153 ], [ 0.000000e+00, %163 ], [ %457, %456 ], [ %161, %.lr.ph.i.i.i210 ], [ %172, %.lr.ph.i.i.i219 ]
+  %.1 = phi double [ %151, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit ], [ %184, %.loopexit298 ], [ %275, %274 ], [ %233, %234 ], [ %449, %448 ], [ %452, %450 ], [ %455, %453 ], [ %459, %458 ], [ 0.000000e+00, %153 ], [ 0.000000e+00, %163 ], [ %457, %456 ], [ %161, %.lr.ph.i.i.i210 ], [ %172, %.lr.ph.i.i.i219 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
@@ -2607,7 +2607,7 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit:            ; preds = %.loopexit, %.loopex
   br label %469
 
 462:                                              ; preds = %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215, %65
-  %.1 = phi double [ %67, %65 ], [ %.0136, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215 ]
+  %.0136 = phi double [ %67, %65 ], [ %.1, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215 ]
   %463 = getelementptr inbounds i8, ptr %5, i64 8
   %464 = load i32, ptr %463, align 8
   %.not.i = icmp eq i32 %464, 0
@@ -2625,7 +2625,7 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit:            ; preds = %.loopexit, %.loopex
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %462, %465
-  ret double %.1
+  ret double %.0136
 
 469:                                              ; preds = %461, %57, %39
   %.pn195 = phi { ptr, i32 } [ %40, %39 ], [ %.pn191.pn.pn, %461 ], [ %.pn, %57 ]
@@ -2661,7 +2661,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -2670,20 +2670,20 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi double [ %19, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi double [ %19, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds float, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4
   %15 = getelementptr inbounds float, ptr %.03037.us.i, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fsub float %14, %16
   %18 = fpext float %17 to double
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.135.us.i)
+  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.235.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !49
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi double [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %19, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %19, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %20 = getelementptr inbounds float, ptr %.040.us.i, i64 %10
   %21 = getelementptr inbounds float, ptr %.03037.us.i, i64 %10
@@ -2719,8 +2719,8 @@ _ZN2cvL9normL2SqrIfdEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %22
   br label %_ZN2cv11normDiffL2_IfdEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_IfdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrIfdEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %32, %_ZN2cvL9normL2SqrIfdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.029.i = phi double [ %32, %_ZN2cvL9normL2SqrIfdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.029.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -2746,7 +2746,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -2756,7 +2756,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi double [ %20, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi double [ %20, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds float, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4
   %15 = getelementptr inbounds float, ptr %.02835.us.i, i64 %indvars.iv.i
@@ -2764,13 +2764,13 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
   %17 = fsub float %14, %16
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %19 = fpext float %18 to double
-  %20 = fadd double %.133.us.i, %19
+  %20 = fadd double %.233.us.i, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !51
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi double [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %20, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.137.us.i, %.lr.ph39.split.us.i ], [ %20, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %21 = getelementptr inbounds float, ptr %.02736.us.i, i64 %10
   %22 = getelementptr inbounds float, ptr %.02835.us.i, i64 %10
@@ -2807,8 +2807,8 @@ _ZN2cvL6normL1IfdEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %23
   br label %_ZN2cv11normDiffL1_IfdEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_IfdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1IfdEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %34, %_ZN2cvL6normL1IfdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.026.i = phi double [ %34, %_ZN2cvL6normL1IfdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.026.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -2836,7 +2836,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocaptur
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph43.split.us.preheader.i ], [ %indvars.iv.next48.i, %..loopexit_crit_edge.us.i ]
   %.02341.us.i = phi ptr [ %0, %.lr.ph43.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.02440.us.i = phi ptr [ %1, %.lr.ph43.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
-  %.03439.us.i = phi float [ %7, %.lr.ph43.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.139.us.i = phi float [ %7, %.lr.ph43.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv47.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -2844,21 +2844,21 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocaptur
 
 .preheader.us.i:                                  ; preds = %.lr.ph43.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph43.split.us.i ]
-  %.137.us.i = phi float [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03439.us.i, %.lr.ph43.split.us.i ]
+  %.237.us.i = phi float [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.139.us.i, %.lr.ph43.split.us.i ]
   %13 = getelementptr inbounds float, ptr %.02341.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4
   %15 = getelementptr inbounds float, ptr %.02440.us.i, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fsub float %14, %16
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
-  %19 = fcmp olt float %.137.us.i, %18
-  %.sroa.speculated.us.i = select i1 %19, float %18, float %.137.us.i
+  %19 = fcmp olt float %.237.us.i, %18
+  %.sroa.speculated.us.i = select i1 %19, float %18, float %.237.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !53
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph43.split.us.i
-  %.2.us.i = phi float [ %.03439.us.i, %.lr.ph43.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi float [ %.139.us.i, %.lr.ph43.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %20 = getelementptr inbounds float, ptr %.02341.us.i, i64 %10
   %21 = getelementptr inbounds float, ptr %.02440.us.i, i64 %10
@@ -2896,8 +2896,8 @@ _ZN2cvL7normInfIffEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %22
   br label %_ZN2cv12normDiffInf_IffEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_IffEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader35.i, %.lr.ph43.i, %_ZN2cvL7normInfIffEET0_PKT_S4_i.exit.i
-  %.3.i = phi float [ %.sroa.speculated29.i, %_ZN2cvL7normInfIffEET0_PKT_S4_i.exit.i ], [ %7, %.preheader35.i ], [ %7, %.lr.ph43.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store float %.3.i, ptr %3, align 4
+  %.034.i = phi float [ %.sroa.speculated29.i, %_ZN2cvL7normInfIffEET0_PKT_S4_i.exit.i ], [ %7, %.preheader35.i ], [ %7, %.lr.ph43.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store float %.034.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -3284,7 +3284,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
 .lr.ph40.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
-  %.03237.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -3292,17 +3292,17 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
-  %.135.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03237.us.i, %.lr.ph40.split.us.i ]
+  %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
   %12 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.135.us.i, i32 %14)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !58
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
-  %.2.us.i = phi i32 [ %.03237.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %15 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
@@ -3334,8 +3334,8 @@ _ZN2cvL7normInfIhiEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %16
   br label %_ZN2cv8normInf_IhiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_IhiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph40.i, %_ZN2cvL7normInfIhiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIhiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.032.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIhiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.032.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3362,7 +3362,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
 .lr.ph40.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.03237.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -3370,18 +3370,18 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
-  %.135.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03237.us.i, %.lr.ph40.split.us.i ]
+  %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
   %12 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = tail call i8 @llvm.abs.i8(i8 %13, i1 false)
   %15 = zext i8 %14 to i32
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.135.us.i, i32 %15)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !61
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
-  %.2.us.i = phi i32 [ %.03237.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %16 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
@@ -3414,8 +3414,8 @@ _ZN2cvL7normInfIaiEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv8normInf_IaiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_IaiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph40.i, %_ZN2cvL7normInfIaiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIaiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.032.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIaiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.032.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3442,7 +3442,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
 .lr.ph40.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
-  %.03237.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -3450,17 +3450,17 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
 
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
-  %.135.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03237.us.i, %.lr.ph40.split.us.i ]
+  %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
   %12 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.135.us.i, i32 %14)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !64
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
-  %.2.us.i = phi i32 [ %.03237.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %15 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
@@ -3492,8 +3492,8 @@ _ZN2cvL7normInfItiEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %16
   br label %_ZN2cv8normInf_ItiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_ItiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph40.i, %_ZN2cvL7normInfItiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfItiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.032.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfItiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.032.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3520,7 +3520,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
 .lr.ph40.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.03237.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -3528,18 +3528,18 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
 
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
-  %.135.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03237.us.i, %.lr.ph40.split.us.i ]
+  %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
   %12 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = tail call i16 @llvm.abs.i16(i16 %13, i1 false)
   %15 = zext i16 %14 to i32
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.135.us.i, i32 %15)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !67
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
-  %.2.us.i = phi i32 [ %.03237.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %16 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
@@ -3572,8 +3572,8 @@ _ZN2cvL7normInfIsiEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv8normInf_IsiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_IsiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph40.i, %_ZN2cvL7normInfIsiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIsiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.032.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIsiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.032.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3600,7 +3600,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
 .lr.ph40.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
-  %.03237.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -3608,17 +3608,17 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
 
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
-  %.135.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03237.us.i, %.lr.ph40.split.us.i ]
+  %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
   %12 = getelementptr inbounds i32, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.135.us.i, i32 %14)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !70
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
-  %.2.us.i = phi i32 [ %.03237.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %15 = getelementptr inbounds i32, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
@@ -3650,8 +3650,8 @@ _ZN2cvL7normInfIiiEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %16
   br label %_ZN2cv8normInf_IiiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_IiiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph40.i, %_ZN2cvL7normInfIiiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIiiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.032.i = phi i32 [ %.sroa.speculated24.i, %_ZN2cvL7normInfIiiEET0_PKT_i.exit.i ], [ %6, %.preheader33.i ], [ %6, %.lr.ph40.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.032.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3678,7 +3678,7 @@ define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture nound
 .lr.ph36.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph36.split.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph36.split.us.preheader.i ], [ %indvars.iv.next41.i, %..loopexit_crit_edge.us.i ]
   %.01834.us.i = phi ptr [ %0, %.lr.ph36.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.02833.us.i = phi double [ %6, %.lr.ph36.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.133.us.i = phi double [ %6, %.lr.ph36.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv40.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
@@ -3686,18 +3686,18 @@ define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture nound
 
 .preheader.us.i:                                  ; preds = %.lr.ph36.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph36.split.us.i ]
-  %.131.us.i = phi double [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.02833.us.i, %.lr.ph36.split.us.i ]
+  %.231.us.i = phi double [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.133.us.i, %.lr.ph36.split.us.i ]
   %12 = getelementptr inbounds double, ptr %.01834.us.i, i64 %indvars.iv.i
   %13 = load double, ptr %12, align 8
   %14 = tail call noundef double @llvm.fabs.f64(double %13)
-  %15 = fcmp olt double %.131.us.i, %14
-  %.sroa.speculated.us.i = select i1 %15, double %14, double %.131.us.i
+  %15 = fcmp olt double %.231.us.i, %14
+  %.sroa.speculated.us.i = select i1 %15, double %14, double %.231.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !73
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph36.split.us.i
-  %.2.us.i = phi double [ %.02833.us.i, %.lr.ph36.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.133.us.i, %.lr.ph36.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %16 = getelementptr inbounds double, ptr %.01834.us.i, i64 %9
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
@@ -3731,8 +3731,8 @@ _ZN2cvL7normInfIddEET0_PKT_i.exit.i:              ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv8normInf_IddEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv8normInf_IddEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edge.us.i, %.preheader29.i, %.lr.ph36.i, %_ZN2cvL7normInfIddEET0_PKT_i.exit.i
-  %.3.i = phi double [ %.sroa.speculated23.i, %_ZN2cvL7normInfIddEET0_PKT_i.exit.i ], [ %6, %.preheader29.i ], [ %6, %.lr.ph36.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.028.i = phi double [ %.sroa.speculated23.i, %_ZN2cvL7normInfIddEET0_PKT_i.exit.i ], [ %6, %.preheader29.i ], [ %6, %.lr.ph36.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.028.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -3758,7 +3758,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef 
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -3767,17 +3767,17 @@ define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef 
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi i32 [ %15, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi i32 [ %15, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %.127.us.i, %14
+  %15 = add nsw i32 %.227.us.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !76
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi i32 [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %16 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -3809,8 +3809,8 @@ _ZN2cvL6normL1IhiEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL1_IhiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_IhiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1IhiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %24, %_ZN2cvL6normL1IhiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.021.i = phi i32 [ %24, %_ZN2cvL6normL1IhiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.021.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3836,7 +3836,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef 
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -3845,18 +3845,18 @@ define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef 
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = tail call i8 @llvm.abs.i8(i8 %13, i1 false)
   %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %.127.us.i, %15
+  %16 = add nsw i32 %.227.us.i, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !79
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi i32 [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %17 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -3889,8 +3889,8 @@ _ZN2cvL6normL1IaiEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %18
   br label %_ZN2cv7normL1_IaiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_IaiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1IaiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %26, %_ZN2cvL6normL1IaiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.021.i = phi i32 [ %26, %_ZN2cvL6normL1IaiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.021.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3916,7 +3916,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture nounde
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -3925,17 +3925,17 @@ define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi i32 [ %15, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi i32 [ %15, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
-  %15 = add nsw i32 %.127.us.i, %14
+  %15 = add nsw i32 %.227.us.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !82
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi i32 [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %16 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -3967,8 +3967,8 @@ _ZN2cvL6normL1ItiEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL1_ItiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_ItiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1ItiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %24, %_ZN2cvL6normL1ItiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.021.i = phi i32 [ %24, %_ZN2cvL6normL1ItiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.021.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -3994,7 +3994,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture nounde
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -4003,18 +4003,18 @@ define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = tail call i16 @llvm.abs.i16(i16 %13, i1 false)
   %15 = zext i16 %14 to i32
-  %16 = add nsw i32 %.127.us.i, %15
+  %16 = add nsw i32 %.227.us.i, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !85
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi i32 [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %17 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -4047,8 +4047,8 @@ _ZN2cvL6normL1IsiEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %18
   br label %_ZN2cv7normL1_IsiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_IsiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1IsiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %26, %_ZN2cvL6normL1IsiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.021.i = phi i32 [ %26, %_ZN2cvL6normL1IsiEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.021.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -4074,7 +4074,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture nounde
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -4083,18 +4083,18 @@ define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi double [ %16, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi double [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds i32, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %15 = uitofp nneg i32 %14 to double
-  %16 = fadd double %.127.us.i, %15
+  %16 = fadd double %.227.us.i, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !88
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi double [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %17 = getelementptr inbounds i32, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -4127,8 +4127,8 @@ _ZN2cvL6normL1IidEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %18
   br label %_ZN2cv7normL1_IidEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_IidEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1IidEET0_PKT_i.exit.i
-  %.3.i = phi double [ %26, %_ZN2cvL6normL1IidEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.021.i = phi double [ %26, %_ZN2cvL6normL1IidEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.021.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -4154,7 +4154,7 @@ define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture nounde
 
 .lr.ph32.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph32.split.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
-  %.02130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
@@ -4163,17 +4163,17 @@ define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
-  %.127.us.i = phi double [ %15, %.preheader.us.i ], [ %.02130.us.i, %.lr.ph32.split.us.i ]
+  %.227.us.i = phi double [ %15, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
   %12 = getelementptr inbounds double, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load double, ptr %12, align 8
   %14 = tail call noundef double @llvm.fabs.f64(double %13)
-  %15 = fadd double %.127.us.i, %14
+  %15 = fadd double %.227.us.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !91
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
-  %.2.us.i = phi double [ %.02130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %16 = getelementptr inbounds double, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
@@ -4205,8 +4205,8 @@ _ZN2cvL6normL1IddEET0_PKT_i.exit.i:               ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL1_IddEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL1_IddEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader25.i, %.lr.ph32.i, %_ZN2cvL6normL1IddEET0_PKT_i.exit.i
-  %.3.i = phi double [ %24, %_ZN2cvL6normL1IddEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.021.i = phi double [ %24, %_ZN2cvL6normL1IddEET0_PKT_i.exit.i ], [ %6, %.preheader25.i ], [ %6, %.lr.ph32.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.021.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -4233,7 +4233,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef 
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi i32 [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi i32 [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -4241,18 +4241,18 @@ define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef 
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds i8, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %14
-  %16 = add nsw i32 %15, %.129.us.i
+  %16 = add nsw i32 %15, %.229.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !94
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi i32 [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %16, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.131.us.i, %.lr.ph34.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %17 = getelementptr inbounds i8, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -4285,8 +4285,8 @@ _ZN2cvL9normL2SqrIhiEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %18
   br label %_ZN2cv7normL2_IhiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_IhiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrIhiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %26, %_ZN2cvL9normL2SqrIhiEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.024.i = phi i32 [ %26, %_ZN2cvL9normL2SqrIhiEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.024.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -4313,7 +4313,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef 
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi i32 [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi i32 [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -4321,18 +4321,18 @@ define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef 
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds i8, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i32
   %15 = mul nsw i32 %14, %14
-  %16 = add nsw i32 %15, %.129.us.i
+  %16 = add nsw i32 %15, %.229.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !97
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi i32 [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %16, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.131.us.i, %.lr.ph34.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %17 = getelementptr inbounds i8, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -4365,8 +4365,8 @@ _ZN2cvL9normL2SqrIaiEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %18
   br label %_ZN2cv7normL2_IaiEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_IaiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrIaiEET0_PKT_i.exit.i
-  %.3.i = phi i32 [ %26, %_ZN2cvL9normL2SqrIaiEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %2, align 4
+  %.024.i = phi i32 [ %26, %_ZN2cvL9normL2SqrIaiEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.024.i, ptr %2, align 4
   ret i32 0
 }
 
@@ -4393,7 +4393,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture nounde
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -4401,17 +4401,17 @@ define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi double [ %15, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds i16, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = uitofp i16 %13 to double
-  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.129.us.i)
+  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !100
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi double [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %16 = getelementptr inbounds i16, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -4443,8 +4443,8 @@ _ZN2cvL9normL2SqrItdEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL2_ItdEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_ItdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrItdEET0_PKT_i.exit.i
-  %.3.i = phi double [ %24, %_ZN2cvL9normL2SqrItdEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.024.i = phi double [ %24, %_ZN2cvL9normL2SqrItdEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.024.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -4471,7 +4471,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture nounde
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -4479,17 +4479,17 @@ define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi double [ %15, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds i16, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = sitofp i16 %13 to double
-  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.129.us.i)
+  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !103
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi double [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %16 = getelementptr inbounds i16, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -4521,8 +4521,8 @@ _ZN2cvL9normL2SqrIsdEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL2_IsdEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_IsdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrIsdEET0_PKT_i.exit.i
-  %.3.i = phi double [ %24, %_ZN2cvL9normL2SqrIsdEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.024.i = phi double [ %24, %_ZN2cvL9normL2SqrIsdEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.024.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -4549,7 +4549,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture nounde
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -4557,17 +4557,17 @@ define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi double [ %15, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds i32, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to double
-  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.129.us.i)
+  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !106
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi double [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %16 = getelementptr inbounds i32, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -4599,8 +4599,8 @@ _ZN2cvL9normL2SqrIidEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %17
   br label %_ZN2cv7normL2_IidEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_IidEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrIidEET0_PKT_i.exit.i
-  %.3.i = phi double [ %24, %_ZN2cvL9normL2SqrIidEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.024.i = phi double [ %24, %_ZN2cvL9normL2SqrIidEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.024.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -4627,7 +4627,7 @@ define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture nounde
 .lr.ph34.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph34.split.us.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
-  %.02431.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
@@ -4635,16 +4635,16 @@ define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture nounde
 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
-  %.129.us.i = phi double [ %14, %.preheader.us.i ], [ %.02431.us.i, %.lr.ph34.split.us.i ]
+  %.229.us.i = phi double [ %14, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
   %12 = getelementptr inbounds double, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load double, ptr %12, align 8
-  %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %.129.us.i)
+  %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %.229.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !109
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
-  %.2.us.i = phi double [ %.02431.us.i, %.lr.ph34.split.us.i ], [ %14, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %14, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %15 = getelementptr inbounds double, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
@@ -4675,8 +4675,8 @@ _ZN2cvL9normL2SqrIddEET0_PKT_i.exit.i:            ; preds = %.lr.ph.i.i, %16
   br label %_ZN2cv7normL2_IddEEiPKT_PKhPT0_ii.exit
 
 _ZN2cv7normL2_IddEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edge.us.i, %.preheader27.i, %.lr.ph34.i, %_ZN2cvL9normL2SqrIddEET0_PKT_i.exit.i
-  %.3.i = phi double [ %22, %_ZN2cvL9normL2SqrIddEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %2, align 8
+  %.024.i = phi double [ %22, %_ZN2cvL9normL2SqrIddEET0_PKT_i.exit.i ], [ %6, %.preheader27.i ], [ %6, %.lr.ph34.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.024.i, ptr %2, align 8
   ret i32 0
 }
 
@@ -4720,7 +4720,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.split.us.preheader.i ], [ %indvars.iv.next52.i, %..loopexit_crit_edge.us.i ]
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.03843.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -4728,7 +4728,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
-  %.141.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03843.us.i, %.lr.ph47.split.us.i ]
+  %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
   %13 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
@@ -4737,13 +4737,13 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.141.us.i, i32 %20)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.241.us.i, i32 %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !112
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
-  %.2.us.i = phi i32 [ %.03843.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %21 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %10
   %22 = getelementptr inbounds i8, ptr %.02444.us.i, i64 %10
@@ -4781,8 +4781,8 @@ _ZN2cvL7normInfIhiEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %23
   br label %_ZN2cv12normDiffInf_IhiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_IhiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader39.i, %.lr.ph47.i, %_ZN2cvL7normInfIhiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIhiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.038.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIhiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.038.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -4810,7 +4810,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.split.us.preheader.i ], [ %indvars.iv.next52.i, %..loopexit_crit_edge.us.i ]
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.03843.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -4818,7 +4818,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
-  %.141.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03843.us.i, %.lr.ph47.split.us.i ]
+  %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
   %13 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
@@ -4827,13 +4827,13 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.141.us.i, i32 %20)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.241.us.i, i32 %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !115
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
-  %.2.us.i = phi i32 [ %.03843.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %21 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %10
   %22 = getelementptr inbounds i8, ptr %.02444.us.i, i64 %10
@@ -4871,8 +4871,8 @@ _ZN2cvL7normInfIaiEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %23
   br label %_ZN2cv12normDiffInf_IaiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_IaiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader39.i, %.lr.ph47.i, %_ZN2cvL7normInfIaiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIaiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.038.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIaiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.038.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -4900,7 +4900,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.split.us.preheader.i ], [ %indvars.iv.next52.i, %..loopexit_crit_edge.us.i ]
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.03843.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -4908,7 +4908,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
 
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
-  %.141.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03843.us.i, %.lr.ph47.split.us.i ]
+  %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
   %13 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
@@ -4917,13 +4917,13 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.141.us.i, i32 %20)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.241.us.i, i32 %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !118
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
-  %.2.us.i = phi i32 [ %.03843.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %21 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %10
   %22 = getelementptr inbounds i16, ptr %.02444.us.i, i64 %10
@@ -4961,8 +4961,8 @@ _ZN2cvL7normInfItiEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %23
   br label %_ZN2cv12normDiffInf_ItiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_ItiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader39.i, %.lr.ph47.i, %_ZN2cvL7normInfItiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfItiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.038.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfItiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.038.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -4990,7 +4990,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.split.us.preheader.i ], [ %indvars.iv.next52.i, %..loopexit_crit_edge.us.i ]
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.03843.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -4998,7 +4998,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
 
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
-  %.141.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03843.us.i, %.lr.ph47.split.us.i ]
+  %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
   %13 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
@@ -5007,13 +5007,13 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
   %18 = sext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.141.us.i, i32 %20)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.241.us.i, i32 %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !121
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
-  %.2.us.i = phi i32 [ %.03843.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %21 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %10
   %22 = getelementptr inbounds i16, ptr %.02444.us.i, i64 %10
@@ -5051,8 +5051,8 @@ _ZN2cvL7normInfIsiEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %23
   br label %_ZN2cv12normDiffInf_IsiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_IsiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader39.i, %.lr.ph47.i, %_ZN2cvL7normInfIsiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIsiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.038.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIsiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.038.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5080,7 +5080,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.split.us.preheader.i ], [ %indvars.iv.next52.i, %..loopexit_crit_edge.us.i ]
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %19, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
-  %.03843.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -5088,20 +5088,20 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
 
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
-  %.141.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03843.us.i, %.lr.ph47.split.us.i ]
+  %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
   %13 = getelementptr inbounds i32, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i32, ptr %.02444.us.i, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %14, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.141.us.i, i32 %18)
+  %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.241.us.i, i32 %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !124
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
-  %.2.us.i = phi i32 [ %.03843.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %19 = getelementptr inbounds i32, ptr %.02345.us.i, i64 %10
   %20 = getelementptr inbounds i32, ptr %.02444.us.i, i64 %10
@@ -5137,8 +5137,8 @@ _ZN2cvL7normInfIiiEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %21
   br label %_ZN2cv12normDiffInf_IiiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_IiiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader39.i, %.lr.ph47.i, %_ZN2cvL7normInfIiiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIiiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.038.i = phi i32 [ %.sroa.speculated30.i, %_ZN2cvL7normInfIiiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader39.i ], [ %7, %.lr.ph47.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.038.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5166,7 +5166,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocaptur
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph43.split.us.preheader.i ], [ %indvars.iv.next48.i, %..loopexit_crit_edge.us.i ]
   %.02341.us.i = phi ptr [ %0, %.lr.ph43.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.02440.us.i = phi ptr [ %1, %.lr.ph43.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
-  %.03439.us.i = phi double [ %7, %.lr.ph43.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.139.us.i = phi double [ %7, %.lr.ph43.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv47.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
@@ -5174,21 +5174,21 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocaptur
 
 .preheader.us.i:                                  ; preds = %.lr.ph43.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph43.split.us.i ]
-  %.137.us.i = phi double [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.03439.us.i, %.lr.ph43.split.us.i ]
+  %.237.us.i = phi double [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.139.us.i, %.lr.ph43.split.us.i ]
   %13 = getelementptr inbounds double, ptr %.02341.us.i, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds double, ptr %.02440.us.i, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
   %18 = tail call noundef double @llvm.fabs.f64(double %17)
-  %19 = fcmp olt double %.137.us.i, %18
-  %.sroa.speculated.us.i = select i1 %19, double %18, double %.137.us.i
+  %19 = fcmp olt double %.237.us.i, %18
+  %.sroa.speculated.us.i = select i1 %19, double %18, double %.237.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !127
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph43.split.us.i
-  %.2.us.i = phi double [ %.03439.us.i, %.lr.ph43.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.139.us.i, %.lr.ph43.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %20 = getelementptr inbounds double, ptr %.02341.us.i, i64 %10
   %21 = getelementptr inbounds double, ptr %.02440.us.i, i64 %10
@@ -5226,8 +5226,8 @@ _ZN2cvL7normInfIddEET0_PKT_S4_i.exit.i:           ; preds = %.lr.ph.i.i, %22
   br label %_ZN2cv12normDiffInf_IddEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv12normDiffInf_IddEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edge.us.i, %.preheader35.i, %.lr.ph43.i, %_ZN2cvL7normInfIddEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %.sroa.speculated29.i, %_ZN2cvL7normInfIddEET0_PKT_S4_i.exit.i ], [ %7, %.preheader35.i ], [ %7, %.lr.ph43.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.034.i = phi double [ %.sroa.speculated29.i, %_ZN2cvL7normInfIddEET0_PKT_S4_i.exit.i ], [ %7, %.preheader35.i ], [ %7, %.lr.ph43.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.034.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -5253,7 +5253,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -5263,7 +5263,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
@@ -5272,13 +5272,13 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = add nsw i32 %20, %.133.us.i
+  %21 = add nsw i32 %20, %.233.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !130
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi i32 [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %22 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %10
   %23 = getelementptr inbounds i8, ptr %.02835.us.i, i64 %10
@@ -5316,8 +5316,8 @@ _ZN2cvL6normL1IhiEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL1_IhiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_IhiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1IhiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %36, %_ZN2cvL6normL1IhiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.026.i = phi i32 [ %36, %_ZN2cvL6normL1IhiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.026.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5343,7 +5343,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -5353,7 +5353,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
@@ -5362,13 +5362,13 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = add nsw i32 %20, %.133.us.i
+  %21 = add nsw i32 %20, %.233.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !133
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi i32 [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %22 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %10
   %23 = getelementptr inbounds i8, ptr %.02835.us.i, i64 %10
@@ -5406,8 +5406,8 @@ _ZN2cvL6normL1IaiEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL1_IaiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_IaiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1IaiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %36, %_ZN2cvL6normL1IaiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.026.i = phi i32 [ %36, %_ZN2cvL6normL1IaiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.026.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5433,7 +5433,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -5443,7 +5443,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
@@ -5452,13 +5452,13 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = add nsw i32 %20, %.133.us.i
+  %21 = add nsw i32 %20, %.233.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !136
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi i32 [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %22 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %10
   %23 = getelementptr inbounds i16, ptr %.02835.us.i, i64 %10
@@ -5496,8 +5496,8 @@ _ZN2cvL6normL1ItiEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL1_ItiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_ItiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1ItiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %36, %_ZN2cvL6normL1ItiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.026.i = phi i32 [ %36, %_ZN2cvL6normL1ItiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.026.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5523,7 +5523,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -5533,7 +5533,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
@@ -5542,13 +5542,13 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
   %18 = sext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %21 = add nsw i32 %20, %.133.us.i
+  %21 = add nsw i32 %20, %.233.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !139
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi i32 [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %22 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %10
   %23 = getelementptr inbounds i16, ptr %.02835.us.i, i64 %10
@@ -5586,8 +5586,8 @@ _ZN2cvL6normL1IsiEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL1_IsiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_IsiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1IsiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %36, %_ZN2cvL6normL1IsiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.026.i = phi i32 [ %36, %_ZN2cvL6normL1IsiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.026.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5613,7 +5613,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -5623,7 +5623,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi double [ %20, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi double [ %20, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds i32, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i32, ptr %.02835.us.i, i64 %indvars.iv.i
@@ -5631,13 +5631,13 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
   %17 = sub nsw i32 %14, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
   %19 = uitofp nneg i32 %18 to double
-  %20 = fadd double %.133.us.i, %19
+  %20 = fadd double %.233.us.i, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !142
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi double [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %20, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.137.us.i, %.lr.ph39.split.us.i ], [ %20, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %21 = getelementptr inbounds i32, ptr %.02736.us.i, i64 %10
   %22 = getelementptr inbounds i32, ptr %.02835.us.i, i64 %10
@@ -5674,8 +5674,8 @@ _ZN2cvL6normL1IidEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %23
   br label %_ZN2cv11normDiffL1_IidEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_IidEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1IidEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %34, %_ZN2cvL6normL1IidEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.026.i = phi double [ %34, %_ZN2cvL6normL1IidEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.026.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -5701,7 +5701,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture
 
 .lr.ph39.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.split.us.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph39.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
-  %.02637.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.137.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
@@ -5711,20 +5711,20 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
-  %.133.us.i = phi double [ %19, %.preheader.us.i ], [ %.02637.us.i, %.lr.ph39.split.us.i ]
+  %.233.us.i = phi double [ %19, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
   %13 = getelementptr inbounds double, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds double, ptr %.02835.us.i, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
   %18 = tail call noundef double @llvm.fabs.f64(double %17)
-  %19 = fadd double %.133.us.i, %18
+  %19 = fadd double %.233.us.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !145
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
-  %.2.us.i = phi double [ %.02637.us.i, %.lr.ph39.split.us.i ], [ %19, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.137.us.i, %.lr.ph39.split.us.i ], [ %19, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %20 = getelementptr inbounds double, ptr %.02736.us.i, i64 %10
   %21 = getelementptr inbounds double, ptr %.02835.us.i, i64 %10
@@ -5760,8 +5760,8 @@ _ZN2cvL6normL1IddEET0_PKT_S4_i.exit.i:            ; preds = %.lr.ph.i.i, %22
   br label %_ZN2cv11normDiffL1_IddEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL1_IddEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader31.i, %.lr.ph39.i, %_ZN2cvL6normL1IddEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %32, %_ZN2cvL6normL1IddEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.026.i = phi double [ %32, %_ZN2cvL6normL1IddEET0_PKT_S4_i.exit.i ], [ %7, %.preheader31.i ], [ %7, %.lr.ph39.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.026.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -5788,7 +5788,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi i32 [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi i32 [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -5797,7 +5797,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds i8, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
@@ -5806,13 +5806,13 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = mul nsw i32 %19, %19
-  %21 = add nsw i32 %20, %.135.us.i
+  %21 = add nsw i32 %20, %.235.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !148
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi i32 [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %22 = getelementptr inbounds i8, ptr %.040.us.i, i64 %10
   %23 = getelementptr inbounds i8, ptr %.03037.us.i, i64 %10
@@ -5850,8 +5850,8 @@ _ZN2cvL9normL2SqrIhiEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL2_IhiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_IhiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrIhiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %36, %_ZN2cvL9normL2SqrIhiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.029.i = phi i32 [ %36, %_ZN2cvL9normL2SqrIhiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.029.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5878,7 +5878,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi i32 [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi i32 [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -5887,7 +5887,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds i8, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
@@ -5896,13 +5896,13 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = mul nsw i32 %19, %19
-  %21 = add nsw i32 %20, %.135.us.i
+  %21 = add nsw i32 %20, %.235.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !151
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi i32 [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi i32 [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %22 = getelementptr inbounds i8, ptr %.040.us.i, i64 %10
   %23 = getelementptr inbounds i8, ptr %.03037.us.i, i64 %10
@@ -5940,8 +5940,8 @@ _ZN2cvL9normL2SqrIaiEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL2_IaiEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_IaiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrIaiEET0_PKT_S4_i.exit.i
-  %.3.i = phi i32 [ %36, %_ZN2cvL9normL2SqrIaiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store i32 %.3.i, ptr %3, align 4
+  %.029.i = phi i32 [ %36, %_ZN2cvL9normL2SqrIaiEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store i32 %.029.i, ptr %3, align 4
   ret i32 0
 }
 
@@ -5968,7 +5968,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -5977,7 +5977,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi double [ %21, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi double [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds i16, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
@@ -5986,13 +5986,13 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = sitofp i32 %19 to double
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %.135.us.i)
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %.235.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !154
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi double [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %22 = getelementptr inbounds i16, ptr %.040.us.i, i64 %10
   %23 = getelementptr inbounds i16, ptr %.03037.us.i, i64 %10
@@ -6030,8 +6030,8 @@ _ZN2cvL9normL2SqrItdEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL2_ItdEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_ItdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrItdEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %36, %_ZN2cvL9normL2SqrItdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.029.i = phi double [ %36, %_ZN2cvL9normL2SqrItdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.029.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -6058,7 +6058,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -6067,7 +6067,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi double [ %21, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi double [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds i16, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
@@ -6076,13 +6076,13 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
   %18 = sext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
   %20 = sitofp i32 %19 to double
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %.135.us.i)
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %.235.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !157
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi double [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %22 = getelementptr inbounds i16, ptr %.040.us.i, i64 %10
   %23 = getelementptr inbounds i16, ptr %.03037.us.i, i64 %10
@@ -6120,8 +6120,8 @@ _ZN2cvL9normL2SqrIsdEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %24
   br label %_ZN2cv11normDiffL2_IsdEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_IsdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrIsdEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %36, %_ZN2cvL9normL2SqrIsdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.029.i = phi double [ %36, %_ZN2cvL9normL2SqrIsdEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.029.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -6148,7 +6148,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -6157,20 +6157,20 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi double [ %19, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi double [ %19, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds i32, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i32, ptr %.03037.us.i, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %14, %16
   %18 = sitofp i32 %17 to double
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.135.us.i)
+  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.235.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !160
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi double [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %19, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %19, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %20 = getelementptr inbounds i32, ptr %.040.us.i, i64 %10
   %21 = getelementptr inbounds i32, ptr %.03037.us.i, i64 %10
@@ -6206,8 +6206,8 @@ _ZN2cvL9normL2SqrIidEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %22
   br label %_ZN2cv11normDiffL2_IidEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_IidEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrIidEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %32, %_ZN2cvL9normL2SqrIidEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.029.i = phi double [ %32, %_ZN2cvL9normL2SqrIidEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.029.i, ptr %3, align 8
   ret i32 0
 }
 
@@ -6234,7 +6234,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture
 .lr.ph41.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next47.i, %..loopexit_crit_edge.us.i ]
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %19, %..loopexit_crit_edge.us.i ]
-  %.02938.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
+  %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
@@ -6243,19 +6243,19 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
-  %.135.us.i = phi double [ %18, %.preheader.us.i ], [ %.02938.us.i, %.lr.ph41.split.us.i ]
+  %.235.us.i = phi double [ %18, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
   %13 = getelementptr inbounds double, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
   %15 = getelementptr inbounds double, ptr %.03037.us.i, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
-  %18 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %.135.us.i)
+  %18 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %.235.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i, !llvm.loop !163
 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
-  %.2.us.i = phi double [ %.02938.us.i, %.lr.ph41.split.us.i ], [ %18, %.preheader.us.i ]
+  %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %18, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %19 = getelementptr inbounds double, ptr %.040.us.i, i64 %10
   %20 = getelementptr inbounds double, ptr %.03037.us.i, i64 %10
@@ -6290,8 +6290,8 @@ _ZN2cvL9normL2SqrIddEET0_PKT_S4_i.exit.i:         ; preds = %.lr.ph.i.i, %21
   br label %_ZN2cv11normDiffL2_IddEEiPKT_S3_PKhPT0_ii.exit
 
 _ZN2cv11normDiffL2_IddEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edge.us.i, %.preheader33.i, %.lr.ph41.i, %_ZN2cvL9normL2SqrIddEET0_PKT_S4_i.exit.i
-  %.3.i = phi double [ %30, %_ZN2cvL9normL2SqrIddEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.2.us.i, %..loopexit_crit_edge.us.i ]
-  store double %.3.i, ptr %3, align 8
+  %.029.i = phi double [ %30, %_ZN2cvL9normL2SqrIddEET0_PKT_S4_i.exit.i ], [ %7, %.preheader33.i ], [ %7, %.lr.ph41.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
+  store double %.029.i, ptr %3, align 8
   ret i32 0
 }
 

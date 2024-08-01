@@ -321,9 +321,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.027 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %bits.sroa.0.026 = phi ptr [ null, %entry ], [ %bits.sroa.0.2, %for.inc ]
-  %bits.sroa.6.025 = phi ptr [ null, %entry ], [ %bits.sroa.6.2, %for.inc ]
-  %bits.sroa.11.024 = phi ptr [ null, %entry ], [ %bits.sroa.11.2, %for.inc ]
+  %bits.sroa.0.026 = phi ptr [ null, %entry ], [ %bits.sroa.0.1, %for.inc ]
+  %bits.sroa.6.025 = phi ptr [ null, %entry ], [ %bits.sroa.6.1, %for.inc ]
+  %bits.sroa.11.024 = phi ptr [ null, %entry ], [ %bits.sroa.11.1, %for.inc ]
   %0 = load i16, ptr %this, align 2
   %conv = zext i16 %0 to i32
   %sh_prom = trunc nuw nsw i64 %i.027 to i32
@@ -406,9 +406,9 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i
   br label %ehcleanup
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i, %for.body
-  %bits.sroa.11.2 = phi ptr [ %bits.sroa.11.024, %for.body ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %bits.sroa.11.024, %if.then.i.i ]
-  %bits.sroa.6.2 = phi ptr [ %bits.sroa.6.025, %for.body ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
-  %bits.sroa.0.2 = phi ptr [ %bits.sroa.0.026, %for.body ], [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %bits.sroa.0.026, %if.then.i.i ]
+  %bits.sroa.11.1 = phi ptr [ %bits.sroa.11.024, %for.body ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %bits.sroa.11.024, %if.then.i.i ]
+  %bits.sroa.6.1 = phi ptr [ %bits.sroa.6.025, %for.body ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %bits.sroa.0.1 = phi ptr [ %bits.sroa.0.026, %for.body ], [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %bits.sroa.0.026, %if.then.i.i ]
   %inc = add nuw nsw i64 %i.027, 1
   %exitcond.not = icmp eq i64 %inc, 16
   br i1 %exitcond.not, label %invoke.cont4, label %for.body, !llvm.loop !9
@@ -418,7 +418,7 @@ invoke.cont4:                                     ; preds = %for.inc
   %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.2, ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #18
-  %cmp.i.not6.i.i.i.i = icmp eq ptr %bits.sroa.0.2, %bits.sroa.6.2
+  %cmp.i.not6.i.i.i.i = icmp eq ptr %bits.sroa.0.1, %bits.sroa.6.1
   br i1 %cmp.i.not6.i.i.i.i, label %invoke.cont11, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %invoke.cont4
@@ -428,7 +428,7 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %invoke.cont4
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont6.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %it.sroa.0.09.i.i.i.i = phi ptr [ %bits.sroa.0.2, %for.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %invoke.cont6.i.i.i.i ]
+  %it.sroa.0.09.i.i.i.i = phi ptr [ %bits.sroa.0.1, %for.body.lr.ph.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %invoke.cont6.i.i.i.i ]
   %sep.sroa.0.08.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ 1, %invoke.cont6.i.i.i.i ]
   %sep.sroa.3.07.i.i.i.i = phi ptr [ @.str.10, %for.body.lr.ph.i.i.i.i ], [ @.str.3, %invoke.cont6.i.i.i.i ]
   %call4.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull %sep.sroa.3.07.i.i.i.i, i64 noundef %sep.sroa.0.08.i.i.i.i)
@@ -451,7 +451,7 @@ call.i.i2.noexc.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
 invoke.cont6.i.i.i.i:                             ; preds = %call.i.i2.noexc.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !10
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i.i.i.i, i64 4
-  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %bits.sroa.6.2
+  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %bits.sroa.6.1
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !20
 
 lpad.i.i.i.i:                                     ; preds = %call.i.i2.noexc.i.i.i.i, %invoke.cont.i.i.i.i, %for.body.i.i.i.i
@@ -475,11 +475,11 @@ invoke.cont11:                                    ; preds = %invoke.cont6.i.i.i.
 
 invoke.cont12:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #18
-  %tobool.not.i.i.i = icmp eq ptr %bits.sroa.0.2, null
+  %tobool.not.i.i.i = icmp eq ptr %bits.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont12
-  call void @_ZdlPv(ptr noundef nonnull %bits.sroa.0.2) #21
+  call void @_ZdlPv(ptr noundef nonnull %bits.sroa.0.1) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %invoke.cont12, %if.then.i.i.i
@@ -492,7 +492,7 @@ lpad8:                                            ; preds = %invoke.cont11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i.i.i, %lpad8
-  %bits.sroa.0.020 = phi ptr [ %bits.sroa.0.2, %lpad8 ], [ %bits.sroa.0.2, %lpad.i.i.i.i ], [ %bits.sroa.0.026, %lpad.loopexit ], [ %bits.sroa.0.026, %lpad.loopexit.split-lp ]
+  %bits.sroa.0.020 = phi ptr [ %bits.sroa.0.1, %lpad8 ], [ %bits.sroa.0.1, %lpad.i.i.i.i ], [ %bits.sroa.0.026, %lpad.loopexit ], [ %bits.sroa.0.026, %lpad.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %9, %lpad8 ], [ %4, %lpad.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
   %tobool.not.i.i.i7 = icmp eq ptr %bits.sroa.0.020, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit9, label %if.then.i.i.i8

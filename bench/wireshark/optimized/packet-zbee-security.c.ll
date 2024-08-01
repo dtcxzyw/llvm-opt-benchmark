@@ -895,15 +895,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit.thread314
 
 .loopexit.thread314:                              ; preds = %.loopexit.thread314.sink.split, %.loopexit
-  %.5318 = phi ptr [ %.sink326, %.loopexit ], [ %228, %.loopexit.thread314.sink.split ]
+  %.0198318 = phi ptr [ %.sink326, %.loopexit ], [ %228, %.loopexit.thread314.sink.split ]
   %229 = icmp ne ptr %2, null
-  %230 = icmp ne ptr %.5318, null
+  %230 = icmp ne ptr %.0198318, null
   %or.cond18 = select i1 %229, i1 %230, i1 false
   br i1 %or.cond18, label %231, label %proto_item_set_generated.exit252
 
 231:                                              ; preds = %.loopexit.thread314
   %232 = load i32, ptr @hf_zbee_sec_key, align 4
-  %233 = getelementptr inbounds i8, ptr %.5318, i64 16
+  %233 = getelementptr inbounds i8, ptr %.0198318, i64 16
   %234 = call ptr @proto_tree_add_bytes(ptr noundef %14, i32 noundef %232, ptr noundef %0, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %233) #11
   %.not.i = icmp eq ptr %234, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %235
@@ -922,13 +922,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %231, %235, %238
-  %242 = load i32, ptr %.5318, align 8
+  %242 = load i32, ptr %.0198318, align 8
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %244, label %249
 
 244:                                              ; preds = %proto_item_set_generated.exit
   %245 = load i32, ptr @hf_zbee_sec_decryption_key, align 4
-  %246 = getelementptr inbounds i8, ptr %.5318, i64 8
+  %246 = getelementptr inbounds i8, ptr %.0198318, i64 8
   %247 = load ptr, ptr %246, align 8
   %248 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %245, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %247) #11
   br label %252
@@ -1306,21 +1306,21 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   br label %74
 
 .preheader74:                                     ; preds = %81
-  %.not86 = icmp eq i32 %.1, 15
+  %.not86 = icmp eq i32 %.2, 15
   br i1 %.not86, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader74
   %scevgep93 = getelementptr i8, ptr %16, i64 %82
   %scevgep95 = getelementptr i8, ptr %69, i64 %82
-  %narrow110 = xor i32 %.1, 15
+  %narrow110 = xor i32 %.2, 15
   %73 = zext nneg i32 %narrow110 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep93, ptr noundef nonnull align 1 dereferenceable(1) %scevgep95, i64 %73, i1 false)
   br label %.loopexit
 
 74:                                               ; preds = %64, %81
   %indvars.iv90 = phi i64 [ 0, %64 ], [ %indvars.iv.next91, %81 ]
-  %.079 = phi i32 [ 2, %64 ], [ %89, %81 ]
-  %75 = icmp ugt i32 %.079, 15
+  %.179 = phi i32 [ 2, %64 ], [ %89, %81 ]
+  %75 = icmp ugt i32 %.179, 15
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %74
@@ -1335,8 +1335,8 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   br label %114
 
 81:                                               ; preds = %76, %74
-  %.1 = phi i32 [ %.079, %74 ], [ 0, %76 ]
-  %82 = zext nneg i32 %.1 to i64
+  %.2 = phi i32 [ %.179, %74 ], [ 0, %76 ]
+  %82 = zext nneg i32 %.2 to i64
   %83 = getelementptr [16 x i8], ptr %10, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = getelementptr i8, ptr %2, i64 %indvars.iv90
@@ -1345,17 +1345,17 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
   %88 = getelementptr [16 x i8], ptr %9, i64 0, i64 %82
   store i8 %87, ptr %88, align 1
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %89 = add nuw nsw i32 %.1, 1
+  %89 = add nuw nsw i32 %.2, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
   br i1 %exitcond.not, label %.preheader74, label %74, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader74, %63
-  %.3 = phi i32 [ 0, %63 ], [ 16, %.preheader74 ], [ 16, %.lr.ph.preheader ]
+  %.0 = phi i32 [ 0, %63 ], [ 16, %.preheader74 ], [ 16, %.lr.ph.preheader ]
   %.not87 = icmp eq i32 %6, 0
   br i1 %.not87, label %.preheader, label %.lr.ph83
 
 .preheader:                                       ; preds = %99, %.loopexit
-  %.4.lcssa = phi i32 [ %.3, %.loopexit ], [ %107, %99 ]
+  %.4.lcssa = phi i32 [ %.0, %.loopexit ], [ %107, %99 ]
   %90 = icmp ult i32 %.4.lcssa, 16
   br i1 %90, label %.lr.ph85.preheader, label %._crit_edge
 
@@ -1370,7 +1370,7 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
 
 .lr.ph83:                                         ; preds = %.loopexit, %99
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %99 ], [ 0, %.loopexit ]
-  %.482 = phi i32 [ %107, %99 ], [ %.3, %.loopexit ]
+  %.482 = phi i32 [ %107, %99 ], [ %.0, %.loopexit ]
   %93 = icmp ugt i32 %.482, 15
   br i1 %93, label %94, label %99
 
@@ -1570,7 +1570,7 @@ define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef 
 
 .split:                                           ; preds = %.split.preheader, %38
   %indvars.iv = phi i64 [ %8, %.split.preheader ], [ %indvars.iv.next, %38 ]
-  %.153 = phi i8 [ %7, %.split.preheader ], [ %.3, %38 ]
+  %.153 = phi i8 [ %7, %.split.preheader ], [ %.2, %38 ]
   %.03851 = phi i32 [ 15, %.split.preheader ], [ %44, %38 ]
   %.14150 = phi ptr [ %6, %.split.preheader ], [ %43, %38 ]
   switch i8 %.153, label %24 [
@@ -1585,9 +1585,9 @@ define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef 
   br label %24
 
 24:                                               ; preds = %.split, %21
-  %.242 = phi ptr [ %22, %21 ], [ %.14150, %.split ]
-  %.2 = phi i8 [ %23, %21 ], [ %.153, %.split ]
-  %25 = zext i8 %.2 to i64
+  %.343 = phi ptr [ %22, %21 ], [ %.14150, %.split ]
+  %.3 = phi i8 [ %23, %21 ], [ %.153, %.split ]
+  %25 = zext i8 %.3 to i64
   %26 = getelementptr i16, ptr %9, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 1024
@@ -1595,12 +1595,12 @@ define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef 
   br i1 %.not47, label %.loopexit, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %.2) #15
+  %30 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %.3) #15
   %.tr = trunc i32 %30 to i8
   %31 = shl i8 %.tr, 4
   %32 = getelementptr i8, ptr %1, i64 %indvars.iv
   store i8 %31, ptr %32, align 1
-  %33 = load i8, ptr %.242, align 1
+  %33 = load i8, ptr %.343, align 1
   %34 = zext i8 %33 to i64
   %35 = getelementptr i16, ptr %9, i64 %34
   %36 = load i16, ptr %35, align 2
@@ -1609,13 +1609,13 @@ define internal fastcc range(i32 0, 2) i32 @zbee_security_parse_key(ptr noundef 
   br i1 %.not48, label %.loopexit, label %38
 
 38:                                               ; preds = %29
-  %39 = getelementptr i8, ptr %.242, i64 1
+  %39 = getelementptr i8, ptr %.343, i64 1
   %40 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %33) #15
   %41 = trunc i32 %40 to i8
   %42 = or i8 %31, %41
   store i8 %42, ptr %32, align 1
-  %43 = getelementptr i8, ptr %.242, i64 2
-  %.3 = load i8, ptr %39, align 1
+  %43 = getelementptr i8, ptr %.343, i64 2
+  %.2 = load i8, ptr %39, align 1
   %44 = add nsw i32 %.03851, -1
   %.not58 = icmp eq i32 %.03851, 0
   %indvars.iv.next = add i64 %indvars.iv, %.137.v
@@ -1665,7 +1665,7 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit39
   %indvars.iv54 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %.loopexit39 ]
-  %.042 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %.loopexit39 ]
+  %.042 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.loopexit39 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %7 = getelementptr i8, ptr %0, i64 %indvars.iv54
   %8 = load i8, ptr %7, align 1
@@ -1696,26 +1696,26 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
   br i1 %exitcond.not, label %.loopexit39, label %18, !llvm.loop !15
 
 .loopexit39:                                      ; preds = %18, %.lr.ph
-  %.2 = phi i32 [ %9, %.lr.ph ], [ 0, %18 ]
+  %.1 = phi i32 [ %9, %.lr.ph ], [ 0, %18 ]
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit39
-  %24 = zext nneg i32 %.2 to i64
+  %24 = zext nneg i32 %.1 to i64
   %25 = getelementptr [16 x i8], ptr %4, i64 0, i64 %24
   store i8 -128, ptr %25, align 1
-  %.344 = add nuw nsw i32 %.2, 1
+  %.344 = add nuw nsw i32 %.1, 1
   %.not3845 = icmp eq i32 %.344, 14
   br i1 %.not3845, label %._crit_edge50, label %.lr.ph49.preheader
 
 .lr.ph49.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %.347.ph = phi i32 [ %.344, %._crit_edge ], [ 1, %._crit_edge.thread ]
-  %.3.in46.ph = phi i32 [ %.2, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %.3.in46.ph = phi i32 [ %.1, %._crit_edge ], [ 0, %._crit_edge.thread ]
   br label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.loopexit
   %.347 = phi i32 [ %.3, %.loopexit ], [ %.347.ph, %.lr.ph49.preheader ]
-  %.3.in46 = phi i32 [ %.5, %.loopexit ], [ %.3.in46.ph, %.lr.ph49.preheader ]
+  %.3.in46 = phi i32 [ %.4, %.loopexit ], [ %.3.in46.ph, %.lr.ph49.preheader ]
   %26 = icmp ugt i32 %.3.in46, 14
   br i1 %26, label %27, label %.loopexit
 
@@ -1739,11 +1739,11 @@ define internal fastcc void @zbee_sec_hash(ptr nocapture noundef readonly %0, i3
   br i1 %exitcond61.not, label %.loopexit, label %32, !llvm.loop !17
 
 .loopexit:                                        ; preds = %32, %.lr.ph49
-  %.5 = phi i32 [ %.347, %.lr.ph49 ], [ 0, %32 ]
-  %38 = zext nneg i32 %.5 to i64
+  %.4 = phi i32 [ %.347, %.lr.ph49 ], [ 0, %32 ]
+  %38 = zext nneg i32 %.4 to i64
   %39 = getelementptr [16 x i8], ptr %4, i64 0, i64 %38
   store i8 0, ptr %39, align 1
-  %.3 = add nuw nsw i32 %.5, 1
+  %.3 = add nuw nsw i32 %.4, 1
   %.not38 = icmp eq i32 %.3, 14
   br i1 %.not38, label %._crit_edge50, label %.lr.ph49, !llvm.loop !18
 

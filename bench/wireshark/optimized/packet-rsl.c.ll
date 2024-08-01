@@ -4736,7 +4736,7 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %dissect_rsl_paging_group_paras.exit
-  %.033 = phi i32 [ %.1.i, %dissect_rsl_paging_group_paras.exit ], [ %3, %5 ]
+  %.033 = phi i32 [ %.030.i, %dissect_rsl_paging_group_paras.exit ], [ %3, %5 ]
   %.02932 = phi i8 [ %60, %dissect_rsl_paging_group_paras.exit ], [ 1, %5 ]
   %7 = zext i8 %.02932 to i32
   %8 = add i32 %.033, 2
@@ -4800,23 +4800,23 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
   br label %56
 
 56:                                               ; preds = %56, %53
-  %.0303.i = phi i32 [ %46, %53 ], [ %.030.i, %56 ]
+  %.13.i = phi i32 [ %46, %53 ], [ %.1.i, %56 ]
   %.0292.i = phi i8 [ 1, %53 ], [ %59, %56 ]
   %57 = load i32, ptr @hf_rsl_paging_grp, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %57, ptr noundef %0, i32 noundef %.0303.i, i32 noundef 1, i32 noundef 0) #5
+  %58 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %57, ptr noundef %0, i32 noundef %.13.i, i32 noundef 1, i32 noundef 0) #5
   %59 = add nuw nsw i8 %.0292.i, 1
-  %.030.i = add i32 %.0303.i, 1
+  %.1.i = add i32 %.13.i, 1
   %exitcond.not.i = icmp eq i8 %59, 5
   br i1 %exitcond.not.i, label %dissect_rsl_paging_group_paras.exit, label %56, !llvm.loop !7
 
 dissect_rsl_paging_group_paras.exit:              ; preds = %56, %47
-  %.1.i = phi i32 [ %52, %47 ], [ %.030.i, %56 ]
+  %.030.i = phi i32 [ %52, %47 ], [ %.1.i, %56 ]
   %60 = add i8 %.02932, 1
   %.not = icmp ugt i8 %60, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_rsl_paging_group_paras.exit, %5
-  %.0.lcssa = phi i32 [ %3, %5 ], [ %.1.i, %dissect_rsl_paging_group_paras.exit ]
+  %.0.lcssa = phi i32 [ %3, %5 ], [ %.030.i, %dissect_rsl_paging_group_paras.exit ]
   ret i32 %.0.lcssa
 }
 

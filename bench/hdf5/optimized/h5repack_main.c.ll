@@ -1064,7 +1064,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
   br label %293
 
 293:                                              ; preds = %.sink.split.i, %289, %287
-  %.2.i = phi i32 [ %.097.lcssa.i, %287 ], [ %.097.lcssa.i, %289 ], [ -1, %.sink.split.i ]
+  %.3.i = phi i32 [ %.097.lcssa.i, %287 ], [ %.097.lcssa.i, %289 ], [ -1, %.sink.split.i ]
   %294 = getelementptr inbounds i8, ptr %8, i64 16
   %295 = load ptr, ptr %294, align 8
   %.not121.i = icmp eq ptr %295, null
@@ -1205,7 +1205,7 @@ parse_command_line.exit:                          ; preds = %323, %336
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
-  %337 = icmp slt i32 %.2.i, 0
+  %337 = icmp slt i32 %.3.i, 0
   br i1 %337, label %338, label %339
 
 338:                                              ; preds = %parse_command_line.exit.thread, %parse_command_line.exit
@@ -1214,7 +1214,7 @@ parse_command_line.exit:                          ; preds = %323, %336
   br label %348
 
 339:                                              ; preds = %parse_command_line.exit
-  %.not = icmp eq i32 %.2.i, 0
+  %.not = icmp eq i32 %.3.i, 0
   br i1 %.not, label %341, label %340
 
 340:                                              ; preds = %.thread, %339

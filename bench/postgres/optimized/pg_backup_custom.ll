@@ -635,7 +635,7 @@ _getFilePos.exit:                                 ; preds = %_skipLOs.exit, %27
   br i1 %35, label %_readBlockHeader.exit.thread, label %36
 
 36:                                               ; preds = %_getFilePos.exit, %32
-  %.077 = phi i32 [ %34, %32 ], [ 1, %_getFilePos.exit ]
+  %.1 = phi i32 [ %34, %32 ], [ 1, %_getFilePos.exit ]
   %37 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
   %38 = load i32, ptr %24, align 8
   %39 = icmp eq i32 %37, %38
@@ -679,7 +679,7 @@ _getFilePos.exit:                                 ; preds = %_skipLOs.exit, %27
   br label %55
 
 55:                                               ; preds = %52, %42, %44, %54, %51, %40
-  switch i32 %.077, label %60 [
+  switch i32 %.1, label %60 [
     i32 1, label %56
     i32 3, label %57
   ]
@@ -703,7 +703,7 @@ _skipLOs.exit.backedge:                           ; preds = %.lr.ph.i, %57, %56
   br i1 %.not.i65, label %_skipLOs.exit.backedge, label %.lr.ph.i, !llvm.loop !5
 
 60:                                               ; preds = %55
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %.077) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %.1) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
@@ -751,7 +751,7 @@ _readBlockHeader.exit.thread:                     ; preds = %32, %72
   unreachable
 
 _readBlockHeader.exit67:                          ; preds = %72, %68
-  %.2 = phi i32 [ %74, %72 ], [ 1, %68 ]
+  %.3 = phi i32 [ %74, %72 ], [ 1, %68 ]
   %81 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -764,8 +764,8 @@ _readBlockHeader.exit67:                          ; preds = %72, %68
   unreachable
 
 _readBlockHeader.exit67.thread:                   ; preds = %36, %_readBlockHeader.exit67
-  %.489 = phi i32 [ %.2, %_readBlockHeader.exit67 ], [ %.077, %36 ]
-  switch i32 %.489, label %99 [
+  %.07789 = phi i32 [ %.3, %_readBlockHeader.exit67 ], [ %.1, %36 ]
+  switch i32 %.07789, label %99 [
     i32 1, label %83
     i32 3, label %87
   ]
@@ -810,7 +810,7 @@ _LoadLOs.exit:                                    ; preds = %95, %87
   br label %100
 
 99:                                               ; preds = %_readBlockHeader.exit67.thread
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %.489) #7
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %.07789) #7
   tail call void @exit_nicely(i32 noundef 1) #8
   unreachable
 
@@ -1202,8 +1202,8 @@ define internal fastcc void @_skipData(ptr noundef %0) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %.lr.ph, %25
-  %.031 = phi i32 [ 0, %.lr.ph ], [ %.2, %25 ]
-  %.01730 = phi ptr [ null, %.lr.ph ], [ %.219, %25 ]
+  %.031 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
+  %.01730 = phi ptr [ null, %.lr.ph ], [ %.118, %25 ]
   %.020.in29 = phi i32 [ %4, %.lr.ph ], [ %26, %25 ]
   %.02032 = sext i32 %.020.in29 to i64
   %8 = load i32, ptr %5, align 8
@@ -1231,10 +1231,10 @@ define internal fastcc void @_skipData(ptr noundef %0) unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %15, %13
-  %.118 = phi ptr [ %16, %15 ], [ %.01730, %13 ]
-  %.1 = phi i32 [ %.020.in29, %15 ], [ %.031, %13 ]
+  %.219 = phi ptr [ %16, %15 ], [ %.01730, %13 ]
+  %.2 = phi i32 [ %.020.in29, %15 ], [ %.031, %13 ]
   %18 = load ptr, ptr %6, align 8
-  %19 = tail call i64 @fread(ptr noundef %.118, i64 noundef 1, i64 noundef %.02032, ptr noundef %18)
+  %19 = tail call i64 @fread(ptr noundef %.219, i64 noundef 1, i64 noundef %.02032, ptr noundef %18)
   %.not22 = icmp eq i64 %19, %.02032
   br i1 %.not22, label %25, label %20
 
@@ -1255,14 +1255,14 @@ define internal fastcc void @_skipData(ptr noundef %0) unnamed_addr #0 {
   unreachable
 
 25:                                               ; preds = %17, %9
-  %.219 = phi ptr [ %.01730, %9 ], [ %.118, %17 ]
-  %.2 = phi i32 [ %.031, %9 ], [ %.1, %17 ]
+  %.118 = phi ptr [ %.01730, %9 ], [ %.219, %17 ]
+  %.1 = phi i32 [ %.031, %9 ], [ %.2, %17 ]
   %26 = tail call i32 @ReadInt(ptr noundef nonnull %0) #7
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %25, %1
-  %.017.lcssa = phi ptr [ null, %1 ], [ %.219, %25 ]
+  %.017.lcssa = phi ptr [ null, %1 ], [ %.118, %25 ]
   tail call void @free(ptr noundef %.017.lcssa) #7
   ret void
 }

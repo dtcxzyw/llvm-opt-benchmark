@@ -1039,7 +1039,7 @@ for.cond20:                                       ; preds = %if.end63
   br i1 %cmp.i85.not, label %for.end68, label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.cond20
-  %varCount.0674 = phi i64 [ 0, %for.body22.lr.ph ], [ %varCount.1.lcssa697, %for.cond20 ]
+  %varCount.0674 = phi i64 [ 0, %for.body22.lr.ph ], [ %varCount.2.lcssa697, %for.cond20 ]
   %__begin314.sroa.0.0673 = phi ptr [ %.pre, %for.body22.lr.ph ], [ %incdec.ptr.i224, %for.cond20 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i86)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i87)
@@ -1099,7 +1099,7 @@ invoke.cont24:                                    ; preds = %lor.rhs.i108, %if.t
   br i1 %cmp.i121.not663, label %if.end63, label %for.body32
 
 for.body32:                                       ; preds = %invoke.cont24, %for.inc43
-  %varCount.1666 = phi i64 [ %varCount.2, %for.inc43 ], [ %varCount.0674, %invoke.cont24 ]
+  %varCount.2666 = phi i64 [ %varCount.3, %for.inc43 ], [ %varCount.0674, %invoke.cont24 ]
   %foundVar.0665 = phi i1 [ %foundVar.1, %for.inc43 ], [ false, %invoke.cont24 ]
   %__begin4.sroa.0.0664 = phi ptr [ %incdec.ptr.i156, %for.inc43 ], [ %27, %invoke.cont24 ]
   %29 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1274,13 +1274,13 @@ invoke.cont41:                                    ; preds = %call12.i.noexc154, 
   %second.i151 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i150, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i124)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i125)
-  %inc = add i64 %varCount.1666, 1
+  %inc = add i64 %varCount.2666, 1
   store i8 1, ptr %second.i151, align 1
   br label %for.inc43
 
 for.inc43:                                        ; preds = %invoke.cont34, %invoke.cont41
   %foundVar.1 = phi i1 [ true, %invoke.cont41 ], [ %foundVar.0665, %invoke.cont34 ]
-  %varCount.2 = phi i64 [ %inc, %invoke.cont41 ], [ %varCount.1666, %invoke.cont34 ]
+  %varCount.3 = phi i64 [ %inc, %invoke.cont41 ], [ %varCount.2666, %invoke.cont34 ]
   %incdec.ptr.i156 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0664, i64 8
   %cmp.i121.not = icmp eq ptr %incdec.ptr.i156, %28
   br i1 %cmp.i121.not, label %for.end45, label %for.body32
@@ -1581,13 +1581,13 @@ for.inc60:                                        ; preds = %_ZNSt16allocator_tr
   br i1 %cmp.i165.not, label %if.end63, label %for.body54
 
 if.end63:                                         ; preds = %for.inc60, %invoke.cont24, %invoke.cont47, %for.end45
-  %varCount.1.lcssa697 = phi i64 [ %varCount.2, %invoke.cont47 ], [ %varCount.2, %for.end45 ], [ %varCount.0674, %invoke.cont24 ], [ %varCount.2, %for.inc60 ]
-  %cmp = icmp eq i64 %varCount.1.lcssa697, %nvars
+  %varCount.2.lcssa697 = phi i64 [ %varCount.3, %invoke.cont47 ], [ %varCount.3, %for.end45 ], [ %varCount.0674, %invoke.cont24 ], [ %varCount.3, %for.inc60 ]
+  %cmp = icmp eq i64 %varCount.2.lcssa697, %nvars
   br i1 %cmp, label %if.end96, label %for.cond20
 
 for.end68:                                        ; preds = %for.cond20, %entry, %for.end
-  %varCount.3 = phi i64 [ 0, %for.end ], [ 0, %entry ], [ %varCount.1.lcssa697, %for.cond20 ]
-  %cmp69.not = icmp ult i64 %varCount.3, %nvars
+  %varCount.1 = phi i64 [ 0, %for.end ], [ 0, %entry ], [ %varCount.2.lcssa697, %for.cond20 ]
+  %cmp69.not = icmp ult i64 %varCount.1, %nvars
   br i1 %cmp69.not, label %cleanup, label %if.end96
 
 if.end96:                                         ; preds = %if.end63, %for.end68

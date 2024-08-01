@@ -387,10 +387,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -446,10 +446,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -486,7 +486,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -494,14 +494,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he5b1b1e5f6ea2a7fE.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !45
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !49
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !49
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !49
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !49
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_attempt28_$u7b$$u7b$closure$u7d$$u7d$17hf62e9f5297ca635dE.exit.i" unwind label %162, !noalias !54
 
@@ -522,7 +522,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !45
   store i64 %164, ptr %0, align 8, !alias.scope !40, !noalias !43
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -530,9 +530,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 16, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !40, !noalias !43
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he5b1b1e5f6ea2a7fE.exit"
@@ -556,7 +556,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -581,10 +581,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
@@ -1016,7 +1016,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -1027,7 +1027,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -1285,10 +1285,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -1344,10 +1344,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -1384,7 +1384,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -1392,14 +1392,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4b1f7ab9b2909988E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !131
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !135
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !135
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !135
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !135
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$18read_after_signing28_$u7b$$u7b$closure$u7d$$u7d$17h12cbde515295f963E.exit.i" unwind label %162, !noalias !140
 
@@ -1420,7 +1420,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !131
   store i64 %164, ptr %0, align 8, !alias.scope !126, !noalias !129
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1428,9 +1428,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !126, !noalias !129
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !126, !noalias !129
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !126, !noalias !129
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !126, !noalias !129
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !126, !noalias !129
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 8, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !126, !noalias !129
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4b1f7ab9b2909988E.exit"
@@ -1454,7 +1454,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -1479,10 +1479,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !141)
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
@@ -1914,7 +1914,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -1925,7 +1925,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -2183,10 +2183,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -2242,10 +2242,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !181)
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
@@ -2282,7 +2282,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -2290,14 +2290,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6bf98901e0072eccE.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !215
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !219
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !219
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !219
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !219
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_after_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h69b39fa6f6ef5437E.exit.i" unwind label %162, !noalias !224
 
@@ -2318,7 +2318,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !215
   store i64 %164, ptr %0, align 8, !alias.scope !210, !noalias !213
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2326,9 +2326,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !210, !noalias !213
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !210, !noalias !213
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !210, !noalias !213
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !210, !noalias !213
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !210, !noalias !213
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 11, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !210, !noalias !213
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6bf98901e0072eccE.exit"
@@ -2352,7 +2352,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -2377,10 +2377,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
   call void @llvm.experimental.noalias.scope.decl(metadata !231)
@@ -2812,7 +2812,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -2823,7 +2823,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -3081,10 +3081,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -3140,10 +3140,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
@@ -3180,7 +3180,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !294)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -3188,14 +3188,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd7fa1bb4ccedc7d1E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !299
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !303
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !303
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !303
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !303
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_attempt28_$u7b$$u7b$closure$u7d$$u7d$17h395184b89a55baecE.exit.i" unwind label %162, !noalias !308
 
@@ -3216,7 +3216,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !299
   store i64 %164, ptr %0, align 8, !alias.scope !294, !noalias !297
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3224,9 +3224,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 5, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !294, !noalias !297
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd7fa1bb4ccedc7d1E.exit"
@@ -3250,7 +3250,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -3275,10 +3275,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !309)
   call void @llvm.experimental.noalias.scope.decl(metadata !312)
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
@@ -3710,7 +3710,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -3721,7 +3721,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -3979,10 +3979,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -4038,10 +4038,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   call void @llvm.experimental.noalias.scope.decl(metadata !352)
@@ -4078,7 +4078,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !378)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -4086,14 +4086,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he7adf06fd0c28024E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !383
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !387
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !387
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !387
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !387
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$19read_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17hf9bd032805ba4a67E.exit.i" unwind label %162, !noalias !392
 
@@ -4114,7 +4114,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !383
   store i64 %164, ptr %0, align 8, !alias.scope !378, !noalias !381
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4122,9 +4122,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !378, !noalias !381
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !378, !noalias !381
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !378, !noalias !381
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !378, !noalias !381
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !378, !noalias !381
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 7, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !378, !noalias !381
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he7adf06fd0c28024E.exit"
@@ -4148,7 +4148,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -4173,10 +4173,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !393)
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
   call void @llvm.experimental.noalias.scope.decl(metadata !399)
@@ -4608,7 +4608,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -4619,7 +4619,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -4877,10 +4877,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -4936,10 +4936,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !433)
   call void @llvm.experimental.noalias.scope.decl(metadata !436)
@@ -4976,7 +4976,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -4984,14 +4984,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38786a7da6fbc043E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !467
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !471
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !471
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !471
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !471
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_after_execution28_$u7b$$u7b$closure$u7d$$u7d$17h6f71f180b7c641caE.exit.i" unwind label %162, !noalias !476
 
@@ -5012,7 +5012,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !467
   store i64 %164, ptr %0, align 8, !alias.scope !462, !noalias !465
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5020,9 +5020,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !462, !noalias !465
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !462, !noalias !465
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !462, !noalias !465
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !462, !noalias !465
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !462, !noalias !465
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 18, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !462, !noalias !465
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38786a7da6fbc043E.exit"
@@ -5046,7 +5046,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -5071,10 +5071,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
   call void @llvm.experimental.noalias.scope.decl(metadata !480)
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
@@ -5506,7 +5506,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -5517,7 +5517,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -5775,10 +5775,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -5834,10 +5834,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !517)
   call void @llvm.experimental.noalias.scope.decl(metadata !520)
@@ -5874,7 +5874,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !546)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -5882,14 +5882,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0dd416c16d82c210E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !551
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !555
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !555
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !555
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !555
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$20read_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17hcaaf00398f66d44dE.exit.i" unwind label %162, !noalias !560
 
@@ -5910,7 +5910,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !551
   store i64 %164, ptr %0, align 8, !alias.scope !546, !noalias !549
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5918,9 +5918,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !546, !noalias !549
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !546, !noalias !549
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !546, !noalias !549
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !546, !noalias !549
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !546, !noalias !549
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 10, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !546, !noalias !549
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0dd416c16d82c210E.exit"
@@ -5944,7 +5944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -5969,10 +5969,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !561)
   call void @llvm.experimental.noalias.scope.decl(metadata !564)
   call void @llvm.experimental.noalias.scope.decl(metadata !567)
@@ -6404,7 +6404,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -6415,7 +6415,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -6673,10 +6673,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -6732,10 +6732,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !601)
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
@@ -6772,7 +6772,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !630)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -6780,14 +6780,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h67b25788ba7d1c82E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !635
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !639
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !639
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !639
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !639
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$21modify_before_signing28_$u7b$$u7b$closure$u7d$$u7d$17h43040cb111d6cab2E.exit.i" unwind label %162, !noalias !644
 
@@ -6808,7 +6808,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !635
   store i64 %164, ptr %0, align 8, !alias.scope !630, !noalias !633
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6816,9 +6816,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !633
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !633
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !633
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !633
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !633
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 6, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !630, !noalias !633
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h67b25788ba7d1c82E.exit"
@@ -6842,7 +6842,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -6867,10 +6867,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !645)
   call void @llvm.experimental.noalias.scope.decl(metadata !648)
   call void @llvm.experimental.noalias.scope.decl(metadata !651)
@@ -7302,7 +7302,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -7313,7 +7313,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -7571,10 +7571,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -7630,10 +7630,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !685)
   call void @llvm.experimental.noalias.scope.decl(metadata !688)
@@ -7670,7 +7670,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !714)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -7678,14 +7678,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5399aa1a263bf647E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !719
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !723
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !723
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !723
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !723
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$22modify_before_transmit28_$u7b$$u7b$closure$u7d$$u7d$17h2872e323f0d1ab2fE.exit.i" unwind label %162, !noalias !728
 
@@ -7706,7 +7706,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !719
   store i64 %164, ptr %0, align 8, !alias.scope !714, !noalias !717
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7714,9 +7714,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !714, !noalias !717
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !714, !noalias !717
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !714, !noalias !717
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !714, !noalias !717
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !714, !noalias !717
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 9, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !714, !noalias !717
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5399aa1a263bf647E.exit"
@@ -7740,7 +7740,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -7765,10 +7765,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !729)
   call void @llvm.experimental.noalias.scope.decl(metadata !732)
   call void @llvm.experimental.noalias.scope.decl(metadata !735)
@@ -8200,7 +8200,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -8211,7 +8211,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -8469,10 +8469,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -8528,10 +8528,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !769)
   call void @llvm.experimental.noalias.scope.decl(metadata !772)
@@ -8568,7 +8568,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !798)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -8576,14 +8576,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h88f9b9d1cc90f2ecE.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !803
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !807
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !807
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !807
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !807
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_completion28_$u7b$$u7b$closure$u7d$$u7d$17ha22454ca22ba6dcaE.exit.i" unwind label %162, !noalias !812
 
@@ -8604,7 +8604,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !803
   store i64 %164, ptr %0, align 8, !alias.scope !798, !noalias !801
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8612,9 +8612,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !798, !noalias !801
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !798, !noalias !801
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !798, !noalias !801
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !798, !noalias !801
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !798, !noalias !801
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 17, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !798, !noalias !801
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h88f9b9d1cc90f2ecE.exit"
@@ -8638,7 +8638,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -8663,10 +8663,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !813)
   call void @llvm.experimental.noalias.scope.decl(metadata !816)
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
@@ -9098,7 +9098,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -9109,7 +9109,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -9367,10 +9367,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -9426,10 +9426,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !853)
   call void @llvm.experimental.noalias.scope.decl(metadata !856)
@@ -9466,7 +9466,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !882)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -9474,14 +9474,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd4dcd9da7d6acce4E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !887
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !891
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !891
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !891
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !891
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24modify_before_retry_loop28_$u7b$$u7b$closure$u7d$$u7d$17hc2b3700eb8be5140E.exit.i" unwind label %162, !noalias !896
 
@@ -9502,7 +9502,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !887
   store i64 %164, ptr %0, align 8, !alias.scope !882, !noalias !885
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9510,9 +9510,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !882, !noalias !885
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !882, !noalias !885
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !882, !noalias !885
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !882, !noalias !885
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !882, !noalias !885
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 4, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !882, !noalias !885
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd4dcd9da7d6acce4E.exit"
@@ -9536,7 +9536,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -9561,10 +9561,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !897)
   call void @llvm.experimental.noalias.scope.decl(metadata !900)
   call void @llvm.experimental.noalias.scope.decl(metadata !903)
@@ -9996,7 +9996,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -10007,7 +10007,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -10265,10 +10265,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -10324,10 +10324,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !937)
   call void @llvm.experimental.noalias.scope.decl(metadata !940)
@@ -10364,7 +10364,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !966)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -10372,14 +10372,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc3f25b7b724d6b37E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !971
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !975
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !975
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !975
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !975
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$24read_after_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h28ac79eb4479caaeE.exit.i" unwind label %162, !noalias !980
 
@@ -10400,7 +10400,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !971
   store i64 %164, ptr %0, align 8, !alias.scope !966, !noalias !969
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10408,9 +10408,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !966, !noalias !969
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !966, !noalias !969
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !966, !noalias !969
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !966, !noalias !969
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !966, !noalias !969
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 3, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !966, !noalias !969
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc3f25b7b724d6b37E.exit"
@@ -10434,7 +10434,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -10459,10 +10459,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !981)
   call void @llvm.experimental.noalias.scope.decl(metadata !984)
   call void @llvm.experimental.noalias.scope.decl(metadata !987)
@@ -10894,7 +10894,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -10905,7 +10905,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -11163,10 +11163,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -11222,10 +11222,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1021)
   call void @llvm.experimental.noalias.scope.decl(metadata !1024)
@@ -11262,7 +11262,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1050)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -11270,14 +11270,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf7d5e91a35e460a5E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1055
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !1059
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !1059
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !1059
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !1059
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$25read_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17h4158f6ba663874b7E.exit.i" unwind label %162, !noalias !1064
 
@@ -11298,7 +11298,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1055
   store i64 %164, ptr %0, align 8, !alias.scope !1050, !noalias !1053
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -11306,9 +11306,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1053
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1053
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1053
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1053
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1053
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 2, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1050, !noalias !1053
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf7d5e91a35e460a5E.exit"
@@ -11332,7 +11332,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -11357,10 +11357,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1065)
   call void @llvm.experimental.noalias.scope.decl(metadata !1068)
   call void @llvm.experimental.noalias.scope.decl(metadata !1071)
@@ -11792,7 +11792,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -11803,7 +11803,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -12061,10 +12061,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -12120,10 +12120,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1105)
   call void @llvm.experimental.noalias.scope.decl(metadata !1108)
@@ -12160,7 +12160,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1134)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -12168,14 +12168,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h25a8080490cdda12E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1139
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !1143
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !1143
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !1143
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !1143
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$26read_after_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h2b78ca650138530aE.exit.i" unwind label %162, !noalias !1148
 
@@ -12196,7 +12196,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1139
   store i64 %164, ptr %0, align 8, !alias.scope !1134, !noalias !1137
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12204,9 +12204,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1134, !noalias !1137
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1134, !noalias !1137
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1134, !noalias !1137
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1134, !noalias !1137
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1134, !noalias !1137
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 14, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1134, !noalias !1137
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h25a8080490cdda12E.exit"
@@ -12230,7 +12230,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -12255,10 +12255,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   call void @llvm.experimental.noalias.scope.decl(metadata !1152)
   call void @llvm.experimental.noalias.scope.decl(metadata !1155)
@@ -12690,7 +12690,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -12701,7 +12701,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -12959,10 +12959,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -13018,10 +13018,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1189)
   call void @llvm.experimental.noalias.scope.decl(metadata !1192)
@@ -13058,7 +13058,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1218)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -13066,14 +13066,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h43226a70f388d84cE.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1223
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !1227
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !1227
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !1227
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !1227
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27modify_before_serialization28_$u7b$$u7b$closure$u7d$$u7d$17ha16fad32ee923ab0E.exit.i" unwind label %162, !noalias !1232
 
@@ -13094,7 +13094,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1223
   store i64 %164, ptr %0, align 8, !alias.scope !1218, !noalias !1221
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13102,9 +13102,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1218, !noalias !1221
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1218, !noalias !1221
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1218, !noalias !1221
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1218, !noalias !1221
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1218, !noalias !1221
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1218, !noalias !1221
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h43226a70f388d84cE.exit"
@@ -13128,7 +13128,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -13153,10 +13153,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1233)
   call void @llvm.experimental.noalias.scope.decl(metadata !1236)
   call void @llvm.experimental.noalias.scope.decl(metadata !1239)
@@ -13588,7 +13588,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -13599,7 +13599,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -13857,10 +13857,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -13916,10 +13916,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1273)
   call void @llvm.experimental.noalias.scope.decl(metadata !1276)
@@ -13956,7 +13956,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1302)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -13964,14 +13964,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h436777708a3a7f19E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1307
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !1311
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !1311
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !1311
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !1311
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$27read_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17h089b1e316184cc92E.exit.i" unwind label %162, !noalias !1316
 
@@ -13992,7 +13992,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1307
   store i64 %164, ptr %0, align 8, !alias.scope !1302, !noalias !1305
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14000,9 +14000,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1302, !noalias !1305
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1302, !noalias !1305
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1302, !noalias !1305
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1302, !noalias !1305
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1302, !noalias !1305
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 13, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1302, !noalias !1305
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h436777708a3a7f19E.exit"
@@ -14026,7 +14026,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -14051,10 +14051,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1317)
   call void @llvm.experimental.noalias.scope.decl(metadata !1320)
   call void @llvm.experimental.noalias.scope.decl(metadata !1323)
@@ -14486,7 +14486,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -14497,7 +14497,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -14755,10 +14755,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -14814,10 +14814,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1357)
   call void @llvm.experimental.noalias.scope.decl(metadata !1360)
@@ -14854,7 +14854,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1386)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -14862,14 +14862,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb4f0a2657490e83eE.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1391
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !1395
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !1395
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !1395
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !1395
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$29modify_before_deserialization28_$u7b$$u7b$closure$u7d$$u7d$17he100158ae87c88a1E.exit.i" unwind label %162, !noalias !1400
 
@@ -14890,7 +14890,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1391
   store i64 %164, ptr %0, align 8, !alias.scope !1386, !noalias !1389
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14898,9 +14898,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 12, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1386, !noalias !1389
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb4f0a2657490e83eE.exit"
@@ -14924,7 +14924,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -14949,10 +14949,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1401)
   call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   call void @llvm.experimental.noalias.scope.decl(metadata !1407)
@@ -15384,7 +15384,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -15395,7 +15395,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330
@@ -15653,10 +15653,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %115
 
 .body200:                                         ; preds = %185, %152, %.body232
-  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.4, %152 ], [ %.sroa.16.4, %185 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.4, %152 ], [ %.sroa.12.4, %185 ]
-  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.4, %152 ], [ %.sroa.0252.4, %185 ]
-  %.0131 = phi i8 [ %.4135, %.body232 ], [ 1, %152 ], [ 1, %185 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.2, %.body232 ], [ %.sroa.16.3, %152 ], [ %.sroa.16.3, %185 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.2, %.body232 ], [ %.sroa.12.3, %152 ], [ %.sroa.12.3, %185 ]
+  %.sroa.0252.0 = phi ptr [ %.sroa.0252.2, %.body232 ], [ %.sroa.0252.3, %152 ], [ %.sroa.0252.3, %185 ]
+  %.1132 = phi i8 [ %.5136, %.body232 ], [ 1, %152 ], [ 1, %185 ]
   %.pn154 = phi { ptr, i32 } [ %.pn.pn, %.body232 ], [ %153, %152 ], [ %186, %185 ]
   %.not156 = icmp eq ptr %.sroa.0252.0, null
   br i1 %.not156, label %.thread, label %330
@@ -15712,10 +15712,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 138:                                              ; preds = %.lr.ph, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   %.sroa.0263.0447 = phi ptr [ %1, %.lr.ph ], [ %139, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.0252.1446 = phi ptr [ null, %.lr.ph ], [ %.sroa.0252.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %.sroa.10256.0445 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10256.1, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
-  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.4, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.12.1444 = phi ptr [ undef, %.lr.ph ], [ %.sroa.12.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
+  %.sroa.16.1443 = phi ptr [ undef, %.lr.ph ], [ %.sroa.16.3, %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit" ]
   %139 = getelementptr inbounds i8, ptr %.sroa.0263.0447, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1441)
   call void @llvm.experimental.noalias.scope.decl(metadata !1444)
@@ -15752,7 +15752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !1470)
-  %154 = icmp eq ptr %.sroa.0252.4, null
+  %154 = icmp eq ptr %.sroa.0252.3, null
   br i1 %154, label %._crit_edge.thread, label %155
 
 ._crit_edge.thread:                               ; preds = %115, %._crit_edge
@@ -15760,14 +15760,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5d6c77dd48e0e310E.exit"
 
 155:                                              ; preds = %._crit_edge
-  %156 = icmp ne ptr %.sroa.12.4, null
+  %156 = icmp ne ptr %.sroa.12.3, null
   call void @llvm.assume(i1 %156)
-  %157 = icmp ne ptr %.sroa.16.4, null
+  %157 = icmp ne ptr %.sroa.16.3, null
   call void @llvm.assume(i1 %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1475
-  store ptr %.sroa.12.4, ptr %9, align 8, !noalias !1479
+  store ptr %.sroa.12.3, ptr %9, align 8, !noalias !1479
   %158 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.16.4, ptr %158, align 8, !noalias !1479
+  store ptr %.sroa.16.3, ptr %158, align 8, !noalias !1479
   %159 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h420683f68df27e58E"(i64 noundef %.sroa.10256.1, i1 noundef zeroext false)
           to label %"_ZN18aws_smithy_runtime6client12interceptors21Interceptors$LT$I$GT$32modify_before_attempt_completion28_$u7b$$u7b$closure$u7d$$u7d$17h6daed0f1a35955f5E.exit.i" unwind label %162, !noalias !1484
 
@@ -15788,7 +15788,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %165 = extractvalue { i64, ptr } %159, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.4, i64 %.sroa.10256.1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.0252.3, i64 %.sroa.10256.1, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1475
   store i64 %164, ptr %0, align 8, !alias.scope !1470, !noalias !1473
   %.sroa.4.0..sroa_idx.i198 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15796,9 +15796,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.10256.1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1470, !noalias !1473
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.12.4, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1470, !noalias !1473
+  store ptr %.sroa.12.3, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !1470, !noalias !1473
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.16.4, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1470, !noalias !1473
+  store ptr %.sroa.16.3, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1470, !noalias !1473
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 15, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !1470, !noalias !1473
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5d6c77dd48e0e310E.exit"
@@ -15822,7 +15822,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %.sroa.16.2 = phi ptr [ %.sroa.16.1443, %328 ], [ %.sroa.16.1443, %171 ], [ %195, %318 ], [ %195, %309 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.1444, %328 ], [ %.sroa.12.1444, %171 ], [ %194, %318 ], [ %194, %309 ]
   %.sroa.0252.2 = phi ptr [ %.sroa.0252.1446, %328 ], [ %.sroa.0252.1446, %171 ], [ %302, %318 ], [ %302, %309 ]
-  %.4135 = phi i8 [ %.9.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
+  %.5136 = phi i8 [ %.10.ph, %328 ], [ 1, %171 ], [ 1, %318 ], [ 1, %309 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn.ph, %328 ], [ %172, %171 ], [ %310, %318 ], [ %310, %309 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime..client..interceptors..ConditionallyEnabledInterceptor$GT$17hc5432e062a2ddedeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #14
           to label %.body200 unwind label %299
@@ -15847,10 +15847,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           to label %193 unwind label %171
 
 "_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231": ; preds = %193, %304, %301, %319, %327, %173
-  %.sroa.16.4 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
-  %.sroa.12.4 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
+  %.sroa.16.3 = phi ptr [ %.sroa.16.1443, %173 ], [ %.sroa.16.1443, %193 ], [ %195, %304 ], [ %195, %301 ], [ %195, %319 ], [ %195, %327 ]
+  %.sroa.12.3 = phi ptr [ %.sroa.12.1444, %173 ], [ %.sroa.12.1444, %193 ], [ %194, %304 ], [ %194, %301 ], [ %194, %319 ], [ %194, %327 ]
   %.sroa.10256.1 = phi i64 [ %.sroa.10256.0445, %173 ], [ %.sroa.10256.0445, %193 ], [ %303, %304 ], [ %303, %301 ], [ %303, %319 ], [ %303, %327 ]
-  %.sroa.0252.4 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
+  %.sroa.0252.3 = phi ptr [ %.sroa.0252.1446, %173 ], [ %.sroa.0252.1446, %193 ], [ %302, %304 ], [ %302, %301 ], [ %302, %319 ], [ %302, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1485)
   call void @llvm.experimental.noalias.scope.decl(metadata !1488)
   call void @llvm.experimental.noalias.scope.decl(metadata !1491)
@@ -16282,7 +16282,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br label %"_ZN4core3ptr136drop_in_place$LT$$LP$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$RP$$GT$17h39772e14acdb04c5E.exit231"
 
 328:                                              ; preds = %202, %256, %265, %297
-  %.9.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
+  %.10.ph = phi i8 [ 0, %202 ], [ %.8139, %297 ], [ 0, %265 ], [ 0, %256 ]
   %.pn.ph = phi { ptr, i32 } [ %lpad.phi, %202 ], [ %298, %297 ], [ %257, %265 ], [ %257, %256 ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h17f2ff2c43882ecfE"(ptr nonnull %194, ptr nonnull %195) #14
           to label %.body232 unwind label %299
@@ -16293,7 +16293,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit204
   br i1 %329, label %._crit_edge, label %138
 
 330:                                              ; preds = %.body200
-  %331 = trunc nuw i8 %.0131 to i1
+  %331 = trunc nuw i8 %.1132 to i1
   br i1 %331, label %332, label %.thread
 
 332:                                              ; preds = %330

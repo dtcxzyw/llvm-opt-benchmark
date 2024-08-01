@@ -30,15 +30,15 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br i1 %.not277, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader230, %.lr.ph
-  %.0158237 = phi i64 [ %19, %.lr.ph ], [ %7, %.preheader230 ]
-  %.0162236 = phi ptr [ %13, %.lr.ph ], [ %1, %.preheader230 ]
-  %.0168235 = phi i64 [ %11, %.lr.ph ], [ %2, %.preheader230 ]
-  %11 = add i64 %.0168235, -1
-  %12 = lshr i64 %.0158237, 8
-  %13 = getelementptr inbounds i8, ptr %.0162236, i64 1
-  %14 = load i8, ptr %.0162236, align 1
-  %.0158.tr = trunc i64 %.0158237 to i8
-  %.narrow213 = xor i8 %14, %.0158.tr
+  %.1159237 = phi i64 [ %19, %.lr.ph ], [ %7, %.preheader230 ]
+  %.1163236 = phi ptr [ %13, %.lr.ph ], [ %1, %.preheader230 ]
+  %.1169235 = phi i64 [ %11, %.lr.ph ], [ %2, %.preheader230 ]
+  %11 = add i64 %.1169235, -1
+  %12 = lshr i64 %.1159237, 8
+  %13 = getelementptr inbounds i8, ptr %.1163236, i64 1
+  %14 = load i8, ptr %.1163236, align 1
+  %.1159.tr = trunc i64 %.1159237 to i8
+  %.narrow213 = xor i8 %14, %.1159.tr
   %15 = zext i8 %.narrow213 to i64
   %16 = getelementptr inbounds [256 x i32], ptr @crc_table, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
@@ -52,13 +52,13 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader230
-  %.0168.lcssa = phi i64 [ %2, %.preheader230 ], [ %11, %.lr.ph ]
-  %.0162.lcssa = phi ptr [ %1, %.preheader230 ], [ %13, %.lr.ph ]
-  %.0158.lcssa = phi i64 [ %7, %.preheader230 ], [ %19, %.lr.ph ]
-  %25 = udiv i64 %.0168.lcssa, 40
+  %.1169.lcssa = phi i64 [ %2, %.preheader230 ], [ %11, %.lr.ph ]
+  %.1163.lcssa = phi ptr [ %1, %.preheader230 ], [ %13, %.lr.ph ]
+  %.1159.lcssa = phi i64 [ %7, %.preheader230 ], [ %19, %.lr.ph ]
+  %25 = udiv i64 %.1169.lcssa, 40
   %.neg = mul i64 %25, -40
-  %26 = add i64 %.neg, %.0168.lcssa
-  %27 = trunc nuw i64 %.0158.lcssa to i32
+  %26 = add i64 %.neg, %.1169.lcssa
+  %27 = trunc nuw i64 %.1159.lcssa to i32
   %28 = add nsw i64 %25, -1
   %.not246 = icmp eq i64 %28, 0
   br i1 %.not246, label %._crit_edge255, label %.lr.ph254.preheader
@@ -76,7 +76,7 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.loopexit
   %33 = phi i64 [ %32, %.loopexit ], [ %28, %.lr.ph254.preheader ]
-  %.0176252 = phi ptr [ %31, %.loopexit ], [ %.0162.lcssa, %.lr.ph254.preheader ]
+  %.0176252 = phi ptr [ %31, %.loopexit ], [ %.1163.lcssa, %.lr.ph254.preheader ]
   %.0183251 = phi i32 [ %94, %.loopexit ], [ 0, %.lr.ph254.preheader ]
   %.0185250 = phi i32 [ %74, %.loopexit ], [ %27, %.lr.ph254.preheader ]
   %.0187249 = phi i32 [ %89, %.loopexit ], [ 0, %.lr.ph254.preheader ]
@@ -156,7 +156,7 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !8
 
 ._crit_edge255.loopexit:                          ; preds = %.loopexit
-  %scevgep = getelementptr i8, ptr %.0162.lcssa, i64 %30
+  %scevgep = getelementptr i8, ptr %.1163.lcssa, i64 %30
   %95 = zext i32 %79 to i64
   %96 = zext i32 %84 to i64
   %97 = zext i32 %89 to i64
@@ -169,7 +169,7 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   %.0187.lcssa = phi i64 [ 0, %._crit_edge ], [ %97, %._crit_edge255.loopexit ]
   %.0185.lcssa = phi i32 [ %27, %._crit_edge ], [ %74, %._crit_edge255.loopexit ]
   %.0183.lcssa = phi i64 [ 0, %._crit_edge ], [ %98, %._crit_edge255.loopexit ]
-  %.0176.lcssa = phi ptr [ %.0162.lcssa, %._crit_edge ], [ %scevgep, %._crit_edge255.loopexit ]
+  %.0176.lcssa = phi ptr [ %.1163.lcssa, %._crit_edge ], [ %scevgep, %._crit_edge255.loopexit ]
   %99 = zext i32 %.0185.lcssa to i64
   %100 = load i64, ptr %.0176.lcssa, align 8
   %101 = xor i64 %100, %99
@@ -278,23 +278,23 @@ crc_word.exit229:                                 ; preds = %154
   br label %164
 
 164:                                              ; preds = %crc_word.exit229, %5
-  %.1169 = phi i64 [ %26, %crc_word.exit229 ], [ %2, %5 ]
-  %.1163 = phi ptr [ %162, %crc_word.exit229 ], [ %1, %5 ]
-  %.2 = phi i64 [ %163, %crc_word.exit229 ], [ %7, %5 ]
-  %165 = icmp ugt i64 %.1169, 7
+  %.0168 = phi i64 [ %26, %crc_word.exit229 ], [ %2, %5 ]
+  %.0162 = phi ptr [ %162, %crc_word.exit229 ], [ %1, %5 ]
+  %.0158 = phi i64 [ %163, %crc_word.exit229 ], [ %7, %5 ]
+  %165 = icmp ugt i64 %.0168, 7
   br i1 %165, label %.lr.ph266, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph266, %164
-  %.2170.lcssa = phi i64 [ %.1169, %164 ], [ %166, %.lr.ph266 ]
-  %.2164.lcssa = phi ptr [ %.1163, %164 ], [ %224, %.lr.ph266 ]
-  %.3.lcssa = phi i64 [ %.2, %164 ], [ %230, %.lr.ph266 ]
+  %.2170.lcssa = phi i64 [ %.0168, %164 ], [ %166, %.lr.ph266 ]
+  %.2164.lcssa = phi ptr [ %.0162, %164 ], [ %224, %.lr.ph266 ]
+  %.3.lcssa = phi i64 [ %.0158, %164 ], [ %230, %.lr.ph266 ]
   %.not198270 = icmp eq i64 %.2170.lcssa, 0
   br i1 %.not198270, label %._crit_edge275, label %.lr.ph274
 
 .lr.ph266:                                        ; preds = %164, %.lr.ph266
-  %.3264 = phi i64 [ %230, %.lr.ph266 ], [ %.2, %164 ]
-  %.2164263 = phi ptr [ %224, %.lr.ph266 ], [ %.1163, %164 ]
-  %.2170262 = phi i64 [ %166, %.lr.ph266 ], [ %.1169, %164 ]
+  %.3264 = phi i64 [ %230, %.lr.ph266 ], [ %.0158, %164 ]
+  %.2164263 = phi ptr [ %224, %.lr.ph266 ], [ %.0162, %164 ]
+  %.2170262 = phi i64 [ %166, %.lr.ph266 ], [ %.0168, %164 ]
   %166 = add i64 %.2170262, -8
   %167 = lshr i64 %.3264, 8
   %168 = getelementptr inbounds i8, ptr %.2164263, i64 1

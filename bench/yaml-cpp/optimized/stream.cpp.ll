@@ -110,7 +110,7 @@ if.end:                                           ; preds = %invoke.cont2
 
 for.body:                                         ; preds = %if.end, %if.end39
   %idxprom27 = phi i64 [ 0, %if.end ], [ %idxprom, %if.end39 ]
-  %nIntroUsed.026 = phi i32 [ 0, %if.end ], [ %nIntroUsed.2, %if.end39 ]
+  %nIntroUsed.026 = phi i32 [ 0, %if.end ], [ %nIntroUsed.1, %if.end39 ]
   %call5 = invoke noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %input)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -199,7 +199,7 @@ if.end39.loopexit:                                ; preds = %for.inc
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.loopexit, %_ZN4YAML15IntroCharTypeOfEi.exit
-  %nIntroUsed.2 = phi i32 [ %inc, %_ZN4YAML15IntroCharTypeOfEi.exit ], [ %6, %if.end39.loopexit ]
+  %nIntroUsed.1 = phi i32 [ %inc, %_ZN4YAML15IntroCharTypeOfEi.exit ], [ %6, %if.end39.loopexit ]
   %idxprom = zext i32 %2 to i64
   %arrayidx = getelementptr inbounds [19 x i8], ptr @_ZN4YAMLL17s_introFinalStateE, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
@@ -1147,7 +1147,7 @@ for.cond.preheader:                               ; preds = %if.end12
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.then41
-  %ch.0 = phi i64 [ %or38, %if.then41 ], [ %or, %for.cond.preheader ]
+  %ch.1 = phi i64 [ %or38, %if.then41 ], [ %or, %for.cond.preheader ]
   %21 = load i64, ptr %m_nPrefetchedUsed.i, align 8
   %22 = load i64, ptr %m_nPrefetchedAvailable.i, align 8
   %cmp.not.i50 = icmp ult i64 %21, %22
@@ -1265,11 +1265,11 @@ if.then41:                                        ; preds = %if.end29
   br i1 %or.cond3, label %if.then46, label %for.cond, !llvm.loop !20
 
 if.then46:                                        ; preds = %if.then41
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead42, i64 noundef %ch.0)
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead42, i64 noundef %ch.1)
   br label %return
 
 if.end49:                                         ; preds = %if.end29
-  %and = shl nuw nsw i64 %ch.0, 10
+  %and = shl nuw nsw i64 %ch.1, 10
   %shl50 = and i64 %and, 1047552
   %and51 = and i64 %or38, 1023
   %or52 = add nuw nsw i64 %shl50, 65536
@@ -1277,9 +1277,9 @@ if.end49:                                         ; preds = %if.end29
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end49, %if.end12
-  %ch.1 = phi i64 [ %add, %if.end49 ], [ %or, %if.end12 ]
+  %ch.0 = phi i64 [ %add, %if.end49 ], [ %or, %if.end12 ]
   %m_readahead54 = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead54, i64 noundef %ch.1)
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %m_readahead54, i64 noundef %ch.0)
   br label %return
 
 return:                                           ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit47, %if.end53, %if.then46, %if.then27, %if.then11

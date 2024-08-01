@@ -910,7 +910,7 @@ if.end63:                                         ; preds = %if.then58
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %_ZN6icu_7513UnicodeString10setToBogusEv.exit87, %if.end63
-  %retval.0 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit87 ], [ %call67, %if.end63 ]
+  %retval.1 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit87 ], [ %call67, %if.end63 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #23
   br label %return
 
@@ -974,8 +974,8 @@ if.else.i101:                                     ; preds = %if.end80
   br label %return
 
 return:                                           ; preds = %if.else.i101, %if.then.i104, %if.else.i, %if.then.i, %if.end68, %if.then5, %entry, %cleanup, %_ZN6icu_7513UnicodeString10setToBogusEv.exit
-  %retval.1 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit ], [ %retval.0, %cleanup ], [ %this, %entry ], [ %this, %if.then5 ], [ %this, %if.end68 ], [ %this, %if.then.i ], [ %this, %if.else.i ], [ %this, %if.then.i104 ], [ %this, %if.else.i101 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit ], [ %retval.1, %cleanup ], [ %this, %entry ], [ %this, %if.then5 ], [ %this, %if.end68 ], [ %this, %if.then.i ], [ %this, %if.else.i ], [ %this, %if.then.i104 ], [ %this, %if.else.i101 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3902,38 +3902,38 @@ do.body39.preheader:                              ; preds = %do.body31
 
 do.body39:                                        ; preds = %do.body39.preheader, %do.end58
   %__N32.034 = phi i32 [ %dec59, %do.end58 ], [ %sub, %do.body39.preheader ]
-  %index.addr.333 = phi i32 [ %index.addr.4, %do.end58 ], [ %spec.select, %do.body39.preheader ]
-  %dec40 = add nsw i32 %index.addr.333, -1
+  %index.addr.433 = phi i32 [ %index.addr.5, %do.end58 ], [ %spec.select, %do.body39.preheader ]
+  %dec40 = add nsw i32 %index.addr.433, -1
   %idxprom41 = zext nneg i32 %dec40 to i64
   %arrayidx42 = getelementptr inbounds i16, ptr %cond.i29, i64 %idxprom41
   %13 = load i16, ptr %arrayidx42, align 2
   %14 = and i16 %13, -1024
   %cmp45 = icmp eq i16 %14, -9216
-  %cmp47 = icmp ugt i32 %index.addr.333, 1
+  %cmp47 = icmp ugt i32 %index.addr.433, 1
   %or.cond = and i1 %cmp45, %cmp47
   br i1 %or.cond, label %land.lhs.true48, label %do.end58
 
 land.lhs.true48:                                  ; preds = %do.body39
-  %15 = zext nneg i32 %index.addr.333 to i64
+  %15 = zext nneg i32 %index.addr.433 to i64
   %gep = getelementptr i16, ptr %invariant.gep, i64 %15
   %16 = load i16, ptr %gep, align 2
   %17 = and i16 %16, -1024
   %cmp54 = icmp eq i16 %17, -10240
-  %dec56 = add nsw i32 %index.addr.333, -2
+  %dec56 = add nsw i32 %index.addr.433, -2
   %spec.select28 = select i1 %cmp54, i32 %dec56, i32 %dec40
   br label %do.end58
 
 do.end58:                                         ; preds = %land.lhs.true48, %do.body39
-  %index.addr.4 = phi i32 [ %dec40, %do.body39 ], [ %spec.select28, %land.lhs.true48 ]
+  %index.addr.5 = phi i32 [ %dec40, %do.body39 ], [ %spec.select28, %land.lhs.true48 ]
   %dec59 = add nsw i32 %__N32.034, -1
   %cmp34 = icmp sgt i32 %__N32.034, 1
-  %cmp36 = icmp sgt i32 %index.addr.4, 0
+  %cmp36 = icmp sgt i32 %index.addr.5, 0
   %18 = select i1 %cmp34, i1 %cmp36, i1 false
   br i1 %18, label %do.body39, label %if.end62, !llvm.loop !13
 
 if.end62:                                         ; preds = %do.end58, %do.end, %land.rhs, %do.end.us, %land.rhs.us, %do.body31
-  %index.addr.5 = phi i32 [ %index.addr.0, %do.body31 ], [ %index.addr.2.us, %do.end.us ], [ %index.addr.135.us, %land.rhs.us ], [ %index.addr.135, %land.rhs ], [ %index.addr.2, %do.end ], [ %index.addr.4, %do.end58 ]
-  ret i32 %index.addr.5
+  %index.addr.3 = phi i32 [ %index.addr.0, %do.body31 ], [ %index.addr.2.us, %do.end.us ], [ %index.addr.135.us, %land.rhs.us ], [ %index.addr.135, %land.rhs ], [ %index.addr.2, %do.end ], [ %index.addr.5, %do.end58 ]
+  ret i32 %index.addr.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -4119,7 +4119,7 @@ entry:
   %cmp5.i = icmp slt i32 %len, 0
   %sub.i = sub nsw i32 %cond.i.i, %start.addr.0
   %spec.select11 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %len)
-  %len.addr.0 = select i1 %cmp5.i, i32 0, i32 %spec.select11
+  %len.addr.1 = select i1 %cmp5.i, i32 0, i32 %spec.select11
   %conv1.i = zext i16 %0 to i32
   %and.i = and i32 %conv1.i, 17
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -4145,12 +4145,12 @@ if.then:                                          ; preds = %entry, %_ZNK6icu_75
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7, %if.then, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %len.addr.1 = phi i32 [ -2, %if.then ], [ %len.addr.0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %len.addr.0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7 ]
+  %len.addr.0 = phi i32 [ -2, %if.then ], [ %len.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %len.addr.1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7 ]
   %array.0 = phi ptr [ %fBuffer, %if.then ], [ %3, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %fBuffer.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit.thread7 ]
   %idx.ext = sext i32 %start.addr.0 to i64
   %add.ptr = getelementptr inbounds i16, ptr %array.0, i64 %idx.ext
   store ptr %add.ptr, ptr %agg.tmp, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext 0, ptr noundef nonnull %agg.tmp, i32 noundef %len.addr.1)
+  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext 0, ptr noundef nonnull %agg.tmp, i32 noundef %len.addr.0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -4862,8 +4862,8 @@ if.end:                                           ; preds = %lor.lhs.false4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %4, i32 %shr.i.i.i
   %cmp.i = icmp slt i32 %start, 0
   %spec.select = tail call i32 @llvm.smin.i32(i32 %cond.i.i, i32 %start)
-  %start.addr.0 = select i1 %cmp.i, i32 0, i32 %spec.select
-  %sub.i = sub nsw i32 %cond.i.i, %start.addr.0
+  %start.addr.1 = select i1 %cmp.i, i32 0, i32 %spec.select
+  %sub.i = sub nsw i32 %cond.i.i, %start.addr.1
   %spec.select80 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %length)
   %cmp.i.i.i14 = icmp slt i16 %1, 0
   %5 = ashr i16 %1, 5
@@ -4897,10 +4897,10 @@ if.end:                                           ; preds = %lor.lhs.false4
 
 while.cond.preheader:                             ; preds = %if.end
   %cmp5.i = icmp slt i32 %length, 0
-  %length.addr.0 = select i1 %cmp5.i, i32 0, i32 %spec.select80
+  %length.addr.1 = select i1 %cmp5.i, i32 0, i32 %spec.select80
   %cmp.i.i = icmp slt i32 %oldStart.addr.0, 0
-  %cmp990 = icmp sgt i32 %length.addr.0, 0
-  %cmp1091 = icmp sge i32 %length.addr.0, %spec.select83
+  %cmp990 = icmp sgt i32 %length.addr.1, 0
+  %cmp1091 = icmp sge i32 %length.addr.1, %spec.select83
   %9 = and i1 %cmp990, %cmp1091
   br i1 %9, label %while.body.lr.ph, label %return
 
@@ -4917,8 +4917,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br i1 %cmp5.i.i, label %return, label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else
-  %length.addr.193 = phi i32 [ %sub15, %if.else ], [ %spec.select80, %while.body.lr.ph ]
-  %start.addr.192 = phi i32 [ %add16, %if.else ], [ %start.addr.0, %while.body.lr.ph ]
+  %length.addr.093 = phi i32 [ %sub15, %if.else ], [ %spec.select80, %while.body.lr.ph ]
+  %start.addr.092 = phi i32 [ %add16, %if.else ], [ %start.addr.1, %while.body.lr.ph ]
   %10 = load i16, ptr %fUnion.i9, align 8
   %conv2.i15.i = and i16 %10, 1
   %tobool.not.i = icmp eq i16 %conv2.i15.i, 0
@@ -4958,11 +4958,11 @@ if.end9.i.i:                                      ; preds = %if.then2.i
   %shr.i.i.i.i.i = sext i16 %16 to i32
   %17 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %17, i32 %shr.i.i.i.i.i
-  %cmp.i.i.i52 = icmp slt i32 %start.addr.192, 0
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i.i, i32 %start.addr.192)
+  %cmp.i.i.i52 = icmp slt i32 %start.addr.092, 0
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i.i, i32 %start.addr.092)
   %start.addr.0.i.i = select i1 %cmp.i.i.i52, i32 0, i32 %spec.select.i.i
   %sub.i.i.i = sub nsw i32 %cond.i.i.i.i, %start.addr.0.i.i
-  %spec.select15.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %length.addr.193)
+  %spec.select15.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %length.addr.093)
   %18 = and i16 %15, 2
   %tobool.not.i.i.i = icmp eq i16 %18, 0
   %19 = load ptr, ptr %fArray.i.i.i, align 8
@@ -5000,7 +5000,7 @@ if.else:                                          ; preds = %_ZNK6icu_7513Unicod
   %24 = load ptr, ptr %fArray.i.i.i63, align 8
   %cond.i.i.i64 = select i1 %tobool.not.i.i.i61, ptr %24, ptr %fBuffer.i.i.i62
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %conv16.i.i, i32 noundef %spec.select83, ptr noundef %cond.i.i.i64, i32 noundef %srcStart.addr.0.i.i, i32 noundef %srcLength.addr.0.i.i)
-  %25 = add i32 %start.addr.192, %length.addr.193
+  %25 = add i32 %start.addr.092, %length.addr.093
   %26 = add nuw i32 %spec.select83, %conv16.i.i
   %sub15 = sub i32 %25, %26
   %add16 = add nsw i32 %newLength.addr.0, %conv16.i.i
@@ -5557,9 +5557,9 @@ if.then12:                                        ; preds = %if.else.i51
   br i1 %cmp.i61, label %if.then.i66, label %if.else.i63
 
 if.then.i66:                                      ; preds = %_ZNK6icu_7513UnicodeString8pinIndexERi.exit60.thread, %if.then12
-  %start.addr.0163166 = phi i32 [ %spec.select168, %if.then12 ], [ 0, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit60.thread ]
+  %start.addr.1163166 = phi i32 [ %spec.select168, %if.then12 ], [ 0, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit60.thread ]
   %9 = and i16 %0, 14
-  %len.tr.i.i67 = trunc i32 %start.addr.0163166 to i16
+  %len.tr.i.i67 = trunc i32 %start.addr.1163166 to i16
   %10 = shl i16 %len.tr.i.i67, 5
   %conv2.i.i68 = or disjoint i16 %10, %9
   store i16 %conv2.i.i68, ptr %fUnion.i, align 8
@@ -5572,14 +5572,14 @@ if.else.i63:                                      ; preds = %if.then12
   br label %_ZN6icu_7513UnicodeString9setLengthEi.exit69
 
 _ZN6icu_7513UnicodeString9setLengthEi.exit69:     ; preds = %if.then.i66, %if.else.i63
-  %start.addr.0163167 = phi i32 [ %start.addr.0163166, %if.then.i66 ], [ %spec.select168, %if.else.i63 ]
+  %start.addr.1163167 = phi i32 [ %start.addr.1163166, %if.then.i66 ], [ %spec.select168, %if.else.i63 ]
   %fCapacity14 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %start.addr.0163167, ptr %fCapacity14, align 8
+  store i32 %start.addr.1163167, ptr %fCapacity14, align 8
   br label %return
 
 if.end17:                                         ; preds = %_ZNK6icu_7513UnicodeString8pinIndexERi.exit60.thread, %if.else.i51, %if.end
-  %start.addr.1 = phi i32 [ %spec.select168, %if.else.i51 ], [ %start, %if.end ], [ 0, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit60.thread ]
-  %cmp18 = icmp eq i32 %start.addr.1, %cond.i
+  %start.addr.0 = phi i32 [ %spec.select168, %if.else.i51 ], [ %start, %if.end ], [ 0, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit60.thread ]
+  %cmp18 = icmp eq i32 %start.addr.0, %cond.i
   br i1 %cmp18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end17
@@ -5612,8 +5612,8 @@ if.end31:                                         ; preds = %if.end21, %if.else2
   %srcChars.addr.0 = phi ptr [ null, %if.end21 ], [ %add.ptr26, %if.else24 ], [ %add.ptr26, %if.then28 ]
   %cmp.i.i.i71 = icmp slt i16 %12, 0
   %cond.i.i74 = select i1 %cmp.i.i.i71, i32 %11, i32 %shr.i.i.i72.pre-phi
-  %cmp.i75 = icmp slt i32 %start.addr.1, 0
-  %spec.select169 = tail call i32 @llvm.smin.i32(i32 %start.addr.1, i32 %cond.i.i74)
+  %cmp.i75 = icmp slt i32 %start.addr.0, 0
+  %spec.select169 = tail call i32 @llvm.smin.i32(i32 %start.addr.0, i32 %cond.i.i74)
   %start.addr.2 = select i1 %cmp.i75, i32 0, i32 %spec.select169
   %cmp5.i = icmp slt i32 %length, 0
   %sub.i = sub nsw i32 %cond.i.i74, %start.addr.2
@@ -5738,7 +5738,7 @@ if.end53:                                         ; preds = %if.then48
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %_ZN6icu_7513UnicodeString10setToBogusEv.exit101, %if.end53
-  %retval.0 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit101 ], [ %call57, %if.end53 ]
+  %retval.1 = phi ptr [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit101 ], [ %call57, %if.end53 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #23
   br label %return
 
@@ -5856,8 +5856,8 @@ if.then92:                                        ; preds = %_ZN6icu_7513Unicode
   br label %return
 
 return:                                           ; preds = %if.else.i48, %if.then.i, %_ZN6icu_7513UnicodeString9setLengthEi.exit141, %if.then92, %if.end69, %entry, %cleanup, %_ZN6icu_7513UnicodeString10setToBogusEv.exit, %if.then19, %_ZN6icu_7513UnicodeString9setLengthEi.exit69
-  %retval.1 = phi ptr [ %this, %_ZN6icu_7513UnicodeString9setLengthEi.exit69 ], [ %call20, %if.then19 ], [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit ], [ %retval.0, %cleanup ], [ %this, %entry ], [ %this, %if.end69 ], [ %this, %if.then92 ], [ %this, %_ZN6icu_7513UnicodeString9setLengthEi.exit141 ], [ %this, %if.then.i ], [ %this, %if.else.i48 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %this, %_ZN6icu_7513UnicodeString9setLengthEi.exit69 ], [ %call20, %if.then19 ], [ %this, %_ZN6icu_7513UnicodeString10setToBogusEv.exit ], [ %retval.1, %cleanup ], [ %this, %entry ], [ %this, %if.end69 ], [ %this, %if.then92 ], [ %this, %_ZN6icu_7513UnicodeString9setLengthEi.exit141 ], [ %this, %if.then.i ], [ %this, %if.else.i48 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

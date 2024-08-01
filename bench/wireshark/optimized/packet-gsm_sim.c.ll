@@ -1947,11 +1947,11 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.0397406.i = phi i32 [ %330, %.lr.ph.i ], [ 38, %.lr.ph.i.preheader ]
+  %.1406.i = phi i32 [ %330, %.lr.ph.i ], [ 38, %.lr.ph.i.preheader ]
   %329 = load i32, ptr @hf_tprof_unknown_byte, align 4
-  %330 = add nuw nsw i32 %.0397406.i, 1
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %329, ptr noundef %0, i32 noundef %.0397406.i, i32 noundef 1, i32 noundef 0) #2
-  %exitcond.not.i = icmp eq i32 %.0397406.i, %328
+  %330 = add nuw nsw i32 %.1406.i, 1
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %329, ptr noundef %0, i32 noundef %.1406.i, i32 noundef 1, i32 noundef 0) #2
+  %exitcond.not.i = icmp eq i32 %.1406.i, %328
   br i1 %exitcond.not.i, label %dissect_gsm_apdu.exit.thread, label %.lr.ph.i, !llvm.loop !7
 
 332:                                              ; preds = %30

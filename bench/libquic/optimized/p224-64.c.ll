@@ -2913,10 +2913,10 @@ BN_to_felem.exit:                                 ; preds = %flip_endian.exit, %
   br label %err
 
 lor.lhs.false83:                                  ; preds = %flip_endian.exit.loopexit.i, %if.end.i
-  %x_out.sroa.12.1.ph = phi i64 [ 0, %if.end.i ], [ %7, %flip_endian.exit.loopexit.i ]
-  %x_out.sroa.8.1.ph = phi i64 [ 0, %if.end.i ], [ %6, %flip_endian.exit.loopexit.i ]
-  %x_out.sroa.4.1.ph = phi i64 [ 0, %if.end.i ], [ %5, %flip_endian.exit.loopexit.i ]
-  %x_out.sroa.0.1.ph = phi i64 [ 0, %if.end.i ], [ %4, %flip_endian.exit.loopexit.i ]
+  %x_out.sroa.12.2.ph = phi i64 [ 0, %if.end.i ], [ %7, %flip_endian.exit.loopexit.i ]
+  %x_out.sroa.8.2.ph = phi i64 [ 0, %if.end.i ], [ %6, %flip_endian.exit.loopexit.i ]
+  %x_out.sroa.4.2.ph = phi i64 [ 0, %if.end.i ], [ %5, %flip_endian.exit.loopexit.i ]
+  %x_out.sroa.0.2.ph = phi i64 [ 0, %if.end.i ], [ %4, %flip_endian.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %b_out.i)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %b_in.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %b_out.i105)
@@ -2966,10 +2966,10 @@ BN_to_felem.exit140:                              ; preds = %lor.lhs.false83, %l
   br label %err
 
 lor.lhs.false87:                                  ; preds = %flip_endian.exit.loopexit.i124, %if.end.i114
-  %y_out.sroa.12.1.ph = phi i64 [ 0, %if.end.i114 ], [ %13, %flip_endian.exit.loopexit.i124 ]
-  %y_out.sroa.8.1.ph = phi i64 [ 0, %if.end.i114 ], [ %12, %flip_endian.exit.loopexit.i124 ]
-  %y_out.sroa.4.1.ph = phi i64 [ 0, %if.end.i114 ], [ %11, %flip_endian.exit.loopexit.i124 ]
-  %y_out.sroa.0.1.ph = phi i64 [ 0, %if.end.i114 ], [ %10, %flip_endian.exit.loopexit.i124 ]
+  %y_out.sroa.12.2.ph = phi i64 [ 0, %if.end.i114 ], [ %13, %flip_endian.exit.loopexit.i124 ]
+  %y_out.sroa.8.2.ph = phi i64 [ 0, %if.end.i114 ], [ %12, %flip_endian.exit.loopexit.i124 ]
+  %y_out.sroa.4.2.ph = phi i64 [ 0, %if.end.i114 ], [ %11, %flip_endian.exit.loopexit.i124 ]
+  %y_out.sroa.0.2.ph = phi i64 [ 0, %if.end.i114 ], [ %10, %flip_endian.exit.loopexit.i124 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %b_out.i105)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %b_in.i106)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %b_out.i141)
@@ -3019,24 +3019,24 @@ BN_to_felem.exit176:                              ; preds = %lor.lhs.false87, %l
   br label %err
 
 if.end92:                                         ; preds = %flip_endian.exit.loopexit.i160, %if.end.i150
-  %z_out.sroa.12.1.ph = phi i64 [ 0, %if.end.i150 ], [ %19, %flip_endian.exit.loopexit.i160 ]
-  %z_out.sroa.8.1.ph = phi i64 [ 0, %if.end.i150 ], [ %18, %flip_endian.exit.loopexit.i160 ]
-  %z_out.sroa.4.1.ph = phi i64 [ 0, %if.end.i150 ], [ %17, %flip_endian.exit.loopexit.i160 ]
-  %z_out.sroa.0.1.ph = phi i64 [ 0, %if.end.i150 ], [ %16, %flip_endian.exit.loopexit.i160 ]
+  %z_out.sroa.12.2.ph = phi i64 [ 0, %if.end.i150 ], [ %19, %flip_endian.exit.loopexit.i160 ]
+  %z_out.sroa.8.2.ph = phi i64 [ 0, %if.end.i150 ], [ %18, %flip_endian.exit.loopexit.i160 ]
+  %z_out.sroa.4.2.ph = phi i64 [ 0, %if.end.i150 ], [ %17, %flip_endian.exit.loopexit.i160 ]
+  %z_out.sroa.0.2.ph = phi i64 [ 0, %if.end.i150 ], [ %16, %flip_endian.exit.loopexit.i160 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %b_out.i141)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %b_in.i142)
-  store i64 %x_out.sroa.0.1.ph, ptr %arrayidx94, align 8
-  store i64 %x_out.sroa.4.1.ph, ptr %arrayidx3.i, align 8
-  store i64 %x_out.sroa.8.1.ph, ptr %arrayidx5.i, align 8
-  store i64 %x_out.sroa.12.1.ph, ptr %arrayidx7.i, align 8
-  store i64 %y_out.sroa.0.1.ph, ptr %arrayidx100, align 8
-  store i64 %y_out.sroa.4.1.ph, ptr %arrayidx3.i179, align 8
-  store i64 %y_out.sroa.8.1.ph, ptr %arrayidx5.i181, align 8
-  store i64 %y_out.sroa.12.1.ph, ptr %arrayidx7.i183, align 8
-  store i64 %z_out.sroa.0.1.ph, ptr %arrayidx105, align 8
-  store i64 %z_out.sroa.4.1.ph, ptr %arrayidx3.i185, align 8
-  store i64 %z_out.sroa.8.1.ph, ptr %arrayidx5.i187, align 8
-  store i64 %z_out.sroa.12.1.ph, ptr %arrayidx7.i189, align 8
+  store i64 %x_out.sroa.0.2.ph, ptr %arrayidx94, align 8
+  store i64 %x_out.sroa.4.2.ph, ptr %arrayidx3.i, align 8
+  store i64 %x_out.sroa.8.2.ph, ptr %arrayidx5.i, align 8
+  store i64 %x_out.sroa.12.2.ph, ptr %arrayidx7.i, align 8
+  store i64 %y_out.sroa.0.2.ph, ptr %arrayidx100, align 8
+  store i64 %y_out.sroa.4.2.ph, ptr %arrayidx3.i179, align 8
+  store i64 %y_out.sroa.8.2.ph, ptr %arrayidx5.i181, align 8
+  store i64 %y_out.sroa.12.2.ph, ptr %arrayidx7.i183, align 8
+  store i64 %z_out.sroa.0.2.ph, ptr %arrayidx105, align 8
+  store i64 %z_out.sroa.4.2.ph, ptr %arrayidx3.i185, align 8
+  store i64 %z_out.sroa.8.2.ph, ptr %arrayidx5.i187, align 8
+  store i64 %z_out.sroa.12.2.ph, ptr %arrayidx7.i189, align 8
   br label %for.body111
 
 for.body111:                                      ; preds = %if.end92, %for.inc
@@ -3070,8 +3070,8 @@ for.inc:                                          ; preds = %if.then113, %if.els
   br i1 %exitcond.not, label %if.end184, label %for.body111, !llvm.loop !17
 
 if.end184:                                        ; preds = %for.inc, %if.end44, %if.end31
-  %secrets.0 = phi ptr [ null, %if.end31 ], [ %call35, %if.end44 ], [ %call35, %for.inc ]
-  %pre_comp.0 = phi ptr [ null, %if.end31 ], [ %call37, %if.end44 ], [ %call37, %for.inc ]
+  %secrets.1 = phi ptr [ null, %if.end31 ], [ %call35, %if.end44 ], [ %call35, %for.inc ]
+  %pre_comp.1 = phi ptr [ null, %if.end31 ], [ %call37, %if.end44 ], [ %call37, %for.inc ]
   %cmp185.not = icmp eq ptr %g_scalar, null
   br i1 %cmp185.not, label %if.end210, label %if.then187
 
@@ -3133,7 +3133,7 @@ if.end210:                                        ; preds = %for.body.i192, %if.
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end188.i, %if.end210
-  %skip.0.i = phi i32 [ 1, %if.end210 ], [ %skip.5.i, %if.end188.i ]
+  %skip.0.i = phi i32 [ 1, %if.end210 ], [ %skip.3.i, %if.end188.i ]
   %i.0.i = phi i64 [ %conv.i, %if.end210 ], [ %dec.pre-phi.i, %if.end188.i ]
   %tobool.not.i203 = icmp eq i32 %skip.0.i, 0
   br i1 %tobool.not.i203, label %if.then.i213, label %if.end.i204
@@ -3302,7 +3302,7 @@ select_point.exit152.i:                           ; preds = %for.inc16.i142.i
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %select_point.exit152.i, %if.end.i204
-  %skip.2.i = phi i32 [ 0, %select_point.exit152.i ], [ %skip.0.i, %if.end.i204 ]
+  %skip.1.i = phi i32 [ 0, %select_point.exit152.i ], [ %skip.0.i, %if.end.i204 ]
   %rem.i = urem i64 %i.0.i, 5
   %cmp101.i = icmp eq i64 %rem.i, 0
   %or.cond67.i = select i1 %cmp.not, i1 %cmp101.i, i1 false
@@ -3318,30 +3318,30 @@ for.cond104.preheader.i:                          ; preds = %if.end97.i
   %add116.i = add nsw i64 %i.0.i, 3
   %cmp.i162.i = icmp ugt i64 %add116.i, 223
   %shr.i164.i = lshr i64 %add116.i, 3
-  %arrayidx.i165.i = getelementptr inbounds i8, ptr %secrets.0, i64 %shr.i164.i
+  %arrayidx.i165.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i164.i
   %47 = trunc nuw i64 %add116.i to i8
   %sh_prom.i166.i = and i8 %47, 7
   %add124.i = add nsw i64 %i.0.i, 2
   %cmp.i171.i = icmp ugt i64 %add124.i, 223
   %shr.i173.i = lshr i64 %add124.i, 3
-  %arrayidx.i174.i = getelementptr inbounds i8, ptr %secrets.0, i64 %shr.i173.i
+  %arrayidx.i174.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i173.i
   %48 = trunc nuw i64 %add124.i to i8
   %sh_prom.i175.i = and i8 %48, 7
   %add132.i = add nuw nsw i64 %i.0.i, 1
   %cmp.i180.i = icmp ugt i64 %i.0.i, 222
   %shr.i182.i = lshr i64 %add132.i, 3
-  %arrayidx.i183.i = getelementptr inbounds i8, ptr %secrets.0, i64 %shr.i182.i
+  %arrayidx.i183.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i182.i
   %49 = trunc nuw i64 %add132.i to i8
   %sh_prom.i184.i = and i8 %49, 7
   %cmp.i189.i = icmp ugt i64 %i.0.i, 223
   %shr.i191.i = lshr i64 %i.0.i, 3
-  %arrayidx.i192.i = getelementptr inbounds i8, ptr %secrets.0, i64 %shr.i191.i
+  %arrayidx.i192.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i191.i
   %50 = trunc nuw i64 %i.0.i to i8
   %sh_prom.i193.i = and i8 %50, 7
   %sub.i = add nsw i64 %i.0.i, -1
   %cmp.i198.i = icmp ugt i64 %sub.i, 223
   %shr.i200.i = lshr i64 %sub.i, 3
-  %arrayidx.i201.i = getelementptr inbounds i8, ptr %secrets.0, i64 %shr.i200.i
+  %arrayidx.i201.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i200.i
   %51 = trunc nuw i64 %sub.i to i8
   %sh_prom.i202.i = and i8 %51, 7
   br i1 %cmp.i153.i, label %get_bit.exit161.i, label %if.end.i154.i
@@ -3350,7 +3350,7 @@ if.end.i154.i:                                    ; preds = %for.cond104.prehead
   %52 = trunc nuw i64 %add109.i to i8
   %sh_prom.i157.i = and i8 %52, 7
   %shr.i155.i = lshr i64 %add109.i, 3
-  %arrayidx.i156.i = getelementptr inbounds i8, ptr %secrets.0, i64 %shr.i155.i
+  %arrayidx.i156.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i155.i
   %53 = load i8, ptr %arrayidx.i156.i, align 1
   %shr1.i158.i = lshr i8 %53, %sh_prom.i157.i
   %and2.i159.i = and i8 %shr1.i158.i, 1
@@ -3427,7 +3427,7 @@ get_bit.exit206.i:                                ; preds = %if.end.i199.i, %get
 
 for.body.i207.i:                                  ; preds = %for.inc16.i217.i, %get_bit.exit206.i
   %i.018.i208.i = phi i64 [ %inc17.i218.i, %for.inc16.i217.i ], [ 0, %get_bit.exit206.i ]
-  %arrayidx2.i209.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.0, i64 %i.018.i208.i
+  %arrayidx2.i209.i = getelementptr inbounds [3 x [4 x i64]], ptr %pre_comp.1, i64 %i.018.i208.i
   %xor.i210.i = xor i64 %i.018.i208.i, %conv151.i
   %shr.i211.i = lshr i64 %xor.i210.i, 4
   %or.i212.i = or i64 %shr.i211.i, %xor.i210.i
@@ -3482,7 +3482,7 @@ for.body.i230.i:                                  ; preds = %for.body.i230.i, %s
   br i1 %exitcond.not.i233.i, label %copy_conditional.exit.i, label %for.body.i230.i, !llvm.loop !20
 
 copy_conditional.exit.i:                          ; preds = %for.body.i230.i
-  %tobool164.not.i = icmp eq i32 %skip.2.i, 0
+  %tobool164.not.i = icmp eq i32 %skip.1.i, 0
   br i1 %tobool164.not.i, label %if.then165.i, label %if.else184.i
 
 if.then165.i:                                     ; preds = %copy_conditional.exit.i
@@ -3495,7 +3495,7 @@ if.else184.i:                                     ; preds = %copy_conditional.ex
 
 if.end188.i:                                      ; preds = %if.else184.i, %if.then165.i, %if.end97.if.end188_crit_edge.i
   %dec.pre-phi.i = phi i64 [ %.pre.i205, %if.end97.if.end188_crit_edge.i ], [ %sub.i, %if.then165.i ], [ %sub.i, %if.else184.i ]
-  %skip.5.i = phi i32 [ %skip.2.i, %if.end97.if.end188_crit_edge.i ], [ 0, %if.then165.i ], [ 0, %if.else184.i ]
+  %skip.3.i = phi i32 [ %skip.1.i, %if.end97.if.end188_crit_edge.i ], [ 0, %if.then165.i ], [ 0, %if.else184.i ]
   %cmp189.i = icmp eq i64 %i.0.i, 0
   br i1 %cmp189.i, label %batch_mul.exit, label %for.cond.i
 
@@ -3786,12 +3786,12 @@ if.end239:                                        ; preds = %felem_to_BN.exit375
 
 err:                                              ; preds = %BN_to_felem.exit176, %BN_to_felem.exit140, %BN_to_felem.exit, %if.end15, %lor.lhs.false, %lor.lhs.false22, %lor.lhs.false26, %if.end239, %if.then238, %if.then200, %if.then70, %if.then43
   %ret.0 = phi i32 [ 0, %if.end15 ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false26 ], [ 0, %if.then43 ], [ 0, %BN_to_felem.exit176 ], [ 0, %BN_to_felem.exit140 ], [ 0, %BN_to_felem.exit ], [ 0, %if.then70 ], [ %call240, %if.end239 ], [ 0, %if.then238 ], [ 0, %if.then200 ]
-  %secrets.1 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call35, %if.then43 ], [ %call35, %BN_to_felem.exit176 ], [ %call35, %BN_to_felem.exit140 ], [ %call35, %BN_to_felem.exit ], [ %call35, %if.then70 ], [ %secrets.0, %if.end239 ], [ %secrets.0, %if.then238 ], [ %secrets.0, %if.then200 ]
-  %pre_comp.1 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call37, %if.then43 ], [ %call37, %BN_to_felem.exit176 ], [ %call37, %BN_to_felem.exit140 ], [ %call37, %BN_to_felem.exit ], [ %call37, %if.then70 ], [ %pre_comp.0, %if.end239 ], [ %pre_comp.0, %if.then238 ], [ %pre_comp.0, %if.then200 ]
+  %secrets.0 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call35, %if.then43 ], [ %call35, %BN_to_felem.exit176 ], [ %call35, %BN_to_felem.exit140 ], [ %call35, %BN_to_felem.exit ], [ %call35, %if.then70 ], [ %secrets.1, %if.end239 ], [ %secrets.1, %if.then238 ], [ %secrets.1, %if.then200 ]
+  %pre_comp.0 = phi ptr [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call37, %if.then43 ], [ %call37, %BN_to_felem.exit176 ], [ %call37, %BN_to_felem.exit140 ], [ %call37, %BN_to_felem.exit ], [ %call37, %if.then70 ], [ %pre_comp.1, %if.end239 ], [ %pre_comp.1, %if.then238 ], [ %pre_comp.1, %if.then200 ]
   call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0) #10
   call void @BN_CTX_free(ptr noundef %new_ctx.0) #10
-  call void @free(ptr noundef %secrets.1) #10
-  call void @free(ptr noundef %pre_comp.1) #10
+  call void @free(ptr noundef %secrets.0) #10
+  call void @free(ptr noundef %pre_comp.0) #10
   br label %return
 
 return:                                           ; preds = %if.then, %err

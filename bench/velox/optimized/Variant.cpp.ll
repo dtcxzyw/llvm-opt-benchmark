@@ -1435,10 +1435,10 @@ lpad9:                                            ; preds = %invoke.cont10, %inv
 
 ehcleanup12:                                      ; preds = %lpad7, %lpad9
   %.pn = phi { ptr, i32 } [ %5, %lpad9 ], [ %4, %lpad7 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad9 ], [ true, %lpad7 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.0, %lpad9 ], [ true, %lpad7 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #27
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup12.thread10, %ehcleanup12.thread, %ehcleanup12
   %.pn.pn.pn9 = phi { ptr, i32 } [ %2, %ehcleanup12.thread ], [ %.pn, %ehcleanup12 ], [ %3, %ehcleanup12.thread10 ]
@@ -4226,14 +4226,14 @@ terminate.lpad.i.i31:                             ; preds = %if.then.i.i29
 
 catch.dispatch:                                   ; preds = %if.then.i.i29, %ehcleanup34, %lpad
   %.pn6.pn.pn.pn.pn = phi { ptr, i32 } [ %9, %lpad ], [ %.pn6.pn.pn.pn, %ehcleanup34 ], [ %.pn6.pn.pn.pn, %if.then.i.i29 ]
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn6.pn.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn6.pn.pn.pn.pn, 1
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox17VeloxRuntimeErrorE) #27
-  %matches = icmp eq i32 %ehselector.slot.5, %18
+  %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn6.pn.pn.pn.pn, 0
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #27
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn6.pn.pn.pn.pn, 0
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #27
   call void @llvm.trap()
   unreachable
 
@@ -5443,16 +5443,16 @@ ehcleanup23:                                      ; preds = %catch.dispatch
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup23, %lpad4
-  %ehselector.slot.3 = phi i32 [ %ehselector.slot.2, %ehcleanup23 ], [ %60, %lpad4 ]
-  %exn.slot.3 = phi ptr [ %exn.slot.2, %ehcleanup23 ], [ %59, %lpad4 ]
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup23 ], [ %60, %lpad4 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup23 ], [ %59, %lpad4 ]
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %typ) #27
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup24, %lpad
-  %ehselector.slot.4 = phi i32 [ %ehselector.slot.3, %ehcleanup24 ], [ %57, %lpad ]
-  %exn.slot.4 = phi ptr [ %exn.slot.3, %ehcleanup24 ], [ %56, %lpad ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.4, 0
-  %lpad.val27 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.4, 1
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup24 ], [ %57, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup24 ], [ %56, %lpad ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val27 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val27
 }
 

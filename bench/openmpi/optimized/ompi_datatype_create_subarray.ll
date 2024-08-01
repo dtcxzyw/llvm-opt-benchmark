@@ -85,22 +85,22 @@ define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %56 = phi ptr [ %37, %.lr.ph.preheader ], [ %71, %.lr.ph ]
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.072 = phi i64 [ %51, %.lr.ph.preheader ], [ %66, %.lr.ph ]
-  %.05771 = phi i64 [ %43, %.lr.ph.preheader ], [ %70, %.lr.ph ]
+  %.172 = phi i64 [ %51, %.lr.ph.preheader ], [ %66, %.lr.ph ]
+  %.15871 = phi i64 [ %43, %.lr.ph.preheader ], [ %70, %.lr.ph ]
   %57 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
-  %59 = mul nsw i64 %.05771, %11
+  %59 = mul nsw i64 %.15871, %11
   %60 = call i32 @ompi_datatype_create_hvector(i32 noundef %58, i32 noundef 1, i64 noundef %59, ptr noundef %56, ptr noundef nonnull %6) #2
   %61 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %8) #2
   %62 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
-  %65 = mul nsw i64 %.05771, %64
-  %66 = add nsw i64 %65, %.072
+  %65 = mul nsw i64 %.15871, %64
+  %66 = add nsw i64 %65, %.172
   %67 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
-  %70 = mul nsw i64 %.05771, %69
+  %70 = mul nsw i64 %.15871, %69
   %71 = load ptr, ptr %6, align 8
   store ptr %71, ptr %8, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, %55
@@ -110,16 +110,16 @@ define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture 
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %17
   %73 = phi ptr [ %.pre, %17 ], [ %37, %24 ], [ %71, %.lr.ph ]
-  %.158 = phi i64 [ %21, %17 ], [ %43, %24 ], [ %70, %.lr.ph ]
-  %.1 = phi i64 [ %23, %17 ], [ %51, %24 ], [ %66, %.lr.ph ]
+  %.057 = phi i64 [ %21, %17 ], [ %43, %24 ], [ %70, %.lr.ph ]
+  %.0 = phi i64 [ %23, %17 ], [ %51, %24 ], [ %66, %.lr.ph ]
   %74 = getelementptr inbounds i8, ptr %73, i64 152
   %75 = load i64, ptr %74, align 8
   %76 = trunc i64 %75 to i32
   %77 = call ptr @ompi_datatype_create(i32 noundef %76) #2
   store ptr %77, ptr %6, align 8
   %78 = load ptr, ptr %8, align 8
-  %79 = mul nsw i64 %.1, %11
-  %80 = mul nsw i64 %.158, %11
+  %79 = mul nsw i64 %.0, %11
+  %80 = mul nsw i64 %.057, %11
   %81 = call i32 @opal_datatype_add(ptr noundef %77, ptr noundef %78, i64 noundef 1, i64 noundef %79, i64 noundef %80) #2
   %82 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %8) #2
   %83 = load ptr, ptr %6, align 8

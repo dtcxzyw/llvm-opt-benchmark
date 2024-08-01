@@ -234,15 +234,15 @@ if.end43.i.i:                                     ; preds = %if.then38.i.i, %lan
   br i1 %cmp48.i.i, label %for.body.i.i, label %if.end52.i.i
 
 for.body.i.i:                                     ; preds = %if.end43.i.i, %for.body.i.i
-  %st.1.i.i = phi i64 [ %call51.i.i, %for.body.i.i ], [ %st.0.i.i, %if.end43.i.i ]
+  %st.2.i.i = phi i64 [ %call51.i.i, %for.body.i.i ], [ %st.0.i.i, %if.end43.i.i ]
   %i.2.i.i = phi i32 [ %dec.i.i, %for.body.i.i ], [ %i.1.i.i, %if.end43.i.i ]
-  %call51.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.1.i.i, i32 noundef %flagch.1.i.i, i64 noundef %st.1.i.i)
+  %call51.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.1.i.i, i64 noundef %st.2.i.i)
   %dec.i.i = add nsw i32 %i.2.i.i, -1
   %cmp48.old.i.i = icmp ugt i32 %i.2.i.i, 1
   br i1 %cmp48.old.i.i, label %for.body.i.i, label %if.end52.i.i
 
 if.end52.i.i:                                     ; preds = %for.body.i.i, %if.end43.i.i
-  %st.2.i.i = phi i64 [ %st.0.i.i, %if.end43.i.i ], [ %call51.i.i, %for.body.i.i ]
+  %st.1.i.i = phi i64 [ %st.0.i.i, %if.end43.i.i ], [ %call51.i.i, %for.body.i.i ]
   %cmp53.i.i = icmp eq i32 %flagch.1.i.i, 129
   br i1 %cmp53.i.i, label %land.lhs.true67.i.i, label %lor.lhs.false55.i.i
 
@@ -338,11 +338,11 @@ if.end114.i.i:                                    ; preds = %land.lhs.true102.i.
 
 if.then120.i.i:                                   ; preds = %if.end114.i.i, %land.lhs.true102.i.i, %land.lhs.true96.i.i
   %flagch.393.i.i = phi i32 [ %flagch.3.i.i, %if.end114.i.i ], [ 134, %land.lhs.true96.i.i ], [ 134, %land.lhs.true102.i.i ]
-  %call122.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.393.i.i, i64 noundef %st.2.i.i)
+  %call122.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.1.i.i, i32 noundef %flagch.393.i.i, i64 noundef %st.1.i.i)
   br label %if.end123.i.i
 
 if.end123.i.i:                                    ; preds = %if.then120.i.i, %if.end114.i.i
-  %st.3.i.i = phi i64 [ %call122.i.i, %if.then120.i.i ], [ %st.2.i.i, %if.end114.i.i ]
+  %st.3.i.i = phi i64 [ %call122.i.i, %if.then120.i.i ], [ %st.1.i.i, %if.end114.i.i ]
   %and125.i.i = and i64 %st.3.i.i, %shl124.i.i
   %cmp126.not.i.i = icmp ne i64 %and125.i.i, 0
   %cmp129.i.i = icmp eq ptr %p.0.i.i, %stop.0.i
@@ -495,13 +495,13 @@ if.end133.i:                                      ; preds = %if.end130.i, %if.th
   br i1 %cmp134.not.i, label %lor.lhs.false.i, label %for.end167.i
 
 lor.lhs.false.i:                                  ; preds = %if.end133.i, %if.end152.i
-  %endp.0170.i = phi ptr [ %call148.i, %if.end152.i ], [ %call55.lcssa.i, %if.end133.i ]
+  %endp.1170.i = phi ptr [ %call148.i, %if.end152.i ], [ %call55.lcssa.i, %if.end133.i ]
   %54 = load ptr, ptr %coldp136.i.i, align 8
-  %cmp142.not.i = icmp ugt ptr %endp.0170.i, %54
+  %cmp142.not.i = icmp ugt ptr %endp.1170.i, %54
   br i1 %cmp142.not.i, label %if.end145.i, label %if.end159.i
 
 if.end145.i:                                      ; preds = %lor.lhs.false.i
-  %add.ptr147.i = getelementptr inbounds i8, ptr %endp.0170.i, i64 -1
+  %add.ptr147.i = getelementptr inbounds i8, ptr %endp.1170.i, i64 -1
   %call148.i = call fastcc ptr @sslow(ptr noundef nonnull %mv.i, ptr noundef %54, ptr noundef nonnull %add.ptr147.i, i64 noundef %add.i, i64 noundef %6)
   %cmp149.i = icmp eq ptr %call148.i, null
   br i1 %cmp149.i, label %if.end159.i, label %if.end152.i
@@ -512,13 +512,13 @@ if.end152.i:                                      ; preds = %if.end145.i
   br i1 %cmp139.not.i, label %lor.lhs.false.i, label %for.end167.i
 
 if.end159.i:                                      ; preds = %if.end145.i, %lor.lhs.false.i
-  %endp.1.ph.i = phi ptr [ null, %if.end145.i ], [ %endp.0170.i, %lor.lhs.false.i ]
+  %endp.2.ph.i = phi ptr [ null, %if.end145.i ], [ %endp.1170.i, %lor.lhs.false.i ]
   %cmp161.i = icmp eq ptr %54, %stop.0.i
   %add.ptr166.i = getelementptr inbounds i8, ptr %54, i64 1
   br i1 %cmp161.i, label %for.end167.i, label %for.cond40.i
 
 for.end167.i:                                     ; preds = %if.end159.i, %if.end133.i, %if.end152.i
-  %endp.2.i = phi ptr [ %call148.i, %if.end152.i ], [ %call55.lcssa.i, %if.end133.i ], [ %endp.1.ph.i, %if.end159.i ]
+  %endp.0.i = phi ptr [ %call148.i, %if.end152.i ], [ %call55.lcssa.i, %if.end133.i ], [ %endp.2.ph.i, %if.end159.i ]
   br i1 %cmp48.i, label %if.end209.i, label %if.end184.i
 
 if.end184.i:                                      ; preds = %for.end167.i
@@ -528,7 +528,7 @@ if.end184.i:                                      ; preds = %for.end167.i
   %sub.ptr.rhs.cast174.i = ptrtoint ptr %55 to i64
   %sub.ptr.sub175.i = sub i64 %sub.ptr.lhs.cast173.i, %sub.ptr.rhs.cast174.i
   store i64 %sub.ptr.sub175.i, ptr %pmatch, align 8
-  %sub.ptr.lhs.cast179.i = ptrtoint ptr %endp.2.i to i64
+  %sub.ptr.lhs.cast179.i = ptrtoint ptr %endp.0.i to i64
   %sub.ptr.sub181.i = sub i64 %sub.ptr.lhs.cast179.i, %sub.ptr.rhs.cast174.i
   %rm_eo183.i = getelementptr inbounds i8, ptr %pmatch, i64 8
   store i64 %sub.ptr.sub181.i, ptr %rm_eo183.i, align 8
@@ -1073,13 +1073,13 @@ if.end174.i:                                      ; preds = %if.end171.i, %if.th
   br i1 %cmp175.not.i, label %lor.lhs.false.i80, label %for.end208.i
 
 lor.lhs.false.i80:                                ; preds = %if.end174.i, %if.end193.i
-  %endp.0189.i = phi ptr [ %call189.i, %if.end193.i ], [ %call92.lcssa.i, %if.end174.i ]
+  %endp.1189.i = phi ptr [ %call189.i, %if.end193.i ], [ %call92.lcssa.i, %if.end174.i ]
   %128 = load ptr, ptr %coldp146.i.i, align 8
-  %cmp183.not.i = icmp ugt ptr %endp.0189.i, %128
+  %cmp183.not.i = icmp ugt ptr %endp.1189.i, %128
   br i1 %cmp183.not.i, label %if.end186.i, label %if.end200.i
 
 if.end186.i:                                      ; preds = %lor.lhs.false.i80
-  %add.ptr188.i = getelementptr inbounds i8, ptr %endp.0189.i, i64 -1
+  %add.ptr188.i = getelementptr inbounds i8, ptr %endp.1189.i, i64 -1
   %call189.i = call fastcc ptr @lslow(ptr noundef nonnull %mv.i12, ptr noundef %128, ptr noundef nonnull %add.ptr188.i, i64 noundef %add.i14, i64 noundef %62)
   %cmp190.i = icmp eq ptr %call189.i, null
   %.pre200.i = load ptr, ptr %coldp146.i.i, align 8
@@ -1092,24 +1092,24 @@ if.end193.i:                                      ; preds = %if.end186.i
 
 if.end200.i:                                      ; preds = %if.end186.i, %lor.lhs.false.i80
   %129 = phi ptr [ %.pre200.i, %if.end186.i ], [ %128, %lor.lhs.false.i80 ]
-  %endp.1.ph.i81 = phi ptr [ null, %if.end186.i ], [ %endp.0189.i, %lor.lhs.false.i80 ]
+  %endp.2.ph.i81 = phi ptr [ null, %if.end186.i ], [ %endp.1189.i, %lor.lhs.false.i80 ]
   %cmp202.i = icmp eq ptr %129, %stop.0.i28
   %add.ptr207.i = getelementptr inbounds i8, ptr %129, i64 1
   br i1 %cmp202.i, label %for.end208.i, label %for.cond76.i
 
 for.end208.i:                                     ; preds = %if.end200.i, %if.end174.i, %if.end193.i
-  %endp.2.i77 = phi ptr [ %call189.i, %if.end193.i ], [ %call92.lcssa.i, %if.end174.i ], [ %endp.1.ph.i81, %if.end200.i ]
+  %endp.0.i77 = phi ptr [ %call189.i, %if.end193.i ], [ %call92.lcssa.i, %if.end174.i ], [ %endp.2.ph.i81, %if.end200.i ]
   br i1 %cmp85.i, label %if.end250.i, label %if.end225.i
 
 if.end225.i:                                      ; preds = %land.lhs.true102.i, %for.end208.i
-  %endp.2157.i = phi ptr [ %endp.2.i77, %for.end208.i ], [ %call92.lcssa.i, %land.lhs.true102.i ]
+  %endp.0157.i = phi ptr [ %endp.0.i77, %for.end208.i ], [ %call92.lcssa.i, %land.lhs.true102.i ]
   %130 = load ptr, ptr %coldp146.i.i, align 8
   %131 = load ptr, ptr %offp.i41, align 8
   %sub.ptr.lhs.cast214.i = ptrtoint ptr %130 to i64
   %sub.ptr.rhs.cast215.i = ptrtoint ptr %131 to i64
   %sub.ptr.sub216.i = sub i64 %sub.ptr.lhs.cast214.i, %sub.ptr.rhs.cast215.i
   store i64 %sub.ptr.sub216.i, ptr %pmatch, align 8
-  %sub.ptr.lhs.cast220.i = ptrtoint ptr %endp.2157.i to i64
+  %sub.ptr.lhs.cast220.i = ptrtoint ptr %endp.0157.i to i64
   %sub.ptr.sub222.i = sub i64 %sub.ptr.lhs.cast220.i, %sub.ptr.rhs.cast215.i
   %rm_eo224.i = getelementptr inbounds i8, ptr %pmatch, i64 8
   store i64 %sub.ptr.sub222.i, ptr %rm_eo224.i, align 8
@@ -1282,15 +1282,15 @@ if.end39:                                         ; preds = %land.lhs.true22, %i
   br i1 %cmp44, label %for.body, label %if.end48
 
 for.body:                                         ; preds = %if.end39, %for.body
-  %st.1 = phi i64 [ %call47, %for.body ], [ %st.0, %if.end39 ]
+  %st.2 = phi i64 [ %call47, %for.body ], [ %st.0, %if.end39 ]
   %i.2 = phi i32 [ %dec, %for.body ], [ %i.1, %if.end39 ]
-  %call47 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.1, i32 noundef %flagch.1, i64 noundef %st.1)
+  %call47 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.2, i32 noundef %flagch.1, i64 noundef %st.2)
   %dec = add nsw i32 %i.2, -1
   %cmp44.old = icmp ugt i32 %i.2, 1
   br i1 %cmp44.old, label %for.body, label %if.end48
 
 if.end48:                                         ; preds = %for.body, %if.end39
-  %st.2 = phi i64 [ %st.0, %if.end39 ], [ %call47, %for.body ]
+  %st.1 = phi i64 [ %st.0, %if.end39 ], [ %call47, %for.body ]
   %cmp49 = icmp eq i32 %flagch.1, 129
   br i1 %cmp49, label %land.lhs.true63, label %lor.lhs.false51
 
@@ -1386,11 +1386,11 @@ if.end110:                                        ; preds = %lor.lhs.false51, %l
 
 if.then116:                                       ; preds = %land.lhs.true98, %land.lhs.true92, %if.end110
   %flagch.388 = phi i32 [ %flagch.3, %if.end110 ], [ 134, %land.lhs.true92 ], [ 134, %land.lhs.true98 ]
-  %call118 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.2, i32 noundef %flagch.388, i64 noundef %st.2)
+  %call118 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.1, i32 noundef %flagch.388, i64 noundef %st.1)
   br label %if.end119
 
 if.end119:                                        ; preds = %if.end110, %if.then116
-  %st.3 = phi i64 [ %call118, %if.then116 ], [ %st.2, %if.end110 ]
+  %st.3 = phi i64 [ %call118, %if.then116 ], [ %st.1, %if.end110 ]
   %and121 = and i64 %st.3, %shl120
   %cmp122.not = icmp eq i64 %and121, 0
   %spec.select79 = select i1 %cmp122.not, ptr %matchp.0, ptr %p.0
@@ -1450,9 +1450,9 @@ sw.bb:                                            ; preds = %for.body, %for.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %4 = phi i64 [ %5, %while.body ], [ %2, %while.cond.preheader ]
-  %es.0125 = phi i64 [ %add15, %while.body ], [ %ss.0134, %while.cond.preheader ]
+  %es.1125 = phi i64 [ %add15, %while.body ], [ %ss.0134, %while.cond.preheader ]
   %and14 = and i64 %4, 134217727
-  %add15 = add i64 %and14, %es.0125
+  %add15 = add i64 %and14, %es.1125
   %arrayidx8 = getelementptr inbounds i64, ptr %1, i64 %add15
   %5 = load i64, ptr %arrayidx8, align 8
   %and9 = and i64 %5, 4160749568
@@ -1460,8 +1460,8 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp10.not, label %sw.epilog, label %while.body, !llvm.loop !11
 
 sw.epilog:                                        ; preds = %while.body, %while.cond.preheader, %sw.bb, %for.body
-  %es.1 = phi i64 [ %ss.0134, %for.body ], [ %add, %sw.bb ], [ %ss.0134, %while.cond.preheader ], [ %add15, %while.body ]
-  %inc = add nsw i64 %es.1, 1
+  %es.0 = phi i64 [ %ss.0134, %for.body ], [ %add, %sw.bb ], [ %ss.0134, %while.cond.preheader ], [ %add15, %while.body ]
+  %inc = add nsw i64 %es.0, 1
   %and19 = and i64 %2, 4160749568
   %6 = add nsw i64 %and19, -134217728
   %7 = lshr exact i64 %6, 27
@@ -1494,12 +1494,12 @@ for.cond27:                                       ; preds = %sw.epilog, %for.con
 
 for.end:                                          ; preds = %for.cond27
   %add30 = add nsw i64 %ss.0134, 1
-  %call31 = tail call fastcc ptr @sslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.1)
+  %call31 = tail call fastcc ptr @sslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.0)
   %cmp32.not = icmp eq ptr %call31, null
   br i1 %cmp32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %for.end
-  %call34 = tail call fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.1)
+  %call34 = tail call fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.0)
   br label %for.inc
 
 for.cond37:                                       ; preds = %sw.epilog, %for.cond37
@@ -1517,7 +1517,7 @@ for.end44:                                        ; preds = %for.cond37
 for.cond47:                                       ; preds = %for.cond47, %for.end44
   %ssp.0 = phi ptr [ %sp.0133, %for.end44 ], [ %call48, %for.cond47 ]
   %oldssp.0 = phi ptr [ %sp.0133, %for.end44 ], [ %ssp.0, %for.cond47 ]
-  %call48 = tail call fastcc ptr @sslow(ptr noundef nonnull %m, ptr noundef %ssp.0, ptr noundef %call38, i64 noundef %add45, i64 noundef %es.1)
+  %call48 = tail call fastcc ptr @sslow(ptr noundef nonnull %m, ptr noundef %ssp.0, ptr noundef %call38, i64 noundef %add45, i64 noundef %es.0)
   %cmp49 = icmp eq ptr %call48, null
   %cmp50 = icmp eq ptr %call48, %ssp.0
   %or.cond = or i1 %cmp49, %cmp50
@@ -1526,7 +1526,7 @@ for.cond47:                                       ; preds = %for.cond47, %for.en
 for.end53:                                        ; preds = %for.cond47
   %spec.select = select i1 %cmp49, ptr %oldssp.0, ptr %ssp.0
   %spec.select120 = select i1 %cmp49, ptr %ssp.0, ptr %call48
-  %call58 = tail call fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %spec.select, ptr noundef %spec.select120, i64 noundef %add45, i64 noundef %es.1)
+  %call58 = tail call fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %spec.select, ptr noundef %spec.select120, i64 noundef %add45, i64 noundef %es.0)
   br label %for.inc
 
 for.cond60:                                       ; preds = %sw.epilog, %for.cond60
@@ -2675,9 +2675,9 @@ sw.bb:                                            ; preds = %for.body, %for.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %4 = phi i64 [ %5, %while.body ], [ %2, %while.cond.preheader ]
-  %es.0125 = phi i64 [ %add15, %while.body ], [ %ss.0134, %while.cond.preheader ]
+  %es.1125 = phi i64 [ %add15, %while.body ], [ %ss.0134, %while.cond.preheader ]
   %and14 = and i64 %4, 134217727
-  %add15 = add i64 %and14, %es.0125
+  %add15 = add i64 %and14, %es.1125
   %arrayidx8 = getelementptr inbounds i64, ptr %1, i64 %add15
   %5 = load i64, ptr %arrayidx8, align 8
   %and9 = and i64 %5, 4160749568
@@ -2685,8 +2685,8 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp10.not, label %sw.epilog, label %while.body, !llvm.loop !18
 
 sw.epilog:                                        ; preds = %while.body, %while.cond.preheader, %sw.bb, %for.body
-  %es.1 = phi i64 [ %ss.0134, %for.body ], [ %add, %sw.bb ], [ %ss.0134, %while.cond.preheader ], [ %add15, %while.body ]
-  %inc = add nsw i64 %es.1, 1
+  %es.0 = phi i64 [ %ss.0134, %for.body ], [ %add, %sw.bb ], [ %ss.0134, %while.cond.preheader ], [ %add15, %while.body ]
+  %inc = add nsw i64 %es.0, 1
   %and19 = and i64 %2, 4160749568
   %6 = add nsw i64 %and19, -134217728
   %7 = lshr exact i64 %6, 27
@@ -2719,12 +2719,12 @@ for.cond27:                                       ; preds = %sw.epilog, %for.con
 
 for.end:                                          ; preds = %for.cond27
   %add30 = add nsw i64 %ss.0134, 1
-  %call31 = tail call fastcc ptr @lslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.1)
+  %call31 = tail call fastcc ptr @lslow(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.0)
   %cmp32.not = icmp eq ptr %call31, null
   br i1 %cmp32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %for.end
-  %call34 = tail call fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.1)
+  %call34 = tail call fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %sp.0133, ptr noundef %call, i64 noundef %add30, i64 noundef %es.0)
   br label %for.inc
 
 for.cond37:                                       ; preds = %sw.epilog, %for.cond37
@@ -2742,7 +2742,7 @@ for.end44:                                        ; preds = %for.cond37
 for.cond47:                                       ; preds = %for.cond47, %for.end44
   %ssp.0 = phi ptr [ %sp.0133, %for.end44 ], [ %call48, %for.cond47 ]
   %oldssp.0 = phi ptr [ %sp.0133, %for.end44 ], [ %ssp.0, %for.cond47 ]
-  %call48 = tail call fastcc ptr @lslow(ptr noundef nonnull %m, ptr noundef %ssp.0, ptr noundef %call38, i64 noundef %add45, i64 noundef %es.1)
+  %call48 = tail call fastcc ptr @lslow(ptr noundef nonnull %m, ptr noundef %ssp.0, ptr noundef %call38, i64 noundef %add45, i64 noundef %es.0)
   %cmp49 = icmp eq ptr %call48, null
   %cmp50 = icmp eq ptr %call48, %ssp.0
   %or.cond = or i1 %cmp49, %cmp50
@@ -2751,7 +2751,7 @@ for.cond47:                                       ; preds = %for.cond47, %for.en
 for.end53:                                        ; preds = %for.cond47
   %spec.select = select i1 %cmp49, ptr %oldssp.0, ptr %ssp.0
   %spec.select120 = select i1 %cmp49, ptr %ssp.0, ptr %call48
-  %call58 = tail call fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %spec.select, ptr noundef %spec.select120, i64 noundef %add45, i64 noundef %es.1)
+  %call58 = tail call fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %spec.select, ptr noundef %spec.select120, i64 noundef %add45, i64 noundef %es.0)
   br label %for.inc
 
 for.cond60:                                       ; preds = %sw.epilog, %for.cond60

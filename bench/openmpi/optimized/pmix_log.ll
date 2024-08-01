@@ -265,7 +265,7 @@ define noundef i32 @PMIx_Log_nb(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 
 .lr.ph:                                           ; preds = %24, %39
   %.0306489 = phi i64 [ %40, %39 ], [ 0, %24 ]
-  %.0307488 = phi ptr [ %.1, %39 ], [ null, %24 ]
+  %.1488 = phi ptr [ %.2, %39 ], [ null, %24 ]
   %25 = getelementptr inbounds %struct.pmix_info, ptr %2, i64 %.0306489
   %26 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(16) @.str.4, i64 noundef 511) #11
   %27 = icmp eq i32 %26, 0
@@ -292,13 +292,13 @@ define noundef i32 @PMIx_Log_nb(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   br label %39
 
 39:                                               ; preds = %28, %31, %36, %33
-  %.1 = phi ptr [ %.0307488, %31 ], [ %.0307488, %28 ], [ %38, %36 ], [ %.0307488, %33 ]
+  %.2 = phi ptr [ %.1488, %31 ], [ %.1488, %28 ], [ %38, %36 ], [ %.1488, %33 ]
   %40 = add nuw i64 %.0306489, 1
   %exitcond.not = icmp eq i64 %40, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %39, %24
-  %.2 = phi ptr [ null, %24 ], [ %.1, %39 ]
+  %.0307 = phi ptr [ null, %24 ], [ %.2, %39 ]
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 136
   %43 = load i32, ptr %42, align 8
@@ -1596,7 +1596,7 @@ pmix_obj_new_tma.exit461:                         ; preds = %.lr.ph.i.i458, %653
   %670 = getelementptr inbounds i8, ptr %649, i64 656
   store ptr %5, ptr %670, align 8
   %671 = getelementptr inbounds i8, ptr %649, i64 520
-  store ptr %.2, ptr %671, align 8
+  store ptr %.0307, ptr %671, align 8
   %672 = getelementptr inbounds i8, ptr %649, i64 120
   %673 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
   %674 = tail call i32 @pmix_event_assign(ptr noundef nonnull %672, ptr noundef %673, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_log_local_op, ptr noundef %649) #10

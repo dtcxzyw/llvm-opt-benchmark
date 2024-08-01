@@ -83,12 +83,12 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   br label %.preheader.i31.i.preheader
 
 .preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i19, %.preheader.i19, %.preheader.i19, %28
-  %.0.i32.i.ph = phi ptr [ %29, %28 ], [ %.2.i, %.preheader.i19 ], [ %.2.i, %.preheader.i19 ], [ %.2.i, %.preheader.i19 ], [ %20, %.preheader37.i ]
+  %.0.i32.i.ph = phi ptr [ %29, %28 ], [ %.3.i, %.preheader.i19 ], [ %.3.i, %.preheader.i19 ], [ %.3.i, %.preheader.i19 ], [ %20, %.preheader37.i ]
   br label %.preheader.i31.i
 
 .preheader.i19:                                   ; preds = %.preheader.i.i, %31
   %30 = phi i8 [ %.pr.i, %31 ], [ %12, %.preheader.i.i ]
-  %.2.i = phi ptr [ %32, %31 ], [ %.0.i.i, %.preheader.i.i ]
+  %.3.i = phi ptr [ %32, %31 ], [ %.0.i.i, %.preheader.i.i ]
   switch i8 %30, label %31 [
     i8 36, label %.preheader.i31.i.preheader
     i8 35, label %.preheader.i31.i.preheader
@@ -96,7 +96,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 31:                                               ; preds = %.preheader.i19
-  %32 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %32 = getelementptr inbounds i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %32, align 1
   br label %.preheader.i19, !llvm.loop !7
 
@@ -172,12 +172,12 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   br label %.preheader.i31.i26.preheader
 
 .preheader.i31.i26.preheader:                     ; preds = %.preheader37.i29, %.preheader.i33, %.preheader.i33, %.preheader.i33, %56
-  %.0.i32.i27.ph = phi ptr [ %57, %56 ], [ %.2.i34, %.preheader.i33 ], [ %.2.i34, %.preheader.i33 ], [ %.2.i34, %.preheader.i33 ], [ %48, %.preheader37.i29 ]
+  %.0.i32.i27.ph = phi ptr [ %57, %56 ], [ %.3.i34, %.preheader.i33 ], [ %.3.i34, %.preheader.i33 ], [ %.3.i34, %.preheader.i33 ], [ %48, %.preheader37.i29 ]
   br label %.preheader.i31.i26
 
 .preheader.i33:                                   ; preds = %.preheader.i.i20, %59
   %58 = phi i8 [ %.pr.i35, %59 ], [ %40, %.preheader.i.i20 ]
-  %.2.i34 = phi ptr [ %60, %59 ], [ %.0.i.i21, %.preheader.i.i20 ]
+  %.3.i34 = phi ptr [ %60, %59 ], [ %.0.i.i21, %.preheader.i.i20 ]
   switch i8 %58, label %59 [
     i8 36, label %.preheader.i31.i26.preheader
     i8 35, label %.preheader.i31.i26.preheader
@@ -185,7 +185,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   ]
 
 59:                                               ; preds = %.preheader.i33
-  %60 = getelementptr inbounds i8, ptr %.2.i34, i64 1
+  %60 = getelementptr inbounds i8, ptr %.3.i34, i64 1
   %.pr.i35 = load i8, ptr %60, align 1
   br label %.preheader.i33, !llvm.loop !7
 
@@ -344,12 +344,12 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   br label %.preheader.i31.i51.preheader
 
 .preheader.i31.i51.preheader:                     ; preds = %.preheader37.i54, %.preheader.i58, %.preheader.i58, %.preheader.i58, %105
-  %.0.i32.i52.ph = phi ptr [ %106, %105 ], [ %.2.i59, %.preheader.i58 ], [ %.2.i59, %.preheader.i58 ], [ %.2.i59, %.preheader.i58 ], [ %97, %.preheader37.i54 ]
+  %.0.i32.i52.ph = phi ptr [ %106, %105 ], [ %.3.i59, %.preheader.i58 ], [ %.3.i59, %.preheader.i58 ], [ %.3.i59, %.preheader.i58 ], [ %97, %.preheader37.i54 ]
   br label %.preheader.i31.i51
 
 .preheader.i58:                                   ; preds = %.preheader.i.i45, %108
   %107 = phi i8 [ %.pr.i60, %108 ], [ %89, %.preheader.i.i45 ]
-  %.2.i59 = phi ptr [ %109, %108 ], [ %.0.i.i46, %.preheader.i.i45 ]
+  %.3.i59 = phi ptr [ %109, %108 ], [ %.0.i.i46, %.preheader.i.i45 ]
   switch i8 %107, label %108 [
     i8 36, label %.preheader.i31.i51.preheader
     i8 35, label %.preheader.i31.i51.preheader
@@ -357,7 +357,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   ]
 
 108:                                              ; preds = %.preheader.i58
-  %109 = getelementptr inbounds i8, ptr %.2.i59, i64 1
+  %109 = getelementptr inbounds i8, ptr %.3.i59, i64 1
   %.pr.i60 = load i8, ptr %109, align 1
   br label %.preheader.i58, !llvm.loop !7
 
@@ -408,7 +408,7 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
   br i1 %or.cond6476, label %.critedge, label %.lr.ph
 
 .preheader72:                                     ; preds = %5, %.thread88
-  %.pn = phi ptr [ %.290, %.thread88 ], [ %0, %5 ]
+  %.pn = phi ptr [ %.390, %.thread88 ], [ %0, %5 ]
   %.0 = phi ptr [ %25, %.thread88 ], [ %1, %5 ]
   %.042 = getelementptr inbounds i8, ptr %.pn, i64 1
   %12 = load i8, ptr %.042, align 1
@@ -437,7 +437,7 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
   br i1 %24, label %.thread, label %.thread88
 
 .thread88:                                        ; preds = %14, %23
-  %.290 = phi ptr [ %.042, %23 ], [ %spec.select, %14 ]
+  %.390 = phi ptr [ %.042, %23 ], [ %spec.select, %14 ]
   %25 = getelementptr inbounds i8, ptr %.0, i64 1
   br label %.preheader72
 
@@ -590,12 +590,12 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   br label %.preheader.i31.i.preheader
 
 .preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i20, %.preheader.i20, %.preheader.i20, %31
-  %.0.i32.i.ph = phi ptr [ %32, %31 ], [ %.2.i, %.preheader.i20 ], [ %.2.i, %.preheader.i20 ], [ %.2.i, %.preheader.i20 ], [ %23, %.preheader37.i ]
+  %.0.i32.i.ph = phi ptr [ %32, %31 ], [ %.3.i, %.preheader.i20 ], [ %.3.i, %.preheader.i20 ], [ %.3.i, %.preheader.i20 ], [ %23, %.preheader37.i ]
   br label %.preheader.i31.i
 
 .preheader.i20:                                   ; preds = %.preheader.i.i, %34
   %33 = phi i8 [ %.pr.i, %34 ], [ %15, %.preheader.i.i ]
-  %.2.i = phi ptr [ %35, %34 ], [ %.0.i.i, %.preheader.i.i ]
+  %.3.i = phi ptr [ %35, %34 ], [ %.0.i.i, %.preheader.i.i ]
   switch i8 %33, label %34 [
     i8 36, label %.preheader.i31.i.preheader
     i8 35, label %.preheader.i31.i.preheader
@@ -603,7 +603,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 34:                                               ; preds = %.preheader.i20
-  %35 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %35 = getelementptr inbounds i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %35, align 1
   br label %.preheader.i20, !llvm.loop !7
 
@@ -679,12 +679,12 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   br label %.preheader.i31.i27.preheader
 
 .preheader.i31.i27.preheader:                     ; preds = %.preheader37.i30, %.preheader.i34, %.preheader.i34, %.preheader.i34, %59
-  %.0.i32.i28.ph = phi ptr [ %60, %59 ], [ %.2.i35, %.preheader.i34 ], [ %.2.i35, %.preheader.i34 ], [ %.2.i35, %.preheader.i34 ], [ %51, %.preheader37.i30 ]
+  %.0.i32.i28.ph = phi ptr [ %60, %59 ], [ %.3.i35, %.preheader.i34 ], [ %.3.i35, %.preheader.i34 ], [ %.3.i35, %.preheader.i34 ], [ %51, %.preheader37.i30 ]
   br label %.preheader.i31.i27
 
 .preheader.i34:                                   ; preds = %.preheader.i.i21, %62
   %61 = phi i8 [ %.pr.i36, %62 ], [ %43, %.preheader.i.i21 ]
-  %.2.i35 = phi ptr [ %63, %62 ], [ %.0.i.i22, %.preheader.i.i21 ]
+  %.3.i35 = phi ptr [ %63, %62 ], [ %.0.i.i22, %.preheader.i.i21 ]
   switch i8 %61, label %62 [
     i8 36, label %.preheader.i31.i27.preheader
     i8 35, label %.preheader.i31.i27.preheader
@@ -692,7 +692,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   ]
 
 62:                                               ; preds = %.preheader.i34
-  %63 = getelementptr inbounds i8, ptr %.2.i35, i64 1
+  %63 = getelementptr inbounds i8, ptr %.3.i35, i64 1
   %.pr.i36 = load i8, ptr %63, align 1
   br label %.preheader.i34, !llvm.loop !7
 
@@ -830,12 +830,12 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   br label %.preheader.i31.i48.preheader
 
 .preheader.i31.i48.preheader:                     ; preds = %.preheader37.i51, %.preheader.i55, %.preheader.i55, %.preheader.i55, %110
-  %.0.i32.i49.ph = phi ptr [ %111, %110 ], [ %.2.i56, %.preheader.i55 ], [ %.2.i56, %.preheader.i55 ], [ %.2.i56, %.preheader.i55 ], [ %102, %.preheader37.i51 ]
+  %.0.i32.i49.ph = phi ptr [ %111, %110 ], [ %.3.i56, %.preheader.i55 ], [ %.3.i56, %.preheader.i55 ], [ %.3.i56, %.preheader.i55 ], [ %102, %.preheader37.i51 ]
   br label %.preheader.i31.i48
 
 .preheader.i55:                                   ; preds = %.preheader.i.i42, %113
   %112 = phi i8 [ %.pr.i57, %113 ], [ %94, %.preheader.i.i42 ]
-  %.2.i56 = phi ptr [ %114, %113 ], [ %.0.i.i43, %.preheader.i.i42 ]
+  %.3.i56 = phi ptr [ %114, %113 ], [ %.0.i.i43, %.preheader.i.i42 ]
   switch i8 %112, label %113 [
     i8 36, label %.preheader.i31.i48.preheader
     i8 35, label %.preheader.i31.i48.preheader
@@ -843,7 +843,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   ]
 
 113:                                              ; preds = %.preheader.i55
-  %114 = getelementptr inbounds i8, ptr %.2.i56, i64 1
+  %114 = getelementptr inbounds i8, ptr %.3.i56, i64 1
   %.pr.i57 = load i8, ptr %114, align 1
   br label %.preheader.i55, !llvm.loop !7
 
@@ -1007,12 +1007,12 @@ quoted_printf.exit:                               ; preds = %15, %20, %11, %13, 
   br label %49
 
 49:                                               ; preds = %47, %45
-  %.033 = phi i32 [ %46, %45 ], [ %48, %47 ]
-  %50 = icmp eq i32 %.033, %5
+  %.1 = phi i32 [ %46, %45 ], [ %48, %47 ]
+  %50 = icmp eq i32 %.1, %5
   br i1 %50, label %51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49
-  %.pre = sext i32 %.033 to i64
+  %.pre = sext i32 %.1 to i64
   br label %52
 
 51:                                               ; preds = %49
@@ -1021,12 +1021,12 @@ quoted_printf.exit:                               ; preds = %15, %20, %11, %13, 
 
 52:                                               ; preds = %._crit_edge, %36, %40
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %38, %36 ], [ %34, %40 ]
-  %.1 = phi i32 [ %.033, %._crit_edge ], [ %37, %36 ], [ %.034.i, %40 ]
+  %.033 = phi i32 [ %.1, %._crit_edge ], [ %37, %36 ], [ %.034.i, %40 ]
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %.pre-phi
   store ptr %54, ptr %0, align 8
   %55 = load i32, ptr %1, align 4
-  %56 = sub nsw i32 %55, %.1
+  %56 = sub nsw i32 %55, %.033
   store i32 %56, ptr %1, align 4
   br label %57
 
@@ -1169,7 +1169,7 @@ token_copy.exit:                                  ; preds = %27, %.critedge.i
 .preheader.i.i19:                                 ; preds = %.loopexit, %40
   %.0.i.i20 = phi ptr [ %41, %40 ], [ %.0.i, %.loopexit ]
   %39 = load i8, ptr %.0.i.i20, align 1
-  switch i8 %39, label %.preheader.i25 [
+  switch i8 %39, label %.preheader.i26 [
     i8 36, label %40
     i8 0, label %next_token.exit
     i8 34, label %42
@@ -1188,8 +1188,8 @@ token_copy.exit:                                  ; preds = %27, %.critedge.i
 
 .preheader37.i:                                   ; preds = %42, %52
   %46 = phi i8 [ %53, %52 ], [ %44, %42 ]
-  %.0.i23 = phi ptr [ %.1.i, %52 ], [ %43, %42 ]
-  %47 = getelementptr inbounds i8, ptr %.0.i23, i64 1
+  %.0.i24 = phi ptr [ %.1.i, %52 ], [ %43, %42 ]
+  %47 = getelementptr inbounds i8, ptr %.0.i24, i64 1
   switch i8 %46, label %52 [
     i8 34, label %.preheader.i31.i.preheader
     i8 92, label %48
@@ -1198,12 +1198,12 @@ token_copy.exit:                                  ; preds = %27, %.critedge.i
 48:                                               ; preds = %.preheader37.i
   %49 = load i8, ptr %47, align 1
   %50 = icmp eq i8 %49, 34
-  %51 = getelementptr inbounds i8, ptr %.0.i23, i64 2
-  %spec.select.i24 = select i1 %50, ptr %51, ptr %47
+  %51 = getelementptr inbounds i8, ptr %.0.i24, i64 2
+  %spec.select.i25 = select i1 %50, ptr %51, ptr %47
   br label %52
 
 52:                                               ; preds = %.preheader37.i, %48
-  %.1.i = phi ptr [ %spec.select.i24, %48 ], [ %47, %.preheader37.i ]
+  %.1.i = phi ptr [ %spec.select.i25, %48 ], [ %47, %.preheader37.i ]
   %53 = load i8, ptr %.1.i, align 1
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
@@ -1212,23 +1212,23 @@ token_copy.exit:                                  ; preds = %27, %.critedge.i
   %56 = getelementptr inbounds i8, ptr %.0.i.i20, i64 1
   br label %.preheader.i31.i.preheader
 
-.preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i25, %.preheader.i25, %.preheader.i25, %55
-  %.0.i32.i.ph = phi ptr [ %56, %55 ], [ %.2.i26, %.preheader.i25 ], [ %.2.i26, %.preheader.i25 ], [ %.2.i26, %.preheader.i25 ], [ %47, %.preheader37.i ]
+.preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i26, %.preheader.i26, %.preheader.i26, %55
+  %.0.i32.i.ph = phi ptr [ %56, %55 ], [ %.3.i, %.preheader.i26 ], [ %.3.i, %.preheader.i26 ], [ %.3.i, %.preheader.i26 ], [ %47, %.preheader37.i ]
   br label %.preheader.i31.i
 
-.preheader.i25:                                   ; preds = %.preheader.i.i19, %58
+.preheader.i26:                                   ; preds = %.preheader.i.i19, %58
   %57 = phi i8 [ %.pr.i, %58 ], [ %39, %.preheader.i.i19 ]
-  %.2.i26 = phi ptr [ %59, %58 ], [ %.0.i.i20, %.preheader.i.i19 ]
+  %.3.i = phi ptr [ %59, %58 ], [ %.0.i.i20, %.preheader.i.i19 ]
   switch i8 %57, label %58 [
     i8 36, label %.preheader.i31.i.preheader
     i8 35, label %.preheader.i31.i.preheader
     i8 0, label %.preheader.i31.i.preheader
   ]
 
-58:                                               ; preds = %.preheader.i25
-  %59 = getelementptr inbounds i8, ptr %.2.i26, i64 1
+58:                                               ; preds = %.preheader.i26
+  %59 = getelementptr inbounds i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %59, align 1
-  br label %.preheader.i25, !llvm.loop !7
+  br label %.preheader.i26, !llvm.loop !7
 
 .preheader.i31.i:                                 ; preds = %.preheader.i31.i.preheader, %61
   %.0.i32.i = phi ptr [ %62, %61 ], [ %.0.i32.i.ph, %.preheader.i31.i.preheader ]

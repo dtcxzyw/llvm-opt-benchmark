@@ -4886,8 +4886,8 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorIN9automa
   unreachable
 
 return:                                           ; preds = %invoke.cont, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i, %cleanup, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit
-  %retval.1 = phi i1 [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit ], [ %cmp7.not, %cleanup ], [ %cmp.not.lcssa17, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i ], [ true, %invoke.cont ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit ], [ %cmp7.not, %cleanup ], [ %cmp.not.lcssa17, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i ], [ true, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

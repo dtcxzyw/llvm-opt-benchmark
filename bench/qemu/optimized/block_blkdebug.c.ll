@@ -439,17 +439,17 @@ if.end128:                                        ; preds = %lor.lhs.false113, %
   br label %out_rdlock
 
 out_rdlock:                                       ; preds = %if.end128, %if.then126, %if.then103, %if.then88, %if.then65, %if.then50, %if.then31
-  %ret.0 = phi i32 [ -22, %if.then31 ], [ -22, %if.then50 ], [ -22, %if.then65 ], [ -22, %if.then88 ], [ -22, %if.then103 ], [ -22, %if.then126 ], [ 0, %if.end128 ]
+  %ret.1 = phi i32 [ -22, %if.then31 ], [ -22, %if.then50 ], [ -22, %if.then65 ], [ -22, %if.then88 ], [ -22, %if.then103 ], [ -22, %if.then126 ], [ 0, %if.end128 ]
   call void @bdrv_graph_rdunlock_main_loop() #13
   br label %out
 
 out:                                              ; preds = %read_config.exit, %out_rdlock
-  %ret.1 = phi i32 [ %retval.0.i, %read_config.exit ], [ %ret.0, %out_rdlock ]
-  %cmp129 = icmp slt i32 %ret.1, 0
+  %ret.0 = phi i32 [ %retval.0.i, %read_config.exit ], [ %ret.1, %out_rdlock ]
+  %cmp129 = icmp slt i32 %ret.0, 0
   br i1 %cmp129, label %if.then131, label %if.end134
 
 if.then131:                                       ; preds = %if.end7, %entry, %if.end10, %blkdebug_parse_perms.exit, %out
-  %ret.192 = phi i32 [ %ret.1, %out ], [ -22, %entry ], [ %call12, %if.end10 ], [ %call1.i, %blkdebug_parse_perms.exit ], [ %call.i83, %if.end7 ]
+  %ret.092 = phi i32 [ %ret.0, %out ], [ -22, %entry ], [ %call12, %if.end10 ], [ %call1.i, %blkdebug_parse_perms.exit ], [ %call.i83, %if.end7 ]
   call void @qemu_mutex_destroy(ptr noundef nonnull %lock) #13
   %config_file133 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load ptr, ptr %config_file133, align 8
@@ -457,9 +457,9 @@ if.then131:                                       ; preds = %if.end7, %entry, %i
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then131, %out
-  %ret.191 = phi i32 [ %ret.192, %if.then131 ], [ %ret.1, %out ]
+  %ret.091 = phi i32 [ %ret.092, %if.then131 ], [ %ret.0, %out ]
   call void @qemu_opts_del(ptr noundef %call) #13
-  ret i32 %ret.191
+  ret i32 %ret.091
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

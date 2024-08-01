@@ -3259,13 +3259,13 @@ methodSignature.exit:                             ; preds = %20, %23
   br label %35
 
 35:                                               ; preds = %27, %30, %34
-  %.0 = phi i32 [ 0, %34 ], [ 189, %30 ], [ 189, %27 ]
+  %.1 = phi i32 [ 0, %34 ], [ 189, %30 ], [ 189, %27 ]
   call void @jvmtiDeallocate(ptr noundef nonnull %21)
   br label %36
 
 36:                                               ; preds = %25, %35, %methodSignature.exit
-  %.1 = phi i32 [ %.0, %35 ], [ %17, %methodSignature.exit ], [ 189, %25 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %35 ], [ %17, %methodSignature.exit ], [ 189, %25 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -6379,15 +6379,15 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly %1, 
   br label %70
 
 70:                                               ; preds = %65, %44
-  %.3 = phi i32 [ %48, %44 ], [ %69, %65 ]
-  %.3.fr = freeze i32 %.3
-  %71 = icmp eq i32 %.3.fr, 0
+  %.4 = phi i32 [ %48, %44 ], [ %69, %65 ]
+  %.4.fr = freeze i32 %.4
+  %71 = icmp eq i32 %.4.fr, 0
   %72 = load i32, ptr %13, align 8
-  %spec.select = select i1 %71, i32 %72, i32 %.3.fr
+  %spec.select = select i1 %71, i32 %72, i32 %.4.fr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %54, %70
-  %.4 = phi i32 [ %spec.select, %70 ], [ 0, %54 ], [ %28, %23 ]
+  %.3 = phi i32 [ %spec.select, %70 ], [ 0, %54 ], [ %28, %23 ]
   %73 = load ptr, ptr @gdata, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 528
   %75 = load i32, ptr %74, align 8
@@ -6408,7 +6408,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly %1, 
   br label %83
 
 83:                                               ; preds = %.preheader.preheader, %3, %78
-  %.0 = phi i32 [ %.4, %78 ], [ 202, %3 ], [ 181, %.preheader.preheader ]
+  %.0 = phi i32 [ %.3, %78 ], [ 202, %3 ], [ 181, %.preheader.preheader ]
   ret i32 %.0
 }
 

@@ -1692,10 +1692,10 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   %.sroa.27.1.ph = phi i1 [ true, %26 ], [ false, %71 ], [ true, %.loopexit.i.i ], [ true, %55 ]
   %.sroa.842.2.ph = phi ptr [ %18, %26 ], [ %.sink14.i.i.i, %71 ], [ %57, %55 ], [ %18, %.loopexit.i.i ]
   %.pn = phi i64 [ %2, %26 ], [ %.sroa.14.1, %71 ], [ %2, %.loopexit.i.i ], [ %2, %55 ]
-  %.sroa.0.1.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.074
-  %.sroa.4.1.i.ph = sub i64 %.pn, %.sroa.17.074
+  %.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.074
+  %.sroa.4.0.i.ph = sub i64 %.pn, %.sroa.17.074
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  invoke void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h12c464303d9b27cfE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.ph, i64 noundef %.sroa.4.1.i.ph)
+  invoke void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h12c464303d9b27cfE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.ph, i64 noundef %.sroa.4.0.i.ph)
           to label %113 unwind label %142
 
 .loopexit:                                        ; preds = %._crit_edge.i
@@ -1736,8 +1736,8 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !284
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !284
   store i64 0, ptr %7, align 8, !noalias !284
-  store ptr %.sroa.0.1.i.ph, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !284
-  store i64 %.sroa.4.1.i.ph, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !284
+  store ptr %.sroa.0.0.i.ph, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !noalias !284
+  store i64 %.sroa.4.0.i.ph, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !284
   store i8 1, ptr %22, align 8, !noalias !284
   store ptr %7, ptr %8, align 8, !noalias !284
   store ptr @"_ZN57_$LT$os_display..Quoted$u20$as$u20$core..fmt..Display$GT$3fmt17hc7575a8a53a92903E", ptr %23, align 8, !noalias !284

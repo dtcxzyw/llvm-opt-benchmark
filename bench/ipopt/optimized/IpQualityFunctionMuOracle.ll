@@ -13519,7 +13519,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit511:      ; preds = %5520, %5515, %_ZN5I
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit507
 
 _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1787: ; preds = %5510, %5505, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1785, %886
-  %.1 = phi i1 [ false, %886 ], [ %1495, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1785 ], [ %1495, %5505 ], [ %1495, %5510 ]
+  %.0 = phi i1 [ false, %886 ], [ %1495, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1785 ], [ %1495, %5505 ], [ %1495, %5510 ]
   %5534 = load ptr, ptr %30, align 8
   %.not.i.i1792 = icmp eq ptr %5534, null
   br i1 %.not.i.i1792, label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1793, label %5535
@@ -13560,7 +13560,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1793: ; preds = %_ZN5Ipopt8Smar
   br label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1795
 
 _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1795: ; preds = %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit1793, %5545, %5550
-  ret i1 %.1
+  ret i1 %.0
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit507: ; preds = %5530, %5525, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit511, %1509, %1504, %1502, %1203
   %.pn228.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1204, %1203 ], [ %1503, %1502 ], [ %1503, %1504 ], [ %1503, %1509 ], [ %.pn228.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit511 ], [ %.pn228.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5525 ], [ %.pn228.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5530 ]
@@ -14389,7 +14389,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit125:                 ; preds = %._crit_edge.i122, %
   %506 = icmp sgt i32 %505, 0
   %507 = uitofp nneg i32 %505 to double
   %508 = fdiv double %445, %507
-  %.179 = select i1 %506, double %508, double %445
+  %.2 = select i1 %506, double %508, double %445
   %509 = getelementptr inbounds i8, ptr %0, i64 264
   %510 = load i32, ptr %509, align 8
   %511 = insertelement <2 x i32> %503, i32 %510, i64 1
@@ -14673,7 +14673,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit165:                 ; preds = %._crit_edge.i162, %
   %668 = uitofp nneg i32 %666 to double
   %sqrt192 = tail call double @llvm.sqrt.f64(double %668)
   %669 = fdiv double %605, %sqrt192
-  %.2 = select i1 %667, double %669, double %605
+  %.3 = select i1 %667, double %669, double %605
   %670 = getelementptr inbounds i8, ptr %0, i64 264
   %671 = load i32, ptr %670, align 8
   %672 = sitofp i32 %671 to double
@@ -14686,7 +14686,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit165:                 ; preds = %._crit_edge.i162, %
   br label %679
 
 679:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit91, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165, %_ZNK5Ipopt6Vector4AmaxEv.exit145, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125, %_ZNK5Ipopt6Vector4AsumEv.exit106
-  %.3 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %.2, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ], [ %530, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %.179, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %.078, %_ZNK5Ipopt6Vector4AsumEv.exit106 ]
+  %.179 = phi double [ -1.000000e+00, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %.3, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ], [ %530, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %.2, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %.078, %_ZNK5Ipopt6Vector4AsumEv.exit106 ]
   %680 = phi <2 x double> [ <double -1.000000e+00, double -1.000000e+00>, %_ZN5Ipopt9TimedTask5StartEv.exit91 ], [ %678, %_ZNK5Ipopt6Vector4Nrm2Ev.exit165 ], [ %590, %_ZNK5Ipopt6Vector4AmaxEv.exit145 ], [ %515, %_ZNK5Ipopt6Vector4Nrm2Ev.exit125 ], [ %430, %_ZNK5Ipopt6Vector4AsumEv.exit106 ]
   %681 = load ptr, ptr %26, align 8
   %682 = getelementptr inbounds i8, ptr %681, i64 1736
@@ -14727,7 +14727,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit165:                 ; preds = %._crit_edge.i162, %
 
 _ZN5Ipopt9TimedTask3EndEv.exit166:                ; preds = %679, %685
   %709 = extractelement <2 x double> %680, i64 0
-  %710 = fadd double %709, %.3
+  %710 = fadd double %709, %.179
   %711 = extractelement <2 x double> %680, i64 1
   %712 = fadd double %710, %711
   %713 = getelementptr inbounds i8, ptr %0, i64 84
@@ -14836,8 +14836,8 @@ _ZN5Ipopt9TimedTask3EndEv.exit168.thread:         ; preds = %_ZN5Ipopt9TimedTask
   br i1 %cond, label %776, label %782
 
 776:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit168.thread
-  %777 = fcmp olt double %709, %.3
-  %.sroa.speculated.i169 = select i1 %777, double %.3, double %709
+  %777 = fcmp olt double %709, %.179
+  %.sroa.speculated.i169 = select i1 %777, double %.179, double %709
   %778 = fsub double %.sroa.speculated.i169, %711
   %779 = fcmp ogt double %778, 0.000000e+00
   %.sroa.speculated.i170 = select i1 %779, double %778, double 0.000000e+00
@@ -14852,7 +14852,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit168.thread:         ; preds = %_ZN5Ipopt9TimedTask
   %785 = load ptr, ptr %784, align 8
   %786 = getelementptr inbounds i8, ptr %785, i64 16
   %787 = load ptr, ptr %786, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %787(ptr noundef nonnull align 8 dereferenceable(40) %784, i32 noundef 7, i32 noundef 4, ptr noundef nonnull @.str.46, double noundef %1, double noundef %709, double noundef %.3, double noundef %711, double noundef %.1, double noundef %130, double noundef %136, double noundef %.081172)
+  tail call void (ptr, i32, i32, ptr, ...) %787(ptr noundef nonnull align 8 dereferenceable(40) %784, i32 noundef 7, i32 noundef 4, ptr noundef nonnull @.str.46, double noundef %1, double noundef %709, double noundef %.179, double noundef %711, double noundef %.1, double noundef %130, double noundef %136, double noundef %.081172)
   ret double %.1
 }
 
@@ -15046,8 +15046,8 @@ _ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %105
 
 105:                                              ; preds = %85, %83, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %95, %93, %102, %104, %96
-  %.1236 = phi double [ %.0239263, %95 ], [ %.0231..0229, %93 ], [ %.0237261, %104 ], [ %.0231..0229, %102 ], [ %.0231..0229, %96 ], [ %.0237266, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0231268, %83 ], [ %.0229..0239, %85 ]
-  ret double %.1236
+  %.0235 = phi double [ %.0239263, %95 ], [ %.0231..0229, %93 ], [ %.0237261, %104 ], [ %.0231..0229, %102 ], [ %.0231..0229, %96 ], [ %.0237266, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0231268, %83 ], [ %.0229..0239, %85 ]
+  ret double %.0235
 }
 
 declare noundef double @_ZN5Ipopt25IpoptCalculatedQuantities32uncached_slack_frac_to_the_boundEdRKNS_6VectorES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(2185), double noundef, ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205)) local_unnamed_addr #0

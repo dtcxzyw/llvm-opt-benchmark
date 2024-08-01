@@ -470,8 +470,8 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
 
 17:                                               ; preds = %20, %13
   %.sroa.4.0 = phi i64 [ undef, %20 ], [ %15, %13 ]
-  %.sroa.0.0 = phi ptr [ null, %20 ], [ %14, %13 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %20 ], [ %14, %13 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %19
 
@@ -528,8 +528,8 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16private_exponent15Priva
 
 17:                                               ; preds = %20, %13
   %.sroa.4.0 = phi i64 [ undef, %20 ], [ %15, %13 ]
-  %.sroa.0.0 = phi ptr [ null, %20 ], [ %14, %13 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %20 ], [ %14, %13 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %19
 

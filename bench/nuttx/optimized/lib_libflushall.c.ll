@@ -35,7 +35,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall_unlocked(ptr noundef %0) loca
 
 .lr.ph:                                           ; preds = %6, %15
   %.01222 = phi ptr [ %.012, %15 ], [ %.01219, %6 ]
-  %.01321 = phi i32 [ %.1, %15 ], [ 0, %6 ]
+  %.121 = phi i32 [ %.2, %15 ], [ 0, %6 ]
   %8 = getelementptr inbounds i8, ptr %.01222, i64 192
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 2
@@ -46,18 +46,18 @@ define range(i32 -2147483648, 1) i32 @lib_flushall_unlocked(ptr noundef %0) loca
   %12 = tail call i64 @lib_fflush_unlocked(ptr noundef nonnull %.01222) #2
   %13 = trunc i64 %12 to i32
   %14 = icmp slt i32 %13, 0
-  %spec.select = select i1 %14, i32 %13, i32 %.01321
+  %spec.select = select i1 %14, i32 %13, i32 %.121
   br label %15
 
 15:                                               ; preds = %11, %.lr.ph
-  %.1 = phi i32 [ %.01321, %.lr.ph ], [ %spec.select, %11 ]
+  %.2 = phi i32 [ %.121, %.lr.ph ], [ %spec.select, %11 ]
   %.012 = load ptr, ptr %.01222, align 8
   %.not16 = icmp eq ptr %.012, null
   br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %15, %6, %1
-  %.2 = phi i32 [ 0, %1 ], [ 0, %6 ], [ %.1, %15 ]
-  ret i32 %.2
+  %.013 = phi i32 [ 0, %1 ], [ 0, %6 ], [ %.2, %15 ]
+  ret i32 %.013
 }
 
 declare i64 @lib_fflush_unlocked(ptr noundef) local_unnamed_addr #1
@@ -88,7 +88,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed
 
 .lr.ph:                                           ; preds = %8, %17
   %.01424 = phi ptr [ %.014, %17 ], [ %.01421, %8 ]
-  %.01523 = phi i32 [ %.1, %17 ], [ 0, %8 ]
+  %.123 = phi i32 [ %.2, %17 ], [ 0, %8 ]
   %10 = getelementptr inbounds i8, ptr %.01424, i64 192
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 2
@@ -99,23 +99,23 @@ define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed
   %14 = tail call i64 @lib_fflush(ptr noundef nonnull %.01424) #2
   %15 = trunc i64 %14 to i32
   %16 = icmp slt i32 %15, 0
-  %spec.select = select i1 %16, i32 %15, i32 %.01523
+  %spec.select = select i1 %16, i32 %15, i32 %.123
   br label %17
 
 17:                                               ; preds = %13, %.lr.ph
-  %.1 = phi i32 [ %.01523, %.lr.ph ], [ %spec.select, %13 ]
+  %.2 = phi i32 [ %.123, %.lr.ph ], [ %spec.select, %13 ]
   %.014 = load ptr, ptr %.01424, align 8
   %.not18 = icmp eq ptr %.014, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %8
-  %.015.lcssa = phi i32 [ 0, %8 ], [ %.1, %17 ]
+  %.1.lcssa = phi i32 [ 0, %8 ], [ %.2, %17 ]
   %18 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %0) #2
   br label %19
 
 19:                                               ; preds = %._crit_edge, %1
-  %.2 = phi i32 [ %.015.lcssa, %._crit_edge ], [ 0, %1 ]
-  ret i32 %.2
+  %.015 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %1 ]
+  ret i32 %.015
 }
 
 declare i32 @nxmutex_lock(ptr noundef) local_unnamed_addr #1

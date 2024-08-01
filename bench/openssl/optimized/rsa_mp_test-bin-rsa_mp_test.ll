@@ -278,13 +278,13 @@ if.end42:                                         ; preds = %lor.lhs.false37
   br i1 %tobool45.not, label %if.then50, label %ret
 
 ret:                                              ; preds = %entry, %if.end57, %if.then60, %if.end42
-  %pris.0 = phi ptr [ %call13, %if.end42 ], [ %pris.127, %if.then60 ], [ %pris.127, %if.end57 ], [ null, %entry ]
-  %exps.0 = phi ptr [ %call14, %if.end42 ], [ %call14, %if.then60 ], [ %call14, %if.end57 ], [ null, %entry ]
-  %coeffs.0 = phi ptr [ %call15, %if.end42 ], [ %call15, %if.then60 ], [ null, %if.end57 ], [ null, %entry ]
+  %pris.1 = phi ptr [ %call13, %if.end42 ], [ %pris.027, %if.then60 ], [ %pris.027, %if.end57 ], [ null, %entry ]
+  %exps.1 = phi ptr [ %call14, %if.end42 ], [ %call14, %if.then60 ], [ %call14, %if.end57 ], [ null, %entry ]
+  %coeffs.1 = phi ptr [ %call15, %if.end42 ], [ %call15, %if.then60 ], [ null, %if.end57 ], [ null, %entry ]
   %rv.0 = phi i32 [ %call, %if.end42 ], [ 0, %if.then60 ], [ 0, %if.end57 ], [ 0, %entry ]
-  tail call void @CRYPTO_free(ptr noundef %pris.0, ptr noundef nonnull @.str.2, i32 noundef 185) #2
-  tail call void @CRYPTO_free(ptr noundef %exps.0, ptr noundef nonnull @.str.2, i32 noundef 186) #2
-  tail call void @CRYPTO_free(ptr noundef %coeffs.0, ptr noundef nonnull @.str.2, i32 noundef 187) #2
+  tail call void @CRYPTO_free(ptr noundef %pris.1, ptr noundef nonnull @.str.2, i32 noundef 185) #2
+  tail call void @CRYPTO_free(ptr noundef %exps.1, ptr noundef nonnull @.str.2, i32 noundef 186) #2
+  tail call void @CRYPTO_free(ptr noundef %coeffs.1, ptr noundef nonnull @.str.2, i32 noundef 187) #2
   br label %return
 
 err:                                              ; preds = %if.end12, %lor.lhs.false, %lor.lhs.false20
@@ -297,7 +297,7 @@ if.then50:                                        ; preds = %if.end24, %lor.lhs.
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %err
-  %pris.127 = phi ptr [ %call13, %if.then50 ], [ null, %err ]
+  %pris.027 = phi ptr [ %call13, %if.then50 ], [ null, %err ]
   %cmp53.not = icmp eq ptr %call14, null
   br i1 %cmp53.not, label %if.end57, label %if.then55
 
@@ -447,20 +447,20 @@ if.end76:                                         ; preds = %lor.lhs.false71
 
 ret:                                              ; preds = %if.end76, %err
   %primes.0 = phi ptr [ %call.i, %if.end76 ], [ null, %err ]
-  %exps.0 = phi ptr [ %call.i23, %if.end76 ], [ null, %err ]
-  %coeffs.0 = phi ptr [ %call.i24, %if.end76 ], [ null, %err ]
+  %exps.1 = phi ptr [ %call.i23, %if.end76 ], [ null, %err ]
+  %coeffs.1 = phi ptr [ %call.i24, %if.end76 ], [ null, %err ]
   %rv.0 = phi i32 [ %call, %if.end76 ], [ 0, %err ]
   tail call void @OPENSSL_sk_free(ptr noundef %primes.0) #2
-  tail call void @OPENSSL_sk_free(ptr noundef %exps.0) #2
-  tail call void @OPENSSL_sk_free(ptr noundef %coeffs.0) #2
+  tail call void @OPENSSL_sk_free(ptr noundef %exps.1) #2
+  tail call void @OPENSSL_sk_free(ptr noundef %coeffs.1) #2
   ret i32 %rv.0
 
 err:                                              ; preds = %if.end76, %if.end59, %lor.lhs.false63, %lor.lhs.false67, %lor.lhs.false71, %if.end34, %lor.lhs.false38, %lor.lhs.false42, %lor.lhs.false46, %lor.lhs.false50, %lor.lhs.false54, %if.end, %lor.lhs.false13, %lor.lhs.false17, %lor.lhs.false21, %lor.lhs.false25, %lor.lhs.false29, %entry, %lor.lhs.false, %lor.lhs.false6
-  %exps.1 = phi ptr [ %call.i23, %if.end76 ], [ %call.i23, %lor.lhs.false71 ], [ %call.i23, %lor.lhs.false67 ], [ %call.i23, %lor.lhs.false63 ], [ %call.i23, %if.end59 ], [ %call.i23, %lor.lhs.false54 ], [ %call.i23, %lor.lhs.false50 ], [ %call.i23, %lor.lhs.false46 ], [ %call.i23, %lor.lhs.false42 ], [ %call.i23, %lor.lhs.false38 ], [ %call.i23, %if.end34 ], [ %call.i23, %lor.lhs.false29 ], [ %call.i23, %lor.lhs.false25 ], [ %call.i23, %lor.lhs.false21 ], [ %call.i23, %lor.lhs.false17 ], [ %call.i23, %lor.lhs.false13 ], [ %call.i23, %if.end ], [ %call.i23, %lor.lhs.false6 ], [ %call.i23, %lor.lhs.false ], [ null, %entry ]
-  %coeffs.1 = phi ptr [ %call.i24, %if.end76 ], [ %call.i24, %lor.lhs.false71 ], [ %call.i24, %lor.lhs.false67 ], [ %call.i24, %lor.lhs.false63 ], [ %call.i24, %if.end59 ], [ %call.i24, %lor.lhs.false54 ], [ %call.i24, %lor.lhs.false50 ], [ %call.i24, %lor.lhs.false46 ], [ %call.i24, %lor.lhs.false42 ], [ %call.i24, %lor.lhs.false38 ], [ %call.i24, %if.end34 ], [ %call.i24, %lor.lhs.false29 ], [ %call.i24, %lor.lhs.false25 ], [ %call.i24, %lor.lhs.false21 ], [ %call.i24, %lor.lhs.false17 ], [ %call.i24, %lor.lhs.false13 ], [ %call.i24, %if.end ], [ %call.i24, %lor.lhs.false6 ], [ null, %lor.lhs.false ], [ null, %entry ]
+  %exps.0 = phi ptr [ %call.i23, %if.end76 ], [ %call.i23, %lor.lhs.false71 ], [ %call.i23, %lor.lhs.false67 ], [ %call.i23, %lor.lhs.false63 ], [ %call.i23, %if.end59 ], [ %call.i23, %lor.lhs.false54 ], [ %call.i23, %lor.lhs.false50 ], [ %call.i23, %lor.lhs.false46 ], [ %call.i23, %lor.lhs.false42 ], [ %call.i23, %lor.lhs.false38 ], [ %call.i23, %if.end34 ], [ %call.i23, %lor.lhs.false29 ], [ %call.i23, %lor.lhs.false25 ], [ %call.i23, %lor.lhs.false21 ], [ %call.i23, %lor.lhs.false17 ], [ %call.i23, %lor.lhs.false13 ], [ %call.i23, %if.end ], [ %call.i23, %lor.lhs.false6 ], [ %call.i23, %lor.lhs.false ], [ null, %entry ]
+  %coeffs.0 = phi ptr [ %call.i24, %if.end76 ], [ %call.i24, %lor.lhs.false71 ], [ %call.i24, %lor.lhs.false67 ], [ %call.i24, %lor.lhs.false63 ], [ %call.i24, %if.end59 ], [ %call.i24, %lor.lhs.false54 ], [ %call.i24, %lor.lhs.false50 ], [ %call.i24, %lor.lhs.false46 ], [ %call.i24, %lor.lhs.false42 ], [ %call.i24, %lor.lhs.false38 ], [ %call.i24, %if.end34 ], [ %call.i24, %lor.lhs.false29 ], [ %call.i24, %lor.lhs.false25 ], [ %call.i24, %lor.lhs.false21 ], [ %call.i24, %lor.lhs.false17 ], [ %call.i24, %lor.lhs.false13 ], [ %call.i24, %if.end ], [ %call.i24, %lor.lhs.false6 ], [ null, %lor.lhs.false ], [ null, %entry ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @BN_free) #2
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %exps.1, ptr noundef nonnull @BN_free) #2
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %coeffs.1, ptr noundef nonnull @BN_free) #2
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %exps.0, ptr noundef nonnull @BN_free) #2
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %coeffs.0, ptr noundef nonnull @BN_free) #2
   br label %ret
 }
 

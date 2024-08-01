@@ -1168,9 +1168,9 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.end.i.i
-  %src_idx.0.i = phi i32 [ 3, %if.end.i.i ], [ %inc.i.i, %while.body.i.i ]
+  %src_idx.2.i = phi i32 [ 3, %if.end.i.i ], [ %inc.i.i, %while.body.i.i ]
   %bytes_read.0.i.i = phi i64 [ 0, %if.end.i.i ], [ %add.i.i, %while.body.i.i ]
-  %idxprom.i.i = sext i32 %src_idx.0.i to i64
+  %idxprom.i.i = sext i32 %src_idx.2.i to i64
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %.pre.i, i64 %idxprom.i.i
   %iov_len5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %22 = load i64, ptr %iov_len5.i.i, align 8
@@ -1185,7 +1185,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %iov_len22.i.i = getelementptr %struct.iovec, ptr %.pre.i, i64 %idxprom.i.i, i32 1
   %24 = load i64, ptr %iov_len22.i.i, align 8
   %add.i.i = add i64 %24, %bytes_read.0.i.i
-  %inc.i.i = add nuw i32 %src_idx.0.i, 1
+  %inc.i.i = add nuw i32 %src_idx.2.i, 1
   %25 = load i32, ptr %payload_frags.i.i, align 8
   %add24.i.i = add i32 %25, 3
   %cmp25.not.i.i = icmp ult i32 %inc.i.i, %add24.i.i
@@ -1217,13 +1217,13 @@ sw.default.i:                                     ; preds = %if.end39
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb17.i, %net_tx_pkt_tcp_fragment_init.exit.i
-  %l4hdr_len.1.i = phi i64 [ 0, %sw.bb17.i ], [ %sub.i.i, %net_tx_pkt_tcp_fragment_init.exit.i ]
-  %src_len.1.in.i = phi i16 [ %31, %sw.bb17.i ], [ %28, %net_tx_pkt_tcp_fragment_init.exit.i ]
-  %src_idx.2.i = phi i32 [ 3, %sw.bb17.i ], [ %src_idx.0.i, %net_tx_pkt_tcp_fragment_init.exit.i ]
-  %pl_idx.1.i = phi i64 [ 3, %sw.bb17.i ], [ 4, %net_tx_pkt_tcp_fragment_init.exit.i ]
-  %src_offset.1.i = phi i64 [ 0, %sw.bb17.i ], [ %sub7.i.i, %net_tx_pkt_tcp_fragment_init.exit.i ]
-  %src_len.1.i = zext i16 %src_len.1.in.i to i64
-  %cmp27.not.i.i = icmp eq i16 %src_len.1.in.i, 0
+  %l4hdr_len.0.i = phi i64 [ 0, %sw.bb17.i ], [ %sub.i.i, %net_tx_pkt_tcp_fragment_init.exit.i ]
+  %src_len.0.in.i = phi i16 [ %31, %sw.bb17.i ], [ %28, %net_tx_pkt_tcp_fragment_init.exit.i ]
+  %src_idx.0.i = phi i32 [ 3, %sw.bb17.i ], [ %src_idx.2.i, %net_tx_pkt_tcp_fragment_init.exit.i ]
+  %pl_idx.0.i = phi i64 [ 3, %sw.bb17.i ], [ 4, %net_tx_pkt_tcp_fragment_init.exit.i ]
+  %src_offset.0.i = phi i64 [ 0, %sw.bb17.i ], [ %sub7.i.i, %net_tx_pkt_tcp_fragment_init.exit.i ]
+  %src_len.0.i = zext i16 %src_len.0.in.i to i64
+  %cmp27.not.i.i = icmp eq i16 %src_len.0.in.i, 0
   br i1 %cmp27.not.i.i, label %while.end.i, label %while.body.lr.ph.i.lr.ph.i
 
 while.body.lr.ph.i.lr.ph.i:                       ; preds = %sw.epilog.i
@@ -1236,17 +1236,17 @@ while.body.lr.ph.i.lr.ph.i:                       ; preds = %sw.epilog.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end49.i, %while.body.lr.ph.i.lr.ph.i
   %fragment_offset.091.i = phi i64 [ 0, %while.body.lr.ph.i.lr.ph.i ], [ %add50.i, %if.end49.i ]
-  %src_offset.290.i = phi i64 [ %src_offset.1.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_offset.5.i, %if.end49.i ]
-  %src_idx.389.i = phi i32 [ %src_idx.2.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_idx.6.i, %if.end49.i ]
+  %src_offset.190.i = phi i64 [ %src_offset.0.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_offset.5.i, %if.end49.i ]
+  %src_idx.189.i = phi i32 [ %src_idx.0.i, %while.body.lr.ph.i.lr.ph.i ], [ %src_idx.6.i, %if.end49.i ]
   %33 = load ptr, ptr %vec, align 8
   %34 = load i32, ptr %payload_frags.i33.i, align 8
   %add.i36.i = add i32 %34, 3
   br label %while.body.i34.i
 
 while.body.i34.i:                                 ; preds = %if.end4.i.i, %while.body.lr.ph.i.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end4.i.i ], [ %pl_idx.1.i, %while.body.lr.ph.i.i ]
-  %src_idx.4.i = phi i32 [ %spec.select.i, %if.end4.i.i ], [ %src_idx.389.i, %while.body.lr.ph.i.i ]
-  %src_offset.3.i = phi i64 [ %spec.select84.i, %if.end4.i.i ], [ %src_offset.290.i, %while.body.lr.ph.i.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end4.i.i ], [ %pl_idx.0.i, %while.body.lr.ph.i.i ]
+  %src_idx.4.i = phi i32 [ %spec.select.i, %if.end4.i.i ], [ %src_idx.189.i, %while.body.lr.ph.i.i ]
+  %src_offset.3.i = phi i64 [ %spec.select84.i, %if.end4.i.i ], [ %src_offset.190.i, %while.body.lr.ph.i.i ]
   %fetched.028.i.i = phi i64 [ %add22.i.i, %if.end4.i.i ], [ 0, %while.body.lr.ph.i.i ]
   %cmp1.i.i = icmp eq i64 %indvars.iv.i, 64
   br i1 %cmp1.i.i, label %net_tx_pkt_fetch_fragment.exit.i, label %if.end.i35.i
@@ -1265,7 +1265,7 @@ if.end4.i.i:                                      ; preds = %if.end.i35.i
   %iov_len.i40.i = getelementptr %struct.iovec, ptr %33, i64 %idxprom.i37.i, i32 1
   %36 = load i64, ptr %iov_len.i40.i, align 8
   %sub.i41.i = sub i64 %36, %src_offset.3.i
-  %sub10.i.i = sub i64 %src_len.1.i, %fetched.028.i.i
+  %sub10.i.i = sub i64 %src_len.0.i, %fetched.028.i.i
   %cond.i.i = call i64 @llvm.umin.i64(i64 %sub.i41.i, i64 %sub10.i.i)
   %iov_len14.i.i = getelementptr %struct.iovec, ptr %fragment.i, i64 %indvars.iv.i, i32 1
   store i64 %cond.i.i, ptr %iov_len14.i.i, align 8
@@ -1277,7 +1277,7 @@ if.end4.i.i:                                      ; preds = %if.end.i35.i
   %spec.select.i = add i32 %src_idx.4.i, %inc.i45.i
   %spec.select84.i = select i1 %cmp26.i.i, i64 0, i64 %add18.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i42.i = icmp ult i64 %add22.i.i, %src_len.1.i
+  %cmp.i42.i = icmp ult i64 %add22.i.i, %src_len.0.i
   br i1 %cmp.i42.i, label %while.body.i34.i, label %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i, !llvm.loop !8
 
 net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i: ; preds = %if.end.i35.i
@@ -1334,7 +1334,7 @@ sw.bb8.i.i:                                       ; preds = %sw.bb27.i
 
 net_tx_pkt_tcp_fragment_fix.exit.i:               ; preds = %sw.bb8.i.i, %sw.bb.i.i, %sw.bb27.i
   %sub30.i = add i32 %dst_idx.1.i, -1
-  %add31.i = add i64 %fetched.0.lcssa.i.i, %l4hdr_len.1.i
+  %add31.i = add i64 %fetched.0.lcssa.i.i, %l4hdr_len.0.i
   %conv32.i = trunc i64 %add31.i to i16
   call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
   br label %sw.epilog35.i

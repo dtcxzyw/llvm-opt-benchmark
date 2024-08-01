@@ -3825,7 +3825,7 @@ _ZN4Luau6Tarjan9visitEdgeEii.exit:                ; preds = %366, %371
 
 381:                                              ; preds = %399, %377
   %.sroa.034.0.i = phi ptr [ %380, %377 ], [ %385, %399 ]
-  %.0.i = phi i8 [ %379, %377 ], [ %.1.i, %399 ]
+  %.0.i = phi i8 [ %379, %377 ], [ %.2.i, %399 ]
   %382 = trunc i8 %.0.i to i1
   %383 = load ptr, ptr %9, align 8
   %.not37.i = icmp eq ptr %.sroa.034.0.i, %383
@@ -3861,13 +3861,13 @@ _ZN4Luau6Tarjan9visitEdgeEii.exit:                ; preds = %366, %371
 
 399:                                              ; preds = %.sink.split.i, %391
   %400 = phi i32 [ %386, %391 ], [ %.pre169, %.sink.split.i ]
-  %.1.i = phi i8 [ %.0.i, %391 ], [ %398, %.sink.split.i ]
+  %.2.i = phi i8 [ %.0.i, %391 ], [ %398, %.sink.split.i ]
   %401 = icmp eq i32 %400, %.sroa.092.0.copyload
   br i1 %401, label %.critedge.i, label %381, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %399, %381
-  %.2.i = phi i8 [ %.0.i, %381 ], [ %.1.i, %399 ]
-  %402 = trunc i8 %.2.i to i1
+  %.1.i = phi i8 [ %.0.i, %381 ], [ %.2.i, %399 ]
+  %402 = trunc i8 %.1.i to i1
   br i1 %402, label %403, label %_ZN4Luau6Tarjan8visitSCCEi.exit.preheader
 
 403:                                              ; preds = %.critedge.i
@@ -4070,7 +4070,7 @@ define dso_local void @_ZN4Luau6Tarjan8visitSCCEi(ptr noundef nonnull align 8 de
 
 11:                                               ; preds = %29, %2
   %.sroa.034.0 = phi ptr [ %10, %2 ], [ %15, %29 ]
-  %.0 = phi i8 [ %7, %2 ], [ %.1, %29 ]
+  %.0 = phi i8 [ %7, %2 ], [ %.2, %29 ]
   %12 = trunc i8 %.0 to i1
   %13 = load ptr, ptr %8, align 8
   %.not37 = icmp eq ptr %.sroa.034.0, %13
@@ -4104,14 +4104,14 @@ define dso_local void @_ZN4Luau6Tarjan8visitSCCEi(ptr noundef nonnull align 8 de
   br label %29
 
 29:                                               ; preds = %.sink.split, %21
-  %.1 = phi i8 [ %.0, %21 ], [ %28, %.sink.split ]
+  %.2 = phi i8 [ %.0, %21 ], [ %28, %.sink.split ]
   %30 = load i32, ptr %15, align 4
   %31 = icmp eq i32 %30, %1
   br i1 %31, label %.critedge, label %11, !llvm.loop !17
 
 .critedge:                                        ; preds = %11, %29
-  %.2 = phi i8 [ %.0, %11 ], [ %.1, %29 ]
-  %32 = trunc i8 %.2 to i1
+  %.1 = phi i8 [ %.0, %11 ], [ %.2, %29 ]
+  %32 = trunc i8 %.1 to i1
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %.critedge
@@ -11251,16 +11251,16 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i: ; preds = %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, %3
-  %.sroa.0.0.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
-  %.sroa.11.0.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %10
+  %.sroa.0.1.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
+  %.sroa.11.1.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %10
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  store ptr %.sroa.0.0.i, ptr %4, align 8
+  store ptr %.sroa.0.1.i, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %15, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.sroa.11.0.i, ptr %19, align 8
+  store ptr %.sroa.11.1.i, ptr %19, align 8
   %20 = invoke noundef ptr @_ZN4Luau9TypeArena7addTypeINS_9UnionTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull %4)
           to label %21 unwind label %28
 
@@ -11329,16 +11329,16 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; pred
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i: ; preds = %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, %3
-  %.sroa.0.0.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
-  %.sroa.11.0.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %10
+  %.sroa.0.1.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
+  %.sroa.11.1.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %3 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %10
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  store ptr %.sroa.0.0.i, ptr %4, align 8
+  store ptr %.sroa.0.1.i, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %15, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.sroa.11.0.i, ptr %19, align 8
+  store ptr %.sroa.11.1.i, ptr %19, align 8
   %20 = invoke noundef ptr @_ZN4Luau9TypeArena7addTypeINS_16IntersectionTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull %4)
           to label %21 unwind label %28
 

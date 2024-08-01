@@ -4850,7 +4850,7 @@ Vec_IntGrow.exit.i363:                            ; preds = %273, %255
   br label %329
 
 329:                                              ; preds = %325, %.critedge16
-  %.0 = phi ptr [ %328, %325 ], [ null, %.critedge16 ]
+  %.1 = phi ptr [ %328, %325 ], [ null, %.critedge16 ]
   %330 = getelementptr i8, ptr %0, i64 68
   %.val324427 = load i32, ptr %330, align 4
   %331 = icmp sgt i32 %.val324427, 0
@@ -4899,7 +4899,7 @@ Vec_IntGrow.exit.i363:                            ; preds = %273, %255
   br i1 %352, label %335, label %.critedge18, !llvm.loop !39
 
 .critedge18:                                      ; preds = %350, %329, %.critedge14, %302
-  %.1 = phi ptr [ %305, %302 ], [ null, %.critedge14 ], [ %.0, %329 ], [ %.0, %350 ]
+  %.0 = phi ptr [ %305, %302 ], [ null, %.critedge14 ], [ %.1, %329 ], [ %.1, %350 ]
   %353 = tail call i32 @Wlc_ObjAlloc(ptr noundef %50, i32 noundef 6, i32 noundef 0, i32 noundef 15, i32 noundef 0) #25
   %.val292 = load ptr, ptr %181, align 8
   %354 = sext i32 %353 to i64
@@ -5019,7 +5019,7 @@ Vec_IntFillTwo.exit381:                           ; preds = %Vec_IntGrow.exit.i3
 
 395:                                              ; preds = %.critedge20
   tail call void @Wlc_NtkAbsCreateFlopInputs(ptr noundef %50, ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %9, ptr noundef %.0388, ptr noundef %183, i32 noundef 16)
-  tail call void @Wlc_NtkAbsCreateLogic(ptr noundef %50, ptr nonnull poison, ptr noundef %7, ptr noundef nonnull %9, ptr noundef %.0388, ptr noundef nonnull %6, ptr noundef %.1)
+  tail call void @Wlc_NtkAbsCreateLogic(ptr noundef %50, ptr nonnull poison, ptr noundef %7, ptr noundef nonnull %9, ptr noundef %.0388, ptr noundef nonnull %6, ptr noundef %.0)
   br label %.critedge280
 
 .critedge280:                                     ; preds = %.critedge20, %395
@@ -9363,7 +9363,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %.crite
 
 56:                                               ; preds = %.lr.ph286, %334
   %indvars.iv297 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next298, %334 ]
-  %.2137284 = phi i32 [ %.1136.lcssa318, %.lr.ph286 ], [ %.4, %334 ]
+  %.2137284 = phi i32 [ %.1136.lcssa318, %.lr.ph286 ], [ %.3138, %334 ]
   %.val149 = load ptr, ptr %19, align 8
   %57 = getelementptr inbounds i32, ptr %.val149, i64 %indvars.iv297
   %58 = load i32, ptr %57, align 4
@@ -9952,7 +9952,7 @@ Wlc_ObjFaninId0.exit253:                          ; preds = %316, %Wlc_ObjHasArr
   br i1 %327, label %334, label %328
 
 328:                                              ; preds = %63, %Vec_IntPush.exit251, %Wlc_ObjFaninId0.exit253, %Vec_IntPush.exit224
-  %.3138 = phi i32 [ %138, %Vec_IntPush.exit224 ], [ %248, %Vec_IntPush.exit251 ], [ %326, %Wlc_ObjFaninId0.exit253 ], [ %.2137284, %63 ]
+  %.4 = phi i32 [ %138, %Vec_IntPush.exit224 ], [ %248, %Vec_IntPush.exit251 ], [ %326, %Wlc_ObjFaninId0.exit253 ], [ %.2137284, %63 ]
   %.val183 = load ptr, ptr %14, align 8
   %329 = ptrtoint ptr %.val183 to i64
   %330 = sub i64 %64, %329
@@ -9961,11 +9961,11 @@ Wlc_ObjFaninId0.exit253:                          ; preds = %316, %Wlc_ObjHasArr
   %sext278 = shl i64 %331, 32
   %332 = ashr exact i64 %sext278, 30
   %333 = getelementptr inbounds i8, ptr %.val189, i64 %332
-  store i32 %.3138, ptr %333, align 4
+  store i32 %.4, ptr %333, align 4
   br label %334
 
 334:                                              ; preds = %Wlc_ObjFaninId0.exit253, %Wlc_ObjFaninId2.exit228, %Wlc_ObjFanin2.exit, %Wlc_ObjFaninId0.exit, %56, %328
-  %.4 = phi i32 [ %.2137284, %56 ], [ %.2137284, %Wlc_ObjFaninId0.exit ], [ %.2137284, %Wlc_ObjFanin2.exit ], [ %.3138, %328 ], [ %.2137284, %Wlc_ObjFaninId2.exit228 ], [ -1, %Wlc_ObjFaninId0.exit253 ]
+  %.3138 = phi i32 [ %.2137284, %56 ], [ %.2137284, %Wlc_ObjFaninId0.exit ], [ %.2137284, %Wlc_ObjFanin2.exit ], [ %.4, %328 ], [ %.2137284, %Wlc_ObjFaninId2.exit228 ], [ -1, %Wlc_ObjFaninId0.exit253 ]
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %.val194 = load i32, ptr %18, align 4
   %335 = sext i32 %.val194 to i64

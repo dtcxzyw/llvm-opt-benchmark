@@ -330,7 +330,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
   br label %69
 
 69:                                               ; preds = %.lr.ph99, %.critedge.thread
-  %.06198 = phi ptr [ %27, %.lr.ph99 ], [ %.2, %.critedge.thread ]
+  %.06198 = phi ptr [ %27, %.lr.ph99 ], [ %.1, %.critedge.thread ]
   store i8 0, ptr %4, align 16
   br label %.lr.ph.i
 
@@ -513,13 +513,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .lr.ph:                                           ; preds = %139, %_ZL8parseRowPcS_S_i.exit92
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL8parseRowPcS_S_i.exit92 ], [ 0, %139 ]
-  %.196 = phi ptr [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ], [ %71, %139 ]
+  %.296 = phi ptr [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ], [ %71, %139 ]
   store i8 0, ptr %4, align 16
-  %.not.i79 = icmp ult ptr %.196, %39
+  %.not.i79 = icmp ult ptr %.296, %39
   br i1 %.not.i79, label %.lr.ph.i82, label %_ZL8parseRowPcS_S_i.exit92
 
 .lr.ph.i82:                                       ; preds = %.lr.ph, %161
-  %.027.i83 = phi ptr [ %151, %161 ], [ %.196, %.lr.ph ]
+  %.027.i83 = phi ptr [ %151, %161 ], [ %.296, %.lr.ph ]
   %.01526.i84 = phi i32 [ %.1.i88, %161 ], [ 0, %.lr.ph ]
   %.01824.i85 = phi i8 [ %.119.i86, %161 ], [ 1, %.lr.ph ]
   %150 = load i8, ptr %.027.i83, align 1
@@ -562,7 +562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edge.loopexit.i90
   %.015.lcssa.i80 = phi i64 [ 0, %.lr.ph ], [ %163, %._crit_edge.loopexit.i90 ]
-  %.0.lcssa.i81 = phi ptr [ %.196, %.lr.ph ], [ %151, %._crit_edge.loopexit.i90 ]
+  %.0.lcssa.i81 = phi ptr [ %.296, %.lr.ph ], [ %151, %._crit_edge.loopexit.i90 ]
   %164 = getelementptr inbounds i8, ptr %4, i64 %.015.lcssa.i80
   store i8 0, ptr %164, align 1
   %165 = mul nuw nsw i64 %indvars.iv, 3
@@ -584,8 +584,8 @@ _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edg
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZL8parseRowPcS_S_i.exit92, %.preheader, %139, %_ZL8parseRowPcS_S_i.exit, %105, %102, %175, %136, %96
-  %.2 = phi ptr [ %71, %96 ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %175 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %139 ], [ %71, %.preheader ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
-  %177 = icmp ult ptr %.2, %39
+  %.1 = phi ptr [ %71, %96 ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %175 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %139 ], [ %71, %.preheader ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
+  %177 = icmp ult ptr %.1, %39
   br i1 %177, label %69, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %38
@@ -686,13 +686,13 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
           to label %28 unwind label %21
 
 28:                                               ; preds = %23, %26, %19
-  %.0 = phi i1 [ %20, %19 ], [ %27, %26 ], [ false, %23 ]
+  %.1 = phi i1 [ %20, %19 ], [ %27, %26 ], [ false, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %29
 
 29:                                               ; preds = %3, %28
-  %.1 = phi i1 [ %.0, %28 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %28 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind
@@ -941,8 +941,8 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
   br label %171
 
 171:                                              ; preds = %2, %170
-  %.1 = phi i1 [ %.not75, %170 ], [ false, %2 ]
-  ret i1 %.1
+  %.067 = phi i1 [ %.not75, %170 ], [ false, %2 ]
+  ret i1 %.067
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6

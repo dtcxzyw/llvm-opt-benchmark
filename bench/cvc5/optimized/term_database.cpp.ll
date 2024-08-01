@@ -10289,7 +10289,7 @@ terminate.lpad.i1748:                             ; preds = %if.then13.i.i1747
   unreachable
 
 cleanup:                                          ; preds = %if.then13.i.i1747, %if.then.i.i1741, %invoke.cont535, %if.then13.i.i1686, %if.then.i.i1680, %invoke.cont527
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont527 ], [ 1, %if.then.i.i1680 ], [ 1, %if.then13.i.i1686 ], [ 0, %invoke.cont535 ], [ 0, %if.then.i.i1741 ], [ 0, %if.then13.i.i1747 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %invoke.cont527 ], [ 1, %if.then.i.i1680 ], [ 1, %if.then13.i.i1686 ], [ 0, %invoke.cont535 ], [ 0, %if.then.i.i1741 ], [ 0, %if.then13.i.i1747 ]
   %244 = load ptr, ptr %lits, align 8
   %245 = load ptr, ptr %_M_finish.i.i1283, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %244, %245
@@ -10342,7 +10342,7 @@ if.then.i.i.i1756:                                ; preds = %invoke.cont.i
   br label %cleanup540
 
 cleanup540:                                       ; preds = %invoke.cont340, %if.then.i.i1039, %if.then13.i.i1045, %if.then.i.i.i1756, %invoke.cont.i
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.0, %invoke.cont.i ], [ %cleanup.dest.slot.0, %if.then.i.i.i1756 ], [ 5, %if.then13.i.i1045 ], [ 5, %if.then.i.i1039 ], [ 5, %invoke.cont340 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.2, %invoke.cont.i ], [ %cleanup.dest.slot.2, %if.then.i.i.i1756 ], [ 5, %if.then13.i.i1045 ], [ 5, %if.then.i.i1039 ], [ 5, %invoke.cont340 ]
   %bf.load.i.i1757 = load i64, ptr %140, align 8
   %251 = and i64 %bf.load.i.i1757, 1152920405095219200
   %cmp.not.i.i1758 = icmp eq i64 %251, 1152920405095219200
@@ -12794,7 +12794,7 @@ terminate.lpad.i60:                               ; preds = %if.then13.i.i59
   unreachable
 
 while.cond10:                                     ; preds = %while.cond10.preheader, %if.end34
-  %addedFirst.0 = phi i1 [ %addedFirst.2, %if.end34 ], [ false, %while.cond10.preheader ]
+  %addedFirst.0 = phi i1 [ %addedFirst.1, %if.end34 ], [ false, %while.cond10.preheader ]
   %call12 = invoke noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIterator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(16) %eqc_i)
           to label %invoke.cont11 unwind label %lpad6.loopexit
 
@@ -13073,7 +13073,7 @@ lpad32:                                           ; preds = %invoke.cont31
   br label %ehcleanup39
 
 if.end34:                                         ; preds = %if.then13.i.i147, %if.then.i.i141, %invoke.cont33, %if.else.i.i94, %if.then.i5.i, %if.then22, %if.then13.i4.i
-  %addedFirst.2 = phi i1 [ %addedFirst.0, %if.then13.i4.i ], [ %addedFirst.0, %if.then22 ], [ %addedFirst.0, %if.then.i5.i ], [ %addedFirst.0, %if.else.i.i94 ], [ true, %invoke.cont33 ], [ true, %if.then.i.i141 ], [ true, %if.then13.i.i147 ]
+  %addedFirst.1 = phi i1 [ %addedFirst.0, %if.then13.i4.i ], [ %addedFirst.0, %if.then22 ], [ %addedFirst.0, %if.then.i5.i ], [ %addedFirst.0, %if.else.i.i94 ], [ true, %invoke.cont33 ], [ true, %if.then.i.i141 ], [ true, %if.then13.i.i147 ]
   %call36 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %eqc_i)
           to label %while.cond10 unwind label %lpad19, !llvm.loop !164
 

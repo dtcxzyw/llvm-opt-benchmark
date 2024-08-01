@@ -1367,8 +1367,8 @@ if.then70.i:                                      ; preds = %if.then68.i
   unreachable
 
 if.end74.i:                                       ; preds = %if.end66.i, %if.end25.tail.i
-  %arg.1.i = phi ptr [ %call.i.i, %if.end66.i ], [ %tobool29.not.i, %if.end25.tail.i ]
-  call fastcc void @setup_new_branch_info_and_source_tree(ptr noundef %new_branch_info, ptr noundef nonnull %opts, ptr noundef nonnull %rev, ptr noundef %arg.1.i)
+  %arg.0.i = phi ptr [ %call.i.i, %if.end66.i ], [ %tobool29.not.i, %if.end25.tail.i ]
+  call fastcc void @setup_new_branch_info_and_source_tree(ptr noundef %new_branch_info, ptr noundef nonnull %opts, ptr noundef nonnull %rev, ptr noundef %arg.0.i)
   %source_tree.i = getelementptr inbounds i8, ptr %opts, i64 808
   %78 = load ptr, ptr %source_tree.i, align 8
   %tobool76.not.i = icmp eq ptr %78, null
@@ -1376,7 +1376,7 @@ if.end74.i:                                       ; preds = %if.end66.i, %if.end
 
 if.then77.i:                                      ; preds = %if.end74.i
   %call78.i = call fastcc ptr @_(ptr noundef nonnull @.str.83)
-  call void (ptr, ...) @die(ptr noundef %call78.i, ptr noundef %arg.1.i) #16
+  call void (ptr, ...) @die(ptr noundef %call78.i, ptr noundef %arg.0.i) #16
   unreachable
 
 if.end79.i:                                       ; preds = %if.end74.i
@@ -1388,7 +1388,7 @@ if.then81.i:                                      ; preds = %if.end79.i
 
 if.then83.i:                                      ; preds = %if.then81.i
   %79 = load ptr, ptr %prefix1, align 8
-  call void @verify_non_filename(ptr noundef %79, ptr noundef %arg.1.i) #15
+  call void @verify_non_filename(ptr noundef %79, ptr noundef %arg.0.i) #15
   br label %parse_branchname_arg.exit
 
 if.else86.i:                                      ; preds = %if.end79.i
@@ -2032,7 +2032,7 @@ for.body157.lr.ph.i:                              ; preds = %if.end153.i
 for.body157.i:                                    ; preds = %for.inc200.i, %for.body157.lr.ph.i
   %163 = phi i32 [ %162, %for.body157.lr.ph.i ], [ %190, %for.inc200.i ]
   %164 = phi ptr [ %.pre194.i, %for.body157.lr.ph.i ], [ %191, %for.inc200.i ]
-  %errs.0189.i = phi i32 [ 0, %for.body157.lr.ph.i ], [ %errs.2.i, %for.inc200.i ]
+  %errs.0189.i = phi i32 [ 0, %for.body157.lr.ph.i ], [ %errs.1.i, %for.inc200.i ]
   %pos.1188.i = phi i32 [ 0, %for.body157.lr.ph.i ], [ %inc201.i, %for.inc200.i ]
   %idxprom158.i = sext i32 %pos.1188.i to i64
   %arrayidx159.i = getelementptr inbounds ptr, ptr %164, i64 %idxprom158.i
@@ -2201,7 +2201,7 @@ _.exit144.i:                                      ; preds = %if.end3.i141.i, %if
   br label %if.end197.i
 
 if.end197.i:                                      ; preds = %_.exit144.i, %check_stages.exit.i, %check_stage.exit.i, %_.exit116.i, %if.then169.i
-  %errs.1.i = phi i32 [ %errs.0189.i, %if.then169.i ], [ %errs.0189.i, %_.exit116.i ], [ %or.i, %check_stage.exit.i ], [ %or188.i, %check_stages.exit.i ], [ 1, %_.exit144.i ]
+  %errs.2.i = phi i32 [ %errs.0189.i, %if.then169.i ], [ %errs.0189.i, %_.exit116.i ], [ %or.i, %check_stage.exit.i ], [ %or188.i, %check_stages.exit.i ], [ 1, %_.exit144.i ]
   %185 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %186 = load ptr, ptr @the_index, align 8
   %name1.i145.i = getelementptr inbounds i8, ptr %165, i64 108
@@ -2233,13 +2233,13 @@ for.inc200.i:                                     ; preds = %skip_same_name.exit
   %190 = phi i32 [ %185, %skip_same_name.exit.i ], [ %163, %for.body157.i ]
   %191 = phi ptr [ %186, %skip_same_name.exit.i ], [ %164, %for.body157.i ]
   %pos.2.i = phi i32 [ %sub.i, %skip_same_name.exit.i ], [ %pos.1188.i, %for.body157.i ]
-  %errs.2.i = phi i32 [ %errs.1.i, %skip_same_name.exit.i ], [ %errs.0189.i, %for.body157.i ]
+  %errs.1.i = phi i32 [ %errs.2.i, %skip_same_name.exit.i ], [ %errs.0189.i, %for.body157.i ]
   %inc201.i = add nsw i32 %pos.2.i, 1
   %cmp155.i = icmp ult i32 %inc201.i, %190
   br i1 %cmp155.i, label %for.body157.i, label %for.end202.i, !llvm.loop !12
 
 for.end202.i:                                     ; preds = %for.inc200.i
-  %tobool203.not.i = icmp eq i32 %errs.2.i, 0
+  %tobool203.not.i = icmp eq i32 %errs.1.i, 0
   br i1 %tobool203.not.i, label %if.end205.i, label %checkout_paths.exit
 
 if.end205.i:                                      ; preds = %for.end202.i, %if.end153.i
@@ -2299,7 +2299,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i158.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %197 = phi i32 [ %196, %for.body.lr.ph.i.i ], [ %237, %for.inc.i.i ]
   %198 = phi ptr [ %.pre89.i.i, %for.body.lr.ph.i.i ], [ %238, %for.inc.i.i ]
-  %errs.086.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %errs.2.i.i, %for.inc.i.i ]
+  %errs.086.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %errs.1.i.i, %for.inc.i.i ]
   %pos.085.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %idxprom.i.i = sext i32 %pos.085.i.i to i64
   %arrayidx.i159.i = getelementptr inbounds ptr, ptr %198, i64 %idxprom.i.i
@@ -2662,7 +2662,7 @@ checkout_merged.exit.i.i:                         ; preds = %if.end57.i.i.i, %_.
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %checkout_merged.exit.i.i, %if.else.i.i, %checkout_stage.exit.i.i
-  %errs.1.i.i = phi i32 [ %or18.i.i, %checkout_stage.exit.i.i ], [ %or22.i.i, %checkout_merged.exit.i.i ], [ %errs.086.i.i, %if.else.i.i ]
+  %errs.2.i.i = phi i32 [ %or18.i.i, %checkout_stage.exit.i.i ], [ %or22.i.i, %checkout_merged.exit.i.i ], [ %errs.086.i.i, %if.else.i.i ]
   %232 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %233 = load ptr, ptr @the_index, align 8
   %name1.i47.i.i = getelementptr inbounds i8, ptr %199, i64 108
@@ -2694,13 +2694,13 @@ for.inc.i.i:                                      ; preds = %skip_same_name.exit
   %237 = phi i32 [ %232, %skip_same_name.exit.i.i ], [ %.pre90.i.i, %if.then12.i171.i ], [ %197, %for.body.i.i ]
   %238 = phi ptr [ %233, %skip_same_name.exit.i.i ], [ %.pre.i.i, %if.then12.i171.i ], [ %198, %for.body.i.i ]
   %pos.1.i.i = phi i32 [ %sub.i.i, %skip_same_name.exit.i.i ], [ %pos.085.i.i, %if.then12.i171.i ], [ %pos.085.i.i, %for.body.i.i ]
-  %errs.2.i.i = phi i32 [ %errs.1.i.i, %skip_same_name.exit.i.i ], [ %or.i173.i, %if.then12.i171.i ], [ %errs.086.i.i, %for.body.i.i ]
+  %errs.1.i.i = phi i32 [ %errs.2.i.i, %skip_same_name.exit.i.i ], [ %or.i173.i, %if.then12.i171.i ], [ %errs.086.i.i, %for.body.i.i ]
   %inc.i.i = add nsw i32 %pos.1.i.i, 1
   %cmp6.i.i = icmp ult i32 %inc.i.i, %237
   br i1 %cmp6.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !15
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i158.i
-  %errs.0.lcssa.i.i = phi i32 [ 0, %if.end.i158.i ], [ %errs.2.i.i, %for.inc.i.i ]
+  %errs.0.lcssa.i.i = phi i32 [ 0, %if.end.i158.i ], [ %errs.1.i.i, %for.inc.i.i ]
   %239 = load i32, ptr %pc_workers.i.i, align 4
   %cmp27.i.i = icmp sgt i32 %239, 1
   br i1 %cmp27.i.i, label %if.then28.i.i, label %if.end31.i.i

@@ -172,9 +172,9 @@ default.unreachable:                              ; preds = %.noexc, %26
   br i1 %66, label %73, label %69
 
 67:                                               ; preds = %69, %._crit_edge
-  %.sroa.05.1 = phi i64 [ %72, %69 ], [ %.sroa.05.0.lcssa, %._crit_edge ]
-  %68 = icmp eq i64 %.sroa.05.1, -1
-  %spec.store.select = select i1 %68, i64 0, i64 %.sroa.05.1
+  %.sroa.05.3 = phi i64 [ %72, %69 ], [ %.sroa.05.0.lcssa, %._crit_edge ]
+  %68 = icmp eq i64 %.sroa.05.3, -1
+  %spec.store.select = select i1 %68, i64 0, i64 %.sroa.05.3
   br label %73
 
 69:                                               ; preds = %61
@@ -184,7 +184,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   br label %67
 
 73:                                               ; preds = %96, %61, %26, %67, %102, %90
-  %.sroa.05.2 = phi i64 [ %105, %102 ], [ %.sroa.05.3, %90 ], [ %spec.store.select, %67 ], [ 0, %26 ], [ 0, %61 ], [ 0, %96 ]
+  %.sroa.05.2 = phi i64 [ %105, %102 ], [ %.sroa.05.1, %90 ], [ %spec.store.select, %67 ], [ 0, %26 ], [ 0, %61 ], [ 0, %96 ]
   %74 = call i32 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1ca238a767ccf968E"(ptr align 8 %4)
   %75 = load i32, ptr %11, align 4
   %76 = call align 8 ptr @"_ZN115_$LT$logos_codegen..graph..meta..Meta$u20$as$u20$core..ops..index..IndexMut$LT$logos_codegen..graph..NodeId$GT$$GT$9index_mut17hef05b57c02ea21e8E"(ptr align 8 %0, i32 %75, ptr nonnull align 8 @anon.500f6382b5209e0b01e44d7e64a76b80.5)
@@ -216,7 +216,7 @@ default.unreachable:                              ; preds = %.noexc, %26
   br label %90
 
 90:                                               ; preds = %86, %42
-  %.sroa.05.3 = phi i64 [ %45, %42 ], [ %89, %86 ]
+  %.sroa.05.1 = phi i64 [ %45, %42 ], [ %89, %86 ]
   %91 = getelementptr inbounds i8, ptr %28, i64 32
   %92 = load i32, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %28, i64 36
@@ -236,7 +236,7 @@ default.unreachable:                              ; preds = %.noexc, %26
 102:                                              ; preds = %96
   %103 = getelementptr inbounds i8, ptr %98, i64 32
   %104 = load i64, ptr %103, align 8
-  %105 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.3, i64 %104)
+  %105 = call i64 @_ZN4core3cmp6min_by17ha10094c908c23ed5E(i64 %.sroa.05.1, i64 %104)
   br label %73
 
 106:                                              ; preds = %_ZN13logos_codegen5graph4meta4Meta16meta_second_pass17hcd3604a2eaff6252E.exit, %73

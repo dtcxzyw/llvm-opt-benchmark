@@ -3423,12 +3423,12 @@ define hidden i32 @strip_trailing_blanks(ptr noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.014 = add i32 %1, -1
-  %3 = icmp sgt i32 %.014, -1
+  %.114 = add i32 %1, -1
+  %3 = icmp sgt i32 %.114, -1
   br i1 %3, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %4 = zext nneg i32 %.014 to i64
+  %4 = zext nneg i32 %.114 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
@@ -3451,8 +3451,8 @@ define hidden i32 @strip_trailing_blanks(ptr noundef %0, i32 noundef %1) local_u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.loopexit.loopexit.split.loop.exit, %.preheader, %2
-  %.1 = phi i32 [ 0, %2 ], [ %.014, %.preheader ], [ %9, %.loopexit.loopexit.split.loop.exit ], [ -1, %7 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %2 ], [ %.114, %.preheader ], [ %9, %.loopexit.loopexit.split.loop.exit ], [ -1, %7 ]
+  ret i32 %.0
 }
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1

@@ -1278,8 +1278,8 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
   %52 = shl nuw nsw i64 %3, 1
   %.not = icmp sge i64 %51, %52
   %53 = zext i1 %.not to i64
-  %.077 = lshr i64 %49, %53
-  %54 = sub i64 %6, %.077
+  %.1 = lshr i64 %49, %53
+  %54 = sub i64 %6, %.1
   %55 = add i64 %54, %3
   br label %58
 
@@ -1289,8 +1289,8 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
 
 58:                                               ; preds = %H5VM_log2_gen.exit.thread._crit_edge, %56, %47
   %59 = phi i8 [ %44, %47 ], [ %44, %56 ], [ %.pre, %H5VM_log2_gen.exit.thread._crit_edge ]
-  %.078 = phi i64 [ %55, %47 ], [ 524288, %56 ], [ 1048576, %H5VM_log2_gen.exit.thread._crit_edge ]
-  %.1 = phi i64 [ %.077, %47 ], [ 524288, %56 ], [ %6, %H5VM_log2_gen.exit.thread._crit_edge ]
+  %.179 = phi i64 [ %55, %47 ], [ 524288, %56 ], [ 1048576, %H5VM_log2_gen.exit.thread._crit_edge ]
+  %.077 = phi i64 [ %.1, %47 ], [ 524288, %56 ], [ %6, %H5VM_log2_gen.exit.thread._crit_edge ]
   %.076 = phi i64 [ %54, %47 ], [ %57, %56 ], [ 0, %H5VM_log2_gen.exit.thread._crit_edge ]
   %60 = getelementptr inbounds i8, ptr %0, i64 48
   %61 = trunc i8 %59 to i1
@@ -1308,11 +1308,11 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
   br i1 %67, label %.thread96, label %89
 
 .thread96:                                        ; preds = %.thread, %66
-  %.07891102 = phi i64 [ %.078, %66 ], [ 524288, %.thread ]
-  %.192101 = phi i64 [ %.1, %66 ], [ 524288, %.thread ]
+  %.17991102 = phi i64 [ %.179, %66 ], [ 524288, %.thread ]
+  %.07792101 = phi i64 [ %.077, %66 ], [ 524288, %.thread ]
   %.07695100 = phi i64 [ %.076, %66 ], [ %62, %.thread ]
   %68 = phi ptr [ %60, %66 ], [ %63, %.thread ]
-  %69 = sub i64 %6, %.192101
+  %69 = sub i64 %6, %.07792101
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1344,7 +1344,7 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
 89:                                               ; preds = %66
   %90 = getelementptr inbounds i8, ptr %0, i64 32
   %91 = load i64, ptr %90, align 8
-  %92 = icmp ugt i64 %.1, %91
+  %92 = icmp ugt i64 %.077, %91
   br i1 %92, label %93, label %108
 
 93:                                               ; preds = %89
@@ -1372,13 +1372,13 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
 
 108:                                              ; preds = %107, %89
   %109 = phi i64 [ %.pre112, %107 ], [ %91, %89 ]
-  %110 = sub i64 %109, %.1
+  %110 = sub i64 %109, %.077
   store i64 %110, ptr %90, align 8
   br label %111
 
 .thread103:                                       ; preds = %.thread, %88, %.thread96
   %.07694.ph = phi i64 [ %.07695100, %.thread96 ], [ %.07695100, %88 ], [ %62, %.thread ]
-  %.07890.ph = phi i64 [ %.07891102, %.thread96 ], [ %.07891102, %88 ], [ 524288, %.thread ]
+  %.17990.ph = phi i64 [ %.17991102, %.thread96 ], [ %.17991102, %88 ], [ 524288, %.thread ]
   store i64 %.07694.ph, ptr %5, align 8
   br label %119
 
@@ -1389,23 +1389,23 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 %.1
+  %115 = getelementptr inbounds i8, ptr %114, i64 %.077
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %114, ptr align 1 %115, i64 %.076, i1 false)
   %116 = getelementptr inbounds i8, ptr %0, i64 8
   %117 = load i64, ptr %116, align 8
-  %118 = add i64 %117, %.1
+  %118 = add i64 %117, %.077
   store i64 %118, ptr %116, align 8
   br label %119
 
 119:                                              ; preds = %.thread103, %111, %113, %H5VM_log2_gen.exit
-  %.179 = phi i64 [ %.078, %113 ], [ %.078, %111 ], [ %34, %H5VM_log2_gen.exit ], [ %.07890.ph, %.thread103 ]
+  %.078 = phi i64 [ %.179, %113 ], [ %.179, %111 ], [ %34, %H5VM_log2_gen.exit ], [ %.17990.ph, %.thread103 ]
   %120 = load i64, ptr %8, align 8
-  %121 = icmp ugt i64 %.179, %120
+  %121 = icmp ugt i64 %.078, %120
   br i1 %121, label %122, label %135
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr %0, align 8
-  %124 = tail call ptr @H5FL_blk_realloc(ptr noundef nonnull @H5_meta_accum_blk_free_list, ptr noundef %123, i64 noundef %.179) #6
+  %124 = tail call ptr @H5FL_blk_realloc(ptr noundef nonnull @H5_meta_accum_blk_free_list, ptr noundef %123, i64 noundef %.078) #6
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %130
 
@@ -1417,11 +1417,11 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
 
 130:                                              ; preds = %122
   store ptr %124, ptr %0, align 8
-  store i64 %.179, ptr %8, align 8
+  store i64 %.078, ptr %8, align 8
   %131 = load i64, ptr %5, align 8
   %132 = getelementptr inbounds i8, ptr %124, i64 %131
   %133 = add i64 %131, %3
-  %134 = sub i64 %.179, %133
+  %134 = sub i64 %.078, %133
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %132, i8 0, i64 %134, i1 false)
   br label %135
 

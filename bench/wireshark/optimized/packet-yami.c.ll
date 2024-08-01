@@ -399,9 +399,9 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %.not353, label %._crit_edge344, label %.lr.ph343
 
 .lr.ph343:                                        ; preds = %70, %88
-  %.0293341 = phi i32 [ %89, %88 ], [ %74, %70 ]
+  %.1341 = phi i32 [ %89, %88 ], [ %74, %70 ]
   %.0294340 = phi i32 [ %90, %88 ], [ 0, %70 ]
-  %76 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0293341) #2
+  %76 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.1341) #2
   br label %77
 
 77:                                               ; preds = %.lr.ph343, %77
@@ -413,7 +413,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.63, ptr noundef nonnull %81) #2
   %82 = load i32, ptr @hf_yami_param_value_bool, align 4
   %83 = lshr i32 %.0295339, 3
-  %84 = add i32 %83, %.0293341
+  %84 = add i32 %83, %.1341
   %85 = zext i1 %80 to i64
   %86 = tail call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %82, ptr noundef %0, i32 noundef %84, i32 noundef 1, i64 noundef %85) #2
   %87 = add nuw nsw i32 %.0295339, 1
@@ -421,19 +421,19 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %exitcond366.not, label %88, label %77, !llvm.loop !6
 
 88:                                               ; preds = %77
-  %89 = add i32 %.0293341, 4
+  %89 = add i32 %.1341, 4
   %90 = add nuw nsw i32 %.0294340, 1
   %exitcond367.not = icmp eq i32 %90, %75
   br i1 %exitcond367.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !7
 
 ._crit_edge344:                                   ; preds = %88, %70
-  %.0293.lcssa = phi i32 [ %74, %70 ], [ %89, %88 ]
+  %.1.lcssa = phi i32 [ %74, %70 ], [ %89, %88 ]
   %91 = and i32 %71, 31
   %.not = icmp eq i32 %91, 0
   br i1 %.not, label %107, label %92
 
 92:                                               ; preds = %._crit_edge344
-  %93 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0293.lcssa) #2
+  %93 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.1.lcssa) #2
   br label %94
 
 94:                                               ; preds = %92, %94
@@ -445,7 +445,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.63, ptr noundef nonnull %98) #2
   %99 = load i32, ptr @hf_yami_param_value_bool, align 4
   %100 = lshr i32 %.1296346, 3
-  %101 = add i32 %100, %.0293.lcssa
+  %101 = add i32 %100, %.1.lcssa
   %102 = zext i1 %97 to i64
   %103 = tail call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %99, ptr noundef %0, i32 noundef %101, i32 noundef 1, i64 noundef %102) #2
   %104 = add nuw nsw i32 %.1296346, 1
@@ -453,11 +453,11 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %exitcond368.not, label %105, label %94, !llvm.loop !8
 
 105:                                              ; preds = %94
-  %106 = add i32 %.0293.lcssa, 4
+  %106 = add i32 %.1.lcssa, 4
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge344
-  %.1 = phi i32 [ %106, %105 ], [ %.0293.lcssa, %._crit_edge344 ]
+  %.2 = phi i32 [ %106, %105 ], [ %.1.lcssa, %._crit_edge344 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.75) #2
   br label %.loopexit
 
@@ -471,19 +471,19 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %.not352, label %._crit_edge337, label %.lr.ph336
 
 .lr.ph336:                                        ; preds = %108, %.lr.ph336
-  %.2334 = phi i32 [ %116, %.lr.ph336 ], [ %112, %108 ]
+  %.3334 = phi i32 [ %116, %.lr.ph336 ], [ %112, %108 ]
   %.0297333 = phi i32 [ %117, %.lr.ph336 ], [ 0, %108 ]
-  %113 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.2334) #2
+  %113 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.3334) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.77, i32 noundef %113) #2
   %114 = load i32, ptr @hf_yami_param_value_int, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %114, ptr noundef %0, i32 noundef %.2334, i32 noundef 4, i32 noundef -2147483648) #2
-  %116 = add i32 %.2334, 4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %114, ptr noundef %0, i32 noundef %.3334, i32 noundef 4, i32 noundef -2147483648) #2
+  %116 = add i32 %.3334, 4
   %117 = add nuw i32 %.0297333, 1
   %exitcond365.not = icmp eq i32 %117, %109
   br i1 %exitcond365.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !9
 
 ._crit_edge337:                                   ; preds = %.lr.ph336, %108
-  %.2.lcssa = phi i32 [ %112, %108 ], [ %116, %.lr.ph336 ]
+  %.3.lcssa = phi i32 [ %112, %108 ], [ %116, %.lr.ph336 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.75) #2
   br label %.loopexit
 
@@ -492,24 +492,24 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   %120 = load i32, ptr @hf_yami_items_count, align 4
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %120, ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef -2147483648) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.78, i32 noundef %119) #2
-  %.3326 = add i32 %17, 8
+  %.4326 = add i32 %17, 8
   %.not351 = icmp eq i32 %119, 0
   br i1 %.not351, label %._crit_edge331, label %.lr.ph330
 
 .lr.ph330:                                        ; preds = %118, %.lr.ph330
-  %.3328 = phi i32 [ %.3, %.lr.ph330 ], [ %.3326, %118 ]
+  %.4328 = phi i32 [ %.4, %.lr.ph330 ], [ %.4326, %118 ]
   %.0299327 = phi i32 [ %125, %.lr.ph330 ], [ 0, %118 ]
-  %122 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.3328) #2
+  %122 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.4328) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.79, i64 noundef %122) #2
   %123 = load i32, ptr @hf_yami_param_value_long, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %123, ptr noundef %0, i32 noundef %.3328, i32 noundef 8, i32 noundef -2147483648) #2
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %123, ptr noundef %0, i32 noundef %.4328, i32 noundef 8, i32 noundef -2147483648) #2
   %125 = add nuw i32 %.0299327, 1
-  %.3 = add i32 %.3328, 8
+  %.4 = add i32 %.4328, 8
   %exitcond364.not = icmp eq i32 %125, %119
   br i1 %exitcond364.not, label %._crit_edge331, label %.lr.ph330, !llvm.loop !10
 
 ._crit_edge331:                                   ; preds = %.lr.ph330, %118
-  %.3.lcssa = phi i32 [ %.3326, %118 ], [ %.3, %.lr.ph330 ]
+  %.4.lcssa = phi i32 [ %.4326, %118 ], [ %.4, %.lr.ph330 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.75) #2
   br label %.loopexit
 
@@ -518,24 +518,24 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   %128 = load i32, ptr @hf_yami_items_count, align 4
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %128, ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef -2147483648) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.80, i32 noundef %127) #2
-  %.4319 = add i32 %17, 8
+  %.5319 = add i32 %17, 8
   %.not350 = icmp eq i32 %127, 0
   br i1 %.not350, label %._crit_edge324, label %.lr.ph323
 
 .lr.ph323:                                        ; preds = %126, %.lr.ph323
-  %.4321 = phi i32 [ %.4, %.lr.ph323 ], [ %.4319, %126 ]
+  %.5321 = phi i32 [ %.5, %.lr.ph323 ], [ %.5319, %126 ]
   %.0300320 = phi i32 [ %133, %.lr.ph323 ], [ 0, %126 ]
-  %130 = tail call double @tvb_get_letohieee_double(ptr noundef %0, i32 noundef %.4321) #2
+  %130 = tail call double @tvb_get_letohieee_double(ptr noundef %0, i32 noundef %.5321) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.81, double noundef %130) #2
   %131 = load i32, ptr @hf_yami_param_value_double, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %131, ptr noundef %0, i32 noundef %.4321, i32 noundef 8, i32 noundef -2147483648) #2
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %131, ptr noundef %0, i32 noundef %.5321, i32 noundef 8, i32 noundef -2147483648) #2
   %133 = add nuw i32 %.0300320, 1
-  %.4 = add i32 %.4321, 8
+  %.5 = add i32 %.5321, 8
   %exitcond363.not = icmp eq i32 %133, %127
   br i1 %exitcond363.not, label %._crit_edge324, label %.lr.ph323, !llvm.loop !11
 
 ._crit_edge324:                                   ; preds = %.lr.ph323, %126
-  %.4.lcssa = phi i32 [ %.4319, %126 ], [ %.4, %.lr.ph323 ]
+  %.5.lcssa = phi i32 [ %.5319, %126 ], [ %.5, %.lr.ph323 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.75) #2
   br label %.loopexit
 
@@ -549,15 +549,15 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %.not349, label %._crit_edge317, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %134, %.lr.ph316
-  %.5314 = phi i32 [ %147, %.lr.ph316 ], [ %138, %134 ]
+  %.6314 = phi i32 [ %147, %.lr.ph316 ], [ %138, %134 ]
   %.0301313 = phi i32 [ %148, %.lr.ph316 ], [ 0, %134 ]
-  %139 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.5314) #2
-  %140 = add i32 %.5314, 4
+  %139 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.6314) #2
+  %140 = add i32 %.6314, 4
   %141 = load ptr, ptr %12, align 8
   %142 = tail call ptr @tvb_get_string_enc(ptr noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %139, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.83, ptr noundef %142) #2
   %143 = load i32, ptr @hf_yami_param_value_str, align 4
-  %144 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %143, ptr noundef %0, i32 noundef %.5314, i32 noundef 4, ptr noundef %142) #2
+  %144 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %143, ptr noundef %0, i32 noundef %.6314, i32 noundef 4, ptr noundef %142) #2
   %145 = add i32 %139, 3
   %146 = and i32 %145, -4
   %147 = add i32 %146, %140
@@ -566,7 +566,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %exitcond362.not, label %._crit_edge317, label %.lr.ph316, !llvm.loop !12
 
 ._crit_edge317:                                   ; preds = %.lr.ph316, %134
-  %.5.lcssa = phi i32 [ %138, %134 ], [ %147, %.lr.ph316 ]
+  %.6.lcssa = phi i32 [ %138, %134 ], [ %147, %.lr.ph316 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.75) #2
   br label %.loopexit
 
@@ -580,10 +580,10 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br i1 %.not348, label %._crit_edge, label %.lr.ph311
 
 .lr.ph311:                                        ; preds = %149, %.lr.ph311
-  %.6310 = phi i32 [ %162, %.lr.ph311 ], [ %153, %149 ]
+  %.7310 = phi i32 [ %162, %.lr.ph311 ], [ %153, %149 ]
   %.0298309 = phi i32 [ %166, %.lr.ph311 ], [ 0, %149 ]
-  %154 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.6310) #2
-  %155 = add i32 %.6310, 4
+  %154 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.7310) #2
+  %155 = add i32 %.7310, 4
   %156 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %155, i32 noundef %154) #2
   %157 = load ptr, ptr %12, align 8
   %158 = zext i32 %154 to i64
@@ -593,14 +593,14 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   %161 = and i32 %160, -4
   %162 = add i32 %161, %155
   %163 = load i32, ptr @hf_yami_param_value_bin, align 4
-  %164 = sub i32 %162, %.6310
-  %165 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %9, i32 noundef %163, ptr noundef %0, i32 noundef %.6310, i32 noundef %164, ptr noundef %156, ptr noundef nonnull @.str.58, ptr noundef %159) #2
+  %164 = sub i32 %162, %.7310
+  %165 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %9, i32 noundef %163, ptr noundef %0, i32 noundef %.7310, i32 noundef %164, ptr noundef %156, ptr noundef nonnull @.str.58, ptr noundef %159) #2
   %166 = add nuw i32 %.0298309, 1
   %exitcond361.not = icmp eq i32 %166, %150
   br i1 %exitcond361.not, label %._crit_edge, label %.lr.ph311, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph311, %149
-  %.6.lcssa = phi i32 [ %153, %149 ], [ %162, %.lr.ph311 ]
+  %.7.lcssa = phi i32 [ %153, %149 ], [ %162, %.lr.ph311 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.75) #2
   br label %.loopexit
 
@@ -620,8 +620,8 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
 
 .lr.ph:                                           ; preds = %167, %172
   %.0308 = phi i32 [ %173, %172 ], [ 0, %167 ]
-  %.7307 = phi i32 [ %174, %172 ], [ %171, %167 ]
-  %174 = tail call fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %.7307, ptr noundef %7)
+  %.8307 = phi i32 [ %174, %172 ], [ %171, %167 ]
+  %174 = tail call fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %.8307, ptr noundef %7)
   %175 = icmp eq i32 %174, -1
   br i1 %175, label %.loopexit305, label %172
 
@@ -630,13 +630,13 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   br label %.loopexit305
 
 .loopexit:                                        ; preds = %172, %167, %._crit_edge, %._crit_edge317, %._crit_edge324, %._crit_edge331, %._crit_edge337, %107, %57, %46, %41, %36, %31, %25
-  %.8 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.5.lcssa, %._crit_edge317 ], [ %.4.lcssa, %._crit_edge324 ], [ %.3.lcssa, %._crit_edge331 ], [ %.2.lcssa, %._crit_edge337 ], [ %.1, %107 ], [ %66, %57 ], [ %53, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %25 ], [ %171, %167 ], [ %174, %172 ]
-  %177 = sub i32 %.8, %3
+  %.0293 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %.6.lcssa, %._crit_edge317 ], [ %.5.lcssa, %._crit_edge324 ], [ %.4.lcssa, %._crit_edge331 ], [ %.3.lcssa, %._crit_edge337 ], [ %.2, %107 ], [ %66, %57 ], [ %53, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %25 ], [ %171, %167 ], [ %174, %172 ]
+  %177 = sub i32 %.0293, %3
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %177) #2
   br label %.loopexit305
 
 .loopexit305:                                     ; preds = %.lr.ph, %.loopexit, %176
-  %.0292 = phi i32 [ -1, %176 ], [ %.8, %.loopexit ], [ -1, %.lr.ph ]
+  %.0292 = phi i32 [ -1, %176 ], [ %.0293, %.loopexit ], [ -1, %.lr.ph ]
   ret i32 %.0292
 }
 

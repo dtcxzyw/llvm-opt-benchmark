@@ -371,7 +371,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
 
 .preheader.i:                                     ; preds = %52, %.preheader.lr.ph.i
   %indvars.iv43.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next44.i, %52 ]
-  %.02935.i = phi i32 [ 1, %.preheader.lr.ph.i ], [ %.2.i, %52 ]
+  %.02935.i = phi i32 [ 1, %.preheader.lr.ph.i ], [ %.1.i, %52 ]
   %8 = zext i32 %.02935.i to i64
   %smin.i = tail call i32 @llvm.smin.i32(i32 %.02935.i, i32 0)
   br label %9
@@ -454,7 +454,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   br label %52
 
 52:                                               ; preds = %._crit_edge.i, %37
-  %.2.i = phi i32 [ %.02935.i, %37 ], [ %spec.select.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ %.02935.i, %37 ], [ %spec.select.i, %._crit_edge.i ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44.i, %7
   br i1 %exitcond.not, label %Map_MappingFindLatest.exit, label %.preheader.i, !llvm.loop !12

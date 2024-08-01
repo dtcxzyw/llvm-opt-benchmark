@@ -1113,14 +1113,14 @@ if.then99:                                        ; preds = %if.then96
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then96, %if.then99, %land.lhs.true92, %land.lhs.true86, %if.then84
-  %result.2 = phi i32 [ %result.1126, %if.then84 ], [ %call97, %if.then99 ], [ 0, %if.then96 ], [ 0, %land.lhs.true92 ], [ 0, %land.lhs.true86 ]
+  %result.3 = phi i32 [ %result.1126, %if.then84 ], [ %call97, %if.then99 ], [ 0, %if.then96 ], [ 0, %land.lhs.true92 ], [ 0, %land.lhs.true86 ]
   call void @Curl_conn_close(ptr noundef %data, i32 noundef 1) #10
   call void @Curl_conn_cf_discard_all(ptr noundef %data, ptr noundef nonnull %0, i32 noundef 1) #10
   br label %if.end107
 
 if.end107:                                        ; preds = %if.end106, %freedirs.exit
-  %result.3 = phi i32 [ %result.2, %if.end106 ], [ %result.1126, %freedirs.exit ]
-  %tobool108.not = icmp eq i32 %result.3, 0
+  %result.2 = phi i32 [ %result.3, %if.end106 ], [ %result.1126, %freedirs.exit ]
+  %tobool108.not = icmp eq i32 %result.2, 0
   br i1 %tobool108.not, label %land.lhs.true109, label %if.end269
 
 land.lhs.true109:                                 ; preds = %if.end107
@@ -1311,7 +1311,7 @@ if.then265:                                       ; preds = %land.lhs.true256
   br label %if.end269
 
 if.end269:                                        ; preds = %sw.bb179, %sw.default180, %if.end107, %if.end183, %if.then215, %land.lhs.true211, %land.lhs.true204, %land.lhs.true198, %if.then194, %if.else249, %land.lhs.true256, %if.then265, %if.then246
-  %result.5 = phi i32 [ 0, %if.end183 ], [ 0, %land.lhs.true204 ], [ 18, %if.then215 ], [ 0, %land.lhs.true211 ], [ 0, %land.lhs.true198 ], [ 0, %if.then194 ], [ 18, %if.then246 ], [ 0, %if.else249 ], [ 0, %land.lhs.true256 ], [ 19, %if.then265 ], [ 70, %sw.bb179 ], [ 18, %sw.default180 ], [ %result.3, %if.end107 ]
+  %result.5 = phi i32 [ 0, %if.end183 ], [ 0, %land.lhs.true204 ], [ 18, %if.then215 ], [ 0, %land.lhs.true211 ], [ 0, %land.lhs.true198 ], [ 0, %if.then194 ], [ 18, %if.then246 ], [ 0, %if.else249 ], [ 0, %land.lhs.true256 ], [ 19, %if.then265 ], [ 70, %sw.bb179 ], [ 18, %sw.default180 ], [ %result.2, %if.end107 ]
   %transfer270 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %transfer270, align 8
   %dont_check271 = getelementptr inbounds i8, ptr %0, i64 1106
@@ -5649,8 +5649,8 @@ if.else37:                                        ; preds = %if.else26
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then32, %if.else37, %cond.end
-  %result.0 = phi i32 [ %call36, %if.then32 ], [ %call41, %if.else37 ], [ %call25, %cond.end ]
-  %tobool43.not = icmp eq i32 %result.0, 0
+  %result.1 = phi i32 [ %call36, %if.then32 ], [ %call41, %if.else37 ], [ %call25, %cond.end ]
+  %tobool43.not = icmp eq i32 %result.1, 0
   br i1 %tobool43.not, label %if.then44, label %if.end50
 
 if.then44:                                        ; preds = %if.end42
@@ -5698,8 +5698,8 @@ if.then22.i:                                      ; preds = %land.lhs.true17.i
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then22.i, %land.lhs.true17.i, %if.end.i, %if.then2, %if.end42, %if.then44, %if.then
-  %result.1 = phi i32 [ %call, %if.then ], [ %call3, %if.then2 ], [ %result.0, %if.end42 ], [ 0, %if.then44 ], [ %call.i, %if.end.i ], [ 0, %land.lhs.true17.i ], [ 0, %if.then22.i ]
-  ret i32 %result.1
+  %result.0 = phi i32 [ %call, %if.then ], [ %call3, %if.then2 ], [ %result.1, %if.end42 ], [ 0, %if.then44 ], [ %call.i, %if.end.i ], [ 0, %land.lhs.true17.i ], [ 0, %if.then22.i ]
+  ret i32 %result.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5788,11 +5788,11 @@ if.then45:                                        ; preds = %if.then39
 if.end52:                                         ; preds = %if.then21, %if.then39, %if.then36, %if.then45
   %addrlen.0148 = phi i64 [ %addrlen.0, %if.then45 ], [ %addrlen.0, %if.then36 ], [ %addrlen.0, %if.then39 ], [ %sub.ptr.sub24, %if.then21 ]
   %addr.0147 = phi ptr [ %addr.0, %if.then45 ], [ %addr.0, %if.then36 ], [ %addr.0, %if.then39 ], [ %1, %if.then21 ]
-  %port_min.1 = phi i16 [ %call42, %if.then45 ], [ 0, %if.then36 ], [ %call42, %if.then39 ], [ 0, %if.then21 ]
-  %port_max.1 = phi i16 [ %call48, %if.then45 ], [ 0, %if.then36 ], [ %call42, %if.then39 ], [ 0, %if.then21 ]
-  %cmp55 = icmp ugt i16 %port_min.1, %port_max.1
-  %spec.select137 = select i1 %cmp55, i16 0, i16 %port_min.1
-  %spec.select138 = select i1 %cmp55, i16 0, i16 %port_max.1
+  %port_min.2 = phi i16 [ %call42, %if.then45 ], [ 0, %if.then36 ], [ %call42, %if.then39 ], [ 0, %if.then21 ]
+  %port_max.2 = phi i16 [ %call48, %if.then45 ], [ 0, %if.then36 ], [ %call42, %if.then39 ], [ 0, %if.then21 ]
+  %cmp55 = icmp ugt i16 %port_min.2, %port_max.2
+  %spec.select137 = select i1 %cmp55, i16 0, i16 %port_min.2
+  %spec.select138 = select i1 %cmp55, i16 0, i16 %port_max.2
   %tobool59.not = icmp eq i64 %addrlen.0148, 0
   br i1 %tobool59.not, label %if.then79, label %do.end
 
@@ -5826,8 +5826,8 @@ sw.bb73:                                          ; preds = %if.end64
   br label %if.end104
 
 if.then79:                                        ; preds = %if.then10, %if.end64, %land.lhs.true, %entry, %if.end52
-  %port_min.3.ph = phi i16 [ %spec.select137, %if.end52 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %spec.select137185, %if.end64 ], [ 0, %if.then10 ]
-  %port_max.3.ph = phi i16 [ %spec.select138, %if.end52 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %spec.select138186, %if.end64 ], [ 0, %if.then10 ]
+  %port_min.0.ph = phi i16 [ %spec.select137, %if.end52 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %spec.select137185, %if.end64 ], [ 0, %if.then10 ]
+  %port_max.0.ph = phi i16 [ %spec.select138, %if.end52 ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %spec.select138186, %if.end64 ], [ 0, %if.then10 ]
   store i32 128, ptr %sslen, align 4
   %sock = getelementptr inbounds i8, ptr %0, i64 392
   %6 = load i32, ptr %sock, align 8
@@ -5853,8 +5853,8 @@ if.end87:                                         ; preds = %if.then79
   br i1 %tobool100.not, label %if.end322, label %if.end104
 
 if.end104:                                        ; preds = %if.end64, %sw.bb73, %if.end87
-  %port_max.3155 = phi i16 [ %port_max.3.ph, %if.end87 ], [ %spec.select138186, %sw.bb73 ], [ %spec.select138186, %if.end64 ]
-  %port_min.3153 = phi i16 [ %port_min.3.ph, %if.end87 ], [ %spec.select137185, %sw.bb73 ], [ %spec.select137185, %if.end64 ]
+  %port_max.0155 = phi i16 [ %port_max.0.ph, %if.end87 ], [ %spec.select138186, %sw.bb73 ], [ %spec.select138186, %if.end64 ]
+  %port_min.0153 = phi i16 [ %port_min.0.ph, %if.end87 ], [ %spec.select137185, %sw.bb73 ], [ %spec.select137185, %if.end64 ]
   %host.1 = phi ptr [ %hbuf, %if.end87 ], [ %hbuf, %sw.bb73 ], [ %ipstr, %if.end64 ]
   %possibly_non_local.0 = phi i1 [ false, %if.end87 ], [ true, %sw.bb73 ], [ true, %if.end64 ]
   %call105 = call i32 @Curl_resolv(ptr noundef nonnull %data, ptr noundef nonnull %host.1, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %h) #10
@@ -5914,7 +5914,7 @@ do.end132:                                        ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ss, ptr align 2 %14, i64 %conv133, i1 false)
   %16 = load i32, ptr %ai_addrlen, align 8
   store i32 %16, ptr %sslen, align 4
-  %cmp138.not202 = icmp ugt i16 %port_min.3153, %port_max.3155
+  %cmp138.not202 = icmp ugt i16 %port_min.0153, %port_max.0155
   %sin6_port = getelementptr inbounds i8, ptr %ss, i64 2
   %tobool161.not = icmp eq ptr %data, null
   %verbose = getelementptr inbounds i8, ptr %data, i64 2706
@@ -5928,7 +5928,7 @@ for.body140.us.preheader:                         ; preds = %do.end170, %for.con
   br label %for.body140.us
 
 for.body140.us:                                   ; preds = %for.body140.us.preheader, %if.end192.us
-  %port.0203.us = phi i16 [ %inc.us, %if.end192.us ], [ %port_min.3153, %for.body140.us.preheader ]
+  %port.0203.us = phi i16 [ %inc.us, %if.end192.us ], [ %port_min.0153, %for.body140.us.preheader ]
   %call146.us = call zeroext i16 @htons(i16 noundef zeroext %port.0203.us) #12
   store i16 %call146.us, ptr %sin6_port, align 2
   %17 = load i32, ptr %portsock, align 4
@@ -5947,11 +5947,11 @@ if.then152.us:                                    ; preds = %for.body140.us
 
 if.end192.us:                                     ; preds = %if.then152.us, %if.then152.us
   %inc.us = add i16 %port.0203.us, 1
-  %cmp138.not.us = icmp ugt i16 %inc.us, %port_max.3155
+  %cmp138.not.us = icmp ugt i16 %inc.us, %port_max.0155
   br i1 %cmp138.not.us, label %if.then198, label %for.body140.us, !llvm.loop !20
 
 for.body140:                                      ; preds = %for.cond135.outer, %if.end192
-  %port.0203 = phi i16 [ %inc, %if.end192 ], [ %port_min.3153, %for.cond135.outer ]
+  %port.0203 = phi i16 [ %inc, %if.end192 ], [ %port_min.0153, %for.cond135.outer ]
   %call146 = call zeroext i16 @htons(i16 noundef zeroext %port.0203) #12
   store i16 %call146, ptr %sin6_port, align 2
   %20 = load i32, ptr %portsock, align 4
@@ -6007,7 +6007,7 @@ if.then186:                                       ; preds = %if.then152, %if.the
 
 if.end192:                                        ; preds = %if.then152, %if.then152
   %inc = add i16 %port.0203, 1
-  %cmp138.not = icmp ugt i16 %inc, %port_max.3155
+  %cmp138.not = icmp ugt i16 %inc, %port_max.0155
   br i1 %cmp138.not, label %if.then198, label %for.body140, !llvm.loop !20
 
 if.then198:                                       ; preds = %if.end192, %if.end192.us, %do.end132

@@ -1511,9 +1511,9 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   br label %590
 
 590:                                              ; preds = %587, %.split.us.i
-  %.7127.us.i = phi ptr [ %588, %587 ], [ %.4124160.us.i, %.split.us.i ]
-  %.7.us.i = phi i64 [ %589, %587 ], [ %.4159.us.i, %.split.us.i ]
-  %591 = load i8, ptr %.7127.us.i, align 1
+  %.8128.us.i = phi ptr [ %588, %587 ], [ %.4124160.us.i, %.split.us.i ]
+  %.8.us.i = phi i64 [ %589, %587 ], [ %.4159.us.i, %.split.us.i ]
+  %591 = load i8, ptr %.8128.us.i, align 1
   %592 = zext i8 %591 to i16
   %593 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %indvars.iv174.i
   %594 = load i32, ptr %593, align 4
@@ -1521,8 +1521,8 @@ get_dht.exit:                                     ; preds = %._crit_edge169.i, %
   %596 = getelementptr inbounds [64 x i16], ptr %582, i64 0, i64 %595
   store i16 %592, ptr %596, align 2
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
-  %.4.us.i = add i64 %.7.us.i, -1
-  %.4124.us.i = getelementptr inbounds i8, ptr %.7127.us.i, i64 1
+  %.4.us.i = add i64 %.8.us.i, -1
+  %.4124.us.i = getelementptr inbounds i8, ptr %.8128.us.i, i64 1
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next175.i, 64
   br i1 %exitcond177.not.i, label %.split162.us.i, label %.split.us.i, !llvm.loop !15
 

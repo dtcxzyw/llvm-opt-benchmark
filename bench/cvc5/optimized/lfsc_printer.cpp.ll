@@ -6637,7 +6637,7 @@ invoke.cont179:                                   ; preds = %if.then178
   br i1 %cmp.i313.not608, label %if.end193, label %for.body
 
 for.body:                                         ; preds = %invoke.cont179, %invoke.cont191
-  %cparenTrustChild.0610 = phi i64 [ %add, %invoke.cont191 ], [ 0, %invoke.cont179 ]
+  %cparenTrustChild.1610 = phi i64 [ %add, %invoke.cont191 ], [ 0, %invoke.cont179 ]
   %__begin10.sroa.0.0609 = phi ptr [ %incdec.ptr.i322, %invoke.cont191 ], [ %160, %invoke.cont179 ]
   %162 = load i64, ptr %d_trustChildPletCounter, align 8
   %inc189 = add i64 %162, 1
@@ -6696,13 +6696,13 @@ for.body:                                         ; preds = %invoke.cont179, %in
           to label %invoke.cont191 unwind label %lpad134.loopexit.split-lp.loopexit
 
 invoke.cont191:                                   ; preds = %.noexc320
-  %add = add i64 %cparenTrustChild.0610, 2
+  %add = add i64 %cparenTrustChild.1610, 2
   %incdec.ptr.i322 = getelementptr inbounds i8, ptr %__begin10.sroa.0.0609, i64 16
   %cmp.i313.not = icmp eq ptr %incdec.ptr.i322, %161
   br i1 %cmp.i313.not, label %if.end193, label %for.body
 
 if.end193:                                        ; preds = %invoke.cont191, %invoke.cont179, %invoke.cont175
-  %cparenTrustChild.1 = phi i64 [ 0, %invoke.cont175 ], [ 0, %invoke.cont179 ], [ %add, %invoke.cont191 ]
+  %cparenTrustChild.0 = phi i64 [ 0, %invoke.cont175 ], [ 0, %invoke.cont179 ], [ %add, %invoke.cont191 ]
   %171 = load ptr, ptr %d_tproc194, align 8
   %172 = load ptr, ptr %cur, align 8
   invoke void @_ZNK4cvc58internal9ProofNode9getResultEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.tmp195, ptr noundef nonnull align 8 dereferenceable(65) %172)
@@ -6899,7 +6899,7 @@ invoke.cont218:                                   ; preds = %invoke.cont216
   %vtable221 = load ptr, ptr %out, align 8
   %vfn222 = getelementptr inbounds i8, ptr %vtable221, i64 64
   %195 = load ptr, ptr %vfn222, align 8
-  invoke void %195(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %cparenTrustChild.1)
+  invoke void %195(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %cparenTrustChild.0)
           to label %invoke.cont223 unwind label %lpad202
 
 invoke.cont223:                                   ; preds = %invoke.cont218
@@ -11172,7 +11172,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEE4findERS8_.exit
-  %cparen.017 = phi i64 [ 0, %for.cond.preheader ], [ %add, %_ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEE4findERS8_.exit ]
+  %cparen.117 = phi i64 [ 0, %for.cond.preheader ], [ %add, %_ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEE4findERS8_.exit ]
   %__begin3.sroa.0.016 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %_ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEE4findERS8_.exit ]
   %2 = load ptr, ptr %__begin3.sroa.0.016, align 8
   store ptr %2, ptr %p, align 8
@@ -11241,7 +11241,7 @@ _ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEE4findERS8_
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %out)
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) %pletMap, ptr noundef nonnull align 8 dereferenceable(8) %p)
   store i64 %6, ptr %call11, align 8
-  %add = add i64 %cparen.017, 2
+  %add = add i64 %cparen.117, 2
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.016, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -11254,12 +11254,12 @@ for.end:                                          ; preds = %_ZNSt3mapIPKN4cvc58
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %cparen.1 = phi i64 [ 0, %entry ], [ %add, %for.end ]
+  %cparen.0 = phi i64 [ 0, %entry ], [ %add, %for.end ]
   call void @_ZN4cvc58internal5proof11LfscPrinter18printProofInternalEPNS1_16LfscPrintChannelEPKNS0_9ProofNodeERKNS0_10LetBindingERKSt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEERSB_INS0_12NodeTemplateILb1EEEmSC_ISM_ESaISE_IKSM_mEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %out, ptr noundef %pn, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 dereferenceable(48) %pletMap, ptr noundef nonnull align 8 dereferenceable(48) %passumeMap)
   %vtable13 = load ptr, ptr %out, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 64
   %16 = load ptr, ptr %vfn14, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %cparen.1)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %cparen.0)
   ret void
 }
 

@@ -1772,7 +1772,7 @@ _ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67.preheader: ; p
 
 56:                                               ; preds = %.lr.ph, %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67
   %.047104 = phi ptr [ %.047101, %.lr.ph ], [ %.047, %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67 ]
-  %.044103 = phi i1 [ false, %.lr.ph ], [ %.145, %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67 ]
+  %.145103 = phi i1 [ false, %.lr.ph ], [ %.246, %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67 ]
   %57 = call noundef ptr @_ZNK15AstClassExtends6classpEv(ptr noundef nonnull align 8 dereferenceable(160) %.047104)
   %58 = load ptr, ptr %1, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 56
@@ -2036,7 +2036,7 @@ _ZNK7AstNode20warnContextSecondaryB5cxx11Ev.exit75: ; preds = %135
   br label %common.resume
 
 _ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67: ; preds = %_ZN7AstNode11privateCastI12AstNodeFTaskPS_EEPT_S2_.exit, %109, %139
-  %.145 = phi i1 [ true, %139 ], [ true, %109 ], [ %.044103, %_ZN7AstNode11privateCastI12AstNodeFTaskPS_EEPT_S2_.exit ]
+  %.246 = phi i1 [ true, %139 ], [ true, %109 ], [ %.145103, %_ZN7AstNode11privateCastI12AstNodeFTaskPS_EEPT_S2_.exit ]
   %150 = call noundef ptr @_ZNK15AstClassExtends6classpEv(ptr noundef nonnull align 8 dereferenceable(160) %.047104)
   %.047.in = getelementptr inbounds i8, ptr %150, i64 48
   %.047 = load ptr, ptr %.047.in, align 8
@@ -2044,7 +2044,7 @@ _ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67: ; preds = %_Z
   br i1 %.not52, label %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67._crit_edge, label %56, !llvm.loop !29
 
 _ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67._crit_edge: ; preds = %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67
-  br i1 %.145, label %.critedge, label %.thread
+  br i1 %.246, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67.preheader, %48, %50, %_ZN7AstNode11privateCastI8AstClassP13AstNodeModuleEEPT_PS_.exit67._crit_edge
   %151 = getelementptr inbounds i8, ptr %1, i64 227

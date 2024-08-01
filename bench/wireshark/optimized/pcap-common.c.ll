@@ -764,8 +764,8 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %215
 
 279:                                              ; preds = %324, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %324 ]
-  %.086.i = phi i32 [ 16, %.preheader.i ], [ %284, %324 ]
-  %280 = icmp eq i32 %.086.i, 2147483640
+  %.1.i = phi i32 [ 16, %.preheader.i ], [ %284, %324 ]
+  %280 = icmp eq i32 %.1.i, 2147483640
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %279
@@ -774,7 +774,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %215
   br label %pcap_read_erf_pseudoheader.exit.thread.sink.split
 
 283:                                              ; preds = %279
-  %284 = add nuw nsw i32 %.086.i, 8
+  %284 = add nuw nsw i32 %.1.i, 8
   %285 = icmp ugt i32 %284, %3
   br i1 %285, label %286, label %288
 
@@ -838,7 +838,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %215
 
 .loopexit106.i:                                   ; preds = %.loopexit106.loopexit.i, %269
   %325 = phi i8 [ %229, %269 ], [ %.pre112.i, %.loopexit106.loopexit.i ]
-  %.1.i = phi i32 [ 16, %269 ], [ %284, %.loopexit106.loopexit.i ]
+  %.086.i = phi i32 [ 16, %269 ], [ %284, %.loopexit106.loopexit.i ]
   %326 = and i8 %325, 127
   switch i8 %326, label %pcap_read_erf_pseudoheader.exit.thread149 [
     i8 5, label %327
@@ -862,7 +862,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
   br label %430
 
 327:                                              ; preds = %.loopexit106.i, %.loopexit106.i, %.loopexit106.i, %.loopexit106.i, %.loopexit106.i, %.loopexit106.i, %.loopexit106.i
-  %328 = icmp sgt i32 %.1.i, 2147483643
+  %328 = icmp sgt i32 %.086.i, 2147483643
   br i1 %328, label %329, label %331
 
 329:                                              ; preds = %327
@@ -871,7 +871,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
   br label %pcap_read_erf_pseudoheader.exit.thread.sink.split
 
 331:                                              ; preds = %327
-  %332 = add nsw i32 %.1.i, 4
+  %332 = add nsw i32 %.086.i, 4
   %333 = icmp ugt i32 %332, %3
   br i1 %333, label %334, label %336
 
@@ -908,7 +908,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
   br label %pcap_read_erf_pseudoheader.exit
 
 357:                                              ; preds = %.loopexit106.i
-  %358 = icmp sgt i32 %.1.i, 2147483643
+  %358 = icmp sgt i32 %.086.i, 2147483643
   br i1 %358, label %359, label %361
 
 359:                                              ; preds = %357
@@ -917,7 +917,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
   br label %pcap_read_erf_pseudoheader.exit.thread.sink.split
 
 361:                                              ; preds = %357
-  %362 = add nsw i32 %.1.i, 4
+  %362 = add nsw i32 %.086.i, 4
   %363 = icmp ugt i32 %362, %3
   br i1 %363, label %364, label %366
 
@@ -954,7 +954,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
   br label %pcap_read_erf_pseudoheader.exit
 
 387:                                              ; preds = %.loopexit106.i, %.loopexit106.i, %.loopexit106.i, %.loopexit106.i
-  %388 = icmp sgt i32 %.1.i, 2147483645
+  %388 = icmp sgt i32 %.086.i, 2147483645
   br i1 %388, label %389, label %391
 
 389:                                              ; preds = %387
@@ -963,7 +963,7 @@ pcap_read_erf_pseudoheader.exit.thread149:        ; preds = %.loopexit106.i
   br label %pcap_read_erf_pseudoheader.exit.thread.sink.split
 
 391:                                              ; preds = %387
-  %392 = add nsw i32 %.1.i, 2
+  %392 = add nsw i32 %.086.i, 2
   %393 = icmp ugt i32 %392, %3
   br i1 %393, label %394, label %396
 
@@ -1053,7 +1053,7 @@ pcap_read_i2c_linux_pseudoheader.exit:            ; preds = %406
   br label %430
 
 430:                                              ; preds = %pcap_read_erf_pseudoheader.exit, %7, %94, %96, %176, %pcap_read_nokiaatm_pseudoheader.exit, %pcap_read_sunatm_pseudoheader.exit, %pcap_read_irda_pseudoheader.exit, %pcap_read_mtp2_pseudoheader.exit, %pcap_read_lapd_pseudoheader.exit, %pcap_read_sita_pseudoheader.exit, %pcap_read_bt_pseudoheader.exit, %pcap_read_bt_monitor_pseudoheader.exit, %pcap_read_llcp_pseudoheader.exit, %pcap_read_ppp_pseudoheader.exit, %pcap_read_erf_pseudoheader.exit.thread149, %pcap_read_i2c_linux_pseudoheader.exit, %pcap_read_i2c_linux_pseudoheader.exit.thread, %pcap_read_erf_pseudoheader.exit.thread, %pcap_read_ppp_pseudoheader.exit.thread, %pcap_read_llcp_pseudoheader.exit.thread, %pcap_read_bt_monitor_pseudoheader.exit.thread, %pcap_read_bt_pseudoheader.exit.thread, %pcap_read_sita_pseudoheader.exit.thread, %pcap_read_lapd_pseudoheader.exit.thread, %pcap_read_mtp2_pseudoheader.exit.thread, %pcap_read_irda_pseudoheader.exit.thread, %pcap_read_nokia_pseudoheader.exit.thread, %pcap_read_sunatm_pseudoheader.exit.thread, %pcap_read_nokiaatm_pseudoheader.exit.thread
-  %.087 = phi i32 [ -1, %pcap_read_nokiaatm_pseudoheader.exit.thread ], [ -1, %pcap_read_sunatm_pseudoheader.exit.thread ], [ -1, %pcap_read_nokia_pseudoheader.exit.thread ], [ -1, %pcap_read_irda_pseudoheader.exit.thread ], [ -1, %pcap_read_mtp2_pseudoheader.exit.thread ], [ -1, %pcap_read_lapd_pseudoheader.exit.thread ], [ -1, %pcap_read_sita_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_monitor_pseudoheader.exit.thread ], [ -1, %pcap_read_llcp_pseudoheader.exit.thread ], [ -1, %pcap_read_ppp_pseudoheader.exit.thread ], [ -1, %pcap_read_erf_pseudoheader.exit.thread ], [ -1, %pcap_read_i2c_linux_pseudoheader.exit.thread ], [ 0, %7 ], [ 5, %pcap_read_i2c_linux_pseudoheader.exit ], [ 1, %pcap_read_ppp_pseudoheader.exit ], [ 2, %pcap_read_llcp_pseudoheader.exit ], [ 4, %pcap_read_bt_monitor_pseudoheader.exit ], [ 4, %pcap_read_bt_pseudoheader.exit ], [ 0, %176 ], [ 5, %pcap_read_sita_pseudoheader.exit ], [ 16, %pcap_read_lapd_pseudoheader.exit ], [ 4, %pcap_read_mtp2_pseudoheader.exit ], [ 16, %pcap_read_irda_pseudoheader.exit ], [ 0, %96 ], [ 0, %94 ], [ 4, %pcap_read_nokiaatm_pseudoheader.exit ], [ 4, %pcap_read_sunatm_pseudoheader.exit ], [ %.1.i, %pcap_read_erf_pseudoheader.exit.thread149 ], [ %.0.i132, %pcap_read_erf_pseudoheader.exit ]
+  %.087 = phi i32 [ -1, %pcap_read_nokiaatm_pseudoheader.exit.thread ], [ -1, %pcap_read_sunatm_pseudoheader.exit.thread ], [ -1, %pcap_read_nokia_pseudoheader.exit.thread ], [ -1, %pcap_read_irda_pseudoheader.exit.thread ], [ -1, %pcap_read_mtp2_pseudoheader.exit.thread ], [ -1, %pcap_read_lapd_pseudoheader.exit.thread ], [ -1, %pcap_read_sita_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_pseudoheader.exit.thread ], [ -1, %pcap_read_bt_monitor_pseudoheader.exit.thread ], [ -1, %pcap_read_llcp_pseudoheader.exit.thread ], [ -1, %pcap_read_ppp_pseudoheader.exit.thread ], [ -1, %pcap_read_erf_pseudoheader.exit.thread ], [ -1, %pcap_read_i2c_linux_pseudoheader.exit.thread ], [ 0, %7 ], [ 5, %pcap_read_i2c_linux_pseudoheader.exit ], [ 1, %pcap_read_ppp_pseudoheader.exit ], [ 2, %pcap_read_llcp_pseudoheader.exit ], [ 4, %pcap_read_bt_monitor_pseudoheader.exit ], [ 4, %pcap_read_bt_pseudoheader.exit ], [ 0, %176 ], [ 5, %pcap_read_sita_pseudoheader.exit ], [ 16, %pcap_read_lapd_pseudoheader.exit ], [ 4, %pcap_read_mtp2_pseudoheader.exit ], [ 16, %pcap_read_irda_pseudoheader.exit ], [ 0, %96 ], [ 0, %94 ], [ 4, %pcap_read_nokiaatm_pseudoheader.exit ], [ 4, %pcap_read_sunatm_pseudoheader.exit ], [ %.086.i, %pcap_read_erf_pseudoheader.exit.thread149 ], [ %.0.i132, %pcap_read_erf_pseudoheader.exit ]
   ret i32 %.087
 }
 
@@ -1741,10 +1741,10 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef read
 
 12:                                               ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %.0 = phi i32 [ 16, %.preheader ], [ %15, %12 ]
+  %.2 = phi i32 [ 16, %.preheader ], [ %15, %12 ]
   %13 = getelementptr [16 x %struct.erf_ehdr], ptr %11, i64 0, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
-  %15 = add nuw nsw i32 %.0, 8
+  %15 = add nuw nsw i32 %.2, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp slt i64 %14, 0
   %17 = icmp ult i64 %indvars.iv, 15
@@ -1788,8 +1788,8 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef read
   br label %28
 
 28:                                               ; preds = %2, %2, %2, %2, %20, %22, %24, %.loopexit, %27, %26, %7, %6, %5, %4, %3
-  %.2 = phi i32 [ 0, %27 ], [ 5, %26 ], [ %.1, %.loopexit ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ 1, %7 ], [ 2, %6 ], [ 5, %5 ], [ 16, %4 ], [ 16, %3 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %27 ], [ 5, %26 ], [ %.1, %.loopexit ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ 1, %7 ], [ 2, %6 ], [ 5, %5 ], [ 16, %4 ], [ 16, %3 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2067,10 +2067,10 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
 
 135:                                              ; preds = %135, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %135 ]
-  %.0.i.i = phi i32 [ 16, %.preheader.i.i ], [ %138, %135 ]
+  %.2.i.i = phi i32 [ 16, %.preheader.i.i ], [ %138, %135 ]
   %136 = getelementptr [16 x %struct.erf_ehdr], ptr %134, i64 0, i64 %indvars.iv.i.i
   %137 = load i64, ptr %136, align 8
-  %138 = add nuw nsw i32 %.0.i.i, 8
+  %138 = add nuw nsw i32 %.2.i.i, 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %139 = icmp slt i64 %137, 0
   %140 = icmp ult i64 %indvars.iv.i.i, 15
@@ -2108,8 +2108,8 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %27, %30, 
   br label %pcap_get_phdr_size.exit.i
 
 pcap_get_phdr_size.exit.i:                        ; preds = %147, %145, %143, %.loopexit.i.i
-  %.2.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ]
-  %149 = add i32 %.2.i.i, %133
+  %.0.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ]
+  %149 = add i32 %.0.i.i, %133
   %150 = icmp sgt i32 %149, %130
   br i1 %150, label %167, label %151
 
@@ -2122,10 +2122,10 @@ pcap_get_phdr_size.exit.i:                        ; preds = %147, %145, %143, %.
 
 153:                                              ; preds = %153, %.preheader.i77.i
   %indvars.iv.i78.i = phi i64 [ 0, %.preheader.i77.i ], [ %indvars.iv.next.i80.i, %153 ]
-  %.0.i79.i = phi i32 [ 16, %.preheader.i77.i ], [ %156, %153 ]
+  %.2.i79.i = phi i32 [ 16, %.preheader.i77.i ], [ %156, %153 ]
   %154 = getelementptr [16 x %struct.erf_ehdr], ptr %152, i64 0, i64 %indvars.iv.i78.i
   %155 = load i64, ptr %154, align 8
-  %156 = add nuw nsw i32 %.0.i79.i, 8
+  %156 = add nuw nsw i32 %.2.i79.i, 8
   %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i78.i, 1
   %157 = icmp slt i64 %155, 0
   %158 = icmp ult i64 %indvars.iv.i78.i, 15
@@ -2162,8 +2162,8 @@ pcap_get_phdr_size.exit.i:                        ; preds = %147, %145, %143, %.
   br label %pcap_get_phdr_size.exit84.i
 
 pcap_get_phdr_size.exit84.i:                      ; preds = %164, %162, %160, %.loopexit.i81.i
-  %.2.i83.i = phi i32 [ %.1.i82.i, %.loopexit.i81.i ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ]
-  %166 = add i32 %.2.i83.i, %133
+  %.0.i83.i = phi i32 [ %.1.i82.i, %.loopexit.i81.i ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ]
+  %166 = add i32 %.0.i83.i, %133
   br label %167
 
 167:                                              ; preds = %pcap_get_phdr_size.exit84.i, %pcap_get_phdr_size.exit.i
@@ -2180,10 +2180,10 @@ pcap_get_phdr_size.exit84.i:                      ; preds = %164, %162, %160, %.
 
 173:                                              ; preds = %173, %.preheader.i86.i
   %indvars.iv.i87.i = phi i64 [ 0, %.preheader.i86.i ], [ %indvars.iv.next.i89.i, %173 ]
-  %.0.i88.i = phi i32 [ 16, %.preheader.i86.i ], [ %176, %173 ]
+  %.2.i88.i = phi i32 [ 16, %.preheader.i86.i ], [ %176, %173 ]
   %174 = getelementptr [16 x %struct.erf_ehdr], ptr %172, i64 0, i64 %indvars.iv.i87.i
   %175 = load i64, ptr %174, align 8
-  %176 = add nuw nsw i32 %.0.i88.i, 8
+  %176 = add nuw nsw i32 %.2.i88.i, 8
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i87.i, 1
   %177 = icmp slt i64 %175, 0
   %178 = icmp ult i64 %indvars.iv.i87.i, 15
@@ -2220,8 +2220,8 @@ pcap_get_phdr_size.exit84.i:                      ; preds = %164, %162, %160, %.
   br label %pcap_get_phdr_size.exit93.i
 
 pcap_get_phdr_size.exit93.i:                      ; preds = %184, %182, %180, %.loopexit.i90.i
-  %.2.i92.i = phi i32 [ %.1.i91.i, %.loopexit.i90.i ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ]
-  %186 = add i32 %.2.i92.i, %133
+  %.0.i92.i = phi i32 [ %.1.i91.i, %.loopexit.i90.i ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ]
+  %186 = add i32 %.0.i92.i, %133
   %187 = icmp sgt i32 %186, %130
   br i1 %187, label %204, label %188
 
@@ -2234,10 +2234,10 @@ pcap_get_phdr_size.exit93.i:                      ; preds = %184, %182, %180, %.
 
 190:                                              ; preds = %190, %.preheader.i95.i
   %indvars.iv.i96.i = phi i64 [ 0, %.preheader.i95.i ], [ %indvars.iv.next.i98.i, %190 ]
-  %.0.i97.i = phi i32 [ 16, %.preheader.i95.i ], [ %193, %190 ]
+  %.2.i97.i = phi i32 [ 16, %.preheader.i95.i ], [ %193, %190 ]
   %191 = getelementptr [16 x %struct.erf_ehdr], ptr %189, i64 0, i64 %indvars.iv.i96.i
   %192 = load i64, ptr %191, align 8
-  %193 = add nuw nsw i32 %.0.i97.i, 8
+  %193 = add nuw nsw i32 %.2.i97.i, 8
   %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i96.i, 1
   %194 = icmp slt i64 %192, 0
   %195 = icmp ult i64 %indvars.iv.i96.i, 15
@@ -2274,8 +2274,8 @@ pcap_get_phdr_size.exit93.i:                      ; preds = %184, %182, %180, %.
   br label %pcap_get_phdr_size.exit102.i
 
 pcap_get_phdr_size.exit102.i:                     ; preds = %201, %199, %197, %.loopexit.i99.i
-  %.2.i101.i = phi i32 [ %.1.i100.i, %.loopexit.i99.i ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ]
-  %203 = add i32 %.2.i101.i, %133
+  %.0.i101.i = phi i32 [ %.1.i100.i, %.loopexit.i99.i ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ]
+  %203 = add i32 %.0.i101.i, %133
   br label %204
 
 204:                                              ; preds = %pcap_get_phdr_size.exit102.i, %pcap_get_phdr_size.exit93.i

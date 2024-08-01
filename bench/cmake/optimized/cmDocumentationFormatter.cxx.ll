@@ -451,7 +451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %.body
 
 50:                                               ; preds = %37, %38, %45, %30
-  %.150 = phi i64 [ %36, %30 ], [ 0, %37 ], [ 0, %45 ], [ 0, %38 ]
+  %.251 = phi i64 [ %36, %30 ], [ 0, %37 ], [ 0, %45 ], [ 0, %38 ]
   %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.04883, i64 noundef %21)
   %52 = getelementptr inbounds i8, ptr %.04684, i64 -1
   %53 = load i8, ptr %52, align 1
@@ -463,7 +463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 56:                                               ; preds = %50, %27
   %57 = phi i8 [ %.pre, %50 ], [ %18, %27 ]
   %.153 = phi i8 [ %55, %50 ], [ %.05281, %27 ]
-  %.251 = phi i64 [ %.150, %50 ], [ %.04982, %27 ]
+  %.150 = phi i64 [ %.251, %50 ], [ %.04982, %27 ]
   %58 = icmp eq i8 %57, 10
   br i1 %58, label %59, label %62
 
@@ -473,7 +473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %83
 
 62:                                               ; preds = %56
-  %63 = add nsw i64 %.251, %21
+  %63 = add nsw i64 %.150, %21
   br label %83
 
 64:                                               ; preds = %.lr.ph

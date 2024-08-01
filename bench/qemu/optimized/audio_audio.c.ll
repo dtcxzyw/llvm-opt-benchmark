@@ -743,12 +743,12 @@ if.else:                                          ; preds = %if.end17, %if.then2
   br i1 %tobool42.not, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.else, %if.end36
-  %sw.addr.1 = phi ptr [ %sw, %if.end36 ], [ %call41, %if.else ]
-  store ptr %card, ptr %sw.addr.1, align 8
-  %vol = getelementptr inbounds i8, ptr %sw.addr.1, i64 120
+  %sw.addr.2 = phi ptr [ %sw, %if.end36 ], [ %call41, %if.else ]
+  store ptr %card, ptr %sw.addr.2, align 8
+  %vol = getelementptr inbounds i8, ptr %sw.addr.2, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vol, ptr noundef nonnull align 8 dereferenceable(24) @nominal_volume, i64 24, i1 false)
-  %callback = getelementptr inbounds i8, ptr %sw.addr.1, i64 144
-  %fn = getelementptr inbounds i8, ptr %sw.addr.1, i64 152
+  %callback = getelementptr inbounds i8, ptr %sw.addr.2, i64 144
+  %fn = getelementptr inbounds i8, ptr %sw.addr.2, i64 152
   store ptr %callback_fn, ptr %fn, align 8
   store ptr %callback_opaque, ptr %callback, align 8
   br label %return
@@ -758,7 +758,7 @@ fail:                                             ; preds = %if.end36, %if.then3
   br label %return
 
 return:                                           ; preds = %if.else, %audio_pcm_info_eq.exit, %fail, %if.end45
-  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.1, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %if.else ]
+  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.2, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %if.else ]
   ret ptr %retval.0
 }
 
@@ -1719,12 +1719,12 @@ if.else:                                          ; preds = %if.end17, %if.then2
   br i1 %tobool42.not, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.else, %if.end36
-  %sw.addr.1 = phi ptr [ %sw, %if.end36 ], [ %call41, %if.else ]
-  store ptr %card, ptr %sw.addr.1, align 8
-  %vol = getelementptr inbounds i8, ptr %sw.addr.1, i64 112
+  %sw.addr.2 = phi ptr [ %sw, %if.end36 ], [ %call41, %if.else ]
+  store ptr %card, ptr %sw.addr.2, align 8
+  %vol = getelementptr inbounds i8, ptr %sw.addr.2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vol, ptr noundef nonnull align 8 dereferenceable(24) @nominal_volume, i64 24, i1 false)
-  %callback = getelementptr inbounds i8, ptr %sw.addr.1, i64 136
-  %fn = getelementptr inbounds i8, ptr %sw.addr.1, i64 144
+  %callback = getelementptr inbounds i8, ptr %sw.addr.2, i64 136
+  %fn = getelementptr inbounds i8, ptr %sw.addr.2, i64 144
   store ptr %callback_fn, ptr %fn, align 8
   store ptr %callback_opaque, ptr %callback, align 8
   br label %return
@@ -1734,7 +1734,7 @@ fail:                                             ; preds = %if.end36, %if.then3
   br label %return
 
 return:                                           ; preds = %if.else, %audio_pcm_info_eq.exit, %fail, %if.end45
-  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.1, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %if.else ]
+  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.2, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %if.else ]
   ret ptr %retval.0
 }
 
@@ -2491,7 +2491,7 @@ if.then.i58.i:                                    ; preds = %land.lhs.true.i.i
   br label %audio_pcm_sw_resample_out.exit.i
 
 audio_pcm_sw_resample_out.exit.i:                 ; preds = %if.then.i58.i, %land.lhs.true.i.i, %if.end71.i
-  %total_in.0.i = phi i64 [ %cond41.i, %if.end71.i ], [ %add19.i.i, %if.then.i58.i ], [ %32, %land.lhs.true.i.i ]
+  %total_in.1.i = phi i64 [ %cond41.i, %if.end71.i ], [ %add19.i.i, %if.then.i58.i ], [ %32, %land.lhs.true.i.i ]
   %total_out.0.i = phi i64 [ %31, %if.end71.i ], [ %add20.i.i, %if.then.i58.i ], [ %31, %land.lhs.true.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %frames_in.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %frames_out.i.i)
@@ -2502,39 +2502,39 @@ audio_pcm_sw_resample_out.exit.i:                 ; preds = %if.then.i58.i, %lan
   %conv76.i = zext i1 %cmp75.i to i32
   %empty.i = getelementptr inbounds i8, ptr %sw, i64 100
   store i32 %conv76.i, ptr %empty.i, align 4
-  %sub77.i = sub i64 %cond41.i, %total_in.0.i
+  %sub77.i = sub i64 %cond41.i, %total_in.1.i
   %cmp78.i = icmp eq i64 %sub77.i, 1
   br i1 %cmp78.i, label %if.then80.i, label %if.else.i
 
 if.then80.i:                                      ; preds = %audio_pcm_sw_resample_out.exit.i
   %39 = load ptr, ptr %buffer.i.i, align 8
-  %add.ptr85.i = getelementptr %struct.st_sample, ptr %39, i64 %total_in.0.i
+  %add.ptr85.i = getelementptr %struct.st_sample, ptr %39, i64 %total_in.1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr85.i, i64 16, i1 false)
   %40 = load i64, ptr %resample_buf.i, align 8
-  %reass.sub.i = add i64 %total_in.0.i, 1
+  %reass.sub.i = add i64 %total_in.1.i, 1
   %add89.i = sub i64 %reass.sub.i, %40
   br label %if.end103.sink.split.i
 
 if.else.i:                                        ; preds = %audio_pcm_sw_resample_out.exit.i
   %41 = load i64, ptr %resample_buf.i, align 8
-  %cmp94.not.i = icmp ult i64 %total_in.0.i, %41
+  %cmp94.not.i = icmp ult i64 %total_in.1.i, %41
   br i1 %cmp94.not.i, label %if.end103.i, label %if.then96.i
 
 if.then96.i:                                      ; preds = %if.else.i
-  %sub99.i = sub nuw i64 %total_in.0.i, %41
+  %sub99.i = sub nuw i64 %total_in.1.i, %41
   br label %if.end103.sink.split.i
 
 if.end103.sink.split.i:                           ; preds = %if.then96.i, %if.then80.i
   %.sink.i = phi i64 [ 0, %if.then96.i ], [ 1, %if.then80.i ]
-  %total_in.1.ph.i = phi i64 [ %sub99.i, %if.then96.i ], [ %add89.i, %if.then80.i ]
+  %total_in.0.ph.i = phi i64 [ %sub99.i, %if.then96.i ], [ %add89.i, %if.then80.i ]
   store i64 %.sink.i, ptr %resample_buf.i, align 8
   br label %if.end103.i
 
 if.end103.i:                                      ; preds = %if.end103.sink.split.i, %if.else.i
-  %total_in.1.i = phi i64 [ %total_in.0.i, %if.else.i ], [ %total_in.1.ph.i, %if.end103.sink.split.i ]
+  %total_in.0.i = phi i64 [ %total_in.1.i, %if.else.i ], [ %total_in.0.ph.i, %if.end103.sink.split.i ]
   %42 = load i32, ptr %bytes_per_frame.i, align 8
   %conv106.i = sext i32 %42 to i64
-  %mul.i = mul i64 %total_in.1.i, %conv106.i
+  %mul.i = mul i64 %total_in.0.i, %conv106.i
   br label %return
 
 if.else:                                          ; preds = %audio_get_pdo_out.exit
@@ -4290,7 +4290,7 @@ while.end.i:                                      ; preds = %for.end.i87, %for.b
 
 for.body21.i:                                     ; preds = %while.end.i, %for.inc38.i
   %sw.049.i = phi ptr [ %sw.0.i93, %for.inc38.i ], [ %sw.046.i, %while.end.i ]
-  %captured.048.i = phi i64 [ %captured.2.i, %for.inc38.i ], [ %call.i, %while.end.i ]
+  %captured.048.i = phi i64 [ %captured.1.i, %for.inc38.i ], [ %call.i, %while.end.i ]
   %active.i90 = getelementptr inbounds i8, ptr %sw.049.i, i64 96
   %164 = load i32, ptr %active.i90, align 8
   %tobool22.not.i = icmp eq i32 %164, 0
@@ -4328,17 +4328,17 @@ if.then28.i:                                      ; preds = %if.then2.i.i96, %if
 
 if.end31.i:                                       ; preds = %if.then28.i, %if.end.i91
   %169 = phi i64 [ %168, %if.then28.i ], [ %166, %if.end.i91 ]
-  %captured.1.i = phi i64 [ %168, %if.then28.i ], [ %captured.048.i, %if.end.i91 ]
-  %sub33.i = sub i64 %169, %captured.1.i
+  %captured.2.i = phi i64 [ %168, %if.then28.i ], [ %captured.048.i, %if.end.i91 ]
+  %sub33.i = sub i64 %169, %captured.2.i
   store i64 %sub33.i, ptr %total_hw_samples_mixed.i, align 8
-  %cmp35.i = icmp eq i64 %169, %captured.1.i
+  %cmp35.i = icmp eq i64 %169, %captured.2.i
   %conv36.i92 = zext i1 %cmp35.i to i32
   %empty37.i = getelementptr inbounds i8, ptr %sw.049.i, i64 100
   store i32 %conv36.i92, ptr %empty37.i, align 4
   br label %for.inc38.i
 
 for.inc38.i:                                      ; preds = %if.end31.i, %land.lhs.true.i
-  %captured.2.i = phi i64 [ %captured.1.i, %if.end31.i ], [ %captured.048.i, %land.lhs.true.i ]
+  %captured.1.i = phi i64 [ %captured.2.i, %if.end31.i ], [ %captured.048.i, %land.lhs.true.i ]
   %entries39.i = getelementptr inbounds i8, ptr %sw.049.i, i64 160
   %sw.0.i93 = load ptr, ptr %entries39.i, align 8
   %tobool20.not.i = icmp eq ptr %sw.0.i93, null

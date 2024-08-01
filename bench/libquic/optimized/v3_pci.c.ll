@@ -518,7 +518,7 @@ if.end110:                                        ; preds = %if.end101
   br label %while.cond.outer, !llvm.loop !10
 
 while.cond.outer:                                 ; preds = %if.then82, %if.end110
-  %tmp_data.0.ph = phi i1 [ false, %if.end110 ], [ true, %if.then82 ]
+  %tmp_data.1.ph = phi i1 [ false, %if.end110 ], [ true, %if.then82 ]
   br label %while.cond
 
 if.then126:                                       ; preds = %lor.rhs
@@ -597,7 +597,7 @@ if.else170:                                       ; preds = %if.else131
 
 if.end176:                                        ; preds = %land.rhs
   call void @BIO_free_all(ptr noundef nonnull %call85) #6
-  br i1 %tmp_data.0.ph, label %if.then178, label %return
+  br i1 %tmp_data.1.ph, label %if.then178, label %return
 
 if.then178:                                       ; preds = %if.end176.thread104, %if.end176
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.6, i32 noundef 212) #6

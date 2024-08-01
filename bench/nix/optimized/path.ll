@@ -8135,10 +8135,10 @@ _ZN2rc10ShrinkableIcED2Ev.exit.us:                ; preds = %52, %.noexc35.us, %
 
 77:                                               ; preds = %73, %75
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ]
-  %.1 = phi i1 [ %.0, %75 ], [ true, %73 ]
+  %.3 = phi i1 [ %.0, %75 ], [ true, %73 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  br i1 %.1, label %78, label %88
+  br i1 %.3, label %78, label %88
 
 78:                                               ; preds = %.thread52, %.thread, %77
   %.pn.pn.pn51 = phi { ptr, i32 } [ %71, %.thread ], [ %.pn, %77 ], [ %72, %.thread52 ]
@@ -11608,7 +11608,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 16:                                               ; preds = %.lr.ph47, %_ZNK2rc3gen6detail19ShrinkValueIteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10ShrinkableIcEESt6vectorIS6_SaIS6_EEEEEdeEv.exit
   %.145 = phi i64 [ %.0.lcssa, %.lr.ph47 ], [ %50, %_ZNK2rc3gen6detail19ShrinkValueIteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10ShrinkableIcEESt6vectorIS6_SaIS6_EEEEEdeEv.exit ]
   %.sroa.029.144 = phi ptr [ %.sroa.029.0.lcssa, %.lr.ph47 ], [ %51, %_ZNK2rc3gen6detail19ShrinkValueIteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10ShrinkableIcEESt6vectorIS6_SaIS6_EEEEEdeEv.exit ]
-  %.03543 = phi i64 [ 15, %.lr.ph47 ], [ %.2, %_ZNK2rc3gen6detail19ShrinkValueIteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10ShrinkableIcEESt6vectorIS6_SaIS6_EEEEEdeEv.exit ]
+  %.03543 = phi i64 [ 15, %.lr.ph47 ], [ %.136, %_ZNK2rc3gen6detail19ShrinkValueIteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10ShrinkableIcEESt6vectorIS6_SaIS6_EEEEEdeEv.exit ]
   %17 = icmp eq i64 %.145, %.03543
   br i1 %17, label %18, label %._crit_edge
 
@@ -11636,8 +11636,8 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %24 = shl nuw i64 %.145, 1
   %25 = icmp ult i64 %19, %24
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %24, i64 9223372036854775807)
-  %.136 = select i1 %25, i64 %spec.store.select.i, i64 %19
-  %26 = add nuw i64 %.136, 1
+  %.2 = select i1 %25, i64 %spec.store.select.i, i64 %19
+  %26 = add nuw i64 %.2, 1
   %27 = icmp slt i64 %26, 0
   br i1 %27, label %28, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i
 
@@ -11650,7 +11650,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i: ; preds = %22, %23
   %29 = phi i64 [ %26, %23 ], [ 1, %22 ]
-  %.13653 = phi i64 [ %.136, %23 ], [ 0, %22 ]
+  %.253 = phi i64 [ %.2, %23 ], [ 0, %22 ]
   %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #22
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit unwind label %.loopexit
 
@@ -11686,7 +11686,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
   store ptr %30, ptr %0, align 8
-  store i64 %.13653, ptr %4, align 8
+  store i64 %.253, ptr %4, align 8
   br label %43
 
 .loopexit:                                        ; preds = %43, %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i
@@ -11720,7 +11720,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN2rc3gen6de
 
 43:                                               ; preds = %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit
   %44 = phi ptr [ %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit ], [ %.pre, %._crit_edge ]
-  %.2 = phi i64 [ %.13653, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit ], [ %.03543, %._crit_edge ]
+  %.136 = phi i64 [ %.253, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit ], [ %.03543, %._crit_edge ]
   %45 = load ptr, ptr %.sroa.029.144, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8

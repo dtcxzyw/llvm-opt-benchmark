@@ -4174,7 +4174,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.then.i:                                        ; preds = %if.end4, %if.end8, %if.end12, %do.end
-  %wr.1.ph = phi ptr [ null, %do.end ], [ %call9, %if.end12 ], [ null, %if.end8 ], [ null, %if.end4 ]
+  %wr.0.ph = phi ptr [ null, %do.end ], [ %call9, %if.end12 ], [ null, %if.end8 ], [ null, %if.end4 ]
   %11 = load i64, ptr %call1, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i2.not.i = icmp eq i64 %12, 0
@@ -4191,23 +4191,23 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.then.i, %if.end.i.i, %if.then1.i.i
-  %cmp.not.i30 = icmp eq ptr %wr.1.ph, null
+  %cmp.not.i30 = icmp eq ptr %wr.0.ph, null
   br i1 %cmp.not.i30, label %Py_XDECREF.exit38, label %if.then.i31
 
 if.then.i31:                                      ; preds = %Py_XDECREF.exit
-  %13 = load i64, ptr %wr.1.ph, align 8
+  %13 = load i64, ptr %wr.0.ph, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i2.not.i32 = icmp eq i64 %14, 0
   br i1 %cmp.i2.not.i32, label %if.end.i.i34, label %Py_XDECREF.exit38
 
 if.end.i.i34:                                     ; preds = %if.then.i31
   %dec.i.i35 = add i64 %13, -1
-  store i64 %dec.i.i35, ptr %wr.1.ph, align 8
+  store i64 %dec.i.i35, ptr %wr.0.ph, align 8
   %cmp.i.i36 = icmp eq i64 %dec.i.i35, 0
   br i1 %cmp.i.i36, label %if.then1.i.i37, label %Py_XDECREF.exit38
 
 if.then1.i.i37:                                   ; preds = %if.end.i.i34
-  tail call void @_Py_Dealloc(ptr noundef nonnull %wr.1.ph) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %wr.0.ph) #8
   br label %Py_XDECREF.exit38
 
 Py_XDECREF.exit38:                                ; preds = %Py_XDECREF.exit, %if.then.i31, %if.end.i.i34, %if.then1.i.i37

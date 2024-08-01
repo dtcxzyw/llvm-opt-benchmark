@@ -1204,9 +1204,9 @@ Vec_IntFreeP.exit:                                ; preds = %212, %214
   br label %215
 
 215:                                              ; preds = %Vec_IntFreeP.exit, %.critedge8._crit_edge
-  %.1135 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %5, %.critedge8._crit_edge ]
+  %.0134 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %5, %.critedge8._crit_edge ]
   tail call void @Gia_ManCleanMark0(ptr noundef nonnull %0) #13
-  ret ptr %.1135
+  ret ptr %.0134
 }
 
 declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #1

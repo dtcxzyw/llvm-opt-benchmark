@@ -1256,34 +1256,34 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.057 = phi i64 [ %44, %.lr.ph ], [ 0, %.preheader ]
-  %44 = add nuw nsw i64 %.057, 1
-  %45 = getelementptr inbounds [32 x i8], ptr %15, i64 0, i64 %.057
+  %.157 = phi i64 [ %44, %.lr.ph ], [ 0, %.preheader ]
+  %44 = add nuw nsw i64 %.157, 1
+  %45 = getelementptr inbounds [32 x i8], ptr %15, i64 0, i64 %.157
   store i8 32, ptr %45, align 1
   %46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   %47 = icmp ult i64 %44, %46
-  %48 = icmp ult i64 %.057, 29
+  %48 = icmp ult i64 %.157, 29
   %49 = and i1 %48, %47
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %40
-  %.1 = phi i64 [ 0, %40 ], [ 0, %.preheader ], [ %44, %.lr.ph ]
+  %.0 = phi i64 [ 0, %40 ], [ 0, %.preheader ], [ %44, %.lr.ph ]
   %50 = load i8, ptr %16, align 8
   %.not22 = icmp eq i8 %50, 0
   br i1 %.not22, label %53, label %.thread
 
 .thread:                                          ; preds = %.loopexit
-  %51 = add nuw nsw i64 %.1, 1
-  %52 = getelementptr inbounds [32 x i8], ptr %15, i64 0, i64 %.1
+  %51 = add nuw nsw i64 %.0, 1
+  %52 = getelementptr inbounds [32 x i8], ptr %15, i64 0, i64 %.0
   store i8 %50, ptr %52, align 1
   br label %.loopexit33
 
 53:                                               ; preds = %.loopexit
-  %.not23 = icmp eq i64 %.1, 0
+  %.not23 = icmp eq i64 %.0, 0
   br i1 %.not23, label %tailrecurse.backedge, label %.loopexit33
 
 .loopexit33:                                      ; preds = %53, %.thread
-  %.231 = phi i64 [ %51, %.thread ], [ %.1, %53 ]
+  %.231 = phi i64 [ %51, %.thread ], [ %.0, %53 ]
   %54 = getelementptr inbounds [32 x i8], ptr %15, i64 0, i64 %.231
   store i8 0, ptr %54, align 1
   br label %.loopexit32

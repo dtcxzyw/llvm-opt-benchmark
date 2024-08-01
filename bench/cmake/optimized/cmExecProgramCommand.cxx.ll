@@ -538,8 +538,8 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %190
 
 189:                                              ; preds = %187, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.not97, %187 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.not97, %187 ]
+  ret i1 %.0
 
 190:                                              ; preds = %188, %.body
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %.body ], [ %.pn68, %188 ]

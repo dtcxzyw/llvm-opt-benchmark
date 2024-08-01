@@ -1673,7 +1673,7 @@ define noundef zeroext i1 @_ZN5Ipopt16StdInterfaceTNLP18get_starting_pointEibPdb
   br label %25
 
 25:                                               ; preds = %20, %24, %14
-  %.1 = phi i1 [ %18, %24 ], [ true, %14 ], [ false, %20 ]
+  %.0 = phi i1 [ %18, %24 ], [ true, %14 ], [ false, %20 ]
   br i1 %8, label %26, label %31
 
 26:                                               ; preds = %25
@@ -1687,7 +1687,7 @@ define noundef zeroext i1 @_ZN5Ipopt16StdInterfaceTNLP18get_starting_pointEibPdb
   br label %31
 
 31:                                               ; preds = %26, %30, %25
-  %.2 = phi i1 [ %.1, %30 ], [ %.1, %25 ], [ false, %26 ]
+  %.2 = phi i1 [ %.0, %30 ], [ %.0, %25 ], [ false, %26 ]
   ret i1 %.2
 }
 

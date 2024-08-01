@@ -173,19 +173,19 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !5
 
 skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
-  %buf.addr.0 = phi ptr [ %buf, %do.cond.i ], [ %scevgep.i, %do.body.i ]
+  %buf.addr.1 = phi ptr [ %buf, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %while.cond, label %if.end
 
 while.cond:                                       ; preds = %skip_prefix.exit, %while.cond
-  %buf.addr.1 = phi ptr [ %incdec.ptr, %while.cond ], [ %buf.addr.0, %skip_prefix.exit ]
-  %2 = load i8, ptr %buf.addr.1, align 1
+  %buf.addr.0 = phi ptr [ %incdec.ptr, %while.cond ], [ %buf.addr.1, %skip_prefix.exit ]
+  %2 = load i8, ptr %buf.addr.0, align 1
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %4 = and i8 %3, 1
   %cmp.not = icmp eq i8 %4, 0
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.0, i64 1
   br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
@@ -201,15 +201,15 @@ if.then4.i:                                       ; preds = %while.end
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %while.end, %if.then4.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.addr.1) #18
-  tail call void @strbuf_add(ptr noundef nonnull %referent, ptr noundef nonnull %buf.addr.1, i64 noundef %call.i) #19
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.addr.0) #18
+  tail call void @strbuf_add(ptr noundef nonnull %referent, ptr noundef nonnull %buf.addr.0, i64 noundef %call.i) #19
   %6 = load i32, ptr %type, align 4
   %or = or i32 %6, 1
   store i32 %or, ptr %type, align 4
   br label %return
 
 if.end:                                           ; preds = %skip_prefix.exit
-  %call2 = call i32 @parse_oid_hex(ptr noundef %buf.addr.0, ptr noundef %oid, ptr noundef nonnull %p) #19
+  %call2 = call i32 @parse_oid_hex(ptr noundef %buf.addr.1, ptr noundef %oid, ptr noundef nonnull %p) #19
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then12
 
@@ -405,14 +405,14 @@ do.body:                                          ; preds = %land.lhs.true17
   br label %if.end21
 
 if.end21:                                         ; preds = %do.body, %land.lhs.true17, %if.end14
-  %head_ref.0 = phi ptr [ %call15, %land.lhs.true17 ], [ null, %do.body ], [ null, %if.end14 ]
+  %head_ref.1 = phi ptr [ %call15, %land.lhs.true17 ], [ null, %do.body ], [ null, %if.end14 ]
   %11 = load i64, ptr %nr, align 8
   %cmp24217.not = icmp eq i64 %11, 0
   br i1 %cmp24217.not, label %cleanup, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %if.end21
   %updates27 = getelementptr inbounds i8, ptr %transaction, i64 8
-  %tobool8.not.i = icmp eq ptr %head_ref.0, null
+  %tobool8.not.i = icmp eq ptr %head_ref.1, null
   %buf.i.i = getelementptr inbounds i8, ptr %ref_file.i.i, i64 16
   %packed_ref_store.i.i = getelementptr inbounds i8, ptr %ref_store, i64 48
   %buf46.i = getelementptr inbounds i8, ptr %referent.i, i64 16
@@ -544,7 +544,7 @@ if.then9.i:                                       ; preds = %if.end.i53
 
 if.end.i75.i:                                     ; preds = %if.then9.i
   %refname.i.i = getelementptr inbounds i8, ptr %13, i64 112
-  %call.i76.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %refname.i.i, ptr noundef nonnull readonly dereferenceable(1) %head_ref.0) #18
+  %call.i76.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %refname.i.i, ptr noundef nonnull readonly dereferenceable(1) %head_ref.1) #18
   %tobool8.not.i.i = icmp eq i32 %call.i76.i, 0
   br i1 %tobool8.not.i.i, label %if.end10.i.i, label %if.end14.i
 
@@ -969,7 +969,7 @@ if.then109.i:                                     ; preds = %if.then106.i
   br label %lock_ref_for_update.exit.thread
 
 lock_ref_for_update.exit.thread:                  ; preds = %if.else.i, %if.else52.i, %split_head_update.exit.i, %original_update_refname.exit.i, %if.then109.i, %if.then92.i, %original_update_refname.exit92.i, %split_symref_update.exit.i
-  %ret.1.i.ph = phi i32 [ -1, %split_symref_update.exit.i ], [ -2, %original_update_refname.exit92.i ], [ -2, %if.then92.i ], [ -2, %if.then109.i ], [ %ret.0.i.i, %original_update_refname.exit.i ], [ -1, %split_head_update.exit.i ], [ -2, %if.else52.i ], [ -2, %if.else.i ]
+  %ret.0.i.ph = phi i32 [ -1, %split_symref_update.exit.i ], [ -2, %original_update_refname.exit92.i ], [ -2, %if.then92.i ], [ -2, %if.then109.i ], [ %ret.0.i.i, %original_update_refname.exit.i ], [ -1, %split_head_update.exit.i ], [ -2, %if.else52.i ], [ -2, %if.else.i ]
   call void @strbuf_release(ptr noundef nonnull %referent.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %referent.i)
   br label %cleanup
@@ -1045,11 +1045,11 @@ if.else:                                          ; preds = %if.end66
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then46, %if.else, %if.end21, %lock_ref_for_update.exit.thread, %if.then61, %for.end, %for.end59, %if.then70, %if.then73, %files_downcast.exit
-  %head_ref.1 = phi ptr [ %head_ref.0, %if.then73 ], [ %head_ref.0, %if.then70 ], [ %head_ref.0, %for.end59 ], [ null, %files_downcast.exit ], [ null, %for.end ], [ %head_ref.0, %if.then61 ], [ %head_ref.0, %lock_ref_for_update.exit.thread ], [ %head_ref.0, %if.end21 ], [ %head_ref.0, %if.else ], [ %head_ref.0, %if.then46 ]
-  %ret.1 = phi i32 [ %call71, %if.then73 ], [ 0, %if.then70 ], [ 0, %for.end59 ], [ 0, %files_downcast.exit ], [ -2, %for.end ], [ -2, %if.then61 ], [ %ret.1.i.ph, %lock_ref_for_update.exit.thread ], [ 0, %if.end21 ], [ %spec.select, %if.else ], [ -2, %if.then46 ]
-  call void @free(ptr noundef %head_ref.1) #19
+  %head_ref.0 = phi ptr [ %head_ref.1, %if.then73 ], [ %head_ref.1, %if.then70 ], [ %head_ref.1, %for.end59 ], [ null, %files_downcast.exit ], [ null, %for.end ], [ %head_ref.1, %if.then61 ], [ %head_ref.1, %lock_ref_for_update.exit.thread ], [ %head_ref.1, %if.end21 ], [ %head_ref.1, %if.else ], [ %head_ref.1, %if.then46 ]
+  %ret.0 = phi i32 [ %call71, %if.then73 ], [ 0, %if.then70 ], [ 0, %for.end59 ], [ 0, %files_downcast.exit ], [ -2, %for.end ], [ -2, %if.then61 ], [ %ret.0.i.ph, %lock_ref_for_update.exit.thread ], [ 0, %if.end21 ], [ %spec.select, %if.else ], [ -2, %if.then46 ]
+  call void @free(ptr noundef %head_ref.0) #19
   call void @string_list_clear(ptr noundef nonnull %affected_refnames, i32 noundef 0) #19
-  %tobool83.not = icmp eq i32 %ret.1, 0
+  %tobool83.not = icmp eq i32 %ret.0, 0
   br i1 %tobool83.not, label %if.else85, label %if.then84
 
 if.then84:                                        ; preds = %cleanup
@@ -1062,7 +1062,7 @@ if.else85:                                        ; preds = %cleanup
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else85, %if.then84
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1309,12 +1309,12 @@ if.then.i80:                                      ; preds = %for.end101
 
 cleanup.sink.split:                               ; preds = %if.then13, %if.then25, %if.then.i80
   %loose.i78.sink = phi ptr [ %loose.i78, %if.then.i80 ], [ %backend_data4.le, %if.then25 ], [ %backend_data4.le109, %if.then13 ]
-  %ret.1.ph = phi i32 [ 0, %if.then.i80 ], [ -2, %if.then25 ], [ -2, %if.then13 ]
+  %ret.0.ph = phi i32 [ 0, %if.then.i80 ], [ -2, %if.then25 ], [ -2, %if.then13 ]
   store ptr null, ptr %loose.i78.sink, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %strbuf_setlen.exit77, %cleanup.sink.split, %for.end101, %if.then59
-  %ret.1 = phi i32 [ %call60, %if.then59 ], [ 0, %for.end101 ], [ %ret.1.ph, %cleanup.sink.split ], [ -2, %strbuf_setlen.exit77 ]
+  %ret.0 = phi i32 [ %call60, %if.then59 ], [ 0, %for.end101 ], [ %ret.0.ph, %cleanup.sink.split ], [ -2, %strbuf_setlen.exit77 ]
   call fastcc void @files_transaction_cleanup(ptr noundef nonnull %ref_store, ptr noundef nonnull %transaction)
   %40 = load i64, ptr %nr, align 8
   %cmp10493.not = icmp eq i64 %40, 0
@@ -1353,7 +1353,7 @@ for.end118:                                       ; preds = %for.inc116, %cleanu
   br label %return
 
 return:                                           ; preds = %for.end118, %if.then
-  %retval.0 = phi i32 [ %ret.1, %for.end118 ], [ 0, %if.then ]
+  %retval.0 = phi i32 [ %ret.0, %for.end118 ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 
@@ -1547,15 +1547,15 @@ if.end45:                                         ; preds = %for.end40
   br label %if.then52
 
 if.then52:                                        ; preds = %if.end24, %if.end45, %for.end40
-  %ret.1 = phi i32 [ %spec.select, %if.end45 ], [ -2, %for.end40 ], [ -1, %if.end24 ]
+  %ret.0 = phi i32 [ %spec.select, %if.end45 ], [ -2, %for.end40 ], [ -1, %if.end24 ]
   call void @ref_transaction_free(ptr noundef nonnull %call10) #19
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end9, %for.end, %if.then52
-  %ret.132 = phi i32 [ %ret.1, %if.then52 ], [ -2, %for.end ], [ -2, %if.end9 ]
+  %ret.032 = phi i32 [ %ret.0, %if.then52 ], [ -2, %for.end ], [ -2, %if.end9 ]
   store i32 2, ptr %state, align 8
   call void @string_list_clear(ptr noundef nonnull %affected_refnames, i32 noundef 0) #19
-  ret i32 %ret.132
+  ret i32 %ret.032
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2476,13 +2476,13 @@ if.then84:                                        ; preds = %while.end80
   unreachable
 
 if.end85:                                         ; preds = %strbuf_setlen.exit, %strbuf_setlen.exit.us, %if.end8.thread, %if.then27, %if.then17, %while.end80
-  %ret.557 = phi i32 [ %ret.1.lcssa, %while.end80 ], [ -1, %if.then17 ], [ -1, %if.then27 ], [ -1, %if.end8.thread ], [ %call56.us, %strbuf_setlen.exit.us ], [ %call56, %strbuf_setlen.exit ]
+  %ret.257 = phi i32 [ %ret.1.lcssa, %while.end80 ], [ -1, %if.then17 ], [ -1, %if.then27 ], [ -1, %if.end8.thread ], [ %call56.us, %strbuf_setlen.exit.us ], [ %call56, %strbuf_setlen.exit ]
   %call86 = call i32 @fclose(ptr noundef nonnull %call1)
   call void @strbuf_release(ptr noundef nonnull %sb) #19
   br label %return
 
 return:                                           ; preds = %files_downcast.exit, %if.end85
-  %retval.0 = phi i32 [ %ret.557, %if.end85 ], [ -1, %files_downcast.exit ]
+  %retval.0 = phi i32 [ %ret.257, %if.end85 ], [ -1, %files_downcast.exit ]
   ret i32 %retval.0
 }
 

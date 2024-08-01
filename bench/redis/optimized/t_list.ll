@@ -194,7 +194,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %16, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add_bytes.023.i = phi i64 [ 0, %for.body.preheader.i ], [ %add_bytes.1.i, %for.inc.i ]
+  %add_bytes.123.i = phi i64 [ 0, %for.body.preheader.i ], [ %add_bytes.2.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.i
   %18 = load ptr, ptr %arrayidx.i, align 8
   %bf.load5.i = load i32, ptr %18, align 8
@@ -250,18 +250,18 @@ sw.bb13.i.i:                                      ; preds = %if.end.i12
 
 sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb9.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %if.end.i12
   %retval.0.i.i = phi i64 [ %24, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.end.i12 ]
-  %add.i = add i64 %retval.0.i.i, %add_bytes.023.i
+  %add.i = add i64 %retval.0.i.i, %add_bytes.123.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sdslen.exit.i, %for.body.i
-  %add_bytes.1.i = phi i64 [ %add.i, %sdslen.exit.i ], [ %add_bytes.023.i, %for.body.i ]
+  %add_bytes.2.i = phi i64 [ %add.i, %sdslen.exit.i ], [ %add_bytes.123.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %17, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %add_bytes.0.lcssa.i = phi i64 [ 0, %for.cond.preheader.i ], [ %add_bytes.1.i, %for.inc.i ]
+  %add_bytes.1.lcssa.i = phi i64 [ 0, %for.cond.preheader.i ], [ %add_bytes.2.i, %for.inc.i ]
   %reass.sub = sub i32 %end, %start
   %add20.i = add i32 %reass.sub, 1
   %conv2125.i = zext i32 %add20.i to i64
@@ -269,12 +269,12 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
 
 if.end22.i:                                       ; preds = %for.end.i, %cond.end.i11
   %add_length.0.i = phi i64 [ %conv2125.i, %for.end.i ], [ 0, %cond.end.i11 ]
-  %add_bytes.2.i = phi i64 [ %add_bytes.0.lcssa.i, %for.end.i ], [ 0, %cond.end.i11 ]
+  %add_bytes.0.i = phi i64 [ %add_bytes.1.lcssa.i, %for.end.i ], [ 0, %cond.end.i11 ]
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5064), align 8
   %ptr23.i = getelementptr inbounds i8, ptr %o, i64 8
   %26 = load ptr, ptr %ptr23.i, align 8
   %call24.i = tail call i64 @lpBytes(ptr noundef %26) #9
-  %add25.i = add i64 %call24.i, %add_bytes.2.i
+  %add25.i = add i64 %call24.i, %add_bytes.0.i
   %27 = load ptr, ptr %ptr23.i, align 8
   %call27.i = tail call i64 @lpLength(ptr noundef %27) #9
   %add28.i = add i64 %call27.i, %add_length.0.i
@@ -3426,7 +3426,7 @@ land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
   br i1 %cmp47125, label %land.rhs.us86, label %land.rhs
 
 land.rhs.us86:                                    ; preds = %land.rhs.lr.ph.split, %if.end107.us99
-  %arraylen.071.us87 = phi i64 [ %arraylen.1.us101, %if.end107.us99 ], [ 0, %land.rhs.lr.ph.split ]
+  %arraylen.071.us87 = phi i64 [ %arraylen.2.us101, %if.end107.us99 ], [ 0, %land.rhs.lr.ph.split ]
   %matches.070.us88 = phi i64 [ %matches.1.us100, %if.end107.us99 ], [ 0, %land.rhs.lr.ph.split ]
   %index.069.us89 = phi i64 [ %inc108.us102, %if.end107.us99 ], [ 0, %land.rhs.lr.ph.split ]
   %36 = load i64, ptr %maxlen, align 8
@@ -3464,14 +3464,14 @@ land.lhs.true98.us:                               ; preds = %if.then93.us98
 
 if.end107.us99:                                   ; preds = %if.then84.us95, %land.lhs.true98.us, %if.then93.us98, %while.body.us92
   %matches.1.us100 = phi i64 [ %inc85.us96, %land.lhs.true98.us ], [ %inc85.us96, %if.then93.us98 ], [ %inc85.us96, %if.then84.us95 ], [ %matches.070.us88, %while.body.us92 ]
-  %arraylen.1.us101 = phi i64 [ %inc96.us, %land.lhs.true98.us ], [ %inc96.us, %if.then93.us98 ], [ %arraylen.071.us87, %if.then84.us95 ], [ %arraylen.071.us87, %while.body.us92 ]
+  %arraylen.2.us101 = phi i64 [ %inc96.us, %land.lhs.true98.us ], [ %inc96.us, %if.then93.us98 ], [ %arraylen.071.us87, %if.then84.us95 ], [ %arraylen.071.us87, %while.body.us92 ]
   %inc108.us102 = add nuw nsw i64 %index.069.us89, 1
   %call76.us103 = call i32 @listTypeNext(ptr noundef nonnull %call.i, ptr noundef nonnull %entry74)
   %tobool77.not.us104 = icmp eq i32 %call76.us103, 0
   br i1 %tobool77.not.us104, label %while.end, label %land.rhs.us86, !llvm.loop !13
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph.split, %if.end107
-  %arraylen.071 = phi i64 [ %arraylen.1, %if.end107 ], [ 0, %land.rhs.lr.ph.split ]
+  %arraylen.071 = phi i64 [ %arraylen.2, %if.end107 ], [ 0, %land.rhs.lr.ph.split ]
   %matches.070 = phi i64 [ %matches.1, %if.end107 ], [ 0, %land.rhs.lr.ph.split ]
   %index.069 = phi i64 [ %inc108, %if.end107 ], [ 0, %land.rhs.lr.ph.split ]
   %42 = load i64, ptr %maxlen, align 8
@@ -3507,7 +3507,7 @@ land.lhs.true98:                                  ; preds = %if.then93
 
 if.end107:                                        ; preds = %if.then84, %if.then93, %land.lhs.true98, %while.body
   %matches.1 = phi i64 [ %inc85, %land.lhs.true98 ], [ %inc85, %if.then93 ], [ %inc85, %if.then84 ], [ %matches.070, %while.body ]
-  %arraylen.1 = phi i64 [ %inc96, %land.lhs.true98 ], [ %inc96, %if.then93 ], [ %arraylen.071, %if.then84 ], [ %arraylen.071, %while.body ]
+  %arraylen.2 = phi i64 [ %inc96, %land.lhs.true98 ], [ %inc96, %if.then93 ], [ %arraylen.071, %if.then84 ], [ %arraylen.071, %while.body ]
   %inc108 = add nuw nsw i64 %index.069, 1
   %call76 = call i32 @listTypeNext(ptr noundef nonnull %call.i, ptr noundef nonnull %entry74)
   %tobool77.not = icmp eq i32 %call76, 0
@@ -3515,7 +3515,7 @@ if.end107:                                        ; preds = %if.then84, %if.then
 
 while.end:                                        ; preds = %land.rhs, %land.lhs.true98, %if.end107, %land.rhs.us86, %land.lhs.true98.us, %if.end107.us99, %land.rhs.us, %if.end107.us, %if.then93.us, %listTypeLength.exit
   %matchindex.1 = phi i64 [ %cond90.us.le, %if.then93.us ], [ -1, %listTypeLength.exit ], [ -1, %if.end107.us ], [ -1, %land.rhs.us ], [ -1, %if.end107.us99 ], [ %sub89.us97, %land.lhs.true98.us ], [ -1, %land.rhs.us86 ], [ -1, %if.end107 ], [ %index.069, %land.lhs.true98 ], [ -1, %land.rhs ]
-  %arraylen.2 = phi i64 [ 0, %if.then93.us ], [ 0, %listTypeLength.exit ], [ 0, %if.end107.us ], [ 0, %land.rhs.us ], [ %arraylen.1.us101, %if.end107.us99 ], [ %inc96.us, %land.lhs.true98.us ], [ %arraylen.071.us87, %land.rhs.us86 ], [ %arraylen.1, %if.end107 ], [ %inc96, %land.lhs.true98 ], [ %arraylen.071, %land.rhs ]
+  %arraylen.1 = phi i64 [ 0, %if.then93.us ], [ 0, %listTypeLength.exit ], [ 0, %if.end107.us ], [ 0, %land.rhs.us ], [ %arraylen.2.us101, %if.end107.us99 ], [ %inc96.us, %land.lhs.true98.us ], [ %arraylen.071.us87, %land.rhs.us86 ], [ %arraylen.2, %if.end107 ], [ %inc96, %land.lhs.true98 ], [ %arraylen.071, %land.rhs ]
   %47 = load i8, ptr %encoding.i, align 8
   %cmp.i = icmp eq i8 %47, 9
   br i1 %cmp.i, label %if.then.i61, label %listTypeReleaseIterator.exit
@@ -3531,7 +3531,7 @@ listTypeReleaseIterator.exit:                     ; preds = %while.end, %if.then
   br i1 %cmp109.not, label %if.else112, label %if.then111
 
 if.then111:                                       ; preds = %listTypeReleaseIterator.exit
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef nonnull %arraylenptr.0, i64 noundef %arraylen.2) #9
+  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef nonnull %arraylenptr.0, i64 noundef %arraylen.1) #9
   br label %if.end121
 
 if.else112:                                       ; preds = %listTypeReleaseIterator.exit
@@ -3682,7 +3682,7 @@ if.end14:                                         ; preds = %if.then16.i32, %if.
   br i1 %tobool17.not49, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end14, %if.end26
-  %removed.050 = phi i64 [ %removed.1, %if.end26 ], [ 0, %if.end14 ]
+  %removed.050 = phi i64 [ %removed.2, %if.end26 ], [ 0, %if.end14 ]
   %call18 = call i32 @listTypeEqual(ptr noundef nonnull %entry15, ptr noundef %1)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end26, label %if.then20
@@ -3700,13 +3700,13 @@ if.then20:                                        ; preds = %while.body
   br i1 %or.cond, label %while.end, label %if.end26
 
 if.end26:                                         ; preds = %if.then20, %while.body
-  %removed.1 = phi i64 [ %inc21, %if.then20 ], [ %removed.050, %while.body ]
+  %removed.2 = phi i64 [ %inc21, %if.then20 ], [ %removed.050, %while.body ]
   %call16 = call i32 @listTypeNext(ptr noundef nonnull %li.0, ptr noundef nonnull %entry15)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end26, %if.then20, %if.end14
-  %removed.2 = phi i64 [ 0, %if.end14 ], [ %inc21, %if.then20 ], [ %removed.1, %if.end26 ]
+  %removed.1 = phi i64 [ 0, %if.end14 ], [ %inc21, %if.then20 ], [ %removed.2, %if.end26 ]
   %encoding.i41 = getelementptr inbounds i8, ptr %li.0, i64 8
   %17 = load i8, ptr %encoding.i41, align 8
   %cmp.i = icmp eq i8 %17, 9
@@ -3720,7 +3720,7 @@ if.then.i42:                                      ; preds = %while.end
 
 listTypeReleaseIterator.exit:                     ; preds = %while.end, %if.then.i42
   call void @zfree(ptr noundef nonnull %li.0) #9
-  %tobool27.not = icmp eq i64 %removed.2, 0
+  %tobool27.not = icmp eq i64 %removed.1, 0
   br i1 %tobool27.not, label %if.end47, label %if.then28
 
 if.then28:                                        ; preds = %listTypeReleaseIterator.exit
@@ -3790,7 +3790,7 @@ if.end43:                                         ; preds = %if.else42, %if.then
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end43, %listTypeReleaseIterator.exit
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %removed.2) #9
+  call void @addReplyLongLong(ptr noundef %c, i64 noundef %removed.1) #9
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %if.end47

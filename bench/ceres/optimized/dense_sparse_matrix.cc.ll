@@ -333,13 +333,13 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix26RightMultiplyAndAccu
   %.05478.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.054.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ 4, %29 ]
   %.054.in77.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %29 ]
   %storemerge76.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %48, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %34, %29 ]
-  %.07275.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %27, %29 ]
+  %.17375.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %27, %29 ]
   %36 = getelementptr inbounds double, ptr %17, i64 %.05478.i.i.i.i.i.i.i.i.i.i.i
   %37 = load <2 x double>, ptr %36, align 1
   %38 = getelementptr inbounds double, ptr %1, i64 %.05478.i.i.i.i.i.i.i.i.i.i.i
   %39 = load <2 x double>, ptr %38, align 1
   %40 = fmul <2 x double> %37, %39
-  %41 = fadd <2 x double> %.07275.i.i.i.i.i.i.i.i.i.i.i, %40
+  %41 = fadd <2 x double> %.17375.i.i.i.i.i.i.i.i.i.i.i, %40
   %42 = add nuw nsw i64 %.054.in77.i.i.i.i.i.i.i.i.i.i.i, 6
   %43 = getelementptr inbounds double, ptr %17, i64 %42
   %44 = load <2 x double>, ptr %43, align 1
@@ -352,9 +352,9 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix26RightMultiplyAndAccu
   br i1 %49, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !9
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %29
-  %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %27, %29 ], [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+  %.173.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %27, %29 ], [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %34, %29 ], [ %48, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
-  %50 = fadd <2 x double> %.072.lcssa.i.i.i.i.i.i.i.i.i.i.i, %storemerge.lcssa.i.i.i.i.i.i.i.i.i.i.i
+  %50 = fadd <2 x double> %.173.lcssa.i.i.i.i.i.i.i.i.i.i.i, %storemerge.lcssa.i.i.i.i.i.i.i.i.i.i.i
   %51 = icmp sgt i64 %23, %21
   br i1 %51, label %52, label %59
 
@@ -368,9 +368,9 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix26RightMultiplyAndAccu
   br label %59
 
 59:                                               ; preds = %52, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, %24
-  %.173.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %58, %52 ], [ %50, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %27, %24 ]
-  %shift = shufflevector <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %60 = fadd <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i, %shift
+  %.072.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %58, %52 ], [ %50, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ], [ %27, %24 ]
+  %shift = shufflevector <2 x double> %.072.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %60 = fadd <2 x double> %.072.i.i.i.i.i.i.i.i.i.i.i, %shift
   %61 = extractelement <2 x double> %60, i64 0
   %62 = icmp slt i64 %23, %10
   br i1 %62, label %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE3dotINS1_IKNS_3MapIKNS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i

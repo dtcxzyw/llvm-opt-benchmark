@@ -1046,10 +1046,10 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
   br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %89
-  %.0105132 = phi ptr [ %92, %89 ], [ %65, %.preheader ]
-  %.0108131 = phi i32 [ %93, %89 ], [ 0, %.preheader ]
-  %.0111130 = phi ptr [ %91, %89 ], [ %60, %.preheader ]
-  %67 = getelementptr inbounds i8, ptr %.0105132, i64 8
+  %.1132 = phi ptr [ %92, %89 ], [ %65, %.preheader ]
+  %.1109131 = phi i32 [ %93, %89 ], [ 0, %.preheader ]
+  %.1112130 = phi ptr [ %91, %89 ], [ %60, %.preheader ]
+  %67 = getelementptr inbounds i8, ptr %.1132, i64 8
   %68 = load i32, ptr %67, align 8
   %.not127 = icmp eq i32 %68, 0
   br i1 %.not127, label %89, label %69
@@ -1060,7 +1060,7 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr %.0105132, align 8
+  %73 = load ptr, ptr %.1132, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %73, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -1068,7 +1068,7 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
 
 75:                                               ; preds = %69, %72
   %76 = phi i32 [ %.pre, %72 ], [ %68, %69 ]
-  %.0106 = phi ptr [ %74, %72 ], [ %.0105132, %69 ]
+  %.0106 = phi ptr [ %74, %72 ], [ %.1132, %69 ]
   %77 = and i32 %76, 65280
   %.not128 = icmp eq i32 %77, 0
   br i1 %.not128, label %86, label %78
@@ -1089,16 +1089,16 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
 86:                                               ; preds = %75, %78
   %87 = phi i32 [ %76, %75 ], [ %.pre148, %78 ]
   %88 = load ptr, ptr %.0106, align 8
-  store ptr %88, ptr %.0111130, align 8
+  store ptr %88, ptr %.1112130, align 8
   br label %89
 
 89:                                               ; preds = %.lr.ph, %86
   %.sink = phi i32 [ %87, %86 ], [ 1, %.lr.ph ]
-  %90 = getelementptr inbounds i8, ptr %.0111130, i64 8
+  %90 = getelementptr inbounds i8, ptr %.1112130, i64 8
   store i32 %.sink, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.0111130, i64 16
-  %92 = getelementptr inbounds i8, ptr %.0105132, i64 16
-  %93 = add nuw i32 %.0108131, 1
+  %91 = getelementptr inbounds i8, ptr %.1112130, i64 16
+  %92 = getelementptr inbounds i8, ptr %.1132, i64 16
+  %93 = add nuw i32 %.1109131, 1
   %exitcond.not = icmp eq i32 %93, %53
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -1107,8 +1107,8 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0114.lcssa = phi i32 [ %58, %.preheader ], [ %94, %._crit_edge.loopexit ]
-  %.0111.lcssa = phi ptr [ %60, %.preheader ], [ %91, %._crit_edge.loopexit ]
+  %.1115.lcssa = phi i32 [ %58, %.preheader ], [ %94, %._crit_edge.loopexit ]
+  %.1112.lcssa = phi ptr [ %60, %.preheader ], [ %91, %._crit_edge.loopexit ]
   %95 = load ptr, ptr %50, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 80
   %97 = load i32, ptr %96, align 8
@@ -1121,21 +1121,21 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
   br label %104
 
 104:                                              ; preds = %._crit_edge, %47
-  %.1115 = phi i32 [ %.0114.lcssa, %._crit_edge ], [ %58, %47 ]
-  %.1112 = phi ptr [ %.0111.lcssa, %._crit_edge ], [ %60, %47 ]
-  %.1109 = phi i32 [ %53, %._crit_edge ], [ 0, %47 ]
-  %.1 = phi ptr [ %103, %._crit_edge ], [ %65, %47 ]
-  %105 = icmp ult i32 %.1109, %46
+  %.0114 = phi i32 [ %.1115.lcssa, %._crit_edge ], [ %58, %47 ]
+  %.0111 = phi ptr [ %.1112.lcssa, %._crit_edge ], [ %60, %47 ]
+  %.0108 = phi i32 [ %53, %._crit_edge ], [ 0, %47 ]
+  %.0105 = phi ptr [ %103, %._crit_edge ], [ %65, %47 ]
+  %105 = icmp ult i32 %.0108, %46
   br i1 %105, label %.lr.ph140.preheader, label %._crit_edge141
 
 .lr.ph140.preheader:                              ; preds = %104
-  %106 = add i32 %.1115, %46
+  %106 = add i32 %.0114, %46
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %129
-  %.2138 = phi ptr [ %132, %129 ], [ %.1, %.lr.ph140.preheader ]
-  %.2110137 = phi i32 [ %133, %129 ], [ %.1109, %.lr.ph140.preheader ]
-  %.2113136 = phi ptr [ %131, %129 ], [ %.1112, %.lr.ph140.preheader ]
+  %.2138 = phi ptr [ %132, %129 ], [ %.0105, %.lr.ph140.preheader ]
+  %.2110137 = phi i32 [ %133, %129 ], [ %.0108, %.lr.ph140.preheader ]
+  %.2113136 = phi ptr [ %131, %129 ], [ %.0111, %.lr.ph140.preheader ]
   %107 = getelementptr inbounds i8, ptr %.2138, i64 8
   %108 = load i32, ptr %107, align 8
   %.not125 = icmp eq i32 %108, 0
@@ -1190,11 +1190,11 @@ define hidden void @zif_func_get_args(ptr nocapture noundef readonly %0, ptr noc
   br i1 %exitcond147.not, label %._crit_edge141.loopexit, label %.lr.ph140
 
 ._crit_edge141.loopexit:                          ; preds = %129
-  %134 = sub i32 %106, %.1109
+  %134 = sub i32 %106, %.0108
   br label %._crit_edge141
 
 ._crit_edge141:                                   ; preds = %._crit_edge141.loopexit, %104
-  %.2116.lcssa = phi i32 [ %.1115, %104 ], [ %134, %._crit_edge141.loopexit ]
+  %.2116.lcssa = phi i32 [ %.0114, %104 ], [ %134, %._crit_edge141.loopexit ]
   %135 = load i32, ptr %57, align 8
   %136 = sub i32 %.2116.lcssa, %135
   %137 = getelementptr inbounds i8, ptr %54, i64 28
@@ -3357,20 +3357,20 @@ define hidden void @zif_get_class_methods(ptr noundef %0, ptr nocapture noundef 
   br label %.loopexit
 
 .thread153:                                       ; preds = %13, %.thread129
-  %.2136 = phi ptr [ %12, %.thread129 ], [ %.fr, %13 ]
+  %.082136 = phi ptr [ %12, %.thread129 ], [ %.fr, %13 ]
   %17 = tail call ptr @_zend_new_array_0() #13
   store ptr %17, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %18, align 8
   %19 = tail call ptr @zend_get_executed_scope() #13
   %.fr162 = freeze ptr %19
-  %20 = getelementptr inbounds i8, ptr %.2136, i64 80
+  %20 = getelementptr inbounds i8, ptr %.082136, i64 80
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.2136, i64 88
+  %22 = getelementptr inbounds i8, ptr %.082136, i64 88
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds %struct._Bucket, ptr %21, i64 %24
-  %26 = getelementptr inbounds i8, ptr %.2136, i64 72
+  %26 = getelementptr inbounds i8, ptr %.082136, i64 72
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not87 = icmp eq i32 %28, 0
@@ -5157,7 +5157,7 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture
   br label %31
 
 31:                                               ; preds = %.lr.ph, %76
-  %.05 = phi ptr [ %27, %.lr.ph ], [ %.2, %76 ]
+  %.05 = phi ptr [ %27, %.lr.ph ], [ %.1, %76 ]
   %.0724 = phi i32 [ %11, %.lr.ph ], [ %.173, %76 ]
   %.0743 = phi ptr [ %18, %.lr.ph ], [ %77, %76 ]
   %32 = getelementptr inbounds i8, ptr %.0743, i64 8
@@ -5205,14 +5205,14 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture
 
 57:                                               ; preds = %47, %49
   %58 = phi i8 [ %.pre, %49 ], [ %33, %47 ]
-  %.1 = phi ptr [ %56, %49 ], [ %.05, %47 ]
+  %.2 = phi ptr [ %56, %49 ], [ %.05, %47 ]
   %59 = icmp eq i8 %58, 13
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %38, i64 8
   %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %.1, align 8
+  store ptr %62, ptr %.2, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 64
@@ -5220,7 +5220,7 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture
   br i1 %.not81, label %.sink.split, label %72
 
 66:                                               ; preds = %57
-  store ptr %37, ptr %.1, align 8
+  store ptr %37, ptr %.2, align 8
   %67 = getelementptr inbounds i8, ptr %37, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 64
@@ -5236,15 +5236,15 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture
 
 72:                                               ; preds = %.sink.split, %66, %60
   %.sink = phi i32 [ 6, %60 ], [ 6, %66 ], [ 262, %.sink.split ]
-  %73 = getelementptr inbounds i8, ptr %.1, i64 8
+  %73 = getelementptr inbounds i8, ptr %.2, i64 8
   store i32 %.sink, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %.1, i64 16
+  %74 = getelementptr inbounds i8, ptr %.2, i64 16
   %75 = add i32 %.0724, 1
   br label %76
 
 76:                                               ; preds = %35, %44, %72, %31
   %.173 = phi i32 [ %.0724, %31 ], [ %75, %72 ], [ %.0724, %44 ], [ %.0724, %35 ]
-  %.2 = phi ptr [ %.05, %31 ], [ %74, %72 ], [ %.05, %44 ], [ %.05, %35 ]
+  %.1 = phi ptr [ %.05, %31 ], [ %74, %72 ], [ %.05, %44 ], [ %.05, %35 ]
   %77 = getelementptr inbounds i8, ptr %.0743, i64 32
   %.not77 = icmp eq ptr %77, %22
   br i1 %.not77, label %._crit_edge.loopexit, label %31
@@ -7598,7 +7598,7 @@ define void @zend_fetch_debug_backtrace(ptr nocapture noundef %0, i32 noundef %1
 
 776:                                              ; preds = %823, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %823 ]
-  %.0242283.i = phi ptr [ %762, %.lr.ph.i ], [ %825, %823 ]
+  %.1243283.i = phi ptr [ %762, %.lr.ph.i ], [ %825, %823 ]
   %777 = load ptr, ptr %775, align 8
   %778 = load ptr, ptr %166, align 8
   %779 = getelementptr inbounds i8, ptr %778, i64 112
@@ -7689,24 +7689,24 @@ select.unfold.i:                                  ; preds = %788, %784, %776
 823:                                              ; preds = %820, %818, %809, %.thread330.i
   %.sink349.i = phi ptr [ %816, %809 ], [ %.pre.i, %820 ], [ %806, %818 ], [ %.pre318332.i, %.thread330.i ]
   %.sink.i = phi i32 [ %817, %809 ], [ %.pre319.i, %820 ], [ %808, %818 ], [ 1, %.thread330.i ]
-  store ptr %.sink349.i, ptr %.0242283.i, align 8
-  %824 = getelementptr inbounds i8, ptr %.0242283.i, i64 8
+  store ptr %.sink349.i, ptr %.1243283.i, align 8
+  %824 = getelementptr inbounds i8, ptr %.1243283.i, i64 8
   store i32 %.sink.i, ptr %824, align 8
-  %825 = getelementptr inbounds i8, ptr %.0242283.i, i64 16
+  %825 = getelementptr inbounds i8, ptr %.1243283.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit279.loopexit307.i, label %776
 
 826:                                              ; preds = %856, %.lr.ph291.i
-  %.1290.i = phi i32 [ 0, %.lr.ph291.i ], [ %860, %856 ]
-  %.0239289.i = phi ptr [ %754, %.lr.ph291.i ], [ %859, %856 ]
-  %.1243288.i = phi ptr [ %762, %.lr.ph291.i ], [ %858, %856 ]
+  %.3290.i = phi i32 [ 0, %.lr.ph291.i ], [ %860, %856 ]
+  %.1240289.i = phi ptr [ %754, %.lr.ph291.i ], [ %859, %856 ]
+  %.3245288.i = phi ptr [ %762, %.lr.ph291.i ], [ %858, %856 ]
   %827 = load ptr, ptr %166, align 8
   %828 = getelementptr inbounds i8, ptr %827, i64 48
   %829 = load ptr, ptr %828, align 8
-  %830 = call ptr @zend_get_parameter_attribute_str(ptr noundef %829, ptr noundef nonnull @.str.151, i64 noundef 18, i32 noundef %.1290.i) #13
+  %830 = call ptr @zend_get_parameter_attribute_str(ptr noundef %829, ptr noundef nonnull @.str.151, i64 noundef 18, i32 noundef %.3290.i) #13
   %.not263.i = icmp eq ptr %830, null
-  %831 = getelementptr inbounds i8, ptr %.0239289.i, i64 8
+  %831 = getelementptr inbounds i8, ptr %.1240289.i, i64 8
   %832 = load i32, ptr %831, align 8
   %.not264.i = icmp eq i32 %832, 0
   br i1 %.not264.i, label %.thread333.i, label %833
@@ -7717,7 +7717,7 @@ select.unfold.i:                                  ; preds = %788, %784, %776
   br i1 %835, label %836, label %839
 
 836:                                              ; preds = %833
-  %837 = load ptr, ptr %.0239289.i, align 8
+  %837 = load ptr, ptr %.1240289.i, align 8
   %838 = getelementptr inbounds i8, ptr %837, i64 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %837, i64 16
   %.pre320.i = load i32, ptr %.phi.trans.insert.i, align 8
@@ -7725,7 +7725,7 @@ select.unfold.i:                                  ; preds = %788, %784, %776
 
 839:                                              ; preds = %836, %833
   %840 = phi i32 [ %.pre320.i, %836 ], [ %832, %833 ]
-  %.0253.i = phi ptr [ %838, %836 ], [ %.0239289.i, %833 ]
+  %.0253.i = phi ptr [ %838, %836 ], [ %.1240289.i, %833 ]
   %841 = load ptr, ptr %.0253.i, align 8
   store ptr %841, ptr %7, align 8
   store i32 %840, ptr %146, align 8
@@ -7766,12 +7766,12 @@ select.unfold.i:                                  ; preds = %788, %784, %776
 856:                                              ; preds = %853, %851, %842, %.thread334.i
   %.sink352.i = phi ptr [ %849, %842 ], [ %.pre321.i, %853 ], [ %841, %851 ], [ %.pre322336.i, %.thread334.i ]
   %.sink350.i = phi i32 [ %850, %842 ], [ %.pre323.i, %853 ], [ %840, %851 ], [ 1, %.thread334.i ]
-  store ptr %.sink352.i, ptr %.1243288.i, align 8
-  %857 = getelementptr inbounds i8, ptr %.1243288.i, i64 8
+  store ptr %.sink352.i, ptr %.3245288.i, align 8
+  %857 = getelementptr inbounds i8, ptr %.3245288.i, i64 8
   store i32 %.sink350.i, ptr %857, align 8
-  %858 = getelementptr inbounds i8, ptr %.1243288.i, i64 16
-  %859 = getelementptr inbounds i8, ptr %.0239289.i, i64 16
-  %860 = add nuw i32 %.1290.i, 1
+  %858 = getelementptr inbounds i8, ptr %.3245288.i, i64 16
+  %859 = getelementptr inbounds i8, ptr %.1240289.i, i64 16
+  %860 = add nuw i32 %.3290.i, 1
   %exitcond316.not.i = icmp eq i32 %860, %umax315.i
   br i1 %exitcond316.not.i, label %.loopexit279.loopexit.i, label %826
 
@@ -7799,17 +7799,17 @@ select.unfold.i:                                  ; preds = %788, %784, %776
   br label %872
 
 872:                                              ; preds = %.loopexit279.i, %753
-  %.3250.i = phi i32 [ %.2249.i, %.loopexit279.i ], [ %760, %753 ]
-  %.3245.i = phi ptr [ %.2244.i, %.loopexit279.i ], [ %762, %753 ]
-  %.1240.i = phi ptr [ %871, %.loopexit279.i ], [ %754, %753 ]
-  %.3.i = phi i32 [ %.2.i, %.loopexit279.i ], [ 0, %753 ]
-  %873 = icmp ult i32 %.3.i, %752
+  %.0247.i = phi i32 [ %.2249.i, %.loopexit279.i ], [ %760, %753 ]
+  %.0242.i = phi ptr [ %.2244.i, %.loopexit279.i ], [ %762, %753 ]
+  %.0239.i = phi ptr [ %871, %.loopexit279.i ], [ %754, %753 ]
+  %.0237.i = phi i32 [ %.2.i, %.loopexit279.i ], [ 0, %753 ]
+  %873 = icmp ult i32 %.0237.i, %752
   br i1 %873, label %.lr.ph299.i, label %._crit_edge.i
 
 .lr.ph299.i:                                      ; preds = %872, %915
-  %.4298.i = phi i32 [ %919, %915 ], [ %.3.i, %872 ]
-  %.2241297.i = phi ptr [ %918, %915 ], [ %.1240.i, %872 ]
-  %.4246296.i = phi ptr [ %917, %915 ], [ %.3245.i, %872 ]
+  %.4298.i = phi i32 [ %919, %915 ], [ %.0237.i, %872 ]
+  %.2241297.i = phi ptr [ %918, %915 ], [ %.0239.i, %872 ]
+  %.4246296.i = phi ptr [ %917, %915 ], [ %.0242.i, %872 ]
   %874 = load ptr, ptr %166, align 8
   %875 = getelementptr inbounds i8, ptr %874, i64 32
   %876 = load i32, ptr %875, align 8
@@ -7911,12 +7911,12 @@ select.unfold.i:                                  ; preds = %788, %784, %776
   br i1 %exitcond317.not.i, label %._crit_edge.loopexit.i, label %.lr.ph299.i
 
 ._crit_edge.loopexit.i:                           ; preds = %915
-  %920 = add i32 %.3250.i, %752
-  %921 = sub i32 %920, %.3.i
+  %920 = add i32 %.0247.i, %752
+  %921 = sub i32 %920, %.0237.i
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %872
-  %.4251.lcssa.i = phi i32 [ %.3250.i, %872 ], [ %921, %._crit_edge.loopexit.i ]
+  %.4251.lcssa.i = phi i32 [ %.0247.i, %872 ], [ %921, %._crit_edge.loopexit.i ]
   %922 = load i32, ptr %759, align 8
   %923 = sub i32 %.4251.lcssa.i, %922
   %924 = getelementptr inbounds i8, ptr %756, i64 28
@@ -8485,7 +8485,7 @@ define hidden void @zif_get_extension_funcs(ptr nocapture noundef readonly %0, p
   br label %53
 
 53:                                               ; preds = %.lr.ph, %80
-  %.181 = phi i8 [ %.060, %.lr.ph ], [ %.3, %80 ]
+  %.181 = phi i8 [ %.060, %.lr.ph ], [ %.2, %80 ]
   %.06280 = phi ptr [ %44, %.lr.ph ], [ %81, %80 ]
   %54 = getelementptr inbounds i8, ptr %.06280, i64 8
   %55 = load i8, ptr %54, align 8
@@ -8515,7 +8515,7 @@ define hidden void @zif_get_extension_funcs(ptr nocapture noundef readonly %0, p
   br label %69
 
 69:                                               ; preds = %67, %65
-  %.2 = phi i8 [ %.181, %65 ], [ 1, %67 ]
+  %.3 = phi i8 [ %.181, %65 ], [ 1, %67 ]
   %70 = getelementptr inbounds i8, ptr %58, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 4
@@ -8535,13 +8535,13 @@ define hidden void @zif_get_extension_funcs(ptr nocapture noundef readonly %0, p
   br label %80
 
 80:                                               ; preds = %57, %61, %78, %53
-  %.3 = phi i8 [ %.181, %53 ], [ %.2, %78 ], [ %.181, %61 ], [ %.181, %57 ]
+  %.2 = phi i8 [ %.181, %53 ], [ %.3, %78 ], [ %.181, %61 ], [ %.181, %57 ]
   %81 = getelementptr inbounds i8, ptr %.06280, i64 32
   %.not71 = icmp eq ptr %81, %48
   br i1 %.not71, label %._crit_edge, label %53
 
 ._crit_edge:                                      ; preds = %80, %41
-  %.1.lcssa = phi i8 [ %.060, %41 ], [ %.3, %80 ]
+  %.1.lcssa = phi i8 [ %.060, %41 ], [ %.2, %80 ]
   %82 = trunc nuw i8 %.1.lcssa to i1
   br i1 %82, label %85, label %83
 

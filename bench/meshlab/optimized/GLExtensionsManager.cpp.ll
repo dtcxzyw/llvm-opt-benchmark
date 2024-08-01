@@ -171,10 +171,10 @@ define void @_ZN19GLExtensionsManager22initializeGLextensionsEv() local_unnamed_
 
 25:                                               ; preds = %21, %23
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  %.1 = phi i1 [ %.0, %23 ], [ true, %21 ]
+  %.3 = phi i1 [ %.0, %23 ], [ true, %21 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
-  br i1 %.1, label %26, label %28
+  br i1 %.3, label %26, label %28
 
 26:                                               ; preds = %.thread21, %.thread, %25
   %.pn.pn.pn20 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn, %25 ], [ %20, %.thread21 ]

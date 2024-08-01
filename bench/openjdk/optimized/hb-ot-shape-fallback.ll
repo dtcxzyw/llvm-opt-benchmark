@@ -566,9 +566,9 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
   %.sroa.736.0197.i = phi i32 [ %111, %.lr.ph.i ], [ %.sroa.736.2.i, %272 ]
   %.sroa.11.0196.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.11.2.i, %272 ]
   %.sroa.0.0168195.i = phi i32 [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %.sroa.0.2170.i, %272 ]
-  %.sroa.7.0171194.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.6.i, %272 ]
+  %.sroa.7.0171194.i = phi i32 [ %.sroa.7.0.copyload.i, %.lr.ph.i ], [ %.sroa.7.2173.i, %272 ]
   %.sroa.16.0193.i = phi i32 [ %111, %.lr.ph.i ], [ %.sroa.16.2.i, %272 ]
-  %.sroa.20.0192.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.20.8.i, %272 ]
+  %.sroa.20.0192.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.20.2.i, %272 ]
   %135 = phi <2 x i32> [ %130, %.lr.ph.i ], [ %273, %272 ]
   %136 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %112, i64 %indvars.iv.i
   %137 = getelementptr i8, ptr %136, i64 16
@@ -629,13 +629,13 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
 157:                                              ; preds = %154, %150, %148
   %.pre215.pre-phi.i = phi i32 [ %141, %150 ], [ %.pre219.i, %154 ], [ %141, %148 ]
   %.val.pre.i = phi i16 [ %.val135.i, %150 ], [ %.val.pre.pre.i, %154 ], [ %.val135.i, %148 ]
-  %.1.i = phi i32 [ %151, %150 ], [ %156, %154 ], [ %.0204.i, %148 ]
-  %158 = icmp eq i32 %.1.i, 4
+  %.2.i = phi i32 [ %151, %150 ], [ %156, %154 ], [ %.0204.i, %148 ]
+  %158 = icmp eq i32 %.2.i, 4
   %159 = sub nsw i32 %.0.i.i, %.0108.in.i
   %.0108.pn.i = select i1 %158, i32 %.0108.i, i32 %159
   %.pn132.i = mul nsw i32 %.0108.pn.i, %.sroa.736.0.copyload38.i
   %.pn.i = sdiv i32 %.pn132.i, %.0.i.i
-  %.sroa.0.1.i = add nsw i32 %.pn.i, %.sroa.0.0.copyload30.i
+  %.sroa.0.2.i = add nsw i32 %.pn.i, %.sroa.0.0.copyload30.i
   %160 = sdiv i32 %.sroa.736.0.copyload38.i, %.0.i.i
   br label %161
 
@@ -645,10 +645,10 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
   %.sroa.11.1.i = phi i32 [ %.sroa.11.0196.i, %143 ], [ %.sroa.11.0.copyload44.i, %157 ], [ %.sroa.11.0196.i, %142 ]
   %.sroa.736.1.i = phi i32 [ %.sroa.736.0197.i, %143 ], [ %160, %157 ], [ %.sroa.736.0197.i, %142 ]
   %.sroa.7.1.i = phi i32 [ %.sroa.7.0198.i, %143 ], [ %.sroa.7.0.copyload33.i, %157 ], [ %.sroa.7.0198.i, %142 ]
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.0199.i, %143 ], [ %.sroa.0.1.i, %157 ], [ %.sroa.0.0199.i, %142 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0199.i, %143 ], [ %.sroa.0.2.i, %157 ], [ %.sroa.0.0199.i, %142 ]
   %.1121.i = phi i32 [ %.0120200.i, %143 ], [ %.0108.i, %157 ], [ %.0120200.i, %142 ]
   %.1117.i = phi i32 [ %.0116201.i, %143 ], [ 255, %157 ], [ %.0116201.i, %142 ]
-  %.2.i = phi i32 [ %.0204.i, %143 ], [ %.1.i, %157 ], [ %.0204.i, %142 ]
+  %.1.i = phi i32 [ %.0204.i, %143 ], [ %.2.i, %157 ], [ %.0204.i, %142 ]
   %.not.i145.i = icmp eq i32 %.pre-phi216.i, 0
   %162 = lshr i16 %.val.i, 8
   %163 = zext nneg i16 %162 to i32
@@ -663,7 +663,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
   %.sroa.20.1.i = phi i32 [ %.sroa.20.0192.i, %161 ], [ %.sroa.11.1.i, %165 ]
   %.sroa.16.1.i = phi i32 [ %.sroa.16.0193.i, %161 ], [ %.sroa.736.1.i, %165 ]
   %.sroa.7.1172.i = phi i32 [ %.sroa.7.0171194.i, %161 ], [ %.sroa.7.1.i, %165 ]
-  %.sroa.0.1169.i = phi i32 [ %.sroa.0.0168195.i, %161 ], [ %.sroa.0.2.i, %165 ]
+  %.sroa.0.1169.i = phi i32 [ %.sroa.0.0168195.i, %161 ], [ %.sroa.0.1.i, %165 ]
   %.2118.i = phi i32 [ %.1117.i, %161 ], [ %164, %165 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %167 = load ptr, ptr %12, align 8
@@ -780,8 +780,8 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %176
   br label %219
 
 219:                                              ; preds = %217, %216, %216
-  %.sroa.20.2.i = phi i32 [ %.sroa.20.1.i, %216 ], [ %.sroa.20.1.i, %216 ], [ %218, %217 ]
-  %220 = add nsw i32 %.sroa.20.2.i, %.sroa.7.1172.i
+  %.sroa.20.6.i = phi i32 [ %.sroa.20.1.i, %216 ], [ %.sroa.20.1.i, %216 ], [ %218, %217 ]
+  %220 = add nsw i32 %.sroa.20.6.i, %.sroa.7.1172.i
   %221 = load i32, ptr %24, align 4
   %222 = sub i32 %220, %221
   %223 = icmp sgt i32 %182, 15
@@ -789,7 +789,7 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %176
   %225 = xor i1 %223, %224
   %spec.select.i = select i1 %225, i32 0, i32 %222
   %226 = select i1 %225, i32 %222, i32 0
-  %spec.select179.i = sub nsw i32 %.sroa.20.2.i, %226
+  %spec.select179.i = sub nsw i32 %.sroa.20.6.i, %226
   store i32 %spec.select.i, ptr %186, align 4
   %227 = load i32, ptr %25, align 4
   br label %.sink.split.i.i
@@ -800,12 +800,12 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %176
   br label %231
 
 231:                                              ; preds = %228, %216, %216
-  %.sroa.20.4.i = phi i32 [ %.sroa.20.1.i, %216 ], [ %.sroa.20.1.i, %216 ], [ %230, %228 ]
-  %.sroa.7.2173.i = phi i32 [ %.sroa.7.1172.i, %216 ], [ %.sroa.7.1172.i, %216 ], [ %229, %228 ]
+  %.sroa.20.3.i = phi i32 [ %.sroa.20.1.i, %216 ], [ %.sroa.20.1.i, %216 ], [ %230, %228 ]
+  %.sroa.7.3.i = phi i32 [ %.sroa.7.1172.i, %216 ], [ %.sroa.7.1172.i, %216 ], [ %229, %228 ]
   %232 = load i32, ptr %24, align 4
   %233 = load i32, ptr %25, align 4
   %234 = add i32 %232, %233
-  %235 = sub i32 %.sroa.7.2173.i, %234
+  %235 = sub i32 %.sroa.7.3.i, %234
   %236 = icmp sgt i32 %182, 15
   %237 = icmp slt i32 %235, 1
   %.not53.i.i = xor i1 %236, %237
@@ -813,30 +813,30 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %176
 
 238:                                              ; preds = %231
   %239 = sdiv i32 %235, -2
-  %240 = add nsw i32 %239, %.sroa.7.2173.i
-  %241 = sub nsw i32 %.sroa.20.4.i, %239
+  %240 = add nsw i32 %239, %.sroa.7.3.i
+  %241 = sub nsw i32 %.sroa.20.3.i, %239
   %242 = add nsw i32 %239, %235
   br label %243
 
 243:                                              ; preds = %238, %231
   %storemerge.i = phi i32 [ %242, %238 ], [ %235, %231 ]
-  %.sroa.20.5.i = phi i32 [ %241, %238 ], [ %.sroa.20.4.i, %231 ]
-  %.sroa.7.3.i = phi i32 [ %240, %238 ], [ %.sroa.7.2173.i, %231 ]
+  %.sroa.20.4.i = phi i32 [ %241, %238 ], [ %.sroa.20.3.i, %231 ]
+  %.sroa.7.4.i = phi i32 [ %240, %238 ], [ %.sroa.7.3.i, %231 ]
   store i32 %storemerge.i, ptr %186, align 4
   %244 = load i32, ptr %25, align 4
-  %245 = sub nsw i32 %.sroa.7.3.i, %244
+  %245 = sub nsw i32 %.sroa.7.4.i, %244
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %243, %219
-  %.sroa.20.6.i = phi i32 [ %.sroa.20.5.i, %243 ], [ %spec.select179.i, %219 ]
-  %.sroa.7.4.i = phi i32 [ %245, %243 ], [ %.sroa.7.1172.i, %219 ]
+  %.sroa.20.5.i = phi i32 [ %.sroa.20.4.i, %243 ], [ %spec.select179.i, %219 ]
+  %.sroa.7.5.i = phi i32 [ %245, %243 ], [ %.sroa.7.1172.i, %219 ]
   %.sink14.i.i = phi i32 [ %244, %243 ], [ %227, %219 ]
-  %246 = add nsw i32 %.sink14.i.i, %.sroa.20.6.i
+  %246 = add nsw i32 %.sink14.i.i, %.sroa.20.5.i
   br label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i
 
 _ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i: ; preds = %.sink.split.i.i, %216, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i
-  %.sroa.20.7.i = phi i32 [ %.sroa.20.1.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.20.1.i, %216 ], [ %246, %.sink.split.i.i ]
-  %.sroa.7.5.i = phi i32 [ %.sroa.7.1172.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.7.1172.i, %216 ], [ %.sroa.7.4.i, %.sink.split.i.i ]
+  %.sroa.20.8.i = phi i32 [ %.sroa.20.1.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.20.1.i, %216 ], [ %246, %.sink.split.i.i ]
+  %.sroa.7.6.i = phi i32 [ %.sroa.7.1172.i, %_ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i ], [ %.sroa.7.1172.i, %216 ], [ %.sroa.7.5.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %247 = load ptr, ptr %17, align 8
   %248 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %247, i64 %indvars.iv.i
@@ -876,17 +876,17 @@ _ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_ext
   br label %272
 
 272:                                              ; preds = %270, %268, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i
-  %.sroa.20.8.i = phi i32 [ %.sroa.20.0192.i, %268 ], [ %.sroa.20.0192.i, %270 ], [ %.sroa.20.7.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.20.2.i = phi i32 [ %.sroa.20.0192.i, %268 ], [ %.sroa.20.0192.i, %270 ], [ %.sroa.20.8.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.sroa.16.2.i = phi i32 [ %.sroa.16.0193.i, %268 ], [ %.sroa.16.0193.i, %270 ], [ %.sroa.16.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.7.6.i = phi i32 [ %.sroa.7.0171194.i, %268 ], [ %.sroa.7.0171194.i, %270 ], [ %.sroa.7.5.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.7.2173.i = phi i32 [ %.sroa.7.0171194.i, %268 ], [ %.sroa.7.0171194.i, %270 ], [ %.sroa.7.6.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.sroa.0.2170.i = phi i32 [ %.sroa.0.0168195.i, %268 ], [ %.sroa.0.0168195.i, %270 ], [ %.sroa.0.1169.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.sroa.11.2.i = phi i32 [ %.sroa.11.0196.i, %268 ], [ %.sroa.11.0196.i, %270 ], [ %.sroa.11.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.sroa.736.2.i = phi i32 [ %.sroa.736.0197.i, %268 ], [ %.sroa.736.0197.i, %270 ], [ %.sroa.736.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.sroa.7.2.i = phi i32 [ %.sroa.7.0198.i, %268 ], [ %.sroa.7.0198.i, %270 ], [ %.sroa.7.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.0199.i, %268 ], [ %.sroa.0.0199.i, %270 ], [ %.sroa.0.2.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.sroa.0.3.i = phi i32 [ %.sroa.0.0199.i, %268 ], [ %.sroa.0.0199.i, %270 ], [ %.sroa.0.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.2122.i = phi i32 [ %.0120200.i, %268 ], [ %.0120200.i, %270 ], [ %.1121.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %.3119.i = phi i32 [ %.0116201.i, %268 ], [ %.0116201.i, %270 ], [ %.2118.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
-  %.3.i = phi i32 [ %.0204.i, %268 ], [ %.0204.i, %270 ], [ %.2.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
+  %.3.i = phi i32 [ %.0204.i, %268 ], [ %.0204.i, %270 ], [ %.1.i, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %273 = phi <2 x i32> [ %269, %268 ], [ %271, %270 ], [ %135, %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
@@ -5489,9 +5489,9 @@ define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tI24hb_set_digest_combine
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
-  %9 = lshr i32 %.01542.i.i, 1
-  %10 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
+  %9 = lshr i32 %.142.i.i, 1
+  %10 = add i32 %.142.i.i, 8
   %11 = add i32 %10, %9
   %12 = icmp ult i32 %11, %5
   br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !40
@@ -5523,9 +5523,9 @@ _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4E
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.thread21.i: ; preds = %20, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %6, %.thread.i.i ], [ %21, %20 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %0, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %6, %.thread.i.i ], [ %21, %20 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %0, align 8
   br label %33
 
 _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE14realloc_vectorIS6_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS6_j11hb_priorityILj0EE.exit.i.i, %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EE14realloc_vectorIS6_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS6_j11hb_priorityILj0EE.exit.thread.i.i

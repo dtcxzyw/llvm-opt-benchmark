@@ -441,13 +441,13 @@ define hidden noundef i32 @out_grouping_U(ptr nocapture noundef %0, ptr nocaptur
   br label %61
 
 61:                                               ; preds = %48, %42, %29, %12
-  %.1.ph = phi i32 [ %17, %12 ], [ %32, %29 ], [ %47, %42 ], [ %60, %48 ]
+  %.2.ph = phi i32 [ %17, %12 ], [ %32, %29 ], [ %47, %42 ], [ %60, %48 ]
   %.0.i.ph = phi i32 [ 1, %12 ], [ 2, %29 ], [ 3, %42 ], [ 4, %48 ]
-  %62 = icmp sgt i32 %.1.ph, %3
+  %62 = icmp sgt i32 %.2.ph, %3
   br i1 %62, label %76, label %63
 
 63:                                               ; preds = %61
-  %64 = sub i32 %.1.ph, %2
+  %64 = sub i32 %.2.ph, %2
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %76, label %66
 
@@ -551,13 +551,13 @@ define hidden noundef i32 @out_grouping_b_U(ptr nocapture noundef %0, ptr nocapt
   br label %59
 
 59:                                               ; preds = %47, %43, %30, %12
-  %.1.ph = phi i32 [ %17, %12 ], [ %32, %30 ], [ %46, %43 ], [ %58, %47 ]
+  %.2.ph = phi i32 [ %17, %12 ], [ %32, %30 ], [ %46, %43 ], [ %58, %47 ]
   %.0.i.ph = phi i32 [ 1, %12 ], [ 2, %30 ], [ 3, %43 ], [ 4, %47 ]
-  %60 = icmp sgt i32 %.1.ph, %3
+  %60 = icmp sgt i32 %.2.ph, %3
   br i1 %60, label %74, label %61
 
 61:                                               ; preds = %59
-  %62 = sub i32 %.1.ph, %2
+  %62 = sub i32 %.2.ph, %2
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %74, label %64
 

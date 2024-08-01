@@ -5189,13 +5189,13 @@ invoke.cont220:                                   ; preds = %invoke.cont217
 
 sw.epilog224.sink.split:                          ; preds = %invoke.cont170, %invoke.cont132, %invoke.cont94, %sw.bb207, %sw.bb202, %sw.bb197, %sw.bb192, %invoke.cont57, %invoke.cont220
   %Atmp166.sink = phi ptr [ %Atmp, %invoke.cont57 ], [ %Atmp90, %invoke.cont94 ], [ %Atmp128, %invoke.cont132 ], [ %Atmp166, %invoke.cont170 ], [ %Rtmp, %sw.bb207 ], [ %Rtmp, %sw.bb202 ], [ %Rtmp, %sw.bb197 ], [ %Rtmp, %sw.bb192 ], [ %Rtmp, %invoke.cont220 ]
-  %ok.1.in.ph = phi i1 [ %call61, %invoke.cont57 ], [ %call98, %invoke.cont94 ], [ %call136, %invoke.cont132 ], [ %call174, %invoke.cont170 ], [ %call210, %sw.bb207 ], [ %call205, %sw.bb202 ], [ %call200, %sw.bb197 ], [ %call195, %sw.bb192 ], [ %call221, %invoke.cont220 ]
+  %ok.0.in.ph = phi i1 [ %call61, %invoke.cont57 ], [ %call98, %invoke.cont94 ], [ %call136, %invoke.cont132 ], [ %call174, %invoke.cont170 ], [ %call210, %sw.bb207 ], [ %call205, %sw.bb202 ], [ %call200, %sw.bb197 ], [ %call195, %sw.bb192 ], [ %call221, %invoke.cont220 ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %Atmp166.sink) #22
   br label %sw.epilog224
 
 sw.epilog224:                                     ; preds = %sw.bb160, %sw.bb155, %sw.bb150, %sw.bb145, %sw.bb122, %sw.bb117, %sw.bb112, %sw.bb107, %sw.bb84, %sw.bb79, %sw.bb74, %sw.bb69, %sw.bb49, %sw.bb44, %sw.bb39, %sw.bb35, %sw.epilog224.sink.split
-  %ok.1.in = phi i1 [ %call38, %sw.bb35 ], [ %call42, %sw.bb39 ], [ %call47, %sw.bb44 ], [ %call52, %sw.bb49 ], [ %call72, %sw.bb69 ], [ %call77, %sw.bb74 ], [ %call82, %sw.bb79 ], [ %call87, %sw.bb84 ], [ %call110, %sw.bb107 ], [ %call115, %sw.bb112 ], [ %call120, %sw.bb117 ], [ %call125, %sw.bb122 ], [ %call148, %sw.bb145 ], [ %call153, %sw.bb150 ], [ %call158, %sw.bb155 ], [ %call163, %sw.bb160 ], [ %ok.1.in.ph, %sw.epilog224.sink.split ]
-  %lnot = xor i1 %ok.1.in, true
+  %ok.0.in = phi i1 [ %call38, %sw.bb35 ], [ %call42, %sw.bb39 ], [ %call47, %sw.bb44 ], [ %call52, %sw.bb49 ], [ %call72, %sw.bb69 ], [ %call77, %sw.bb74 ], [ %call82, %sw.bb79 ], [ %call87, %sw.bb84 ], [ %call110, %sw.bb107 ], [ %call115, %sw.bb112 ], [ %call120, %sw.bb117 ], [ %call125, %sw.bb122 ], [ %call148, %sw.bb145 ], [ %call153, %sw.bb150 ], [ %call158, %sw.bb155 ], [ %call163, %sw.bb160 ], [ %ok.0.in.ph, %sw.epilog224.sink.split ]
+  %lnot = xor i1 %ok.0.in, true
   %frombool226 = zext i1 %lnot to i8
   store i8 %frombool226, ptr %error, align 8
   br label %cleanup
@@ -5424,9 +5424,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond405, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0353.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0354.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1355.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0353.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0354.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1355.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -5547,20 +5547,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0346.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2345.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1355.us, %invoke.cont15.us ]
-  %batcherror.1344.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0354.us, %invoke.cont15.us ]
+  %maxval.2345.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1355.us, %invoke.cont15.us ]
+  %batcherror.1344.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0354.us, %invoke.cont15.us ]
   %failed.0343.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0342.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1341.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0353.us, %invoke.cont15.us ]
+  %batch_sqrerror.1341.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0353.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %for.inc.us.us, %for.cond21.preheader.us.us
   %s.0334.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %for.inc.us.us ]
-  %maxval.3333.us.us = phi float [ %maxval.2345.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %for.inc.us.us ]
-  %batcherror.2332.us.us = phi double [ %batcherror.1344.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %for.inc.us.us ]
+  %maxval.3333.us.us = phi float [ %maxval.2345.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %for.inc.us.us ]
+  %batcherror.2332.us.us = phi double [ %batcherror.1344.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %for.inc.us.us ]
   %failed.1331.us.us = phi i1 [ %failed.0343.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %for.inc.us.us ]
   %warned.1330.us.us = phi i1 [ %warned.0342.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %for.inc.us.us ]
-  %batch_sqrerror.2329.us.us = phi double [ %batch_sqrerror.1341.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %for.inc.us.us ]
+  %batch_sqrerror.2329.us.us = phi double [ %batch_sqrerror.1341.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %for.inc.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -5677,11 +5677,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2329.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2329.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2329.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2329.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1330.us.us, %if.then12.i.us.us ], [ %warned.1330.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1331.us.us, %if.end50.i.us.us ], [ %failed.1331.us.us, %if.then12.i.us.us ], [ %failed.1331.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2332.us.us, %if.then12.i.us.us ], [ %batcherror.2332.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3333.us.us, %if.then12.i.us.us ], [ %maxval.3333.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2332.us.us, %if.then12.i.us.us ], [ %batcherror.2332.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3333.us.us, %if.then12.i.us.us ], [ %maxval.3333.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0334.us.us, 1
   %exitcond381.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond381.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !26
@@ -5813,9 +5813,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %for.inc64 ]
   %failed46.0319 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %for.inc64 ]
   %warned45.0318 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %for.inc64 ]
-  %maxval.6317 = phi float [ %maxval.5326, %for.body52.lr.ph ], [ %maxval.7, %for.inc64 ]
-  %batcherror.5316 = phi double [ %batcherror.4325, %for.body52.lr.ph ], [ %batcherror.6, %for.inc64 ]
-  %batch_sqrerror.5315 = phi double [ %batch_sqrerror.4324, %for.body52.lr.ph ], [ %batch_sqrerror.6, %for.inc64 ]
+  %maxval.6317 = phi float [ %maxval.5326, %for.body52.lr.ph ], [ %maxval.8, %for.inc64 ]
+  %batcherror.5316 = phi double [ %batcherror.4325, %for.body52.lr.ph ], [ %batcherror.7, %for.inc64 ]
+  %batch_sqrerror.5315 = phi double [ %batch_sqrerror.4324, %for.body52.lr.ph ], [ %batch_sqrerror.7, %for.inc64 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %139, %for.inc64 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %138, %for.inc64 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %137, %for.inc64 ]
@@ -5936,9 +5936,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   %137 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %138 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %139 = phi double [ %135, %if.then58.i184 ], [ %135, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %batch_sqrerror.5315, %if.then12.i142 ], [ %batch_sqrerror.5315, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5316, %if.then12.i142 ], [ %batcherror.5316, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6317, %if.then12.i142 ], [ %maxval.6317, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %batch_sqrerror.5315, %if.then12.i142 ], [ %batch_sqrerror.5315, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5316, %if.then12.i142 ], [ %batcherror.5316, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6317, %if.then12.i142 ], [ %maxval.6317, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0318, %if.then12.i142 ], [ %warned45.0318, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0319, %if.end50.i176 ], [ %failed46.0319, %if.then12.i142 ], [ %failed46.0319, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -5946,9 +5946,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !28
 
 for.inc67:                                        ; preds = %for.inc64, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4324, %for.body44 ], [ %batch_sqrerror.6, %for.inc64 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4325, %for.body44 ], [ %batcherror.6, %for.inc64 ]
-  %maxval.6.lcssa = phi float [ %maxval.5326, %for.body44 ], [ %maxval.7, %for.inc64 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4324, %for.body44 ], [ %batch_sqrerror.7, %for.inc64 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4325, %for.body44 ], [ %batcherror.7, %for.inc64 ]
+  %maxval.6.lcssa = phi float [ %maxval.5326, %for.body44 ], [ %maxval.8, %for.inc64 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %140 = load i32, ptr %m_rng_xend.i201, align 8
@@ -6317,9 +6317,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond404, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -6440,20 +6440,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0345.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2344.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
-  %batcherror.1343.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
+  %maxval.2344.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
+  %batcherror.1343.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
   %failed.0342.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0341.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
+  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %for.inc.us.us, %for.cond21.preheader.us.us
   %s.0333.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %for.inc.us.us ]
-  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %for.inc.us.us ]
-  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %for.inc.us.us ]
+  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %for.inc.us.us ]
+  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %for.inc.us.us ]
   %failed.1330.us.us = phi i1 [ %failed.0342.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %for.inc.us.us ]
   %warned.1329.us.us = phi i1 [ %warned.0341.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %for.inc.us.us ]
-  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %for.inc.us.us ]
+  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %for.inc.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -6570,11 +6570,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1329.us.us, %if.then12.i.us.us ], [ %warned.1329.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1330.us.us, %if.end50.i.us.us ], [ %failed.1330.us.us, %if.then12.i.us.us ], [ %failed.1330.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0333.us.us, 1
   %exitcond380.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond380.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !30
@@ -6706,9 +6706,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %for.inc64 ]
   %failed46.0318 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %for.inc64 ]
   %warned45.0317 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %for.inc64 ]
-  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.7, %for.inc64 ]
-  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.6, %for.inc64 ]
-  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.6, %for.inc64 ]
+  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.8, %for.inc64 ]
+  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.7, %for.inc64 ]
+  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.7, %for.inc64 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %136, %for.inc64 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %135, %for.inc64 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %134, %for.inc64 ]
@@ -6828,9 +6828,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   %134 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %135 = phi i64 [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %136 = phi double [ %132, %if.then58.i184 ], [ %132, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %130, %if.then58.i184 ], [ %130, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %130, %if.then58.i184 ], [ %130, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0317, %if.then12.i142 ], [ %warned45.0317, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0318, %if.end50.i176 ], [ %failed46.0318, %if.then12.i142 ], [ %failed46.0318, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -6838,9 +6838,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !32
 
 for.inc67:                                        ; preds = %for.inc64, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.6, %for.inc64 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.6, %for.inc64 ]
-  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.7, %for.inc64 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.7, %for.inc64 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.7, %for.inc64 ]
+  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.8, %for.inc64 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %137 = load i32, ptr %m_rng_xend.i201, align 8
@@ -7209,9 +7209,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond404, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -7332,20 +7332,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0345.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2344.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
-  %batcherror.1343.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
+  %maxval.2344.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
+  %batcherror.1343.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
   %failed.0342.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0341.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
+  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %for.inc.us.us, %for.cond21.preheader.us.us
   %s.0333.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %for.inc.us.us ]
-  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %for.inc.us.us ]
-  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %for.inc.us.us ]
+  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %for.inc.us.us ]
+  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %for.inc.us.us ]
   %failed.1330.us.us = phi i1 [ %failed.0342.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %for.inc.us.us ]
   %warned.1329.us.us = phi i1 [ %warned.0341.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %for.inc.us.us ]
-  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %for.inc.us.us ]
+  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %for.inc.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -7462,11 +7462,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1329.us.us, %if.then12.i.us.us ], [ %warned.1329.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1330.us.us, %if.end50.i.us.us ], [ %failed.1330.us.us, %if.then12.i.us.us ], [ %failed.1330.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0333.us.us, 1
   %exitcond380.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond380.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !34
@@ -7598,9 +7598,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %for.inc64 ]
   %failed46.0318 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %for.inc64 ]
   %warned45.0317 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %for.inc64 ]
-  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.7, %for.inc64 ]
-  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.6, %for.inc64 ]
-  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.6, %for.inc64 ]
+  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.8, %for.inc64 ]
+  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.7, %for.inc64 ]
+  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.7, %for.inc64 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %140, %for.inc64 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %139, %for.inc64 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %138, %for.inc64 ]
@@ -7724,9 +7724,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %139 = phi i64 [ %137, %if.then58.i184 ], [ %137, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %140 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0317, %if.then12.i142 ], [ %warned45.0317, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0318, %if.end50.i176 ], [ %failed46.0318, %if.then12.i142 ], [ %failed46.0318, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -7734,9 +7734,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !36
 
 for.inc67:                                        ; preds = %for.inc64, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.6, %for.inc64 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.6, %for.inc64 ]
-  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.7, %for.inc64 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.7, %for.inc64 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.7, %for.inc64 ]
+  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.8, %for.inc64 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %141 = load i32, ptr %m_rng_xend.i201, align 8
@@ -8105,9 +8105,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond404, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -8228,20 +8228,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0345.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2344.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
-  %batcherror.1343.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
+  %maxval.2344.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
+  %batcherror.1343.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
   %failed.0342.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0341.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
+  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %for.inc.us.us, %for.cond21.preheader.us.us
   %s.0333.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %for.inc.us.us ]
-  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %for.inc.us.us ]
-  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %for.inc.us.us ]
+  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %for.inc.us.us ]
+  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %for.inc.us.us ]
   %failed.1330.us.us = phi i1 [ %failed.0342.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %for.inc.us.us ]
   %warned.1329.us.us = phi i1 [ %warned.0341.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %for.inc.us.us ]
-  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %for.inc.us.us ]
+  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %for.inc.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -8358,11 +8358,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1329.us.us, %if.then12.i.us.us ], [ %warned.1329.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1330.us.us, %if.end50.i.us.us ], [ %failed.1330.us.us, %if.then12.i.us.us ], [ %failed.1330.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0333.us.us, 1
   %exitcond380.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond380.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !38
@@ -8494,9 +8494,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %for.inc64 ]
   %failed46.0318 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %for.inc64 ]
   %warned45.0317 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %for.inc64 ]
-  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.7, %for.inc64 ]
-  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.6, %for.inc64 ]
-  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.6, %for.inc64 ]
+  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.8, %for.inc64 ]
+  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.7, %for.inc64 ]
+  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.7, %for.inc64 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %136, %for.inc64 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %135, %for.inc64 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %134, %for.inc64 ]
@@ -8616,9 +8616,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   %134 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %135 = phi i64 [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %136 = phi double [ %132, %if.then58.i184 ], [ %132, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %130, %if.then58.i184 ], [ %130, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %130, %if.then58.i184 ], [ %130, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0317, %if.then12.i142 ], [ %warned45.0317, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0318, %if.end50.i176 ], [ %failed46.0318, %if.then12.i142 ], [ %failed46.0318, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -8626,9 +8626,9 @@ for.inc64:                                        ; preds = %if.then58.i184, %if
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !40
 
 for.inc67:                                        ; preds = %for.inc64, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.6, %for.inc64 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.6, %for.inc64 ]
-  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.7, %for.inc64 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.7, %for.inc64 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.7, %for.inc64 ]
+  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.8, %for.inc64 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %137 = load i32, ptr %m_rng_xend.i201, align 8
@@ -9004,9 +9004,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond420, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -9127,20 +9127,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0361.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2360.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
-  %batcherror.1359.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
+  %maxval.2360.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
+  %batcherror.1359.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
   %failed.0358.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0357.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
+  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0349.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1346.us.us = phi i1 [ %failed.0358.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1345.us.us = phi i1 [ %warned.0357.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -9257,11 +9257,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1345.us.us, %if.then12.i.us.us ], [ %warned.1345.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1346.us.us, %if.end50.i.us.us ], [ %failed.1346.us.us, %if.then12.i.us.us ], [ %failed.1346.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0349.us.us, 1
   %exitcond396.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond396.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !42
@@ -9393,9 +9393,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %failed46.0332 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %warned45.0331 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6330 = phi float [ %maxval.5341, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5329 = phi double [ %batcherror.4340, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6330 = phi float [ %maxval.5341, %for.body52.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5329 = phi double [ %batcherror.4340, %for.body52.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body52.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %137, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
@@ -9522,9 +9522,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %137 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %138 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %139 = phi double [ %135, %if.then58.i184 ], [ %135, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0331, %if.then12.i142 ], [ %warned45.0331, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0332, %if.end50.i176 ], [ %failed46.0332, %if.then12.i142 ], [ %failed46.0332, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -9532,9 +9532,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !44
 
 for.inc67:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body44 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body44 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body44 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %140 = load i32, ptr %m_rng_xend.i201, align 8
@@ -9903,9 +9903,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond407, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0355.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0356.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1357.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0355.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0356.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1357.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -10026,20 +10026,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0348.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2347.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1357.us, %invoke.cont15.us ]
-  %batcherror.1346.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0356.us, %invoke.cont15.us ]
+  %maxval.2347.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1357.us, %invoke.cont15.us ]
+  %batcherror.1346.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0356.us, %invoke.cont15.us ]
   %failed.0345.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0344.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1343.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0355.us, %invoke.cont15.us ]
+  %batch_sqrerror.1343.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0355.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0336.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3335.us.us = phi float [ %maxval.2347.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2334.us.us = phi double [ %batcherror.1346.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3335.us.us = phi float [ %maxval.2347.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2334.us.us = phi double [ %batcherror.1346.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1333.us.us = phi i1 [ %failed.0345.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1332.us.us = phi i1 [ %warned.0344.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2331.us.us = phi double [ %batch_sqrerror.1343.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2331.us.us = phi double [ %batch_sqrerror.1343.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -10156,11 +10156,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2331.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2331.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2331.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1332.us.us, %if.then12.i.us.us ], [ %warned.1332.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1333.us.us, %if.end50.i.us.us ], [ %failed.1333.us.us, %if.then12.i.us.us ], [ %failed.1333.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2334.us.us, %if.then12.i.us.us ], [ %batcherror.2334.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3335.us.us, %if.then12.i.us.us ], [ %maxval.3335.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2334.us.us, %if.then12.i.us.us ], [ %batcherror.2334.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3335.us.us, %if.then12.i.us.us ], [ %maxval.3335.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0336.us.us, 1
   %exitcond383.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond383.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !46
@@ -10292,9 +10292,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %failed45.0321 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %warned44.0320 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6319 = phi float [ %maxval.5328, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5318 = phi double [ %batcherror.4327, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batch_sqrerror.5317 = phi double [ %batch_sqrerror.4326, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6319 = phi float [ %maxval.5328, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5318 = phi double [ %batcherror.4327, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5317 = phi double [ %batch_sqrerror.4326, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %134, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %133, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %132, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
@@ -10411,9 +10411,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %132 = phi i64 [ %inc59.i188, %if.then58.i186 ], [ %115, %if.end50.i178 ], [ %115, %if.then12.i144 ], [ %115, %if.then.i140 ]
   %133 = phi i64 [ %131, %if.then58.i186 ], [ %131, %if.end50.i178 ], [ %114, %if.then12.i144 ], [ %114, %if.then.i140 ]
   %134 = phi double [ %130, %if.then58.i186 ], [ %130, %if.end50.i178 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %113, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5317, %if.then12.i144 ], [ %batch_sqrerror.5317, %if.then.i140 ]
-  %batcherror.6 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5318, %if.then12.i144 ], [ %batcherror.5318, %if.then.i140 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6319, %if.then12.i144 ], [ %maxval.6319, %if.then.i140 ]
+  %batch_sqrerror.7 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5317, %if.then12.i144 ], [ %batch_sqrerror.5317, %if.then.i140 ]
+  %batcherror.7 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5318, %if.then12.i144 ], [ %batcherror.5318, %if.then.i140 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6319, %if.then12.i144 ], [ %maxval.6319, %if.then.i140 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i186 ], [ %warned44.1, %if.end50.i178 ], [ %warned44.0320, %if.then12.i144 ], [ %warned44.0320, %if.then.i140 ]
   %failed45.1 = phi i1 [ true, %if.then58.i186 ], [ %failed45.0321, %if.end50.i178 ], [ %failed45.0321, %if.then12.i144 ], [ %failed45.0321, %if.then.i140 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -10421,9 +10421,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !48
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4326, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4327, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6.lcssa = phi float [ %maxval.5328, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4326, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4327, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6.lcssa = phi float [ %maxval.5328, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %inc.i202 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i202, ptr %m_x.i, align 4
   %135 = load i32, ptr %m_rng_xend.i203, align 8
@@ -10792,9 +10792,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond420, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -10915,20 +10915,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0361.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2360.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
-  %batcherror.1359.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
+  %maxval.2360.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
+  %batcherror.1359.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
   %failed.0358.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0357.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
+  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0349.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1346.us.us = phi i1 [ %failed.0358.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1345.us.us = phi i1 [ %warned.0357.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -11045,11 +11045,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1345.us.us, %if.then12.i.us.us ], [ %warned.1345.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1346.us.us, %if.end50.i.us.us ], [ %failed.1346.us.us, %if.then12.i.us.us ], [ %failed.1346.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0349.us.us, 1
   %exitcond396.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond396.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !50
@@ -11181,9 +11181,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %failed45.0332 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %warned44.0331 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6330 = phi float [ %maxval.5341, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5329 = phi double [ %batcherror.4340, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6330 = phi float [ %maxval.5341, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5329 = phi double [ %batcherror.4340, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
@@ -11313,9 +11313,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %139 = phi i64 [ %137, %if.then58.i184 ], [ %137, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %140 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i176 ], [ %warned44.0331, %if.then12.i142 ], [ %warned44.0331, %land.lhs.true.i139 ]
   %failed45.1 = phi i1 [ true, %if.then58.i184 ], [ %failed45.0332, %if.end50.i176 ], [ %failed45.0332, %if.then12.i142 ], [ %failed45.0332, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -11323,9 +11323,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !52
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %141 = load i32, ptr %m_rng_xend.i201, align 8
@@ -11694,9 +11694,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond406, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0354.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0355.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1356.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0354.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0355.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1356.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -11817,20 +11817,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0347.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2346.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1356.us, %invoke.cont15.us ]
-  %batcherror.1345.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0355.us, %invoke.cont15.us ]
+  %maxval.2346.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1356.us, %invoke.cont15.us ]
+  %batcherror.1345.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0355.us, %invoke.cont15.us ]
   %failed.0344.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0343.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1342.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0354.us, %invoke.cont15.us ]
+  %batch_sqrerror.1342.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0354.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0335.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3334.us.us = phi float [ %maxval.2346.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2333.us.us = phi double [ %batcherror.1345.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3334.us.us = phi float [ %maxval.2346.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2333.us.us = phi double [ %batcherror.1345.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1332.us.us = phi i1 [ %failed.0344.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1331.us.us = phi i1 [ %warned.0343.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2330.us.us = phi double [ %batch_sqrerror.1342.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2330.us.us = phi double [ %batch_sqrerror.1342.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -11947,11 +11947,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2330.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2330.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2330.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2330.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1331.us.us, %if.then12.i.us.us ], [ %warned.1331.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1332.us.us, %if.end50.i.us.us ], [ %failed.1332.us.us, %if.then12.i.us.us ], [ %failed.1332.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2333.us.us, %if.then12.i.us.us ], [ %batcherror.2333.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3334.us.us, %if.then12.i.us.us ], [ %maxval.3334.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2333.us.us, %if.then12.i.us.us ], [ %batcherror.2333.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3334.us.us, %if.then12.i.us.us ], [ %maxval.3334.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0335.us.us, 1
   %exitcond382.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond382.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !54
@@ -12083,9 +12083,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %failed45.0320 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %warned44.0319 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6318 = phi float [ %maxval.5327, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5317 = phi double [ %batcherror.4326, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batch_sqrerror.5316 = phi double [ %batch_sqrerror.4325, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6318 = phi float [ %maxval.5327, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5317 = phi double [ %batcherror.4326, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5316 = phi double [ %batch_sqrerror.4325, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %134, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %133, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %132, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
@@ -12202,9 +12202,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %132 = phi i64 [ %inc59.i188, %if.then58.i186 ], [ %115, %if.end50.i178 ], [ %115, %if.then12.i144 ], [ %115, %if.then.i140 ]
   %133 = phi i64 [ %131, %if.then58.i186 ], [ %131, %if.end50.i178 ], [ %114, %if.then12.i144 ], [ %114, %if.then.i140 ]
   %134 = phi double [ %130, %if.then58.i186 ], [ %130, %if.end50.i178 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %113, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5316, %if.then12.i144 ], [ %batch_sqrerror.5316, %if.then.i140 ]
-  %batcherror.6 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5317, %if.then12.i144 ], [ %batcherror.5317, %if.then.i140 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6318, %if.then12.i144 ], [ %maxval.6318, %if.then.i140 ]
+  %batch_sqrerror.7 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5316, %if.then12.i144 ], [ %batch_sqrerror.5316, %if.then.i140 ]
+  %batcherror.7 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5317, %if.then12.i144 ], [ %batcherror.5317, %if.then.i140 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6318, %if.then12.i144 ], [ %maxval.6318, %if.then.i140 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i186 ], [ %warned44.1, %if.end50.i178 ], [ %warned44.0319, %if.then12.i144 ], [ %warned44.0319, %if.then.i140 ]
   %failed45.1 = phi i1 [ true, %if.then58.i186 ], [ %failed45.0320, %if.end50.i178 ], [ %failed45.0320, %if.then12.i144 ], [ %failed45.0320, %if.then.i140 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -12212,9 +12212,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !56
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4325, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4326, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6.lcssa = phi float [ %maxval.5327, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4325, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4326, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6.lcssa = phi float [ %maxval.5327, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %inc.i202 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i202, ptr %m_x.i, align 4
   %135 = load i32, ptr %m_rng_xend.i203, align 8
@@ -12583,9 +12583,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond404, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -12706,20 +12706,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0345.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2344.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
-  %batcherror.1343.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
+  %maxval.2344.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
+  %batcherror.1343.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
   %failed.0342.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0341.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
+  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0333.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %failed.1330.us.us = phi i1 [ %failed.0342.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %warned.1329.us.us = phi i1 [ %warned.0341.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -12836,11 +12836,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1329.us.us, %if.then12.i.us.us ], [ %warned.1329.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1330.us.us, %if.end50.i.us.us ], [ %failed.1330.us.us, %if.then12.i.us.us ], [ %failed.1330.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0333.us.us, 1
   %exitcond380.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond380.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !58
@@ -12972,9 +12972,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %failed46.0318 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %warned45.0317 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %maxval.6316 = phi float [ %maxval.5325, %for.body52.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batcherror.5315 = phi double [ %batcherror.4324, %for.body52.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body52.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
@@ -13098,9 +13098,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %139 = phi i64 [ %137, %if.then58.i184 ], [ %137, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %140 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0317, %if.then12.i142 ], [ %warned45.0317, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0318, %if.end50.i176 ], [ %failed46.0318, %if.then12.i142 ], [ %failed46.0318, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -13108,9 +13108,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !60
 
 for.inc67:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body44 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body44 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body44 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %141 = load i32, ptr %m_rng_xend.i201, align 8
@@ -13479,9 +13479,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond404, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -13602,20 +13602,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0345.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2344.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
-  %batcherror.1343.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
+  %maxval.2344.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
+  %batcherror.1343.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
   %failed.0342.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0341.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
+  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0333.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %failed.1330.us.us = phi i1 [ %failed.0342.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %warned.1329.us.us = phi i1 [ %warned.0341.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -13732,11 +13732,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1329.us.us, %if.then12.i.us.us ], [ %warned.1329.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1330.us.us, %if.end50.i.us.us ], [ %failed.1330.us.us, %if.then12.i.us.us ], [ %failed.1330.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0333.us.us, 1
   %exitcond380.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond380.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !62
@@ -13868,9 +13868,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %failed45.0318 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %warned44.0317 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %maxval.6316 = phi float [ %maxval.5325, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batcherror.5315 = phi double [ %batcherror.4324, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %maxval.6316 = phi float [ %maxval.5325, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batcherror.5315 = phi double [ %batcherror.4324, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %137, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %136, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %135, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
@@ -13993,9 +13993,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   %135 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %136 = phi i64 [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %137 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %131, %if.then58.i184 ], [ %131, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %131, %if.then58.i184 ], [ %131, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i176 ], [ %warned44.0317, %if.then12.i142 ], [ %warned44.0317, %land.lhs.true.i139 ]
   %failed45.1 = phi i1 [ true, %if.then58.i184 ], [ %failed45.0318, %if.end50.i176 ], [ %failed45.0318, %if.then12.i142 ], [ %failed45.0318, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -14003,9 +14003,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !64
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %138 = load i32, ptr %m_rng_xend.i201, align 8
@@ -14374,9 +14374,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond407, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0355.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0356.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1357.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0355.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0356.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1357.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -14497,20 +14497,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0348.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2347.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1357.us, %invoke.cont15.us ]
-  %batcherror.1346.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0356.us, %invoke.cont15.us ]
+  %maxval.2347.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1357.us, %invoke.cont15.us ]
+  %batcherror.1346.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0356.us, %invoke.cont15.us ]
   %failed.0345.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0344.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1343.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0355.us, %invoke.cont15.us ]
+  %batch_sqrerror.1343.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0355.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0336.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %maxval.3335.us.us = phi float [ %maxval.2347.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batcherror.2334.us.us = phi double [ %batcherror.1346.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %maxval.3335.us.us = phi float [ %maxval.2347.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batcherror.2334.us.us = phi double [ %batcherror.1346.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %failed.1333.us.us = phi i1 [ %failed.0345.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %warned.1332.us.us = phi i1 [ %warned.0344.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batch_sqrerror.2331.us.us = phi double [ %batch_sqrerror.1343.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batch_sqrerror.2331.us.us = phi double [ %batch_sqrerror.1343.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -14627,11 +14627,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2331.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2331.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2331.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1332.us.us, %if.then12.i.us.us ], [ %warned.1332.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1333.us.us, %if.end50.i.us.us ], [ %failed.1333.us.us, %if.then12.i.us.us ], [ %failed.1333.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2334.us.us, %if.then12.i.us.us ], [ %batcherror.2334.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3335.us.us, %if.then12.i.us.us ], [ %maxval.3335.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2334.us.us, %if.then12.i.us.us ], [ %batcherror.2334.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3335.us.us, %if.then12.i.us.us ], [ %maxval.3335.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0336.us.us, 1
   %exitcond383.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond383.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !66
@@ -14763,9 +14763,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
   %failed45.0321 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
   %warned44.0320 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
-  %maxval.6319 = phi float [ %maxval.5328, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
-  %batcherror.5318 = phi double [ %batcherror.4327, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
-  %batch_sqrerror.5317 = phi double [ %batch_sqrerror.4326, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
+  %maxval.6319 = phi float [ %maxval.5328, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
+  %batcherror.5318 = phi double [ %batcherror.4327, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
+  %batch_sqrerror.5317 = phi double [ %batch_sqrerror.4326, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
@@ -14892,9 +14892,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   %139 = phi i64 [ %inc59.i188, %if.then58.i186 ], [ %115, %if.end50.i178 ], [ %115, %if.then12.i144 ], [ %115, %land.lhs.true.i141 ]
   %140 = phi i64 [ %138, %if.then58.i186 ], [ %138, %if.end50.i178 ], [ %114, %if.then12.i144 ], [ %114, %land.lhs.true.i141 ]
   %141 = phi double [ %137, %if.then58.i186 ], [ %137, %if.end50.i178 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %113, %land.lhs.true.i141 ]
-  %batch_sqrerror.6 = phi double [ %135, %if.then58.i186 ], [ %135, %if.end50.i178 ], [ %batch_sqrerror.5317, %if.then12.i144 ], [ %batch_sqrerror.5317, %land.lhs.true.i141 ]
-  %batcherror.6 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5318, %if.then12.i144 ], [ %batcherror.5318, %land.lhs.true.i141 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6319, %if.then12.i144 ], [ %maxval.6319, %land.lhs.true.i141 ]
+  %batch_sqrerror.7 = phi double [ %135, %if.then58.i186 ], [ %135, %if.end50.i178 ], [ %batch_sqrerror.5317, %if.then12.i144 ], [ %batch_sqrerror.5317, %land.lhs.true.i141 ]
+  %batcherror.7 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5318, %if.then12.i144 ], [ %batcherror.5318, %land.lhs.true.i141 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6319, %if.then12.i144 ], [ %maxval.6319, %land.lhs.true.i141 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i186 ], [ %warned44.1, %if.end50.i178 ], [ %warned44.0320, %if.then12.i144 ], [ %warned44.0320, %land.lhs.true.i141 ]
   %failed45.1 = phi i1 [ true, %if.then58.i186 ], [ %failed45.0321, %if.end50.i178 ], [ %failed45.0321, %if.then12.i144 ], [ %failed45.0321, %land.lhs.true.i141 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -14902,9 +14902,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !68
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4326, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4327, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
-  %maxval.6.lcssa = phi float [ %maxval.5328, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4326, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4327, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
+  %maxval.6.lcssa = phi float [ %maxval.5328, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit200 ]
   %inc.i202 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i202, ptr %m_x.i, align 4
   %142 = load i32, ptr %m_rng_xend.i203, align 8
@@ -15273,9 +15273,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond404, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0352.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0353.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1354.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -15396,20 +15396,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0345.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2344.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
-  %batcherror.1343.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
+  %maxval.2344.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1354.us, %invoke.cont15.us ]
+  %batcherror.1343.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0353.us, %invoke.cont15.us ]
   %failed.0342.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0341.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
+  %batch_sqrerror.1340.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0352.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0333.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %maxval.3332.us.us = phi float [ %maxval.2344.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batcherror.2331.us.us = phi double [ %batcherror.1343.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %failed.1330.us.us = phi i1 [ %failed.0342.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %warned.1329.us.us = phi i1 [ %warned.0341.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
-  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
+  %batch_sqrerror.2328.us.us = phi double [ %batch_sqrerror.1340.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -15526,11 +15526,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2328.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2328.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1329.us.us, %if.then12.i.us.us ], [ %warned.1329.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1330.us.us, %if.end50.i.us.us ], [ %failed.1330.us.us, %if.then12.i.us.us ], [ %failed.1330.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2331.us.us, %if.then12.i.us.us ], [ %batcherror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3332.us.us, %if.then12.i.us.us ], [ %maxval.3332.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0333.us.us, 1
   %exitcond380.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond380.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !70
@@ -15662,9 +15662,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %failed45.0318 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %warned44.0317 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %maxval.6316 = phi float [ %maxval.5325, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batcherror.5315 = phi double [ %batcherror.4324, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %maxval.6316 = phi float [ %maxval.5325, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batcherror.5315 = phi double [ %batcherror.4324, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %137, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %136, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %135, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
@@ -15787,9 +15787,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   %135 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %136 = phi i64 [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %137 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %131, %if.then58.i184 ], [ %131, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %131, %if.then58.i184 ], [ %131, %if.end50.i176 ], [ %batch_sqrerror.5314, %if.then12.i142 ], [ %batch_sqrerror.5314, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5315, %if.then12.i142 ], [ %batcherror.5315, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6316, %if.then12.i142 ], [ %maxval.6316, %land.lhs.true.i139 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i176 ], [ %warned44.0317, %if.then12.i142 ], [ %warned44.0317, %land.lhs.true.i139 ]
   %failed45.1 = phi i1 [ true, %if.then58.i184 ], [ %failed45.0318, %if.end50.i176 ], [ %failed45.0318, %if.then12.i142 ], [ %failed45.0318, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -15797,9 +15797,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_f
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !72
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4323, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4324, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5325, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %138 = load i32, ptr %m_rng_xend.i201, align 8
@@ -16168,9 +16168,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond420, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -16291,20 +16291,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
   %c.0361.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2360.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
-  %batcherror.1359.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
+  %maxval.2360.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
+  %batcherror.1359.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
   %failed.0358.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0357.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
+  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0349.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1346.us.us = phi i1 [ %failed.0358.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1345.us.us = phi i1 [ %warned.0357.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -16421,11 +16421,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1345.us.us, %if.then12.i.us.us ], [ %warned.1345.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1346.us.us, %if.end50.i.us.us ], [ %failed.1346.us.us, %if.then12.i.us.us ], [ %failed.1346.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0349.us.us, 1
   %exitcond396.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond396.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !74
@@ -16557,9 +16557,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body52.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %failed46.0332 = phi i1 [ false, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %warned45.0331 = phi i1 [ false, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6330 = phi float [ %maxval.5341, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5329 = phi double [ %batcherror.4340, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6330 = phi float [ %maxval.5341, %for.body52.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5329 = phi double [ %batcherror.4340, %for.body52.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body52.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %137, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
@@ -16686,9 +16686,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %137 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %138 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %139 = phi double [ %135, %if.then58.i184 ], [ %135, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %133, %if.then58.i184 ], [ %133, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
   %warned45.2 = phi i1 [ %warned45.1, %if.then58.i184 ], [ %warned45.1, %if.end50.i176 ], [ %warned45.0331, %if.then12.i142 ], [ %warned45.0331, %land.lhs.true.i139 ]
   %failed46.1 = phi i1 [ true, %if.then58.i184 ], [ %failed46.0332, %if.end50.i176 ], [ %failed46.0332, %if.then12.i142 ], [ %failed46.0332, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -16696,9 +16696,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !76
 
 for.inc67:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body44 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body44 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body44 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %140 = load i32, ptr %m_rng_xend.i201, align 8
@@ -17067,9 +17067,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond406, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0354.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0355.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1356.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0354.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0355.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1356.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -17190,20 +17190,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0347.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2346.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1356.us, %invoke.cont15.us ]
-  %batcherror.1345.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0355.us, %invoke.cont15.us ]
+  %maxval.2346.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1356.us, %invoke.cont15.us ]
+  %batcherror.1345.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0355.us, %invoke.cont15.us ]
   %failed.0344.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0343.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1342.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0354.us, %invoke.cont15.us ]
+  %batch_sqrerror.1342.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0354.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0335.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3334.us.us = phi float [ %maxval.2346.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2333.us.us = phi double [ %batcherror.1345.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3334.us.us = phi float [ %maxval.2346.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2333.us.us = phi double [ %batcherror.1345.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1332.us.us = phi i1 [ %failed.0344.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1331.us.us = phi i1 [ %warned.0343.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2330.us.us = phi double [ %batch_sqrerror.1342.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2330.us.us = phi double [ %batch_sqrerror.1342.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -17320,11 +17320,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2330.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2330.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2330.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2330.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1331.us.us, %if.then12.i.us.us ], [ %warned.1331.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1332.us.us, %if.end50.i.us.us ], [ %failed.1332.us.us, %if.then12.i.us.us ], [ %failed.1332.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2333.us.us, %if.then12.i.us.us ], [ %batcherror.2333.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3334.us.us, %if.then12.i.us.us ], [ %maxval.3334.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2333.us.us, %if.then12.i.us.us ], [ %batcherror.2333.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3334.us.us, %if.then12.i.us.us ], [ %maxval.3334.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0335.us.us, 1
   %exitcond382.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond382.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !78
@@ -17456,9 +17456,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %failed45.0320 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %warned44.0319 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6318 = phi float [ %maxval.5327, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5317 = phi double [ %batcherror.4326, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batch_sqrerror.5316 = phi double [ %batch_sqrerror.4325, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6318 = phi float [ %maxval.5327, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5317 = phi double [ %batcherror.4326, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5316 = phi double [ %batch_sqrerror.4325, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %134, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %133, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %132, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
@@ -17575,9 +17575,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %132 = phi i64 [ %inc59.i188, %if.then58.i186 ], [ %115, %if.end50.i178 ], [ %115, %if.then12.i144 ], [ %115, %if.then.i140 ]
   %133 = phi i64 [ %131, %if.then58.i186 ], [ %131, %if.end50.i178 ], [ %114, %if.then12.i144 ], [ %114, %if.then.i140 ]
   %134 = phi double [ %130, %if.then58.i186 ], [ %130, %if.end50.i178 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %113, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5316, %if.then12.i144 ], [ %batch_sqrerror.5316, %if.then.i140 ]
-  %batcherror.6 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5317, %if.then12.i144 ], [ %batcherror.5317, %if.then.i140 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6318, %if.then12.i144 ], [ %maxval.6318, %if.then.i140 ]
+  %batch_sqrerror.7 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5316, %if.then12.i144 ], [ %batch_sqrerror.5316, %if.then.i140 ]
+  %batcherror.7 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5317, %if.then12.i144 ], [ %batcherror.5317, %if.then.i140 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6318, %if.then12.i144 ], [ %maxval.6318, %if.then.i140 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i186 ], [ %warned44.1, %if.end50.i178 ], [ %warned44.0319, %if.then12.i144 ], [ %warned44.0319, %if.then.i140 ]
   %failed45.1 = phi i1 [ true, %if.then58.i186 ], [ %failed45.0320, %if.end50.i178 ], [ %failed45.0320, %if.then12.i144 ], [ %failed45.0320, %if.then.i140 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -17585,9 +17585,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !80
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4325, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4326, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6.lcssa = phi float [ %maxval.5327, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4325, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4326, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6.lcssa = phi float [ %maxval.5327, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %inc.i202 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i202, ptr %m_x.i, align 4
   %135 = load i32, ptr %m_rng_xend.i203, align 8
@@ -17956,9 +17956,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond420, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0368.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0369.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1370.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -18079,20 +18079,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0361.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2360.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
-  %batcherror.1359.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
+  %maxval.2360.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1370.us, %invoke.cont15.us ]
+  %batcherror.1359.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0369.us, %invoke.cont15.us ]
   %failed.0358.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0357.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
+  %batch_sqrerror.1356.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0368.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0349.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3348.us.us = phi float [ %maxval.2360.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2347.us.us = phi double [ %batcherror.1359.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1346.us.us = phi i1 [ %failed.0358.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1345.us.us = phi i1 [ %warned.0357.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2344.us.us = phi double [ %batch_sqrerror.1356.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -18209,11 +18209,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2344.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2344.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1345.us.us, %if.then12.i.us.us ], [ %warned.1345.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1346.us.us, %if.end50.i.us.us ], [ %failed.1346.us.us, %if.then12.i.us.us ], [ %failed.1346.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2347.us.us, %if.then12.i.us.us ], [ %batcherror.2347.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3348.us.us, %if.then12.i.us.us ], [ %maxval.3348.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0349.us.us, 1
   %exitcond396.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond396.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !82
@@ -18345,9 +18345,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %failed45.0332 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %warned44.0331 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6330 = phi float [ %maxval.5341, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5329 = phi double [ %batcherror.4340, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6330 = phi float [ %maxval.5341, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5329 = phi double [ %batcherror.4340, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5328 = phi double [ %batch_sqrerror.4339, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
@@ -18477,9 +18477,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %115, %if.end50.i176 ], [ %115, %if.then12.i142 ], [ %115, %land.lhs.true.i139 ]
   %139 = phi i64 [ %137, %if.then58.i184 ], [ %137, %if.end50.i176 ], [ %114, %if.then12.i142 ], [ %114, %land.lhs.true.i139 ]
   %140 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i176 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %113, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
+  %batch_sqrerror.7 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i176 ], [ %batch_sqrerror.5328, %if.then12.i142 ], [ %batch_sqrerror.5328, %land.lhs.true.i139 ]
+  %batcherror.7 = phi double [ %add.i165, %if.then58.i184 ], [ %add.i165, %if.end50.i176 ], [ %batcherror.5329, %if.then12.i142 ], [ %batcherror.5329, %land.lhs.true.i139 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i158, %if.then58.i184 ], [ %.sroa.speculated.i158, %if.end50.i176 ], [ %maxval.6330, %if.then12.i142 ], [ %maxval.6330, %land.lhs.true.i139 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i176 ], [ %warned44.0331, %if.then12.i142 ], [ %warned44.0331, %land.lhs.true.i139 ]
   %failed45.1 = phi i1 [ true, %if.then58.i184 ], [ %failed45.0332, %if.end50.i176 ], [ %failed45.0332, %if.then12.i142 ], [ %failed45.0332, %land.lhs.true.i139 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -18487,9 +18487,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !84
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4339, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4340, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %maxval.6.lcssa = phi float [ %maxval.5341, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
   %141 = load i32, ptr %m_rng_xend.i201, align 8
@@ -18858,9 +18858,9 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   br i1 %or.cond407, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0355.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0356.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1357.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0355.us, %invoke.cont15.us ], [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0356.us, %invoke.cont15.us ], [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1357.us, %invoke.cont15.us ], [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -18981,20 +18981,20 @@ if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
   %c.0348.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2347.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1357.us, %invoke.cont15.us ]
-  %batcherror.1346.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0356.us, %invoke.cont15.us ]
+  %maxval.2347.us.us = phi float [ %maxval.7.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1357.us, %invoke.cont15.us ]
+  %batcherror.1346.us.us = phi double [ %batcherror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0356.us, %invoke.cont15.us ]
   %failed.0345.us.us = phi i1 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
   %warned.0344.us.us = phi i1 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ false, %invoke.cont15.us ]
-  %batch_sqrerror.1343.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0355.us, %invoke.cont15.us ]
+  %batch_sqrerror.1343.us.us = phi double [ %batch_sqrerror.6.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0355.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
   %s.0336.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3335.us.us = phi float [ %maxval.2347.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2334.us.us = phi double [ %batcherror.1346.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3335.us.us = phi float [ %maxval.2347.us.us, %for.cond21.preheader.us.us ], [ %maxval.7.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2334.us.us = phi double [ %batcherror.1346.us.us, %for.cond21.preheader.us.us ], [ %batcherror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %failed.1333.us.us = phi i1 [ %failed.0345.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %warned.1332.us.us = phi i1 [ %warned.0344.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2331.us.us = phi double [ %batch_sqrerror.1343.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2331.us.us = phi double [ %batch_sqrerror.1343.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.6.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %55 = load ptr, ptr %a, align 8
   %56 = load i32, ptr %m_x.i, align 4
   %57 = load i32, ptr %m_y.i, align 8
@@ -19111,11 +19111,11 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2331.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2331.us.us, %land.lhs.true.i74.us.us ]
+  %batch_sqrerror.6.us.us = phi double [ %81, %if.then58.i.us.us ], [ %81, %if.end50.i.us.us ], [ %batch_sqrerror.2331.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2331.us.us, %land.lhs.true.i74.us.us ]
   %warned.3.us.us = phi i1 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1332.us.us, %if.then12.i.us.us ], [ %warned.1332.us.us, %land.lhs.true.i74.us.us ]
   %failed.2.us.us = phi i1 [ true, %if.then58.i.us.us ], [ %failed.1333.us.us, %if.end50.i.us.us ], [ %failed.1333.us.us, %if.then12.i.us.us ], [ %failed.1333.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2334.us.us, %if.then12.i.us.us ], [ %batcherror.2334.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3335.us.us, %if.then12.i.us.us ], [ %maxval.3335.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.6.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2334.us.us, %if.then12.i.us.us ], [ %batcherror.2334.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.7.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3335.us.us, %if.then12.i.us.us ], [ %maxval.3335.us.us, %land.lhs.true.i74.us.us ]
   %inc.us.us = add nuw nsw i32 %s.0336.us.us, 1
   %exitcond383.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
   br i1 %exitcond383.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !86
@@ -19247,9 +19247,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %indvars.iv = phi i64 [ %112, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %failed45.0321 = phi i1 [ false, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %warned44.0320 = phi i1 [ false, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6319 = phi float [ %maxval.5328, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5318 = phi double [ %batcherror.4327, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batch_sqrerror.5317 = phi double [ %batch_sqrerror.4326, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6319 = phi float [ %maxval.5328, %for.body51.lr.ph ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5318 = phi double [ %batcherror.4327, %for.body51.lr.ph ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5317 = phi double [ %batch_sqrerror.4326, %for.body51.lr.ph ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %113 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %134, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %114 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %133, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %115 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %132, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
@@ -19366,9 +19366,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   %132 = phi i64 [ %inc59.i188, %if.then58.i186 ], [ %115, %if.end50.i178 ], [ %115, %if.then12.i144 ], [ %115, %if.then.i140 ]
   %133 = phi i64 [ %131, %if.then58.i186 ], [ %131, %if.end50.i178 ], [ %114, %if.then12.i144 ], [ %114, %if.then.i140 ]
   %134 = phi double [ %130, %if.then58.i186 ], [ %130, %if.end50.i178 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %113, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5317, %if.then12.i144 ], [ %batch_sqrerror.5317, %if.then.i140 ]
-  %batcherror.6 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5318, %if.then12.i144 ], [ %batcherror.5318, %if.then.i140 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6319, %if.then12.i144 ], [ %maxval.6319, %if.then.i140 ]
+  %batch_sqrerror.7 = phi double [ %128, %if.then58.i186 ], [ %128, %if.end50.i178 ], [ %batch_sqrerror.5317, %if.then12.i144 ], [ %batch_sqrerror.5317, %if.then.i140 ]
+  %batcherror.7 = phi double [ %add.i167, %if.then58.i186 ], [ %add.i167, %if.end50.i178 ], [ %batcherror.5318, %if.then12.i144 ], [ %batcherror.5318, %if.then.i140 ]
+  %maxval.8 = phi float [ %.sroa.speculated.i160, %if.then58.i186 ], [ %.sroa.speculated.i160, %if.end50.i178 ], [ %maxval.6319, %if.then12.i144 ], [ %maxval.6319, %if.then.i140 ]
   %warned44.2 = phi i1 [ %warned44.1, %if.then58.i186 ], [ %warned44.1, %if.end50.i178 ], [ %warned44.0320, %if.then12.i144 ], [ %warned44.0320, %if.then.i140 ]
   %failed45.1 = phi i1 [ true, %if.then58.i186 ], [ %failed45.0321, %if.end50.i178 ], [ %failed45.0321, %if.then12.i144 ], [ %failed45.0321, %if.then.i140 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -19376,9 +19376,9 @@ _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !88
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4326, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4327, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
-  %maxval.6.lcssa = phi float [ %maxval.5328, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4326, %for.body43 ], [ %batch_sqrerror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4327, %for.body43 ], [ %batcherror.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
+  %maxval.6.lcssa = phi float [ %maxval.5328, %for.body43 ], [ %maxval.8, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit200 ]
   %inc.i202 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i202, ptr %m_x.i, align 4
   %135 = load i32, ptr %m_rng_xend.i203, align 8
@@ -20259,7 +20259,7 @@ if.end106.i:                                      ; preds = %if.then.i.i75.i, %f
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %invoke.cont19.i, %if.end106.i
-  %retval.0.i = phi i1 [ %tobool107.i, %if.end106.i ], [ false, %invoke.cont19.i ]
+  %retval.1.i = phi i1 [ %tobool107.i, %if.end106.i ], [ false, %invoke.cont19.i ]
   %m_tile.i.i77.i = getelementptr inbounds i8, ptr %s.i, i64 72
   %74 = load ptr, ptr %m_tile.i.i77.i, align 8
   %tobool.not.i.i78.i = icmp eq ptr %74, null
@@ -20301,7 +20301,7 @@ if.then.i.i.i83.i:                                ; preds = %ehcleanup109.i
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit81.i, %if.then.i.i.i.i
-  %retval.1.i = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i ], [ %retval.0.i, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit81.i ], [ %retval.0.i, %if.then.i.i.i.i ], [ false, %sw.bb ]
+  %retval.0.i = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i ], [ %retval.1.i, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit81.i ], [ %retval.1.i, %if.then.i.i.i.i ], [ false, %sw.bb ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1539)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i)
@@ -20781,7 +20781,7 @@ if.end105.i:                                      ; preds = %if.then.i.i74.i, %f
   br label %cleanup.i121
 
 cleanup.i121:                                     ; preds = %invoke.cont19.i175, %if.end105.i
-  %retval.0.i122 = phi i1 [ %tobool106.i, %if.end105.i ], [ false, %invoke.cont19.i175 ]
+  %retval.1.i122 = phi i1 [ %tobool106.i, %if.end105.i ], [ false, %invoke.cont19.i175 ]
   %m_tile.i.i76.i = getelementptr inbounds i8, ptr %s.i48, i64 72
   %142 = load ptr, ptr %m_tile.i.i76.i, align 8
   %tobool.not.i.i77.i = icmp eq ptr %142, null
@@ -20823,7 +20823,7 @@ if.then.i.i.i81.i:                                ; preds = %ehcleanup108.i
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IhEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb18, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i50, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev.exit.i, %if.then.i.i.i.i124
-  %retval.1.i125 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i50 ], [ %retval.0.i122, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev.exit.i ], [ %retval.0.i122, %if.then.i.i.i.i124 ], [ false, %sw.bb18 ]
+  %retval.0.i125 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i50 ], [ %retval.1.i122, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhhED2Ev.exit.i ], [ %retval.1.i122, %if.then.i.i.i.i124 ], [ false, %sw.bb18 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2044)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i45)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i46)
@@ -21311,7 +21311,7 @@ if.end108.i:                                      ; preds = %if.then.i.i78.i255,
   br label %cleanup.i257
 
 cleanup.i257:                                     ; preds = %invoke.cont21.i, %if.end108.i
-  %retval.0.i258 = phi i1 [ %tobool109.i, %if.end108.i ], [ false, %invoke.cont21.i ]
+  %retval.1.i258 = phi i1 [ %tobool109.i, %if.end108.i ], [ false, %invoke.cont21.i ]
   %m_tile.i.i80.i = getelementptr inbounds i8, ptr %s.i207, i64 72
   %212 = load ptr, ptr %m_tile.i.i80.i, align 8
   %tobool.not.i.i81.i = icmp eq ptr %212, null
@@ -21353,7 +21353,7 @@ if.then.i.i.i85.i:                                ; preds = %ehcleanup111.i
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_I4halfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb24, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i209, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev.exit.i, %if.then.i.i.i.i260
-  %retval.1.i261 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i209 ], [ %retval.0.i258, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev.exit.i ], [ %retval.0.i258, %if.then.i.i.i.i260 ], [ false, %sw.bb24 ]
+  %retval.0.i261 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i209 ], [ %retval.1.i258, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halfS2_ED2Ev.exit.i ], [ %retval.1.i258, %if.then.i.i.i.i260 ], [ false, %sw.bb24 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp26203)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i204)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i205)
@@ -21834,7 +21834,7 @@ if.end105.i428:                                   ; preds = %if.then.i.i74.i426,
   br label %cleanup.i430
 
 cleanup.i430:                                     ; preds = %invoke.cont19.i510, %if.end105.i428
-  %retval.0.i431 = phi i1 [ %tobool106.i429, %if.end105.i428 ], [ false, %invoke.cont19.i510 ]
+  %retval.1.i431 = phi i1 [ %tobool106.i429, %if.end105.i428 ], [ false, %invoke.cont19.i510 ]
   %m_tile.i.i76.i432 = getelementptr inbounds i8, ptr %s.i325, i64 72
   %281 = load ptr, ptr %m_tile.i.i76.i432, align 8
   %tobool.not.i.i77.i433 = icmp eq ptr %281, null
@@ -21876,7 +21876,7 @@ if.then.i.i.i81.i368:                             ; preds = %ehcleanup108.i365
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_ItEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb30, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i332, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev.exit.i, %if.then.i.i.i.i437
-  %retval.1.i438 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i332 ], [ %retval.0.i431, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev.exit.i ], [ %retval.0.i431, %if.then.i.i.i.i437 ], [ false, %sw.bb30 ]
+  %retval.0.i438 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i332 ], [ %retval.1.i431, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIttED2Ev.exit.i ], [ %retval.1.i431, %if.then.i.i.i.i437 ], [ false, %sw.bb30 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp32321)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i322)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i323)
@@ -22335,7 +22335,7 @@ if.end105.i611:                                   ; preds = %if.then.i.i70.i, %f
   br label %cleanup.i613
 
 cleanup.i613:                                     ; preds = %invoke.cont19.i670, %if.end105.i611
-  %retval.0.i614 = phi i1 [ %tobool106.i612, %if.end105.i611 ], [ false, %invoke.cont19.i670 ]
+  %retval.1.i614 = phi i1 [ %tobool106.i612, %if.end105.i611 ], [ false, %invoke.cont19.i670 ]
   %m_tile.i.i72.i = getelementptr inbounds i8, ptr %s.i546, i64 72
   %350 = load ptr, ptr %m_tile.i.i72.i, align 8
   %tobool.not.i.i73.i615 = icmp eq ptr %350, null
@@ -22376,7 +22376,7 @@ ehcleanup108.i577:                                ; preds = %ehcleanup.i588, %lp
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IcEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb36, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i553, %_ZNSt6vectorIcSaIcEED2Ev.exit.i
-  %retval.1.i620 = phi i1 [ %retval.0.i614, %_ZNSt6vectorIcSaIcEED2Ev.exit.i ], [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i553 ], [ false, %sw.bb36 ]
+  %retval.0.i620 = phi i1 [ %retval.1.i614, %_ZNSt6vectorIcSaIcEED2Ev.exit.i ], [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i553 ], [ false, %sw.bb36 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp38542)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i543)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i544)
@@ -22858,7 +22858,7 @@ if.end105.i801:                                   ; preds = %if.then.i.i74.i799,
   br label %cleanup.i803
 
 cleanup.i803:                                     ; preds = %invoke.cont19.i883, %if.end105.i801
-  %retval.0.i804 = phi i1 [ %tobool106.i802, %if.end105.i801 ], [ false, %invoke.cont19.i883 ]
+  %retval.1.i804 = phi i1 [ %tobool106.i802, %if.end105.i801 ], [ false, %invoke.cont19.i883 ]
   %m_tile.i.i76.i805 = getelementptr inbounds i8, ptr %s.i698, i64 72
   %418 = load ptr, ptr %m_tile.i.i76.i805, align 8
   %tobool.not.i.i77.i806 = icmp eq ptr %418, null
@@ -22900,7 +22900,7 @@ if.then.i.i.i81.i741:                             ; preds = %ehcleanup108.i738
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IsEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb42, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i705, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev.exit.i, %if.then.i.i.i.i810
-  %retval.1.i811 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i705 ], [ %retval.0.i804, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev.exit.i ], [ %retval.0.i804, %if.then.i.i.i.i810 ], [ false, %sw.bb42 ]
+  %retval.0.i811 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i705 ], [ %retval.1.i804, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIssED2Ev.exit.i ], [ %retval.1.i804, %if.then.i.i.i.i810 ], [ false, %sw.bb42 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp44694)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i695)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i696)
@@ -23381,7 +23381,7 @@ if.end103.i:                                      ; preds = %if.then.i.i74.i1007
   br label %cleanup.i1009
 
 cleanup.i1009:                                    ; preds = %invoke.cont19.i1084, %if.end103.i
-  %retval.0.i1010 = phi i1 [ %tobool104.i, %if.end103.i ], [ false, %invoke.cont19.i1084 ]
+  %retval.1.i1010 = phi i1 [ %tobool104.i, %if.end103.i ], [ false, %invoke.cont19.i1084 ]
   %m_tile.i.i76.i1011 = getelementptr inbounds i8, ptr %s.i919, i64 72
   %487 = load ptr, ptr %m_tile.i.i76.i1011, align 8
   %tobool.not.i.i77.i1012 = icmp eq ptr %487, null
@@ -23423,7 +23423,7 @@ if.then.i.i.i81.i961:                             ; preds = %ehcleanup106.i
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IjEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb48, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i926, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev.exit.i, %if.then.i.i.i.i1016
-  %retval.1.i1017 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i926 ], [ %retval.0.i1010, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev.exit.i ], [ %retval.0.i1010, %if.then.i.i.i.i1016 ], [ false, %sw.bb48 ]
+  %retval.0.i1017 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i926 ], [ %retval.1.i1010, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIjjED2Ev.exit.i ], [ %retval.1.i1010, %if.then.i.i.i.i1016 ], [ false, %sw.bb48 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp50915)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i916)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i917)
@@ -23904,7 +23904,7 @@ if.end103.i1222:                                  ; preds = %if.then.i.i74.i1220
   br label %cleanup.i1224
 
 cleanup.i1224:                                    ; preds = %invoke.cont19.i1304, %if.end103.i1222
-  %retval.0.i1225 = phi i1 [ %tobool104.i1223, %if.end103.i1222 ], [ false, %invoke.cont19.i1304 ]
+  %retval.1.i1225 = phi i1 [ %tobool104.i1223, %if.end103.i1222 ], [ false, %invoke.cont19.i1304 ]
   %m_tile.i.i76.i1226 = getelementptr inbounds i8, ptr %s.i1119, i64 72
   %556 = load ptr, ptr %m_tile.i.i76.i1226, align 8
   %tobool.not.i.i77.i1227 = icmp eq ptr %556, null
@@ -23946,7 +23946,7 @@ if.then.i.i.i81.i1162:                            ; preds = %ehcleanup106.i1159
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IiEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb54, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i1126, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev.exit.i, %if.then.i.i.i.i1231
-  %retval.1.i1232 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i1126 ], [ %retval.0.i1225, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev.exit.i ], [ %retval.0.i1225, %if.then.i.i.i.i1231 ], [ false, %sw.bb54 ]
+  %retval.0.i1232 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i1126 ], [ %retval.1.i1225, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIiiED2Ev.exit.i ], [ %retval.1.i1225, %if.then.i.i.i.i1231 ], [ false, %sw.bb54 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp561115)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i1116)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i1117)
@@ -24433,7 +24433,7 @@ if.end103.i1443:                                  ; preds = %if.then.i.i74.i1441
   br label %cleanup.i1445
 
 cleanup.i1445:                                    ; preds = %invoke.cont19.i1523, %if.end103.i1443
-  %retval.0.i1446 = phi i1 [ %tobool104.i1444, %if.end103.i1443 ], [ false, %invoke.cont19.i1523 ]
+  %retval.1.i1446 = phi i1 [ %tobool104.i1444, %if.end103.i1443 ], [ false, %invoke.cont19.i1523 ]
   %m_tile.i.i76.i1447 = getelementptr inbounds i8, ptr %s.i1340, i64 72
   %625 = load ptr, ptr %m_tile.i.i76.i1447, align 8
   %tobool.not.i.i77.i1448 = icmp eq ptr %625, null
@@ -24475,7 +24475,7 @@ if.then.i.i.i81.i1383:                            ; preds = %ehcleanup106.i1380
   br label %lpad.body
 
 _ZN18OpenImageIO_v2_6_0L16isConstantColor_IdEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit: ; preds = %sw.bb60, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i1347, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev.exit.i, %if.then.i.i.i.i1452
-  %retval.1.i1453 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i1347 ], [ %retval.0.i1446, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev.exit.i ], [ %retval.0.i1446, %if.then.i.i.i.i1452 ], [ false, %sw.bb60 ]
+  %retval.0.i1453 = phi i1 [ false, %_ZNK18OpenImageIO_v2_6_03ROI7npixelsEv.exit.i1347 ], [ %retval.1.i1446, %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIddED2Ev.exit.i ], [ %retval.1.i1446, %if.then.i.i.i.i1452 ], [ false, %sw.bb60 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp621336)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %threshold.addr.i1337)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i1338)
@@ -24498,7 +24498,7 @@ invoke.cont66:                                    ; preds = %sw.default
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IdEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IiEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IjEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IsEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IcEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_ItEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_I4halfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IhEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit, %invoke.cont66, %invoke.cont4
-  %retval.0 = phi i1 [ true, %invoke.cont4 ], [ %retval.1.i, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i125, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IhEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i261, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_I4halfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i438, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_ItEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i620, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IcEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i811, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IsEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i1017, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IjEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i1232, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IiEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.1.i1453, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IdEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ false, %invoke.cont66 ]
+  %retval.0 = phi i1 [ true, %invoke.cont4 ], [ %retval.0.i, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i125, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IhEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i261, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_I4halfEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i438, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_ItEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i620, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IcEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i811, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IsEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i1017, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IjEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i1232, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IiEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ %retval.0.i1453, %_ZN18OpenImageIO_v2_6_0L16isConstantColor_IdEEbRKNS_8ImageBufEfNS_4spanIfLln1EEENS_3ROIEi.exit ], [ false, %invoke.cont66 ]
   call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtimer) #22
   ret i1 %retval.0
 }
@@ -30248,13 +30248,13 @@ if.then.i.i.i.i.i.i.i25.i.i:                      ; preds = %call5.i.i.i.i.i.noe
   br label %if.end18
 
 lpad:                                             ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %if.then.i.i.i, %if.end18
-  %tmp.sroa.0.1 = phi ptr [ null, %if.then.i.i.i ], [ %tmp.sroa.0.2, %if.end18 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i ]
+  %tmp.sroa.0.1 = phi ptr [ null, %if.then.i.i.i ], [ %tmp.sroa.0.0, %if.end18 ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i ]
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end18:                                         ; preds = %if.then.i.i.i.i.i.i.i25.i.i, %call5.i.i.i.i.i.noexc, %if.then15, %cond.end
-  %tmp.sroa.0.2 = phi ptr [ null, %cond.end ], [ %call5.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i25.i.i ], [ %call5.i.i.i.i.i29, %call5.i.i.i.i.i.noexc ], [ null, %if.then15 ]
+  %tmp.sroa.0.0 = phi ptr [ null, %cond.end ], [ %call5.i.i.i.i.i29, %if.then.i.i.i.i.i.i.i25.i.i ], [ %call5.i.i.i.i.i29, %call5.i.i.i.i.i.noexc ], [ null, %if.then15 ]
   invoke void @_ZN18OpenImageIO_v2_6_04SHA1C1EPKvm(ptr noundef nonnull align 8 dereferenceable(9) %sha, ptr noundef null, i64 noundef 0)
           to label %invoke.cont19 unwind label %lpad
 
@@ -30322,14 +30322,14 @@ invoke.cont39.us.us.us:                           ; preds = %for.body25.us.us.us
   %arraylen5.i.us.us.us = getelementptr inbounds i8, ptr %call40.us.us.us, i64 68
   %12 = load i32, ptr %arraylen5.i.us.us.us, align 4
   store i32 %12, ptr %arraylen.i, align 4
-  %call43.us.us.us = invoke noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf10get_pixelsENS_3ROIENS_8TypeDescEPvlll(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp, ptr noundef nonnull %agg.tmp38, ptr noundef nonnull %tmp.sroa.0.2, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808)
+  %call43.us.us.us = invoke noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf10get_pixelsENS_3ROIENS_8TypeDescEPvlll(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp, ptr noundef nonnull %agg.tmp38, ptr noundef nonnull %tmp.sroa.0.0, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808)
           to label %invoke.cont42.us.us.us unwind label %lpad30.loopexit.split.us.split.us.split.us
 
 invoke.cont42.us.us.us:                           ; preds = %invoke.cont39.us.us.us
   %sub45.us.us.us = sub nsw i32 %.sroa.speculated.us.us.us, %y.049.us.us.us
   %conv46.us.us.us = sext i32 %sub45.us.us.us to i64
   %mul47.us.us.us = mul i64 %mul, %conv46.us.us.us
-  invoke void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr noundef nonnull align 8 dereferenceable(9) %sha, ptr noundef nonnull %tmp.sroa.0.2, i64 noundef %mul47.us.us.us)
+  invoke void @_ZN18OpenImageIO_v2_6_04SHA16appendEPKvm(ptr noundef nonnull align 8 dereferenceable(9) %sha, ptr noundef nonnull %tmp.sroa.0.0, i64 noundef %mul47.us.us.us)
           to label %for.inc.us.us.us unwind label %lpad30.loopexit.split.us.split.us.split.us
 
 for.inc.us.us.us:                                 ; preds = %invoke.cont42.us.us.us
@@ -30400,24 +30400,24 @@ invoke.cont55:                                    ; preds = %for.end52
 
 invoke.cont56:                                    ; preds = %invoke.cont55
   call void @_ZN18OpenImageIO_v2_6_04SHA1D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %sha) #22
-  %tobool.not.i.i.i = icmp eq ptr %tmp.sroa.0.2, null
+  %tobool.not.i.i.i = icmp eq ptr %tmp.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %invoke.cont56
-  call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.2) #23
+  call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.0) #23
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont56, %if.then.i.i.i34
   ret void
 
 ehcleanup:                                        ; preds = %lpad30, %lpad
-  %tmp.sroa.0.3 = phi ptr [ %tmp.sroa.0.1, %lpad ], [ %tmp.sroa.0.2, %lpad30 ]
+  %tmp.sroa.0.2 = phi ptr [ %tmp.sroa.0.1, %lpad ], [ %tmp.sroa.0.0, %lpad30 ]
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %lpad.phi, %lpad30 ]
-  %tobool.not.i.i.i35 = icmp eq ptr %tmp.sroa.0.3, null
+  %tobool.not.i.i.i35 = icmp eq ptr %tmp.sroa.0.2, null
   br i1 %tobool.not.i.i.i35, label %_ZNSt6vectorIhSaIhEED2Ev.exit37, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.3) #23
+  call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.2) #23
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit37
 
 _ZNSt6vectorIhSaIhEED2Ev.exit37:                  ; preds = %ehcleanup, %if.then.i.i.i36
@@ -32598,22 +32598,22 @@ while.body.preheader.i.i:                         ; preds = %for.end
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
   %44 = phi i64 [ %46, %while.body.i.i ], [ %.pre.i.i, %while.body.preheader.i.i ]
   %incdec.ptr.i11.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %incdec.ptr.i8.i.i, %while.body.preheader.i.i ]
-  %retval.sroa.0.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %42, %while.body.preheader.i.i ]
+  %retval.sroa.0.110.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %42, %while.body.preheader.i.i ]
   %45 = load i64, ptr %incdec.ptr.i11.i.i, align 8
   %cmp.i4.i.i = icmp ult i64 %44, %45
   %46 = call i64 @llvm.umax.i64(i64 %44, i64 %45)
-  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.010.i.i
+  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.110.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i11.i.i, i64 8
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %43
   br i1 %cmp.i3.not.i.i, label %invoke.cont38, label %while.body.i.i, !llvm.loop !193
 
 invoke.cont38:                                    ; preds = %while.body.i.i, %for.end
-  %retval.sroa.0.2.i.i = phi ptr [ %42, %for.end ], [ %spec.select.i.i, %while.body.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %42, %for.end ], [ %spec.select.i.i, %while.body.i.i ]
   %cmp4343 = icmp sgt i32 %conv, 0
   br i1 %cmp4343, label %for.body44.lr.ph, label %for.end68
 
 for.body44.lr.ph:                                 ; preds = %invoke.cont38
-  %47 = load i64, ptr %retval.sroa.0.2.i.i, align 8
+  %47 = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %conv48 = uitofp i64 %47 to float
   %conv49 = sitofp i32 %8 to float
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
@@ -39261,8 +39261,8 @@ for.body.i131.preheader:                          ; preds = %if.end49
 
 for.body.i131:                                    ; preds = %for.body.i131.preheader, %if.end4.i134
   %s.i116.0199 = phi i32 [ %add.i136, %if.end4.i134 ], [ 0, %for.body.i131.preheader ]
-  %retval.sroa.0.0198 = phi i32 [ %mul.i132, %if.end4.i134 ], [ %div.i132, %for.body.i131.preheader ]
-  %mul.i132 = mul i32 %retval.sroa.0.0198, -1030792151
+  %retval.sroa.0.2198 = phi i32 [ %mul.i132, %if.end4.i134 ], [ %div.i132, %for.body.i131.preheader ]
+  %mul.i132 = mul i32 %retval.sroa.0.2198, -1030792151
   %cmp2.i133 = icmp ugt i32 %mul.i132, 171798691
   br i1 %cmp2.i133, label %for.end.i122, label %if.end4.i134
 
@@ -39272,30 +39272,30 @@ if.end4.i134:                                     ; preds = %for.body.i131
   br i1 %cmp1.i121, label %for.body.i131, label %for.end.i122, !llvm.loop !225
 
 for.end.i122:                                     ; preds = %if.end4.i134, %for.body.i131, %if.end49
-  %retval.sroa.0.0.lcssa = phi i32 [ %div.i132, %if.end49 ], [ %retval.sroa.0.0198, %for.body.i131 ], [ %mul.i132, %if.end4.i134 ]
+  %retval.sroa.0.2.lcssa = phi i32 [ %div.i132, %if.end49 ], [ %retval.sroa.0.2198, %for.body.i131 ], [ %mul.i132, %if.end4.i134 ]
   %s.i116.0.lcssa = phi i32 [ 0, %if.end49 ], [ %s.i116.0199, %for.body.i131 ], [ %17, %if.end4.i134 ]
   %cmp6.i123 = icmp ult i32 %s.i116.0.lcssa, %spec.store.select1
   br i1 %cmp6.i123, label %land.lhs.true.i125, label %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139
 
 land.lhs.true.i125:                               ; preds = %for.end.i122
-  %mul7.i126 = mul i32 %retval.sroa.0.0.lcssa, -858993459
+  %mul7.i126 = mul i32 %retval.sroa.0.2.lcssa, -858993459
   %cmp8.i127 = icmp ult i32 %mul7.i126, 858993460
-  %spec.select102 = select i1 %cmp8.i127, i32 %mul7.i126, i32 %retval.sroa.0.0.lcssa
+  %spec.select102 = select i1 %cmp8.i127, i32 %mul7.i126, i32 %retval.sroa.0.2.lcssa
   %inc.i130 = zext i1 %cmp8.i127 to i32
   %spec.select103 = or disjoint i32 %s.i116.0.lcssa, %inc.i130
   br label %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139
 
 _ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139: ; preds = %land.lhs.true.i125, %for.end.i122
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0.lcssa, %for.end.i122 ], [ %spec.select102, %land.lhs.true.i125 ]
+  %retval.sroa.0.3 = phi i32 [ %retval.sroa.0.2.lcssa, %for.end.i122 ], [ %spec.select102, %land.lhs.true.i125 ]
   %s.i116.1 = phi i32 [ %s.i116.0.lcssa, %for.end.i122 ], [ %spec.select103, %land.lhs.true.i125 ]
-  %shr.i124 = lshr i32 %retval.sroa.0.1, %s.i116.1
+  %shr.i124 = lshr i32 %retval.sroa.0.3, %s.i116.1
   %add56 = add nsw i32 %add51, %s.i116.1
   br label %return
 
 small_divisor_case_label:                         ; preds = %land.lhs.true44, %if.end11, %if.then37
-  %retval.sroa.0.2 = phi i32 [ %div.i132, %if.end11 ], [ %dec, %if.then37 ], [ %div.i132, %land.lhs.true44 ]
+  %retval.sroa.0.1 = phi i32 [ %div.i132, %if.end11 ], [ %dec, %if.then37 ], [ %div.i132, %land.lhs.true44 ]
   %r.0 = phi i32 [ %sub27, %if.end11 ], [ 100, %if.then37 ], [ %sub27, %land.lhs.true44 ]
-  %mul58 = mul nsw i32 %retval.sroa.0.2, 10
+  %mul58 = mul nsw i32 %retval.sroa.0.1, 10
   %div98 = lshr i32 %conv.i131, 1
   %sub61 = sub i32 %r.0, %div98
   %add62 = add i32 %sub61, 5
@@ -39367,10 +39367,10 @@ if.else97:                                        ; preds = %small_divisor_case_
 
 return:                                           ; preds = %if.then65, %if.else81, %if.then2.i, %if.else.i, %if.else, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit, %if.then21.i, %if.else97, %if.then78, %if.then83, %_ZN3fmt2v86detail9dragonbox17is_center_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139
   %retval.sroa.30.0 = phi i32 [ %shr.i123, %if.then78 ], [ %shr.i123, %if.then83 ], [ %shr.i123, %_ZN3fmt2v86detail9dragonbox17is_center_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit ], [ %shr.i123, %if.else97 ], [ %add56, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139 ], [ %add14.i, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit ], [ %shr.i106, %if.then21.i ], [ %shr.i106, %if.else.i ], [ 0, %if.else ], [ %shr.i123, %if.then2.i ], [ %shr.i123, %if.else81 ], [ %shr.i123, %if.then65 ]
-  %retval.sroa.0.3 = phi i32 [ %dec80, %if.then78 ], [ %cond, %if.then83 ], [ %add73, %_ZN3fmt2v86detail9dragonbox17is_center_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit ], [ %add100, %if.else97 ], [ %shr.i124, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139 ], [ %shr.i, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit ], [ %cond.i, %if.then21.i ], [ %spec.select101, %if.else.i ], [ 0, %if.else ], [ %add73, %if.then2.i ], [ %add73, %if.else81 ], [ %add73, %if.then65 ]
+  %retval.sroa.0.0 = phi i32 [ %dec80, %if.then78 ], [ %cond, %if.then83 ], [ %add73, %_ZN3fmt2v86detail9dragonbox17is_center_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit ], [ %add100, %if.else97 ], [ %shr.i124, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit139 ], [ %shr.i, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERj.exit ], [ %cond.i, %if.then21.i ], [ %spec.select101, %if.else.i ], [ 0, %if.else ], [ %add73, %if.then2.i ], [ %add73, %if.else81 ], [ %add73, %if.then65 ]
   %retval.sroa.30.0.insert.ext = zext i32 %retval.sroa.30.0 to i64
   %retval.sroa.30.0.insert.shift = shl nuw i64 %retval.sroa.30.0.insert.ext, 32
-  %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.3 to i64
+  %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.30.0.insert.shift, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
 }
@@ -43168,7 +43168,7 @@ if.end96.i181:                                    ; preds = %lor.lhs.false87.i17
   br label %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit246
 
 _ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit246: ; preds = %if.end14.i134, %lor.lhs.false.i142, %if.end96.i181, %if.then90.i188, %if.then78.i194, %if.then66.i200, %if.then54.i206, %if.then42.i212, %if.then31.i218, %for.end.i234
-  %retval.sroa.0.0 = phi i64 [ %conv12.i237, %for.end.i234 ], [ %add.i223, %if.then31.i218 ], [ %add47.i217, %if.then42.i212 ], [ %add59.i211, %if.then54.i206 ], [ %add71.i205, %if.then66.i200 ], [ %add83.i199, %if.then78.i194 ], [ %add95.i193, %if.then90.i188 ], [ %add102.i187, %if.end96.i181 ], [ %shr1.i, %lor.lhs.false.i142 ], [ %shr1.i, %if.end14.i134 ]
+  %retval.sroa.0.2 = phi i64 [ %conv12.i237, %for.end.i234 ], [ %add.i223, %if.then31.i218 ], [ %add47.i217, %if.then42.i212 ], [ %add59.i211, %if.then54.i206 ], [ %add71.i205, %if.then66.i200 ], [ %add83.i199, %if.then78.i194 ], [ %add95.i193, %if.then90.i188 ], [ %add102.i187, %if.end96.i181 ], [ %shr1.i, %lor.lhs.false.i142 ], [ %shr1.i, %if.end14.i134 ]
   %retval.i118.0 = phi i32 [ %s.i127.0.lcssa, %for.end.i234 ], [ 1, %if.then31.i218 ], [ 2, %if.then42.i212 ], [ 3, %if.then54.i206 ], [ 4, %if.then66.i200 ], [ 5, %if.then78.i194 ], [ 6, %if.then90.i188 ], [ 7, %if.end96.i181 ], [ 0, %lor.lhs.false.i142 ], [ 0, %if.end14.i134 ]
   %add57 = add nsw i32 %add52, %retval.i118.0
   br label %return
@@ -43257,8 +43257,8 @@ if.else101:                                       ; preds = %small_divisor_case_
 
 return:                                           ; preds = %if.then66, %if.else84, %if.then2.i343, %if.else.i, %if.else, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit, %if.then21.i, %if.else101, %if.then81, %if.then86, %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit246
   %retval.sroa.33.0 = phi i32 [ %shr.i216, %if.then81 ], [ %shr.i216, %if.then86 ], [ %shr.i216, %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit ], [ %shr.i216, %if.else101 ], [ %add57, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit246 ], [ %add14.i, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit ], [ %shr.i190, %if.then21.i ], [ %shr.i190, %if.else.i ], [ 0, %if.else ], [ %shr.i216, %if.then2.i343 ], [ %shr.i216, %if.else84 ], [ %shr.i216, %if.then66 ]
-  %retval.sroa.0.2 = phi i64 [ %dec83, %if.then81 ], [ %cond, %if.then86 ], [ %add75, %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit ], [ %add105, %if.else101 ], [ %retval.sroa.0.0, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit246 ], [ %retval.i.sroa.0.0, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit ], [ %cond.i, %if.then21.i ], [ %spec.select187, %if.else.i ], [ 0, %if.else ], [ %add75, %if.then2.i343 ], [ %add75, %if.else84 ], [ %add75, %if.then66 ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.2, 0
+  %retval.sroa.0.0 = phi i64 [ %dec83, %if.then81 ], [ %cond, %if.then86 ], [ %add75, %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit ], [ %add105, %if.else101 ], [ %retval.sroa.0.2, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit246 ], [ %retval.i.sroa.0.0, %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit ], [ %cond.i, %if.then21.i ], [ %spec.select187, %if.else.i ], [ 0, %if.else ], [ %add75, %if.then2.i343 ], [ %add75, %if.else84 ], [ %add75, %if.then66 ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.33.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
@@ -46179,7 +46179,7 @@ invoke.cont138:                                   ; preds = %if.end131
           to label %cleanup unwind label %lpad95
 
 cleanup:                                          ; preds = %invoke.cont138, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
-  %retval.sroa.0.0 = phi ptr [ %call.i.i2021, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %call.i2526, %invoke.cont138 ]
+  %retval.sroa.0.1 = phi ptr [ %call.i.i2021, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %call.i2526, %invoke.cont138 ]
   %33 = load ptr, ptr %ptr_.i.i10, align 8
   %cmp.not.i.i = icmp eq ptr %33, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i27
@@ -46193,8 +46193,8 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %cleanup, %if.
   br label %return
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %call.i.i, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %call.i.i, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46693,7 +46693,7 @@ cond.true:                                        ; preds = %if.end43
   %shr.i = lshr i32 %15, 23
   %add.i35 = or disjoint i64 %and.i, 8388608
   %17 = add nsw i32 %shr.i, -150
-  %f.sroa.0.0 = select i1 %cmp7.not.i, i64 %and.i, i64 %add.i35
+  %f.sroa.0.1 = select i1 %cmp7.not.i, i64 %and.i, i64 %add.i35
   %biased_e.0.i = select i1 %cmp7.not.i, i32 -149, i32 %17
   %cmp.i = icmp eq i32 %16, 0
   %cmp6.i = icmp ugt i32 %15, 16777215
@@ -46702,10 +46702,10 @@ cond.true:                                        ; preds = %if.end43
 
 cond.end:                                         ; preds = %if.end43, %cond.true
   %f.sroa.4.0 = phi i32 [ %biased_e.0.i, %cond.true ], [ 0, %if.end43 ]
-  %f.sroa.0.1 = phi i64 [ %f.sroa.0.0, %cond.true ], [ 0, %if.end43 ]
+  %f.sroa.0.0 = phi i64 [ %f.sroa.0.1, %cond.true ], [ 0, %if.end43 ]
   %cond = phi i1 [ %18, %cond.true ], [ false, %if.end43 ]
   %19 = tail call i32 @llvm.umin.i32(i32 %precision, i32 767)
-  call void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1_6bufferIcEERi(i64 %f.sroa.0.1, i32 %f.sroa.4.0, i1 noundef zeroext %cond, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr noundef nonnull align 4 dereferenceable(4) %exp)
+  call void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1_6bufferIcEERi(i64 %f.sroa.0.0, i32 %f.sroa.4.0, i1 noundef zeroext %cond, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr noundef nonnull align 4 dereferenceable(4) %exp)
   %20 = and i32 %specs.sroa.2.0.extract.trunc, 1048576
   %bf.cast65.not = icmp eq i32 %20, 0
   %or.cond = select i1 %cmp1, i1 %bf.cast65.not, i1 false
@@ -47758,7 +47758,7 @@ _ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i286: ; preds = %.noexc294, %if.t
   br label %if.end31
 
 if.end31:                                         ; preds = %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i286, %for.end.i280, %invoke.cont28, %invoke.cont28.thread, %invoke.cont25
-  %upper.1 = phi ptr [ null, %invoke.cont25 ], [ %upper_store, %invoke.cont28.thread ], [ %upper_store, %invoke.cont28 ], [ %upper_store, %for.end.i280 ], [ %upper_store, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i286 ]
+  %upper.2 = phi ptr [ null, %invoke.cont25 ], [ %upper_store, %invoke.cont28.thread ], [ %upper_store, %invoke.cont28 ], [ %upper_store, %for.end.i280 ], [ %upper_store, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i286 ]
   %and.i.i = and i64 %shl, 4294967294
   %shr.i.i = lshr i64 %shl, 32
   %69 = load i64, ptr %0, align 8
@@ -48051,25 +48051,25 @@ _ZN3fmt2v86detail6bigint6assignEm.exit460:        ; preds = %if.then48, %.noexc4
   br label %if.end52
 
 if.end52:                                         ; preds = %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i352, %for.end.i346, %invoke.cont34, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i227, %for.end.i221, %invoke.cont19, %_ZN3fmt2v86detail6bigint6assignEm.exit460, %invoke.cont46
-  %upper.2 = phi ptr [ null, %invoke.cont46 ], [ %upper_store, %_ZN3fmt2v86detail6bigint6assignEm.exit460 ], [ %upper.0, %invoke.cont19 ], [ %upper.0, %for.end.i221 ], [ %upper.0, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i227 ], [ %upper.1, %invoke.cont34 ], [ %upper.1, %for.end.i346 ], [ %upper.1, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i352 ]
+  %upper.1 = phi ptr [ null, %invoke.cont46 ], [ %upper_store, %_ZN3fmt2v86detail6bigint6assignEm.exit460 ], [ %upper.0, %invoke.cont19 ], [ %upper.0, %for.end.i221 ], [ %upper.0, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i227 ], [ %upper.2, %invoke.cont34 ], [ %upper.2, %for.end.i346 ], [ %upper.2, %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i352 ]
   %cmp53 = icmp slt i32 %num_digits, 0
   br i1 %cmp53, label %if.then54, label %if.end120
 
 if.then54:                                        ; preds = %if.end52
-  %tobool55.not = icmp eq ptr %upper.2, null
+  %tobool55.not = icmp eq ptr %upper.1, null
   %ptr_.i = getelementptr inbounds i8, ptr %buf, i64 8
   %113 = load ptr, ptr %ptr_.i, align 8
   %114 = trunc i64 %value.coerce0 to i32
   %115 = and i32 %114, 1
   %conv = xor i32 %115, 1
-  %upper.2.sroa.gep = getelementptr inbounds i8, ptr %upper.2, i64 16
-  %spec.store.select.sroa.sel = select i1 %tobool55.not, ptr %2, ptr %upper.2.sroa.gep
-  %upper.2.sroa.gep913 = getelementptr inbounds i8, ptr %upper.2, i64 168
-  %spec.store.select.sroa.sel914 = select i1 %tobool55.not, ptr %exp_.i75, ptr %upper.2.sroa.gep913
-  %upper.2.sroa.gep916 = getelementptr inbounds i8, ptr %upper.2, i64 8
-  %spec.store.select.sroa.sel917 = select i1 %tobool55.not, ptr %ptr_.i.i.i72, ptr %upper.2.sroa.gep916
+  %upper.1.sroa.gep = getelementptr inbounds i8, ptr %upper.1, i64 16
+  %spec.store.select.sroa.sel = select i1 %tobool55.not, ptr %2, ptr %upper.1.sroa.gep
+  %upper.1.sroa.gep913 = getelementptr inbounds i8, ptr %upper.1, i64 168
+  %spec.store.select.sroa.sel914 = select i1 %tobool55.not, ptr %exp_.i75, ptr %upper.1.sroa.gep913
+  %upper.1.sroa.gep916 = getelementptr inbounds i8, ptr %upper.1, i64 8
+  %spec.store.select.sroa.sel917 = select i1 %tobool55.not, ptr %ptr_.i.i.i72, ptr %upper.1.sroa.gep916
   %invariant.op = sub nsw i32 0, %conv
-  %upper.2.sroa.gep925 = getelementptr inbounds i8, ptr %upper.2, i64 24
+  %upper.1.sroa.gep925 = getelementptr inbounds i8, ptr %upper.1, i64 24
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then54
@@ -48486,14 +48486,14 @@ invoke.cont113:                                   ; preds = %_ZN3fmt2v86detail6b
   br i1 %tobool55.not, label %for.cond.backedge, label %if.then116
 
 if.then116:                                       ; preds = %invoke.cont113
-  %174 = load i64, ptr %upper.2.sroa.gep, align 8
+  %174 = load i64, ptr %upper.1.sroa.gep, align 8
   %cmp12.not.i.i608 = icmp eq i64 %174, 0
   br i1 %cmp12.not.i.i608, label %for.cond.backedge, label %for.body.i.i611
 
 for.body.i.i611:                                  ; preds = %if.then116, %for.body.i.i611
   %i.014.i.i612 = phi i64 [ %inc.i.i620, %for.body.i.i611 ], [ 0, %if.then116 ]
   %carry.013.i.i613 = phi i64 [ %shr.i.i619, %for.body.i.i611 ], [ 0, %if.then116 ]
-  %175 = load ptr, ptr %upper.2.sroa.gep916, align 8
+  %175 = load ptr, ptr %upper.1.sroa.gep916, align 8
   %arrayidx.i.i.i614 = getelementptr inbounds i32, ptr %175, i64 %i.014.i.i612
   %176 = load i32, ptr %arrayidx.i.i.i614, align 4
   %conv4.i.i615 = zext i32 %176 to i64
@@ -48512,28 +48512,28 @@ for.end.i.i622:                                   ; preds = %for.body.i.i611
   br i1 %cmp10.not.i.i624, label %for.cond.backedge, label %if.then.i.i625
 
 if.then.i.i625:                                   ; preds = %for.end.i.i622
-  %177 = load i64, ptr %upper.2.sroa.gep, align 8
+  %177 = load i64, ptr %upper.1.sroa.gep, align 8
   %add.i.i.i626 = add i64 %177, 1
-  %178 = load i64, ptr %upper.2.sroa.gep925, align 8
+  %178 = load i64, ptr %upper.1.sroa.gep925, align 8
   %cmp.i.i.i.i628 = icmp ult i64 %178, %add.i.i.i626
   br i1 %cmp.i.i.i.i628, label %if.then.i.i.i.i632, label %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i.i629
 
 if.then.i.i.i.i632:                               ; preds = %if.then.i.i625
-  %vtable.i.i.i.i633 = load ptr, ptr %upper.2, align 8
+  %vtable.i.i.i.i633 = load ptr, ptr %upper.1, align 8
   %179 = load ptr, ptr %vtable.i.i.i.i633, align 8
-  invoke void %179(ptr noundef nonnull align 8 dereferenceable(32) %upper.2, i64 noundef %add.i.i.i626)
+  invoke void %179(ptr noundef nonnull align 8 dereferenceable(32) %upper.1, i64 noundef %add.i.i.i626)
           to label %.noexc636 unwind label %lpad5.loopexit
 
 .noexc636:                                        ; preds = %if.then.i.i.i.i632
-  %.pre.i.i.i634 = load i64, ptr %upper.2.sroa.gep, align 8
+  %.pre.i.i.i634 = load i64, ptr %upper.1.sroa.gep, align 8
   %.pre1.i.i.i635 = add i64 %.pre.i.i.i634, 1
   br label %_ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i.i629
 
 _ZN3fmt2v86detail6bufferIjE9push_backERKj.exit.i.i629: ; preds = %.noexc636, %if.then.i.i625
   %inc.pre-phi.i.i.i630 = phi i64 [ %add.i.i.i626, %if.then.i.i625 ], [ %.pre1.i.i.i635, %.noexc636 ]
   %180 = phi i64 [ %177, %if.then.i.i625 ], [ %.pre.i.i.i634, %.noexc636 ]
-  %181 = load ptr, ptr %upper.2.sroa.gep916, align 8
-  store i64 %inc.pre-phi.i.i.i630, ptr %upper.2.sroa.gep, align 8
+  %181 = load ptr, ptr %upper.1.sroa.gep916, align 8
+  store i64 %inc.pre-phi.i.i.i630, ptr %upper.1.sroa.gep, align 8
   %arrayidx.i9.i.i631 = getelementptr inbounds i32, ptr %181, i64 %180
   store i32 %conv9.i.i623, ptr %arrayidx.i9.i.i631, align 4
   br label %for.cond.backedge
@@ -55056,18 +55056,18 @@ if.end.i:                                         ; preds = %if.then12, %if.then
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then.i, %if.end.i, %if.then9
-  %begin.addr.0 = phi ptr [ %incdec.ptr10, %if.then9 ], [ %call.i, %if.then.i ], [ %incdec.ptr10, %if.end.i ]
-  %cmp16 = icmp eq ptr %begin.addr.0, %end
+  %begin.addr.1 = phi ptr [ %incdec.ptr10, %if.then9 ], [ %call.i, %if.then.i ], [ %incdec.ptr10, %if.end.i ]
+  %cmp16 = icmp eq ptr %begin.addr.1, %end
   br i1 %cmp16, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end15
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %begin.addr.0, i64 1
-  %12 = load i8, ptr %begin.addr.0, align 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %begin.addr.1, i64 1
+  %12 = load i8, ptr %begin.addr.1, align 1
   %cmp19.not = icmp eq i8 %12, 125
   br i1 %cmp19.not, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %lor.lhs.false, %if.end15
-  %begin.addr.1 = phi ptr [ %begin.addr.0, %if.end15 ], [ %incdec.ptr17, %lor.lhs.false ]
+  %begin.addr.2 = phi ptr [ %begin.addr.1, %if.end15 ], [ %incdec.ptr17, %lor.lhs.false ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i19)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i19, ptr noundef nonnull @.str.62)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %ref.tmp2.i.i.i.i19, align 8
@@ -55086,7 +55086,7 @@ if.else22:                                        ; preds = %entry, %if.else6
   br label %return
 
 if.end24:                                         ; preds = %lor.lhs.false, %if.then5, %if.else
-  %begin.addr.2 = phi ptr [ %incdec.ptr.lcssa.i, %if.else ], [ %incdec.ptr.lcssa.i, %if.then5 ], [ %incdec.ptr17, %lor.lhs.false ]
+  %begin.addr.0 = phi ptr [ %incdec.ptr.lcssa.i, %if.else ], [ %incdec.ptr.lcssa.i, %if.then5 ], [ %incdec.ptr17, %lor.lhs.false ]
   %arg_type_.i = getelementptr inbounds i8, ptr %handler, i64 24
   %13 = load i32, ptr %arg_type_.i, align 8
   switch i32 %13, label %return [
@@ -55111,7 +55111,7 @@ if.then.i23:                                      ; preds = %if.end24, %if.end24
   br label %return
 
 return:                                           ; preds = %if.then.i23, %if.end24, %if.else22, %if.then20
-  %begin.addr.3 = phi ptr [ %begin.addr.1, %if.then20 ], [ %incdec.ptr, %if.else22 ], [ %begin.addr.2, %if.end24 ], [ %begin.addr.2, %if.then.i23 ]
+  %begin.addr.3 = phi ptr [ %begin.addr.2, %if.then20 ], [ %incdec.ptr, %if.else22 ], [ %begin.addr.0, %if.end24 ], [ %begin.addr.0, %if.then.i23 ]
   ret ptr %begin.addr.3
 }
 
@@ -62397,7 +62397,7 @@ invoke.cont138:                                   ; preds = %if.end131
           to label %cleanup unwind label %lpad95
 
 cleanup:                                          ; preds = %invoke.cont138, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
-  %retval.sroa.0.0 = phi ptr [ %call.i.i2021, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %call.i2627, %invoke.cont138 ]
+  %retval.sroa.0.1 = phi ptr [ %call.i.i2021, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %call.i2627, %invoke.cont138 ]
   %33 = load ptr, ptr %ptr_.i.i10, align 8
   %cmp.not.i.i = icmp eq ptr %33, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i28
@@ -62411,8 +62411,8 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %cleanup, %if.
   br label %return
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %call.i.i, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %call.i.i, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -63193,11 +63193,11 @@ if.else60.i158:                                   ; preds = %if.then50.i155
 
 if.then61:                                        ; preds = %if.then54.i161, %if.else60.i158, %for.end.i153, %land.lhs.true.i.i138, %if.then54.i, %if.else60.i, %for.end.i, %land.lhs.true.i.i, %if.then30.i, %if.end44.i
   %51 = phi i32 [ %conv1.i.i97, %if.end44.i ], [ %conv1.i.i97, %if.then30.i ], [ %dec93.i, %if.then54.i161 ], [ %dec93.i, %if.else60.i158 ], [ %dec93.i, %for.end.i153 ], [ %dec93.i, %land.lhs.true.i.i138 ], [ %dec.i, %if.then54.i ], [ %dec.i, %if.else60.i ], [ %dec.i, %for.end.i ], [ %dec.i, %land.lhs.true.i.i ]
-  %handler.sroa.14.4325 = phi i32 [ 1, %if.end44.i ], [ 0, %if.then30.i ], [ %inc57.i162, %if.then54.i161 ], [ %43, %if.else60.i158 ], [ %43, %for.end.i153 ], [ %43, %land.lhs.true.i.i138 ], [ %inc57.i, %if.then54.i ], [ %33, %if.else60.i ], [ %33, %for.end.i ], [ %33, %land.lhs.true.i.i ]
-  %handler.sroa.38.4324 = phi i32 [ %sub54, %if.end44.i ], [ %sub54, %if.then30.i ], [ %sub54, %if.then54.i161 ], [ %inc61.i160, %if.else60.i158 ], [ %sub54, %for.end.i153 ], [ %sub54, %land.lhs.true.i.i138 ], [ %sub54, %if.then54.i ], [ %inc61.i, %if.else60.i ], [ %sub54, %for.end.i ], [ %sub54, %land.lhs.true.i.i ]
-  %add63 = add nsw i32 %51, %handler.sroa.38.4324
+  %handler.sroa.14.0325 = phi i32 [ 1, %if.end44.i ], [ 0, %if.then30.i ], [ %inc57.i162, %if.then54.i161 ], [ %43, %if.else60.i158 ], [ %43, %for.end.i153 ], [ %43, %land.lhs.true.i.i138 ], [ %inc57.i, %if.then54.i ], [ %33, %if.else60.i ], [ %33, %for.end.i ], [ %33, %land.lhs.true.i.i ]
+  %handler.sroa.38.0324 = phi i32 [ %sub54, %if.end44.i ], [ %sub54, %if.then30.i ], [ %sub54, %if.then54.i161 ], [ %inc61.i160, %if.else60.i158 ], [ %sub54, %for.end.i153 ], [ %sub54, %land.lhs.true.i.i138 ], [ %sub54, %if.then54.i ], [ %inc61.i, %if.else60.i ], [ %sub54, %for.end.i ], [ %sub54, %land.lhs.true.i.i ]
+  %add63 = add nsw i32 %51, %handler.sroa.38.0324
   store i32 %add63, ptr %exp, align 4
-  %conv66 = zext i32 %handler.sroa.14.4325 to i64
+  %conv66 = zext i32 %handler.sroa.14.0325 to i64
   %capacity_.i.i176 = getelementptr inbounds i8, ptr %buf, i64 24
   %52 = load i64, ptr %capacity_.i.i176, align 8
   %cmp.i.i177 = icmp ult i64 %52, %conv66
@@ -63219,9 +63219,9 @@ if.end72:                                         ; preds = %if.then.i.i180, %if
 
 if.then74:                                        ; preds = %for.cond.i, %if.end.i.i, %land.lhs.true13.i.i, %if.end7.i133, %land.lhs.true13.i.i145, %land.lhs.true13.i, %if.end.i99
   %55 = phi i32 [ %conv1.i.i97, %if.end.i99 ], [ %conv1.i.i97, %land.lhs.true13.i ], [ %dec.i, %land.lhs.true13.i.i ], [ %dec.i, %if.end.i.i ], [ %dec93.i, %if.end7.i133 ], [ %dec93.i, %land.lhs.true13.i.i145 ], [ %dec93.i, %for.cond.i ]
-  %handler.sroa.14.4314 = phi i32 [ 0, %if.end.i99 ], [ 0, %land.lhs.true13.i ], [ %33, %land.lhs.true13.i.i ], [ %33, %if.end.i.i ], [ %43, %if.end7.i133 ], [ %43, %land.lhs.true13.i.i145 ], [ %43, %for.cond.i ]
+  %handler.sroa.14.0314 = phi i32 [ 0, %if.end.i99 ], [ 0, %land.lhs.true13.i ], [ %33, %land.lhs.true13.i.i ], [ %33, %if.end.i.i ], [ %43, %if.end7.i133 ], [ %43, %land.lhs.true13.i.i145 ], [ %43, %for.cond.i ]
   %handler.sroa.31.1313 = phi i32 [ 0, %if.end.i99 ], [ 0, %land.lhs.true13.i ], [ %handler.sroa.31.0, %land.lhs.true13.i.i ], [ %handler.sroa.31.0, %if.end.i.i ], [ %handler.sroa.31.0, %if.end7.i133 ], [ %handler.sroa.31.0, %land.lhs.true13.i.i145 ], [ %handler.sroa.31.0, %for.cond.i ]
-  %reass.sub356 = sub i32 %handler.sroa.14.4314, %mul6.i
+  %reass.sub356 = sub i32 %handler.sroa.14.0314, %mul6.i
   %sub69 = add i32 %reass.sub356, 347
   %add70 = add nsw i32 %sub69, %55
   store i32 %add70, ptr %exp, align 4
@@ -63238,7 +63238,7 @@ cond.true:                                        ; preds = %if.then74
   %shr.i187 = lshr i32 %57, 23
   %add.i188 = or disjoint i64 %and.i185, 8388608
   %59 = add nsw i32 %shr.i187, -150
-  %f.sroa.0.0 = select i1 %cmp7.not.i, i64 %and.i185, i64 %add.i188
+  %f.sroa.0.1 = select i1 %cmp7.not.i, i64 %and.i185, i64 %add.i188
   %biased_e.0.i = select i1 %cmp7.not.i, i32 -149, i32 %59
   %cmp.i190 = icmp eq i32 %58, 0
   %cmp6.i = icmp ugt i32 %57, 16777215
@@ -63253,10 +63253,10 @@ cond.false:                                       ; preds = %if.then74
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %f.sroa.6.0 = phi i32 [ %biased_e.0.i.i, %cond.false ], [ %biased_e.0.i, %cond.true ]
-  %f.sroa.0.2 = phi i64 [ %agg.tmp43.sroa.0.0, %cond.false ], [ %f.sroa.0.0, %cond.true ]
+  %f.sroa.0.0 = phi i64 [ %agg.tmp43.sroa.0.0, %cond.false ], [ %f.sroa.0.1, %cond.true ]
   %cond = phi i1 [ %61, %cond.false ], [ %60, %cond.true ]
   %spec.store.select = call i32 @llvm.smin.i32(i32 %handler.sroa.31.1313, i32 767)
-  call void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1_6bufferIcEERi(i64 %f.sroa.0.2, i32 %f.sroa.6.0, i1 noundef zeroext %cond, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr noundef nonnull align 4 dereferenceable(4) %exp)
+  call void @_ZN3fmt2v86detail13format_dragonENS1_2fpEbiRNS1_6bufferIcEERi(i64 %f.sroa.0.0, i32 %f.sroa.6.0, i1 noundef zeroext %cond, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(32) %buf, ptr noundef nonnull align 4 dereferenceable(4) %exp)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.end72, %cond.end
@@ -63595,7 +63595,7 @@ invoke.cont135:                                   ; preds = %if.end131
           to label %cleanup unwind label %lpad95
 
 cleanup:                                          ; preds = %invoke.cont135, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
-  %retval.sroa.0.0 = phi ptr [ %call.i.i2021, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %call.i2526, %invoke.cont135 ]
+  %retval.sroa.0.1 = phi ptr [ %call.i.i2021, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %call.i2526, %invoke.cont135 ]
   %33 = load ptr, ptr %ptr_.i.i10, align 8
   %cmp.not.i.i = icmp eq ptr %33, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i27
@@ -63609,8 +63609,8 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %cleanup, %if.
   br label %return
 
 return:                                           ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %call.i.i, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %call.i.i, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -63721,33 +63721,33 @@ if.then.i.i:                                      ; preds = %cond.true
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
-  %p.0.i.i = phi ptr [ %s.coerce0, %if.then.i.i ], [ %call6.i.i, %for.body.i.i ]
-  %cmp5.i.i = icmp ult ptr %p.0.i.i, %add.ptr4.i.i
+  %p.1.i.i = phi ptr [ %s.coerce0, %if.then.i.i ], [ %call6.i.i, %for.body.i.i ]
+  %cmp5.i.i = icmp ult ptr %p.1.i.i, %add.ptr4.i.i
   br i1 %cmp5.i.i, label %for.body.i.i, label %if.end8.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %call6.i.i = call noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %decode.i.i, ptr noundef %p.0.i.i, ptr noundef %p.0.i.i)
+  %call6.i.i = call noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %decode.i.i, ptr noundef %p.1.i.i, ptr noundef %p.1.i.i)
   %tobool.not.i.i = icmp eq ptr %call6.i.i, null
   br i1 %tobool.not.i.i, label %_ZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %for.cond.i.i, !llvm.loop !379
 
 if.end8.i.i:                                      ; preds = %for.cond.i.i, %cond.true
-  %p.1.i.i = phi ptr [ %s.coerce0, %cond.true ], [ %p.0.i.i, %for.cond.i.i ]
+  %p.0.i.i = phi ptr [ %s.coerce0, %cond.true ], [ %p.1.i.i, %for.cond.i.i ]
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %s.coerce0, i64 %size.0
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr11.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p.1.i.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p.0.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %tobool12.not.i.i = icmp eq ptr %add.ptr11.i.i, %p.1.i.i
+  %tobool12.not.i.i = icmp eq ptr %add.ptr11.i.i, %p.0.i.i
   br i1 %tobool12.not.i.i, label %_ZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end8.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf.i.i, i8 0, i64 7, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.i.i, ptr align 1 %p.1.i.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.i.i, ptr align 1 %p.0.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %sub.ptr.rhs.cast28.i.i = ptrtoint ptr %buf.i.i to i64
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end21.i.i, %if.then13.i.i
   %buf_ptr.0.i.i = phi ptr [ %buf.i.i, %if.then13.i.i ], [ %call18.i.i, %if.end21.i.i ]
-  %p.2.i.i = phi ptr [ %p.1.i.i, %if.then13.i.i ], [ %add.ptr25.i.i, %if.end21.i.i ]
+  %p.2.i.i = phi ptr [ %p.0.i.i, %if.then13.i.i ], [ %add.ptr25.i.i, %if.end21.i.i ]
   %call18.i.i = call noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %decode.i.i, ptr noundef nonnull %buf_ptr.0.i.i, ptr noundef %p.2.i.i)
   %tobool19.not.i.i = icmp eq ptr %call18.i.i, null
   br i1 %tobool19.not.i.i, label %_ZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %if.end21.i.i

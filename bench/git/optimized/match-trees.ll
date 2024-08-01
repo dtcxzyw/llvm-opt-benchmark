@@ -100,7 +100,7 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end50, %entry
-  %score.0 = phi i32 [ 0, %entry ], [ %score.2, %if.end50 ]
+  %score.0 = phi i32 [ 0, %entry ], [ %score.1, %if.end50 ]
   %2 = load i32, ptr %size, align 8
   %tobool = icmp ne i32 %2, 0
   %3 = load i32, ptr %size2, align 8
@@ -226,7 +226,7 @@ if.end50:                                         ; preds = %if.then23, %if.end4
   %two.sink = phi ptr [ %two, %if.then23 ], [ %two, %if.end48 ], [ %one, %if.then18 ]
   %call20.pn = phi i32 [ %switch.select3.i10, %if.then23 ], [ %call46.pn, %if.end48 ], [ %switch.select3.i, %if.then18 ]
   call void @update_tree_entry(ptr noundef nonnull %two.sink) #9
-  %score.2 = add nsw i32 %call20.pn, %score.0
+  %score.1 = add nsw i32 %call20.pn, %score.0
   br label %for.cond
 
 for.end:                                          ; preds = %if.else
@@ -480,8 +480,8 @@ if.then14:                                        ; preds = %if.end11
   br i1 %cmp22, label %if.else, label %if.end26
 
 if.end26:                                         ; preds = %land.lhs.true4, %entry, %if.then14
-  %candidate.3.in = phi i1 [ %cmp17, %if.then14 ], [ %narrow, %entry ], [ %narrow, %land.lhs.true4 ]
-  br i1 %candidate.3.in, label %if.then32, label %if.then28
+  %candidate.2.in = phi i1 [ %cmp17, %if.then14 ], [ %narrow, %entry ], [ %narrow, %land.lhs.true4 ]
+  br i1 %candidate.2.in, label %if.then32, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %shifted, ptr noundef nonnull readonly align 4 dereferenceable(32) %hash2, i64 32, i1 false)

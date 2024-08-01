@@ -1803,7 +1803,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %18, %17, %11, %10
   br label %29
 
 29:                                               ; preds = %26, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
-  %.012 = phi i32 [ %28, %26 ], [ %2, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit ]
+  %.1 = phi i32 [ %28, %26 ], [ %2, %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit ]
   %30 = load ptr, ptr %0, align 8
   %31 = load i8, ptr @PrintInterpreter, align 1
   %32 = trunc i8 %31 to i1
@@ -1814,11 +1814,11 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %18, %17, %11, %10
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %29, %33
-  tail call void @_ZN25InterpreterMacroAssembler15dispatch_prologE8TosStatei(ptr noundef nonnull align 8 dereferenceable(48) %30, i32 noundef %.012, i32 noundef %24) #7
+  tail call void @_ZN25InterpreterMacroAssembler15dispatch_prologE8TosStatei(ptr noundef nonnull align 8 dereferenceable(48) %30, i32 noundef %.1, i32 noundef %24) #7
   br label %34
 
 34:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit, %3
-  %.1 = phi i32 [ %2, %3 ], [ %.012, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit ]
+  %.012 = phi i32 [ %2, %3 ], [ %.1, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit ]
   %.0 = phi i32 [ 0, %3 ], [ %24, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit ]
   %35 = load ptr, ptr %0, align 8
   tail call void @_ZN8Template8generateEP25InterpreterMacroAssembler(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef %35) #7
@@ -1838,7 +1838,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit14
 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit14: ; preds = %38, %42
-  tail call void @_ZN25InterpreterMacroAssembler15dispatch_epilogE8TosStatei(ptr noundef nonnull align 8 dereferenceable(48) %39, i32 noundef %.1, i32 noundef %.0) #7
+  tail call void @_ZN25InterpreterMacroAssembler15dispatch_epilogE8TosStatei(ptr noundef nonnull align 8 dereferenceable(48) %39, i32 noundef %.012, i32 noundef %.0) #7
   br label %43
 
 43:                                               ; preds = %34, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit14

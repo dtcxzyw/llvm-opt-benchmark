@@ -3470,7 +3470,7 @@ default.unreachable9:                             ; preds = %1
   br label %35
 
 35:                                               ; preds = %9, %34
-  %.0 = phi ptr [ %33, %34 ], [ null, %9 ]
+  %.1 = phi ptr [ %33, %34 ], [ null, %9 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$ignore..Error$GT$$GT$17h3937c3f953e93ed8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %42 unwind label %40
 
@@ -3501,13 +3501,13 @@ default.unreachable9:                             ; preds = %1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %42, %47, %50, %53
-  %.1.ph = phi ptr [ %.0, %42 ], [ %17, %47 ], [ %21, %50 ], [ %25, %53 ]
+  %.0.ph = phi ptr [ %.1, %42 ], [ %17, %47 ], [ %21, %50 ], [ %25, %53 ]
   %.pr = load i64, ptr %0, align 8
   br label %43
 
 43:                                               ; preds = %thread-pre-split, %1, %1, %1, %1
   %44 = phi i64 [ %.pr, %thread-pre-split ], [ %8, %1 ], [ %8, %1 ], [ %8, %1 ], [ %8, %1 ]
-  %.1 = phi ptr [ %.1.ph, %thread-pre-split ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.0 = phi ptr [ %.0.ph, %thread-pre-split ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   switch i64 %44, label %58 [
     i64 0, label %59
     i64 1, label %59
@@ -3566,8 +3566,8 @@ thread-pre-split:                                 ; preds = %42, %47, %50, %53
   br label %59
 
 59:                                               ; preds = %.thread, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E.exit", %58, %43, %43, %43, %43
-  %.18 = phi ptr [ %27, %.thread ], [ %.1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E.exit" ], [ %.1, %58 ], [ %.1, %43 ], [ %.1, %43 ], [ %.1, %43 ], [ %.1, %43 ]
-  ret ptr %.18
+  %.08 = phi ptr [ %27, %.thread ], [ %.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E.exit" ], [ %.0, %58 ], [ %.0, %43 ], [ %.0, %43 ], [ %.0, %43 ], [ %.0, %43 ]
+  ret ptr %.08
 
 60:                                               ; preds = %43
   %61 = getelementptr inbounds i8, ptr %0, i64 16

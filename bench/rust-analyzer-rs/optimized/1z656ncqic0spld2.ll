@@ -990,10 +990,10 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %18, %25
   br label %36
 
 36:                                               ; preds = %14, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit
-  %.1 = phi i1 [ %switch.selectcmp, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ false, %14 ]
+  %.09 = phi i1 [ %switch.selectcmp, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ false, %14 ]
   %37 = tail call noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 %0, i64 noundef 0, i16 noundef 30)
   %.not = xor i1 %37, true
-  %brmerge = or i1 %.1, %.not
+  %brmerge = or i1 %.09, %.not
   br i1 %brmerge, label %38, label %41
 
 38:                                               ; preds = %36

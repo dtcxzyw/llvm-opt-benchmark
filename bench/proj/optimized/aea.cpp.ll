@@ -610,7 +610,7 @@ _ZL5phi1_ddd.exit.thread:                         ; preds = %72, %_ZL5phi1_ddd.e
   br label %90
 
 90:                                               ; preds = %85, %87, %76, %_ZL5phi1_ddd.exit
-  %.sroa.4.0 = phi double [ %.0.i, %_ZL5phi1_ddd.exit ], [ %78, %76 ], [ %86, %85 ], [ %89, %87 ]
+  %.sroa.4.1 = phi double [ %.0.i, %_ZL5phi1_ddd.exit ], [ %78, %76 ], [ %86, %85 ], [ %89, %87 ]
   %91 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.5.0) #8
   %92 = load double, ptr %12, align 8
   %93 = fdiv double %91, %92
@@ -622,10 +622,10 @@ _ZL5phi1_ddd.exit.thread:                         ; preds = %72, %_ZL5phi1_ddd.e
   br label %97
 
 97:                                               ; preds = %90, %94, %_ZL5phi1_ddd.exit.thread, %40
-  %.sroa.4.1 = phi double [ %32, %40 ], [ 0x7FF0000000000000, %_ZL5phi1_ddd.exit.thread ], [ %.sroa.4.0, %90 ], [ %96, %94 ]
+  %.sroa.4.0 = phi double [ %32, %40 ], [ 0x7FF0000000000000, %_ZL5phi1_ddd.exit.thread ], [ %.sroa.4.1, %90 ], [ %96, %94 ]
   %.sroa.026.0 = phi double [ 0.000000e+00, %40 ], [ 0.000000e+00, %_ZL5phi1_ddd.exit.thread ], [ %93, %90 ], [ 0.000000e+00, %94 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.026.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 

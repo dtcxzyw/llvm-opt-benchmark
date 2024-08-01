@@ -721,40 +721,40 @@ define linkonce_odr hidden noundef ptr @_ZN16G1FreeRegionList29remove_region_wit
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %.142 = load ptr, ptr %22, align 8
-  %23 = icmp ne ptr %.142, null
+  %.242 = load ptr, ptr %22, align 8
+  %23 = icmp ne ptr %.242, null
   %24 = and i1 %23, %7
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %21, %28
-  %.144 = phi ptr [ %.1, %28 ], [ %.142, %21 ]
-  %.13743 = phi i64 [ %30, %28 ], [ 0, %21 ]
-  %25 = getelementptr inbounds i8, ptr %.144, i64 124
+  %.244 = phi ptr [ %.2, %28 ], [ %.242, %21 ]
+  %.23843 = phi i64 [ %30, %28 ], [ 0, %21 ]
+  %25 = getelementptr inbounds i8, ptr %.244, i64 124
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %2
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.144, i64 80
-  %30 = add nuw nsw i64 %.13743, 1
-  %.1 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %.1, null
+  %29 = getelementptr inbounds i8, ptr %.244, i64 80
+  %30 = add nuw nsw i64 %.23843, 1
+  %.2 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %.2, null
   %32 = icmp ult i64 %30, %6
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %.lr.ph52, %15, %21, %8
-  %.238 = phi i64 [ 0, %21 ], [ 0, %8 ], [ %.03650, %.lr.ph52 ], [ %17, %15 ], [ %.13743, %.lr.ph ], [ %30, %28 ]
-  %.2 = phi ptr [ %.142, %21 ], [ %.03549, %8 ], [ %.03551, %.lr.ph52 ], [ %.035, %15 ], [ %.144, %.lr.ph ], [ %.1, %28 ]
-  %34 = icmp ne ptr %.2, null
-  %.not = icmp ult i64 %.238, %6
+  %.137 = phi i64 [ 0, %21 ], [ 0, %8 ], [ %.03650, %.lr.ph52 ], [ %17, %15 ], [ %.23843, %.lr.ph ], [ %30, %28 ]
+  %.1 = phi ptr [ %.242, %21 ], [ %.03549, %8 ], [ %.03551, %.lr.ph52 ], [ %.035, %15 ], [ %.244, %.lr.ph ], [ %.2, %28 ]
+  %34 = icmp ne ptr %.1, null
+  %.not = icmp ult i64 %.137, %6
   %or.cond = select i1 %34, i1 %.not, i1 false
   br i1 %or.cond, label %35, label %_ZN16G1FreeRegionList15decrease_lengthEj.exit
 
 35:                                               ; preds = %.loopexit
-  %36 = getelementptr inbounds i8, ptr %.2, i64 80
+  %36 = getelementptr inbounds i8, ptr %.1, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.2, i64 72
+  %38 = getelementptr inbounds i8, ptr %.1, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %37, null
   %41 = getelementptr inbounds i8, ptr %37, i64 72
@@ -769,7 +769,7 @@ define linkonce_odr hidden noundef ptr @_ZN16G1FreeRegionList29remove_region_wit
   %46 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, %.2
+  %48 = icmp eq ptr %47, %.1
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %35
@@ -793,7 +793,7 @@ _ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit: ; preds = %50, %53
   %57 = load i32, ptr %56, align 8
   %58 = add i32 %57, -1
   store i32 %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %.2, i64 124
+  %59 = getelementptr inbounds i8, ptr %.1, i64 124
   %60 = load i32, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 64
   %62 = load ptr, ptr %61, align 8
@@ -817,7 +817,7 @@ _ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit: ; preds = %50, %53
   br label %_ZN16G1FreeRegionList15decrease_lengthEj.exit
 
 _ZN16G1FreeRegionList15decrease_lengthEj.exit:    ; preds = %67, %63, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ %.2, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit ], [ %.2, %63 ], [ %.2, %67 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ %.1, %_ZN19G1HeapRegionSetBase6removeEP12G1HeapRegion.exit ], [ %.1, %63 ], [ %.1, %67 ]
   ret ptr %.0
 }
 
@@ -2011,7 +2011,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN19G1HeapRegionManager24expand_on_p
 
 11:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.0918 = phi i32 [ -1, %.lr.ph ], [ %.1, %24 ]
+  %.118 = phi i32 [ -1, %.lr.ph ], [ %.2, %24 ]
   %12 = load ptr, ptr %10, align 8
   %13 = lshr i64 %indvars.iv, 6
   %14 = getelementptr inbounds i64, ptr %12, i64 %13
@@ -2031,7 +2031,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN19G1HeapRegionManager24expand_on_p
   br i1 %23, label %.thread12, label %24
 
 24:                                               ; preds = %19, %11
-  %.1 = phi i32 [ %.0918, %11 ], [ %21, %19 ]
+  %.2 = phi i32 [ %.118, %11 ], [ %21, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i64, ptr %3, align 8
   %26 = and i64 %25, 4294967295
@@ -2039,12 +2039,12 @@ define hidden noundef range(i32 0, 2) i32 @_ZN19G1HeapRegionManager24expand_on_p
   br i1 %27, label %11, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %24
-  %28 = icmp eq i32 %.1, -1
+  %28 = icmp eq i32 %.2, -1
   br i1 %28, label %.thread, label %.thread12
 
 .thread12:                                        ; preds = %19, %._crit_edge
-  %.214 = phi i32 [ %.1, %._crit_edge ], [ %21, %19 ]
-  tail call void @_ZN19G1HeapRegionManager12expand_exactEjjP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.214, i32 noundef 1, ptr noundef null)
+  %.0914 = phi i32 [ %.2, %._crit_edge ], [ %21, %19 ]
+  tail call void @_ZN19G1HeapRegionManager12expand_exactEjjP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %.0914, i32 noundef 1, ptr noundef null)
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %2, %._crit_edge, %.thread12
@@ -4898,8 +4898,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 
@@ -5263,8 +5263,8 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit
 
@@ -11273,9 +11273,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -11519,9 +11519,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit

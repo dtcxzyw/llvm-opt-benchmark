@@ -352,7 +352,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end288
   %4 = phi ptr [ %2, %land.rhs.lr.ph ], [ %101, %if.end288 ]
   %sourceIndex.0670 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc274650, %if.end288 ]
-  %lastConverterIndex.0669 = phi i8 [ 0, %land.rhs.lr.ph ], [ %lastConverterIndex.18, %if.end288 ]
+  %lastConverterIndex.0669 = phi i8 [ 0, %land.rhs.lr.ph ], [ %lastConverterIndex.1, %if.end288 ]
   %5 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %5, 1
   br i1 %cmp.i, label %while.body, label %while.end290
@@ -497,8 +497,8 @@ if.then81:                                        ; preds = %if.else75
   br label %if.end87
 
 if.end87:                                         ; preds = %if.else75, %if.then81, %if.then70
-  %pLMBCS.1 = phi ptr [ %incdec.ptr74, %if.then70 ], [ %incdec.ptr85, %if.then81 ], [ %pLMBCS.0588, %if.else75 ]
-  %sub.ptr.lhs.cast89 = ptrtoint ptr %pLMBCS.1 to i64
+  %pLMBCS.2 = phi ptr [ %incdec.ptr74, %if.then70 ], [ %incdec.ptr85, %if.then81 ], [ %pLMBCS.0588, %if.else75 ]
+  %sub.ptr.lhs.cast89 = ptrtoint ptr %pLMBCS.2 to i64
   %sub.ptr.sub91 = sub i64 %sub.ptr.lhs.cast89, %sub.ptr.rhs.cast90
   br label %if.end102
 
@@ -605,22 +605,22 @@ sw.epilog.i:                                      ; preds = %sw.bb35.i, %if.end2
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit: ; preds = %if.else.i, %if.end17.i, %sw.epilog.i
-  %lastConverterIndex.1 = phi i8 [ %17, %if.end17.i ], [ %17, %sw.epilog.i ], [ %lastConverterIndex.0669, %if.else.i ]
+  %lastConverterIndex.10 = phi i8 [ %17, %if.end17.i ], [ %17, %sw.epilog.i ], [ %lastConverterIndex.0669, %if.else.i ]
   %retval.0.i148 = phi i64 [ 0, %if.end17.i ], [ %sub.ptr.sub.i, %sw.epilog.i ], [ 0, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
   br label %if.end102
 
 if.end102:                                        ; preds = %if.end87, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit, %if.then61
   %retval.0.i590 = phi i8 [ %17, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ 15, %if.end87 ], [ 20, %if.then61 ]
-  %lastConverterIndex.2 = phi i8 [ %lastConverterIndex.1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %lastConverterIndex.0669, %if.end87 ], [ %lastConverterIndex.0669, %if.then61 ]
-  %bytes_written.1.in = phi i64 [ %retval.0.i148, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %sub.ptr.sub91, %if.end87 ], [ %sub.ptr.sub, %if.then61 ]
-  %pLMBCS.2 = phi ptr [ %pLMBCS.0588, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %pLMBCS.1, %if.end87 ], [ %add.ptr, %if.then61 ]
-  %bytes_written.1 = trunc i64 %bytes_written.1.in to i32
-  %tobool103.not = icmp eq i32 %bytes_written.1, 0
+  %lastConverterIndex.2 = phi i8 [ %lastConverterIndex.10, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %lastConverterIndex.0669, %if.end87 ], [ %lastConverterIndex.0669, %if.then61 ]
+  %bytes_written.2.in = phi i64 [ %retval.0.i148, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %sub.ptr.sub91, %if.end87 ], [ %sub.ptr.sub, %if.then61 ]
+  %pLMBCS.1 = phi ptr [ %pLMBCS.0588, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit ], [ %pLMBCS.2, %if.end87 ], [ %add.ptr, %if.then61 ]
+  %bytes_written.2 = trunc i64 %bytes_written.2.in to i32
+  %tobool103.not = icmp eq i32 %bytes_written.2, 0
   br i1 %tobool103.not, label %if.then104, label %if.end254
 
 if.then104:                                       ; preds = %if.else93, %if.end102
-  %pLMBCS.2600 = phi ptr [ %pLMBCS.2, %if.end102 ], [ %pLMBCS.0588, %if.else93 ]
+  %pLMBCS.1600 = phi ptr [ %pLMBCS.1, %if.end102 ], [ %pLMBCS.0588, %if.else93 ]
   %lastConverterIndex.2599 = phi i8 [ %lastConverterIndex.2, %if.end102 ], [ %lastConverterIndex.0669, %if.else93 ]
   %retval.0.i590598 = phi i8 [ %retval.0.i590, %if.end102 ], [ %17, %if.else93 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %groups_tried, i8 0, i64 20, i1 false)
@@ -670,12 +670,12 @@ if.else.i156:                                     ; preds = %if.then129
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202.thread
 
 if.then9.i165:                                    ; preds = %if.then.i159
-  %incdec.ptr.i166 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  store i8 1, ptr %pLMBCS.2600, align 1
+  %incdec.ptr.i166 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  store i8 1, ptr %pLMBCS.1600, align 1
   br label %if.end17.i169
 
 if.end17.i169:                                    ; preds = %if.then9.i165, %if.then.i159
-  %pLMBCS.0.i170 = phi ptr [ %incdec.ptr.i166, %if.then9.i165 ], [ %pLMBCS.2600, %if.then.i159 ]
+  %pLMBCS.0.i170 = phi ptr [ %incdec.ptr.i166, %if.then9.i165 ], [ %pLMBCS.1600, %if.then.i159 ]
   %cmp18.i171 = icmp eq i32 %call.i154, 1
   %32 = shl i32 224, %mul.i161
   %33 = and i32 %30, %32
@@ -726,14 +726,14 @@ sw.bb35.i175:                                     ; preds = %sw.bb31.i184, %if.e
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202.thread: ; preds = %if.else.i156, %if.end17.i169
-  %lastConverterIndex.3.ph = phi i8 [ %lastConverterIndex.2599, %if.else.i156 ], [ 1, %if.end17.i169 ]
+  %lastConverterIndex.11.ph = phi i8 [ %lastConverterIndex.2599, %if.else.i156 ], [ 1, %if.end17.i169 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i151)
   br label %if.then134
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202: ; preds = %if.end23.i174, %sw.bb35.i175
   %pLMBCS.4.i180 = phi ptr [ %pLMBCS.0.i170, %if.end23.i174 ], [ %incdec.ptr37.i178, %sw.bb35.i175 ]
   %sub.ptr.lhs.cast.i181 = ptrtoint ptr %pLMBCS.4.i180 to i64
-  %sub.ptr.rhs.cast.i182 = ptrtoint ptr %pLMBCS.2600 to i64
+  %sub.ptr.rhs.cast.i182 = ptrtoint ptr %pLMBCS.1600 to i64
   %sub.ptr.sub.i183 = sub i64 %sub.ptr.lhs.cast.i181, %sub.ptr.rhs.cast.i182
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i151)
   %conv132 = trunc i64 %sub.ptr.sub.i183 to i32
@@ -741,7 +741,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202: ; preds = %
   br i1 %tobool133.not, label %if.then134, label %if.end254
 
 if.then134:                                       ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202.thread, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202
-  %lastConverterIndex.3605 = phi i8 [ %lastConverterIndex.3.ph, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202.thread ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202 ]
+  %lastConverterIndex.11605 = phi i8 [ %lastConverterIndex.11.ph, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202.thread ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i203)
   %36 = load ptr, ptr %1, align 8
   %call.i206 = call i32 @ucnv_MBCSFromUChar32_75(ptr noundef %36, i32 noundef %conv.i153, ptr noundef nonnull %value.i203, i8 noundef signext 0)
@@ -774,12 +774,12 @@ if.end23.i219:                                    ; preds = %if.then.i211
 sw.bb.i241:                                       ; preds = %if.end23.i219
   %shr24.i242 = lshr i32 %37, 24
   %conv25.i243 = trunc nuw i32 %shr24.i242 to i8
-  %incdec.ptr26.i244 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  store i8 %conv25.i243, ptr %pLMBCS.2600, align 1
+  %incdec.ptr26.i244 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  store i8 %conv25.i243, ptr %pLMBCS.1600, align 1
   br label %sw.bb27.i235
 
 sw.bb27.i235:                                     ; preds = %sw.bb.i241, %if.end23.i219
-  %pLMBCS.1.i236 = phi ptr [ %pLMBCS.2600, %if.end23.i219 ], [ %incdec.ptr26.i244, %sw.bb.i241 ]
+  %pLMBCS.1.i236 = phi ptr [ %pLMBCS.1600, %if.end23.i219 ], [ %incdec.ptr26.i244, %sw.bb.i241 ]
   %shr28.i237 = lshr i32 %37, 16
   %conv29.i238 = trunc i32 %shr28.i237 to i8
   %incdec.ptr30.i239 = getelementptr inbounds i8, ptr %pLMBCS.1.i236, i64 1
@@ -789,7 +789,7 @@ sw.bb27.i235:                                     ; preds = %sw.bb.i241, %if.end
 
 sw.bb31.i229:                                     ; preds = %sw.bb27.i235, %if.end23.i219
   %40 = phi i32 [ %37, %if.end23.i219 ], [ %.pre.i240, %sw.bb27.i235 ]
-  %pLMBCS.2.i230 = phi ptr [ %pLMBCS.2600, %if.end23.i219 ], [ %incdec.ptr30.i239, %sw.bb27.i235 ]
+  %pLMBCS.2.i230 = phi ptr [ %pLMBCS.1600, %if.end23.i219 ], [ %incdec.ptr30.i239, %sw.bb27.i235 ]
   %shr32.i231 = lshr i32 %40, 8
   %conv33.i232 = trunc i32 %shr32.i231 to i8
   %incdec.ptr34.i233 = getelementptr inbounds i8, ptr %pLMBCS.2.i230, i64 1
@@ -799,21 +799,21 @@ sw.bb31.i229:                                     ; preds = %sw.bb27.i235, %if.e
 
 sw.bb35.i220:                                     ; preds = %sw.bb31.i229, %if.end23.i219
   %41 = phi i32 [ %37, %if.end23.i219 ], [ %.pre1.i234, %sw.bb31.i229 ]
-  %pLMBCS.3.i221 = phi ptr [ %pLMBCS.2600, %if.end23.i219 ], [ %incdec.ptr34.i233, %sw.bb31.i229 ]
+  %pLMBCS.3.i221 = phi ptr [ %pLMBCS.1600, %if.end23.i219 ], [ %incdec.ptr34.i233, %sw.bb31.i229 ]
   %conv36.i222 = trunc i32 %41 to i8
   %incdec.ptr37.i223 = getelementptr inbounds i8, ptr %pLMBCS.3.i221, i64 1
   store i8 %conv36.i222, ptr %pLMBCS.3.i221, align 1
   br label %if.end138
 
 if.end138.thread609:                              ; preds = %if.else.i208, %if.then.i211
-  %lastConverterIndex.4.ph = phi i8 [ %lastConverterIndex.3605, %if.else.i208 ], [ 0, %if.then.i211 ]
+  %lastConverterIndex.12.ph = phi i8 [ %lastConverterIndex.11605, %if.else.i208 ], [ 0, %if.then.i211 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i203)
   br label %if.then140
 
 if.end138:                                        ; preds = %if.end23.i219, %sw.bb35.i220
-  %pLMBCS.4.i225 = phi ptr [ %pLMBCS.2600, %if.end23.i219 ], [ %incdec.ptr37.i223, %sw.bb35.i220 ]
+  %pLMBCS.4.i225 = phi ptr [ %pLMBCS.1600, %if.end23.i219 ], [ %incdec.ptr37.i223, %sw.bb35.i220 ]
   %sub.ptr.lhs.cast.i226 = ptrtoint ptr %pLMBCS.4.i225 to i64
-  %sub.ptr.rhs.cast.i227 = ptrtoint ptr %pLMBCS.2600 to i64
+  %sub.ptr.rhs.cast.i227 = ptrtoint ptr %pLMBCS.1600 to i64
   %sub.ptr.sub.i228 = sub i64 %sub.ptr.lhs.cast.i226, %sub.ptr.rhs.cast.i227
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i203)
   %conv137 = trunc i64 %sub.ptr.sub.i228 to i32
@@ -821,7 +821,7 @@ if.end138:                                        ; preds = %if.end23.i219, %sw.
   br i1 %tobool139.not, label %if.then140, label %if.end254
 
 if.then140:                                       ; preds = %if.end138.thread609, %if.end138
-  %lastConverterIndex.4614 = phi i8 [ %lastConverterIndex.4.ph, %if.end138.thread609 ], [ 0, %if.end138 ]
+  %lastConverterIndex.12614 = phi i8 [ %lastConverterIndex.12.ph, %if.end138.thread609 ], [ 0, %if.end138 ]
   %42 = load i8, ptr %localeConverterIndex, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i246)
   %idxprom.i247 = zext i8 %42 to i64
@@ -849,20 +849,20 @@ land.lhs.true.i259:                               ; preds = %if.then.i255
   br i1 %cmp8.not.i261, label %if.end17.i267, label %if.then9.i262
 
 if.then9.i262:                                    ; preds = %land.lhs.true.i259
-  %incdec.ptr.i263 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  store i8 %42, ptr %pLMBCS.2600, align 1
+  %incdec.ptr.i263 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  store i8 %42, ptr %pLMBCS.1600, align 1
   %cmp10.i264 = icmp eq i32 %call.i250, 1
   %cmp13.i265 = icmp ugt i8 %42, 15
   %or.cond.i266 = and i1 %cmp13.i265, %cmp10.i264
   br i1 %or.cond.i266, label %if.then14.i298, label %if.end17.i267
 
 if.then14.i298:                                   ; preds = %if.then9.i262
-  %incdec.ptr15.i299 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 2
+  %incdec.ptr15.i299 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 2
   store i8 %42, ptr %incdec.ptr.i263, align 1
   br label %if.end17.i267
 
 if.end17.i267:                                    ; preds = %if.then14.i298, %if.then9.i262, %land.lhs.true.i259, %if.then.i255
-  %pLMBCS.0.i268 = phi ptr [ %incdec.ptr15.i299, %if.then14.i298 ], [ %incdec.ptr.i263, %if.then9.i262 ], [ %pLMBCS.2600, %land.lhs.true.i259 ], [ %pLMBCS.2600, %if.then.i255 ]
+  %pLMBCS.0.i268 = phi ptr [ %incdec.ptr15.i299, %if.then14.i298 ], [ %incdec.ptr.i263, %if.then9.i262 ], [ %pLMBCS.1600, %land.lhs.true.i259 ], [ %pLMBCS.1600, %if.then.i255 ]
   %cmp18.i269 = icmp eq i32 %call.i250, 1
   %46 = shl i32 224, %mul.i257
   %47 = and i32 %44, %46
@@ -915,12 +915,12 @@ sw.bb35.i273:                                     ; preds = %sw.bb31.i282, %if.e
 sw.epilog.i277:                                   ; preds = %sw.bb35.i273, %if.end23.i272
   %pLMBCS.4.i278 = phi ptr [ %pLMBCS.0.i268, %if.end23.i272 ], [ %incdec.ptr37.i276, %sw.bb35.i273 ]
   %sub.ptr.lhs.cast.i279 = ptrtoint ptr %pLMBCS.4.i278 to i64
-  %sub.ptr.rhs.cast.i280 = ptrtoint ptr %pLMBCS.2600 to i64
+  %sub.ptr.rhs.cast.i280 = ptrtoint ptr %pLMBCS.1600 to i64
   %sub.ptr.sub.i281 = sub i64 %sub.ptr.lhs.cast.i279, %sub.ptr.rhs.cast.i280
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit300
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit300: ; preds = %if.else.i252, %if.end17.i267, %sw.epilog.i277
-  %lastConverterIndex.6 = phi i8 [ %42, %if.end17.i267 ], [ %42, %sw.epilog.i277 ], [ %lastConverterIndex.4614, %if.else.i252 ]
+  %lastConverterIndex.13 = phi i8 [ %42, %if.end17.i267 ], [ %42, %sw.epilog.i277 ], [ %lastConverterIndex.12614, %if.else.i252 ]
   %retval.0.i254 = phi i64 [ 0, %if.end17.i267 ], [ %sub.ptr.sub.i281, %sw.epilog.i277 ], [ 0, %if.else.i252 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i246)
   br label %if.end152
@@ -949,18 +949,18 @@ land.lhs.true.i314:                               ; preds = %if.else146
   br i1 %cmp8.not.i316, label %if.end17.i322, label %if.then9.i317
 
 if.then9.i317:                                    ; preds = %land.lhs.true.i314
-  %incdec.ptr.i318 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  store i8 %28, ptr %pLMBCS.2600, align 1
+  %incdec.ptr.i318 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  store i8 %28, ptr %pLMBCS.1600, align 1
   %cmp10.i319 = icmp eq i32 %call.i305, 1
   br i1 %cmp10.i319, label %if.then14.i353, label %if.end23.i327
 
 if.then14.i353:                                   ; preds = %if.then9.i317
-  %incdec.ptr15.i354 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 2
+  %incdec.ptr15.i354 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 2
   store i8 %28, ptr %incdec.ptr.i318, align 1
   br label %if.end17.i322
 
 if.end17.i322:                                    ; preds = %if.then14.i353, %land.lhs.true.i314
-  %pLMBCS.0.i323 = phi ptr [ %incdec.ptr15.i354, %if.then14.i353 ], [ %pLMBCS.2600, %land.lhs.true.i314 ]
+  %pLMBCS.0.i323 = phi ptr [ %incdec.ptr15.i354, %if.then14.i353 ], [ %pLMBCS.1600, %land.lhs.true.i314 ]
   %cmp18.i324 = icmp eq i32 %call.i305, 1
   %53 = shl i32 224, %mul.i312
   %54 = and i32 %51, %53
@@ -1014,25 +1014,25 @@ sw.bb35.i328:                                     ; preds = %sw.bb31.i337, %if.e
 sw.epilog.i332:                                   ; preds = %sw.bb35.i328, %if.end23.i327
   %pLMBCS.4.i333 = phi ptr [ %pLMBCS.0.i323679, %if.end23.i327 ], [ %incdec.ptr37.i331, %sw.bb35.i328 ]
   %sub.ptr.lhs.cast.i334 = ptrtoint ptr %pLMBCS.4.i333 to i64
-  %sub.ptr.rhs.cast.i335 = ptrtoint ptr %pLMBCS.2600 to i64
+  %sub.ptr.rhs.cast.i335 = ptrtoint ptr %pLMBCS.1600 to i64
   %sub.ptr.sub.i336 = sub i64 %sub.ptr.lhs.cast.i334, %sub.ptr.rhs.cast.i335
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit355
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit355: ; preds = %if.else.i307, %if.end17.i322, %sw.epilog.i332
-  %lastConverterIndex.7 = phi i8 [ %28, %if.end17.i322 ], [ %28, %sw.epilog.i332 ], [ %lastConverterIndex.2599, %if.else.i307 ]
+  %lastConverterIndex.14 = phi i8 [ %28, %if.end17.i322 ], [ %28, %sw.epilog.i332 ], [ %lastConverterIndex.2599, %if.else.i307 ]
   %retval.0.i309 = phi i64 [ 0, %if.end17.i322 ], [ %sub.ptr.sub.i336, %sw.epilog.i332 ], [ 0, %if.else.i307 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i301)
   br label %if.end152
 
 if.end152:                                        ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit355, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit300
-  %lastConverterIndex.8 = phi i8 [ %lastConverterIndex.6, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit300 ], [ %lastConverterIndex.7, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit355 ]
+  %lastConverterIndex.3 = phi i8 [ %lastConverterIndex.13, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit300 ], [ %lastConverterIndex.14, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit355 ]
   %bytes_written.3.in = phi i64 [ %retval.0.i254, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit300 ], [ %retval.0.i309, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit355 ]
   %bytes_written.3 = trunc i64 %bytes_written.3.in to i32
   %tobool153.not = icmp eq i32 %bytes_written.3, 0
   br i1 %tobool153.not, label %land.lhs.true154, label %if.end254
 
 land.lhs.true154:                                 ; preds = %lor.lhs.false115, %if.then104, %land.lhs.true118, %if.end152
-  %lastConverterIndex.8618 = phi i8 [ %lastConverterIndex.8, %if.end152 ], [ %lastConverterIndex.2599, %land.lhs.true118 ], [ %lastConverterIndex.2599, %if.then104 ], [ %lastConverterIndex.2599, %lor.lhs.false115 ]
+  %lastConverterIndex.3618 = phi i8 [ %lastConverterIndex.3, %if.end152 ], [ %lastConverterIndex.2599, %land.lhs.true118 ], [ %lastConverterIndex.2599, %if.then104 ], [ %lastConverterIndex.2599, %lor.lhs.false115 ]
   %57 = load i8, ptr %localeConverterIndex, align 1
   %tobool156.not = icmp eq i8 %57, 0
   br i1 %tobool156.not, label %if.end179, label %land.lhs.true157
@@ -1077,20 +1077,20 @@ land.lhs.true.i369:                               ; preds = %if.then174
   br i1 %cmp8.not.i371, label %if.end17.i377, label %if.then9.i372
 
 if.then9.i372:                                    ; preds = %land.lhs.true.i369
-  %incdec.ptr.i373 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  store i8 %57, ptr %pLMBCS.2600, align 1
+  %incdec.ptr.i373 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  store i8 %57, ptr %pLMBCS.1600, align 1
   %cmp10.i374 = icmp eq i32 %call.i360, 1
   %cmp13.i375 = icmp ugt i8 %57, 15
   %or.cond.i376 = and i1 %cmp13.i375, %cmp10.i374
   br i1 %or.cond.i376, label %if.then14.i408, label %if.end17.i377
 
 if.then14.i408:                                   ; preds = %if.then9.i372
-  %incdec.ptr15.i409 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 2
+  %incdec.ptr15.i409 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 2
   store i8 %57, ptr %incdec.ptr.i373, align 1
   br label %if.end17.i377
 
 if.end17.i377:                                    ; preds = %if.then14.i408, %if.then9.i372, %land.lhs.true.i369
-  %pLMBCS.0.i378 = phi ptr [ %incdec.ptr15.i409, %if.then14.i408 ], [ %incdec.ptr.i373, %if.then9.i372 ], [ %pLMBCS.2600, %land.lhs.true.i369 ]
+  %pLMBCS.0.i378 = phi ptr [ %incdec.ptr15.i409, %if.then14.i408 ], [ %incdec.ptr.i373, %if.then9.i372 ], [ %pLMBCS.1600, %land.lhs.true.i369 ]
   %cmp18.i379 = icmp eq i32 %call.i360, 1
   %61 = shl i32 224, %mul.i367
   %62 = and i32 %59, %61
@@ -1143,34 +1143,34 @@ sw.bb35.i383:                                     ; preds = %sw.bb31.i392, %if.e
 sw.epilog.i387:                                   ; preds = %sw.bb35.i383, %if.end23.i382
   %pLMBCS.4.i388 = phi ptr [ %pLMBCS.0.i378, %if.end23.i382 ], [ %incdec.ptr37.i386, %sw.bb35.i383 ]
   %sub.ptr.lhs.cast.i389 = ptrtoint ptr %pLMBCS.4.i388 to i64
-  %sub.ptr.rhs.cast.i390 = ptrtoint ptr %pLMBCS.2600 to i64
+  %sub.ptr.rhs.cast.i390 = ptrtoint ptr %pLMBCS.1600 to i64
   %sub.ptr.sub.i391 = sub i64 %sub.ptr.lhs.cast.i389, %sub.ptr.rhs.cast.i390
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410: ; preds = %if.else.i362, %if.end17.i377, %sw.epilog.i387
-  %lastConverterIndex.9 = phi i8 [ %57, %if.end17.i377 ], [ %57, %sw.epilog.i387 ], [ %lastConverterIndex.8618, %if.else.i362 ]
+  %lastConverterIndex.15 = phi i8 [ %57, %if.end17.i377 ], [ %57, %sw.epilog.i387 ], [ %lastConverterIndex.3618, %if.else.i362 ]
   %retval.0.i364 = phi i64 [ 0, %if.end17.i377 ], [ %sub.ptr.sub.i391, %sw.epilog.i387 ], [ 0, %if.else.i362 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i356)
   %conv178 = trunc i64 %retval.0.i364 to i32
   br label %if.end179
 
 if.end179:                                        ; preds = %lor.lhs.false164, %land.lhs.true167, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410, %land.lhs.true154
-  %lastConverterIndex.10 = phi i8 [ %lastConverterIndex.8618, %land.lhs.true154 ], [ %lastConverterIndex.9, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410 ], [ %lastConverterIndex.8618, %lor.lhs.false164 ], [ %lastConverterIndex.8618, %land.lhs.true167 ]
-  %bytes_written.4 = phi i32 [ 0, %land.lhs.true154 ], [ %conv178, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410 ], [ 0, %lor.lhs.false164 ], [ 0, %land.lhs.true167 ]
-  %tobool180 = icmp eq i32 %bytes_written.4, 0
-  %tobool182 = icmp ne i8 %lastConverterIndex.10, 0
+  %lastConverterIndex.5 = phi i8 [ %lastConverterIndex.3618, %land.lhs.true154 ], [ %lastConverterIndex.15, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410 ], [ %lastConverterIndex.3618, %lor.lhs.false164 ], [ %lastConverterIndex.3618, %land.lhs.true167 ]
+  %bytes_written.5 = phi i32 [ 0, %land.lhs.true154 ], [ %conv178, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit410 ], [ 0, %lor.lhs.false164 ], [ 0, %land.lhs.true167 ]
+  %tobool180 = icmp eq i32 %bytes_written.5, 0
+  %tobool182 = icmp ne i8 %lastConverterIndex.5, 0
   %or.cond20 = select i1 %tobool180, i1 %tobool182, i1 false
   br i1 %or.cond20, label %land.lhs.true183, label %if.end202
 
 land.lhs.true183:                                 ; preds = %if.end179
   %cmp185 = icmp eq i8 %retval.0.i590598, -128
-  %cmp188 = icmp ult i8 %lastConverterIndex.10, 16
+  %cmp188 = icmp ult i8 %lastConverterIndex.5, 16
   %or.cond22 = select i1 %cmp185, i1 %cmp188, i1 false
   br i1 %or.cond22, label %if.then198, label %lor.lhs.false189
 
 lor.lhs.false189:                                 ; preds = %land.lhs.true183
   %cmp191 = icmp eq i8 %retval.0.i590598, -127
-  %cmp194 = icmp ugt i8 %lastConverterIndex.10, 15
+  %cmp194 = icmp ugt i8 %lastConverterIndex.5, 15
   %or.cond24 = select i1 %cmp191, i1 %cmp194, i1 false
   %cmp197 = icmp eq i8 %retval.0.i590598, -126
   %or.cond26 = or i1 %cmp197, %or.cond24
@@ -1178,7 +1178,7 @@ lor.lhs.false189:                                 ; preds = %land.lhs.true183
 
 if.then198:                                       ; preds = %lor.lhs.false189, %land.lhs.true183
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i411)
-  %idxprom.i412 = zext i8 %lastConverterIndex.10 to i64
+  %idxprom.i412 = zext i8 %lastConverterIndex.5 to i64
   %arrayidx.i413 = getelementptr inbounds [20 x ptr], ptr %1, i64 0, i64 %idxprom.i412
   %65 = load ptr, ptr %arrayidx.i413, align 8
   %conv.i414 = zext i16 %.fr653 to i32
@@ -1196,24 +1196,24 @@ land.lhs.true.i424:                               ; preds = %if.then198
   %sub.i421 = shl i32 %call.i415, 3
   %mul.i422 = add i32 %sub.i421, -8
   %67 = load i8, ptr %OptGroup.i, align 8
-  %cmp8.not.i426 = icmp eq i8 %67, %lastConverterIndex.10
+  %cmp8.not.i426 = icmp eq i8 %67, %lastConverterIndex.5
   br i1 %cmp8.not.i426, label %if.end17.i432, label %if.then9.i427
 
 if.then9.i427:                                    ; preds = %land.lhs.true.i424
-  %incdec.ptr.i428 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  store i8 %lastConverterIndex.10, ptr %pLMBCS.2600, align 1
+  %incdec.ptr.i428 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  store i8 %lastConverterIndex.5, ptr %pLMBCS.1600, align 1
   %cmp10.i429 = icmp eq i32 %call.i415, 1
-  %cmp13.i430 = icmp ugt i8 %lastConverterIndex.10, 15
+  %cmp13.i430 = icmp ugt i8 %lastConverterIndex.5, 15
   %or.cond.i431 = and i1 %cmp13.i430, %cmp10.i429
   br i1 %or.cond.i431, label %if.then14.i463, label %if.end17.i432
 
 if.then14.i463:                                   ; preds = %if.then9.i427
-  %incdec.ptr15.i464 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 2
-  store i8 %lastConverterIndex.10, ptr %incdec.ptr.i428, align 1
+  %incdec.ptr15.i464 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 2
+  store i8 %lastConverterIndex.5, ptr %incdec.ptr.i428, align 1
   br label %if.end17.i432
 
 if.end17.i432:                                    ; preds = %if.then14.i463, %if.then9.i427, %land.lhs.true.i424
-  %pLMBCS.0.i433 = phi ptr [ %incdec.ptr15.i464, %if.then14.i463 ], [ %incdec.ptr.i428, %if.then9.i427 ], [ %pLMBCS.2600, %land.lhs.true.i424 ]
+  %pLMBCS.0.i433 = phi ptr [ %incdec.ptr15.i464, %if.then14.i463 ], [ %incdec.ptr.i428, %if.then9.i427 ], [ %pLMBCS.1600, %land.lhs.true.i424 ]
   %cmp18.i434 = icmp eq i32 %call.i415, 1
   %68 = shl i32 224, %mul.i422
   %69 = and i32 %66, %68
@@ -1266,7 +1266,7 @@ sw.bb35.i438:                                     ; preds = %sw.bb31.i447, %if.e
 sw.epilog.i442:                                   ; preds = %sw.bb35.i438, %if.end23.i437
   %pLMBCS.4.i443 = phi ptr [ %pLMBCS.0.i433, %if.end23.i437 ], [ %incdec.ptr37.i441, %sw.bb35.i438 ]
   %sub.ptr.lhs.cast.i444 = ptrtoint ptr %pLMBCS.4.i443 to i64
-  %sub.ptr.rhs.cast.i445 = ptrtoint ptr %pLMBCS.2600 to i64
+  %sub.ptr.rhs.cast.i445 = ptrtoint ptr %pLMBCS.1600 to i64
   %sub.ptr.sub.i446 = sub i64 %sub.ptr.lhs.cast.i444, %sub.ptr.rhs.cast.i445
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit465
 
@@ -1277,8 +1277,8 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit465: ; preds = %
   br label %if.end202
 
 if.end202:                                        ; preds = %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit465, %if.end179
-  %bytes_written.5 = phi i32 [ %conv201, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit465 ], [ %bytes_written.4, %if.end179 ]
-  %tobool203.not = icmp eq i32 %bytes_written.5, 0
+  %bytes_written.6 = phi i32 [ %conv201, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit465 ], [ %bytes_written.5, %if.end179 ]
+  %tobool203.not = icmp eq i32 %bytes_written.6, 0
   br i1 %tobool203.not, label %if.then204, label %if.end254
 
 if.then204:                                       ; preds = %lor.lhs.false189, %if.end202
@@ -1288,14 +1288,14 @@ if.then204:                                       ; preds = %lor.lhs.false189, %
   %73 = icmp ult i8 %72, 2
   %spec.select134 = select i1 %73, i32 19, i32 11
   %conv.i469 = zext i16 %.fr653 to i32
-  %incdec.ptr.i483 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 1
-  %incdec.ptr15.i519 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 2
-  %sub.ptr.rhs.cast.i500 = ptrtoint ptr %pLMBCS.2600 to i64
+  %incdec.ptr.i483 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 1
+  %incdec.ptr15.i519 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 2
+  %sub.ptr.rhs.cast.i500 = ptrtoint ptr %pLMBCS.1600 to i64
   br label %for.body
 
 for.body:                                         ; preds = %if.then204, %for.inc
   %grp_ix.0659 = phi i8 [ %conv207, %if.then204 ], [ %inc, %for.inc ]
-  %lastConverterIndex.13658 = phi i8 [ %lastConverterIndex.10, %if.then204 ], [ %lastConverterIndex.15, %for.inc ]
+  %lastConverterIndex.8658 = phi i8 [ %lastConverterIndex.5, %if.then204 ], [ %lastConverterIndex.9, %for.inc ]
   %idxprom = zext nneg i8 %grp_ix.0659 to i64
   %arrayidx = getelementptr inbounds [20 x ptr], ptr %1, i64 0, i64 %idxprom
   %74 = load ptr, ptr %arrayidx, align 8
@@ -1327,7 +1327,7 @@ land.lhs.true.i479:                               ; preds = %if.then228
   br i1 %cmp8.not.i481, label %if.end17.i487, label %if.then9.i482
 
 if.then9.i482:                                    ; preds = %land.lhs.true.i479
-  store i8 %grp_ix.0659, ptr %pLMBCS.2600, align 1
+  store i8 %grp_ix.0659, ptr %pLMBCS.1600, align 1
   %cmp10.i484 = icmp eq i32 %call.i470, 1
   %cmp13.i485 = icmp ugt i8 %grp_ix.0659, 15
   %or.cond.i486 = and i1 %cmp13.i485, %cmp10.i484
@@ -1338,7 +1338,7 @@ if.then14.i518:                                   ; preds = %if.then9.i482
   br label %if.end17.i487
 
 if.end17.i487:                                    ; preds = %if.then14.i518, %if.then9.i482, %land.lhs.true.i479
-  %pLMBCS.0.i488 = phi ptr [ %incdec.ptr15.i519, %if.then14.i518 ], [ %incdec.ptr.i483, %if.then9.i482 ], [ %pLMBCS.2600, %land.lhs.true.i479 ]
+  %pLMBCS.0.i488 = phi ptr [ %incdec.ptr15.i519, %if.then14.i518 ], [ %incdec.ptr.i483, %if.then9.i482 ], [ %pLMBCS.1600, %land.lhs.true.i479 ]
   %cmp18.i489 = icmp eq i32 %call.i470, 1
   %78 = shl i32 224, %mul.i477
   %79 = and i32 %76, %78
@@ -1395,19 +1395,19 @@ sw.epilog.i497:                                   ; preds = %sw.bb35.i493, %if.e
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520: ; preds = %if.else.i472, %if.end17.i487, %sw.epilog.i497
-  %lastConverterIndex.14 = phi i8 [ %grp_ix.0659, %if.end17.i487 ], [ %grp_ix.0659, %sw.epilog.i497 ], [ %lastConverterIndex.13658, %if.else.i472 ]
+  %lastConverterIndex.17 = phi i8 [ %grp_ix.0659, %if.end17.i487 ], [ %grp_ix.0659, %sw.epilog.i497 ], [ %lastConverterIndex.8658, %if.else.i472 ]
   %retval.0.i474 = phi i64 [ 0, %if.end17.i487 ], [ %sub.ptr.sub.i501, %sw.epilog.i497 ], [ 0, %if.else.i472 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i466)
   %conv231 = trunc i64 %retval.0.i474 to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true224, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520
-  %lastConverterIndex.15 = phi i8 [ %lastConverterIndex.13658, %for.body ], [ %lastConverterIndex.14, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520 ], [ %lastConverterIndex.13658, %land.lhs.true224 ]
-  %bytes_written.7 = phi i32 [ 0, %for.body ], [ %conv231, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520 ], [ 0, %land.lhs.true224 ]
+  %lastConverterIndex.9 = phi i8 [ %lastConverterIndex.8658, %for.body ], [ %lastConverterIndex.17, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520 ], [ %lastConverterIndex.8658, %land.lhs.true224 ]
+  %bytes_written.9 = phi i32 [ 0, %for.body ], [ %conv231, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit520 ], [ 0, %land.lhs.true224 ]
   %inc = add nuw nsw i8 %grp_ix.0659, 1
   %conv216 = zext nneg i8 %inc to i32
   %cmp218 = icmp uge i32 %spec.select134, %conv216
-  %tobool220.not = icmp eq i32 %bytes_written.7, 0
+  %tobool220.not = icmp eq i32 %bytes_written.9, 0
   %82 = select i1 %cmp218, i1 %tobool220.not, i1 false
   br i1 %82, label %for.body, label %for.end, !llvm.loop !8
 
@@ -1448,11 +1448,11 @@ if.end23.i537:                                    ; preds = %if.then.i529
 sw.bb.i559:                                       ; preds = %if.end23.i537
   %shr24.i560 = lshr i32 %84, 24
   %conv25.i561 = trunc nuw i32 %shr24.i560 to i8
-  store i8 %conv25.i561, ptr %pLMBCS.2600, align 1
+  store i8 %conv25.i561, ptr %pLMBCS.1600, align 1
   br label %sw.bb27.i553
 
 sw.bb27.i553:                                     ; preds = %sw.bb.i559, %if.end23.i537
-  %pLMBCS.1.i554 = phi ptr [ %pLMBCS.2600, %if.end23.i537 ], [ %incdec.ptr.i483, %sw.bb.i559 ]
+  %pLMBCS.1.i554 = phi ptr [ %pLMBCS.1600, %if.end23.i537 ], [ %incdec.ptr.i483, %sw.bb.i559 ]
   %shr28.i555 = lshr i32 %84, 16
   %conv29.i556 = trunc i32 %shr28.i555 to i8
   %incdec.ptr30.i557 = getelementptr inbounds i8, ptr %pLMBCS.1.i554, i64 1
@@ -1462,7 +1462,7 @@ sw.bb27.i553:                                     ; preds = %sw.bb.i559, %if.end
 
 sw.bb31.i547:                                     ; preds = %sw.bb27.i553, %if.end23.i537
   %87 = phi i32 [ %84, %if.end23.i537 ], [ %.pre.i558, %sw.bb27.i553 ]
-  %pLMBCS.2.i548 = phi ptr [ %pLMBCS.2600, %if.end23.i537 ], [ %incdec.ptr30.i557, %sw.bb27.i553 ]
+  %pLMBCS.2.i548 = phi ptr [ %pLMBCS.1600, %if.end23.i537 ], [ %incdec.ptr30.i557, %sw.bb27.i553 ]
   %shr32.i549 = lshr i32 %87, 8
   %conv33.i550 = trunc i32 %shr32.i549 to i8
   %incdec.ptr34.i551 = getelementptr inbounds i8, ptr %pLMBCS.2.i548, i64 1
@@ -1472,7 +1472,7 @@ sw.bb31.i547:                                     ; preds = %sw.bb27.i553, %if.e
 
 sw.bb35.i538:                                     ; preds = %sw.bb31.i547, %if.end23.i537
   %88 = phi i32 [ %84, %if.end23.i537 ], [ %.pre1.i552, %sw.bb31.i547 ]
-  %pLMBCS.3.i539 = phi ptr [ %pLMBCS.2600, %if.end23.i537 ], [ %incdec.ptr34.i551, %sw.bb31.i547 ]
+  %pLMBCS.3.i539 = phi ptr [ %pLMBCS.1600, %if.end23.i537 ], [ %incdec.ptr34.i551, %sw.bb31.i547 ]
   %conv36.i540 = trunc i32 %88 to i8
   %incdec.ptr37.i541 = getelementptr inbounds i8, ptr %pLMBCS.3.i539, i64 1
   store i8 %conv36.i540, ptr %pLMBCS.3.i539, align 1
@@ -1485,22 +1485,22 @@ sw.epilog.i542:                                   ; preds = %sw.bb35.i538, %if.e
   br label %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563
 
 _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563: ; preds = %if.else.i526, %if.then.i529, %sw.epilog.i542
-  %lastConverterIndex.16 = phi i8 [ 0, %if.then.i529 ], [ 0, %sw.epilog.i542 ], [ %lastConverterIndex.15, %if.else.i526 ]
+  %lastConverterIndex.18 = phi i8 [ 0, %if.then.i529 ], [ 0, %sw.epilog.i542 ], [ %lastConverterIndex.9, %if.else.i526 ]
   %retval.0.i528 = phi i64 [ 0, %if.then.i529 ], [ %sub.ptr.sub.i546, %sw.epilog.i542 ], [ 0, %if.else.i526 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i521)
   %conv240 = trunc i64 %retval.0.i528 to i32
   br label %if.end242
 
 if.end242:                                        ; preds = %for.end, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563
-  %lastConverterIndex.17 = phi i8 [ %lastConverterIndex.16, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563 ], [ %lastConverterIndex.15, %for.end ]
-  %bytes_written.8 = phi i32 [ %conv240, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563 ], [ %bytes_written.7, %for.end ]
-  %tobool243.not = icmp eq i32 %bytes_written.8, 0
+  %lastConverterIndex.7 = phi i8 [ %lastConverterIndex.18, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563 ], [ %lastConverterIndex.9, %for.end ]
+  %bytes_written.7 = phi i32 [ %conv240, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit563 ], [ %bytes_written.9, %for.end ]
+  %tobool243.not = icmp eq i32 %bytes_written.7, 0
   br i1 %tobool243.not, label %if.then244, label %if.end254
 
 if.then244:                                       ; preds = %if.end242
   %89 = lshr i16 %.fr653, 8
   %conv3.i564 = trunc nuw i16 %89 to i8
-  store i8 20, ptr %pLMBCS.2600, align 1
+  store i8 20, ptr %pLMBCS.1600, align 1
   %conv1.mask.i565 = and i16 %.fr653, 255
   %cmp.i566 = icmp eq i16 %conv1.mask.i565, 0
   %conv1.i567 = trunc i16 %.fr653 to i8
@@ -1508,15 +1508,15 @@ if.then244:                                       ; preds = %if.end242
   %spec.select8.i569 = select i1 %cmp.i566, i8 %conv3.i564, i8 %conv1.i567
   store i8 %spec.select.i568, ptr %incdec.ptr.i483, align 1
   store i8 %spec.select8.i569, ptr %incdec.ptr15.i519, align 1
-  %add.ptr246 = getelementptr inbounds i8, ptr %pLMBCS.2600, i64 3
+  %add.ptr246 = getelementptr inbounds i8, ptr %pLMBCS.1600, i64 3
   %sub.ptr.lhs.cast248 = ptrtoint ptr %add.ptr246 to i64
   %sub.ptr.sub250 = sub i64 %sub.ptr.lhs.cast248, %sub.ptr.rhs.cast90
   %conv251 = trunc i64 %sub.ptr.sub250 to i32
   br label %if.end254
 
 if.end254:                                        ; preds = %if.end152, %if.end138, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202, %if.end202, %if.then53.thread, %switch.early.test131, %switch.early.test131, %switch.early.test131, %switch.early.test131, %switch.early.test131, %if.end102, %if.then244, %if.end242
-  %lastConverterIndex.18 = phi i8 [ %lastConverterIndex.17, %if.then244 ], [ %lastConverterIndex.17, %if.end242 ], [ %lastConverterIndex.2, %if.end102 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %if.then53.thread ], [ %lastConverterIndex.10, %if.end202 ], [ %lastConverterIndex.8, %if.end152 ], [ 0, %if.end138 ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202 ]
-  %bytes_written.9 = phi i32 [ %conv251, %if.then244 ], [ %bytes_written.8, %if.end242 ], [ %bytes_written.1, %if.end102 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %if.then53.thread ], [ %bytes_written.5, %if.end202 ], [ %bytes_written.3, %if.end152 ], [ %conv137, %if.end138 ], [ %conv132, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202 ]
+  %lastConverterIndex.1 = phi i8 [ %lastConverterIndex.7, %if.then244 ], [ %lastConverterIndex.7, %if.end242 ], [ %lastConverterIndex.2, %if.end102 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %switch.early.test131 ], [ %lastConverterIndex.0669, %if.then53.thread ], [ %lastConverterIndex.5, %if.end202 ], [ %lastConverterIndex.3, %if.end152 ], [ 0, %if.end138 ], [ 1, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202 ]
+  %bytes_written.1 = phi i32 [ %conv251, %if.then244 ], [ %bytes_written.7, %if.end242 ], [ %bytes_written.2, %if.end102 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %switch.early.test131 ], [ 1, %if.then53.thread ], [ %bytes_written.6, %if.end202 ], [ %bytes_written.3, %if.end152 ], [ %conv137, %if.end138 ], [ %conv132, %_ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit202 ]
   %90 = load ptr, ptr %source, align 8
   %incdec.ptr256 = getelementptr inbounds i8, ptr %90, i64 2
   store ptr %incdec.ptr256, ptr %source, align 8
@@ -1528,7 +1528,7 @@ if.end254:                                        ; preds = %if.end152, %if.end1
 land.rhs262:                                      ; preds = %if.end254, %if.end273
   %93 = phi ptr [ %96, %if.end273 ], [ %91, %if.end254 ]
   %pLMBCS.3663 = phi ptr [ %incdec.ptr266, %if.end273 ], [ %LMBCS, %if.end254 ]
-  %bytes_written.10662 = phi i32 [ %dec, %if.end273 ], [ %bytes_written.9, %if.end254 ]
+  %bytes_written.10662 = phi i32 [ %dec, %if.end273 ], [ %bytes_written.1, %if.end254 ]
   %dec = add nsw i32 %bytes_written.10662, -1
   %tobool263.not = icmp eq i32 %bytes_written.10662, 0
   br i1 %tobool263.not, label %if.end288, label %while.body265
@@ -1556,7 +1556,7 @@ if.end273:                                        ; preds = %if.then270, %while.
   br i1 %cmp261, label %land.rhs262, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end273, %if.end254
-  %bytes_written.10.lcssa = phi i32 [ %bytes_written.9, %if.end254 ], [ %dec, %if.end273 ]
+  %bytes_written.10.lcssa = phi i32 [ %bytes_written.1, %if.end254 ], [ %dec, %if.end273 ]
   %pLMBCS.3.lcssa = phi ptr [ %LMBCS, %if.end254 ], [ %incdec.ptr266, %if.end273 ]
   %cmp275 = icmp sgt i32 %bytes_written.10.lcssa, 0
   br i1 %cmp275, label %if.then276, label %if.end288

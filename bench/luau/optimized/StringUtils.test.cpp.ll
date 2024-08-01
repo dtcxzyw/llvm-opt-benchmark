@@ -450,11 +450,11 @@ _ZNSt6vectorImSaImEED2Ev.exit105:                 ; preds = %112, %116
 
 .body:                                            ; preds = %50, %42, %34, %26, %18, %10
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ], [ %27, %26 ], [ %35, %34 ], [ %43, %42 ], [ %51, %50 ]
-  %.523 = phi ptr [ %8, %10 ], [ %16, %18 ], [ %24, %26 ], [ %32, %34 ], [ %40, %42 ], [ %48, %50 ]
+  %.018 = phi ptr [ %8, %10 ], [ %16, %18 ], [ %24, %26 ], [ %32, %34 ], [ %40, %42 ], [ %48, %50 ]
   br label %123
 
 123:                                              ; preds = %.body, %_ZNSt6vectorImSaImEED2Ev.exit108
-  %124 = phi ptr [ %125, %_ZNSt6vectorImSaImEED2Ev.exit108 ], [ %.523, %.body ]
+  %124 = phi ptr [ %125, %_ZNSt6vectorImSaImEED2Ev.exit108 ], [ %.018, %.body ]
   %125 = getelementptr inbounds i8, ptr %124, i64 -24
   %126 = load ptr, ptr %125, align 8
   %.not.i.i.i106 = icmp eq ptr %126, null
@@ -858,11 +858,11 @@ _ZNSt6vectorImSaImEED2Ev.exit127:                 ; preds = %128, %132
 
 .body:                                            ; preds = %66, %58, %50, %42, %34, %26, %18, %10
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ], [ %27, %26 ], [ %35, %34 ], [ %43, %42 ], [ %51, %50 ], [ %59, %58 ], [ %67, %66 ]
-  %.729 = phi ptr [ %8, %10 ], [ %16, %18 ], [ %24, %26 ], [ %32, %34 ], [ %40, %42 ], [ %48, %50 ], [ %56, %58 ], [ %64, %66 ]
+  %.022 = phi ptr [ %8, %10 ], [ %16, %18 ], [ %24, %26 ], [ %32, %34 ], [ %40, %42 ], [ %48, %50 ], [ %56, %58 ], [ %64, %66 ]
   br label %139
 
 139:                                              ; preds = %.body, %_ZNSt6vectorImSaImEED2Ev.exit130
-  %140 = phi ptr [ %141, %_ZNSt6vectorImSaImEED2Ev.exit130 ], [ %.729, %.body ]
+  %140 = phi ptr [ %141, %_ZNSt6vectorImSaImEED2Ev.exit130 ], [ %.022, %.body ]
   %141 = getelementptr inbounds i8, ptr %140, i64 -24
   %142 = load ptr, ptr %141, align 8
   %.not.i.i.i128 = icmp eq ptr %142, null
@@ -1831,8 +1831,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_
 
 .body:                                            ; preds = %58, %51, %60
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ], [ %.pn.i, %51 ]
-  %.012 = extractvalue { ptr, i32 } %.pn, 0
-  %62 = call ptr @__cxa_begin_catch(ptr %.012) #16
+  %.113 = extractvalue { ptr, i32 } %.pn, 0
+  %62 = call ptr @__cxa_begin_catch(ptr %.113) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %13)
           to label %63 unwind label %68
 

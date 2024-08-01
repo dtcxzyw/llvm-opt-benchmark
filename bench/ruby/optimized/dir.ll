@@ -362,7 +362,7 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
 
 .split.us:                                        ; preds = %6, %.thread124.us
   %.094.us = phi i32 [ %.296129.us, %.thread124.us ], [ 0, %6 ]
-  %.090.us = phi ptr [ %.191123128.us, %.thread124.us ], [ null, %6 ]
+  %.090.us = phi ptr [ %.292123128.us, %.thread124.us ], [ null, %6 ]
   %.089.us = phi ptr [ %23, %.thread124.us ], [ %0, %6 ]
   %12 = load i8, ptr %.089.us, align 1
   switch i8 %12, label %15 [
@@ -389,7 +389,7 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
 
 .thread124.us:                                    ; preds = %15, %18, %.thread.us
   %.296129.us = phi i32 [ %13, %.thread.us ], [ %19, %18 ], [ %.094.us, %15 ]
-  %.191123128.us = phi ptr [ %spec.select.us, %.thread.us ], [ %.090.us, %18 ], [ %.090.us, %15 ]
+  %.292123128.us = phi ptr [ %spec.select.us, %.thread.us ], [ %.090.us, %18 ], [ %.090.us, %15 ]
   %21 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.089.us, ptr noundef %11, ptr noundef %4) #22
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %.089.us, i64 %22
@@ -397,7 +397,7 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
 
 .split:                                           ; preds = %6, %.thread124
   %.094 = phi i32 [ %.296129, %.thread124 ], [ 0, %6 ]
-  %.090 = phi ptr [ %.191123128, %.thread124 ], [ null, %6 ]
+  %.090 = phi ptr [ %.292123128, %.thread124 ], [ null, %6 ]
   %.089 = phi ptr [ %40, %.thread124 ], [ %0, %6 ]
   %24 = load i8, ptr %.089, align 1
   switch i8 %24, label %27 [
@@ -434,7 +434,7 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
 
 .thread124:                                       ; preds = %30, %.thread, %35, %33
   %.296129 = phi i32 [ %.094, %35 ], [ %.094, %33 ], [ %25, %.thread ], [ %31, %30 ]
-  %.191123128 = phi ptr [ %.090, %35 ], [ %.090, %33 ], [ %spec.select, %.thread ], [ %.090, %30 ]
+  %.292123128 = phi ptr [ %.090, %35 ], [ %.090, %33 ], [ %spec.select, %.thread ], [ %.090, %30 ]
   %.1 = phi ptr [ %36, %35 ], [ %.089, %33 ], [ %.089, %.thread ], [ %.089, %30 ]
   %38 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.1, ptr noundef %11, ptr noundef %4) #22
   %39 = sext i32 %38 to i64
@@ -481,7 +481,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %45, %49
   br i1 %.not, label %ruby_nonempty_memcpy.exit.split.us, label %ruby_nonempty_memcpy.exit.split
 
 ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcpy.exit, %ruby_nonempty_memcpy.exit119.us
-  %.2.us = phi ptr [ %.5.us175, %ruby_nonempty_memcpy.exit119.us ], [ %.us-phi142, %ruby_nonempty_memcpy.exit ]
+  %.2.us = phi ptr [ %.4.us175, %ruby_nonempty_memcpy.exit119.us ], [ %.us-phi142, %ruby_nonempty_memcpy.exit ]
   %52 = icmp ult ptr %.2.us, %.us-phi143
   br i1 %52, label %53, label %.split163.us
 
@@ -515,19 +515,19 @@ ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcp
   br i1 %67, label %.critedge.us, label %68
 
 68:                                               ; preds = %65, %59
-  %.4.us = phi ptr [ %66, %65 ], [ %.3145.us152, %59 ]
-  %69 = tail call i32 @rb_enc_mbclen(ptr noundef %.4.us, ptr noundef %11, ptr noundef %4) #22
+  %.5.us = phi ptr [ %66, %65 ], [ %.3145.us152, %59 ]
+  %69 = tail call i32 @rb_enc_mbclen(ptr noundef %.5.us, ptr noundef %11, ptr noundef %4) #22
   %70 = sext i32 %69 to i64
-  %71 = getelementptr i8, ptr %.4.us, i64 %70
+  %71 = getelementptr i8, ptr %.5.us, i64 %70
   %72 = icmp ult ptr %71, %.us-phi143
   br i1 %72, label %.lr.ph.us, label %.critedge.us, !llvm.loop !10
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %65, %68
-  %.5.us = phi ptr [ %.3145.us152, %.lr.ph.us ], [ %66, %65 ], [ %71, %68 ]
-  %73 = ptrtoint ptr %.5.us to i64
+  %.4.us = phi ptr [ %.3145.us152, %.lr.ph.us ], [ %66, %65 ], [ %71, %68 ]
+  %73 = ptrtoint ptr %.4.us to i64
   %74 = ptrtoint ptr %54 to i64
   %75 = sub i64 %73, %74
-  %.not.i118.us = icmp eq ptr %.5.us, %54
+  %.not.i118.us = icmp eq ptr %.4.us, %54
   br i1 %.not.i118.us, label %ruby_nonempty_memcpy.exit119.us, label %76
 
 76:                                               ; preds = %.critedge.us
@@ -536,7 +536,7 @@ ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcp
 
 ruby_nonempty_memcpy.exit119.us:                  ; preds = %53, %76, %.critedge.us
   %77 = phi i64 [ %75, %76 ], [ %75, %.critedge.us ], [ 0, %53 ]
-  %.5.us175 = phi ptr [ %.5.us, %76 ], [ %.5.us, %.critedge.us ], [ %54, %53 ]
+  %.4.us175 = phi ptr [ %.4.us, %76 ], [ %.4.us, %.critedge.us ], [ %54, %53 ]
   %78 = getelementptr i8, ptr %50, i64 %77
   %79 = sub i64 %.neg137, %77
   %80 = tail call i64 @strlcpy(ptr noundef %78, ptr noundef nonnull dereferenceable(1) %51, i64 noundef %79) #22
@@ -545,7 +545,7 @@ ruby_nonempty_memcpy.exit119.us:                  ; preds = %53, %76, %.critedge
   br i1 %.not116.us, label %ruby_nonempty_memcpy.exit.split.us, label %.split163.us, !llvm.loop !11
 
 ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcpy.exit, %ruby_nonempty_memcpy.exit119
-  %.2 = phi ptr [ %.5178, %ruby_nonempty_memcpy.exit119 ], [ %.us-phi142, %ruby_nonempty_memcpy.exit ]
+  %.2 = phi ptr [ %.4178, %ruby_nonempty_memcpy.exit119 ], [ %.us-phi142, %ruby_nonempty_memcpy.exit ]
   %82 = icmp ult ptr %.2, %.us-phi143
   br i1 %82, label %83, label %.split163.us
 
@@ -577,11 +577,11 @@ ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcp
   br i1 %97, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %89, %.lr.ph
-  %.5 = phi ptr [ %96, %89 ], [ %.3145.us, %.lr.ph ]
-  %98 = ptrtoint ptr %.5 to i64
+  %.4 = phi ptr [ %96, %89 ], [ %.3145.us, %.lr.ph ]
+  %98 = ptrtoint ptr %.4 to i64
   %99 = ptrtoint ptr %84 to i64
   %100 = sub i64 %98, %99
-  %.not.i118 = icmp eq ptr %.5, %84
+  %.not.i118 = icmp eq ptr %.4, %84
   br i1 %.not.i118, label %ruby_nonempty_memcpy.exit119, label %101
 
 101:                                              ; preds = %.critedge
@@ -590,7 +590,7 @@ ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcp
 
 ruby_nonempty_memcpy.exit119:                     ; preds = %83, %.critedge, %101
   %102 = phi i64 [ %100, %.critedge ], [ %100, %101 ], [ 0, %83 ]
-  %.5178 = phi ptr [ %.5, %.critedge ], [ %.5, %101 ], [ %84, %83 ]
+  %.4178 = phi ptr [ %.4, %.critedge ], [ %.4, %101 ], [ %84, %83 ]
   %103 = getelementptr i8, ptr %50, i64 %102
   %104 = sub i64 %.neg137, %102
   %105 = tail call i64 @strlcpy(ptr noundef %103, ptr noundef nonnull dereferenceable(1) %51, i64 noundef %104) #22
@@ -2566,8 +2566,8 @@ define internal fastcc ptr @glob_make_pattern(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not91, label %.critedge5, label %.preheader99
 
 .preheader99:                                     ; preds = %41, %47
-  %.075 = phi ptr [ %44, %47 ], [ %37, %41 ]
-  %43 = getelementptr i8, ptr %.075, i64 1
+  %.176 = phi ptr [ %44, %47 ], [ %37, %41 ]
+  %43 = getelementptr i8, ptr %.176, i64 1
   %44 = tail call fastcc ptr @find_dirsep(ptr noundef %43, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3)
   %45 = tail call fastcc i32 @has_magic(ptr noundef %43, ptr noundef %44, i32 noundef %2, ptr noundef %3)
   %46 = icmp ult i32 %45, 2
@@ -2579,8 +2579,8 @@ define internal fastcc ptr @glob_make_pattern(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not92, label %.critedge5, label %.preheader99, !llvm.loop !51
 
 .critedge5:                                       ; preds = %47, %.preheader99, %41, %36
-  %.176 = phi ptr [ %37, %36 ], [ %37, %41 ], [ %.075, %.preheader99 ], [ %.075, %47 ]
-  %49 = ptrtoint ptr %.176 to i64
+  %.075 = phi ptr [ %37, %36 ], [ %37, %41 ], [ %.176, %.preheader99 ], [ %.176, %47 ]
+  %49 = ptrtoint ptr %.075 to i64
   %50 = ptrtoint ptr %.073114144 to i64
   %51 = sub i64 %49, %50
   %52 = add i64 %51, 1
@@ -2601,7 +2601,7 @@ glob_alloc_n.exit:                                ; preds = %.critedge5
   br label %.loopexit
 
 56:                                               ; preds = %glob_alloc_n.exit
-  %.not.i = icmp eq ptr %.176, %.073114144
+  %.not.i = icmp eq ptr %.075, %.073114144
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %57
 
 57:                                               ; preds = %56
@@ -2615,11 +2615,11 @@ ruby_nonempty_memcpy.exit:                        ; preds = %56, %57
   %60 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %59, ptr %60, align 8
   store ptr %54, ptr %10, align 8
-  %61 = load i8, ptr %.176, align 1
+  %61 = load i8, ptr %.075, align 1
   %.not94 = icmp ne i8 %61, 0
   %spec.select = zext i1 %.not94 to i32
   %spec.select95.idx = zext i1 %.not94 to i64
-  %spec.select95 = getelementptr i8, ptr %.176, i64 %spec.select95.idx
+  %spec.select95 = getelementptr i8, ptr %.075, i64 %spec.select95.idx
   br label %62
 
 62:                                               ; preds = %ruby_nonempty_memcpy.exit, %.critedge2
@@ -2995,12 +2995,12 @@ do_lstat.exit:                                    ; preds = %at_subpath.exit.i.t
   br label %do_lstat.exit.thread
 
 do_lstat.exit.thread:                             ; preds = %106, %105, %102, %102, %do_lstat.exit, %112, %90
-  %.0268 = phi i32 [ %116, %112 ], [ %5, %90 ], [ -1, %do_lstat.exit ], [ -1, %102 ], [ -1, %102 ], [ -1, %105 ], [ -1, %106 ]
+  %.1 = phi i32 [ %116, %112 ], [ %5, %90 ], [ -1, %do_lstat.exit ], [ -1, %102 ], [ -1, %102 ], [ -1, %105 ], [ -1, %106 ]
   %117 = icmp ne i32 %.0293.lcssa548, 0
   br i1 %117, label %118, label %145
 
 118:                                              ; preds = %do_lstat.exit.thread
-  switch i32 %.0268, label %145 [
+  switch i32 %.1, label %145 [
     i32 -2, label %119
     i32 10, label %119
   ]
@@ -3064,8 +3064,8 @@ do_stat.exit:                                     ; preds = %at_subpath.exit.i34
   br label %145
 
 145:                                              ; preds = %118, %140, %do_lstat.exit.thread
-  %.1 = phi i32 [ %144, %140 ], [ %.0268, %118 ], [ %.0268, %do_lstat.exit.thread ]
-  %146 = icmp sgt i32 %.1, -1
+  %.2 = phi i32 [ %144, %140 ], [ %.1, %118 ], [ %.1, %do_lstat.exit.thread ]
+  %146 = icmp sgt i32 %.2, -1
   %or.cond5 = select i1 %91, i1 %146, i1 false
   br i1 %or.cond5, label %147, label %158
 
@@ -3089,7 +3089,7 @@ do_stat.exit:                                     ; preds = %at_subpath.exit.i34
   br i1 %.not318, label %158, label %glob_dir_finish.exit
 
 158:                                              ; preds = %152, %145
-  %159 = icmp eq i32 %.1, 4
+  %159 = icmp eq i32 %.2, 4
   %or.cond7 = select i1 %117, i1 %159, i1 false
   br i1 %or.cond7, label %160, label %184
 
@@ -3152,8 +3152,8 @@ ruby_nonempty_memcpy.exit.i357:                   ; preds = %177, %176
   br i1 %.not321, label %.thread441, label %glob_dir_finish.exit
 
 184:                                              ; preds = %158, %._crit_edge.thread
-  %.2 = phi i32 [ %.1, %158 ], [ %5, %._crit_edge.thread ]
-  %185 = icmp eq i32 %.2, -1
+  %.0268 = phi i32 [ %.2, %158 ], [ %5, %._crit_edge.thread ]
+  %185 = icmp eq i32 %.0268, -1
   br i1 %185, label %glob_dir_finish.exit, label %.thread441
 
 .thread441:                                       ; preds = %180, %184
@@ -3700,7 +3700,7 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
   br label %391
 
 391:                                              ; preds = %389, %388
-  %.1280.us = phi ptr [ %390, %389 ], [ %.0279517.us, %388 ]
+  %.2281.us = phi ptr [ %390, %389 ], [ %.0279517.us, %388 ]
   %392 = getelementptr inbounds i8, ptr %384, i64 16
   %393 = load ptr, ptr %392, align 8
   %.phi.trans.insert538 = getelementptr inbounds i8, ptr %393, i64 8
@@ -3709,7 +3709,7 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
 
 394:                                              ; preds = %391, %.lr.ph519.split.us
   %395 = phi i32 [ %.pre539, %391 ], [ %386, %.lr.ph519.split.us ]
-  %.2281.us = phi ptr [ %.1280.us, %391 ], [ %.0279517.us, %.lr.ph519.split.us ]
+  %.1280.us = phi ptr [ %.2281.us, %391 ], [ %.0279517.us, %.lr.ph519.split.us ]
   %.0274.us = phi ptr [ %393, %391 ], [ %384, %.lr.ph519.split.us ]
   switch i32 %395, label %406 [
     i32 2, label %399
@@ -3736,12 +3736,12 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
 .sink.split:                                      ; preds = %399, %396
   %403 = getelementptr inbounds i8, ptr %.0274.us, i64 16
   %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr i8, ptr %.2281.us, i64 8
-  store ptr %404, ptr %.2281.us, align 8
+  %405 = getelementptr i8, ptr %.1280.us, i64 8
+  store ptr %404, ptr %.1280.us, align 8
   br label %406
 
 406:                                              ; preds = %.sink.split, %399, %396, %394
-  %.3282.us = phi ptr [ %.2281.us, %394 ], [ %.2281.us, %396 ], [ %.2281.us, %399 ], [ %405, %.sink.split ]
+  %.3282.us = phi ptr [ %.1280.us, %394 ], [ %.1280.us, %396 ], [ %.1280.us, %399 ], [ %405, %.sink.split ]
   %407 = getelementptr i8, ptr %.1272518.us, i64 8
   %408 = icmp ult ptr %407, %7
   br i1 %408, label %.lr.ph519.split.us, label %._crit_edge520, !llvm.loop !57
@@ -3818,17 +3818,17 @@ glob_alloc_n.exit:                                ; preds = %do_lstat.exit391.th
   br i1 %.not338, label %.backedge.backedge, label %glob_getent.exit.thread
 
 glob_getent.exit.thread:                          ; preds = %glob_alloc_n.exit.i377, %._crit_edge520, %409
-  %.5428 = phi i32 [ -1, %409 ], [ -1, %glob_alloc_n.exit.i377 ], [ %437, %._crit_edge520 ]
+  %.4427 = phi i32 [ -1, %409 ], [ -1, %glob_alloc_n.exit.i377 ], [ %437, %._crit_edge520 ]
   br i1 %.not.i367, label %.thread455, label %glob_getent.exit.thread.thread460
 
 glob_getent.exit.thread.thread460:                ; preds = %311, %glob_getent.exit.thread
-  %.5428462 = phi i32 [ %.5428, %glob_getent.exit.thread ], [ 0, %311 ]
+  %.4427462 = phi i32 [ %.4427, %glob_getent.exit.thread ], [ 0, %311 ]
   %438 = load ptr, ptr %21, align 8
   %439 = call i32 @closedir(ptr noundef %438)
   br label %glob_dir_finish.exit
 
 .thread455:                                       ; preds = %318, %glob_getent.exit, %glob_getent.exit.thread
-  %.5428458 = phi i32 [ %.5428, %glob_getent.exit.thread ], [ 0, %glob_getent.exit ], [ 0, %318 ]
+  %.4427458 = phi i32 [ %.4427, %glob_getent.exit.thread ], [ 0, %glob_getent.exit ], [ 0, %318 ]
   %440 = load ptr, ptr %291, align 8
   %.not12.i = icmp eq ptr %440, null
   br i1 %.not12.i, label %glob_dir_finish.exit, label %441
@@ -3946,8 +3946,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %474, %475
 
 479:                                              ; preds = %486, %476
   %.030.i = phi ptr [ %473, %476 ], [ %489, %486 ]
-  %.027.i = phi ptr [ %473, %476 ], [ %.128.i, %486 ]
-  %.0.i401 = phi ptr [ %473, %476 ], [ %.1.i404, %486 ]
+  %.027.i = phi ptr [ %473, %476 ], [ %.229.i, %486 ]
+  %.0.i401 = phi ptr [ %473, %476 ], [ %.2.i, %486 ]
   %480 = load i8, ptr %.030.i, align 1
   switch i8 %480, label %486 [
     i8 0, label %490
@@ -3973,36 +3973,36 @@ ruby_nonempty_memcpy.exit:                        ; preds = %474, %475
   br i1 %.not35.i, label %490, label %486
 
 486:                                              ; preds = %._crit_edge.i403, %479
-  %.131.i = phi ptr [ %484, %._crit_edge.i403 ], [ %.030.i, %479 ]
-  %.128.i = phi ptr [ %483, %._crit_edge.i403 ], [ %.027.i, %479 ]
-  %.1.i404 = phi ptr [ %484, %._crit_edge.i403 ], [ %.0.i401, %479 ]
-  %487 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.131.i, ptr noundef %478, ptr noundef %11) #22
-  %488 = sext i32 %487 to i64
-  %489 = getelementptr i8, ptr %.131.i, i64 %488
-  br label %479, !llvm.loop !59
-
-490:                                              ; preds = %._crit_edge.i403, %479
   %.232.i = phi ptr [ %484, %._crit_edge.i403 ], [ %.030.i, %479 ]
   %.229.i = phi ptr [ %483, %._crit_edge.i403 ], [ %.027.i, %479 ]
   %.2.i = phi ptr [ %484, %._crit_edge.i403 ], [ %.0.i401, %479 ]
+  %487 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.232.i, ptr noundef %478, ptr noundef %11) #22
+  %488 = sext i32 %487 to i64
+  %489 = getelementptr i8, ptr %.232.i, i64 %488
+  br label %479, !llvm.loop !59
+
+490:                                              ; preds = %._crit_edge.i403, %479
+  %.131.i = phi ptr [ %484, %._crit_edge.i403 ], [ %.030.i, %479 ]
+  %.128.i = phi ptr [ %483, %._crit_edge.i403 ], [ %.027.i, %479 ]
+  %.1.i404 = phi ptr [ %484, %._crit_edge.i403 ], [ %.0.i401, %479 ]
   br label %491
 
 491:                                              ; preds = %491, %490
-  %.3.i = phi ptr [ %.232.i, %490 ], [ %492, %491 ]
+  %.3.i = phi ptr [ %.131.i, %490 ], [ %492, %491 ]
   %492 = getelementptr i8, ptr %.3.i, i64 1
   %493 = load i8, ptr %.3.i, align 1
   %.not36.i = icmp eq i8 %493, 0
   br i1 %.not36.i, label %494, label %491, !llvm.loop !60
 
 494:                                              ; preds = %491
-  %.not37.i = icmp eq ptr %.229.i, %.2.i
+  %.not37.i = icmp eq ptr %.128.i, %.1.i404
   %.pre540 = ptrtoint ptr %492 to i64
   br i1 %.not37.i, label %remove_backslashes.exit, label %495
 
 495:                                              ; preds = %494
-  %496 = ptrtoint ptr %.2.i to i64
+  %496 = ptrtoint ptr %.1.i404 to i64
   %497 = sub i64 %.pre540, %496
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.229.i, ptr align 1 %.2.i, i64 %497, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.128.i, ptr align 1 %.1.i404, i64 %497, i1 false)
   br label %remove_backslashes.exit
 
 remove_backslashes.exit:                          ; preds = %494, %495
@@ -4121,12 +4121,12 @@ ruby_nonempty_memcpy.exit.i411:                   ; preds = %523, %522
   br label %.loopexit
 
 .loopexit:                                        ; preds = %536, %530, %glob_alloc_n.exit399, %.loopexit.sink.split, %.preheader466, %.preheader465
-  %.8 = phi i32 [ 0, %.preheader465 ], [ 0, %.preheader466 ], [ -1, %.loopexit.sink.split ], [ 0, %536 ], [ %535, %530 ], [ -1, %glob_alloc_n.exit399 ]
+  %.7 = phi i32 [ 0, %.preheader465 ], [ 0, %.preheader466 ], [ -1, %.loopexit.sink.split ], [ 0, %536 ], [ %535, %530 ], [ -1, %glob_alloc_n.exit399 ]
   call void @free(ptr noundef %454) #22
   br label %glob_dir_finish.exit
 
 glob_dir_finish.exit:                             ; preds = %.thread, %glob_alloc_n.exit.i355, %134, %133, %130, %130, %do_stat.exit, %49, %.loopexit, %448, %glob_getent.exit.thread.thread460, %.thread455, %._crit_edge.i395, %280, %282, %283, %212, %211, %209, %205, %205, %glob_alloc_n.exit397, %184, %180, %152, %join_path_from_pattern.exit, %78
-  %.0267 = phi i32 [ %88, %78 ], [ -1, %join_path_from_pattern.exit ], [ %157, %152 ], [ %183, %180 ], [ 0, %184 ], [ -1, %glob_alloc_n.exit397 ], [ 0, %205 ], [ 0, %205 ], [ %210, %209 ], [ 0, %212 ], [ 0, %211 ], [ 0, %282 ], [ 0, %283 ], [ %281, %280 ], [ 0, %448 ], [ %.8, %.loopexit ], [ %.5428462, %glob_getent.exit.thread.thread460 ], [ %.5428458, %.thread455 ], [ %.5428458, %._crit_edge.i395 ], [ -1, %49 ], [ 0, %do_stat.exit ], [ 0, %130 ], [ 0, %130 ], [ 0, %133 ], [ 0, %134 ], [ -1, %glob_alloc_n.exit.i355 ], [ -1, %.thread ]
+  %.0267 = phi i32 [ %88, %78 ], [ -1, %join_path_from_pattern.exit ], [ %157, %152 ], [ %183, %180 ], [ 0, %184 ], [ -1, %glob_alloc_n.exit397 ], [ 0, %205 ], [ 0, %205 ], [ %210, %209 ], [ 0, %212 ], [ 0, %211 ], [ 0, %282 ], [ 0, %283 ], [ %281, %280 ], [ 0, %448 ], [ %.7, %.loopexit ], [ %.4427462, %glob_getent.exit.thread.thread460 ], [ %.4427458, %.thread455 ], [ %.4427458, %._crit_edge.i395 ], [ -1, %49 ], [ 0, %do_stat.exit ], [ 0, %130 ], [ 0, %130 ], [ 0, %133 ], [ 0, %134 ], [ -1, %glob_alloc_n.exit.i355 ], [ -1, %.thread ]
   ret i32 %.0267
 }
 
@@ -4639,25 +4639,25 @@ gc_for_fd_with_gvl.exit.thread30:                 ; preds = %13, %gc_for_fd_with
   br i1 %23, label %.thread33, label %.thread37
 
 .thread33:                                        ; preds = %gc_for_fd_with_gvl.exit.thread30, %19
-  %.01835 = phi i32 [ %22, %19 ], [ %6, %gc_for_fd_with_gvl.exit.thread30 ]
-  %24 = call ptr @fdopendir(i32 noundef %.01835) #22
+  %.135 = phi i32 [ %22, %19 ], [ %6, %gc_for_fd_with_gvl.exit.thread30 ]
+  %24 = call ptr @fdopendir(i32 noundef %.135) #22
   %.not26 = icmp eq ptr %24, null
   br i1 %.not26, label %.thread37, label %31
 
 .thread37:                                        ; preds = %19, %.thread33
-  %.0183641 = phi i32 [ %.01835, %.thread33 ], [ %22, %19 ]
+  %.13641 = phi i32 [ %.135, %.thread33 ], [ %22, %19 ]
   %25 = call ptr @rb_errno_ptr() #22
   %26 = load i32, ptr %25, align 4
   br label %gc_for_fd_with_gvl.exit.thread
 
 gc_for_fd_with_gvl.exit.thread:                   ; preds = %13, %gc_for_fd_with_gvl.exit, %.thread37
-  %.1 = phi i32 [ %6, %gc_for_fd_with_gvl.exit ], [ %.0183641, %.thread37 ], [ %6, %13 ]
+  %.018 = phi i32 [ %6, %gc_for_fd_with_gvl.exit ], [ %.13641, %.thread37 ], [ %6, %13 ]
   %.0 = phi i32 [ %11, %gc_for_fd_with_gvl.exit ], [ %26, %.thread37 ], [ %11, %13 ]
-  %27 = icmp sgt i32 %.1, -1
+  %27 = icmp sgt i32 %.018, -1
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %gc_for_fd_with_gvl.exit.thread
-  %29 = call i32 @close(i32 noundef %.1) #22
+  %29 = call i32 @close(i32 noundef %.018) #22
   br label %30
 
 30:                                               ; preds = %28, %gc_for_fd_with_gvl.exit.thread
@@ -6356,7 +6356,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %.critedge, %36
 
 51:                                               ; preds = %48, %30
   %.pre-phi = phi ptr [ %.pre, %48 ], [ %.pre49, %30 ]
-  %.040 = phi i32 [ %42, %48 ], [ -100, %30 ]
+  %.141 = phi i32 [ %42, %48 ], [ -100, %30 ]
   %52 = load i64, ptr %.pre-phi, align 8, !noalias !88
   %53 = and i64 %52, 8192
   %.not.i.i = icmp eq i64 %53, 0
@@ -6374,7 +6374,7 @@ RSTRING_PTR.exit:                                 ; preds = %51, %55
 
 56:                                               ; preds = %RSTRING_PTR.exit, %16
   %57 = phi ptr [ null, %16 ], [ %.sroa.2.0.i, %RSTRING_PTR.exit ]
-  %.141 = phi i32 [ -100, %16 ], [ %.040, %RSTRING_PTR.exit ]
+  %.040 = phi i32 [ -100, %16 ], [ %.141, %RSTRING_PTR.exit ]
   %58 = inttoptr i64 %1 to ptr
   %59 = load i64, ptr %58, align 8, !noalias !91
   %60 = and i64 %59, 8192
@@ -6390,7 +6390,7 @@ RSTRING_PTR.exit48:                               ; preds = %56, %62
   %.sroa.2.0.i47 = phi ptr [ %.sroa.2.0.copyload.i46, %62 ], [ %61, %56 ]
   %63 = or i32 %3, -2147483648
   %64 = ptrtoint ptr %5 to i64
-  %65 = call fastcc i32 @ruby_glob0(ptr noundef %.sroa.2.0.i47, i32 noundef %.141, ptr noundef %57, i32 noundef %63, ptr noundef nonnull @rb_glob_funcs, i64 noundef %64, ptr noundef %.1)
+  %65 = call fastcc i32 @ruby_glob0(ptr noundef %.sroa.2.0.i47, i32 noundef %.040, ptr noundef %57, i32 noundef %63, ptr noundef nonnull @rb_glob_funcs, i64 noundef %64, ptr noundef %.1)
   ret i32 %65
 }
 

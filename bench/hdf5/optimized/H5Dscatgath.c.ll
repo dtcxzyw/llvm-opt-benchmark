@@ -1804,8 +1804,8 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 233:                                              ; preds = %._crit_edge285, %223
   %234 = phi i64 [ %229, %223 ], [ %.pre288, %._crit_edge285 ]
-  %.3183 = phi ptr [ %225, %223 ], [ %.2182267, %._crit_edge285 ]
-  %.3175 = phi i64 [ %232, %223 ], [ %.2174268, %._crit_edge285 ]
+  %.4184 = phi ptr [ %225, %223 ], [ %.2182267, %._crit_edge285 ]
+  %.4176 = phi i64 [ %232, %223 ], [ %.2174268, %._crit_edge285 ]
   %235 = getelementptr inbounds i8, ptr %185, i64 240
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %185, i64 224
@@ -1814,7 +1814,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds ptr, ptr %6, i64 %.1170269
   %242 = load ptr, ptr %241, align 8
-  %243 = call i32 @H5T_convert(ptr noundef %236, ptr noundef %238, ptr noundef %240, i64 noundef %234, i64 noundef 0, i64 noundef 0, ptr noundef %242, ptr noundef %.3183) #8
+  %243 = call i32 @H5T_convert(ptr noundef %236, ptr noundef %238, ptr noundef %240, i64 noundef %234, i64 noundef 0, i64 noundef 0, ptr noundef %242, ptr noundef %.4184) #8
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %245, label %249
 
@@ -1887,8 +1887,8 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %306
 
 295:                                              ; preds = %275, %282, %206
-  %.4184 = phi ptr [ %.3183, %275 ], [ %.3183, %282 ], [ %.2182267, %206 ]
-  %.4176 = phi i64 [ %.3175, %275 ], [ %.3175, %282 ], [ %.2174268, %206 ]
+  %.3183 = phi ptr [ %.4184, %275 ], [ %.4184, %282 ], [ %.2182267, %206 ]
+  %.3175 = phi i64 [ %.4176, %275 ], [ %.4176, %282 ], [ %.2174268, %206 ]
   %296 = call i32 @H5S_select_iter_release(ptr noundef nonnull %13) #8
   %297 = icmp slt i32 %296, 0
   br i1 %297, label %298, label %._crit_edge289
@@ -1905,8 +1905,8 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 302:                                              ; preds = %._crit_edge289, %173
   %303 = phi i64 [ %174, %173 ], [ %.pre290, %._crit_edge289 ]
-  %.5185 = phi ptr [ %.2182267, %173 ], [ %.4184, %._crit_edge289 ]
-  %.5 = phi i64 [ %.2174268, %173 ], [ %.4176, %._crit_edge289 ]
+  %.5185 = phi ptr [ %.2182267, %173 ], [ %.3183, %._crit_edge289 ]
+  %.5 = phi i64 [ %.2174268, %173 ], [ %.3175, %._crit_edge289 ]
   %304 = add nuw i64 %.1170269, 1
   %305 = icmp ult i64 %304, %303
   br i1 %305, label %173, label %.loopexit
@@ -1943,7 +1943,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %316
 
 316:                                              ; preds = %.lr.ph274, %329
-  %.2273 = phi i32 [ %.1239, %.lr.ph274 ], [ %.3, %329 ]
+  %.3273 = phi i32 [ %.1239, %.lr.ph274 ], [ %.4, %329 ]
   %.2171272 = phi i64 [ 0, %.lr.ph274 ], [ %330, %329 ]
   %317 = getelementptr inbounds ptr, ptr %22, i64 %.2171272
   %318 = load ptr, ptr %317, align 8
@@ -1967,20 +1967,20 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %329
 
 329:                                              ; preds = %316, %322, %325
-  %.3 = phi i32 [ -1, %325 ], [ %.2273, %322 ], [ %.2273, %316 ]
+  %.4 = phi i32 [ -1, %325 ], [ %.3273, %322 ], [ %.3273, %316 ]
   %330 = add nuw i64 %.2171272, 1
   %331 = load i64, ptr %3, align 8
   %332 = icmp ult i64 %330, %331
   br i1 %332, label %316, label %._crit_edge275
 
 ._crit_edge275:                                   ; preds = %329, %.preheader
-  %.2.lcssa = phi i32 [ %.1239, %.preheader ], [ %.3, %329 ]
+  %.3.lcssa = phi i32 [ %.1239, %.preheader ], [ %.4, %329 ]
   call void @free(ptr noundef nonnull %22) #8
   br label %333
 
 333:                                              ; preds = %.thread240, %._crit_edge275, %.loopexit
-  %.4 = phi i32 [ %.2.lcssa, %._crit_edge275 ], [ %.1239, %.loopexit ], [ -1, %.thread240 ]
-  ret i32 %.4
+  %.2 = phi i32 [ %.3.lcssa, %._crit_edge275 ], [ %.1239, %.loopexit ], [ -1, %.thread240 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -2056,14 +2056,14 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 36:                                               ; preds = %.lr.ph, %261
   %37 = phi i64 [ %21, %.lr.ph ], [ %262, %261 ]
-  %.0199483 = phi i64 [ 0, %.lr.ph ], [ %.1, %261 ]
+  %.1483 = phi i64 [ 0, %.lr.ph ], [ %.2, %261 ]
   %.0211481 = phi i64 [ 0, %.lr.ph ], [ %263, %261 ]
   %.0214480 = phi i64 [ 0, %.lr.ph ], [ %.2216, %261 ]
-  %.0217479 = phi ptr [ null, %.lr.ph ], [ %.3220, %261 ]
-  %.0222478 = phi ptr [ null, %.lr.ph ], [ %.3225, %261 ]
-  %.0227477 = phi ptr [ null, %.lr.ph ], [ %.3230, %261 ]
-  %.0232476 = phi ptr [ null, %.lr.ph ], [ %.3235, %261 ]
-  %.0237475 = phi ptr [ null, %.lr.ph ], [ %.3240, %261 ]
+  %.1218479 = phi ptr [ null, %.lr.ph ], [ %.4221, %261 ]
+  %.1223478 = phi ptr [ null, %.lr.ph ], [ %.4226, %261 ]
+  %.1228477 = phi ptr [ null, %.lr.ph ], [ %.4231, %261 ]
+  %.1233476 = phi ptr [ null, %.lr.ph ], [ %.4236, %261 ]
+  %.1238475 = phi ptr [ null, %.lr.ph ], [ %.4241, %261 ]
   %.0242474 = phi i64 [ 0, %.lr.ph ], [ %.3245, %261 ]
   %.0246473 = phi i64 [ 0, %.lr.ph ], [ %.2248, %261 ]
   %38 = load ptr, ptr %25, align 8
@@ -2093,7 +2093,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds ptr, ptr %23, i64 %.0211481
   store ptr %53, ptr %54, align 8
-  %55 = add i64 %.0199483, 1
+  %55 = add i64 %.1483, 1
   %56 = load ptr, ptr %28, align 8
   %57 = getelementptr inbounds ptr, ptr %56, i64 %.0211481
   %58 = load ptr, ptr %57, align 8
@@ -2135,7 +2135,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 84:                                               ; preds = %72
-  %85 = add i64 %.0199483, 1
+  %85 = add i64 %.1483, 1
   %86 = load ptr, ptr %25, align 8
   %87 = getelementptr inbounds ptr, ptr %86, i64 %.0211481
   %88 = load ptr, ptr %87, align 8
@@ -2249,7 +2249,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br i1 %158, label %159, label %.thread
 
 159:                                              ; preds = %146
-  %.not272 = icmp eq ptr %.0237475, null
+  %.not272 = icmp eq ptr %.1238475, null
   br i1 %.not272, label %160, label %197
 
 160:                                              ; preds = %159
@@ -2310,37 +2310,37 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 197:                                              ; preds = %190, %159
-  %.1238 = phi ptr [ %.0237475, %159 ], [ %163, %190 ]
-  %.1233 = phi ptr [ %.0232476, %159 ], [ %170, %190 ]
-  %.1228 = phi ptr [ %.0227477, %159 ], [ %177, %190 ]
-  %.1223 = phi ptr [ %.0222478, %159 ], [ %184, %190 ]
-  %.1218 = phi ptr [ %.0217479, %159 ], [ %191, %190 ]
+  %.3240 = phi ptr [ %.1238475, %159 ], [ %163, %190 ]
+  %.3235 = phi ptr [ %.1233476, %159 ], [ %170, %190 ]
+  %.3230 = phi ptr [ %.1228477, %159 ], [ %177, %190 ]
+  %.3225 = phi ptr [ %.1223478, %159 ], [ %184, %190 ]
+  %.3220 = phi ptr [ %.1218479, %159 ], [ %191, %190 ]
   %198 = load ptr, ptr %78, align 8
-  %199 = getelementptr inbounds ptr, ptr %.1238, i64 %.0214480
+  %199 = getelementptr inbounds ptr, ptr %.3240, i64 %.0214480
   store ptr %198, ptr %199, align 8
   %200 = load ptr, ptr %30, align 8
   %201 = getelementptr inbounds ptr, ptr %200, i64 %.0211481
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds ptr, ptr %.1233, i64 %.0214480
+  %203 = getelementptr inbounds ptr, ptr %.3235, i64 %.0214480
   store ptr %202, ptr %203, align 8
   %204 = load ptr, ptr %31, align 8
   %205 = getelementptr inbounds i64, ptr %204, i64 %.0211481
   %206 = load i64, ptr %205, align 8
-  %207 = getelementptr inbounds i64, ptr %.1228, i64 %.0214480
+  %207 = getelementptr inbounds i64, ptr %.3230, i64 %.0214480
   store i64 %206, ptr %207, align 8
   %208 = load ptr, ptr %32, align 8
   %209 = getelementptr inbounds i64, ptr %208, i64 %.0211481
   %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds i64, ptr %.1223, i64 %.0214480
+  %211 = getelementptr inbounds i64, ptr %.3225, i64 %.0214480
   store i64 %210, ptr %211, align 8
-  %212 = getelementptr inbounds ptr, ptr %.1218, i64 %.0214480
+  %212 = getelementptr inbounds ptr, ptr %.3220, i64 %.0214480
   store ptr %148, ptr %212, align 8
   %213 = add i64 %.0214480, 1
   br label %H5D__compound_opt_write.exit
 
 .thread:                                          ; preds = %143, %146
   %.0203280 = phi ptr [ %148, %146 ], [ null, %143 ]
-  %.1243279 = phi i64 [ %157, %146 ], [ %.0242474, %143 ]
+  %.2244279 = phi i64 [ %157, %146 ], [ %.0242474, %143 ]
   %214 = load i8, ptr %44, align 1
   %215 = trunc i8 %214 to i1
   br i1 %215, label %237, label %216
@@ -2397,12 +2397,12 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 H5D__compound_opt_write.exit:                     ; preds = %.lr.ph.i, %137, %197, %237
-  %.2244 = phi i64 [ %157, %197 ], [ %.1243279, %237 ], [ %.0242474, %137 ], [ %.0242474, %.lr.ph.i ]
-  %.2239 = phi ptr [ %.1238, %197 ], [ %.0237475, %237 ], [ %.0237475, %137 ], [ %.0237475, %.lr.ph.i ]
-  %.2234 = phi ptr [ %.1233, %197 ], [ %.0232476, %237 ], [ %.0232476, %137 ], [ %.0232476, %.lr.ph.i ]
-  %.2229 = phi ptr [ %.1228, %197 ], [ %.0227477, %237 ], [ %.0227477, %137 ], [ %.0227477, %.lr.ph.i ]
-  %.2224 = phi ptr [ %.1223, %197 ], [ %.0222478, %237 ], [ %.0222478, %137 ], [ %.0222478, %.lr.ph.i ]
-  %.2219 = phi ptr [ %.1218, %197 ], [ %.0217479, %237 ], [ %.0217479, %137 ], [ %.0217479, %.lr.ph.i ]
+  %.1243 = phi i64 [ %157, %197 ], [ %.2244279, %237 ], [ %.0242474, %137 ], [ %.0242474, %.lr.ph.i ]
+  %.2239 = phi ptr [ %.3240, %197 ], [ %.1238475, %237 ], [ %.1238475, %137 ], [ %.1238475, %.lr.ph.i ]
+  %.2234 = phi ptr [ %.3235, %197 ], [ %.1233476, %237 ], [ %.1233476, %137 ], [ %.1233476, %.lr.ph.i ]
+  %.2229 = phi ptr [ %.3230, %197 ], [ %.1228477, %237 ], [ %.1228477, %137 ], [ %.1228477, %.lr.ph.i ]
+  %.2224 = phi ptr [ %.3225, %197 ], [ %.1223478, %237 ], [ %.1223478, %137 ], [ %.1223478, %.lr.ph.i ]
+  %.2219 = phi ptr [ %.3220, %197 ], [ %.1218479, %237 ], [ %.1218479, %137 ], [ %.1218479, %.lr.ph.i ]
   %.1215 = phi i64 [ %213, %197 ], [ %.0214480, %237 ], [ %.0214480, %137 ], [ %.0214480, %.lr.ph.i ]
   %255 = call i32 @H5S_select_iter_release(ptr noundef nonnull %14) #8
   %256 = icmp slt i32 %255, 0
@@ -2421,14 +2421,14 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 261:                                              ; preds = %H5D__compound_opt_write.exit._crit_edge, %51
   %262 = phi i64 [ %37, %51 ], [ %.pre598, %H5D__compound_opt_write.exit._crit_edge ]
   %.2248 = phi i64 [ %.0246473, %51 ], [ %.1247, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3245 = phi i64 [ %.0242474, %51 ], [ %.2244, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3240 = phi ptr [ %.0237475, %51 ], [ %.2239, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3235 = phi ptr [ %.0232476, %51 ], [ %.2234, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3230 = phi ptr [ %.0227477, %51 ], [ %.2229, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3225 = phi ptr [ %.0222478, %51 ], [ %.2224, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3220 = phi ptr [ %.0217479, %51 ], [ %.2219, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3245 = phi i64 [ %.0242474, %51 ], [ %.1243, %H5D__compound_opt_write.exit._crit_edge ]
+  %.4241 = phi ptr [ %.1238475, %51 ], [ %.2239, %H5D__compound_opt_write.exit._crit_edge ]
+  %.4236 = phi ptr [ %.1233476, %51 ], [ %.2234, %H5D__compound_opt_write.exit._crit_edge ]
+  %.4231 = phi ptr [ %.1228477, %51 ], [ %.2229, %H5D__compound_opt_write.exit._crit_edge ]
+  %.4226 = phi ptr [ %.1223478, %51 ], [ %.2224, %H5D__compound_opt_write.exit._crit_edge ]
+  %.4221 = phi ptr [ %.1218479, %51 ], [ %.2219, %H5D__compound_opt_write.exit._crit_edge ]
   %.2216 = phi i64 [ %.0214480, %51 ], [ %.1215, %H5D__compound_opt_write.exit._crit_edge ]
-  %.1 = phi i64 [ %55, %51 ], [ %85, %H5D__compound_opt_write.exit._crit_edge ]
+  %.2 = phi i64 [ %55, %51 ], [ %85, %H5D__compound_opt_write.exit._crit_edge ]
   %263 = add nuw i64 %.0211481, 1
   %264 = icmp ult i64 %263, %262
   br i1 %264, label %36, label %._crit_edge.loopexit
@@ -2439,13 +2439,13 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader365
   %266 = phi i64 [ 0, %.preheader365 ], [ %262, %._crit_edge.loopexit ]
-  %.0237.lcssa = phi ptr [ null, %.preheader365 ], [ %.3240, %._crit_edge.loopexit ]
-  %.0232.lcssa = phi ptr [ null, %.preheader365 ], [ %.3235, %._crit_edge.loopexit ]
-  %.0227.lcssa = phi ptr [ null, %.preheader365 ], [ %.3230, %._crit_edge.loopexit ]
-  %.0222.lcssa = phi ptr [ null, %.preheader365 ], [ %.3225, %._crit_edge.loopexit ]
-  %.0217.lcssa = phi ptr [ null, %.preheader365 ], [ %.3220, %._crit_edge.loopexit ]
+  %.1238.lcssa = phi ptr [ null, %.preheader365 ], [ %.4241, %._crit_edge.loopexit ]
+  %.1233.lcssa = phi ptr [ null, %.preheader365 ], [ %.4236, %._crit_edge.loopexit ]
+  %.1228.lcssa = phi ptr [ null, %.preheader365 ], [ %.4231, %._crit_edge.loopexit ]
+  %.1223.lcssa = phi ptr [ null, %.preheader365 ], [ %.4226, %._crit_edge.loopexit ]
+  %.1218.lcssa = phi ptr [ null, %.preheader365 ], [ %.4221, %._crit_edge.loopexit ]
   %.0214.lcssa = phi i32 [ 0, %.preheader365 ], [ %265, %._crit_edge.loopexit ]
-  %.0199.lcssa = phi i64 [ 0, %.preheader365 ], [ %.1, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i64 [ 0, %.preheader365 ], [ %.2, %._crit_edge.loopexit ]
   %267 = getelementptr inbounds i8, ptr %0, i64 232
   %268 = load i8, ptr %267, align 8
   %269 = trunc i8 %268 to i1
@@ -2453,7 +2453,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 270:                                              ; preds = %._crit_edge
   %271 = load ptr, ptr %0, align 8
-  %272 = call i32 @H5F_shared_select_read(ptr noundef %271, i32 noundef 3, i32 noundef %.0214.lcssa, ptr noundef %.0237.lcssa, ptr noundef %.0232.lcssa, ptr noundef %.0227.lcssa, ptr noundef %.0222.lcssa, ptr noundef %.0217.lcssa) #8
+  %272 = call i32 @H5F_shared_select_read(ptr noundef %271, i32 noundef 3, i32 noundef %.0214.lcssa, ptr noundef %.1238.lcssa, ptr noundef %.1233.lcssa, ptr noundef %.1228.lcssa, ptr noundef %.1223.lcssa, ptr noundef %.1218.lcssa) #8
   %273 = icmp slt i32 %272, 0
   br i1 %273, label %277, label %.preheader364
 
@@ -2571,7 +2571,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds i8, ptr %341, i64 16
   %349 = load i64, ptr %348, align 8
-  %350 = getelementptr inbounds ptr, ptr %.0217.lcssa, i64 %.0200491
+  %350 = getelementptr inbounds ptr, ptr %.1218.lcssa, i64 %.0200491
   %351 = load ptr, ptr %350, align 8
   %352 = call i32 @H5T_convert(ptr noundef %343, ptr noundef %345, ptr noundef %347, i64 noundef %349, i64 noundef 0, i64 noundef 0, ptr noundef %315, ptr noundef %351) #8
   %353 = icmp slt i32 %352, 0
@@ -2616,12 +2616,12 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %386
 
 379:                                              ; preds = %80, %257, %165, %172, %179, %186, %193, %251, %219, %233, %113
-  %.4241.ph = phi ptr [ %.0237475, %113 ], [ %.0237475, %233 ], [ %.0237475, %219 ], [ %.0237475, %251 ], [ %163, %193 ], [ %163, %186 ], [ %163, %179 ], [ %163, %172 ], [ null, %165 ], [ %.2239, %257 ], [ %.0237475, %80 ]
-  %.4236.ph = phi ptr [ %.0232476, %113 ], [ %.0232476, %233 ], [ %.0232476, %219 ], [ %.0232476, %251 ], [ %170, %193 ], [ %170, %186 ], [ %170, %179 ], [ null, %172 ], [ %.0232476, %165 ], [ %.2234, %257 ], [ %.0232476, %80 ]
-  %.4231.ph = phi ptr [ %.0227477, %113 ], [ %.0227477, %233 ], [ %.0227477, %219 ], [ %.0227477, %251 ], [ %177, %193 ], [ %177, %186 ], [ null, %179 ], [ %.0227477, %172 ], [ %.0227477, %165 ], [ %.2229, %257 ], [ %.0227477, %80 ]
-  %.4226.ph = phi ptr [ %.0222478, %113 ], [ %.0222478, %233 ], [ %.0222478, %219 ], [ %.0222478, %251 ], [ %184, %193 ], [ null, %186 ], [ %.0222478, %179 ], [ %.0222478, %172 ], [ %.0222478, %165 ], [ %.2224, %257 ], [ %.0222478, %80 ]
-  %.4221.ph = phi ptr [ %.0217479, %113 ], [ %.0217479, %233 ], [ %.0217479, %219 ], [ %.0217479, %251 ], [ null, %193 ], [ %.0217479, %186 ], [ %.0217479, %179 ], [ %.0217479, %172 ], [ %.0217479, %165 ], [ %.2219, %257 ], [ %.0217479, %80 ]
-  %.2.ph = phi i64 [ %85, %113 ], [ %85, %233 ], [ %85, %219 ], [ %85, %251 ], [ %85, %193 ], [ %85, %186 ], [ %85, %179 ], [ %85, %172 ], [ %85, %165 ], [ %85, %257 ], [ %.0199483, %80 ]
+  %.0237.ph = phi ptr [ %.1238475, %113 ], [ %.1238475, %233 ], [ %.1238475, %219 ], [ %.1238475, %251 ], [ %163, %193 ], [ %163, %186 ], [ %163, %179 ], [ %163, %172 ], [ null, %165 ], [ %.2239, %257 ], [ %.1238475, %80 ]
+  %.0232.ph = phi ptr [ %.1233476, %113 ], [ %.1233476, %233 ], [ %.1233476, %219 ], [ %.1233476, %251 ], [ %170, %193 ], [ %170, %186 ], [ %170, %179 ], [ null, %172 ], [ %.1233476, %165 ], [ %.2234, %257 ], [ %.1233476, %80 ]
+  %.0227.ph = phi ptr [ %.1228477, %113 ], [ %.1228477, %233 ], [ %.1228477, %219 ], [ %.1228477, %251 ], [ %177, %193 ], [ %177, %186 ], [ null, %179 ], [ %.1228477, %172 ], [ %.1228477, %165 ], [ %.2229, %257 ], [ %.1228477, %80 ]
+  %.0222.ph = phi ptr [ %.1223478, %113 ], [ %.1223478, %233 ], [ %.1223478, %219 ], [ %.1223478, %251 ], [ %184, %193 ], [ null, %186 ], [ %.1223478, %179 ], [ %.1223478, %172 ], [ %.1223478, %165 ], [ %.2224, %257 ], [ %.1223478, %80 ]
+  %.0217.ph = phi ptr [ %.1218479, %113 ], [ %.1218479, %233 ], [ %.1218479, %219 ], [ %.1218479, %251 ], [ null, %193 ], [ %.1218479, %186 ], [ %.1218479, %179 ], [ %.1218479, %172 ], [ %.1218479, %165 ], [ %.2219, %257 ], [ %.1218479, %80 ]
+  %.0199.ph = phi i64 [ %85, %113 ], [ %85, %233 ], [ %85, %219 ], [ %85, %251 ], [ %85, %193 ], [ %85, %186 ], [ %85, %179 ], [ %85, %172 ], [ %85, %165 ], [ %85, %257 ], [ %.1483, %80 ]
   %380 = call i32 @H5S_select_iter_release(ptr noundef nonnull %14) #8
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %382, label %386
@@ -2638,19 +2638,19 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 386:                                              ; preds = %379, %382, %.loopexit, %375, %354, %336, %322, %277, %68, %.thread329
   %.1209348 = phi i32 [ -1, %.thread329 ], [ -1, %382 ], [ -1, %379 ], [ -1, %68 ], [ -1, %277 ], [ -1, %354 ], [ -1, %322 ], [ -1, %336 ], [ -1, %375 ], [ 0, %.loopexit ]
-  %.4241292347 = phi ptr [ null, %.thread329 ], [ %.4241.ph, %382 ], [ %.4241.ph, %379 ], [ %.0237475, %68 ], [ %.0237.lcssa, %277 ], [ %.0237.lcssa, %354 ], [ %.0237.lcssa, %322 ], [ %.0237.lcssa, %336 ], [ %.0237.lcssa, %375 ], [ %.0237.lcssa, %.loopexit ]
-  %.4236294346 = phi ptr [ null, %.thread329 ], [ %.4236.ph, %382 ], [ %.4236.ph, %379 ], [ %.0232476, %68 ], [ %.0232.lcssa, %277 ], [ %.0232.lcssa, %354 ], [ %.0232.lcssa, %322 ], [ %.0232.lcssa, %336 ], [ %.0232.lcssa, %375 ], [ %.0232.lcssa, %.loopexit ]
-  %.4231296345 = phi ptr [ null, %.thread329 ], [ %.4231.ph, %382 ], [ %.4231.ph, %379 ], [ %.0227477, %68 ], [ %.0227.lcssa, %277 ], [ %.0227.lcssa, %354 ], [ %.0227.lcssa, %322 ], [ %.0227.lcssa, %336 ], [ %.0227.lcssa, %375 ], [ %.0227.lcssa, %.loopexit ]
-  %.4226298344 = phi ptr [ null, %.thread329 ], [ %.4226.ph, %382 ], [ %.4226.ph, %379 ], [ %.0222478, %68 ], [ %.0222.lcssa, %277 ], [ %.0222.lcssa, %354 ], [ %.0222.lcssa, %322 ], [ %.0222.lcssa, %336 ], [ %.0222.lcssa, %375 ], [ %.0222.lcssa, %.loopexit ]
-  %.4221300343 = phi ptr [ null, %.thread329 ], [ %.4221.ph, %382 ], [ %.4221.ph, %379 ], [ %.0217479, %68 ], [ %.0217.lcssa, %277 ], [ %.0217.lcssa, %354 ], [ %.0217.lcssa, %322 ], [ %.0217.lcssa, %336 ], [ %.0217.lcssa, %375 ], [ %.0217.lcssa, %.loopexit ]
-  %.2305341 = phi i64 [ 0, %.thread329 ], [ %.2.ph, %382 ], [ %.2.ph, %379 ], [ %.0199483, %68 ], [ %.0199.lcssa, %277 ], [ %.0199.lcssa, %354 ], [ %.0199.lcssa, %322 ], [ %.0199.lcssa, %336 ], [ %.0199.lcssa, %375 ], [ %.0199.lcssa, %.loopexit ]
+  %.0237292347 = phi ptr [ null, %.thread329 ], [ %.0237.ph, %382 ], [ %.0237.ph, %379 ], [ %.1238475, %68 ], [ %.1238.lcssa, %277 ], [ %.1238.lcssa, %354 ], [ %.1238.lcssa, %322 ], [ %.1238.lcssa, %336 ], [ %.1238.lcssa, %375 ], [ %.1238.lcssa, %.loopexit ]
+  %.0232294346 = phi ptr [ null, %.thread329 ], [ %.0232.ph, %382 ], [ %.0232.ph, %379 ], [ %.1233476, %68 ], [ %.1233.lcssa, %277 ], [ %.1233.lcssa, %354 ], [ %.1233.lcssa, %322 ], [ %.1233.lcssa, %336 ], [ %.1233.lcssa, %375 ], [ %.1233.lcssa, %.loopexit ]
+  %.0227296345 = phi ptr [ null, %.thread329 ], [ %.0227.ph, %382 ], [ %.0227.ph, %379 ], [ %.1228477, %68 ], [ %.1228.lcssa, %277 ], [ %.1228.lcssa, %354 ], [ %.1228.lcssa, %322 ], [ %.1228.lcssa, %336 ], [ %.1228.lcssa, %375 ], [ %.1228.lcssa, %.loopexit ]
+  %.0222298344 = phi ptr [ null, %.thread329 ], [ %.0222.ph, %382 ], [ %.0222.ph, %379 ], [ %.1223478, %68 ], [ %.1223.lcssa, %277 ], [ %.1223.lcssa, %354 ], [ %.1223.lcssa, %322 ], [ %.1223.lcssa, %336 ], [ %.1223.lcssa, %375 ], [ %.1223.lcssa, %.loopexit ]
+  %.0217300343 = phi ptr [ null, %.thread329 ], [ %.0217.ph, %382 ], [ %.0217.ph, %379 ], [ %.1218479, %68 ], [ %.1218.lcssa, %277 ], [ %.1218.lcssa, %354 ], [ %.1218.lcssa, %322 ], [ %.1218.lcssa, %336 ], [ %.1218.lcssa, %375 ], [ %.1218.lcssa, %.loopexit ]
+  %.0199305341 = phi i64 [ 0, %.thread329 ], [ %.0199.ph, %382 ], [ %.0199.ph, %379 ], [ %.1483, %68 ], [ %.1.lcssa, %277 ], [ %.1.lcssa, %354 ], [ %.1.lcssa, %322 ], [ %.1.lcssa, %336 ], [ %.1.lcssa, %375 ], [ %.1.lcssa, %.loopexit ]
   %387 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %14) #8
   call void @free(ptr noundef %7) #8
   %.not274 = icmp eq ptr %23, null
   br i1 %.not274, label %404, label %.preheader
 
 .preheader:                                       ; preds = %386
-  %.not500 = icmp eq i64 %.2305341, 0
+  %.not500 = icmp eq i64 %.0199305341, 0
   br i1 %.not500, label %._crit_edge496, label %.lr.ph495
 
 .lr.ph495:                                        ; preds = %.preheader
@@ -2658,7 +2658,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %389
 
 389:                                              ; preds = %.lr.ph495, %402
-  %.2210494 = phi i32 [ %.1209348, %.lr.ph495 ], [ %.3, %402 ]
+  %.3494 = phi i32 [ %.1209348, %.lr.ph495 ], [ %.4, %402 ]
   %.2213493 = phi i64 [ 0, %.lr.ph495 ], [ %403, %402 ]
   %390 = getelementptr inbounds ptr, ptr %23, i64 %.2213493
   %391 = load ptr, ptr %390, align 8
@@ -2680,29 +2680,29 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %402
 
 402:                                              ; preds = %389, %395, %398
-  %.3 = phi i32 [ -1, %398 ], [ %.2210494, %395 ], [ %.2210494, %389 ]
+  %.4 = phi i32 [ -1, %398 ], [ %.3494, %395 ], [ %.3494, %389 ]
   %403 = add nuw i64 %.2213493, 1
-  %exitcond.not = icmp eq i64 %403, %.2305341
+  %exitcond.not = icmp eq i64 %403, %.0199305341
   br i1 %exitcond.not, label %._crit_edge496, label %389
 
 ._crit_edge496:                                   ; preds = %402, %.preheader
-  %.2210.lcssa = phi i32 [ %.1209348, %.preheader ], [ %.3, %402 ]
+  %.3.lcssa = phi i32 [ %.1209348, %.preheader ], [ %.4, %402 ]
   call void @free(ptr noundef nonnull %23) #8
   br label %404
 
 404:                                              ; preds = %.thread349, %._crit_edge496, %386
-  %.4221300323363 = phi ptr [ %.4221300343, %._crit_edge496 ], [ %.4221300343, %386 ], [ null, %.thread349 ]
-  %.4226298324362 = phi ptr [ %.4226298344, %._crit_edge496 ], [ %.4226298344, %386 ], [ null, %.thread349 ]
-  %.4231296325361 = phi ptr [ %.4231296345, %._crit_edge496 ], [ %.4231296345, %386 ], [ null, %.thread349 ]
-  %.4236294326360 = phi ptr [ %.4236294346, %._crit_edge496 ], [ %.4236294346, %386 ], [ null, %.thread349 ]
-  %.4241292327359 = phi ptr [ %.4241292347, %._crit_edge496 ], [ %.4241292347, %386 ], [ null, %.thread349 ]
-  %.4 = phi i32 [ %.2210.lcssa, %._crit_edge496 ], [ %.1209348, %386 ], [ -1, %.thread349 ]
-  call void @free(ptr noundef %.4241292327359) #8
-  call void @free(ptr noundef %.4236294326360) #8
-  call void @free(ptr noundef %.4231296325361) #8
-  call void @free(ptr noundef %.4226298324362) #8
-  call void @free(ptr noundef %.4221300323363) #8
-  ret i32 %.4
+  %.0217300323363 = phi ptr [ %.0217300343, %._crit_edge496 ], [ %.0217300343, %386 ], [ null, %.thread349 ]
+  %.0222298324362 = phi ptr [ %.0222298344, %._crit_edge496 ], [ %.0222298344, %386 ], [ null, %.thread349 ]
+  %.0227296325361 = phi ptr [ %.0227296345, %._crit_edge496 ], [ %.0227296345, %386 ], [ null, %.thread349 ]
+  %.0232294326360 = phi ptr [ %.0232294346, %._crit_edge496 ], [ %.0232294346, %386 ], [ null, %.thread349 ]
+  %.0237292327359 = phi ptr [ %.0237292347, %._crit_edge496 ], [ %.0237292347, %386 ], [ null, %.thread349 ]
+  %.2210 = phi i32 [ %.3.lcssa, %._crit_edge496 ], [ %.1209348, %386 ], [ -1, %.thread349 ]
+  call void @free(ptr noundef %.0237292327359) #8
+  call void @free(ptr noundef %.0232294326360) #8
+  call void @free(ptr noundef %.0227296325361) #8
+  call void @free(ptr noundef %.0222298324362) #8
+  call void @free(ptr noundef %.0217300323363) #8
+  ret i32 %.2210
 }
 
 declare i32 @H5F_shared_select_write(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

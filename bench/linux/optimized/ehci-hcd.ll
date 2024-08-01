@@ -5413,7 +5413,7 @@ check_intr_schedule.exit.loopexit55:              ; preds = %106
 
 check_intr_schedule.exit:                         ; preds = %97, %check_intr_schedule.exit.loopexit55, %162, %189
   %192 = phi i8 [ 0, %189 ], [ %79, %162 ], [ %79, %check_intr_schedule.exit.loopexit55 ], [ %79, %97 ]
-  %.4 = phi i32 [ 0, %189 ], [ %164, %162 ], [ 0, %check_intr_schedule.exit.loopexit55 ], [ 0, %97 ]
+  %.3 = phi i32 [ 0, %189 ], [ %164, %162 ], [ 0, %check_intr_schedule.exit.loopexit55 ], [ 0, %97 ]
   %193 = phi i32 [ 0, %189 ], [ %130, %162 ], [ %191, %check_intr_schedule.exit.loopexit55 ], [ %95, %97 ]
   %194 = getelementptr inbounds i8, ptr %1, i64 116
   %195 = load i16, ptr %194, align 4
@@ -5441,7 +5441,7 @@ check_intr_schedule.exit:                         ; preds = %97, %check_intr_sch
   %211 = getelementptr inbounds i8, ptr %1, i64 121
   store i8 %210, ptr %211, align 1
   %212 = shl nuw i32 1, %193
-  %213 = or i32 %212, %.4
+  %213 = or i32 %212, %.3
   %214 = trunc i32 %213 to i16
   %215 = select i1 %196, i16 255, i16 %214
   %216 = getelementptr inbounds i8, ptr %1, i64 114

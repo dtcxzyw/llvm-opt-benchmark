@@ -50,21 +50,21 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
   br label %14
 
 14:                                               ; preds = %11, %14
-  %.043 = phi i32 [ %12, %11 ], [ %.1, %14 ]
+  %.143 = phi i32 [ %12, %11 ], [ %.2, %14 ]
   %.02442 = phi ptr [ %13, %11 ], [ %.125, %14 ]
-  %.02841 = phi ptr [ %8, %11 ], [ %.129, %14 ]
-  %15 = load i8, ptr %.02841, align 1
+  %.12941 = phi ptr [ %8, %11 ], [ %.230, %14 ]
+  %15 = load i8, ptr %.12941, align 1
   %16 = and i8 %15, -8
   %switch = icmp eq i8 %16, 48
-  %17 = shl i32 %.043, 3
+  %17 = shl i32 %.143, 3
   %18 = zext nneg i8 %15 to i32
   %19 = add i32 %17, -48
   %20 = add i32 %19, %18
-  %.129.idx = zext i1 %switch to i64
-  %.129 = getelementptr inbounds i8, ptr %.02841, i64 %.129.idx
-  %.125 = select i1 %switch, ptr %.02442, ptr %.02841
-  %.1 = select i1 %switch, i32 %20, i32 %.043
-  %21 = icmp ult ptr %.129, %.125
+  %.230.idx = zext i1 %switch to i64
+  %.230 = getelementptr inbounds i8, ptr %.12941, i64 %.230.idx
+  %.125 = select i1 %switch, ptr %.02442, ptr %.12941
+  %.2 = select i1 %switch, i32 %20, i32 %.143
+  %21 = icmp ult ptr %.230, %.125
   br i1 %21, label %14, label %.loopexit
 
 22:                                               ; preds = %7
@@ -92,9 +92,9 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
   br label %.loopexit
 
 .preheader:                                       ; preds = %7, %switch.lookup
-  %.240 = phi i32 [ %37, %switch.lookup ], [ 0, %7 ]
-  %.23038 = phi ptr [ %34, %switch.lookup ], [ %8, %7 ]
-  %30 = load i8, ptr %.23038, align 1
+  %.340 = phi i32 [ %37, %switch.lookup ], [ 0, %7 ]
+  %.33138 = phi ptr [ %34, %switch.lookup ], [ %8, %7 ]
+  %30 = load i8, ptr %.33138, align 1
   %switch.tableidx = add i8 %30, -48
   %31 = icmp ult i8 %switch.tableidx, 55
   br i1 %31, label %switch.hole_check, label %.loopexit
@@ -109,8 +109,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %32 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.chresc, i64 0, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
-  %33 = shl i32 %.240, 4
-  %34 = getelementptr inbounds i8, ptr %.23038, i64 1
+  %33 = shl i32 %.340, 4
+  %34 = getelementptr inbounds i8, ptr %.33138, i64 1
   %35 = zext nneg i8 %30 to i32
   %36 = add i32 %33, %switch.load
   %37 = add i32 %36, %35
@@ -123,17 +123,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %switch.hole_check, %14, %7, %22, %23, %24, %25, %26, %27, %28, %29, %38, %39, %6, %2
-  %.432 = phi ptr [ %3, %2 ], [ %8, %7 ], [ %3, %39 ], [ %8, %38 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ], [ %8, %26 ], [ %8, %25 ], [ %8, %24 ], [ %8, %23 ], [ %8, %22 ], [ %0, %6 ], [ %.129, %14 ], [ %.23038, %switch.hole_check ], [ %.23038, %.preheader ]
-  %.4 = phi i32 [ %5, %2 ], [ %10, %7 ], [ 0, %39 ], [ 27, %38 ], [ 11, %29 ], [ 9, %28 ], [ 32, %27 ], [ 13, %26 ], [ 10, %25 ], [ 12, %24 ], [ 8, %23 ], [ 7, %22 ], [ 0, %6 ], [ %.1, %14 ], [ %.240, %switch.hole_check ], [ %.240, %.preheader ]
+  %.028 = phi ptr [ %3, %2 ], [ %8, %7 ], [ %3, %39 ], [ %8, %38 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ], [ %8, %26 ], [ %8, %25 ], [ %8, %24 ], [ %8, %23 ], [ %8, %22 ], [ %0, %6 ], [ %.230, %14 ], [ %.33138, %switch.hole_check ], [ %.33138, %.preheader ]
+  %.0 = phi i32 [ %5, %2 ], [ %10, %7 ], [ 0, %39 ], [ 27, %38 ], [ 11, %29 ], [ 9, %28 ], [ 32, %27 ], [ 13, %26 ], [ 10, %25 ], [ 12, %24 ], [ 8, %23 ], [ 7, %22 ], [ 0, %6 ], [ %.2, %14 ], [ %.340, %switch.hole_check ], [ %.340, %.preheader ]
   %.not36 = icmp eq ptr %1, null
   br i1 %.not36, label %41, label %40
 
 40:                                               ; preds = %.loopexit
-  store ptr %.432, ptr %1, align 8
+  store ptr %.028, ptr %1, align 8
   br label %41
 
 41:                                               ; preds = %40, %.loopexit
-  ret i32 %.4
+  ret i32 %.0
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

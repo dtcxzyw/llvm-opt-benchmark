@@ -1805,8 +1805,8 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph202:                                        ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
-  %.0107189199 = phi i1 [ %.2109, %58 ], [ false, %.lr.ph ]
-  %.0190198 = phi i32 [ %.2, %58 ], [ 0, %.lr.ph ]
+  %.0107189199 = phi i1 [ %.1108, %58 ], [ false, %.lr.ph ]
+  %.0190198 = phi i32 [ %.1, %58 ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %28, align 8
   %35 = getelementptr %union.ListCell, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
@@ -1859,15 +1859,15 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
   br label %58
 
 58:                                               ; preds = %46, %50, %54, %.thread169, %41
-  %.2109 = phi i1 [ %.0107189199, %41 ], [ %spec.select, %50 ], [ %spec.select, %54 ], [ true, %.thread169 ], [ %spec.select, %46 ]
-  %.2 = phi i32 [ %.0190198, %41 ], [ %spec.select144, %50 ], [ %spec.select144, %54 ], [ %spec.select144, %.thread169 ], [ %spec.select144, %46 ]
+  %.1108 = phi i1 [ %.0107189199, %41 ], [ %spec.select, %50 ], [ %spec.select, %54 ], [ true, %.thread169 ], [ %spec.select, %46 ]
+  %.1 = phi i32 [ %.0190198, %41 ], [ %spec.select144, %50 ], [ %spec.select144, %54 ], [ %spec.select144, %.thread169 ], [ %spec.select144, %46 ]
   %59 = load i32, ptr %27, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
   br i1 %61, label %.lr.ph202, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58
-  %62 = icmp eq i32 %.2, 0
+  %62 = icmp eq i32 %.1, 0
   br i1 %62, label %._crit_edge.thread, label %65
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %15, %._crit_edge
@@ -1877,7 +1877,7 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
   br label %.critedge.sink.split
 
 65:                                               ; preds = %._crit_edge
-  br i1 %.2109, label %66, label %75
+  br i1 %.1108, label %66, label %75
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %18, align 8
@@ -1897,7 +1897,7 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
   %76 = load ptr, ptr %20, align 8
   %77 = getelementptr i8, ptr %76, i64 16
   %.val150 = load ptr, ptr %77, align 8
-  %78 = zext nneg i32 %.2 to i64
+  %78 = zext nneg i32 %.1 to i64
   %79 = getelementptr %union.ListCell, ptr %.val150, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %23, align 8

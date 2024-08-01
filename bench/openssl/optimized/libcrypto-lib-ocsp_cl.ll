@@ -678,7 +678,7 @@ if.then3:                                         ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.else
-  %ret.0 = phi i32 [ 0, %if.then3 ], [ 1, %if.else ]
+  %ret.1 = phi i32 [ 0, %if.then3 ], [ 1, %if.else ]
   %cmp4 = icmp sgt i64 %maxsec, -1
   br i1 %cmp4, label %if.then5, label %if.end11
 
@@ -699,7 +699,7 @@ if.end11.sink.split:                              ; preds = %if.then5, %entry
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.sink.split, %if.end, %if.then5
-  %ret.1 = phi i32 [ %ret.0, %if.then5 ], [ %ret.0, %if.end ], [ 0, %if.end11.sink.split ]
+  %ret.0 = phi i32 [ %ret.1, %if.then5 ], [ %ret.1, %if.end ], [ 0, %if.end11.sink.split ]
   %cmp12 = icmp eq ptr %nextupd, null
   br i1 %cmp12, label %return, label %if.end14
 
@@ -725,7 +725,7 @@ if.end24.sink.split:                              ; preds = %if.else18, %if.end1
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end24.sink.split, %if.else18
-  %ret.2 = phi i32 [ %ret.1, %if.else18 ], [ 0, %if.end24.sink.split ]
+  %ret.2 = phi i32 [ %ret.0, %if.else18 ], [ 0, %if.end24.sink.split ]
   %call25 = call i32 @ASN1_STRING_cmp(ptr noundef nonnull %nextupd, ptr noundef %thisupd) #6
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %if.then27, label %return
@@ -737,7 +737,7 @@ if.then27:                                        ; preds = %if.end24
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then27, %if.end11
-  %retval.0 = phi i32 [ %ret.1, %if.end11 ], [ 0, %if.then27 ], [ %ret.2, %if.end24 ]
+  %retval.0 = phi i32 [ %ret.0, %if.end11 ], [ 0, %if.then27 ], [ %ret.2, %if.end24 ]
   ret i32 %retval.0
 }
 

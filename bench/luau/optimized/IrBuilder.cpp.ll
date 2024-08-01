@@ -2205,7 +2205,7 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEb(ptr nou
 
 21:                                               ; preds = %.thread, %20
   %lpad.phi153 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %20 ]
-  %.sroa.0.0152 = phi ptr [ %.sroa.0.2, %.thread ], [ %.sroa.0.1191, %20 ]
+  %.sroa.0.0152 = phi ptr [ %.sroa.0.3, %.thread ], [ %.sroa.0.1191, %20 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0152) #17
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit
 
@@ -2229,9 +2229,9 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %20, %21
 
 30:                                               ; preds = %.lr.ph, %280
   %storemerge193 = phi i32 [ %24, %.lr.ph ], [ %281, %280 ]
-  %.sroa.30.0192 = phi i64 [ 0, %.lr.ph ], [ %.sroa.30.2, %280 ]
-  %.sroa.0.1191 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.3, %280 ]
-  %.sroa.17.1189 = phi i64 [ 0, %.lr.ph ], [ %.sroa.17.3, %280 ]
+  %.sroa.30.0192 = phi i64 [ 0, %.lr.ph ], [ %.sroa.30.1, %280 ]
+  %.sroa.0.1191 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.2, %280 ]
+  %.sroa.17.1189 = phi i64 [ 0, %.lr.ph ], [ %.sroa.17.2, %280 ]
   %31 = zext i32 %storemerge193 to i64
   %32 = load ptr, ptr %28, align 8
   %33 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %32, i64 %31
@@ -2562,7 +2562,7 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %20, %21
   br label %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit72"
 
 "_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit72": ; preds = %183, %181, %186, %171, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit66"
-  %.sroa.34.1 = phi i32 [ %.sroa.34.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit66" ], [ %.sroa.34.0.copyload, %171 ], [ %190, %186 ], [ %.sroa.34.0.copyload, %181 ], [ %.sroa.34.0.copyload, %183 ]
+  %.sroa.34.0 = phi i32 [ %.sroa.34.0.copyload, %"_ZZN4Luau7CodeGen9IrBuilder5cloneERKNS0_7IrBlockEbENK3$_0clERNS0_4IrOpE.exit66" ], [ %.sroa.34.0.copyload, %171 ], [ %190, %186 ], [ %.sroa.34.0.copyload, %181 ], [ %.sroa.34.0.copyload, %183 ]
   invoke void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616) %27, i32 %.sroa.490.0160)
           to label %191 unwind label %20
 
@@ -2592,7 +2592,7 @@ _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit: ; preds = %20, %21
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %196
-  invoke void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616) %27, i32 %.sroa.34.1)
+  invoke void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616) %27, i32 %.sroa.34.0)
           to label %200 unwind label %20
 
 200:                                              ; preds = %199, %196
@@ -2733,18 +2733,18 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i: ; preds = %214, %._crit_edge31.i, %._crit_edge31.i.thread, %200
-  %.sroa.17.2 = phi i64 [ %.sroa.17.1189, %200 ], [ %spec.select.i, %._crit_edge31.i.thread ], [ 16, %._crit_edge31.i ], [ %.sroa.17.1189, %214 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1191, %200 ], [ %.sroa.0.0.i, %._crit_edge31.i.thread ], [ %.sroa.0.0.i, %._crit_edge31.i ], [ %.sroa.0.1191, %214 ]
-  %257 = add i64 %.sroa.17.2, -1
+  %.sroa.17.3 = phi i64 [ %.sroa.17.1189, %200 ], [ %spec.select.i, %._crit_edge31.i.thread ], [ 16, %._crit_edge31.i ], [ %.sroa.17.1189, %214 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1191, %200 ], [ %.sroa.0.0.i, %._crit_edge31.i.thread ], [ %.sroa.0.0.i, %._crit_edge31.i ], [ %.sroa.0.1191, %214 ]
+  %257 = add i64 %.sroa.17.3, -1
   %.01825.i.i = and i64 %257, %31
-  %258 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.2, i64 %.01825.i.i
+  %258 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.3, i64 %.01825.i.i
   %259 = load i32, ptr %258, align 4
   %260 = icmp eq i32 %259, -1
   br i1 %260, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %265, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
   %.01827.i.lcssa6.i = phi i64 [ %.01825.i.i, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ], [ %.018.i.i, %265 ]
-  %261 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.2, i64 %.01827.i.lcssa6.i
+  %261 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.3, i64 %.01827.i.lcssa6.i
   store i32 %storemerge193, ptr %261, align 4
   %262 = add i64 %.sroa.30.0192, 1
   br label %.loopexit
@@ -2762,15 +2762,15 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   %.018.i.i = and i64 %267, %257
   %.not.i3.i = icmp ule i64 %266, %257
   tail call void @llvm.assume(i1 %.not.i3.i)
-  %268 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.2, i64 %.018.i.i
+  %268 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.3, i64 %.018.i.i
   %269 = load i32, ptr %268, align 4
   %270 = icmp eq i32 %269, -1
   br i1 %270, label %._crit_edge.i, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %.lr.ph.i, %._crit_edge.i
-  %.sroa.30.1 = phi i64 [ %262, %._crit_edge.i ], [ %.sroa.30.0192, %.lr.ph.i ]
+  %.sroa.30.2 = phi i64 [ %262, %._crit_edge.i ], [ %.sroa.30.0192, %.lr.ph.i ]
   %271 = phi i64 [ %.01827.i.lcssa6.i, %._crit_edge.i ], [ %.01827.i7.i, %.lr.ph.i ]
-  %272 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.2, i64 %271, i32 1
+  %272 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.3, i64 %271, i32 1
   %273 = trunc i64 %206 to i32
   store i32 %273, ptr %272, align 4
   %274 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
@@ -2778,7 +2778,7 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %.loopexit
-  %277 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %.sroa.0.0.copyload, i32 %.sroa.490.0160, i32 %.sroa.9.0, i32 %.sroa.14.0165, i32 %.sroa.19.0, i32 %.sroa.24.0170, i32 %.sroa.29.0, i32 %.sroa.34.1)
+  %277 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %.sroa.0.0.copyload, i32 %.sroa.490.0160, i32 %.sroa.9.0, i32 %.sroa.14.0165, i32 %.sroa.19.0, i32 %.sroa.24.0170, i32 %.sroa.29.0, i32 %.sroa.34.0)
           to label %280 unwind label %.thread
 
 278:                                              ; preds = %.loopexit
@@ -2786,20 +2786,20 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
           to label %280 unwind label %.thread
 
 280:                                              ; preds = %30, %30, %278, %276
-  %.sroa.17.3 = phi i64 [ %.sroa.17.1189, %30 ], [ %.sroa.17.2, %276 ], [ %.sroa.17.2, %278 ], [ %.sroa.17.1189, %30 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1191, %30 ], [ %.sroa.0.2, %276 ], [ %.sroa.0.2, %278 ], [ %.sroa.0.1191, %30 ]
-  %.sroa.30.2 = phi i64 [ %.sroa.30.0192, %30 ], [ %.sroa.30.1, %276 ], [ %.sroa.30.1, %278 ], [ %.sroa.30.0192, %30 ]
+  %.sroa.17.2 = phi i64 [ %.sroa.17.1189, %30 ], [ %.sroa.17.3, %276 ], [ %.sroa.17.3, %278 ], [ %.sroa.17.1189, %30 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1191, %30 ], [ %.sroa.0.3, %276 ], [ %.sroa.0.3, %278 ], [ %.sroa.0.1191, %30 ]
+  %.sroa.30.1 = phi i64 [ %.sroa.30.0192, %30 ], [ %.sroa.30.2, %276 ], [ %.sroa.30.2, %278 ], [ %.sroa.30.0192, %30 ]
   %281 = add i32 %storemerge193, 1
   %282 = load i32, ptr %25, align 4
   %.not = icmp ugt i32 %281, %282
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %280
-  %.not.i.i79 = icmp eq ptr %.sroa.0.3, null
+  %.not.i.i79 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i79, label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit80, label %283
 
 283:                                              ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #17
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit80
 
 _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEED2Ev.exit80: ; preds = %22, %._crit_edge, %283

@@ -40,7 +40,7 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
 14:                                               ; preds = %.lr.ph, %35
   %.02854 = phi i32 [ 0, %.lr.ph ], [ %.2, %35 ]
   %.02953 = phi double [ 0.000000e+00, %.lr.ph ], [ %.231, %35 ]
-  %.03352 = phi double [ 0.000000e+00, %.lr.ph ], [ %.336, %35 ]
+  %.03352 = phi double [ 0.000000e+00, %.lr.ph ], [ %.235, %35 ]
   %.03751 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %35 ]
   %.04050 = phi i32 [ 0, %.lr.ph ], [ %25, %35 ]
   %15 = load i32, ptr %12, align 4
@@ -51,19 +51,19 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
 17:                                               ; preds = %14
   %18 = call double @nstime_to_sec(ptr noundef nonnull %13) #3
   %.not45 = icmp eq i32 %.02854, 0
-  %.134 = select i1 %.not45, double %18, double %.03352
-  %.130 = select i1 %.not45, double %18, double %.02953
-  %19 = fcmp olt double %18, %.134
-  %.235 = select i1 %19, double %18, double %.134
-  %20 = fcmp ogt double %18, %.130
+  %.336 = select i1 %.not45, double %18, double %.03352
+  %.332 = select i1 %.not45, double %18, double %.02953
+  %19 = fcmp olt double %18, %.336
+  %.4 = select i1 %19, double %18, double %.336
+  %20 = fcmp ogt double %18, %.332
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
   br label %22
 
 22:                                               ; preds = %17, %21, %14
-  %.336 = phi double [ %.235, %21 ], [ %.235, %17 ], [ %.03352, %14 ]
-  %.231 = phi double [ %18, %21 ], [ %.130, %17 ], [ %.02953, %14 ]
+  %.235 = phi double [ %.4, %21 ], [ %.4, %17 ], [ %.03352, %14 ]
+  %.231 = phi double [ %18, %21 ], [ %.332, %17 ], [ %.02953, %14 ]
   %.2 = phi i32 [ 1, %21 ], [ 1, %17 ], [ %.02854, %14 ]
   %23 = load i32, ptr %6, align 8
   %switch = icmp ult i32 %23, 5
@@ -93,19 +93,19 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
 ._crit_edge:                                      ; preds = %35, %28, %4
   %.not.lcssa = phi i32 [ 0, %4 ], [ 1, %28 ], [ 0, %35 ]
   %.141 = phi i32 [ 0, %4 ], [ %25, %28 ], [ %25, %35 ]
-  %.239 = phi i32 [ 0, %4 ], [ %spec.select, %28 ], [ %spec.select, %35 ]
-  %.4 = phi double [ 0.000000e+00, %4 ], [ %.336, %28 ], [ %.336, %35 ]
-  %.332 = phi double [ 0.000000e+00, %4 ], [ %.231, %28 ], [ %.231, %35 ]
-  %.3 = phi i32 [ 0, %4 ], [ %.2, %28 ], [ %.2, %35 ]
-  store i32 %.3, ptr %1, align 8
+  %.138 = phi i32 [ 0, %4 ], [ %spec.select, %28 ], [ %spec.select, %35 ]
+  %.134 = phi double [ 0.000000e+00, %4 ], [ %.235, %28 ], [ %.235, %35 ]
+  %.130 = phi double [ 0.000000e+00, %4 ], [ %.231, %28 ], [ %.231, %35 ]
+  %.1 = phi i32 [ 0, %4 ], [ %.2, %28 ], [ %.2, %35 ]
+  store i32 %.1, ptr %1, align 8
   %37 = getelementptr inbounds i8, ptr %1, i64 8
-  store double %.4, ptr %37, align 8
+  store double %.134, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 16
-  store double %.332, ptr %38, align 8
+  store double %.130, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %.141, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %1, i64 28
-  store i32 %.239, ptr %40, align 4
+  store i32 %.138, ptr %40, align 4
   call void @wtap_rec_cleanup(ptr noundef nonnull %6) #3
   call void @ws_buffer_free(ptr noundef nonnull %7) #3
   %41 = load i32, ptr %2, align 4

@@ -6720,22 +6720,22 @@ drop_buffers.exit3:                               ; preds = %104, %98, %94
   br label %drop_buffers.exit3.thread
 
 drop_buffers.exit3.thread:                        ; preds = %63, %108, %drop_buffers.exit3
-  %.15 = phi ptr [ %62, %108 ], [ %62, %drop_buffers.exit3 ], [ null, %63 ]
+  %.25 = phi ptr [ %62, %108 ], [ %62, %drop_buffers.exit3 ], [ null, %63 ]
   tail call void @_raw_spin_unlock(ptr noundef %60) #13
   br label %drop_buffers.exit
 
 drop_buffers.exit:                                ; preds = %58, %52, %48, %drop_buffers.exit3.thread
-  %.2 = phi ptr [ %.15, %drop_buffers.exit3.thread ], [ %16, %48 ], [ %16, %52 ], [ %16, %58 ]
+  %.0 = phi ptr [ %.25, %drop_buffers.exit3.thread ], [ %16, %48 ], [ %16, %52 ], [ %16, %58 ]
   %109 = phi i1 [ %71, %drop_buffers.exit3.thread ], [ true, %48 ], [ true, %52 ], [ true, %58 ]
-  %110 = icmp eq ptr %.2, null
+  %110 = icmp eq ptr %.0, null
   br i1 %110, label %drop_buffers.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %drop_buffers.exit, %.preheader
-  %111 = phi ptr [ %113, %.preheader ], [ %.2, %drop_buffers.exit ]
+  %111 = phi ptr [ %113, %.preheader ], [ %.0, %drop_buffers.exit ]
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   tail call void @free_buffer_head(ptr noundef %111)
-  %114 = icmp eq ptr %113, %.2
+  %114 = icmp eq ptr %113, %.0
   br i1 %114, label %drop_buffers.exit.thread, label %.preheader, !llvm.loop !200
 
 drop_buffers.exit.thread:                         ; preds = %17, %.preheader, %drop_buffers.exit, %8

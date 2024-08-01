@@ -425,7 +425,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp5, label %err, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false, %if.then3
-  %ret.0 = phi ptr [ %call4, %if.then3 ], [ %1, %lor.lhs.false ]
+  %ret.1 = phi ptr [ %call4, %if.then3 ], [ %1, %lor.lhs.false ]
   %2 = load i32, ptr %call1.i, align 8
   %cmp9.not = icmp eq i32 %2, 1
   br i1 %cmp9.not, label %if.end11, label %err.sink.split
@@ -444,10 +444,10 @@ land.lhs.true16:                                  ; preds = %if.end11
   br i1 %cmp18.not, label %if.end20, label %err.sink.split
 
 if.end20:                                         ; preds = %if.end11, %if.end11, %land.lhs.true16
-  store i32 %3, ptr %ret.0, align 8
+  store i32 %3, ptr %ret.1, align 8
   %kex_group = getelementptr inbounds i8, ptr %call1.i, i64 184
   %4 = load i32, ptr %kex_group, align 8
-  %kex_group23 = getelementptr inbounds i8, ptr %ret.0, i64 784
+  %kex_group23 = getelementptr inbounds i8, ptr %ret.1, i64 784
   store i32 %4, ptr %kex_group23, align 8
   %cipher = getelementptr inbounds i8, ptr %call1.i, i64 8
   %5 = load ptr, ptr %cipher, align 8
@@ -466,18 +466,18 @@ if.end27:                                         ; preds = %if.end20
   %conv32 = zext i8 %9 to i64
   %or = or disjoint i64 %shl, %conv32
   %or33 = or disjoint i64 %or, 50331648
-  %cipher_id = getelementptr inbounds i8, ptr %ret.0, i64 776
+  %cipher_id = getelementptr inbounds i8, ptr %ret.1, i64 776
   store i64 %or33, ptr %cipher_id, align 8
   %conv34 = trunc nuw nsw i64 %or33 to i32
   %call35 = call ptr @ssl3_get_cipher_by_id(i32 noundef %conv34) #5
-  %cipher36 = getelementptr inbounds i8, ptr %ret.0, i64 768
+  %cipher36 = getelementptr inbounds i8, ptr %ret.1, i64 768
   store ptr %call35, ptr %cipher36, align 8
   %cmp38 = icmp eq ptr %call35, null
   br i1 %cmp38, label %err, label %if.end41
 
 if.end41:                                         ; preds = %if.end27
-  %session_id = getelementptr inbounds i8, ptr %ret.0, i64 600
-  %session_id_length = getelementptr inbounds i8, ptr %ret.0, i64 592
+  %session_id = getelementptr inbounds i8, ptr %ret.1, i64 600
+  %session_id_length = getelementptr inbounds i8, ptr %ret.1, i64 592
   %session_id42 = getelementptr inbounds i8, ptr %call1.i, i64 32
   %10 = load ptr, ptr %session_id42, align 8
   %cmp.i = icmp eq ptr %10, null
@@ -504,7 +504,7 @@ if.end9.i:                                        ; preds = %if.end.i
 if.end45:                                         ; preds = %if.end9.i, %lor.lhs.false.i, %if.end41
   %conv13.sink.i = phi i64 [ %conv13.i, %if.end9.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end41 ]
   store i64 %conv13.sink.i, ptr %session_id_length, align 8
-  %master_key = getelementptr inbounds i8, ptr %ret.0, i64 80
+  %master_key = getelementptr inbounds i8, ptr %ret.1, i64 80
   %master_key47 = getelementptr inbounds i8, ptr %call1.i, i64 24
   %14 = load ptr, ptr %master_key47, align 8
   %cmp.i117 = icmp eq ptr %14, null
@@ -530,7 +530,7 @@ if.end9.i124:                                     ; preds = %if.end.i120
 
 if.end51:                                         ; preds = %if.end9.i124, %lor.lhs.false.i118, %if.end45
   %tmpl.0.ph = phi i64 [ 0, %if.end45 ], [ 0, %lor.lhs.false.i118 ], [ %conv13.i127, %if.end9.i124 ]
-  %master_key_length = getelementptr inbounds i8, ptr %ret.0, i64 8
+  %master_key_length = getelementptr inbounds i8, ptr %ret.1, i64 8
   store i64 %tmpl.0.ph, ptr %master_key_length, align 8
   %time = getelementptr inbounds i8, ptr %call1.i, i64 48
   %18 = load i64, ptr %time, align 8
@@ -547,24 +547,24 @@ if.else58:                                        ; preds = %if.end51
 
 if.end63:                                         ; preds = %if.else58, %if.then54
   %mul.i.sink = phi i64 [ %call61, %if.else58 ], [ %mul.i, %if.then54 ]
-  %19 = getelementptr inbounds i8, ptr %ret.0, i64 744
+  %19 = getelementptr inbounds i8, ptr %ret.1, i64 744
   store i64 %mul.i.sink, ptr %19, align 8
   %timeout = getelementptr inbounds i8, ptr %call1.i, i64 56
   %20 = load i64, ptr %timeout, align 8
   %cmp64.not = icmp eq i64 %20, 0
   %mul = mul i64 %20, 1000000000
   %spec.select = select i1 %cmp64.not, i64 3000000000, i64 %mul
-  %21 = getelementptr inbounds i8, ptr %ret.0, i64 736
+  %21 = getelementptr inbounds i8, ptr %ret.1, i64 736
   store i64 %spec.select, ptr %21, align 8
-  call void @ssl_session_calculate_timeout(ptr noundef nonnull %ret.0) #5
-  %peer = getelementptr inbounds i8, ptr %ret.0, i64 704
+  call void @ssl_session_calculate_timeout(ptr noundef nonnull %ret.1) #5
+  %peer = getelementptr inbounds i8, ptr %ret.1, i64 704
   %22 = load ptr, ptr %peer, align 8
   call void @X509_free(ptr noundef %22) #5
   %peer78 = getelementptr inbounds i8, ptr %call1.i, i64 64
   %23 = load ptr, ptr %peer78, align 8
   store ptr %23, ptr %peer, align 8
   store ptr null, ptr %peer78, align 8
-  %peer_rpk = getelementptr inbounds i8, ptr %ret.0, i64 696
+  %peer_rpk = getelementptr inbounds i8, ptr %ret.1, i64 696
   %24 = load ptr, ptr %peer_rpk, align 8
   call void @EVP_PKEY_free(ptr noundef %24) #5
   store ptr null, ptr %peer_rpk, align 8
@@ -585,8 +585,8 @@ if.then85:                                        ; preds = %if.end63
   br i1 %cmp95, label %err, label %if.end99
 
 if.end99:                                         ; preds = %if.then85, %if.end63
-  %sid_ctx = getelementptr inbounds i8, ptr %ret.0, i64 640
-  %sid_ctx_length = getelementptr inbounds i8, ptr %ret.0, i64 632
+  %sid_ctx = getelementptr inbounds i8, ptr %ret.1, i64 640
+  %sid_ctx_length = getelementptr inbounds i8, ptr %ret.1, i64 632
   %session_id_context = getelementptr inbounds i8, ptr %call1.i, i64 72
   %28 = load ptr, ptr %session_id_context, align 8
   %cmp.i132 = icmp eq ptr %28, null
@@ -616,9 +616,9 @@ if.end104:                                        ; preds = %if.end9.i139, %lor.
   %verify_result = getelementptr inbounds i8, ptr %call1.i, i64 80
   %32 = load i32, ptr %verify_result, align 8
   %conv105 = sext i32 %32 to i64
-  %verify_result106 = getelementptr inbounds i8, ptr %ret.0, i64 720
+  %verify_result106 = getelementptr inbounds i8, ptr %ret.1, i64 720
   store i64 %conv105, ptr %verify_result106, align 8
-  %ext = getelementptr inbounds i8, ptr %ret.0, i64 824
+  %ext = getelementptr inbounds i8, ptr %ret.1, i64 824
   %tlsext_hostname = getelementptr inbounds i8, ptr %call1.i, i64 88
   %33 = load ptr, ptr %tlsext_hostname, align 8
   %call107 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %ext, ptr noundef %33)
@@ -626,7 +626,7 @@ if.end104:                                        ; preds = %if.end9.i139, %lor.
   br i1 %tobool108.not, label %err, label %if.end110
 
 if.end110:                                        ; preds = %if.end104
-  %psk_identity_hint = getelementptr inbounds i8, ptr %ret.0, i64 672
+  %psk_identity_hint = getelementptr inbounds i8, ptr %ret.1, i64 672
   %psk_identity_hint111 = getelementptr inbounds i8, ptr %call1.i, i64 120
   %34 = load ptr, ptr %psk_identity_hint111, align 8
   %call112 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity_hint, ptr noundef %34)
@@ -634,7 +634,7 @@ if.end110:                                        ; preds = %if.end104
   br i1 %tobool113.not, label %err, label %if.end115
 
 if.end115:                                        ; preds = %if.end110
-  %psk_identity = getelementptr inbounds i8, ptr %ret.0, i64 680
+  %psk_identity = getelementptr inbounds i8, ptr %ret.1, i64 680
   %psk_identity116 = getelementptr inbounds i8, ptr %call1.i, i64 128
   %35 = load ptr, ptr %psk_identity116, align 8
   %call117 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity, ptr noundef %35)
@@ -644,13 +644,13 @@ if.end115:                                        ; preds = %if.end110
 if.end120:                                        ; preds = %if.end115
   %tlsext_tick_lifetime_hint = getelementptr inbounds i8, ptr %call1.i, i64 96
   %36 = load i64, ptr %tlsext_tick_lifetime_hint, align 8
-  %tick_lifetime_hint = getelementptr inbounds i8, ptr %ret.0, i64 848
+  %tick_lifetime_hint = getelementptr inbounds i8, ptr %ret.1, i64 848
   store i64 %36, ptr %tick_lifetime_hint, align 8
   %tlsext_tick_age_add = getelementptr inbounds i8, ptr %call1.i, i64 104
   %37 = load i32, ptr %tlsext_tick_age_add, align 8
-  %tick_age_add = getelementptr inbounds i8, ptr %ret.0, i64 856
+  %tick_age_add = getelementptr inbounds i8, ptr %ret.1, i64 856
   store i32 %37, ptr %tick_age_add, align 8
-  %tick = getelementptr inbounds i8, ptr %ret.0, i64 832
+  %tick = getelementptr inbounds i8, ptr %ret.1, i64 832
   %38 = load ptr, ptr %tick, align 8
   call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str, i32 noundef 371) #5
   %tlsext_tick = getelementptr inbounds i8, ptr %call1.i, i64 112
@@ -665,7 +665,7 @@ if.then126:                                       ; preds = %if.end120
   %41 = load ptr, ptr %tlsext_tick, align 8
   %42 = load i32, ptr %41, align 8
   %conv133 = sext i32 %42 to i64
-  %ticklen = getelementptr inbounds i8, ptr %ret.0, i64 840
+  %ticklen = getelementptr inbounds i8, ptr %ret.1, i64 840
   store i64 %conv133, ptr %ticklen, align 8
   %43 = load ptr, ptr %tlsext_tick, align 8
   %data136 = getelementptr inbounds i8, ptr %43, i64 8
@@ -693,9 +693,9 @@ if.end148:                                        ; preds = %if.then142
 
 if.end155:                                        ; preds = %if.end140, %if.end148
   %.sink = phi i32 [ %conv152, %if.end148 ], [ 0, %if.end140 ]
-  %compress_meth154 = getelementptr inbounds i8, ptr %ret.0, i64 760
+  %compress_meth154 = getelementptr inbounds i8, ptr %ret.1, i64 760
   store i32 %.sink, ptr %compress_meth154, align 8
-  %srp_username = getelementptr inbounds i8, ptr %ret.0, i64 888
+  %srp_username = getelementptr inbounds i8, ptr %ret.1, i64 888
   %srp_username156 = getelementptr inbounds i8, ptr %call1.i, i64 136
   %48 = load ptr, ptr %srp_username156, align 8
   %call157 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %srp_username, ptr noundef %48)
@@ -706,13 +706,13 @@ if.end160:                                        ; preds = %if.end155
   %flags = getelementptr inbounds i8, ptr %call1.i, i64 144
   %49 = load i64, ptr %flags, align 8
   %conv161 = trunc i64 %49 to i32
-  %flags162 = getelementptr inbounds i8, ptr %ret.0, i64 912
+  %flags162 = getelementptr inbounds i8, ptr %ret.1, i64 912
   store i32 %conv161, ptr %flags162, align 8
   %max_early_data = getelementptr inbounds i8, ptr %call1.i, i64 152
   %50 = load i32, ptr %max_early_data, align 8
-  %max_early_data164 = getelementptr inbounds i8, ptr %ret.0, i64 860
+  %max_early_data164 = getelementptr inbounds i8, ptr %ret.1, i64 860
   store i32 %50, ptr %max_early_data164, align 4
-  %alpn_selected = getelementptr inbounds i8, ptr %ret.0, i64 864
+  %alpn_selected = getelementptr inbounds i8, ptr %ret.1, i64 864
   %51 = load ptr, ptr %alpn_selected, align 8
   call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 399) #5
   %alpn_selected166 = getelementptr inbounds i8, ptr %call1.i, i64 160
@@ -727,7 +727,7 @@ if.then169:                                       ; preds = %if.end160
   %54 = load ptr, ptr %alpn_selected166, align 8
   %55 = load i32, ptr %54, align 8
   %conv176 = sext i32 %55 to i64
-  %alpn_selected_len = getelementptr inbounds i8, ptr %ret.0, i64 872
+  %alpn_selected_len = getelementptr inbounds i8, ptr %ret.1, i64 872
   store i64 %conv176, ptr %alpn_selected_len, align 8
   %56 = load ptr, ptr %alpn_selected166, align 8
   %data179 = getelementptr inbounds i8, ptr %56, i64 8
@@ -742,9 +742,9 @@ if.end185:                                        ; preds = %if.else180, %if.the
   %tlsext_max_fragment_len_mode = getelementptr inbounds i8, ptr %call1.i, i64 168
   %57 = load i32, ptr %tlsext_max_fragment_len_mode, align 8
   %conv186 = trunc i32 %57 to i8
-  %max_fragment_len_mode = getelementptr inbounds i8, ptr %ret.0, i64 880
+  %max_fragment_len_mode = getelementptr inbounds i8, ptr %ret.1, i64 880
   store i8 %conv186, ptr %max_fragment_len_mode, align 8
-  %ticket_appdata = getelementptr inbounds i8, ptr %ret.0, i64 896
+  %ticket_appdata = getelementptr inbounds i8, ptr %ret.1, i64 896
   %58 = load ptr, ptr %ticket_appdata, align 8
   call void @CRYPTO_free(ptr noundef %58, ptr noundef nonnull @.str, i32 noundef 411) #5
   %ticket_appdata188 = getelementptr inbounds i8, ptr %call1.i, i64 176
@@ -759,7 +759,7 @@ if.then191:                                       ; preds = %if.end185
   %61 = load ptr, ptr %ticket_appdata188, align 8
   %62 = load i32, ptr %61, align 8
   %conv197 = sext i32 %62 to i64
-  %ticket_appdata_len = getelementptr inbounds i8, ptr %ret.0, i64 904
+  %ticket_appdata_len = getelementptr inbounds i8, ptr %ret.1, i64 904
   store i64 %conv197, ptr %ticket_appdata_len, align 8
   %63 = load ptr, ptr %ticket_appdata188, align 8
   %data199 = getelementptr inbounds i8, ptr %63, i64 8
@@ -780,7 +780,7 @@ land.lhs.true207:                                 ; preds = %if.end203
   br i1 %cmp208, label %if.then210, label %if.end211
 
 if.then210:                                       ; preds = %land.lhs.true207
-  store ptr %ret.0, ptr %a, align 8
+  store ptr %ret.1, ptr %a, align 8
   br label %if.end211
 
 if.end211:                                        ; preds = %if.then210, %land.lhs.true207, %if.end203
@@ -797,22 +797,22 @@ err.sink.split:                                   ; preds = %if.then142, %if.end
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.end.i135, %if.end.i, %if.end.i120, %if.end155, %if.end115, %if.end110, %if.end104, %if.then85, %if.end27, %if.then3, %entry
-  %ret.1 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ %ret.0, %if.end27 ], [ %ret.0, %if.then85 ], [ %ret.0, %if.end155 ], [ %ret.0, %if.end115 ], [ %ret.0, %if.end110 ], [ %ret.0, %if.end104 ], [ %ret.0, %if.end.i120 ], [ %ret.0, %if.end.i ], [ %ret.0, %if.end.i135 ], [ %ret.0, %err.sink.split ]
+  %ret.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ %ret.1, %if.end27 ], [ %ret.1, %if.then85 ], [ %ret.1, %if.end155 ], [ %ret.1, %if.end115 ], [ %ret.1, %if.end110 ], [ %ret.1, %if.end104 ], [ %ret.1, %if.end.i120 ], [ %ret.1, %if.end.i ], [ %ret.1, %if.end.i135 ], [ %ret.1, %err.sink.split ]
   call void @ASN1_item_free(ptr noundef %call1.i, ptr noundef nonnull @SSL_SESSION_ASN1_it.local_it) #5
   %cmp213 = icmp eq ptr %a, null
   br i1 %cmp213, label %if.then218, label %lor.lhs.false215
 
 lor.lhs.false215:                                 ; preds = %err
   %66 = load ptr, ptr %a, align 8
-  %cmp216.not = icmp eq ptr %66, %ret.1
+  %cmp216.not = icmp eq ptr %66, %ret.0
   br i1 %cmp216.not, label %return, label %if.then218
 
 if.then218:                                       ; preds = %lor.lhs.false215, %err
-  call void @SSL_SESSION_free(ptr noundef %ret.1) #5
+  call void @SSL_SESSION_free(ptr noundef %ret.0) #5
   br label %return
 
 return:                                           ; preds = %lor.lhs.false215, %if.then218, %if.end211
-  %retval.0 = phi ptr [ %ret.0, %if.end211 ], [ null, %if.then218 ], [ null, %lor.lhs.false215 ]
+  %retval.0 = phi ptr [ %ret.1, %if.end211 ], [ null, %if.then218 ], [ null, %lor.lhs.false215 ]
   ret ptr %retval.0
 }
 

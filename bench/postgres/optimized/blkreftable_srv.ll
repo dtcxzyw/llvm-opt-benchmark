@@ -1773,7 +1773,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture
 
 10:                                               ; preds = %78, %3
   %11 = phi i32 [ %.pre, %3 ], [ %80, %78 ]
-  %.0 = phi i32 [ 0, %3 ], [ %.4, %78 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.1, %78 ]
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %12
 
@@ -1812,7 +1812,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture
 
 31:                                               ; preds = %.lr.ph51, %46
   %32 = phi i32 [ %26, %.lr.ph51 ], [ %48, %46 ]
-  %.150 = phi i32 [ %.0, %.lr.ph51 ], [ %.2, %46 ]
+  %.250 = phi i32 [ %.0, %.lr.ph51 ], [ %.3, %46 ]
   %33 = lshr i32 %32, 4
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr [4096 x i16], ptr %7, i64 0, i64 %34
@@ -1826,8 +1826,8 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture
 
 41:                                               ; preds = %31
   %42 = add nuw nsw i32 %32, %30
-  %43 = add nuw i32 %.150, 1
-  %44 = zext i32 %.150 to i64
+  %43 = add nuw i32 %.250, 1
+  %44 = zext i32 %.250 to i64
   %45 = getelementptr i32, ptr %1, i64 %44
   store i32 %42, ptr %45, align 4
   %.pre55 = load i32, ptr %6, align 8
@@ -1835,11 +1835,11 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture
 
 46:                                               ; preds = %41, %31
   %47 = phi i32 [ %.pre55, %41 ], [ %32, %31 ]
-  %.2 = phi i32 [ %43, %41 ], [ %.150, %31 ]
+  %.3 = phi i32 [ %43, %41 ], [ %.250, %31 ]
   %48 = add i32 %47, 1
   store i32 %48, ptr %6, align 8
   %49 = icmp ult i32 %48, 65536
-  %50 = icmp ult i32 %.2, %2
+  %50 = icmp ult i32 %.3, %2
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %31, label %.loopexit, !llvm.loop !25
 
@@ -1867,8 +1867,8 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.loopexit.loopexit53, %.preheader47, %.preheader, %10
-  %.4 = phi i32 [ %.0, %10 ], [ %.0, %.preheader ], [ %.0, %.preheader47 ], [ %65, %.loopexit.loopexit53 ], [ %.2, %46 ]
-  %.not44 = icmp ult i32 %.4, %2
+  %.1 = phi i32 [ %.0, %10 ], [ %.0, %.preheader ], [ %.0, %.preheader47 ], [ %65, %.loopexit.loopexit53 ], [ %.3, %46 ]
+  %.not44 = icmp ult i32 %.1, %2
   br i1 %.not44, label %66, label %81
 
 66:                                               ; preds = %.loopexit
@@ -1900,7 +1900,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr nocapture
   br label %10
 
 81:                                               ; preds = %66, %.loopexit
-  ret i32 %.4
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

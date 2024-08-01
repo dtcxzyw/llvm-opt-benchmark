@@ -629,13 +629,13 @@ for.body.preheader:                               ; preds = %_ZNSt12_Vector_base
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %nvm_handles.sroa.0.1113 = phi ptr [ %nvm_handles.sroa.0.4, %for.inc ], [ %call5.i.i.i.i5, %for.body.preheader ]
-  %nvm_handles.sroa.9.1112 = phi ptr [ %nvm_handles.sroa.9.3, %for.inc ], [ %call5.i.i.i.i5, %for.body.preheader ]
-  %nvm_handles.sroa.17.1111 = phi ptr [ %nvm_handles.sroa.17.3, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
-  %my_handles.sroa.0.0110 = phi ptr [ %my_handles.sroa.0.3, %for.inc ], [ null, %for.body.preheader ]
+  %nvm_handles.sroa.0.1113 = phi ptr [ %nvm_handles.sroa.0.2, %for.inc ], [ %call5.i.i.i.i5, %for.body.preheader ]
+  %nvm_handles.sroa.9.0112 = phi ptr [ %nvm_handles.sroa.9.1, %for.inc ], [ %call5.i.i.i.i5, %for.body.preheader ]
+  %nvm_handles.sroa.17.0111 = phi ptr [ %nvm_handles.sroa.17.1, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
+  %my_handles.sroa.0.1110 = phi ptr [ %my_handles.sroa.0.2, %for.inc ], [ null, %for.body.preheader ]
   %__begin1.sroa.0.0109 = phi ptr [ %incdec.ptr.i19, %for.inc ], [ %1, %for.body.preheader ]
-  %my_handles.sroa.11.0108 = phi ptr [ %my_handles.sroa.11.2, %for.inc ], [ null, %for.body.preheader ]
-  %my_handles.sroa.6.0107 = phi ptr [ %my_handles.sroa.6.2, %for.inc ], [ null, %for.body.preheader ]
+  %my_handles.sroa.11.0108 = phi ptr [ %my_handles.sroa.11.1, %for.inc ], [ null, %for.body.preheader ]
+  %my_handles.sroa.6.0107 = phi ptr [ %my_handles.sroa.6.1, %for.inc ], [ null, %for.body.preheader ]
   %3 = load ptr, ptr %__begin1.sroa.0.0109, align 8
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -652,14 +652,14 @@ lpad.loopexit:                                    ; preds = %for.body29, %call2.
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %cond.true.i.i.i, %cond.true.i.i.i.i, %for.body
-  %nvm_handles.sroa.0.2.ph.ph = phi ptr [ %nvm_handles.sroa.0.3, %cond.true.i.i.i ], [ %nvm_handles.sroa.0.1113, %cond.true.i.i.i.i ], [ %nvm_handles.sroa.0.1113, %for.body ]
+  %nvm_handles.sroa.0.0.ph.ph = phi ptr [ %nvm_handles.sroa.0.5, %cond.true.i.i.i ], [ %nvm_handles.sroa.0.1113, %cond.true.i.i.i.i ], [ %nvm_handles.sroa.0.1113, %for.body ]
   %lpad.loopexit91 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb26SecondaryCacheResultHandleEEE8allocateERS3_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_M_allocateEm.exit.i, %if.then.i
-  %my_handles.sroa.0.1.ph.ph = phi ptr [ null, %if.then.i ], [ %my_handles.sroa.0.0110, %if.then.i.i.i.i ], [ %my_handles.sroa.0.0110, %if.then.i.i.i ], [ %my_handles.sroa.0.3, %if.then3.i.i.i.i.i.i ], [ %my_handles.sroa.0.3, %_ZNSt16allocator_traitsISaIPN7rocksdb26SecondaryCacheResultHandleEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_M_allocateEm.exit.i ]
-  %nvm_handles.sroa.0.2.ph.ph90 = phi ptr [ null, %if.then.i ], [ %nvm_handles.sroa.0.1113, %if.then.i.i.i.i ], [ %nvm_handles.sroa.0.3, %if.then.i.i.i ], [ %nvm_handles.sroa.0.4, %if.then3.i.i.i.i.i.i ], [ %nvm_handles.sroa.0.4, %_ZNSt16allocator_traitsISaIPN7rocksdb26SecondaryCacheResultHandleEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_M_allocateEm.exit.i ]
+  %my_handles.sroa.0.0.ph.ph = phi ptr [ null, %if.then.i ], [ %my_handles.sroa.0.1110, %if.then.i.i.i.i ], [ %my_handles.sroa.0.1110, %if.then.i.i.i ], [ %my_handles.sroa.0.2, %if.then3.i.i.i.i.i.i ], [ %my_handles.sroa.0.2, %_ZNSt16allocator_traitsISaIPN7rocksdb26SecondaryCacheResultHandleEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_M_allocateEm.exit.i ]
+  %nvm_handles.sroa.0.0.ph.ph90 = phi ptr [ null, %if.then.i ], [ %nvm_handles.sroa.0.1113, %if.then.i.i.i.i ], [ %nvm_handles.sroa.0.5, %if.then.i.i.i ], [ %nvm_handles.sroa.0.2, %if.then3.i.i.i.i.i.i ], [ %nvm_handles.sroa.0.2, %_ZNSt16allocator_traitsISaIPN7rocksdb26SecondaryCacheResultHandleEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE11_M_allocateEm.exit.i ]
   %lpad.loopexit.split-lp92 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -667,15 +667,15 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %_ZNSt16allocator_tr
 if.end:                                           ; preds = %invoke.cont7
   %inner_handle_.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %inner_handle_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %nvm_handles.sroa.9.1112, %nvm_handles.sroa.17.1111
+  %cmp.not.i.i = icmp eq ptr %nvm_handles.sroa.9.0112, %nvm_handles.sroa.17.0111
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end
-  store ptr %5, ptr %nvm_handles.sroa.9.1112, align 8
+  store ptr %5, ptr %nvm_handles.sroa.9.0112, align 8
   br label %invoke.cont11
 
 if.else.i.i:                                      ; preds = %if.end
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %nvm_handles.sroa.9.1112 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %nvm_handles.sroa.9.0112 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %nvm_handles.sroa.0.1113 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
@@ -728,10 +728,10 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertI
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i10
-  %nvm_handles.sroa.17.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %nvm_handles.sroa.17.1111, %if.then.i.i10 ]
-  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %nvm_handles.sroa.9.1112, %if.then.i.i10 ]
-  %nvm_handles.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %nvm_handles.sroa.0.1113, %if.then.i.i10 ]
-  %nvm_handles.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
+  %nvm_handles.sroa.17.3 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %nvm_handles.sroa.17.0111, %if.then.i.i10 ]
+  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %nvm_handles.sroa.9.0112, %if.then.i.i10 ]
+  %nvm_handles.sroa.0.5 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %nvm_handles.sroa.0.1113, %if.then.i.i10 ]
+  %nvm_handles.sroa.9.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   %cmp.not.i = icmp eq ptr %my_handles.sroa.6.0107, %my_handles.sroa.11.0108
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i14
 
@@ -742,7 +742,7 @@ if.then.i14:                                      ; preds = %invoke.cont11
 
 if.else.i:                                        ; preds = %invoke.cont11
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %my_handles.sroa.11.0108 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %my_handles.sroa.0.0110 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %my_handles.sroa.0.1110 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -777,17 +777,17 @@ _ZNSt12_Vector_baseIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_M_
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %my_handles.sroa.0.0110, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %my_handles.sroa.0.1110, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 _ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i16 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %my_handles.sroa.0.0110, null
+  %tobool.not.i.i.i = icmp eq ptr %my_handles.sroa.0.1110, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %my_handles.sroa.0.0110) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %my_handles.sroa.0.1110) #14
   br label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -795,12 +795,12 @@ _ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i14, %invoke.cont7
-  %my_handles.sroa.6.2 = phi ptr [ %my_handles.sroa.6.0107, %invoke.cont7 ], [ %incdec.ptr.i.i16, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i14 ]
-  %my_handles.sroa.11.2 = phi ptr [ %my_handles.sroa.11.0108, %invoke.cont7 ], [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_handles.sroa.11.0108, %if.then.i14 ]
-  %my_handles.sroa.0.3 = phi ptr [ %my_handles.sroa.0.0110, %invoke.cont7 ], [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_handles.sroa.0.0110, %if.then.i14 ]
-  %nvm_handles.sroa.17.3 = phi ptr [ %nvm_handles.sroa.17.1111, %invoke.cont7 ], [ %nvm_handles.sroa.17.2, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %nvm_handles.sroa.17.2, %if.then.i14 ]
-  %nvm_handles.sroa.9.3 = phi ptr [ %nvm_handles.sroa.9.1112, %invoke.cont7 ], [ %nvm_handles.sroa.9.2, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %nvm_handles.sroa.9.2, %if.then.i14 ]
-  %nvm_handles.sroa.0.4 = phi ptr [ %nvm_handles.sroa.0.1113, %invoke.cont7 ], [ %nvm_handles.sroa.0.3, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %nvm_handles.sroa.0.3, %if.then.i14 ]
+  %my_handles.sroa.6.1 = phi ptr [ %my_handles.sroa.6.0107, %invoke.cont7 ], [ %incdec.ptr.i.i16, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i14 ]
+  %my_handles.sroa.11.1 = phi ptr [ %my_handles.sroa.11.0108, %invoke.cont7 ], [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_handles.sroa.11.0108, %if.then.i14 ]
+  %my_handles.sroa.0.2 = phi ptr [ %my_handles.sroa.0.1110, %invoke.cont7 ], [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %my_handles.sroa.0.1110, %if.then.i14 ]
+  %nvm_handles.sroa.17.1 = phi ptr [ %nvm_handles.sroa.17.0111, %invoke.cont7 ], [ %nvm_handles.sroa.17.3, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %nvm_handles.sroa.17.3, %if.then.i14 ]
+  %nvm_handles.sroa.9.1 = phi ptr [ %nvm_handles.sroa.9.0112, %invoke.cont7 ], [ %nvm_handles.sroa.9.3, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %nvm_handles.sroa.9.3, %if.then.i14 ]
+  %nvm_handles.sroa.0.2 = phi ptr [ %nvm_handles.sroa.0.1113, %invoke.cont7 ], [ %nvm_handles.sroa.0.5, %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %nvm_handles.sroa.0.5, %if.then.i14 ]
   %incdec.ptr.i19 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0109, i64 8
   %cmp.i7.not = icmp eq ptr %incdec.ptr.i19, %0
   br i1 %cmp.i7.not, label %for.end, label %for.body
@@ -808,19 +808,19 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN7roc
 for.end:                                          ; preds = %for.inc
   %nvm_sec_cache_ = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load ptr, ptr %nvm_sec_cache_, align 8
-  %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %nvm_handles.sroa.9.3 to i64
-  %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %nvm_handles.sroa.0.4 to i64
+  %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %nvm_handles.sroa.9.1 to i64
+  %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %nvm_handles.sroa.0.2 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i25 = icmp eq ptr %nvm_handles.sroa.9.3, %nvm_handles.sroa.0.4
+  %cmp.not.i.i.i.i25 = icmp eq ptr %nvm_handles.sroa.9.1, %nvm_handles.sroa.0.2
   br i1 %cmp.not.i.i.i.i25, label %invoke.cont.i.thread, label %cond.true.i.i.i.i26
 
 invoke.cont.i.thread:                             ; preds = %for.end.thread, %for.end
   %sub.ptr.sub.i.i23143 = phi i64 [ 0, %for.end.thread ], [ %sub.ptr.sub.i.i23, %for.end ]
   %9 = phi ptr [ %2, %for.end.thread ], [ %8, %for.end ]
-  %nvm_handles.sroa.0.1.lcssa141 = phi ptr [ null, %for.end.thread ], [ %nvm_handles.sroa.0.4, %for.end ]
-  %my_handles.sroa.0.0.lcssa139 = phi ptr [ null, %for.end.thread ], [ %my_handles.sroa.0.3, %for.end ]
-  %my_handles.sroa.6.0.lcssa137 = phi ptr [ null, %for.end.thread ], [ %my_handles.sroa.6.2, %for.end ]
+  %nvm_handles.sroa.0.1.lcssa141 = phi ptr [ null, %for.end.thread ], [ %nvm_handles.sroa.0.2, %for.end ]
+  %my_handles.sroa.0.1.lcssa139 = phi ptr [ null, %for.end.thread ], [ %my_handles.sroa.0.2, %for.end ]
+  %my_handles.sroa.6.0.lcssa137 = phi ptr [ null, %for.end.thread ], [ %my_handles.sroa.6.1, %for.end ]
   %_M_finish.i.i.i83 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %add.ptr.i.i.i2984 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i23143
   %_M_end_of_storage.i.i.i85 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -850,15 +850,15 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i29 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i31, i64 %sub.ptr.sub.i.i23
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %add.ptr.i.i.i29, ptr %_M_end_of_storage.i.i.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i31, ptr align 8 %nvm_handles.sroa.0.4, i64 %sub.ptr.sub.i.i23, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i31, ptr align 8 %nvm_handles.sroa.0.2, i64 %sub.ptr.sub.i.i23, i1 false)
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
   %sub.ptr.sub.i.i23142 = phi i64 [ %sub.ptr.sub.i.i23143, %invoke.cont.i.thread ], [ %sub.ptr.sub.i.i23, %if.then.i.i.i.i.i.i.i.i.i ]
   %10 = phi ptr [ %9, %invoke.cont.i.thread ], [ %8, %if.then.i.i.i.i.i.i.i.i.i ]
-  %nvm_handles.sroa.0.1.lcssa140 = phi ptr [ %nvm_handles.sroa.0.1.lcssa141, %invoke.cont.i.thread ], [ %nvm_handles.sroa.0.4, %if.then.i.i.i.i.i.i.i.i.i ]
-  %my_handles.sroa.0.0.lcssa138 = phi ptr [ %my_handles.sroa.0.0.lcssa139, %invoke.cont.i.thread ], [ %my_handles.sroa.0.3, %if.then.i.i.i.i.i.i.i.i.i ]
-  %my_handles.sroa.6.0.lcssa136 = phi ptr [ %my_handles.sroa.6.0.lcssa137, %invoke.cont.i.thread ], [ %my_handles.sroa.6.2, %if.then.i.i.i.i.i.i.i.i.i ]
+  %nvm_handles.sroa.0.1.lcssa140 = phi ptr [ %nvm_handles.sroa.0.1.lcssa141, %invoke.cont.i.thread ], [ %nvm_handles.sroa.0.2, %if.then.i.i.i.i.i.i.i.i.i ]
+  %my_handles.sroa.0.1.lcssa138 = phi ptr [ %my_handles.sroa.0.1.lcssa139, %invoke.cont.i.thread ], [ %my_handles.sroa.0.2, %if.then.i.i.i.i.i.i.i.i.i ]
+  %my_handles.sroa.6.0.lcssa136 = phi ptr [ %my_handles.sroa.6.0.lcssa137, %invoke.cont.i.thread ], [ %my_handles.sroa.6.1, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i87 = phi ptr [ %_M_finish.i.i.i83, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %cond.i.i.i.i2886 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i31, %if.then.i.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i2886, i64 %sub.ptr.sub.i.i23142
@@ -879,11 +879,11 @@ if.then.i.i.i34:                                  ; preds = %invoke.cont19
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit: ; preds = %invoke.cont19, %if.then.i.i.i34
-  %cmp.i36.not117 = icmp eq ptr %my_handles.sroa.0.0.lcssa138, %my_handles.sroa.6.0.lcssa136
+  %cmp.i36.not117 = icmp eq ptr %my_handles.sroa.0.1.lcssa138, %my_handles.sroa.6.0.lcssa136
   br i1 %cmp.i36.not117, label %for.end35, label %for.body29
 
 for.body29:                                       ; preds = %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit, %for.inc33
-  %__begin121.sroa.0.0118 = phi ptr [ %incdec.ptr.i41, %for.inc33 ], [ %my_handles.sroa.0.0.lcssa138, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit ]
+  %__begin121.sroa.0.0118 = phi ptr [ %incdec.ptr.i41, %for.inc33 ], [ %my_handles.sroa.0.1.lcssa138, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit ]
   %13 = load ptr, ptr %__begin121.sroa.0.0118, align 8
   %inner_handle_.i37 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %inner_handle_.i37, align 8
@@ -937,11 +937,11 @@ if.then.i.i.i44:                                  ; preds = %lpad18
   br label %ehcleanup
 
 for.end35:                                        ; preds = %for.inc33, %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit
-  %tobool.not.i.i.i47 = icmp eq ptr %my_handles.sroa.0.0.lcssa138, null
+  %tobool.not.i.i.i47 = icmp eq ptr %my_handles.sroa.0.1.lcssa138, null
   br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit, label %if.then.i.i.i48
 
 if.then.i.i.i48:                                  ; preds = %for.end35
-  call void @_ZdlPv(ptr noundef nonnull %my_handles.sroa.0.0.lcssa138) #14
+  call void @_ZdlPv(ptr noundef nonnull %my_handles.sroa.0.1.lcssa138) #14
   br label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit: ; preds = %for.end35, %if.then.i.i.i48
@@ -956,22 +956,22 @@ _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit52: ; preds
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i.i44, %lpad18
-  %my_handles.sroa.0.4 = phi ptr [ %my_handles.sroa.0.0.lcssa138, %lpad18 ], [ %my_handles.sroa.0.0.lcssa138, %if.then.i.i.i44 ], [ %my_handles.sroa.0.0.lcssa138, %lpad.loopexit ], [ %my_handles.sroa.0.0110, %lpad.loopexit.split-lp.loopexit ], [ %my_handles.sroa.0.1.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %nvm_handles.sroa.0.5 = phi ptr [ %nvm_handles.sroa.0.1.lcssa140, %lpad18 ], [ %nvm_handles.sroa.0.1.lcssa140, %if.then.i.i.i44 ], [ %nvm_handles.sroa.0.1.lcssa140, %lpad.loopexit ], [ %nvm_handles.sroa.0.2.ph.ph, %lpad.loopexit.split-lp.loopexit ], [ %nvm_handles.sroa.0.2.ph.ph90, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %my_handles.sroa.0.3 = phi ptr [ %my_handles.sroa.0.1.lcssa138, %lpad18 ], [ %my_handles.sroa.0.1.lcssa138, %if.then.i.i.i44 ], [ %my_handles.sroa.0.1.lcssa138, %lpad.loopexit ], [ %my_handles.sroa.0.1110, %lpad.loopexit.split-lp.loopexit ], [ %my_handles.sroa.0.0.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %nvm_handles.sroa.0.3 = phi ptr [ %nvm_handles.sroa.0.1.lcssa140, %lpad18 ], [ %nvm_handles.sroa.0.1.lcssa140, %if.then.i.i.i44 ], [ %nvm_handles.sroa.0.1.lcssa140, %lpad.loopexit ], [ %nvm_handles.sroa.0.0.ph.ph, %lpad.loopexit.split-lp.loopexit ], [ %nvm_handles.sroa.0.0.ph.ph90, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %20, %lpad18 ], [ %20, %if.then.i.i.i44 ], [ %lpad.loopexit88, %lpad.loopexit ], [ %lpad.loopexit91, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp92, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i54 = icmp eq ptr %my_handles.sroa.0.4, null
+  %tobool.not.i.i.i54 = icmp eq ptr %my_handles.sroa.0.3, null
   br i1 %tobool.not.i.i.i54, label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit56, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %my_handles.sroa.0.4) #14
+  call void @_ZdlPv(ptr noundef nonnull %my_handles.sroa.0.3) #14
   br label %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit56
 
 _ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit56: ; preds = %ehcleanup, %if.then.i.i.i55
-  %tobool.not.i.i.i58 = icmp eq ptr %nvm_handles.sroa.0.5, null
+  %tobool.not.i.i.i58 = icmp eq ptr %nvm_handles.sroa.0.3, null
   br i1 %tobool.not.i.i.i58, label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit60, label %if.then.i.i.i59
 
 if.then.i.i.i59:                                  ; preds = %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit56
-  call void @_ZdlPv(ptr noundef nonnull %nvm_handles.sroa.0.5) #14
+  call void @_ZdlPv(ptr noundef nonnull %nvm_handles.sroa.0.3) #14
   br label %_ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit60
 
 _ZNSt6vectorIPN7rocksdb26SecondaryCacheResultHandleESaIS2_EED2Ev.exit60: ; preds = %_ZNSt6vectorIPN7rocksdb20TieredSecondaryCache12ResultHandleESaIS3_EED2Ev.exit56, %if.then.i.i.i59

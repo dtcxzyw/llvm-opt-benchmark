@@ -10768,9 +10768,9 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hc6e79adfb73f9eb9E"(ptr no
   unreachable
 
 .body68:                                          ; preds = %41, %.thread156, %172, %158
-  %.050 = phi i8 [ %.353.lpad-body.ph, %158 ], [ %.454160, %.thread156 ], [ %.454, %172 ], [ %.8, %41 ]
+  %.151 = phi i8 [ %.353.lpad-body.ph, %158 ], [ %.555160, %.thread156 ], [ %.555, %172 ], [ %.6, %41 ]
   %.pn60 = phi { ptr, i32 } [ %eh.lpad-body79.ph, %158 ], [ %.pn58161, %.thread156 ], [ %.pn58, %172 ], [ %42, %41 ]
-  %40 = trunc nuw i8 %.050 to i1
+  %40 = trunc nuw i8 %.151 to i1
   br i1 %40, label %.body68.thread, label %.body.thread
 
 41:                                               ; preds = %354
@@ -11149,10 +11149,10 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   br label %.critedge
 
 172:                                              ; preds = %.loopexit.split-lp, %.body97
-  %.454 = phi i8 [ %.6, %.body97 ], [ %.8, %.loopexit.split-lp ]
-  %.045 = phi i8 [ %.247, %.body97 ], [ %.449, %.loopexit.split-lp ]
+  %.555 = phi i8 [ %.8, %.body97 ], [ %.6, %.loopexit.split-lp ]
+  %.146 = phi i8 [ %.449, %.body97 ], [ %.247, %.loopexit.split-lp ]
   %.pn58 = phi { ptr, i32 } [ %.pn, %.body97 ], [ %lpad.loopexit.split-lp205, %.loopexit.split-lp ]
-  %173 = trunc nuw i8 %.045 to i1
+  %173 = trunc nuw i8 %.146 to i1
   br i1 %173, label %.thread156, label %.body68
 
 174:                                              ; preds = %.lr.ph, %"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h08883f17d94aa2caE.exit123"
@@ -11400,8 +11400,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   unreachable
 
 .body97:                                          ; preds = %.body111.thread176.loopexit, %.body111.thread176.loopexit.split-lp, %317, %267, %263, %365
-  %.6 = phi i8 [ 1, %365 ], [ 0, %267 ], [ 1, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 0, %.body111.thread176.loopexit.split-lp ]
-  %.247 = phi i8 [ 1, %365 ], [ 1, %267 ], [ 0, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 1, %.body111.thread176.loopexit.split-lp ]
+  %.8 = phi i8 [ 1, %365 ], [ 0, %267 ], [ 1, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 0, %.body111.thread176.loopexit.split-lp ]
+  %.449 = phi i8 [ 1, %365 ], [ 1, %267 ], [ 0, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 1, %.body111.thread176.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %365 ], [ %268, %267 ], [ %264, %263 ], [ %318, %317 ], [ %lpad.loopexit, %.body111.thread176.loopexit ], [ %lpad.loopexit.split-lp, %.body111.thread176.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h08883f17d94aa2caE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #37
           to label %172 unwind label %159
@@ -11430,8 +11430,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %251, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit105", %.loopexit, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit119", %269
-  %.8 = phi i8 [ 1, %.loopexit ], [ 1, %269 ], [ 0, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit105" ], [ 0, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit119" ], [ 1, %251 ]
-  %.449 = phi i8 [ 1, %.loopexit ], [ 0, %269 ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit105" ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit119" ], [ 1, %251 ]
+  %.6 = phi i8 [ 1, %.loopexit ], [ 1, %269 ], [ 0, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit105" ], [ 0, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit119" ], [ 1, %251 ]
+  %.247 = phi i8 [ 1, %.loopexit ], [ 0, %269 ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit105" ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit119" ], [ 1, %251 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1602)
   %280 = load ptr, ptr %24, align 8, !alias.scope !1602, !noundef !42
   %281 = icmp eq ptr %280, null
@@ -11617,7 +11617,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
 348:                                              ; preds = %285, %.loopexit.thread, %282
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   store i64 3, ptr %0, align 8, !alias.scope !1628
-  %349 = trunc nuw i8 %.449 to i1
+  %349 = trunc nuw i8 %.247 to i1
   %350 = getelementptr inbounds i8, ptr %25, i64 56
   %351 = load i64, ptr %350, align 8, !range !438
   %352 = icmp ne i64 %351, 3
@@ -11626,7 +11626,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h49016869a93ea856E.exit121": ; preds = %354, %348
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25)
-  %353 = trunc nuw i8 %.8 to i1
+  %353 = trunc nuw i8 %.6 to i1
   br i1 %353, label %.critedge, label %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h123d6a76eda69525E.llvm.14133294462695460135.exit128"
 
 354:                                              ; preds = %348
@@ -11668,7 +11668,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
 
 .thread156:                                       ; preds = %.thread, %.body90, %172
   %.pn58161 = phi { ptr, i32 } [ %.pn58, %172 ], [ %eh.lpad-body91, %.body90 ], [ %lpad.loopexit204, %.thread ]
-  %.454160 = phi i8 [ %.454, %172 ], [ 1, %.body90 ], [ 1, %.thread ]
+  %.555160 = phi i8 [ %.555, %172 ], [ 1, %.body90 ], [ 1, %.thread ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h49016869a93ea856E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %25) #37
           to label %.body68 unwind label %159
 
@@ -14926,7 +14926,7 @@ common.ret:                                       ; preds = %491, %495
 "_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i": ; preds = %457, %354, %329, %201
   %202 = phi ptr [ %135, %201 ], [ %219, %329 ], [ %338, %354 ], [ %393, %457 ]
   %203 = phi ptr [ %136, %201 ], [ %220, %329 ], [ %339, %354 ], [ %394, %457 ]
-  %.sroa.8273.1.i = phi ptr [ %188, %201 ], [ %234, %329 ], [ %353, %354 ], [ %456, %457 ]
+  %.sroa.8273.2.i = phi ptr [ %188, %201 ], [ %234, %329 ], [ %353, %354 ], [ %456, %457 ]
   %204 = getelementptr inbounds i8, ptr %1, i64 97
   store i8 0, ptr %204, align 1, !noalias !1884
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !1884
@@ -15819,8 +15819,8 @@ common.ret:                                       ; preds = %491, %495
 487:                                              ; preds = %475, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i", %459, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i", %106
   %488 = phi ptr [ %393, %459 ], [ %202, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %202, %475 ], [ %202, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i" ], [ %68, %106 ]
   %489 = phi ptr [ %394, %459 ], [ %203, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %203, %475 ], [ %203, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i" ], [ %69, %106 ]
-  %.sroa.0270.2.i = phi i8 [ 0, %459 ], [ 1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ 1, %475 ], [ 1, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i" ], [ 1, %106 ]
-  %.sroa.8273.2.i = phi ptr [ undef, %459 ], [ %.sroa.8273.1.i, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %.sroa.8273.1.i, %475 ], [ %.sroa.8273.1.i, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i" ], [ %108, %106 ]
+  %.sroa.0270.1.i = phi i8 [ 0, %459 ], [ 1, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ 1, %475 ], [ 1, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i" ], [ 1, %106 ]
+  %.sroa.8273.1.i = phi ptr [ undef, %459 ], [ %.sroa.8273.2.i, %"_ZN87_$LT$sqlx_core..transaction..Transaction$LT$DB$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h963a39c73eff7af4E.llvm.8848114157358331746.exit.i.i" ], [ %.sroa.8273.2.i, %475 ], [ %.sroa.8273.2.i, %"_ZN4core3ptr184drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240212100000_split_policies..ResourcePolicyRow$GT$$GT$17hdc6068b9241704b5E.exit177.i" ], [ %108, %106 ]
   %490 = getelementptr inbounds i8, ptr %1, i64 96
   store i8 0, ptr %490, align 8, !noalias !1884
   store i8 1, ptr %488, align 2, !noalias !1884
@@ -15850,11 +15850,11 @@ common.ret:                                       ; preds = %491, %495
   br label %40
 
 495:                                              ; preds = %487
-  store i8 %.sroa.0270.2.i, ptr %0, align 8
+  store i8 %.sroa.0270.1.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.8273.2.i, ptr %.sroa.422.0..sroa_idx, align 8
+  store ptr %.sroa.8273.1.i, ptr %.sroa.422.0..sroa_idx, align 8
   br label %common.ret
 
 .body14:                                          ; preds = %485, %.body193.i

@@ -150,12 +150,12 @@ if.then42:                                        ; preds = %if.end40
   %6 = and i16 %4, 34
   %tobool53.not = icmp eq i16 %6, 0
   %or55 = or disjoint i32 %spec.select, 4
-  %r.1 = select i1 %tobool53.not, i32 %spec.select, i32 %or55
+  %r.2 = select i1 %tobool53.not, i32 %spec.select, i32 %or55
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then42, %if.end40
   %num.3 = phi i32 [ 1, %if.then42 ], [ 0, %if.end40 ]
-  %r.2 = phi i32 [ %r.1, %if.then42 ], [ 0, %if.end40 ]
+  %r.0 = phi i32 [ %r.2, %if.then42 ], [ 0, %if.end40 ]
   br i1 %cmp11.not, label %if.end81, label %if.then61
 
 if.then61:                                        ; preds = %if.end58
@@ -164,18 +164,18 @@ if.then61:                                        ; preds = %if.end58
   %7 = load i16, ptr %revents64, align 2
   %8 = and i16 %7, 89
   %tobool67.not = icmp eq i16 %8, 0
-  %or69 = or i32 %r.2, 8
-  %spec.select40 = select i1 %tobool67.not, i32 %r.2, i32 %or69
+  %or69 = or i32 %r.0, 8
+  %spec.select40 = select i1 %tobool67.not, i32 %r.0, i32 %or69
   %9 = and i16 %7, 34
   %tobool76.not = icmp eq i16 %9, 0
   %or78 = or i32 %spec.select40, 4
-  %r.4 = select i1 %tobool76.not, i32 %spec.select40, i32 %or78
+  %r.5 = select i1 %tobool76.not, i32 %spec.select40, i32 %or78
   %inc80 = add nuw nsw i32 %num.3, 1
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then61, %if.end58
   %num.4 = phi i32 [ %inc80, %if.then61 ], [ %num.3, %if.end58 ]
-  %r.5 = phi i32 [ %r.4, %if.then61 ], [ %r.2, %if.end58 ]
+  %r.3 = phi i32 [ %r.5, %if.then61 ], [ %r.0, %if.end58 ]
   br i1 %cmp24.not, label %return, label %if.then84
 
 if.then84:                                        ; preds = %if.end81
@@ -184,8 +184,8 @@ if.then84:                                        ; preds = %if.end81
   %10 = load i16, ptr %revents87, align 2
   %11 = and i16 %10, 260
   %tobool90.not = icmp eq i16 %11, 0
-  %or92 = or i32 %r.5, 2
-  %spec.select41 = select i1 %tobool90.not, i32 %r.5, i32 %or92
+  %or92 = or i32 %r.3, 2
+  %spec.select41 = select i1 %tobool90.not, i32 %r.3, i32 %or92
   %12 = and i16 %10, 58
   %tobool99.not = icmp eq i16 %12, 0
   %or101 = or i32 %spec.select41, 4
@@ -193,7 +193,7 @@ if.then84:                                        ; preds = %if.end81
   br label %return
 
 return:                                           ; preds = %if.else.i, %land.lhs.true.i, %if.end2.i, %if.then1.i, %if.then, %if.then84, %if.end81, %if.end36
-  %retval.0 = phi i32 [ %call37, %if.end36 ], [ %r.5, %if.end81 ], [ %spec.select42, %if.then84 ], [ -1, %if.then1.i ], [ 0, %if.then ], [ -1, %if.else.i ], [ %call6.i, %if.end2.i ], [ 0, %land.lhs.true.i ]
+  %retval.0 = phi i32 [ %call37, %if.end36 ], [ %r.3, %if.end81 ], [ %spec.select42, %if.then84 ], [ -1, %if.then1.i ], [ 0, %if.then ], [ -1, %if.else.i ], [ %call6.i, %if.end2.i ], [ 0, %land.lhs.true.i ]
   ret i32 %retval.0
 }
 

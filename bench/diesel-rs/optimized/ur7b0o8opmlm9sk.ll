@@ -1090,15 +1090,15 @@ common.resume:                                    ; preds = %49, %39
   br label %56
 
 53:                                               ; preds = %56, %43
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %56 ], [ undef, %43 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %56 ], [ null, %43 ]
-  %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %56 ], [ undef, %43 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %56 ], [ null, %43 ]
+  %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %55
 
 56:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit"
-  %.sroa.4.1 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
-  %.sroa.0.1 = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  %.sroa.4.0 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  %.sroa.0.0 = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %53
 }
@@ -1301,15 +1301,15 @@ common.resume:                                    ; preds = %49, %39
   br label %56
 
 53:                                               ; preds = %56, %43
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %56 ], [ undef, %43 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %56 ], [ null, %43 ]
-  %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %56 ], [ undef, %43 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %56 ], [ null, %43 ]
+  %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %55
 
 56:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit"
-  %.sroa.4.1 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
-  %.sroa.0.1 = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  %.sroa.4.0 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  %.sroa.0.0 = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %53
 }
@@ -1973,10 +1973,10 @@ common.resume:                                    ; preds = %.body, %23
   unreachable
 
 54:                                               ; preds = %64, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit"
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %64 ], [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %64 ], [ null, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ]
-  %55 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %56 = insertvalue { ptr, ptr } %55, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %64 ], [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %64 ], [ null, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ]
+  %55 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %56 = insertvalue { ptr, ptr } %55, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %56
 
 57:                                               ; preds = %45
@@ -2001,8 +2001,8 @@ common.resume:                                    ; preds = %.body, %23
   br label %64
 
 64:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit"
-  %.sroa.4.1 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
-  %.sroa.0.1 = phi ptr [ %20, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %47, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
+  %.sroa.4.0 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
+  %.sroa.0.0 = phi ptr [ %20, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %47, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %54
 

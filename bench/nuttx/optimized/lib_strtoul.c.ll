@@ -26,7 +26,7 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) lo
   br label %11
 
 11:                                               ; preds = %6, %9
-  %.0 = phi i8 [ %8, %9 ], [ 0, %6 ]
+  %.1 = phi i8 [ %8, %9 ], [ 0, %6 ]
   %12 = call i32 @lib_checkbase(i32 noundef %2, ptr noundef nonnull %4) #2
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %16
@@ -48,12 +48,12 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) lo
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16, %32
-  %.01940 = phi i64 [ %35, %32 ], [ 0, %16 ]
-  %25 = icmp ugt i64 %.01940, %18
+  %.12040 = phi i64 [ %35, %32 ], [ 0, %16 ]
+  %25 = icmp ugt i64 %.12040, %18
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = icmp eq i64 %.01940, %18
+  %27 = icmp eq i64 %.12040, %18
   %28 = load i32, ptr %5, align 4
   %29 = icmp sgt i32 %28, %20
   %or.cond = select i1 %27, i1 %29, i1 false
@@ -65,7 +65,7 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) lo
   br label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = mul i64 %.01940, %17
+  %33 = mul i64 %.12040, %17
   %34 = sext i32 %28 to i64
   %35 = add i64 %33, %34
   %36 = load ptr, ptr %4, align 8
@@ -77,7 +77,7 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) lo
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %32, %16, %30
-  %.120 = phi i64 [ -1, %30 ], [ 0, %16 ], [ %35, %32 ]
+  %.2 = phi i64 [ -1, %30 ], [ 0, %16 ], [ %35, %32 ]
   %41 = load ptr, ptr %4, align 8
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
@@ -94,13 +94,13 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) lo
   br i1 %49, label %.lr.ph41, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph41, %.loopexit
-  %50 = icmp eq i8 %.0, 45
-  %51 = sub i64 0, %.120
-  %spec.select = select i1 %50, i64 %51, i64 %.120
+  %50 = icmp eq i8 %.1, 45
+  %51 = sub i64 0, %.2
+  %spec.select = select i1 %50, i64 %51, i64 %.2
   br label %52
 
 52:                                               ; preds = %._crit_edge, %14
-  %.2 = phi i64 [ 0, %14 ], [ %spec.select, %._crit_edge ]
+  %.019 = phi i64 [ 0, %14 ], [ %spec.select, %._crit_edge ]
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %59, label %53
 
@@ -109,26 +109,26 @@ define i64 @strtoul(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) lo
   br i1 %.not2530, label %59, label %.thread34
 
 53:                                               ; preds = %52
-  %.not26 = icmp eq i8 %.0, 0
+  %.not26 = icmp eq i8 %.1, 0
   %.pre = load ptr, ptr %4, align 8
   br i1 %.not26, label %.thread34, label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %.pre, i64 -1
   %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, %.0
+  %57 = icmp eq i8 %56, %.1
   %spec.select42 = select i1 %57, ptr %55, ptr %.pre
   br label %.thread34
 
 .thread34:                                        ; preds = %54, %.thread, %53
   %58 = phi ptr [ %.pre, %53 ], [ null, %.thread ], [ %spec.select42, %54 ]
-  %.23138 = phi i64 [ %.2, %53 ], [ 0, %.thread ], [ %.2, %54 ]
+  %.0193138 = phi i64 [ %.019, %53 ], [ 0, %.thread ], [ %.019, %54 ]
   store ptr %58, ptr %1, align 8
   br label %59
 
 59:                                               ; preds = %.thread, %.thread34, %52
-  %.232 = phi i64 [ 0, %.thread ], [ %.23138, %.thread34 ], [ %.2, %52 ]
-  ret i64 %.232
+  %.01932 = phi i64 [ 0, %.thread ], [ %.0193138, %.thread34 ], [ %.019, %52 ]
+  ret i64 %.01932
 }
 
 declare void @lib_skipspace(ptr noundef) local_unnamed_addr #1

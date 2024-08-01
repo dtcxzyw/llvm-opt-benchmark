@@ -947,7 +947,7 @@ if.else53:                                        ; preds = %if.then49
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then49, %if.else53
-  %value.addr.0 = phi ptr [ %value, %if.else53 ], [ null, %if.then49 ]
+  %value.addr.1 = phi ptr [ %value, %if.else53 ], [ null, %if.then49 ]
   %v.0 = phi ptr [ %call54, %if.else53 ], [ %value, %if.then49 ]
   %call56 = call ptr @dictAddRaw(ptr noundef %38, ptr noundef %field, ptr noundef nonnull %existing) #10
   %tobool57.not = icmp eq ptr %call56, null
@@ -979,7 +979,7 @@ if.else68:                                        ; preds = %if.end5
 
 if.end70:                                         ; preds = %if.else62, %if.else65, %hashTypeLength.exit, %hashTypeConvert.exit150
   %update.1 = phi i32 [ %update.0158, %hashTypeConvert.exit150 ], [ %update.0158, %hashTypeLength.exit ], [ 0, %if.else62 ], [ 1, %if.else65 ]
-  %value.addr.1 = phi ptr [ %value, %hashTypeConvert.exit150 ], [ %value, %hashTypeLength.exit ], [ %value.addr.0, %if.else62 ], [ %value.addr.0, %if.else65 ]
+  %value.addr.0 = phi ptr [ %value, %hashTypeConvert.exit150 ], [ %value, %hashTypeLength.exit ], [ %value.addr.1, %if.else62 ], [ %value.addr.1, %if.else65 ]
   %and71 = and i32 %flags, 1
   %tobool72 = icmp ne i32 %and71, 0
   %tobool73 = icmp ne ptr %field, null
@@ -991,16 +991,16 @@ if.then74:                                        ; preds = %if.end70
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then58, %if.then74, %if.end70
-  %value.addr.1169 = phi ptr [ %value.addr.1, %if.then74 ], [ %value.addr.1, %if.end70 ], [ %value.addr.0, %if.then58 ]
+  %value.addr.0169 = phi ptr [ %value.addr.0, %if.then74 ], [ %value.addr.0, %if.end70 ], [ %value.addr.1, %if.then58 ]
   %update.1168 = phi i32 [ %update.1, %if.then74 ], [ %update.1, %if.end70 ], [ 0, %if.then58 ]
   %and76 = and i32 %flags, 2
   %tobool77 = icmp ne i32 %and76, 0
-  %tobool79 = icmp ne ptr %value.addr.1169, null
+  %tobool79 = icmp ne ptr %value.addr.0169, null
   %or.cond1 = and i1 %tobool77, %tobool79
   br i1 %or.cond1, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %if.end75
-  call void @sdsfree(ptr noundef nonnull %value.addr.1169) #10
+  call void @sdsfree(ptr noundef nonnull %value.addr.0169) #10
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then80, %if.end75
@@ -2776,7 +2776,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %deleted.030 = phi i32 [ 0, %for.body.lr.ph ], [ %deleted.1, %for.inc ]
+  %deleted.030 = phi i32 [ 0, %for.body.lr.ph ], [ %deleted.2, %for.inc ]
   %4 = load ptr, ptr %argv, align 8
   %arrayidx4 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx4, align 8
@@ -2831,7 +2831,7 @@ if.then10:                                        ; preds = %hashTypeLength.exit
   br label %for.end
 
 for.inc:                                          ; preds = %for.body, %hashTypeLength.exit
-  %deleted.1 = phi i32 [ %inc, %hashTypeLength.exit ], [ %deleted.030, %for.body ]
+  %deleted.2 = phi i32 [ %inc, %hashTypeLength.exit ], [ %deleted.030, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %argc, align 8
   %15 = sext i32 %14 to i64
@@ -2840,8 +2840,8 @@ for.inc:                                          ; preds = %for.body, %hashType
 
 for.end:                                          ; preds = %for.inc, %if.then10
   %cmp2.not24 = phi i1 [ true, %if.then10 ], [ false, %for.inc ]
-  %deleted.2 = phi i32 [ %inc, %if.then10 ], [ %deleted.1, %for.inc ]
-  %tobool17.not = icmp eq i32 %deleted.2, 0
+  %deleted.1 = phi i32 [ %inc, %if.then10 ], [ %deleted.2, %for.inc ]
+  %tobool17.not = icmp eq i32 %deleted.1, 0
   br i1 %tobool17.not, label %if.end32, label %if.then18
 
 if.then18:                                        ; preds = %for.end
@@ -2871,7 +2871,7 @@ if.then26:                                        ; preds = %if.then18
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %if.then18
-  %conv = sext i32 %deleted.2 to i64
+  %conv = sext i32 %deleted.1 to i64
   %27 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %add = add nsw i64 %27, %conv
   store i64 %add, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8

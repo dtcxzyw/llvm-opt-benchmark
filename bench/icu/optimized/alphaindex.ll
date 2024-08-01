@@ -1062,8 +1062,8 @@ delete.notnull.i12:                               ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %delete.notnull.i12, %_ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit, %_ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit.thread, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %call14, %_ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit.thread ], [ null, %_ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit ], [ null, %delete.notnull.i12 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %call14, %_ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit.thread ], [ null, %_ZN6icu_7512LocalPointerINS_17RuleBasedCollatorEED2Ev.exit ], [ null, %delete.notnull.i12 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1239,7 +1239,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont58
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc276
   %hasInvisibleBuckets.0451 = phi i8 [ 0, %for.body.lr.ph ], [ %hasInvisibleBuckets.1, %for.inc276 ]
   %hasPinyin.0450 = phi i8 [ 0, %for.body.lr.ph ], [ %hasPinyin.1, %for.inc276 ]
-  %scriptIndex.0449 = phi i32 [ -1, %for.body.lr.ph ], [ %scriptIndex.2, %for.inc276 ]
+  %scriptIndex.0449 = phi i32 [ -1, %for.body.lr.ph ], [ %scriptIndex.1, %for.inc276 ]
   %scriptUpperBoundary.0448 = phi ptr [ %emptyString_59, %for.body.lr.ph ], [ %scriptUpperBoundary.1, %for.inc276 ]
   %i.0447 = phi i32 [ 0, %for.body.lr.ph ], [ %inc277, %for.inc276 ]
   %call.i.i110 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %indexCharacters, i32 noundef %i.0447)
@@ -1256,9 +1256,9 @@ invoke.cont67:                                    ; preds = %invoke.cont64
 
 for.cond71:                                       ; preds = %invoke.cont67, %invoke.cont75
   %tobool80.not = phi i1 [ false, %invoke.cont75 ], [ true, %invoke.cont67 ]
-  %scriptIndex.1 = phi i32 [ %inc, %invoke.cont75 ], [ %scriptIndex.0449, %invoke.cont67 ]
+  %scriptIndex.2 = phi i32 [ %inc, %invoke.cont75 ], [ %scriptIndex.0449, %invoke.cont67 ]
   %15 = load ptr, ptr %firstCharsInScripts_, align 8
-  %inc = add nsw i32 %scriptIndex.1, 1
+  %inc = add nsw i32 %scriptIndex.2, 1
   %call.i.i111 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %inc)
           to label %invoke.cont72 unwind label %lpad60.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1376,7 +1376,7 @@ lpad94:                                           ; preds = %invoke.cont95, %new
 
 if.end114:                                        ; preds = %for.end, %land.lhs.true, %invoke.cont107, %invoke.cont67
   %scriptUpperBoundary.1 = phi ptr [ %call.i.i111, %invoke.cont107 ], [ %call.i.i111, %land.lhs.true ], [ %call.i.i111, %for.end ], [ %scriptUpperBoundary.0448, %invoke.cont67 ]
-  %scriptIndex.2 = phi i32 [ %inc, %invoke.cont107 ], [ %inc, %land.lhs.true ], [ %inc, %for.end ], [ %scriptIndex.0449, %invoke.cont67 ]
+  %scriptIndex.1 = phi i32 [ %inc, %invoke.cont107 ], [ %inc, %land.lhs.true ], [ %inc, %for.end ], [ %scriptIndex.0449, %invoke.cont67 ]
   %call115 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 168) #16
   %new.isnull116 = icmp eq ptr %call115, null
   br i1 %new.isnull116, label %new.cont127.thread, label %new.notnull117
@@ -1991,7 +1991,7 @@ if.end338:                                        ; preds = %invoke.cont333
 
 for.body344:                                      ; preds = %if.end338, %for.inc362
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc362 ], [ 0, %if.end338 ]
-  %hasInvisibleBuckets.2456 = phi i8 [ %hasInvisibleBuckets.3, %for.inc362 ], [ %hasInvisibleBuckets.0.lcssa514, %if.end338 ]
+  %hasInvisibleBuckets.3456 = phi i8 [ %hasInvisibleBuckets.4, %for.inc362 ], [ %hasInvisibleBuckets.0.lcssa514, %if.end338 ]
   %asciiBucket.0454 = phi ptr [ %spec.select98, %for.inc362 ], [ null, %if.end338 ]
   %arrayidx346 = getelementptr inbounds [26 x ptr], ptr %asciiBuckets, i64 0, i64 %indvars.iv
   %108 = load ptr, ptr %arrayidx346, align 8
@@ -2010,7 +2010,7 @@ if.then357:                                       ; preds = %for.body344
   br label %for.inc362
 
 for.inc362:                                       ; preds = %for.body344, %if.then357
-  %hasInvisibleBuckets.3 = phi i8 [ 1, %if.then357 ], [ %hasInvisibleBuckets.2456, %for.body344 ]
+  %hasInvisibleBuckets.4 = phi i8 [ 1, %if.then357 ], [ %hasInvisibleBuckets.3456, %for.body344 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
   br i1 %exitcond.not, label %if.end365, label %for.body344, !llvm.loop !13
@@ -2021,8 +2021,8 @@ if.end365:                                        ; preds = %for.inc362
   br i1 %cmp.i253, label %if.end370, label %cleanup498
 
 if.end370:                                        ; preds = %if.end338, %if.end365
-  %hasInvisibleBuckets.4517 = phi i8 [ %hasInvisibleBuckets.3, %if.end365 ], [ %hasInvisibleBuckets.0.lcssa514, %if.end338 ]
-  %tobool371.not = icmp eq i8 %hasInvisibleBuckets.4517, 0
+  %hasInvisibleBuckets.2517 = phi i8 [ %hasInvisibleBuckets.4, %if.end365 ], [ %hasInvisibleBuckets.0.lcssa514, %if.end338 ]
+  %tobool371.not = icmp eq i8 %hasInvisibleBuckets.2517, 0
   br i1 %tobool371.not, label %if.then372, label %if.end395
 
 if.then372:                                       ; preds = %if.end370
@@ -2206,8 +2206,8 @@ delete.notnull.i282:                              ; preds = %ehcleanup497
   br label %ehcleanup499
 
 cleanup498:                                       ; preds = %invoke.cont267, %cleanup.done248, %invoke.cont133, %invoke.cont107, %if.then.i265, %new.cont437, %cleanup.done248.critedge, %delete.end.i240, %new.notnull476, %delete.notnull.i277, %cleanup, %new.notnull376, %new.notnull292, %if.end365, %invoke.cont333, %for.end278, %if.then391, %if.then307
-  %bucketList.sroa.0.1 = phi ptr [ %call14, %if.then307 ], [ %call14, %if.then391 ], [ %call14, %if.end365 ], [ %call14, %invoke.cont333 ], [ %call14, %for.end278 ], [ null, %new.notnull292 ], [ null, %new.notnull376 ], [ %call14, %cleanup ], [ %call14, %delete.notnull.i277 ], [ null, %new.notnull476 ], [ %call14, %delete.end.i240 ], [ %call14, %cleanup.done248.critedge ], [ %call14, %new.cont437 ], [ %call14, %if.then.i265 ], [ %call14, %invoke.cont107 ], [ %call14, %invoke.cont133 ], [ %call14, %cleanup.done248 ], [ %call14, %invoke.cont267 ]
-  %retval.1 = phi ptr [ null, %if.then307 ], [ null, %if.then391 ], [ null, %if.end365 ], [ null, %invoke.cont333 ], [ null, %for.end278 ], [ %call290, %new.notnull292 ], [ %call374, %new.notnull376 ], [ null, %cleanup ], [ null, %delete.notnull.i277 ], [ %call474, %new.notnull476 ], [ null, %delete.end.i240 ], [ null, %cleanup.done248.critedge ], [ null, %new.cont437 ], [ null, %if.then.i265 ], [ null, %invoke.cont107 ], [ null, %invoke.cont133 ], [ null, %cleanup.done248 ], [ null, %invoke.cont267 ]
+  %bucketList.sroa.0.2 = phi ptr [ %call14, %if.then307 ], [ %call14, %if.then391 ], [ %call14, %if.end365 ], [ %call14, %invoke.cont333 ], [ %call14, %for.end278 ], [ null, %new.notnull292 ], [ null, %new.notnull376 ], [ %call14, %cleanup ], [ %call14, %delete.notnull.i277 ], [ null, %new.notnull476 ], [ %call14, %delete.end.i240 ], [ %call14, %cleanup.done248.critedge ], [ %call14, %new.cont437 ], [ %call14, %if.then.i265 ], [ %call14, %invoke.cont107 ], [ %call14, %invoke.cont133 ], [ %call14, %cleanup.done248 ], [ %call14, %invoke.cont267 ]
+  %retval.3 = phi ptr [ null, %if.then307 ], [ null, %if.then391 ], [ null, %if.end365 ], [ null, %invoke.cont333 ], [ null, %for.end278 ], [ %call290, %new.notnull292 ], [ %call374, %new.notnull376 ], [ null, %cleanup ], [ null, %delete.notnull.i277 ], [ %call474, %new.notnull476 ], [ null, %delete.end.i240 ], [ null, %cleanup.done248.critedge ], [ null, %new.cont437 ], [ null, %if.then.i265 ], [ null, %invoke.cont107 ], [ null, %invoke.cont133 ], [ null, %cleanup.done248 ], [ null, %invoke.cont267 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #16
   br label %cleanup500
 
@@ -2217,15 +2217,15 @@ ehcleanup499:                                     ; preds = %lpad60.loopexit, %l
   br label %ehcleanup501
 
 cleanup500:                                       ; preds = %invoke.cont52, %cleanup498
-  %bucketList.sroa.0.2.ph.ph = phi ptr [ %bucketList.sroa.0.1, %cleanup498 ], [ %call14, %invoke.cont52 ]
-  %retval.2.ph.ph = phi ptr [ %retval.1, %cleanup498 ], [ null, %invoke.cont52 ]
+  %bucketList.sroa.0.1.ph.ph = phi ptr [ %bucketList.sroa.0.2, %cleanup498 ], [ %call14, %invoke.cont52 ]
+  %retval.2.ph.ph = phi ptr [ %retval.3, %cleanup498 ], [ null, %invoke.cont52 ]
   %.pr.pr = load ptr, ptr %bucket, align 8
   %isnull.i287 = icmp eq ptr %.pr.pr, null
   br i1 %isnull.i287, label %cleanup502, label %delete.notnull.i288
 
 delete.notnull.i288:                              ; preds = %invoke.cont41, %cleanup500
   %retval.2525 = phi ptr [ %retval.2.ph.ph, %cleanup500 ], [ null, %invoke.cont41 ]
-  %bucketList.sroa.0.2524 = phi ptr [ %bucketList.sroa.0.2.ph.ph, %cleanup500 ], [ %call14, %invoke.cont41 ]
+  %bucketList.sroa.0.1524 = phi ptr [ %bucketList.sroa.0.1.ph.ph, %cleanup500 ], [ %call14, %invoke.cont41 ]
   %126 = phi ptr [ %.pr.pr, %cleanup500 ], [ %call28, %invoke.cont41 ]
   %vtable.i289 = load ptr, ptr %126, align 8
   %vfn.i290 = getelementptr inbounds i8, ptr %vtable.i289, i64 8
@@ -2247,22 +2247,22 @@ delete.notnull.i293:                              ; preds = %ehcleanup501
   br label %ehcleanup503
 
 cleanup502:                                       ; preds = %delete.notnull.i288, %cleanup500
-  %bucketList.sroa.0.3 = phi ptr [ %bucketList.sroa.0.2.ph.ph, %cleanup500 ], [ %bucketList.sroa.0.2524, %delete.notnull.i288 ]
-  %retval.3 = phi ptr [ %retval.2.ph.ph, %cleanup500 ], [ %retval.2525, %delete.notnull.i288 ]
-  %isnull.i298 = icmp eq ptr %bucketList.sroa.0.3, null
+  %bucketList.sroa.0.0 = phi ptr [ %bucketList.sroa.0.1.ph.ph, %cleanup500 ], [ %bucketList.sroa.0.1524, %delete.notnull.i288 ]
+  %retval.1 = phi ptr [ %retval.2.ph.ph, %cleanup500 ], [ %retval.2525, %delete.notnull.i288 ]
+  %isnull.i298 = icmp eq ptr %bucketList.sroa.0.0, null
   br i1 %isnull.i298, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303, label %delete.notnull.i299
 
 delete.notnull.i299:                              ; preds = %new.cont40, %if.then.i105, %invoke.cont17, %cleanup502
-  %retval.3535 = phi ptr [ %retval.3, %cleanup502 ], [ null, %invoke.cont17 ], [ null, %if.then.i105 ], [ null, %new.cont40 ]
-  %bucketList.sroa.0.3534 = phi ptr [ %bucketList.sroa.0.3, %cleanup502 ], [ %call14, %invoke.cont17 ], [ %call14, %if.then.i105 ], [ %call14, %new.cont40 ]
-  %vtable.i300 = load ptr, ptr %bucketList.sroa.0.3534, align 8
+  %retval.1535 = phi ptr [ %retval.1, %cleanup502 ], [ null, %invoke.cont17 ], [ null, %if.then.i105 ], [ null, %new.cont40 ]
+  %bucketList.sroa.0.0534 = phi ptr [ %bucketList.sroa.0.0, %cleanup502 ], [ %call14, %invoke.cont17 ], [ %call14, %if.then.i105 ], [ %call14, %new.cont40 ]
+  %vtable.i300 = load ptr, ptr %bucketList.sroa.0.0534, align 8
   %vfn.i301 = getelementptr inbounds i8, ptr %vtable.i300, i64 8
   %130 = load ptr, ptr %vfn.i301, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(40) %bucketList.sroa.0.3534) #16
+  call void %130(ptr noundef nonnull align 8 dereferenceable(40) %bucketList.sroa.0.0534) #16
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303: ; preds = %if.then.i, %new.cont, %cleanup502, %delete.notnull.i299
-  %retval.3529 = phi ptr [ %retval.3, %cleanup502 ], [ %retval.3535, %delete.notnull.i299 ], [ null, %new.cont ], [ null, %if.then.i ]
+  %retval.1529 = phi ptr [ %retval.1, %cleanup502 ], [ %retval.1535, %delete.notnull.i299 ], [ null, %new.cont ], [ null, %if.then.i ]
   call void @_ZN6icu_759UVector64D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ces) #16
   br label %cleanup506
 
@@ -2283,9 +2283,9 @@ ehcleanup505:                                     ; preds = %delete.notnull.i305
   br label %ehcleanup507
 
 cleanup506:                                       ; preds = %invoke.cont2, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303
-  %retval.4 = phi ptr [ %retval.3529, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303 ], [ null, %invoke.cont2 ]
+  %retval.0 = phi ptr [ %retval.1529, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit303 ], [ null, %invoke.cont2 ]
   call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %indexCharacters) #16
-  ret ptr %retval.4
+  ret ptr %retval.0
 
 ehcleanup507:                                     ; preds = %ehcleanup505, %lpad
   %.pn92.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn, %ehcleanup505 ], [ %1, %lpad ]
@@ -2601,7 +2601,7 @@ lpad16.loopexit:                                  ; preds = %for.cond.i, %call2.
   br label %ehcleanup
 
 lpad16.loopexit.split-lp:                         ; preds = %invoke.cont17, %if.end44, %if.else49, %land.rhs57, %invoke.cont79, %invoke.cont89, %if.else82
-  %ownedItem.sroa.0.0.ph = phi ptr [ null, %invoke.cont17 ], [ %ownedItem.sroa.0.4, %if.end44 ], [ %ownedItem.sroa.0.4, %if.else49 ], [ %ownedItem.sroa.0.4, %land.rhs57 ], [ %ownedItem.sroa.0.4, %if.else82 ], [ %ownedItem.sroa.0.6, %invoke.cont89 ], [ %ownedItem.sroa.0.5, %invoke.cont79 ]
+  %ownedItem.sroa.0.0.ph = phi ptr [ null, %invoke.cont17 ], [ %ownedItem.sroa.0.1, %if.end44 ], [ %ownedItem.sroa.0.1, %if.else49 ], [ %ownedItem.sroa.0.1, %land.rhs57 ], [ %ownedItem.sroa.0.1, %if.else82 ], [ %ownedItem.sroa.0.8, %invoke.cont89 ], [ %ownedItem.sroa.0.5, %invoke.cont79 ]
   %lpad.loopexit.split-lp137 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2662,7 +2662,7 @@ lpad34:                                           ; preds = %new.notnull
   br label %ehcleanup121
 
 if.end44:                                         ; preds = %if.else, %new.notnull, %invoke.cont24, %invoke.cont27, %invoke.cont19
-  %ownedItem.sroa.0.4 = phi ptr [ null, %invoke.cont19 ], [ null, %invoke.cont27 ], [ null, %invoke.cont24 ], [ %call32, %new.notnull ], [ null, %if.else ]
+  %ownedItem.sroa.0.1 = phi ptr [ null, %invoke.cont19 ], [ null, %invoke.cont27 ], [ null, %invoke.cont24 ], [ %call32, %new.notnull ], [ null, %if.else ]
   %tobool56.not = phi i1 [ true, %invoke.cont19 ], [ false, %invoke.cont27 ], [ false, %invoke.cont24 ], [ true, %new.notnull ], [ false, %if.else ]
   %item.0 = phi ptr [ %call14, %invoke.cont19 ], [ %call14, %invoke.cont27 ], [ %call14, %invoke.cont24 ], [ %call32, %new.notnull ], [ %call14, %if.else ]
   %17 = load ptr, ptr %collatorPrimaryOnly_, align 8
@@ -2772,7 +2772,7 @@ if.then78:                                        ; preds = %invoke.cont75.threa
   br i1 %cmp.i.i71, label %if.end.i, label %invoke.cont79
 
 if.end.i:                                         ; preds = %if.then78
-  %cmp.i4.not.i = icmp eq ptr %ownedItem.sroa.0.4, null
+  %cmp.i4.not.i = icmp eq ptr %ownedItem.sroa.0.1, null
   br i1 %cmp.i4.not.i, label %if.end5.i, label %invoke.cont79
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -2795,8 +2795,8 @@ lpad.i:                                           ; preds = %new.notnull.i
   br label %ehcleanup121
 
 invoke.cont79:                                    ; preds = %if.then7.i, %new.notnull.i, %if.then78, %if.end.i
-  %ownedItem.sroa.0.5 = phi ptr [ null, %if.then7.i ], [ null, %new.notnull.i ], [ %ownedItem.sroa.0.4, %if.then78 ], [ null, %if.end.i ]
-  %retval.0.i72 = phi ptr [ null, %if.then7.i ], [ %call6.i, %new.notnull.i ], [ null, %if.then78 ], [ %ownedItem.sroa.0.4, %if.end.i ]
+  %ownedItem.sroa.0.5 = phi ptr [ null, %if.then7.i ], [ null, %new.notnull.i ], [ %ownedItem.sroa.0.1, %if.then78 ], [ null, %if.end.i ]
+  %retval.0.i72 = phi ptr [ null, %if.then7.i ], [ %call6.i, %new.notnull.i ], [ null, %if.then78 ], [ %ownedItem.sroa.0.1, %if.end.i ]
   %not = xor i32 %retval.0.i129, -1
   invoke void @_ZN6icu_757UVector15insertElementAtEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %indexCharacters, ptr noundef %retval.0.i72, i32 noundef %not, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad16.loopexit.split-lp
@@ -2978,7 +2978,7 @@ if.then88:                                        ; preds = %invoke.cont85
   br i1 %cmp.i.i88, label %if.end.i90, label %invoke.cont89
 
 if.end.i90:                                       ; preds = %if.then88
-  %cmp.i4.not.i91 = icmp eq ptr %ownedItem.sroa.0.4, null
+  %cmp.i4.not.i91 = icmp eq ptr %ownedItem.sroa.0.1, null
   br i1 %cmp.i4.not.i91, label %if.end5.i93, label %invoke.cont89
 
 if.end5.i93:                                      ; preds = %if.end.i90
@@ -3001,21 +3001,21 @@ lpad.i97:                                         ; preds = %new.notnull.i96
   br label %ehcleanup121
 
 invoke.cont89:                                    ; preds = %if.then7.i98, %new.notnull.i96, %if.then88, %if.end.i90
-  %ownedItem.sroa.0.6 = phi ptr [ null, %if.then7.i98 ], [ null, %new.notnull.i96 ], [ %ownedItem.sroa.0.4, %if.then88 ], [ null, %if.end.i90 ]
-  %retval.0.i89 = phi ptr [ null, %if.then7.i98 ], [ %call6.i94, %new.notnull.i96 ], [ null, %if.then88 ], [ %ownedItem.sroa.0.4, %if.end.i90 ]
+  %ownedItem.sroa.0.8 = phi ptr [ null, %if.then7.i98 ], [ null, %new.notnull.i96 ], [ %ownedItem.sroa.0.1, %if.then88 ], [ null, %if.end.i90 ]
+  %retval.0.i89 = phi ptr [ null, %if.then7.i98 ], [ %call6.i94, %new.notnull.i96 ], [ null, %if.then88 ], [ %ownedItem.sroa.0.1, %if.end.i90 ]
   invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %indexCharacters, ptr noundef %retval.0.i89, i32 noundef %retval.0.i)
           to label %cleanup unwind label %lpad16.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont45, %cleanup.done68, %invoke.cont85, %invoke.cont89, %invoke.cont79, %invoke.cont51
-  %ownedItem.sroa.0.7 = phi ptr [ %ownedItem.sroa.0.4, %invoke.cont45 ], [ %ownedItem.sroa.0.4, %invoke.cont51 ], [ %ownedItem.sroa.0.4, %cleanup.done68 ], [ %ownedItem.sroa.0.5, %invoke.cont79 ], [ %ownedItem.sroa.0.4, %invoke.cont85 ], [ %ownedItem.sroa.0.6, %invoke.cont89 ]
-  %isnull.i102 = icmp eq ptr %ownedItem.sroa.0.7, null
+  %ownedItem.sroa.0.3 = phi ptr [ %ownedItem.sroa.0.1, %invoke.cont45 ], [ %ownedItem.sroa.0.1, %invoke.cont51 ], [ %ownedItem.sroa.0.1, %cleanup.done68 ], [ %ownedItem.sroa.0.5, %invoke.cont79 ], [ %ownedItem.sroa.0.1, %invoke.cont85 ], [ %ownedItem.sroa.0.8, %invoke.cont89 ]
+  %isnull.i102 = icmp eq ptr %ownedItem.sroa.0.3, null
   br i1 %isnull.i102, label %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit106, label %delete.notnull.i103
 
 delete.notnull.i103:                              ; preds = %cleanup
-  %vtable.i104 = load ptr, ptr %ownedItem.sroa.0.7, align 8
+  %vtable.i104 = load ptr, ptr %ownedItem.sroa.0.3, align 8
   %vfn.i105 = getelementptr inbounds i8, ptr %vtable.i104, i64 8
   %52 = load ptr, ptr %vfn.i105, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(64) %ownedItem.sroa.0.7) #16
+  call void %52(ptr noundef nonnull align 8 dereferenceable(64) %ownedItem.sroa.0.3) #16
   br label %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit106
 
 _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit106: ; preds = %cleanup, %delete.notnull.i103
@@ -3024,16 +3024,16 @@ _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit106: ; preds = %cleanup, %
   br i1 %cmp.i44, label %cleanup118, label %land.rhs, !llvm.loop !25
 
 ehcleanup:                                        ; preds = %lpad16.loopexit, %lpad16.loopexit.split-lp, %common.resume.i, %lpad61
-  %ownedItem.sroa.0.8 = phi ptr [ %ownedItem.sroa.0.4, %lpad61 ], [ %ownedItem.sroa.0.4, %common.resume.i ], [ %ownedItem.sroa.0.4, %lpad16.loopexit ], [ %ownedItem.sroa.0.0.ph, %lpad16.loopexit.split-lp ]
+  %ownedItem.sroa.0.2 = phi ptr [ %ownedItem.sroa.0.1, %lpad61 ], [ %ownedItem.sroa.0.1, %common.resume.i ], [ %ownedItem.sroa.0.1, %lpad16.loopexit ], [ %ownedItem.sroa.0.0.ph, %lpad16.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %20, %lpad61 ], [ %common.resume.op.i, %common.resume.i ], [ %lpad.loopexit136, %lpad16.loopexit ], [ %lpad.loopexit.split-lp137, %lpad16.loopexit.split-lp ]
-  %isnull.i107 = icmp eq ptr %ownedItem.sroa.0.8, null
+  %isnull.i107 = icmp eq ptr %ownedItem.sroa.0.2, null
   br i1 %isnull.i107, label %ehcleanup121, label %delete.notnull.i108
 
 delete.notnull.i108:                              ; preds = %ehcleanup
-  %vtable.i109 = load ptr, ptr %ownedItem.sroa.0.8, align 8
+  %vtable.i109 = load ptr, ptr %ownedItem.sroa.0.2, align 8
   %vfn.i110 = getelementptr inbounds i8, ptr %vtable.i109, i64 8
   %54 = load ptr, ptr %vfn.i110, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(64) %ownedItem.sroa.0.8) #16
+  call void %54(ptr noundef nonnull align 8 dereferenceable(64) %ownedItem.sroa.0.2) #16
   br label %ehcleanup121
 
 while.end:                                        ; preds = %invoke.cont10
@@ -3819,20 +3819,20 @@ cleanup67.thread65:                               ; preds = %if.then24, %invoke.
   br label %delete.notnull.i33
 
 cleanup67:                                        ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit, %invoke.cont28
-  %dest.sroa.0.0 = phi ptr [ %call2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ null, %invoke.cont28 ]
-  %retval.2 = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ %call2, %invoke.cont28 ]
+  %dest.sroa.0.2 = phi ptr [ %call2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ null, %invoke.cont28 ]
+  %retval.5 = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ %call2, %invoke.cont28 ]
   call void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %iter) #16
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set) #16
-  %isnull.i32 = icmp eq ptr %dest.sroa.0.0, null
+  %isnull.i32 = icmp eq ptr %dest.sroa.0.2, null
   br i1 %isnull.i32, label %return, label %delete.notnull.i33
 
 delete.notnull.i33:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit, %cleanup67.thread65, %cleanup67
-  %retval.464 = phi ptr [ %retval.2, %cleanup67 ], [ null, %cleanup67.thread65 ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
-  %dest.sroa.0.263 = phi ptr [ %dest.sroa.0.0, %cleanup67 ], [ %call2, %cleanup67.thread65 ], [ %call2, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
-  %vtable.i34 = load ptr, ptr %dest.sroa.0.263, align 8
+  %retval.164 = phi ptr [ %retval.5, %cleanup67 ], [ null, %cleanup67.thread65 ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
+  %dest.sroa.0.063 = phi ptr [ %dest.sroa.0.2, %cleanup67 ], [ %call2, %cleanup67.thread65 ], [ %call2, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit ]
+  %vtable.i34 = load ptr, ptr %dest.sroa.0.063, align 8
   %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 8
   %13 = load ptr, ptr %vfn.i35, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(40) %dest.sroa.0.263) #16
+  call void %13(ptr noundef nonnull align 8 dereferenceable(40) %dest.sroa.0.063) #16
   br label %return
 
 ehcleanup68:                                      ; preds = %lpad27, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit31, %lpad44
@@ -3850,8 +3850,8 @@ delete.notnull.i37:                               ; preds = %ehcleanup68.thread7
   br label %eh.resume
 
 return:                                           ; preds = %new.cont, %if.then.i, %delete.notnull.i33, %cleanup67, %entry
-  %retval.5 = phi ptr [ null, %entry ], [ %retval.2, %cleanup67 ], [ %retval.464, %delete.notnull.i33 ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.5
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.5, %cleanup67 ], [ %retval.164, %delete.notnull.i33 ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %delete.notnull.i37, %ehcleanup68, %lpad
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn, %ehcleanup68 ], [ %.pn.pn.pn70, %delete.notnull.i37 ]

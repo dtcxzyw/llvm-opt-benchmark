@@ -4191,8 +4191,8 @@ if.end.i.i:                                       ; preds = %if.end12
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %for.end.i.i, %if.end.i.i
-  %current_thread_index.0.i.i = phi i32 [ -1, %if.end.i.i ], [ %current_thread_index.1.ph.i.i, %for.end.i.i ]
-  %tids_count.0.i.i = phi i64 [ 0, %if.end.i.i ], [ %tids_count.1.ph.i.i, %for.end.i.i ]
+  %current_thread_index.0.i.i = phi i32 [ -1, %if.end.i.i ], [ %current_thread_index.2.ph.i.i, %for.end.i.i ]
+  %tids_count.0.i.i = phi i64 [ 0, %if.end.i.i ], [ %tids_count.2.ph.i.i, %for.end.i.i ]
   %call6.i.i = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %call3.i.i, ptr noundef nonnull %buff.i.i, i32 noundef 4096) #22
   switch i64 %call6.i.i, label %for.cond.outer.i.i [
     i64 0, label %while.end.i.i
@@ -4329,19 +4329,19 @@ if.end40.i.i:                                     ; preds = %while.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_mask.i.i.i)
   %17 = load i64, ptr %tid.i.i, align 8
   %cmp42.i.i = icmp eq i64 %17, %conv41.i.i
-  %conv45.i.i = trunc i64 %tids_count.1.ph.i.i to i32
-  %spec.select.i.i = select i1 %cmp42.i.i, i32 %conv45.i.i, i32 %current_thread_index.1.ph.i.i
+  %conv45.i.i = trunc i64 %tids_count.2.ph.i.i to i32
+  %spec.select.i.i = select i1 %cmp42.i.i, i32 %conv45.i.i, i32 %current_thread_index.2.ph.i.i
   %conv47.i.i = trunc i64 %17 to i32
-  %inc.i.i = add i64 %tids_count.1.ph.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %tids_count.1.ph.i.i
+  %inc.i.i = add i64 %tids_count.2.ph.i.i, 1
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %tids_count.2.ph.i.i
   store i32 %conv47.i.i, ptr %arrayidx.i.i, align 4
   %cmp48.i.i = icmp eq i64 %inc.i.i, 50
   br i1 %cmp48.i.i, label %for.end.thread.i.i, label %for.cond.outer.i.i, !llvm.loop !27
 
 for.cond.outer.i.i:                               ; preds = %while.cond.i.i, %if.end40.i.i
-  %current_thread_index.1.ph.i.i = phi i32 [ %spec.select.i.i, %if.end40.i.i ], [ %current_thread_index.0.i.i, %while.cond.i.i ]
+  %current_thread_index.2.ph.i.i = phi i32 [ %spec.select.i.i, %if.end40.i.i ], [ %current_thread_index.0.i.i, %while.cond.i.i ]
   %pos.0.ph.i.i = phi i64 [ %add.i.i, %if.end40.i.i ], [ 0, %while.cond.i.i ]
-  %tids_count.1.ph.i.i = phi i64 [ %inc.i.i, %if.end40.i.i ], [ %tids_count.0.i.i, %while.cond.i.i ]
+  %tids_count.2.ph.i.i = phi i64 [ %inc.i.i, %if.end40.i.i ], [ %tids_count.0.i.i, %while.cond.i.i ]
   %cmp1232.i.i = icmp slt i64 %pos.0.ph.i.i, %call6.i.i
   br i1 %cmp1232.i.i, label %for.body.i.i, label %for.end.i.i
 
@@ -4350,21 +4350,21 @@ for.end.thread.i.i:                               ; preds = %if.end40.i.i
   br label %while.end.i.i
 
 for.end.i.i:                                      ; preds = %for.cond.outer.i.i, %for.cond.backedge.i.i
-  %cmp52.i.i = icmp eq i64 %tids_count.1.ph.i.i, 50
+  %cmp52.i.i = icmp eq i64 %tids_count.2.ph.i.i, 50
   br i1 %cmp52.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !29
 
 while.end.i.i:                                    ; preds = %for.end.i.i, %while.cond.i.i, %for.end.thread.i.i
-  %current_thread_index.4.i.i = phi i32 [ %spec.select.i.i, %for.end.thread.i.i ], [ %current_thread_index.0.i.i, %while.cond.i.i ], [ %current_thread_index.1.ph.i.i, %for.end.i.i ]
-  %tids_count.3.i.i = phi i64 [ 50, %for.end.thread.i.i ], [ %tids_count.0.i.i, %while.cond.i.i ], [ 50, %for.end.i.i ]
-  %cmp56.not.i.i = icmp eq i32 %current_thread_index.4.i.i, -1
+  %current_thread_index.1.i.i = phi i32 [ %spec.select.i.i, %for.end.thread.i.i ], [ %current_thread_index.0.i.i, %while.cond.i.i ], [ %current_thread_index.2.ph.i.i, %for.end.i.i ]
+  %tids_count.1.i.i = phi i64 [ 50, %for.end.thread.i.i ], [ %tids_count.0.i.i, %while.cond.i.i ], [ 50, %for.end.i.i ]
+  %cmp56.not.i.i = icmp eq i32 %current_thread_index.1.i.i, -1
   br i1 %cmp56.not.i.i, label %get_ready_to_signal_threads_tids.exit.i, label %if.then58.i.i
 
 if.then58.i.i:                                    ; preds = %while.end.i.i
-  %18 = getelementptr i32, ptr %tids.i, i64 %tids_count.3.i.i
+  %18 = getelementptr i32, ptr %tids.i, i64 %tids_count.1.i.i
   %arrayidx59.i.i = getelementptr i8, ptr %18, i64 -4
   %19 = load i32, ptr %arrayidx59.i.i, align 4
   store i32 %conv.i.i, ptr %arrayidx59.i.i, align 4
-  %idxprom.i.i = sext i32 %current_thread_index.4.i.i to i64
+  %idxprom.i.i = sext i32 %current_thread_index.1.i.i to i64
   %arrayidx62.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %idxprom.i.i
   store i32 %19, ptr %arrayidx62.i.i, align 4
   br label %get_ready_to_signal_threads_tids.exit.i
@@ -4380,7 +4380,7 @@ get_ready_to_signal_threads_tids.exit.i:          ; preds = %if.then58.i.i, %whi
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %path_buff.i.i)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buff.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tid.i.i)
-  %tobool.not.i = icmp eq i64 %tids_count.3.i.i, 0
+  %tobool.not.i = icmp eq i64 %tids_count.1.i.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %get_ready_to_signal_threads_tids.exit.i, %get_ready_to_signal_threads_tids.exit.thread.i
@@ -4388,7 +4388,7 @@ if.then.i:                                        ; preds = %get_ready_to_signal
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %get_ready_to_signal_threads_tids.exit.i
-  %retval.0.i12.i = phi i64 [ 0, %if.then.i ], [ %tids_count.3.i.i, %get_ready_to_signal_threads_tids.exit.i ]
+  %retval.0.i12.i = phi i64 [ 0, %if.then.i ], [ %tids_count.1.i.i, %get_ready_to_signal_threads_tids.exit.i ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.end.i

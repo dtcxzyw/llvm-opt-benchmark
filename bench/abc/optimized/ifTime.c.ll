@@ -349,7 +349,7 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv191 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next192, %.lr.ph148 ]
-  %.1147 = phi float [ 0xC415AF1D80000000, %.lr.ph148.preheader ], [ %116, %.lr.ph148 ]
+  %.2147 = phi float [ 0xC415AF1D80000000, %.lr.ph148.preheader ], [ %116, %.lr.ph148 ]
   %107 = getelementptr inbounds [32 x i32], ptr @If_CutDelay.pPinPerm, i64 0, i64 %indvars.iv191
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
@@ -358,15 +358,15 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   %112 = getelementptr inbounds float, ptr %39, i64 %indvars.iv191
   %113 = load float, ptr %112, align 4
   %114 = fadd float %111, %113
-  %115 = fcmp ogt float %.1147, %114
-  %116 = select i1 %115, float %.1147, float %114
+  %115 = fcmp ogt float %.2147, %114
+  %116 = select i1 %115, float %.2147, float %114
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count195
   br i1 %exitcond196.not, label %.critedge, label %.lr.ph148, !llvm.loop !9
 
 117:                                              ; preds = %.lr.ph152, %123
   %indvars.iv197 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next198, %123 ]
-  %.2151 = phi float [ 0xC415AF1D80000000, %.lr.ph152 ], [ %129, %123 ]
+  %.3151 = phi float [ 0xC415AF1D80000000, %.lr.ph152 ], [ %129, %123 ]
   %118 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %indvars.iv197
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
@@ -380,8 +380,8 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   %125 = load float, ptr %124, align 4
   %126 = load float, ptr %39, align 4
   %127 = fadd float %125, %126
-  %128 = fcmp ogt float %.2151, %127
-  %129 = select i1 %128, float %.2151, float %127
+  %128 = fcmp ogt float %.3151, %127
+  %129 = select i1 %128, float %.3151, float %127
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count201
   br i1 %exitcond202.not, label %.critedge, label %117, !llvm.loop !10
@@ -407,7 +407,7 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
 
 136:                                              ; preds = %.lr.ph158, %142
   %indvars.iv203 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next204, %142 ]
-  %.3157 = phi float [ 0xC415AF1D80000000, %.lr.ph158 ], [ %151, %142 ]
+  %.4157 = phi float [ 0xC415AF1D80000000, %.lr.ph158 ], [ %151, %142 ]
   %137 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %indvars.iv203
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
@@ -425,8 +425,8 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   %147 = load float, ptr %146, align 4
   %148 = sitofp i8 %narrow to float
   %149 = fadd float %147, %148
-  %150 = fcmp ogt float %.3157, %149
-  %151 = select i1 %150, float %.3157, float %149
+  %150 = fcmp ogt float %.4157, %149
+  %151 = select i1 %150, float %.4157, float %149
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count207
   br i1 %exitcond208.not, label %.critedge, label %136, !llvm.loop !11
@@ -466,7 +466,7 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
 
 163:                                              ; preds = %.lr.ph164, %170
   %indvars.iv209 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next210, %170 ]
-  %.4163 = phi float [ 0xC415AF1D80000000, %.lr.ph164 ], [ %narrow.sel, %170 ]
+  %.5163 = phi float [ 0xC415AF1D80000000, %.lr.ph164 ], [ %narrow.sel, %170 ]
   %164 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %indvars.iv209
   %165 = load i32, ptr %164, align 4
   %166 = ashr i32 %165, 8
@@ -484,19 +484,19 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   %175 = mul nsw i32 %174, %171
   %176 = sitofp i32 %175 to float
   %177 = fsub float %173, %176
-  %178 = fpext float %.4163 to double
+  %178 = fpext float %.5163 to double
   %179 = fpext float %177 to double
   %180 = fadd double %179, 1.000000e+00
   %181 = fcmp olt double %180, %178
   %182 = fptrunc double %180 to float
-  %narrow.sel = select i1 %181, float %.4163, float %182
+  %narrow.sel = select i1 %181, float %.5163, float %182
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count213
   br i1 %exitcond214.not, label %.critedge, label %163, !llvm.loop !12
 
 183:                                              ; preds = %.lr.ph170, %189
   %indvars.iv215 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next216, %189 ]
-  %.5169 = phi float [ 0xC415AF1D80000000, %.lr.ph170 ], [ %194, %189 ]
+  %.6169 = phi float [ 0xC415AF1D80000000, %.lr.ph170 ], [ %194, %189 ]
   %184 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %indvars.iv215
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
@@ -509,15 +509,15 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   %190 = getelementptr inbounds i8, ptr %188, i64 92
   %191 = load float, ptr %190, align 4
   %192 = fadd float %191, 1.000000e+00
-  %193 = fcmp ogt float %.5169, %192
-  %194 = select i1 %193, float %.5169, float %192
+  %193 = fcmp ogt float %.6169, %192
+  %194 = select i1 %193, float %.6169, float %192
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count219
   br i1 %exitcond220.not, label %.critedge, label %183, !llvm.loop !13
 
 .critedge:                                        ; preds = %22, %16, %.lr.ph148, %123, %117, %142, %136, %170, %163, %183, %189, %.preheader132, %If_CutSortInputPins.exit, %.preheader129, %.preheader127, %.preheader125, %.preheader
-  %.6 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %.preheader125 ], [ 0xC415AF1D80000000, %.preheader127 ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader132 ], [ %.5169, %183 ], [ %194, %189 ], [ %narrow.sel, %170 ], [ %.4163, %163 ], [ %151, %142 ], [ %.3157, %136 ], [ %129, %123 ], [ %.2151, %117 ], [ %116, %.lr.ph148 ], [ %31, %22 ], [ %.0135, %16 ]
-  ret float %.6
+  %.1 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %.preheader125 ], [ 0xC415AF1D80000000, %.preheader127 ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader132 ], [ %.6169, %183 ], [ %194, %189 ], [ %narrow.sel, %170 ], [ %.5163, %163 ], [ %151, %142 ], [ %.4157, %136 ], [ %129, %123 ], [ %.3151, %117 ], [ %116, %.lr.ph148 ], [ %31, %22 ], [ %.0135, %16 ]
+  ret float %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1082,15 +1082,15 @@ define float @If_ManDelayMax(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 59:                                               ; preds = %.lr.ph67, %59
   %indvars.iv76 = phi i64 [ %58, %.lr.ph67 ], [ %indvars.iv.next77, %59 ]
-  %.24065 = phi float [ 0xC415AF1D80000000, %.lr.ph67 ], [ %.3, %59 ]
+  %.365 = phi float [ 0xC415AF1D80000000, %.lr.ph67 ], [ %.4, %59 ]
   %60 = getelementptr inbounds ptr, ptr %.val43, i64 %indvars.iv76
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %61, i64 24
   %.val49 = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %.val49, i64 92
   %.val55 = load float, ptr %63, align 4
-  %64 = fcmp olt float %.24065, %.val55
-  %.3 = select i1 %64, float %.val55, float %.24065
+  %64 = fcmp olt float %.365, %.val55
+  %.4 = select i1 %64, float %.val55, float %.365
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next77 to i32
   %exitcond.not = icmp eq i32 %.val59, %lftr.wideiv
@@ -1098,22 +1098,22 @@ define float @If_ManDelayMax(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 65:                                               ; preds = %.lr.ph71, %65
   %indvars.iv79 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next80, %65 ]
-  %.469 = phi float [ 0xC415AF1D80000000, %.lr.ph71 ], [ %.5, %65 ]
+  %.569 = phi float [ 0xC415AF1D80000000, %.lr.ph71 ], [ %.6, %65 ]
   %66 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv79
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 24
   %.val51 = load ptr, ptr %68, align 8
   %69 = getelementptr i8, ptr %.val51, i64 92
   %.val57 = load float, ptr %69, align 4
-  %70 = fcmp olt float %.469, %.val57
-  %.5 = select i1 %70, float %.val57, float %.469
+  %70 = fcmp olt float %.569, %.val57
+  %.6 = select i1 %70, float %.val57, float %.569
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
   br i1 %exitcond82.not, label %.critedge, label %65, !llvm.loop !22
 
 .critedge:                                        ; preds = %33, %59, %65, %20, %48, %.preheader
-  %.6 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %48 ], [ 0xC415AF1D80000000, %20 ], [ %.5, %65 ], [ %.3, %59 ], [ %.139, %33 ]
-  ret float %.6
+  %.240 = phi float [ 0xC415AF1D80000000, %.preheader ], [ 0xC415AF1D80000000, %48 ], [ 0xC415AF1D80000000, %20 ], [ %.6, %65 ], [ %.4, %59 ], [ %.139, %33 ]
+  ret float %.240
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1240,15 +1240,15 @@ define void @If_ManComputeRequired(ptr noundef %0) local_unnamed_addr #2 {
 
 38:                                               ; preds = %38, %.lr.ph67.i
   %indvars.iv76.i = phi i64 [ %37, %.lr.ph67.i ], [ %indvars.iv.next77.i, %38 ]
-  %.24065.i = phi float [ 0xC415AF1D80000000, %.lr.ph67.i ], [ %.3.i, %38 ]
+  %.365.i = phi float [ 0xC415AF1D80000000, %.lr.ph67.i ], [ %.4.i, %38 ]
   %39 = getelementptr inbounds ptr, ptr %.val43.i, i64 %indvars.iv76.i
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 24
   %.val49.i = load ptr, ptr %41, align 8
   %42 = getelementptr i8, ptr %.val49.i, i64 92
   %.val55.i = load float, ptr %42, align 4
-  %43 = fcmp olt float %.24065.i, %.val55.i
-  %.3.i = select i1 %43, float %.val55.i, float %.24065.i
+  %43 = fcmp olt float %.365.i, %.val55.i
+  %.4.i = select i1 %43, float %.val55.i, float %.365.i
   %indvars.iv.next77.i = add nsw i64 %indvars.iv76.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next77.i to i32
   %exitcond.not.i = icmp eq i32 %.val59.i, %lftr.wideiv.i
@@ -1256,15 +1256,15 @@ define void @If_ManComputeRequired(ptr noundef %0) local_unnamed_addr #2 {
 
 44:                                               ; preds = %44, %.lr.ph71.i
   %indvars.iv79.i = phi i64 [ 0, %.lr.ph71.i ], [ %indvars.iv.next80.i, %44 ]
-  %.469.i = phi float [ 0xC415AF1D80000000, %.lr.ph71.i ], [ %.5.i, %44 ]
+  %.569.i = phi float [ 0xC415AF1D80000000, %.lr.ph71.i ], [ %.6.i, %44 ]
   %45 = getelementptr inbounds ptr, ptr %.val44.i, i64 %indvars.iv79.i
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %46, i64 24
   %.val51.i = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %.val51.i, i64 92
   %.val57.i = load float, ptr %48, align 4
-  %49 = fcmp olt float %.469.i, %.val57.i
-  %.5.i = select i1 %49, float %.val57.i, float %.469.i
+  %49 = fcmp olt float %.569.i, %.val57.i
+  %.6.i = select i1 %49, float %.val57.i, float %.569.i
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, %wide.trip.count.i
   br i1 %exitcond82.not.i, label %If_ManDelayMax.exit, label %44, !llvm.loop !22
@@ -1272,9 +1272,9 @@ define void @If_ManComputeRequired(ptr noundef %0) local_unnamed_addr #2 {
 If_ManDelayMax.exit:                              ; preds = %38, %44, %.preheader.i, %.thread448
   %50 = phi ptr [ %21, %.preheader.i ], [ %27, %.thread448 ], [ %21, %44 ], [ %27, %38 ]
   %51 = phi ptr [ %23, %.preheader.i ], [ %33, %.thread448 ], [ %23, %44 ], [ %33, %38 ]
-  %.6.i = phi float [ 0xC415AF1D80000000, %.preheader.i ], [ 0xC415AF1D80000000, %.thread448 ], [ %.5.i, %44 ], [ %.3.i, %38 ]
+  %.240.i = phi float [ 0xC415AF1D80000000, %.preheader.i ], [ 0xC415AF1D80000000, %.thread448 ], [ %.6.i, %44 ], [ %.4.i, %38 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 92
-  store float %.6.i, ptr %52, align 4
+  store float %.240.i, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %50, i64 296
   %54 = load ptr, ptr %53, align 8
   %.not247 = icmp eq ptr %54, null
@@ -1360,7 +1360,7 @@ If_ManDelayMax.exit:                              ; preds = %38, %44, %.preheade
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %91
-  %96 = fpext float %.6.i to double
+  %96 = fpext float %.240.i to double
   %97 = sitofp i32 %90 to double
   %98 = fadd double %97, 1.000000e+02
   %99 = fmul double %98, %96
@@ -1685,15 +1685,15 @@ If_ManDelayMax.exit:                              ; preds = %38, %44, %.preheade
 
 266:                                              ; preds = %266, %.lr.ph67.i317
   %indvars.iv76.i319 = phi i64 [ %265, %.lr.ph67.i317 ], [ %indvars.iv.next77.i324, %266 ]
-  %.24065.i320 = phi float [ 0xC415AF1D80000000, %.lr.ph67.i317 ], [ %.3.i323, %266 ]
+  %.365.i320 = phi float [ 0xC415AF1D80000000, %.lr.ph67.i317 ], [ %.4.i323, %266 ]
   %267 = getelementptr inbounds ptr, ptr %.val43.i318, i64 %indvars.iv76.i319
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr i8, ptr %268, i64 24
   %.val49.i321 = load ptr, ptr %269, align 8
   %270 = getelementptr i8, ptr %.val49.i321, i64 92
   %.val55.i322 = load float, ptr %270, align 4
-  %271 = fcmp olt float %.24065.i320, %.val55.i322
-  %.3.i323 = select i1 %271, float %.val55.i322, float %.24065.i320
+  %271 = fcmp olt float %.365.i320, %.val55.i322
+  %.4.i323 = select i1 %271, float %.val55.i322, float %.365.i320
   %indvars.iv.next77.i324 = add nsw i64 %indvars.iv76.i319, 1
   %lftr.wideiv.i325 = trunc i64 %indvars.iv.next77.i324 to i32
   %exitcond.not.i326 = icmp eq i32 %.val59.i315, %lftr.wideiv.i325
@@ -1701,24 +1701,24 @@ If_ManDelayMax.exit:                              ; preds = %38, %44, %.preheade
 
 272:                                              ; preds = %272, %.lr.ph71.i329
   %indvars.iv79.i332 = phi i64 [ 0, %.lr.ph71.i329 ], [ %indvars.iv.next80.i337, %272 ]
-  %.469.i333 = phi float [ 0xC415AF1D80000000, %.lr.ph71.i329 ], [ %.5.i336, %272 ]
+  %.569.i333 = phi float [ 0xC415AF1D80000000, %.lr.ph71.i329 ], [ %.6.i336, %272 ]
   %273 = getelementptr inbounds ptr, ptr %.val44.i330, i64 %indvars.iv79.i332
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr i8, ptr %274, i64 24
   %.val51.i334 = load ptr, ptr %275, align 8
   %276 = getelementptr i8, ptr %.val51.i334, i64 92
   %.val57.i335 = load float, ptr %276, align 4
-  %277 = fcmp olt float %.469.i333, %.val57.i335
-  %.5.i336 = select i1 %277, float %.val57.i335, float %.469.i333
+  %277 = fcmp olt float %.569.i333, %.val57.i335
+  %.6.i336 = select i1 %277, float %.val57.i335, float %.569.i333
   %indvars.iv.next80.i337 = add nuw nsw i64 %indvars.iv79.i332, 1
   %exitcond82.not.i338 = icmp eq i64 %indvars.iv.next80.i337, %wide.trip.count.i331
   br i1 %exitcond82.not.i338, label %If_ManDelayMax.exit339, label %272, !llvm.loop !22
 
 If_ManDelayMax.exit339:                           ; preds = %266, %272, %.preheader.i327, %.thread454
   %278 = phi ptr [ %249, %.preheader.i327 ], [ %255, %.thread454 ], [ %249, %272 ], [ %255, %266 ]
-  %.6.i316 = phi float [ 0xC415AF1D80000000, %.preheader.i327 ], [ 0xC415AF1D80000000, %.thread454 ], [ %.5.i336, %272 ], [ %.3.i323, %266 ]
+  %.240.i316 = phi float [ 0xC415AF1D80000000, %.preheader.i327 ], [ 0xC415AF1D80000000, %.thread454 ], [ %.6.i336, %272 ], [ %.4.i323, %266 ]
   %279 = getelementptr inbounds i8, ptr %0, i64 92
-  store float %.6.i316, ptr %279, align 4
+  store float %.240.i316, ptr %279, align 4
   %280 = getelementptr inbounds i8, ptr %278, i64 32
   %281 = load i32, ptr %280, align 8
   %.not = icmp eq i32 %281, 0
@@ -1731,7 +1731,7 @@ If_ManDelayMax.exit339:                           ; preds = %266, %272, %.prehea
   br i1 %285, label %286, label %293
 
 286:                                              ; preds = %282
-  %287 = fpext float %.6.i316 to double
+  %287 = fpext float %.240.i316 to double
   %288 = sitofp i32 %281 to double
   %289 = fadd double %288, 1.000000e+02
   %290 = fmul double %289, %287

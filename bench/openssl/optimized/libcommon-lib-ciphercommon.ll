@@ -819,8 +819,8 @@ if.end141:                                        ; preds = %if.then132
   br label %if.end143
 
 if.end143:                                        ; preds = %if.end141, %if.then116
-  %nextblocks.1 = phi i64 [ %nextblocks.0, %if.then116 ], [ %sub142, %if.end141 ]
-  %add144 = add i64 %nextblocks.1, %outlint.0
+  %nextblocks.2 = phi i64 [ %nextblocks.0, %if.then116 ], [ %sub142, %if.end141 ]
+  %add144 = add i64 %nextblocks.2, %outlint.0
   %cmp145 = icmp ugt i64 %add144, %outsize
   br i1 %cmp145, label %if.then147, label %if.end149
 
@@ -831,7 +831,7 @@ if.then147:                                       ; preds = %if.end143
   br label %return
 
 if.end149:                                        ; preds = %if.end143
-  %cmp150.not = icmp eq i64 %nextblocks.1, 0
+  %cmp150.not = icmp eq i64 %nextblocks.2, 0
   br i1 %cmp150.not, label %if.end161thread-pre-split, label %if.then152
 
 if.then152:                                       ; preds = %if.end149
@@ -840,7 +840,7 @@ if.then152:                                       ; preds = %if.end149
   %cipher154 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %cipher154, align 8
   %24 = load ptr, ptr %in.addr, align 8
-  %call155 = call i32 %23(ptr noundef nonnull %vctx, ptr noundef %out.addr.0, ptr noundef %24, i64 noundef %nextblocks.1) #5
+  %call155 = call i32 %23(ptr noundef nonnull %vctx, ptr noundef %out.addr.0, ptr noundef %24, i64 noundef %nextblocks.2) #5
   %tobool156.not = icmp eq i32 %call155, 0
   br i1 %tobool156.not, label %if.then157, label %if.end158
 
@@ -852,10 +852,10 @@ if.then157:                                       ; preds = %if.then152
 
 if.end158:                                        ; preds = %if.then152
   %25 = load ptr, ptr %in.addr, align 8
-  %add.ptr159 = getelementptr inbounds i8, ptr %25, i64 %nextblocks.1
+  %add.ptr159 = getelementptr inbounds i8, ptr %25, i64 %nextblocks.2
   store ptr %add.ptr159, ptr %in.addr, align 8
   %26 = load i64, ptr %inl.addr, align 8
-  %sub160 = sub i64 %26, %nextblocks.1
+  %sub160 = sub i64 %26, %nextblocks.2
   store i64 %sub160, ptr %inl.addr, align 8
   br label %if.end161
 

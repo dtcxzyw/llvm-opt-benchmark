@@ -499,8 +499,8 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader ]
   %13 = phi ptr [ %56, %54 ], [ %12, %.preheader ]
-  %.04993 = phi i64 [ %.4, %54 ], [ 0, %.preheader ]
-  %.05291 = phi i32 [ %.153, %54 ], [ %5, %.preheader ]
+  %.193 = phi i64 [ %.5, %54 ], [ 0, %.preheader ]
+  %.15391 = phi i32 [ %.254, %54 ], [ %5, %.preheader ]
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 61) #14
   store ptr %14, ptr %4, align 8
   %.not68 = icmp eq ptr %14, null
@@ -550,7 +550,7 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 
 34:                                               ; preds = %.thread, %24, %27, %15
   %.04873 = phi ptr [ %16, %27 ], [ %16, %24 ], [ %16, %15 ], [ null, %.thread ]
-  %.153 = phi i32 [ 100, %27 ], [ 100, %24 ], [ %.05291, %15 ], [ %.05291, %.thread ]
+  %.254 = phi i32 [ 100, %27 ], [ 100, %24 ], [ %.15391, %15 ], [ %.15391, %.thread ]
   %35 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %13) #14
   %36 = icmp eq i32 %35, 0
   %37 = icmp ne ptr %.04873, null
@@ -576,31 +576,31 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
   br label %44
 
 44:                                               ; preds = %38, %38, %42
-  %.1 = phi i64 [ %43, %42 ], [ %39, %38 ], [ %39, %38 ]
-  %45 = shl i64 %.1, 10
+  %.2 = phi i64 [ %43, %42 ], [ %39, %38 ], [ %39, %38 ]
+  %45 = shl i64 %.2, 10
   br label %46
 
 46:                                               ; preds = %38, %38, %44
-  %.2 = phi i64 [ %45, %44 ], [ %39, %38 ], [ %39, %38 ]
-  %47 = shl i64 %.2, 10
+  %.3 = phi i64 [ %45, %44 ], [ %39, %38 ], [ %39, %38 ]
+  %47 = shl i64 %.3, 10
   br label %49
 
 48:                                               ; preds = %38
   br label %49
 
 49:                                               ; preds = %38, %48, %46
-  %.3 = phi i64 [ -1, %48 ], [ %47, %46 ], [ %39, %38 ]
+  %.4 = phi i64 [ -1, %48 ], [ %47, %46 ], [ %39, %38 ]
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
   %51 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %50) #13
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %53, ptr noundef nonnull @.str.18, i64 noundef %.3) #13
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %53, ptr noundef nonnull @.str.18, i64 noundef %.4) #13
   br label %54
 
 54:                                               ; preds = %34, %49, %52
-  %.4 = phi i64 [ %.3, %52 ], [ %.3, %49 ], [ %.04993, %34 ]
+  %.5 = phi i64 [ %.4, %52 ], [ %.4, %49 ], [ %.193, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8
@@ -609,14 +609,14 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
 
 ._crit_edge:                                      ; preds = %54
   tail call void @opal_argv_free(ptr noundef nonnull %10) #13
-  %57 = icmp eq i64 %.4, 0
+  %57 = icmp eq i64 %.5, 0
   br i1 %57, label %.thread78, label %64
 
 .thread78:                                        ; preds = %._crit_edge.thread, %8, %._crit_edge
-  %.25481 = phi i32 [ %.153, %._crit_edge ], [ %5, %8 ], [ %5, %._crit_edge.thread ]
+  %.05281 = phi i32 [ %.254, %._crit_edge ], [ %5, %8 ], [ %5, %._crit_edge.thread ]
   %58 = load i64, ptr @mca_mpool_hugepage_page_size, align 8
-  %59 = icmp slt i32 %.25481, 100
-  %spec.store.select = select i1 %59, i32 0, i32 %.25481
+  %59 = icmp slt i32 %.05281, 100
+  %spec.store.select = select i1 %59, i32 0, i32 %.05281
   %60 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 76), align 4
   %61 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %60) #13
   br i1 %61, label %62, label %64
@@ -627,8 +627,8 @@ define internal range(i32 -16, 1) i32 @mca_mpool_hugepage_query(ptr noundef %0, 
   br label %64
 
 64:                                               ; preds = %62, %.thread78, %._crit_edge
-  %.355 = phi i32 [ %spec.store.select, %62 ], [ %spec.store.select, %.thread78 ], [ %.153, %._crit_edge ]
-  %.6 = phi i64 [ %58, %62 ], [ %58, %.thread78 ], [ %.4, %._crit_edge ]
+  %.355 = phi i32 [ %spec.store.select, %62 ], [ %spec.store.select, %.thread78 ], [ %.254, %._crit_edge ]
+  %.6 = phi i64 [ %58, %62 ], [ %58, %.thread78 ], [ %.5, %._crit_edge ]
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 352), align 8
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph98, label %._crit_edge99

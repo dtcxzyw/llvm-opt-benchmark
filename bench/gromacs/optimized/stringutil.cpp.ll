@@ -1934,12 +1934,12 @@ define void @_ZNK3gmx15TextLineWrapper10formatLineERKNSt7__cxx1112basic_stringIc
   br label %46
 
 46:                                               ; preds = %.preheader, %48
-  %.1 = phi i64 [ %49, %48 ], [ %.040, %.preheader ]
-  %47 = icmp ugt i64 %.1, %.03951
+  %.2 = phi i64 [ %49, %48 ], [ %.040, %.preheader ]
+  %47 = icmp ugt i64 %.2, %.03951
   br i1 %47, label %48, label %.critedge2
 
 48:                                               ; preds = %46
-  %49 = add i64 %.1, -1
+  %49 = add i64 %.2, -1
   %50 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %49) #22
   %51 = load i8, ptr %50, align 1
   %52 = sext i8 %51 to i32
@@ -1948,9 +1948,9 @@ define void @_ZNK3gmx15TextLineWrapper10formatLineERKNSt7__cxx1112basic_stringIc
   br i1 %.not45, label %.critedge2, label %46, !llvm.loop !25
 
 .critedge2:                                       ; preds = %48, %46, %42
-  %.2 = phi i64 [ %.040, %42 ], [ %.1, %46 ], [ %.1, %48 ]
-  %54 = sub i64 %.2, %.03951
-  %55 = icmp eq i64 %.2, %.03951
+  %.1 = phi i64 [ %.040, %42 ], [ %.2, %46 ], [ %.2, %48 ]
+  %54 = sub i64 %.1, %.03951
+  %55 = icmp eq i64 %.1, %.03951
   br i1 %55, label %.sink.split, label %56
 
 56:                                               ; preds = %.critedge2

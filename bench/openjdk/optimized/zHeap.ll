@@ -1651,22 +1651,22 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
   br label %36
 
 36:                                               ; preds = %38, %34
-  %.027.i.i.i = phi i64 [ %22, %34 ], [ %39, %38 ]
-  %37 = icmp ugt i64 %.027.i.i.i, %35
+  %.1.i.i.i = phi i64 [ %22, %34 ], [ %39, %38 ]
+  %37 = icmp ugt i64 %.1.i.i.i, %35
   br i1 %37, label %38, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread
 
 38:                                               ; preds = %36
-  %39 = add nsw i64 %.027.i.i.i, -1
+  %39 = add nsw i64 %.1.i.i.i, -1
   %40 = getelementptr inbounds i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
   br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !11
 
 .loopexit45.i.i.i:                                ; preds = %38, %30
-  %.129.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
-  %.1.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
-  %42 = shl i64 %.1.ph.i.i.i, 6
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i, i1 true)
+  %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
+  %.027.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
+  %42 = shl i64 %.027.ph.i.i.i, 6
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i, i1 true)
   %44 = or disjoint i64 %42, %43
   %45 = xor i64 %44, 63
   %.not39.i.i.i = icmp ult i64 %45, %17
@@ -1732,22 +1732,22 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
   br label %80
 
 80:                                               ; preds = %82, %78
-  %.027.i.i.i27 = phi i64 [ %66, %78 ], [ %83, %82 ]
-  %81 = icmp ugt i64 %.027.i.i.i27, %79
+  %.1.i.i.i27 = phi i64 [ %66, %78 ], [ %83, %82 ]
+  %81 = icmp ugt i64 %.1.i.i.i27, %79
   br i1 %81, label %82, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread
 
 82:                                               ; preds = %80
-  %83 = add nsw i64 %.027.i.i.i27, -1
+  %83 = add nsw i64 %.1.i.i.i27, -1
   %84 = getelementptr inbounds i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
   br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !11
 
 .loopexit45.i.i.i23:                              ; preds = %82, %74
-  %.129.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
-  %.1.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
-  %86 = shl i64 %.1.ph.i.i.i25, 6
-  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i24, i1 true)
+  %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
+  %.027.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
+  %86 = shl i64 %.027.ph.i.i.i25, 6
+  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i24, i1 true)
   %88 = or disjoint i64 %86, %87
   %89 = xor i64 %88, 63
   %.not39.i.i.i26 = icmp ult i64 %89, %61

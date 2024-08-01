@@ -1191,7 +1191,7 @@ thread-pre-split184:                              ; preds = %521, %524
   br label %597
 
 597:                                              ; preds = %595, %592, %589
-  %.033.i = phi i32 [ 0, %589 ], [ 0, %592 ], [ %spec.select.i161, %595 ]
+  %.1.i = phi i32 [ 0, %589 ], [ 0, %592 ], [ %spec.select.i161, %595 ]
   %598 = load i32, ptr %98, align 4
   switch i32 %598, label %605 [
     i32 11, label %599
@@ -1213,7 +1213,7 @@ thread-pre-split184:                              ; preds = %521, %524
   br label %605
 
 605:                                              ; preds = %602, %599, %597, %589, %576
-  %.1.i = phi i32 [ %579, %576 ], [ 0, %589 ], [ %.033.i, %599 ], [ %.033.i, %602 ], [ %.033.i, %597 ]
+  %.033.i = phi i32 [ %579, %576 ], [ 0, %589 ], [ %.1.i, %599 ], [ %.1.i, %602 ], [ %.1.i, %597 ]
   call void @slurm_xfree(ptr noundef nonnull %10) #6
   %606 = load ptr, ptr %555, align 8
   %.not39.i = icmp eq ptr %606, null
@@ -1334,7 +1334,7 @@ _parse_check_openapi.exit:                        ; preds = %616, %619, %623, %6
   unreachable
 
 _parse_pointer.exit:                              ; preds = %552, %538, %537, %49, %40, %37, %6, %32, %241, %513, %.critedge, %653, %_parse_nt_array.exit, %_parse_list.exit, %_parse_flag.exit, %97
-  %.2 = phi i32 [ %18, %6 ], [ 0, %97 ], [ %656, %653 ], [ %.1.i, %_parse_nt_array.exit ], [ %244, %241 ], [ %.1.lcssa, %.critedge ], [ %.1.lcssa, %513 ], [ %.0.i150173, %_parse_list.exit ], [ %.0.i, %_parse_flag.exit ], [ %36, %32 ], [ 0, %37 ], [ 0, %40 ], [ 0, %49 ], [ 0, %537 ], [ %540, %552 ], [ 0, %538 ]
+  %.2 = phi i32 [ %18, %6 ], [ 0, %97 ], [ %656, %653 ], [ %.033.i, %_parse_nt_array.exit ], [ %244, %241 ], [ %.1.lcssa, %.critedge ], [ %.1.lcssa, %513 ], [ %.0.i150173, %_parse_list.exit ], [ %.0.i, %_parse_flag.exit ], [ %36, %32 ], [ 0, %37 ], [ 0, %40 ], [ 0, %49 ], [ 0, %537 ], [ %540, %552 ], [ 0, %538 ]
   %661 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %662 = and i64 %661, 256
   %.not144 = icmp eq i64 %662, 0

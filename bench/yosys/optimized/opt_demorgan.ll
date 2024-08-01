@@ -1998,8 +1998,8 @@ _ZN5Yosys8ModIndex8PortInfoD2Ev.exit._crit_edge.i: ; preds = %_ZN5Yosys8ModIndex
 
 split.i:                                          ; preds = %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit144, %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit._crit_edge.i
   %739 = phi ptr [ %.pre.i, %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit._crit_edge.i ], [ %.pre696.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit144 ]
-  %.2106.i = phi i8 [ %721, %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit._crit_edge.i ], [ %.0104.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit144 ]
-  %740 = and i8 %.2106.i, 1
+  %.1105.i = phi i8 [ %721, %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit._crit_edge.i ], [ %.0104.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit144 ]
+  %740 = and i8 %.1105.i, 1
   %741 = zext nneg i8 %740 to i32
   %spec.select.i = add nuw nsw i32 %.0100593.i, %741
   %742 = load ptr, ptr %96, align 8
@@ -3148,8 +3148,8 @@ _ZN5Yosys8ModIndex8PortInfoD2Ev.exit204.i:        ; preds = %1250, %1243, %_ZN5Y
   br label %1412
 
 1254:                                             ; preds = %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit204.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit
-  %.2109.i = phi ptr [ %1238, %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit204.i ], [ %.0107.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit ]
-  %.not131.i = icmp eq ptr %.2109.i, null
+  %.1108.i = phi ptr [ %1238, %_ZN5Yosys8ModIndex8PortInfoD2Ev.exit204.i ], [ %.0107.i, %_ZN5Yosys7hashlib4poolINS_8ModIndex8PortInfoENS0_8hash_opsIS3_EEE9do_rehashEv.exit ]
+  %.not131.i = icmp eq ptr %.1108.i, null
   br i1 %.not131.i, label %1255, label %1361
 
 1255:                                             ; preds = %1254
@@ -3491,7 +3491,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i238.i: ; preds = %1322, %_ZN5Yos
   br label %1412
 
 1361:                                             ; preds = %1254
-  %1362 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %.2109.i, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
+  %1362 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %.1108.i, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %1363 unwind label %.loopexit476.i
 
 1363:                                             ; preds = %1361

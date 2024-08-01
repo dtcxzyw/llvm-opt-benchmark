@@ -221,13 +221,13 @@ _ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit: ; preds = %_ZNK6Handlecl
   br label %77
 
 77:                                               ; preds = %72, %73, %65, %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit
-  %.0 = phi ptr [ null, %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit ], [ null, %65 ], [ %66, %73 ], [ %66, %72 ]
+  %.1 = phi ptr [ null, %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit ], [ null, %65 ], [ %66, %73 ], [ %66, %72 ]
   call void @_ZN15ClassFileParserD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %11) #8
   br label %78
 
 78:                                               ; preds = %30, %26, %77
   %switch = phi i1 [ false, %77 ], [ false, %26 ], [ true, %30 ]
-  %.1 = phi ptr [ %.0, %77 ], [ null, %26 ], [ undef, %30 ]
+  %.0 = phi ptr [ %.1, %77 ], [ null, %26 ], [ undef, %30 ]
   %79 = load ptr, ptr %18, align 8
   %.not.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i, label %81, label %80
@@ -255,7 +255,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %81, %83
   br label %85
 
 85:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %84
-  %.2 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ null, %84 ]
+  %.2 = phi ptr [ %.0, %_ZN12ResourceMarkD2Ev.exit ], [ null, %84 ]
   ret ptr %.2
 }
 
@@ -472,12 +472,12 @@ _ZL26check_class_file_load_hookP15ClassFileStreamP6SymbolP15ClassLoaderData6Hand
   br label %115
 
 115:                                              ; preds = %108, %114, %94, %91
-  %.0 = phi ptr [ null, %91 ], [ null, %94 ], [ %.pre, %114 ], [ %.pre38, %108 ]
+  %.1 = phi ptr [ null, %91 ], [ null, %94 ], [ %.pre, %114 ], [ %.pre38, %108 ]
   call void @_ZN15ClassFileParserD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %10) #8
   br label %116
 
 116:                                              ; preds = %_ZL26check_class_file_load_hookP15ClassFileStreamP6SymbolP15ClassLoaderData6HandlePP24JvmtiCachedClassFileDataP10JavaThread.exit, %115
-  %.1 = phi ptr [ %.0, %115 ], [ null, %_ZL26check_class_file_load_hookP15ClassFileStreamP6SymbolP15ClassLoaderData6HandlePP24JvmtiCachedClassFileDataP10JavaThread.exit ]
+  %.0 = phi ptr [ %.1, %115 ], [ null, %_ZL26check_class_file_load_hookP15ClassFileStreamP6SymbolP15ClassLoaderData6HandlePP24JvmtiCachedClassFileDataP10JavaThread.exit ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #8
   %117 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %117, null
@@ -500,7 +500,7 @@ _ZL26check_class_file_load_hookP15ClassFileStreamP6SymbolP15ClassLoaderData6Hand
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %119, %121
-  ret ptr %.1
+  ret ptr %.0
 }
 
 declare void @_ZN24JfrEventClassTransformer17on_klass_creationERP13InstanceKlassR15ClassFileParserP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(440), ptr noundef) local_unnamed_addr #1

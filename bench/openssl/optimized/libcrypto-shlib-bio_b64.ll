@@ -152,7 +152,7 @@ while.cond57.preheader:                           ; preds = %while.end
 
 while.body59:                                     ; preds = %while.cond57.preheader, %while.end223
   %in.addr.0178 = phi ptr [ %in, %while.cond57.preheader ], [ %add.ptr, %while.end223 ]
-  %ret.0177 = phi i32 [ 0, %while.cond57.preheader ], [ %ret.1, %while.end223 ]
+  %ret.0177 = phi i32 [ 0, %while.cond57.preheader ], [ %ret.2, %while.end223 ]
   %inl.addr.0176 = phi i32 [ %inl, %while.cond57.preheader ], [ %sub177, %while.end223 ]
   %7 = tail call i32 @llvm.umin.i32(i32 %inl.addr.0176, i32 1024)
   %call65 = tail call i32 @BIO_test_flags(ptr noundef %b, i32 noundef -1) #7
@@ -284,7 +284,7 @@ cond.end173:                                      ; preds = %cond.end165
 
 if.end176:                                        ; preds = %cond.end112, %cond.end142, %cond.end173
   %15 = phi i32 [ %call97, %cond.end112 ], [ %call127, %cond.end142 ], [ %13, %cond.end173 ]
-  %ret.1 = phi i32 [ %add87, %cond.end112 ], [ %add144, %cond.end142 ], [ %add175, %cond.end173 ]
+  %ret.2 = phi i32 [ %add87, %cond.end112 ], [ %add144, %cond.end142 ], [ %add175, %cond.end173 ]
   %n.2 = phi i32 [ %spec.select, %cond.end112 ], [ %sub124, %cond.end142 ], [ %7, %cond.end173 ]
   %sub177 = sub nsw i32 %inl.addr.0176, %n.2
   %idx.ext = zext nneg i32 %n.2 to i64
@@ -307,8 +307,8 @@ while.body183:                                    ; preds = %while.cond180
 
 if.then191:                                       ; preds = %while.body183
   tail call void @BIO_copy_next_retry(ptr noundef %b) #7
-  %cmp192 = icmp eq i32 %ret.1, 0
-  %cond197 = select i1 %cmp192, i32 %call188, i32 %ret.1
+  %cmp192 = icmp eq i32 %ret.2, 0
+  %cond197 = select i1 %cmp192, i32 %call188, i32 %ret.2
   br label %return
 
 if.end198:                                        ; preds = %while.body183
@@ -347,7 +347,7 @@ while.end223:                                     ; preds = %while.cond180
   br i1 %cmp58, label %while.body59, label %return, !llvm.loop !7
 
 return:                                           ; preds = %while.end223, %cond.end75, %if.then117, %while.end, %entry, %if.then191, %if.then152, %if.then28
-  %retval.0 = phi i32 [ %call26, %if.then28 ], [ %cond197, %if.then191 ], [ %cond158, %if.then152 ], [ 0, %entry ], [ 0, %while.end ], [ %add122, %if.then117 ], [ %ret.1, %while.end223 ], [ %add87, %cond.end75 ]
+  %retval.0 = phi i32 [ %call26, %if.then28 ], [ %cond197, %if.then191 ], [ %cond158, %if.then152 ], [ 0, %entry ], [ 0, %while.end ], [ %add122, %if.then117 ], [ %ret.2, %while.end223 ], [ %add87, %cond.end75 ]
   ret i32 %retval.0
 }
 
@@ -455,14 +455,14 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end39
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end279
   %out.addr.1.ph219 = phi ptr [ %out.addr.0, %while.body.lr.ph.lr.ph ], [ %add.ptr282, %if.end279 ]
   %outl.addr.1.ph218 = phi i32 [ %outl.addr.0, %while.body.lr.ph.lr.ph ], [ %sub280, %if.end279 ]
-  %ret_code.0.ph217 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret_code.1, %if.end279 ]
+  %ret_code.0.ph217 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret_code.2, %if.end279 ]
   %ret.1.ph215 = phi i32 [ %ret.0, %while.body.lr.ph.lr.ph ], [ %add270, %if.end279 ]
   %6 = load i32, ptr %cont, align 8
   %cmp42289 = icmp slt i32 %6, 1
   br i1 %cmp42289, label %while.end, label %if.end45
 
 if.end45:                                         ; preds = %while.body.lr.ph, %while.cond.backedge
-  %ret_code.0203290 = phi i32 [ %ret_code.1, %while.cond.backedge ], [ %ret_code.0.ph217, %while.body.lr.ph ]
+  %ret_code.0203290 = phi i32 [ %ret_code.2, %while.cond.backedge ], [ %ret_code.0.ph217, %while.body.lr.ph ]
   %7 = load i32, ptr %tmp_len46, align 8
   %idxprom47 = sext i32 %7 to i64
   %arrayidx48 = getelementptr inbounds [1024 x i8], ptr %tmp.ptr, i64 0, i64 %idxprom47
@@ -489,7 +489,7 @@ if.then56:                                        ; preds = %if.then54
 if.end65:                                         ; preds = %if.end45.if.end65_crit_edge, %if.then56
   %9 = phi i32 [ %.pre, %if.end45.if.end65_crit_edge ], [ %8, %if.then56 ]
   %i.1 = phi i32 [ %call51, %if.end45.if.end65_crit_edge ], [ 0, %if.then56 ]
-  %ret_code.1 = phi i32 [ %ret_code.0203290, %if.end45.if.end65_crit_edge ], [ %call51, %if.then56 ]
+  %ret_code.2 = phi i32 [ %ret_code.0203290, %if.end45.if.end65_crit_edge ], [ %call51, %if.then56 ]
   %add67 = add i32 %9, %i.1
   store i32 %add67, ptr %tmp_len46, align 8
   %10 = load i32, ptr %start, align 4
@@ -587,7 +587,7 @@ for.body123:                                      ; preds = %for.body123.prehead
   br i1 %exitcond238.not, label %if.end129, label %for.body123, !llvm.loop !8
 
 if.end129:                                        ; preds = %for.body123, %if.then111, %if.else106
-  %i.2 = phi i32 [ %add67, %if.else106 ], [ %conv119, %if.then111 ], [ %conv119, %for.body123 ]
+  %i.4 = phi i32 [ %add67, %if.else106 ], [ %conv119, %if.then111 ], [ %conv119, %for.body123 ]
   %22 = load ptr, ptr %base6491, align 8
   call void @EVP_DecodeInit(ptr noundef %22) #7
   store i32 0, ptr %start, align 4
@@ -605,7 +605,7 @@ for.end135:                                       ; preds = %for.inc133, %if.end
   %j.0171 = phi i32 [ %j.0191, %if.end129 ], [ %add67, %for.inc133 ]
   %p.0.idx169 = phi i64 [ %p.0.idx192, %if.end129 ], [ %p.1.idx, %for.inc133 ]
   %p.0.ptr166 = phi ptr [ %p.0.ptr195, %if.end129 ], [ %p.0.ptr, %for.inc133 ]
-  %i.3 = phi i32 [ %i.2, %if.end129 ], [ %add67, %for.inc133 ]
+  %i.3 = phi i32 [ %i.4, %if.end129 ], [ %add67, %for.inc133 ]
   %q.1 = phi ptr [ %incdec.ptr.ptr.le, %if.end129 ], [ %scevgep236, %for.inc133 ]
   %cmp136 = icmp eq i32 %j.0171, %i.3
   %23 = load i32, ptr %num, align 4
@@ -678,19 +678,19 @@ land.lhs.true182:                                 ; preds = %if.else179
   br i1 %cmp184, label %while.cond.backedge, label %if.end189
 
 if.end189.sink.split:                             ; preds = %for.end135, %for.end135.thread, %land.lhs.true
-  %i.4.ph = phi i32 [ %add67, %land.lhs.true ], [ %add67, %for.end135.thread ], [ %i.3, %for.end135 ]
+  %i.2.ph = phi i32 [ %add67, %land.lhs.true ], [ %add67, %for.end135.thread ], [ %i.3, %for.end135 ]
   store i32 0, ptr %tmp_len46, align 8
   br label %if.end189
 
 if.end189:                                        ; preds = %land.lhs.true182, %if.else179, %if.end189.sink.split
-  %i.4 = phi i32 [ %i.4.ph, %if.end189.sink.split ], [ %add67, %if.else179 ], [ %add67, %land.lhs.true182 ]
+  %i.2 = phi i32 [ %i.2.ph, %if.end189.sink.split ], [ %add67, %if.else179 ], [ %add67, %land.lhs.true182 ]
   %call190 = call i32 @BIO_test_flags(ptr noundef %b, i32 noundef -1) #7
   %and191 = and i32 %call190, 256
   %cmp192.not = icmp eq i32 %and191, 0
   br i1 %cmp192.not, label %if.else243, label %if.then194
 
 if.then194:                                       ; preds = %if.end189
-  %and195 = and i32 %i.4, -4
+  %and195 = and i32 %i.2, -4
   %call200 = call i32 @EVP_DecodeBlock(ptr noundef nonnull %buf92, ptr noundef nonnull %tmp.ptr, i32 noundef %and195) #7
   %cmp201 = icmp sgt i32 %and195, 2
   br i1 %cmp201, label %if.then203, label %if.end223
@@ -715,13 +715,13 @@ if.then211:                                       ; preds = %if.then203
 
 if.end223:                                        ; preds = %if.then211, %if.then203, %if.then194
   %z.0 = phi i32 [ %call200, %if.then203 ], [ %call200, %if.then194 ], [ %spec.select161, %if.then211 ]
-  %cmp224.not = icmp eq i32 %and195, %i.4
+  %cmp224.not = icmp eq i32 %and195, %i.2
   br i1 %cmp224.not, label %if.end236, label %if.then226
 
 if.then226:                                       ; preds = %if.end223
   %idxprom230 = sext i32 %and195 to i64
   %arrayidx231 = getelementptr inbounds [1024 x i8], ptr %tmp.ptr, i64 0, i64 %idxprom230
-  %sub232 = and i32 %i.4, 3
+  %sub232 = and i32 %i.2, 3
   %conv233 = zext nneg i32 %sub232 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %tmp.ptr, ptr nonnull align 1 %arrayidx231, i64 %conv233, i1 false)
   store i32 %sub232, ptr %tmp_len46, align 8
@@ -734,7 +734,7 @@ if.end236:                                        ; preds = %if.then226, %if.end
 
 if.else243:                                       ; preds = %if.end189
   %30 = load ptr, ptr %base6491, align 8
-  %call250 = call i32 @EVP_DecodeUpdate(ptr noundef %30, ptr noundef nonnull %buf92, ptr noundef nonnull %call, ptr noundef nonnull %tmp.ptr, i32 noundef %i.4) #7
+  %call250 = call i32 @EVP_DecodeUpdate(ptr noundef %30, ptr noundef nonnull %buf92, ptr noundef nonnull %call, ptr noundef nonnull %tmp.ptr, i32 noundef %i.2) #7
   store i32 0, ptr %tmp_len46, align 8
   br label %if.end252
 
@@ -773,10 +773,10 @@ if.end279:                                        ; preds = %if.then276, %if.end
 
 while.end:                                        ; preds = %if.end279, %while.body.lr.ph, %if.then54, %if.then56, %while.cond.backedge, %if.end39, %if.then257
   %ret.1.ph187 = phi i32 [ %ret.1.ph215, %if.then257 ], [ %ret.0, %if.end39 ], [ %ret.1.ph215, %while.cond.backedge ], [ %ret.1.ph215, %if.then56 ], [ %ret.1.ph215, %if.then54 ], [ %add270, %if.end279 ], [ %ret.1.ph215, %while.body.lr.ph ]
-  %ret_code.2 = phi i32 [ 0, %if.then257 ], [ 0, %if.end39 ], [ %call51, %if.then54 ], [ %call51, %if.then56 ], [ %ret_code.1, %while.cond.backedge ], [ %ret_code.1, %if.end279 ], [ %ret_code.0.ph217, %while.body.lr.ph ]
+  %ret_code.1 = phi i32 [ 0, %if.then257 ], [ 0, %if.end39 ], [ %call51, %if.then54 ], [ %call51, %if.then56 ], [ %ret_code.2, %while.cond.backedge ], [ %ret_code.2, %if.end279 ], [ %ret_code.0.ph217, %while.body.lr.ph ]
   call void @BIO_copy_next_retry(ptr noundef %b) #7
   %cmp283 = icmp eq i32 %ret.1.ph187, 0
-  %cond288 = select i1 %cmp283, i32 %ret_code.2, i32 %ret.1.ph187
+  %cond288 = select i1 %cmp283, i32 %ret_code.1, i32 %ret.1.ph187
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %while.end

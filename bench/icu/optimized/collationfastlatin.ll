@@ -288,25 +288,25 @@ if.end32.sink.split:                              ; preds = %if.end19, %if.then2
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.sink.split, %if.else.i
-  %leftPair.2 = phi i32 [ %switch.select.i, %if.else.i ], [ %conv.i, %if.end32.sink.split ]
-  %cmp33 = icmp ugt i32 %leftPair.2, 4095
+  %leftPair.3 = phi i32 [ %switch.select.i, %if.else.i ], [ %conv.i, %if.end32.sink.split ]
+  %cmp33 = icmp ugt i32 %leftPair.3, 4095
   br i1 %cmp33, label %if.then34, label %if.else36
 
 if.then34:                                        ; preds = %if.end32
-  %and35 = and i32 %leftPair.2, 64512
+  %and35 = and i32 %leftPair.3, 64512
   br label %while.end
 
 if.else36:                                        ; preds = %if.else.i, %if.end32
-  %leftPair.2554 = phi i32 [ %leftPair.2, %if.end32 ], [ 3, %if.else.i ]
-  %cmp37 = icmp ugt i32 %leftPair.2554, %shr
+  %leftPair.3554 = phi i32 [ %leftPair.3, %if.end32 ], [ 3, %if.else.i ]
+  %cmp37 = icmp ugt i32 %leftPair.3554, %shr
   br i1 %cmp37, label %if.then38, label %if.else40
 
 if.then38:                                        ; preds = %if.else36
-  %and39 = and i32 %leftPair.2554, 4088
+  %and39 = and i32 %leftPair.3554, 4088
   br label %while.end
 
 if.else40:                                        ; preds = %if.else36
-  %call41 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv4, i32 noundef %leftPair.2554, ptr noundef nonnull %left, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
+  %call41 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv4, i32 noundef %leftPair.3554, ptr noundef nonnull %left, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
   %cmp42 = icmp eq i32 %call41, 1
   br i1 %cmp42, label %return, label %if.end44
 
@@ -342,7 +342,7 @@ while.end.loopexit.split.loop.exit611:            ; preds = %if.then6
   br label %while.end
 
 while.end:                                        ; preds = %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit, %while.body, %while.end.loopexit.split.loop.exit611, %for.cond, %if.then38, %if.then34
-  %leftPair.3 = phi i32 [ %and35, %if.then34 ], [ %and39, %if.then38 ], [ %conv9.le, %while.end.loopexit.split.loop.exit611 ], [ %leftPair.0, %for.cond ], [ %retval.0.i255, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit ], [ 2, %while.body ]
+  %leftPair.2 = phi i32 [ %and35, %if.then34 ], [ %and39, %if.then38 ], [ %conv9.le, %while.end.loopexit.split.loop.exit611 ], [ %leftPair.0, %for.cond ], [ %retval.0.i255, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit ], [ 2, %while.body ]
   %cmp49627 = icmp eq i32 %rightPair.0, 0
   br i1 %cmp49627, label %while.body50, label %while.end107
 
@@ -412,25 +412,25 @@ if.end91.sink.split:                              ; preds = %if.end74, %if.then8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end91.sink.split, %if.else.i258
-  %rightPair.2 = phi i32 [ %switch.select.i260, %if.else.i258 ], [ %conv.i266, %if.end91.sink.split ]
-  %cmp92 = icmp ugt i32 %rightPair.2, 4095
+  %rightPair.3 = phi i32 [ %switch.select.i260, %if.else.i258 ], [ %conv.i266, %if.end91.sink.split ]
+  %cmp92 = icmp ugt i32 %rightPair.3, 4095
   br i1 %cmp92, label %if.then93, label %if.else95
 
 if.then93:                                        ; preds = %if.end91
-  %and94 = and i32 %rightPair.2, 64512
+  %and94 = and i32 %rightPair.3, 64512
   br label %while.end107
 
 if.else95:                                        ; preds = %if.else.i258, %if.end91
-  %rightPair.2558 = phi i32 [ %rightPair.2, %if.end91 ], [ 3, %if.else.i258 ]
-  %cmp96 = icmp ugt i32 %rightPair.2558, %shr
+  %rightPair.3558 = phi i32 [ %rightPair.3, %if.end91 ], [ 3, %if.else.i258 ]
+  %cmp96 = icmp ugt i32 %rightPair.3558, %shr
   br i1 %cmp96, label %if.then97, label %if.else99
 
 if.then97:                                        ; preds = %if.else95
-  %and98 = and i32 %rightPair.2558, 4088
+  %and98 = and i32 %rightPair.3558, 4088
   br label %while.end107
 
 if.else99:                                        ; preds = %if.else95
-  %call100 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv58, i32 noundef %rightPair.2558, ptr noundef nonnull %right, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
+  %call100 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv58, i32 noundef %rightPair.3558, ptr noundef nonnull %right, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
   %cmp101 = icmp eq i32 %call100, 1
   br i1 %cmp101, label %return, label %if.end103
 
@@ -466,17 +466,17 @@ while.end107.loopexit.split.loop.exit618:         ; preds = %if.then60
   br label %while.end107
 
 while.end107:                                     ; preds = %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit280, %while.body50, %while.end107.loopexit.split.loop.exit618, %while.end, %if.then97, %if.then93
-  %rightPair.3 = phi i32 [ %and94, %if.then93 ], [ %and98, %if.then97 ], [ %conv63.le, %while.end107.loopexit.split.loop.exit618 ], [ %rightPair.0, %while.end ], [ %retval.0.i275, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit280 ], [ 2, %while.body50 ]
-  %cmp108 = icmp eq i32 %leftPair.3, %rightPair.3
+  %rightPair.2 = phi i32 [ %and94, %if.then93 ], [ %and98, %if.then97 ], [ %conv63.le, %while.end107.loopexit.split.loop.exit618 ], [ %rightPair.0, %while.end ], [ %retval.0.i275, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit280 ], [ 2, %while.body50 ]
+  %cmp108 = icmp eq i32 %leftPair.2, %rightPair.2
   br i1 %cmp108, label %if.then109, label %if.end113
 
 if.then109:                                       ; preds = %while.end107
-  %cmp110 = icmp eq i32 %leftPair.3, 2
+  %cmp110 = icmp eq i32 %leftPair.2, 2
   br i1 %cmp110, label %for.end, label %for.cond.backedge
 
 if.end113:                                        ; preds = %while.end107
-  %and114 = and i32 %leftPair.3, 65535
-  %and115 = and i32 %rightPair.3, 65535
+  %and114 = and i32 %leftPair.2, 65535
+  %and115 = and i32 %rightPair.2, 65535
   %cmp116.not = icmp eq i32 %and114, %and115
   br i1 %cmp116.not, label %if.end119, label %if.then117
 
@@ -486,12 +486,12 @@ if.then117:                                       ; preds = %if.end113
   br label %return
 
 if.end119:                                        ; preds = %if.end113
-  %cmp120 = icmp eq i32 %leftPair.3, 2
+  %cmp120 = icmp eq i32 %leftPair.2, 2
   br i1 %cmp120, label %for.end, label %if.end122
 
 if.end122:                                        ; preds = %if.end119
-  %shr123 = lshr i32 %leftPair.3, 16
-  %shr124 = lshr i32 %rightPair.3, 16
+  %shr123 = lshr i32 %leftPair.2, 16
+  %shr124 = lshr i32 %rightPair.2, 16
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end122, %if.then109
@@ -553,12 +553,12 @@ if.end158.sink.split:                             ; preds = %if.else145, %if.end
   br label %if.end158
 
 if.end158:                                        ; preds = %if.end158.sink.split, %if.else.i282
-  %leftPair.6 = phi i32 [ %switch.select.i284, %if.else.i282 ], [ %conv.i290, %if.end158.sink.split ]
-  %cmp159 = icmp ugt i32 %leftPair.6, 4095
+  %leftPair.7 = phi i32 [ %switch.select.i284, %if.else.i282 ], [ %conv.i290, %if.end158.sink.split ]
+  %cmp159 = icmp ugt i32 %leftPair.7, 4095
   br i1 %cmp159, label %if.then160, label %if.else162
 
 if.then160:                                       ; preds = %if.end158
-  %and.i292 = and i32 %leftPair.6, 992
+  %and.i292 = and i32 %leftPair.7, 992
   %cmp.i293 = icmp ult i32 %and.i292, 384
   %add.i = add nuw nsw i32 %and.i292, 32
   %add1.i = shl nuw nsw i32 %and.i292, 16
@@ -567,12 +567,12 @@ if.then160:                                       ; preds = %if.end158
   br label %while.end170
 
 if.else162:                                       ; preds = %if.else.i282, %if.end158
-  %leftPair.6562 = phi i32 [ %leftPair.6, %if.end158 ], [ 3, %if.else.i282 ]
-  %cmp163 = icmp ugt i32 %leftPair.6562, %shr
+  %leftPair.7562 = phi i32 [ %leftPair.7, %if.end158 ], [ 3, %if.else.i282 ]
+  %cmp163 = icmp ugt i32 %leftPair.7562, %shr
   br i1 %cmp163, label %while.end170, label %if.else165
 
 if.else165:                                       ; preds = %if.else162
-  %call166 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv139, i32 noundef %leftPair.6562, ptr noundef nonnull %left, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
+  %call166 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv139, i32 noundef %leftPair.7562, ptr noundef nonnull %left, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
   %cmp.i295 = icmp ult i32 %call166, 65536
   br i1 %cmp.i295, label %if.then.i298, label %if.else10.i
 
@@ -618,7 +618,7 @@ _ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit: ; preds = %if.else5.i, %
   br i1 %cmp130, label %while.body131, label %while.end170, !llvm.loop !10
 
 while.end170:                                     ; preds = %if.else14.i, %if.else.i299, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit, %while.body131, %if.else162, %if.then12.i, %if.then2.i, %for.cond128, %if.then160
-  %leftPair.7 = phi i32 [ %retval.0.i294, %if.then160 ], [ %leftPair.4, %for.cond128 ], [ %add.i297, %if.then12.i ], [ %retval.0.i.i, %if.then2.i ], [ 12583104, %if.else14.i ], [ 192, %if.else.i299 ], [ %pair.addr.0.i, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit ], [ 2, %while.body131 ], [ 192, %if.else162 ]
+  %leftPair.6 = phi i32 [ %retval.0.i294, %if.then160 ], [ %leftPair.4, %for.cond128 ], [ %add.i297, %if.then12.i ], [ %retval.0.i.i, %if.then2.i ], [ 12583104, %if.else14.i ], [ 192, %if.else.i299 ], [ %pair.addr.0.i, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit ], [ 2, %while.body131 ], [ 192, %if.else162 ]
   %cmp172641 = icmp eq i32 %rightPair.4, 0
   br i1 %cmp172641, label %while.body173, label %while.end212
 
@@ -661,12 +661,12 @@ if.end200.sink.split:                             ; preds = %if.else187, %if.end
   br label %if.end200
 
 if.end200:                                        ; preds = %if.end200.sink.split, %if.else.i302
-  %rightPair.6 = phi i32 [ %switch.select.i304, %if.else.i302 ], [ %conv.i310, %if.end200.sink.split ]
-  %cmp201 = icmp ugt i32 %rightPair.6, 4095
+  %rightPair.7 = phi i32 [ %switch.select.i304, %if.else.i302 ], [ %conv.i310, %if.end200.sink.split ]
+  %cmp201 = icmp ugt i32 %rightPair.7, 4095
   br i1 %cmp201, label %if.then202, label %if.else204
 
 if.then202:                                       ; preds = %if.end200
-  %and.i312 = and i32 %rightPair.6, 992
+  %and.i312 = and i32 %rightPair.7, 992
   %cmp.i313 = icmp ult i32 %and.i312, 384
   %add.i314 = add nuw nsw i32 %and.i312, 32
   %add1.i315 = shl nuw nsw i32 %and.i312, 16
@@ -675,12 +675,12 @@ if.then202:                                       ; preds = %if.end200
   br label %while.end212
 
 if.else204:                                       ; preds = %if.else.i302, %if.end200
-  %rightPair.6566 = phi i32 [ %rightPair.6, %if.end200 ], [ 3, %if.else.i302 ]
-  %cmp205 = icmp ugt i32 %rightPair.6566, %shr
+  %rightPair.7566 = phi i32 [ %rightPair.7, %if.end200 ], [ 3, %if.else.i302 ]
+  %cmp205 = icmp ugt i32 %rightPair.7566, %shr
   br i1 %cmp205, label %while.end212, label %if.else207
 
 if.else207:                                       ; preds = %if.else204
-  %call208 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv181, i32 noundef %rightPair.6566, ptr noundef nonnull %right, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
+  %call208 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv181, i32 noundef %rightPair.7566, ptr noundef nonnull %right, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
   %cmp.i318 = icmp ult i32 %call208, 65536
   br i1 %cmp.i318, label %if.then.i329, label %if.else10.i319
 
@@ -726,17 +726,17 @@ _ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit343: ; preds = %if.else5.i
   br i1 %cmp172, label %while.body173, label %while.end212, !llvm.loop !11
 
 while.end212:                                     ; preds = %if.else14.i322, %if.else.i331, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit343, %while.body173, %if.else204, %if.then12.i326, %if.then2.i336, %while.end170, %if.then202
-  %rightPair.7 = phi i32 [ %retval.0.i317, %if.then202 ], [ %rightPair.4, %while.end170 ], [ %add.i328, %if.then12.i326 ], [ %retval.0.i.i342, %if.then2.i336 ], [ 12583104, %if.else14.i322 ], [ 192, %if.else.i331 ], [ %pair.addr.0.i325, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit343 ], [ 2, %while.body173 ], [ 192, %if.else204 ]
-  %cmp213 = icmp eq i32 %leftPair.7, %rightPair.7
+  %rightPair.6 = phi i32 [ %retval.0.i317, %if.then202 ], [ %rightPair.4, %while.end170 ], [ %add.i328, %if.then12.i326 ], [ %retval.0.i.i342, %if.then2.i336 ], [ 12583104, %if.else14.i322 ], [ 192, %if.else.i331 ], [ %pair.addr.0.i325, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit343 ], [ 2, %while.body173 ], [ 192, %if.else204 ]
+  %cmp213 = icmp eq i32 %leftPair.6, %rightPair.6
   br i1 %cmp213, label %if.then214, label %if.end218
 
 if.then214:                                       ; preds = %while.end212
-  %cmp215 = icmp eq i32 %leftPair.7, 2
+  %cmp215 = icmp eq i32 %leftPair.6, 2
   br i1 %cmp215, label %if.end236, label %for.cond128.backedge
 
 if.end218:                                        ; preds = %while.end212
-  %and219 = and i32 %leftPair.7, 65535
-  %and220 = and i32 %rightPair.7, 65535
+  %and219 = and i32 %leftPair.6, 65535
+  %and220 = and i32 %rightPair.6, 65535
   %cmp221.not = icmp eq i32 %and219, %and220
   br i1 %cmp221.not, label %if.end229, label %if.then222
 
@@ -751,12 +751,12 @@ if.end226:                                        ; preds = %if.then222
   br label %return
 
 if.end229:                                        ; preds = %if.end218
-  %cmp230 = icmp eq i32 %leftPair.7, 2
+  %cmp230 = icmp eq i32 %leftPair.6, 2
   br i1 %cmp230, label %if.end236, label %if.end232
 
 if.end232:                                        ; preds = %if.end229
-  %shr233 = lshr i32 %leftPair.7, 16
-  %shr234 = lshr i32 %rightPair.7, 16
+  %shr233 = lshr i32 %leftPair.6, 16
+  %shr234 = lshr i32 %rightPair.6, 16
   br label %for.cond128.backedge
 
 for.cond128.backedge:                             ; preds = %if.end232, %if.then214
@@ -827,24 +827,24 @@ if.end264:                                        ; preds = %if.else.i346, %cond
   br i1 %cmp.i356, label %if.then.i360, label %if.else14.i357
 
 if.then.i360:                                     ; preds = %cond.end, %if.end264
-  %leftPair.10573 = phi i32 [ %call263, %if.end264 ], [ %cond260, %cond.end ]
-  %cmp1.i361 = icmp ugt i32 %leftPair.10573, 4095
+  %leftPair.11573 = phi i32 [ %call263, %if.end264 ], [ %cond260, %cond.end ]
+  %cmp1.i361 = icmp ugt i32 %leftPair.11573, 4095
   br i1 %cmp1.i361, label %if.then2.i365, label %if.else.i362
 
 if.then2.i365:                                    ; preds = %if.then.i360
-  %and.i366 = and i32 %leftPair.10573, 24
-  %and3.i = and i32 %leftPair.10573, 896
+  %and.i366 = and i32 %leftPair.11573, 24
+  %and3.i = and i32 %leftPair.11573, 896
   %cmp4.i = icmp ult i32 %and3.i, 384
   %or.cond.i367.not = or i1 %cmp126.not, %cmp4.i
   br i1 %or.cond.i367.not, label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit, label %while.end266.loopexit.split.loop.exit722
 
 if.else.i362:                                     ; preds = %if.then.i360
-  %cmp6.i363 = icmp ugt i32 %leftPair.10573, %shr
+  %cmp6.i363 = icmp ugt i32 %leftPair.11573, %shr
   br i1 %cmp6.i363, label %while.end266, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else.i362
-  %cmp9.i = icmp ugt i32 %leftPair.10573, 3071
-  %spec.select740 = select i1 %cmp9.i, i32 0, i32 %leftPair.10573
+  %cmp9.i = icmp ugt i32 %leftPair.11573, 3071
+  %spec.select740 = select i1 %cmp9.i, i32 0, i32 %leftPair.11573
   br label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit
 
 if.else14.i357:                                   ; preds = %if.end264
@@ -879,7 +879,7 @@ while.end266.loopexit.split.loop.exit722:         ; preds = %if.then2.i365
   br label %while.end266
 
 while.end266:                                     ; preds = %while.body246, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit, %if.else.i362, %if.else28.i, %while.end266.loopexit.split.loop.exit722, %for.cond243
-  %leftPair.11 = phi i32 [ %leftPair.8, %for.cond243 ], [ %or.i368.le, %while.end266.loopexit.split.loop.exit722 ], [ 2, %while.body246 ], [ %pair.addr.0.i359, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit ], [ 8, %if.else.i362 ], [ 524296, %if.else28.i ]
+  %leftPair.10 = phi i32 [ %leftPair.8, %for.cond243 ], [ %or.i368.le, %while.end266.loopexit.split.loop.exit722 ], [ 2, %while.body246 ], [ %pair.addr.0.i359, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit ], [ 8, %if.else.i362 ], [ 524296, %if.else28.i ]
   %cmp268652 = icmp eq i32 %rightPair.8, 0
   br i1 %cmp268652, label %while.body269, label %while.end292
 
@@ -930,24 +930,24 @@ if.end290:                                        ; preds = %if.else.i370, %cond
   br i1 %cmp.i380, label %if.then.i395, label %if.else14.i381
 
 if.then.i395:                                     ; preds = %cond.end285, %if.end290
-  %rightPair.10580 = phi i32 [ %call289, %if.end290 ], [ %cond286, %cond.end285 ]
-  %cmp1.i396 = icmp ugt i32 %rightPair.10580, 4095
+  %rightPair.11580 = phi i32 [ %call289, %if.end290 ], [ %cond286, %cond.end285 ]
+  %cmp1.i396 = icmp ugt i32 %rightPair.11580, 4095
   br i1 %cmp1.i396, label %if.then2.i402, label %if.else.i397
 
 if.then2.i402:                                    ; preds = %if.then.i395
-  %and.i403 = and i32 %rightPair.10580, 24
-  %and3.i405 = and i32 %rightPair.10580, 896
+  %and.i403 = and i32 %rightPair.11580, 24
+  %and3.i405 = and i32 %rightPair.11580, 896
   %cmp4.i406 = icmp ult i32 %and3.i405, 384
   %or.cond.i407.not = or i1 %cmp126.not, %cmp4.i406
   br i1 %or.cond.i407.not, label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit410, label %while.end292.loopexit.split.loop.exit730
 
 if.else.i397:                                     ; preds = %if.then.i395
-  %cmp6.i398 = icmp ugt i32 %rightPair.10580, %shr
+  %cmp6.i398 = icmp ugt i32 %rightPair.11580, %shr
   br i1 %cmp6.i398, label %while.end292, label %if.else8.i399
 
 if.else8.i399:                                    ; preds = %if.else.i397
-  %cmp9.i400 = icmp ugt i32 %rightPair.10580, 3071
-  %spec.select742 = select i1 %cmp9.i400, i32 0, i32 %rightPair.10580
+  %cmp9.i400 = icmp ugt i32 %rightPair.11580, 3071
+  %spec.select742 = select i1 %cmp9.i400, i32 0, i32 %rightPair.11580
   br label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit410
 
 if.else14.i381:                                   ; preds = %if.end290
@@ -982,17 +982,17 @@ while.end292.loopexit.split.loop.exit730:         ; preds = %if.then2.i402
   br label %while.end292
 
 while.end292:                                     ; preds = %while.body269, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit410, %if.else.i397, %if.else28.i384, %while.end292.loopexit.split.loop.exit730, %while.end266
-  %rightPair.11 = phi i32 [ %rightPair.8, %while.end266 ], [ %or.i408.le, %while.end292.loopexit.split.loop.exit730 ], [ 2, %while.body269 ], [ %pair.addr.0.i387, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit410 ], [ 8, %if.else.i397 ], [ 524296, %if.else28.i384 ]
-  %cmp293 = icmp eq i32 %leftPair.11, %rightPair.11
+  %rightPair.10 = phi i32 [ %rightPair.8, %while.end266 ], [ %or.i408.le, %while.end292.loopexit.split.loop.exit730 ], [ 2, %while.body269 ], [ %pair.addr.0.i387, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit410 ], [ 8, %if.else.i397 ], [ 524296, %if.else28.i384 ]
+  %cmp293 = icmp eq i32 %leftPair.10, %rightPair.10
   br i1 %cmp293, label %if.then294, label %if.end298
 
 if.then294:                                       ; preds = %while.end292
-  %cmp295 = icmp eq i32 %leftPair.11, 2
+  %cmp295 = icmp eq i32 %leftPair.10, 2
   br i1 %cmp295, label %if.end318, label %for.cond243.backedge
 
 if.end298:                                        ; preds = %while.end292
-  %and299 = and i32 %leftPair.11, 65535
-  %and300 = and i32 %rightPair.11, 65535
+  %and299 = and i32 %leftPair.10, 65535
+  %and300 = and i32 %rightPair.10, 65535
   %cmp301.not = icmp eq i32 %and299, %and300
   br i1 %cmp301.not, label %if.end311, label %if.then302
 
@@ -1011,12 +1011,12 @@ if.else308:                                       ; preds = %if.then302
   br label %return
 
 if.end311:                                        ; preds = %if.end298
-  %cmp312 = icmp eq i32 %leftPair.11, 2
+  %cmp312 = icmp eq i32 %leftPair.10, 2
   br i1 %cmp312, label %if.end318, label %if.end314
 
 if.end314:                                        ; preds = %if.end311
-  %shr315 = lshr i32 %leftPair.11, 16
-  %shr316 = lshr i32 %rightPair.11, 16
+  %shr315 = lshr i32 %leftPair.10, 16
+  %shr316 = lshr i32 %rightPair.10, 16
   br label %for.cond243.backedge
 
 for.cond243.backedge:                             ; preds = %if.end314, %if.then294
@@ -1034,7 +1034,7 @@ if.end322:                                        ; preds = %if.end318
   store i32 0, ptr %rightIndex, align 4
   store i32 0, ptr %leftIndex, align 4
   %spec.select26.v.i = select i1 %cmp.i413.not, i32 2621480, i32 2097184
-  %pair.addr.0.v.i = select i1 %cmp.i413.not, i32 2031647, i32 458759
+  %pair.addr.1.v.i = select i1 %cmp.i413.not, i32 2031647, i32 458759
   %spec.select25.v.i = select i1 %cmp.i413.not, i32 40, i32 32
   br label %for.cond324
 
@@ -1091,39 +1091,39 @@ if.end348:                                        ; preds = %if.else.i416, %cond
   br i1 %cmp.i426, label %if.then.i428, label %if.else30.i
 
 if.then.i428:                                     ; preds = %cond.end343, %if.end348
-  %leftPair.14587 = phi i32 [ %call347, %if.end348 ], [ %cond344, %cond.end343 ]
-  %cmp1.i429 = icmp ugt i32 %leftPair.14587, 4095
+  %leftPair.15587 = phi i32 [ %call347, %if.end348 ], [ %cond344, %cond.end343 ]
+  %cmp1.i429 = icmp ugt i32 %leftPair.15587, 4095
   br i1 %cmp1.i429, label %if.then2.i431, label %if.else15.i
 
 if.then2.i431:                                    ; preds = %if.then.i428
-  %and9.i = and i32 %leftPair.14587, 896
+  %and9.i = and i32 %leftPair.15587, 896
   %cmp10.i = icmp ugt i32 %and9.i, 383
   br i1 %cmp.i413.not, label %if.then3.i433, label %if.else.i436
 
 if.then3.i433:                                    ; preds = %if.then2.i431
-  %and.i434 = and i32 %leftPair.14587, 31
+  %and.i434 = and i32 %leftPair.15587, 31
   %spec.select.v.i = select i1 %cmp10.i, i32 2621472, i32 32
   %spec.select.i435 = or disjoint i32 %spec.select.v.i, %and.i434
   br label %while.end350
 
 if.else.i436:                                     ; preds = %if.then2.i431
-  %and7.i = and i32 %leftPair.14587, 7
+  %and7.i = and i32 %leftPair.15587, 7
   %spec.select24.v.i = select i1 %cmp10.i, i32 2097184, i32 32
   %spec.select24.i = or disjoint i32 %spec.select24.v.i, %and7.i
   br label %while.end350
 
 if.else15.i:                                      ; preds = %if.then.i428
-  %cmp16.i = icmp ugt i32 %leftPair.14587, %shr
+  %cmp16.i = icmp ugt i32 %leftPair.15587, %shr
   br i1 %cmp16.i, label %if.then17.i, label %if.else24.i
 
 if.then17.i:                                      ; preds = %if.else15.i
-  %and18.i = and i32 %leftPair.14587, 7
+  %and18.i = and i32 %leftPair.15587, 7
   %spec.select25.i = or disjoint i32 %and18.i, %spec.select25.v.i
   br label %while.end350
 
 if.else24.i:                                      ; preds = %if.else15.i
-  %cmp25.i = icmp ugt i32 %leftPair.14587, 3071
-  %spec.select744 = select i1 %cmp25.i, i32 0, i32 %leftPair.14587
+  %cmp25.i = icmp ugt i32 %leftPair.15587, 3071
+  %spec.select744 = select i1 %cmp25.i, i32 0, i32 %leftPair.15587
   br label %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit
 
 if.else30.i:                                      ; preds = %if.end348
@@ -1132,8 +1132,8 @@ if.else30.i:                                      ; preds = %if.end348
   br i1 %cmp33.i, label %if.then34.i, label %if.else42.i
 
 if.then34.i:                                      ; preds = %if.else30.i
-  %pair.addr.0.i427 = and i32 %call347, %pair.addr.0.v.i
-  %add41.i = or disjoint i32 %pair.addr.0.i427, 2097184
+  %pair.addr.1.i = and i32 %call347, %pair.addr.1.v.i
+  %add41.i = or disjoint i32 %pair.addr.1.i, 2097184
   br label %while.end350
 
 if.else42.i:                                      ; preds = %if.else30.i
@@ -1146,12 +1146,12 @@ if.then44.i:                                      ; preds = %if.else42.i
   br label %while.end350
 
 _ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit: ; preds = %if.else24.i, %if.else42.i
-  %pair.addr.1.i = phi i32 [ 0, %if.else42.i ], [ %spec.select744, %if.else24.i ]
-  %cmp326 = icmp eq i32 %pair.addr.1.i, 0
+  %pair.addr.0.i427 = phi i32 [ 0, %if.else42.i ], [ %spec.select744, %if.else24.i ]
+  %cmp326 = icmp eq i32 %pair.addr.0.i427, 0
   br i1 %cmp326, label %while.body327, label %while.end350, !llvm.loop !16
 
 while.end350:                                     ; preds = %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit, %while.body327, %if.then44.i, %if.then17.i, %if.else.i436, %if.then3.i433, %if.then34.i, %for.cond324
-  %leftPair.15 = phi i32 [ %leftPair.12, %for.cond324 ], [ %spec.select26.i, %if.then44.i ], [ %spec.select25.i, %if.then17.i ], [ %spec.select24.i, %if.else.i436 ], [ %spec.select.i435, %if.then3.i433 ], [ %add41.i, %if.then34.i ], [ 2, %while.body327 ], [ %pair.addr.1.i, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit ]
+  %leftPair.14 = phi i32 [ %leftPair.12, %for.cond324 ], [ %spec.select26.i, %if.then44.i ], [ %spec.select25.i, %if.then17.i ], [ %spec.select24.i, %if.else.i436 ], [ %spec.select.i435, %if.then3.i433 ], [ %add41.i, %if.then34.i ], [ 2, %while.body327 ], [ %pair.addr.0.i427, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit ]
   %cmp352662 = icmp eq i32 %rightPair.12, 0
   br i1 %cmp352662, label %while.body353, label %while.end376
 
@@ -1202,39 +1202,39 @@ if.end374:                                        ; preds = %if.else.i438, %cond
   br i1 %cmp.i448, label %if.then.i465, label %if.else30.i449
 
 if.then.i465:                                     ; preds = %cond.end369, %if.end374
-  %rightPair.14594 = phi i32 [ %call373, %if.end374 ], [ %cond370, %cond.end369 ]
-  %cmp1.i466 = icmp ugt i32 %rightPair.14594, 4095
+  %rightPair.15594 = phi i32 [ %call373, %if.end374 ], [ %cond370, %cond.end369 ]
+  %cmp1.i466 = icmp ugt i32 %rightPair.15594, 4095
   br i1 %cmp1.i466, label %if.then2.i477, label %if.else15.i467
 
 if.then2.i477:                                    ; preds = %if.then.i465
-  %and9.i479 = and i32 %rightPair.14594, 896
+  %and9.i479 = and i32 %rightPair.15594, 896
   %cmp10.i480 = icmp ugt i32 %and9.i479, 383
   br i1 %cmp.i413.not, label %if.then3.i481, label %if.else.i485
 
 if.then3.i481:                                    ; preds = %if.then2.i477
-  %and.i482 = and i32 %rightPair.14594, 31
+  %and.i482 = and i32 %rightPair.15594, 31
   %spec.select.v.i483 = select i1 %cmp10.i480, i32 2621472, i32 32
   %spec.select.i484 = or disjoint i32 %spec.select.v.i483, %and.i482
   br label %while.end376
 
 if.else.i485:                                     ; preds = %if.then2.i477
-  %and7.i486 = and i32 %rightPair.14594, 7
+  %and7.i486 = and i32 %rightPair.15594, 7
   %spec.select24.v.i487 = select i1 %cmp10.i480, i32 2097184, i32 32
   %spec.select24.i488 = or disjoint i32 %spec.select24.v.i487, %and7.i486
   br label %while.end376
 
 if.else15.i467:                                   ; preds = %if.then.i465
-  %cmp16.i468 = icmp ugt i32 %rightPair.14594, %shr
+  %cmp16.i468 = icmp ugt i32 %rightPair.15594, %shr
   br i1 %cmp16.i468, label %if.then17.i472, label %if.else24.i469
 
 if.then17.i472:                                   ; preds = %if.else15.i467
-  %and18.i473 = and i32 %rightPair.14594, 7
+  %and18.i473 = and i32 %rightPair.15594, 7
   %spec.select25.i476 = or disjoint i32 %and18.i473, %spec.select25.v.i
   br label %while.end376
 
 if.else24.i469:                                   ; preds = %if.else15.i467
-  %cmp25.i470 = icmp ugt i32 %rightPair.14594, 3071
-  %spec.select746 = select i1 %cmp25.i470, i32 0, i32 %rightPair.14594
+  %cmp25.i470 = icmp ugt i32 %rightPair.15594, 3071
+  %spec.select746 = select i1 %cmp25.i470, i32 0, i32 %rightPair.15594
   br label %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit489
 
 if.else30.i449:                                   ; preds = %if.end374
@@ -1243,8 +1243,8 @@ if.else30.i449:                                   ; preds = %if.end374
   br i1 %cmp33.i451, label %if.then34.i460, label %if.else42.i452
 
 if.then34.i460:                                   ; preds = %if.else30.i449
-  %pair.addr.0.i463 = and i32 %call373, %pair.addr.0.v.i
-  %add41.i464 = or disjoint i32 %pair.addr.0.i463, 2097184
+  %pair.addr.1.i463 = and i32 %call373, %pair.addr.1.v.i
+  %add41.i464 = or disjoint i32 %pair.addr.1.i463, 2097184
   br label %while.end376
 
 if.else42.i452:                                   ; preds = %if.else30.i449
@@ -1257,22 +1257,22 @@ if.then44.i455:                                   ; preds = %if.else42.i452
   br label %while.end376
 
 _ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit489: ; preds = %if.else24.i469, %if.else42.i452
-  %pair.addr.1.i454 = phi i32 [ 0, %if.else42.i452 ], [ %spec.select746, %if.else24.i469 ]
-  %cmp352 = icmp eq i32 %pair.addr.1.i454, 0
+  %pair.addr.0.i454 = phi i32 [ 0, %if.else42.i452 ], [ %spec.select746, %if.else24.i469 ]
+  %cmp352 = icmp eq i32 %pair.addr.0.i454, 0
   br i1 %cmp352, label %while.body353, label %while.end376, !llvm.loop !17
 
 while.end376:                                     ; preds = %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit489, %while.body353, %if.then44.i455, %if.then17.i472, %if.else.i485, %if.then3.i481, %if.then34.i460, %while.end350
-  %rightPair.15 = phi i32 [ %rightPair.12, %while.end350 ], [ %spec.select26.i459, %if.then44.i455 ], [ %spec.select25.i476, %if.then17.i472 ], [ %spec.select24.i488, %if.else.i485 ], [ %spec.select.i484, %if.then3.i481 ], [ %add41.i464, %if.then34.i460 ], [ 2, %while.body353 ], [ %pair.addr.1.i454, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit489 ]
-  %cmp377 = icmp eq i32 %leftPair.15, %rightPair.15
+  %rightPair.14 = phi i32 [ %rightPair.12, %while.end350 ], [ %spec.select26.i459, %if.then44.i455 ], [ %spec.select25.i476, %if.then17.i472 ], [ %spec.select24.i488, %if.else.i485 ], [ %spec.select.i484, %if.then3.i481 ], [ %add41.i464, %if.then34.i460 ], [ 2, %while.body353 ], [ %pair.addr.0.i454, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit489 ]
+  %cmp377 = icmp eq i32 %leftPair.14, %rightPair.14
   br i1 %cmp377, label %if.then378, label %if.end382
 
 if.then378:                                       ; preds = %while.end376
-  %cmp379 = icmp eq i32 %leftPair.15, 2
+  %cmp379 = icmp eq i32 %leftPair.14, 2
   br i1 %cmp379, label %for.end405, label %for.cond324.backedge
 
 if.end382:                                        ; preds = %while.end376
-  %and383 = and i32 %leftPair.15, 65535
-  %and384 = and i32 %rightPair.15, 65535
+  %and383 = and i32 %leftPair.14, 65535
+  %and384 = and i32 %rightPair.14, 65535
   %cmp385.not = icmp eq i32 %and383, %and384
   br i1 %cmp385.not, label %if.end399, label %if.then386
 
@@ -1291,19 +1291,19 @@ if.then388:                                       ; preds = %if.then386
   br label %if.end396
 
 if.end396:                                        ; preds = %if.then388, %if.then386
-  %leftTertiary.1 = phi i32 [ %and383, %if.then386 ], [ %spec.select, %if.then388 ]
+  %leftTertiary.0 = phi i32 [ %and383, %if.then386 ], [ %spec.select, %if.then388 ]
   %rightTertiary.0 = phi i32 [ %and384, %if.then386 ], [ %spec.select254, %if.then388 ]
-  %cmp397 = icmp ult i32 %leftTertiary.1, %rightTertiary.0
+  %cmp397 = icmp ult i32 %leftTertiary.0, %rightTertiary.0
   %cond398 = select i1 %cmp397, i32 -1, i32 1
   br label %return
 
 if.end399:                                        ; preds = %if.end382
-  %cmp400 = icmp eq i32 %leftPair.15, 2
+  %cmp400 = icmp eq i32 %leftPair.14, 2
   br i1 %cmp400, label %for.end405, label %if.end402
 
 if.end402:                                        ; preds = %if.end399
-  %shr403 = lshr i32 %leftPair.15, 16
-  %shr404 = lshr i32 %rightPair.15, 16
+  %shr403 = lshr i32 %leftPair.14, 16
+  %shr404 = lshr i32 %rightPair.14, 16
   br label %for.cond324.backedge
 
 for.cond324.backedge:                             ; preds = %if.end402, %if.then378
@@ -1373,24 +1373,24 @@ if.end434:                                        ; preds = %if.else.i495, %cond
   br i1 %cmp.i505, label %if.then.i510, label %if.else15.i506
 
 if.then.i510:                                     ; preds = %cond.end429, %if.end434
-  %leftPair.18601 = phi i32 [ %call433, %if.end434 ], [ %cond430, %cond.end429 ]
-  %cmp1.i511 = icmp ugt i32 %leftPair.18601, 4095
+  %leftPair.19601 = phi i32 [ %call433, %if.end434 ], [ %cond430, %cond.end429 ]
+  %cmp1.i511 = icmp ugt i32 %leftPair.19601, 4095
   br i1 %cmp1.i511, label %if.then2.i517, label %if.else5.i512
 
 if.then2.i517:                                    ; preds = %if.then.i510
-  %and.i518 = and i32 %leftPair.18601, 896
+  %and.i518 = and i32 %leftPair.19601, 896
   %cmp3.i519 = icmp ugt i32 %and.i518, 383
   %..i520 = select i1 %cmp3.i519, i32 -67044352, i32 64512
   br label %while.end436
 
 if.else5.i512:                                    ; preds = %if.then.i510
-  %cmp6.i513 = icmp ugt i32 %leftPair.18601, %shr
+  %cmp6.i513 = icmp ugt i32 %leftPair.19601, %shr
   br i1 %cmp6.i513, label %while.end436, label %if.else8.i514
 
 if.else8.i514:                                    ; preds = %if.else5.i512
-  %cmp9.i515 = icmp ugt i32 %leftPair.18601, 3071
-  %and11.i = and i32 %leftPair.18601, 4088
-  %spec.select.i516 = select i1 %cmp9.i515, i32 %and11.i, i32 %leftPair.18601
+  %cmp9.i515 = icmp ugt i32 %leftPair.19601, 3071
+  %and11.i = and i32 %leftPair.19601, 4088
+  %spec.select.i516 = select i1 %cmp9.i515, i32 %and11.i, i32 %leftPair.19601
   br label %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit
 
 if.else15.i506:                                   ; preds = %if.end434
@@ -1405,7 +1405,7 @@ _ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit: ; preds = %if.else15.i5
   br i1 %cmp412, label %while.body413, label %while.end436, !llvm.loop !19
 
 while.end436:                                     ; preds = %if.else15.i506, %if.else5.i512, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit, %while.body413, %if.then2.i517, %for.cond410
-  %leftPair.19 = phi i32 [ %leftPair.16, %for.cond410 ], [ %..i520, %if.then2.i517 ], [ -67044352, %if.else15.i506 ], [ 64512, %if.else5.i512 ], [ 2, %while.body413 ], [ %pair.addr.0.i509, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit ]
+  %leftPair.18 = phi i32 [ %leftPair.16, %for.cond410 ], [ %..i520, %if.then2.i517 ], [ -67044352, %if.else15.i506 ], [ 64512, %if.else5.i512 ], [ 2, %while.body413 ], [ %pair.addr.0.i509, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit ]
   %cmp438672 = icmp eq i32 %rightPair.16, 0
   br i1 %cmp438672, label %while.body439, label %while.end462
 
@@ -1456,24 +1456,24 @@ if.end460:                                        ; preds = %if.else.i522, %cond
   br i1 %cmp.i532, label %if.then.i539, label %if.else15.i533
 
 if.then.i539:                                     ; preds = %cond.end455, %if.end460
-  %rightPair.18608 = phi i32 [ %call459, %if.end460 ], [ %cond456, %cond.end455 ]
-  %cmp1.i540 = icmp ugt i32 %rightPair.18608, 4095
+  %rightPair.19608 = phi i32 [ %call459, %if.end460 ], [ %cond456, %cond.end455 ]
+  %cmp1.i540 = icmp ugt i32 %rightPair.19608, 4095
   br i1 %cmp1.i540, label %if.then2.i547, label %if.else5.i541
 
 if.then2.i547:                                    ; preds = %if.then.i539
-  %and.i548 = and i32 %rightPair.18608, 896
+  %and.i548 = and i32 %rightPair.19608, 896
   %cmp3.i549 = icmp ugt i32 %and.i548, 383
   %..i550 = select i1 %cmp3.i549, i32 -67044352, i32 64512
   br label %while.end462
 
 if.else5.i541:                                    ; preds = %if.then.i539
-  %cmp6.i542 = icmp ugt i32 %rightPair.18608, %shr
+  %cmp6.i542 = icmp ugt i32 %rightPair.19608, %shr
   br i1 %cmp6.i542, label %while.end462, label %if.else8.i543
 
 if.else8.i543:                                    ; preds = %if.else5.i541
-  %cmp9.i544 = icmp ugt i32 %rightPair.18608, 3071
-  %and11.i545 = and i32 %rightPair.18608, 4088
-  %spec.select.i546 = select i1 %cmp9.i544, i32 %and11.i545, i32 %rightPair.18608
+  %cmp9.i544 = icmp ugt i32 %rightPair.19608, 3071
+  %and11.i545 = and i32 %rightPair.19608, 4088
+  %spec.select.i546 = select i1 %cmp9.i544, i32 %and11.i545, i32 %rightPair.19608
   br label %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit551
 
 if.else15.i533:                                   ; preds = %if.end460
@@ -1488,17 +1488,17 @@ _ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit551: ; preds = %if.else15
   br i1 %cmp438, label %while.body439, label %while.end462, !llvm.loop !20
 
 while.end462:                                     ; preds = %if.else15.i533, %if.else5.i541, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit551, %while.body439, %if.then2.i547, %while.end436
-  %rightPair.19 = phi i32 [ %rightPair.16, %while.end436 ], [ %..i550, %if.then2.i547 ], [ -67044352, %if.else15.i533 ], [ 64512, %if.else5.i541 ], [ 2, %while.body439 ], [ %pair.addr.0.i538, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit551 ]
-  %cmp463 = icmp eq i32 %leftPair.19, %rightPair.19
+  %rightPair.18 = phi i32 [ %rightPair.16, %while.end436 ], [ %..i550, %if.then2.i547 ], [ -67044352, %if.else15.i533 ], [ 64512, %if.else5.i541 ], [ 2, %while.body439 ], [ %pair.addr.0.i538, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit551 ]
+  %cmp463 = icmp eq i32 %leftPair.18, %rightPair.18
   br i1 %cmp463, label %if.then464, label %if.end468
 
 if.then464:                                       ; preds = %while.end462
-  %cmp465 = icmp eq i32 %leftPair.19, 2
+  %cmp465 = icmp eq i32 %leftPair.18, 2
   br i1 %cmp465, label %return, label %for.cond410.backedge
 
 if.end468:                                        ; preds = %while.end462
-  %and469 = and i32 %leftPair.19, 65535
-  %and470 = and i32 %rightPair.19, 65535
+  %and469 = and i32 %leftPair.18, 65535
+  %and470 = and i32 %rightPair.18, 65535
   %cmp471.not = icmp eq i32 %and469, %and470
   br i1 %cmp471.not, label %if.end475, label %if.then472
 
@@ -1508,12 +1508,12 @@ if.then472:                                       ; preds = %if.end468
   br label %return
 
 if.end475:                                        ; preds = %if.end468
-  %cmp476 = icmp eq i32 %leftPair.19, 2
+  %cmp476 = icmp eq i32 %leftPair.18, 2
   br i1 %cmp476, label %return, label %if.end478
 
 if.end478:                                        ; preds = %if.end475
-  %shr479 = lshr i32 %leftPair.19, 16
-  %shr480 = lshr i32 %rightPair.19, 16
+  %shr479 = lshr i32 %leftPair.18, 16
+  %shr480 = lshr i32 %rightPair.18, 16
   br label %for.cond410.backedge
 
 for.cond410.backedge:                             ; preds = %if.end478, %if.then464
@@ -1694,14 +1694,14 @@ land.lhs.true95:                                  ; preds = %land.lhs.true90
   br i1 %or.cond6, label %if.end108, label %return
 
 if.end108:                                        ; preds = %land.lhs.true95, %if.then85
-  %c2.0 = phi i32 [ %add87, %if.then85 ], [ -1, %land.lhs.true95 ]
+  %c2.1 = phi i32 [ %add87, %if.then85 ], [ -1, %land.lhs.true95 ]
   %add109 = add nsw i32 %7, 3
   br label %if.end117
 
 if.end112:                                        ; preds = %if.else39, %if.then59, %if.then18, %if.then27
-  %c2.1 = phi i32 [ %add29, %if.then27 ], [ %conv21, %if.then18 ], [ %add63, %if.then59 ], [ %conv43, %if.else39 ]
+  %c2.0 = phi i32 [ %add29, %if.then27 ], [ %conv21, %if.then18 ], [ %add63, %if.then59 ], [ %conv43, %if.else39 ]
   %nextIndex.0 = phi i32 [ %inc40, %if.then27 ], [ %inc40, %if.then18 ], [ %inc64, %if.then59 ], [ %inc40, %if.else39 ]
-  %cmp113 = icmp eq i32 %c2.1, 0
+  %cmp113 = icmp eq i32 %c2.0, 0
   %brmerge.not = select i1 %cmp113, i1 %cmp10, i1 false
   br i1 %brmerge.not, label %if.then116, label %if.end117
 
@@ -1711,7 +1711,7 @@ if.then116:                                       ; preds = %if.end112
 
 if.end117:                                        ; preds = %if.end112, %if.else30, %if.end108, %if.then116
   %nextIndex.084 = phi i32 [ %nextIndex.0, %if.then116 ], [ %nextIndex.0, %if.end112 ], [ %inc40, %if.else30 ], [ %add109, %if.end108 ]
-  %c2.2 = phi i32 [ -1, %if.then116 ], [ %c2.1, %if.end112 ], [ -1, %if.else30 ], [ %c2.0, %if.end108 ]
+  %c2.2 = phi i32 [ -1, %if.then116 ], [ %c2.0, %if.end112 ], [ -1, %if.else30 ], [ %c2.1, %if.end108 ]
   %idxprom118 = zext nneg i32 %add14 to i64
   %arrayidx119 = getelementptr inbounds i16, ptr %table, i64 %idxprom118
   %18 = load i16, ptr %arrayidx119, align 2
@@ -1925,9 +1925,9 @@ if.else30:                                        ; preds = %entry
 
 if.then34:                                        ; preds = %if.else30
   %tobool35.not = icmp eq i8 %withCaseBits, 0
-  %pair.addr.0.v = select i1 %tobool35.not, i32 458759, i32 2031647
-  %pair.addr.0 = and i32 %pair.addr.0.v, %pair
-  %add41 = or disjoint i32 %pair.addr.0, 2097184
+  %pair.addr.1.v = select i1 %tobool35.not, i32 458759, i32 2031647
+  %pair.addr.1 = and i32 %pair.addr.1.v, %pair
+  %add41 = or disjoint i32 %pair.addr.1, 2097184
   br label %if.end54
 
 if.else42:                                        ; preds = %if.else30
@@ -1942,8 +1942,8 @@ if.then44:                                        ; preds = %if.else42
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then44, %if.then17, %if.else, %if.then3, %if.else42, %if.then34, %if.else24
-  %pair.addr.1 = phi i32 [ %spec.store.select, %if.else24 ], [ %add41, %if.then34 ], [ %spec.select, %if.then3 ], [ %spec.select24, %if.else ], [ %spec.select25, %if.then17 ], [ %spec.select26, %if.then44 ], [ 0, %if.else42 ]
-  ret i32 %pair.addr.1
+  %pair.addr.0 = phi i32 [ %spec.store.select, %if.else24 ], [ %add41, %if.then34 ], [ %spec.select, %if.then3 ], [ %spec.select24, %if.else ], [ %spec.select25, %if.then17 ], [ %spec.select26, %if.then44 ], [ 0, %if.else42 ]
+  ret i32 %pair.addr.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2117,26 +2117,26 @@ if.end50.sink.split:                              ; preds = %if.then36, %if.end1
 
 if.end50:                                         ; preds = %if.end50.sink.split, %if.then23.i
   %c.0 = phi i32 [ 239, %if.then23.i ], [ %c.0.ph, %if.end50.sink.split ]
-  %leftPair.2 = phi i32 [ %switch.select.i, %if.then23.i ], [ %conv18.i, %if.end50.sink.split ]
-  %cmp51 = icmp ugt i32 %leftPair.2, 4095
+  %leftPair.3 = phi i32 [ %switch.select.i, %if.then23.i ], [ %conv18.i, %if.end50.sink.split ]
+  %cmp51 = icmp ugt i32 %leftPair.3, 4095
   br i1 %cmp51, label %if.then52, label %if.else54
 
 if.then52:                                        ; preds = %if.end50
-  %and53 = and i32 %leftPair.2, 64512
+  %and53 = and i32 %leftPair.3, 64512
   br label %while.end
 
 if.else54:                                        ; preds = %if.then23.i, %if.else48, %if.else.i, %if.end50
-  %leftPair.2702 = phi i32 [ %leftPair.2, %if.end50 ], [ 1, %if.else48 ], [ 1, %if.else.i ], [ 3, %if.then23.i ]
+  %leftPair.3702 = phi i32 [ %leftPair.3, %if.end50 ], [ 1, %if.else48 ], [ 1, %if.else.i ], [ 3, %if.then23.i ]
   %c.0701 = phi i32 [ %c.0, %if.end50 ], [ %conv4, %if.else48 ], [ %conv4, %if.else.i ], [ 239, %if.then23.i ]
-  %cmp55 = icmp ugt i32 %leftPair.2702, %shr
+  %cmp55 = icmp ugt i32 %leftPair.3702, %shr
   br i1 %cmp55, label %if.then56, label %if.else58
 
 if.then56:                                        ; preds = %if.else54
-  %and57 = and i32 %leftPair.2702, 4088
+  %and57 = and i32 %leftPair.3702, 4088
   br label %while.end
 
 if.else58:                                        ; preds = %if.else54
-  %call59 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c.0701, i32 noundef %leftPair.2702, ptr noundef null, ptr noundef nonnull %left, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
+  %call59 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c.0701, i32 noundef %leftPair.3702, ptr noundef null, ptr noundef nonnull %left, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
   %cmp60 = icmp eq i32 %call59, 1
   br i1 %cmp60, label %return, label %if.end62
 
@@ -2176,7 +2176,7 @@ while.end.loopexit.split.loop.exit731:            ; preds = %if.then36
   br label %while.end
 
 while.end:                                        ; preds = %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit, %while.body, %while.end.loopexit.split.loop.exit729, %while.end.loopexit.split.loop.exit731, %for.cond, %if.then56, %if.then52
-  %leftPair.3 = phi i32 [ %and53, %if.then52 ], [ %and57, %if.then56 ], [ %conv9.le, %while.end.loopexit.split.loop.exit729 ], [ %conv41.le, %while.end.loopexit.split.loop.exit731 ], [ %leftPair.0, %for.cond ], [ %retval.0.i281, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit ], [ 2, %while.body ]
+  %leftPair.2 = phi i32 [ %and53, %if.then52 ], [ %and57, %if.then56 ], [ %conv9.le, %while.end.loopexit.split.loop.exit729 ], [ %conv41.le, %while.end.loopexit.split.loop.exit731 ], [ %leftPair.0, %for.cond ], [ %retval.0.i281, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit ], [ 2, %while.body ]
   %cmp67745 = icmp eq i32 %rightPair.0, 0
   br i1 %cmp67745, label %while.body68, label %while.end145
 
@@ -2286,26 +2286,26 @@ if.end129.sink.split:                             ; preds = %if.then111, %if.end
 
 if.end129:                                        ; preds = %if.end129.sink.split, %if.then23.i302
   %c72.0 = phi i32 [ 239, %if.then23.i302 ], [ %c72.0.ph, %if.end129.sink.split ]
-  %rightPair.2 = phi i32 [ %switch.select.i304, %if.then23.i302 ], [ %conv18.i311, %if.end129.sink.split ]
-  %cmp130 = icmp ugt i32 %rightPair.2, 4095
+  %rightPair.3 = phi i32 [ %switch.select.i304, %if.then23.i302 ], [ %conv18.i311, %if.end129.sink.split ]
+  %cmp130 = icmp ugt i32 %rightPair.3, 4095
   br i1 %cmp130, label %if.then131, label %if.else133
 
 if.then131:                                       ; preds = %if.end129
-  %and132 = and i32 %rightPair.2, 64512
+  %and132 = and i32 %rightPair.3, 64512
   br label %while.end145
 
 if.else133:                                       ; preds = %if.then23.i302, %if.else126, %if.else.i298, %if.end129
-  %rightPair.2708 = phi i32 [ %rightPair.2, %if.end129 ], [ 1, %if.else126 ], [ 1, %if.else.i298 ], [ 3, %if.then23.i302 ]
+  %rightPair.3708 = phi i32 [ %rightPair.3, %if.end129 ], [ 1, %if.else126 ], [ 1, %if.else.i298 ], [ 3, %if.then23.i302 ]
   %c72.0707 = phi i32 [ %c72.0, %if.end129 ], [ %conv76, %if.else126 ], [ %conv76, %if.else.i298 ], [ 239, %if.then23.i302 ]
-  %cmp134 = icmp ugt i32 %rightPair.2708, %shr
+  %cmp134 = icmp ugt i32 %rightPair.3708, %shr
   br i1 %cmp134, label %if.then135, label %if.else137
 
 if.then135:                                       ; preds = %if.else133
-  %and136 = and i32 %rightPair.2708, 4088
+  %and136 = and i32 %rightPair.3708, 4088
   br label %while.end145
 
 if.else137:                                       ; preds = %if.else133
-  %call138 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c72.0707, i32 noundef %rightPair.2708, ptr noundef null, ptr noundef nonnull %right, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
+  %call138 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c72.0707, i32 noundef %rightPair.3708, ptr noundef null, ptr noundef nonnull %right, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
   %cmp139 = icmp eq i32 %call138, 1
   br i1 %cmp139, label %return, label %if.end141
 
@@ -2345,17 +2345,17 @@ while.end145.loopexit.split.loop.exit739:         ; preds = %if.then111
   br label %while.end145
 
 while.end145:                                     ; preds = %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit325, %while.body68, %while.end145.loopexit.split.loop.exit737, %while.end145.loopexit.split.loop.exit739, %while.end, %if.then135, %if.then131
-  %rightPair.3 = phi i32 [ %and132, %if.then131 ], [ %and136, %if.then135 ], [ %conv82.le, %while.end145.loopexit.split.loop.exit737 ], [ %conv119.le, %while.end145.loopexit.split.loop.exit739 ], [ %rightPair.0, %while.end ], [ %retval.0.i320, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit325 ], [ 2, %while.body68 ]
-  %cmp146 = icmp eq i32 %leftPair.3, %rightPair.3
+  %rightPair.2 = phi i32 [ %and132, %if.then131 ], [ %and136, %if.then135 ], [ %conv82.le, %while.end145.loopexit.split.loop.exit737 ], [ %conv119.le, %while.end145.loopexit.split.loop.exit739 ], [ %rightPair.0, %while.end ], [ %retval.0.i320, %_ZN6icu_7518CollationFastLatin12getPrimariesEjj.exit325 ], [ 2, %while.body68 ]
+  %cmp146 = icmp eq i32 %leftPair.2, %rightPair.2
   br i1 %cmp146, label %if.then147, label %if.end151
 
 if.then147:                                       ; preds = %while.end145
-  %cmp148 = icmp eq i32 %leftPair.3, 2
+  %cmp148 = icmp eq i32 %leftPair.2, 2
   br i1 %cmp148, label %for.end, label %for.cond.backedge
 
 if.end151:                                        ; preds = %while.end145
-  %and152 = and i32 %leftPair.3, 65535
-  %and153 = and i32 %rightPair.3, 65535
+  %and152 = and i32 %leftPair.2, 65535
+  %and153 = and i32 %rightPair.2, 65535
   %cmp154.not = icmp eq i32 %and152, %and153
   br i1 %cmp154.not, label %if.end157, label %if.then155
 
@@ -2365,12 +2365,12 @@ if.then155:                                       ; preds = %if.end151
   br label %return
 
 if.end157:                                        ; preds = %if.end151
-  %cmp158 = icmp eq i32 %leftPair.3, 2
+  %cmp158 = icmp eq i32 %leftPair.2, 2
   br i1 %cmp158, label %for.end, label %if.end160
 
 if.end160:                                        ; preds = %if.end157
-  %shr161 = lshr i32 %leftPair.3, 16
-  %shr162 = lshr i32 %rightPair.3, 16
+  %shr161 = lshr i32 %leftPair.2, 16
+  %shr162 = lshr i32 %rightPair.2, 16
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end160, %if.then147
@@ -2454,13 +2454,13 @@ if.end199:                                        ; preds = %if.then9.i, %if.the
   %add11.i.sink = phi i64 [ %add11.i, %if.then9.i ], [ %idxprom193, %if.then185 ], [ %idxprom180, %if.then179 ]
   %arrayidx13.i = getelementptr inbounds i16, ptr %add.ptr, i64 %add11.i.sink
   %32 = load i16, ptr %arrayidx13.i, align 2
-  %leftPair.6 = zext i16 %32 to i32
+  %leftPair.7 = zext i16 %32 to i32
   %cmp200 = icmp ugt i16 %32, 4095
   br i1 %cmp200, label %if.then201, label %if.else203
 
 if.then201:                                       ; preds = %if.else.i328, %if.end199
-  %leftPair.6797 = phi i32 [ %leftPair.6, %if.end199 ], [ 64680, %if.else.i328 ]
-  %and.i334 = and i32 %leftPair.6797, 992
+  %leftPair.7797 = phi i32 [ %leftPair.7, %if.end199 ], [ 64680, %if.else.i328 ]
+  %and.i334 = and i32 %leftPair.7797, 992
   %cmp.i335 = icmp ult i32 %and.i334, 384
   %add.i336 = add nuw nsw i32 %and.i334, 32
   %add1.i = shl nuw nsw i32 %and.i334, 16
@@ -2469,12 +2469,12 @@ if.then201:                                       ; preds = %if.else.i328, %if.e
   br label %while.end211
 
 if.else203:                                       ; preds = %if.else.i328, %if.end199
-  %leftPair.6802 = phi i32 [ %leftPair.6, %if.end199 ], [ 3, %if.else.i328 ]
-  %cmp204 = icmp ult i32 %shr, %leftPair.6802
+  %leftPair.7802 = phi i32 [ %leftPair.7, %if.end199 ], [ 3, %if.else.i328 ]
+  %cmp204 = icmp ult i32 %shr, %leftPair.7802
   br i1 %cmp204, label %while.end211, label %if.else206
 
 if.else206:                                       ; preds = %if.else203
-  %call207 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv177, i32 noundef %leftPair.6802, ptr noundef null, ptr noundef nonnull %left, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
+  %call207 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv177, i32 noundef %leftPair.7802, ptr noundef null, ptr noundef nonnull %left, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
   %cmp.i338 = icmp ult i32 %call207, 65536
   br i1 %cmp.i338, label %if.then.i342, label %if.else10.i
 
@@ -2520,7 +2520,7 @@ _ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit: ; preds = %if.else5.i, %
   br i1 %cmp168, label %while.body169, label %while.end211, !llvm.loop !26
 
 while.end211:                                     ; preds = %if.else14.i, %if.else.i344, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit, %while.body169, %if.else203, %if.then12.i, %if.then2.i, %for.cond166, %if.then201
-  %leftPair.7 = phi i32 [ %retval.0.i337, %if.then201 ], [ %leftPair.4, %for.cond166 ], [ %add.i341, %if.then12.i ], [ %retval.0.i.i, %if.then2.i ], [ 12583104, %if.else14.i ], [ 192, %if.else.i344 ], [ %pair.addr.0.i, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit ], [ 2, %while.body169 ], [ 192, %if.else203 ]
+  %leftPair.6 = phi i32 [ %retval.0.i337, %if.then201 ], [ %leftPair.4, %for.cond166 ], [ %add.i341, %if.then12.i ], [ %retval.0.i.i, %if.then2.i ], [ 12583104, %if.else14.i ], [ 192, %if.else.i344 ], [ %pair.addr.0.i, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit ], [ 2, %while.body169 ], [ 192, %if.else203 ]
   %cmp213753 = icmp eq i32 %rightPair.4, 0
   br i1 %cmp213753, label %while.body214, label %while.end256
 
@@ -2583,13 +2583,13 @@ if.end244:                                        ; preds = %if.then9.i356, %if.
   %add11.i358.sink = phi i64 [ %add11.i358, %if.then9.i356 ], [ %idxprom238, %if.then230 ], [ %idxprom225, %if.then224 ]
   %arrayidx13.i359 = getelementptr inbounds i16, ptr %add.ptr, i64 %add11.i358.sink
   %39 = load i16, ptr %arrayidx13.i359, align 2
-  %rightPair.6 = zext i16 %39 to i32
+  %rightPair.7 = zext i16 %39 to i32
   %cmp245 = icmp ugt i16 %39, 4095
   br i1 %cmp245, label %if.then246, label %if.else248
 
 if.then246:                                       ; preds = %if.else.i351, %if.end244
-  %rightPair.6811 = phi i32 [ %rightPair.6, %if.end244 ], [ 64680, %if.else.i351 ]
-  %and.i371 = and i32 %rightPair.6811, 992
+  %rightPair.7811 = phi i32 [ %rightPair.7, %if.end244 ], [ 64680, %if.else.i351 ]
+  %and.i371 = and i32 %rightPair.7811, 992
   %cmp.i372 = icmp ult i32 %and.i371, 384
   %add.i373 = add nuw nsw i32 %and.i371, 32
   %add1.i374 = shl nuw nsw i32 %and.i371, 16
@@ -2598,12 +2598,12 @@ if.then246:                                       ; preds = %if.else.i351, %if.e
   br label %while.end256
 
 if.else248:                                       ; preds = %if.else.i351, %if.end244
-  %rightPair.6816 = phi i32 [ %rightPair.6, %if.end244 ], [ 3, %if.else.i351 ]
-  %cmp249 = icmp ult i32 %shr, %rightPair.6816
+  %rightPair.7816 = phi i32 [ %rightPair.7, %if.end244 ], [ 3, %if.else.i351 ]
+  %cmp249 = icmp ult i32 %shr, %rightPair.7816
   br i1 %cmp249, label %while.end256, label %if.else251
 
 if.else251:                                       ; preds = %if.else248
-  %call252 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv222, i32 noundef %rightPair.6816, ptr noundef null, ptr noundef nonnull %right, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
+  %call252 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %conv222, i32 noundef %rightPair.7816, ptr noundef null, ptr noundef nonnull %right, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
   %cmp.i377 = icmp ult i32 %call252, 65536
   br i1 %cmp.i377, label %if.then.i388, label %if.else10.i378
 
@@ -2649,17 +2649,17 @@ _ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit402: ; preds = %if.else5.i
   br i1 %cmp213, label %while.body214, label %while.end256, !llvm.loop !27
 
 while.end256:                                     ; preds = %if.else14.i381, %if.else.i390, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit402, %while.body214, %if.else248, %if.then12.i385, %if.then2.i395, %while.end211, %if.then246
-  %rightPair.7 = phi i32 [ %retval.0.i376, %if.then246 ], [ %rightPair.4, %while.end211 ], [ %add.i387, %if.then12.i385 ], [ %retval.0.i.i401, %if.then2.i395 ], [ 12583104, %if.else14.i381 ], [ 192, %if.else.i390 ], [ %pair.addr.0.i384, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit402 ], [ 2, %while.body214 ], [ 192, %if.else248 ]
-  %cmp257 = icmp eq i32 %leftPair.7, %rightPair.7
+  %rightPair.6 = phi i32 [ %retval.0.i376, %if.then246 ], [ %rightPair.4, %while.end211 ], [ %add.i387, %if.then12.i385 ], [ %retval.0.i.i401, %if.then2.i395 ], [ 12583104, %if.else14.i381 ], [ 192, %if.else.i390 ], [ %pair.addr.0.i384, %_ZN6icu_7518CollationFastLatin14getSecondariesEjj.exit402 ], [ 2, %while.body214 ], [ 192, %if.else248 ]
+  %cmp257 = icmp eq i32 %leftPair.6, %rightPair.6
   br i1 %cmp257, label %if.then258, label %if.end262
 
 if.then258:                                       ; preds = %while.end256
-  %cmp259 = icmp eq i32 %leftPair.7, 2
+  %cmp259 = icmp eq i32 %leftPair.6, 2
   br i1 %cmp259, label %if.end280, label %for.cond166.backedge
 
 if.end262:                                        ; preds = %while.end256
-  %and263 = and i32 %leftPair.7, 65535
-  %and264 = and i32 %rightPair.7, 65535
+  %and263 = and i32 %leftPair.6, 65535
+  %and264 = and i32 %rightPair.6, 65535
   %cmp265.not = icmp eq i32 %and263, %and264
   br i1 %cmp265.not, label %if.end273, label %if.then266
 
@@ -2674,12 +2674,12 @@ if.end270:                                        ; preds = %if.then266
   br label %return
 
 if.end273:                                        ; preds = %if.end262
-  %cmp274 = icmp eq i32 %leftPair.7, 2
+  %cmp274 = icmp eq i32 %leftPair.6, 2
   br i1 %cmp274, label %if.end280, label %if.end276
 
 if.end276:                                        ; preds = %if.end273
-  %shr277 = lshr i32 %leftPair.7, 16
-  %shr278 = lshr i32 %rightPair.7, 16
+  %shr277 = lshr i32 %leftPair.6, 16
+  %shr278 = lshr i32 %rightPair.6, 16
   br label %for.cond166.backedge
 
 for.cond166.backedge:                             ; preds = %if.end276, %if.then258
@@ -2775,24 +2775,24 @@ if.end308:                                        ; preds = %if.else.i409, %cond
   br i1 %cmp.i429, label %if.then.i435, label %if.else14.i430
 
 if.then.i435:                                     ; preds = %cond.end, %if.end308
-  %leftPair.10711 = phi i32 [ %call307, %if.end308 ], [ %cond304, %cond.end ]
-  %cmp1.i436 = icmp ugt i32 %leftPair.10711, 4095
+  %leftPair.11711 = phi i32 [ %call307, %if.end308 ], [ %cond304, %cond.end ]
+  %cmp1.i436 = icmp ugt i32 %leftPair.11711, 4095
   br i1 %cmp1.i436, label %if.then2.i440, label %if.else.i437
 
 if.then2.i440:                                    ; preds = %if.then.i435
-  %and.i441 = and i32 %leftPair.10711, 24
-  %and3.i = and i32 %leftPair.10711, 896
+  %and.i441 = and i32 %leftPair.11711, 24
+  %and3.i = and i32 %leftPair.11711, 896
   %cmp4.i = icmp ult i32 %and3.i, 384
   %or.cond.i442.not = or i1 %cmp164.not, %cmp4.i
   br i1 %or.cond.i442.not, label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit, label %while.end310.loopexit.split.loop.exit948
 
 if.else.i437:                                     ; preds = %if.then.i435
-  %cmp6.i438 = icmp ugt i32 %leftPair.10711, %shr
+  %cmp6.i438 = icmp ugt i32 %leftPair.11711, %shr
   br i1 %cmp6.i438, label %while.end310, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else.i437
-  %cmp9.i = icmp ugt i32 %leftPair.10711, 3071
-  %spec.select968 = select i1 %cmp9.i, i32 0, i32 %leftPair.10711
+  %cmp9.i = icmp ugt i32 %leftPair.11711, 3071
+  %spec.select968 = select i1 %cmp9.i, i32 0, i32 %leftPair.11711
   br label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit
 
 if.else14.i430:                                   ; preds = %if.end308
@@ -2827,7 +2827,7 @@ while.end310.loopexit.split.loop.exit948:         ; preds = %if.then2.i440
   br label %while.end310
 
 while.end310:                                     ; preds = %while.body290, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit, %if.else.i437, %if.else28.i, %if.else.i409, %while.end310.loopexit.split.loop.exit948, %for.cond287
-  %leftPair.11 = phi i32 [ %leftPair.8, %for.cond287 ], [ %or.i443.le, %while.end310.loopexit.split.loop.exit948 ], [ 2, %while.body290 ], [ %pair.addr.0.i432, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit ], [ 8, %if.else.i437 ], [ 524296, %if.else28.i ], [ 8, %if.else.i409 ]
+  %leftPair.10 = phi i32 [ %leftPair.8, %for.cond287 ], [ %or.i443.le, %while.end310.loopexit.split.loop.exit948 ], [ 2, %while.body290 ], [ %pair.addr.0.i432, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit ], [ 8, %if.else.i437 ], [ 524296, %if.else28.i ], [ 8, %if.else.i409 ]
   %cmp312764 = icmp eq i32 %rightPair.8, 0
   br i1 %cmp312764, label %while.body313, label %while.end336
 
@@ -2901,24 +2901,24 @@ if.end334:                                        ; preds = %if.else.i449, %cond
   br i1 %cmp.i469, label %if.then.i484, label %if.else14.i470
 
 if.then.i484:                                     ; preds = %cond.end329, %if.end334
-  %rightPair.10714 = phi i32 [ %call333, %if.end334 ], [ %cond330, %cond.end329 ]
-  %cmp1.i485 = icmp ugt i32 %rightPair.10714, 4095
+  %rightPair.11714 = phi i32 [ %call333, %if.end334 ], [ %cond330, %cond.end329 ]
+  %cmp1.i485 = icmp ugt i32 %rightPair.11714, 4095
   br i1 %cmp1.i485, label %if.then2.i491, label %if.else.i486
 
 if.then2.i491:                                    ; preds = %if.then.i484
-  %and.i492 = and i32 %rightPair.10714, 24
-  %and3.i494 = and i32 %rightPair.10714, 896
+  %and.i492 = and i32 %rightPair.11714, 24
+  %and3.i494 = and i32 %rightPair.11714, 896
   %cmp4.i495 = icmp ult i32 %and3.i494, 384
   %or.cond.i496.not = or i1 %cmp164.not, %cmp4.i495
   br i1 %or.cond.i496.not, label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit499, label %while.end336.loopexit.split.loop.exit958
 
 if.else.i486:                                     ; preds = %if.then.i484
-  %cmp6.i487 = icmp ugt i32 %rightPair.10714, %shr
+  %cmp6.i487 = icmp ugt i32 %rightPair.11714, %shr
   br i1 %cmp6.i487, label %while.end336, label %if.else8.i488
 
 if.else8.i488:                                    ; preds = %if.else.i486
-  %cmp9.i489 = icmp ugt i32 %rightPair.10714, 3071
-  %spec.select969 = select i1 %cmp9.i489, i32 0, i32 %rightPair.10714
+  %cmp9.i489 = icmp ugt i32 %rightPair.11714, 3071
+  %spec.select969 = select i1 %cmp9.i489, i32 0, i32 %rightPair.11714
   br label %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit499
 
 if.else14.i470:                                   ; preds = %if.end334
@@ -2953,17 +2953,17 @@ while.end336.loopexit.split.loop.exit958:         ; preds = %if.then2.i491
   br label %while.end336
 
 while.end336:                                     ; preds = %while.body313, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit499, %if.else.i486, %if.else28.i473, %if.else.i449, %while.end336.loopexit.split.loop.exit958, %while.end310
-  %rightPair.11 = phi i32 [ %rightPair.8, %while.end310 ], [ %or.i497.le, %while.end336.loopexit.split.loop.exit958 ], [ 2, %while.body313 ], [ %pair.addr.0.i476, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit499 ], [ 8, %if.else.i486 ], [ 524296, %if.else28.i473 ], [ 8, %if.else.i449 ]
-  %cmp337 = icmp eq i32 %leftPair.11, %rightPair.11
+  %rightPair.10 = phi i32 [ %rightPair.8, %while.end310 ], [ %or.i497.le, %while.end336.loopexit.split.loop.exit958 ], [ 2, %while.body313 ], [ %pair.addr.0.i476, %_ZN6icu_7518CollationFastLatin8getCasesEjaj.exit499 ], [ 8, %if.else.i486 ], [ 524296, %if.else28.i473 ], [ 8, %if.else.i449 ]
+  %cmp337 = icmp eq i32 %leftPair.10, %rightPair.10
   br i1 %cmp337, label %if.then338, label %if.end342
 
 if.then338:                                       ; preds = %while.end336
-  %cmp339 = icmp eq i32 %leftPair.11, 2
+  %cmp339 = icmp eq i32 %leftPair.10, 2
   br i1 %cmp339, label %if.end362, label %for.cond287.backedge
 
 if.end342:                                        ; preds = %while.end336
-  %and343 = and i32 %leftPair.11, 65535
-  %and344 = and i32 %rightPair.11, 65535
+  %and343 = and i32 %leftPair.10, 65535
+  %and344 = and i32 %rightPair.10, 65535
   %cmp345.not = icmp eq i32 %and343, %and344
   br i1 %cmp345.not, label %if.end355, label %if.then346
 
@@ -2982,12 +2982,12 @@ if.else352:                                       ; preds = %if.then346
   br label %return
 
 if.end355:                                        ; preds = %if.end342
-  %cmp356 = icmp eq i32 %leftPair.11, 2
+  %cmp356 = icmp eq i32 %leftPair.10, 2
   br i1 %cmp356, label %if.end362, label %if.end358
 
 if.end358:                                        ; preds = %if.end355
-  %shr359 = lshr i32 %leftPair.11, 16
-  %shr360 = lshr i32 %rightPair.11, 16
+  %shr359 = lshr i32 %leftPair.10, 16
+  %shr360 = lshr i32 %rightPair.10, 16
   br label %for.cond287.backedge
 
 for.cond287.backedge:                             ; preds = %if.end358, %if.then338
@@ -3006,7 +3006,7 @@ if.end366:                                        ; preds = %if.end362
   store i32 0, ptr %leftIndex, align 4
   %invariant.gep767 = getelementptr i8, ptr %left, i64 1
   %spec.select26.v.i = select i1 %cmp.i502.not, i32 2621480, i32 2097184
-  %pair.addr.0.v.i = select i1 %cmp.i502.not, i32 2031647, i32 458759
+  %pair.addr.1.v.i = select i1 %cmp.i502.not, i32 2031647, i32 458759
   %spec.select25.v.i = select i1 %cmp.i502.not, i32 40, i32 32
   %invariant.gep772 = getelementptr i8, ptr %right, i64 1
   br label %for.cond368
@@ -3087,40 +3087,40 @@ if.end392:                                        ; preds = %if.else.i509, %cond
   br i1 %cmp.i529, label %if.then.i531, label %if.else30.i
 
 if.then.i531:                                     ; preds = %cond.end387, %if.end392
-  %leftPair.14717 = phi i32 [ %call391, %if.end392 ], [ %cond388, %cond.end387 ]
-  %cmp1.i532 = icmp ugt i32 %leftPair.14717, 4095
+  %leftPair.15717 = phi i32 [ %call391, %if.end392 ], [ %cond388, %cond.end387 ]
+  %cmp1.i532 = icmp ugt i32 %leftPair.15717, 4095
   br i1 %cmp1.i532, label %if.then2.i535, label %if.else15.i
 
 if.then2.i535:                                    ; preds = %if.else.i509, %if.then.i531
-  %leftPair.14717866 = phi i32 [ %leftPair.14717, %if.then.i531 ], [ 64680, %if.else.i509 ]
-  %and9.i = and i32 %leftPair.14717866, 896
+  %leftPair.15717866 = phi i32 [ %leftPair.15717, %if.then.i531 ], [ 64680, %if.else.i509 ]
+  %and9.i = and i32 %leftPair.15717866, 896
   %cmp10.i = icmp ugt i32 %and9.i, 383
   br i1 %cmp.i502.not, label %if.then3.i537, label %if.else.i540
 
 if.then3.i537:                                    ; preds = %if.then2.i535
-  %and.i538 = and i32 %leftPair.14717866, 31
+  %and.i538 = and i32 %leftPair.15717866, 31
   %spec.select.v.i = select i1 %cmp10.i, i32 2621472, i32 32
   %spec.select.i539 = or disjoint i32 %spec.select.v.i, %and.i538
   br label %while.end394
 
 if.else.i540:                                     ; preds = %if.then2.i535
-  %and7.i = and i32 %leftPair.14717866, 7
+  %and7.i = and i32 %leftPair.15717866, 7
   %spec.select24.v.i = select i1 %cmp10.i, i32 2097184, i32 32
   %spec.select24.i = or disjoint i32 %spec.select24.v.i, %and7.i
   br label %while.end394
 
 if.else15.i:                                      ; preds = %if.then.i531
-  %cmp16.i533 = icmp ugt i32 %leftPair.14717, %shr
+  %cmp16.i533 = icmp ugt i32 %leftPair.15717, %shr
   br i1 %cmp16.i533, label %if.then17.i, label %if.else24.i
 
 if.then17.i:                                      ; preds = %if.else15.i
-  %and18.i = and i32 %leftPair.14717, 7
+  %and18.i = and i32 %leftPair.15717, 7
   %spec.select25.i = or disjoint i32 %and18.i, %spec.select25.v.i
   br label %while.end394
 
 if.else24.i:                                      ; preds = %if.else15.i
-  %cmp25.i = icmp ugt i32 %leftPair.14717, 3071
-  %spec.select970 = select i1 %cmp25.i, i32 0, i32 %leftPair.14717
+  %cmp25.i = icmp ugt i32 %leftPair.15717, 3071
+  %spec.select970 = select i1 %cmp25.i, i32 0, i32 %leftPair.15717
   br label %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit
 
 if.else30.i:                                      ; preds = %if.end392
@@ -3129,8 +3129,8 @@ if.else30.i:                                      ; preds = %if.end392
   br i1 %cmp33.i, label %if.then34.i, label %if.else42.i
 
 if.then34.i:                                      ; preds = %if.else30.i
-  %pair.addr.0.i530 = and i32 %call391, %pair.addr.0.v.i
-  %add41.i = or disjoint i32 %pair.addr.0.i530, 2097184
+  %pair.addr.1.i = and i32 %call391, %pair.addr.1.v.i
+  %add41.i = or disjoint i32 %pair.addr.1.i, 2097184
   br label %while.end394
 
 if.else42.i:                                      ; preds = %if.else30.i
@@ -3143,12 +3143,12 @@ if.then44.i:                                      ; preds = %if.else42.i
   br label %while.end394
 
 _ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit: ; preds = %if.else24.i, %if.else42.i
-  %pair.addr.1.i = phi i32 [ 0, %if.else42.i ], [ %spec.select970, %if.else24.i ]
-  %cmp370 = icmp eq i32 %pair.addr.1.i, 0
+  %pair.addr.0.i530 = phi i32 [ 0, %if.else42.i ], [ %spec.select970, %if.else24.i ]
+  %cmp370 = icmp eq i32 %pair.addr.0.i530, 0
   br i1 %cmp370, label %while.body371, label %while.end394, !llvm.loop !32
 
 while.end394:                                     ; preds = %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit, %while.body371, %if.then44.i, %if.then17.i, %if.else.i540, %if.then3.i537, %if.then34.i, %for.cond368
-  %leftPair.15 = phi i32 [ %leftPair.12, %for.cond368 ], [ %spec.select26.i, %if.then44.i ], [ %spec.select25.i, %if.then17.i ], [ %spec.select24.i, %if.else.i540 ], [ %spec.select.i539, %if.then3.i537 ], [ %add41.i, %if.then34.i ], [ 2, %while.body371 ], [ %pair.addr.1.i, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit ]
+  %leftPair.14 = phi i32 [ %leftPair.12, %for.cond368 ], [ %spec.select26.i, %if.then44.i ], [ %spec.select25.i, %if.then17.i ], [ %spec.select24.i, %if.else.i540 ], [ %spec.select.i539, %if.then3.i537 ], [ %add41.i, %if.then34.i ], [ 2, %while.body371 ], [ %pair.addr.0.i530, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit ]
   %cmp396774 = icmp eq i32 %rightPair.12, 0
   br i1 %cmp396774, label %while.body397, label %while.end420
 
@@ -3222,40 +3222,40 @@ if.end418:                                        ; preds = %if.else.i546, %cond
   br i1 %cmp.i566, label %if.then.i583, label %if.else30.i567
 
 if.then.i583:                                     ; preds = %cond.end413, %if.end418
-  %rightPair.14720 = phi i32 [ %call417, %if.end418 ], [ %cond414, %cond.end413 ]
-  %cmp1.i584 = icmp ugt i32 %rightPair.14720, 4095
+  %rightPair.15720 = phi i32 [ %call417, %if.end418 ], [ %cond414, %cond.end413 ]
+  %cmp1.i584 = icmp ugt i32 %rightPair.15720, 4095
   br i1 %cmp1.i584, label %if.then2.i595, label %if.else15.i585
 
 if.then2.i595:                                    ; preds = %if.else.i546, %if.then.i583
-  %rightPair.14720881 = phi i32 [ %rightPair.14720, %if.then.i583 ], [ 64680, %if.else.i546 ]
-  %and9.i597 = and i32 %rightPair.14720881, 896
+  %rightPair.15720881 = phi i32 [ %rightPair.15720, %if.then.i583 ], [ 64680, %if.else.i546 ]
+  %and9.i597 = and i32 %rightPair.15720881, 896
   %cmp10.i598 = icmp ugt i32 %and9.i597, 383
   br i1 %cmp.i502.not, label %if.then3.i599, label %if.else.i603
 
 if.then3.i599:                                    ; preds = %if.then2.i595
-  %and.i600 = and i32 %rightPair.14720881, 31
+  %and.i600 = and i32 %rightPair.15720881, 31
   %spec.select.v.i601 = select i1 %cmp10.i598, i32 2621472, i32 32
   %spec.select.i602 = or disjoint i32 %spec.select.v.i601, %and.i600
   br label %while.end420
 
 if.else.i603:                                     ; preds = %if.then2.i595
-  %and7.i604 = and i32 %rightPair.14720881, 7
+  %and7.i604 = and i32 %rightPair.15720881, 7
   %spec.select24.v.i605 = select i1 %cmp10.i598, i32 2097184, i32 32
   %spec.select24.i606 = or disjoint i32 %spec.select24.v.i605, %and7.i604
   br label %while.end420
 
 if.else15.i585:                                   ; preds = %if.then.i583
-  %cmp16.i586 = icmp ugt i32 %rightPair.14720, %shr
+  %cmp16.i586 = icmp ugt i32 %rightPair.15720, %shr
   br i1 %cmp16.i586, label %if.then17.i590, label %if.else24.i587
 
 if.then17.i590:                                   ; preds = %if.else15.i585
-  %and18.i591 = and i32 %rightPair.14720, 7
+  %and18.i591 = and i32 %rightPair.15720, 7
   %spec.select25.i594 = or disjoint i32 %and18.i591, %spec.select25.v.i
   br label %while.end420
 
 if.else24.i587:                                   ; preds = %if.else15.i585
-  %cmp25.i588 = icmp ugt i32 %rightPair.14720, 3071
-  %spec.select971 = select i1 %cmp25.i588, i32 0, i32 %rightPair.14720
+  %cmp25.i588 = icmp ugt i32 %rightPair.15720, 3071
+  %spec.select971 = select i1 %cmp25.i588, i32 0, i32 %rightPair.15720
   br label %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit607
 
 if.else30.i567:                                   ; preds = %if.end418
@@ -3264,8 +3264,8 @@ if.else30.i567:                                   ; preds = %if.end418
   br i1 %cmp33.i569, label %if.then34.i578, label %if.else42.i570
 
 if.then34.i578:                                   ; preds = %if.else30.i567
-  %pair.addr.0.i581 = and i32 %call417, %pair.addr.0.v.i
-  %add41.i582 = or disjoint i32 %pair.addr.0.i581, 2097184
+  %pair.addr.1.i581 = and i32 %call417, %pair.addr.1.v.i
+  %add41.i582 = or disjoint i32 %pair.addr.1.i581, 2097184
   br label %while.end420
 
 if.else42.i570:                                   ; preds = %if.else30.i567
@@ -3278,22 +3278,22 @@ if.then44.i573:                                   ; preds = %if.else42.i570
   br label %while.end420
 
 _ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit607: ; preds = %if.else24.i587, %if.else42.i570
-  %pair.addr.1.i572 = phi i32 [ 0, %if.else42.i570 ], [ %spec.select971, %if.else24.i587 ]
-  %cmp396 = icmp eq i32 %pair.addr.1.i572, 0
+  %pair.addr.0.i572 = phi i32 [ 0, %if.else42.i570 ], [ %spec.select971, %if.else24.i587 ]
+  %cmp396 = icmp eq i32 %pair.addr.0.i572, 0
   br i1 %cmp396, label %while.body397, label %while.end420, !llvm.loop !33
 
 while.end420:                                     ; preds = %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit607, %while.body397, %if.then44.i573, %if.then17.i590, %if.else.i603, %if.then3.i599, %if.then34.i578, %while.end394
-  %rightPair.15 = phi i32 [ %rightPair.12, %while.end394 ], [ %spec.select26.i577, %if.then44.i573 ], [ %spec.select25.i594, %if.then17.i590 ], [ %spec.select24.i606, %if.else.i603 ], [ %spec.select.i602, %if.then3.i599 ], [ %add41.i582, %if.then34.i578 ], [ 2, %while.body397 ], [ %pair.addr.1.i572, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit607 ]
-  %cmp421 = icmp eq i32 %leftPair.15, %rightPair.15
+  %rightPair.14 = phi i32 [ %rightPair.12, %while.end394 ], [ %spec.select26.i577, %if.then44.i573 ], [ %spec.select25.i594, %if.then17.i590 ], [ %spec.select24.i606, %if.else.i603 ], [ %spec.select.i602, %if.then3.i599 ], [ %add41.i582, %if.then34.i578 ], [ 2, %while.body397 ], [ %pair.addr.0.i572, %_ZN6icu_7518CollationFastLatin13getTertiariesEjaj.exit607 ]
+  %cmp421 = icmp eq i32 %leftPair.14, %rightPair.14
   br i1 %cmp421, label %if.then422, label %if.end426
 
 if.then422:                                       ; preds = %while.end420
-  %cmp423 = icmp eq i32 %leftPair.15, 2
+  %cmp423 = icmp eq i32 %leftPair.14, 2
   br i1 %cmp423, label %for.end449, label %for.cond368.backedge
 
 if.end426:                                        ; preds = %while.end420
-  %and427 = and i32 %leftPair.15, 65535
-  %and428 = and i32 %rightPair.15, 65535
+  %and427 = and i32 %leftPair.14, 65535
+  %and428 = and i32 %rightPair.14, 65535
   %cmp429.not = icmp eq i32 %and427, %and428
   br i1 %cmp429.not, label %if.end443, label %if.then430
 
@@ -3312,19 +3312,19 @@ if.then432:                                       ; preds = %if.then430
   br label %if.end440
 
 if.end440:                                        ; preds = %if.then432, %if.then430
-  %leftTertiary.1 = phi i32 [ %and427, %if.then430 ], [ %spec.select, %if.then432 ]
+  %leftTertiary.0 = phi i32 [ %and427, %if.then430 ], [ %spec.select, %if.then432 ]
   %rightTertiary.0 = phi i32 [ %and428, %if.then430 ], [ %spec.select278, %if.then432 ]
-  %cmp441 = icmp ult i32 %leftTertiary.1, %rightTertiary.0
+  %cmp441 = icmp ult i32 %leftTertiary.0, %rightTertiary.0
   %cond442 = select i1 %cmp441, i32 -1, i32 1
   br label %return
 
 if.end443:                                        ; preds = %if.end426
-  %cmp444 = icmp eq i32 %leftPair.15, 2
+  %cmp444 = icmp eq i32 %leftPair.14, 2
   br i1 %cmp444, label %for.end449, label %if.end446
 
 if.end446:                                        ; preds = %if.end443
-  %shr447 = lshr i32 %leftPair.15, 16
-  %shr448 = lshr i32 %rightPair.15, 16
+  %shr447 = lshr i32 %leftPair.14, 16
+  %shr448 = lshr i32 %rightPair.14, 16
   br label %for.cond368.backedge
 
 for.cond368.backedge:                             ; preds = %if.end446, %if.then422
@@ -3417,25 +3417,25 @@ if.end478:                                        ; preds = %if.else.i617, %cond
   br i1 %cmp.i637, label %if.then.i642, label %if.else15.i638
 
 if.then.i642:                                     ; preds = %cond.end473, %if.end478
-  %leftPair.18723 = phi i32 [ %call477, %if.end478 ], [ %cond474, %cond.end473 ]
-  %cmp1.i643 = icmp ugt i32 %leftPair.18723, 4095
+  %leftPair.19723 = phi i32 [ %call477, %if.end478 ], [ %cond474, %cond.end473 ]
+  %cmp1.i643 = icmp ugt i32 %leftPair.19723, 4095
   br i1 %cmp1.i643, label %if.then2.i649, label %if.else5.i644
 
 if.then2.i649:                                    ; preds = %if.else.i617, %if.then.i642
-  %leftPair.18723896 = phi i32 [ %leftPair.18723, %if.then.i642 ], [ 64680, %if.else.i617 ]
-  %and.i650 = and i32 %leftPair.18723896, 896
+  %leftPair.19723896 = phi i32 [ %leftPair.19723, %if.then.i642 ], [ 64680, %if.else.i617 ]
+  %and.i650 = and i32 %leftPair.19723896, 896
   %cmp3.i651 = icmp ugt i32 %and.i650, 383
   %..i652 = select i1 %cmp3.i651, i32 -67044352, i32 64512
   br label %while.end480
 
 if.else5.i644:                                    ; preds = %if.then.i642
-  %cmp6.i645 = icmp ugt i32 %leftPair.18723, %shr
+  %cmp6.i645 = icmp ugt i32 %leftPair.19723, %shr
   br i1 %cmp6.i645, label %while.end480, label %if.else8.i646
 
 if.else8.i646:                                    ; preds = %if.else5.i644
-  %cmp9.i647 = icmp ugt i32 %leftPair.18723, 3071
-  %and11.i = and i32 %leftPair.18723, 4088
-  %spec.select.i648 = select i1 %cmp9.i647, i32 %and11.i, i32 %leftPair.18723
+  %cmp9.i647 = icmp ugt i32 %leftPair.19723, 3071
+  %and11.i = and i32 %leftPair.19723, 4088
+  %spec.select.i648 = select i1 %cmp9.i647, i32 %and11.i, i32 %leftPair.19723
   br label %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit
 
 if.else15.i638:                                   ; preds = %if.end478
@@ -3450,7 +3450,7 @@ _ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit: ; preds = %if.else15.i6
   br i1 %cmp456, label %while.body457, label %while.end480, !llvm.loop !35
 
 while.end480:                                     ; preds = %if.else15.i638, %if.else5.i644, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit, %while.body457, %if.then2.i649, %for.cond454
-  %leftPair.19 = phi i32 [ %leftPair.16, %for.cond454 ], [ %..i652, %if.then2.i649 ], [ -67044352, %if.else15.i638 ], [ 64512, %if.else5.i644 ], [ 2, %while.body457 ], [ %pair.addr.0.i641, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit ]
+  %leftPair.18 = phi i32 [ %leftPair.16, %for.cond454 ], [ %..i652, %if.then2.i649 ], [ -67044352, %if.else15.i638 ], [ 64512, %if.else5.i644 ], [ 2, %while.body457 ], [ %pair.addr.0.i641, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit ]
   %cmp482784 = icmp eq i32 %rightPair.16, 0
   br i1 %cmp482784, label %while.body483, label %while.end506
 
@@ -3524,25 +3524,25 @@ if.end504:                                        ; preds = %if.else.i658, %cond
   br i1 %cmp.i678, label %if.then.i685, label %if.else15.i679
 
 if.then.i685:                                     ; preds = %cond.end499, %if.end504
-  %rightPair.18726 = phi i32 [ %call503, %if.end504 ], [ %cond500, %cond.end499 ]
-  %cmp1.i686 = icmp ugt i32 %rightPair.18726, 4095
+  %rightPair.19726 = phi i32 [ %call503, %if.end504 ], [ %cond500, %cond.end499 ]
+  %cmp1.i686 = icmp ugt i32 %rightPair.19726, 4095
   br i1 %cmp1.i686, label %if.then2.i693, label %if.else5.i687
 
 if.then2.i693:                                    ; preds = %if.else.i658, %if.then.i685
-  %rightPair.18726911 = phi i32 [ %rightPair.18726, %if.then.i685 ], [ 64680, %if.else.i658 ]
-  %and.i694 = and i32 %rightPair.18726911, 896
+  %rightPair.19726911 = phi i32 [ %rightPair.19726, %if.then.i685 ], [ 64680, %if.else.i658 ]
+  %and.i694 = and i32 %rightPair.19726911, 896
   %cmp3.i695 = icmp ugt i32 %and.i694, 383
   %..i696 = select i1 %cmp3.i695, i32 -67044352, i32 64512
   br label %while.end506
 
 if.else5.i687:                                    ; preds = %if.then.i685
-  %cmp6.i688 = icmp ugt i32 %rightPair.18726, %shr
+  %cmp6.i688 = icmp ugt i32 %rightPair.19726, %shr
   br i1 %cmp6.i688, label %while.end506, label %if.else8.i689
 
 if.else8.i689:                                    ; preds = %if.else5.i687
-  %cmp9.i690 = icmp ugt i32 %rightPair.18726, 3071
-  %and11.i691 = and i32 %rightPair.18726, 4088
-  %spec.select.i692 = select i1 %cmp9.i690, i32 %and11.i691, i32 %rightPair.18726
+  %cmp9.i690 = icmp ugt i32 %rightPair.19726, 3071
+  %and11.i691 = and i32 %rightPair.19726, 4088
+  %spec.select.i692 = select i1 %cmp9.i690, i32 %and11.i691, i32 %rightPair.19726
   br label %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit697
 
 if.else15.i679:                                   ; preds = %if.end504
@@ -3557,17 +3557,17 @@ _ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit697: ; preds = %if.else15
   br i1 %cmp482, label %while.body483, label %while.end506, !llvm.loop !36
 
 while.end506:                                     ; preds = %if.else15.i679, %if.else5.i687, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit697, %while.body483, %if.then2.i693, %while.end480
-  %rightPair.19 = phi i32 [ %rightPair.16, %while.end480 ], [ %..i696, %if.then2.i693 ], [ -67044352, %if.else15.i679 ], [ 64512, %if.else5.i687 ], [ 2, %while.body483 ], [ %pair.addr.0.i684, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit697 ]
-  %cmp507 = icmp eq i32 %leftPair.19, %rightPair.19
+  %rightPair.18 = phi i32 [ %rightPair.16, %while.end480 ], [ %..i696, %if.then2.i693 ], [ -67044352, %if.else15.i679 ], [ 64512, %if.else5.i687 ], [ 2, %while.body483 ], [ %pair.addr.0.i684, %_ZN6icu_7518CollationFastLatin15getQuaternariesEjj.exit697 ]
+  %cmp507 = icmp eq i32 %leftPair.18, %rightPair.18
   br i1 %cmp507, label %if.then508, label %if.end512
 
 if.then508:                                       ; preds = %while.end506
-  %cmp509 = icmp eq i32 %leftPair.19, 2
+  %cmp509 = icmp eq i32 %leftPair.18, 2
   br i1 %cmp509, label %return, label %for.cond454.backedge
 
 if.end512:                                        ; preds = %while.end506
-  %and513 = and i32 %leftPair.19, 65535
-  %and514 = and i32 %rightPair.19, 65535
+  %and513 = and i32 %leftPair.18, 65535
+  %and514 = and i32 %rightPair.18, 65535
   %cmp515.not = icmp eq i32 %and513, %and514
   br i1 %cmp515.not, label %if.end519, label %if.then516
 
@@ -3577,12 +3577,12 @@ if.then516:                                       ; preds = %if.end512
   br label %return
 
 if.end519:                                        ; preds = %if.end512
-  %cmp520 = icmp eq i32 %leftPair.19, 2
+  %cmp520 = icmp eq i32 %leftPair.18, 2
   br i1 %cmp520, label %return, label %if.end522
 
 if.end522:                                        ; preds = %if.end519
-  %shr523 = lshr i32 %leftPair.19, 16
-  %shr524 = lshr i32 %rightPair.19, 16
+  %shr523 = lshr i32 %leftPair.18, 16
+  %shr524 = lshr i32 %rightPair.18, 16
   br label %for.cond454.backedge
 
 for.cond454.backedge:                             ; preds = %if.end522, %if.then508

@@ -465,7 +465,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   br label %46
 
 46:                                               ; preds = %36, %40
-  %.054 = phi ptr [ null, %36 ], [ %41, %40 ]
+  %.1 = phi ptr [ null, %36 ], [ %41, %40 ]
   %.0 = phi i64 [ %39, %36 ], [ %45, %40 ]
   %47 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %.0) #5
   %.not = icmp eq i64 %47, 0
@@ -478,9 +478,9 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %10, %6, %46
-  %.171 = phi ptr [ %.054, %46 ], [ null, %6 ], [ null, %10 ]
+  %.05471 = phi ptr [ %.1, %46 ], [ null, %6 ], [ null, %10 ]
   %.05870 = phi i64 [ %spec.select, %46 ], [ 0, %6 ], [ 0, %10 ]
-  call void @freeCKMechanismPtr(ptr noundef %.171) #5
+  call void @freeCKMechanismPtr(ptr noundef %.05471) #5
   ret i64 %.05870
 }
 

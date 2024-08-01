@@ -666,32 +666,32 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr nocapture noun
   br label %57
 
 57:                                               ; preds = %54, %47
-  %.0 = phi i32 [ 9, %54 ], [ 8, %47 ]
+  %.1 = phi i32 [ 9, %54 ], [ 8, %47 ]
   %58 = load i32, ptr @hf_wifi_dpp_tcp_comeback_delay, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef -2147483648) #2
-  %60 = or disjoint i32 %.0, 2
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #2
+  %60 = or disjoint i32 %.1, 2
   %61 = load i32, ptr @hf_wifi_dpp_tcp_adv_proto_elt, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 3, i32 noundef 0) #2
-  %63 = add nuw nsw i32 %.0, 5
+  %63 = add nuw nsw i32 %.1, 5
   %64 = load i32, ptr @hf_wifi_dpp_tcp_vendor_specific, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #2
-  %66 = or disjoint i32 %.0, 6
+  %66 = or disjoint i32 %.1, 6
   %67 = load i32, ptr @hf_wifi_dpp_tcp_vendor_spec_len, align 4
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 1, i32 noundef 0) #2
-  %69 = add nuw nsw i32 %.0, 7
+  %69 = add nuw nsw i32 %.1, 7
   %70 = load i32, ptr @hf_wifi_dpp_tcp_oui, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 3, i32 noundef 0) #2
-  %72 = add nuw nsw i32 %.0, 10
+  %72 = add nuw nsw i32 %.1, 10
   %73 = load i32, ptr @hf_wifi_dpp_tcp_oui_type, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0) #2
-  %75 = add nuw nsw i32 %.0, 11
+  %75 = add nuw nsw i32 %.1, 11
   %76 = load i32, ptr @hf_wifi_dpp_tcp_config, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #2
-  %78 = add nuw nsw i32 %.0, 12
+  %78 = add nuw nsw i32 %.1, 12
   %79 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %78) #2
   %80 = load i32, ptr @hf_wifi_dpp_tcp_query_resp_len, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef -2147483648) #2
-  %82 = add nuw nsw i32 %.0, 14
+  %82 = add nuw nsw i32 %.1, 14
   %.not = icmp eq i16 %79, 0
   br i1 %.not, label %93, label %83
 
@@ -709,8 +709,8 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr nocapture noun
   br label %93
 
 93:                                               ; preds = %4, %20, %57, %83, %12
-  %.1 = phi i32 [ %19, %12 ], [ %46, %20 ], [ %92, %83 ], [ %82, %57 ], [ 5, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %19, %12 ], [ %46, %20 ], [ %92, %83 ], [ %82, %57 ], [ 5, %4 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

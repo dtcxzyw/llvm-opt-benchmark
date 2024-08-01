@@ -11742,7 +11742,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %result.0 = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i.i, %for.inc.i ]
+  %result.3 = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i.i, %for.inc.i ]
   %it.021.i = phi ptr [ %str.coerce0, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
   %0 = load i8, ptr %it.021.i, align 1
   %1 = or i8 %0, 32
@@ -11766,7 +11766,7 @@ if.then18.i:                                      ; preds = %if.else.i
 
 for.inc.i:                                        ; preds = %if.then18.i, %for.body.i
   %.sink.i = phi i8 [ %add21.i, %if.then18.i ], [ %2, %for.body.i ]
-  %mul.i.i = fmul double %result.0, %conv.i11.i
+  %mul.i.i = fmul double %result.3, %conv.i11.i
   %conv3.i.i = uitofp nneg i8 %.sink.i to double
   %add.i.i = fadd double %mul.i.i, %conv3.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.021.i, i64 1
@@ -11788,13 +11788,13 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
-  %result.2 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %result.2.be, %for.cond.backedge ]
+  %result.1 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %result.1.be, %for.cond.backedge ]
   %lowestExponentBit.0 = phi i8 [ 0, %for.cond.preheader ], [ %lowestExponentBit.0.be, %for.cond.backedge ]
   %curMode.0 = phi i32 [ 0, %for.cond.preheader ], [ %curMode.0.be, %for.cond.backedge ]
   %itr.0 = phi ptr [ %str.coerce0, %for.cond.preheader ], [ %itr.1, %for.cond.backedge ]
   %lastMantissaBit.0 = phi i8 [ 0, %for.cond.preheader ], [ %lastMantissaBit.0.be, %for.cond.backedge ]
   %bitMask.0 = phi i64 [ 0, %for.cond.preheader ], [ %shr27, %for.cond.backedge ]
-  %curDigit.0 = phi i64 [ 0, %for.cond.preheader ], [ %curDigit.2, %for.cond.backedge ]
+  %curDigit.0 = phi i64 [ 0, %for.cond.preheader ], [ %curDigit.1, %for.cond.backedge ]
   %expFactor.0 = phi double [ 0.000000e+00, %for.cond.preheader ], [ %expFactor.0.be, %for.cond.backedge ]
   %remainingMantissa.0 = phi i64 [ 53, %for.cond.preheader ], [ %remainingMantissa.0.be, %for.cond.backedge ]
   %cmp6 = icmp eq i64 %bitMask.0, 0
@@ -11813,15 +11813,15 @@ if.end10:                                         ; preds = %if.then7
   %conv18 = zext nneg i8 %7 to i64
   %conv19 = sext i8 %5 to i64
   %add = add nsw i64 %conv19, -87
-  %curDigit.1 = select i1 %or.cond, i64 %conv18, i64 %add
+  %curDigit.2 = select i1 %or.cond, i64 %conv18, i64 %add
   %incdec.ptr = getelementptr inbounds i8, ptr %itr.0, i64 1
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end10, %for.cond
   %itr.1 = phi ptr [ %incdec.ptr, %if.end10 ], [ %itr.0, %for.cond ]
   %bitMask.1 = phi i64 [ %conv23, %if.end10 ], [ %bitMask.0, %for.cond ]
-  %curDigit.2 = phi i64 [ %curDigit.1, %if.end10 ], [ %curDigit.0, %for.cond ]
-  %and = and i64 %curDigit.2, %bitMask.1
+  %curDigit.1 = phi i64 [ %curDigit.2, %if.end10 ], [ %curDigit.0, %for.cond ]
+  %and = and i64 %curDigit.1, %bitMask.1
   %cmp25 = icmp ne i64 %and, 0
   %frombool26 = zext i1 %cmp25 to i8
   %shr27 = lshr i64 %bitMask.1, 1
@@ -11841,7 +11841,7 @@ if.then29:                                        ; preds = %sw.bb
   br label %for.cond.backedge
 
 sw.bb31:                                          ; preds = %if.end24
-  %mul = fmul double %result.2, 2.000000e+00
+  %mul = fmul double %result.1, 2.000000e+00
   %conv34 = uitofp i1 %cmp25 to double
   %add35 = fadd double %mul, %conv34
   %dec36 = add i64 %remainingMantissa.0, -1
@@ -11849,7 +11849,7 @@ sw.bb31:                                          ; preds = %if.end24
   br i1 %cmp37, label %if.then38, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %sw.bb31, %if.then38, %sw.bb, %if.then29, %sw.bb50, %sw.bb45, %sw.bb42, %if.end24
-  %result.2.be = phi double [ %result.2, %if.end24 ], [ %result.2, %sw.bb50 ], [ %result.2, %sw.bb45 ], [ %result.2, %sw.bb42 ], [ %add35, %if.then38 ], [ %add35, %sw.bb31 ], [ 1.000000e+00, %if.then29 ], [ %result.2, %sw.bb ]
+  %result.1.be = phi double [ %result.1, %if.end24 ], [ %result.1, %sw.bb50 ], [ %result.1, %sw.bb45 ], [ %result.1, %sw.bb42 ], [ %add35, %if.then38 ], [ %add35, %sw.bb31 ], [ 1.000000e+00, %if.then29 ], [ %result.1, %sw.bb ]
   %lowestExponentBit.0.be = phi i8 [ %lowestExponentBit.0, %if.end24 ], [ %lowestExponentBit.0, %sw.bb50 ], [ %lowestExponentBit.0, %sw.bb45 ], [ %frombool26, %sw.bb42 ], [ %lowestExponentBit.0, %if.then38 ], [ %lowestExponentBit.0, %sw.bb31 ], [ %lowestExponentBit.0, %if.then29 ], [ %lowestExponentBit.0, %sw.bb ]
   %curMode.0.be = phi i32 [ %curMode.0, %if.end24 ], [ 4, %sw.bb50 ], [ %spec.select, %sw.bb45 ], [ 3, %sw.bb42 ], [ 2, %if.then38 ], [ 1, %sw.bb31 ], [ 1, %if.then29 ], [ 0, %sw.bb ]
   %lastMantissaBit.0.be = phi i8 [ %lastMantissaBit.0, %if.end24 ], [ %lastMantissaBit.0, %sw.bb50 ], [ %lastMantissaBit.0, %sw.bb45 ], [ %lastMantissaBit.0, %sw.bb42 ], [ %frombool26, %if.then38 ], [ %lastMantissaBit.0, %sw.bb31 ], [ %lastMantissaBit.0, %if.then29 ], [ %lastMantissaBit.0, %sw.bb ]
@@ -11882,18 +11882,18 @@ sw.bb53:                                          ; preds = %for.end
   %tobool54 = trunc nuw i8 %lowestExponentBit.0 to i1
   %8 = uitofp nneg i8 %lastMantissaBit.0 to double
   %conv57 = select i1 %tobool54, double %8, double 0.000000e+00
-  %add58 = fadd double %result.2, %conv57
+  %add58 = fadd double %result.1, %conv57
   %mul59 = fmul double %expFactor.0, %add58
   br label %return
 
 sw.bb60:                                          ; preds = %for.end
   %conv63 = uitofp nneg i8 %lowestExponentBit.0 to double
-  %add64 = fadd double %result.2, %conv63
+  %add64 = fadd double %result.1, %conv63
   %mul65 = fmul double %add64, %expFactor.0
   br label %return
 
 return:                                           ; preds = %if.else.i, %entry, %if.end, %sw.bb60, %sw.bb53, %for.end
-  %retval.sroa.0.0 = phi double [ %add.i.i, %if.end ], [ %result.2, %for.end ], [ %mul59, %sw.bb53 ], [ %mul65, %sw.bb60 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.else.i ]
+  %retval.sroa.0.0 = phi double [ %add.i.i, %if.end ], [ %result.1, %for.end ], [ %mul59, %sw.bb53 ], [ %mul65, %sw.bb60 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.else.i ]
   %retval.sroa.3.0 = phi i8 [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb53 ], [ 1, %sw.bb60 ], [ 1, %entry ], [ 0, %if.else.i ]
   %.fca.0.insert = insertvalue { double, i8 } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1

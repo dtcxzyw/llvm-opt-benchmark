@@ -388,7 +388,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 .lr.ph264:                                        ; preds = %.lr.ph264.preheader, %163
   %indvars.iv274 = phi i64 [ 0, %.lr.ph264.preheader ], [ %indvars.iv.next275, %163 ]
-  %.0193263 = phi i1 [ true, %.lr.ph264.preheader ], [ %.13, %163 ]
+  %.0193263 = phi i1 [ true, %.lr.ph264.preheader ], [ %.1, %163 ]
   %18 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv274
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -428,7 +428,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %exitcond.not, label %.loopexit251, label %.lr.ph, !llvm.loop !5
 
 .loopexit251:                                     ; preds = %31, %.preheader250, %29
-  %.1 = phi i1 [ false, %29 ], [ %.0193263, %.preheader250 ], [ %.0193263, %31 ]
+  %.2 = phi i1 [ false, %29 ], [ %.0193263, %.preheader250 ], [ %.0193263, %31 ]
   %32 = getelementptr inbounds i8, ptr %18, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
@@ -464,7 +464,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 47:                                               ; preds = %42, %45
   %48 = phi i32 [ %.pre, %45 ], [ %40, %42 ]
-  %.2 = phi i1 [ false, %45 ], [ %.1, %42 ]
+  %.4 = phi i1 [ false, %45 ], [ %.2, %42 ]
   %49 = and i32 %48, 4
   %.not218 = icmp eq i32 %49, 0
   br i1 %.not218, label %54, label %50
@@ -497,7 +497,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 62:                                               ; preds = %60, %57, %54
   %63 = phi i32 [ %55, %54 ], [ %.pre278, %60 ], [ %55, %57 ]
-  %.3 = phi i1 [ %.2, %54 ], [ false, %60 ], [ %.2, %57 ]
+  %.5 = phi i1 [ %.4, %54 ], [ false, %60 ], [ %.4, %57 ]
   %64 = and i32 %63, 32
   %.not221 = icmp eq i32 %64, 0
   br i1 %.not221, label %67, label %65
@@ -510,7 +510,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 67:                                               ; preds = %62, %65, %39
   %68 = phi i32 [ %.pre279, %65 ], [ %63, %62 ], [ %40, %39 ]
-  %.4 = phi i1 [ false, %65 ], [ %.3, %62 ], [ %.1, %39 ]
+  %.3 = phi i1 [ false, %65 ], [ %.5, %62 ], [ %.2, %39 ]
   %69 = and i32 %68, 48
   %or.cond245.not = icmp eq i32 %69, 48
   br i1 %or.cond245.not, label %70, label %72
@@ -523,7 +523,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 72:                                               ; preds = %70, %67
   %73 = phi i32 [ %.pre280, %70 ], [ %68, %67 ]
-  %.5 = phi i1 [ false, %70 ], [ %.4, %67 ]
+  %.6 = phi i1 [ false, %70 ], [ %.3, %67 ]
   %74 = and i32 %73, 128
   %.not224 = icmp eq i32 %74, 0
   br i1 %.not224, label %90, label %75
@@ -540,7 +540,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %80
 
 80:                                               ; preds = %78, %75
-  %.6 = phi i1 [ false, %78 ], [ %.5, %75 ]
+  %.8 = phi i1 [ false, %78 ], [ %.6, %75 ]
   %81 = getelementptr inbounds i8, ptr %18, i64 12
   %82 = load i32, ptr %81, align 4
   %.not226 = icmp eq i32 %82, 1
@@ -552,7 +552,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %85
 
 85:                                               ; preds = %83, %80
-  %.7 = phi i1 [ false, %83 ], [ %.6, %80 ]
+  %.9 = phi i1 [ false, %83 ], [ %.8, %80 ]
   %86 = load i32, ptr %32, align 8
   %87 = and i32 %86, 52
   %.not227 = icmp eq i32 %87, 0
@@ -564,7 +564,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %90
 
 90:                                               ; preds = %85, %88, %72
-  %.8 = phi i1 [ false, %88 ], [ %.7, %85 ], [ %.5, %72 ]
+  %.7 = phi i1 [ false, %88 ], [ %.9, %85 ], [ %.6, %72 ]
   %91 = getelementptr inbounds i8, ptr %18, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
@@ -582,7 +582,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %99
 
 99:                                               ; preds = %97, %94
-  %.9 = phi i1 [ false, %97 ], [ %.8, %94 ]
+  %.11 = phi i1 [ false, %97 ], [ %.7, %94 ]
   %100 = load i32, ptr %32, align 8
   %101 = or i32 %100, 2
   store i32 %101, ptr %32, align 8
@@ -596,7 +596,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %105
 
 105:                                              ; preds = %99, %103, %90
-  %.10 = phi i1 [ false, %103 ], [ %.9, %99 ], [ %.8, %90 ]
+  %.10 = phi i1 [ false, %103 ], [ %.11, %99 ], [ %.7, %90 ]
   %106 = load i32, ptr %32, align 8
   %107 = and i32 %106, 48
   %.not230 = icmp eq i32 %107, 0
@@ -634,7 +634,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %122
 
 122:                                              ; preds = %114, %120, %116, %113
-  %.11 = phi i1 [ %.10, %113 ], [ false, %120 ], [ %.10, %116 ], [ %.10, %114 ]
+  %.12 = phi i1 [ %.10, %113 ], [ false, %120 ], [ %.10, %116 ], [ %.10, %114 ]
   %123 = getelementptr inbounds i8, ptr %18, i64 32
   %124 = load ptr, ptr %123, align 8
   %.not233 = icmp eq ptr %124, null
@@ -706,7 +706,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not240, label %.loopexit.thread, label %163
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.12285 = phi i1 [ false, %.loopexit ], [ %.11, %.preheader ]
+  %.13285 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
   %149 = phi ptr [ %.pre281, %.loopexit ], [ %136, %.preheader ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
   %150 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -760,13 +760,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %193
 
 163:                                              ; preds = %156, %157, %.loopexit, %135, %142, %22
-  %.13 = phi i1 [ false, %22 ], [ %.11, %135 ], [ false, %.loopexit ], [ false, %157 ], [ %.12285, %156 ], [ false, %142 ]
+  %.1 = phi i1 [ false, %22 ], [ %.12, %135 ], [ false, %.loopexit ], [ false, %157 ], [ %.13285, %156 ], [ false, %142 ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count276
   br i1 %exitcond277.not, label %._crit_edge, label %.lr.ph264, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %163, %.thread, %16
-  %.0193.lcssa = phi i1 [ true, %16 ], [ true, %.thread ], [ %.13, %163 ]
+  %.0193.lcssa = phi i1 [ true, %16 ], [ true, %.thread ], [ %.1, %163 ]
   call void @_ZNK3gmx26SelectionParserSymbolTable13beginIteratorENS_21SelectionParserSymbol10SymbolTypeE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 2)
   br label %164
 

@@ -1465,7 +1465,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %9 = phi i8 [ %.pre, %while.body.lr.ph ], [ %28, %if.end49 ]
   %10 = phi ptr [ %1, %while.body.lr.ph ], [ %30, %if.end49 ]
   %11 = phi i64 [ %5, %while.body.lr.ph ], [ %27, %if.end49 ]
-  %curr_key_boundary_switched_num.038 = phi i64 [ 0, %while.body.lr.ph ], [ %curr_key_boundary_switched_num.3, %if.end49 ]
+  %curr_key_boundary_switched_num.038 = phi i64 [ 0, %while.body.lr.ph ], [ %curr_key_boundary_switched_num.2, %if.end49 ]
   %tobool = trunc i8 %9 to i1
   %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %11
   %12 = load ptr, ptr %add.ptr.i, align 8
@@ -1565,7 +1565,7 @@ if.then41:                                        ; preds = %if.end38
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then41, %if.end38
-  %curr_key_boundary_switched_num.2 = phi i64 [ %inc42, %if.then41 ], [ %curr_key_boundary_switched_num.038, %if.end38 ]
+  %curr_key_boundary_switched_num.3 = phi i64 [ %inc42, %if.then41 ], [ %curr_key_boundary_switched_num.038, %if.end38 ]
   store i8 1, ptr %being_grandparent_gap_, align 8
   %26 = load i64, ptr %grandparent_index_, align 8
   %inc48 = add i64 %26, 1
@@ -1575,7 +1575,7 @@ if.end45:                                         ; preds = %if.then41, %if.end3
 if.end49:                                         ; preds = %if.end45, %if.end20
   %27 = phi i64 [ %.pre43.pre, %if.end20 ], [ %inc48, %if.end45 ]
   %28 = phi i8 [ 0, %if.end20 ], [ 1, %if.end45 ]
-  %curr_key_boundary_switched_num.3 = phi i64 [ %curr_key_boundary_switched_num.1, %if.end20 ], [ %curr_key_boundary_switched_num.2, %if.end45 ]
+  %curr_key_boundary_switched_num.2 = phi i64 [ %curr_key_boundary_switched_num.1, %if.end20 ], [ %curr_key_boundary_switched_num.3, %if.end45 ]
   %29 = load ptr, ptr %_M_finish.i.i, align 8
   %30 = load ptr, ptr %grandparents_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %29 to i64
@@ -1586,7 +1586,7 @@ if.end49:                                         ; preds = %if.end45, %if.end20
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end49, %if.then7, %lor.lhs.false30, %land.lhs.true, %if.else, %if.end
-  %curr_key_boundary_switched_num.0.lcssa = phi i64 [ 0, %if.end ], [ %curr_key_boundary_switched_num.038, %if.else ], [ %curr_key_boundary_switched_num.038, %land.lhs.true ], [ %curr_key_boundary_switched_num.038, %lor.lhs.false30 ], [ %curr_key_boundary_switched_num.038, %if.then7 ], [ %curr_key_boundary_switched_num.3, %if.end49 ]
+  %curr_key_boundary_switched_num.0.lcssa = phi i64 [ 0, %if.end ], [ %curr_key_boundary_switched_num.038, %if.else ], [ %curr_key_boundary_switched_num.038, %land.lhs.true ], [ %curr_key_boundary_switched_num.038, %lor.lhs.false30 ], [ %curr_key_boundary_switched_num.038, %if.then7 ], [ %curr_key_boundary_switched_num.2, %if.end49 ]
   %seen_key_50 = getelementptr inbounds i8, ptr %this, i64 256
   %31 = load i8, ptr %seen_key_50, align 8
   %tobool51 = trunc i8 %31 to i1
@@ -3666,25 +3666,25 @@ invoke.cont276:                                   ; preds = %invoke.cont260
 cleanup.sink.split:                               ; preds = %invoke.cont276, %if.then218
   %compensated_range_deletion_size.sink465 = phi ptr [ %num_record_drop_obsolete, %if.then218 ], [ %compensated_range_deletion_size, %invoke.cont276 ]
   %call282.sink = phi i64 [ 1, %if.then218 ], [ %call282, %invoke.cont276 ]
-  %cleanup.dest.slot.0.ph = phi i32 [ 4, %if.then218 ], [ 0, %invoke.cont276 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 4, %if.then218 ], [ 0, %invoke.cont276 ]
   %144 = load i64, ptr %compensated_range_deletion_size.sink465, align 8
   %add283 = add i64 %144, %call282.sink
   store i64 %add283, ptr %compensated_range_deletion_size.sink465, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then.i204, %invoke.cont233, %invoke.cont260, %invoke.cont243, %invoke.cont177
-  %cleanup.dest.slot.0 = phi i32 [ 2, %invoke.cont177 ], [ 0, %invoke.cont243 ], [ 0, %invoke.cont260 ], [ 0, %invoke.cont233 ], [ 2, %if.then.i204 ], [ %cleanup.dest.slot.0.ph, %cleanup.sink.split ]
+  %cleanup.dest.slot.1 = phi i32 [ 2, %invoke.cont177 ], [ 0, %invoke.cont243 ], [ 0, %invoke.cont260 ], [ 0, %invoke.cont233 ], [ 2, %if.then.i204 ], [ %cleanup.dest.slot.1.ph, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_start) #17
   br label %cleanup287
 
 cleanup287:                                       ; preds = %invoke.cont107.thread, %invoke.cont107, %cleanup, %if.then131
   %reached_lower_bound.1 = phi i1 [ true, %if.then131 ], [ true, %cleanup ], [ %reached_lower_bound.0, %invoke.cont107 ], [ %reached_lower_bound.0, %invoke.cont107.thread ]
-  %cleanup.dest.slot.1 = phi i32 [ 4, %if.then131 ], [ %cleanup.dest.slot.0, %cleanup ], [ 4, %invoke.cont107 ], [ 4, %invoke.cont107.thread ]
+  %cleanup.dest.slot.0 = phi i32 [ 4, %if.then131 ], [ %cleanup.dest.slot.1, %cleanup ], [ 4, %invoke.cont107 ], [ 4, %invoke.cont107.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_end) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %kv) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pinned_end_key_.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pinned_start_key_.i) #17
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 2
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 2
   br i1 %switch, label %invoke.cont297, label %for.inc
 
 for.inc:                                          ; preds = %cleanup287

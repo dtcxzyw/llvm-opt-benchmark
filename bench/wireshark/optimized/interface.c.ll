@@ -23,7 +23,7 @@ define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %27
   %.01219.i = phi ptr [ %.012.i, %27 ], [ %.01216.i, %.preheader.i ]
-  %.018.i = phi ptr [ %.1.i, %27 ], [ null, %.preheader.i ]
+  %.118.i = phi ptr [ %.2.i, %27 ], [ null, %.preheader.i ]
   %4 = getelementptr inbounds i8, ptr %.01219.i, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -64,11 +64,11 @@ define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
 
 24:                                               ; preds = %19
   %25 = call noalias ptr @g_strdup(ptr noundef nonnull %2) #5
-  %26 = call ptr @g_slist_prepend(ptr noundef %.018.i, ptr noundef %25) #5
+  %26 = call ptr @g_slist_prepend(ptr noundef %.118.i, ptr noundef %25) #5
   br label %27
 
 27:                                               ; preds = %24, %19, %17, %.lr.ph.i
-  %.1.i = phi ptr [ %.018.i, %.lr.ph.i ], [ %26, %24 ], [ %.018.i, %19 ], [ %.018.i, %17 ]
+  %.2.i = phi ptr [ %.118.i, %.lr.ph.i ], [ %26, %24 ], [ %.118.i, %19 ], [ %.118.i, %17 ]
   %.012.i = load ptr, ptr %.01219.i, align 8
   %.not14.i = icmp eq ptr %.012.i, null
   br i1 %.not14.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
@@ -79,15 +79,15 @@ define ptr @local_interfaces_to_list() local_unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %28 = phi ptr [ null, %.preheader.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1.i, %._crit_edge.loopexit.i ]
+  %.1.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.2.i, %._crit_edge.loopexit.i ]
   call void @freeifaddrs(ptr noundef %28) #5
   br label %local_interfaces_to_list_nix.exit
 
 local_interfaces_to_list_nix.exit:                ; preds = %0, %._crit_edge.i
-  %.2.i = phi ptr [ null, %0 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi ptr [ null, %0 ], [ %.1.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %2)
-  ret ptr %.2.i
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind

@@ -53,7 +53,7 @@ if.then7:                                         ; preds = %if.end5
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end39
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end39 ]
-  %n.119 = phi i32 [ %n.0, %for.body.lr.ph ], [ %add40, %if.end39 ]
+  %n.219 = phi i32 [ %n.0, %for.body.lr.ph ], [ %add40, %if.end39 ]
   %cmp14.not = icmp ne i64 %indvars.iv, 0
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %2, 35
@@ -67,11 +67,11 @@ if.then16:                                        ; preds = %for.body
   br i1 %cmp18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16
-  %add21 = add nsw i32 %n.119, 2
+  %add21 = add nsw i32 %n.219, 2
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %for.body
-  %n.2 = phi i32 [ %add21, %if.end20 ], [ %n.119, %for.body ]
+  %n.3 = phi i32 [ %add21, %if.end20 ], [ %n.219, %for.body ]
   %3 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
@@ -91,7 +91,7 @@ if.end22:                                         ; preds = %if.end20, %for.body
   br i1 %cmp36.not, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end22
-  %add40 = add nsw i32 %n.2, 2
+  %add40 = add nsw i32 %n.3, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %a, align 8
   %11 = sext i32 %10 to i64
@@ -123,7 +123,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
   %tobool47.not91 = phi i1 [ false, %if.end.lr.ph ], [ true, %if.then115 ]
   %slen.090 = phi i32 [ 0, %if.end.lr.ph ], [ %slen.1, %if.then115 ]
   %num.089 = phi i32 [ 0, %if.end.lr.ph ], [ %add, %if.then115 ]
-  %s.088 = phi ptr [ null, %if.end.lr.ph ], [ %s.1, %if.then115 ]
+  %s.088 = phi ptr [ null, %if.end.lr.ph ], [ %s.2, %if.then115 ]
   %bufsize.087 = phi i32 [ %call, %if.end.lr.ph ], [ %call116, %if.then115 ]
   %0 = zext nneg i32 %bufsize.087 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %0
@@ -249,7 +249,7 @@ if.then75:                                        ; preds = %if.then68
   br label %return
 
 if.end79:                                         ; preds = %if.then68, %if.end65
-  %s.1 = phi ptr [ %s.088, %if.end65 ], [ %call72, %if.then68 ]
+  %s.2 = phi ptr [ %s.088, %if.end65 ], [ %call72, %if.then68 ]
   %slen.1 = phi i32 [ %slen.090, %if.end65 ], [ %add70, %if.then68 ]
   %cmp8179 = icmp sgt i32 %div, 0
   br i1 %cmp8179, label %for.cond84.preheader.preheader, label %for.end112
@@ -263,7 +263,7 @@ for.cond84.preheader:                             ; preds = %for.cond84.preheade
   %indvars.iv112 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next113, %for.inc109 ]
   %indvars.iv109 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next110, %for.inc109 ]
   %10 = add nsw i64 %indvars.iv109, %9
-  %arrayidx98 = getelementptr inbounds i8, ptr %s.1, i64 %10
+  %arrayidx98 = getelementptr inbounds i8, ptr %s.2, i64 %10
   br label %for.body87
 
 for.body87:                                       ; preds = %for.cond84.preheader, %if.end95
@@ -307,15 +307,15 @@ if.then115:                                       ; preds = %for.end112
 for.end118:                                       ; preds = %for.end112
   store i32 %add, ptr %bs, align 8
   %data = getelementptr inbounds i8, ptr %bs, i64 8
-  store ptr %s.1, ptr %data, align 8
+  store ptr %s.2, ptr %data, align 8
   br label %return
 
 err:                                              ; preds = %if.then115, %if.end6, %if.end21, %for.end, %entry, %if.then94
-  %s.2 = phi ptr [ %s.1, %if.then94 ], [ null, %entry ], [ %s.1, %if.then115 ], [ %s.088, %if.end6 ], [ %s.088, %if.end21 ], [ %s.088, %for.end ]
+  %s.1 = phi ptr [ %s.2, %if.then94 ], [ null, %entry ], [ %s.2, %if.then115 ], [ %s.088, %if.end6 ], [ %s.088, %if.end21 ], [ %s.088, %for.end ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 138, ptr noundef nonnull @__func__.a2i_ASN1_INTEGER) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 150, ptr noundef null) #2
-  tail call void @CRYPTO_free(ptr noundef %s.2, ptr noundef nonnull @.str.4, i32 noundef 139) #2
+  tail call void @CRYPTO_free(ptr noundef %s.1, ptr noundef nonnull @.str.4, i32 noundef 139) #2
   br label %return
 
 return:                                           ; preds = %err, %for.end118, %if.then75, %if.then64

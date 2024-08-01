@@ -81,7 +81,7 @@ while.cond.preheader.i:                           ; preds = %if.then15
   br i1 %tobool.not15.i, label %inflate_buffer.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %sw.epilog.i
-  %out.017.i = phi ptr [ %out.1.i, %sw.epilog.i ], [ %call.i, %while.cond.preheader.i ]
+  %out.117.i = phi ptr [ %out.2.i, %sw.epilog.i ], [ %call.i, %while.cond.preheader.i ]
   %out_len.016.i = phi i32 [ %out_len.1.i, %sw.epilog.i ], [ 8, %while.cond.preheader.i ]
   %call7.i = call i32 @inflate(ptr noundef nonnull %stream.i, i32 noundef 4) #6
   switch i32 %call7.i, label %err_end.i [
@@ -97,7 +97,7 @@ sw.bb12.i:                                        ; preds = %while.body.i
 
 if.end16.i:                                       ; preds = %sw.bb12.i
   %conv17.i = zext nneg i32 %shl.i to i64
-  %call18.i = call ptr @g_realloc(ptr noundef %out.017.i, i64 noundef %conv17.i) #6
+  %call18.i = call ptr @g_realloc(ptr noundef %out.117.i, i64 noundef %conv17.i) #6
   %4 = load i64, ptr %total_out.i, align 8
   %add.ptr20.i = getelementptr i8, ptr %call18.i, i64 %4
   store ptr %add.ptr20.i, ptr %next_out.i, align 8
@@ -108,7 +108,7 @@ if.end16.i:                                       ; preds = %sw.bb12.i
 
 sw.epilog.i:                                      ; preds = %if.end16.i, %while.body.i
   %out_len.1.i = phi i32 [ %shl.i, %if.end16.i ], [ %out_len.016.i, %while.body.i ]
-  %out.1.i = phi ptr [ %call18.i, %if.end16.i ], [ %out.017.i, %while.body.i ]
+  %out.2.i = phi ptr [ %call18.i, %if.end16.i ], [ %out.117.i, %while.body.i ]
   %6 = load i32, ptr %2, align 8
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %inflate_buffer.exit, label %while.body.i, !llvm.loop !5
@@ -118,13 +118,13 @@ err_end.i:                                        ; preds = %sw.bb12.i, %while.b
   br label %inflate_buffer.exit.thread
 
 inflate_buffer.exit.thread:                       ; preds = %if.then15, %err_end.i
-  %out.2.i = phi ptr [ %call.i, %if.then15 ], [ %out.017.i, %err_end.i ]
-  call void @g_free(ptr noundef %out.2.i) #6
+  %out.0.i = phi ptr [ %call.i, %if.then15 ], [ %out.117.i, %err_end.i ]
+  call void @g_free(ptr noundef %out.0.i) #6
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %stream.i)
   br label %if.end30
 
 inflate_buffer.exit:                              ; preds = %sw.epilog.i, %while.body.i, %while.cond.preheader.i
-  %retval.0.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %out.017.i, %while.body.i ], [ %out.1.i, %sw.epilog.i ]
+  %retval.0.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %out.117.i, %while.body.i ], [ %out.2.i, %sw.epilog.i ]
   %7 = load i64, ptr %total_out.i, align 8
   %call11.i = call i32 @inflateEnd(ptr noundef nonnull %stream.i) #6
   %size.0 = trunc i64 %7 to i32
@@ -257,7 +257,7 @@ entry:
   br i1 %cmp.not.i, label %while.body.i, label %deflate_buffer.exit.thread
 
 while.body.i:                                     ; preds = %entry, %sw.epilog.i
-  %out.014.i = phi ptr [ %out.1.i, %sw.epilog.i ], [ %call.i, %entry ]
+  %out.114.i = phi ptr [ %out.2.i, %sw.epilog.i ], [ %call.i, %entry ]
   %out_len.013.i = phi i32 [ %out_len.1.i, %sw.epilog.i ], [ 8, %entry ]
   %call8.i = call i32 @deflate(ptr noundef nonnull %stream.i, i32 noundef 4) #6
   switch i32 %call8.i, label %err_end.i [
@@ -273,7 +273,7 @@ sw.bb9.i:                                         ; preds = %while.body.i
 
 if.end13.i:                                       ; preds = %sw.bb9.i
   %conv14.i = zext nneg i32 %shl.i to i64
-  %call15.i = call ptr @g_realloc(ptr noundef %out.014.i, i64 noundef %conv14.i) #6
+  %call15.i = call ptr @g_realloc(ptr noundef %out.114.i, i64 noundef %conv14.i) #6
   %5 = load i64, ptr %total_out.i, align 8
   %add.ptr17.i = getelementptr i8, ptr %call15.i, i64 %5
   store ptr %add.ptr17.i, ptr %next_out.i, align 8
@@ -284,7 +284,7 @@ if.end13.i:                                       ; preds = %sw.bb9.i
 
 sw.epilog.i:                                      ; preds = %if.end13.i, %while.body.i, %while.body.i
   %out_len.1.i = phi i32 [ %shl.i, %if.end13.i ], [ %out_len.013.i, %while.body.i ], [ %out_len.013.i, %while.body.i ]
-  %out.1.i = phi ptr [ %call15.i, %if.end13.i ], [ %out.014.i, %while.body.i ], [ %out.014.i, %while.body.i ]
+  %out.2.i = phi ptr [ %call15.i, %if.end13.i ], [ %out.114.i, %while.body.i ], [ %out.114.i, %while.body.i ]
   %cmp6.not.i = icmp eq i32 %call8.i, 1
   br i1 %cmp6.not.i, label %deflate_buffer.exit, label %while.body.i, !llvm.loop !7
 
@@ -293,8 +293,8 @@ err_end.i:                                        ; preds = %sw.bb9.i, %while.bo
   br label %deflate_buffer.exit.thread
 
 deflate_buffer.exit.thread:                       ; preds = %entry, %err_end.i
-  %out.2.i = phi ptr [ %call.i, %entry ], [ %out.014.i, %err_end.i ]
-  call void @g_free(ptr noundef %out.2.i) #6
+  %out.0.i = phi ptr [ %call.i, %entry ], [ %out.114.i, %err_end.i ]
+  call void @g_free(ptr noundef %out.0.i) #6
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %stream.i)
   br label %cleanup
 
@@ -302,7 +302,7 @@ deflate_buffer.exit:                              ; preds = %sw.epilog.i
   %7 = load i64, ptr %total_out.i, align 8
   %call26.i = call i32 @deflateEnd(ptr noundef nonnull %stream.i) #6
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %stream.i)
-  %tobool.not = icmp eq ptr %out.1.i, null
+  %tobool.not = icmp eq ptr %out.2.i, null
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %deflate_buffer.exit
@@ -319,13 +319,13 @@ if.end:                                           ; preds = %deflate_buffer.exit
   call void @vnc_write_s32(ptr noundef %vs, i32 noundef %sub) #6
   call void @vnc_write_u32(ptr noundef %vs, i32 noundef 268435457) #6
   %conv48 = and i64 %7, 4294967295
-  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %out.1.i, i64 noundef %conv48) #6
+  call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %out.2.i, i64 noundef %conv48) #6
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.2, i32 noundef 65) #6
   call void @vnc_flush(ptr noundef %vs) #6
   br label %cleanup
 
 cleanup:                                          ; preds = %deflate_buffer.exit.thread, %deflate_buffer.exit, %if.end
-  %retval.0.i36 = phi ptr [ null, %deflate_buffer.exit.thread ], [ null, %deflate_buffer.exit ], [ %out.1.i, %if.end ]
+  %retval.0.i36 = phi ptr [ null, %deflate_buffer.exit.thread ], [ null, %deflate_buffer.exit ], [ %out.2.i, %if.end ]
   call void @g_free(ptr noundef %retval.0.i36) #6
   call void @g_free(ptr noundef nonnull %call) #6
   ret void

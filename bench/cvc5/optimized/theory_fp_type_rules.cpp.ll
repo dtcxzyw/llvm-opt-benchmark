@@ -3001,7 +3001,7 @@ if.then13.i.i.i143:                               ; preds = %if.else.i.i.i141
           to label %cleanup unwind label %lpad47
 
 cleanup:                                          ; preds = %if.else.i.i.i141, %if.then.i.i.i145, %if.then13.i.i.i143, %invoke.cont48
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
   %21 = load ptr, ptr %operandType, align 8
   %bf.load.i.i152 = load i64, ptr %21, align 8
   %22 = and i64 %bf.load.i.i152, 1152920405095219200
@@ -3029,7 +3029,7 @@ terminate.lpad.i161:                              ; preds = %if.then13.i.i160
   unreachable
 
 cleanup58:                                        ; preds = %if.then13.i.i160, %if.then.i.i154, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i154 ], [ %cleanup.dest.slot.0, %if.then13.i.i160 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i154 ], [ %cleanup.dest.slot.1, %if.then13.i.i160 ]
   %25 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i162 = load i64, ptr %25, align 8
   %26 = and i64 %bf.load.i.i162, 1152920405095219200
@@ -3057,7 +3057,7 @@ terminate.lpad.i171:                              ; preds = %if.then13.i.i170
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit172:           ; preds = %cleanup58, %if.then.i.i164, %if.then13.i.i170
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end59, label %return
 
 ehcleanup:                                        ; preds = %lpad47, %lpad45, %lpad33
@@ -3400,7 +3400,7 @@ if.then13.i.i.i143:                               ; preds = %if.else.i.i.i141
           to label %cleanup unwind label %lpad47
 
 cleanup:                                          ; preds = %if.else.i.i.i141, %if.then.i.i.i145, %if.then13.i.i.i143, %invoke.cont48
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
   %21 = load ptr, ptr %operandType, align 8
   %bf.load.i.i152 = load i64, ptr %21, align 8
   %22 = and i64 %bf.load.i.i152, 1152920405095219200
@@ -3428,7 +3428,7 @@ terminate.lpad.i161:                              ; preds = %if.then13.i.i160
   unreachable
 
 cleanup58:                                        ; preds = %if.then13.i.i160, %if.then.i.i154, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i154 ], [ %cleanup.dest.slot.0, %if.then13.i.i160 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i154 ], [ %cleanup.dest.slot.1, %if.then13.i.i160 ]
   %25 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i162 = load i64, ptr %25, align 8
   %26 = and i64 %bf.load.i.i162, 1152920405095219200
@@ -3456,7 +3456,7 @@ terminate.lpad.i171:                              ; preds = %if.then13.i.i170
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit172:           ; preds = %cleanup58, %if.then.i.i164, %if.then13.i.i170
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end59, label %return
 
 ehcleanup:                                        ; preds = %lpad47, %lpad45, %lpad33
@@ -3801,7 +3801,7 @@ if.then13.i.i.i143:                               ; preds = %if.else.i.i.i141
           to label %cleanup unwind label %lpad47
 
 cleanup:                                          ; preds = %if.else.i.i.i141, %if.then.i.i.i145, %if.then13.i.i.i143, %invoke.cont48
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
   %21 = load ptr, ptr %operandType, align 8
   %bf.load.i.i152 = load i64, ptr %21, align 8
   %22 = and i64 %bf.load.i.i152, 1152920405095219200
@@ -3829,7 +3829,7 @@ terminate.lpad.i161:                              ; preds = %if.then13.i.i160
   unreachable
 
 cleanup58:                                        ; preds = %if.then13.i.i160, %if.then.i.i154, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i154 ], [ %cleanup.dest.slot.0, %if.then13.i.i160 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i154 ], [ %cleanup.dest.slot.1, %if.then13.i.i160 ]
   %25 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i162 = load i64, ptr %25, align 8
   %26 = and i64 %bf.load.i.i162, 1152920405095219200
@@ -3857,7 +3857,7 @@ terminate.lpad.i171:                              ; preds = %if.then13.i.i170
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit172:           ; preds = %cleanup58, %if.then.i.i164, %if.then13.i.i170
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end59, label %return
 
 ehcleanup:                                        ; preds = %lpad47, %lpad45, %lpad33
@@ -4200,7 +4200,7 @@ if.then13.i.i.i143:                               ; preds = %if.else.i.i.i141
           to label %cleanup unwind label %lpad47
 
 cleanup:                                          ; preds = %if.else.i.i.i141, %if.then.i.i.i145, %if.then13.i.i.i143, %invoke.cont48
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
   %21 = load ptr, ptr %operandType, align 8
   %bf.load.i.i152 = load i64, ptr %21, align 8
   %22 = and i64 %bf.load.i.i152, 1152920405095219200
@@ -4228,7 +4228,7 @@ terminate.lpad.i161:                              ; preds = %if.then13.i.i160
   unreachable
 
 cleanup58:                                        ; preds = %if.then13.i.i160, %if.then.i.i154, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i154 ], [ %cleanup.dest.slot.0, %if.then13.i.i160 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i154 ], [ %cleanup.dest.slot.1, %if.then13.i.i160 ]
   %25 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i162 = load i64, ptr %25, align 8
   %26 = and i64 %bf.load.i.i162, 1152920405095219200
@@ -4256,7 +4256,7 @@ terminate.lpad.i171:                              ; preds = %if.then13.i.i170
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit172:           ; preds = %cleanup58, %if.then.i.i164, %if.then13.i.i170
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end59, label %return
 
 ehcleanup:                                        ; preds = %lpad47, %lpad45, %lpad33
@@ -4590,7 +4590,7 @@ if.then13.i.i.i143:                               ; preds = %if.else.i.i.i141
           to label %cleanup unwind label %lpad47
 
 cleanup:                                          ; preds = %if.else.i.i.i141, %if.then.i.i.i145, %if.then13.i.i.i143, %invoke.cont48
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
   %22 = load ptr, ptr %operandType, align 8
   %bf.load.i.i152 = load i64, ptr %22, align 8
   %23 = and i64 %bf.load.i.i152, 1152920405095219200
@@ -4618,7 +4618,7 @@ terminate.lpad.i161:                              ; preds = %if.then13.i.i160
   unreachable
 
 cleanup58:                                        ; preds = %if.then13.i.i160, %if.then.i.i154, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i154 ], [ %cleanup.dest.slot.0, %if.then13.i.i160 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i154 ], [ %cleanup.dest.slot.1, %if.then13.i.i160 ]
   %26 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i162 = load i64, ptr %26, align 8
   %27 = and i64 %bf.load.i.i162, 1152920405095219200
@@ -4646,7 +4646,7 @@ terminate.lpad.i171:                              ; preds = %if.then13.i.i170
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit172:           ; preds = %cleanup58, %if.then.i.i164, %if.then13.i.i170
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end59, label %return
 
 ehcleanup:                                        ; preds = %lpad47, %lpad45, %lpad33
@@ -4977,7 +4977,7 @@ if.then13.i.i.i143:                               ; preds = %if.else.i.i.i141
           to label %cleanup unwind label %lpad47
 
 cleanup:                                          ; preds = %if.else.i.i.i141, %if.then.i.i.i145, %if.then13.i.i.i143, %invoke.cont48
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont48 ], [ 1, %if.then13.i.i.i143 ], [ 1, %if.then.i.i.i145 ], [ 1, %if.else.i.i.i141 ]
   %22 = load ptr, ptr %operandType, align 8
   %bf.load.i.i152 = load i64, ptr %22, align 8
   %23 = and i64 %bf.load.i.i152, 1152920405095219200
@@ -5005,7 +5005,7 @@ terminate.lpad.i161:                              ; preds = %if.then13.i.i160
   unreachable
 
 cleanup58:                                        ; preds = %if.then13.i.i160, %if.then.i.i154, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i154 ], [ %cleanup.dest.slot.0, %if.then13.i.i160 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i154 ], [ %cleanup.dest.slot.1, %if.then13.i.i160 ]
   %26 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i162 = load i64, ptr %26, align 8
   %27 = and i64 %bf.load.i.i162, 1152920405095219200
@@ -5033,7 +5033,7 @@ terminate.lpad.i171:                              ; preds = %if.then13.i.i170
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit172:           ; preds = %cleanup58, %if.then.i.i164, %if.then13.i.i170
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end59, label %return
 
 ehcleanup:                                        ; preds = %lpad47, %lpad45, %lpad33
@@ -5455,7 +5455,7 @@ if.then13.i.i.i181:                               ; preds = %if.else.i.i.i179
           to label %cleanup unwind label %lpad62
 
 cleanup:                                          ; preds = %if.else.i.i.i179, %if.then.i.i.i183, %if.then13.i.i.i181, %invoke.cont65
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont65 ], [ 1, %if.then13.i.i.i181 ], [ 1, %if.then.i.i.i183 ], [ 1, %if.else.i.i.i179 ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %invoke.cont65 ], [ 1, %if.then13.i.i.i181 ], [ 1, %if.then.i.i.i183 ], [ 1, %if.else.i.i.i179 ]
   %28 = load ptr, ptr %defaultValueType, align 8
   %bf.load.i.i190 = load i64, ptr %28, align 8
   %29 = and i64 %bf.load.i.i190, 1152920405095219200
@@ -5483,7 +5483,7 @@ terminate.lpad.i199:                              ; preds = %if.then13.i.i198
   unreachable
 
 cleanup78:                                        ; preds = %if.then13.i.i198, %if.then.i.i192, %cleanup, %if.else.i.i.i144, %if.then.i.i.i148, %if.then13.i.i.i146
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i146 ], [ 1, %if.then.i.i.i148 ], [ 1, %if.else.i.i.i144 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i192 ], [ %cleanup.dest.slot.0, %if.then13.i.i198 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i146 ], [ 1, %if.then.i.i.i148 ], [ 1, %if.else.i.i.i144 ], [ %cleanup.dest.slot.2, %cleanup ], [ %cleanup.dest.slot.2, %if.then.i.i192 ], [ %cleanup.dest.slot.2, %if.then13.i.i198 ]
   %32 = load ptr, ptr %operandType, align 8
   %bf.load.i.i200 = load i64, ptr %32, align 8
   %33 = and i64 %bf.load.i.i200, 1152920405095219200
@@ -5511,7 +5511,7 @@ terminate.lpad.i209:                              ; preds = %if.then13.i.i208
   unreachable
 
 cleanup79:                                        ; preds = %if.then13.i.i208, %if.then.i.i202, %cleanup78, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup78 ], [ %cleanup.dest.slot.1, %if.then.i.i202 ], [ %cleanup.dest.slot.1, %if.then13.i.i208 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup78 ], [ %cleanup.dest.slot.1, %if.then.i.i202 ], [ %cleanup.dest.slot.1, %if.then13.i.i208 ]
   %36 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i211 = load i64, ptr %36, align 8
   %37 = and i64 %bf.load.i.i211, 1152920405095219200
@@ -5539,7 +5539,7 @@ terminate.lpad.i220:                              ; preds = %if.then13.i.i219
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit221:           ; preds = %cleanup79, %if.then.i.i213, %if.then13.i.i219
-  %switch = icmp eq i32 %cleanup.dest.slot.2, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end81, label %return
 
 ehcleanup:                                        ; preds = %lpad62, %lpad60, %lpad47
@@ -5966,7 +5966,7 @@ if.then13.i.i.i181:                               ; preds = %if.else.i.i.i179
           to label %cleanup unwind label %lpad62
 
 cleanup:                                          ; preds = %if.else.i.i.i179, %if.then.i.i.i183, %if.then13.i.i.i181, %invoke.cont65
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont65 ], [ 1, %if.then13.i.i.i181 ], [ 1, %if.then.i.i.i183 ], [ 1, %if.else.i.i.i179 ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %invoke.cont65 ], [ 1, %if.then13.i.i.i181 ], [ 1, %if.then.i.i.i183 ], [ 1, %if.else.i.i.i179 ]
   %28 = load ptr, ptr %defaultValueType, align 8
   %bf.load.i.i190 = load i64, ptr %28, align 8
   %29 = and i64 %bf.load.i.i190, 1152920405095219200
@@ -5994,7 +5994,7 @@ terminate.lpad.i199:                              ; preds = %if.then13.i.i198
   unreachable
 
 cleanup78:                                        ; preds = %if.then13.i.i198, %if.then.i.i192, %cleanup, %if.else.i.i.i144, %if.then.i.i.i148, %if.then13.i.i.i146
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i146 ], [ 1, %if.then.i.i.i148 ], [ 1, %if.else.i.i.i144 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i192 ], [ %cleanup.dest.slot.0, %if.then13.i.i198 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i146 ], [ 1, %if.then.i.i.i148 ], [ 1, %if.else.i.i.i144 ], [ %cleanup.dest.slot.2, %cleanup ], [ %cleanup.dest.slot.2, %if.then.i.i192 ], [ %cleanup.dest.slot.2, %if.then13.i.i198 ]
   %32 = load ptr, ptr %operandType, align 8
   %bf.load.i.i200 = load i64, ptr %32, align 8
   %33 = and i64 %bf.load.i.i200, 1152920405095219200
@@ -6022,7 +6022,7 @@ terminate.lpad.i209:                              ; preds = %if.then13.i.i208
   unreachable
 
 cleanup79:                                        ; preds = %if.then13.i.i208, %if.then.i.i202, %cleanup78, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup78 ], [ %cleanup.dest.slot.1, %if.then.i.i202 ], [ %cleanup.dest.slot.1, %if.then13.i.i208 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup78 ], [ %cleanup.dest.slot.1, %if.then.i.i202 ], [ %cleanup.dest.slot.1, %if.then13.i.i208 ]
   %36 = load ptr, ptr %roundingModeType, align 8
   %bf.load.i.i211 = load i64, ptr %36, align 8
   %37 = and i64 %bf.load.i.i211, 1152920405095219200
@@ -6050,7 +6050,7 @@ terminate.lpad.i220:                              ; preds = %if.then13.i.i219
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit221:           ; preds = %cleanup79, %if.then.i.i213, %if.then13.i.i219
-  %switch = icmp eq i32 %cleanup.dest.slot.2, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end81, label %return
 
 ehcleanup:                                        ; preds = %lpad62, %lpad60, %lpad47
@@ -6455,7 +6455,7 @@ if.then13.i.i.i136:                               ; preds = %if.else.i.i.i134
           to label %cleanup unwind label %lpad42
 
 cleanup:                                          ; preds = %if.else.i.i.i134, %if.then.i.i.i138, %if.then13.i.i.i136, %invoke.cont43
-  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont43 ], [ 1, %if.then13.i.i.i136 ], [ 1, %if.then.i.i.i138 ], [ 1, %if.else.i.i.i134 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont43 ], [ 1, %if.then13.i.i.i136 ], [ 1, %if.then.i.i.i138 ], [ 1, %if.else.i.i.i134 ]
   %13 = load ptr, ptr %defaultValueType, align 8
   %bf.load.i.i145 = load i64, ptr %13, align 8
   %14 = and i64 %bf.load.i.i145, 1152920405095219200
@@ -6483,7 +6483,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 cleanup53:                                        ; preds = %if.then13.i.i, %if.then.i.i, %cleanup, %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i ], [ %cleanup.dest.slot.0, %if.then13.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then13.i.i.i ], [ 1, %if.then.i.i.i ], [ 1, %if.else.i.i.i ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i ], [ %cleanup.dest.slot.1, %if.then13.i.i ]
   %17 = load ptr, ptr %operandType, align 8
   %bf.load.i.i146 = load i64, ptr %17, align 8
   %18 = and i64 %bf.load.i.i146, 1152920405095219200
@@ -6511,7 +6511,7 @@ terminate.lpad.i155:                              ; preds = %if.then13.i.i154
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit156:           ; preds = %cleanup53, %if.then.i.i148, %if.then13.i.i154
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %if.end54, label %return
 
 ehcleanup:                                        ; preds = %lpad42, %lpad40, %lpad28

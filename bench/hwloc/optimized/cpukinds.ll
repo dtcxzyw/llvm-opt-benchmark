@@ -1006,7 +1006,7 @@ hwloc_flsl_manual.exit:                           ; preds = %12, %16
 
 52:                                               ; preds = %160, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %160 ]
-  %.099165 = phi i32 [ %50, %.lr.ph ], [ %.1, %160 ]
+  %.099165 = phi i32 [ %50, %.lr.ph ], [ %.2, %160 ]
   %53 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %.0100, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @hwloc_bitmap_compare_inclusion(ptr noundef %1, ptr noundef %54) #21
@@ -1240,7 +1240,7 @@ hwloc__cpukind_add_infos.exit147:                 ; preds = %hwloc__cpukind_chec
   br label %160
 
 160:                                              ; preds = %52, %157, %hwloc__cpukind_add_infos.exit131
-  %.1 = phi i32 [ %123, %hwloc__cpukind_add_infos.exit131 ], [ %.099165, %157 ], [ %.099165, %52 ]
+  %.2 = phi i32 [ %123, %hwloc__cpukind_add_infos.exit131 ], [ %.099165, %157 ], [ %.099165, %52 ]
   %161 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #21
   %.not112 = icmp ne i32 %161, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1249,13 +1249,13 @@ hwloc__cpukind_add_infos.exit147:                 ; preds = %hwloc__cpukind_chec
   br i1 %or.cond, label %._crit_edge, label %52, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %160, %49
-  %.2 = phi i32 [ 0, %49 ], [ %.1, %160 ]
+  %.1 = phi i32 [ 0, %49 ], [ %.2, %160 ]
   %162 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #21
   %.not113 = icmp eq i32 %162, 0
   br i1 %.not113, label %163, label %196
 
 163:                                              ; preds = %._crit_edge
-  %164 = zext i32 %.2 to i64
+  %164 = zext i32 %.1 to i64
   %165 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %.0100, i64 %164
   store ptr %1, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 8
@@ -1326,7 +1326,7 @@ hwloc__cpukind_check_duplicate_info.exit.i160:    ; preds = %186, %.loopexit.i15
   br i1 %194, label %173, label %hwloc__cpukind_add_infos.exit163, !llvm.loop !20
 
 hwloc__cpukind_add_infos.exit163:                 ; preds = %hwloc__cpukind_check_duplicate_info.exit.i160, %168, %163
-  %195 = add i32 %.2, 1
+  %195 = add i32 %.1, 1
   br label %197
 
 196:                                              ; preds = %._crit_edge
@@ -1334,7 +1334,7 @@ hwloc__cpukind_add_infos.exit163:                 ; preds = %hwloc__cpukind_chec
   br label %197
 
 197:                                              ; preds = %196, %hwloc__cpukind_add_infos.exit163
-  %.3 = phi i32 [ %.2, %196 ], [ %195, %hwloc__cpukind_add_infos.exit163 ]
+  %.3 = phi i32 [ %.1, %196 ], [ %195, %hwloc__cpukind_add_infos.exit163 ]
   store i32 %.3, ptr %13, align 8
   br label %198
 

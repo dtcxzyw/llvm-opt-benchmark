@@ -225,7 +225,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
 
 .lr.ph312:                                        ; preds = %.lr.ph312.preheader, %120
   %indvars.iv363 = phi i64 [ 0, %.lr.ph312.preheader ], [ %indvars.iv.next364, %120 ]
-  %.2212310 = phi i32 [ 0, %.lr.ph312.preheader ], [ %.3, %120 ]
+  %.3310 = phi i32 [ 0, %.lr.ph312.preheader ], [ %.4, %120 ]
   %.not235 = icmp eq i64 %indvars.iv363, 0
   br i1 %.not235, label %110, label %98
 
@@ -247,28 +247,28 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
 
 110:                                              ; preds = %104, %98, %.lr.ph312
   %111 = getelementptr inbounds %struct.Pxy_t, ptr %.pre383.pre, i64 %indvars.iv363
-  %112 = sext i32 %.2212310 to i64
+  %112 = sext i32 %.3310 to i64
   %113 = getelementptr inbounds %struct.pointnlink_t, ptr %13, i64 %112
   store ptr %111, ptr %113, align 8
-  %114 = srem i32 %.2212310, %.pre384
+  %114 = srem i32 %.3310, %.pre384
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds %struct.pointnlink_t, ptr %13, i64 %115
   %117 = getelementptr inbounds i8, ptr %113, i64 8
   store ptr %116, ptr %117, align 8
   %118 = getelementptr inbounds ptr, ptr %20, i64 %112
   store ptr %113, ptr %118, align 8
-  %119 = add nsw i32 %.2212310, 1
+  %119 = add nsw i32 %.3310, 1
   br label %120
 
 120:                                              ; preds = %104, %110
-  %.3 = phi i32 [ %.2212310, %104 ], [ %119, %110 ]
+  %.4 = phi i32 [ %.3310, %104 ], [ %119, %110 ]
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
   br i1 %exitcond367.not, label %.loopexit299, label %.lr.ph312
 
 .loopexit299:                                     ; preds = %120, %96
-  %.4 = phi i32 [ %.1211, %96 ], [ %.3, %120 ]
-  %121 = icmp sgt i32 %.4, 3
+  %.2212 = phi i32 [ %.1211, %96 ], [ %.4, %120 ]
+  %121 = icmp sgt i32 %.2212, 3
   br i1 %121, label %.preheader.preheader.i, label %.loopexit299.tailrecurse._crit_edge.i_crit_edge
 
 .loopexit299.tailrecurse._crit_edge.i_crit_edge:  ; preds = %.preheader300, %68, %.loopexit299
@@ -276,7 +276,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   br label %tailrecurse._crit_edge.i
 
 .preheader.preheader.i:                           ; preds = %.loopexit299
-  %122 = zext nneg i32 %.4 to i64
+  %122 = zext nneg i32 %.2212 to i64
   br label %.preheader.i
 
 tailrecurse.loopexit.i:                           ; preds = %.lr.ph.i, %loadtriangle.exit.i

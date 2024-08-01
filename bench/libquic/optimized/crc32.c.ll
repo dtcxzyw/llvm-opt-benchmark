@@ -305,23 +305,23 @@ while.end185.i:                                   ; preds = %while.body164.i, %w
 do.body.i:                                        ; preds = %while.end185.i, %do.body.i
   %buf.addr.1.i = phi ptr [ %incdec.ptr187.i, %do.body.i ], [ %buf4.1.lcssa.i, %while.end185.i ]
   %len.addr.3.i = phi i32 [ %dec195.i, %do.body.i ], [ %len.addr.2.lcssa.i, %while.end185.i ]
-  %c.3.i = phi i32 [ %xor194.i, %do.body.i ], [ %c.2.lcssa.i, %while.end185.i ]
+  %c.4.i = phi i32 [ %xor194.i, %do.body.i ], [ %c.2.lcssa.i, %while.end185.i ]
   %incdec.ptr187.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 1
   %51 = load i8, ptr %buf.addr.1.i, align 1
-  %c.3.tr.i = trunc i32 %c.3.i to i8
-  %xor189.narrow.i = xor i8 %51, %c.3.tr.i
+  %c.4.tr.i = trunc i32 %c.4.i to i8
+  %xor189.narrow.i = xor i8 %51, %c.4.tr.i
   %idxprom191.i = zext i8 %xor189.narrow.i to i64
   %arrayidx192.i = getelementptr inbounds [256 x i32], ptr @crc_table, i64 0, i64 %idxprom191.i
   %52 = load i32, ptr %arrayidx192.i, align 4
-  %shr193.i = lshr i32 %c.3.i, 8
+  %shr193.i = lshr i32 %c.4.i, 8
   %xor194.i = xor i32 %52, %shr193.i
   %dec195.i = add i32 %len.addr.3.i, -1
   %tobool196.not.i = icmp eq i32 %dec195.i, 0
   br i1 %tobool196.not.i, label %crc32_little.exit, label %do.body.i, !llvm.loop !9
 
 crc32_little.exit:                                ; preds = %do.body.i, %while.end185.i
-  %c.4.i = phi i32 [ %c.2.lcssa.i, %while.end185.i ], [ %xor194.i, %do.body.i ]
-  %not197.i = xor i32 %c.4.i, -1
+  %c.3.i = phi i32 [ %c.2.lcssa.i, %while.end185.i ], [ %xor194.i, %do.body.i ]
+  %not197.i = xor i32 %c.3.i, -1
   %conv198.i = zext i32 %not197.i to i64
   br label %return
 
@@ -430,7 +430,7 @@ gf2_matrix_times.exit.i31:                        ; preds = %if.end.i.i26, %for.
   br i1 %exitcond.not.i35, label %do.body, label %for.body.i14, !llvm.loop !12
 
 do.body:                                          ; preds = %gf2_matrix_times.exit.i31, %if.end21
-  %crc1.addr.0 = phi i64 [ %crc1.addr.2, %if.end21 ], [ %crc1, %gf2_matrix_times.exit.i31 ]
+  %crc1.addr.0 = phi i64 [ %crc1.addr.3, %if.end21 ], [ %crc1, %gf2_matrix_times.exit.i31 ]
   %len2.addr.0 = phi i64 [ %shr, %if.end21 ], [ %len2, %gf2_matrix_times.exit.i31 ]
   br label %for.body.i37
 
@@ -569,13 +569,13 @@ if.end.i92:                                       ; preds = %if.then.i90, %while
   br i1 %tobool.not.i96, label %if.end21, label %while.body.i84, !llvm.loop !11
 
 if.end21:                                         ; preds = %if.end.i92, %if.then18, %gf2_matrix_square.exit82
-  %crc1.addr.2 = phi i64 [ %crc1.addr.1, %gf2_matrix_square.exit82 ], [ 0, %if.then18 ], [ %sum.1.i93, %if.end.i92 ]
+  %crc1.addr.3 = phi i64 [ %crc1.addr.1, %gf2_matrix_square.exit82 ], [ 0, %if.then18 ], [ %sum.1.i93, %if.end.i92 ]
   %cmp23.not = icmp ult i64 %len2.addr.0, 4
   br i1 %cmp23.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %if.end10, %if.end21
-  %crc1.addr.3 = phi i64 [ %crc1.addr.1, %if.end10 ], [ %crc1.addr.2, %if.end21 ]
-  %xor = xor i64 %crc1.addr.3, %crc2
+  %crc1.addr.2 = phi i64 [ %crc1.addr.1, %if.end10 ], [ %crc1.addr.3, %if.end21 ]
+  %xor = xor i64 %crc1.addr.2, %crc2
   br label %return
 
 return:                                           ; preds = %entry, %do.end

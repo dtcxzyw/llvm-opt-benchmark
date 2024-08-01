@@ -298,7 +298,7 @@ define range(i32 -1, 1) i32 @H5D_select_io_mem(ptr noundef %0, ptr noundef %1, p
   br label %146
 
 146:                                              ; preds = %142, %.loopexit
-  %.1 = phi i32 [ -1, %142 ], [ %.074, %.loopexit ]
+  %.2 = phi i32 [ -1, %142 ], [ %.074, %.loopexit ]
   %147 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %90) #3
   br i1 %94, label %151, label %.thread170.thread
 
@@ -309,7 +309,7 @@ define range(i32 -1, 1) i32 @H5D_select_io_mem(ptr noundef %0, ptr noundef %1, p
   br label %.thread170.thread
 
 151:                                              ; preds = %.thread, %146
-  %.1277 = phi i32 [ -1, %.thread ], [ %.1, %146 ]
+  %.2277 = phi i32 [ -1, %.thread ], [ %.2, %146 ]
   %152 = call i32 @H5S_select_iter_release(ptr noundef nonnull %84) #3
   %153 = icmp slt i32 %152, 0
   br i1 %153, label %154, label %.thread170.thread
@@ -321,33 +321,33 @@ define range(i32 -1, 1) i32 @H5D_select_io_mem(ptr noundef %0, ptr noundef %1, p
   br label %.thread170.thread
 
 .thread170.thread:                                ; preds = %.thread278, %.thread190, %154, %151, %146
-  %.3 = phi i32 [ -1, %154 ], [ %.1277, %151 ], [ %.1, %146 ], [ -1, %.thread190 ], [ -1, %.thread278 ]
+  %.4 = phi i32 [ -1, %154 ], [ %.2277, %151 ], [ %.2, %146 ], [ -1, %.thread190 ], [ -1, %.thread278 ]
   %158 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %84) #3
   br label %.thread170.thread.thread
 
 .thread170.thread.thread:                         ; preds = %.thread170.thread, %.thread170.thread.thread220
-  %.4231 = phi i32 [ -1, %.thread170.thread.thread220 ], [ %.3, %.thread170.thread ]
+  %.3231 = phi i32 [ -1, %.thread170.thread.thread220 ], [ %.4, %.thread170.thread ]
   %159 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_hsize_t_seq_free_list, ptr noundef nonnull %78) #3
   br label %.thread170.thread.thread.thread
 
 .thread170.thread.thread.thread:                  ; preds = %.thread170.thread.thread, %.thread170.thread.thread.thread240
-  %.4219246 = phi i32 [ -1, %.thread170.thread.thread.thread240 ], [ %.4231, %.thread170.thread.thread ]
+  %.3219246 = phi i32 [ -1, %.thread170.thread.thread.thread240 ], [ %.3231, %.thread170.thread.thread ]
   %160 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_size_t_seq_free_list, ptr noundef nonnull %72) #3
   br label %.thread170.thread.thread.thread.thread
 
 .thread170.thread.thread.thread.thread:           ; preds = %.thread170.thread.thread.thread, %.thread170.thread.thread.thread.thread256
-  %.4219237263 = phi i32 [ -1, %.thread170.thread.thread.thread.thread256 ], [ %.4219246, %.thread170.thread.thread.thread ]
+  %.3219237263 = phi i32 [ -1, %.thread170.thread.thread.thread.thread256 ], [ %.3219246, %.thread170.thread.thread.thread ]
   %161 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_hsize_t_seq_free_list, ptr noundef nonnull %66) #3
   br label %162
 
 162:                                              ; preds = %.thread170.thread.thread.thread.thread, %.thread170.thread.thread.thread.thread.thread268
-  %.4219237255272 = phi i32 [ -1, %.thread170.thread.thread.thread.thread.thread268 ], [ %.4219237263, %.thread170.thread.thread.thread.thread ]
+  %.3219237255272 = phi i32 [ -1, %.thread170.thread.thread.thread.thread.thread268 ], [ %.3219237263, %.thread170.thread.thread.thread.thread ]
   %163 = call ptr @H5FL_seq_free(ptr noundef nonnull @H5_size_t_seq_free_list, ptr noundef nonnull %59) #3
   br label %.thread170.thread.thread.thread.thread.thread
 
 .thread170.thread.thread.thread.thread.thread:    ; preds = %19, %28, %35, %46, %39, %53, %61, %162
-  %.4219237255267 = phi i32 [ %.4219237255272, %162 ], [ -1, %19 ], [ -1, %28 ], [ -1, %35 ], [ -1, %46 ], [ 0, %39 ], [ -1, %53 ], [ -1, %61 ]
-  ret i32 %.4219237255267
+  %.3219237255267 = phi i32 [ %.3219237255272, %162 ], [ -1, %19 ], [ -1, %28 ], [ -1, %35 ], [ -1, %46 ], [ 0, %39 ], [ -1, %53 ], [ -1, %61 ]
+  ret i32 %.3219237255267
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1

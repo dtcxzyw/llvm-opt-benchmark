@@ -916,11 +916,11 @@ lpad7:                                            ; preds = %invoke.cont5
 
 catch.dispatch:                                   ; preds = %lpad7, %lpad4
   %.pn = phi { ptr, i32 } [ %3, %lpad4 ], [ %4, %lpad7 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn, 1
   %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #22
-  %matches = icmp eq i32 %ehselector.slot.0, %5
-  %6 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
+  %matches = icmp eq i32 %ehselector.slot.1, %5
+  %6 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
   %7 = load ptr, ptr %_data, align 8
   %isnull17 = icmp eq ptr %7, null
   br i1 %matches, label %catch14, label %catch
@@ -1607,10 +1607,10 @@ lpad203:                                          ; preds = %invoke.cont204, %in
 
 ehcleanup209:                                     ; preds = %lpad201, %lpad203
   %.pn = phi { ptr, i32 } [ %78, %lpad203 ], [ %77, %lpad201 ]
-  %cleanup.isactive205.1 = phi i1 [ %cleanup.isactive205.0, %lpad203 ], [ true, %lpad201 ]
+  %cleanup.isactive205.3 = phi i1 [ %cleanup.isactive205.0, %lpad203 ], [ true, %lpad201 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp190) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp191) #22
-  br i1 %cleanup.isactive205.1, label %cleanup.action211, label %ehcleanup213
+  br i1 %cleanup.isactive205.3, label %cleanup.action211, label %ehcleanup213
 
 cleanup.action211:                                ; preds = %ehcleanup209.thread116, %ehcleanup209.thread, %ehcleanup209
   %.pn.pn.pn115 = phi { ptr, i32 } [ %75, %ehcleanup209.thread ], [ %.pn, %ehcleanup209 ], [ %76, %ehcleanup209.thread116 ]
@@ -4091,8 +4091,8 @@ lpad249:                                          ; preds = %if.then247
 
 catch:                                            ; preds = %lpad75.loopexit, %lpad75.loopexit.split-lp, %lpad249, %lpad231, %lpad219, %lpad190, %lpad169, %lpad150, %lpad139, %lpad118, %lpad108, %lpad87
   %.pn = phi { ptr, i32 } [ %36, %lpad87 ], [ %55, %lpad139 ], [ %83, %lpad249 ], [ %58, %lpad150 ], [ %48, %lpad118 ], [ %47, %lpad108 ], [ %63, %lpad169 ], [ %70, %lpad190 ], [ %76, %lpad219 ], [ %79, %lpad231 ], [ %lpad.loopexit341, %lpad75.loopexit ], [ %lpad.loopexit.split-lp342, %lpad75.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
-  %84 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn, 0
+  %84 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #22
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad39.loopexit.split-lp.loopexit.split-lp
 

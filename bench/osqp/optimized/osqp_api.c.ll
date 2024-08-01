@@ -1302,7 +1302,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %257
 
 231:                                              ; preds = %225, %220, %209
-  %.0141 = phi i64 [ %226, %225 ], [ 0, %220 ], [ 0, %209 ]
+  %.1142 = phi i64 [ %226, %225 ], [ 0, %220 ], [ 0, %209 ]
   %232 = getelementptr inbounds i8, ptr %4, i64 240
   %233 = load i64, ptr %232, align 8
   %.not181 = icmp eq i64 %233, 0
@@ -1349,12 +1349,12 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %257
 
 257:                                              ; preds = %254, %228, %155, %56
-  %.1142 = phi i64 [ 1, %56 ], [ %226, %228 ], [ %.0141, %254 ], [ 1, %155 ]
+  %.0141 = phi i64 [ 1, %56 ], [ %226, %228 ], [ %.1142, %254 ], [ 1, %155 ]
   tail call void @osqp_end_interrupt_listener() #15
   br label %258
 
 258:                                              ; preds = %257, %5
-  %.0138 = phi i64 [ %.1142, %257 ], [ %6, %5 ]
+  %.0138 = phi i64 [ %.0141, %257 ], [ %6, %5 ]
   ret i64 %.0138
 }
 
@@ -1870,22 +1870,22 @@ define i64 @osqp_update_data_vec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 49:                                               ; preds = %47
   %50 = tail call i64 @OSQPVectorf_all_leq(ptr noundef %25, ptr noundef %27) #15
-  %.060.in = icmp eq i64 %50, 0
-  br i1 %.060.in, label %57, label %.thread82
+  %.1.in = icmp eq i64 %50, 0
+  br i1 %.1.in, label %57, label %.thread82
 
 .thread79:                                        ; preds = %.thread
   %51 = getelementptr inbounds i8, ptr %48, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i64 @OSQPVectorf_all_leq(ptr noundef %25, ptr noundef %52) #15
-  %.060.in81 = icmp eq i64 %53, 0
-  br i1 %.060.in81, label %57, label %.thread82
+  %.1.in81 = icmp eq i64 %53, 0
+  br i1 %.1.in81, label %57, label %.thread82
 
 .thread75:                                        ; preds = %.thread
   %54 = getelementptr inbounds i8, ptr %48, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @OSQPVectorf_all_leq(ptr noundef %55, ptr noundef %27) #15
-  %.060.in77 = icmp eq i64 %56, 0
-  br i1 %.060.in77, label %57, label %.thread78
+  %.1.in77 = icmp eq i64 %56, 0
+  br i1 %.1.in77, label %57, label %.thread78
 
 57:                                               ; preds = %.thread79, %.thread75, %49
   %58 = tail call i64 @_osqp_error(i32 noundef 1, ptr noundef nonnull @__func__.osqp_update_data_vec) #15
@@ -1918,7 +1918,7 @@ define i64 @osqp_update_data_vec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %70
 
 70:                                               ; preds = %64, %68, %18
-  %.1 = phi i64 [ %69, %68 ], [ 0, %64 ], [ 0, %18 ]
+  %.060 = phi i64 [ %69, %68 ], [ 0, %64 ], [ 0, %18 ]
   %.not72 = icmp eq ptr %1, null
   br i1 %.not72, label %91, label %71
 
@@ -1964,7 +1964,7 @@ define i64 @osqp_update_data_vec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %100
 
 100:                                              ; preds = %91, %57, %8
-  %.0 = phi i64 [ %58, %57 ], [ %.1, %91 ], [ %9, %8 ]
+  %.0 = phi i64 [ %58, %57 ], [ %.060, %91 ], [ %9, %8 ]
   ret i64 %.0
 }
 

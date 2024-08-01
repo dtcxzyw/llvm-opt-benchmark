@@ -1878,9 +1878,9 @@ _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %8
   br label %113
 
 113:                                              ; preds = %95, %107, %103, %56
-  %.sroa.038.0 = phi double [ %87, %56 ], [ %102, %95 ], [ %112, %107 ], [ %106, %103 ]
-  %114 = fcmp olt double %.sroa.038.0, 1.000000e-04
-  %.sroa.0.0.i = select i1 %114, double 1.000000e-04, double %.sroa.038.0
+  %.sroa.038.1 = phi double [ %87, %56 ], [ %102, %95 ], [ %112, %107 ], [ %106, %103 ]
+  %114 = fcmp olt double %.sroa.038.1, 1.000000e-04
+  %.sroa.0.0.i = select i1 %114, double 1.000000e-04, double %.sroa.038.1
   %115 = fcmp ogt double %.sroa.0.0.i, 9.999000e-01
   %.sroa.0.1.i = select i1 %115, double 9.999000e-01, double %.sroa.0.0.i
   %116 = tail call double @llvm.pow.f64(double %.sroa.028.0, double 2.000000e-01)
@@ -1905,9 +1905,9 @@ _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %8
   %.sroa.077.0 = phi double [ 0.000000e+00, %113 ], [ %145, %.split.us ]
   %.sroa.071.0 = phi double [ 1.000000e+00, %113 ], [ %153, %.split.us ]
   %.sroa.059.0 = phi double [ 1.000000e+00, %113 ], [ %.sroa.059.1, %.split.us ]
-  %.sroa.038.1 = phi double [ %.sroa.0.1.i, %113 ], [ %156, %.split.us ]
+  %.sroa.038.2 = phi double [ %.sroa.0.1.i, %113 ], [ %156, %.split.us ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %5, double noundef %41, double noundef %43, double noundef %.sroa.038.1)
+  call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %5, double noundef %41, double noundef %43, double noundef %.sroa.038.2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %132 = load i64, ptr %5, align 8, !range !4, !alias.scope !119, !noalias !122, !noundef !5
   %133 = icmp eq i64 %132, 21
@@ -1923,10 +1923,10 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %131
   %135 = load double, ptr %128, align 8, !alias.scope !119, !noalias !122, !noundef !5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %136 = fsub double %135, %.sroa.028.0
-  %137 = tail call noundef double @llvm.log.f64(double %.sroa.038.1)
+  %137 = tail call noundef double @llvm.log.f64(double %.sroa.038.2)
   %138 = fmul double %129, %137
   %139 = fadd double %16, %138
-  %140 = fsub double 1.000000e+00, %.sroa.038.1
+  %140 = fsub double 1.000000e+00, %.sroa.038.2
   %141 = tail call noundef double @llvm.log.f64(double %140)
   %142 = fmul double %130, %141
   %143 = fadd double %139, %142
@@ -1952,7 +1952,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us: ; preds = %
   br i1 %154, label %155, label %.backedge.us
 
 155:                                              ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us
-  %156 = fsub double %.sroa.038.1, %152
+  %156 = fsub double %.sroa.038.2, %152
   %157 = fcmp oge double %156, 0.000000e+00
   %158 = fcmp ole double %156, 1.000000e+00
   %.sroa.04.0.i.us = and i1 %157, %158
@@ -1969,7 +1969,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us: ; preds = %
   br label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us
 
 .split.us:                                        ; preds = %159
-  %162 = fcmp oeq double %156, %.sroa.038.1
+  %162 = fcmp oeq double %156, %.sroa.038.2
   br i1 %162, label %.loopexit, label %131
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split: ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, %.backedge
@@ -1980,7 +1980,7 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split: ; preds = %_ZN
   br i1 %165, label %166, label %.backedge
 
 166:                                              ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
-  %167 = fsub double %.sroa.038.1, %163
+  %167 = fsub double %.sroa.038.2, %163
   %168 = fcmp oge double %167, 0.000000e+00
   %169 = fcmp ole double %167, 1.000000e+00
   %.sroa.04.0.i = and i1 %168, %169
@@ -1996,13 +1996,13 @@ _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split: ; preds = %_ZN
 
 .loopexit:                                        ; preds = %.split.us, %.loopexit.loopexit
   %.pre-phi = phi double [ %.pre, %.loopexit.loopexit ], [ %140, %.split.us ]
-  %.sroa.038.2 = phi double [ %167, %.loopexit.loopexit ], [ %.sroa.038.1, %.split.us ]
-  %.sroa.038.3 = select i1 %21, double %.pre-phi, double %.sroa.038.2
+  %.sroa.038.3 = phi double [ %167, %.loopexit.loopexit ], [ %.sroa.038.2, %.split.us ]
+  %.sroa.038.4 = select i1 %21, double %.pre-phi, double %.sroa.038.3
   br label %171
 
 171:                                              ; preds = %18, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit, %.loopexit
-  %.sroa.038.4 = phi double [ %.sroa.038.3, %.loopexit ], [ 0.000000e+00, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit ], [ 1.000000e+00, %18 ]
-  ret double %.sroa.038.4
+  %.sroa.038.0 = phi double [ %.sroa.038.4, %.loopexit ], [ 0.000000e+00, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit ], [ 1.000000e+00, %18 ]
+  ret double %.sroa.038.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

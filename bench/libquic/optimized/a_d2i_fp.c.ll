@@ -134,7 +134,7 @@ for.cond.outer:                                   ; preds = %for.cond.outer.back
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end128
   %off.0 = phi i64 [ %add124, %if.end128 ], [ %off.0.ph, %for.cond.outer ]
-  %len.0 = phi i64 [ %len.4, %if.end128 ], [ %len.0.ph, %for.cond.outer ]
+  %len.0 = phi i64 [ %len.3, %if.end128 ], [ %len.0.ph, %for.cond.outer ]
   %sub = sub i64 %len.0, %off.0
   %cmp1 = icmp ult i64 %sub, 9
   br i1 %cmp1, label %if.then2, label %if.end30
@@ -270,10 +270,10 @@ if.then89:                                        ; preds = %if.then80
 
 while.body:                                       ; preds = %while.cond.preheader, %while.end
   %chunk_max.082 = phi i64 [ %spec.select, %while.end ], [ 16384, %while.cond.preheader ]
-  %len.281 = phi i64 [ %add114, %while.end ], [ %len.1, %while.cond.preheader ]
-  %want.180 = phi i64 [ %sub100, %while.end ], [ %sub82, %while.cond.preheader ]
-  %cond = call i64 @llvm.umin.i64(i64 %want.180, i64 %chunk_max.082)
-  %add95 = add i64 %cond, %len.281
+  %len.481 = phi i64 [ %add114, %while.end ], [ %len.1, %while.cond.preheader ]
+  %want.280 = phi i64 [ %sub100, %while.end ], [ %sub82, %while.cond.preheader ]
+  %cond = call i64 @llvm.umin.i64(i64 %want.280, i64 %chunk_max.082)
+  %add95 = add i64 %cond, %len.481
   %call96 = call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %call, i64 noundef %add95) #4
   %tobool97.not = icmp eq i64 %call96, 0
   br i1 %tobool97.not, label %if.then98, label %if.end99
@@ -283,14 +283,14 @@ if.then98:                                        ; preds = %while.body
   br label %if.then145
 
 if.end99:                                         ; preds = %while.body
-  %sub100 = sub i64 %want.180, %cond
+  %sub100 = sub i64 %want.280, %cond
   br label %while.body104
 
 while.body104:                                    ; preds = %if.end99, %if.end112
   %chunk.078 = phi i64 [ %cond, %if.end99 ], [ %sub116, %if.end112 ]
-  %len.377 = phi i64 [ %len.281, %if.end99 ], [ %add114, %if.end112 ]
+  %len.577 = phi i64 [ %len.481, %if.end99 ], [ %add114, %if.end112 ]
   %7 = load ptr, ptr %data, align 8
-  %arrayidx106 = getelementptr inbounds i8, ptr %7, i64 %len.377
+  %arrayidx106 = getelementptr inbounds i8, ptr %7, i64 %len.577
   %conv107 = trunc i64 %chunk.078 to i32
   %call108 = call i32 @BIO_read(ptr noundef %in, ptr noundef %arrayidx106, i32 noundef %conv107) #4
   %cmp109 = icmp slt i32 %call108, 1
@@ -302,7 +302,7 @@ if.then111:                                       ; preds = %while.body104
 
 if.end112:                                        ; preds = %while.body104
   %conv113 = zext nneg i32 %call108 to i64
-  %add114 = add i64 %len.377, %conv113
+  %add114 = add i64 %len.577, %conv113
   %sub116 = sub i64 %chunk.078, %conv113
   %cmp102.not = icmp eq i64 %sub116, 0
   br i1 %cmp102.not, label %while.end, label %while.body104, !llvm.loop !7
@@ -320,7 +320,7 @@ if.end122.loopexit:                               ; preds = %while.end
 
 if.end122:                                        ; preds = %if.end122.loopexit, %while.cond.preheader, %if.else75
   %8 = phi i64 [ %4, %if.else75 ], [ %4, %while.cond.preheader ], [ %.pre83, %if.end122.loopexit ]
-  %len.4 = phi i64 [ %len.1, %if.else75 ], [ %len.1, %while.cond.preheader ], [ %add114, %if.end122.loopexit ]
+  %len.3 = phi i64 [ %len.1, %if.else75 ], [ %len.1, %while.cond.preheader ], [ %add114, %if.end122.loopexit ]
   %add124 = add i64 %8, %add50
   %cmp125 = icmp ult i64 %add124, %add50
   br i1 %cmp125, label %if.then127, label %if.end128

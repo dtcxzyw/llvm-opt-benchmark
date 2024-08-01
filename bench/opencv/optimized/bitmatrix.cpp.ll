@@ -2562,7 +2562,7 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(ptr nocap
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %50 ]
-  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %50 ]
+  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %50 ]
   %.03338.i = phi i8 [ %31, %.lr.ph.preheader.i ], [ %.134.i, %50 ]
   %32 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
@@ -2596,8 +2596,8 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(ptr nocap
 
 50:                                               ; preds = %44, %36
   %.134.i = phi i8 [ %.03338.i, %36 ], [ %47, %44 ]
-  %.1.i = phi i32 [ %.03239.i, %36 ], [ %42, %44 ]
-  %51 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03239.i, %36 ], [ %42, %44 ]
+  %51 = trunc i32 %.2.i to i16
   %52 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv.i
   store i16 %51, ptr %52, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2605,9 +2605,9 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix20getRowPointInRecordsEi(ptr nocap
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %41, %50, %8
-  %.2.i = phi i32 [ 0, %8 ], [ %.1.i, %50 ], [ %12, %41 ]
-  %53 = icmp slt i32 %.2.i, %12
-  %54 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %8 ], [ %.2.i, %50 ], [ %12, %41 ]
+  %53 = icmp slt i32 %.1.i, %12
+  %54 = add nsw i32 %.1.i, 1
   %55 = select i1 %53, i32 %54, i32 %12
   %56 = trunc i32 %55 to i16
   %57 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2677,7 +2677,7 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr nocapture noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %.03239 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %46 ]
+  %.03239 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %46 ]
   %.03338 = phi i8 [ %27, %.lr.ph.preheader ], [ %.134, %46 ]
   %28 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
@@ -2711,8 +2711,8 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr nocapture noundef n
 
 46:                                               ; preds = %40, %32
   %.134 = phi i8 [ %.03338, %32 ], [ %43, %40 ]
-  %.1 = phi i32 [ %.03239, %32 ], [ %38, %40 ]
-  %47 = trunc i32 %.1 to i16
+  %.2 = phi i32 [ %.03239, %32 ], [ %38, %40 ]
+  %47 = trunc i32 %.2 to i16
   %48 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv
   store i16 %47, ptr %48, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2720,9 +2720,9 @@ define hidden void @_ZN5zxing9BitMatrix13setRowRecordsEi(ptr nocapture noundef n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %46, %37, %2
-  %.2 = phi i32 [ 0, %2 ], [ %6, %37 ], [ %.1, %46 ]
-  %49 = icmp slt i32 %.2, %6
-  %50 = add nsw i32 %.2, 1
+  %.1 = phi i32 [ 0, %2 ], [ %6, %37 ], [ %.2, %46 ]
+  %49 = icmp slt i32 %.1, %6
+  %50 = add nsw i32 %.1, 1
   %51 = select i1 %49, i32 %50, i32 %6
   %52 = trunc i32 %51 to i16
   %53 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2801,7 +2801,7 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %58 ]
+  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %58 ]
   %.03338.i = phi i8 [ %39, %.lr.ph.preheader.i ], [ %.134.i, %58 ]
   %40 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
@@ -2835,8 +2835,8 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr nocapture no
 
 58:                                               ; preds = %52, %44
   %.134.i = phi i8 [ %.03338.i, %44 ], [ %55, %52 ]
-  %.1.i = phi i32 [ %.03239.i, %44 ], [ %50, %52 ]
-  %59 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03239.i, %44 ], [ %50, %52 ]
+  %59 = trunc i32 %.2.i to i16
   %60 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2844,9 +2844,9 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr nocapture no
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %49, %58, %14
-  %.2.i = phi i32 [ 0, %14 ], [ %.1.i, %58 ], [ %18, %49 ]
-  %61 = icmp slt i32 %.2.i, %18
-  %62 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %58 ], [ %18, %49 ]
+  %61 = icmp slt i32 %.1.i, %18
+  %62 = add nsw i32 %.1.i, 1
   %63 = select i1 %61, i32 %62, i32 %18
   %64 = trunc i32 %63 to i16
   %65 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2926,7 +2926,7 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr nocapt
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %58 ]
+  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %58 ]
   %.03338.i = phi i8 [ %39, %.lr.ph.preheader.i ], [ %.134.i, %58 ]
   %40 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
@@ -2960,8 +2960,8 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr nocapt
 
 58:                                               ; preds = %52, %44
   %.134.i = phi i8 [ %.03338.i, %44 ], [ %55, %52 ]
-  %.1.i = phi i32 [ %.03239.i, %44 ], [ %50, %52 ]
-  %59 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03239.i, %44 ], [ %50, %52 ]
+  %59 = trunc i32 %.2.i to i16
   %60 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2969,9 +2969,9 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr nocapt
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %49, %58, %14
-  %.2.i = phi i32 [ 0, %14 ], [ %.1.i, %58 ], [ %18, %49 ]
-  %61 = icmp slt i32 %.2.i, %18
-  %62 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %58 ], [ %18, %49 ]
+  %61 = icmp slt i32 %.1.i, %18
+  %62 = add nsw i32 %.1.i, 1
   %63 = select i1 %61, i32 %62, i32 %18
   %64 = trunc i32 %63 to i16
   %65 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3085,7 +3085,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %58 ]
+  %.03239.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %58 ]
   %.03338.i = phi i8 [ %39, %.lr.ph.preheader.i ], [ %.134.i, %58 ]
   %40 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
@@ -3119,8 +3119,8 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
 
 58:                                               ; preds = %52, %44
   %.134.i = phi i8 [ %.03338.i, %44 ], [ %55, %52 ]
-  %.1.i = phi i32 [ %.03239.i, %44 ], [ %50, %52 ]
-  %59 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03239.i, %44 ], [ %50, %52 ]
+  %59 = trunc i32 %.2.i to i16
   %60 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3128,9 +3128,9 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix13setRowRecordsEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN5zxing9BitMatrix13setRowRecordsEi.exit:        ; preds = %49, %58, %14
-  %.2.i = phi i32 [ 0, %14 ], [ %.1.i, %58 ], [ %18, %49 ]
-  %61 = icmp slt i32 %.2.i, %18
-  %62 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %58 ], [ %18, %49 ]
+  %61 = icmp slt i32 %.1.i, %18
+  %62 = add nsw i32 %.1.i, 1
   %63 = select i1 %61, i32 %62, i32 %18
   %64 = trunc i32 %63 to i16
   %65 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3192,7 +3192,7 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(ptr noca
 
 28:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %47 ]
+  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %47 ]
   %.03340.i = phi i8 [ %26, %.lr.ph.i ], [ %.134.i, %47 ]
   %.03539.i = phi ptr [ %23, %.lr.ph.i ], [ %52, %47 ]
   %29 = getelementptr inbounds i8, ptr %.03539.i, i64 %indvars.iv.i
@@ -3227,8 +3227,8 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(ptr noca
 
 47:                                               ; preds = %41, %33
   %.134.i = phi i8 [ %.03340.i, %33 ], [ %44, %41 ]
-  %.1.i = phi i32 [ %.03241.i, %33 ], [ %39, %41 ]
-  %48 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03241.i, %33 ], [ %39, %41 ]
+  %48 = trunc i32 %.2.i to i16
   %49 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv.i
   store i16 %48, ptr %49, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3239,9 +3239,9 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix21getColsPointInRecordsEi(ptr noca
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %28, !llvm.loop !17
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %38, %47, %8
-  %.2.i = phi i32 [ 0, %8 ], [ %.1.i, %47 ], [ %12, %38 ]
-  %53 = icmp slt i32 %.2.i, %12
-  %54 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %8 ], [ %.2.i, %47 ], [ %12, %38 ]
+  %53 = icmp slt i32 %.1.i, %12
+  %54 = add nsw i32 %.1.i, 1
   %55 = select i1 %53, i32 %54, i32 %12
   %56 = trunc i32 %55 to i16
   %57 = getelementptr inbounds i8, ptr %0, i64 248
@@ -3307,7 +3307,7 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr nocapture noundef 
 
 24:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %.03241 = phi i32 [ 0, %.lr.ph ], [ %.1, %43 ]
+  %.03241 = phi i32 [ 0, %.lr.ph ], [ %.2, %43 ]
   %.03340 = phi i8 [ %22, %.lr.ph ], [ %.134, %43 ]
   %.03539 = phi ptr [ %19, %.lr.ph ], [ %48, %43 ]
   %25 = getelementptr inbounds i8, ptr %.03539, i64 %indvars.iv
@@ -3342,8 +3342,8 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr nocapture noundef 
 
 43:                                               ; preds = %37, %29
   %.134 = phi i8 [ %.03340, %29 ], [ %40, %37 ]
-  %.1 = phi i32 [ %.03241, %29 ], [ %35, %37 ]
-  %44 = trunc i32 %.1 to i16
+  %.2 = phi i32 [ %.03241, %29 ], [ %35, %37 ]
+  %44 = trunc i32 %.2 to i16
   %45 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv
   store i16 %44, ptr %45, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3354,9 +3354,9 @@ define hidden void @_ZN5zxing9BitMatrix14setColsRecordsEi(ptr nocapture noundef 
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %43, %34, %2
-  %.2 = phi i32 [ 0, %2 ], [ %6, %34 ], [ %.1, %43 ]
-  %49 = icmp slt i32 %.2, %6
-  %50 = add nsw i32 %.2, 1
+  %.1 = phi i32 [ 0, %2 ], [ %6, %34 ], [ %.2, %43 ]
+  %49 = icmp slt i32 %.1, %6
+  %50 = add nsw i32 %.1, 1
   %51 = select i1 %49, i32 %50, i32 %6
   %52 = trunc i32 %51 to i16
   %53 = getelementptr inbounds i8, ptr %0, i64 248
@@ -3431,7 +3431,7 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nocapture n
 
 36:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
+  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %55 ]
   %.03340.i = phi i8 [ %34, %.lr.ph.i ], [ %.134.i, %55 ]
   %.03539.i = phi ptr [ %31, %.lr.ph.i ], [ %60, %55 ]
   %37 = getelementptr inbounds i8, ptr %.03539.i, i64 %indvars.iv.i
@@ -3466,8 +3466,8 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nocapture n
 
 55:                                               ; preds = %49, %41
   %.134.i = phi i8 [ %.03340.i, %41 ], [ %52, %49 ]
-  %.1.i = phi i32 [ %.03241.i, %41 ], [ %47, %49 ]
-  %56 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03241.i, %41 ], [ %47, %49 ]
+  %56 = trunc i32 %.2.i to i16
   %57 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
   store i16 %56, ptr %57, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3478,9 +3478,9 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix14getColsRecordsEi(ptr nocapture n
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %36, !llvm.loop !17
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
-  %.2.i = phi i32 [ 0, %14 ], [ %.1.i, %55 ], [ %18, %46 ]
-  %61 = icmp slt i32 %.2.i, %18
-  %62 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %55 ], [ %18, %46 ]
+  %61 = icmp slt i32 %.1.i, %18
+  %62 = add nsw i32 %.1.i, 1
   %63 = select i1 %61, i32 %62, i32 %18
   %64 = trunc i32 %63 to i16
   %65 = getelementptr inbounds i8, ptr %0, i64 248
@@ -3556,7 +3556,7 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(ptr nocap
 
 36:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
+  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %55 ]
   %.03340.i = phi i8 [ %34, %.lr.ph.i ], [ %.134.i, %55 ]
   %.03539.i = phi ptr [ %31, %.lr.ph.i ], [ %60, %55 ]
   %37 = getelementptr inbounds i8, ptr %.03539.i, i64 %indvars.iv.i
@@ -3591,8 +3591,8 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(ptr nocap
 
 55:                                               ; preds = %49, %41
   %.134.i = phi i8 [ %.03340.i, %41 ], [ %52, %49 ]
-  %.1.i = phi i32 [ %.03241.i, %41 ], [ %47, %49 ]
-  %56 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03241.i, %41 ], [ %47, %49 ]
+  %56 = trunc i32 %.2.i to i16
   %57 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
   store i16 %56, ptr %57, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3603,9 +3603,9 @@ define hidden noundef ptr @_ZN5zxing9BitMatrix20getColsRecordsOffsetEi(ptr nocap
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %36, !llvm.loop !17
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
-  %.2.i = phi i32 [ 0, %14 ], [ %.1.i, %55 ], [ %18, %46 ]
-  %61 = icmp slt i32 %.2.i, %18
-  %62 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %55 ], [ %18, %46 ]
+  %61 = icmp slt i32 %.1.i, %18
+  %62 = add nsw i32 %.1.i, 1
   %63 = select i1 %61, i32 %62, i32 %18
   %64 = trunc i32 %63 to i16
   %65 = getelementptr inbounds i8, ptr %0, i64 248
@@ -3681,7 +3681,7 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
 
 36:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
+  %.03241.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %55 ]
   %.03340.i = phi i8 [ %34, %.lr.ph.i ], [ %.134.i, %55 ]
   %.03539.i = phi ptr [ %31, %.lr.ph.i ], [ %60, %55 ]
   %37 = getelementptr inbounds i8, ptr %.03539.i, i64 %indvars.iv.i
@@ -3716,8 +3716,8 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
 
 55:                                               ; preds = %49, %41
   %.134.i = phi i8 [ %.03340.i, %41 ], [ %52, %49 ]
-  %.1.i = phi i32 [ %.03241.i, %41 ], [ %47, %49 ]
-  %56 = trunc i32 %.1.i to i16
+  %.2.i = phi i32 [ %.03241.i, %41 ], [ %47, %49 ]
+  %56 = trunc i32 %.2.i to i16
   %57 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv.i
   store i16 %56, ptr %57, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3728,9 +3728,9 @@ define hidden noundef signext i16 @_ZN5zxing9BitMatrix23getColsCounterOffsetEndE
   br i1 %exitcond.not.i, label %_ZN5zxing9BitMatrix14setColsRecordsEi.exit, label %36, !llvm.loop !17
 
 _ZN5zxing9BitMatrix14setColsRecordsEi.exit:       ; preds = %46, %55, %14
-  %.2.i = phi i32 [ 0, %14 ], [ %.1.i, %55 ], [ %18, %46 ]
-  %61 = icmp slt i32 %.2.i, %18
-  %62 = add nsw i32 %.2.i, 1
+  %.1.i = phi i32 [ 0, %14 ], [ %.2.i, %55 ], [ %18, %46 ]
+  %61 = icmp slt i32 %.1.i, %18
+  %62 = add nsw i32 %.1.i, 1
   %63 = select i1 %61, i32 %62, i32 %18
   %64 = trunc i32 %63 to i16
   %65 = getelementptr inbounds i8, ptr %0, i64 248

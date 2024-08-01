@@ -800,29 +800,29 @@ BufferGetPage.exit209:                            ; preds = %305, %311
   br label %.critedge.sink.split.sink.split
 
 .critedge.sink.split.sink.split:                  ; preds = %325, %329
-  %.1218.ph.ph = phi i8 [ 1, %329 ], [ %.0217221, %325 ]
+  %.2219.ph.ph = phi i8 [ 1, %329 ], [ %.0217221, %325 ]
   call void @LockBuffer(i32 noundef %2, i32 noundef 2) #7
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %.critedge.sink.split.sink.split, %325
-  %.1218.ph = phi i8 [ %.0217221, %325 ], [ %.1218.ph.ph, %.critedge.sink.split.sink.split ]
+  %.2219.ph = phi i8 [ %.0217221, %325 ], [ %.2219.ph.ph, %.critedge.sink.split.sink.split ]
   call void @LockBuffer(i32 noundef %246, i32 noundef 2) #7
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %327
-  %.1218 = phi i8 [ %storemerge74.i, %327 ], [ %.1218.ph, %.critedge.sink.split ]
+  %.2219 = phi i8 [ %storemerge74.i, %327 ], [ %.2219.ph, %.critedge.sink.split ]
   %330 = call fastcc zeroext i1 @GetVisibilityMapPins(ptr noundef %0, i32 noundef %2, i32 noundef %246, i32 noundef %.0154, i32 noundef %304, ptr noundef %6, ptr noundef %5)
-  %spec.select = select i1 %330, i8 1, i8 %.1218
+  %spec.select = select i1 %330, i8 1, i8 %.2219
   br label %331
 
 331:                                              ; preds = %.critedge, %326
-  %.2219 = phi i8 [ %storemerge74.i, %326 ], [ %spec.select, %.critedge ]
+  %.1218 = phi i8 [ %storemerge74.i, %326 ], [ %spec.select, %.critedge ]
   %332 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i208) #7
   %333 = icmp ugt i64 %14, %332
   br i1 %333, label %334, label %342
 
 334:                                              ; preds = %331
-  %335 = trunc nuw i8 %.2219 to i1
+  %335 = trunc nuw i8 %.1218 to i1
   br i1 %335, label %336, label %339
 
 336:                                              ; preds = %334

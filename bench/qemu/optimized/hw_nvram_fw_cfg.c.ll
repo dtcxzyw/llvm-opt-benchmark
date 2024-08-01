@@ -939,22 +939,22 @@ land.rhs25:                                       ; preds = %for.cond22
   br i1 %cmp31, label %for.cond22, label %if.end38, !llvm.loop !8
 
 if.end38:                                         ; preds = %for.inc, %land.rhs, %land.rhs25, %for.cond22
-  %index.2 = phi i32 [ %14, %land.rhs25 ], [ %smin, %for.cond22 ], [ 0, %for.inc ], [ %index.088, %land.rhs ]
+  %index.1 = phi i32 [ %14, %land.rhs25 ], [ %smin, %for.cond22 ], [ 0, %for.inc ], [ %index.088, %land.rhs ]
   %order.0 = phi i32 [ 0, %for.cond22 ], [ 0, %land.rhs25 ], [ %retval.0.i, %land.rhs ], [ %retval.0.i, %for.inc ]
-  %cmp4090 = icmp sgt i32 %4, %index.2
+  %cmp4090 = icmp sgt i32 %4, %index.1
   br i1 %cmp4090, label %for.body42.lr.ph, label %if.end38.for.end78_crit_edge
 
 if.end38.for.end78_crit_edge:                     ; preds = %get_fw_cfg_order.exit, %if.end38
   %order.0112 = phi i32 [ %order.0, %if.end38 ], [ %retval.0.i, %get_fw_cfg_order.exit ]
-  %index.2110 = phi i32 [ %index.2, %if.end38 ], [ %4, %get_fw_cfg_order.exit ]
-  %.pre105 = sext i32 %index.2110 to i64
+  %index.1110 = phi i32 [ %index.1, %if.end38 ], [ %4, %get_fw_cfg_order.exit ]
+  %.pre105 = sext i32 %index.1110 to i64
   br label %for.end78
 
 for.body42.lr.ph:                                 ; preds = %if.end38
   %entries = getelementptr inbounds i8, ptr %s, i64 824
   %entry_order69 = getelementptr inbounds i8, ptr %s, i64 840
   %16 = sext i32 %4 to i64
-  %17 = sext i32 %index.2 to i64
+  %17 = sext i32 %index.1 to i64
   br label %for.body42
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.body42
@@ -987,7 +987,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
 
 for.end78:                                        ; preds = %for.body42, %if.end38.for.end78_crit_edge
   %order.0111 = phi i32 [ %order.0112, %if.end38.for.end78_crit_edge ], [ %order.0, %for.body42 ]
-  %index.2109 = phi i32 [ %index.2110, %if.end38.for.end78_crit_edge ], [ %index.2, %for.body42 ]
+  %index.1109 = phi i32 [ %index.1110, %if.end38.for.end78_crit_edge ], [ %index.1, %for.body42 ]
   %idxprom81.pre-phi = phi i64 [ %.pre105, %if.end38.for.end78_crit_edge ], [ %17, %for.body42 ]
   %26 = load ptr, ptr %files, align 16
   %f80 = getelementptr inbounds i8, ptr %26, i64 4
@@ -995,7 +995,7 @@ for.end78:                                        ; preds = %for.body42, %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx82, i8 0, i64 64, i1 false)
   %entries83 = getelementptr inbounds i8, ptr %s, i64 824
   %27 = load ptr, ptr %entries83, align 8
-  %add85 = add nsw i32 %index.2109, 32
+  %add85 = add nsw i32 %index.1109, 32
   %idxprom86 = sext i32 %add85 to i64
   %arrayidx87 = getelementptr %struct.FWCfgEntry, ptr %27, i64 %idxprom86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx87, i8 0, i64 40, i1 false)
@@ -1007,7 +1007,7 @@ for.end78:                                        ; preds = %for.body42, %if.end
   br i1 %cmp95.not92, label %for.end124, label %for.body97.preheader
 
 for.body97.preheader:                             ; preds = %for.end78
-  %29 = zext i32 %index.2109 to i64
+  %29 = zext i32 %index.1109 to i64
   %30 = add nuw i32 %4, 1
   %wide.trip.count = zext i32 %30 to i64
   br label %for.body97
@@ -1129,11 +1129,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %50 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %51 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %s, i32 noundef %index.1109, ptr noundef %name149, i64 noundef %len) #20
   br label %trace_fw_cfg_add_file.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, ptr noundef nonnull %s, i32 noundef %index.1109, ptr noundef %name149, i64 noundef %len) #20
   br label %trace_fw_cfg_add_file.exit
 
 trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1680,8 +1680,8 @@ land.lhs.true21:                                  ; preds = %land.lhs.true19
 do.body:                                          ; preds = %land.lhs.true21, %land.rhs
   %8 = phi i32 [ %inc, %land.rhs ], [ %6, %land.lhs.true21 ]
   %size.addr.0 = phi i32 [ %dec, %land.rhs ], [ %size, %land.lhs.true21 ]
-  %value.0 = phi i64 [ %or, %land.rhs ], [ 0, %land.lhs.true21 ]
-  %shl = shl i64 %value.0, 8
+  %value.1 = phi i64 [ %or, %land.rhs ], [ 0, %land.lhs.true21 ]
+  %shl = shl i64 %value.1, 8
   %9 = load ptr, ptr %data, align 8
   %inc = add nuw i32 %8, 1
   store i32 %inc, ptr %cur_offset, align 4
@@ -1706,7 +1706,7 @@ do.end:                                           ; preds = %do.body, %land.rhs
   br label %if.end36
 
 if.end36:                                         ; preds = %cond.end, %do.end, %land.lhs.true21, %land.lhs.true19
-  %value.1 = phi i64 [ %shl35, %do.end ], [ 0, %land.lhs.true21 ], [ 0, %land.lhs.true19 ], [ 0, %cond.end ]
+  %value.0 = phi i64 [ %shl35, %do.end ], [ 0, %land.lhs.true21 ], [ 0, %land.lhs.true19 ], [ 0, %cond.end ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %12, 0
@@ -1732,16 +1732,16 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %opaque, i64 noundef %value.1) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %opaque, i64 noundef %value.0) #20
   br label %trace_fw_cfg_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef %opaque, i64 noundef %value.1) #20
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef %opaque, i64 noundef %value.0) #20
   br label %trace_fw_cfg_read.exit
 
 trace_fw_cfg_read.exit:                           ; preds = %if.end36, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  ret i64 %value.1
+  ret i64 %value.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
@@ -2640,8 +2640,8 @@ while.body.lr.ph:                                 ; preds = %if.end105
 while.body:                                       ; preds = %while.body.lr.ph, %if.end301
   %.pre116117 = phi i32 [ 0, %while.body.lr.ph ], [ %.pre116118, %if.end301 ]
   %13 = phi i32 [ %.pr, %while.body.lr.ph ], [ %conv307, %if.end301 ]
-  %.compoundliteral251.sroa.0.0114 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral251.sroa.0.3, %if.end301 ]
-  %.compoundliteral197.sroa.0.0113 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral197.sroa.0.2, %if.end301 ]
+  %.compoundliteral251.sroa.0.0114 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral251.sroa.0.1, %if.end301 ]
+  %.compoundliteral197.sroa.0.0113 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral197.sroa.0.1, %if.end301 ]
   %.compoundliteral131.sroa.0.0112 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral131.sroa.0.2, %if.end301 ]
   %14 = load i16, ptr %cur_entry, align 8
   %cmp117 = icmp eq i16 %14, -1
@@ -2690,7 +2690,7 @@ if.then170:                                       ; preds = %if.end168
 if.else174:                                       ; preds = %lor.lhs.false120
   %sub = sub nuw i32 %17, %16
   %sub. = call i32 @llvm.umin.i32(i32 %13, i32 %sub)
-  %len.0 = zext i32 %sub. to i64
+  %len.1 = zext i32 %sub. to i64
   br i1 %tobool90.not, label %if.end235, label %if.then190
 
 if.then190:                                       ; preds = %if.else174
@@ -2702,7 +2702,7 @@ if.then190:                                       ; preds = %if.else174
   %bf.clear202 = or disjoint i32 %bf.set200, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i105 = call i32 @address_space_rw(ptr noundef %20, i64 noundef %21, i32 %bf.clear202, ptr noundef %arrayidx196, i64 noundef %len.0, i1 noundef zeroext true) #20
+  %call.i.i.i105 = call i32 @address_space_rw(ptr noundef %20, i64 noundef %21, i32 %bf.clear202, ptr noundef %arrayidx196, i64 noundef %len.1, i1 noundef zeroext true) #20
   %tobool230.not = icmp eq i32 %call.i.i.i105, 0
   br i1 %tobool230.not, label %if.end235, label %if.then231
 
@@ -2713,7 +2713,7 @@ if.then231:                                       ; preds = %if.then190
   br label %if.end235
 
 if.end235:                                        ; preds = %if.then190, %if.then231, %if.else174
-  %.compoundliteral197.sroa.0.1 = phi i32 [ %bf.clear202, %if.then231 ], [ %bf.clear202, %if.then190 ], [ %.compoundliteral197.sroa.0.0113, %if.else174 ]
+  %.compoundliteral197.sroa.0.2 = phi i32 [ %bf.clear202, %if.then231 ], [ %bf.clear202, %if.then190 ], [ %.compoundliteral197.sroa.0.0113, %if.else174 ]
   br i1 %tobool236.not.ph, label %if.end296, label %if.then237
 
 if.then237:                                       ; preds = %if.end235
@@ -2735,12 +2735,12 @@ lor.lhs.false244:                                 ; preds = %if.then237
   %bf.clear256 = or disjoint i32 %bf.set254, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i106 = call i32 @address_space_rw(ptr noundef %25, i64 noundef %26, i32 %bf.clear256, ptr noundef %arrayidx250, i64 noundef %len.0, i1 noundef zeroext false) #20
+  %call.i.i.i106 = call i32 @address_space_rw(ptr noundef %25, i64 noundef %26, i32 %bf.clear256, ptr noundef %arrayidx250, i64 noundef %len.1, i1 noundef zeroext false) #20
   %tobool284.not = icmp eq i32 %call.i.i.i106, 0
   br i1 %tobool284.not, label %if.else288, label %if.then285
 
 if.then285:                                       ; preds = %lor.lhs.false244, %if.then237
-  %.compoundliteral251.sroa.0.1 = phi i32 [ %bf.clear256, %lor.lhs.false244 ], [ %.compoundliteral251.sroa.0.0114, %if.then237 ]
+  %.compoundliteral251.sroa.0.3 = phi i32 [ %bf.clear256, %lor.lhs.false244 ], [ %.compoundliteral251.sroa.0.0114, %if.then237 ]
   %29 = load i32, ptr %dma, align 8
   %or287 = or i32 %29, 1
   store i32 %or287, ptr %dma, align 8
@@ -2755,11 +2755,11 @@ if.then290:                                       ; preds = %if.else288
   %31 = load ptr, ptr %callback_opaque, align 8
   %32 = load i32, ptr %cur_offset, align 4
   %conv293 = zext i32 %32 to i64
-  call void %30(ptr noundef %31, i64 noundef %conv293, i64 noundef %len.0) #20
+  call void %30(ptr noundef %31, i64 noundef %conv293, i64 noundef %len.1) #20
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then285, %if.then290, %if.else288, %if.end235
-  %.compoundliteral251.sroa.0.2 = phi i32 [ %.compoundliteral251.sroa.0.1, %if.then285 ], [ %bf.clear256, %if.then290 ], [ %bf.clear256, %if.else288 ], [ %.compoundliteral251.sroa.0.0114, %if.end235 ]
+  %.compoundliteral251.sroa.0.2 = phi i32 [ %.compoundliteral251.sroa.0.3, %if.then285 ], [ %bf.clear256, %if.then290 ], [ %bf.clear256, %if.else288 ], [ %.compoundliteral251.sroa.0.0114, %if.end235 ]
   %33 = load i32, ptr %cur_offset, align 4
   %add299 = add i32 %33, %sub.
   store i32 %add299, ptr %cur_offset, align 4
@@ -2768,15 +2768,15 @@ if.end296:                                        ; preds = %if.then285, %if.the
 
 if.end301:                                        ; preds = %if.end168, %if.then170, %if.end296
   %.pre116118 = phi i32 [ %or172, %if.then170 ], [ %.pre116, %if.end168 ], [ %.pre, %if.end296 ]
-  %len.1 = phi i64 [ %conv126, %if.then170 ], [ %conv126, %if.end168 ], [ %len.0, %if.end296 ]
+  %len.0 = phi i64 [ %conv126, %if.then170 ], [ %conv126, %if.end168 ], [ %len.1, %if.end296 ]
   %.compoundliteral131.sroa.0.2 = phi i32 [ %.compoundliteral131.sroa.0.1, %if.then170 ], [ %.compoundliteral131.sroa.0.1, %if.end168 ], [ %.compoundliteral131.sroa.0.0112, %if.end296 ]
-  %.compoundliteral197.sroa.0.2 = phi i32 [ %.compoundliteral197.sroa.0.0113, %if.then170 ], [ %.compoundliteral197.sroa.0.0113, %if.end168 ], [ %.compoundliteral197.sroa.0.1, %if.end296 ]
-  %.compoundliteral251.sroa.0.3 = phi i32 [ %.compoundliteral251.sroa.0.0114, %if.then170 ], [ %.compoundliteral251.sroa.0.0114, %if.end168 ], [ %.compoundliteral251.sroa.0.2, %if.end296 ]
+  %.compoundliteral197.sroa.0.1 = phi i32 [ %.compoundliteral197.sroa.0.0113, %if.then170 ], [ %.compoundliteral197.sroa.0.0113, %if.end168 ], [ %.compoundliteral197.sroa.0.2, %if.end296 ]
+  %.compoundliteral251.sroa.0.1 = phi i32 [ %.compoundliteral251.sroa.0.0114, %if.then170 ], [ %.compoundliteral251.sroa.0.0114, %if.end168 ], [ %.compoundliteral251.sroa.0.2, %if.end296 ]
   %34 = load i64, ptr %address, align 8
-  %add303 = add i64 %34, %len.1
+  %add303 = add i64 %34, %len.0
   store i64 %add303, ptr %address, align 8
   %35 = load i32, ptr %length, align 4
-  %36 = trunc nuw i64 %len.1 to i32
+  %36 = trunc nuw i64 %len.0 to i32
   %conv307 = sub i32 %35, %36
   store i32 %conv307, ptr %length, align 4
   %cmp108 = icmp ne i32 %conv307, 0

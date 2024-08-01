@@ -633,7 +633,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 230:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i, %219, %217, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i, %215
-  %.197.i = phi i8 [ %.096.i, %217 ], [ %.096.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i ], [ 1, %219 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i ], [ %.096.i, %215 ]
+  %.2.i = phi i8 [ %.096.i, %217 ], [ %.096.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i ], [ 1, %219 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i ], [ %.096.i, %215 ]
   %231 = xor i1 %194, true
   %232 = and i1 %183, %231
   %.pre205.pre.i = load i32, ptr %147, align 4
@@ -641,7 +641,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14
 
 233:                                              ; preds = %230, %182
   %.pre205.i = phi i32 [ %.pre205.pre.i, %230 ], [ %.pre205.pre206.i, %182 ]
-  %.2.i = phi i8 [ %.197.i, %230 ], [ %.096.i, %182 ]
+  %.197.i = phi i8 [ %.2.i, %230 ], [ %.096.i, %182 ]
   %.095.in.i = phi i1 [ %232, %230 ], [ %183, %182 ]
   br i1 %94, label %234, label %274
 
@@ -699,7 +699,7 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit119.i: ; preds = %255, %247, %234
   br i1 %spec.select.i, label %259, label %272
 
 259:                                              ; preds = %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i, %257
-  %260 = trunc nuw i8 %.2.i to i1
+  %260 = trunc nuw i8 %.197.i to i1
   br i1 %260, label %272, label %261
 
 261:                                              ; preds = %259
@@ -733,14 +733,14 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 272:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i, %261, %259, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i, %257
-  %.3.i = phi i8 [ %.2.i, %259 ], [ %.2.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i ], [ 1, %261 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i ], [ %.2.i, %257 ]
+  %.4.i = phi i8 [ %.197.i, %259 ], [ %.197.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i ], [ 1, %261 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i ], [ %.197.i, %257 ]
   %273 = and i1 %.not178.i, %.095.in.i
   %.pre.i = load i32, ptr %147, align 4
   br label %274
 
 274:                                              ; preds = %272, %233
   %275 = phi i32 [ %.pre.i, %272 ], [ %.pre205.i, %233 ]
-  %.4.i = phi i8 [ %.3.i, %272 ], [ %.2.i, %233 ]
+  %.3.i = phi i8 [ %.4.i, %272 ], [ %.197.i, %233 ]
   %.1.in.i = phi i1 [ %273, %272 ], [ %.095.in.i, %233 ]
   %276 = icmp slt i32 %96, %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
@@ -792,7 +792,7 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit126.i: ; preds = %295, %287, %274
   br i1 %276, label %299, label %312
 
 299:                                              ; preds = %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i, %297
-  %300 = trunc nuw i8 %.4.i to i1
+  %300 = trunc nuw i8 %.3.i to i1
   br i1 %300, label %312, label %301
 
 301:                                              ; preds = %299
@@ -826,7 +826,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 312:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i, %301, %299, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i, %297
-  %.5.i = phi i8 [ %.4.i, %299 ], [ %.4.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i ], [ 1, %301 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i ], [ %.4.i, %297 ]
+  %.5.i = phi i8 [ %.3.i, %299 ], [ %.3.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i ], [ 1, %301 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i ], [ %.3.i, %297 ]
   %313 = add nsw i32 %70, %5
   %314 = icmp sgt i32 %313, %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)

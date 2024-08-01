@@ -445,14 +445,14 @@ lpad13:                                           ; preds = %invoke.cont11
 
 catch.dispatch:                                   ; preds = %lpad13, %lpad10
   %.pn = phi { ptr, i32 } [ %7, %lpad13 ], [ %6, %lpad10 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
   %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
-  %matches = icmp eq i32 %ehselector.slot.0, %8
+  %matches = icmp eq i32 %ehselector.slot.2, %8
   br i1 %matches, label %catch, label %ehcleanup180
 
 catch:                                            ; preds = %catch.dispatch
-  %9 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
+  %9 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.2) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mesg) #22
   %vtable15 = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable15, i64 16
@@ -640,8 +640,8 @@ lpad34:                                           ; preds = %invoke.cont41, %inv
 
 ehcleanup45:                                      ; preds = %lpad34, %ehcleanup32
   %.pn22 = phi { ptr, i32 } [ %26, %lpad34 ], [ %.pn19.pn, %ehcleanup32 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn22, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn22, 1
+  %exn.slot.6 = extractvalue { ptr, i32 } %.pn22, 0
+  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn22, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mesg) #22
   invoke void @__cxa_end_catch()
           to label %ehcleanup180 unwind label %terminate.lpad
@@ -702,8 +702,8 @@ ehcleanup87:                                      ; preds = %do.end
 
 _ZNKSt14default_deleteIN7openvdb5v11_02io8TempFileEEclEPS3_.exit.i49: ; preds = %lpad62, %ehcleanup85, %ehcleanup87.thread207
   %lpad.thr_comm.pn = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup87.thread207 ], [ %27, %lpad62 ], [ %.pn24, %ehcleanup85 ]
-  %ehselector.slot.5204 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 1
-  %exn.slot.5205 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 0
+  %ehselector.slot.3204 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 1
+  %exn.slot.3205 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 0
   %vtable.i.i50 = load ptr, ptr %call12, align 8
   %vfn.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i50, i64 8
   %36 = load ptr, ptr %vfn.i.i51, align 8
@@ -1469,8 +1469,8 @@ ehcleanup177:                                     ; preds = %ehcleanup176, %lpad
 
 ehcleanup178:                                     ; preds = %ehcleanup177, %lpad106
   %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn, %ehcleanup177 ], [ %112, %lpad106 ]
-  %exn.slot.9 = extractvalue { ptr, i32 } %.pn26.pn.pn.pn, 0
-  %ehselector.slot.9 = extractvalue { ptr, i32 } %.pn26.pn.pn.pn, 1
+  %exn.slot.8 = extractvalue { ptr, i32 } %.pn26.pn.pn.pn, 0
+  %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn26.pn.pn.pn, 1
   call void @_ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %streamMetadata) #22
   br label %ehcleanup180
 
@@ -1478,17 +1478,17 @@ if.end179:                                        ; preds = %if.end8.sink.split.
   ret void
 
 ehcleanup180:                                     ; preds = %catch.dispatch, %ehcleanup45, %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFileEEclEPS3_.exit.i49, %ehcleanup87, %ehcleanup178, %lpad98, %lpad4.body
-  %ehselector.slot.10 = phi i32 [ %ehselector.slot.9, %ehcleanup178 ], [ %5, %lpad4.body ], [ %111, %lpad98 ], [ %35, %ehcleanup87 ], [ %ehselector.slot.5204, %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFileEEclEPS3_.exit.i49 ], [ %ehselector.slot.0, %catch.dispatch ], [ %ehselector.slot.3, %ehcleanup45 ]
-  %exn.slot.10 = phi ptr [ %exn.slot.9, %ehcleanup178 ], [ %4, %lpad4.body ], [ %110, %lpad98 ], [ %34, %ehcleanup87 ], [ %exn.slot.5205, %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFileEEclEPS3_.exit.i49 ], [ %exn.slot.0, %catch.dispatch ], [ %exn.slot.3, %ehcleanup45 ]
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.8, %ehcleanup178 ], [ %5, %lpad4.body ], [ %111, %lpad98 ], [ %35, %ehcleanup87 ], [ %ehselector.slot.3204, %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFileEEclEPS3_.exit.i49 ], [ %ehselector.slot.2, %catch.dispatch ], [ %ehselector.slot.6, %ehcleanup45 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.8, %ehcleanup178 ], [ %4, %lpad4.body ], [ %110, %lpad98 ], [ %34, %ehcleanup87 ], [ %exn.slot.3205, %_ZNKSt14default_deleteIN7openvdb5v11_02io8TempFileEEclEPS3_.exit.i49 ], [ %exn.slot.2, %catch.dispatch ], [ %exn.slot.6, %ehcleanup45 ]
   call void @_ZNSt10unique_ptrIN7openvdb5v11_02io6Stream4ImplESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mImpl) #22
   br label %ehcleanup181
 
 ehcleanup181:                                     ; preds = %ehcleanup180, %lpad
-  %ehselector.slot.11 = phi i32 [ %ehselector.slot.10, %ehcleanup180 ], [ %2, %lpad ]
-  %exn.slot.11 = phi ptr [ %exn.slot.10, %ehcleanup180 ], [ %1, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup180 ], [ %2, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup180 ], [ %1, %lpad ]
   call void @_ZN7openvdb5v11_02io7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) #22
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.11, 0
-  %lpad.val184 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.11, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val184 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val184
 
 terminate.lpad:                                   ; preds = %ehcleanup45

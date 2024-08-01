@@ -7140,7 +7140,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 
 for.cond:                                         ; preds = %for.inc, %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %if.end ]
-  %weight.1 = phi i32 [ %weight.2, %for.inc ], [ %9, %if.end ]
+  %weight.0 = phi i32 [ %weight.1, %for.inc ], [ %9, %if.end ]
   %cts_delta.0 = phi i32 [ %cts_delta.1, %for.inc ], [ %call3, %if.end ]
   %t.0 = phi ptr [ %t.1, %for.inc ], [ %1, %if.end ]
   %10 = load ptr, ptr %T, align 8
@@ -7231,7 +7231,7 @@ if.end8:                                          ; preds = %if.then.i.i.i53, %i
   %retval.0.i.i.i51 = phi ptr [ %curr.133.i.i.i38, %if.then22.i.i.i45 ], [ %curr.031.i.i.i30, %if.then.i.i.i53 ]
   %m_value.i52 = getelementptr inbounds i8, ptr %retval.0.i.i.i51, i64 8
   %21 = load i32, ptr %m_value.i52, align 8
-  %cmp9 = icmp ult i32 %21, %weight.1
+  %cmp9 = icmp ult i32 %21, %weight.0
   br i1 %cmp9, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end8
@@ -7252,7 +7252,7 @@ if.end14:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp18, label %land.lhs.true19, label %lor.lhs.false22
 
 land.lhs.true19:                                  ; preds = %if.end14
-  %cmp20 = icmp ugt i32 %21, %weight.1
+  %cmp20 = icmp ugt i32 %21, %weight.0
   %cmp21 = icmp ult i32 %call15, %cts_delta.0
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then26, label %for.inc
@@ -7265,7 +7265,7 @@ if.then26:                                        ; preds = %lor.lhs.false22, %l
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true19, %lor.lhs.false22, %if.then26, %land.lhs.true
-  %weight.2 = phi i32 [ %21, %if.then26 ], [ %weight.1, %lor.lhs.false22 ], [ %weight.1, %land.lhs.true ], [ %weight.1, %land.lhs.true19 ]
+  %weight.1 = phi i32 [ %21, %if.then26 ], [ %weight.0, %lor.lhs.false22 ], [ %weight.0, %land.lhs.true ], [ %weight.0, %land.lhs.true19 ]
   %cts_delta.1 = phi i32 [ %call15, %if.then26 ], [ %cts_delta.0, %lor.lhs.false22 ], [ %cts_delta.0, %land.lhs.true ], [ %cts_delta.0, %land.lhs.true19 ]
   %t.1 = phi ptr [ %13, %if.then26 ], [ %t.0, %lor.lhs.false22 ], [ %t.0, %land.lhs.true ], [ %t.0, %land.lhs.true19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8020,10 +8020,10 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -8049,7 +8049,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -8064,7 +8064,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823
@@ -11791,7 +11791,7 @@ for.end56.i263:                                   ; preds = %for.cond27.preheade
   unreachable
 
 if.end.i:                                         ; preds = %if.then14.i289, %if.end21.i281, %if.then37.i276, %if.end48.i268, %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit.i
-  %id.1.i = phi i32 [ %35, %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit.i ], [ %36, %if.end48.i268 ], [ %36, %if.then37.i276 ], [ %36, %if.end21.i281 ], [ %36, %if.then14.i289 ]
+  %id.0.i = phi i32 [ %35, %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit.i ], [ %36, %if.end48.i268 ], [ %36, %if.then37.i276 ], [ %36, %if.end21.i281 ], [ %36, %if.then14.i289 ]
   %50 = load ptr, ptr %proc, align 8
   %m_size.i = getelementptr inbounds i8, ptr %50, i64 12
   %51 = load i32, ptr %m_size.i, align 4
@@ -11955,7 +11955,7 @@ if.then9.i:                                       ; preds = %for.body.i
 if.then14.i:                                      ; preds = %if.then9.i
   store ptr %15, ptr %curr.052.i, align 8
   %ref.tmp.i3.i.sroa.8.0.curr.052.i.sroa_idx = getelementptr inbounds i8, ptr %curr.052.i, i64 8
-  store i32 %id.1.i, ptr %ref.tmp.i3.i.sroa.8.0.curr.052.i.sroa_idx, align 8
+  store i32 %id.0.i, ptr %ref.tmp.i3.i.sroa.8.0.curr.052.i.sroa_idx, align 8
   br label %while.cond14.backedge
 
 if.then17.i:                                      ; preds = %for.body.i
@@ -11971,7 +11971,7 @@ if.end21.i:                                       ; preds = %if.then18.i, %if.th
   %new_entry.0.i = phi ptr [ %del_entry.053.i, %if.then18.i ], [ %curr.052.i, %if.then17.i ]
   store ptr %15, ptr %new_entry.0.i, align 8
   %ref.tmp.i3.i.sroa.8.0.new_entry.0.i.sroa_idx = getelementptr inbounds i8, ptr %new_entry.0.i, i64 8
-  store i32 %id.1.i, ptr %ref.tmp.i3.i.sroa.8.0.new_entry.0.i.sroa_idx, align 8
+  store i32 %id.0.i, ptr %ref.tmp.i3.i.sroa.8.0.new_entry.0.i.sroa_idx, align 8
   %67 = load i32, ptr %m_size.i, align 4
   %inc.i222 = add i32 %67, 1
   store i32 %inc.i222, ptr %m_size.i, align 4
@@ -12004,7 +12004,7 @@ if.then31.i:                                      ; preds = %for.body29.i
 if.then37.i:                                      ; preds = %if.then31.i
   store ptr %15, ptr %curr.155.i, align 8
   %ref.tmp.i3.i.sroa.8.0.curr.155.i.sroa_idx = getelementptr inbounds i8, ptr %curr.155.i, i64 8
-  store i32 %id.1.i, ptr %ref.tmp.i3.i.sroa.8.0.curr.155.i.sroa_idx, align 8
+  store i32 %id.0.i, ptr %ref.tmp.i3.i.sroa.8.0.curr.155.i.sroa_idx, align 8
   br label %while.cond14.backedge
 
 if.then41.i:                                      ; preds = %for.body29.i
@@ -12020,7 +12020,7 @@ if.end48.i:                                       ; preds = %if.then44.i, %if.th
   %new_entry42.0.i = phi ptr [ %del_entry.256.i, %if.then44.i ], [ %curr.155.i, %if.then41.i ]
   store ptr %15, ptr %new_entry42.0.i, align 8
   %ref.tmp.i3.i.sroa.8.0.new_entry42.0.i.sroa_idx = getelementptr inbounds i8, ptr %new_entry42.0.i, i64 8
-  store i32 %id.1.i, ptr %ref.tmp.i3.i.sroa.8.0.new_entry42.0.i.sroa_idx, align 8
+  store i32 %id.0.i, ptr %ref.tmp.i3.i.sroa.8.0.new_entry42.0.i.sroa_idx, align 8
   %70 = load i32, ptr %m_size.i, align 4
   %inc50.i = add i32 %70, 1
   store i32 %inc50.i, ptr %m_size.i, align 4
@@ -12398,12 +12398,12 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit, %if.then
-  %id.1 = phi i32 [ %7, %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit ], [ %8, %if.then ]
+  %id.0 = phi i32 [ %7, %_ZNK7obj_mapI4sortjE4findEPS0_Rj.exit ], [ %8, %if.then ]
   %9 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i3)
   store ptr %n, ptr %ref.tmp.i3, align 8
   %m_value.i.i4 = getelementptr inbounds i8, ptr %ref.tmp.i3, i64 8
-  store i32 %id.1, ptr %m_value.i.i4, align 8
+  store i32 %id.0, ptr %m_value.i.i4, align 8
   call void @_ZN14core_hashtableIN7obj_mapI3appjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i3)
   ret void

@@ -248,7 +248,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %got_one.09 = phi i8 [ 0, %entry ], [ %got_one.2, %for.inc ]
+  %got_one.09 = phi i8 [ 0, %entry ], [ %got_one.1, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %i.08 = phi i32 [ 0, %entry ], [ 1, %for.inc ]
   %call.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef %i.08) #7
@@ -273,7 +273,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %got_one.1 = phi i8 [ %got_one.09, %if.end ], [ 1, %if.then2 ]
+  %got_one.2 = phi i8 [ %got_one.09, %if.end ], [ 1, %if.then2 ]
   %call5 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @TpmType_lookup, i32 noundef %i.08) #7
   %desc = getelementptr inbounds i8, ptr %call.i.i, i64 112
   %0 = load ptr, ptr %desc, align 8
@@ -281,11 +281,11 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %tpm_be_find_by_type.exit, %if.end4
-  %got_one.2 = phi i8 [ %got_one.1, %if.end4 ], [ %got_one.09, %tpm_be_find_by_type.exit ], [ %got_one.09, %for.body ]
+  %got_one.1 = phi i8 [ %got_one.2, %if.end4 ], [ %got_one.09, %tpm_be_find_by_type.exit ], [ %got_one.09, %for.body ]
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
-  %tobool7 = trunc nuw i8 %got_one.2 to i1
+  %tobool7 = trunc nuw i8 %got_one.1 to i1
   br i1 %tobool7, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %for.end

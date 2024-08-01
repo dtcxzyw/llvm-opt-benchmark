@@ -3116,7 +3116,7 @@ lpad35:                                           ; preds = %if.end28
   br label %ehcleanup45
 
 cleanup:                                          ; preds = %invoke.cont41.invoke, %invoke.cont36
-  %retval.0 = phi i1 [ true, %invoke.cont36 ], [ false, %invoke.cont41.invoke ]
+  %retval.1 = phi i1 [ true, %invoke.cont36 ], [ false, %invoke.cont41.invoke ]
   %bf.load.i.i41 = load i64, ptr %6, align 8
   %24 = and i64 %bf.load.i.i41, 1152920405095219200
   %cmp.not.i.i42 = icmp eq i64 %24, 1152920405095219200
@@ -3148,8 +3148,8 @@ ehcleanup45:                                      ; preds = %lpad35, %lpad17, %l
   resume { ptr, i32 } %.pn2
 
 return:                                           ; preds = %if.then13.i.i49, %if.then.i.i43, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i43 ], [ %retval.0, %if.then13.i.i49 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i43 ], [ %retval.1, %if.then13.i.i49 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

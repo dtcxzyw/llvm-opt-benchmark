@@ -1715,13 +1715,13 @@ if.end.i262:                                      ; preds = %if.then86
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end.i262, %if.then86, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit
-  %n.sroa.0.3 = phi <2 x float> [ %n.sroa.0.0371, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit ], [ %178, %if.then86 ], [ %181, %if.end.i262 ]
+  %n.sroa.0.2 = phi <2 x float> [ %n.sroa.0.0371, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit ], [ %178, %if.then86 ], [ %181, %if.end.i262 ]
   %182 = insertelement <2 x float> poison, float %cond.i, i64 0
   %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer
-  %184 = fmul <2 x float> %183, %n.sroa.0.3
+  %184 = fmul <2 x float> %183, %n.sroa.0.2
   %185 = fadd <2 x float> %pointA.sroa.0.0, %184
   store <2 x float> %185, ptr %output, align 4
-  store <2 x float> %n.sroa.0.3, ptr %normal, align 4
+  store <2 x float> %n.sroa.0.2, ptr %normal, align 4
   store float %lambda5.0365, ptr %lambda, align 4
   store i32 %iter.0368, ptr %iterations, align 4
   br label %return

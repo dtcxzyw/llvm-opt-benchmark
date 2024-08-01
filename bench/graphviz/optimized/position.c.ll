@@ -1798,7 +1798,7 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader ]
   %32 = phi ptr [ %56, %54 ], [ %31, %.preheader ]
-  %.0121149 = phi double [ %.1122, %54 ], [ %28, %.preheader ]
+  %.1122149 = phi double [ %.2123, %54 ], [ %28, %.preheader ]
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 3
   %35 = icmp eq i32 %34, 3
@@ -1826,11 +1826,11 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   %50 = getelementptr inbounds i8, ptr %48, i64 48
   %51 = load double, ptr %50, align 8
   %52 = fmul double %51, 5.000000e-01
-  %53 = tail call double @llvm.maxnum.f64(double %.0121149, double %52)
+  %53 = tail call double @llvm.maxnum.f64(double %.1122149, double %52)
   br label %54
 
 54:                                               ; preds = %.lr.ph, %49, %44
-  %.1122 = phi double [ %53, %49 ], [ %.0121149, %44 ], [ %.0121149, %.lr.ph ]
+  %.2123 = phi double [ %53, %49 ], [ %.1122149, %44 ], [ %.1122149, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8
@@ -1838,24 +1838,24 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not141, label %.loopexit146, label %.lr.ph
 
 .loopexit146:                                     ; preds = %54, %.preheader, %20
-  %.2123 = phi double [ %28, %20 ], [ %28, %.preheader ], [ %.1122, %54 ]
+  %.0121 = phi double [ %28, %20 ], [ %28, %.preheader ], [ %.2123, %54 ]
   %57 = load double, ptr %16, align 8
-  %58 = fcmp olt double %57, %.2123
+  %58 = fcmp olt double %57, %.0121
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %.loopexit146
-  store double %.2123, ptr %17, align 8
-  store double %.2123, ptr %16, align 8
+  store double %.0121, ptr %17, align 8
+  store double %.0121, ptr %16, align 8
   br label %60
 
 60:                                               ; preds = %59, %.loopexit146
   %61 = load double, ptr %18, align 8
-  %62 = fcmp olt double %61, %.2123
+  %62 = fcmp olt double %61, %.0121
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %60
-  store double %.2123, ptr %19, align 8
-  store double %.2123, ptr %18, align 8
+  store double %.0121, ptr %19, align 8
+  store double %.0121, ptr %18, align 8
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -1891,7 +1891,7 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   %84 = getelementptr inbounds i8, ptr %79, i64 144
   %85 = load double, ptr %84, align 8
   %86 = sitofp i32 %75 to double
-  %87 = fadd double %.2123, %86
+  %87 = fadd double %.0121, %86
   %88 = tail call double @llvm.maxnum.f64(double %85, double %87)
   store double %88, ptr %84, align 8
   %.pre202 = load ptr, ptr %24, align 8
@@ -1912,7 +1912,7 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   %96 = getelementptr inbounds i8, ptr %90, i64 136
   %97 = load double, ptr %96, align 8
   %98 = sitofp i32 %75 to double
-  %99 = fadd double %.2123, %98
+  %99 = fadd double %.0121, %98
   %100 = tail call double @llvm.maxnum.f64(double %97, double %99)
   store double %100, ptr %96, align 8
   br label %101
@@ -2057,7 +2057,7 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
   %indvars.iv196 = phi i64 [ %182, %.lr.ph169.preheader ], [ %indvars.iv.next197, %.lr.ph169 ]
-  %.1125166 = phi double [ 0.000000e+00, %.lr.ph169.preheader ], [ %199, %.lr.ph169 ]
+  %.2126166 = phi double [ 0.000000e+00, %.lr.ph169.preheader ], [ %199, %.lr.ph169 ]
   %.0128165 = phi double [ %189, %.lr.ph169.preheader ], [ %197, %.lr.ph169 ]
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, -1
   %191 = getelementptr inbounds %struct.rank_t, ptr %5, i64 %indvars.iv.next197, i32 1
@@ -2068,13 +2068,13 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   %196 = getelementptr inbounds i8, ptr %195, i64 40
   %197 = load double, ptr %196, align 8
   %198 = fsub double %197, %.0128165
-  %199 = tail call double @llvm.maxnum.f64(double %.1125166, double %198)
+  %199 = tail call double @llvm.maxnum.f64(double %.2126166, double %198)
   %.not137.not = icmp sgt i64 %indvars.iv.next197, %190
   br i1 %.not137.not, label %.lr.ph169, label %.loopexit145
 
 .loopexit145:                                     ; preds = %.lr.ph169, %177, %172, %168, %._crit_edge161
   %200 = phi ptr [ %173, %172 ], [ %.lcssa, %168 ], [ %.lcssa, %._crit_edge161 ], [ %173, %177 ], [ %173, %.lr.ph169 ]
-  %.2126 = phi double [ %.0124.lcssa, %172 ], [ %.0124.lcssa, %168 ], [ %.0124.lcssa, %._crit_edge161 ], [ 0.000000e+00, %177 ], [ %199, %.lr.ph169 ]
+  %.1125 = phi double [ %.0124.lcssa, %172 ], [ %.0124.lcssa, %168 ], [ %.0124.lcssa, %._crit_edge161 ], [ 0.000000e+00, %177 ], [ %199, %.lr.ph169 ]
   %201 = getelementptr inbounds i8, ptr %200, i64 404
   %202 = load i8, ptr %201, align 4
   %203 = trunc i8 %202 to i1
@@ -2109,7 +2109,7 @@ define internal fastcc void @set_ycoords(ptr noundef %0) unnamed_addr #0 {
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 40
   %221 = load double, ptr %220, align 8
-  %222 = fadd double %.2126, %221
+  %222 = fadd double %.1125, %221
   %223 = getelementptr inbounds i8, ptr %211, i64 8
   %224 = load ptr, ptr %223, align 8
   %225 = load ptr, ptr %224, align 8

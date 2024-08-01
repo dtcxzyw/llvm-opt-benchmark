@@ -5353,10 +5353,10 @@ switch.lookup:                                    ; preds = %15
 
 .thread:                                          ; preds = %15, %switch.lookup, %.thread94, %1, %57, %52, %40, %59
   %.sroa.16.sroa.0.0 = phi i64 [ %61, %59 ], [ 0, %40 ], [ 0, %52 ], [ 0, %57 ], [ 0, %1 ], [ 0, %.thread94 ], [ 0, %15 ], [ 0, %switch.lookup ]
-  %.sroa.9.2 = phi i64 [ %64, %59 ], [ 327680, %40 ], [ 131072, %52 ], [ 196608, %57 ], [ 0, %1 ], [ 0, %.thread94 ], [ 262144, %15 ], [ 0, %switch.lookup ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0.i.i4396, %59 ], [ 10, %40 ], [ 10, %52 ], [ 10, %57 ], [ 10, %1 ], [ 10, %.thread94 ], [ 10, %15 ], [ 10, %switch.lookup ]
-  %.sroa.9.0.insert.insert = or disjoint i64 %.sroa.9.2, %.sroa.16.sroa.0.0
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.insert, %.sroa.0.2
+  %.sroa.9.1 = phi i64 [ %64, %59 ], [ 327680, %40 ], [ 131072, %52 ], [ 196608, %57 ], [ 0, %1 ], [ 0, %.thread94 ], [ 262144, %15 ], [ 0, %switch.lookup ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.i.i4396, %59 ], [ 10, %40 ], [ 10, %52 ], [ 10, %57 ], [ 10, %1 ], [ 10, %.thread94 ], [ 10, %15 ], [ 10, %switch.lookup ]
+  %.sroa.9.0.insert.insert = or disjoint i64 %.sroa.9.1, %.sroa.16.sroa.0.0
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.insert, %.sroa.0.1
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -10786,11 +10786,11 @@ define internal fastcc void @_ZN6rustls6server2hs17ExpectClientHello18with_certi
   br i1 %trunc.i.i.i.i, label %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit, label %74
 
 .loopexit.split-lp512:                            ; preds = %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp, %.body
-  %.0193 = phi i8 [ %.3196, %.body ], [ %.1194.ph.ph.ph, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
-  %.0185 = phi i8 [ %.3188, %.body ], [ %.1186.ph.ph.ph, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
-  %.0 = phi i8 [ %.2, %.body ], [ %.1.ph.ph.ph, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
+  %.1194 = phi i8 [ %.5198, %.body ], [ %.0193.ph.ph.ph, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
+  %.1186 = phi i8 [ %.5190, %.body ], [ %.0185.ph.ph.ph, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
+  %.1 = phi i8 [ %.4, %.body ], [ %.0.ph.ph.ph, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
   %.pn218 = phi { ptr, i32 } [ %.pn216, %.body ], [ %lpad.loopexit.split-lp520, %.loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp ]
-  %79 = trunc nuw i8 %.0 to i1
+  %79 = trunc nuw i8 %.1 to i1
   br i1 %79, label %.loopexit.split-lp512.thread, label %810
 
 .loopexit511:                                     ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17ha33f29a6b54a3e51E.llvm.6030771845222660662.exit.backedge.i.i254"
@@ -10809,9 +10809,9 @@ define internal fastcc void @_ZN6rustls6server2hs17ExpectClientHello18with_certi
   br label %.loopexit.split-lp512.thread
 
 .loopexit.split-lp512.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245, %109, %125, %133, %145, %159, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434", %180, %190, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337", %738, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342", %756
-  %.1194.ph.ph.ph = phi i8 [ %.10203, %756 ], [ %.10203, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342" ], [ %.7200, %738 ], [ %.7200, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337" ], [ 1, %190 ], [ 1, %180 ], [ 1, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434" ], [ 1, %159 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %109 ], [ 1, %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245 ]
-  %.1186.ph.ph.ph = phi i8 [ %.10, %756 ], [ %.10, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342" ], [ %.7192, %738 ], [ %.7192, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337" ], [ 1, %190 ], [ 1, %180 ], [ 1, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434" ], [ 1, %159 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %109 ], [ 1, %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245 ]
-  %.1.ph.ph.ph = phi i8 [ 1, %756 ], [ 1, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342" ], [ 0, %738 ], [ 0, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337" ], [ 1, %190 ], [ 1, %180 ], [ 1, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434" ], [ 1, %159 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %109 ], [ 1, %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245 ]
+  %.0193.ph.ph.ph = phi i8 [ %.7200, %756 ], [ %.7200, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342" ], [ %.10203, %738 ], [ %.10203, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337" ], [ 1, %190 ], [ 1, %180 ], [ 1, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434" ], [ 1, %159 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %109 ], [ 1, %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245 ]
+  %.0185.ph.ph.ph = phi i8 [ %.7192, %756 ], [ %.7192, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342" ], [ %.10, %738 ], [ %.10, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337" ], [ 1, %190 ], [ 1, %180 ], [ 1, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434" ], [ 1, %159 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %109 ], [ 1, %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245 ]
+  %.0.ph.ph.ph = phi i8 [ 1, %756 ], [ 1, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342" ], [ 0, %738 ], [ 0, %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit337" ], [ 1, %190 ], [ 1, %180 ], [ 1, %"_ZN6rustls5enums91_$LT$impl$u20$core..convert..From$LT$rustls..enums..ProtocolVersion$GT$$u20$for$u20$u16$GT$4from17hb6ad0368a09f2641E.exit.thread434" ], [ 1, %159 ], [ 1, %145 ], [ 1, %133 ], [ 1, %125 ], [ 1, %109 ], [ 1, %_ZN6rustls6server11server_conn12ServerConfig16supports_version17hffed5fe9fbe7eb8fE.exit245 ]
   %lpad.loopexit.split-lp520 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp512
@@ -11042,8 +11042,8 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   br label %151
 
 151:                                              ; preds = %184, %762, %764, %138, %149, %761
-  %.2195 = phi i8 [ 1, %138 ], [ 1, %149 ], [ %.10203, %761 ], [ 1, %764 ], [ 1, %762 ], [ 1, %184 ]
-  %.2187 = phi i8 [ 1, %138 ], [ 1, %149 ], [ %.10, %761 ], [ 1, %764 ], [ 1, %762 ], [ 1, %184 ]
+  %.3196 = phi i8 [ 1, %138 ], [ 1, %149 ], [ %.7200, %761 ], [ 1, %764 ], [ 1, %762 ], [ 1, %184 ]
+  %.3188 = phi i8 [ 1, %138 ], [ 1, %149 ], [ %.7192, %761 ], [ 1, %764 ], [ 1, %762 ], [ 1, %184 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !1862
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6fa49a330d648ec3E.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
           to label %.noexc266 unwind label %.thread476
@@ -11195,9 +11195,9 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
           to label %202 unwind label %.loopexit.split-lp507
 
 .body:                                            ; preds = %.loopexit506, %.loopexit.split-lp507, %.body323, %259, %.thread.i, %199
-  %.3196 = phi i8 [ 1, %199 ], [ 1, %.thread.i ], [ %.5198, %259 ], [ %.5198, %.body323 ], [ 1, %.loopexit506 ], [ %.4197.ph, %.loopexit.split-lp507 ]
-  %.3188 = phi i8 [ 1, %199 ], [ 1, %.thread.i ], [ %.5190, %259 ], [ %.5190, %.body323 ], [ 1, %.loopexit506 ], [ %.4189.ph, %.loopexit.split-lp507 ]
-  %.2 = phi i8 [ 1, %199 ], [ 1, %.thread.i ], [ %.4, %259 ], [ %.4, %.body323 ], [ 1, %.loopexit506 ], [ %.3.ph, %.loopexit.split-lp507 ]
+  %.5198 = phi i8 [ 1, %199 ], [ 1, %.thread.i ], [ %.8201, %259 ], [ %.8201, %.body323 ], [ 1, %.loopexit506 ], [ %.4197.ph, %.loopexit.split-lp507 ]
+  %.5190 = phi i8 [ 1, %199 ], [ 1, %.thread.i ], [ %.8, %259 ], [ %.8, %.body323 ], [ 1, %.loopexit506 ], [ %.4189.ph, %.loopexit.split-lp507 ]
+  %.4 = phi i8 [ 1, %199 ], [ 1, %.thread.i ], [ %.5, %259 ], [ %.5, %.body323 ], [ 1, %.loopexit506 ], [ %.3.ph, %.loopexit.split-lp507 ]
   %.pn216 = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %199 ], [ %252, %.thread.i ], [ %.pn, %259 ], [ %.pn, %.body323 ], [ %lpad.loopexit508, %.loopexit506 ], [ %lpad.loopexit.split-lp509, %.loopexit.split-lp507 ]
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$rustls..suites..SupportedCipherSuite$GT$$GT$17h3ff951a69d4b0f39E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61) #41
           to label %.loopexit.split-lp512 unwind label %752
@@ -11208,8 +11208,8 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   br label %.body
 
 .loopexit.split-lp507:                            ; preds = %_ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1E.exit, %223, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa5697bE.llvm.9964311202002838858.exit.i", %202, %240, %734, %750
-  %.4197.ph = phi i8 [ %.9202, %750 ], [ %.7200, %734 ], [ 1, %240 ], [ 1, %202 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa5697bE.llvm.9964311202002838858.exit.i" ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1E.exit ], [ 1, %223 ]
-  %.4189.ph = phi i8 [ %.9, %750 ], [ %.7192, %734 ], [ 1, %240 ], [ 1, %202 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa5697bE.llvm.9964311202002838858.exit.i" ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1E.exit ], [ 1, %223 ]
+  %.4197.ph = phi i8 [ %.9202, %750 ], [ %.10203, %734 ], [ 1, %240 ], [ 1, %202 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa5697bE.llvm.9964311202002838858.exit.i" ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1E.exit ], [ 1, %223 ]
+  %.4189.ph = phi i8 [ %.9, %750 ], [ %.10, %734 ], [ 1, %240 ], [ 1, %202 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa5697bE.llvm.9964311202002838858.exit.i" ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1E.exit ], [ 1, %223 ]
   %.3.ph = phi i8 [ 1, %750 ], [ 0, %734 ], [ 1, %240 ], [ 1, %202 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h655f541a3aa5697bE.llvm.9964311202002838858.exit.i" ], [ 1, %_ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1E.exit ], [ 1, %223 ]
   %lpad.loopexit.split-lp509 = landingpad { ptr, i32 }
           cleanup
@@ -11360,9 +11360,9 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342"
 
 .body323:                                         ; preds = %.loopexit, %.loopexit.split-lp, %.thread461, %.loopexit.split-lp.i, %751
-  %.5198 = phi i8 [ %.7200, %751 ], [ 1, %.loopexit.split-lp.i ], [ %.7200, %.thread461 ], [ 1, %.loopexit ], [ %.6199.ph, %.loopexit.split-lp ]
-  %.5190 = phi i8 [ %.7192, %751 ], [ 1, %.loopexit.split-lp.i ], [ %.7192, %.thread461 ], [ 1, %.loopexit ], [ %.6191.ph, %.loopexit.split-lp ]
-  %.4 = phi i8 [ 1, %751 ], [ 1, %.loopexit.split-lp.i ], [ 0, %.thread461 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp ]
+  %.8201 = phi i8 [ %.10203, %751 ], [ 1, %.loopexit.split-lp.i ], [ %.10203, %.thread461 ], [ 1, %.loopexit ], [ %.6199.ph, %.loopexit.split-lp ]
+  %.8 = phi i8 [ %.10, %751 ], [ 1, %.loopexit.split-lp.i ], [ %.10, %.thread461 ], [ 1, %.loopexit ], [ %.6191.ph, %.loopexit.split-lp ]
+  %.5 = phi i8 [ 1, %751 ], [ 1, %.loopexit.split-lp.i ], [ 0, %.thread461 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %751 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.thr_comm, %.thread461 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1928)
   call void @llvm.experimental.noalias.scope.decl(metadata !1931)
@@ -11382,8 +11382,8 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload14alpn_extension17h75f97bba558d4ea1
   br label %.body323
 
 .loopexit.split-lp:                               ; preds = %260, %642, %660, %_ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit, %745, %282, %301, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1ba931b547f19955E.exit.thread.i", %397, %574, %578, %626, %662, %.critedge231
-  %.6199.ph = phi i8 [ 1, %.critedge231 ], [ 1, %662 ], [ 1, %626 ], [ 1, %578 ], [ 1, %574 ], [ 1, %397 ], [ 1, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1ba931b547f19955E.exit.thread.i" ], [ 1, %301 ], [ 1, %282 ], [ 1, %260 ], [ 1, %642 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit ], [ 1, %660 ], [ %.7200, %745 ]
-  %.6191.ph = phi i8 [ 1, %.critedge231 ], [ 1, %662 ], [ 1, %626 ], [ 1, %578 ], [ 1, %574 ], [ 1, %397 ], [ 1, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1ba931b547f19955E.exit.thread.i" ], [ 1, %301 ], [ 1, %282 ], [ 1, %260 ], [ 1, %642 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit ], [ 0, %660 ], [ %.7192, %745 ]
+  %.6199.ph = phi i8 [ 1, %.critedge231 ], [ 1, %662 ], [ 1, %626 ], [ 1, %578 ], [ 1, %574 ], [ 1, %397 ], [ 1, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1ba931b547f19955E.exit.thread.i" ], [ 1, %301 ], [ 1, %282 ], [ 1, %260 ], [ 1, %642 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit ], [ 1, %660 ], [ %.10203, %745 ]
+  %.6191.ph = phi i8 [ 1, %.critedge231 ], [ 1, %662 ], [ 1, %626 ], [ 1, %578 ], [ 1, %574 ], [ 1, %397 ], [ 1, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1ba931b547f19955E.exit.thread.i" ], [ 1, %301 ], [ 1, %282 ], [ 1, %260 ], [ 1, %642 ], [ 1, %_ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit ], [ 0, %660 ], [ %.10, %745 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body323
@@ -12541,8 +12541,8 @@ _ZN6rustls6suites20SupportedCipherSuite23usable_for_kx_algorithm17h56c9bc8a9fb38
           to label %_ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit unwind label %.loopexit.split-lp
 
 670:                                              ; preds = %660, %.critedge
-  %.7200 = phi i8 [ 0, %.critedge ], [ 1, %660 ]
-  %.7192 = phi i8 [ 1, %.critedge ], [ 0, %660 ]
+  %.10203 = phi i8 [ 0, %.critedge ], [ 1, %660 ]
+  %.10 = phi i8 [ 1, %.critedge ], [ 0, %660 ]
   %671 = getelementptr inbounds i8, ptr %3, i64 72
   %.sroa.0408.0.copyload = load <32 x i8>, ptr %671, align 8
   %672 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
@@ -12612,8 +12612,8 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
   br label %696
 
 696:                                              ; preds = %745, %694
-  %.8201 = phi i8 [ %.7200, %745 ], [ 1, %694 ]
-  %.8 = phi i8 [ %.7192, %745 ], [ 1, %694 ]
+  %.11204 = phi i8 [ %.10203, %745 ], [ 1, %694 ]
+  %.11 = phi i8 [ %.10, %745 ], [ 1, %694 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
   br label %746
@@ -12764,8 +12764,8 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
           to label %696 unwind label %.loopexit.split-lp
 
 746:                                              ; preds = %696, %630
-  %.9202 = phi i8 [ 1, %630 ], [ %.8201, %696 ]
-  %.9 = phi i8 [ 1, %630 ], [ %.8, %696 ]
+  %.9202 = phi i8 [ 1, %630 ], [ %.11204, %696 ]
+  %.9 = phi i8 [ 1, %630 ], [ %.11, %696 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2138)
   call void @llvm.experimental.noalias.scope.decl(metadata !2141)
   %747 = load ptr, ptr %59, align 8, !alias.scope !2144, !nonnull !4, !noundef !4
@@ -12791,8 +12791,8 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
   unreachable
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$rustls..crypto..signer..CertifiedKey$GT$$GT$17h2eb48c8822cf560dE.exit342": ; preds = %746, %750, %253
-  %.10203 = phi i8 [ 1, %253 ], [ %.9202, %750 ], [ %.9202, %746 ]
-  %.10 = phi i8 [ 1, %253 ], [ %.9, %750 ], [ %.9, %746 ]
+  %.7200 = phi i8 [ 1, %253 ], [ %.9202, %750 ], [ %.9202, %746 ]
+  %.7192 = phi i8 [ 1, %253 ], [ %.9, %750 ], [ %.9, %746 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !2145
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc1ef76f754751550E.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %61)
@@ -12883,11 +12883,11 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
   br i1 %783, label %784, label %786
 
 784:                                              ; preds = %780
-  %785 = trunc nuw i8 %.2187 to i1
+  %785 = trunc nuw i8 %.3188 to i1
   br i1 %785, label %788, label %744
 
 786:                                              ; preds = %780
-  %787 = trunc nuw i8 %.2195 to i1
+  %787 = trunc nuw i8 %.3196 to i1
   br i1 %787, label %797, label %744
 
 788:                                              ; preds = %784
@@ -12916,11 +12916,11 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
   br label %744
 
 798:                                              ; preds = %774
-  %799 = trunc nuw i8 %.2187 to i1
+  %799 = trunc nuw i8 %.3188 to i1
   br i1 %799, label %803, label %802
 
 800:                                              ; preds = %774
-  %801 = trunc nuw i8 %.2195 to i1
+  %801 = trunc nuw i8 %.3196 to i1
   br i1 %801, label %805, label %802
 
 802:                                              ; preds = %820, %818, %816, %814, %805, %803, %800, %798
@@ -12938,15 +12938,15 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
 
 .loopexit.split-lp512.thread:                     ; preds = %.loopexit.split-lp512.loopexit.split-lp.loopexit, %.loopexit.split-lp512.loopexit, %.loopexit511, %.loopexit.split-lp512
   %.pn218576 = phi { ptr, i32 } [ %.pn218, %.loopexit.split-lp512 ], [ %lpad.loopexit519, %.loopexit.split-lp512.loopexit.split-lp.loopexit ], [ %lpad.loopexit516, %.loopexit.split-lp512.loopexit ], [ %lpad.loopexit513, %.loopexit511 ]
-  %.0185574 = phi i8 [ %.0185, %.loopexit.split-lp512 ], [ 1, %.loopexit.split-lp512.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp512.loopexit ], [ 1, %.loopexit511 ]
-  %.0193572 = phi i8 [ %.0193, %.loopexit.split-lp512 ], [ 1, %.loopexit.split-lp512.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp512.loopexit ], [ 1, %.loopexit511 ]
+  %.1186574 = phi i8 [ %.1186, %.loopexit.split-lp512 ], [ 1, %.loopexit.split-lp512.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp512.loopexit ], [ 1, %.loopexit511 ]
+  %.1194572 = phi i8 [ %.1194, %.loopexit.split-lp512 ], [ 1, %.loopexit.split-lp512.loopexit.split-lp.loopexit ], [ 1, %.loopexit.split-lp512.loopexit ], [ 1, %.loopexit511 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..SignatureScheme$GT$$GT$17h83f5d16024a035fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #41
           to label %.thread unwind label %752
 
 .thread:                                          ; preds = %.loopexit.split-lp512.thread, %.thread476
   %.pn220486 = phi { ptr, i32 } [ %766, %.thread476 ], [ %.pn218576, %.loopexit.split-lp512.thread ]
-  %.11484 = phi i8 [ %.2187, %.thread476 ], [ %.0185574, %.loopexit.split-lp512.thread ]
-  %.11204482 = phi i8 [ %.2195, %.thread476 ], [ %.0193572, %.loopexit.split-lp512.thread ]
+  %.2187484 = phi i8 [ %.3188, %.thread476 ], [ %.1186574, %.loopexit.split-lp512.thread ]
+  %.2195482 = phi i8 [ %.3196, %.thread476 ], [ %.1194572, %.loopexit.split-lp512.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2168)
   call void @llvm.experimental.noalias.scope.decl(metadata !2171)
   %806 = load ptr, ptr %62, align 8, !alias.scope !2174, !nonnull !4, !noundef !4
@@ -12960,8 +12960,8 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
           to label %.thread487 unwind label %752
 
 810:                                              ; preds = %.loopexit.split-lp512, %.thread487
-  %.11204481495 = phi i8 [ %.11204482, %.thread487 ], [ %.0193, %.loopexit.split-lp512 ]
-  %.11483493 = phi i8 [ %.11484, %.thread487 ], [ %.0185, %.loopexit.split-lp512 ]
+  %.2195481495 = phi i8 [ %.2195482, %.thread487 ], [ %.1194, %.loopexit.split-lp512 ]
+  %.2187483493 = phi i8 [ %.2187484, %.thread487 ], [ %.1186, %.loopexit.split-lp512 ]
   %.pn220485491 = phi { ptr, i32 } [ %.pn220486, %.thread487 ], [ %.pn218, %.loopexit.split-lp512 ]
   %811 = getelementptr inbounds i8, ptr %1, i64 24
   %812 = load i64, ptr %811, align 8, !range !334, !noundef !4
@@ -12973,11 +12973,11 @@ _ZN6rustls7hash_hs13HandshakeHash9algorithm17hc52dfd5df8399d75E.exit: ; preds = 
           to label %810 unwind label %752
 
 814:                                              ; preds = %810
-  %815 = trunc nuw i8 %.11483493 to i1
+  %815 = trunc nuw i8 %.2187483493 to i1
   br i1 %815, label %818, label %802
 
 816:                                              ; preds = %810
-  %817 = trunc nuw i8 %.11204481495 to i1
+  %817 = trunc nuw i8 %.2195481495 to i1
   br i1 %817, label %820, label %802
 
 818:                                              ; preds = %814
@@ -15264,20 +15264,20 @@ _ZN6rustls6server11server_conn8Accepted20client_hello_payload17hcb691d090f3ed36f
           to label %.thread84 unwind label %27
 
 140:                                              ; preds = %109, %.thread84
-  %.490 = phi i1 [ %.491, %.thread84 ], [ false, %109 ]
+  %.11390 = phi i1 [ %.11391, %.thread84 ], [ false, %109 ]
   %.pn2188 = phi { ptr, i32 } [ %.pn2189, %.thread84 ], [ %110, %109 ]
   %141 = getelementptr inbounds i8, ptr %1, i64 1120
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(184) %141)
           to label %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit38" unwind label %27
 
 .thread84:                                        ; preds = %.thread73, %139, %80, %58, %.thread18.i, %119
-  %.491 = phi i1 [ true, %119 ], [ true, %.thread18.i ], [ true, %58 ], [ false, %.thread73 ], [ true, %139 ], [ false, %80 ]
+  %.11391 = phi i1 [ true, %119 ], [ true, %.thread18.i ], [ true, %58 ], [ false, %.thread73 ], [ true, %139 ], [ false, %80 ]
   %.pn2189 = phi { ptr, i32 } [ %120, %119 ], [ %54, %.thread18.i ], [ %54, %58 ], [ %eh.lpad-body.i, %.thread73 ], [ %lpad.thr_comm, %139 ], [ %lpad.thr_comm.split-lp, %80 ]
   invoke void @"_ZN4core3ptr108drop_in_place$LT$rustls..conn..ConnectionCommon$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$17hbc631407f36c6a12E"(ptr noalias noundef nonnull align 8 dereferenceable(1096) %1) #41
           to label %140 unwind label %27
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit38": ; preds = %140
-  br i1 %.490, label %142, label %137
+  br i1 %.11390, label %142, label %137
 
 142:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit38"
   %143 = getelementptr inbounds i8, ptr %1, i64 1096

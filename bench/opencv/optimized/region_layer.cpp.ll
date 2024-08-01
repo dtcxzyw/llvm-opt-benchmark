@@ -2586,32 +2586,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn15RegionLayerImpl15get
 
 .lr.ph.i.i.i:                                     ; preds = %66, %.lr.ph.i.i.preheader.i
   %.sroa.07.029.i.i.idx.i = phi i64 [ %.sroa.07.029.i.i.add.i, %66 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.add30.i, %.lr.ph.i.i.preheader.i ]
-  %.sroa.013.028.i.i.i.idx = phi i64 [ %.sroa.013.1.i.i.i.idx, %66 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.ph.i, %.lr.ph.i.i.preheader.i ]
+  %.sroa.013.128.i.i.i.idx = phi i64 [ %.sroa.013.2.i.i.i.idx, %66 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.ph.i, %.lr.ph.i.i.preheader.i ]
   %.sroa.07.029.i.i.ptr.i = getelementptr inbounds i8, ptr %58, i64 %.sroa.07.029.i.i.idx.i
   %63 = load i32, ptr %.sroa.07.029.i.i.ptr.i, align 4, !noalias !19
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %.lr.ph.i.i.i
-  %.sroa.013.028.i.i.i.ptr = getelementptr inbounds i8, ptr %58, i64 %.sroa.013.028.i.i.i.idx
-  store i32 %63, ptr %.sroa.013.028.i.i.i.ptr, align 4, !noalias !19
-  %.sroa.013.028.i.i.i.add = add nsw i64 %.sroa.013.028.i.i.i.idx, 4
+  %.sroa.013.128.i.i.i.ptr = getelementptr inbounds i8, ptr %58, i64 %.sroa.013.128.i.i.i.idx
+  store i32 %63, ptr %.sroa.013.128.i.i.i.ptr, align 4, !noalias !19
+  %.sroa.013.128.i.i.i.add = add nsw i64 %.sroa.013.128.i.i.i.idx, 4
   br label %66
 
 66:                                               ; preds = %65, %.lr.ph.i.i.i
-  %.sroa.013.1.i.i.i.idx = phi i64 [ %.sroa.013.028.i.i.i.idx, %.lr.ph.i.i.i ], [ %.sroa.013.028.i.i.i.add, %65 ]
+  %.sroa.013.2.i.i.i.idx = phi i64 [ %.sroa.013.128.i.i.i.idx, %.lr.ph.i.i.i ], [ %.sroa.013.128.i.i.i.add, %65 ]
   %.sroa.07.029.i.i.add.i = add nuw nsw i64 %.sroa.07.029.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.sroa.07.029.i.i.add.i, 16
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i: ; preds = %66
-  %.sroa.013.1.i.i.i.ptr = getelementptr inbounds i8, ptr %58, i64 %.sroa.013.1.i.i.i.idx
-  %.not.i.i8.i = icmp eq i64 %.sroa.013.1.i.i.i.idx, 16
+  %.sroa.013.2.i.i.i.ptr = getelementptr inbounds i8, ptr %58, i64 %.sroa.013.2.i.i.i.idx
+  %.not.i.i8.i = icmp eq i64 %.sroa.013.2.i.i.i.idx, 16
   br i1 %.not.i.i8.i, label %_ZN2cv3dnn14dnn4_v20240521L5shapeEiiii.exit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %61, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i
-  %.sroa.013.2.i.i36.i = phi ptr [ %.sroa.013.1.i.i.i.ptr, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i ], [ %.sroa.4.0..sroa_idx.ptr.i, %61 ]
-  %67 = ptrtoint ptr %.sroa.013.2.i.i36.i to i64
+  %.sroa.013.0.i.i36.i = phi ptr [ %.sroa.013.2.i.i.i.ptr, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i ], [ %.sroa.4.0..sroa_idx.ptr.i, %61 ]
+  %67 = ptrtoint ptr %.sroa.013.0.i.i36.i to i64
   %68 = ptrtoint ptr %58 to i64
   %69 = sub i64 %67, %68
   %70 = getelementptr inbounds i8, ptr %58, i64 %69
@@ -2710,30 +2710,30 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 
 .lr.ph.i.i.i37:                                   ; preds = %95, %.lr.ph.i.i.preheader.i33
   %.sroa.07.029.i.i.idx.i38 = phi i64 [ %.sroa.07.029.i.i.add.i42, %95 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.add30.i36, %.lr.ph.i.i.preheader.i33 ]
-  %.sroa.013.028.i.i.i39.idx = phi i64 [ %.sroa.013.1.i.i.i41.idx, %95 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.ph.i34, %.lr.ph.i.i.preheader.i33 ]
+  %.sroa.013.128.i.i.i39.idx = phi i64 [ %.sroa.013.2.i.i.i41.idx, %95 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.ph.i34, %.lr.ph.i.i.preheader.i33 ]
   %.sroa.07.029.i.i.ptr.i40 = getelementptr inbounds i8, ptr %88, i64 %.sroa.07.029.i.i.idx.i38
   %92 = load i32, ptr %.sroa.07.029.i.i.ptr.i40, align 4, !noalias !28
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %95, label %94
 
 94:                                               ; preds = %.lr.ph.i.i.i37
-  %.sroa.013.028.i.i.i39.ptr = getelementptr inbounds i8, ptr %88, i64 %.sroa.013.028.i.i.i39.idx
-  store i32 %92, ptr %.sroa.013.028.i.i.i39.ptr, align 4, !noalias !28
-  %.sroa.013.028.i.i.i39.add = add nsw i64 %.sroa.013.028.i.i.i39.idx, 4
+  %.sroa.013.128.i.i.i39.ptr = getelementptr inbounds i8, ptr %88, i64 %.sroa.013.128.i.i.i39.idx
+  store i32 %92, ptr %.sroa.013.128.i.i.i39.ptr, align 4, !noalias !28
+  %.sroa.013.128.i.i.i39.add = add nsw i64 %.sroa.013.128.i.i.i39.idx, 4
   br label %95
 
 95:                                               ; preds = %94, %.lr.ph.i.i.i37
-  %.sroa.013.1.i.i.i41.idx = phi i64 [ %.sroa.013.028.i.i.i39.idx, %.lr.ph.i.i.i37 ], [ %.sroa.013.028.i.i.i39.add, %94 ]
+  %.sroa.013.2.i.i.i41.idx = phi i64 [ %.sroa.013.128.i.i.i39.idx, %.lr.ph.i.i.i37 ], [ %.sroa.013.128.i.i.i39.add, %94 ]
   %.sroa.07.029.i.i.add.i42 = add nuw nsw i64 %.sroa.07.029.i.i.idx.i38, 4
   %.not.i.i.i43 = icmp eq i64 %.sroa.07.029.i.i.add.i42, 16
   br i1 %.not.i.i.i43, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i44, label %.lr.ph.i.i.i37, !llvm.loop !26
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i44: ; preds = %95
-  %.not.i.i8.i46 = icmp eq i64 %.sroa.013.1.i.i.i41.idx, 16
+  %.not.i.i8.i46 = icmp eq i64 %.sroa.013.2.i.i.i41.idx, 16
   br i1 %.not.i.i8.i46, label %_ZN2cv3dnn14dnn4_v20240521L5shapeEiiii.exit49, label %._crit_edge.i.i.i47
 
 ._crit_edge.i.i.i47:                              ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i44
-  %96 = getelementptr inbounds i8, ptr %88, i64 %.sroa.013.1.i.i.i41.idx
+  %96 = getelementptr inbounds i8, ptr %88, i64 %.sroa.013.2.i.i.i41.idx
   store ptr %96, ptr %89, align 8, !alias.scope !28
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeEiiii.exit49
 

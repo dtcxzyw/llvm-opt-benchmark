@@ -57,7 +57,7 @@ define internal noundef i32 @_ZL9b_arshiftP9lua_State(ptr noundef %0) #0 {
 11:                                               ; preds = %5
   %12 = icmp ugt i32 %6, 31
   %13 = shl i32 %2, %6
-  %.0.i = select i1 %12, i32 0, i32 %13
+  %.1.i = select i1 %12, i32 0, i32 %13
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 14:                                               ; preds = %1
@@ -70,7 +70,7 @@ define internal noundef i32 @_ZL9b_arshiftP9lua_State(ptr noundef %0) #0 {
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 _ZL7b_shiftP9lua_Stateji.exit:                    ; preds = %11, %8, %14
-  %.013.sink = phi i32 [ %.013, %14 ], [ %.0.i, %11 ], [ %spec.select, %8 ]
+  %.013.sink = phi i32 [ %.013, %14 ], [ %.1.i, %11 ], [ %spec.select, %8 ]
   tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.013.sink)
   ret i32 1
 }
@@ -242,12 +242,12 @@ define internal noundef i32 @_ZL8b_lshiftP9lua_State(ptr noundef %0) #0 {
 10:                                               ; preds = %1
   %11 = icmp ugt i32 %3, 31
   %12 = shl i32 %2, %3
-  %.0.i = select i1 %11, i32 0, i32 %12
+  %.1.i = select i1 %11, i32 0, i32 %12
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 _ZL7b_shiftP9lua_Stateji.exit:                    ; preds = %5, %7, %10
-  %.1.i = phi i32 [ %9, %7 ], [ %.0.i, %10 ], [ 0, %5 ]
-  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.1.i)
+  %.0.i = phi i32 [ %9, %7 ], [ %.1.i, %10 ], [ 0, %5 ]
+  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.0.i)
   ret i32 1
 }
 
@@ -325,12 +325,12 @@ define internal noundef i32 @_ZL8b_rshiftP9lua_State(ptr noundef %0) #0 {
 9:                                                ; preds = %1
   %10 = icmp ugt i32 %4, 31
   %11 = shl i32 %2, %4
-  %.0.i = select i1 %10, i32 0, i32 %11
+  %.1.i = select i1 %10, i32 0, i32 %11
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 _ZL7b_shiftP9lua_Stateji.exit:                    ; preds = %6, %9
-  %.1.i = phi i32 [ %.0.i, %9 ], [ %spec.select, %6 ]
-  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.1.i)
+  %.0.i = phi i32 [ %.1.i, %9 ], [ %spec.select, %6 ]
+  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.0.i)
   ret i32 1
 }
 

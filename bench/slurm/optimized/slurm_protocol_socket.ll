@@ -755,7 +755,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   br label %49
 
 49:                                               ; preds = %47, %36
-  %.0 = phi i32 [ %48, %47 ], [ %37, %36 ]
+  %.1 = phi i32 [ %48, %47 ], [ %37, %36 ]
   %50 = load ptr, ptr %19, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -764,13 +764,13 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   %55 = zext i32 %54 to i64
   %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef nonnull %4)
   %57 = call i32 @llvm.smax.i32(i32 %56, i32 0)
-  %spec.select = add nuw nsw i32 %57, %.0
+  %spec.select = add nuw nsw i32 %57, %.1
   br label %58
 
 58:                                               ; preds = %49, %39, %27, %18
-  %.1 = phi i32 [ -1, %18 ], [ %25, %27 ], [ %37, %39 ], [ %spec.select, %49 ]
+  %.0 = phi i32 [ -1, %18 ], [ %25, %27 ], [ %37, %39 ], [ %spec.select, %49 ]
   %59 = call ptr @xsignal(i32 noundef 13, ptr noundef %8) #10
-  %60 = sext i32 %.1 to i64
+  %60 = sext i32 %.0 to i64
   ret i64 %60
 }
 
@@ -1243,23 +1243,23 @@ define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, pt
   br i1 %.not23, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %23, %29
-  %.026 = phi ptr [ %31, %29 ], [ %12, %23 ]
-  %26 = getelementptr inbounds i8, ptr %.026, i64 4
+  %.126 = phi ptr [ %31, %29 ], [ %12, %23 ]
+  %26 = getelementptr inbounds i8, ptr %.126, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 10
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %.026, i64 40
+  %30 = getelementptr inbounds i8, ptr %.126, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %31, null
   br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %29, %.preheader, %22, %23
-  %.1 = phi ptr [ %12, %23 ], [ %12, %22 ], [ %12, %29 ], [ %.026, %.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.1, i64 24
+  %.0 = phi ptr [ %12, %23 ], [ %12, %22 ], [ %12, %29 ], [ %.126, %.preheader ]
+  %32 = getelementptr inbounds i8, ptr %.0, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.1, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 2 %33, i64 %36, i1 false)

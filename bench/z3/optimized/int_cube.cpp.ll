@@ -267,7 +267,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont
-  %retval.0 = phi i1 [ true, %invoke.cont ], [ %call12, %invoke.cont9 ]
+  %retval.1 = phi i1 [ true, %invoke.cont ], [ %call12, %invoke.cont9 ]
   %9 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %y.i.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -302,8 +302,8 @@ terminate.lpad.i1.i:                              ; preds = %.noexc.i2.i, %_ZN8r
   unreachable
 
 return:                                           ; preds = %.noexc.i2.i, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %retval.0, %.noexc.i2.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %entry ], [ %retval.1, %.noexc.i2.i ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK2lp10lar_solver19term_is_used_as_rowEj(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef) local_unnamed_addr #0

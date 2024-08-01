@@ -66017,8 +66017,8 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly11ignore_path13IgnorePathS
   br label %7
 
 7:                                                ; preds = %2, %5
-  %.1 = phi i1 [ %switch, %5 ], [ false, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %switch, %5 ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

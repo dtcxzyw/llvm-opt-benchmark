@@ -231,8 +231,8 @@ rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
   br i1 %.not41, label %rb_obj_is_iseq.exit.thread, label %.thread54
 
 .thread54:                                        ; preds = %26, %rb_obj_is_iseq.exit
-  %.03749 = phi ptr [ %27, %26 ], [ %18, %rb_obj_is_iseq.exit ]
-  %28 = getelementptr inbounds i8, ptr %.03749, i64 16
+  %.149 = phi ptr [ %27, %26 ], [ %18, %rb_obj_is_iseq.exit ]
+  %28 = getelementptr inbounds i8, ptr %.149, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 92
   %31 = load i32, ptr %30, align 4
@@ -252,7 +252,7 @@ rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
 35:                                               ; preds = %._crit_edge, %.thread54
   %36 = phi ptr [ %29, %.thread54 ], [ %.pre, %._crit_edge ]
   %.03659 = phi i32 [ %31, %.thread54 ], [ %34, %._crit_edge ]
-  %.158 = phi ptr [ %.03749, %.thread54 ], [ %33, %._crit_edge ]
+  %.03758 = phi ptr [ %.149, %.thread54 ], [ %33, %._crit_edge ]
   %37 = getelementptr inbounds i8, ptr %36, i64 264
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
@@ -266,7 +266,7 @@ rb_obj_is_iseq.exit:                              ; preds = %vm_proc_iseq.exit
 42:                                               ; preds = %35
   %43 = getelementptr inbounds i8, ptr %36, i64 200
   %44 = load i64, ptr %43, align 8
-  %45 = tail call i64 @rb_iseq_path(ptr noundef nonnull %.158) #10
+  %45 = tail call i64 @rb_iseq_path(ptr noundef nonnull %.03758) #10
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i64, ptr %47, align 8
@@ -296,7 +296,7 @@ RSTRING_PTR.exit:                                 ; preds = %50, %54
   br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %56
-  %60 = tail call i32 @rb_iseq_from_eval_p(ptr noundef nonnull %.158) #10
+  %60 = tail call i32 @rb_iseq_from_eval_p(ptr noundef nonnull %.03758) #10
   %61 = icmp eq i32 %60, 0
   %or.cond = select i1 %61, i1 true, i1 %57
   br i1 %or.cond, label %64, label %62

@@ -730,7 +730,7 @@ define void @_Z15get_center_commPK9t_commrecPA3_fPfiiS4_(ptr noundef %0, ptr noc
   br i1 %exitcond47.not.i, label %_Z20get_sum_of_positionsPA3_KfPfiPd.exit, label %28, !llvm.loop !18
 
 _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %28, %.preheader30.i, %.preheader.i
-  %.sroa.11.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %38, %28 ], [ %27, %9 ]
+  %.sroa.11.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %38, %28 ], [ %27, %9 ]
   %.1.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %28 ], [ %15, %9 ]
   %39 = phi <2 x double> [ zeroinitializer, %.preheader.i ], [ zeroinitializer, %.preheader30.i ], [ %34, %28 ], [ %25, %9 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 48
@@ -741,7 +741,7 @@ _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %28, %.preheader
 43:                                               ; preds = %_Z20get_sum_of_positionsPA3_KfPfiPd.exit
   store <2 x double> %39, ptr %7, align 16
   %44 = getelementptr inbounds i8, ptr %7, i64 16
-  store double %.sroa.11.0, ptr %44, align 16
+  store double %.sroa.11.1, ptr %44, align 16
   %45 = getelementptr inbounds i8, ptr %7, i64 24
   store double %.1.i, ptr %45, align 8
   call void @_Z8gmx_sumdmPdPK9t_commrec(i64 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %0)
@@ -751,7 +751,7 @@ _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %28, %.preheader
   br label %49
 
 49:                                               ; preds = %43, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit
-  %.sroa.11.1 = phi double [ %47, %43 ], [ %.sroa.11.0, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
+  %.sroa.11.0 = phi double [ %47, %43 ], [ %.sroa.11.1, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
   %.014 = phi double [ %48, %43 ], [ %.1.i, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
   %50 = phi <2 x double> [ %46, %43 ], [ %39, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
   %51 = sitofp i32 %4 to double
@@ -762,7 +762,7 @@ _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %28, %.preheader
   %54 = fmul <2 x double> %50, %53
   %55 = fptrunc <2 x double> %54 to <2 x float>
   store <2 x float> %55, ptr %5, align 4
-  %56 = fmul double %.sroa.11.1, %.0
+  %56 = fmul double %.sroa.11.0, %.0
   %57 = fptrunc double %56 to float
   %58 = getelementptr inbounds i8, ptr %5, i64 8
   store float %57, ptr %58, align 4

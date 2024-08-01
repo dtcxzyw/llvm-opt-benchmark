@@ -437,7 +437,7 @@ response_is_continuation.exit.thread:             ; preds = %.tail.i, %19, %resp
 163:                                              ; preds = %156, %98
   %.0167 = phi i32 [ %161, %156 ], [ 0, %98 ]
   %.0165 = phi i32 [ %162, %156 ], [ %20, %98 ]
-  %.2 = phi i32 [ %.1, %156 ], [ 0, %98 ]
+  %.0161 = phi i32 [ %.1, %156 ], [ 0, %98 ]
   %.not183 = icmp eq i32 %.0165, 0
   br i1 %.not183, label %198, label %164
 
@@ -446,7 +446,7 @@ response_is_continuation.exit.thread:             ; preds = %.tail.i, %19, %resp
   %166 = load i32, ptr @hf_pop_response_description, align 4
   %167 = select i1 %.not176.not, i32 %165, i32 %166
   %168 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %167, ptr noundef %0, i32 noundef %.0167, i32 noundef %.0165, i32 noundef 0) #4
-  switch i32 %.2, label %198 [
+  switch i32 %.0161, label %198 [
     i32 1, label %169
     i32 2, label %180
   ]

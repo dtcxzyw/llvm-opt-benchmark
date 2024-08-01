@@ -656,7 +656,7 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %77, %70
 
 94:                                               ; preds = %.lr.ph62, %Aig_ManObj.exit
   %indvars.iv67 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next68, %Aig_ManObj.exit ]
-  %.13960 = phi i32 [ %92, %.lr.ph62 ], [ %106, %Aig_ManObj.exit ]
+  %.260 = phi i32 [ %92, %.lr.ph62 ], [ %106, %Aig_ManObj.exit ]
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr i8, ptr %95, i64 32
   %.val51 = load ptr, ptr %96, align 8
@@ -676,7 +676,7 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %77, %70
 Aig_ManObj.exit:                                  ; preds = %94, %97
   %104 = phi ptr [ %103, %97 ], [ null, %94 ]
   %105 = tail call i32 @Aig_ManScanMapping_rec(ptr noundef nonnull %0, ptr noundef %104, ptr noundef %2)
-  %106 = add nsw i32 %105, %.13960
+  %106 = add nsw i32 %105, %.260
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %107 = load i32, ptr %81, align 4
   %108 = lshr i32 %107, 29
@@ -949,7 +949,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %70
 
 .lr.ph77:                                         ; preds = %73, %90
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %90 ], [ 0, %73 ]
-  %.14875 = phi i32 [ %92, %90 ], [ %78, %73 ]
+  %.275 = phi i32 [ %92, %90 ], [ %78, %73 ]
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr i8, ptr %82, i64 32
   %.val60 = load ptr, ptr %83, align 8
@@ -969,7 +969,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph77
 
 90:                                               ; preds = %Aig_ManObj.exit
   %91 = tail call i32 @Cnf_ManScanMapping_rec(ptr noundef nonnull %0, ptr noundef nonnull %89, ptr noundef %2, i32 noundef %3)
-  %92 = add nsw i32 %91, %.14875
+  %92 = add nsw i32 %91, %.275
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %93 = load i8, ptr %75, align 8
   %94 = sext i8 %93 to i64
@@ -977,7 +977,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph77
   br i1 %95, label %.lr.ph77, label %.critedge3, !llvm.loop !17
 
 .critedge3:                                       ; preds = %90, %Aig_ManObj.exit, %.lr.ph77, %73, %Vec_PtrFree.exit
-  %.2 = phi i32 [ %.047.lcssa, %Vec_PtrFree.exit ], [ %78, %73 ], [ %92, %90 ], [ %.14875, %Aig_ManObj.exit ], [ %.14875, %.lr.ph77 ]
+  %.148 = phi i32 [ %.047.lcssa, %Vec_PtrFree.exit ], [ %78, %73 ], [ %92, %90 ], [ %.275, %Aig_ManObj.exit ], [ %.275, %.lr.ph77 ]
   %96 = icmp eq ptr %2, null
   %or.cond5 = or i1 %96, %16
   br i1 %or.cond5, label %129, label %97
@@ -1052,7 +1052,7 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
   br label %129
 
 129:                                              ; preds = %12, %.critedge3, %Vec_PtrPush.exit68, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.2, %Vec_PtrPush.exit68 ], [ %.2, %.critedge3 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.148, %Vec_PtrPush.exit68 ], [ %.148, %.critedge3 ], [ 0, %12 ]
   ret i32 %.0
 }
 

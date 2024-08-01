@@ -1116,7 +1116,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i:   ; preds = %313, %._crit_edge.i
   br label %361
 
 361:                                              ; preds = %._crit_edge113.i, %334
-  %.055.lcssa.i = phi double [ %360, %._crit_edge113.i ], [ 0.000000e+00, %334 ]
+  %.156.lcssa.i = phi double [ %360, %._crit_edge113.i ], [ 0.000000e+00, %334 ]
   %.lcssa103.i = phi ptr [ %348, %._crit_edge113.i ], [ %336, %334 ]
   %.not.i.i.i76.i = icmp eq ptr %.lcssa103.i, null
   br i1 %.not.i.i.i76.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit77.i, label %362
@@ -1132,7 +1132,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i:   ; preds = %313, %._crit_edge.i
   br i1 %.not.i.i.i78.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit71.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit71.sink.split.i
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit77.i: ; preds = %362, %361, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i
-  %.156.i = phi double [ 0.000000e+00, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i ], [ %.055.lcssa.i, %361 ], [ %.055.lcssa.i, %362 ]
+  %.055.i = phi double [ 0.000000e+00, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i ], [ %.156.lcssa.i, %361 ], [ %.156.lcssa.i, %362 ]
   %365 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #11
   br i1 %365, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit85.i, label %366
 
@@ -1221,7 +1221,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit77.i: ; preds = %362, %361, %_ZNSt6v
   %389 = sdiv i32 %.sroa.12.0.copyload.i, 2
   %390 = add nsw i32 %389, %.sroa.5.0.copyload.i
   %391 = sitofp i32 %390 to double
-  %392 = fcmp olt double %.156.i, %391
+  %392 = fcmp olt double %.055.i, %391
   %or.cond.i = select i1 %.052.i, i1 %392, i1 false
   br i1 %or.cond.i, label %393, label %402
 
@@ -1265,7 +1265,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit77.i: ; preds = %362, %361, %_ZNSt6v
   br label %420
 
 402:                                              ; preds = %.lr.ph119.i
-  %403 = fcmp oge double %.156.i, %391
+  %403 = fcmp oge double %.055.i, %391
   %or.cond69.not.i = select i1 %.052.i, i1 %403, i1 false
   br i1 %or.cond69.not.i, label %409, label %404
 

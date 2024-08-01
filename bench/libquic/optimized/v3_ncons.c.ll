@@ -127,12 +127,12 @@ lor.lhs.false:                                    ; preds = %if.end30, %if.end34
   br i1 %tobool37.not, label %memerr, label %for.cond
 
 memerr:                                           ; preds = %if.end34, %lor.lhs.false, %entry
-  %sub.1 = phi ptr [ null, %entry ], [ %call.i21, %lor.lhs.false ], [ %call.i21, %if.end34 ]
+  %sub.0 = phi ptr [ null, %entry ], [ %call.i21, %lor.lhs.false ], [ %call.i21, %if.end34 ]
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.9, i32 noundef 149) #5
   br label %err
 
 err:                                              ; preds = %if.end24, %memerr, %if.else22
-  %sub.2 = phi ptr [ null, %if.else22 ], [ %sub.1, %memerr ], [ %call.i21, %if.end24 ]
+  %sub.2 = phi ptr [ null, %if.else22 ], [ %sub.0, %memerr ], [ %call.i21, %if.end24 ]
   br i1 %tobool.not, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %err

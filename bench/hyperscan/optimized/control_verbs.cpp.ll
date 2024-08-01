@@ -59,11 +59,11 @@ entry:
   br i1 %cmp, label %_test_eof, label %_resume
 
 _resume:                                          ; preds = %while.end207, %entry
-  %cs.0 = phi i32 [ %conv100, %while.end207 ], [ 75, %entry ]
-  %te.0 = phi ptr [ %te.4, %while.end207 ], [ null, %entry ]
-  %ts.0 = phi ptr [ %ts.4.lcssa, %while.end207 ], [ null, %entry ]
-  %p.0 = phi ptr [ %incdec.ptr208, %while.end207 ], [ %ptr, %entry ]
-  %idxprom = sext i32 %cs.0 to i64
+  %cs.1 = phi i32 [ %conv100, %while.end207 ], [ 75, %entry ]
+  %te.1 = phi ptr [ %te.3, %while.end207 ], [ null, %entry ]
+  %ts.1 = phi ptr [ %ts.5.lcssa, %while.end207 ], [ null, %entry ]
+  %p.1 = phi ptr [ %incdec.ptr208, %while.end207 ], [ %ptr, %entry ]
+  %idxprom = sext i32 %cs.1 to i64
   %arrayidx = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE32_ControlVerbs_from_state_actions, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %idx.ext = sext i8 %0 to i64
@@ -77,19 +77,19 @@ while.body.preheader:                             ; preds = %_resume
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %ts.1128 = phi ptr [ %spec.select, %while.body ], [ %ts.0, %while.body.preheader ]
+  %ts.2128 = phi ptr [ %spec.select, %while.body ], [ %ts.1, %while.body.preheader ]
   %_nacts.0127 = phi i32 [ %dec, %while.body ], [ %conv1, %while.body.preheader ]
   %add.ptr.pn126 = phi ptr [ %_acts.0, %while.body ], [ %add.ptr, %while.body.preheader ]
   %dec = add i32 %_nacts.0127, -1
   %_acts.0 = getelementptr inbounds i8, ptr %add.ptr.pn126, i64 1
   %2 = load i8, ptr %_acts.0, align 1
   %cond1 = icmp eq i8 %2, 1
-  %spec.select = select i1 %cond1, ptr %p.0, ptr %ts.1128
+  %spec.select = select i1 %cond1, ptr %p.1, ptr %ts.2128
   %cmp2.not = icmp eq i32 %dec, 0
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %_resume
-  %ts.1.lcssa = phi ptr [ %ts.0, %_resume ], [ %spec.select, %while.body ]
+  %ts.2.lcssa = phi ptr [ %ts.1, %_resume ], [ %spec.select, %while.body ]
   %arrayidx6 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_key_offsets, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx6, align 1
   %idx.ext8 = zext i8 %3 to i64
@@ -107,7 +107,7 @@ while.end:                                        ; preds = %while.body, %_resum
   br i1 %cmp23130, label %while.end44, label %if.end25.lr.ph
 
 if.end25.lr.ph:                                   ; preds = %while.end
-  %6 = load i8, ptr %p.0, align 1
+  %6 = load i8, ptr %p.1, align 1
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end25.lr.ph, %if.end43
@@ -165,7 +165,7 @@ if.then53:                                        ; preds = %while.end44
   br i1 %cmp62133, label %while.end92, label %if.end64.lr.ph
 
 if.end64.lr.ph:                                   ; preds = %if.then53
-  %9 = load i8, ptr %p.0, align 1
+  %9 = load i8, ptr %p.1, align 1
   br label %if.end64
 
 if.end64:                                         ; preds = %if.end64.lr.ph, %if.end91
@@ -224,9 +224,9 @@ _match:                                           ; preds = %while.end44, %while
 
 _eof_trans:                                       ; preds = %if.then218, %_match
   %_trans.2 = phi i64 [ %sub, %if.then218 ], [ %conv97, %_match ]
-  %te.1 = phi ptr [ %te.5, %if.then218 ], [ %te.0, %_match ]
-  %ts.3 = phi ptr [ %ts.6, %if.then218 ], [ %ts.1.lcssa, %_match ]
-  %p.1 = phi ptr [ %p.2, %if.then218 ], [ %p.0, %_match ]
+  %te.2 = phi ptr [ %te.0, %if.then218 ], [ %te.1, %_match ]
+  %ts.4 = phi ptr [ %ts.0, %if.then218 ], [ %ts.2.lcssa, %_match ]
+  %p.2 = phi ptr [ %p.0, %if.then218 ], [ %p.1, %_match ]
   %idxprom98 = and i64 %_trans.2, 4294967295
   %arrayidx99 = getelementptr inbounds [83 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_trans_targs, i64 0, i64 %idxprom98
   %13 = load i8, ptr %arrayidx99, align 1
@@ -245,7 +245,7 @@ if.end106:                                        ; preds = %_eof_trans
 
 while.body117.lr.ph:                              ; preds = %if.end106
   %conv113 = sext i8 %15 to i32
-  %add.ptr125 = getelementptr inbounds i8, ptr %p.1, i64 1
+  %add.ptr125 = getelementptr inbounds i8, ptr %p.2, i64 1
   %ucp = getelementptr inbounds i8, ptr %mode, i64 4
   %utf8 = getelementptr inbounds i8, ptr %mode, i64 5
   br label %while.body117
@@ -253,7 +253,7 @@ while.body117.lr.ph:                              ; preds = %if.end106
 while.body117:                                    ; preds = %while.body117.lr.ph, %sw.epilog190
   %dec115119.in = phi i32 [ %conv113, %while.body117.lr.ph ], [ %dec115119, %sw.epilog190 ]
   %add.ptr111.pn = phi ptr [ %add.ptr111, %while.body117.lr.ph ], [ %_acts.1118, %sw.epilog190 ]
-  %te.2117 = phi ptr [ %te.1, %while.body117.lr.ph ], [ %te.3, %sw.epilog190 ]
+  %te.4117 = phi ptr [ %te.2, %while.body117.lr.ph ], [ %te.5, %sw.epilog190 ]
   %_acts.1118 = getelementptr inbounds i8, ptr %add.ptr111.pn, i64 1
   %dec115119 = add i32 %dec115119.in, -1
   %16 = load i8, ptr %_acts.1118, align 1
@@ -289,10 +289,10 @@ invoke.cont:                                      ; preds = %sw.bb126
 
 invoke.cont129:                                   ; preds = %invoke.cont
   %sub.ptr.lhs.cast130 = ptrtoint ptr %add.ptr125 to i64
-  %sub.ptr.rhs.cast131 = ptrtoint ptr %ts.3 to i64
+  %sub.ptr.rhs.cast131 = ptrtoint ptr %ts.4 to i64
   %sub.ptr.sub132 = sub i64 %sub.ptr.lhs.cast130, %sub.ptr.rhs.cast131
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp133) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %ts.3, i64 noundef %sub.ptr.sub132, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp133)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %ts.4, i64 noundef %sub.ptr.sub132, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp133)
           to label %invoke.cont135 unwind label %lpad134
 
 invoke.cont135:                                   ; preds = %invoke.cont129
@@ -383,10 +383,10 @@ invoke.cont149:                                   ; preds = %sw.bb146
 
 invoke.cont151:                                   ; preds = %invoke.cont149
   %sub.ptr.lhs.cast154 = ptrtoint ptr %add.ptr125 to i64
-  %sub.ptr.rhs.cast155 = ptrtoint ptr %ts.3 to i64
+  %sub.ptr.rhs.cast155 = ptrtoint ptr %ts.4 to i64
   %sub.ptr.sub156 = sub i64 %sub.ptr.lhs.cast154, %sub.ptr.rhs.cast155
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp157) #6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef %ts.3, i64 noundef %sub.ptr.sub156, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp157)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef %ts.4, i64 noundef %sub.ptr.sub156, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp157)
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %invoke.cont151
@@ -464,18 +464,18 @@ ehcleanup177:                                     ; preds = %ehcleanup173, %clea
 
 catch.dispatch:                                   ; preds = %ehcleanup177, %ehcleanup145, %lpad
   %.pn88.pn.pn = phi { ptr, i32 } [ %.pn88.pn, %ehcleanup177 ], [ %18, %lpad ], [ %.pn93.pn, %ehcleanup145 ]
-  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn88.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn88.pn.pn, 1
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3ue217LocatedParseErrorE) #6
-  %matches = icmp eq i32 %ehselector.slot.6, %30
+  %matches = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.6 = extractvalue { ptr, i32 } %.pn88.pn.pn, 0
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.6) #6
-  %cmp224.not = icmp ult ptr %ts.3, %ptr
-  %cmp225.not = icmp ugt ptr %ts.3, %end
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn88.pn.pn, 0
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #6
+  %cmp224.not = icmp ult ptr %ts.4, %ptr
+  %cmp225.not = icmp ugt ptr %ts.4, %end
   %or.cond = or i1 %cmp224.not, %cmp225.not
-  %sub.ptr.lhs.cast227 = ptrtoint ptr %ts.3 to i64
+  %sub.ptr.lhs.cast227 = ptrtoint ptr %ts.4 to i64
   %sub.ptr.rhs.cast228 = ptrtoint ptr %ptr to i64
   %sub.ptr.sub229 = sub i64 %start, %sub.ptr.rhs.cast228
   %add230 = add i64 %sub.ptr.sub229, %sub.ptr.lhs.cast227
@@ -484,20 +484,20 @@ catch:                                            ; preds = %catch.dispatch
           to label %if.end235 unwind label %lpad231
 
 sw.bb182:                                         ; preds = %while.body117
-  %incdec.ptr185 = getelementptr inbounds i8, ptr %p.1, i64 -1
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %p.2, i64 -1
   br label %try.cont
 
 sw.bb186:                                         ; preds = %while.body117
-  %incdec.ptr189 = getelementptr inbounds i8, ptr %te.2117, i64 -1
+  %incdec.ptr189 = getelementptr inbounds i8, ptr %te.4117, i64 -1
   br label %try.cont
 
 sw.epilog190:                                     ; preds = %sw.bb124, %sw.bb122, %sw.bb120, %while.body117
-  %te.3 = phi ptr [ %te.2117, %while.body117 ], [ %add.ptr125, %sw.bb124 ], [ %add.ptr125, %sw.bb122 ], [ %add.ptr125, %sw.bb120 ]
+  %te.5 = phi ptr [ %te.4117, %while.body117 ], [ %add.ptr125, %sw.bb124 ], [ %add.ptr125, %sw.bb122 ], [ %add.ptr125, %sw.bb120 ]
   %cmp116.not = icmp eq i32 %dec115119, 0
   br i1 %cmp116.not, label %_again, label %while.body117, !llvm.loop !9
 
 _again:                                           ; preds = %sw.epilog190, %if.end106, %_eof_trans
-  %te.4 = phi ptr [ %te.1, %_eof_trans ], [ %te.1, %if.end106 ], [ %te.3, %sw.epilog190 ]
+  %te.3 = phi ptr [ %te.2, %_eof_trans ], [ %te.2, %if.end106 ], [ %te.5, %sw.epilog190 ]
   %idxprom192 = sext i8 %13 to i64
   %arrayidx193 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE30_ControlVerbs_to_state_actions, i64 0, i64 %idxprom192
   %33 = load i8, ptr %arrayidx193, align 1
@@ -512,35 +512,35 @@ while.body202.preheader:                          ; preds = %_again
   br label %while.body202
 
 while.body202:                                    ; preds = %while.body202.preheader, %while.body202
-  %ts.4123 = phi ptr [ %spec.select97, %while.body202 ], [ %ts.3, %while.body202.preheader ]
+  %ts.5123 = phi ptr [ %spec.select97, %while.body202 ], [ %ts.4, %while.body202.preheader ]
   %_nacts.2122 = phi i32 [ %dec200, %while.body202 ], [ %conv198, %while.body202.preheader ]
   %add.ptr196.pn121 = phi ptr [ %_acts.2, %while.body202 ], [ %add.ptr196, %while.body202.preheader ]
   %dec200 = add i32 %_nacts.2122, -1
   %_acts.2 = getelementptr inbounds i8, ptr %add.ptr196.pn121, i64 1
   %35 = load i8, ptr %_acts.2, align 1
   %cond = icmp eq i8 %35, 0
-  %spec.select97 = select i1 %cond, ptr null, ptr %ts.4123
+  %spec.select97 = select i1 %cond, ptr null, ptr %ts.5123
   %cmp201.not = icmp eq i32 %dec200, 0
   br i1 %cmp201.not, label %while.end207, label %while.body202, !llvm.loop !10
 
 while.end207:                                     ; preds = %while.body202, %_again
-  %ts.4.lcssa = phi ptr [ %ts.3, %_again ], [ %spec.select97, %while.body202 ]
-  %incdec.ptr208 = getelementptr inbounds i8, ptr %p.1, i64 1
+  %ts.5.lcssa = phi ptr [ %ts.4, %_again ], [ %spec.select97, %while.body202 ]
+  %incdec.ptr208 = getelementptr inbounds i8, ptr %p.2, i64 1
   %cmp209.not = icmp eq ptr %incdec.ptr208, %end
   br i1 %cmp209.not, label %_test_eof, label %_resume
 
 _test_eof:                                        ; preds = %while.end207, %entry
-  %cs.1 = phi i32 [ 75, %entry ], [ %conv100, %while.end207 ]
-  %te.5 = phi ptr [ null, %entry ], [ %te.4, %while.end207 ]
-  %ts.6 = phi ptr [ null, %entry ], [ %ts.4.lcssa, %while.end207 ]
-  %p.2 = phi ptr [ %ptr, %entry ], [ %incdec.ptr208, %while.end207 ]
-  %cmp212 = icmp ne ptr %p.2, %end
-  %cmp217.not = icmp eq i32 %cs.1, 75
+  %cs.0 = phi i32 [ 75, %entry ], [ %conv100, %while.end207 ]
+  %te.0 = phi ptr [ null, %entry ], [ %te.3, %while.end207 ]
+  %ts.0 = phi ptr [ null, %entry ], [ %ts.5.lcssa, %while.end207 ]
+  %p.0 = phi ptr [ %ptr, %entry ], [ %incdec.ptr208, %while.end207 ]
+  %cmp212 = icmp ne ptr %p.0, %end
+  %cmp217.not = icmp eq i32 %cs.0, 75
   %or.cond98 = select i1 %cmp212, i1 true, i1 %cmp217.not
   br i1 %or.cond98, label %try.cont, label %if.then218
 
 if.then218:                                       ; preds = %_test_eof
-  %idxprom214 = sext i32 %cs.1 to i64
+  %idxprom214 = sext i32 %cs.0 to i64
   %arrayidx215 = getelementptr inbounds [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 0, i64 %idxprom214
   %36 = load i16, ptr %arrayidx215, align 2
   %conv216 = sext i16 %36 to i64
@@ -558,7 +558,7 @@ if.end235:                                        ; preds = %catch
           to label %unreachable unwind label %lpad231
 
 try.cont:                                         ; preds = %while.body117, %sw.bb182, %sw.bb186, %_test_eof
-  %p.3 = phi ptr [ %incdec.ptr189, %sw.bb186 ], [ %incdec.ptr185, %sw.bb182 ], [ %p.2, %_test_eof ], [ %p.1, %while.body117 ]
+  %p.3 = phi ptr [ %incdec.ptr189, %sw.bb186 ], [ %incdec.ptr185, %sw.bb182 ], [ %p.0, %_test_eof ], [ %p.2, %while.body117 ]
   ret ptr %p.3
 
 eh.resume:                                        ; preds = %lpad231, %catch.dispatch

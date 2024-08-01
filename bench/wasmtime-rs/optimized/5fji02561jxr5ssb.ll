@@ -386,11 +386,11 @@ define hidden ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hefc258
   unreachable
 
 18:                                               ; preds = %.thread
-  br i1 %.014, label %20, label %19
+  br i1 %.114, label %20, label %19
 
 .thread:                                          ; preds = %10, %.thread17
   %.pn16 = phi { ptr, i32 } [ %8, %.thread17 ], [ %11, %10 ]
-  %.014 = phi i1 [ true, %.thread17 ], [ false, %10 ]
+  %.114 = phi i1 [ true, %.thread17 ], [ false, %10 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$GT$17hf6c09c6f1c0b6e45E"(ptr align 8 %2) #10
           to label %18 unwind label %16
 

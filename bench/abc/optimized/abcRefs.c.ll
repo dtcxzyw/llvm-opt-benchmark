@@ -180,7 +180,7 @@ tailrecurse:                                      ; preds = %tailrecurse89, %67
   br label %76
 
 76:                                               ; preds = %73, %.split48.us
-  %.1 = phi i32 [ %75, %73 ], [ 1, %.split48.us ]
+  %.2 = phi i32 [ %75, %73 ], [ 1, %.split48.us ]
   %77 = getelementptr inbounds i8, ptr %.us-phi51, i64 44
   %78 = load i32, ptr %77, align 4
   %79 = add nsw i32 %78, -1
@@ -189,13 +189,13 @@ tailrecurse:                                      ; preds = %tailrecurse89, %67
   br i1 %80, label %81, label %.loopexit
 
 81:                                               ; preds = %76
-  %82 = add i32 %.1, %.us-phi49
+  %82 = add i32 %.2, %.us-phi49
   %accumulator.ret.tr = add i32 %82, %accumulator.tr93
   br label %tailrecurse89
 
 .loopexit:                                        ; preds = %62, %tailrecurse, %tailrecurse, %26, %tailrecurse.us, %tailrecurse.us, %76
   %accumulator.tr45 = phi i32 [ %.us-phi49, %76 ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %tailrecurse.us ], [ %accumulator.tr.us, %26 ], [ %accumulator.tr, %tailrecurse ], [ %accumulator.tr, %tailrecurse ], [ %accumulator.tr, %62 ]
-  %.027 = phi i32 [ %.1, %76 ], [ %.0.us, %26 ], [ 0, %tailrecurse.us ], [ 0, %tailrecurse.us ], [ %.0, %62 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+  %.027 = phi i32 [ %.2, %76 ], [ %.0.us, %26 ], [ 0, %tailrecurse.us ], [ 0, %tailrecurse.us ], [ %.0, %62 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   %accumulator.ret.tr42 = add nsw i32 %.027, %accumulator.tr45
   %accumulator.ret.tr94 = add i32 %accumulator.ret.tr42, %accumulator.tr93
   ret i32 %accumulator.ret.tr94
@@ -314,7 +314,7 @@ tailrecurse:                                      ; preds = %34, %tailrecurse79
   br label %45
 
 45:                                               ; preds = %42, %37, %36
-  %.1 = phi i32 [ 1, %36 ], [ %44, %42 ], [ 1, %37 ]
+  %.2 = phi i32 [ 1, %36 ], [ %44, %42 ], [ 1, %37 ]
   %.val40 = load i32, ptr %4, align 4
   %46 = and i32 %.val40, 2048
   %.not30 = icmp eq i32 %46, 0
@@ -329,12 +329,12 @@ tailrecurse:                                      ; preds = %34, %tailrecurse79
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %47
-  %53 = add i32 %.1, %accumulator.tr
+  %53 = add i32 %.2, %accumulator.tr
   %accumulator.ret.tr = add i32 %53, %accumulator.tr82
   br label %tailrecurse79
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %29, %27, %47, %45
-  %.025 = phi i32 [ %.1, %45 ], [ %.1, %47 ], [ 0, %tailrecurse ], [ %.0, %29 ], [ %.0, %27 ], [ 0, %tailrecurse ]
+  %.025 = phi i32 [ %.2, %45 ], [ %.2, %47 ], [ 0, %tailrecurse ], [ %.0, %29 ], [ %.0, %27 ], [ 0, %tailrecurse ]
   %accumulator.ret.tr44 = add nsw i32 %.025, %accumulator.tr
   %accumulator.ret.tr83 = add i32 %accumulator.ret.tr44, %accumulator.tr82
   ret i32 %accumulator.ret.tr83

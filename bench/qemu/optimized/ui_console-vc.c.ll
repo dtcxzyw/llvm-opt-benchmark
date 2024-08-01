@@ -764,12 +764,12 @@ for.body38.us:                                    ; preds = %if.end33.loopexit.u
   br i1 %cmp36.us, label %for.body38.us, label %for.inc61.us.loopexit, !llvm.loop !13
 
 for.body31.us:                                    ; preds = %for.body31.us, %for.body.us
-  %c.045.us = phi ptr [ %arrayidx.us, %for.body.us ], [ %incdec.ptr.us, %for.body31.us ]
+  %c.145.us = phi ptr [ %arrayidx.us, %for.body.us ], [ %incdec.ptr.us, %for.body31.us ]
   %c1.044.us = phi ptr [ %arrayidx27.us, %for.body.us ], [ %incdec.ptr32.us, %for.body31.us ]
   %x.043.us = phi i32 [ 0, %for.body.us ], [ %inc.us, %for.body31.us ]
-  %incdec.ptr.us = getelementptr i8, ptr %c.045.us, i64 3
+  %incdec.ptr.us = getelementptr i8, ptr %c.145.us, i64 3
   %incdec.ptr32.us = getelementptr i8, ptr %c1.044.us, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %c.045.us, ptr noundef nonnull align 1 dereferenceable(3) %c1.044.us, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %c.145.us, ptr noundef nonnull align 1 dereferenceable(3) %c1.044.us, i64 3, i1 false)
   %inc.us = add nuw nsw i32 %x.043.us, 1
   %exitcond79.not = icmp eq i32 %inc.us, %cond
   br i1 %exitcond79.not, label %if.end33.loopexit.us, label %for.body31.us, !llvm.loop !14

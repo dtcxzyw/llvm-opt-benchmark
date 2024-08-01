@@ -540,11 +540,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit156.i:               ; preds = %if.then.i.i.i154.i,
 
 ehcleanup148.i:                                   ; preds = %lpad.i136.i, %lpad.i125.i, %lpad.i114.i, %lpad.i103.i, %lpad.i92.i, %lpad.i81.i, %lpad.i70.i, %lpad.i59.i, %lpad.i48.i, %lpad.i37.i, %lpad.i26.i, %lpad.i15.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %0, %lpad.i15.i ], [ %1, %lpad.i26.i ], [ %2, %lpad.i37.i ], [ %3, %lpad.i48.i ], [ %4, %lpad.i59.i ], [ %5, %lpad.i70.i ], [ %6, %lpad.i81.i ], [ %7, %lpad.i92.i ], [ %8, %lpad.i103.i ], [ %9, %lpad.i114.i ], [ %10, %lpad.i125.i ], [ %11, %lpad.i136.i ]
-  %arrayinit.endOfInit.11.i = phi ptr [ %arrayinit.element.i, %lpad.i15.i ], [ %arrayinit.element14.i, %lpad.i26.i ], [ %arrayinit.element24.i, %lpad.i37.i ], [ %arrayinit.element34.i, %lpad.i48.i ], [ %arrayinit.element44.i, %lpad.i59.i ], [ %arrayinit.element54.i, %lpad.i70.i ], [ %arrayinit.element64.i, %lpad.i81.i ], [ %arrayinit.element74.i, %lpad.i92.i ], [ %arrayinit.element84.i, %lpad.i103.i ], [ %arrayinit.element94.i, %lpad.i114.i ], [ %arrayinit.element104.i, %lpad.i125.i ], [ %arrayinit.element114.i, %lpad.i136.i ]
+  %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.element.i, %lpad.i15.i ], [ %arrayinit.element14.i, %lpad.i26.i ], [ %arrayinit.element24.i, %lpad.i37.i ], [ %arrayinit.element34.i, %lpad.i48.i ], [ %arrayinit.element44.i, %lpad.i59.i ], [ %arrayinit.element54.i, %lpad.i70.i ], [ %arrayinit.element64.i, %lpad.i81.i ], [ %arrayinit.element74.i, %lpad.i92.i ], [ %arrayinit.element84.i, %lpad.i103.i ], [ %arrayinit.element94.i, %lpad.i114.i ], [ %arrayinit.element104.i, %lpad.i125.i ], [ %arrayinit.element114.i, %lpad.i136.i ]
   br label %arraydestroy.body150.i
 
 arraydestroy.body150.i:                           ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit160.i, %ehcleanup148.i
-  %arraydestroy.elementPast151.i = phi ptr [ %arraydestroy.element152.i, %_ZNSt6vectorIdSaIdEED2Ev.exit160.i ], [ %arrayinit.endOfInit.11.i, %ehcleanup148.i ]
+  %arraydestroy.elementPast151.i = phi ptr [ %arraydestroy.element152.i, %_ZNSt6vectorIdSaIdEED2Ev.exit160.i ], [ %arrayinit.endOfInit.0.i, %ehcleanup148.i ]
   %arraydestroy.element152.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast151.i, i64 -24
   %16 = load ptr, ptr %arraydestroy.element152.i, align 8
   %tobool.not.i.i.i157.i = icmp eq ptr %16, null
@@ -852,11 +852,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit156.i113:            ; preds = %if.then.i.i.i154.i1
 
 ehcleanup148.i9:                                  ; preds = %lpad.i136.i97, %lpad.i125.i90, %lpad.i114.i83, %lpad.i103.i76, %lpad.i92.i69, %lpad.i81.i62, %lpad.i70.i55, %lpad.i59.i48, %lpad.i48.i41, %lpad.i37.i34, %lpad.i26.i27, %lpad.i15.i8
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i10 = phi { ptr, i32 } [ %18, %lpad.i15.i8 ], [ %19, %lpad.i26.i27 ], [ %20, %lpad.i37.i34 ], [ %21, %lpad.i48.i41 ], [ %22, %lpad.i59.i48 ], [ %23, %lpad.i70.i55 ], [ %24, %lpad.i81.i62 ], [ %25, %lpad.i92.i69 ], [ %26, %lpad.i103.i76 ], [ %27, %lpad.i114.i83 ], [ %28, %lpad.i125.i90 ], [ %29, %lpad.i136.i97 ]
-  %arrayinit.endOfInit.11.i11 = phi ptr [ %arrayinit.element.i6, %lpad.i15.i8 ], [ %arrayinit.element14.i25, %lpad.i26.i27 ], [ %arrayinit.element24.i32, %lpad.i37.i34 ], [ %arrayinit.element34.i39, %lpad.i48.i41 ], [ %arrayinit.element44.i46, %lpad.i59.i48 ], [ %arrayinit.element54.i53, %lpad.i70.i55 ], [ %arrayinit.element64.i60, %lpad.i81.i62 ], [ %arrayinit.element74.i67, %lpad.i92.i69 ], [ %arrayinit.element84.i74, %lpad.i103.i76 ], [ %arrayinit.element94.i81, %lpad.i114.i83 ], [ %arrayinit.element104.i88, %lpad.i125.i90 ], [ %arrayinit.element114.i95, %lpad.i136.i97 ]
+  %arrayinit.endOfInit.0.i11 = phi ptr [ %arrayinit.element.i6, %lpad.i15.i8 ], [ %arrayinit.element14.i25, %lpad.i26.i27 ], [ %arrayinit.element24.i32, %lpad.i37.i34 ], [ %arrayinit.element34.i39, %lpad.i48.i41 ], [ %arrayinit.element44.i46, %lpad.i59.i48 ], [ %arrayinit.element54.i53, %lpad.i70.i55 ], [ %arrayinit.element64.i60, %lpad.i81.i62 ], [ %arrayinit.element74.i67, %lpad.i92.i69 ], [ %arrayinit.element84.i74, %lpad.i103.i76 ], [ %arrayinit.element94.i81, %lpad.i114.i83 ], [ %arrayinit.element104.i88, %lpad.i125.i90 ], [ %arrayinit.element114.i95, %lpad.i136.i97 ]
   br label %arraydestroy.body150.i12
 
 arraydestroy.body150.i12:                         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit160.i17, %ehcleanup148.i9
-  %arraydestroy.elementPast151.i13 = phi ptr [ %arraydestroy.element152.i14, %_ZNSt6vectorIdSaIdEED2Ev.exit160.i17 ], [ %arrayinit.endOfInit.11.i11, %ehcleanup148.i9 ]
+  %arraydestroy.elementPast151.i13 = phi ptr [ %arraydestroy.element152.i14, %_ZNSt6vectorIdSaIdEED2Ev.exit160.i17 ], [ %arrayinit.endOfInit.0.i11, %ehcleanup148.i9 ]
   %arraydestroy.element152.i14 = getelementptr inbounds i8, ptr %arraydestroy.elementPast151.i13, i64 -24
   %34 = load ptr, ptr %arraydestroy.element152.i14, align 8
   %tobool.not.i.i.i157.i15 = icmp eq ptr %34, null

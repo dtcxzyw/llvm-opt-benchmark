@@ -2631,7 +2631,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %602
           to label %.thread300 unwind label %374
 
 .thread300:                                       ; preds = %.thread307, %.thread, %960, %973, %488, %592, %.critedge4
-  %.1 = phi i32 [ -1, %.critedge4 ], [ 0, %960 ], [ -1, %592 ], [ -1, %488 ], [ 0, %973 ], [ 0, %.thread ], [ -1, %.thread307 ]
+  %.3 = phi i32 [ -1, %.critedge4 ], [ 0, %960 ], [ -1, %592 ], [ -1, %488 ], [ 0, %973 ], [ 0, %.thread ], [ -1, %.thread307 ]
   %975 = getelementptr inbounds i8, ptr %40, i64 8
   %976 = load ptr, ptr %975, align 8
   %.not.i.i.i.i = icmp eq ptr %976, null
@@ -2711,7 +2711,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %1012
 
 _ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %1006, %993, %.thread300, %.critedge, %258
-  %.2 = phi i32 [ -1, %.critedge ], [ -1, %258 ], [ %.1, %.thread300 ], [ %.1, %993 ], [ %.1, %1006 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.2 = phi i32 [ -1, %.critedge ], [ -1, %258 ], [ %.3, %.thread300 ], [ %.3, %993 ], [ %.3, %1006 ], [ %.3, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #19
@@ -2729,7 +2729,7 @@ _ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_
   br label %1014
 
 1013:                                             ; preds = %213, %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit
-  %.3 = phi i32 [ %.2, %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit ], [ 0, %213 ]
+  %.1 = phi i32 [ %.2, %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit ], [ 0, %213 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
@@ -2765,9 +2765,9 @@ _ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_
   br label %.body
 
 1016:                                             ; preds = %1013, %176
-  %.4 = phi i32 [ 0, %176 ], [ %.3, %1013 ]
+  %.0 = phi i32 [ 0, %176 ], [ %.1, %1013 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  ret i32 %.4
+  ret i32 %.0
 
 .body:                                            ; preds = %190, %193, %.body245, %189, %184
   %.pn229 = phi { ptr, i32 } [ %.pn219.pn.pn.pn.pn.pn.pn.pn, %.body245 ], [ %.pn107, %189 ], [ %.pn, %184 ], [ %191, %190 ], [ %194, %193 ]

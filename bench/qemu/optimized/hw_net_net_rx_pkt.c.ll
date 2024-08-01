@@ -2593,11 +2593,11 @@ trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit:       ; preds = %if.else21, %land.lh
   br label %if.end28
 
 if.end28:                                         ; preds = %trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit, %trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit
-  %csl.1 = phi i16 [ %33, %trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit ], [ %conv27, %trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit ]
+  %csl.2 = phi i16 [ %33, %trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit ], [ %conv27, %trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit ]
   %ip6hdr_info29 = getelementptr inbounds i8, ptr %pkt, i64 96
   %ip6_hdr30 = getelementptr inbounds i8, ptr %pkt, i64 112
   %52 = load i8, ptr %ip6hdr_info29, align 8
-  %call32 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef nonnull %ip6_hdr30, i16 noundef zeroext %csl.1, i8 noundef zeroext %52, ptr noundef nonnull %cso) #11
+  %call32 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef nonnull %ip6_hdr30, i16 noundef zeroext %csl.2, i8 noundef zeroext %52, ptr noundef nonnull %cso) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i97)
   %53 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i98 = icmp ne i32 %53, 0
@@ -2623,12 +2623,12 @@ if.then8.i.i108:                                  ; preds = %if.then.i.i104
   %57 = load i64, ptr %_now.i.i97, align 8
   %tv_usec.i.i111 = getelementptr inbounds i8, ptr %_now.i.i97, i64 8
   %58 = load i64, ptr %tv_usec.i.i111, align 8
-  %conv11.i.i112 = zext i16 %csl.1 to i32
+  %conv11.i.i112 = zext i16 %csl.2 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i110, i64 noundef %57, i64 noundef %58, i32 noundef %call32, i32 noundef %conv11.i.i112) #11
   br label %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113
 
 if.else.i.i106:                                   ; preds = %if.then.i.i104
-  %conv12.i.i107 = zext i16 %csl.1 to i32
+  %conv12.i.i107 = zext i16 %csl.2 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call32, i32 noundef %conv12.i.i107) #11
   br label %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113
 
@@ -2637,7 +2637,7 @@ trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113:    ; preds = %if.end28, %land.lhs
   br label %if.end33
 
 if.end33:                                         ; preds = %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit
-  %csl.2 = phi i16 [ %csl.0, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit ], [ %csl.1, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113 ]
+  %csl.1 = phi i16 [ %csl.0, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit ], [ %csl.2, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113 ]
   %cntr.0 = phi i32 [ %call10, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit ], [ %call32, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113 ]
   %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %59 = load ptr, ptr %vec, align 8
@@ -2647,7 +2647,7 @@ if.end33:                                         ; preds = %trace_net_rx_pkt_l4
   %l4hdr_off35 = getelementptr inbounds i8, ptr %pkt, i64 80
   %61 = load i64, ptr %l4hdr_off35, align 8
   %conv36 = trunc i64 %61 to i32
-  %conv37 = zext i16 %csl.2 to i32
+  %conv37 = zext i16 %csl.1 to i32
   %62 = load i32, ptr %cso, align 4
   %call38 = call i32 @net_checksum_add_iov(ptr noundef %59, i32 noundef %conv34, i32 noundef %conv36, i32 noundef %conv37, i32 noundef %62) #11
   %add = add i32 %call38, %cntr.0

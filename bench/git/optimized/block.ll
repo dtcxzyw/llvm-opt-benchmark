@@ -548,9 +548,9 @@ if.end55:                                         ; preds = %land.lhs.true45, %i
   br label %done
 
 done:                                             ; preds = %if.end22, %if.then5, %entry, %if.end55
-  %uncompressed.1 = phi ptr [ null, %if.end55 ], [ null, %entry ], [ %call10, %if.then5 ], [ %call10, %if.end22 ]
+  %uncompressed.0 = phi ptr [ null, %if.end55 ], [ null, %entry ], [ %call10, %if.then5 ], [ %call10, %if.end22 ]
   %err.0 = phi i32 [ 0, %if.end55 ], [ -3, %entry ], [ -7, %if.then5 ], [ -3, %if.end22 ]
-  call void @reftable_free(ptr noundef %uncompressed.1) #12
+  call void @reftable_free(ptr noundef %uncompressed.0) #12
   ret i32 %err.0
 }
 

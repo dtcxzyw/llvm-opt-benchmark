@@ -1787,8 +1787,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit190:                 ; preds = %582, %580, %488
   br label %960
 
 583:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %474
-  %.sroa.0248.3 = phi i32 [ %.sroa.0248.2, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.0248.0, %474 ]
-  %.sroa.4.3 = phi i32 [ %.sroa.4.2, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.4.0, %474 ]
+  %.sroa.0248.1 = phi i32 [ %.sroa.0248.2, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.0248.0, %474 ]
+  %.sroa.4.1 = phi i32 [ %.sroa.4.2, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.4.0, %474 ]
   %584 = load ptr, ptr %104, align 8
   %585 = load ptr, ptr %467, align 8
   %586 = icmp eq ptr %584, %585
@@ -2002,9 +2002,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit198: ; preds = %.noexc196, %6
   store i32 17104896, ptr %143, align 8
   %667 = getelementptr inbounds i8, ptr %143, i64 8
   store ptr %135, ptr %667, align 8
-  %.sroa.4.0.insert.ext252 = zext i32 %.sroa.4.3 to i64
+  %.sroa.4.0.insert.ext252 = zext i32 %.sroa.4.1 to i64
   %.sroa.4.0.insert.shift253 = shl nuw i64 %.sroa.4.0.insert.ext252, 32
-  %.sroa.0248.0.insert.ext249 = zext i32 %.sroa.0248.3 to i64
+  %.sroa.0248.0.insert.ext249 = zext i32 %.sroa.0248.1 to i64
   %.sroa.0248.0.insert.insert251 = or disjoint i64 %.sroa.4.0.insert.shift253, %.sroa.0248.0.insert.ext249
   %668 = getelementptr inbounds i8, ptr %144, i64 8
   %669 = getelementptr inbounds i8, ptr %144, i64 16

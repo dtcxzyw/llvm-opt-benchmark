@@ -46,23 +46,23 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI18hb_unicode_func
   br label %6
 
 6:                                                ; preds = %4, %.lr.ph
-  %.0 = phi ptr [ %3, %.lr.ph ], [ %5, %4 ]
-  %7 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %3, %.lr.ph ], [ %5, %4 ]
+  %7 = ptrtoint ptr %.1 to i64
   %8 = cmpxchg weak ptr %0, i64 0, i64 %7 acq_rel monotonic, align 8
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %.split.loop.exit11, label %10
 
 10:                                               ; preds = %6
-  %.not.i = icmp eq ptr %.0, null
+  %.not.i = icmp eq ptr %.1, null
   br i1 %.not.i, label %_ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call noundef ptr @hb_unicode_funcs_get_empty()
-  %.not3.i = icmp eq ptr %12, %.0
+  %.not3.i = icmp eq ptr %12, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %13
 
 13:                                               ; preds = %11
-  tail call void @hb_unicode_funcs_destroy(ptr noundef nonnull %.0)
+  tail call void @hb_unicode_funcs_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit
 
 _ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit: ; preds = %10, %11, %13
@@ -76,7 +76,7 @@ _ZN16hb_lazy_loader_tI18hb_unicode_funcs_t34hb_ucd_unicode_funcs_lazy_loader_tvL
   br label %.split.loop.exit11
 
 .split.loop.exit11:                               ; preds = %6, %.split.loop.exit
-  %.07 = phi ptr [ %15, %.split.loop.exit ], [ %.0, %6 ]
+  %.07 = phi ptr [ %15, %.split.loop.exit ], [ %.1, %6 ]
   ret ptr %.07
 }
 

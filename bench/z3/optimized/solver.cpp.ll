@@ -2735,7 +2735,7 @@ terminate.lpad.i376:                              ; preds = %if.then.i373
   unreachable
 
 cleanup171:                                       ; preds = %if.then.i365, %if.then.i358, %if.then2.i.i.i.i.i244, %if.then.i.i.i.i.i240, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i234, %if.then2.i.i.i.i.i226, %if.then.i.i.i.i.i222, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i, %if.else, %invoke.cont35
-  %cleanup.dest.slot.2 = phi i32 [ 4, %invoke.cont35 ], [ 4, %if.else ], [ 0, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i ], [ 0, %if.then.i.i.i.i.i222 ], [ 0, %if.then2.i.i.i.i.i226 ], [ 1, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i234 ], [ 1, %if.then.i.i.i.i.i240 ], [ 1, %if.then2.i.i.i.i.i244 ], [ 0, %if.then.i358 ], [ 1, %if.then.i365 ]
+  %cleanup.dest.slot.0 = phi i32 [ 4, %invoke.cont35 ], [ 4, %if.else ], [ 0, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i ], [ 0, %if.then.i.i.i.i.i222 ], [ 0, %if.then2.i.i.i.i.i226 ], [ 1, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i234 ], [ 1, %if.then.i.i.i.i.i240 ], [ 1, %if.then2.i.i.i.i.i244 ], [ 0, %if.then.i358 ], [ 1, %if.then.i365 ]
   %180 = load ptr, ptr %m_nodes.i.i49, align 8
   %cmp.i.i.i380 = icmp eq ptr %180, null
   br i1 %cmp.i.i.i380, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i381
@@ -2798,7 +2798,7 @@ terminate.lpad.i.i390:                            ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %cleanup171, %invoke.cont8.i.i, %if.then.i.i.i.i.i389
-  switch i32 %cleanup.dest.slot.2, label %cleanup178 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup178 [
     i32 0, label %for.inc175
     i32 4, label %for.inc175
   ]
@@ -2814,7 +2814,7 @@ ehcleanup174:                                     ; preds = %if.then.i373, %ehcl
   br label %ehcleanup181
 
 cleanup178:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit
-  %retval.5 = phi i32 [ 0, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ 1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  %retval.6 = phi i32 [ 0, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ 1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
   call void @_ZN15model_evaluatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %eval) #21
   %191 = load ptr, ptr %m_nodes.i.i47, align 8
   %cmp.i.i.i392 = icmp eq ptr %191, null
@@ -3023,8 +3023,8 @@ ehcleanup191:                                     ; preds = %ehcleanup183, %lpad
   resume { ptr, i32 } %.pn36.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i457, %if.then.i.i453, %_ZN7obj_refI4expr11ast_managerED2Ev.exit451, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit
-  %retval.6 = phi i32 [ %call3.i, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %retval.5, %_ZN7obj_refI4expr11ast_managerED2Ev.exit451 ], [ %retval.5, %if.then.i.i453 ], [ %retval.5, %if.then.i.i.i457 ]
-  ret i32 %retval.6
+  %retval.0 = phi i32 [ %call3.i, %_ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit ], [ %retval.6, %_ZN7obj_refI4expr11ast_managerED2Ev.exit451 ], [ %retval.6, %if.then.i.i453 ], [ %retval.6, %if.then.i.i.i457 ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN15model_evaluatorC1ER10model_coreRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0

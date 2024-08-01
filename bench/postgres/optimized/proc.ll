@@ -1391,7 +1391,7 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not157185, label %.loopexit182, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %44
-  %.0133187 = phi i32 [ %.1, %44 ], [ %30, %33 ]
+  %.1187 = phi i32 [ %.2, %44 ], [ %30, %33 ]
   %.sroa.058.0186 = phi ptr [ %46, %44 ], [ %36, %33 ]
   %37 = getelementptr i8, ptr %.sroa.058.0186, i64 -16
   %38 = load ptr, ptr %37, align 8
@@ -1401,19 +1401,19 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr i8, ptr %.sroa.058.0186, i64 -8
   %42 = load i32, ptr %41, align 8
-  %43 = or i32 %42, %.0133187
+  %43 = or i32 %42, %.1187
   br label %44
 
 44:                                               ; preds = %.lr.ph, %40
-  %.1 = phi i32 [ %43, %40 ], [ %.0133187, %.lr.ph ]
+  %.2 = phi i32 [ %43, %40 ], [ %.1187, %.lr.ph ]
   %45 = getelementptr inbounds i8, ptr %.sroa.058.0186, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not157 = icmp eq ptr %46, %34
   br i1 %.not157, label %.loopexit182, label %.lr.ph, !llvm.loop !21
 
 .loopexit182:                                     ; preds = %44, %33, %2
-  %.2 = phi i32 [ %30, %2 ], [ %30, %33 ], [ %.1, %44 ]
-  %.not158 = icmp eq i32 %.2, 0
+  %.0133 = phi i32 [ %30, %2 ], [ %30, %33 ], [ %.2, %44 ]
+  %.not158 = icmp eq i32 %.0133, 0
   br i1 %.not158, label %.loopexit, label %47
 
 47:                                               ; preds = %.loopexit182
@@ -1446,7 +1446,7 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %58 = sext i32 %57 to i64
   %59 = getelementptr i32, ptr %54, i64 %58
   %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, %.2
+  %61 = and i32 %60, %.0133
   %.not161.us = icmp eq i32 %61, 0
   br i1 %.not161.us, label %62, label %.split.us
 
@@ -1473,7 +1473,7 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %74 = sext i32 %73 to i64
   %75 = getelementptr i32, ptr %71, i64 %74
   %76 = load i32, ptr %75, align 4
-  %77 = and i32 %76, %.2
+  %77 = and i32 %76, %.0133
   %.not161 = icmp eq i32 %77, 0
   br i1 %.not161, label %91, label %.split.us
 

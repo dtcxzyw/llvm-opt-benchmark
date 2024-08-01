@@ -310,7 +310,7 @@ if.then120:                                       ; preds = %if.end117
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.then120
   %20 = phi ptr [ @.str.28, %if.then120 ], [ %23, %for.inc.i.i ]
   %sub.013.i.i = phi ptr [ @__const.populate_maildir_list.subs, %if.then120 ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %name.012.i.i = phi ptr [ null, %if.then120 ], [ %name.2.i.i, %for.inc.i.i ]
+  %name.012.i.i = phi ptr [ null, %if.then120 ], [ %name.1.i.i, %for.inc.i.i ]
   call void @free(ptr noundef %name.012.i.i) #16
   %call.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.25, ptr noundef nonnull %15, ptr noundef nonnull %20) #16
   %call1.i.i = call ptr @opendir(ptr noundef %call.i.i)
@@ -341,13 +341,13 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 
 if.end13.i.i:                                     ; preds = %while.body.i.i
   %d_name.i.i.le = getelementptr inbounds i8, ptr %call8.i.i, i64 19
-  call void @free(ptr noundef %name.1.ph.i.i) #16
+  call void @free(ptr noundef %name.3.ph.i.i) #16
   %call16.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.25, ptr noundef nonnull %20, ptr noundef nonnull %d_name.i.i.le) #16
   %call17.i.i = call ptr @string_list_insert(ptr noundef nonnull %list.i, ptr noundef %call16.i.i) #16
   br label %while.cond.outer.i.i, !llvm.loop !8
 
 while.cond.outer.i.i:                             ; preds = %for.body.i.i, %if.end13.i.i
-  %name.1.ph.i.i = phi ptr [ %call16.i.i, %if.end13.i.i ], [ %call.i.i, %for.body.i.i ]
+  %name.3.ph.i.i = phi ptr [ %call16.i.i, %if.end13.i.i ], [ %call.i.i, %for.body.i.i ]
   br label %while.cond.i.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -355,14 +355,14 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %while.end.i.i, %if.then.i.i
-  %name.2.i.i = phi ptr [ %name.1.ph.i.i, %while.end.i.i ], [ %call.i.i, %if.then.i.i ]
+  %name.1.i.i = phi ptr [ %name.3.ph.i.i, %while.end.i.i ], [ %call.i.i, %if.then.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %sub.013.i.i, i64 8
   %23 = load ptr, ptr %incdec.ptr.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i, label %populate_maildir_list.exit.i, label %for.body.i.i, !llvm.loop !9
 
 populate_maildir_list.exit.i:                     ; preds = %for.inc.i.i
-  call void @free(ptr noundef %name.2.i.i) #16
+  call void @free(ptr noundef %name.1.i.i) #16
   %24 = load i64, ptr %nr.i, align 8
   %cmp231.not.i = icmp eq i64 %24, 0
   br i1 %cmp231.not.i, label %split_maildir.exit, label %for.body.i
@@ -370,8 +370,8 @@ populate_maildir_list.exit.i:                     ; preds = %for.inc.i.i
 for.body.i:                                       ; preds = %populate_maildir_list.exit.i, %if.end15.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end15.i ], [ 0, %populate_maildir_list.exit.i ]
   %skip.addr.034.i = phi i32 [ %inc.i, %if.end15.i ], [ %nr.2118, %populate_maildir_list.exit.i ]
-  %file.032.i = phi ptr [ %call4.i, %if.end15.i ], [ null, %populate_maildir_list.exit.i ]
-  call void @free(ptr noundef %file.032.i) #16
+  %file.132.i = phi ptr [ %call4.i, %if.end15.i ], [ null, %populate_maildir_list.exit.i ]
+  call void @free(ptr noundef %file.132.i) #16
   %25 = load ptr, ptr %list.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %25, i64 %indvars.iv.i
   %26 = load ptr, ptr %arrayidx.i, align 8
@@ -407,8 +407,8 @@ if.then21.i:                                      ; preds = %if.end9.i
 
 split_maildir.exit:                               ; preds = %if.end15.i, %populate_maildir_list.exit.thread.i, %populate_maildir_list.exit.i, %if.then6.i, %if.then21.i
   %ret.023.i = phi i32 [ -1, %if.then21.i ], [ -1, %populate_maildir_list.exit.thread.i ], [ -1, %if.then6.i ], [ %nr.2118, %populate_maildir_list.exit.i ], [ %inc.i, %if.end15.i ]
-  %file.122.i = phi ptr [ %call4.i, %if.then21.i ], [ null, %populate_maildir_list.exit.thread.i ], [ %call4.i, %if.then6.i ], [ null, %populate_maildir_list.exit.i ], [ %call4.i, %if.end15.i ]
-  call void @free(ptr noundef %file.122.i) #16
+  %file.022.i = phi ptr [ %call4.i, %if.then21.i ], [ null, %populate_maildir_list.exit.thread.i ], [ %call4.i, %if.then6.i ], [ null, %populate_maildir_list.exit.i ], [ %call4.i, %if.end15.i ]
+  call void @free(ptr noundef %file.022.i) #16
   call void @string_list_clear(ptr noundef nonnull %list.i, i32 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %list.i)
   br label %if.end124

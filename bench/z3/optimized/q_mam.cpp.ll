@@ -18550,9 +18550,9 @@ for.cond2.preheader:                              ; preds = %for.cond2.preheader
 for.body6:                                        ; preds = %for.cond2.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond2.preheader ]
   %4 = phi ptr [ %10, %for.inc ], [ %2, %for.cond2.preheader ]
-  %best.0422 = phi ptr [ %best.1, %for.inc ], [ null, %for.cond2.preheader ]
+  %best.0422 = phi ptr [ %best.2, %for.inc ], [ null, %for.cond2.preheader ]
   %best_num_bvars.0421 = phi i32 [ %best_num_bvars.1, %for.inc ], [ 0, %for.cond2.preheader ]
-  %best_j.0420 = phi i32 [ %best_j.1, %for.inc ], [ 0, %for.cond2.preheader ]
+  %best_j.0420 = phi i32 [ %best_j.2, %for.inc ], [ 0, %for.cond2.preheader ]
   %5 = load ptr, ptr %m_mp_already_processed, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -18580,9 +18580,9 @@ if.then17:                                        ; preds = %if.end14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end14, %if.then17, %for.body6
-  %best_j.1 = phi i32 [ %best_j.0420, %for.body6 ], [ %9, %if.then17 ], [ %best_j.0420, %if.end14 ]
+  %best_j.2 = phi i32 [ %best_j.0420, %for.body6 ], [ %9, %if.then17 ], [ %best_j.0420, %if.end14 ]
   %best_num_bvars.1 = phi i32 [ %best_num_bvars.0421, %for.body6 ], [ %call.i, %if.then17 ], [ %best_num_bvars.0421, %if.end14 ]
-  %best.1 = phi ptr [ %best.0422, %for.body6 ], [ %7, %if.then17 ], [ %best.0422, %if.end14 ]
+  %best.2 = phi ptr [ %best.0422, %for.body6 ], [ %7, %if.then17 ], [ %best.0422, %if.end14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load ptr, ptr %m_mp, align 8
   %m_num_args.i49 = getelementptr inbounds i8, ptr %10, i64 24
@@ -18593,15 +18593,15 @@ for.inc:                                          ; preds = %if.end14, %if.then1
 
 for.end:                                          ; preds = %for.inc, %if.end, %for.cond2.preheader
   %cmp5.lcssa = phi i1 [ false, %for.cond2.preheader ], [ true, %if.end ], [ false, %for.inc ]
-  %best_j.2 = phi i32 [ 0, %for.cond2.preheader ], [ %9, %if.end ], [ %best_j.1, %for.inc ]
-  %best.2 = phi ptr [ null, %for.cond2.preheader ], [ %7, %if.end ], [ %best.1, %for.inc ]
+  %best_j.1 = phi i32 [ 0, %for.cond2.preheader ], [ %9, %if.end ], [ %best_j.2, %for.inc ]
+  %best.1 = phi ptr [ null, %for.cond2.preheader ], [ %7, %if.end ], [ %best.2, %for.inc ]
   %13 = load ptr, ptr %m_mp_already_processed, align 8
-  %idxprom.i52 = zext i32 %best_j.2 to i64
+  %idxprom.i52 = zext i32 %best_j.1 to i64
   %arrayidx.i53 = getelementptr inbounds i8, ptr %13, i64 %idxprom.i52
   store i8 1, ptr %arrayidx.i53, align 1
-  %m_decl.i = getelementptr inbounds i8, ptr %best.2, i64 16
+  %m_decl.i = getelementptr inbounds i8, ptr %best.1, i64 16
   %14 = load ptr, ptr %m_decl.i, align 8
-  %m_num_args.i54 = getelementptr inbounds i8, ptr %best.2, i64 24
+  %m_num_args.i54 = getelementptr inbounds i8, ptr %best.1, i64 24
   %15 = load i32, ptr %m_num_args.i54, align 8
   %conv = trunc i32 %15 to i16
   %16 = load i8, ptr %m_use_filters, align 8
@@ -18621,7 +18621,7 @@ if.end29:                                         ; preds = %if.then26, %for.end
   br i1 %cmp5.lcssa, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %if.end29
-  %call32 = call noundef i32 @_ZN1q8compiler13gen_mp_filterEP3app(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %best.2)
+  %call32 = call noundef i32 @_ZN1q8compiler13gen_mp_filterEP3app(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull %best.1)
   br label %for.inc178
 
 if.else:                                          ; preds = %if.end29
@@ -18639,7 +18639,7 @@ if.else:                                          ; preds = %if.end29
   br i1 %cmp39430.not, label %if.else107, label %for.body40.lr.ph
 
 for.body40.lr.ph:                                 ; preds = %if.else
-  %m_args.i55 = getelementptr inbounds i8, ptr %best.2, i64 32
+  %m_args.i55 = getelementptr inbounds i8, ptr %best.1, i64 32
   %wide.trip.count = zext nneg i32 %conv33 to i64
   br label %for.body40.outer
 
@@ -18983,7 +18983,7 @@ if.then67:                                        ; preds = %for.inc63.thread, %
   %idx.ext.i70 = zext i32 %48 to i64
   %add.ptr.i71.idx = shl nuw nsw i64 %idx.ext.i70, 3
   %m_args.i67.add = add nuw nsw i64 %add.ptr.i71.idx, 32
-  %add.ptr.i71.ptr = getelementptr inbounds i8, ptr %best.2, i64 %m_args.i67.add
+  %add.ptr.i71.ptr = getelementptr inbounds i8, ptr %best.1, i64 %m_args.i67.add
   %cmp71.not442 = icmp eq i32 %48, 0
   br i1 %cmp71.not442, label %if.end164, label %for.body72
 
@@ -19296,12 +19296,12 @@ if.else107:                                       ; preds = %if.else, %for.end65
   %idx.ext.i208 = zext i32 %80 to i64
   %add.ptr.i209.idx = shl nuw nsw i64 %idx.ext.i208, 3
   %m_args.i205.add = add nuw nsw i64 %add.ptr.i209.idx, 32
-  %add.ptr.i209.ptr = getelementptr inbounds i8, ptr %best.2, i64 %m_args.i205.add
+  %add.ptr.i209.ptr = getelementptr inbounds i8, ptr %best.1, i64 %m_args.i205.add
   %cmp114.not440 = icmp eq i32 %80, 0
   br i1 %cmp114.not440, label %if.end164, label %invoke.cont117.preheader
 
 invoke.cont117.preheader:                         ; preds = %if.else107
-  %m_args.i205.ptr = getelementptr inbounds i8, ptr %best.2, i64 32
+  %m_args.i205.ptr = getelementptr inbounds i8, ptr %best.1, i64 32
   br label %invoke.cont117
 
 invoke.cont117:                                   ; preds = %invoke.cont117.preheader, %for.inc161

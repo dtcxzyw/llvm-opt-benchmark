@@ -520,7 +520,7 @@ dead_items_alloc.exit:                            ; preds = %210, %dead_items_ma
 
 .loopexit.i.i:                                    ; preds = %240, %237, %231, %.lr.ph.i
   %.02336.i.lcssa.i = phi i1 [ %.02336.i173.i, %.lr.ph.i ], [ %.02336.i173.i, %237 ], [ %.02336.i173.i, %231 ], [ %.1.i.i, %240 ]
-  %.0149.i = phi i1 [ true, %.lr.ph.i ], [ true, %237 ], [ false, %231 ], [ false, %240 ]
+  %.4153.i = phi i1 [ true, %.lr.ph.i ], [ true, %237 ], [ false, %231 ], [ false, %240 ]
   %.02434.i.i = phi i32 [ %223, %.lr.ph.i ], [ %.02435.i174.i, %237 ], [ %.02435.i174.i, %231 ], [ %241, %240 ]
   %247 = icmp ugt i32 %.02434.i.i, 31
   %brmerge.not.i = select i1 %247, i1 %.02336.i.lcssa.i, i1 false
@@ -531,8 +531,8 @@ dead_items_alloc.exit:                            ; preds = %210, %dead_items_ma
   br label %lazy_scan_skip.exit.i
 
 lazy_scan_skip.exit.i:                            ; preds = %248, %.loopexit.i.i, %.lr.ph.i.i, %dead_items_alloc.exit
-  %.2151.i = phi i1 [ %.0149.i, %248 ], [ %.0149.i, %.loopexit.i.i ], [ true, %dead_items_alloc.exit ], [ false, %.lr.ph.i.i ]
-  %.0144.i = phi i1 [ true, %248 ], [ %247, %.loopexit.i.i ], [ false, %dead_items_alloc.exit ], [ false, %.lr.ph.i.i ]
+  %.5.i = phi i1 [ %.4153.i, %248 ], [ %.4153.i, %.loopexit.i.i ], [ true, %dead_items_alloc.exit ], [ false, %.lr.ph.i.i ]
+  %.3147.i = phi i1 [ true, %248 ], [ %247, %.loopexit.i.i ], [ false, %dead_items_alloc.exit ], [ false, %.lr.ph.i.i ]
   %.02857.i.i = phi i32 [ %.02434.i.i, %248 ], [ %.02434.i.i, %.loopexit.i.i ], [ 0, %dead_items_alloc.exit ], [ 0, %.lr.ph.i.i ]
   %.not227.i = icmp eq i32 %216, 0
   br i1 %.not227.i, label %._crit_edge.i, label %.lr.ph224.i
@@ -555,9 +555,9 @@ lazy_scan_skip.exit.i:                            ; preds = %248, %.loopexit.i.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph224.i ], [ %indvars.iv.next.i, %lazy_scan_new_or_empty.exit.thread.i ]
   %.0221.i = phi i32 [ 0, %.lr.ph224.i ], [ %700, %lazy_scan_new_or_empty.exit.thread.i ]
   %.093220.i = phi i32 [ %.02857.i.i, %.lr.ph224.i ], [ %.2.i, %lazy_scan_new_or_empty.exit.thread.i ]
-  %.094219.i = phi i32 [ 0, %.lr.ph224.i ], [ %.296.i, %lazy_scan_new_or_empty.exit.thread.i ]
-  %.1145217.i = phi i1 [ %.0144.i, %.lr.ph224.i ], [ %.4148.i, %lazy_scan_new_or_empty.exit.thread.i ]
-  %.3152216.i = phi i1 [ %.2151.i, %.lr.ph224.i ], [ %.8.i, %lazy_scan_new_or_empty.exit.thread.i ]
+  %.094219.i = phi i32 [ 0, %.lr.ph224.i ], [ %.195.i, %lazy_scan_new_or_empty.exit.thread.i ]
+  %.0144217.i = phi i1 [ %.3147.i, %.lr.ph224.i ], [ %.2146.i, %lazy_scan_new_or_empty.exit.thread.i ]
+  %.0149216.i = phi i1 [ %.5.i, %.lr.ph224.i ], [ %.2151.i, %lazy_scan_new_or_empty.exit.thread.i ]
   %261 = zext i32 %.093220.i to i64
   %262 = icmp eq i64 %indvars.iv.i, %261
   br i1 %262, label %263, label %298
@@ -617,7 +617,7 @@ lazy_scan_skip.exit.i:                            ; preds = %248, %.loopexit.i.i
 
 .loopexit.i108.i:                                 ; preds = %287, %284, %278, %.lr.ph196.i
   %.02336.i105.lcssa.i = phi i1 [ %.02336.i105194.i, %.lr.ph196.i ], [ %.02336.i105194.i, %284 ], [ %.02336.i105194.i, %278 ], [ %.1.i111.i, %287 ]
-  %.4153.i = phi i1 [ true, %.lr.ph196.i ], [ true, %284 ], [ false, %278 ], [ false, %287 ]
+  %.7.i = phi i1 [ true, %.lr.ph196.i ], [ true, %284 ], [ false, %278 ], [ false, %287 ]
   %.02434.i109.i = phi i32 [ %270, %.lr.ph196.i ], [ %.02435.i106195.i, %284 ], [ %.02435.i106195.i, %278 ], [ %289, %287 ]
   %.028.i110.i = phi i32 [ %269, %.lr.ph196.i ], [ %.037.i104193.i, %284 ], [ %.037.i104193.i, %278 ], [ %288, %287 ]
   %295 = icmp ult i32 %.02434.i109.i, 32
@@ -631,13 +631,13 @@ lazy_scan_skip.exit.i:                            ; preds = %248, %.loopexit.i.i
   br label %lazy_scan_skip.exit112.i
 
 298:                                              ; preds = %260
-  br i1 %.1145217.i, label %lazy_scan_new_or_empty.exit.thread.i, label %lazy_scan_skip.exit112.i
+  br i1 %.0144217.i, label %lazy_scan_new_or_empty.exit.thread.i, label %lazy_scan_skip.exit112.i
 
 lazy_scan_skip.exit112.i:                         ; preds = %298, %297, %296, %.loopexit.i108.i, %.lr.ph.i103.i, %263
-  %.7.i = phi i1 [ %.3152216.i, %298 ], [ %.4153.i, %297 ], [ %.4153.i, %296 ], [ %.4153.i, %.loopexit.i108.i ], [ true, %263 ], [ false, %.lr.ph.i103.i ]
-  %.3147.i = phi i1 [ false, %298 ], [ true, %297 ], [ true, %296 ], [ false, %.loopexit.i108.i ], [ false, %263 ], [ false, %.lr.ph.i103.i ]
+  %.1150.i = phi i1 [ %.0149216.i, %298 ], [ %.7.i, %297 ], [ %.7.i, %296 ], [ %.7.i, %.loopexit.i108.i ], [ true, %263 ], [ false, %.lr.ph.i103.i ]
+  %.1145.i = phi i1 [ false, %298 ], [ true, %297 ], [ true, %296 ], [ false, %.loopexit.i108.i ], [ false, %263 ], [ false, %.lr.ph.i103.i ]
   %.1.i = phi i32 [ %.093220.i, %298 ], [ %.028.i110.i, %297 ], [ %.028.i110.i, %296 ], [ %.028.i110.i, %.loopexit.i108.i ], [ %268, %263 ], [ %268, %.lr.ph.i103.i ]
-  %.092.i = phi i1 [ true, %298 ], [ %.3152216.i, %297 ], [ %.3152216.i, %296 ], [ %.3152216.i, %.loopexit.i108.i ], [ %.3152216.i, %263 ], [ %.3152216.i, %.lr.ph.i103.i ]
+  %.092.i = phi i1 [ true, %298 ], [ %.0149216.i, %297 ], [ %.0149216.i, %296 ], [ %.0149216.i, %.loopexit.i108.i ], [ %.0149216.i, %263 ], [ %.0149216.i, %.lr.ph.i103.i ]
   %299 = load i32, ptr %111, align 4
   %300 = add i32 %299, 1
   store i32 %300, ptr %111, align 4
@@ -682,7 +682,7 @@ lazy_scan_skip.exit112.i:                         ; preds = %298, %297, %296, %.
   br label %317
 
 317:                                              ; preds = %315, %307
-  %.195.i = phi i32 [ %301, %315 ], [ %.094219.i, %307 ]
+  %.296.i = phi i32 [ %301, %315 ], [ %.094219.i, %307 ]
   %318 = load ptr, ptr %55, align 8
   call void @visibilitymap_pin(ptr noundef %318, i32 noundef %301, ptr noundef nonnull %21) #9
   %319 = load ptr, ptr %55, align 8
@@ -1110,14 +1110,14 @@ default.unreachable:                              ; preds = %500
 
 500:                                              ; preds = %555, %.lr.ph.i118.i
   %.0131202.i.i = phi i16 [ 1, %.lr.ph.i118.i ], [ %556, %555 ]
-  %.0133201.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.2.i119.i, %555 ]
+  %.0133201.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.1134.i.i, %555 ]
   %.0135200.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.1136.i.i, %555 ]
-  %.0137199.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.2139.i.i, %555 ]
-  %.0140198.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.2142.i.i, %555 ]
+  %.0137199.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.1138.i.i, %555 ]
+  %.0140198.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.1141.i.i, %555 ]
   %.0144197.i.i = phi i8 [ 1, %.lr.ph.i118.i ], [ %.1145.i.i, %555 ]
-  %.0147196.i.i = phi i8 [ 1, %.lr.ph.i118.i ], [ %.2149.i.i, %555 ]
+  %.0147196.i.i = phi i8 [ 1, %.lr.ph.i118.i ], [ %.1148.i.i, %555 ]
   %.0151195.i.i = phi i1 [ false, %.lr.ph.i118.i ], [ %.1152.i.i, %555 ]
-  %.0153194.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.2155.i.i, %555 ]
+  %.0153194.i.i = phi i32 [ 0, %.lr.ph.i118.i ], [ %.1154.i.i, %555 ]
   store i16 %.0131202.i.i, ptr %250, align 4
   %501 = zext i16 %.0131202.i.i to i64
   %502 = add nsw i64 %501, -1
@@ -1206,10 +1206,10 @@ default.unreachable:                              ; preds = %500
   unreachable
 
 545:                                              ; preds = %540, %538, %535, %531, %521, %518, %512
-  %.1154.i.i = phi i32 [ %.0153194.i.i, %540 ], [ %539, %538 ], [ %.0153194.i.i, %518 ], [ %.0153194.i.i, %521 ], [ %.0153194.i.i, %531 ], [ %.0153194.i.i, %535 ], [ %.0153194.i.i, %512 ]
-  %.1148.i.i = phi i8 [ 0, %540 ], [ 0, %538 ], [ %.0147196.i.i, %518 ], [ 0, %521 ], [ 0, %531 ], [ %.0147196.i.i, %535 ], [ 0, %512 ]
-  %.1141.i.i = phi i32 [ %.0140198.i.i, %540 ], [ %.0140198.i.i, %538 ], [ %.0140198.i.i, %518 ], [ %.0140198.i.i, %521 ], [ %.0140198.i.i, %531 ], [ %spec.select.i131.i, %535 ], [ %.0140198.i.i, %512 ]
-  %.1138.i.i = phi i32 [ %541, %540 ], [ %.0137199.i.i, %538 ], [ %519, %518 ], [ %519, %521 ], [ %519, %531 ], [ %519, %535 ], [ %.0137199.i.i, %512 ]
+  %.2155.i.i = phi i32 [ %.0153194.i.i, %540 ], [ %539, %538 ], [ %.0153194.i.i, %518 ], [ %.0153194.i.i, %521 ], [ %.0153194.i.i, %531 ], [ %.0153194.i.i, %535 ], [ %.0153194.i.i, %512 ]
+  %.2149.i.i = phi i8 [ 0, %540 ], [ 0, %538 ], [ %.0147196.i.i, %518 ], [ 0, %521 ], [ 0, %531 ], [ %.0147196.i.i, %535 ], [ 0, %512 ]
+  %.2142.i.i = phi i32 [ %.0140198.i.i, %540 ], [ %.0140198.i.i, %538 ], [ %.0140198.i.i, %518 ], [ %.0140198.i.i, %521 ], [ %.0140198.i.i, %531 ], [ %spec.select.i131.i, %535 ], [ %.0140198.i.i, %512 ]
+  %.2139.i.i = phi i32 [ %541, %540 ], [ %.0137199.i.i, %538 ], [ %519, %518 ], [ %519, %521 ], [ %519, %531 ], [ %519, %535 ], [ %.0137199.i.i, %512 ]
   %546 = sext i32 %.0133201.i.i to i64
   %547 = getelementptr [291 x %struct.HeapTupleFreeze], ptr %15, i64 0, i64 %546
   %548 = call zeroext i1 @heap_prepare_freeze_tuple(ptr noundef %515, ptr noundef nonnull %131, ptr noundef nonnull %13, ptr noundef %547, ptr noundef nonnull %16) #9
@@ -1222,21 +1222,21 @@ default.unreachable:                              ; preds = %500
   br label %552
 
 552:                                              ; preds = %549, %545
-  %.1134.i.i = phi i32 [ %550, %549 ], [ %.0133201.i.i, %545 ]
+  %.2.i119.i = phi i32 [ %550, %549 ], [ %.0133201.i.i, %545 ]
   %553 = load i8, ptr %16, align 1
   %554 = trunc i8 %553 to i1
   %spec.select165.i.i = select i1 %554, i8 %.0144197.i.i, i8 0
   br label %555
 
 555:                                              ; preds = %552, %508, %507, %500
-  %.2155.i.i = phi i32 [ %.0153194.i.i, %507 ], [ %.0153194.i.i, %508 ], [ %.0153194.i.i, %500 ], [ %.1154.i.i, %552 ]
+  %.1154.i.i = phi i32 [ %.0153194.i.i, %507 ], [ %.0153194.i.i, %508 ], [ %.0153194.i.i, %500 ], [ %.2155.i.i, %552 ]
   %.1152.i.i = phi i1 [ true, %507 ], [ %.0151195.i.i, %508 ], [ %.0151195.i.i, %500 ], [ true, %552 ]
-  %.2149.i.i = phi i8 [ %.0147196.i.i, %507 ], [ %.0147196.i.i, %508 ], [ %.0147196.i.i, %500 ], [ %.1148.i.i, %552 ]
+  %.1148.i.i = phi i8 [ %.0147196.i.i, %507 ], [ %.0147196.i.i, %508 ], [ %.0147196.i.i, %500 ], [ %.2149.i.i, %552 ]
   %.1145.i.i = phi i8 [ %.0144197.i.i, %507 ], [ %.0144197.i.i, %508 ], [ %.0144197.i.i, %500 ], [ %spec.select165.i.i, %552 ]
-  %.2142.i.i = phi i32 [ %.0140198.i.i, %507 ], [ %.0140198.i.i, %508 ], [ %.0140198.i.i, %500 ], [ %.1141.i.i, %552 ]
-  %.2139.i.i = phi i32 [ %.0137199.i.i, %507 ], [ %.0137199.i.i, %508 ], [ %.0137199.i.i, %500 ], [ %.1138.i.i, %552 ]
+  %.1141.i.i = phi i32 [ %.0140198.i.i, %507 ], [ %.0140198.i.i, %508 ], [ %.0140198.i.i, %500 ], [ %.2142.i.i, %552 ]
+  %.1138.i.i = phi i32 [ %.0137199.i.i, %507 ], [ %.0137199.i.i, %508 ], [ %.0137199.i.i, %500 ], [ %.2139.i.i, %552 ]
   %.1136.i.i = phi i32 [ %.0135200.i.i, %507 ], [ %509, %508 ], [ %.0135200.i.i, %500 ], [ %.0135200.i.i, %552 ]
-  %.2.i119.i = phi i32 [ %.0133201.i.i, %507 ], [ %.0133201.i.i, %508 ], [ %.0133201.i.i, %500 ], [ %.1134.i.i, %552 ]
+  %.1134.i.i = phi i32 [ %.0133201.i.i, %507 ], [ %.0133201.i.i, %508 ], [ %.0133201.i.i, %500 ], [ %.2.i119.i, %552 ]
   %556 = add i16 %.0131202.i.i, 1
   %.not.i120.i = icmp ugt i16 %556, %492
   br i1 %.not.i120.i, label %._crit_edge.i121.i, label %500, !llvm.loop !9
@@ -1245,12 +1245,12 @@ default.unreachable:                              ; preds = %500
   %.pre.i122.i = load i8, ptr %13, align 4
   store i16 0, ptr %250, align 4
   %557 = trunc i8 %.pre.i122.i to i1
-  %558 = icmp eq i32 %.2.i119.i, 0
+  %558 = icmp eq i32 %.1134.i.i, 0
   %or.cond3.i.i = select i1 %557, i1 true, i1 %558
   br i1 %or.cond3.i.i, label %567, label %559
 
 559:                                              ; preds = %._crit_edge.i121.i
-  %560 = trunc nuw i8 %.2149.i.i to i1
+  %560 = trunc nuw i8 %.1148.i.i to i1
   br i1 %560, label %561, label %580
 
 561:                                              ; preds = %559
@@ -1266,7 +1266,7 @@ default.unreachable:                              ; preds = %500
   %565 = load i32, ptr %113, align 4
   %566 = add i32 %565, 1
   store i32 %566, ptr %113, align 4
-  br label %.loopexit.i129.i
+  br label %.loopexit.i130.i
 
 567:                                              ; preds = %._crit_edge.i121.i
   %568 = load <2 x i32>, ptr %257, align 4
@@ -1274,7 +1274,7 @@ default.unreachable:                              ; preds = %500
   br i1 %558, label %582, label %569
 
 569:                                              ; preds = %567
-  %.pre214.i.i = trunc nuw i8 %.2149.i.i to i1
+  %.pre214.i.i = trunc nuw i8 %.1148.i.i to i1
   %570 = load i32, ptr %113, align 4
   %571 = add i32 %570, 1
   store i32 %571, ptr %113, align 4
@@ -1282,24 +1282,24 @@ default.unreachable:                              ; preds = %500
 
 572:                                              ; preds = %569
   %.pre.i = trunc nuw i8 %.1145.i.i to i1
-  br i1 %.pre.i, label %.loopexit.i129.i, label %573
+  br i1 %.pre.i, label %.loopexit.i130.i, label %573
 
 573:                                              ; preds = %572, %569
   %574 = load i32, ptr %139, align 8
   br label %575
 
 575:                                              ; preds = %575, %573
-  %.0132.i.i = phi i32 [ %574, %573 ], [ %576, %575 ]
-  %576 = add i32 %.0132.i.i, -1
+  %.1.i129.i = phi i32 [ %574, %573 ], [ %576, %575 ]
+  %576 = add i32 %.1.i129.i, -1
   %577 = icmp ult i32 %576, 3
-  br i1 %577, label %575, label %.loopexit.i129.i, !llvm.loop !10
+  br i1 %577, label %575, label %.loopexit.i130.i, !llvm.loop !10
 
-.loopexit.i129.i:                                 ; preds = %575, %572, %.thread239.i
-  %.3143.i.i = phi i32 [ 0, %572 ], [ 0, %.thread239.i ], [ %.2142.i.i, %575 ]
-  %.1.i130.i = phi i32 [ %.2142.i.i, %572 ], [ %.2142.i.i, %.thread239.i ], [ %576, %575 ]
+.loopexit.i130.i:                                 ; preds = %575, %572, %.thread239.i
+  %.3143.i.i = phi i32 [ 0, %572 ], [ 0, %.thread239.i ], [ %.1141.i.i, %575 ]
+  %.0132.i.i = phi i32 [ %.1141.i.i, %572 ], [ %.1141.i.i, %.thread239.i ], [ %576, %575 ]
   %578 = load ptr, ptr %55, align 8
-  call void @heap_freeze_execute_prepared(ptr noundef %578, i32 noundef %321, i32 noundef %.1.i130.i, ptr noundef nonnull %15, i32 noundef %.2.i119.i) #9
-  %579 = sext i32 %.2.i119.i to i64
+  call void @heap_freeze_execute_prepared(ptr noundef %578, i32 noundef %321, i32 noundef %.0132.i.i, ptr noundef nonnull %15, i32 noundef %.1134.i.i) #9
+  %579 = sext i32 %.1134.i.i to i64
   br label %582
 
 580:                                              ; preds = %561, %559
@@ -1307,10 +1307,10 @@ default.unreachable:                              ; preds = %500
   store <2 x i32> %581, ptr %140, align 8
   br label %582
 
-582:                                              ; preds = %580, %.loopexit.i129.i, %567
-  %.2146.i.i = phi i8 [ %.1145.i.i, %567 ], [ %.1145.i.i, %.loopexit.i129.i ], [ 0, %580 ]
-  %.4.i.i = phi i32 [ %.2142.i.i, %567 ], [ %.3143.i.i, %.loopexit.i129.i ], [ %.2142.i.i, %580 ]
-  %.3.i.i = phi i64 [ 0, %567 ], [ %579, %.loopexit.i129.i ], [ 0, %580 ]
+582:                                              ; preds = %580, %.loopexit.i130.i, %567
+  %.2146.i.i = phi i8 [ %.1145.i.i, %567 ], [ %.1145.i.i, %.loopexit.i130.i ], [ 0, %580 ]
+  %.4.i.i = phi i32 [ %.1141.i.i, %567 ], [ %.3143.i.i, %.loopexit.i130.i ], [ %.1141.i.i, %580 ]
+  %.3.i.i = phi i64 [ 0, %567 ], [ %579, %.loopexit.i130.i ], [ 0, %580 ]
   %583 = icmp sgt i32 %.1136.i.i, 0
   br i1 %583, label %584, label %603
 
@@ -1356,11 +1356,11 @@ default.unreachable:                              ; preds = %500
   %.3302.i.i = phi i64 [ %.3.i.i, %600 ], [ %.3.i.i, %582 ], [ 0, %.thread287.i.i ]
   %.4301.i.i = phi i32 [ %.4.i.i, %600 ], [ %.4.i.i, %582 ], [ 0, %.thread287.i.i ]
   %.2146300.i.i = phi i8 [ %.2146.i.i, %600 ], [ %.2146.i.i, %582 ], [ 1, %.thread287.i.i ]
-  %.0153.lcssa224299.i.i = phi i32 [ %.2155.i.i, %600 ], [ %.2155.i.i, %582 ], [ 0, %.thread287.i.i ]
+  %.0153.lcssa224299.i.i = phi i32 [ %.1154.i.i, %600 ], [ %.1154.i.i, %582 ], [ 0, %.thread287.i.i ]
   %.0151.lcssa227298.i.i = phi i1 [ %.1152.i.i, %600 ], [ %.1152.i.i, %582 ], [ false, %.thread287.i.i ]
-  %.0137.lcssa237297.i.i = phi i32 [ %.2139.i.i, %600 ], [ %.2139.i.i, %582 ], [ 0, %.thread287.i.i ]
+  %.0137.lcssa237297.i.i = phi i32 [ %.1138.i.i, %600 ], [ %.1138.i.i, %582 ], [ 0, %.thread287.i.i ]
   %.0135.lcssa240296.i.i = phi i32 [ %.1136.i.i, %600 ], [ %.1136.i.i, %582 ], [ 0, %.thread287.i.i ]
-  %.3150.i.i = phi i8 [ 0, %600 ], [ %.2149.i.i, %582 ], [ 1, %.thread287.i.i ]
+  %.3150.i.i = phi i8 [ 0, %600 ], [ %.1148.i.i, %582 ], [ 1, %.thread287.i.i ]
   %605 = load i32, ptr %12, align 4
   %606 = sext i32 %605 to i64
   %607 = load i64, ptr %125, align 8
@@ -1544,14 +1544,14 @@ lazy_scan_prune.exit.i:                           ; preds = %676, %667, %665, %6
 
 693:                                              ; preds = %690
   %694 = trunc nuw i8 %.3.i to i1
-  %695 = sub i32 %.0221.i, %.195.i
+  %695 = sub i32 %.0221.i, %.296.i
   %696 = icmp ugt i32 %695, 1048575
   %or.cond.i234 = select i1 %694, i1 %696, i1 false
   br i1 %or.cond.i234, label %697, label %lazy_scan_new_or_empty.exit.thread.i
 
 697:                                              ; preds = %693
   %698 = load ptr, ptr %55, align 8
-  call void @FreeSpaceMapVacuumRange(ptr noundef %698, i32 noundef %.195.i, i32 noundef %301) #9
+  call void @FreeSpaceMapVacuumRange(ptr noundef %698, i32 noundef %.296.i, i32 noundef %301) #9
   br label %lazy_scan_new_or_empty.exit.thread.i
 
 699:                                              ; preds = %685
@@ -1559,9 +1559,9 @@ lazy_scan_prune.exit.i:                           ; preds = %676, %667, %665, %6
   br label %lazy_scan_new_or_empty.exit.thread.i
 
 lazy_scan_new_or_empty.exit.thread.i:             ; preds = %699, %697, %693, %690, %687, %.sink.split.i.i, %341, %298
-  %.8.i = phi i1 [ %.7.i, %697 ], [ %.7.i, %693 ], [ %.7.i, %690 ], [ %.7.i, %687 ], [ %.7.i, %699 ], [ %.3152216.i, %298 ], [ %.7.i, %341 ], [ %.7.i, %.sink.split.i.i ]
-  %.4148.i = phi i1 [ %.3147.i, %697 ], [ %.3147.i, %693 ], [ %.3147.i, %690 ], [ %.3147.i, %687 ], [ %.3147.i, %699 ], [ true, %298 ], [ %.3147.i, %341 ], [ %.3147.i, %.sink.split.i.i ]
-  %.296.i = phi i32 [ %301, %697 ], [ %.195.i, %693 ], [ %.195.i, %690 ], [ %.195.i, %687 ], [ %.195.i, %699 ], [ %.094219.i, %298 ], [ %.195.i, %341 ], [ %.195.i, %.sink.split.i.i ]
+  %.2151.i = phi i1 [ %.1150.i, %697 ], [ %.1150.i, %693 ], [ %.1150.i, %690 ], [ %.1150.i, %687 ], [ %.1150.i, %699 ], [ %.0149216.i, %298 ], [ %.1150.i, %341 ], [ %.1150.i, %.sink.split.i.i ]
+  %.2146.i = phi i1 [ %.1145.i, %697 ], [ %.1145.i, %693 ], [ %.1145.i, %690 ], [ %.1145.i, %687 ], [ %.1145.i, %699 ], [ true, %298 ], [ %.1145.i, %341 ], [ %.1145.i, %.sink.split.i.i ]
+  %.195.i = phi i32 [ %301, %697 ], [ %.296.i, %693 ], [ %.296.i, %690 ], [ %.296.i, %687 ], [ %.296.i, %699 ], [ %.094219.i, %298 ], [ %.296.i, %341 ], [ %.296.i, %.sink.split.i.i ]
   %.2.i = phi i32 [ %.1.i, %697 ], [ %.1.i, %693 ], [ %.1.i, %690 ], [ %.1.i, %687 ], [ %.1.i, %699 ], [ %.093220.i, %298 ], [ %.1.i, %341 ], [ %.1.i, %.sink.split.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %700 = add nuw i32 %.0221.i, 1
@@ -1569,7 +1569,7 @@ lazy_scan_new_or_empty.exit.thread.i:             ; preds = %699, %697, %693, %6
   br i1 %exitcond.not.i, label %._crit_edge.i, label %260, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %lazy_scan_new_or_empty.exit.thread.i, %lazy_scan_skip.exit.i
-  %.094.lcssa.i = phi i32 [ 0, %lazy_scan_skip.exit.i ], [ %.296.i, %lazy_scan_new_or_empty.exit.thread.i ]
+  %.094.lcssa.i = phi i32 [ 0, %lazy_scan_skip.exit.i ], [ %.195.i, %lazy_scan_new_or_empty.exit.thread.i ]
   %701 = getelementptr inbounds i8, ptr %55, i64 128
   store i32 -1, ptr %701, align 8
   %702 = load i32, ptr %21, align 4
@@ -3127,7 +3127,7 @@ BufferGetPage.exit.i.i.i:                         ; preds = %208, %202
 
 225:                                              ; preds = %270, %.lr.ph.i.i.i
   %.048.i.i = phi i8 [ 1, %.lr.ph.i.i.i ], [ %.149.i.i, %270 ]
-  %.0.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.2.i.i, %270 ]
+  %.0.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.1.i.i, %270 ]
   %.049.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %271, %270 ]
   store i16 %.049.i.i.i, ptr %98, align 4
   %226 = zext i16 %.049.i.i.i to i64
@@ -3217,7 +3217,7 @@ BufferGetPage.exit.i.i.i:                         ; preds = %208, %202
 
 270:                                              ; preds = %264, %260, %225, %225
   %.149.i.i = phi i8 [ %.048.i.i, %260 ], [ %.048.i.i, %225 ], [ %.048.i.i, %225 ], [ %spec.select56.i.i, %264 ]
-  %.2.i.i = phi i32 [ %spec.select55.i.i, %260 ], [ %.0.i.i, %225 ], [ %.0.i.i, %225 ], [ %spec.select55.i.i, %264 ]
+  %.1.i.i = phi i32 [ %spec.select55.i.i, %260 ], [ %.0.i.i, %225 ], [ %.0.i.i, %225 ], [ %spec.select55.i.i, %264 ]
   %271 = add i16 %.049.i.i.i, 1
   %.not53.i.i.i = icmp ugt i16 %271, %220
   br i1 %.not53.i.i.i, label %.loopexit.loopexit.i.i, label %225, !llvm.loop !23
@@ -3233,7 +3233,7 @@ heap_page_is_all_visible.exit.thread.i.i:         ; preds = %256, %245, %235, %2
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %BufferGetPage.exit.i.i.i
   %.351.i.i = phi i8 [ 3, %BufferGetPage.exit.i.i.i ], [ %273, %.loopexit.loopexit.i.i ]
-  %.4.i.i = phi i32 [ 0, %BufferGetPage.exit.i.i.i ], [ %.2.i.i, %.loopexit.loopexit.i.i ]
+  %.4.i.i = phi i32 [ 0, %BufferGetPage.exit.i.i.i ], [ %.1.i.i, %.loopexit.loopexit.i.i ]
   store i16 0, ptr %98, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %274 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 10

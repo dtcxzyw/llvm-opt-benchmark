@@ -613,9 +613,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1567,7 +1567,7 @@ if.then22:                                        ; preds = %call.i.noexc
   br label %cleanup
 
 lpad18:                                           ; preds = %if.then49.invoke, %if.then3.i, %if.then.i, %if.else, %invoke.cont54, %if.then53
-  %value.sroa.0.1 = phi ptr [ %value.sroa.0.2, %invoke.cont54 ], [ %value.sroa.0.2, %if.then53 ], [ %value.sroa.0.2, %if.else ], [ null, %if.then3.i ], [ null, %if.then.i ], [ %value.sroa.0.2, %if.then49.invoke ]
+  %value.sroa.0.1 = phi ptr [ %value.sroa.0.0, %invoke.cont54 ], [ %value.sroa.0.0, %if.then53 ], [ %value.sroa.0.0, %if.else ], [ null, %if.then3.i ], [ null, %if.then.i ], [ %value.sroa.0.0, %if.then49.invoke ]
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @uprv_free_75(ptr noundef %value.sroa.0.1)
@@ -1581,7 +1581,7 @@ terminate.lpad.i:                                 ; preds = %lpad18
   unreachable
 
 if.end23:                                         ; preds = %if.then3.i, %invoke.cont16
-  %value.sroa.0.2 = phi ptr [ null, %invoke.cont16 ], [ %call.i33, %if.then3.i ]
+  %value.sroa.0.0 = phi ptr [ null, %invoke.cont16 ], [ %call.i33, %if.then3.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %toConv, i8 0, i64 3, i1 false)
   %arrayidx39 = getelementptr inbounds i8, ptr %toConv, i64 1
   %sub.ptr.rhs.cast = ptrtoint ptr %toConv to i64
@@ -1624,7 +1624,7 @@ if.end34:                                         ; preds = %if.end30
   %call40 = call i64 @strtoul(ptr noundef nonnull %toConv, ptr noundef nonnull %stopstring, i32 noundef 16) #19
   %conv41 = trunc i64 %call40 to i8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %arrayidx.i36 = getelementptr inbounds i8, ptr %value.sroa.0.2, i64 %indvars.iv62
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %value.sroa.0.0, i64 %indvars.iv62
   store i8 %conv41, ptr %arrayidx.i36, align 1
   %19 = load ptr, ptr %stopstring, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %19 to i64
@@ -1658,13 +1658,13 @@ if.else:                                          ; preds = %for.end
   %24 = trunc nuw nsw i64 %indvars.iv62 to i32
   %bundle57 = getelementptr inbounds i8, ptr %state, i64 208
   %25 = load ptr, ptr %bundle57, align 8
-  %call61 = invoke ptr @bin_open(ptr noundef %25, ptr noundef %tag, i32 noundef %24, ptr noundef %value.sroa.0.2, ptr noundef null, ptr noundef %comment, ptr noundef nonnull %status)
+  %call61 = invoke ptr @bin_open(ptr noundef %25, ptr noundef %tag, i32 noundef %24, ptr noundef %value.sroa.0.0, ptr noundef null, ptr noundef %comment, ptr noundef nonnull %status)
           to label %cleanup unwind label %lpad18
 
 cleanup:                                          ; preds = %if.then49.invoke, %if.else, %invoke.cont54, %if.then22
-  %value.sroa.0.3 = phi ptr [ null, %if.then22 ], [ %value.sroa.0.2, %invoke.cont54 ], [ %value.sroa.0.2, %if.else ], [ %value.sroa.0.2, %if.then49.invoke ]
-  %retval.0 = phi ptr [ null, %if.then22 ], [ %call56, %invoke.cont54 ], [ %call61, %if.else ], [ null, %if.then49.invoke ]
-  invoke void @uprv_free_75(ptr noundef %value.sroa.0.3)
+  %value.sroa.0.2 = phi ptr [ null, %if.then22 ], [ %value.sroa.0.0, %invoke.cont54 ], [ %value.sroa.0.0, %if.else ], [ %value.sroa.0.0, %if.then49.invoke ]
+  %retval.1 = phi ptr [ null, %if.then22 ], [ %call56, %invoke.cont54 ], [ %call61, %if.else ], [ null, %if.then49.invoke ]
+  invoke void @uprv_free_75(ptr noundef %value.sroa.0.2)
           to label %cleanup62 unwind label %terminate.lpad.i37
 
 terminate.lpad.i37:                               ; preds = %cleanup
@@ -1675,7 +1675,7 @@ terminate.lpad.i37:                               ; preds = %cleanup
   unreachable
 
 cleanup62:                                        ; preds = %call.i.i.noexc, %cleanup, %invoke.cont4, %entry, %lor.lhs.false
-  %retval.1 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ null, %invoke.cont4 ], [ %retval.0, %cleanup ], [ null, %call.i.i.noexc ]
+  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ null, %invoke.cont4 ], [ %retval.1, %cleanup ], [ null, %call.i.i.noexc ]
   invoke void @uprv_free_75(ptr noundef %call)
           to label %_ZN6icu_7511LocalMemoryIcED2Ev.exit unwind label %terminate.lpad.i39
 
@@ -1687,7 +1687,7 @@ terminate.lpad.i39:                               ; preds = %cleanup62
   unreachable
 
 _ZN6icu_7511LocalMemoryIcED2Ev.exit:              ; preds = %cleanup62
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad18, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %11, %lpad18 ]
@@ -2719,10 +2719,10 @@ if.then48:                                        ; preds = %call.i.noexc, %invo
           to label %cleanup unwind label %lpad44
 
 lpad44:                                           ; preds = %if.then3.i, %if.then.i, %invoke.cont54, %invoke.cont52, %if.end50, %if.then48
-  %data.sroa.0.1 = phi ptr [ null, %if.then48 ], [ %call.i35, %invoke.cont54 ], [ %call.i35, %invoke.cont52 ], [ %call.i35, %if.end50 ], [ null, %if.then3.i ], [ null, %if.then.i ]
+  %data.sroa.0.0 = phi ptr [ null, %if.then48 ], [ %call.i35, %invoke.cont54 ], [ %call.i35, %invoke.cont52 ], [ %call.i35, %if.end50 ], [ null, %if.then3.i ], [ null, %if.then.i ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke void @uprv_free_75(ptr noundef %data.sroa.0.1)
+  invoke void @uprv_free_75(ptr noundef %data.sroa.0.0)
           to label %ehcleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad44
@@ -2748,9 +2748,9 @@ invoke.cont54:                                    ; preds = %invoke.cont52
           to label %cleanup unwind label %lpad44
 
 cleanup:                                          ; preds = %invoke.cont54, %if.then48
-  %data.sroa.0.051 = phi ptr [ null, %if.then48 ], [ %call.i35, %invoke.cont54 ]
-  %retval.0 = phi ptr [ null, %if.then48 ], [ %call58, %invoke.cont54 ]
-  invoke void @uprv_free_75(ptr noundef %data.sroa.0.051)
+  %data.sroa.0.151 = phi ptr [ null, %if.then48 ], [ %call.i35, %invoke.cont54 ]
+  %retval.2 = phi ptr [ null, %if.then48 ], [ %call58, %invoke.cont54 ]
+  invoke void @uprv_free_75(ptr noundef %data.sroa.0.151)
           to label %cleanup59 unwind label %terminate.lpad.i37
 
 terminate.lpad.i37:                               ; preds = %cleanup
@@ -2761,7 +2761,7 @@ terminate.lpad.i37:                               ; preds = %cleanup
   unreachable
 
 cleanup59:                                        ; preds = %cleanup, %invoke.cont26, %invoke.cont39
-  %retval.1 = phi ptr [ null, %invoke.cont39 ], [ null, %invoke.cont26 ], [ %retval.0, %cleanup ]
+  %retval.1 = phi ptr [ null, %invoke.cont39 ], [ null, %invoke.cont26 ], [ %retval.2, %cleanup ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fullname) #19
   br label %cleanup60
 
@@ -2771,7 +2771,7 @@ ehcleanup:                                        ; preds = %lpad44, %lpad17
   br label %ehcleanup61
 
 cleanup60:                                        ; preds = %call.i.i.noexc, %invoke.cont, %entry, %cleanup59
-  %retval.2 = phi ptr [ %retval.1, %cleanup59 ], [ null, %entry ], [ null, %invoke.cont ], [ null, %call.i.i.noexc ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup59 ], [ null, %entry ], [ null, %invoke.cont ], [ null, %call.i.i.noexc ]
   invoke void @uprv_free_75(ptr noundef %call)
           to label %_ZN6icu_7511LocalMemoryIcED2Ev.exit unwind label %terminate.lpad.i39
 
@@ -2783,7 +2783,7 @@ terminate.lpad.i39:                               ; preds = %cleanup60
   unreachable
 
 _ZN6icu_7511LocalMemoryIcED2Ev.exit:              ; preds = %cleanup60
-  ret ptr %retval.2
+  ret ptr %retval.0
 
 ehcleanup61:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad ]
@@ -3095,7 +3095,7 @@ if.end36:                                         ; preds = %if.end28
   br i1 %cmp42123, label %while.body.lr.ph.split.us, label %while.end119
 
 while.body.lr.ph.split.us:                        ; preds = %if.end36, %if.end118
-  %target.0.ph125 = phi ptr [ %target.4, %if.end118 ], [ %call39, %if.end36 ]
+  %target.0.ph125 = phi ptr [ %target.5, %if.end118 ], [ %call39, %if.end36 ]
   %quoted.0.ph124 = phi i8 [ %quoted.190, %if.end118 ], [ 0, %if.end36 ]
   %call43.us109 = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp44.us110 = icmp eq i32 %call43.us109, 39
@@ -3116,8 +3116,8 @@ if.else66.us:                                     ; preds = %while.body.lr.ph.sp
   br i1 %or.cond1.us, label %if.else77.us, label %while.cond71.us
 
 while.cond71.us:                                  ; preds = %if.else66.us, %while.body74.us
-  %c.1.us = phi i32 [ %call75.us, %while.body74.us ], [ 35, %if.else66.us ]
-  switch i32 %c.1.us, label %while.body74.us [
+  %c.2.us = phi i32 [ %call75.us, %while.body74.us ], [ 35, %if.else66.us ]
+  switch i32 %c.2.us, label %while.body74.us [
     i32 13, label %while.cond.backedge.us
     i32 10, label %while.cond.backedge.us
   ]
@@ -3157,7 +3157,7 @@ do.body.preheader:                                ; preds = %while.cond.backedge
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.end
-  %target.1122 = phi ptr [ %incdec.ptr, %do.end ], [ %target.0.ph125, %do.body.preheader ]
+  %target.2122 = phi ptr [ %incdec.ptr, %do.end ], [ %target.0.ph125, %do.body.preheader ]
   %c.0121 = phi i32 [ %call65, %do.end ], [ 91, %do.body.preheader ]
   %cmp55 = icmp slt i32 %c.0121, 65536
   br i1 %cmp55, label %if.then56, label %if.else
@@ -3173,15 +3173,15 @@ if.else:                                          ; preds = %do.body
   %19 = trunc i32 %c.0121 to i16
   %20 = and i16 %19, 1023
   %conv61 = or disjoint i16 %20, -9216
-  %arrayidx62 = getelementptr inbounds i8, ptr %target.1122, i64 2
+  %arrayidx62 = getelementptr inbounds i8, ptr %target.2122, i64 2
   store i16 %conv61, ptr %arrayidx62, align 2
   br label %do.end
 
 do.end:                                           ; preds = %if.then56, %if.else
   %.sink = phi i64 [ 2, %if.then56 ], [ 4, %if.else ]
   %conv59.sink = phi i16 [ %conv57, %if.then56 ], [ %conv59, %if.else ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.1122, i64 %.sink
-  store i16 %conv59.sink, ptr %target.1122, align 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %target.2122, i64 %.sink
+  store i16 %conv59.sink, ptr %target.2122, align 2
   %call65 = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp53.not = icmp eq i32 %call65, 93
   br i1 %cmp53.not, label %if.then102, label %do.body, !llvm.loop !16
@@ -3197,29 +3197,29 @@ if.then82:                                        ; preds = %if.then79
   br label %return
 
 if.end97:                                         ; preds = %land.lhs.true86.us, %if.else84.us, %if.then79
-  %c.2 = phi i32 [ %call80, %if.then79 ], [ %call43.us117, %if.else84.us ], [ %call43.us117, %land.lhs.true86.us ]
-  %cmp98.not = icmp eq i32 %c.2, -1
+  %c.1 = phi i32 [ %call80, %if.then79 ], [ %call43.us117, %if.else84.us ], [ %call43.us117, %land.lhs.true86.us ]
+  %cmp98.not = icmp eq i32 %c.1, -1
   br i1 %cmp98.not, label %while.end119, label %do.body100
 
 do.body100:                                       ; preds = %if.end97
-  %cmp101 = icmp slt i32 %c.2, 65536
+  %cmp101 = icmp slt i32 %c.1, 65536
   br i1 %cmp101, label %if.then102, label %if.else105
 
 if.then102:                                       ; preds = %do.end, %do.body100
   %quoted.191 = phi i8 [ %quoted.1.us118, %do.body100 ], [ 0, %do.end ]
-  %c.28086 = phi i32 [ %c.2, %do.body100 ], [ 93, %do.end ]
-  %target.38185 = phi ptr [ %target.0.ph125, %do.body100 ], [ %incdec.ptr, %do.end ]
-  %conv103 = trunc i32 %c.28086 to i16
-  %incdec.ptr104 = getelementptr inbounds i8, ptr %target.38185, i64 2
-  store i16 %conv103, ptr %target.38185, align 2
+  %c.18086 = phi i32 [ %c.1, %do.body100 ], [ 93, %do.end ]
+  %target.48185 = phi ptr [ %target.0.ph125, %do.body100 ], [ %incdec.ptr, %do.end ]
+  %conv103 = trunc i32 %c.18086 to i16
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %target.48185, i64 2
+  store i16 %conv103, ptr %target.48185, align 2
   br label %if.end118
 
 if.else105:                                       ; preds = %do.body100
-  %shr106 = lshr i32 %c.2, 10
+  %shr106 = lshr i32 %c.1, 10
   %21 = trunc i32 %shr106 to i16
   %conv108 = add i16 %21, -10304
   store i16 %conv108, ptr %target.0.ph125, align 2
-  %22 = trunc i32 %c.2 to i16
+  %22 = trunc i32 %c.1 to i16
   %23 = and i16 %22, 1023
   %conv112 = or disjoint i16 %23, -9216
   %arrayidx113 = getelementptr inbounds i8, ptr %target.0.ph125, i64 2
@@ -3229,12 +3229,12 @@ if.else105:                                       ; preds = %do.body100
 
 if.end118:                                        ; preds = %if.else105, %if.then102
   %quoted.190 = phi i8 [ %quoted.191, %if.then102 ], [ %quoted.1.us118, %if.else105 ]
-  %target.4 = phi ptr [ %incdec.ptr104, %if.then102 ], [ %add.ptr114, %if.else105 ]
-  %cmp42 = icmp ult ptr %target.4, %add.ptr
+  %target.5 = phi ptr [ %incdec.ptr104, %if.then102 ], [ %add.ptr114, %if.else105 ]
+  %cmp42 = icmp ult ptr %target.5, %add.ptr
   br i1 %cmp42, label %while.body.lr.ph.split.us, label %while.end119, !llvm.loop !17
 
 while.end119:                                     ; preds = %if.end97, %if.end118, %if.end36
-  %target.0.ph97 = phi ptr [ %call39, %if.end36 ], [ %target.0.ph125, %if.end97 ], [ %target.4, %if.end118 ]
+  %target.0.ph97 = phi ptr [ %call39, %if.end36 ], [ %target.0.ph125, %if.end97 ], [ %target.5, %if.end118 ]
   %cmp120 = icmp ult ptr %target.0.ph97, %add.ptr
   br i1 %cmp120, label %if.then121, label %if.end122
 
@@ -4257,7 +4257,7 @@ if.then288:                                       ; preds = %invoke.cont285
           to label %cleanup unwind label %lpad205
 
 cleanup:                                          ; preds = %invoke.cont246.invoke, %invoke.cont285, %if.then288
-  %retval.0 = phi ptr [ null, %if.then288 ], [ %result, %invoke.cont285 ], [ null, %invoke.cont246.invoke ]
+  %retval.3 = phi ptr [ null, %if.then288 ], [ %result, %invoke.cont285 ], [ null, %invoke.cont246.invoke ]
   %60 = load ptr, ptr %buffer, align 8
   invoke void @uprv_free_75(ptr noundef %60)
           to label %cleanup291 unwind label %terminate.lpad.i123
@@ -4270,7 +4270,7 @@ terminate.lpad.i123:                              ; preds = %cleanup
   unreachable
 
 cleanup291:                                       ; preds = %if.then190.invoke, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %if.then190.invoke ]
+  %retval.2 = phi ptr [ %retval.3, %cleanup ], [ null, %if.then190.invoke ]
   %isnull.i = icmp eq ptr %call135, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit, label %delete.notnull.i
 
@@ -4303,7 +4303,7 @@ ehcleanup293:                                     ; preds = %delete.notnull.i126
   br label %ehcleanup295
 
 cleanup294:                                       ; preds = %invoke.cont121, %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit
-  %retval.2 = phi ptr [ %retval.1, %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit ], [ null, %invoke.cont121 ]
+  %retval.1 = phi ptr [ %retval.2, %_ZN6icu_7512LocalPointerINS_18CollationTailoringEED2Ev.exit ], [ null, %invoke.cont121 ]
   call void @_ZN6icu_7519CollationRuleParser8ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %importer) #19
   br label %cleanup296
 
@@ -4313,9 +4313,9 @@ ehcleanup295:                                     ; preds = %ehcleanup293, %lpad
   br label %ehcleanup297
 
 cleanup296:                                       ; preds = %if.then20.invoke, %invoke.cont103, %if.then106, %invoke.cont93, %if.then96, %for.end, %if.then9, %if.else, %cleanup294
-  %retval.3 = phi ptr [ %retval.2, %cleanup294 ], [ null, %if.else ], [ null, %if.then9 ], [ %result, %for.end ], [ %result, %if.then96 ], [ %result, %invoke.cont93 ], [ %result, %if.then106 ], [ %result, %invoke.cont103 ], [ null, %if.then20.invoke ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup294 ], [ null, %if.else ], [ null, %if.then9 ], [ %result, %for.end ], [ %result, %if.then96 ], [ %result, %invoke.cont93 ], [ %result, %if.then106 ], [ %result, %invoke.cont103 ], [ null, %if.then20.invoke ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %rules) #19
-  ret ptr %retval.3
+  ret ptr %retval.0
 
 ehcleanup297:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup295
   %.pn95 = phi { ptr, i32 } [ %.pn93, %ehcleanup295 ], [ %lpad.loopexit152, %lpad.loopexit ], [ %lpad.loopexit.split-lp153, %lpad.loopexit.split-lp ]

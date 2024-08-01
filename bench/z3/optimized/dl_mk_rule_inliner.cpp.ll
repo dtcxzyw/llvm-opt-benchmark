@@ -3916,7 +3916,7 @@ for.body47.lr.ph:                                 ; preds = %_ZNK7datalog8rule_s
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.inc78
   %indvars.iv825 = phi i64 [ 0, %for.body47.lr.ph ], [ %indvars.iv.next826, %for.inc78 ]
-  %something_forbidden.5741 = phi i1 [ %something_forbidden.0.lcssa, %for.body47.lr.ph ], [ %something_forbidden.8, %for.inc78 ]
+  %something_forbidden.5741 = phi i1 [ %something_forbidden.0.lcssa, %for.body47.lr.ph ], [ %something_forbidden.6, %for.inc78 ]
   %104 = load ptr, ptr %m_nodes.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv825
   %105 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -3940,7 +3940,7 @@ for.body60.lr.ph:                                 ; preds = %if.end54
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc75
   %indvars.iv821 = phi i64 [ 0, %for.body60.lr.ph ], [ %indvars.iv.next822, %for.inc75 ]
-  %something_forbidden.6736 = phi i1 [ %something_forbidden.5741, %for.body60.lr.ph ], [ %something_forbidden.7, %for.inc75 ]
+  %something_forbidden.7736 = phi i1 [ %something_forbidden.5741, %for.body60.lr.ph ], [ %something_forbidden.8, %for.inc75 ]
   %has_multi_head_pred.0735 = phi i1 [ false, %for.body60.lr.ph ], [ %has_multi_head_pred.1, %for.inc75 ]
   %arrayidx.i.i54 = getelementptr inbounds [0 x ptr], ptr %m_tail.i.i52, i64 0, i64 %indvars.iv821
   %109 = load ptr, ptr %arrayidx.i.i54, align 8
@@ -4303,19 +4303,19 @@ for.end56.i326:                                   ; preds = %for.cond27.preheade
 
 for.inc75:                                        ; preds = %_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_.exit290, %if.end48.i332, %if.then37.i340, %if.end21.i346, %if.then14.i354, %for.body60
   %has_multi_head_pred.1 = phi i1 [ %has_multi_head_pred.0.mux, %_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_.exit290 ], [ %has_multi_head_pred.0735, %for.body60 ], [ true, %if.then14.i354 ], [ true, %if.end21.i346 ], [ true, %if.then37.i340 ], [ true, %if.end48.i332 ]
-  %something_forbidden.7 = phi i1 [ %something_forbidden.6736, %_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_.exit290 ], [ %something_forbidden.6736, %for.body60 ], [ true, %if.then14.i354 ], [ true, %if.end21.i346 ], [ true, %if.then37.i340 ], [ true, %if.end48.i332 ]
+  %something_forbidden.8 = phi i1 [ %something_forbidden.7736, %_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_.exit290 ], [ %something_forbidden.7736, %for.body60 ], [ true, %if.then14.i354 ], [ true, %if.end21.i346 ], [ true, %if.then37.i340 ], [ true, %if.end48.i332 ]
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %exitcond824.not = icmp eq i64 %indvars.iv.next822, %wide.trip.count823
   br i1 %exitcond824.not, label %for.inc78, label %for.body60, !llvm.loop !28
 
 for.inc78:                                        ; preds = %for.inc75, %if.end54, %for.body47
-  %something_forbidden.8 = phi i1 [ %something_forbidden.5741, %for.body47 ], [ %something_forbidden.5741, %if.end54 ], [ %something_forbidden.7, %for.inc75 ]
+  %something_forbidden.6 = phi i1 [ %something_forbidden.5741, %for.body47 ], [ %something_forbidden.5741, %if.end54 ], [ %something_forbidden.8, %for.inc75 ]
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
   %exitcond828.not = icmp eq i64 %indvars.iv.next826, %wide.trip.count827
   br i1 %exitcond828.not, label %for.end80, label %for.body47, !llvm.loop !29
 
 for.end80:                                        ; preds = %for.inc78, %for.end43, %_ZNK7datalog8rule_set13get_num_rulesEv.exit
-  %something_forbidden.5.lcssa = phi i1 [ %something_forbidden.0.lcssa, %_ZNK7datalog8rule_set13get_num_rulesEv.exit ], [ %something_forbidden.0.lcssa, %for.end43 ], [ %something_forbidden.8, %for.inc78 ]
+  %something_forbidden.5.lcssa = phi i1 [ %something_forbidden.0.lcssa, %_ZNK7datalog8rule_set13get_num_rulesEv.exit ], [ %something_forbidden.0.lcssa, %for.end43 ], [ %something_forbidden.6, %for.inc78 ]
   ret i1 %something_forbidden.5.lcssa
 }
 
@@ -5762,7 +5762,7 @@ if.then15:                                        ; preds = %_ZNK6vectorIPN7data
 
 for.body20:                                       ; preds = %for.body20.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body20.preheader ], [ %indvars.iv.next, %for.inc ]
-  %inlining_candidate.050 = phi ptr [ null, %for.body20.preheader ], [ %inlining_candidate.1, %for.inc ]
+  %inlining_candidate.150 = phi ptr [ null, %for.body20.preheader ], [ %inlining_candidate.2, %for.inc ]
   %19 = load ptr, ptr %call10, align 8
   %arrayidx.i28 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx.i28, align 8
@@ -5770,18 +5770,18 @@ for.body20:                                       ; preds = %for.body20.preheade
   br i1 %call22, label %if.end24, label %for.inc
 
 if.end24:                                         ; preds = %for.body20
-  %cmp25.not = icmp eq ptr %inlining_candidate.050, null
+  %cmp25.not = icmp eq ptr %inlining_candidate.150, null
   br i1 %cmp25.not, label %for.inc, label %for.inc42
 
 for.inc:                                          ; preds = %if.end24, %for.body20
-  %inlining_candidate.1 = phi ptr [ %inlining_candidate.050, %for.body20 ], [ %20, %if.end24 ]
+  %inlining_candidate.2 = phi ptr [ %inlining_candidate.150, %for.body20 ], [ %20, %if.end24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end29, label %for.body20, !llvm.loop !35
 
 if.end29:                                         ; preds = %for.inc, %if.then15
-  %inlining_candidate.2 = phi ptr [ %18, %if.then15 ], [ %inlining_candidate.1, %for.inc ]
-  %cmp30 = icmp eq ptr %inlining_candidate.2, null
+  %inlining_candidate.0 = phi ptr [ %18, %if.then15 ], [ %inlining_candidate.2, %for.inc ]
+  %cmp30 = icmp eq ptr %inlining_candidate.0, null
   br i1 %cmp30, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.end9, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit, %if.end29
@@ -5803,20 +5803,20 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSEPS1_.exit: ; preds = %if.then3
   br label %return
 
 if.end33:                                         ; preds = %if.end29
-  %m_head.i.i.i = getelementptr inbounds i8, ptr %inlining_candidate.2, i64 40
+  %m_head.i.i.i = getelementptr inbounds i8, ptr %inlining_candidate.0, i64 40
   %24 = load ptr, ptr %m_head.i.i.i, align 8
   %m_decl.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %m_decl.i.i.i, align 8
   %call2.i = tail call noundef i32 @_ZNK7datalog15rule_stratifier19get_predicate_stratEP9func_decl(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %25)
   %m_arity.i.i = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load i32, ptr %m_arity.i.i, align 8
-  %m_positive_cnt.i.i = getelementptr inbounds i8, ptr %inlining_candidate.2, i64 64
+  %m_positive_cnt.i.i = getelementptr inbounds i8, ptr %inlining_candidate.0, i64 64
   %27 = load i32, ptr %m_positive_cnt.i.i, align 8
   %cmp15.i = icmp eq i32 %27, 0
   br i1 %cmp15.i, label %if.end36, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end33
-  %m_tail.i.i.i = getelementptr inbounds i8, ptr %inlining_candidate.2, i64 80
+  %m_tail.i.i.i = getelementptr inbounds i8, ptr %inlining_candidate.0, i64 80
   %28 = zext i32 %27 to i64
   br label %for.body.i
 
@@ -5862,7 +5862,7 @@ _ZN7datalog15mk_rule_inliner20is_oriented_rewriterEPNS_4ruleERKNS_15rule_stratif
 
 if.end36:                                         ; preds = %if.end33, %_ZN7datalog15mk_rule_inliner20is_oriented_rewriterEPNS_4ruleERKNS_15rule_stratifierE.exit
   %36 = trunc nuw i64 %indvars.iv60 to i32
-  %call37 = tail call noundef zeroext i1 @_ZN7datalog15mk_rule_inliner18try_to_inline_ruleERNS_4ruleES2_jR7obj_refIS1_NS_12rule_managerEE(ptr noundef nonnull align 8 dereferenceable(1672) %this, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(80) %inlining_candidate.2, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %res)
+  %call37 = tail call noundef zeroext i1 @_ZN7datalog15mk_rule_inliner18try_to_inline_ruleERNS_4ruleES2_jR7obj_refIS1_NS_12rule_managerEE(ptr noundef nonnull align 8 dereferenceable(1672) %this, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(80) %inlining_candidate.0, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %res)
   br i1 %call37, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
@@ -7858,14 +7858,14 @@ invoke.cont95.preheader.lr.ph:                    ; preds = %for.cond90.preheade
 
 invoke.cont95.preheader:                          ; preds = %invoke.cont95.preheader.lr.ph, %for.inc207
   %indvars.iv394 = phi i64 [ 0, %invoke.cont95.preheader.lr.ph ], [ %indvars.iv.next395, %for.inc207 ]
-  %done_something.0371 = phi i1 [ false, %invoke.cont95.preheader.lr.ph ], [ %done_something.3, %for.inc207 ]
-  %max_var.2369 = phi i32 [ %max_var.0.lcssa, %invoke.cont95.preheader.lr.ph ], [ %max_var.5, %for.inc207 ]
+  %done_something.0371 = phi i1 [ false, %invoke.cont95.preheader.lr.ph ], [ %done_something.2, %for.inc207 ]
+  %max_var.2369 = phi i32 [ %max_var.0.lcssa, %invoke.cont95.preheader.lr.ph ], [ %max_var.4, %for.inc207 ]
   %61 = trunc nuw i64 %indvars.iv394 to i32
   br label %invoke.cont95
 
 invoke.cont95:                                    ; preds = %invoke.cont95.preheader, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268
-  %max_var.3 = phi i32 [ %max_var.5, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268 ], [ %max_var.2369, %invoke.cont95.preheader ]
-  %done_something.1 = phi i1 [ %done_something.3, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268 ], [ %done_something.0371, %invoke.cont95.preheader ]
+  %max_var.3 = phi i32 [ %max_var.4, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268 ], [ %max_var.2369, %invoke.cont95.preheader ]
+  %done_something.1 = phi i1 [ %done_something.2, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268 ], [ %done_something.0371, %invoke.cont95.preheader ]
   %62 = load ptr, ptr %m_nodes.i.i55, align 8
   %arrayidx.i.i138 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv394
   %63 = load ptr, ptr %arrayidx.i.i138, align 8
@@ -8277,9 +8277,9 @@ for.end.i.i.i.i221:                               ; preds = %for.body.i5.i.i.i21
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end.i.i.i.i221, %if.end.i.i.i206, %invoke.cont165
-  %max_var.4 = phi i32 [ %max_var.3, %invoke.cont165 ], [ %.sroa.speculated, %if.end.i.i.i206 ], [ %.sroa.speculated, %for.end.i.i.i.i221 ]
-  %cleanup.dest.slot.0 = phi i32 [ 18, %invoke.cont165 ], [ 0, %if.end.i.i.i206 ], [ 0, %for.end.i.i.i.i221 ]
-  %done_something.2 = phi i1 [ %done_something.1, %invoke.cont165 ], [ true, %if.end.i.i.i206 ], [ true, %for.end.i.i.i.i221 ]
+  %max_var.5 = phi i32 [ %max_var.3, %invoke.cont165 ], [ %.sroa.speculated, %if.end.i.i.i206 ], [ %.sroa.speculated, %for.end.i.i.i.i221 ]
+  %cleanup.dest.slot.1 = phi i32 [ 18, %invoke.cont165 ], [ 0, %if.end.i.i.i206 ], [ 0, %for.end.i.i.i.i221 ]
+  %done_something.3 = phi i1 [ %done_something.1, %invoke.cont165 ], [ true, %if.end.i.i.i206 ], [ true, %for.end.i.i.i.i221 ]
   %114 = load ptr, ptr %rl_res, align 8
   %tobool.not.i.i261 = icmp eq ptr %114, null
   br i1 %tobool.not.i.i261, label %cleanup206, label %if.then.i.i262
@@ -8297,9 +8297,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i262
   unreachable
 
 cleanup206:                                       ; preds = %invoke.cont117, %if.then.i.i262, %cleanup, %_ZNK6vectorIjLb0EjE4sizeEv.exit176, %if.end125, %lor.lhs.false, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %if.end, %invoke.cont100
-  %max_var.5 = phi i32 [ %max_var.3, %lor.lhs.false ], [ %max_var.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit176 ], [ %max_var.3, %if.end125 ], [ %max_var.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %max_var.3, %if.end ], [ %max_var.3, %invoke.cont100 ], [ %max_var.4, %cleanup ], [ %max_var.4, %if.then.i.i262 ], [ %max_var.3, %invoke.cont117 ]
-  %cleanup.dest.slot.1 = phi i32 [ 18, %lor.lhs.false ], [ 18, %_ZNK6vectorIjLb0EjE4sizeEv.exit176 ], [ 18, %if.end125 ], [ 18, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ 18, %if.end ], [ 18, %invoke.cont100 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i262 ], [ 18, %invoke.cont117 ]
-  %done_something.3 = phi i1 [ %done_something.1, %lor.lhs.false ], [ %done_something.1, %_ZNK6vectorIjLb0EjE4sizeEv.exit176 ], [ %done_something.1, %if.end125 ], [ %done_something.1, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %done_something.1, %if.end ], [ %done_something.1, %invoke.cont100 ], [ %done_something.2, %cleanup ], [ %done_something.2, %if.then.i.i262 ], [ %done_something.1, %invoke.cont117 ]
+  %max_var.4 = phi i32 [ %max_var.3, %lor.lhs.false ], [ %max_var.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit176 ], [ %max_var.3, %if.end125 ], [ %max_var.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %max_var.3, %if.end ], [ %max_var.3, %invoke.cont100 ], [ %max_var.5, %cleanup ], [ %max_var.5, %if.then.i.i262 ], [ %max_var.3, %invoke.cont117 ]
+  %cleanup.dest.slot.0 = phi i32 [ 18, %lor.lhs.false ], [ 18, %_ZNK6vectorIjLb0EjE4sizeEv.exit176 ], [ 18, %if.end125 ], [ 18, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ 18, %if.end ], [ 18, %invoke.cont100 ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i262 ], [ 18, %invoke.cont117 ]
+  %done_something.2 = phi i1 [ %done_something.1, %lor.lhs.false ], [ %done_something.1, %_ZNK6vectorIjLb0EjE4sizeEv.exit176 ], [ %done_something.1, %if.end125 ], [ %done_something.1, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %done_something.1, %if.end ], [ %done_something.1, %invoke.cont100 ], [ %done_something.3, %cleanup ], [ %done_something.3, %if.then.i.i262 ], [ %done_something.1, %invoke.cont117 ]
   %118 = load ptr, ptr %r93, align 8
   %tobool.not.i.i264 = icmp eq ptr %118, null
   br i1 %tobool.not.i.i264, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268, label %if.then.i.i265
@@ -8317,7 +8317,7 @@ terminate.lpad.i267:                              ; preds = %if.then.i.i265
   unreachable
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit268: ; preds = %cleanup206, %if.then.i.i265
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %invoke.cont95, label %for.inc207
 
 ehcleanup:                                        ; preds = %lpad162.body, %lpad101
@@ -8331,7 +8331,7 @@ for.inc207:                                       ; preds = %_ZN7obj_refIN7datal
   br i1 %exitcond397.not, label %for.end209, label %invoke.cont95.preheader, !llvm.loop !49
 
 for.end209:                                       ; preds = %for.inc207
-  br i1 %done_something.3, label %if.then211, label %if.end248
+  br i1 %done_something.2, label %if.then211, label %if.end248
 
 if.then211:                                       ; preds = %for.end209
   %call213 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 248)
@@ -8410,7 +8410,7 @@ if.end248.sink.split:                             ; preds = %if.end.i.i, %if.the
   br label %if.end248
 
 if.end248:                                        ; preds = %if.end248.sink.split, %for.cond90.preheader, %invoke.cont242, %for.end209
-  %done_something.0.lcssa421 = phi i1 [ %done_something.3, %invoke.cont242 ], [ false, %for.end209 ], [ false, %for.cond90.preheader ], [ %done_something.3, %if.end248.sink.split ]
+  %done_something.0.lcssa421 = phi i1 [ %done_something.2, %invoke.cont242 ], [ false, %for.end209 ], [ false, %for.cond90.preheader ], [ %done_something.2, %if.end248.sink.split ]
   %129 = load ptr, ptr %valid, align 8
   %tobool.not.i.i.i = icmp eq ptr %129, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIbjED2Ev.exit, label %if.then.i.i.i284
@@ -8871,13 +8871,13 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i46
   unreachable
 
 ehcleanup:                                        ; preds = %lpad37, %lpad30
-  %ehselector.slot.0 = phi i32 [ %34, %lpad30 ], [ %37, %lpad37 ]
-  %exn.slot.0 = phi ptr [ %33, %lpad30 ], [ %36, %lpad37 ]
+  %ehselector.slot.1 = phi i32 [ %34, %lpad30 ], [ %37, %lpad37 ]
+  %exn.slot.1 = phi ptr [ %33, %lpad30 ], [ %36, %lpad37 ]
   call void @_ZN10scoped_ptrIN7datalog8rule_setEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %res) #19
   br label %ehcleanup87
 
 cleanup86:                                        ; preds = %invoke.cont7, %for.body.preheader.i, %if.end.i.i46, %cleanup, %cleanup.thread, %invoke.cont
-  %retval.1.ph = phi ptr [ null, %if.end.i.i46 ], [ null, %cleanup ], [ %52, %cleanup.thread ], [ null, %invoke.cont ], [ null, %for.body.preheader.i ], [ null, %invoke.cont7 ]
+  %retval.0.ph = phi ptr [ null, %if.end.i.i46 ], [ null, %cleanup ], [ %52, %cleanup.thread ], [ null, %invoke.cont ], [ null, %for.body.preheader.i ], [ null, %invoke.cont7 ]
   %.pr65 = load ptr, ptr %hsmc, align 8
   %tobool.not.i.i47 = icmp eq ptr %.pr65, null
   br i1 %tobool.not.i.i47, label %_ZN3refI28horn_subsume_model_converterED2Ev.exit, label %if.then.i.i48
@@ -8905,15 +8905,15 @@ terminate.lpad.i54:                               ; preds = %if.then.i.i.i52
   unreachable
 
 _ZN3refI28horn_subsume_model_converterED2Ev.exit: ; preds = %entry, %cleanup86, %if.then.i.i48, %if.then.i.i.i52
-  %retval.168 = phi ptr [ %retval.1.ph, %cleanup86 ], [ %retval.1.ph, %if.then.i.i48 ], [ %retval.1.ph, %if.then.i.i.i52 ], [ null, %entry ]
-  ret ptr %retval.168
+  %retval.068 = phi ptr [ %retval.0.ph, %cleanup86 ], [ %retval.0.ph, %if.then.i.i48 ], [ %retval.0.ph, %if.then.i.i.i52 ], [ null, %entry ]
+  ret ptr %retval.068
 
 ehcleanup87:                                      ; preds = %ehcleanup, %lpad.body
-  %ehselector.slot.1 = phi i32 [ %4, %lpad.body ], [ %ehselector.slot.0, %ehcleanup ]
-  %exn.slot.1 = phi ptr [ %3, %lpad.body ], [ %exn.slot.0, %ehcleanup ]
+  %ehselector.slot.0 = phi i32 [ %4, %lpad.body ], [ %ehselector.slot.1, %ehcleanup ]
+  %exn.slot.0 = phi ptr [ %3, %lpad.body ], [ %exn.slot.1, %ehcleanup ]
   call void @_ZN3refI28horn_subsume_model_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %hsmc) #19
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val90 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val90 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val90
 }
 

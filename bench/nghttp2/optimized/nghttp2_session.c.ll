@@ -653,7 +653,7 @@ if.then80:                                        ; preds = %if.end76
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then80, %if.end76
-  %max_deflate_dynamic_table_size.0 = phi i64 [ %52, %if.then80 ], [ 4096, %if.end76 ]
+  %max_deflate_dynamic_table_size.1 = phi i64 [ %52, %if.then80 ], [ 4096, %if.end76 ]
   %and84 = and i32 %51, 1024
   %tobool85.not = icmp eq i32 %and84, 0
   br i1 %tobool85.not, label %if.end91, label %land.lhs.true86
@@ -765,10 +765,10 @@ if.then130:                                       ; preds = %if.end126
   br label %if.end133
 
 if.end133:                                        ; preds = %if.end126, %if.then130, %if.end9
-  %max_deflate_dynamic_table_size.1 = phi i64 [ %max_deflate_dynamic_table_size.0, %if.then130 ], [ %max_deflate_dynamic_table_size.0, %if.end126 ], [ 4096, %if.end9 ]
+  %max_deflate_dynamic_table_size.0 = phi i64 [ %max_deflate_dynamic_table_size.1, %if.then130 ], [ %max_deflate_dynamic_table_size.1, %if.end126 ], [ 4096, %if.end9 ]
   %74 = load ptr, ptr %session_ptr, align 8
   %hd_deflater = getelementptr inbounds i8, ptr %74, i64 992
-  %call134 = tail call i32 @nghttp2_hd_deflate_init2(ptr noundef nonnull %hd_deflater, i64 noundef %max_deflate_dynamic_table_size.1, ptr noundef nonnull %mem6) #17
+  %call134 = tail call i32 @nghttp2_hd_deflate_init2(ptr noundef nonnull %hd_deflater, i64 noundef %max_deflate_dynamic_table_size.0, ptr noundef nonnull %mem6) #17
   %cmp135.not = icmp eq i32 %call134, 0
   br i1 %cmp135.not, label %if.end138, label %fail_hd_deflater
 
@@ -870,14 +870,14 @@ fail_aob_framebuf:                                ; preds = %if.end143
   br label %fail_hd_inflater
 
 fail_hd_inflater:                                 ; preds = %if.end138, %fail_aob_framebuf
-  %rv.0 = phi i32 [ %call139, %if.end138 ], [ %call149, %fail_aob_framebuf ]
+  %rv.2 = phi i32 [ %call139, %if.end138 ], [ %call149, %fail_aob_framebuf ]
   %91 = load ptr, ptr %session_ptr, align 8
   %hd_deflater181 = getelementptr inbounds i8, ptr %91, i64 992
   tail call void @nghttp2_hd_deflate_free(ptr noundef nonnull %hd_deflater181) #17
   br label %fail_hd_deflater
 
 fail_hd_deflater:                                 ; preds = %if.end133, %fail_hd_inflater
-  %rv.1 = phi i32 [ %call134, %if.end133 ], [ %rv.0, %fail_hd_inflater ]
+  %rv.1 = phi i32 [ %call134, %if.end133 ], [ %rv.2, %fail_hd_inflater ]
   %92 = load ptr, ptr %session_ptr, align 8
   tail call void @nghttp2_mem_free(ptr noundef nonnull %mem6, ptr noundef %92) #17
   br label %return
@@ -9004,7 +9004,7 @@ for.cond.preheader:                               ; preds = %if.end.i, %nghttp2_
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %sw.epilog1524
-  %in.addr.1 = phi ptr [ %in.addr.7, %sw.epilog1524 ], [ %in.addr.0, %for.cond.preheader ]
+  %in.addr.1 = phi ptr [ %in.addr.2, %sw.epilog1524 ], [ %in.addr.0, %for.cond.preheader ]
   %8 = load i32, ptr %state, align 8
   switch i32 %8, label %sw.epilog1524 [
     i32 0, label %sw.bb
@@ -9106,8 +9106,8 @@ if.end67:                                         ; preds = %lor.lhs.false
   br label %sw.bb69
 
 sw.bb69:                                          ; preds = %if.end67, %for.cond
-  %in.addr.2 = phi ptr [ %in.addr.1, %for.cond ], [ %add.ptr35, %if.end67 ]
-  %sub.ptr.rhs.cast.i743 = ptrtoint ptr %in.addr.2 to i64
+  %in.addr.3 = phi ptr [ %in.addr.1, %for.cond ], [ %add.ptr35, %if.end67 ]
+  %sub.ptr.rhs.cast.i743 = ptrtoint ptr %in.addr.3 to i64
   %sub.ptr.sub.i744 = sub i64 %sub.ptr.lhs.cast.i1180, %sub.ptr.rhs.cast.i743
   %17 = load ptr, ptr %mark.i1011, align 8
   %18 = load ptr, ptr %last2.i1012, align 8
@@ -9115,9 +9115,9 @@ sw.bb69:                                          ; preds = %if.end67, %for.cond
   %sub.ptr.rhs.cast4.i748 = ptrtoint ptr %18 to i64
   %sub.ptr.sub5.i749 = sub i64 %sub.ptr.lhs.cast3.i747, %sub.ptr.rhs.cast4.i748
   %sub.ptr.sub.sub.ptr.sub5.i750 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i744, i64 %sub.ptr.sub5.i749)
-  %call.i751 = call ptr @nghttp2_cpymem(ptr noundef %18, ptr noundef %in.addr.2, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i750) #17
+  %call.i751 = call ptr @nghttp2_cpymem(ptr noundef %18, ptr noundef %in.addr.3, i64 noundef %sub.ptr.sub.sub.ptr.sub5.i750) #17
   store ptr %call.i751, ptr %last2.i1012, align 8
-  %add.ptr73 = getelementptr inbounds i8, ptr %in.addr.2, i64 %sub.ptr.sub.sub.ptr.sub5.i750
+  %add.ptr73 = getelementptr inbounds i8, ptr %in.addr.3, i64 %sub.ptr.sub.sub.ptr.sub5.i750
   %19 = load ptr, ptr %mark.i1011, align 8
   %tobool81.not = icmp eq ptr %19, %call.i751
   br i1 %tobool81.not, label %if.end86, label %if.then82
@@ -10328,7 +10328,7 @@ do.end.i:                                         ; preds = %land.rhs.i.i, %if.e
   br i1 %cmp845.not, label %do.end.split.i, label %for.cond.us.i
 
 for.cond.us.i:                                    ; preds = %do.end.i, %if.end124.us.i
-  %hd_proclen.0 = phi i64 [ %add.us.i, %if.end124.us.i ], [ 0, %do.end.i ]
+  %hd_proclen.5 = phi i64 [ %add.us.i, %if.end124.us.i ], [ 0, %do.end.i ]
   %inlen.addr.0.us.i = phi i64 [ %sub.us.i, %if.end124.us.i ], [ %spec.store.select1, %do.end.i ]
   %in.addr.0.us.i = phi ptr [ %add.ptr.us.i, %if.end124.us.i ], [ %in.addr.1, %do.end.i ]
   store i32 0, ptr %inflate_flags.i, align 4
@@ -10342,7 +10342,7 @@ if.end9.us.i:                                     ; preds = %for.cond.us.i
   br i1 %cmp10.us.i, label %if.then12.i, label %if.end34.us.i
 
 if.end34.us.i:                                    ; preds = %if.end9.us.i
-  %add.us.i = add i64 %call4.us.i, %hd_proclen.0
+  %add.us.i = add i64 %call4.us.i, %hd_proclen.5
   %153 = load i32, ptr %inflate_flags.i, align 4
   %and119.us.i = and i32 %153, 1
   %tobool120.not.us.i = icmp eq i32 %and119.us.i, 0
@@ -10362,7 +10362,7 @@ do.end.split.i:                                   ; preds = %do.end.i
   br i1 %tobool41.not.i, label %for.cond.us133.i, label %for.cond.i
 
 for.cond.us133.i:                                 ; preds = %do.end.split.i, %if.end124.us148.i
-  %hd_proclen.1 = phi i64 [ %add.us144.i, %if.end124.us148.i ], [ 0, %do.end.split.i ]
+  %hd_proclen.4 = phi i64 [ %add.us144.i, %if.end124.us148.i ], [ 0, %do.end.split.i ]
   %inlen.addr.0.us134.i = phi i64 [ %sub.us143.i, %if.end124.us148.i ], [ %spec.store.select1, %do.end.split.i ]
   %in.addr.0.us135.i = phi ptr [ %add.ptr.us142.i, %if.end124.us148.i ], [ %in.addr.1, %do.end.split.i ]
   store i32 0, ptr %inflate_flags.i, align 4
@@ -10376,7 +10376,7 @@ if.end9.us139.i:                                  ; preds = %for.cond.us133.i
   br i1 %cmp10.us140.i, label %if.then12.i, label %if.end34.us141.i
 
 if.end34.us141.i:                                 ; preds = %if.end9.us139.i
-  %add.us144.i = add i64 %call4.us136.i, %hd_proclen.1
+  %add.us144.i = add i64 %call4.us136.i, %hd_proclen.4
   %154 = load i32, ptr %inflate_flags.i, align 4
   %and119.us146.i = and i32 %154, 1
   %tobool120.not.us147.i = icmp eq i32 %and119.us146.i, 0
@@ -10392,7 +10392,7 @@ if.end124.us148.i:                                ; preds = %if.end34.us141.i
   br i1 %or.cond.us152.i, label %inflate_header_block.exit.thread1259, label %for.cond.us133.i
 
 for.cond.i:                                       ; preds = %do.end.split.i, %if.end124.i
-  %hd_proclen.2 = phi i64 [ %add.i924, %if.end124.i ], [ 0, %do.end.split.i ]
+  %hd_proclen.0 = phi i64 [ %add.i924, %if.end124.i ], [ 0, %do.end.split.i ]
   %inlen.addr.0.i = phi i64 [ %sub.i923, %if.end124.i ], [ %spec.store.select1, %do.end.split.i ]
   %in.addr.0.i = phi ptr [ %add.ptr.i922, %if.end124.i ], [ %in.addr.1, %do.end.split.i ]
   store i32 0, ptr %inflate_flags.i, align 4
@@ -10406,7 +10406,7 @@ if.end9.i:                                        ; preds = %for.cond.i
   br i1 %cmp10.i, label %if.then12.i, label %if.end34.i
 
 if.then12.i:                                      ; preds = %if.end9.us.i, %if.end9.i, %if.end9.us139.i
-  %hd_proclen.3 = phi i64 [ %hd_proclen.1, %if.end9.us139.i ], [ %hd_proclen.2, %if.end9.i ], [ %hd_proclen.0, %if.end9.us.i ]
+  %hd_proclen.3 = phi i64 [ %hd_proclen.4, %if.end9.us139.i ], [ %hd_proclen.0, %if.end9.i ], [ %hd_proclen.5, %if.end9.us.i ]
   %155 = load i32, ptr %state, align 8
   %cmp13.i = icmp eq i32 %155, 4
   %tobool16.i = icmp ne ptr %subject_stream.0.fr.i, null
@@ -10453,7 +10453,7 @@ nghttp2_session_terminate_session.exit.i:         ; preds = %if.end.i.i.i928
 if.end34.i:                                       ; preds = %if.end9.i
   %add.ptr.i922 = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %call4.i
   %sub.i923 = sub i64 %inlen.addr.0.i, %call4.i
-  %add.i924 = add i64 %call4.i, %hd_proclen.2
+  %add.i924 = add i64 %call4.i, %hd_proclen.0
   %163 = load i32, ptr %inflate_flags.i, align 4
   %and.i925 = and i32 %163, 2
   %tobool39.not.i = icmp eq i32 %and.i925, 0
@@ -10604,7 +10604,7 @@ if.end118.i:                                      ; preds = %if.end17.i.i, %if.e
   br i1 %tobool120.not.i, label %if.end124.i, label %if.then121.i
 
 if.then121.i:                                     ; preds = %if.end34.us.i, %if.end118.i, %if.end34.us141.i
-  %hd_proclen.4 = phi i64 [ %add.us144.i, %if.end34.us141.i ], [ %add.i924, %if.end118.i ], [ %add.us.i, %if.end34.us.i ]
+  %hd_proclen.2 = phi i64 [ %add.us144.i, %if.end34.us141.i ], [ %add.i924, %if.end118.i ], [ %add.us.i, %if.end34.us.i ]
   %call123.i = call i32 @nghttp2_hd_inflate_end_headers(ptr noundef nonnull %hd_inflater.i) #17
   br label %inflate_header_block.exit.thread1259
 
@@ -10622,7 +10622,7 @@ inflate_header_block.exit.thread:                 ; preds = %if.then20.i, %do.en
   br label %if.then850
 
 inflate_header_block.exit.thread1259:             ; preds = %if.end124.us.i, %if.end18.i.i, %if.end124.us148.i, %if.then121.i, %nghttp2_session_terminate_session.exit.i, %if.end8.i.i.i933, %if.end28.i
-  %hd_proclen.6.ph = phi i64 [ %hd_proclen.4, %if.then121.i ], [ %hd_proclen.3, %nghttp2_session_terminate_session.exit.i ], [ %hd_proclen.3, %if.end8.i.i.i933 ], [ %hd_proclen.3, %if.end28.i ], [ %add.us144.i, %if.end124.us148.i ], [ %add.i924, %if.end18.i.i ], [ %add.us.i, %if.end124.us.i ]
+  %hd_proclen.6.ph = phi i64 [ %hd_proclen.2, %if.then121.i ], [ %hd_proclen.3, %nghttp2_session_terminate_session.exit.i ], [ %hd_proclen.3, %if.end8.i.i.i933 ], [ %hd_proclen.3, %if.end28.i ], [ %add.us144.i, %if.end124.us148.i ], [ %add.i924, %if.end18.i.i ], [ %add.us.i, %if.end124.us.i ]
   %retval.0.i921.ph1258 = phi i32 [ 0, %if.then121.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %if.end8.i.i.i933 ], [ -523, %if.end28.i ], [ 0, %if.end124.us148.i ], [ %rv.0.i.i, %if.end18.i.i ], [ 0, %if.end124.us.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
@@ -10728,7 +10728,7 @@ if.else909:                                       ; preds = %land.end
 
 if.end913:                                        ; preds = %if.end894, %if.else909
   %217 = phi i64 [ %sub897, %if.end894 ], [ %sub912, %if.else909 ]
-  %in.addr.3 = phi ptr [ %add.ptr895, %if.end894 ], [ %add.ptr910, %if.else909 ]
+  %in.addr.4 = phi ptr [ %add.ptr895, %if.end894 ], [ %add.ptr910, %if.else909 ]
   %tobool915.not = icmp eq i64 %217, 0
   br i1 %tobool915.not, label %if.end917, label %sw.epilog1524
 
@@ -10982,7 +10982,7 @@ if.then1025:                                      ; preds = %do.end1021
 
 do.end1036:                                       ; preds = %if.then1025, %do.end1021
   %251 = phi i64 [ %sub1032, %if.then1025 ], [ %iframe1.val732, %do.end1021 ]
-  %in.addr.4 = phi ptr [ %add.ptr1033, %if.then1025 ], [ %in.addr.1, %do.end1021 ]
+  %in.addr.5 = phi ptr [ %add.ptr1033, %if.then1025 ], [ %in.addr.1, %do.end1021 ]
   %tobool1038.not = icmp eq i64 %251, 0
   br i1 %tobool1038.not, label %if.end1051, label %if.then1039
 
@@ -11651,7 +11651,7 @@ if.then1445:                                      ; preds = %do.end1441
 
 do.end1456:                                       ; preds = %if.then1445, %do.end1441
   %348 = phi i64 [ %sub1452, %if.then1445 ], [ %iframe1.val736, %do.end1441 ]
-  %in.addr.5 = phi ptr [ %add.ptr1453, %if.then1445 ], [ %in.addr.1, %do.end1441 ]
+  %in.addr.6 = phi ptr [ %add.ptr1453, %if.then1445 ], [ %in.addr.1, %do.end1441 ]
   %tobool1458.not = icmp eq i64 %348, 0
   br i1 %tobool1458.not, label %if.end1472, label %if.then1459
 
@@ -11708,7 +11708,7 @@ if.then1485:                                      ; preds = %do.end1481
 
 do.end1496:                                       ; preds = %if.then1485, %do.end1481
   %356 = phi i64 [ %sub1492, %if.then1485 ], [ %iframe1.val737, %do.end1481 ]
-  %in.addr.6 = phi ptr [ %add.ptr1493, %if.then1485 ], [ %in.addr.1, %do.end1481 ]
+  %in.addr.7 = phi ptr [ %add.ptr1493, %if.then1485 ], [ %in.addr.1, %do.end1481 ]
   %tobool1498.not = icmp eq i64 %356, 0
   %357 = load ptr, ptr %last1487, align 8
   br i1 %tobool1498.not, label %if.end1512, label %if.then1499
@@ -11760,10 +11760,10 @@ if.end1523:                                       ; preds = %if.end1518
   br label %sw.epilog1524
 
 sw.epilog1524:                                    ; preds = %if.then.i999, %if.then1121, %if.then.i840, %sw.default514, %do.end127, %if.then187, %if.then236, %if.then246, %if.then270, %if.then340, %if.then355, %if.then367, %if.then415, %if.then409, %if.then400, %if.then423, %if.then444, %if.then501, %if.then492, %if.then469, %sw.default506, %if.then388, %if.end219, %if.then224, %if.end226, %if.then1499, %if.then1459, %if.end1427, %if.end1396, %if.end1346, %if.else1129, %if.then1039, %do.end983, %do.end949, %if.end945, %if.else931, %if.then929, %if.end913, %if.then904, %if.else905, %if.then588, %if.end590, %if.end616, %if.then621, %if.end623, %if.end643, %if.end655, %if.end691, %if.end714, %if.then719, %if.end721, %if.end734, %if.end751, %if.end764, %if.then775, %if.end797, %if.end807, %sw.default808, %if.then511, %if.then511, %if.then511, %if.then511, %if.then511, %if.end21, %if.then28, %if.end1523, %if.end1478, %if.end1438, %if.then1424, %if.end1400, %if.end1356, %if.end1318, %if.then1217, %if.end1208, %if.end1062, %if.end1018, %if.then1006, %sw.epilog965, %if.end892, %for.cond
-  %busy.3 = phi i32 [ 0, %for.cond ], [ 0, %if.then1499 ], [ 0, %if.end1523 ], [ 0, %if.then1459 ], [ 0, %if.end1478 ], [ 1, %if.then1424 ], [ 0, %if.end1427 ], [ 0, %if.end1438 ], [ 0, %if.end1396 ], [ 0, %if.end1400 ], [ 1, %if.end1318 ], [ 0, %if.end1346 ], [ 0, %if.end1356 ], [ 1, %if.then1217 ], [ 1, %if.end1208 ], [ 1, %if.else1129 ], [ 0, %if.then1039 ], [ 0, %if.end1062 ], [ 0, %do.end983 ], [ 0, %if.then1006 ], [ 0, %if.end1018 ], [ 0, %do.end949 ], [ 0, %sw.epilog965 ], [ 1, %if.end892 ], [ 0, %if.then904 ], [ 1, %if.else905 ], [ 0, %if.end913 ], [ 0, %if.then929 ], [ 0, %if.else931 ], [ 0, %if.end945 ], [ 0, %sw.default808 ], [ 0, %if.end807 ], [ 1, %if.then775 ], [ 1, %if.end797 ], [ 0, %if.end764 ], [ 1, %if.end751 ], [ 0, %if.end734 ], [ 0, %if.end691 ], [ 1, %if.end714 ], [ 1, %if.then719 ], [ 1, %if.end721 ], [ 0, %if.end655 ], [ 0, %if.end643 ], [ 1, %if.then588 ], [ 0, %if.end590 ], [ 1, %if.end616 ], [ 1, %if.then621 ], [ 1, %if.end623 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ 0, %if.then28 ], [ 0, %if.end21 ], [ 1, %if.end219 ], [ 1, %if.then224 ], [ 1, %if.end226 ], [ 1, %if.then388 ], [ 1, %sw.default506 ], [ 1, %if.then469 ], [ 1, %if.then492 ], [ 1, %if.then501 ], [ 1, %if.then444 ], [ 1, %if.then423 ], [ 1, %if.then400 ], [ 1, %if.then409 ], [ 1, %if.then415 ], [ 1, %if.then367 ], [ 1, %if.then355 ], [ 1, %if.then340 ], [ 1, %if.then270 ], [ 1, %if.then246 ], [ 1, %if.then236 ], [ 1, %if.then187 ], [ 1, %do.end127 ], [ %busy.2.ph1240, %sw.default514 ], [ %busy.2.ph1240, %if.then.i840 ], [ 1, %if.then1121 ], [ 1, %if.then.i999 ]
-  %in.addr.7 = phi ptr [ %in.addr.1, %for.cond ], [ %in.addr.6, %if.then1499 ], [ %in.addr.6, %if.end1523 ], [ %in.addr.5, %if.then1459 ], [ %in.addr.5, %if.end1478 ], [ %add.ptr1408, %if.then1424 ], [ %add.ptr1408, %if.end1427 ], [ %add.ptr1408, %if.end1438 ], [ %add.ptr1363, %if.end1396 ], [ %add.ptr1363, %if.end1400 ], [ %add.ptr1225, %if.end1318 ], [ %add.ptr1225, %if.end1346 ], [ %add.ptr1225, %if.end1356 ], [ %in.addr.1, %if.then1217 ], [ %add.ptr1136, %if.end1208 ], [ %add.ptr1065, %if.else1129 ], [ %in.addr.4, %if.then1039 ], [ %in.addr.4, %if.end1062 ], [ %add.ptr987, %do.end983 ], [ %add.ptr987, %if.then1006 ], [ %add.ptr987, %if.end1018 ], [ %add.ptr953, %do.end949 ], [ %add.ptr953, %sw.epilog965 ], [ %add.ptr871, %if.end892 ], [ %add.ptr895, %if.then904 ], [ %add.ptr895, %if.else905 ], [ %in.addr.3, %if.end913 ], [ %in.addr.3, %if.then929 ], [ %in.addr.3, %if.else931 ], [ %in.addr.3, %if.end945 ], [ %add.ptr528, %sw.default808 ], [ %add.ptr528, %if.end807 ], [ %add.ptr528, %if.then775 ], [ %add.ptr528, %if.end797 ], [ %add.ptr528, %if.end764 ], [ %add.ptr528, %if.end751 ], [ %add.ptr528, %if.end734 ], [ %add.ptr528, %if.end691 ], [ %add.ptr528, %if.end714 ], [ %add.ptr528, %if.then719 ], [ %add.ptr528, %if.end721 ], [ %add.ptr528, %if.end655 ], [ %add.ptr528, %if.end643 ], [ %add.ptr528, %if.then588 ], [ %add.ptr528, %if.end590 ], [ %add.ptr528, %if.end616 ], [ %add.ptr528, %if.then621 ], [ %add.ptr528, %if.end623 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr24, %if.then28 ], [ %add.ptr24, %if.end21 ], [ %add.ptr73, %if.end219 ], [ %add.ptr73, %if.then224 ], [ %add.ptr73, %if.end226 ], [ %add.ptr73, %if.then388 ], [ %add.ptr73, %sw.default506 ], [ %add.ptr73, %if.then469 ], [ %add.ptr73, %if.then492 ], [ %add.ptr73, %if.then501 ], [ %add.ptr73, %if.then444 ], [ %add.ptr73, %if.then423 ], [ %add.ptr73, %if.then400 ], [ %add.ptr73, %if.then409 ], [ %add.ptr73, %if.then415 ], [ %add.ptr73, %if.then367 ], [ %add.ptr73, %if.then355 ], [ %add.ptr73, %if.then340 ], [ %add.ptr73, %if.then270 ], [ %add.ptr73, %if.then246 ], [ %add.ptr73, %if.then236 ], [ %add.ptr73, %if.then187 ], [ %add.ptr73, %do.end127 ], [ %add.ptr73, %sw.default514 ], [ %add.ptr73, %if.then.i840 ], [ %add.ptr1065, %if.then1121 ], [ %add.ptr1065, %if.then.i999 ]
-  %tobool1525.not = icmp eq i32 %busy.3, 0
-  %cmp1527 = icmp eq ptr %in.addr.7, %add.ptr
+  %busy.1 = phi i32 [ 0, %for.cond ], [ 0, %if.then1499 ], [ 0, %if.end1523 ], [ 0, %if.then1459 ], [ 0, %if.end1478 ], [ 1, %if.then1424 ], [ 0, %if.end1427 ], [ 0, %if.end1438 ], [ 0, %if.end1396 ], [ 0, %if.end1400 ], [ 1, %if.end1318 ], [ 0, %if.end1346 ], [ 0, %if.end1356 ], [ 1, %if.then1217 ], [ 1, %if.end1208 ], [ 1, %if.else1129 ], [ 0, %if.then1039 ], [ 0, %if.end1062 ], [ 0, %do.end983 ], [ 0, %if.then1006 ], [ 0, %if.end1018 ], [ 0, %do.end949 ], [ 0, %sw.epilog965 ], [ 1, %if.end892 ], [ 0, %if.then904 ], [ 1, %if.else905 ], [ 0, %if.end913 ], [ 0, %if.then929 ], [ 0, %if.else931 ], [ 0, %if.end945 ], [ 0, %sw.default808 ], [ 0, %if.end807 ], [ 1, %if.then775 ], [ 1, %if.end797 ], [ 0, %if.end764 ], [ 1, %if.end751 ], [ 0, %if.end734 ], [ 0, %if.end691 ], [ 1, %if.end714 ], [ 1, %if.then719 ], [ 1, %if.end721 ], [ 0, %if.end655 ], [ 0, %if.end643 ], [ 1, %if.then588 ], [ 0, %if.end590 ], [ 1, %if.end616 ], [ 1, %if.then621 ], [ 1, %if.end623 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ %busy.2.ph.ph, %if.then511 ], [ 0, %if.then28 ], [ 0, %if.end21 ], [ 1, %if.end219 ], [ 1, %if.then224 ], [ 1, %if.end226 ], [ 1, %if.then388 ], [ 1, %sw.default506 ], [ 1, %if.then469 ], [ 1, %if.then492 ], [ 1, %if.then501 ], [ 1, %if.then444 ], [ 1, %if.then423 ], [ 1, %if.then400 ], [ 1, %if.then409 ], [ 1, %if.then415 ], [ 1, %if.then367 ], [ 1, %if.then355 ], [ 1, %if.then340 ], [ 1, %if.then270 ], [ 1, %if.then246 ], [ 1, %if.then236 ], [ 1, %if.then187 ], [ 1, %do.end127 ], [ %busy.2.ph1240, %sw.default514 ], [ %busy.2.ph1240, %if.then.i840 ], [ 1, %if.then1121 ], [ 1, %if.then.i999 ]
+  %in.addr.2 = phi ptr [ %in.addr.1, %for.cond ], [ %in.addr.7, %if.then1499 ], [ %in.addr.7, %if.end1523 ], [ %in.addr.6, %if.then1459 ], [ %in.addr.6, %if.end1478 ], [ %add.ptr1408, %if.then1424 ], [ %add.ptr1408, %if.end1427 ], [ %add.ptr1408, %if.end1438 ], [ %add.ptr1363, %if.end1396 ], [ %add.ptr1363, %if.end1400 ], [ %add.ptr1225, %if.end1318 ], [ %add.ptr1225, %if.end1346 ], [ %add.ptr1225, %if.end1356 ], [ %in.addr.1, %if.then1217 ], [ %add.ptr1136, %if.end1208 ], [ %add.ptr1065, %if.else1129 ], [ %in.addr.5, %if.then1039 ], [ %in.addr.5, %if.end1062 ], [ %add.ptr987, %do.end983 ], [ %add.ptr987, %if.then1006 ], [ %add.ptr987, %if.end1018 ], [ %add.ptr953, %do.end949 ], [ %add.ptr953, %sw.epilog965 ], [ %add.ptr871, %if.end892 ], [ %add.ptr895, %if.then904 ], [ %add.ptr895, %if.else905 ], [ %in.addr.4, %if.end913 ], [ %in.addr.4, %if.then929 ], [ %in.addr.4, %if.else931 ], [ %in.addr.4, %if.end945 ], [ %add.ptr528, %sw.default808 ], [ %add.ptr528, %if.end807 ], [ %add.ptr528, %if.then775 ], [ %add.ptr528, %if.end797 ], [ %add.ptr528, %if.end764 ], [ %add.ptr528, %if.end751 ], [ %add.ptr528, %if.end734 ], [ %add.ptr528, %if.end691 ], [ %add.ptr528, %if.end714 ], [ %add.ptr528, %if.then719 ], [ %add.ptr528, %if.end721 ], [ %add.ptr528, %if.end655 ], [ %add.ptr528, %if.end643 ], [ %add.ptr528, %if.then588 ], [ %add.ptr528, %if.end590 ], [ %add.ptr528, %if.end616 ], [ %add.ptr528, %if.then621 ], [ %add.ptr528, %if.end623 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr73, %if.then511 ], [ %add.ptr24, %if.then28 ], [ %add.ptr24, %if.end21 ], [ %add.ptr73, %if.end219 ], [ %add.ptr73, %if.then224 ], [ %add.ptr73, %if.end226 ], [ %add.ptr73, %if.then388 ], [ %add.ptr73, %sw.default506 ], [ %add.ptr73, %if.then469 ], [ %add.ptr73, %if.then492 ], [ %add.ptr73, %if.then501 ], [ %add.ptr73, %if.then444 ], [ %add.ptr73, %if.then423 ], [ %add.ptr73, %if.then400 ], [ %add.ptr73, %if.then409 ], [ %add.ptr73, %if.then415 ], [ %add.ptr73, %if.then367 ], [ %add.ptr73, %if.then355 ], [ %add.ptr73, %if.then340 ], [ %add.ptr73, %if.then270 ], [ %add.ptr73, %if.then246 ], [ %add.ptr73, %if.then236 ], [ %add.ptr73, %if.then187 ], [ %add.ptr73, %do.end127 ], [ %add.ptr73, %sw.default514 ], [ %add.ptr73, %if.then.i840 ], [ %add.ptr1065, %if.then1121 ], [ %add.ptr1065, %if.then.i999 ]
+  %tobool1525.not = icmp eq i32 %busy.1, 0
+  %cmp1527 = icmp eq ptr %in.addr.2, %add.ptr
   %or.cond719 = select i1 %tobool1525.not, i1 %cmp1527, i1 false
   br i1 %or.cond719, label %return, label %for.cond
 
@@ -12161,8 +12161,8 @@ sw.default:                                       ; preds = %if.end19
   unreachable
 
 sw.epilog:                                        ; preds = %if.end29, %if.else31, %sw.bb21, %sw.bb
-  %rv.0 = phi i32 [ %call30, %if.end29 ], [ %call32, %if.else31 ], [ %call22, %sw.bb21 ], [ %call20, %sw.bb ]
-  %cmp34 = icmp eq i32 %rv.0, 0
+  %rv.1 = phi i32 [ %call30, %if.end29 ], [ %call32, %if.else31 ], [ %call22, %sw.bb21 ], [ %call20, %sw.bb ]
+  %cmp34 = icmp eq i32 %rv.1, 0
   br i1 %cmp34, label %land.lhs.true, label %if.then45
 
 land.lhs.true:                                    ; preds = %sw.epilog
@@ -12177,8 +12177,8 @@ if.then39:                                        ; preds = %land.lhs.true
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then39, %if.then10
-  %rv.1 = phi i32 [ %call11, %if.then10 ], [ %call40, %if.then39 ]
-  %cmp43.not = icmp eq i32 %rv.1, 0
+  %rv.0 = phi i32 [ %call11, %if.then10 ], [ %call40, %if.then39 ]
+  %cmp43.not = icmp eq i32 %rv.0, 0
   br i1 %cmp43.not, label %if.end73, label %if.then45
 
 if.then45:                                        ; preds = %sw.epilog, %if.end42

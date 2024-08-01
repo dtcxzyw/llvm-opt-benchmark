@@ -971,11 +971,11 @@ for.body.lr.ph:                                   ; preds = %if.end24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %util.0177 = phi ptr [ null, %for.body.lr.ph ], [ %util.1, %for.inc ]
+  %util.1177 = phi ptr [ null, %for.body.lr.ph ], [ %util.2, %for.inc ]
   %size.0176 = phi i64 [ %4, %for.body.lr.ph ], [ %sub203, %for.inc ]
-  %current_filename.0175 = phi ptr [ null, %for.body.lr.ph ], [ %current_filename.3, %for.inc ]
+  %current_filename.1175 = phi ptr [ null, %for.body.lr.ph ], [ %current_filename.2, %for.inc ]
   %line.0173 = phi ptr [ %5, %for.body.lr.ph ], [ %add.ptr204, %for.inc ]
-  %in_header.0172 = phi i32 [ 1, %for.body.lr.ph ], [ %in_header.2, %for.inc ]
+  %in_header.0172 = phi i32 [ 1, %for.body.lr.ph ], [ %in_header.1, %for.inc ]
   %call28 = call ptr @memchr(ptr noundef %line.0173, i32 noundef 10, i64 noundef %size.0176) #16
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.end31, label %if.then30
@@ -1009,14 +1009,14 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end48, !llvm.loop !17
 
 if.then33:                                        ; preds = %do.body.i
-  %tobool34.not = icmp eq ptr %util.0177, null
+  %tobool34.not = icmp eq ptr %util.1177, null
   br i1 %tobool34.not, label %if.end39, label %if.then35
 
 if.then35:                                        ; preds = %if.then33
   %8 = load ptr, ptr %buf.i82, align 8
   %call37 = call ptr @string_list_append(ptr noundef %list, ptr noundef %8) #14
   %util38 = getelementptr inbounds i8, ptr %call37, i64 8
-  store ptr %util.0177, ptr %util38, align 8
+  store ptr %util.1177, ptr %util38, align 8
   store i64 0, ptr %len.i.i, align 8
   %9 = load ptr, ptr %buf.i82, align 8
   %cmp3.not.i = icmp eq ptr %9, @strbuf_slopbuf
@@ -1056,7 +1056,7 @@ if.end47:                                         ; preds = %if.end39
   br label %for.inc
 
 if.end48:                                         ; preds = %do.cond.i
-  %tobool49.not = icmp eq ptr %util.0177, null
+  %tobool49.not = icmp eq ptr %util.1177, null
   br i1 %tobool49.not, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end48
@@ -1110,7 +1110,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %18 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %17, i64 %18
   store i8 0, ptr %arrayidx3.i, align 1
-  %diff_offset = getelementptr inbounds i8, ptr %util.0177, i64 48
+  %diff_offset = getelementptr inbounds i8, ptr %util.1177, i64 48
   %19 = load i64, ptr %diff_offset, align 8
   %tobool58.not = icmp eq i64 %19, 0
   br i1 %tobool58.not, label %if.then59, label %if.end62
@@ -1147,7 +1147,7 @@ if.end3.i85:                                      ; preds = %if.then72
 _.exit88:                                         ; preds = %if.then72, %if.end3.i85
   %retval.0.i87 = phi ptr [ %call.i86, %if.end3.i85 ], [ @.str.27, %if.then72 ]
   %call74 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i87, i32 noundef %conv, ptr noundef %line.0173) #14
-  call void @free(ptr noundef nonnull %util.0177) #14
+  call void @free(ptr noundef nonnull %util.1177) #14
   call void @string_list_clear(ptr noundef %list, i32 noundef 1) #14
   br label %cleanup.thread
 
@@ -1191,7 +1191,7 @@ if.else93:                                        ; preds = %if.else86
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then85, %if.else93, %if.then90, %if.then81
-  call void @free(ptr noundef %current_filename.0175) #14
+  call void @free(ptr noundef %current_filename.1175) #14
   %30 = load i32, ptr %is_delete, align 4
   %cmp99 = icmp sgt i32 %30, 0
   %31 = load ptr, ptr %patch, align 8
@@ -1334,7 +1334,7 @@ do.cond.i116:                                     ; preds = %do.body.i112
 if.then157:                                       ; preds = %do.body.i112
   %call158 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %scevgep190, ptr noundef nonnull dereferenceable(1) @.str.42) #16
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.42, i64 noundef 2) #14
-  %tobool159.not = icmp eq ptr %current_filename.0175, null
+  %tobool159.not = icmp eq ptr %current_filename.1175, null
   br i1 %tobool159.not, label %if.end165, label %land.lhs.true160
 
 land.lhs.true160:                                 ; preds = %if.then157
@@ -1344,7 +1344,7 @@ land.lhs.true160:                                 ; preds = %if.then157
   br i1 %tobool163.not, label %if.then167, label %if.then164
 
 if.then164:                                       ; preds = %land.lhs.true160
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.43, ptr noundef nonnull %current_filename.0175) #14
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.43, ptr noundef nonnull %current_filename.1175) #14
   br label %if.then167
 
 if.end165:                                        ; preds = %if.then157
@@ -1394,8 +1394,8 @@ if.else195:                                       ; preds = %if.else170
   br label %if.end202
 
 if.end202:                                        ; preds = %if.then186, %if.else195, %if.then193, %if.then179, %if.end165, %if.then167, %if.end118
-  %current_filename.2 = phi ptr [ null, %if.end165 ], [ %current_filename.0175, %if.then167 ], [ %current_filename.0175, %if.else195 ], [ %current_filename.0175, %if.then193 ], [ %current_filename.0175, %if.then186 ], [ %current_filename.0175, %if.then179 ], [ %call106, %if.end118 ]
-  %len.1 = phi i64 [ %len.0, %if.end165 ], [ %len.0, %if.then167 ], [ %len.0, %if.else195 ], [ %len.0, %if.then193 ], [ %len.0, %if.then186 ], [ %len.0, %if.then179 ], [ %conv69, %if.end118 ]
+  %current_filename.4 = phi ptr [ null, %if.end165 ], [ %current_filename.1175, %if.then167 ], [ %current_filename.1175, %if.else195 ], [ %current_filename.1175, %if.then193 ], [ %current_filename.1175, %if.then186 ], [ %current_filename.1175, %if.then179 ], [ %call106, %if.end118 ]
+  %len.2 = phi i64 [ %len.0, %if.end165 ], [ %len.0, %if.then167 ], [ %len.0, %if.else195 ], [ %len.0, %if.then193 ], [ %len.0, %if.then186 ], [ %len.0, %if.then179 ], [ %conv69, %if.end118 ]
   %52 = load i64, ptr %buf, align 8
   %tobool.not.i.i128 = icmp eq i64 %52, 0
   br i1 %tobool.not.i.i128, label %if.then.i138, label %strbuf_avail.exit.i129
@@ -1423,30 +1423,30 @@ strbuf_addch.exit142:                             ; preds = %strbuf_avail.exit.i
   %57 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i137 = getelementptr inbounds i8, ptr %56, i64 %57
   store i8 0, ptr %arrayidx3.i137, align 1
-  %diffsize = getelementptr inbounds i8, ptr %util.0177, i64 40
+  %diffsize = getelementptr inbounds i8, ptr %util.1177, i64 40
   %58 = load i32, ptr %diffsize, align 8
   %inc = add nsw i32 %58, 1
   store i32 %inc, ptr %diffsize, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else170, %if.then124, %if.else137, %strbuf_addch.exit111, %if.then133, %strbuf_addch.exit142, %if.end47
-  %in_header.2 = phi i32 [ 1, %if.end47 ], [ 0, %strbuf_addch.exit142 ], [ 0, %if.else170 ], [ 1, %if.else137 ], [ 1, %strbuf_addch.exit111 ], [ 1, %if.then133 ], [ 1, %if.then124 ]
-  %current_filename.3 = phi ptr [ %current_filename.0175, %if.end47 ], [ %current_filename.2, %strbuf_addch.exit142 ], [ %current_filename.0175, %if.else170 ], [ %current_filename.0175, %if.else137 ], [ %current_filename.0175, %strbuf_addch.exit111 ], [ %current_filename.0175, %if.then133 ], [ %current_filename.0175, %if.then124 ]
-  %len.2 = phi i64 [ %len.0, %if.end47 ], [ %len.1, %strbuf_addch.exit142 ], [ %len.0, %if.else170 ], [ %len.0, %if.else137 ], [ %len.0, %strbuf_addch.exit111 ], [ %len.0, %if.then133 ], [ %len.0, %if.then124 ]
-  %util.1 = phi ptr [ %call40, %if.end47 ], [ %util.0177, %strbuf_addch.exit142 ], [ %util.0177, %if.else170 ], [ %util.0177, %if.else137 ], [ %util.0177, %strbuf_addch.exit111 ], [ %util.0177, %if.then133 ], [ %util.0177, %if.then124 ]
-  %sub203 = sub i64 %size.0176, %len.2
-  %add.ptr204 = getelementptr inbounds i8, ptr %line.0173, i64 %len.2
+  %in_header.1 = phi i32 [ 1, %if.end47 ], [ 0, %strbuf_addch.exit142 ], [ 0, %if.else170 ], [ 1, %if.else137 ], [ 1, %strbuf_addch.exit111 ], [ 1, %if.then133 ], [ 1, %if.then124 ]
+  %current_filename.2 = phi ptr [ %current_filename.1175, %if.end47 ], [ %current_filename.4, %strbuf_addch.exit142 ], [ %current_filename.1175, %if.else170 ], [ %current_filename.1175, %if.else137 ], [ %current_filename.1175, %strbuf_addch.exit111 ], [ %current_filename.1175, %if.then133 ], [ %current_filename.1175, %if.then124 ]
+  %len.1 = phi i64 [ %len.0, %if.end47 ], [ %len.2, %strbuf_addch.exit142 ], [ %len.0, %if.else170 ], [ %len.0, %if.else137 ], [ %len.0, %strbuf_addch.exit111 ], [ %len.0, %if.then133 ], [ %len.0, %if.then124 ]
+  %util.2 = phi ptr [ %call40, %if.end47 ], [ %util.1177, %strbuf_addch.exit142 ], [ %util.1177, %if.else170 ], [ %util.1177, %if.else137 ], [ %util.1177, %strbuf_addch.exit111 ], [ %util.1177, %if.then133 ], [ %util.1177, %if.then124 ]
+  %sub203 = sub i64 %size.0176, %len.1
+  %add.ptr204 = getelementptr inbounds i8, ptr %line.0173, i64 %len.1
   %cmp27.not = icmp eq i64 %sub203, 0
   br i1 %cmp27.not, label %cleanup, label %for.body, !llvm.loop !19
 
 cleanup.thread:                                   ; preds = %_.exit70, %if.end20, %_.exit75, %_.exit88, %_.exit80
-  %current_filename.4.ph = phi ptr [ %current_filename.0175, %_.exit80 ], [ %current_filename.0175, %_.exit88 ], [ %current_filename.0175, %_.exit75 ], [ null, %if.end20 ], [ null, %_.exit70 ]
+  %current_filename.0.ph = phi ptr [ %current_filename.1175, %_.exit80 ], [ %current_filename.1175, %_.exit88 ], [ %current_filename.1175, %_.exit75 ], [ null, %if.end20 ], [ null, %_.exit70 ]
   call void @strbuf_release(ptr noundef nonnull %contents) #14
   br label %if.end210
 
 cleanup:                                          ; preds = %for.inc
   call void @strbuf_release(ptr noundef nonnull %contents) #14
-  %tobool205.not = icmp eq ptr %util.1, null
+  %tobool205.not = icmp eq ptr %util.2, null
   br i1 %tobool205.not, label %if.end210, label %if.then206
 
 if.then206:                                       ; preds = %cleanup
@@ -1454,14 +1454,14 @@ if.then206:                                       ; preds = %cleanup
   %59 = load ptr, ptr %buf207, align 8
   %call208 = call ptr @string_list_append(ptr noundef %list, ptr noundef %59) #14
   %util209 = getelementptr inbounds i8, ptr %call208, i64 8
-  store ptr %util.1, ptr %util209, align 8
+  store ptr %util.2, ptr %util209, align 8
   br label %if.end210
 
 if.end210:                                        ; preds = %cleanup.thread192, %cleanup.thread, %if.then206, %cleanup
   %ret.0157 = phi i32 [ -1, %cleanup.thread ], [ 0, %if.then206 ], [ 0, %cleanup ], [ 0, %cleanup.thread192 ]
-  %current_filename.4156 = phi ptr [ %current_filename.4.ph, %cleanup.thread ], [ %current_filename.3, %if.then206 ], [ %current_filename.3, %cleanup ], [ null, %cleanup.thread192 ]
+  %current_filename.0156 = phi ptr [ %current_filename.0.ph, %cleanup.thread ], [ %current_filename.2, %if.then206 ], [ %current_filename.2, %cleanup ], [ null, %cleanup.thread192 ]
   call void @strbuf_release(ptr noundef nonnull %buf) #14
-  call void @free(ptr noundef %current_filename.4156) #14
+  call void @free(ptr noundef %current_filename.0156) #14
   br label %return
 
 return:                                           ; preds = %if.end210, %_.exit
@@ -1511,16 +1511,16 @@ for.body13.lr.ph:                                 ; preds = %for.cond9.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %negative.012 = phi i32 [ 0, %for.body.lr.ph ], [ %negative.1, %for.body ]
-  %positive.011 = phi i32 [ 0, %for.body.lr.ph ], [ %positive.1, %for.body ]
+  %negative.112 = phi i32 [ 0, %for.body.lr.ph ], [ %negative.2, %for.body ]
+  %positive.111 = phi i32 [ 0, %for.body.lr.ph ], [ %positive.2, %for.body ]
   %arrayidx = getelementptr inbounds %struct.object_array_entry, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %bf.load = load i32, ptr %3, align 4
   %4 = lshr i32 %bf.load, 5
   %.lobit = and i32 %4, 1
   %inc7 = xor i32 %.lobit, 1
-  %positive.1 = add nuw nsw i32 %inc7, %positive.011
-  %negative.1 = add i32 %.lobit, %negative.012
+  %positive.2 = add nuw nsw i32 %inc7, %positive.111
+  %negative.2 = add i32 %.lobit, %negative.112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond9.preheader, label %for.body, !llvm.loop !20
@@ -1549,12 +1549,12 @@ for.inc24:                                        ; preds = %for.body13, %if.the
   br i1 %cmp12, label %for.body13, label %if.end27, !llvm.loop !21
 
 if.end27:                                         ; preds = %for.inc24, %for.cond.preheader, %for.cond9.preheader, %entry
-  %positive.2 = phi i32 [ 0, %entry ], [ %positive.1, %for.cond9.preheader ], [ 0, %for.cond.preheader ], [ %positive.1, %for.inc24 ]
-  %negative.2 = phi i32 [ 0, %entry ], [ %negative.1, %for.cond9.preheader ], [ 0, %for.cond.preheader ], [ %negative.1, %for.inc24 ]
+  %positive.0 = phi i32 [ 0, %entry ], [ %positive.2, %for.cond9.preheader ], [ 0, %for.cond.preheader ], [ %positive.2, %for.inc24 ]
+  %negative.0 = phi i32 [ 0, %entry ], [ %negative.2, %for.cond9.preheader ], [ 0, %for.cond.preheader ], [ %negative.2, %for.inc24 ]
   call void @free(ptr noundef %call) #14
   call void @release_revisions(ptr noundef nonnull %revs) #14
-  %cmp28 = icmp sgt i32 %negative.2, 0
-  %cmp29 = icmp sgt i32 %positive.2, 0
+  %cmp28 = icmp sgt i32 %negative.0, 0
+  %cmp29 = icmp sgt i32 %positive.0, 0
   %11 = select i1 %cmp28, i1 %cmp29, i1 false
   %land.ext = zext i1 %11 to i32
   ret i32 %land.ext

@@ -458,8 +458,8 @@ cleanup:                                          ; preds = %if.end26, %if.else
   br label %return
 
 return:                                           ; preds = %if.then3, %cleanup, %cleanup.thread, %if.then5, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ -1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then3 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ -1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then3 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -558,8 +558,8 @@ cleanup:                                          ; preds = %if.end26, %if.else
   br label %return
 
 return:                                           ; preds = %if.then3, %cleanup, %cleanup.thread, %if.then5, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ -1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then3 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then5 ], [ -1, %cleanup.thread ], [ 0, %cleanup ], [ 0, %if.then3 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

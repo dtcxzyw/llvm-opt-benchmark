@@ -5229,22 +5229,22 @@ _ZN5faiss10LockLevels6lock_3Ev.exit:              ; preds = %30, %18
   br label %41
 
 41:                                               ; preds = %42, %_ZN5faiss10LockLevels6lock_3Ev.exit
-  %.sroa.021.1.in = phi ptr [ %3, %_ZN5faiss10LockLevels6lock_3Ev.exit ], [ %.sroa.021.1, %42 ]
-  %.sroa.021.1 = load ptr, ptr %.sroa.021.1.in, align 8
-  %.not31 = icmp eq ptr %.sroa.021.1, %3
+  %.sroa.021.2.in = phi ptr [ %3, %_ZN5faiss10LockLevels6lock_3Ev.exit ], [ %.sroa.021.2, %42 ]
+  %.sroa.021.2 = load ptr, ptr %.sroa.021.2.in, align 8
+  %.not31 = icmp eq ptr %.sroa.021.2, %3
   br i1 %.not31, label %.critedge2, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %.sroa.021.1, i64 24
+  %43 = getelementptr inbounds i8, ptr %.sroa.021.2, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %44, %1
   br i1 %45, label %41, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %5, %42, %41
-  %.sroa.021.2 = phi ptr [ %.sroa.021.1, %41 ], [ %.sroa.021.1, %42 ], [ %.sroa.021.0, %5 ]
-  %46 = getelementptr inbounds i8, ptr %.sroa.021.2, i64 16
+  %.sroa.021.1 = phi ptr [ %.sroa.021.2, %41 ], [ %.sroa.021.2, %42 ], [ %.sroa.021.0, %5 ]
+  %46 = getelementptr inbounds i8, ptr %.sroa.021.1, i64 16
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.021.2, i64 24
+  %48 = getelementptr inbounds i8, ptr %.sroa.021.1, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, %1
   br i1 %50, label %51, label %55
@@ -5254,8 +5254,8 @@ _ZN5faiss10LockLevels6lock_3Ev.exit:              ; preds = %30, %18
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, -1
   store i64 %54, ptr %52, align 8
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.021.2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.021.2) #24
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.021.1) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.021.1) #24
   br label %58
 
 55:                                               ; preds = %.critedge2

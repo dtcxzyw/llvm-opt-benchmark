@@ -530,22 +530,22 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 55:                                               ; preds = %.lr.ph62, %55
   %indvars.iv69 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next70, %55 ]
-  %.161 = phi i32 [ 0, %.lr.ph62 ], [ %58, %55 ]
+  %.261 = phi i32 [ 0, %.lr.ph62 ], [ %58, %55 ]
   %.val = load ptr, ptr %53, align 8
   %56 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv69
   %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 @Gia_ManHashOr(ptr noundef %2, i32 noundef %.161, i32 noundef %57) #13
+  %58 = tail call i32 @Gia_ManHashOr(ptr noundef %2, i32 noundef %.261, i32 noundef %57) #13
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.loopexit, label %55, !llvm.loop !8
 
 59:                                               ; preds = %.lr.ph58, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %59 ]
-  %.257 = phi i32 [ 0, %.lr.ph58 ], [ %62, %59 ]
+  %.357 = phi i32 [ 0, %.lr.ph58 ], [ %62, %59 ]
   %.val52 = load ptr, ptr %52, align 8
   %60 = getelementptr inbounds i32, ptr %.val52, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 @Gia_ManHashXor(ptr noundef %2, i32 noundef %.257, i32 noundef %61) #13
+  %62 = tail call i32 @Gia_ManHashXor(ptr noundef %2, i32 noundef %.357, i32 noundef %61) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond68.not, label %.loopexit, label %59, !llvm.loop !9
@@ -561,10 +561,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %55, %.preheader53, %.preheader, %._crit_edge, %63, %54
-  %.3 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %66, %63 ], [ 1, %54 ], [ 0, %.preheader ], [ 0, %.preheader53 ], [ %58, %55 ], [ %62, %59 ]
-  %67 = sext i32 %.3 to i64
+  %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %66, %63 ], [ 1, %54 ], [ 0, %.preheader ], [ 0, %.preheader53 ], [ %58, %55 ], [ %62, %59 ]
+  %67 = sext i32 %.1 to i64
   tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %67) #13
-  ret i32 %.3
+  ret i32 %.1
 }
 
 declare ptr @Dsd_ManagerReadDd(ptr noundef) local_unnamed_addr #1

@@ -896,8 +896,8 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %95
 
 95:                                               ; preds = %.thread, %91, %88, %65
-  %.3 = phi i64 [ -1, %91 ], [ -1, %88 ], [ %66, %65 ], [ -1, %.thread ]
-  ret i64 %.3
+  %.1 = phi i64 [ -1, %91 ], [ -1, %88 ], [ %66, %65 ], [ -1, %.thread ]
+  ret i64 %.1
 }
 
 declare i64 @H5MF_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1

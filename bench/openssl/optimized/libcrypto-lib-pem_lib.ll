@@ -680,8 +680,8 @@ if.else:                                          ; preds = %if.then34
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else, %if.then37
-  %klen.addr.0 = phi i32 [ %call38, %if.then37 ], [ %call40, %if.else ]
-  %cmp42 = icmp slt i32 %klen.addr.0, 1
+  %klen.addr.1 = phi i32 [ %call38, %if.then37 ], [ %call40, %if.else ]
+  %cmp42 = icmp slt i32 %klen.addr.1, 1
   br i1 %cmp42, label %if.then44, label %if.end47
 
 if.then44:                                        ; preds = %if.end41
@@ -691,7 +691,7 @@ if.then44:                                        ; preds = %if.end41
   br label %err
 
 if.end47:                                         ; preds = %if.end41, %if.then31
-  %klen.addr.1 = phi i32 [ %klen, %if.then31 ], [ %klen.addr.0, %if.end41 ]
+  %klen.addr.0 = phi i32 [ %klen, %if.then31 ], [ %klen.addr.1, %if.end41 ]
   %kstr.addr.0 = phi ptr [ %kstr, %if.then31 ], [ %buf, %if.end41 ]
   %call49 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %enc) #10
   %call50 = call i32 @RAND_bytes(ptr noundef nonnull %iv, i32 noundef %call49) #10
@@ -700,7 +700,7 @@ if.end47:                                         ; preds = %if.end41, %if.then3
 
 if.end54:                                         ; preds = %if.end47
   %call55 = call ptr @EVP_md5() #10
-  %call58 = call i32 @EVP_BytesToKey(ptr noundef nonnull %enc, ptr noundef %call55, ptr noundef nonnull %iv, ptr noundef nonnull %kstr.addr.0, i32 noundef %klen.addr.1, i32 noundef 1, ptr noundef nonnull %key, ptr noundef null) #10
+  %call58 = call i32 @EVP_BytesToKey(ptr noundef nonnull %enc, ptr noundef %call55, ptr noundef nonnull %iv, ptr noundef nonnull %kstr.addr.0, i32 noundef %klen.addr.0, i32 noundef 1, ptr noundef nonnull %key, ptr noundef null) #10
   %tobool.not = icmp eq i32 %call58, 0
   br i1 %tobool.not, label %err, label %if.end60
 
@@ -802,7 +802,7 @@ if.else93:                                        ; preds = %if.end27
 
 if.end95:                                         ; preds = %if.else93, %if.end91
   %6 = phi i32 [ %add92, %if.end91 ], [ %call28, %if.else93 ]
-  %ctx.0 = phi ptr [ %call71, %if.end91 ], [ null, %if.else93 ]
+  %ctx.1 = phi ptr [ %call71, %if.end91 ], [ null, %if.else93 ]
   %conv97 = sext i32 %6 to i64
   %call98 = call i32 @PEM_write_bio(ptr noundef %bp, ptr noundef %name, ptr noundef nonnull %buf, ptr noundef nonnull %call23, i64 noundef %conv97)
   store i32 %call98, ptr %i, align 4
@@ -811,17 +811,17 @@ if.end95:                                         ; preds = %if.else93, %if.end9
   br label %err
 
 err:                                              ; preds = %if.end95, %PEM_dek_info.exit, %lor.lhs.false74, %lor.lhs.false79, %lor.lhs.false82, %if.end54, %if.end47, %if.end20, %if.then44, %if.then19, %if.then14
-  %ctx.1 = phi ptr [ null, %if.then14 ], [ null, %if.then19 ], [ null, %if.end20 ], [ null, %if.then44 ], [ null, %if.end47 ], [ null, %if.end54 ], [ %ctx.0, %if.end95 ], [ %call71, %lor.lhs.false82 ], [ %call71, %lor.lhs.false79 ], [ %call71, %lor.lhs.false74 ], [ null, %PEM_dek_info.exit ]
+  %ctx.0 = phi ptr [ null, %if.then14 ], [ null, %if.then19 ], [ null, %if.end20 ], [ null, %if.then44 ], [ null, %if.end47 ], [ null, %if.end54 ], [ %ctx.1, %if.end95 ], [ %call71, %lor.lhs.false82 ], [ %call71, %lor.lhs.false79 ], [ %call71, %lor.lhs.false74 ], [ null, %PEM_dek_info.exit ]
   %dsize.0 = phi i32 [ 0, %if.then14 ], [ 0, %if.then19 ], [ %call16, %if.end20 ], [ %call16, %if.then44 ], [ %call16, %if.end47 ], [ %call16, %if.end54 ], [ %call16, %if.end95 ], [ %call16, %lor.lhs.false82 ], [ %call16, %lor.lhs.false79 ], [ %call16, %lor.lhs.false74 ], [ %call16, %PEM_dek_info.exit ]
-  %ret.2 = phi i32 [ 0, %if.then14 ], [ 0, %if.then19 ], [ 0, %if.end20 ], [ 0, %if.then44 ], [ 0, %if.end47 ], [ 0, %if.end54 ], [ %spec.select, %if.end95 ], [ 0, %lor.lhs.false82 ], [ 0, %lor.lhs.false79 ], [ 0, %lor.lhs.false74 ], [ 0, %PEM_dek_info.exit ]
+  %ret.0 = phi i32 [ 0, %if.then14 ], [ 0, %if.then19 ], [ 0, %if.end20 ], [ 0, %if.then44 ], [ 0, %if.end47 ], [ 0, %if.end54 ], [ %spec.select, %if.end95 ], [ 0, %lor.lhs.false82 ], [ 0, %lor.lhs.false79 ], [ 0, %lor.lhs.false74 ], [ 0, %PEM_dek_info.exit ]
   %data.0 = phi ptr [ null, %if.then14 ], [ null, %if.then19 ], [ null, %if.end20 ], [ %call23, %if.then44 ], [ %call23, %if.end47 ], [ %call23, %if.end54 ], [ %call23, %if.end95 ], [ %call23, %lor.lhs.false82 ], [ %call23, %lor.lhs.false79 ], [ %call23, %lor.lhs.false74 ], [ %call23, %PEM_dek_info.exit ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %key, i64 noundef 64) #10
   call void @OPENSSL_cleanse(ptr noundef nonnull %iv, i64 noundef 16) #10
-  call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.1) #10
+  call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.0) #10
   call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 1024) #10
   %conv106 = zext nneg i32 %dsize.0 to i64
   call void @CRYPTO_clear_free(ptr noundef %data.0, i64 noundef %conv106, ptr noundef nonnull @.str.1, i32 noundef 415) #10
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #3
@@ -1527,7 +1527,7 @@ cond.false.i.i56:                                 ; preds = %pem_malloc.exit27.i
   br label %pem_malloc.exit.i40
 
 pem_malloc.exit.i40:                              ; preds = %cond.false.i.i56, %cond.true.i.i38
-  %name.088 = phi ptr [ %call.i23.i, %cond.true.i.i38 ], [ %call2.i26.i, %cond.false.i.i56 ]
+  %name.188 = phi ptr [ %call.i23.i, %cond.true.i.i38 ], [ %call2.i26.i, %cond.false.i.i56 ]
   %cond.i.i41 = phi ptr [ %call.i.i39, %cond.true.i.i38 ], [ %call2.i.i57, %cond.false.i.i56 ]
   %cmp.i42 = icmp eq ptr %cond.i.i41, null
   br i1 %cmp.i42, label %end, label %while.body.preheader.i
@@ -1620,8 +1620,8 @@ if.end38.i:                                       ; preds = %if.end17.i46
 
 cond.true.i:                                      ; preds = %if.end38.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i41, i64 9
-  %call43.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.088) #9
-  %call44.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly %name.088, i64 noundef %call43.i) #9
+  %call43.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.188) #9
+  %call44.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly %name.188, i64 noundef %call43.i) #9
   %cmp45.not.i = icmp eq i32 %call44.i, 0
   br i1 %cmp45.not.i, label %lor.lhs.false47.i, label %if.then52.i
 
@@ -1678,8 +1678,8 @@ if.end78.i:                                       ; preds = %if.end73.i, %if.end
   br i1 %cmp2.i54, label %if.then3.i55, label %if.end4.i44
 
 err.i48:                                          ; preds = %if.then69.i, %if.end61.i, %if.end53.i, %if.then59.i, %if.then52.i, %if.then35.i, %if.then3.i55
-  %headerB.0 = phi ptr [ %call6, %if.then3.i55 ], [ %call6, %if.then35.i ], [ %call6, %if.then52.i ], [ %call6, %if.then59.i ], [ %spec.select, %if.end53.i ], [ %call6, %if.end61.i ], [ %call6, %if.then69.i ]
-  %dataB.0 = phi ptr [ %call7, %if.then3.i55 ], [ %call7, %if.then35.i ], [ %call7, %if.then52.i ], [ %call7, %if.then59.i ], [ %spec.select112, %if.end53.i ], [ %call7, %if.end61.i ], [ %call7, %if.then69.i ]
+  %headerB.1 = phi ptr [ %call6, %if.then3.i55 ], [ %call6, %if.then35.i ], [ %call6, %if.then52.i ], [ %call6, %if.then59.i ], [ %spec.select, %if.end53.i ], [ %call6, %if.end61.i ], [ %call6, %if.then69.i ]
+  %dataB.1 = phi ptr [ %call7, %if.then3.i55 ], [ %call7, %if.then35.i ], [ %call7, %if.then52.i ], [ %call7, %if.then59.i ], [ %spec.select112, %if.end53.i ], [ %call7, %if.end61.i ], [ %call7, %if.then69.i ]
   %tobool16.not = phi i1 [ true, %if.then3.i55 ], [ true, %if.then35.i ], [ true, %if.then52.i ], [ true, %if.then59.i ], [ false, %if.end53.i ], [ true, %if.end61.i ], [ true, %if.then69.i ]
   br i1 %tobool4.not, label %if.else.i.i52, label %if.then.i.i50
 
@@ -1695,7 +1695,7 @@ get_header_and_data.exit:                         ; preds = %if.then.i.i50, %if.
   br i1 %tobool16.not, label %end, label %if.end18
 
 if.end18:                                         ; preds = %get_header_and_data.exit
-  %call19 = call i64 @BIO_ctrl(ptr noundef %dataB.0, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf_mem) #10
+  %call19 = call i64 @BIO_ctrl(ptr noundef %dataB.1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf_mem) #10
   %4 = load ptr, ptr %buf_mem, align 8
   %5 = load i64, ptr %4, align 8
   %conv = trunc i64 %5 to i32
@@ -1748,7 +1748,7 @@ if.end40:                                         ; preds = %lor.lhs.false34
   %conv41 = sext i32 %add to i64
   %13 = load ptr, ptr %buf_mem, align 8
   store i64 %conv41, ptr %13, align 8
-  %call43 = call i64 @BIO_ctrl(ptr noundef %headerB.0, i32 noundef 3, i64 noundef 0, ptr noundef null) #10
+  %call43 = call i64 @BIO_ctrl(ptr noundef %headerB.1, i32 noundef 3, i64 noundef 0, ptr noundef null) #10
   %conv44 = trunc i64 %call43 to i32
   %add45 = add nsw i32 %conv44, 1
   %call46 = call fastcc ptr @pem_malloc(i32 noundef %add45, i32 noundef %flags, i32 noundef 981)
@@ -1767,7 +1767,7 @@ if.end54:                                         ; preds = %if.end40
   br i1 %cmp55.not, label %if.end62, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.end54
-  %call58 = call i32 @BIO_read(ptr noundef %headerB.0, ptr noundef nonnull %15, i32 noundef %conv44) #10
+  %call58 = call i32 @BIO_read(ptr noundef %headerB.1, ptr noundef nonnull %15, i32 noundef %conv44) #10
   %cmp59.not = icmp eq i32 %call58, %conv44
   %.pre160 = load ptr, ptr %header, align 8
   br i1 %cmp59.not, label %if.end62, label %out_free
@@ -1780,7 +1780,7 @@ if.end62:                                         ; preds = %land.lhs.true57, %i
   store i8 0, ptr %arrayidx64, align 1
   %17 = load ptr, ptr %data, align 8
   %18 = load i32, ptr %len, align 4
-  %call65 = call i32 @BIO_read(ptr noundef %dataB.0, ptr noundef %17, i32 noundef %18) #10
+  %call65 = call i32 @BIO_read(ptr noundef %dataB.1, ptr noundef %17, i32 noundef %18) #10
   %19 = load i32, ptr %len, align 4
   %cmp66.not = icmp eq i32 %call65, %19
   br i1 %cmp66.not, label %if.end69, label %if.end62.out_free_crit_edge
@@ -1792,7 +1792,7 @@ if.end62.out_free_crit_edge:                      ; preds = %if.end62
 if.end69:                                         ; preds = %if.end62
   %conv70 = sext i32 %call65 to i64
   store i64 %conv70, ptr %len_out, align 8
-  store ptr %name.088, ptr %name_out, align 8
+  store ptr %name.188, ptr %name_out, align 8
   br label %end
 
 out_free:                                         ; preds = %if.end62.out_free_crit_edge, %land.lhs.true57, %if.end40
@@ -1806,9 +1806,9 @@ out_free:                                         ; preds = %if.end62.out_free_c
 
 end:                                              ; preds = %pem_malloc.exit.i40, %pem_malloc.exit.i, %if.end18, %get_header_and_data.exit, %out_free, %if.end69, %if.then39, %if.then27, %if.then9, %if.then
   %and.i58.pre-phi = phi i32 [ %and3, %pem_malloc.exit.i40 ], [ %and3, %pem_malloc.exit.i ], [ %and3, %if.end18 ], [ %and3, %get_header_and_data.exit ], [ %and3, %out_free ], [ %and3, %if.end69 ], [ %and3, %if.then39 ], [ %and3, %if.then27 ], [ %and3, %if.then9 ], [ %.pre, %if.then ]
-  %headerB.2 = phi ptr [ %call6, %pem_malloc.exit.i40 ], [ %call6, %pem_malloc.exit.i ], [ %headerB.0, %if.end18 ], [ %headerB.0, %get_header_and_data.exit ], [ %headerB.0, %out_free ], [ %headerB.0, %if.end69 ], [ %headerB.0, %if.then39 ], [ %headerB.0, %if.then27 ], [ %call6, %if.then9 ], [ null, %if.then ]
-  %dataB.2 = phi ptr [ %call7, %pem_malloc.exit.i40 ], [ %call7, %pem_malloc.exit.i ], [ %dataB.0, %if.end18 ], [ %dataB.0, %get_header_and_data.exit ], [ %dataB.0, %out_free ], [ %dataB.0, %if.end69 ], [ %dataB.0, %if.then39 ], [ %dataB.0, %if.then27 ], [ %call7, %if.then9 ], [ null, %if.then ]
-  %name.2 = phi ptr [ %name.088, %pem_malloc.exit.i40 ], [ null, %pem_malloc.exit.i ], [ %name.088, %if.end18 ], [ %name.088, %get_header_and_data.exit ], [ %name.088, %out_free ], [ null, %if.end69 ], [ %name.088, %if.then39 ], [ %name.088, %if.then27 ], [ null, %if.then9 ], [ null, %if.then ]
+  %headerB.0 = phi ptr [ %call6, %pem_malloc.exit.i40 ], [ %call6, %pem_malloc.exit.i ], [ %headerB.1, %if.end18 ], [ %headerB.1, %get_header_and_data.exit ], [ %headerB.1, %out_free ], [ %headerB.1, %if.end69 ], [ %headerB.1, %if.then39 ], [ %headerB.1, %if.then27 ], [ %call6, %if.then9 ], [ null, %if.then ]
+  %dataB.0 = phi ptr [ %call7, %pem_malloc.exit.i40 ], [ %call7, %pem_malloc.exit.i ], [ %dataB.1, %if.end18 ], [ %dataB.1, %get_header_and_data.exit ], [ %dataB.1, %out_free ], [ %dataB.1, %if.end69 ], [ %dataB.1, %if.then39 ], [ %dataB.1, %if.then27 ], [ %call7, %if.then9 ], [ null, %if.then ]
+  %name.0 = phi ptr [ %name.188, %pem_malloc.exit.i40 ], [ null, %pem_malloc.exit.i ], [ %name.188, %if.end18 ], [ %name.188, %get_header_and_data.exit ], [ %name.188, %out_free ], [ null, %if.end69 ], [ %name.188, %if.then39 ], [ %name.188, %if.then27 ], [ null, %if.then9 ], [ null, %if.then ]
   %ctx.0 = phi ptr [ null, %pem_malloc.exit.i40 ], [ null, %pem_malloc.exit.i ], [ null, %if.end18 ], [ null, %get_header_and_data.exit ], [ %call24, %out_free ], [ %call24, %if.end69 ], [ %call24, %if.then39 ], [ null, %if.then27 ], [ null, %if.then9 ], [ null, %if.then ]
   %ret.0 = phi i32 [ 0, %pem_malloc.exit.i40 ], [ 0, %pem_malloc.exit.i ], [ 0, %if.end18 ], [ 0, %get_header_and_data.exit ], [ 0, %out_free ], [ 1, %if.end69 ], [ 0, %if.then39 ], [ 0, %if.then27 ], [ 0, %if.then9 ], [ 0, %if.then ]
   call void @EVP_ENCODE_CTX_free(ptr noundef %ctx.0) #10
@@ -1817,26 +1817,26 @@ end:                                              ; preds = %pem_malloc.exit.i40
 
 if.then.i:                                        ; preds = %end.thread175, %end
   %ret.0186 = phi i32 [ 0, %end.thread175 ], [ %ret.0, %end ]
-  %name.2185 = phi ptr [ null, %end.thread175 ], [ %name.2, %end ]
-  %dataB.2184 = phi ptr [ %call7, %end.thread175 ], [ %dataB.2, %end ]
-  %headerB.2183 = phi ptr [ %call6, %end.thread175 ], [ %headerB.2, %end ]
-  call void @CRYPTO_secure_clear_free(ptr noundef %name.2185, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
+  %name.0185 = phi ptr [ null, %end.thread175 ], [ %name.0, %end ]
+  %dataB.0184 = phi ptr [ %call7, %end.thread175 ], [ %dataB.0, %end ]
+  %headerB.0183 = phi ptr [ %call6, %end.thread175 ], [ %headerB.0, %end ]
+  call void @CRYPTO_secure_clear_free(ptr noundef %name.0185, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
   br label %pem_free.exit
 
 if.else.i59:                                      ; preds = %end.thread, %end
   %ret.0174 = phi i32 [ 0, %end.thread ], [ %ret.0, %end ]
-  %name.2172 = phi ptr [ null, %end.thread ], [ %name.2, %end ]
-  %dataB.2171 = phi ptr [ %call7, %end.thread ], [ %dataB.2, %end ]
-  %headerB.2169 = phi ptr [ %call6, %end.thread ], [ %headerB.2, %end ]
-  call void @CRYPTO_free(ptr noundef %name.2172, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
+  %name.0172 = phi ptr [ null, %end.thread ], [ %name.0, %end ]
+  %dataB.0171 = phi ptr [ %call7, %end.thread ], [ %dataB.0, %end ]
+  %headerB.0169 = phi ptr [ %call6, %end.thread ], [ %headerB.0, %end ]
+  call void @CRYPTO_free(ptr noundef %name.0172, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
   br label %pem_free.exit
 
 pem_free.exit:                                    ; preds = %if.then.i, %if.else.i59
   %ret.0173 = phi i32 [ %ret.0186, %if.then.i ], [ %ret.0174, %if.else.i59 ]
-  %dataB.2170 = phi ptr [ %dataB.2184, %if.then.i ], [ %dataB.2171, %if.else.i59 ]
-  %headerB.2168 = phi ptr [ %headerB.2183, %if.then.i ], [ %headerB.2169, %if.else.i59 ]
-  %call71 = call i32 @BIO_free(ptr noundef %headerB.2168) #10
-  %call72 = call i32 @BIO_free(ptr noundef %dataB.2170) #10
+  %dataB.0170 = phi ptr [ %dataB.0184, %if.then.i ], [ %dataB.0171, %if.else.i59 ]
+  %headerB.0168 = phi ptr [ %headerB.0183, %if.then.i ], [ %headerB.0169, %if.else.i59 ]
+  %call71 = call i32 @BIO_free(ptr noundef %headerB.0168) #10
+  %call72 = call i32 @BIO_free(ptr noundef %dataB.0170) #10
   ret i32 %ret.0173
 }
 

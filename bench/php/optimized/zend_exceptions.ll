@@ -3730,7 +3730,7 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
   br i1 %27, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %11, %234
-  %.0287351366 = phi ptr [ %.1288, %234 ], [ %12, %11 ]
+  %.0287351366 = phi ptr [ %.2, %234 ], [ %12, %11 ]
   %.0352365 = phi ptr [ %230, %234 ], [ %7, %11 ]
   %28 = load ptr, ptr %.0352365, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
@@ -4006,7 +4006,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   br label %174
 
 174:                                              ; preds = %172, %170
-  %.1288 = phi ptr [ %171, %170 ], [ %173, %172 ]
+  %.2 = phi ptr [ %171, %170 ], [ %173, %172 ]
   %175 = getelementptr inbounds i8, ptr %159, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = and i32 %176, 64
@@ -4133,7 +4133,7 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   br i1 %.not313.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %231, %33, %234, %i_get_exception_base.exit338, %11
-  %.2.ph = phi ptr [ %12, %11 ], [ %.0287351366, %33 ], [ %.1288, %234 ], [ %.1288, %231 ], [ %.1288, %i_get_exception_base.exit338 ]
+  %.1288.ph = phi ptr [ %12, %11 ], [ %.0287351366, %33 ], [ %.2, %234 ], [ %.2, %231 ], [ %.2, %i_get_exception_base.exit338 ]
   %239 = load i32, ptr %14, align 4
   %240 = and i32 %239, 64
   %.not314 = icmp eq i32 %240, 0
@@ -4252,8 +4252,8 @@ i_get_exception_base.exit346:                     ; preds = %270, %276
 i_get_exception_base.exit350:                     ; preds = %.critedge4, %288
   %290 = phi ptr [ %284, %.critedge4 ], [ %.pre364, %288 ]
   %291 = phi ptr [ %286, %.critedge4 ], [ %.pre.i349, %288 ]
-  store ptr %.2.ph, ptr %6, align 8
-  %292 = getelementptr inbounds i8, ptr %.2.ph, i64 4
+  store ptr %.1288.ph, ptr %6, align 8
+  %292 = getelementptr inbounds i8, ptr %.1288.ph, i64 4
   %293 = load i32, ptr %292, align 4
   %294 = and i32 %293, 64
   %.not318 = icmp eq i32 %294, 0
@@ -4264,7 +4264,7 @@ i_get_exception_base.exit350:                     ; preds = %.critedge4, %288
   %298 = getelementptr inbounds i8, ptr %297, i64 216
   %299 = load ptr, ptr %298, align 8
   call void @zend_update_property_ex(ptr noundef %291, ptr noundef %290, ptr noundef %299, ptr noundef nonnull %6) #15
-  store ptr %.2.ph, ptr %1, align 8
+  store ptr %.1288.ph, ptr %1, align 8
   %300 = load i32, ptr %292, align 4
   %301 = and i32 %300, 64
   %.not319 = icmp eq i32 %301, 0

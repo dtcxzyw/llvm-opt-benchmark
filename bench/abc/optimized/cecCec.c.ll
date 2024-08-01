@@ -800,7 +800,7 @@ Abc_Clock.exit:                                   ; preds = %2, %11
   %.06097 = phi i32 [ 0, %.lr.ph ], [ %.1, %137 ]
   %.06196 = phi i32 [ 0, %.lr.ph ], [ %.162, %137 ]
   %.06494 = phi i32 [ 0, %.lr.ph ], [ %.165, %137 ]
-  %.06693 = phi i32 [ 0, %.lr.ph ], [ %.167, %137 ]
+  %.06693 = phi i32 [ 0, %.lr.ph ], [ %.2, %137 ]
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = and i32 %33, 255
   %35 = icmp eq i32 %34, 0
@@ -970,7 +970,7 @@ Abc_Clock.exit82._crit_edge:                      ; preds = %Abc_Clock.exit82
   br label %137
 
 137:                                              ; preds = %127, %135, %132, %125, %122, %72
-  %.167 = phi i32 [ %.06693, %72 ], [ %.06693, %127 ], [ %.06693, %132 ], [ %136, %135 ], [ %.06693, %122 ], [ %126, %125 ]
+  %.2 = phi i32 [ %.06693, %72 ], [ %.06693, %127 ], [ %.06693, %132 ], [ %136, %135 ], [ %.06693, %122 ], [ %126, %125 ]
   %.165 = phi i32 [ %74, %72 ], [ %.06494, %127 ], [ %.06494, %132 ], [ %.06494, %135 ], [ %.06494, %122 ], [ %.06494, %125 ]
   %.162 = phi i32 [ %.06196, %72 ], [ %.06196, %127 ], [ %134, %132 ], [ %.06196, %135 ], [ %124, %122 ], [ %.06196, %125 ]
   %.1 = phi i32 [ %73, %72 ], [ %131, %127 ], [ %.06097, %132 ], [ %.06097, %135 ], [ %.06097, %122 ], [ %.06097, %125 ]
@@ -982,9 +982,9 @@ Abc_Clock.exit82._crit_edge:                      ; preds = %Abc_Clock.exit82
   %.06491 = phi i32 [ %.06494, %90 ], [ 0, %Abc_Clock.exit ], [ %.165, %137 ]
   %.06189 = phi i32 [ %.06196, %90 ], [ 0, %Abc_Clock.exit ], [ %.162, %137 ]
   %.06087 = phi i32 [ %.06097, %90 ], [ 0, %Abc_Clock.exit ], [ %.1, %137 ]
-  %.2 = phi i32 [ %93, %90 ], [ 0, %Abc_Clock.exit ], [ %.167, %137 ]
+  %.167 = phi i32 [ %93, %90 ], [ 0, %Abc_Clock.exit ], [ %.2, %137 ]
   call void @Extra_ProgressBarStop(ptr noundef %24) #10
-  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.06087, i32 noundef %.06189, i32 noundef %.2, i32 noundef %.06491)
+  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.06087, i32 noundef %.06189, i32 noundef %.167, i32 noundef %.06491)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %139 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
   %140 = icmp slt i32 %139, 0
@@ -1010,7 +1010,7 @@ Abc_Clock.exit84:                                 ; preds = %.loopexit, %141
   call void @Cnf_DataFree(ptr noundef %7) #10
   call void @sat_solver_delete(ptr noundef %8) #10
   %.not72 = icmp eq i32 %.06189, 0
-  %.not73 = icmp eq i32 %.2, 0
+  %.not73 = icmp eq i32 %.167, 0
   %. = select i1 %.not73, i32 1, i32 -1
   %.0 = select i1 %.not72, i32 %., i32 0
   ret i32 %.0

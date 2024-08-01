@@ -3492,7 +3492,7 @@ Vec_IntGrow.exit.i109:                            ; preds = %Vec_IntGrow.exit.i1
   %125 = phi ptr [ %115, %.lr.ph131 ], [ %329, %328 ]
   %126 = phi ptr [ %116, %.lr.ph131 ], [ %331, %328 ]
   %.072130 = phi i32 [ -1, %.lr.ph131 ], [ %.1, %328 ]
-  %.073129 = phi i32 [ 0, %.lr.ph131 ], [ %.2, %328 ]
+  %.073129 = phi i32 [ 0, %.lr.ph131 ], [ %.174, %328 ]
   %.075128 = phi i32 [ 0, %.lr.ph131 ], [ %330, %328 ]
   %127 = getelementptr inbounds i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8
@@ -3843,14 +3843,14 @@ Vec_BitSetEntry.exit:                             ; preds = %255, %.loopexit.i.i
   br label %327
 
 327:                                              ; preds = %313, %314, %243
-  %.174 = phi i32 [ %315, %314 ], [ %.073129, %313 ], [ %.073129, %243 ]
+  %.2 = phi i32 [ %315, %314 ], [ %.073129, %313 ], [ %.073129, %243 ]
   call void @Gia_PolynBuildOne(ptr noundef nonnull %29, i32 noundef %130)
   %.pre141 = load ptr, ptr %114, align 8
   br label %328
 
 328:                                              ; preds = %Vec_QuePop.exit, %327
   %329 = phi ptr [ %.pre141, %327 ], [ %125, %Vec_QuePop.exit ]
-  %.2 = phi i32 [ %.174, %327 ], [ %.073129, %Vec_QuePop.exit ]
+  %.174 = phi i32 [ %.2, %327 ], [ %.073129, %Vec_QuePop.exit ]
   %.1 = phi i32 [ %237, %327 ], [ %.072130, %Vec_QuePop.exit ]
   %330 = add nuw nsw i32 %.075128, 1
   %331 = getelementptr i8, ptr %329, i64 4

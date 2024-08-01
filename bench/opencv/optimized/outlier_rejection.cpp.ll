@@ -836,10 +836,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 195:                                              ; preds = %.lr.ph263, %._crit_edge256
   %196 = phi ptr [ %192, %.lr.ph263 ], [ %369, %._crit_edge256 ]
   %.0129261 = phi i64 [ 0, %.lr.ph263 ], [ %367, %._crit_edge256 ]
-  %.sroa.24.0260 = phi ptr [ null, %.lr.ph263 ], [ %.sroa.24.2, %._crit_edge256 ]
-  %.sroa.15.0259 = phi ptr [ null, %.lr.ph263 ], [ %.sroa.15.2, %._crit_edge256 ]
-  %.sroa.0.0258 = phi ptr [ null, %.lr.ph263 ], [ %.sroa.0.2, %._crit_edge256 ]
-  %.sroa.0210.0257 = phi i64 [ 4294967295, %.lr.ph263 ], [ %.sroa.0210.2, %._crit_edge256 ]
+  %.sroa.24.0260 = phi ptr [ null, %.lr.ph263 ], [ %.sroa.24.1, %._crit_edge256 ]
+  %.sroa.15.0259 = phi ptr [ null, %.lr.ph263 ], [ %.sroa.15.1, %._crit_edge256 ]
+  %.sroa.0.0258 = phi ptr [ null, %.lr.ph263 ], [ %.sroa.0.1, %._crit_edge256 ]
+  %.sroa.0210.0257 = phi i64 [ 4294967295, %.lr.ph263 ], [ %.sroa.0210.1, %._crit_edge256 ]
   %197 = getelementptr inbounds %"class.std::vector.3", ptr %196, i64 %.0129261
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %197, i64 8
@@ -861,12 +861,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 208:                                              ; preds = %.lr.ph238, %243
   %.0130237 = phi i32 [ 0, %.lr.ph238 ], [ %248, %243 ]
-  %.0140234 = phi i32 [ 0, %.lr.ph238 ], [ %.1141, %243 ]
-  %.sroa.0210.1233 = phi i64 [ %.sroa.0210.0257, %.lr.ph238 ], [ %213, %243 ]
+  %.1141234 = phi i32 [ 0, %.lr.ph238 ], [ %.2142, %243 ]
+  %.sroa.0210.2233 = phi i64 [ %.sroa.0210.0257, %.lr.ph238 ], [ %213, %243 ]
   %209 = phi <2 x float> [ zeroinitializer, %.lr.ph238 ], [ %247, %243 ]
-  %210 = and i64 %.sroa.0210.1233, 4294967295
+  %210 = and i64 %.sroa.0210.2233, 4294967295
   %211 = mul nuw i64 %210, 4164903690
-  %212 = lshr i64 %.sroa.0210.1233, 32
+  %212 = lshr i64 %.sroa.0210.2233, 32
   %213 = add nuw i64 %211, %212
   %214 = and i64 %213, 4294967295
   %215 = urem i64 %214, %205
@@ -914,8 +914,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit183
 
 243:                                              ; preds = %224
-  %244 = icmp sgt i32 %.1144, %.0140234
-  %.1141 = call i32 @llvm.smax.i32(i32 %.1144, i32 %.0140234)
+  %244 = icmp sgt i32 %.1144, %.1141234
+  %.2142 = call i32 @llvm.smax.i32(i32 %.1144, i32 %.1141234)
   %245 = insertelement <2 x i1> poison, i1 %244, i64 0
   %246 = shufflevector <2 x i1> %245, <2 x i1> poison, <2 x i32> zeroinitializer
   %247 = select <2 x i1> %246, <2 x float> %223, <2 x float> %209
@@ -924,10 +924,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond274.not, label %.loopexit, label %208, !llvm.loop !37
 
 .loopexit:                                        ; preds = %243, %195
-  %.sroa.0210.2 = phi i64 [ %.sroa.0210.0257, %195 ], [ %213, %243 ]
-  %.2142 = phi i32 [ 0, %195 ], [ %.1141, %243 ]
+  %.sroa.0210.1 = phi i64 [ %.sroa.0210.0257, %195 ], [ %213, %243 ]
+  %.0140 = phi i32 [ 0, %195 ], [ %.2142, %243 ]
   %249 = phi <2 x float> [ zeroinitializer, %195 ], [ %247, %243 ]
-  %250 = zext nneg i32 %.2142 to i64
+  %250 = zext nneg i32 %.0140 to i64
   %251 = ptrtoint ptr %.sroa.15.0259 to i64
   %252 = ptrtoint ptr %.sroa.0.0258 to i64
   %253 = sub i64 %251, %252
@@ -1007,9 +1007,9 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %279, %_ZNSt6
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %282, %263, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i
-  %.sroa.0.2 = phi ptr [ %271, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %.sroa.0.0258, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.0.0258, %263 ], [ %.sroa.0.0258, %282 ]
-  %.sroa.15.2 = phi ptr [ %280, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %268, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %264, %263 ], [ %spec.select, %282 ]
-  %.sroa.24.2 = phi ptr [ %281, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %.sroa.24.0260, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.24.0260, %263 ], [ %.sroa.24.0260, %282 ]
+  %.sroa.0.1 = phi ptr [ %271, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %.sroa.0.0258, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.0.0258, %263 ], [ %.sroa.0.0258, %282 ]
+  %.sroa.15.1 = phi ptr [ %280, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %268, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %264, %263 ], [ %spec.select, %282 ]
+  %.sroa.24.1 = phi ptr [ %281, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %.sroa.24.0260, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.24.0260, %263 ], [ %.sroa.24.0260, %282 ]
   %285 = load ptr, ptr %199, align 8
   %286 = load ptr, ptr %197, align 8
   %.not266 = icmp eq ptr %285, %286
@@ -1018,11 +1018,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %282, %263, %_ZSt6fi
 .preheader:                                       ; preds = %314, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %287 = phi ptr [ %286, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %315, %314 ]
   %288 = phi ptr [ %285, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %316, %314 ]
-  %289 = ptrtoint ptr %.sroa.15.2 to i64
-  %290 = ptrtoint ptr %.sroa.0.2 to i64
+  %289 = ptrtoint ptr %.sroa.15.1 to i64
+  %290 = ptrtoint ptr %.sroa.0.1 to i64
   %291 = sub i64 %289, %290
   %292 = ashr exact i64 %291, 2
-  %.not267 = icmp eq ptr %.sroa.15.2, %.sroa.0.2
+  %.not267 = icmp eq ptr %.sroa.15.1, %.sroa.0.1
   br i1 %.not267, label %._crit_edge249, label %.lr.ph248.preheader
 
 .lr.ph248.preheader:                              ; preds = %.preheader
@@ -1055,7 +1055,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %282, %263, %_ZSt6fi
 310:                                              ; preds = %.lr.ph244
   %311 = add nsw i32 %.2145242, 1
   %312 = sext i32 %.2145242 to i64
-  %313 = getelementptr inbounds i32, ptr %.sroa.0.2, i64 %312
+  %313 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %312
   store i32 %296, ptr %313, align 4
   %.pre = load ptr, ptr %199, align 8
   %.pre277 = load ptr, ptr %197, align 8
@@ -1076,7 +1076,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %282, %263, %_ZSt6fi
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
   %.0121247 = phi i64 [ %333, %.lr.ph248 ], [ 0, %.lr.ph248.preheader ]
   %323 = phi <2 x float> [ %332, %.lr.ph248 ], [ zeroinitializer, %.lr.ph248.preheader ]
-  %324 = getelementptr inbounds i32, ptr %.sroa.0.2, i64 %.0121247
+  %324 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %.0121247
   %325 = load i32, ptr %324, align 4
   %326 = sext i32 %325 to i64
   %327 = getelementptr inbounds %"class.cv::Point_", ptr %86, i64 %326
@@ -1145,11 +1145,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %282, %263, %_ZSt6fi
   br i1 %374, label %195, label %._crit_edge264, !llvm.loop !41
 
 ._crit_edge264:                                   ; preds = %._crit_edge256
-  %.not.i.i.i187 = icmp eq ptr %.sroa.0.2, null
+  %.not.i.i.i187 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i187, label %_ZNSt6vectorIiSaIiEED2Ev.exit188, label %375
 
 375:                                              ; preds = %._crit_edge264
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit188
 
 _ZNSt6vectorIiSaIiEED2Ev.exit188:                 ; preds = %._crit_edge, %._crit_edge264, %375

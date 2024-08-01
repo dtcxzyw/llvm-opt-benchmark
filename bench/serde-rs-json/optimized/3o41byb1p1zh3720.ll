@@ -364,17 +364,17 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   br label %23
 
 23:                                               ; preds = %19, %15
-  %.0.i.i = phi ptr [ %.fca.1.extract.i.i, %19 ], [ null, %15 ]
+  %.1.i.i = phi ptr [ %.fca.1.extract.i.i, %19 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !49
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i": ; preds = %23, %11
-  %.1.i.i = phi ptr [ %.0.i.i, %23 ], [ null, %11 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %23 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !45
   br label %"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT$10index_into17h111be33034785bb5E.exit"
 
 "_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT$10index_into17h111be33034785bb5E.exit": ; preds = %2, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i"
-  %.0.i = phi ptr [ %.1.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i" ], [ null, %2 ]
+  %.0.i = phi ptr [ %.0.i.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i" ], [ null, %2 ]
   ret ptr %.0.i
 }
 
@@ -409,12 +409,12 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.27.0.copyload.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !noalias !62
   %19 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.27.0.copyload.i.i
-  %.0.i.i = select i1 %trunc.i.i, ptr null, ptr %19
+  %.1.i.i = select i1 %trunc.i.i, ptr null, ptr %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !62
   br label %"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT$14index_into_mut17h5705f0ed611e6abeE.exit"
 
 "_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT$14index_into_mut17h5705f0ed611e6abeE.exit": ; preds = %2, %10, %14
-  %.0.i = phi ptr [ null, %2 ], [ %.0.i.i, %14 ], [ null, %10 ]
+  %.0.i = phi ptr [ null, %2 ], [ %.1.i.i, %14 ], [ null, %10 ]
   ret ptr %.0.i
 }
 

@@ -129,7 +129,7 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
   br label %36
 
 36:                                               ; preds = %.lr.ph126, %._crit_edge
-  %.063124 = phi i64 [ 0, %.lr.ph126 ], [ %.4, %._crit_edge ]
+  %.063124 = phi i64 [ 0, %.lr.ph126 ], [ %.265, %._crit_edge ]
   %.066123 = phi i64 [ %33, %.lr.ph126 ], [ %.268.lcssa, %._crit_edge ]
   %37 = getelementptr inbounds i8, ptr %1, i64 %.063124
   %.not78 = icmp eq i64 %.066123, 0
@@ -286,10 +286,10 @@ switch.early.test:                                ; preds = %76
   br label %88
 
 88:                                               ; preds = %85, %.thread98
-  %.265 = phi i64 [ %87, %85 ], [ %.164114, %.thread98 ]
-  %.1 = phi ptr [ %86, %85 ], [ %.061118, %.thread98 ]
+  %.4 = phi i64 [ %87, %85 ], [ %.164114, %.thread98 ]
+  %.2 = phi ptr [ %86, %85 ], [ %.061118, %.thread98 ]
   store i32 0, ptr %0, align 4
-  %.not80 = icmp ult i64 %.265, %4
+  %.not80 = icmp ult i64 %.4, %4
   br i1 %.not80, label %.thread96, label %._crit_edge
 
 .thread96.sink.split:                             ; preds = %74, %71, %68, %65
@@ -298,12 +298,12 @@ switch.early.test:                                ; preds = %76
   br label %.thread96
 
 .thread96:                                        ; preds = %.thread96.sink.split, %79, %76, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %65, %88, %82
-  %.3 = phi i64 [ %.265, %88 ], [ %.164114, %82 ], [ %.164114, %65 ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %76 ], [ %.164114, %79 ], [ %.164114, %.thread96.sink.split ]
-  %.2 = phi ptr [ %.1, %88 ], [ %.061118, %82 ], [ %.061118, %65 ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %76 ], [ %.061118, %79 ], [ %.061118, %.thread96.sink.split ]
+  %.3 = phi i64 [ %.4, %88 ], [ %.164114, %82 ], [ %.164114, %65 ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %76 ], [ %.164114, %79 ], [ %.164114, %.thread96.sink.split ]
+  %.1 = phi ptr [ %.2, %88 ], [ %.061118, %82 ], [ %.061118, %65 ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %76 ], [ %.061118, %79 ], [ %.061118, %.thread96.sink.split ]
   %89 = getelementptr inbounds i8, ptr %.062115, i64 1
   %90 = load i8, ptr %.062115, align 1
-  %91 = getelementptr inbounds i8, ptr %.2, i64 1
-  store i8 %90, ptr %.2, align 1
+  %91 = getelementptr inbounds i8, ptr %.1, i64 1
+  store i8 %90, ptr %.1, align 1
   %92 = add i64 %.268113, -1
   %93 = add nuw i64 %.3, 1
   %94 = icmp ne i64 %92, 0
@@ -313,13 +313,13 @@ switch.early.test:                                ; preds = %76
 
 ._crit_edge:                                      ; preds = %.thread96, %88, %57
   %.268.lcssa = phi i64 [ %.167, %57 ], [ %.268113, %88 ], [ %92, %.thread96 ]
-  %.4 = phi i64 [ %.063124, %57 ], [ %.265, %88 ], [ %93, %.thread96 ]
-  %97 = icmp ult i64 %.4, %4
+  %.265 = phi i64 [ %.063124, %57 ], [ %.4, %88 ], [ %93, %.thread96 ]
+  %97 = icmp ult i64 %.265, %4
   br i1 %97, label %36, label %._crit_edge127.loopexit
 
 ._crit_edge127.loopexit:                          ; preds = %._crit_edge
   %.pre145 = load i64, ptr %31, align 8
-  %98 = trunc i64 %.4 to i32
+  %98 = trunc i64 %.265 to i32
   br label %._crit_edge127
 
 ._crit_edge127:                                   ; preds = %._crit_edge127.loopexit, %28

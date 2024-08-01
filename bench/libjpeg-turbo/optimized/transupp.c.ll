@@ -65,20 +65,20 @@ define dso_local range(i32 0, 2) i32 @jtransform_parse_crop_spec(ptr nocapture n
 
 .sink.split:                                      ; preds = %._crit_edge.i, %30, %28
   %.sink = phi i32 [ 3, %28 ], [ 4, %30 ], [ 1, %._crit_edge.i ]
-  %.1.ph = phi ptr [ %29, %28 ], [ %31, %30 ], [ %20, %._crit_edge.i ]
+  %.079.ph = phi ptr [ %29, %28 ], [ %31, %30 ], [ %20, %._crit_edge.i ]
   store i32 %.sink, ptr %4, align 4
   br label %32
 
 32:                                               ; preds = %.sink.split, %2
-  %.1 = phi ptr [ %1, %2 ], [ %.1.ph, %.sink.split ]
-  %33 = load i8, ptr %.1, align 1
+  %.079 = phi ptr [ %1, %2 ], [ %.079.ph, %.sink.split ]
+  %33 = load i8, ptr %.079, align 1
   switch i8 %33, label %60 [
     i8 120, label %34
     i8 88, label %34
   ]
 
 34:                                               ; preds = %32, %32
-  %35 = getelementptr inbounds i8, ptr %.1, i64 1
+  %35 = getelementptr inbounds i8, ptr %.079, i64 1
   %36 = getelementptr inbounds i8, ptr %0, i64 32
   %37 = load ptr, ptr %8, align 8
   %38 = load i8, ptr %35, align 1
@@ -130,14 +130,14 @@ jt_read_integer.exit37.thread:                    ; preds = %34
 
 thread-pre-split:                                 ; preds = %54, %58, %56
   %.sink120 = phi i32 [ 4, %58 ], [ 3, %56 ], [ 1, %54 ]
-  %.3.ph = phi ptr [ %59, %58 ], [ %57, %56 ], [ %48, %54 ]
+  %.1.ph = phi ptr [ %59, %58 ], [ %57, %56 ], [ %48, %54 ]
   store i32 %.sink120, ptr %5, align 4
-  %.pr = load i8, ptr %.3.ph, align 1
+  %.pr = load i8, ptr %.1.ph, align 1
   br label %60
 
 60:                                               ; preds = %thread-pre-split, %32
   %61 = phi i8 [ %.pr, %thread-pre-split ], [ %33, %32 ]
-  %.3 = phi ptr [ %.3.ph, %thread-pre-split ], [ %.1, %32 ]
+  %.1 = phi ptr [ %.1.ph, %thread-pre-split ], [ %.079, %32 ]
   switch i8 %61, label %84 [
     i8 43, label %62
     i8 45, label %62
@@ -147,7 +147,7 @@ thread-pre-split:                                 ; preds = %54, %58, %56
   %63 = icmp eq i8 %61, 45
   %64 = select i1 %63, i32 2, i32 1
   store i32 %64, ptr %6, align 4
-  %65 = getelementptr inbounds i8, ptr %.3, i64 1
+  %65 = getelementptr inbounds i8, ptr %.1, i64 1
   %66 = getelementptr inbounds i8, ptr %0, i64 40
   %67 = load ptr, ptr %8, align 8
   %68 = load i8, ptr %65, align 1
@@ -186,7 +186,7 @@ jt_read_integer.exit47:                           ; preds = %.lr.ph.i39
 
 84:                                               ; preds = %jt_read_integer.exit47, %60
   %85 = phi i8 [ %61, %60 ], [ %.pre, %jt_read_integer.exit47 ]
-  %.5 = phi ptr [ %.3, %60 ], [ %78, %jt_read_integer.exit47 ]
+  %.2 = phi ptr [ %.1, %60 ], [ %78, %jt_read_integer.exit47 ]
   switch i8 %85, label %108 [
     i8 43, label %86
     i8 45, label %86
@@ -196,7 +196,7 @@ jt_read_integer.exit47:                           ; preds = %.lr.ph.i39
   %87 = icmp eq i8 %85, 45
   %88 = select i1 %87, i32 2, i32 1
   store i32 %88, ptr %7, align 4
-  %89 = getelementptr inbounds i8, ptr %.5, i64 1
+  %89 = getelementptr inbounds i8, ptr %.2, i64 1
   %90 = getelementptr inbounds i8, ptr %0, i64 48
   %91 = load ptr, ptr %8, align 8
   %92 = load i8, ptr %89, align 1
@@ -329,9 +329,9 @@ define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef %
   br label %jtransform_perfect_transform.exit
 
 jtransform_perfect_transform.exit:                ; preds = %34, %36, %38
-  %.1.shrunk.i.in = phi i32 [ %35, %34 ], [ %37, %36 ], [ %41, %38 ]
-  %.1.shrunk.i.not = icmp eq i32 %.1.shrunk.i.in, 0
-  br i1 %.1.shrunk.i.not, label %jtransform_perfect_transform.exit.thread, label %655
+  %.0.shrunk.i.in = phi i32 [ %35, %34 ], [ %37, %36 ], [ %41, %38 ]
+  %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
+  br i1 %.0.shrunk.i.not, label %jtransform_perfect_transform.exit.thread, label %655
 
 42:                                               ; preds = %26
   %43 = getelementptr inbounds i8, ptr %0, i64 408
@@ -367,9 +367,9 @@ jtransform_perfect_transform.exit:                ; preds = %34, %36, %38
   br label %jtransform_perfect_transform.exit417
 
 jtransform_perfect_transform.exit417:             ; preds = %52, %54, %56
-  %.1.shrunk.i413.in = phi i32 [ %53, %52 ], [ %55, %54 ], [ %59, %56 ]
-  %.1.shrunk.i413.not = icmp eq i32 %.1.shrunk.i413.in, 0
-  br i1 %.1.shrunk.i413.not, label %jtransform_perfect_transform.exit.thread, label %655
+  %.0.shrunk.i413.in = phi i32 [ %53, %52 ], [ %55, %54 ], [ %59, %56 ]
+  %.0.shrunk.i413.not = icmp eq i32 %.0.shrunk.i413.in, 0
+  br i1 %.0.shrunk.i413.not, label %jtransform_perfect_transform.exit.thread, label %655
 
 jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_transform.exit, %jtransform_perfect_transform.exit417, %.thread-pre-split_crit_edge, %42, %30
   %60 = phi i32 [ %33, %30 ], [ %51, %42 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %51, %jtransform_perfect_transform.exit417 ], [ %33, %jtransform_perfect_transform.exit ]
@@ -1403,9 +1403,9 @@ define dso_local range(i32 0, 2) i32 @jtransform_perfect_transform(i32 noundef %
   br label %14
 
 14:                                               ; preds = %10, %8, %6, %5
-  %.1.shrunk = phi i1 [ true, %5 ], [ %.not12, %6 ], [ %.not11, %8 ], [ %narrow, %10 ]
-  %.1 = zext i1 %.1.shrunk to i32
-  ret i32 %.1
+  %.0.shrunk = phi i1 [ true, %5 ], [ %.not12, %6 ], [ %.not11, %8 ], [ %narrow, %10 ]
+  %.0 = zext i1 %.0.shrunk to i32
+  ret i32 %.0
 }
 
 declare i64 @jdiv_round_up(i64 noundef, i64 noundef) local_unnamed_addr #4

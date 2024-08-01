@@ -235,12 +235,12 @@ should_break.exit.thread:                         ; preds = %oideq.exit.i, %lor.
   br label %if.end63
 
 if.then37:                                        ; preds = %if.end86.i, %land.lhs.true95.i, %if.end49.i, %if.then32
-  %score.0 = phi i32 [ %conv72.i, %if.end49.i ], [ 60000, %if.then32 ], [ %conv72.i, %land.lhs.true95.i ], [ %conv72.i, %if.end86.i ]
+  %score.1 = phi i32 [ %conv72.i, %if.end49.i ], [ 60000, %if.then32 ], [ %conv72.i, %land.lhs.true95.i ], [ %conv72.i, %if.end86.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %src_copied.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %literal_added.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %options.i)
-  %cmp38 = icmp slt i32 %score.0, %spec.store.select1
-  %24 = trunc i32 %score.0 to i16
+  %cmp38 = icmp slt i32 %score.1, %spec.store.select1
+  %24 = trunc i32 %score.1 to i16
   %25 = load ptr, ptr %2, align 8
   %path43 = getelementptr inbounds i8, ptr %25, i64 40
   %26 = load ptr, ptr %path43, align 8

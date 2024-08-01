@@ -61,16 +61,16 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp10, label %err, label %if.end13
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end
-  %q.0 = phi ptr [ %call9, %land.lhs.true ], [ null, %if.end ]
-  %call14 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef %type, ptr noundef nonnull %call, ptr noundef nonnull %call2, ptr noundef %q.0)
+  %q.1 = phi ptr [ %call9, %land.lhs.true ], [ null, %if.end ]
+  %call14 = tail call fastcc ptr @get_dh_from_pg_bn(ptr noundef %libctx, ptr noundef %type, ptr noundef nonnull %call, ptr noundef nonnull %call2, ptr noundef %q.1)
   br label %err
 
 err:                                              ; preds = %land.lhs.true, %entry, %if.end13
   %dhpkey.0 = phi ptr [ null, %entry ], [ null, %land.lhs.true ], [ %call14, %if.end13 ]
-  %q.1 = phi ptr [ null, %entry ], [ null, %land.lhs.true ], [ %q.0, %if.end13 ]
+  %q.0 = phi ptr [ null, %entry ], [ null, %land.lhs.true ], [ %q.1, %if.end13 ]
   tail call void @BN_free(ptr noundef %call) #2
   tail call void @BN_free(ptr noundef %call2) #2
-  tail call void @BN_free(ptr noundef %q.1) #2
+  tail call void @BN_free(ptr noundef %q.0) #2
   ret ptr %dhpkey.0
 }
 

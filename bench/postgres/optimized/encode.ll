@@ -598,7 +598,7 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %.052.ph95 = phi i32 [ %.153, %.outer ], [ 0, %3 ]
   %.054.ph94 = phi i32 [ %.155, %.outer ], [ 0, %3 ]
   %.058.ph93 = phi ptr [ %7, %.outer ], [ %0, %3 ]
-  %.059.ph92 = phi ptr [ %.3, %.outer ], [ %2, %3 ]
+  %.059.ph92 = phi ptr [ %.160, %.outer ], [ %2, %3 ]
   br label %6
 
 6:                                                ; preds = %.lr.ph, %.backedge
@@ -670,9 +670,9 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   unreachable
 
 33:                                               ; preds = %10, %23
-  %.157 = phi i32 [ %27, %23 ], [ 0, %10 ]
+  %.056 = phi i32 [ %27, %23 ], [ 0, %10 ]
   %34 = shl i32 %.054.ph94, 6
-  %35 = add i32 %.157, %34
+  %35 = add i32 %.056, %34
   %36 = add i32 %.052.ph95, 1
   %37 = icmp eq i32 %36, 4
   br i1 %37, label %38, label %.outer
@@ -702,27 +702,27 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %52 = phi i1 [ %45, %44 ], [ false, %38 ]
   %.26977 = phi i32 [ %.26978, %44 ], [ %.0.ph96, %38 ]
   %53 = phi i32 [ %47, %44 ], [ %35, %38 ]
-  %.160 = phi ptr [ %50, %44 ], [ %41, %38 ]
+  %.261 = phi ptr [ %50, %44 ], [ %41, %38 ]
   %54 = icmp sgt i32 %.26977, 2
   %or.cond15 = or i1 %52, %54
   br i1 %or.cond15, label %55, label %.outer
 
 55:                                               ; preds = %51
   %56 = trunc i32 %53 to i8
-  %57 = getelementptr i8, ptr %.160, i64 1
-  store i8 %56, ptr %.160, align 1
+  %57 = getelementptr i8, ptr %.261, i64 1
+  store i8 %56, ptr %.261, align 1
   br label %.outer
 
 .outer:                                           ; preds = %.thread71, %55, %51, %33
   %.270 = phi i32 [ %.0.ph96, %33 ], [ %.26977, %55 ], [ %.26977, %51 ], [ 1, %.thread71 ]
-  %.3 = phi ptr [ %.059.ph92, %33 ], [ %57, %55 ], [ %.160, %51 ], [ %.059.ph92, %.thread71 ]
+  %.160 = phi ptr [ %.059.ph92, %33 ], [ %57, %55 ], [ %.261, %51 ], [ %.059.ph92, %.thread71 ]
   %.155 = phi i32 [ %35, %33 ], [ 0, %55 ], [ 0, %51 ], [ %12, %.thread71 ]
   %.153 = phi i32 [ %36, %33 ], [ 0, %55 ], [ 0, %51 ], [ 3, %.thread71 ]
   %58 = icmp ult ptr %7, %4
   br i1 %58, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.059.ph.lcssa87 = phi ptr [ %.059.ph92, %.backedge ], [ %.3, %.outer ]
+  %.059.ph.lcssa87 = phi ptr [ %.059.ph92, %.backedge ], [ %.160, %.outer ]
   %.052.ph.lcssa85 = phi i32 [ %.052.ph95, %.backedge ], [ %.153, %.outer ]
   %.not = icmp eq i32 %.052.ph.lcssa85, 0
   br i1 %.not, label %.outer._crit_edge.thread, label %59

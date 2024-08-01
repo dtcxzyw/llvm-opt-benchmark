@@ -3018,7 +3018,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %523
 
 536:                                              ; preds = %530, %547
   %.041317 = phi i32 [ 0, %530 ], [ %548, %547 ]
-  %.sroa.7266.2316 = phi i64 [ 0, %530 ], [ %.sroa.7266.3, %547 ]
+  %.sroa.7266.1316 = phi i64 [ 0, %530 ], [ %.sroa.7266.3, %547 ]
   %537 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %_ZN2cv9TickMeter5startEv.exit244 unwind label %.loopexit285
 
@@ -3041,7 +3041,7 @@ _ZN2cv9TickMeter5startEv.exit244:                 ; preds = %536
   %.not283 = icmp eq i64 %537, 0
   %542 = sub i64 %541, %537
   %543 = select i1 %.not283, i64 0, i64 %542
-  %.sroa.7266.3 = add nsw i64 %543, %.sroa.7266.2316
+  %.sroa.7266.3 = add nsw i64 %543, %.sroa.7266.1316
   store i32 0, ptr %105, align 4
   store i32 0, ptr %450, align 4
   invoke void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %107, ptr noundef nonnull align 8 dereferenceable(96) %99, i32 noundef 1, i32 noundef 1)
@@ -3548,7 +3548,7 @@ _ZN2cv12MatIterator_IfEppEv.exit.i.i:             ; preds = %.noexc254, %600, %.
   br label %.loopexit.split-lp297
 
 685:                                              ; preds = %371, %.loopexit295
-  %.042 = phi i32 [ 0, %.loopexit295 ], [ 1, %371 ]
+  %.1 = phi i32 [ 0, %.loopexit295 ], [ 1, %371 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
@@ -3570,11 +3570,11 @@ _ZN2cv12MatIterator_IfEppEv.exit.i.i:             ; preds = %.noexc254, %600, %.
   br label %689
 
 688:                                              ; preds = %.critedge.thread, %685
-  %.1 = phi i32 [ %.042, %685 ], [ 0, %.critedge.thread ]
+  %.042 = phi i32 [ %.1, %685 ], [ 0, %.critedge.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #17
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #17
-  ret i32 %.1
+  ret i32 %.042
 
 689:                                              ; preds = %167, %687, %306, %301, %296, %291, %286, %281, %276, %271, %266, %261, %162, %156, %154, %152
   %.pn194 = phi { ptr, i32 } [ %153, %152 ], [ %.pn188.pn.pn.pn.pn, %687 ], [ %.pn131.pn, %306 ], [ %.pn129, %301 ], [ %.pn127, %296 ], [ %.pn125, %291 ], [ %.pn123, %286 ], [ %.pn121, %281 ], [ %.pn119, %276 ], [ %.pn117, %271 ], [ %.pn115, %266 ], [ %.pn113, %261 ], [ %.pn111, %167 ], [ %.pn109, %162 ], [ %157, %156 ], [ %155, %154 ]

@@ -120,7 +120,7 @@ if.end19:                                         ; preds = %land.lhs.true.i, %i
 
 do.body:                                          ; preds = %do.cond, %if.end19
   %len.addr.0 = phi i32 [ %len, %if.end19 ], [ %len.addr.1, %do.cond ]
-  %got.0 = phi i32 [ 0, %if.end19 ], [ %got.1, %do.cond ]
+  %got.0 = phi i32 [ 0, %if.end19 ], [ %got.2, %do.cond ]
   %buf.addr.0 = phi ptr [ %buf, %if.end19 ], [ %buf.addr.1, %do.cond ]
   %9 = load i32, ptr %file, align 8
   %tobool20.not = icmp eq i32 %9, 0
@@ -175,11 +175,11 @@ if.else49:                                        ; preds = %lor.lhs.false40
   br i1 %cmp51, label %do.body.i, label %if.else59
 
 do.body.i:                                        ; preds = %if.else49, %if.end.i
-  %n.0 = phi i32 [ %add.i49, %if.end.i ], [ 0, %if.else49 ]
+  %n.1 = phi i32 [ %add.i49, %if.end.i ], [ 0, %if.else49 ]
   %17 = load i32, ptr %fd.i, align 4
-  %idx.ext.i43 = zext i32 %n.0 to i64
+  %idx.ext.i43 = zext i32 %n.1 to i64
   %add.ptr.i44 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %idx.ext.i43
-  %sub.i45 = sub i32 %len.addr.0, %n.0
+  %sub.i45 = sub i32 %len.addr.0, %n.1
   %conv.i46 = zext i32 %sub.i45 to i64
   %call.i47 = tail call i64 @read(i32 noundef %17, ptr noundef %add.ptr.i44, i64 noundef %conv.i46) #12
   %conv1.i = trunc i64 %call.i47 to i32
@@ -187,7 +187,7 @@ do.body.i:                                        ; preds = %if.else49, %if.end.
   br i1 %cmp.i48, label %do.end.i, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body.i
-  %add.i49 = add i32 %n.0, %conv1.i
+  %add.i49 = add i32 %n.1, %conv1.i
   %cmp3.i = icmp ult i32 %add.i49, %len.addr.0
   br i1 %cmp3.i, label %do.body.i, label %if.end72, !llvm.loop !7
 
@@ -219,11 +219,11 @@ if.end64:                                         ; preds = %if.else59
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end.i, %if.then13.i, %if.end64, %if.then21
-  %n.2 = phi i32 [ %19, %if.end64 ], [ %len.addr.0., %if.then21 ], [ %n.0, %if.then13.i ], [ %add.i49, %if.end.i ]
-  %sub73 = sub i32 %len.addr.0, %n.2
-  %idx.ext74 = zext i32 %n.2 to i64
+  %n.0 = phi i32 [ %19, %if.end64 ], [ %len.addr.0., %if.then21 ], [ %n.1, %if.then13.i ], [ %add.i49, %if.end.i ]
+  %sub73 = sub i32 %len.addr.0, %n.0
+  %idx.ext74 = zext i32 %n.0 to i64
   %add.ptr75 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %idx.ext74
-  %add = add i32 %n.2, %got.0
+  %add = add i32 %n.0, %got.0
   %20 = load i64, ptr %pos, align 8
   %add78 = add nsw i64 %20, %idx.ext74
   store i64 %add78, ptr %pos, align 8
@@ -231,13 +231,13 @@ if.end72:                                         ; preds = %if.end.i, %if.then1
 
 do.cond:                                          ; preds = %if.then43, %if.end72
   %len.addr.1 = phi i32 [ %sub73, %if.end72 ], [ %len.addr.0, %if.then43 ]
-  %got.1 = phi i32 [ %add, %if.end72 ], [ %got.0, %if.then43 ]
+  %got.2 = phi i32 [ %add, %if.end72 ], [ %got.0, %if.then43 ]
   %buf.addr.1 = phi ptr [ %add.ptr75, %if.end72 ], [ %buf.addr.0, %if.then43 ]
   %tobool79.not = icmp eq i32 %len.addr.1, 0
   br i1 %tobool79.not, label %return, label %do.body, !llvm.loop !8
 
 return:                                           ; preds = %if.else19.i, %do.cond, %if.else59, %if.then43, %gz_load.exit, %if.then36, %if.end10, %if.end, %lor.lhs.false, %entry, %if.then9
-  %retval.0 = phi i32 [ -1, %if.then9 ], [ -1, %entry ], [ -1, %lor.lhs.false ], [ -1, %if.end ], [ 0, %if.end10 ], [ -1, %gz_load.exit ], [ %got.0, %if.then36 ], [ %got.1, %do.cond ], [ -1, %if.else59 ], [ -1, %if.then43 ], [ -1, %if.else19.i ]
+  %retval.0 = phi i32 [ -1, %if.then9 ], [ -1, %entry ], [ -1, %lor.lhs.false ], [ -1, %if.end ], [ 0, %if.end10 ], [ -1, %gz_load.exit ], [ %got.0, %if.then36 ], [ %got.2, %do.cond ], [ -1, %if.else59 ], [ -1, %if.then43 ], [ -1, %if.else19.i ]
   ret i32 %retval.0
 }
 
@@ -837,7 +837,7 @@ do.body.preheader:                                ; preds = %if.end16
 do.body:                                          ; preds = %do.body.preheader, %if.end29
   %9 = phi i32 [ %sub49, %if.end29 ], [ %.pre, %do.body.preheader ]
   %left.0 = phi i32 [ %sub55, %if.end29 ], [ %sub, %do.body.preheader ]
-  %buf.addr.0 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
+  %buf.addr.1 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
   %cmp19 = icmp eq i32 %9, 0
   br i1 %cmp19, label %land.lhs.true20, label %if.end29
 
@@ -870,7 +870,7 @@ if.end29:                                         ; preds = %do.body, %if.end24
   %add = add i32 %conv42, 1
   %n.0 = select i1 %cmp37.not, i32 %left.0., i32 %add
   %conv46 = zext i32 %n.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.0, ptr align 1 %11, i64 %conv46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.1, ptr align 1 %11, i64 %conv46, i1 false)
   %12 = load i32, ptr %file, align 8
   %sub49 = sub i32 %12, %n.0
   store i32 %sub49, ptr %file, align 8
@@ -881,18 +881,18 @@ if.end29:                                         ; preds = %do.body, %if.end24
   %add54 = add nsw i64 %14, %conv46
   store i64 %add54, ptr %pos, align 8
   %sub55 = sub i32 %left.0, %n.0
-  %add.ptr57 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %conv46
+  %add.ptr57 = getelementptr inbounds i8, ptr %buf.addr.1, i64 %conv46
   %tobool58 = icmp ne i32 %sub55, 0
   %15 = and i1 %cmp37.not, %tobool58
   br i1 %15, label %do.body, label %if.end61, !llvm.loop !12
 
 if.end61:                                         ; preds = %if.end29, %if.then28
-  %buf.addr.1 = phi ptr [ %buf.addr.0, %if.then28 ], [ %add.ptr57, %if.end29 ]
-  %cmp62 = icmp eq ptr %buf.addr.1, %buf
+  %buf.addr.0 = phi ptr [ %buf.addr.1, %if.then28 ], [ %add.ptr57, %if.end29 ]
+  %cmp62 = icmp eq ptr %buf.addr.0, %buf
   br i1 %cmp62, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end61
-  store i8 0, ptr %buf.addr.1, align 1
+  store i8 0, ptr %buf.addr.0, align 1
   br label %return
 
 return:                                           ; preds = %if.else19.i, %land.lhs.true20, %if.end16, %if.end61, %if.end, %lor.lhs.false5, %entry, %if.end65

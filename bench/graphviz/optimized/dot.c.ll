@@ -42,7 +42,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %16 = phi ptr [ %32, %21 ], [ %10, %.preheader ]
-  %.018 = phi i32 [ %29, %21 ], [ 0, %.preheader ]
+  %.118 = phi i32 [ %29, %21 ], [ 0, %.preheader ]
   %.01217 = phi ptr [ %30, %21 ], [ null, %.preheader ]
   %.not15 = icmp eq ptr %.01217, null
   br i1 %.not15, label %21, label %17
@@ -62,7 +62,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %26 = load ptr, ptr @G, align 8
   %27 = tail call i32 @gvRenderJobs(ptr noundef %25, ptr noundef %26) #7
   %28 = tail call i32 @agreseterrors() #7
-  %29 = tail call i32 @llvm.smax.i32(i32 %.018, i32 %28)
+  %29 = tail call i32 @llvm.smax.i32(i32 %.118, i32 %28)
   %30 = load ptr, ptr @G, align 8
   %31 = load ptr, ptr @Gvc, align 8
   %32 = tail call ptr @gvNextInputGraph(ptr noundef %31) #7
@@ -71,12 +71,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %21, %.preheader, %11
-  %.1 = phi i32 [ 0, %11 ], [ 0, %.preheader ], [ %29, %21 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.preheader ], [ %29, %21 ]
   %33 = load ptr, ptr @Gvc, align 8
   tail call void @gvFinalize(ptr noundef %33) #7
   %34 = load ptr, ptr @Gvc, align 8
   %35 = tail call i32 @gvFreeContext(ptr noundef %34) #7
-  %36 = tail call i32 @llvm.smax.i32(i32 %.1, i32 %35)
+  %36 = tail call i32 @llvm.smax.i32(i32 %.0, i32 %35)
   tail call fastcc void @graphviz_exit(i32 noundef %36) #8
   unreachable
 }

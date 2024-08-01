@@ -359,16 +359,16 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not138, label %42, label %.thread
 
 .thread:                                          ; preds = %35, %31, %37
-  %.0120148 = phi i32 [ %.0124155, %37 ], [ %32, %31 ], [ %32, %35 ]
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %4, i32 noundef 0, i32 noundef %.0120148) #8
+  %.1121148 = phi i32 [ %.0124155, %37 ], [ %32, %31 ], [ %32, %35 ]
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %4, i32 noundef 0, i32 noundef %.1121148) #8
   %38 = load i32, ptr @hf_eth_padding, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %.0120148, i32 noundef 0) #8
-  %40 = sub i32 %12, %.0120148
-  %41 = sub i32 %13, %.0120148
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %.1121148, i32 noundef 0) #8
+  %40 = sub i32 %12, %.1121148
+  %41 = sub i32 %13, %.1121148
   br label %42
 
 42:                                               ; preds = %37, %.thread, %24
-  %.1121 = phi i32 [ %.0120148, %.thread ], [ 0, %37 ], [ 0, %24 ]
+  %.0120 = phi i32 [ %.1121148, %.thread ], [ 0, %37 ], [ 0, %24 ]
   %.0118 = phi i32 [ %41, %.thread ], [ %13, %37 ], [ %13, %24 ]
   %.0 = phi i32 [ %40, %.thread ], [ %12, %37 ], [ %12, %24 ]
   %43 = tail call i32 @tvb_reported_length(ptr noundef %4) #8
@@ -378,7 +378,7 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not139, label %.thread149, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call ptr @tvb_new_subset_remaining(ptr noundef nonnull %5, i32 noundef %.1121) #8
+  %46 = tail call ptr @tvb_new_subset_remaining(ptr noundef nonnull %5, i32 noundef %.0120) #8
   %47 = tail call i32 @tvb_reported_length(ptr noundef %46) #8
   %.not140 = icmp eq i32 %47, 0
   br i1 %.not140, label %53, label %48
@@ -431,8 +431,8 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
 
 70:                                               ; preds = %59, %62, %65
   %.1119 = phi i32 [ %67, %65 ], [ %60, %62 ], [ %60, %59 ]
-  %.2 = phi i32 [ %66, %65 ], [ %60, %62 ], [ %.0, %59 ]
-  %71 = call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %5, i32 noundef %.1121, i32 noundef %.2, i32 noundef %.1119) #8
+  %.3 = phi i32 [ %66, %65 ], [ %60, %62 ], [ %.0, %59 ]
+  %71 = call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %5, i32 noundef %.0120, i32 noundef %.3, i32 noundef %.1119) #8
   %72 = call i32 @tvb_reported_length(ptr noundef %71) #8
   %.not142 = icmp eq i32 %72, 0
   br i1 %.not142, label %78, label %73
@@ -448,27 +448,27 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   %.not144 = phi i1 [ false, %73 ], [ false, %70 ], [ true, %54 ], [ true, %53 ]
   %.1127 = phi ptr [ %71, %73 ], [ %71, %70 ], [ %46, %54 ], [ %46, %53 ]
   %.1123 = phi i8 [ %77, %73 ], [ %.0122152, %70 ], [ %.0122, %54 ], [ %.0122, %53 ]
-  %.3 = phi i32 [ %.2, %73 ], [ %.2, %70 ], [ %.0, %54 ], [ %.0, %53 ]
+  %.1 = phi i32 [ %.3, %73 ], [ %.3, %70 ], [ %.0, %54 ], [ %.0, %53 ]
   %79 = trunc nuw i8 %.1123 to i1
-  %80 = icmp eq i32 %.3, 0
+  %80 = icmp eq i32 %.1, 0
   %or.cond14.not = select i1 %79, i1 true, i1 %80
   br i1 %or.cond14.not, label %91, label %81
 
 81:                                               ; preds = %78
-  call void @tvb_ensure_bytes_exist(ptr noundef %.1127, i32 noundef 0, i32 noundef %.3) #8
-  %82 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %.1127, i32 noundef 0, i32 noundef %.3, i32 noundef 0) #8
+  call void @tvb_ensure_bytes_exist(ptr noundef %.1127, i32 noundef 0, i32 noundef %.1) #8
+  %82 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %.1127, i32 noundef 0, i32 noundef %.1, i32 noundef 0) #8
   br i1 %29, label %83, label %91
 
 83:                                               ; preds = %81
   %84 = load i32, ptr @eth_padding, align 4
   %85 = icmp eq i32 %84, 2
-  %86 = icmp ne i32 %.1121, 0
+  %86 = icmp ne i32 %.0120, 0
   %or.cond7 = and i1 %86, %85
   br i1 %or.cond7, label %.sink.split, label %87
 
 87:                                               ; preds = %83
   %88 = icmp eq i32 %84, 1
-  %89 = icmp eq i32 %.1121, 0
+  %89 = icmp eq i32 %.0120, 0
   %or.cond9 = and i1 %89, %88
   br i1 %or.cond9, label %.sink.split, label %91
 
@@ -481,7 +481,7 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not144, label %114, label %92
 
 92:                                               ; preds = %91
-  %93 = add i32 %.3, %.1121
+  %93 = add i32 %.1, %.0120
   %94 = call i32 @tvb_get_ntohl(ptr noundef nonnull %5, i32 noundef %93) #8
   %95 = load i32, ptr @eth_check_fcs, align 4
   %96 = icmp ne i32 %95, 0
@@ -512,13 +512,13 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   br label %112
 
 112:                                              ; preds = %98, %105, %108
-  %113 = add i32 %.3, 4
+  %113 = add i32 %.1, 4
   br label %114
 
 114:                                              ; preds = %112, %91
-  %.4 = phi i32 [ %113, %112 ], [ %.3, %91 ]
+  %.4 = phi i32 [ %113, %112 ], [ %.1, %91 ]
   %115 = call i32 @tvb_captured_length(ptr noundef %4) #8
-  %116 = add i32 %.4, %.1121
+  %116 = add i32 %.4, %.0120
   %117 = sub i32 %115, %116
   call void @proto_tree_set_appendix(ptr noundef %2, ptr noundef %4, i32 noundef %117, i32 noundef %116) #8
   br label %118
@@ -1275,9 +1275,9 @@ export_pdu.exit:                                  ; preds = %4, %44
   br label %154
 
 154:                                              ; preds = %151, %134
-  %.2 = phi ptr [ %153, %151 ], [ null, %134 ]
+  %.3 = phi ptr [ %153, %151 ], [ null, %134 ]
   %155 = load i32, ptr @ett_addr, align 4
-  %156 = call ptr @proto_tree_add_mac48_detail(ptr noundef nonnull @dissect_address_data.eth_dst, ptr noundef nonnull @dissect_address_data.eth_addr, i32 noundef %155, ptr noundef %0, ptr noundef %.2, i32 noundef 0) #8
+  %156 = call ptr @proto_tree_add_mac48_detail(ptr noundef nonnull @dissect_address_data.eth_dst, ptr noundef nonnull @dissect_address_data.eth_addr, i32 noundef %155, ptr noundef %0, ptr noundef %.3, i32 noundef 0) #8
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #8
   %158 = and i8 %157, 1
   %.not7.i = icmp eq i8 %158, 0
@@ -1289,17 +1289,17 @@ export_pdu.exit:                                  ; preds = %4, %44
 
 dissect_address_data.exit:                        ; preds = %154, %159
   %161 = load i32, ptr @ett_addr, align 4
-  %162 = call ptr @proto_tree_add_mac48_detail(ptr noundef nonnull @dissect_address_data.eth_src, ptr noundef nonnull @dissect_address_data.eth_addr, i32 noundef %161, ptr noundef %0, ptr noundef %.2, i32 noundef 6) #8
+  %162 = call ptr @proto_tree_add_mac48_detail(ptr noundef nonnull @dissect_address_data.eth_src, ptr noundef nonnull @dissect_address_data.eth_addr, i32 noundef %161, ptr noundef %0, ptr noundef %.3, i32 noundef 6) #8
   %163 = load i32, ptr @hf_eth_type, align 4
   %164 = load i16, ptr %40, align 8
   %165 = zext i16 %164 to i32
-  %166 = call ptr @proto_tree_add_uint(ptr noundef %.2, i32 noundef %163, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %165) #8
+  %166 = call ptr @proto_tree_add_uint(ptr noundef %.3, i32 noundef %163, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %165) #8
   %167 = load i16, ptr %40, align 8
   store i16 %167, ptr %5, align 8
   %168 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 14, ptr %168, align 4
   %169 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.2, ptr %169, align 8
+  store ptr %.3, ptr %169, align 8
   %170 = load i32, ptr @hf_eth_trailer, align 4
   %171 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %170, ptr %171, align 8
@@ -1308,7 +1308,7 @@ dissect_address_data.exit:                        ; preds = %154, %159
   br label %173
 
 173:                                              ; preds = %dissect_address_data.exit, %115
-  %.3 = phi ptr [ %spec.select, %115 ], [ %.2, %dissect_address_data.exit ]
+  %.2 = phi ptr [ %spec.select, %115 ], [ %.3, %dissect_address_data.exit ]
   %.1 = phi ptr [ %spec.select170, %115 ], [ %2, %dissect_address_data.exit ]
   %174 = getelementptr inbounds i8, ptr %1, i64 20
   %175 = load i32, ptr %174, align 4
@@ -1373,7 +1373,7 @@ get_eth_conversation_data.exit:                   ; preds = %195, %192
 
 206:                                              ; preds = %get_eth_conversation_data.exit
   %207 = load i32, ptr @hf_eth_stream, align 4
-  %208 = call ptr @proto_tree_add_uint(ptr noundef %.3, i32 noundef %207, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %204) #8
+  %208 = call ptr @proto_tree_add_uint(ptr noundef %.2, i32 noundef %207, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %204) #8
   %.not.i172 = icmp eq ptr %208, null
   br i1 %.not.i172, label %proto_item_set_generated.exit, label %209
 
@@ -1399,7 +1399,7 @@ proto_item_set_generated.exit:                    ; preds = %212, %209, %206, %g
   br label %219
 
 219:                                              ; preds = %proto_item_set_generated.exit, %216, %export_pdu.exit, %131, %81, %77
-  %.0143 = phi ptr [ null, %77 ], [ %92, %81 ], [ null, %131 ], [ null, %export_pdu.exit ], [ %.3, %216 ], [ %.3, %proto_item_set_generated.exit ]
+  %.0143 = phi ptr [ null, %77 ], [ %92, %81 ], [ null, %131 ], [ null, %export_pdu.exit ], [ %.2, %216 ], [ %.2, %proto_item_set_generated.exit ]
   ret ptr %.0143
 }
 

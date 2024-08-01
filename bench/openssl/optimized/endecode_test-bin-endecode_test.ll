@@ -2837,7 +2837,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %pkey.031 = phi ptr [ null, %for.cond.preheader ], [ %pkey.1, %for.inc ]
+  %pkey.131 = phi ptr [ null, %for.cond.preheader ], [ %pkey.2, %for.inc ]
   %i.030 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
   %cmp7 = icmp eq i32 %i.030, 0
   %cmp9 = icmp eq i32 %i.030, 1
@@ -2890,36 +2890,36 @@ if.then43:                                        ; preds = %if.else40
   br i1 %cmp44, label %if.then46, label %if.else52
 
 if.then46:                                        ; preds = %if.then43
-  %call47 = call i32 @EVP_PKEY_parameters_eq(ptr noundef %pkey.031, ptr noundef %2) #7
+  %call47 = call i32 @EVP_PKEY_parameters_eq(ptr noundef %pkey.131, ptr noundef %2) #7
   %call48 = call i32 @test_int_eq(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.234, i32 noundef %call47, i32 noundef 1) #7
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %end, label %for.inc
 
 if.else52:                                        ; preds = %if.then43
-  %call53 = call i32 @EVP_PKEY_eq(ptr noundef %pkey.031, ptr noundef %2) #7
+  %call53 = call i32 @EVP_PKEY_eq(ptr noundef %pkey.131, ptr noundef %2) #7
   %call54 = call i32 @test_int_eq(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.234, i32 noundef %call53, i32 noundef 1) #7
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %end, label %for.inc
 
 for.inc:                                          ; preds = %if.then39, %if.then46, %if.else52, %if.else40
-  %pkey.1 = phi ptr [ %1, %if.then39 ], [ %pkey.031, %if.then46 ], [ %pkey.031, %if.else52 ], [ %pkey.031, %if.else40 ]
+  %pkey.2 = phi ptr [ %1, %if.then39 ], [ %pkey.131, %if.then46 ], [ %pkey.131, %if.else52 ], [ %pkey.131, %if.else40 ]
   %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
-  store ptr %pkey.1, ptr %object, align 8
+  store ptr %pkey.2, ptr %object, align 8
   br label %end
 
 end:                                              ; preds = %if.else52, %if.then46, %for.body, %land.lhs.true, %lor.lhs.false23, %lor.lhs.false28, %entry, %for.end
-  %dctx.1 = phi ptr [ null, %for.end ], [ null, %entry ], [ %call15, %for.body ], [ %call15, %land.lhs.true ], [ %call15, %lor.lhs.false23 ], [ %call15, %lor.lhs.false28 ], [ null, %if.else52 ], [ null, %if.then46 ]
+  %dctx.0 = phi ptr [ null, %for.end ], [ null, %entry ], [ %call15, %for.body ], [ %call15, %land.lhs.true ], [ %call15, %lor.lhs.false23 ], [ %call15, %lor.lhs.false28 ], [ null, %if.else52 ], [ null, %if.then46 ]
   %ok.0 = phi i32 [ 1, %for.end ], [ 0, %entry ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false23 ], [ 0, %land.lhs.true ], [ 0, %for.body ], [ 0, %if.then46 ], [ 0, %if.else52 ]
-  %pkey.2 = phi ptr [ null, %for.end ], [ null, %entry ], [ %pkey.031, %lor.lhs.false28 ], [ %pkey.031, %lor.lhs.false23 ], [ %pkey.031, %land.lhs.true ], [ %pkey.031, %for.body ], [ %pkey.031, %if.then46 ], [ %pkey.031, %if.else52 ]
-  call void @EVP_PKEY_free(ptr noundef %pkey.2) #7
+  %pkey.0 = phi ptr [ null, %for.end ], [ null, %entry ], [ %pkey.131, %lor.lhs.false28 ], [ %pkey.131, %lor.lhs.false23 ], [ %pkey.131, %land.lhs.true ], [ %pkey.131, %for.body ], [ %pkey.131, %if.then46 ], [ %pkey.131, %if.else52 ]
+  call void @EVP_PKEY_free(ptr noundef %pkey.0) #7
   %3 = load ptr, ptr %testpkey, align 8
   call void @EVP_PKEY_free(ptr noundef %3) #7
   %call61 = call i32 @BIO_free(ptr noundef %call1) #7
-  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.1) #7
+  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.0) #7
   ret i32 %ok.0
 }
 

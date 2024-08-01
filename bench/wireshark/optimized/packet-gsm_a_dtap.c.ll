@@ -2013,26 +2013,26 @@ switch.lookup:                                    ; preds = %18
   br i1 %136, label %341, label %137
 
 137:                                              ; preds = %114, %113, %96
-  %.1 = phi i32 [ %135, %114 ], [ %111, %113 ], [ %94, %96 ]
+  %.2 = phi i32 [ %135, %114 ], [ %111, %113 ], [ %94, %96 ]
   %138 = load i32, ptr @ett_bc_oct_6, align 4
-  %139 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.157) #6
-  %140 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #6
+  %139 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.157) #6
+  %140 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #6
   %141 = zext i8 %140 to i32
   %142 = load i32, ptr @hf_gsm_a_extension, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %142, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %142, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #6
   %144 = load i32, ptr @hf_gsm_a_dtap_layer_1_identity, align 4
   %145 = and i32 %141, 96
   %146 = icmp eq i32 %145, 32
   %147 = select i1 %146, ptr @.str.158, ptr @.str.123
-  %148 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %139, i32 noundef %144, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.150, ptr noundef nonnull %147) #6
+  %148 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %139, i32 noundef %144, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.150, ptr noundef nonnull %147) #6
   %149 = load i32, ptr @hf_gsm_a_dtap_user_information_layer_1_protocol, align 4
   %150 = and i32 %141, 30
   %.not452 = icmp eq i32 %150, 0
   %151 = select i1 %.not452, ptr @.str.159, ptr @.str.123
-  %152 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %139, i32 noundef %149, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.150, ptr noundef nonnull %151) #6
+  %152 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %139, i32 noundef %149, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.150, ptr noundef nonnull %151) #6
   %153 = load i32, ptr @hf_gsm_a_dtap_synchronous, align 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %153, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #6
-  %155 = add i32 %.1, 1
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %153, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #6
+  %155 = add i32 %.2, 1
   %156 = sub i32 %155, %3
   %.not453 = icmp ult i32 %156, %4
   br i1 %.not453, label %159, label %157
@@ -2062,7 +2062,7 @@ switch.lookup:                                    ; preds = %18
   %174 = and i32 %164, 15
   %175 = tail call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @gsm_a_dtap_user_rate_vals, ptr noundef nonnull @.str.123) #6
   %176 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %162, i32 noundef %173, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef %164, ptr noundef nonnull @.str.150, ptr noundef %175) #6
-  %177 = add i32 %.1, 2
+  %177 = add i32 %.2, 2
   %178 = sub i32 %177, %3
   %.not455 = icmp ult i32 %178, %4
   br i1 %.not455, label %181, label %179
@@ -2089,7 +2089,7 @@ switch.lookup:                                    ; preds = %18
   %193 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %192, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
   %194 = load i32, ptr @hf_gsm_a_dtap_parity_information, align 4
   %195 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %194, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #6
-  %196 = add i32 %.1, 3
+  %196 = add i32 %.2, 3
   %197 = sub i32 %196, %3
   %.not457 = icmp ult i32 %197, %4
   br i1 %.not457, label %200, label %198
@@ -2115,7 +2115,7 @@ switch.lookup:                                    ; preds = %18
   %211 = and i32 %205, 31
   %212 = tail call ptr @val_to_str_const(i32 noundef %211, ptr noundef nonnull @gsm_a_dtap_modem_type_vals, ptr noundef nonnull @.str.123) #6
   %213 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %203, i32 noundef %210, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef %205, ptr noundef nonnull @.str.150, ptr noundef %212) #6
-  %214 = add i32 %.1, 4
+  %214 = add i32 %.2, 4
   %215 = sub i32 %214, %3
   %.not459 = icmp ult i32 %215, %4
   br i1 %.not459, label %218, label %216
@@ -2141,7 +2141,7 @@ switch.lookup:                                    ; preds = %18
   %229 = and i32 %223, 31
   %230 = tail call ptr @val_to_str_const(i32 noundef %229, ptr noundef nonnull @gsm_a_dtap_fixed_network_user_rate_vals, ptr noundef nonnull @.str.123) #6
   %231 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %221, i32 noundef %228, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef %223, ptr noundef nonnull @.str.150, ptr noundef %230) #6
-  %232 = add i32 %.1, 5
+  %232 = add i32 %.2, 5
   %233 = sub i32 %232, %3
   %.not461 = icmp ult i32 %233, %4
   br i1 %.not461, label %236, label %234
@@ -2188,7 +2188,7 @@ switch.lookup:                                    ; preds = %18
   br label %262
 
 262:                                              ; preds = %257, %244
-  %263 = add i32 %.1, 6
+  %263 = add i32 %.2, 6
   %264 = sub i32 %263, %3
   %.not463 = icmp ult i32 %264, %4
   br i1 %.not463, label %267, label %265
@@ -2224,7 +2224,7 @@ switch.lookup:                                    ; preds = %18
   br label %283
 
 283:                                              ; preds = %279, %276
-  %284 = add i32 %.1, 7
+  %284 = add i32 %.2, 7
   %285 = sub i32 %284, %3
   %.not465 = icmp ult i32 %285, %4
   br i1 %.not465, label %288, label %286
@@ -2267,7 +2267,7 @@ switch.lookup:                                    ; preds = %18
   %310 = shl i32 %284, 3
   %311 = or disjoint i32 %310, 6
   %312 = tail call ptr @proto_tree_add_bits_item(ptr noundef %291, i32 noundef %309, ptr noundef %0, i32 noundef %311, i32 noundef 2, i32 noundef 0) #6
-  %313 = add i32 %.1, 8
+  %313 = add i32 %.2, 8
   %314 = sub i32 %313, %3
   %.not466 = icmp ult i32 %314, %4
   br i1 %.not466, label %317, label %315
@@ -2278,33 +2278,33 @@ switch.lookup:                                    ; preds = %18
 
 317:                                              ; preds = %308, %288, %267, %236, %218, %200, %181, %159
   %.0439 = phi i8 [ %292, %308 ], [ %271, %288 ], [ %240, %267 ], [ %222, %236 ], [ %204, %218 ], [ %185, %200 ], [ %163, %181 ], [ %140, %159 ]
-  %.2 = phi i32 [ %313, %308 ], [ %284, %288 ], [ %263, %267 ], [ %232, %236 ], [ %214, %218 ], [ %196, %200 ], [ %177, %181 ], [ %155, %159 ]
+  %.3 = phi i32 [ %313, %308 ], [ %284, %288 ], [ %263, %267 ], [ %232, %236 ], [ %214, %218 ], [ %196, %200 ], [ %177, %181 ], [ %155, %159 ]
   %318 = load i32, ptr @ett_bc_oct_7, align 4
-  %319 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %318, ptr noundef null, ptr noundef nonnull @.str.168) #6
+  %319 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %318, ptr noundef null, ptr noundef nonnull @.str.168) #6
   %320 = load i32, ptr @hf_gsm_a_extension, align 4
-  %321 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #6
+  %321 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #6
   %322 = load i32, ptr @hf_gsm_a_dtap_layer_2_identity, align 4
   %323 = zext i8 %.0439 to i32
   %324 = and i32 %323, 96
   %325 = icmp eq i32 %324, 64
   %326 = select i1 %325, ptr @.str.158, ptr @.str.123
-  %327 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %319, i32 noundef %322, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %323, ptr noundef nonnull @.str.150, ptr noundef nonnull %326) #6
+  %327 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %319, i32 noundef %322, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %323, ptr noundef nonnull @.str.150, ptr noundef nonnull %326) #6
   %328 = load i32, ptr @hf_gsm_a_dtap_user_information_layer_2_protocol, align 4
   %329 = and i32 %323, 31
   %330 = tail call ptr @val_to_str_const(i32 noundef %329, ptr noundef nonnull @gsm_a_dtap_user_info_layer2_vals, ptr noundef nonnull @.str.123) #6
-  %331 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %319, i32 noundef %328, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %323, ptr noundef nonnull @.str.150, ptr noundef %330) #6
+  %331 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %319, i32 noundef %328, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %323, ptr noundef nonnull @.str.150, ptr noundef %330) #6
   br label %332
 
 332:                                              ; preds = %317, %.critedge
-  %.3 = phi i32 [ %58, %.critedge ], [ %.2, %317 ]
-  %333 = sub i32 %.3, %3
+  %.1 = phi i32 [ %58, %.critedge ], [ %.3, %317 ]
+  %333 = sub i32 %.1, %3
   %334 = icmp ult i32 %333, %4
   br i1 %334, label %335, label %339
 
 335:                                              ; preds = %332
   %336 = sub nuw i32 %4, %333
-  %337 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.3, i32 noundef %336) #6
-  %338 = add i32 %336, %.3
+  %337 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_dtap_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %336) #6
+  %338 = add i32 %336, %.1
   %.pre = sub i32 %338, %3
   br label %339
 
@@ -4121,16 +4121,16 @@ define internal noundef zeroext i16 @de_tp_ue_test_loop_mode(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %indvars.iv = phi i32 [ %indvars.iv.next, %.lr.ph ], [ 0, %13 ]
   %17 = phi i32 [ %27, %.lr.ph ], [ 0, %13 ]
-  %.042 = phi i32 [ %25, %.lr.ph ], [ %15, %13 ]
+  %.142 = phi i32 [ %25, %.lr.ph ], [ %15, %13 ]
   %18 = load i32, ptr @ett_ue_test_loop_mode, align 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.042, i32 noundef 3, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.951, i32 noundef %indvars.iv.next) #6
+  %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.142, i32 noundef 3, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.951, i32 noundef %indvars.iv.next) #6
   %20 = load i32, ptr @hf_gsm_a_dtap_uplink_rlc_sdu_size, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.042, i32 noundef 2, i32 noundef 0) #6
-  %22 = add i32 %.042, 2
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.142, i32 noundef 2, i32 noundef 0) #6
+  %22 = add i32 %.142, 2
   %23 = load i32, ptr @hf_gsm_a_dtap_radio_bearer, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #6
-  %25 = add i32 %.042, 3
+  %25 = add i32 %.142, 3
   %26 = add nuw nsw i32 %17, 3
   %27 = and i32 %26, 255
   %28 = icmp ult i32 %27, %16
@@ -4149,8 +4149,8 @@ define internal noundef zeroext i16 @de_tp_ue_test_loop_mode(ptr noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %31, %7
-  %.1 = phi i32 [ %11, %7 ], [ %33, %31 ], [ %15, %13 ], [ %25, %.lr.ph ]
-  %38 = sub i32 %.1, %3
+  %.0 = phi i32 [ %11, %7 ], [ %33, %31 ], [ %15, %13 ], [ %25, %.lr.ph ]
+  %38 = sub i32 %.0, %3
   %39 = trunc i32 %38 to i16
   ret i16 %39
 }

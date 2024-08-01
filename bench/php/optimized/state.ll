@@ -6137,31 +6137,31 @@ lxb_html_tokenizer_temp_realloc.exit:             ; preds = %124
 
 138:                                              ; preds = %132, %119
   %139 = phi ptr [ %134, %132 ], [ %106, %119 ]
-  %.074 = phi ptr [ %137, %132 ], [ %110, %119 ]
+  %.1 = phi ptr [ %137, %132 ], [ %110, %119 ]
   %140 = load ptr, ptr %12, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 7
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds i8, ptr %.074, i64 %143
+  %144 = getelementptr inbounds i8, ptr %.1, i64 %143
   %145 = sub i64 0, %118
   %146 = getelementptr inbounds i8, ptr %139, i64 %145
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %144, ptr nonnull align 1 %146, i64 %118, i1 false)
   br label %147
 
 147:                                              ; preds = %138, %.thread
-  %.1 = phi ptr [ %.074, %138 ], [ %110, %.thread ]
+  %.074 = phi ptr [ %.1, %138 ], [ %110, %.thread ]
   %148 = load ptr, ptr %12, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 1
   %150 = getelementptr inbounds i8, ptr %148, i64 7
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1, ptr nonnull align 1 %149, i64 %152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.074, ptr nonnull align 1 %149, i64 %152, i1 false)
   %153 = load ptr, ptr %12, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 7
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i64
   %157 = add i64 %118, %156
-  %158 = getelementptr inbounds i8, ptr %.1, i64 %157
+  %158 = getelementptr inbounds i8, ptr %.074, i64 %157
   store ptr %158, ptr %8, align 8
   br label %159
 

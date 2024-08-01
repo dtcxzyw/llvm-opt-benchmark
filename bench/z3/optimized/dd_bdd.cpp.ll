@@ -4795,8 +4795,8 @@ _ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit:       ; preds = %_ZN2dd11bdd_manager
   br i1 %cmp, label %go_down, label %go_up
 
 go_up:                                            ; preds = %while.body36, %while.end31.thread, %while.cond34.preheader, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit
-  %best_cost.0 = phi double [ %retval.0.i, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ %best_cost.3.lcssa, %while.cond34.preheader ], [ %best_cost.2, %while.end31.thread ], [ %best_cost.3.lcssa, %while.body36 ]
-  %first.0 = phi i1 [ true, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ false, %while.cond34.preheader ], [ false, %while.end31.thread ], [ false, %while.body36 ]
+  %best_cost.1 = phi double [ %retval.0.i, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ %best_cost.3.lcssa, %while.cond34.preheader ], [ %best_cost.0, %while.end31.thread ], [ %best_cost.3.lcssa, %while.body36 ]
+  %first.1 = phi i1 [ true, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ false, %while.cond34.preheader ], [ false, %while.end31.thread ], [ false, %while.body36 ]
   %cmp4142 = icmp ult i32 %1, %retval.0.i16
   br i1 %cmp4142, label %while.body.lr.ph, label %while.end
 
@@ -4807,10 +4807,10 @@ while.body.lr.ph:                                 ; preds = %go_up
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end8
-  %lvl.1144 = phi i32 [ %1, %while.body.lr.ph ], [ %inc, %if.end8 ]
-  %best_cost.1143 = phi double [ %best_cost.0, %while.body.lr.ph ], [ %.sroa.speculated124, %if.end8 ]
-  %inc = add i32 %lvl.1144, 1
-  tail call void @_ZN2dd11bdd_manager7sift_upEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %lvl.1144)
+  %lvl.2144 = phi i32 [ %1, %while.body.lr.ph ], [ %inc, %if.end8 ]
+  %best_cost.2143 = phi double [ %best_cost.1, %while.body.lr.ph ], [ %.sroa.speculated124, %if.end8 ]
+  %inc = add i32 %lvl.2144, 1
+  tail call void @_ZN2dd11bdd_manager7sift_upEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %lvl.2144)
   %12 = load i32, ptr %m_cost_metric.i, align 8
   switch i32 %12, label %sw.default.i40 [
     i32 2, label %sw.bb.i25
@@ -4862,20 +4862,20 @@ sw.default.i40:                                   ; preds = %while.body
 
 _ZN2dd11bdd_manager12current_costEv.exit41:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i36, %sw.bb3.i22, %sw.bb5.i18
   %retval.0.i21 = phi double [ %call.i5.i20, %sw.bb5.i18 ], [ %call.i.i24, %sw.bb3.i22 ], [ %conv.i39, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i36 ]
-  %mul.i = fmul double %best_cost.1143, 1.100000e+00
+  %mul.i = fmul double %best_cost.2143, 1.100000e+00
   %cmp.i42 = fcmp olt double %mul.i, %retval.0.i21
   br i1 %cmp.i42, label %while.end, label %if.end8
 
 if.end8:                                          ; preds = %_ZN2dd11bdd_manager12current_costEv.exit41
-  %cmp.i43 = fcmp olt double %best_cost.1143, %retval.0.i21
-  %.sroa.speculated124 = select i1 %cmp.i43, double %best_cost.1143, double %retval.0.i21
+  %cmp.i43 = fcmp olt double %best_cost.2143, %retval.0.i21
+  %.sroa.speculated124 = select i1 %cmp.i43, double %best_cost.2143, double %retval.0.i21
   %exitcond.not = icmp eq i32 %inc, %retval.0.i16
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !35
 
 while.end:                                        ; preds = %if.end8, %_ZN2dd11bdd_manager12current_costEv.exit41, %go_up
-  %best_cost.1.lcssa = phi double [ %best_cost.0, %go_up ], [ %.sroa.speculated124, %if.end8 ], [ %best_cost.1143, %_ZN2dd11bdd_manager12current_costEv.exit41 ]
-  %lvl.2 = phi i32 [ %1, %go_up ], [ %retval.0.i16, %if.end8 ], [ %inc, %_ZN2dd11bdd_manager12current_costEv.exit41 ]
-  br i1 %first.0, label %while.cond11.preheader, label %while.cond15.preheader
+  %best_cost.2.lcssa = phi double [ %best_cost.1, %go_up ], [ %.sroa.speculated124, %if.end8 ], [ %best_cost.2143, %_ZN2dd11bdd_manager12current_costEv.exit41 ]
+  %lvl.3 = phi i32 [ %1, %go_up ], [ %retval.0.i16, %if.end8 ], [ %inc, %_ZN2dd11bdd_manager12current_costEv.exit41 ]
+  br i1 %first.1, label %while.cond11.preheader, label %while.cond15.preheader
 
 while.cond15.preheader:                           ; preds = %while.end
   %m_cost_bdd6.i46 = getelementptr inbounds i8, ptr %this, i64 724
@@ -4884,18 +4884,18 @@ while.cond15.preheader:                           ; preds = %while.end
   br label %while.cond15
 
 while.cond11.preheader:                           ; preds = %while.end
-  %cmp12.not149 = icmp eq i32 %lvl.2, %1
+  %cmp12.not149 = icmp eq i32 %lvl.3, %1
   br i1 %cmp12.not149, label %go_down, label %while.body13
 
 while.body13:                                     ; preds = %while.cond11.preheader, %while.body13
-  %lvl.3150 = phi i32 [ %dec, %while.body13 ], [ %lvl.2, %while.cond11.preheader ]
-  %dec = add i32 %lvl.3150, -1
+  %lvl.4150 = phi i32 [ %dec, %while.body13 ], [ %lvl.3, %while.cond11.preheader ]
+  %dec = add i32 %lvl.4150, -1
   tail call void @_ZN2dd11bdd_manager7sift_upEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %dec)
   %cmp12.not = icmp eq i32 %dec, %1
   br i1 %cmp12.not, label %go_down, label %while.body13, !llvm.loop !36
 
 while.cond15:                                     ; preds = %while.cond15.preheader, %while.body18
-  %lvl.4 = phi i32 [ %dec19, %while.body18 ], [ %lvl.2, %while.cond15.preheader ]
+  %lvl.5 = phi i32 [ %dec19, %while.body18 ], [ %lvl.3, %while.cond15.preheader ]
   %19 = load i32, ptr %m_cost_metric.i, align 8
   switch i32 %19, label %sw.default.i67 [
     i32 2, label %sw.bb.i52
@@ -4947,17 +4947,17 @@ sw.default.i67:                                   ; preds = %while.cond15
 
 _ZN2dd11bdd_manager12current_costEv.exit68:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i63, %sw.bb3.i49, %sw.bb5.i45
   %retval.0.i48 = phi double [ %call.i5.i47, %sw.bb5.i45 ], [ %call.i.i51, %sw.bb3.i49 ], [ %conv.i66, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i63 ]
-  %cmp17 = fcmp ogt double %retval.0.i48, %best_cost.1.lcssa
+  %cmp17 = fcmp ogt double %retval.0.i48, %best_cost.2.lcssa
   br i1 %cmp17, label %while.body18, label %return
 
 while.body18:                                     ; preds = %_ZN2dd11bdd_manager12current_costEv.exit68
-  %dec19 = add i32 %lvl.4, -1
+  %dec19 = add i32 %lvl.5, -1
   tail call void @_ZN2dd11bdd_manager7sift_upEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %dec19)
   br label %while.cond15, !llvm.loop !37
 
 go_down:                                          ; preds = %while.body13, %while.cond11.preheader, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit
-  %best_cost.2 = phi double [ %retval.0.i, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ %best_cost.1.lcssa, %while.cond11.preheader ], [ %best_cost.1.lcssa, %while.body13 ]
-  %first.1 = phi i1 [ true, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ false, %while.cond11.preheader ], [ false, %while.body13 ]
+  %best_cost.0 = phi double [ %retval.0.i, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ %best_cost.2.lcssa, %while.cond11.preheader ], [ %best_cost.2.lcssa, %while.body13 ]
+  %first.0 = phi i1 [ true, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit ], [ false, %while.cond11.preheader ], [ false, %while.body13 ]
   %cmp22.not133 = icmp eq i32 %1, 0
   br i1 %cmp22.not133, label %while.end31.thread, label %while.body23.lr.ph
 
@@ -4969,7 +4969,7 @@ while.body23.lr.ph:                               ; preds = %go_down
 
 while.body23:                                     ; preds = %while.body23.lr.ph, %if.end29
   %lvl.6135 = phi i32 [ %1, %while.body23.lr.ph ], [ %dec24, %if.end29 ]
-  %best_cost.3134 = phi double [ %best_cost.2, %while.body23.lr.ph ], [ %.sroa.speculated, %if.end29 ]
+  %best_cost.3134 = phi double [ %best_cost.0, %while.body23.lr.ph ], [ %.sroa.speculated, %if.end29 ]
   %dec24 = add i32 %lvl.6135, -1
   tail call void @_ZN2dd11bdd_manager7sift_upEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %dec24)
   %26 = load i32, ptr %m_cost_metric.i, align 8
@@ -5035,14 +5035,14 @@ if.end29:                                         ; preds = %_ZN2dd11bdd_manager
 
 while.end31:                                      ; preds = %if.end29, %_ZN2dd11bdd_manager12current_costEv.exit93
   %best_cost.3.lcssa = phi double [ %.sroa.speculated, %if.end29 ], [ %best_cost.3134, %_ZN2dd11bdd_manager12current_costEv.exit93 ]
-  br i1 %first.1, label %while.cond34.preheader, label %while.cond40.preheader
+  br i1 %first.0, label %while.cond34.preheader, label %while.cond40.preheader
 
 while.end31.thread:                               ; preds = %go_down
-  br i1 %first.1, label %go_up, label %while.cond40.preheader
+  br i1 %first.0, label %go_up, label %while.cond40.preheader
 
 while.cond40.preheader:                           ; preds = %while.end31.thread, %while.end31
   %lvl.7158 = phi i32 [ 0, %while.end31.thread ], [ %dec24, %while.end31 ]
-  %best_cost.3.lcssa156 = phi double [ %best_cost.2, %while.end31.thread ], [ %best_cost.3.lcssa, %while.end31 ]
+  %best_cost.3.lcssa156 = phi double [ %best_cost.0, %while.end31.thread ], [ %best_cost.3.lcssa, %while.end31 ]
   %m_cost_bdd6.i100 = getelementptr inbounds i8, ptr %this, i64 724
   %m_nodes.i107 = getelementptr inbounds i8, ptr %this, i64 8
   %m_free_nodes.i113 = getelementptr inbounds i8, ptr %this, i64 112
@@ -6516,8 +6516,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !43
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.164 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %12, %for.cond17.preheader ]
-  %m_state.i24 = getelementptr inbounds i8, ptr %curr.164, i64 4
+  %curr.264 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %12, %for.cond17.preheader ]
+  %m_state.i24 = getelementptr inbounds i8, ptr %curr.264, i64 4
   %17 = load i32, ptr %m_state.i24, align 4
   switch i32 %17, label %for.inc34 [
     i32 2, label %if.then21
@@ -6525,19 +6525,19 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %18 = load i32, ptr %curr.164, align 4
+  %18 = load i32, ptr %curr.264, align 4
   %cmp23 = icmp eq i32 %18, %xor32.i.i.i.i
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i26 = getelementptr inbounds i8, ptr %curr.164, i64 8
-  %m_lo.i.i27 = getelementptr inbounds i8, ptr %curr.164, i64 12
+  %m_data.i26 = getelementptr inbounds i8, ptr %curr.264, i64 8
+  %m_lo.i.i27 = getelementptr inbounds i8, ptr %curr.264, i64 12
   %19 = load i32, ptr %m_lo.i.i27, align 4
   %cmp.i.i29 = icmp eq i32 %19, %0
   br i1 %cmp.i.i29, label %land.lhs.true.i.i30, label %for.inc34
 
 land.lhs.true.i.i30:                              ; preds = %land.lhs.true24
-  %m_hi.i.i31 = getelementptr inbounds i8, ptr %curr.164, i64 16
+  %m_hi.i.i31 = getelementptr inbounds i8, ptr %curr.264, i64 16
   %20 = load i32, ptr %m_hi.i.i31, align 4
   %cmp4.i.i33 = icmp eq i32 %20, %1
   br i1 %cmp4.i.i33, label %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit39, label %for.inc34
@@ -6549,19 +6549,19 @@ _ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_
   br i1 %cmp7.i.i38, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %land.lhs.true.i.i30, %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit39, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.164, i64 24
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.264, i64 24
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !44
 
 end_remove:                                       ; preds = %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit, %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit39
-  %curr.2 = phi ptr [ %curr.164, %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit39 ], [ %curr.062, %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 24
+  %curr.1 = phi ptr [ %curr.264, %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit39 ], [ %curr.062, %_ZNK14core_hashtableI18default_hash_entryIN2dd11bdd_manager8bdd_nodeEENS2_9hash_nodeENS2_7eq_nodeEE6equalsERKS3_S9_.exit ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 24
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %12, ptr %add.ptr37
   %m_state.i42 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %21 = load i32, ptr %m_state.i42, align 4
   %cmp.i43 = icmp eq i32 %21, 0
-  %m_state.i44 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i44 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i43, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

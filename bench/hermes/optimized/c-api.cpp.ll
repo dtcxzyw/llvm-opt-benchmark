@@ -189,7 +189,7 @@ if.else:                                          ; preds = %if.end8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit
-  %retval.0 = phi ptr [ %call11, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit ], [ %call13, %if.else ]
+  %retval.1 = phi ptr [ %call11, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit ], [ %call13, %if.else ]
   %3 = load ptr, ptr %sourceMap, align 8
   %cmp.not.i9 = icmp eq ptr %3, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11, label %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i10
@@ -206,8 +206,8 @@ _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11: ; pred
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11, %if.then
-  %retval.1 = phi ptr [ %call, %if.then ], [ %retval.0, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call, %if.then ], [ %retval.1, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

@@ -411,14 +411,14 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   br label %126
 
 .loopexit:                                        ; preds = %64, %54, %33
-  %.1 = phi ptr [ %34, %33 ], [ %55, %54 ], [ %71, %64 ]
-  %84 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
+  %.062 = phi ptr [ %34, %33 ], [ %55, %54 ], [ %71, %64 ]
+  %84 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.062, i32 noundef 47) #19
   %.not75 = icmp eq ptr %84, null
   br i1 %.not75, label %118, label %85
 
 85:                                               ; preds = %.loopexit
   store i8 0, ptr %84, align 1
-  %86 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 47) #19
+  %86 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.062, i32 noundef 47) #19
   %.not76 = icmp eq ptr %86, null
   br i1 %.not76, label %106, label %87
 
@@ -433,10 +433,10 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
 
 92:                                               ; preds = %89
   %93 = ptrtoint ptr %86 to i64
-  %94 = ptrtoint ptr %.1 to i64
+  %94 = ptrtoint ptr %.062 to i64
   %95 = sub i64 %93, %94
   %96 = trunc i64 %95 to i32
-  %97 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %96, ptr noundef %.1) #20
+  %97 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %96, ptr noundef %.062) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %file_exists.exit.thread, label %98
@@ -466,8 +466,8 @@ file_exists.exit.thread:                          ; preds = %92, %100
   br label %106
 
 106:                                              ; preds = %87, %105, %89, %85
-  store ptr %.1, ptr @progfile_dir, align 8
-  %107 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %.1, i32 noundef 47) #19
+  store ptr %.062, ptr @progfile_dir, align 8
+  %107 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %.062, i32 noundef 47) #19
   %.not.i80 = icmp eq ptr %107, null
   br i1 %.not.i80, label %trim_progfile_dir.exit, label %108
 
@@ -479,9 +479,9 @@ file_exists.exit.thread:                          ; preds = %92, %100
 
 112:                                              ; preds = %108
   store i8 0, ptr %107, align 1
-  %113 = tail call noalias ptr @g_strdup(ptr noundef %.1) #20
+  %113 = tail call noalias ptr @g_strdup(ptr noundef %.062) #20
   store ptr %113, ptr @progfile_dir, align 8
-  tail call void @g_free(ptr noundef %.1) #20
+  tail call void @g_free(ptr noundef %.062) #20
   br label %trim_progfile_dir.exit
 
 trim_progfile_dir.exit:                           ; preds = %106, %108, %112
@@ -494,8 +494,8 @@ trim_progfile_dir.exit:                           ; preds = %106, %108, %112
   br i1 %.not77, label %124, label %120
 
 118:                                              ; preds = %.loopexit
-  %119 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %.1) #20
-  tail call void @g_free(ptr noundef %.1) #20
+  %119 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %.062) #20
+  tail call void @g_free(ptr noundef %.062) #20
   br label %126
 
 120:                                              ; preds = %trim_progfile_dir.exit
@@ -987,9 +987,9 @@ test_for_directory.exit14.thread20:               ; preds = %23, %test_for_direc
   br label %test_for_directory.exit.thread16
 
 test_for_directory.exit.thread16:                 ; preds = %7, %.loopexit, %test_for_directory.exit.thread, %test_for_directory.exit
-  %.1 = phi i1 [ %.not1125, %.loopexit ], [ false, %test_for_directory.exit.thread ], [ false, %test_for_directory.exit ], [ false, %7 ]
+  %.0 = phi i1 [ %.not1125, %.loopexit ], [ false, %test_for_directory.exit.thread ], [ false, %test_for_directory.exit ], [ false, %7 ]
   tail call void @g_free(ptr noundef %4) #20
-  ret i1 %.1
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1432,7 +1432,7 @@ file_exists.exit.thread.i:                        ; preds = %18, %.lr.ph.i
   br i1 %.not.i, label %reset_default_profile.exit, label %.lr.ph.i, !llvm.loop !7
 
 reset_default_profile.exit:                       ; preds = %25, %8, %24
-  %.2.i = phi i32 [ %23, %24 ], [ 0, %8 ], [ 0, %25 ]
+  %.1.i = phi i32 [ %23, %24 ], [ 0, %8 ], [ 0, %25 ]
   tail call void @g_list_free(ptr noundef %12) #20
   br label %delete_directory.exit
 
@@ -1526,7 +1526,7 @@ test_for_directory.exit.thread24.i:               ; preds = %test_for_directory.
 
 delete_directory.exit:                            ; preds = %test_for_directory.exit, %56, %.thread29.i, %58, %32, %reset_default_profile.exit
   %.sink = phi ptr [ %10, %reset_default_profile.exit ], [ %29, %32 ], [ %29, %58 ], [ %29, %.thread29.i ], [ %29, %56 ], [ %29, %test_for_directory.exit ]
-  %.08 = phi i32 [ %.2.i, %reset_default_profile.exit ], [ 0, %32 ], [ %57, %58 ], [ 0, %.thread29.i ], [ %54, %56 ], [ 0, %test_for_directory.exit ]
+  %.08 = phi i32 [ %.1.i, %reset_default_profile.exit ], [ 0, %32 ], [ %57, %58 ], [ 0, %.thread29.i ], [ %54, %56 ], [ 0, %test_for_directory.exit ]
   tail call void @g_free(ptr noundef %.sink) #20
   ret i32 %.08
 }

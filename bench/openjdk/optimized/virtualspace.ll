@@ -393,7 +393,7 @@ define hidden void @_ZN13ReservedSpace7reserveEmmmPcb(ptr nocapture noundef nonn
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %44
-  %.0.us = phi i64 [ %45, %44 ], [ %3, %.preheader.split.us.preheader ]
+  %.1.us = phi i64 [ %45, %44 ], [ %3, %.preheader.split.us.preheader ]
   %42 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i.us = icmp eq ptr %42, null
   br i1 %.not.i.us, label %_ZL22reserve_memory_specialPcmmmb.exit.us, label %_Z23byte_size_in_exact_unitm.exit.i.us
@@ -403,12 +403,12 @@ _Z23byte_size_in_exact_unitm.exit.i.us:           ; preds = %.preheader.split.us
   br label %_ZL22reserve_memory_specialPcmmmb.exit.us
 
 _ZL22reserve_memory_specialPcmmmb.exit.us:        ; preds = %_Z23byte_size_in_exact_unitm.exit.i.us, %.preheader.split.us
-  %43 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.0.us, ptr noundef %4, i1 noundef zeroext %5) #13
+  %43 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.1.us, ptr noundef %4, i1 noundef zeroext %5) #13
   %.not41.us = icmp eq ptr %43, null
   br i1 %.not41.us, label %44, label %.sink.split
 
 44:                                               ; preds = %_ZL22reserve_memory_specialPcmmmb.exit.us
-  %45 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.0.us) #13
+  %45 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us) #13
   %46 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %47 = icmp ugt i64 %45, %46
   br i1 %47, label %.preheader.split.us, label %.split54.us, !llvm.loop !6
@@ -422,7 +422,7 @@ _ZL22reserve_memory_specialPcmmmb.exit.us:        ; preds = %_Z23byte_size_in_ex
   br label %.preheader.split.split.us
 
 .preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %50
-  %.0.us56 = phi i64 [ %51, %50 ], [ %3, %.preheader.split.split.us.preheader ]
+  %.1.us56 = phi i64 [ %51, %50 ], [ %3, %.preheader.split.split.us.preheader ]
   %48 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i.us57 = icmp eq ptr %48, null
   br i1 %.not.i.us57, label %_ZL22reserve_memory_specialPcmmmb.exit.us65, label %_Z24exact_unit_for_byte_sizem.exit.i.us58
@@ -432,12 +432,12 @@ _Z24exact_unit_for_byte_sizem.exit.i.us58:        ; preds = %.preheader.split.sp
   br label %_ZL22reserve_memory_specialPcmmmb.exit.us65
 
 _ZL22reserve_memory_specialPcmmmb.exit.us65:      ; preds = %_Z24exact_unit_for_byte_sizem.exit.i.us58, %.preheader.split.split.us
-  %49 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.0.us56, ptr noundef %4, i1 noundef zeroext %5) #13
+  %49 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.1.us56, ptr noundef %4, i1 noundef zeroext %5) #13
   %.not41.us66 = icmp eq ptr %49, null
   br i1 %.not41.us66, label %50, label %.sink.split
 
 50:                                               ; preds = %_ZL22reserve_memory_specialPcmmmb.exit.us65
-  %51 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.0.us56) #13
+  %51 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us56) #13
   %52 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %53 = icmp ugt i64 %51, %52
   br i1 %53, label %.preheader.split.split.us, label %.split54.us, !llvm.loop !6
@@ -449,7 +449,7 @@ _ZL22reserve_memory_specialPcmmmb.exit.us65:      ; preds = %_Z24exact_unit_for_
   br i1 %or.cond14.i14.i, label %.preheader.split.split.split.us.split.us, label %.preheader.split.split.split.us.split
 
 .preheader.split.split.split.us.split.us:         ; preds = %.preheader.split.split.split.us, %56
-  %.0.us73.us = phi i64 [ %57, %56 ], [ %3, %.preheader.split.split.split.us ]
+  %.1.us73.us = phi i64 [ %57, %56 ], [ %3, %.preheader.split.split.split.us ]
   %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i.us74.us = icmp eq ptr %54, null
   br i1 %.not.i.us74.us, label %_ZL22reserve_memory_specialPcmmmb.exit.us83.us, label %.thread.i.us75.us
@@ -459,18 +459,18 @@ _ZL22reserve_memory_specialPcmmmb.exit.us65:      ; preds = %_Z24exact_unit_for_
   br label %_ZL22reserve_memory_specialPcmmmb.exit.us83.us
 
 _ZL22reserve_memory_specialPcmmmb.exit.us83.us:   ; preds = %.thread.i.us75.us, %.preheader.split.split.split.us.split.us
-  %55 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.0.us73.us, ptr noundef %4, i1 noundef zeroext %5) #13
+  %55 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.1.us73.us, ptr noundef %4, i1 noundef zeroext %5) #13
   %.not41.us84.us = icmp eq ptr %55, null
   br i1 %.not41.us84.us, label %56, label %.sink.split
 
 56:                                               ; preds = %_ZL22reserve_memory_specialPcmmmb.exit.us83.us
-  %57 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.0.us73.us) #13
+  %57 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us73.us) #13
   %58 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %59 = icmp ugt i64 %57, %58
   br i1 %59, label %.preheader.split.split.split.us.split.us, label %.split54.us, !llvm.loop !6
 
 .preheader.split.split.split.us.split:            ; preds = %.preheader.split.split.split.us, %62
-  %.0.us73 = phi i64 [ %63, %62 ], [ %3, %.preheader.split.split.split.us ]
+  %.1.us73 = phi i64 [ %63, %62 ], [ %3, %.preheader.split.split.split.us ]
   %60 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i.us74 = icmp eq ptr %60, null
   br i1 %.not.i.us74, label %_ZL22reserve_memory_specialPcmmmb.exit.us83, label %.thread.i.us75
@@ -480,12 +480,12 @@ _ZL22reserve_memory_specialPcmmmb.exit.us83.us:   ; preds = %.thread.i.us75.us, 
   br label %_ZL22reserve_memory_specialPcmmmb.exit.us83
 
 _ZL22reserve_memory_specialPcmmmb.exit.us83:      ; preds = %.thread.i.us75, %.preheader.split.split.split.us.split
-  %61 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.0.us73, ptr noundef %4, i1 noundef zeroext %5) #13
+  %61 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.1.us73, ptr noundef %4, i1 noundef zeroext %5) #13
   %.not41.us84 = icmp eq ptr %61, null
   br i1 %.not41.us84, label %62, label %.sink.split
 
 62:                                               ; preds = %_ZL22reserve_memory_specialPcmmmb.exit.us83
-  %63 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.0.us73) #13
+  %63 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us73) #13
   %64 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %65 = icmp ugt i64 %63, %64
   br i1 %65, label %.preheader.split.split.split.us.split, label %.split54.us, !llvm.loop !6
@@ -494,7 +494,7 @@ _ZL22reserve_memory_specialPcmmmb.exit.us83:      ; preds = %.thread.i.us75, %.p
   br i1 %or.cond14.i14.i, label %.preheader.split.split.split.split.us, label %.preheader.split.split.split.split
 
 .preheader.split.split.split.split.us:            ; preds = %.preheader.split.split.split, %68
-  %.0.us91 = phi i64 [ %69, %68 ], [ %3, %.preheader.split.split.split ]
+  %.1.us91 = phi i64 [ %69, %68 ], [ %3, %.preheader.split.split.split ]
   %66 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i.us92 = icmp eq ptr %66, null
   br i1 %.not.i.us92, label %_ZL22reserve_memory_specialPcmmmb.exit.us98, label %_Z24exact_unit_for_byte_sizem.exit.i.us93
@@ -504,18 +504,18 @@ _Z24exact_unit_for_byte_sizem.exit.i.us93:        ; preds = %.preheader.split.sp
   br label %_ZL22reserve_memory_specialPcmmmb.exit.us98
 
 _ZL22reserve_memory_specialPcmmmb.exit.us98:      ; preds = %_Z24exact_unit_for_byte_sizem.exit.i.us93, %.preheader.split.split.split.split.us
-  %67 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.0.us91, ptr noundef %4, i1 noundef zeroext %5) #13
+  %67 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.1.us91, ptr noundef %4, i1 noundef zeroext %5) #13
   %.not41.us99 = icmp eq ptr %67, null
   br i1 %.not41.us99, label %68, label %.sink.split
 
 68:                                               ; preds = %_ZL22reserve_memory_specialPcmmmb.exit.us98
-  %69 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.0.us91) #13
+  %69 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1.us91) #13
   %70 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %71 = icmp ugt i64 %69, %70
   br i1 %71, label %.preheader.split.split.split.split.us, label %.split54.us, !llvm.loop !6
 
 .preheader.split.split.split.split:               ; preds = %.preheader.split.split.split, %74
-  %.0 = phi i64 [ %75, %74 ], [ %3, %.preheader.split.split.split ]
+  %.1 = phi i64 [ %75, %74 ], [ %3, %.preheader.split.split.split ]
   %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %72, null
   br i1 %.not.i, label %_ZL22reserve_memory_specialPcmmmb.exit, label %_Z24exact_unit_for_byte_sizem.exit.i
@@ -525,12 +525,12 @@ _Z24exact_unit_for_byte_sizem.exit.i:             ; preds = %.preheader.split.sp
   br label %_ZL22reserve_memory_specialPcmmmb.exit
 
 _ZL22reserve_memory_specialPcmmmb.exit:           ; preds = %.preheader.split.split.split.split, %_Z24exact_unit_for_byte_sizem.exit.i
-  %73 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.0, ptr noundef %4, i1 noundef zeroext %5) #13
+  %73 = tail call noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %1, i64 noundef %2, i64 noundef %.1, ptr noundef %4, i1 noundef zeroext %5) #13
   %.not41 = icmp eq ptr %73, null
   br i1 %.not41, label %74, label %.sink.split
 
 74:                                               ; preds = %_ZL22reserve_memory_specialPcmmmb.exit
-  %75 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.0) #13
+  %75 = tail call noundef i64 @_ZNK2os9PageSizes12next_smallerEm(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2os11_page_sizesE, i64 noundef %.1) #13
   %76 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %77 = icmp ugt i64 %75, %76
   br i1 %77, label %.preheader.split.split.split.split, label %.split54.us, !llvm.loop !6
@@ -569,7 +569,7 @@ _ZL26log_on_large_pages_failurePcm.exit:          ; preds = %.split54.us, %_ZL21
   br label %87
 
 87:                                               ; preds = %_ZL26log_on_large_pages_failurePcm.exit, %14
-  %.1 = phi i64 [ %.us-phi55, %_ZL26log_on_large_pages_failurePcm.exit ], [ %3, %14 ]
+  %.0 = phi i64 [ %.us-phi55, %_ZL26log_on_large_pages_failurePcm.exit ], [ %3, %14 ]
   %.not.i45 = icmp eq ptr %4, null
   br i1 %.not.i45, label %90, label %88
 
@@ -606,7 +606,7 @@ _ZL14reserve_memoryPcmmib.exit:                   ; preds = %88, %90, %99
 
 .sink.split:                                      ; preds = %_ZL22reserve_memory_specialPcmmmb.exit, %_ZL22reserve_memory_specialPcmmmb.exit.us98, %_ZL22reserve_memory_specialPcmmmb.exit.us83, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us, %_ZL22reserve_memory_specialPcmmmb.exit.us65, %_ZL22reserve_memory_specialPcmmmb.exit.us, %_ZL14reserve_memoryPcmmib.exit, %12
   %.sink182 = phi ptr [ %11, %12 ], [ %.0.i, %_ZL14reserve_memoryPcmmib.exit ], [ %43, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %49, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %55, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %61, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %67, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %73, %_ZL22reserve_memory_specialPcmmmb.exit ]
-  %.sink178 = phi i64 [ %13, %12 ], [ %.1, %_ZL14reserve_memoryPcmmib.exit ], [ %.0.us, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %.0.us56, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %.0.us73.us, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %.0.us73, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %.0.us91, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.0, %_ZL22reserve_memory_specialPcmmmb.exit ]
+  %.sink178 = phi i64 [ %13, %12 ], [ %.0, %_ZL14reserve_memoryPcmmib.exit ], [ %.1.us, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ %.1.us56, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ %.1.us73.us, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ %.1.us73, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ %.1.us91, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ %.1, %_ZL22reserve_memory_specialPcmmmb.exit ]
   %.sink176 = phi i8 [ 1, %12 ], [ 0, %_ZL14reserve_memoryPcmmib.exit ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us65 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83.us ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us83 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit.us98 ], [ 1, %_ZL22reserve_memory_specialPcmmmb.exit ]
   %101 = zext i1 %5 to i8
   store ptr %.sink182, ptr %0, align 8

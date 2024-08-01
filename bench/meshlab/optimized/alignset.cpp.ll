@@ -506,13 +506,13 @@ define noalias noundef ptr @_ZN11ShaderUtils13importShadersEPKc(ptr nocapture no
   br label %12
 
 12:                                               ; preds = %7, %3
-  %.0 = phi ptr [ %9, %7 ], [ null, %3 ]
+  %.1 = phi ptr [ %9, %7 ], [ null, %3 ]
   %13 = tail call i32 @fclose(ptr noundef nonnull %2)
   br label %14
 
 14:                                               ; preds = %12, %1
-  %.1 = phi ptr [ %.0, %12 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %12 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -1559,8 +1559,8 @@ define noundef zeroext i1 @_ZN8AlignSet15RenderShadowMapEv(ptr noundef nonnull a
   br label %25
 
 25:                                               ; preds = %25, %1
-  %.049 = phi float [ 1.000000e+04, %1 ], [ %.150, %25 ]
-  %.048 = phi float [ 0x3FB99999A0000000, %1 ], [ %.1, %25 ]
+  %.150 = phi float [ 1.000000e+04, %1 ], [ %.251, %25 ]
+  %.1 = phi float [ 0x3FB99999A0000000, %1 ], [ %.2, %25 ]
   %.040.i = phi i1 [ true, %1 ], [ false, %25 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %41, %25 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -1580,23 +1580,23 @@ define noundef zeroext i1 @_ZN8AlignSet15RenderShadowMapEv(ptr noundef nonnull a
   %36 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %33, float %35)
   %37 = fsub float %36, %21
   %38 = fneg float %37
-  %39 = fcmp ogt float %.048, %38
+  %39 = fcmp ogt float %.1, %38
   %or.cond.i = select i1 %.040.i, i1 true, i1 %39
-  %.1 = select i1 %or.cond.i, float %38, float %.048
-  %40 = fcmp olt float %.049, %38
+  %.2 = select i1 %or.cond.i, float %38, float %.1
+  %40 = fcmp olt float %.150, %38
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %40
-  %.150 = select i1 %or.cond26.i, float %38, float %.049
+  %.251 = select i1 %or.cond26.i, float %38, float %.150
   %41 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %41, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %25, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %25
   %42 = getelementptr inbounds i8, ptr %0, i64 188
-  %43 = fcmp ugt float %.1, 0.000000e+00
-  %.2 = select i1 %43, float %.1, float 0x3FB99999A0000000
-  %44 = fcmp olt float %.150, %.2
-  %45 = fmul float %.150, 2.000000e+00
-  %46 = fmul float %.2, 5.000000e-01
+  %43 = fcmp ugt float %.2, 0.000000e+00
+  %.048 = select i1 %43, float %.2, float 0x3FB99999A0000000
+  %44 = fcmp olt float %.251, %.048
+  %45 = fmul float %.251, 2.000000e+00
+  %46 = fmul float %.048, 5.000000e-01
   %47 = select i1 %44, float 2.000000e+03, float %45
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
@@ -2164,8 +2164,8 @@ define noundef zeroext i1 @_ZN8AlignSet20RenderMultiShadowMapEv(ptr nocapture no
   br label %30
 
 30:                                               ; preds = %30, %1
-  %.0286 = phi float [ 1.000000e+04, %1 ], [ %.1287, %30 ]
-  %.0283 = phi float [ 0x3FB99999A0000000, %1 ], [ %.1, %30 ]
+  %.3289 = phi float [ 1.000000e+04, %1 ], [ %.4290, %30 ]
+  %.3 = phi float [ 0x3FB99999A0000000, %1 ], [ %.4285, %30 ]
   %.040.i = phi i1 [ true, %1 ], [ false, %30 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %46, %30 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -2185,22 +2185,22 @@ define noundef zeroext i1 @_ZN8AlignSet20RenderMultiShadowMapEv(ptr nocapture no
   %41 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %38, float %40)
   %42 = fsub float %41, %26
   %43 = fneg float %42
-  %44 = fcmp ogt float %.0283, %43
+  %44 = fcmp ogt float %.3, %43
   %or.cond.i = select i1 %.040.i, i1 true, i1 %44
-  %.1 = select i1 %or.cond.i, float %43, float %.0283
-  %45 = fcmp olt float %.0286, %43
+  %.4285 = select i1 %or.cond.i, float %43, float %.3
+  %45 = fcmp olt float %.3289, %43
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %45
-  %.1287 = select i1 %or.cond26.i, float %43, float %.0286
+  %.4290 = select i1 %or.cond26.i, float %43, float %.3289
   %46 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %46, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %30, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %30
-  %47 = fcmp ugt float %.1, 0.000000e+00
-  %.2284 = select i1 %47, float %.1, float 0x3FB99999A0000000
-  %48 = fcmp olt float %.1287, %.2284
-  %49 = fmul float %.1287, 2.000000e+00
-  %50 = fmul float %.2284, 5.000000e-01
+  %47 = fcmp ugt float %.4285, 0.000000e+00
+  %.0283 = select i1 %47, float %.4285, float 0x3FB99999A0000000
+  %48 = fcmp olt float %.4290, %.0283
+  %49 = fmul float %.4290, 2.000000e+00
+  %50 = fmul float %.0283, 5.000000e-01
   %51 = select i1 %48, float 2.000000e+03, float %49
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
@@ -2523,8 +2523,8 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
   br label %174
 
 174:                                              ; preds = %174, %.noexc64
-  %.3289 = phi float [ 1.000000e+04, %.noexc64 ], [ %.4290, %174 ]
-  %.3 = phi float [ 0x3FB99999A0000000, %.noexc64 ], [ %.4285, %174 ]
+  %.5291 = phi float [ 1.000000e+04, %.noexc64 ], [ %.6292, %174 ]
+  %.5 = phi float [ 0x3FB99999A0000000, %.noexc64 ], [ %.6, %174 ]
   %.040.i81 = phi i1 [ true, %.noexc64 ], [ false, %174 ]
   %.02339.i82 = phi i32 [ 0, %.noexc64 ], [ %190, %174 ]
   %.zext.i83 = and i32 %.02339.i82, 1
@@ -2544,22 +2544,22 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
   %185 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i75, float %182, float %184)
   %186 = fsub float %185, %170
   %187 = fneg float %186
-  %188 = fcmp ogt float %.3, %187
+  %188 = fcmp ogt float %.5, %187
   %or.cond.i87 = select i1 %.040.i81, i1 true, i1 %188
-  %.4285 = select i1 %or.cond.i87, float %187, float %.3
-  %189 = fcmp olt float %.3289, %187
+  %.6 = select i1 %or.cond.i87, float %187, float %.5
+  %189 = fcmp olt float %.5291, %187
   %or.cond26.i88 = select i1 %.040.i81, i1 true, i1 %189
-  %.4290 = select i1 %or.cond26.i88, float %187, float %.3289
+  %.6292 = select i1 %or.cond26.i88, float %187, float %.5291
   %190 = add nuw nsw i32 %.02339.i82, 1
   %exitcond.not.i89 = icmp eq i32 %190, 8
   br i1 %exitcond.not.i89, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit90, label %174, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit90: ; preds = %174
-  %191 = fcmp ugt float %.4285, 0.000000e+00
-  %.5 = select i1 %191, float %.4285, float 0x3FB99999A0000000
-  %192 = fcmp olt float %.4290, %.5
-  %193 = fmul float %.4290, 2.000000e+00
-  %194 = fmul float %.5, 5.000000e-01
+  %191 = fcmp ugt float %.6, 0.000000e+00
+  %.1 = select i1 %191, float %.6, float 0x3FB99999A0000000
+  %192 = fcmp olt float %.6292, %.1
+  %193 = fmul float %.6292, 2.000000e+00
+  %194 = fmul float %.1, 5.000000e-01
   %195 = select i1 %192, float 2.000000e+03, float %193
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
@@ -2881,8 +2881,8 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit152: ; preds = %_ZNS
   br label %313
 
 313:                                              ; preds = %313, %.noexc153
-  %.6292 = phi float [ 1.000000e+04, %.noexc153 ], [ %.7293, %313 ]
-  %.6 = phi float [ 0x3FB99999A0000000, %.noexc153 ], [ %.7, %313 ]
+  %.7293 = phi float [ 1.000000e+04, %.noexc153 ], [ %.8294, %313 ]
+  %.7 = phi float [ 0x3FB99999A0000000, %.noexc153 ], [ %.8, %313 ]
   %.040.i171 = phi i1 [ true, %.noexc153 ], [ false, %313 ]
   %.02339.i172 = phi i32 [ 0, %.noexc153 ], [ %329, %313 ]
   %.zext.i173 = and i32 %.02339.i172, 1
@@ -2902,22 +2902,22 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit152: ; preds = %_ZNS
   %324 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i165, float %321, float %323)
   %325 = fsub float %324, %309
   %326 = fneg float %325
-  %327 = fcmp ogt float %.6, %326
+  %327 = fcmp ogt float %.7, %326
   %or.cond.i177 = select i1 %.040.i171, i1 true, i1 %327
-  %.7 = select i1 %or.cond.i177, float %326, float %.6
-  %328 = fcmp olt float %.6292, %326
+  %.8 = select i1 %or.cond.i177, float %326, float %.7
+  %328 = fcmp olt float %.7293, %326
   %or.cond26.i178 = select i1 %.040.i171, i1 true, i1 %328
-  %.7293 = select i1 %or.cond26.i178, float %326, float %.6292
+  %.8294 = select i1 %or.cond26.i178, float %326, float %.7293
   %329 = add nuw nsw i32 %.02339.i172, 1
   %exitcond.not.i179 = icmp eq i32 %329, 8
   br i1 %exitcond.not.i179, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit180, label %313, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit180: ; preds = %313
-  %330 = fcmp ugt float %.7, 0.000000e+00
-  %.8 = select i1 %330, float %.7, float 0x3FB99999A0000000
-  %331 = fcmp olt float %.7293, %.8
-  %332 = fmul float %.7293, 2.000000e+00
-  %333 = fmul float %.8, 5.000000e-01
+  %330 = fcmp ugt float %.8, 0.000000e+00
+  %.2284 = select i1 %330, float %.8, float 0x3FB99999A0000000
+  %331 = fcmp olt float %.8294, %.2284
+  %332 = fmul float %.8294, 2.000000e+00
+  %333 = fmul float %.2284, 5.000000e-01
   %334 = select i1 %331, float 2.000000e+03, float %332
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
@@ -3468,8 +3468,8 @@ define void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr no
   br label %26
 
 26:                                               ; preds = %26, %15
-  %.090 = phi float [ 1.000000e+04, %15 ], [ %.191, %26 ]
-  %.089 = phi float [ 0x3FB99999A0000000, %15 ], [ %.1, %26 ]
+  %.191 = phi float [ 1.000000e+04, %15 ], [ %.292, %26 ]
+  %.1 = phi float [ 0x3FB99999A0000000, %15 ], [ %.2, %26 ]
   %.040.i = phi i1 [ true, %15 ], [ false, %26 ]
   %.02339.i = phi i32 [ 0, %15 ], [ %42, %26 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -3489,21 +3489,21 @@ define void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr no
   %37 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %34, float %36)
   %38 = fsub float %37, %22
   %39 = fneg float %38
-  %40 = fcmp ogt float %.089, %39
+  %40 = fcmp ogt float %.1, %39
   %or.cond.i = select i1 %.040.i, i1 true, i1 %40
-  %.1 = select i1 %or.cond.i, float %39, float %.089
-  %41 = fcmp olt float %.090, %39
+  %.2 = select i1 %or.cond.i, float %39, float %.1
+  %41 = fcmp olt float %.191, %39
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %41
-  %.191 = select i1 %or.cond26.i, float %39, float %.090
+  %.292 = select i1 %or.cond26.i, float %39, float %.191
   %42 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %42, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %26, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %26
-  %43 = fcmp ugt float %.1, 0.000000e+00
-  %.2 = select i1 %43, float %.1, float 0x3FB99999A0000000
-  %44 = fcmp olt float %.191, %.2
-  %45 = fmul float %.191, 2.000000e+00
+  %43 = fcmp ugt float %.2, 0.000000e+00
+  %.089 = select i1 %43, float %.2, float 0x3FB99999A0000000
+  %44 = fcmp olt float %.292, %.089
+  %45 = fmul float %.292, 2.000000e+00
   %46 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject4bindEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %49 unwind label %.loopexit.split-lp
 
@@ -3523,7 +3523,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
           to label %53 unwind label %.loopexit.split-lp
 
 53:                                               ; preds = %52
-  %54 = fmul float %.2, 5.000000e-01
+  %54 = fmul float %.089, 5.000000e-01
   %55 = select i1 %44, float 2.000000e+03, float %45
   invoke void @glMatrixMode(i32 noundef 5889)
           to label %.noexc unwind label %.loopexit.split-lp
@@ -5227,36 +5227,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #20
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #20
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #20
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #20
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

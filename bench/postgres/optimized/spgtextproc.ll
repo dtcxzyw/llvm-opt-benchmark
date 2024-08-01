@@ -1200,8 +1200,8 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   unreachable
 
 162:                                              ; preds = %150, %154, %152, %148
-  %.1 = phi i8 [ %spec.select, %148 ], [ %spec.select124, %152 ], [ %spec.select125, %154 ], [ %spec.select126, %150 ]
-  %163 = trunc nuw i8 %.1 to i1
+  %.3 = phi i8 [ %spec.select, %148 ], [ %spec.select124, %152 ], [ %spec.select125, %154 ], [ %spec.select126, %150 ]
+  %163 = trunc nuw i8 %.3 to i1
   br i1 %163, label %._crit_edge139, label %._crit_edge
 
 ._crit_edge139:                                   ; preds = %162
@@ -1210,15 +1210,15 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
 
 164:                                              ; preds = %._crit_edge139, %112
   %165 = phi i32 [ %.pre, %._crit_edge139 ], [ %106, %112 ]
-  %.2 = phi i8 [ %.1, %._crit_edge139 ], [ %.0103127, %112 ]
+  %.2 = phi i8 [ %.3, %._crit_edge139 ], [ %.0103127, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %166 = sext i32 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166
   br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %164, %162
-  %.3 = phi i8 [ %.2, %164 ], [ %.1, %162 ]
-  %168 = trunc nuw i8 %.3 to i1
+  %.1 = phi i8 [ %.2, %164 ], [ %.3, %162 ]
+  %168 = trunc nuw i8 %.1 to i1
   br i1 %168, label %._crit_edge.thread, label %189
 
 ._crit_edge.thread:                               ; preds = %103, %._crit_edge
@@ -1584,12 +1584,12 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   unreachable
 
 175:                                              ; preds = %165, %162, %159, %156, %154
-  %.1 = phi i8 [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %154 ]
-  %176 = trunc nuw i8 %.1 to i1
+  %.3 = phi i8 [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %154 ]
+  %176 = trunc nuw i8 %.3 to i1
   br i1 %176, label %.thread160, label %._crit_edge.loopexit
 
 .thread160:                                       ; preds = %129, %175, %130
-  %.2 = phi i8 [ 1, %130 ], [ %.1, %175 ], [ 1, %129 ]
+  %.2 = phi i8 [ 1, %130 ], [ %.3, %175 ], [ 1, %129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %177 = load i32, ptr %92, align 8
   %178 = sext i32 %177 to i64
@@ -1597,13 +1597,13 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   br i1 %179, label %96, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %175, %130, %.thread160
-  %.3.ph = phi i8 [ %.2, %.thread160 ], [ 0, %130 ], [ %.1, %175 ]
-  %180 = zext nneg i8 %.3.ph to i64
+  %.1.ph = phi i8 [ %.2, %.thread160 ], [ 0, %130 ], [ %.3, %175 ]
+  %180 = zext nneg i8 %.1.ph to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %91
-  %.3 = phi i64 [ 1, %91 ], [ %180, %._crit_edge.loopexit ]
-  ret i64 %.3
+  %.1 = phi i64 [ 1, %91 ], [ %180, %._crit_edge.loopexit ]
+  ret i64 %.1
 }
 
 declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2

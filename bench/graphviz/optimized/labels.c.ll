@@ -733,7 +733,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %43
 
 43:                                               ; preds = %40, %20
-  %.052 = phi i1 [ %42, %40 ], [ false, %20 ]
+  %.1 = phi i1 [ %42, %40 ], [ false, %20 ]
   %44 = load i32, ptr %1, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 2
@@ -754,7 +754,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %55
 
 55:                                               ; preds = %52, %43
-  %.053 = phi i1 [ %54, %52 ], [ false, %43 ]
+  %.154 = phi i1 [ %54, %52 ], [ false, %43 ]
   %56 = getelementptr inbounds i8, ptr %51, i64 120
   %57 = load ptr, ptr %56, align 8
   %.not72 = icmp eq ptr %57, null
@@ -765,7 +765,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split.preheader
 
 .split.preheader:                                 ; preds = %58, %55
-  %.055 = phi ptr [ %59, %58 ], [ @.str.13, %55 ]
+  %.156 = phi ptr [ %59, %58 ], [ @.str.13, %55 ]
   %60 = load i32, ptr %1, align 8
   %61 = and i32 %60, 3
   %62 = icmp eq i32 %61, 3
@@ -791,7 +791,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
 .split.us:                                        ; preds = %.split.us.sink.split, %3, %12, %6
   %.061.ph = phi ptr [ %7, %6 ], [ %14, %12 ], [ @.str.8, %3 ], [ %.061.ph.ph, %.split.us.sink.split ]
   %.060.ph = phi ptr [ @.str.9, %6 ], [ %15, %12 ], [ @.str.9, %3 ], [ %.060.ph.ph, %.split.us.sink.split ]
-  %.156.ph = phi ptr [ @.str.13, %6 ], [ @.str.13, %12 ], [ @.str.13, %3 ], [ %69, %.split.us.sink.split ]
+  %.055.ph = phi ptr [ @.str.13, %6 ], [ @.str.13, %12 ], [ @.str.13, %3 ], [ %69, %.split.us.sink.split ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not7895 = icmp eq i32 %2, 0
   br i1 %.not7895, label %.split.us.split.us, label %.split.us.split
@@ -827,7 +827,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split.us.split.us
 
 77:                                               ; preds = %75
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.156.ph)
+  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.055.ph)
   br label %.split.us.split.us.backedge
 
 78:                                               ; preds = %75
@@ -890,7 +890,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split.us.split.backedge
 
 92:                                               ; preds = %89
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.156.ph)
+  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.055.ph)
   br label %.split.us.split.backedge
 
 93:                                               ; preds = %89
@@ -958,7 +958,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
 
 108:                                              ; preds = %104
   call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %37)
-  br i1 %.052, label %109, label %110
+  br i1 %.1, label %109, label %110
 
 109:                                              ; preds = %108
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload)
@@ -966,7 +966,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
 
 110:                                              ; preds = %109, %108
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.4..str.3, ptr noundef %50)
-  br i1 %.053, label %111, label %.split.backedge
+  br i1 %.154, label %111, label %.split.backedge
 
 111:                                              ; preds = %110
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef %.sroa.2.0.copyload2)
@@ -981,7 +981,7 @@ define internal fastcc ptr @strdup_and_subst_obj0(ptr nocapture noundef readonly
   br label %.split.backedge
 
 114:                                              ; preds = %104
-  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.055)
+  call fastcc void @agxbput(ptr noundef nonnull %4, ptr noundef %.156)
   br label %.split.backedge
 
 115:                                              ; preds = %104

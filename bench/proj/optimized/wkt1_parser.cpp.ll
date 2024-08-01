@@ -232,23 +232,23 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   br i1 %49, label %.preheader, label %.critedge6
 
 .preheader:                                       ; preds = %.critedge4, %.preheader
-  %.3.pn = phi ptr [ %.4, %.preheader ], [ %.3, %.critedge4 ]
-  %.4 = getelementptr inbounds i8, ptr %.3.pn, i64 1
-  %50 = load i8, ptr %.4, align 1
+  %.3.pn = phi ptr [ %.5, %.preheader ], [ %.3, %.critedge4 ]
+  %.5 = getelementptr inbounds i8, ptr %.3.pn, i64 1
+  %50 = load i8, ptr %.5, align 1
   %51 = add i8 %50, -48
   %or.cond111 = icmp ult i8 %51, 10
   br i1 %or.cond111, label %.preheader, label %.critedge6, !llvm.loop !8
 
 .critedge6:                                       ; preds = %.preheader, %.critedge4
   %52 = phi i8 [ %46, %.critedge4 ], [ %50, %.preheader ]
-  %.5 = phi ptr [ %.3, %.critedge4 ], [ %.4, %.preheader ]
+  %.4 = phi ptr [ %.3, %.critedge4 ], [ %.5, %.preheader ]
   switch i8 %52, label %.critedge8 [
     i8 101, label %53
     i8 69, label %53
   ]
 
 53:                                               ; preds = %.critedge6, %.critedge6
-  %54 = getelementptr inbounds i8, ptr %.5, i64 1
+  %54 = getelementptr inbounds i8, ptr %.4, i64 1
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %.preheader152 [
     i8 45, label %56
@@ -256,24 +256,24 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   ]
 
 56:                                               ; preds = %53, %53
-  %57 = getelementptr inbounds i8, ptr %.5, i64 2
+  %57 = getelementptr inbounds i8, ptr %.4, i64 2
   br label %.preheader152
 
 .preheader152:                                    ; preds = %53, %56
-  %.7.ph = phi ptr [ %54, %53 ], [ %57, %56 ]
+  %.8.ph = phi ptr [ %54, %53 ], [ %57, %56 ]
   br label %58
 
 58:                                               ; preds = %.preheader152, %58
-  %.7 = phi ptr [ %61, %58 ], [ %.7.ph, %.preheader152 ]
-  %59 = load i8, ptr %.7, align 1
+  %.8 = phi ptr [ %61, %58 ], [ %.8.ph, %.preheader152 ]
+  %59 = load i8, ptr %.8, align 1
   %60 = add i8 %59, -48
   %or.cond112 = icmp ult i8 %60, 10
-  %61 = getelementptr inbounds i8, ptr %.7, i64 1
+  %61 = getelementptr inbounds i8, ptr %.8, i64 1
   br i1 %or.cond112, label %58, label %.critedge8, !llvm.loop !9
 
 .critedge8:                                       ; preds = %58, %.critedge6
-  %.8 = phi ptr [ %.5, %.critedge6 ], [ %.7, %58 ]
-  store ptr %.8, ptr %3, align 8
+  %.6 = phi ptr [ %.4, %.critedge6 ], [ %.8, %58 ]
+  store ptr %.6, ptr %3, align 8
   br label %71
 
 62:                                               ; preds = %40

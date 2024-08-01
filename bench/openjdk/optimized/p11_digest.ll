@@ -85,11 +85,11 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
   br label %57
 
 33:                                               ; preds = %29, %27
-  %.040 = phi ptr [ %31, %29 ], [ %11, %27 ]
+  %.1 = phi ptr [ %31, %29 ], [ %11, %27 ]
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1600
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %.040) #5
+  call void %36(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %.1) #5
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1824
   %39 = load ptr, ptr %38, align 8
@@ -104,7 +104,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
   %44 = getelementptr inbounds i8, ptr %14, i64 312
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %6 to i64
-  %47 = call i64 %45(i64 noundef %2, ptr noundef nonnull %.040, i64 noundef %46, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
+  %47 = call i64 %45(i64 noundef %2, ptr noundef nonnull %.1, i64 noundef %46, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %48 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %47) #5
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %50, label %56
@@ -120,12 +120,12 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
 
 56:                                               ; preds = %41, %50, %33
   call void @freeCKMechanismPtr(ptr noundef %17) #5
-  %.not47 = icmp eq ptr %.040, %11
+  %.not47 = icmp eq ptr %.1, %11
   br i1 %.not47, label %58, label %57
 
 57:                                               ; preds = %.thread50, %56
-  %.153 = phi ptr [ null, %.thread50 ], [ %.040, %56 ]
-  call void @free(ptr noundef %.153) #5
+  %.04053 = phi ptr [ null, %.thread50 ], [ %.1, %56 ]
+  call void @free(ptr noundef %.04053) #5
   br label %58
 
 58:                                               ; preds = %.thread, %57, %56

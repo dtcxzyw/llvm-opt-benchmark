@@ -2717,9 +2717,9 @@ dtls_cid_length.exit:                             ; preds = %15, %18, %25, %28
 
 178:                                              ; preds = %._crit_edge, %162
   %.pre-phi = phi i32 [ %.pre307, %._crit_edge ], [ %38, %162 ]
-  %.1.i.i = phi i32 [ %173, %._crit_edge ], [ %160, %162 ]
+  %.0.i.i = phi i32 [ %173, %._crit_edge ], [ %160, %162 ]
   %179 = load i32, ptr @proto_dtls, align 4
-  tail call void @ssl_add_record_info(i32 noundef %179, ptr noundef %1, ptr noundef %159, i32 noundef %.1.i.i, i32 noundef %158, ptr noundef null, i32 noundef %.pre-phi, i8 noundef zeroext %7) #6
+  tail call void @ssl_add_record_info(i32 noundef %179, ptr noundef %1, ptr noundef %159, i32 noundef %.0.i.i, i32 noundef %158, ptr noundef null, i32 noundef %.pre-phi, i8 noundef zeroext %7) #6
   br label %decrypt_dtls_record.exit
 
 decrypt_dtls_record.exit:                         ; preds = %178, %170, %169, %156, %153, %147, %146, %132, %123, %112
@@ -3260,15 +3260,15 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   br label %92
 
 92:                                               ; preds = %88, %90
-  %.0245 = phi ptr [ %91, %90 ], [ null, %88 ]
-  %.0244 = phi ptr [ @.str.891, %90 ], [ @.str.892, %88 ]
+  %.1246 = phi ptr [ %91, %90 ], [ null, %88 ]
+  %.1 = phi ptr [ @.str.891, %90 ], [ @.str.892, %88 ]
   %93 = load ptr, ptr %14, align 8
-  call void @col_append_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull %.0244) #6
+  call void @col_append_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull %.1) #6
   br label %94
 
 94:                                               ; preds = %78, %92, %76, %67, %69
-  %.1246 = phi ptr [ null, %67 ], [ null, %69 ], [ %.0245, %92 ], [ null, %78 ], [ null, %76 ]
-  %.1 = phi ptr [ null, %67 ], [ null, %69 ], [ %.0244, %92 ], [ null, %78 ], [ null, %76 ]
+  %.0245 = phi ptr [ null, %67 ], [ null, %69 ], [ %.1246, %92 ], [ null, %78 ], [ null, %76 ]
+  %.0244 = phi ptr [ null, %67 ], [ null, %69 ], [ %.1, %92 ], [ null, %78 ], [ null, %76 ]
   %95 = phi i1 [ true, %67 ], [ false, %69 ], [ false, %92 ], [ false, %78 ], [ true, %76 ]
   br i1 %.not266, label %104, label %96
 
@@ -3277,21 +3277,21 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   %98 = zext i16 %97 to i32
   %99 = call ptr @val_to_str_const(i32 noundef %98, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.794) #6
   %100 = call ptr @val_to_str_const(i32 noundef %17, ptr noundef nonnull @ssl_31_content_type, ptr noundef nonnull @.str.871) #6
-  %.not268 = icmp eq ptr %.1, null
-  %101 = select i1 %.not268, ptr @.str.855, ptr %.1
+  %.not268 = icmp eq ptr %.0244, null
+  %101 = select i1 %.not268, ptr @.str.855, ptr %.0244
   %.1250..str.894 = select i1 %25, ptr %.1250, ptr @.str.894
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.893, ptr noundef %99, ptr noundef %100, ptr noundef nonnull %.1250..str.894, ptr noundef nonnull %101) #6
   %.not269 = icmp eq ptr %29, null
   br i1 %.not269, label %104, label %102
 
 102:                                              ; preds = %96
-  %.not270 = icmp eq ptr %.1, null
-  %103 = select i1 %.not270, ptr @.str.855, ptr %.1
+  %.not270 = icmp eq ptr %.0244, null
+  %103 = select i1 %.not270, ptr @.str.855, ptr %.0244
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %29, ptr noundef nonnull @.str.895, ptr noundef nonnull %.1250, ptr noundef nonnull %103) #6
   br label %104
 
 104:                                              ; preds = %96, %102, %94
-  %105 = icmp ne ptr %.1246, null
+  %105 = icmp ne ptr %.0245, null
   %or.cond5 = select i1 %95, i1 true, i1 %105
   br i1 %or.cond5, label %106, label %163
 
@@ -3303,7 +3303,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   br label %109
 
 109:                                              ; preds = %106, %107
-  %.0247 = phi ptr [ %108, %107 ], [ %.1246, %106 ]
+  %.0247 = phi ptr [ %108, %107 ], [ %.0245, %106 ]
   %110 = add i8 %30, -1
   %or.cond8 = icmp ult i8 %110, 2
   br i1 %or.cond8, label %.thread, label %113

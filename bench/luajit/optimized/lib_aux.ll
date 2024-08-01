@@ -105,8 +105,8 @@ if.else:                                          ; preds = %if.then
   %cmp7 = icmp eq i32 %and, 0
   %and10 = lshr i32 %stat, 8
   %shr11 = and i32 %and10, 255
-  %stat.addr.0 = select i1 %cmp7, i32 %shr11, i32 %stat
-  %cmp12 = icmp eq i32 %stat.addr.0, 0
+  %stat.addr.1 = select i1 %cmp7, i32 %shr11, i32 %stat
+  %cmp12 = icmp eq i32 %stat.addr.1, 0
   %top15 = getelementptr inbounds i8, ptr %L, i64 40
   %1 = load ptr, ptr %top15, align 8
   %incdec.ptr16 = getelementptr inbounds i8, ptr %1, i64 8
@@ -117,12 +117,12 @@ if.else:                                          ; preds = %if.then
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then4
-  %stat.addr.1 = phi i32 [ %and, %if.then4 ], [ %stat.addr.0, %if.else ]
+  %stat.addr.0 = phi i32 [ %and, %if.then4 ], [ %stat.addr.1, %if.else ]
   %top22 = getelementptr inbounds i8, ptr %L, i64 40
   %2 = load ptr, ptr %top22, align 8
   %incdec.ptr23 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr23, ptr %top22, align 8
-  %conv.i = sitofp i32 %stat.addr.1 to double
+  %conv.i = sitofp i32 %stat.addr.0 to double
   store double %conv.i, ptr %2, align 8
   br label %return
 

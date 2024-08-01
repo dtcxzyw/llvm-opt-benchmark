@@ -5143,7 +5143,7 @@ for.body135:                                      ; preds = %for.body135.prehead
   %indvars.iv457 = phi i64 [ 0, %for.body135.preheader ], [ %indvars.iv.next458, %for.body135 ]
   %189 = phi ptr [ %183, %for.body135.preheader ], [ %247, %for.body135 ]
   %lastV.0439 = phi i32 [ %188, %for.body135.preheader ], [ %192, %for.body135 ]
-  %centroid.sroa.0.0436 = phi float [ 0.000000e+00, %for.body135.preheader ], [ %add.i217, %for.body135 ]
+  %centroid.sroa.0.1436 = phi float [ 0.000000e+00, %for.body135.preheader ], [ %add.i217, %for.body135 ]
   %190 = phi <2 x float> [ zeroinitializer, %for.body135.preheader ], [ %196, %for.body135 ]
   %m_data.i211 = getelementptr inbounds %struct.btFace, ptr %189, i64 %indvars.iv460, i32 0, i32 5
   %191 = load ptr, ptr %m_data.i211, align 8
@@ -5153,7 +5153,7 @@ for.body135:                                      ; preds = %for.body135.prehead
   %idxprom.i215 = sext i32 %192 to i64
   %arrayidx.i216 = getelementptr inbounds %class.btVector3, ptr %193, i64 %idxprom.i215
   %194 = load float, ptr %arrayidx.i216, align 4
-  %add.i217 = fadd float %centroid.sroa.0.0436, %194
+  %add.i217 = fadd float %centroid.sroa.0.1436, %194
   %arrayidx5.i218 = getelementptr inbounds i8, ptr %arrayidx.i216, i64 4
   %195 = load <2 x float>, ptr %arrayidx5.i218, align 4
   %196 = fadd <2 x float> %190, %195
@@ -5239,7 +5239,7 @@ for.body135:                                      ; preds = %for.body135.prehead
   br i1 %cmp134, label %for.body135, label %if.end159, !llvm.loop !88
 
 if.end159:                                        ; preds = %for.body135, %for.body115
-  %centroid.sroa.0.1 = phi float [ 0.000000e+00, %for.body115 ], [ %add.i217, %for.body135 ]
+  %centroid.sroa.0.0 = phi float [ 0.000000e+00, %for.body115 ], [ %add.i217, %for.body135 ]
   %250 = phi <2 x float> [ zeroinitializer, %for.body115 ], [ %196, %for.body135 ]
   %vtable162 = load ptr, ptr %this, align 8
   %vfn163 = getelementptr inbounds i8, ptr %vtable162, i64 40
@@ -5260,7 +5260,7 @@ if.then170:                                       ; preds = %if.end159
   %mul7.i = fmul float %div, %253
   %254 = extractelement <2 x float> %250, i64 0
   %mul4.i = fmul float %div, %254
-  %mul.i = fmul float %div, %centroid.sroa.0.1
+  %mul.i = fmul float %div, %centroid.sroa.0.0
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %normalColor, align 16
   %255 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i270 = getelementptr inbounds %struct.btFace, ptr %255, i64 %indvars.iv460

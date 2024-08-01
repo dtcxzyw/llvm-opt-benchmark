@@ -518,9 +518,9 @@ if.end122.i:                                      ; preds = %if.else113.i
   br label %for.cond125.i
 
 for.cond125.i:                                    ; preds = %for.cond125.i.backedge, %if.end122.i
-  %add.ptr31.pn.i = phi ptr [ %add.ptr31.i, %if.end122.i ], [ %s.3.i, %for.cond125.i.backedge ]
-  %s.2.i = getelementptr i8, ptr %add.ptr31.pn.i, i64 1
-  %12 = load i8, ptr %s.2.i, align 1
+  %add.ptr31.pn.i = phi ptr [ %add.ptr31.i, %if.end122.i ], [ %s.4.i, %for.cond125.i.backedge ]
+  %s.3.i = getelementptr i8, ptr %add.ptr31.pn.i, i64 1
+  %12 = load i8, ptr %s.3.i, align 1
   switch i8 %12, label %if.end140.i [
     i8 0, label %if.end144.i
     i8 44, label %if.then132.i
@@ -533,7 +533,7 @@ if.then132.i:                                     ; preds = %for.cond125.i
   br i1 %cmp135.not.i, label %if.end140.i, label %if.end144.i
 
 if.end140.i:                                      ; preds = %if.then132.i, %for.cond125.i
-  %s.3.i = phi ptr [ %incdec.ptr133.i, %if.then132.i ], [ %s.2.i, %for.cond125.i ]
+  %s.4.i = phi ptr [ %incdec.ptr133.i, %if.then132.i ], [ %s.3.i, %for.cond125.i ]
   %14 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %14, 1
   %15 = load i64, ptr %allocated_len.i.i, align 8
@@ -559,7 +559,7 @@ for.cond125.i.backedge:                           ; preds = %if.else.i102.i, %if
   br label %for.cond125.i
 
 if.end144.i:                                      ; preds = %if.then132.i, %for.cond125.i, %if.end102.i
-  %s.4.i = phi ptr [ %spec.select85.i, %if.end102.i ], [ %incdec.ptr133.i, %if.then132.i ], [ %s.2.i, %for.cond125.i ]
+  %s.2.i = phi ptr [ %spec.select85.i, %if.end102.i ], [ %incdec.ptr133.i, %if.then132.i ], [ %s.3.i, %for.cond125.i ]
   %val.0.i = phi ptr [ %call106.i, %if.end102.i ], [ %call124.i, %for.cond125.i ], [ %call124.i, %if.then132.i ]
   %call146.i = call ptr @qstring_from_gstring(ptr noundef %val.0.i) #8
   %call.i106.i = call ptr @qdict_get(ptr noundef %cur.1.i, ptr noundef nonnull %key_in_cur.i) #8
@@ -631,7 +631,7 @@ keyval_parse_one.exit.thread:                     ; preds = %if.end46.i.i, %keyv
 
 keyval_parse_one.exit:                            ; preds = %if.end46.i.i.thread, %if.end46.i.i, %if.then6.i, %if.end.i121.i
   %help.1 = phi i8 [ %help.0, %if.end46.i.i ], [ %help.0, %if.end.i121.i ], [ 1, %if.then6.i ], [ %help.0, %if.end46.i.i.thread ]
-  %retval.0.i = phi ptr [ %s.4.i, %if.end46.i.i ], [ %s.4.i, %if.end.i121.i ], [ %spec.select.i, %if.then6.i ], [ %s.4.i, %if.end46.i.i.thread ]
+  %retval.0.i = phi ptr [ %s.2.i, %if.end46.i.i ], [ %s.2.i, %if.end.i121.i ], [ %spec.select.i, %if.then6.i ], [ %s.2.i, %if.end46.i.i.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %key_in_cur.i)
   %tobool1.not = icmp eq ptr %retval.0.i, null

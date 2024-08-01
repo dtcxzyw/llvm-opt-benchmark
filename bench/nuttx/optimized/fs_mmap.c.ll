@@ -77,8 +77,8 @@ define i32 @file_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nounde
   br i1 %39, label %file_mmap_.exit, label %40
 
 40:                                               ; preds = %37, %16
-  %.1.i = phi i32 [ %17, %16 ], [ %.fr.i, %37 ]
-  %41 = icmp sgt i32 %.1.i, -1
+  %.0.i = phi i32 [ %17, %16 ], [ %.fr.i, %37 ]
+  %41 = icmp sgt i32 %.0.i, -1
   br i1 %41, label %42, label %file_mmap_.exit
 
 42:                                               ; preds = %40
@@ -87,7 +87,7 @@ define i32 @file_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nounde
   br label %file_mmap_.exit
 
 file_mmap_.exit:                                  ; preds = %18, %22, %28, %29, %32, %37, %40, %42
-  %.021.i = phi i32 [ -9, %18 ], [ -13, %22 ], [ -13, %28 ], [ %.1.i, %42 ], [ %.1.i, %40 ], [ -38, %37 ], [ -38, %32 ], [ -38, %29 ]
+  %.021.i = phi i32 [ -9, %18 ], [ -13, %22 ], [ -13, %28 ], [ %.0.i, %42 ], [ %.0.i, %40 ], [ -38, %37 ], [ -38, %32 ], [ -38, %29 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   ret i32 %.021.i
 }
@@ -179,12 +179,12 @@ thread-pre-split:                                 ; preds = %9
   br i1 %44, label %file_mmap_.exit.thread, label %45
 
 45:                                               ; preds = %42, %21
-  %.1.i = phi i32 [ %22, %21 ], [ %.fr.i, %42 ]
-  %46 = icmp sgt i32 %.1.i, -1
+  %.0.i = phi i32 [ %22, %21 ], [ %.fr.i, %42 ]
+  %46 = icmp sgt i32 %.0.i, -1
   br i1 %46, label %47, label %file_mmap_.exit.thread
 
 file_mmap_.exit.thread:                           ; preds = %23, %27, %33, %45, %42, %37, %34
-  %.021.i.ph = phi i32 [ -38, %34 ], [ -38, %37 ], [ -38, %42 ], [ %.1.i, %45 ], [ -13, %33 ], [ -13, %27 ], [ -9, %23 ]
+  %.021.i.ph = phi i32 [ -38, %34 ], [ -38, %37 ], [ -38, %42 ], [ %.0.i, %45 ], [ -13, %33 ], [ -13, %27 ], [ -9, %23 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %49
 

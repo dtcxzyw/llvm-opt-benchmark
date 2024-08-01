@@ -104,9 +104,9 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br label %42
 
 42:                                               ; preds = %.lr.ph, %.loopexit123
-  %.0159 = phi i64 [ 0, %.lr.ph ], [ %.4, %.loopexit123 ]
-  %.074158 = phi i64 [ 0, %.lr.ph ], [ %.478, %.loopexit123 ]
-  %.095157 = phi i32 [ 0, %.lr.ph ], [ %.398, %.loopexit123 ]
+  %.0159 = phi i64 [ 0, %.lr.ph ], [ %.1, %.loopexit123 ]
+  %.074158 = phi i64 [ 0, %.lr.ph ], [ %.175, %.loopexit123 ]
+  %.095157 = phi i32 [ 0, %.lr.ph ], [ %.196, %.loopexit123 ]
   %43 = load i8, ptr %25, align 2
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %46
@@ -144,10 +144,10 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   resume { ptr, i32 } %lpad.phi
 
 .preheader:                                       ; preds = %48, %139
-  %.196 = phi i32 [ %124, %139 ], [ %.095157, %48 ]
+  %.297 = phi i32 [ %124, %139 ], [ %.095157, %48 ]
   %.092 = phi i1 [ %.193136, %139 ], [ true, %48 ]
-  %.175 = phi i64 [ %.276, %139 ], [ %.074158, %48 ]
-  %.1 = phi i64 [ %.2, %139 ], [ %.0159, %48 ]
+  %.276 = phi i64 [ %.377, %139 ], [ %.074158, %48 ]
+  %.2 = phi i64 [ %.3, %139 ], [ %.0159, %48 ]
   %49 = invoke noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %3, i1 noundef zeroext true)
           to label %50 unwind label %.loopexit.split-lp.loopexit
 
@@ -190,7 +190,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 60:                                               ; preds = %79, %.split.us
   %.193.us = phi i1 [ %.092, %.split.us ], [ %.294.us, %79 ]
   %.090.us = phi i64 [ 0, %.split.us ], [ %.191.us, %79 ]
-  %.087.us = phi i64 [ 0, %.split.us ], [ %.289.us, %79 ]
+  %.087.us = phi i64 [ 0, %.split.us ], [ %.188.us, %79 ]
   %61 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %62 unwind label %.loopexit.split.us
 
@@ -228,7 +228,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %74 = trunc i8 %73 to i1
   %75 = load i64, ptr %34, align 8
   %76 = select i1 %74, i64 0, i64 %75
-  %.188.us = add nsw i64 %76, %.087.us
+  %.289.us = add nsw i64 %76, %.087.us
   %77 = load i64, ptr %35, align 8
   %78 = add nsw i64 %77, %.090.us
   br label %79
@@ -236,7 +236,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 79:                                               ; preds = %72, %68, %64
   %.294.us = phi i1 [ true, %72 ], [ false, %68 ], [ %.193.us, %64 ]
   %.191.us = phi i64 [ %78, %72 ], [ %.090.us, %68 ], [ %.090.us, %64 ]
-  %.289.us = phi i64 [ %.188.us, %72 ], [ %.087.us, %68 ], [ %.087.us, %64 ]
+  %.188.us = phi i64 [ %.289.us, %72 ], [ %.087.us, %68 ], [ %.087.us, %64 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %60 unwind label %.loopexit.split.us, !llvm.loop !6
 
@@ -248,7 +248,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 .split:                                           ; preds = %.split.preheader, %112
   %.193 = phi i1 [ %.294, %112 ], [ %.092, %.split.preheader ]
   %.090 = phi i64 [ %.191, %112 ], [ 0, %.split.preheader ]
-  %.087 = phi i64 [ %.289, %112 ], [ 0, %.split.preheader ]
+  %.087 = phi i64 [ %.188, %112 ], [ 0, %.split.preheader ]
   %80 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %81 unwind label %.loopexit.split
 
@@ -307,7 +307,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %102 = trunc i8 %101 to i1
   %103 = load i64, ptr %34, align 8
   %104 = select i1 %102, i64 0, i64 %103
-  %.188 = add nsw i64 %104, %.087
+  %.289 = add nsw i64 %104, %.087
   %105 = load i64, ptr %35, align 8
   %106 = add nsw i64 %105, %.090
   br label %112
@@ -326,7 +326,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 112:                                              ; preds = %109, %107, %83, %96, %100
   %.294 = phi i1 [ true, %109 ], [ %.193, %107 ], [ true, %100 ], [ false, %96 ], [ %.193, %83 ]
   %.191 = phi i64 [ %.090, %109 ], [ %.090, %107 ], [ %106, %100 ], [ %.090, %96 ], [ %.090, %83 ]
-  %.289 = phi i64 [ %.087, %109 ], [ %.087, %107 ], [ %.188, %100 ], [ %.087, %96 ], [ %.087, %83 ]
+  %.188 = phi i64 [ %.087, %109 ], [ %.087, %107 ], [ %.289, %100 ], [ %.087, %96 ], [ %.087, %83 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
           to label %.split unwind label %.loopexit.split, !llvm.loop !6
 
@@ -360,15 +360,15 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %121 unwind label %.loopexit.split-lp.loopexit
 
 121:                                              ; preds = %118, %119
-  %122 = add nsw i64 %.087129, %.175
-  %123 = add nsw i64 %.090132, %.1
+  %122 = add nsw i64 %.087129, %.276
+  %123 = add nsw i64 %.090132, %.2
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit119, %.loopexit119, %93, %113, %121
   %.193136 = phi i1 [ %.193135, %.loopexit119 ], [ %.193135, %121 ], [ %.193135, %113 ], [ %.us-phi152, %93 ], [ %.193135, %.loopexit119 ]
-  %.276 = phi i64 [ %.175, %.loopexit119 ], [ %122, %121 ], [ %.175, %113 ], [ %.175, %93 ], [ %.175, %.loopexit119 ]
-  %.2 = phi i64 [ %.1, %.loopexit119 ], [ %123, %121 ], [ %.1, %113 ], [ %.1, %93 ], [ %.1, %.loopexit119 ]
-  %124 = add i32 %.196, 1
+  %.377 = phi i64 [ %.276, %.loopexit119 ], [ %122, %121 ], [ %.276, %113 ], [ %.276, %93 ], [ %.276, %.loopexit119 ]
+  %.3 = phi i64 [ %.2, %.loopexit119 ], [ %123, %121 ], [ %.2, %113 ], [ %.2, %93 ], [ %.2, %.loopexit119 ]
+  %124 = add i32 %.297, 1
   %125 = load i64, ptr %39, align 8
   %.not109 = icmp eq i64 %125, 0
   br i1 %.not109, label %.loopexit123, label %126
@@ -401,21 +401,21 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %.preheader unwind label %.loopexit.split-lp.loopexit, !llvm.loop !7
 
 .loopexit123:                                     ; preds = %50, %138, %132, %129, %.thread, %48
-  %.398 = phi i32 [ %.095157, %48 ], [ %.196, %50 ], [ %124, %.thread ], [ %124, %129 ], [ %124, %132 ], [ %124, %138 ]
-  %.478 = phi i64 [ %.074158, %48 ], [ %.175, %50 ], [ %.276, %.thread ], [ %.276, %129 ], [ %.276, %132 ], [ %.276, %138 ]
-  %.4 = phi i64 [ %.0159, %48 ], [ %.1, %50 ], [ %.2, %.thread ], [ %.2, %129 ], [ %.2, %132 ], [ %.2, %138 ]
+  %.196 = phi i32 [ %.095157, %48 ], [ %.297, %50 ], [ %124, %.thread ], [ %124, %129 ], [ %124, %132 ], [ %124, %138 ]
+  %.175 = phi i64 [ %.074158, %48 ], [ %.276, %50 ], [ %.377, %.thread ], [ %.377, %129 ], [ %.377, %132 ], [ %.377, %138 ]
+  %.1 = phi i64 [ %.0159, %48 ], [ %.2, %50 ], [ %.3, %.thread ], [ %.3, %129 ], [ %.3, %132 ], [ %.3, %138 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #5
   %140 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
   br i1 %140, label %42, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit123
-  %141 = icmp ult i32 %.398, 2
+  %141 = icmp ult i32 %.196, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
   %.095.lcssa = phi i1 [ true, %19 ], [ %141, %._crit_edge.loopexit ]
-  %.074.lcssa = phi i64 [ 0, %19 ], [ %.478, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %19 ], [ %.4, %._crit_edge.loopexit ]
+  %.074.lcssa = phi i64 [ 0, %19 ], [ %.175, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %19 ], [ %.1, %._crit_edge.loopexit ]
   %142 = getelementptr inbounds i8, ptr %0, i64 49202
   %143 = load i8, ptr %142, align 2
   %144 = trunc i8 %143 to i1

@@ -1032,13 +1032,13 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   %.sroa.026.1 = phi ptr [ %24, %21 ], [ %.sroa.026.0, %12 ], [ %.sroa.026.0, %17 ]
   %.sroa.3.1 = phi i64 [ %23, %21 ], [ 0, %12 ], [ %.sroa.3.0, %17 ]
   %.sroa.627.1 = phi i1 [ false, %21 ], [ true, %12 ], [ true, %17 ]
-  %.sroa.5.1.i.ph.i = phi i64 [ %.011.i.i.i, %21 ], [ 0, %12 ], [ %.sroa.3.0, %17 ]
+  %.sroa.5.0.i.ph.i = phi i64 [ %.011.i.i.i, %21 ], [ 0, %12 ], [ %.sroa.3.0, %17 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !156
   store i64 %.sroa.029.0, ptr %6, align 8, !noalias !161
   store ptr %.sroa.632.0, ptr %.sroa.632.0..sroa_idx, align 8, !noalias !161
   store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !161
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !156
-  %25 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9e873427e56ee0bcE"(i64 noundef %.sroa.5.1.i.ph.i, i1 noundef zeroext false)
+  %25 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9e873427e56ee0bcE"(i64 noundef %.sroa.5.0.i.ph.i, i1 noundef zeroext false)
           to label %26 unwind label %53, !noalias !156
 
 26:                                               ; preds = %.loopexit.i.i
@@ -1046,14 +1046,14 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   %28 = extractvalue { i64, ptr } %25, 1
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %.sroa.026.0, i64 %.sroa.5.1.i.ph.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %.sroa.026.0, i64 %.sroa.5.0.i.ph.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !156
   store i64 %27, ptr %9, align 8, !noalias !156
   store ptr %28, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !156
-  store i64 %.sroa.5.1.i.ph.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !156
+  store i64 %.sroa.5.0.i.ph.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !156
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
-  %30 = icmp ugt i64 %.sroa.5.1.i.ph.i, %3
+  %30 = icmp ugt i64 %.sroa.5.0.i.ph.i, %3
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %26
@@ -1063,7 +1063,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br label %34
 
 34:                                               ; preds = %31, %26
-  %35 = icmp ult i64 %.sroa.5.1.i.ph.i, %3
+  %35 = icmp ult i64 %.sroa.5.0.i.ph.i, %3
   br i1 %35, label %36, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf91d4c6d2473aab8E.exit.i.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf91d4c6d2473aab8E.exit.i.i.i.i": ; preds = %34
@@ -1071,7 +1071,7 @@ define internal fastcc void @_ZN5uu_dd6blocks5block17h3209c7000a196d04E(ptr noal
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit.i.i.i"
 
 36:                                               ; preds = %34
-  %37 = sub nuw i64 %3, %.sroa.5.1.i.ph.i
+  %37 = sub nuw i64 %3, %.sroa.5.0.i.ph.i
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37b2c2dfead61723E.llvm.3015548344323866763"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %37, i8 noundef 32)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h4ee485f2d69161d3E.exit_crit_edge.i.i.i" unwind label %46, !noalias !174
 

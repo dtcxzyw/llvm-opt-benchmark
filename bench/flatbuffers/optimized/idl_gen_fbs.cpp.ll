@@ -770,7 +770,7 @@ for.body105.lr.ph:                                ; preds = %if.end95
 
 for.body105:                                      ; preds = %for.body105.lr.ph, %for.inc210
   %24 = phi ptr [ %23, %for.body105.lr.ph ], [ %57, %for.inc210 ]
-  %last_namespace.0388 = phi ptr [ null, %for.body105.lr.ph ], [ %last_namespace.2, %for.inc210 ]
+  %last_namespace.0388 = phi ptr [ null, %for.body105.lr.ph ], [ %last_namespace.1, %for.inc210 ]
   %enum_def_it.sroa.0.0387 = phi ptr [ %22, %for.body105.lr.ph ], [ %incdec.ptr.i135, %for.inc210 ]
   %25 = load ptr, ptr %enum_def_it.sroa.0.0387, align 8
   %26 = load i8, ptr %include_dependence_headers, align 2
@@ -825,7 +825,7 @@ for.end.i:                                        ; preds = %call15.i.noexc, %ca
           to label %invoke.cont114 unwind label %lpad.loopexit.split-lp320.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont114:                                   ; preds = %if.end113, %for.end.i
-  %last_namespace.1 = phi ptr [ %last_namespace.0388, %if.end113 ], [ %28, %for.end.i ]
+  %last_namespace.4 = phi ptr [ %last_namespace.0388, %if.end113 ], [ %28, %for.end.i ]
   %doc_comment = getelementptr inbounds i8, ptr %25, i64 64
   invoke void @_ZN11flatbuffers10GenCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_PKNS_13CommentConfigEPKc(ptr noundef nonnull align 8 dereferenceable(24) %doc_comment, ptr noundef nonnull %schema, ptr noundef null, ptr noundef nonnull @.str.8)
           to label %invoke.cont115 unwind label %lpad.loopexit.split-lp320.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1180,13 +1180,13 @@ for.end207.for.inc210_crit_edge:                  ; preds = %for.end207
 
 for.inc210:                                       ; preds = %for.end207.for.inc210_crit_edge, %land.lhs.true110
   %57 = phi ptr [ %24, %land.lhs.true110 ], [ %.pre, %for.end207.for.inc210_crit_edge ]
-  %last_namespace.2 = phi ptr [ %last_namespace.0388, %land.lhs.true110 ], [ %last_namespace.1, %for.end207.for.inc210_crit_edge ]
+  %last_namespace.1 = phi ptr [ %last_namespace.0388, %land.lhs.true110 ], [ %last_namespace.4, %for.end207.for.inc210_crit_edge ]
   %incdec.ptr.i135 = getelementptr inbounds i8, ptr %enum_def_it.sroa.0.0387, i64 8
   %cmp.i95.not = icmp eq ptr %incdec.ptr.i135, %57
   br i1 %cmp.i95.not, label %for.end212, label %for.body105, !llvm.loop !26
 
 for.end212:                                       ; preds = %for.inc210, %if.end95
-  %last_namespace.0.lcssa = phi ptr [ null, %if.end95 ], [ %last_namespace.2, %for.inc210 ]
+  %last_namespace.0.lcssa = phi ptr [ null, %if.end95 ], [ %last_namespace.1, %for.inc210 ]
   %vec214 = getelementptr inbounds i8, ptr %parser, i64 216
   %58 = load ptr, ptr %vec214, align 8
   %_M_finish.i136 = getelementptr inbounds i8, ptr %parser, i64 224
@@ -1214,7 +1214,7 @@ for.body224.lr.ph:                                ; preds = %for.end212
   br label %for.body224
 
 for.body224:                                      ; preds = %for.body224.lr.ph, %for.inc393
-  %last_namespace.3404 = phi ptr [ %last_namespace.0.lcssa, %for.body224.lr.ph ], [ %last_namespace.5, %for.inc393 ]
+  %last_namespace.2404 = phi ptr [ %last_namespace.0.lcssa, %for.body224.lr.ph ], [ %last_namespace.3, %for.inc393 ]
   %it213.sroa.0.0403 = phi ptr [ %58, %for.body224.lr.ph ], [ %incdec.ptr.i288, %for.inc393 ]
   %61 = load ptr, ptr %it213.sroa.0.0403, align 8
   %62 = load i32, ptr %proto_id_gap_action, align 8
@@ -2352,7 +2352,7 @@ land.lhs.true235:                                 ; preds = %if.end231
 if.end239:                                        ; preds = %land.lhs.true235, %if.end231
   %defined_namespace240 = getelementptr inbounds i8, ptr %61, i64 168
   %190 = load ptr, ptr %defined_namespace240, align 8
-  %cmp.i153 = icmp eq ptr %last_namespace.3404, %190
+  %cmp.i153 = icmp eq ptr %last_namespace.2404, %190
   br i1 %cmp.i153, label %invoke.cont242, label %if.end.i154
 
 if.end.i154:                                      ; preds = %if.end239
@@ -2391,7 +2391,7 @@ for.end.i165:                                     ; preds = %call15.i.noexc169, 
           to label %invoke.cont242 unwind label %lpad241.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont242:                                   ; preds = %if.end239, %for.end.i165
-  %last_namespace.4 = phi ptr [ %last_namespace.3404, %if.end239 ], [ %190, %for.end.i165 ]
+  %last_namespace.5 = phi ptr [ %last_namespace.2404, %if.end239 ], [ %190, %for.end.i165 ]
   %doc_comment243 = getelementptr inbounds i8, ptr %61, i64 64
   invoke void @_ZN11flatbuffers10GenCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_PKNS_13CommentConfigEPKc(ptr noundef nonnull align 8 dereferenceable(24) %doc_comment243, ptr noundef nonnull %schema, ptr noundef null, ptr noundef nonnull @.str.8)
           to label %invoke.cont244 unwind label %lpad241.loopexit.split-lp.loopexit.split-lp
@@ -2904,7 +2904,7 @@ for.end389:                                       ; preds = %for.inc387, %invoke
           to label %cleanup unwind label %lpad241.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %for.end389, %land.lhs.true235, %if.then230
-  %last_namespace.5 = phi ptr [ %last_namespace.3404, %land.lhs.true235 ], [ %last_namespace.4, %for.end389 ], [ %last_namespace.3404, %if.then230 ]
+  %last_namespace.3 = phi ptr [ %last_namespace.2404, %land.lhs.true235 ], [ %last_namespace.5, %for.end389 ], [ %last_namespace.2404, %if.then230 ]
   %cleanup.dest.slot.0 = phi i32 [ 19, %land.lhs.true235 ], [ 0, %for.end389 ], [ 1, %if.then230 ]
   %239 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %239, null

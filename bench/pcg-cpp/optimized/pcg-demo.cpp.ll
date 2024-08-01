@@ -1049,8 +1049,8 @@ while.cond.if.end.loopexit_crit_edge.i:           ; preds = %while.body.i
   br label %_ZNSt24uniform_int_distributionImE5_S_ndImN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEjEET1_RT0_SB_.exit
 
 _ZNSt24uniform_int_distributionImE5_S_ndImN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEjEET1_RT0_SB_.exit: ; preds = %if.then, %if.then.i, %while.cond.if.end.loopexit_crit_edge.i
-  %__product.1.i = phi i64 [ %mul.i, %if.then ], [ %mul7.i, %while.cond.if.end.loopexit_crit_edge.i ], [ %mul.i, %if.then.i ]
-  %shr.i = lshr i64 %__product.1.i, 32
+  %__product.0.i = phi i64 [ %mul.i, %if.then ], [ %mul7.i, %while.cond.if.end.loopexit_crit_edge.i ], [ %mul.i, %if.then.i ]
+  %shr.i = lshr i64 %__product.0.i, 32
   br label %if.end18
 
 if.else:                                          ; preds = %entry

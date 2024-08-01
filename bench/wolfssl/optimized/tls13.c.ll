@@ -213,7 +213,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %ret.0 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.then ]
+  %ret.1 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.then ]
   call void @wc_Sha256Free(ptr noundef nonnull %digest) #11
   br label %if.end21
 
@@ -236,15 +236,15 @@ if.then14:                                        ; preds = %if.then11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.then11
-  %ret.2 = phi i32 [ %call16, %if.then14 ], [ %call12, %if.then11 ]
+  %ret.4 = phi i32 [ %call16, %if.then14 ], [ %call12, %if.then11 ]
   call void @wc_Sha384Free(ptr noundef nonnull %digest) #11
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end, %if.end17
   %hashSz.0.ph = phi i32 [ 48, %if.end17 ], [ 32, %if.end ]
   %digestAlg.0.ph = phi i32 [ 7, %if.end17 ], [ 6, %if.end ]
-  %ret.4.ph = phi i32 [ %ret.2, %if.end17 ], [ %ret.0, %if.end ]
-  %cmp22.not = icmp eq i32 %ret.4.ph, 0
+  %ret.2.ph = phi i32 [ %ret.4, %if.end17 ], [ %ret.1, %if.end ]
+  %cmp22.not = icmp eq i32 %ret.2.ph, 0
   br i1 %cmp22.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end21
@@ -262,7 +262,7 @@ if.end31:                                         ; preds = %if.end24
   br label %return
 
 return:                                           ; preds = %sw.bb, %sw.bb6, %entry, %if.end24, %if.end21, %if.end31
-  %retval.0 = phi i32 [ %call.i, %if.end31 ], [ %ret.4.ph, %if.end21 ], [ -326, %if.end24 ], [ -232, %entry ], [ %call, %sw.bb ], [ %call9, %sw.bb6 ]
+  %retval.0 = phi i32 [ %call.i, %if.end31 ], [ %ret.2.ph, %if.end21 ], [ -326, %if.end24 ], [ -232, %entry ], [ %call, %sw.bb ], [ %call9, %sw.bb6 ]
   ret i32 %retval.0
 }
 
@@ -536,7 +536,7 @@ DeriveClientTrafficSecret.exit:                   ; preds = %sw.epilog.i.i104
   br i1 %cmp30.not, label %if.end34, label %ForceZero.exit
 
 if.end34:                                         ; preds = %DeriveClientTrafficSecret.exit, %sw.bb23
-  %ret.1 = phi i32 [ 0, %DeriveClientTrafficSecret.exit ], [ -173, %sw.bb23 ]
+  %ret.3 = phi i32 [ 0, %DeriveClientTrafficSecret.exit ], [ -173, %sw.bb23 ]
   %tobool36.not = icmp ult i32 %provision.0, 2
   br i1 %tobool36.not, label %sw.epilog, label %if.then37
 
@@ -633,7 +633,7 @@ DeriveTrafficSecret.exit:                         ; preds = %if.then49, %sw.bb1.
   br i1 %cmp53.not, label %if.end57, label %ForceZero.exit
 
 if.end57:                                         ; preds = %DeriveTrafficSecret.exit, %sw.bb46
-  %ret.2 = phi i32 [ 0, %DeriveTrafficSecret.exit ], [ -173, %sw.bb46 ]
+  %ret.4 = phi i32 [ 0, %DeriveTrafficSecret.exit ], [ -173, %sw.bb46 ]
   %tobool59.not = icmp ult i32 %provision.0, 2
   br i1 %tobool59.not, label %sw.epilog, label %if.then60
 
@@ -668,7 +668,7 @@ DeriveTrafficSecret.exit167:                      ; preds = %if.then60, %sw.bb1.
   br i1 %cmp64.not, label %sw.epilog, label %ForceZero.exit
 
 sw.epilog:                                        ; preds = %if.end, %if.end57, %DeriveTrafficSecret.exit167, %if.end34, %DeriveServerTrafficSecret.exit, %if.end12, %DeriveServerHandshakeSecret.exit
-  %ret.3 = phi i32 [ -173, %if.end ], [ 0, %DeriveTrafficSecret.exit167 ], [ %ret.2, %if.end57 ], [ 0, %DeriveServerTrafficSecret.exit ], [ %ret.1, %if.end34 ], [ 0, %DeriveServerHandshakeSecret.exit ], [ %ret.0, %if.end12 ]
+  %ret.2 = phi i32 [ -173, %if.end ], [ 0, %DeriveTrafficSecret.exit167 ], [ %ret.4, %if.end57 ], [ 0, %DeriveServerTrafficSecret.exit ], [ %ret.3, %if.end34 ], [ 0, %DeriveServerHandshakeSecret.exit ], [ %ret.0, %if.end12 ]
   %tobool69.not = icmp eq i32 %store, 0
   br i1 %tobool69.not, label %ForceZero.exit, label %if.end71
 
@@ -716,12 +716,12 @@ if.end84:                                         ; preds = %Tls13DeriveKey.exit
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end84, %if.end71
-  %i.0 = phi i32 [ %conv87, %if.end84 ], [ 0, %if.end71 ]
+  %i.1 = phi i32 [ %conv87, %if.end84 ], [ 0, %if.end71 ]
   %tobool90.not = icmp ult i32 %provision.0, 2
   br i1 %tobool90.not, label %if.end113, label %do.end93
 
 do.end93:                                         ; preds = %if.end88
-  %idxprom94 = zext nneg i32 %i.0 to i64
+  %idxprom94 = zext nneg i32 %i.1 to i64
   %arrayidx95 = getelementptr inbounds [224 x i8], ptr %key_dig, i64 0, i64 %idxprom94
   %specs96 = getelementptr inbounds i8, ptr %ssl, i64 698
   %38 = load i16, ptr %specs96, align 2
@@ -758,15 +758,15 @@ Tls13DeriveKey.exit180:                           ; preds = %sw.bb1.i171, %do.en
 if.end108:                                        ; preds = %Tls13DeriveKey.exit180
   %42 = load i16, ptr %specs96, align 2
   %conv111 = zext i16 %42 to i32
-  %add112 = add nuw nsw i32 %i.0, %conv111
+  %add112 = add nuw nsw i32 %i.1, %conv111
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end108, %if.end88
-  %i.1 = phi i32 [ %add112, %if.end108 ], [ %i.0, %if.end88 ]
+  %i.2 = phi i32 [ %add112, %if.end108 ], [ %i.1, %if.end88 ]
   br i1 %tobool73.not, label %if.end137, label %do.end118
 
 do.end118:                                        ; preds = %if.end113
-  %idxprom119 = zext nneg i32 %i.1 to i64
+  %idxprom119 = zext nneg i32 %i.2 to i64
   %arrayidx120 = getelementptr inbounds [224 x i8], ptr %key_dig, i64 0, i64 %idxprom119
   %iv_size = getelementptr inbounds i8, ptr %ssl, i64 700
   %43 = load i16, ptr %iv_size, align 2
@@ -803,15 +803,15 @@ Tls13DeriveKey.exit191:                           ; preds = %sw.bb1.i182, %do.en
 if.end132:                                        ; preds = %Tls13DeriveKey.exit191
   %47 = load i16, ptr %iv_size, align 2
   %conv135 = zext i16 %47 to i32
-  %add136 = add nuw nsw i32 %i.1, %conv135
+  %add136 = add nuw nsw i32 %i.2, %conv135
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end132, %if.end113
-  %i.2 = phi i32 [ %add136, %if.end132 ], [ %i.1, %if.end113 ]
+  %i.3 = phi i32 [ %add136, %if.end132 ], [ %i.2, %if.end113 ]
   br i1 %tobool90.not, label %if.end162, label %do.end142
 
 do.end142:                                        ; preds = %if.end137
-  %idxprom143 = zext nneg i32 %i.2 to i64
+  %idxprom143 = zext nneg i32 %i.3 to i64
   %arrayidx144 = getelementptr inbounds [224 x i8], ptr %key_dig, i64 0, i64 %idxprom143
   %iv_size146 = getelementptr inbounds i8, ptr %ssl, i64 700
   %48 = load i16, ptr %iv_size146, align 2
@@ -848,29 +848,29 @@ Tls13DeriveKey.exit202:                           ; preds = %sw.bb1.i193, %do.en
 if.end157:                                        ; preds = %Tls13DeriveKey.exit202
   %52 = load i16, ptr %iv_size146, align 2
   %conv160 = zext i16 %52 to i32
-  %add161 = add nuw nsw i32 %i.2, %conv160
+  %add161 = add nuw nsw i32 %i.3, %conv160
   br label %if.end162
 
 if.end162:                                        ; preds = %if.end157, %if.end137
-  %i.3 = phi i32 [ %add161, %if.end157 ], [ %i.2, %if.end137 ]
+  %i.4 = phi i32 [ %add161, %if.end157 ], [ %i.3, %if.end137 ]
   %call164 = call i32 @StoreKeys(ptr noundef %ssl, ptr noundef nonnull %key_dig, i32 noundef %provision.0) #11
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end162, %Tls13DeriveKey.exit180, %Tls13DeriveKey.exit191, %Tls13DeriveKey.exit202, %Tls13DeriveKey.exit180.thread, %Tls13DeriveKey.exit191.thread, %Tls13DeriveKey.exit202.thread
-  %ret.4 = phi i32 [ %call.i.i177, %Tls13DeriveKey.exit180 ], [ %call.i.i188, %Tls13DeriveKey.exit191 ], [ %call.i.i199, %Tls13DeriveKey.exit202 ], [ %call164, %if.end162 ], [ -232, %Tls13DeriveKey.exit180.thread ], [ -232, %Tls13DeriveKey.exit191.thread ], [ -232, %Tls13DeriveKey.exit202.thread ]
-  %i.4 = phi i32 [ %i.0, %Tls13DeriveKey.exit180 ], [ %i.1, %Tls13DeriveKey.exit191 ], [ %i.2, %Tls13DeriveKey.exit202 ], [ %i.3, %if.end162 ], [ %i.0, %Tls13DeriveKey.exit180.thread ], [ %i.1, %Tls13DeriveKey.exit191.thread ], [ %i.2, %Tls13DeriveKey.exit202.thread ]
-  %cmp515.i = icmp ugt i32 %i.4, 7
+  %ret.1 = phi i32 [ %call.i.i177, %Tls13DeriveKey.exit180 ], [ %call.i.i188, %Tls13DeriveKey.exit191 ], [ %call.i.i199, %Tls13DeriveKey.exit202 ], [ %call164, %if.end162 ], [ -232, %Tls13DeriveKey.exit180.thread ], [ -232, %Tls13DeriveKey.exit191.thread ], [ -232, %Tls13DeriveKey.exit202.thread ]
+  %i.0 = phi i32 [ %i.1, %Tls13DeriveKey.exit180 ], [ %i.2, %Tls13DeriveKey.exit191 ], [ %i.3, %Tls13DeriveKey.exit202 ], [ %i.4, %if.end162 ], [ %i.1, %Tls13DeriveKey.exit180.thread ], [ %i.2, %Tls13DeriveKey.exit191.thread ], [ %i.3, %Tls13DeriveKey.exit202.thread ]
+  %cmp515.i = icmp ugt i32 %i.0, 7
   br i1 %cmp515.i, label %for.body.i, label %while.cond9.preheader.i
 
 while.cond9.preheader.i:                          ; preds = %for.body.i, %for.cond.preheader.i
-  %len.addr.0.lcssa.i = phi i32 [ %i.4, %for.cond.preheader.i ], [ %sub8.i, %for.body.i ]
+  %len.addr.0.lcssa.i = phi i32 [ %i.0, %for.cond.preheader.i ], [ %sub8.i, %for.body.i ]
   %w.0.lcssa.i = phi ptr [ %key_dig, %for.cond.preheader.i ], [ %incdec.ptr7.i, %for.body.i ]
   %tobool11.not20.i = icmp eq i32 %len.addr.0.lcssa.i, 0
   br i1 %tobool11.not20.i, label %ForceZero.exit, label %while.body12.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %key_dig, %for.cond.preheader.i ]
-  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %i.4, %for.cond.preheader.i ]
+  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %i.0, %for.cond.preheader.i ]
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add i32 %len.addr.016.i, -8
@@ -887,8 +887,8 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i, label %ForceZero.exit, label %while.body12.i, !llvm.loop !6
 
 ForceZero.exit:                                   ; preds = %while.body12.i, %Tls13DeriveKey.exit, %sw.epilog, %DeriveTrafficSecret.exit, %DeriveTrafficSecret.exit167, %DeriveClientTrafficSecret.exit, %DeriveServerTrafficSecret.exit, %DeriveClientHandshakeSecret.exit, %DeriveServerHandshakeSecret.exit, %DeriveClientHandshakeSecret.exit.thread206, %DeriveServerHandshakeSecret.exit.thread212, %DeriveClientTrafficSecret.exit.thread218, %DeriveServerTrafficSecret.exit.thread224, %DeriveTrafficSecret.exit.thread, %DeriveTrafficSecret.exit167.thread, %Tls13DeriveKey.exit.thread, %lor.lhs.false.i, %if.then7, %lor.lhs.false.i67, %if.then15, %lor.lhs.false.i95, %if.then26, %lor.lhs.false.i122, %if.then37, %while.cond9.preheader.i
-  %ret.4242247 = phi i32 [ %ret.4, %while.cond9.preheader.i ], [ -173, %if.then37 ], [ -173, %lor.lhs.false.i122 ], [ -173, %if.then26 ], [ -173, %lor.lhs.false.i95 ], [ -173, %if.then15 ], [ -173, %lor.lhs.false.i67 ], [ -173, %if.then7 ], [ -173, %lor.lhs.false.i ], [ -232, %Tls13DeriveKey.exit.thread ], [ -232, %DeriveTrafficSecret.exit167.thread ], [ -232, %DeriveTrafficSecret.exit.thread ], [ %retval.0.i.i138.ph, %DeriveServerTrafficSecret.exit.thread224 ], [ %retval.0.i.i110.ph, %DeriveClientTrafficSecret.exit.thread218 ], [ %retval.0.i.i83.ph, %DeriveServerHandshakeSecret.exit.thread212 ], [ %retval.0.i.i.ph, %DeriveClientHandshakeSecret.exit.thread206 ], [ %call.i.i.i88, %DeriveServerHandshakeSecret.exit ], [ %call.i.i.i, %DeriveClientHandshakeSecret.exit ], [ %call.i.i.i143, %DeriveServerTrafficSecret.exit ], [ %call.i.i.i115, %DeriveClientTrafficSecret.exit ], [ %call.i.i.i164, %DeriveTrafficSecret.exit167 ], [ %call.i.i.i153, %DeriveTrafficSecret.exit ], [ %ret.3, %sw.epilog ], [ %call.i.i168, %Tls13DeriveKey.exit ], [ %ret.4, %while.body12.i ]
-  ret i32 %ret.4242247
+  %ret.1242247 = phi i32 [ %ret.1, %while.cond9.preheader.i ], [ -173, %if.then37 ], [ -173, %lor.lhs.false.i122 ], [ -173, %if.then26 ], [ -173, %lor.lhs.false.i95 ], [ -173, %if.then15 ], [ -173, %lor.lhs.false.i67 ], [ -173, %if.then7 ], [ -173, %lor.lhs.false.i ], [ -232, %Tls13DeriveKey.exit.thread ], [ -232, %DeriveTrafficSecret.exit167.thread ], [ -232, %DeriveTrafficSecret.exit.thread ], [ %retval.0.i.i138.ph, %DeriveServerTrafficSecret.exit.thread224 ], [ %retval.0.i.i110.ph, %DeriveClientTrafficSecret.exit.thread218 ], [ %retval.0.i.i83.ph, %DeriveServerHandshakeSecret.exit.thread212 ], [ %retval.0.i.i.ph, %DeriveClientHandshakeSecret.exit.thread206 ], [ %call.i.i.i88, %DeriveServerHandshakeSecret.exit ], [ %call.i.i.i, %DeriveClientHandshakeSecret.exit ], [ %call.i.i.i143, %DeriveServerTrafficSecret.exit ], [ %call.i.i.i115, %DeriveClientTrafficSecret.exit ], [ %call.i.i.i164, %DeriveTrafficSecret.exit167 ], [ %call.i.i.i153, %DeriveTrafficSecret.exit ], [ %ret.2, %sw.epilog ], [ %call.i.i168, %Tls13DeriveKey.exit ], [ %ret.1, %while.body12.i ]
+  ret i32 %ret.1242247
 }
 
 declare i32 @StoreKeys(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1161,7 +1161,7 @@ ChaCha20Poly1305_Decrypt.exit:                    ; preds = %for.body.i.i, %sw.b
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %ChaCha20Poly1305_Decrypt.exit, %sw.bb25
-  %ret.0 = phi i32 [ %retval.0.i, %ChaCha20Poly1305_Decrypt.exit ], [ %call33, %sw.bb25 ]
+  %ret.1 = phi i32 [ %retval.0.i, %ChaCha20Poly1305_Decrypt.exit ], [ %call33, %sw.bb25 ]
   store i8 2, ptr %state, align 8
   %21 = load ptr, ptr %nonce, align 8
   %22 = ptrtoint ptr %21 to i64
@@ -1217,7 +1217,7 @@ while.body12.i:                                   ; preds = %while.body12.i.preh
   br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !6
 
 return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %BuildTls13Nonce.exit, %if.end
-  %retval.0 = phi i32 [ -125, %if.end ], [ -312, %BuildTls13Nonce.exit ], [ %ret.0, %while.cond9.preheader.i ], [ %ret.0, %while.body12.i ]
+  %retval.0 = phi i32 [ -125, %if.end ], [ -312, %BuildTls13Nonce.exit ], [ %ret.1, %while.cond9.preheader.i ], [ %ret.1, %while.body12.i ]
   ret i32 %retval.0
 }
 
@@ -1513,7 +1513,7 @@ ChaCha20Poly1305_Encrypt.exit.i:                  ; preds = %for.body.i.i.i, %if
   br label %sw.bb52.i
 
 sw.bb52.i:                                        ; preds = %ChaCha20Poly1305_Encrypt.exit.i, %if.then30.i, %sw.bb23.i, %sw.bb70
-  %ret.1.i = phi i32 [ 0, %sw.bb70 ], [ %retval.0.i.i, %ChaCha20Poly1305_Encrypt.exit.i ], [ %call39.i, %if.then30.i ], [ %call27.i, %sw.bb23.i ]
+  %ret.0.i = phi i32 [ 0, %sw.bb70 ], [ %retval.0.i.i, %ChaCha20Poly1305_Encrypt.exit.i ], [ %call39.i, %if.then30.i ], [ %call27.i, %sw.bb23.i ]
   %nonce54.i = getelementptr inbounds i8, ptr %ssl, i64 272
   %26 = load ptr, ptr %nonce54.i, align 16
   %27 = ptrtoint ptr %26 to i64
@@ -1570,11 +1570,11 @@ while.body12.i.i:                                 ; preds = %while.body12.i.i.pr
 
 EncryptTls13.exit:                                ; preds = %while.body12.i.i, %while.cond9.preheader.i.i
   store i8 0, ptr %state.i, align 16
-  %cmp78.not = icmp eq i32 %ret.1.i, 0
+  %cmp78.not = icmp eq i32 %ret.0.i, 0
   br i1 %cmp78.not, label %33, label %if.then80
 
 if.then80:                                        ; preds = %sw.bb20.i, %if.end.i, %EncryptTls13.exit
-  %retval.0.i77 = phi i32 [ %ret.1.i, %EncryptTls13.exit ], [ -314, %sw.bb20.i ], [ -125, %if.end.i ]
+  %retval.0.i77 = phi i32 [ %ret.0.i, %EncryptTls13.exit ], [ -314, %sw.bb20.i ], [ -125, %if.end.i ]
   %conv82 = and i32 %sub, 65535
   %30 = ptrtoint ptr %add.ptr to i64
   %31 = trunc i64 %30 to i32
@@ -3251,7 +3251,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %ret.0 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.then ]
+  %ret.2 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.then ]
   call void @wc_Sha256Free(ptr noundef nonnull %digest) #11
   br label %sw.epilog
 
@@ -3270,7 +3270,7 @@ if.then12:                                        ; preds = %if.then9
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.then9
-  %ret.2 = phi i32 [ %call13, %if.then12 ], [ %call10, %if.then9 ]
+  %ret.4 = phi i32 [ %call13, %if.then12 ], [ %call10, %if.then9 ]
   call void @wc_Sha384Free(ptr noundef nonnull %digest) #11
   br label %sw.epilog
 
@@ -3289,16 +3289,16 @@ if.then22:                                        ; preds = %if.then19
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.then19
-  %ret.4 = phi i32 [ %call23, %if.then22 ], [ %call20, %if.then19 ]
+  %ret.6 = phi i32 [ %call23, %if.then22 ], [ %call20, %if.then19 ]
   call void @wc_Sha512Free(ptr noundef nonnull %digest) #11
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end24, %if.end14, %if.end
   %hashSz.0 = phi i32 [ 32, %if.end ], [ 48, %if.end14 ], [ 64, %if.end24 ]
-  %ret.6 = phi i32 [ %ret.0, %if.end ], [ %ret.2, %if.end14 ], [ %ret.4, %if.end24 ]
-  %ret.6.fr = freeze i32 %ret.6
-  %cmp26.not = icmp eq i32 %ret.6.fr, 0
-  %spec.select = select i1 %cmp26.not, i32 %hashSz.0, i32 %ret.6.fr
+  %ret.0 = phi i32 [ %ret.2, %if.end ], [ %ret.4, %if.end14 ], [ %ret.6, %if.end24 ]
+  %ret.0.fr = freeze i32 %ret.0
+  %cmp26.not = icmp eq i32 %ret.0.fr, 0
+  %spec.select = select i1 %cmp26.not, i32 %hashSz.0, i32 %ret.0.fr
   br label %sw.epilog.thread
 
 sw.epilog.thread:                                 ; preds = %sw.epilog, %sw.bb16, %sw.bb6, %sw.bb, %entry
@@ -3619,12 +3619,12 @@ if.then27:                                        ; preds = %if.end24
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then14, %if.then27, %if.end24
-  %ret.2 = phi i32 [ %call29, %if.then27 ], [ %call23, %if.end24 ], [ %call18, %if.then14 ]
+  %ret.3 = phi i32 [ %call29, %if.then27 ], [ %call23, %if.end24 ], [ %call18, %if.then14 ]
   call void @wc_HmacFree(ptr noundef nonnull %verifyHmac) #11
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end30, %if.end10
-  %ret.3 = phi i32 [ %ret.2, %if.end30 ], [ %call11, %if.end10 ]
+  %ret.1 = phi i32 [ %ret.3, %if.end30 ], [ %call11, %if.end10 ]
   %tobool.not = icmp eq ptr %pHashSz, null
   br i1 %tobool.not, label %return, label %if.then33
 
@@ -3633,7 +3633,7 @@ if.then33:                                        ; preds = %if.end32
   br label %return
 
 return:                                           ; preds = %if.end, %if.end32, %if.then33, %sw.epilog, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %ret.0, %sw.epilog ], [ %ret.3, %if.then33 ], [ %ret.3, %if.end32 ], [ -173, %if.end ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %ret.0, %sw.epilog ], [ %ret.1, %if.then33 ], [ %ret.1, %if.end32 ], [ -173, %if.end ]
   ret i32 %retval.0
 }
 
@@ -4550,7 +4550,7 @@ if.then191:                                       ; preds = %if.then177
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then177, %if.then191, %land.lhs.true, %sw.bb169
-  %ret.2 = phi i32 [ 0, %if.then191 ], [ %call188, %if.then177 ], [ 0, %land.lhs.true ], [ 0, %sw.bb169 ]
+  %ret.4 = phi i32 [ 0, %if.then191 ], [ %call188, %if.then177 ], [ 0, %land.lhs.true ], [ 0, %sw.bb169 ]
   %20 = load i8, ptr %peerEccDsaKeyPresent128, align 2
   %tobool196.not = icmp eq i8 %20, 0
   br i1 %tobool196.not, label %if.end217, label %if.then197
@@ -4581,8 +4581,8 @@ if.then212:                                       ; preds = %if.then197
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then212, %if.end194
-  %ret.3 = phi i32 [ %call209, %if.then212 ], [ %ret.2, %if.end194 ]
-  %cmp218.not = icmp eq i32 %ret.3, 0
+  %ret.5 = phi i32 [ %call209, %if.then212 ], [ %ret.4, %if.end194 ]
+  %cmp218.not = icmp eq i32 %ret.5, 0
   br i1 %cmp218.not, label %sw.bb224, label %do.end288
 
 sw.bb224:                                         ; preds = %if.end217
@@ -4729,7 +4729,7 @@ if.then281:                                       ; preds = %sw.bb259
   br label %if.end297
 
 do.end288:                                        ; preds = %if.then197, %CheckRSASignature.exit.thread, %CheckRSASignature.exit, %if.end217, %if.end149, %if.end141
-  %ret.7 = phi i32 [ %call15.i, %CheckRSASignature.exit ], [ %ret.3, %if.end217 ], [ %call145, %if.end141 ], [ %call158, %if.end149 ], [ %retval.0.i.ph, %CheckRSASignature.exit.thread ], [ %call209, %if.then197 ]
+  %ret.7 = phi i32 [ %call15.i, %CheckRSASignature.exit ], [ %ret.5, %if.end217 ], [ %call145, %if.end141 ], [ %call158, %if.end149 ], [ %retval.0.i.ph, %CheckRSASignature.exit.thread ], [ %call209, %if.then197 ]
   %cond = icmp eq i32 %ret.7, -425
   br i1 %cond, label %if.end297, label %if.then294
 
@@ -5398,7 +5398,7 @@ if.end37.if.end45_crit_edge:                      ; preds = %if.end37
 
 if.end45:                                         ; preds = %if.end37.if.end45_crit_edge, %land.lhs.true, %if.end22
   %conv47.pre-phi = phi i32 [ %.pre228, %if.end37.if.end45_crit_edge ], [ %conv23, %land.lhs.true ], [ %conv23, %if.end22 ]
-  %ret.0 = phi i32 [ %call40, %if.end37.if.end45_crit_edge ], [ %call, %land.lhs.true ], [ %call, %if.end22 ]
+  %ret.1 = phi i32 [ %call40, %if.end37.if.end45_crit_edge ], [ %call, %land.lhs.true ], [ %call, %if.end22 ]
   %add46 = add i32 %1, 7
   %add48 = add i32 %add46, %conv47.pre-phi
   %add49 = add i32 %1, 3
@@ -5431,7 +5431,7 @@ if.end71:                                         ; preds = %if.end45, %land.lhs
   %certChainSz.0 = phi i32 [ %add66, %if.then58 ], [ 0, %entry ], [ 0, %land.lhs.true54 ], [ 0, %if.end45 ]
   %p.0 = phi ptr [ %9, %if.then58 ], [ null, %entry ], [ null, %land.lhs.true54 ], [ null, %if.end45 ]
   %certSz.0 = phi i32 [ %1, %if.then58 ], [ 0, %entry ], [ %1, %land.lhs.true54 ], [ 0, %if.end45 ]
-  %ret.1 = phi i32 [ %ret.0, %if.then58 ], [ 0, %entry ], [ %ret.0, %land.lhs.true54 ], [ %ret.0, %if.end45 ]
+  %ret.0 = phi i32 [ %ret.1, %if.then58 ], [ 0, %entry ], [ %ret.1, %land.lhs.true54 ], [ %ret.1, %if.end45 ]
   %fragOffset = getelementptr inbounds i8, ptr %ssl, i64 672
   %11 = load i32, ptr %fragOffset, align 16
   %cmp72.not = icmp eq i32 %11, 0
@@ -5440,7 +5440,7 @@ if.end71:                                         ; preds = %if.end45, %land.lhs
   %length.1 = sub i32 %length.0, %sub
   %call78 = call i32 @wolfSSL_GetMaxFragSize(ptr noundef nonnull %ssl, i32 noundef 16384) #11
   %cmp79221 = icmp ne i32 %length.1, 0
-  %cmp81222 = icmp eq i32 %ret.1, 0
+  %cmp81222 = icmp eq i32 %ret.0, 0
   %12 = and i1 %cmp79221, %cmp81222
   br i1 %12, label %while.body.lr.ph, label %if.then245
 
@@ -5475,11 +5475,11 @@ while.body.lr.ph:                                 ; preds = %if.end71
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end241
-  %p.1227 = phi ptr [ %p.0, %while.body.lr.ph ], [ %p.4, %if.end241 ]
-  %offset.0226 = phi i32 [ 2, %while.body.lr.ph ], [ %offset.3, %if.end241 ]
-  %len.0225 = phi i32 [ 0, %while.body.lr.ph ], [ %len.3, %if.end241 ]
-  %length.2224 = phi i32 [ %length.1, %while.body.lr.ph ], [ %length.6, %if.end241 ]
-  %idx.0223 = phi i32 [ 0, %while.body.lr.ph ], [ %idx.4, %if.end241 ]
+  %p.1227 = phi ptr [ %p.0, %while.body.lr.ph ], [ %p.2, %if.end241 ]
+  %offset.0226 = phi i32 [ 2, %while.body.lr.ph ], [ %offset.1, %if.end241 ]
+  %len.0225 = phi i32 [ 0, %while.body.lr.ph ], [ %len.1, %if.end241 ]
+  %length.2224 = phi i32 [ %length.1, %while.body.lr.ph ], [ %length.5, %if.end241 ]
+  %idx.0223 = phi i32 [ 0, %while.body.lr.ph ], [ %idx.1, %if.end241 ]
   %13 = load i32, ptr %fragOffset, align 16
   %cmp84 = icmp eq i32 %13, 0
   br i1 %cmp84, label %if.then86, label %if.else105
@@ -5672,25 +5672,25 @@ if.end170:                                        ; preds = %if.then119, %AddCer
   br i1 %or.cond1, label %while.body180, label %if.end211
 
 while.body180:                                    ; preds = %if.end170, %AddCertExt.exit180
-  %idx.1 = phi i32 [ %idx.3204, %AddCertExt.exit180 ], [ %idx.0223, %if.end170 ]
-  %length.5 = phi i32 [ %sub208, %AddCertExt.exit180 ], [ %length.4, %if.end170 ]
-  %len.1 = phi i32 [ %len.2207, %AddCertExt.exit180 ], [ %len.0225, %if.end170 ]
-  %offset.1 = phi i32 [ %add210, %AddCertExt.exit180 ], [ %offset.0226, %if.end170 ]
-  %p.2 = phi ptr [ %p.3213, %AddCertExt.exit180 ], [ %p.1227, %if.end170 ]
+  %idx.2 = phi i32 [ %idx.3204, %AddCertExt.exit180 ], [ %idx.0223, %if.end170 ]
+  %length.6 = phi i32 [ %sub208, %AddCertExt.exit180 ], [ %length.4, %if.end170 ]
+  %len.2 = phi i32 [ %len.3207, %AddCertExt.exit180 ], [ %len.0225, %if.end170 ]
+  %offset.2 = phi i32 [ %add210, %AddCertExt.exit180 ], [ %offset.0226, %if.end170 ]
+  %p.3 = phi ptr [ %p.4213, %AddCertExt.exit180 ], [ %p.1227, %if.end170 ]
   %fragSz.4 = phi i32 [ %sub209, %AddCertExt.exit180 ], [ %fragSz.3, %if.end170 ]
-  %i.3 = phi i32 [ %add205, %AddCertExt.exit180 ], [ %i.2, %if.end170 ]
-  %add181 = add nuw nsw i32 %len.1, 2
-  %cmp182 = icmp eq i32 %offset.1, %add181
+  %i.4 = phi i32 [ %add205, %AddCertExt.exit180 ], [ %i.2, %if.end170 ]
+  %add181 = add nuw nsw i32 %len.2, 2
+  %cmp182 = icmp eq i32 %offset.2, %add181
   br i1 %cmp182, label %if.then184, label %if.end201
 
 if.then184:                                       ; preds = %while.body180
   %27 = load ptr, ptr %certChain186, align 8
   %28 = load ptr, ptr %27, align 8
-  %idx.ext188 = zext i32 %idx.1 to i64
+  %idx.ext188 = zext i32 %idx.2 to i64
   %add.ptr189 = getelementptr inbounds i8, ptr %28, i64 %idx.ext188
   %length195 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i32, ptr %length195, align 8
-  %cmp.i153 = icmp eq i32 %idx.1, %29
+  %cmp.i153 = icmp eq i32 %idx.2, %29
   br i1 %cmp.i153, label %if.end211, label %NextCert.exit
 
 NextCert.exit:                                    ; preds = %if.then184
@@ -5707,45 +5707,45 @@ NextCert.exit:                                    ; preds = %if.then184
   %conv5.i.i = zext i8 %32 to i32
   %or6.i.i = or disjoint i32 %or.i.i, %conv5.i.i
   %add.i156 = add nuw nsw i32 %or6.i.i, 3
-  %add1.i = add i32 %add.i156, %idx.1
-  %idx.ext202201 = zext i32 %i.3 to i64
+  %add1.i = add i32 %add.i156, %idx.2
+  %idx.ext202201 = zext i32 %i.4 to i64
   %add.ptr203202 = getelementptr inbounds i8, ptr %call115, i64 %idx.ext202201
   br label %if.then.i173
 
 if.end201:                                        ; preds = %while.body180
-  %idx.ext202 = zext i32 %i.3 to i64
+  %idx.ext202 = zext i32 %i.4 to i64
   %add.ptr203 = getelementptr inbounds i8, ptr %call115, i64 %idx.ext202
-  %cmp.i158 = icmp ult i32 %offset.1, %len.1
+  %cmp.i158 = icmp ult i32 %offset.2, %len.2
   br i1 %cmp.i158, label %if.then.i173, label %if.end4.i159
 
 if.then.i173:                                     ; preds = %NextCert.exit, %if.end201
   %add.ptr203217 = phi ptr [ %add.ptr203202, %NextCert.exit ], [ %add.ptr203, %if.end201 ]
-  %p.3215 = phi ptr [ %add.ptr189, %NextCert.exit ], [ %p.2, %if.end201 ]
-  %offset.2212 = phi i32 [ 0, %NextCert.exit ], [ %offset.1, %if.end201 ]
-  %len.2209 = phi i32 [ %add.i156, %NextCert.exit ], [ %len.1, %if.end201 ]
-  %idx.3206 = phi i32 [ %add1.i, %NextCert.exit ], [ %idx.1, %if.end201 ]
-  %sub.i174 = sub nuw i32 %len.2209, %offset.2212
+  %p.4215 = phi ptr [ %add.ptr189, %NextCert.exit ], [ %p.3, %if.end201 ]
+  %offset.3212 = phi i32 [ 0, %NextCert.exit ], [ %offset.2, %if.end201 ]
+  %len.3209 = phi i32 [ %add.i156, %NextCert.exit ], [ %len.2, %if.end201 ]
+  %idx.3206 = phi i32 [ %add1.i, %NextCert.exit ], [ %idx.2, %if.end201 ]
+  %sub.i174 = sub nuw i32 %len.3209, %offset.3212
   %cond.i.i175 = call noundef i32 @llvm.umin.i32(i32 %sub.i174, i32 %fragSz.4)
-  %idx.ext.i176 = zext i32 %offset.2212 to i64
-  %add.ptr.i177 = getelementptr inbounds i8, ptr %p.3215, i64 %idx.ext.i176
+  %idx.ext.i176 = zext i32 %offset.3212 to i64
+  %add.ptr.i177 = getelementptr inbounds i8, ptr %p.4215, i64 %idx.ext.i176
   %conv.i178 = zext nneg i32 %cond.i.i175 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr203217, ptr readonly align 1 %add.ptr.i177, i64 %conv.i178, i1 false)
   %cmp1.not.i179 = icmp ult i32 %sub.i174, %fragSz.4
   br i1 %cmp1.not.i179, label %if.then.i173.if.end4.i159_crit_edge, label %AddCertExt.exit180
 
 if.then.i173.if.end4.i159_crit_edge:              ; preds = %if.then.i173
-  %.pre229 = add nuw nsw i32 %len.2209, 2
+  %.pre229 = add nuw nsw i32 %len.3209, 2
   br label %if.end4.i159
 
 if.end4.i159:                                     ; preds = %if.then.i173.if.end4.i159_crit_edge, %if.end201
   %.pre-phi = phi i32 [ %.pre229, %if.then.i173.if.end4.i159_crit_edge ], [ %add181, %if.end201 ]
   %add.ptr203216 = phi ptr [ %add.ptr203217, %if.then.i173.if.end4.i159_crit_edge ], [ %add.ptr203, %if.end201 ]
-  %p.3214 = phi ptr [ %p.3215, %if.then.i173.if.end4.i159_crit_edge ], [ %p.2, %if.end201 ]
-  %offset.2211 = phi i32 [ %offset.2212, %if.then.i173.if.end4.i159_crit_edge ], [ %offset.1, %if.end201 ]
-  %len.2208 = phi i32 [ %len.2209, %if.then.i173.if.end4.i159_crit_edge ], [ %len.1, %if.end201 ]
-  %idx.3205 = phi i32 [ %idx.3206, %if.then.i173.if.end4.i159_crit_edge ], [ %idx.1, %if.end201 ]
+  %p.4214 = phi ptr [ %p.4215, %if.then.i173.if.end4.i159_crit_edge ], [ %p.3, %if.end201 ]
+  %offset.3211 = phi i32 [ %offset.3212, %if.then.i173.if.end4.i159_crit_edge ], [ %offset.2, %if.end201 ]
+  %len.3208 = phi i32 [ %len.3209, %if.then.i173.if.end4.i159_crit_edge ], [ %len.2, %if.end201 ]
+  %idx.3205 = phi i32 [ %idx.3206, %if.then.i173.if.end4.i159_crit_edge ], [ %idx.2, %if.end201 ]
   %i.0.i160 = phi i32 [ %cond.i.i175, %if.then.i173.if.end4.i159_crit_edge ], [ 0, %if.end201 ]
-  %33 = add i32 %offset.2211, %i.0.i160
+  %33 = add i32 %offset.3211, %i.0.i160
   %sub7.i162 = sub i32 %.pre-phi, %33
   %cmp12.not.i164 = icmp ugt i32 %sub7.i162, %fragSz.4
   br i1 %cmp12.not.i164, label %AddCertExt.exit180, label %if.then14.i165
@@ -5762,33 +5762,33 @@ if.then14.i165:                                   ; preds = %if.end4.i159
   br label %AddCertExt.exit180
 
 AddCertExt.exit180:                               ; preds = %if.then.i173, %if.end4.i159, %if.then14.i165
-  %p.3213 = phi ptr [ %p.3215, %if.then.i173 ], [ %p.3214, %if.then14.i165 ], [ %p.3214, %if.end4.i159 ]
-  %offset.2210 = phi i32 [ %offset.2212, %if.then.i173 ], [ %offset.2211, %if.then14.i165 ], [ %offset.2211, %if.end4.i159 ]
-  %len.2207 = phi i32 [ %len.2209, %if.then.i173 ], [ %len.2208, %if.then14.i165 ], [ %len.2208, %if.end4.i159 ]
+  %p.4213 = phi ptr [ %p.4215, %if.then.i173 ], [ %p.4214, %if.then14.i165 ], [ %p.4214, %if.end4.i159 ]
+  %offset.3210 = phi i32 [ %offset.3212, %if.then.i173 ], [ %offset.3211, %if.then14.i165 ], [ %offset.3211, %if.end4.i159 ]
+  %len.3207 = phi i32 [ %len.3209, %if.then.i173 ], [ %len.3208, %if.then14.i165 ], [ %len.3208, %if.end4.i159 ]
   %idx.3204 = phi i32 [ %idx.3206, %if.then.i173 ], [ %idx.3205, %if.then14.i165 ], [ %idx.3205, %if.end4.i159 ]
   %retval.0.i172 = phi i32 [ %cond.i.i175, %if.then.i173 ], [ %inc15.i169, %if.then14.i165 ], [ %i.0.i160, %if.end4.i159 ]
-  %add205 = add i32 %retval.0.i172, %i.3
+  %add205 = add i32 %retval.0.i172, %i.4
   %34 = load i32, ptr %fragOffset, align 16
   %add207 = add i32 %34, %retval.0.i172
   store i32 %add207, ptr %fragOffset, align 16
-  %sub208 = sub i32 %length.5, %retval.0.i172
+  %sub208 = sub i32 %length.6, %retval.0.i172
   %sub209 = sub i32 %fragSz.4, %retval.0.i172
-  %add210 = add i32 %retval.0.i172, %offset.2210
+  %add210 = add i32 %retval.0.i172, %offset.3210
   %cmp178.old.not = icmp eq i32 %sub209, 0
   br i1 %cmp178.old.not, label %if.end211, label %while.body180
 
 if.end211:                                        ; preds = %if.then184, %AddCertExt.exit180, %if.end170
-  %idx.4 = phi i32 [ %idx.0223, %if.end170 ], [ %idx.1, %if.then184 ], [ %idx.3204, %AddCertExt.exit180 ]
-  %length.6 = phi i32 [ %length.4, %if.end170 ], [ %length.5, %if.then184 ], [ %sub208, %AddCertExt.exit180 ]
-  %len.3 = phi i32 [ %len.0225, %if.end170 ], [ 0, %if.then184 ], [ %len.2207, %AddCertExt.exit180 ]
-  %offset.3 = phi i32 [ %offset.0226, %if.end170 ], [ 0, %if.then184 ], [ %add210, %AddCertExt.exit180 ]
-  %p.4 = phi ptr [ %p.1227, %if.end170 ], [ %add.ptr189, %if.then184 ], [ %p.3213, %AddCertExt.exit180 ]
-  %i.4 = phi i32 [ %i.2, %if.end170 ], [ %i.3, %if.then184 ], [ %add205, %AddCertExt.exit180 ]
-  %cmp213 = icmp slt i32 %i.4, 5
+  %idx.1 = phi i32 [ %idx.0223, %if.end170 ], [ %idx.2, %if.then184 ], [ %idx.3204, %AddCertExt.exit180 ]
+  %length.5 = phi i32 [ %length.4, %if.end170 ], [ %length.6, %if.then184 ], [ %sub208, %AddCertExt.exit180 ]
+  %len.1 = phi i32 [ %len.0225, %if.end170 ], [ 0, %if.then184 ], [ %len.3207, %AddCertExt.exit180 ]
+  %offset.1 = phi i32 [ %offset.0226, %if.end170 ], [ 0, %if.then184 ], [ %add210, %AddCertExt.exit180 ]
+  %p.2 = phi ptr [ %p.1227, %if.end170 ], [ %add.ptr189, %if.then184 ], [ %p.4213, %AddCertExt.exit180 ]
+  %i.3 = phi i32 [ %i.2, %if.end170 ], [ %i.4, %if.then184 ], [ %add205, %AddCertExt.exit180 ]
+  %cmp213 = icmp slt i32 %i.3, 5
   br i1 %cmp213, label %return, label %if.end218
 
 if.end218:                                        ; preds = %if.end211
-  %sub212 = add nsw i32 %i.4, -5
+  %sub212 = add nsw i32 %i.3, -5
   %add.ptr219 = getelementptr inbounds i8, ptr %call115, i64 5
   %call221 = call i32 @BuildTls13Message(ptr noundef nonnull %ssl, ptr noundef %call115, i32 noundef %add109, ptr noundef nonnull %add.ptr219, i32 noundef %sub212, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 poison)
   %cmp222 = icmp slt i32 %call221, 0
@@ -5811,7 +5811,7 @@ if.then239:                                       ; preds = %if.end225
 
 if.end241:                                        ; preds = %if.then239, %if.end225
   %ret.3 = phi i32 [ 0, %if.end225 ], [ %call240, %if.then239 ]
-  %cmp79 = icmp ne i32 %length.6, 0
+  %cmp79 = icmp ne i32 %length.5, 0
   %cmp81 = icmp eq i32 %ret.3, 0
   %37 = select i1 %cmp79, i1 %cmp81, i1 false
   br i1 %37, label %while.body, label %while.end242, !llvm.loop !14
@@ -5821,7 +5821,7 @@ while.end242:                                     ; preds = %if.end241
   br i1 %cmp243.not, label %return, label %if.then245
 
 if.then245:                                       ; preds = %if.end71, %while.end242
-  %ret.2.lcssa232 = phi i32 [ %ret.3, %while.end242 ], [ %ret.1, %if.end71 ]
+  %ret.2.lcssa232 = phi i32 [ %ret.3, %while.end242 ], [ %ret.0, %if.end71 ]
   %bf.load248 = load i64, ptr %buildingMsg, align 8
   %bf.clear249 = and i64 %bf.load248, -288230376151711745
   store i64 %bf.clear249, ptr %buildingMsg, align 8
@@ -6047,7 +6047,7 @@ if.then198:                                       ; preds = %if.end191
 
 if.end213:                                        ; preds = %if.end191.thread, %if.then198, %if.end191
   %28 = phi i32 [ %.pr74, %if.then198 ], [ %.pre, %if.end191 ], [ %17, %if.end191.thread ]
-  %ret.3 = phi i32 [ %call208, %if.then198 ], [ 0, %if.end191 ], [ 0, %if.end191.thread ]
+  %ret.4 = phi i32 [ %call208, %if.then198 ], [ 0, %if.end191 ], [ 0, %if.end191.thread ]
   %cmp215 = icmp eq i32 %28, 10
   br i1 %cmp215, label %if.then217, label %if.end254
 
@@ -6081,7 +6081,7 @@ if.end254.thread:                                 ; preds = %if.then217
   br label %if.end258
 
 if.end254:                                        ; preds = %if.end213
-  %cmp255.not = icmp eq i32 %ret.3, 0
+  %cmp255.not = icmp eq i32 %ret.4, 0
   br i1 %cmp255.not, label %if.end258, label %do.end350
 
 if.end258:                                        ; preds = %if.end254.thread, %if.end254
@@ -6179,7 +6179,7 @@ if.then344:                                       ; preds = %if.else325
   br label %do.end350
 
 do.end350:                                        ; preds = %if.then217, %if.then128, %if.end109, %if.end62, %if.end55, %if.end46, %lor.lhs.false, %if.end20, %if.then344, %if.else325, %if.end291, %if.end287, %if.end254, %if.then166, %if.end138, %if.end116, %if.else, %if.end
-  %ret.7 = phi i32 [ %call321, %if.end291 ], [ 0, %if.else325 ], [ %call345, %if.then344 ], [ %call286, %if.end287 ], [ %ret.3, %if.end254 ], [ %call41, %if.else ], [ %call120, %if.end116 ], [ %call151, %if.end138 ], [ %call183, %if.then166 ], [ %call, %if.end ], [ -317, %if.end20 ], [ -132, %lor.lhs.false ], [ -132, %if.end46 ], [ -317, %if.end55 ], [ -133, %if.end62 ], [ -125, %if.end109 ], [ -125, %if.then128 ], [ %call235, %if.then217 ]
+  %ret.7 = phi i32 [ %call321, %if.end291 ], [ 0, %if.else325 ], [ %call345, %if.then344 ], [ %call286, %if.end287 ], [ %ret.4, %if.end254 ], [ %call41, %if.else ], [ %call120, %if.end116 ], [ %call151, %if.end138 ], [ %call183, %if.then166 ], [ %call, %if.end ], [ -317, %if.end20 ], [ -132, %lor.lhs.false ], [ -132, %if.end46 ], [ -317, %if.end55 ], [ -133, %if.end62 ], [ -125, %if.end109 ], [ -125, %if.then128 ], [ %call235, %if.then217 ]
   %sigData.i = getelementptr inbounds i8, ptr %args, i64 32
   %57 = load ptr, ptr %sigData.i, align 16
   %tobool1.not.i = icmp eq ptr %57, null
@@ -7652,7 +7652,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %ret.0 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.then ]
+  %ret.1 = phi i32 [ %call4, %if.then3 ], [ %call1, %if.then ]
   call void @wc_Sha256Free(ptr noundef nonnull %digest) #11
   br label %sw.epilog
 
@@ -7671,7 +7671,7 @@ if.then12:                                        ; preds = %if.then9
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.then9
-  %ret.2 = phi i32 [ %call13, %if.then12 ], [ %call10, %if.then9 ]
+  %ret.4 = phi i32 [ %call13, %if.then12 ], [ %call10, %if.then9 ]
   call void @wc_Sha384Free(ptr noundef nonnull %digest) #11
   br label %sw.epilog
 
@@ -7690,16 +7690,16 @@ if.then22:                                        ; preds = %if.then19
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.then19
-  %ret.4 = phi i32 [ %call23, %if.then22 ], [ %call20, %if.then19 ]
+  %ret.6 = phi i32 [ %call23, %if.then22 ], [ %call20, %if.then19 ]
   call void @wc_Sha512Free(ptr noundef nonnull %digest) #11
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end24, %if.end14, %if.end
   %hashSz.0 = phi i32 [ 32, %if.end ], [ 48, %if.end14 ], [ 64, %if.end24 ]
-  %ret.6 = phi i32 [ %ret.0, %if.end ], [ %ret.2, %if.end14 ], [ %ret.4, %if.end24 ]
-  %ret.6.fr = freeze i32 %ret.6
-  %cmp26.not = icmp eq i32 %ret.6.fr, 0
-  %spec.select = select i1 %cmp26.not, i32 %hashSz.0, i32 %ret.6.fr
+  %ret.2 = phi i32 [ %ret.1, %if.end ], [ %ret.4, %if.end14 ], [ %ret.6, %if.end24 ]
+  %ret.2.fr = freeze i32 %ret.2
+  %cmp26.not = icmp eq i32 %ret.2.fr, 0
+  %spec.select = select i1 %cmp26.not, i32 %hashSz.0, i32 %ret.2.fr
   br label %sw.epilog.thread
 
 sw.epilog.thread:                                 ; preds = %sw.epilog, %sw.bb16, %sw.bb6, %sw.bb, %entry

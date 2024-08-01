@@ -785,7 +785,7 @@ has_subclass.exit:                                ; preds = %9
 .lr.ph78:                                         ; preds = %.lr.ph63, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph63 ]
   %.0376076 = phi ptr [ %.239, %54 ], [ %26, %.lr.ph63 ]
-  %.0346175 = phi ptr [ %.135, %54 ], [ null, %.lr.ph63 ]
+  %.0346175 = phi ptr [ %.236, %54 ], [ null, %.lr.ph63 ]
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 8
@@ -803,7 +803,7 @@ has_subclass.exit:                                ; preds = %9
 
 .lr.ph:                                           ; preds = %36, %51
   %41 = phi ptr [ %53, %51 ], [ %40, %36 ]
-  %.13858 = phi ptr [ %52, %51 ], [ %.0376076, %36 ]
+  %.34058 = phi ptr [ %52, %51 ], [ %.0376076, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 22
@@ -820,19 +820,19 @@ has_subclass.exit:                                ; preds = %9
   br label %.thread
 
 51:                                               ; preds = %.lr.ph
-  %52 = call ptr @lappend_oid(ptr noundef %.13858, i32 noundef %49) #4
+  %52 = call ptr @lappend_oid(ptr noundef %.34058, i32 noundef %49) #4
   %53 = call ptr @systable_getnext(ptr noundef %39) #4
   %.not48 = icmp eq ptr %53, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %51, %36
-  %.138.lcssa = phi ptr [ %.0376076, %36 ], [ %52, %51 ]
+  %.340.lcssa = phi ptr [ %.0376076, %36 ], [ %52, %51 ]
   call void @systable_endscan(ptr noundef %39) #4
   br label %54
 
 54:                                               ; preds = %._crit_edge, %.lr.ph78
-  %.239 = phi ptr [ %.0376076, %.lr.ph78 ], [ %.138.lcssa, %._crit_edge ]
-  %.135 = phi ptr [ %.0346175, %.lr.ph78 ], [ %37, %._crit_edge ]
+  %.239 = phi ptr [ %.0376076, %.lr.ph78 ], [ %.340.lcssa, %._crit_edge ]
+  %.236 = phi ptr [ %.0346175, %.lr.ph78 ], [ %37, %._crit_edge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %28, align 4
   %56 = sext i32 %55 to i64
@@ -840,16 +840,16 @@ has_subclass.exit:                                ; preds = %9
   br i1 %57, label %.lr.ph78, label %.thread
 
 .thread:                                          ; preds = %54, %24, %.lr.ph63, %.thread51
-  %.340 = phi ptr [ %.13858, %.thread51 ], [ null, %24 ], [ %26, %.lr.ph63 ], [ %.239, %54 ]
-  %.236 = phi ptr [ %37, %.thread51 ], [ null, %24 ], [ null, %.lr.ph63 ], [ %.135, %54 ]
-  %.3 = phi i1 [ true, %.thread51 ], [ false, %24 ], [ false, %.lr.ph63 ], [ false, %54 ]
+  %.138 = phi ptr [ %.34058, %.thread51 ], [ null, %24 ], [ %26, %.lr.ph63 ], [ %.239, %54 ]
+  %.135 = phi ptr [ %37, %.thread51 ], [ null, %24 ], [ null, %.lr.ph63 ], [ %.236, %54 ]
+  %.1 = phi i1 [ true, %.thread51 ], [ false, %24 ], [ false, %.lr.ph63 ], [ false, %54 ]
   call void @table_close(ptr noundef %27, i32 noundef 1) #4
-  call void @list_free(ptr noundef %.236) #4
-  call void @list_free(ptr noundef %.340) #4
+  call void @list_free(ptr noundef %.135) #4
+  call void @list_free(ptr noundef %.138) #4
   br label %58
 
 58:                                               ; preds = %has_subclass.exit, %6, %2, %.thread
-  %.0 = phi i1 [ %.3, %.thread ], [ false, %2 ], [ false, %6 ], [ false, %has_subclass.exit ]
+  %.0 = phi i1 [ %.1, %.thread ], [ false, %2 ], [ false, %6 ], [ false, %has_subclass.exit ]
   ret i1 %.0
 }
 

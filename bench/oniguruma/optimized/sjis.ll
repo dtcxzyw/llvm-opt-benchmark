@@ -304,12 +304,12 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %9
-  %.019 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %8 = icmp ugt ptr %.019, %0
+  %.1 = phi ptr [ %10, %9 ], [ %1, %3 ]
+  %8 = icmp ugt ptr %.1, %0
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.019, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.1, i64 -1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %12
@@ -318,11 +318,11 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %9, %.preheader, %3
-  %.1 = phi ptr [ %1, %3 ], [ %.019, %.preheader ], [ %.019, %9 ]
+  %.019 = phi ptr [ %1, %3 ], [ %.1, %.preheader ], [ %.1, %9 ]
   %16 = load ptr, ptr @OnigEncodingSJIS, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %.1) #7
+  %17 = tail call i32 %16(ptr noundef nonnull %.019) #7
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %.1, i64 %18
+  %19 = getelementptr inbounds i8, ptr %.019, i64 %18
   %20 = icmp ugt ptr %19, %1
   br i1 %20, label %27, label %21
 
@@ -335,7 +335,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br label %27
 
 27:                                               ; preds = %.loopexit, %2, %21
-  %.0 = phi ptr [ %26, %21 ], [ %1, %2 ], [ %.1, %.loopexit ]
+  %.0 = phi ptr [ %26, %21 ], [ %1, %2 ], [ %.019, %.loopexit ]
   ret ptr %.0
 }
 

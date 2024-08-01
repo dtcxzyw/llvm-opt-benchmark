@@ -1144,7 +1144,7 @@ invoke.cont31:                                    ; preds = %.noexc33
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then23.invoke, %invoke.cont31
-  %retval.0 = phi i1 [ true, %invoke.cont31 ], [ false, %if.then23.invoke ]
+  %retval.1 = phi i1 [ true, %invoke.cont31 ], [ false, %if.then23.invoke ]
   %28 = load ptr, ptr %sig, align 8
   %cmp.not.i = icmp eq ptr %28, null
   br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -1167,8 +1167,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit46: ; preds = %ehcleanup, 
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %cleanup, %land.lhs.true
-  %retval.1 = phi i1 [ true, %land.lhs.true ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %land.lhs.true ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -2414,8 +2414,8 @@ ehcleanup22:                                      ; preds = %if.then.i.i7, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i, %cleanup, %land.lhs.true
-  %retval.1 = phi i1 [ true, %land.lhs.true ], [ %tobool.not, %cleanup ], [ %tobool.not, %if.then.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %land.lhs.true ], [ %tobool.not, %cleanup ], [ %tobool.not, %if.then.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3645,7 +3645,7 @@ cleanup.i.i.i:                                    ; preds = %lor.lhs.false20.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.i.i.i, %invoke.cont44.i.i.i, %invoke.cont36.i.i.i
-  %retval.08.i.i.i = phi i1 [ false, %cleanup.i.i.i ], [ false, %invoke.cont36.i.i.i ], [ %tobool46.not.i.i.i, %invoke.cont44.i.i.i ]
+  %retval.18.i.i.i = phi i1 [ false, %cleanup.i.i.i ], [ false, %invoke.cont36.i.i.i ], [ %tobool46.not.i.i.i, %invoke.cont44.i.i.i ]
   invoke void @BN_free(ptr noundef nonnull %call18.i.i.i)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -3657,7 +3657,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i, %cleanup.i.i.i
-  %retval.09.i.i.i = phi i1 [ false, %cleanup.i.i.i ], [ %retval.08.i.i.i, %if.then.i.i.i.i ]
+  %retval.19.i.i.i = phi i1 [ false, %cleanup.i.i.i ], [ %retval.18.i.i.i, %if.then.i.i.i.i ]
   %cmp.not.i11.i.i.i = icmp eq ptr %call15.i.i.i, null
   br i1 %cmp.not.i11.i.i.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit14.i.i.i, label %if.then.i12.i.i.i
 
@@ -3717,7 +3717,7 @@ ehcleanup53.i.i.i:                                ; preds = %ehcleanup51.i.i.i, 
   br label %ehcleanup55.i.i.i
 
 if.then.i22.i.i.i:                                ; preds = %if.then.i19.i.i.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i.i.i, %invoke.cont.i.i.i
-  %retval.1.ph.i.i.i = phi i1 [ false, %invoke.cont.i.i.i ], [ %retval.09.i.i.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i.i.i ], [ %retval.09.i.i.i, %if.then.i19.i.i.i ]
+  %retval.0.ph.i.i.i = phi i1 [ false, %invoke.cont.i.i.i ], [ %retval.19.i.i.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i.i.i ], [ %retval.19.i.i.i, %if.then.i19.i.i.i ]
   invoke void @EC_KEY_free(ptr noundef nonnull %call.i.i.i)
           to label %"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.exit" unwind label %terminate.lpad.i23.i.i.i
 
@@ -3734,13 +3734,13 @@ ehcleanup55.i.i.i:                                ; preds = %ehcleanup53.i.i.i, 
   resume { ptr, i32 } %.pn.pn.pn.pn.i.i.i
 
 "_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.exit": ; preds = %entry, %if.then.i22.i.i.i
-  %retval.14.i.i.i = phi i1 [ %retval.1.ph.i.i.i, %if.then.i22.i.i.i ], [ false, %entry ]
+  %retval.04.i.i.i = phi i1 [ %retval.0.ph.i.i.i, %if.then.i22.i.i.i ], [ false, %entry ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %point.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ctx.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %y.i.i.i)
-  ret i1 %retval.14.i.i.i
+  ret i1 %retval.04.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -4106,7 +4106,7 @@ invoke.cont36:                                    ; preds = %.noexc31
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt8functionIFbvEED2Ev.exit22, %_ZNSt8functionIFbvEED2Ev.exit, %invoke.cont9, %invoke.cont, %invoke.cont36
-  %retval.0.ph = phi i1 [ false, %_ZNSt8functionIFbvEED2Ev.exit22 ], [ false, %_ZNSt8functionIFbvEED2Ev.exit ], [ false, %invoke.cont9 ], [ false, %invoke.cont ], [ true, %invoke.cont36 ]
+  %retval.1.ph = phi i1 [ false, %_ZNSt8functionIFbvEED2Ev.exit22 ], [ false, %_ZNSt8functionIFbvEED2Ev.exit ], [ false, %invoke.cont9 ], [ false, %invoke.cont ], [ true, %invoke.cont36 ]
   %.pr = load ptr, ptr %key, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i, label %return, label %if.then.i
@@ -4128,8 +4128,8 @@ ehcleanup:                                        ; preds = %if.then.i.i25, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i, %cleanup, %if.end, %land.lhs.true
-  %retval.1 = phi i1 [ true, %land.lhs.true ], [ %retval.0.ph, %cleanup ], [ %retval.0.ph, %if.then.i ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %land.lhs.true ], [ %retval.1.ph, %cleanup ], [ %retval.1.ph, %if.then.i ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 declare i64 @ECDSA_size(ptr noundef) local_unnamed_addr #2

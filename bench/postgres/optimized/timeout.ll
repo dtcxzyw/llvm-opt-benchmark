@@ -203,11 +203,11 @@ define dso_local i32 @RegisterTimeout(i32 noundef %0, ptr noundef %1) local_unna
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %.1 = phi i32 [ %0, %2 ], [ %12, %.loopexit.loopexit ]
-  %13 = zext nneg i32 %.1 to i64
+  %.0 = phi i32 [ %0, %2 ], [ %12, %.loopexit.loopexit ]
+  %13 = zext nneg i32 %.0 to i64
   %14 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %13, i32 3
   store ptr %1, ptr %14, align 8
-  ret i32 %.1
+  ret i32 %.0
 }
 
 ; Function Attrs: cold

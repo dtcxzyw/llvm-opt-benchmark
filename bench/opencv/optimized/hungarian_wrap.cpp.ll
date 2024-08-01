@@ -1368,13 +1368,13 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %41
   br label %.loopexit.split.us
 
 .loopexit.split.us:                               ; preds = %220, %.loopexit.split.us.loopexit, %.loopexit339
-  %.4 = phi i32 [ %211, %.loopexit339 ], [ %231, %.loopexit.split.us.loopexit ], [ %211, %220 ]
+  %.3 = phi i32 [ %211, %.loopexit339 ], [ %231, %.loopexit.split.us.loopexit ], [ %211, %220 ]
   %.1 = phi i32 [ %207, %.loopexit339 ], [ %157, %.loopexit.split.us.loopexit ], [ %207, %220 ]
   %232 = sext i32 %.1 to i64
   %233 = getelementptr inbounds i32, ptr %23, i64 %232
   %234 = load i32, ptr %233, align 4
-  store i32 %.4, ptr %233, align 4
-  %235 = zext nneg i32 %.4 to i64
+  store i32 %.3, ptr %233, align 4
+  %235 = zext nneg i32 %.3 to i64
   %236 = getelementptr inbounds i32, ptr %36, i64 %235
   store i32 %.1, ptr %236, align 4
   %237 = icmp slt i32 %234, 0

@@ -370,7 +370,7 @@ if.end103:                                        ; preds = %if.then101, %if.end
 
 if.end108:                                        ; preds = %if.end103, %if.end73
   %srpvfile.2 = phi ptr [ %call104, %if.end103 ], [ %srpvfile.0, %if.end73 ]
-  %conf.0 = phi ptr [ %call79, %if.end103 ], [ null, %if.end73 ]
+  %conf.1 = phi ptr [ %call79, %if.end103 ], [ null, %if.end73 ]
   %tobool109.not = icmp eq i32 %verbose.0, 0
   br i1 %tobool109.not, label %if.end112, label %if.then110
 
@@ -541,9 +541,9 @@ if.end174:                                        ; preds = %if.else163, %if.the
   br label %while.cond175
 
 while.cond175:                                    ; preds = %if.end446, %if.end174
-  %doupdatedb.0 = phi i32 [ 0, %if.end174 ], [ %doupdatedb.1, %if.end446 ]
+  %doupdatedb.0 = phi i32 [ 0, %if.end174 ], [ %doupdatedb.2, %if.end446 ]
   %user.1 = phi ptr [ %user.0, %if.end174 ], [ %113, %if.end446 ]
-  %errors.0 = phi i32 [ 0, %if.end174 ], [ %errors.1, %if.end446 ]
+  %errors.1 = phi i32 [ 0, %if.end174 ], [ %errors.3, %if.end446 ]
   %argv.addr.1 = phi ptr [ %argv.addr.0, %if.end174 ], [ %incdec.ptr447, %if.end446 ]
   %cmp178 = icmp ne ptr %user.1, null
   %38 = select i1 %cmp176, i1 true, i1 %cmp178
@@ -637,7 +637,7 @@ if.else217:                                       ; preds = %if.end199
 if.then220:                                       ; preds = %if.else217
   %54 = load ptr, ptr @bio_err, align 8
   %call221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.67, ptr noundef nonnull %user.1) #5
-  %inc222 = add nsw i32 %errors.0, 1
+  %inc222 = add nsw i32 %errors.1, 1
   br label %if.end446
 
 if.else225:                                       ; preds = %if.end199.thread, %if.end199
@@ -684,7 +684,7 @@ cond.end251:                                      ; preds = %if.else238, %cond.t
 if.then255:                                       ; preds = %cond.end251
   %62 = load ptr, ptr @bio_err, align 8
   %call256 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %62, ptr noundef nonnull @.str.69, ptr noundef %user.1) #5
-  %inc257 = add nsw i32 %errors.0, 1
+  %inc257 = add nsw i32 %errors.1, 1
   br label %end
 
 if.end258:                                        ; preds = %cond.end251
@@ -745,7 +745,7 @@ if.then306:                                       ; preds = %if.else225
 if.then309:                                       ; preds = %if.then306
   %79 = load ptr, ptr @bio_err, align 8
   %call310 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %79, ptr noundef nonnull @.str.72, ptr noundef %user.1) #5
-  %inc311 = add nsw i32 %errors.0, 1
+  %inc311 = add nsw i32 %errors.1, 1
   br label %if.end446
 
 if.else312:                                       ; preds = %if.then306
@@ -763,7 +763,7 @@ if.else312:                                       ; preds = %if.then306
 if.then322:                                       ; preds = %if.else312
   %84 = load ptr, ptr @bio_err, align 8
   %call323 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %84, ptr noundef nonnull @.str.73, ptr noundef %user.1) #5
-  %inc324 = add nsw i32 %errors.0, 1
+  %inc324 = add nsw i32 %errors.1, 1
   br label %if.end446
 
 if.then332:                                       ; preds = %if.else312
@@ -822,7 +822,7 @@ cond.end359:                                      ; preds = %if.end345.thread, %
 if.then363:                                       ; preds = %cond.end359
   %97 = load ptr, ptr @bio_err, align 8
   %call364 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %97, ptr noundef nonnull @.str.75, ptr noundef %user.1) #5
-  %inc365 = add nsw i32 %errors.0, 1
+  %inc365 = add nsw i32 %errors.1, 1
   br label %end
 
 if.end367:                                        ; preds = %if.else312, %cond.end359
@@ -854,7 +854,7 @@ cond.end384:                                      ; preds = %if.end371, %cond.tr
 if.then388:                                       ; preds = %cond.end384
   %102 = load ptr, ptr @bio_err, align 8
   %call389 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %102, ptr noundef nonnull @.str.77, ptr noundef %user.1) #5
-  %inc390 = add nsw i32 %errors.0, 1
+  %inc390 = add nsw i32 %errors.1, 1
   br label %end
 
 if.end391:                                        ; preds = %cond.end384
@@ -902,7 +902,7 @@ if.then429:                                       ; preds = %if.else225
 if.then432:                                       ; preds = %if.then429
   %108 = load ptr, ptr @bio_err, align 8
   %call433 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %108, ptr noundef nonnull @.str.78, ptr noundef %user.1) #5
-  %inc434 = add nsw i32 %errors.0, 1
+  %inc434 = add nsw i32 %errors.1, 1
   br label %if.end446
 
 if.else435:                                       ; preds = %if.then429
@@ -917,16 +917,16 @@ if.else435:                                       ; preds = %if.then429
   br label %if.end446
 
 if.end446:                                        ; preds = %for.body213, %if.then205, %if.else225, %lor.lhs.false415, %land.lhs.true417, %lor.lhs.false291, %if.then231, %if.else435, %if.then432, %if.then309, %if.then322, %if.then220, %if.else217
-  %doupdatedb.1 = phi i32 [ %doupdatedb.0, %if.then220 ], [ %doupdatedb.0, %if.else217 ], [ 1, %if.then231 ], [ %doupdatedb.0, %if.then309 ], [ %doupdatedb.0, %if.then322 ], [ %doupdatedb.0, %if.then432 ], [ 1, %if.else435 ], [ 1, %lor.lhs.false291 ], [ 1, %land.lhs.true417 ], [ 1, %lor.lhs.false415 ], [ %doupdatedb.0, %if.else225 ], [ %doupdatedb.0, %if.then205 ], [ %doupdatedb.0, %for.body213 ]
-  %errors.1 = phi i32 [ %inc222, %if.then220 ], [ %errors.0, %if.else217 ], [ %errors.0, %if.then231 ], [ %inc311, %if.then309 ], [ %inc324, %if.then322 ], [ %inc434, %if.then432 ], [ %errors.0, %if.else435 ], [ %errors.0, %lor.lhs.false291 ], [ %errors.0, %land.lhs.true417 ], [ %errors.0, %lor.lhs.false415 ], [ %errors.0, %if.else225 ], [ %errors.0, %if.then205 ], [ %errors.0, %for.body213 ]
+  %doupdatedb.2 = phi i32 [ %doupdatedb.0, %if.then220 ], [ %doupdatedb.0, %if.else217 ], [ 1, %if.then231 ], [ %doupdatedb.0, %if.then309 ], [ %doupdatedb.0, %if.then322 ], [ %doupdatedb.0, %if.then432 ], [ 1, %if.else435 ], [ 1, %lor.lhs.false291 ], [ 1, %land.lhs.true417 ], [ 1, %lor.lhs.false415 ], [ %doupdatedb.0, %if.else225 ], [ %doupdatedb.0, %if.then205 ], [ %doupdatedb.0, %for.body213 ]
+  %errors.3 = phi i32 [ %inc222, %if.then220 ], [ %errors.1, %if.else217 ], [ %errors.1, %if.then231 ], [ %inc311, %if.then309 ], [ %inc324, %if.then322 ], [ %inc434, %if.then432 ], [ %errors.1, %if.else435 ], [ %errors.1, %lor.lhs.false291 ], [ %errors.1, %land.lhs.true417 ], [ %errors.1, %lor.lhs.false415 ], [ %errors.1, %if.else225 ], [ %errors.1, %if.then205 ], [ %errors.1, %for.body213 ]
   %incdec.ptr447 = getelementptr inbounds i8, ptr %argv.addr.1, i64 8
   %113 = load ptr, ptr %argv.addr.1, align 8
   %cmp448 = icmp eq ptr %113, null
   br i1 %cmp448, label %while.end452, label %while.cond175, !llvm.loop !11
 
 while.end452:                                     ; preds = %if.end446, %while.cond175
-  %doupdatedb.2 = phi i32 [ %doupdatedb.1, %if.end446 ], [ %doupdatedb.0, %while.cond175 ]
-  %errors.2 = phi i32 [ %errors.1, %if.end446 ], [ %errors.0, %while.cond175 ]
+  %doupdatedb.1 = phi i32 [ %doupdatedb.2, %if.end446 ], [ %doupdatedb.0, %while.cond175 ]
+  %errors.2 = phi i32 [ %errors.3, %if.end446 ], [ %errors.1, %while.cond175 ]
   br i1 %tobool109.not, label %if.end456, label %if.then454
 
 if.then454:                                       ; preds = %while.end452
@@ -935,7 +935,7 @@ if.then454:                                       ; preds = %while.end452
   br label %if.end456
 
 if.end456:                                        ; preds = %if.then454, %while.end452
-  %tobool457.not = icmp eq i32 %doupdatedb.2, 0
+  %tobool457.not = icmp eq i32 %doupdatedb.1, 0
   br i1 %tobool457.not, label %if.end501, label %for.cond459.preheader
 
 for.cond459.preheader:                            ; preds = %if.end456
@@ -1010,22 +1010,22 @@ if.end501:                                        ; preds = %if.end492, %if.then
 
 end.thread:                                       ; preds = %sw.bb26, %sw.bb31, %opthelp, %sw.bb3, %if.then44, %if.then75, %if.end94, %if.end103, %if.then115, %if.then161, %land.lhs.true84, %if.then71, %while.end
   %ret.0.ph = phi i32 [ 1, %while.end ], [ 1, %if.then71 ], [ 1, %land.lhs.true84 ], [ 1, %if.then161 ], [ 1, %if.then115 ], [ 1, %if.end103 ], [ 1, %if.end94 ], [ 1, %if.then75 ], [ 1, %if.then44 ], [ 0, %sw.bb3 ], [ 1, %opthelp ], [ 1, %sw.bb31 ], [ 1, %sw.bb26 ]
-  %conf.1.ph = phi ptr [ null, %while.end ], [ null, %if.then71 ], [ %call79, %land.lhs.true84 ], [ %conf.0, %if.then161 ], [ %conf.0, %if.then115 ], [ %call79, %if.end103 ], [ %call79, %if.end94 ], [ null, %if.then75 ], [ null, %if.then44 ], [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %sw.bb31 ], [ null, %sw.bb26 ]
+  %conf.0.ph = phi ptr [ null, %while.end ], [ null, %if.then71 ], [ %call79, %land.lhs.true84 ], [ %conf.1, %if.then161 ], [ %conf.1, %if.then115 ], [ %call79, %if.end103 ], [ %call79, %if.end94 ], [ null, %if.then75 ], [ null, %if.then44 ], [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %sw.bb31 ], [ null, %sw.bb26 ]
   %db.0.ph = phi ptr [ null, %while.end ], [ null, %if.then71 ], [ null, %land.lhs.true84 ], [ %call113, %if.then161 ], [ null, %if.then115 ], [ null, %if.end103 ], [ null, %if.end94 ], [ null, %if.then75 ], [ null, %if.then44 ], [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %sw.bb31 ], [ null, %sw.bb26 ]
   %tobool507227.not = icmp eq i32 %verbose.0, 0
   br i1 %tobool507227.not, label %if.end515, label %if.then513
 
 end:                                              ; preds = %if.end391, %lor.lhs.false403, %lor.lhs.false407, %lor.lhs.false411, %land.lhs.true417, %if.end492.thread, %if.end484.thread, %if.end492, %if.end484, %if.end501, %if.then388, %if.then363, %if.then294, %if.then255
-  %errors.3 = phi i32 [ %errors.2, %if.end501 ], [ %errors.2, %if.end492 ], [ %errors.2, %if.end484 ], [ %errors.0, %if.then294 ], [ %inc257, %if.then255 ], [ %inc390, %if.then388 ], [ %inc365, %if.then363 ], [ %errors.2, %if.end484.thread ], [ %errors.2, %if.end492.thread ], [ %errors.0, %land.lhs.true417 ], [ %errors.0, %lor.lhs.false411 ], [ %errors.0, %lor.lhs.false407 ], [ %errors.0, %lor.lhs.false403 ], [ %errors.0, %if.end391 ]
+  %errors.0 = phi i32 [ %errors.2, %if.end501 ], [ %errors.2, %if.end492 ], [ %errors.2, %if.end484 ], [ %errors.1, %if.then294 ], [ %inc257, %if.then255 ], [ %inc390, %if.then388 ], [ %inc365, %if.then363 ], [ %errors.2, %if.end484.thread ], [ %errors.2, %if.end492.thread ], [ %errors.1, %land.lhs.true417 ], [ %errors.1, %lor.lhs.false411 ], [ %errors.1, %lor.lhs.false407 ], [ %errors.1, %lor.lhs.false403 ], [ %errors.1, %if.end391 ]
   %ret.0 = phi i32 [ %conv503, %if.end501 ], [ 1, %if.end492 ], [ 1, %if.end484 ], [ 1, %if.then294 ], [ 1, %if.then255 ], [ 1, %if.then388 ], [ 1, %if.then363 ], [ 1, %if.end484.thread ], [ 1, %if.end492.thread ], [ 1, %land.lhs.true417 ], [ 1, %lor.lhs.false411 ], [ 1, %lor.lhs.false407 ], [ 1, %lor.lhs.false403 ], [ 1, %if.end391 ]
-  %cmp504 = icmp ne i32 %errors.3, 0
+  %cmp504 = icmp ne i32 %errors.0, 0
   %tobool507 = icmp ne i32 %verbose.0, 0
   %or.cond11 = select i1 %cmp504, i1 %tobool507, i1 false
   br i1 %or.cond11, label %if.then508, label %if.end511
 
 if.then508:                                       ; preds = %end
   %126 = load ptr, ptr @bio_err, align 8
-  %call509 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %126, ptr noundef nonnull @.str.86, i32 noundef %errors.3) #5
+  %call509 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %126, ptr noundef nonnull @.str.86, i32 noundef %errors.0) #5
   br label %if.then513
 
 if.end511:                                        ; preds = %end
@@ -1033,7 +1033,7 @@ if.end511:                                        ; preds = %end
 
 if.then513:                                       ; preds = %if.then508, %end.thread, %if.end511
   %ret.0229237 = phi i32 [ %ret.0.ph, %end.thread ], [ %ret.0, %if.end511 ], [ %ret.0, %if.then508 ]
-  %conf.1230236 = phi ptr [ %conf.1.ph, %end.thread ], [ %conf.0, %if.end511 ], [ %conf.0, %if.then508 ]
+  %conf.0230236 = phi ptr [ %conf.0.ph, %end.thread ], [ %conf.1, %if.end511 ], [ %conf.1, %if.then508 ]
   %db.0231234 = phi ptr [ %db.0.ph, %end.thread ], [ %call113, %if.end511 ], [ %call113, %if.then508 ]
   %127 = load ptr, ptr @bio_err, align 8
   %call514 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %127, ptr noundef nonnull @.str.87, i32 noundef %ret.0229237) #5
@@ -1041,7 +1041,7 @@ if.then513:                                       ; preds = %if.then508, %end.th
 
 if.end515:                                        ; preds = %end.thread, %if.then513, %if.end511
   %ret.0229238 = phi i32 [ %ret.0.ph, %end.thread ], [ %ret.0229237, %if.then513 ], [ %ret.0, %if.end511 ]
-  %conf.1230235 = phi ptr [ %conf.1.ph, %end.thread ], [ %conf.1230236, %if.then513 ], [ %conf.0, %if.end511 ]
+  %conf.0230235 = phi ptr [ %conf.0.ph, %end.thread ], [ %conf.0230236, %if.then513 ], [ %conf.1, %if.end511 ]
   %db.0231233 = phi ptr [ %db.0.ph, %end.thread ], [ %db.0231234, %if.then513 ], [ %call113, %if.end511 ]
   %128 = load ptr, ptr %passin, align 8
   call void @CRYPTO_free(ptr noundef %128, ptr noundef nonnull @.str.70, i32 noundef 623) #5
@@ -1056,7 +1056,7 @@ if.then517:                                       ; preds = %if.end515
   br label %if.end518
 
 if.end518:                                        ; preds = %if.then517, %if.end515
-  call void @NCONF_free(ptr noundef %conf.1230235) #5
+  call void @NCONF_free(ptr noundef %conf.0230235) #5
   call void @free_index(ptr noundef %db.0231233) #5
   call void @release_engine(ptr noundef %e.0) #5
   ret i32 %ret.0229238
@@ -1510,8 +1510,8 @@ if.end19:                                         ; preds = %if.else, %if.then13
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end19, %entry
-  %gNid.2 = phi ptr [ %gNid.1, %if.end19 ], [ null, %entry ]
-  ret ptr %gNid.2
+  %gNid.0 = phi ptr [ %gNid.1, %if.end19 ], [ null, %entry ]
+  ret ptr %gNid.0
 }
 
 declare i32 @save_index(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

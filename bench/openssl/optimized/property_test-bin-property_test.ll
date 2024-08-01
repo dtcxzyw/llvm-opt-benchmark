@@ -675,13 +675,13 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool16.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then8
-  %p.0 = phi ptr [ %call9, %if.then8 ], [ %call14, %if.else ]
+  %p.1 = phi ptr [ %call9, %if.then8 ], [ %call14, %if.else ]
   br label %err
 
 err:                                              ; preds = %if.else, %if.then8, %entry, %lor.lhs.false, %if.end19
   %r.0 = phi i32 [ 1, %if.end19 ], [ 0, %if.then8 ], [ 0, %if.else ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  %p.1 = phi ptr [ %p.0, %if.end19 ], [ %call9, %if.then8 ], [ %call14, %if.else ], [ null, %lor.lhs.false ], [ null, %entry ]
-  tail call void @ossl_property_free(ptr noundef %p.1) #5
+  %p.0 = phi ptr [ %p.1, %if.end19 ], [ %call9, %if.then8 ], [ %call14, %if.else ], [ null, %lor.lhs.false ], [ null, %entry ]
+  tail call void @ossl_property_free(ptr noundef %p.0) #5
   tail call void @ossl_method_store_free(ptr noundef %call) #5
   ret i32 %r.0
 }

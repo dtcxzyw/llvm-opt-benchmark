@@ -148,7 +148,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.1165 = phi i64 [ %.0164489, %.preheader899 ], [ %.1165.be, %.backedge ]
   %.1159 = phi ptr [ %.1159.ph, %.preheader899 ], [ %.1159.be, %.backedge ]
   %.1157 = phi ptr [ %.1157.ph, %.preheader899 ], [ @.str.2, %.backedge ]
-  %.1 = phi i32 [ %23, %.preheader899 ], [ %.1.be, %.backedge ]
+  %.2 = phi i32 [ %23, %.preheader899 ], [ %.2.be, %.backedge ]
   %31 = load i8, ptr %.1159, align 1
   %.not222 = icmp eq i8 %31, 0
   br i1 %.not222, label %32, label %.critedge2
@@ -202,12 +202,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not243, label %47, label %.loopexit283
 
 47:                                               ; preds = %45
-  %48 = icmp slt i32 %.1, %0
+  %48 = icmp slt i32 %.2, %0
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
-  %50 = add nsw i32 %.1, 1
-  %51 = sext i32 %.1 to i64
+  %50 = add nsw i32 %.2, 1
+  %51 = sext i32 %.2 to i64
   %52 = getelementptr ptr, ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %.loopexit283
@@ -234,7 +234,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 62:                                               ; preds = %.thread265, %59, %57
   %spec.select244248252255260264 = phi ptr [ %34, %59 ], [ %34, %57 ], [ %.1159, %.thread265 ]
-  %.not242 = icmp slt i32 %.1, %0
+  %.not242 = icmp slt i32 %.2, %0
   br i1 %.not242, label %66, label %63
 
 63:                                               ; preds = %62
@@ -255,8 +255,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 71:                                               ; preds = %66
   %72 = zext nneg i32 %.1171 to i64
-  %73 = add nsw i32 %.1, 1
-  %74 = sext i32 %.1 to i64
+  %73 = add nsw i32 %.2, 1
+  %74 = sext i32 %.2 to i64
   %75 = getelementptr ptr, ptr %1, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = add nuw nsw i32 %.1171, 1
@@ -362,7 +362,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.1168.be = phi i32 [ %.1168, %71 ], [ %.1168, %84 ], [ %.1168, %96 ], [ %.1168, %102 ], [ %.1168, %117 ], [ %.1168, %138 ], [ %.1168, %125 ], [ %.1168, %110 ], [ %.1168, %.thread277 ], [ %.1168, %86 ], [ %.1168, %90 ], [ %.1168, %104 ], [ %.1168, %106 ], [ 1, %111 ]
   %.1165.be = phi i64 [ %.1165, %71 ], [ %.1165, %84 ], [ %.1165, %96 ], [ %.1165, %102 ], [ %.1165, %117 ], [ %144, %138 ], [ %.1165, %125 ], [ %.1165, %110 ], [ %.1165, %.thread277 ], [ %.1165, %86 ], [ %.1165, %90 ], [ %.1165, %104 ], [ %.1165, %106 ], [ %.1165, %111 ]
   %.1159.be = phi ptr [ %spec.select244248252255260264, %71 ], [ %spec.select244248252255260263268272, %84 ], [ %spec.select244248252255260263268271276279, %96 ], [ %spec.select244248252255260263268271276279, %102 ], [ %spec.select244248252255260263268271276279, %117 ], [ %spec.select244248252255260263268271276279, %138 ], [ %spec.select244248252255260263268271276279, %125 ], [ %spec.select244248252255260263268271276279, %110 ], [ %spec.select244248252255260263268271276279, %.thread277 ], [ %34, %86 ], [ %spec.select244248252255260263268271276279, %90 ], [ %spec.select244248252255260263268271276279, %104 ], [ %spec.select244248252255260263268271276279, %106 ], [ %spec.select244248252255260263268271276279, %111 ]
-  %.1.be = phi i32 [ %73, %71 ], [ %.1, %84 ], [ %.1, %96 ], [ %.1, %102 ], [ %.1, %117 ], [ %139, %138 ], [ %126, %125 ], [ %.1, %110 ], [ %.1, %.thread277 ], [ %.1, %86 ], [ %.1, %90 ], [ %.1, %104 ], [ %.1, %106 ], [ %.1, %111 ]
+  %.2.be = phi i32 [ %73, %71 ], [ %.2, %84 ], [ %.2, %96 ], [ %.2, %102 ], [ %.2, %117 ], [ %139, %138 ], [ %126, %125 ], [ %.2, %110 ], [ %.2, %.thread277 ], [ %.2, %86 ], [ %.2, %90 ], [ %.2, %104 ], [ %.2, %106 ], [ %.2, %111 ]
   br label %30, !llvm.loop !7
 
 113:                                              ; preds = %111
@@ -384,7 +384,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not238, label %121, label %132
 
 121:                                              ; preds = %119
-  %.not239 = icmp slt i32 %.1, %0
+  %.not239 = icmp slt i32 %.2, %0
   br i1 %.not239, label %125, label %122
 
 122:                                              ; preds = %121
@@ -394,8 +394,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 125:                                              ; preds = %121
-  %126 = add nsw i32 %.1, 1
-  %127 = sext i32 %.1 to i64
+  %126 = add nsw i32 %.2, 1
+  %127 = sext i32 %.2 to i64
   %128 = getelementptr ptr, ptr %1, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = tail call double @strtod(ptr nocapture noundef %129, ptr noundef null) #16
@@ -408,7 +408,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not240, label %134, label %145
 
 134:                                              ; preds = %132
-  %.not241 = icmp slt i32 %.1, %0
+  %.not241 = icmp slt i32 %.2, %0
   br i1 %.not241, label %138, label %135
 
 135:                                              ; preds = %134
@@ -418,8 +418,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 138:                                              ; preds = %134
-  %139 = add nsw i32 %.1, 1
-  %140 = sext i32 %.1 to i64
+  %139 = add nsw i32 %.2, 1
+  %140 = sext i32 %.2 to i64
   %141 = getelementptr ptr, ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = tail call double @strtod(ptr nocapture noundef %142, ptr noundef null) #16
@@ -445,7 +445,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .loopexit283:                                     ; preds = %32, %45, %49
   %.1163 = phi ptr [ %53, %49 ], [ %spec.select244248252256, %45 ], [ %.0162490, %32 ]
-  %.3 = phi i32 [ %50, %49 ], [ %.1, %45 ], [ %.1, %32 ]
+  %.3 = phi i32 [ %50, %49 ], [ %.2, %45 ], [ %.2, %32 ]
   %152 = icmp slt i32 %.3, %0
   br i1 %152, label %.lr.ph, label %.critedge, !llvm.loop !9
 
@@ -462,7 +462,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0167.lcssa = phi i32 [ %12, %2 ], [ %.1168, %.loopexit283 ], [ %.0167488, %25 ], [ %.0167488, %19 ], [ %.0167488, %.lr.ph ]
   %.0164.lcssa = phi i64 [ 0, %2 ], [ %.1165, %.loopexit283 ], [ %.0164489, %25 ], [ %.0164489, %19 ], [ %.0164489, %.lr.ph ]
   %.0162.lcssa = phi ptr [ null, %2 ], [ %.1163, %.loopexit283 ], [ %.0162490, %25 ], [ %.0162490, %19 ], [ %.0162490, %.lr.ph ]
-  %.4 = phi i32 [ 1, %2 ], [ %.3, %.loopexit283 ], [ %23, %25 ], [ %.0155491, %19 ], [ %.0155491, %.lr.ph ]
+  %.1 = phi i32 [ 1, %2 ], [ %.3, %.loopexit283 ], [ %23, %25 ], [ %.0155491, %19 ], [ %.0155491, %.lr.ph ]
   %.not208 = icmp eq i32 %.0167.lcssa, 0
   br i1 %.not208, label %154, label %153
 
@@ -561,8 +561,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %185
 
 185:                                              ; preds = %182, %181
-  %186 = sub i32 %0, %.4
-  %187 = sext i32 %.4 to i64
+  %186 = sub i32 %0, %.1
+  %187 = sext i32 %.1 to i64
   %188 = getelementptr ptr, ptr %1, i64 %187
   call void @js_std_add_helpers(ptr noundef nonnull %169, i32 noundef %186, ptr noundef %188) #16
   %.not215 = icmp eq i32 %.0180.lcssa, 0
@@ -633,7 +633,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   br i1 %.not35.i.not, label %.loopexit, label %216
 
 212:                                              ; preds = %._crit_edge
-  %.not217 = icmp slt i32 %.4, %0
+  %.not217 = icmp slt i32 %.1, %0
   br i1 %.not217, label %213, label %.thread280
 
 213:                                              ; preds = %212

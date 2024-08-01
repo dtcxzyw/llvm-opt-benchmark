@@ -177,8 +177,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup, %if.then4
-  %retval.1 = phi ptr [ null, %if.then4 ], [ %call12, %cleanup ], [ null, %lor.lhs.false ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then4 ], [ %call12, %cleanup ], [ null, %lor.lhs.false ], [ null, %entry ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %cleanup.action22, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %cleanup.action22 ], [ %2, %lpad ]
@@ -551,7 +551,7 @@ lpad122:                                          ; preds = %if.end120
   br label %ehcleanup
 
 cleanup:                                          ; preds = %delete.end115, %invoke.cont123
-  %retval.0 = phi i32 [ %call124, %invoke.cont123 ], [ -1, %delete.end115 ]
+  %retval.1 = phi i32 [ %call124, %invoke.cont123 ], [ -1, %delete.end115 ]
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fieldPosition) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resultStr) #10
   br label %return
@@ -563,8 +563,8 @@ ehcleanup:                                        ; preds = %lpad122, %lpad106
   br label %eh.resume
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup, %if.then7
-  %retval.1 = phi i32 [ -1, %if.then7 ], [ %retval.0, %cleanup ], [ -1, %lor.lhs.false ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then7 ], [ %retval.1, %cleanup ], [ -1, %lor.lhs.false ], [ -1, %entry ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %cleanup.action17, %ehcleanup, %lpad77
   %.pn35 = phi { ptr, i32 } [ %32, %lpad77 ], [ %.pn, %ehcleanup ], [ %11, %cleanup.action17 ]
@@ -1458,7 +1458,7 @@ if.then21:                                        ; preds = %sw.default
   br label %if.end26
 
 if.end26:                                         ; preds = %sw.default, %if.then21
-  %len.1 = add nsw i32 %len.044, 1
+  %len.2 = add nsw i32 %len.044, 1
   br label %sw.epilog42
 
 sw.bb28:                                          ; preds = %for.body
@@ -1488,18 +1488,18 @@ default.unreachable48:                            ; preds = %for.body
 sw.epilog42:                                      ; preds = %sw.bb36, %sw.bb28, %sw.bb16, %sw.bb32, %sw.bb34, %sw.bb19, %if.end26, %sw.bb, %sw.bb14, %sw.bb15
   %state.1 = phi i32 [ 3, %sw.bb32 ], [ 3, %sw.bb34 ], [ 0, %if.end26 ], [ 2, %sw.bb19 ], [ 0, %sw.bb ], [ 3, %sw.bb15 ], [ 1, %sw.bb14 ], [ 0, %sw.bb16 ], [ %spec.select, %sw.bb28 ], [ %spec.select37, %sw.bb36 ]
   %braceCount.1 = phi i32 [ %braceCount.043, %sw.bb32 ], [ %inc35, %sw.bb34 ], [ %braceCount.043, %if.end26 ], [ %braceCount.043, %sw.bb19 ], [ %braceCount.043, %sw.bb ], [ %inc, %sw.bb15 ], [ %braceCount.043, %sw.bb14 ], [ %braceCount.043, %sw.bb16 ], [ %braceCount.043, %sw.bb28 ], [ %dec, %sw.bb36 ]
-  %len.2 = phi i32 [ %len.044, %sw.bb32 ], [ %len.044, %sw.bb34 ], [ %len.1, %if.end26 ], [ %len.044, %sw.bb19 ], [ %len.044, %sw.bb ], [ %len.044, %sw.bb15 ], [ %len.044, %sw.bb14 ], [ %len.044, %sw.bb16 ], [ %len.044, %sw.bb28 ], [ %len.044, %sw.bb36 ]
-  %cmp43 = icmp slt i32 %len.2, %destCapacity
+  %len.1 = phi i32 [ %len.044, %sw.bb32 ], [ %len.044, %sw.bb34 ], [ %len.2, %if.end26 ], [ %len.044, %sw.bb19 ], [ %len.044, %sw.bb ], [ %len.044, %sw.bb15 ], [ %len.044, %sw.bb14 ], [ %len.044, %sw.bb16 ], [ %len.044, %sw.bb28 ], [ %len.044, %sw.bb36 ]
+  %cmp43 = icmp slt i32 %len.1, %destCapacity
   br i1 %cmp43, label %if.then44, label %for.inc
 
 if.then44:                                        ; preds = %sw.epilog42
-  %idxprom46 = sext i32 %len.2 to i64
+  %idxprom46 = sext i32 %len.1 to i64
   %arrayidx47 = getelementptr inbounds i16, ptr %dest, i64 %idxprom46
   store i16 %1, ptr %arrayidx47, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.epilog42, %if.then44
-  %len.3 = add nsw i32 %len.2, 1
+  %len.3 = add nsw i32 %len.1, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
@@ -1511,7 +1511,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then55:                                        ; preds = %for.end
   %cmp56 = icmp slt i32 %len.3, %destCapacity
-  %inc58 = add nsw i32 %len.2, 2
+  %inc58 = add nsw i32 %len.1, 2
   br i1 %cmp56, label %if.then57, label %if.end64
 
 if.then57:                                        ; preds = %if.then55

@@ -69,19 +69,19 @@ _ZL10div_nstepsii.exit101:                        ; preds = %_ZL10div_nstepsii.e
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %.083124 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select127, %.lr.ph.split ]
+  %.184124 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select127, %.lr.ph.split ]
   %38 = getelementptr inbounds i8, ptr %34, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   %41 = zext i1 %40 to i32
-  %spec.select127 = add nuw nsw i32 %.083124, %41
+  %spec.select127 = add nuw nsw i32 %.184124, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZL10div_nstepsii.exit101.thread, label %.lr.ph.split, !llvm.loop !5
 
 _ZL10div_nstepsii.exit101.thread:                 ; preds = %.lr.ph.split, %.lr.ph, %_ZL10div_nstepsii.exit101, %_ZL10div_nstepsii.exit99
   %.0.i100119 = phi i32 [ 0, %_ZL10div_nstepsii.exit99 ], [ %31, %_ZL10div_nstepsii.exit101 ], [ %31, %.lr.ph ], [ %31, %.lr.ph.split ]
-  %.2 = phi i32 [ 0, %_ZL10div_nstepsii.exit99 ], [ 0, %_ZL10div_nstepsii.exit101 ], [ %1, %.lr.ph ], [ %spec.select127, %.lr.ph.split ]
+  %.083 = phi i32 [ 0, %_ZL10div_nstepsii.exit99 ], [ 0, %_ZL10div_nstepsii.exit101 ], [ %1, %.lr.ph ], [ %spec.select127, %.lr.ph.split ]
   %42 = getelementptr inbounds i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, 0
@@ -120,7 +120,7 @@ _ZL10div_nstepsii.exit105:                        ; preds = %_ZL10div_nstepsii.e
   %65 = fmul double %64, 3.000000e+00
   %66 = tail call double @llvm.fmuladd.f64(double %63, double %65, double %58)
   %67 = sitofp i32 %.0.i100119 to double
-  %68 = sitofp i32 %.2 to double
+  %68 = sitofp i32 %.083 to double
   %69 = tail call double @llvm.fmuladd.f64(double %68, double 5.000000e+00, double 5.600000e+01)
   %70 = tail call double @llvm.fmuladd.f64(double %67, double %69, double %66)
   %71 = shl nsw i32 %3, 4

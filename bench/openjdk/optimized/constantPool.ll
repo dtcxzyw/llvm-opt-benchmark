@@ -2883,13 +2883,13 @@ _ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10
   br label %161
 
 161:                                              ; preds = %153, %_ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10JavaThread.exit.thread, %160, %128
-  %.0 = phi ptr [ %135, %128 ], [ %95, %160 ], [ null, %_ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10JavaThread.exit.thread ], [ null, %153 ]
+  %.1 = phi ptr [ %135, %128 ], [ %95, %160 ], [ null, %_ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10JavaThread.exit.thread ], [ null, %153 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   br label %162
 
 162:                                              ; preds = %32, %18, %161
-  %.1 = phi ptr [ %.0, %161 ], [ %24, %18 ], [ null, %32 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %161 ], [ %24, %18 ], [ null, %32 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3446,18 +3446,18 @@ _ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10
   br label %106
 
 106:                                              ; preds = %_ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10JavaThread.exit, %105
-  %.0 = phi ptr [ null, %105 ], [ %88, %_ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10JavaThread.exit ]
+  %.1 = phi ptr [ null, %105 ], [ %88, %_ZN12ConstantPool28verify_constant_pool_resolveERK18constantPoolHandleP5KlassP10JavaThread.exit ]
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   br label %107
 
 107:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit37, %89, %106
-  %.1 = phi ptr [ %.0, %106 ], [ %88, %89 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit37 ]
+  %.2 = phi ptr [ %.1, %106 ], [ %88, %89 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit37 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %108
 
 108:                                              ; preds = %26, %107, %17
-  %.2 = phi ptr [ %25, %17 ], [ %.1, %107 ], [ null, %26 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %25, %17 ], [ %.2, %107 ], [ null, %26 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef, ptr noundef, ptr, ptr) local_unnamed_addr #4
@@ -4818,7 +4818,7 @@ _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %_ZNK6HandleclEv.exi
 
 153:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit.thread, %152, %128, %.thread
   %switch = phi i1 [ true, %.thread ], [ true, %128 ], [ false, %152 ], [ false, %_Z17is_reference_type9BasicTypeb.exit.thread ]
-  %.2169 = phi ptr [ %135, %.thread ], [ null, %128 ], [ %135, %152 ], [ %135, %_Z17is_reference_type9BasicTypeb.exit.thread ]
+  %.3170 = phi ptr [ %135, %.thread ], [ null, %128 ], [ %135, %152 ], [ %135, %_Z17is_reference_type9BasicTypeb.exit.thread ]
   %154 = getelementptr inbounds i8, ptr %8, i64 104
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %154) #17
   %155 = getelementptr inbounds i8, ptr %8, i64 8
@@ -5133,13 +5133,13 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %295, %297
 
 _ZNK6HandleclEv.exit203:                          ; preds = %342, %340, %338
   %344 = phi i1 [ true, %338 ], [ false, %340 ], [ false, %342 ]
-  %.3170 = phi ptr [ null, %338 ], [ null, %340 ], [ %343, %342 ]
+  %.5172 = phi ptr [ null, %338 ], [ null, %340 ], [ %343, %342 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #17
   br label %345
 
 345:                                              ; preds = %301, %311, %_ZNK6HandleclEv.exit203
-  %.3176 = phi i1 [ %344, %_ZNK6HandleclEv.exit203 ], [ true, %311 ], [ true, %301 ]
-  %.4171 = phi ptr [ %.3170, %_ZNK6HandleclEv.exit203 ], [ null, %311 ], [ null, %301 ]
+  %.1174 = phi i1 [ %344, %_ZNK6HandleclEv.exit203 ], [ true, %311 ], [ true, %301 ]
+  %.4171 = phi ptr [ %.5172, %_ZNK6HandleclEv.exit203 ], [ null, %311 ], [ null, %301 ]
   %346 = load i8, ptr @UsePerfData, align 1
   %347 = trunc i8 %346 to i1
   br i1 %347, label %348, label %_ZN19PerfTraceTimedEventD2Ev.exit204
@@ -5161,7 +5161,7 @@ _ZNK6HandleclEv.exit203:                          ; preds = %342, %340, %338
   br label %_ZN19PerfTraceTimedEventD2Ev.exit204
 
 _ZN19PerfTraceTimedEventD2Ev.exit204:             ; preds = %345, %348, %351
-  br i1 %.3176, label %482, label %_ZNK5Klass11java_mirrorEv.exit
+  br i1 %.1174, label %482, label %_ZNK5Klass11java_mirrorEv.exit
 
 358:                                              ; preds = %97
   %359 = load ptr, ptr @_ZN11ClassLoader21_perf_resolve_mt_timeE, align 8
@@ -5365,11 +5365,11 @@ _ZN19PerfTraceTimedEventD2Ev.exit214:             ; preds = %414, %417, %420
   unreachable
 
 _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %106, %102, %_ZN19PerfTraceTimedEventD2Ev.exit214, %_ZN19PerfTraceTimedEventD2Ev.exit204, %_ZN19PerfTraceTimedEventD2Ev.exit, %457, %450, %443, %435, %427, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit
-  %.5172 = phi ptr [ null, %457 ], [ %454, %450 ], [ %447, %443 ], [ %440, %435 ], [ %432, %427 ], [ %408, %_ZN19PerfTraceTimedEventD2Ev.exit214 ], [ %.4171, %_ZN19PerfTraceTimedEventD2Ev.exit204 ], [ %.0.i, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ %.2169, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ %108, %106 ], [ null, %102 ]
+  %.2169 = phi ptr [ null, %457 ], [ %454, %450 ], [ %447, %443 ], [ %440, %435 ], [ %432, %427 ], [ %408, %_ZN19PerfTraceTimedEventD2Ev.exit214 ], [ %.4171, %_ZN19PerfTraceTimedEventD2Ev.exit204 ], [ %.0.i, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ %.3170, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ %108, %106 ], [ null, %102 ]
   br i1 %40, label %464, label %482
 
 464:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit
-  %465 = icmp eq ptr %.5172, null
+  %465 = icmp eq ptr %.2169, null
   br i1 %465, label %466, label %468
 
 466:                                              ; preds = %464
@@ -5377,7 +5377,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %106, %102, %_ZN19Pe
   br label %468
 
 468:                                              ; preds = %464, %466
-  %469 = phi ptr [ %467, %466 ], [ %.5172, %464 ]
+  %469 = phi ptr [ %467, %466 ], [ %.2169, %464 ]
   %470 = load ptr, ptr %0, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 16
   %472 = load ptr, ptr %471, align 8
@@ -5396,8 +5396,8 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %106, %102, %_ZN19Pe
   br label %482
 
 482:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit, %468, %457, %450, %443, %435, %427, %_ZN19PerfTraceTimedEventD2Ev.exit214, %_ZN19PerfTraceTimedEventD2Ev.exit204, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit, %_ZN19PerfTraceTimedEventD2Ev.exit, %98, %58, %61, %479, %95, %94
-  %.6 = phi ptr [ null, %95 ], [ %spec.select193, %479 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit214 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit204 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ null, %94 ], [ %spec.select, %61 ], [ %spec.select, %58 ], [ null, %98 ], [ null, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ null, %427 ], [ null, %435 ], [ null, %443 ], [ null, %450 ], [ null, %457 ], [ %.5172, %468 ], [ %.5172, %_ZNK5Klass11java_mirrorEv.exit ]
-  ret ptr %.6
+  %.0164 = phi ptr [ null, %95 ], [ %spec.select193, %479 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit214 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit204 ], [ null, %_ZN19PerfTraceTimedEventD2Ev.exit ], [ null, %94 ], [ %spec.select, %61 ], [ %spec.select, %58 ], [ null, %98 ], [ null, %_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread.exit ], [ null, %427 ], [ null, %435 ], [ null, %443 ], [ null, %450 ], [ null, %457 ], [ %.2169, %468 ], [ %.2169, %_ZNK5Klass11java_mirrorEv.exit ]
+  ret ptr %.0164
 }
 
 declare noundef ptr @_ZN8Universe17the_null_sentinelEv() local_unnamed_addr #4

@@ -76,8 +76,8 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br label %15
 
 15:                                               ; preds = %33, %13
-  %.053 = phi i32 [ 0, %13 ], [ %.154, %33 ]
-  %.052 = phi ptr [ null, %13 ], [ %.1, %33 ]
+  %.053 = phi i32 [ 0, %13 ], [ %.255, %33 ]
+  %.052 = phi ptr [ null, %13 ], [ %.2, %33 ]
   %.0 = phi ptr [ %2, %13 ], [ %34, %33 ]
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @__func__.filetxt_jobcomp_process_get_jobs) #7
   call void @list_append(ptr noundef %14, ptr noundef %16) #7
@@ -113,8 +113,8 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br label %30
 
 30:                                               ; preds = %25, %28, %22
-  %.154 = phi i32 [ %.053, %25 ], [ %.053, %28 ], [ %24, %22 ]
-  %.1 = phi ptr [ %.052, %25 ], [ %29, %28 ], [ %.052, %22 ]
+  %.255 = phi i32 [ %.053, %25 ], [ %.053, %28 ], [ %24, %22 ]
+  %.2 = phi ptr [ %.052, %25 ], [ %29, %28 ], [ %.052, %22 ]
   %.not71 = icmp eq ptr %strchr68, null
   br i1 %.not71, label %31, label %33
 
@@ -137,8 +137,8 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.loopexit.sink.split, %31
-  %.255 = phi i32 [ %.154, %31 ], [ %.154, %.loopexit.sink.split ], [ %.053, %15 ]
-  %.2 = phi ptr [ %.1, %31 ], [ %.1, %.loopexit.sink.split ], [ %.052, %15 ]
+  %.154 = phi i32 [ %.255, %31 ], [ %.255, %.loopexit.sink.split ], [ %.053, %15 ]
+  %.1 = phi ptr [ %.2, %31 ], [ %.2, %.loopexit.sink.split ], [ %.052, %15 ]
   %37 = load ptr, ptr %8, align 8
   %.not74 = icmp eq ptr %37, null
   br i1 %.not74, label %52, label %38
@@ -149,7 +149,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br i1 %.not75, label %52, label %40
 
 40:                                               ; preds = %38
-  %.not76 = icmp eq i32 %.255, 0
+  %.not76 = icmp eq i32 %.154, 0
   br i1 %.not76, label %_open_log_file.exit.backedge, label %41
 
 41:                                               ; preds = %40
@@ -165,7 +165,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %45, i64 8
   %48 = load i32, ptr %47, align 4
-  %.not78 = icmp eq i32 %48, %.255
+  %.not78 = icmp eq i32 %48, %.154
   br i1 %.not78, label %49, label %44, !llvm.loop !8
 
 49:                                               ; preds = %46
@@ -192,7 +192,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not80, label %66, label %56
 
 56:                                               ; preds = %54
-  %.not81 = icmp eq ptr %.2, null
+  %.not81 = icmp eq ptr %.1, null
   br i1 %.not81, label %_open_log_file.exit.backedge, label %57
 
 57:                                               ; preds = %56
@@ -206,7 +206,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not82, label %65, label %62
 
 62:                                               ; preds = %60
-  %63 = call i32 @xstrcasecmp(ptr noundef nonnull %61, ptr noundef nonnull %.2) #7
+  %63 = call i32 @xstrcasecmp(ptr noundef nonnull %61, ptr noundef nonnull %.1) #7
   %.not83 = icmp eq i32 %63, 0
   br i1 %.not83, label %64, label %60, !llvm.loop !10
 

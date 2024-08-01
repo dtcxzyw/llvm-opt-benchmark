@@ -518,7 +518,7 @@ GetHistoBits.exit.i:                              ; preds = %52
   br label %.preheader.preheader.i.sink.split
 
 .preheader:                                       ; preds = %312, %.loopexit122.i
-  %.0190 = phi i32 [ %.3193, %.loopexit122.i ], [ 0, %312 ]
+  %.2192 = phi i32 [ %.3193, %.loopexit122.i ], [ 0, %312 ]
   %315 = phi i32 [ %334, %.loopexit122.i ], [ 0, %312 ]
   %.0107125.i = phi i32 [ %335, %.loopexit122.i ], [ 0, %312 ]
   %or.cond.i = icmp ult i32 %.0107125.i, 4
@@ -532,7 +532,7 @@ GetHistoBits.exit.i:                              ; preds = %52
   br i1 %or.cond110.i, label %.preheader121.i, label %328
 
 .preheader121.i:                                  ; preds = %316, %325
-  %.1191 = phi i32 [ %.2192, %325 ], [ %.0190, %316 ]
+  %.4 = phi i32 [ %.5, %325 ], [ %.2192, %316 ]
   %318 = phi i32 [ %326, %325 ], [ %315, %316 ]
   %.0104124.i = phi i32 [ %327, %325 ], [ 0, %316 ]
   switch i32 %.0104124.i, label %319 [
@@ -544,14 +544,14 @@ GetHistoBits.exit.i:                              ; preds = %52
   %320 = sext i32 %318 to i64
   %321 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %320
   store i32 %.0107125.i, ptr %321, align 4
-  %322 = sext i32 %.1191 to i64
+  %322 = sext i32 %.4 to i64
   %323 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %322, i32 1
   store i32 %.0104124.i, ptr %323, align 4
-  %324 = add nsw i32 %.1191, 1
+  %324 = add nsw i32 %.4, 1
   br label %325
 
 325:                                              ; preds = %319, %.preheader121.i, %.preheader121.i
-  %.2192 = phi i32 [ %324, %319 ], [ %.1191, %.preheader121.i ], [ %.1191, %.preheader121.i ]
+  %.5 = phi i32 [ %324, %319 ], [ %.4, %.preheader121.i ], [ %.4, %.preheader121.i ]
   %326 = phi i32 [ %324, %319 ], [ %318, %.preheader121.i ], [ %318, %.preheader121.i ]
   %327 = add nuw nsw i32 %.0104124.i, 1
   %exitcond.not.i120 = icmp eq i32 %327, 4
@@ -561,14 +561,14 @@ GetHistoBits.exit.i:                              ; preds = %52
   %329 = sext i32 %315 to i64
   %330 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %329
   store i32 %.0107125.i, ptr %330, align 4
-  %331 = sext i32 %.0190 to i64
+  %331 = sext i32 %.2192 to i64
   %332 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %331, i32 1
   store i32 3, ptr %332, align 4
-  %333 = add nsw i32 %.0190, 1
+  %333 = add nsw i32 %.2192, 1
   br label %.loopexit122.i
 
 .loopexit122.i:                                   ; preds = %325, %328, %.preheader
-  %.3193 = phi i32 [ %333, %328 ], [ %.0190, %.preheader ], [ %.2192, %325 ]
+  %.3193 = phi i32 [ %333, %328 ], [ %.2192, %.preheader ], [ %.5, %325 ]
   %334 = phi i32 [ %333, %328 ], [ %315, %.preheader ], [ %326, %325 ]
   %335 = add nuw nsw i32 %.0107125.i, 1
   %exitcond128.not.i = icmp eq i32 %335, 6
@@ -600,7 +600,7 @@ GetHistoBits.exit.i:                              ; preds = %52
 .preheader.preheader.i.sink.split:                ; preds = %.loopexit123.thread.i, %343, %.thread
   %.sink249.sroa.phi = phi ptr [ %.sink249.sroa.gep, %.thread ], [ %.sink249.sroa.gep263, %343 ], [ %.sink249.sroa.gep264, %.loopexit123.thread.i ]
   %.sink = phi i32 [ %314, %.thread ], [ 1, %343 ], [ %73, %.loopexit123.thread.i ]
-  %.5.ph = phi i32 [ 1, %.thread ], [ 2, %343 ], [ 1, %.loopexit123.thread.i ]
+  %.1191.ph = phi i32 [ 1, %.thread ], [ 2, %343 ], [ 1, %.loopexit123.thread.i ]
   %.2189.ph = phi i32 [ %.1188, %.thread ], [ %.1188, %343 ], [ 0, %.loopexit123.thread.i ]
   %.0105137.i.ph = phi i32 [ 0, %.thread ], [ 1, %343 ], [ 0, %.loopexit123.thread.i ]
   %.0106136.i.ph = phi i32 [ %77, %.thread ], [ %77, %343 ], [ 1, %.loopexit123.thread.i ]
@@ -608,12 +608,12 @@ GetHistoBits.exit.i:                              ; preds = %52
   br label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %.preheader.preheader.i.sink.split, %336, %341, %.loopexit123.i
-  %.5 = phi i32 [ %.3193, %.loopexit123.i ], [ 1, %336 ], [ 1, %341 ], [ %.5.ph, %.preheader.preheader.i.sink.split ]
+  %.1191 = phi i32 [ %.3193, %.loopexit123.i ], [ 1, %336 ], [ 1, %341 ], [ %.1191.ph, %.preheader.preheader.i.sink.split ]
   %.2189 = phi i32 [ %.1188, %.loopexit123.i ], [ %.1188, %336 ], [ %.1188, %341 ], [ %.2189.ph, %.preheader.preheader.i.sink.split ]
   %.0105137.i = phi i32 [ 1, %.loopexit123.i ], [ 0, %336 ], [ 1, %341 ], [ %.0105137.i.ph, %.preheader.preheader.i.sink.split ]
   %.0106136.i = phi i32 [ %77, %.loopexit123.i ], [ %77, %336 ], [ %77, %341 ], [ %.0106136.i.ph, %.preheader.preheader.i.sink.split ]
   %wide.trip.count.i = zext nneg i32 %.0106136.i to i64
-  %umax = zext nneg i32 %.5 to i64
+  %umax = zext nneg i32 %.1191 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %351, %.preheader.preheader.i
@@ -645,7 +645,7 @@ EncoderAnalyze.exit:                              ; preds = %82
   br label %EncoderInit.exit.thread
 
 .loopexit:                                        ; preds = %351, %.loopexit123.i
-  %.6.ph = phi i32 [ %.3193, %.loopexit123.i ], [ %.5, %351 ]
+  %.6.ph = phi i32 [ %.3193, %.loopexit123.i ], [ %.1191, %351 ]
   %.3.ph = phi i32 [ %.1188, %.loopexit123.i ], [ %.2189, %351 ]
   %353 = load ptr, ptr %19, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 8
@@ -746,7 +746,7 @@ EncoderInit.exit:                                 ; preds = %365
   br label %397
 
 397:                                              ; preds = %._crit_edge218, %444
-  %.096220 = phi ptr [ null, %._crit_edge218 ], [ %.1, %444 ]
+  %.1220 = phi ptr [ null, %._crit_edge218 ], [ %.2, %444 ]
   %398 = phi i1 [ true, %._crit_edge218 ], [ false, %444 ]
   %. = select i1 %398, ptr %7, ptr %8
   %399 = select i1 %398, ptr %9, ptr %10
@@ -853,7 +853,7 @@ EncoderInit.exit133:                              ; preds = %431
   %..sroa.sel.v.sroa.phi = phi ptr [ %..sroa.sel.v.sroa.gep, %400 ], [ %..sroa.sel.v.sroa.gep233, %EncoderInit.exit133 ]
   %..sroa.sel.v.sroa.phi234 = phi ptr [ %..sroa.sel.v.sroa.gep235, %400 ], [ %..sroa.sel.v.sroa.gep236, %EncoderInit.exit133 ]
   %..sroa.sel.v.sroa.phi237 = phi ptr [ %..sroa.sel.v.sroa.gep238, %400 ], [ %..sroa.sel.v.sroa.gep239, %EncoderInit.exit133 ]
-  %.1 = phi ptr [ %.096220, %400 ], [ %413, %EncoderInit.exit133 ]
+  %.2 = phi ptr [ %.1220, %400 ], [ %413, %EncoderInit.exit133 ]
   %445 = load ptr, ptr %21, align 8
   call void %445(ptr noundef nonnull %.) #8
   store ptr %399, ptr %..sroa.sel.v.sroa.phi, align 8
@@ -967,7 +967,7 @@ EncoderInit.exit133:                              ; preds = %431
   br label %513
 
 513:                                              ; preds = %EncoderInit.exit.thread, %410, %EncoderInit.exit133.thread, %452, %31, %478, %474, %482, %512, %510, %460
-  %.2 = phi ptr [ %413, %EncoderInit.exit133.thread ], [ %.096220, %410 ], [ %.1, %512 ], [ %.1, %510 ], [ %.1, %482 ], [ %.1, %478 ], [ %.1, %474 ], [ %.1, %460 ], [ %.1, %452 ], [ null, %EncoderInit.exit.thread ], [ null, %31 ]
+  %.096 = phi ptr [ %413, %EncoderInit.exit133.thread ], [ %.1220, %410 ], [ %.2, %512 ], [ %.2, %510 ], [ %.2, %482 ], [ %.2, %478 ], [ %.2, %474 ], [ %.2, %460 ], [ %.2, %452 ], [ null, %EncoderInit.exit.thread ], [ null, %31 ]
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %12) #8
   %514 = getelementptr inbounds i8, ptr %14, i64 2312
   call void @VP8LHashChainClear(ptr noundef nonnull %514) #8
@@ -988,13 +988,13 @@ VP8LEncoderDelete.exit138:                        ; preds = %516
   call void @WebPSafeFree(ptr noundef %519) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %518, i8 0, i64 16, i1 false)
   call void @WebPSafeFree(ptr noundef nonnull %14) #8
-  %.not.i139 = icmp eq ptr %.2, null
+  %.not.i139 = icmp eq ptr %.096, null
   br i1 %.not.i139, label %VP8LEncoderDelete.exit143, label %520
 
 520:                                              ; preds = %VP8LEncoderDelete.exit138
-  %521 = getelementptr inbounds i8, ptr %.2, i64 2312
+  %521 = getelementptr inbounds i8, ptr %.096, i64 2312
   call void @VP8LHashChainClear(ptr noundef nonnull %521) #8
-  %522 = getelementptr inbounds i8, ptr %.2, i64 2152
+  %522 = getelementptr inbounds i8, ptr %.096, i64 2152
   br label %523
 
 523:                                              ; preds = %523, %520
@@ -1006,11 +1006,11 @@ VP8LEncoderDelete.exit138:                        ; preds = %516
   br i1 %exitcond.not.i142, label %525, label %523, !llvm.loop !4
 
 525:                                              ; preds = %523
-  %526 = getelementptr inbounds i8, ptr %.2, i64 48
+  %526 = getelementptr inbounds i8, ptr %.096, i64 48
   %527 = load ptr, ptr %526, align 8
   call void @WebPSafeFree(ptr noundef %527) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %526, i8 0, i64 16, i1 false)
-  call void @WebPSafeFree(ptr noundef nonnull %.2) #8
+  call void @WebPSafeFree(ptr noundef nonnull %.096) #8
   br label %VP8LEncoderDelete.exit143
 
 VP8LEncoderDelete.exit143:                        ; preds = %VP8LEncoderDelete.exit138, %525
@@ -1158,8 +1158,8 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr nocapture noundef read
 97:                                               ; preds = %.lr.ph, %790
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %790 ]
   %.0156311 = phi i64 [ -1, %.lr.ph ], [ %.1157, %790 ]
-  %.0227309 = phi i32 [ 0, %.lr.ph ], [ %.6, %790 ]
-  %.0230308 = phi i32 [ 0, %.lr.ph ], [ %.6236, %790 ]
+  %.0227309 = phi i32 [ 0, %.lr.ph ], [ %.2229, %790 ]
+  %.0230308 = phi i32 [ 0, %.lr.ph ], [ %.2232, %790 ]
   %98 = getelementptr inbounds %struct.CrunchConfig, ptr %21, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -2
@@ -2194,8 +2194,8 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br label %566
 
 566:                                              ; preds = %742, %.lr.ph315.i
-  %.1231 = phi i32 [ %.0230308, %.lr.ph315.i ], [ %.4234, %742 ]
-  %.1228 = phi i32 [ %.0227309, %.lr.ph315.i ], [ %.4, %742 ]
+  %.3233 = phi i32 [ %.0230308, %.lr.ph315.i ], [ %.6236, %742 ]
+  %.3 = phi i32 [ %.0227309, %.lr.ph315.i ], [ %.6, %742 ]
   %indvars.iv352.i = phi i64 [ 0, %.lr.ph315.i ], [ %indvars.iv.next353.i, %742 ]
   %567 = phi i32 [ %561, %.lr.ph315.i ], [ %743, %742 ]
   %.0216313.i = phi i64 [ -1, %.lr.ph315.i ], [ %.1217.lcssa.i, %742 ]
@@ -2214,8 +2214,8 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br label %577
 
 577:                                              ; preds = %737, %575
-  %.2232 = phi i32 [ %.1231, %575 ], [ %.3233, %737 ]
-  %.2229 = phi i32 [ %.1228, %575 ], [ %.3, %737 ]
+  %.4234 = phi i32 [ %.3233, %575 ], [ %.5235, %737 ]
+  %.4 = phi i32 [ %.3, %575 ], [ %.5, %737 ]
   %578 = phi i1 [ true, %575 ], [ false, %737 ]
   %579 = phi i1 [ false, %575 ], [ true, %737 ]
   %indvars.iv349.i = phi i64 [ 0, %575 ], [ 1, %737 ]
@@ -2552,8 +2552,8 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   br label %737
 
 737:                                              ; preds = %724, %712
-  %.3233 = phi i32 [ %710, %724 ], [ %.2232, %712 ]
-  %.3 = phi i32 [ %736, %724 ], [ %.2229, %712 ]
+  %.5235 = phi i32 [ %710, %724 ], [ %.4234, %712 ]
+  %.5 = phi i32 [ %736, %724 ], [ %.4, %712 ]
   %.2218.i = phi i64 [ %722, %724 ], [ %.1217309.i, %712 ]
   call void @WebPSafeFree(ptr noundef nonnull %698) #8
   %738 = getelementptr inbounds i8, ptr %599, i64 16
@@ -2566,8 +2566,8 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   br i1 %741, label %577, label %742, !llvm.loop !37
 
 742:                                              ; preds = %737, %577
-  %.4234 = phi i32 [ %.2232, %577 ], [ %.3233, %737 ]
-  %.4 = phi i32 [ %.2229, %577 ], [ %.3, %737 ]
+  %.6236 = phi i32 [ %.4234, %577 ], [ %.5235, %737 ]
+  %.6 = phi i32 [ %.4, %577 ], [ %.5, %737 ]
   %.1217.lcssa.i = phi i64 [ %.1217309.i, %577 ], [ %.2218.i, %737 ]
   %indvars.iv.next353.i = add nuw nsw i64 %indvars.iv352.i, 1
   %743 = load i32, ptr %550, align 4
@@ -2576,33 +2576,33 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   br i1 %745, label %566, label %._crit_edge316.i, !llvm.loop !38
 
 ._crit_edge316.i:                                 ; preds = %742, %560
-  %.5235 = phi i32 [ %.0230308, %560 ], [ %.4234, %742 ]
-  %.5 = phi i32 [ %.0227309, %560 ], [ %.4, %742 ]
+  %.1231 = phi i32 [ %.0230308, %560 ], [ %.6236, %742 ]
+  %.1228 = phi i32 [ %.0227309, %560 ], [ %.6, %742 ]
   call void @VP8LBitWriterSwap(ptr noundef %18, ptr noundef nonnull %4) #8
   %746 = add i32 %529, %.2
   %747 = call i32 @WebPReportProgress(ptr noundef %16, i32 noundef %746, ptr noundef nonnull %11) #8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %566, %._crit_edge307.i, %590, %._crit_edge316.i, %676, %664, %645, %603, %588, %558, %543, %541, %534
-  %.6236 = phi i32 [ %.0230308, %534 ], [ %.0230308, %541 ], [ %.0230308, %543 ], [ %.0230308, %558 ], [ %.5235, %._crit_edge316.i ], [ %.2232, %588 ], [ %.2232, %603 ], [ %.2232, %645 ], [ %.2232, %664 ], [ %.2232, %676 ], [ %.2232, %590 ], [ %.2232, %._crit_edge307.i ], [ %.1231, %566 ]
-  %.6 = phi i32 [ %.0227309, %534 ], [ %.0227309, %541 ], [ %.0227309, %543 ], [ %.0227309, %558 ], [ %.5, %._crit_edge316.i ], [ %.2229, %588 ], [ %.2229, %603 ], [ %.2229, %645 ], [ %.2229, %664 ], [ %.2229, %676 ], [ %.2229, %590 ], [ %.2229, %._crit_edge307.i ], [ %.1228, %566 ]
-  %.3.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ null, %588 ], [ %599, %603 ], [ %599, %645 ], [ %599, %664 ], [ %599, %676 ], [ %599, %._crit_edge307.i ], [ null, %590 ], [ null, %566 ]
-  %.2221.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ null, %588 ], [ null, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ %698, %._crit_edge307.i ], [ null, %590 ], [ null, %566 ]
-  %.2211.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ %585, %588 ], [ %585, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ null, %._crit_edge307.i ], [ %585, %590 ], [ null, %566 ]
-  %.2.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ %584, %588 ], [ %584, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ null, %._crit_edge307.i ], [ %584, %590 ], [ null, %566 ]
-  call void @WebPSafeFree(ptr noundef %.2221.i) #8
+  %.2232 = phi i32 [ %.0230308, %534 ], [ %.0230308, %541 ], [ %.0230308, %543 ], [ %.0230308, %558 ], [ %.1231, %._crit_edge316.i ], [ %.4234, %588 ], [ %.4234, %603 ], [ %.4234, %645 ], [ %.4234, %664 ], [ %.4234, %676 ], [ %.4234, %590 ], [ %.4234, %._crit_edge307.i ], [ %.3233, %566 ]
+  %.2229 = phi i32 [ %.0227309, %534 ], [ %.0227309, %541 ], [ %.0227309, %543 ], [ %.0227309, %558 ], [ %.1228, %._crit_edge316.i ], [ %.4, %588 ], [ %.4, %603 ], [ %.4, %645 ], [ %.4, %664 ], [ %.4, %676 ], [ %.4, %590 ], [ %.4, %._crit_edge307.i ], [ %.3, %566 ]
+  %.0222.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ null, %588 ], [ %599, %603 ], [ %599, %645 ], [ %599, %664 ], [ %599, %676 ], [ %599, %._crit_edge307.i ], [ null, %590 ], [ null, %566 ]
+  %.0219.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ null, %588 ], [ null, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ %698, %._crit_edge307.i ], [ null, %590 ], [ null, %566 ]
+  %.0209.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ %585, %588 ], [ %585, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ null, %._crit_edge307.i ], [ %585, %590 ], [ null, %566 ]
+  %.0207.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ %584, %588 ], [ %584, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ null, %._crit_edge307.i ], [ %584, %590 ], [ null, %566 ]
+  call void @WebPSafeFree(ptr noundef %.0219.i) #8
   call void @WebPSafeFree(ptr noundef %530) #8
-  call void @VP8LFreeHistogramSet(ptr noundef %.2.i) #8
-  call void @VP8LFreeHistogram(ptr noundef %.2211.i) #8
+  call void @VP8LFreeHistogramSet(ptr noundef %.0207.i) #8
+  call void @VP8LFreeHistogram(ptr noundef %.0209.i) #8
   call void @VP8LHashChainClear(ptr noundef nonnull %5) #8
-  %.not252.i = icmp eq ptr %.3.i, null
+  %.not252.i = icmp eq ptr %.0222.i, null
   br i1 %.not252.i, label %EncodeImageInternal.exit, label %748
 
 748:                                              ; preds = %.loopexit.i
-  %749 = getelementptr inbounds i8, ptr %.3.i, i64 16
+  %749 = getelementptr inbounds i8, ptr %.0222.i, i64 16
   %750 = load ptr, ptr %749, align 8
   call void @WebPSafeFree(ptr noundef %750) #8
-  call void @WebPSafeFree(ptr noundef nonnull %.3.i) #8
+  call void @WebPSafeFree(ptr noundef nonnull %.0222.i) #8
   br label %EncodeImageInternal.exit
 
 EncodeImageInternal.exit:                         ; preds = %.loopexit.i, %748
@@ -2685,8 +2685,8 @@ EncodeImageInternal.exit:                         ; preds = %.loopexit.i, %748
   %786 = sub i64 %762, %51
   %787 = trunc i64 %786 to i32
   store i32 %787, ptr %94, align 4
-  store i32 %.6236, ptr %95, align 4
-  store i32 %.6, ptr %96, align 4
+  store i32 %.2232, ptr %95, align 4
+  store i32 %.2229, ptr %96, align 4
   br label %788
 
 788:                                              ; preds = %764, %780, %752

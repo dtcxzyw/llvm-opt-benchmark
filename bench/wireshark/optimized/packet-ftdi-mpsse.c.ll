@@ -1126,7 +1126,7 @@ dissect_non_data_shifting_command_parameters.exit.i: ; preds = %dissect_io_open_
   br label %dissect_command.exit
 
 dissect_command.exit:                             ; preds = %estimated_command_parameters_length.exit.i, %330
-  %.1102 = phi i32 [ 0, %330 ], [ 1, %estimated_command_parameters_length.exit.i ]
+  %.4105 = phi i32 [ 0, %330 ], [ 1, %estimated_command_parameters_length.exit.i ]
   %.0.i = phi i32 [ %331, %330 ], [ 0, %estimated_command_parameters_length.exit.i ]
   %332 = add i32 %.0.i, %.072155
   %333 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %332) #6
@@ -1150,21 +1150,21 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br i1 %.not80133, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader112, %346
-  %.0134 = phi ptr [ %348, %346 ], [ %338, %.preheader112 ]
-  %344 = getelementptr inbounds i8, ptr %.0134, i64 24
+  %.1134 = phi ptr [ %348, %346 ], [ %338, %.preheader112 ]
+  %344 = getelementptr inbounds i8, ptr %.1134, i64 24
   %345 = load i32, ptr %344, align 8
   %.not81 = icmp eq i32 %345, 0
   br i1 %.not81, label %.critedge2, label %346
 
 346:                                              ; preds = %.lr.ph
-  %347 = getelementptr inbounds i8, ptr %.0134, i64 48
+  %347 = getelementptr inbounds i8, ptr %.1134, i64 48
   %348 = load ptr, ptr %347, align 8
   %.not80 = icmp eq ptr %348, null
   br i1 %.not80, label %.critedge2, label %.lr.ph, !llvm.loop !8
 
 .critedge2:                                       ; preds = %.lr.ph, %346, %.preheader112
-  %.0.lcssa = phi ptr [ null, %.preheader112 ], [ null, %346 ], [ %.0134, %.lr.ph ]
-  %.not82 = icmp eq ptr %.0.lcssa, %338
+  %.1.lcssa = phi ptr [ null, %.preheader112 ], [ null, %346 ], [ %.1134, %.lr.ph ]
+  %.not82 = icmp eq ptr %.1.lcssa, %338
   br i1 %.not82, label %374, label %349
 
 349:                                              ; preds = %.critedge2
@@ -1217,7 +1217,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   store i32 0, ptr %372, align 16
   %373 = getelementptr inbounds i8, ptr %10, i64 104
   store ptr null, ptr %373, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %350, ptr noundef nonnull %10, ptr noundef %.0.lcssa) #6
+  call void @wmem_tree_insert32_array(ptr noundef %350, ptr noundef nonnull %10, ptr noundef %.1.lcssa) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1227,7 +1227,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br label %374
 
 374:                                              ; preds = %.critedge2, %349, %336
-  %.1 = phi ptr [ %338, %336 ], [ %.0.lcssa, %349 ], [ %.0.lcssa, %.critedge2 ]
+  %.0 = phi ptr [ %338, %336 ], [ %.1.lcssa, %349 ], [ %.1.lcssa, %.critedge2 ]
   %375 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %376 = icmp sgt i32 %375, 0
   br i1 %376, label %.lr.ph148, label %.thread
@@ -1237,14 +1237,14 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br label %378
 
 378:                                              ; preds = %.lr.ph148, %554
-  %.2143 = phi ptr [ %.1, %.lr.ph148 ], [ %.3, %554 ]
-  %.173138 = phi i32 [ 0, %.lr.ph148 ], [ %.274, %554 ]
+  %.2143 = phi ptr [ %.0, %.lr.ph148 ], [ %.3, %554 ]
+  %.274138 = phi i32 [ 0, %.lr.ph148 ], [ %.375, %554 ]
   %.not84 = icmp eq ptr %.2143, null
   br i1 %.not84, label %379, label %382
 
 379:                                              ; preds = %378
-  %380 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_response_without_command, ptr noundef %0, i32 noundef %.173138, i32 noundef -1) #6
-  %381 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.173138) #6
+  %380 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_response_without_command, ptr noundef %0, i32 noundef %.274138, i32 noundef -1) #6
+  %381 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.274138) #6
   br label %554
 
 382:                                              ; preds = %378
@@ -1261,7 +1261,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br i1 %389, label %.preheader.i, label %392
 
 .preheader.i:                                     ; preds = %386
-  %390 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.173138) #6
+  %390 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.274138) #6
   %391 = icmp slt i32 %390, 2
   br i1 %391, label %.critedge.i, label %.lr.ph.i
 
@@ -1270,10 +1270,10 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph._crit_edge.i
-  %.06383.i = phi i32 [ %395, %.lr.ph._crit_edge.i ], [ %.173138, %.preheader.i ]
-  %393 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06383.i) #6
+  %.183.i = phi i32 [ %395, %.lr.ph._crit_edge.i ], [ %.274138, %.preheader.i ]
+  %393 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.183.i) #6
   %394 = icmp eq i8 %393, -6
-  %395 = add i32 %.06383.i, 1
+  %395 = add i32 %.183.i, 1
   br i1 %394, label %396, label %.lr.ph._crit_edge.i
 
 396:                                              ; preds = %.lr.ph.i
@@ -1288,25 +1288,25 @@ dissect_command.exit:                             ; preds = %estimated_command_p
   br i1 %401, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %.lr.ph._crit_edge.i, %.preheader.i
-  %.063.lcssa.i = phi i32 [ %.173138, %.preheader.i ], [ %395, %.lr.ph._crit_edge.i ]
-  %402 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.063.lcssa.i) #6
+  %.1.lcssa.i = phi i32 [ %.274138, %.preheader.i ], [ %395, %.lr.ph._crit_edge.i ]
+  %402 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.lcssa.i) #6
   %403 = icmp eq i8 %402, -6
   %spec.select.i = zext i1 %403 to i32
   %not..i = xor i1 %403, true
   %404 = zext i1 %not..i to i32
-  %spec.select73.i = add i32 %.063.lcssa.i, %404
+  %spec.select73.i = add i32 %.1.lcssa.i, %404
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %396, %.critedge.i
   %405 = phi i1 [ true, %.critedge.i ], [ false, %396 ]
   %.065.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %396 ]
-  %.1.i = phi i32 [ %spec.select73.i, %.critedge.i ], [ %.06383.i, %396 ]
-  %.not71.i = icmp eq i32 %.1.i, %.173138
+  %.2.i = phi i32 [ %spec.select73.i, %.critedge.i ], [ %.183.i, %396 ]
+  %.not71.i = icmp eq i32 %.2.i, %.274138
   br i1 %.not71.i, label %proto_item_set_generated.exit76.i, label %406
 
 406:                                              ; preds = %.loopexit.i
-  %407 = sub i32 %.1.i, %.173138
-  %408 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_skipped_response_data, ptr noundef %0, i32 noundef %.173138, i32 noundef %407) #6
+  %407 = sub i32 %.2.i, %.274138
+  %408 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_skipped_response_data, ptr noundef %0, i32 noundef %.274138, i32 noundef %407) #6
   %409 = load i32, ptr @ett_mpsse_skipped_response_data, align 4
   %410 = call ptr @proto_item_add_subtree(ptr noundef %408, i32 noundef %409) #6
   %411 = load i32, ptr @hf_mpsse_command_in, align 4
@@ -1362,13 +1362,13 @@ proto_item_set_generated.exit76.i:                ; preds = %434, %431, %426, %p
   br i1 %405, label %438, label %440
 
 438:                                              ; preds = %proto_item_set_generated.exit76.i
-  %439 = sub i32 %.1.i, %.173138
+  %439 = sub i32 %.2.i, %.274138
   br label %dissect_response.exit
 
 440:                                              ; preds = %proto_item_set_generated.exit76.i, %382
   %.064.i = phi ptr [ %385, %382 ], [ @.str.119, %proto_item_set_generated.exit76.i ]
-  %.2.i = phi i32 [ %.173138, %382 ], [ %.1.i, %proto_item_set_generated.exit76.i ]
-  %441 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #6
+  %.063.i = phi i32 [ %.274138, %382 ], [ %.2.i, %proto_item_set_generated.exit76.i ]
+  %441 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.063.i) #6
   %442 = getelementptr inbounds i8, ptr %.2143, i64 32
   %443 = load i32, ptr %442, align 8
   %444 = icmp slt i32 %441, %443
@@ -1376,7 +1376,7 @@ proto_item_set_generated.exit76.i:                ; preds = %434, %431, %426, %p
 
 445:                                              ; preds = %440
   %446 = load i32, ptr @hf_mpsse_response, align 4
-  %447 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %18, i32 noundef %446, ptr noundef %0, i32 noundef %.2.i, i32 noundef %443, ptr noundef null, ptr noundef nonnull @.str.120, ptr noundef nonnull %.064.i) #6
+  %447 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %18, i32 noundef %446, ptr noundef %0, i32 noundef %.063.i, i32 noundef %443, ptr noundef null, ptr noundef nonnull @.str.120, ptr noundef nonnull %.064.i) #6
   %448 = load i32, ptr @ett_mpsse_response_data, align 4
   %449 = call ptr @proto_item_add_subtree(ptr noundef %447, i32 noundef %448) #6
   %450 = load i32, ptr @hf_mpsse_command_in, align 4
@@ -1460,9 +1460,9 @@ proto_item_set_generated.exit79.i:                ; preds = %459, %456, %445
   %hf_mpsse_bytes_in.val.i.i = load i32, ptr @hf_mpsse_bytes_in, align 4
   %hf_mpsse_bits_in.val.i.i = load i32, ptr @hf_mpsse_bits_in, align 4
   %492 = select i1 %489, i32 %hf_mpsse_bytes_in.val.i.i, i32 %hf_mpsse_bits_in.val.i.i
-  %493 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %492, ptr noundef %0, i32 noundef %.2.i, i32 noundef %490, i32 noundef %..i.i) #6
+  %493 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %492, ptr noundef %0, i32 noundef %.063.i, i32 noundef %490, i32 noundef %..i.i) #6
   %494 = load i32, ptr %442, align 8
-  %495 = add i32 %494, %.2.i
+  %495 = add i32 %494, %.063.i
   br label %dissect_response_data.exit.i
 
 496:                                              ; preds = %484
@@ -1532,7 +1532,7 @@ proto_item_set_generated.exit79.i:                ; preds = %459, %456, %445
 get_data_bit_pin_prefix.exit.i.i.i95:             ; preds = %518, %517, %514, %513, %510, %506, %503
   %.03.i.i.i96 = phi i32 [ 0, %518 ], [ 8, %517 ], [ 8, %513 ], [ 8, %506 ], [ 8, %503 ], [ 8, %510 ], [ 8, %514 ]
   %.0.i.i.i.i97 = phi ptr [ null, %518 ], [ @.str.217, %517 ], [ @.str.217, %513 ], [ @.str.215, %506 ], [ @.str.215, %503 ], [ @.str.215, %510 ], [ @.str.215, %514 ]
-  call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %449, i32 noundef %.2.i, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i.i97, i32 noundef %.03.i.i.i96)
+  call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %449, i32 noundef %.063.i, ptr noundef nonnull @get_data_bit_pin_prefix.low_byte_signal_names, ptr noundef %.0.i.i.i.i97, i32 noundef %.03.i.i.i96)
   br label %dissect_non_data_shifting_command_response.exit.i.i
 
 519:                                              ; preds = %501
@@ -1567,17 +1567,17 @@ get_data_bit_pin_prefix.exit.i.i.i95:             ; preds = %518, %517, %514, %5
 get_data_bit_pin_prefix.exit22.i.i.i:             ; preds = %530, %529, %526, %522, %519
   %.1.i.i.i = phi i32 [ 0, %530 ], [ 8, %529 ], [ 4, %522 ], [ 8, %519 ], [ 8, %526 ]
   %.0.i21.i.i.i = phi ptr [ null, %530 ], [ @.str.216, %529 ], [ @.str.214, %522 ], [ @.str.214, %519 ], [ @.str.214, %526 ]
-  call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %449, i32 noundef %.2.i, ptr noundef nonnull @get_data_bit_pin_prefix.high_byte_signal_names, ptr noundef %.0.i21.i.i.i, i32 noundef %.1.i.i.i)
+  call fastcc void @dissect_read_data_bits_response(ptr noundef %0, ptr noundef %449, i32 noundef %.063.i, ptr noundef nonnull @get_data_bit_pin_prefix.high_byte_signal_names, ptr noundef %.0.i21.i.i.i, i32 noundef %.1.i.i.i)
   br label %dissect_non_data_shifting_command_response.exit.i.i
 
 531:                                              ; preds = %501, %501
   %532 = load i32, ptr @hf_mpsse_cpumode_data, align 4
-  %533 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %532, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef -2147483648) #6
+  %533 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %532, ptr noundef %0, i32 noundef %.063.i, i32 noundef 1, i32 noundef -2147483648) #6
   br label %dissect_non_data_shifting_command_response.exit.i.i
 
 dissect_non_data_shifting_command_response.exit.i.i: ; preds = %531, %get_data_bit_pin_prefix.exit22.i.i.i, %get_data_bit_pin_prefix.exit.i.i.i95, %501
   %.0.i.i.i92 = phi i32 [ 1, %531 ], [ 1, %get_data_bit_pin_prefix.exit22.i.i.i ], [ 1, %get_data_bit_pin_prefix.exit.i.i.i95 ], [ 0, %501 ]
-  %534 = add i32 %.0.i.i.i92, %.2.i
+  %534 = add i32 %.0.i.i.i92, %.063.i
   %535 = load i32, ptr %442, align 8
   %.not57.i.i = icmp sgt i32 %.0.i.i.i92, %535
   br i1 %.not57.i.i, label %536, label %537
@@ -1594,45 +1594,45 @@ dissect_non_data_shifting_command_response.exit.i.i: ; preds = %531, %get_data_b
   %540 = sub nuw nsw i32 %535, %.0.i.i.i92
   %541 = call ptr @proto_tree_add_expert(ptr noundef %449, ptr noundef nonnull %1, ptr noundef nonnull @ei_undecoded, ptr noundef %0, i32 noundef %534, i32 noundef %540) #6
   %542 = load i32, ptr %442, align 8
-  %543 = add i32 %542, %.2.i
+  %543 = add i32 %542, %.063.i
   br label %dissect_response_data.exit.i
 
 544:                                              ; preds = %481
   %545 = load i32, ptr @hf_mpsse_bad_command_error, align 4
-  %546 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %545, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef -2147483648) #6
-  %547 = add i32 %.2.i, 1
+  %546 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %545, ptr noundef %0, i32 noundef %.063.i, i32 noundef 1, i32 noundef -2147483648) #6
+  %547 = add i32 %.063.i, 1
   %548 = load i32, ptr @hf_mpsse_bad_command_code, align 4
   %549 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %548, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef -2147483648) #6
-  %550 = add i32 %.2.i, 2
+  %550 = add i32 %.063.i, 2
   br label %dissect_response_data.exit.i
 
 dissect_response_data.exit.i:                     ; preds = %544, %539, %537, %487
   %.0.i.i93 = phi i32 [ %495, %487 ], [ %543, %539 ], [ %534, %537 ], [ %550, %544 ]
-  %551 = sub i32 %.0.i.i93, %.173138
+  %551 = sub i32 %.0.i.i93, %.274138
   br label %dissect_response.exit
 
 dissect_response.exit:                            ; preds = %440, %438, %dissect_response_data.exit.i
-  %.3104 = phi i32 [ %.065.i, %438 ], [ 0, %dissect_response_data.exit.i ], [ 1, %440 ]
+  %.5 = phi i32 [ %.065.i, %438 ], [ 0, %dissect_response_data.exit.i ], [ 1, %440 ]
   %.0.i94 = phi i32 [ %439, %438 ], [ %551, %dissect_response_data.exit.i ], [ 0, %440 ]
   %552 = getelementptr inbounds i8, ptr %.2143, i64 48
   %553 = load ptr, ptr %552, align 8
   br label %554
 
 554:                                              ; preds = %dissect_response.exit, %379
-  %.4105 = phi i32 [ 0, %379 ], [ %.3104, %dissect_response.exit ]
+  %.3104 = phi i32 [ 0, %379 ], [ %.5, %dissect_response.exit ]
   %.pn = phi i32 [ %381, %379 ], [ %.0.i94, %dissect_response.exit ]
   %.3 = phi ptr [ null, %379 ], [ %553, %dissect_response.exit ]
-  %.274 = add i32 %.pn, %.173138
-  %555 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.274) #6
+  %.375 = add i32 %.pn, %.274138
+  %555 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.375) #6
   %556 = icmp sgt i32 %555, 0
-  %.not83 = icmp eq i32 %.4105, 0
+  %.not83 = icmp eq i32 %.3104, 0
   %557 = select i1 %556, i1 %.not83, i1 false
   br i1 %557, label %378, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %554, %dissect_command.exit
-  %.5 = phi i32 [ %.1102, %dissect_command.exit ], [ %.4105, %554 ]
-  %.375 = phi i32 [ %332, %dissect_command.exit ], [ %.274, %554 ]
-  %.not87 = icmp eq i32 %.5, 0
+  %.1102 = phi i32 [ %.4105, %dissect_command.exit ], [ %.3104, %554 ]
+  %.173 = phi i32 [ %332, %dissect_command.exit ], [ %.375, %554 ]
+  %.not87 = icmp eq i32 %.1102, 0
   br i1 %.not87, label %.thread, label %558
 
 558:                                              ; preds = %.loopexit
@@ -1643,22 +1643,22 @@ dissect_response.exit:                            ; preds = %440, %438, %dissect
 
 561:                                              ; preds = %558
   %562 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.375, ptr %562, align 4
+  store i32 %.173, ptr %562, align 4
   %563 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 268435455, ptr %563, align 8
   br label %566
 
 564:                                              ; preds = %558
-  %565 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull @ei_reassembly_unavailable, ptr noundef %0, i32 noundef %.375, i32 noundef -1) #6
+  %565 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull @ei_reassembly_unavailable, ptr noundef %0, i32 noundef %.173, i32 noundef -1) #6
   br label %566
 
 566:                                              ; preds = %564, %561
-  %567 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.375) #6
-  %568 = add i32 %567, %.375
+  %567 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.173) #6
+  %568 = add i32 %567, %.173
   br label %.thread
 
 .thread:                                          ; preds = %374, %.critedge, %14, %566, %.loopexit
-  %.4 = phi i32 [ %568, %566 ], [ %.375, %.loopexit ], [ 0, %14 ], [ 0, %.critedge ], [ 0, %374 ]
+  %.4 = phi i32 [ %568, %566 ], [ %.173, %.loopexit ], [ 0, %14 ], [ 0, %.critedge ], [ 0, %374 ]
   %569 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #6
   %570 = icmp sgt i32 %569, 0
   br i1 %570, label %571, label %573

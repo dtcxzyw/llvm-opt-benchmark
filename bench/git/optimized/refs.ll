@@ -826,7 +826,7 @@ if.end10.else:                                    ; preds = %if.end10
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end10.else, %if.end10, %entry.cont
-  %unused_flags.2 = phi i32 [ 0, %entry.cont ], [ 0, %if.end10.else ], [ 8, %if.end10 ]
+  %unused_flags.0 = phi i32 [ 0, %entry.cont ], [ 0, %if.end10.else ], [ 8, %if.end10 ]
   %and42 = and i32 %resolve_flags, 2
   %tobool43.not = icmp eq i32 %and42, 0
   br i1 %tobool43.not, label %if.end11.split.us, label %for.body
@@ -842,7 +842,7 @@ if.end11.split.us.split.us:                       ; preds = %if.end11.split.us
 for.body.us.us.us:                                ; preds = %if.end11.split.us.split.us, %if.end41.us.us.us
   %symref_count.090.us.us.us = phi i32 [ %inc.us.us.us, %if.end41.us.us.us ], [ 0, %if.end11.split.us.split.us ]
   %refname.addr.089.us.us.us = phi ptr [ %1, %if.end41.us.us.us ], [ %refname, %if.end11.split.us.split.us ]
-  %unused_flags.388.us.us.us = phi i32 [ %or3278.us.us.us, %if.end41.us.us.us ], [ %unused_flags.2, %if.end11.split.us.split.us ]
+  %unused_flags.188.us.us.us = phi i32 [ %or3278.us.us.us, %if.end41.us.us.us ], [ %unused_flags.0, %if.end11.split.us.split.us ]
   store i32 0, ptr %read_flags, align 4
   %call12.us.us.us = call i32 @refs_read_raw_ref(ptr noundef %refs, ptr noundef %refname.addr.089.us.us.us, ptr noundef nonnull %spec.select, ptr noundef nonnull @refs_resolve_ref_unsafe.sb_refname, ptr noundef nonnull %read_flags, ptr noundef nonnull %failure_errno)
   %tobool13.not.us.us.us = icmp eq i32 %call12.us.us.us, 0
@@ -850,7 +850,7 @@ for.body.us.us.us:                                ; preds = %if.end11.split.us.s
 
 if.end31.us.us.us:                                ; preds = %for.body.us.us.us
   %0 = load i32, ptr %read_flags, align 4
-  %or3278.us.us.us = or i32 %0, %unused_flags.388.us.us.us
+  %or3278.us.us.us = or i32 %0, %unused_flags.188.us.us.us
   %and33.us.us.us = and i32 %0, 1
   %tobool34.not.us.us.us = icmp eq i32 %and33.us.us.us, 0
   br i1 %tobool34.not.us.us.us, label %if.then35, label %if.end41.us.us.us
@@ -896,7 +896,7 @@ if.end11.split.us.split:                          ; preds = %if.end11.split.us
 for.body.us.us96:                                 ; preds = %if.end11.split.us.split, %for.inc.us.us114
   %symref_count.090.us.us97 = phi i32 [ %inc.us.us116, %for.inc.us.us114 ], [ 0, %if.end11.split.us.split ]
   %refname.addr.089.us.us98 = phi ptr [ %5, %for.inc.us.us114 ], [ %refname, %if.end11.split.us.split ]
-  %unused_flags.388.us.us99 = phi i32 [ %unused_flags.7.us.us115, %for.inc.us.us114 ], [ %unused_flags.2, %if.end11.split.us.split ]
+  %unused_flags.188.us.us99 = phi i32 [ %unused_flags.2.us.us115, %for.inc.us.us114 ], [ %unused_flags.0, %if.end11.split.us.split ]
   store i32 0, ptr %read_flags, align 4
   %call12.us.us100 = call i32 @refs_read_raw_ref(ptr noundef %refs, ptr noundef %refname.addr.089.us.us98, ptr noundef nonnull %spec.select, ptr noundef nonnull @refs_resolve_ref_unsafe.sb_refname, ptr noundef nonnull %read_flags, ptr noundef nonnull %failure_errno)
   %tobool13.not.us.us101 = icmp eq i32 %call12.us.us100, 0
@@ -904,7 +904,7 @@ for.body.us.us96:                                 ; preds = %if.end11.split.us.s
 
 if.end31.us.us102:                                ; preds = %for.body.us.us96
   %4 = load i32, ptr %read_flags, align 4
-  %or3278.us.us104 = or i32 %4, %unused_flags.388.us.us99
+  %or3278.us.us104 = or i32 %4, %unused_flags.188.us.us99
   %and33.us.us108 = and i32 %4, 1
   %tobool34.not.us.us109 = icmp eq i32 %and33.us.us108, 0
   br i1 %tobool34.not.us.us109, label %if.then35, label %if.end41.us.us110
@@ -921,7 +921,7 @@ if.then48.us.us113:                               ; preds = %if.end41.us.us110
   br i1 %tobool53.not.us.us, label %return, label %for.inc.us.us114
 
 for.inc.us.us114:                                 ; preds = %if.then48.us.us113, %if.end41.us.us110
-  %unused_flags.7.us.us115 = phi i32 [ %or3278.us.us104, %if.end41.us.us110 ], [ 12, %if.then48.us.us113 ]
+  %unused_flags.2.us.us115 = phi i32 [ %or3278.us.us104, %if.end41.us.us110 ], [ 12, %if.then48.us.us113 ]
   %inc.us.us116 = add nuw nsw i32 %symref_count.090.us.us97, 1
   %exitcond149.not = icmp eq i32 %inc.us.us116, 5
   br i1 %exitcond149.not, label %return, label %for.body.us.us96, !llvm.loop !9
@@ -1027,7 +1027,7 @@ if.end31:                                         ; preds = %for.body
   br i1 %tobool1.not, label %if.end31.then, label %if.end31.else
 
 if.end31.then:                                    ; preds = %if.end31
-  %or3278 = or i32 %12, %unused_flags.2
+  %or3278 = or i32 %12, %unused_flags.0
   br label %if.end31.cont
 
 if.end31.else:                                    ; preds = %if.end31
@@ -2261,12 +2261,12 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %if.end5, !llvm.loop !7
 
 if.end5:                                          ; preds = %do.cond.i, %do.body.i, %if.end
-  %refname.addr.1 = phi ptr [ %refname, %if.end ], [ %str.addr.0.i, %do.body.i ], [ %refname, %do.cond.i ]
+  %refname.addr.0 = phi ptr [ %refname, %if.end ], [ %str.addr.0.i, %do.body.i ], [ %refname, %do.cond.i ]
   %fn = getelementptr inbounds i8, ptr %data, i64 16
   %4 = load ptr, ptr %fn, align 8
   %cb_data = getelementptr inbounds i8, ptr %data, i64 24
   %5 = load ptr, ptr %cb_data, align 8
-  %call6 = tail call i32 %4(ptr noundef %refname.addr.1, ptr noundef %oid, i32 noundef %flags, ptr noundef %5) #23
+  %call6 = tail call i32 %4(ptr noundef %refname.addr.0, ptr noundef %oid, i32 noundef %flags, ptr noundef %5) #23
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
@@ -2341,8 +2341,8 @@ do.cond.i15:                                      ; preds = %do.body.i11
   br i1 %cmp.i18, label %do.body.i11, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %do.body.i, %do.body.i1, %do.cond.i15, %do.body.i11
-  %name.addr.3 = phi ptr [ %scevgep35, %do.body.i11 ], [ %name, %do.cond.i15 ], [ %scevgep33, %do.body.i1 ], [ %scevgep, %do.body.i ]
-  ret ptr %name.addr.3
+  %name.addr.0 = phi ptr [ %scevgep35, %do.body.i11 ], [ %name, %do.cond.i15 ], [ %scevgep33, %do.body.i1 ], [ %scevgep, %do.body.i ]
+  ret ptr %name.addr.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2576,7 +2576,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %p.018 = phi ptr [ @ref_rev_parse_rules, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %refs_found.017 = phi i32 [ 0, %for.body.lr.ph ], [ %refs_found.1, %for.inc ]
+  %refs_found.017 = phi i32 [ 0, %for.body.lr.ph ], [ %refs_found.2, %for.inc ]
   %1 = load ptr, ptr %refs_private.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %get_main_ref_store.exit
@@ -2699,16 +2699,16 @@ _.exit15:                                         ; preds = %if.then24, %if.end3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.else17, %land.lhs.true20, %_.exit15, %_.exit
-  %refs_found.1 = phi i32 [ %inc, %if.end ], [ %refs_found.017, %_.exit ], [ %refs_found.017, %_.exit15 ], [ %refs_found.017, %land.lhs.true20 ], [ %refs_found.017, %if.else17 ]
+  %refs_found.2 = phi i32 [ %inc, %if.end ], [ %refs_found.017, %_.exit ], [ %refs_found.017, %_.exit15 ], [ %refs_found.017, %land.lhs.true20 ], [ %refs_found.017, %if.else17 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.018, i64 8
   %17 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
-  %refs_found.2 = phi i32 [ 0, %entry ], [ %inc, %if.end ], [ %refs_found.1, %for.inc ]
+  %refs_found.1 = phi i32 [ 0, %entry ], [ %inc, %if.end ], [ %refs_found.2, %for.inc ]
   call void @strbuf_release(ptr noundef nonnull %fullref) #23
-  ret i32 %refs_found.2
+  ret i32 %refs_found.1
 }
 
 declare void @warning(ptr noundef, ...) local_unnamed_addr #7
@@ -2801,7 +2801,7 @@ for.body.lr.ph:                                   ; preds = %substitute_branch_n
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %7 = phi ptr [ %6, %for.body.lr.ph ], [ %19, %for.inc ]
   %p.027 = phi ptr [ @ref_rev_parse_rules, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %logs_found.026 = phi i32 [ 0, %for.body.lr.ph ], [ %logs_found.1, %for.inc ]
+  %logs_found.026 = phi i32 [ 0, %for.body.lr.ph ], [ %logs_found.2, %for.inc ]
   store i64 0, ptr %len2.i, align 8
   %8 = load ptr, ptr %buf.i16, align 8
   %cmp3.not.i = icmp eq ptr %8, @strbuf_slopbuf
@@ -2866,17 +2866,17 @@ if.end25:                                         ; preds = %if.then20, %if.then
   br i1 %tobool26.not, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end25, %if.else, %land.lhs.true, %strbuf_setlen.exit
-  %logs_found.1 = phi i32 [ %inc, %if.end25 ], [ %logs_found.026, %land.lhs.true ], [ %logs_found.026, %if.else ], [ %logs_found.026, %strbuf_setlen.exit ]
+  %logs_found.2 = phi i32 [ %inc, %if.end25 ], [ %logs_found.026, %land.lhs.true ], [ %logs_found.026, %if.else ], [ %logs_found.026, %strbuf_setlen.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.027, i64 8
   %19 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %19, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %if.end25, %substitute_branch_name.exit
-  %logs_found.2 = phi i32 [ 0, %substitute_branch_name.exit ], [ %inc, %if.end25 ], [ %logs_found.1, %for.inc ]
+  %logs_found.1 = phi i32 [ 0, %substitute_branch_name.exit ], [ %inc, %if.end25 ], [ %logs_found.2, %for.inc ]
   call void @strbuf_release(ptr noundef nonnull %path) #23
   call void @free(ptr noundef %retval.0.i13) #23
-  ret i32 %logs_found.2
+  ret i32 %logs_found.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7969,7 +7969,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end6
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %item.03440 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %land.rhs.lr.ph ]
-  %failures.03539 = phi i32 [ %failures.1, %for.inc ], [ 0, %land.rhs.lr.ph ]
+  %failures.13539 = phi i32 [ %failures.2, %for.inc ], [ 0, %land.rhs.lr.ph ]
   %4 = load ptr, ptr %item.03440, align 8
   %call23.i = call ptr @null_oid() #23
   %call34.i = call i32 @ref_transaction_update(ptr noundef nonnull %call.i, ptr noundef %4, ptr noundef %call23.i, ptr noundef null, i32 noundef %flags, ptr noundef %call, ptr noundef nonnull %err)
@@ -8000,7 +8000,7 @@ if.then4.i:                                       ; preds = %_.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then4.i, %_.exit, %for.body
-  %failures.1 = phi i32 [ %failures.03539, %for.body ], [ 1, %_.exit ], [ 1, %if.then4.i ]
+  %failures.2 = phi i32 [ %failures.13539, %for.body ], [ 1, %_.exit ], [ 1, %if.then4.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %item.03440, i64 16
   %9 = load ptr, ptr %refnames, align 8
   %10 = load i64, ptr %nr, align 8
@@ -8009,17 +8009,17 @@ for.inc:                                          ; preds = %if.then4.i, %_.exit
   br i1 %cmp, label %for.body, label %land.rhs.for.end.loopexit_crit_edge
 
 land.rhs.for.end.loopexit_crit_edge:              ; preds = %for.inc
-  %11 = icmp ne i32 %failures.1, 0
+  %11 = icmp ne i32 %failures.2, 0
   br label %for.end.loopexit
 
 for.end.loopexit:                                 ; preds = %land.rhs.for.end.loopexit_crit_edge, %land.rhs.lr.ph
-  %failures.035.lcssa = phi i1 [ %11, %land.rhs.for.end.loopexit_crit_edge ], [ false, %land.rhs.lr.ph ]
+  %failures.135.lcssa = phi i1 [ %11, %land.rhs.for.end.loopexit_crit_edge ], [ false, %land.rhs.lr.ph ]
   %.pre = load ptr, ptr %call.i, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end6
   %12 = phi ptr [ %refs, %if.end6 ], [ %.pre, %for.end.loopexit ]
-  %failures.0.lcssa = phi i1 [ false, %if.end6 ], [ %failures.035.lcssa, %for.end.loopexit ]
+  %failures.1.lcssa = phi i1 [ false, %if.end6 ], [ %failures.135.lcssa, %for.end.loopexit ]
   %state.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %13 = load i32, ptr %state.i, align 8
   switch i32 %13, label %sw.default.i [
@@ -8094,7 +8094,7 @@ _.exit29:                                         ; preds = %if.else, %if.end3.i
 out:                                              ; preds = %ref_transaction_commit.exit, %_.exit29, %_.exit24
   %ret.0 = phi i32 [ %retval.0.i18.ph, %_.exit24 ], [ %retval.0.i18.ph, %_.exit29 ], [ 0, %ref_transaction_commit.exit ]
   %tobool35 = icmp eq i32 %ret.0, 0
-  %or.cond = select i1 %tobool35, i1 %failures.0.lcssa, i1 false
+  %or.cond = select i1 %tobool35, i1 %failures.1.lcssa, i1 false
   %spec.store.select = select i1 %or.cond, i32 -1, i32 %ret.0
   call void @ref_transaction_free(ptr noundef nonnull %call.i)
   call void @strbuf_release(ptr noundef nonnull %err) #23

@@ -176,7 +176,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %26, label %.lr.ph90, label %._crit_edge91
 
 .lr.ph90:                                         ; preds = %._crit_edge, %.loopexit
-  %.pn87 = phi ptr [ %.3, %.loopexit ], [ %23, %._crit_edge ]
+  %.pn87 = phi ptr [ %.2, %.loopexit ], [ %23, %._crit_edge ]
   %.16786 = phi i32 [ %86, %.loopexit ], [ 1, %._crit_edge ]
   %.188 = getelementptr inbounds i8, ptr %.pn87, i64 16
   %27 = load i8, ptr %.188, align 8
@@ -265,10 +265,10 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %74
 
 74:                                               ; preds = %84, %69
-  %.268 = phi i32 [ %.16786, %69 ], [ %75, %84 ]
+  %.369 = phi i32 [ %.16786, %69 ], [ %75, %84 ]
   %.161 = phi ptr [ %66, %69 ], [ %83, %84 ]
-  %.2 = phi ptr [ %.188, %69 ], [ %85, %84 ]
-  %75 = add nsw i32 %.268, 1
+  %.3 = phi ptr [ %.188, %69 ], [ %85, %84 ]
+  %75 = add nsw i32 %.369, 1
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, i32 noundef %75) #6
   br label %77
 
@@ -290,15 +290,15 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond96.not, label %84, label %77
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.2, i64 16
+  %85 = getelementptr inbounds i8, ptr %.3, i64 16
   %exitcond97.not = icmp eq i32 %75, %73
   br i1 %exitcond97.not, label %.loopexit, label %74
 
 .loopexit:                                        ; preds = %84, %67
-  %.369 = phi i32 [ %.16786, %67 ], [ %73, %84 ]
-  %.3 = phi ptr [ %.188, %67 ], [ %85, %84 ]
+  %.268 = phi i32 [ %.16786, %67 ], [ %73, %84 ]
+  %.2 = phi ptr [ %.188, %67 ], [ %85, %84 ]
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
-  %86 = add nsw i32 %.369, 1
+  %86 = add nsw i32 %.268, 1
   %87 = load i32, ptr %24, align 8
   %88 = icmp slt i32 %86, %87
   br i1 %88, label %.lr.ph90, label %._crit_edge91

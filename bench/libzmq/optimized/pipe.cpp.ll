@@ -2974,8 +2974,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i4
   unreachable
 
 return:                                           ; preds = %if.then.i.i4, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %tobool2, %cleanup ], [ %tobool2, %if.then.i.i4 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %tobool2, %cleanup ], [ %tobool2, %if.then.i.i4 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

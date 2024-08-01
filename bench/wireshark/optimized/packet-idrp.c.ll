@@ -577,7 +577,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   br i1 %114, label %.lr.ph310.i, label %._crit_edge311.i
 
 .lr.ph310.i:                                      ; preds = %._crit_edge.i61, %.loopexit276.i
-  %.1272308.i = phi i32 [ %.8.i, %.loopexit276.i ], [ %111, %._crit_edge.i61 ]
+  %.1272308.i = phi i32 [ %.2273.i, %.loopexit276.i ], [ %111, %._crit_edge.i61 ]
   %115 = load i32, ptr @hf_idrp_update_path_attr_flag, align 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %115, ptr noundef %0, i32 noundef %.1272308.i, i32 noundef 1, i32 noundef 0) #3
   %117 = add nsw i32 %.1272308.i, 1
@@ -629,28 +629,28 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   br label %.loopexit276.i
 
 .loopexit.i:                                      ; preds = %.lr.ph303.i, %.lr.ph306.i
-  %.3274.lcssa.i = phi i32 [ %146, %.lr.ph306.i ], [ %155, %.lr.ph303.i ]
-  %139 = icmp slt i32 %.3274.lcssa.i, %127
+  %.4.lcssa.i = phi i32 [ %146, %.lr.ph306.i ], [ %155, %.lr.ph303.i ]
+  %139 = icmp slt i32 %.4.lcssa.i, %127
   br i1 %139, label %.lr.ph306.i, label %.loopexit276.i, !llvm.loop !9
 
 .lr.ph306.i:                                      ; preds = %.preheader.i, %.loopexit.i
-  %.2273305.i = phi i32 [ %.3274.lcssa.i, %.loopexit.i ], [ %125, %.preheader.i ]
+  %.3274305.i = phi i32 [ %.4.lcssa.i, %.loopexit.i ], [ %125, %.preheader.i ]
   %140 = load i32, ptr @hf_idrp_update_path_attr_rd_path_type, align 4
-  %141 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %140, ptr noundef %0, i32 noundef %.2273305.i, i32 noundef 1, i32 noundef 0) #3
-  %142 = add nsw i32 %.2273305.i, 1
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %140, ptr noundef %0, i32 noundef %.3274305.i, i32 noundef 1, i32 noundef 0) #3
+  %142 = add nsw i32 %.3274305.i, 1
   %143 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %142) #3
   %144 = load i32, ptr @hf_idrp_update_path_attr_rd_path_segment_length, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %144, ptr noundef %0, i32 noundef %142, i32 noundef 2, i32 noundef 0) #3
-  %146 = add i32 %.2273305.i, 3
+  %146 = add i32 %.3274305.i, 3
   %147 = zext i16 %143 to i32
   %148 = add i32 %146, %147
   %149 = icmp slt i32 %146, %148
   br i1 %149, label %.lr.ph303.i, label %.loopexit.i
 
 .lr.ph303.i:                                      ; preds = %.lr.ph306.i, %.lr.ph303.i
-  %.3274301.i = phi i32 [ %155, %.lr.ph303.i ], [ %146, %.lr.ph306.i ]
-  %150 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3274301.i) #3
-  %151 = add nsw i32 %.3274301.i, 1
+  %.4301.i = phi i32 [ %155, %.lr.ph303.i ], [ %146, %.lr.ph306.i ]
+  %150 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4301.i) #3
+  %151 = add nsw i32 %.4301.i, 1
   %152 = load i32, ptr @hf_idrp_update_path_attr_rd_path_rdi, align 4
   %153 = zext i8 %150 to i32
   %154 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef %153, i32 noundef 0) #3
@@ -668,17 +668,17 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   br i1 %163, label %.lr.ph299.i, label %.loopexit276.i
 
 .loopexit275.i:                                   ; preds = %.lr.ph295.i, %.lr.ph299.i
-  %.5.lcssa.i = phi i32 [ %183, %.lr.ph299.i ], [ %192, %.lr.ph295.i ]
-  %164 = icmp slt i32 %.5.lcssa.i, %162
+  %.6.lcssa.i = phi i32 [ %183, %.lr.ph299.i ], [ %192, %.lr.ph295.i ]
+  %164 = icmp slt i32 %.6.lcssa.i, %162
   br i1 %164, label %.lr.ph299.i, label %.loopexit276.i, !llvm.loop !11
 
 .lr.ph299.i:                                      ; preds = %157, %.loopexit275.i
-  %.4297.i = phi i32 [ %.5.lcssa.i, %.loopexit275.i ], [ %160, %157 ]
+  %.5297.i = phi i32 [ %.6.lcssa.i, %.loopexit275.i ], [ %160, %157 ]
   %165 = load i32, ptr @hf_idrp_update_path_attr_next_hop_proto_type, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %165, ptr noundef %0, i32 noundef %.4297.i, i32 noundef 1, i32 noundef 0) #3
-  %167 = add nsw i32 %.4297.i, 1
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %165, ptr noundef %0, i32 noundef %.5297.i, i32 noundef 1, i32 noundef 0) #3
+  %167 = add nsw i32 %.5297.i, 1
   %168 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %167) #3
-  %169 = add i32 %.4297.i, 2
+  %169 = add i32 %.5297.i, 2
   %170 = load i32, ptr @hf_idrp_update_path_attr_next_hop_proto, align 4
   %171 = zext i8 %168 to i32
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef %171, i32 noundef 0) #3
@@ -702,12 +702,12 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 
 .lr.ph295.i:                                      ; preds = %.lr.ph295.i, %.lr.ph295.preheader.i
   %.1293.i = phi i32 [ %193, %.lr.ph295.i ], [ %184, %.lr.ph295.preheader.i ]
-  %.5292.i = phi i32 [ %192, %.lr.ph295.i ], [ %183, %.lr.ph295.preheader.i ]
-  %185 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5292.i) #3
+  %.6292.i = phi i32 [ %192, %.lr.ph295.i ], [ %183, %.lr.ph295.preheader.i ]
+  %185 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6292.i) #3
   %186 = zext i8 %185 to i32
   %187 = add nuw nsw i32 %186, 1
   %188 = lshr i32 %187, 1
-  %189 = add i32 %.5292.i, 1
+  %189 = add i32 %.6292.i, 1
   %190 = load i32, ptr @hf_idrp_update_path_attr_next_hop_snpa, align 4
   %191 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef %188, i32 noundef 0) #3
   %192 = add i32 %188, %189
@@ -729,9 +729,9 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 
 .lr.ph290.i:                                      ; preds = %.lr.ph290.i, %.lr.ph290.preheader.i
   %.2288.i = phi i32 [ %207, %.lr.ph290.i ], [ %200, %.lr.ph290.preheader.i ]
-  %.6287.i = phi i32 [ %206, %.lr.ph290.i ], [ %199, %.lr.ph290.preheader.i ]
-  %201 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6287.i) #3
-  %202 = add i32 %.6287.i, 1
+  %.7287.i = phi i32 [ %206, %.lr.ph290.i ], [ %199, %.lr.ph290.preheader.i ]
+  %201 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7287.i) #3
+  %202 = add i32 %.7287.i, 1
   %203 = load i32, ptr @hf_idrp_update_path_attr_dist_list_excl_rdi, align 4
   %204 = zext i8 %201 to i32
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef %204, i32 noundef 0) #3
@@ -754,9 +754,9 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 
 .lr.ph285.i:                                      ; preds = %.lr.ph285.i, %.lr.ph285.preheader.i
   %.3283.i = phi i32 [ %221, %.lr.ph285.i ], [ %214, %.lr.ph285.preheader.i ]
-  %.7282.i = phi i32 [ %220, %.lr.ph285.i ], [ %213, %.lr.ph285.preheader.i ]
-  %215 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7282.i) #3
-  %216 = add i32 %.7282.i, 1
+  %.8282.i = phi i32 [ %220, %.lr.ph285.i ], [ %213, %.lr.ph285.preheader.i ]
+  %215 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.8282.i) #3
+  %216 = add i32 %.8282.i, 1
   %217 = load i32, ptr @hf_idrp_update_path_attr_dist_list_incl_rdi, align 4
   %218 = zext i8 %215 to i32
   %219 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef %218, i32 noundef 0) #3
@@ -850,12 +850,12 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   br label %.loopexit276.i
 
 .loopexit276.i:                                   ; preds = %.lr.ph285.i, %.lr.ph290.i, %.loopexit275.i, %.loopexit.i, %283, %279, %266, %262, %258, %239, %235, %231, %227, %223, %209, %195, %157, %136, %129, %.preheader.i, %.lr.ph310.i
-  %.8.i = phi i32 [ %125, %.lr.ph310.i ], [ %286, %283 ], [ %282, %279 ], [ %278, %266 ], [ %265, %262 ], [ %261, %258 ], [ %257, %239 ], [ %238, %235 ], [ %234, %231 ], [ %230, %227 ], [ %226, %223 ], [ %125, %136 ], [ %135, %129 ], [ %125, %.preheader.i ], [ %160, %157 ], [ %199, %195 ], [ %213, %209 ], [ %.3274.lcssa.i, %.loopexit.i ], [ %.5.lcssa.i, %.loopexit275.i ], [ %206, %.lr.ph290.i ], [ %220, %.lr.ph285.i ]
-  %287 = icmp slt i32 %.8.i, %113
+  %.2273.i = phi i32 [ %125, %.lr.ph310.i ], [ %286, %283 ], [ %282, %279 ], [ %278, %266 ], [ %265, %262 ], [ %261, %258 ], [ %257, %239 ], [ %238, %235 ], [ %234, %231 ], [ %230, %227 ], [ %226, %223 ], [ %125, %136 ], [ %135, %129 ], [ %125, %.preheader.i ], [ %160, %157 ], [ %199, %195 ], [ %213, %209 ], [ %.4.lcssa.i, %.loopexit.i ], [ %.6.lcssa.i, %.loopexit275.i ], [ %206, %.lr.ph290.i ], [ %220, %.lr.ph285.i ]
+  %287 = icmp slt i32 %.2273.i, %113
   br i1 %287, label %.lr.ph310.i, label %._crit_edge311.i, !llvm.loop !15
 
 ._crit_edge311.i:                                 ; preds = %.loopexit276.i, %._crit_edge.i61
-  %.1272.lcssa.i = phi i32 [ %111, %._crit_edge.i61 ], [ %.8.i, %.loopexit276.i ]
+  %.1272.lcssa.i = phi i32 [ %111, %._crit_edge.i61 ], [ %.2273.i, %.loopexit276.i ]
   %288 = load i32, ptr @hf_idrp_update_nlri_proto_type, align 4
   %289 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %288, ptr noundef %0, i32 noundef %.1272.lcssa.i, i32 noundef 1, i32 noundef 0) #3
   %290 = add i32 %.1272.lcssa.i, 1

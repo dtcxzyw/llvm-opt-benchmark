@@ -276,49 +276,49 @@ do.body:                                          ; preds = %do.body.preheader, 
   %mul1.i8489 = phi i32 [ %mul1.i84, %do.body ], [ %arrayidx81.promoted, %do.body.preheader ]
   %mul1.i8188 = phi i32 [ %mul1.i81, %do.body ], [ %arrayidx74.promoted, %do.body.preheader ]
   %11 = phi i32 [ %mul1.i78, %do.body ], [ %v66.promoted, %do.body.preheader ]
-  %p.1 = phi ptr [ %add.ptr93, %do.body ], [ %p.0, %do.body.preheader ]
-  %p.1.val = load i32, ptr %p.1, align 1
-  %mul.i76 = mul i32 %p.1.val, -2048144777
+  %p.2 = phi ptr [ %add.ptr93, %do.body ], [ %p.0, %do.body.preheader ]
+  %p.2.val = load i32, ptr %p.2, align 1
+  %mul.i76 = mul i32 %p.2.val, -2048144777
   %add.i77 = add i32 %mul.i76, %11
   %12 = tail call i32 @llvm.fshl.i32(i32 %add.i77, i32 %add.i77, i32 13)
   %mul1.i78 = mul i32 %12, -1640531535
   store i32 %mul1.i78, ptr %v66, align 4
-  %add.ptr72 = getelementptr inbounds i8, ptr %p.1, i64 4
+  %add.ptr72 = getelementptr inbounds i8, ptr %p.2, i64 4
   %add.ptr72.val = load i32, ptr %add.ptr72, align 1
   %mul.i79 = mul i32 %add.ptr72.val, -2048144777
   %add.i80 = add i32 %mul.i79, %mul1.i8188
   %13 = tail call i32 @llvm.fshl.i32(i32 %add.i80, i32 %add.i80, i32 13)
   %mul1.i81 = mul i32 %13, -1640531535
   store i32 %mul1.i81, ptr %arrayidx74, align 4
-  %add.ptr79 = getelementptr inbounds i8, ptr %p.1, i64 8
+  %add.ptr79 = getelementptr inbounds i8, ptr %p.2, i64 8
   %add.ptr79.val = load i32, ptr %add.ptr79, align 1
   %mul.i82 = mul i32 %add.ptr79.val, -2048144777
   %add.i83 = add i32 %mul.i82, %mul1.i8489
   %14 = tail call i32 @llvm.fshl.i32(i32 %add.i83, i32 %add.i83, i32 13)
   %mul1.i84 = mul i32 %14, -1640531535
   store i32 %mul1.i84, ptr %arrayidx81, align 4
-  %add.ptr86 = getelementptr inbounds i8, ptr %p.1, i64 12
+  %add.ptr86 = getelementptr inbounds i8, ptr %p.2, i64 12
   %add.ptr86.val = load i32, ptr %add.ptr86, align 1
   %mul.i85 = mul i32 %add.ptr86.val, -2048144777
   %add.i86 = add i32 %mul.i85, %mul1.i8790
   %15 = tail call i32 @llvm.fshl.i32(i32 %add.i86, i32 %add.i86, i32 13)
   %mul1.i87 = mul i32 %15, -1640531535
   store i32 %mul1.i87, ptr %arrayidx88, align 4
-  %add.ptr93 = getelementptr inbounds i8, ptr %p.1, i64 16
+  %add.ptr93 = getelementptr inbounds i8, ptr %p.2, i64 16
   %cmp94.not = icmp ugt ptr %add.ptr93, %add.ptr61
   br i1 %cmp94.not, label %if.end96, label %do.body, !llvm.loop !8
 
 if.end96:                                         ; preds = %do.body, %if.end60
-  %p.2 = phi ptr [ %p.0, %if.end60 ], [ %add.ptr93, %do.body ]
-  %cmp97 = icmp ult ptr %p.2, %add.ptr
+  %p.1 = phi ptr [ %p.0, %if.end60 ], [ %add.ptr93, %do.body ]
+  %cmp97 = icmp ult ptr %p.1, %add.ptr
   br i1 %cmp97, label %if.then99, label %return
 
 if.then99:                                        ; preds = %if.end96
   %mem32100 = getelementptr inbounds i8, ptr %state, i64 24
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %p.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem32100, ptr nonnull readonly align 1 %p.2, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem32100, ptr nonnull readonly align 1 %p.1, i64 %sub.ptr.sub, i1 false)
   %conv106 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv106, ptr %memsize, align 4
   br label %return
@@ -751,49 +751,49 @@ do.body:                                          ; preds = %do.body, %if.then65
   %mul1.i7782 = phi i64 [ %arrayidx82.promoted, %if.then65 ], [ %mul1.i77, %do.body ]
   %mul1.i7481 = phi i64 [ %arrayidx75.promoted, %if.then65 ], [ %mul1.i74, %do.body ]
   %12 = phi i64 [ %v67.promoted, %if.then65 ], [ %mul1.i71, %do.body ]
-  %p.1 = phi ptr [ %p.0, %if.then65 ], [ %add.ptr94, %do.body ]
-  %p.1.val = load i64, ptr %p.1, align 1
-  %mul.i69 = mul i64 %p.1.val, -4417276706812531889
+  %p.2 = phi ptr [ %p.0, %if.then65 ], [ %add.ptr94, %do.body ]
+  %p.2.val = load i64, ptr %p.2, align 1
+  %mul.i69 = mul i64 %p.2.val, -4417276706812531889
   %add.i70 = add i64 %mul.i69, %12
   %13 = tail call i64 @llvm.fshl.i64(i64 %add.i70, i64 %add.i70, i64 31)
   %mul1.i71 = mul i64 %13, -7046029288634856825
   store i64 %mul1.i71, ptr %v67, align 8
-  %add.ptr73 = getelementptr inbounds i8, ptr %p.1, i64 8
+  %add.ptr73 = getelementptr inbounds i8, ptr %p.2, i64 8
   %add.ptr73.val = load i64, ptr %add.ptr73, align 1
   %mul.i72 = mul i64 %add.ptr73.val, -4417276706812531889
   %add.i73 = add i64 %mul.i72, %mul1.i7481
   %14 = tail call i64 @llvm.fshl.i64(i64 %add.i73, i64 %add.i73, i64 31)
   %mul1.i74 = mul i64 %14, -7046029288634856825
   store i64 %mul1.i74, ptr %arrayidx75, align 8
-  %add.ptr80 = getelementptr inbounds i8, ptr %p.1, i64 16
+  %add.ptr80 = getelementptr inbounds i8, ptr %p.2, i64 16
   %add.ptr80.val = load i64, ptr %add.ptr80, align 1
   %mul.i75 = mul i64 %add.ptr80.val, -4417276706812531889
   %add.i76 = add i64 %mul.i75, %mul1.i7782
   %15 = tail call i64 @llvm.fshl.i64(i64 %add.i76, i64 %add.i76, i64 31)
   %mul1.i77 = mul i64 %15, -7046029288634856825
   store i64 %mul1.i77, ptr %arrayidx82, align 8
-  %add.ptr87 = getelementptr inbounds i8, ptr %p.1, i64 24
+  %add.ptr87 = getelementptr inbounds i8, ptr %p.2, i64 24
   %add.ptr87.val = load i64, ptr %add.ptr87, align 1
   %mul.i78 = mul i64 %add.ptr87.val, -4417276706812531889
   %add.i79 = add i64 %mul.i78, %mul1.i8083
   %16 = tail call i64 @llvm.fshl.i64(i64 %add.i79, i64 %add.i79, i64 31)
   %mul1.i80 = mul i64 %16, -7046029288634856825
   store i64 %mul1.i80, ptr %arrayidx89, align 8
-  %add.ptr94 = getelementptr inbounds i8, ptr %p.1, i64 32
+  %add.ptr94 = getelementptr inbounds i8, ptr %p.2, i64 32
   %cmp95.not = icmp ugt ptr %add.ptr94, %add.ptr66
   br i1 %cmp95.not, label %if.end97, label %do.body, !llvm.loop !12
 
 if.end97:                                         ; preds = %do.body, %if.end61
-  %p.2 = phi ptr [ %p.0, %if.end61 ], [ %add.ptr94, %do.body ]
-  %cmp98 = icmp ult ptr %p.2, %add.ptr
+  %p.1 = phi ptr [ %p.0, %if.end61 ], [ %add.ptr94, %do.body ]
+  %cmp98 = icmp ult ptr %p.1, %add.ptr
   br i1 %cmp98, label %if.then100, label %return
 
 if.then100:                                       ; preds = %if.end97
   %mem64101 = getelementptr inbounds i8, ptr %state, i64 40
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %p.2 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %p.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem64101, ptr readonly align 1 %p.2, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem64101, ptr readonly align 1 %p.1, i64 %sub.ptr.sub, i1 false)
   %conv107 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv107, ptr %memsize, align 8
   br label %return

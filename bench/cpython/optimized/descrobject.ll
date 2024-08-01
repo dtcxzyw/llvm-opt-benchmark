@@ -4025,17 +4025,17 @@ if.end45:                                         ; preds = %if.end36
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end36, %if.then30, %if.then22, %if.end, %if.end45
-  %fget.1 = phi ptr [ %3, %if.end45 ], [ %3, %if.then30 ], [ %3, %if.then22 ], [ null, %if.end ], [ %3, %if.end36 ]
-  %fset.1 = phi ptr [ %4, %if.end45 ], [ %4, %if.then30 ], [ null, %if.then22 ], [ null, %if.end ], [ %4, %if.end36 ]
-  %fdel.1 = phi ptr [ %5, %if.end45 ], [ null, %if.then30 ], [ null, %if.then22 ], [ null, %if.end ], [ %5, %if.end36 ]
+  %fget.0 = phi ptr [ %3, %if.end45 ], [ %3, %if.then30 ], [ %3, %if.then22 ], [ null, %if.end ], [ %3, %if.end36 ]
+  %fset.0 = phi ptr [ %4, %if.end45 ], [ %4, %if.then30 ], [ null, %if.then22 ], [ null, %if.end ], [ %4, %if.end36 ]
+  %fdel.0 = phi ptr [ %5, %if.end45 ], [ null, %if.then30 ], [ null, %if.then22 ], [ null, %if.end ], [ %5, %if.end36 ]
   %doc.0 = phi ptr [ %6, %if.end45 ], [ null, %if.then30 ], [ null, %if.then22 ], [ null, %if.end ], [ null, %if.end36 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prop_doc25.i)
-  %cmp.i = icmp eq ptr %fget.1, @_Py_NoneStruct
-  %spec.store.select.i = select i1 %cmp.i, ptr null, ptr %fget.1
-  %cmp1.i = icmp eq ptr %fset.1, @_Py_NoneStruct
-  %spec.store.select4.i = select i1 %cmp1.i, ptr null, ptr %fset.1
-  %cmp4.i = icmp eq ptr %fdel.1, @_Py_NoneStruct
-  %spec.store.select1.i = select i1 %cmp4.i, ptr null, ptr %fdel.1
+  %cmp.i = icmp eq ptr %fget.0, @_Py_NoneStruct
+  %spec.store.select.i = select i1 %cmp.i, ptr null, ptr %fget.0
+  %cmp1.i = icmp eq ptr %fset.0, @_Py_NoneStruct
+  %spec.store.select4.i = select i1 %cmp1.i, ptr null, ptr %fset.0
+  %cmp4.i = icmp eq ptr %fdel.0, @_Py_NoneStruct
+  %spec.store.select1.i = select i1 %cmp4.i, ptr null, ptr %fdel.0
   %prop_get.i = getelementptr inbounds i8, ptr %self, i64 16
   %7 = load ptr, ptr %prop_get.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %spec.store.select.i, null

@@ -5413,7 +5413,7 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit137:         ; preds = %126, %131, %134, %1
   br label %.loopexit215
 
 .loopexit215:                                     ; preds = %.loopexit215.loopexit, %118, %73
-  %.4 = phi i32 [ %119, %118 ], [ %.0.i.i, %73 ], [ %162, %.loopexit215.loopexit ]
+  %.1 = phi i32 [ %119, %118 ], [ %.0.i.i, %73 ], [ %162, %.loopexit215.loopexit ]
   %163 = getelementptr inbounds i8, ptr %3, i64 568
   store i8 0, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %3, i64 569
@@ -5435,7 +5435,7 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit137:         ; preds = %126, %131, %134, %1
   %170 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %171 = getelementptr inbounds i8, ptr %0, i64 208
   %172 = getelementptr inbounds i8, ptr %0, i64 224
-  %173 = icmp sgt i32 %.4, 0
+  %173 = icmp sgt i32 %.1, 0
   %174 = getelementptr inbounds i8, ptr %3, i64 8
   %175 = getelementptr inbounds i8, ptr %3, i64 16
   %176 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5444,7 +5444,7 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit137:         ; preds = %126, %131, %134, %1
   %179 = getelementptr inbounds i8, ptr %3, i64 12
   %180 = getelementptr inbounds i8, ptr %3, i64 536
   %181 = zext nneg i32 %167 to i64
-  %wide.trip.count296 = zext nneg i32 %.4 to i64
+  %wide.trip.count296 = zext nneg i32 %.1 to i64
   br label %183
 
 .loopexit213:                                     ; preds = %_ZN10LinearScan23handle_doubleword_movesEP6LIR_Op.exit, %"_ZNK6BitMap7iterateIZN10LinearScan15build_intervalsEvE3$_0EEbT_.exit"
@@ -5515,9 +5515,9 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit137:         ; preds = %126, %131, %134, %1
   br label %219
 
 219:                                              ; preds = %217, %210
-  %.1.ph.i.i.i.i = phi i64 [ %208, %210 ], [ %216, %217 ]
+  %.027.ph.i.i.i.i = phi i64 [ %208, %210 ], [ %216, %217 ]
   %.026.ph.i.i.i.i = phi i64 [ %.019.i.i, %210 ], [ %218, %217 ]
-  %220 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %220 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %221 = add i64 %.026.ph.i.i.i.i, %220
   %222 = icmp ult i64 %221, %193
   br i1 %222, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %"_ZNK6BitMap7iterateIZN10LinearScan15build_intervalsEvE3$_0EEbT_.exit"
@@ -7702,9 +7702,9 @@ define hidden void @_ZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS1_R1
   br label %32
 
 32:                                               ; preds = %30, %23
-  %.1.ph.i.i.i = phi i64 [ %21, %23 ], [ %29, %30 ]
+  %.027.ph.i.i.i = phi i64 [ %21, %23 ], [ %29, %30 ]
   %.026.ph.i.i.i = phi i64 [ %.019.i, %23 ], [ %31, %30 ]
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %34 = add i64 %.026.ph.i.i.i, %33
   %35 = icmp ult i64 %34, %10
   br i1 %35, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i, label %"_ZNK6BitMap7iterateIZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS3_R12MoveResolverE3$_0EEbT_mm.exit"
@@ -8153,9 +8153,9 @@ _ZNK10BlockBegin13number_of_suxEv.exit40:         ; preds = %118
   br label %174
 
 174:                                              ; preds = %172, %165
-  %.1.ph.i.i.i.i = phi i64 [ %163, %165 ], [ %171, %172 ]
+  %.027.ph.i.i.i.i = phi i64 [ %163, %165 ], [ %171, %172 ]
   %.026.ph.i.i.i.i = phi i64 [ %.019.i.i, %165 ], [ %173, %172 ]
-  %175 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %175 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %176 = add i64 %.026.ph.i.i.i.i, %175
   %177 = icmp ult i64 %176, %154
   br i1 %177, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZN10LinearScan24resolve_collect_mappingsEP10BlockBeginS1_R12MoveResolver.exit
@@ -9810,9 +9810,9 @@ define hidden void @_ZN10LinearScan23resolve_exception_entryEP10BlockBeginR12Mov
   br label %28
 
 28:                                               ; preds = %26, %19
-  %.1.ph.i.i.i = phi i64 [ %17, %19 ], [ %25, %26 ]
+  %.027.ph.i.i.i = phi i64 [ %17, %19 ], [ %25, %26 ]
   %.026.ph.i.i.i = phi i64 [ %.017.i, %19 ], [ %27, %26 ]
-  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %30 = add i64 %.026.ph.i.i.i, %29
   %31 = icmp ult i64 %30, %9
   br i1 %31, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i, label %"_ZNK6BitMap7iterateIZN10LinearScan23resolve_exception_entryEP10BlockBeginR12MoveResolverE3$_0EEbT_mm.exit"
@@ -10270,9 +10270,9 @@ define hidden void @_ZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveRe
   br label %32
 
 32:                                               ; preds = %30, %23
-  %.1.ph.i.i.i = phi i64 [ %21, %23 ], [ %29, %30 ]
+  %.027.ph.i.i.i = phi i64 [ %21, %23 ], [ %29, %30 ]
   %.026.ph.i.i.i = phi i64 [ %.018.i, %23 ], [ %31, %30 ]
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %34 = add i64 %.026.ph.i.i.i, %33
   %35 = icmp ult i64 %34, %12
   br i1 %35, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i, label %"_ZNK6BitMap7iterateIZN10LinearScan22resolve_exception_edgeEP8XHandleriR12MoveResolverE3$_0EEbT_mm.exit"
@@ -18982,8 +18982,8 @@ _ZN16LinearScanWalker22find_optimal_split_posEP10BlockBeginS1_i.exit: ; preds = 
   br i1 %.not.not.i51, label %106, label %_ZN16LinearScanWalker22find_optimal_split_posEP10BlockBeginS1_i.exit52, !llvm.loop !122
 
 _ZN16LinearScanWalker22find_optimal_split_posEP10BlockBeginS1_i.exit52: ; preds = %116, %_ZN16LinearScanWalker22find_optimal_split_posEP10BlockBeginS1_i.exit, %99, %_ZN10LinearScan14is_block_beginEi.exit, %7, %5
-  %.1 = phi i32 [ %2, %5 ], [ %3, %7 ], [ %3, %_ZN10LinearScan14is_block_beginEi.exit ], [ %.0.i41, %99 ], [ %.2.i, %_ZN16LinearScanWalker22find_optimal_split_posEP10BlockBeginS1_i.exit ], [ %.2.i50, %116 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %2, %5 ], [ %3, %7 ], [ %3, %_ZN10LinearScan14is_block_beginEi.exit ], [ %.0.i41, %99 ], [ %.2.i, %_ZN16LinearScanWalker22find_optimal_split_posEP10BlockBeginS1_i.exit ], [ %.2.i50, %116 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19766,15 +19766,15 @@ _ZN8Interval16has_hole_betweenEii.exit.i:         ; preds = %236, %233, %_ZN10Li
   br i1 %.not.not.i51.i, label %264, label %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit, !llvm.loop !122
 
 _ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit: ; preds = %274, %213, %215, %257
-  %.1.i54 = phi i32 [ %4, %213 ], [ %4, %215 ], [ %.0.i41.i, %257 ], [ %.2.i50.i, %274 ]
+  %.0.i54 = phi i32 [ %4, %213 ], [ %4, %215 ], [ %.0.i41.i, %257 ], [ %.2.i50.i, %274 ]
   %275 = getelementptr inbounds i8, ptr %0, i64 16
-  %276 = icmp eq i32 %.1.i54, 0
+  %276 = icmp eq i32 %.0.i54, 0
   br i1 %276, label %_ZN10LinearScan14is_block_beginEi.exit.thread, label %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge
 
 _ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge: ; preds = %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit
-  %.pre81 = ashr i32 %.1.i54, 1
+  %.pre81 = ashr i32 %.0.i54, 1
   %.pre82 = sext i32 %.pre81 to i64
-  %.pre84 = add nsw i32 %.1.i54, -1
+  %.pre84 = add nsw i32 %.0.i54, -1
   %.pre86 = ashr i32 %.pre84, 1
   %.pre88 = sext i32 %.pre86 to i64
   br label %_ZN10LinearScan14is_block_beginEi.exit
@@ -19784,7 +19784,7 @@ _ZN10LinearScan14is_block_beginEi.exit:           ; preds = %_ZN10LinearScan14is
   %.pre-phi85 = phi i32 [ %.pre84, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %225, %_ZN10LinearScan14is_block_beginEi.exit.i ]
   %.pre-phi83 = phi i64 [ %.pre82, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %243, %_ZN10LinearScan14is_block_beginEi.exit.i ]
   %277 = phi ptr [ %275, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %216, %_ZN10LinearScan14is_block_beginEi.exit.i ]
-  %.1.i5469 = phi i32 [ %.1.i54, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %4, %_ZN10LinearScan14is_block_beginEi.exit.i ]
+  %.0.i5469 = phi i32 [ %.0.i54, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit._ZN10LinearScan14is_block_beginEi.exit_crit_edge ], [ %4, %_ZN10LinearScan14is_block_beginEi.exit.i ]
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 160
   %280 = load ptr, ptr %279, align 8
@@ -19795,7 +19795,7 @@ _ZN10LinearScan14is_block_beginEi.exit:           ; preds = %_ZN10LinearScan14is
   %285 = icmp ne ptr %282, %284
   %286 = or i32 %.pre-phi85, 1
   %cond.fr = freeze i1 %285
-  %spec.select = select i1 %cond.fr, i32 %.1.i5469, i32 %286
+  %spec.select = select i1 %cond.fr, i32 %.0.i5469, i32 %286
   br label %_ZN10LinearScan14is_block_beginEi.exit.thread
 
 _ZN10LinearScan14is_block_beginEi.exit.thread:    ; preds = %_ZN10LinearScan14is_block_beginEi.exit, %_ZN16LinearScanWalker22find_optimal_split_posEP8Intervaliib.exit
@@ -20851,7 +20851,7 @@ _ZN16LinearScanWalker13find_free_regEiiiiPb.exit110: ; preds = %217
   br i1 %218, label %_ZN16LinearScanWalker20find_free_double_regEiiiPb.exit.thread, label %225
 
 _ZN16LinearScanWalker13find_free_regEiiiiPb.exit110.thread: ; preds = %217, %._crit_edge.i103
-  %.2122125 = phi i1 [ %.not38.i, %._crit_edge.i103 ], [ true, %217 ]
+  %.3122125 = phi i1 [ %.not38.i, %._crit_edge.i103 ], [ true, %217 ]
   %.033.i105123124 = phi i32 [ %.132.i98, %._crit_edge.i103 ], [ %.1.i99, %217 ]
   %219 = sext i32 %.033.i105123124 to i64
   %220 = getelementptr inbounds [56 x i32], ptr %151, i64 0, i64 %219
@@ -20863,7 +20863,7 @@ _ZN16LinearScanWalker13find_free_regEiiiiPb.exit110.thread: ; preds = %217, %._c
   store i32 %spec.select55, ptr %223, align 4
   %224 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 %spec.select56, ptr %224, align 8
-  br i1 %.2122125, label %228, label %245
+  br i1 %.3122125, label %228, label %245
 
 225:                                              ; preds = %_ZN16LinearScanWalker13find_free_regEiiiiPb.exit110, %_ZN16LinearScanWalker13find_free_regEiiiiPb.exit
   %226 = getelementptr inbounds i8, ptr %1, i64 60
@@ -21706,7 +21706,7 @@ _ZN8Interval2toEv.exit:                           ; preds = %_ZNK8Interval11firs
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %134, %127
-  %.0139 = phi i1 [ true, %127 ], [ %.not22.i, %134 ]
+  %.2 = phi i1 [ true, %127 ], [ %.not22.i, %134 ]
   %137 = getelementptr inbounds [56 x i32], ptr %104, i64 0, i64 %129
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds [56 x i32], ptr %104, i64 0, i64 %133
@@ -21840,41 +21840,41 @@ _ZN16LinearScanWalker15find_locked_regEiiiPb.exit103: ; preds = %._crit_edge.i99
   br label %201
 
 201:                                              ; preds = %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103, %178
-  %.3.ph = phi i1 [ %.not18.i, %178 ], [ %spec.select181, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
-  %.056.ph = phi i32 [ %174, %178 ], [ %199, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
-  %.054.ph = phi i32 [ %147, %178 ], [ %.1.i87, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
-  %.052.ph = phi i32 [ %.1.i87, %178 ], [ %.1.i95, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
-  %.0.ph = phi i32 [ %172, %178 ], [ %200, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
-  %202 = icmp sgt i32 %.054.ph, %.052.ph
+  %.1140.ph = phi i1 [ %.not18.i, %178 ], [ %spec.select181, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
+  %.157.ph = phi i32 [ %174, %178 ], [ %199, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
+  %.155.ph = phi i32 [ %147, %178 ], [ %.1.i87, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
+  %.153.ph = phi i32 [ %.1.i87, %178 ], [ %.1.i95, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
+  %.1.ph = phi i32 [ %172, %178 ], [ %200, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit103 ]
+  %202 = icmp sgt i32 %.155.ph, %.153.ph
   br i1 %202, label %.thread162, label %203
 
 203:                                              ; preds = %201, %._crit_edge.i99
-  %.4 = phi i1 [ %.3.ph, %201 ], [ %.not18.i, %._crit_edge.i99 ]
-  %.157 = phi i32 [ %.056.ph, %201 ], [ %174, %._crit_edge.i99 ]
-  %.155 = phi i32 [ %.054.ph, %201 ], [ %.1.i87, %._crit_edge.i99 ]
-  %.153 = phi i32 [ %.052.ph, %201 ], [ -1, %._crit_edge.i99 ]
-  %.1 = phi i32 [ %.0.ph, %201 ], [ %172, %._crit_edge.i99 ]
-  %204 = icmp eq i32 %.155, -1
+  %.0139 = phi i1 [ %.1140.ph, %201 ], [ %.not18.i, %._crit_edge.i99 ]
+  %.056 = phi i32 [ %.157.ph, %201 ], [ %174, %._crit_edge.i99 ]
+  %.054 = phi i32 [ %.155.ph, %201 ], [ %.1.i87, %._crit_edge.i99 ]
+  %.052 = phi i32 [ %.153.ph, %201 ], [ -1, %._crit_edge.i99 ]
+  %.0 = phi i32 [ %.1.ph, %201 ], [ %172, %._crit_edge.i99 ]
+  %204 = icmp eq i32 %.054, -1
   br i1 %204, label %.thread175.preheader, label %.thread162
 
 .thread162:                                       ; preds = %201, %._crit_edge, %203
   %205 = phi i32 [ 2, %203 ], [ %.pre, %._crit_edge ], [ 2, %201 ]
-  %.1172 = phi i32 [ %.1, %203 ], [ %144, %._crit_edge ], [ %.0.ph, %201 ]
-  %.153171 = phi i32 [ %.153, %203 ], [ %132, %._crit_edge ], [ %.054.ph, %201 ]
-  %.155170 = phi i32 [ %.155, %203 ], [ %.1.i, %._crit_edge ], [ %.052.ph, %201 ]
-  %.157169 = phi i32 [ %.157, %203 ], [ %141, %._crit_edge ], [ %.056.ph, %201 ]
-  %.4168 = phi i1 [ %.4, %203 ], [ %.0139, %._crit_edge ], [ %.3.ph, %201 ]
+  %.0172 = phi i32 [ %.0, %203 ], [ %144, %._crit_edge ], [ %.1.ph, %201 ]
+  %.052171 = phi i32 [ %.052, %203 ], [ %132, %._crit_edge ], [ %.155.ph, %201 ]
+  %.054170 = phi i32 [ %.054, %203 ], [ %.1.i, %._crit_edge ], [ %.153.ph, %201 ]
+  %.056169 = phi i32 [ %.056, %203 ], [ %141, %._crit_edge ], [ %.157.ph, %201 ]
+  %.0139168 = phi i1 [ %.0139, %203 ], [ %.2, %._crit_edge ], [ %.1140.ph, %201 ]
   %206 = icmp eq i32 %205, 2
-  %207 = icmp eq i32 %.153171, -1
+  %207 = icmp eq i32 %.052171, -1
   %or.cond = and i1 %207, %206
   br i1 %or.cond, label %.thread175.preheader, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit, %.thread162
-  %.4168197 = phi i1 [ %.4168, %.thread162 ], [ %.not18.i, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
-  %.157169196 = phi i32 [ %.157169, %.thread162 ], [ %174, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
-  %.155170195 = phi i32 [ %.155170, %.thread162 ], [ %.1.i87, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
-  %.153171194 = phi i32 [ %.153171, %.thread162 ], [ -1, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
-  %.1172193 = phi i32 [ %.1172, %.thread162 ], [ %172, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
+  %.0139168197 = phi i1 [ %.0139168, %.thread162 ], [ %.not18.i, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
+  %.056169196 = phi i32 [ %.056169, %.thread162 ], [ %174, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
+  %.054170195 = phi i32 [ %.054170, %.thread162 ], [ %.1.i87, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
+  %.052171194 = phi i32 [ %.052171, %.thread162 ], [ -1, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
+  %.0172193 = phi i32 [ %.0172, %.thread162 ], [ %172, %_ZN16LinearScanWalker15find_locked_regEiiiPb.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %209
@@ -21898,7 +21898,7 @@ _ZN16LinearScanWalker15find_locked_regEiiiPb.exit103: ; preds = %._crit_edge.i99
 
 _ZNK8Interval11first_usageE15IntervalUseKind.exit110: ; preds = %.preheader, %212
   %.06.i106 = phi i32 [ %215, %212 ], [ 2147483647, %.preheader ]
-  %.not68 = icmp sgt i32 %.157169196, %.06.i106
+  %.not68 = icmp sgt i32 %.056169196, %.06.i106
   br i1 %.not68, label %302, label %.thread175.preheader
 
 .thread175.preheader:                             ; preds = %145, %._crit_edge.i89, %100, %._crit_edge.i, %.thread162, %_ZNK8Interval11first_usageE15IntervalUseKind.exit110, %203
@@ -22088,10 +22088,10 @@ _ZN8Interval2toEv.exit.i123:                      ; preds = %_ZN8Interval7calc_t
 
 302:                                              ; preds = %_ZNK8Interval11first_usageE15IntervalUseKind.exit110
   %303 = getelementptr inbounds i8, ptr %1, i64 60
-  store i32 %.155170195, ptr %303, align 4
+  store i32 %.054170195, ptr %303, align 4
   %304 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %.153171194, ptr %304, align 8
-  br i1 %.4168197, label %305, label %318
+  store i32 %.052171194, ptr %304, align 8
+  br i1 %.0139168197, label %305, label %318
 
 305:                                              ; preds = %302
   %306 = icmp sgt i32 %69, 1
@@ -22107,7 +22107,7 @@ _ZN8Interval2toEv.exit.i123:                      ; preds = %_ZN8Interval7calc_t
   %indvars.iv.next.i.i136 = add nsw i64 %indvars.iv.i.i135, -2
   %309 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv.next.i.i136
   %310 = load i32, ptr %309, align 4
-  %311 = icmp sgt i32 %310, %.1172193
+  %311 = icmp sgt i32 %310, %.0172193
   br i1 %311, label %_ZN16LinearScanWalker37split_when_partial_register_availableEP8Intervali.exit, label %312
 
 312:                                              ; preds = %308
@@ -22123,11 +22123,11 @@ _ZN16LinearScanWalker37split_when_partial_register_availableEP8Intervali.exit: ;
   %315 = load i32, ptr %82, align 8
   %316 = add nsw i32 %315, 1
   %317 = tail call noundef i32 @llvm.smax.i32(i32 %.010.lcssa.i.i, i32 %316)
-  tail call void @_ZN16LinearScanWalker18split_before_usageEP8Intervalii(ptr noundef nonnull align 8 dereferenceable(1384) %0, ptr noundef nonnull %1, i32 noundef %317, i32 noundef %.1172193)
+  tail call void @_ZN16LinearScanWalker18split_before_usageEP8Intervalii(ptr noundef nonnull align 8 dereferenceable(1384) %0, ptr noundef nonnull %1, i32 noundef %317, i32 noundef %.0172193)
   br label %318
 
 318:                                              ; preds = %_ZN16LinearScanWalker37split_when_partial_register_availableEP8Intervali.exit, %302
-  tail call void @_ZN16LinearScanWalker38split_and_spill_intersecting_intervalsEii(ptr noundef nonnull align 8 dereferenceable(1384) %0, i32 noundef %.155170195, i32 noundef %.153171194)
+  tail call void @_ZN16LinearScanWalker38split_and_spill_intersecting_intervalsEii(ptr noundef nonnull align 8 dereferenceable(1384) %0, i32 noundef %.054170195, i32 noundef %.052171194)
   br label %_ZN16LinearScanWalker24split_and_spill_intervalEP8Interval.exit
 
 _ZN16LinearScanWalker24split_and_spill_intervalEP8Interval.exit: ; preds = %_ZN8Interval2toEv.exit.i123, %281, %318, %_ZN10LinearScan17assign_spill_slotEP8Interval.exit

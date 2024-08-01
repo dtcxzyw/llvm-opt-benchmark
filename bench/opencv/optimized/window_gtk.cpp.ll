@@ -5668,7 +5668,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %28
   br label %48
 
 48:                                               ; preds = %38, %45
-  %.011 = phi i32 [ %47, %45 ], [ -1, %38 ]
+  %.112 = phi i32 [ %47, %45 ], [ -1, %38 ]
   %49 = getelementptr inbounds i8, ptr %8, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i = icmp eq ptr %50, null
@@ -5743,7 +5743,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit
 
 _ZNSt10shared_ptrI10CvTrackbarED2Ev.exit:         ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %80, %67, %48, %32
-  %.112 = phi i32 [ -1, %32 ], [ %.011, %48 ], [ %.011, %67 ], [ %.011, %80 ], [ %.011, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
+  %.011 = phi i32 [ -1, %32 ], [ %.112, %48 ], [ %.112, %67 ], [ %.112, %80 ], [ %.112, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
   %85 = getelementptr inbounds i8, ptr %7, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not.i.i.i23 = icmp eq ptr %86, null
@@ -5819,7 +5819,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI10CvTrackbarED2Ev.exit, %103, %116, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i28
   %121 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #24
-  ret i32 %.112
+  ret i32 %.011
 
 122:                                              ; preds = %44, %34
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %44 ], [ %35, %34 ]
@@ -9376,14 +9376,14 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   br label %.thread
 
 .thread131:                                       ; preds = %32, %35, %.fold.split, %38, %41, %.fold.split115, %44, %47, %.fold.split116
-  %.093.ph = phi i32 [ 9, %.fold.split116 ], [ %49, %47 ], [ 7, %44 ], [ 6, %.fold.split115 ], [ %43, %41 ], [ 4, %38 ], [ 3, %.fold.split ], [ %37, %35 ], [ %34, %32 ]
+  %.1.ph = phi i32 [ 9, %.fold.split116 ], [ %49, %47 ], [ 7, %44 ], [ 6, %.fold.split115 ], [ %43, %41 ], [ 4, %38 ], [ 3, %.fold.split ], [ %37, %35 ], [ %34, %32 ]
   %72 = getelementptr inbounds i8, ptr %1, i64 48
   %73 = load i32, ptr %72, align 8
   br label %.thread
 
 .thread:                                          ; preds = %71, %70, %69, %68, %62, %50, %22, %.thread131
   %.sroa.055.0124.in.in = phi <2 x double> [ %31, %.thread131 ], [ %53, %71 ], [ %53, %70 ], [ %53, %69 ], [ %53, %68 ], [ %53, %62 ], [ %53, %50 ], [ %25, %22 ]
-  %.3123 = phi i32 [ %.093.ph, %.thread131 ], [ %57, %71 ], [ 11, %70 ], [ %57, %69 ], [ 11, %68 ], [ %57, %62 ], [ %57, %50 ], [ 0, %22 ]
+  %.093123 = phi i32 [ %.1.ph, %.thread131 ], [ %57, %71 ], [ 11, %70 ], [ %57, %69 ], [ 11, %68 ], [ %57, %62 ], [ %57, %50 ], [ 0, %22 ]
   %.094122 = phi i32 [ %73, %.thread131 ], [ %59, %71 ], [ %59, %70 ], [ %59, %69 ], [ %59, %68 ], [ %59, %62 ], [ %59, %50 ], [ %27, %22 ]
   %.095121 = phi i32 [ 0, %.thread131 ], [ 65536, %71 ], [ 65536, %70 ], [ -65536, %69 ], [ -65536, %68 ], [ %67, %62 ], [ 0, %50 ], [ 0, %22 ]
   %.sroa.055.0124.in = fptosi <2 x double> %.sroa.055.0124.in.in to <2 x i32>
@@ -9506,7 +9506,7 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   %164 = load ptr, ptr %163, align 8
   %165 = extractelement <2 x i32> %141, i64 0
   %166 = extractelement <2 x i32> %141, i64 1
-  tail call void %162(i32 noundef %.3123, i32 noundef %166, i32 noundef %165, i32 noundef %161, ptr noundef %164)
+  tail call void %162(i32 noundef %.093123, i32 noundef %166, i32 noundef %165, i32 noundef %161, ptr noundef %164)
   br label %.thread125
 
 .thread125:                                       ; preds = %28, %_Z22cvImageWidget_get_typev.exit, %140, %135, %128, %3, %6, %8, %11

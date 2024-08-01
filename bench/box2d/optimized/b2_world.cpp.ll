@@ -1487,24 +1487,24 @@ if.then124:                                       ; preds = %invoke.cont122
   br label %if.end128
 
 if.end128:                                        ; preds = %invoke.cont122, %if.then124
-  %alpha.0 = phi float [ %cond.i, %if.then124 ], [ 1.000000e+00, %invoke.cont122 ]
+  %alpha.1 = phi float [ %cond.i, %if.then124 ], [ 1.000000e+00, %invoke.cont122 ]
   %m_toi129 = getelementptr inbounds i8, ptr %c14.0349, i64 188
-  store float %alpha.0, ptr %m_toi129, align 4
+  store float %alpha.1, ptr %m_toi129, align 4
   %52 = load i32, ptr %m_flags.i, align 8
   %or = or i32 %52, 32
   store i32 %or, ptr %m_flags.i, align 8
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end128, %if.then30
-  %alpha.1 = phi float [ %7, %if.then30 ], [ %alpha.0, %if.end128 ]
-  %cmp132 = fcmp olt float %alpha.1, %minAlpha.0347
+  %alpha.0 = phi float [ %7, %if.then30 ], [ %alpha.1, %if.end128 ]
+  %cmp132 = fcmp olt float %alpha.0, %minAlpha.0347
   br i1 %cmp132, label %if.then133, label %for.inc135
 
 if.then133:                                       ; preds = %if.end131
   br label %for.inc135
 
 for.inc135:                                       ; preds = %if.end63, %if.end41, %if.end131, %if.then133, %if.else, %lor.lhs.false, %if.end22, %for.body19
-  %minAlpha.1 = phi float [ %minAlpha.0347, %for.body19 ], [ %minAlpha.0347, %if.end22 ], [ %alpha.1, %if.then133 ], [ %minAlpha.0347, %if.end131 ], [ %minAlpha.0347, %if.else ], [ %minAlpha.0347, %lor.lhs.false ], [ %minAlpha.0347, %if.end41 ], [ %minAlpha.0347, %if.end63 ]
+  %minAlpha.1 = phi float [ %minAlpha.0347, %for.body19 ], [ %minAlpha.0347, %if.end22 ], [ %alpha.0, %if.then133 ], [ %minAlpha.0347, %if.end131 ], [ %minAlpha.0347, %if.else ], [ %minAlpha.0347, %lor.lhs.false ], [ %minAlpha.0347, %if.end41 ], [ %minAlpha.0347, %if.end63 ]
   %minContact.1 = phi ptr [ %minContact.0348, %for.body19 ], [ %minContact.0348, %if.end22 ], [ %c14.0349, %if.then133 ], [ %minContact.0348, %if.end131 ], [ %minContact.0348, %if.else ], [ %minContact.0348, %lor.lhs.false ], [ %minContact.0348, %if.end41 ], [ %minContact.0348, %if.end63 ]
   %m_next136 = getelementptr inbounds i8, ptr %c14.0349, i64 24
   %c14.0 = load ptr, ptr %m_next136, align 8

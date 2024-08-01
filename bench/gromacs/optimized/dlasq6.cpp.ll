@@ -116,11 +116,11 @@ define void @dlasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %106
   %indvars.iv = phi i64 [ %71, %.lr.ph.preheader ], [ %indvars.iv.next, %106 ]
-  %.2286 = phi double [ %23, %.lr.ph.preheader ], [ %110, %106 ]
-  %.2261284 = phi double [ %25, %.lr.ph.preheader ], [ %.3262, %106 ]
+  %.3286 = phi double [ %23, %.lr.ph.preheader ], [ %110, %106 ]
+  %.3262284 = phi double [ %25, %.lr.ph.preheader ], [ %.4263, %106 ]
   %73 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   %74 = load double, ptr %73, align 8
-  %75 = fadd double %.2261284, %74
+  %75 = fadd double %.3262284, %74
   %76 = getelementptr i8, ptr %73, i64 -24
   store double %75, ptr %76, align 8
   %77 = tail call noundef double @llvm.fabs.f64(double %75)
@@ -152,41 +152,41 @@ define void @dlasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %94 = fdiv double %87, %75
   %95 = fmul double %74, %94
   store double %95, ptr %92, align 8
-  %96 = fmul double %.2261284, %94
+  %96 = fmul double %.3262284, %94
   br label %102
 
 97:                                               ; preds = %84
   %98 = fdiv double %74, %75
   %99 = fmul double %98, %87
   store double %99, ptr %92, align 8
-  %100 = fdiv double %.2261284, %75
+  %100 = fdiv double %.3262284, %75
   %101 = fmul double %100, %87
   br label %102
 
 102:                                              ; preds = %93, %97, %79
-  %.3262 = phi double [ %83, %79 ], [ %96, %93 ], [ %101, %97 ]
-  %.3 = phi double [ 0.000000e+00, %79 ], [ %.2286, %93 ], [ %.2286, %97 ]
+  %.4263 = phi double [ %83, %79 ], [ %96, %93 ], [ %101, %97 ]
+  %.4 = phi double [ 0.000000e+00, %79 ], [ %.3286, %93 ], [ %.3286, %97 ]
   %103 = load double, ptr %4, align 8
-  %104 = fcmp olt double %.3262, %103
+  %104 = fcmp olt double %.4263, %103
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %102
-  store double %.3262, ptr %4, align 8
+  store double %.4263, ptr %4, align 8
   br label %106
 
 106:                                              ; preds = %105, %102
   %107 = getelementptr i8, ptr %73, i64 -8
   %108 = load double, ptr %107, align 8
-  %109 = fcmp olt double %.3, %108
-  %110 = select i1 %109, double %.3, double %108
+  %109 = fcmp olt double %.4, %108
+  %110 = select i1 %109, double %.4, double %108
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
   %.not = icmp sgt i64 %indvars.iv.next, %72
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %106, %66, %70, %33
-  %.4263 = phi double [ %25, %33 ], [ %25, %70 ], [ %.1260, %66 ], [ %.3262, %106 ]
-  %.4 = phi double [ %23, %33 ], [ %23, %70 ], [ %69, %66 ], [ %110, %106 ]
-  store double %.4263, ptr %9, align 8
+  %.2261 = phi double [ %25, %33 ], [ %25, %70 ], [ %.1260, %66 ], [ %.4263, %106 ]
+  %.2 = phi double [ %23, %33 ], [ %23, %70 ], [ %69, %66 ], [ %110, %106 ]
+  store double %.2261, ptr %9, align 8
   %111 = load double, ptr %4, align 8
   store double %111, ptr %6, align 8
   %112 = load i32, ptr %1, align 4
@@ -253,7 +253,7 @@ define void @dlasq6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 154:                                              ; preds = %140, %146, %130
   %155 = phi double [ %.pre, %130 ], [ %145, %140 ], [ %153, %146 ]
-  %.5 = phi double [ 0.000000e+00, %130 ], [ %.4, %140 ], [ %.4, %146 ]
+  %.5 = phi double [ 0.000000e+00, %130 ], [ %.2, %140 ], [ %.2, %146 ]
   %156 = load double, ptr %4, align 8
   %157 = fcmp olt double %155, %156
   br i1 %157, label %158, label %159

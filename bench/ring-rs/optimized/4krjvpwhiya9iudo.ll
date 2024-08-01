@@ -247,8 +247,8 @@ define hidden { ptr, ptr } @_ZN9untrusted5input5Input8read_all17h3b5501a55f45cda
   %7 = icmp eq i64 %3, 64
   %.sroa.01.0. = select i1 %7, ptr %5, ptr null
   %.sroa.6.0.i12 = select i1 %4, ptr undef, ptr %6
-  %.sroa.0.1 = select i1 %4, ptr null, ptr %.sroa.01.0.
-  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %.sroa.0.0 = select i1 %4, ptr null, ptr %.sroa.01.0.
+  %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.sroa.6.0.i12, 1
   ret { ptr, ptr } %9
 }
@@ -475,8 +475,8 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i: ; preds = %1
 
 9:                                                ; preds = %1, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i, %6
   %.sroa.4.0.i13 = phi i64 [ %8, %6 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ undef, %1 ]
-  %.sroa.0.1 = phi ptr [ %7, %6 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ null, %1 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %.sroa.0.0 = phi ptr [ %7, %6 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i ], [ null, %1 ]
+  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0.i13, 1
   ret { ptr, i64 } %11
 }
@@ -564,8 +564,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h75345cb00
   br label %20
 
 20:                                               ; preds = %15, %19
-  %.1 = phi i1 [ true, %19 ], [ %18, %15 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %19 ], [ %18, %15 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -609,8 +609,8 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h7e0efe2a6d6e25c
   br label %19
 
 19:                                               ; preds = %14, %18
-  %.sroa.0.1 = phi ptr [ null, %18 ], [ %.sroa.01.0., %14 ]
-  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %.sroa.0.0 = phi ptr [ null, %18 ], [ %.sroa.01.0., %14 ]
+  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.6.0.copyload.i.i, 1
   ret { ptr, i64 } %21
 }
@@ -858,8 +858,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %2, %6, %"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ring..rsa..padding..Verification$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h6d8459b1931f626fE.llvm.4525565709555364834.exit"
-  %.1 = phi i1 [ %28, %"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ring..rsa..padding..Verification$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h6d8459b1931f626fE.llvm.4525565709555364834.exit" ], [ true, %6 ], [ true, %2 ], [ true, %19 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %28, %"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ring..rsa..padding..Verification$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h6d8459b1931f626fE.llvm.4525565709555364834.exit" ], [ true, %6 ], [ true, %2 ], [ true, %19 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1040,8 +1040,8 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %14, %20
   %.sroa.3.0.i.i.i.i9 = phi i64 [ undef, %20 ], [ %16, %14 ]
-  %.sroa.0.1 = phi ptr [ null, %20 ], [ %.sroa.01.0., %14 ]
-  %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %.sroa.0.0 = phi ptr [ null, %20 ], [ %.sroa.01.0., %14 ]
+  %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.3.0.i.i.i.i9, 1
   ret { ptr, i64 } %23
 }
@@ -1069,7 +1069,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   br label %8
 
 8:                                                ; preds = %17, %.lr.ph44.i
-  %.sroa.8.0 = phi i64 [ 0, %.lr.ph44.i ], [ %.sroa.8.1, %17 ]
+  %.sroa.8.0 = phi i64 [ 0, %.lr.ph44.i ], [ %.sroa.8.2, %17 ]
   %9 = phi i64 [ %.pre.i, %.lr.ph44.i ], [ 8, %17 ]
   %.promoted48.i = phi i64 [ 0, %.lr.ph44.i ], [ %.promoted47.i, %17 ]
   %10 = phi i1 [ true, %.lr.ph44.i ], [ %19, %17 ]
@@ -1087,7 +1087,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   br label %.lr.ph
 
 ._crit_edge.i:                                    ; preds = %.lr.ph, %8
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %8 ], [ %24, %.lr.ph ]
+  %.sroa.8.2 = phi i64 [ %.sroa.8.0, %8 ], [ %24, %.lr.ph ]
   %.promoted47.i = phi i64 [ %.promoted48.i, %8 ], [ %24, %.lr.ph ]
   %.016.lcssa.i = phi i64 [ 0, %8 ], [ %28, %.lr.ph ]
   %13 = load i64, ptr %.sroa.06.0.copyload, align 8, !noalias !159, !noundef !4
@@ -1127,7 +1127,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 "_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit": ; preds = %17, %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.8.3 = phi i64 [ %24, %.lr.ph.i ], [ %.sroa.8.0, %.lr.ph.i.preheader ], [ %.sroa.8.1, %17 ]
+  %.sroa.8.3 = phi i64 [ %24, %.lr.ph.i ], [ %.sroa.8.0, %.lr.ph.i.preheader ], [ %.sroa.8.2, %17 ]
   %29 = phi i1 [ %10, %.lr.ph.i ], [ %10, %.lr.ph.i.preheader ], [ %19, %17 ]
   br i1 %29, label %31, label %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit.thread"
 
@@ -1137,8 +1137,8 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17hf8c54ada4
   br label %31
 
 31:                                               ; preds = %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit", %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit.thread"
-  %.1 = phi i1 [ %30, %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit.thread" ], [ true, %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit" ]
-  ret i1 %.1
+  %.0 = phi i1 [ %30, %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit.thread" ], [ true, %"_ZN4ring4limb34parse_big_endian_and_pad_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h26e8df75976e5663E.llvm.4525565709555364834.exit" ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

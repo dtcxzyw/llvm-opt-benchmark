@@ -755,7 +755,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 
 .loopexit:                                        ; preds = %.loopexit.loopexit58, %.loopexit.loopexit, %108
   %.pre-phi = phi i32 [ %100, %.loopexit.loopexit58 ], [ %.pre, %.loopexit.loopexit ], [ %109, %108 ]
-  %.2 = phi i32 [ %112, %.loopexit.loopexit58 ], [ %111, %.loopexit.loopexit ], [ %110, %108 ]
+  %.150 = phi i32 [ %112, %.loopexit.loopexit58 ], [ %111, %.loopexit.loopexit ], [ %110, %108 ]
   %113 = zext i1 %.not30 to i64
   %114 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 %113
   %115 = load i64, ptr %114, align 8
@@ -763,7 +763,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %117 = and i64 %116, %115
   %118 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %117, i1 true)
   %119 = trunc nuw nsw i64 %118 to i32
-  %120 = icmp sgt i32 %.2, %119
+  %120 = icmp sgt i32 %.150, %119
   %121 = select i1 %120, i32 5, i32 10
   %122 = select i1 %.not30, i32 12, i32 3
   %123 = and i32 %121, %122
@@ -776,14 +776,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %129 = load i32, ptr %128, align 4
   %130 = or i32 %123, %129
   store i32 %130, ptr %128, align 4
-  %131 = sext i32 %.2 to i64
+  %131 = sext i32 %.150 to i64
   %132 = getelementptr inbounds [64 x i32], ptr %82, i64 0, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = or i32 %133, %123
   store i32 %134, ptr %132, align 4
   %135 = zext nneg i32 %123 to i64
   %136 = getelementptr inbounds [16 x i32], ptr %83, i64 0, i64 %135
-  store i32 %.2, ptr %136, align 4
+  store i32 %.150, ptr %136, align 4
   %137 = and i32 %123, 5
   %.not.i36 = icmp eq i32 %137, 0
   %138 = select i1 %.not.i36, i32 2, i32 6
@@ -798,7 +798,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %147 = load i64, ptr %146, align 16
   %148 = or i64 %147, %144
   %149 = shl nuw i64 1, %118
-  %150 = zext nneg i32 %.2 to i64
+  %150 = zext nneg i32 %.150 to i64
   %151 = shl nuw i64 1, %150
   %152 = or i64 %149, %151
   %153 = xor i64 %152, -1
@@ -3510,7 +3510,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 
 346:                                              ; preds = %246, %248, %235
   %.pre-phi = phi i64 [ %150, %246 ], [ %.pre147, %248 ], [ %150, %235 ]
-  %.4 = phi i64 [ %.3, %246 ], [ %319, %248 ], [ %245, %235 ]
+  %.5 = phi i64 [ %.3, %246 ], [ %319, %248 ], [ %245, %235 ]
   %347 = load i64, ptr %148, align 8
   %348 = getelementptr inbounds [16 x [64 x i64]], ptr @_ZN9Stockfish7Zobrist3psqE, i64 0, i64 %147, i64 %.pre-phi
   %349 = load i64, ptr %348, align 8
@@ -3526,13 +3526,13 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   br label %357
 
 357:                                              ; preds = %346, %214
-  %.5 = phi i64 [ %.4, %346 ], [ %.3, %214 ]
+  %.4 = phi i64 [ %.5, %346 ], [ %.3, %214 ]
   %358 = load ptr, ptr %8, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 160
   store i32 %.089117, ptr %359, align 32
   %360 = load ptr, ptr %8, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 40
-  store i64 %.5, ptr %361, align 8
+  store i64 %.4, ptr %361, align 8
   br i1 %3, label %362, label %442
 
 362:                                              ; preds = %357

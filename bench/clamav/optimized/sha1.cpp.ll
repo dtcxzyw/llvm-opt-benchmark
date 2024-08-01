@@ -1204,10 +1204,10 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
   br label %18
 
 18:                                               ; preds = %13, %._crit_edge
-  %.130 = phi i32 [ 0, %._crit_edge ], [ %10, %13 ]
-  %19 = zext nneg i32 %.130 to i64
+  %.02730 = phi i32 [ 0, %._crit_edge ], [ %10, %13 ]
+  %19 = zext nneg i32 %.02730 to i64
   %20 = getelementptr inbounds i8, ptr %9, i64 %19
-  %21 = sub nuw nsw i32 56, %.130
+  %21 = sub nuw nsw i32 56, %.02730
   %22 = zext nneg i32 %21 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %22, i1 false)
   br label %23

@@ -235,7 +235,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %60
 
 60:                                               ; preds = %.lr.ph, %286
-  %.0256346 = phi i32 [ 0, %.lr.ph ], [ %.14, %286 ]
+  %.0256346 = phi i32 [ 0, %.lr.ph ], [ %.1257, %286 ]
   %61 = load i32, ptr @hf_mc_nmf_record_type, align 4
   %62 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %61, ptr noundef %0, i32 noundef %.0256346, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #3
   %63 = add nuw i32 %.0256346, 1
@@ -287,19 +287,19 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 90:                                               ; preds = %93, %83
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %93 ], [ 1, %83 ]
-  %.1257 = phi i32 [ %94, %93 ], [ %87, %83 ]
+  %.3259 = phi i32 [ %94, %93 ], [ %87, %83 ]
   %.020.i = phi i8 [ %92, %93 ], [ %86, %83 ]
   %.0.i = phi i64 [ %99, %93 ], [ %89, %83 ]
   %.not.i = icmp sgt i8 %.020.i, -1
   br i1 %.not.i, label %104, label %91
 
 91:                                               ; preds = %90
-  %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1257) #3
+  %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3259) #3
   %exitcond398 = icmp eq i64 %indvars.iv396, 5
   br i1 %exitcond398, label %101, label %93
 
 93:                                               ; preds = %91
-  %94 = add i32 %.1257, 1
+  %94 = add i32 %.3259, 1
   %95 = mul nuw nsw i64 %indvars.iv396, 7
   %96 = and i8 %92, 127
   %97 = zext nneg i8 %96 to i64
@@ -318,11 +318,11 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %105 = trunc nuw nsw i64 %indvars.iv396 to i32
   %106 = trunc nuw i64 %.0.i to i32
   %107 = load i32, ptr @hf_mc_nmf_via_length, align 4
-  %108 = sub i32 %.1257, %105
+  %108 = sub i32 %.3259, %105
   %109 = call ptr @proto_tree_add_uint(ptr noundef %85, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %105, i32 noundef %106) #3
   %110 = load i32, ptr @hf_mc_nmf_via, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %110, ptr noundef %0, i32 noundef %.1257, i32 noundef %106, i32 noundef 2) #3
-  %112 = add i32 %.1257, %106
+  %111 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %110, ptr noundef %0, i32 noundef %.3259, i32 noundef %106, i32 noundef 2) #3
+  %112 = add i32 %.3259, %106
   br label %286
 
 113:                                              ; preds = %60
@@ -344,19 +344,19 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 126:                                              ; preds = %129, %119
   %indvars.iv393 = phi i64 [ %indvars.iv.next394, %129 ], [ 1, %119 ]
-  %.3259 = phi i32 [ %130, %129 ], [ %123, %119 ]
+  %.5261 = phi i32 [ %130, %129 ], [ %123, %119 ]
   %.020.i128 = phi i8 [ %128, %129 ], [ %122, %119 ]
   %.0.i129 = phi i64 [ %135, %129 ], [ %125, %119 ]
   %.not.i130 = icmp sgt i8 %.020.i128, -1
   br i1 %.not.i130, label %140, label %127
 
 127:                                              ; preds = %126
-  %128 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3259) #3
+  %128 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5261) #3
   %exitcond395 = icmp eq i64 %indvars.iv393, 5
   br i1 %exitcond395, label %137, label %129
 
 129:                                              ; preds = %127
-  %130 = add i32 %.3259, 1
+  %130 = add i32 %.5261, 1
   %131 = mul nuw nsw i64 %indvars.iv393, 7
   %132 = and i8 %128, 127
   %133 = zext nneg i8 %132 to i64
@@ -375,11 +375,11 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %141 = trunc nuw nsw i64 %indvars.iv393 to i32
   %142 = trunc nuw i64 %.0.i129 to i32
   %143 = load i32, ptr @hf_mc_nmf_encoding_length, align 4
-  %144 = sub i32 %.3259, %141
+  %144 = sub i32 %.5261, %141
   %145 = call ptr @proto_tree_add_uint(ptr noundef %121, i32 noundef %143, ptr noundef %0, i32 noundef %144, i32 noundef %141, i32 noundef %142) #3
   %146 = load i32, ptr @hf_mc_nmf_encoding_type, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %146, ptr noundef %0, i32 noundef %.3259, i32 noundef %142, i32 noundef 2) #3
-  %148 = add i32 %.3259, %142
+  %147 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %146, ptr noundef %0, i32 noundef %.5261, i32 noundef %142, i32 noundef 2) #3
+  %148 = add i32 %.5261, %142
   br label %286
 
 149:                                              ; preds = %60
@@ -388,23 +388,23 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %152
 
 152:                                              ; preds = %169, %149
-  %.5261 = phi i32 [ %63, %149 ], [ %177, %169 ]
-  %153 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5261) #3
+  %.2258 = phi i32 [ %63, %149 ], [ %177, %169 ]
+  %153 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2258) #3
   %154 = and i8 %153, 127
   %155 = zext nneg i8 %154 to i64
   br label %156
 
 156:                                              ; preds = %159, %152
   %indvars.iv390 = phi i64 [ %indvars.iv.next391, %159 ], [ 1, %152 ]
-  %.6262.in = phi i32 [ %.6262, %159 ], [ %.5261, %152 ]
+  %.7263.in = phi i32 [ %.7263, %159 ], [ %.2258, %152 ]
   %.020.i133 = phi i8 [ %158, %159 ], [ %153, %152 ]
   %.0.i134 = phi i64 [ %164, %159 ], [ %155, %152 ]
-  %.6262 = add i32 %.6262.in, 1
+  %.7263 = add i32 %.7263.in, 1
   %.not.i135 = icmp sgt i8 %.020.i133, -1
   br i1 %.not.i135, label %169, label %157
 
 157:                                              ; preds = %156
-  %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6262) #3
+  %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7263) #3
   %exitcond392 = icmp eq i64 %indvars.iv390, 5
   br i1 %exitcond392, label %166, label %159
 
@@ -427,11 +427,11 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %170 = trunc nuw nsw i64 %indvars.iv390 to i32
   %171 = trunc nuw i64 %.0.i134 to i32
   %172 = load i32, ptr @hf_mc_nmf_chunk_length, align 4
-  %173 = sub i32 %.6262, %170
+  %173 = sub i32 %.7263, %170
   %174 = call ptr @proto_tree_add_uint(ptr noundef %151, i32 noundef %172, ptr noundef %0, i32 noundef %173, i32 noundef %170, i32 noundef %171) #3
   %175 = load i32, ptr @hf_mc_nmf_chunk, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %175, ptr noundef %0, i32 noundef %.6262, i32 noundef %171, i32 noundef 0) #3
-  %177 = add i32 %.6262, %171
+  %176 = call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %175, ptr noundef %0, i32 noundef %.7263, i32 noundef %171, i32 noundef 0) #3
+  %177 = add i32 %.7263, %171
   %178 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %177) #3
   %.not125 = icmp eq i8 %178, 0
   br i1 %.not125, label %179, label %152, !llvm.loop !6
@@ -453,19 +453,19 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 190:                                              ; preds = %193, %183
   %indvars.iv387 = phi i64 [ %indvars.iv.next388, %193 ], [ 1, %183 ]
-  %.8264 = phi i32 [ %194, %193 ], [ %187, %183 ]
+  %.9265 = phi i32 [ %194, %193 ], [ %187, %183 ]
   %.020.i138 = phi i8 [ %192, %193 ], [ %186, %183 ]
   %.0.i139 = phi i64 [ %199, %193 ], [ %189, %183 ]
   %.not.i140 = icmp sgt i8 %.020.i138, -1
   br i1 %.not.i140, label %204, label %191
 
 191:                                              ; preds = %190
-  %192 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.8264) #3
+  %192 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.9265) #3
   %exitcond389 = icmp eq i64 %indvars.iv387, 5
   br i1 %exitcond389, label %201, label %193
 
 193:                                              ; preds = %191
-  %194 = add i32 %.8264, 1
+  %194 = add i32 %.9265, 1
   %195 = mul nuw nsw i64 %indvars.iv387, 7
   %196 = and i8 %192, 127
   %197 = zext nneg i8 %196 to i64
@@ -484,11 +484,11 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %205 = trunc nuw nsw i64 %indvars.iv387 to i32
   %206 = trunc nuw i64 %.0.i139 to i32
   %207 = load i32, ptr @hf_mc_nmf_payload_length, align 4
-  %208 = sub i32 %.8264, %205
+  %208 = sub i32 %.9265, %205
   %209 = call ptr @proto_tree_add_uint(ptr noundef %185, i32 noundef %207, ptr noundef %0, i32 noundef %208, i32 noundef %205, i32 noundef %206) #3
   %210 = load i32, ptr @hf_mc_nmf_payload, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %210, ptr noundef %0, i32 noundef %.8264, i32 noundef %206, i32 noundef 0) #3
-  %212 = add i32 %.8264, %206
+  %211 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %210, ptr noundef %0, i32 noundef %.9265, i32 noundef %206, i32 noundef 0) #3
+  %212 = add i32 %.9265, %206
   br label %286
 
 213:                                              ; preds = %60
@@ -502,19 +502,19 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 220:                                              ; preds = %223, %213
   %indvars.iv384 = phi i64 [ %indvars.iv.next385, %223 ], [ 1, %213 ]
-  %.10266 = phi i32 [ %224, %223 ], [ %217, %213 ]
+  %.11267 = phi i32 [ %224, %223 ], [ %217, %213 ]
   %.020.i143 = phi i8 [ %222, %223 ], [ %216, %213 ]
   %.0.i144 = phi i64 [ %229, %223 ], [ %219, %213 ]
   %.not.i145 = icmp sgt i8 %.020.i143, -1
   br i1 %.not.i145, label %234, label %221
 
 221:                                              ; preds = %220
-  %222 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.10266) #3
+  %222 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.11267) #3
   %exitcond386 = icmp eq i64 %indvars.iv384, 5
   br i1 %exitcond386, label %231, label %223
 
 223:                                              ; preds = %221
-  %224 = add i32 %.10266, 1
+  %224 = add i32 %.11267, 1
   %225 = mul nuw nsw i64 %indvars.iv384, 7
   %226 = and i8 %222, 127
   %227 = zext nneg i8 %226 to i64
@@ -533,11 +533,11 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %235 = trunc nuw nsw i64 %indvars.iv384 to i32
   %236 = trunc nuw i64 %.0.i144 to i32
   %237 = load i32, ptr @hf_mc_nmf_fault_length, align 4
-  %238 = sub i32 %.10266, %235
+  %238 = sub i32 %.11267, %235
   %239 = call ptr @proto_tree_add_uint(ptr noundef %215, i32 noundef %237, ptr noundef %0, i32 noundef %238, i32 noundef %235, i32 noundef %236) #3
   %240 = load i32, ptr @hf_mc_nmf_fault, align 4
-  %241 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %240, ptr noundef %0, i32 noundef %.10266, i32 noundef %236, i32 noundef 2) #3
-  %242 = add i32 %.10266, %236
+  %241 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %240, ptr noundef %0, i32 noundef %.11267, i32 noundef %236, i32 noundef 2) #3
+  %242 = add i32 %.11267, %236
   br label %286
 
 243:                                              ; preds = %60
@@ -551,19 +551,19 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 250:                                              ; preds = %253, %243
   %indvars.iv = phi i64 [ %indvars.iv.next, %253 ], [ 1, %243 ]
-  %.12 = phi i32 [ %254, %253 ], [ %247, %243 ]
+  %.13 = phi i32 [ %254, %253 ], [ %247, %243 ]
   %.020.i148 = phi i8 [ %252, %253 ], [ %246, %243 ]
   %.0.i149 = phi i64 [ %259, %253 ], [ %249, %243 ]
   %.not.i150 = icmp sgt i8 %.020.i148, -1
   br i1 %.not.i150, label %264, label %251
 
 251:                                              ; preds = %250
-  %252 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12) #3
+  %252 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.13) #3
   %exitcond = icmp eq i64 %indvars.iv, 5
   br i1 %exitcond, label %261, label %253
 
 253:                                              ; preds = %251
-  %254 = add i32 %.12, 1
+  %254 = add i32 %.13, 1
   %255 = mul nuw nsw i64 %indvars.iv, 7
   %256 = and i8 %252, 127
   %257 = zext nneg i8 %256 to i64
@@ -582,13 +582,13 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %265 = trunc nuw nsw i64 %indvars.iv to i32
   %266 = trunc nuw i64 %.0.i149 to i32
   %267 = load i32, ptr @hf_mc_nmf_upgrade_length, align 4
-  %268 = sub i32 %.12, %265
+  %268 = sub i32 %.13, %265
   %269 = call ptr @proto_tree_add_uint(ptr noundef %245, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef %265, i32 noundef %266) #3
   %270 = load i32, ptr @hf_mc_nmf_upgrade, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %270, ptr noundef %0, i32 noundef %.12, i32 noundef %266, i32 noundef 2) #3
+  %271 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %270, ptr noundef %0, i32 noundef %.13, i32 noundef %266, i32 noundef 2) #3
   %272 = load ptr, ptr %57, align 8
-  %273 = call ptr @tvb_get_string_enc(ptr noundef %272, ptr noundef %0, i32 noundef %.12, i32 noundef %266, i32 noundef 2) #3
-  %274 = add i32 %.12, %266
+  %273 = call ptr @tvb_get_string_enc(ptr noundef %272, ptr noundef %0, i32 noundef %.13, i32 noundef %266, i32 noundef 2) #3
+  %274 = add i32 %.13, %266
   %275 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(22) @.str.73) #4
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %.sink.split, label %277
@@ -618,13 +618,13 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %286
 
 286:                                              ; preds = %281, %284, %280, %234, %204, %179, %140, %113, %104, %77, %68, %60
-  %.14 = phi i32 [ %63, %60 ], [ %63, %284 ], [ %63, %281 ], [ %274, %280 ], [ %242, %234 ], [ %212, %204 ], [ %182, %179 ], [ %148, %140 ], [ %118, %113 ], [ %112, %104 ], [ %82, %77 ], [ %76, %68 ]
+  %.1257 = phi i32 [ %63, %60 ], [ %63, %284 ], [ %63, %281 ], [ %274, %280 ], [ %242, %234 ], [ %212, %204 ], [ %182, %179 ], [ %148, %140 ], [ %118, %113 ], [ %112, %104 ], [ %82, %77 ], [ %76, %68 ]
   %287 = call i32 @tvb_reported_length(ptr noundef %0) #3
-  %288 = icmp ugt i32 %287, %.14
+  %288 = icmp ugt i32 %287, %.1257
   br i1 %288, label %60, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %286, %54, %4, %261, %231, %201, %166, %137, %101, %45, %33
-  %.0112 = phi i32 [ %41, %33 ], [ %53, %45 ], [ %263, %261 ], [ %233, %231 ], [ %203, %201 ], [ %168, %166 ], [ %139, %137 ], [ %103, %101 ], [ 0, %4 ], [ 0, %54 ], [ %.14, %286 ]
+  %.0112 = phi i32 [ %41, %33 ], [ %53, %45 ], [ %263, %261 ], [ %233, %231 ], [ %203, %201 ], [ %168, %166 ], [ %139, %137 ], [ %103, %101 ], [ 0, %4 ], [ 0, %54 ], [ %.1257, %286 ]
   ret i32 %.0112
 }
 

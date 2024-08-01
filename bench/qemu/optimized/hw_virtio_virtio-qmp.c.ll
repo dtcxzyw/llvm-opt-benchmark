@@ -391,11 +391,11 @@ for.body49:                                       ; preds = %for.end, %for.inc68
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %for.inc68 ], [ 0, %for.end ]
   %6 = phi i32 [ %8, %for.inc68 ], [ 1, %for.end ]
   %arrayidx45236 = phi ptr [ %arrayidx45, %for.inc68 ], [ @virtio_blk_feature_map, %for.end ]
-  %bitmap.addr.4235 = phi i64 [ %bitmap.addr.5, %for.inc68 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.5235 = phi i64 [ %bitmap.addr.6, %for.inc68 ], [ %bitmap.addr.1, %for.end ]
   %list41.0233 = phi ptr [ %list41.1, %for.inc68 ], [ null, %for.end ]
   %sh_prom53 = zext nneg i32 %6 to i64
   %shl54 = shl nuw i64 1, %sh_prom53
-  %and55 = and i64 %shl54, %bitmap.addr.4235
+  %and55 = and i64 %shl54, %bitmap.addr.5235
   %cmp56 = icmp eq i64 %and55, 0
   br i1 %cmp56, label %for.inc68, label %if.end59
 
@@ -407,12 +407,12 @@ if.end59:                                         ; preds = %for.body49
   %value65 = getelementptr inbounds i8, ptr %call60, i64 8
   store ptr %call64, ptr %value65, align 8
   store ptr %list41.0233, ptr %call60, align 8
-  %xor67 = xor i64 %shl54, %bitmap.addr.4235
+  %xor67 = xor i64 %shl54, %bitmap.addr.5235
   br label %for.inc68
 
 for.inc68:                                        ; preds = %for.body49, %if.end59
   %list41.1 = phi ptr [ %list41.0233, %for.body49 ], [ %call60, %if.end59 ]
-  %bitmap.addr.5 = phi i64 [ %bitmap.addr.4235, %for.body49 ], [ %xor67, %if.end59 ]
+  %bitmap.addr.6 = phi i64 [ %bitmap.addr.5235, %for.body49 ], [ %xor67, %if.end59 ]
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %arrayidx45 = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @virtio_blk_feature_map, i64 0, i64 %indvars.iv.next286
   %8 = load i32, ptr %arrayidx45, align 16
@@ -423,11 +423,11 @@ for.body82:                                       ; preds = %for.end, %for.inc10
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %for.inc101 ], [ 0, %for.end ]
   %9 = phi i32 [ %11, %for.inc101 ], [ 0, %for.end ]
   %arrayidx78232 = phi ptr [ %arrayidx78, %for.inc101 ], [ @virtio_gpu_feature_map, %for.end ]
-  %bitmap.addr.6231 = phi i64 [ %bitmap.addr.7, %for.inc101 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.7231 = phi i64 [ %bitmap.addr.8, %for.inc101 ], [ %bitmap.addr.1, %for.end ]
   %list74.0229 = phi ptr [ %list74.1, %for.inc101 ], [ null, %for.end ]
   %sh_prom86 = zext nneg i32 %9 to i64
   %shl87 = shl nuw i64 1, %sh_prom86
-  %and88 = and i64 %shl87, %bitmap.addr.6231
+  %and88 = and i64 %shl87, %bitmap.addr.7231
   %cmp89 = icmp eq i64 %and88, 0
   br i1 %cmp89, label %for.inc101, label %if.end92
 
@@ -439,12 +439,12 @@ if.end92:                                         ; preds = %for.body82
   %value98 = getelementptr inbounds i8, ptr %call93, i64 8
   store ptr %call97, ptr %value98, align 8
   store ptr %list74.0229, ptr %call93, align 8
-  %xor100 = xor i64 %shl87, %bitmap.addr.6231
+  %xor100 = xor i64 %shl87, %bitmap.addr.7231
   br label %for.inc101
 
 for.inc101:                                       ; preds = %for.body82, %if.end92
   %list74.1 = phi ptr [ %list74.0229, %for.body82 ], [ %call93, %if.end92 ]
-  %bitmap.addr.7 = phi i64 [ %bitmap.addr.6231, %for.body82 ], [ %xor100, %if.end92 ]
+  %bitmap.addr.8 = phi i64 [ %bitmap.addr.7231, %for.body82 ], [ %xor100, %if.end92 ]
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %arrayidx78 = getelementptr [8 x %struct.qmp_virtio_feature_map_t], ptr @virtio_gpu_feature_map, i64 0, i64 %indvars.iv.next282
   %11 = load i32, ptr %arrayidx78, align 16
@@ -455,11 +455,11 @@ for.body115:                                      ; preds = %for.end, %for.inc13
   %indvars.iv277 = phi i64 [ %indvars.iv.next278, %for.inc134 ], [ 0, %for.end ]
   %12 = phi i32 [ %14, %for.inc134 ], [ 0, %for.end ]
   %arrayidx111228 = phi ptr [ %arrayidx111, %for.inc134 ], [ @virtio_net_feature_map, %for.end ]
-  %bitmap.addr.8227 = phi i64 [ %bitmap.addr.9, %for.inc134 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.9227 = phi i64 [ %bitmap.addr.10, %for.inc134 ], [ %bitmap.addr.1, %for.end ]
   %list107.0225 = phi ptr [ %list107.1, %for.inc134 ], [ null, %for.end ]
   %sh_prom119 = zext nneg i32 %12 to i64
   %shl120 = shl nuw i64 1, %sh_prom119
-  %and121 = and i64 %shl120, %bitmap.addr.8227
+  %and121 = and i64 %shl120, %bitmap.addr.9227
   %cmp122 = icmp eq i64 %and121, 0
   br i1 %cmp122, label %for.inc134, label %if.end125
 
@@ -471,12 +471,12 @@ if.end125:                                        ; preds = %for.body115
   %value131 = getelementptr inbounds i8, ptr %call126, i64 8
   store ptr %call130, ptr %value131, align 8
   store ptr %list107.0225, ptr %call126, align 8
-  %xor133 = xor i64 %shl120, %bitmap.addr.8227
+  %xor133 = xor i64 %shl120, %bitmap.addr.9227
   br label %for.inc134
 
 for.inc134:                                       ; preds = %for.body115, %if.end125
   %list107.1 = phi ptr [ %list107.0225, %for.body115 ], [ %call126, %if.end125 ]
-  %bitmap.addr.9 = phi i64 [ %bitmap.addr.8227, %for.body115 ], [ %xor133, %if.end125 ]
+  %bitmap.addr.10 = phi i64 [ %bitmap.addr.9227, %for.body115 ], [ %xor133, %if.end125 ]
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %arrayidx111 = getelementptr [36 x %struct.qmp_virtio_feature_map_t], ptr @virtio_net_feature_map, i64 0, i64 %indvars.iv.next278
   %14 = load i32, ptr %arrayidx111, align 16
@@ -487,11 +487,11 @@ for.body148:                                      ; preds = %for.end, %for.inc16
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %for.inc167 ], [ 0, %for.end ]
   %15 = phi i32 [ %17, %for.inc167 ], [ 0, %for.end ]
   %arrayidx144224 = phi ptr [ %arrayidx144, %for.inc167 ], [ @virtio_scsi_feature_map, %for.end ]
-  %bitmap.addr.10223 = phi i64 [ %bitmap.addr.11, %for.inc167 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.11223 = phi i64 [ %bitmap.addr.12, %for.inc167 ], [ %bitmap.addr.1, %for.end ]
   %list140.0221 = phi ptr [ %list140.1, %for.inc167 ], [ null, %for.end ]
   %sh_prom152 = zext nneg i32 %15 to i64
   %shl153 = shl nuw i64 1, %sh_prom152
-  %and154 = and i64 %shl153, %bitmap.addr.10223
+  %and154 = and i64 %shl153, %bitmap.addr.11223
   %cmp155 = icmp eq i64 %and154, 0
   br i1 %cmp155, label %for.inc167, label %if.end158
 
@@ -503,12 +503,12 @@ if.end158:                                        ; preds = %for.body148
   %value164 = getelementptr inbounds i8, ptr %call159, i64 8
   store ptr %call163, ptr %value164, align 8
   store ptr %list140.0221, ptr %call159, align 8
-  %xor166 = xor i64 %shl153, %bitmap.addr.10223
+  %xor166 = xor i64 %shl153, %bitmap.addr.11223
   br label %for.inc167
 
 for.inc167:                                       ; preds = %for.body148, %if.end158
   %list140.1 = phi ptr [ %list140.0221, %for.body148 ], [ %call159, %if.end158 ]
-  %bitmap.addr.11 = phi i64 [ %bitmap.addr.10223, %for.body148 ], [ %xor166, %if.end158 ]
+  %bitmap.addr.12 = phi i64 [ %bitmap.addr.11223, %for.body148 ], [ %xor166, %if.end158 ]
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %arrayidx144 = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_scsi_feature_map, i64 0, i64 %indvars.iv.next274
   %17 = load i32, ptr %arrayidx144, align 16
@@ -519,11 +519,11 @@ for.body181:                                      ; preds = %for.end, %for.inc20
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.inc200 ], [ 0, %for.end ]
   %18 = phi i32 [ %20, %for.inc200 ], [ 0, %for.end ]
   %arrayidx177220 = phi ptr [ %arrayidx177, %for.inc200 ], [ @virtio_balloon_feature_map, %for.end ]
-  %bitmap.addr.12219 = phi i64 [ %bitmap.addr.13, %for.inc200 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.13219 = phi i64 [ %bitmap.addr.14, %for.inc200 ], [ %bitmap.addr.1, %for.end ]
   %list173.0217 = phi ptr [ %list173.1, %for.inc200 ], [ null, %for.end ]
   %sh_prom185 = zext nneg i32 %18 to i64
   %shl186 = shl nuw i64 1, %sh_prom185
-  %and187 = and i64 %shl186, %bitmap.addr.12219
+  %and187 = and i64 %shl186, %bitmap.addr.13219
   %cmp188 = icmp eq i64 %and187, 0
   br i1 %cmp188, label %for.inc200, label %if.end191
 
@@ -535,12 +535,12 @@ if.end191:                                        ; preds = %for.body181
   %value197 = getelementptr inbounds i8, ptr %call192, i64 8
   store ptr %call196, ptr %value197, align 8
   store ptr %list173.0217, ptr %call192, align 8
-  %xor199 = xor i64 %shl186, %bitmap.addr.12219
+  %xor199 = xor i64 %shl186, %bitmap.addr.13219
   br label %for.inc200
 
 for.inc200:                                       ; preds = %for.body181, %if.end191
   %list173.1 = phi ptr [ %list173.0217, %for.body181 ], [ %call192, %if.end191 ]
-  %bitmap.addr.13 = phi i64 [ %bitmap.addr.12219, %for.body181 ], [ %xor199, %if.end191 ]
+  %bitmap.addr.14 = phi i64 [ %bitmap.addr.13219, %for.body181 ], [ %xor199, %if.end191 ]
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %arrayidx177 = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_balloon_feature_map, i64 0, i64 %indvars.iv.next270
   %20 = load i32, ptr %arrayidx177, align 16
@@ -551,11 +551,11 @@ for.body214:                                      ; preds = %for.end, %for.inc23
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %for.inc233 ], [ 0, %for.end ]
   %21 = phi i32 [ %23, %for.inc233 ], [ 0, %for.end ]
   %arrayidx210216 = phi ptr [ %arrayidx210, %for.inc233 ], [ @virtio_iommu_feature_map, %for.end ]
-  %bitmap.addr.14215 = phi i64 [ %bitmap.addr.15, %for.inc233 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.15215 = phi i64 [ %bitmap.addr.16, %for.inc233 ], [ %bitmap.addr.1, %for.end ]
   %list206.0213 = phi ptr [ %list206.1, %for.inc233 ], [ null, %for.end ]
   %sh_prom218 = zext nneg i32 %21 to i64
   %shl219 = shl nuw i64 1, %sh_prom218
-  %and220 = and i64 %shl219, %bitmap.addr.14215
+  %and220 = and i64 %shl219, %bitmap.addr.15215
   %cmp221 = icmp eq i64 %and220, 0
   br i1 %cmp221, label %for.inc233, label %if.end224
 
@@ -567,12 +567,12 @@ if.end224:                                        ; preds = %for.body214
   %value230 = getelementptr inbounds i8, ptr %call225, i64 8
   store ptr %call229, ptr %value230, align 8
   store ptr %list206.0213, ptr %call225, align 8
-  %xor232 = xor i64 %shl219, %bitmap.addr.14215
+  %xor232 = xor i64 %shl219, %bitmap.addr.15215
   br label %for.inc233
 
 for.inc233:                                       ; preds = %for.body214, %if.end224
   %list206.1 = phi ptr [ %list206.0213, %for.body214 ], [ %call225, %if.end224 ]
-  %bitmap.addr.15 = phi i64 [ %bitmap.addr.14215, %for.body214 ], [ %xor232, %if.end224 ]
+  %bitmap.addr.16 = phi i64 [ %bitmap.addr.15215, %for.body214 ], [ %xor232, %if.end224 ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %arrayidx210 = getelementptr [8 x %struct.qmp_virtio_feature_map_t], ptr @virtio_iommu_feature_map, i64 0, i64 %indvars.iv.next266
   %23 = load i32, ptr %arrayidx210, align 16
@@ -583,11 +583,11 @@ for.body247:                                      ; preds = %for.end, %for.inc26
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %for.inc266 ], [ 0, %for.end ]
   %24 = phi i32 [ %26, %for.inc266 ], [ 26, %for.end ]
   %arrayidx243212 = phi ptr [ %arrayidx243, %for.inc266 ], [ @virtio_rng_feature_map, %for.end ]
-  %bitmap.addr.16211 = phi i64 [ %bitmap.addr.17, %for.inc266 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.17211 = phi i64 [ %bitmap.addr.18, %for.inc266 ], [ %bitmap.addr.1, %for.end ]
   %list239.0209 = phi ptr [ %list239.1, %for.inc266 ], [ null, %for.end ]
   %sh_prom251 = zext nneg i32 %24 to i64
   %shl252 = shl nuw i64 1, %sh_prom251
-  %and253 = and i64 %shl252, %bitmap.addr.16211
+  %and253 = and i64 %shl252, %bitmap.addr.17211
   %cmp254 = icmp eq i64 %and253, 0
   br i1 %cmp254, label %for.inc266, label %if.end257
 
@@ -599,12 +599,12 @@ if.end257:                                        ; preds = %for.body247
   %value263 = getelementptr inbounds i8, ptr %call258, i64 8
   store ptr %call262, ptr %value263, align 8
   store ptr %list239.0209, ptr %call258, align 8
-  %xor265 = xor i64 %shl252, %bitmap.addr.16211
+  %xor265 = xor i64 %shl252, %bitmap.addr.17211
   br label %for.inc266
 
 for.inc266:                                       ; preds = %for.body247, %if.end257
   %list239.1 = phi ptr [ %list239.0209, %for.body247 ], [ %call258, %if.end257 ]
-  %bitmap.addr.17 = phi i64 [ %bitmap.addr.16211, %for.body247 ], [ %xor265, %if.end257 ]
+  %bitmap.addr.18 = phi i64 [ %bitmap.addr.17211, %for.body247 ], [ %xor265, %if.end257 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %arrayidx243 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_rng_feature_map, i64 0, i64 %indvars.iv.next262
   %26 = load i32, ptr %arrayidx243, align 16
@@ -615,11 +615,11 @@ for.body280:                                      ; preds = %for.end, %for.inc29
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %for.inc299 ], [ 0, %for.end ]
   %27 = phi i32 [ %29, %for.inc299 ], [ 26, %for.end ]
   %arrayidx276208 = phi ptr [ %arrayidx276, %for.inc299 ], [ @virtio_rng_feature_map, %for.end ]
-  %bitmap.addr.18207 = phi i64 [ %bitmap.addr.19, %for.inc299 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.19207 = phi i64 [ %bitmap.addr.20, %for.inc299 ], [ %bitmap.addr.1, %for.end ]
   %list272.0205 = phi ptr [ %list272.1, %for.inc299 ], [ null, %for.end ]
   %sh_prom284 = zext nneg i32 %27 to i64
   %shl285 = shl nuw i64 1, %sh_prom284
-  %and286 = and i64 %shl285, %bitmap.addr.18207
+  %and286 = and i64 %shl285, %bitmap.addr.19207
   %cmp287 = icmp eq i64 %and286, 0
   br i1 %cmp287, label %for.inc299, label %if.end290
 
@@ -631,12 +631,12 @@ if.end290:                                        ; preds = %for.body280
   %value296 = getelementptr inbounds i8, ptr %call291, i64 8
   store ptr %call295, ptr %value296, align 8
   store ptr %list272.0205, ptr %call291, align 8
-  %xor298 = xor i64 %shl285, %bitmap.addr.18207
+  %xor298 = xor i64 %shl285, %bitmap.addr.19207
   br label %for.inc299
 
 for.inc299:                                       ; preds = %for.body280, %if.end290
   %list272.1 = phi ptr [ %list272.0205, %for.body280 ], [ %call291, %if.end290 ]
-  %bitmap.addr.19 = phi i64 [ %bitmap.addr.18207, %for.body280 ], [ %xor298, %if.end290 ]
+  %bitmap.addr.20 = phi i64 [ %bitmap.addr.19207, %for.body280 ], [ %xor298, %if.end290 ]
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %arrayidx276 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_rng_feature_map, i64 0, i64 %indvars.iv.next258
   %29 = load i32, ptr %arrayidx276, align 16
@@ -647,11 +647,11 @@ for.body313:                                      ; preds = %for.end, %for.inc33
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %for.inc332 ], [ 0, %for.end ]
   %30 = phi i32 [ %32, %for.inc332 ], [ 1, %for.end ]
   %arrayidx309204 = phi ptr [ %arrayidx309, %for.inc332 ], [ @virtio_vsock_feature_map, %for.end ]
-  %bitmap.addr.20203 = phi i64 [ %bitmap.addr.21, %for.inc332 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.21203 = phi i64 [ %bitmap.addr.22, %for.inc332 ], [ %bitmap.addr.1, %for.end ]
   %list305.0201 = phi ptr [ %list305.1, %for.inc332 ], [ null, %for.end ]
   %sh_prom317 = zext nneg i32 %30 to i64
   %shl318 = shl nuw i64 1, %sh_prom317
-  %and319 = and i64 %shl318, %bitmap.addr.20203
+  %and319 = and i64 %shl318, %bitmap.addr.21203
   %cmp320 = icmp eq i64 %and319, 0
   br i1 %cmp320, label %for.inc332, label %if.end323
 
@@ -663,12 +663,12 @@ if.end323:                                        ; preds = %for.body313
   %value329 = getelementptr inbounds i8, ptr %call324, i64 8
   store ptr %call328, ptr %value329, align 8
   store ptr %list305.0201, ptr %call324, align 8
-  %xor331 = xor i64 %shl318, %bitmap.addr.20203
+  %xor331 = xor i64 %shl318, %bitmap.addr.21203
   br label %for.inc332
 
 for.inc332:                                       ; preds = %for.body313, %if.end323
   %list305.1 = phi ptr [ %list305.0201, %for.body313 ], [ %call324, %if.end323 ]
-  %bitmap.addr.21 = phi i64 [ %bitmap.addr.20203, %for.body313 ], [ %xor331, %if.end323 ]
+  %bitmap.addr.22 = phi i64 [ %bitmap.addr.21203, %for.body313 ], [ %xor331, %if.end323 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %arrayidx309 = getelementptr [4 x %struct.qmp_virtio_feature_map_t], ptr @virtio_vsock_feature_map, i64 0, i64 %indvars.iv.next254
   %32 = load i32, ptr %arrayidx309, align 16
@@ -688,11 +688,11 @@ for.body379:                                      ; preds = %for.end, %for.inc39
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %for.inc398 ], [ 0, %for.end ]
   %33 = phi i32 [ %35, %for.inc398 ], [ 26, %for.end ]
   %arrayidx375196 = phi ptr [ %arrayidx375, %for.inc398 ], [ @virtio_rng_feature_map, %for.end ]
-  %bitmap.addr.24195 = phi i64 [ %bitmap.addr.25, %for.inc398 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.25195 = phi i64 [ %bitmap.addr.26, %for.inc398 ], [ %bitmap.addr.1, %for.end ]
   %list371.0193 = phi ptr [ %list371.1, %for.inc398 ], [ null, %for.end ]
   %sh_prom383 = zext nneg i32 %33 to i64
   %shl384 = shl nuw i64 1, %sh_prom383
-  %and385 = and i64 %shl384, %bitmap.addr.24195
+  %and385 = and i64 %shl384, %bitmap.addr.25195
   %cmp386 = icmp eq i64 %and385, 0
   br i1 %cmp386, label %for.inc398, label %if.end389
 
@@ -704,12 +704,12 @@ if.end389:                                        ; preds = %for.body379
   %value395 = getelementptr inbounds i8, ptr %call390, i64 8
   store ptr %call394, ptr %value395, align 8
   store ptr %list371.0193, ptr %call390, align 8
-  %xor397 = xor i64 %shl384, %bitmap.addr.24195
+  %xor397 = xor i64 %shl384, %bitmap.addr.25195
   br label %for.inc398
 
 for.inc398:                                       ; preds = %for.body379, %if.end389
   %list371.1 = phi ptr [ %list371.0193, %for.body379 ], [ %call390, %if.end389 ]
-  %bitmap.addr.25 = phi i64 [ %bitmap.addr.24195, %for.body379 ], [ %xor397, %if.end389 ]
+  %bitmap.addr.26 = phi i64 [ %bitmap.addr.25195, %for.body379 ], [ %xor397, %if.end389 ]
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %arrayidx375 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_rng_feature_map, i64 0, i64 %indvars.iv.next247
   %35 = load i32, ptr %arrayidx375, align 16
@@ -720,11 +720,11 @@ for.body412:                                      ; preds = %for.end, %for.inc43
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %for.inc431 ], [ 0, %for.end ]
   %36 = phi i32 [ %38, %for.inc431 ], [ 0, %for.end ]
   %arrayidx408192 = phi ptr [ %arrayidx408, %for.inc431 ], [ @virtio_gpio_feature_map, %for.end ]
-  %bitmap.addr.26191 = phi i64 [ %bitmap.addr.27, %for.inc431 ], [ %bitmap.addr.1, %for.end ]
+  %bitmap.addr.27191 = phi i64 [ %bitmap.addr.28, %for.inc431 ], [ %bitmap.addr.1, %for.end ]
   %list404.0190 = phi ptr [ %list404.1, %for.inc431 ], [ null, %for.end ]
   %sh_prom416 = zext nneg i32 %36 to i64
   %shl417 = shl nuw i64 1, %sh_prom416
-  %and418 = and i64 %shl417, %bitmap.addr.26191
+  %and418 = and i64 %shl417, %bitmap.addr.27191
   %cmp419 = icmp eq i64 %and418, 0
   br i1 %cmp419, label %for.inc431, label %if.end422
 
@@ -736,12 +736,12 @@ if.end422:                                        ; preds = %for.body412
   %value428 = getelementptr inbounds i8, ptr %call423, i64 8
   store ptr %call427, ptr %value428, align 8
   store ptr %list404.0190, ptr %call423, align 8
-  %xor430 = xor i64 %shl417, %bitmap.addr.26191
+  %xor430 = xor i64 %shl417, %bitmap.addr.27191
   br label %for.inc431
 
 for.inc431:                                       ; preds = %for.body412, %if.end422
   %list404.1 = phi ptr [ %list404.0190, %for.body412 ], [ %call423, %if.end422 ]
-  %bitmap.addr.27 = phi i64 [ %bitmap.addr.26191, %for.body412 ], [ %xor430, %if.end422 ]
+  %bitmap.addr.28 = phi i64 [ %bitmap.addr.27191, %for.body412 ], [ %xor430, %if.end422 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %arrayidx408 = getelementptr [3 x %struct.qmp_virtio_feature_map_t], ptr @virtio_gpio_feature_map, i64 0, i64 %indvars.iv.next243
   %38 = load i32, ptr %arrayidx408, align 16
@@ -754,14 +754,14 @@ do.body:                                          ; preds = %for.end
 
 sw.epilog.sink.split:                             ; preds = %for.inc431, %for.inc398, %for.inc332, %for.inc299, %for.inc266, %for.inc233, %for.inc200, %for.inc167, %for.inc134, %for.inc101, %for.inc68, %for.inc36, %if.end356, %for.body346.preheader
   %list404.1.lcssa.sink = phi ptr [ null, %for.body346.preheader ], [ %call357, %if.end356 ], [ %list9.1, %for.inc36 ], [ %list41.1, %for.inc68 ], [ %list74.1, %for.inc101 ], [ %list107.1, %for.inc134 ], [ %list140.1, %for.inc167 ], [ %list173.1, %for.inc200 ], [ %list206.1, %for.inc233 ], [ %list239.1, %for.inc266 ], [ %list272.1, %for.inc299 ], [ %list305.1, %for.inc332 ], [ %list371.1, %for.inc398 ], [ %list404.1, %for.inc431 ]
-  %bitmap.addr.28.ph = phi i64 [ %bitmap.addr.1, %for.body346.preheader ], [ %xor364, %if.end356 ], [ %bitmap.addr.3, %for.inc36 ], [ %bitmap.addr.5, %for.inc68 ], [ %bitmap.addr.7, %for.inc101 ], [ %bitmap.addr.9, %for.inc134 ], [ %bitmap.addr.11, %for.inc167 ], [ %bitmap.addr.13, %for.inc200 ], [ %bitmap.addr.15, %for.inc233 ], [ %bitmap.addr.17, %for.inc266 ], [ %bitmap.addr.19, %for.inc299 ], [ %bitmap.addr.21, %for.inc332 ], [ %bitmap.addr.25, %for.inc398 ], [ %bitmap.addr.27, %for.inc431 ]
+  %bitmap.addr.4.ph = phi i64 [ %bitmap.addr.1, %for.body346.preheader ], [ %xor364, %if.end356 ], [ %bitmap.addr.3, %for.inc36 ], [ %bitmap.addr.6, %for.inc68 ], [ %bitmap.addr.8, %for.inc101 ], [ %bitmap.addr.10, %for.inc134 ], [ %bitmap.addr.12, %for.inc167 ], [ %bitmap.addr.14, %for.inc200 ], [ %bitmap.addr.16, %for.inc233 ], [ %bitmap.addr.18, %for.inc266 ], [ %bitmap.addr.20, %for.inc299 ], [ %bitmap.addr.22, %for.inc332 ], [ %bitmap.addr.26, %for.inc398 ], [ %bitmap.addr.28, %for.inc431 ]
   %dev_features435 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %list404.1.lcssa.sink, ptr %dev_features435, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end
-  %bitmap.addr.28 = phi i64 [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.28.ph, %sw.epilog.sink.split ]
-  %cmp437 = icmp ne i64 %bitmap.addr.28, 0
+  %bitmap.addr.4 = phi i64 [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.4.ph, %sw.epilog.sink.split ]
+  %cmp437 = icmp ne i64 %bitmap.addr.4, 0
   %has_unknown_dev_features = getelementptr inbounds i8, ptr %call, i64 24
   %frombool = zext i1 %cmp437 to i8
   store i8 %frombool, ptr %has_unknown_dev_features, align 8
@@ -769,7 +769,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 
 if.then440:                                       ; preds = %sw.epilog
   %unknown_dev_features = getelementptr inbounds i8, ptr %call, i64 32
-  store i64 %bitmap.addr.28, ptr %unknown_dev_features, align 8
+  store i64 %bitmap.addr.4, ptr %unknown_dev_features, align 8
   br label %if.end441
 
 if.end441:                                        ; preds = %if.then440, %sw.epilog

@@ -1284,7 +1284,7 @@ if.then53:                                        ; preds = %land.lhs.true
 
 land.rhs56:                                       ; preds = %if.then53, %for.body
   %mult.076 = phi i32 [ %div, %for.body ], [ 100000, %if.then53 ]
-  %micros.075 = phi i32 [ %micros.1, %for.body ], [ 0, %if.then53 ]
+  %micros.175 = phi i32 [ %micros.2, %for.body ], [ 0, %if.then53 ]
   %17 = phi i64 [ %inc65, %for.body ], [ %inc54, %if.then53 ]
   %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %17
   %18 = load i8, ptr %arrayidx57, align 1
@@ -1298,7 +1298,7 @@ for.body:                                         ; preds = %land.rhs56
   %sub = add nsw i32 %conv63, -48
   %mul = mul nsw i32 %sub, %mult.076
   %add = select i1 %cmp60, i32 %mul, i32 0
-  %micros.1 = add nsw i32 %add, %micros.075
+  %micros.2 = add nsw i32 %add, %micros.175
   %inc65 = add i64 %17, 1
   store i64 %inc65, ptr %pos, align 8
   %div = sdiv i32 %mult.076, 10
@@ -1307,13 +1307,13 @@ for.body:                                         ; preds = %land.rhs56
 
 if.end66.loopexit:                                ; preds = %land.rhs56, %for.body
   %pos.promoted7887 = phi i64 [ %17, %land.rhs56 ], [ %len, %for.body ]
-  %micros.2.ph = phi i32 [ %micros.075, %land.rhs56 ], [ %micros.1, %for.body ]
-  %21 = sext i32 %micros.2.ph to i64
+  %micros.0.ph = phi i32 [ %micros.175, %land.rhs56 ], [ %micros.2, %for.body ]
+  %21 = sext i32 %micros.0.ph to i64
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end66.loopexit, %if.then53, %land.lhs.true, %if.end48
   %pos.promoted78 = phi i64 [ %15, %land.lhs.true ], [ %15, %if.end48 ], [ %inc54, %if.then53 ], [ %pos.promoted7887, %if.end66.loopexit ]
-  %micros.2 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.end48 ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
+  %micros.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.end48 ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
   %cmp6979 = icmp ult i64 %pos.promoted78, %len
   %or.cond81 = and i1 %cmp6979, %strict
   br i1 %or.cond81, label %land.rhs70, label %if.end80
@@ -1344,7 +1344,7 @@ if.end80:                                         ; preds = %while.body74, %if.e
   %narrow69 = add nuw nsw i32 %14, %narrow68
   %add4.i = zext nneg i32 %narrow69 to i64
   %mul5.i = mul nuw nsw i64 %add4.i, 1000000
-  %add7.i = add nsw i64 %mul5.i, %micros.2
+  %add7.i = add nsw i64 %mul5.i, %micros.0
   store i64 %add7.i, ptr %result, align 8
   br label %return
 
@@ -1517,7 +1517,7 @@ if.then23:                                        ; preds = %if.end44.i, %lor.lh
 
 if.end30:                                         ; preds = %if.end5.i, %lor.lhs.false.i, %if.end.i, %if.then15, %if.then23
   %pos.promoted = phi i64 [ %add34.sink.i, %if.then23 ], [ %spec.select, %if.then15 ], [ %spec.select, %if.end.i ], [ %spec.select, %lor.lhs.false.i ], [ %spec.select, %if.end5.i ]
-  %retval.sroa.0.0 = phi i64 [ %sub28, %if.then23 ], [ %add.i, %if.then15 ], [ %add.i, %if.end.i ], [ %add.i, %lor.lhs.false.i ], [ %add.i, %if.end5.i ]
+  %retval.sroa.0.1 = phi i64 [ %sub28, %if.then23 ], [ %add.i, %if.then15 ], [ %add.i, %if.end.i ], [ %add.i, %lor.lhs.false.i ], [ %add.i, %if.end5.i ]
   %cmp3135 = icmp ult i64 %pos.promoted, %len
   br i1 %cmp3135, label %land.rhs, label %return
 
@@ -1544,10 +1544,10 @@ if.then36:                                        ; preds = %land.rhs
   unreachable
 
 return:                                           ; preds = %while.body, %if.end30, %if.end12, %if.then1
-  %retval.sroa.0.1 = phi i64 [ %mul.i, %if.then1 ], [ %add.i, %if.end12 ], [ %retval.sroa.0.0, %if.end30 ], [ %retval.sroa.0.0, %while.body ]
-  %retval.sroa.5.1 = phi i64 [ 0, %if.then1 ], [ %mul1.i, %if.end12 ], [ %mul1.i, %if.end30 ], [ %mul1.i, %while.body ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.5.1, 1
+  %retval.sroa.0.0 = phi i64 [ %mul.i, %if.then1 ], [ %add.i, %if.end12 ], [ %retval.sroa.0.1, %if.end30 ], [ %retval.sroa.0.1, %while.body ]
+  %retval.sroa.5.0 = phi i64 [ 0, %if.then1 ], [ %mul1.i, %if.end12 ], [ %mul1.i, %if.end30 ], [ %mul1.i, %while.body ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

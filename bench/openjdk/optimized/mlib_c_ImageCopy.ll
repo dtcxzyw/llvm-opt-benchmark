@@ -252,22 +252,22 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %39, label %31, label %.lr.ph86.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph71, %.preheader50
-  %.246.lcssa = phi i32 [ %2, %.preheader50 ], [ %44, %.lr.ph71 ]
-  %.240.lcssa = phi ptr [ %1, %.preheader50 ], [ %43, %.lr.ph71 ]
-  %.2.lcssa = phi ptr [ %0, %.preheader50 ], [ %41, %.lr.ph71 ]
-  %40 = icmp sgt i32 %.246.lcssa, 8
+  %.347.lcssa = phi i32 [ %2, %.preheader50 ], [ %44, %.lr.ph71 ]
+  %.341.lcssa = phi ptr [ %1, %.preheader50 ], [ %43, %.lr.ph71 ]
+  %.3.lcssa = phi ptr [ %0, %.preheader50 ], [ %41, %.lr.ph71 ]
+  %40 = icmp sgt i32 %.347.lcssa, 8
   br i1 %40, label %.lr.ph78, label %.loopexit
 
 .lr.ph71:                                         ; preds = %.preheader50, %.lr.ph71
-  %.270 = phi ptr [ %41, %.lr.ph71 ], [ %0, %.preheader50 ]
-  %.24069 = phi ptr [ %43, %.lr.ph71 ], [ %1, %.preheader50 ]
-  %.24668 = phi i32 [ %44, %.lr.ph71 ], [ %2, %.preheader50 ]
-  %41 = getelementptr inbounds i8, ptr %.270, i64 1
-  %42 = load i8, ptr %.270, align 1
-  %43 = getelementptr inbounds i8, ptr %.24069, i64 1
-  store i8 %42, ptr %.24069, align 1
-  %44 = add nsw i32 %.24668, -1
-  %45 = icmp ugt i32 %.24668, 1
+  %.370 = phi ptr [ %41, %.lr.ph71 ], [ %0, %.preheader50 ]
+  %.34169 = phi ptr [ %43, %.lr.ph71 ], [ %1, %.preheader50 ]
+  %.34768 = phi i32 [ %44, %.lr.ph71 ], [ %2, %.preheader50 ]
+  %41 = getelementptr inbounds i8, ptr %.370, i64 1
+  %42 = load i8, ptr %.370, align 1
+  %43 = getelementptr inbounds i8, ptr %.34169, i64 1
+  store i8 %42, ptr %.34169, align 1
+  %44 = add nsw i32 %.34768, -1
+  %45 = icmp ugt i32 %.34768, 1
   %46 = ptrtoint ptr %43 to i64
   %47 = and i64 %46, 7
   %48 = icmp ne i64 %47, 0
@@ -275,28 +275,28 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %49, label %.lr.ph71, label %.preheader, !llvm.loop !12
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
-  %.377 = phi ptr [ %52, %.lr.ph78 ], [ %.2.lcssa, %.preheader ]
-  %.34176 = phi ptr [ %51, %.lr.ph78 ], [ %.240.lcssa, %.preheader ]
-  %.34775 = phi i32 [ %53, %.lr.ph78 ], [ %.246.lcssa, %.preheader ]
-  %50 = load double, ptr %.377, align 8
-  store double %50, ptr %.34176, align 8
-  %51 = getelementptr inbounds i8, ptr %.34176, i64 8
-  %52 = getelementptr inbounds i8, ptr %.377, i64 8
-  %53 = add nsw i32 %.34775, -8
-  %54 = icmp ugt i32 %.34775, 16
+  %.477 = phi ptr [ %52, %.lr.ph78 ], [ %.3.lcssa, %.preheader ]
+  %.44276 = phi ptr [ %51, %.lr.ph78 ], [ %.341.lcssa, %.preheader ]
+  %.44875 = phi i32 [ %53, %.lr.ph78 ], [ %.347.lcssa, %.preheader ]
+  %50 = load double, ptr %.477, align 8
+  store double %50, ptr %.44276, align 8
+  %51 = getelementptr inbounds i8, ptr %.44276, i64 8
+  %52 = getelementptr inbounds i8, ptr %.477, i64 8
+  %53 = add nsw i32 %.44875, -8
+  %54 = icmp ugt i32 %.44875, 16
   br i1 %54, label %.lr.ph78, label %.lr.ph86.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader
-  %.448 = phi i32 [ %.246.lcssa, %.preheader ], [ %.044.lcssa, %._crit_edge ]
-  %.442 = phi ptr [ %.240.lcssa, %.preheader ], [ %.038.lcssa, %._crit_edge ]
-  %.4 = phi ptr [ %.2.lcssa, %.preheader ], [ %.0.lcssa, %._crit_edge ]
-  %55 = icmp sgt i32 %.448, 0
+  %.246 = phi i32 [ %.347.lcssa, %.preheader ], [ %.044.lcssa, %._crit_edge ]
+  %.240 = phi ptr [ %.341.lcssa, %.preheader ], [ %.038.lcssa, %._crit_edge ]
+  %.2 = phi ptr [ %.3.lcssa, %.preheader ], [ %.0.lcssa, %._crit_edge ]
+  %55 = icmp sgt i32 %.246, 0
   br i1 %55, label %.lr.ph86.preheader, label %._crit_edge87
 
 .lr.ph86.preheader:                               ; preds = %31, %.lr.ph78, %.loopexit
-  %.584.ph = phi ptr [ %.4, %.loopexit ], [ %52, %.lr.ph78 ], [ %37, %31 ]
-  %.54383.ph = phi ptr [ %.442, %.loopexit ], [ %51, %.lr.ph78 ], [ %36, %31 ]
-  %.54982.ph = phi i32 [ %.448, %.loopexit ], [ %53, %.lr.ph78 ], [ %38, %31 ]
+  %.584.ph = phi ptr [ %.2, %.loopexit ], [ %52, %.lr.ph78 ], [ %37, %31 ]
+  %.54383.ph = phi ptr [ %.240, %.loopexit ], [ %51, %.lr.ph78 ], [ %36, %31 ]
+  %.54982.ph = phi i32 [ %.246, %.loopexit ], [ %53, %.lr.ph78 ], [ %38, %31 ]
   br label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
@@ -432,7 +432,7 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
 66:                                               ; preds = %.lr.ph117, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next, %66 ]
   %.086115 = phi i64 [ %56, %.lr.ph117 ], [ %68, %66 ]
-  %.294113 = phi i32 [ %.092.lcssa, %.lr.ph117 ], [ %73, %66 ]
+  %.3113 = phi i32 [ %.092.lcssa, %.lr.ph117 ], [ %73, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv.next
   %68 = load i64, ptr %67, align 8
@@ -441,24 +441,24 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %71 = or i64 %70, %69
   %72 = getelementptr inbounds i64, ptr %.087.lcssa, i64 %indvars.iv
   store i64 %71, ptr %72, align 8
-  %73 = add nuw nsw i32 %.294113, 8
+  %73 = add nuw nsw i32 %.3113, 8
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.loopexit, label %66, !llvm.loop !17
 
 .loopexit:                                        ; preds = %66, %.lr.ph123, %51, %.preheader
-  %.3 = phi i32 [ %.092.lcssa, %.preheader ], [ %.092.lcssa, %51 ], [ %50, %.lr.ph123 ], [ %73, %66 ]
+  %.294 = phi i32 [ %.092.lcssa, %.preheader ], [ %.092.lcssa, %51 ], [ %50, %.lr.ph123 ], [ %73, %66 ]
   %.pn.in.in = phi i32 [ 0, %.preheader ], [ 0, %51 ], [ %46, %.lr.ph123 ], [ %65, %66 ]
   %.pn.in = shl i32 %.pn.in.in, 3
   %.pn = sext i32 %.pn.in to i64
   %.1 = getelementptr i8, ptr %.0.lcssa, i64 %.pn
   %.188 = getelementptr i8, ptr %.087.lcssa, i64 %.pn
-  %74 = icmp slt i32 %.3, %26
+  %74 = icmp slt i32 %.294, %26
   br i1 %74, label %.lr.ph130, label %._crit_edge131
 
 .lr.ph130:                                        ; preds = %.loopexit, %.lr.ph130
   %.2128 = phi ptr [ %75, %.lr.ph130 ], [ %.1, %.loopexit ]
   %.289127 = phi ptr [ %77, %.lr.ph130 ], [ %.188, %.loopexit ]
-  %.4126 = phi i32 [ %78, %.lr.ph130 ], [ %.3, %.loopexit ]
+  %.4126 = phi i32 [ %78, %.lr.ph130 ], [ %.294, %.loopexit ]
   %75 = getelementptr inbounds i8, ptr %.2128, i64 1
   %76 = load i8, ptr %.2128, align 1
   %77 = getelementptr inbounds i8, ptr %.289127, i64 1
@@ -720,12 +720,12 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef readonly 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader127
-  %.3.lcssa = phi i32 [ 0, %.preheader127 ], [ %81, %._crit_edge.loopexit ]
-  %.not115131 = icmp sgt i32 %.3.lcssa, %16
+  %.4.lcssa = phi i32 [ 0, %.preheader127 ], [ %81, %._crit_edge.loopexit ]
+  %.not115131 = icmp sgt i32 %.4.lcssa, %16
   br i1 %.not115131, label %.loopexit124, label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %._crit_edge
-  %82 = zext nneg i32 %.3.lcssa to i64
+  %82 = zext nneg i32 %.4.lcssa to i64
   %83 = getelementptr inbounds i8, ptr %53, i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, -8
@@ -763,12 +763,12 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef readonly 
   br label %.loopexit124
 
 .loopexit124:                                     ; preds = %.loopexit124.loopexit163, %.loopexit124.loopexit, %._crit_edge, %.preheader123
-  %.5 = phi i32 [ %.1111.lcssa, %.preheader123 ], [ %.3.lcssa, %._crit_edge ], [ %101, %.loopexit124.loopexit ], [ %102, %.loopexit124.loopexit163 ]
-  %103 = icmp slt i32 %.5, %.0108
+  %.3 = phi i32 [ %.1111.lcssa, %.preheader123 ], [ %.4.lcssa, %._crit_edge ], [ %101, %.loopexit124.loopexit ], [ %102, %.loopexit124.loopexit163 ]
+  %103 = icmp slt i32 %.3, %.0108
   br i1 %103, label %.lr.ph147.preheader, label %._crit_edge148
 
 .lr.ph147.preheader:                              ; preds = %.loopexit124
-  %104 = zext nneg i32 %.5 to i64
+  %104 = zext nneg i32 %.3 to i64
   br label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
@@ -1003,12 +1003,12 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef readonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader127
-  %.3.lcssa = phi i32 [ 0, %.preheader127 ], [ %79, %._crit_edge.loopexit ]
-  %.not115131 = icmp sgt i32 %.3.lcssa, %18
+  %.4.lcssa = phi i32 [ 0, %.preheader127 ], [ %79, %._crit_edge.loopexit ]
+  %.not115131 = icmp sgt i32 %.4.lcssa, %18
   br i1 %.not115131, label %.loopexit124, label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %._crit_edge
-  %80 = zext nneg i32 %.3.lcssa to i64
+  %80 = zext nneg i32 %.4.lcssa to i64
   %81 = getelementptr inbounds i16, ptr %49, i64 %80
   %82 = ptrtoint ptr %81 to i64
   %83 = and i64 %82, -8
@@ -1046,12 +1046,12 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef readonly
   br label %.loopexit124
 
 .loopexit124:                                     ; preds = %.loopexit124.loopexit163, %.loopexit124.loopexit, %._crit_edge, %.preheader123
-  %.5 = phi i32 [ %.1111.lcssa, %.preheader123 ], [ %.3.lcssa, %._crit_edge ], [ %99, %.loopexit124.loopexit ], [ %100, %.loopexit124.loopexit163 ]
-  %101 = icmp slt i32 %.5, %.0108
+  %.3 = phi i32 [ %.1111.lcssa, %.preheader123 ], [ %.4.lcssa, %._crit_edge ], [ %99, %.loopexit124.loopexit ], [ %100, %.loopexit124.loopexit163 ]
+  %101 = icmp slt i32 %.3, %.0108
   br i1 %101, label %.lr.ph147.preheader, label %._crit_edge148
 
 .lr.ph147.preheader:                              ; preds = %.loopexit124
-  %102 = zext nneg i32 %.5 to i64
+  %102 = zext nneg i32 %.3 to i64
   br label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
@@ -1299,12 +1299,12 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef readonly
   br label %.loopexit112
 
 .loopexit112:                                     ; preds = %.loopexit112.loopexit138, %.loopexit112.loopexit, %80, %70
-  %.3 = phi i32 [ %67, %70 ], [ %77, %80 ], [ %89, %.loopexit112.loopexit ], [ %90, %.loopexit112.loopexit138 ]
-  %91 = icmp slt i32 %.3, %.095
+  %.2 = phi i32 [ %67, %70 ], [ %77, %80 ], [ %89, %.loopexit112.loopexit ], [ %90, %.loopexit112.loopexit138 ]
+  %91 = icmp slt i32 %.2, %.095
   br i1 %91, label %.lr.ph125.preheader, label %._crit_edge
 
 .lr.ph125.preheader:                              ; preds = %.loopexit112
-  %92 = zext nneg i32 %.3 to i64
+  %92 = zext nneg i32 %.2 to i64
   br label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125

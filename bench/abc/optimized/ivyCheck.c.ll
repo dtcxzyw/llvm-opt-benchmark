@@ -406,7 +406,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 .lr.ph170:                                        ; preds = %4, %103
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %103 ], [ 0, %4 ]
   %14 = phi ptr [ %104, %103 ], [ %10, %4 ]
-  %.0169 = phi i32 [ %.4, %103 ], [ 1, %4 ]
+  %.0169 = phi i32 [ %.1, %103 ], [ 1, %4 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val132 = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds ptr, ptr %.val132, i64 %indvars.iv190
@@ -464,7 +464,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   br label %37
 
 37:                                               ; preds = %.critedge2.thread, %.critedge2
-  %.1 = phi i32 [ 0, %.critedge2.thread ], [ %.0169, %.critedge2 ]
+  %.2 = phi i32 [ 0, %.critedge2.thread ], [ %.0169, %.critedge2 ]
   %38 = getelementptr i8, ptr %17, i64 24
   %.val142 = load ptr, ptr %38, align 8
   %39 = ptrtoint ptr %.val142 to i64
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   br label %55
 
 55:                                               ; preds = %.critedge4.thread, %.critedge4
-  %.2 = phi i32 [ 0, %.critedge4.thread ], [ %.1, %.critedge4 ]
+  %.3 = phi i32 [ 0, %.critedge4.thread ], [ %.2, %.critedge4 ]
   %56 = getelementptr inbounds i8, ptr %17, i64 56
   %57 = load ptr, ptr %56, align 8
   %.not111 = icmp eq ptr %57, null
@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   br label %79
 
 79:                                               ; preds = %58, %66, %70, %75, %55
-  %.3 = phi i32 [ 0, %75 ], [ %.2, %70 ], [ %.2, %66 ], [ %.2, %58 ], [ %.2, %55 ]
+  %.4 = phi i32 [ 0, %75 ], [ %.3, %70 ], [ %.3, %66 ], [ %.3, %58 ], [ %.3, %55 ]
   %80 = getelementptr inbounds i8, ptr %17, i64 64
   %81 = load ptr, ptr %80, align 8
   %.not116 = icmp eq ptr %81, null
@@ -604,7 +604,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   br label %103
 
 103:                                              ; preds = %.lr.ph170, %82, %90, %94, %99, %79, %37, %19
-  %.4 = phi i32 [ %.0169, %.lr.ph170 ], [ %.0169, %19 ], [ %.1, %37 ], [ 0, %99 ], [ %.3, %94 ], [ %.3, %90 ], [ %.3, %82 ], [ %.3, %79 ]
+  %.1 = phi i32 [ %.0169, %.lr.ph170 ], [ %.0169, %19 ], [ %.2, %37 ], [ 0, %99 ], [ %.4, %94 ], [ %.4, %90 ], [ %.4, %82 ], [ %.4, %79 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %104 = load ptr, ptr %9, align 8
   %105 = getelementptr i8, ptr %104, i64 4
@@ -616,7 +616,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 .lr.ph182:                                        ; preds = %.critedge.preheader, %.critedge8
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.critedge8 ], [ 0, %.critedge.preheader ]
   %108 = phi ptr [ %134, %.critedge8 ], [ %104, %.critedge.preheader ]
-  %.5181 = phi i32 [ %.8, %.critedge8 ], [ %.4, %.critedge.preheader ]
+  %.5181 = phi i32 [ %.8, %.critedge8 ], [ %.1, %.critedge.preheader ]
   %109 = getelementptr i8, ptr %108, i64 8
   %.val129 = load ptr, ptr %109, align 8
   %110 = getelementptr inbounds ptr, ptr %.val129, i64 %indvars.iv196
@@ -684,7 +684,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   br i1 %137, label %.lr.ph182, label %.critedge6, !llvm.loop !11
 
 .critedge6:                                       ; preds = %.critedge8, %4, %.critedge.preheader
-  %.5.lcssa = phi i32 [ %.4, %.critedge.preheader ], [ 1, %4 ], [ %.8, %.critedge8 ]
+  %.5.lcssa = phi i32 [ %.1, %.critedge.preheader ], [ 1, %4 ], [ %.8, %.critedge8 ]
   %138 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %138, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %139

@@ -17856,8 +17856,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit154:             ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %.body
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit106:                ; preds = %462, %455, %450, %333, %326, %321, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102, %344
-  %.049 = phi i8 [ 0, %344 ], [ %42, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102 ], [ %42, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102.thread ], [ 0, %321 ], [ 0, %326 ], [ 0, %333 ], [ 1, %450 ], [ 1, %455 ], [ 1, %462 ]
-  %.047 = phi i8 [ 0, %344 ], [ %45, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102 ], [ %45, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102.thread ], [ 1, %321 ], [ 1, %326 ], [ 1, %333 ], [ 0, %450 ], [ 0, %455 ], [ 0, %462 ]
+  %.150 = phi i8 [ 0, %344 ], [ %42, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102 ], [ %42, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102.thread ], [ 0, %321 ], [ 0, %326 ], [ 0, %333 ], [ 1, %450 ], [ 1, %455 ], [ 1, %462 ]
+  %.148 = phi i8 [ 0, %344 ], [ %45, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102 ], [ %45, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit102.thread ], [ 1, %321 ], [ 1, %326 ], [ 1, %333 ], [ 0, %450 ], [ 0, %455 ], [ 0, %462 ]
   %.not.i.i.i.i161 = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i161, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit162, label %473
 
@@ -17876,8 +17876,8 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit106:                ; preds = %462, %455, %450, %3
   br label %.body167
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit162:                ; preds = %473, %_ZN5Yosys5RTLIL5ConstD2Ev.exit106, %_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit
-  %.150 = phi i8 [ %42, %_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit ], [ %.049, %_ZN5Yosys5RTLIL5ConstD2Ev.exit106 ], [ %.049, %473 ]
-  %.148 = phi i8 [ %45, %_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit ], [ %.047, %_ZN5Yosys5RTLIL5ConstD2Ev.exit106 ], [ %.047, %473 ]
+  %.049 = phi i8 [ %42, %_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit ], [ %.150, %_ZN5Yosys5RTLIL5ConstD2Ev.exit106 ], [ %.150, %473 ]
+  %.047 = phi i8 [ %45, %_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev.exit ], [ %.148, %_ZN5Yosys5RTLIL5ConstD2Ev.exit106 ], [ %.148, %473 ]
   br i1 %.not52, label %568, label %474
 
 474:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit162
@@ -18259,9 +18259,9 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit208:             ; preds = %_ZN5Yosys5RTLIL7Sig
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit189:             ; preds = %557, %550, %545, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit208
   %625 = phi ptr [ @.str.13, %557 ], [ @.str.13, %550 ], [ @.str.13, %545 ], [ @.str.42, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit208 ]
-  %626 = trunc nuw i8 %.148 to i1
+  %626 = trunc nuw i8 %.047 to i1
   %627 = select i1 %626, ptr @.str.40, ptr @.str.13
-  %628 = trunc nuw i8 %.150 to i1
+  %628 = trunc nuw i8 %.049 to i1
   %629 = select i1 %628, ptr @.str.41, ptr @.str.13
   br i1 %.not, label %634, label %630
 

@@ -991,16 +991,16 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
   br i1 %.not194, label %50, label %.preheader
 
 .preheader:                                       ; preds = %36, %.preheader
-  %.0178 = phi ptr [ %42, %.preheader ], [ %40, %36 ]
-  %42 = getelementptr inbounds i8, ptr %.0178, i64 6
+  %.2 = phi ptr [ %42, %.preheader ], [ %40, %36 ]
+  %42 = getelementptr inbounds i8, ptr %.2, i64 6
   %43 = load i8, ptr %42, align 2
   %.not195 = icmp eq i8 %43, %16
   br i1 %.not195, label %44, label %.preheader, !llvm.loop !23
 
 44:                                               ; preds = %.preheader
-  %45 = getelementptr inbounds i8, ptr %.0178, i64 7
+  %45 = getelementptr inbounds i8, ptr %.2, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.0178, i64 1
+  %47 = getelementptr inbounds i8, ptr %.2, i64 1
   %48 = load i8, ptr %47, align 1
   %.not196 = icmp ult i8 %46, %48
   br i1 %.not196, label %50, label %49
@@ -1008,13 +1008,13 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %2, ptr noundef nonnull align 2 dereferenceable(6) %42, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %42, ptr noundef nonnull align 2 dereferenceable(6) %.0178, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.0178, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %42, ptr noundef nonnull align 2 dereferenceable(6) %.2, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.2, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2)
   br label %50
 
 50:                                               ; preds = %44, %49, %36
-  %.1 = phi ptr [ %.0178, %49 ], [ %42, %44 ], [ %40, %36 ]
+  %.1 = phi ptr [ %.2, %49 ], [ %42, %44 ], [ %40, %36 ]
   %51 = getelementptr inbounds i8, ptr %.1, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp ult i8 %52, 115
@@ -1030,7 +1030,7 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
   br label %58
 
 58:                                               ; preds = %34, %29, %54, %50, %18, %1
-  %.2 = phi ptr [ %30, %34 ], [ %30, %29 ], [ %.1, %54 ], [ %.1, %50 ], [ null, %18 ], [ null, %1 ]
+  %.0178 = phi ptr [ %30, %34 ], [ %30, %29 ], [ %.1, %54 ], [ %.1, %50 ], [ null, %18 ], [ null, %1 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1042,7 +1042,7 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %0, align 8
-  %67 = tail call fastcc ptr @CreateSuccessors(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %.2, ptr noundef %66)
+  %67 = tail call fastcc ptr @CreateSuccessors(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %.0178, ptr noundef %66)
   %68 = icmp eq ptr %67, null
   %69 = load ptr, ptr %3, align 8
   br i1 %68, label %70, label %73
@@ -1112,7 +1112,7 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
 109:                                              ; preds = %156, %101
   %.sink = phi ptr [ %151, %156 ], [ %108, %101 ]
   %.061.i = phi ptr [ %.162.i, %156 ], [ %102, %101 ]
-  %.060.i = phi ptr [ null, %156 ], [ %.2, %101 ]
+  %.060.i = phi ptr [ null, %156 ], [ %.0178, %101 ]
   store i16 %107, ptr %.sink, align 2
   %storemerge.in.i = load i32, ptr %61, align 8
   %storemerge.i = add i32 %storemerge.in.i, 1
@@ -1154,8 +1154,8 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
   br i1 %.not72.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %123, %.preheader.i
-  %.063.i = phi ptr [ %131, %.preheader.i ], [ %127, %123 ]
-  %131 = getelementptr inbounds i8, ptr %.063.i, i64 6
+  %.2.i = phi ptr [ %131, %.preheader.i ], [ %127, %123 ]
+  %131 = getelementptr inbounds i8, ptr %.2.i, i64 6
   %132 = load i8, ptr %131, align 2
   %.not73.i = icmp eq i8 %132, %130
   br i1 %.not73.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !24
@@ -1187,12 +1187,12 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
   br label %147
 
 147:                                              ; preds = %140, %136, %.loopexit.i, %110
-  %.2.i = phi ptr [ %.060.i, %110 ], [ %.164.i, %136 ], [ %.164.i, %.loopexit.i ], [ %141, %140 ]
+  %.063.i = phi ptr [ %.060.i, %110 ], [ %.164.i, %136 ], [ %.164.i, %.loopexit.i ], [ %141, %140 ]
   %.162.i = phi ptr [ %115, %110 ], [ %121, %136 ], [ %121, %.loopexit.i ], [ %121, %140 ]
-  %148 = getelementptr inbounds i8, ptr %.2.i, i64 2
+  %148 = getelementptr inbounds i8, ptr %.063.i, i64 2
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i32
-  %151 = getelementptr inbounds i8, ptr %.2.i, i64 4
+  %151 = getelementptr inbounds i8, ptr %.063.i, i64 4
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i32
   %154 = shl nuw i32 %153, 16
@@ -1210,7 +1210,7 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
 
 158:                                              ; preds = %157
   %159 = load ptr, ptr %3, align 8
-  store ptr %.2.i, ptr %3, align 8
+  store ptr %.063.i, ptr %3, align 8
   %160 = tail call fastcc ptr @CreateSuccessors(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef %.162.i)
   %161 = icmp eq ptr %160, null
   br i1 %161, label %170, label %162
@@ -1290,7 +1290,7 @@ ReduceOrder.exit.thread213:                       ; preds = %116, %ReduceOrder.e
 
 203:                                              ; preds = %199
   %204 = load ptr, ptr %0, align 8
-  %205 = tail call fastcc ptr @CreateSuccessors(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %.2, ptr noundef %204)
+  %205 = tail call fastcc ptr @CreateSuccessors(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %.0178, ptr noundef %204)
   %206 = icmp eq ptr %205, null
   br i1 %206, label %207, label %208
 
@@ -2837,14 +2837,14 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef %1, ptr
   br label %35
 
 35:                                               ; preds = %35, %28
-  %.079 = phi ptr [ %32, %28 ], [ %37, %35 ]
-  %36 = load i8, ptr %.079, align 2
+  %.180 = phi ptr [ %32, %28 ], [ %37, %35 ]
+  %36 = load i8, ptr %.180, align 2
   %.not97 = icmp eq i8 %36, %34
-  %37 = getelementptr inbounds i8, ptr %.079, i64 6
+  %37 = getelementptr inbounds i8, ptr %.180, i64 6
   br i1 %.not97, label %38, label %35, !llvm.loop !36
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.079, i64 1
+  %39 = getelementptr inbounds i8, ptr %.180, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp ult i8 %40, 115
   br i1 %41, label %42, label %60
@@ -2876,11 +2876,11 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef %1, ptr
   br label %60
 
 60:                                               ; preds = %21, %47, %42, %38
-  %.180 = phi ptr [ %.079, %42 ], [ %.079, %38 ], [ %48, %47 ], [ %.078115, %21 ]
-  %61 = getelementptr inbounds i8, ptr %.180, i64 2
+  %.079 = phi ptr [ %.180, %42 ], [ %.180, %38 ], [ %48, %47 ], [ %.078115, %21 ]
+  %61 = getelementptr inbounds i8, ptr %.079, i64 2
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %.180, i64 4
+  %64 = getelementptr inbounds i8, ptr %.079, i64 4
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
   %67 = shl nuw i32 %66, 16
@@ -2899,7 +2899,7 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef %1, ptr
   %75 = add i32 %.184114, 1
   %76 = zext i32 %.184114 to i64
   %77 = getelementptr inbounds [17 x ptr], ptr %5, i64 0, i64 %76
-  store ptr %.180, ptr %77, align 8
+  store ptr %.079, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %25, i64 8
   %79 = load i32, ptr %78, align 1
   %.not93 = icmp eq i32 %79, 0

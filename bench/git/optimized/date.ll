@@ -1207,8 +1207,8 @@ if.end7:                                          ; preds = %match_object_header
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end47, %if.end7
-  %tm_gmt.0 = phi i32 [ 0, %if.end7 ], [ %tm_gmt.2, %if.end47 ]
-  %dummy_offset.4 = phi i32 [ -1, %if.end7 ], [ %dummy_offset.11, %if.end47 ]
+  %tm_gmt.0 = phi i32 [ 0, %if.end7 ], [ %tm_gmt.1, %if.end47 ]
+  %dummy_offset.1 = phi i32 [ -1, %if.end7 ], [ %dummy_offset.2, %if.end47 ]
   %date.addr.0 = phi ptr [ %date, %if.end7 ], [ %add.ptr51, %if.end47 ]
   %10 = load i8, ptr %date.addr.0, align 1
   switch i8 %10, label %if.end13 [
@@ -1421,7 +1421,7 @@ if.then32.i:                                      ; preds = %lor.lhs.false.i, %m
   br i1 %tobool1.not, label %if.then32.i.cont, label %if.then32.i.cont.thread
 
 if.then32.i.cont:                                 ; preds = %if.then32.i
-  %cmp38.i38 = icmp eq i32 %dummy_offset.4, -1
+  %cmp38.i38 = icmp eq i32 %dummy_offset.1, -1
   br i1 %cmp38.i38, label %if.then40.i.then, label %if.end47
 
 if.then32.i.cont.thread:                          ; preds = %if.then32.i
@@ -1840,7 +1840,7 @@ land.lhs.true106.i:                               ; preds = %if.then103.i
   br i1 %tobool1.not, label %land.lhs.true106.i.cont, label %land.lhs.true106.i.cont.thread
 
 land.lhs.true106.i.cont:                          ; preds = %land.lhs.true106.i
-  %cmp107.i = icmp eq i32 %dummy_offset.4, -1
+  %cmp107.i = icmp eq i32 %dummy_offset.1, -1
   br i1 %cmp107.i, label %if.then109.i.then, label %match_digit.exit
 
 land.lhs.true106.i.cont.thread:                   ; preds = %land.lhs.true106.i
@@ -1939,8 +1939,8 @@ if.then174.i:                                     ; preds = %if.end165.i
   br label %match_digit.exit
 
 match_digit.exit:                                 ; preds = %if.then109.i.then, %if.then109.i.else, %land.lhs.true106.i.cont.thread, %if.then4.i, %if.then11.i, %if.end64.i, %set_time.exit103.thread.i, %land.lhs.true106.i.cont, %if.else114.i, %if.then120.i, %if.end124.i, %if.then137.i, %if.then154.i, %if.then161.i, %if.end165.i, %if.then174.i
-  %tm_gmt.1 = phi i32 [ %tm_gmt.0, %land.lhs.true106.i.cont ], [ %tm_gmt.0, %if.then120.i ], [ %tm_gmt.0, %if.else114.i ], [ %tm_gmt.0, %if.end124.i ], [ %tm_gmt.0, %if.then137.i ], [ %tm_gmt.0, %if.then154.i ], [ %tm_gmt.0, %if.then174.i ], [ %tm_gmt.0, %if.end165.i ], [ %tm_gmt.0, %if.then161.i ], [ %tm_gmt.0, %set_time.exit103.thread.i ], [ %tm_gmt.0, %if.end64.i ], [ %tm_gmt.0, %if.then11.i ], [ 1, %if.then4.i ], [ %tm_gmt.0, %land.lhs.true106.i.cont.thread ], [ %tm_gmt.0, %if.then109.i.else ], [ %tm_gmt.0, %if.then109.i.then ]
-  %dummy_offset.8 = phi i32 [ %dummy_offset.4, %land.lhs.true106.i.cont ], [ %dummy_offset.4, %if.then120.i ], [ %dummy_offset.4, %if.else114.i ], [ %dummy_offset.4, %if.end124.i ], [ %dummy_offset.4, %if.then137.i ], [ %dummy_offset.4, %if.then154.i ], [ %dummy_offset.4, %if.then174.i ], [ %dummy_offset.4, %if.end165.i ], [ %dummy_offset.4, %if.then161.i ], [ %dummy_offset.4, %set_time.exit103.thread.i ], [ %dummy_offset.4, %if.end64.i ], [ %dummy_offset.4, %if.then11.i ], [ %dummy_offset.4, %if.then4.i ], [ %dummy_offset.4, %land.lhs.true106.i.cont.thread ], [ %dummy_offset.4, %if.then109.i.else ], [ %add.i54, %if.then109.i.then ]
+  %tm_gmt.2 = phi i32 [ %tm_gmt.0, %land.lhs.true106.i.cont ], [ %tm_gmt.0, %if.then120.i ], [ %tm_gmt.0, %if.else114.i ], [ %tm_gmt.0, %if.end124.i ], [ %tm_gmt.0, %if.then137.i ], [ %tm_gmt.0, %if.then154.i ], [ %tm_gmt.0, %if.then174.i ], [ %tm_gmt.0, %if.end165.i ], [ %tm_gmt.0, %if.then161.i ], [ %tm_gmt.0, %set_time.exit103.thread.i ], [ %tm_gmt.0, %if.end64.i ], [ %tm_gmt.0, %if.then11.i ], [ 1, %if.then4.i ], [ %tm_gmt.0, %land.lhs.true106.i.cont.thread ], [ %tm_gmt.0, %if.then109.i.else ], [ %tm_gmt.0, %if.then109.i.then ]
+  %dummy_offset.6 = phi i32 [ %dummy_offset.1, %land.lhs.true106.i.cont ], [ %dummy_offset.1, %if.then120.i ], [ %dummy_offset.1, %if.else114.i ], [ %dummy_offset.1, %if.end124.i ], [ %dummy_offset.1, %if.then137.i ], [ %dummy_offset.1, %if.then154.i ], [ %dummy_offset.1, %if.then174.i ], [ %dummy_offset.1, %if.end165.i ], [ %dummy_offset.1, %if.then161.i ], [ %dummy_offset.1, %set_time.exit103.thread.i ], [ %dummy_offset.1, %if.end64.i ], [ %dummy_offset.1, %if.then11.i ], [ %dummy_offset.1, %if.then4.i ], [ %dummy_offset.1, %land.lhs.true106.i.cont.thread ], [ %dummy_offset.1, %if.then109.i.else ], [ %add.i54, %if.then109.i.then ]
   %retval.0.i46 = phi i32 [ 4, %land.lhs.true106.i.cont ], [ 4, %if.then120.i ], [ 4, %if.else114.i ], [ %85, %if.end124.i ], [ %85, %if.then137.i ], [ 2, %if.then154.i ], [ %85, %if.then174.i ], [ %85, %if.end165.i ], [ 2, %if.then161.i ], [ %85, %set_time.exit103.thread.i ], [ %conv68.i, %if.end64.i ], [ %call12.i, %if.then11.i ], [ %conv.i, %if.then4.i ], [ 4, %land.lhs.true106.i.cont.thread ], [ 4, %if.then109.i.else ], [ 4, %if.then109.i.then ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %git_time.i)
@@ -2020,7 +2020,7 @@ if.then29.i67.else:                               ; preds = %if.then29.i67
   br label %match_tz.exit
 
 match_tz.exit:                                    ; preds = %if.then29.i67.else, %if.then29.i67, %if.then43, %if.end24.i
-  %dummy_offset.10 = phi i32 [ %dummy_offset.4, %if.then43 ], [ %dummy_offset.4, %if.end24.i ], [ %dummy_offset.4, %if.then29.i67.else ], [ %spec.select.i71, %if.then29.i67 ]
+  %dummy_offset.7 = phi i32 [ %dummy_offset.1, %if.then43 ], [ %dummy_offset.1, %if.end24.i ], [ %dummy_offset.1, %if.then29.i67.else ], [ %spec.select.i71, %if.then29.i67 ]
   %119 = phi ptr [ %114, %if.then43 ], [ %117, %if.end24.i ], [ %117, %if.then29.i67.else ], [ %117, %if.then29.i67 ]
   %sub.ptr.lhs.cast36.i = ptrtoint ptr %119 to i64
   %sub.ptr.rhs.cast37.i = ptrtoint ptr %date.addr.0 to i64
@@ -2030,8 +2030,8 @@ match_tz.exit:                                    ; preds = %if.then29.i67.else,
   br label %if.end47
 
 if.end47:                                         ; preds = %skip_alpha.exit.i, %if.then75.i, %if.then56.i, %if.then49.i, %if.then32.i.cont, %if.then10.i, %if.then.i, %if.then32.i.cont.thread, %if.then40.i.else, %if.then40.i.then, %if.else27, %match_digit.exit, %match_tz.exit, %land.lhs.true35
-  %tm_gmt.2 = phi i32 [ %tm_gmt.0, %if.else27 ], [ %tm_gmt.0, %land.lhs.true35 ], [ %tm_gmt.0, %match_tz.exit ], [ %tm_gmt.1, %match_digit.exit ], [ %tm_gmt.0, %if.then40.i.then ], [ %tm_gmt.0, %if.then40.i.else ], [ %tm_gmt.0, %if.then32.i.cont.thread ], [ %tm_gmt.0, %if.then.i ], [ %tm_gmt.0, %if.then10.i ], [ %tm_gmt.0, %if.then32.i.cont ], [ %tm_gmt.0, %if.then49.i ], [ %tm_gmt.0, %if.then56.i ], [ %tm_gmt.0, %if.then75.i ], [ %tm_gmt.0, %skip_alpha.exit.i ]
-  %dummy_offset.11 = phi i32 [ %dummy_offset.4, %if.else27 ], [ %dummy_offset.4, %land.lhs.true35 ], [ %dummy_offset.10, %match_tz.exit ], [ %dummy_offset.8, %match_digit.exit ], [ %mul.i40, %if.then40.i.then ], [ %dummy_offset.4, %if.then40.i.else ], [ %dummy_offset.4, %if.then32.i.cont.thread ], [ %dummy_offset.4, %if.then.i ], [ %dummy_offset.4, %if.then10.i ], [ %dummy_offset.4, %if.then32.i.cont ], [ %dummy_offset.4, %if.then49.i ], [ %dummy_offset.4, %if.then56.i ], [ %dummy_offset.4, %if.then75.i ], [ %dummy_offset.4, %skip_alpha.exit.i ]
+  %tm_gmt.1 = phi i32 [ %tm_gmt.0, %if.else27 ], [ %tm_gmt.0, %land.lhs.true35 ], [ %tm_gmt.0, %match_tz.exit ], [ %tm_gmt.2, %match_digit.exit ], [ %tm_gmt.0, %if.then40.i.then ], [ %tm_gmt.0, %if.then40.i.else ], [ %tm_gmt.0, %if.then32.i.cont.thread ], [ %tm_gmt.0, %if.then.i ], [ %tm_gmt.0, %if.then10.i ], [ %tm_gmt.0, %if.then32.i.cont ], [ %tm_gmt.0, %if.then49.i ], [ %tm_gmt.0, %if.then56.i ], [ %tm_gmt.0, %if.then75.i ], [ %tm_gmt.0, %skip_alpha.exit.i ]
+  %dummy_offset.2 = phi i32 [ %dummy_offset.1, %if.else27 ], [ %dummy_offset.1, %land.lhs.true35 ], [ %dummy_offset.7, %match_tz.exit ], [ %dummy_offset.6, %match_digit.exit ], [ %mul.i40, %if.then40.i.then ], [ %dummy_offset.1, %if.then40.i.else ], [ %dummy_offset.1, %if.then32.i.cont.thread ], [ %dummy_offset.1, %if.then.i ], [ %dummy_offset.1, %if.then10.i ], [ %dummy_offset.1, %if.then32.i.cont ], [ %dummy_offset.1, %if.then49.i ], [ %dummy_offset.1, %if.then56.i ], [ %dummy_offset.1, %if.then75.i ], [ %dummy_offset.1, %skip_alpha.exit.i ]
   %match.0 = phi i32 [ 0, %if.else27 ], [ 0, %land.lhs.true35 ], [ %conv39.i, %match_tz.exit ], [ %retval.0.i46, %match_digit.exit ], [ %.us-phi188.i, %if.then40.i.then ], [ %.us-phi188.i, %if.then40.i.else ], [ %.us-phi188.i, %if.then32.i.cont.thread ], [ %retval.0.i.i, %if.then.i ], [ %retval.0.i58.i, %if.then10.i ], [ %.us-phi188.i, %if.then32.i.cont ], [ 2, %if.then49.i ], [ 2, %if.then56.i ], [ 1, %if.then75.i ], [ %70, %skip_alpha.exit.i ]
   %spec.store.select2 = call i32 @llvm.umax.i32(i32 %match.0, i32 1)
   %idx.ext = sext i32 %spec.store.select2 to i64
@@ -2113,7 +2113,7 @@ if.end56.else:                                    ; preds = %if.end56
   br label %if.end56.cont
 
 if.end56.cont:                                    ; preds = %if.end56, %if.end56.else
-  %129 = phi i32 [ %dummy_offset.4, %if.end56 ], [ %.else.val95, %if.end56.else ]
+  %129 = phi i32 [ %dummy_offset.1, %if.end56 ], [ %.else.val95, %if.end56.else ]
   %cmp57 = icmp eq i32 %129, -1
   br i1 %cmp57, label %if.then59, label %if.end72
 
@@ -2149,7 +2149,7 @@ if.end72.sink.split:                              ; preds = %if.else66, %if.then
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end72.sink.split, %if.else66, %if.then64, %if.end56.cont
-  %dummy_offset.14 = phi i32 [ %dummy_offset.4, %if.end56.cont ], [ %conv65, %if.then64 ], [ %conv69.neg, %if.else66 ], [ %dummy_offset.4, %if.end72.sink.split ]
+  %dummy_offset.3 = phi i32 [ %dummy_offset.1, %if.end56.cont ], [ %conv65, %if.then64 ], [ %conv69.neg, %if.else66 ], [ %dummy_offset.1, %if.end72.sink.split ]
   %tobool73.not = icmp eq i32 %tm_gmt.0, 0
   br i1 %tobool73.not, label %if.then74, label %return
 
@@ -2161,7 +2161,7 @@ if.then74.else:                                   ; preds = %if.then74
   br label %if.then74.cont
 
 if.then74.cont:                                   ; preds = %if.then74, %if.then74.else
-  %131 = phi i32 [ %dummy_offset.14, %if.then74 ], [ %.else.val93, %if.then74.else ]
+  %131 = phi i32 [ %dummy_offset.3, %if.then74 ], [ %.else.val93, %if.then74.else ]
   br i1 %tobool.not, label %return, label %if.then74.cont.cont.else
 
 if.then74.cont.cont.else:                         ; preds = %if.then74.cont
@@ -4163,8 +4163,8 @@ if.then25:                                        ; preds = %if.else23
   br label %return.sink.split
 
 if.end34.cont.cont:                               ; preds = %if.else17.thread, %if.then25.thread, %if.then14.thread, %if.end.cont
-  %check.sroa.8.4.ph = phi i32 [ %add159, %if.then25.thread ], [ %sub15122, %if.then14.thread ], [ %3, %if.end.cont ], [ %year, %if.else17.thread ]
-  %8 = add i32 %check.sroa.8.4.ph, -200
+  %check.sroa.8.0.ph = phi i32 [ %add159, %if.then25.thread ], [ %sub15122, %if.then14.thread ], [ %3, %if.end.cont ], [ %year, %if.else17.thread ]
+  %8 = add i32 %check.sroa.8.0.ph, -200
   %or.cond.i = icmp ult i32 %8, -130
   br i1 %or.cond.i, label %if.end40.cont.cont, label %if.end6.i.cont.cont
 
@@ -4178,12 +4178,12 @@ if.end6.i.cont.cont:                              ; preds = %if.end34.cont.cont
 
 tm_to_time_t.exit:                                ; preds = %if.end6.i.cont.cont
   %cmp7.i = icmp ult i32 %0, 2
-  %rem.i = and i32 %check.sroa.8.4.ph, 3
+  %rem.i = and i32 %check.sroa.8.0.ph, 3
   %tobool.not.i = icmp ne i32 %rem.i, 0
   %or.cond22.not.i = or i1 %cmp7.i, %tobool.not.i
   %dec.i = sext i1 %or.cond22.not.i to i32
-  %9 = mul nuw nsw i32 %check.sroa.8.4.ph, 365
-  %add18.i = add nsw i32 %check.sroa.8.4.ph, -69
+  %9 = mul nuw nsw i32 %check.sroa.8.0.ph, 365
+  %add18.i = add nsw i32 %check.sroa.8.0.ph, -69
   %div21.i = lshr i32 %add18.i, 2
   %idxprom.i = zext nneg i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [12 x i32], ptr @tm_to_time_t.mdays, i64 0, i64 %idxprom.i
@@ -4215,7 +4215,7 @@ if.end40.cont.cont:                               ; preds = %if.end6.i.cont.cont
   br i1 %cmp693, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end40.cont.cont, %if.else17, %if.then25, %if.then14.then
-  %sub15.sink = phi i32 [ %sub15, %if.then14.then ], [ %add, %if.then25 ], [ %year, %if.else17 ], [ %check.sroa.8.4.ph, %if.end40.cont.cont ]
+  %sub15.sink = phi i32 [ %sub15, %if.then14.then ], [ %add, %if.then25 ], [ %year, %if.else17 ], [ %check.sroa.8.0.ph, %if.end40.cont.cont ]
   store i32 %sub15.sink, ptr %check.sroa.8.0.tm.sroa_idx, align 4
   br label %return
 

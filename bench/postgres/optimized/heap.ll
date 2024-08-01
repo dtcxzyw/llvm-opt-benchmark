@@ -652,8 +652,8 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
 
 17:                                               ; preds = %.lr.ph145, %224
   %indvars.iv154 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next155, %224 ]
-  %.0124144 = phi ptr [ %4, %.lr.ph145 ], [ %.2, %224 ]
-  %.0126143 = phi i1 [ false, %.lr.ph145 ], [ %.2128, %224 ]
+  %.0124144 = phi ptr [ %4, %.lr.ph145 ], [ %.1, %224 ]
+  %.0126143 = phi i1 [ false, %.lr.ph145 ], [ %.1127, %224 ]
   %.0129142 = phi i32 [ 0, %.lr.ph145 ], [ %.1130, %224 ]
   %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %14, i64 0, i64 %indvars.iv154
   %19 = sext i32 %.0129142 to i64
@@ -914,27 +914,27 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   br label %223
 
 223:                                              ; preds = %221, %220
-  %.1127 = phi i1 [ %.0126143, %220 ], [ true, %221 ]
-  %.1 = phi ptr [ %.0124144, %220 ], [ %222, %221 ]
-  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %213, ptr noundef %.1) #11
+  %.2128 = phi i1 [ %.0126143, %220 ], [ true, %221 ]
+  %.2 = phi ptr [ %.0124144, %220 ], [ %222, %221 ]
+  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %213, ptr noundef %.2) #11
   %.pre = load i32, ptr %1, align 8
   br label %224
 
 224:                                              ; preds = %223, %215
   %225 = phi i32 [ %.pre, %223 ], [ %216, %215 ]
   %.1130 = phi i32 [ 0, %223 ], [ %213, %215 ]
-  %.2128 = phi i1 [ %.1127, %223 ], [ %.0126143, %215 ]
-  %.2 = phi ptr [ %.1, %223 ], [ %.0124144, %215 ]
+  %.1127 = phi i1 [ %.2128, %223 ], [ %.0126143, %215 ]
+  %.1 = phi ptr [ %.2, %223 ], [ %.0124144, %215 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %226 = sext i32 %225 to i64
   %227 = icmp slt i64 %indvars.iv.next155, %226
   br i1 %227, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %224
-  br i1 %.2128, label %228, label %._crit_edge.thread
+  br i1 %.1127, label %228, label %._crit_edge.thread
 
 228:                                              ; preds = %._crit_edge
-  tail call void @CatalogCloseIndexes(ptr noundef %.2) #11
+  tail call void @CatalogCloseIndexes(ptr noundef %.1) #11
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %228, %._crit_edge
@@ -1300,8 +1300,8 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
   br label %.thread
 
 .thread:                                          ; preds = %73, %80, %66, %81, %52
-  %.1158 = phi i32 [ 0, %52 ], [ 0, %81 ], [ 0, %73 ], [ %75, %80 ], [ %61, %66 ]
-  %.1 = phi i32 [ %3, %52 ], [ %82, %81 ], [ %68, %73 ], [ %68, %80 ], [ %59, %66 ]
+  %.0157 = phi i32 [ 0, %52 ], [ 0, %81 ], [ 0, %73 ], [ %75, %80 ], [ %61, %66 ]
+  %.0 = phi i32 [ %3, %52 ], [ %82, %81 ], [ %68, %73 ], [ %68, %80 ], [ %59, %66 ]
   br i1 %16, label %83, label %91
 
 83:                                               ; preds = %.thread
@@ -1320,7 +1320,7 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
 
 .thread190:                                       ; preds = %83
   %86 = tail call ptr @get_user_default_acl(i32 noundef 37, i32 noundef %6, i32 noundef %1) #11
-  %87 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.1, i32 noundef %.1158, i32 noundef %7, ptr noundef %8, i8 noundef signext 83, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext true)
+  %87 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0, i32 noundef %.0157, i32 noundef %7, ptr noundef %8, i8 noundef signext 83, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext true)
   %88 = getelementptr inbounds i8, ptr %87, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 128
@@ -1329,7 +1329,7 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
 
 91:                                               ; preds = %.thread, %83, %84
   %.0155 = phi ptr [ %85, %84 ], [ null, %83 ], [ null, %.thread ]
-  %92 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.1, i32 noundef %.1158, i32 noundef %7, ptr noundef %8, i8 noundef signext %10, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext true)
+  %92 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0, i32 noundef %.0157, i32 noundef %7, ptr noundef %8, i8 noundef signext %10, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext true)
   %93 = getelementptr inbounds i8, ptr %92, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 128
@@ -1343,7 +1343,7 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
 
 96:                                               ; preds = %91
   %97 = call i32 @AssignTypeArrayOid() #11
-  %98 = call { i64, i32 } @TypeCreate(i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.1, i8 noundef signext %10, i32 noundef %6, i16 noundef signext -1, i8 noundef signext 99, i8 noundef signext 67, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 2290, i32 noundef 2291, i32 noundef 2402, i32 noundef 2403, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %97, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext 100, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #11
+  %98 = call { i64, i32 } @TypeCreate(i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.0, i8 noundef signext %10, i32 noundef %6, i16 noundef signext -1, i8 noundef signext 99, i8 noundef signext 67, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 2290, i32 noundef 2291, i32 noundef 2402, i32 noundef 2403, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %97, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext 100, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #11
   %.fca.0.extract42 = extractvalue { i64, i32 } %98, 0
   %.sroa.050.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract42, 32
   %.sroa.050.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.050.sroa.2.0.extract.shift to i32
@@ -1408,14 +1408,14 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
   %125 = load ptr, ptr %122, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   store i32 -1, ptr %126, align 8
-  call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull readonly %105, i32 noundef %.1, i64 noundef %108, i64 noundef %15)
+  call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull readonly %105, i32 noundef %.0, i64 noundef %108, i64 noundef %15)
   %127 = load ptr, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24)
   %128 = load i32, ptr %127, align 8
   %129 = call ptr @table_open(i32 noundef 1249, i32 noundef 3) #11
   %130 = call ptr @CatalogOpenIndexes(ptr noundef %129) #11
-  call void @InsertPgAttributeTuples(ptr noundef %129, ptr noundef nonnull %127, i32 noundef %.1, ptr noundef null, ptr noundef %130)
+  call void @InsertPgAttributeTuples(ptr noundef %129, ptr noundef nonnull %127, i32 noundef %.0, ptr noundef null, ptr noundef %130)
   %131 = icmp sgt i32 %128, 0
   br i1 %131, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1431,7 +1431,7 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
 137:                                              ; preds = %145, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %145 ]
   store i32 1259, ptr %23, align 4
-  store i32 %.1, ptr %132, align 4
+  store i32 %.0, ptr %132, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %138 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %138, ptr %133, align 4
@@ -1468,7 +1468,7 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
 
 146:                                              ; preds = %._crit_edge.i
   %147 = call ptr @CreateTupleDesc(i32 noundef 6, ptr noundef nonnull @SysAtt) #11
-  call void @InsertPgAttributeTuples(ptr noundef %129, ptr noundef %147, i32 noundef %.1, ptr noundef null, ptr noundef %130)
+  call void @InsertPgAttributeTuples(ptr noundef %129, ptr noundef %147, i32 noundef %.0, ptr noundef null, ptr noundef %130)
   call void @FreeTupleDesc(ptr noundef %147) #11
   br label %AddNewAttributeTuples.exit
 
@@ -1491,11 +1491,11 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
 149:                                              ; preds = %switch.early.test
   store i32 1259, ptr %27, align 4
   %150 = getelementptr inbounds i8, ptr %27, i64 4
-  store i32 %.1, ptr %150, align 4
+  store i32 %.0, ptr %150, align 4
   %151 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 0, ptr %151, align 4
-  call void @recordDependencyOnOwner(i32 noundef 1259, i32 noundef %.1, i32 noundef %6) #11
-  call void @recordDependencyOnNewAcl(i32 noundef 1259, i32 noundef %.1, i32 noundef 0, i32 noundef %6, ptr noundef %.0155193) #11
+  call void @recordDependencyOnOwner(i32 noundef 1259, i32 noundef %.0, i32 noundef %6) #11
+  call void @recordDependencyOnNewAcl(i32 noundef 1259, i32 noundef %.0, i32 noundef 0, i32 noundef %6, ptr noundef %.0155193) #11
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %27, i1 noundef zeroext false) #11
   %152 = call ptr @new_object_addresses() #11
   store i32 2615, ptr %28, align 4
@@ -1538,7 +1538,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   br i1 %.not180, label %162, label %161
 
 161:                                              ; preds = %159
-  call void @RunObjectPostCreateHook(i32 noundef 1259, i32 noundef %.1, i32 noundef 0, i1 noundef zeroext %18) #11
+  call void @RunObjectPostCreateHook(i32 noundef 1259, i32 noundef %.0, i32 noundef 0, i1 noundef zeroext %18) #11
   br label %162
 
 162:                                              ; preds = %159, %161
@@ -1661,13 +1661,13 @@ StoreConstraints.exit:                            ; preds = %162, %164, %._crit_
   br i1 %.not181, label %231, label %230
 
 230:                                              ; preds = %StoreConstraints.exit
-  call void @register_on_commit_action(i32 noundef %.1, i32 noundef %14) #11
+  call void @register_on_commit_action(i32 noundef %.0, i32 noundef %14) #11
   br label %231
 
 231:                                              ; preds = %230, %StoreConstraints.exit
   call void @table_close(ptr noundef %105, i32 noundef 0) #11
   call void @table_close(ptr noundef %29, i32 noundef 3) #11
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -2423,7 +2423,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
 
 .lr.ph382:                                        ; preds = %.lr.ph279, %417
   %.0185274381 = phi ptr [ %.1186, %417 ], [ null, %.lr.ph279 ]
-  %.0182275380 = phi ptr [ %.2184, %417 ], [ null, %.lr.ph279 ]
+  %.0182275380 = phi ptr [ %.1183, %417 ], [ null, %.lr.ph279 ]
   %.0178276379 = phi i32 [ %.1179, %417 ], [ %.0176, %.lr.ph279 ]
   %.2277378 = phi ptr [ %.3, %417 ], [ %.0175.lcssa, %.lr.ph279 ]
   %indvars.iv302377 = phi i64 [ %indvars.iv.next303, %417 ], [ 0, %.lr.ph279 ]
@@ -2647,7 +2647,7 @@ fastgetattr.exit.i:                               ; preds = %195
   br label %209
 
 209:                                              ; preds = %204, %147
-  %.048.i = phi i1 [ false, %147 ], [ %208, %204 ]
+  %.1.i = phi i1 [ false, %147 ], [ %208, %204 ]
   br i1 %4, label %210, label %219
 
 210:                                              ; preds = %209
@@ -2667,7 +2667,7 @@ fastgetattr.exit.i:                               ; preds = %195
 
 219:                                              ; preds = %214, %210, %209
   %.0.shrunk.i = phi i1 [ %3, %210 ], [ %3, %209 ], [ %spec.select50.i, %214 ]
-  %brmerge.demorgan.i = and i1 %.048.i, %.0.shrunk.i
+  %brmerge.demorgan.i = and i1 %.1.i, %.0.shrunk.i
   br i1 %brmerge.demorgan.i, label %226, label %220
 
 220:                                              ; preds = %219
@@ -2847,7 +2847,7 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
   br label %313
 
 313:                                              ; preds = %.critedge, %list_length.exit.thread
-  %.1183 = phi ptr [ %312, %list_length.exit.thread ], [ %134, %.critedge ]
+  %.2184 = phi ptr [ %312, %list_length.exit.thread ], [ %134, %.critedge ]
   %.0181 = phi ptr [ %311, %list_length.exit.thread ], [ %119, %.critedge ]
   %314 = getelementptr inbounds i8, ptr %97, i64 19
   %315 = load i8, ptr %314, align 1
@@ -3007,7 +3007,7 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 
 417:                                              ; preds = %MergeWithExistingConstraint.exit, %.lr.ph382, %313, %390, %356
   %.1186 = phi ptr [ %.0185274381, %MergeWithExistingConstraint.exit ], [ %.0185274381, %313 ], [ %.0185274381, %356 ], [ %391, %390 ], [ %.0185274381, %.lr.ph382 ]
-  %.2184 = phi ptr [ %134, %MergeWithExistingConstraint.exit ], [ %.1183, %313 ], [ %.0182275380, %356 ], [ %.0182275380, %390 ], [ %.0182275380, %.lr.ph382 ]
+  %.1183 = phi ptr [ %134, %MergeWithExistingConstraint.exit ], [ %.2184, %313 ], [ %.0182275380, %356 ], [ %.0182275380, %390 ], [ %.0182275380, %.lr.ph382 ]
   %.1179 = phi i32 [ %.0178276379, %MergeWithExistingConstraint.exit ], [ %321, %313 ], [ %.0178276379, %356 ], [ %.0178276379, %390 ], [ %.0178276379, %.lr.ph382 ]
   %.3 = phi ptr [ %.2277378, %MergeWithExistingConstraint.exit ], [ %336, %313 ], [ %.2277378, %356 ], [ %416, %390 ], [ %.2277378, %.lr.ph382 ]
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302377, 1

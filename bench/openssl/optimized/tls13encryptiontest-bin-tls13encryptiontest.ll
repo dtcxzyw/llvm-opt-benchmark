@@ -281,7 +281,7 @@ for.end:                                          ; preds = %if.end55
   br label %err
 
 err:                                              ; preds = %if.end28, %if.end, %for.end, %if.then54, %if.then46, %if.then27, %if.then19, %if.then
-  %key.2 = phi ptr [ null, %if.then ], [ %call.i, %if.then19 ], [ %call.i, %if.then27 ], [ %call.i, %if.then46 ], [ %call.i, %if.then54 ], [ null, %for.end ], [ %call.i, %if.end ], [ %call.i, %if.end28 ]
+  %key.1 = phi ptr [ null, %if.then ], [ %call.i, %if.then19 ], [ %call.i, %if.then27 ], [ %call.i, %if.then46 ], [ %call.i, %if.then54 ], [ null, %for.end ], [ %call.i, %if.end ], [ %call.i, %if.end28 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then19 ], [ 0, %if.then27 ], [ 0, %if.then46 ], [ 0, %if.then54 ], [ 1, %for.end ], [ 0, %if.end ], [ 0, %if.end28 ]
   %28 = load ptr, ptr %rrl, align 8
   %call60 = call i32 %1(ptr noundef %28) #5
@@ -289,7 +289,7 @@ err:                                              ; preds = %if.end28, %if.end, 
   %call61 = call i32 %1(ptr noundef %29) #5
   %30 = load ptr, ptr %data, align 8
   call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 395) #5
-  call void @CRYPTO_free(ptr noundef %key.2, ptr noundef nonnull @.str.1, i32 noundef 396) #5
+  call void @CRYPTO_free(ptr noundef %key.1, ptr noundef nonnull @.str.1, i32 noundef 396) #5
   ret i32 %ret.0
 }
 

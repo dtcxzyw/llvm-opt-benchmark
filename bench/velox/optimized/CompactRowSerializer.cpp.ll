@@ -2115,7 +2115,7 @@ if.else:                                          ; preds = %_ZNSt10shared_ptrIK
   br i1 %cmp25.not79, label %cleanup, label %for.body26
 
 for.body26:                                       ; preds = %if.else, %for.inc41
-  %totalSize.181 = phi i64 [ %totalSize.2.lcssa, %for.inc41 ], [ 0, %if.else ]
+  %totalSize.281 = phi i64 [ %totalSize.3.lcssa, %for.inc41 ], [ 0, %if.else ]
   %__begin418.080 = phi ptr [ %incdec.ptr42, %for.inc41 ], [ %20, %if.else ]
   %size30 = getelementptr inbounds i8, ptr %__begin418.080, i64 4
   %24 = load i32, ptr %size30, align 4
@@ -2127,14 +2127,14 @@ for.body33.preheader:                             ; preds = %for.body26
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.preheader, %invoke.cont34
-  %totalSize.277 = phi i64 [ %add38, %invoke.cont34 ], [ %totalSize.181, %for.body33.preheader ]
+  %totalSize.377 = phi i64 [ %add38, %invoke.cont34 ], [ %totalSize.281, %for.body33.preheader ]
   %i.076 = phi i32 [ %inc, %invoke.cont34 ], [ %25, %for.body33.preheader ]
   %call35 = invoke noundef i32 @_ZN8facebook5velox3row10CompactRow7rowSizeEi(ptr noundef nonnull align 8 dereferenceable(224) %row, i32 noundef %i.076)
           to label %invoke.cont34 unwind label %lpad.loopexit62
 
 invoke.cont34:                                    ; preds = %for.body33
   %conv36 = sext i32 %call35 to i64
-  %add37 = add i64 %totalSize.277, 4
+  %add37 = add i64 %totalSize.377, 4
   %add38 = add i64 %add37, %conv36
   %inc = add nsw i32 %i.076, 1
   %26 = load i32, ptr %__begin418.080, align 4
@@ -2144,21 +2144,21 @@ invoke.cont34:                                    ; preds = %for.body33
   br i1 %cmp32, label %for.body33, label %for.inc41, !llvm.loop !33
 
 for.inc41:                                        ; preds = %invoke.cont34, %for.body26
-  %totalSize.2.lcssa = phi i64 [ %totalSize.181, %for.body26 ], [ %add38, %invoke.cont34 ]
+  %totalSize.3.lcssa = phi i64 [ %totalSize.281, %for.body26 ], [ %add38, %invoke.cont34 ]
   %incdec.ptr42 = getelementptr inbounds i8, ptr %__begin418.080, i64 8
   %cmp25.not = icmp eq ptr %incdec.ptr42, %21
   br i1 %cmp25.not, label %if.end, label %for.body26
 
 if.end:                                           ; preds = %invoke.cont13, %for.inc41
-  %totalSize.3 = phi i64 [ %totalSize.2.lcssa, %for.inc41 ], [ %add16, %invoke.cont13 ]
-  %cmp44 = icmp eq i64 %totalSize.3, 0
+  %totalSize.1 = phi i64 [ %totalSize.3.lcssa, %for.inc41 ], [ %add16, %invoke.cont13 ]
+  %cmp44 = icmp eq i64 %totalSize.1, 0
   br i1 %cmp44, label %cleanup, label %if.end46
 
 if.end46:                                         ; preds = %if.end
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %28 = load ptr, ptr %pool_, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %29 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %totalSize.3, i64 96)
+  %29 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %totalSize.1, i64 96)
   %30 = extractvalue { i64, i1 } %29, 1
   br i1 %30, label %if.then.i6.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
 
@@ -2198,11 +2198,11 @@ call6.i.noexc:                                    ; preds = %call3.i.noexc
   %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i41, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !34
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i41, align 8, !noalias !34
-  store i64 %totalSize.3, ptr %size_.i.i.i, align 8, !noalias !34
+  store i64 %totalSize.1, ptr %size_.i.i.i, align 8, !noalias !34
   store ptr %call6.i41, ptr %buffer, align 8, !alias.scope !34
   %34 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !34
   %35 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !34
-  %cmp.not.i9.i = icmp ult i64 %35, %totalSize.3
+  %cmp.not.i9.i = icmp ult i64 %35, %totalSize.1
   br i1 %cmp.not.i9.i, label %if.then.i12.i, label %if.then6.i.i
 
 if.then.i12.i:                                    ; preds = %call6.i.noexc
@@ -2231,7 +2231,7 @@ lpad.i:                                           ; preds = %if.then6.i.i
 
 invoke.cont49:                                    ; preds = %call.i.i.noexc.i
   %38 = load ptr, ptr %data_.i.i.i, align 8, !noalias !34
-  call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %totalSize.3, i1 false), !noalias !34
+  call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %totalSize.1, i1 false), !noalias !34
   %39 = load ptr, ptr %buffer, align 8
   %vtable.i42 = load ptr, ptr %39, align 8
   %vfn.i43 = getelementptr inbounds i8, ptr %vtable.i42, i64 24

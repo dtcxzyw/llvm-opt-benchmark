@@ -223,17 +223,17 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
-  %.not63 = icmp eq ptr %.054.ph, %.050
+  %.not63 = icmp eq ptr %.155.ph, %.050
   br i1 %.not63, label %35, label %33
 
 33:                                               ; preds = %32
   store i8 0, ptr %.050, align 1
-  tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.10, ptr noundef %.054.ph) #14
-  %34 = tail call i32 %2(ptr noundef %3, ptr noundef %.054.ph) #14, !callees !7
+  tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.10, ptr noundef %.155.ph) #14
+  %34 = tail call i32 %2(ptr noundef %3, ptr noundef %.155.ph) #14, !callees !7
   br label %35
 
 35:                                               ; preds = %33, %32, %30
-  %.151 = phi ptr [ %.054.ph, %33 ], [ %.050, %32 ], [ %.050, %30 ]
+  %.151 = phi ptr [ %.155.ph, %33 ], [ %.050, %32 ], [ %.050, %30 ]
   %.1 = phi i32 [ %34, %33 ], [ 1, %32 ], [ %.047, %30 ]
   br i1 %29, label %.loopexit, label %27
 
@@ -244,7 +244,7 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
 38:                                               ; preds = %36
   %39 = shl i64 %.048.ph, 1
   %40 = or disjoint i64 %39, 1
-  %41 = tail call ptr @realloc(ptr noundef %.054.ph, i64 noundef %40) #18
+  %41 = tail call ptr @realloc(ptr noundef %.155.ph, i64 noundef %40) #18
   %.not62 = icmp eq ptr %41, null
   br i1 %.not62, label %42, label %46
 
@@ -257,14 +257,14 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
 
 46:                                               ; preds = %38
   %47 = ptrtoint ptr %.052.ph to i64
-  %48 = ptrtoint ptr %.054.ph to i64
+  %48 = ptrtoint ptr %.155.ph to i64
   %49 = sub i64 %47, %48
   %50 = getelementptr inbounds i8, ptr %41, i64 %49
   %51 = getelementptr inbounds i8, ptr %41, i64 %40
   br label %52
 
 52:                                               ; preds = %46, %36
-  %.155 = phi ptr [ %41, %46 ], [ %.054.ph, %36 ]
+  %.256 = phi ptr [ %41, %46 ], [ %.155.ph, %36 ]
   %.153 = phi ptr [ %51, %46 ], [ %.052.ph, %36 ]
   %.2 = phi ptr [ %50, %46 ], [ %.050, %36 ]
   %.149 = phi i64 [ %40, %46 ], [ %.048.ph, %36 ]
@@ -274,7 +274,7 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
   br label %.outer
 
 .outer:                                           ; preds = %21, %52
-  %.054.ph = phi ptr [ %.155, %52 ], [ null, %21 ]
+  %.155.ph = phi ptr [ %.256, %52 ], [ null, %21 ]
   %.052.ph = phi ptr [ %.153, %52 ], [ null, %21 ]
   %.050.ph = phi ptr [ %54, %52 ], [ null, %21 ]
   %.048.ph = phi i64 [ %.149, %52 ], [ 0, %21 ]
@@ -283,11 +283,11 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
 
 .loopexit:                                        ; preds = %35, %42
   %55 = tail call i32 @pclose(ptr noundef nonnull %22)
-  %.not65 = icmp eq ptr %.054.ph, null
+  %.not65 = icmp eq ptr %.155.ph, null
   br i1 %.not65, label %.thread70, label %56
 
 56:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %.054.ph) #14
+  tail call void @free(ptr noundef nonnull %.155.ph) #14
   br label %.thread70
 
 .thread70:                                        ; preds = %17, %23, %10, %56, %.loopexit

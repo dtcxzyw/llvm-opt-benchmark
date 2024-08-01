@@ -1563,11 +1563,11 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
           to label %460 unwind label %458
 
 456:                                              ; preds = %466, %458
-  %.sroa.045.0 = phi i1 [ %.not99, %458 ], [ false, %466 ]
+  %.sroa.045.1 = phi i1 [ %.not99, %458 ], [ false, %466 ]
   %.pn111 = phi { ptr, i32 } [ %459, %458 ], [ %.pn101, %466 ]
   %457 = load i64, ptr %61, align 8
   %.not113 = icmp eq i64 %457, -9223372036854775807
-  %brmerge163 = or i1 %.sroa.045.0, %.not113
+  %brmerge163 = or i1 %.sroa.045.1, %.not113
   br i1 %brmerge163, label %.thread, label %610
 
 458:                                              ; preds = %455, %407
@@ -2303,11 +2303,11 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
           to label %668 unwind label %666
 
 664:                                              ; preds = %674, %666
-  %.sroa.047.0 = phi i1 [ %.not, %666 ], [ false, %674 ]
+  %.sroa.047.1 = phi i1 [ %.not, %666 ], [ false, %674 ]
   %.pn90 = phi { ptr, i32 } [ %667, %666 ], [ %.pn, %674 ]
   %665 = load i64, ptr %28, align 8
   %.not92 = icmp eq i64 %665, -9223372036854775807
-  %brmerge165 = or i1 %.sroa.047.0, %.not92
+  %brmerge165 = or i1 %.sroa.047.1, %.not92
   br i1 %brmerge165, label %.thread171, label %737
 
 666:                                              ; preds = %663, %614

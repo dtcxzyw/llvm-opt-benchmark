@@ -962,7 +962,7 @@ if.then32.i.i:                                    ; preds = %if.end17.i.i
   br label %done.i.i
 
 done.i.i:                                         ; preds = %if.end23.i.i, %if.end11.i.i, %table_iter_block_done.exit.i.i, %if.then32.i.i, %reader_table_iter_at.exit.i.i, %reader_start.exit.i.i
-  %err.1.i.i = phi i32 [ %call.i.i.i.i, %reader_start.exit.i.i ], [ %call.i.i.i, %reader_table_iter_at.exit.i.i ], [ 0, %if.then32.i.i ], [ -3, %if.end23.i.i ], [ %call14.i.i, %if.end11.i.i ], [ %call3.i.i, %table_iter_block_done.exit.i.i ]
+  %err.0.i.i = phi i32 [ %call.i.i.i.i, %reader_start.exit.i.i ], [ %call.i.i.i, %reader_table_iter_at.exit.i.i ], [ 0, %if.then32.i.i ], [ -3, %if.end23.i.i ], [ %call14.i.i, %if.end11.i.i ], [ %call3.i.i, %table_iter_block_done.exit.i.i ]
   %bi35.i.i = getelementptr inbounds i8, ptr %next.i.i, i64 24
   call void @block_iter_close(ptr noundef nonnull %bi35.i.i) #11
   %br.i.i24.i.i = getelementptr inbounds i8, ptr %index_iter.i.i, i64 32
@@ -1055,7 +1055,7 @@ if.else.i:                                        ; preds = %if.end7.i
   br label %reader_seek_internal.exit
 
 reader_seek_internal.exit:                        ; preds = %reader_seek_indexed.exit.i, %reader_start.exit.i, %if.end7.i, %if.else.i
-  %retval.0.i = phi i32 [ %err.1.i.i, %reader_seek_indexed.exit.i ], [ 0, %if.else.i ], [ %call.i.i12.i, %reader_start.exit.i ], [ %call8.i, %if.end7.i ]
+  %retval.0.i = phi i32 [ %err.0.i.i, %reader_seek_indexed.exit.i ], [ 0, %if.else.i ], [ %call.i.i12.i, %reader_start.exit.i ], [ %call8.i, %if.end7.i ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ti.i)
   br label %return
 

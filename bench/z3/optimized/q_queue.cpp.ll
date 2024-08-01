@@ -1423,7 +1423,7 @@ for.body.preheader:                               ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %cost_limit.020 = phi double [ %cost_limit.1, %for.inc ], [ 0.000000e+00, %for.body.preheader ]
+  %cost_limit.120 = phi double [ %cost_limit.2, %for.inc ], [ 0.000000e+00, %for.body.preheader ]
   %init.019 = phi i1 [ %init.1, %for.inc ], [ false, %for.body.preheader ]
   %__begin2.018 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %for.body.preheader ]
   %m_instantiated = getelementptr inbounds i8, ptr %__begin2.018, i64 12
@@ -1436,7 +1436,7 @@ land.lhs.true:                                    ; preds = %for.body
   %7 = load float, ptr %m_cost, align 8
   %conv = fpext float %7 to double
   %cmp10 = fcmp ult double %3, %conv
-  %cmp15 = fcmp ule double %cost_limit.020, %conv
+  %cmp15 = fcmp ule double %cost_limit.120, %conv
   %or.cond.not = select i1 %init.019, i1 %cmp15, i1 false
   %or.cond = select i1 %cmp10, i1 true, i1 %or.cond.not
   br i1 %or.cond, label %for.inc, label %if.then16
@@ -1446,13 +1446,13 @@ if.then16:                                        ; preds = %land.lhs.true
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then16
   %init.1 = phi i1 [ %init.019, %for.body ], [ true, %if.then16 ], [ %init.019, %land.lhs.true ]
-  %cost_limit.1 = phi double [ %cost_limit.020, %for.body ], [ %conv, %if.then16 ], [ %cost_limit.020, %land.lhs.true ]
+  %cost_limit.2 = phi double [ %cost_limit.120, %for.body ], [ %conv, %if.then16 ], [ %cost_limit.120, %land.lhs.true ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.018, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %if.end20, label %for.body
 
 if.end20:                                         ; preds = %for.inc, %if.end
-  %cost_limit.2 = phi double [ %3, %if.end ], [ %cost_limit.1, %for.inc ]
+  %cost_limit.0 = phi double [ %3, %if.end ], [ %cost_limit.2, %for.inc ]
   %ctx = getelementptr inbounds i8, ptr %this, i64 8
   %m_num_lazy_instances = getelementptr inbounds i8, ptr %this, i64 36
   br label %for.cond21
@@ -1486,7 +1486,7 @@ land.lhs.true31:                                  ; preds = %for.body25
   %m_cost32 = getelementptr inbounds i8, ptr %arrayidx.i15, i64 8
   %11 = load float, ptr %m_cost32, align 8
   %conv33 = fpext float %11 to double
-  %cmp34 = fcmp ult double %cost_limit.2, %conv33
+  %cmp34 = fcmp ult double %cost_limit.0, %conv33
   br i1 %cmp34, label %for.inc37, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true31

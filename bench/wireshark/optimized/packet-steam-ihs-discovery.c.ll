@@ -436,10 +436,10 @@ get_varint64.exit.split.loop.exit84.i:            ; preds = %78
   br label %get_varint64.exit.i
 
 get_varint64.exit.i:                              ; preds = %77, %get_varint64.exit.split.loop.exit84.i
-  %.145.i = phi i32 [ %indvars73.le.i, %get_varint64.exit.split.loop.exit84.i ], [ %smax72.i, %77 ]
+  %.2.i = phi i32 [ %indvars73.le.i, %get_varint64.exit.split.loop.exit84.i ], [ %smax72.i, %77 ]
   %.1.i23.i = phi i64 [ %87, %get_varint64.exit.split.loop.exit84.i ], [ %.0.i22.i, %77 ]
   %89 = load i32, ptr @hf_steam_ihs_discovery_header_clientid, align 4
-  %90 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %89, ptr noundef %0, i32 noundef %61, i32 noundef %.145.i, i64 noundef %.1.i23.i) #4
+  %90 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %89, ptr noundef %0, i32 noundef %61, i32 noundef %.2.i, i64 noundef %.1.i23.i) #4
   br label %147
 
 91:                                               ; preds = %63
@@ -502,10 +502,10 @@ get_varint64.exit30.split.loop.exit81.i:          ; preds = %105
   br label %get_varint64.exit30.i
 
 get_varint64.exit30.i:                            ; preds = %104, %get_varint64.exit30.split.loop.exit81.i
-  %.3.i = phi i32 [ %indvars66.le.i, %get_varint64.exit30.split.loop.exit81.i ], [ %smax65.i, %104 ]
+  %.4.i = phi i32 [ %indvars66.le.i, %get_varint64.exit30.split.loop.exit81.i ], [ %smax65.i, %104 ]
   %.1.i29.i = phi i64 [ %114, %get_varint64.exit30.split.loop.exit81.i ], [ %.0.i28.i, %104 ]
   %116 = load i32, ptr @hf_steam_ihs_discovery_header_msgtype, align 4
-  %117 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %116, ptr noundef %0, i32 noundef %61, i32 noundef %.3.i, i64 noundef %.1.i29.i) #4
+  %117 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %116, ptr noundef %0, i32 noundef %61, i32 noundef %.4.i, i64 noundef %.1.i29.i) #4
   br label %147
 
 118:                                              ; preds = %63
@@ -568,10 +568,10 @@ get_varint64.exit37.split.loop.exit78.i:          ; preds = %132
   br label %get_varint64.exit37.i
 
 get_varint64.exit37.i:                            ; preds = %131, %get_varint64.exit37.split.loop.exit78.i
-  %.5.i = phi i32 [ %indvars.le.i, %get_varint64.exit37.split.loop.exit78.i ], [ %smax.i, %131 ]
+  %.6.i = phi i32 [ %indvars.le.i, %get_varint64.exit37.split.loop.exit78.i ], [ %smax.i, %131 ]
   %.1.i36.i = phi i64 [ %141, %get_varint64.exit37.split.loop.exit78.i ], [ %.0.i35.i, %131 ]
   %143 = load i32, ptr @hf_steam_ihs_discovery_header_instanceid, align 4
-  %144 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %143, ptr noundef %0, i32 noundef %61, i32 noundef %.5.i, i64 noundef %.1.i36.i) #4
+  %144 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %143, ptr noundef %0, i32 noundef %61, i32 noundef %.6.i, i64 noundef %.1.i36.i) #4
   br label %147
 
 145:                                              ; preds = %63
@@ -579,11 +579,11 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
   br label %147
 
 147:                                              ; preds = %145, %get_varint64.exit37.i, %protobuf_verify_wiretype.exit34.i, %get_varint64.exit30.i, %protobuf_verify_wiretype.exit27.i, %get_varint64.exit.i, %protobuf_verify_wiretype.exit.i
-  %.6.i = phi i32 [ %146, %145 ], [ %.5.i, %get_varint64.exit37.i ], [ %121, %protobuf_verify_wiretype.exit34.i ], [ %.3.i, %get_varint64.exit30.i ], [ %94, %protobuf_verify_wiretype.exit27.i ], [ %.145.i, %get_varint64.exit.i ], [ %67, %protobuf_verify_wiretype.exit.i ]
+  %.044.i = phi i32 [ %146, %145 ], [ %.6.i, %get_varint64.exit37.i ], [ %121, %protobuf_verify_wiretype.exit34.i ], [ %.4.i, %get_varint64.exit30.i ], [ %94, %protobuf_verify_wiretype.exit27.i ], [ %.2.i, %get_varint64.exit.i ], [ %67, %protobuf_verify_wiretype.exit.i ]
   %.1.i = phi i64 [ %.056.i, %145 ], [ %.056.i, %get_varint64.exit37.i ], [ %.056.i, %protobuf_verify_wiretype.exit34.i ], [ %.1.i29.i, %get_varint64.exit30.i ], [ %.056.i, %protobuf_verify_wiretype.exit27.i ], [ %.056.i, %get_varint64.exit.i ], [ %.056.i, %protobuf_verify_wiretype.exit.i ]
-  %148 = add i32 %.6.i, %61
+  %148 = add i32 %.044.i, %61
   store i32 %148, ptr %38, align 8
-  %149 = sub i32 %62, %.6.i
+  %149 = sub i32 %62, %.044.i
   store i32 %149, ptr %39, align 4
   %150 = icmp slt i32 %149, 1
   br i1 %150, label %steamdiscover_dissect_header.exit, label %43, !llvm.loop !6
@@ -841,11 +841,11 @@ get_varint64.exit.split.loop.exit54:              ; preds = %53
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %52, %get_varint64.exit.split.loop.exit54
-  %.1 = phi i32 [ %indvars46.le, %get_varint64.exit.split.loop.exit54 ], [ %smax45, %52 ]
+  %.2 = phi i32 [ %indvars46.le, %get_varint64.exit.split.loop.exit54 ], [ %smax45, %52 ]
   %.1.i18 = phi i64 [ %62, %get_varint64.exit.split.loop.exit54 ], [ %.0.i17, %52 ]
   %64 = load i32, ptr @hf_steam_ihs_discovery_body_discovery_seqnum, align 4
   %65 = trunc i64 %.1.i18 to i32
-  %66 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %35, i32 noundef %.1, i32 noundef %65) #4
+  %66 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %35, i32 noundef %.2, i32 noundef %65) #4
   %67 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.144, i32 noundef %65) #4
   br label %98
@@ -911,10 +911,10 @@ get_varint64.exit25.split.loop.exit51:            ; preds = %83
   br label %get_varint64.exit25
 
 get_varint64.exit25:                              ; preds = %82, %get_varint64.exit25.split.loop.exit51
-  %.3 = phi i32 [ %indvars.le, %get_varint64.exit25.split.loop.exit51 ], [ %smax, %82 ]
+  %.4 = phi i32 [ %indvars.le, %get_varint64.exit25.split.loop.exit51 ], [ %smax, %82 ]
   %.1.i24 = phi i64 [ %92, %get_varint64.exit25.split.loop.exit51 ], [ %.0.i23, %82 ]
   %94 = load i32, ptr @hf_steam_ihs_discovery_body_discovery_clientids, align 4
-  %95 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %35, i32 noundef %.3, i64 noundef %.1.i24) #4
+  %95 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %35, i32 noundef %.4, i64 noundef %.1.i24) #4
   br label %98
 
 96:                                               ; preds = %37
@@ -922,10 +922,10 @@ get_varint64.exit25:                              ; preds = %82, %get_varint64.e
   br label %98
 
 98:                                               ; preds = %protobuf_verify_wiretype.exit22, %protobuf_verify_wiretype.exit, %96, %get_varint64.exit25, %get_varint64.exit
-  %.4 = phi i32 [ %97, %96 ], [ %.3, %get_varint64.exit25 ], [ %71, %protobuf_verify_wiretype.exit22 ], [ %.1, %get_varint64.exit ], [ %41, %protobuf_verify_wiretype.exit ]
-  %99 = add i32 %35, %.4
+  %.0 = phi i32 [ %97, %96 ], [ %.4, %get_varint64.exit25 ], [ %71, %protobuf_verify_wiretype.exit22 ], [ %.2, %get_varint64.exit ], [ %41, %protobuf_verify_wiretype.exit ]
+  %99 = add i32 %35, %.0
   store i32 %99, ptr %10, align 8
-  %100 = sub i32 %36, %.4
+  %100 = sub i32 %36, %.0
   store i32 %100, ptr %11, align 4
   %101 = icmp slt i32 %100, 1
   br i1 %101, label %protobuf_iter_next.exit.thread, label %17, !llvm.loop !7
@@ -1097,11 +1097,11 @@ get_varint64.exit.split.loop.exit403:             ; preds = %69
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %68, %get_varint64.exit.split.loop.exit403
-  %.1229 = phi i32 [ %indvars357.le, %get_varint64.exit.split.loop.exit403 ], [ %smax356, %68 ]
+  %.2230 = phi i32 [ %indvars357.le, %get_varint64.exit.split.loop.exit403 ], [ %smax356, %68 ]
   %.1.i99 = phi i64 [ %78, %get_varint64.exit.split.loop.exit403 ], [ %.0.i98, %68 ]
   %80 = load i32, ptr @hf_steam_ihs_discovery_body_status_version, align 4
   %81 = trunc i64 %.1.i99 to i32
-  %82 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %52, i32 noundef %.1229, i32 noundef %81) #4
+  %82 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %52, i32 noundef %.2230, i32 noundef %81) #4
   br label %protobuf_iter_next.exit152.thread
 
 83:                                               ; preds = %54
@@ -1164,11 +1164,11 @@ get_varint64.exit106.split.loop.exit400:          ; preds = %97
   br label %get_varint64.exit106
 
 get_varint64.exit106:                             ; preds = %96, %get_varint64.exit106.split.loop.exit400
-  %.3 = phi i32 [ %indvars350.le, %get_varint64.exit106.split.loop.exit400 ], [ %smax349, %96 ]
+  %.4 = phi i32 [ %indvars350.le, %get_varint64.exit106.split.loop.exit400 ], [ %smax349, %96 ]
   %.1.i105 = phi i64 [ %106, %get_varint64.exit106.split.loop.exit400 ], [ %.0.i104, %96 ]
   %108 = load i32, ptr @hf_steam_ihs_discovery_body_status_minversion, align 4
   %109 = trunc i64 %.1.i105 to i32
-  %110 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %108, ptr noundef %0, i32 noundef %52, i32 noundef %.3, i32 noundef %109) #4
+  %110 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %108, ptr noundef %0, i32 noundef %52, i32 noundef %.4, i32 noundef %109) #4
   br label %protobuf_iter_next.exit152.thread
 
 111:                                              ; preds = %54
@@ -1231,11 +1231,11 @@ get_varint64.exit113.split.loop.exit397:          ; preds = %125
   br label %get_varint64.exit113
 
 get_varint64.exit113:                             ; preds = %124, %get_varint64.exit113.split.loop.exit397
-  %.5 = phi i32 [ %indvars343.le, %get_varint64.exit113.split.loop.exit397 ], [ %smax342, %124 ]
+  %.6 = phi i32 [ %indvars343.le, %get_varint64.exit113.split.loop.exit397 ], [ %smax342, %124 ]
   %.1.i112 = phi i64 [ %134, %get_varint64.exit113.split.loop.exit397 ], [ %.0.i111, %124 ]
   %136 = load i32, ptr @hf_steam_ihs_discovery_body_status_connectport, align 4
   %137 = trunc i64 %.1.i112 to i32
-  %138 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %52, i32 noundef %.5, i32 noundef %137) #4
+  %138 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %52, i32 noundef %.6, i32 noundef %137) #4
   br label %protobuf_iter_next.exit152.thread
 
 139:                                              ; preds = %54
@@ -1273,10 +1273,10 @@ get_varint64.exit116.split.loop.exit394:          ; preds = %143
   br label %get_varint64.exit116
 
 get_varint64.exit116:                             ; preds = %142, %get_varint64.exit116.split.loop.exit394
-  %.7 = phi i32 [ %indvars336.le, %get_varint64.exit116.split.loop.exit394 ], [ %smax335, %142 ]
+  %.8 = phi i32 [ %indvars336.le, %get_varint64.exit116.split.loop.exit394 ], [ %smax335, %142 ]
   %.1.i115 = phi i64 [ %152, %get_varint64.exit116.split.loop.exit394 ], [ %.0.i114, %142 ]
   %154 = load i32, ptr @hf_steam_ihs_discovery_body_status_hostname, align 4
-  %155 = add i32 %.7, %52
+  %155 = add i32 %.8, %52
   %156 = trunc i64 %.1.i115 to i32
   %157 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef %156, i32 noundef 2) #4
   %158 = load ptr, ptr %32, align 8
@@ -1295,7 +1295,7 @@ get_varint64.exit116:                             ; preds = %142, %get_varint64.
   br label %163
 
 163:                                              ; preds = %161, %160, %get_varint64.exit116
-  %164 = add i32 %.7, %156
+  %164 = add i32 %.8, %156
   br label %protobuf_iter_next.exit152.thread
 
 165:                                              ; preds = %54
@@ -1358,11 +1358,11 @@ get_varint64.exit123.split.loop.exit391:          ; preds = %179
   br label %get_varint64.exit123
 
 get_varint64.exit123:                             ; preds = %178, %get_varint64.exit123.split.loop.exit391
-  %.9 = phi i32 [ %indvars329.le, %get_varint64.exit123.split.loop.exit391 ], [ %smax328, %178 ]
+  %.10 = phi i32 [ %indvars329.le, %get_varint64.exit123.split.loop.exit391 ], [ %smax328, %178 ]
   %.1.i122 = phi i64 [ %188, %get_varint64.exit123.split.loop.exit391 ], [ %.0.i121, %178 ]
   %190 = load i32, ptr @hf_steam_ihs_discovery_body_status_enabledservices, align 4
   %191 = trunc i64 %.1.i122 to i32
-  %192 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %190, ptr noundef %0, i32 noundef %52, i32 noundef %.9, i32 noundef %191) #4
+  %192 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %190, ptr noundef %0, i32 noundef %52, i32 noundef %.10, i32 noundef %191) #4
   br label %protobuf_iter_next.exit152.thread
 
 193:                                              ; preds = %54
@@ -1425,11 +1425,11 @@ get_varint64.exit130.split.loop.exit388:          ; preds = %207
   br label %get_varint64.exit130
 
 get_varint64.exit130:                             ; preds = %206, %get_varint64.exit130.split.loop.exit388
-  %.11 = phi i32 [ %indvars322.le, %get_varint64.exit130.split.loop.exit388 ], [ %smax321, %206 ]
+  %.12 = phi i32 [ %indvars322.le, %get_varint64.exit130.split.loop.exit388 ], [ %smax321, %206 ]
   %.1.i129 = phi i64 [ %216, %get_varint64.exit130.split.loop.exit388 ], [ %.0.i128, %206 ]
   %218 = load i32, ptr @hf_steam_ihs_discovery_body_status_ostype, align 4
   %219 = trunc i64 %.1.i129 to i32
-  %220 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %218, ptr noundef %0, i32 noundef %52, i32 noundef %.11, i32 noundef %219) #4
+  %220 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %218, ptr noundef %0, i32 noundef %52, i32 noundef %.12, i32 noundef %219) #4
   br label %protobuf_iter_next.exit152.thread
 
 221:                                              ; preds = %54
@@ -1492,12 +1492,12 @@ get_varint64.exit137.split.loop.exit385:          ; preds = %235
   br label %get_varint64.exit137
 
 get_varint64.exit137:                             ; preds = %234, %get_varint64.exit137.split.loop.exit385
-  %.13 = phi i32 [ %indvars315.le, %get_varint64.exit137.split.loop.exit385 ], [ %smax314, %234 ]
+  %.14 = phi i32 [ %indvars315.le, %get_varint64.exit137.split.loop.exit385 ], [ %smax314, %234 ]
   %.1.i136 = phi i64 [ %244, %get_varint64.exit137.split.loop.exit385 ], [ %.0.i135, %234 ]
   %246 = load i32, ptr @hf_steam_ihs_discovery_body_status_is64bit, align 4
   %sext88 = shl i64 %.1.i136, 32
   %247 = ashr exact i64 %sext88, 32
-  %248 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %246, ptr noundef %0, i32 noundef %52, i32 noundef %.13, i64 noundef %247) #4
+  %248 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %246, ptr noundef %0, i32 noundef %52, i32 noundef %.14, i64 noundef %247) #4
   br label %protobuf_iter_next.exit152.thread
 
 249:                                              ; preds = %54
@@ -1535,13 +1535,13 @@ get_varint64.exit140.split.loop.exit379:          ; preds = %253
   br label %get_varint64.exit140
 
 get_varint64.exit140:                             ; preds = %252, %get_varint64.exit140.split.loop.exit379
-  %.15 = phi i32 [ %indvars301.le, %get_varint64.exit140.split.loop.exit379 ], [ %smax300, %252 ]
+  %.16 = phi i32 [ %indvars301.le, %get_varint64.exit140.split.loop.exit379 ], [ %smax300, %252 ]
   %.1.i139 = phi i64 [ %262, %get_varint64.exit140.split.loop.exit379 ], [ %.0.i138, %252 ]
-  %264 = add i32 %.15, %52
+  %264 = add i32 %.16, %52
   store i32 %264, ptr %25, align 8
   %265 = trunc i64 %.1.i139 to i32
   store i32 %265, ptr %26, align 4
-  %266 = add i32 %.15, %265
+  %266 = add i32 %.16, %265
   %267 = load i32, ptr @ett_steam_ihs_discovery_body_status_user, align 4
   %268 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %52, i32 noundef %266, i32 noundef %267, ptr noundef nonnull %22, ptr noundef nonnull @.str.146) #4
   %269 = icmp slt i32 %265, 1
@@ -1702,11 +1702,11 @@ get_varint64.exit163.split.loop.exit382:          ; preds = %324
   br label %get_varint64.exit163
 
 get_varint64.exit163:                             ; preds = %323, %get_varint64.exit163.split.loop.exit382
-  %.1 = phi i32 [ %indvars308.le, %get_varint64.exit163.split.loop.exit382 ], [ %smax307, %323 ]
+  %.2 = phi i32 [ %indvars308.le, %get_varint64.exit163.split.loop.exit382 ], [ %smax307, %323 ]
   %.1.i162 = phi i64 [ %333, %get_varint64.exit163.split.loop.exit382 ], [ %.0.i161, %323 ]
   %335 = load i32, ptr @hf_steam_ihs_discovery_body_status_user_authkeyid, align 4
   %336 = trunc i64 %.1.i162 to i32
-  %337 = call ptr @proto_tree_add_uint(ptr noundef %268, i32 noundef %335, ptr noundef %270, i32 noundef %289, i32 noundef %.1, i32 noundef %336) #4
+  %337 = call ptr @proto_tree_add_uint(ptr noundef %268, i32 noundef %335, ptr noundef %270, i32 noundef %289, i32 noundef %.2, i32 noundef %336) #4
   %338 = load ptr, ptr %22, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %338, ptr noundef nonnull @.str.148, i32 noundef %336) #4
   br label %341
@@ -1716,10 +1716,10 @@ get_varint64.exit163:                             ; preds = %323, %get_varint64.
   br label %341
 
 341:                                              ; preds = %protobuf_verify_wiretype.exit160, %protobuf_verify_wiretype.exit156, %339, %get_varint64.exit163, %304
-  %.2 = phi i32 [ %340, %339 ], [ %.1, %get_varint64.exit163 ], [ %312, %protobuf_verify_wiretype.exit160 ], [ 8, %304 ], [ %295, %protobuf_verify_wiretype.exit156 ]
-  %342 = add i32 %289, %.2
+  %.0 = phi i32 [ %340, %339 ], [ %.2, %get_varint64.exit163 ], [ %312, %protobuf_verify_wiretype.exit160 ], [ 8, %304 ], [ %295, %protobuf_verify_wiretype.exit156 ]
+  %342 = add i32 %289, %.0
   store i32 %342, ptr %25, align 8
-  %343 = sub i32 %290, %.2
+  %343 = sub i32 %290, %.0
   store i32 %343, ptr %26, align 4
   %344 = icmp slt i32 %343, 1
   br i1 %344, label %protobuf_iter_next.exit152.thread, label %271, !llvm.loop !8
@@ -1784,11 +1784,11 @@ get_varint64.exit170.split.loop.exit376:          ; preds = %359
   br label %get_varint64.exit170
 
 get_varint64.exit170:                             ; preds = %358, %get_varint64.exit170.split.loop.exit376
-  %.17 = phi i32 [ %indvars294.le, %get_varint64.exit170.split.loop.exit376 ], [ %smax293, %358 ]
+  %.18 = phi i32 [ %indvars294.le, %get_varint64.exit170.split.loop.exit376 ], [ %smax293, %358 ]
   %.1.i169 = phi i64 [ %368, %get_varint64.exit170.split.loop.exit376 ], [ %.0.i168, %358 ]
   %370 = load i32, ptr @hf_steam_ihs_discovery_body_status_euniverse, align 4
   %371 = trunc i64 %.1.i169 to i32
-  %372 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %370, ptr noundef %0, i32 noundef %52, i32 noundef %.17, i32 noundef %371) #4
+  %372 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %370, ptr noundef %0, i32 noundef %52, i32 noundef %.18, i32 noundef %371) #4
   br label %protobuf_iter_next.exit152.thread
 
 373:                                              ; preds = %54
@@ -1851,12 +1851,12 @@ get_varint64.exit177.split.loop.exit373:          ; preds = %387
   br label %get_varint64.exit177
 
 get_varint64.exit177:                             ; preds = %386, %get_varint64.exit177.split.loop.exit373
-  %.19 = phi i32 [ %indvars287.le, %get_varint64.exit177.split.loop.exit373 ], [ %smax286, %386 ]
+  %.20 = phi i32 [ %indvars287.le, %get_varint64.exit177.split.loop.exit373 ], [ %smax286, %386 ]
   %.1.i176 = phi i64 [ %396, %get_varint64.exit177.split.loop.exit373 ], [ %.0.i175, %386 ]
   store i64 %.1.i176, ptr %21, align 8
   store i32 0, ptr %31, align 8
   %398 = load i32, ptr @hf_steam_ihs_discovery_body_status_timestamp, align 4
-  %399 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %398, ptr noundef %0, i32 noundef %52, i32 noundef %.19, ptr noundef nonnull %21) #4
+  %399 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %398, ptr noundef %0, i32 noundef %52, i32 noundef %.20, ptr noundef nonnull %21) #4
   br label %protobuf_iter_next.exit152.thread
 
 400:                                              ; preds = %54
@@ -1919,12 +1919,12 @@ get_varint64.exit184.split.loop.exit370:          ; preds = %414
   br label %get_varint64.exit184
 
 get_varint64.exit184:                             ; preds = %413, %get_varint64.exit184.split.loop.exit370
-  %.21 = phi i32 [ %indvars280.le, %get_varint64.exit184.split.loop.exit370 ], [ %smax279, %413 ]
+  %.22 = phi i32 [ %indvars280.le, %get_varint64.exit184.split.loop.exit370 ], [ %smax279, %413 ]
   %.1.i183 = phi i64 [ %423, %get_varint64.exit184.split.loop.exit370 ], [ %.0.i182, %413 ]
   %425 = load i32, ptr @hf_steam_ihs_discovery_body_status_screenlocked, align 4
   %sext80 = shl i64 %.1.i183, 32
   %426 = ashr exact i64 %sext80, 32
-  %427 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %425, ptr noundef %0, i32 noundef %52, i32 noundef %.21, i64 noundef %426) #4
+  %427 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %425, ptr noundef %0, i32 noundef %52, i32 noundef %.22, i64 noundef %426) #4
   br label %protobuf_iter_next.exit152.thread
 
 428:                                              ; preds = %54
@@ -1987,12 +1987,12 @@ get_varint64.exit191.split.loop.exit367:          ; preds = %442
   br label %get_varint64.exit191
 
 get_varint64.exit191:                             ; preds = %441, %get_varint64.exit191.split.loop.exit367
-  %.23 = phi i32 [ %indvars273.le, %get_varint64.exit191.split.loop.exit367 ], [ %smax272, %441 ]
+  %.24 = phi i32 [ %indvars273.le, %get_varint64.exit191.split.loop.exit367 ], [ %smax272, %441 ]
   %.1.i190 = phi i64 [ %451, %get_varint64.exit191.split.loop.exit367 ], [ %.0.i189, %441 ]
   %453 = load i32, ptr @hf_steam_ihs_discovery_body_status_gamesrunning, align 4
   %sext = shl i64 %.1.i190, 32
   %454 = ashr exact i64 %sext, 32
-  %455 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %453, ptr noundef %0, i32 noundef %52, i32 noundef %.23, i64 noundef %454) #4
+  %455 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %453, ptr noundef %0, i32 noundef %52, i32 noundef %.24, i64 noundef %454) #4
   br label %protobuf_iter_next.exit152.thread
 
 456:                                              ; preds = %54
@@ -2030,13 +2030,13 @@ get_varint64.exit194.split.loop.exit364:          ; preds = %460
   br label %get_varint64.exit194
 
 get_varint64.exit194:                             ; preds = %459, %get_varint64.exit194.split.loop.exit364
-  %.25 = phi i32 [ %indvars.le, %get_varint64.exit194.split.loop.exit364 ], [ %smax, %459 ]
+  %.26 = phi i32 [ %indvars.le, %get_varint64.exit194.split.loop.exit364 ], [ %smax, %459 ]
   %.1.i193 = phi i64 [ %469, %get_varint64.exit194.split.loop.exit364 ], [ %.0.i192, %459 ]
   %471 = load i32, ptr @hf_steam_ihs_discovery_body_status_macaddresses, align 4
-  %472 = add i32 %.25, %52
+  %472 = add i32 %.26, %52
   %473 = trunc i64 %.1.i193 to i32
   %474 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %471, ptr noundef %0, i32 noundef %472, i32 noundef %473, i32 noundef 2) #4
-  %475 = add i32 %.25, %473
+  %475 = add i32 %.26, %473
   br label %protobuf_iter_next.exit152.thread
 
 476:                                              ; preds = %54
@@ -2044,10 +2044,10 @@ get_varint64.exit194:                             ; preds = %459, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 protobuf_iter_next.exit152.thread:                ; preds = %protobuf_iter_next.exit152, %341, %get_varint64.exit140, %456, %protobuf_verify_wiretype.exit188, %protobuf_verify_wiretype.exit181, %protobuf_verify_wiretype.exit174, %protobuf_verify_wiretype.exit167, %249, %protobuf_verify_wiretype.exit134, %protobuf_verify_wiretype.exit127, %protobuf_verify_wiretype.exit120, %139, %protobuf_verify_wiretype.exit110, %protobuf_verify_wiretype.exit103, %protobuf_verify_wiretype.exit, %476, %get_varint64.exit194, %get_varint64.exit191, %get_varint64.exit184, %get_varint64.exit177, %get_varint64.exit170, %get_varint64.exit137, %get_varint64.exit130, %get_varint64.exit123, %163, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit
-  %.26 = phi i32 [ %477, %476 ], [ %475, %get_varint64.exit194 ], [ %457, %456 ], [ %.23, %get_varint64.exit191 ], [ %431, %protobuf_verify_wiretype.exit188 ], [ %.21, %get_varint64.exit184 ], [ %403, %protobuf_verify_wiretype.exit181 ], [ %.19, %get_varint64.exit177 ], [ %376, %protobuf_verify_wiretype.exit174 ], [ %.17, %get_varint64.exit170 ], [ %348, %protobuf_verify_wiretype.exit167 ], [ %250, %249 ], [ %.13, %get_varint64.exit137 ], [ %224, %protobuf_verify_wiretype.exit134 ], [ %.11, %get_varint64.exit130 ], [ %196, %protobuf_verify_wiretype.exit127 ], [ %.9, %get_varint64.exit123 ], [ %168, %protobuf_verify_wiretype.exit120 ], [ %164, %163 ], [ %140, %139 ], [ %.5, %get_varint64.exit113 ], [ %114, %protobuf_verify_wiretype.exit110 ], [ %.3, %get_varint64.exit106 ], [ %86, %protobuf_verify_wiretype.exit103 ], [ %.1229, %get_varint64.exit ], [ %58, %protobuf_verify_wiretype.exit ], [ %266, %get_varint64.exit140 ], [ %266, %341 ], [ %266, %protobuf_iter_next.exit152 ]
-  %478 = add i32 %52, %.26
+  %.0228 = phi i32 [ %477, %476 ], [ %475, %get_varint64.exit194 ], [ %457, %456 ], [ %.24, %get_varint64.exit191 ], [ %431, %protobuf_verify_wiretype.exit188 ], [ %.22, %get_varint64.exit184 ], [ %403, %protobuf_verify_wiretype.exit181 ], [ %.20, %get_varint64.exit177 ], [ %376, %protobuf_verify_wiretype.exit174 ], [ %.18, %get_varint64.exit170 ], [ %348, %protobuf_verify_wiretype.exit167 ], [ %250, %249 ], [ %.14, %get_varint64.exit137 ], [ %224, %protobuf_verify_wiretype.exit134 ], [ %.12, %get_varint64.exit130 ], [ %196, %protobuf_verify_wiretype.exit127 ], [ %.10, %get_varint64.exit123 ], [ %168, %protobuf_verify_wiretype.exit120 ], [ %164, %163 ], [ %140, %139 ], [ %.6, %get_varint64.exit113 ], [ %114, %protobuf_verify_wiretype.exit110 ], [ %.4, %get_varint64.exit106 ], [ %86, %protobuf_verify_wiretype.exit103 ], [ %.2230, %get_varint64.exit ], [ %58, %protobuf_verify_wiretype.exit ], [ %266, %get_varint64.exit140 ], [ %266, %341 ], [ %266, %protobuf_iter_next.exit152 ]
+  %478 = add i32 %52, %.0228
   store i32 %478, ptr %23, align 8
-  %479 = sub i32 %53, %.26
+  %479 = sub i32 %53, %.0228
   store i32 %479, ptr %24, align 4
   %480 = icmp slt i32 %479, 1
   br i1 %480, label %protobuf_iter_next.exit.thread, label %34, !llvm.loop !9
@@ -2164,13 +2164,13 @@ get_varint64.exit.split.loop.exit79:              ; preds = %41
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %40, %get_varint64.exit.split.loop.exit79
-  %.1 = phi i32 [ %indvars68.le, %get_varint64.exit.split.loop.exit79 ], [ %smax67, %40 ]
+  %.2 = phi i32 [ %indvars68.le, %get_varint64.exit.split.loop.exit79 ], [ %smax67, %40 ]
   %.1.i31 = phi i64 [ %50, %get_varint64.exit.split.loop.exit79 ], [ %.0.i30, %40 ]
   %52 = load i32, ptr @hf_steam_ihs_discovery_body_authrequest_devicetoken, align 4
-  %53 = add i32 %.1, %34
+  %53 = add i32 %.2, %34
   %54 = trunc i64 %.1.i31 to i32
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef %54, i32 noundef 0) #4
-  %56 = add i32 %.1, %54
+  %56 = add i32 %.2, %54
   br label %105
 
 57:                                               ; preds = %36
@@ -2209,10 +2209,10 @@ get_varint64.exit34.split.loop.exit76:            ; preds = %61
   br label %get_varint64.exit34
 
 get_varint64.exit34:                              ; preds = %60, %get_varint64.exit34.split.loop.exit76
-  %.3 = phi i32 [ %indvars61.le, %get_varint64.exit34.split.loop.exit76 ], [ %smax60, %60 ]
+  %.4 = phi i32 [ %indvars61.le, %get_varint64.exit34.split.loop.exit76 ], [ %smax60, %60 ]
   %.1.i33 = phi i64 [ %70, %get_varint64.exit34.split.loop.exit76 ], [ %.0.i32, %60 ]
   %72 = load i32, ptr @hf_steam_ihs_discovery_body_authrequest_devicename, align 4
-  %73 = add i32 %.3, %34
+  %73 = add i32 %.4, %34
   %74 = trunc i64 %.1.i33 to i32
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef %74, i32 noundef 2) #4
   %76 = load ptr, ptr %14, align 8
@@ -2231,7 +2231,7 @@ get_varint64.exit34:                              ; preds = %60, %get_varint64.e
   br label %81
 
 81:                                               ; preds = %79, %78, %get_varint64.exit34
-  %82 = add i32 %.3, %74
+  %82 = add i32 %.4, %74
   br label %105
 
 83:                                               ; preds = %36
@@ -2270,13 +2270,13 @@ get_varint64.exit37.split.loop.exit73:            ; preds = %87
   br label %get_varint64.exit37
 
 get_varint64.exit37:                              ; preds = %86, %get_varint64.exit37.split.loop.exit73
-  %.5 = phi i32 [ %indvars.le, %get_varint64.exit37.split.loop.exit73 ], [ %smax, %86 ]
+  %.6 = phi i32 [ %indvars.le, %get_varint64.exit37.split.loop.exit73 ], [ %smax, %86 ]
   %.1.i36 = phi i64 [ %96, %get_varint64.exit37.split.loop.exit73 ], [ %.0.i35, %86 ]
   %98 = load i32, ptr @hf_steam_ihs_discovery_body_authrequest_encryptedrequest, align 4
-  %99 = add i32 %.5, %34
+  %99 = add i32 %.6, %34
   %100 = trunc i64 %.1.i36 to i32
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef %100, i32 noundef 0) #4
-  %102 = add i32 %.5, %100
+  %102 = add i32 %.6, %100
   br label %105
 
 103:                                              ; preds = %36
@@ -2284,10 +2284,10 @@ get_varint64.exit37:                              ; preds = %86, %get_varint64.e
   br label %105
 
 105:                                              ; preds = %83, %57, %37, %103, %get_varint64.exit37, %81, %get_varint64.exit
-  %.6 = phi i32 [ %104, %103 ], [ %102, %get_varint64.exit37 ], [ %84, %83 ], [ %82, %81 ], [ %58, %57 ], [ %56, %get_varint64.exit ], [ %38, %37 ]
-  %106 = add i32 %34, %.6
+  %.0 = phi i32 [ %104, %103 ], [ %102, %get_varint64.exit37 ], [ %84, %83 ], [ %82, %81 ], [ %58, %57 ], [ %56, %get_varint64.exit ], [ %38, %37 ]
+  %106 = add i32 %34, %.0
   store i32 %106, ptr %8, align 8
-  %107 = sub i32 %35, %.6
+  %107 = sub i32 %35, %.0
   store i32 %107, ptr %9, align 4
   %108 = icmp slt i32 %107, 1
   br i1 %108, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !10
@@ -2426,10 +2426,10 @@ get_varint64.exit.split.loop.exit29:              ; preds = %52
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %51, %get_varint64.exit.split.loop.exit29
-  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit29 ], [ %smax, %51 ]
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit29 ], [ %smax, %51 ]
   %.1.i14 = phi i64 [ %61, %get_varint64.exit.split.loop.exit29 ], [ %.0.i13, %51 ]
   %63 = load i32, ptr @hf_steam_ihs_discovery_body_authresponse_authresult, align 4
-  %64 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %34, i32 noundef %.1, i64 noundef %.1.i14) #4
+  %64 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %34, i32 noundef %.2, i64 noundef %.1.i14) #4
   %65 = load ptr, ptr %15, align 8
   %66 = call ptr @val64_to_str_const(i64 noundef %.1.i14, ptr noundef nonnull @hf_steam_ihs_discovery_body_authresponse_authresult_strings, ptr noundef nonnull @.str.151) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.109, i64 noundef %.1.i14, ptr noundef %66) #4
@@ -2440,10 +2440,10 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   br label %69
 
 69:                                               ; preds = %protobuf_verify_wiretype.exit, %67, %get_varint64.exit
-  %.2 = phi i32 [ %.1, %get_varint64.exit ], [ %40, %protobuf_verify_wiretype.exit ], [ %68, %67 ]
-  %70 = add i32 %34, %.2
+  %.0 = phi i32 [ %.2, %get_varint64.exit ], [ %40, %protobuf_verify_wiretype.exit ], [ %68, %67 ]
+  %70 = add i32 %34, %.0
   store i32 %70, ptr %9, align 8
-  %71 = sub i32 %35, %.2
+  %71 = sub i32 %35, %.0
   store i32 %71, ptr %10, align 4
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !11
@@ -2600,11 +2600,11 @@ get_varint64.exit.split.loop.exit281:             ; preds = %59
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %58, %get_varint64.exit.split.loop.exit281
-  %.1 = phi i32 [ %indvars246.le, %get_varint64.exit.split.loop.exit281 ], [ %smax245, %58 ]
+  %.2 = phi i32 [ %indvars246.le, %get_varint64.exit.split.loop.exit281 ], [ %smax245, %58 ]
   %.1.i69 = phi i64 [ %68, %get_varint64.exit.split.loop.exit281 ], [ %.0.i68, %58 ]
   %70 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_requestid, align 4
   %71 = trunc i64 %.1.i69 to i32
-  %72 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %41, i32 noundef %.1, i32 noundef %71) #4
+  %72 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %41, i32 noundef %.2, i32 noundef %71) #4
   %73 = load ptr, ptr %22, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.110, i32 noundef %71) #4
   br label %339
@@ -2670,11 +2670,11 @@ get_varint64.exit76.split.loop.exit278:           ; preds = %89
   br label %get_varint64.exit76
 
 get_varint64.exit76:                              ; preds = %88, %get_varint64.exit76.split.loop.exit278
-  %.3 = phi i32 [ %indvars239.le, %get_varint64.exit76.split.loop.exit278 ], [ %smax238, %88 ]
+  %.4 = phi i32 [ %indvars239.le, %get_varint64.exit76.split.loop.exit278 ], [ %smax238, %88 ]
   %.1.i75 = phi i64 [ %98, %get_varint64.exit76.split.loop.exit278 ], [ %.0.i74, %88 ]
   %100 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutionx, align 4
   %101 = trunc i64 %.1.i75 to i32
-  %102 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %41, i32 noundef %.3, i32 noundef %101) #4
+  %102 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %41, i32 noundef %.4, i32 noundef %101) #4
   br label %339
 
 103:                                              ; preds = %43
@@ -2738,11 +2738,11 @@ get_varint64.exit83.split.loop.exit275:           ; preds = %118
   br label %get_varint64.exit83
 
 get_varint64.exit83:                              ; preds = %117, %get_varint64.exit83.split.loop.exit275
-  %.5 = phi i32 [ %indvars232.le, %get_varint64.exit83.split.loop.exit275 ], [ %smax231, %117 ]
+  %.6 = phi i32 [ %indvars232.le, %get_varint64.exit83.split.loop.exit275 ], [ %smax231, %117 ]
   %.1.i82 = phi i64 [ %127, %get_varint64.exit83.split.loop.exit275 ], [ %.0.i81, %117 ]
   %129 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutiony, align 4
   %130 = trunc i64 %.1.i82 to i32
-  %131 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %129, ptr noundef %0, i32 noundef %41, i32 noundef %.5, i32 noundef %130) #4
+  %131 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %129, ptr noundef %0, i32 noundef %41, i32 noundef %.6, i32 noundef %130) #4
   br label %339
 
 132:                                              ; preds = %43
@@ -2806,11 +2806,11 @@ get_varint64.exit90.split.loop.exit272:           ; preds = %147
   br label %get_varint64.exit90
 
 get_varint64.exit90:                              ; preds = %146, %get_varint64.exit90.split.loop.exit272
-  %.7 = phi i32 [ %indvars225.le, %get_varint64.exit90.split.loop.exit272 ], [ %smax224, %146 ]
+  %.8 = phi i32 [ %indvars225.le, %get_varint64.exit90.split.loop.exit272 ], [ %smax224, %146 ]
   %.1.i89 = phi i64 [ %156, %get_varint64.exit90.split.loop.exit272 ], [ %.0.i88, %146 ]
   %158 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_audiochannelcount, align 4
   %159 = trunc i64 %.1.i89 to i32
-  %160 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %158, ptr noundef %0, i32 noundef %41, i32 noundef %.7, i32 noundef %159) #4
+  %160 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %158, ptr noundef %0, i32 noundef %41, i32 noundef %.8, i32 noundef %159) #4
   br label %339
 
 161:                                              ; preds = %43
@@ -2849,13 +2849,13 @@ get_varint64.exit93.split.loop.exit269:           ; preds = %165
   br label %get_varint64.exit93
 
 get_varint64.exit93:                              ; preds = %164, %get_varint64.exit93.split.loop.exit269
-  %.9 = phi i32 [ %indvars218.le, %get_varint64.exit93.split.loop.exit269 ], [ %smax217, %164 ]
+  %.10 = phi i32 [ %indvars218.le, %get_varint64.exit93.split.loop.exit269 ], [ %smax217, %164 ]
   %.1.i92 = phi i64 [ %174, %get_varint64.exit93.split.loop.exit269 ], [ %.0.i91, %164 ]
   %176 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_deviceversion, align 4
-  %177 = add i32 %.9, %41
+  %177 = add i32 %.10, %41
   %178 = trunc i64 %.1.i92 to i32
   %179 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %177, i32 noundef %178, i32 noundef 2) #4
-  %180 = add i32 %.9, %178
+  %180 = add i32 %.10, %178
   br label %339
 
 181:                                              ; preds = %43
@@ -2919,12 +2919,12 @@ get_varint64.exit100.split.loop.exit266:          ; preds = %196
   br label %get_varint64.exit100
 
 get_varint64.exit100:                             ; preds = %195, %get_varint64.exit100.split.loop.exit266
-  %.11 = phi i32 [ %indvars211.le, %get_varint64.exit100.split.loop.exit266 ], [ %smax210, %195 ]
+  %.12 = phi i32 [ %indvars211.le, %get_varint64.exit100.split.loop.exit266 ], [ %smax210, %195 ]
   %.1.i99 = phi i64 [ %205, %get_varint64.exit100.split.loop.exit266 ], [ %.0.i98, %195 ]
   %207 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_streamdesktop, align 4
   %sext61 = shl i64 %.1.i99, 32
   %208 = ashr exact i64 %sext61, 32
-  %209 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %207, ptr noundef %0, i32 noundef %41, i32 noundef %.11, i64 noundef %208) #4
+  %209 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %207, ptr noundef %0, i32 noundef %41, i32 noundef %.12, i64 noundef %208) #4
   br label %339
 
 210:                                              ; preds = %43
@@ -2963,13 +2963,13 @@ get_varint64.exit103.split.loop.exit263:          ; preds = %214
   br label %get_varint64.exit103
 
 get_varint64.exit103:                             ; preds = %213, %get_varint64.exit103.split.loop.exit263
-  %.13 = phi i32 [ %indvars204.le, %get_varint64.exit103.split.loop.exit263 ], [ %smax203, %213 ]
+  %.14 = phi i32 [ %indvars204.le, %get_varint64.exit103.split.loop.exit263 ], [ %smax203, %213 ]
   %.1.i102 = phi i64 [ %223, %get_varint64.exit103.split.loop.exit263 ], [ %.0.i101, %213 ]
   %225 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_devicetoken, align 4
-  %226 = add i32 %.13, %41
+  %226 = add i32 %.14, %41
   %227 = trunc i64 %.1.i102 to i32
   %228 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %225, ptr noundef %0, i32 noundef %226, i32 noundef %227, i32 noundef 0) #4
-  %229 = add i32 %.13, %227
+  %229 = add i32 %.14, %227
   br label %339
 
 230:                                              ; preds = %43
@@ -3008,13 +3008,13 @@ get_varint64.exit106.split.loop.exit260:          ; preds = %234
   br label %get_varint64.exit106
 
 get_varint64.exit106:                             ; preds = %233, %get_varint64.exit106.split.loop.exit260
-  %.15 = phi i32 [ %indvars197.le, %get_varint64.exit106.split.loop.exit260 ], [ %smax196, %233 ]
+  %.16 = phi i32 [ %indvars197.le, %get_varint64.exit106.split.loop.exit260 ], [ %smax196, %233 ]
   %.1.i105 = phi i64 [ %243, %get_varint64.exit106.split.loop.exit260 ], [ %.0.i104, %233 ]
   %245 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_pin, align 4
-  %246 = add i32 %.15, %41
+  %246 = add i32 %.16, %41
   %247 = trunc i64 %.1.i105 to i32
   %248 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %245, ptr noundef %0, i32 noundef %246, i32 noundef %247, i32 noundef 0) #4
-  %249 = add i32 %.15, %247
+  %249 = add i32 %.16, %247
   br label %339
 
 250:                                              ; preds = %43
@@ -3078,12 +3078,12 @@ get_varint64.exit113.split.loop.exit257:          ; preds = %265
   br label %get_varint64.exit113
 
 get_varint64.exit113:                             ; preds = %264, %get_varint64.exit113.split.loop.exit257
-  %.17 = phi i32 [ %indvars190.le, %get_varint64.exit113.split.loop.exit257 ], [ %smax189, %264 ]
+  %.18 = phi i32 [ %indvars190.le, %get_varint64.exit113.split.loop.exit257 ], [ %smax189, %264 ]
   %.1.i112 = phi i64 [ %274, %get_varint64.exit113.split.loop.exit257 ], [ %.0.i111, %264 ]
   %276 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enablevideostreaming, align 4
   %sext57 = shl i64 %.1.i112, 32
   %277 = ashr exact i64 %sext57, 32
-  %278 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %276, ptr noundef %0, i32 noundef %41, i32 noundef %.17, i64 noundef %277) #4
+  %278 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %276, ptr noundef %0, i32 noundef %41, i32 noundef %.18, i64 noundef %277) #4
   br label %339
 
 279:                                              ; preds = %43
@@ -3147,12 +3147,12 @@ get_varint64.exit120.split.loop.exit254:          ; preds = %294
   br label %get_varint64.exit120
 
 get_varint64.exit120:                             ; preds = %293, %get_varint64.exit120.split.loop.exit254
-  %.19 = phi i32 [ %indvars183.le, %get_varint64.exit120.split.loop.exit254 ], [ %smax182, %293 ]
+  %.20 = phi i32 [ %indvars183.le, %get_varint64.exit120.split.loop.exit254 ], [ %smax182, %293 ]
   %.1.i119 = phi i64 [ %303, %get_varint64.exit120.split.loop.exit254 ], [ %.0.i118, %293 ]
   %305 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableaudiostreaming, align 4
   %sext55 = shl i64 %.1.i119, 32
   %306 = ashr exact i64 %sext55, 32
-  %307 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %305, ptr noundef %0, i32 noundef %41, i32 noundef %.19, i64 noundef %306) #4
+  %307 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %305, ptr noundef %0, i32 noundef %41, i32 noundef %.20, i64 noundef %306) #4
   br label %339
 
 308:                                              ; preds = %43
@@ -3216,12 +3216,12 @@ get_varint64.exit127.split.loop.exit251:          ; preds = %323
   br label %get_varint64.exit127
 
 get_varint64.exit127:                             ; preds = %322, %get_varint64.exit127.split.loop.exit251
-  %.21 = phi i32 [ %indvars.le, %get_varint64.exit127.split.loop.exit251 ], [ %smax, %322 ]
+  %.22 = phi i32 [ %indvars.le, %get_varint64.exit127.split.loop.exit251 ], [ %smax, %322 ]
   %.1.i126 = phi i64 [ %332, %get_varint64.exit127.split.loop.exit251 ], [ %.0.i125, %322 ]
   %334 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableinputstreaming, align 4
   %sext = shl i64 %.1.i126, 32
   %335 = ashr exact i64 %sext, 32
-  %336 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %334, ptr noundef %0, i32 noundef %41, i32 noundef %.21, i64 noundef %335) #4
+  %336 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %334, ptr noundef %0, i32 noundef %41, i32 noundef %.22, i64 noundef %335) #4
   br label %339
 
 337:                                              ; preds = %43
@@ -3229,10 +3229,10 @@ get_varint64.exit127:                             ; preds = %322, %get_varint64.
   br label %339
 
 339:                                              ; preds = %protobuf_verify_wiretype.exit124, %protobuf_verify_wiretype.exit117, %protobuf_verify_wiretype.exit110, %230, %210, %protobuf_verify_wiretype.exit97, %161, %protobuf_verify_wiretype.exit87, %protobuf_verify_wiretype.exit80, %protobuf_verify_wiretype.exit73, %protobuf_verify_wiretype.exit, %337, %get_varint64.exit127, %get_varint64.exit120, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit103, %get_varint64.exit100, %get_varint64.exit93, %get_varint64.exit90, %get_varint64.exit83, %get_varint64.exit76, %get_varint64.exit
-  %.22 = phi i32 [ %338, %337 ], [ %.21, %get_varint64.exit127 ], [ %311, %protobuf_verify_wiretype.exit124 ], [ %.19, %get_varint64.exit120 ], [ %282, %protobuf_verify_wiretype.exit117 ], [ %.17, %get_varint64.exit113 ], [ %253, %protobuf_verify_wiretype.exit110 ], [ %249, %get_varint64.exit106 ], [ %231, %230 ], [ %229, %get_varint64.exit103 ], [ %211, %210 ], [ %.11, %get_varint64.exit100 ], [ %184, %protobuf_verify_wiretype.exit97 ], [ %180, %get_varint64.exit93 ], [ %162, %161 ], [ %.7, %get_varint64.exit90 ], [ %135, %protobuf_verify_wiretype.exit87 ], [ %.5, %get_varint64.exit83 ], [ %106, %protobuf_verify_wiretype.exit80 ], [ %.3, %get_varint64.exit76 ], [ %77, %protobuf_verify_wiretype.exit73 ], [ %.1, %get_varint64.exit ], [ %47, %protobuf_verify_wiretype.exit ]
-  %340 = add i32 %41, %.22
+  %.0 = phi i32 [ %338, %337 ], [ %.22, %get_varint64.exit127 ], [ %311, %protobuf_verify_wiretype.exit124 ], [ %.20, %get_varint64.exit120 ], [ %282, %protobuf_verify_wiretype.exit117 ], [ %.18, %get_varint64.exit113 ], [ %253, %protobuf_verify_wiretype.exit110 ], [ %249, %get_varint64.exit106 ], [ %231, %230 ], [ %229, %get_varint64.exit103 ], [ %211, %210 ], [ %.12, %get_varint64.exit100 ], [ %184, %protobuf_verify_wiretype.exit97 ], [ %180, %get_varint64.exit93 ], [ %162, %161 ], [ %.8, %get_varint64.exit90 ], [ %135, %protobuf_verify_wiretype.exit87 ], [ %.6, %get_varint64.exit83 ], [ %106, %protobuf_verify_wiretype.exit80 ], [ %.4, %get_varint64.exit76 ], [ %77, %protobuf_verify_wiretype.exit73 ], [ %.2, %get_varint64.exit ], [ %47, %protobuf_verify_wiretype.exit ]
+  %340 = add i32 %41, %.0
   store i32 %340, ptr %16, align 8
-  %341 = sub i32 %42, %.22
+  %341 = sub i32 %42, %.0
   store i32 %341, ptr %17, align 4
   %342 = icmp slt i32 %341, 1
   br i1 %342, label %protobuf_iter_next.exit.thread, label %23, !llvm.loop !12
@@ -3371,11 +3371,11 @@ get_varint64.exit.split.loop.exit28:              ; preds = %52
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %51, %get_varint64.exit.split.loop.exit28
-  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit28 ], [ %smax, %51 ]
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit28 ], [ %smax, %51 ]
   %.1.i13 = phi i64 [ %61, %get_varint64.exit.split.loop.exit28 ], [ %.0.i12, %51 ]
   %63 = load i32, ptr @hf_steam_ihs_discovery_body_streamingcancelrequest_requestid, align 4
   %64 = trunc i64 %.1.i13 to i32
-  %65 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %34, i32 noundef %.1, i32 noundef %64) #4
+  %65 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %34, i32 noundef %.2, i32 noundef %64) #4
   %66 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.115, i32 noundef %64) #4
   br label %69
@@ -3385,10 +3385,10 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   br label %69
 
 69:                                               ; preds = %protobuf_verify_wiretype.exit, %67, %get_varint64.exit
-  %.2 = phi i32 [ %.1, %get_varint64.exit ], [ %40, %protobuf_verify_wiretype.exit ], [ %68, %67 ]
-  %70 = add i32 %34, %.2
+  %.0 = phi i32 [ %.2, %get_varint64.exit ], [ %40, %protobuf_verify_wiretype.exit ], [ %68, %67 ]
+  %70 = add i32 %34, %.0
   store i32 %70, ptr %9, align 8
-  %71 = sub i32 %35, %.2
+  %71 = sub i32 %35, %.0
   store i32 %71, ptr %10, align 4
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !13
@@ -3535,11 +3535,11 @@ get_varint64.exit.split.loop.exit133:             ; preds = %55
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %54, %get_varint64.exit.split.loop.exit133
-  %.1 = phi i32 [ %indvars116.le, %get_varint64.exit.split.loop.exit133 ], [ %smax115, %54 ]
+  %.2 = phi i32 [ %indvars116.le, %get_varint64.exit.split.loop.exit133 ], [ %smax115, %54 ]
   %.1.i39 = phi i64 [ %64, %get_varint64.exit.split.loop.exit133 ], [ %.0.i38, %54 ]
   %66 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_requestid, align 4
   %67 = trunc i64 %.1.i39 to i32
-  %68 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %37, i32 noundef %.1, i32 noundef %67) #4
+  %68 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %37, i32 noundef %.2, i32 noundef %67) #4
   %69 = load ptr, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %67) #4
   br label %181
@@ -3605,10 +3605,10 @@ get_varint64.exit46.split.loop.exit130:           ; preds = %85
   br label %get_varint64.exit46
 
 get_varint64.exit46:                              ; preds = %84, %get_varint64.exit46.split.loop.exit130
-  %.3 = phi i32 [ %indvars109.le, %get_varint64.exit46.split.loop.exit130 ], [ %smax108, %84 ]
+  %.4 = phi i32 [ %indvars109.le, %get_varint64.exit46.split.loop.exit130 ], [ %smax108, %84 ]
   %.1.i45 = phi i64 [ %94, %get_varint64.exit46.split.loop.exit130 ], [ %.0.i44, %84 ]
   %96 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_result, align 4
-  %97 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %37, i32 noundef %.3, i64 noundef %.1.i45) #4
+  %97 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %37, i32 noundef %.4, i64 noundef %.1.i45) #4
   %98 = load ptr, ptr %18, align 8
   %99 = call ptr @val64_to_str_const(i64 noundef %.1.i45, ptr noundef nonnull @hf_steam_ihs_discovery_body_streamingresponse_result_strings, ptr noundef nonnull @.str.151) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.155, i64 noundef %.1.i45, ptr noundef %99) #4
@@ -3675,11 +3675,11 @@ get_varint64.exit53.split.loop.exit127:           ; preds = %115
   br label %get_varint64.exit53
 
 get_varint64.exit53:                              ; preds = %114, %get_varint64.exit53.split.loop.exit127
-  %.5 = phi i32 [ %indvars102.le, %get_varint64.exit53.split.loop.exit127 ], [ %smax101, %114 ]
+  %.6 = phi i32 [ %indvars102.le, %get_varint64.exit53.split.loop.exit127 ], [ %smax101, %114 ]
   %.1.i52 = phi i64 [ %124, %get_varint64.exit53.split.loop.exit127 ], [ %.0.i51, %114 ]
   %126 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_port, align 4
   %127 = trunc i64 %.1.i52 to i32
-  %128 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef %37, i32 noundef %.5, i32 noundef %127) #4
+  %128 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef %37, i32 noundef %.6, i32 noundef %127) #4
   %129 = load ptr, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.156, i32 noundef %127) #4
   br label %181
@@ -3720,13 +3720,13 @@ get_varint64.exit56.split.loop.exit124:           ; preds = %134
   br label %get_varint64.exit56
 
 get_varint64.exit56:                              ; preds = %133, %get_varint64.exit56.split.loop.exit124
-  %.7 = phi i32 [ %indvars95.le, %get_varint64.exit56.split.loop.exit124 ], [ %smax94, %133 ]
+  %.8 = phi i32 [ %indvars95.le, %get_varint64.exit56.split.loop.exit124 ], [ %smax94, %133 ]
   %.1.i55 = phi i64 [ %143, %get_varint64.exit56.split.loop.exit124 ], [ %.0.i54, %133 ]
   %145 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_encryptedsessionkey, align 4
-  %146 = add i32 %.7, %37
+  %146 = add i32 %.8, %37
   %147 = trunc i64 %.1.i55 to i32
   %148 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef %147, i32 noundef 0) #4
-  %149 = add i32 %.7, %147
+  %149 = add i32 %.8, %147
   br label %181
 
 150:                                              ; preds = %39
@@ -3790,11 +3790,11 @@ get_varint64.exit63.split.loop.exit121:           ; preds = %165
   br label %get_varint64.exit63
 
 get_varint64.exit63:                              ; preds = %164, %get_varint64.exit63.split.loop.exit121
-  %.9 = phi i32 [ %indvars.le, %get_varint64.exit63.split.loop.exit121 ], [ %smax, %164 ]
+  %.10 = phi i32 [ %indvars.le, %get_varint64.exit63.split.loop.exit121 ], [ %smax, %164 ]
   %.1.i62 = phi i64 [ %174, %get_varint64.exit63.split.loop.exit121 ], [ %.0.i61, %164 ]
   %176 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_virtualherelicenseddevicecount, align 4
   %177 = trunc i64 %.1.i62 to i32
-  %178 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %37, i32 noundef %.9, i32 noundef %177) #4
+  %178 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %37, i32 noundef %.10, i32 noundef %177) #4
   br label %181
 
 179:                                              ; preds = %39
@@ -3802,10 +3802,10 @@ get_varint64.exit63:                              ; preds = %164, %get_varint64.
   br label %181
 
 181:                                              ; preds = %protobuf_verify_wiretype.exit60, %130, %protobuf_verify_wiretype.exit50, %protobuf_verify_wiretype.exit43, %protobuf_verify_wiretype.exit, %179, %get_varint64.exit63, %get_varint64.exit56, %get_varint64.exit53, %get_varint64.exit46, %get_varint64.exit
-  %.10 = phi i32 [ %180, %179 ], [ %.9, %get_varint64.exit63 ], [ %153, %protobuf_verify_wiretype.exit60 ], [ %149, %get_varint64.exit56 ], [ %131, %130 ], [ %.5, %get_varint64.exit53 ], [ %103, %protobuf_verify_wiretype.exit50 ], [ %.3, %get_varint64.exit46 ], [ %73, %protobuf_verify_wiretype.exit43 ], [ %.1, %get_varint64.exit ], [ %43, %protobuf_verify_wiretype.exit ]
-  %182 = add i32 %37, %.10
+  %.0 = phi i32 [ %180, %179 ], [ %.10, %get_varint64.exit63 ], [ %153, %protobuf_verify_wiretype.exit60 ], [ %149, %get_varint64.exit56 ], [ %131, %130 ], [ %.6, %get_varint64.exit53 ], [ %103, %protobuf_verify_wiretype.exit50 ], [ %.4, %get_varint64.exit46 ], [ %73, %protobuf_verify_wiretype.exit43 ], [ %.2, %get_varint64.exit ], [ %43, %protobuf_verify_wiretype.exit ]
+  %182 = add i32 %37, %.0
   store i32 %182, ptr %12, align 8
-  %183 = sub i32 %38, %.10
+  %183 = sub i32 %38, %.0
   store i32 %183, ptr %13, align 4
   %184 = icmp slt i32 %183, 1
   br i1 %184, label %protobuf_iter_next.exit.thread, label %19, !llvm.loop !14
@@ -3917,13 +3917,13 @@ get_varint64.exit.split.loop.exit24:              ; preds = %39
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %38, %get_varint64.exit.split.loop.exit24
-  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit24 ], [ %smax, %38 ]
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit24 ], [ %smax, %38 ]
   %.1.i11 = phi i64 [ %48, %get_varint64.exit.split.loop.exit24 ], [ %.0.i10, %38 ]
   %50 = load i32, ptr @hf_steam_ihs_discovery_body_proofrequest_challenge, align 4
-  %51 = add i32 %.1, %32
+  %51 = add i32 %.2, %32
   %52 = trunc i64 %.1.i11 to i32
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %52, i32 noundef 0) #4
-  %54 = add i32 %.1, %52
+  %54 = add i32 %.2, %52
   br label %57
 
 55:                                               ; preds = %34
@@ -3931,10 +3931,10 @@ get_varint64.exit:                                ; preds = %38, %get_varint64.e
   br label %57
 
 57:                                               ; preds = %35, %55, %get_varint64.exit
-  %.2 = phi i32 [ %54, %get_varint64.exit ], [ %36, %35 ], [ %56, %55 ]
-  %58 = add i32 %32, %.2
+  %.0 = phi i32 [ %54, %get_varint64.exit ], [ %36, %35 ], [ %56, %55 ]
+  %58 = add i32 %32, %.0
   store i32 %58, ptr %8, align 8
-  %59 = sub i32 %33, %.2
+  %59 = sub i32 %33, %.0
   store i32 %59, ptr %9, align 4
   %60 = icmp slt i32 %59, 1
   br i1 %60, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !15
@@ -4046,13 +4046,13 @@ get_varint64.exit.split.loop.exit24:              ; preds = %39
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %38, %get_varint64.exit.split.loop.exit24
-  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit24 ], [ %smax, %38 ]
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit24 ], [ %smax, %38 ]
   %.1.i11 = phi i64 [ %48, %get_varint64.exit.split.loop.exit24 ], [ %.0.i10, %38 ]
   %50 = load i32, ptr @hf_steam_ihs_discovery_body_proofresponse_response, align 4
-  %51 = add i32 %.1, %32
+  %51 = add i32 %.2, %32
   %52 = trunc i64 %.1.i11 to i32
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %52, i32 noundef 0) #4
-  %54 = add i32 %.1, %52
+  %54 = add i32 %.2, %52
   br label %57
 
 55:                                               ; preds = %34
@@ -4060,10 +4060,10 @@ get_varint64.exit:                                ; preds = %38, %get_varint64.e
   br label %57
 
 57:                                               ; preds = %35, %55, %get_varint64.exit
-  %.2 = phi i32 [ %54, %get_varint64.exit ], [ %36, %35 ], [ %56, %55 ]
-  %58 = add i32 %32, %.2
+  %.0 = phi i32 [ %54, %get_varint64.exit ], [ %36, %35 ], [ %56, %55 ]
+  %58 = add i32 %32, %.0
   store i32 %58, ptr %8, align 8
-  %59 = sub i32 %33, %.2
+  %59 = sub i32 %33, %.0
   store i32 %59, ptr %9, align 4
   %60 = icmp slt i32 %59, 1
   br i1 %60, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !16
@@ -4322,12 +4322,12 @@ get_varint64.exit.split.loop.exit86:              ; preds = %15
   br label %get_varint64.exit
 
 get_varint64.exit:                                ; preds = %14, %get_varint64.exit.split.loop.exit86
-  %.174 = phi i32 [ %indvars79.le, %get_varint64.exit.split.loop.exit86 ], [ %smax78, %14 ]
+  %.2 = phi i32 [ %indvars79.le, %get_varint64.exit.split.loop.exit86 ], [ %smax78, %14 ]
   %.1.i = phi i64 [ %24, %get_varint64.exit.split.loop.exit86 ], [ %.0.i, %14 ]
   %26 = load i32, ptr @hf_steam_ihs_discovery_unknown_number, align 4
   %27 = load ptr, ptr %0, align 8
   %28 = load i32, ptr %10, align 8
-  %29 = tail call ptr @proto_tree_add_uint64(ptr noundef %3, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %.174, i64 noundef %.1.i) #4
+  %29 = tail call ptr @proto_tree_add_uint64(ptr noundef %3, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %.2, i64 noundef %.1.i) #4
   %30 = load i8, ptr %6, align 8
   %31 = zext i8 %30 to i32
   %32 = icmp ult i8 %30, 6
@@ -4402,16 +4402,16 @@ get_varint64.exit64.split.loop.exit83:            ; preds = %60
   br label %get_varint64.exit64
 
 get_varint64.exit64:                              ; preds = %59, %get_varint64.exit64.split.loop.exit83
-  %.3 = phi i32 [ %indvars.le, %get_varint64.exit64.split.loop.exit83 ], [ %smax, %59 ]
+  %.4 = phi i32 [ %indvars.le, %get_varint64.exit64.split.loop.exit83 ], [ %smax, %59 ]
   %.1.i63 = phi i64 [ %69, %get_varint64.exit64.split.loop.exit83 ], [ %.0.i62, %59 ]
   %71 = load i32, ptr %57, align 4
-  %72 = sub i32 %71, %.3
+  %72 = sub i32 %71, %.4
   %73 = sext i32 %72 to i64
   %74 = icmp ugt i64 %.1.i63, %73
   %75 = load i32, ptr @hf_steam_ihs_discovery_unknown_data, align 4
   %76 = load ptr, ptr %0, align 8
   %77 = load i32, ptr %55, align 8
-  %78 = add i32 %77, %.3
+  %78 = add i32 %77, %.4
   br i1 %74, label %79, label %87
 
 79:                                               ; preds = %get_varint64.exit64
@@ -4419,7 +4419,7 @@ get_varint64.exit64:                              ; preds = %59, %get_varint64.e
   %81 = getelementptr inbounds i8, ptr %1, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = load i32, ptr %57, align 4
-  %84 = sub i32 %83, %.3
+  %84 = sub i32 %83, %.4
   %85 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %80, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_length, ptr noundef nonnull @.str.143, i64 noundef %82, i64 noundef %.1.i63, i32 noundef %84) #4
   %86 = load i32, ptr %57, align 4
   br label %91
@@ -4427,13 +4427,13 @@ get_varint64.exit64:                              ; preds = %59, %get_varint64.e
 87:                                               ; preds = %get_varint64.exit64
   %88 = trunc i64 %.1.i63 to i32
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %75, ptr noundef %76, i32 noundef %78, i32 noundef %88, i32 noundef 0) #4
-  %90 = add i32 %.3, %88
+  %90 = add i32 %.4, %88
   br label %91
 
 91:                                               ; preds = %87, %79
   %storemerge = phi i32 [ %90, %87 ], [ %86, %79 ]
-  %.0 = phi ptr [ %89, %87 ], [ %80, %79 ]
-  %92 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0, ptr noundef nonnull @ei_steam_ihs_discovery_unknown_lengthdelimited) #4
+  %.1 = phi ptr [ %89, %87 ], [ %80, %79 ]
+  %92 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %.1, ptr noundef nonnull @ei_steam_ihs_discovery_unknown_lengthdelimited) #4
   br label %117
 
 93:                                               ; preds = %5
@@ -4471,17 +4471,17 @@ protobuf_get_wiretype_name.exit66:                ; preds = %93, %103
   br label %117
 
 117:                                              ; preds = %108, %protobuf_get_wiretype_name.exit66, %91, %protobuf_get_wiretype_name.exit61, %protobuf_get_wiretype_name.exit
-  %.4 = phi i32 [ %110, %108 ], [ 4, %protobuf_get_wiretype_name.exit66 ], [ %storemerge, %91 ], [ 8, %protobuf_get_wiretype_name.exit61 ], [ %.174, %protobuf_get_wiretype_name.exit ]
-  %.1 = phi ptr [ %115, %108 ], [ %99, %protobuf_get_wiretype_name.exit66 ], [ %.0, %91 ], [ %44, %protobuf_get_wiretype_name.exit61 ], [ %29, %protobuf_get_wiretype_name.exit ]
+  %.073 = phi i32 [ %110, %108 ], [ 4, %protobuf_get_wiretype_name.exit66 ], [ %storemerge, %91 ], [ 8, %protobuf_get_wiretype_name.exit61 ], [ %.2, %protobuf_get_wiretype_name.exit ]
+  %.0 = phi ptr [ %115, %108 ], [ %99, %protobuf_get_wiretype_name.exit66 ], [ %.1, %91 ], [ %44, %protobuf_get_wiretype_name.exit61 ], [ %29, %protobuf_get_wiretype_name.exit ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %119, label %118
 
 118:                                              ; preds = %117
-  store ptr %.1, ptr %4, align 8
+  store ptr %.0, ptr %4, align 8
   br label %119
 
 119:                                              ; preds = %118, %117
-  ret i32 %.4
+  ret i32 %.073
 }
 
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

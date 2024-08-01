@@ -57,9 +57,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc253
-  %seed.addr.0259 = phi i64 [ %seed, %for.body.lr.ph ], [ %seed.addr.7, %for.inc253 ]
-  %corners.sroa.0.0258 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.0.5279, %for.inc253 ]
-  %corners.sroa.21.0257 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.21.4277, %for.inc253 ]
+  %seed.addr.0259 = phi i64 [ %seed, %for.body.lr.ph ], [ %seed.addr.3, %for.inc253 ]
+  %corners.sroa.0.0258 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.0.1279, %for.inc253 ]
+  %corners.sroa.21.0257 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.21.1277, %for.inc253 ]
   %contour.sroa.0.0255 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i134, %for.inc253 ]
   %2 = load ptr, ptr %contour.sroa.0.0255, align 8
   %_M_finish.i.i26 = getelementptr inbounds i8, ptr %contour.sroa.0.0255, i64 8
@@ -86,9 +86,9 @@ invoke.cont12:                                    ; preds = %invoke.cont
   br i1 %cmp.i29.not233, label %if.then56, label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont12, %invoke.cont51
-  %corners.sroa.0.1239 = phi ptr [ %corners.sroa.0.4, %invoke.cont51 ], [ %corners.sroa.0.0258, %invoke.cont12 ]
-  %corners.sroa.12.2238 = phi ptr [ %corners.sroa.12.4, %invoke.cont51 ], [ %corners.sroa.0.0258, %invoke.cont12 ]
-  %corners.sroa.21.1237 = phi ptr [ %corners.sroa.21.3, %invoke.cont51 ], [ %corners.sroa.21.0257, %invoke.cont12 ]
+  %corners.sroa.0.3239 = phi ptr [ %corners.sroa.0.4, %invoke.cont51 ], [ %corners.sroa.0.0258, %invoke.cont12 ]
+  %corners.sroa.12.2238 = phi ptr [ %corners.sroa.12.3, %invoke.cont51 ], [ %corners.sroa.0.0258, %invoke.cont12 ]
+  %corners.sroa.21.2237 = phi ptr [ %corners.sroa.21.3, %invoke.cont51 ], [ %corners.sroa.21.0257, %invoke.cont12 ]
   %call13.pn236 = phi { double, double } [ %call52, %invoke.cont51 ], [ %call13, %invoke.cont12 ]
   %index.0235 = phi i32 [ %inc, %invoke.cont51 ], [ 0, %invoke.cont12 ]
   %edge.sroa.0.0234 = phi ptr [ %incdec.ptr.i44, %invoke.cont51 ], [ %5, %invoke.cont12 ]
@@ -137,7 +137,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   br i1 %cmp5.i, label %if.then43, label %if.end
 
 if.then43:                                        ; preds = %invoke.cont39, %invoke.cont41
-  %cmp.not.i = icmp eq ptr %corners.sroa.12.2238, %corners.sroa.21.1237
+  %cmp.not.i = icmp eq ptr %corners.sroa.12.2238, %corners.sroa.21.2237
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then43
@@ -147,7 +147,7 @@ if.then.i:                                        ; preds = %if.then43
 
 if.else.i:                                        ; preds = %if.then43
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.12.2238 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.0.1239 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.0.3239 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -182,17 +182,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %corners.sroa.0.1239, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %corners.sroa.0.3239, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
-  %tobool.not.i.i.i = icmp eq ptr %corners.sroa.0.1239, null
+  %tobool.not.i.i.i = icmp eq ptr %corners.sroa.0.3239, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.1239) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.3239) #19
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
@@ -215,13 +215,13 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end240
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %cond.true.i.i.i, %invoke.cont47, %if.end, %invoke.cont33, %invoke.cont28
-  %corners.sroa.0.3.ph.ph.ph.ph = phi ptr [ %corners.sroa.0.4, %invoke.cont47 ], [ %corners.sroa.0.4, %if.end ], [ %corners.sroa.0.1239, %cond.true.i.i.i ], [ %corners.sroa.0.1239, %invoke.cont33 ], [ %corners.sroa.0.1239, %invoke.cont28 ]
+  %corners.sroa.0.2.ph.ph.ph.ph = phi ptr [ %corners.sroa.0.4, %invoke.cont47 ], [ %corners.sroa.0.4, %if.end ], [ %corners.sroa.0.3239, %cond.true.i.i.i ], [ %corners.sroa.0.3239, %invoke.cont33 ], [ %corners.sroa.0.3239, %invoke.cont28 ]
   %lpad.loopexit210 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then, %invoke.cont, %if.then117, %invoke.cont121, %if.then142, %invoke.cont146
-  %corners.sroa.0.3.ph.ph.ph.ph209.ph = phi ptr [ %corners.sroa.0.0258, %if.then ], [ %corners.sroa.0.0258, %invoke.cont ], [ %corners.sroa.0.4, %if.then117 ], [ %corners.sroa.0.4, %invoke.cont121 ], [ %corners.sroa.0.4, %if.then142 ], [ %corners.sroa.0.4, %invoke.cont146 ]
+  %corners.sroa.0.2.ph.ph.ph.ph209.ph = phi ptr [ %corners.sroa.0.0258, %if.then ], [ %corners.sroa.0.0258, %invoke.cont ], [ %corners.sroa.0.4, %if.then117 ], [ %corners.sroa.0.4, %invoke.cont121 ], [ %corners.sroa.0.4, %if.then142 ], [ %corners.sroa.0.4, %invoke.cont146 ]
   %lpad.loopexit213 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -232,9 +232,9 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i, %invoke.cont41
-  %corners.sroa.21.3 = phi ptr [ %corners.sroa.21.1237, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.21.1237, %if.then.i ]
-  %corners.sroa.12.4 = phi ptr [ %corners.sroa.12.2238, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
-  %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.1239, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.0.1239, %if.then.i ]
+  %corners.sroa.21.3 = phi ptr [ %corners.sroa.21.2237, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.21.2237, %if.then.i ]
+  %corners.sroa.12.3 = phi ptr [ %corners.sroa.12.2238, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.3239, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.0.3239, %if.then.i ]
   %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0234)
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -253,12 +253,12 @@ invoke.cont51:                                    ; preds = %invoke.cont47
   br i1 %cmp.i29.not, label %if.end54, label %invoke.cont28, !llvm.loop !5
 
 if.end54:                                         ; preds = %invoke.cont51
-  %cmp.i.i46 = icmp eq ptr %corners.sroa.0.4, %corners.sroa.12.4
+  %cmp.i.i46 = icmp eq ptr %corners.sroa.0.4, %corners.sroa.12.3
   br i1 %cmp.i.i46, label %if.then56, label %if.else
 
 if.then56:                                        ; preds = %invoke.cont12, %for.body, %if.end54
-  %corners.sroa.0.5280 = phi ptr [ %corners.sroa.0.4, %if.end54 ], [ %corners.sroa.0.0258, %for.body ], [ %corners.sroa.0.0258, %invoke.cont12 ]
-  %corners.sroa.21.4278 = phi ptr [ %corners.sroa.21.3, %if.end54 ], [ %corners.sroa.21.0257, %for.body ], [ %corners.sroa.21.0257, %invoke.cont12 ]
+  %corners.sroa.0.1280 = phi ptr [ %corners.sroa.0.4, %if.end54 ], [ %corners.sroa.0.0258, %for.body ], [ %corners.sroa.0.0258, %invoke.cont12 ]
+  %corners.sroa.21.1278 = phi ptr [ %corners.sroa.21.3, %if.end54 ], [ %corners.sroa.21.0257, %for.body ], [ %corners.sroa.21.0257, %invoke.cont12 ]
   %19 = phi ptr [ %incdec.ptr.i44, %if.end54 ], [ %2, %for.body ], [ %5, %invoke.cont12 ]
   %20 = load ptr, ptr %contour.sroa.0.0255, align 8
   %cmp.i48.not252 = icmp eq ptr %20, %19
@@ -278,7 +278,7 @@ invoke.cont71:                                    ; preds = %for.body69
   br i1 %cmp.i48.not, label %for.inc253, label %for.body69, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end54
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %corners.sroa.12.4 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %corners.sroa.12.3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %corners.sroa.0.4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp eq i64 %sub.ptr.sub.i, 4
@@ -318,7 +318,7 @@ if.end8.i58:                                      ; preds = %_ZN7msdfgenL11switc
 
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit65: ; preds = %if.then7.i54, %if.end8.i58
   %26 = phi i32 [ %and10.i63, %if.end8.i58 ], [ %23, %if.then7.i54 ]
-  %seed.addr.2 = phi i64 [ %shr11.i64, %if.end8.i58 ], [ %div.i57, %if.then7.i54 ]
+  %seed.addr.5 = phi i64 [ %shr11.i64, %if.end8.i58 ], [ %div.i57, %if.then7.i54 ]
   %27 = load i32, ptr %corners.sroa.0.4, align 4
   %28 = load ptr, ptr %contour.sroa.0.0255, align 8
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %incdec.ptr.i44 to i64
@@ -536,8 +536,8 @@ for.body223.lr.ph:                                ; preds = %_ZN7msdfgenL11switc
 for.body223:                                      ; preds = %for.body223.lr.ph, %invoke.cont245
   %i220.0246 = phi i32 [ 0, %for.body223.lr.ph ], [ %inc249, %invoke.cont245 ]
   %spline.0245 = phi i32 [ 0, %for.body223.lr.ph ], [ %spline.1, %invoke.cont245 ]
-  %color218.1244 = phi i32 [ %55, %for.body223.lr.ph ], [ %color218.3, %invoke.cont245 ]
-  %seed.addr.4243 = phi i64 [ %div.i110, %for.body223.lr.ph ], [ %seed.addr.6, %invoke.cont245 ]
+  %color218.0244 = phi i32 [ %55, %for.body223.lr.ph ], [ %color218.1, %invoke.cont245 ]
+  %seed.addr.1243 = phi i64 [ %div.i110, %for.body223.lr.ph ], [ %seed.addr.2, %invoke.cont245 ]
   %add225 = add nsw i32 %i220.0246, %53
   %rem226 = srem i32 %add225, %conv217
   %add227 = add nsw i32 %spline.0245, 1
@@ -554,7 +554,7 @@ land.lhs.true:                                    ; preds = %for.body223
 if.then233:                                       ; preds = %land.lhs.true
   %cmp236 = icmp eq i32 %spline.0245, %56
   %mul238 = select i1 %cmp236, i32 %55, i32 0
-  %and.i = and i32 %mul238, %color218.1244
+  %and.i = and i32 %mul238, %color218.0244
   switch i32 %and.i, label %if.end.i [
     i32 4, label %if.then.i120
     i32 2, label %if.then.i120
@@ -566,32 +566,32 @@ if.then.i120:                                     ; preds = %if.then233, %if.the
   br label %if.end240
 
 if.end.i:                                         ; preds = %if.then233
-  switch i32 %color218.1244, label %if.end8.i125 [
+  switch i32 %color218.0244, label %if.end8.i125 [
     i32 0, label %if.then7.i121
     i32 7, label %if.then7.i121
   ]
 
 if.then7.i121:                                    ; preds = %if.end.i, %if.end.i
-  %rem.i122 = urem i64 %seed.addr.4243, 3
+  %rem.i122 = urem i64 %seed.addr.1243, 3
   %arrayidx.i123 = getelementptr inbounds [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i122
   %58 = load i32, ptr %arrayidx.i123, align 4
-  %div.i124 = udiv i64 %seed.addr.4243, 3
+  %div.i124 = udiv i64 %seed.addr.1243, 3
   br label %if.end240
 
 if.end8.i125:                                     ; preds = %if.end.i
-  %59 = trunc i64 %seed.addr.4243 to i32
+  %59 = trunc i64 %seed.addr.1243 to i32
   %60 = and i32 %59, 1
   %sh_prom.i126 = add nuw nsw i32 %60, 1
-  %shl.i127 = shl i32 %color218.1244, %sh_prom.i126
+  %shl.i127 = shl i32 %color218.0244, %sh_prom.i126
   %shr.i128 = lshr i32 %shl.i127, 3
   %or.i129 = or i32 %shr.i128, %shl.i127
   %and10.i130 = and i32 %or.i129, 7
-  %shr11.i131 = lshr i64 %seed.addr.4243, 1
+  %shr11.i131 = lshr i64 %seed.addr.1243, 1
   br label %if.end240
 
 if.end240:                                        ; preds = %if.end8.i125, %if.then7.i121, %if.then.i120, %land.lhs.true, %for.body223
-  %seed.addr.6 = phi i64 [ %seed.addr.4243, %land.lhs.true ], [ %seed.addr.4243, %for.body223 ], [ %shr11.i131, %if.end8.i125 ], [ %div.i124, %if.then7.i121 ], [ %seed.addr.4243, %if.then.i120 ]
-  %color218.3 = phi i32 [ %color218.1244, %land.lhs.true ], [ %color218.1244, %for.body223 ], [ %and10.i130, %if.end8.i125 ], [ %58, %if.then7.i121 ], [ %xor.i, %if.then.i120 ]
+  %seed.addr.2 = phi i64 [ %seed.addr.1243, %land.lhs.true ], [ %seed.addr.1243, %for.body223 ], [ %shr11.i131, %if.end8.i125 ], [ %div.i124, %if.then7.i121 ], [ %seed.addr.1243, %if.then.i120 ]
+  %color218.1 = phi i32 [ %color218.0244, %land.lhs.true ], [ %color218.0244, %for.body223 ], [ %and10.i130, %if.end8.i125 ], [ %58, %if.then7.i121 ], [ %xor.i, %if.then.i120 ]
   %spline.1 = phi i32 [ %spline.0245, %land.lhs.true ], [ %spline.0245, %for.body223 ], [ %add227, %if.end8.i125 ], [ %add227, %if.then7.i121 ], [ %add227, %if.then.i120 ]
   %conv243 = sext i32 %rem226 to i64
   %61 = load ptr, ptr %contour.sroa.0.0255, align 8
@@ -601,39 +601,39 @@ if.end240:                                        ; preds = %if.end8.i125, %if.t
 
 invoke.cont245:                                   ; preds = %if.end240
   %color247 = getelementptr inbounds i8, ptr %call246, i64 8
-  store i32 %color218.3, ptr %color247, align 8
+  store i32 %color218.1, ptr %color247, align 8
   %inc249 = add nuw nsw i32 %i220.0246, 1
   %exitcond.not = icmp eq i32 %inc249, %conv217
   br i1 %exitcond.not, label %for.inc253, label %for.body223, !llvm.loop !11
 
 for.inc253:                                       ; preds = %invoke.cont245, %invoke.cont203, %invoke.cont106, %invoke.cont71, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit, %if.then87, %if.then56, %if.else112
-  %corners.sroa.0.5279 = phi ptr [ %corners.sroa.0.4, %if.else112 ], [ %corners.sroa.0.5280, %if.then56 ], [ %corners.sroa.0.4, %if.then87 ], [ %corners.sroa.0.4, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.0.4, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118 ], [ %corners.sroa.0.5280, %invoke.cont71 ], [ %corners.sroa.0.4, %invoke.cont106 ], [ %corners.sroa.0.4, %invoke.cont203 ], [ %corners.sroa.0.4, %invoke.cont245 ]
-  %corners.sroa.21.4277 = phi ptr [ %corners.sroa.21.3, %if.else112 ], [ %corners.sroa.21.4278, %if.then56 ], [ %corners.sroa.21.3, %if.then87 ], [ %corners.sroa.21.3, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.21.3, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118 ], [ %corners.sroa.21.4278, %invoke.cont71 ], [ %corners.sroa.21.3, %invoke.cont106 ], [ %corners.sroa.21.3, %invoke.cont203 ], [ %corners.sroa.21.3, %invoke.cont245 ]
-  %seed.addr.7 = phi i64 [ %seed.addr.2, %if.else112 ], [ %seed.addr.0259, %if.then56 ], [ %seed.addr.2, %if.then87 ], [ %seed.addr.2, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %div.i110, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118 ], [ %seed.addr.0259, %invoke.cont71 ], [ %seed.addr.2, %invoke.cont106 ], [ %seed.addr.2, %invoke.cont203 ], [ %seed.addr.6, %invoke.cont245 ]
+  %corners.sroa.0.1279 = phi ptr [ %corners.sroa.0.4, %if.else112 ], [ %corners.sroa.0.1280, %if.then56 ], [ %corners.sroa.0.4, %if.then87 ], [ %corners.sroa.0.4, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.0.4, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118 ], [ %corners.sroa.0.1280, %invoke.cont71 ], [ %corners.sroa.0.4, %invoke.cont106 ], [ %corners.sroa.0.4, %invoke.cont203 ], [ %corners.sroa.0.4, %invoke.cont245 ]
+  %corners.sroa.21.1277 = phi ptr [ %corners.sroa.21.3, %if.else112 ], [ %corners.sroa.21.1278, %if.then56 ], [ %corners.sroa.21.3, %if.then87 ], [ %corners.sroa.21.3, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.21.3, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118 ], [ %corners.sroa.21.1278, %invoke.cont71 ], [ %corners.sroa.21.3, %invoke.cont106 ], [ %corners.sroa.21.3, %invoke.cont203 ], [ %corners.sroa.21.3, %invoke.cont245 ]
+  %seed.addr.3 = phi i64 [ %seed.addr.5, %if.else112 ], [ %seed.addr.0259, %if.then56 ], [ %seed.addr.5, %if.then87 ], [ %seed.addr.5, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %div.i110, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118 ], [ %seed.addr.0259, %invoke.cont71 ], [ %seed.addr.5, %invoke.cont106 ], [ %seed.addr.5, %invoke.cont203 ], [ %seed.addr.2, %invoke.cont245 ]
   %incdec.ptr.i134 = getelementptr inbounds i8, ptr %contour.sroa.0.0255, i64 24
   %62 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i134, %62
   br i1 %cmp.i.not, label %for.end255, label %for.body, !llvm.loop !12
 
 for.end255:                                       ; preds = %for.inc253
-  %tobool.not.i.i.i135 = icmp eq ptr %corners.sroa.0.5279, null
+  %tobool.not.i.i.i135 = icmp eq ptr %corners.sroa.0.1279, null
   br i1 %tobool.not.i.i.i135, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i136
 
 if.then.i.i.i136:                                 ; preds = %for.end255
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.5279) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.1279) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %for.end255, %if.then.i.i.i136
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad202
-  %corners.sroa.0.6 = phi ptr [ %corners.sroa.0.4, %lpad202 ], [ %corners.sroa.0.5280, %lpad.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph209.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.1239, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %corners.sroa.0.5 = phi ptr [ %corners.sroa.0.4, %lpad202 ], [ %corners.sroa.0.1280, %lpad.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.2.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.2.ph.ph.ph.ph209.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3239, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %52, %lpad202 ], [ %lpad.loopexit198, %lpad.loopexit ], [ %lpad.loopexit201, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit206, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit210, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit213, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp214, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i137 = icmp eq ptr %corners.sroa.0.6, null
+  %tobool.not.i.i.i137 = icmp eq ptr %corners.sroa.0.5, null
   br i1 %tobool.not.i.i.i137, label %_ZNSt6vectorIiSaIiEED2Ev.exit139, label %if.then.i.i.i138
 
 if.then.i.i.i138:                                 ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.6) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.5) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit139
 
 _ZNSt6vectorIiSaIiEED2Ev.exit139:                 ; preds = %ehcleanup, %if.then.i.i.i138
@@ -683,9 +683,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc355
-  %seed.addr.0330 = phi i64 [ %seed, %for.body.lr.ph ], [ %seed.addr.6, %for.inc355 ]
-  %corners.sroa.0.0329 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.0.5372, %for.inc355 ]
-  %corners.sroa.35.0328 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.35.4370, %for.inc355 ]
+  %seed.addr.0330 = phi i64 [ %seed, %for.body.lr.ph ], [ %seed.addr.3, %for.inc355 ]
+  %corners.sroa.0.0329 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.0.1372, %for.inc355 ]
+  %corners.sroa.35.0328 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.35.1370, %for.inc355 ]
   %contour.sroa.0.0326 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i165, %for.inc355 ]
   %2 = load ptr, ptr %contour.sroa.0.0326, align 8
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %contour.sroa.0.0326, i64 8
@@ -712,11 +712,11 @@ invoke.cont12:                                    ; preds = %invoke.cont
   br i1 %cmp.i56.not291, label %if.then62, label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont12, %invoke.cont57
-  %splineLength.0298 = phi double [ %add, %invoke.cont57 ], [ 0.000000e+00, %invoke.cont12 ]
+  %splineLength.1298 = phi double [ %add, %invoke.cont57 ], [ 0.000000e+00, %invoke.cont12 ]
   %index.0297 = phi i32 [ %inc, %invoke.cont57 ], [ 0, %invoke.cont12 ]
-  %corners.sroa.0.1296 = phi ptr [ %corners.sroa.0.4, %invoke.cont57 ], [ %corners.sroa.0.0329, %invoke.cont12 ]
-  %corners.sroa.26.2295 = phi ptr [ %corners.sroa.26.4, %invoke.cont57 ], [ %corners.sroa.0.0329, %invoke.cont12 ]
-  %corners.sroa.35.1294 = phi ptr [ %corners.sroa.35.3, %invoke.cont57 ], [ %corners.sroa.35.0328, %invoke.cont12 ]
+  %corners.sroa.0.3296 = phi ptr [ %corners.sroa.0.4, %invoke.cont57 ], [ %corners.sroa.0.0329, %invoke.cont12 ]
+  %corners.sroa.26.2295 = phi ptr [ %corners.sroa.26.3, %invoke.cont57 ], [ %corners.sroa.0.0329, %invoke.cont12 ]
+  %corners.sroa.35.2294 = phi ptr [ %corners.sroa.35.3, %invoke.cont57 ], [ %corners.sroa.35.0328, %invoke.cont12 ]
   %call13.pn293 = phi { double, double } [ %call58, %invoke.cont57 ], [ %call13, %invoke.cont12 ]
   %edge.sroa.0.0292 = phi ptr [ %incdec.ptr.i75, %invoke.cont57 ], [ %5, %invoke.cont12 ]
   %prevDirection.sroa.3.0 = extractvalue { double, double } %call13.pn293, 1
@@ -764,13 +764,13 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   br i1 %cmp5.i, label %if.then43, label %if.end
 
 if.then43:                                        ; preds = %invoke.cont39, %invoke.cont41
-  %cmp.not.i = icmp eq ptr %corners.sroa.26.2295, %corners.sroa.35.1294
+  %cmp.not.i = icmp eq ptr %corners.sroa.26.2295, %corners.sroa.35.2294
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then43
   store i32 %index.0297, ptr %corners.sroa.26.2295, align 8
   %corner.sroa.3179.0..sroa_idx = getelementptr inbounds i8, ptr %corners.sroa.26.2295, i64 8
-  store double %splineLength.0298, ptr %corner.sroa.3179.0..sroa_idx, align 8
+  store double %splineLength.1298, ptr %corner.sroa.3179.0..sroa_idx, align 8
   %corner.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %corners.sroa.26.2295, i64 16
   store i8 0, ptr %corner.sroa.4.0..sroa_idx, align 8
   %corner.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %corners.sroa.26.2295, i64 17
@@ -782,7 +782,7 @@ if.then.i:                                        ; preds = %if.then43
 
 if.else.i:                                        ; preds = %if.then43
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.26.2295 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.0.1296 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.0.3296 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -814,7 +814,7 @@ _ZNSt12_Vector_baseIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_M_allocateEm
   %add.ptr.i.i69 = getelementptr inbounds %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 %index.0297, ptr %add.ptr.i.i69, align 8
   %corner.sroa.3179.0.add.ptr.i.i69.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 8
-  store double %splineLength.0298, ptr %corner.sroa.3179.0.add.ptr.i.i69.sroa_idx, align 8
+  store double %splineLength.1298, ptr %corner.sroa.3179.0.add.ptr.i.i69.sroa_idx, align 8
   %corner.sroa.4.0.add.ptr.i.i69.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 16
   store i8 0, ptr %corner.sroa.4.0.add.ptr.i.i69.sroa_idx, align 8
   %corner.sroa.5.0.add.ptr.i.i69.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 17
@@ -825,17 +825,17 @@ _ZNSt12_Vector_baseIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_M_allocateEm
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %corners.sroa.0.1296, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %corners.sroa.0.3296, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 24
-  %tobool.not.i.i.i = icmp eq ptr %corners.sroa.0.1296, null
+  %tobool.not.i.i.i = icmp eq ptr %corners.sroa.0.3296, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.1296) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.3296) #19
   br label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
@@ -863,13 +863,13 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %invoke.cont28, %invoke.cont33, %if.end, %invoke.cont49, %invoke.cont53, %cond.true.i.i.i, %invoke.cont47
-  %corners.sroa.0.3.ph.ph.ph.ph.ph = phi ptr [ %corners.sroa.0.1296, %invoke.cont28 ], [ %corners.sroa.0.1296, %invoke.cont33 ], [ %corners.sroa.0.1296, %cond.true.i.i.i ], [ %corners.sroa.0.4, %if.end ], [ %corners.sroa.0.4, %invoke.cont47 ], [ %corners.sroa.0.4, %invoke.cont49 ], [ %corners.sroa.0.4, %invoke.cont53 ]
+  %corners.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ %corners.sroa.0.3296, %invoke.cont28 ], [ %corners.sroa.0.3296, %invoke.cont33 ], [ %corners.sroa.0.3296, %cond.true.i.i.i ], [ %corners.sroa.0.4, %if.end ], [ %corners.sroa.0.4, %invoke.cont47 ], [ %corners.sroa.0.4, %invoke.cont49 ], [ %corners.sroa.0.4, %invoke.cont53 ]
   %lpad.loopexit262 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %invoke.cont156, %if.then152, %invoke.cont131, %if.then127, %invoke.cont, %if.then
-  %corners.sroa.0.3.ph.ph.ph.ph.ph261.ph = phi ptr [ %corners.sroa.0.4, %invoke.cont156 ], [ %corners.sroa.0.4, %if.then152 ], [ %corners.sroa.0.4, %invoke.cont131 ], [ %corners.sroa.0.4, %if.then127 ], [ %corners.sroa.0.0329, %invoke.cont ], [ %corners.sroa.0.0329, %if.then ]
+  %corners.sroa.0.2.ph.ph.ph.ph.ph261.ph = phi ptr [ %corners.sroa.0.4, %invoke.cont156 ], [ %corners.sroa.0.4, %if.then152 ], [ %corners.sroa.0.4, %invoke.cont131 ], [ %corners.sroa.0.4, %if.then127 ], [ %corners.sroa.0.0329, %invoke.cont ], [ %corners.sroa.0.0329, %if.then ]
   %lpad.loopexit265 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -880,10 +880,10 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %ehcleanup
 
 if.end:                                           ; preds = %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i, %invoke.cont41
-  %corners.sroa.35.3 = phi ptr [ %corners.sroa.35.1294, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %corners.sroa.35.1294, %if.then.i ]
-  %corners.sroa.26.4 = phi ptr [ %corners.sroa.26.2295, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
-  %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.1296, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %corners.sroa.0.1296, %if.then.i ]
-  %splineLength.1 = phi double [ %splineLength.0298, %invoke.cont41 ], [ 0.000000e+00, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ 0.000000e+00, %if.then.i ]
+  %corners.sroa.35.3 = phi ptr [ %corners.sroa.35.2294, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %corners.sroa.35.2294, %if.then.i ]
+  %corners.sroa.26.3 = phi ptr [ %corners.sroa.26.2295, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.3296, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %corners.sroa.0.3296, %if.then.i ]
+  %splineLength.2 = phi double [ %splineLength.1298, %invoke.cont41 ], [ 0.000000e+00, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ 0.000000e+00, %if.then.i ]
   %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHoldercvPKNS_11EdgeSegmentEEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0292)
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -926,7 +926,7 @@ call3.i.noexc:                                    ; preds = %for.body.i
   br i1 %exitcond.not.i, label %invoke.cont49, label %for.body.i, !llvm.loop !13
 
 invoke.cont49:                                    ; preds = %call3.i.noexc
-  %add = fadd double %splineLength.1, %add.i
+  %add = fadd double %splineLength.2, %add.i
   %call54 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0292)
           to label %invoke.cont53 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -945,12 +945,12 @@ invoke.cont57:                                    ; preds = %invoke.cont53
   br i1 %cmp.i56.not, label %if.end60, label %invoke.cont28, !llvm.loop !14
 
 if.end60:                                         ; preds = %invoke.cont57
-  %cmp.i.i77 = icmp eq ptr %corners.sroa.0.4, %corners.sroa.26.4
+  %cmp.i.i77 = icmp eq ptr %corners.sroa.0.4, %corners.sroa.26.3
   br i1 %cmp.i.i77, label %if.then62, label %if.else
 
 if.then62:                                        ; preds = %invoke.cont12, %for.body, %if.end60
-  %corners.sroa.0.5373 = phi ptr [ %corners.sroa.0.4, %if.end60 ], [ %corners.sroa.0.0329, %for.body ], [ %corners.sroa.0.0329, %invoke.cont12 ]
-  %corners.sroa.35.4371 = phi ptr [ %corners.sroa.35.3, %if.end60 ], [ %corners.sroa.35.0328, %for.body ], [ %corners.sroa.35.0328, %invoke.cont12 ]
+  %corners.sroa.0.1373 = phi ptr [ %corners.sroa.0.4, %if.end60 ], [ %corners.sroa.0.0329, %for.body ], [ %corners.sroa.0.0329, %invoke.cont12 ]
+  %corners.sroa.35.1371 = phi ptr [ %corners.sroa.35.3, %if.end60 ], [ %corners.sroa.35.0328, %for.body ], [ %corners.sroa.35.0328, %invoke.cont12 ]
   %26 = phi ptr [ %incdec.ptr.i75, %if.end60 ], [ %2, %for.body ], [ %5, %invoke.cont12 ]
   %27 = load ptr, ptr %contour.sroa.0.0326, align 8
   %cmp.i79.not323 = icmp eq ptr %27, %26
@@ -970,7 +970,7 @@ invoke.cont77:                                    ; preds = %for.body75
   br i1 %cmp.i79.not, label %for.inc355, label %for.body75, !llvm.loop !15
 
 if.else:                                          ; preds = %if.end60
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %corners.sroa.26.4 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %corners.sroa.26.3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %corners.sroa.0.4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp eq i64 %sub.ptr.sub.i, 24
@@ -1010,7 +1010,7 @@ if.end8.i89:                                      ; preds = %_ZN7msdfgenL11switc
 
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit96: ; preds = %if.then7.i85, %if.end8.i89
   %33 = phi i32 [ %and10.i94, %if.end8.i89 ], [ %30, %if.then7.i85 ]
-  %seed.addr.2 = phi i64 [ %shr11.i95, %if.end8.i89 ], [ %div.i88, %if.then7.i85 ]
+  %seed.addr.5 = phi i64 [ %shr11.i95, %if.end8.i89 ], [ %div.i88, %if.then7.i85 ]
   %34 = load i32, ptr %corners.sroa.0.4, align 8
   %35 = load ptr, ptr %contour.sroa.0.0326, align 8
   %sub.ptr.lhs.cast.i98 = ptrtoint ptr %incdec.ptr.i75 to i64
@@ -1220,7 +1220,7 @@ if.then223:                                       ; preds = %if.else219
 
 for.body233:                                      ; preds = %if.then223, %for.inc259
   %indvars.iv = phi i64 [ 0, %if.then223 ], [ %indvars.iv.next, %for.inc259 ]
-  %majorCornerCount.0302 = phi i32 [ %conv221, %if.then223 ], [ %majorCornerCount.1, %for.inc259 ]
+  %majorCornerCount.1302 = phi i32 [ %conv221, %if.then223 ], [ %majorCornerCount.2, %for.inc259 ]
   %add.ptr.i131 = getelementptr inbounds %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %indvars.iv
   %prevEdgeLengthEstimate236 = getelementptr inbounds i8, ptr %add.ptr.i131, i64 8
   %62 = load double, ptr %prevEdgeLengthEstimate236, align 8
@@ -1246,16 +1246,16 @@ land.lhs.true:                                    ; preds = %for.body233
 if.then254:                                       ; preds = %land.lhs.true
   %minor257 = getelementptr inbounds i8, ptr %add.ptr.i131, i64 16
   store i8 1, ptr %minor257, align 8
-  %dec = add nsw i32 %majorCornerCount.0302, -1
+  %dec = add nsw i32 %majorCornerCount.1302, -1
   br label %for.inc259
 
 for.inc259:                                       ; preds = %for.body233, %land.lhs.true, %if.then254
-  %majorCornerCount.1 = phi i32 [ %dec, %if.then254 ], [ %majorCornerCount.0302, %land.lhs.true ], [ %majorCornerCount.0302, %for.body233 ]
+  %majorCornerCount.2 = phi i32 [ %dec, %if.then254 ], [ %majorCornerCount.1302, %land.lhs.true ], [ %majorCornerCount.1302, %for.body233 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %61
   br i1 %exitcond.not, label %if.end262, label %for.body233, !llvm.loop !18
 
 if.end262:                                        ; preds = %for.inc259, %if.else219
-  %majorCornerCount.2 = phi i32 [ %conv221, %if.else219 ], [ %majorCornerCount.1, %for.inc259 ]
+  %majorCornerCount.0 = phi i32 [ %conv221, %if.else219 ], [ %majorCornerCount.2, %for.inc259 ]
   %cmp266304 = icmp sgt i32 %conv221, 0
   br i1 %cmp266304, label %for.body267.preheader, label %for.end312
 
@@ -1273,9 +1273,9 @@ for.body291.preheader:                            ; preds = %for.cond289.prehead
 for.body267:                                      ; preds = %for.body267.preheader, %for.inc285
   %indvars.iv347 = phi i64 [ 0, %for.body267.preheader ], [ %indvars.iv.next348, %for.inc285 ]
   %initialColor.0308 = phi i32 [ 0, %for.body267.preheader ], [ %initialColor.1, %for.inc285 ]
-  %majorCornerCount.3307 = phi i32 [ %majorCornerCount.2, %for.body267.preheader ], [ %majorCornerCount.4, %for.inc285 ]
-  %color263.0306 = phi i32 [ 7, %for.body267.preheader ], [ %color263.2, %for.inc285 ]
-  %seed.addr.3305 = phi i64 [ %seed.addr.0330, %for.body267.preheader ], [ %seed.addr.5, %for.inc285 ]
+  %majorCornerCount.3307 = phi i32 [ %majorCornerCount.0, %for.body267.preheader ], [ %majorCornerCount.4, %for.inc285 ]
+  %color263.0306 = phi i32 [ 7, %for.body267.preheader ], [ %color263.1, %for.inc285 ]
+  %seed.addr.1305 = phi i64 [ %seed.addr.0330, %for.body267.preheader ], [ %seed.addr.2, %for.inc285 ]
   %add.ptr.i136 = getelementptr inbounds %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %indvars.iv347
   %minor270 = getelementptr inbounds i8, ptr %add.ptr.i136, i64 16
   %70 = load i8, ptr %minor270, align 8
@@ -1304,35 +1304,35 @@ if.end.i:                                         ; preds = %if.then272
   ]
 
 if.then7.i138:                                    ; preds = %if.end.i, %if.end.i
-  %rem.i139 = urem i64 %seed.addr.3305, 3
+  %rem.i139 = urem i64 %seed.addr.1305, 3
   %arrayidx.i140 = getelementptr inbounds [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i139
   %71 = load i32, ptr %arrayidx.i140, align 4
-  %div.i141 = udiv i64 %seed.addr.3305, 3
+  %div.i141 = udiv i64 %seed.addr.1305, 3
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149
 
 if.end8.i142:                                     ; preds = %if.end.i
-  %72 = trunc i64 %seed.addr.3305 to i32
+  %72 = trunc i64 %seed.addr.1305 to i32
   %73 = and i32 %72, 1
   %sh_prom.i143 = add nuw nsw i32 %73, 1
   %shl.i144 = shl i32 %color263.0306, %sh_prom.i143
   %shr.i145 = lshr i32 %shl.i144, 3
   %or.i146 = or i32 %shr.i145, %shl.i144
   %and10.i147 = and i32 %or.i146, 7
-  %shr11.i148 = lshr i64 %seed.addr.3305, 1
+  %shr11.i148 = lshr i64 %seed.addr.1305, 1
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149
 
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149: ; preds = %if.then.i137, %if.then7.i138, %if.end8.i142
-  %seed.addr.4 = phi i64 [ %shr11.i148, %if.end8.i142 ], [ %div.i141, %if.then7.i138 ], [ %seed.addr.3305, %if.then.i137 ]
-  %color263.1 = phi i32 [ %and10.i147, %if.end8.i142 ], [ %71, %if.then7.i138 ], [ %xor.i, %if.then.i137 ]
+  %seed.addr.6 = phi i64 [ %shr11.i148, %if.end8.i142 ], [ %div.i141, %if.then7.i138 ], [ %seed.addr.1305, %if.then.i137 ]
+  %color263.6 = phi i32 [ %and10.i147, %if.end8.i142 ], [ %71, %if.then7.i138 ], [ %xor.i, %if.then.i137 ]
   %color280 = getelementptr inbounds i8, ptr %add.ptr.i136, i64 20
-  store i32 %color263.1, ptr %color280, align 4
+  store i32 %color263.6, ptr %color280, align 4
   %tobool281.not = icmp eq i32 %initialColor.0308, 0
-  %spec.select = select i1 %tobool281.not, i32 %color263.1, i32 %initialColor.0308
+  %spec.select = select i1 %tobool281.not, i32 %color263.6, i32 %initialColor.0308
   br label %for.inc285
 
 for.inc285:                                       ; preds = %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149, %for.body267
-  %seed.addr.5 = phi i64 [ %seed.addr.3305, %for.body267 ], [ %seed.addr.4, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
-  %color263.2 = phi i32 [ %color263.0306, %for.body267 ], [ %color263.1, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
+  %seed.addr.2 = phi i64 [ %seed.addr.1305, %for.body267 ], [ %seed.addr.6, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
+  %color263.1 = phi i32 [ %color263.0306, %for.body267 ], [ %color263.6, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
   %majorCornerCount.4 = phi i32 [ %majorCornerCount.3307, %for.body267 ], [ %dec273, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
   %initialColor.1 = phi i32 [ %initialColor.0308, %for.body267 ], [ %spec.select, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149 ]
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
@@ -1341,7 +1341,7 @@ for.inc285:                                       ; preds = %_ZN7msdfgenL11switc
 
 for.body291:                                      ; preds = %for.body291.preheader, %for.inc310
   %indvars.iv353 = phi i64 [ 0, %for.body291.preheader ], [ %indvars.iv.next354.pre-phi, %for.inc310 ]
-  %color263.3313 = phi i32 [ %color263.2, %for.body291.preheader ], [ %color263.4, %for.inc310 ]
+  %color263.2313 = phi i32 [ %color263.1, %for.body291.preheader ], [ %color263.3, %for.inc310 ]
   %add.ptr.i151 = getelementptr inbounds %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %indvars.iv353
   %minor294 = getelementptr inbounds i8, ptr %add.ptr.i151, i64 16
   %74 = load i8, ptr %minor294, align 8
@@ -1355,7 +1355,7 @@ if.then296:                                       ; preds = %for.body291
   %conv299 = select i1 %76, i64 0, i64 %77
   %color301 = getelementptr inbounds %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %conv299, i32 3
   %78 = load i32, ptr %color301, align 4
-  %and = and i32 %78, %color263.3313
+  %and = and i32 %78, %color263.2313
   %xor = xor i32 %and, 7
   %color304 = getelementptr inbounds i8, ptr %add.ptr.i151, i64 20
   store i32 %xor, ptr %color304, align 4
@@ -1369,12 +1369,12 @@ if.else305:                                       ; preds = %for.body291
 
 for.inc310:                                       ; preds = %if.then296, %if.else305
   %indvars.iv.next354.pre-phi = phi i64 [ %75, %if.then296 ], [ %.pre364, %if.else305 ]
-  %color263.4 = phi i32 [ %color263.3313, %if.then296 ], [ %79, %if.else305 ]
+  %color263.3 = phi i32 [ %color263.2313, %if.then296 ], [ %79, %if.else305 ]
   %exitcond358.not = icmp eq i64 %indvars.iv.next354.pre-phi, %69
   br i1 %exitcond358.not, label %for.end312, label %for.body291, !llvm.loop !20
 
 for.end312:                                       ; preds = %for.inc310, %if.end262, %for.cond289.preheader
-  %seed.addr.3.lcssa377 = phi i64 [ %seed.addr.5, %for.cond289.preheader ], [ %seed.addr.0330, %if.end262 ], [ %seed.addr.5, %for.inc310 ]
+  %seed.addr.1.lcssa377 = phi i64 [ %seed.addr.2, %for.cond289.preheader ], [ %seed.addr.0330, %if.end262 ], [ %seed.addr.2, %for.inc310 ]
   %80 = load i32, ptr %corners.sroa.0.4, align 8
   %81 = load ptr, ptr %_M_finish.i.i53, align 8
   %82 = load ptr, ptr %contour.sroa.0.0326, align 8
@@ -1394,7 +1394,7 @@ for.body325.preheader:                            ; preds = %for.end312
 for.body325:                                      ; preds = %for.body325.preheader, %invoke.cont347
   %i322.0318 = phi i32 [ %inc351, %invoke.cont347 ], [ 0, %for.body325.preheader ]
   %spline.0317 = phi i32 [ %spline.1, %invoke.cont347 ], [ 0, %for.body325.preheader ]
-  %color263.5316 = phi i32 [ %color263.6, %invoke.cont347 ], [ %83, %for.body325.preheader ]
+  %color263.4316 = phi i32 [ %color263.5, %invoke.cont347 ], [ %83, %for.body325.preheader ]
   %add327 = add nsw i32 %i322.0318, %80
   %rem328 = srem i32 %add327, %conv321
   %add329 = add nsw i32 %spline.0317, 1
@@ -1414,7 +1414,7 @@ if.then337:                                       ; preds = %land.lhs.true331
   br label %if.end342
 
 if.end342:                                        ; preds = %if.then337, %land.lhs.true331, %for.body325
-  %color263.6 = phi i32 [ %85, %if.then337 ], [ %color263.5316, %land.lhs.true331 ], [ %color263.5316, %for.body325 ]
+  %color263.5 = phi i32 [ %85, %if.then337 ], [ %color263.4316, %land.lhs.true331 ], [ %color263.4316, %for.body325 ]
   %spline.1 = phi i32 [ %add329, %if.then337 ], [ %spline.0317, %land.lhs.true331 ], [ %spline.0317, %for.body325 ]
   %conv345 = sext i32 %rem328 to i64
   %86 = load ptr, ptr %contour.sroa.0.0326, align 8
@@ -1424,39 +1424,39 @@ if.end342:                                        ; preds = %if.then337, %land.l
 
 invoke.cont347:                                   ; preds = %if.end342
   %color349 = getelementptr inbounds i8, ptr %call348, i64 8
-  store i32 %color263.6, ptr %color349, align 8
+  store i32 %color263.5, ptr %color349, align 8
   %inc351 = add nuw nsw i32 %i322.0318, 1
   %exitcond359.not = icmp eq i32 %inc351, %conv321
   br i1 %exitcond359.not, label %for.inc355, label %for.body325, !llvm.loop !21
 
 for.inc355:                                       ; preds = %invoke.cont347, %invoke.cont213, %invoke.cont116, %invoke.cont77, %for.end312, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit, %if.then96, %if.then62, %if.else122
-  %corners.sroa.0.5372 = phi ptr [ %corners.sroa.0.4, %if.else122 ], [ %corners.sroa.0.5373, %if.then62 ], [ %corners.sroa.0.4, %if.then96 ], [ %corners.sroa.0.4, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.0.4, %for.end312 ], [ %corners.sroa.0.5373, %invoke.cont77 ], [ %corners.sroa.0.4, %invoke.cont116 ], [ %corners.sroa.0.4, %invoke.cont213 ], [ %corners.sroa.0.4, %invoke.cont347 ]
-  %corners.sroa.35.4370 = phi ptr [ %corners.sroa.35.3, %if.else122 ], [ %corners.sroa.35.4371, %if.then62 ], [ %corners.sroa.35.3, %if.then96 ], [ %corners.sroa.35.3, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.35.3, %for.end312 ], [ %corners.sroa.35.4371, %invoke.cont77 ], [ %corners.sroa.35.3, %invoke.cont116 ], [ %corners.sroa.35.3, %invoke.cont213 ], [ %corners.sroa.35.3, %invoke.cont347 ]
-  %seed.addr.6 = phi i64 [ %seed.addr.2, %if.else122 ], [ %seed.addr.0330, %if.then62 ], [ %seed.addr.2, %if.then96 ], [ %seed.addr.2, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %seed.addr.3.lcssa377, %for.end312 ], [ %seed.addr.0330, %invoke.cont77 ], [ %seed.addr.2, %invoke.cont116 ], [ %seed.addr.2, %invoke.cont213 ], [ %seed.addr.3.lcssa377, %invoke.cont347 ]
+  %corners.sroa.0.1372 = phi ptr [ %corners.sroa.0.4, %if.else122 ], [ %corners.sroa.0.1373, %if.then62 ], [ %corners.sroa.0.4, %if.then96 ], [ %corners.sroa.0.4, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.0.4, %for.end312 ], [ %corners.sroa.0.1373, %invoke.cont77 ], [ %corners.sroa.0.4, %invoke.cont116 ], [ %corners.sroa.0.4, %invoke.cont213 ], [ %corners.sroa.0.4, %invoke.cont347 ]
+  %corners.sroa.35.1370 = phi ptr [ %corners.sroa.35.3, %if.else122 ], [ %corners.sroa.35.1371, %if.then62 ], [ %corners.sroa.35.3, %if.then96 ], [ %corners.sroa.35.3, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.35.3, %for.end312 ], [ %corners.sroa.35.1371, %invoke.cont77 ], [ %corners.sroa.35.3, %invoke.cont116 ], [ %corners.sroa.35.3, %invoke.cont213 ], [ %corners.sroa.35.3, %invoke.cont347 ]
+  %seed.addr.3 = phi i64 [ %seed.addr.5, %if.else122 ], [ %seed.addr.0330, %if.then62 ], [ %seed.addr.5, %if.then96 ], [ %seed.addr.5, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %seed.addr.1.lcssa377, %for.end312 ], [ %seed.addr.0330, %invoke.cont77 ], [ %seed.addr.5, %invoke.cont116 ], [ %seed.addr.5, %invoke.cont213 ], [ %seed.addr.1.lcssa377, %invoke.cont347 ]
   %incdec.ptr.i165 = getelementptr inbounds i8, ptr %contour.sroa.0.0326, i64 24
   %87 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i165, %87
   br i1 %cmp.i.not, label %for.end357, label %for.body, !llvm.loop !22
 
 for.end357:                                       ; preds = %for.inc355
-  %tobool.not.i.i.i166 = icmp eq ptr %corners.sroa.0.5372, null
+  %tobool.not.i.i.i166 = icmp eq ptr %corners.sroa.0.1372, null
   br i1 %tobool.not.i.i.i166, label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit, label %if.then.i.i.i167
 
 if.then.i.i.i167:                                 ; preds = %for.end357
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.5372) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.1372) #19
   br label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit: ; preds = %entry, %for.end357, %if.then.i.i.i167
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad212
-  %corners.sroa.0.6 = phi ptr [ %corners.sroa.0.4, %lpad212 ], [ %corners.sroa.0.4, %lpad.loopexit ], [ %corners.sroa.0.5373, %lpad.loopexit.split-lp.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph.ph261.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.1296, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %corners.sroa.0.5 = phi ptr [ %corners.sroa.0.4, %lpad212 ], [ %corners.sroa.0.4, %lpad.loopexit ], [ %corners.sroa.0.1373, %lpad.loopexit.split-lp.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.4, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.2.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.2.ph.ph.ph.ph.ph261.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3296, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %59, %lpad212 ], [ %lpad.loopexit247, %lpad.loopexit ], [ %lpad.loopexit249, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit253, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit258, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit262, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit265, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp266, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i168 = icmp eq ptr %corners.sroa.0.6, null
+  %tobool.not.i.i.i168 = icmp eq ptr %corners.sroa.0.5, null
   br i1 %tobool.not.i.i.i168, label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit170, label %if.then.i.i.i169
 
 if.then.i.i.i169:                                 ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.6) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.5) #19
   br label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit170
 
 _ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EED2Ev.exit170: ; preds = %ehcleanup, %if.then.i.i.i169
@@ -1489,14 +1489,14 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc273
-  %edgeSegments.sroa.0.01486 = phi ptr [ null, %for.body.lr.ph ], [ %edgeSegments.sroa.0.16, %for.inc273 ]
-  %edgeSegments.sroa.30.01485 = phi ptr [ null, %for.body.lr.ph ], [ %edgeSegments.sroa.30.15, %for.inc273 ]
-  %edgeSegments.sroa.73.01484 = phi ptr [ null, %for.body.lr.ph ], [ %edgeSegments.sroa.73.15, %for.inc273 ]
-  %splineStarts.sroa.0.01483 = phi ptr [ null, %for.body.lr.ph ], [ %splineStarts.sroa.0.12, %for.inc273 ]
-  %splineStarts.sroa.21.01482 = phi ptr [ null, %for.body.lr.ph ], [ %splineStarts.sroa.21.11, %for.inc273 ]
-  %splineStarts.sroa.46.01481 = phi ptr [ null, %for.body.lr.ph ], [ %splineStarts.sroa.46.11, %for.inc273 ]
+  %edgeSegments.sroa.0.01486 = phi ptr [ null, %for.body.lr.ph ], [ %edgeSegments.sroa.0.8, %for.inc273 ]
+  %edgeSegments.sroa.30.01485 = phi ptr [ null, %for.body.lr.ph ], [ %edgeSegments.sroa.30.6, %for.inc273 ]
+  %edgeSegments.sroa.73.01484 = phi ptr [ null, %for.body.lr.ph ], [ %edgeSegments.sroa.73.6, %for.inc273 ]
+  %splineStarts.sroa.0.01483 = phi ptr [ null, %for.body.lr.ph ], [ %splineStarts.sroa.0.8, %for.inc273 ]
+  %splineStarts.sroa.21.01482 = phi ptr [ null, %for.body.lr.ph ], [ %splineStarts.sroa.21.6, %for.inc273 ]
+  %splineStarts.sroa.46.01481 = phi ptr [ null, %for.body.lr.ph ], [ %splineStarts.sroa.46.6, %for.inc273 ]
   %corners.sroa.0.01480 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.0.5, %for.inc273 ]
-  %corners.sroa.21.01479 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.21.4, %for.inc273 ]
+  %corners.sroa.21.01479 = phi ptr [ null, %for.body.lr.ph ], [ %corners.sroa.21.3, %for.inc273 ]
   %contour.sroa.0.01477 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i662, %for.inc273 ]
   %2 = load ptr, ptr %contour.sroa.0.01477, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.01477, i64 8
@@ -1523,9 +1523,9 @@ invoke.cont12:                                    ; preds = %invoke.cont
   br i1 %cmp.i106.not1428, label %for.end, label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont12, %invoke.cont51
-  %corners.sroa.0.11434 = phi ptr [ %corners.sroa.0.4, %invoke.cont51 ], [ %corners.sroa.0.01480, %invoke.cont12 ]
-  %corners.sroa.12.21433 = phi ptr [ %corners.sroa.12.4, %invoke.cont51 ], [ %corners.sroa.0.01480, %invoke.cont12 ]
-  %corners.sroa.21.11432 = phi ptr [ %corners.sroa.21.3, %invoke.cont51 ], [ %corners.sroa.21.01479, %invoke.cont12 ]
+  %corners.sroa.0.21434 = phi ptr [ %corners.sroa.0.3, %invoke.cont51 ], [ %corners.sroa.0.01480, %invoke.cont12 ]
+  %corners.sroa.12.11433 = phi ptr [ %corners.sroa.12.2, %invoke.cont51 ], [ %corners.sroa.0.01480, %invoke.cont12 ]
+  %corners.sroa.21.11432 = phi ptr [ %corners.sroa.21.2, %invoke.cont51 ], [ %corners.sroa.21.01479, %invoke.cont12 ]
   %call13.pn1431 = phi { double, double } [ %call52, %invoke.cont51 ], [ %call13, %invoke.cont12 ]
   %index.01430 = phi i32 [ %inc, %invoke.cont51 ], [ 0, %invoke.cont12 ]
   %edge.sroa.0.01429 = phi ptr [ %incdec.ptr.i121, %invoke.cont51 ], [ %5, %invoke.cont12 ]
@@ -1574,17 +1574,17 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   br i1 %cmp5.i, label %if.then43, label %if.end
 
 if.then43:                                        ; preds = %invoke.cont39, %invoke.cont41
-  %cmp.not.i = icmp eq ptr %corners.sroa.12.21433, %corners.sroa.21.11432
+  %cmp.not.i = icmp eq ptr %corners.sroa.12.11433, %corners.sroa.21.11432
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then43
-  store i32 %index.01430, ptr %corners.sroa.12.21433, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %corners.sroa.12.21433, i64 4
+  store i32 %index.01430, ptr %corners.sroa.12.11433, align 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %corners.sroa.12.11433, i64 4
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then43
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.12.21433 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.0.11434 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.12.11433 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %corners.sroa.0.21434 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -1619,17 +1619,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %corners.sroa.0.11434, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %corners.sroa.0.21434, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
-  %tobool.not.i.i.i = icmp eq ptr %corners.sroa.0.11434, null
+  %tobool.not.i.i.i = icmp eq ptr %corners.sroa.0.21434, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.11434) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.21434) #19
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
@@ -1642,43 +1642,43 @@ lpad.loopexit1157:                                ; preds = %for.body71, %cond.t
   br label %ehcleanup485
 
 lpad.loopexit.split-lp1158.loopexit:              ; preds = %cond.true.i.i.i.i236, %cond.true.i.i.i.i200, %if.else119, %if.then109
-  %splineStarts.sroa.0.1.ph.ph = phi ptr [ %splineStarts.sroa.0.5, %if.else119 ], [ %splineStarts.sroa.0.5, %cond.true.i.i.i.i236 ], [ %splineStarts.sroa.0.5, %if.then109 ], [ %splineStarts.sroa.0.31457, %cond.true.i.i.i.i200 ]
+  %splineStarts.sroa.0.1.ph.ph = phi ptr [ %splineStarts.sroa.0.4, %if.else119 ], [ %splineStarts.sroa.0.4, %cond.true.i.i.i.i236 ], [ %splineStarts.sroa.0.4, %if.then109 ], [ %splineStarts.sroa.0.31457, %cond.true.i.i.i.i200 ]
   %lpad.loopexit1164 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup485
 
 lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit: ; preds = %if.end258, %cond.true.i.i.i.i606, %cond.true.i.i.i.i643
-  %splineStarts.sroa.0.1.ph.ph1163.ph = phi ptr [ %splineStarts.sroa.0.91440, %cond.true.i.i.i.i606 ], [ %splineStarts.sroa.0.11, %if.end258 ], [ %splineStarts.sroa.0.11, %cond.true.i.i.i.i643 ]
+  %splineStarts.sroa.0.1.ph.ph1163.ph = phi ptr [ %splineStarts.sroa.0.61440, %cond.true.i.i.i.i606 ], [ %splineStarts.sroa.0.7, %if.end258 ], [ %splineStarts.sroa.0.7, %cond.true.i.i.i.i643 ]
   %lpad.loopexit1170 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup485
 
 lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %cond.true.i.i.i, %invoke.cont47, %if.end, %invoke.cont33, %invoke.cont28
-  %corners.sroa.0.3.ph.ph.ph.ph = phi ptr [ %corners.sroa.0.4, %invoke.cont47 ], [ %corners.sroa.0.4, %if.end ], [ %corners.sroa.0.11434, %cond.true.i.i.i ], [ %corners.sroa.0.11434, %invoke.cont33 ], [ %corners.sroa.0.11434, %invoke.cont28 ]
+  %corners.sroa.0.1.ph.ph.ph.ph = phi ptr [ %corners.sroa.0.3, %invoke.cont47 ], [ %corners.sroa.0.3, %if.end ], [ %corners.sroa.0.21434, %cond.true.i.i.i ], [ %corners.sroa.0.21434, %invoke.cont33 ], [ %corners.sroa.0.21434, %invoke.cont28 ]
   %lpad.loopexit1174 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup485
 
 lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then, %invoke.cont, %if.then137, %invoke.cont141, %if.then160, %invoke.cont164, %cond.true.i.i.i.i, %cond.true.i.i.i284, %cond.true.i.i.i316, %cond.true.i.i.i.i357, %cond.true.i.i.i393, %cond.true.i.i.i429, %cond.true.i.i.i465, %cond.true.i.i.i.i506, %cond.true.i.i.i542
-  %corners.sroa.0.3.ph.ph.ph.ph1173.ph = phi ptr [ %corners.sroa.0.01480, %if.then ], [ %corners.sroa.0.01480, %invoke.cont ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i.i ], [ %corners.sroa.0.1.lcssa, %if.then137 ], [ %corners.sroa.0.1.lcssa, %invoke.cont141 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i465 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i.i506 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i542 ], [ %corners.sroa.0.1.lcssa, %if.then160 ], [ %corners.sroa.0.1.lcssa, %invoke.cont164 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i284 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i316 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i.i357 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i393 ], [ %corners.sroa.0.1.lcssa, %cond.true.i.i.i429 ]
-  %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph = phi ptr [ %splineStarts.sroa.0.01483, %if.then ], [ %splineStarts.sroa.0.01483, %invoke.cont ], [ %splineStarts.sroa.0.01483, %cond.true.i.i.i.i ], [ %splineStarts.sroa.0.2, %if.then137 ], [ %splineStarts.sroa.0.2, %invoke.cont141 ], [ %splineStarts.sroa.0.2, %cond.true.i.i.i465 ], [ %splineStarts.sroa.0.2, %cond.true.i.i.i.i506 ], [ %splineStarts.sroa.0.7, %cond.true.i.i.i542 ], [ %splineStarts.sroa.0.2, %if.then160 ], [ %splineStarts.sroa.0.2, %invoke.cont164 ], [ %splineStarts.sroa.0.2, %cond.true.i.i.i284 ], [ %splineStarts.sroa.0.2, %cond.true.i.i.i316 ], [ %splineStarts.sroa.0.2, %cond.true.i.i.i.i357 ], [ %splineStarts.sroa.0.6, %cond.true.i.i.i393 ], [ %splineStarts.sroa.0.6, %cond.true.i.i.i429 ]
-  %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph = phi ptr [ %edgeSegments.sroa.0.01486, %if.then ], [ %edgeSegments.sroa.0.01486, %invoke.cont ], [ %edgeSegments.sroa.0.01486, %cond.true.i.i.i.i ], [ %edgeSegments.sroa.0.01486, %if.then137 ], [ %edgeSegments.sroa.0.01486, %invoke.cont141 ], [ %edgeSegments.sroa.0.01486, %cond.true.i.i.i465 ], [ %edgeSegments.sroa.0.11, %cond.true.i.i.i.i506 ], [ %edgeSegments.sroa.0.11, %cond.true.i.i.i542 ], [ %edgeSegments.sroa.0.01486, %if.then160 ], [ %edgeSegments.sroa.0.01486, %invoke.cont164 ], [ %edgeSegments.sroa.0.01486, %cond.true.i.i.i284 ], [ %edgeSegments.sroa.0.7, %cond.true.i.i.i316 ], [ %edgeSegments.sroa.0.8, %cond.true.i.i.i.i357 ], [ %edgeSegments.sroa.0.8, %cond.true.i.i.i393 ], [ %edgeSegments.sroa.0.9, %cond.true.i.i.i429 ]
+  %corners.sroa.0.1.ph.ph.ph.ph1173.ph = phi ptr [ %corners.sroa.0.01480, %if.then ], [ %corners.sroa.0.01480, %invoke.cont ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i.i ], [ %corners.sroa.0.2.lcssa, %if.then137 ], [ %corners.sroa.0.2.lcssa, %invoke.cont141 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i465 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i.i506 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i542 ], [ %corners.sroa.0.2.lcssa, %if.then160 ], [ %corners.sroa.0.2.lcssa, %invoke.cont164 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i284 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i316 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i.i357 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i393 ], [ %corners.sroa.0.2.lcssa, %cond.true.i.i.i429 ]
+  %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph = phi ptr [ %splineStarts.sroa.0.01483, %if.then ], [ %splineStarts.sroa.0.01483, %invoke.cont ], [ %splineStarts.sroa.0.01483, %cond.true.i.i.i.i ], [ %splineStarts.sroa.0.9, %if.then137 ], [ %splineStarts.sroa.0.9, %invoke.cont141 ], [ %splineStarts.sroa.0.9, %cond.true.i.i.i465 ], [ %splineStarts.sroa.0.9, %cond.true.i.i.i.i506 ], [ %splineStarts.sroa.0.12, %cond.true.i.i.i542 ], [ %splineStarts.sroa.0.9, %if.then160 ], [ %splineStarts.sroa.0.9, %invoke.cont164 ], [ %splineStarts.sroa.0.9, %cond.true.i.i.i284 ], [ %splineStarts.sroa.0.9, %cond.true.i.i.i316 ], [ %splineStarts.sroa.0.9, %cond.true.i.i.i.i357 ], [ %splineStarts.sroa.0.11, %cond.true.i.i.i393 ], [ %splineStarts.sroa.0.11, %cond.true.i.i.i429 ]
+  %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph = phi ptr [ %edgeSegments.sroa.0.01486, %if.then ], [ %edgeSegments.sroa.0.01486, %invoke.cont ], [ %edgeSegments.sroa.0.01486, %cond.true.i.i.i.i ], [ %edgeSegments.sroa.0.01486, %if.then137 ], [ %edgeSegments.sroa.0.01486, %invoke.cont141 ], [ %edgeSegments.sroa.0.01486, %cond.true.i.i.i465 ], [ %edgeSegments.sroa.0.15, %cond.true.i.i.i.i506 ], [ %edgeSegments.sroa.0.15, %cond.true.i.i.i542 ], [ %edgeSegments.sroa.0.01486, %if.then160 ], [ %edgeSegments.sroa.0.01486, %invoke.cont164 ], [ %edgeSegments.sroa.0.01486, %cond.true.i.i.i284 ], [ %edgeSegments.sroa.0.11, %cond.true.i.i.i316 ], [ %edgeSegments.sroa.0.12, %cond.true.i.i.i.i357 ], [ %edgeSegments.sroa.0.12, %cond.true.i.i.i393 ], [ %edgeSegments.sroa.0.13, %cond.true.i.i.i429 ]
   %lpad.loopexit1180 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup485
 
 lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i295.invoke, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i.i158, %if.then.i.i.i.i214, %if.then.i.i.i.i250, %if.then.i.i.i330, %if.then.i.i.i.i371, %if.then.i.i.i407, %if.then.i.i.i443, %if.then.i.i.i.i520, %if.then.i.i.i556, %if.then.i.i.i.i620, %if.then.i.i.i.i657, %if.then.i.i.i.i699, %cond.true.i.i.i.i685
-  %corners.sroa.0.3.ph.ph.ph.ph1173.ph1177 = phi ptr [ %corners.sroa.0.0.lcssa1706, %cond.true.i.i.i.i685 ], [ %corners.sroa.0.0.lcssa1706, %if.then.i.i.i.i699 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i657 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i620 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i556 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i520 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i443 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i407 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i371 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i330 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i250 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i214 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i158 ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i.i ], [ %corners.sroa.0.11434, %if.then.i.i.i ], [ %corners.sroa.0.1.lcssa, %if.then.i.i.i295.invoke ]
-  %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph1178 = phi ptr [ %splineStarts.sroa.0.0.lcssa1710, %cond.true.i.i.i.i685 ], [ %splineStarts.sroa.0.0.lcssa1710, %if.then.i.i.i.i699 ], [ %splineStarts.sroa.0.11, %if.then.i.i.i.i657 ], [ %splineStarts.sroa.0.91440, %if.then.i.i.i.i620 ], [ %splineStarts.sroa.0.7, %if.then.i.i.i556 ], [ %splineStarts.sroa.0.2, %if.then.i.i.i.i520 ], [ %splineStarts.sroa.0.6, %if.then.i.i.i443 ], [ %splineStarts.sroa.0.6, %if.then.i.i.i407 ], [ %splineStarts.sroa.0.2, %if.then.i.i.i.i371 ], [ %splineStarts.sroa.0.2, %if.then.i.i.i330 ], [ %splineStarts.sroa.0.5, %if.then.i.i.i.i250 ], [ %splineStarts.sroa.0.31457, %if.then.i.i.i.i214 ], [ %splineStarts.sroa.0.2, %if.then.i.i.i.i158 ], [ %splineStarts.sroa.0.01483, %if.then.i.i.i.i ], [ %splineStarts.sroa.0.01483, %if.then.i.i.i ], [ %splineStarts.sroa.0.2, %if.then.i.i.i295.invoke ]
-  %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph1179 = phi ptr [ %edgeSegments.sroa.0.0.lcssa1711, %cond.true.i.i.i.i685 ], [ %edgeSegments.sroa.0.0.lcssa1711, %if.then.i.i.i.i699 ], [ %edgeSegments.sroa.0.141443, %if.then.i.i.i.i657 ], [ %edgeSegments.sroa.0.141443, %if.then.i.i.i.i620 ], [ %edgeSegments.sroa.0.11, %if.then.i.i.i556 ], [ %edgeSegments.sroa.0.11, %if.then.i.i.i.i520 ], [ %edgeSegments.sroa.0.9, %if.then.i.i.i443 ], [ %edgeSegments.sroa.0.8, %if.then.i.i.i407 ], [ %edgeSegments.sroa.0.8, %if.then.i.i.i.i371 ], [ %edgeSegments.sroa.0.7, %if.then.i.i.i330 ], [ %edgeSegments.sroa.0.41460, %if.then.i.i.i.i250 ], [ %edgeSegments.sroa.0.41460, %if.then.i.i.i.i214 ], [ %edgeSegments.sroa.0.21472, %if.then.i.i.i.i158 ], [ %edgeSegments.sroa.0.01486, %if.then.i.i.i.i ], [ %edgeSegments.sroa.0.01486, %if.then.i.i.i ], [ %edgeSegments.sroa.0.01486, %if.then.i.i.i295.invoke ]
+  %corners.sroa.0.1.ph.ph.ph.ph1173.ph1177 = phi ptr [ %corners.sroa.0.0.lcssa1706, %cond.true.i.i.i.i685 ], [ %corners.sroa.0.0.lcssa1706, %if.then.i.i.i.i699 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i657 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i620 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i556 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i520 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i443 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i407 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i371 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i330 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i250 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i214 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i158 ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i.i ], [ %corners.sroa.0.21434, %if.then.i.i.i ], [ %corners.sroa.0.2.lcssa, %if.then.i.i.i295.invoke ]
+  %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph1178 = phi ptr [ %splineStarts.sroa.0.0.lcssa1710, %cond.true.i.i.i.i685 ], [ %splineStarts.sroa.0.0.lcssa1710, %if.then.i.i.i.i699 ], [ %splineStarts.sroa.0.7, %if.then.i.i.i.i657 ], [ %splineStarts.sroa.0.61440, %if.then.i.i.i.i620 ], [ %splineStarts.sroa.0.12, %if.then.i.i.i556 ], [ %splineStarts.sroa.0.9, %if.then.i.i.i.i520 ], [ %splineStarts.sroa.0.11, %if.then.i.i.i443 ], [ %splineStarts.sroa.0.11, %if.then.i.i.i407 ], [ %splineStarts.sroa.0.9, %if.then.i.i.i.i371 ], [ %splineStarts.sroa.0.9, %if.then.i.i.i330 ], [ %splineStarts.sroa.0.4, %if.then.i.i.i.i250 ], [ %splineStarts.sroa.0.31457, %if.then.i.i.i.i214 ], [ %splineStarts.sroa.0.9, %if.then.i.i.i.i158 ], [ %splineStarts.sroa.0.01483, %if.then.i.i.i.i ], [ %splineStarts.sroa.0.01483, %if.then.i.i.i ], [ %splineStarts.sroa.0.9, %if.then.i.i.i295.invoke ]
+  %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph1179 = phi ptr [ %edgeSegments.sroa.0.0.lcssa1711, %cond.true.i.i.i.i685 ], [ %edgeSegments.sroa.0.0.lcssa1711, %if.then.i.i.i.i699 ], [ %edgeSegments.sroa.0.71443, %if.then.i.i.i.i657 ], [ %edgeSegments.sroa.0.71443, %if.then.i.i.i.i620 ], [ %edgeSegments.sroa.0.15, %if.then.i.i.i556 ], [ %edgeSegments.sroa.0.15, %if.then.i.i.i.i520 ], [ %edgeSegments.sroa.0.13, %if.then.i.i.i443 ], [ %edgeSegments.sroa.0.12, %if.then.i.i.i407 ], [ %edgeSegments.sroa.0.12, %if.then.i.i.i.i371 ], [ %edgeSegments.sroa.0.11, %if.then.i.i.i330 ], [ %edgeSegments.sroa.0.41460, %if.then.i.i.i.i250 ], [ %edgeSegments.sroa.0.41460, %if.then.i.i.i.i214 ], [ %edgeSegments.sroa.0.31472, %if.then.i.i.i.i158 ], [ %edgeSegments.sroa.0.01486, %if.then.i.i.i.i ], [ %edgeSegments.sroa.0.01486, %if.then.i.i.i ], [ %edgeSegments.sroa.0.01486, %if.then.i.i.i295.invoke ]
   %lpad.loopexit.split-lp1181 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup485
 
 if.end:                                           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i, %invoke.cont41
-  %corners.sroa.21.3 = phi ptr [ %corners.sroa.21.11432, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.21.11432, %if.then.i ]
-  %corners.sroa.12.4 = phi ptr [ %corners.sroa.12.21433, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
-  %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.11434, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.0.11434, %if.then.i ]
+  %corners.sroa.21.2 = phi ptr [ %corners.sroa.21.11432, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.21.11432, %if.then.i ]
+  %corners.sroa.12.2 = phi ptr [ %corners.sroa.12.11433, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %corners.sroa.0.3 = phi ptr [ %corners.sroa.0.21434, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.0.21434, %if.then.i ]
   %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.01429)
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1697,9 +1697,9 @@ invoke.cont51:                                    ; preds = %invoke.cont47
   br i1 %cmp.i106.not, label %for.end, label %invoke.cont28, !llvm.loop !23
 
 for.end:                                          ; preds = %invoke.cont51, %invoke.cont12
-  %corners.sroa.21.1.lcssa = phi ptr [ %corners.sroa.21.01479, %invoke.cont12 ], [ %corners.sroa.21.3, %invoke.cont51 ]
-  %corners.sroa.12.2.lcssa = phi ptr [ %corners.sroa.0.01480, %invoke.cont12 ], [ %corners.sroa.12.4, %invoke.cont51 ]
-  %corners.sroa.0.1.lcssa = phi ptr [ %corners.sroa.0.01480, %invoke.cont12 ], [ %corners.sroa.0.4, %invoke.cont51 ]
+  %corners.sroa.21.1.lcssa = phi ptr [ %corners.sroa.21.01479, %invoke.cont12 ], [ %corners.sroa.21.2, %invoke.cont51 ]
+  %corners.sroa.12.1.lcssa = phi ptr [ %corners.sroa.0.01480, %invoke.cont12 ], [ %corners.sroa.12.2, %invoke.cont51 ]
+  %corners.sroa.0.2.lcssa = phi ptr [ %corners.sroa.0.01480, %invoke.cont12 ], [ %corners.sroa.0.3, %invoke.cont51 ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %edgeSegments.sroa.30.01485 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %edgeSegments.sroa.0.01486 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1766,11 +1766,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i
-  %splineStarts.sroa.46.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %splineStarts.sroa.46.01481, %if.then.i.i ]
+  %splineStarts.sroa.46.7 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %splineStarts.sroa.46.01481, %if.then.i.i ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %splineStarts.sroa.21.01482, %if.then.i.i ]
-  %splineStarts.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %splineStarts.sroa.0.01483, %if.then.i.i ]
-  %splineStarts.sroa.21.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
-  %cmp.i.i128 = icmp eq ptr %corners.sroa.0.1.lcssa, %corners.sroa.12.2.lcssa
+  %splineStarts.sroa.0.9 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %splineStarts.sroa.0.01483, %if.then.i.i ]
+  %splineStarts.sroa.21.7 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
+  %cmp.i.i128 = icmp eq ptr %corners.sroa.0.2.lcssa, %corners.sroa.12.1.lcssa
   br i1 %cmp.i.i128, label %if.then58, label %if.else
 
 if.then58:                                        ; preds = %invoke.cont56
@@ -1780,9 +1780,9 @@ if.then58:                                        ; preds = %invoke.cont56
   br i1 %cmp.i130.not1468, label %for.inc273, label %for.body71
 
 for.body71:                                       ; preds = %if.then58, %for.inc77
-  %edgeSegments.sroa.0.21472 = phi ptr [ %edgeSegments.sroa.0.3, %for.inc77 ], [ %edgeSegments.sroa.0.01486, %if.then58 ]
-  %edgeSegments.sroa.30.11471 = phi ptr [ %edgeSegments.sroa.30.2, %for.inc77 ], [ %edgeSegments.sroa.30.01485, %if.then58 ]
-  %edgeSegments.sroa.73.11470 = phi ptr [ %edgeSegments.sroa.73.2, %for.inc77 ], [ %edgeSegments.sroa.73.01484, %if.then58 ]
+  %edgeSegments.sroa.0.31472 = phi ptr [ %edgeSegments.sroa.0.9, %for.inc77 ], [ %edgeSegments.sroa.0.01486, %if.then58 ]
+  %edgeSegments.sroa.30.11471 = phi ptr [ %edgeSegments.sroa.30.7, %for.inc77 ], [ %edgeSegments.sroa.30.01485, %if.then58 ]
+  %edgeSegments.sroa.73.11470 = phi ptr [ %edgeSegments.sroa.73.7, %for.inc77 ], [ %edgeSegments.sroa.73.01484, %if.then58 ]
   %edge59.sroa.0.01469 = phi ptr [ %incdec.ptr.i162, %for.inc77 ], [ %20, %if.then58 ]
   %call75 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN7msdfgen10EdgeHolderdeEv(ptr noundef nonnull align 8 dereferenceable(8) %edge59.sroa.0.01469)
           to label %invoke.cont74 unwind label %lpad.loopexit1157
@@ -1797,7 +1797,7 @@ if.then.i.i134:                                   ; preds = %invoke.cont74
 
 if.else.i.i136:                                   ; preds = %invoke.cont74
   %sub.ptr.lhs.cast.i.i.i.i.i137 = ptrtoint ptr %edgeSegments.sroa.30.11471 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i138 = ptrtoint ptr %edgeSegments.sroa.0.21472 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i138 = ptrtoint ptr %edgeSegments.sroa.0.31472 to i64
   %sub.ptr.sub.i.i.i.i.i139 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i137, %sub.ptr.rhs.cast.i.i.i.i.i138
   %cmp.i.i.i.i140 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i139, 9223372036854775800
   br i1 %cmp.i.i.i.i140, label %if.then.i.i.i.i158, label %_ZNKSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1832,16 +1832,16 @@ _ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i.i: 
   br i1 %cmp.i.i.i.i.i.i151, label %if.then.i.i.i.i.i.i157, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i157:                           ; preds = %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i149, ptr align 8 %edgeSegments.sroa.0.21472, i64 %sub.ptr.sub.i.i.i.i.i139, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i149, ptr align 8 %edgeSegments.sroa.0.31472, i64 %sub.ptr.sub.i.i.i.i.i139, i1 false)
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i157, %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %cond.i10.i.i.i149, i64 %sub.ptr.sub.i.i.i.i.i139
-  %tobool.not.i.i.i.i154 = icmp eq ptr %edgeSegments.sroa.0.21472, null
+  %tobool.not.i.i.i.i154 = icmp eq ptr %edgeSegments.sroa.0.31472, null
   br i1 %tobool.not.i.i.i.i154, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i155
 
 if.then.i18.i.i.i155:                             ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.21472) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.31472) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i155, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
@@ -1849,24 +1849,24 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu
   br label %for.inc77
 
 for.inc77:                                        ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i134
-  %edgeSegments.sroa.73.2 = phi ptr [ %add.ptr19.i.i.i156, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %edgeSegments.sroa.73.11470, %if.then.i.i134 ]
+  %edgeSegments.sroa.73.7 = phi ptr [ %add.ptr19.i.i.i156, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %edgeSegments.sroa.73.11470, %if.then.i.i134 ]
   %add.ptr.i.i.i.i.i.i152.pn = phi ptr [ %add.ptr.i.i.i.i.i.i152, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %edgeSegments.sroa.30.11471, %if.then.i.i134 ]
-  %edgeSegments.sroa.0.3 = phi ptr [ %cond.i10.i.i.i149, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %edgeSegments.sroa.0.21472, %if.then.i.i134 ]
-  %edgeSegments.sroa.30.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i152.pn, i64 8
+  %edgeSegments.sroa.0.9 = phi ptr [ %cond.i10.i.i.i149, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %edgeSegments.sroa.0.31472, %if.then.i.i134 ]
+  %edgeSegments.sroa.30.7 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i152.pn, i64 8
   %incdec.ptr.i162 = getelementptr inbounds i8, ptr %edge59.sroa.0.01469, i64 8
   %23 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i130.not = icmp eq ptr %incdec.ptr.i162, %23
   br i1 %cmp.i130.not, label %for.inc273, label %for.body71, !llvm.loop !24
 
 if.else:                                          ; preds = %invoke.cont56
-  %sub.ptr.lhs.cast.i164 = ptrtoint ptr %corners.sroa.12.2.lcssa to i64
-  %sub.ptr.rhs.cast.i165 = ptrtoint ptr %corners.sroa.0.1.lcssa to i64
+  %sub.ptr.lhs.cast.i164 = ptrtoint ptr %corners.sroa.12.1.lcssa to i64
+  %sub.ptr.rhs.cast.i165 = ptrtoint ptr %corners.sroa.0.2.lcssa to i64
   %sub.ptr.sub.i166 = sub i64 %sub.ptr.lhs.cast.i164, %sub.ptr.rhs.cast.i165
   %cmp = icmp eq i64 %sub.ptr.sub.i166, 4
   br i1 %cmp, label %if.then81, label %if.else230
 
 if.then81:                                        ; preds = %if.else
-  %24 = load i32, ptr %corners.sroa.0.1.lcssa, align 4
+  %24 = load i32, ptr %corners.sroa.0.2.lcssa, align 4
   %25 = load ptr, ptr %_M_finish.i.i, align 8
   %26 = load ptr, ptr %contour.sroa.0.01477, align 8
   %sub.ptr.lhs.cast.i169 = ptrtoint ptr %25 to i64
@@ -1889,31 +1889,31 @@ for.body94.lr.ph:                                 ; preds = %if.then87
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.inc129
   %i.01461 = phi i32 [ 0, %for.body94.lr.ph ], [ %inc130, %for.inc129 ]
-  %edgeSegments.sroa.0.41460 = phi ptr [ %edgeSegments.sroa.0.01486, %for.body94.lr.ph ], [ %edgeSegments.sroa.0.6, %for.inc129 ]
-  %edgeSegments.sroa.30.31459 = phi ptr [ %edgeSegments.sroa.30.01485, %for.body94.lr.ph ], [ %edgeSegments.sroa.30.5, %for.inc129 ]
-  %edgeSegments.sroa.73.31458 = phi ptr [ %edgeSegments.sroa.73.01484, %for.body94.lr.ph ], [ %edgeSegments.sroa.73.5, %for.inc129 ]
-  %splineStarts.sroa.0.31457 = phi ptr [ %splineStarts.sroa.0.2, %for.body94.lr.ph ], [ %splineStarts.sroa.0.5, %for.inc129 ]
-  %splineStarts.sroa.21.21456 = phi ptr [ %splineStarts.sroa.21.1, %for.body94.lr.ph ], [ %splineStarts.sroa.21.4, %for.inc129 ]
-  %splineStarts.sroa.46.21455 = phi ptr [ %splineStarts.sroa.46.1, %for.body94.lr.ph ], [ %splineStarts.sroa.46.4, %for.inc129 ]
+  %edgeSegments.sroa.0.41460 = phi ptr [ %edgeSegments.sroa.0.01486, %for.body94.lr.ph ], [ %edgeSegments.sroa.0.5, %for.inc129 ]
+  %edgeSegments.sroa.30.21459 = phi ptr [ %edgeSegments.sroa.30.01485, %for.body94.lr.ph ], [ %edgeSegments.sroa.30.3, %for.inc129 ]
+  %edgeSegments.sroa.73.21458 = phi ptr [ %edgeSegments.sroa.73.01484, %for.body94.lr.ph ], [ %edgeSegments.sroa.73.3, %for.inc129 ]
+  %splineStarts.sroa.0.31457 = phi ptr [ %splineStarts.sroa.0.9, %for.body94.lr.ph ], [ %splineStarts.sroa.0.4, %for.inc129 ]
+  %splineStarts.sroa.21.11456 = phi ptr [ %splineStarts.sroa.21.7, %for.body94.lr.ph ], [ %splineStarts.sroa.21.2, %for.inc129 ]
+  %splineStarts.sroa.46.11455 = phi ptr [ %splineStarts.sroa.46.7, %for.body94.lr.ph ], [ %splineStarts.sroa.46.2, %for.inc129 ]
   %cmp95 = icmp eq i32 %i.01461, %div1525
   br i1 %cmp95, label %if.then96, label %if.end101
 
 if.then96:                                        ; preds = %for.body94
-  %sub.ptr.lhs.cast.i179 = ptrtoint ptr %edgeSegments.sroa.30.31459 to i64
+  %sub.ptr.lhs.cast.i179 = ptrtoint ptr %edgeSegments.sroa.30.21459 to i64
   %sub.ptr.rhs.cast.i180 = ptrtoint ptr %edgeSegments.sroa.0.41460 to i64
   %sub.ptr.sub.i181 = sub i64 %sub.ptr.lhs.cast.i179, %sub.ptr.rhs.cast.i180
   %sub.ptr.div.i182 = lshr exact i64 %sub.ptr.sub.i181, 3
   %conv99 = trunc i64 %sub.ptr.div.i182 to i32
-  %cmp.not.i.i185 = icmp eq ptr %splineStarts.sroa.21.21456, %splineStarts.sroa.46.21455
+  %cmp.not.i.i185 = icmp eq ptr %splineStarts.sroa.21.11456, %splineStarts.sroa.46.11455
   br i1 %cmp.not.i.i185, label %if.else.i.i188, label %if.then.i.i186
 
 if.then.i.i186:                                   ; preds = %if.then96
-  store i32 %conv99, ptr %splineStarts.sroa.21.21456, align 4
-  %incdec.ptr.i.i187 = getelementptr inbounds i8, ptr %splineStarts.sroa.21.21456, i64 4
+  store i32 %conv99, ptr %splineStarts.sroa.21.11456, align 4
+  %incdec.ptr.i.i187 = getelementptr inbounds i8, ptr %splineStarts.sroa.21.11456, i64 4
   br label %if.end101
 
 if.else.i.i188:                                   ; preds = %if.then96
-  %sub.ptr.lhs.cast.i.i.i.i.i189 = ptrtoint ptr %splineStarts.sroa.21.21456 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i189 = ptrtoint ptr %splineStarts.sroa.21.11456 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i190 = ptrtoint ptr %splineStarts.sroa.0.31457 to i64
   %sub.ptr.sub.i.i.i.i.i191 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i189, %sub.ptr.rhs.cast.i.i.i.i.i190
   %cmp.i.i.i.i192 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i191, 9223372036854775804
@@ -1967,9 +1967,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %if.end101
 
 if.end101:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211, %if.then.i.i186, %for.body94
-  %splineStarts.sroa.46.4 = phi ptr [ %splineStarts.sroa.46.21455, %for.body94 ], [ %add.ptr19.i.i.i212, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211 ], [ %splineStarts.sroa.46.21455, %if.then.i.i186 ]
-  %splineStarts.sroa.21.4 = phi ptr [ %splineStarts.sroa.21.21456, %for.body94 ], [ %incdec.ptr.i.i.i208, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211 ], [ %incdec.ptr.i.i187, %if.then.i.i186 ]
-  %splineStarts.sroa.0.5 = phi ptr [ %splineStarts.sroa.0.31457, %for.body94 ], [ %cond.i10.i.i.i203, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211 ], [ %splineStarts.sroa.0.31457, %if.then.i.i186 ]
+  %splineStarts.sroa.46.2 = phi ptr [ %splineStarts.sroa.46.11455, %for.body94 ], [ %add.ptr19.i.i.i212, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211 ], [ %splineStarts.sroa.46.11455, %if.then.i.i186 ]
+  %splineStarts.sroa.21.2 = phi ptr [ %splineStarts.sroa.21.11456, %for.body94 ], [ %incdec.ptr.i.i.i208, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211 ], [ %incdec.ptr.i.i187, %if.then.i.i186 ]
+  %splineStarts.sroa.0.4 = phi ptr [ %splineStarts.sroa.0.31457, %for.body94 ], [ %cond.i10.i.i.i203, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i211 ], [ %splineStarts.sroa.0.31457, %if.then.i.i186 ]
   %conv102 = uitofp nneg i32 %i.01461 to double
   %mul = fmul double %conv102, 2.875000e+00
   %div104 = fdiv double %mul, %conv103
@@ -1990,16 +1990,16 @@ if.then109:                                       ; preds = %if.end101
           to label %invoke.cont116 unwind label %lpad.loopexit.split-lp1158.loopexit
 
 invoke.cont116:                                   ; preds = %if.then109
-  %cmp.not.i.i221 = icmp eq ptr %edgeSegments.sroa.30.31459, %edgeSegments.sroa.73.31458
+  %cmp.not.i.i221 = icmp eq ptr %edgeSegments.sroa.30.21459, %edgeSegments.sroa.73.21458
   br i1 %cmp.not.i.i221, label %if.else.i.i224, label %if.then.i.i222
 
 if.then.i.i222:                                   ; preds = %invoke.cont116
-  store ptr %call117, ptr %edgeSegments.sroa.30.31459, align 8
-  %incdec.ptr.i.i223 = getelementptr inbounds i8, ptr %edgeSegments.sroa.30.31459, i64 8
+  store ptr %call117, ptr %edgeSegments.sroa.30.21459, align 8
+  %incdec.ptr.i.i223 = getelementptr inbounds i8, ptr %edgeSegments.sroa.30.21459, i64 8
   br label %for.inc129
 
 if.else.i.i224:                                   ; preds = %invoke.cont116
-  %sub.ptr.lhs.cast.i.i.i.i.i225 = ptrtoint ptr %edgeSegments.sroa.30.31459 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i225 = ptrtoint ptr %edgeSegments.sroa.30.21459 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i226 = ptrtoint ptr %edgeSegments.sroa.0.41460 to i64
   %sub.ptr.sub.i.i.i.i.i227 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i225, %sub.ptr.rhs.cast.i.i.i.i.i226
   %cmp.i.i.i.i228 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i227, 9223372036854775800
@@ -2062,9 +2062,9 @@ invoke.cont126:                                   ; preds = %if.else119
   br label %for.inc129
 
 for.inc129:                                       ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247, %if.then.i.i222, %invoke.cont126
-  %edgeSegments.sroa.73.5 = phi ptr [ %edgeSegments.sroa.73.31458, %invoke.cont126 ], [ %add.ptr19.i.i.i248, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247 ], [ %edgeSegments.sroa.73.31458, %if.then.i.i222 ]
-  %edgeSegments.sroa.30.5 = phi ptr [ %edgeSegments.sroa.30.31459, %invoke.cont126 ], [ %incdec.ptr.i.i.i244, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247 ], [ %incdec.ptr.i.i223, %if.then.i.i222 ]
-  %edgeSegments.sroa.0.6 = phi ptr [ %edgeSegments.sroa.0.41460, %invoke.cont126 ], [ %cond.i10.i.i.i239, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247 ], [ %edgeSegments.sroa.0.41460, %if.then.i.i222 ]
+  %edgeSegments.sroa.73.3 = phi ptr [ %edgeSegments.sroa.73.21458, %invoke.cont126 ], [ %add.ptr19.i.i.i248, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247 ], [ %edgeSegments.sroa.73.21458, %if.then.i.i222 ]
+  %edgeSegments.sroa.30.3 = phi ptr [ %edgeSegments.sroa.30.21459, %invoke.cont126 ], [ %incdec.ptr.i.i.i244, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247 ], [ %incdec.ptr.i.i223, %if.then.i.i222 ]
+  %edgeSegments.sroa.0.5 = phi ptr [ %edgeSegments.sroa.0.41460, %invoke.cont126 ], [ %cond.i10.i.i.i239, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i247 ], [ %edgeSegments.sroa.0.41460, %if.then.i.i222 ]
   %inc130 = add nuw nsw i32 %i.01461, 1
   %exitcond1642.not = icmp eq i32 %inc130, %conv91
   br i1 %exitcond1642.not, label %for.inc273, label %for.body94, !llvm.loop !25
@@ -2184,22 +2184,22 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__g
   br label %invoke.cont182
 
 invoke.cont182:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i271
-  %edgeSegments.sroa.73.6 = phi ptr [ %add.ptr19.i.i293, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %edgeSegments.sroa.73.01484, %if.then.i271 ]
+  %edgeSegments.sroa.73.9 = phi ptr [ %add.ptr19.i.i293, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %edgeSegments.sroa.73.01484, %if.then.i271 ]
   %add.ptr.i.i.i.i.i289.pn = phi ptr [ %add.ptr.i.i.i.i.i289, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %edgeSegments.sroa.30.01485, %if.then.i271 ]
-  %edgeSegments.sroa.0.7 = phi ptr [ %cond.i10.i.i286, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %edgeSegments.sroa.0.01486, %if.then.i271 ]
-  %edgeSegments.sroa.30.6 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i289.pn, i64 8
-  %cmp.not.i301 = icmp eq ptr %edgeSegments.sroa.30.6, %edgeSegments.sroa.73.6
+  %edgeSegments.sroa.0.11 = phi ptr [ %cond.i10.i.i286, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %edgeSegments.sroa.0.01486, %if.then.i271 ]
+  %edgeSegments.sroa.30.9 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i289.pn, i64 8
+  %cmp.not.i301 = icmp eq ptr %edgeSegments.sroa.30.9, %edgeSegments.sroa.73.9
   br i1 %cmp.not.i301, label %if.else.i304, label %if.then.i302
 
 if.then.i302:                                     ; preds = %invoke.cont182
   %37 = load ptr, ptr %arrayidx200, align 8
-  store ptr %37, ptr %edgeSegments.sroa.30.6, align 8
+  store ptr %37, ptr %edgeSegments.sroa.30.9, align 8
   %incdec.ptr.i303 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i289.pn, i64 16
   br label %invoke.cont184
 
 if.else.i304:                                     ; preds = %invoke.cont182
-  %sub.ptr.lhs.cast.i.i.i.i305 = ptrtoint ptr %edgeSegments.sroa.73.6 to i64
-  %sub.ptr.rhs.cast.i.i.i.i306 = ptrtoint ptr %edgeSegments.sroa.0.7 to i64
+  %sub.ptr.lhs.cast.i.i.i.i305 = ptrtoint ptr %edgeSegments.sroa.73.9 to i64
+  %sub.ptr.rhs.cast.i.i.i.i306 = ptrtoint ptr %edgeSegments.sroa.0.11 to i64
   %sub.ptr.sub.i.i.i.i307 = sub i64 %sub.ptr.lhs.cast.i.i.i.i305, %sub.ptr.rhs.cast.i.i.i.i306
   %cmp.i.i.i308 = icmp eq i64 %sub.ptr.sub.i.i.i.i307, 9223372036854775800
   br i1 %cmp.i.i.i308, label %if.then.i.i.i330, label %_ZNKSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i309
@@ -2235,17 +2235,17 @@ _ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i318:
   br i1 %cmp.i.i.i.i.i321, label %if.then.i.i.i.i.i329, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i322
 
 if.then.i.i.i.i.i329:                             ; preds = %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i318
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i319, ptr align 8 %edgeSegments.sroa.0.7, i64 %sub.ptr.sub.i.i.i.i307, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i319, ptr align 8 %edgeSegments.sroa.0.11, i64 %sub.ptr.sub.i.i.i.i307, i1 false)
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i322
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i322: ; preds = %if.then.i.i.i.i.i329, %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i318
   %add.ptr.i.i.i.i.i323 = getelementptr inbounds i8, ptr %cond.i10.i.i319, i64 %sub.ptr.sub.i.i.i.i307
   %incdec.ptr.i.i324 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i323, i64 8
-  %tobool.not.i.i.i325 = icmp eq ptr %edgeSegments.sroa.0.7, null
+  %tobool.not.i.i.i325 = icmp eq ptr %edgeSegments.sroa.0.11, null
   br i1 %tobool.not.i.i.i325, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327, label %if.then.i18.i.i326
 
 if.then.i18.i.i326:                               ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i322
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.7) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.11) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327: ; preds = %if.then.i18.i.i326, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i322
@@ -2253,31 +2253,31 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__g
   br label %invoke.cont184
 
 invoke.cont184:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327, %if.then.i302
-  %edgeSegments.sroa.73.7 = phi ptr [ %add.ptr19.i.i328, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327 ], [ %edgeSegments.sroa.73.6, %if.then.i302 ]
-  %edgeSegments.sroa.30.7 = phi ptr [ %incdec.ptr.i.i324, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327 ], [ %incdec.ptr.i303, %if.then.i302 ]
-  %edgeSegments.sroa.0.8 = phi ptr [ %cond.i10.i.i319, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327 ], [ %edgeSegments.sroa.0.7, %if.then.i302 ]
+  %edgeSegments.sroa.73.10 = phi ptr [ %add.ptr19.i.i328, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327 ], [ %edgeSegments.sroa.73.9, %if.then.i302 ]
+  %edgeSegments.sroa.30.10 = phi ptr [ %incdec.ptr.i.i324, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327 ], [ %incdec.ptr.i303, %if.then.i302 ]
+  %edgeSegments.sroa.0.12 = phi ptr [ %cond.i10.i.i319, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i327 ], [ %edgeSegments.sroa.0.11, %if.then.i302 ]
   %40 = load ptr, ptr %arrayidx185, align 8
   %color186 = getelementptr inbounds i8, ptr %40, i64 8
   store i32 7, ptr %color186, align 8
   %41 = load ptr, ptr %arrayidx206, align 16
   %color188 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 7, ptr %color188, align 8
-  %sub.ptr.lhs.cast.i336 = ptrtoint ptr %edgeSegments.sroa.30.7 to i64
-  %sub.ptr.rhs.cast.i337 = ptrtoint ptr %edgeSegments.sroa.0.8 to i64
+  %sub.ptr.lhs.cast.i336 = ptrtoint ptr %edgeSegments.sroa.30.10 to i64
+  %sub.ptr.rhs.cast.i337 = ptrtoint ptr %edgeSegments.sroa.0.12 to i64
   %sub.ptr.sub.i338 = sub i64 %sub.ptr.lhs.cast.i336, %sub.ptr.rhs.cast.i337
   %sub.ptr.div.i339 = ashr exact i64 %sub.ptr.sub.i338, 3
   %conv191 = trunc i64 %sub.ptr.div.i339 to i32
-  %cmp.not.i.i342 = icmp eq ptr %splineStarts.sroa.21.1, %splineStarts.sroa.46.1
+  %cmp.not.i.i342 = icmp eq ptr %splineStarts.sroa.21.7, %splineStarts.sroa.46.7
   br i1 %cmp.not.i.i342, label %if.else.i.i345, label %if.then.i.i343
 
 if.then.i.i343:                                   ; preds = %invoke.cont184
-  store i32 %conv191, ptr %splineStarts.sroa.21.1, align 4
+  store i32 %conv191, ptr %splineStarts.sroa.21.7, align 4
   %incdec.ptr.i.i344 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   br label %invoke.cont192
 
 if.else.i.i345:                                   ; preds = %invoke.cont184
-  %sub.ptr.lhs.cast.i.i.i.i.i346 = ptrtoint ptr %splineStarts.sroa.46.1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i347 = ptrtoint ptr %splineStarts.sroa.0.2 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i346 = ptrtoint ptr %splineStarts.sroa.46.7 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i347 = ptrtoint ptr %splineStarts.sroa.0.9 to i64
   %sub.ptr.sub.i.i.i.i.i348 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i346, %sub.ptr.rhs.cast.i.i.i.i.i347
   %cmp.i.i.i.i349 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i348, 9223372036854775804
   br i1 %cmp.i.i.i.i349, label %if.then.i.i.i.i371, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i350
@@ -2312,17 +2312,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i359: ; preds = %cond.true.i
   br i1 %cmp.i.i.i.i.i.i362, label %if.then.i.i.i.i.i.i370, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i363
 
 if.then.i.i.i.i.i.i370:                           ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i359
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i360, ptr align 4 %splineStarts.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i348, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i360, ptr align 4 %splineStarts.sroa.0.9, i64 %sub.ptr.sub.i.i.i.i.i348, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i363
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i363: ; preds = %if.then.i.i.i.i.i.i370, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i359
   %add.ptr.i.i.i.i.i.i364 = getelementptr inbounds i8, ptr %cond.i10.i.i.i360, i64 %sub.ptr.sub.i.i.i.i.i348
   %incdec.ptr.i.i.i365 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i364, i64 4
-  %tobool.not.i.i.i.i366 = icmp eq ptr %splineStarts.sroa.0.2, null
+  %tobool.not.i.i.i.i366 = icmp eq ptr %splineStarts.sroa.0.9, null
   br i1 %tobool.not.i.i.i.i366, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368, label %if.then.i18.i.i.i367
 
 if.then.i18.i.i.i367:                             ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i363
-  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.2) #19
+  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.9) #19
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368: ; preds = %if.then.i18.i.i.i367, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i363
@@ -2330,15 +2330,15 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %invoke.cont192
 
 invoke.cont192:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368, %if.then.i.i343
-  %splineStarts.sroa.46.5 = phi ptr [ %add.ptr19.i.i.i369, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368 ], [ %splineStarts.sroa.46.1, %if.then.i.i343 ]
-  %splineStarts.sroa.21.5 = phi ptr [ %incdec.ptr.i.i.i365, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368 ], [ %incdec.ptr.i.i344, %if.then.i.i343 ]
-  %splineStarts.sroa.0.6 = phi ptr [ %cond.i10.i.i.i360, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368 ], [ %splineStarts.sroa.0.2, %if.then.i.i343 ]
-  %cmp.not.i378 = icmp eq ptr %edgeSegments.sroa.30.7, %edgeSegments.sroa.73.7
+  %splineStarts.sroa.46.9 = phi ptr [ %add.ptr19.i.i.i369, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368 ], [ %splineStarts.sroa.46.7, %if.then.i.i343 ]
+  %splineStarts.sroa.21.9 = phi ptr [ %incdec.ptr.i.i.i365, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368 ], [ %incdec.ptr.i.i344, %if.then.i.i343 ]
+  %splineStarts.sroa.0.11 = phi ptr [ %cond.i10.i.i.i360, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i368 ], [ %splineStarts.sroa.0.9, %if.then.i.i343 ]
+  %cmp.not.i378 = icmp eq ptr %edgeSegments.sroa.30.10, %edgeSegments.sroa.73.10
   br i1 %cmp.not.i378, label %if.else.i381, label %if.then.i379
 
 if.then.i379:                                     ; preds = %invoke.cont192
   %43 = load ptr, ptr %arrayidx193, align 16
-  store ptr %43, ptr %edgeSegments.sroa.30.7, align 8
+  store ptr %43, ptr %edgeSegments.sroa.30.10, align 8
   br label %invoke.cont194
 
 if.else.i381:                                     ; preds = %invoke.cont192
@@ -2375,16 +2375,16 @@ _ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i395:
   br i1 %cmp.i.i.i.i.i398, label %if.then.i.i.i.i.i406, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i399
 
 if.then.i.i.i.i.i406:                             ; preds = %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i395
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i396, ptr align 8 %edgeSegments.sroa.0.8, i64 %sub.ptr.sub.i338, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i396, ptr align 8 %edgeSegments.sroa.0.12, i64 %sub.ptr.sub.i338, i1 false)
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i399
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i399: ; preds = %if.then.i.i.i.i.i406, %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i395
   %add.ptr.i.i.i.i.i400 = getelementptr inbounds i8, ptr %cond.i10.i.i396, i64 %sub.ptr.sub.i338
-  %tobool.not.i.i.i402 = icmp eq ptr %edgeSegments.sroa.0.8, null
+  %tobool.not.i.i.i402 = icmp eq ptr %edgeSegments.sroa.0.12, null
   br i1 %tobool.not.i.i.i402, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404, label %if.then.i18.i.i403
 
 if.then.i18.i.i403:                               ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i399
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.8) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.12) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404: ; preds = %if.then.i18.i.i403, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i399
@@ -2392,22 +2392,22 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__g
   br label %invoke.cont194
 
 invoke.cont194:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404, %if.then.i379
-  %edgeSegments.sroa.73.8 = phi ptr [ %add.ptr19.i.i405, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404 ], [ %edgeSegments.sroa.73.7, %if.then.i379 ]
-  %add.ptr.i.i.i.i.i400.pn = phi ptr [ %add.ptr.i.i.i.i.i400, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404 ], [ %edgeSegments.sroa.30.7, %if.then.i379 ]
-  %edgeSegments.sroa.0.9 = phi ptr [ %cond.i10.i.i396, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404 ], [ %edgeSegments.sroa.0.8, %if.then.i379 ]
-  %edgeSegments.sroa.30.8 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i400.pn, i64 8
-  %cmp.not.i414 = icmp eq ptr %edgeSegments.sroa.30.8, %edgeSegments.sroa.73.8
+  %edgeSegments.sroa.73.11 = phi ptr [ %add.ptr19.i.i405, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404 ], [ %edgeSegments.sroa.73.10, %if.then.i379 ]
+  %add.ptr.i.i.i.i.i400.pn = phi ptr [ %add.ptr.i.i.i.i.i400, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404 ], [ %edgeSegments.sroa.30.10, %if.then.i379 ]
+  %edgeSegments.sroa.0.13 = phi ptr [ %cond.i10.i.i396, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i404 ], [ %edgeSegments.sroa.0.12, %if.then.i379 ]
+  %edgeSegments.sroa.30.11 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i400.pn, i64 8
+  %cmp.not.i414 = icmp eq ptr %edgeSegments.sroa.30.11, %edgeSegments.sroa.73.11
   br i1 %cmp.not.i414, label %if.else.i417, label %if.then.i415
 
 if.then.i415:                                     ; preds = %invoke.cont194
   %46 = load ptr, ptr %arrayidx195, align 8
-  store ptr %46, ptr %edgeSegments.sroa.30.8, align 8
+  store ptr %46, ptr %edgeSegments.sroa.30.11, align 8
   %incdec.ptr.i416 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i400.pn, i64 16
   br label %if.end208
 
 if.else.i417:                                     ; preds = %invoke.cont194
-  %sub.ptr.lhs.cast.i.i.i.i418 = ptrtoint ptr %edgeSegments.sroa.73.8 to i64
-  %sub.ptr.rhs.cast.i.i.i.i419 = ptrtoint ptr %edgeSegments.sroa.0.9 to i64
+  %sub.ptr.lhs.cast.i.i.i.i418 = ptrtoint ptr %edgeSegments.sroa.73.11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i419 = ptrtoint ptr %edgeSegments.sroa.0.13 to i64
   %sub.ptr.sub.i.i.i.i420 = sub i64 %sub.ptr.lhs.cast.i.i.i.i418, %sub.ptr.rhs.cast.i.i.i.i419
   %cmp.i.i.i421 = icmp eq i64 %sub.ptr.sub.i.i.i.i420, 9223372036854775800
   br i1 %cmp.i.i.i421, label %if.then.i.i.i443, label %_ZNKSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i422
@@ -2443,17 +2443,17 @@ _ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i431:
   br i1 %cmp.i.i.i.i.i434, label %if.then.i.i.i.i.i442, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i435
 
 if.then.i.i.i.i.i442:                             ; preds = %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i431
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i432, ptr align 8 %edgeSegments.sroa.0.9, i64 %sub.ptr.sub.i.i.i.i420, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i432, ptr align 8 %edgeSegments.sroa.0.13, i64 %sub.ptr.sub.i.i.i.i420, i1 false)
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i435
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i435: ; preds = %if.then.i.i.i.i.i442, %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i431
   %add.ptr.i.i.i.i.i436 = getelementptr inbounds i8, ptr %cond.i10.i.i432, i64 %sub.ptr.sub.i.i.i.i420
   %incdec.ptr.i.i437 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i436, i64 8
-  %tobool.not.i.i.i438 = icmp eq ptr %edgeSegments.sroa.0.9, null
+  %tobool.not.i.i.i438 = icmp eq ptr %edgeSegments.sroa.0.13, null
   br i1 %tobool.not.i.i.i438, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440, label %if.then.i18.i.i439
 
 if.then.i18.i.i439:                               ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i435
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.9) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.13) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440: ; preds = %if.then.i18.i.i439, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i435
@@ -2515,28 +2515,28 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__g
 
 invoke.cont199:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476, %if.then.i451
   %sub.ptr.rhs.cast.i486.pre-phi = phi i64 [ %.pre, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476 ], [ %sub.ptr.rhs.cast.i, %if.then.i451 ]
-  %edgeSegments.sroa.73.10 = phi ptr [ %add.ptr19.i.i477, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476 ], [ %edgeSegments.sroa.73.01484, %if.then.i451 ]
+  %edgeSegments.sroa.73.13 = phi ptr [ %add.ptr19.i.i477, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476 ], [ %edgeSegments.sroa.73.01484, %if.then.i451 ]
   %add.ptr.i.i.i.i.i472.pn = phi ptr [ %add.ptr.i.i.i.i.i472, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476 ], [ %edgeSegments.sroa.30.01485, %if.then.i451 ]
-  %edgeSegments.sroa.0.11 = phi ptr [ %cond.i10.i.i468, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476 ], [ %edgeSegments.sroa.0.01486, %if.then.i451 ]
-  %edgeSegments.sroa.30.10 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i472.pn, i64 8
+  %edgeSegments.sroa.0.15 = phi ptr [ %cond.i10.i.i468, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i476 ], [ %edgeSegments.sroa.0.01486, %if.then.i451 ]
+  %edgeSegments.sroa.30.13 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i472.pn, i64 8
   %52 = load ptr, ptr %arrayidx200, align 8
   %color201 = getelementptr inbounds i8, ptr %52, i64 8
   store i32 7, ptr %color201, align 8
-  %sub.ptr.lhs.cast.i485 = ptrtoint ptr %edgeSegments.sroa.30.10 to i64
+  %sub.ptr.lhs.cast.i485 = ptrtoint ptr %edgeSegments.sroa.30.13 to i64
   %sub.ptr.sub.i487 = sub i64 %sub.ptr.lhs.cast.i485, %sub.ptr.rhs.cast.i486.pre-phi
   %sub.ptr.div.i488 = ashr exact i64 %sub.ptr.sub.i487, 3
   %conv204 = trunc i64 %sub.ptr.div.i488 to i32
-  %cmp.not.i.i491 = icmp eq ptr %splineStarts.sroa.21.1, %splineStarts.sroa.46.1
+  %cmp.not.i.i491 = icmp eq ptr %splineStarts.sroa.21.7, %splineStarts.sroa.46.7
   br i1 %cmp.not.i.i491, label %if.else.i.i494, label %if.then.i.i492
 
 if.then.i.i492:                                   ; preds = %invoke.cont199
-  store i32 %conv204, ptr %splineStarts.sroa.21.1, align 4
+  store i32 %conv204, ptr %splineStarts.sroa.21.7, align 4
   %incdec.ptr.i.i493 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   br label %invoke.cont205
 
 if.else.i.i494:                                   ; preds = %invoke.cont199
-  %sub.ptr.lhs.cast.i.i.i.i.i495 = ptrtoint ptr %splineStarts.sroa.46.1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i496 = ptrtoint ptr %splineStarts.sroa.0.2 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i495 = ptrtoint ptr %splineStarts.sroa.46.7 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i496 = ptrtoint ptr %splineStarts.sroa.0.9 to i64
   %sub.ptr.sub.i.i.i.i.i497 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i495, %sub.ptr.rhs.cast.i.i.i.i.i496
   %cmp.i.i.i.i498 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i497, 9223372036854775804
   br i1 %cmp.i.i.i.i498, label %if.then.i.i.i.i520, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i499
@@ -2571,17 +2571,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i508: ; preds = %cond.true.i
   br i1 %cmp.i.i.i.i.i.i511, label %if.then.i.i.i.i.i.i519, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i512
 
 if.then.i.i.i.i.i.i519:                           ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i508
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i509, ptr align 4 %splineStarts.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i497, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i509, ptr align 4 %splineStarts.sroa.0.9, i64 %sub.ptr.sub.i.i.i.i.i497, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i512
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i512: ; preds = %if.then.i.i.i.i.i.i519, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i508
   %add.ptr.i.i.i.i.i.i513 = getelementptr inbounds i8, ptr %cond.i10.i.i.i509, i64 %sub.ptr.sub.i.i.i.i.i497
   %incdec.ptr.i.i.i514 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i513, i64 4
-  %tobool.not.i.i.i.i515 = icmp eq ptr %splineStarts.sroa.0.2, null
+  %tobool.not.i.i.i.i515 = icmp eq ptr %splineStarts.sroa.0.9, null
   br i1 %tobool.not.i.i.i.i515, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517, label %if.then.i18.i.i.i516
 
 if.then.i18.i.i.i516:                             ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i512
-  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.2) #19
+  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.9) #19
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517: ; preds = %if.then.i18.i.i.i516, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i512
@@ -2589,15 +2589,15 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %invoke.cont205
 
 invoke.cont205:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517, %if.then.i.i492
-  %splineStarts.sroa.46.6 = phi ptr [ %add.ptr19.i.i.i518, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517 ], [ %splineStarts.sroa.46.1, %if.then.i.i492 ]
-  %splineStarts.sroa.21.6 = phi ptr [ %incdec.ptr.i.i.i514, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517 ], [ %incdec.ptr.i.i493, %if.then.i.i492 ]
-  %splineStarts.sroa.0.7 = phi ptr [ %cond.i10.i.i.i509, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517 ], [ %splineStarts.sroa.0.2, %if.then.i.i492 ]
-  %cmp.not.i527 = icmp eq ptr %edgeSegments.sroa.30.10, %edgeSegments.sroa.73.10
+  %splineStarts.sroa.46.10 = phi ptr [ %add.ptr19.i.i.i518, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517 ], [ %splineStarts.sroa.46.7, %if.then.i.i492 ]
+  %splineStarts.sroa.21.10 = phi ptr [ %incdec.ptr.i.i.i514, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517 ], [ %incdec.ptr.i.i493, %if.then.i.i492 ]
+  %splineStarts.sroa.0.12 = phi ptr [ %cond.i10.i.i.i509, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i517 ], [ %splineStarts.sroa.0.9, %if.then.i.i492 ]
+  %cmp.not.i527 = icmp eq ptr %edgeSegments.sroa.30.13, %edgeSegments.sroa.73.13
   br i1 %cmp.not.i527, label %if.else.i530, label %if.then.i528
 
 if.then.i528:                                     ; preds = %invoke.cont205
   %54 = load ptr, ptr %arrayidx206, align 16
-  store ptr %54, ptr %edgeSegments.sroa.30.10, align 8
+  store ptr %54, ptr %edgeSegments.sroa.30.13, align 8
   %incdec.ptr.i529 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i472.pn, i64 16
   br label %if.end208
 
@@ -2635,17 +2635,17 @@ _ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i544:
   br i1 %cmp.i.i.i.i.i547, label %if.then.i.i.i.i.i555, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i548
 
 if.then.i.i.i.i.i555:                             ; preds = %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i544
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i545, ptr align 8 %edgeSegments.sroa.0.11, i64 %sub.ptr.sub.i487, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i545, ptr align 8 %edgeSegments.sroa.0.15, i64 %sub.ptr.sub.i487, i1 false)
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i548
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i548: ; preds = %if.then.i.i.i.i.i555, %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i544
   %add.ptr.i.i.i.i.i549 = getelementptr inbounds i8, ptr %cond.i10.i.i545, i64 %sub.ptr.sub.i487
   %incdec.ptr.i.i550 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i549, i64 8
-  %tobool.not.i.i.i551 = icmp eq ptr %edgeSegments.sroa.0.11, null
+  %tobool.not.i.i.i551 = icmp eq ptr %edgeSegments.sroa.0.15, null
   br i1 %tobool.not.i.i.i551, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553, label %if.then.i18.i.i552
 
 if.then.i18.i.i552:                               ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i548
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.11) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.15) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553: ; preds = %if.then.i18.i.i552, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i548
@@ -2653,12 +2653,12 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__g
   br label %if.end208
 
 if.end208:                                        ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553, %if.then.i528, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440, %if.then.i415
-  %splineStarts.sroa.46.7 = phi ptr [ %splineStarts.sroa.46.5, %if.then.i415 ], [ %splineStarts.sroa.46.5, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %splineStarts.sroa.46.6, %if.then.i528 ], [ %splineStarts.sroa.46.6, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
-  %splineStarts.sroa.21.7 = phi ptr [ %splineStarts.sroa.21.5, %if.then.i415 ], [ %splineStarts.sroa.21.5, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %splineStarts.sroa.21.6, %if.then.i528 ], [ %splineStarts.sroa.21.6, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
-  %splineStarts.sroa.0.8 = phi ptr [ %splineStarts.sroa.0.6, %if.then.i415 ], [ %splineStarts.sroa.0.6, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %splineStarts.sroa.0.7, %if.then.i528 ], [ %splineStarts.sroa.0.7, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
-  %edgeSegments.sroa.73.12 = phi ptr [ %edgeSegments.sroa.73.8, %if.then.i415 ], [ %add.ptr19.i.i441, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %edgeSegments.sroa.73.10, %if.then.i528 ], [ %add.ptr19.i.i554, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
-  %edgeSegments.sroa.30.12 = phi ptr [ %incdec.ptr.i416, %if.then.i415 ], [ %incdec.ptr.i.i437, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %incdec.ptr.i529, %if.then.i528 ], [ %incdec.ptr.i.i550, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
-  %edgeSegments.sroa.0.13 = phi ptr [ %edgeSegments.sroa.0.9, %if.then.i415 ], [ %cond.i10.i.i432, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %edgeSegments.sroa.0.11, %if.then.i528 ], [ %cond.i10.i.i545, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
+  %splineStarts.sroa.46.3 = phi ptr [ %splineStarts.sroa.46.9, %if.then.i415 ], [ %splineStarts.sroa.46.9, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %splineStarts.sroa.46.10, %if.then.i528 ], [ %splineStarts.sroa.46.10, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
+  %splineStarts.sroa.21.3 = phi ptr [ %splineStarts.sroa.21.9, %if.then.i415 ], [ %splineStarts.sroa.21.9, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %splineStarts.sroa.21.10, %if.then.i528 ], [ %splineStarts.sroa.21.10, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
+  %splineStarts.sroa.0.5 = phi ptr [ %splineStarts.sroa.0.11, %if.then.i415 ], [ %splineStarts.sroa.0.11, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %splineStarts.sroa.0.12, %if.then.i528 ], [ %splineStarts.sroa.0.12, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
+  %edgeSegments.sroa.73.4 = phi ptr [ %edgeSegments.sroa.73.11, %if.then.i415 ], [ %add.ptr19.i.i441, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %edgeSegments.sroa.73.13, %if.then.i528 ], [ %add.ptr19.i.i554, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
+  %edgeSegments.sroa.30.4 = phi ptr [ %incdec.ptr.i416, %if.then.i415 ], [ %incdec.ptr.i.i437, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %incdec.ptr.i529, %if.then.i528 ], [ %incdec.ptr.i.i550, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
+  %edgeSegments.sroa.0.6 = phi ptr [ %edgeSegments.sroa.0.13, %if.then.i415 ], [ %cond.i10.i.i432, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i440 ], [ %edgeSegments.sroa.0.15, %if.then.i528 ], [ %cond.i10.i.i545, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i553 ]
   %57 = load ptr, ptr %contour.sroa.0.01477, align 8
   %58 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i562 = icmp eq ptr %58, %57
@@ -2724,7 +2724,7 @@ lpad223:                                          ; preds = %if.else.i.i569, %if
 if.else230:                                       ; preds = %if.else
   %sub.ptr.div.i167 = lshr exact i64 %sub.ptr.sub.i166, 2
   %conv232 = trunc i64 %sub.ptr.div.i167 to i32
-  %66 = load i32, ptr %corners.sroa.0.1.lcssa, align 4
+  %66 = load i32, ptr %corners.sroa.0.2.lcssa, align 4
   %67 = load ptr, ptr %_M_finish.i.i, align 8
   %68 = load ptr, ptr %contour.sroa.0.01477, align 8
   %sub.ptr.lhs.cast.i579 = ptrtoint ptr %67 to i64
@@ -2738,12 +2738,12 @@ if.else230:                                       ; preds = %if.else
 for.body242:                                      ; preds = %if.else230, %for.inc267
   %spline.01445 = phi i32 [ %spline.1, %for.inc267 ], [ 0, %if.else230 ]
   %i239.01444 = phi i32 [ %inc268, %for.inc267 ], [ 0, %if.else230 ]
-  %edgeSegments.sroa.0.141443 = phi ptr [ %edgeSegments.sroa.0.15, %for.inc267 ], [ %edgeSegments.sroa.0.01486, %if.else230 ]
-  %edgeSegments.sroa.30.131442 = phi ptr [ %edgeSegments.sroa.30.14, %for.inc267 ], [ %edgeSegments.sroa.30.01485, %if.else230 ]
-  %edgeSegments.sroa.73.131441 = phi ptr [ %edgeSegments.sroa.73.14, %for.inc267 ], [ %edgeSegments.sroa.73.01484, %if.else230 ]
-  %splineStarts.sroa.0.91440 = phi ptr [ %splineStarts.sroa.0.11, %for.inc267 ], [ %splineStarts.sroa.0.2, %if.else230 ]
-  %splineStarts.sroa.21.81439 = phi ptr [ %splineStarts.sroa.21.10, %for.inc267 ], [ %splineStarts.sroa.21.1, %if.else230 ]
-  %splineStarts.sroa.46.81438 = phi ptr [ %splineStarts.sroa.46.10, %for.inc267 ], [ %splineStarts.sroa.46.1, %if.else230 ]
+  %edgeSegments.sroa.0.71443 = phi ptr [ %edgeSegments.sroa.0.17, %for.inc267 ], [ %edgeSegments.sroa.0.01486, %if.else230 ]
+  %edgeSegments.sroa.30.51442 = phi ptr [ %edgeSegments.sroa.30.15, %for.inc267 ], [ %edgeSegments.sroa.30.01485, %if.else230 ]
+  %edgeSegments.sroa.73.51441 = phi ptr [ %edgeSegments.sroa.73.15, %for.inc267 ], [ %edgeSegments.sroa.73.01484, %if.else230 ]
+  %splineStarts.sroa.0.61440 = phi ptr [ %splineStarts.sroa.0.7, %for.inc267 ], [ %splineStarts.sroa.0.9, %if.else230 ]
+  %splineStarts.sroa.21.41439 = phi ptr [ %splineStarts.sroa.21.5, %for.inc267 ], [ %splineStarts.sroa.21.7, %if.else230 ]
+  %splineStarts.sroa.46.41438 = phi ptr [ %splineStarts.sroa.46.5, %for.inc267 ], [ %splineStarts.sroa.46.7, %if.else230 ]
   %add244 = add nsw i32 %i239.01444, %66
   %rem245 = srem i32 %add244, %conv238
   %add246 = add nsw i32 %spline.01445, 1
@@ -2752,28 +2752,28 @@ for.body242:                                      ; preds = %if.else230, %for.in
 
 land.lhs.true:                                    ; preds = %for.body242
   %conv249 = sext i32 %add246 to i64
-  %add.ptr.i583 = getelementptr inbounds i32, ptr %corners.sroa.0.1.lcssa, i64 %conv249
+  %add.ptr.i583 = getelementptr inbounds i32, ptr %corners.sroa.0.2.lcssa, i64 %conv249
   %69 = load i32, ptr %add.ptr.i583, align 4
   %cmp251 = icmp eq i32 %69, %rem245
   br i1 %cmp251, label %if.then252, label %if.end258
 
 if.then252:                                       ; preds = %land.lhs.true
-  %sub.ptr.lhs.cast.i585 = ptrtoint ptr %edgeSegments.sroa.30.131442 to i64
-  %sub.ptr.rhs.cast.i586 = ptrtoint ptr %edgeSegments.sroa.0.141443 to i64
+  %sub.ptr.lhs.cast.i585 = ptrtoint ptr %edgeSegments.sroa.30.51442 to i64
+  %sub.ptr.rhs.cast.i586 = ptrtoint ptr %edgeSegments.sroa.0.71443 to i64
   %sub.ptr.sub.i587 = sub i64 %sub.ptr.lhs.cast.i585, %sub.ptr.rhs.cast.i586
   %sub.ptr.div.i588 = lshr exact i64 %sub.ptr.sub.i587, 3
   %conv255 = trunc i64 %sub.ptr.div.i588 to i32
-  %cmp.not.i.i591 = icmp eq ptr %splineStarts.sroa.21.81439, %splineStarts.sroa.46.81438
+  %cmp.not.i.i591 = icmp eq ptr %splineStarts.sroa.21.41439, %splineStarts.sroa.46.41438
   br i1 %cmp.not.i.i591, label %if.else.i.i594, label %if.then.i.i592
 
 if.then.i.i592:                                   ; preds = %if.then252
-  store i32 %conv255, ptr %splineStarts.sroa.21.81439, align 4
-  %incdec.ptr.i.i593 = getelementptr inbounds i8, ptr %splineStarts.sroa.21.81439, i64 4
+  store i32 %conv255, ptr %splineStarts.sroa.21.41439, align 4
+  %incdec.ptr.i.i593 = getelementptr inbounds i8, ptr %splineStarts.sroa.21.41439, i64 4
   br label %if.end258
 
 if.else.i.i594:                                   ; preds = %if.then252
-  %sub.ptr.lhs.cast.i.i.i.i.i595 = ptrtoint ptr %splineStarts.sroa.21.81439 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i596 = ptrtoint ptr %splineStarts.sroa.0.91440 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i595 = ptrtoint ptr %splineStarts.sroa.21.41439 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i596 = ptrtoint ptr %splineStarts.sroa.0.61440 to i64
   %sub.ptr.sub.i.i.i.i.i597 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i595, %sub.ptr.rhs.cast.i.i.i.i.i596
   %cmp.i.i.i.i598 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i597, 9223372036854775804
   br i1 %cmp.i.i.i.i598, label %if.then.i.i.i.i620, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i599
@@ -2808,17 +2808,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i608: ; preds = %cond.true.i
   br i1 %cmp.i.i.i.i.i.i611, label %if.then.i.i.i.i.i.i619, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i612
 
 if.then.i.i.i.i.i.i619:                           ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i608
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i609, ptr align 4 %splineStarts.sroa.0.91440, i64 %sub.ptr.sub.i.i.i.i.i597, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i609, ptr align 4 %splineStarts.sroa.0.61440, i64 %sub.ptr.sub.i.i.i.i.i597, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i612
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i612: ; preds = %if.then.i.i.i.i.i.i619, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i608
   %add.ptr.i.i.i.i.i.i613 = getelementptr inbounds i8, ptr %cond.i10.i.i.i609, i64 %sub.ptr.sub.i.i.i.i.i597
   %incdec.ptr.i.i.i614 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i613, i64 4
-  %tobool.not.i.i.i.i615 = icmp eq ptr %splineStarts.sroa.0.91440, null
+  %tobool.not.i.i.i.i615 = icmp eq ptr %splineStarts.sroa.0.61440, null
   br i1 %tobool.not.i.i.i.i615, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617, label %if.then.i18.i.i.i616
 
 if.then.i18.i.i.i616:                             ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i612
-  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.91440) #19
+  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.61440) #19
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617: ; preds = %if.then.i18.i.i.i616, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i612
@@ -2826,9 +2826,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %if.end258
 
 if.end258:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617, %if.then.i.i592, %land.lhs.true, %for.body242
-  %splineStarts.sroa.46.10 = phi ptr [ %splineStarts.sroa.46.81438, %land.lhs.true ], [ %splineStarts.sroa.46.81438, %for.body242 ], [ %add.ptr19.i.i.i618, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %splineStarts.sroa.46.81438, %if.then.i.i592 ]
-  %splineStarts.sroa.21.10 = phi ptr [ %splineStarts.sroa.21.81439, %land.lhs.true ], [ %splineStarts.sroa.21.81439, %for.body242 ], [ %incdec.ptr.i.i.i614, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %incdec.ptr.i.i593, %if.then.i.i592 ]
-  %splineStarts.sroa.0.11 = phi ptr [ %splineStarts.sroa.0.91440, %land.lhs.true ], [ %splineStarts.sroa.0.91440, %for.body242 ], [ %cond.i10.i.i.i609, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %splineStarts.sroa.0.91440, %if.then.i.i592 ]
+  %splineStarts.sroa.46.5 = phi ptr [ %splineStarts.sroa.46.41438, %land.lhs.true ], [ %splineStarts.sroa.46.41438, %for.body242 ], [ %add.ptr19.i.i.i618, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %splineStarts.sroa.46.41438, %if.then.i.i592 ]
+  %splineStarts.sroa.21.5 = phi ptr [ %splineStarts.sroa.21.41439, %land.lhs.true ], [ %splineStarts.sroa.21.41439, %for.body242 ], [ %incdec.ptr.i.i.i614, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %incdec.ptr.i.i593, %if.then.i.i592 ]
+  %splineStarts.sroa.0.7 = phi ptr [ %splineStarts.sroa.0.61440, %land.lhs.true ], [ %splineStarts.sroa.0.61440, %for.body242 ], [ %cond.i10.i.i.i609, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %splineStarts.sroa.0.61440, %if.then.i.i592 ]
   %spline.1 = phi i32 [ %spline.01445, %land.lhs.true ], [ %spline.01445, %for.body242 ], [ %add246, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i617 ], [ %add246, %if.then.i.i592 ]
   %conv262 = sext i32 %rem245 to i64
   %71 = load ptr, ptr %contour.sroa.0.01477, align 8
@@ -2837,16 +2837,16 @@ if.end258:                                        ; preds = %_ZNSt6vectorIiSaIiE
           to label %invoke.cont264 unwind label %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit
 
 invoke.cont264:                                   ; preds = %if.end258
-  %cmp.not.i.i628 = icmp eq ptr %edgeSegments.sroa.30.131442, %edgeSegments.sroa.73.131441
+  %cmp.not.i.i628 = icmp eq ptr %edgeSegments.sroa.30.51442, %edgeSegments.sroa.73.51441
   br i1 %cmp.not.i.i628, label %if.else.i.i631, label %if.then.i.i629
 
 if.then.i.i629:                                   ; preds = %invoke.cont264
-  store ptr %call265, ptr %edgeSegments.sroa.30.131442, align 8
+  store ptr %call265, ptr %edgeSegments.sroa.30.51442, align 8
   br label %for.inc267
 
 if.else.i.i631:                                   ; preds = %invoke.cont264
-  %sub.ptr.lhs.cast.i.i.i.i.i632 = ptrtoint ptr %edgeSegments.sroa.30.131442 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i633 = ptrtoint ptr %edgeSegments.sroa.0.141443 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i632 = ptrtoint ptr %edgeSegments.sroa.30.51442 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i633 = ptrtoint ptr %edgeSegments.sroa.0.71443 to i64
   %sub.ptr.sub.i.i.i.i.i634 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i632, %sub.ptr.rhs.cast.i.i.i.i.i633
   %cmp.i.i.i.i635 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i634, 9223372036854775800
   br i1 %cmp.i.i.i.i635, label %if.then.i.i.i.i657, label %_ZNKSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i636
@@ -2881,16 +2881,16 @@ _ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i.i64
   br i1 %cmp.i.i.i.i.i.i648, label %if.then.i.i.i.i.i.i656, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i649
 
 if.then.i.i.i.i.i.i656:                           ; preds = %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i.i645
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i646, ptr align 8 %edgeSegments.sroa.0.141443, i64 %sub.ptr.sub.i.i.i.i.i634, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i646, ptr align 8 %edgeSegments.sroa.0.71443, i64 %sub.ptr.sub.i.i.i.i.i634, i1 false)
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i649
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i649: ; preds = %if.then.i.i.i.i.i.i656, %_ZNSt12_Vector_baseIPN7msdfgen11EdgeSegmentESaIS2_EE11_M_allocateEm.exit.i.i.i645
   %add.ptr.i.i.i.i.i.i650 = getelementptr inbounds i8, ptr %cond.i10.i.i.i646, i64 %sub.ptr.sub.i.i.i.i.i634
-  %tobool.not.i.i.i.i652 = icmp eq ptr %edgeSegments.sroa.0.141443, null
+  %tobool.not.i.i.i.i652 = icmp eq ptr %edgeSegments.sroa.0.71443, null
   br i1 %tobool.not.i.i.i.i652, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654, label %if.then.i18.i.i.i653
 
 if.then.i18.i.i.i653:                             ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i649
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.141443) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.71443) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654: ; preds = %if.then.i18.i.i.i653, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i649
@@ -2898,48 +2898,48 @@ _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu
   br label %for.inc267
 
 for.inc267:                                       ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654, %if.then.i.i629
-  %edgeSegments.sroa.73.14 = phi ptr [ %add.ptr19.i.i.i655, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654 ], [ %edgeSegments.sroa.73.131441, %if.then.i.i629 ]
-  %add.ptr.i.i.i.i.i.i650.pn = phi ptr [ %add.ptr.i.i.i.i.i.i650, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654 ], [ %edgeSegments.sroa.30.131442, %if.then.i.i629 ]
-  %edgeSegments.sroa.0.15 = phi ptr [ %cond.i10.i.i.i646, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654 ], [ %edgeSegments.sroa.0.141443, %if.then.i.i629 ]
-  %edgeSegments.sroa.30.14 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i650.pn, i64 8
+  %edgeSegments.sroa.73.15 = phi ptr [ %add.ptr19.i.i.i655, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654 ], [ %edgeSegments.sroa.73.51441, %if.then.i.i629 ]
+  %add.ptr.i.i.i.i.i.i650.pn = phi ptr [ %add.ptr.i.i.i.i.i.i650, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654 ], [ %edgeSegments.sroa.30.51442, %if.then.i.i629 ]
+  %edgeSegments.sroa.0.17 = phi ptr [ %cond.i10.i.i.i646, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i654 ], [ %edgeSegments.sroa.0.71443, %if.then.i.i629 ]
+  %edgeSegments.sroa.30.15 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i650.pn, i64 8
   %inc268 = add nuw nsw i32 %i239.01444, 1
   %exitcond.not = icmp eq i32 %inc268, %conv238
   br i1 %exitcond.not, label %for.inc273, label %for.body242, !llvm.loop !27
 
 for.inc273:                                       ; preds = %for.inc267, %invoke.cont224, %for.inc129, %for.inc77, %if.else230, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit, %if.then87, %if.then58, %for.body, %if.else132
-  %corners.sroa.21.4 = phi ptr [ %corners.sroa.21.01479, %for.body ], [ %corners.sroa.21.1.lcssa, %if.else132 ], [ %corners.sroa.21.1.lcssa, %if.then58 ], [ %corners.sroa.21.1.lcssa, %if.then87 ], [ %corners.sroa.21.1.lcssa, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.21.1.lcssa, %if.else230 ], [ %corners.sroa.21.1.lcssa, %for.inc77 ], [ %corners.sroa.21.1.lcssa, %for.inc129 ], [ %corners.sroa.21.1.lcssa, %invoke.cont224 ], [ %corners.sroa.21.1.lcssa, %for.inc267 ]
-  %corners.sroa.0.5 = phi ptr [ %corners.sroa.0.01480, %for.body ], [ %corners.sroa.0.1.lcssa, %if.else132 ], [ %corners.sroa.0.1.lcssa, %if.then58 ], [ %corners.sroa.0.1.lcssa, %if.then87 ], [ %corners.sroa.0.1.lcssa, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.0.1.lcssa, %if.else230 ], [ %corners.sroa.0.1.lcssa, %for.inc77 ], [ %corners.sroa.0.1.lcssa, %for.inc129 ], [ %corners.sroa.0.1.lcssa, %invoke.cont224 ], [ %corners.sroa.0.1.lcssa, %for.inc267 ]
-  %splineStarts.sroa.46.11 = phi ptr [ %splineStarts.sroa.46.01481, %for.body ], [ %splineStarts.sroa.46.1, %if.else132 ], [ %splineStarts.sroa.46.1, %if.then58 ], [ %splineStarts.sroa.46.1, %if.then87 ], [ %splineStarts.sroa.46.7, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %splineStarts.sroa.46.1, %if.else230 ], [ %splineStarts.sroa.46.1, %for.inc77 ], [ %splineStarts.sroa.46.4, %for.inc129 ], [ %splineStarts.sroa.46.7, %invoke.cont224 ], [ %splineStarts.sroa.46.10, %for.inc267 ]
-  %splineStarts.sroa.21.11 = phi ptr [ %splineStarts.sroa.21.01482, %for.body ], [ %splineStarts.sroa.21.1, %if.else132 ], [ %splineStarts.sroa.21.1, %if.then58 ], [ %splineStarts.sroa.21.1, %if.then87 ], [ %splineStarts.sroa.21.7, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %splineStarts.sroa.21.1, %if.else230 ], [ %splineStarts.sroa.21.1, %for.inc77 ], [ %splineStarts.sroa.21.4, %for.inc129 ], [ %splineStarts.sroa.21.7, %invoke.cont224 ], [ %splineStarts.sroa.21.10, %for.inc267 ]
-  %splineStarts.sroa.0.12 = phi ptr [ %splineStarts.sroa.0.01483, %for.body ], [ %splineStarts.sroa.0.2, %if.else132 ], [ %splineStarts.sroa.0.2, %if.then58 ], [ %splineStarts.sroa.0.2, %if.then87 ], [ %splineStarts.sroa.0.8, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %splineStarts.sroa.0.2, %if.else230 ], [ %splineStarts.sroa.0.2, %for.inc77 ], [ %splineStarts.sroa.0.5, %for.inc129 ], [ %splineStarts.sroa.0.8, %invoke.cont224 ], [ %splineStarts.sroa.0.11, %for.inc267 ]
-  %edgeSegments.sroa.73.15 = phi ptr [ %edgeSegments.sroa.73.01484, %for.body ], [ %edgeSegments.sroa.73.01484, %if.else132 ], [ %edgeSegments.sroa.73.01484, %if.then58 ], [ %edgeSegments.sroa.73.01484, %if.then87 ], [ %edgeSegments.sroa.73.12, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %edgeSegments.sroa.73.01484, %if.else230 ], [ %edgeSegments.sroa.73.2, %for.inc77 ], [ %edgeSegments.sroa.73.5, %for.inc129 ], [ %edgeSegments.sroa.73.12, %invoke.cont224 ], [ %edgeSegments.sroa.73.14, %for.inc267 ]
-  %edgeSegments.sroa.30.15 = phi ptr [ %edgeSegments.sroa.30.01485, %for.body ], [ %edgeSegments.sroa.30.01485, %if.else132 ], [ %edgeSegments.sroa.30.01485, %if.then58 ], [ %edgeSegments.sroa.30.01485, %if.then87 ], [ %edgeSegments.sroa.30.12, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %edgeSegments.sroa.30.01485, %if.else230 ], [ %edgeSegments.sroa.30.2, %for.inc77 ], [ %edgeSegments.sroa.30.5, %for.inc129 ], [ %edgeSegments.sroa.30.12, %invoke.cont224 ], [ %edgeSegments.sroa.30.14, %for.inc267 ]
-  %edgeSegments.sroa.0.16 = phi ptr [ %edgeSegments.sroa.0.01486, %for.body ], [ %edgeSegments.sroa.0.01486, %if.else132 ], [ %edgeSegments.sroa.0.01486, %if.then58 ], [ %edgeSegments.sroa.0.01486, %if.then87 ], [ %edgeSegments.sroa.0.13, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %edgeSegments.sroa.0.01486, %if.else230 ], [ %edgeSegments.sroa.0.3, %for.inc77 ], [ %edgeSegments.sroa.0.6, %for.inc129 ], [ %edgeSegments.sroa.0.13, %invoke.cont224 ], [ %edgeSegments.sroa.0.15, %for.inc267 ]
+  %corners.sroa.21.3 = phi ptr [ %corners.sroa.21.01479, %for.body ], [ %corners.sroa.21.1.lcssa, %if.else132 ], [ %corners.sroa.21.1.lcssa, %if.then58 ], [ %corners.sroa.21.1.lcssa, %if.then87 ], [ %corners.sroa.21.1.lcssa, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.21.1.lcssa, %if.else230 ], [ %corners.sroa.21.1.lcssa, %for.inc77 ], [ %corners.sroa.21.1.lcssa, %for.inc129 ], [ %corners.sroa.21.1.lcssa, %invoke.cont224 ], [ %corners.sroa.21.1.lcssa, %for.inc267 ]
+  %corners.sroa.0.5 = phi ptr [ %corners.sroa.0.01480, %for.body ], [ %corners.sroa.0.2.lcssa, %if.else132 ], [ %corners.sroa.0.2.lcssa, %if.then58 ], [ %corners.sroa.0.2.lcssa, %if.then87 ], [ %corners.sroa.0.2.lcssa, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %corners.sroa.0.2.lcssa, %if.else230 ], [ %corners.sroa.0.2.lcssa, %for.inc77 ], [ %corners.sroa.0.2.lcssa, %for.inc129 ], [ %corners.sroa.0.2.lcssa, %invoke.cont224 ], [ %corners.sroa.0.2.lcssa, %for.inc267 ]
+  %splineStarts.sroa.46.6 = phi ptr [ %splineStarts.sroa.46.01481, %for.body ], [ %splineStarts.sroa.46.7, %if.else132 ], [ %splineStarts.sroa.46.7, %if.then58 ], [ %splineStarts.sroa.46.7, %if.then87 ], [ %splineStarts.sroa.46.3, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %splineStarts.sroa.46.7, %if.else230 ], [ %splineStarts.sroa.46.7, %for.inc77 ], [ %splineStarts.sroa.46.2, %for.inc129 ], [ %splineStarts.sroa.46.3, %invoke.cont224 ], [ %splineStarts.sroa.46.5, %for.inc267 ]
+  %splineStarts.sroa.21.6 = phi ptr [ %splineStarts.sroa.21.01482, %for.body ], [ %splineStarts.sroa.21.7, %if.else132 ], [ %splineStarts.sroa.21.7, %if.then58 ], [ %splineStarts.sroa.21.7, %if.then87 ], [ %splineStarts.sroa.21.3, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %splineStarts.sroa.21.7, %if.else230 ], [ %splineStarts.sroa.21.7, %for.inc77 ], [ %splineStarts.sroa.21.2, %for.inc129 ], [ %splineStarts.sroa.21.3, %invoke.cont224 ], [ %splineStarts.sroa.21.5, %for.inc267 ]
+  %splineStarts.sroa.0.8 = phi ptr [ %splineStarts.sroa.0.01483, %for.body ], [ %splineStarts.sroa.0.9, %if.else132 ], [ %splineStarts.sroa.0.9, %if.then58 ], [ %splineStarts.sroa.0.9, %if.then87 ], [ %splineStarts.sroa.0.5, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %splineStarts.sroa.0.9, %if.else230 ], [ %splineStarts.sroa.0.9, %for.inc77 ], [ %splineStarts.sroa.0.4, %for.inc129 ], [ %splineStarts.sroa.0.5, %invoke.cont224 ], [ %splineStarts.sroa.0.7, %for.inc267 ]
+  %edgeSegments.sroa.73.6 = phi ptr [ %edgeSegments.sroa.73.01484, %for.body ], [ %edgeSegments.sroa.73.01484, %if.else132 ], [ %edgeSegments.sroa.73.01484, %if.then58 ], [ %edgeSegments.sroa.73.01484, %if.then87 ], [ %edgeSegments.sroa.73.4, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %edgeSegments.sroa.73.01484, %if.else230 ], [ %edgeSegments.sroa.73.7, %for.inc77 ], [ %edgeSegments.sroa.73.3, %for.inc129 ], [ %edgeSegments.sroa.73.4, %invoke.cont224 ], [ %edgeSegments.sroa.73.15, %for.inc267 ]
+  %edgeSegments.sroa.30.6 = phi ptr [ %edgeSegments.sroa.30.01485, %for.body ], [ %edgeSegments.sroa.30.01485, %if.else132 ], [ %edgeSegments.sroa.30.01485, %if.then58 ], [ %edgeSegments.sroa.30.01485, %if.then87 ], [ %edgeSegments.sroa.30.4, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %edgeSegments.sroa.30.01485, %if.else230 ], [ %edgeSegments.sroa.30.7, %for.inc77 ], [ %edgeSegments.sroa.30.3, %for.inc129 ], [ %edgeSegments.sroa.30.4, %invoke.cont224 ], [ %edgeSegments.sroa.30.15, %for.inc267 ]
+  %edgeSegments.sroa.0.8 = phi ptr [ %edgeSegments.sroa.0.01486, %for.body ], [ %edgeSegments.sroa.0.01486, %if.else132 ], [ %edgeSegments.sroa.0.01486, %if.then58 ], [ %edgeSegments.sroa.0.01486, %if.then87 ], [ %edgeSegments.sroa.0.6, %_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit ], [ %edgeSegments.sroa.0.01486, %if.else230 ], [ %edgeSegments.sroa.0.9, %for.inc77 ], [ %edgeSegments.sroa.0.5, %for.inc129 ], [ %edgeSegments.sroa.0.6, %invoke.cont224 ], [ %edgeSegments.sroa.0.17, %for.inc267 ]
   %incdec.ptr.i662 = getelementptr inbounds i8, ptr %contour.sroa.0.01477, i64 24
   %73 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i662, %73
   br i1 %cmp.i.not, label %for.end275, label %for.body, !llvm.loop !28
 
 for.end275:                                       ; preds = %for.inc273
-  %sub.ptr.lhs.cast.i664 = ptrtoint ptr %edgeSegments.sroa.30.15 to i64
-  %sub.ptr.rhs.cast.i665 = ptrtoint ptr %edgeSegments.sroa.0.16 to i64
+  %sub.ptr.lhs.cast.i664 = ptrtoint ptr %edgeSegments.sroa.30.6 to i64
+  %sub.ptr.rhs.cast.i665 = ptrtoint ptr %edgeSegments.sroa.0.8 to i64
   %sub.ptr.sub.i666 = sub i64 %sub.ptr.lhs.cast.i664, %sub.ptr.rhs.cast.i665
   %sub.ptr.div.i667 = lshr i64 %sub.ptr.sub.i666, 3
   %conv278 = trunc i64 %sub.ptr.div.i667 to i32
-  %cmp.not.i.i670 = icmp eq ptr %splineStarts.sroa.21.11, %splineStarts.sroa.46.11
+  %cmp.not.i.i670 = icmp eq ptr %splineStarts.sroa.21.6, %splineStarts.sroa.46.6
   br i1 %cmp.not.i.i670, label %if.else.i.i673, label %if.then.i.i671
 
 if.then.i.i671:                                   ; preds = %for.end275
-  store i32 %conv278, ptr %splineStarts.sroa.21.11, align 4
-  %incdec.ptr.i.i672 = getelementptr inbounds i8, ptr %splineStarts.sroa.21.11, i64 4
+  store i32 %conv278, ptr %splineStarts.sroa.21.6, align 4
+  %incdec.ptr.i.i672 = getelementptr inbounds i8, ptr %splineStarts.sroa.21.6, i64 4
   br label %invoke.cont279
 
 if.else.i.i673:                                   ; preds = %entry, %for.end275
   %conv2781721 = phi i32 [ %conv278, %for.end275 ], [ 0, %entry ]
   %sub.ptr.div.i6671720 = phi i64 [ %sub.ptr.div.i667, %for.end275 ], [ 0, %entry ]
-  %edgeSegments.sroa.0.0.lcssa1711 = phi ptr [ %edgeSegments.sroa.0.16, %for.end275 ], [ null, %entry ]
-  %splineStarts.sroa.0.0.lcssa1710 = phi ptr [ %splineStarts.sroa.0.12, %for.end275 ], [ null, %entry ]
-  %splineStarts.sroa.46.0.lcssa1709 = phi ptr [ %splineStarts.sroa.46.11, %for.end275 ], [ null, %entry ]
+  %edgeSegments.sroa.0.0.lcssa1711 = phi ptr [ %edgeSegments.sroa.0.8, %for.end275 ], [ null, %entry ]
+  %splineStarts.sroa.0.0.lcssa1710 = phi ptr [ %splineStarts.sroa.0.8, %for.end275 ], [ null, %entry ]
+  %splineStarts.sroa.46.0.lcssa1709 = phi ptr [ %splineStarts.sroa.46.6, %for.end275 ], [ null, %entry ]
   %corners.sroa.0.0.lcssa1706 = phi ptr [ %corners.sroa.0.5, %for.end275 ], [ null, %entry ]
   %sub.ptr.lhs.cast.i.i.i.i.i674 = ptrtoint ptr %splineStarts.sroa.46.0.lcssa1709 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i675 = ptrtoint ptr %splineStarts.sroa.0.0.lcssa1710 to i64
@@ -2993,12 +2993,12 @@ if.then.i18.i.i.i695:                             ; preds = %_ZNSt6vectorIiSaIiE
 invoke.cont279:                                   ; preds = %if.then.i.i671, %if.then.i18.i.i.i695, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691
   %conv2781722 = phi i32 [ %conv278, %if.then.i.i671 ], [ %conv2781721, %if.then.i18.i.i.i695 ], [ %conv2781721, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
   %sub.ptr.div.i6671719 = phi i64 [ %sub.ptr.div.i667, %if.then.i.i671 ], [ %sub.ptr.div.i6671720, %if.then.i18.i.i.i695 ], [ %sub.ptr.div.i6671720, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
-  %edgeSegments.sroa.0.0.lcssa1712 = phi ptr [ %edgeSegments.sroa.0.16, %if.then.i.i671 ], [ %edgeSegments.sroa.0.0.lcssa1711, %if.then.i18.i.i.i695 ], [ %edgeSegments.sroa.0.0.lcssa1711, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
+  %edgeSegments.sroa.0.0.lcssa1712 = phi ptr [ %edgeSegments.sroa.0.8, %if.then.i.i671 ], [ %edgeSegments.sroa.0.0.lcssa1711, %if.then.i18.i.i.i695 ], [ %edgeSegments.sroa.0.0.lcssa1711, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
   %corners.sroa.0.0.lcssa1707 = phi ptr [ %corners.sroa.0.5, %if.then.i.i671 ], [ %corners.sroa.0.0.lcssa1706, %if.then.i18.i.i.i695 ], [ %corners.sroa.0.0.lcssa1706, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
   %splineStarts.sroa.21.12 = phi ptr [ %incdec.ptr.i.i672, %if.then.i.i671 ], [ %incdec.ptr.i.i.i693, %if.then.i18.i.i.i695 ], [ %incdec.ptr.i.i.i693, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
-  %splineStarts.sroa.0.13 = phi ptr [ %splineStarts.sroa.0.12, %if.then.i.i671 ], [ %cond.i10.i.i.i688, %if.then.i18.i.i.i695 ], [ %cond.i10.i.i.i688, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
+  %splineStarts.sroa.0.14 = phi ptr [ %splineStarts.sroa.0.8, %if.then.i.i671 ], [ %cond.i10.i.i.i688, %if.then.i18.i.i.i695 ], [ %cond.i10.i.i.i688, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i691 ]
   %sub.ptr.lhs.cast.i710 = ptrtoint ptr %splineStarts.sroa.21.12 to i64
-  %sub.ptr.rhs.cast.i711 = ptrtoint ptr %splineStarts.sroa.0.13 to i64
+  %sub.ptr.rhs.cast.i711 = ptrtoint ptr %splineStarts.sroa.0.14 to i64
   %sub.ptr.sub.i712 = sub i64 %sub.ptr.lhs.cast.i710, %sub.ptr.rhs.cast.i711
   %sub.ptr.div.i713 = lshr exact i64 %sub.ptr.sub.i712, 2
   %conv283 = trunc i64 %sub.ptr.div.i713 to i32
@@ -3100,18 +3100,18 @@ for.body313:                                      ; preds = %for.body313.prehead
   br i1 %cmp3201495, label %for.body321.lr.ph, label %for.cond311.loopexit
 
 for.body321.lr.ph:                                ; preds = %for.body313
-  %add.ptr.i742 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.13, i64 %indvars.iv1655
-  %add.ptr.i743 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.13, i64 %indvars.iv.next1656
+  %add.ptr.i742 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv1655
+  %add.ptr.i743 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv.next1656
   br label %for.body321
 
 for.body321:                                      ; preds = %for.body321.lr.ph, %invoke.cont334
   %indvars.iv1650 = phi i64 [ %indvars.iv1648, %for.body321.lr.ph ], [ %indvars.iv.next1651, %invoke.cont334 ]
   %82 = load i32, ptr %add.ptr.i742, align 4
   %83 = load i32, ptr %add.ptr.i743, align 4
-  %add.ptr.i744 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.13, i64 %indvars.iv1650
+  %add.ptr.i744 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv1650
   %84 = load i32, ptr %add.ptr.i744, align 4
   %indvars.iv.next1651 = add nuw nsw i64 %indvars.iv1650, 1
-  %add.ptr.i745 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.13, i64 %indvars.iv.next1651
+  %add.ptr.i745 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv.next1651
   %85 = load i32, ptr %add.ptr.i745, align 4
   %cmp12.i = icmp slt i32 %82, %83
   %cmp28.i = icmp slt i32 %84, %85
@@ -3399,17 +3399,17 @@ _ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_
   br label %for.body359.preheader
 
 for.body359.preheader:                            ; preds = %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i, %if.end.i
-  %graphEdgeDistances.sroa.0.0 = phi ptr [ %call5.i.i.i.i774, %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %if.end.i ]
-  %graphEdgeDistances.sroa.23.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %if.end.i ]
+  %graphEdgeDistances.sroa.0.4 = phi ptr [ %call5.i.i.i.i774, %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %if.end.i ]
+  %graphEdgeDistances.sroa.23.2 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %if.end.i ]
   %smax1671 = call i32 @llvm.smax.i32(i32 %sub284, i32 1)
   %wide.trip.count1672 = zext nneg i32 %smax1671 to i64
   %wide.trip.count1666 = zext i32 %sub284 to i64
   br label %for.body359
 
 for.cond357.loopexit:                             ; preds = %for.inc371, %for.body359
-  %graphEdgeDistances.sroa.0.2.lcssa = phi ptr [ %graphEdgeDistances.sroa.0.11508, %for.body359 ], [ %graphEdgeDistances.sroa.0.3, %for.inc371 ]
-  %graphEdgeDistances.sroa.14.2.lcssa = phi ptr [ %graphEdgeDistances.sroa.14.11509, %for.body359 ], [ %graphEdgeDistances.sroa.14.3, %for.inc371 ]
-  %graphEdgeDistances.sroa.23.2.lcssa = phi ptr [ %graphEdgeDistances.sroa.23.11510, %for.body359 ], [ %graphEdgeDistances.sroa.23.3, %for.inc371 ]
+  %graphEdgeDistances.sroa.0.2.lcssa = phi ptr [ %graphEdgeDistances.sroa.0.11508, %for.body359 ], [ %graphEdgeDistances.sroa.0.5, %for.inc371 ]
+  %graphEdgeDistances.sroa.14.1.lcssa = phi ptr [ %graphEdgeDistances.sroa.14.01509, %for.body359 ], [ %graphEdgeDistances.sroa.14.3, %for.inc371 ]
+  %graphEdgeDistances.sroa.23.1.lcssa = phi ptr [ %graphEdgeDistances.sroa.23.01510, %for.body359 ], [ %graphEdgeDistances.sroa.23.3, %for.inc371 ]
   %indvars.iv.next1662 = add nuw nsw i64 %indvars.iv1661, 1
   %exitcond1673.not = icmp eq i64 %indvars.iv.next1669, %wide.trip.count1672
   br i1 %exitcond1673.not, label %for.end376, label %for.body359, !llvm.loop !36
@@ -3417,9 +3417,9 @@ for.cond357.loopexit:                             ; preds = %for.inc371, %for.bo
 for.body359:                                      ; preds = %for.body359.preheader, %for.cond357.loopexit
   %indvars.iv1668 = phi i64 [ 0, %for.body359.preheader ], [ %indvars.iv.next1669, %for.cond357.loopexit ]
   %indvars.iv1661 = phi i64 [ 1, %for.body359.preheader ], [ %indvars.iv.next1662, %for.cond357.loopexit ]
-  %graphEdgeDistances.sroa.23.11510 = phi ptr [ %graphEdgeDistances.sroa.23.0, %for.body359.preheader ], [ %graphEdgeDistances.sroa.23.2.lcssa, %for.cond357.loopexit ]
-  %graphEdgeDistances.sroa.14.11509 = phi ptr [ %graphEdgeDistances.sroa.0.0, %for.body359.preheader ], [ %graphEdgeDistances.sroa.14.2.lcssa, %for.cond357.loopexit ]
-  %graphEdgeDistances.sroa.0.11508 = phi ptr [ %graphEdgeDistances.sroa.0.0, %for.body359.preheader ], [ %graphEdgeDistances.sroa.0.2.lcssa, %for.cond357.loopexit ]
+  %graphEdgeDistances.sroa.23.01510 = phi ptr [ %graphEdgeDistances.sroa.23.2, %for.body359.preheader ], [ %graphEdgeDistances.sroa.23.1.lcssa, %for.cond357.loopexit ]
+  %graphEdgeDistances.sroa.14.01509 = phi ptr [ %graphEdgeDistances.sroa.0.4, %for.body359.preheader ], [ %graphEdgeDistances.sroa.14.1.lcssa, %for.cond357.loopexit ]
+  %graphEdgeDistances.sroa.0.11508 = phi ptr [ %graphEdgeDistances.sroa.0.4, %for.body359.preheader ], [ %graphEdgeDistances.sroa.0.2.lcssa, %for.cond357.loopexit ]
   %indvars.iv.next1669 = add nuw nsw i64 %indvars.iv1668, 1
   %cmp3631499 = icmp slt i64 %indvars.iv.next1669, %conv293
   br i1 %cmp3631499, label %for.body364.lr.ph, label %for.cond357.loopexit
@@ -3430,20 +3430,20 @@ for.body364.lr.ph:                                ; preds = %for.body359
 
 for.body364:                                      ; preds = %for.body364.lr.ph, %for.inc371
   %indvars.iv1663 = phi i64 [ %indvars.iv1661, %for.body364.lr.ph ], [ %indvars.iv.next1664, %for.inc371 ]
-  %graphEdgeDistances.sroa.23.21502 = phi ptr [ %graphEdgeDistances.sroa.23.11510, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.23.3, %for.inc371 ]
-  %graphEdgeDistances.sroa.14.21501 = phi ptr [ %graphEdgeDistances.sroa.14.11509, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.14.3, %for.inc371 ]
-  %graphEdgeDistances.sroa.0.21500 = phi ptr [ %graphEdgeDistances.sroa.0.11508, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.0.3, %for.inc371 ]
+  %graphEdgeDistances.sroa.23.11502 = phi ptr [ %graphEdgeDistances.sroa.23.01510, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.23.3, %for.inc371 ]
+  %graphEdgeDistances.sroa.14.11501 = phi ptr [ %graphEdgeDistances.sroa.14.01509, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.14.3, %for.inc371 ]
+  %graphEdgeDistances.sroa.0.21500 = phi ptr [ %graphEdgeDistances.sroa.0.11508, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.0.5, %for.inc371 ]
   %141 = load ptr, ptr %add.ptr.i775, align 8
   %arrayidx369 = getelementptr inbounds double, ptr %141, i64 %indvars.iv1663
-  %cmp.not.i.i778 = icmp eq ptr %graphEdgeDistances.sroa.14.21501, %graphEdgeDistances.sroa.23.21502
+  %cmp.not.i.i778 = icmp eq ptr %graphEdgeDistances.sroa.14.11501, %graphEdgeDistances.sroa.23.11502
   br i1 %cmp.not.i.i778, label %if.else.i.i781, label %if.then.i.i779
 
 if.then.i.i779:                                   ; preds = %for.body364
-  store ptr %arrayidx369, ptr %graphEdgeDistances.sroa.14.21501, align 8
+  store ptr %arrayidx369, ptr %graphEdgeDistances.sroa.14.11501, align 8
   br label %for.inc371
 
 if.else.i.i781:                                   ; preds = %for.body364
-  %sub.ptr.lhs.cast.i.i.i.i.i782 = ptrtoint ptr %graphEdgeDistances.sroa.23.21502 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i782 = ptrtoint ptr %graphEdgeDistances.sroa.23.11502 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i783 = ptrtoint ptr %graphEdgeDistances.sroa.0.21500 to i64
   %sub.ptr.sub.i.i.i.i.i784 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i782, %sub.ptr.rhs.cast.i.i.i.i.i783
   %cmp.i.i.i.i785 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i784, 9223372036854775800
@@ -3496,9 +3496,9 @@ _ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br label %for.inc371
 
 for.inc371:                                       ; preds = %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i779
-  %graphEdgeDistances.sroa.0.3 = phi ptr [ %cond.i10.i.i.i794, %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %graphEdgeDistances.sroa.0.21500, %if.then.i.i779 ]
-  %add.ptr.i.i.i.i.i.i797.pn = phi ptr [ %add.ptr.i.i.i.i.i.i797, %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %graphEdgeDistances.sroa.14.21501, %if.then.i.i779 ]
-  %graphEdgeDistances.sroa.23.3 = phi ptr [ %add.ptr19.i.i.i801, %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %graphEdgeDistances.sroa.23.21502, %if.then.i.i779 ]
+  %graphEdgeDistances.sroa.0.5 = phi ptr [ %cond.i10.i.i.i794, %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %graphEdgeDistances.sroa.0.21500, %if.then.i.i779 ]
+  %add.ptr.i.i.i.i.i.i797.pn = phi ptr [ %add.ptr.i.i.i.i.i.i797, %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %graphEdgeDistances.sroa.14.11501, %if.then.i.i779 ]
+  %graphEdgeDistances.sroa.23.3 = phi ptr [ %add.ptr19.i.i.i801, %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %graphEdgeDistances.sroa.23.11502, %if.then.i.i779 ]
   %graphEdgeDistances.sroa.14.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i797.pn, i64 8
   %indvars.iv.next1664 = add nuw nsw i64 %indvars.iv1663, 1
   %exitcond1667.not = icmp eq i64 %indvars.iv.next1664, %wide.trip.count1666
@@ -3510,18 +3510,18 @@ lpad354.loopexit:                                 ; preds = %cond.true.i.i.i.i79
   br label %ehcleanup482
 
 lpad354.loopexit.split-lp:                        ; preds = %if.then380, %if.then.i772, %_ZNSt12_Vector_baseIPKdSaIS1_EE11_M_allocateEm.exit.i, %if.then.i.i.i.i803
-  %graphEdgeDistances.sroa.0.4.ph = phi ptr [ null, %_ZNSt12_Vector_baseIPKdSaIS1_EE11_M_allocateEm.exit.i ], [ %graphEdgeDistances.sroa.0.2.lcssa, %if.then380 ], [ %graphEdgeDistances.sroa.0.21500, %if.then.i.i.i.i803 ], [ null, %if.then.i772 ]
+  %graphEdgeDistances.sroa.0.0.ph = phi ptr [ null, %_ZNSt12_Vector_baseIPKdSaIS1_EE11_M_allocateEm.exit.i ], [ %graphEdgeDistances.sroa.0.2.lcssa, %if.then380 ], [ %graphEdgeDistances.sroa.0.21500, %if.then.i.i.i.i803 ], [ null, %if.then.i772 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup482
 
 for.end376:                                       ; preds = %for.cond357.loopexit
-  %sub.ptr.lhs.cast.i808 = ptrtoint ptr %graphEdgeDistances.sroa.14.2.lcssa to i64
+  %sub.ptr.lhs.cast.i808 = ptrtoint ptr %graphEdgeDistances.sroa.14.1.lcssa to i64
   %sub.ptr.rhs.cast.i809 = ptrtoint ptr %graphEdgeDistances.sroa.0.2.lcssa to i64
   %sub.ptr.sub.i810 = sub i64 %sub.ptr.lhs.cast.i808, %sub.ptr.rhs.cast.i809
   %sub.ptr.div.i811 = ashr exact i64 %sub.ptr.sub.i810, 3
   %conv378 = trunc i64 %sub.ptr.div.i811 to i32
-  %cmp.i.i813 = icmp eq ptr %graphEdgeDistances.sroa.0.2.lcssa, %graphEdgeDistances.sroa.14.2.lcssa
+  %cmp.i.i813 = icmp eq ptr %graphEdgeDistances.sroa.0.2.lcssa, %graphEdgeDistances.sroa.14.1.lcssa
   br i1 %cmp.i.i813, label %if.then.i.i.i.i.i822, label %if.then380
 
 if.then380:                                       ; preds = %for.end376
@@ -4031,7 +4031,7 @@ for.body463:                                      ; preds = %for.body463.prehead
   %spline459.01523 = phi i32 [ -1, %for.body463.preheader ], [ %spec.select, %for.body463 ]
   %add464 = add nsw i32 %spline459.01523, 1
   %conv465 = sext i32 %add464 to i64
-  %add.ptr.i916 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.13, i64 %conv465
+  %add.ptr.i916 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.14, i64 %conv465
   %201 = load i32, ptr %add.ptr.i916, align 4
   %202 = zext i32 %201 to i64
   %cmp467 = icmp eq i64 %indvars.iv1689, %202
@@ -4075,11 +4075,11 @@ if.then.i.i.i934:                                 ; preds = %cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit935
 
 _ZNSt6vectorIiSaIiEED2Ev.exit935:                 ; preds = %cleanup, %if.then.i.i.i934
-  %tobool.not.i.i.i936 = icmp eq ptr %splineStarts.sroa.0.13, null
+  %tobool.not.i.i.i936 = icmp eq ptr %splineStarts.sroa.0.14, null
   br i1 %tobool.not.i.i.i936, label %_ZNSt6vectorIiSaIiEED2Ev.exit938, label %if.then.i.i.i937
 
 if.then.i.i.i937:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit935
-  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.13) #19
+  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.14) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit938
 
 _ZNSt6vectorIiSaIiEED2Ev.exit938:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit935, %if.then.i.i.i937
@@ -4104,13 +4104,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit946:                 ; preds = %_ZNSt6vectorIPiSaIS
   br label %ehcleanup482
 
 ehcleanup482:                                     ; preds = %lpad354.loopexit, %lpad354.loopexit.split-lp, %_ZNSt6vectorIiSaIiEED2Ev.exit946, %lpad388
-  %graphEdgeDistances.sroa.0.5 = phi ptr [ %graphEdgeDistances.sroa.0.2.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit946 ], [ %graphEdgeDistances.sroa.0.2.lcssa, %lpad388 ], [ %graphEdgeDistances.sroa.0.21500, %lpad354.loopexit ], [ %graphEdgeDistances.sroa.0.4.ph, %lpad354.loopexit.split-lp ]
+  %graphEdgeDistances.sroa.0.3 = phi ptr [ %graphEdgeDistances.sroa.0.2.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit946 ], [ %graphEdgeDistances.sroa.0.2.lcssa, %lpad388 ], [ %graphEdgeDistances.sroa.0.21500, %lpad354.loopexit ], [ %graphEdgeDistances.sroa.0.0.ph, %lpad354.loopexit.split-lp ]
   %.pn94 = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit946 ], [ %146, %lpad388 ], [ %lpad.loopexit, %lpad354.loopexit ], [ %lpad.loopexit.split-lp, %lpad354.loopexit.split-lp ]
-  %tobool.not.i.i.i947 = icmp eq ptr %graphEdgeDistances.sroa.0.5, null
+  %tobool.not.i.i.i947 = icmp eq ptr %graphEdgeDistances.sroa.0.3, null
   br i1 %tobool.not.i.i.i947, label %_ZNSt6vectorIPdSaIS0_EED2Ev.exit952, label %if.then.i.i.i948
 
 if.then.i.i.i948:                                 ; preds = %ehcleanup482
-  call void @_ZdlPv(ptr noundef nonnull %graphEdgeDistances.sroa.0.5) #19
+  call void @_ZdlPv(ptr noundef nonnull %graphEdgeDistances.sroa.0.3) #19
   br label %_ZNSt6vectorIPdSaIS0_EED2Ev.exit952
 
 _ZNSt6vectorIPdSaIS0_EED2Ev.exit952:              ; preds = %lpad333.loopexit, %lpad333.loopexit.split-lp.loopexit.split-lp, %lpad333.loopexit.split-lp.loopexit, %if.then.i.i.i948, %ehcleanup482
@@ -4124,31 +4124,31 @@ _ZNSt6vectorIdSaIdEED2Ev.exit955:                 ; preds = %_ZNSt6vectorIPdSaIS
   br label %ehcleanup485
 
 ehcleanup485:                                     ; preds = %lpad.loopexit1157, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp1158.loopexit, %_ZNSt6vectorIdSaIdEED2Ev.exit955, %lpad291, %lpad223
-  %corners.sroa.0.6 = phi ptr [ %corners.sroa.0.1.lcssa, %lpad223 ], [ %corners.sroa.0.0.lcssa1707, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %corners.sroa.0.0.lcssa1707, %lpad291 ], [ %corners.sroa.0.1.lcssa, %lpad.loopexit1157 ], [ %corners.sroa.0.1.lcssa, %lpad.loopexit.split-lp1158.loopexit ], [ %corners.sroa.0.1.lcssa, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph1173.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.3.ph.ph.ph.ph1173.ph1177, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %splineStarts.sroa.0.14 = phi ptr [ %splineStarts.sroa.0.8, %lpad223 ], [ %splineStarts.sroa.0.13, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %splineStarts.sroa.0.13, %lpad291 ], [ %splineStarts.sroa.0.2, %lpad.loopexit1157 ], [ %splineStarts.sroa.0.1.ph.ph, %lpad.loopexit.split-lp1158.loopexit ], [ %splineStarts.sroa.0.1.ph.ph1163.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %splineStarts.sroa.0.01483, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph1178, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %edgeSegments.sroa.0.17 = phi ptr [ %edgeSegments.sroa.0.13, %lpad223 ], [ %edgeSegments.sroa.0.0.lcssa1712, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %edgeSegments.sroa.0.0.lcssa1712, %lpad291 ], [ %edgeSegments.sroa.0.21472, %lpad.loopexit1157 ], [ %edgeSegments.sroa.0.41460, %lpad.loopexit.split-lp1158.loopexit ], [ %edgeSegments.sroa.0.141443, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %edgeSegments.sroa.0.01486, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph1179, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.2.lcssa, %lpad223 ], [ %corners.sroa.0.0.lcssa1707, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %corners.sroa.0.0.lcssa1707, %lpad291 ], [ %corners.sroa.0.2.lcssa, %lpad.loopexit1157 ], [ %corners.sroa.0.2.lcssa, %lpad.loopexit.split-lp1158.loopexit ], [ %corners.sroa.0.2.lcssa, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %corners.sroa.0.1.ph.ph.ph.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.1.ph.ph.ph.ph1173.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %corners.sroa.0.1.ph.ph.ph.ph1173.ph1177, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %splineStarts.sroa.0.2 = phi ptr [ %splineStarts.sroa.0.5, %lpad223 ], [ %splineStarts.sroa.0.14, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %splineStarts.sroa.0.14, %lpad291 ], [ %splineStarts.sroa.0.9, %lpad.loopexit1157 ], [ %splineStarts.sroa.0.1.ph.ph, %lpad.loopexit.split-lp1158.loopexit ], [ %splineStarts.sroa.0.1.ph.ph1163.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %splineStarts.sroa.0.01483, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %splineStarts.sroa.0.1.ph.ph1163.ph1169.ph.ph1178, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %edgeSegments.sroa.0.2 = phi ptr [ %edgeSegments.sroa.0.6, %lpad223 ], [ %edgeSegments.sroa.0.0.lcssa1712, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %edgeSegments.sroa.0.0.lcssa1712, %lpad291 ], [ %edgeSegments.sroa.0.31472, %lpad.loopexit1157 ], [ %edgeSegments.sroa.0.41460, %lpad.loopexit.split-lp1158.loopexit ], [ %edgeSegments.sroa.0.71443, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %edgeSegments.sroa.0.01486, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %edgeSegments.sroa.0.1.ph.ph.ph.ph.ph1179, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn99 = phi { ptr, i32 } [ %65, %lpad223 ], [ %.pn96.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit955 ], [ %79, %lpad291 ], [ %lpad.loopexit1159, %lpad.loopexit1157 ], [ %lpad.loopexit1164, %lpad.loopexit.split-lp1158.loopexit ], [ %lpad.loopexit1170, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit ], [ %lpad.loopexit1174, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1180, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1181, %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i956 = icmp eq ptr %corners.sroa.0.6, null
+  %tobool.not.i.i.i956 = icmp eq ptr %corners.sroa.0.4, null
   br i1 %tobool.not.i.i.i956, label %_ZNSt6vectorIiSaIiEED2Ev.exit958, label %if.then.i.i.i957
 
 if.then.i.i.i957:                                 ; preds = %ehcleanup485
-  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.6) #19
+  call void @_ZdlPv(ptr noundef nonnull %corners.sroa.0.4) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit958
 
 _ZNSt6vectorIiSaIiEED2Ev.exit958:                 ; preds = %ehcleanup485, %if.then.i.i.i957
-  %tobool.not.i.i.i959 = icmp eq ptr %splineStarts.sroa.0.14, null
+  %tobool.not.i.i.i959 = icmp eq ptr %splineStarts.sroa.0.2, null
   br i1 %tobool.not.i.i.i959, label %_ZNSt6vectorIiSaIiEED2Ev.exit961, label %if.then.i.i.i960
 
 if.then.i.i.i960:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit958
-  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.14) #19
+  call void @_ZdlPv(ptr noundef nonnull %splineStarts.sroa.0.2) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit961
 
 _ZNSt6vectorIiSaIiEED2Ev.exit961:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit958, %if.then.i.i.i960
-  %tobool.not.i.i.i962 = icmp eq ptr %edgeSegments.sroa.0.17, null
+  %tobool.not.i.i.i962 = icmp eq ptr %edgeSegments.sroa.0.2, null
   br i1 %tobool.not.i.i.i962, label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EED2Ev.exit964, label %if.then.i.i.i963
 
 if.then.i.i.i963:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit961
-  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.17) #19
+  call void @_ZdlPv(ptr noundef nonnull %edgeSegments.sroa.0.2) #19
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EED2Ev.exit964
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EED2Ev.exit964: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit961, %if.then.i.i.i963

@@ -58,19 +58,19 @@ for.cond87.preheader.loopexit:                    ; preds = %for.inc83
 
 for.cond87.preheader:                             ; preds = %for.cond87.preheader.loopexit, %entry
   %_numSymbols.promoted = phi i32 [ 0, %entry ], [ %_numSymbols.promoted.pre, %for.cond87.preheader.loopexit ]
-  %currByte.0.lcssa = phi ptr [ %0, %entry ], [ %currByte.5, %for.cond87.preheader.loopexit ]
-  %symbols.sroa.6.0.lcssa = phi ptr [ null, %entry ], [ %symbols.sroa.6.2, %for.cond87.preheader.loopexit ]
-  %symbols.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %symbols.sroa.0.2, %for.cond87.preheader.loopexit ]
+  %currByte.0.lcssa = phi ptr [ %0, %entry ], [ %currByte.1, %for.cond87.preheader.loopexit ]
+  %symbols.sroa.6.0.lcssa = phi ptr [ null, %entry ], [ %symbols.sroa.6.1, %for.cond87.preheader.loopexit ]
+  %symbols.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %symbols.sroa.0.1, %for.cond87.preheader.loopexit ]
   br label %for.body89
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.inc83
   %symbol.0129 = phi i64 [ %conv, %for.body9.lr.ph ], [ %inc84, %for.inc83 ]
-  %symbols.sroa.0.0128 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.0.2, %for.inc83 ]
-  %symbols.sroa.6.0127 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.6.2, %for.inc83 ]
-  %symbols.sroa.11.0126 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.11.2, %for.inc83 ]
-  %currBitCount.0125 = phi i32 [ 0, %for.body9.lr.ph ], [ %currBitCount.3, %for.inc83 ]
-  %currBits.0124 = phi i64 [ 0, %for.body9.lr.ph ], [ %currBits.5, %for.inc83 ]
-  %currByte.0123 = phi ptr [ %0, %for.body9.lr.ph ], [ %currByte.5, %for.inc83 ]
+  %symbols.sroa.0.0128 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.0.1, %for.inc83 ]
+  %symbols.sroa.6.0127 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.6.1, %for.inc83 ]
+  %symbols.sroa.11.0126 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.11.1, %for.inc83 ]
+  %currBitCount.0125 = phi i32 [ 0, %for.body9.lr.ph ], [ %currBitCount.1, %for.inc83 ]
+  %currBits.0124 = phi i64 [ 0, %for.body9.lr.ph ], [ %currBits.1, %for.inc83 ]
+  %currByte.0123 = phi ptr [ %0, %for.body9.lr.ph ], [ %currByte.1, %for.inc83 ]
   %1 = load ptr, ptr %table, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %currByte.0123 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -113,31 +113,31 @@ if.end:                                           ; preds = %for.body9
   br i1 %cmp8.i, label %while.body.i, label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
-  %currByte.1 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0123, %if.end ]
-  %currBits.1 = phi i64 [ %or.i, %while.body.i ], [ %currBits.0124, %if.end ]
-  %currBitCount.1 = phi i32 [ %add.i, %while.body.i ], [ %currBitCount.0125, %if.end ]
-  %shl.i = shl i64 %currBits.1, 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %currByte.1, i64 1
-  %4 = load i8, ptr %currByte.1, align 1
+  %currByte.2 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0123, %if.end ]
+  %currBits.2 = phi i64 [ %or.i, %while.body.i ], [ %currBits.0124, %if.end ]
+  %currBitCount.2 = phi i32 [ %add.i, %while.body.i ], [ %currBitCount.0125, %if.end ]
+  %shl.i = shl i64 %currBits.2, 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %currByte.2, i64 1
+  %4 = load i8, ptr %currByte.2, align 1
   %conv.i = zext i8 %4 to i64
   %or.i = or disjoint i64 %shl.i, %conv.i
-  %add.i = add nsw i32 %currBitCount.1, 8
-  %cmp.i = icmp slt i32 %currBitCount.1, -2
+  %add.i = add nsw i32 %currBitCount.2, 8
+  %cmp.i = icmp slt i32 %currBitCount.2, -2
   br i1 %cmp.i, label %while.body.i, label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit, !llvm.loop !4
 
 _ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit: ; preds = %while.body.i, %if.end
-  %currByte.2 = phi ptr [ %currByte.0123, %if.end ], [ %incdec.ptr.i, %while.body.i ]
-  %currBits.2 = phi i64 [ %currBits.0124, %if.end ], [ %or.i, %while.body.i ]
+  %currByte.3 = phi ptr [ %currByte.0123, %if.end ], [ %incdec.ptr.i, %while.body.i ]
+  %currBits.3 = phi i64 [ %currBits.0124, %if.end ], [ %or.i, %while.body.i ]
   %.lcssa.i = phi i32 [ %currBitCount.0125, %if.end ], [ %add.i, %while.body.i ]
   %sub.i = add nsw i32 %.lcssa.i, -6
   %sh_prom.i = zext nneg i32 %sub.i to i64
-  %shr.i = lshr i64 %currBits.2, %sh_prom.i
+  %shr.i = lshr i64 %currBits.3, %sh_prom.i
   %and.i = and i64 %shr.i, 63
   %cmp14 = icmp eq i64 %and.i, 63
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit
-  %sub.ptr.lhs.cast16 = ptrtoint ptr %currByte.2 to i64
+  %sub.ptr.lhs.cast16 = ptrtoint ptr %currByte.3 to i64
   %sub.ptr.sub18 = sub i64 %sub.ptr.lhs.cast16, %sub.ptr.rhs.cast
   %cmp20.not = icmp slt i64 %sub.ptr.sub18, %conv10
   br i1 %cmp20.not, label %if.end25, label %if.then21
@@ -159,20 +159,20 @@ if.end25:                                         ; preds = %if.then15
 
 _ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit: ; preds = %if.end25
   %add.i72 = add nuw nsw i32 %.lcssa.i, 2
-  %shl.i68 = shl i64 %currBits.2, 8
-  %6 = load i8, ptr %currByte.2, align 1
+  %shl.i68 = shl i64 %currBits.3, 8
+  %6 = load i8, ptr %currByte.3, align 1
   %conv.i70 = zext i8 %6 to i64
   %or.i71 = or disjoint i64 %shl.i68, %conv.i70
-  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %currByte.2, i64 1
+  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %currByte.3, i64 1
   br label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74
 
 _ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74: ; preds = %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit, %if.end25
-  %currByte.4 = phi ptr [ %currByte.2, %if.end25 ], [ %incdec.ptr.i69, %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit ]
-  %currBits.4 = phi i64 [ %currBits.2, %if.end25 ], [ %or.i71, %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit ]
+  %currByte.5 = phi ptr [ %currByte.3, %if.end25 ], [ %incdec.ptr.i69, %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit ]
+  %currBits.5 = phi i64 [ %currBits.3, %if.end25 ], [ %or.i71, %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit ]
   %.lcssa.i62 = phi i32 [ %sub.i, %if.end25 ], [ %add.i72, %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit ]
   %sub.i63 = add nsw i32 %.lcssa.i62, -8
   %sh_prom.i64 = zext nneg i32 %sub.i63 to i64
-  %shr.i65 = lshr i64 %currBits.4, %sh_prom.i64
+  %shr.i65 = lshr i64 %currBits.5, %sh_prom.i64
   %and.i66 = shl i64 %shr.i65, 32
   %conv28 = and i64 %and.i66, 1095216660480
   %sext58 = add nuw nsw i64 %conv28, 25769803776
@@ -295,10 +295,10 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   br label %invoke.cont63
 
 invoke.cont63:                                    ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %if.then.i.i
-  %symbols.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.11.0126, %if.then.i.i ]
+  %symbols.sroa.11.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.11.0126, %if.then.i.i ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.6.0127, %if.then.i.i ]
-  %symbols.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.0.0128, %if.then.i.i ]
-  %symbols.sroa.6.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
+  %symbols.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.0.0128, %if.then.i.i ]
+  %symbols.sroa.6.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   %10 = load i8, ptr %_minCodeLength, align 8
   %conv65 = zext i8 %10 to i64
   %cmp66 = icmp ult i64 %and.i, %conv65
@@ -328,12 +328,12 @@ if.end77:                                         ; preds = %if.then74, %if.end7
   br label %for.inc83
 
 for.inc83:                                        ; preds = %if.end38, %if.else60, %if.end77, %if.end56
-  %currByte.5 = phi ptr [ %currByte.4, %if.end38 ], [ %currByte.2, %if.end56 ], [ %currByte.2, %if.else60 ], [ %currByte.2, %if.end77 ]
-  %currBits.5 = phi i64 [ %currBits.4, %if.end38 ], [ %currBits.2, %if.end56 ], [ %currBits.2, %if.else60 ], [ %currBits.2, %if.end77 ]
-  %currBitCount.3 = phi i32 [ %sub.i63, %if.end38 ], [ %sub.i, %if.end56 ], [ %sub.i, %if.else60 ], [ %sub.i, %if.end77 ]
-  %symbols.sroa.11.2 = phi ptr [ %symbols.sroa.11.0126, %if.end38 ], [ %symbols.sroa.11.0126, %if.end56 ], [ %symbols.sroa.11.0126, %if.else60 ], [ %symbols.sroa.11.1, %if.end77 ]
-  %symbols.sroa.6.2 = phi ptr [ %symbols.sroa.6.0127, %if.end38 ], [ %symbols.sroa.6.0127, %if.end56 ], [ %symbols.sroa.6.0127, %if.else60 ], [ %symbols.sroa.6.1, %if.end77 ]
-  %symbols.sroa.0.2 = phi ptr [ %symbols.sroa.0.0128, %if.end38 ], [ %symbols.sroa.0.0128, %if.end56 ], [ %symbols.sroa.0.0128, %if.else60 ], [ %symbols.sroa.0.1, %if.end77 ]
+  %currByte.1 = phi ptr [ %currByte.5, %if.end38 ], [ %currByte.3, %if.end56 ], [ %currByte.3, %if.else60 ], [ %currByte.3, %if.end77 ]
+  %currBits.1 = phi i64 [ %currBits.5, %if.end38 ], [ %currBits.3, %if.end56 ], [ %currBits.3, %if.else60 ], [ %currBits.3, %if.end77 ]
+  %currBitCount.1 = phi i32 [ %sub.i63, %if.end38 ], [ %sub.i, %if.end56 ], [ %sub.i, %if.else60 ], [ %sub.i, %if.end77 ]
+  %symbols.sroa.11.1 = phi ptr [ %symbols.sroa.11.0126, %if.end38 ], [ %symbols.sroa.11.0126, %if.end56 ], [ %symbols.sroa.11.0126, %if.else60 ], [ %symbols.sroa.11.2, %if.end77 ]
+  %symbols.sroa.6.1 = phi ptr [ %symbols.sroa.6.0127, %if.end38 ], [ %symbols.sroa.6.0127, %if.end56 ], [ %symbols.sroa.6.0127, %if.else60 ], [ %symbols.sroa.6.2, %if.end77 ]
+  %symbols.sroa.0.1 = phi ptr [ %symbols.sroa.0.0128, %if.end38 ], [ %symbols.sroa.0.0128, %if.end56 ], [ %symbols.sroa.0.0128, %if.else60 ], [ %symbols.sroa.0.2, %if.end77 ]
   %symbol.1 = phi i64 [ %add40, %if.end38 ], [ %add59, %if.end56 ], [ %symbol.0129, %if.else60 ], [ %symbol.0129, %if.end77 ]
   %inc84 = add i64 %symbol.1, 1
   %cmp8.not = icmp ugt i64 %inc84, %conv7
@@ -857,11 +857,11 @@ while.body.lr.ph:                                 ; preds = %if.end
 while.body:                                       ; preds = %while.body.lr.ph, %if.end93
   %bufferNumBits.0186 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferNumBits.5, %if.end93 ]
   %dstIdx.0185 = phi i32 [ 0, %while.body.lr.ph ], [ %dstIdx.1, %if.end93 ]
-  %bufferBackNumBits.0184 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferBackNumBits.14, %if.end93 ]
-  %bufferBack.0183 = phi i64 [ %2, %while.body.lr.ph ], [ %bufferBack.20, %if.end93 ]
-  %buffer.0182 = phi i64 [ %4, %while.body.lr.ph ], [ %buffer.8, %if.end93 ]
-  %currByte.0181 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %currByte.20, %if.end93 ]
-  %numSrcBits.addr.0180 = phi i32 [ %sub, %while.body.lr.ph ], [ %numSrcBits.addr.17, %if.end93 ]
+  %bufferBackNumBits.0184 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferBackNumBits.5, %if.end93 ]
+  %bufferBack.0183 = phi i64 [ %2, %while.body.lr.ph ], [ %bufferBack.5, %if.end93 ]
+  %buffer.0182 = phi i64 [ %4, %while.body.lr.ph ], [ %buffer.5, %if.end93 ]
+  %currByte.0181 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %currByte.5, %if.end93 ]
+  %numSrcBits.addr.0180 = phi i32 [ %sub, %while.body.lr.ph ], [ %numSrcBits.addr.5, %if.end93 ]
   %5 = load i64, ptr %_tableMin, align 8
   %cmp5.not = icmp ugt i64 %5, %buffer.0182
   br i1 %cmp5.not, label %if.else, label %if.then6
@@ -913,18 +913,18 @@ while.body.i.preheader:                           ; preds = %if.else.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %numSrcBits.addr.1 = phi i32 [ %sub11.i, %while.body.i ], [ %numSrcBits.addr.0180, %while.body.i.preheader ]
-  %currByte.1 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0181, %while.body.i.preheader ]
-  %bufferBack.1 = phi i64 [ %or9.i, %while.body.i ], [ 0, %while.body.i.preheader ]
+  %numSrcBits.addr.8 = phi i32 [ %sub11.i, %while.body.i ], [ %numSrcBits.addr.0180, %while.body.i.preheader ]
+  %currByte.9 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0181, %while.body.i.preheader ]
+  %bufferBack.9 = phi i64 [ %or9.i, %while.body.i ], [ 0, %while.body.i.preheader ]
   %shift.031.i = phi i64 [ %sub10.i, %while.body.i ], [ 56, %while.body.i.preheader ]
-  %12 = load i8, ptr %currByte.1, align 1
+  %12 = load i8, ptr %currByte.9, align 1
   %conv8.i = zext i8 %12 to i64
   %shl.i = shl i64 %conv8.i, %shift.031.i
-  %or9.i = or i64 %shl.i, %bufferBack.1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %currByte.1, i64 1
+  %or9.i = or i64 %shl.i, %bufferBack.9
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %currByte.9, i64 1
   %sub10.i = add nsw i64 %shift.031.i, -8
-  %sub11.i = add nsw i32 %numSrcBits.addr.1, -8
-  %cmp7.i = icmp ugt i32 %numSrcBits.addr.1, 8
+  %sub11.i = add nsw i32 %numSrcBits.addr.8, -8
+  %cmp7.i = icmp ugt i32 %numSrcBits.addr.8, 8
   br i1 %cmp7.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !18
 
 while.end.i.loopexit:                             ; preds = %while.body.i
@@ -933,36 +933,36 @@ while.end.i.loopexit:                             ; preds = %while.body.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else.i, %while.end.i.loopexit, %if.then4.i
-  %numSrcBits.addr.3 = phi i32 [ %sub5.i, %if.then4.i ], [ 0, %while.end.i.loopexit ], [ 0, %if.else.i ]
-  %currByte.4 = phi ptr [ %add.ptr.i, %if.then4.i ], [ %scevgep187, %while.end.i.loopexit ], [ %currByte.0181, %if.else.i ]
-  %bufferBack.4 = phi i64 [ %8, %if.then4.i ], [ %or9.i, %while.end.i.loopexit ], [ 0, %if.else.i ]
+  %numSrcBits.addr.7 = phi i32 [ %sub5.i, %if.then4.i ], [ 0, %while.end.i.loopexit ], [ 0, %if.else.i ]
+  %currByte.7 = phi ptr [ %add.ptr.i, %if.then4.i ], [ %scevgep187, %while.end.i.loopexit ], [ %currByte.0181, %if.else.i ]
+  %bufferBack.7 = phi i64 [ %8, %if.then4.i ], [ %or9.i, %while.end.i.loopexit ], [ 0, %if.else.i ]
   %sub15.i = sub nsw i32 64, %sub2.i
   %sh_prom16.i = zext nneg i32 %sub15.i to i64
-  %shr17.i = lshr i64 %bufferBack.4, %sh_prom16.i
+  %shr17.i = lshr i64 %bufferBack.7, %sh_prom16.i
   %or18.i = or i64 %shr17.i, %or.i
   br label %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit
 
 _ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit: ; preds = %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge, %if.end14.i
   %sub26.i.pre-phi = phi i32 [ %.pre197, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %sub15.i, %if.end14.i ]
-  %numSrcBits.addr.4 = phi i32 [ %numSrcBits.addr.0180, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %numSrcBits.addr.3, %if.end14.i ]
-  %currByte.5 = phi ptr [ %currByte.0181, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %currByte.4, %if.end14.i ]
-  %buffer.1 = phi i64 [ %or.i, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %or18.i, %if.end14.i ]
-  %bufferBack.5 = phi i64 [ %bufferBack.0183, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %bufferBack.4, %if.end14.i ]
-  %bufferBackNumBits.3 = phi i32 [ %bufferBackNumBits.0184, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ 64, %if.end14.i ]
+  %numSrcBits.addr.9 = phi i32 [ %numSrcBits.addr.0180, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %numSrcBits.addr.7, %if.end14.i ]
+  %currByte.10 = phi ptr [ %currByte.0181, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %currByte.7, %if.end14.i ]
+  %buffer.6 = phi i64 [ %or.i, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %or18.i, %if.end14.i ]
+  %bufferBack.10 = phi i64 [ %bufferBack.0183, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %bufferBack.7, %if.end14.i ]
+  %bufferBackNumBits.8 = phi i32 [ %bufferBackNumBits.0184, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ 64, %if.end14.i ]
   %numBits.addr.0.i = phi i32 [ %sub13, %if.then12._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit_crit_edge ], [ %sub2.i, %if.end14.i ]
-  %cmp20.not.i = icmp sgt i32 %bufferBackNumBits.3, %numBits.addr.0.i
+  %cmp20.not.i = icmp sgt i32 %bufferBackNumBits.8, %numBits.addr.0.i
   %sh_prom23.i = zext nneg i32 %numBits.addr.0.i to i64
-  %shl24.i = shl i64 %bufferBack.5, %sh_prom23.i
+  %shl24.i = shl i64 %bufferBack.10, %sh_prom23.i
   %storemerge.i = select i1 %cmp20.not.i, i64 %shl24.i, i64 0
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit, %if.else
-  %numSrcBits.addr.5 = phi i32 [ %numSrcBits.addr.4, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %numSrcBits.addr.0180, %if.else ]
-  %currByte.6 = phi ptr [ %currByte.5, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %currByte.0181, %if.else ]
-  %buffer.2 = phi i64 [ %buffer.1, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %buffer.0182, %if.else ]
-  %bufferBack.6 = phi i64 [ %storemerge.i, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferBack.0183, %if.else ]
-  %bufferBackNumBits.4 = phi i32 [ %sub26.i.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferBackNumBits.0184, %if.else ]
-  %bufferNumBits.1 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferNumBits.0186, %if.else ]
+  %numSrcBits.addr.2 = phi i32 [ %numSrcBits.addr.9, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %numSrcBits.addr.0180, %if.else ]
+  %currByte.2 = phi ptr [ %currByte.10, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %currByte.0181, %if.else ]
+  %buffer.2 = phi i64 [ %buffer.6, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %buffer.0182, %if.else ]
+  %bufferBack.2 = phi i64 [ %storemerge.i, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferBack.0183, %if.else ]
+  %bufferBackNumBits.2 = phi i32 [ %sub26.i.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferBackNumBits.0184, %if.else ]
+  %bufferNumBits.2 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferNumBits.0186, %if.else ]
   %13 = load i8, ptr %_maxCodeLength, align 1
   %14 = zext i8 %13 to i64
   br label %while.cond15
@@ -1027,18 +1027,18 @@ lpad40:                                           ; preds = %if.else38
   br label %eh.resume
 
 if.end43:                                         ; preds = %if.then36, %if.then6
-  %numSrcBits.addr.6 = phi i32 [ %numSrcBits.addr.5, %if.then36 ], [ %numSrcBits.addr.0180, %if.then6 ]
-  %currByte.7 = phi ptr [ %currByte.6, %if.then36 ], [ %currByte.0181, %if.then6 ]
-  %buffer.3 = phi i64 [ %buffer.2, %if.then36 ], [ %buffer.0182, %if.then6 ]
-  %bufferBack.7 = phi i64 [ %bufferBack.6, %if.then36 ], [ %bufferBack.0183, %if.then6 ]
-  %bufferBackNumBits.5 = phi i32 [ %bufferBackNumBits.4, %if.then36 ], [ %bufferBackNumBits.0184, %if.then6 ]
-  %codeLen.1 = phi i32 [ %16, %if.then36 ], [ %conv8, %if.then6 ]
+  %numSrcBits.addr.1 = phi i32 [ %numSrcBits.addr.2, %if.then36 ], [ %numSrcBits.addr.0180, %if.then6 ]
+  %currByte.1 = phi ptr [ %currByte.2, %if.then36 ], [ %currByte.0181, %if.then6 ]
+  %buffer.1 = phi i64 [ %buffer.2, %if.then36 ], [ %buffer.0182, %if.then6 ]
+  %bufferBack.1 = phi i64 [ %bufferBack.2, %if.then36 ], [ %bufferBack.0183, %if.then6 ]
+  %bufferBackNumBits.1 = phi i32 [ %bufferBackNumBits.2, %if.then36 ], [ %bufferBackNumBits.0184, %if.then6 ]
+  %codeLen.0 = phi i32 [ %16, %if.then36 ], [ %conv8, %if.then6 ]
   %symbol.0.in = phi ptr [ %arrayidx37, %if.then36 ], [ %arrayidx10, %if.then6 ]
-  %bufferNumBits.2 = phi i32 [ %bufferNumBits.1, %if.then36 ], [ %bufferNumBits.0186, %if.then6 ]
+  %bufferNumBits.1 = phi i32 [ %bufferNumBits.2, %if.then36 ], [ %bufferNumBits.0186, %if.then6 ]
   %symbol.0 = load i32, ptr %symbol.0.in, align 4
-  %sh_prom44 = zext nneg i32 %codeLen.1 to i64
-  %shl = shl i64 %buffer.3, %sh_prom44
-  %sub45 = sub nsw i32 %bufferNumBits.2, %codeLen.1
+  %sh_prom44 = zext nneg i32 %codeLen.0 to i64
+  %shl = shl i64 %buffer.1, %sh_prom44
+  %sub45 = sub nsw i32 %bufferNumBits.1, %codeLen.0
   %22 = load i32, ptr %this, align 8
   %cmp46 = icmp eq i32 %symbol.0, %22
   br i1 %cmp46, label %if.then47, label %if.else84
@@ -1050,89 +1050,89 @@ if.then47:                                        ; preds = %if.end43
 if.then49:                                        ; preds = %if.then47
   %sub50 = sub nsw i32 64, %sub45
   %sh_prom.i36 = zext nneg i32 %sub45 to i64
-  %shr.i37 = lshr i64 %bufferBack.7, %sh_prom.i36
+  %shr.i37 = lshr i64 %bufferBack.1, %sh_prom.i36
   %or.i38 = or i64 %shr.i37, %shl
-  %cmp.i39 = icmp slt i32 %bufferBackNumBits.5, %sub50
+  %cmp.i39 = icmp slt i32 %bufferBackNumBits.1, %sub50
   br i1 %cmp.i39, label %if.then.i46, label %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge
 
 if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge: ; preds = %if.then49
-  %.pre198 = sub nsw i32 %bufferBackNumBits.5, %sub50
+  %.pre198 = sub nsw i32 %bufferBackNumBits.1, %sub50
   br label %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75
 
 if.then.i46:                                      ; preds = %if.then49
-  %sub2.i47 = sub nsw i32 %sub50, %bufferBackNumBits.5
-  %cmp3.i48 = icmp sgt i32 %numSrcBits.addr.6, 63
+  %sub2.i47 = sub nsw i32 %sub50, %bufferBackNumBits.1
+  %cmp3.i48 = icmp sgt i32 %numSrcBits.addr.1, 63
   br i1 %cmp3.i48, label %if.then4.i72, label %if.else.i49
 
 if.then4.i72:                                     ; preds = %if.then.i46
-  %23 = load i64, ptr %currByte.7, align 8
+  %23 = load i64, ptr %currByte.1, align 8
   %24 = tail call i64 @llvm.bswap.i64(i64 %23)
-  %add.ptr.i73 = getelementptr inbounds i8, ptr %currByte.7, i64 8
-  %sub5.i74 = add nsw i32 %numSrcBits.addr.6, -64
+  %add.ptr.i73 = getelementptr inbounds i8, ptr %currByte.1, i64 8
+  %sub5.i74 = add nsw i32 %numSrcBits.addr.1, -64
   br label %if.end14.i55
 
 if.else.i49:                                      ; preds = %if.then.i46
-  %cmp730.i51 = icmp sgt i32 %numSrcBits.addr.6, 0
+  %cmp730.i51 = icmp sgt i32 %numSrcBits.addr.1, 0
   br i1 %cmp730.i51, label %while.body.i63.preheader, label %if.end14.i55
 
 while.body.i63.preheader:                         ; preds = %if.else.i49
-  %25 = add nsw i32 %numSrcBits.addr.6, -1
+  %25 = add nsw i32 %numSrcBits.addr.1, -1
   %26 = lshr i32 %25, 3
   %27 = zext nneg i32 %26 to i64
   br label %while.body.i63
 
 while.body.i63:                                   ; preds = %while.body.i63.preheader, %while.body.i63
-  %numSrcBits.addr.7 = phi i32 [ %sub11.i70, %while.body.i63 ], [ %numSrcBits.addr.6, %while.body.i63.preheader ]
-  %currByte.8 = phi ptr [ %incdec.ptr.i68, %while.body.i63 ], [ %currByte.7, %while.body.i63.preheader ]
-  %bufferBack.8 = phi i64 [ %or9.i67, %while.body.i63 ], [ 0, %while.body.i63.preheader ]
+  %numSrcBits.addr.12 = phi i32 [ %sub11.i70, %while.body.i63 ], [ %numSrcBits.addr.1, %while.body.i63.preheader ]
+  %currByte.14 = phi ptr [ %incdec.ptr.i68, %while.body.i63 ], [ %currByte.1, %while.body.i63.preheader ]
+  %bufferBack.14 = phi i64 [ %or9.i67, %while.body.i63 ], [ 0, %while.body.i63.preheader ]
   %shift.031.i64 = phi i64 [ %sub10.i69, %while.body.i63 ], [ 56, %while.body.i63.preheader ]
-  %28 = load i8, ptr %currByte.8, align 1
+  %28 = load i8, ptr %currByte.14, align 1
   %conv8.i65 = zext i8 %28 to i64
   %shl.i66 = shl i64 %conv8.i65, %shift.031.i64
-  %or9.i67 = or i64 %shl.i66, %bufferBack.8
-  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %currByte.8, i64 1
+  %or9.i67 = or i64 %shl.i66, %bufferBack.14
+  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %currByte.14, i64 1
   %sub10.i69 = add nsw i64 %shift.031.i64, -8
-  %sub11.i70 = add nsw i32 %numSrcBits.addr.7, -8
-  %cmp7.i71 = icmp ugt i32 %numSrcBits.addr.7, 8
+  %sub11.i70 = add nsw i32 %numSrcBits.addr.12, -8
+  %cmp7.i71 = icmp ugt i32 %numSrcBits.addr.12, 8
   br i1 %cmp7.i71, label %while.body.i63, label %while.end.i52.loopexit, !llvm.loop !18
 
 while.end.i52.loopexit:                           ; preds = %while.body.i63
-  %scevgep189 = getelementptr i8, ptr %currByte.7, i64 1
+  %scevgep189 = getelementptr i8, ptr %currByte.1, i64 1
   %scevgep190 = getelementptr i8, ptr %scevgep189, i64 %27
   br label %if.end14.i55
 
 if.end14.i55:                                     ; preds = %if.else.i49, %while.end.i52.loopexit, %if.then4.i72
-  %numSrcBits.addr.9 = phi i32 [ %sub5.i74, %if.then4.i72 ], [ 0, %while.end.i52.loopexit ], [ 0, %if.else.i49 ]
-  %currByte.11 = phi ptr [ %add.ptr.i73, %if.then4.i72 ], [ %scevgep190, %while.end.i52.loopexit ], [ %currByte.7, %if.else.i49 ]
-  %bufferBack.11 = phi i64 [ %24, %if.then4.i72 ], [ %or9.i67, %while.end.i52.loopexit ], [ 0, %if.else.i49 ]
+  %numSrcBits.addr.11 = phi i32 [ %sub5.i74, %if.then4.i72 ], [ 0, %while.end.i52.loopexit ], [ 0, %if.else.i49 ]
+  %currByte.12 = phi ptr [ %add.ptr.i73, %if.then4.i72 ], [ %scevgep190, %while.end.i52.loopexit ], [ %currByte.1, %if.else.i49 ]
+  %bufferBack.12 = phi i64 [ %24, %if.then4.i72 ], [ %or9.i67, %while.end.i52.loopexit ], [ 0, %if.else.i49 ]
   %sub15.i56 = sub nsw i32 64, %sub2.i47
   %sh_prom16.i57 = zext nneg i32 %sub15.i56 to i64
-  %shr17.i58 = lshr i64 %bufferBack.11, %sh_prom16.i57
+  %shr17.i58 = lshr i64 %bufferBack.12, %sh_prom16.i57
   %or18.i59 = or i64 %shr17.i58, %or.i38
   br label %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75
 
 _ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75: ; preds = %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge, %if.end14.i55
   %sub26.i45.pre-phi = phi i32 [ %.pre198, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %sub15.i56, %if.end14.i55 ]
-  %numSrcBits.addr.10 = phi i32 [ %numSrcBits.addr.6, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %numSrcBits.addr.9, %if.end14.i55 ]
-  %currByte.12 = phi ptr [ %currByte.7, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %currByte.11, %if.end14.i55 ]
-  %buffer.4 = phi i64 [ %or.i38, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %or18.i59, %if.end14.i55 ]
-  %bufferBack.12 = phi i64 [ %bufferBack.7, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %bufferBack.11, %if.end14.i55 ]
-  %bufferBackNumBits.8 = phi i32 [ %bufferBackNumBits.5, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ 64, %if.end14.i55 ]
+  %numSrcBits.addr.13 = phi i32 [ %numSrcBits.addr.1, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %numSrcBits.addr.11, %if.end14.i55 ]
+  %currByte.15 = phi ptr [ %currByte.1, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %currByte.12, %if.end14.i55 ]
+  %buffer.7 = phi i64 [ %or.i38, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %or18.i59, %if.end14.i55 ]
+  %bufferBack.15 = phi i64 [ %bufferBack.1, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %bufferBack.12, %if.end14.i55 ]
+  %bufferBackNumBits.11 = phi i32 [ %bufferBackNumBits.1, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ 64, %if.end14.i55 ]
   %numBits.addr.0.i40 = phi i32 [ %sub50, %if.then49._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75_crit_edge ], [ %sub2.i47, %if.end14.i55 ]
-  %cmp20.not.i41 = icmp sgt i32 %bufferBackNumBits.8, %numBits.addr.0.i40
+  %cmp20.not.i41 = icmp sgt i32 %bufferBackNumBits.11, %numBits.addr.0.i40
   %sh_prom23.i42 = zext nneg i32 %numBits.addr.0.i40 to i64
-  %shl24.i43 = shl i64 %bufferBack.12, %sh_prom23.i42
+  %shl24.i43 = shl i64 %bufferBack.15, %sh_prom23.i42
   %storemerge.i44 = select i1 %cmp20.not.i41, i64 %shl24.i43, i64 0
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75, %if.then47
-  %numSrcBits.addr.11 = phi i32 [ %numSrcBits.addr.10, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %numSrcBits.addr.6, %if.then47 ]
-  %currByte.13 = phi ptr [ %currByte.12, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %currByte.7, %if.then47 ]
-  %buffer.5 = phi i64 [ %buffer.4, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %shl, %if.then47 ]
-  %bufferBack.13 = phi i64 [ %storemerge.i44, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %bufferBack.7, %if.then47 ]
-  %bufferBackNumBits.9 = phi i32 [ %sub26.i45.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %bufferBackNumBits.5, %if.then47 ]
+  %numSrcBits.addr.3 = phi i32 [ %numSrcBits.addr.13, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %numSrcBits.addr.1, %if.then47 ]
+  %currByte.3 = phi ptr [ %currByte.15, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %currByte.1, %if.then47 ]
+  %buffer.3 = phi i64 [ %buffer.7, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %shl, %if.then47 ]
+  %bufferBack.3 = phi i64 [ %storemerge.i44, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %bufferBack.1, %if.then47 ]
+  %bufferBackNumBits.3 = phi i32 [ %sub26.i45.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %bufferBackNumBits.1, %if.then47 ]
   %bufferNumBits.3 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %sub45, %if.then47 ]
-  %shr52 = lshr i64 %buffer.5, 56
+  %shr52 = lshr i64 %buffer.3, 56
   %cmp54 = icmp slt i32 %dstIdx.0185, 1
   br i1 %cmp54, label %if.then55, label %if.end59
 
@@ -1171,7 +1171,7 @@ lpad64:                                           ; preds = %if.then62
   br label %eh.resume
 
 if.end66:                                         ; preds = %if.end59
-  %cmp67 = icmp ult i64 %buffer.5, 72057594037927936
+  %cmp67 = icmp ult i64 %buffer.3, 72057594037927936
   br i1 %cmp67, label %if.then68, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end66
@@ -1204,7 +1204,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body
-  %shl82 = shl i64 %buffer.5, 8
+  %shl82 = shl i64 %buffer.3, 8
   %sub83 = add nsw i32 %bufferNumBits.3, -8
   br label %if.end89
 
@@ -1217,11 +1217,11 @@ if.else84:                                        ; preds = %if.end43
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else84, %for.end
-  %numSrcBits.addr.12 = phi i32 [ %numSrcBits.addr.11, %for.end ], [ %numSrcBits.addr.6, %if.else84 ]
-  %currByte.14 = phi ptr [ %currByte.13, %for.end ], [ %currByte.7, %if.else84 ]
-  %buffer.6 = phi i64 [ %shl82, %for.end ], [ %shl, %if.else84 ]
-  %bufferBack.14 = phi i64 [ %bufferBack.13, %for.end ], [ %bufferBack.7, %if.else84 ]
-  %bufferBackNumBits.10 = phi i32 [ %bufferBackNumBits.9, %for.end ], [ %bufferBackNumBits.5, %if.else84 ]
+  %numSrcBits.addr.4 = phi i32 [ %numSrcBits.addr.3, %for.end ], [ %numSrcBits.addr.1, %if.else84 ]
+  %currByte.4 = phi ptr [ %currByte.3, %for.end ], [ %currByte.1, %if.else84 ]
+  %buffer.4 = phi i64 [ %shl82, %for.end ], [ %shl, %if.else84 ]
+  %bufferBack.4 = phi i64 [ %bufferBack.3, %for.end ], [ %bufferBack.1, %if.else84 ]
+  %bufferBackNumBits.4 = phi i32 [ %bufferBackNumBits.3, %for.end ], [ %bufferBackNumBits.1, %if.else84 ]
   %dstIdx.1 = phi i32 [ %add60, %for.end ], [ %inc88, %if.else84 ]
   %bufferNumBits.4 = phi i32 [ %sub83, %for.end ], [ %sub45, %if.else84 ]
   %cmp90 = icmp slt i32 %bufferNumBits.4, 12
@@ -1230,93 +1230,93 @@ if.end89:                                         ; preds = %if.else84, %for.end
 if.then91:                                        ; preds = %if.end89
   %sub92 = sub nsw i32 64, %bufferNumBits.4
   %sh_prom.i76 = zext nneg i32 %bufferNumBits.4 to i64
-  %shr.i77 = lshr i64 %bufferBack.14, %sh_prom.i76
-  %or.i78 = or i64 %shr.i77, %buffer.6
-  %cmp.i79 = icmp slt i32 %bufferBackNumBits.10, %sub92
+  %shr.i77 = lshr i64 %bufferBack.4, %sh_prom.i76
+  %or.i78 = or i64 %shr.i77, %buffer.4
+  %cmp.i79 = icmp slt i32 %bufferBackNumBits.4, %sub92
   br i1 %cmp.i79, label %if.then.i86, label %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge
 
 if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge: ; preds = %if.then91
-  %.pre199 = sub nsw i32 %bufferBackNumBits.10, %sub92
+  %.pre199 = sub nsw i32 %bufferBackNumBits.4, %sub92
   br label %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115
 
 if.then.i86:                                      ; preds = %if.then91
-  %sub2.i87 = sub nsw i32 %sub92, %bufferBackNumBits.10
-  %cmp3.i88 = icmp sgt i32 %numSrcBits.addr.12, 63
+  %sub2.i87 = sub nsw i32 %sub92, %bufferBackNumBits.4
+  %cmp3.i88 = icmp sgt i32 %numSrcBits.addr.4, 63
   br i1 %cmp3.i88, label %if.then4.i112, label %if.else.i89
 
 if.then4.i112:                                    ; preds = %if.then.i86
-  %33 = load i64, ptr %currByte.14, align 8
+  %33 = load i64, ptr %currByte.4, align 8
   %34 = tail call i64 @llvm.bswap.i64(i64 %33)
-  %add.ptr.i113 = getelementptr inbounds i8, ptr %currByte.14, i64 8
-  %sub5.i114 = add nsw i32 %numSrcBits.addr.12, -64
+  %add.ptr.i113 = getelementptr inbounds i8, ptr %currByte.4, i64 8
+  %sub5.i114 = add nsw i32 %numSrcBits.addr.4, -64
   br label %if.end14.i95
 
 if.else.i89:                                      ; preds = %if.then.i86
-  %cmp730.i91 = icmp sgt i32 %numSrcBits.addr.12, 0
+  %cmp730.i91 = icmp sgt i32 %numSrcBits.addr.4, 0
   br i1 %cmp730.i91, label %while.body.i103.preheader, label %if.end14.i95
 
 while.body.i103.preheader:                        ; preds = %if.else.i89
-  %35 = add nsw i32 %numSrcBits.addr.12, -1
+  %35 = add nsw i32 %numSrcBits.addr.4, -1
   %36 = lshr i32 %35, 3
   %37 = zext nneg i32 %36 to i64
   br label %while.body.i103
 
 while.body.i103:                                  ; preds = %while.body.i103.preheader, %while.body.i103
-  %numSrcBits.addr.13 = phi i32 [ %sub11.i110, %while.body.i103 ], [ %numSrcBits.addr.12, %while.body.i103.preheader ]
-  %currByte.15 = phi ptr [ %incdec.ptr.i108, %while.body.i103 ], [ %currByte.14, %while.body.i103.preheader ]
-  %bufferBack.15 = phi i64 [ %or9.i107, %while.body.i103 ], [ 0, %while.body.i103.preheader ]
+  %numSrcBits.addr.16 = phi i32 [ %sub11.i110, %while.body.i103 ], [ %numSrcBits.addr.4, %while.body.i103.preheader ]
+  %currByte.19 = phi ptr [ %incdec.ptr.i108, %while.body.i103 ], [ %currByte.4, %while.body.i103.preheader ]
+  %bufferBack.19 = phi i64 [ %or9.i107, %while.body.i103 ], [ 0, %while.body.i103.preheader ]
   %shift.031.i104 = phi i64 [ %sub10.i109, %while.body.i103 ], [ 56, %while.body.i103.preheader ]
-  %38 = load i8, ptr %currByte.15, align 1
+  %38 = load i8, ptr %currByte.19, align 1
   %conv8.i105 = zext i8 %38 to i64
   %shl.i106 = shl i64 %conv8.i105, %shift.031.i104
-  %or9.i107 = or i64 %shl.i106, %bufferBack.15
-  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %currByte.15, i64 1
+  %or9.i107 = or i64 %shl.i106, %bufferBack.19
+  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %currByte.19, i64 1
   %sub10.i109 = add nsw i64 %shift.031.i104, -8
-  %sub11.i110 = add nsw i32 %numSrcBits.addr.13, -8
-  %cmp7.i111 = icmp ugt i32 %numSrcBits.addr.13, 8
+  %sub11.i110 = add nsw i32 %numSrcBits.addr.16, -8
+  %cmp7.i111 = icmp ugt i32 %numSrcBits.addr.16, 8
   br i1 %cmp7.i111, label %while.body.i103, label %while.end.i92.loopexit, !llvm.loop !18
 
 while.end.i92.loopexit:                           ; preds = %while.body.i103
-  %scevgep195 = getelementptr i8, ptr %currByte.14, i64 1
+  %scevgep195 = getelementptr i8, ptr %currByte.4, i64 1
   %scevgep196 = getelementptr i8, ptr %scevgep195, i64 %37
   br label %if.end14.i95
 
 if.end14.i95:                                     ; preds = %if.else.i89, %while.end.i92.loopexit, %if.then4.i112
   %numSrcBits.addr.15 = phi i32 [ %sub5.i114, %if.then4.i112 ], [ 0, %while.end.i92.loopexit ], [ 0, %if.else.i89 ]
-  %currByte.18 = phi ptr [ %add.ptr.i113, %if.then4.i112 ], [ %scevgep196, %while.end.i92.loopexit ], [ %currByte.14, %if.else.i89 ]
-  %bufferBack.18 = phi i64 [ %34, %if.then4.i112 ], [ %or9.i107, %while.end.i92.loopexit ], [ 0, %if.else.i89 ]
+  %currByte.17 = phi ptr [ %add.ptr.i113, %if.then4.i112 ], [ %scevgep196, %while.end.i92.loopexit ], [ %currByte.4, %if.else.i89 ]
+  %bufferBack.17 = phi i64 [ %34, %if.then4.i112 ], [ %or9.i107, %while.end.i92.loopexit ], [ 0, %if.else.i89 ]
   %sub15.i96 = sub nsw i32 64, %sub2.i87
   %sh_prom16.i97 = zext nneg i32 %sub15.i96 to i64
-  %shr17.i98 = lshr i64 %bufferBack.18, %sh_prom16.i97
+  %shr17.i98 = lshr i64 %bufferBack.17, %sh_prom16.i97
   %or18.i99 = or i64 %shr17.i98, %or.i78
   br label %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115
 
 _ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115: ; preds = %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge, %if.end14.i95
   %sub26.i85.pre-phi = phi i32 [ %.pre199, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %sub15.i96, %if.end14.i95 ]
-  %numSrcBits.addr.16 = phi i32 [ %numSrcBits.addr.12, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %numSrcBits.addr.15, %if.end14.i95 ]
-  %currByte.19 = phi ptr [ %currByte.14, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %currByte.18, %if.end14.i95 ]
-  %buffer.7 = phi i64 [ %or.i78, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %or18.i99, %if.end14.i95 ]
-  %bufferBack.19 = phi i64 [ %bufferBack.14, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %bufferBack.18, %if.end14.i95 ]
-  %bufferBackNumBits.13 = phi i32 [ %bufferBackNumBits.10, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ 64, %if.end14.i95 ]
+  %numSrcBits.addr.17 = phi i32 [ %numSrcBits.addr.4, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %numSrcBits.addr.15, %if.end14.i95 ]
+  %currByte.20 = phi ptr [ %currByte.4, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %currByte.17, %if.end14.i95 ]
+  %buffer.8 = phi i64 [ %or.i78, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %or18.i99, %if.end14.i95 ]
+  %bufferBack.20 = phi i64 [ %bufferBack.4, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %bufferBack.17, %if.end14.i95 ]
+  %bufferBackNumBits.14 = phi i32 [ %bufferBackNumBits.4, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ 64, %if.end14.i95 ]
   %numBits.addr.0.i80 = phi i32 [ %sub92, %if.then91._ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115_crit_edge ], [ %sub2.i87, %if.end14.i95 ]
-  %cmp20.not.i81 = icmp sgt i32 %bufferBackNumBits.13, %numBits.addr.0.i80
+  %cmp20.not.i81 = icmp sgt i32 %bufferBackNumBits.14, %numBits.addr.0.i80
   %sh_prom23.i82 = zext nneg i32 %numBits.addr.0.i80 to i64
-  %shl24.i83 = shl i64 %bufferBack.19, %sh_prom23.i82
+  %shl24.i83 = shl i64 %bufferBack.20, %sh_prom23.i82
   %storemerge.i84 = select i1 %cmp20.not.i81, i64 %shl24.i83, i64 0
   br label %if.end93
 
 if.end93:                                         ; preds = %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115, %if.end89
-  %numSrcBits.addr.17 = phi i32 [ %numSrcBits.addr.16, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %numSrcBits.addr.12, %if.end89 ]
-  %currByte.20 = phi ptr [ %currByte.19, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %currByte.14, %if.end89 ]
-  %buffer.8 = phi i64 [ %buffer.7, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %buffer.6, %if.end89 ]
-  %bufferBack.20 = phi i64 [ %storemerge.i84, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %bufferBack.14, %if.end89 ]
-  %bufferBackNumBits.14 = phi i32 [ %sub26.i85.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %bufferBackNumBits.10, %if.end89 ]
+  %numSrcBits.addr.5 = phi i32 [ %numSrcBits.addr.17, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %numSrcBits.addr.4, %if.end89 ]
+  %currByte.5 = phi ptr [ %currByte.20, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %currByte.4, %if.end89 ]
+  %buffer.5 = phi i64 [ %buffer.8, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %buffer.4, %if.end89 ]
+  %bufferBack.5 = phi i64 [ %storemerge.i84, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %bufferBack.4, %if.end89 ]
+  %bufferBackNumBits.5 = phi i32 [ %sub26.i85.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %bufferBackNumBits.4, %if.end89 ]
   %bufferNumBits.5 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit115 ], [ %bufferNumBits.4, %if.end89 ]
   %cmp4 = icmp slt i32 %dstIdx.1, %numDstElems
   br i1 %cmp4, label %while.body, label %while.end94, !llvm.loop !21
 
 while.end94:                                      ; preds = %if.end93, %if.end
-  %numSrcBits.addr.0.lcssa = phi i32 [ %sub, %if.end ], [ %numSrcBits.addr.17, %if.end93 ]
+  %numSrcBits.addr.0.lcssa = phi i32 [ %sub, %if.end ], [ %numSrcBits.addr.5, %if.end93 ]
   %cmp95.not = icmp eq i32 %numSrcBits.addr.0.lcssa, 0
   br i1 %cmp95.not, label %if.end100, label %if.then96
 

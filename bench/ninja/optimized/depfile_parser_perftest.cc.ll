@@ -61,7 +61,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
 
 16:                                               ; preds = %14, %.loopexit64
   %indvars.iv = phi i64 [ 1, %14 ], [ %indvars.iv.next, %.loopexit64 ]
-  %.042125 = phi i32 [ 0, %14 ], [ %.4, %.loopexit64 ]
+  %.143125 = phi i32 [ 0, %14 ], [ %.4, %.loopexit64 ]
   %17 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.fr133 = freeze ptr %18
@@ -78,7 +78,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
   br label %.loopexit65
 
 .split112:                                        ; preds = %16, %70
-  %.143111 = phi i32 [ %.4, %70 ], [ %.042125, %16 ]
+  %.2111 = phi i32 [ %.4, %70 ], [ %.143125, %16 ]
   %.054110 = phi i32 [ %71, %70 ], [ 1024, %16 ]
   %21 = invoke noundef i64 @_Z13GetTimeMillisv()
           to label %.preheader unwind label %.loopexit65.split
@@ -105,7 +105,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
   br i1 %exitcond.not, label %57, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %.split112, %24
-  %.297 = phi i32 [ %.4, %24 ], [ %.143111, %.split112 ]
+  %.397 = phi i32 [ %.4, %24 ], [ %.2111, %.split112 ]
   %.04796 = phi i32 [ %25, %24 ], [ 0, %.split112 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
@@ -214,8 +214,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %56
 
 51:                                               ; preds = %45, %46
-  %.045 = phi i32 [ 1, %46 ], [ 0, %45 ]
-  %.3 = phi i32 [ 1, %46 ], [ %.297, %45 ]
+  %.146 = phi i32 [ 1, %46 ], [ 0, %45 ]
+  %.5 = phi i32 [ 1, %46 ], [ %.397, %45 ]
   %52 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i, label %53
@@ -234,11 +234,11 @@ _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i:    ; preds = %53, %51
   br label %_ZN13DepfileParserD2Ev.exit
 
 _ZN13DepfileParserD2Ev.exit:                      ; preds = %55, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i, %34
-  %.146 = phi i32 [ 1, %34 ], [ %.045, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.045, %55 ]
-  %.4 = phi i32 [ 1, %34 ], [ %.3, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.3, %55 ]
+  %.045 = phi i32 [ 1, %34 ], [ %.146, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.146, %55 ]
+  %.4 = phi i32 [ 1, %34 ], [ %.5, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.5, %55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  %cond = icmp eq i32 %.146, 0
+  %cond = icmp eq i32 %.045, 0
   br i1 %cond, label %24, label %thread-pre-split
 
 56:                                               ; preds = %49, %40, %.body
@@ -357,8 +357,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit63:                  ; preds = %.loopexit65, %102
   resume { ptr, i32 } %.pn58.pn
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %100, %98, %11
-  %.7 = phi i32 [ 1, %11 ], [ %.6, %98 ], [ %.6, %100 ]
-  ret i32 %.7
+  %.042 = phi i32 [ 1, %11 ], [ %.6, %98 ], [ %.6, %100 ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nofree nounwind

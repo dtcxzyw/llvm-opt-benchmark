@@ -3270,9 +3270,9 @@ define internal fastcc noundef i32 @_ZL49invoke_primitive_field_callback_for_sta
   %27 = phi i32 [ %21, %.lr.ph ], [ %88, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
   %28 = phi ptr [ %20, %.lr.ph ], [ %89, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
-  %.sroa.0.sroa.9.078 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
-  %.sroa.0.sroa.0.sroa.9.077 = phi i16 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
-  %.sroa.0.sroa.0.sroa.0.sroa.9.076 = phi i8 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
+  %.sroa.0.sroa.9.078 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
+  %.sroa.0.sroa.0.sroa.9.077 = phi i16 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.076 = phi i8 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ]
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
@@ -3381,21 +3381,21 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %35, %41
   unreachable
 
 _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit: ; preds = %47, %49, %51, %53, %55, %57, %60, %62
-  %.sroa.0.sroa.0.sroa.0.sroa.9.1 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc62, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc56, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc58, %57 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc60, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc54, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %47 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.2 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc62, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc56, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc58, %57 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc60, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc54, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %47 ]
   %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc52, %62 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc49, %60 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc50, %57 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc51, %55 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %53 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc48, %51 ], [ %50, %49 ], [ %48, %47 ]
-  %.sroa.0.sroa.0.sroa.9.1 = phi i16 [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc47, %62 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc, %60 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc43, %57 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc45, %55 ], [ %.sroa.0.sroa.0.sroa.9.077, %53 ], [ %.sroa.0.sroa.0.sroa.9.077, %51 ], [ %.sroa.0.sroa.0.sroa.9.077, %49 ], [ %.sroa.0.sroa.0.sroa.9.077, %47 ]
-  %.sroa.0.sroa.9.1 = phi i32 [ %.sroa.0.sroa.9.0.extract.trunc, %62 ], [ %.sroa.0.sroa.9.078, %60 ], [ %59, %57 ], [ %.sroa.0.sroa.9.078, %55 ], [ %.sroa.0.sroa.9.078, %53 ], [ %.sroa.0.sroa.9.078, %51 ], [ %.sroa.0.sroa.9.078, %49 ], [ %.sroa.0.sroa.9.078, %47 ]
+  %.sroa.0.sroa.0.sroa.9.2 = phi i16 [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc47, %62 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc, %60 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc43, %57 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc45, %55 ], [ %.sroa.0.sroa.0.sroa.9.077, %53 ], [ %.sroa.0.sroa.0.sroa.9.077, %51 ], [ %.sroa.0.sroa.0.sroa.9.077, %49 ], [ %.sroa.0.sroa.0.sroa.9.077, %47 ]
+  %.sroa.0.sroa.9.2 = phi i32 [ %.sroa.0.sroa.9.0.extract.trunc, %62 ], [ %.sroa.0.sroa.9.078, %60 ], [ %59, %57 ], [ %.sroa.0.sroa.9.078, %55 ], [ %.sroa.0.sroa.9.078, %53 ], [ %.sroa.0.sroa.9.078, %51 ], [ %.sroa.0.sroa.9.078, %49 ], [ %.sroa.0.sroa.9.078, %47 ]
   %66 = load i32, ptr %32, align 4
   store i32 %66, ptr @_ZZL49invoke_primitive_field_callback_for_static_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_E14reference_info, align 8
   %67 = load i64, ptr %24, align 8
-  %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.9.1 to i64
+  %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.9.2 to i64
   %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i64
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.9.1 to i64
+  %.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.9.2 to i64
   %.sroa.0.sroa.0.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.0.sroa.0.sroa.9.0.insert.ext, 16
   %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert
-  %.sroa.0.sroa.9.0.insert.ext = zext i32 %.sroa.0.sroa.9.1 to i64
+  %.sroa.0.sroa.9.0.insert.ext = zext i32 %.sroa.0.sroa.9.2 to i64
   %.sroa.0.sroa.9.0.insert.shift = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.sroa.0.0.insert.insert
   %68 = tail call noundef i32 %2(i32 noundef 8, ptr noundef nonnull @_ZZL49invoke_primitive_field_callback_for_static_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_E14reference_info, i64 noundef %67, ptr noundef nonnull %25, i64 %.sroa.0.sroa.0.0.insert.insert, i32 noundef %36, ptr noundef %3) #14
@@ -3445,9 +3445,9 @@ _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit: ; preds = %47, %49, %51,
 _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge: ; preds = %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit, %26, %26
   %88 = phi i32 [ %27, %26 ], [ %27, %26 ], [ %.pre85, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
   %89 = phi ptr [ %28, %26 ], [ %28, %26 ], [ %.pre, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
-  %.sroa.0.sroa.0.sroa.0.sroa.9.2 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %26 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %26 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
-  %.sroa.0.sroa.0.sroa.9.2 = phi i16 [ %.sroa.0.sroa.0.sroa.9.077, %26 ], [ %.sroa.0.sroa.0.sroa.9.077, %26 ], [ %.sroa.0.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
-  %.sroa.0.sroa.9.2 = phi i32 [ %.sroa.0.sroa.9.078, %26 ], [ %.sroa.0.sroa.9.078, %26 ], [ %.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.1 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %26 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.076, %26 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
+  %.sroa.0.sroa.0.sroa.9.1 = phi i16 [ %.sroa.0.sroa.0.sroa.9.077, %26 ], [ %.sroa.0.sroa.0.sroa.9.077, %26 ], [ %.sroa.0.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
+  %.sroa.0.sroa.9.1 = phi i32 [ %.sroa.0.sroa.9.078, %26 ], [ %.sroa.0.sroa.9.078, %26 ], [ %.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = sext i32 %88 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
@@ -3526,9 +3526,9 @@ define internal fastcc noundef i32 @_ZL51invoke_primitive_field_callback_for_ins
   %12 = phi i32 [ %7, %.lr.ph ], [ %50, %49 ]
   %13 = phi ptr [ %6, %.lr.ph ], [ %51, %49 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.sroa.0.sroa.9.054 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.sroa.9.2, %49 ]
-  %.sroa.0.sroa.0.sroa.9.053 = phi i16 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.9.2, %49 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.9.052 = phi i8 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.2, %49 ]
+  %.sroa.0.sroa.9.054 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.sroa.9.1, %49 ]
+  %.sroa.0.sroa.0.sroa.9.053 = phi i16 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.9.1, %49 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.052 = phi i8 [ undef, %.lr.ph ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.1, %49 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
@@ -3626,21 +3626,21 @@ define internal fastcc noundef i32 @_ZL51invoke_primitive_field_callback_for_ins
   unreachable
 
 _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit: ; preds = %26, %28, %30, %32, %34, %36, %39, %41
-  %.sroa.0.sroa.0.sroa.0.sroa.9.1 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc46, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc40, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc42, %36 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc44, %34 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc38, %30 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %28 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %26 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.2 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc46, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc40, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc42, %36 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc44, %34 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.0.extract.trunc38, %30 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %28 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %26 ]
   %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc36, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc33, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc34, %36 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc35, %34 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %32 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc32, %30 ], [ %29, %28 ], [ %27, %26 ]
-  %.sroa.0.sroa.0.sroa.9.1 = phi i16 [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc31, %41 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc, %39 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc27, %36 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc29, %34 ], [ %.sroa.0.sroa.0.sroa.9.053, %32 ], [ %.sroa.0.sroa.0.sroa.9.053, %30 ], [ %.sroa.0.sroa.0.sroa.9.053, %28 ], [ %.sroa.0.sroa.0.sroa.9.053, %26 ]
-  %.sroa.0.sroa.9.1 = phi i32 [ %.sroa.0.sroa.9.0.extract.trunc, %41 ], [ %.sroa.0.sroa.9.054, %39 ], [ %38, %36 ], [ %.sroa.0.sroa.9.054, %34 ], [ %.sroa.0.sroa.9.054, %32 ], [ %.sroa.0.sroa.9.054, %30 ], [ %.sroa.0.sroa.9.054, %28 ], [ %.sroa.0.sroa.9.054, %26 ]
+  %.sroa.0.sroa.0.sroa.9.2 = phi i16 [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc31, %41 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc, %39 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc27, %36 ], [ %.sroa.0.sroa.0.sroa.9.0.extract.trunc29, %34 ], [ %.sroa.0.sroa.0.sroa.9.053, %32 ], [ %.sroa.0.sroa.0.sroa.9.053, %30 ], [ %.sroa.0.sroa.0.sroa.9.053, %28 ], [ %.sroa.0.sroa.0.sroa.9.053, %26 ]
+  %.sroa.0.sroa.9.2 = phi i32 [ %.sroa.0.sroa.9.0.extract.trunc, %41 ], [ %.sroa.0.sroa.9.054, %39 ], [ %38, %36 ], [ %.sroa.0.sroa.9.054, %34 ], [ %.sroa.0.sroa.9.054, %32 ], [ %.sroa.0.sroa.9.054, %30 ], [ %.sroa.0.sroa.9.054, %28 ], [ %.sroa.0.sroa.9.054, %26 ]
   %45 = load i32, ptr %17, align 4
   store i32 %45, ptr @_ZZL51invoke_primitive_field_callback_for_instance_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_E14reference_info, align 8
   %46 = load i64, ptr %9, align 8
-  %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.9.1 to i64
+  %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.9.2 to i64
   %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.ext, 8
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i64
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.0.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.9.1 to i64
+  %.sroa.0.sroa.0.sroa.9.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.9.2 to i64
   %.sroa.0.sroa.0.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.0.sroa.0.sroa.9.0.insert.ext, 16
   %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert
-  %.sroa.0.sroa.9.0.insert.ext = zext i32 %.sroa.0.sroa.9.1 to i64
+  %.sroa.0.sroa.9.0.insert.ext = zext i32 %.sroa.0.sroa.9.2 to i64
   %.sroa.0.sroa.9.0.insert.shift = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.sroa.0.0.insert.insert
   %47 = tail call noundef i32 %2(i32 noundef 2, ptr noundef nonnull @_ZZL51invoke_primitive_field_callback_for_instance_fieldsP15CallbackWrapperP7oopDescPFi22jvmtiHeapReferenceKindPK22jvmtiHeapReferenceInfolPl6jvalue18jvmtiPrimitiveTypePvESA_E14reference_info, i64 noundef %46, ptr noundef nonnull %10, i64 %.sroa.0.sroa.0.0.insert.insert, i32 noundef %21, ptr noundef %3) #14
@@ -3656,9 +3656,9 @@ _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge: ; preds = %_Z
 49:                                               ; preds = %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge, %11, %11
   %50 = phi i32 [ %.pre57, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %12, %11 ], [ %12, %11 ]
   %51 = phi ptr [ %.pre, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %13, %11 ], [ %13, %11 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.9.2 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %11 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %11 ]
-  %.sroa.0.sroa.0.sroa.9.2 = phi i16 [ %.sroa.0.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %.sroa.0.sroa.0.sroa.9.053, %11 ], [ %.sroa.0.sroa.0.sroa.9.053, %11 ]
-  %.sroa.0.sroa.9.2 = phi i32 [ %.sroa.0.sroa.9.1, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %.sroa.0.sroa.9.054, %11 ], [ %.sroa.0.sroa.9.054, %11 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.9.1 = phi i8 [ %.sroa.0.sroa.0.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %11 ], [ %.sroa.0.sroa.0.sroa.0.sroa.9.052, %11 ]
+  %.sroa.0.sroa.0.sroa.9.1 = phi i16 [ %.sroa.0.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %.sroa.0.sroa.0.sroa.9.053, %11 ], [ %.sroa.0.sroa.0.sroa.9.053, %11 ]
+  %.sroa.0.sroa.9.1 = phi i32 [ %.sroa.0.sroa.9.2, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit._crit_edge ], [ %.sroa.0.sroa.9.054, %11 ], [ %.sroa.0.sroa.9.054, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = sext i32 %50 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
@@ -11246,7 +11246,7 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31.sink.split: ; preds = %_Z
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31.sink.split, %167, %115, %165, %158
-  %.0 = phi i1 [ false, %158 ], [ true, %165 ], [ true, %115 ], [ true, %167 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31.sink.split ]
+  %.1 = phi i1 [ false, %158 ], [ true, %165 ], [ true, %115 ], [ true, %167 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31.sink.split ]
   %202 = getelementptr inbounds i8, ptr %3, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %3, i64 8
@@ -11264,8 +11264,8 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit31: ; preds = %_ZN15Callback
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit: ; preds = %209, %208, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i21, %63, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i, %8
-  %.1 = phi i1 [ true, %8 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i ], [ true, %63 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i21 ], [ %.0, %208 ], [ %.0, %209 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %8 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i ], [ true, %63 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i21 ], [ %.1, %208 ], [ %.1, %209 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11724,7 +11724,7 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split: ; preds = %_Z
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split, %179, %122, %177, %170
-  %.0 = phi i1 [ false, %170 ], [ true, %177 ], [ true, %122 ], [ true, %179 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split ]
+  %.1 = phi i1 [ false, %170 ], [ true, %177 ], [ true, %122 ], [ true, %179 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split ]
   %214 = getelementptr inbounds i8, ptr %9, i64 16
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %9, i64 8
@@ -11742,8 +11742,8 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37: ; preds = %_ZN15Callback
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit: ; preds = %221, %220, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i27, %70, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i, %15
-  %.1 = phi i1 [ true, %15 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i ], [ true, %70 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i27 ], [ %.0, %220 ], [ %.0, %221 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %15 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i ], [ true, %70 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i27 ], [ %.1, %220 ], [ %.1, %221 ]
+  ret i1 %.0
 }
 
 declare void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -11972,7 +11972,7 @@ _ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43: ; p
   br i1 %.not.i, label %_ZN17StackRefCollector14process_framesEP6vframe.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZN17StackRefCollector14process_framesEP6vframe.exit: ; preds = %.lr.ph, %111, %.lr.ph.i, %109, %106, %82, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit40
-  %.0 = phi i1 [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit40 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43 ], [ false, %82 ], [ false, %106 ], [ true, %109 ], [ %110, %.lr.ph.i ], [ %110, %111 ], [ false, %.lr.ph ]
+  %.1 = phi i1 [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit40 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit43 ], [ false, %82 ], [ false, %106 ], [ true, %109 ], [ %110, %.lr.ph.i ], [ %110, %111 ], [ false, %.lr.ph ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
   %115 = load ptr, ptr %61, align 8
   %.not.i.i.i.i = icmp eq ptr %115, null
@@ -11995,8 +11995,8 @@ _ZN17StackRefCollector14process_framesEP6vframe.exit: ; preds = %.lr.ph, %111, %
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %119, %117, %34, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit, %37
-  %.1 = phi i1 [ %54, %37 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit ], [ false, %34 ], [ %.0, %117 ], [ %.0, %119 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %54, %37 ], [ false, %_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc.exit ], [ false, %34 ], [ %.1, %117 ], [ %.1, %119 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12745,7 +12745,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %115, %123
   br label %_ZNK5Klass11java_mirrorEv.exit101.thread
 
 _ZNK5Klass11java_mirrorEv.exit101.thread:         ; preds = %142, %146
-  %.180.ph = phi ptr [ null, %142 ], [ %148, %146 ]
+  %.3.ph = phi ptr [ null, %142 ], [ %148, %146 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZNK5Klass11java_mirrorEv.exit100
 
@@ -12754,7 +12754,7 @@ _ZNK5Klass11java_mirrorEv.exit101:                ; preds = %_ZN18constantPoolHa
   br label %155
 
 _ZNK5Klass11java_mirrorEv.exit100:                ; preds = %_ZNK5Klass11java_mirrorEv.exit101.thread, %112, %_ZNK12ConstantPool17resolved_klass_atEi.exit, %88
-  %.2 = phi ptr [ %91, %88 ], [ %114, %112 ], [ null, %_ZNK12ConstantPool17resolved_klass_atEi.exit ], [ %.180.ph, %_ZNK5Klass11java_mirrorEv.exit101.thread ]
+  %.2 = phi ptr [ %91, %88 ], [ %114, %112 ], [ null, %_ZNK12ConstantPool17resolved_klass_atEi.exit ], [ %.3.ph, %_ZNK5Klass11java_mirrorEv.exit101.thread ]
   %149 = load i32, ptr @_ZN15CallbackInvoker15_heap_walk_typeE, align 4
   %150 = icmp eq i32 %149, 0
   %151 = trunc nuw nsw i64 %indvars.iv to i32
@@ -13077,8 +13077,8 @@ _ZN17StackRefCollector14process_framesEP6vframe.exit: ; preds = %.lr.ph.i, %77, 
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %9, %_ZNK19ContinuationWrapper8is_emptyEv.exit, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit, %83, %85, %2
-  %.2 = phi i1 [ true, %2 ], [ true, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ true, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread ], [ true, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit ], [ %.not.lcssa.i, %83 ], [ %.not.lcssa.i, %85 ], [ true, %9 ]
-  ret i1 %.2
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZNK19ContinuationWrapper8is_emptyEv.exit ], [ true, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit.thread ], [ true, %_ZNK19ContinuationWrapper19last_nonempty_chunkEv.exit ], [ %.not.lcssa.i, %83 ], [ %.not.lcssa.i, %85 ], [ true, %9 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14079,7 +14079,7 @@ _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split: ; preds = %_Z
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37: ; preds = %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split, %216, %159, %214, %202
-  %.0 = phi i1 [ false, %202 ], [ true, %214 ], [ true, %159 ], [ true, %216 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split ]
+  %.1 = phi i1 [ false, %202 ], [ true, %214 ], [ true, %159 ], [ true, %216 ], [ true, %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit37.sink.split ]
   %251 = load i8, ptr %104, align 8
   %252 = trunc i8 %251 to i1
   br i1 %252, label %_ZN15CallbackWrapper24post_callback_tag_updateEP7oopDescP16JvmtiTagMapTablel.exit.i, label %253
@@ -14120,8 +14120,8 @@ _ZN15CallbackWrapper24post_callback_tag_updateEP7oopDescP16JvmtiTagMapTablel.exi
   br label %_ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit
 
 _ZN15CallbackInvoker15check_for_visitEP7oopDesc.exit: ; preds = %270, %269, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i25, %65, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i, %10
-  %.1 = phi i1 [ true, %10 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i ], [ true, %65 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i25 ], [ %.0, %269 ], [ %.0, %270 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %10 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i ], [ true, %65 ], [ true, %_ZN26GrowableArrayWithAllocatorIP7oopDesc13GrowableArrayIS1_EE4pushERKS1_.exit.i25 ], [ %.1, %269 ], [ %.1, %270 ]
+  ret i1 %.0
 }
 
 declare noundef i32 @_ZN12ConstantPool18cp_to_object_indexEi(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #1
@@ -14317,7 +14317,7 @@ _ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit: ; preds = %48, %50, %52,
 
 _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %45, %43, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit
   %75 = phi i64 [ %.pre, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ], [ %26, %43 ], [ %26, %45 ]
-  %.0 = phi i1 [ %.not, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ], [ true, %43 ], [ true, %45 ]
+  %.1 = phi i1 [ %.not, %_ZL14copy_to_jvalueP6jvaluePh18jvmtiPrimitiveType.exit ], [ true, %43 ], [ true, %45 ]
   %76 = getelementptr inbounds i8, ptr %6, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %6, i64 8
@@ -14328,21 +14328,21 @@ _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %45, %43, %_ZL14copy
 81:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %82 = phi ptr [ %41, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %79, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %83 = phi ptr [ %39, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %77, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.047 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.0, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.147 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable6removeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef %83) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 84:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %85 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %79, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %86 = phi ptr [ %33, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %77, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.050 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %.0, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.150 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %87 = phi i64 [ %26, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread48 ], [ %75, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable3addEP7oopDescl(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef %86, i64 noundef %87) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassEv.exit.i, %84, %81
-  %.1 = phi i1 [ %.047, %81 ], [ %.050, %84 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.147, %81 ], [ %.150, %84 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef) local_unnamed_addr #1
@@ -14449,7 +14449,7 @@ _ZL26is_filtered_by_heap_filterlli.exit:          ; preds = %41, %39
 
 _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %41, %39, %_ZL26is_filtered_by_heap_filterlli.exit
   %49 = phi i64 [ %.pre, %_ZL26is_filtered_by_heap_filterlli.exit ], [ %22, %39 ], [ %22, %41 ]
-  %.0 = phi i1 [ %.not, %_ZL26is_filtered_by_heap_filterlli.exit ], [ true, %39 ], [ true, %41 ]
+  %.1 = phi i1 [ %.not, %_ZL26is_filtered_by_heap_filterlli.exit ], [ true, %39 ], [ true, %41 ]
   %50 = getelementptr inbounds i8, ptr %2, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %2, i64 8
@@ -14460,21 +14460,21 @@ _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %41, %39, %_ZL26is_f
 55:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %56 = phi ptr [ %37, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %53, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %57 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %51, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.012 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.0, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.112 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable6removeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef %57) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 58:                                               ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %59 = phi ptr [ %31, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %53, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %60 = phi ptr [ %29, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %51, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.015 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %.0, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.115 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %61 = phi i64 [ %22, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread13 ], [ %49, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable3addEP7oopDescl(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef %60, i64 noundef %61) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassEv.exit.i, %58, %55
-  %.1 = phi i1 [ %.012, %55 ], [ %.015, %58 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.112, %55 ], [ %.115, %58 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16015,7 +16015,7 @@ _ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15C
 
 _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %41, %39, %_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_.exit
   %97 = phi i64 [ %.pre, %_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_.exit ], [ %22, %39 ], [ %22, %41 ]
-  %.0 = phi i1 [ %.not, %_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_.exit ], [ true, %39 ], [ true, %41 ]
+  %.1 = phi i1 [ %.not, %_ZL37invoke_array_primitive_value_callbackPFillPli18jvmtiPrimitiveTypePKvPvEP15CallbackWrapperP7oopDescS3_.exit ], [ true, %39 ], [ true, %41 ]
   %98 = getelementptr inbounds i8, ptr %2, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %2, i64 8
@@ -16026,21 +16026,21 @@ _ZL26is_filtered_by_heap_filterlli.exit.thread:   ; preds = %41, %39, %_ZL37invo
 103:                                              ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %104 = phi ptr [ %37, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %101, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %105 = phi ptr [ %35, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %99, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.014 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.0, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.114 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable6removeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef %105) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 106:                                              ; preds = %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15, %_ZL26is_filtered_by_heap_filterlli.exit.thread
   %107 = phi ptr [ %31, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %101, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %108 = phi ptr [ %29, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %99, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
-  %.017 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %.0, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
+  %.117 = phi i1 [ true, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %.1, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   %109 = phi i64 [ %22, %_ZL26is_filtered_by_heap_filterlli.exit.thread.thread15 ], [ %97, %_ZL26is_filtered_by_heap_filterlli.exit.thread ]
   call void @_ZN16JvmtiTagMapTable3addEP7oopDescl(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef %108, i64 noundef %109) #14
   br label %_ZN15CallbackWrapperD2Ev.exit
 
 _ZN15CallbackWrapperD2Ev.exit:                    ; preds = %_ZNK7oopDesc5klassEv.exit.i, %106, %103
-  %.1 = phi i1 [ %.014, %103 ], [ %.017, %106 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.114, %103 ], [ %.117, %106 ], [ true, %_ZNK7oopDesc5klassEv.exit.i ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

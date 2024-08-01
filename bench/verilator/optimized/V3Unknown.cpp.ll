@@ -11120,14 +11120,14 @@ _ZN6AstAndC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %129, %124, %.noexc8
   br label %200
 
 _ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit102.sink.split: ; preds = %150, %172
-  %.037.ph = phi ptr [ %165, %172 ], [ %143, %150 ]
+  %.138.ph = phi ptr [ %165, %172 ], [ %143, %150 ]
   %175 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
   %176 = add i64 %175, 1
   store i64 %176, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %_ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit102
 
 _ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit102:  ; preds = %_ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit102.sink.split, %.noexc107, %.noexc101
-  %.037 = phi ptr [ %143, %.noexc101 ], [ %165, %.noexc107 ], [ %.037.ph, %_ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit102.sink.split ]
+  %.138 = phi ptr [ %143, %.noexc101 ], [ %165, %.noexc107 ], [ %.138.ph, %_ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit102.sink.split ]
   invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %42)
           to label %177 unwind label %153
 
@@ -11192,10 +11192,10 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %180, %181, %186, %1
   br label %common.resume
 
 _ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit:     ; preds = %199, %197, %192, %191, %55, %.noexc58
-  %.138 = phi ptr [ %48, %.noexc58 ], [ %48, %55 ], [ %.037, %191 ], [ %.037, %192 ], [ %.037, %197 ], [ %.037, %199 ]
-  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.138)
+  %.037 = phi ptr [ %48, %.noexc58 ], [ %48, %55 ], [ %.138, %191 ], [ %.138, %192 ], [ %.138, %197 ], [ %.138, %199 ]
+  call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %.037)
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
-  call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %.138, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %.037, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %201
 
 201:                                              ; preds = %_ZN5AstEqC2EP8FileLineP11AstNodeExprS3_.exit, %38

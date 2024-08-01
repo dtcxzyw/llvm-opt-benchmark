@@ -429,7 +429,7 @@ if.then117:                                       ; preds = %if.end107
   br label %fail
 
 if.end120:                                        ; preds = %if.end94.thread, %if.end107, %if.end94
-  %offset.1 = phi i64 [ %add67, %if.end94 ], [ %sub103, %if.end107 ], [ %add67, %if.end94.thread ]
+  %offset.2 = phi i64 [ %add67, %if.end94 ], [ %sub103, %if.end107 ], [ %add67, %if.end94.thread ]
   %add121 = add nuw nsw i64 %conv33, 1
   %call123 = call noalias ptr @g_malloc(i64 noundef %add121) #19
   %id_str = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -442,7 +442,7 @@ if.end120:                                        ; preds = %if.end94.thread, %i
   store ptr %call123, ptr %local_iov.i128, align 8
   store i64 %conv33, ptr %iov_len.i130, align 8
   call void @assert_bdrv_graph_readable() #16
-  %call.i131 = call i32 @bdrv_co_preadv(ptr noundef %45, i64 noundef %offset.1, i64 noundef %conv33, ptr noundef nonnull %qiov.i127, i32 noundef 0) #16
+  %call.i131 = call i32 @bdrv_co_preadv(ptr noundef %45, i64 noundef %offset.2, i64 noundef %conv33, ptr noundef nonnull %qiov.i127, i32 noundef 0) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i127)
   %cmp128 = icmp slt i32 %call.i131, 0
   br i1 %cmp128, label %if.then130, label %if.end132
@@ -453,7 +453,7 @@ if.then130:                                       ; preds = %if.end120
   br label %fail
 
 if.end132:                                        ; preds = %if.end120
-  %add134 = add i64 %offset.1, %conv33
+  %add134 = add i64 %offset.2, %conv33
   %46 = load ptr, ptr %id_str, align 8
   %arrayidx = getelementptr i8, ptr %46, i64 %conv33
   store i8 0, ptr %arrayidx, align 1

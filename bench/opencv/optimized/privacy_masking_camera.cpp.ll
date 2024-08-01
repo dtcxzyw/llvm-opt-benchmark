@@ -2680,7 +2680,7 @@ _ZN2cv9TickMeter5startEv.exit179.preheader:       ; preds = %515
   br label %_ZN2cv9TickMeter5startEv.exit179
 
 _ZN2cv9TickMeter5startEv.exit179:                 ; preds = %_ZN2cv9TickMeter5startEv.exit179.backedge, %_ZN2cv9TickMeter5startEv.exit179.preheader
-  %.1 = phi i64 [ 0, %_ZN2cv9TickMeter5startEv.exit179.preheader ], [ %555, %_ZN2cv9TickMeter5startEv.exit179.backedge ]
+  %.2 = phi i64 [ 0, %_ZN2cv9TickMeter5startEv.exit179.preheader ], [ %555, %_ZN2cv9TickMeter5startEv.exit179.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i64 1, ptr %3, align 8, !noalias !11
@@ -2777,7 +2777,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
   br i1 %540, label %554, label %571
 
 554:                                              ; preds = %_ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESaISH_EED2Ev.exit
-  %555 = add i64 %.1, 1
+  %555 = add i64 %.2, 1
   br i1 %86, label %_ZN2cv9TickMeter5startEv.exit179.backedge, label %556
 
 556:                                              ; preds = %554
@@ -2933,13 +2933,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %809
 
 _ZN2cv18GStreamingCompiledD2Ev.exit:              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i196, %606, %593, %.noexc189, %_ZN2cv9GCompiledD2Ev.exit
-  %.sroa.5.2 = phi i64 [ %spec.select, %_ZN2cv9GCompiledD2Ev.exit ], [ %spec.select242, %.noexc189 ], [ %spec.select242, %593 ], [ %spec.select242, %606 ], [ %spec.select242, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i196 ]
-  %.2 = phi i64 [ %.us-phi269, %_ZN2cv9GCompiledD2Ev.exit ], [ %.1, %.noexc189 ], [ %.1, %593 ], [ %.1, %606 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i196 ]
+  %.sroa.5.0 = phi i64 [ %spec.select, %_ZN2cv9GCompiledD2Ev.exit ], [ %spec.select242, %.noexc189 ], [ %spec.select242, %593 ], [ %spec.select242, %606 ], [ %spec.select242, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i196 ]
+  %.1 = phi i64 [ %.us-phi269, %_ZN2cv9GCompiledD2Ev.exit ], [ %.2, %.noexc189 ], [ %.2, %593 ], [ %.2, %606 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i196 ]
   %611 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.14)
           to label %612 unwind label %389
 
 612:                                              ; preds = %_ZN2cv18GStreamingCompiledD2Ev.exit
-  %613 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %611, i64 noundef %.2)
+  %613 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %611, i64 noundef %.1)
           to label %614 unwind label %389
 
 614:                                              ; preds = %612
@@ -2955,9 +2955,9 @@ _ZN2cv18GStreamingCompiledD2Ev.exit:              ; preds = %_ZNSt16_Sp_counted_
           to label %620 unwind label %389
 
 620:                                              ; preds = %618
-  %621 = sitofp i64 %.sroa.5.2 to double
+  %621 = sitofp i64 %.sroa.5.0 to double
   %622 = fdiv double %621, %619
-  %623 = uitofp i64 %.2 to double
+  %623 = uitofp i64 %.1 to double
   %624 = fdiv double %623, %622
   %625 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %617, double noundef %624)
           to label %626 unwind label %389
@@ -3617,7 +3617,7 @@ _ZN2cv6detail5YieldINS_6GArrayINS_4util7variantIJNS_4gapi3wip4draw4TextENS7_5FTe
 
 .body58:                                          ; preds = %.body62, %38, %35, %60
   %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %.body62 ], [ %36, %38 ], [ %36, %35 ]
-  %.1 = phi i1 [ true, %60 ], [ false, %.body62 ], [ true, %38 ], [ true, %35 ]
+  %.4 = phi i1 [ true, %60 ], [ false, %.body62 ], [ true, %38 ], [ true, %35 ]
   %62 = load i64, ptr %8, align 8
   %63 = getelementptr inbounds [3 x ptr], ptr @constinit.28, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
@@ -3633,7 +3633,7 @@ _ZN2cv6detail5YieldINS_6GArrayINS_4util7variantIJNS_4gapi3wip4draw4TextENS7_5FTe
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65: ; preds = %.body58
-  br i1 %.1, label %69, label %.critedge
+  br i1 %.4, label %69, label %.critedge
 
 69:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65
   %70 = load ptr, ptr %22, align 8
@@ -7252,7 +7252,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %50
 
 .body54:                                          ; preds = %.body58, %34, %31, %56
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %.body58 ], [ %32, %34 ], [ %32, %31 ]
-  %.1 = phi i1 [ true, %56 ], [ false, %.body58 ], [ true, %34 ], [ true, %31 ]
+  %.4 = phi i1 [ true, %56 ], [ false, %.body58 ], [ true, %34 ], [ true, %31 ]
   %58 = load i64, ptr %7, align 8
   %59 = getelementptr inbounds [3 x ptr], ptr @constinit.28, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
@@ -7268,7 +7268,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %50
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit61: ; preds = %.body54
-  br i1 %.1, label %65, label %78
+  br i1 %.4, label %65, label %78
 
 65:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit61
   %66 = load ptr, ptr %21, align 8
@@ -8467,7 +8467,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %50
 
 .body54:                                          ; preds = %.body58, %34, %31, %56
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %.body58 ], [ %32, %34 ], [ %32, %31 ]
-  %.1 = phi i1 [ true, %56 ], [ false, %.body58 ], [ true, %34 ], [ true, %31 ]
+  %.4 = phi i1 [ true, %56 ], [ false, %.body58 ], [ true, %34 ], [ true, %31 ]
   %58 = load i64, ptr %7, align 8
   %59 = getelementptr inbounds [3 x ptr], ptr @constinit.28, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
@@ -8483,7 +8483,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %50
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit61: ; preds = %.body54
-  br i1 %.1, label %65, label %78
+  br i1 %.4, label %65, label %78
 
 65:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit61
   %66 = load ptr, ptr %21, align 8
@@ -19165,8 +19165,8 @@ _ZN2cv4util3anyD2Ev.exit37:                       ; preds = %98, %96
   br label %104
 
 103:                                              ; preds = %65, %39, %_ZN2cv4util3anyD2Ev.exit31
-  %.115 = phi i1 [ false, %65 ], [ true, %_ZN2cv4util3anyD2Ev.exit31 ], [ false, %39 ]
-  ret i1 %.115
+  %.014 = phi i1 [ false, %65 ], [ true, %_ZN2cv4util3anyD2Ev.exit31 ], [ false, %39 ]
+  ret i1 %.014
 
 104:                                              ; preds = %_ZN2cv4util3anyD2Ev.exit37, %_ZN2cv4util3anyD2Ev.exit34, %66, %25
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN2cv4util3anyD2Ev.exit37 ], [ %.pn19, %_ZN2cv4util3anyD2Ev.exit34 ], [ %.pn17, %66 ], [ %.pn, %25 ]

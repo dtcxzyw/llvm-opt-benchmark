@@ -2125,8 +2125,8 @@ define void @_ZN16meilisearch_auth14AuthController10update_key17h9fc9c6b5d00b89b
 
 .critedge23:                                      ; preds = %30, %.critedge22
   %.pn.pn = phi { ptr, i32 } [ %.pn57, %.critedge22 ], [ %31, %30 ]
-  %.sroa.08.0 = phi i8 [ %.sroa.08.259, %.critedge22 ], [ %.sroa.08.1, %30 ]
-  %.sroa.05.0 = phi i8 [ %.sroa.05.160, %.critedge22 ], [ %.sroa.05.3, %30 ]
+  %.sroa.08.0 = phi i8 [ %.sroa.08.359, %.critedge22 ], [ %.sroa.08.1, %30 ]
+  %.sroa.05.0 = phi i8 [ %.sroa.05.360, %.critedge22 ], [ %.sroa.05.1, %30 ]
   %13 = trunc nuw i8 %.sroa.08.0 to i1
   br i1 %13, label %113, label %111
 
@@ -2236,7 +2236,7 @@ define void @_ZN16meilisearch_auth14AuthController10update_key17h9fc9c6b5d00b89b
   br label %24
 
 47:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit27", %24
-  %.sroa.05.3 = phi i8 [ 1, %24 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit27" ]
+  %.sroa.05.1 = phi i8 [ 1, %24 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit27" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   invoke void @_ZN4time16offset_date_time14OffsetDateTime7now_utc17h3207312e04a24a24E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %10)
           to label %66 unwind label %.thread61
@@ -2323,7 +2323,7 @@ define void @_ZN16meilisearch_auth14AuthController10update_key17h9fc9c6b5d00b89b
   br i1 %72, label %74, label %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17ha04d07c79999bbd9E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17ha04d07c79999bbd9E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i28", %74, %71
-  %73 = trunc nuw i8 %.sroa.05.3 to i1
+  %73 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %73, label %90, label %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17ha04d07c79999bbd9E.exit31"
 
 74:                                               ; preds = %71
@@ -2361,7 +2361,7 @@ define void @_ZN16meilisearch_auth14AuthController10update_key17h9fc9c6b5d00b89b
 87:                                               ; preds = %77
   %88 = landingpad { ptr, i32 }
           cleanup
-  %89 = trunc nuw i8 %.sroa.05.3 to i1
+  %89 = trunc nuw i8 %.sroa.05.1 to i1
   br i1 %89, label %104, label %103
 
 "_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17ha04d07c79999bbd9E.exit31": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i30", %90, %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17ha04d07c79999bbd9E.exit", %22
@@ -2411,8 +2411,8 @@ define void @_ZN16meilisearch_auth14AuthController10update_key17h9fc9c6b5d00b89b
   unreachable
 
 .thread:                                          ; preds = %45, %64, %.thread61
-  %.sroa.05.160 = phi i8 [ %.sroa.05.3, %.thread61 ], [ 1, %45 ], [ 0, %64 ]
-  %.sroa.08.259 = phi i8 [ %.sroa.08.1, %.thread61 ], [ 0, %45 ], [ %.sroa.08.1, %64 ]
+  %.sroa.05.360 = phi i8 [ %.sroa.05.1, %.thread61 ], [ 1, %45 ], [ 0, %64 ]
+  %.sroa.08.359 = phi i8 [ %.sroa.08.1, %.thread61 ], [ 0, %45 ], [ %.sroa.08.1, %64 ]
   %.pn57 = phi { ptr, i32 } [ %48, %.thread61 ], [ %46, %45 ], [ %65, %64 ]
   %107 = getelementptr inbounds i8, ptr %12, i64 48
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %107) #20

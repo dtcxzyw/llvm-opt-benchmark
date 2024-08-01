@@ -192,8 +192,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 63:                                               ; preds = %61, %59
   %.pn28 = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
-  %.1 = extractvalue { ptr, i32 } %.pn28, 1
-  %.110 = extractvalue { ptr, i32 } %.pn28, 0
+  %.2 = extractvalue { ptr, i32 } %.pn28, 1
+  %.211 = extractvalue { ptr, i32 } %.pn28, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #16
   br label %317
 
@@ -242,8 +242,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 76:                                               ; preds = %.body, %74
   %.pn30 = phi { ptr, i32 } [ %70, %.body ], [ %75, %74 ]
-  %.2 = extractvalue { ptr, i32 } %.pn30, 1
-  %.211 = extractvalue { ptr, i32 } %.pn30, 0
+  %.4 = extractvalue { ptr, i32 } %.pn30, 1
+  %.413 = extractvalue { ptr, i32 } %.pn30, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #16
   br label %317
 
@@ -925,34 +925,34 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 314:                                              ; preds = %313, %277
   %.pn40.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn.pn, %313 ], [ %278, %277 ]
-  %.12 = extractvalue { ptr, i32 } %.pn40.pn.pn.pn.pn.pn, 1
-  %.1221 = extractvalue { ptr, i32 } %.pn40.pn.pn.pn.pn.pn, 0
+  %.7 = extractvalue { ptr, i32 } %.pn40.pn.pn.pn.pn.pn, 1
+  %.716 = extractvalue { ptr, i32 } %.pn40.pn.pn.pn.pn.pn, 0
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #16
   br label %315
 
 315:                                              ; preds = %143, %314, %.body50, %162, %158, %.body47
-  %.1322 = phi ptr [ %164, %162 ], [ %160, %158 ], [ %.1221, %314 ], [ %275, %.body50 ], [ %145, %143 ], [ %126, %.body47 ]
-  %.13 = phi i32 [ %165, %162 ], [ %161, %158 ], [ %.12, %314 ], [ %276, %.body50 ], [ %146, %143 ], [ %127, %.body47 ]
+  %.615 = phi ptr [ %164, %162 ], [ %160, %158 ], [ %.716, %314 ], [ %275, %.body50 ], [ %145, %143 ], [ %126, %.body47 ]
+  %.6 = phi i32 [ %165, %162 ], [ %161, %158 ], [ %.7, %314 ], [ %276, %.body50 ], [ %146, %143 ], [ %127, %.body47 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
   br label %316
 
 316:                                              ; preds = %315, %77
-  %.1423 = phi ptr [ %79, %77 ], [ %.1322, %315 ]
-  %.14 = phi i32 [ %80, %77 ], [ %.13, %315 ]
+  %.514 = phi ptr [ %79, %77 ], [ %.615, %315 ]
+  %.5 = phi i32 [ %80, %77 ], [ %.6, %315 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   br label %317
 
 317:                                              ; preds = %316, %76, %64, %63
-  %.1524 = phi ptr [ %66, %64 ], [ %.1423, %316 ], [ %.211, %76 ], [ %.110, %63 ]
-  %.15 = phi i32 [ %67, %64 ], [ %.14, %316 ], [ %.2, %76 ], [ %.1, %63 ]
+  %.312 = phi ptr [ %66, %64 ], [ %.514, %316 ], [ %.413, %76 ], [ %.211, %63 ]
+  %.3 = phi i32 [ %67, %64 ], [ %.5, %316 ], [ %.4, %76 ], [ %.2, %63 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #16
   br label %318
 
 318:                                              ; preds = %317, %58
-  %.1625 = phi ptr [ %.1524, %317 ], [ %.09, %58 ]
-  %.16 = phi i32 [ %.15, %317 ], [ %.08, %58 ]
-  %319 = insertvalue { ptr, i32 } poison, ptr %.1625, 0
-  %320 = insertvalue { ptr, i32 } %319, i32 %.16, 1
+  %.110 = phi ptr [ %.312, %317 ], [ %.09, %58 ]
+  %.1 = phi i32 [ %.3, %317 ], [ %.08, %58 ]
+  %319 = insertvalue { ptr, i32 } poison, ptr %.110, 0
+  %320 = insertvalue { ptr, i32 } %319, i32 %.1, 1
   resume { ptr, i32 } %320
 
 321:                                              ; preds = %143

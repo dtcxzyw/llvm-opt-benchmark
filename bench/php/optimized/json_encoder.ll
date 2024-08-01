@@ -2351,7 +2351,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %
 124:                                              ; preds = %.lr.ph, %256
   %125 = phi i32 [ %117, %.lr.ph ], [ %257, %256 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %256 ]
-  %.0668983 = phi i32 [ 0, %.lr.ph ], [ %.2, %256 ]
+  %.0668983 = phi i32 [ 0, %.lr.ph ], [ %.1669, %256 ]
   %126 = load ptr, ptr %119, align 8
   %127 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8
@@ -2626,14 +2626,14 @@ php_json_pretty_print_char.exit834._crit_edge:    ; preds = %php_json_pretty_pri
 
 256:                                              ; preds = %php_json_pretty_print_char.exit834._crit_edge, %138, %135, %124
   %257 = phi i32 [ %125, %135 ], [ %125, %138 ], [ %.pre1004, %php_json_pretty_print_char.exit834._crit_edge ], [ %125, %124 ]
-  %.2 = phi i32 [ %.0668983, %135 ], [ %.0668983, %138 ], [ 1, %php_json_pretty_print_char.exit834._crit_edge ], [ %.0668983, %124 ]
+  %.1669 = phi i32 [ %.0668983, %135 ], [ %.0668983, %138 ], [ 1, %php_json_pretty_print_char.exit834._crit_edge ], [ %.0668983, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.next, %258
   br i1 %259, label %124, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %256
-  %260 = icmp eq i32 %.2, 0
+  %260 = icmp eq i32 %.1669, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %107
@@ -2907,7 +2907,7 @@ php_json_determine_array_type.exit.thread:        ; preds = %38, %25, %21, %13, 
   %.0640989 = phi ptr [ %373, %.lr.ph992 ], [ %.1641, %694 ]
   %.0644988 = phi i32 [ 0, %.lr.ph992 ], [ %.1645, %694 ]
   %.0646987 = phi ptr [ null, %.lr.ph992 ], [ %.1647, %694 ]
-  %.3986 = phi i32 [ 0, %.lr.ph992 ], [ %.9, %694 ]
+  %.3986 = phi i32 [ 0, %.lr.ph992 ], [ %.4, %694 ]
   %381 = load i32, ptr %369, align 8
   %382 = and i32 %381, 4
   %.not782 = icmp eq i32 %382, 0
@@ -3583,13 +3583,13 @@ php_json_pretty_print_indent.exit853:             ; preds = %443, %419, %669, %6
   br label %788
 
 694:                                              ; preds = %php_json_pretty_print_indent.exit853, %461, %398
-  %.9 = phi i32 [ %.3986, %398 ], [ 1, %php_json_pretty_print_indent.exit853 ], [ %.3986, %461 ]
+  %.4 = phi i32 [ %.3986, %398 ], [ 1, %php_json_pretty_print_indent.exit853 ], [ %.3986, %461 ]
   %695 = add i32 %.0639990, -1
   %.not768 = icmp eq i32 %695, 0
   br i1 %.not768, label %.thread970, label %380
 
 .thread970:                                       ; preds = %694, %368, %363
-  %.10977 = phi i32 [ 0, %363 ], [ 0, %368 ], [ %.9, %694 ]
+  %.10977 = phi i32 [ 0, %363 ], [ 0, %368 ], [ %.4, %694 ]
   %696 = getelementptr inbounds i8, ptr %.0667926944946, i64 4
   %697 = load i32, ptr %696, align 4
   %698 = and i32 %697, 64

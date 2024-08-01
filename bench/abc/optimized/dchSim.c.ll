@@ -89,21 +89,21 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv36 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next37, %.lr.ph31 ]
-  %.130 = phi i32 [ 0, %.lr.ph31.preheader ], [ %34, %.lr.ph31 ]
+  %.230 = phi i32 [ 0, %.lr.ph31.preheader ], [ %34, %.lr.ph31 ]
   %28 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv36
   %29 = load i32, ptr %28, align 4
   %30 = and i64 %indvars.iv36, 127
   %31 = getelementptr inbounds [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = mul i32 %32, %29
-  %34 = xor i32 %33, %.130
+  %34 = xor i32 %33, %.230
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph31, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader25, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader25 ], [ %34, %.lr.ph31 ], [ %27, %.lr.ph ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader25 ], [ %34, %.lr.ph31 ], [ %27, %.lr.ph ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

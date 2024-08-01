@@ -1485,7 +1485,7 @@ invoke.cont9:                                     ; preds = %do.end
 
 cleanup12:                                        ; preds = %cleanup, %if.then.i.i38, %invoke.cont9
   %cmp.i31170 = phi i1 [ true, %invoke.cont9 ], [ false, %cleanup ], [ false, %if.then.i.i38 ]
-  %requested_port.addr.0 = phi i32 [ %63, %invoke.cont9 ], [ 0, %cleanup ], [ 0, %if.then.i.i38 ]
+  %requested_port.addr.1 = phi i32 [ %63, %invoke.cont9 ], [ 0, %cleanup ], [ 0, %if.then.i.i38 ]
   %64 = load i64, ptr %result, align 8
   %and.i.i.i1.i.i = and i64 %64, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
@@ -1511,7 +1511,7 @@ ehcleanup:                                        ; preds = %lpad.i.i, %lpad1
   br label %ehcleanup150
 
 if.end15:                                         ; preds = %_ZN4absl12lts_202308028StatusOrIiED2Ev.exit, %entry
-  %requested_port.addr.1 = phi i32 [ %requested_port.addr.0, %_ZN4absl12lts_202308028StatusOrIiED2Ev.exit ], [ %requested_port, %entry ]
+  %requested_port.addr.0 = phi i32 [ %requested_port.addr.1, %_ZN4absl12lts_202308028StatusOrIiED2Ev.exit ], [ %requested_port, %entry ]
   %call16 = call i32 @getifaddrs(ptr noundef nonnull %ifa) #18
   %cmp17 = icmp ne i32 %call16, 0
   %67 = load ptr, ptr %ifa, align 8
@@ -1609,8 +1609,8 @@ ehcleanup34:                                      ; preds = %lpad.i.i52, %lpad29
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %ifa_it.0163 = phi ptr [ %67, %for.cond.preheader ], [ %119, %for.inc ]
-  %no_local_addresses.0162 = phi i1 [ true, %for.cond.preheader ], [ %no_local_addresses.3, %for.inc ]
-  %assigned_port.0161 = phi i32 [ 0, %for.cond.preheader ], [ %assigned_port.3, %for.inc ]
+  %no_local_addresses.0162 = phi i1 [ true, %for.cond.preheader ], [ %no_local_addresses.2, %for.inc ]
+  %assigned_port.0161 = phi i32 [ 0, %for.cond.preheader ], [ %assigned_port.2, %for.inc ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 132, i1 false)
   %ifa_name37 = getelementptr inbounds i8, ptr %ifa_it.0163, i64 8
   %83 = load ptr, ptr %ifa_name37, align 8
@@ -1638,7 +1638,7 @@ if.end53:                                         ; preds = %if.else, %if.then49
 
 invoke.cont56:                                    ; preds = %if.end53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, ptr noundef nonnull align 4 dereferenceable(132) %ref.tmp54, i64 132, i1 false)
-  invoke void @_ZN17grpc_event_engine12experimental22ResolvedAddressSetPortERNS0_11EventEngine15ResolvedAddressEi(ptr noundef nonnull align 4 dereferenceable(132) %addr, i32 noundef %requested_port.addr.1)
+  invoke void @_ZN17grpc_event_engine12experimental22ResolvedAddressSetPortERNS0_11EventEngine15ResolvedAddressEi(ptr noundef nonnull align 4 dereferenceable(132) %addr, i32 noundef %requested_port.addr.0)
           to label %invoke.cont57 unwind label %lpad.loopexit
 
 invoke.cont57:                                    ; preds = %invoke.cont56
@@ -1903,14 +1903,14 @@ cleanup120:                                       ; preds = %invoke.cont114
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then73, %cleanup120
-  %assigned_port.3.ph = phi i32 [ %118, %cleanup120 ], [ %assigned_port.0161, %if.then73 ]
-  %no_local_addresses.3.ph = phi i1 [ false, %cleanup120 ], [ %no_local_addresses.0162, %if.then73 ]
+  %assigned_port.2.ph = phi i32 [ %118, %cleanup120 ], [ %assigned_port.0161, %if.then73 ]
+  %no_local_addresses.2.ph = phi i1 [ false, %cleanup120 ], [ %no_local_addresses.0162, %if.then73 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %addr_str) #18
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else, %for.body
-  %assigned_port.3 = phi i32 [ %assigned_port.0161, %for.body ], [ %assigned_port.0161, %if.else ], [ %assigned_port.3.ph, %for.inc.sink.split ]
-  %no_local_addresses.3 = phi i1 [ %no_local_addresses.0162, %for.body ], [ %no_local_addresses.0162, %if.else ], [ %no_local_addresses.3.ph, %for.inc.sink.split ]
+  %assigned_port.2 = phi i32 [ %assigned_port.0161, %for.body ], [ %assigned_port.0161, %if.else ], [ %assigned_port.2.ph, %for.inc.sink.split ]
+  %no_local_addresses.2 = phi i1 [ %no_local_addresses.0162, %for.body ], [ %no_local_addresses.0162, %if.else ], [ %no_local_addresses.2.ph, %for.inc.sink.split ]
   %119 = load ptr, ptr %ifa_it.0163, align 8
   %cmp36.not = icmp eq ptr %119, null
   br i1 %cmp36.not, label %for.end, label %for.body, !llvm.loop !20
@@ -1926,8 +1926,8 @@ ehcleanup123:                                     ; preds = %ehcleanup119, %lpad
   br label %ehcleanup150
 
 for.end:                                          ; preds = %for.inc, %cleanup120.thread186
-  %assigned_port.4 = phi i32 [ %assigned_port.0161, %cleanup120.thread186 ], [ %assigned_port.3, %for.inc ]
-  %no_local_addresses.4 = phi i1 [ %no_local_addresses.0162, %cleanup120.thread186 ], [ %no_local_addresses.3, %for.inc ]
+  %assigned_port.1 = phi i32 [ %assigned_port.0161, %cleanup120.thread186 ], [ %assigned_port.2, %for.inc ]
+  %no_local_addresses.1 = phi i1 [ %no_local_addresses.0162, %cleanup120.thread186 ], [ %no_local_addresses.2, %for.inc ]
   %120 = load ptr, ptr %ifa, align 8
   call void @freeifaddrs(ptr noundef %120) #18
   %121 = load i64, ptr %op_status, align 8
@@ -1979,7 +1979,7 @@ terminate.lpad.i122:                              ; preds = %if.then.i.i121
   unreachable
 
 do.end138:                                        ; preds = %invoke.cont128
-  br i1 %no_local_addresses.4, label %if.then140, label %if.end147
+  br i1 %no_local_addresses.1, label %if.then140, label %if.end147
 
 if.then140:                                       ; preds = %do.end138
   invoke void @_ZN4absl12lts_2023080223FailedPreconditionErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp141, i64 18, ptr nonnull @.str.9)
@@ -2022,7 +2022,7 @@ terminate.lpad.i139:                              ; preds = %if.then.i.i138
 
 if.end147:                                        ; preds = %do.end138
   %133 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %assigned_port.4, ptr %133, align 8
+  store i32 %assigned_port.1, ptr %133, align 8
   store i64 0, ptr %agg.result, align 8
   br label %cleanup149
 

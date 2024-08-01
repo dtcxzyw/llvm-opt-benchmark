@@ -4669,10 +4669,10 @@ define linkonce_odr void @_ZN3gmx26AnalysisDataFrameLocalDataIlE4initERKNS_27Ana
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %16 = phi ptr [ %20, %.lr.ph.i ], [ %14, %.lr.ph.i.preheader ]
   %.016.i = phi i32 [ %18, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
-  %.sroa.0.015.i = phi ptr [ %19, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.sroa.0.115.i = phi ptr [ %19, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, %.016.i
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 4
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.115.i, i64 4
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %16, i64 4
   %.not.i = icmp eq ptr %20, %11
@@ -5404,10 +5404,10 @@ define linkonce_odr void @_ZN3gmx26AnalysisDataFrameLocalDataIdE4initERKNS_27Ana
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %16 = phi ptr [ %20, %.lr.ph.i ], [ %14, %.lr.ph.i.preheader ]
   %.016.i = phi i32 [ %18, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
-  %.sroa.0.015.i = phi ptr [ %19, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.sroa.0.115.i = phi ptr [ %19, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, %.016.i
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 4
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.115.i, i64 4
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %16, i64 4
   %.not.i = icmp eq ptr %20, %11

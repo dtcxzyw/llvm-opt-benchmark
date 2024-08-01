@@ -3237,7 +3237,7 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
 
 .lr.ph41:                                         ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph ]
-  %.03739 = phi i32 [ %34, %33 ], [ %24, %.lr.ph ]
+  %.13739 = phi i32 [ %34, %33 ], [ %24, %.lr.ph ]
   %29 = load ptr, ptr %26, align 8
   %30 = getelementptr %union.ListCell, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
@@ -3245,7 +3245,7 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %.lr.ph41
-  %34 = add i32 %.03739, 1
+  %34 = add i32 %.13739, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %25, align 4
   %36 = sext i32 %35 to i64
@@ -3260,8 +3260,8 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph41, %11
-  %.1 = phi i32 [ %15, %11 ], [ %.03739, %.lr.ph41 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %15, %11 ], [ %.13739, %.lr.ph41 ]
+  ret i32 %.0
 }
 
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

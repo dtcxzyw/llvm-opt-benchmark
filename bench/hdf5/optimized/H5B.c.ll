@@ -1787,8 +1787,8 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
   br label %52
 
 52:                                               ; preds = %38, %33
-  %.1 = phi i32 [ %37, %33 ], [ %51, %38 ]
-  %53 = icmp slt i32 %.1, 0
+  %.2 = phi i32 [ %37, %33 ], [ %51, %38 ]
+  %53 = icmp slt i32 %.2, 0
   br i1 %53, label %.thread51, label %57
 
 .thread51:                                        ; preds = %52
@@ -1802,12 +1802,12 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
   %58 = load i32, ptr %21, align 4
   %59 = zext i32 %58 to i64
   %60 = icmp ult i64 %indvars.iv.next, %59
-  %61 = icmp eq i32 %.1, 0
+  %61 = icmp eq i32 %.2, 0
   %62 = and i1 %61, %60
   br i1 %62, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %57, %.thread51, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %.thread51 ], [ %.1, %57 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %.thread51 ], [ %.2, %57 ]
   %63 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %2, ptr noundef nonnull %19, i32 noundef 0) #6
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %.thread
@@ -1819,7 +1819,7 @@ define internal fastcc i32 @H5B__iterate_helper(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %27, %11, %65, %._crit_edge
-  %.3 = phi i32 [ -1, %65 ], [ %.0.lcssa, %._crit_edge ], [ -1, %11 ], [ -1, %27 ]
+  %.3 = phi i32 [ -1, %65 ], [ %.1.lcssa, %._crit_edge ], [ -1, %11 ], [ -1, %27 ]
   ret i32 %.3
 }
 
@@ -2000,7 +2000,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %114
 
 114:                                              ; preds = %113, %89, %61
-  %.0 = phi i32 [ %80, %61 ], [ %107, %89 ], [ 5, %113 ]
+  %.1 = phi i32 [ %80, %61 ], [ %107, %89 ], [ 5, %113 ]
   %115 = load i8, ptr %5, align 1
   %116 = trunc i8 %115 to i1
   br i1 %116, label %117, label %128
@@ -2026,7 +2026,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %128
 
 128:                                              ; preds = %118, %119, %114
-  %.0242 = phi i32 [ 2, %118 ], [ 2, %119 ], [ 0, %114 ]
+  %.1243 = phi i32 [ 2, %118 ], [ 2, %119 ], [ 0, %114 ]
   %129 = load i8, ptr %8, align 1
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %147
@@ -2056,8 +2056,8 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %147
 
 147:                                              ; preds = %135, %136, %128
-  %.1243 = phi i32 [ 2, %135 ], [ 2, %136 ], [ %.0242, %128 ]
-  %148 = icmp eq i32 %.0, 5
+  %.2244 = phi i32 [ 2, %135 ], [ 2, %136 ], [ %.1243, %128 ]
+  %148 = icmp eq i32 %.1, 5
   br i1 %148, label %149, label %358
 
 149:                                              ; preds = %147
@@ -2364,15 +2364,15 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %358
 
 358:                                              ; preds = %147, %233, %240, %313, %347, %278
-  %.2244 = phi i32 [ 2, %240 ], [ 2, %278 ], [ 2, %313 ], [ 2, %347 ], [ 0, %233 ], [ %.1243, %147 ]
-  %.0240 = phi ptr [ %23, %240 ], [ %23, %278 ], [ %23, %313 ], [ %23, %347 ], [ null, %233 ], [ %23, %147 ]
-  %.1 = phi i32 [ 5, %240 ], [ 0, %278 ], [ 0, %313 ], [ 0, %347 ], [ 5, %233 ], [ 0, %147 ]
+  %.3245 = phi i32 [ 2, %240 ], [ 2, %278 ], [ 2, %313 ], [ 2, %347 ], [ 0, %233 ], [ %.2244, %147 ]
+  %.1241 = phi ptr [ %23, %240 ], [ %23, %278 ], [ %23, %313 ], [ %23, %347 ], [ null, %233 ], [ %23, %147 ]
+  %.2 = phi i32 [ 5, %240 ], [ 0, %278 ], [ 0, %313 ], [ 0, %347 ], [ 5, %233 ], [ 0, %147 ]
   %359 = load i8, ptr %5, align 1
   %360 = trunc i8 %359 to i1
   br i1 %360, label %361, label %395
 
 361:                                              ; preds = %358
-  %362 = getelementptr inbounds i8, ptr %.0240, i64 264
+  %362 = getelementptr inbounds i8, ptr %.1241, i64 264
   %363 = load i64, ptr %362, align 8
   %.not267 = icmp eq i64 %363, -1
   br i1 %.not267, label %395, label %364
@@ -2399,7 +2399,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %379 = getelementptr inbounds i64, ptr %375, i64 %378
   %380 = load i64, ptr %379, align 8
   %381 = getelementptr inbounds i8, ptr %373, i64 %380
-  %382 = getelementptr inbounds i8, ptr %.0240, i64 280
+  %382 = getelementptr inbounds i8, ptr %.1241, i64 280
   %383 = load ptr, ptr %382, align 8
   %384 = load i64, ptr %375, align 8
   %385 = getelementptr inbounds i8, ptr %383, i64 %384
@@ -2423,7 +2423,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br i1 %397, label %398, label %432
 
 398:                                              ; preds = %395
-  %399 = getelementptr inbounds i8, ptr %.0240, i64 272
+  %399 = getelementptr inbounds i8, ptr %.1241, i64 272
   %400 = load i64, ptr %399, align 8
   %.not268 = icmp eq i64 %400, -1
   br i1 %.not268, label %.thread, label %401
@@ -2446,9 +2446,9 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   %412 = load ptr, ptr %411, align 8
   %413 = load i64, ptr %412, align 8
   %414 = getelementptr inbounds i8, ptr %410, i64 %413
-  %415 = getelementptr inbounds i8, ptr %.0240, i64 280
+  %415 = getelementptr inbounds i8, ptr %.1241, i64 280
   %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds i8, ptr %.0240, i64 260
+  %417 = getelementptr inbounds i8, ptr %.1241, i64 260
   %418 = load i32, ptr %417, align 4
   %419 = zext i32 %418 to i64
   %420 = getelementptr inbounds i64, ptr %412, i64 %419
@@ -2469,14 +2469,14 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %.thread
 
 432:                                              ; preds = %395
-  %.not269 = icmp eq ptr %.0240, null
+  %.not269 = icmp eq ptr %.1241, null
   br i1 %.not269, label %.thread278, label %.thread
 
 .thread:                                          ; preds = %408, %371, %109, %398, %428, %404, %391, %367, %229, %203, %193, %160, %82, %._crit_edge.thread, %432
-  %.2276 = phi i32 [ %.1, %432 ], [ %.1, %408 ], [ %.1, %371 ], [ -1, %109 ], [ %.1, %398 ], [ -1, %428 ], [ -1, %404 ], [ -1, %391 ], [ -1, %367 ], [ -1, %229 ], [ -1, %203 ], [ -1, %193 ], [ -1, %160 ], [ -1, %82 ], [ -1, %._crit_edge.thread ]
-  %.1241275 = phi ptr [ %.0240, %432 ], [ %.0240, %408 ], [ %.0240, %371 ], [ %23, %109 ], [ %.0240, %398 ], [ %.0240, %428 ], [ %.0240, %404 ], [ %.0240, %391 ], [ %.0240, %367 ], [ %23, %229 ], [ %23, %203 ], [ %23, %193 ], [ %23, %160 ], [ %23, %82 ], [ %23, %._crit_edge.thread ]
-  %.3245274 = phi i32 [ %.2244, %432 ], [ %.2244, %408 ], [ %.2244, %371 ], [ 0, %109 ], [ %.2244, %398 ], [ %.2244, %428 ], [ %.2244, %404 ], [ %.2244, %391 ], [ %.2244, %367 ], [ %.1243, %229 ], [ %.1243, %203 ], [ %.1243, %193 ], [ %.1243, %160 ], [ 0, %82 ], [ 0, %._crit_edge.thread ]
-  %433 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %.1241275, i32 noundef %.3245274) #6
+  %.0276 = phi i32 [ %.2, %432 ], [ %.2, %408 ], [ %.2, %371 ], [ -1, %109 ], [ %.2, %398 ], [ -1, %428 ], [ -1, %404 ], [ -1, %391 ], [ -1, %367 ], [ -1, %229 ], [ -1, %203 ], [ -1, %193 ], [ -1, %160 ], [ -1, %82 ], [ -1, %._crit_edge.thread ]
+  %.0240275 = phi ptr [ %.1241, %432 ], [ %.1241, %408 ], [ %.1241, %371 ], [ %23, %109 ], [ %.1241, %398 ], [ %.1241, %428 ], [ %.1241, %404 ], [ %.1241, %391 ], [ %.1241, %367 ], [ %23, %229 ], [ %23, %203 ], [ %23, %193 ], [ %23, %160 ], [ %23, %82 ], [ %23, %._crit_edge.thread ]
+  %.0242274 = phi i32 [ %.3245, %432 ], [ %.3245, %408 ], [ %.3245, %371 ], [ 0, %109 ], [ %.3245, %398 ], [ %.3245, %428 ], [ %.3245, %404 ], [ %.3245, %391 ], [ %.3245, %367 ], [ %.2244, %229 ], [ %.2244, %203 ], [ %.2244, %193 ], [ %.2244, %160 ], [ 0, %82 ], [ 0, %._crit_edge.thread ]
+  %433 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %.0240275, i32 noundef %.0242274) #6
   %434 = icmp slt i32 %433, 0
   br i1 %434, label %435, label %.thread278
 
@@ -2487,7 +2487,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
   br label %.thread278
 
 .thread278:                                       ; preds = %236, %25, %15, %435, %.thread, %432
-  %.3 = phi i32 [ -1, %435 ], [ %.2276, %.thread ], [ %.1, %432 ], [ -1, %15 ], [ -1, %25 ], [ -1, %236 ]
+  %.3 = phi i32 [ -1, %435 ], [ %.0276, %.thread ], [ %.2, %432 ], [ -1, %15 ], [ -1, %25 ], [ -1, %236 ]
   ret i32 %.3
 }
 
@@ -2900,12 +2900,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0
 
 .loopexit:                                        ; preds = %52, %28
   %.sink = phi i32 [ 1799, %28 ], [ 1821, %52 ]
-  %.150 = phi ptr [ %22, %28 ], [ %46, %52 ]
-  %.147 = phi i64 [ %2, %28 ], [ %.048, %52 ]
+  %.049 = phi ptr [ %22, %28 ], [ %46, %52 ]
+  %.046 = phi i64 [ %2, %28 ], [ %.048, %52 ]
   %72 = load i64, ptr @H5E_BTREE_g, align 8
   %73 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
   %74 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B__get_info_helper, i32 noundef %.sink, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.34) #6
-  %75 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.147, ptr noundef nonnull %.150, i32 noundef 0) #6
+  %75 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.046, ptr noundef nonnull %.049, i32 noundef 0) #6
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %.thread
 

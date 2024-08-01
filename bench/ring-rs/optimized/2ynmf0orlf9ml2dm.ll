@@ -1183,7 +1183,7 @@ define hidden noundef zeroext i1 @_ZN4ring4limb34parse_big_endian_and_pad_constt
   br i1 %15, label %28, label %17
 
 16:                                               ; preds = %4, %28, %_ZN9untrusted5input5Input8read_all17hf8c54ada4aa095d8E.exit
-  %.0 = phi i1 [ true, %28 ], [ %.1.i, %_ZN9untrusted5input5Input8read_all17hf8c54ada4aa095d8E.exit ], [ true, %4 ]
+  %.0 = phi i1 [ true, %28 ], [ %.0.i, %_ZN9untrusted5input5Input8read_all17hf8c54ada4aa095d8E.exit ], [ true, %4 ]
   ret i1 %.0
 
 17:                                               ; preds = %10
@@ -1226,7 +1226,7 @@ define hidden noundef zeroext i1 @_ZN4ring4limb34parse_big_endian_and_pad_constt
   br label %_ZN9untrusted5input5Input8read_all17hf8c54ada4aa095d8E.exit
 
 _ZN9untrusted5input5Input8read_all17hf8c54ada4aa095d8E.exit: ; preds = %23, %27
-  %.1.i = phi i1 [ true, %27 ], [ %26, %23 ]
+  %.0.i = phi i1 [ true, %27 ], [ %26, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %16
@@ -1782,14 +1782,14 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   br label %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..P$GT$$GT$17h7c6357846459f3c2E.exit"
 
 .body340:                                         ; preds = %251, %86, %257, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit"
-  %.0252 = phi i8 [ %.2254, %257 ], [ %.2254, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit" ], [ %.1253, %86 ], [ %.18412, %251 ]
-  %.1 = phi i1 [ %.2, %257 ], [ %.2, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit" ], [ true, %86 ], [ true, %251 ]
+  %.1253 = phi i8 [ %.4256, %257 ], [ %.4256, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit" ], [ %.0252, %86 ], [ %.5257412, %251 ]
+  %.1 = phi i1 [ %.3, %257 ], [ %.3, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit" ], [ true, %86 ], [ true, %251 ]
   %.pn295 = phi { ptr, i32 } [ %.pn293, %257 ], [ %.pn293, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit" ], [ %87, %86 ], [ %252, %251 ]
-  %85 = trunc nuw i8 %.0252 to i1
+  %85 = trunc nuw i8 %.1253 to i1
   br i1 %85, label %275, label %63
 
 86:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i", %81
-  %.1253 = phi i8 [ 1, %81 ], [ %.18412, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i" ]
+  %.0252 = phi i8 [ 1, %81 ], [ %.5257412, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i" ]
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %.body340
@@ -1828,17 +1828,17 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   br label %268
 
 "_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit": ; preds = %.body, %100
-  %.0260 = phi i8 [ %.1261, %100 ], [ %.2262, %.body ]
-  %.2254 = phi i8 [ %.3255, %100 ], [ %.4256, %.body ]
-  %.2 = phi i1 [ %.3, %100 ], [ %.4, %.body ]
+  %.1261 = phi i8 [ %.0260, %100 ], [ %.3263, %.body ]
+  %.4256 = phi i8 [ %.2254, %100 ], [ %.6258, %.body ]
+  %.3 = phi i1 [ %.2, %100 ], [ %.4, %.body ]
   %.pn293 = phi { ptr, i32 } [ %101, %100 ], [ %.pn291, %.body ]
-  %99 = trunc nuw i8 %.0260 to i1
+  %99 = trunc nuw i8 %.1261 to i1
   br i1 %99, label %257, label %.body340
 
 100:                                              ; preds = %247, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330", %95
-  %.1261 = phi i8 [ 1, %95 ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330" ], [ %.16276, %247 ]
-  %.3255 = phi i8 [ 1, %95 ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330" ], [ %.17, %247 ]
-  %.3 = phi i1 [ true, %95 ], [ false, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330" ], [ true, %247 ]
+  %.0260 = phi i8 [ 1, %95 ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330" ], [ %.5265, %247 ]
+  %.2254 = phi i8 [ 1, %95 ], [ 0, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330" ], [ %.8, %247 ]
+  %.2 = phi i1 [ true, %95 ], [ false, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit330" ], [ true, %247 ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit"
@@ -1866,9 +1866,9 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   br label %250
 
 .body:                                            ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit", %132, %119, %126, %110
-  %.2262 = phi i8 [ 1, %110 ], [ 1, %119 ], [ %.3263, %126 ], [ 1, %132 ], [ %.4264, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
-  %.4256 = phi i8 [ 1, %110 ], [ 1, %119 ], [ %.5257, %126 ], [ 1, %132 ], [ %.6258, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
-  %.4 = phi i1 [ true, %110 ], [ true, %119 ], [ %.5, %126 ], [ true, %132 ], [ %.6, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
+  %.3263 = phi i8 [ 1, %110 ], [ 1, %119 ], [ %.4264, %126 ], [ 1, %132 ], [ %.7267, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
+  %.6258 = phi i8 [ 1, %110 ], [ 1, %119 ], [ %.7259, %126 ], [ 1, %132 ], [ %.10, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
+  %.4 = phi i1 [ true, %110 ], [ true, %119 ], [ %.5, %126 ], [ true, %132 ], [ %.7, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
   %.pn291 = phi { ptr, i32 } [ %111, %110 ], [ %120, %119 ], [ %127, %126 ], [ %133, %132 ], [ %.pn289, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
           to label %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit" unwind label %239
@@ -1917,8 +1917,8 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
   br label %247
 
 126:                                              ; preds = %243, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328"
-  %.3263 = phi i8 [ 0, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328" ], [ %.15275, %243 ]
-  %.5257 = phi i8 [ 0, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328" ], [ %.16, %243 ]
+  %.4264 = phi i8 [ 0, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328" ], [ %.17277, %243 ]
+  %.7259 = phi i8 [ 0, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328" ], [ %.19, %243 ]
   %.5 = phi i1 [ false, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit328" ], [ true, %243 ]
   %127 = landingpad { ptr, i32 }
           cleanup
@@ -1959,17 +1959,17 @@ define void @_ZN4ring3rsa7keypair7KeyPair16from_components_17h4ff4502bb2b5f3b2E(
           to label %140 unwind label %138
 
 "_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit": ; preds = %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit", %138
-  %.4264 = phi i8 [ %.5265, %138 ], [ %.6266, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
-  %.6258 = phi i8 [ %.7259, %138 ], [ %.8, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
-  %.6 = phi i1 [ %.7, %138 ], [ true, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
+  %.7267 = phi i8 [ %.6266, %138 ], [ %.9269, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
+  %.10 = phi i8 [ %.9, %138 ], [ %.12, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
+  %.7 = phi i1 [ %.6, %138 ], [ true, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
   %.pn289 = phi { ptr, i32 } [ %139, %138 ], [ %.pn287, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %.body unwind label %239
 
 138:                                              ; preds = %231, %167, %142, %136
-  %.5265 = phi i8 [ 1, %142 ], [ 1, %136 ], [ %.7267, %167 ], [ 0, %231 ]
-  %.7259 = phi i8 [ 1, %142 ], [ 1, %136 ], [ %.9, %167 ], [ 0, %231 ]
-  %.7 = phi i1 [ true, %142 ], [ true, %136 ], [ true, %167 ], [ false, %231 ]
+  %.6266 = phi i8 [ 1, %142 ], [ 1, %136 ], [ %.10270, %167 ], [ 0, %231 ]
+  %.9 = phi i8 [ 1, %142 ], [ 1, %136 ], [ %.13, %167 ], [ 0, %231 ]
+  %.6 = phi i1 [ true, %142 ], [ true, %136 ], [ true, %167 ], [ false, %231 ]
   %139 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit"
@@ -2040,8 +2040,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   br i1 %.not.i, label %168, label %177
 
 "_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit": ; preds = %195, %189, %162
-  %.6266 = phi i8 [ %.8268, %189 ], [ 1, %162 ], [ %.9269, %195 ]
-  %.8 = phi i8 [ %.10, %189 ], [ 1, %162 ], [ %.11, %195 ]
+  %.9269 = phi i8 [ %.11271, %189 ], [ 1, %162 ], [ %.13273, %195 ]
+  %.12 = phi i8 [ %.14, %189 ], [ 1, %162 ], [ %.16, %195 ]
   %.pn287 = phi { ptr, i32 } [ %190, %189 ], [ %163, %162 ], [ %.pn, %195 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit" unwind label %239
@@ -2060,8 +2060,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   br label %167
 
 167:                                              ; preds = %242, %177, %164
-  %.7267 = phi i8 [ %.13273, %242 ], [ 1, %177 ], [ 1, %164 ]
-  %.9 = phi i8 [ %.14, %242 ], [ 1, %177 ], [ 1, %164 ]
+  %.10270 = phi i8 [ %.12272, %242 ], [ 1, %177 ], [ 1, %164 ]
+  %.13 = phi i8 [ %.15, %242 ], [ 1, %177 ], [ 1, %164 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320" unwind label %138
 
@@ -2110,8 +2110,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   br label %242
 
 189:                                              ; preds = %241, %182
-  %.8268 = phi i8 [ 1, %182 ], [ %.12272, %241 ]
-  %.10 = phi i8 [ 1, %182 ], [ %.13, %241 ]
+  %.11271 = phi i8 [ 1, %182 ], [ %.15275, %241 ]
+  %.14 = phi i8 [ 1, %182 ], [ %.18, %241 ]
   %190 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit"
@@ -2130,8 +2130,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
           to label %198 unwind label %196
 
 195:                                              ; preds = %200, %222, %196
-  %.9269 = phi i8 [ %.10270, %200 ], [ 0, %222 ], [ 1, %196 ]
-  %.11 = phi i8 [ %.12, %200 ], [ 0, %222 ], [ 1, %196 ]
+  %.13273 = phi i8 [ %.14274, %200 ], [ 0, %222 ], [ 1, %196 ]
+  %.16 = phi i8 [ %.17, %200 ], [ 0, %222 ], [ 1, %196 ]
   %.pn = phi { ptr, i32 } [ %201, %200 ], [ %223, %222 ], [ %197, %196 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit" unwind label %239
@@ -2148,8 +2148,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
           to label %202 unwind label %200
 
 200:                                              ; preds = %234, %207, %202, %198
-  %.10270 = phi i8 [ 0, %234 ], [ 1, %207 ], [ 1, %202 ], [ 1, %198 ]
-  %.12 = phi i8 [ 0, %234 ], [ 0, %207 ], [ 1, %202 ], [ 1, %198 ]
+  %.14274 = phi i8 [ 0, %234 ], [ 1, %207 ], [ 1, %202 ], [ 1, %198 ]
+  %.17 = phi i8 [ 0, %234 ], [ 0, %207 ], [ 1, %202 ], [ 1, %198 ]
   %201 = landingpad { ptr, i32 }
           cleanup
   br label %195
@@ -2291,7 +2291,7 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   ret void
 
 238:                                              ; preds = %234, %219
-  %.11271 = phi i8 [ 1, %219 ], [ 0, %234 ]
+  %.16276 = phi i8 [ 1, %219 ], [ 0, %234 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   br label %241
 
@@ -2302,8 +2302,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   unreachable
 
 241:                                              ; preds = %238, %208
-  %.12272 = phi i8 [ %.11271, %238 ], [ 1, %208 ]
-  %.13 = phi i8 [ 0, %238 ], [ 1, %208 ]
+  %.15275 = phi i8 [ %.16276, %238 ], [ 1, %208 ]
+  %.18 = phi i8 [ 0, %238 ], [ 1, %208 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit334" unwind label %189
 
@@ -2312,20 +2312,20 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   br label %242
 
 242:                                              ; preds = %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit334", %186
-  %.13273 = phi i8 [ 1, %186 ], [ %.12272, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit334" ]
-  %.14 = phi i8 [ 1, %186 ], [ %.13, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit334" ]
+  %.12272 = phi i8 [ 1, %186 ], [ %.15275, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit334" ]
+  %.15 = phi i8 [ 1, %186 ], [ %.18, %"_ZN4core3ptr114drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$C$ring..arithmetic..montgomery..R$GT$$GT$17hfe5ca4a318a7a6a0E.exit334" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %167
 
 "_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320": ; preds = %167, %153
-  %.14274 = phi i8 [ 1, %153 ], [ %.7267, %167 ]
-  %.15 = phi i8 [ 1, %153 ], [ %.9, %167 ]
+  %.8268 = phi i8 [ 1, %153 ], [ %.10270, %167 ]
+  %.11 = phi i8 [ 1, %153 ], [ %.13, %167 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   br label %243
 
 243:                                              ; preds = %244, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320"
-  %.15275 = phi i8 [ %.14274, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320" ], [ 1, %244 ]
-  %.16 = phi i8 [ %.15, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320" ], [ 1, %244 ]
+  %.17277 = phi i8 [ %.8268, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320" ], [ 1, %244 ]
+  %.19 = phi i8 [ %.11, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..D$GT$$GT$17hfc635e6af103814dE.exit320" ], [ 1, %244 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit336" unwind label %126
 
@@ -2342,24 +2342,24 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
   br label %247
 
 247:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit336", %123
-  %.16276 = phi i8 [ 1, %123 ], [ %.15275, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit336" ]
-  %.17 = phi i8 [ 1, %123 ], [ %.16, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit336" ]
+  %.5265 = phi i8 [ 1, %123 ], [ %.17277, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit336" ]
+  %.8 = phi i8 [ 1, %123 ], [ %.19, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit336" ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
           to label %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338" unwind label %100
 
 "_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338": ; preds = %247
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %248 = trunc nuw i8 %.16276 to i1
+  %248 = trunc nuw i8 %.5265 to i1
   br i1 %248, label %250, label %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..Q$GT$$GT$17hb50d01ef26b362f5E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..Q$GT$$GT$17hb50d01ef26b362f5E.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i", %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338"
-  %.19 = phi i8 [ %.17, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338" ], [ %.18412, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i" ]
+  %.3255 = phi i8 [ %.8, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338" ], [ %.5257412, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17)
-  %249 = trunc nuw i8 %.19 to i1
+  %249 = trunc nuw i8 %.3255 to i1
   br i1 %249, label %268, label %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..P$GT$$GT$17h7c6357846459f3c2E.exit"
 
 250:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338.thread", %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338"
-  %.18412 = phi i8 [ 1, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338.thread" ], [ %.17, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338" ]
+  %.5257412 = phi i8 [ 1, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338.thread" ], [ %.8, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit338" ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
           to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit.i" unwind label %251
 
@@ -2644,7 +2644,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   br label %204
 
 "_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..Q$GT$$GT$17h6acaa9f2cde17dc9E.exit160.i": ; preds = %.thread.i
-  br i1 %.2168.i, label %204, label %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$GT$$GT$17hcddb2799fbcd6d4cE.exit164.i"
+  br i1 %.4168.i, label %204, label %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$GT$$GT$17hcddb2799fbcd6d4cE.exit164.i"
 
 95:                                               ; preds = %202
   %96 = landingpad { ptr, i32 }
@@ -2678,10 +2678,10 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
           to label %111 unwind label %109
 
 .thread176.i:                                     ; preds = %.body132.i
-  br i1 %.497.i, label %.thread.i, label %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$GT$$GT$17hcddb2799fbcd6d4cE.exit164.i"
+  br i1 %.7.i, label %.thread.i, label %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..P$GT$$GT$17hcddb2799fbcd6d4cE.exit164.i"
 
 109:                                              ; preds = %130, %99
-  %.3.i = phi i1 [ true, %99 ], [ false, %130 ]
+  %.2.i = phi i1 [ true, %99 ], [ false, %130 ]
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
@@ -2848,7 +2848,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %52
   unreachable
 
 .body132.i:                                       ; preds = %198, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit139.i", %179, %178, %159, %155
-  %.497.i = phi i1 [ false, %159 ], [ true, %155 ], [ false, %198 ], [ false, %178 ], [ false, %179 ], [ false, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit139.i" ]
+  %.7.i = phi i1 [ false, %159 ], [ true, %155 ], [ false, %198 ], [ false, %178 ], [ false, %179 ], [ false, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit139.i" ]
   %.pn107.i = phi { ptr, i32 } [ %160, %159 ], [ %156, %155 ], [ %199, %198 ], [ %175, %178 ], [ %180, %179 ], [ %.pn.i, %"_ZN4core3ptr71drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..N$GT$$GT$17hca841a5ba4c97177E.exit139.i" ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
           to label %.thread176.i unwind label %196
@@ -3049,7 +3049,7 @@ _ZN4ring4limb27limbs_equal_limbs_consttime17h9c51487451836acaE.exit.i.i: ; preds
 
 .thread.i:                                        ; preds = %.thread180.i, %.thread176.thread.i, %.body.i, %109, %.thread176.i
   %.pn111169.i = phi { ptr, i32 } [ %.pn107.i, %.thread176.i ], [ %110, %109 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn109175.i, %.thread180.i ], [ %132, %.thread176.thread.i ]
-  %.2168.i = phi i1 [ false, %.thread176.i ], [ %.3.i, %109 ], [ false, %.body.i ], [ false, %.thread180.i ], [ false, %.thread176.thread.i ]
+  %.4168.i = phi i1 [ false, %.thread176.i ], [ %.2.i, %109 ], [ false, %.body.i ], [ false, %.thread180.i ], [ false, %.thread176.thread.i ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31)
           to label %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..Elem$LT$ring..rsa..keypair..Q$GT$$GT$17h6acaa9f2cde17dc9E.exit160.i" unwind label %196
 

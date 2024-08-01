@@ -37,11 +37,11 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
 
 23:                                               ; preds = %.lr.ph, %34
   %.047 = phi ptr [ %1, %.lr.ph ], [ %36, %34 ]
-  %.03546 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
-  %24 = sub nsw i64 %15, %.03546
+  %.146 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
+  %24 = sub nsw i64 %15, %.146
   %spec.store.select = call i64 @llvm.umin.i64(i64 %24, i64 2147483647)
   %25 = load i32, ptr %22, align 4
-  %26 = add nsw i64 %.03546, %.034
+  %26 = add nsw i64 %.146, %.034
   %27 = call i64 @pread(i32 noundef %25, ptr noundef %.047, i64 noundef %spec.store.select, i64 noundef %26) #6
   switch i64 %27, label %34 [
     i64 -1, label %28
@@ -59,14 +59,14 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
   br label %47
 
 34:                                               ; preds = %23
-  %35 = add nsw i64 %27, %.03546
+  %35 = add nsw i64 %27, %.146
   %36 = getelementptr inbounds i8, ptr %.047, i64 %27
   %37 = icmp slt i64 %35, %15
   br i1 %37, label %23, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %34, %23, %20
-  %.035.lcssa = phi i64 [ 0, %20 ], [ %35, %34 ], [ %.03546, %23 ]
-  %38 = add nsw i64 %.035.lcssa, %.034
+  %.1.lcssa = phi i64 [ 0, %20 ], [ %35, %34 ], [ %.146, %23 ]
+  %38 = add nsw i64 %.1.lcssa, %.034
   %39 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %38, ptr %39, align 8
   br i1 %16, label %40, label %44
@@ -74,7 +74,7 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
 40:                                               ; preds = %._crit_edge
   %41 = getelementptr inbounds i8, ptr %0, i64 40
   %42 = load i64, ptr %41, align 8
-  %43 = add nsw i64 %42, %.035.lcssa
+  %43 = add nsw i64 %42, %.1.lcssa
   store i64 %43, ptr %41, align 8
   br label %44
 
@@ -82,8 +82,8 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %21, label %46, label %.thread
 
 .thread:                                          ; preds = %8, %44
-  %.144 = phi i64 [ %.035.lcssa, %44 ], [ 0, %8 ]
-  %45 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef %6, ptr noundef %3, i64 noundef %.144) #6
+  %.03544 = phi i64 [ %.1.lcssa, %44 ], [ 0, %8 ]
+  %45 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef %6, ptr noundef %3, i64 noundef %.03544) #6
   br label %46
 
 46:                                               ; preds = %.thread, %44

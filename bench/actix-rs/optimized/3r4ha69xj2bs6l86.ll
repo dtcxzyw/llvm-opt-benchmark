@@ -4313,10 +4313,10 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit": ; preds = %13, %15, %20, %3
-  %.sroa.4.1 = phi ptr [ null, %3 ], [ %12, %20 ], [ null, %15 ], [ %12, %13 ]
-  %.sroa.0.1 = phi i64 [ 0, %3 ], [ 1, %20 ], [ 0, %15 ], [ 0, %13 ]
-  %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ null, %3 ], [ %12, %20 ], [ null, %15 ], [ %12, %13 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %20 ], [ 0, %15 ], [ 0, %13 ]
+  %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.4.0, 1
   ret { i64, ptr } %22
 }
 
@@ -4367,10 +4367,10 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit": ; preds = %13, %15, %20, %3
-  %.sroa.4.1 = phi ptr [ null, %3 ], [ %12, %20 ], [ null, %15 ], [ %12, %13 ]
-  %.sroa.0.1 = phi i64 [ 0, %3 ], [ 1, %20 ], [ 0, %15 ], [ 0, %13 ]
-  %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ null, %3 ], [ %12, %20 ], [ null, %15 ], [ %12, %13 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %20 ], [ 0, %15 ], [ 0, %13 ]
+  %21 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.4.0, 1
   ret { i64, ptr } %22
 }
 

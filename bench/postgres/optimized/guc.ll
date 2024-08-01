@@ -328,8 +328,8 @@ define dso_local ptr @ProcessConfigFileInternal(i32 noundef %0, i1 noundef zeroe
 
 .lr.ph247:                                        ; preds = %.preheader228, %92
   %.1168245 = phi ptr [ %.1168, %92 ], [ %.1168241, %.preheader228 ]
-  %.0244 = phi i8 [ %.1, %92 ], [ 0, %.preheader228 ]
-  %.0159243 = phi ptr [ %.1160, %92 ], [ %7, %.preheader228 ]
+  %.1244 = phi i8 [ %.2, %92 ], [ 0, %.preheader228 ]
+  %.1160243 = phi ptr [ %.2161, %92 ], [ %7, %.preheader228 ]
   %34 = getelementptr inbounds i8, ptr %.1168245, i64 36
   %35 = load i8, ptr %34, align 4
   %36 = trunc i8 %35 to i1
@@ -462,20 +462,20 @@ valid_custom_variable_name.exit.thread:           ; preds = %63, %68, %66, %vali
   br label %92
 
 92:                                               ; preds = %.loopexit, %87, %valid_custom_variable_name.exit, %.lr.ph247
-  %.1160 = phi ptr [ %.0159243, %.lr.ph247 ], [ %.0159243, %.loopexit ], [ %.0159243, %valid_custom_variable_name.exit ], [ %91, %87 ]
-  %.1 = phi i8 [ %.0244, %.lr.ph247 ], [ %.0244, %.loopexit ], [ %.0244, %valid_custom_variable_name.exit ], [ 1, %87 ]
+  %.2161 = phi ptr [ %.1160243, %.lr.ph247 ], [ %.1160243, %.loopexit ], [ %.1160243, %valid_custom_variable_name.exit ], [ %91, %87 ]
+  %.2 = phi i8 [ %.1244, %.lr.ph247 ], [ %.1244, %.loopexit ], [ %.1244, %valid_custom_variable_name.exit ], [ 1, %87 ]
   %93 = getelementptr inbounds i8, ptr %.1168245, i64 40
   %.1168 = load ptr, ptr %93, align 8
   %.not187 = icmp eq ptr %.1168, null
   br i1 %.not187, label %._crit_edge248, label %.lr.ph247, !llvm.loop !10
 
 ._crit_edge248:                                   ; preds = %92
-  %94 = trunc nuw i8 %.1 to i1
+  %94 = trunc nuw i8 %.2 to i1
   br i1 %94, label %203, label %._crit_edge248.thread
 
 ._crit_edge248.thread:                            ; preds = %.preheader228, %._crit_edge248
-  %.0.lcssa279 = phi i8 [ %.1, %._crit_edge248 ], [ 0, %.preheader228 ]
-  %.0159.lcssa278 = phi ptr [ %.1160, %._crit_edge248 ], [ %7, %.preheader228 ]
+  %.1.lcssa279 = phi i8 [ %.2, %._crit_edge248 ], [ 0, %.preheader228 ]
+  %.1160.lcssa278 = phi ptr [ %.2161, %._crit_edge248 ], [ %7, %.preheader228 ]
   %95 = load ptr, ptr @guc_hashtab, align 8
   call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %95) #29
   %96 = call ptr @hash_seq_search(ptr noundef nonnull %6) #29
@@ -488,7 +488,7 @@ valid_custom_variable_name.exit.thread:           ; preds = %63, %68, %66, %vali
 
 98:                                               ; preds = %.lr.ph260, %.backedge
   %99 = phi ptr [ %96, %.lr.ph260 ], [ %108, %.backedge ]
-  %.2258 = phi i8 [ %.0.lcssa279, %.lr.ph260 ], [ %.2.be, %.backedge ]
+  %.3258 = phi i8 [ %.1.lcssa279, %.lr.ph260 ], [ %.3.be, %.backedge ]
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 48
@@ -504,7 +504,7 @@ valid_custom_variable_name.exit.thread:           ; preds = %63, %68, %66, %vali
   br i1 %.not197, label %109, label %.backedge
 
 .backedge:                                        ; preds = %144, %146, %._crit_edge256, %98, %104, %120, %123
-  %.2.be = phi i8 [ 1, %120 ], [ %.2258, %123 ], [ %.2258, %104 ], [ %.2258, %98 ], [ %.2258, %._crit_edge256 ], [ %.2258, %146 ], [ %.2258, %144 ]
+  %.3.be = phi i8 [ 1, %120 ], [ %.3258, %123 ], [ %.3258, %104 ], [ %.3258, %98 ], [ %.3258, %._crit_edge256 ], [ %.3258, %146 ], [ %.3258, %144 ]
   %108 = call ptr @hash_seq_search(ptr noundef nonnull %6) #29
   %.not188 = icmp eq ptr %108, null
   br i1 %.not188, label %._crit_edge261, label %98, !llvm.loop !11
@@ -596,7 +596,7 @@ set_guc_source.exit:                              ; preds = %124
   br label %.backedge
 
 ._crit_edge261:                                   ; preds = %.backedge, %._crit_edge248.thread
-  %.2.lcssa = phi i8 [ %.0.lcssa279, %._crit_edge248.thread ], [ %.2.be, %.backedge ]
+  %.3.lcssa = phi i8 [ %.1.lcssa279, %._crit_edge248.thread ], [ %.3.be, %.backedge ]
   %149 = icmp eq i32 %0, 2
   %brmerge.not = and i1 %149, %1
   br i1 %brmerge.not, label %150, label %154
@@ -615,8 +615,8 @@ set_guc_source.exit:                              ; preds = %124
 
 .lr.ph269:                                        ; preds = %154, %199
   %.2169267 = phi ptr [ %.2169, %199 ], [ %.2169263, %154 ]
-  %.3266 = phi i8 [ %.5, %199 ], [ %.2.lcssa, %154 ]
-  %.2161265 = phi ptr [ %.4163, %199 ], [ %.0159.lcssa278, %154 ]
+  %.4266 = phi i8 [ %.5, %199 ], [ %.3.lcssa, %154 ]
+  %.3162265 = phi ptr [ %.4163, %199 ], [ %.1160.lcssa278, %154 ]
   %155 = getelementptr inbounds i8, ptr %.2169267, i64 36
   %156 = load i8, ptr %155, align 4
   %157 = trunc i8 %156 to i1
@@ -698,8 +698,8 @@ set_guc_source.exit:                              ; preds = %124
   br label %197
 
 197:                                              ; preds = %.thread213, %189, %191
-  %.4219 = phi i8 [ 1, %.thread213 ], [ %.3266, %189 ], [ %.3266, %191 ]
-  %.3162218 = phi ptr [ %188, %.thread213 ], [ %.2161265, %189 ], [ %.2161265, %191 ]
+  %.6219 = phi i8 [ 1, %.thread213 ], [ %.4266, %189 ], [ %.4266, %191 ]
+  %.5164218 = phi ptr [ %188, %.thread213 ], [ %.3162265, %189 ], [ %.3162265, %191 ]
   %.not195 = icmp eq ptr %.0165, null
   br i1 %.not195, label %199, label %198
 
@@ -708,16 +708,16 @@ set_guc_source.exit:                              ; preds = %124
   br label %199
 
 199:                                              ; preds = %197, %198, %.lr.ph269
-  %.4163 = phi ptr [ %.2161265, %.lr.ph269 ], [ %.3162218, %198 ], [ %.3162218, %197 ]
-  %.5 = phi i8 [ %.3266, %.lr.ph269 ], [ %.4219, %198 ], [ %.4219, %197 ]
+  %.4163 = phi ptr [ %.3162265, %.lr.ph269 ], [ %.5164218, %198 ], [ %.5164218, %197 ]
+  %.5 = phi i8 [ %.4266, %.lr.ph269 ], [ %.6219, %198 ], [ %.6219, %197 ]
   %200 = getelementptr inbounds i8, ptr %.2169267, i64 40
   %.2169 = load ptr, ptr %200, align 8
   %.not189 = icmp eq ptr %.2169, null
   br i1 %.not189, label %._crit_edge270, label %.lr.ph269, !llvm.loop !13
 
 ._crit_edge270:                                   ; preds = %199, %154
-  %.2161.lcssa = phi ptr [ %.0159.lcssa278, %154 ], [ %.4163, %199 ]
-  %.3.lcssa = phi i8 [ %.2.lcssa, %154 ], [ %.5, %199 ]
+  %.3162.lcssa = phi ptr [ %.1160.lcssa278, %154 ], [ %.4163, %199 ]
+  %.4.lcssa = phi i8 [ %.3.lcssa, %154 ], [ %.5, %199 ]
   br i1 %1, label %201, label %.thread220
 
 201:                                              ; preds = %._crit_edge270
@@ -726,10 +726,10 @@ set_guc_source.exit:                              ; preds = %124
   br label %203
 
 203:                                              ; preds = %11, %3, %201, %._crit_edge248
-  %.5164 = phi ptr [ %.1160, %._crit_edge248 ], [ %.2161.lcssa, %201 ], [ %7, %3 ], [ @.str, %11 ]
+  %.0159 = phi ptr [ %.2161, %._crit_edge248 ], [ %.3162.lcssa, %201 ], [ %7, %3 ], [ @.str, %11 ]
   %.0158 = phi i1 [ false, %._crit_edge248 ], [ true, %201 ], [ false, %3 ], [ false, %11 ]
-  %.6 = phi i8 [ %.1, %._crit_edge248 ], [ %.3.lcssa, %201 ], [ 1, %3 ], [ 1, %11 ]
-  %204 = trunc nuw i8 %.6 to i1
+  %.0 = phi i8 [ %.2, %._crit_edge248 ], [ %.4.lcssa, %201 ], [ 1, %3 ], [ 1, %11 ]
+  %204 = trunc nuw i8 %.0 to i1
   %brmerge211.demorgan = and i1 %204, %1
   br i1 %brmerge211.demorgan, label %205, label %.thread220
 
@@ -741,7 +741,7 @@ set_guc_source.exit:                              ; preds = %124
   %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   call void @llvm.assume(i1 %208)
   %209 = call i32 @errcode(i32 noundef 22) #29
-  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %.5164) #29
+  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %.0159) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 607, ptr noundef nonnull @__func__.ProcessConfigFileInternal) #29
   unreachable
 
@@ -754,7 +754,7 @@ set_guc_source.exit:                              ; preds = %124
 
 214:                                              ; preds = %213
   %215 = call i32 @errcode(i32 noundef 22) #29
-  %216 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %.5164) #29
+  %216 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %.0159) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.ProcessConfigFileInternal) #29
   br label %.thread220
 
@@ -763,7 +763,7 @@ set_guc_source.exit:                              ; preds = %124
 
 218:                                              ; preds = %217
   %219 = call i32 @errcode(i32 noundef 22) #29
-  %220 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %.5164) #29
+  %220 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %.0159) #29
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 617, ptr noundef nonnull @__func__.ProcessConfigFileInternal) #29
   br label %.thread220
 
@@ -4166,7 +4166,7 @@ guc_free.exit.i218:                               ; preds = %272
   br label %set_extra_field.exit219
 
 set_extra_field.exit219:                          ; preds = %277, %273, %guc_free.exit.i218, %269, %266, %263, %260, %257, %set_string_field.exit, %227
-  %.0161 = phi i1 [ false, %227 ], [ true, %set_string_field.exit ], [ true, %257 ], [ true, %260 ], [ true, %263 ], [ true, %266 ], [ true, %269 ], [ true, %guc_free.exit.i218 ], [ true, %273 ], [ true, %277 ]
+  %.2 = phi i1 [ false, %227 ], [ true, %set_string_field.exit ], [ true, %257 ], [ true, %260 ], [ true, %263 ], [ true, %266 ], [ true, %269 ], [ true, %guc_free.exit.i218 ], [ true, %273 ], [ true, %277 ]
   %281 = getelementptr inbounds i8, ptr %103, i64 40
   %282 = load ptr, ptr %281, align 8
   store ptr null, ptr %281, align 8
@@ -4341,12 +4341,12 @@ set_string_field.exit225:                         ; preds = %293, %297, %set_ext
 
 set_extra_field.exit.sink.split:                  ; preds = %350, %.preheader, %215, %176, %138
   %.sink = phi ptr [ %119, %138 ], [ %157, %176 ], [ %196, %215 ], [ %302, %.preheader ], [ %331, %350 ]
-  %.1.ph = phi i1 [ true, %138 ], [ true, %176 ], [ true, %215 ], [ %.0161, %.preheader ], [ true, %350 ]
+  %.1.ph = phi i1 [ true, %138 ], [ true, %176 ], [ true, %215 ], [ %.2, %.preheader ], [ true, %350 ]
   tail call void @pfree(ptr noundef nonnull %.sink) #29
   br label %set_extra_field.exit
 
 set_extra_field.exit:                             ; preds = %355, %351, %317, %313, %220, %216, %181, %177, %143, %139, %set_extra_field.exit.sink.split, %347, %344, %341, %338, %335, %329, %310, %307, %303, %set_string_field.exit225, %212, %209, %206, %203, %200, %194, %173, %170, %167, %164, %161, %155, %135, %132, %129, %126, %123, %117, %324, %189, %150, %112, %101
-  %.1 = phi i1 [ false, %101 ], [ false, %324 ], [ false, %189 ], [ false, %150 ], [ false, %112 ], [ true, %117 ], [ true, %123 ], [ true, %126 ], [ true, %129 ], [ true, %132 ], [ true, %135 ], [ true, %155 ], [ true, %161 ], [ true, %164 ], [ true, %167 ], [ true, %170 ], [ true, %173 ], [ true, %194 ], [ true, %200 ], [ true, %203 ], [ true, %206 ], [ true, %209 ], [ true, %212 ], [ %.0161, %set_string_field.exit225 ], [ %.0161, %303 ], [ %.0161, %307 ], [ %.0161, %310 ], [ true, %329 ], [ true, %335 ], [ true, %338 ], [ true, %341 ], [ true, %344 ], [ true, %347 ], [ %.1.ph, %set_extra_field.exit.sink.split ], [ true, %139 ], [ true, %143 ], [ true, %177 ], [ true, %181 ], [ true, %216 ], [ true, %220 ], [ %.0161, %313 ], [ %.0161, %317 ], [ true, %351 ], [ true, %355 ]
+  %.1 = phi i1 [ false, %101 ], [ false, %324 ], [ false, %189 ], [ false, %150 ], [ false, %112 ], [ true, %117 ], [ true, %123 ], [ true, %126 ], [ true, %129 ], [ true, %132 ], [ true, %135 ], [ true, %155 ], [ true, %161 ], [ true, %164 ], [ true, %167 ], [ true, %170 ], [ true, %173 ], [ true, %194 ], [ true, %200 ], [ true, %203 ], [ true, %206 ], [ true, %209 ], [ true, %212 ], [ %.2, %set_string_field.exit225 ], [ %.2, %303 ], [ %.2, %307 ], [ %.2, %310 ], [ true, %329 ], [ true, %335 ], [ true, %338 ], [ true, %341 ], [ true, %344 ], [ true, %347 ], [ %.1.ph, %set_extra_field.exit.sink.split ], [ true, %139 ], [ true, %143 ], [ true, %177 ], [ true, %181 ], [ true, %216 ], [ true, %220 ], [ %.2, %313 ], [ %.2, %317 ], [ true, %351 ], [ true, %355 ]
   %359 = getelementptr inbounds i8, ptr %103, i64 48
   %360 = load ptr, ptr %359, align 8
   store ptr null, ptr %359, align 8
@@ -4547,7 +4547,7 @@ set_guc_source.exit:                              ; preds = %423, %dlist_push_ta
 436:                                              ; preds = %49, %set_guc_source.exit
   %437 = phi ptr [ %102, %set_guc_source.exit ], [ %31, %49 ]
   %438 = phi ptr [ %103, %set_guc_source.exit ], [ %27, %49 ]
-  %.2 = phi i1 [ %.1, %set_guc_source.exit ], [ false, %49 ]
+  %.0161 = phi i1 [ %.1, %set_guc_source.exit ], [ false, %49 ]
   store ptr %437, ptr %6, align 8
   %439 = icmp eq ptr %437, null
   br i1 %439, label %440, label %441
@@ -4555,11 +4555,11 @@ set_guc_source.exit:                              ; preds = %423, %dlist_push_ta
 440:                                              ; preds = %436
   store ptr %4, ptr %.sroa.8.0302, align 8
   tail call void @pfree(ptr noundef %438) #29
-  br i1 %.2, label %442, label %.outer
+  br i1 %.0161, label %442, label %.outer
 
 441:                                              ; preds = %436
   tail call void @pfree(ptr noundef %438) #29
-  br i1 %.2, label %442, label %.outer
+  br i1 %.0161, label %442, label %.outer
 
 442:                                              ; preds = %440, %441
   %.sroa.0251.2342 = phi ptr [ %.sroa.8.0302, %440 ], [ %.sroa.0251.1.ph296, %441 ]
@@ -10946,7 +10946,7 @@ define dso_local ptr @GUCArrayDelete(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not2123, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %37
-  %.01624 = phi ptr [ %.2, %37 ], [ null, %12 ]
+  %.01624 = phi ptr [ %.1, %37 ], [ null, %12 ]
   %15 = call i64 @array_ref(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105, ptr noundef nonnull %6) #29
   store i64 %15, ptr %5, align 8
   %16 = load i8, ptr %6, align 1
@@ -10981,14 +10981,14 @@ define dso_local ptr @GUCArrayDelete(ptr noundef %0, ptr noundef %1) local_unnam
   br label %34
 
 34:                                               ; preds = %32, %29
-  %.1 = phi ptr [ %31, %29 ], [ %33, %32 ]
+  %.2 = phi ptr [ %31, %29 ], [ %33, %32 ]
   %35 = load i32, ptr %4, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %4, align 4
   br label %37
 
 37:                                               ; preds = %24, %.lr.ph, %34
-  %.2 = phi ptr [ %.01624, %.lr.ph ], [ %.01624, %24 ], [ %.1, %34 ]
+  %.1 = phi ptr [ %.01624, %.lr.ph ], [ %.01624, %24 ], [ %.2, %34 ]
   %38 = load i32, ptr %3, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %3, align 4
@@ -10997,7 +10997,7 @@ define dso_local ptr @GUCArrayDelete(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 .loopexit:                                        ; preds = %37, %12, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %12 ], [ %.2, %37 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %12 ], [ %.1, %37 ]
   ret ptr %.0
 }
 
@@ -11023,7 +11023,7 @@ define dso_local ptr @GUCArrayReset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not1315, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %28
-  %.01116 = phi ptr [ %.2, %28 ], [ null, %8 ]
+  %.01116 = phi ptr [ %.1, %28 ], [ null, %8 ]
   %11 = call i64 @array_ref(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %2, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105, ptr noundef nonnull %5) #29
   store i64 %11, ptr %4, align 8
   %12 = load i8, ptr %5, align 1
@@ -11052,7 +11052,7 @@ define dso_local ptr @GUCArrayReset(ptr noundef %0) local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %23, %20
-  %.1 = phi ptr [ %22, %20 ], [ %24, %23 ]
+  %.2 = phi ptr [ %22, %20 ], [ %24, %23 ]
   %26 = load i32, ptr %3, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %3, align 4
@@ -11060,7 +11060,7 @@ define dso_local ptr @GUCArrayReset(ptr noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %14, %.lr.ph, %25
-  %.2 = phi ptr [ %.01116, %.lr.ph ], [ %.01116, %14 ], [ %.1, %25 ]
+  %.1 = phi ptr [ %.01116, %.lr.ph ], [ %.01116, %14 ], [ %.2, %25 ]
   %29 = load i32, ptr %2, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %2, align 4
@@ -11069,7 +11069,7 @@ define dso_local ptr @GUCArrayReset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %28, %8, %6, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ null, %8 ], [ %.2, %28 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ null, %8 ], [ %.1, %28 ]
   ret ptr %.0
 }
 

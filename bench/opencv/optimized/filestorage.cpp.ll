@@ -1532,9 +1532,9 @@ _ZL4helpPPc.exit68:                               ; preds = %_ZL4helpPPc.exit68.
   br label %470
 
 _ZL4helpPPc.exit:                                 ; preds = %.noexc56, %_ZL4helpPPc.exit68
-  %.225 = phi i32 [ %.124, %_ZL4helpPPc.exit68 ], [ 0, %.noexc56 ]
+  %.023 = phi i32 [ %.124, %_ZL4helpPPc.exit68 ], [ 0, %.noexc56 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #10
-  ret i32 %.225
+  ret i32 %.023
 
 470:                                              ; preds = %469, %113, %93, %92
   %.pn46 = phi { ptr, i32 } [ %94, %93 ], [ %.pn44, %469 ], [ %.pn29, %113 ], [ %.pn27, %92 ]

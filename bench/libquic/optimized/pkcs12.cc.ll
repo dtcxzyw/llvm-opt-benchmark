@@ -356,12 +356,12 @@ for.end:                                          ; preds = %invoke.cont116
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit43 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit43: ; preds = %for.end, %if.then105, %do.end91, %if.then58
-  %retval.0 = phi i1 [ false, %if.then58 ], [ false, %do.end91 ], [ false, %if.then105 ], [ true, %for.end ]
+  %retval.1 = phi i1 [ false, %if.then58 ], [ false, %do.end91 ], [ false, %if.then105 ], [ true, %for.end ]
   call void @_ZdaPv(ptr noundef nonnull %call41) #17
   br label %cleanup125
 
 cleanup125:                                       ; preds = %if.then35, %if.then, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit43, %if.then31
-  %retval.1 = phi i1 [ false, %if.then31 ], [ %retval.0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit43 ], [ false, %if.then ], [ false, %if.then35 ]
+  %retval.0 = phi i1 [ false, %if.then31 ], [ %retval.1, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit43 ], [ false, %if.then ], [ false, %if.then35 ]
   %17 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %args_map, ptr noundef %17)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -374,7 +374,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup125
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %cleanup125
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup126:                                     ; preds = %cleanup.action16, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, %ehcleanup30, %lpad
   %.pn37 = phi { ptr, i32 } [ %1, %lpad ], [ %lpad.phi, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ], [ %.pn35, %ehcleanup30 ], [ %.pn, %cleanup.action16 ]

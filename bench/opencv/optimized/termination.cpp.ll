@@ -2365,7 +2365,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac29ProsacTerminationCriteriaI
 35:                                               ; preds = %.lr.ph55, %80
   %indvars.iv60 = phi i64 [ %28, %.lr.ph55 ], [ %indvars.iv.next61, %80 ]
   %36 = phi i32 [ %21, %.lr.ph55 ], [ %81, %80 ]
-  %.03254 = phi i32 [ %8, %.lr.ph55 ], [ %.1, %80 ]
+  %.03254 = phi i32 [ %8, %.lr.ph55 ], [ %.2, %80 ]
   %.23752 = phi i32 [ %.035.lcssa, %.lr.ph55 ], [ %.3, %80 ]
   %37 = load ptr, ptr %14, align 8
   %38 = getelementptr inbounds float, ptr %37, i64 %indvars.iv60
@@ -2434,7 +2434,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac29ProsacTerminationCriteriaI
 
 80:                                               ; preds = %35, %73, %76, %54, %43, %49
   %.3 = phi i32 [ %44, %43 ], [ %44, %49 ], [ %44, %54 ], [ %44, %76 ], [ %44, %73 ], [ %.23752, %35 ]
-  %.1 = phi i32 [ %.03254, %43 ], [ %.03254, %49 ], [ %.03254, %54 ], [ %71, %76 ], [ %71, %73 ], [ %.03254, %35 ]
+  %.2 = phi i32 [ %.03254, %43 ], [ %.03254, %49 ], [ %.03254, %54 ], [ %71, %76 ], [ %71, %73 ], [ %.03254, %35 ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, 1
   %81 = load i32, ptr %5, align 4
   %82 = sext i32 %81 to i64
@@ -2443,7 +2443,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac29ProsacTerminationCriteriaI
 
 ._crit_edge:                                      ; preds = %80, %.._crit_edge.loopexit_crit_edge, %.preheader
   %84 = phi i32 [ %21, %.preheader ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %81, %80 ]
-  %.2 = phi i32 [ %8, %.preheader ], [ 0, %.._crit_edge.loopexit_crit_edge ], [ %.1, %80 ]
+  %.1 = phi i32 [ %8, %.preheader ], [ 0, %.._crit_edge.loopexit_crit_edge ], [ %.2, %80 ]
   %85 = getelementptr inbounds i8, ptr %0, i64 8
   %86 = load double, ptr %85, align 8
   %87 = sitofp i32 %2 to double
@@ -2458,11 +2458,11 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac29ProsacTerminationCriteriaI
   %96 = fdiv double %86, %95
   %97 = tail call double @llvm.fabs.f64(double %96)
   %98 = fcmp une double %97, 0x7FF0000000000000
-  %99 = sitofp i32 %.2 to double
+  %99 = sitofp i32 %.1 to double
   %100 = fcmp olt double %96, %99
   %or.cond48 = select i1 %98, i1 %100, i1 false
   %101 = fptosi double %96 to i32
-  %.0 = select i1 %or.cond48, i32 %101, i32 %.2
+  %.0 = select i1 %or.cond48, i32 %101, i32 %.1
   ret i32 %.0
 }
 

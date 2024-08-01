@@ -1599,7 +1599,7 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr nocapture nou
 
 39:                                               ; preds = %.lr.ph, %98
   %.041 = phi i32 [ 0, %.lr.ph ], [ %99, %98 ]
-  %.03840 = phi ptr [ @.str.6, %.lr.ph ], [ %.2, %98 ]
+  %.03840 = phi ptr [ @.str.6, %.lr.ph ], [ %.1, %98 ]
   br i1 %4, label %40, label %.thread
 
 40:                                               ; preds = %39
@@ -1637,7 +1637,7 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr nocapture nou
 json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
   %53 = phi i1 [ false, %.thread ], [ true, %49 ], [ true, %52 ]
   %.039 = phi ptr [ %20, %.thread ], [ %34, %49 ], [ %34, %52 ]
-  %.1 = phi ptr [ @.str.10, %.thread ], [ %.03840, %49 ], [ %.03840, %52 ]
+  %.2 = phi ptr [ @.str.10, %.thread ], [ %.03840, %49 ], [ %.03840, %52 ]
   %54 = sext i32 %.041 to i64
   %55 = getelementptr i8, ptr %2, i64 %54
   %56 = load i8, ptr %55, align 1
@@ -1726,7 +1726,7 @@ add_json.exit:                                    ; preds = %62
   br label %98
 
 98:                                               ; preds = %87, %46, %88
-  %.2 = phi ptr [ %.1, %87 ], [ %.1, %88 ], [ %.03840, %46 ]
+  %.1 = phi ptr [ %.2, %87 ], [ %.2, %88 ], [ %.03840, %46 ]
   %99 = add i32 %.041, 2
   %100 = icmp slt i32 %99, %0
   br i1 %100, label %39, label %._crit_edge, !llvm.loop !7

@@ -7665,15 +7665,15 @@ rb_vm_lock_leave.exit:                            ; preds = %41, %rb_vm_lock_ent
 
 .lr.ph:                                           ; preds = %50, %.lr.ph
   %55 = phi i32 [ %58, %.lr.ph ], [ %54, %50 ]
-  %.1123 = phi i32 [ %57, %.lr.ph ], [ %.058, %50 ]
+  %.2123 = phi i32 [ %57, %.lr.ph ], [ %.058, %50 ]
   %56 = call i32 @rb_signal_exec(ptr noundef %0, i32 noundef %55) #19
-  %57 = or i32 %56, %.1123
+  %57 = or i32 %56, %.2123
   %58 = call i32 @rb_get_next_signal() #19
   %.not71 = icmp eq i32 %58, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %50
-  %.1.lcssa = phi i32 [ %.058, %50 ], [ %57, %.lr.ph ]
+  %.2.lcssa = phi i32 [ %.058, %50 ], [ %57, %.lr.ph ]
   %59 = load i8, ptr %10, align 8
   %60 = and i8 %59, -4
   %61 = or disjoint i8 %60, %52
@@ -7681,7 +7681,7 @@ rb_vm_lock_leave.exit:                            ; preds = %41, %rb_vm_lock_ent
   br label %62
 
 62:                                               ; preds = %._crit_edge, %45, %44
-  %.2 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.058, %45 ], [ %.058, %44 ]
+  %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %.058, %45 ], [ %.058, %44 ]
   %.not72 = icmp eq i32 %35, 0
   br i1 %.not72, label %threadptr_pending_interrupt_active_p.exit.thread, label %63
 
@@ -8014,7 +8014,7 @@ rb_threadptr_pending_interrupt_deque.exit:        ; preds = %rb_array_const_ptr.
   unreachable
 
 threadptr_pending_interrupt_active_p.exit.thread: ; preds = %rb_threadptr_pending_interrupt_deque.exit, %63, %rb_threadptr_pending_interrupt_deque.exit.thread, %threadptr_pending_interrupt_active_p.exit, %62
-  %.3 = phi i32 [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ %.2, %threadptr_pending_interrupt_active_p.exit ], [ %.2, %62 ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ %.2, %63 ]
+  %.3 = phi i32 [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ %.1, %62 ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ %.1, %63 ]
   %.not75 = icmp eq i32 %38, 0
   br i1 %.not75, label %209, label %.thread
 
@@ -17343,8 +17343,8 @@ timer_thread_unregister_waiting.exit:             ; preds = %23, %17, %8
   unreachable
 
 rb_native_mutex_unlock.exit:                      ; preds = %29, %1
-  %.1 = phi i1 [ false, %1 ], [ %.not8, %29 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %1 ], [ %.not8, %29 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind
@@ -20324,7 +20324,7 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
   br label %199
 
 199:                                              ; preds = %rb_hrtime_now.exit.i.i.i, %183, %rb_native_mutex_lock.exit.i.i.i17
-  %.1.i.i.i = phi i32 [ %198, %rb_hrtime_now.exit.i.i.i ], [ %.0.i.i.i, %183 ], [ %.0.i.i.i, %rb_native_mutex_lock.exit.i.i.i17 ]
+  %.2.i.i.i = phi i32 [ %198, %rb_hrtime_now.exit.i.i.i ], [ %.0.i.i.i, %183 ], [ %.0.i.i.i, %rb_native_mutex_lock.exit.i.i.i17 ]
   %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 240)) #19
   %.not.i19.i.i.i = icmp eq i32 %200, 0
   br i1 %.not.i19.i.i.i, label %event_wait.exit.i, label %201
@@ -20334,8 +20334,8 @@ rb_hrtime_now.exit.i.i.i:                         ; preds = %190, %187
   unreachable
 
 event_wait.exit.i:                                ; preds = %199, %ractor_sched_unlock_.exit.i.i.i
-  %.2.i.i.i = phi i32 [ %.0.i.i.i, %ractor_sched_unlock_.exit.i.i.i ], [ %.1.i.i.i, %199 ]
-  %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 28), i32 noundef 16, i32 noundef %.2.i.i.i) #19
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %ractor_sched_unlock_.exit.i.i.i ], [ %.2.i.i.i, %199 ]
+  %202 = call i32 @epoll_wait(i32 noundef %164, ptr noundef nonnull getelementptr inbounds (i8, ptr @timer_th, i64 28), i32 noundef 16, i32 noundef %.1.i.i.i) #19
   switch i32 %202, label %.preheader.i [
     i32 0, label %204
     i32 -1, label %217

@@ -408,8 +408,8 @@ define noundef i32 @_ZN9softposit7convert20convert_fraction_p3217h5faf60d8b9d42e
   br label %_ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit
 
 _ZN9softposit7convert24check_extra_p32_two_bits17h7493043c4b261fd8E.exit: ; preds = %50, %48, %36, %34, %17, %15, %6, %4, %39
-  %.2 = phi i32 [ %42, %39 ], [ 0, %4 ], [ -2147483648, %6 ], [ 0, %15 ], [ 0, %17 ], [ %22, %34 ], [ %22, %36 ], [ %27, %48 ], [ %27, %50 ]
-  ret i32 %.2
+  %.126 = phi i32 [ %42, %39 ], [ 0, %4 ], [ -2147483648, %6 ], [ 0, %15 ], [ 0, %17 ], [ %22, %34 ], [ %22, %36 ], [ %27, %48 ], [ %27, %50 ]
+  ret i32 %.126
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

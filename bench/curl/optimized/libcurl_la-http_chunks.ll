@@ -158,8 +158,8 @@ while.body.lr.ph:                                 ; preds = %if.end18
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %buf.addr.0173 = phi ptr [ %buf, %while.body.lr.ph ], [ %buf.addr.2, %sw.epilog ]
-  %blen.addr.0172 = phi i64 [ %blen, %while.body.lr.ph ], [ %blen.addr.2, %sw.epilog ]
+  %buf.addr.0173 = phi ptr [ %buf, %while.body.lr.ph ], [ %buf.addr.1, %sw.epilog ]
+  %blen.addr.0172 = phi i64 [ %blen, %while.body.lr.ph ], [ %blen.addr.1, %sw.epilog ]
   %2 = load i32, ptr %state, align 8
   switch i32 %2, label %sw.epilog [
     i32 0, label %sw.bb
@@ -461,9 +461,9 @@ if.then239:                                       ; preds = %sw.bb231
 if.end241:                                        ; preds = %sw.bb231, %sw.bb231
   %cmp243 = icmp eq i8 %18, 13
   %dec247 = sext i1 %cmp243 to i64
-  %blen.addr.1 = add i64 %blen.addr.0172, %dec247
-  %buf.addr.1.idx = zext i1 %cmp243 to i64
-  %buf.addr.1 = getelementptr inbounds i8, ptr %buf.addr.0173, i64 %buf.addr.1.idx
+  %blen.addr.2 = add i64 %blen.addr.0172, %dec247
+  %buf.addr.2.idx = zext i1 %cmp243 to i64
+  %buf.addr.2 = getelementptr inbounds i8, ptr %buf.addr.0173, i64 %buf.addr.2.idx
   store i32 4, ptr %state, align 8
   br label %sw.epilog
 
@@ -484,9 +484,9 @@ if.else258:                                       ; preds = %sw.bb250
   br label %return
 
 sw.epilog:                                        ; preds = %if.end197, %if.end125, %if.then131, %if.end49, %if.end73, %if.end241, %if.then239, %if.then223, %if.end216, %if.else205, %if.end152, %if.end89, %while.body
-  %blen.addr.2 = phi i64 [ %blen.addr.0172, %while.body ], [ %blen.addr.0172, %if.then239 ], [ %blen.addr.1, %if.end241 ], [ %dec226, %if.then223 ], [ %blen.addr.0172, %if.end197 ], [ %dec218, %if.end216 ], [ %blen.addr.0172, %if.else205 ], [ %dec154, %if.end152 ], [ %sub127, %if.then131 ], [ %sub127, %if.end125 ], [ %dec91, %if.end89 ], [ %dec, %if.end49 ], [ %blen.addr.0172, %if.end73 ]
-  %buf.addr.2 = phi ptr [ %buf.addr.0173, %while.body ], [ %buf.addr.0173, %if.then239 ], [ %buf.addr.1, %if.end241 ], [ %incdec.ptr225, %if.then223 ], [ %buf.addr.0173, %if.end197 ], [ %incdec.ptr217, %if.end216 ], [ %buf.addr.0173, %if.else205 ], [ %incdec.ptr153, %if.end152 ], [ %add.ptr, %if.then131 ], [ %add.ptr, %if.end125 ], [ %incdec.ptr90, %if.end89 ], [ %incdec.ptr, %if.end49 ], [ %buf.addr.0173, %if.end73 ]
-  %tobool19.not = icmp eq i64 %blen.addr.2, 0
+  %blen.addr.1 = phi i64 [ %blen.addr.0172, %while.body ], [ %blen.addr.0172, %if.then239 ], [ %blen.addr.2, %if.end241 ], [ %dec226, %if.then223 ], [ %blen.addr.0172, %if.end197 ], [ %dec218, %if.end216 ], [ %blen.addr.0172, %if.else205 ], [ %dec154, %if.end152 ], [ %sub127, %if.then131 ], [ %sub127, %if.end125 ], [ %dec91, %if.end89 ], [ %dec, %if.end49 ], [ %blen.addr.0172, %if.end73 ]
+  %buf.addr.1 = phi ptr [ %buf.addr.0173, %while.body ], [ %buf.addr.0173, %if.then239 ], [ %buf.addr.2, %if.end241 ], [ %incdec.ptr225, %if.then223 ], [ %buf.addr.0173, %if.end197 ], [ %incdec.ptr217, %if.end216 ], [ %buf.addr.0173, %if.else205 ], [ %incdec.ptr153, %if.end152 ], [ %add.ptr, %if.then131 ], [ %add.ptr, %if.end125 ], [ %incdec.ptr90, %if.end89 ], [ %incdec.ptr, %if.end49 ], [ %buf.addr.0173, %if.end73 ]
+  %tobool19.not = icmp eq i64 %blen.addr.1, 0
   br i1 %tobool19.not, label %return.loopexit, label %while.body, !llvm.loop !4
 
 return.loopexit:                                  ; preds = %sw.epilog, %while.body

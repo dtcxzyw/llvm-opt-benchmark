@@ -540,8 +540,8 @@ _ZN6icu_759HashtableD2Ev.exit.i:                  ; preds = %if.then.i.i, %delet
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then.i, %new.cont, %_ZN6icu_759HashtableD2Ev.exit.i, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %_ZN6icu_759HashtableD2Ev.exit.i ], [ null, %new.cont ], [ null, %if.then.i ], [ %call2, %if.end8 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %_ZN6icu_759HashtableD2Ev.exit.i ], [ null, %new.cont ], [ null, %if.then.i ], [ %call2, %if.end8 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad, %lpad3
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
@@ -903,8 +903,8 @@ if.then12:                                        ; preds = %invoke.cont, %if.en
   br label %return
 
 if.end16:                                         ; preds = %if.end, %entry
-  %currencyPluralPattern.1 = phi ptr [ %call.i1011, %if.end ], [ %call.i, %entry ]
-  %call17 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %currencyPluralPattern.1)
+  %currencyPluralPattern.0 = phi ptr [ %call.i1011, %if.end ], [ %call.i, %entry ]
+  %call17 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 8 dereferenceable(64) %currencyPluralPattern.0)
   br label %return
 
 return:                                           ; preds = %if.end16, %if.then12
@@ -1277,10 +1277,10 @@ for.body.preheader:                               ; preds = %if.end68
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %hasSeparator.0215 = phi i8 [ 0, %for.body.preheader ], [ %hasSeparator.1, %for.inc ]
-  %negNumberStylePatternLen.0214 = phi i32 [ 0, %for.body.preheader ], [ %negNumberStylePatternLen.1, %for.inc ]
-  %negNumberStylePattern.0213 = phi ptr [ null, %for.body.preheader ], [ %negNumberStylePattern.1, %for.inc ]
-  %numberStylePatternLen.0212 = phi i32 [ %10, %for.body.preheader ], [ %numberStylePatternLen.1, %for.inc ]
+  %hasSeparator.1215 = phi i8 [ 0, %for.body.preheader ], [ %hasSeparator.2, %for.inc ]
+  %negNumberStylePatternLen.1214 = phi i32 [ 0, %for.body.preheader ], [ %negNumberStylePatternLen.2, %for.inc ]
+  %negNumberStylePattern.1213 = phi ptr [ null, %for.body.preheader ], [ %negNumberStylePattern.2, %for.inc ]
+  %numberStylePatternLen.1212 = phi i32 [ %10, %for.body.preheader ], [ %numberStylePatternLen.2, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %numberStylePattern.0, i64 %indvars.iv
   %11 = load i16, ptr %arrayidx, align 2
   %cmp74 = icmp eq i16 %11, 59
@@ -1294,19 +1294,19 @@ if.then75:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then75
-  %numberStylePatternLen.1 = phi i32 [ %12, %if.then75 ], [ %numberStylePatternLen.0212, %for.body ]
-  %negNumberStylePattern.1 = phi ptr [ %add.ptr76, %if.then75 ], [ %negNumberStylePattern.0213, %for.body ]
-  %negNumberStylePatternLen.1 = phi i32 [ %sub77, %if.then75 ], [ %negNumberStylePatternLen.0214, %for.body ]
-  %hasSeparator.1 = phi i8 [ 1, %if.then75 ], [ %hasSeparator.0215, %for.body ]
+  %numberStylePatternLen.2 = phi i32 [ %12, %if.then75 ], [ %numberStylePatternLen.1212, %for.body ]
+  %negNumberStylePattern.2 = phi ptr [ %add.ptr76, %if.then75 ], [ %negNumberStylePattern.1213, %for.body ]
+  %negNumberStylePatternLen.2 = phi i32 [ %sub77, %if.then75 ], [ %negNumberStylePatternLen.1214, %for.body ]
+  %hasSeparator.2 = phi i8 [ 1, %if.then75 ], [ %hasSeparator.1215, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end79, label %for.body, !llvm.loop !7
 
 if.end79:                                         ; preds = %for.inc, %if.end68
-  %numberStylePatternLen.2 = phi i32 [ %10, %if.end68 ], [ %numberStylePatternLen.1, %for.inc ]
-  %negNumberStylePattern.2 = phi ptr [ null, %if.end68 ], [ %negNumberStylePattern.1, %for.inc ]
-  %negNumberStylePatternLen.2 = phi i32 [ 0, %if.end68 ], [ %negNumberStylePatternLen.1, %for.inc ]
-  %hasSeparator.2 = phi i8 [ 0, %if.end68 ], [ %hasSeparator.1, %for.inc ]
+  %numberStylePatternLen.0 = phi i32 [ %10, %if.end68 ], [ %numberStylePatternLen.2, %for.inc ]
+  %negNumberStylePattern.0 = phi ptr [ null, %if.end68 ], [ %negNumberStylePattern.2, %for.inc ]
+  %negNumberStylePatternLen.0 = phi i32 [ 0, %if.end68 ], [ %negNumberStylePatternLen.2, %for.inc ]
+  %hasSeparator.0 = phi i8 [ 0, %if.end68 ], [ %hasSeparator.2, %for.inc ]
   br i1 %cmp.i56, label %if.end87, label %if.then83
 
 if.then83:                                        ; preds = %if.end79
@@ -1358,7 +1358,7 @@ while.cond.preheader:                             ; preds = %invoke.cont102
   %fLength.i6.i80 = getelementptr inbounds i8, ptr %ref.tmp146, i64 12
   %fUnion.i.i8.i82 = getelementptr inbounds i8, ptr %ref.tmp151, i64 8
   %fLength.i11.i85 = getelementptr inbounds i8, ptr %ref.tmp151, i64 12
-  %tobool164.not = icmp eq i8 %hasSeparator.2, 0
+  %tobool164.not = icmp eq i8 %hasSeparator.0, 0
   %fUnion.i.i.i89 = getelementptr inbounds i8, ptr %negPattern, i64 8
   %fLength.i.i92 = getelementptr inbounds i8, ptr %negPattern, i64 12
   %fUnion.i.i3.i94 = getelementptr inbounds i8, ptr %ref.tmp167, i64 8
@@ -1450,7 +1450,7 @@ if.end135:                                        ; preds = %new.notnull
           to label %invoke.cont138 unwind label %lpad137
 
 invoke.cont138:                                   ; preds = %if.end135
-  invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp139, ptr noundef %numberStylePattern.0, i32 noundef %numberStylePatternLen.2)
+  invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp139, ptr noundef %numberStylePattern.0, i32 noundef %numberStylePatternLen.0)
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %invoke.cont138
@@ -1533,7 +1533,7 @@ invoke.cont166:                                   ; preds = %if.then165
           to label %invoke.cont172 unwind label %lpad171
 
 invoke.cont172:                                   ; preds = %invoke.cont166
-  invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp173, ptr noundef %negNumberStylePattern.2, i32 noundef %negNumberStylePatternLen.2)
+  invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp173, ptr noundef %negNumberStylePattern.0, i32 noundef %negNumberStylePatternLen.0)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %invoke.cont172

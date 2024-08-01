@@ -1191,13 +1191,13 @@ define i32 @select_g_select_nodeinfo_free(ptr noundef %0) local_unnamed_addr #0 
   br label %13
 
 13:                                               ; preds = %5, %3
-  %.0 = phi i32 [ %12, %5 ], [ 0, %3 ]
+  %.1 = phi i32 [ %12, %5 ], [ 0, %3 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %14
 
 14:                                               ; preds = %13, %1
-  %.1 = phi i32 [ %.0, %13 ], [ 0, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %13 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1297,13 +1297,13 @@ define i32 @select_g_select_jobinfo_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %5, %3
-  %.0 = phi i32 [ %12, %5 ], [ 0, %3 ]
+  %.1 = phi i32 [ %12, %5 ], [ 0, %3 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %14
 
 14:                                               ; preds = %13, %1
-  %.1 = phi i32 [ %.0, %13 ], [ 0, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %13 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

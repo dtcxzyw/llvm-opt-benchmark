@@ -191,31 +191,31 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
   br label %54
 
 .loopexit:                                        ; preds = %55, %64
-  %.255.i.i = phi i32 [ %.053.i.i.ph, %64 ], [ %56, %55 ]
-  %.252.i.i = phi i32 [ %.050.i.i.ph, %64 ], [ %61, %55 ]
-  %.249.i.i = phi i32 [ %.047.i.i.ph, %64 ], [ %63, %55 ]
-  %72 = icmp eq i32 %.252.i.i, 0
+  %.154.i.i = phi i32 [ %.053.i.i.ph, %64 ], [ %56, %55 ]
+  %.151.i.i = phi i32 [ %.050.i.i.ph, %64 ], [ %61, %55 ]
+  %.148.i.i = phi i32 [ %.047.i.i.ph, %64 ], [ %63, %55 ]
+  %72 = icmp eq i32 %.151.i.i, 0
   br i1 %72, label %simple8b_encode.exit.i, label %73
 
 73:                                               ; preds = %.loopexit
-  %74 = icmp sgt i32 %.249.i.i, 0
+  %74 = icmp sgt i32 %.148.i.i, 0
   br i1 %74, label %.preheader.i.i, label %92
 
 .preheader.i.i:                                   ; preds = %73
-  %75 = icmp sgt i32 %.252.i.i, 1
+  %75 = icmp sgt i32 %.151.i.i, 1
   br i1 %75, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.262.i.i = add nsw i32 %.252.i.i, -1
-  %76 = zext nneg i32 %.249.i.i to i64
+  %.262.i.i = add nsw i32 %.151.i.i, -1
+  %76 = zext nneg i32 %.148.i.i to i64
   %77 = zext nneg i32 %.262.i.i to i64
-  %78 = zext nneg i32 %.252.i.i to i64
+  %78 = zext nneg i32 %.151.i.i to i64
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i.i
   %indvars.iv66.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ %indvars.iv.next67.i.i, %79 ]
   %indvars.iv.i.i = phi i64 [ %77, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %.04163.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %89, %79 ]
+  %.14263.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %89, %79 ]
   %80 = getelementptr i64, ptr %49, i64 %indvars.iv.i.i
   %81 = load i64, ptr %80, align 8
   %82 = add nsw i64 %indvars.iv66.i.i, 4294967294
@@ -224,7 +224,7 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
   %85 = load i64, ptr %84, align 8
   %86 = xor i64 %85, -1
   %87 = add i64 %81, %86
-  %88 = or i64 %87, %.04163.i.i
+  %88 = or i64 %87, %.14263.i.i
   %89 = shl i64 %88, %76
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %90 = icmp ugt i64 %indvars.iv.i.i, 1
@@ -232,15 +232,15 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
   br i1 %90, label %79, label %._crit_edge.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %79, %.preheader.i.i
-  %.041.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %89, %79 ]
-  %91 = or i64 %.041.lcssa.i.i, %52
+  %.142.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %89, %79 ]
+  %91 = or i64 %.142.lcssa.i.i, %52
   br label %92
 
 92:                                               ; preds = %._crit_edge.i.i, %73
-  %.142.i.i = phi i64 [ %91, %._crit_edge.i.i ], [ 0, %73 ]
-  %93 = zext i32 %.255.i.i to i64
+  %.041.i.i = phi i64 [ %91, %._crit_edge.i.i ], [ 0, %73 ]
+  %93 = zext i32 %.154.i.i to i64
   %94 = shl i64 %93, 60
-  %95 = or i64 %.142.i.i, %94
+  %95 = or i64 %.041.i.i, %94
   br label %simple8b_encode.exit.i
 
 simple8b_encode.exit.i:                           ; preds = %92, %.loopexit
@@ -374,7 +374,7 @@ intset_update_upper.exit.i:                       ; preds = %130
   store i64 %46, ptr %160, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %160, i64 8
   store i64 %.056.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %161 = add i32 %.252.i.i, %47
+  %161 = add i32 %.151.i.i, %47
   %162 = sext i32 %161 to i64
   %163 = sub nsw i64 %24, %162
   %164 = icmp ugt i64 %163, 240

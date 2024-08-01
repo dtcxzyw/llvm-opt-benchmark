@@ -1230,10 +1230,10 @@ _Z11cmHasSuffixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %_Z
   br label %85
 
 .loopexit:                                        ; preds = %82, %81, %31
-  %.2 = phi i1 [ true, %81 ], [ false, %31 ], [ false, %82 ]
+  %.0 = phi i1 [ true, %81 ], [ false, %31 ], [ false, %82 ]
   call void @_ZN5cmsys4GlobD1Ev(ptr noundef nonnull align 8 dereferenceable(82) %7) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  ret i1 %.2
+  ret i1 %.0
 
 85:                                               ; preds = %.loopexit30, %.loopexit.split-lp, %84
   %.pn23.pn = phi { ptr, i32 } [ %.pn23, %84 ], [ %lpad.loopexit, %.loopexit30 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

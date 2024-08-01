@@ -252,8 +252,8 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
 
 35:                                               ; preds = %33, %30
   %36 = phi double [ %21, %30 ], [ %.pre, %33 ]
-  %.sroa.4.0 = phi double [ %32, %30 ], [ %34, %33 ]
-  %37 = tail call double @sin(double noundef %.sroa.4.0) #9
+  %.sroa.4.2 = phi double [ %32, %30 ], [ %34, %33 ]
+  %37 = tail call double @sin(double noundef %.sroa.4.2) #9
   %38 = fneg double %36
   %39 = tail call double @llvm.fmuladd.f64(double %38, double %37, double %11)
   %40 = fmul double %6, %39
@@ -279,7 +279,7 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
   br label %54
 
 54:                                               ; preds = %52, %49
-  %.sroa.4.1 = phi double [ %51, %49 ], [ %53, %52 ]
+  %.sroa.4.3 = phi double [ %51, %49 ], [ %53, %52 ]
   %55 = fmul double %6, %11
   %56 = fmul double %8, %0
   br label %62
@@ -296,15 +296,15 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
 62:                                               ; preds = %59, %57, %54, %35, %17
   %.sroa.0.0 = phi double [ %0, %17 ], [ %0, %59 ], [ %0, %57 ], [ %56, %54 ], [ %43, %35 ]
   %.sroa.7.0 = phi double [ %1, %17 ], [ %61, %59 ], [ %1, %57 ], [ %55, %54 ], [ %40, %35 ]
-  %.sroa.4.2 = phi double [ %7, %17 ], [ %60, %59 ], [ %58, %57 ], [ %.sroa.4.1, %54 ], [ %.sroa.4.0, %35 ]
+  %.sroa.4.1 = phi double [ %7, %17 ], [ %60, %59 ], [ %58, %57 ], [ %.sroa.4.3, %54 ], [ %.sroa.4.2, %35 ]
   %63 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.7.0) #9
   br label %64
 
 64:                                               ; preds = %62, %14
-  %.sroa.4.3 = phi double [ %16, %14 ], [ %.sroa.4.2, %62 ]
+  %.sroa.4.0 = phi double [ %16, %14 ], [ %.sroa.4.1, %62 ]
   %.sroa.029.0 = phi double [ 0.000000e+00, %14 ], [ %63, %62 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.029.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.3, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 

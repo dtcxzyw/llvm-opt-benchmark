@@ -2423,8 +2423,8 @@ _ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds 
   br label %44
 
 44:                                               ; preds = %40, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i
-  %.sroa.17.0 = phi ptr [ %43, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %40 ]
-  %.sroa.9.0 = phi ptr [ %42, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %40 ]
+  %.sroa.17.3 = phi ptr [ %43, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %40 ]
+  %.sroa.9.3 = phi ptr [ %42, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %40 ]
   %.sroa.088.0163 = load ptr, ptr %3, align 8
   %.not94164 = icmp eq ptr %.sroa.088.0163, null
   br i1 %.not94164, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit.thread, label %.lr.ph170
@@ -2435,17 +2435,17 @@ _ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds 
 
 .loopexit127:                                     ; preds = %.loopexit127.loopexit, %.lr.ph170
   %.sroa.088.0 = phi ptr [ %46, %.lr.ph170 ], [ %.sroa.088.0.pre, %.loopexit127.loopexit ]
-  %.sroa.17.2.lcssa = phi ptr [ %.sroa.17.1165, %.lr.ph170 ], [ %.sroa.17.4, %.loopexit127.loopexit ]
-  %.sroa.9.2.lcssa = phi ptr [ %.sroa.9.1166, %.lr.ph170 ], [ %.sroa.9.4, %.loopexit127.loopexit ]
-  %.sroa.0114.2.lcssa = phi ptr [ %.sroa.0114.1167, %.lr.ph170 ], [ %.sroa.0114.6, %.loopexit127.loopexit ]
+  %.sroa.17.1.lcssa = phi ptr [ %.sroa.17.0165, %.lr.ph170 ], [ %.sroa.17.2, %.loopexit127.loopexit ]
+  %.sroa.9.1.lcssa = phi ptr [ %.sroa.9.0166, %.lr.ph170 ], [ %.sroa.9.2, %.loopexit127.loopexit ]
+  %.sroa.0114.2.lcssa = phi ptr [ %.sroa.0114.1167, %.lr.ph170 ], [ %.sroa.0114.3, %.loopexit127.loopexit ]
   %.not94 = icmp eq ptr %.sroa.088.0, null
   br i1 %.not94, label %._crit_edge171, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %44, %.loopexit127
   %.sroa.088.0168 = phi ptr [ %.sroa.088.0, %.loopexit127 ], [ %.sroa.088.0163, %44 ]
-  %.sroa.0114.1167 = phi ptr [ %.sroa.0114.2.lcssa, %.loopexit127 ], [ %.sroa.9.0, %44 ]
-  %.sroa.9.1166 = phi ptr [ %.sroa.9.2.lcssa, %.loopexit127 ], [ %.sroa.9.0, %44 ]
-  %.sroa.17.1165 = phi ptr [ %.sroa.17.2.lcssa, %.loopexit127 ], [ %.sroa.17.0, %44 ]
+  %.sroa.0114.1167 = phi ptr [ %.sroa.0114.2.lcssa, %.loopexit127 ], [ %.sroa.9.3, %44 ]
+  %.sroa.9.0166 = phi ptr [ %.sroa.9.1.lcssa, %.loopexit127 ], [ %.sroa.9.3, %44 ]
+  %.sroa.17.0165 = phi ptr [ %.sroa.17.1.lcssa, %.loopexit127 ], [ %.sroa.17.3, %44 ]
   %45 = getelementptr inbounds i8, ptr %.sroa.088.0168, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not95 = icmp eq ptr %46, null
@@ -2460,9 +2460,9 @@ _ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds 
 
 .lr.ph159:                                        ; preds = %.lr.ph170, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit
   %.sroa.076.0157 = phi ptr [ %.sroa.076.0, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.076.0152, %.lr.ph170 ]
-  %.sroa.0114.2156 = phi ptr [ %.sroa.0114.6, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.0114.1167, %.lr.ph170 ]
-  %.sroa.9.2155 = phi ptr [ %.sroa.9.4, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.9.1166, %.lr.ph170 ]
-  %.sroa.17.2154 = phi ptr [ %.sroa.17.4, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.17.1165, %.lr.ph170 ]
+  %.sroa.0114.2156 = phi ptr [ %.sroa.0114.3, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.0114.1167, %.lr.ph170 ]
+  %.sroa.9.1155 = phi ptr [ %.sroa.9.2, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.9.0166, %.lr.ph170 ]
+  %.sroa.17.1154 = phi ptr [ %.sroa.17.2, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit ], [ %.sroa.17.0165, %.lr.ph170 ]
   %50 = getelementptr inbounds i8, ptr %.sroa.076.0157, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not97 = icmp eq ptr %51, null
@@ -2480,16 +2480,16 @@ _ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds 
   br i1 %58, label %59, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit
 
 59:                                               ; preds = %55
-  %.not.i.i = icmp eq ptr %.sroa.9.2155, %.sroa.17.2154
+  %.not.i.i = icmp eq ptr %.sroa.9.1155, %.sroa.17.1154
   br i1 %.not.i.i, label %62, label %60
 
 60:                                               ; preds = %59
-  store ptr %.sroa.076.0157, ptr %.sroa.9.2155, align 8
-  %61 = getelementptr inbounds i8, ptr %.sroa.9.2155, i64 8
+  store ptr %.sroa.076.0157, ptr %.sroa.9.1155, align 8
+  %61 = getelementptr inbounds i8, ptr %.sroa.9.1155, i64 8
   br label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit
 
 62:                                               ; preds = %59
-  %63 = ptrtoint ptr %.sroa.9.2155 to i64
+  %63 = ptrtoint ptr %.sroa.9.1155 to i64
   %64 = ptrtoint ptr %.sroa.0114.2156 to i64
   %65 = sub i64 %63, %64
   %66 = icmp eq i64 %65, 9223372036854775800
@@ -2553,35 +2553,35 @@ _ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__no
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %67, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE11_M_allocateEm.exit.i, %39
-  %.sroa.0114.4.ph.ph = phi ptr [ null, %39 ], [ %.sroa.0114.2156, %67 ], [ null, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE11_M_allocateEm.exit.i ]
+  %.sroa.0114.0.ph.ph = phi ptr [ null, %39 ], [ %.sroa.0114.2156, %67 ], [ null, %_ZNSt12_Vector_baseIP11V3GraphEdgeSaIS1_EE11_M_allocateEm.exit.i ]
   %lpad.loopexit.split-lp129 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %94
-  %.sroa.0114.5 = phi ptr [ %.sroa.0114.2.lcssa, %94 ], [ %.sroa.0114.2.lcssa, %.loopexit ], [ %.sroa.0114.2156, %.loopexit.split-lp.loopexit ], [ %.sroa.0114.4.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0114.6 = phi ptr [ %.sroa.0114.2.lcssa, %94 ], [ %.sroa.0114.2.lcssa, %.loopexit ], [ %.sroa.0114.2156, %.loopexit.split-lp.loopexit ], [ %.sroa.0114.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %95, %94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp129, %.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %.sroa.0114.5, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0114.6, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EED2Ev.exit, label %84
 
 84:                                               ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.5) #19
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.6) #19
   br label %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %60, %.lr.ph159, %55
-  %.sroa.17.4 = phi ptr [ %.sroa.17.2154, %.lr.ph159 ], [ %.sroa.17.2154, %55 ], [ %83, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.17.2154, %60 ]
-  %.sroa.9.4 = phi ptr [ %.sroa.9.2155, %.lr.ph159 ], [ %.sroa.9.2155, %55 ], [ %81, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %61, %60 ]
-  %.sroa.0114.6 = phi ptr [ %.sroa.0114.2156, %.lr.ph159 ], [ %.sroa.0114.2156, %55 ], [ %76, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0114.2156, %60 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.1154, %.lr.ph159 ], [ %.sroa.17.1154, %55 ], [ %83, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.17.1154, %60 ]
+  %.sroa.9.2 = phi ptr [ %.sroa.9.1155, %.lr.ph159 ], [ %.sroa.9.1155, %55 ], [ %81, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %61, %60 ]
+  %.sroa.0114.3 = phi ptr [ %.sroa.0114.2156, %.lr.ph159 ], [ %.sroa.0114.2156, %55 ], [ %76, %_ZNSt6vectorIP11V3GraphEdgeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0114.2156, %60 ]
   %.sroa.076.0 = load ptr, ptr %50, align 8
   %.not96 = icmp eq ptr %.sroa.076.0, null
   br i1 %.not96, label %.loopexit127.loopexit, label %.lr.ph159
 
 ._crit_edge171:                                   ; preds = %.loopexit127
-  %85 = icmp eq ptr %.sroa.0114.2.lcssa, %.sroa.9.2.lcssa
+  %85 = icmp eq ptr %.sroa.0114.2.lcssa, %.sroa.9.1.lcssa
   br i1 %85, label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit.thread, label %86
 
 86:                                               ; preds = %._crit_edge171
-  %87 = ptrtoint ptr %.sroa.9.2.lcssa to i64
+  %87 = ptrtoint ptr %.sroa.9.1.lcssa to i64
   %88 = ptrtoint ptr %.sroa.0114.2.lcssa to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3
@@ -2602,7 +2602,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br i1 %.not10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 .loopexit.i.i:                                    ; preds = %select.unfold.i.i.i.i, %86
-  invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterI16GraphAcycEdgeCmpEEEvT_SD_T0_(ptr %.sroa.0114.2.lcssa, ptr %.sroa.9.2.lcssa)
+  invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterI16GraphAcycEdgeCmpEEEvT_SD_T0_(ptr %.sroa.0114.2.lcssa, ptr %.sroa.9.1.lcssa)
           to label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit unwind label %94
 
 94:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i, %.loopexit.i.i
@@ -2613,11 +2613,11 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br label %.body
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterI16GraphAcycEdgeCmpEEEvT_SD_T0_T1_T2_(ptr %.sroa.0114.2.lcssa, ptr %.sroa.9.2.lcssa, ptr noundef nonnull %93, i64 noundef %storemerge26.i.i.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterI16GraphAcycEdgeCmpEEEvT_SD_T0_T1_T2_(ptr %.sroa.0114.2.lcssa, ptr %.sroa.9.1.lcssa, ptr noundef nonnull %93, i64 noundef %storemerge26.i.i.i.i)
           to label %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit unwind label %94
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit.thread: ; preds = %._crit_edge171, %44
-  %.sroa.0114.1.lcssa186.ph = phi ptr [ %.sroa.0114.2.lcssa, %._crit_edge171 ], [ %.sroa.9.0, %44 ]
+  %.sroa.0114.1.lcssa186.ph = phi ptr [ %.sroa.0114.2.lcssa, %._crit_edge171 ], [ %.sroa.9.3, %44 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 10, ptr %96, align 8
   br label %._crit_edge177
@@ -2637,7 +2637,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaI
 
 99:                                               ; preds = %.lr.ph176
   %100 = getelementptr inbounds i8, ptr %.sroa.0110.0175, i64 8
-  %.not126 = icmp eq ptr %100, %.sroa.9.2.lcssa
+  %.not126 = icmp eq ptr %100, %.sroa.9.1.lcssa
   br i1 %.not126, label %._crit_edge177, label %.lr.ph176
 
 ._crit_edge177:                                   ; preds = %99, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit.thread, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEE16GraphAcycEdgeCmpEvT_SA_T0_.exit
@@ -4896,8 +4896,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_S
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.02487 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
   %.sroa.0.086 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.sroa.035.285 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.035.285, i64 -8
+  %.sroa.035.385 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.035.385, i64 -8
   %64 = getelementptr inbounds i8, ptr %.sroa.0.086, i64 -8
   %65 = load ptr, ptr %63, align 8
   %66 = load ptr, ptr %64, align 8
@@ -4908,13 +4908,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_S
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.sroa.035.2.lcssa = phi ptr [ %61, %59 ], [ %.sroa.035.0, %.lr.ph ]
+  %.sroa.035.3.lcssa = phi ptr [ %61, %59 ], [ %.sroa.035.0, %.lr.ph ]
   %68 = srem i64 %.077, %25
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
-  %.sroa.035.0.be = phi ptr [ %.sroa.035.1.lcssa, %45 ], [ %.sroa.035.2.lcssa, %._crit_edge ]
+  %.sroa.035.0.be = phi ptr [ %.sroa.035.1.lcssa, %45 ], [ %.sroa.035.3.lcssa, %._crit_edge ]
   %.078.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
   %.077.be = phi i64 [ %.078, %45 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !20

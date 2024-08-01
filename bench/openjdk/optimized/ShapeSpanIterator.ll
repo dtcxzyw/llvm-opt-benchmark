@@ -1701,8 +1701,8 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 .lr.ph.split.us:                                  ; preds = %.loopexit192, %.lr.ph.lr.ph
   %.0146.ph262 = phi i32 [ %42, %.lr.ph.lr.ph ], [ %.0163.lcssa, %.loopexit192 ]
   %.0148.ph261 = phi i32 [ %41, %.lr.ph.lr.ph ], [ %.0163.lcssa, %.loopexit192 ]
-  %.0151.ph259 = phi i32 [ %38, %.lr.ph.lr.ph ], [ %.1152, %.loopexit192 ]
-  %.0160.ph258 = phi i32 [ %40, %.lr.ph.lr.ph ], [ %.1161.lcssa, %.loopexit192 ]
+  %.0151.ph259 = phi i32 [ %38, %.lr.ph.lr.ph ], [ %.2153, %.loopexit192 ]
+  %.0160.ph258 = phi i32 [ %40, %.lr.ph.lr.ph ], [ %.2162.lcssa, %.loopexit192 ]
   %53 = icmp slt i32 %.0148.ph261, %.0160.ph258
   br i1 %53, label %.lr.ph238, label %.split.us
 
@@ -1845,7 +1845,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %111
 
 111:                                              ; preds = %105, %._crit_edge
-  %.1152 = phi i32 [ %89, %._crit_edge ], [ %spec.select189, %105 ]
+  %.2153 = phi i32 [ %89, %._crit_edge ], [ %spec.select189, %105 ]
   %112 = icmp slt i32 %.0160.ph258, %39
   br i1 %112, label %.lr.ph245.preheader, label %.critedge
 
@@ -1859,7 +1859,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
-  %.not181 = icmp sgt i32 %117, %.1152
+  %.not181 = icmp sgt i32 %117, %.2153
   br i1 %.not181, label %.critedge.loopexit.split.loop.exit320, label %118
 
 118:                                              ; preds = %.lr.ph245
@@ -1872,14 +1872,14 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %.critedge
 
 .critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit320, %111
-  %.1161.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit320 ], [ %39, %118 ]
-  %120 = icmp slt i32 %.0163.lcssa, %.1161.lcssa
+  %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit320 ], [ %39, %118 ]
+  %120 = icmp slt i32 %.0163.lcssa, %.2162.lcssa
   br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !11
 
 .lr.ph257:                                        ; preds = %.critedge
-  %121 = sext i32 %.1152 to i64
+  %121 = sext i32 %.2153 to i64
   %122 = sext i32 %.0163.lcssa to i64
-  %wide.trip.count = sext i32 %.1161.lcssa to i64
+  %wide.trip.count = sext i32 %.2162.lcssa to i64
   br label %123
 
 123:                                              ; preds = %.lr.ph257, %._crit_edge252
@@ -1892,7 +1892,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %129 = getelementptr inbounds i8, ptr %125, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = add nsw i32 %128, 1
-  %132 = icmp eq i32 %131, %.1152
+  %132 = icmp eq i32 %131, %.2153
   br i1 %132, label %133, label %141
 
 133:                                              ; preds = %123
@@ -1931,7 +1931,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %.0154.in = phi i32 [ %139, %133 ], [ %158, %141 ]
   %.0154 = and i32 %.0154.in, 2147483647
   store i32 %.1159, ptr %125, align 4
-  store i32 %.1152, ptr %127, align 4
+  store i32 %.2153, ptr %127, align 4
   store i32 %.0154, ptr %129, align 4
   %160 = icmp sgt i64 %indvars.iv288, %122
   %161 = trunc nsw i64 %indvars.iv288 to i32
@@ -1966,15 +1966,15 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br i1 %exitcond296.not, label %.loopexit192, label %123, !llvm.loop !13
 
 .loopexit193:                                     ; preds = %.loopexit192, %.split.us, %36, %.split213.us
-  %.2162 = phi i32 [ %.0160.ph258, %.split213.us ], [ %40, %36 ], [ %.1161.lcssa, %.loopexit192 ], [ %39, %.split.us ]
-  %.2153 = phi i32 [ %.0151.ph259, %.split213.us ], [ %38, %36 ], [ %.1152, %.loopexit192 ], [ %89, %.split.us ]
+  %.1161 = phi i32 [ %.0160.ph258, %.split213.us ], [ %40, %36 ], [ %.2162.lcssa, %.loopexit192 ], [ %39, %.split.us ]
+  %.1152 = phi i32 [ %.0151.ph259, %.split213.us ], [ %38, %36 ], [ %.2153, %.loopexit192 ], [ %89, %.split.us ]
   %.0150 = phi i8 [ 1, %.split213.us ], [ 0, %36 ], [ 0, %.split.us ], [ 0, %.loopexit192 ]
-  %.5 = phi i32 [ %.2.us, %.split213.us ], [ %41, %36 ], [ %.0163.lcssa, %.loopexit192 ], [ %39, %.split.us ]
+  %.1149 = phi i32 [ %.2.us, %.split213.us ], [ %41, %36 ], [ %.0163.lcssa, %.loopexit192 ], [ %39, %.split.us ]
   %.1 = phi i32 [ %.0146.ph262, %.split213.us ], [ %42, %36 ], [ %.0163.lcssa, %.loopexit192 ], [ %39, %.split.us ]
   store i32 %.1, ptr %43, align 8
-  store i32 %.2162, ptr %45, align 8
-  store i32 %.5, ptr %44, align 4
-  store i32 %.2153, ptr %46, align 8
+  store i32 %.1161, ptr %45, align 8
+  store i32 %.1149, ptr %44, align 4
+  store i32 %.1152, ptr %46, align 8
   br label %171
 
 171:                                              ; preds = %.loopexit193, %34
@@ -2470,7 +2470,7 @@ GetSpanData.exit:                                 ; preds = %18
   br label %178
 
 178:                                              ; preds = %170, %175, %172
-  %.1171 = phi i8 [ %174, %172 ], [ %177, %175 ], [ 0, %170 ]
+  %.5175 = phi i8 [ %174, %172 ], [ %177, %175 ], [ 0, %170 ]
   %179 = load float, ptr %97, align 4
   %180 = fcmp ogt float %179, %160
   br i1 %180, label %181, label %182
@@ -2517,16 +2517,16 @@ GetSpanData.exit:                                 ; preds = %18
   %199 = phi float [ %146, %148 ], [ %146, %145 ], [ %106, %119 ], [ %183, %196 ]
   %200 = phi float [ %120, %148 ], [ %120, %145 ], [ %107, %119 ], [ %160, %196 ]
   %201 = phi float [ %108, %148 ], [ %108, %145 ], [ %108, %119 ], [ %117, %196 ]
-  %.2172 = phi i8 [ 0, %148 ], [ 0, %145 ], [ 0, %119 ], [ %.1171, %196 ]
+  %.4174 = phi i8 [ 0, %148 ], [ 0, %145 ], [ 0, %119 ], [ %.5175, %196 ]
   %.5 = phi i32 [ %.4, %148 ], [ %.4, %145 ], [ %.2218, %119 ], [ %.1, %196 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not195 = icmp eq i8 %.2172, 0
+  %.not195 = icmp eq i8 %.4174, 0
   %202 = icmp ult i64 %indvars.iv.next, %103
   %203 = select i1 %.not195, i1 %202, i1 false
   br i1 %203, label %104, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %197
-  %204 = icmp eq i8 %.2172, 0
+  %204 = icmp eq i8 %.4174, 0
   %205 = load ptr, ptr %0, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 1784
   %207 = load ptr, ptr %206, align 8

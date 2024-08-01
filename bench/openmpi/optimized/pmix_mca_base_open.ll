@@ -190,7 +190,7 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %64
   %.03441.i26 = phi ptr [ %65, %64 ], [ %57, %.lr.ph.i ]
-  %.042.i25 = phi i1 [ %.1.i, %64 ], [ false, %.lr.ph.i ]
+  %.042.i25 = phi i1 [ %.2.i, %64 ], [ false, %.lr.ph.i ]
   %66 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03441.i26, i32 noundef 44) #9
   %.not39.i = icmp eq ptr %66, null
   br i1 %.not39.i, label %68, label %67
@@ -299,11 +299,11 @@ define i32 @pmix_mca_base_open(ptr noundef %0) local_unnamed_addr #0 {
   br label %115
 
 115:                                              ; preds = %112, %108, %105, %104, %98, %94, %87, %83, %79, %75, %71
-  %.1.i = phi i1 [ %.042.i25, %71 ], [ %.042.i25, %75 ], [ %.042.i25, %79 ], [ true, %83 ], [ true, %87 ], [ true, %94 ], [ true, %98 ], [ true, %104 ], [ %.042.i25, %112 ], [ %.042.i25, %108 ], [ %.042.i25, %105 ]
+  %.2.i = phi i1 [ %.042.i25, %71 ], [ %.042.i25, %75 ], [ %.042.i25, %79 ], [ true, %83 ], [ true, %87 ], [ true, %94 ], [ true, %98 ], [ true, %104 ], [ %.042.i25, %112 ], [ %.042.i25, %108 ], [ %.042.i25, %105 ]
   br i1 %.not39.i, label %.critedge.i, label %64
 
 .critedge.i:                                      ; preds = %64, %115
-  br i1 %.1.i, label %parse_verbose.exit, label %.critedge47.i
+  br i1 %.2.i, label %parse_verbose.exit, label %.critedge47.i
 
 .critedge47.i:                                    ; preds = %.lr.ph.i, %.critedge.i, %56
   %116 = getelementptr inbounds i8, ptr %4, i64 155

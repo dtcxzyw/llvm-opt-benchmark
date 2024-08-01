@@ -1036,8 +1036,8 @@ if.end18:                                         ; preds = %if.then16, %if.then
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end12, %if.end18, %land.lhs.true, %entry
-  %ret.1 = phi i32 [ 1, %if.end18 ], [ 0, %if.end12 ], [ 0, %land.lhs.true ], [ 0, %entry ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ 1, %if.end18 ], [ 0, %if.end12 ], [ 0, %land.lhs.true ], [ 0, %entry ]
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind uwtable

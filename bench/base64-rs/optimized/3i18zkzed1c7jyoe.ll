@@ -76,9 +76,9 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br label %23
 
 12:                                               ; preds = %125, %.preheader
-  %.159 = phi i64 [ %289, %125 ], [ 0, %.preheader ]
-  %.1 = phi i64 [ %17, %125 ], [ 0, %.preheader ]
-  %13 = add nuw i64 %.159, 26
+  %.260 = phi i64 [ %289, %125 ], [ 0, %.preheader ]
+  %.2 = phi i64 [ %17, %125 ], [ 0, %.preheader ]
+  %13 = add nuw i64 %.260, 26
   %14 = icmp ugt i64 %13, %2
   br i1 %14, label %15, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit"
 
@@ -87,9 +87,9 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit": ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.159
-  %17 = add i64 %.1, 32
-  %18 = icmp eq i64 %.1, -32
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.260
+  %17 = add i64 %.2, 32
+  %18 = icmp eq i64 %.2, -32
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit"
@@ -105,17 +105,17 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   unreachable
 
 ._crit_edge:                                      ; preds = %96, %.loopexit
-  %.2.lcssa = phi i64 [ %.0, %.loopexit ], [ %31, %96 ]
+  %.1.lcssa = phi i64 [ %.0, %.loopexit ], [ %31, %96 ]
   switch i64 %8, label %77 [
     i64 2, label %37
     i64 1, label %78
   ]
 
 23:                                               ; preds = %.lr.ph, %96
-  %.2146 = phi i64 [ %.0, %.lr.ph ], [ %31, %96 ]
-  %.260145 = phi i64 [ %.058, %.lr.ph ], [ %24, %96 ]
-  %24 = add i64 %.260145, 3
-  %25 = icmp ugt i64 %.260145, -4
+  %.1146 = phi i64 [ %.0, %.lr.ph ], [ %31, %96 ]
+  %.159145 = phi i64 [ %.058, %.lr.ph ], [ %24, %96 ]
+  %24 = add i64 %.159145, 3
+  %25 = icmp ugt i64 %.159145, -4
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
@@ -123,7 +123,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %27, label %29, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit107"
 
 28:                                               ; preds = %23
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %.260145, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.90) #13, !noalias !16
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %.159145, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.90) #13, !noalias !16
   unreachable
 
 29:                                               ; preds = %26
@@ -131,9 +131,9 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit107": ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 %.260145
-  %31 = add i64 %.2146, 4
-  %32 = icmp ugt i64 %.2146, -5
+  %30 = getelementptr inbounds i8, ptr %1, i64 %.159145
+  %31 = add i64 %.1146, 4
+  %32 = icmp ugt i64 %.1146, -5
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit107"
@@ -141,7 +141,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %34, label %36, label %96
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit107"
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %.2146, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.91) #13, !noalias !19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %.1146, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.91) #13, !noalias !19
   unreachable
 
 36:                                               ; preds = %33
@@ -150,7 +150,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds i8, ptr %0, i64 3
-  %39 = icmp ult i64 %.2.lcssa, %4
+  %39 = icmp ult i64 %.1.lcssa, %4
   br i1 %39, label %40, label %50, !prof !22
 
 40:                                               ; preds = %37
@@ -160,18 +160,18 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %44 = zext nneg i8 %43 to i64
   %45 = getelementptr inbounds [64 x i8], ptr %38, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1, !noundef !9
-  %47 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.2.lcssa
+  %47 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.1.lcssa
   store i8 %46, ptr %47, align 1
   %48 = add i64 %9, 1
   %49 = icmp ult i64 %48, %2
   br i1 %49, label %51, label %54, !prof !22
 
 50:                                               ; preds = %37
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.2.lcssa, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.76) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.76) #13
   unreachable
 
 51:                                               ; preds = %40
-  %52 = add nuw i64 %.2.lcssa, 1
+  %52 = add nuw i64 %.1.lcssa, 1
   %53 = icmp ult i64 %52, %4
   br i1 %53, label %55, label %66, !prof !22
 
@@ -189,7 +189,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %62 = load i8, ptr %61, align 1, !noundef !9
   %63 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %52
   store i8 %62, ptr %63, align 1
-  %64 = add nuw i64 %.2.lcssa, 2
+  %64 = add nuw i64 %.1.lcssa, 2
   %65 = icmp ult i64 %64, %4
   br i1 %65, label %67, label %70, !prof !22
 
@@ -216,15 +216,15 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %74 = load i8, ptr %73, align 1, !noundef !9
   %75 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.sink204
   store i8 %74, ptr %75, align 1
-  %76 = add nuw i64 %.2.lcssa, %.sink
+  %76 = add nuw i64 %.1.lcssa, %.sink
   br label %77
 
 77:                                               ; preds = %.sink.split, %._crit_edge
-  %.3 = phi i64 [ %.2.lcssa, %._crit_edge ], [ %76, %.sink.split ]
+  %.3 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %76, %.sink.split ]
   ret i64 %.3
 
 78:                                               ; preds = %._crit_edge
-  %79 = icmp ult i64 %.2.lcssa, %4
+  %79 = icmp ult i64 %.1.lcssa, %4
   br i1 %79, label %80, label %91, !prof !22
 
 80:                                               ; preds = %78
@@ -235,14 +235,14 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %85 = zext nneg i8 %84 to i64
   %86 = getelementptr inbounds [64 x i8], ptr %81, i64 0, i64 %85
   %87 = load i8, ptr %86, align 1, !noundef !9
-  %88 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.2.lcssa
+  %88 = getelementptr inbounds [0 x i8], ptr %3, i64 0, i64 %.1.lcssa
   store i8 %87, ptr %88, align 1
-  %89 = add nuw i64 %.2.lcssa, 1
+  %89 = add nuw i64 %.1.lcssa, 1
   %90 = icmp ult i64 %89, %4
   br i1 %90, label %92, label %95, !prof !22
 
 91:                                               ; preds = %78
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.2.lcssa, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.86) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.86) #13
   unreachable
 
 92:                                               ; preds = %80
@@ -255,7 +255,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   unreachable
 
 96:                                               ; preds = %33
-  %97 = getelementptr inbounds i8, ptr %3, i64 %.2146
+  %97 = getelementptr inbounds i8, ptr %3, i64 %.1146
   %98 = load i8, ptr %30, align 1, !noundef !9
   %99 = lshr i8 %98, 2
   %100 = zext nneg i8 %99 to i64
@@ -290,7 +290,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %124, label %23, label %._crit_edge
 
 125:                                              ; preds = %19
-  %126 = getelementptr inbounds i8, ptr %3, i64 %.1
+  %126 = getelementptr inbounds i8, ptr %3, i64 %.2
   %.val.i.i = load i64, ptr %16, align 1, !alias.scope !23, !noalias !28
   %127 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i)
   %128 = lshr i64 %127, 58
@@ -489,7 +489,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   %287 = load i8, ptr %286, align 1, !noundef !9
   %288 = getelementptr inbounds i8, ptr %126, i64 31
   store i8 %287, ptr %288, align 1
-  %289 = add nuw i64 %.159, 24
+  %289 = add nuw i64 %.260, 24
   %.old1.not = icmp ugt i64 %289, %6
   br i1 %.old1.not, label %.loopexit, label %12
 }

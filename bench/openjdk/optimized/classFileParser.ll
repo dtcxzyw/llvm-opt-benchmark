@@ -3543,12 +3543,12 @@ define hidden void @_ZN15ClassFileParser22parse_field_attributesEPK15ClassFileSt
   %.0120356 = phi i8 [ 0, %.lr.ph ], [ %.1121, %239 ]
   %.0122355 = phi i1 [ false, %.lr.ph ], [ %.1123, %239 ]
   %.0124354 = phi i1 [ false, %.lr.ph ], [ %.1125, %239 ]
-  %.0126353 = phi i32 [ 0, %.lr.ph ], [ %.2, %239 ]
-  %.0128352 = phi ptr [ null, %.lr.ph ], [ %.2130, %239 ]
+  %.0126353 = phi i32 [ 0, %.lr.ph ], [ %.1127, %239 ]
+  %.0128352 = phi ptr [ null, %.lr.ph ], [ %.1129, %239 ]
   %.0131351 = phi i32 [ 0, %.lr.ph ], [ %.1132, %239 ]
   %.0133350 = phi ptr [ null, %.lr.ph ], [ %.1134, %239 ]
-  %.0135349 = phi i32 [ 0, %.lr.ph ], [ %.2137, %239 ]
-  %.0138348 = phi ptr [ null, %.lr.ph ], [ %.2140, %239 ]
+  %.0135349 = phi i32 [ 0, %.lr.ph ], [ %.1136, %239 ]
+  %.0138348 = phi ptr [ null, %.lr.ph ], [ %.1139, %239 ]
   %.0141347 = phi i32 [ 0, %.lr.ph ], [ %.1142, %239 ]
   %.0143346 = phi ptr [ null, %.lr.ph ], [ %.1144, %239 ]
   %24 = add i16 %.in, -1
@@ -4058,12 +4058,12 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179: ; preds = %_ZNK15ClassFile
 239:                                              ; preds = %90, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179, %95, %81, %84
   %.1144 = phi ptr [ %.0143346, %84 ], [ %.0143346, %81 ], [ %.0143346, %95 ], [ %.0143346, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %141, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0143346, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0143346, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0143346, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0143346, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0143346, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0143346, %90 ]
   %.1142 = phi i32 [ %.0141347, %84 ], [ %.0141347, %81 ], [ %.0141347, %95 ], [ %.0141347, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %37, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0141347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0141347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0141347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0141347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0141347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0141347, %90 ]
-  %.2140 = phi ptr [ %.0138348, %84 ], [ %.0138348, %81 ], [ %.0138348, %95 ], [ %.0138348, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0138348, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %spec.select, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0138348, %90 ]
-  %.2137 = phi i32 [ %.0135349, %84 ], [ %.0135349, %81 ], [ %.0135349, %95 ], [ %.0135349, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0135349, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %spec.select415, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0135349, %90 ]
+  %.1139 = phi ptr [ %.0138348, %84 ], [ %.0138348, %81 ], [ %.0138348, %95 ], [ %.0138348, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0138348, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %spec.select, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0138348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0138348, %90 ]
+  %.1136 = phi i32 [ %.0135349, %84 ], [ %.0135349, %81 ], [ %.0135349, %95 ], [ %.0135349, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0135349, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %spec.select415, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0135349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0135349, %90 ]
   %.1134 = phi ptr [ %.0133350, %84 ], [ %.0133350, %81 ], [ %.0133350, %95 ], [ %.0133350, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0133350, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0133350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %180, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0133350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0133350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0133350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0133350, %90 ]
   %.1132 = phi i32 [ %.0131351, %84 ], [ %.0131351, %81 ], [ %.0131351, %95 ], [ %.0131351, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0131351, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0131351, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %37, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0131351, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0131351, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0131351, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0131351, %90 ]
-  %.2130 = phi ptr [ %.0128352, %84 ], [ %.0128352, %81 ], [ %.0128352, %95 ], [ %.0128352, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0128352, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %spec.select416, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0128352, %90 ]
-  %.2 = phi i32 [ %.0126353, %84 ], [ %.0126353, %81 ], [ %.0126353, %95 ], [ %.0126353, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0126353, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %spec.select417, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0126353, %90 ]
+  %.1129 = phi ptr [ %.0128352, %84 ], [ %.0128352, %81 ], [ %.0128352, %95 ], [ %.0128352, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0128352, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %spec.select416, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0128352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0128352, %90 ]
+  %.1127 = phi i32 [ %.0126353, %84 ], [ %.0126353, %81 ], [ %.0126353, %95 ], [ %.0126353, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0126353, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %spec.select417, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0126353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0126353, %90 ]
   %.1125 = phi i1 [ %.0124354, %84 ], [ %.0124354, %81 ], [ %.0124354, %95 ], [ %.0124354, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0124354, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ true, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0124354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0124354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0124354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0124354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0124354, %90 ]
   %.1123 = phi i1 [ %.0122355, %84 ], [ %.0122355, %81 ], [ %.0122355, %95 ], [ %.0122355, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0122355, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0122355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0122355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ true, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0122355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0122355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ %.0122355, %90 ]
   %.1121 = phi i8 [ %.0120356, %84 ], [ %.0120356, %81 ], [ %.0120356, %95 ], [ %.0120356, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0120356, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread ], [ %.0120356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0120356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170 ], [ %.0120356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit173 ], [ %.0120356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit176 ], [ %.0120356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179 ], [ 1, %90 ]
@@ -4079,12 +4079,12 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit179: ; preds = %_ZNK15ClassFile
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
   %.0143.lcssa = phi ptr [ null, %10 ], [ %.1144, %._crit_edge.loopexit ]
   %.0141.lcssa = phi i32 [ 0, %10 ], [ %.1142, %._crit_edge.loopexit ]
-  %.0138.lcssa = phi ptr [ null, %10 ], [ %.2140, %._crit_edge.loopexit ]
-  %.0135.lcssa = phi i32 [ 0, %10 ], [ %.2137, %._crit_edge.loopexit ]
+  %.0138.lcssa = phi ptr [ null, %10 ], [ %.1139, %._crit_edge.loopexit ]
+  %.0135.lcssa = phi i32 [ 0, %10 ], [ %.1136, %._crit_edge.loopexit ]
   %.0133.lcssa = phi ptr [ null, %10 ], [ %.1134, %._crit_edge.loopexit ]
   %.0131.lcssa = phi i32 [ 0, %10 ], [ %.1132, %._crit_edge.loopexit ]
-  %.0128.lcssa = phi ptr [ null, %10 ], [ %.2130, %._crit_edge.loopexit ]
-  %.0126.lcssa = phi i32 [ 0, %10 ], [ %.2, %._crit_edge.loopexit ]
+  %.0128.lcssa = phi ptr [ null, %10 ], [ %.1129, %._crit_edge.loopexit ]
+  %.0126.lcssa = phi i32 [ 0, %10 ], [ %.1127, %._crit_edge.loopexit ]
   %.0120.lcssa = phi i8 [ 0, %10 ], [ %240, %._crit_edge.loopexit ]
   %.0118.lcssa = phi i16 [ 0, %10 ], [ %.1119, %._crit_edge.loopexit ]
   %.0117.lcssa = phi i16 [ 0, %10 ], [ %.1, %._crit_edge.loopexit ]
@@ -5097,7 +5097,7 @@ _ZN15MetadataFactory9new_arrayIP5ArrayIhEEEPS1_IT_EP15ClassLoaderDataiS4_P10Java
 198:                                              ; preds = %193, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread
   %199 = phi i16 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %197, %193 ]
   %.sroa.0194.0 = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %spec.select209, %193 ]
-  %.sroa.0197.1 = phi i32 [ %82, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %spec.select, %193 ]
+  %.sroa.0197.0 = phi i32 [ %82, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %spec.select, %193 ]
   %200 = call noundef zeroext i8 @_ZNK12ConstantPool27basic_type_for_signature_atEi(ptr noundef nonnull align 8 dereferenceable(68) %4, i32 noundef %115) #23
   %201 = zext i8 %200 to i64
   %202 = select i1 %153, i64 20, i64 0
@@ -5180,7 +5180,7 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   %.sroa.4189.0..sroa_idx = getelementptr inbounds i8, ptr %243, i64 8
   store i32 0, ptr %.sroa.4189.0..sroa_idx, align 4
   %.sroa.5190.0..sroa_idx = getelementptr inbounds i8, ptr %243, i64 12
-  store i32 %.sroa.0197.1, ptr %.sroa.5190.0..sroa_idx, align 4
+  store i32 %.sroa.0197.0, ptr %.sroa.5190.0..sroa_idx, align 4
   %.sroa.6191.0..sroa_idx = getelementptr inbounds i8, ptr %243, i64 16
   store i32 %.sroa.6191.2, ptr %.sroa.6191.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %243, i64 20
@@ -7933,16 +7933,16 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit: ; preds = %_Z
   %.04261412 = phi i1 [ false, %.lr.ph1421 ], [ %.1427, %506 ]
   %.04281411 = phi i1 [ false, %.lr.ph1421 ], [ %.1429, %506 ]
   %.04301410 = phi i1 [ false, %.lr.ph1421 ], [ %.1431, %506 ]
-  %.04321409 = phi i32 [ 0, %.lr.ph1421 ], [ %.2, %506 ]
-  %.04341408 = phi ptr [ null, %.lr.ph1421 ], [ %.2436, %506 ]
+  %.04321409 = phi i32 [ 0, %.lr.ph1421 ], [ %.1433, %506 ]
+  %.04341408 = phi ptr [ null, %.lr.ph1421 ], [ %.1435, %506 ]
   %.04371407 = phi i32 [ 0, %.lr.ph1421 ], [ %.1438, %506 ]
   %.04391406 = phi ptr [ null, %.lr.ph1421 ], [ %.1440, %506 ]
-  %.04411405 = phi i32 [ 0, %.lr.ph1421 ], [ %.2443, %506 ]
-  %.04441404 = phi ptr [ null, %.lr.ph1421 ], [ %.2446, %506 ]
+  %.04411405 = phi i32 [ 0, %.lr.ph1421 ], [ %.1442, %506 ]
+  %.04441404 = phi ptr [ null, %.lr.ph1421 ], [ %.1445, %506 ]
   %.04471403 = phi i32 [ 0, %.lr.ph1421 ], [ %.1448, %506 ]
   %.04491402 = phi ptr [ null, %.lr.ph1421 ], [ %.1450, %506 ]
-  %.04511401 = phi i32 [ 0, %.lr.ph1421 ], [ %.2453, %506 ]
-  %.04541400 = phi ptr [ null, %.lr.ph1421 ], [ %.2456, %506 ]
+  %.04511401 = phi i32 [ 0, %.lr.ph1421 ], [ %.1452, %506 ]
+  %.04541400 = phi ptr [ null, %.lr.ph1421 ], [ %.1455, %506 ]
   %.04571399 = phi i32 [ 0, %.lr.ph1421 ], [ %.1458, %506 ]
   %.04591398 = phi ptr [ null, %.lr.ph1421 ], [ %.1460, %506 ]
   %.04611397 = phi i16 [ 0, %.lr.ph1421 ], [ %.1462, %506 ]
@@ -8219,13 +8219,13 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit597: ; preds = %227, %2
   %.14641360 = phi i32 [ %.2465, %363 ], [ %.04631396, %.lr.ph.preheader ]
   %.14671359 = phi ptr [ %.2468, %363 ], [ %.04661395, %.lr.ph.preheader ]
   %.14711358 = phi i1 [ %.2472, %363 ], [ %.04701394, %.lr.ph.preheader ]
-  %.14861357 = phi ptr [ %.5, %363 ], [ %.04851388, %.lr.ph.preheader ]
-  %.14901356 = phi ptr [ %.5494, %363 ], [ %.04891387, %.lr.ph.preheader ]
-  %.14971355 = phi ptr [ %.5501, %363 ], [ %.04961386, %.lr.ph.preheader ]
-  %.15041354 = phi ptr [ %.5508, %363 ], [ %.05031385, %.lr.ph.preheader ]
-  %.15111353 = phi i16 [ %.3513, %363 ], [ %.05101384, %.lr.ph.preheader ]
-  %.15161352 = phi i16 [ %.3518, %363 ], [ %.05151383, %.lr.ph.preheader ]
-  %.15211351 = phi i8 [ %.4524, %363 ], [ %.05201382, %.lr.ph.preheader ]
+  %.14861357 = phi ptr [ %.2487, %363 ], [ %.04851388, %.lr.ph.preheader ]
+  %.14901356 = phi ptr [ %.2491, %363 ], [ %.04891387, %.lr.ph.preheader ]
+  %.14971355 = phi ptr [ %.2498, %363 ], [ %.04961386, %.lr.ph.preheader ]
+  %.15041354 = phi ptr [ %.2505, %363 ], [ %.05031385, %.lr.ph.preheader ]
+  %.15111353 = phi i16 [ %.2512, %363 ], [ %.05101384, %.lr.ph.preheader ]
+  %.15161352 = phi i16 [ %.2517, %363 ], [ %.05151383, %.lr.ph.preheader ]
+  %.15211351 = phi i8 [ %.2522, %363 ], [ %.05201382, %.lr.ph.preheader ]
   %.15271350 = phi i16 [ %.2528, %363 ], [ %.05261381, %.lr.ph.preheader ]
   %.15311349 = phi i16 [ %.2532, %363 ], [ %.05301380, %.lr.ph.preheader ]
   %.15351348 = phi i32 [ %.2536, %363 ], [ %.05341379, %.lr.ph.preheader ]
@@ -8325,11 +8325,11 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   br label %297
 
 297:                                              ; preds = %292, %290
-  %.2522 = phi i8 [ %.15211351, %290 ], [ 1, %292 ]
-  %.2505 = phi ptr [ %.15041354, %290 ], [ %293, %292 ]
-  %.2498 = phi ptr [ %.14971355, %290 ], [ %294, %292 ]
-  %.2491 = phi ptr [ %.14901356, %290 ], [ %295, %292 ]
-  %.2487 = phi ptr [ %.14861357, %290 ], [ %296, %292 ]
+  %.3523 = phi i8 [ %.15211351, %290 ], [ 1, %292 ]
+  %.3506 = phi ptr [ %.15041354, %290 ], [ %293, %292 ]
+  %.3499 = phi ptr [ %.14971355, %290 ], [ %294, %292 ]
+  %.3492 = phi ptr [ %.14901356, %290 ], [ %295, %292 ]
+  %.3488 = phi ptr [ %.14861357, %290 ], [ %296, %292 ]
   %298 = icmp eq i16 %.15311349, %.15161352
   br i1 %298, label %299, label %309
 
@@ -8339,20 +8339,20 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   %302 = shl nuw nsw i64 %301, 1
   %303 = zext i16 %300 to i64
   %304 = shl nuw nsw i64 %303, 1
-  %305 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.2505, i64 noundef %302, i64 noundef %304, i32 noundef 0) #23
+  %305 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.3506, i64 noundef %302, i64 noundef %304, i32 noundef 0) #23
   %306 = shl nuw nsw i64 %301, 3
   %307 = shl nuw nsw i64 %303, 3
-  %308 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.2498, i64 noundef %306, i64 noundef %307, i32 noundef 0) #23
+  %308 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.3499, i64 noundef %306, i64 noundef %307, i32 noundef 0) #23
   br label %309
 
 309:                                              ; preds = %299, %297
-  %.2517 = phi i16 [ %300, %299 ], [ %.15161352, %297 ]
-  %.3506 = phi ptr [ %305, %299 ], [ %.2505, %297 ]
-  %.3499 = phi ptr [ %308, %299 ], [ %.2498, %297 ]
+  %.3518 = phi i16 [ %300, %299 ], [ %.15161352, %297 ]
+  %.4507 = phi ptr [ %305, %299 ], [ %.3506, %297 ]
+  %.4500 = phi ptr [ %308, %299 ], [ %.3499, %297 ]
   %310 = zext i16 %.15311349 to i64
-  %311 = getelementptr inbounds i16, ptr %.3506, i64 %310
+  %311 = getelementptr inbounds i16, ptr %.4507, i64 %310
   %312 = tail call noundef ptr @_ZN15ClassFileParser25parse_localvariable_tableEPK15ClassFileStreamjtjPtbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull %1, i32 noundef %188, i16 noundef zeroext %186, i32 noundef %257, ptr noundef %311, i1 noundef zeroext false, ptr noundef nonnull %5)
-  %313 = getelementptr inbounds ptr, ptr %.3499, i64 %310
+  %313 = getelementptr inbounds ptr, ptr %.4500, i64 %310
   store ptr %312, ptr %313, align 8
   %314 = load ptr, ptr %31, align 8
   %.not660 = icmp eq ptr %314, null
@@ -8387,11 +8387,11 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   br label %333
 
 333:                                              ; preds = %328, %326
-  %.3523 = phi i8 [ %.15211351, %326 ], [ 1, %328 ]
-  %.4507 = phi ptr [ %.15041354, %326 ], [ %329, %328 ]
-  %.4500 = phi ptr [ %.14971355, %326 ], [ %330, %328 ]
-  %.3492 = phi ptr [ %.14901356, %326 ], [ %331, %328 ]
-  %.3488 = phi ptr [ %.14861357, %326 ], [ %332, %328 ]
+  %.4524 = phi i8 [ %.15211351, %326 ], [ 1, %328 ]
+  %.5508 = phi ptr [ %.15041354, %326 ], [ %329, %328 ]
+  %.5501 = phi ptr [ %.14971355, %326 ], [ %330, %328 ]
+  %.4493 = phi ptr [ %.14901356, %326 ], [ %331, %328 ]
+  %.4 = phi ptr [ %.14861357, %326 ], [ %332, %328 ]
   %334 = icmp eq i16 %.15271350, %.15111353
   br i1 %334, label %335, label %345
 
@@ -8401,20 +8401,20 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   %338 = shl nuw nsw i64 %337, 1
   %339 = zext i16 %336 to i64
   %340 = shl nuw nsw i64 %339, 1
-  %341 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.3492, i64 noundef %338, i64 noundef %340, i32 noundef 0) #23
+  %341 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.4493, i64 noundef %338, i64 noundef %340, i32 noundef 0) #23
   %342 = shl nuw nsw i64 %337, 3
   %343 = shl nuw nsw i64 %339, 3
-  %344 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.3488, i64 noundef %342, i64 noundef %343, i32 noundef 0) #23
+  %344 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %.4, i64 noundef %342, i64 noundef %343, i32 noundef 0) #23
   br label %345
 
 345:                                              ; preds = %335, %333
-  %.2512 = phi i16 [ %336, %335 ], [ %.15111353, %333 ]
-  %.4493 = phi ptr [ %341, %335 ], [ %.3492, %333 ]
-  %.4 = phi ptr [ %344, %335 ], [ %.3488, %333 ]
+  %.3513 = phi i16 [ %336, %335 ], [ %.15111353, %333 ]
+  %.5494 = phi ptr [ %341, %335 ], [ %.4493, %333 ]
+  %.5 = phi ptr [ %344, %335 ], [ %.4, %333 ]
   %346 = zext i16 %.15271350 to i64
-  %347 = getelementptr inbounds i16, ptr %.4493, i64 %346
+  %347 = getelementptr inbounds i16, ptr %.5494, i64 %346
   %348 = tail call noundef ptr @_ZN15ClassFileParser25parse_localvariable_tableEPK15ClassFileStreamjtjPtbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull %1, i32 noundef %188, i16 noundef zeroext %186, i32 noundef %257, ptr noundef %347, i1 noundef zeroext true, ptr noundef nonnull %5)
-  %349 = getelementptr inbounds ptr, ptr %.4, i64 %346
+  %349 = getelementptr inbounds ptr, ptr %.5, i64 %346
   store ptr %348, ptr %349, align 8
   %350 = load ptr, ptr %31, align 8
   %.not659 = icmp eq ptr %350, null
@@ -8456,13 +8456,13 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   %.2536 = phi i32 [ %.15351348, %285 ], [ %318, %315 ], [ %.15351348, %351 ], [ %.15351348, %.thread620 ], [ %.15351348, %359 ]
   %.2532 = phi i16 [ %.15311349, %285 ], [ %319, %315 ], [ %.15311349, %351 ], [ %.15311349, %.thread620 ], [ %.15311349, %359 ]
   %.2528 = phi i16 [ %.15271350, %285 ], [ %.15271350, %315 ], [ %352, %351 ], [ %.15271350, %.thread620 ], [ %.15271350, %359 ]
-  %.4524 = phi i8 [ %.15211351, %285 ], [ %.2522, %315 ], [ %.3523, %351 ], [ %.15211351, %.thread620 ], [ %.15211351, %359 ]
-  %.3518 = phi i16 [ %.15161352, %285 ], [ %.2517, %315 ], [ %.15161352, %351 ], [ %.15161352, %.thread620 ], [ %.15161352, %359 ]
-  %.3513 = phi i16 [ %.15111353, %285 ], [ %.15111353, %315 ], [ %.2512, %351 ], [ %.15111353, %.thread620 ], [ %.15111353, %359 ]
-  %.5508 = phi ptr [ %.15041354, %285 ], [ %.3506, %315 ], [ %.4507, %351 ], [ %.15041354, %.thread620 ], [ %.15041354, %359 ]
-  %.5501 = phi ptr [ %.14971355, %285 ], [ %.3499, %315 ], [ %.4500, %351 ], [ %.14971355, %.thread620 ], [ %.14971355, %359 ]
-  %.5494 = phi ptr [ %.14901356, %285 ], [ %.2491, %315 ], [ %.4493, %351 ], [ %.14901356, %.thread620 ], [ %.14901356, %359 ]
-  %.5 = phi ptr [ %.14861357, %285 ], [ %.2487, %315 ], [ %.4, %351 ], [ %.14861357, %.thread620 ], [ %.14861357, %359 ]
+  %.2522 = phi i8 [ %.15211351, %285 ], [ %.3523, %315 ], [ %.4524, %351 ], [ %.15211351, %.thread620 ], [ %.15211351, %359 ]
+  %.2517 = phi i16 [ %.15161352, %285 ], [ %.3518, %315 ], [ %.15161352, %351 ], [ %.15161352, %.thread620 ], [ %.15161352, %359 ]
+  %.2512 = phi i16 [ %.15111353, %285 ], [ %.15111353, %315 ], [ %.3513, %351 ], [ %.15111353, %.thread620 ], [ %.15111353, %359 ]
+  %.2505 = phi ptr [ %.15041354, %285 ], [ %.4507, %315 ], [ %.5508, %351 ], [ %.15041354, %.thread620 ], [ %.15041354, %359 ]
+  %.2498 = phi ptr [ %.14971355, %285 ], [ %.4500, %315 ], [ %.5501, %351 ], [ %.14971355, %.thread620 ], [ %.14971355, %359 ]
+  %.2491 = phi ptr [ %.14901356, %285 ], [ %.3492, %315 ], [ %.5494, %351 ], [ %.14901356, %.thread620 ], [ %.14901356, %359 ]
+  %.2487 = phi ptr [ %.14861357, %285 ], [ %.3488, %315 ], [ %.5, %351 ], [ %.14861357, %.thread620 ], [ %.14861357, %359 ]
   %.2472 = phi i1 [ %.14711358, %285 ], [ %.14711358, %315 ], [ %.14711358, %351 ], [ %.14711358, %.thread620 ], [ true, %359 ]
   %.2468 = phi ptr [ %.14671359, %285 ], [ %.14671359, %315 ], [ %.14671359, %351 ], [ %.14671359, %.thread620 ], [ %360, %359 ]
   %.2465 = phi i32 [ %.14641360, %285 ], [ %.14641360, %315 ], [ %.14641360, %351 ], [ %.14641360, %.thread620 ], [ %257, %359 ]
@@ -8473,13 +8473,13 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   %.1535.lcssa = phi i32 [ %.05341379, %236 ], [ %.2536, %363 ]
   %.1531.lcssa = phi i16 [ %.05301380, %236 ], [ %.2532, %363 ]
   %.1527.lcssa = phi i16 [ %.05261381, %236 ], [ %.2528, %363 ]
-  %.1521.lcssa = phi i8 [ %.05201382, %236 ], [ %.4524, %363 ]
-  %.1516.lcssa = phi i16 [ %.05151383, %236 ], [ %.3518, %363 ]
-  %.1511.lcssa = phi i16 [ %.05101384, %236 ], [ %.3513, %363 ]
-  %.1504.lcssa = phi ptr [ %.05031385, %236 ], [ %.5508, %363 ]
-  %.1497.lcssa = phi ptr [ %.04961386, %236 ], [ %.5501, %363 ]
-  %.1490.lcssa = phi ptr [ %.04891387, %236 ], [ %.5494, %363 ]
-  %.1486.lcssa = phi ptr [ %.04851388, %236 ], [ %.5, %363 ]
+  %.1521.lcssa = phi i8 [ %.05201382, %236 ], [ %.2522, %363 ]
+  %.1516.lcssa = phi i16 [ %.05151383, %236 ], [ %.2517, %363 ]
+  %.1511.lcssa = phi i16 [ %.05101384, %236 ], [ %.2512, %363 ]
+  %.1504.lcssa = phi ptr [ %.05031385, %236 ], [ %.2505, %363 ]
+  %.1497.lcssa = phi ptr [ %.04961386, %236 ], [ %.2498, %363 ]
+  %.1490.lcssa = phi ptr [ %.04891387, %236 ], [ %.2491, %363 ]
+  %.1486.lcssa = phi ptr [ %.04851388, %236 ], [ %.2487, %363 ]
   %.1471.lcssa = phi i1 [ %.04701394, %236 ], [ %.2472, %363 ]
   %.1467.lcssa = phi ptr [ %.04661395, %236 ], [ %.2468, %363 ]
   %.1464.lcssa = phi i32 [ %.04631396, %236 ], [ %.2465, %363 ]
@@ -8681,8 +8681,8 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br label %452
 
 452:                                              ; preds = %450, %447
-  %.1455 = phi ptr [ %451, %450 ], [ %.04541400, %447 ]
-  %.1452 = phi i32 [ %144, %450 ], [ %.04511401, %447 ]
+  %.2456 = phi ptr [ %451, %450 ], [ %.04541400, %447 ]
+  %.2453 = phi i32 [ %144, %450 ], [ %.04511401, %447 ]
   tail call void @_ZNK15ClassFileStream7skip_u1EiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, i32 noundef %144, ptr noundef nonnull %5)
   %453 = load ptr, ptr %31, align 8
   %.not639 = icmp eq ptr %453, null
@@ -8730,8 +8730,8 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br label %472
 
 472:                                              ; preds = %470, %467
-  %.1445 = phi ptr [ %471, %470 ], [ %.04441404, %467 ]
-  %.1442 = phi i32 [ %144, %470 ], [ %.04411405, %467 ]
+  %.2446 = phi ptr [ %471, %470 ], [ %.04441404, %467 ]
+  %.2443 = phi i32 [ %144, %470 ], [ %.04411405, %467 ]
   tail call void @_ZNK15ClassFileStream7skip_u1EiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, i32 noundef %144, ptr noundef nonnull %5)
   %473 = load ptr, ptr %31, align 8
   %.not637 = icmp eq ptr %473, null
@@ -8799,8 +8799,8 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br label %500
 
 500:                                              ; preds = %498, %495
-  %.1435 = phi ptr [ %499, %498 ], [ %.04341408, %495 ]
-  %.1433 = phi i32 [ %144, %498 ], [ %.04321409, %495 ]
+  %.2436 = phi ptr [ %499, %498 ], [ %.04341408, %495 ]
+  %.2 = phi i32 [ %144, %498 ], [ %.04321409, %495 ]
   tail call void @_ZNK15ClassFileStream7skip_u1EiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, i32 noundef %144, ptr noundef nonnull %5)
   %501 = load ptr, ptr %31, align 8
   %.not634 = icmp eq ptr %501, null
@@ -8843,16 +8843,16 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   %.1462 = phi i16 [ %.04611397, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04611397, %._crit_edge ], [ %.04611397, %375 ], [ %.04611397, %391 ], [ %.04611397, %403 ], [ %.04611397, %408 ], [ %421, %420 ], [ %.04611397, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04611397, %452 ], [ %.04611397, %459 ], [ %.04611397, %472 ], [ %.04611397, %479 ], [ %.04611397, %487 ], [ %.04611397, %500 ], [ %.04611397, %502 ], [ %.04611397, %504 ]
   %.1460 = phi ptr [ %.04591398, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04591398, %._crit_edge ], [ %.04591398, %375 ], [ %.04591398, %391 ], [ %.04591398, %403 ], [ %.04591398, %408 ], [ %.04591398, %420 ], [ %429, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04591398, %452 ], [ %.04591398, %459 ], [ %.04591398, %472 ], [ %.04591398, %479 ], [ %.04591398, %487 ], [ %.04591398, %500 ], [ %.04591398, %502 ], [ %.04591398, %504 ]
   %.1458 = phi i32 [ %.04571399, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04571399, %._crit_edge ], [ %.04571399, %375 ], [ %.04571399, %391 ], [ %.04571399, %403 ], [ %.04571399, %408 ], [ %.04571399, %420 ], [ %144, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04571399, %452 ], [ %.04571399, %459 ], [ %.04571399, %472 ], [ %.04571399, %479 ], [ %.04571399, %487 ], [ %.04571399, %500 ], [ %.04571399, %502 ], [ %.04571399, %504 ]
-  %.2456 = phi ptr [ %.04541400, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04541400, %._crit_edge ], [ %.04541400, %375 ], [ %.04541400, %391 ], [ %.04541400, %403 ], [ %.04541400, %408 ], [ %.04541400, %420 ], [ %.04541400, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.1455, %452 ], [ %.04541400, %459 ], [ %.04541400, %472 ], [ %.04541400, %479 ], [ %.04541400, %487 ], [ %.04541400, %500 ], [ %.04541400, %502 ], [ %.04541400, %504 ]
-  %.2453 = phi i32 [ %.04511401, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04511401, %._crit_edge ], [ %.04511401, %375 ], [ %.04511401, %391 ], [ %.04511401, %403 ], [ %.04511401, %408 ], [ %.04511401, %420 ], [ %.04511401, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.1452, %452 ], [ %.04511401, %459 ], [ %.04511401, %472 ], [ %.04511401, %479 ], [ %.04511401, %487 ], [ %.04511401, %500 ], [ %.04511401, %502 ], [ %.04511401, %504 ]
+  %.1455 = phi ptr [ %.04541400, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04541400, %._crit_edge ], [ %.04541400, %375 ], [ %.04541400, %391 ], [ %.04541400, %403 ], [ %.04541400, %408 ], [ %.04541400, %420 ], [ %.04541400, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.2456, %452 ], [ %.04541400, %459 ], [ %.04541400, %472 ], [ %.04541400, %479 ], [ %.04541400, %487 ], [ %.04541400, %500 ], [ %.04541400, %502 ], [ %.04541400, %504 ]
+  %.1452 = phi i32 [ %.04511401, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04511401, %._crit_edge ], [ %.04511401, %375 ], [ %.04511401, %391 ], [ %.04511401, %403 ], [ %.04511401, %408 ], [ %.04511401, %420 ], [ %.04511401, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.2453, %452 ], [ %.04511401, %459 ], [ %.04511401, %472 ], [ %.04511401, %479 ], [ %.04511401, %487 ], [ %.04511401, %500 ], [ %.04511401, %502 ], [ %.04511401, %504 ]
   %.1450 = phi ptr [ %.04491402, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04491402, %._crit_edge ], [ %.04491402, %375 ], [ %.04491402, %391 ], [ %.04491402, %403 ], [ %.04491402, %408 ], [ %.04491402, %420 ], [ %.04491402, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04491402, %452 ], [ %460, %459 ], [ %.04491402, %472 ], [ %.04491402, %479 ], [ %.04491402, %487 ], [ %.04491402, %500 ], [ %.04491402, %502 ], [ %.04491402, %504 ]
   %.1448 = phi i32 [ %.04471403, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04471403, %._crit_edge ], [ %.04471403, %375 ], [ %.04471403, %391 ], [ %.04471403, %403 ], [ %.04471403, %408 ], [ %.04471403, %420 ], [ %.04471403, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04471403, %452 ], [ %144, %459 ], [ %.04471403, %472 ], [ %.04471403, %479 ], [ %.04471403, %487 ], [ %.04471403, %500 ], [ %.04471403, %502 ], [ %.04471403, %504 ]
-  %.2446 = phi ptr [ %.04441404, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04441404, %._crit_edge ], [ %.04441404, %375 ], [ %.04441404, %391 ], [ %.04441404, %403 ], [ %.04441404, %408 ], [ %.04441404, %420 ], [ %.04441404, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04441404, %452 ], [ %.04441404, %459 ], [ %.1445, %472 ], [ %.04441404, %479 ], [ %.04441404, %487 ], [ %.04441404, %500 ], [ %.04441404, %502 ], [ %.04441404, %504 ]
-  %.2443 = phi i32 [ %.04411405, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04411405, %._crit_edge ], [ %.04411405, %375 ], [ %.04411405, %391 ], [ %.04411405, %403 ], [ %.04411405, %408 ], [ %.04411405, %420 ], [ %.04411405, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04411405, %452 ], [ %.04411405, %459 ], [ %.1442, %472 ], [ %.04411405, %479 ], [ %.04411405, %487 ], [ %.04411405, %500 ], [ %.04411405, %502 ], [ %.04411405, %504 ]
+  %.1445 = phi ptr [ %.04441404, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04441404, %._crit_edge ], [ %.04441404, %375 ], [ %.04441404, %391 ], [ %.04441404, %403 ], [ %.04441404, %408 ], [ %.04441404, %420 ], [ %.04441404, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04441404, %452 ], [ %.04441404, %459 ], [ %.2446, %472 ], [ %.04441404, %479 ], [ %.04441404, %487 ], [ %.04441404, %500 ], [ %.04441404, %502 ], [ %.04441404, %504 ]
+  %.1442 = phi i32 [ %.04411405, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04411405, %._crit_edge ], [ %.04411405, %375 ], [ %.04411405, %391 ], [ %.04411405, %403 ], [ %.04411405, %408 ], [ %.04411405, %420 ], [ %.04411405, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04411405, %452 ], [ %.04411405, %459 ], [ %.2443, %472 ], [ %.04411405, %479 ], [ %.04411405, %487 ], [ %.04411405, %500 ], [ %.04411405, %502 ], [ %.04411405, %504 ]
   %.1440 = phi ptr [ %.04391406, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04391406, %._crit_edge ], [ %.04391406, %375 ], [ %.04391406, %391 ], [ %.04391406, %403 ], [ %.04391406, %408 ], [ %.04391406, %420 ], [ %.04391406, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04391406, %452 ], [ %.04391406, %459 ], [ %.04391406, %472 ], [ %.04391406, %479 ], [ %488, %487 ], [ %.04391406, %500 ], [ %.04391406, %502 ], [ %.04391406, %504 ]
   %.1438 = phi i32 [ %.04371407, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04371407, %._crit_edge ], [ %.04371407, %375 ], [ %.04371407, %391 ], [ %.04371407, %403 ], [ %.04371407, %408 ], [ %.04371407, %420 ], [ %.04371407, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04371407, %452 ], [ %.04371407, %459 ], [ %.04371407, %472 ], [ %.04371407, %479 ], [ %144, %487 ], [ %.04371407, %500 ], [ %.04371407, %502 ], [ %.04371407, %504 ]
-  %.2436 = phi ptr [ %.04341408, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04341408, %._crit_edge ], [ %.04341408, %375 ], [ %.04341408, %391 ], [ %.04341408, %403 ], [ %.04341408, %408 ], [ %.04341408, %420 ], [ %.04341408, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04341408, %452 ], [ %.04341408, %459 ], [ %.04341408, %472 ], [ %.04341408, %479 ], [ %.04341408, %487 ], [ %.1435, %500 ], [ %.04341408, %502 ], [ %.04341408, %504 ]
-  %.2 = phi i32 [ %.04321409, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04321409, %._crit_edge ], [ %.04321409, %375 ], [ %.04321409, %391 ], [ %.04321409, %403 ], [ %.04321409, %408 ], [ %.04321409, %420 ], [ %.04321409, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04321409, %452 ], [ %.04321409, %459 ], [ %.04321409, %472 ], [ %.04321409, %479 ], [ %.04321409, %487 ], [ %.1433, %500 ], [ %.04321409, %502 ], [ %.04321409, %504 ]
+  %.1435 = phi ptr [ %.04341408, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04341408, %._crit_edge ], [ %.04341408, %375 ], [ %.04341408, %391 ], [ %.04341408, %403 ], [ %.04341408, %408 ], [ %.04341408, %420 ], [ %.04341408, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04341408, %452 ], [ %.04341408, %459 ], [ %.04341408, %472 ], [ %.04341408, %479 ], [ %.04341408, %487 ], [ %.2436, %500 ], [ %.04341408, %502 ], [ %.04341408, %504 ]
+  %.1433 = phi i32 [ %.04321409, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04321409, %._crit_edge ], [ %.04321409, %375 ], [ %.04321409, %391 ], [ %.04321409, %403 ], [ %.04321409, %408 ], [ %.04321409, %420 ], [ %.04321409, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04321409, %452 ], [ %.04321409, %459 ], [ %.04321409, %472 ], [ %.04321409, %479 ], [ %.04321409, %487 ], [ %.2, %500 ], [ %.04321409, %502 ], [ %.04321409, %504 ]
   %.1431 = phi i1 [ %.04301410, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04301410, %._crit_edge ], [ %.04301410, %375 ], [ %.04301410, %391 ], [ %.04301410, %403 ], [ %.04301410, %408 ], [ %.04301410, %420 ], [ %.04301410, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ true, %452 ], [ %.04301410, %459 ], [ %.04301410, %472 ], [ %.04301410, %479 ], [ %.04301410, %487 ], [ %.04301410, %500 ], [ %.04301410, %502 ], [ %.04301410, %504 ]
   %.1429 = phi i1 [ %.04281411, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04281411, %._crit_edge ], [ %.04281411, %375 ], [ %.04281411, %391 ], [ %.04281411, %403 ], [ %.04281411, %408 ], [ %.04281411, %420 ], [ %.04281411, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04281411, %452 ], [ %.04281411, %459 ], [ %.04281411, %472 ], [ %.04281411, %479 ], [ %.04281411, %487 ], [ true, %500 ], [ %.04281411, %502 ], [ %.04281411, %504 ]
   %.1427 = phi i1 [ %.04261412, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606 ], [ %.04261412, %._crit_edge ], [ %.04261412, %375 ], [ %.04261412, %391 ], [ %.04261412, %403 ], [ %.04261412, %408 ], [ %.04261412, %420 ], [ %.04261412, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread ], [ %.04261412, %452 ], [ %.04261412, %459 ], [ true, %472 ], [ %.04261412, %479 ], [ %.04261412, %487 ], [ %.04261412, %500 ], [ %.04261412, %502 ], [ %.04261412, %504 ]
@@ -8885,16 +8885,16 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   %.0419.lcssa1558 = phi i16 [ %.1420, %507 ], [ %.1420, %._crit_edge1422 ], [ 0, %120 ]
   %.0422.lcssa1557 = phi i32 [ %.1423, %507 ], [ %.1423, %._crit_edge1422 ], [ 0, %120 ]
   %.0424.lcssa1556 = phi ptr [ %.1425, %507 ], [ %.1425, %._crit_edge1422 ], [ null, %120 ]
-  %.0432.lcssa1555 = phi i32 [ %.2, %507 ], [ %.2, %._crit_edge1422 ], [ 0, %120 ]
-  %.0434.lcssa1554 = phi ptr [ %.2436, %507 ], [ %.2436, %._crit_edge1422 ], [ null, %120 ]
+  %.0432.lcssa1555 = phi i32 [ %.1433, %507 ], [ %.1433, %._crit_edge1422 ], [ 0, %120 ]
+  %.0434.lcssa1554 = phi ptr [ %.1435, %507 ], [ %.1435, %._crit_edge1422 ], [ null, %120 ]
   %.0437.lcssa1553 = phi i32 [ %.1438, %507 ], [ %.1438, %._crit_edge1422 ], [ 0, %120 ]
   %.0439.lcssa1552 = phi ptr [ %.1440, %507 ], [ %.1440, %._crit_edge1422 ], [ null, %120 ]
-  %.0441.lcssa1551 = phi i32 [ %.2443, %507 ], [ %.2443, %._crit_edge1422 ], [ 0, %120 ]
-  %.0444.lcssa1550 = phi ptr [ %.2446, %507 ], [ %.2446, %._crit_edge1422 ], [ null, %120 ]
+  %.0441.lcssa1551 = phi i32 [ %.1442, %507 ], [ %.1442, %._crit_edge1422 ], [ 0, %120 ]
+  %.0444.lcssa1550 = phi ptr [ %.1445, %507 ], [ %.1445, %._crit_edge1422 ], [ null, %120 ]
   %.0447.lcssa1549 = phi i32 [ %.1448, %507 ], [ %.1448, %._crit_edge1422 ], [ 0, %120 ]
   %.0449.lcssa1548 = phi ptr [ %.1450, %507 ], [ %.1450, %._crit_edge1422 ], [ null, %120 ]
-  %.0451.lcssa1547 = phi i32 [ %.2453, %507 ], [ %.2453, %._crit_edge1422 ], [ 0, %120 ]
-  %.0454.lcssa1546 = phi ptr [ %.2456, %507 ], [ %.2456, %._crit_edge1422 ], [ null, %120 ]
+  %.0451.lcssa1547 = phi i32 [ %.1452, %507 ], [ %.1452, %._crit_edge1422 ], [ 0, %120 ]
+  %.0454.lcssa1546 = phi ptr [ %.1455, %507 ], [ %.1455, %._crit_edge1422 ], [ null, %120 ]
   %.0457.lcssa1545 = phi i32 [ %.1458, %507 ], [ %.1458, %._crit_edge1422 ], [ 0, %120 ]
   %.0459.lcssa1544 = phi ptr [ %.1460, %507 ], [ %.1460, %._crit_edge1422 ], [ null, %120 ]
   %.0461.lcssa1543 = phi i16 [ %.1462, %507 ], [ %.1462, %._crit_edge1422 ], [ 0, %120 ]
@@ -11391,13 +11391,13 @@ _ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.ex
   %.0139358 = phi i16 [ %.1140, %279 ], [ 0, %.lr.ph.preheader ]
   %.0141357 = phi i32 [ %281, %279 ], [ 0, %.lr.ph.preheader ]
   %.0142356 = phi i1 [ %.1143, %279 ], [ false, %.lr.ph.preheader ]
-  %.0144355 = phi i32 [ %.2146, %279 ], [ 0, %.lr.ph.preheader ]
-  %.0147354 = phi ptr [ %.2149, %279 ], [ null, %.lr.ph.preheader ]
+  %.0144355 = phi i32 [ %.1145, %279 ], [ 0, %.lr.ph.preheader ]
+  %.0147354 = phi ptr [ %.1148, %279 ], [ null, %.lr.ph.preheader ]
   %.0150353 = phi i32 [ %.1151, %279 ], [ 0, %.lr.ph.preheader ]
   %.0152352 = phi ptr [ %.1153, %279 ], [ null, %.lr.ph.preheader ]
   %.0154351 = phi i1 [ %.1155, %279 ], [ false, %.lr.ph.preheader ]
-  %.0156350 = phi i32 [ %.2158, %279 ], [ 0, %.lr.ph.preheader ]
-  %.0159349 = phi ptr [ %.2161, %279 ], [ null, %.lr.ph.preheader ]
+  %.0156350 = phi i32 [ %.1157, %279 ], [ 0, %.lr.ph.preheader ]
+  %.0159349 = phi ptr [ %.1160, %279 ], [ null, %.lr.ph.preheader ]
   %.0162348 = phi i32 [ %.1163, %279 ], [ 0, %.lr.ph.preheader ]
   %.0164347 = phi ptr [ %.1165, %279 ], [ null, %.lr.ph.preheader ]
   %126 = load ptr, ptr %38, align 8
@@ -11749,13 +11749,13 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200: ; preds = %_ZNK15ClassFile
 279:                                              ; preds = %.sink.split, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit
   %.1165 = phi ptr [ %.0164347, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0164347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0164347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0164347, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.1165.ph, %.sink.split ]
   %.1163 = phi i32 [ %.0162348, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0162348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0162348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0162348, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.1163.ph, %.sink.split ]
-  %.2161 = phi ptr [ %.0159349, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %spec.select, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0159349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0159349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0159349, %.sink.split ]
-  %.2158 = phi i32 [ %.0156350, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %spec.select414, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0156350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0156350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0156350, %.sink.split ]
+  %.1160 = phi ptr [ %.0159349, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %spec.select, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0159349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0159349, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0159349, %.sink.split ]
+  %.1157 = phi i32 [ %.0156350, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %spec.select414, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0156350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0156350, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0156350, %.sink.split ]
   %.1155 = phi i1 [ %.0154351, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ true, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0154351, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0154351, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0154351, %.sink.split ]
   %.1153 = phi ptr [ %.0152352, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0152352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0152352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0152352, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.1153.ph, %.sink.split ]
   %.1151 = phi i32 [ %.0150353, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0150353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0150353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0150353, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.1151.ph, %.sink.split ]
-  %.2149 = phi ptr [ %.0147354, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0147354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %spec.select415, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0147354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0147354, %.sink.split ]
-  %.2146 = phi i32 [ %.0144355, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0144355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %spec.select416, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0144355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0144355, %.sink.split ]
+  %.1148 = phi ptr [ %.0147354, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0147354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %spec.select415, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0147354, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0147354, %.sink.split ]
+  %.1145 = phi i32 [ %.0144355, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0144355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %spec.select416, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0144355, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0144355, %.sink.split ]
   %.1143 = phi i1 [ %.0142356, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0142356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ true, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0142356, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0142356, %.sink.split ]
   %.1140 = phi i16 [ %177, %_ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.0139358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.0139358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit197 ], [ %.0139358, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200 ], [ %.0139358, %.sink.split ]
   %280 = add i32 %140, %138
@@ -11766,12 +11766,12 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit200: ; preds = %_ZNK15ClassFile
 ._crit_edge:                                      ; preds = %279, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread
   %.0164.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1165, %279 ]
   %.0162.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1163, %279 ]
-  %.0159.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.2161, %279 ]
-  %.0156.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.2158, %279 ]
+  %.0159.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1160, %279 ]
+  %.0156.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1157, %279 ]
   %.0152.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1153, %279 ]
   %.0150.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1151, %279 ]
-  %.0147.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.2149, %279 ]
-  %.0144.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.2146, %279 ]
+  %.0147.lcssa = phi ptr [ null, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1148, %279 ]
+  %.0144.lcssa = phi i32 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1145, %279 ]
   %.0139.lcssa = phi i16 [ 0, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %.1140, %279 ]
   %.2.lcssa = phi i32 [ %123, %_ZNK15ClassFileParser28verify_legal_field_signatureEPK6SymbolS2_P10JavaThread.exit.thread ], [ %280, %279 ]
   %282 = icmp ne ptr %.0164.lcssa, null
@@ -12412,14 +12412,14 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %5, %18
   %.02471043 = phi i1 [ false, %.lr.ph ], [ %.1, %.critedge ]
   %.02481042 = phi i8 [ 0, %.lr.ph ], [ %.1249, %.critedge ]
   %.02501041 = phi i8 [ 0, %.lr.ph ], [ %.1251, %.critedge ]
-  %.02521040 = phi i8 [ 0, %.lr.ph ], [ %.2, %.critedge ]
+  %.02521040 = phi i8 [ 0, %.lr.ph ], [ %.1253, %.critedge ]
   %.02541039 = phi i8 [ 0, %.lr.ph ], [ %.1255, %.critedge ]
-  %.02561038 = phi i8 [ 0, %.lr.ph ], [ %.2258, %.critedge ]
+  %.02561038 = phi i8 [ 0, %.lr.ph ], [ %.1257, %.critedge ]
   %.02591037 = phi i8 [ 0, %.lr.ph ], [ %.1260, %.critedge ]
-  %.02611036 = phi i32 [ 0, %.lr.ph ], [ %.2263, %.critedge ]
-  %.02641035 = phi ptr [ null, %.lr.ph ], [ %.2266, %.critedge ]
-  %.02671034 = phi i32 [ 0, %.lr.ph ], [ %.2269, %.critedge ]
-  %.02701033 = phi ptr [ null, %.lr.ph ], [ %.2272, %.critedge ]
+  %.02611036 = phi i32 [ 0, %.lr.ph ], [ %.1262, %.critedge ]
+  %.02641035 = phi ptr [ null, %.lr.ph ], [ %.1265, %.critedge ]
+  %.02671034 = phi i32 [ 0, %.lr.ph ], [ %.1268, %.critedge ]
+  %.02701033 = phi ptr [ null, %.lr.ph ], [ %.1271, %.critedge ]
   %.02731032 = phi i32 [ 0, %.lr.ph ], [ %.1274, %.critedge ]
   %.02751031 = phi ptr [ null, %.lr.ph ], [ %.1276, %.critedge ]
   %.02771030 = phi i16 [ 0, %.lr.ph ], [ %.1278, %.critedge ]
@@ -12429,12 +12429,12 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %5, %18
   %.02851026 = phi i1 [ false, %.lr.ph ], [ %.1286, %.critedge ]
   %.02871025 = phi i1 [ false, %.lr.ph ], [ %.1288, %.critedge ]
   %.02891024 = phi i1 [ false, %.lr.ph ], [ %.1290, %.critedge ]
-  %.02911023 = phi i32 [ 0, %.lr.ph ], [ %.2293, %.critedge ]
-  %.02941022 = phi ptr [ null, %.lr.ph ], [ %.2296, %.critedge ]
+  %.02911023 = phi i32 [ 0, %.lr.ph ], [ %.1292, %.critedge ]
+  %.02941022 = phi ptr [ null, %.lr.ph ], [ %.1295, %.critedge ]
   %.02971021 = phi i32 [ 0, %.lr.ph ], [ %.1298, %.critedge ]
   %.02991020 = phi ptr [ null, %.lr.ph ], [ %.1300, %.critedge ]
-  %.03011019 = phi i32 [ 0, %.lr.ph ], [ %.2303, %.critedge ]
-  %.03041018 = phi ptr [ null, %.lr.ph ], [ %.2306, %.critedge ]
+  %.03011019 = phi i32 [ 0, %.lr.ph ], [ %.1302, %.critedge ]
+  %.03041018 = phi ptr [ null, %.lr.ph ], [ %.1305, %.critedge ]
   %.03071017 = phi i32 [ 0, %.lr.ph ], [ %.1308, %.critedge ]
   %.03091016 = phi ptr [ null, %.lr.ph ], [ %.1310, %.critedge ]
   %.03111015 = phi i8 [ 0, %.lr.ph ], [ %.1312, %.critedge ]
@@ -13106,8 +13106,8 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %282, %2
   br label %328
 
 328:                                              ; preds = %326, %323
-  %.1295 = phi ptr [ %327, %326 ], [ %.02941022, %323 ]
-  %.1292 = phi i32 [ %55, %326 ], [ %.02911023, %323 ]
+  %.2296 = phi ptr [ %327, %326 ], [ %.02941022, %323 ]
+  %.2293 = phi i32 [ %55, %326 ], [ %.02911023, %323 ]
   tail call void @_ZNK15ClassFileStream7skip_u1EiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, i32 noundef %55, ptr noundef nonnull %4)
   %329 = load ptr, ptr %19, align 8
   %.not417 = icmp eq ptr %329, null
@@ -13274,12 +13274,12 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit362: ; preds = %_ZN
   br label %396
 
 396:                                              ; preds = %383, %394, %384, %381
-  %.1271 = phi ptr [ %382, %381 ], [ %.02701033, %394 ], [ %.02701033, %384 ], [ %.02701033, %383 ]
-  %.1268 = phi i32 [ %55, %381 ], [ %.02671034, %394 ], [ %.02671034, %384 ], [ %.02671034, %383 ]
-  %.1265 = phi ptr [ %.02641035, %381 ], [ %395, %394 ], [ %.02641035, %384 ], [ %.02641035, %383 ]
-  %.1262 = phi i32 [ %.02611036, %381 ], [ %55, %394 ], [ %.02611036, %384 ], [ %.02611036, %383 ]
-  %.1257 = phi i8 [ 1, %381 ], [ %.02561038, %394 ], [ %.02561038, %384 ], [ %.02561038, %383 ]
-  %.1253 = phi i8 [ %.02521040, %381 ], [ 1, %394 ], [ %.02521040, %384 ], [ %.02521040, %383 ]
+  %.2272 = phi ptr [ %382, %381 ], [ %.02701033, %394 ], [ %.02701033, %384 ], [ %.02701033, %383 ]
+  %.2269 = phi i32 [ %55, %381 ], [ %.02671034, %394 ], [ %.02671034, %384 ], [ %.02671034, %383 ]
+  %.2266 = phi ptr [ %.02641035, %381 ], [ %395, %394 ], [ %.02641035, %384 ], [ %.02641035, %383 ]
+  %.2263 = phi i32 [ %.02611036, %381 ], [ %55, %394 ], [ %.02611036, %384 ], [ %.02611036, %383 ]
+  %.2258 = phi i8 [ 1, %381 ], [ %.02561038, %394 ], [ %.02561038, %384 ], [ %.02561038, %383 ]
+  %.2 = phi i8 [ %.02521040, %381 ], [ 1, %394 ], [ %.02521040, %384 ], [ %.02521040, %383 ]
   tail call void @_ZNK15ClassFileStream7skip_u1EiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, i32 noundef %55, ptr noundef nonnull %4)
   %397 = load ptr, ptr %19, align 8
   %.not412 = icmp eq ptr %397, null
@@ -13335,12 +13335,12 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365: ; preds = %_ZNK15ClassFile
   %.1312 = phi i8 [ %.03111015, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03111015, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03111015, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03111015, %173 ], [ %.03111015, %177 ], [ %.03111015, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03111015, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.03111015, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03111015, %294 ], [ %.03111015, %289 ], [ 1, %308 ], [ %.03111015, %315 ], [ %.03111015, %328 ], [ %.03111015, %341 ], [ %.03111015, %372 ], [ %.03111015, %396 ], [ %.03111015, %398 ], [ %.03111015, %400 ], [ %.03111015, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1310 = phi ptr [ %.03091016, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03091016, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03091016, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03091016, %173 ], [ %.03091016, %177 ], [ %.03091016, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %228, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.03091016, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03091016, %294 ], [ %.03091016, %289 ], [ %.03091016, %308 ], [ %.03091016, %315 ], [ %.03091016, %328 ], [ %.03091016, %341 ], [ %.03091016, %372 ], [ %.03091016, %396 ], [ %.03091016, %398 ], [ %.03091016, %400 ], [ %.03091016, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1308 = phi i32 [ %.03071017, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03071017, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03071017, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03071017, %173 ], [ %.03071017, %177 ], [ %.03071017, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %55, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.03071017, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03071017, %294 ], [ %.03071017, %289 ], [ %.03071017, %308 ], [ %.03071017, %315 ], [ %.03071017, %328 ], [ %.03071017, %341 ], [ %.03071017, %372 ], [ %.03071017, %396 ], [ %.03071017, %398 ], [ %.03071017, %400 ], [ %.03071017, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2306 = phi ptr [ %.03041018, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03041018, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03041018, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03041018, %173 ], [ %.03041018, %177 ], [ %.03041018, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03041018, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %spec.select, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03041018, %294 ], [ %.03041018, %289 ], [ %.03041018, %308 ], [ %.03041018, %315 ], [ %.03041018, %328 ], [ %.03041018, %341 ], [ %.03041018, %372 ], [ %.03041018, %396 ], [ %.03041018, %398 ], [ %.03041018, %400 ], [ %.03041018, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2303 = phi i32 [ %.03011019, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03011019, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03011019, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03011019, %173 ], [ %.03011019, %177 ], [ %.03011019, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03011019, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %spec.select1149, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03011019, %294 ], [ %.03011019, %289 ], [ %.03011019, %308 ], [ %.03011019, %315 ], [ %.03011019, %328 ], [ %.03011019, %341 ], [ %.03011019, %372 ], [ %.03011019, %396 ], [ %.03011019, %398 ], [ %.03011019, %400 ], [ %.03011019, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1305 = phi ptr [ %.03041018, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03041018, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03041018, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03041018, %173 ], [ %.03041018, %177 ], [ %.03041018, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03041018, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %spec.select, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03041018, %294 ], [ %.03041018, %289 ], [ %.03041018, %308 ], [ %.03041018, %315 ], [ %.03041018, %328 ], [ %.03041018, %341 ], [ %.03041018, %372 ], [ %.03041018, %396 ], [ %.03041018, %398 ], [ %.03041018, %400 ], [ %.03041018, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1302 = phi i32 [ %.03011019, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03011019, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.03011019, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.03011019, %173 ], [ %.03011019, %177 ], [ %.03011019, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.03011019, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %spec.select1149, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.03011019, %294 ], [ %.03011019, %289 ], [ %.03011019, %308 ], [ %.03011019, %315 ], [ %.03011019, %328 ], [ %.03011019, %341 ], [ %.03011019, %372 ], [ %.03011019, %396 ], [ %.03011019, %398 ], [ %.03011019, %400 ], [ %.03011019, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1300 = phi ptr [ %.02991020, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02991020, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02991020, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02991020, %173 ], [ %.02991020, %177 ], [ %.02991020, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02991020, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02991020, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02991020, %294 ], [ %.02991020, %289 ], [ %.02991020, %308 ], [ %316, %315 ], [ %.02991020, %328 ], [ %.02991020, %341 ], [ %.02991020, %372 ], [ %.02991020, %396 ], [ %.02991020, %398 ], [ %.02991020, %400 ], [ %.02991020, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1298 = phi i32 [ %.02971021, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02971021, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02971021, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02971021, %173 ], [ %.02971021, %177 ], [ %.02971021, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02971021, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02971021, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02971021, %294 ], [ %.02971021, %289 ], [ %.02971021, %308 ], [ %55, %315 ], [ %.02971021, %328 ], [ %.02971021, %341 ], [ %.02971021, %372 ], [ %.02971021, %396 ], [ %.02971021, %398 ], [ %.02971021, %400 ], [ %.02971021, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2296 = phi ptr [ %.02941022, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02941022, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02941022, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02941022, %173 ], [ %.02941022, %177 ], [ %.02941022, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02941022, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02941022, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02941022, %294 ], [ %.02941022, %289 ], [ %.02941022, %308 ], [ %.02941022, %315 ], [ %.1295, %328 ], [ %.02941022, %341 ], [ %.02941022, %372 ], [ %.02941022, %396 ], [ %.02941022, %398 ], [ %.02941022, %400 ], [ %.02941022, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2293 = phi i32 [ %.02911023, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02911023, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02911023, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02911023, %173 ], [ %.02911023, %177 ], [ %.02911023, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02911023, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02911023, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02911023, %294 ], [ %.02911023, %289 ], [ %.02911023, %308 ], [ %.02911023, %315 ], [ %.1292, %328 ], [ %.02911023, %341 ], [ %.02911023, %372 ], [ %.02911023, %396 ], [ %.02911023, %398 ], [ %.02911023, %400 ], [ %.02911023, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1295 = phi ptr [ %.02941022, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02941022, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02941022, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02941022, %173 ], [ %.02941022, %177 ], [ %.02941022, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02941022, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02941022, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02941022, %294 ], [ %.02941022, %289 ], [ %.02941022, %308 ], [ %.02941022, %315 ], [ %.2296, %328 ], [ %.02941022, %341 ], [ %.02941022, %372 ], [ %.02941022, %396 ], [ %.02941022, %398 ], [ %.02941022, %400 ], [ %.02941022, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1292 = phi i32 [ %.02911023, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02911023, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02911023, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02911023, %173 ], [ %.02911023, %177 ], [ %.02911023, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02911023, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02911023, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02911023, %294 ], [ %.02911023, %289 ], [ %.02911023, %308 ], [ %.02911023, %315 ], [ %.2293, %328 ], [ %.02911023, %341 ], [ %.02911023, %372 ], [ %.02911023, %396 ], [ %.02911023, %398 ], [ %.02911023, %400 ], [ %.02911023, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1290 = phi i1 [ %.02891024, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02891024, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02891024, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02891024, %173 ], [ %.02891024, %177 ], [ %.02891024, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02891024, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02891024, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02891024, %294 ], [ %.02891024, %289 ], [ %.02891024, %308 ], [ %.02891024, %315 ], [ true, %328 ], [ %.02891024, %341 ], [ %.02891024, %372 ], [ %.02891024, %396 ], [ %.02891024, %398 ], [ %.02891024, %400 ], [ %.02891024, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1288 = phi i1 [ %.02871025, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02871025, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02871025, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02871025, %173 ], [ %.02871025, %177 ], [ %.02871025, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02871025, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ true, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02871025, %294 ], [ %.02871025, %289 ], [ %.02871025, %308 ], [ %.02871025, %315 ], [ %.02871025, %328 ], [ %.02871025, %341 ], [ %.02871025, %372 ], [ %.02871025, %396 ], [ %.02871025, %398 ], [ %.02871025, %400 ], [ %.02871025, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1286 = phi i1 [ %.02851026, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ true, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02851026, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02851026, %173 ], [ %.02851026, %177 ], [ %.02851026, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02851026, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02851026, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02851026, %294 ], [ %.02851026, %289 ], [ %.02851026, %308 ], [ %.02851026, %315 ], [ %.02851026, %328 ], [ %.02851026, %341 ], [ %.02851026, %372 ], [ %.02851026, %396 ], [ %.02851026, %398 ], [ %.02851026, %400 ], [ %.02851026, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
@@ -13350,14 +13350,14 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365: ; preds = %_ZNK15ClassFile
   %.1278 = phi i16 [ %.02771030, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02771030, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02771030, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02771030, %173 ], [ %.02771030, %177 ], [ %.02771030, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02771030, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02771030, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %278, %294 ], [ 0, %289 ], [ %.02771030, %308 ], [ %.02771030, %315 ], [ %.02771030, %328 ], [ %.02771030, %341 ], [ %.02771030, %372 ], [ %.02771030, %396 ], [ %.02771030, %398 ], [ %.02771030, %400 ], [ %.02771030, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1276 = phi ptr [ %.02751031, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02751031, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02751031, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02751031, %173 ], [ %.02751031, %177 ], [ %.02751031, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02751031, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02751031, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02751031, %294 ], [ %.02751031, %289 ], [ %.02751031, %308 ], [ %.02751031, %315 ], [ %.02751031, %328 ], [ %342, %341 ], [ %.02751031, %372 ], [ %.02751031, %396 ], [ %.02751031, %398 ], [ %.02751031, %400 ], [ %.02751031, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1274 = phi i32 [ %.02731032, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02731032, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02731032, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02731032, %173 ], [ %.02731032, %177 ], [ %.02731032, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02731032, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02731032, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02731032, %294 ], [ %.02731032, %289 ], [ %.02731032, %308 ], [ %.02731032, %315 ], [ %.02731032, %328 ], [ %55, %341 ], [ %.02731032, %372 ], [ %.02731032, %396 ], [ %.02731032, %398 ], [ %.02731032, %400 ], [ %.02731032, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2272 = phi ptr [ %.02701033, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02701033, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02701033, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02701033, %173 ], [ %.02701033, %177 ], [ %.02701033, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02701033, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02701033, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02701033, %294 ], [ %.02701033, %289 ], [ %.02701033, %308 ], [ %.02701033, %315 ], [ %.02701033, %328 ], [ %.02701033, %341 ], [ %.02701033, %372 ], [ %.1271, %396 ], [ %.02701033, %398 ], [ %.02701033, %400 ], [ %.02701033, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2269 = phi i32 [ %.02671034, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02671034, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02671034, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02671034, %173 ], [ %.02671034, %177 ], [ %.02671034, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02671034, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02671034, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02671034, %294 ], [ %.02671034, %289 ], [ %.02671034, %308 ], [ %.02671034, %315 ], [ %.02671034, %328 ], [ %.02671034, %341 ], [ %.02671034, %372 ], [ %.1268, %396 ], [ %.02671034, %398 ], [ %.02671034, %400 ], [ %.02671034, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2266 = phi ptr [ %.02641035, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02641035, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02641035, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02641035, %173 ], [ %.02641035, %177 ], [ %.02641035, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02641035, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02641035, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02641035, %294 ], [ %.02641035, %289 ], [ %.02641035, %308 ], [ %.02641035, %315 ], [ %.02641035, %328 ], [ %.02641035, %341 ], [ %.02641035, %372 ], [ %.1265, %396 ], [ %.02641035, %398 ], [ %.02641035, %400 ], [ %.02641035, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2263 = phi i32 [ %.02611036, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02611036, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02611036, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02611036, %173 ], [ %.02611036, %177 ], [ %.02611036, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02611036, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02611036, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02611036, %294 ], [ %.02611036, %289 ], [ %.02611036, %308 ], [ %.02611036, %315 ], [ %.02611036, %328 ], [ %.02611036, %341 ], [ %.02611036, %372 ], [ %.1262, %396 ], [ %.02611036, %398 ], [ %.02611036, %400 ], [ %.02611036, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1271 = phi ptr [ %.02701033, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02701033, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02701033, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02701033, %173 ], [ %.02701033, %177 ], [ %.02701033, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02701033, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02701033, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02701033, %294 ], [ %.02701033, %289 ], [ %.02701033, %308 ], [ %.02701033, %315 ], [ %.02701033, %328 ], [ %.02701033, %341 ], [ %.02701033, %372 ], [ %.2272, %396 ], [ %.02701033, %398 ], [ %.02701033, %400 ], [ %.02701033, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1268 = phi i32 [ %.02671034, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02671034, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02671034, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02671034, %173 ], [ %.02671034, %177 ], [ %.02671034, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02671034, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02671034, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02671034, %294 ], [ %.02671034, %289 ], [ %.02671034, %308 ], [ %.02671034, %315 ], [ %.02671034, %328 ], [ %.02671034, %341 ], [ %.02671034, %372 ], [ %.2269, %396 ], [ %.02671034, %398 ], [ %.02671034, %400 ], [ %.02671034, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1265 = phi ptr [ %.02641035, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02641035, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02641035, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02641035, %173 ], [ %.02641035, %177 ], [ %.02641035, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02641035, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02641035, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02641035, %294 ], [ %.02641035, %289 ], [ %.02641035, %308 ], [ %.02641035, %315 ], [ %.02641035, %328 ], [ %.02641035, %341 ], [ %.02641035, %372 ], [ %.2266, %396 ], [ %.02641035, %398 ], [ %.02641035, %400 ], [ %.02641035, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1262 = phi i32 [ %.02611036, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02611036, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02611036, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02611036, %173 ], [ %.02611036, %177 ], [ %.02611036, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02611036, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02611036, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02611036, %294 ], [ %.02611036, %289 ], [ %.02611036, %308 ], [ %.02611036, %315 ], [ %.02611036, %328 ], [ %.02611036, %341 ], [ %.02611036, %372 ], [ %.2263, %396 ], [ %.02611036, %398 ], [ %.02611036, %400 ], [ %.02611036, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1260 = phi i8 [ %.02591037, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02591037, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02591037, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02591037, %173 ], [ %.02591037, %177 ], [ %.02591037, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02591037, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02591037, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ 1, %294 ], [ 1, %289 ], [ %.02591037, %308 ], [ %.02591037, %315 ], [ %.02591037, %328 ], [ %.02591037, %341 ], [ %.02591037, %372 ], [ %.02591037, %396 ], [ %.02591037, %398 ], [ %.02591037, %400 ], [ %.02591037, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2258 = phi i8 [ %.02561038, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02561038, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02561038, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02561038, %173 ], [ %.02561038, %177 ], [ %.02561038, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02561038, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02561038, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02561038, %294 ], [ %.02561038, %289 ], [ %.02561038, %308 ], [ %.02561038, %315 ], [ %.02561038, %328 ], [ %.02561038, %341 ], [ %.02561038, %372 ], [ %.1257, %396 ], [ %.02561038, %398 ], [ %.02561038, %400 ], [ %.02561038, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1257 = phi i8 [ %.02561038, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02561038, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02561038, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02561038, %173 ], [ %.02561038, %177 ], [ %.02561038, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02561038, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02561038, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02561038, %294 ], [ %.02561038, %289 ], [ %.02561038, %308 ], [ %.02561038, %315 ], [ %.02561038, %328 ], [ %.02561038, %341 ], [ %.02561038, %372 ], [ %.2258, %396 ], [ %.02561038, %398 ], [ %.02561038, %400 ], [ %.02561038, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1255 = phi i8 [ %.02541039, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02541039, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02541039, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02541039, %173 ], [ %.02541039, %177 ], [ %.02541039, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02541039, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02541039, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02541039, %294 ], [ %.02541039, %289 ], [ %.02541039, %308 ], [ %.02541039, %315 ], [ %.02541039, %328 ], [ %.02541039, %341 ], [ 1, %372 ], [ %.02541039, %396 ], [ %.02541039, %398 ], [ %.02541039, %400 ], [ %.02541039, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
-  %.2 = phi i8 [ %.02521040, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02521040, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02521040, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02521040, %173 ], [ %.02521040, %177 ], [ %.02521040, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02521040, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02521040, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02521040, %294 ], [ %.02521040, %289 ], [ %.02521040, %308 ], [ %.02521040, %315 ], [ %.02521040, %328 ], [ %.02521040, %341 ], [ %.02521040, %372 ], [ %.1253, %396 ], [ %.02521040, %398 ], [ %.02521040, %400 ], [ %.02521040, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
+  %.1253 = phi i8 [ %.02521040, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02521040, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02521040, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02521040, %173 ], [ %.02521040, %177 ], [ %.02521040, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02521040, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02521040, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02521040, %294 ], [ %.02521040, %289 ], [ %.02521040, %308 ], [ %.02521040, %315 ], [ %.02521040, %328 ], [ %.02521040, %341 ], [ %.02521040, %372 ], [ %.2, %396 ], [ %.02521040, %398 ], [ %.02521040, %400 ], [ %.02521040, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1251 = phi i8 [ %.02501041, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02501041, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02501041, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02501041, %173 ], [ %.02501041, %177 ], [ %.02501041, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02501041, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02501041, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02501041, %294 ], [ %.02501041, %289 ], [ %.02501041, %308 ], [ %.02501041, %315 ], [ %.02501041, %328 ], [ 1, %341 ], [ %.02501041, %372 ], [ %.02501041, %396 ], [ %.02501041, %398 ], [ %.02501041, %400 ], [ %.02501041, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1249 = phi i8 [ %.02481042, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02481042, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ 1, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02481042, %173 ], [ %.02481042, %177 ], [ %.02481042, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02481042, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02481042, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02481042, %294 ], [ %.02481042, %289 ], [ %.02481042, %308 ], [ %.02481042, %315 ], [ %.02481042, %328 ], [ %.02481042, %341 ], [ %.02481042, %372 ], [ %.02481042, %396 ], [ %.02481042, %398 ], [ %.02481042, %400 ], [ %.02481042, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
   %.1 = phi i1 [ true, %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02471043, %_ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15ClassFileStreamiP10JavaThread.exit ], [ %.02471043, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit ], [ %.02471043, %173 ], [ %.02471043, %177 ], [ %.02471043, %_ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10JavaThread.exit ], [ %.02471043, %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread ], [ %.02471043, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351 ], [ %.02471043, %294 ], [ %.02471043, %289 ], [ %.02471043, %308 ], [ %.02471043, %315 ], [ %.02471043, %328 ], [ %.02471043, %341 ], [ %.02471043, %372 ], [ %.02471043, %396 ], [ %.02471043, %398 ], [ %.02471043, %400 ], [ %.02471043, %_ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365 ]
@@ -13368,25 +13368,25 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit365: ; preds = %_ZNK15ClassFile
   %.0311.lcssa = phi i8 [ 0, %21 ], [ %.1312, %.critedge ]
   %.0309.lcssa = phi ptr [ null, %21 ], [ %.1310, %.critedge ]
   %.0307.lcssa = phi i32 [ 0, %21 ], [ %.1308, %.critedge ]
-  %.0304.lcssa = phi ptr [ null, %21 ], [ %.2306, %.critedge ]
-  %.0301.lcssa = phi i32 [ 0, %21 ], [ %.2303, %.critedge ]
+  %.0304.lcssa = phi ptr [ null, %21 ], [ %.1305, %.critedge ]
+  %.0301.lcssa = phi i32 [ 0, %21 ], [ %.1302, %.critedge ]
   %.0299.lcssa = phi ptr [ null, %21 ], [ %.1300, %.critedge ]
   %.0297.lcssa = phi i32 [ 0, %21 ], [ %.1298, %.critedge ]
-  %.0294.lcssa = phi ptr [ null, %21 ], [ %.2296, %.critedge ]
-  %.0291.lcssa = phi i32 [ 0, %21 ], [ %.2293, %.critedge ]
+  %.0294.lcssa = phi ptr [ null, %21 ], [ %.1295, %.critedge ]
+  %.0291.lcssa = phi i32 [ 0, %21 ], [ %.1292, %.critedge ]
   %.0283.lcssa = phi ptr [ null, %21 ], [ %.1284, %.critedge ]
   %.0281.lcssa = phi i32 [ 0, %21 ], [ %.1282, %.critedge ]
   %.0279.lcssa = phi i16 [ 0, %21 ], [ %.1280, %.critedge ]
   %.0277.lcssa = phi i16 [ 0, %21 ], [ %.1278, %.critedge ]
   %.0275.lcssa = phi ptr [ null, %21 ], [ %.1276, %.critedge ]
   %.0273.lcssa = phi i32 [ 0, %21 ], [ %.1274, %.critedge ]
-  %.0270.lcssa = phi ptr [ null, %21 ], [ %.2272, %.critedge ]
-  %.0267.lcssa = phi i32 [ 0, %21 ], [ %.2269, %.critedge ]
-  %.0264.lcssa = phi ptr [ null, %21 ], [ %.2266, %.critedge ]
-  %.0261.lcssa = phi i32 [ 0, %21 ], [ %.2263, %.critedge ]
+  %.0270.lcssa = phi ptr [ null, %21 ], [ %.1271, %.critedge ]
+  %.0267.lcssa = phi i32 [ 0, %21 ], [ %.1268, %.critedge ]
+  %.0264.lcssa = phi ptr [ null, %21 ], [ %.1265, %.critedge ]
+  %.0261.lcssa = phi i32 [ 0, %21 ], [ %.1262, %.critedge ]
   %.0259.lcssa = phi i8 [ 0, %21 ], [ %.1260, %.critedge ]
-  %.0256.lcssa = phi i8 [ 0, %21 ], [ %.2258, %.critedge ]
-  %.0252.lcssa = phi i8 [ 0, %21 ], [ %.2, %.critedge ]
+  %.0256.lcssa = phi i8 [ 0, %21 ], [ %.1257, %.critedge ]
+  %.0252.lcssa = phi i8 [ 0, %21 ], [ %.1253, %.critedge ]
   %.0250.lcssa = phi i8 [ 0, %21 ], [ %.1251, %.critedge ]
   %.0248.lcssa = phi i8 [ 0, %21 ], [ %.1249, %.critedge ]
   %415 = icmp ne ptr %.0309.lcssa, null
@@ -13990,22 +13990,22 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %51
   br i1 %78, label %79, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
 
 79:                                               ; preds = %70, %75
-  %.023.ph40 = phi ptr [ null, %70 ], [ %68, %75 ]
+  %.1.ph40 = phi ptr [ null, %70 ], [ %68, %75 ]
   tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKcP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.151, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit
 
 _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %70, %75, %79
-  %.023.ph39 = phi ptr [ null, %70 ], [ %68, %75 ], [ %.023.ph40, %79 ]
+  %.1.ph39 = phi ptr [ null, %70 ], [ %68, %75 ], [ %.1.ph40, %79 ]
   %80 = load ptr, ptr %41, align 8
   %.not36 = icmp eq ptr %80, null
   br i1 %.not36, label %81, label %82
 
 81:                                               ; preds = %_ZNK12ConstantPool17resolved_klass_atEi.exit, %69, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
-  %.1 = phi ptr [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ %.023.ph39, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ %68, %_ZNK12ConstantPool17resolved_klass_atEi.exit ], [ null, %69 ]
+  %.023 = phi ptr [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ %.1.ph39, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ], [ %68, %_ZNK12ConstantPool17resolved_klass_atEi.exit ], [ null, %69 ]
   br label %82
 
 82:                                               ; preds = %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit29, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, %81
-  %.024 = phi ptr [ %.1, %81 ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit29 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ]
+  %.024 = phi ptr [ %.023, %81 ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit ], [ null, %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit29 ], [ null, %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit ]
   ret ptr %.024
 }
 
@@ -15188,8 +15188,8 @@ switch.early.test:                                ; preds = %26
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %35, %.thread67, %._crit_edge, %.loopexit
-  %.3 = phi ptr [ %48, %.loopexit ], [ %51, %._crit_edge ], [ null, %.thread67 ], [ null, %35 ]
-  ret ptr %.3
+  %.2 = phi ptr [ %48, %.loopexit ], [ %51, %._crit_edge ], [ null, %.thread67 ], [ null, %35 ]
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -17753,7 +17753,7 @@ _ZN15MetadataFactory9new_arrayIP13InstanceKlassEEP5ArrayIT_EP15ClassLoaderDataiP
   br i1 %exitcond116.not.i, label %.loopexit.i, label %272, !llvm.loop !77
 
 .loopexit.i:                                      ; preds = %272, %.preheader.i, %_ZN15MetadataFactory9new_arrayIP13InstanceKlassEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i
-  %.047.i = phi ptr [ null, %_ZN15MetadataFactory9new_arrayIP13InstanceKlassEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %265, %.preheader.i ], [ %265, %272 ]
+  %.1.i = phi ptr [ null, %_ZN15MetadataFactory9new_arrayIP13InstanceKlassEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i ], [ %265, %.preheader.i ], [ %265, %272 ]
   %277 = load ptr, ptr %124, align 8
   %.not.i.i.i.i.i = icmp eq ptr %277, null
   br i1 %.not.i.i.i.i.i, label %279, label %278
@@ -17775,9 +17775,9 @@ _ZN15MetadataFactory9new_arrayIP13InstanceKlassEEP5ArrayIT_EP15ClassLoaderDataiP
   br label %_ZL29compute_transitive_interfacesPK13InstanceKlassP5ArrayIPS_EP15ClassLoaderDataP10JavaThread.exit
 
 _ZL29compute_transitive_interfacesPK13InstanceKlassP5ArrayIPS_EP15ClassLoaderDataP10JavaThread.exit: ; preds = %109, %113, %116, %279, %281
-  %.1.i = phi ptr [ %110, %109 ], [ %115, %113 ], [ %94, %116 ], [ %.047.i, %279 ], [ %.047.i, %281 ]
+  %.047.i = phi ptr [ %110, %109 ], [ %115, %113 ], [ %94, %116 ], [ %.1.i, %279 ], [ %.1.i, %281 ]
   %282 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %.1.i, ptr %282, align 8
+  store ptr %.047.i, ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %3, i64 8
   %284 = load ptr, ptr %283, align 8
   %.not63 = icmp eq ptr %284, null
@@ -19268,9 +19268,9 @@ define internal fastcc noundef range(i32 3, -2147483648) i32 @_ZL21skip_annotati
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %.048 = phi i32 [ %28, %.lr.ph49 ], [ %27, %.lr.ph49.preheader ]
-  %.03347 = phi i32 [ %29, %.lr.ph49 ], [ %19, %.lr.ph49.preheader ]
+  %.147 = phi i32 [ %29, %.lr.ph49 ], [ %19, %.lr.ph49.preheader ]
   %28 = add nsw i32 %.048, -1
-  %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %.03347)
+  %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %.147)
   %30 = icmp ugt i32 %.048, 1
   %31 = icmp slt i32 %29, %1
   %32 = and i1 %31, %30

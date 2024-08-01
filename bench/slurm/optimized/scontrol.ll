@@ -754,12 +754,12 @@ _get_command.exit.thread:                         ; preds = %183
   %190 = sext i32 %.0 to i64
   %191 = getelementptr inbounds ptr, ptr %152, i64 %190
   store ptr %173, ptr %191, align 8
-  %.14154.i = add nsw i32 %.04060.i, 1
-  %192 = icmp slt i32 %.14154.i, %.039.i
+  %.254.i = add nsw i32 %.04060.i, 1
+  %192 = icmp slt i32 %.254.i, %.039.i
   br i1 %192, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %188
-  %193 = sext i32 %.14154.i to i64
+  %193 = sext i32 %.254.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %210, %.lr.ph.preheader.i
@@ -814,8 +814,8 @@ _get_command.exit.thread:                         ; preds = %183
 
 .loopexit.i:                                      ; preds = %210, %.loopexit.loopexit.split.loop.exit.i, %207, %188, %176
   %.1 = phi i32 [ %189, %207 ], [ %189, %.loopexit.loopexit.split.loop.exit.i ], [ %189, %188 ], [ %.0, %176 ], [ %189, %210 ]
-  %.2.i = phi i32 [ %209, %207 ], [ %211, %.loopexit.loopexit.split.loop.exit.i ], [ %.14154.i, %188 ], [ %.04060.i, %176 ], [ %.039.i, %210 ]
-  %212 = add nsw i32 %.2.i, 1
+  %.141.i = phi i32 [ %209, %207 ], [ %211, %.loopexit.loopexit.split.loop.exit.i ], [ %.254.i, %188 ], [ %.04060.i, %176 ], [ %.039.i, %210 ]
+  %212 = add nsw i32 %.141.i, 1
   %213 = icmp slt i32 %212, %.039.i
   br i1 %213, label %.lr.ph61.i, label %_get_command.exit, !llvm.loop !9
 
@@ -2627,9 +2627,9 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
 
 .preheader:                                       ; preds = %.preheader.preheader, %66
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %66 ]
-  %.03775 = phi i1 [ false, %.preheader.preheader ], [ %.1, %66 ]
-  %.03874 = phi i32 [ -2, %.preheader.preheader ], [ %.240, %66 ]
-  %.04272 = phi i32 [ 1, %.preheader.preheader ], [ %.143, %66 ]
+  %.175 = phi i1 [ false, %.preheader.preheader ], [ %.2, %66 ]
+  %.13974 = phi i32 [ -2, %.preheader.preheader ], [ %.3, %66 ]
+  %.14372 = phi i32 [ 1, %.preheader.preheader ], [ %.244, %66 ]
   %9 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.43) #22
@@ -2637,7 +2637,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   br i1 %.not51, label %12, label %14
 
 12:                                               ; preds = %.preheader
-  %13 = add nsw i32 %.04272, 1
+  %13 = add nsw i32 %.14372, 1
   br label %66
 
 14:                                               ; preds = %.preheader
@@ -2676,7 +2676,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   call void @slurm_xfree(ptr noundef nonnull %4) #17
   %29 = call ptr @xstrdup(ptr noundef nonnull %20) #17
   store ptr %29, ptr %4, align 8
-  %30 = add nsw i32 %.04272, 1
+  %30 = add nsw i32 %.14372, 1
   br label %66
 
 31:                                               ; preds = %14
@@ -2716,7 +2716,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   store ptr %46, ptr %5, align 8
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #22
   %48 = trunc i64 %47 to i32
-  %49 = add nsw i32 %.04272, 1
+  %49 = add nsw i32 %.14372, 1
   %50 = call i32 @llvm.smax.i32(i32 %48, i32 1)
   %51 = zext nneg i32 %50 to i64
   %52 = call i32 @xstrncasecmp(ptr noundef %46, ptr noundef nonnull @.str.48, i64 noundef %51) #17
@@ -2749,23 +2749,23 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   br label %86
 
 65:                                               ; preds = %53, %45
-  %.139 = phi i32 [ 1, %45 ], [ 256, %53 ]
+  %.240 = phi i32 [ 1, %45 ], [ 256, %53 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #17
   br label %66
 
 66:                                               ; preds = %12, %31, %65, %28
-  %.143 = phi i32 [ %.04272, %31 ], [ %49, %65 ], [ %30, %28 ], [ %13, %12 ]
-  %.240 = phi i32 [ %.03874, %31 ], [ %.139, %65 ], [ %.03874, %28 ], [ %.03874, %12 ]
-  %.1 = phi i1 [ %.03775, %31 ], [ %.03775, %65 ], [ %.03775, %28 ], [ true, %12 ]
+  %.244 = phi i32 [ %.14372, %31 ], [ %49, %65 ], [ %30, %28 ], [ %13, %12 ]
+  %.3 = phi i32 [ %.13974, %31 ], [ %.240, %65 ], [ %.13974, %28 ], [ %.13974, %12 ]
+  %.2 = phi i1 [ %.175, %31 ], [ %.175, %65 ], [ %.175, %28 ], [ true, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %66, %3
-  %.244 = phi i32 [ 1, %3 ], [ %.143, %66 ]
-  %.3 = phi i32 [ -2, %3 ], [ %.240, %66 ]
-  %.2 = phi i1 [ false, %3 ], [ %.1, %66 ]
-  %67 = sub nsw i32 %1, %.244
+  %.042 = phi i32 [ 1, %3 ], [ %.244, %66 ]
+  %.038 = phi i32 [ -2, %3 ], [ %.3, %66 ]
+  %.037 = phi i1 [ false, %3 ], [ %.2, %66 ]
+  %67 = sub nsw i32 %1, %.042
   %68 = icmp sgt i32 %67, 1
   br i1 %68, label %69, label %72
 
@@ -2786,11 +2786,11 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   br label %.critedge
 
 76:                                               ; preds = %72
-  %77 = sext i32 %.244 to i64
+  %77 = sext i32 %.042 to i64
   %78 = getelementptr inbounds ptr, ptr %2, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %4, align 8
-  %81 = call i32 @scontrol_reboot_nodes(ptr noundef %79, i1 noundef zeroext %.2, i32 noundef %.3, ptr noundef %80) #17
+  %81 = call i32 @scontrol_reboot_nodes(ptr noundef %79, i1 noundef zeroext %.037, i32 noundef %.038, ptr noundef %80) #17
   %82 = icmp eq i32 %81, 0
   call void @slurm_xfree(ptr noundef nonnull %4) #17
   br i1 %82, label %86, label %83
@@ -3933,7 +3933,7 @@ define internal fastcc void @_update_it(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %3, label %.lr.ph, label %.thread146
 
 .lr.ph:                                           ; preds = %2, %55
-  %.084159 = phi i32 [ %.2, %55 ], [ 0, %2 ]
+  %.084159 = phi i32 [ %.185, %55 ], [ 0, %2 ]
   %.087158 = phi i32 [ %.188, %55 ], [ 0, %2 ]
   %.089157 = phi i32 [ %.190, %55 ], [ 0, %2 ]
   %.091156 = phi i32 [ %.192, %55 ], [ 0, %2 ]
@@ -3979,17 +3979,17 @@ define internal fastcc void @_update_it(i32 noundef %0, ptr noundef %1) unnamed_
   br label %23
 
 23:                                               ; preds = %12, %21, %19
-  %.185 = phi i32 [ 1, %19 ], [ 2, %21 ], [ %.084159, %12 ]
-  %.0 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %16, %12 ]
+  %.2 = phi i32 [ 1, %19 ], [ 2, %21 ], [ %.084159, %12 ]
+  %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %16, %12 ]
   %24 = getelementptr inbounds i8, ptr %7, i64 1
   br label %25
 
 25:                                               ; preds = %23, %8
   %.1111 = phi ptr [ %24, %23 ], [ null, %8 ]
   %.1109 = phi i32 [ %.0108148, %23 ], [ %11, %8 ]
-  %.2 = phi i32 [ %.185, %23 ], [ %.084159, %8 ]
-  %.1 = phi i32 [ %.0, %23 ], [ %10, %8 ]
-  %26 = tail call i32 @llvm.smax.i32(i32 %.1, i32 3)
+  %.185 = phi i32 [ %.2, %23 ], [ %.084159, %8 ]
+  %.0 = phi i32 [ %.1, %23 ], [ %10, %8 ]
+  %26 = tail call i32 @llvm.smax.i32(i32 %.0, i32 3)
   %27 = zext nneg i32 %26 to i64
   %28 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.136, i64 noundef %27) #17
   %.not128 = icmp eq i32 %28, 0
@@ -4011,14 +4011,14 @@ define internal fastcc void @_update_it(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %.not131, label %55, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @llvm.smax.i32(i32 %.1, i32 4)
+  %36 = tail call i32 @llvm.smax.i32(i32 %.0, i32 4)
   %37 = zext nneg i32 %36 to i64
   %38 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.210, i64 noundef %37) #17
   %.not132 = icmp eq i32 %38, 0
   br i1 %.not132, label %55, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @llvm.smax.i32(i32 %.1, i32 2)
+  %40 = tail call i32 @llvm.smax.i32(i32 %.0, i32 2)
   %41 = zext nneg i32 %40 to i64
   %42 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.181, i64 noundef %41) #17
   %.not133 = icmp eq i32 %42, 0
@@ -4035,7 +4035,7 @@ define internal fastcc void @_update_it(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %.not135, label %55, label %47
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @llvm.smax.i32(i32 %.1, i32 11)
+  %48 = tail call i32 @llvm.smax.i32(i32 %.0, i32 11)
   %49 = zext nneg i32 %48 to i64
   %50 = tail call i32 @xstrncasecmp(ptr noundef %6, ptr noundef nonnull @.str.212, i64 noundef %49) #17
   %.not136 = icmp eq i32 %50, 0
@@ -4126,21 +4126,21 @@ define internal fastcc void @_update_it(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %64, label %89, label %87
 
 87:                                               ; preds = %86
-  %88 = tail call i32 @slurm_update_suspend_exc_nodes(ptr noundef %.1111, i32 noundef %.2) #17
+  %88 = tail call i32 @slurm_update_suspend_exc_nodes(ptr noundef %.1111, i32 noundef %.185) #17
   br label %101
 
 89:                                               ; preds = %86
   br i1 %65, label %92, label %90
 
 90:                                               ; preds = %89
-  %91 = tail call i32 @slurm_update_suspend_exc_parts(ptr noundef %.1111, i32 noundef %.2) #17
+  %91 = tail call i32 @slurm_update_suspend_exc_parts(ptr noundef %.1111, i32 noundef %.185) #17
   br label %101
 
 92:                                               ; preds = %89
   br i1 %66, label %.thread146, label %93
 
 93:                                               ; preds = %92
-  %94 = tail call i32 @slurm_update_suspend_exc_states(ptr noundef %.1111, i32 noundef %.2) #17
+  %94 = tail call i32 @slurm_update_suspend_exc_states(ptr noundef %.1111, i32 noundef %.185) #17
   br label %101
 
 .thread146:                                       ; preds = %2, %92

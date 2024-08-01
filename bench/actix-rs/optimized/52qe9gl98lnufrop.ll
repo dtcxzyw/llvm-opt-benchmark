@@ -1825,19 +1825,19 @@ default.unreachable:                              ; preds = %17
 
 "_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h8b6829dda9567978E.exit.i": ; preds = %26
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2eadafa0540e7878E.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
-          to label %40 unwind label %.body.thread21
+          to label %40 unwind label %.body.thread19
 
 36:                                               ; preds = %17
   %37 = getelementptr inbounds i8, ptr %8, i64 16
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd8f57e4db1cc04a5E.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37)
-          to label %40 unwind label %.body.thread21
+          to label %40 unwind label %.body.thread19
 
 38:                                               ; preds = %17
   %39 = getelementptr inbounds i8, ptr %8, i64 16
   invoke void @"_ZN4core3ptr42drop_in_place$LT$h2..share..RecvStream$GT$17hb0e4830868d96a8fE.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(16) %39)
-          to label %40 unwind label %.body.thread21
+          to label %40 unwind label %.body.thread19
 
-.body.thread21:                                   ; preds = %40, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h8b6829dda9567978E.exit.i", %36, %38
+.body.thread19:                                   ; preds = %40, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h8b6829dda9567978E.exit.i", %36, %38
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -1845,7 +1845,7 @@ default.unreachable:                              ; preds = %17
 .body:                                            ; preds = %"_ZN4core3ptr96drop_in_place$LT$actix_files..service..FilesService..show_index..$u7b$$u7b$closure$u7d$$u7d$$GT$17h54c2655eb42d13c8E.exit.i"
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread18
+  br label %.body.thread16
 
 40:                                               ; preds = %38, %36, %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h8b6829dda9567978E.exit.i", %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -1863,7 +1863,7 @@ default.unreachable:                              ; preds = %17
   %51 = getelementptr inbounds i8, ptr %44, i64 40
   %52 = load ptr, ptr %51, align 8, !invariant.load !5, !nonnull !5
   invoke void %52(ptr noalias nocapture noundef nonnull sret({ i64, [13 x i64] }) align 8 dereferenceable(112) %7, ptr noundef align 1 %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
-          to label %53 unwind label %.body.thread21
+          to label %53 unwind label %.body.thread19
 
 53:                                               ; preds = %40
   %54 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
@@ -1890,7 +1890,7 @@ default.unreachable:                              ; preds = %17
   %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_web..request..HttpRequest$GT$17ha0d1189f3e4435a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #17
-          to label %.body.thread18 unwind label %61, !noalias !362
+          to label %.body.thread16 unwind label %61, !noalias !362
 
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
@@ -1915,7 +1915,7 @@ default.unreachable:                              ; preds = %17
   %66 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h756d60c79cdb5d32E.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.body.thread18 unwind label %67, !noalias !354
+          to label %.body.thread16 unwind label %67, !noalias !354
 
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
@@ -1935,17 +1935,17 @@ default.unreachable:                              ; preds = %17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   ret void
 
-.body.thread18:                                   ; preds = %65, %59, %.body, %.body.thread
-  %eh.lpad-body16 = phi { ptr, i32 } [ %eh.lpad-body17, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ], [ %60, %59 ], [ %66, %65 ]
+.body.thread16:                                   ; preds = %65, %59, %.body, %.body.thread
+  %eh.lpad-body14 = phi { ptr, i32 } [ %eh.lpad-body15, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ], [ %60, %59 ], [ %66, %65 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$actix_files..directory..Directory$GT$17h9ede8e3cfe370efbE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %10) #17
           to label %.thread.thread unwind label %70
 
-.body.thread:                                     ; preds = %32, %.body.thread21
-  %eh.lpad-body17 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread21 ], [ %33, %32 ]
+.body.thread:                                     ; preds = %32, %.body.thread19
+  %eh.lpad-body15 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread19 ], [ %33, %32 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_web..request..HttpRequest$GT$17ha0d1189f3e4435a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #17
-          to label %.body.thread18 unwind label %70
+          to label %.body.thread16 unwind label %70
 
-70:                                               ; preds = %.thread, %72, %.body.thread, %.body.thread18
+70:                                               ; preds = %.thread, %72, %.body.thread, %.body.thread16
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
@@ -1957,9 +1957,9 @@ default.unreachable:                              ; preds = %17
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf773fa666f5b1a1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #17
           to label %.thread unwind label %70
 
-.thread.thread:                                   ; preds = %.body.thread18, %.thread
-  %.pn926 = phi { ptr, i32 } [ %73, %.thread ], [ %eh.lpad-body16, %.body.thread18 ]
-  resume { ptr, i32 } %.pn926
+.thread.thread:                                   ; preds = %.body.thread16, %.thread
+  %.pn724 = phi { ptr, i32 } [ %73, %.thread ], [ %eh.lpad-body14, %.body.thread16 ]
+  resume { ptr, i32 } %.pn724
 
 .thread:                                          ; preds = %72
   invoke void @"_ZN4core3ptr55drop_in_place$LT$actix_web..service..ServiceRequest$GT$17h71d68f1aa0259e26E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #17
@@ -3102,7 +3102,7 @@ _ZN3std4path4Path12canonicalize17h56939169496f70d0E.exit: ; preds = %315
   br label %397
 
 397:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h1cd3d4b4de83e8efE.exit", %496, %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit130"
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0.copyload268, %496 ], [ %.sroa.14.0.copyload268, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h1cd3d4b4de83e8efE.exit" ], [ %.sroa.14.0.copyload260, %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit130" ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.0.copyload268, %496 ], [ %.sroa.14.0.copyload268, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17h1cd3d4b4de83e8efE.exit" ], [ %.sroa.14.0.copyload260, %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit130" ]
   %398 = getelementptr inbounds i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !481
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2263410e68d04d69E.llvm.8740116509709696285"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %398)
@@ -3371,7 +3371,7 @@ common.ret:                                       ; preds = %847, %739, %684, %5
   br label %.body137
 
 "_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$17h45a2d714517ac58fE.exit": ; preds = %"_ZN4core3ptr204drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$17hbe4d80db8c571effE.llvm.8740116509709696285.exit.i", %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit124", %511
-  %.sroa.14.2 = phi ptr [ %.sroa.14.1, %511 ], [ %.sroa.14.0.copyload258, %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit124" ], [ %.sroa.14.0.copyload266, %"_ZN4core3ptr204drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$17hbe4d80db8c571effE.llvm.8740116509709696285.exit.i" ]
+  %.sroa.14.2 = phi ptr [ %.sroa.14.3, %511 ], [ %.sroa.14.0.copyload258, %"_ZN4core3ptr70drop_in_place$LT$actix_web..response..builder..HttpResponseBuilder$GT$17h967780b7f8258677E.exit124" ], [ %.sroa.14.0.copyload266, %"_ZN4core3ptr204drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$17hbe4d80db8c571effE.llvm.8740116509709696285.exit.i" ]
   %476 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !523
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2263410e68d04d69E.llvm.8740116509709696285"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %476)
@@ -3493,10 +3493,10 @@ common.ret:                                       ; preds = %847, %739, %684, %5
   br label %"_ZN4core3ptr55drop_in_place$LT$actix_files..service..FilesService$GT$17he3795320cb1cd465E.exit193"
 
 "_ZN4core3ptr55drop_in_place$LT$actix_files..service..FilesService$GT$17he3795320cb1cd465E.exit": ; preds = %870, %116
-  %.sroa.14.3 = phi ptr [ %.sroa.14.0, %116 ], [ %.sroa.14.5, %870 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0, %116 ], [ %.sroa.14.4, %870 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0256, i64 104, i1 false)
   %.sroa.14.0..sroa_idx269 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %.sroa.14.3, ptr %.sroa.14.0..sroa_idx269, align 8
+  store ptr %.sroa.14.1, ptr %.sroa.14.0..sroa_idx269, align 8
   br label %common.ret
 
 517:                                              ; preds = %332
@@ -3936,7 +3936,7 @@ common.ret:                                       ; preds = %847, %739, %684, %5
   br label %654
 
 654:                                              ; preds = %683, %674, %652
-  %.sroa.14.4 = phi ptr [ %.sroa.14.0.copyload272, %674 ], [ %653, %652 ], [ %.sroa.14.0.copyload274, %683 ]
+  %.sroa.14.5 = phi ptr [ %.sroa.14.0.copyload272, %674 ], [ %653, %652 ], [ %.sroa.14.0.copyload274, %683 ]
   %655 = getelementptr inbounds i8, ptr %1, i64 88
   %656 = load i64, ptr %655, align 8, !range !655, !noundef !5
   %.not70 = icmp eq i64 %656, 2
@@ -4079,7 +4079,7 @@ common.ret:                                       ; preds = %847, %739, %684, %5
   br label %687
 
 699:                                              ; preds = %846, %823, %432, %435, %687
-  %.sroa.14.5 = phi ptr [ %.sroa.14.4, %687 ], [ %.sroa.14.0.copyload264, %435 ], [ %.sroa.14.0.copyload262, %432 ], [ %824, %823 ], [ %.sroa.14.0.copyload276, %846 ]
+  %.sroa.14.4 = phi ptr [ %.sroa.14.5, %687 ], [ %.sroa.14.0.copyload264, %435 ], [ %.sroa.14.0.copyload262, %432 ], [ %824, %823 ], [ %.sroa.14.0.copyload276, %846 ]
   %700 = getelementptr inbounds i8, ptr %1, i64 811
   %701 = load i8, ptr %700, align 1, !range !85, !noundef !5
   %702 = trunc nuw i8 %701 to i1

@@ -32,15 +32,15 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp4180.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %crc.addr.0183 = phi i64 [ %xor7, %while.body ], [ %and, %while.cond.preheader ]
-  %buf.addr.0182 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %while.cond.preheader ]
-  %len.addr.0181 = phi i64 [ %dec, %while.body ], [ %len, %while.cond.preheader ]
-  %dec = add i64 %len.addr.0181, -1
-  %shr = lshr i64 %crc.addr.0183, 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.0182, i64 1
-  %1 = load i8, ptr %buf.addr.0182, align 1
-  %crc.addr.0.tr = trunc i64 %crc.addr.0183 to i8
-  %xor.narrow = xor i8 %1, %crc.addr.0.tr
+  %crc.addr.1183 = phi i64 [ %xor7, %while.body ], [ %and, %while.cond.preheader ]
+  %buf.addr.1182 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %while.cond.preheader ]
+  %len.addr.1181 = phi i64 [ %dec, %while.body ], [ %len, %while.cond.preheader ]
+  %dec = add i64 %len.addr.1181, -1
+  %shr = lshr i64 %crc.addr.1183, 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.1182, i64 1
+  %1 = load i8, ptr %buf.addr.1182, align 1
+  %crc.addr.1.tr = trunc i64 %crc.addr.1183 to i8
+  %xor.narrow = xor i8 %1, %crc.addr.1.tr
   %and5 = zext i8 %xor.narrow to i64
   %arrayidx = getelementptr inbounds [256 x i32], ptr @crc_table, i64 0, i64 %and5
   %2 = load i32, ptr %arrayidx, align 4
@@ -54,13 +54,13 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %4, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %len.addr.0.lcssa = phi i64 [ %len, %while.cond.preheader ], [ %dec, %while.body ]
-  %buf.addr.0.lcssa = phi ptr [ %buf, %while.cond.preheader ], [ %incdec.ptr, %while.body ]
-  %crc.addr.0.lcssa = phi i64 [ %and, %while.cond.preheader ], [ %xor7, %while.body ]
-  %div = udiv i64 %len.addr.0.lcssa, 40
+  %len.addr.1.lcssa = phi i64 [ %len, %while.cond.preheader ], [ %dec, %while.body ]
+  %buf.addr.1.lcssa = phi ptr [ %buf, %while.cond.preheader ], [ %incdec.ptr, %while.body ]
+  %crc.addr.1.lcssa = phi i64 [ %and, %while.cond.preheader ], [ %xor7, %while.body ]
+  %div = udiv i64 %len.addr.1.lcssa, 40
   %mul8.neg = mul i64 %div, -40
-  %sub = add i64 %mul8.neg, %len.addr.0.lcssa
-  %conv11 = trunc nuw i64 %crc.addr.0.lcssa to i32
+  %sub = add i64 %mul8.neg, %len.addr.1.lcssa
+  %conv11 = trunc nuw i64 %crc.addr.1.lcssa to i32
   %dec13192 = add nsw i64 %div, -1
   %tobool14.not193 = icmp eq i64 %dec13192, 0
   br i1 %tobool14.not193, label %while.end80, label %while.body15.preheader
@@ -78,7 +78,7 @@ while.cond12.loopexit:                            ; preds = %for.body
 
 while.body15:                                     ; preds = %while.body15.preheader, %while.cond12.loopexit
   %dec13200 = phi i64 [ %dec13, %while.cond12.loopexit ], [ %dec13192, %while.body15.preheader ]
-  %words.0199 = phi ptr [ %add.ptr, %while.cond12.loopexit ], [ %buf.addr.0.lcssa, %while.body15.preheader ]
+  %words.0199 = phi ptr [ %add.ptr, %while.cond12.loopexit ], [ %buf.addr.1.lcssa, %while.body15.preheader ]
   %crc4.0198 = phi i32 [ %xor79, %while.cond12.loopexit ], [ 0, %while.body15.preheader ]
   %crc0.0197 = phi i32 [ %xor47, %while.cond12.loopexit ], [ %conv11, %while.body15.preheader ]
   %crc3.0196 = phi i32 [ %xor71, %while.cond12.loopexit ], [ 0, %while.body15.preheader ]
@@ -158,7 +158,7 @@ for.body:                                         ; preds = %while.body15, %for.
   br i1 %exitcond.not, label %while.cond12.loopexit, label %for.body, !llvm.loop !7
 
 while.end80.loopexit:                             ; preds = %while.cond12.loopexit
-  %scevgep = getelementptr i8, ptr %buf.addr.0.lcssa, i64 %6
+  %scevgep = getelementptr i8, ptr %buf.addr.1.lcssa, i64 %6
   %23 = zext i32 %xor55 to i64
   %24 = zext i32 %xor63 to i64
   %25 = zext i32 %xor71 to i64
@@ -171,7 +171,7 @@ while.end80:                                      ; preds = %while.end80.loopexi
   %crc3.0.lcssa = phi i64 [ 0, %while.end ], [ %25, %while.end80.loopexit ]
   %crc0.0.lcssa = phi i32 [ %conv11, %while.end ], [ %xor47, %while.end80.loopexit ]
   %crc4.0.lcssa = phi i64 [ 0, %while.end ], [ %26, %while.end80.loopexit ]
-  %words.0.lcssa = phi ptr [ %buf.addr.0.lcssa, %while.end ], [ %scevgep, %while.end80.loopexit ]
+  %words.0.lcssa = phi ptr [ %buf.addr.1.lcssa, %while.end ], [ %scevgep, %while.end80.loopexit ]
   %conv81 = zext i32 %crc0.0.lcssa to i64
   %27 = load i64, ptr %words.0.lcssa, align 8
   %xor83 = xor i64 %27, %conv81
@@ -280,23 +280,23 @@ crc_word.exit178:                                 ; preds = %for.body.i167
   br label %if.end216
 
 if.end216:                                        ; preds = %crc_word.exit178, %if.end
-  %len.addr.1 = phi i64 [ %sub, %crc_word.exit178 ], [ %len, %if.end ]
-  %buf.addr.1 = phi ptr [ %add.ptr109, %crc_word.exit178 ], [ %buf, %if.end ]
-  %crc.addr.2 = phi i64 [ %conv108, %crc_word.exit178 ], [ %and, %if.end ]
-  %cmp218207 = icmp ugt i64 %len.addr.1, 7
+  %len.addr.0 = phi i64 [ %sub, %crc_word.exit178 ], [ %len, %if.end ]
+  %buf.addr.0 = phi ptr [ %add.ptr109, %crc_word.exit178 ], [ %buf, %if.end ]
+  %crc.addr.0 = phi i64 [ %conv108, %crc_word.exit178 ], [ %and, %if.end ]
+  %cmp218207 = icmp ugt i64 %len.addr.0, 7
   br i1 %cmp218207, label %while.body220, label %while.cond287.preheader
 
 while.cond287.preheader:                          ; preds = %while.body220, %if.end216
-  %len.addr.2.lcssa = phi i64 [ %len.addr.1, %if.end216 ], [ %sub221, %while.body220 ]
-  %buf.addr.2.lcssa = phi ptr [ %buf.addr.1, %if.end216 ], [ %incdec.ptr279, %while.body220 ]
-  %crc.addr.3.lcssa = phi i64 [ %crc.addr.2, %if.end216 ], [ %xor285, %while.body220 ]
+  %len.addr.2.lcssa = phi i64 [ %len.addr.0, %if.end216 ], [ %sub221, %while.body220 ]
+  %buf.addr.2.lcssa = phi ptr [ %buf.addr.0, %if.end216 ], [ %incdec.ptr279, %while.body220 ]
+  %crc.addr.3.lcssa = phi i64 [ %crc.addr.0, %if.end216 ], [ %xor285, %while.body220 ]
   %tobool288.not214 = icmp eq i64 %len.addr.2.lcssa, 0
   br i1 %tobool288.not214, label %while.end299, label %while.body289
 
 while.body220:                                    ; preds = %if.end216, %while.body220
-  %crc.addr.3210 = phi i64 [ %xor285, %while.body220 ], [ %crc.addr.2, %if.end216 ]
-  %buf.addr.2209 = phi ptr [ %incdec.ptr279, %while.body220 ], [ %buf.addr.1, %if.end216 ]
-  %len.addr.2208 = phi i64 [ %sub221, %while.body220 ], [ %len.addr.1, %if.end216 ]
+  %crc.addr.3210 = phi i64 [ %xor285, %while.body220 ], [ %crc.addr.0, %if.end216 ]
+  %buf.addr.2209 = phi ptr [ %incdec.ptr279, %while.body220 ], [ %buf.addr.0, %if.end216 ]
+  %len.addr.2208 = phi i64 [ %sub221, %while.body220 ], [ %len.addr.0, %if.end216 ]
   %sub221 = add i64 %len.addr.2208, -8
   %shr222 = lshr i64 %crc.addr.3210, 8
   %incdec.ptr223 = getelementptr inbounds i8, ptr %buf.addr.2209, i64 1

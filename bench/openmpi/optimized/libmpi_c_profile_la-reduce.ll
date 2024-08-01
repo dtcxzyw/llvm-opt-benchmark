@@ -184,12 +184,12 @@ ompi_op_is_valid.exit:                            ; preds = %39, %26
   br i1 %or.cond154, label %88, label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %80, %78, %75, %70, %ompi_op_is_valid.exit, %72, %23
-  %.0144.ph = phi i32 [ 3, %80 ], [ 2, %78 ], [ 3, %75 ], [ 13, %70 ], [ 13, %ompi_op_is_valid.exit ], [ 13, %72 ], [ 10, %23 ]
+  %.1.ph = phi i32 [ 3, %80 ], [ 2, %78 ], [ 3, %75 ], [ 13, %70 ], [ 13, %ompi_op_is_valid.exit ], [ 13, %72 ], [ 10, %23 ]
   %83 = getelementptr inbounds i8, ptr %6, i64 296
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %6, i64 304
   %86 = load i32, ptr %85, align 8
-  %87 = tail call i32 @ompi_errhandler_invoke(ptr noundef %84, ptr noundef nonnull %6, i32 noundef %86, i32 noundef %.0144.ph, ptr noundef nonnull @FUNC_NAME) #5
+  %87 = tail call i32 @ompi_errhandler_invoke(ptr noundef %84, ptr noundef nonnull %6, i32 noundef %86, i32 noundef %.1.ph, ptr noundef nonnull @FUNC_NAME) #5
   br label %199
 
 88:                                               ; preds = %80
@@ -413,7 +413,7 @@ ompi_errcode_get_mpi_code.exit141:                ; preds = %169, %165, %.prehea
   br label %199
 
 199:                                              ; preds = %164, %ompi_comm_iface_coll_check.exit, %ompi_errcode_get_mpi_code.exit141, %ompi_errcode_get_mpi_code.exit124, %109, %98, %ompi_errcode_get_mpi_code.exit, %57, %ompi_comm_invalid.exit.thread
-  %.0 = phi i32 [ %22, %ompi_comm_invalid.exit.thread ], [ %.0144.ph, %ompi_errcode_get_mpi_code.exit ], [ %.2.ph, %ompi_errcode_get_mpi_code.exit124 ], [ %.0.i131, %ompi_errcode_get_mpi_code.exit141 ], [ %103, %98 ], [ %114, %109 ], [ %63, %57 ], [ 0, %ompi_comm_iface_coll_check.exit ], [ 0, %164 ]
+  %.0 = phi i32 [ %22, %ompi_comm_invalid.exit.thread ], [ %.1.ph, %ompi_errcode_get_mpi_code.exit ], [ %.2.ph, %ompi_errcode_get_mpi_code.exit124 ], [ %.0.i131, %ompi_errcode_get_mpi_code.exit141 ], [ %103, %98 ], [ %114, %109 ], [ %63, %57 ], [ 0, %ompi_comm_iface_coll_check.exit ], [ 0, %164 ]
   ret i32 %.0
 }
 

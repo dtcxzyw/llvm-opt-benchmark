@@ -1628,8 +1628,8 @@ switch.lookup15:                                  ; preds = %20
   br label %.thread
 
 .thread:                                          ; preds = %2, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit", %18, %17
-  %.2 = phi i8 [ 1, %17 ], [ %switch.offset19, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit" ], [ 0, %18 ], [ -1, %2 ]
-  ret i8 %.2
+  %.0 = phi i8 [ 1, %17 ], [ %switch.offset19, %"_ZN4core3ptr43drop_in_place$LT$bigdecimal..BigDecimal$GT$17h34aafb9620d3481bE.exit" ], [ 0, %18 ], [ -1, %2 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2622,7 +2622,7 @@ define noundef zeroext i1 @"_ZN85_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   unreachable
 
 59:                                               ; preds = %56, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit"
-  %.0.in24 = phi i1 [ %43, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit" ], [ %41, %56 ]
+  %.1.in24 = phi i1 [ %43, %"_ZN4core3ptr47drop_in_place$LT$num_bigint..bigint..BigInt$GT$17h625cb822635a03f5E.exit" ], [ %41, %56 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %67
 
@@ -2646,8 +2646,8 @@ define noundef zeroext i1 @"_ZN85_$LT$uu_seq..extendedbigdecimal..ExtendedBigDec
   br label %59
 
 67:                                               ; preds = %59, %34, %32, %30, %28
-  %.1.in = phi i1 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.0.in24, %59 ]
-  ret i1 %.1.in
+  %.0.in = phi i1 [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %.1.in24, %59 ]
+  ret i1 %.0.in
 
 .thread:                                          ; preds = %37, %44, %68
   %.pn17 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %68 ], [ %45, %44 ], [ %38, %37 ]

@@ -1364,7 +1364,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
 .lr.ph401:                                        ; preds = %145, %154
   %.4399 = phi ptr [ %162, %154 ], [ %146, %145 ]
   %.0281398 = phi i1 [ false, %154 ], [ true, %145 ]
-  %.0284397 = phi i32 [ %.1285, %154 ], [ 0, %145 ]
+  %.1285397 = phi i32 [ %.2286, %154 ], [ 0, %145 ]
   %147 = getelementptr inbounds i8, ptr %.4399, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 16
@@ -1383,14 +1383,14 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   %159 = load i32, ptr %17, align 4
   %160 = call i32 @llvm.smax.i32(i32 %159, i32 %155)
   store i32 %160, ptr %17, align 4
-  %161 = call i32 @llvm.smin.i32(i32 %.0284397, i32 %155)
-  %.1285 = select i1 %.0281398, i32 %155, i32 %161
+  %161 = call i32 @llvm.smin.i32(i32 %.1285397, i32 %155)
+  %.2286 = select i1 %.0281398, i32 %155, i32 %161
   %162 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.4399) #20
   %.not308 = icmp eq ptr %162, null
   br i1 %.not308, label %.loopexit, label %.lr.ph401
 
 .loopexit:                                        ; preds = %154, %145, %._crit_edge395
-  %.2286 = phi i32 [ 1, %._crit_edge395 ], [ 0, %145 ], [ %.1285, %154 ]
+  %.0284 = phi i32 [ 1, %._crit_edge395 ], [ 0, %145 ], [ %.2286, %154 ]
   %163 = load i32, ptr %17, align 4
   br label %194
 
@@ -1474,7 +1474,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
 194:                                              ; preds = %.loopexit, %._crit_edge411, %190
   %.0283357 = phi i1 [ true, %190 ], [ true, %._crit_edge411 ], [ false, %.loopexit ]
   %.0288 = phi i32 [ %188, %190 ], [ %188, %._crit_edge411 ], [ %163, %.loopexit ]
-  %.3287 = phi i32 [ 1, %190 ], [ 1, %._crit_edge411 ], [ %.2286, %.loopexit ]
+  %.3287 = phi i32 [ 1, %190 ], [ 1, %._crit_edge411 ], [ %.0284, %.loopexit ]
   %195 = mul nsw i32 %44, %2
   %196 = sext i32 %195 to i64
   %197 = call fastcc ptr @gv_calloc(i64 noundef %196, i64 noundef 8)

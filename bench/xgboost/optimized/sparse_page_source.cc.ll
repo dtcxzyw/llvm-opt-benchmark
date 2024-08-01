@@ -83,10 +83,10 @@ define void @_ZN7xgboost4data5Cache6CommitEv(ptr nocapture noundef nonnull align
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %13 = phi ptr [ %17, %.lr.ph.i ], [ %11, %.lr.ph.i.preheader ]
   %.016.i = phi i64 [ %15, %.lr.ph.i ], [ %12, %.lr.ph.i.preheader ]
-  %.sroa.0.015.i = phi ptr [ %16, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
+  %.sroa.0.115.i = phi ptr [ %16, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %.016.i
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 8
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.115.i, i64 8
   store i64 %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %.not.i = icmp eq ptr %17, %8

@@ -144,13 +144,13 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 .sink.split:                                      ; preds = %35, %29, %18, %12
   %.str.sink = phi ptr [ @.str, %12 ], [ @.str.1, %18 ], [ @.str.2, %29 ], [ @.str.1, %35 ]
-  %.118.ph.ph = phi i32 [ %11, %12 ], [ -1, %18 ], [ -1, %29 ], [ -1, %35 ]
+  %.017.ph.ph = phi i32 [ %11, %12 ], [ -1, %18 ], [ -1, %29 ], [ -1, %35 ]
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %39, ptr noundef nonnull %.str.sink) #7
   br label %40
 
 40:                                               ; preds = %.sink.split, %12, %18, %29, %35
-  %.118.ph = phi i32 [ -1, %35 ], [ -1, %29 ], [ -1, %18 ], [ %11, %12 ], [ %.118.ph.ph, %.sink.split ]
+  %.017.ph = phi i32 [ -1, %35 ], [ -1, %29 ], [ -1, %18 ], [ %11, %12 ], [ %.017.ph.ph, %.sink.split ]
   %41 = load ptr, ptr @accelerator_event_ipc_array, align 8
   %.not29 = icmp eq ptr %41, null
   br i1 %.not29, label %72, label %.preheader
@@ -311,8 +311,8 @@ opal_obj_run_destructors.exit41:                  ; preds = %opal_obj_run_destru
   br i1 %.not.i45, label %opal_obj_run_destructors.exit46, label %.lr.ph.i43, !llvm.loop !7
 
 opal_obj_run_destructors.exit46:                  ; preds = %.lr.ph.i43, %98, %38
-  %.11850 = phi i32 [ 0, %38 ], [ %.118.ph, %98 ], [ %.118.ph, %.lr.ph.i43 ]
-  ret i32 %.11850
+  %.01750 = phi i32 [ 0, %38 ], [ %.017.ph, %98 ], [ %.017.ph, %.lr.ph.i43 ]
+  ret i32 %.01750
 }
 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1

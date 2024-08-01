@@ -231,7 +231,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   br label %for.body.i7
 
 for.body.i7:                                      ; preds = %for.inc.i, %for.body.lr.ph.i
-  %ret.09.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %ret.1.i, %for.inc.i ]
+  %ret.09.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %ret.2.i, %for.inc.i ]
   %p.06.i = phi ptr [ %call.i6, %for.body.lr.ph.i ], [ %10, %for.inc.i ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i)
   %pack_name.i.i.i = getelementptr inbounds i8, ptr %p.06.i, i64 240
@@ -358,20 +358,20 @@ if.then.i:                                        ; preds = %xsize_t.exit.i.i
   br i1 %tobool3.not.i, label %open_pack_bitmap.exit.loopexit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %open_pack_bitmap_1.exit.thread.i
-  %ret.1.i = phi i32 [ 0, %if.then.i ], [ %ret.09.i, %open_pack_bitmap_1.exit.thread.i ]
+  %ret.2.i = phi i32 [ 0, %if.then.i ], [ %ret.09.i, %open_pack_bitmap_1.exit.thread.i ]
   %next.i = getelementptr inbounds i8, ptr %p.06.i, i64 16
   %10 = load ptr, ptr %next.i, align 8
   %tobool.not.i8 = icmp eq ptr %10, null
   br i1 %tobool.not.i8, label %open_pack_bitmap.exit.loopexit, label %for.body.i7, !llvm.loop !7
 
 open_pack_bitmap.exit.loopexit:                   ; preds = %for.inc.i, %if.then.i
-  %ret.2.i.ph = phi i32 [ 0, %if.then.i ], [ %ret.1.i, %for.inc.i ]
-  %11 = icmp ne i32 %ret.2.i.ph, 0
+  %ret.1.i.ph = phi i32 [ 0, %if.then.i ], [ %ret.2.i, %for.inc.i ]
+  %11 = icmp ne i32 %ret.1.i.ph, 0
   br label %open_pack_bitmap.exit
 
 open_pack_bitmap.exit:                            ; preds = %open_pack_bitmap.exit.loopexit, %if.then
-  %ret.2.i = phi i1 [ true, %if.then ], [ %11, %open_pack_bitmap.exit.loopexit ]
-  %or5.not = and i1 %tobool.not11.not, %ret.2.i
+  %ret.1.i = phi i1 [ true, %if.then ], [ %11, %open_pack_bitmap.exit.loopexit ]
+  %or5.not = and i1 %tobool.not11.not, %ret.1.i
   %12 = sext i1 %or5.not to i32
   br label %if.end
 
@@ -1575,7 +1575,7 @@ if.end60.i:                                       ; preds = %land.lhs.true.i, %k
 
 while.end.i13:                                    ; preds = %if.end60.i, %land.lhs.true.while.end.loopexit_crit_edge.i
   %.pr.i = phi i64 [ %.pr.pre.pre.i, %land.lhs.true.while.end.loopexit_crit_edge.i ], [ %inc.i12, %if.end60.i ]
-  %xor_bitmap.2.i = phi ptr [ %69, %land.lhs.true.while.end.loopexit_crit_edge.i ], [ null, %if.end60.i ]
+  %xor_bitmap.1.i = phi ptr [ %69, %land.lhs.true.while.end.loopexit_crit_edge.i ], [ null, %if.end60.i ]
   %tobool63.not182.i = icmp eq i64 %.pr.i, 0
   br i1 %tobool63.not182.i, label %while.end89.i, label %while.body64.lr.ph.i
 
@@ -1586,7 +1586,7 @@ while.body64.lr.ph.i:                             ; preds = %while.end.i13
   br label %while.body64.i
 
 while.body64.i:                                   ; preds = %if.end86.i, %while.body64.lr.ph.i
-  %xor_bitmap.3183.i = phi ptr [ %xor_bitmap.2.i, %while.body64.lr.ph.i ], [ %call88.i, %if.end86.i ]
+  %xor_bitmap.3183.i = phi ptr [ %xor_bitmap.1.i, %while.body64.lr.ph.i ], [ %call88.i, %if.end86.i ]
   %71 = phi i64 [ %.pr.i, %while.body64.lr.ph.i ], [ %dec.i, %if.end86.i ]
   %72 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8
   %73 = getelementptr %struct.bitmap_lookup_table_xor_item, ptr %72, i64 %71
@@ -1663,7 +1663,7 @@ if.end86.i:                                       ; preds = %read_bitmap_1.exit.
   br i1 %tobool63.not.i, label %while.end89.i, label %while.body64.i, !llvm.loop !13
 
 while.end89.i:                                    ; preds = %if.end86.i, %while.end.i13, %if.end7.i
-  %xor_bitmap.3.lcssa.i = phi ptr [ %xor_bitmap.2.i, %while.end.i13 ], [ null, %if.end7.i ], [ %call88.i, %if.end86.i ]
+  %xor_bitmap.3.lcssa.i = phi ptr [ %xor_bitmap.1.i, %while.end.i13 ], [ null, %if.end7.i ], [ %call88.i, %if.end86.i ]
   %map_pos90.i = getelementptr inbounds i8, ptr %bitmap_git, i64 40
   store i64 %or.i10.i.i.i, ptr %map_pos90.i, align 8
   %map_size91.i = getelementptr inbounds i8, ptr %bitmap_git, i64 32
@@ -2197,15 +2197,15 @@ if.then89:                                        ; preds = %if.end87.thread, %i
   unreachable
 
 if.then93:                                        ; preds = %if.end87, %if.end72.thread
-  %haves_bitmap.175 = phi ptr [ null, %if.end72.thread ], [ %49, %if.end87 ]
+  %haves_bitmap.075 = phi ptr [ null, %if.end72.thread ], [ %49, %if.end87 ]
   call void @object_array_clear(ptr noundef nonnull %pending) #18
   call void @reset_revision_walk() #18
   br label %if.end95
 
 if.end95:                                         ; preds = %if.end87.thread, %if.end72, %if.then93
-  %haves_bitmap.176 = phi ptr [ %haves_bitmap.175, %if.then93 ], [ null, %if.end72 ], [ %call82, %if.end87.thread ]
+  %haves_bitmap.076 = phi ptr [ %haves_bitmap.075, %if.then93 ], [ null, %if.end72 ], [ %call82, %if.end87.thread ]
   %54 = load ptr, ptr %wants, align 8
-  %call96 = call fastcc ptr @find_objects(ptr noundef %call4, ptr noundef nonnull %revs, ptr noundef %54, ptr noundef %haves_bitmap.176)
+  %call96 = call fastcc ptr @find_objects(ptr noundef %call4, ptr noundef nonnull %revs, ptr noundef %54, ptr noundef %haves_bitmap.076)
   %tobool97.not = icmp eq ptr %call96, null
   br i1 %tobool97.not, label %if.then98, label %if.end99
 
@@ -2214,11 +2214,11 @@ if.then98:                                        ; preds = %if.end95
   unreachable
 
 if.end99:                                         ; preds = %if.end95
-  %tobool100.not = icmp eq ptr %haves_bitmap.176, null
+  %tobool100.not = icmp eq ptr %haves_bitmap.076, null
   br i1 %tobool100.not, label %if.end102, label %if.then101
 
 if.then101:                                       ; preds = %if.end99
-  call void @bitmap_and_not(ptr noundef nonnull %call96, ptr noundef nonnull %haves_bitmap.176) #18
+  call void @bitmap_and_not(ptr noundef nonnull %call96, ptr noundef nonnull %haves_bitmap.076) #18
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then101, %if.end99
@@ -2305,7 +2305,7 @@ if.end115:                                        ; preds = %for.inc16.i, %for.c
   %result = getelementptr inbounds i8, ptr %call4, i64 152
   store ptr %call96, ptr %result, align 8
   %haves116 = getelementptr inbounds i8, ptr %call4, i64 160
-  store ptr %haves_bitmap.176, ptr %haves116, align 8
+  store ptr %haves_bitmap.076, ptr %haves116, align 8
   br label %return.sink.split
 
 cleanup:                                          ; preds = %if.end9.i, %if.end63, %if.end60, %in_bitmapped_pack.exit, %if.end3
@@ -2351,7 +2351,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry, %if.then
   %roots.addr.0.ph32 = phi ptr [ %1, %if.then ], [ %roots, %entry ]
-  %base.0.ph31 = phi ptr [ %base.1.ph, %if.then ], [ null, %entry ]
+  %base.0.ph31 = phi ptr [ %base.4.ph, %if.then ], [ null, %entry ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -2382,7 +2382,7 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i, %if.then2.i
-  %base.1.ph = phi ptr [ %base.0.ph31, %if.else.i ], [ %call3.i, %if.then2.i ]
+  %base.4.ph = phi ptr [ %base.0.ph31, %if.else.i ], [ %call3.i, %if.then2.i ]
   %bf.load2 = load i32, ptr %0, align 4
   %bf.set = or i32 %bf.load2, 16
   store i32 %bf.set, ptr %0, align 4
@@ -2395,7 +2395,7 @@ if.end:                                           ; preds = %land.lhs.true, %whi
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !21
 
 while.end:                                        ; preds = %if.then, %if.end
-  %base.0.ph.lcssa.ph = phi ptr [ %base.0.ph31, %if.end ], [ %base.1.ph, %if.then ]
+  %base.0.ph.lcssa.ph = phi ptr [ %base.0.ph31, %if.end ], [ %base.4.ph, %if.then ]
   %.pr = load ptr, ptr %not_mapped, align 8
   %base.0.ph.lcssa.fr = freeze ptr %base.0.ph.lcssa.ph
   %tobool7.not = icmp eq ptr %.pr, null
@@ -2505,8 +2505,8 @@ if.end43:                                         ; preds = %fill_in_bitmap.exit
   br label %return
 
 return:                                           ; preds = %entry, %while.end, %if.end43
-  %base.4 = phi ptr [ %base.0.ph.lcssa.fr, %while.end ], [ %base.3, %if.end43 ], [ null, %entry ]
-  ret ptr %base.4
+  %base.2 = phi ptr [ %base.0.ph.lcssa.fr, %while.end ], [ %base.3, %if.end43 ], [ null, %entry ]
+  ret ptr %base.2
 }
 
 declare void @reset_revision_walk() local_unnamed_addr #2
@@ -2874,9 +2874,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %13 = phi ptr [ %18, %for.inc.us ], [ %11, %for.body.lr.ph ]
-  %objects_nr.080.us = phi i32 [ %objects_nr.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %packs_alloc.079.us = phi i64 [ %packs_alloc.3.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %packs_nr.078.us = phi i64 [ %packs_nr.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %objects_nr.080.us = phi i32 [ %objects_nr.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %packs_alloc.079.us = phi i64 [ %packs_alloc.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %packs_nr.078.us = phi i64 [ %packs_nr.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %i.077.us = phi i64 [ %inc40.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %packs.076.us = phi ptr [ %packs.2.us, %for.inc.us ], [ null, %for.body.lr.ph ]
   %conv5.us = trunc nuw i64 %i.077.us to i32
@@ -2908,9 +2908,9 @@ st_mult.exit.us:                                  ; preds = %if.then21.us
   br label %do.end.us
 
 do.end.us:                                        ; preds = %st_mult.exit.us, %if.end14.us
-  %packs.1.us = phi ptr [ %call33.us, %st_mult.exit.us ], [ %packs.076.us, %if.end14.us ]
-  %packs_alloc.2.us = phi i64 [ %add.div57.us, %st_mult.exit.us ], [ %packs_alloc.079.us, %if.end14.us ]
-  %arrayidx35.us = getelementptr inbounds %struct.bitmapped_pack, ptr %packs.1.us, i64 %packs_nr.078.us
+  %packs.3.us = phi ptr [ %call33.us, %st_mult.exit.us ], [ %packs.076.us, %if.end14.us ]
+  %packs_alloc.3.us = phi i64 [ %add.div57.us, %st_mult.exit.us ], [ %packs_alloc.079.us, %if.end14.us ]
+  %arrayidx35.us = getelementptr inbounds %struct.bitmapped_pack, ptr %packs.3.us, i64 %packs_nr.078.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx35.us, ptr noundef nonnull align 8 dereferenceable(24) %pack, i64 24, i1 false)
   %16 = load ptr, ptr %pack, align 8
   %num_objects.us = getelementptr inbounds i8, ptr %16, i64 72
@@ -2919,10 +2919,10 @@ do.end.us:                                        ; preds = %st_mult.exit.us, %i
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %do.end.us, %if.end.us
-  %packs.2.us = phi ptr [ %packs.1.us, %do.end.us ], [ %packs.076.us, %if.end.us ]
-  %packs_nr.1.us = phi i64 [ %add.us, %do.end.us ], [ %packs_nr.078.us, %if.end.us ]
-  %packs_alloc.3.us = phi i64 [ %packs_alloc.2.us, %do.end.us ], [ %packs_alloc.079.us, %if.end.us ]
-  %objects_nr.1.us = phi i32 [ %add36.us, %do.end.us ], [ %objects_nr.080.us, %if.end.us ]
+  %packs.2.us = phi ptr [ %packs.3.us, %do.end.us ], [ %packs.076.us, %if.end.us ]
+  %packs_nr.2.us = phi i64 [ %add.us, %do.end.us ], [ %packs_nr.078.us, %if.end.us ]
+  %packs_alloc.1.us = phi i64 [ %packs_alloc.3.us, %do.end.us ], [ %packs_alloc.079.us, %if.end.us ]
+  %objects_nr.2.us = phi i32 [ %add36.us, %do.end.us ], [ %objects_nr.080.us, %if.end.us ]
   %inc40.us = add nuw nsw i64 %i.077.us, 1
   %18 = load ptr, ptr %midx.i.i, align 8
   %num_packs.us = getelementptr inbounds i8, ptr %18, i64 56
@@ -2991,11 +2991,11 @@ for.inc:                                          ; preds = %if.end
   br i1 %cmp, label %for.body, label %if.end76, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc.us
-  %cmp.i60 = icmp ugt i64 %packs_nr.1.us, 1
+  %cmp.i60 = icmp ugt i64 %packs_nr.2.us, 1
   br i1 %cmp.i60, label %if.then.i61, label %if.end76
 
 if.then.i61:                                      ; preds = %for.end
-  call void @qsort(ptr noundef %packs.2.us, i64 noundef %packs_nr.1.us, i64 noundef 24, ptr noundef nonnull @bitmapped_pack_cmp) #18
+  call void @qsort(ptr noundef %packs.2.us, i64 noundef %packs_nr.2.us, i64 noundef 24, ptr noundef nonnull @bitmapped_pack_cmp) #18
   br label %if.end76
 
 if.else55.split:                                  ; preds = %load_reverse_index.exit
@@ -3011,9 +3011,9 @@ if.else55.split:                                  ; preds = %load_reverse_index.
   br label %if.end76
 
 if.end76:                                         ; preds = %for.inc, %for.cond.preheader, %do.end, %if.then.i61, %for.end, %if.else55.split
-  %packs.5 = phi ptr [ %call61, %if.else55.split ], [ %packs.2.us, %for.end ], [ %packs.2.us, %if.then.i61 ], [ null, %for.cond.preheader ], [ %call33, %do.end ], [ null, %for.inc ]
-  %packs_nr.3 = phi i64 [ 1, %if.else55.split ], [ %packs_nr.1.us, %for.end ], [ %packs_nr.1.us, %if.then.i61 ], [ 0, %for.cond.preheader ], [ 1, %do.end ], [ 0, %for.inc ]
-  %objects_nr.3 = phi i32 [ %32, %if.else55.split ], [ %objects_nr.1.us, %for.end ], [ %objects_nr.1.us, %if.then.i61 ], [ 0, %for.cond.preheader ], [ %28, %do.end ], [ 0, %for.inc ]
+  %packs.4 = phi ptr [ %call61, %if.else55.split ], [ %packs.2.us, %for.end ], [ %packs.2.us, %if.then.i61 ], [ null, %for.cond.preheader ], [ %call33, %do.end ], [ null, %for.inc ]
+  %packs_nr.3 = phi i64 [ 1, %if.else55.split ], [ %packs_nr.2.us, %for.end ], [ %packs_nr.2.us, %if.then.i61 ], [ 0, %for.cond.preheader ], [ 1, %do.end ], [ 0, %for.inc ]
+  %objects_nr.3 = phi i32 [ %32, %if.else55.split ], [ %objects_nr.2.us, %for.end ], [ %objects_nr.2.us, %if.then.i61 ], [ 0, %for.cond.preheader ], [ %28, %do.end ], [ 0, %for.inc ]
   %conv77 = zext i32 %objects_nr.3 to i64
   %div7858 = lshr i64 %conv77, 6
   %rem = and i64 %conv77, 63
@@ -3026,7 +3026,7 @@ if.end76:                                         ; preds = %for.inc, %for.cond.
 
 for.body88:                                       ; preds = %if.end76, %reuse_partial_packfile_from_bitmap_1.exit
   %i.195 = phi i64 [ %inc91, %reuse_partial_packfile_from_bitmap_1.exit ], [ 0, %if.end76 ]
-  %arrayidx89 = getelementptr inbounds %struct.bitmapped_pack, ptr %packs.5, i64 %i.195
+  %arrayidx89 = getelementptr inbounds %struct.bitmapped_pack, ptr %packs.4, i64 %i.195
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %w_curs.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pack_pos.i)
   %33 = load ptr, ptr %result1, align 8
@@ -3052,34 +3052,34 @@ land.lhs.true.lr.ph.i:                            ; preds = %while.cond.preheade
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i, %land.lhs.true.lr.ph.i
-  %pos.047.i = phi i64 [ %div.i, %land.lhs.true.lr.ph.i ], [ %inc.i, %while.body.i ]
-  %exitcond.not.i = icmp eq i64 %pos.047.i, %div5.i
+  %pos.147.i = phi i64 [ %div.i, %land.lhs.true.lr.ph.i ], [ %inc.i, %while.body.i ]
+  %exitcond.not.i = icmp eq i64 %pos.147.i, %div5.i
   br i1 %exitcond.not.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %39 = load ptr, ptr %33, align 8
-  %arrayidx.i66 = getelementptr inbounds i64, ptr %39, i64 %pos.047.i
+  %arrayidx.i66 = getelementptr inbounds i64, ptr %39, i64 %pos.147.i
   %40 = load i64, ptr %arrayidx.i66, align 8
   %cmp8.i = icmp eq i64 %40, -1
   br i1 %cmp8.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %inc.i = add nuw nsw i64 %pos.047.i, 1
+  %inc.i = add nuw nsw i64 %pos.147.i, 1
   %exitcond54.not.i = icmp eq i64 %inc.i, %36
   br i1 %exitcond54.not.i, label %while.end.i, label %land.lhs.true.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %land.lhs.true.i, %while.cond.preheader.i
-  %pos.0.lcssa.i = phi i64 [ %div.i, %while.cond.preheader.i ], [ %pos.047.i, %land.rhs.i ], [ %36, %while.body.i ], [ %div5.i, %land.lhs.true.i ]
+  %pos.1.lcssa.i = phi i64 [ %div.i, %while.cond.preheader.i ], [ %pos.147.i, %land.rhs.i ], [ %36, %while.body.i ], [ %div5.i, %land.lhs.true.i ]
   %41 = load ptr, ptr %call84, align 8
-  %mul.i65 = shl nuw nsw i64 %pos.0.lcssa.i, 3
+  %mul.i65 = shl nuw nsw i64 %pos.1.lcssa.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %41, i8 -1, i64 %mul.i65, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.end.i, %for.body88
-  %pos.1.i = phi i64 [ %div.i, %for.body88 ], [ %pos.0.lcssa.i, %while.end.i ]
+  %pos.0.i = phi i64 [ %div.i, %for.body88 ], [ %pos.1.lcssa.i, %while.end.i ]
   %word_alloc11.i = getelementptr inbounds i8, ptr %33, i64 8
   %42 = load i64, ptr %word_alloc11.i, align 8
-  %cmp1251.i = icmp ult i64 %pos.1.i, %42
+  %cmp1251.i = icmp ult i64 %pos.0.i, %42
   br i1 %cmp1251.i, label %for.body.lr.ph.i, label %reuse_partial_packfile_from_bitmap_1.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
@@ -3088,7 +3088,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   br label %for.body.i63
 
 for.body.i63:                                     ; preds = %for.inc76.i, %for.body.lr.ph.i
-  %pos.252.i = phi i64 [ %pos.1.i, %for.body.lr.ph.i ], [ %inc77.i, %for.inc76.i ]
+  %pos.252.i = phi i64 [ %pos.0.i, %for.body.lr.ph.i ], [ %inc77.i, %for.inc76.i ]
   %43 = load ptr, ptr %33, align 8
   %arrayidx15.i = getelementptr inbounds i64, ptr %43, i64 %pos.252.i
   %44 = load i64, ptr %arrayidx15.i, align 8
@@ -3278,13 +3278,13 @@ for.end92:                                        ; preds = %reuse_partial_packf
   br i1 %tobool94.not, label %if.end96, label %if.then95
 
 if.then95:                                        ; preds = %for.end92
-  call void @free(ptr noundef %packs.5) #18
+  call void @free(ptr noundef %packs.4) #18
   call void @bitmap_free(ptr noundef %call84) #18
   br label %return
 
 if.end96:                                         ; preds = %for.end92
   call void @bitmap_and_not(ptr noundef %1, ptr noundef %call84) #18
-  store ptr %packs.5, ptr %packs_out, align 8
+  store ptr %packs.4, ptr %packs_out, align 8
   store i64 %packs_nr.3, ptr %packs_nr_out, align 8
   store ptr %call84, ptr %reuse_out, align 8
   br label %return
@@ -5065,7 +5065,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc51
-  %total.038 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total.3, %for.inc51 ]
+  %total.038 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total.1, %for.inc51 ]
   %i.037 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc52, %for.inc51 ]
   %call = call i32 @ewah_iterator_next(ptr noundef nonnull %filter, ptr noundef nonnull %it) #18
   %tobool.not = icmp eq i32 %call, 0
@@ -5087,7 +5087,7 @@ for.cond3.preheader:                              ; preds = %for.body
   br label %for.body6
 
 for.body6:                                        ; preds = %for.cond3.preheader, %for.inc
-  %total.135 = phi i64 [ %total.038, %for.cond3.preheader ], [ %total.2, %for.inc ]
+  %total.235 = phi i64 [ %total.038, %for.cond3.preheader ], [ %total.3, %for.inc ]
   %offset.034 = phi i32 [ 0, %for.cond3.preheader ], [ %inc, %for.inc ]
   %conv = zext nneg i32 %offset.034 to i64
   %shr = lshr i64 %and, %conv
@@ -5147,20 +5147,20 @@ if.else:                                          ; preds = %if.end10
 
 for.inc:                                          ; preds = %if.end35, %if.else
   %sub.pn = phi i64 [ %sub, %if.end35 ], [ %sub48, %if.else ]
-  %total.2 = add nsw i64 %sub.pn, %total.135
+  %total.3 = add nsw i64 %sub.pn, %total.235
   %inc = add nuw nsw i32 %add, 1
   %cmp4 = icmp ult i32 %add, 63
   br i1 %cmp4, label %for.body6, label %for.inc51, !llvm.loop !46
 
 for.inc51:                                        ; preds = %for.inc, %for.body6, %for.body
-  %total.3 = phi i64 [ %total.038, %for.body ], [ %total.135, %for.body6 ], [ %total.2, %for.inc ]
+  %total.1 = phi i64 [ %total.038, %for.body ], [ %total.235, %for.body6 ], [ %total.3, %for.inc ]
   %inc52 = add nuw i64 %i.037, 1
   %20 = load i64, ptr %word_alloc, align 8
   %cmp = icmp ult i64 %inc52, %20
   br i1 %cmp, label %land.rhs, label %for.end53, !llvm.loop !47
 
 for.end53:                                        ; preds = %land.rhs, %for.inc51, %entry
-  %total.0.lcssa = phi i64 [ 0, %entry ], [ %total.3, %for.inc51 ], [ %total.038, %land.rhs ]
+  %total.0.lcssa = phi i64 [ 0, %entry ], [ %total.1, %for.inc51 ], [ %total.038, %land.rhs ]
   ret i64 %total.0.lcssa
 }
 
@@ -6005,19 +6005,19 @@ if.then55.loopexit.i:                             ; preds = %oideq_by_value.exit
 if.then55.i:                                      ; preds = %if.then55.loopexit.i, %while.end.i
   %.pre-phi72.i = phi i1 [ %58, %if.then55.loopexit.i ], [ true, %while.end.i ]
   %i.166.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
-  %site.265.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %45, %while.end.i ]
-  %cmp66.not.i = icmp eq i32 %site.265.i, %45
+  %site.165.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %45, %while.end.i ]
+  %cmp66.not.i = icmp eq i32 %site.165.i, %45
   %or.cond.i = select i1 %.pre-phi72.i, i1 true, i1 %cmp66.not.i
-  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.265.i
+  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.165.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then55.i, %while.end.i, %if.end5.i
-  %x.1.i = phi i32 [ %spec.select.i, %while.end.i ], [ %and.i, %if.end5.i ], [ %spec.select60.i, %if.then55.i ]
-  %shr73.i = lshr i32 %x.1.i, 4
+  %x.0.i = phi i32 [ %spec.select.i, %while.end.i ], [ %and.i, %if.end5.i ], [ %spec.select60.i, %if.then55.i ]
+  %shr73.i = lshr i32 %x.0.i, 4
   %idxprom74.i = zext nneg i32 %shr73.i to i64
   %arrayidx75.i = getelementptr inbounds i32, ptr %46, i64 %idxprom74.i
   %59 = load i32, ptr %arrayidx75.i, align 4
-  %and76.i = shl i32 %x.1.i, 1
+  %and76.i = shl i32 %x.0.i, 1
   %shl77.i = and i32 %and76.i, 30
   %shr78.i = lshr i32 %59, %shl77.i
   %and79.i = and i32 %shr78.i, 2
@@ -6027,7 +6027,7 @@ if.end71.i:                                       ; preds = %if.then55.i, %while
 if.then81.i:                                      ; preds = %if.end71.i
   %keys82.i = getelementptr inbounds i8, ptr %1, i64 24
   %60 = load ptr, ptr %keys82.i, align 8
-  %idxprom83.i = zext i32 %x.1.i to i64
+  %idxprom83.i = zext i32 %x.0.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %60, i64 %idxprom83.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %call10, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
@@ -6051,7 +6051,7 @@ if.else98.i:                                      ; preds = %if.end71.i
 if.then108.i:                                     ; preds = %if.else98.i
   %keys109.i = getelementptr inbounds i8, ptr %1, i64 24
   %65 = load ptr, ptr %keys109.i, align 8
-  %idxprom110.i = zext i32 %x.1.i to i64
+  %idxprom110.i = zext i32 %x.0.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %65, i64 %idxprom110.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %call10, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
@@ -6719,19 +6719,19 @@ if.then55.loopexit.i:                             ; preds = %oideq_by_value.exit
 if.then55.i:                                      ; preds = %if.then55.loopexit.i, %while.end.i
   %.pre-phi72.i = phi i1 [ %57, %if.then55.loopexit.i ], [ true, %while.end.i ]
   %i.166.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
-  %site.265.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %44, %while.end.i ]
-  %cmp66.not.i = icmp eq i32 %site.265.i, %44
+  %site.165.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %44, %while.end.i ]
+  %cmp66.not.i = icmp eq i32 %site.165.i, %44
   %or.cond.i = select i1 %.pre-phi72.i, i1 true, i1 %cmp66.not.i
-  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.265.i
+  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.165.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then55.i, %while.end.i, %if.end5.i
-  %x.1.i = phi i32 [ %spec.select.i, %while.end.i ], [ %and.i, %if.end5.i ], [ %spec.select60.i, %if.then55.i ]
-  %shr73.i = lshr i32 %x.1.i, 4
+  %x.0.i = phi i32 [ %spec.select.i, %while.end.i ], [ %and.i, %if.end5.i ], [ %spec.select60.i, %if.then55.i ]
+  %shr73.i = lshr i32 %x.0.i, 4
   %idxprom74.i = zext nneg i32 %shr73.i to i64
   %arrayidx75.i = getelementptr inbounds i32, ptr %45, i64 %idxprom74.i
   %58 = load i32, ptr %arrayidx75.i, align 4
-  %and76.i = shl i32 %x.1.i, 1
+  %and76.i = shl i32 %x.0.i, 1
   %shl77.i = and i32 %and76.i, 30
   %shr78.i = lshr i32 %58, %shl77.i
   %and79.i = and i32 %shr78.i, 2
@@ -6741,7 +6741,7 @@ if.end71.i:                                       ; preds = %if.then55.i, %while
 if.then81.i:                                      ; preds = %if.end71.i
   %keys82.i = getelementptr inbounds i8, ptr %0, i64 24
   %59 = load ptr, ptr %keys82.i, align 8
-  %idxprom83.i = zext i32 %x.1.i to i64
+  %idxprom83.i = zext i32 %x.0.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %59, i64 %idxprom83.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp24, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
@@ -6765,7 +6765,7 @@ if.else98.i:                                      ; preds = %if.end71.i
 if.then108.i:                                     ; preds = %if.else98.i
   %keys109.i = getelementptr inbounds i8, ptr %0, i64 24
   %64 = load ptr, ptr %keys109.i, align 8
-  %idxprom110.i = zext i32 %x.1.i to i64
+  %idxprom110.i = zext i32 %x.0.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %64, i64 %idxprom110.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp24, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i
@@ -6858,7 +6858,7 @@ pack_name_hash.exit:                              ; preds = %while.cond.i32, %if
   %81 = load ptr, ptr %positions, align 8
   %vals = getelementptr inbounds i8, ptr %81, i64 32
   %82 = load ptr, ptr %vals, align 8
-  %idxprom23 = zext i32 %x.1.i to i64
+  %idxprom23 = zext i32 %x.0.i to i64
   %arrayidx24 = getelementptr inbounds i32, ptr %82, i64 %idxprom23
   store i32 %74, ptr %arrayidx24, align 4
   %83 = load i32, ptr %count, align 8
@@ -6872,7 +6872,7 @@ if.else:                                          ; preds = %if.else98.i
   %84 = load ptr, ptr %positions, align 8
   %vals27 = getelementptr inbounds i8, ptr %84, i64 32
   %85 = load ptr, ptr %vals27, align 8
-  %idxprom28 = zext i32 %x.1.i to i64
+  %idxprom28 = zext i32 %x.0.i to i64
   %arrayidx29 = getelementptr inbounds i32, ptr %85, i64 %idxprom28
   %86 = load i32, ptr %arrayidx29, align 4
   br label %if.end30

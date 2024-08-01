@@ -1211,7 +1211,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %35
   %.148 = phi ptr [ %37, %35 ], [ %26, %.lr.ph50.preheader ]
-  %.03047 = phi i32 [ %.131, %35 ], [ 1, %.lr.ph50.preheader ]
+  %.13147 = phi i32 [ %.2, %35 ], [ 1, %.lr.ph50.preheader ]
   %.13446 = phi i32 [ %36, %35 ], [ 0, %.lr.ph50.preheader ]
   %27 = getelementptr inbounds i8, ptr %.148, i64 20
   %28 = load i32, ptr %27, align 4
@@ -1228,15 +1228,15 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %30, %34
-  %.131 = phi i32 [ 0, %34 ], [ %.03047, %30 ]
+  %.2 = phi i32 [ 0, %34 ], [ %.13147, %30 ]
   %36 = add nuw nsw i32 %.13446, 1
   %37 = getelementptr inbounds i8, ptr %.148, i64 96
   %exitcond.not = icmp eq i32 %36, %.lcssa
   br i1 %exitcond.not, label %._crit_edge51, label %.lr.ph50, !llvm.loop !8
 
 ._crit_edge51:                                    ; preds = %35, %24
-  %.030.lcssa = phi i32 [ 1, %24 ], [ %.131, %35 ]
-  %38 = icmp ne i32 %.030.lcssa, 0
+  %.131.lcssa = phi i32 [ 1, %24 ], [ %.2, %35 ]
+  %38 = icmp ne i32 %.131.lcssa, 0
   %or.cond = select i1 %.032.lcssa, i1 %38, i1 false
   br i1 %or.cond, label %39, label %.thread56
 
@@ -1253,7 +1253,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br i1 %45, label %.thread60, label %.thread
 
 .thread56:                                        ; preds = %._crit_edge51, %21
-  %.2.ph.ph.ph = phi i32 [ 0, %21 ], [ %.030.lcssa, %._crit_edge51 ]
+  %.030.ph.ph.ph = phi i32 [ 0, %21 ], [ %.131.lcssa, %._crit_edge51 ]
   %.pr = load i32, ptr %19, align 4
   %.not38 = icmp eq i32 %.pr, 0
   br i1 %.not38, label %47, label %.thread
@@ -1264,7 +1264,7 @@ define internal void @write_frame_header(ptr noundef %0) #0 {
   br i1 %.not3862, label %.thread64, label %.thread
 
 47:                                               ; preds = %.thread56
-  %.not39 = icmp eq i32 %.2.ph.ph.ph, 0
+  %.not39 = icmp eq i32 %.030.ph.ph.ph, 0
   br i1 %.not39, label %.thread64, label %.thread
 
 .thread64:                                        ; preds = %.thread60, %47

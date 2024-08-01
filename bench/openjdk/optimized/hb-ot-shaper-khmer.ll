@@ -666,12 +666,12 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit30:     ; preds = %108, %109
   br label %116
 
 116:                                              ; preds = %._crit_edge, %3
-  %.1 = phi i1 [ %9, %._crit_edge ], [ false, %3 ]
+  %.021 = phi i1 [ %9, %._crit_edge ], [ false, %3 ]
   %117 = getelementptr inbounds i8, ptr %2, i64 176
   %118 = load i8, ptr %117, align 8
   %119 = and i8 %118, -65
   store i8 %119, ptr %117, align 8
-  ret i1 %.1
+  ret i1 %.021
 }
 
 declare noundef zeroext i1 @_Z21hb_syllabic_clear_varPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef, ptr noundef, ptr noundef) #3
@@ -688,18 +688,18 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %6, label %135, label %7
 
 7:                                                ; preds = %130, %1
-  %.0153 = phi i32 [ %38, %130 ], [ 21, %1 ]
-  %.0149 = phi i32 [ %.2151, %130 ], [ 0, %1 ]
-  %.0145 = phi i32 [ %.2147, %130 ], [ 1, %1 ]
-  %.0141 = phi i32 [ %.2143, %130 ], [ 0, %1 ]
-  %.0136 = phi i32 [ %spec.select173, %130 ], [ 0, %1 ]
-  %.0135 = phi i32 [ %134, %130 ], [ 0, %1 ]
-  %8 = sext i32 %.0153 to i64
+  %.1154 = phi i32 [ %38, %130 ], [ 21, %1 ]
+  %.1150 = phi i32 [ %.3152, %130 ], [ 0, %1 ]
+  %.1146 = phi i32 [ %.3148, %130 ], [ 1, %1 ]
+  %.1142 = phi i32 [ %.3144, %130 ], [ 0, %1 ]
+  %.1137 = phi i32 [ %spec.select173, %130 ], [ 0, %1 ]
+  %.1 = phi i32 [ %134, %130 ], [ 0, %1 ]
+  %8 = sext i32 %.1154 to i64
   %9 = getelementptr inbounds [43 x i8], ptr @_ZL42_khmer_syllable_machine_from_state_actions, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %cond = icmp eq i8 %10, 7
-  %spec.select = select i1 %cond, i32 %.0135, i32 %.0136
-  %11 = shl nsw i32 %.0153, 1
+  %spec.select = select i1 %cond, i32 %.1, i32 %.1137
+  %11 = shl nsw i32 %.1154, 1
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr @_ZL34_khmer_syllable_machine_trans_keys, i64 %12
   %14 = getelementptr inbounds [43 x i16], ptr @_ZL37_khmer_syllable_machine_index_offsets, i64 0, i64 %8
@@ -710,7 +710,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = load i8, ptr %13, align 2
-  %22 = zext i32 %.0135 to i64
+  %22 = zext i32 %.1 to i64
   %23 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %3, i64 %22, i32 4
   %24 = getelementptr inbounds i8, ptr %23, i64 2
   %25 = load i8, ptr %24, align 2
@@ -734,12 +734,12 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %35
 
 35:                                               ; preds = %136, %30
-  %.1150 = phi i32 [ %.3152, %136 ], [ %.0149, %30 ]
-  %.1146 = phi i32 [ %.3148, %136 ], [ %.0145, %30 ]
-  %.1142 = phi i32 [ %.3144, %136 ], [ %.0141, %30 ]
+  %.2151 = phi i32 [ %.0149, %136 ], [ %.1150, %30 ]
+  %.2147 = phi i32 [ %.0145, %136 ], [ %.1146, %30 ]
+  %.2143 = phi i32 [ %.0141, %136 ], [ %.1142, %30 ]
   %.0140 = phi i64 [ %141, %136 ], [ %34, %30 ]
-  %.2138 = phi i32 [ %.4, %136 ], [ %spec.select, %30 ]
-  %.1 = phi i32 [ %5, %136 ], [ %.0135, %30 ]
+  %.3139 = phi i32 [ %.0136, %136 ], [ %spec.select, %30 ]
+  %.2 = phi i32 [ %5, %136 ], [ %.1, %30 ]
   %36 = getelementptr inbounds [49 x i8], ptr @_ZL35_khmer_syllable_machine_trans_targs, i64 0, i64 %.0140
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
@@ -765,20 +765,20 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   ]
 
 44:                                               ; preds = %41
-  %45 = add i32 %.1, 1
+  %45 = add i32 %.2, 1
   br label %130
 
 46:                                               ; preds = %41
-  %47 = add i32 %.1, 1
+  %47 = add i32 %.2, 1
   %invariant.gep212 = getelementptr inbounds i8, ptr %3, i64 3
-  %48 = icmp ult i32 %.2138, %47
+  %48 = icmp ult i32 %.3139, %47
   br i1 %48, label %.lr.ph216, label %._crit_edge217
 
 .lr.ph216:                                        ; preds = %46
-  %.1146.tr169 = trunc i32 %.1146 to i8
-  %49 = shl i8 %.1146.tr169, 4
+  %.2147.tr169 = trunc i32 %.2147 to i8
+  %49 = shl i8 %.2147.tr169, 4
   %50 = or disjoint i8 %49, 2
-  %51 = zext i32 %.2138 to i64
+  %51 = zext i32 %.3139 to i64
   %wide.trip.count252 = zext i32 %47 to i64
   br label %52
 
@@ -791,22 +791,22 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond253.not, label %._crit_edge217, label %52, !llvm.loop !18
 
 ._crit_edge217:                                   ; preds = %52, %46
-  %53 = add i32 %.1146, 1
+  %53 = add i32 %.2147, 1
   %54 = icmp eq i32 %53, 16
   %spec.store.select = select i1 %54, i32 1, i32 %53
   br label %130
 
 55:                                               ; preds = %41
-  %56 = add i32 %.1, -1
+  %56 = add i32 %.2, -1
   %invariant.gep206 = getelementptr inbounds i8, ptr %3, i64 3
-  %57 = icmp ult i32 %.2138, %.1
+  %57 = icmp ult i32 %.3139, %.2
   br i1 %57, label %.lr.ph210, label %._crit_edge211
 
 .lr.ph210:                                        ; preds = %55
-  %.1146.tr168 = trunc i32 %.1146 to i8
-  %58 = shl i8 %.1146.tr168, 4
-  %59 = zext i32 %.2138 to i64
-  %wide.trip.count247 = zext i32 %.1 to i64
+  %.2147.tr168 = trunc i32 %.2147 to i8
+  %58 = shl i8 %.2147.tr168, 4
+  %59 = zext i32 %.3139 to i64
+  %wide.trip.count247 = zext i32 %.2 to i64
   br label %60
 
 60:                                               ; preds = %.lr.ph210, %60
@@ -818,23 +818,23 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond248.not, label %._crit_edge211, label %60, !llvm.loop !19
 
 ._crit_edge211:                                   ; preds = %60, %55
-  %61 = add i32 %.1146, 1
+  %61 = add i32 %.2147, 1
   %62 = icmp eq i32 %61, 16
   %spec.store.select2 = select i1 %62, i32 1, i32 %61
   br label %130
 
 63:                                               ; preds = %41
-  %64 = add i32 %.1, -1
+  %64 = add i32 %.2, -1
   %invariant.gep200 = getelementptr inbounds i8, ptr %3, i64 3
-  %65 = icmp ult i32 %.2138, %.1
+  %65 = icmp ult i32 %.3139, %.2
   br i1 %65, label %.lr.ph204, label %._crit_edge205
 
 .lr.ph204:                                        ; preds = %63
-  %.1146.tr167 = trunc i32 %.1146 to i8
-  %66 = shl i8 %.1146.tr167, 4
+  %.2147.tr167 = trunc i32 %.2147 to i8
+  %66 = shl i8 %.2147.tr167, 4
   %67 = or disjoint i8 %66, 1
-  %68 = zext i32 %.2138 to i64
-  %wide.trip.count242 = zext i32 %.1 to i64
+  %68 = zext i32 %.3139 to i64
+  %wide.trip.count242 = zext i32 %.2 to i64
   br label %69
 
 69:                                               ; preds = %.lr.ph204, %69
@@ -846,7 +846,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond243.not, label %._crit_edge205, label %69, !llvm.loop !20
 
 ._crit_edge205:                                   ; preds = %69, %63
-  %70 = add i32 %.1146, 1
+  %70 = add i32 %.2147, 1
   %71 = icmp eq i32 %70, 16
   %spec.store.select3 = select i1 %71, i32 1, i32 %70
   %72 = getelementptr inbounds i8, ptr %0, i64 180
@@ -856,17 +856,17 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %130
 
 75:                                               ; preds = %41
-  %76 = add i32 %.1, -1
+  %76 = add i32 %.2, -1
   %invariant.gep194 = getelementptr inbounds i8, ptr %3, i64 3
-  %77 = icmp ult i32 %.2138, %.1
+  %77 = icmp ult i32 %.3139, %.2
   br i1 %77, label %.lr.ph198, label %._crit_edge199
 
 .lr.ph198:                                        ; preds = %75
-  %.1146.tr166 = trunc i32 %.1146 to i8
-  %78 = shl i8 %.1146.tr166, 4
+  %.2147.tr166 = trunc i32 %.2147 to i8
+  %78 = shl i8 %.2147.tr166, 4
   %79 = or disjoint i8 %78, 2
-  %80 = zext i32 %.2138 to i64
-  %wide.trip.count237 = zext i32 %.1 to i64
+  %80 = zext i32 %.3139 to i64
+  %wide.trip.count237 = zext i32 %.2 to i64
   br label %81
 
 81:                                               ; preds = %.lr.ph198, %81
@@ -878,22 +878,22 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond238.not, label %._crit_edge199, label %81, !llvm.loop !21
 
 ._crit_edge199:                                   ; preds = %81, %75
-  %82 = add i32 %.1146, 1
+  %82 = add i32 %.2147, 1
   %83 = icmp eq i32 %82, 16
   %spec.store.select4 = select i1 %83, i32 1, i32 %82
   br label %130
 
 84:                                               ; preds = %41
-  %85 = add i32 %.1142, -1
+  %85 = add i32 %.2143, -1
   %invariant.gep188 = getelementptr inbounds i8, ptr %3, i64 3
-  %86 = icmp ult i32 %.2138, %.1142
+  %86 = icmp ult i32 %.3139, %.2143
   br i1 %86, label %.lr.ph192, label %._crit_edge193
 
 .lr.ph192:                                        ; preds = %84
-  %.1146.tr165 = trunc i32 %.1146 to i8
-  %87 = shl i8 %.1146.tr165, 4
-  %88 = zext i32 %.2138 to i64
-  %wide.trip.count232 = zext i32 %.1142 to i64
+  %.2147.tr165 = trunc i32 %.2147 to i8
+  %87 = shl i8 %.2147.tr165, 4
+  %88 = zext i32 %.3139 to i64
+  %wide.trip.count232 = zext i32 %.2143 to i64
   br label %89
 
 89:                                               ; preds = %.lr.ph192, %89
@@ -905,23 +905,23 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond233.not, label %._crit_edge193, label %89, !llvm.loop !22
 
 ._crit_edge193:                                   ; preds = %89, %84
-  %90 = add i32 %.1146, 1
+  %90 = add i32 %.2147, 1
   %91 = icmp eq i32 %90, 16
   %spec.store.select5 = select i1 %91, i32 1, i32 %90
   br label %130
 
 92:                                               ; preds = %41
-  %93 = add i32 %.1142, -1
+  %93 = add i32 %.2143, -1
   %invariant.gep182 = getelementptr inbounds i8, ptr %3, i64 3
-  %94 = icmp ult i32 %.2138, %.1142
+  %94 = icmp ult i32 %.3139, %.2143
   br i1 %94, label %.lr.ph186, label %._crit_edge187
 
 .lr.ph186:                                        ; preds = %92
-  %.1146.tr164 = trunc i32 %.1146 to i8
-  %95 = shl i8 %.1146.tr164, 4
+  %.2147.tr164 = trunc i32 %.2147 to i8
+  %95 = shl i8 %.2147.tr164, 4
   %96 = or disjoint i8 %95, 1
-  %97 = zext i32 %.2138 to i64
-  %wide.trip.count227 = zext i32 %.1142 to i64
+  %97 = zext i32 %.3139 to i64
+  %wide.trip.count227 = zext i32 %.2143 to i64
   br label %98
 
 98:                                               ; preds = %.lr.ph186, %98
@@ -933,7 +933,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond228.not, label %._crit_edge187, label %98, !llvm.loop !23
 
 ._crit_edge187:                                   ; preds = %98, %92
-  %99 = add i32 %.1146, 1
+  %99 = add i32 %.2147, 1
   %100 = icmp eq i32 %99, 16
   %spec.store.select6 = select i1 %100, i32 1, i32 %99
   %101 = getelementptr inbounds i8, ptr %0, i64 180
@@ -943,23 +943,23 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %130
 
 104:                                              ; preds = %41
-  switch i32 %.1150, label %130 [
+  switch i32 %.2151, label %130 [
     i32 2, label %105
     i32 3, label %117
   ]
 
 105:                                              ; preds = %104
-  %106 = add i32 %.1142, -1
+  %106 = add i32 %.2143, -1
   %invariant.gep176 = getelementptr inbounds i8, ptr %3, i64 3
-  %107 = icmp ult i32 %.2138, %.1142
+  %107 = icmp ult i32 %.3139, %.2143
   br i1 %107, label %.lr.ph180, label %._crit_edge181
 
 .lr.ph180:                                        ; preds = %105
-  %.1146.tr163 = trunc i32 %.1146 to i8
-  %108 = shl i8 %.1146.tr163, 4
+  %.2147.tr163 = trunc i32 %.2147 to i8
+  %108 = shl i8 %.2147.tr163, 4
   %109 = or disjoint i8 %108, 1
-  %110 = zext i32 %.2138 to i64
-  %wide.trip.count222 = zext i32 %.1142 to i64
+  %110 = zext i32 %.3139 to i64
+  %wide.trip.count222 = zext i32 %.2143 to i64
   br label %111
 
 111:                                              ; preds = %.lr.ph180, %111
@@ -971,7 +971,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond223.not, label %._crit_edge181, label %111, !llvm.loop !24
 
 ._crit_edge181:                                   ; preds = %111, %105
-  %112 = add i32 %.1146, 1
+  %112 = add i32 %.2147, 1
   %113 = icmp eq i32 %112, 16
   %spec.store.select7 = select i1 %113, i32 1, i32 %112
   %114 = getelementptr inbounds i8, ptr %0, i64 180
@@ -981,17 +981,17 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %130
 
 117:                                              ; preds = %104
-  %118 = add i32 %.1142, -1
+  %118 = add i32 %.2143, -1
   %invariant.gep = getelementptr inbounds i8, ptr %3, i64 3
-  %119 = icmp ult i32 %.2138, %.1142
+  %119 = icmp ult i32 %.3139, %.2143
   br i1 %119, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %117
-  %.1146.tr = trunc i32 %.1146 to i8
-  %120 = shl i8 %.1146.tr, 4
+  %.2147.tr = trunc i32 %.2147 to i8
+  %120 = shl i8 %.2147.tr, 4
   %121 = or disjoint i8 %120, 2
-  %122 = zext i32 %.2138 to i64
-  %wide.trip.count = zext i32 %.1142 to i64
+  %122 = zext i32 %.3139 to i64
+  %wide.trip.count = zext i32 %.2143 to i64
   br label %123
 
 123:                                              ; preds = %.lr.ph, %123
@@ -1003,44 +1003,44 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br i1 %exitcond.not, label %._crit_edge, label %123, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %123, %117
-  %124 = add i32 %.1146, 1
+  %124 = add i32 %.2147, 1
   %125 = icmp eq i32 %124, 16
   %spec.store.select8 = select i1 %125, i32 1, i32 %124
   br label %130
 
 126:                                              ; preds = %41
-  %127 = add i32 %.1, 1
+  %127 = add i32 %.2, 1
   br label %130
 
 128:                                              ; preds = %41
-  %129 = add i32 %.1, 1
+  %129 = add i32 %.2, 1
   br label %130
 
 130:                                              ; preds = %41, %44, %._crit_edge217, %._crit_edge211, %._crit_edge205, %._crit_edge199, %._crit_edge193, %._crit_edge187, %126, %128, %._crit_edge, %._crit_edge181, %104, %35
-  %.2151 = phi i32 [ %.1150, %35 ], [ %.1150, %41 ], [ 3, %128 ], [ 2, %126 ], [ %.1150, %104 ], [ 3, %._crit_edge ], [ 2, %._crit_edge181 ], [ %.1150, %._crit_edge187 ], [ %.1150, %._crit_edge193 ], [ %.1150, %._crit_edge199 ], [ %.1150, %._crit_edge205 ], [ %.1150, %._crit_edge211 ], [ %.1150, %._crit_edge217 ], [ %.1150, %44 ]
-  %.2147 = phi i32 [ %.1146, %35 ], [ %.1146, %41 ], [ %.1146, %128 ], [ %.1146, %126 ], [ %.1146, %104 ], [ %spec.store.select8, %._crit_edge ], [ %spec.store.select7, %._crit_edge181 ], [ %spec.store.select6, %._crit_edge187 ], [ %spec.store.select5, %._crit_edge193 ], [ %spec.store.select4, %._crit_edge199 ], [ %spec.store.select3, %._crit_edge205 ], [ %spec.store.select2, %._crit_edge211 ], [ %spec.store.select, %._crit_edge217 ], [ %.1146, %44 ]
-  %.2143 = phi i32 [ %.1142, %35 ], [ %.1142, %41 ], [ %129, %128 ], [ %127, %126 ], [ %.1142, %104 ], [ %.1142, %._crit_edge ], [ %.1142, %._crit_edge181 ], [ %.1142, %._crit_edge187 ], [ %.1142, %._crit_edge193 ], [ %.1, %._crit_edge199 ], [ %.1, %._crit_edge205 ], [ %.1, %._crit_edge211 ], [ %47, %._crit_edge217 ], [ %45, %44 ]
-  %.2 = phi i32 [ %.1, %35 ], [ %.1, %41 ], [ %.1, %128 ], [ %.1, %126 ], [ %.1, %104 ], [ %118, %._crit_edge ], [ %106, %._crit_edge181 ], [ %93, %._crit_edge187 ], [ %85, %._crit_edge193 ], [ %76, %._crit_edge199 ], [ %64, %._crit_edge205 ], [ %56, %._crit_edge211 ], [ %.1, %._crit_edge217 ], [ %.1, %44 ]
+  %.3152 = phi i32 [ %.2151, %35 ], [ %.2151, %41 ], [ 3, %128 ], [ 2, %126 ], [ %.2151, %104 ], [ 3, %._crit_edge ], [ 2, %._crit_edge181 ], [ %.2151, %._crit_edge187 ], [ %.2151, %._crit_edge193 ], [ %.2151, %._crit_edge199 ], [ %.2151, %._crit_edge205 ], [ %.2151, %._crit_edge211 ], [ %.2151, %._crit_edge217 ], [ %.2151, %44 ]
+  %.3148 = phi i32 [ %.2147, %35 ], [ %.2147, %41 ], [ %.2147, %128 ], [ %.2147, %126 ], [ %.2147, %104 ], [ %spec.store.select8, %._crit_edge ], [ %spec.store.select7, %._crit_edge181 ], [ %spec.store.select6, %._crit_edge187 ], [ %spec.store.select5, %._crit_edge193 ], [ %spec.store.select4, %._crit_edge199 ], [ %spec.store.select3, %._crit_edge205 ], [ %spec.store.select2, %._crit_edge211 ], [ %spec.store.select, %._crit_edge217 ], [ %.2147, %44 ]
+  %.3144 = phi i32 [ %.2143, %35 ], [ %.2143, %41 ], [ %129, %128 ], [ %127, %126 ], [ %.2143, %104 ], [ %.2143, %._crit_edge ], [ %.2143, %._crit_edge181 ], [ %.2143, %._crit_edge187 ], [ %.2143, %._crit_edge193 ], [ %.2, %._crit_edge199 ], [ %.2, %._crit_edge205 ], [ %.2, %._crit_edge211 ], [ %47, %._crit_edge217 ], [ %45, %44 ]
+  %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %.2, %128 ], [ %.2, %126 ], [ %.2, %104 ], [ %118, %._crit_edge ], [ %106, %._crit_edge181 ], [ %93, %._crit_edge187 ], [ %85, %._crit_edge193 ], [ %76, %._crit_edge199 ], [ %64, %._crit_edge205 ], [ %56, %._crit_edge211 ], [ %.2, %._crit_edge217 ], [ %.2, %44 ]
   %131 = sext i8 %37 to i64
   %132 = getelementptr inbounds [43 x i8], ptr @_ZL40_khmer_syllable_machine_to_state_actions, i64 0, i64 %131
   %133 = load i8, ptr %132, align 1
   %cond1 = icmp eq i8 %133, 6
-  %spec.select173 = select i1 %cond1, i32 0, i32 %.2138
-  %134 = add i32 %.2, 1
+  %spec.select173 = select i1 %cond1, i32 0, i32 %.3139
+  %134 = add i32 %.3, 1
   %.not170 = icmp eq i32 %134, %5
   br i1 %.not170, label %135, label %7
 
 135:                                              ; preds = %130, %1
-  %.1154 = phi i32 [ 21, %1 ], [ %38, %130 ]
-  %.3152 = phi i32 [ 0, %1 ], [ %.2151, %130 ]
-  %.3148 = phi i32 [ 1, %1 ], [ %.2147, %130 ]
-  %.3144 = phi i32 [ 0, %1 ], [ %.2143, %130 ]
-  %.4 = phi i32 [ 0, %1 ], [ %spec.select173, %130 ]
-  %.not = icmp eq i32 %.1154, 21
+  %.0153 = phi i32 [ 21, %1 ], [ %38, %130 ]
+  %.0149 = phi i32 [ 0, %1 ], [ %.3152, %130 ]
+  %.0145 = phi i32 [ 1, %1 ], [ %.3148, %130 ]
+  %.0141 = phi i32 [ 0, %1 ], [ %.3144, %130 ]
+  %.0136 = phi i32 [ 0, %1 ], [ %spec.select173, %130 ]
+  %.not = icmp eq i32 %.0153, 21
   br i1 %.not, label %142, label %136
 
 136:                                              ; preds = %135
-  %137 = sext i32 %.1154 to i64
+  %137 = sext i32 %.0153 to i64
   %138 = getelementptr inbounds [43 x i16], ptr @_ZL33_khmer_syllable_machine_eof_trans, i64 0, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = sext i16 %139 to i64

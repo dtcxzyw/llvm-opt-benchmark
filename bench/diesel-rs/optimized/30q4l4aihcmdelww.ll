@@ -79,13 +79,13 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
   br i1 %33, label %38, label %41
 
 34:                                               ; preds = %42, %36
-  %.1 = phi i8 [ %.2, %36 ], [ %.0, %42 ]
+  %.2 = phi i8 [ %.1, %36 ], [ %.0, %42 ]
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %43, %42 ]
-  %35 = trunc nuw i8 %.1 to i1
+  %35 = trunc nuw i8 %.2 to i1
   br i1 %35, label %52, label %51
 
 36:                                               ; preds = %.invoke, %44, %22, %17, %12
-  %.2 = phi i8 [ %.0, %44 ], [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 1, %.invoke ]
+  %.1 = phi i8 [ %.0, %44 ], [ 1, %22 ], [ 1, %17 ], [ 1, %12 ], [ 1, %.invoke ]
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %34

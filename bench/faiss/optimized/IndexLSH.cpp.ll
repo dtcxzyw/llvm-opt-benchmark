@@ -737,18 +737,18 @@ define void @_ZNK5faiss8IndexLSH9sa_decodeElPKhPf(ptr noundef nonnull align 8 de
 15:                                               ; preds = %41, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit
   %16 = landingpad { ptr, i32 }
           cleanup
-  %.not.i = icmp eq ptr %.sroa.0.1, null
+  %.not.i = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %15
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0) #14
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %15, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   resume { ptr, i32 } %16
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %4, %._crit_edge51
-  %.sroa.0.1 = phi ptr [ %14, %._crit_edge51 ], [ null, %4 ]
+  %.sroa.0.0 = phi ptr [ %14, %._crit_edge51 ], [ null, %4 ]
   %.029 = phi ptr [ %14, %._crit_edge51 ], [ %3, %4 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZN5faiss13bitvecs2fvecsEPKhPfmm(ptr noundef %2, ptr noundef %.029, i64 noundef %.pre52, i64 noundef %1)
@@ -833,11 +833,11 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %4,
   br i1 %exitcond50.not, label %.loopexit, label %.lr.ph46, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph46, %43, %41
-  %.not.i31 = icmp eq ptr %.sroa.0.1, null
+  %.not.i31 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit33, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32: ; preds = %.loopexit
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0) #14
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit33
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit33: ; preds = %.loopexit, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32
@@ -1186,7 +1186,7 @@ define noundef ptr @_ZNK5faiss8IndexLSH16apply_preprocessElPKf(ptr noundef nonnu
   br label %55
 
 55:                                               ; preds = %.thread42, %44
-  %.134 = phi ptr [ %52, %.thread42 ], [ %.033, %44 ]
+  %.2 = phi ptr [ %52, %.thread42 ], [ %.033, %44 ]
   %56 = icmp sgt i64 %1, 0
   br i1 %56, label %.preheader.lr.ph, label %.loopexit
 
@@ -1200,7 +1200,7 @@ define noundef ptr @_ZNK5faiss8IndexLSH16apply_preprocessElPKf(ptr noundef nonnu
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge54
   %61 = phi i32 [ %72, %._crit_edge54 ], [ %59, %.preheader.lr.ph ]
   %.03057 = phi i64 [ %73, %._crit_edge54 ], [ 0, %.preheader.lr.ph ]
-  %.03156 = phi ptr [ %.1.lcssa, %._crit_edge54 ], [ %.134, %.preheader.lr.ph ]
+  %.03156 = phi ptr [ %.1.lcssa, %._crit_edge54 ], [ %.2, %.preheader.lr.ph ]
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph53, label %._crit_edge54
 
@@ -1228,9 +1228,9 @@ define noundef ptr @_ZNK5faiss8IndexLSH16apply_preprocessElPKf(ptr noundef nonnu
   br i1 %exitcond65.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge54, %.preheader.lr.ph, %55, %.thread, %.loopexit44
-  %.2 = phi ptr [ %.033, %.loopexit44 ], [ null, %.thread ], [ %.134, %55 ], [ %.134, %.preheader.lr.ph ], [ %.134, %._crit_edge54 ]
-  %.not39 = icmp eq ptr %.2, null
-  %74 = select i1 %.not39, ptr %2, ptr %.2
+  %.134 = phi ptr [ %.033, %.loopexit44 ], [ null, %.thread ], [ %.2, %55 ], [ %.2, %.preheader.lr.ph ], [ %.2, %._crit_edge54 ]
+  %.not39 = icmp eq ptr %.134, null
+  %74 = select i1 %.not39, ptr %2, ptr %.134
   ret ptr %74
 }
 

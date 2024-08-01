@@ -5186,28 +5186,28 @@ _Z14multiply_by_1kIiEbRT_.exit.thread.i.i:        ; preds = %45
   br label %48
 
 48:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i, %43, %43
-  %.2.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %47, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i ]
-  %49 = add i32 %.2.i.i, 2097152
+  %.026.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %47, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i ]
+  %49 = add i32 %.026.i.i, 2097152
   %or.cond.i16.i.i = icmp ult i32 %49, 4194304
   br i1 %or.cond.i16.i.i, label %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
 
 _Z14multiply_by_1kIiEbRT_.exit17.thread.i.i:      ; preds = %48
-  %50 = shl nsw i32 %.2.i.i, 10
+  %50 = shl nsw i32 %.026.i.i, 10
   br label %51
 
 51:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i, %43, %43
-  %.4.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %50, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i ]
-  %52 = add i32 %.4.i.i, 2097152
+  %.1.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %50, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i ]
+  %52 = add i32 %.1.i.i, 2097152
   %or.cond.i18.i.i = icmp ult i32 %52, 4194304
   br i1 %or.cond.i18.i.i, label %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
 
 _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i:      ; preds = %51
-  %53 = shl nsw i32 %.4.i.i, 10
+  %53 = shl nsw i32 %.1.i.i, 10
   br label %54
 
 54:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i, %43, %43
-  %.6.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %53, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i ]
-  %55 = add i32 %.6.i.i, 2097152
+  %.2.i.i = phi i32 [ %40, %43 ], [ %40, %43 ], [ %53, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i ]
+  %55 = add i32 %.2.i.i, 2097152
   %or.cond.i20.i.i = icmp ult i32 %55, 4194304
   br i1 %or.cond.i20.i.i, label %56, label %_ZL13parse_integerIiEbPKcPT_.exit.thread
 

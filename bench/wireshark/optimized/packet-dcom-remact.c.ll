@@ -137,10 +137,10 @@ define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 n
   br i1 %.not9193, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %.lr.ph
-  %.195 = phi i32 [ %40, %.lr.ph ], [ %36, %35 ]
+  %.295 = phi i32 [ %40, %.lr.ph ], [ %36, %35 ]
   %.08894 = phi i32 [ %41, %.lr.ph ], [ 1, %35 ]
   %39 = load i32, ptr @hf_dcom_iid, align 4
-  %40 = call i32 @dissect_dcom_append_UUID(ptr noundef %0, i32 noundef %.195, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef %.08894, ptr noundef nonnull %14) #3
+  %40 = call i32 @dissect_dcom_append_UUID(ptr noundef %0, i32 noundef %.295, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef %.08894, ptr noundef nonnull %14) #3
   %41 = add i32 %.08894, 1
   %42 = load i32, ptr %9, align 4
   %43 = add i32 %42, -1
@@ -149,9 +149,9 @@ define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 n
   br i1 %.not91, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %24
-  %.2 = phi i32 [ %33, %24 ], [ %36, %35 ], [ %40, %.lr.ph ]
+  %.1 = phi i32 [ %33, %24 ], [ %36, %35 ], [ %40, %.lr.ph ]
   %44 = load i32, ptr @hf_remact_requested_protseqs, align 4
-  %45 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %44, ptr noundef nonnull %12) #3
+  %45 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %44, ptr noundef nonnull %12) #3
   %46 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %11) #3
   %47 = load i32, ptr %11, align 4
   %48 = add i32 %47, -1

@@ -4204,8 +4204,8 @@ php_session_encode.exit.i:                        ; preds = %18
   br label %52
 
 52:                                               ; preds = %.critedge2.i, %.critedge.i
-  %.031.i = phi ptr [ %45, %.critedge.i ], [ @.str.51, %.critedge2.i ]
-  %.0.i = phi i32 [ %44, %.critedge.i ], [ %51, %.critedge2.i ]
+  %.132.i = phi ptr [ %45, %.critedge.i ], [ @.str.51, %.critedge2.i ]
+  %.1.i = phi i32 [ %44, %.critedge.i ], [ %51, %.critedge2.i ]
   %53 = getelementptr inbounds i8, ptr %22, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 64
@@ -4236,9 +4236,9 @@ php_session_encode.exit.i:                        ; preds = %18
   br label %70
 
 70:                                               ; preds = %62, %61, %56, %52, %15
-  %.132.i = phi ptr [ %.031.i, %52 ], [ %.031.i, %61 ], [ %.031.i, %56 ], [ @.str.51, %62 ], [ undef, %15 ]
-  %.1.i = phi i32 [ %.0.i, %52 ], [ %.0.i, %61 ], [ %.0.i, %56 ], [ %69, %62 ], [ -1, %15 ]
-  %71 = icmp eq i32 %.1.i, -1
+  %.031.i = phi ptr [ %.132.i, %52 ], [ %.132.i, %61 ], [ %.132.i, %56 ], [ @.str.51, %62 ], [ undef, %15 ]
+  %.0.i = phi i32 [ %.1.i, %52 ], [ %.1.i, %61 ], [ %.1.i, %56 ], [ %69, %62 ], [ -1, %15 ]
+  %71 = icmp eq i32 %.0.i, -1
   %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not44.i = icmp eq ptr %72, null
   %or.cond49.i = select i1 %71, i1 %.not44.i, i1 false
@@ -4263,11 +4263,11 @@ php_session_encode.exit.i:                        ; preds = %18
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.162, ptr noundef %81, ptr noundef nonnull %83, ptr noundef %.132.i) #23
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.162, ptr noundef %81, ptr noundef nonnull %83, ptr noundef %.031.i) #23
   br label %85
 
 84:                                               ; preds = %80
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef %81, ptr noundef %.132.i) #23
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.163, ptr noundef %81, ptr noundef %.031.i) #23
   br label %85
 
 85:                                               ; preds = %84, %82, %76, %70, %7, %4
@@ -4373,7 +4373,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br i1 %24, label %.thread, label %.thread865
 
 .thread:                                          ; preds = %19, %21, %23
-  %.1774839 = phi ptr [ null, %23 ], [ null, %21 ], [ %20, %19 ]
+  %.2775839 = phi ptr [ null, %23 ], [ null, %21 ], [ %20, %19 ]
   %25 = icmp eq i32 %12, 1
   br i1 %25, label %.thread881, label %26
 
@@ -4456,7 +4456,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br i1 %54, label %.thread841, label %.thread865
 
 .thread841:                                       ; preds = %49, %51, %50, %52
-  %.2765844 = phi i8 [ 0, %52 ], [ 1, %51 ], [ 0, %50 ], [ 0, %49 ]
+  %.3844 = phi i8 [ 0, %52 ], [ 1, %51 ], [ 0, %50 ], [ 0, %49 ]
   %.not = icmp eq i32 %12, 5
   br i1 %.not, label %55, label %.thread881
 
@@ -4496,8 +4496,8 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %429
 
 .thread881:                                       ; preds = %61, %59, %60, %58, %.thread841, %44, %34, %.thread
-  %.3892 = phi i8 [ %.2765844, %.thread841 ], [ 1, %44 ], [ 1, %34 ], [ 1, %.thread ], [ %.2765844, %58 ], [ %.2765844, %60 ], [ %.2765844, %59 ], [ %.2765844, %61 ]
-  %.3769891 = phi i8 [ 1, %.thread841 ], [ 1, %44 ], [ 1, %34 ], [ 1, %.thread ], [ 0, %58 ], [ 1, %60 ], [ 0, %59 ], [ 0, %61 ]
+  %.0763892 = phi i8 [ %.3844, %.thread841 ], [ 1, %44 ], [ 1, %34 ], [ 1, %.thread ], [ %.3844, %58 ], [ %.3844, %60 ], [ %.3844, %59 ], [ %.3844, %61 ]
+  %.0766891 = phi i8 [ 1, %.thread841 ], [ 1, %44 ], [ 1, %34 ], [ 1, %.thread ], [ 0, %58 ], [ 1, %60 ], [ 0, %59 ], [ 0, %61 ]
   %64 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %65 = icmp eq i32 %64, 2
   br i1 %65, label %66, label %68
@@ -4520,7 +4520,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %429
 
 72:                                               ; preds = %68
-  %.not794 = icmp eq ptr %.1774839, null
+  %.not794 = icmp eq ptr %.2775839, null
   br i1 %.not794, label %235, label %73
 
 73:                                               ; preds = %72
@@ -4548,7 +4548,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %429
 
 83:                                               ; preds = %78
-  %84 = trunc nuw i8 %.3892 to i1
+  %84 = trunc nuw i8 %.0763892 to i1
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %83
@@ -4559,7 +4559,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %429
 
 88:                                               ; preds = %83
-  %89 = trunc nuw i8 %.3769891 to i1
+  %89 = trunc nuw i8 %.0766891 to i1
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
@@ -4570,14 +4570,14 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %429
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %.1774839, i64 8
-  %95 = getelementptr inbounds i8, ptr %.1774839, i64 24
+  %94 = getelementptr inbounds i8, ptr %.2775839, i64 8
+  %95 = getelementptr inbounds i8, ptr %.2775839, i64 24
   %96 = load i32, ptr %95, align 8
   %.not797902 = icmp eq i32 %96, 0
   br i1 %.not797902, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %.1774839, i64 16
+  %97 = getelementptr inbounds i8, ptr %.2775839, i64 16
   %98 = load ptr, ptr %97, align 8
   br label %.lr.ph
 
@@ -4588,8 +4588,8 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   %.0748907 = phi ptr [ %.1749, %230 ], [ null, %.lr.ph.preheader ]
   %.0753906 = phi ptr [ %.1754, %230 ], [ null, %.lr.ph.preheader ]
   %.0756905 = phi i32 [ %.1757, %230 ], [ 0, %.lr.ph.preheader ]
-  %.4904 = phi i8 [ %.5, %230 ], [ %.3892, %.lr.ph.preheader ]
-  %.4770903 = phi i8 [ %.5771, %230 ], [ %.3769891, %.lr.ph.preheader ]
+  %.4904 = phi i8 [ %.5, %230 ], [ %.0763892, %.lr.ph.preheader ]
+  %.4770903 = phi i8 [ %.5771, %230 ], [ %.0766891, %.lr.ph.preheader ]
   %99 = load i32, ptr %94, align 8
   %100 = and i32 %99, 4
   %.not821 = icmp eq i32 %100, 0
@@ -4875,8 +4875,8 @@ thread-pre-split896:                              ; preds = %189
   br label %238
 
 238:                                              ; preds = %._crit_edge, %235
-  %.6772 = phi i8 [ %.5771, %._crit_edge ], [ %.3769891, %235 ]
-  %.6 = phi i8 [ %.5, %._crit_edge ], [ %.3892, %235 ]
+  %.6772 = phi i8 [ %.5771, %._crit_edge ], [ %.0766891, %235 ]
+  %.6 = phi i8 [ %.5, %._crit_edge ], [ %.0763892, %235 ]
   %.2758 = phi i32 [ %.1757, %._crit_edge ], [ 0, %235 ]
   %.2755 = phi ptr [ %.1754, %._crit_edge ], [ null, %235 ]
   %.2 = phi ptr [ %.1749, %._crit_edge ], [ %237, %235 ]
@@ -8421,7 +8421,7 @@ define hidden void @zif_session_start(ptr nocapture noundef readonly %0, ptr noc
   br label %43
 
 43:                                               ; preds = %.lr.ph, %134
-  %.079112 = phi i64 [ 0, %.lr.ph ], [ %.1, %134 ]
+  %.1112 = phi i64 [ 0, %.lr.ph ], [ %.2, %134 ]
   %.081111 = phi ptr [ null, %.lr.ph ], [ %.182, %134 ]
   %.085109 = phi ptr [ %41, %.lr.ph ], [ %.186, %134 ]
   %.087108 = phi i32 [ %39, %.lr.ph ], [ %135, %134 ]
@@ -8621,17 +8621,17 @@ php_session_start_set_ini.exit:                   ; preds = %93, %105, %109, %11
   br label %177
 
 134:                                              ; preds = %65, %67, %118, %127, %122, %117, %52
-  %.1 = phi i64 [ %.079112, %52 ], [ %.079112, %118 ], [ %.079112, %127 ], [ %.079112, %122 ], [ %.079112, %117 ], [ %66, %65 ], [ %68, %67 ]
+  %.2 = phi i64 [ %.1112, %52 ], [ %.1112, %118 ], [ %.1112, %127 ], [ %.1112, %122 ], [ %.1112, %117 ], [ %66, %65 ], [ %68, %67 ]
   %135 = add i32 %.087108, -1
   %.not93 = icmp eq i32 %135, 0
   br i1 %.not93, label %.loopexit.loopexit, label %43
 
 .loopexit.loopexit:                               ; preds = %134
-  %136 = icmp eq i64 %.1, 0
+  %136 = icmp eq i64 %.2, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35, %33
-  %.2 = phi i1 [ true, %33 ], [ true, %35 ], [ %136, %.loopexit.loopexit ]
+  %.079 = phi i1 [ true, %33 ], [ true, %35 ], [ %136, %.loopexit.loopexit ]
   %137 = call i32 @php_session_start()
   %138 = load i32, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 104), align 8
   %.not94 = icmp eq i32 %138, 2
@@ -8684,7 +8684,7 @@ php_session_start_set_ini.exit:                   ; preds = %93, %105, %109, %11
   br label %177
 
 164:                                              ; preds = %.loopexit
-  br i1 %.2, label %175, label %165
+  br i1 %.079, label %175, label %165
 
 165:                                              ; preds = %164
   %166 = load ptr, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 96), align 16

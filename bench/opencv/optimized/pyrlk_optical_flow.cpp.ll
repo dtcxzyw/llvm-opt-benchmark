@@ -1158,7 +1158,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIN2cv
           to label %406 unwind label %.loopexit.split-lp
 
 406:                                              ; preds = %.invoke217, %405
-  %.035 = phi i32 [ 0, %405 ], [ 1, %.invoke217 ]
+  %.1 = phi i32 [ 0, %405 ], [ 1, %.invoke217 ]
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %47) #15
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %46) #15
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %45) #15
@@ -1448,7 +1448,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %465, %472
           to label %512 unwind label %.loopexit.split-lp209
 
 512:                                              ; preds = %.loopexit207, %406
-  %.1 = phi i32 [ %.035, %406 ], [ 0, %.loopexit207 ]
+  %.2 = phi i32 [ %.1, %406 ], [ 0, %.loopexit207 ]
   %513 = load ptr, ptr %40, align 8
   %.not.i.i.i188 = icmp eq ptr %513, null
   br i1 %.not.i.i.i188, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %514
@@ -1563,9 +1563,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit200: ; preds = %528, %_ZNSt6vectorI
   br label %535
 
 534:                                              ; preds = %105, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit192
-  %.2 = phi i32 [ %.1, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit192 ], [ 0, %105 ]
+  %.035 = phi i32 [ %.2, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit192 ], [ 0, %105 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
-  ret i32 %.2
+  ret i32 %.035
 
 535:                                              ; preds = %533, %194, %116, %115
   %.pn156 = phi { ptr, i32 } [ %117, %116 ], [ %.pn146.pn.pn.pn.pn.pn.pn.pn.pn, %533 ], [ %.pn91.pn, %194 ], [ %.pn89, %115 ]

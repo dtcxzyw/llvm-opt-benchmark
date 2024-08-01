@@ -1781,7 +1781,7 @@ lpad116:                                          ; preds = %invoke.cont115
   br label %ehcleanup145
 
 cond.true:                                        ; preds = %invoke.cont117, %_ZN4cvc58internal8RationalD2Ev.exit, %_ZN4cvc58internal8RationalD2Ev.exit79, %_ZN4cvc58internal8RationalD2Ev.exit101, %_ZN4cvc58internal8RationalD2Ev.exit118
-  %relation.0 = phi i32 [ %7, %invoke.cont117 ], [ 71, %_ZN4cvc58internal8RationalD2Ev.exit ], [ 71, %_ZN4cvc58internal8RationalD2Ev.exit79 ], [ 73, %_ZN4cvc58internal8RationalD2Ev.exit101 ], [ 73, %_ZN4cvc58internal8RationalD2Ev.exit118 ]
+  %relation.1 = phi i32 [ %7, %invoke.cont117 ], [ 71, %_ZN4cvc58internal8RationalD2Ev.exit ], [ 71, %_ZN4cvc58internal8RationalD2Ev.exit79 ], [ 73, %_ZN4cvc58internal8RationalD2Ev.exit101 ], [ 73, %_ZN4cvc58internal8RationalD2Ev.exit118 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %br)
           to label %if.end146 unwind label %terminate.lpad.i.i367
 
@@ -1805,8 +1805,8 @@ terminate.lpad.i.i370:                            ; preds = %ehcleanup145
   unreachable
 
 if.end146:                                        ; preds = %cond.true, %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %relation.1 = phi i32 [ %7, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %relation.0, %cond.true ]
-  switch i32 %relation.1, label %sw.epilog159 [
+  %relation.0 = phi i32 [ %7, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %relation.1, %cond.true ]
+  switch i32 %relation.0, label %sw.epilog159 [
     i32 71, label %invoke.cont152.invoke
     i32 70, label %sw.bb149
     i32 5, label %sw.bb151
@@ -1992,7 +1992,7 @@ ehcleanup165:                                     ; preds = %ehcleanup163, %lpad
   br label %ehcleanup167
 
 cleanup166:                                       ; preds = %if.then13.i.i.i.i, %if.then.i.i.i.i, %_ZNSt5tupleIJN4cvc58internal6theory5arith6linear10PolynomialENS1_4kind6Kind_tENS4_8ConstantEEED2Ev.exit, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ %retval.1, %_ZNSt5tupleIJN4cvc58internal6theory5arith6linear10PolynomialENS1_4kind6Kind_tENS4_8ConstantEEED2Ev.exit ], [ %retval.1, %if.then.i.i.i.i ], [ %retval.1, %if.then13.i.i.i.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZNSt5tupleIJN4cvc58internal6theory5arith6linear10PolynomialENS1_4kind6Kind_tENS4_8ConstantEEED2Ev.exit ], [ %retval.1, %if.then.i.i.i.i ], [ %retval.1, %if.then13.i.i.i.i ]
   %114 = load ptr, ptr %tmp, align 8
   %bf.load.i.i394 = load i64, ptr %114, align 8
   %115 = and i64 %bf.load.i.i394, 1152920405095219200
@@ -2020,7 +2020,7 @@ terminate.lpad.i403:                              ; preds = %if.then13.i.i402
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit404: ; preds = %cleanup166, %if.then.i.i396, %if.then13.i.i402
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup167:                                     ; preds = %ehcleanup165, %lpad6
   %.pn29.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn.pn, %ehcleanup165 ], [ %2, %lpad6 ]

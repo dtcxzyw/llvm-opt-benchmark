@@ -1112,7 +1112,7 @@ _ZL4helpv.exit132:                                ; preds = %.noexc130
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %138, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144
-  %.072.ph.ph = phi i1 [ false, %138 ], [ %.375, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144 ]
+  %.072.ph.ph = phi i1 [ false, %138 ], [ %.274, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144 ]
   %.070.ph.ph = phi i64 [ 0, %138 ], [ %202, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144 ]
   %.068.ph.ph = phi i32 [ -1, %138 ], [ %184, %_ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144 ]
   br label %.outer
@@ -1540,7 +1540,7 @@ _ZNSt15_Deque_iteratorIN2cv6detail8tracking3tbm13TrackedObjectERS4_PS4_EppEv.exi
   br label %297
 
 297:                                              ; preds = %295, %289, %296
-  %.375 = phi i1 [ false, %289 ], [ true, %295 ], [ false, %296 ]
+  %.274 = phi i1 [ false, %289 ], [ true, %295 ], [ false, %296 ]
   %switch = phi i1 [ false, %289 ], [ true, %295 ], [ true, %296 ]
   %298 = load ptr, ptr %36, align 8
   %.not.i.i138 = icmp eq ptr %298, null
@@ -1605,7 +1605,7 @@ _ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144: ; pred
   br label %319
 
 318:                                              ; preds = %128, %310
-  %.0 = phi i32 [ 0, %310 ], [ -1, %128 ]
+  %.1 = phi i32 [ 0, %310 ], [ -1, %128 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %25) #21
   br label %_ZL4helpv.exit
 
@@ -1615,7 +1615,7 @@ _ZNSt5dequeIN2cv6detail8tracking3tbm13TrackedObjectESaIS4_EED2Ev.exit144: ; pred
   br label %356
 
 _ZL4helpv.exit:                                   ; preds = %.noexc127, %318
-  %.1 = phi i32 [ %.0, %318 ], [ -1, %.noexc127 ]
+  %.0 = phi i32 [ %.1, %318 ], [ -1, %.noexc127 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
@@ -1694,7 +1694,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv3PtrINS_6detail8tracking3tbm18ITrackerByMatchingEED2Ev.exit: ; preds = %_ZL4helpv.exit, %338, %351, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
-  ret i32 %.1
+  ret i32 %.0
 
 356:                                              ; preds = %319, %110, %109
   %.pn112 = phi { ptr, i32 } [ %111, %110 ], [ %.pn109.pn, %319 ], [ %.pn90, %109 ]

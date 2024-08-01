@@ -1314,23 +1314,23 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   br label %62
 
 _ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thread.i.i.i.i: ; preds = %51, %49
-  %.sroa.4.0.i.ph.i.i.i.i = phi i32 [ %50, %49 ], [ %55, %51 ]
+  %.sroa.4.1.i.ph.i.i.i.i = phi i32 [ %50, %49 ], [ %55, %51 ]
   br i1 %26, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i.thread39", label %76
 
 76:                                               ; preds = %_ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thread.i.i.i.i
-  %77 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 1114112
+  %77 = icmp eq i32 %.sroa.4.1.i.ph.i.i.i.i, 1114112
   br i1 %77, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i.thread", label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 128
+  %79 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 128
   br i1 %79, label %.loopexit.i.i.i, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 2048
+  %81 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 2048
   br i1 %81, label %.loopexit.i.i.i, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i, 65536
+  %83 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i, 65536
   %..i.i.i.i = select i1 %83, i64 -3, i64 -4
   br label %.loopexit.i.i.i
 

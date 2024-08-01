@@ -1051,14 +1051,14 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph
 
 .preheader387.us.us:                              ; preds = %.preheader387.us.us.preheader, %._crit_edge428.split.us.us.us
   %indvars.iv535 = phi i64 [ 0, %.preheader387.us.us.preheader ], [ %indvars.iv.next536, %._crit_edge428.split.us.us.us ]
-  %.3266432.us.us = phi float [ 0.000000e+00, %.preheader387.us.us.preheader ], [ %.5.us.us.us, %._crit_edge428.split.us.us.us ]
+  %.4267432.us.us = phi float [ 0.000000e+00, %.preheader387.us.us.preheader ], [ %.6.us.us.us, %._crit_edge428.split.us.us.us ]
   %480 = getelementptr inbounds ptr, ptr %212, i64 %indvars.iv535
   br label %481
 
 481:                                              ; preds = %495, %.preheader387.us.us
   %indvars.iv529 = phi i64 [ %482, %495 ], [ 0, %.preheader387.us.us ]
   %.0249426.us.us.us = phi float [ %.0248.us.us.us, %495 ], [ 0.000000e+00, %.preheader387.us.us ]
-  %.4267425.us.us.us = phi float [ %.5.us.us.us, %495 ], [ %.3266432.us.us, %.preheader387.us.us ]
+  %.5425.us.us.us = phi float [ %.6.us.us.us, %495 ], [ %.4267432.us.us, %.preheader387.us.us ]
   %482 = add nuw nsw i64 %indvars.iv529, 1
   %483 = trunc nuw nsw i64 %482 to i32
   switch i32 %.0269, label %493 [
@@ -1103,8 +1103,8 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph
   %509 = load ptr, ptr %480, align 8
   %510 = getelementptr inbounds float, ptr %509, i64 %496
   %511 = load float, ptr %510, align 4
-  %512 = fcmp ogt float %511, %.4267425.us.us.us
-  %.5.us.us.us = select i1 %512, float %511, float %.4267425.us.us.us
+  %512 = fcmp ogt float %511, %.5425.us.us.us
+  %.6.us.us.us = select i1 %512, float %511, float %.5425.us.us.us
   %exitcond534.not = icmp eq i64 %482, %wide.trip.count533
   br i1 %exitcond534.not, label %._crit_edge428.split.us.us.us, label %481, !llvm.loop !14
 
@@ -1117,14 +1117,14 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph
 
 .preheader387.us:                                 ; preds = %.preheader387.lr.ph.split.us, %._crit_edge428.split.us440
   %indvars.iv526 = phi i64 [ %indvars.iv.next527, %._crit_edge428.split.us440 ], [ 0, %.preheader387.lr.ph.split.us ]
-  %.3266432.us = phi float [ %.5.us439, %._crit_edge428.split.us440 ], [ 0.000000e+00, %.preheader387.lr.ph.split.us ]
+  %.4267432.us = phi float [ %.6.us439, %._crit_edge428.split.us440 ], [ 0.000000e+00, %.preheader387.lr.ph.split.us ]
   %516 = getelementptr inbounds ptr, ptr %212, i64 %indvars.iv526
   br label %517
 
 517:                                              ; preds = %.preheader387.us, %531
   %indvars.iv520 = phi i64 [ 0, %.preheader387.us ], [ %518, %531 ]
   %.0249426.us434 = phi float [ 0.000000e+00, %.preheader387.us ], [ %.0248.us437, %531 ]
-  %.4267425.us435 = phi float [ %.3266432.us, %.preheader387.us ], [ %.5.us439, %531 ]
+  %.5425.us435 = phi float [ %.4267432.us, %.preheader387.us ], [ %.6.us439, %531 ]
   %518 = add nuw nsw i64 %indvars.iv520, 1
   %519 = trunc nuw nsw i64 %518 to i32
   switch i32 %.0269, label %529 [
@@ -1161,8 +1161,8 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph
   %538 = load ptr, ptr %516, align 8
   %539 = getelementptr inbounds float, ptr %538, i64 %indvars.iv520
   %540 = load float, ptr %539, align 4
-  %541 = fcmp ogt float %540, %.4267425.us435
-  %.5.us439 = select i1 %541, float %540, float %.4267425.us435
+  %541 = fcmp ogt float %540, %.5425.us435
+  %.6.us439 = select i1 %541, float %540, float %.5425.us435
   %exitcond525.not = icmp eq i64 %518, %478
   br i1 %exitcond525.not, label %._crit_edge428.split.us440, label %517, !llvm.loop !14
 
@@ -1219,13 +1219,13 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph
   br i1 %564, label %.preheader390, label %.loopexit389, !llvm.loop !17
 
 .loopexit389:                                     ; preds = %._crit_edge419, %._crit_edge428.split.us440, %._crit_edge428.split.us.us.us, %.preheader387.lr.ph, %.preheader390.lr.ph, %.preheader391, %.preheader388
-  %.6 = phi float [ 0.000000e+00, %.preheader388 ], [ 0.000000e+00, %.preheader391 ], [ 0.000000e+00, %.preheader390.lr.ph ], [ 0.000000e+00, %.preheader387.lr.ph ], [ %.5.us.us.us, %._crit_edge428.split.us.us.us ], [ %.5.us439, %._crit_edge428.split.us440 ], [ %.1264.lcssa, %._crit_edge419 ]
+  %.3266 = phi float [ 0.000000e+00, %.preheader388 ], [ 0.000000e+00, %.preheader391 ], [ 0.000000e+00, %.preheader390.lr.ph ], [ 0.000000e+00, %.preheader387.lr.ph ], [ %.6.us.us.us, %._crit_edge428.split.us.us.us ], [ %.6.us439, %._crit_edge428.split.us440 ], [ %.1264.lcssa, %._crit_edge419 ]
   %565 = load ptr, ptr @stdout, align 8
-  %566 = fpext float %.6 to double
+  %566 = fpext float %.3266 to double
   %567 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %565, ptr noundef nonnull @.str.82, double noundef %566, ptr noundef nonnull %.0268) #17
   %568 = load float, ptr @_ZZ11gmx_densmapiPPcE4dmax, align 4
   %569 = fcmp ogt float %568, 0.000000e+00
-  %.7 = select i1 %569, float %568, float %.6
+  %.7 = select i1 %569, float %568, float %.3266
   %570 = load i32, ptr @_ZZ11gmx_densmapiPPcE2n1, align 4
   %571 = add nsw i32 %570, 1
   %572 = sext i32 %571 to i64

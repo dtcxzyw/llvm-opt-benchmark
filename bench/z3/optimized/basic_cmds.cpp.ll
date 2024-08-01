@@ -2058,7 +2058,7 @@ _ZNK11macro_decls3endEv.exit:                     ; preds = %invoke.cont20
 
 for.body26:                                       ; preds = %_ZNK11macro_decls3endEv.exit, %_ZN10macro_declD2Ev.exit
   %__begin3.086 = phi ptr [ %incdec.ptr, %_ZN10macro_declD2Ev.exit ], [ %7, %_ZNK11macro_decls3endEv.exit ]
-  %first.185 = phi i1 [ %first.4, %_ZN10macro_declD2Ev.exit ], [ %first.091, %_ZNK11macro_decls3endEv.exit ]
+  %first.185 = phi i1 [ %first.2, %_ZN10macro_declD2Ev.exit ], [ %first.091, %_ZNK11macro_decls3endEv.exit ]
   store ptr null, ptr %md, align 8
   %10 = load ptr, ptr %__begin3.086, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
@@ -2350,7 +2350,7 @@ ehcleanup109:                                     ; preds = %ehcleanup, %lpad39
   br label %ehcleanup111
 
 if.end110:                                        ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %invoke.cont33, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit
-  %first.4 = phi i1 [ %first.185, %invoke.cont33 ], [ %first.185, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit ], [ %first.3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %first.2 = phi i1 [ %first.185, %invoke.cont33 ], [ %first.185, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit ], [ %first.3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   %52 = load ptr, ptr %md, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %tobool.not.i.i.i.i, label %_ZN10macro_declD2Ev.exit, label %if.then.i.i.i.i
@@ -2378,7 +2378,7 @@ ehcleanup111:                                     ; preds = %ehcleanup109, %lpad
   br label %ehcleanup124
 
 for.inc112:                                       ; preds = %_ZN10macro_declD2Ev.exit, %invoke.cont20, %_ZNK11macro_decls3endEv.exit
-  %first.1.lcssa = phi i1 [ %first.091, %_ZNK11macro_decls3endEv.exit ], [ %first.091, %invoke.cont20 ], [ %first.4, %_ZN10macro_declD2Ev.exit ]
+  %first.1.lcssa = phi i1 [ %first.091, %_ZNK11macro_decls3endEv.exit ], [ %first.091, %invoke.cont20 ], [ %first.2, %_ZN10macro_declD2Ev.exit ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.090, i64 24
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not2.i.i, label %_ZN14core_hashtableI17default_map_entryI6symbol11macro_declsEN9table2mapIS3_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS7_13entry_eq_procEE8iteratorppEv.exit, label %land.rhs.i.i

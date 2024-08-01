@@ -3406,19 +3406,19 @@ define dso_local void @_ZN20cmWorkerPoolInternal4WorkEj(ptr noundef nonnull alig
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, %46, %29
-  %.sroa.0.1.ph.ph = phi ptr [ null, %29 ], [ null, %46 ], [ %47, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit ]
+  %.sroa.0.3.ph.ph = phi ptr [ null, %29 ], [ null, %46 ], [ %47, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit ]
   %lpad.loopexit35 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %80, %114
-  %.sroa.0.1.ph.ph34 = phi ptr [ %.sroa.0.2, %114 ], [ %47, %80 ], [ null, %.invoke ]
+  %.sroa.0.3.ph.ph34 = phi ptr [ %.sroa.0.1, %114 ], [ %47, %80 ], [ null, %.invoke ]
   %lpad.loopexit.split-lp36 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.sroa.0.1 = phi ptr [ %47, %.loopexit ], [ %.sroa.0.1.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.0.1.ph.ph34, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0.3 = phi ptr [ %47, %.loopexit ], [ %.sroa.0.3.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.0.3.ph.ph34, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit35, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp36, %.loopexit.split-lp.loopexit.split-lp ]
   %37 = load i8, ptr %5, align 8
   %38 = trunc i8 %37 to i1
@@ -3621,7 +3621,7 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit:
   br label %.backedge
 
 .loopexit33:                                      ; preds = %.backedge, %7, %.critedge.thread
-  %.sroa.0.2 = phi ptr [ %47, %.critedge.thread ], [ null, %7 ], [ null, %.backedge ]
+  %.sroa.0.1 = phi ptr [ %47, %.critedge.thread ], [ null, %7 ], [ null, %.backedge ]
   %111 = load i32, ptr %8, align 4
   %112 = add i32 %111, -1
   store i32 %112, ptr %8, align 4
@@ -3649,28 +3649,28 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit:
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit19
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit19:          ; preds = %116, %119, %121
-  %.not.i20 = icmp eq ptr %.sroa.0.2, null
+  %.not.i20 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i20, label %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i: ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit19
-  %123 = load ptr, ptr %.sroa.0.2, align 8
+  %123 = load ptr, ptr %.sroa.0.1, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(21) %.sroa.0.2) #20
+  call void %125(ptr noundef nonnull align 8 dereferenceable(21) %.sroa.0.1) #20
   br label %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit19, %_ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i
   ret void
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %41, %39, %.loopexit.split-lp
-  %.not.i21 = icmp eq ptr %.sroa.0.1, null
+  %.not.i21 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i21, label %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit23, label %_ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i22
 
 _ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i22: ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
-  %126 = load ptr, ptr %.sroa.0.1, align 8
+  %126 = load ptr, ptr %.sroa.0.3, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(21) %.sroa.0.1) #20
+  call void %128(ptr noundef nonnull align 8 dereferenceable(21) %.sroa.0.3) #20
   br label %_ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit23
 
 _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit23: ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %_ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i22

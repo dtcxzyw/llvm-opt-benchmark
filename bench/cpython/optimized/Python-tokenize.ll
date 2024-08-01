@@ -1594,10 +1594,10 @@ if.then112:                                       ; preds = %if.then110
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then112, %if.then110
-  %lineno.0 = phi i64 [ %add, %if.then112 ], [ %conv, %if.then110 ]
-  %end_lineno.0 = phi i64 [ %add, %if.then112 ], [ %conv72, %if.then110 ]
-  %col_offset.1 = phi i64 [ 0, %if.then112 ], [ %col_offset.0, %if.then110 ]
-  %end_col_offset.1 = phi i64 [ 0, %if.then112 ], [ %end_col_offset.0, %if.then110 ]
+  %lineno.1 = phi i64 [ %add, %if.then112 ], [ %conv, %if.then110 ]
+  %end_lineno.1 = phi i64 [ %add, %if.then112 ], [ %conv72, %if.then110 ]
+  %col_offset.2 = phi i64 [ 0, %if.then112 ], [ %col_offset.0, %if.then110 ]
+  %end_col_offset.2 = phi i64 [ 0, %if.then112 ], [ %end_col_offset.0, %if.then110 ]
   %49 = add i32 %call, -7
   %or.cond5 = icmp ult i32 %49, 48
   br i1 %or.cond5, label %if.end156, label %if.else120
@@ -1641,8 +1641,8 @@ if.then127:                                       ; preds = %Py_DECREF.exit180
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then127, %Py_DECREF.exit180
-  %str.1 = phi ptr [ %str.0, %Py_DECREF.exit180 ], [ %call134, %if.then127 ]
-  %inc = add i64 %end_col_offset.1, 1
+  %str.3 = phi ptr [ %str.0, %Py_DECREF.exit180 ], [ %call134, %if.then127 ]
+  %inc = add i64 %end_col_offset.2, 1
   br label %if.end151
 
 if.then142:                                       ; preds = %if.else120
@@ -1672,8 +1672,8 @@ Py_DECREF.exit171:                                ; preds = %if.then146, %if.the
   br label %if.end151
 
 if.end151:                                        ; preds = %if.end138, %Py_DECREF.exit171
-  %str.2 = phi ptr [ %str.1, %if.end138 ], [ %call147, %Py_DECREF.exit171 ]
-  %end_col_offset.2 = phi i64 [ %inc, %if.end138 ], [ %end_col_offset.1, %Py_DECREF.exit171 ]
+  %str.2 = phi ptr [ %str.3, %if.end138 ], [ %call147, %Py_DECREF.exit171 ]
+  %end_col_offset.3 = phi i64 [ %inc, %if.end138 ], [ %end_col_offset.2, %Py_DECREF.exit171 ]
   %cmp152 = icmp eq ptr %str.2, null
   br i1 %cmp152, label %if.then154, label %if.end156
 
@@ -1695,12 +1695,12 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end156:                                        ; preds = %if.else120, %if.end113, %if.then142, %if.end151, %if.end106
   %type.1 = phi i32 [ %call, %if.end151 ], [ %call, %if.end106 ], [ %call, %if.else120 ], [ 55, %if.end113 ], [ 63, %if.then142 ]
-  %str.3 = phi ptr [ %str.2, %if.end151 ], [ %str.0, %if.end106 ], [ %str.0, %if.else120 ], [ %str.0, %if.end113 ], [ %str.0, %if.then142 ]
-  %lineno.1 = phi i64 [ %lineno.0, %if.end151 ], [ %conv, %if.end106 ], [ %lineno.0, %if.else120 ], [ %lineno.0, %if.end113 ], [ %lineno.0, %if.then142 ]
-  %end_lineno.1 = phi i64 [ %end_lineno.0, %if.end151 ], [ %conv72, %if.end106 ], [ %end_lineno.0, %if.else120 ], [ %end_lineno.0, %if.end113 ], [ %end_lineno.0, %if.then142 ]
-  %col_offset.2 = phi i64 [ %col_offset.1, %if.end151 ], [ %col_offset.0, %if.end106 ], [ %col_offset.1, %if.else120 ], [ %col_offset.1, %if.end113 ], [ %col_offset.1, %if.then142 ]
-  %end_col_offset.3 = phi i64 [ %end_col_offset.2, %if.end151 ], [ %end_col_offset.0, %if.end106 ], [ %end_col_offset.1, %if.else120 ], [ %end_col_offset.1, %if.end113 ], [ %end_col_offset.1, %if.then142 ]
-  %call157 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, i32 noundef %type.1, ptr noundef nonnull %str.3, i64 noundef %lineno.1, i64 noundef %col_offset.2, i64 noundef %end_lineno.1, i64 noundef %end_col_offset.3, ptr noundef nonnull %line.0) #4
+  %str.1 = phi ptr [ %str.2, %if.end151 ], [ %str.0, %if.end106 ], [ %str.0, %if.else120 ], [ %str.0, %if.end113 ], [ %str.0, %if.then142 ]
+  %lineno.0 = phi i64 [ %lineno.1, %if.end151 ], [ %conv, %if.end106 ], [ %lineno.1, %if.else120 ], [ %lineno.1, %if.end113 ], [ %lineno.1, %if.then142 ]
+  %end_lineno.0 = phi i64 [ %end_lineno.1, %if.end151 ], [ %conv72, %if.end106 ], [ %end_lineno.1, %if.else120 ], [ %end_lineno.1, %if.end113 ], [ %end_lineno.1, %if.then142 ]
+  %col_offset.1 = phi i64 [ %col_offset.2, %if.end151 ], [ %col_offset.0, %if.end106 ], [ %col_offset.2, %if.else120 ], [ %col_offset.2, %if.end113 ], [ %col_offset.2, %if.then142 ]
+  %end_col_offset.1 = phi i64 [ %end_col_offset.3, %if.end151 ], [ %end_col_offset.0, %if.end106 ], [ %end_col_offset.2, %if.else120 ], [ %end_col_offset.2, %if.end113 ], [ %end_col_offset.2, %if.then142 ]
+  %call157 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.14, i32 noundef %type.1, ptr noundef nonnull %str.1, i64 noundef %lineno.0, i64 noundef %col_offset.1, i64 noundef %end_lineno.0, i64 noundef %end_col_offset.1, ptr noundef nonnull %line.0) #4
   br label %exit
 
 exit.thread:                                      ; preds = %if.then, %if.then154, %if.then1.i, %if.end.i, %if.then2, %sw.bb1.i, %sw.bb8.i, %if.then11.i, %sw.bb13.i, %sw.epilog.i, %Py_XDECREF.exit40.i, %if.then.i42.i, %if.end.i.i44.i, %if.then1.i.i47.i
@@ -1708,10 +1708,10 @@ exit.thread:                                      ; preds = %if.then, %if.then15
   br label %if.end162
 
 exit:                                             ; preds = %if.end.i184, %if.then1.i187, %if.then58, %if.end20, %if.end156, %if.then8
-  %type.2 = phi i32 [ %call, %if.then8 ], [ %call, %if.end20 ], [ %call, %if.then58 ], [ %call, %if.then1.i187 ], [ %call, %if.end.i184 ], [ %type.1, %if.end156 ]
+  %type.0 = phi i32 [ %call, %if.then8 ], [ %call, %if.end20 ], [ %call, %if.then58 ], [ %call, %if.then1.i187 ], [ %call, %if.end.i184 ], [ %type.1, %if.end156 ]
   %result.0 = phi ptr [ null, %if.then8 ], [ null, %if.end20 ], [ null, %if.then58 ], [ null, %if.then1.i187 ], [ null, %if.end.i184 ], [ %call157, %if.end156 ]
   call void @_PyToken_Free(ptr noundef nonnull %token) #4
-  %cmp158 = icmp eq i32 %type.2, 0
+  %cmp158 = icmp eq i32 %type.0, 0
   br i1 %cmp158, label %if.then160, label %if.end162
 
 if.then160:                                       ; preds = %exit

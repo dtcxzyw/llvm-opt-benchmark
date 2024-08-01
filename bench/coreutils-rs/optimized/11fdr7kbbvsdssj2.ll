@@ -2751,7 +2751,7 @@ _ZN7uu_head31head_backwards_on_seekable_file17h570355ac4dd317adE.exit.i.i: ; pre
   br label %_ZN7uu_head9head_file17h3630e2b416c48b90E.exit
 
 _ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i: ; preds = %.noexc63, %.noexc62, %176
-  %.1.i.i = phi ptr [ %153, %176 ], [ null, %.noexc62 ], [ %.0.i.i.i, %.noexc63 ]
+  %.0.i.i = phi ptr [ %153, %176 ], [ null, %.noexc62 ], [ %.0.i.i.i, %.noexc63 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %20), !noalias !653
   br label %_ZN7uu_head9head_file17h3630e2b416c48b90E.exit
 
@@ -2858,7 +2858,7 @@ _ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i: ; pr
   br label %144
 
 _ZN7uu_head9head_file17h3630e2b416c48b90E.exit:   ; preds = %.noexc74, %.noexc73, %_ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i, %_ZN7uu_head31head_backwards_on_seekable_file17h570355ac4dd317adE.exit.i.i
-  %.0.i49 = phi ptr [ %232, %.noexc74 ], [ %236, %.noexc73 ], [ %.1.i.i, %_ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i ], [ %.0.i16.i.i, %_ZN7uu_head31head_backwards_on_seekable_file17h570355ac4dd317adE.exit.i.i ]
+  %.0.i49 = phi ptr [ %232, %.noexc74 ], [ %236, %.noexc73 ], [ %.0.i.i, %_ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i ], [ %.0.i16.i.i, %_ZN7uu_head31head_backwards_on_seekable_file17h570355ac4dd317adE.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !737)
   call void @llvm.experimental.noalias.scope.decl(metadata !740)
   call void @llvm.experimental.noalias.scope.decl(metadata !743)

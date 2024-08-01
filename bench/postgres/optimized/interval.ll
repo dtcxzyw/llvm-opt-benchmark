@@ -119,7 +119,7 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 44:                                               ; preds = %24, %29, %17, %17
   %45 = icmp eq i32 %.0160204, 8
-  %.1161 = select i1 %45, i32 18, i32 %.0160204
+  %.2162 = select i1 %45, i32 18, i32 %.0160204
   %46 = tail call ptr @__errno_location() #15
   store i32 0, ptr %46, align 4
   %47 = getelementptr ptr, ptr %0, i64 %indvars.iv
@@ -195,7 +195,7 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 86:                                               ; preds = %52, %84, %80
   %.0156 = phi double [ %85, %84 ], [ %75, %80 ], [ 0.000000e+00, %52 ]
-  switch i32 %.1161, label %.loopexit [
+  switch i32 %.2162, label %.loopexit [
     i32 30, label %87
     i32 29, label %96
     i32 18, label %106
@@ -537,7 +537,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
 
 296:                                              ; preds = %._crit_edge208, %290, %292, %294, %87, %96, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit191, %AdjustFractSeconds.exit192, %AdjustFractDays.exit, %AdjustFractDays.exit193, %229, %241, %255, %269, %118, %117, %43
   %297 = phi i32 [ 7182, %294 ], [ 0, %292 ], [ 0, %290 ], [ %282, %269 ], [ %268, %255 ], [ %254, %241 ], [ %240, %229 ], [ 2, %AdjustFractDays.exit193 ], [ %202, %AdjustFractDays.exit ], [ %174, %AdjustFractSeconds.exit192 ], [ 1024, %AdjustFractSeconds.exit191 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %117 ], [ 28672, %118 ], [ 8192, %96 ], [ 16384, %87 ], [ 32, %43 ], [ %.pre, %._crit_edge208 ]
-  %.3 = phi i32 [ 0, %294 ], [ %293, %292 ], [ %291, %290 ], [ 28, %269 ], [ 27, %255 ], [ 26, %241 ], [ 25, %229 ], [ 23, %AdjustFractDays.exit193 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit192 ], [ 21, %AdjustFractSeconds.exit191 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %117 ], [ 18, %118 ], [ 29, %96 ], [ 30, %87 ], [ 21, %43 ], [ 21, %._crit_edge208 ]
+  %.1161 = phi i32 [ 0, %294 ], [ %293, %292 ], [ %291, %290 ], [ 28, %269 ], [ 27, %255 ], [ 26, %241 ], [ 25, %229 ], [ 23, %AdjustFractDays.exit193 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit192 ], [ 21, %AdjustFractSeconds.exit191 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %117 ], [ 18, %118 ], [ 29, %96 ], [ 30, %87 ], [ 21, %43 ], [ 21, %._crit_edge208 ]
   %.1 = phi i1 [ %.0157205, %294 ], [ true, %292 ], [ %.0157205, %290 ], [ %.0157205, %269 ], [ %.0157205, %255 ], [ %.0157205, %241 ], [ %.0157205, %229 ], [ %.0157205, %AdjustFractDays.exit193 ], [ %.0157205, %AdjustFractDays.exit ], [ %.0157205, %AdjustFractSeconds.exit192 ], [ %.0157205, %AdjustFractSeconds.exit191 ], [ %.0157205, %AdjustFractSeconds.exit ], [ %.0157205, %117 ], [ %.0157205, %118 ], [ %.0157205, %96 ], [ %.0157205, %87 ], [ %.0157205, %43 ], [ %.0157205, %._crit_edge208 ]
   %298 = and i32 %297, %.0163202
   %.not190 = icmp eq i32 %298, 0
@@ -549,7 +549,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
 
 301:                                              ; preds = %283, %299
   %.1164 = phi i32 [ %.0163202, %283 ], [ %300, %299 ]
-  %.4 = phi i32 [ 8, %283 ], [ %.3, %299 ]
+  %.4 = phi i32 [ 8, %283 ], [ %.1161, %299 ]
   %.2 = phi i1 [ %.0157205, %283 ], [ %.1, %299 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %302 = icmp sgt i64 %indvars.iv, 0
@@ -889,16 +889,16 @@ AppendSeconds.exit268:                            ; preds = %126, %128
   br label %AddPostgresIntPart.exit
 
 AddPostgresIntPart.exit:                          ; preds = %134, %136
-  %.0330 = phi i8 [ 0, %134 ], [ %139, %136 ]
-  %.0325 = phi i8 [ 1, %134 ], [ 0, %136 ]
+  %.2332 = phi i8 [ 0, %134 ], [ %139, %136 ]
+  %.1326 = phi i8 [ 1, %134 ], [ 0, %136 ]
   %.0.i269 = phi ptr [ %3, %134 ], [ %141, %136 ]
   %142 = icmp eq i32 %8, 0
   br i1 %142, label %AddPostgresIntPart.exit273, label %143
 
 143:                                              ; preds = %AddPostgresIntPart.exit
-  %144 = trunc nuw i8 %.0325 to i1
+  %144 = trunc nuw i8 %.1326 to i1
   %145 = select i1 %144, ptr @.str.10, ptr @.str.11
-  %146 = trunc nuw i8 %.0330 to i1
+  %146 = trunc nuw i8 %.2332 to i1
   %147 = icmp sgt i32 %8, 0
   %148 = and i1 %147, %146
   %149 = select i1 %148, ptr @.str.13, ptr @.str.10
@@ -912,16 +912,16 @@ AddPostgresIntPart.exit:                          ; preds = %134, %136
   br label %AddPostgresIntPart.exit273
 
 AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.exit, %143
-  %.1331 = phi i8 [ %.0330, %AddPostgresIntPart.exit ], [ %152, %143 ]
-  %.1326 = phi i8 [ %.0325, %AddPostgresIntPart.exit ], [ 0, %143 ]
+  %.3333 = phi i8 [ %.2332, %AddPostgresIntPart.exit ], [ %152, %143 ]
+  %.2327 = phi i8 [ %.1326, %AddPostgresIntPart.exit ], [ 0, %143 ]
   %.0.i272 = phi ptr [ %.0.i269, %AddPostgresIntPart.exit ], [ %154, %143 ]
   %155 = icmp eq i32 %10, 0
   br i1 %155, label %AddPostgresIntPart.exit277, label %156
 
 156:                                              ; preds = %AddPostgresIntPart.exit273
-  %157 = trunc nuw i8 %.1326 to i1
+  %157 = trunc nuw i8 %.2327 to i1
   %158 = select i1 %157, ptr @.str.10, ptr @.str.11
-  %159 = trunc nuw i8 %.1331 to i1
+  %159 = trunc nuw i8 %.3333 to i1
   %160 = icmp sgt i32 %10, 0
   %161 = and i1 %160, %159
   %162 = select i1 %161, ptr @.str.13, ptr @.str.10
@@ -935,10 +935,10 @@ AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.
   br label %AddPostgresIntPart.exit277
 
 AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.exit273, %156
-  %.2332 = phi i8 [ %.1331, %AddPostgresIntPart.exit273 ], [ %165, %156 ]
-  %.2327 = phi i8 [ %.1326, %AddPostgresIntPart.exit273 ], [ 0, %156 ]
+  %.4334 = phi i8 [ %.3333, %AddPostgresIntPart.exit273 ], [ %165, %156 ]
+  %.3328 = phi i8 [ %.2327, %AddPostgresIntPart.exit273 ], [ 0, %156 ]
   %.0.i276 = phi ptr [ %.0.i272, %AddPostgresIntPart.exit273 ], [ %167, %156 ]
-  %168 = trunc nuw i8 %.2327 to i1
+  %168 = trunc nuw i8 %.3328 to i1
   %169 = icmp ne i32 %12, 0
   %or.cond53 = select i1 %168, i1 true, i1 %169
   %170 = icmp ne i32 %14, 0
@@ -955,7 +955,7 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
   %176 = icmp slt i32 %171, 0
   %spec.select258 = select i1 %or.cond61, i1 true, i1 %176
   %177 = select i1 %168, ptr @.str.10, ptr @.str.11
-  %178 = trunc nuw i8 %.2332 to i1
+  %178 = trunc nuw i8 %.4334 to i1
   %179 = select i1 %178, ptr @.str.13, ptr @.str.10
   %180 = select i1 %spec.select258, ptr @.str.12, ptr %179
   %181 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
@@ -995,14 +995,14 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
   br label %AddVerboseIntPart.exit
 
 AddVerboseIntPart.exit:                           ; preds = %193, %196
-  %.4334 = phi i8 [ 0, %193 ], [ %197, %196 ]
-  %.3328 = phi i8 [ 1, %193 ], [ 0, %196 ]
+  %.6336 = phi i8 [ 0, %193 ], [ %197, %196 ]
+  %.4329 = phi i8 [ 1, %193 ], [ 0, %196 ]
   %.0.i279 = phi ptr [ %194, %193 ], [ %203, %196 ]
   %204 = icmp eq i32 %8, 0
   br i1 %204, label %AddVerboseIntPart.exit285, label %205
 
 205:                                              ; preds = %AddVerboseIntPart.exit
-  %206 = trunc nuw i8 %.3328 to i1
+  %206 = trunc nuw i8 %.4329 to i1
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %205
@@ -1012,13 +1012,13 @@ AddVerboseIntPart.exit:                           ; preds = %193, %196
   br label %213
 
 210:                                              ; preds = %205
-  %211 = trunc nuw i8 %.4334 to i1
+  %211 = trunc nuw i8 %.6336 to i1
   %212 = sub i32 0, %8
   %spec.select.i281 = select i1 %211, i32 %212, i32 %8
   br label %213
 
 213:                                              ; preds = %210, %207
-  %.5335 = phi i8 [ %208, %207 ], [ %.4334, %210 ]
+  %.7337 = phi i8 [ %208, %207 ], [ %.6336, %210 ]
   %.015.i282 = phi i32 [ %209, %207 ], [ %spec.select.i281, %210 ]
   %214 = icmp eq i32 %.015.i282, 1
   %215 = select i1 %214, ptr @.str.10, ptr @.str.18
@@ -1028,14 +1028,14 @@ AddVerboseIntPart.exit:                           ; preds = %193, %196
   br label %AddVerboseIntPart.exit285
 
 AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.exit, %213
-  %.6336 = phi i8 [ %.4334, %AddVerboseIntPart.exit ], [ %.5335, %213 ]
-  %.4329 = phi i8 [ %.3328, %AddVerboseIntPart.exit ], [ 0, %213 ]
+  %.8338 = phi i8 [ %.6336, %AddVerboseIntPart.exit ], [ %.7337, %213 ]
+  %.5 = phi i8 [ %.4329, %AddVerboseIntPart.exit ], [ 0, %213 ]
   %.0.i283 = phi ptr [ %.0.i279, %AddVerboseIntPart.exit ], [ %218, %213 ]
   %219 = icmp eq i32 %10, 0
   br i1 %219, label %AddVerboseIntPart.exit290, label %220
 
 220:                                              ; preds = %AddVerboseIntPart.exit285
-  %221 = trunc nuw i8 %.4329 to i1
+  %221 = trunc nuw i8 %.5 to i1
   br i1 %221, label %222, label %225
 
 222:                                              ; preds = %220
@@ -1045,13 +1045,13 @@ AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.e
   br label %228
 
 225:                                              ; preds = %220
-  %226 = trunc nuw i8 %.6336 to i1
+  %226 = trunc nuw i8 %.8338 to i1
   %227 = sub i32 0, %10
   %spec.select.i286 = select i1 %226, i32 %227, i32 %10
   br label %228
 
 228:                                              ; preds = %225, %222
-  %.7337 = phi i8 [ %223, %222 ], [ %.6336, %225 ]
+  %.9 = phi i8 [ %223, %222 ], [ %.8338, %225 ]
   %.015.i287 = phi i32 [ %224, %222 ], [ %spec.select.i286, %225 ]
   %229 = icmp eq i32 %.015.i287, 1
   %230 = select i1 %229, ptr @.str.10, ptr @.str.18
@@ -1061,14 +1061,14 @@ AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.e
   br label %AddVerboseIntPart.exit290
 
 AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.exit285, %228
-  %.8338 = phi i8 [ %.6336, %AddVerboseIntPart.exit285 ], [ %.7337, %228 ]
-  %.5 = phi i8 [ %.4329, %AddVerboseIntPart.exit285 ], [ 0, %228 ]
+  %.10 = phi i8 [ %.8338, %AddVerboseIntPart.exit285 ], [ %.9, %228 ]
+  %.6 = phi i8 [ %.5, %AddVerboseIntPart.exit285 ], [ 0, %228 ]
   %.0.i288 = phi ptr [ %.0.i283, %AddVerboseIntPart.exit285 ], [ %233, %228 ]
   %234 = icmp eq i32 %12, 0
   br i1 %234, label %AddVerboseIntPart.exit295, label %235
 
 235:                                              ; preds = %AddVerboseIntPart.exit290
-  %236 = trunc nuw i8 %.5 to i1
+  %236 = trunc nuw i8 %.6 to i1
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %235
@@ -1078,13 +1078,13 @@ AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.e
   br label %243
 
 240:                                              ; preds = %235
-  %241 = trunc nuw i8 %.8338 to i1
+  %241 = trunc nuw i8 %.10 to i1
   %242 = sub i32 0, %12
   %spec.select.i291 = select i1 %241, i32 %242, i32 %12
   br label %243
 
 243:                                              ; preds = %240, %237
-  %.9 = phi i8 [ %238, %237 ], [ %.8338, %240 ]
+  %.11 = phi i8 [ %238, %237 ], [ %.10, %240 ]
   %.015.i292 = phi i32 [ %239, %237 ], [ %spec.select.i291, %240 ]
   %244 = icmp eq i32 %.015.i292, 1
   %245 = select i1 %244, ptr @.str.10, ptr @.str.18
@@ -1094,14 +1094,14 @@ AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.e
   br label %AddVerboseIntPart.exit295
 
 AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.exit290, %243
-  %.10 = phi i8 [ %.8338, %AddVerboseIntPart.exit290 ], [ %.9, %243 ]
-  %.6 = phi i8 [ %.5, %AddVerboseIntPart.exit290 ], [ 0, %243 ]
+  %.12 = phi i8 [ %.10, %AddVerboseIntPart.exit290 ], [ %.11, %243 ]
+  %.7 = phi i8 [ %.6, %AddVerboseIntPart.exit290 ], [ 0, %243 ]
   %.0.i293 = phi ptr [ %.0.i288, %AddVerboseIntPart.exit290 ], [ %248, %243 ]
   %249 = icmp eq i32 %14, 0
   br i1 %249, label %AddVerboseIntPart.exit300, label %250
 
 250:                                              ; preds = %AddVerboseIntPart.exit295
-  %251 = trunc nuw i8 %.6 to i1
+  %251 = trunc nuw i8 %.7 to i1
   br i1 %251, label %252, label %255
 
 252:                                              ; preds = %250
@@ -1111,13 +1111,13 @@ AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.e
   br label %258
 
 255:                                              ; preds = %250
-  %256 = trunc nuw i8 %.10 to i1
+  %256 = trunc nuw i8 %.12 to i1
   %257 = sub i32 0, %14
   %spec.select.i296 = select i1 %256, i32 %257, i32 %14
   br label %258
 
 258:                                              ; preds = %255, %252
-  %.11 = phi i8 [ %253, %252 ], [ %.10, %255 ]
+  %.13 = phi i8 [ %253, %252 ], [ %.12, %255 ]
   %.015.i297 = phi i32 [ %254, %252 ], [ %spec.select.i296, %255 ]
   %259 = icmp eq i32 %.015.i297, 1
   %260 = select i1 %259, ptr @.str.10, ptr @.str.18
@@ -1127,8 +1127,8 @@ AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.e
   br label %AddVerboseIntPart.exit300
 
 AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.exit295, %258
-  %.12 = phi i8 [ %.10, %AddVerboseIntPart.exit295 ], [ %.11, %258 ]
-  %.7 = phi i8 [ %.6, %AddVerboseIntPart.exit295 ], [ 0, %258 ]
+  %.14 = phi i8 [ %.12, %AddVerboseIntPart.exit295 ], [ %.13, %258 ]
+  %.8 = phi i8 [ %.7, %AddVerboseIntPart.exit295 ], [ 0, %258 ]
   %.0.i298 = phi ptr [ %.0.i293, %AddVerboseIntPart.exit295 ], [ %263, %258 ]
   %264 = icmp ne i32 %1, 0
   %265 = or i32 %15, %1
@@ -1148,15 +1148,15 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br i1 %or.cond67, label %272, label %276
 
 272:                                              ; preds = %269, %266
-  %273 = trunc nuw i8 %.7 to i1
+  %273 = trunc nuw i8 %.8 to i1
   br i1 %273, label %279, label %274
 
 274:                                              ; preds = %272
-  %275 = trunc nuw i8 %.12 to i1
+  %275 = trunc nuw i8 %.14 to i1
   br i1 %275, label %279, label %.sink.split
 
 276:                                              ; preds = %269
-  %277 = trunc nuw i8 %.12 to i1
+  %277 = trunc nuw i8 %.14 to i1
   br i1 %277, label %.sink.split, label %279
 
 .sink.split:                                      ; preds = %276, %274
@@ -1165,25 +1165,25 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br label %279
 
 279:                                              ; preds = %.sink.split, %272, %276, %274
-  %.13 = phi i8 [ %.12, %274 ], [ %.12, %276 ], [ 1, %272 ], [ %.12, %.sink.split ]
-  %.3 = phi ptr [ %267, %274 ], [ %267, %276 ], [ %267, %272 ], [ %278, %.sink.split ]
+  %.1331 = phi i8 [ %.14, %274 ], [ %.14, %276 ], [ 1, %272 ], [ %.14, %.sink.split ]
+  %.4 = phi ptr [ %267, %274 ], [ %267, %276 ], [ %267, %272 ], [ %278, %.sink.split ]
   %280 = icmp eq i32 %1, 0
   %281 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
   br i1 %280, label %282, label %284
 
 282:                                              ; preds = %279
-  %283 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3, ptr noundef nonnull @.str.22, i32 noundef %281) #13
+  %283 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.4, ptr noundef nonnull @.str.22, i32 noundef %281) #13
   br label %.thread360
 
 284:                                              ; preds = %279
   %285 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %286 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3, ptr noundef nonnull @.str.24, i32 noundef %281, i32 noundef 6, i32 noundef %285) #13
-  tail call void @TrimTrailingZeros(ptr noundef %.3) #13
+  %286 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.4, ptr noundef nonnull @.str.24, i32 noundef %281, i32 noundef 6, i32 noundef %285) #13
+  tail call void @TrimTrailingZeros(ptr noundef %.4) #13
   br label %.thread360
 
 .thread360:                                       ; preds = %284, %282
-  %287 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #14
-  %288 = getelementptr i8, ptr %.3, i64 %287
+  %287 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #14
+  %288 = getelementptr i8, ptr %.4, i64 %287
   %289 = icmp ne i32 %281, 1
   %290 = or i1 %264, %289
   %291 = select i1 %290, ptr @.str.18, ptr @.str.10
@@ -1191,7 +1191,7 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br label %296
 
 293:                                              ; preds = %AddVerboseIntPart.exit300
-  %294 = trunc nuw i8 %.7 to i1
+  %294 = trunc nuw i8 %.8 to i1
   br i1 %294, label %295, label %296
 
 295:                                              ; preds = %293
@@ -1201,14 +1201,14 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br label %296
 
 296:                                              ; preds = %.thread360, %295, %293
-  %.4365 = phi ptr [ %288, %.thread360 ], [ %.0.i298, %295 ], [ %.0.i298, %293 ]
-  %.14364 = phi i8 [ %.13, %.thread360 ], [ %.12, %295 ], [ %.12, %293 ]
-  %297 = trunc nuw i8 %.14364 to i1
+  %.3365 = phi ptr [ %288, %.thread360 ], [ %.0.i298, %295 ], [ %.0.i298, %293 ]
+  %.0330364 = phi i8 [ %.1331, %.thread360 ], [ %.14, %295 ], [ %.14, %293 ]
+  %297 = trunc nuw i8 %.0330364 to i1
   br i1 %297, label %298, label %AppendSeconds.exit
 
 298:                                              ; preds = %296
-  %strlen254 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.4365)
-  %endptr255 = getelementptr inbounds i8, ptr %.4365, i64 %strlen254
+  %strlen254 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.3365)
+  %endptr255 = getelementptr inbounds i8, ptr %.3365, i64 %strlen254
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr255, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
   br label %AppendSeconds.exit
 

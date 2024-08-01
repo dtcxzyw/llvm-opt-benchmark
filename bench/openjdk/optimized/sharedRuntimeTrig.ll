@@ -1568,17 +1568,17 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
 39:                                               ; preds = %37
   %40 = icmp slt i64 %4, 0
   %41 = fneg double %1
-  %.067 = select i1 %40, double %41, double %1
-  %.066 = tail call double @llvm.fabs.f64(double %0)
-  %42 = fsub double 0x3FE921FB54442D18, %.066
-  %43 = fsub double 0x3C81A62633145C07, %.067
+  %.168 = select i1 %40, double %41, double %1
+  %.1 = tail call double @llvm.fabs.f64(double %0)
+  %42 = fsub double 0x3FE921FB54442D18, %.1
+  %43 = fsub double 0x3C81A62633145C07, %.168
   %44 = fadd double %42, %43
   br label %45
 
 45:                                               ; preds = %39, %37
-  %.168 = phi double [ 0.000000e+00, %39 ], [ %1, %37 ]
-  %.1 = phi double [ %44, %39 ], [ %0, %37 ]
-  %46 = fmul double %.1, %.1
+  %.067 = phi double [ 0.000000e+00, %39 ], [ %1, %37 ]
+  %.066 = phi double [ %44, %39 ], [ %0, %37 ]
+  %46 = fmul double %.066, %.066
   %47 = fmul double %46, %46
   %48 = fmul double %47, 0x3EF375CBDB605373
   %49 = fsub double 0x3F147E88A03792A6, %48
@@ -1601,15 +1601,15 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
   %66 = fmul double %47, %65
   %67 = fadd double %66, 0x3FABA1BA1BB341FE
   %68 = fmul double %46, %67
-  %69 = fmul double %.1, %46
+  %69 = fmul double %.066, %46
   %70 = fadd double %57, %68
   %71 = fmul double %69, %70
-  %72 = fadd double %.168, %71
+  %72 = fadd double %.067, %71
   %73 = fmul double %46, %72
-  %74 = fadd double %.168, %73
+  %74 = fadd double %.067, %73
   %75 = fmul double %69, 0x3FD5555555555563
   %76 = fadd double %75, %74
-  %77 = fadd double %.1, %76
+  %77 = fadd double %.066, %76
   br i1 %38, label %78, label %92
 
 78:                                               ; preds = %45
@@ -1622,7 +1622,7 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
   %85 = fadd double %77, %79
   %86 = fdiv double %84, %85
   %87 = fsub double %86, %76
-  %88 = fsub double %.1, %87
+  %88 = fsub double %.066, %87
   %89 = fmul double %88, 2.000000e+00
   %90 = fsub double %79, %89
   %91 = fmul double %90, %83
@@ -1640,7 +1640,7 @@ define internal fastcc noundef double @_ZL12__kernel_tanddi(double noundef %0, d
   %99 = and <2 x i64> %98, <i64 -4294967296, i64 -4294967296>
   %100 = bitcast <2 x i64> %99 to <2 x double>
   %101 = extractelement <2 x double> %100, i64 0
-  %102 = fsub double %101, %.1
+  %102 = fsub double %101, %.066
   %103 = fsub double %76, %102
   %104 = extractelement <2 x double> %100, i64 1
   %105 = fmul double %101, %104

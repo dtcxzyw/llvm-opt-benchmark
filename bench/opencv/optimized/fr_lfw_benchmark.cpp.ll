@@ -482,8 +482,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 .preheader207:                                    ; preds = %189, %.loopexit
   %.0103323 = phi i32 [ %238, %.loopexit ], [ 0, %189 ]
-  %.0104322 = phi i32 [ %.3107, %.loopexit ], [ 0, %189 ]
-  %.0108321 = phi double [ %.3111, %.loopexit ], [ 0.000000e+00, %189 ]
+  %.0104322 = phi i32 [ %.1105, %.loopexit ], [ 0, %189 ]
+  %.0108321 = phi double [ %.1109, %.loopexit ], [ 0.000000e+00, %189 ]
   %192 = icmp eq i32 %.0112333, %.0103323
   br i1 %192, label %.loopexit, label %193
 
@@ -528,8 +528,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %199 = phi ptr [ %224, %215 ], [ %198, %.preheader201 ]
   %200 = phi i64 [ %222, %215 ], [ 0, %.preheader201 ]
   %.0100319 = phi i32 [ %221, %215 ], [ 0, %.preheader201 ]
-  %.1105318 = phi i32 [ %.2106, %215 ], [ %.0104322, %.preheader201 ]
-  %.1109317 = phi double [ %.2110, %215 ], [ %.0108321, %.preheader201 ]
+  %.2106318 = phi i32 [ %.3107, %215 ], [ %.0104322, %.preheader201 ]
+  %.2110317 = phi double [ %.3111, %215 ], [ %.0108321, %.preheader201 ]
   %201 = getelementptr inbounds %"struct.cv::Ptr.8", ptr %199, i64 %200
   %202 = load ptr, ptr %201, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -590,11 +590,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %216 = getelementptr inbounds i8, ptr %202, i64 64
   %217 = load i8, ptr %216, align 8
   %218 = trunc i8 %217 to i1
-  %219 = fadd double %.1109317, %214
-  %.2110 = select i1 %218, double %219, double %.1109317
+  %219 = fadd double %.2110317, %214
+  %.3111 = select i1 %218, double %219, double %.2110317
   %.mask = and i8 %217, 1
   %220 = zext nneg i8 %.mask to i32
-  %.2106 = add nsw i32 %.1105318, %220
+  %.3107 = add nsw i32 %.2106318, %220
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #14
   %221 = add i32 %.0100319, 1
@@ -637,15 +637,15 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   br label %.body154
 
 .loopexit:                                        ; preds = %215, %.preheader201, %.preheader207
-  %.3111 = phi double [ %.0108321, %.preheader207 ], [ %.0108321, %.preheader201 ], [ %.2110, %215 ]
-  %.3107 = phi i32 [ %.0104322, %.preheader207 ], [ %.0104322, %.preheader201 ], [ %.2106, %215 ]
+  %.1109 = phi double [ %.0108321, %.preheader207 ], [ %.0108321, %.preheader201 ], [ %.3111, %215 ]
+  %.1105 = phi i32 [ %.0104322, %.preheader207 ], [ %.0104322, %.preheader201 ], [ %.3107, %215 ]
   %238 = add nuw i32 %.0103323, 1
   %exitcond.not = icmp eq i32 %238, %69
   br i1 %exitcond.not, label %239, label %.preheader207, !llvm.loop !8
 
 239:                                              ; preds = %.loopexit
-  %240 = sitofp i32 %.3107 to double
-  %241 = fdiv double %.3111, %240
+  %240 = sitofp i32 %.1105 to double
+  %241 = fdiv double %.1109, %240
   br label %242
 
 242:                                              ; preds = %239, %189

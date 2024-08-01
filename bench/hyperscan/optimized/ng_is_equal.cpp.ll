@@ -875,7 +875,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %cleanup, label %for.body.i.i.i.i.i.i, !llvm.loop !68
 
 cleanup:                                          ; preds = %for.inc.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i, %land.rhs.i.i, %invoke.cont253
-  %retval.0 = phi i1 [ false, %invoke.cont253 ], [ true, %land.rhs.i.i ], [ false, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ true, %for.inc.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i.i ], [ false, %land.rhs.i.i.i.i.i.i.i ]
+  %retval.2 = phi i1 [ false, %invoke.cont253 ], [ true, %land.rhs.i.i ], [ false, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ true, %for.inc.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i.i ], [ false, %land.rhs.i.i.i.i.i.i.i ]
   %cmp.not3.i.i.i.i = icmp eq ptr %68, %67
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i308
 
@@ -958,7 +958,7 @@ if.then.i.i.i330:                                 ; preds = %invoke.cont.i328
   br label %cleanup265thread-pre-split
 
 cleanup265thread-pre-split:                       ; preds = %for.body, %invoke.cont71, %invoke.cont87, %for.body149, %invoke.cont.i328, %if.then.i.i.i330
-  %retval.1.ph = phi i1 [ %retval.0, %if.then.i.i.i330 ], [ %retval.0, %invoke.cont.i328 ], [ false, %for.body149 ], [ false, %invoke.cont87 ], [ false, %invoke.cont71 ], [ false, %for.body ]
+  %retval.1.ph = phi i1 [ %retval.2, %if.then.i.i.i330 ], [ %retval.2, %invoke.cont.i328 ], [ false, %for.body149 ], [ false, %invoke.cont87 ], [ false, %invoke.cont71 ], [ false, %for.body ]
   %.pr = load ptr, ptr %adj_b, align 8
   br label %cleanup265
 
@@ -1040,8 +1040,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i345, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit342, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ %retval.1, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit342 ], [ %retval.1, %if.then.i.i.i345 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit342 ], [ %retval.1, %if.then.i.i.i345 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

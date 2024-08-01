@@ -163,7 +163,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 .lr.ph.i228:                                      ; preds = %29, %125
   %.06372.i = phi i64 [ %126, %125 ], [ 0, %29 ]
-  %.06471.i = phi ptr [ %.5.i, %125 ], [ %26, %29 ]
+  %.06471.i = phi ptr [ %.1.i, %125 ], [ %26, %29 ]
   %32 = getelementptr inbounds i64, ptr %2, i64 %.06372.i
   %33 = load i64, ptr %32, align 8
   %34 = icmp ult i64 %33, 128
@@ -275,25 +275,25 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   br label %100
 
 100:                                              ; preds = %89, %79
-  %.1.i = phi ptr [ %83, %79 ], [ %99, %89 ]
+  %.5.i = phi ptr [ %83, %79 ], [ %99, %89 ]
   %101 = load i64, ptr %32, align 8
   %102 = lshr i64 %101, 18
   %103 = trunc i64 %102 to i8
   %104 = and i8 %103, 63
   %105 = or disjoint i8 %104, -128
-  store i8 %105, ptr %.1.i, align 1
+  store i8 %105, ptr %.5.i, align 1
   br label %106
 
 106:                                              ; preds = %100, %69
-  %.064.pn.i = phi ptr [ %.06471.i, %69 ], [ %.1.i, %100 ]
-  %.2.i = getelementptr inbounds i8, ptr %.064.pn.i, i64 1
+  %.064.pn.i = phi ptr [ %.06471.i, %69 ], [ %.5.i, %100 ]
+  %.4.i = getelementptr inbounds i8, ptr %.064.pn.i, i64 1
   %107 = load i64, ptr %32, align 8
   %108 = lshr i64 %107, 12
   %109 = trunc i64 %108 to i8
   %110 = and i8 %109, 63
   %111 = or disjoint i8 %110, -128
   %112 = getelementptr inbounds i8, ptr %.064.pn.i, i64 2
-  store i8 %111, ptr %.2.i, align 1
+  store i8 %111, ptr %.4.i, align 1
   br label %113
 
 113:                                              ; preds = %106, %58
@@ -308,17 +308,17 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 119:                                              ; preds = %113, %48
   %.064.pn67.i = phi ptr [ %.06471.i, %48 ], [ %.3.i, %113 ]
-  %.4.i = getelementptr inbounds i8, ptr %.064.pn67.i, i64 1
+  %.2.i = getelementptr inbounds i8, ptr %.064.pn67.i, i64 1
   %120 = load i64, ptr %32, align 8
   %121 = trunc i64 %120 to i8
   %122 = and i8 %121, 63
   %123 = or disjoint i8 %122, -128
   %124 = getelementptr inbounds i8, ptr %.064.pn67.i, i64 2
-  store i8 %123, ptr %.4.i, align 1
+  store i8 %123, ptr %.2.i, align 1
   br label %125
 
 125:                                              ; preds = %119, %39
-  %.5.i = phi ptr [ %41, %39 ], [ %124, %119 ]
+  %.1.i = phi ptr [ %41, %39 ], [ %124, %119 ]
   %126 = add nuw i64 %.06372.i, 1
   %exitcond.not.i = icmp eq i64 %126, %3
   br i1 %exitcond.not.i, label %encode_utf8.exit, label %.lr.ph.i228
@@ -326,7 +326,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 encode_utf8.exit:                                 ; preds = %125
   %127 = load i32, ptr %1, align 8
   %128 = getelementptr inbounds i8, ptr %1, i64 8
-  %129 = ptrtoint ptr %.5.i to i64
+  %129 = ptrtoint ptr %.1.i to i64
   %130 = ptrtoint ptr %26 to i64
   %131 = sub i64 %129, %130
   call void @buffer_init(ptr noundef nonnull %8, i32 noundef %127, ptr noundef nonnull %128, ptr noundef nonnull %26, i64 noundef %131) #6
@@ -348,8 +348,8 @@ encode_utf8.exit:                                 ; preds = %125
 139:                                              ; preds = %encode_utf8.exit, %trim_nuls.exit
   %140 = phi i32 [ %134, %encode_utf8.exit ], [ %14, %trim_nuls.exit ]
   %.1199 = phi i32 [ %., %encode_utf8.exit ], [ -1, %trim_nuls.exit ]
-  %.1197 = phi i32 [ %.224, %encode_utf8.exit ], [ 0, %trim_nuls.exit ]
-  %.0 = phi ptr [ %26, %encode_utf8.exit ], [ null, %trim_nuls.exit ]
+  %.0196 = phi i32 [ %.224, %encode_utf8.exit ], [ 0, %trim_nuls.exit ]
+  %.1 = phi ptr [ %26, %encode_utf8.exit ], [ null, %trim_nuls.exit ]
   %141 = and i32 %140, 16779264
   %.not210 = icmp eq i32 %141, 0
   br i1 %.not210, label %.preheader, label %encode_utf8.exit.thread
@@ -444,7 +444,7 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %172, label %encode_utf8.exit.thread, label %173
 
 173:                                              ; preds = %169
-  %.not220 = icmp eq i32 %.1197, 0
+  %.not220 = icmp eq i32 %.0196, 0
   br i1 %.not220, label %177, label %174
 
 174:                                              ; preds = %173
@@ -625,18 +625,18 @@ encode_utf8.exit:                                 ; preds = %125
   br label %encode_utf8.exit.thread
 
 encode_utf8.exit.thread:                          ; preds = %35, %44, %54, %65, %75, %84, %169, %._crit_edge, %139, %253, %249, %.critedge, %.thread232, %240, %236, %232, %227, %223, %218, %214, %210, %199, %195, %191, %188, %181, %183, %185, %177, %174, %256, %136
-  %.2200 = phi i32 [ %138, %136 ], [ %.1199, %174 ], [ %.1199, %177 ], [ 1, %256 ], [ %.1199, %188 ], [ %.1199, %191 ], [ %.1199, %195 ], [ %.1199, %199 ], [ %.1199, %210 ], [ %.1199, %214 ], [ %.1199, %.critedge ], [ %.1199, %249 ], [ %.1199, %253 ], [ %.1199, %218 ], [ %.1199, %223 ], [ %.1199, %227 ], [ %.1199, %232 ], [ %.1199, %236 ], [ %.1199, %240 ], [ %.1199, %.thread232 ], [ %.1199, %181 ], [ %.1199, %183 ], [ %.1199, %185 ], [ 0, %139 ], [ 0, %._crit_edge ], [ 1, %169 ], [ 0, %84 ], [ 0, %75 ], [ 0, %65 ], [ 0, %54 ], [ 0, %44 ], [ 0, %35 ]
-  %.1 = phi ptr [ %26, %136 ], [ %.0, %174 ], [ %.0, %177 ], [ %.0, %256 ], [ %.0, %188 ], [ %.0, %191 ], [ %.0, %195 ], [ %.0, %199 ], [ %.0, %210 ], [ %.0, %214 ], [ %.0, %.critedge ], [ %.0, %249 ], [ %.0, %253 ], [ %.0, %218 ], [ %.0, %223 ], [ %.0, %227 ], [ %.0, %232 ], [ %.0, %236 ], [ %.0, %240 ], [ %.0, %.thread232 ], [ %.0, %181 ], [ %.0, %183 ], [ %.0, %185 ], [ %.0, %139 ], [ %.0, %._crit_edge ], [ %.0, %169 ], [ %26, %84 ], [ %26, %75 ], [ %26, %65 ], [ %26, %54 ], [ %26, %44 ], [ %26, %35 ]
-  %.not223 = icmp eq ptr %.1, null
+  %.0198 = phi i32 [ %138, %136 ], [ %.1199, %174 ], [ %.1199, %177 ], [ 1, %256 ], [ %.1199, %188 ], [ %.1199, %191 ], [ %.1199, %195 ], [ %.1199, %199 ], [ %.1199, %210 ], [ %.1199, %214 ], [ %.1199, %.critedge ], [ %.1199, %249 ], [ %.1199, %253 ], [ %.1199, %218 ], [ %.1199, %223 ], [ %.1199, %227 ], [ %.1199, %232 ], [ %.1199, %236 ], [ %.1199, %240 ], [ %.1199, %.thread232 ], [ %.1199, %181 ], [ %.1199, %183 ], [ %.1199, %185 ], [ 0, %139 ], [ 0, %._crit_edge ], [ 1, %169 ], [ 0, %84 ], [ 0, %75 ], [ 0, %65 ], [ 0, %54 ], [ 0, %44 ], [ 0, %35 ]
+  %.0 = phi ptr [ %26, %136 ], [ %.1, %174 ], [ %.1, %177 ], [ %.1, %256 ], [ %.1, %188 ], [ %.1, %191 ], [ %.1, %195 ], [ %.1, %199 ], [ %.1, %210 ], [ %.1, %214 ], [ %.1, %.critedge ], [ %.1, %249 ], [ %.1, %253 ], [ %.1, %218 ], [ %.1, %223 ], [ %.1, %227 ], [ %.1, %232 ], [ %.1, %236 ], [ %.1, %240 ], [ %.1, %.thread232 ], [ %.1, %181 ], [ %.1, %183 ], [ %.1, %185 ], [ %.1, %139 ], [ %.1, %._crit_edge ], [ %.1, %169 ], [ %26, %84 ], [ %26, %75 ], [ %26, %65 ], [ %26, %54 ], [ %26, %44 ], [ %26, %35 ]
+  %.not223 = icmp eq ptr %.0, null
   br i1 %.not223, label %.thread235, label %257
 
 257:                                              ; preds = %encode_utf8.exit.thread
-  call void @_efree(ptr noundef nonnull %.1) #6
+  call void @_efree(ptr noundef nonnull %.0) #6
   br label %.thread235
 
 .thread235:                                       ; preds = %19, %7, %28, %257, %encode_utf8.exit.thread
-  %.2200239 = phi i32 [ %.2200, %257 ], [ %.2200, %encode_utf8.exit.thread ], [ -1, %28 ], [ 0, %7 ], [ 0, %19 ]
-  ret i32 %.2200239
+  %.0198239 = phi i32 [ %.0198, %257 ], [ %.0198, %encode_utf8.exit.thread ], [ -1, %28 ], [ 0, %7 ], [ 0, %19 ]
+  ret i32 %.0198239
 }
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2

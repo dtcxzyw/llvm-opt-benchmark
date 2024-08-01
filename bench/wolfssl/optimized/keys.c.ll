@@ -1005,23 +1005,23 @@ if.then5:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %i.0 = phi i32 [ %conv4, %if.then5 ], [ 0, %if.then ]
+  %i.1 = phi i32 [ %conv4, %if.then5 ], [ 0, %if.then ]
   %and7 = and i32 %side, 2
   %tobool8.not = icmp eq i32 %and7, 0
   br i1 %tobool8.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %server_write_MAC_secret = getelementptr inbounds i8, ptr %ssl, i64 780
-  %idxprom11 = zext nneg i32 %i.0 to i64
+  %idxprom11 = zext nneg i32 %i.1 to i64
   %arrayidx12 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom11
   %conv13 = zext i8 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret, ptr align 1 %arrayidx12, i64 %conv13, i1 false)
-  %add14 = add nuw nsw i32 %i.0, %conv4
+  %add14 = add nuw nsw i32 %i.1, %conv4
   br label %if.end16
 
 if.end16:                                         ; preds = %entry.if.end16_crit_edge, %if.end, %if.then9
   %and19.pre-phi = phi i32 [ %.pre, %entry.if.end16_crit_edge ], [ %and, %if.end ], [ %and, %if.then9 ]
-  %i.1 = phi i32 [ 0, %entry.if.end16_crit_edge ], [ %i.0, %if.end ], [ %add14, %if.then9 ]
+  %i.0 = phi i32 [ 0, %entry.if.end16_crit_edge ], [ %i.1, %if.end ], [ %add14, %if.then9 ]
   %2 = load i16, ptr %specs, align 2
   %conv18 = zext i16 %2 to i32
   %tobool20.not = icmp eq i32 %and19.pre-phi, 0
@@ -1029,15 +1029,15 @@ if.end16:                                         ; preds = %entry.if.end16_crit
 
 if.then21:                                        ; preds = %if.end16
   %client_write_key = getelementptr inbounds i8, ptr %ssl, i64 844
-  %idxprom23 = zext nneg i32 %i.1 to i64
+  %idxprom23 = zext nneg i32 %i.0 to i64
   %arrayidx24 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23
   %conv25 = zext i16 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key, ptr align 1 %arrayidx24, i64 %conv25, i1 false)
-  %add26 = add nuw nsw i32 %i.1, %conv18
+  %add26 = add nuw nsw i32 %i.0, %conv18
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %if.end16
-  %i.2 = phi i32 [ %add26, %if.then21 ], [ %i.1, %if.end16 ]
+  %i.2 = phi i32 [ %add26, %if.then21 ], [ %i.0, %if.end16 ]
   %and28 = and i32 %side, 2
   %tobool29.not = icmp eq i32 %and28, 0
   br i1 %tobool29.not, label %if.end36, label %if.then30
@@ -1148,7 +1148,7 @@ for.body.lr.ph:                                   ; preds = %if.then15
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %ret.145 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.5, %for.inc ]
+  %ret.245 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.7, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %4, label %if.end82 [
@@ -1210,7 +1210,7 @@ if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i
   %gep42 = getelementptr inbounds i8, ptr %invariant.gep41, i64 %indvars.iv
   %clientRandom = getelementptr inbounds i8, ptr %5, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep42, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom, i64 32, i1 false)
-  %cmp41 = icmp eq i32 %ret.145, 0
+  %cmp41 = icmp eq i32 %ret.245, 0
   br i1 %cmp41, label %if.end48, label %if.end55.thread
 
 if.end48:                                         ; preds = %if.end24
@@ -1221,7 +1221,7 @@ if.end48:                                         ; preds = %if.end24
   br i1 %cmp49, label %if.end55, label %if.end55.thread
 
 if.end55.thread:                                  ; preds = %if.end48, %if.end24
-  %ret.3.ph = phi i32 [ %call47, %if.end48 ], [ %ret.145, %if.end24 ]
+  %ret.5.ph = phi i32 [ %call47, %if.end48 ], [ %ret.245, %if.end24 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %add.ptr5734, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput, i64 20, i1 false)
   br label %for.inc
 
@@ -1243,12 +1243,12 @@ if.then68:                                        ; preds = %if.end65
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end55.thread, %if.end55, %if.end65, %if.then68
-  %ret.5 = phi i32 [ %call74, %if.then68 ], [ %call64, %if.end65 ], [ %ret.3.ph, %if.end55.thread ], [ %call54, %if.end55 ]
+  %ret.7 = phi i32 [ %call74, %if.then68 ], [ %call64, %if.end65 ], [ %ret.5.ph, %if.end55.thread ], [ %call54, %if.end55 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %cmp76 = icmp eq i32 %ret.5, 0
+  %cmp76 = icmp eq i32 %ret.7, 0
   br i1 %cmp76, label %if.then78, label %if.end82
 
 if.then78:                                        ; preds = %if.then15, %for.end
@@ -1270,15 +1270,15 @@ if.then.i:                                        ; preds = %if.then78
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then78, %if.then.i
-  %i.1.i = phi i32 [ %add14.i, %if.then.i ], [ 0, %if.then78 ]
+  %i.0.i = phi i32 [ %add14.i, %if.then.i ], [ 0, %if.then78 ]
   %11 = load i16, ptr %specs, align 2
   %conv18.i = zext i16 %11 to i32
   %client_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 844
-  %idxprom23.i = zext nneg i32 %i.1.i to i64
+  %idxprom23.i = zext nneg i32 %i.0.i to i64
   %arrayidx24.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23.i
   %conv25.i = zext i16 %11 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull readonly align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
-  %add26.i = add nuw nsw i32 %i.1.i, %conv18.i
+  %add26.i = add nuw nsw i32 %i.0.i, %conv18.i
   %server_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %idxprom32.i = zext nneg i32 %add26.i to i64
   %arrayidx33.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom32.i
@@ -1304,8 +1304,8 @@ if.then61.i:                                      ; preds = %if.end16.i
   br label %if.end82
 
 if.end82:                                         ; preds = %for.body, %entry, %if.then61.i, %if.end16.i, %for.end, %if.end
-  %ret.7 = phi i32 [ %ret.5, %for.end ], [ %call12, %if.end ], [ 0, %if.end16.i ], [ 0, %if.then61.i ], [ %call, %entry ], [ -302, %for.body ]
-  ret i32 %ret.7
+  %ret.1 = phi i32 [ %ret.7, %for.end ], [ %call12, %if.end ], [ 0, %if.end16.i ], [ 0, %if.then61.i ], [ %call, %entry ], [ -302, %for.body ]
+  ret i32 %ret.1
 }
 
 declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #1
@@ -1381,7 +1381,7 @@ if.then9.i:                                       ; preds = %if.end7.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then9.i
   %indvars.iv.i = phi i64 [ 0, %if.then9.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %ret.194.i = phi i32 [ 0, %if.then9.i ], [ %ret.5.i, %for.inc.i ]
+  %ret.294.i = phi i32 [ 0, %if.then9.i ], [ %ret.7.i, %for.inc.i ]
   %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   switch i32 %6, label %default.unreachable.i [
     i32 0, label %sw.bb.i.i
@@ -1419,7 +1419,7 @@ if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1
   %add.ptr37.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %idx.ext36.i
   %serverRandom.i = getelementptr inbounds i8, ptr %7, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr37.i, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom.i, i64 32, i1 false)
-  %cmp41.i = icmp eq i32 %ret.194.i, 0
+  %cmp41.i = icmp eq i32 %ret.294.i, 0
   br i1 %cmp41.i, label %if.end47.i, label %if.end54.thread.i
 
 if.end47.i:                                       ; preds = %if.end18.i
@@ -1429,7 +1429,7 @@ if.end47.i:                                       ; preds = %if.end18.i
   br i1 %cmp48.i, label %if.end54.i, label %if.end54.thread.i
 
 if.end54.thread.i:                                ; preds = %if.end47.i, %if.end18.i
-  %ret.3.ph.i = phi i32 [ %call46.i, %if.end47.i ], [ %ret.194.i, %if.end18.i ]
+  %ret.5.ph.i = phi i32 [ %call46.i, %if.end47.i ], [ %ret.294.i, %if.end18.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %add.ptr5781.i, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput.i, i64 20, i1 false)
   br label %for.inc.i
 
@@ -1453,12 +1453,12 @@ if.then69.i:                                      ; preds = %if.end66.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then69.i, %if.end66.i, %if.end54.i, %if.end54.thread.i
-  %ret.5.i = phi i32 [ %call72.i, %if.then69.i ], [ %call65.i, %if.end66.i ], [ %ret.3.ph.i, %if.end54.thread.i ], [ %call53.i, %if.end54.i ]
+  %ret.7.i = phi i32 [ %call72.i, %if.then69.i ], [ %call65.i, %if.end66.i ], [ %ret.5.ph.i, %if.end54.thread.i ], [ %call53.i, %if.end54.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.inc.i
-  %cmp74.i = icmp eq i32 %ret.5.i, 0
+  %cmp74.i = icmp eq i32 %ret.7.i, 0
   br i1 %cmp74.i, label %if.end79.i, label %if.else.i
 
 if.end79.i:                                       ; preds = %for.end.i
@@ -1531,7 +1531,7 @@ default.unreachable.i:                            ; preds = %for.body.i
   unreachable
 
 if.else.i:                                        ; preds = %if.end79.i, %for.end.i, %if.end7.i, %if.end.i
-  %ret.789.i = phi i32 [ %call77.i, %if.end79.i ], [ %call6.i, %if.end7.i ], [ %ret.5.i, %for.end.i ], [ %call.i, %if.end.i ]
+  %ret.189.i = phi i32 [ %call77.i, %if.end79.i ], [ %call6.i, %if.end7.i ], [ %ret.7.i, %for.end.i ], [ %call.i, %if.end.i ]
   %22 = load ptr, ptr %arrays.i, align 16
   %preMasterSz.i38.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load i32, ptr %preMasterSz.i38.i, align 8
@@ -1594,14 +1594,14 @@ for.end14.i47.i:                                  ; preds = %for.body7.i57.i, %f
 
 return.sink.split.sink.split.i:                   ; preds = %for.end14.i47.i, %for.end14.i.i
   %.sink97.i = phi ptr [ %21, %for.end14.i.i ], [ %32, %for.end14.i47.i ]
-  %retval.0.ph.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.789.i, %for.end14.i47.i ]
+  %retval.0.ph.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.189.i, %for.end14.i47.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %.sink97.i) #7
   %.pre28.i51.i = load ptr, ptr %arrays.i, align 16
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %for.end14.i47.i, %for.end14.i.i
   %.sink.i = phi ptr [ %20, %for.end14.i.i ], [ %31, %for.end14.i47.i ], [ %.pre28.i51.i, %return.sink.split.sink.split.i ]
-  %retval.0.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.789.i, %for.end14.i47.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
+  %retval.0.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.189.i, %for.end14.i47.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
   %preMasterSecret20.i53.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr null, ptr %preMasterSecret20.i53.i, align 8
   %33 = load ptr, ptr %arrays.i, align 16
@@ -1610,7 +1610,7 @@ return.sink.split.i:                              ; preds = %return.sink.split.s
   br label %MakeSslMasterSecret.exit
 
 MakeSslMasterSecret.exit:                         ; preds = %if.end, %for.end.i.i, %for.end.i40.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ -173, %if.end ], [ %call.i.i, %for.end.i.i ], [ %ret.789.i, %for.end.i40.i ], [ %retval.0.ph.i, %return.sink.split.i ]
+  %retval.0.i = phi i32 [ -173, %if.end ], [ %call.i.i, %for.end.i.i ], [ %ret.189.i, %for.end.i40.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %shaOutput.i)
   call void @llvm.lifetime.end.p0(i64 532, ptr nonnull %md5Input.i)
   call void @llvm.lifetime.end.p0(i64 579, ptr nonnull %shaInput.i)

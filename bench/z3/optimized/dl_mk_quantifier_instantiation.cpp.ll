@@ -2915,8 +2915,8 @@ _ZN7obj_mapI9func_declP10ptr_vectorI4exprEE6insertEPS0_RKS4_.exit: ; preds = %in
   br label %if.end49
 
 if.end49:                                         ; preds = %invoke.cont39, %_ZN7obj_mapI9func_declP10ptr_vectorI4exprEE6insertEPS0_RKS4_.exit
-  %terms.1 = phi ptr [ %51, %invoke.cont39 ], [ %call43, %_ZN7obj_mapI9func_declP10ptr_vectorI4exprEE6insertEPS0_RKS4_.exit ]
-  %53 = load ptr, ptr %terms.1, align 8
+  %terms.0 = phi ptr [ %51, %invoke.cont39 ], [ %call43, %_ZN7obj_mapI9func_declP10ptr_vectorI4exprEE6insertEPS0_RKS4_.exit ]
+  %53 = load ptr, ptr %terms.0, align 8
   %cmp.i37 = icmp eq ptr %53, null
   br i1 %cmp.i37, label %if.then.i47, label %lor.lhs.false.i38
 
@@ -2929,11 +2929,11 @@ lor.lhs.false.i38:                                ; preds = %if.end49
   br i1 %cmp5.i41, label %if.then.i47, label %invoke.cont50
 
 if.then.i47:                                      ; preds = %lor.lhs.false.i38, %if.end49
-  invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %terms.1)
+  invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %terms.0)
           to label %.noexc51 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc51:                                         ; preds = %if.then.i47
-  %.pre.i48 = load ptr, ptr %terms.1, align 8
+  %.pre.i48 = load ptr, ptr %terms.0, align 8
   %arrayidx8.phi.trans.insert.i49 = getelementptr inbounds i8, ptr %.pre.i48, i64 -4
   %.pre1.i50 = load i32, ptr %arrayidx8.phi.trans.insert.i49, align 4
   br label %invoke.cont50
@@ -2944,7 +2944,7 @@ invoke.cont50:                                    ; preds = %.noexc51, %lor.lhs.
   %idx.ext.i43 = zext i32 %56 to i64
   %add.ptr.i44 = getelementptr inbounds ptr, ptr %57, i64 %idx.ext.i43
   store ptr %11, ptr %add.ptr.i44, align 8
-  %58 = load ptr, ptr %terms.1, align 8
+  %58 = load ptr, ptr %terms.0, align 8
   %arrayidx10.i45 = getelementptr inbounds i8, ptr %58, i64 -4
   %59 = load i32, ptr %arrayidx10.i45, align 4
   %inc.i46 = add i32 %59, 1

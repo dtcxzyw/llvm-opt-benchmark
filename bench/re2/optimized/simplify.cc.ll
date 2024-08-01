@@ -211,7 +211,7 @@ if.then17:                                        ; preds = %if.end14
           to label %cleanup unwind label %lpad8
 
 cleanup:                                          ; preds = %if.end14, %if.then17, %invoke.cont11
-  %retval.0 = phi ptr [ null, %invoke.cont11 ], [ null, %if.then17 ], [ %call.i11, %if.end14 ]
+  %retval.1 = phi ptr [ null, %invoke.cont11 ], [ null, %if.then17 ], [ %call.i11, %if.end14 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIPS0_EE, i64 16), ptr %sw, align 8
   invoke void @_ZN3re26Regexp6WalkerIPS0_E5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %sw)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
@@ -255,7 +255,7 @@ terminate.lpad.i.i:                               ; preds = %cleanup
   unreachable
 
 cleanup20:                                        ; preds = %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i, %invoke.cont.i.i, %if.then4, %invoke.cont
-  %retval.1 = phi ptr [ null, %invoke.cont ], [ null, %if.then4 ], [ %retval.0, %invoke.cont.i.i ], [ %retval.0, %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i ]
+  %retval.0 = phi ptr [ null, %invoke.cont ], [ null, %if.then4 ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIPS0_EE, i64 16), ptr %cw, align 8
   invoke void @_ZN3re26Regexp6WalkerIPS0_E5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %cw)
           to label %invoke.cont.i.i17 unwind label %terminate.lpad.i.i16
@@ -299,7 +299,7 @@ terminate.lpad.i.i16:                             ; preds = %cleanup20
   unreachable
 
 _ZN3re214CoalesceWalkerD2Ev.exit:                 ; preds = %invoke.cont.i.i17, %_ZNSt11_Deque_baseIN3re29WalkStateIPNS0_6RegexpEEESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i.i25
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %2, %lpad8 ]

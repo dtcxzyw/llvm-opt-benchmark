@@ -49,7 +49,7 @@ define dso_local noundef i64 @macaddr8_in(ptr nocapture noundef readonly %0) loc
 
 .lr.ph167:                                        ; preds = %10, %.critedge5.thread
   %19 = phi i8 [ %183, %.critedge5.thread ], [ %11, %10 ]
-  %.064166 = phi i8 [ %.2, %.critedge5.thread ], [ 0, %10 ]
+  %.064166 = phi i8 [ %.1, %.critedge5.thread ], [ 0, %10 ]
   %.065165 = phi i32 [ %23, %.critedge5.thread ], [ 0, %10 ]
   %.066164 = phi i8 [ %.167, %.critedge5.thread ], [ 0, %10 ]
   %.069163 = phi i8 [ %.170, %.critedge5.thread ], [ 0, %10 ]
@@ -320,13 +320,13 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   br i1 %.not98, label %165, label %.critedge5
 
 165:                                              ; preds = %162, %164
-  %.1 = phi i8 [ %.064166, %164 ], [ %161, %162 ]
+  %.2 = phi i8 [ %.064166, %164 ], [ %161, %162 ]
   %166 = getelementptr i8, ptr %.188156, i64 3
   br label %167
 
 167:                                              ; preds = %hex2_to_uchar.exit, %165
   %.289 = phi ptr [ %166, %165 ], [ %160, %hex2_to_uchar.exit ]
-  %.2 = phi i8 [ %.1, %165 ], [ %.064166, %hex2_to_uchar.exit ]
+  %.1 = phi i8 [ %.2, %165 ], [ %.064166, %hex2_to_uchar.exit ]
   switch i32 %.065165, label %..critedge5.thread_crit_edge [
     i32 7, label %168
     i32 5, label %168
@@ -348,8 +348,8 @@ hex2_to_uchar.exit:                               ; preds = %39, %56, %73, %90, 
   br i1 %.not99, label %.critedge5.thread, label %.preheader
 
 .preheader:                                       ; preds = %168, %178
-  %.3 = phi ptr [ %176, %178 ], [ %.289, %168 ]
-  %176 = getelementptr i8, ptr %.3, i64 1
+  %.4 = phi ptr [ %176, %178 ], [ %.289, %168 ]
+  %176 = getelementptr i8, ptr %.4, i64 1
   %177 = load i8, ptr %176, align 1
   %.not100 = icmp eq i8 %177, 0
   br i1 %.not100, label %.critedge2, label %178

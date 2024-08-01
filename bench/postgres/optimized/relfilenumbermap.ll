@@ -133,7 +133,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %46, %32
-  %.038.lcssa = phi i32 [ 0, %32 ], [ %53, %46 ]
+  %.1.lcssa = phi i32 [ 0, %32 ], [ %53, %46 ]
   call void @systable_endscan(ptr noundef %38) #7
   call void @table_close(ptr noundef %33, i32 noundef 1) #7
   %55 = load i8, ptr %5, align 1
@@ -145,7 +145,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br label %58
 
 58:                                               ; preds = %.sink.split, %._crit_edge
-  %.1 = phi i32 [ %.038.lcssa, %._crit_edge ], [ %57, %.sink.split ]
+  %.038 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %57, %.sink.split ]
   %59 = load ptr, ptr @RelfilenumberMapHash, align 8
   %60 = call ptr @hash_search(ptr noundef %59, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #7
   %61 = load i8, ptr %5, align 1
@@ -161,11 +161,11 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
 
 66:                                               ; preds = %58
   %67 = getelementptr inbounds i8, ptr %60, i64 8
-  store i32 %.1, ptr %67, align 4
+  store i32 %.038, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %66, %27
-  %.0 = phi i32 [ %29, %27 ], [ %.1, %66 ]
+  %.0 = phi i32 [ %29, %27 ], [ %.038, %66 ]
   ret i32 %.0
 }
 

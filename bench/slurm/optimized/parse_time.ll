@@ -120,9 +120,9 @@ define range(i64 0, -1) i64 @parse_time(ptr noundef %0, i32 noundef %1) #0 {
   br label %41
 
 41:                                               ; preds = %233, %27
-  %.099 = phi i32 [ -1, %27 ], [ %.2101, %233 ]
-  %.096 = phi i32 [ -1, %27 ], [ %.298, %233 ]
-  %.095 = phi i32 [ 0, %27 ], [ %.2, %233 ]
+  %.099 = phi i32 [ -1, %27 ], [ %.1100, %233 ]
+  %.096 = phi i32 [ -1, %27 ], [ %.197, %233 ]
+  %.095 = phi i32 [ 0, %27 ], [ %.1, %233 ]
   %storemerge = phi i32 [ 0, %27 ], [ %235, %233 ]
   store i32 %storemerge, ptr %8, align 4
   %42 = sext i32 %storemerge to i64
@@ -378,8 +378,8 @@ switch.early.test:                                ; preds = %45
 
 .thread.thread.i:                                 ; preds = %.thread173, %.thread.i
   %.079107120.i = phi i32 [ %154, %.thread.i ], [ %141, %.thread173 ]
-  %.0108119.i = phi i32 [ %155, %.thread.i ], [ %140, %.thread173 ]
-  %157 = add nsw i32 %.0108119.i, 1
+  %.1108119.i = phi i32 [ %155, %.thread.i ], [ %140, %.thread173 ]
+  %157 = add nsw i32 %.1108119.i, 1
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds i8, ptr %0, i64 %158
   %160 = load i8, ptr %159, align 1
@@ -388,7 +388,7 @@ switch.early.test:                                ; preds = %45
   br i1 %or.cond101.i, label %.loopexit, label %162
 
 162:                                              ; preds = %.thread.thread.i
-  %163 = add nsw i32 %.0108119.i, 2
+  %163 = add nsw i32 %.1108119.i, 2
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i8, ptr %0, i64 %164
   %166 = load i8, ptr %165, align 1
@@ -407,7 +407,7 @@ switch.early.test:                                ; preds = %45
   br i1 %174, label %.loopexit, label %175
 
 175:                                              ; preds = %168
-  %176 = add nsw i32 %.0108119.i, 3
+  %176 = add nsw i32 %.1108119.i, 3
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds i8, ptr %0, i64 %177
   %179 = load i8, ptr %178, align 1
@@ -415,7 +415,7 @@ switch.early.test:                                ; preds = %45
   br i1 %180, label %181, label %201
 
 181:                                              ; preds = %175
-  %182 = add nsw i32 %.0108119.i, 4
+  %182 = add nsw i32 %.1108119.i, 4
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds i8, ptr %0, i64 %183
   %185 = load i8, ptr %184, align 1
@@ -424,7 +424,7 @@ switch.early.test:                                ; preds = %45
   br i1 %or.cond103.i, label %.loopexit, label %187
 
 187:                                              ; preds = %181
-  %188 = add nsw i32 %.0108119.i, 5
+  %188 = add nsw i32 %.1108119.i, 5
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i8, ptr %0, i64 %189
   %191 = load i8, ptr %190, align 1
@@ -443,7 +443,7 @@ switch.early.test:                                ; preds = %45
 
 ._crit_edge.i:                                    ; preds = %193
   %199 = add nsw i32 %197, -48
-  %200 = add nsw i32 %.0108119.i, 6
+  %200 = add nsw i32 %.1108119.i, 6
   %.pre114.i = sext i32 %200 to i64
   br label %201
 
@@ -500,14 +500,14 @@ switch.early.test:                                ; preds = %45
   br i1 %226, label %227, label %.loopexit
 
 227:                                              ; preds = %225, %223
-  %.281.i = phi i32 [ %.079107120.i, %223 ], [ 0, %225 ]
+  %.382.i = phi i32 [ %.079107120.i, %223 ], [ 0, %225 ]
   %228 = add nsw i32 %212, 2
   br label %_get_time.exit.thread
 
 _get_time.exit.thread:                            ; preds = %219, %221, %227
-  %.382.i = phi i32 [ %.079107120.i, %221 ], [ %.281.i, %227 ], [ %.180.i, %219 ]
-  %.3.i = phi i32 [ %212, %221 ], [ %228, %227 ], [ %220, %219 ]
-  %229 = add nsw i32 %.3.i, -1
+  %.281.i = phi i32 [ %.079107120.i, %221 ], [ %.382.i, %227 ], [ %.180.i, %219 ]
+  %.4.i = phi i32 [ %212, %221 ], [ %228, %227 ], [ %220, %219 ]
+  %229 = add nsw i32 %.4.i, -1
   store i32 %229, ptr %8, align 4
   br label %233
 
@@ -521,9 +521,9 @@ _get_time.exit.split.loop.exit:                   ; preds = %146
   br i1 %.not83, label %233, label %.loopexit.loopexit
 
 233:                                              ; preds = %_get_time.exit.thread, %switch.early.test, %switch.early.test, %45, %231, %122, %87, %83, %79, %75, %71, %61, %54
-  %.2101 = phi i32 [ %.099, %45 ], [ %.099, %54 ], [ %.099, %61 ], [ 0, %71 ], [ 12, %75 ], [ 11, %79 ], [ 15, %83 ], [ 16, %87 ], [ %130, %122 ], [ %.099, %231 ], [ %.099, %switch.early.test ], [ %.099, %switch.early.test ], [ %.382.i, %_get_time.exit.thread ]
-  %.298 = phi i32 [ %.096, %45 ], [ %.096, %54 ], [ %.096, %61 ], [ 0, %71 ], [ 0, %75 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ %131, %122 ], [ %.096, %231 ], [ %.096, %switch.early.test ], [ %.096, %switch.early.test ], [ %173, %_get_time.exit.thread ]
-  %.2 = phi i32 [ %.095, %45 ], [ %.095, %54 ], [ %.095, %61 ], [ 0, %71 ], [ 0, %75 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ %132, %122 ], [ %.095, %231 ], [ %.095, %switch.early.test ], [ %.095, %switch.early.test ], [ %.078.i, %_get_time.exit.thread ]
+  %.1100 = phi i32 [ %.099, %45 ], [ %.099, %54 ], [ %.099, %61 ], [ 0, %71 ], [ 12, %75 ], [ 11, %79 ], [ 15, %83 ], [ 16, %87 ], [ %130, %122 ], [ %.099, %231 ], [ %.099, %switch.early.test ], [ %.099, %switch.early.test ], [ %.281.i, %_get_time.exit.thread ]
+  %.197 = phi i32 [ %.096, %45 ], [ %.096, %54 ], [ %.096, %61 ], [ 0, %71 ], [ 0, %75 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ %131, %122 ], [ %.096, %231 ], [ %.096, %switch.early.test ], [ %.096, %switch.early.test ], [ %173, %_get_time.exit.thread ]
+  %.1 = phi i32 [ %.095, %45 ], [ %.095, %54 ], [ %.095, %61 ], [ 0, %71 ], [ 0, %75 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ %132, %122 ], [ %.095, %231 ], [ %.095, %switch.early.test ], [ %.095, %switch.early.test ], [ %.078.i, %_get_time.exit.thread ]
   %234 = load i32, ptr %8, align 4
   %235 = add nsw i32 %234, 1
   br label %41, !llvm.loop !8
@@ -571,16 +571,16 @@ _get_time.exit.split.loop.exit:                   ; preds = %146
   br label %257
 
 thread-pre-split:                                 ; preds = %241, %239
-  %.3102.ph = phi i32 [ 0, %239 ], [ %.099, %241 ]
-  %.3.ph = phi i32 [ 0, %239 ], [ %.096, %241 ]
+  %.2101.ph = phi i32 [ 0, %239 ], [ %.099, %241 ]
+  %.298.ph = phi i32 [ 0, %239 ], [ %.096, %241 ]
   %.pr = load i32, ptr %7, align 4
   br label %257
 
 257:                                              ; preds = %thread-pre-split, %253
   %258 = phi i32 [ %237, %thread-pre-split ], [ %254, %253 ]
   %259 = phi i32 [ %.pr, %thread-pre-split ], [ %256, %253 ]
-  %.3102 = phi i32 [ %.3102.ph, %thread-pre-split ], [ %.099, %253 ]
-  %.3 = phi i32 [ %.3.ph, %thread-pre-split ], [ %.096, %253 ]
+  %.2101 = phi i32 [ %.2101.ph, %thread-pre-split ], [ %.099, %253 ]
+  %.298 = phi i32 [ %.298.ph, %thread-pre-split ], [ %.096, %253 ]
   %260 = icmp eq i32 %259, -1
   br i1 %260, label %271, label %300
 
@@ -618,8 +618,8 @@ thread-pre-split:                                 ; preds = %241, %239
 .thread114:                                       ; preds = %.thread..thread114_crit_edge, %271
   %276 = phi i32 [ %.pre170, %271 ], [ %.pre, %.thread..thread114_crit_edge ]
   %277 = phi i32 [ %258, %271 ], [ %265, %.thread..thread114_crit_edge ]
-  %.3102111119 = phi i32 [ %.3102, %271 ], [ %.099, %.thread..thread114_crit_edge ]
-  %.3113118 = phi i32 [ %.3, %271 ], [ %.096, %.thread..thread114_crit_edge ]
+  %.2101111119 = phi i32 [ %.2101, %271 ], [ %.099, %.thread..thread114_crit_edge ]
+  %.298113118 = phi i32 [ %.298, %271 ], [ %.096, %.thread..thread114_crit_edge ]
   %278 = icmp sgt i32 %277, %276
   br i1 %278, label %295, label %279
 
@@ -637,16 +637,16 @@ thread-pre-split:                                 ; preds = %241, %239
   %286 = icmp eq i32 %282, %283
   %287 = getelementptr inbounds i8, ptr %4, i64 8
   %288 = load i32, ptr %287, align 8
-  %289 = icmp sgt i32 %.3102111119, %288
+  %289 = icmp sgt i32 %.2101111119, %288
   %or.cond127 = select i1 %286, i1 %289, i1 false
   br i1 %or.cond127, label %295, label %290
 
 290:                                              ; preds = %285
-  %291 = icmp eq i32 %.3102111119, %288
+  %291 = icmp eq i32 %.2101111119, %288
   %or.cond130 = select i1 %286, i1 %291, i1 false
   %292 = getelementptr inbounds i8, ptr %4, i64 4
   %293 = load i32, ptr %292, align 4
-  %294 = icmp sgt i32 %.3113118, %293
+  %294 = icmp sgt i32 %.298113118, %293
   %or.cond133 = select i1 %or.cond130, i1 %294, i1 false
   br i1 %or.cond133, label %295, label %297
 
@@ -662,15 +662,15 @@ thread-pre-split:                                 ; preds = %241, %239
 300:                                              ; preds = %272, %.thread, %297, %295, %257
   %301 = phi i32 [ %269, %.thread ], [ %299, %297 ], [ %296, %295 ], [ %259, %257 ], [ %spec.select, %272 ]
   %302 = phi i32 [ %265, %.thread ], [ %277, %297 ], [ %277, %295 ], [ %258, %257 ], [ %258, %272 ]
-  %.3112 = phi i32 [ %.096, %.thread ], [ %.3113118, %297 ], [ %.3113118, %295 ], [ %.3, %257 ], [ %.3, %272 ]
-  %.3102110 = phi i32 [ %.099, %.thread ], [ %.3102111119, %297 ], [ %.3102111119, %295 ], [ %.3102, %257 ], [ %.3102, %272 ]
+  %.298112 = phi i32 [ %.096, %.thread ], [ %.298113118, %297 ], [ %.298113118, %295 ], [ %.298, %257 ], [ %.298, %272 ]
+  %.2101110 = phi i32 [ %.099, %.thread ], [ %.2101111119, %297 ], [ %.2101111119, %295 ], [ %.2101, %257 ], [ %.2101, %272 ]
   %303 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %303, i8 0, i64 32, i1 false)
   store i32 %.095, ptr %9, align 8
   %304 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.3112, ptr %304, align 4
+  store i32 %.298112, ptr %304, align 4
   %305 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 %.3102110, ptr %305, align 8
+  store i32 %.2101110, ptr %305, align 8
   %306 = load i32, ptr %6, align 4
   %307 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %306, ptr %307, align 4
@@ -1094,14 +1094,14 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noca
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %26
-  %.339 = phi i32 [ %32, %26 ], [ %41, %.critedge.loopexit ]
-  %.3 = phi i64 [ %31, %26 ], [ %.034.ph, %.critedge.loopexit ]
+  %.137 = phi i32 [ %32, %26 ], [ %41, %.critedge.loopexit ]
+  %.135 = phi i64 [ %31, %26 ], [ %.034.ph, %.critedge.loopexit ]
   %.not50 = icmp eq i32 %.0.ph, 0
   br i1 %.not50, label %45, label %42
 
 42:                                               ; preds = %.critedge
-  store i32 %.339, ptr %1, align 4
-  store i64 %.3, ptr %2, align 8
+  store i32 %.137, ptr %1, align 4
+  store i64 %.135, ptr %2, align 8
   br label %45
 
 43:                                               ; preds = %33
@@ -1202,17 +1202,17 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, 
   %64 = add nsw i32 %61, -48
   %65 = add nsw i32 %64, %63
   %.0147 = select i1 %or.cond174, i32 %65, i32 %57
-  %.0143 = select i1 %or.cond174, i32 %10, i32 %53
+  %.1 = select i1 %or.cond174, i32 %10, i32 %53
   %66 = add nsw i32 %.0147, -13
   %or.cond = icmp ult i32 %66, -12
   br i1 %or.cond, label %67, label %69
 
 67:                                               ; preds = %42
-  %68 = add nsw i32 %.0143, -2
+  %68 = add nsw i32 %.1, -2
   br label %163
 
 69:                                               ; preds = %42
-  %70 = add nsw i32 %.0143, 1
+  %70 = add nsw i32 %.1, 1
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %0, i64 %71
   %73 = load i8, ptr %72, align 1
@@ -1221,7 +1221,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, 
   br i1 %or.cond175, label %163, label %75
 
 75:                                               ; preds = %69
-  %76 = add nsw i32 %.0143, 2
+  %76 = add nsw i32 %.1, 2
   %narrow169 = add nsw i8 %73, -48
   %77 = zext nneg i8 %narrow169 to i32
   %78 = sext i32 %76 to i64
@@ -1231,21 +1231,21 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, 
   %82 = add i8 %80, -48
   %or.cond176 = icmp ult i8 %82, 10
   %83 = mul nuw nsw i32 %77, 10
-  %84 = add nsw i32 %.0143, 3
+  %84 = add nsw i32 %.1, 3
   %85 = add nsw i32 %83, -48
   %86 = add nsw i32 %85, %81
   %.0145 = select i1 %or.cond176, i32 %86, i32 %77
-  %.1 = select i1 %or.cond176, i32 %84, i32 %76
+  %.2 = select i1 %or.cond176, i32 %84, i32 %76
   %87 = add nsw i32 %.0145, -32
   %or.cond3 = icmp ult i32 %87, -31
   br i1 %or.cond3, label %88, label %90
 
 88:                                               ; preds = %75
-  %89 = add nsw i32 %.1, -2
+  %89 = add nsw i32 %.2, -2
   br label %163
 
 90:                                               ; preds = %75
-  %91 = add nsw i32 %.1, -1
+  %91 = add nsw i32 %.2, -1
   store i32 %91, ptr %1, align 4
   %92 = add nsw i32 %.0147, -1
   store i32 %92, ptr %2, align 4
@@ -1272,23 +1272,23 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, 
   %107 = add nsw i32 %103, -48
   %108 = add nsw i32 %107, %105
   %.1148 = select i1 %or.cond177, i32 %108, i32 %99
-  %.2 = select i1 %or.cond177, i32 %106, i32 %95
+  %.3 = select i1 %or.cond177, i32 %106, i32 %95
   %109 = add nsw i32 %.1148, -13
   %or.cond5 = icmp ult i32 %109, -12
   br i1 %or.cond5, label %110, label %112
 
 110:                                              ; preds = %._crit_edge
-  %111 = add nsw i32 %.2, -2
+  %111 = add nsw i32 %.3, -2
   br label %163
 
 112:                                              ; preds = %._crit_edge
-  %113 = sext i32 %.2 to i64
+  %113 = sext i32 %.3 to i64
   %114 = getelementptr inbounds i8, ptr %0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = and i8 %115, -2
   %switch = icmp eq i8 %116, 46
   %117 = zext i1 %switch to i32
-  %spec.select = add nsw i32 %.2, %117
+  %spec.select = add nsw i32 %.3, %117
   %118 = sext i32 %spec.select to i64
   %119 = getelementptr inbounds i8, ptr %0, i64 %118
   %120 = load i8, ptr %119, align 1
@@ -1311,23 +1311,23 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, 
   %132 = add nsw i32 %130, -48
   %133 = add nsw i32 %132, %128
   %.1146 = select i1 %or.cond179, i32 %133, i32 %124
-  %.4 = select i1 %or.cond179, i32 %131, i32 %123
+  %.5 = select i1 %or.cond179, i32 %131, i32 %123
   %134 = add nsw i32 %.1146, -32
   %or.cond7 = icmp ult i32 %134, -31
   br i1 %or.cond7, label %135, label %137
 
 135:                                              ; preds = %122
-  %136 = add nsw i32 %.4, -2
+  %136 = add nsw i32 %.5, -2
   br label %163
 
 137:                                              ; preds = %122
-  %138 = sext i32 %.4 to i64
+  %138 = sext i32 %.5 to i64
   %139 = getelementptr inbounds i8, ptr %0, i64 %138
   %140 = load i8, ptr %139, align 1
   %141 = and i8 %140, -2
   %switch183 = icmp eq i8 %141, 46
   %142 = zext i1 %switch183 to i32
-  %spec.select184 = add nsw i32 %.4, %142
+  %spec.select184 = add nsw i32 %.5, %142
   %143 = sext i32 %spec.select184 to i64
   %144 = getelementptr inbounds i8, ptr %0, i64 %143
   %145 = load i8, ptr %144, align 1
@@ -1371,8 +1371,8 @@ define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, 
   br label %164
 
 163:                                              ; preds = %149, %112, %69, %36, %30, %24, %21, %5, %135, %110, %88, %67
-  %.7 = phi i32 [ %6, %21 ], [ %25, %24 ], [ %31, %30 ], [ %37, %36 ], [ %68, %67 ], [ %70, %69 ], [ %89, %88 ], [ %111, %110 ], [ %spec.select, %112 ], [ %136, %135 ], [ %150, %149 ], [ %6, %5 ]
-  store i32 %.7, ptr %1, align 4
+  %.0143 = phi i32 [ %6, %21 ], [ %25, %24 ], [ %31, %30 ], [ %37, %36 ], [ %68, %67 ], [ %70, %69 ], [ %89, %88 ], [ %111, %110 ], [ %spec.select, %112 ], [ %136, %135 ], [ %150, %149 ], [ %6, %5 ]
+  store i32 %.0143, ptr %1, align 4
   br label %164
 
 164:                                              ; preds = %.thread, %155, %161, %163, %90

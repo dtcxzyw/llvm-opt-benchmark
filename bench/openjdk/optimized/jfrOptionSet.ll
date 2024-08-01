@@ -1307,7 +1307,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
   br label %88
 
 88:                                               ; preds = %43, %35, %22, %85
-  %.0 = phi i1 [ false, %85 ], [ false, %22 ], [ false, %35 ], [ true, %43 ]
+  %.1 = phi i1 [ false, %85 ], [ false, %22 ], [ false, %35 ], [ true, %43 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %3, align 8
   %89 = getelementptr inbounds i8, ptr %3, i64 672
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %89, align 8
@@ -1360,8 +1360,8 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %102, %100, %1
-  %.1 = phi i1 [ true, %1 ], [ %.0, %100 ], [ %.0, %102 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %1 ], [ %.1, %100 ], [ %.1, %102 ]
+  ret i1 %.0
 }
 
 declare void @_ZN14bufferedStreamC1Emm(ptr noundef nonnull align 8 dereferenceable(89), i64 noundef, i64 noundef) unnamed_addr #5

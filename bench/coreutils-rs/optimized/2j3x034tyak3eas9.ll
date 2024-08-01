@@ -427,8 +427,8 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
 
 "_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i.i": ; preds = %118, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread7.i.i.i"
   %.sink.i.i.i = phi ptr [ %87, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread7.i.i.i" ], [ %119, %118 ]
-  %.sroa.4.0.i.ph10.i10.i.i.i = phi i32 [ %96, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread7.i.i.i" ], [ %123, %118 ]
-  switch i32 %.sroa.4.0.i.ph10.i10.i.i.i, label %125 [
+  %.sroa.4.1.i.ph10.i10.i.i.i = phi i32 [ %96, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread7.i.i.i" ], [ %123, %118 ]
+  switch i32 %.sroa.4.1.i.ph10.i10.i.i.i, label %125 [
     i32 13, label %147
     i32 9, label %150
     i32 10, label %150
@@ -438,11 +438,11 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   ]
 
 125:                                              ; preds = %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.i.i.i"
-  %126 = icmp ugt i32 %.sroa.4.0.i.ph10.i10.i.i.i, 127
+  %126 = icmp ugt i32 %.sroa.4.1.i.ph10.i10.i.i.i, 127
   br i1 %126, label %127, label %147
 
 127:                                              ; preds = %125
-  %128 = lshr i32 %.sroa.4.0.i.ph10.i10.i.i.i, 8
+  %128 = lshr i32 %.sroa.4.1.i.ph10.i10.i.i.i, 8
   switch i32 %128, label %147 [
     i32 0, label %135
     i32 22, label %129
@@ -451,24 +451,24 @@ define hidden { ptr, ptr } @_ZN7uu_fold18fold_file_bytewise17h124db9fe0d382980E(
   ]
 
 129:                                              ; preds = %127
-  %130 = icmp eq i32 %.sroa.4.0.i.ph10.i10.i.i.i, 5760
+  %130 = icmp eq i32 %.sroa.4.1.i.ph10.i10.i.i.i, 5760
   %131 = zext i1 %130 to i8
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i
 
 132:                                              ; preds = %127
-  %133 = icmp eq i32 %.sroa.4.0.i.ph10.i10.i.i.i, 12288
+  %133 = icmp eq i32 %.sroa.4.1.i.ph10.i10.i.i.i, 12288
   %134 = zext i1 %133 to i8
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i
 
 135:                                              ; preds = %127
-  %136 = and i32 %.sroa.4.0.i.ph10.i10.i.i.i, 255
+  %136 = and i32 %.sroa.4.1.i.ph10.i10.i.i.i, 255
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %137
   %139 = load i8, ptr %138, align 1, !noalias !61, !noundef !5
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.i.i.i
 
 140:                                              ; preds = %127
-  %141 = and i32 %.sroa.4.0.i.ph10.i10.i.i.i, 255
+  %141 = and i32 %.sroa.4.1.i.ph10.i10.i.i.i, 255
   %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E, i64 0, i64 %142
   %144 = load i8, ptr %143, align 1, !noalias !61, !noundef !5

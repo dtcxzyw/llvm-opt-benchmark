@@ -320,17 +320,17 @@ if.then10:                                        ; preds = %if.else
   br label %return
 
 if.end13:                                         ; preds = %if.end, %if.else, %if.then
-  %id.addr.0 = phi i32 [ %id, %if.else ], [ %id, %if.then ], [ %call, %if.end ]
+  %id.addr.1 = phi i32 [ %id, %if.else ], [ %id, %if.then ], [ %call, %if.end ]
   %cmp14 = icmp eq ptr %p, null
-  %cmp15 = icmp eq i32 %id.addr.0, 0
+  %cmp15 = icmp eq i32 %id.addr.1, 0
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp15
   br i1 %or.cond, label %if.then23, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %if.end13
-  %cmp17 = icmp eq i32 %id.addr.0, 1034
-  %cmp19 = icmp eq i32 %id.addr.0, 1087
+  %cmp17 = icmp eq i32 %id.addr.1, 1034
+  %cmp19 = icmp eq i32 %id.addr.1, 1087
   %or.cond1 = or i1 %cmp17, %cmp19
-  %cmp20 = icmp eq i32 %id.addr.0, 1035
+  %cmp20 = icmp eq i32 %id.addr.1, 1035
   %cond = select i1 %cmp20, i32 56, i32 57
   %cond21 = select i1 %or.cond1, i32 32, i32 %cond
   %cmp22.not = icmp eq i32 %cond21, %plen
@@ -343,11 +343,11 @@ if.then23:                                        ; preds = %lor.lhs.false16, %i
   br label %return
 
 if.end25:                                         ; preds = %lor.lhs.false16, %entry
-  %id.addr.1 = phi i32 [ %id.addr.0, %lor.lhs.false16 ], [ %id, %entry ]
-  %cmp26 = icmp eq i32 %id.addr.1, 1034
-  %cmp28 = icmp eq i32 %id.addr.1, 1087
+  %id.addr.0 = phi i32 [ %id.addr.1, %lor.lhs.false16 ], [ %id, %entry ]
+  %cmp26 = icmp eq i32 %id.addr.0, 1034
+  %cmp28 = icmp eq i32 %id.addr.0, 1087
   %or.cond2 = or i1 %cmp26, %cmp28
-  switch i32 %id.addr.1, label %cond.false32 [
+  switch i32 %id.addr.0, label %cond.false32 [
     i32 1087, label %cond.true29
     i32 1034, label %cond.true29
   ]
@@ -357,7 +357,7 @@ cond.true29:                                      ; preds = %if.end25, %if.end25
   br label %cond.end35
 
 cond.false32:                                     ; preds = %if.end25
-  %cmp33 = icmp eq i32 %id.addr.1, 1035
+  %cmp33 = icmp eq i32 %id.addr.0, 1035
   %cond34 = select i1 %cmp33, i32 1, i32 3
   br label %cond.end35
 
@@ -392,11 +392,11 @@ if.end49:                                         ; preds = %if.else44
   br i1 %cmp.not, label %if.then52, label %if.else101
 
 if.then52:                                        ; preds = %if.end49
-  %cmp53.not = icmp eq i32 %id.addr.1, 0
+  %cmp53.not = icmp eq i32 %id.addr.0, 0
   br i1 %cmp53.not, label %if.end115, label %if.then55
 
 if.then55:                                        ; preds = %if.then52
-  %cmp63 = icmp eq i32 %id.addr.1, 1035
+  %cmp63 = icmp eq i32 %id.addr.0, 1035
   %cond65 = select i1 %cmp63, i64 56, i64 57
   %conv68 = select i1 %or.cond2, i64 32, i64 %cond65
   %call69 = call i32 @RAND_priv_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %call45, i64 noundef %conv68, i32 noundef 0) #3
@@ -431,7 +431,7 @@ if.then89:                                        ; preds = %if.else86
   br label %if.end115
 
 if.else101:                                       ; preds = %if.end49
-  %cmp109 = icmp eq i32 %id.addr.1, 1035
+  %cmp109 = icmp eq i32 %id.addr.0, 1035
   %cond111 = select i1 %cmp109, i64 56, i64 57
   %conv114 = select i1 %or.cond2, i64 32, i64 %cond111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr noundef nonnull align 1 dereferenceable(1) %p, i64 %conv114, i1 false)

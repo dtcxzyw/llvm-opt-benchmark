@@ -311,14 +311,14 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br label %64
 
 64:                                               ; preds = %62, %54
-  %.1 = phi i32 [ -20, %62 ], [ %.0, %54 ]
+  %.2 = phi i32 [ -20, %62 ], [ %.0, %54 ]
   %65 = load i64, ptr %47, align 8
   %66 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %65) #12
   store i64 0, ptr %47, align 8
   br label %67
 
 67:                                               ; preds = %64, %38
-  %.2 = phi i32 [ %.1, %64 ], [ %.0, %38 ]
+  %.1 = phi i32 [ %.2, %64 ], [ %.0, %38 ]
   %68 = load i64, ptr %3, align 8
   %69 = icmp eq i64 %68, 11
   br i1 %69, label %70, label %74
@@ -458,7 +458,7 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br label %record_hardlink.exit
 
 record_hardlink.exit:                             ; preds = %115, %130, %74, %108, %88, %.thread.i, %51, %22, %17, %73, %61, %50, %35
-  %.047 = phi i32 [ -30, %35 ], [ -30, %50 ], [ -30, %61 ], [ 1, %73 ], [ %20, %17 ], [ -30, %22 ], [ -30, %51 ], [ -30, %115 ], [ -30, %130 ], [ %.2, %74 ], [ %.2, %108 ], [ %.2, %88 ], [ %.2, %.thread.i ]
+  %.047 = phi i32 [ -30, %35 ], [ -30, %50 ], [ -30, %61 ], [ 1, %73 ], [ %20, %17 ], [ -30, %22 ], [ -30, %51 ], [ -30, %115 ], [ -30, %130 ], [ %.1, %74 ], [ %.1, %108 ], [ %.1, %88 ], [ %.1, %.thread.i ]
   ret i32 %.047
 }
 

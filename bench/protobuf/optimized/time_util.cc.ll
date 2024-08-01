@@ -739,7 +739,7 @@ invoke.cont68:                                    ; preds = %for.body.i, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont68, %if.end49, %if.end42
-  %retval.0 = phi i1 [ false, %if.end42 ], [ false, %if.end49 ], [ true, %invoke.cont68 ]
+  %retval.1 = phi i1 [ false, %if.end42 ], [ false, %if.end49 ], [ true, %invoke.cont68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nanos_part) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %seconds_part) #14
   br label %return
@@ -751,8 +751,8 @@ ehcleanup:                                        ; preds = %lpad39, %lpad28, %l
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %lor.lhs.false ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %lor.lhs.false ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -1565,7 +1565,7 @@ entry:
   %coerce.sroa.0.0.insert.insert.i47.i = add nuw nsw i128 %mul.i33.sink.i, %coerce2.sroa.0.0.insert.ext.i45.i
   %cmp = icmp slt i64 %r, 1
   %sub.sink = tail call i64 @llvm.abs.i64(i64 %r, i1 true)
-  %negative.1 = xor i1 %or.cond, %cmp
+  %negative.0 = xor i1 %or.cond, %cmp
   %coerce2.sroa.0.0.insert.ext.i.i16 = zext nneg i64 %sub.sink to i128
   %mul.i.i18 = mul i128 %coerce.sroa.0.0.insert.insert.i47.i, %coerce2.sroa.0.0.insert.ext.i.i16
   %mul.i.i18.frozen = freeze i128 %mul.i.i18
@@ -1576,8 +1576,8 @@ entry:
   %conv.i = trunc nuw nsw i128 %rem.i.i.decomposed to i32
   %sub.i27 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i26
   %sub9.i = sub nsw i32 0, %conv.i
-  %nanos.0.i = select i1 %negative.1, i32 %sub9.i, i32 %conv.i
-  %seconds.0.i = select i1 %negative.1, i64 %sub.i27, i64 %coerce3.sroa.0.0.extract.trunc.i.i26
+  %nanos.0.i = select i1 %negative.0, i32 %sub9.i, i32 %conv.i
+  %seconds.0.i = select i1 %negative.0, i64 %sub.i27, i64 %coerce3.sroa.0.0.extract.trunc.i.i26
   store i64 %seconds.0.i, ptr %0, align 8
   store i32 %nanos.0.i, ptr %nanos_.i.i.i, align 8
   ret ptr %d
@@ -1729,7 +1729,7 @@ entry:
   %coerce.sroa.0.0.insert.insert.i47.i = add nuw nsw i128 %mul.i33.sink.i, %coerce2.sroa.0.0.insert.ext.i45.i
   %cmp = icmp slt i64 %r, 1
   %sub.sink = tail call i64 @llvm.abs.i64(i64 %r, i1 true)
-  %negative.1 = xor i1 %or.cond, %cmp
+  %negative.0 = xor i1 %or.cond, %cmp
   %coerce2.sroa.0.0.insert.ext.i.i16 = zext nneg i64 %sub.sink to i128
   %div.i.i18 = udiv i128 %coerce.sroa.0.0.insert.insert.i47.i, %coerce2.sroa.0.0.insert.ext.i.i16
   %div.i.i18.frozen = freeze i128 %div.i.i18
@@ -1740,8 +1740,8 @@ entry:
   %conv.i = trunc nuw nsw i128 %rem.i.i.decomposed to i32
   %sub.i28 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i27
   %sub9.i = sub nsw i32 0, %conv.i
-  %nanos.0.i = select i1 %negative.1, i32 %sub9.i, i32 %conv.i
-  %seconds.0.i = select i1 %negative.1, i64 %sub.i28, i64 %coerce3.sroa.0.0.extract.trunc.i.i27
+  %nanos.0.i = select i1 %negative.0, i32 %sub9.i, i32 %conv.i
+  %seconds.0.i = select i1 %negative.0, i64 %sub.i28, i64 %coerce3.sroa.0.0.extract.trunc.i.i27
   store i64 %seconds.0.i, ptr %0, align 8
   store i32 %nanos.0.i, ptr %nanos_.i.i.i, align 8
   ret ptr %d

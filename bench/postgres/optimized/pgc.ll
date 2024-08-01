@@ -1469,13 +1469,13 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.lr.ph995, %.critedge34.backedge, %.critedge.loopexit.split.loop.exit, %.critedge34.preheader, %508, %494
-  %.2421 = phi i32 [ %.0419, %494 ], [ %.0419, %508 ], [ 1, %.critedge34.preheader ], [ %indvars1631.le, %.critedge.loopexit.split.loop.exit ], [ 1, %.critedge34.backedge ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ]
-  %523 = icmp slt i32 %.2421, %495
+  %.1420 = phi i32 [ %.0419, %494 ], [ %.0419, %508 ], [ 1, %.critedge34.preheader ], [ %indvars1631.le, %.critedge.loopexit.split.loop.exit ], [ 1, %.critedge34.backedge ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ], [ %.0419, %.lr.ph995 ]
+  %523 = icmp slt i32 %.1420, %495
   br i1 %523, label %.preheader512, label %.thread499
 
 .preheader512:                                    ; preds = %.critedge
   %base_yylineno.promoted1000 = load i32, ptr @base_yylineno, align 4
-  %524 = sext i32 %.2421 to i64
+  %524 = sext i32 %.1420 to i64
   %wide.trip.count1637 = sext i32 %495 to i64
   br label %525
 
@@ -1504,13 +1504,13 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
   %536 = getelementptr i8, ptr %.1396.ph, i64 %524
   store ptr %536, ptr @yy_c_buf_p, align 8
   store ptr %.1396.ph, ptr @base_yytext, align 8
-  store i32 %.2421, ptr @base_yyleng, align 4
+  store i32 %.1420, ptr @base_yyleng, align 4
   %537 = load i8, ptr %536, align 1
   store i8 %537, ptr @yy_hold_char, align 1
   store i8 0, ptr %536, align 1
   store ptr %536, ptr @yy_c_buf_p, align 8
   %.pre1663 = load ptr, ptr @base_yytext, align 8
-  switch i32 %.2421, label %.thread499 [
+  switch i32 %.1420, label %.thread499 [
     i32 1, label %538
     i32 2, label %541
   ]

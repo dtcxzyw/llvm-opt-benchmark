@@ -457,7 +457,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   %.0130205.i = phi ptr [ %171, %.lr.ph.i ], [ %.3133.i, %296 ]
   %.0134204.i = phi ptr [ %172, %.lr.ph.i ], [ %.4.i, %296 ]
   %.0138203.i = phi i32 [ -1, %.lr.ph.i ], [ %.1139.i, %296 ]
-  %.0167202.i = phi i32 [ 0, %.lr.ph.i ], [ %.3170.i, %296 ]
+  %.0167202.i = phi i32 [ 0, %.lr.ph.i ], [ %.2169.i, %296 ]
   %177 = add nsw i32 %.0138203.i, -1
   %178 = icmp sgt i32 %.0138203.i, 0
   br i1 %178, label %179, label %289
@@ -575,7 +575,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   br label %249
 
 249:                                              ; preds = %259, %243
-  %.1168.i = phi i32 [ %.0167202.i, %243 ], [ %257, %259 ]
+  %.3170.i = phi i32 [ %.0167202.i, %243 ], [ %257, %259 ]
   %.in.i.i = phi i16 [ %.0126.i, %243 ], [ %250, %259 ]
   %.02029.i.i = phi ptr [ %.0134204.i, %243 ], [ %spec.select26.i.i, %259 ]
   %.12228.i.i = phi ptr [ %spec.select.i.i, %243 ], [ %.2.i.i, %259 ]
@@ -592,7 +592,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   br label %256
 
 256:                                              ; preds = %254, %249
-  %257 = add i32 %.1168.i, 1
+  %257 = add i32 %.3170.i, 1
   %258 = icmp sgt i32 %257, 2048
   br i1 %258, label %decompressed_entry.exit.thread.i, label %259
 
@@ -653,8 +653,8 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   br label %287
 
 287:                                              ; preds = %284, %decompressed_entry.exit.i, %238
-  %.2169.i = phi i32 [ %267, %284 ], [ %257, %decompressed_entry.exit.i ], [ %.0167202.i, %238 ]
-  %.3137.i = phi ptr [ %.2136.i, %284 ], [ %spec.select26.i.i, %decompressed_entry.exit.i ], [ %.0134204.i, %238 ]
+  %.1168.i = phi i32 [ %267, %284 ], [ %257, %decompressed_entry.exit.i ], [ %.0167202.i, %238 ]
+  %.1135.i = phi ptr [ %.2136.i, %284 ], [ %spec.select26.i.i, %decompressed_entry.exit.i ], [ %.0134204.i, %238 ]
   %.2132.i = phi ptr [ %285, %284 ], [ %225, %decompressed_entry.exit.i ], [ %225, %238 ]
   %.2.i = phi i32 [ %286, %284 ], [ %226, %decompressed_entry.exit.i ], [ %226, %238 ]
   %288 = shl i8 %.0128206.i, 1
@@ -670,9 +670,9 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   br label %296
 
 296:                                              ; preds = %289, %287
-  %.3170.i = phi i32 [ %.2169.i, %287 ], [ %.0167202.i, %289 ]
+  %.2169.i = phi i32 [ %.1168.i, %287 ], [ %.0167202.i, %289 ]
   %.1139.i = phi i32 [ %177, %287 ], [ 8, %289 ]
-  %.4.i = phi ptr [ %.3137.i, %287 ], [ %.0134204.i, %289 ]
+  %.4.i = phi ptr [ %.1135.i, %287 ], [ %.0134204.i, %289 ]
   %.3133.i = phi ptr [ %.2132.i, %287 ], [ %290, %289 ]
   %.1129.i = phi i8 [ %288, %287 ], [ %291, %289 ]
   %.3.i = phi i32 [ %.2.i, %287 ], [ %295, %289 ]
@@ -680,7 +680,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   br i1 %297, label %176, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %296, %169
-  %.0167.lcssa.i = phi i32 [ 0, %169 ], [ %.3170.i, %296 ]
+  %.0167.lcssa.i = phi i32 [ 0, %169 ], [ %.2169.i, %296 ]
   %.0134.lcssa.i = phi ptr [ %172, %169 ], [ %.4.i, %296 ]
   %298 = getelementptr inbounds i8, ptr %1, i64 80
   %299 = load ptr, ptr %298, align 8

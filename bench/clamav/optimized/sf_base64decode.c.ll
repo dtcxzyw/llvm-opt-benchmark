@@ -27,7 +27,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
 17:                                               ; preds = %.lr.ph, %74
   %.03955 = phi i64 [ 0, %.lr.ph ], [ %.1, %74 ]
   %.04054 = phi ptr [ %0, %.lr.ph ], [ %75, %74 ]
-  %.04153 = phi ptr [ %2, %.lr.ph ], [ %.2, %74 ]
+  %.04153 = phi ptr [ %2, %.lr.ph ], [ %.142, %74 ]
   %.04352 = phi ptr [ %6, %.lr.ph ], [ %.144, %74 ]
   %18 = load i8, ptr %.04054, align 1
   %19 = zext i8 %18 to i64
@@ -86,7 +86,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
 55:                                               ; preds = %45, %31
   %56 = phi i64 [ %54, %45 ], [ %43, %31 ]
   %57 = phi i8 [ %.pre, %45 ], [ %35, %31 ]
-  %.142 = phi ptr [ %52, %45 ], [ %.04153, %31 ]
+  %.2 = phi ptr [ %52, %45 ], [ %.04153, %31 ]
   %.not47 = icmp ne i8 %57, 61
   %58 = icmp ult i64 %56, %3
   %or.cond64 = select i1 %.not47, i1 %58, i1 false
@@ -96,7 +96,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   %60 = shl i8 %34, 4
   %61 = lshr i8 %38, 2
   %62 = or i8 %61, %60
-  store i8 %62, ptr %.142, align 1
+  store i8 %62, ptr %.2, align 1
   %63 = load i64, ptr %4, align 8
   %64 = add i64 %63, 1
   store i64 %64, ptr %4, align 8
@@ -107,10 +107,10 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   br i1 %or.cond50, label %67, label %._crit_edge
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %.142, i64 1
+  %68 = getelementptr inbounds i8, ptr %.2, i64 1
   %69 = shl i8 %38, 6
   %70 = or i8 %42, %69
-  %71 = getelementptr inbounds i8, ptr %.142, i64 2
+  %71 = getelementptr inbounds i8, ptr %.2, i64 2
   store i8 %70, ptr %68, align 1
   %72 = load i64, ptr %4, align 8
   %73 = add i64 %72, 1
@@ -119,7 +119,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
 
 74:                                               ; preds = %22, %67, %17
   %.144 = phi ptr [ %23, %22 ], [ %6, %67 ], [ %.04352, %17 ]
-  %.2 = phi ptr [ %.04153, %22 ], [ %71, %67 ], [ %.04153, %17 ]
+  %.142 = phi ptr [ %.04153, %22 ], [ %71, %67 ], [ %.04153, %17 ]
   %.1 = phi i64 [ %24, %22 ], [ %24, %67 ], [ %.03955, %17 ]
   %75 = getelementptr inbounds i8, ptr %.04054, i64 1
   %76 = icmp ult ptr %75, %10

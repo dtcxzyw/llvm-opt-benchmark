@@ -2489,7 +2489,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %315 ]
   %.0210255 = phi i32 [ -1, %.lr.ph ], [ %.1, %315 ]
   %.0211254 = phi i32 [ %7, %.lr.ph ], [ %23, %315 ]
-  %.0212253 = phi i32 [ 0, %.lr.ph ], [ %.3, %315 ]
+  %.0212253 = phi i32 [ 0, %.lr.ph ], [ %.1213, %315 ]
   %.1215252 = phi i32 [ %spec.select248, %.lr.ph ], [ %.2216, %315 ]
   %.1218251 = phi i32 [ %spec.select, %.lr.ph ], [ %.2219, %315 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2515,7 +2515,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
 
 32:                                               ; preds = %.preheader, %67
   %33 = phi i32 [ %storemerge246, %67 ], [ %.pre258, %.preheader ]
-  %.1213 = phi i32 [ %68, %67 ], [ %24, %.preheader ]
+  %.2 = phi i32 [ %68, %67 ], [ %24, %.preheader ]
   %34 = load i16, ptr %31, align 2
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 16, %35
@@ -2564,7 +2564,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
 67:                                               ; preds = %44, %65
   %storemerge246 = phi i32 [ %66, %65 ], [ %64, %44 ]
   store i32 %storemerge246, ptr %9, align 4
-  %68 = add nsw i32 %.1213, -1
+  %68 = add nsw i32 %.2, -1
   %.not247 = icmp eq i32 %68, 0
   br i1 %.not247, label %.loopexit, label %32, !llvm.loop !28
 
@@ -2633,7 +2633,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
 
 110:                                              ; preds = %109, %71
   %111 = phi i32 [ %storemerge244, %109 ], [ %70, %71 ]
-  %.2 = phi i32 [ %.0212253, %109 ], [ %24, %71 ]
+  %.3 = phi i32 [ %.0212253, %109 ], [ %24, %71 ]
   %112 = load i16, ptr %14, align 2
   %113 = zext i16 %112 to i32
   %114 = sub nsw i32 16, %113
@@ -2683,7 +2683,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
   %storemerge245 = phi i32 [ %144, %143 ], [ %142, %122 ]
   store i32 %storemerge245, ptr %9, align 4
   %147 = icmp sgt i32 %storemerge245, 14
-  %148 = add i32 %.2, 65533
+  %148 = add i32 %.3, 65533
   br i1 %147, label %149, label %173
 
 149:                                              ; preds = %145
@@ -2932,7 +2932,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
 315:                                              ; preds = %314, %.loopexit, %20
   %.2219 = phi i32 [ %.1218251, %20 ], [ 3, %.loopexit ], [ %., %314 ]
   %.2216 = phi i32 [ %.1215252, %20 ], [ 138, %.loopexit ], [ %.249, %314 ]
-  %.3 = phi i32 [ %24, %20 ], [ 0, %.loopexit ], [ 0, %314 ]
+  %.1213 = phi i32 [ %24, %20 ], [ 0, %.loopexit ], [ 0, %314 ]
   %.1 = phi i32 [ %.0210255, %20 ], [ %.0211254, %.loopexit ], [ %.0211254, %314 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !29

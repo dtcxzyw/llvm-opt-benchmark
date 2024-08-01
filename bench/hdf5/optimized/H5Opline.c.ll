@@ -772,7 +772,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.preheader.i, %87, %70
-  %.4.i = phi ptr [ %88, %87 ], [ %86, %70 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
+  %.3.i = phi ptr [ %88, %87 ], [ %86, %70 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
   %95 = load i64, ptr %79, align 8
   %.not24.i = icmp eq i64 %95, 0
   br i1 %.not24.i, label %._crit_edge.thread.i, label %.lr.ph13.i
@@ -782,7 +782,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br label %97
 
 97:                                               ; preds = %97, %.lr.ph13.i
-  %.512.i = phi ptr [ %.4.i, %.lr.ph13.i ], [ %120, %97 ]
+  %.512.i = phi ptr [ %.3.i, %.lr.ph13.i ], [ %120, %97 ]
   %.09311.i = phi i64 [ 0, %.lr.ph13.i ], [ %121, %97 ]
   %98 = load ptr, ptr %96, align 8
   %99 = getelementptr inbounds i32, ptr %98, i64 %.09311.i
@@ -830,7 +830,7 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %127, %._crit_edge.i, %.loopexit.i
-  %.6.i = phi ptr [ %128, %127 ], [ %120, %._crit_edge.i ], [ %.4.i, %.loopexit.i ]
+  %.6.i = phi ptr [ %128, %127 ], [ %120, %._crit_edge.i ], [ %.3.i, %.loopexit.i ]
   %129 = add nuw i64 %.09417.i, 1
   %130 = getelementptr inbounds i8, ptr %.09516.i, i64 64
   %131 = load i64, ptr %20, align 8

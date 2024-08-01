@@ -1277,7 +1277,7 @@ _ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit:
 
 while.body201:                                    ; preds = %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit
   %131 = phi ptr [ %145, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ], [ %130, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
-  %threwException.1278 = phi i1 [ %threwException.2, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ], [ %cmp.i154, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
+  %threwException.2278 = phi i1 [ %threwException.4, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ], [ %cmp.i154, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %131, i64 16
   %second.i = getelementptr inbounds i8, ptr %131, i64 24
   %132 = load ptr, ptr %second.i, align 8, !noalias !18
@@ -1340,7 +1340,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit194: ; preds =
   br label %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit
 
 _ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit194, %while.body201
-  %threwException.2 = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit194 ], [ %threwException.1278, %while.body201 ]
+  %threwException.4 = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit194 ], [ %threwException.2278, %while.body201 ]
   %144 = load ptr, ptr %runtime, align 8
   call void @_ZN6hermes9microtask17performCheckpointERNS_2vm7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %144)
   %145 = load ptr, ptr %ctx, align 8, !noalias !18
@@ -1348,8 +1348,8 @@ _ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit: ; preds 
   br i1 %cmp.i.i178, label %if.end246, label %while.body201
 
 if.end246:                                        ; preds = %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %if.end193
-  %threwException.4 = phi i1 [ %cmp.i154, %if.end193 ], [ %cmp.i154, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ %threwException.2, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ]
-  br i1 %threwException.4, label %cleanup268, label %if.end249, !llvm.loop !8
+  %threwException.1 = phi i1 [ %cmp.i154, %if.end193 ], [ %cmp.i154, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ %threwException.4, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit ]
+  br i1 %threwException.1, label %cleanup268, label %if.end249, !llvm.loop !8
 
 if.end249:                                        ; preds = %if.end246
   %146 = load i64, ptr %retval.0.i.i.i.i.i.i81, align 8
@@ -1662,13 +1662,13 @@ if.end21:                                         ; preds = %_ZN4llvh11raw_ostre
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.end21
-  %retval.0 = phi i32 [ 0, %if.end21 ], [ 1, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
+  %retval.1 = phi i32 [ 0, %if.end21 ], [ 1, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current) #20
   br label %return
 
 return:                                           ; preds = %if.then4, %entry, %cleanup, %if.end10
-  %retval.1 = phi i32 [ 0, %if.end10 ], [ %retval.0, %cleanup ], [ 2, %entry ], [ 1, %if.then4 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.end10 ], [ %retval.1, %cleanup ], [ 2, %entry ], [ 1, %if.then4 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind

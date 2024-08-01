@@ -3605,7 +3605,7 @@ for.inc:                                          ; preds = %if.end3.i.i.i.i.i.i
   br i1 %cmp.i.not, label %if.then50, label %for.body, !llvm.loop !38
 
 if.then50:                                        ; preds = %for.inc, %for.inc.loopexit.us, %if.then18, %invoke.cont16
-  %ltype.0 = phi i32 [ 5, %invoke.cont16 ], [ 5, %if.then18 ], [ %cond, %for.inc.loopexit.us ], [ %cond, %for.inc ]
+  %ltype.1 = phi i32 [ 5, %invoke.cont16 ], [ 5, %if.then18 ], [ %cond, %for.inc.loopexit.us ], [ %cond, %for.inc ]
   %52 = load ptr, ptr %lit, align 8
   %d_kind.i136 = getelementptr inbounds i8, ptr %52, i64 8
   %bf.load.i137 = load i16, ptr %d_kind.i136, align 8
@@ -3871,11 +3871,11 @@ ehcleanup:                                        ; preds = %lpad67, %lpad60
   br label %ehcleanup83
 
 if.end82.loopexit:                                ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit257
-  %.mux = select i1 %78, i32 4, i32 %ltype.0
+  %.mux = select i1 %78, i32 4, i32 %ltype.1
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end.i.i.i.i.i.i.i62, %for.cond.i.i.i.i.i.i.i75, %for.body.i.i.i.i.i85, %for.body.i.i.i.i.i85.us, %if.end82.loopexit, %if.then50
-  %ltype.1 = phi i32 [ %ltype.0, %if.then50 ], [ %.mux, %if.end82.loopexit ], [ 3, %for.body.i.i.i.i.i85.us ], [ 3, %for.body.i.i.i.i.i85 ], [ 3, %for.cond.i.i.i.i.i.i.i75 ], [ 3, %if.end.i.i.i.i.i.i.i62 ]
+  %ltype.2 = phi i32 [ %ltype.1, %if.then50 ], [ %.mux, %if.end82.loopexit ], [ 3, %for.body.i.i.i.i.i85.us ], [ 3, %for.body.i.i.i.i.i85 ], [ 3, %for.cond.i.i.i.i.i.i.i75 ], [ 3, %if.end.i.i.i.i.i.i.i62 ]
   call void @_ZN4cvc58internal4SubsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ss) #21
   br label %cond.true88
 
@@ -3885,8 +3885,8 @@ ehcleanup83:                                      ; preds = %lpad15.loopexit, %l
   br label %ehcleanup106
 
 cond.true88:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52, %if.end82
-  %ltype.2 = phi i32 [ %ltype.1, %if.end82 ], [ 2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52 ]
-  ret i32 %ltype.2
+  %ltype.0 = phi i32 [ %ltype.2, %if.end82 ], [ 2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52 ]
+  ret i32 %ltype.0
 
 ehcleanup106:                                     ; preds = %ehcleanup83, %lpad6
   %.pn16 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup83 ], [ %51, %lpad6 ]

@@ -276,7 +276,7 @@ preparePresortedCols.exit:                        ; preds = %84, %49
   br label %125
 
 125:                                              ; preds = %124, %preparePresortedCols.exit
-  %.0161 = phi ptr [ %123, %preparePresortedCols.exit ], [ %16, %124 ]
+  %.1162 = phi ptr [ %123, %preparePresortedCols.exit ], [ %16, %124 ]
   %126 = getelementptr inbounds i8, ptr %0, i64 224
   %127 = load i8, ptr %126, align 8
   %128 = trunc i8 %127 to i1
@@ -292,7 +292,7 @@ preparePresortedCols.exit:                        ; preds = %84, %49
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %129
-  tail call void @tuplesort_set_bound(ptr noundef %.0161, i64 noundef %134) #8
+  tail call void @tuplesort_set_bound(ptr noundef %.1162, i64 noundef %134) #8
   br label %137
 
 137:                                              ; preds = %136, %129
@@ -314,7 +314,7 @@ preparePresortedCols.exit:                        ; preds = %84, %49
   br i1 %.not179, label %147, label %154
 
 147:                                              ; preds = %143
-  tail call void @tuplesort_puttupleslot(ptr noundef %.0161, ptr noundef nonnull %141) #8
+  tail call void @tuplesort_puttupleslot(ptr noundef %.1162, ptr noundef nonnull %141) #8
   %.not180 = icmp eq i64 %.0159, 1
   br i1 %.not180, label %154, label %148
 
@@ -328,13 +328,13 @@ preparePresortedCols.exit:                        ; preds = %84, %49
   br label %154
 
 154:                                              ; preds = %147, %148, %143, %139
-  %.0160 = phi i64 [ 0, %139 ], [ 0, %143 ], [ 1, %148 ], [ 1, %147 ]
+  %.1 = phi i64 [ 0, %139 ], [ 0, %143 ], [ 1, %148 ], [ 1, %147 ]
   %155 = getelementptr inbounds i8, ptr %43, i64 104
   %156 = getelementptr inbounds i8, ptr %43, i64 24
   br label %157
 
 157:                                              ; preds = %.backedge, %154
-  %.1 = phi i64 [ %.0160, %154 ], [ %.1.be, %.backedge ]
+  %.2 = phi i64 [ %.1, %154 ], [ %.2.be, %.backedge ]
   %158 = load ptr, ptr %155, align 8
   %.not.i193 = icmp eq ptr %158, null
   br i1 %.not.i193, label %ExecProcNode.exit, label %159
@@ -359,7 +359,7 @@ ExecProcNode.exit:                                ; preds = %157, %159
 167:                                              ; preds = %163, %ExecProcNode.exit
   %168 = getelementptr inbounds i8, ptr %0, i64 240
   store i8 1, ptr %168, align 8
-  tail call void @tuplesort_performsort(ptr noundef %.0161) #8
+  tail call void @tuplesort_performsort(ptr noundef %.1162) #8
   %169 = getelementptr inbounds i8, ptr %0, i64 40
   %170 = load ptr, ptr %169, align 8
   %.not187 = icmp eq ptr %170, null
@@ -497,12 +497,12 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br label %.thread
 
 244:                                              ; preds = %163
-  %245 = icmp slt i64 %.1, %.0159
+  %245 = icmp slt i64 %.2, %.0159
   br i1 %245, label %246, label %254
 
 246:                                              ; preds = %244
-  tail call void @tuplesort_puttupleslot(ptr noundef %.0161, ptr noundef nonnull %161) #8
-  %247 = add nsw i64 %.1, 1
+  tail call void @tuplesort_puttupleslot(ptr noundef %.1162, ptr noundef nonnull %161) #8
+  %247 = add nsw i64 %.2, 1
   %248 = icmp eq i64 %247, %.0159
   br i1 %248, label %.thread225, label %293
 
@@ -516,7 +516,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br label %.backedge
 
 .backedge:                                        ; preds = %.thread225, %295, %293
-  %.1.be = phi i64 [ %.0159, %.thread225 ], [ %.2, %295 ], [ %.2, %293 ]
+  %.2.be = phi i64 [ %.0159, %.thread225 ], [ %.3, %295 ], [ %.3, %293 ]
   br label %157
 
 254:                                              ; preds = %244
@@ -525,8 +525,8 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %254
-  tail call void @tuplesort_puttupleslot(ptr noundef %.0161, ptr noundef nonnull %161) #8
-  %258 = add i64 %.1, 1
+  tail call void @tuplesort_puttupleslot(ptr noundef %.1162, ptr noundef nonnull %161) #8
+  %258 = add i64 %.2, 1
   br label %293
 
 259:                                              ; preds = %254
@@ -545,13 +545,13 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %269 = load i64, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %0, i64 248
   %271 = load i64, ptr %270, align 8
-  %272 = add i64 %271, %.1
+  %272 = add i64 %271, %.2
   %. = tail call i64 @llvm.smin.i64(i64 %269, i64 %272)
   store i64 %., ptr %270, align 8
   br label %273
 
 273:                                              ; preds = %267, %259
-  tail call void @tuplesort_performsort(ptr noundef %.0161) #8
+  tail call void @tuplesort_performsort(ptr noundef %.1162) #8
   %274 = getelementptr inbounds i8, ptr %0, i64 40
   %275 = load ptr, ptr %274, align 8
   %.not182 = icmp eq ptr %275, null
@@ -589,8 +589,8 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br label %.thread
 
 293:                                              ; preds = %246, %257
-  %.2 = phi i64 [ %247, %246 ], [ %258, %257 ]
-  %294 = icmp sgt i64 %.2, 64
+  %.3 = phi i64 [ %247, %246 ], [ %258, %257 ]
+  %294 = icmp sgt i64 %.3, 64
   br i1 %294, label %295, label %.backedge
 
 295:                                              ; preds = %293
@@ -605,7 +605,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %301 = getelementptr inbounds i8, ptr %300, i64 24
   %302 = load ptr, ptr %301, align 8
   tail call void %302(ptr noundef %298) #8
-  tail call void @tuplesort_performsort(ptr noundef %.0161) #8
+  tail call void @tuplesort_performsort(ptr noundef %.1162) #8
   %303 = getelementptr inbounds i8, ptr %0, i64 40
   %304 = load ptr, ptr %303, align 8
   %.not185 = icmp eq ptr %304, null
@@ -649,21 +649,21 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %327 = getelementptr inbounds i8, ptr %0, i64 248
   %328 = load i64, ptr %327, align 8
   %329 = sub i64 %326, %328
-  %330 = tail call i64 @llvm.smin.i64(i64 %329, i64 %.2)
+  %330 = tail call i64 @llvm.smin.i64(i64 %329, i64 %.3)
   br label %331
 
 331:                                              ; preds = %324, %321
-  %.3 = phi i64 [ %330, %324 ], [ %.2, %321 ]
+  %.4 = phi i64 [ %330, %324 ], [ %.3, %321 ]
   %332 = getelementptr inbounds i8, ptr %0, i64 264
-  store i64 %.3, ptr %332, align 8
+  store i64 %.4, ptr %332, align 8
   tail call fastcc void @switchToPresortedPrefixMode(ptr noundef nonnull %0)
   %.pr = load i32, ptr %17, align 8
   br label %333
 
 333:                                              ; preds = %331, %41
   %334 = phi i32 [ %.pr, %331 ], [ %45, %41 ]
-  %.1162 = phi ptr [ %.0161, %331 ], [ %16, %41 ]
-  %.4 = phi i64 [ %.3, %331 ], [ 0, %41 ]
+  %.0161 = phi ptr [ %.1162, %331 ], [ %16, %41 ]
+  %.0160 = phi i64 [ %.4, %331 ], [ 0, %41 ]
   %335 = icmp eq i32 %334, 1
   br i1 %335, label %.preheader, label %.thread
 
@@ -675,7 +675,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br label %340
 
 340:                                              ; preds = %.preheader, %355
-  %.5 = phi i64 [ %357, %355 ], [ %.4, %.preheader ]
+  %.5 = phi i64 [ %357, %355 ], [ %.0160, %.preheader ]
   %341 = load ptr, ptr %336, align 8
   %.not.i195 = icmp eq ptr %341, null
   br i1 %.not.i195, label %ExecProcNode.exit196, label %342
@@ -875,7 +875,7 @@ instrumentSortedGroup.exit198:                    ; preds = %409, %416, %425, %4
   br label %.thread
 
 .thread:                                          ; preds = %292, %243, %440, %444, %333
-  %.1162201 = phi ptr [ %.1162, %440 ], [ %.1162, %444 ], [ %.1162, %333 ], [ %.0161, %243 ], [ %.0161, %292 ]
+  %.0161201 = phi ptr [ %.0161, %440 ], [ %.0161, %444 ], [ %.0161, %333 ], [ %.1162, %243 ], [ %.1162, %292 ]
   store i32 %14, ptr %13, align 4
   %450 = load i32, ptr %17, align 8
   %451 = icmp eq i32 %450, 2
@@ -887,7 +887,7 @@ instrumentSortedGroup.exit198:                    ; preds = %409, %416, %425, %4
   br label %455
 
 455:                                              ; preds = %.thread, %452
-  %456 = phi ptr [ %454, %452 ], [ %.1162201, %.thread ]
+  %456 = phi ptr [ %454, %452 ], [ %.0161201, %.thread ]
   %457 = getelementptr inbounds i8, ptr %0, i64 120
   %458 = load ptr, ptr %457, align 8
   %459 = icmp eq i32 %14, 1

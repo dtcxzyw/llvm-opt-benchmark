@@ -378,7 +378,7 @@ simple_action_list_append.exit.i.cont:            ; preds = %simple_action_list_
   %.sroa.21.0 = phi i8 [ 0, %58 ], [ %.sroa.21.0.be, %simple_action_list_append.exit.i.cont.backedge ]
   %.sroa.25.0 = phi i1 [ false, %58 ], [ %.sroa.25.0.be, %simple_action_list_append.exit.i.cont.backedge ]
   %.sroa.0.0 = phi ptr [ null, %58 ], [ %.sroa.0.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.28118.0 = phi ptr [ null, %58 ], [ %.sroa.28118.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.28118.1 = phi ptr [ null, %58 ], [ %.sroa.28118.1.be, %simple_action_list_append.exit.i.cont.backedge ]
   %.sroa.36.0 = phi ptr [ null, %58 ], [ %.sroa.36.0.be, %simple_action_list_append.exit.i.cont.backedge ]
   %103 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.77, ptr noundef nonnull @parse_psql_options.long_options, ptr noundef nonnull %3) #15
   switch i32 %103, label %.loopexit.i [
@@ -431,7 +431,7 @@ simple_action_list_append.exit.i.cont.backedge:   ; preds = %simple_action_list_
   %.sroa.21.0.be = phi i8 [ %.sroa.21.0, %243 ], [ 1, %214 ], [ %.sroa.21.0, %213 ], [ %.sroa.21.0, %212 ], [ %.sroa.21.0, %211 ], [ %.sroa.21.0, %210 ], [ %.sroa.21.0, %209 ], [ %.sroa.21.0, %208 ], [ %.sroa.21.0, %206 ], [ %.sroa.21.0, %190 ], [ %.sroa.21.0, %187 ], [ %.sroa.21.0, %186 ], [ %.sroa.21.0, %183 ], [ %.sroa.21.0, %180 ], [ %.sroa.21.0, %177 ], [ %.sroa.21.0, %174 ], [ %.sroa.21.0, %173 ], [ %.sroa.21.0, %160 ], [ %.sroa.21.0, %156 ], [ %.sroa.21.0, %155 ], [ %.sroa.21.0, %152 ], [ %.sroa.21.0, %151 ], [ %.sroa.21.0, %148 ], [ %.sroa.21.0, %145 ], [ %.sroa.21.0, %135 ], [ %.sroa.21.0, %132 ], [ %.sroa.21.0, %129 ], [ %.sroa.21.0, %111 ], [ %.sroa.21.0, %110 ], [ %.sroa.21.0, %107 ], [ %.sroa.21.0, %simple_action_list_append.exit.i ], [ %.sroa.21.0, %simple_action_list_append.exit.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit58.i ], [ %.sroa.21.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit63.i ], [ %.sroa.21.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit.i.cont ]
   %.sroa.25.0.be = phi i1 [ %.sroa.25.0, %243 ], [ %.sroa.25.0, %214 ], [ %.sroa.25.0, %213 ], [ %.sroa.25.0, %212 ], [ %.sroa.25.0, %211 ], [ %.sroa.25.0, %210 ], [ %.sroa.25.0, %209 ], [ %.sroa.25.0, %208 ], [ %.sroa.25.0, %206 ], [ %.sroa.25.0, %190 ], [ %.sroa.25.0, %187 ], [ %.sroa.25.0, %186 ], [ %.sroa.25.0, %183 ], [ %.sroa.25.0, %180 ], [ %.sroa.25.0, %177 ], [ %.sroa.25.0, %174 ], [ %.sroa.25.0, %173 ], [ %.sroa.25.0, %160 ], [ %.sroa.25.0, %156 ], [ %.sroa.25.0, %155 ], [ %.sroa.25.0, %152 ], [ %.sroa.25.0, %151 ], [ %.sroa.25.0, %148 ], [ %.sroa.25.0, %145 ], [ %.sroa.25.0, %135 ], [ %.sroa.25.0, %132 ], [ %.sroa.25.0, %129 ], [ %.sroa.25.0, %111 ], [ %.sroa.25.0, %110 ], [ %.sroa.25.0, %107 ], [ %.sroa.25.0, %simple_action_list_append.exit.i ], [ %.sroa.25.0, %simple_action_list_append.exit.i.else ], [ %.sroa.25.0, %simple_action_list_append.exit58.i ], [ %.sroa.25.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.25.0, %simple_action_list_append.exit63.i ], [ %.sroa.25.0, %simple_action_list_append.exit63.i.else ], [ true, %simple_action_list_append.exit.i.cont ]
   %.sroa.0.0.be = phi ptr [ %.sroa.0.0, %243 ], [ %.sroa.0.0, %214 ], [ %.sroa.0.0, %213 ], [ %.sroa.0.0, %212 ], [ %.sroa.0.0, %211 ], [ %.sroa.0.0, %210 ], [ %.sroa.0.0, %209 ], [ %.sroa.0.0, %208 ], [ %.sroa.0.0, %206 ], [ %.sroa.0.0, %190 ], [ %.sroa.0.0, %187 ], [ %.sroa.0.0, %186 ], [ %.sroa.0.0, %183 ], [ %.sroa.0.0, %180 ], [ %.sroa.0.0, %177 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %173 ], [ %.sroa.0.0, %160 ], [ %.sroa.0.0, %156 ], [ %.sroa.0.0, %155 ], [ %.sroa.0.0, %152 ], [ %.sroa.0.0, %151 ], [ %.sroa.0.0, %148 ], [ %.sroa.0.0, %145 ], [ %.sroa.0.0, %135 ], [ %.sroa.0.0, %132 ], [ %131, %129 ], [ %.sroa.0.0, %111 ], [ %.sroa.0.0, %110 ], [ %.sroa.0.0, %107 ], [ %.sroa.0.0, %simple_action_list_append.exit.i ], [ %.sroa.0.0, %simple_action_list_append.exit.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit58.i ], [ %.sroa.0.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit63.i ], [ %.sroa.0.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.28118.0.be = phi ptr [ %.sroa.28118.0, %243 ], [ %.sroa.28118.0, %214 ], [ %.sroa.28118.0, %213 ], [ %.sroa.28118.0, %212 ], [ %.sroa.28118.0, %211 ], [ %.sroa.28118.0, %210 ], [ %.sroa.28118.0, %209 ], [ %.sroa.28118.0, %208 ], [ %.sroa.28118.0, %206 ], [ %.sroa.28118.0, %190 ], [ %.sroa.28118.0, %187 ], [ %.sroa.28118.0, %186 ], [ %.sroa.28118.0, %183 ], [ %.sroa.28118.0, %180 ], [ %.sroa.28118.0, %177 ], [ %.sroa.28118.0, %174 ], [ %.sroa.28118.0, %173 ], [ %.sroa.28118.0, %160 ], [ %.sroa.28118.0, %156 ], [ %.sroa.28118.0, %155 ], [ %.sroa.28118.0, %152 ], [ %.sroa.28118.0, %151 ], [ %.sroa.28118.0, %148 ], [ %.sroa.28118.0, %145 ], [ %.sroa.28118.0, %135 ], [ %.sroa.28118.0, %132 ], [ %.sroa.28118.0, %129 ], [ %.sroa.28118.0, %111 ], [ %.sroa.28118.0, %110 ], [ %.sroa.28118.0, %107 ], [ %120, %simple_action_list_append.exit.i ], [ %.sroa.28118.0, %simple_action_list_append.exit.i.else ], [ %125, %simple_action_list_append.exit58.i ], [ %.sroa.28118.0, %simple_action_list_append.exit58.i.else ], [ %140, %simple_action_list_append.exit63.i ], [ %.sroa.28118.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.28118.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.28118.1.be = phi ptr [ %.sroa.28118.1, %243 ], [ %.sroa.28118.1, %214 ], [ %.sroa.28118.1, %213 ], [ %.sroa.28118.1, %212 ], [ %.sroa.28118.1, %211 ], [ %.sroa.28118.1, %210 ], [ %.sroa.28118.1, %209 ], [ %.sroa.28118.1, %208 ], [ %.sroa.28118.1, %206 ], [ %.sroa.28118.1, %190 ], [ %.sroa.28118.1, %187 ], [ %.sroa.28118.1, %186 ], [ %.sroa.28118.1, %183 ], [ %.sroa.28118.1, %180 ], [ %.sroa.28118.1, %177 ], [ %.sroa.28118.1, %174 ], [ %.sroa.28118.1, %173 ], [ %.sroa.28118.1, %160 ], [ %.sroa.28118.1, %156 ], [ %.sroa.28118.1, %155 ], [ %.sroa.28118.1, %152 ], [ %.sroa.28118.1, %151 ], [ %.sroa.28118.1, %148 ], [ %.sroa.28118.1, %145 ], [ %.sroa.28118.1, %135 ], [ %.sroa.28118.1, %132 ], [ %.sroa.28118.1, %129 ], [ %.sroa.28118.1, %111 ], [ %.sroa.28118.1, %110 ], [ %.sroa.28118.1, %107 ], [ %120, %simple_action_list_append.exit.i ], [ %.sroa.28118.1, %simple_action_list_append.exit.i.else ], [ %125, %simple_action_list_append.exit58.i ], [ %.sroa.28118.1, %simple_action_list_append.exit58.i.else ], [ %140, %simple_action_list_append.exit63.i ], [ %.sroa.28118.1, %simple_action_list_append.exit63.i.else ], [ %.sroa.28118.1, %simple_action_list_append.exit.i.cont ]
   %.sroa.36.0.be = phi ptr [ %.sroa.36.0, %243 ], [ %.sroa.36.0, %214 ], [ %.sroa.36.0, %213 ], [ %.sroa.36.0, %212 ], [ %.sroa.36.0, %211 ], [ %.sroa.36.0, %210 ], [ %.sroa.36.0, %209 ], [ %.sroa.36.0, %208 ], [ %.sroa.36.0, %206 ], [ %.sroa.36.0, %190 ], [ %.sroa.36.0, %187 ], [ %.sroa.36.0, %186 ], [ %.sroa.36.0, %183 ], [ %.sroa.36.0, %180 ], [ %.sroa.36.0, %177 ], [ %.sroa.36.0, %174 ], [ %.sroa.36.0, %173 ], [ %.sroa.36.0, %160 ], [ %.sroa.36.0, %156 ], [ %.sroa.36.0, %155 ], [ %.sroa.36.0, %152 ], [ %.sroa.36.0, %151 ], [ %.sroa.36.0, %148 ], [ %.sroa.36.0, %145 ], [ %.sroa.36.0, %135 ], [ %.sroa.36.0, %132 ], [ %.sroa.36.0, %129 ], [ %.sroa.36.0, %111 ], [ %.sroa.36.0, %110 ], [ %.sroa.36.0, %107 ], [ %120, %simple_action_list_append.exit.i ], [ %120, %simple_action_list_append.exit.i.else ], [ %125, %simple_action_list_append.exit58.i ], [ %125, %simple_action_list_append.exit58.i.else ], [ %140, %simple_action_list_append.exit63.i ], [ %140, %simple_action_list_append.exit63.i.else ], [ %.sroa.36.0, %simple_action_list_append.exit.i.cont ]
   br label %simple_action_list_append.exit.i.cont, !llvm.loop !5
 
@@ -829,7 +829,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   %.sroa.9.4 = phi ptr [ %.sroa.9.0, %.preheader.i ], [ %.sroa.9.3, %262 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.3, %262 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %267 = icmp eq ptr %.sroa.28118.0, null
+  %267 = icmp eq ptr %.sroa.28118.1, null
   br i1 %267, label %268, label %.cont.thread
 
 268:                                              ; preds = %parse_psql_options.exit
@@ -852,7 +852,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   br label %.cont
 
 .cont.thread:                                     ; preds = %parse_psql_options.exit, %271
-  %.sroa.28118.6.ph = phi ptr [ %272, %271 ], [ %.sroa.28118.0, %parse_psql_options.exit ]
+  %.sroa.28118.0.ph = phi ptr [ %272, %271 ], [ %.sroa.28118.1, %parse_psql_options.exit ]
   %275 = trunc nuw i8 %.sroa.21.0 to i1
   br label %278
 
@@ -868,7 +868,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
 278:                                              ; preds = %.cont.thread, %.cont
   %279 = phi i1 [ false, %.cont.thread ], [ true, %.cont ]
   %280 = phi i1 [ %275, %.cont.thread ], [ false, %.cont ]
-  %.sroa.28118.6131 = phi ptr [ %.sroa.28118.6.ph, %.cont.thread ], [ null, %.cont ]
+  %.sroa.28118.0131 = phi ptr [ %.sroa.28118.0.ph, %.cont.thread ], [ null, %.cont ]
   %281 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
   %.not94 = icmp eq ptr %281, null
   br i1 %.not94, label %282, label %287
@@ -1099,12 +1099,12 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   br label %387
 
 387:                                              ; preds = %386, %383, %379
-  %.not104229 = icmp eq ptr %.sroa.28118.6131, null
+  %.not104229 = icmp eq ptr %.sroa.28118.0131, null
   br i1 %.not104229, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %387, %428
-  %.0231 = phi i32 [ %.1, %428 ], [ 0, %387 ]
-  %.079230 = phi ptr [ %429, %428 ], [ %.sroa.28118.6131, %387 ]
+  %.0231 = phi i32 [ %.2, %428 ], [ 0, %387 ]
+  %.079230 = phi ptr [ %429, %428 ], [ %.sroa.28118.0131, %387 ]
   %388 = getelementptr inbounds i8, ptr %.079230, i64 8
   %389 = load i32, ptr %388, align 8
   switch i32 %389, label %424 [
@@ -1170,8 +1170,8 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   br label %424
 
 424:                                              ; preds = %.lr.ph, %409, %420, %397
-  %.1 = phi i32 [ %401, %397 ], [ %419, %409 ], [ %423, %420 ], [ %.0231, %.lr.ph ]
-  %.not106 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %401, %397 ], [ %419, %409 ], [ %423, %420 ], [ %.0231, %.lr.ph ]
+  %.not106 = icmp eq i32 %.2, 0
   br i1 %.not106, label %428, label %425
 
 425:                                              ; preds = %424
@@ -1185,11 +1185,11 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   br i1 %.not104, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %428, %425, %387
-  %.2 = phi i32 [ 0, %387 ], [ %.1, %425 ], [ %.1, %428 ]
+  %.1 = phi i32 [ 0, %387 ], [ %.2, %425 ], [ %.2, %428 ]
   br i1 %280, label %430, label %452
 
 430:                                              ; preds = %._crit_edge
-  %431 = icmp ne i32 %.2, 0
+  %431 = icmp ne i32 %.1, 0
   %432 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
   %433 = trunc i8 %432 to i1
   %434 = select i1 %431, i1 %433, i1 false
@@ -1201,7 +1201,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
 438:                                              ; preds = %430
   %439 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
   %440 = trunc i8 %439 to i1
-  %spec.select = select i1 %440, i32 3, i32 %.2
+  %spec.select = select i1 %440, i32 3, i32 %.1
   br label %452
 
 441:                                              ; preds = %430
@@ -1228,7 +1228,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   br label %452
 
 452:                                              ; preds = %438, %383, %441, %._crit_edge, %447
-  %.3 = phi i32 [ %.2, %441 ], [ %.2, %._crit_edge ], [ %451, %447 ], [ 3, %383 ], [ %spec.select, %438 ]
+  %.3 = phi i32 [ %.1, %441 ], [ %.1, %._crit_edge ], [ %451, %447 ], [ 3, %383 ], [ %spec.select, %438 ]
   %453 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
   %.not107 = icmp eq ptr %453, null
   br i1 %.not107, label %456, label %454

@@ -759,7 +759,7 @@ lpad59:                                           ; preds = %if.else56
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.then53, %invoke.cont60
-  %retval.0 = phi i32 [ %call61, %invoke.cont60 ], [ %call55, %if.then53 ]
+  %retval.2 = phi i32 [ %call61, %invoke.cont60 ], [ %call55, %if.then53 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %kc2) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %folded2String) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %kc1) #10
@@ -781,7 +781,7 @@ ehcleanup65:                                      ; preds = %ehcleanup63, %lpad4
   br label %ehcleanup67
 
 cleanup66:                                        ; preds = %if.then22, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ %call24, %if.then22 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ %call24, %if.then22 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %folded1String) #10
   br label %return
 
@@ -791,8 +791,8 @@ ehcleanup67:                                      ; preds = %lpad, %lpad.i, %ehc
   resume { ptr, i32 } %.pn29
 
 return:                                           ; preds = %if.end6, %entry, %lor.lhs.false, %cleanup66, %if.then5
-  %retval.2 = phi i32 [ 0, %if.then5 ], [ %retval.1, %cleanup66 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end6 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ %retval.1, %cleanup66 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end6 ]
+  ret i32 %retval.0
 }
 
 declare noundef ptr @_ZN6icu_7511Normalizer215getNFKCInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1

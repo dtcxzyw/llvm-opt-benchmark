@@ -897,7 +897,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br label %284
 
 283:                                              ; preds = %140, %272
-  %.0 = phi i32 [ 0, %272 ], [ -1, %140 ]
+  %.4 = phi i32 [ 0, %272 ], [ -1, %140 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #15
   br label %285
 
@@ -907,7 +907,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br label %286
 
 285:                                              ; preds = %126, %283
-  %.1 = phi i32 [ %.0, %283 ], [ -1, %126 ]
+  %.3 = phi i32 [ %.4, %283 ], [ -1, %126 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
   br label %287
 
@@ -917,7 +917,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br label %288
 
 287:                                              ; preds = %112, %285
-  %.2 = phi i32 [ %.1, %285 ], [ -1, %112 ]
+  %.2 = phi i32 [ %.3, %285 ], [ -1, %112 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #15
   br label %289
 
@@ -927,7 +927,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br label %290
 
 289:                                              ; preds = %.invoke, %287
-  %.3 = phi i32 [ %.2, %287 ], [ -1, %.invoke ]
+  %.1 = phi i32 [ %.2, %287 ], [ -1, %.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   br label %292
@@ -943,9 +943,9 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br label %293
 
 292:                                              ; preds = %53, %289
-  %.4 = phi i32 [ %.3, %289 ], [ 0, %53 ]
+  %.0 = phi i32 [ %.1, %289 ], [ 0, %53 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  ret i32 %.4
+  ret i32 %.0
 
 293:                                              ; preds = %291, %82, %65, %64
   %.pn79 = phi { ptr, i32 } [ %66, %65 ], [ %.pn76.pn, %291 ], [ %.pn44, %82 ], [ %.pn42, %64 ]

@@ -686,12 +686,12 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit31:     ; preds = %174, %175
   br label %182
 
 182:                                              ; preds = %._crit_edge, %3
-  %.1 = phi i1 [ %10, %._crit_edge ], [ false, %3 ]
+  %.022 = phi i1 [ %10, %._crit_edge ], [ false, %3 ]
   %183 = getelementptr inbounds i8, ptr %2, i64 176
   %184 = load i8, ptr %183, align 8
   %185 = and i8 %184, 63
   store i8 %185, ptr %183, align 8
-  ret i1 %.1
+  ret i1 %.022
 }
 
 declare noundef zeroext i1 @_Z21hb_syllabic_clear_varPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef, ptr noundef, ptr noundef) #1
@@ -708,16 +708,16 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %6, label %116, label %7
 
 7:                                                ; preds = %111, %1
-  %.0128 = phi i32 [ %38, %111 ], [ 0, %1 ]
-  %.0124 = phi i32 [ %.2126, %111 ], [ 1, %1 ]
-  %.0119 = phi i32 [ %spec.select146, %111 ], [ 0, %1 ]
-  %.0118 = phi i32 [ %115, %111 ], [ 0, %1 ]
-  %8 = sext i32 %.0128 to i64
+  %.1129 = phi i32 [ %38, %111 ], [ 0, %1 ]
+  %.1125 = phi i32 [ %.3127, %111 ], [ 1, %1 ]
+  %.1120 = phi i32 [ %spec.select146, %111 ], [ 0, %1 ]
+  %.1 = phi i32 [ %115, %111 ], [ 0, %1 ]
+  %8 = sext i32 %.1129 to i64
   %9 = getelementptr inbounds [55 x i8], ptr @_ZL44_myanmar_syllable_machine_from_state_actions, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %cond = icmp eq i8 %10, 2
-  %spec.select = select i1 %cond, i32 %.0118, i32 %.0119
-  %11 = shl nsw i32 %.0128, 1
+  %spec.select = select i1 %cond, i32 %.1, i32 %.1120
+  %11 = shl nsw i32 %.1129, 1
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr @_ZL36_myanmar_syllable_machine_trans_keys, i64 %12
   %14 = getelementptr inbounds [55 x i16], ptr @_ZL39_myanmar_syllable_machine_index_offsets, i64 0, i64 %8
@@ -728,7 +728,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = load i8, ptr %13, align 2
-  %22 = zext i32 %.0118 to i64
+  %22 = zext i32 %.1 to i64
   %23 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %3, i64 %22, i32 4
   %24 = getelementptr inbounds i8, ptr %23, i64 2
   %25 = load i8, ptr %24, align 2
@@ -752,10 +752,10 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %35
 
 35:                                               ; preds = %117, %30
-  %.1125 = phi i32 [ %.3127, %117 ], [ %.0124, %30 ]
+  %.2126 = phi i32 [ %.0124, %117 ], [ %.1125, %30 ]
   %.0123 = phi i64 [ %122, %117 ], [ %34, %30 ]
-  %.2121 = phi i32 [ %.4, %117 ], [ %spec.select, %30 ]
-  %.1 = phi i32 [ %5, %117 ], [ %.0118, %30 ]
+  %.3122 = phi i32 [ %.0119, %117 ], [ %spec.select, %30 ]
+  %.2 = phi i32 [ %5, %117 ], [ %.1, %30 ]
   %36 = getelementptr inbounds [61 x i8], ptr @_ZL37_myanmar_syllable_machine_trans_targs, i64 0, i64 %.0123
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
@@ -778,15 +778,15 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   ]
 
 44:                                               ; preds = %41
-  %45 = add i32 %.1, 1
+  %45 = add i32 %.2, 1
   %invariant.gep179 = getelementptr inbounds i8, ptr %3, i64 3
-  %46 = icmp ult i32 %.2121, %45
+  %46 = icmp ult i32 %.3122, %45
   br i1 %46, label %.lr.ph183, label %._crit_edge184
 
 .lr.ph183:                                        ; preds = %44
-  %.1125.tr142 = trunc i32 %.1125 to i8
-  %47 = shl i8 %.1125.tr142, 4
-  %48 = zext i32 %.2121 to i64
+  %.2126.tr142 = trunc i32 %.2126 to i8
+  %47 = shl i8 %.2126.tr142, 4
+  %48 = zext i32 %.3122 to i64
   %wide.trip.count214 = zext i32 %45 to i64
   br label %49
 
@@ -799,22 +799,22 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond215.not, label %._crit_edge184, label %49, !llvm.loop !21
 
 ._crit_edge184:                                   ; preds = %49, %44
-  %50 = add i32 %.1125, 1
+  %50 = add i32 %.2126, 1
   %51 = icmp eq i32 %50, 16
   %spec.store.select = select i1 %51, i32 1, i32 %50
   br label %111
 
 52:                                               ; preds = %41
-  %53 = add i32 %.1, 1
+  %53 = add i32 %.2, 1
   %invariant.gep173 = getelementptr inbounds i8, ptr %3, i64 3
-  %54 = icmp ult i32 %.2121, %53
+  %54 = icmp ult i32 %.3122, %53
   br i1 %54, label %.lr.ph177, label %._crit_edge178
 
 .lr.ph177:                                        ; preds = %52
-  %.1125.tr141 = trunc i32 %.1125 to i8
-  %55 = shl i8 %.1125.tr141, 4
+  %.2126.tr141 = trunc i32 %.2126 to i8
+  %55 = shl i8 %.2126.tr141, 4
   %56 = or disjoint i8 %55, 2
-  %57 = zext i32 %.2121 to i64
+  %57 = zext i32 %.3122 to i64
   %wide.trip.count209 = zext i32 %53 to i64
   br label %58
 
@@ -827,22 +827,22 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond210.not, label %._crit_edge178, label %58, !llvm.loop !22
 
 ._crit_edge178:                                   ; preds = %58, %52
-  %59 = add i32 %.1125, 1
+  %59 = add i32 %.2126, 1
   %60 = icmp eq i32 %59, 16
   %spec.store.select2 = select i1 %60, i32 1, i32 %59
   br label %111
 
 61:                                               ; preds = %41
-  %62 = add i32 %.1, 1
+  %62 = add i32 %.2, 1
   %invariant.gep167 = getelementptr inbounds i8, ptr %3, i64 3
-  %63 = icmp ult i32 %.2121, %62
+  %63 = icmp ult i32 %.3122, %62
   br i1 %63, label %.lr.ph171, label %._crit_edge172
 
 .lr.ph171:                                        ; preds = %61
-  %.1125.tr140 = trunc i32 %.1125 to i8
-  %64 = shl i8 %.1125.tr140, 4
+  %.2126.tr140 = trunc i32 %.2126 to i8
+  %64 = shl i8 %.2126.tr140, 4
   %65 = or disjoint i8 %64, 1
-  %66 = zext i32 %.2121 to i64
+  %66 = zext i32 %.3122 to i64
   %wide.trip.count204 = zext i32 %62 to i64
   br label %67
 
@@ -855,7 +855,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond205.not, label %._crit_edge172, label %67, !llvm.loop !23
 
 ._crit_edge172:                                   ; preds = %67, %61
-  %68 = add i32 %.1125, 1
+  %68 = add i32 %.2126, 1
   %69 = icmp eq i32 %68, 16
   %spec.store.select3 = select i1 %69, i32 1, i32 %68
   %70 = getelementptr inbounds i8, ptr %0, i64 180
@@ -865,16 +865,16 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %111
 
 73:                                               ; preds = %41
-  %74 = add i32 %.1, 1
+  %74 = add i32 %.2, 1
   %invariant.gep161 = getelementptr inbounds i8, ptr %3, i64 3
-  %75 = icmp ult i32 %.2121, %74
+  %75 = icmp ult i32 %.3122, %74
   br i1 %75, label %.lr.ph165, label %._crit_edge166
 
 .lr.ph165:                                        ; preds = %73
-  %.1125.tr139 = trunc i32 %.1125 to i8
-  %76 = shl i8 %.1125.tr139, 4
+  %.2126.tr139 = trunc i32 %.2126 to i8
+  %76 = shl i8 %.2126.tr139, 4
   %77 = or disjoint i8 %76, 2
-  %78 = zext i32 %.2121 to i64
+  %78 = zext i32 %.3122 to i64
   %wide.trip.count199 = zext i32 %74 to i64
   br label %79
 
@@ -887,22 +887,22 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond200.not, label %._crit_edge166, label %79, !llvm.loop !24
 
 ._crit_edge166:                                   ; preds = %79, %73
-  %80 = add i32 %.1125, 1
+  %80 = add i32 %.2126, 1
   %81 = icmp eq i32 %80, 16
   %spec.store.select4 = select i1 %81, i32 1, i32 %80
   br label %111
 
 82:                                               ; preds = %41
-  %83 = add i32 %.1, -1
+  %83 = add i32 %.2, -1
   %invariant.gep155 = getelementptr inbounds i8, ptr %3, i64 3
-  %84 = icmp ult i32 %.2121, %.1
+  %84 = icmp ult i32 %.3122, %.2
   br i1 %84, label %.lr.ph159, label %._crit_edge160
 
 .lr.ph159:                                        ; preds = %82
-  %.1125.tr138 = trunc i32 %.1125 to i8
-  %85 = shl i8 %.1125.tr138, 4
-  %86 = zext i32 %.2121 to i64
-  %wide.trip.count194 = zext i32 %.1 to i64
+  %.2126.tr138 = trunc i32 %.2126 to i8
+  %85 = shl i8 %.2126.tr138, 4
+  %86 = zext i32 %.3122 to i64
+  %wide.trip.count194 = zext i32 %.2 to i64
   br label %87
 
 87:                                               ; preds = %.lr.ph159, %87
@@ -914,23 +914,23 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond195.not, label %._crit_edge160, label %87, !llvm.loop !25
 
 ._crit_edge160:                                   ; preds = %87, %82
-  %88 = add i32 %.1125, 1
+  %88 = add i32 %.2126, 1
   %89 = icmp eq i32 %88, 16
   %spec.store.select5 = select i1 %89, i32 1, i32 %88
   br label %111
 
 90:                                               ; preds = %41
-  %91 = add i32 %.1, -1
+  %91 = add i32 %.2, -1
   %invariant.gep149 = getelementptr inbounds i8, ptr %3, i64 3
-  %92 = icmp ult i32 %.2121, %.1
+  %92 = icmp ult i32 %.3122, %.2
   br i1 %92, label %.lr.ph153, label %._crit_edge154
 
 .lr.ph153:                                        ; preds = %90
-  %.1125.tr137 = trunc i32 %.1125 to i8
-  %93 = shl i8 %.1125.tr137, 4
+  %.2126.tr137 = trunc i32 %.2126 to i8
+  %93 = shl i8 %.2126.tr137, 4
   %94 = or disjoint i8 %93, 1
-  %95 = zext i32 %.2121 to i64
-  %wide.trip.count189 = zext i32 %.1 to i64
+  %95 = zext i32 %.3122 to i64
+  %wide.trip.count189 = zext i32 %.2 to i64
   br label %96
 
 96:                                               ; preds = %.lr.ph153, %96
@@ -942,7 +942,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond190.not, label %._crit_edge154, label %96, !llvm.loop !26
 
 ._crit_edge154:                                   ; preds = %96, %90
-  %97 = add i32 %.1125, 1
+  %97 = add i32 %.2126, 1
   %98 = icmp eq i32 %97, 16
   %spec.store.select6 = select i1 %98, i32 1, i32 %97
   %99 = getelementptr inbounds i8, ptr %0, i64 180
@@ -952,17 +952,17 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %111
 
 102:                                              ; preds = %41
-  %103 = add i32 %.1, -1
+  %103 = add i32 %.2, -1
   %invariant.gep = getelementptr inbounds i8, ptr %3, i64 3
-  %104 = icmp ult i32 %.2121, %.1
+  %104 = icmp ult i32 %.3122, %.2
   br i1 %104, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %102
-  %.1125.tr = trunc i32 %.1125 to i8
-  %105 = shl i8 %.1125.tr, 4
+  %.2126.tr = trunc i32 %.2126 to i8
+  %105 = shl i8 %.2126.tr, 4
   %106 = or disjoint i8 %105, 2
-  %107 = zext i32 %.2121 to i64
-  %wide.trip.count = zext i32 %.1 to i64
+  %107 = zext i32 %.3122 to i64
+  %wide.trip.count = zext i32 %.2 to i64
   br label %108
 
 108:                                              ; preds = %.lr.ph, %108
@@ -974,32 +974,32 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br i1 %exitcond.not, label %._crit_edge, label %108, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %108, %102
-  %109 = add i32 %.1125, 1
+  %109 = add i32 %.2126, 1
   %110 = icmp eq i32 %109, 16
   %spec.store.select7 = select i1 %110, i32 1, i32 %109
   br label %111
 
 111:                                              ; preds = %41, %._crit_edge184, %._crit_edge178, %._crit_edge172, %._crit_edge166, %._crit_edge160, %._crit_edge154, %._crit_edge, %35
-  %.2126 = phi i32 [ %.1125, %35 ], [ %.1125, %41 ], [ %spec.store.select7, %._crit_edge ], [ %spec.store.select6, %._crit_edge154 ], [ %spec.store.select5, %._crit_edge160 ], [ %spec.store.select4, %._crit_edge166 ], [ %spec.store.select3, %._crit_edge172 ], [ %spec.store.select2, %._crit_edge178 ], [ %spec.store.select, %._crit_edge184 ]
-  %.2 = phi i32 [ %.1, %35 ], [ %.1, %41 ], [ %103, %._crit_edge ], [ %91, %._crit_edge154 ], [ %83, %._crit_edge160 ], [ %.1, %._crit_edge166 ], [ %.1, %._crit_edge172 ], [ %.1, %._crit_edge178 ], [ %.1, %._crit_edge184 ]
+  %.3127 = phi i32 [ %.2126, %35 ], [ %.2126, %41 ], [ %spec.store.select7, %._crit_edge ], [ %spec.store.select6, %._crit_edge154 ], [ %spec.store.select5, %._crit_edge160 ], [ %spec.store.select4, %._crit_edge166 ], [ %spec.store.select3, %._crit_edge172 ], [ %spec.store.select2, %._crit_edge178 ], [ %spec.store.select, %._crit_edge184 ]
+  %.3 = phi i32 [ %.2, %35 ], [ %.2, %41 ], [ %103, %._crit_edge ], [ %91, %._crit_edge154 ], [ %83, %._crit_edge160 ], [ %.2, %._crit_edge166 ], [ %.2, %._crit_edge172 ], [ %.2, %._crit_edge178 ], [ %.2, %._crit_edge184 ]
   %112 = sext i8 %37 to i64
   %113 = getelementptr inbounds [55 x i8], ptr @_ZL42_myanmar_syllable_machine_to_state_actions, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %cond1 = icmp eq i8 %114, 1
-  %spec.select146 = select i1 %cond1, i32 0, i32 %.2121
-  %115 = add i32 %.2, 1
+  %spec.select146 = select i1 %cond1, i32 0, i32 %.3122
+  %115 = add i32 %.3, 1
   %.not143 = icmp eq i32 %115, %5
   br i1 %.not143, label %116, label %7
 
 116:                                              ; preds = %111, %1
-  %.1129 = phi i32 [ 0, %1 ], [ %38, %111 ]
-  %.3127 = phi i32 [ 1, %1 ], [ %.2126, %111 ]
-  %.4 = phi i32 [ 0, %1 ], [ %spec.select146, %111 ]
-  %.not = icmp eq i32 %.1129, 0
+  %.0128 = phi i32 [ 0, %1 ], [ %38, %111 ]
+  %.0124 = phi i32 [ 1, %1 ], [ %.3127, %111 ]
+  %.0119 = phi i32 [ 0, %1 ], [ %spec.select146, %111 ]
+  %.not = icmp eq i32 %.0128, 0
   br i1 %.not, label %123, label %117
 
 117:                                              ; preds = %116
-  %118 = sext i32 %.1129 to i64
+  %118 = sext i32 %.0128 to i64
   %119 = getelementptr inbounds [55 x i16], ptr @_ZL35_myanmar_syllable_machine_eof_trans, i64 0, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = sext i16 %120 to i64

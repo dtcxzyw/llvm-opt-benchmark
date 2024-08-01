@@ -511,12 +511,12 @@ longest_path_match.exit:                          ; preds = %land.rhs.i, %land.l
   %tobool.not = icmp eq i32 %and9, 0
   %cmp10 = icmp eq i32 %match_len.2.i, %len
   %or.cond75 = select i1 %tobool.not, i1 %cmp10, i1 false
-  %last_slash.0 = select i1 %or.cond75, i32 %match_len_prev.2.i, i32 %match_len.2.i
+  %last_slash.1 = select i1 %or.cond75, i32 %match_len_prev.2.i, i32 %match_len.2.i
   %tobool13.not = icmp eq i32 %and8, 0
   br i1 %tobool13.not, label %if.end21, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %longest_path_match.exit
-  %conv15 = sext i32 %last_slash.0 to i64
+  %conv15 = sext i32 %last_slash.1 to i64
   %11 = load i64, ptr %len7, align 8
   %cmp18 = icmp eq i64 %11, %conv15
   br i1 %cmp18, label %return, label %if.end21
@@ -525,12 +525,12 @@ if.end21:                                         ; preds = %land.lhs.true14, %l
   %and22 = and i32 %track_flags, 1
   store i32 %and22, ptr %ret_flags, align 4
   %tobool23.not = icmp ne i32 %and22, 0
-  %cmp25 = icmp eq i32 %last_slash.0, %len
+  %cmp25 = icmp eq i32 %last_slash.1, %len
   %or.cond76 = select i1 %tobool23.not, i1 %cmp25, i1 false
   br i1 %or.cond76, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end21, %reset_lstat_cache.exit
-  %last_slash.1 = phi i32 [ 0, %reset_lstat_cache.exit ], [ %last_slash.0, %if.end21 ]
+  %last_slash.0 = phi i32 [ 0, %reset_lstat_cache.exit ], [ %last_slash.1, %if.end21 ]
   store i32 1, ptr %ret_flags, align 4
   %conv30 = sext i32 %len to i64
   %len32 = getelementptr inbounds i8, ptr %cache, i64 8
@@ -560,7 +560,7 @@ while.cond.preheader:                             ; preds = %if.end40
   br label %while.cond
 
 while.cond.us:                                    ; preds = %while.cond.us.preheader, %if.else84.us
-  %last_slash_dir.0.us = phi i32 [ %inc.us.lcssa, %if.else84.us ], [ %last_slash.1, %while.cond.us.preheader ]
+  %last_slash_dir.0.us = phi i32 [ %inc.us.lcssa, %if.else84.us ], [ %last_slash.0, %while.cond.us.preheader ]
   %cmp41.us = icmp slt i32 %last_slash_dir.0.us, %len
   br i1 %cmp41.us, label %do.body.us.preheader, label %while.end
 
@@ -595,12 +595,12 @@ land.rhs.us.do.end.us_crit_edge:                  ; preds = %land.rhs.us
 
 do.end.us:                                        ; preds = %do.body.us, %land.rhs.us.do.end.us_crit_edge
   %idxprom63.us.pre-phi = phi i64 [ %.pre121, %land.rhs.us.do.end.us_crit_edge ], [ %conv30, %do.body.us ]
-  %match_len.3.us.lcssa = phi i32 [ %21, %land.rhs.us.do.end.us_crit_edge ], [ %13, %do.body.us ]
+  %match_len.4.us.lcssa = phi i32 [ %21, %land.rhs.us.do.end.us_crit_edge ], [ %13, %do.body.us ]
   %inc.us.lcssa = phi i32 [ %20, %land.rhs.us.do.end.us_crit_edge ], [ %len, %do.body.us ]
   %22 = load ptr, ptr %buf44, align 8
   %arrayidx64.us = getelementptr inbounds i8, ptr %22, i64 %idxprom63.us.pre-phi
   store i8 0, ptr %arrayidx64.us, align 1
-  %cmp65.not.not.us = icmp slt i32 %match_len.3.us.lcssa, %prefix_len_stat_func
+  %cmp65.not.not.us = icmp slt i32 %match_len.4.us.lcssa, %prefix_len_stat_func
   %23 = load ptr, ptr %buf44, align 8
   br i1 %cmp65.not.not.us, label %if.then67.us, label %if.else71.us
 
@@ -627,7 +627,7 @@ if.else84.us:                                     ; preds = %if.end75.us
   ]
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.else84
-  %last_slash_dir.0 = phi i32 [ %30, %if.else84 ], [ %last_slash.1, %while.cond.preheader ]
+  %last_slash_dir.0 = phi i32 [ %30, %if.else84 ], [ %last_slash.0, %while.cond.preheader ]
   %cmp41 = icmp slt i32 %last_slash_dir.0, %len
   br i1 %cmp41, label %do.body.preheader, label %while.end
 
@@ -710,15 +710,15 @@ while.end.sink.split.loopexit184:                 ; preds = %if.else84.us
 while.end.sink.split:                             ; preds = %if.else84.us, %if.else84, %while.end.sink.split.loopexit184, %while.end.sink.split.loopexit174, %if.then77
   %spec.store.select.sink = phi i32 [ %spec.store.select, %if.then77 ], [ 16, %while.end.sink.split.loopexit174 ], [ 16, %while.end.sink.split.loopexit184 ], [ 4, %if.else84 ], [ 4, %if.else84.us ]
   %last_slash_dir.089.ph = phi i32 [ %.us-phi93, %if.then77 ], [ %last_slash_dir.0, %while.end.sink.split.loopexit174 ], [ %last_slash_dir.0.us, %while.end.sink.split.loopexit184 ], [ %last_slash_dir.0, %if.else84 ], [ %last_slash_dir.0.us, %if.else84.us ]
-  %match_len.4.ph = phi i32 [ %.us-phi94, %if.then77 ], [ %30, %while.end.sink.split.loopexit174 ], [ %inc.us.lcssa, %while.end.sink.split.loopexit184 ], [ %30, %if.else84 ], [ %inc.us.lcssa, %if.else84.us ]
+  %match_len.3.ph = phi i32 [ %.us-phi94, %if.then77 ], [ %30, %while.end.sink.split.loopexit174 ], [ %inc.us.lcssa, %while.end.sink.split.loopexit184 ], [ %30, %if.else84 ], [ %inc.us.lcssa, %if.else84.us ]
   %saved_errno.0.ph = phi i32 [ %34, %if.then77 ], [ 0, %while.end.sink.split.loopexit174 ], [ 0, %while.end.sink.split.loopexit184 ], [ 0, %if.else84 ], [ 0, %if.else84.us ]
   store i32 %spec.store.select.sink, ptr %ret_flags, align 4
   br label %while.end
 
 while.end:                                        ; preds = %while.cond.us, %while.cond, %do.end, %do.body, %while.end.sink.split
   %last_slash_dir.089 = phi i32 [ %last_slash_dir.089.ph, %while.end.sink.split ], [ %last_slash_dir.0, %do.body ], [ %last_slash_dir.0, %do.end ], [ %last_slash_dir.0, %while.cond ], [ %last_slash_dir.0.us, %while.cond.us ]
-  %match_len.4 = phi i32 [ %match_len.4.ph, %while.end.sink.split ], [ %len, %do.body ], [ %last_slash_dir.0, %while.cond ], [ %30, %do.end ], [ %last_slash_dir.0.us, %while.cond.us ]
-  %last_slash.3 = phi i32 [ %match_len.4.ph, %while.end.sink.split ], [ %last_slash_dir.0, %do.body ], [ %last_slash_dir.0, %do.end ], [ %last_slash_dir.0, %while.cond ], [ %last_slash_dir.0.us, %while.cond.us ]
+  %match_len.3 = phi i32 [ %match_len.3.ph, %while.end.sink.split ], [ %len, %do.body ], [ %last_slash_dir.0, %while.cond ], [ %30, %do.end ], [ %last_slash_dir.0.us, %while.cond.us ]
+  %last_slash.3 = phi i32 [ %match_len.3.ph, %while.end.sink.split ], [ %last_slash_dir.0, %do.body ], [ %last_slash_dir.0, %do.end ], [ %last_slash_dir.0, %while.cond ], [ %last_slash_dir.0.us, %while.cond.us ]
   %saved_errno.0 = phi i32 [ %saved_errno.0.ph, %while.end.sink.split ], [ 0, %do.body ], [ 0, %do.end ], [ 0, %while.cond ], [ 0, %while.cond.us ]
   %37 = load i32, ptr %ret_flags, align 4
   %and99 = and i32 %track_flags, 6
@@ -774,7 +774,7 @@ if.then133:                                       ; preds = %if.end131
   br label %return
 
 return:                                           ; preds = %if.end131, %if.then133, %if.end21, %land.lhs.true14
-  %retval.0 = phi i32 [ %last_slash.0, %land.lhs.true14 ], [ %len, %if.end21 ], [ %match_len.4, %if.then133 ], [ %match_len.4, %if.end131 ]
+  %retval.0 = phi i32 [ %last_slash.1, %land.lhs.true14 ], [ %len, %if.end21 ], [ %match_len.3, %if.then133 ], [ %match_len.3, %if.end131 ]
   ret i32 %retval.0
 }
 

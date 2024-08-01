@@ -40808,7 +40808,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit420: ; preds = %1183, %1188, %
   br label %1291
 
 1291:                                             ; preds = %.lr.ph1271, %1921
-  %.01781269 = phi i32 [ 1, %.lr.ph1271 ], [ %.2180, %1921 ]
+  %.01781269 = phi i32 [ 1, %.lr.ph1271 ], [ %.1179, %1921 ]
   %.sroa.0769.01267 = phi ptr [ %.val234, %.lr.ph1271 ], [ %1922, %1921 ]
   %1292 = getelementptr inbounds i8, ptr %.sroa.0769.01267, i64 32
   %1293 = load ptr, ptr %1292, align 8
@@ -41085,12 +41085,12 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i:              ; preds = %1358
   br i1 %1385, label %.preheader878, label %1462
 
 .preheader878:                                    ; preds = %1383, %1460
-  %.1179 = phi i32 [ %1389, %1460 ], [ %.01781269, %1383 ]
+  %.2180 = phi i32 [ %1389, %1460 ], [ %.01781269, %1383 ]
   %1386 = load i8, ptr %1280, align 1
   %1387 = trunc i8 %1386 to i1
   %1388 = select i1 %1387, ptr @.str.186, ptr @.str.45
-  %1389 = add nsw i32 %.1179, 1
-  invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull @.str.185, ptr noundef nonnull %1388, i32 noundef %.1179)
+  %1389 = add nsw i32 %.2180, 1
+  invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull @.str.185, ptr noundef nonnull %1388, i32 noundef %.2180)
           to label %1390 unwind label %.loopexit879
 
 1390:                                             ; preds = %.preheader878
@@ -41320,12 +41320,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit452:             ; preds = %1441, %1446, %1453
 
 .sink.split:                                      ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit452, %1467
   %.sink = phi ptr [ %25, %1467 ], [ %23, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit452 ]
-  %.2180.ph = phi i32 [ %.01781269, %1467 ], [ %1389, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit452 ]
+  %.1179.ph = phi i32 [ %.01781269, %1467 ], [ %1389, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit452 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
   br label %1469
 
 1469:                                             ; preds = %.sink.split, %1462, %1379
-  %.2180 = phi i32 [ %.01781269, %1462 ], [ %.01781269, %1379 ], [ %.2180.ph, %.sink.split ]
+  %.1179 = phi i32 [ %.01781269, %1462 ], [ %.01781269, %1379 ], [ %.1179.ph, %.sink.split ]
   %1470 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #22
   %1471 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef %1470)
           to label %1472 unwind label %.loopexit.split-lp880.loopexit

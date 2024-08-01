@@ -562,10 +562,10 @@ while.end27.i22:                                  ; preds = %land.rhs17.i29, %wh
   br label %if.then6
 
 if.then6:                                         ; preds = %while.end27.i22, %if.end.i4, %if.then2, %while.end27.i
-  %email2.151 = phi ptr [ null, %while.end27.i ], [ %add.ptr.i5, %while.end27.i22 ], [ null, %if.end.i4 ], [ null, %if.then2 ]
-  %name2.150 = phi ptr [ null, %while.end27.i ], [ %cond.i24, %while.end27.i22 ], [ null, %if.end.i4 ], [ null, %if.then2 ]
-  %tobool.not.i34 = icmp eq ptr %email2.151, null
-  %spec.select.i = select i1 %tobool.not.i34, ptr %add.ptr.i, ptr %email2.151
+  %email2.051 = phi ptr [ null, %while.end27.i ], [ %add.ptr.i5, %while.end27.i22 ], [ null, %if.end.i4 ], [ null, %if.then2 ]
+  %name2.050 = phi ptr [ null, %while.end27.i ], [ %cond.i24, %while.end27.i22 ], [ null, %if.end.i4 ], [ null, %if.then2 ]
+  %tobool.not.i34 = icmp eq ptr %email2.051, null
+  %spec.select.i = select i1 %tobool.not.i34, ptr %add.ptr.i, ptr %email2.051
   %call.i35 = tail call ptr @string_list_insert(ptr noundef %map, ptr noundef nonnull %spec.select.i) #11
   %util.i = getelementptr inbounds i8, ptr %call.i35, i64 8
   %16 = load ptr, ptr %util.i, align 8
@@ -585,7 +585,7 @@ if.else.i:                                        ; preds = %if.then6
 
 if.end7.i:                                        ; preds = %if.else.i, %if.then6
   %me.0.i = phi ptr [ %call4.i, %if.else.i ], [ %16, %if.then6 ]
-  %tobool8.not.i = icmp eq ptr %name2.150, null
+  %tobool8.not.i = icmp eq ptr %name2.050, null
   br i1 %tobool8.not.i, label %if.then9.i, label %if.else20.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -631,7 +631,7 @@ xstrdup_or_null.exit24.i:                         ; preds = %cond.true.i21.i, %x
   %email25.i = getelementptr inbounds i8, ptr %call21.i, i64 8
   store ptr %cond.i23.i, ptr %email25.i, align 8
   %namemap26.i = getelementptr inbounds i8, ptr %me.0.i, i64 16
-  %call27.i = tail call ptr @string_list_insert(ptr noundef nonnull %namemap26.i, ptr noundef nonnull %name2.150) #11
+  %call27.i = tail call ptr @string_list_insert(ptr noundef nonnull %namemap26.i, ptr noundef nonnull %name2.050) #11
   %util28.i = getelementptr inbounds i8, ptr %call27.i, i64 8
   store ptr %call21.i, ptr %util28.i, align 8
   br label %if.end7

@@ -1092,7 +1092,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.backedge:           ; preds = %331, %329, %326, %3
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit.backedge unwind label %.loopexit
 
 .loopexit93:                                      ; preds = %326, %314, %216
-  %.0 = phi i32 [ 1, %216 ], [ 0, %314 ], [ 0, %326 ]
+  %.1 = phi i32 [ 1, %216 ], [ 0, %314 ], [ 0, %326 ]
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %29) #10
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %28) #10
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %17) #10
@@ -1122,9 +1122,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit91:                  ; preds = %.loopexit, %.loopex
   br label %362
 
 361:                                              ; preds = %67, %.loopexit93
-  %.1 = phi i32 [ %.0, %.loopexit93 ], [ 0, %67 ]
+  %.0 = phi i32 [ %.1, %.loopexit93 ], [ 0, %67 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  ret i32 %.1
+  ret i32 %.0
 
 362:                                              ; preds = %360, %220, %78, %77
   %.pn78 = phi { ptr, i32 } [ %79, %78 ], [ %.pn73.pn.pn.pn, %360 ], [ %.pn42, %220 ], [ %.pn40, %77 ]

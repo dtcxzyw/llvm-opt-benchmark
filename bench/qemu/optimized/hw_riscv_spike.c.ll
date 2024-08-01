@@ -329,13 +329,13 @@ if.end77:                                         ; preds = %if.then.i79, %if.th
   br i1 %tobool.not, label %if.end83, label %if.then79
 
 if.then79:                                        ; preds = %land.lhs.true68, %if.end77.thread92, %if.end77
-  %htif_custom_base.194 = phi i1 [ true, %if.end77.thread92 ], [ %tobool.not.i78, %if.end77 ], [ false, %land.lhs.true68 ]
+  %htif_custom_base.094 = phi i1 [ true, %if.end77.thread92 ], [ %tobool.not.i78, %if.end77 ], [ false, %land.lhs.true68 ]
   %call82 = call i64 @riscv_load_firmware(ptr noundef nonnull %call60, i64 noundef 2147483648, ptr noundef nonnull @htif_symbol_callback) #7
   call void @g_free(ptr noundef nonnull %call60) #7
   br label %if.end83
 
 if.end83:                                         ; preds = %land.lhs.true, %if.then79, %if.end77
-  %htif_custom_base.191 = phi i1 [ %htif_custom_base.194, %if.then79 ], [ %tobool.not.i78, %if.end77 ], [ true, %land.lhs.true ]
+  %htif_custom_base.091 = phi i1 [ %htif_custom_base.094, %if.then79 ], [ %tobool.not.i78, %if.end77 ], [ true, %land.lhs.true ]
   %firmware_end_addr.0 = phi i64 [ %call82, %if.then79 ], [ 2147483648, %if.end77 ], [ 2147483648, %land.lhs.true ]
   %call86 = call zeroext i1 @riscv_is_32bit(ptr noundef nonnull %soc57) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fdt_size.i)
@@ -361,7 +361,7 @@ if.end.i:                                         ; preds = %if.end83
   %call7.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.32, i32 noundef 2) #7
   %call8.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.33) #7
   %call9.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34) #7
-  br i1 %htif_custom_base.191, label %do.body.i, label %if.end24.i
+  br i1 %htif_custom_base.091, label %do.body.i, label %if.end24.i
 
 do.body.i:                                        ; preds = %if.end.i
   store <4 x i32> <i32 0, i32 16777216, i32 0, i32 4096>, ptr %qdt_tmp.i, align 16
@@ -584,7 +584,7 @@ if.end98:                                         ; preds = %create_fdt.exit, %i
   call void @riscv_load_fdt(i64 noundef %conv105, ptr noundef %27) #7
   call void @riscv_setup_rom_reset_vec(ptr noundef nonnull %machine, ptr noundef nonnull %soc57, i64 noundef 2147483648, i64 noundef 4096, i64 noundef 61440, i64 noundef %kernel_entry.0, i64 noundef %conv105) #7
   %call115 = call ptr @serial_hd(i32 noundef 0) #7
-  %call119 = call ptr @htif_mm_init(ptr noundef %call1, ptr noundef %call115, i64 noundef 16777216, i1 noundef zeroext %htif_custom_base.191) #7
+  %call119 = call ptr @htif_mm_init(ptr noundef %call1, ptr noundef %call115, i64 noundef 16777216, i1 noundef zeroext %htif_custom_base.091) #7
   ret void
 }
 

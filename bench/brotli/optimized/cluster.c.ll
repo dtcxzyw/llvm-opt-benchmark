@@ -226,7 +226,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %BrotliCompareAndPushToQueueLiteral.exit, %for.body
-  %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.3, %BrotliCompareAndPushToQueueLiteral.exit ]
+  %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.5, %BrotliCompareAndPushToQueueLiteral.exit ]
   %exitcond.not = icmp eq i64 %add, %num_clusters
   br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !6
 
@@ -252,7 +252,7 @@ for.body3.lr.ph:                                  ; preds = %for.body
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %BrotliCompareAndPushToQueueLiteral.exit
   %idx2.0212 = phi i64 [ %add, %for.body3.lr.ph ], [ %inc, %BrotliCompareAndPushToQueueLiteral.exit ]
-  %num_pairs.1211 = phi i64 [ %num_pairs.0214, %for.body3.lr.ph ], [ %num_pairs.3, %BrotliCompareAndPushToQueueLiteral.exit ]
+  %num_pairs.1211 = phi i64 [ %num_pairs.0214, %for.body3.lr.ph ], [ %num_pairs.5, %BrotliCompareAndPushToQueueLiteral.exit ]
   %0 = load i32, ptr %arrayidx, align 4
   %arrayidx4 = getelementptr inbounds i32, ptr %clusters, i64 %idx2.0212
   %1 = load i32, ptr %arrayidx4, align 4
@@ -411,7 +411,7 @@ if.then71.i:                                      ; preds = %if.then68.i
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %if.then68.i
-  %num_pairs.2 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
+  %num_pairs.4 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
   store i32 %spec.select76.i, ptr %pairs, align 8
   store i32 %spec.select.i, ptr %idx2.i.i, align 4
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx75.sroa_idx.i, align 8
@@ -435,13 +435,13 @@ if.then79.i:                                      ; preds = %if.else76.i
   br label %BrotliCompareAndPushToQueueLiteral.exit
 
 BrotliCompareAndPushToQueueLiteral.exit:          ; preds = %for.body3, %HistogramAddHistogramLiteral.exit.i, %if.end74.i, %if.else76.i, %if.then79.i
-  %num_pairs.3 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.2, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramLiteral.exit.i ]
+  %num_pairs.5 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.4, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramLiteral.exit.i ]
   %inc = add nuw i64 %idx2.0212, 1
   %cmp2 = icmp ult i64 %inc, %num_clusters
   br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !7
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
-  %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
+  %num_pairs.2.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.2.ph.be, %while.cond.outer.backedge ]
   %cost_diff_threshold.0.ph = phi double [ 0.000000e+00, %while.cond.preheader ], [ %cost_diff_threshold.0, %while.cond.outer.backedge ]
   %min_cluster_size.0.ph = phi i64 [ 1, %while.cond.preheader ], [ %min_cluster_size.0, %while.cond.outer.backedge ]
   %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
@@ -540,7 +540,7 @@ for.inc49:                                        ; preds = %for.body40
 
 for.end51:                                        ; preds = %for.inc49, %if.then43
   %dec = add i64 %num_clusters.addr.0.ph, -1
-  %cmp53221.not = icmp eq i64 %num_pairs.4.ph, 0
+  %cmp53221.not = icmp eq i64 %num_pairs.2.ph, 0
   br i1 %cmp53221.not, label %for.cond79.preheader, label %for.body54
 
 for.cond79.preheader:                             ; preds = %for.inc76, %for.end51
@@ -549,7 +549,7 @@ for.cond79.preheader:                             ; preds = %for.inc76, %for.end
   br i1 %cmp80226.not, label %while.cond.outer.backedge, label %for.body81
 
 while.cond.outer.backedge:                        ; preds = %BrotliCompareAndPushToQueueLiteral.exit198, %for.cond79.preheader
-  %num_pairs.4.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueLiteral.exit198 ]
+  %num_pairs.2.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueLiteral.exit198 ]
   br label %while.cond.outer, !llvm.loop !8
 
 for.body54:                                       ; preds = %for.end51, %for.inc76
@@ -608,12 +608,12 @@ if.end74:                                         ; preds = %if.else, %if.then69
 for.inc76:                                        ; preds = %for.body54, %lor.lhs.false, %if.end74
   %copy_to_idx.1 = phi i64 [ %copy_to_idx.0223, %for.body54 ], [ %copy_to_idx.0223, %lor.lhs.false ], [ %inc75, %if.end74 ]
   %inc77 = add nuw i64 %i.2222, 1
-  %exitcond236.not = icmp eq i64 %inc77, %num_pairs.4.ph
+  %exitcond236.not = icmp eq i64 %inc77, %num_pairs.2.ph
   br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !11
 
 for.body81:                                       ; preds = %for.cond79.preheader, %BrotliCompareAndPushToQueueLiteral.exit198
   %i.3228 = phi i64 [ %inc85, %BrotliCompareAndPushToQueueLiteral.exit198 ], [ 0, %for.cond79.preheader ]
-  %num_pairs.5227 = phi i64 [ %num_pairs.7, %BrotliCompareAndPushToQueueLiteral.exit198 ], [ %copy_to_idx.0.lcssa, %for.cond79.preheader ]
+  %num_pairs.3227 = phi i64 [ %num_pairs.7, %BrotliCompareAndPushToQueueLiteral.exit198 ], [ %copy_to_idx.0.lcssa, %for.cond79.preheader ]
   %arrayidx82 = getelementptr inbounds i32, ptr %clusters, i64 %i.3228
   %40 = load i32, ptr %arrayidx82, align 4
   %cmp.i98 = icmp eq i32 %22, %40
@@ -701,7 +701,7 @@ if.else.i138:                                     ; preds = %FastLog2.exit.i126
   br i1 %cmp32.i140, label %if.then60.i162, label %if.else39.i141
 
 if.else39.i141:                                   ; preds = %if.else.i138
-  %cmp40.i142 = icmp eq i64 %num_pairs.5227, 0
+  %cmp40.i142 = icmp eq i64 %num_pairs.3227, 0
   br i1 %cmp40.i142, label %cond.end.i147, label %cond.false.i143
 
 cond.false.i143:                                  ; preds = %if.else39.i141
@@ -740,7 +740,7 @@ HistogramAddHistogramLiteral.exit.i158:           ; preds = %for.body.i.i151
 if.then60.i162:                                   ; preds = %HistogramAddHistogramLiteral.exit.i158, %if.else.i138, %FastLog2.exit.i126
   %p.sroa.8.0.ph.i163 = phi double [ %48, %if.else.i138 ], [ %49, %FastLog2.exit.i126 ], [ %call50.i159, %HistogramAddHistogramLiteral.exit.i158 ]
   %add.i164 = fadd double %sub19.i135, %p.sroa.8.0.ph.i163
-  %cmp63.not.i165 = icmp eq i64 %num_pairs.5227, 0
+  %cmp63.not.i165 = icmp eq i64 %num_pairs.3227, 0
   br i1 %cmp63.not.i165, label %if.else76.i174, label %land.lhs.true.i166
 
 land.lhs.true.i166:                               ; preds = %if.then60.i162
@@ -761,17 +761,17 @@ HistogramPairIsLess.exit.i169:                    ; preds = %land.lhs.true.i166
   br i1 %cmp9.i.i173, label %if.then68.i182, label %if.else76.i174
 
 if.then68.i182:                                   ; preds = %HistogramPairIsLess.exit.i169, %if.then.i.i190
-  %cmp69.i183 = icmp ult i64 %num_pairs.5227, %max_num_pairs
+  %cmp69.i183 = icmp ult i64 %num_pairs.3227, %max_num_pairs
   br i1 %cmp69.i183, label %if.then71.i187, label %if.end74.i184
 
 if.then71.i187:                                   ; preds = %if.then68.i182
-  %arrayidx72.i188 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
+  %arrayidx72.i188 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.3227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx72.i188, ptr noundef nonnull align 8 dereferenceable(24) %pairs, i64 24, i1 false)
-  %inc.i189 = add nuw i64 %num_pairs.5227, 1
+  %inc.i189 = add nuw i64 %num_pairs.3227, 1
   br label %if.end74.i184
 
 if.end74.i184:                                    ; preds = %if.then71.i187, %if.then68.i182
-  %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.5227, %if.then68.i182 ]
+  %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.3227, %if.then68.i182 ]
   store i32 %spec.select76.i101, ptr %pairs, align 8
   store i32 %spec.select.i100, ptr %idx215, align 4
   store double %p.sroa.8.0.ph.i163, ptr %cost_combo, align 8
@@ -779,11 +779,11 @@ if.end74.i184:                                    ; preds = %if.then71.i187, %if
   br label %BrotliCompareAndPushToQueueLiteral.exit198
 
 if.else76.i174:                                   ; preds = %HistogramPairIsLess.exit.i169, %if.then.i.i190, %if.then60.i162
-  %cmp77.i175 = icmp ult i64 %num_pairs.5227, %max_num_pairs
+  %cmp77.i175 = icmp ult i64 %num_pairs.3227, %max_num_pairs
   br i1 %cmp77.i175, label %if.then79.i176, label %BrotliCompareAndPushToQueueLiteral.exit198
 
 if.then79.i176:                                   ; preds = %if.else76.i174
-  %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
+  %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.3227
   store i32 %spec.select76.i101, ptr %arrayidx80.i177, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i178 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 4
   store i32 %spec.select.i100, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
@@ -791,11 +791,11 @@ if.then79.i176:                                   ; preds = %if.else76.i174
   store double %p.sroa.8.0.ph.i163, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i179, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i180 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 16
   store double %add.i164, ptr %p.sroa.13.0.arrayidx80.sroa_idx.i180, align 8
-  %inc81.i181 = add nuw i64 %num_pairs.5227, 1
+  %inc81.i181 = add nuw i64 %num_pairs.3227, 1
   br label %BrotliCompareAndPushToQueueLiteral.exit198
 
 BrotliCompareAndPushToQueueLiteral.exit198:       ; preds = %for.body81, %HistogramAddHistogramLiteral.exit.i158, %if.end74.i184, %if.else76.i174, %if.then79.i176
-  %num_pairs.7 = phi i64 [ %num_pairs.5227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.5227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.5227, %HistogramAddHistogramLiteral.exit.i158 ]
+  %num_pairs.7 = phi i64 [ %num_pairs.3227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.3227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.3227, %HistogramAddHistogramLiteral.exit.i158 ]
   %inc85 = add nuw i64 %i.3228, 1
   %cmp80 = icmp ult i64 %inc85, %dec
   br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !12
@@ -1527,7 +1527,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %BrotliCompareAndPushToQueueCommand.exit, %for.body
-  %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.3, %BrotliCompareAndPushToQueueCommand.exit ]
+  %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.5, %BrotliCompareAndPushToQueueCommand.exit ]
   %exitcond.not = icmp eq i64 %add, %num_clusters
   br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !28
 
@@ -1553,7 +1553,7 @@ for.body3.lr.ph:                                  ; preds = %for.body
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %BrotliCompareAndPushToQueueCommand.exit
   %idx2.0212 = phi i64 [ %add, %for.body3.lr.ph ], [ %inc, %BrotliCompareAndPushToQueueCommand.exit ]
-  %num_pairs.1211 = phi i64 [ %num_pairs.0214, %for.body3.lr.ph ], [ %num_pairs.3, %BrotliCompareAndPushToQueueCommand.exit ]
+  %num_pairs.1211 = phi i64 [ %num_pairs.0214, %for.body3.lr.ph ], [ %num_pairs.5, %BrotliCompareAndPushToQueueCommand.exit ]
   %0 = load i32, ptr %arrayidx, align 4
   %arrayidx4 = getelementptr inbounds i32, ptr %clusters, i64 %idx2.0212
   %1 = load i32, ptr %arrayidx4, align 4
@@ -1712,7 +1712,7 @@ if.then71.i:                                      ; preds = %if.then68.i
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %if.then68.i
-  %num_pairs.2 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
+  %num_pairs.4 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
   store i32 %spec.select76.i, ptr %pairs, align 8
   store i32 %spec.select.i, ptr %idx2.i.i, align 4
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx75.sroa_idx.i, align 8
@@ -1736,13 +1736,13 @@ if.then79.i:                                      ; preds = %if.else76.i
   br label %BrotliCompareAndPushToQueueCommand.exit
 
 BrotliCompareAndPushToQueueCommand.exit:          ; preds = %for.body3, %HistogramAddHistogramCommand.exit.i, %if.end74.i, %if.else76.i, %if.then79.i
-  %num_pairs.3 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.2, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramCommand.exit.i ]
+  %num_pairs.5 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.4, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramCommand.exit.i ]
   %inc = add nuw i64 %idx2.0212, 1
   %cmp2 = icmp ult i64 %inc, %num_clusters
   br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !29
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
-  %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
+  %num_pairs.2.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.2.ph.be, %while.cond.outer.backedge ]
   %cost_diff_threshold.0.ph = phi double [ 0.000000e+00, %while.cond.preheader ], [ %cost_diff_threshold.0, %while.cond.outer.backedge ]
   %min_cluster_size.0.ph = phi i64 [ 1, %while.cond.preheader ], [ %min_cluster_size.0, %while.cond.outer.backedge ]
   %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
@@ -1841,7 +1841,7 @@ for.inc49:                                        ; preds = %for.body40
 
 for.end51:                                        ; preds = %for.inc49, %if.then43
   %dec = add i64 %num_clusters.addr.0.ph, -1
-  %cmp53221.not = icmp eq i64 %num_pairs.4.ph, 0
+  %cmp53221.not = icmp eq i64 %num_pairs.2.ph, 0
   br i1 %cmp53221.not, label %for.cond79.preheader, label %for.body54
 
 for.cond79.preheader:                             ; preds = %for.inc76, %for.end51
@@ -1850,7 +1850,7 @@ for.cond79.preheader:                             ; preds = %for.inc76, %for.end
   br i1 %cmp80226.not, label %while.cond.outer.backedge, label %for.body81
 
 while.cond.outer.backedge:                        ; preds = %BrotliCompareAndPushToQueueCommand.exit198, %for.cond79.preheader
-  %num_pairs.4.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueCommand.exit198 ]
+  %num_pairs.2.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueCommand.exit198 ]
   br label %while.cond.outer, !llvm.loop !30
 
 for.body54:                                       ; preds = %for.end51, %for.inc76
@@ -1909,12 +1909,12 @@ if.end74:                                         ; preds = %if.else, %if.then69
 for.inc76:                                        ; preds = %for.body54, %lor.lhs.false, %if.end74
   %copy_to_idx.1 = phi i64 [ %copy_to_idx.0223, %for.body54 ], [ %copy_to_idx.0223, %lor.lhs.false ], [ %inc75, %if.end74 ]
   %inc77 = add nuw i64 %i.2222, 1
-  %exitcond236.not = icmp eq i64 %inc77, %num_pairs.4.ph
+  %exitcond236.not = icmp eq i64 %inc77, %num_pairs.2.ph
   br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !33
 
 for.body81:                                       ; preds = %for.cond79.preheader, %BrotliCompareAndPushToQueueCommand.exit198
   %i.3228 = phi i64 [ %inc85, %BrotliCompareAndPushToQueueCommand.exit198 ], [ 0, %for.cond79.preheader ]
-  %num_pairs.5227 = phi i64 [ %num_pairs.7, %BrotliCompareAndPushToQueueCommand.exit198 ], [ %copy_to_idx.0.lcssa, %for.cond79.preheader ]
+  %num_pairs.3227 = phi i64 [ %num_pairs.7, %BrotliCompareAndPushToQueueCommand.exit198 ], [ %copy_to_idx.0.lcssa, %for.cond79.preheader ]
   %arrayidx82 = getelementptr inbounds i32, ptr %clusters, i64 %i.3228
   %40 = load i32, ptr %arrayidx82, align 4
   %cmp.i98 = icmp eq i32 %22, %40
@@ -2002,7 +2002,7 @@ if.else.i138:                                     ; preds = %FastLog2.exit.i126
   br i1 %cmp32.i140, label %if.then60.i162, label %if.else39.i141
 
 if.else39.i141:                                   ; preds = %if.else.i138
-  %cmp40.i142 = icmp eq i64 %num_pairs.5227, 0
+  %cmp40.i142 = icmp eq i64 %num_pairs.3227, 0
   br i1 %cmp40.i142, label %cond.end.i147, label %cond.false.i143
 
 cond.false.i143:                                  ; preds = %if.else39.i141
@@ -2041,7 +2041,7 @@ HistogramAddHistogramCommand.exit.i158:           ; preds = %for.body.i.i151
 if.then60.i162:                                   ; preds = %HistogramAddHistogramCommand.exit.i158, %if.else.i138, %FastLog2.exit.i126
   %p.sroa.8.0.ph.i163 = phi double [ %48, %if.else.i138 ], [ %49, %FastLog2.exit.i126 ], [ %call50.i159, %HistogramAddHistogramCommand.exit.i158 ]
   %add.i164 = fadd double %sub19.i135, %p.sroa.8.0.ph.i163
-  %cmp63.not.i165 = icmp eq i64 %num_pairs.5227, 0
+  %cmp63.not.i165 = icmp eq i64 %num_pairs.3227, 0
   br i1 %cmp63.not.i165, label %if.else76.i174, label %land.lhs.true.i166
 
 land.lhs.true.i166:                               ; preds = %if.then60.i162
@@ -2062,17 +2062,17 @@ HistogramPairIsLess.exit.i169:                    ; preds = %land.lhs.true.i166
   br i1 %cmp9.i.i173, label %if.then68.i182, label %if.else76.i174
 
 if.then68.i182:                                   ; preds = %HistogramPairIsLess.exit.i169, %if.then.i.i190
-  %cmp69.i183 = icmp ult i64 %num_pairs.5227, %max_num_pairs
+  %cmp69.i183 = icmp ult i64 %num_pairs.3227, %max_num_pairs
   br i1 %cmp69.i183, label %if.then71.i187, label %if.end74.i184
 
 if.then71.i187:                                   ; preds = %if.then68.i182
-  %arrayidx72.i188 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
+  %arrayidx72.i188 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.3227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx72.i188, ptr noundef nonnull align 8 dereferenceable(24) %pairs, i64 24, i1 false)
-  %inc.i189 = add nuw i64 %num_pairs.5227, 1
+  %inc.i189 = add nuw i64 %num_pairs.3227, 1
   br label %if.end74.i184
 
 if.end74.i184:                                    ; preds = %if.then71.i187, %if.then68.i182
-  %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.5227, %if.then68.i182 ]
+  %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.3227, %if.then68.i182 ]
   store i32 %spec.select76.i101, ptr %pairs, align 8
   store i32 %spec.select.i100, ptr %idx215, align 4
   store double %p.sroa.8.0.ph.i163, ptr %cost_combo, align 8
@@ -2080,11 +2080,11 @@ if.end74.i184:                                    ; preds = %if.then71.i187, %if
   br label %BrotliCompareAndPushToQueueCommand.exit198
 
 if.else76.i174:                                   ; preds = %HistogramPairIsLess.exit.i169, %if.then.i.i190, %if.then60.i162
-  %cmp77.i175 = icmp ult i64 %num_pairs.5227, %max_num_pairs
+  %cmp77.i175 = icmp ult i64 %num_pairs.3227, %max_num_pairs
   br i1 %cmp77.i175, label %if.then79.i176, label %BrotliCompareAndPushToQueueCommand.exit198
 
 if.then79.i176:                                   ; preds = %if.else76.i174
-  %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
+  %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.3227
   store i32 %spec.select76.i101, ptr %arrayidx80.i177, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i178 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 4
   store i32 %spec.select.i100, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
@@ -2092,11 +2092,11 @@ if.then79.i176:                                   ; preds = %if.else76.i174
   store double %p.sroa.8.0.ph.i163, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i179, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i180 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 16
   store double %add.i164, ptr %p.sroa.13.0.arrayidx80.sroa_idx.i180, align 8
-  %inc81.i181 = add nuw i64 %num_pairs.5227, 1
+  %inc81.i181 = add nuw i64 %num_pairs.3227, 1
   br label %BrotliCompareAndPushToQueueCommand.exit198
 
 BrotliCompareAndPushToQueueCommand.exit198:       ; preds = %for.body81, %HistogramAddHistogramCommand.exit.i158, %if.end74.i184, %if.else76.i174, %if.then79.i176
-  %num_pairs.7 = phi i64 [ %num_pairs.5227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.5227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.5227, %HistogramAddHistogramCommand.exit.i158 ]
+  %num_pairs.7 = phi i64 [ %num_pairs.3227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.3227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.3227, %HistogramAddHistogramCommand.exit.i158 ]
   %inc85 = add nuw i64 %i.3228, 1
   %cmp80 = icmp ult i64 %inc85, %dec
   br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !34
@@ -2821,7 +2821,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %BrotliCompareAndPushToQueueDistance.exit, %for.body
-  %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.3, %BrotliCompareAndPushToQueueDistance.exit ]
+  %num_pairs.1.lcssa = phi i64 [ %num_pairs.0214, %for.body ], [ %num_pairs.5, %BrotliCompareAndPushToQueueDistance.exit ]
   %exitcond.not = icmp eq i64 %add, %num_clusters
   br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !49
 
@@ -2847,7 +2847,7 @@ for.body3.lr.ph:                                  ; preds = %for.body
 
 for.body3:                                        ; preds = %for.body3.lr.ph, %BrotliCompareAndPushToQueueDistance.exit
   %idx2.0212 = phi i64 [ %add, %for.body3.lr.ph ], [ %inc, %BrotliCompareAndPushToQueueDistance.exit ]
-  %num_pairs.1211 = phi i64 [ %num_pairs.0214, %for.body3.lr.ph ], [ %num_pairs.3, %BrotliCompareAndPushToQueueDistance.exit ]
+  %num_pairs.1211 = phi i64 [ %num_pairs.0214, %for.body3.lr.ph ], [ %num_pairs.5, %BrotliCompareAndPushToQueueDistance.exit ]
   %0 = load i32, ptr %arrayidx, align 4
   %arrayidx4 = getelementptr inbounds i32, ptr %clusters, i64 %idx2.0212
   %1 = load i32, ptr %arrayidx4, align 4
@@ -3006,7 +3006,7 @@ if.then71.i:                                      ; preds = %if.then68.i
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %if.then68.i
-  %num_pairs.2 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
+  %num_pairs.4 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
   store i32 %spec.select76.i, ptr %pairs, align 8
   store i32 %spec.select.i, ptr %idx2.i.i, align 4
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx75.sroa_idx.i, align 8
@@ -3030,13 +3030,13 @@ if.then79.i:                                      ; preds = %if.else76.i
   br label %BrotliCompareAndPushToQueueDistance.exit
 
 BrotliCompareAndPushToQueueDistance.exit:         ; preds = %for.body3, %HistogramAddHistogramDistance.exit.i, %if.end74.i, %if.else76.i, %if.then79.i
-  %num_pairs.3 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.2, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramDistance.exit.i ]
+  %num_pairs.5 = phi i64 [ %num_pairs.1211, %for.body3 ], [ %inc81.i, %if.then79.i ], [ %num_pairs.1211, %if.else76.i ], [ %num_pairs.4, %if.end74.i ], [ %num_pairs.1211, %HistogramAddHistogramDistance.exit.i ]
   %inc = add nuw i64 %idx2.0212, 1
   %cmp2 = icmp ult i64 %inc, %num_clusters
   br i1 %cmp2, label %for.body3, label %for.cond.loopexit, !llvm.loop !50
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
-  %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
+  %num_pairs.2.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.2.ph.be, %while.cond.outer.backedge ]
   %cost_diff_threshold.0.ph = phi double [ 0.000000e+00, %while.cond.preheader ], [ %cost_diff_threshold.0, %while.cond.outer.backedge ]
   %min_cluster_size.0.ph = phi i64 [ 1, %while.cond.preheader ], [ %min_cluster_size.0, %while.cond.outer.backedge ]
   %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
@@ -3135,7 +3135,7 @@ for.inc49:                                        ; preds = %for.body40
 
 for.end51:                                        ; preds = %for.inc49, %if.then43
   %dec = add i64 %num_clusters.addr.0.ph, -1
-  %cmp53221.not = icmp eq i64 %num_pairs.4.ph, 0
+  %cmp53221.not = icmp eq i64 %num_pairs.2.ph, 0
   br i1 %cmp53221.not, label %for.cond79.preheader, label %for.body54
 
 for.cond79.preheader:                             ; preds = %for.inc76, %for.end51
@@ -3144,7 +3144,7 @@ for.cond79.preheader:                             ; preds = %for.inc76, %for.end
   br i1 %cmp80226.not, label %while.cond.outer.backedge, label %for.body81
 
 while.cond.outer.backedge:                        ; preds = %BrotliCompareAndPushToQueueDistance.exit198, %for.cond79.preheader
-  %num_pairs.4.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueDistance.exit198 ]
+  %num_pairs.2.ph.be = phi i64 [ %copy_to_idx.0.lcssa, %for.cond79.preheader ], [ %num_pairs.7, %BrotliCompareAndPushToQueueDistance.exit198 ]
   br label %while.cond.outer, !llvm.loop !51
 
 for.body54:                                       ; preds = %for.end51, %for.inc76
@@ -3203,12 +3203,12 @@ if.end74:                                         ; preds = %if.else, %if.then69
 for.inc76:                                        ; preds = %for.body54, %lor.lhs.false, %if.end74
   %copy_to_idx.1 = phi i64 [ %copy_to_idx.0223, %for.body54 ], [ %copy_to_idx.0223, %lor.lhs.false ], [ %inc75, %if.end74 ]
   %inc77 = add nuw i64 %i.2222, 1
-  %exitcond236.not = icmp eq i64 %inc77, %num_pairs.4.ph
+  %exitcond236.not = icmp eq i64 %inc77, %num_pairs.2.ph
   br i1 %exitcond236.not, label %for.cond79.preheader, label %for.body54, !llvm.loop !54
 
 for.body81:                                       ; preds = %for.cond79.preheader, %BrotliCompareAndPushToQueueDistance.exit198
   %i.3228 = phi i64 [ %inc85, %BrotliCompareAndPushToQueueDistance.exit198 ], [ 0, %for.cond79.preheader ]
-  %num_pairs.5227 = phi i64 [ %num_pairs.7, %BrotliCompareAndPushToQueueDistance.exit198 ], [ %copy_to_idx.0.lcssa, %for.cond79.preheader ]
+  %num_pairs.3227 = phi i64 [ %num_pairs.7, %BrotliCompareAndPushToQueueDistance.exit198 ], [ %copy_to_idx.0.lcssa, %for.cond79.preheader ]
   %arrayidx82 = getelementptr inbounds i32, ptr %clusters, i64 %i.3228
   %40 = load i32, ptr %arrayidx82, align 4
   %cmp.i98 = icmp eq i32 %22, %40
@@ -3296,7 +3296,7 @@ if.else.i138:                                     ; preds = %FastLog2.exit.i126
   br i1 %cmp32.i140, label %if.then60.i162, label %if.else39.i141
 
 if.else39.i141:                                   ; preds = %if.else.i138
-  %cmp40.i142 = icmp eq i64 %num_pairs.5227, 0
+  %cmp40.i142 = icmp eq i64 %num_pairs.3227, 0
   br i1 %cmp40.i142, label %cond.end.i147, label %cond.false.i143
 
 cond.false.i143:                                  ; preds = %if.else39.i141
@@ -3335,7 +3335,7 @@ HistogramAddHistogramDistance.exit.i158:          ; preds = %for.body.i.i151
 if.then60.i162:                                   ; preds = %HistogramAddHistogramDistance.exit.i158, %if.else.i138, %FastLog2.exit.i126
   %p.sroa.8.0.ph.i163 = phi double [ %48, %if.else.i138 ], [ %49, %FastLog2.exit.i126 ], [ %call50.i159, %HistogramAddHistogramDistance.exit.i158 ]
   %add.i164 = fadd double %sub19.i135, %p.sroa.8.0.ph.i163
-  %cmp63.not.i165 = icmp eq i64 %num_pairs.5227, 0
+  %cmp63.not.i165 = icmp eq i64 %num_pairs.3227, 0
   br i1 %cmp63.not.i165, label %if.else76.i174, label %land.lhs.true.i166
 
 land.lhs.true.i166:                               ; preds = %if.then60.i162
@@ -3356,17 +3356,17 @@ HistogramPairIsLess.exit.i169:                    ; preds = %land.lhs.true.i166
   br i1 %cmp9.i.i173, label %if.then68.i182, label %if.else76.i174
 
 if.then68.i182:                                   ; preds = %HistogramPairIsLess.exit.i169, %if.then.i.i190
-  %cmp69.i183 = icmp ult i64 %num_pairs.5227, %max_num_pairs
+  %cmp69.i183 = icmp ult i64 %num_pairs.3227, %max_num_pairs
   br i1 %cmp69.i183, label %if.then71.i187, label %if.end74.i184
 
 if.then71.i187:                                   ; preds = %if.then68.i182
-  %arrayidx72.i188 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
+  %arrayidx72.i188 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.3227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx72.i188, ptr noundef nonnull align 8 dereferenceable(24) %pairs, i64 24, i1 false)
-  %inc.i189 = add nuw i64 %num_pairs.5227, 1
+  %inc.i189 = add nuw i64 %num_pairs.3227, 1
   br label %if.end74.i184
 
 if.end74.i184:                                    ; preds = %if.then71.i187, %if.then68.i182
-  %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.5227, %if.then68.i182 ]
+  %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.3227, %if.then68.i182 ]
   store i32 %spec.select76.i101, ptr %pairs, align 8
   store i32 %spec.select.i100, ptr %idx215, align 4
   store double %p.sroa.8.0.ph.i163, ptr %cost_combo, align 8
@@ -3374,11 +3374,11 @@ if.end74.i184:                                    ; preds = %if.then71.i187, %if
   br label %BrotliCompareAndPushToQueueDistance.exit198
 
 if.else76.i174:                                   ; preds = %HistogramPairIsLess.exit.i169, %if.then.i.i190, %if.then60.i162
-  %cmp77.i175 = icmp ult i64 %num_pairs.5227, %max_num_pairs
+  %cmp77.i175 = icmp ult i64 %num_pairs.3227, %max_num_pairs
   br i1 %cmp77.i175, label %if.then79.i176, label %BrotliCompareAndPushToQueueDistance.exit198
 
 if.then79.i176:                                   ; preds = %if.else76.i174
-  %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
+  %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.3227
   store i32 %spec.select76.i101, ptr %arrayidx80.i177, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i178 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 4
   store i32 %spec.select.i100, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
@@ -3386,11 +3386,11 @@ if.then79.i176:                                   ; preds = %if.else76.i174
   store double %p.sroa.8.0.ph.i163, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i179, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i180 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 16
   store double %add.i164, ptr %p.sroa.13.0.arrayidx80.sroa_idx.i180, align 8
-  %inc81.i181 = add nuw i64 %num_pairs.5227, 1
+  %inc81.i181 = add nuw i64 %num_pairs.3227, 1
   br label %BrotliCompareAndPushToQueueDistance.exit198
 
 BrotliCompareAndPushToQueueDistance.exit198:      ; preds = %for.body81, %HistogramAddHistogramDistance.exit.i158, %if.end74.i184, %if.else76.i174, %if.then79.i176
-  %num_pairs.7 = phi i64 [ %num_pairs.5227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.5227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.5227, %HistogramAddHistogramDistance.exit.i158 ]
+  %num_pairs.7 = phi i64 [ %num_pairs.3227, %for.body81 ], [ %inc81.i181, %if.then79.i176 ], [ %num_pairs.3227, %if.else76.i174 ], [ %num_pairs.6, %if.end74.i184 ], [ %num_pairs.3227, %HistogramAddHistogramDistance.exit.i158 ]
   %inc85 = add nuw i64 %i.3228, 1
   %cmp80 = icmp ult i64 %inc85, %dec
   br i1 %cmp80, label %for.body81, label %while.cond.outer.backedge, !llvm.loop !55

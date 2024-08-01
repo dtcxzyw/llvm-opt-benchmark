@@ -4077,7 +4077,7 @@ _ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE4sizeEv.exit: ; preds = %_ZN13hi
   %j.0121162.in = phi i32 [ %j.0121162, %for.inc ], [ %0, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
   %prod.0118161 = phi i32 [ %prod.1, %for.inc ], [ %mul.i, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
   %non_zeros.0119160 = phi i32 [ %non_zeros.1, %for.inc ], [ %.us-phi.i, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
-  %best.0120159 = phi i32 [ %best.1, %for.inc ], [ %0, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
+  %best.0120159 = phi i32 [ %best.2, %for.inc ], [ %0, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
   %13 = phi ptr [ %18, %for.inc ], [ %5, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
   %.pre131158 = phi ptr [ %.pre132, %for.inc ], [ %5, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ]
   %j.0121162 = add i32 %j.0121162.in, 1
@@ -4262,22 +4262,22 @@ if.then19:                                        ; preds = %lor.lhs.false, %if.
 for.inc:                                          ; preds = %lor.lhs.false, %if.then19
   %prod.1 = phi i32 [ %mul.i81, %if.then19 ], [ %prod.0118161, %lor.lhs.false ]
   %non_zeros.1 = phi i32 [ %.us-phi.i42, %if.then19 ], [ %non_zeros.0119160, %lor.lhs.false ]
-  %best.1 = phi i32 [ %j.0121162, %if.then19 ], [ %best.0120159, %lor.lhs.false ]
+  %best.2 = phi i32 [ %j.0121162, %if.then19 ], [ %best.0120159, %lor.lhs.false ]
   %31 = load ptr, ptr %m_ineqs, align 8
   %cmp.i = icmp eq ptr %31, null
   br i1 %cmp.i, label %for.end, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE4sizeEv.exit
 
 for.end:                                          ; preds = %for.inc, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit82, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE4sizeEv.exit, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit
-  %best.2 = phi i32 [ %0, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ], [ %best.0120159, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE4sizeEv.exit ], [ %j.0121162, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit82 ], [ %best.1, %for.inc ]
+  %best.1 = phi i32 [ %0, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit ], [ %best.0120159, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE4sizeEv.exit ], [ %j.0121162, %_ZN13hilbert_basis16get_ineq_productERK6vectorI13checked_int64ILb1EELb1EjE.exit82 ], [ %best.2, %for.inc ]
   %32 = load i32, ptr %m_current_ineq, align 8
-  %cmp22.not = icmp eq i32 %best.2, %32
+  %cmp22.not = icmp eq i32 %best.1, %32
   br i1 %cmp22.not, label %if.end33, label %if.then23
 
 if.then23:                                        ; preds = %for.end
   %33 = load ptr, ptr %m_ineqs, align 8
   %idxprom.i83 = zext i32 %32 to i64
   %arrayidx.i84 = getelementptr inbounds %class.vector.1, ptr %33, i64 %idxprom.i83
-  %idxprom.i85 = zext i32 %best.2 to i64
+  %idxprom.i85 = zext i32 %best.1 to i64
   %arrayidx.i86 = getelementptr inbounds %class.vector.1, ptr %33, i64 %idxprom.i85
   %34 = load ptr, ptr %arrayidx.i84, align 8
   store ptr null, ptr %arrayidx.i84, align 8
@@ -8065,22 +8065,22 @@ _ZN13hilbert_basis12value_index25resetEj.exit:    ; preds = %if.then12, %_ZNK6ve
 
 if.end:                                           ; preds = %_ZNK9table2mapI17default_map_entryI13checked_int64ILb1EEPN13hilbert_basis12value_index2EENS2_9hash_procENS2_7eq_procEE4findERKS2_RS5_.exit, %_ZN13hilbert_basis12value_index25resetEj.exit
   %39 = phi ptr [ %1, %_ZNK9table2mapI17default_map_entryI13checked_int64ILb1EEPN13hilbert_basis12value_index2EENS2_9hash_procENS2_7eq_procEE4findERKS2_RS5_.exit ], [ %.pre, %_ZN13hilbert_basis12value_index25resetEj.exit ]
-  %map.1 = phi ptr [ %27, %_ZNK9table2mapI17default_map_entryI13checked_int64ILb1EEPN13hilbert_basis12value_index2EENS2_9hash_procENS2_7eq_procEE4findERKS2_RS5_.exit ], [ %call13, %_ZN13hilbert_basis12value_index25resetEj.exit ]
-  %m_trie.i49 = getelementptr inbounds i8, ptr %map.1, i64 16
-  %m_offset.i.i50 = getelementptr inbounds i8, ptr %map.1, i64 640
+  %map.0 = phi ptr [ %27, %_ZNK9table2mapI17default_map_entryI13checked_int64ILb1EEPN13hilbert_basis12value_index2EENS2_9hash_procENS2_7eq_procEE4findERKS2_RS5_.exit ], [ %call13, %_ZN13hilbert_basis12value_index25resetEj.exit ]
+  %m_trie.i49 = getelementptr inbounds i8, ptr %map.0, i64 16
+  %m_offset.i.i50 = getelementptr inbounds i8, ptr %map.0, i64 640
   %40 = load i32, ptr %m_offset.i.i50, align 8
   %idx.ext.i.i51 = zext i32 %40 to i64
   %idx.neg.i.i52 = sub nsw i64 0, %idx.ext.i.i51
   %add.ptr.i.i53 = getelementptr inbounds %class.checked_int64, ptr %39, i64 %idx.neg.i.i52
-  %m_stats.i.i54 = getelementptr inbounds i8, ptr %map.1, i64 576
+  %m_stats.i.i54 = getelementptr inbounds i8, ptr %map.0, i64 576
   %41 = load i32, ptr %m_stats.i.i54, align 8
   %inc.i.i55 = add i32 %41, 1
   store i32 %inc.i.i55, ptr %m_stats.i.i54, align 8
-  %m_root.i.i56 = getelementptr inbounds i8, ptr %map.1, i64 568
+  %m_root.i.i56 = getelementptr inbounds i8, ptr %map.0, i64 568
   %42 = load ptr, ptr %m_root.i.i56, align 8
-  %m_num_keys.i.i.i57 = getelementptr inbounds i8, ptr %map.1, i64 544
+  %m_num_keys.i.i.i57 = getelementptr inbounds i8, ptr %map.0, i64 544
   %43 = load i32, ptr %m_num_keys.i.i.i57, align 8
-  %m_keys.i.i58 = getelementptr inbounds i8, ptr %map.1, i64 552
+  %m_keys.i.i58 = getelementptr inbounds i8, ptr %map.0, i64 552
   %44 = load ptr, ptr %m_keys.i.i58, align 8
   %cmp10.not.i.i.i59 = icmp eq i32 %43, 0
   br i1 %cmp10.not.i.i.i59, label %if.end19, label %for.body.preheader.i.i.i60

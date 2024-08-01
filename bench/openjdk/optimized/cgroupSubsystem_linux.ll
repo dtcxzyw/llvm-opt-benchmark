@@ -958,7 +958,7 @@ _ZL11find_ro_optPc.exit:                          ; preds = %205, %.tail.i
 
 .lr.ph250:                                        ; preds = %.preheader, %316
   %226 = phi ptr [ %317, %316 ], [ %225, %.preheader ]
-  %.2249 = phi i1 [ %.3, %316 ], [ %.1134, %.preheader ]
+  %.3249 = phi i1 [ %.4, %316 ], [ %.1134, %.preheader ]
   %227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(7) @.str.7) #14
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %229, label %244
@@ -1194,13 +1194,13 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %302, %.tail.i204
   br label %316
 
 316:                                              ; preds = %.sink.split271, %298
-  %.3 = phi i1 [ %.2249, %298 ], [ true, %.sink.split271 ]
+  %.4 = phi i1 [ %.3249, %298 ], [ true, %.sink.split271 ]
   %317 = call ptr @strsep(ptr noundef nonnull %23, ptr noundef nonnull @.str.23) #13
   %.not147 = icmp eq ptr %317, null
   br i1 %.not147, label %.backedge, label %.lr.ph250, !llvm.loop !15
 
 .backedge:                                        ; preds = %316, %.loopexit229, %.preheader, %224
-  %.0133.be = phi i1 [ %.1134, %224 ], [ %.1134, %.loopexit229 ], [ %.1134, %.preheader ], [ %.3, %316 ]
+  %.0133.be = phi i1 [ %.1134, %224 ], [ %.1134, %.loopexit229 ], [ %.1134, %.preheader ], [ %.4, %316 ]
   %318 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 4096, ptr noundef nonnull %174)
   store ptr %318, ptr %13, align 8
   %.not143 = icmp eq ptr %318, null
@@ -1693,13 +1693,13 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   br label %53
 
 53:                                               ; preds = %46, %52, %45, %43, %34, %32, %21, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %32 ], [ false, %34 ], [ false, %43 ], [ false, %45 ], [ true, %52 ], [ true, %46 ]
+  %.1 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %32 ], [ false, %34 ], [ false, %43 ], [ false, %45 ], [ true, %52 ], [ true, %46 ]
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #13
   br label %54
 
 54:                                               ; preds = %12, %10, %53
-  %.1 = phi i1 [ %.0, %53 ], [ false, %10 ], [ false, %12 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %53 ], [ false, %10 ], [ false, %12 ]
+  ret i1 %.0
 }
 
 declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129), i64 noundef) unnamed_addr #2
@@ -1908,13 +1908,13 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   br label %61
 
 61:                                               ; preds = %.thread, %60, %._crit_edge, %35, %33, %22, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %22 ], [ false, %33 ], [ false, %35 ], [ false, %._crit_edge ], [ false, %60 ], [ true, %.thread ]
+  %.1 = phi i1 [ false, %20 ], [ false, %22 ], [ false, %33 ], [ false, %35 ], [ false, %._crit_edge ], [ false, %60 ], [ true, %.thread ]
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #13
   br label %62
 
 62:                                               ; preds = %13, %11, %61
-  %.1 = phi i1 [ %.0, %61 ], [ false, %11 ], [ false, %13 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %61 ], [ false, %11 ], [ false, %13 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

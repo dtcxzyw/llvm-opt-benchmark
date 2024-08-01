@@ -150,8 +150,8 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr nocapture noundef readonly %0
 .lr.ph142.i:                                      ; preds = %550, %.lr.ph142.preheader.i
   %indvars.iv163.i = phi i64 [ 0, %.lr.ph142.preheader.i ], [ %indvars.iv.next164.i, %550 ]
   %.sroa.0.0140.i = phi ptr [ null, %.lr.ph142.preheader.i ], [ %.sroa.0.4.i, %550 ]
-  %.sroa.9.0139.i = phi ptr [ null, %.lr.ph142.preheader.i ], [ %.sroa.9.3.i, %550 ]
-  %.sroa.18.0138.i = phi i32 [ 0, %.lr.ph142.preheader.i ], [ %.sroa.18.2.i, %550 ]
+  %.sroa.9.0139.i = phi ptr [ null, %.lr.ph142.preheader.i ], [ %.sroa.9.2.i, %550 ]
+  %.sroa.18.0138.i = phi i32 [ 0, %.lr.ph142.preheader.i ], [ %.sroa.18.3.i, %550 ]
   %52 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv163.i
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
@@ -177,8 +177,8 @@ define range(i32 0, 2) i32 @Plegal_arrangement(ptr nocapture noundef readonly %0
 66:                                               ; preds = %548, %63
   %.080136.i = phi ptr [ %64, %63 ], [ %538, %548 ]
   %.sroa.0.1135.i = phi ptr [ %.sroa.0.0140.i, %63 ], [ %.sroa.0.4.i, %548 ]
-  %.sroa.9.1134.i = phi ptr [ %.sroa.9.0139.i, %63 ], [ %.sroa.9.3.i, %548 ]
-  %.sroa.18.1133.i = phi i32 [ %.sroa.18.0138.i, %63 ], [ %.sroa.18.2.i, %548 ]
+  %.sroa.9.1134.i = phi ptr [ %.sroa.9.0139.i, %63 ], [ %.sroa.9.2.i, %548 ]
+  %.sroa.18.1133.i = phi i32 [ %.sroa.18.0138.i, %63 ], [ %.sroa.18.3.i, %548 ]
   %67 = phi i1 [ true, %63 ], [ false, %548 ]
   %.097131.i = phi ptr [ %64, %63 ], [ %549, %548 ]
   %68 = load double, ptr %53, align 8
@@ -1081,7 +1081,7 @@ gv_alloc.exit.i:                                  ; preds = %.critedge._crit_edg
 
 505:                                              ; preds = %503, %gv_alloc.exit.i
   %.sroa.9.1134.sink.i = phi ptr [ %.sroa.9.1134.i, %503 ], [ null, %gv_alloc.exit.i ]
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.1135.i, %503 ], [ %497, %gv_alloc.exit.i ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.1135.i, %503 ], [ %497, %gv_alloc.exit.i ]
   %506 = getelementptr inbounds i8, ptr %497, i64 16
   store ptr %.sroa.9.1134.sink.i, ptr %506, align 8
   store ptr %.080136.i, ptr %497, align 8
@@ -1137,17 +1137,17 @@ gt.exit.thread.i:                                 ; preds = %73, %66
   br label %535
 
 535:                                              ; preds = %527, %523, %517, %513
-  %.sroa.9.2.i = phi ptr [ %.sroa.9.1134.i, %517 ], [ %525, %523 ], [ %.sroa.9.1134.i, %527 ], [ null, %513 ]
-  %.sroa.0.3.i = phi ptr [ %519, %517 ], [ %.sroa.0.1135.i, %523 ], [ %.sroa.0.1135.i, %527 ], [ null, %513 ]
+  %.sroa.9.3.i = phi ptr [ %.sroa.9.1134.i, %517 ], [ %525, %523 ], [ %.sroa.9.1134.i, %527 ], [ null, %513 ]
+  %.sroa.0.5.i = phi ptr [ %519, %517 ], [ %.sroa.0.1135.i, %523 ], [ %.sroa.0.1135.i, %527 ], [ null, %513 ]
   tail call void @free(ptr noundef nonnull %511) #14
   %536 = add nsw i32 %.sroa.18.1133.i, -1
   store ptr null, ptr %510, align 8
   br label %537
 
 537:                                              ; preds = %535, %505, %gt.exit.i
-  %.sroa.18.2.i = phi i32 [ %.sroa.18.1133.i, %gt.exit.i ], [ %536, %535 ], [ %509, %505 ]
-  %.sroa.9.3.i = phi ptr [ %.sroa.9.1134.i, %gt.exit.i ], [ %.sroa.9.2.i, %535 ], [ %497, %505 ]
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.1135.i, %gt.exit.i ], [ %.sroa.0.3.i, %535 ], [ %.sroa.0.2.i, %505 ]
+  %.sroa.18.3.i = phi i32 [ %.sroa.18.1133.i, %gt.exit.i ], [ %536, %535 ], [ %509, %505 ]
+  %.sroa.9.2.i = phi ptr [ %.sroa.9.1134.i, %gt.exit.i ], [ %.sroa.9.3.i, %535 ], [ %497, %505 ]
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.1135.i, %gt.exit.i ], [ %.sroa.0.5.i, %535 ], [ %.sroa.0.3.i, %505 ]
   %538 = load ptr, ptr %52, align 8
   %539 = getelementptr inbounds i8, ptr %538, i64 16
   %540 = load ptr, ptr %539, align 8
@@ -1175,19 +1175,19 @@ gt.exit.thread.i:                                 ; preds = %73, %66
 
 .loopexit.i:                                      ; preds = %550, %find_intersection.exit.i
   %.not = phi i1 [ false, %find_intersection.exit.i ], [ true, %550 ]
-  %.sroa.18.3.i = phi i32 [ %.sroa.18.1133.i, %find_intersection.exit.i ], [ %.sroa.18.2.i, %550 ]
-  %.sroa.0.5.i = phi ptr [ %.sroa.0.1135.i, %find_intersection.exit.i ], [ %.sroa.0.4.i, %550 ]
-  %551 = icmp sgt i32 %.sroa.18.3.i, 0
+  %.sroa.18.2.i = phi i32 [ %.sroa.18.1133.i, %find_intersection.exit.i ], [ %.sroa.18.3.i, %550 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.1135.i, %find_intersection.exit.i ], [ %.sroa.0.4.i, %550 ]
+  %551 = icmp sgt i32 %.sroa.18.2.i, 0
   br i1 %551, label %.lr.ph147.i, label %.loopexit
 
 .lr.ph147.i:                                      ; preds = %.loopexit.i, %.lr.ph147.i
-  %.1145.i = phi ptr [ %553, %.lr.ph147.i ], [ %.sroa.0.5.i, %.loopexit.i ]
+  %.1145.i = phi ptr [ %553, %.lr.ph147.i ], [ %.sroa.0.2.i, %.loopexit.i ]
   %.186144.i = phi i32 [ %554, %.lr.ph147.i ], [ 0, %.loopexit.i ]
   %552 = getelementptr inbounds i8, ptr %.1145.i, i64 8
   %553 = load ptr, ptr %552, align 8
   tail call void @free(ptr noundef %.1145.i) #14
   %554 = add nuw nsw i32 %.186144.i, 1
-  %exitcond168.not.i = icmp eq i32 %554, %.sroa.18.3.i
+  %exitcond168.not.i = icmp eq i32 %554, %.sroa.18.2.i
   br i1 %exitcond168.not.i, label %.loopexit, label %.lr.ph147.i
 
 555:                                              ; preds = %gt.exit.thread.i

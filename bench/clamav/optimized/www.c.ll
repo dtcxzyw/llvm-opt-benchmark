@@ -190,14 +190,14 @@ define i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %94
 
 .thread69:                                        ; preds = %48, %77, %25
-  %.15680 = phi i32 [ 0, %25 ], [ %44, %77 ], [ %44, %48 ]
+  %.380 = phi i32 [ 0, %25 ], [ %44, %77 ], [ %44, %48 ]
   %87 = phi i32 [ %23, %25 ], [ %41, %77 ], [ %41, %48 ]
   %88 = load ptr, ptr %6, align 8
   call void @freeaddrinfo(ptr noundef %88) #9
   br i1 %.not61, label %94, label %89
 
 89:                                               ; preds = %.thread69
-  %90 = call i32 (i32, i32, ...) @fcntl(i32 noundef %87, i32 noundef 4, i32 noundef %.15680) #9
+  %90 = call i32 (i32, i32, ...) @fcntl(i32 noundef %87, i32 noundef 4, i32 noundef %.380) #9
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %94
 

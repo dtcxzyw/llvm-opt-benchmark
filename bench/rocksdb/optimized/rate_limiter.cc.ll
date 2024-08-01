@@ -107,16 +107,16 @@ if.then:                                          ; preds = %land.lhs.true
   %sub.not.i = sub i64 0, %alignment
   %sub1.i = and i64 %.sroa.speculated7, %sub.not.i
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %sub1.i, i64 %alignment)
-  %bytes.addr.0 = select i1 %cmp6.not, i64 %.sroa.speculated7, i64 %.sroa.speculated
+  %bytes.addr.1 = select i1 %cmp6.not, i64 %.sroa.speculated7, i64 %.sroa.speculated
   %vtable11 = load ptr, ptr %this, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 48
   %2 = load ptr, ptr %vfn12, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes.addr.0, i32 noundef %io_priority, ptr noundef %stats, i32 noundef %op_type)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %this, i64 noundef %bytes.addr.1, i32 noundef %io_priority, ptr noundef %stats, i32 noundef %op_type)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %land.lhs.true, %entry
-  %bytes.addr.1 = phi i64 [ %bytes.addr.0, %if.then ], [ %bytes, %land.lhs.true ], [ %bytes, %entry ]
-  ret i64 %bytes.addr.1
+  %bytes.addr.0 = phi i64 [ %bytes.addr.1, %if.then ], [ %bytes, %land.lhs.true ], [ %bytes, %entry ]
+  ret i64 %bytes.addr.0
 }
 
 ; Function Attrs: mustprogress uwtable

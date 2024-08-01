@@ -129,7 +129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 42:                                               ; preds = %38, %34
   %.055 = phi i32 [ 1, %38 ], [ 0, %34 ]
-  %.154 = phi ptr [ %spec.select, %38 ], [ @.str.2, %34 ]
+  %.053 = phi ptr [ %spec.select, %38 ], [ @.str.2, %34 ]
   %.049 = phi i1 [ true, %38 ], [ false, %34 ]
   %43 = load ptr, ptr %1, align 8
   %44 = tail call noundef ptr @_ZNK10cmMakefile8GetStateEv(ptr noundef nonnull align 8 dereferenceable(3520) %43)
@@ -152,13 +152,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %56 = getelementptr inbounds i8, ptr %3, i64 48
   %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %3, i64 56
   %57 = getelementptr inbounds i8, ptr %3, i64 64
-  %58 = getelementptr inbounds i8, ptr %.154, i64 1
+  %58 = getelementptr inbounds i8, ptr %.053, i64 1
   br label %59
 
 59:                                               ; preds = %.lr.ph, %123
   %60 = phi ptr [ %47, %.lr.ph ], [ %127, %123 ]
   %61 = phi i64 [ %45, %.lr.ph ], [ %125, %123 ]
-  %.150130 = phi i1 [ %.049, %.lr.ph ], [ %.352, %123 ]
+  %.150130 = phi i1 [ %.049, %.lr.ph ], [ %.251, %123 ]
   %.156129 = phi i32 [ %.055, %.lr.ph ], [ %124, %123 ]
   %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %61
   %63 = call noundef i32 @_ZNK10cmMakefile15GetPolicyStatusEN10cmPolicies8PolicyIDEb(ptr noundef nonnull align 8 dereferenceable(3520) %43, i32 noundef 102, i1 noundef zeroext false)
@@ -265,7 +265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit77: ; 
   br label %.thread120
 
 .thread120:                                       ; preds = %83, %59, %.thread118, %86
-  %.251 = phi i1 [ true, %86 ], [ %.150130, %.thread118 ], [ %.150130, %59 ], [ %.150130, %83 ]
+  %.352 = phi i1 [ true, %86 ], [ %.150130, %.thread118 ], [ %.150130, %59 ], [ %.150130, %83 ]
   %89 = call ptr @_ZNK7cmState18GetCacheEntryValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(705) %44, ptr noundef nonnull align 8 dereferenceable(32) %62)
   %.not127 = icmp eq ptr %89, null
   br i1 %.not127, label %90, label %98
@@ -334,7 +334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit87: ; 
 
 103:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit87
   %.not128 = icmp eq ptr %102, null
-  %104 = select i1 %.not128, i1 true, i1 %.251
+  %104 = select i1 %.not128, i1 true, i1 %.352
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #8
   br i1 %104, label %105, label %123
@@ -368,7 +368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit92: ; 
           to label %.noexc94 unwind label %119
 
 .noexc94:                                         ; preds = %.noexc93
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %.154, ptr noundef nonnull %58)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %.053, ptr noundef nonnull %58)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97 unwind label %110
 
 110:                                              ; preds = %.noexc94
@@ -432,7 +432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97: ; 
   br label %133
 
 123:                                              ; preds = %103, %112, %83
-  %.352 = phi i1 [ %.150130, %83 ], [ %.251, %112 ], [ false, %103 ]
+  %.251 = phi i1 [ %.150130, %83 ], [ %.352, %112 ], [ false, %103 ]
   %124 = add i32 %.156129, 1
   %125 = zext i32 %124 to i64
   %126 = load ptr, ptr %18, align 8

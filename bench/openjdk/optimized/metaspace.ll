@@ -248,11 +248,11 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit: ; preds = %2
   %4 = tail call noundef i64 @_ZN9metaspace15RunningCounters20reserved_words_classEv() #14
   %5 = tail call noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() #14
   %6 = tail call noundef i64 @_ZN9metaspace15RunningCounters16used_words_classEv() #14
-  %.134 = shl i64 %5, 3
-  %.13035 = shl i64 %4, 3
+  %.02834 = shl i64 %5, 3
+  %.02935 = shl i64 %4, 3
   %.02736 = shl i64 %6, 3
-  %7 = icmp ult i64 %.13035, %.134
-  %8 = icmp ult i64 %.134, %.02736
+  %7 = icmp ult i64 %.02935, %.02834
+  %8 = icmp ult i64 %.02834, %.02736
   %or.cond37 = or i1 %7, %8
   br i1 %or.cond37, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us, label %.critedge
 
@@ -260,11 +260,11 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread: ; preds = %2
   %9 = tail call noundef i64 @_ZN9metaspace15RunningCounters23reserved_words_nonclassEv() #14
   %10 = tail call noundef i64 @_ZN9metaspace15RunningCounters24committed_words_nonclassEv() #14
   %11 = tail call noundef i64 @_ZN9metaspace15RunningCounters19used_words_nonclassEv() #14
-  %.13458 = shl i64 %10, 3
-  %.1303559 = shl i64 %9, 3
+  %.0283458 = shl i64 %10, 3
+  %.0293559 = shl i64 %9, 3
   %.0273660 = shl i64 %11, 3
-  %12 = icmp ult i64 %.1303559, %.13458
-  %13 = icmp ult i64 %.13458, %.0273660
+  %12 = icmp ult i64 %.0293559, %.0283458
+  %13 = icmp ult i64 %.0283458, %.0273660
   %or.cond3761 = or i1 %12, %13
   br i1 %or.cond3761, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, label %.critedge
 
@@ -274,11 +274,11 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us: ; preds = %_ZL1
   %15 = tail call noundef i64 @_ZN9metaspace15RunningCounters20reserved_words_classEv() #14
   %16 = tail call noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() #14
   %17 = tail call noundef i64 @_ZN9metaspace15RunningCounters16used_words_classEv() #14
-  %.1.us = shl i64 %16, 3
-  %.130.us = shl i64 %15, 3
+  %.028.us = shl i64 %16, 3
+  %.029.us = shl i64 %15, 3
   %.027.us = shl i64 %17, 3
-  %18 = icmp ult i64 %.130.us, %.1.us
-  %19 = icmp ult i64 %.1.us, %.027.us
+  %18 = icmp ult i64 %.029.us, %.028.us
+  %19 = icmp ult i64 %.028.us, %.027.us
   %or.cond.us = or i1 %18, %19
   %20 = icmp ugt i32 %.038.us, 1
   %or.cond9.us = select i1 %or.cond.us, i1 %20, i1 false
@@ -290,19 +290,19 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
   %22 = tail call noundef i64 @_ZN9metaspace15RunningCounters23reserved_words_nonclassEv() #14
   %23 = tail call noundef i64 @_ZN9metaspace15RunningCounters24committed_words_nonclassEv() #14
   %24 = tail call noundef i64 @_ZN9metaspace15RunningCounters19used_words_nonclassEv() #14
-  %.1 = shl i64 %23, 3
-  %.130 = shl i64 %22, 3
+  %.028 = shl i64 %23, 3
+  %.029 = shl i64 %22, 3
   %.027 = shl i64 %24, 3
-  %25 = icmp ult i64 %.130, %.1
-  %26 = icmp ult i64 %.1, %.027
+  %25 = icmp ult i64 %.029, %.028
+  %26 = icmp ult i64 %.028, %.027
   %or.cond = or i1 %25, %26
   %27 = icmp ugt i32 %.038, 1
   %or.cond9 = select i1 %or.cond, i1 %27, i1 false
   br i1 %or.cond9, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit
-  %.1.lcssa = phi i64 [ %.134, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ %.13458, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %.1.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %.1, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
-  %.130.lcssa = phi i64 [ %.13035, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ %.1303559, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %.130.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %.130, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
+  %.028.lcssa = phi i64 [ %.02834, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ %.0283458, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %.028.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %.028, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
+  %.029.lcssa = phi i64 [ %.02935, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ %.0293559, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %.029.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %.029, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
   %.027.lcssa = phi i64 [ %.02736, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ %.0273660, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %.027.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %.027, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
   %.lcssa33 = phi i1 [ false, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ false, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %18, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %25, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
   %.lcssa = phi i1 [ false, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ false, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %19, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %26, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
@@ -315,21 +315,21 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
   store i64 %30, ptr @_ZN9metaspace13InternalStats23_num_inconsistent_statsE, align 8
   %31 = add i64 %.027.lcssa, 65535
   %32 = and i64 %31, -65536
-  %.3 = select i1 %.lcssa, i64 %32, i64 %.1.lcssa
-  %33 = icmp ult i64 %.130.lcssa, %.3
+  %.2 = select i1 %.lcssa, i64 %32, i64 %.028.lcssa
+  %33 = icmp ult i64 %.029.lcssa, %.2
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %28
-  %35 = add i64 %.3, 16777215
+  %35 = add i64 %.2, 16777215
   %36 = and i64 %35, -16777216
   br label %37
 
 37:                                               ; preds = %.critedge, %28, %34
-  %.332 = phi i64 [ %36, %34 ], [ %.130.lcssa, %28 ], [ %.130.lcssa, %.critedge ]
-  %.4 = phi i64 [ %.3, %34 ], [ %.3, %28 ], [ %.1.lcssa, %.critedge ]
-  store i64 %.332, ptr %0, align 8
+  %.130 = phi i64 [ %36, %34 ], [ %.029.lcssa, %28 ], [ %.029.lcssa, %.critedge ]
+  %.1 = phi i64 [ %.2, %34 ], [ %.2, %28 ], [ %.028.lcssa, %.critedge ]
+  store i64 %.130, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.4, ptr %38, align 8
+  store i64 %.1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.027.lcssa, ptr %39, align 8
   ret void

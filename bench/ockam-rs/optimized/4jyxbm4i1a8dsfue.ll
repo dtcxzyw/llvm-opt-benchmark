@@ -38,8 +38,8 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core7routing7message10local_info1
   br label %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3ea2fee20a37d68cE.exit.thread"
 
 "_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3ea2fee20a37d68cE.exit.thread": ; preds = %11, %2, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3ea2fee20a37d68cE.exit"
-  %.0 = phi ptr [ %9, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3ea2fee20a37d68cE.exit" ], [ %7, %2 ], [ %13, %11 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %9, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h3ea2fee20a37d68cE.exit" ], [ %7, %2 ], [ %13, %11 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

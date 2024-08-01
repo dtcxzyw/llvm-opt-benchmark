@@ -61,12 +61,12 @@ if.then13:                                        ; preds = %if.then11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then11, %if.then13, %if.end5, %if.else
-  %stmp.1 = phi ptr [ %call, %if.else ], [ %call, %if.end5 ], [ %call14, %if.then13 ], [ %call, %if.then11 ]
-  %vtmp.2 = phi ptr [ %vtmp.0, %if.else ], [ %vtmp.0, %if.end5 ], [ %call14, %if.then13 ], [ null, %if.then11 ]
-  %vtmp_len.2 = phi i64 [ %vtmp_len.0, %if.else ], [ %vtmp_len.0, %if.end5 ], [ %0, %if.then13 ], [ %vtmp_len.0, %if.then11 ]
+  %stmp.0 = phi ptr [ %call, %if.else ], [ %call, %if.end5 ], [ %call14, %if.then13 ], [ %call, %if.then11 ]
+  %vtmp.1 = phi ptr [ %vtmp.0, %if.else ], [ %vtmp.0, %if.end5 ], [ %call14, %if.then13 ], [ null, %if.then11 ]
+  %vtmp_len.1 = phi i64 [ %vtmp_len.0, %if.else ], [ %vtmp_len.0, %if.end5 ], [ %0, %if.then13 ], [ %vtmp_len.0, %if.then11 ]
   %cmd.0 = phi i32 [ 0, %if.else ], [ 15, %if.end5 ], [ 15, %if.then13 ], [ 15, %if.then11 ]
-  %call18 = call i32 %ctrl(ptr noundef %object, i32 noundef %cmd.0, ptr noundef %vtmp.2, i64 noundef %vtmp_len.2) #3, !callees !4
-  call void @CRYPTO_free(ptr noundef %stmp.1, ptr noundef nonnull @.str, i32 noundef 125) #3
+  %call18 = call i32 %ctrl(ptr noundef %object, i32 noundef %cmd.0, ptr noundef %vtmp.1, i64 noundef %vtmp_len.1) #3, !callees !4
+  call void @CRYPTO_free(ptr noundef %stmp.0, ptr noundef nonnull @.str, i32 noundef 125) #3
   br label %return
 
 return:                                           ; preds = %entry, %if.end17

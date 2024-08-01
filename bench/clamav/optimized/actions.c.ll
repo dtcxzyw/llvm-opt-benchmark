@@ -547,7 +547,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef r
   br label %42
 
 .preheader:                                       ; preds = %22, %36
-  %.063 = phi i32 [ %.1, %36 ], [ %18, %22 ]
+  %.163 = phi i32 [ %.2, %36 ], [ %18, %22 ]
   %.03262 = phi i64 [ %37, %36 ], [ 0, %22 ]
   %26 = getelementptr inbounds [2048 x ptr], ptr %3, i64 0, i64 %.03262
   %27 = load ptr, ptr %26, align 8
@@ -556,35 +556,35 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef r
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %.preheader
-  %30 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.063, ptr noundef nonnull %27, i32 noundef 131072) #11
+  %30 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.163, ptr noundef nonnull %27, i32 noundef 131072) #11
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %29
-  %33 = call i32 @close(i32 noundef %.063) #11
+  %33 = call i32 @close(i32 noundef %.163) #11
   %34 = load ptr, ptr %26, align 8
   %35 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %34) #11
   br label %36
 
 36:                                               ; preds = %.preheader, %32
-  %.1 = phi i32 [ %.063, %.preheader ], [ %30, %32 ]
+  %.2 = phi i32 [ %.163, %.preheader ], [ %30, %32 ]
   %37 = add nuw i64 %.03262, 1
   %exitcond.not = icmp eq i64 %37, %23
   br i1 %exitcond.not, label %38, label %.preheader
 
 38:                                               ; preds = %36
-  store i32 %.1, ptr %1, align 4
+  store i32 %.2, ptr %1, align 4
   br label %.thread.thread54
 
 39:                                               ; preds = %29
   %40 = load ptr, ptr %26, align 8
   %41 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %40) #11
-  %.not60 = icmp eq i32 %.063, -1
+  %.not60 = icmp eq i32 %.163, -1
   br i1 %.not60, label %.thread.thread54, label %42
 
 42:                                               ; preds = %.thread, %39
-  %.268 = phi i32 [ %18, %.thread ], [ %.063, %39 ]
-  %43 = call i32 @close(i32 noundef %.268) #11
+  %.068 = phi i32 [ %18, %.thread ], [ %.163, %39 ]
+  %43 = call i32 @close(i32 noundef %.068) #11
   br label %.thread.thread54
 
 .thread.thread54:                                 ; preds = %39, %42, %38, %15, %20

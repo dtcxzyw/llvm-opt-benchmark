@@ -104,15 +104,15 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
   br label %53
 
 53:                                               ; preds = %49, %40
-  %.sroa.042.0 = phi i64 [ %51, %49 ], [ %45, %40 ]
-  %.sroa.10.0 = phi ptr [ %52, %49 ], [ %46, %40 ]
+  %.sroa.042.3 = phi i64 [ %51, %49 ], [ %45, %40 ]
+  %.sroa.10.3 = phi ptr [ %52, %49 ], [ %46, %40 ]
   %54 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.1) #11
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
   %57 = call { i64, ptr } @block_take_imports(ptr noundef nonnull %4) #11
   %58 = extractvalue { i64, ptr } %57, 0
   %59 = extractvalue { i64, ptr } %57, 1
-  %60 = call { i64, ptr } @jv_object_set(i64 %.sroa.042.0, ptr %.sroa.10.0, i64 %55, ptr %56, i64 %58, ptr %59) #11
+  %60 = call { i64, ptr } @jv_object_set(i64 %.sroa.042.3, ptr %.sroa.10.3, i64 %55, ptr %56, i64 %58, ptr %59) #11
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   %63 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.2) #11
@@ -129,8 +129,8 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
   br label %74
 
 74:                                               ; preds = %53, %30
-  %.sroa.042.1 = phi i64 [ %72, %53 ], [ %23, %30 ]
-  %.sroa.10.1 = phi ptr [ %73, %53 ], [ %24, %30 ]
+  %.sroa.042.2 = phi i64 [ %72, %53 ], [ %23, %30 ]
+  %.sroa.10.2 = phi ptr [ %73, %53 ], [ %24, %30 ]
   call void @locfile_free(ptr noundef %37) #11
   %75 = load ptr, ptr %4, align 8
   %76 = getelementptr inbounds i8, ptr %4, i64 8
@@ -139,17 +139,17 @@ define { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) local_unna
   br label %78
 
 78:                                               ; preds = %74, %21
-  %.sroa.042.2 = phi i64 [ %.sroa.042.1, %74 ], [ %23, %21 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1, %74 ], [ %24, %21 ]
+  %.sroa.042.1 = phi i64 [ %.sroa.042.2, %74 ], [ %23, %21 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.2, %74 ], [ %24, %21 ]
   call void @jv_free(i64 %18, ptr %19) #11
   call void @jv_free(i64 %27, ptr %28) #11
   br label %79
 
 79:                                               ; preds = %3, %78
-  %.sroa.042.3 = phi i64 [ %.sroa.042.2, %78 ], [ %18, %3 ]
-  %.sroa.10.3 = phi ptr [ %.sroa.10.2, %78 ], [ %19, %3 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.042.3, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.10.3, 1
+  %.sroa.042.0 = phi i64 [ %.sroa.042.1, %78 ], [ %18, %3 ]
+  %.sroa.10.0 = phi ptr [ %.sroa.10.1, %78 ], [ %19, %3 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.042.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.10.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -319,14 +319,14 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %97
 
 97:                                               ; preds = %93, %87, %71, %63
-  %.sroa.023.3.i = phi i64 [ %48, %63 ], [ %48, %71 ], [ %48, %87 ], [ %95, %93 ]
-  %.sroa.17.3.i = phi ptr [ %49, %63 ], [ %49, %71 ], [ %49, %87 ], [ %96, %93 ]
+  %.sroa.023.4.i = phi i64 [ %48, %63 ], [ %48, %71 ], [ %48, %87 ], [ %95, %93 ]
+  %.sroa.17.4.i = phi ptr [ %49, %63 ], [ %49, %71 ], [ %49, %87 ], [ %96, %93 ]
   %.sroa.054.0.i = phi i64 [ %65, %63 ], [ %76, %71 ], [ %91, %87 ], [ %48, %93 ]
   %.sroa.5.0.i = phi ptr [ %66, %63 ], [ %77, %71 ], [ %92, %87 ], [ %49, %93 ]
   %98 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.055.111.i, ptr %.sroa.4.112.i, i64 %.sroa.054.0.i, ptr %.sroa.5.0.i) #11
   %99 = extractvalue { i64, ptr } %98, 0
   %100 = extractvalue { i64, ptr } %98, 1
-  tail call void @jv_free(i64 %.sroa.023.3.i, ptr %.sroa.17.3.i) #11
+  tail call void @jv_free(i64 %.sroa.023.4.i, ptr %.sroa.17.4.i) #11
   br label %101
 
 101:                                              ; preds = %97, %51, %45
@@ -473,8 +473,8 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
 
 .thread17:                                        ; preds = %148, %177, %164
   %.1 = phi i32 [ %188, %177 ], [ %174, %164 ], [ %158, %148 ]
-  %.sroa.0125.1 = phi i64 [ %185, %177 ], [ %171, %164 ], [ %155, %148 ]
-  %.sroa.15.1 = phi ptr [ %186, %177 ], [ %172, %164 ], [ %156, %148 ]
+  %.sroa.0125.2 = phi i64 [ %185, %177 ], [ %171, %164 ], [ %155, %148 ]
+  %.sroa.15.2 = phi ptr [ %186, %177 ], [ %172, %164 ], [ %156, %148 ]
   %189 = icmp eq i32 %.1, 0
   br i1 %189, label %190, label %.thread21
 
@@ -487,9 +487,9 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
   br label %208
 
 .thread21:                                        ; preds = %160, %.thread11, %.thread17
-  %.sroa.15.126 = phi ptr [ %.sroa.15.1, %.thread17 ], [ %172, %.thread11 ], [ %156, %160 ]
-  %.sroa.0125.125 = phi i64 [ %.sroa.0125.1, %.thread17 ], [ %171, %.thread11 ], [ %155, %160 ]
-  tail call void @jv_free(i64 %.sroa.0125.125, ptr %.sroa.15.126) #11
+  %.sroa.15.226 = phi ptr [ %.sroa.15.2, %.thread17 ], [ %172, %.thread11 ], [ %156, %160 ]
+  %.sroa.0125.225 = phi i64 [ %.sroa.0125.2, %.thread17 ], [ %171, %.thread11 ], [ %155, %160 ]
+  tail call void @jv_free(i64 %.sroa.0125.225, ptr %.sroa.15.226) #11
   br label %191
 
 191:                                              ; preds = %143, %145, %.thread21
@@ -524,8 +524,8 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
   %205 = extractvalue { i64, ptr } %.sink51, 0
   %206 = extractvalue { i64, ptr } %.sink51, 1
   %207 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %205, ptr %206) #11
-  %.sroa.15.2 = extractvalue { i64, ptr } %207, 1
-  %.sroa.0125.2 = extractvalue { i64, ptr } %207, 0
+  %.sroa.15.3 = extractvalue { i64, ptr } %207, 1
+  %.sroa.0125.3 = extractvalue { i64, ptr } %207, 0
   tail call void @jv_free(i64 %.sroa.059.0, ptr %.sroa.7.0) #11
   tail call void @jv_free(i64 %0, ptr %1) #11
   tail call void @jv_free(i64 %119, ptr %120) #11
@@ -533,10 +533,10 @@ jv_basename.exit:                                 ; preds = %build_lib_search_ch
   br label %208
 
 208:                                              ; preds = %204, %190, %20, %11, %8
-  %.sroa.0125.3 = phi i64 [ %16, %11 ], [ %25, %20 ], [ %.sroa.0125.1, %190 ], [ %.sroa.0125.2, %204 ], [ %0, %8 ]
-  %.sroa.15.3 = phi ptr [ %17, %11 ], [ %26, %20 ], [ %.sroa.15.1, %190 ], [ %.sroa.15.2, %204 ], [ %1, %8 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0125.3, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.15.3, 1
+  %.sroa.0125.0 = phi i64 [ %16, %11 ], [ %25, %20 ], [ %.sroa.0125.2, %190 ], [ %.sroa.0125.3, %204 ], [ %0, %8 ]
+  %.sroa.15.0 = phi ptr [ %17, %11 ], [ %26, %20 ], [ %.sroa.15.2, %190 ], [ %.sroa.15.3, %204 ], [ %1, %8 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0125.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.15.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -1366,7 +1366,7 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
   br label %70
 
 70:                                               ; preds = %36, %53, %43
-  %.0 = phi i32 [ 0, %36 ], [ %63, %53 ], [ %51, %43 ]
+  %.1 = phi i32 [ 0, %36 ], [ %63, %53 ], [ %51, %43 ]
   %71 = getelementptr inbounds i8, ptr %8, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, 1
@@ -1396,11 +1396,11 @@ define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 nou
 89:                                               ; preds = %16, %29, %70
   %.sroa.028.2 = phi i64 [ %.sroa.028.0, %70 ], [ %.sroa.028.0, %16 ], [ %.sroa.028.1, %29 ]
   %.sroa.12.2 = phi ptr [ %.sroa.12.0, %70 ], [ %.sroa.12.0, %16 ], [ %.sroa.12.1, %29 ]
-  %.1 = phi i32 [ %.0, %70 ], [ 0, %16 ], [ 1, %29 ]
+  %.0 = phi i32 [ %.1, %70 ], [ 0, %16 ], [ 1, %29 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @jv_free(i64 %1, ptr %2) #11
   call void @jv_free(i64 %.sroa.028.2, ptr %.sroa.12.2) #11
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare { ptr, ptr } @block_bind_library(ptr, ptr, ptr, ptr, i32 noundef, ptr noundef) local_unnamed_addr #1

@@ -6613,7 +6613,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %exitcond916.not, label %.preheader773.lr.ph, label %25, !llvm.loop !187
 
 .preheader773:                                    ; preds = %.preheader773.lr.ph, %.loopexit772
-  %.0539844 = phi double [ 0.000000e+00, %.preheader773.lr.ph ], [ %.3, %.loopexit772 ]
+  %.0539844 = phi double [ 0.000000e+00, %.preheader773.lr.ph ], [ %.1540, %.loopexit772 ]
   %.0560843 = phi i32 [ 0, %.preheader773.lr.ph ], [ %.1561, %.loopexit772 ]
   %.0753841 = phi i32 [ %19, %.preheader773.lr.ph ], [ %.1, %.loopexit772 ]
   %36 = load ptr, ptr %17, align 8
@@ -6970,7 +6970,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %.1610 = phi double [ %262, %._crit_edge783 ], [ %.0609, %237 ]
   %.1607 = phi double [ %264, %._crit_edge783 ], [ %.0606, %237 ]
   %.0600 = phi double [ %262, %._crit_edge783 ], [ %224, %237 ]
-  %.1540 = phi double [ %240, %._crit_edge783 ], [ %.0539844, %237 ]
+  %.2541 = phi double [ %240, %._crit_edge783 ], [ %.0539844, %237 ]
   %266 = icmp eq i32 %.0560843, 30
   br i1 %266, label %267, label %287
 
@@ -7011,14 +7011,14 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %exitcond929.not, label %._crit_edge788, label %.lr.ph787, !llvm.loop !193
 
 ._crit_edge788:                                   ; preds = %.lr.ph787, %272
-  %286 = fadd double %.1540, %278
+  %286 = fadd double %.2541, %278
   br label %287
 
 287:                                              ; preds = %267, %._crit_edge788, %265
   %.2611 = phi double [ 0x3FEED916872B020C, %._crit_edge788 ], [ %.1610, %267 ], [ %.1610, %265 ]
   %.2608 = phi double [ 0x3FEED916872B020C, %._crit_edge788 ], [ %.1607, %267 ], [ %.1607, %265 ]
   %.1601 = phi double [ 0x3FEED916872B020C, %._crit_edge788 ], [ %.0600, %267 ], [ %.0600, %265 ]
-  %.2541 = phi double [ %286, %._crit_edge788 ], [ %.1540, %267 ], [ %.1540, %265 ]
+  %.3 = phi double [ %286, %._crit_edge788 ], [ %.2541, %267 ], [ %.2541, %265 ]
   %288 = add nsw i32 %.0560843, 1
   %.not648 = icmp slt i32 %.0560843, %7
   br i1 %.not648, label %296, label %289
@@ -7482,7 +7482,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 .loopexit772:                                     ; preds = %.loopexit766, %417, %.preheader771, %.loopexit769, %.preheader773.split.us.thread
   %.1 = phi i32 [ %75, %.preheader773.split.us.thread ], [ %221, %.loopexit769 ], [ %.0753841, %.preheader771 ], [ %.0753841, %417 ], [ %.0753841, %.loopexit766 ]
   %.1561 = phi i32 [ 0, %.preheader773.split.us.thread ], [ 0, %.loopexit769 ], [ %288, %.preheader771 ], [ %288, %417 ], [ %288, %.loopexit766 ]
-  %.3 = phi double [ %.0539844, %.preheader773.split.us.thread ], [ %.0539844, %.loopexit769 ], [ %.2541, %.preheader771 ], [ %.2541, %417 ], [ %.2541, %.loopexit766 ]
+  %.1540 = phi double [ %.0539844, %.preheader773.split.us.thread ], [ %.0539844, %.loopexit769 ], [ %.3, %.preheader771 ], [ %.3, %417 ], [ %.3, %.loopexit766 ]
   %555 = icmp sgt i32 %.1, -1
   br i1 %555, label %.preheader773, label %._crit_edge845, !llvm.loop !200
 

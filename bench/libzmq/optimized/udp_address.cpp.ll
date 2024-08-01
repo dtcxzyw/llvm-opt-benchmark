@@ -211,7 +211,7 @@ ehcleanup:                                        ; preds = %lpad19, %lpad4
   br label %eh.resume
 
 if.end42:                                         ; preds = %cleanup, %entry
-  %name_.addr.1 = phi ptr [ %add.ptr, %cleanup ], [ %name_, %entry ]
+  %name_.addr.0 = phi ptr [ %add.ptr, %cleanup ], [ %name_, %entry ]
   call void @_ZN3zmq21ip_resolver_options_tC1Ev(ptr noundef nonnull align 1 dereferenceable(6) %resolver_opts)
   %call44 = call noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t8bindableEb(ptr noundef nonnull align 1 dereferenceable(6) %resolver_opts, i1 noundef zeroext %bind_)
   %call45 = call noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t9allow_dnsEb(ptr noundef nonnull align 1 dereferenceable(6) %call44, i1 noundef zeroext true)
@@ -221,7 +221,7 @@ if.end42:                                         ; preds = %cleanup, %entry
   %agg.tmp51.sroa.0.0.copyload = load i48, ptr %resolver_opts, align 8
   call void @_ZN3zmq13ip_resolver_tC1ENS_21ip_resolver_options_tE(ptr noundef nonnull align 8 dereferenceable(14) %resolver, i48 %agg.tmp51.sroa.0.0.copyload)
   %_target_address = getelementptr inbounds i8, ptr %this, i64 40
-  %call55 = call noundef i32 @_ZN3zmq13ip_resolver_t7resolveEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %resolver, ptr noundef nonnull %_target_address, ptr noundef %name_.addr.1)
+  %call55 = call noundef i32 @_ZN3zmq13ip_resolver_t7resolveEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %resolver, ptr noundef nonnull %_target_address, ptr noundef %name_.addr.0)
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.end58, label %return
 
@@ -298,8 +298,8 @@ if.then110:                                       ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %if.then70, %if.then101, %if.then110, %if.end42, %land.lhs.true, %if.end103, %cleanup.thread
-  %retval.2 = phi i32 [ -1, %cleanup.thread ], [ -1, %if.then101 ], [ -1, %if.then110 ], [ -1, %if.then70 ], [ -1, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end103 ]
-  ret i32 %retval.2
+  %retval.1 = phi i32 [ -1, %cleanup.thread ], [ -1, %if.then101 ], [ -1, %if.then110 ], [ -1, %if.then70 ], [ -1, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end103 ]
+  ret i32 %retval.1
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
   %.pn13 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad ]

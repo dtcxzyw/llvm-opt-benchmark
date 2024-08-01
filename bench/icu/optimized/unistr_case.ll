@@ -398,9 +398,9 @@ ehcleanup:                                        ; preds = %lpad53.loopexit, %l
 
 if.end108:                                        ; preds = %cleanup, %if.else39
   %oldArray.0 = phi ptr [ %oldBuffer, %if.else39 ], [ %cond.i57, %cleanup ]
-  %newLength.1 = phi i32 [ %call33, %if.else39 ], [ %add103, %cleanup ]
+  %newLength.0 = phi i32 [ %call33, %if.else39 ], [ %add103, %cleanup ]
   store ptr null, ptr %bufferToDelete, align 8
-  %call110 = invoke noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %newLength.1, i32 noundef %newLength.1, i8 noundef signext 0, ptr noundef nonnull %bufferToDelete, i8 noundef signext 1)
+  %call110 = invoke noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %newLength.0, i32 noundef %newLength.0, i8 noundef signext 0, ptr noundef nonnull %bufferToDelete, i8 noundef signext 1)
           to label %invoke.cont109 unwind label %lpad
 
 invoke.cont109:                                   ; preds = %if.end108

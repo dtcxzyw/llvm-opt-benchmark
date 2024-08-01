@@ -169,13 +169,13 @@ if.then25:                                        ; preds = %if.then22
 
 if.end27:                                         ; preds = %if.then25, %if.then22
   %3 = phi ptr [ %.pre, %if.then25 ], [ %call19, %if.then22 ]
-  %id.0 = phi i32 [ %call26, %if.then25 ], [ %cond1040, %if.then22 ]
+  %id.2 = phi i32 [ %call26, %if.then25 ], [ %cond1040, %if.then22 ]
   %4 = load ptr, ptr %prov, align 8
-  %call28 = call i32 @ossl_method_store_cache_set(ptr noundef nonnull %call.i, ptr noundef %4, i32 noundef %id.0, ptr noundef nonnull %cond, ptr noundef %3, ptr noundef nonnull @up_ref_loader, ptr noundef nonnull @free_loader) #5
+  %call28 = call i32 @ossl_method_store_cache_set(ptr noundef nonnull %call.i, ptr noundef %4, i32 noundef %id.2, ptr noundef nonnull %cond, ptr noundef %3, ptr noundef nonnull @up_ref_loader, ptr noundef nonnull @free_loader) #5
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end27, %if.then16
-  %id.1 = phi i32 [ %id.0, %if.end27 ], [ %cond1040, %if.then16 ]
+  %id.1 = phi i32 [ %id.2, %if.end27 ], [ %cond1040, %if.then16 ]
   %bf.load31 = load i8, ptr %flag_construct_error_occurred, align 8
   %bf.clear32 = and i8 %bf.load31, 1
   %5 = icmp ne i8 %bf.clear32, 0
@@ -183,8 +183,8 @@ if.end29:                                         ; preds = %if.end27, %if.then1
 
 if.end34:                                         ; preds = %if.end29, %lor.lhs.false14
   %unsupported.0 = phi i1 [ %5, %if.end29 ], [ true, %lor.lhs.false14 ]
-  %id.2 = phi i32 [ %id.1, %if.end29 ], [ %call7, %lor.lhs.false14 ]
-  %cmp35 = icmp ne i32 %id.2, 0
+  %id.0 = phi i32 [ %id.1, %if.end29 ], [ %call7, %lor.lhs.false14 ]
+  %cmp35 = icmp ne i32 %id.0, 0
   %or.cond1 = or i1 %cmp5, %cmp35
   %6 = load ptr, ptr %method, align 8
   %cmp40 = icmp eq ptr %6, null
@@ -198,7 +198,7 @@ if.then42:                                        ; preds = %if.end34
   br i1 %cmp47, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.then42
-  %call50 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %call2, i32 noundef %id.2, i64 noundef 0) #5
+  %call50 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %call2, i32 noundef %id.0, i64 noundef 0) #5
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then49, %if.then42
@@ -210,7 +210,7 @@ if.end51:                                         ; preds = %if.then49, %if.then
   %cmp54 = icmp eq ptr %scheme.addr.0, null
   %cond59 = select i1 %cmp54, ptr @.str.4, ptr %scheme.addr.0
   %cond65 = select i1 %cmp.not, ptr @.str.4, ptr %properties
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef %cond44, ptr noundef nonnull @.str.3, ptr noundef nonnull %cond46, ptr noundef %call53, ptr noundef nonnull %cond59, i32 noundef %id.2, ptr noundef nonnull %cond65) #5
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef %cond44, ptr noundef nonnull @.str.3, ptr noundef nonnull %cond46, ptr noundef %call53, ptr noundef nonnull %cond59, i32 noundef %id.0, ptr noundef nonnull %cond65) #5
   %.pre42 = load ptr, ptr %method, align 8
   br label %return
 

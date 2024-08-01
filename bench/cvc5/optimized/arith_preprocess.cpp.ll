@@ -767,7 +767,7 @@ ehcleanup:                                        ; preds = %lpad45, %lpad38
   br label %ehcleanup50
 
 cleanup:                                          ; preds = %if.then13.i.i.i, %if.then.i.i.i91, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit90, %if.then13.i.i42, %if.then.i.i36, %invoke.cont28
-  %retval.0 = xor i1 %call19, true
+  %retval.1 = xor i1 %call19, true
   %d_proven.i92 = getelementptr inbounds i8, ptr %tn, i64 8
   %61 = load ptr, ptr %d_proven.i92, align 8
   %bf.load.i.i.i93 = load i64, ptr %61, align 8
@@ -828,8 +828,8 @@ ehcleanup52:                                      ; preds = %ehcleanup50, %lpad7
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i106, %invoke.cont.i, %if.then
-  %retval.1 = phi i1 [ %tobool, %if.then ], [ %retval.0, %invoke.cont.i ], [ %retval.0, %if.then.i.i.i106 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %tobool, %if.then ], [ %retval.1, %invoke.cont.i ], [ %retval.1, %if.then.i.i.i106 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup52, %lpad
   %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup52 ], [ %22, %lpad ]

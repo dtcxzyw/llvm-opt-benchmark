@@ -2817,7 +2817,7 @@ zend_observer_error_notify.exit:                  ; preds = %61, %64
   br label %110
 
 110:                                              ; preds = %106, %109
-  %.sroa.059.0 = phi i32 [ %.sroa.059.0.copyload, %109 ], [ undef, %106 ]
+  %.sroa.059.1 = phi i32 [ %.sroa.059.0.copyload, %109 ], [ undef, %106 ]
   %111 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 444), align 4
   %.not138 = icmp eq i32 %111, 0
   br i1 %.not138, label %113, label %112
@@ -2831,15 +2831,15 @@ zend_observer_error_notify.exit:                  ; preds = %61, %64
   br label %113
 
 113:                                              ; preds = %110, %112
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %112 ], [ undef, %110 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.copyload, %112 ], [ undef, %110 ]
   store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   br label %114
 
 114:                                              ; preds = %113, %96
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %113 ], [ undef, %96 ]
-  %.sroa.2.1 = phi i32 [ %111, %113 ], [ undef, %96 ]
-  %.sroa.059.1 = phi i32 [ %.sroa.059.0, %113 ], [ undef, %96 ]
-  %.sroa.261.1 = phi i32 [ %108, %113 ], [ undef, %96 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %113 ], [ undef, %96 ]
+  %.sroa.2.0 = phi i32 [ %111, %113 ], [ undef, %96 ]
+  %.sroa.059.0 = phi i32 [ %.sroa.059.1, %113 ], [ undef, %96 ]
+  %.sroa.261.0 = phi i32 [ %108, %113 ], [ undef, %96 ]
   %.0 = phi ptr [ %107, %113 ], [ undef, %96 ]
   %115 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1680), align 8
   %116 = and i8 %115, 1
@@ -2887,24 +2887,24 @@ zend_observer_error_notify.exit:                  ; preds = %61, %64
 
 132:                                              ; preds = %131
   store ptr %.0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 24), align 8
-  %.not141 = icmp eq i32 %.sroa.261.1, 0
+  %.not141 = icmp eq i32 %.sroa.261.0, 0
   br i1 %.not141, label %134, label %133
 
 133:                                              ; preds = %132
   call void @zend_stack_destroy(ptr noundef nonnull @compiler_globals) #32
-  store i32 %.sroa.059.1, ptr @compiler_globals, align 8
-  store i32 %.sroa.261.1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 4), align 4
+  store i32 %.sroa.059.0, ptr @compiler_globals, align 8
+  store i32 %.sroa.261.0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 4), align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @compiler_globals, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %.sroa.463, i64 16, i1 false)
   br label %134
 
 134:                                              ; preds = %133, %132
-  %.not142 = icmp eq i32 %.sroa.2.1, 0
+  %.not142 = icmp eq i32 %.sroa.2.0, 0
   br i1 %.not142, label %136, label %135
 
 135:                                              ; preds = %134
   call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @compiler_globals, i64 440)) #32
-  store i32 %.sroa.0.1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 440), align 8
-  store i32 %.sroa.2.1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 444), align 4
+  store i32 %.sroa.0.0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 440), align 8
+  store i32 %.sroa.2.0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 444), align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @compiler_globals, i64 448), ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   br label %136
 

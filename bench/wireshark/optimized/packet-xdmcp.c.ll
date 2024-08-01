@@ -248,34 +248,34 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %42
 
 42:                                               ; preds = %34, %37, %31
-  %.0244 = phi i32 [ 12, %31 ], [ 24, %34 ], [ %41, %37 ]
-  %43 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0244) #3
+  %.1 = phi i32 [ 12, %31 ], [ 24, %34 ], [ %41, %37 ]
+  %43 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1) #3
   %44 = icmp eq i16 %43, 2
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %42
   %46 = load i32, ptr @hf_xdmcp_client_port_u16, align 4
-  %47 = add nuw nsw i32 %.0244, 2
+  %47 = add nuw nsw i32 %.1, 2
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0) #3
-  %49 = add nuw nsw i32 %.0244, 4
+  %49 = add nuw nsw i32 %.1, 4
   br label %55
 
 50:                                               ; preds = %42
   %51 = load i32, ptr @hf_xdmcp_client_port_bytes, align 4
   %52 = load i32, ptr @hf_xdmcp_client_port_len, align 4
-  %53 = tail call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.0244)
-  %54 = add nuw nsw i32 %53, %.0244
+  %53 = tail call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.1)
+  %54 = add nuw nsw i32 %53, %.1
   br label %55
 
 55:                                               ; preds = %45, %50, %24, %24, %24
-  %.1 = phi i32 [ 6, %24 ], [ 6, %24 ], [ 6, %24 ], [ %49, %45 ], [ %54, %50 ]
+  %.0244 = phi i32 [ 6, %24 ], [ 6, %24 ], [ 6, %24 ], [ %49, %45 ], [ %54, %50 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
+  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0244) #3
   %57 = zext i8 %56 to i32
   %58 = load i32, ptr @ett_xdmcp_authentication_names, align 4
-  %59 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %5, ptr noundef nonnull @.str.87, i32 noundef %57) #3
-  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
-  %61 = add nuw nsw i32 %.1, 1
+  %59 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.0244, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %5, ptr noundef nonnull @.str.87, i32 noundef %57) #3
+  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0244) #3
+  %61 = add nuw nsw i32 %.0244, 1
   %.not.i = icmp eq i8 %60, 0
   br i1 %.not.i, label %xdmcp_add_authentication_names.exit, label %.lr.ph.preheader.i
 
@@ -302,7 +302,7 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   %.0.lcssa.i = phi i32 [ %61, %55 ], [ %71, %.lr.ph.i ]
   %74 = load ptr, ptr %5, align 8
-  %75 = sub i32 %.0.lcssa.i, %.1
+  %75 = sub i32 %.0.lcssa.i, %.0244
   call void @proto_item_set_len(ptr noundef %74, i32 noundef %75) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %286
@@ -383,18 +383,18 @@ xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   br label %136
 
 136:                                              ; preds = %.lr.ph, %166
-  %.2261 = phi i32 [ 9, %.lr.ph ], [ %138, %166 ]
+  %.3261 = phi i32 [ 9, %.lr.ph ], [ %138, %166 ]
   %.0245260 = phi i32 [ %134, %.lr.ph ], [ %167, %166 ]
   %.0246259 = phi i32 [ 1, %.lr.ph ], [ %168, %166 ]
-  %137 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2261) #3
-  %138 = add nuw nsw i32 %.2261, 2
+  %137 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3261) #3
+  %138 = add nuw nsw i32 %.3261, 2
   %139 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0245260) #3
   %140 = zext i16 %139 to i32
   %141 = add i32 %.0245260, 2
   %142 = load i32, ptr @ett_xdmcp_connection, align 4
   %143 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %133, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %142, ptr noundef nonnull %7, ptr noundef nonnull @.str.82, i32 noundef %.0246259) #3
   %144 = load i32, ptr @hf_xdmcp_connection_type, align 4
-  %145 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %0, i32 noundef %.2261, i32 noundef 2, i32 noundef 0) #3
+  %145 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %0, i32 noundef %.3261, i32 noundef 2, i32 noundef 0) #3
   %146 = icmp eq i16 %137, 0
   %147 = icmp eq i16 %139, 4
   %or.cond = select i1 %146, i1 %147, i1 false

@@ -1200,8 +1200,8 @@ select.unfold:                                    ; preds = %24
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.critedge, %10, %11, %select.unfold, %31
-  %.1 = phi i1 [ false, %select.unfold ], [ true, %31 ], [ false, %11 ], [ true, %10 ], [ false, %.critedge.critedge ]
-  ret i1 %.1
+  %.010 = phi i1 [ false, %select.unfold ], [ true, %31 ], [ false, %11 ], [ true, %10 ], [ false, %.critedge.critedge ]
+  ret i1 %.010
 }
 
 declare void @_ZN18QRegularExpressionC1ERK7QString6QFlagsINS_13PatternOptionEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i32) unnamed_addr #1

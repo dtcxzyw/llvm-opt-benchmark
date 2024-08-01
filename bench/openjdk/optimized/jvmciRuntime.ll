@@ -5591,14 +5591,14 @@ define hidden noundef ptr @_ZN12JVMCIRuntime24select_or_create_runtimeEP10JavaTh
   br label %_ZN12JVMCIRuntime14select_runtimeEP10JavaThreadPS_Pi.exit
 
 .loopexit:                                        ; preds = %30, %15
-  %.115.ph = phi i32 [ 0, %15 ], [ %21, %30 ]
+  %.014.ph = phi i32 [ 0, %15 ], [ %21, %30 ]
   %33 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 96, i8 noundef zeroext 8, i32 noundef 0) #15
   %34 = load ptr, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(888) %0) #15
-  tail call void @_ZN12JVMCIRuntimeC2EPS_ib(ptr noundef nonnull align 8 dereferenceable(93) %33, ptr noundef %34, i32 noundef %.115.ph, i1 noundef zeroext %38)
+  tail call void @_ZN12JVMCIRuntimeC2EPS_ib(ptr noundef nonnull align 8 dereferenceable(93) %33, ptr noundef %34, i32 noundef %.014.ph, i1 noundef zeroext %38)
   store ptr %33, ptr @_ZN5JVMCI18_compiler_runtimesE, align 8
   %39 = getelementptr inbounds i8, ptr %33, i64 88
   %40 = load i32, ptr %39, align 8
@@ -6135,7 +6135,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %38, %39
   br label %63
 
 63:                                               ; preds = %40, %60, %_ZN11MutexLockerD2Ev.exit
-  %.019.shrunk = phi i1 [ true, %60 ], [ false, %40 ], [ false, %_ZN11MutexLockerD2Ev.exit ]
+  %.1.shrunk = phi i1 [ true, %60 ], [ false, %40 ], [ false, %_ZN11MutexLockerD2Ev.exit ]
   %64 = load ptr, ptr @JVMCI_lock, align 8
   %.not.i.i24 = icmp eq ptr %64, null
   br i1 %.not.i.i24, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25, label %65
@@ -6163,12 +6163,12 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit25: ; preds = %63, %65
 
 _ZN11MutexLockerD2Ev.exit27.sink.split:           ; preds = %.critedge, %70
   %.sink = phi ptr [ %64, %70 ], [ %12, %.critedge ]
-  %.1.ph = phi i1 [ %.019.shrunk, %70 ], [ false, %.critedge ]
+  %.019.ph = phi i1 [ %.1.shrunk, %70 ], [ false, %.critedge ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %.sink) #15
   br label %_ZN11MutexLockerD2Ev.exit27
 
 _ZN11MutexLockerD2Ev.exit27:                      ; preds = %_ZN11MutexLockerD2Ev.exit27.sink.split, %.critedge, %70
-  %.1 = phi i1 [ %.019.shrunk, %70 ], [ false, %.critedge ], [ %.1.ph, %_ZN11MutexLockerD2Ev.exit27.sink.split ]
+  %.019 = phi i1 [ %.1.shrunk, %70 ], [ false, %.critedge ], [ %.019.ph, %_ZN11MutexLockerD2Ev.exit27.sink.split ]
   %71 = getelementptr inbounds i8, ptr %1, i64 1176
   store ptr null, ptr %71, align 8
   %72 = load i64, ptr @JVMCITraceLevel, align 8
@@ -6185,7 +6185,7 @@ _ZN11MutexLockerD2Ev.exit27:                      ; preds = %_ZN11MutexLockerD2E
   br label %79
 
 79:                                               ; preds = %76, %_ZN11MutexLockerD2Ev.exit27, %9
-  %.0 = phi i1 [ false, %9 ], [ %.1, %_ZN11MutexLockerD2Ev.exit27 ], [ %.1, %76 ]
+  %.0 = phi i1 [ false, %9 ], [ %.019, %_ZN11MutexLockerD2Ev.exit27 ], [ %.019, %76 ]
   ret i1 %.0
 }
 
@@ -7260,8 +7260,8 @@ _Z9type2char9BasicType.exit11:                    ; preds = %_ZN13JNIAccessMarkC
   br label %111
 
 111:                                              ; preds = %_Z9type2char9BasicType.exit11, %107
-  %.sroa.014.0 = phi ptr [ %109, %107 ], [ null, %_Z9type2char9BasicType.exit11 ]
-  %.sroa.5.0 = phi i8 [ %110, %107 ], [ 0, %_Z9type2char9BasicType.exit11 ]
+  %.sroa.014.1 = phi ptr [ %109, %107 ], [ null, %_Z9type2char9BasicType.exit11 ]
+  %.sroa.5.1 = phi i8 [ %110, %107 ], [ 0, %_Z9type2char9BasicType.exit11 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %83) #15
   %112 = load ptr, ptr %80, align 8
   %113 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -7303,10 +7303,10 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   br label %126
 
 126:                                              ; preds = %_Z9type2char9BasicType.exit, %_ZN13JNIAccessMarkD2Ev.exit, %71
-  %.sroa.014.1 = phi ptr [ %76, %71 ], [ %.sroa.014.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_Z9type2char9BasicType.exit ]
-  %.sroa.5.1 = phi i8 [ %77, %71 ], [ %.sroa.5.0, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_Z9type2char9BasicType.exit ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.014.1, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
+  %.sroa.014.0 = phi ptr [ %76, %71 ], [ %.sroa.014.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ null, %_Z9type2char9BasicType.exit ]
+  %.sroa.5.0 = phi i8 [ %77, %71 ], [ %.sroa.5.1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_Z9type2char9BasicType.exit ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.014.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 
@@ -7795,7 +7795,7 @@ tailrecurse:                                      ; preds = %18, %4
   br label %30
 
 common.ret107:                                    ; preds = %109, %111, %114, %_ZN16SymbolHandleBaseILb1EED2Ev.exit60, %118, %_ZNK12ConstantPool17resolved_klass_atEi.exit, %153, %30
-  %common.ret107.op = phi ptr [ %31, %30 ], [ %.0, %_ZN16SymbolHandleBaseILb1EED2Ev.exit60 ], [ null, %114 ], [ null, %111 ], [ %82, %109 ], [ null, %118 ], [ null, %153 ], [ %149, %_ZNK12ConstantPool17resolved_klass_atEi.exit ]
+  %common.ret107.op = phi ptr [ %31, %30 ], [ %.1, %_ZN16SymbolHandleBaseILb1EED2Ev.exit60 ], [ null, %114 ], [ null, %111 ], [ %82, %109 ], [ null, %118 ], [ null, %153 ], [ %149, %_ZNK12ConstantPool17resolved_klass_atEi.exit ]
   ret ptr %common.ret107.op
 
 30:                                               ; preds = %25, %29
@@ -7947,7 +7947,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit58:    ; preds = %88, %96, %100
   br label %107
 
 107:                                              ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit58, %102
-  %.0 = phi ptr [ %106, %102 ], [ undef, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit58 ]
+  %.1 = phi ptr [ %106, %102 ], [ undef, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit58 ]
   br i1 %.not.i57, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit60, label %108
 
 108:                                              ; preds = %107
@@ -9139,7 +9139,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit114: ; preds = %162, %16
   br label %169
 
 169:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit114, %167
-  %.1 = phi i32 [ 0, %167 ], [ 3, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit114 ]
+  %.3 = phi i32 [ 0, %167 ], [ 3, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit114 ]
   br i1 %.not.i.i113, label %_ZN10MethodData19inc_decompile_countEv.exit, label %170
 
 170:                                              ; preds = %169
@@ -9213,7 +9213,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit117: ; preds = %_ZN12Res
   br label %205
 
 205:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit117, %196
-  %.2 = phi i32 [ 0, %196 ], [ 3, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit117 ]
+  %.4 = phi i32 [ 0, %196 ], [ 3, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit117 ]
   br i1 %.not.i.i116, label %_ZN10MethodData19inc_decompile_countEv.exit, label %206
 
 206:                                              ; preds = %205
@@ -9240,7 +9240,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit121.thread: ; preds = %2
   br label %_ZN10MethodData19inc_decompile_countEv.exit
 
 _ZN10MethodData19inc_decompile_countEv.exit:      ; preds = %74, %77, %211, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit121.thread, %206, %205, %170, %169, %88, %81, %_ZN13MutexUnlockerD2Ev.exit112
-  %.4 = phi i32 [ 1, %77 ], [ 2, %_ZN13MutexUnlockerD2Ev.exit112 ], [ 1, %81 ], [ 1, %88 ], [ %.1, %169 ], [ %.1, %170 ], [ %.2, %205 ], [ %.2, %206 ], [ %spec.select151, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit121.thread ], [ %spec.select, %211 ], [ 1, %74 ]
+  %.2 = phi i32 [ 1, %77 ], [ 2, %_ZN13MutexUnlockerD2Ev.exit112 ], [ 1, %81 ], [ 1, %88 ], [ %.3, %169 ], [ %.3, %170 ], [ %.4, %205 ], [ %.4, %206 ], [ %spec.select151, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit121.thread ], [ %spec.select, %211 ], [ 1, %74 ]
   br i1 %.not.i.i109, label %_ZN11MutexLockerD2Ev.exit125, label %214
 
 214:                                              ; preds = %_ZN10MethodData19inc_decompile_countEv.exit
@@ -9260,7 +9260,7 @@ _ZN11MutexLockerD2Ev.exit127:                     ; preds = %215, %_ZN11MutexLoc
   br i1 %.not107, label %221, label %216
 
 216:                                              ; preds = %_ZN11MutexLockerD2Ev.exit127.thread, %_ZN11MutexLockerD2Ev.exit127
-  %.5155 = phi i32 [ 2, %_ZN11MutexLockerD2Ev.exit127.thread ], [ %.4, %_ZN11MutexLockerD2Ev.exit127 ]
+  %.1155 = phi i32 [ 2, %_ZN11MutexLockerD2Ev.exit127.thread ], [ %.2, %_ZN11MutexLockerD2Ev.exit127 ]
   %217 = phi ptr [ @.str.107, %_ZN11MutexLockerD2Ev.exit127.thread ], [ %.pr, %_ZN11MutexLockerD2Ev.exit127 ]
   %218 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %217, ptr noundef nonnull %1) #15
   %219 = extractvalue { ptr, i8 } %218, 0
@@ -9272,8 +9272,8 @@ _ZN11MutexLockerD2Ev.exit127:                     ; preds = %215, %_ZN11MutexLoc
   br label %221
 
 221:                                              ; preds = %216, %_ZN11MutexLockerD2Ev.exit127
-  %.5156 = phi i32 [ %.5155, %216 ], [ %.4, %_ZN11MutexLockerD2Ev.exit127 ]
-  %222 = icmp eq i32 %.5156, 0
+  %.1156 = phi i32 [ %.1155, %216 ], [ %.2, %_ZN11MutexLockerD2Ev.exit127 ]
+  %222 = icmp eq i32 %.1156, 0
   br i1 %222, label %223, label %229
 
 223:                                              ; preds = %221
@@ -9289,7 +9289,7 @@ _ZN11MutexLockerD2Ev.exit127:                     ; preds = %215, %_ZN11MutexLoc
   br label %229
 
 229:                                              ; preds = %223, %226, %221
-  ret i32 %.5156
+  ret i32 %.1156
 }
 
 declare noundef zeroext i8 @_ZN8JVMCIEnv28get_HotSpotNmethod_isDefaultE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8) local_unnamed_addr #1

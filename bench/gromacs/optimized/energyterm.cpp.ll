@@ -218,7 +218,7 @@ define void @_ZN3gmx10EnergyTerm8addFrameEdliddd(ptr nocapture noundef nonnull a
   %22 = fcmp oeq double %5, 0.000000e+00
   %23 = sitofp i32 %spec.select to double
   %24 = fmul double %23, %6
-  %.033 = select i1 %22, double %24, double %4
+  %.134 = select i1 %22, double %24, double %4
   %25 = getelementptr inbounds i8, ptr %0, i64 136
   %26 = getelementptr inbounds i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
@@ -236,7 +236,7 @@ define void @_ZN3gmx10EnergyTerm8addFrameEdliddd(ptr nocapture noundef nonnull a
   %33 = getelementptr inbounds i8, ptr %27, i64 24
   store i32 %spec.select, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %27, i64 32
-  store double %.033, ptr %34, align 8
+  store double %.134, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %27, i64 40
   store double %5, ptr %35, align 8
   %36 = load ptr, ptr %26, align 8
@@ -282,7 +282,7 @@ _ZNKSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12_M_check_lenEmPKc.exit.i: ; p
   %58 = getelementptr inbounds i8, ptr %55, i64 24
   store i32 %spec.select, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %55, i64 32
-  store double %.033, ptr %59, align 8
+  store double %.134, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %55, i64 40
   store double %5, ptr %60, align 8
   %.not10.i.i.i.i = icmp eq ptr %39, %27
@@ -315,8 +315,8 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5
   br label %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit
 
 _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %30, %17
-  %.134 = phi double [ %4, %17 ], [ %.033, %30 ], [ %.033, %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ]
-  %.1 = phi i32 [ %3, %17 ], [ %spec.select, %30 ], [ %spec.select, %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ]
+  %.033 = phi double [ %4, %17 ], [ %.134, %30 ], [ %.134, %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ]
+  %.0 = phi i32 [ %3, %17 ], [ %spec.select, %30 ], [ %spec.select, %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ]
   %66 = getelementptr inbounds i8, ptr %0, i64 64
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 168
@@ -329,16 +329,16 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_E
 _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit._crit_edge: ; preds = %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 160
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  %.pre35 = fadd double %.134, %.pre
+  %.pre35 = fadd double %.033, %.pre
   br label %86
 
 72:                                               ; preds = %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit
   %73 = uitofp nneg i64 %67 to double
-  %74 = sitofp i32 %.1 to double
+  %74 = sitofp i32 %.0 to double
   %75 = getelementptr inbounds i8, ptr %0, i64 160
   %76 = load double, ptr %75, align 8
   %77 = fdiv double %76, %73
-  %78 = fadd double %.134, %76
+  %78 = fadd double %.033, %76
   %79 = fadd double %74, %73
   %80 = fdiv double %78, %79
   %81 = fsub double %77, %80
@@ -354,7 +354,7 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_E
   %87 = phi double [ %70, %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit._crit_edge ], [ %85, %72 ]
   %88 = getelementptr inbounds i8, ptr %0, i64 160
   store double %.pre-phi, ptr %88, align 8
-  %89 = sext i32 %.1 to i64
+  %89 = sext i32 %.0 to i64
   %90 = add nsw i64 %67, %89
   store i64 %90, ptr %66, align 8
   %91 = icmp sgt i64 %90, 0
@@ -696,9 +696,9 @@ _ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4ty
   br label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit
 
 _ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit: ; preds = %.preheader, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i, %._crit_edge47, %2
-  %.sroa.034.1 = phi i64 [ 0, %2 ], [ %61, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
-  %.sroa.235.1 = phi i64 [ 0, %2 ], [ 4294967296, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
-  %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.235.1, %.sroa.034.1
+  %.sroa.034.0 = phi i64 [ 0, %2 ], [ %61, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
+  %.sroa.235.0 = phi i64 [ 0, %2 ], [ 4294967296, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
+  %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.235.0, %.sroa.034.0
   ret i64 %.sroa.034.0.insert.insert
 }
 

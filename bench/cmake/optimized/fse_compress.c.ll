@@ -392,13 +392,13 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader160
-  %.1117.lcssa = phi i32 [ %.0116203, %.preheader160 ], [ %21, %.critedge.loopexit ]
-  %22 = icmp eq i32 %.1117.lcssa, %8
+  %.2118.lcssa = phi i32 [ %.0116203, %.preheader160 ], [ %21, %.critedge.loopexit ]
+  %22 = icmp eq i32 %.2118.lcssa, %8
   br i1 %22, label %.critedge._crit_edge, label %.preheader159
 
 .preheader159:                                    ; preds = %.critedge
   %23 = add i32 %.0116203, 24
-  %.not143176 = icmp ult i32 %.1117.lcssa, %23
+  %.not143176 = icmp ult i32 %.2118.lcssa, %23
   br i1 %.not143176, label %.preheader158, label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.preheader159
@@ -407,96 +407,96 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 
 .lr.ph179.split.us:                               ; preds = %.lr.ph179, %.lr.ph179.split.us
   %25 = phi i32 [ %33, %.lr.ph179.split.us ], [ %23, %.lr.ph179 ]
-  %.1115178.us = phi ptr [ %31, %.lr.ph179.split.us ], [ %.0114204, %.lr.ph179 ]
-  %.1124177.us = phi i32 [ %32, %.lr.ph179.split.us ], [ %.0123201, %.lr.ph179 ]
-  %26 = add i32 %.1124177.us, %24
+  %.2178.us = phi ptr [ %31, %.lr.ph179.split.us ], [ %.0114204, %.lr.ph179 ]
+  %.2125177.us = phi i32 [ %32, %.lr.ph179.split.us ], [ %.0123201, %.lr.ph179 ]
+  %26 = add i32 %.2125177.us, %24
   %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %.1115178.us, align 1
+  store i8 %27, ptr %.2178.us, align 1
   %28 = lshr i32 %26, 8
   %29 = trunc i32 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %.1115178.us, i64 1
+  %30 = getelementptr inbounds i8, ptr %.2178.us, i64 1
   store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %.1115178.us, i64 2
+  %31 = getelementptr inbounds i8, ptr %.2178.us, i64 2
   %32 = lshr i32 %26, 16
   %33 = add i32 %25, 24
-  %.not143.us = icmp ult i32 %.1117.lcssa, %33
+  %.not143.us = icmp ult i32 %.2118.lcssa, %33
   br i1 %.not143.us, label %.preheader158, label %.lr.ph179.split.us, !llvm.loop !16
 
 .preheader158:                                    ; preds = %.lr.ph179.split.us, %37, %.preheader159
-  %.1124.lcssa = phi i32 [ %.0123201, %.preheader159 ], [ %44, %37 ], [ %32, %.lr.ph179.split.us ]
-  %.1115.lcssa = phi ptr [ %.0114204, %.preheader159 ], [ %43, %37 ], [ %31, %.lr.ph179.split.us ]
+  %.2125.lcssa = phi i32 [ %.0123201, %.preheader159 ], [ %44, %37 ], [ %32, %.lr.ph179.split.us ]
+  %.2.lcssa = phi ptr [ %.0114204, %.preheader159 ], [ %43, %37 ], [ %31, %.lr.ph179.split.us ]
   %.0112.lcssa = phi i32 [ %.0116203, %.preheader159 ], [ %35, %37 ], [ %25, %.lr.ph179.split.us ]
   %34 = add i32 %.0112.lcssa, 3
-  %.not144185 = icmp ult i32 %.1117.lcssa, %34
+  %.not144185 = icmp ult i32 %.2118.lcssa, %34
   br i1 %.not144185, label %._crit_edge, label %.lr.ph188
 
 .lr.ph179.split:                                  ; preds = %.lr.ph179, %37
   %35 = phi i32 [ %45, %37 ], [ %23, %.lr.ph179 ]
-  %.1115178 = phi ptr [ %43, %37 ], [ %.0114204, %.lr.ph179 ]
-  %.1124177 = phi i32 [ %44, %37 ], [ %.0123201, %.lr.ph179 ]
-  %36 = icmp ugt ptr %.1115178, %13
+  %.2178 = phi ptr [ %43, %37 ], [ %.0114204, %.lr.ph179 ]
+  %.2125177 = phi i32 [ %44, %37 ], [ %.0123201, %.lr.ph179 ]
+  %36 = icmp ugt ptr %.2178, %13
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %.lr.ph179.split
-  %38 = add i32 %.1124177, %24
+  %38 = add i32 %.2125177, %24
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.1115178, align 1
+  store i8 %39, ptr %.2178, align 1
   %40 = lshr i32 %38, 8
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %.1115178, i64 1
+  %42 = getelementptr inbounds i8, ptr %.2178, i64 1
   store i8 %41, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %.1115178, i64 2
+  %43 = getelementptr inbounds i8, ptr %.2178, i64 2
   %44 = lshr i32 %38, 16
   %45 = add i32 %35, 24
-  %.not143 = icmp ult i32 %.1117.lcssa, %45
+  %.not143 = icmp ult i32 %.2118.lcssa, %45
   br i1 %.not143, label %.preheader158, label %.lr.ph179.split, !llvm.loop !16
 
 .lr.ph188:                                        ; preds = %.preheader158, %.lr.ph188
   %46 = phi i32 [ %50, %.lr.ph188 ], [ %34, %.preheader158 ]
-  %.1120187 = phi i32 [ %49, %.lr.ph188 ], [ %.0119202, %.preheader158 ]
-  %.2125186 = phi i32 [ %48, %.lr.ph188 ], [ %.1124.lcssa, %.preheader158 ]
-  %47 = shl i32 3, %.1120187
-  %48 = add i32 %47, %.2125186
-  %49 = add nsw i32 %.1120187, 2
+  %.2121187 = phi i32 [ %49, %.lr.ph188 ], [ %.0119202, %.preheader158 ]
+  %.3126186 = phi i32 [ %48, %.lr.ph188 ], [ %.2125.lcssa, %.preheader158 ]
+  %47 = shl i32 3, %.2121187
+  %48 = add i32 %47, %.3126186
+  %49 = add nsw i32 %.2121187, 2
   %50 = add i32 %46, 3
-  %.not144 = icmp ult i32 %.1117.lcssa, %50
+  %.not144 = icmp ult i32 %.2118.lcssa, %50
   br i1 %.not144, label %._crit_edge, label %.lr.ph188, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph188, %.preheader158
-  %.2125.lcssa = phi i32 [ %.1124.lcssa, %.preheader158 ], [ %48, %.lr.ph188 ]
-  %.1120.lcssa = phi i32 [ %.0119202, %.preheader158 ], [ %49, %.lr.ph188 ]
+  %.3126.lcssa = phi i32 [ %.2125.lcssa, %.preheader158 ], [ %48, %.lr.ph188 ]
+  %.2121.lcssa = phi i32 [ %.0119202, %.preheader158 ], [ %49, %.lr.ph188 ]
   %.1.lcssa = phi i32 [ %.0112.lcssa, %.preheader158 ], [ %46, %.lr.ph188 ]
-  %51 = sub i32 %.1117.lcssa, %.1.lcssa
-  %52 = shl i32 %51, %.1120.lcssa
-  %53 = add i32 %52, %.2125.lcssa
-  %54 = add nsw i32 %.1120.lcssa, 2
-  %55 = icmp sgt i32 %.1120.lcssa, 14
+  %51 = sub i32 %.2118.lcssa, %.1.lcssa
+  %52 = shl i32 %51, %.2121.lcssa
+  %53 = add i32 %52, %.3126.lcssa
+  %54 = add nsw i32 %.2121.lcssa, 2
+  %55 = icmp sgt i32 %.2121.lcssa, 14
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %._crit_edge
-  %57 = icmp ugt ptr %.1115.lcssa, %13
+  %57 = icmp ugt ptr %.2.lcssa, %13
   %or.cond153 = select i1 %.not148, i1 %57, i1 false
   br i1 %or.cond153, label %.loopexit, label %58
 
 58:                                               ; preds = %56
   %59 = trunc i32 %53 to i8
-  store i8 %59, ptr %.1115.lcssa, align 1
+  store i8 %59, ptr %.2.lcssa, align 1
   %60 = lshr i32 %53, 8
   %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %.1115.lcssa, i64 1
+  %62 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
   store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %.1115.lcssa, i64 2
+  %63 = getelementptr inbounds i8, ptr %.2.lcssa, i64 2
   %64 = lshr i32 %53, 16
-  %65 = add nsw i32 %.1120.lcssa, -14
+  %65 = add nsw i32 %.2121.lcssa, -14
   br label %66
 
 66:                                               ; preds = %._crit_edge, %58, %15
-  %.3126 = phi i32 [ %64, %58 ], [ %53, %._crit_edge ], [ %.0123201, %15 ]
-  %.2121 = phi i32 [ %65, %58 ], [ %54, %._crit_edge ], [ %.0119202, %15 ]
-  %.2118 = phi i32 [ %.1117.lcssa, %58 ], [ %.1117.lcssa, %._crit_edge ], [ %.0116203, %15 ]
-  %.2 = phi ptr [ %63, %58 ], [ %.1115.lcssa, %._crit_edge ], [ %.0114204, %15 ]
-  %67 = add nuw i32 %.2118, 1
-  %68 = zext i32 %.2118 to i64
+  %.1124 = phi i32 [ %64, %58 ], [ %53, %._crit_edge ], [ %.0123201, %15 ]
+  %.1120 = phi i32 [ %65, %58 ], [ %54, %._crit_edge ], [ %.0119202, %15 ]
+  %.1117 = phi i32 [ %.2118.lcssa, %58 ], [ %.2118.lcssa, %._crit_edge ], [ %.0116203, %15 ]
+  %.1115 = phi ptr [ %63, %58 ], [ %.2.lcssa, %._crit_edge ], [ %.0114204, %15 ]
+  %67 = add nuw i32 %.1117, 1
+  %68 = zext i32 %.1117 to i64
   %69 = getelementptr inbounds i16, ptr %2, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i32
@@ -509,9 +509,9 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %.not146 = icmp slt i32 %77, %.0127200
   %78 = select i1 %.not146, i32 0, i32 %74
   %spec.select = add nsw i32 %78, %77
-  %79 = shl i32 %spec.select, %.2121
-  %80 = add i32 %79, %.3126
-  %81 = add nsw i32 %.2121, %.0130198
+  %79 = shl i32 %spec.select, %.1120
+  %80 = add i32 %79, %.1124
+  %81 = add nsw i32 %.1120, %.0130198
   %82 = icmp slt i32 %spec.select, %74
   %.neg = sext i1 %82 to i32
   %83 = add i32 %81, %.neg
@@ -539,18 +539,18 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br i1 %91, label %92, label %102
 
 92:                                               ; preds = %._crit_edge195
-  %93 = icmp ugt ptr %.2, %13
+  %93 = icmp ugt ptr %.1115, %13
   %or.cond155 = select i1 %.not148, i1 %93, i1 false
   br i1 %or.cond155, label %.loopexit, label %94
 
 94:                                               ; preds = %92
   %95 = trunc i32 %80 to i8
-  store i8 %95, ptr %.2, align 1
+  store i8 %95, ptr %.1115, align 1
   %96 = lshr i32 %80, 8
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %.2, i64 1
+  %98 = getelementptr inbounds i8, ptr %.1115, i64 1
   store i8 %97, ptr %98, align 1
-  %99 = getelementptr inbounds i8, ptr %.2, i64 2
+  %99 = getelementptr inbounds i8, ptr %.1115, i64 2
   %100 = lshr i32 %80, 16
   %101 = add nsw i32 %83, -16
   br label %102
@@ -558,7 +558,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 102:                                              ; preds = %94, %._crit_edge195
   %.4 = phi i32 [ %100, %94 ], [ %80, %._crit_edge195 ]
   %.3122 = phi i32 [ %101, %94 ], [ %83, %._crit_edge195 ]
-  %.3 = phi ptr [ %99, %94 ], [ %.2, %._crit_edge195 ]
+  %.3 = phi ptr [ %99, %94 ], [ %.1115, %._crit_edge195 ]
   %103 = icmp ult i32 %67, %8
   %104 = icmp ne i32 %76, 1
   %105 = and i1 %103, %104
@@ -678,8 +678,8 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 30:                                               ; preds = %19, %68
   %.06994 = phi i32 [ %26, %19 ], [ %.1, %68 ]
-  %.07093 = phi i16 [ 0, %19 ], [ %.2, %68 ]
-  %.07292 = phi i32 [ 0, %19 ], [ %.274, %68 ]
+  %.07093 = phi i16 [ 0, %19 ], [ %.171, %68 ]
+  %.07292 = phi i32 [ 0, %19 ], [ %.173, %68 ]
   %.07591 = phi i32 [ 0, %19 ], [ %69, %68 ]
   %31 = zext i32 %.07591 to i64
   %32 = getelementptr inbounds i32, ptr %2, i64 %31
@@ -742,8 +742,8 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br label %68
 
 68:                                               ; preds = %41, %63, %38
-  %.274 = phi i32 [ %.07292, %38 ], [ %.07292, %41 ], [ %spec.select, %63 ]
-  %.2 = phi i16 [ %.07093, %38 ], [ %.07093, %41 ], [ %spec.select84, %63 ]
+  %.173 = phi i32 [ %.07292, %38 ], [ %.07292, %41 ], [ %spec.select, %63 ]
+  %.171 = phi i16 [ %.07093, %38 ], [ %.07093, %41 ], [ %spec.select84, %63 ]
   %.1 = phi i32 [ %.06994, %38 ], [ %43, %41 ], [ %67, %63 ]
   %69 = add i32 %.07591, 1
   %.not80 = icmp ugt i32 %69, %4
@@ -751,7 +751,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 70:                                               ; preds = %68
   %71 = sub nsw i32 0, %.1
-  %72 = zext i32 %.274 to i64
+  %72 = zext i32 %.173 to i64
   %73 = getelementptr inbounds i16, ptr %0, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = ashr i16 %74, 1
@@ -842,8 +842,8 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 120:                                              ; preds = %132, %114
   %indvars.iv158.i = phi i64 [ 0, %114 ], [ %indvars.iv.next159.i, %132 ]
-  %.2147.i = phi i64 [ %.1.i, %114 ], [ %.3.i, %132 ]
-  %.2114145.i = phi i32 [ %.1113.i, %114 ], [ %.3115.i, %132 ]
+  %.3147.i = phi i64 [ %.1.i, %114 ], [ %.4.i, %132 ]
+  %.3115145.i = phi i32 [ %.1113.i, %114 ], [ %.4116.i, %132 ]
   %121 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv158.i
   %122 = load i16, ptr %121, align 2
   %123 = icmp eq i16 %122, -2
@@ -857,28 +857,28 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 127:                                              ; preds = %124
   store i16 1, ptr %121, align 2
-  %128 = add i32 %.2114145.i, 1
+  %128 = add i32 %.3115145.i, 1
   %129 = load i32, ptr %125, align 4
   %130 = zext i32 %129 to i64
-  %131 = sub i64 %.2147.i, %130
+  %131 = sub i64 %.3147.i, %130
   br label %132
 
 132:                                              ; preds = %127, %124, %120
-  %.3115.i = phi i32 [ %128, %127 ], [ %.2114145.i, %124 ], [ %.2114145.i, %120 ]
-  %.3.i = phi i64 [ %131, %127 ], [ %.2147.i, %124 ], [ %.2147.i, %120 ]
+  %.4116.i = phi i32 [ %128, %127 ], [ %.3115145.i, %124 ], [ %.3115145.i, %120 ]
+  %.4.i = phi i64 [ %131, %127 ], [ %.3147.i, %124 ], [ %.3147.i, %120 ]
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %exitcond162.i = icmp eq i64 %indvars.iv.next159.i, %wide.trip.count.i
   br i1 %exitcond162.i, label %133, label %120, !llvm.loop !22
 
 133:                                              ; preds = %132
-  %134 = sub i32 %26, %.3115.i
+  %134 = sub i32 %26, %.4116.i
   br label %135
 
 135:                                              ; preds = %133, %109
   %.0119.i = phi i32 [ %134, %133 ], [ %107, %109 ]
-  %.4116.i = phi i32 [ %.3115.i, %133 ], [ %.1113.i, %109 ]
-  %.4.i = phi i64 [ %.3.i, %133 ], [ %.1.i, %109 ]
-  %136 = icmp eq i32 %.4116.i, %83
+  %.2114.i = phi i32 [ %.4116.i, %133 ], [ %.1113.i, %109 ]
+  %.2.i = phi i64 [ %.4.i, %133 ], [ %.1.i, %109 ]
+  %136 = icmp eq i32 %.2114.i, %83
   br i1 %136, label %.preheader.i, label %145
 
 .preheader.i:                                     ; preds = %135, %.preheader.i
@@ -902,7 +902,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br label %FSE_normalizeM2.exit.thread.sink.split
 
 145:                                              ; preds = %135
-  %146 = icmp eq i64 %.4.i, 0
+  %146 = icmp eq i64 %.2.i, 0
   br i1 %146, label %.preheader140.i, label %158
 
 .preheader140.i:                                  ; preds = %145
@@ -939,7 +939,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %161 = zext i32 %.0119.i to i64
   %162 = shl i64 %161, %22
   %163 = add i64 %162, %160
-  %164 = and i64 %.4.i, 4294967295
+  %164 = and i64 %.2.i, 4294967295
   %165 = udiv i64 %163, %164
   br label %166
 

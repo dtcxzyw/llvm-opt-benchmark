@@ -130,13 +130,13 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.loopexit
   %indvars.iv249 = phi i64 [ 2, %.lr.ph196.preheader ], [ %indvars.iv.next250, %.loopexit ]
-  %.0194 = phi i64 [ -1, %.lr.ph196.preheader ], [ %.3, %.loopexit ]
+  %.0194 = phi i64 [ -1, %.lr.ph196.preheader ], [ %.1, %.loopexit ]
   %.2105193 = phi i32 [ %.1104207, %.lr.ph196.preheader ], [ %.3106, %.loopexit ]
   %.2109192 = phi i32 [ %.1108206, %.lr.ph196.preheader ], [ %.3110, %.loopexit ]
   %.2113191 = phi i32 [ %.1112205, %.lr.ph196.preheader ], [ %.3114, %.loopexit ]
-  %.0124185 = phi i32 [ -1, %.lr.ph196.preheader ], [ %.3127, %.loopexit ]
-  %.0128184 = phi i32 [ -1, %.lr.ph196.preheader ], [ %.4, %.loopexit ]
-  %.0132183 = phi i32 [ -1, %.lr.ph196.preheader ], [ %.3135, %.loopexit ]
+  %.0124185 = phi i32 [ -1, %.lr.ph196.preheader ], [ %.1125, %.loopexit ]
+  %.0128184 = phi i32 [ -1, %.lr.ph196.preheader ], [ %.1129, %.loopexit ]
+  %.0132183 = phi i32 [ -1, %.lr.ph196.preheader ], [ %.1133, %.loopexit ]
   %50 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %0, i64 %indvars.iv249
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
@@ -198,13 +198,13 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
 
 .preheader150.us.us.us:                           ; preds = %.lr.ph167.split.us.split.us.split.us, %.preheader150.us.us.us
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.preheader150.us.us.us ], [ 0, %.lr.ph167.split.us.split.us.split.us ]
-  %.2130156.us.us.us = phi i32 [ %80, %.preheader150.us.us.us ], [ 0, %.lr.ph167.split.us.split.us.split.us ]
+  %.4156.us.us.us = phi i32 [ %80, %.preheader150.us.us.us ], [ 0, %.lr.ph167.split.us.split.us.split.us ]
   %75 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %indvars.iv243
   %76 = load i32, ptr %75, align 4
   %77 = shl i32 %76, 2
   %78 = trunc nuw nsw i64 %indvars.iv243 to i32
   %79 = shl i32 %78, %77
-  %80 = or i32 %79, %.2130156.us.us.us
+  %80 = or i32 %79, %.4156.us.us.us
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %26
   br i1 %exitcond247.not, label %._crit_edge159.us.us.us, label %.preheader150.us.us.us, !llvm.loop !8
@@ -232,17 +232,17 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
 
 87:                                               ; preds = %.lr.ph167.split, %100
   %indvars.iv237 = phi i64 [ 0, %.lr.ph167.split ], [ %indvars.iv.next238, %100 ]
-  %.1165 = phi i64 [ %.0194, %.lr.ph167.split ], [ %.2, %100 ]
+  %.2165 = phi i64 [ %.0194, %.lr.ph167.split ], [ %.3, %100 ]
   %.0101164 = phi i64 [ %66, %.lr.ph167.split ], [ %118, %100 ]
-  %.1125162 = phi i32 [ %.0124185, %.lr.ph167.split ], [ %.2126, %100 ]
-  %.1129161 = phi i32 [ %.0128184, %.lr.ph167.split ], [ %.3131, %100 ]
-  %.1133160 = phi i32 [ %.0132183, %.lr.ph167.split ], [ %.2134, %100 ]
+  %.2126162 = phi i32 [ %.0124185, %.lr.ph167.split ], [ %.3127, %100 ]
+  %.2130161 = phi i32 [ %.0128184, %.lr.ph167.split ], [ %.3131, %100 ]
+  %.2134160 = phi i32 [ %.0132183, %.lr.ph167.split ], [ %.3135, %100 ]
   %88 = icmp eq i64 %49, %.0101164
   br i1 %88, label %89, label %100
 
 89:                                               ; preds = %87
   %90 = load i64, ptr %69, align 8
-  %91 = icmp ugt i64 %.1165, %90
+  %91 = icmp ugt i64 %.2165, %90
   br i1 %91, label %.preheader150, label %100
 
 .preheader150:                                    ; preds = %89
@@ -250,29 +250,29 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
 
 .lr.ph158:                                        ; preds = %.preheader150, %.lr.ph158
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %.lr.ph158 ], [ 0, %.preheader150 ]
-  %.2130156 = phi i32 [ %97, %.lr.ph158 ], [ 0, %.preheader150 ]
+  %.4156 = phi i32 [ %97, %.lr.ph158 ], [ 0, %.preheader150 ]
   %92 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %indvars.iv232
   %93 = load i32, ptr %92, align 4
   %94 = shl i32 %93, 2
   %95 = trunc nuw nsw i64 %indvars.iv232 to i32
   %96 = shl i32 %95, %94
-  %97 = or i32 %96, %.2130156
+  %97 = or i32 %96, %.4156
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %26
   br i1 %exitcond236.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !8
 
 ._crit_edge159:                                   ; preds = %.lr.ph158, %.preheader150
-  %.2130.lcssa = phi i32 [ 0, %.preheader150 ], [ %97, %.lr.ph158 ]
+  %.4.lcssa = phi i32 [ 0, %.preheader150 ], [ %97, %.lr.ph158 ]
   %98 = load i64, ptr %29, align 8
   %.in = sub i64 %98, %90
   %99 = trunc i64 %.in to i32
   br label %100
 
 100:                                              ; preds = %._crit_edge159, %89, %87
-  %.2134 = phi i32 [ %86, %._crit_edge159 ], [ %.1133160, %89 ], [ %.1133160, %87 ]
-  %.3131 = phi i32 [ %.2130.lcssa, %._crit_edge159 ], [ %.1129161, %89 ], [ %.1129161, %87 ]
-  %.2126 = phi i32 [ %99, %._crit_edge159 ], [ %.1125162, %89 ], [ %.1125162, %87 ]
-  %.2 = phi i64 [ %90, %._crit_edge159 ], [ %.1165, %89 ], [ %.1165, %87 ]
+  %.3135 = phi i32 [ %86, %._crit_edge159 ], [ %.2134160, %89 ], [ %.2134160, %87 ]
+  %.3131 = phi i32 [ %.4.lcssa, %._crit_edge159 ], [ %.2130161, %89 ], [ %.2130161, %87 ]
+  %.3127 = phi i32 [ %99, %._crit_edge159 ], [ %.2126162, %89 ], [ %.2126162, %87 ]
+  %.3 = phi i64 [ %90, %._crit_edge159 ], [ %.2165, %89 ], [ %.2165, %87 ]
   %101 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv237
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
@@ -300,13 +300,13 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
   br i1 %exitcond241.not, label %.loopexit, label %87, !llvm.loop !9
 
 .loopexit:                                        ; preds = %100, %.preheader150.us.us, %.lr.ph167.split.us.split.us.split, %._crit_edge159.us.us.us, %.lr.ph167.split.us.split.us.split.us, %.lr.ph167.split.us, %._crit_edge, %.lr.ph196, %59
-  %.3135 = phi i32 [ %.0132183, %.lr.ph196 ], [ %.0132183, %59 ], [ %.0132183, %._crit_edge ], [ %.0132183, %.lr.ph167.split.us ], [ %73, %._crit_edge159.us.us.us ], [ %.0132183, %.lr.ph167.split.us.split.us.split.us ], [ %73, %.preheader150.us.us ], [ %.0132183, %.lr.ph167.split.us.split.us.split ], [ %.2134, %100 ]
-  %.4 = phi i32 [ %.0128184, %.lr.ph196 ], [ %.0128184, %59 ], [ %.0128184, %._crit_edge ], [ %.0128184, %.lr.ph167.split.us ], [ %80, %._crit_edge159.us.us.us ], [ %.0128184, %.lr.ph167.split.us.split.us.split.us ], [ 0, %.preheader150.us.us ], [ %.0128184, %.lr.ph167.split.us.split.us.split ], [ %.3131, %100 ]
-  %.3127 = phi i32 [ %.0124185, %.lr.ph196 ], [ %.0124185, %59 ], [ %.0124185, %._crit_edge ], [ %.0124185, %.lr.ph167.split.us ], [ %82, %._crit_edge159.us.us.us ], [ %.0124185, %.lr.ph167.split.us.split.us.split.us ], [ %84, %.preheader150.us.us ], [ %.0124185, %.lr.ph167.split.us.split.us.split ], [ %.2126, %100 ]
+  %.1133 = phi i32 [ %.0132183, %.lr.ph196 ], [ %.0132183, %59 ], [ %.0132183, %._crit_edge ], [ %.0132183, %.lr.ph167.split.us ], [ %73, %._crit_edge159.us.us.us ], [ %.0132183, %.lr.ph167.split.us.split.us.split.us ], [ %73, %.preheader150.us.us ], [ %.0132183, %.lr.ph167.split.us.split.us.split ], [ %.3135, %100 ]
+  %.1129 = phi i32 [ %.0128184, %.lr.ph196 ], [ %.0128184, %59 ], [ %.0128184, %._crit_edge ], [ %.0128184, %.lr.ph167.split.us ], [ %80, %._crit_edge159.us.us.us ], [ %.0128184, %.lr.ph167.split.us.split.us.split.us ], [ 0, %.preheader150.us.us ], [ %.0128184, %.lr.ph167.split.us.split.us.split ], [ %.3131, %100 ]
+  %.1125 = phi i32 [ %.0124185, %.lr.ph196 ], [ %.0124185, %59 ], [ %.0124185, %._crit_edge ], [ %.0124185, %.lr.ph167.split.us ], [ %82, %._crit_edge159.us.us.us ], [ %.0124185, %.lr.ph167.split.us.split.us.split.us ], [ %84, %.preheader150.us.us ], [ %.0124185, %.lr.ph167.split.us.split.us.split ], [ %.3127, %100 ]
   %.3114 = phi i32 [ %.2113191, %.lr.ph196 ], [ %60, %59 ], [ %.2113191, %._crit_edge ], [ %.2113191, %.lr.ph167.split.us ], [ %.2113191, %._crit_edge159.us.us.us ], [ %.2113191, %.lr.ph167.split.us.split.us.split.us ], [ %.2113191, %.preheader150.us.us ], [ %.2113191, %.lr.ph167.split.us.split.us.split ], [ %.2113191, %100 ]
   %.3110 = phi i32 [ %.2109192, %.lr.ph196 ], [ %32, %59 ], [ %.2109192, %._crit_edge ], [ %.2109192, %.lr.ph167.split.us ], [ %.2109192, %._crit_edge159.us.us.us ], [ %.2109192, %.lr.ph167.split.us.split.us.split.us ], [ %.2109192, %.preheader150.us.us ], [ %.2109192, %.lr.ph167.split.us.split.us.split ], [ %.2109192, %100 ]
   %.3106 = phi i32 [ %.2105193, %.lr.ph196 ], [ %61, %59 ], [ %.2105193, %._crit_edge ], [ %.2105193, %.lr.ph167.split.us ], [ %.2105193, %._crit_edge159.us.us.us ], [ %.2105193, %.lr.ph167.split.us.split.us.split.us ], [ %.2105193, %.preheader150.us.us ], [ %.2105193, %.lr.ph167.split.us.split.us.split ], [ %.2105193, %100 ]
-  %.3 = phi i64 [ %.0194, %.lr.ph196 ], [ %.0194, %59 ], [ %.0194, %._crit_edge ], [ %.0194, %.lr.ph167.split.us ], [ %72, %._crit_edge159.us.us.us ], [ %.0194, %.lr.ph167.split.us.split.us.split.us ], [ %72, %.preheader150.us.us ], [ %.0194, %.lr.ph167.split.us.split.us.split ], [ %.2, %100 ]
+  %.1 = phi i64 [ %.0194, %.lr.ph196 ], [ %.0194, %59 ], [ %.0194, %._crit_edge ], [ %.0194, %.lr.ph167.split.us ], [ %72, %._crit_edge159.us.us.us ], [ %.0194, %.lr.ph167.split.us.split.us.split.us ], [ %72, %.preheader150.us.us ], [ %.0194, %.lr.ph167.split.us.split.us.split ], [ %.3, %100 ]
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count262
   br i1 %exitcond253.not, label %._crit_edge197, label %.lr.ph196, !llvm.loop !10
@@ -372,7 +372,7 @@ Vec_IntPush.exit.i:                               ; preds = %143, %Vec_IntGrow.e
   store i32 %146, ptr %7, align 4
   %147 = sext i32 %122 to i64
   %148 = getelementptr inbounds i32, ptr %145, i64 %147
-  store i32 %.3135, ptr %148, align 4
+  store i32 %.1133, ptr %148, align 4
   %149 = load i32, ptr %7, align 4
   %150 = load i32, ptr %6, align 8
   %151 = icmp eq i32 %149, %150
@@ -433,7 +433,7 @@ Vec_IntPush.exit11.i:                             ; preds = %170, %Vec_IntGrow.e
   store i32 %173, ptr %7, align 4
   %174 = sext i32 %149 to i64
   %175 = getelementptr inbounds i32, ptr %172, i64 %174
-  store i32 %.4, ptr %175, align 4
+  store i32 %.1129, ptr %175, align 4
   %176 = load i32, ptr %7, align 4
   %177 = load i32, ptr %6, align 8
   %178 = icmp eq i32 %176, %177
@@ -494,7 +494,7 @@ Vec_IntPushThree.exit:                            ; preds = %.Vec_IntGrow.exit10
   store i32 %200, ptr %7, align 4
   %201 = sext i32 %176 to i64
   %202 = getelementptr inbounds i32, ptr %199, i64 %201
-  store i32 %.3127, ptr %202, align 4
+  store i32 %.1125, ptr %202, align 4
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
   br i1 %exitcond258.not, label %203, label %33, !llvm.loop !11

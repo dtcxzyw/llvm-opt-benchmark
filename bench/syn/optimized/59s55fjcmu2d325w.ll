@@ -3701,7 +3701,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
   br label %132
 
 130:                                              ; preds = %176
-  br i1 %.3, label %178, label %.thread190
+  br i1 %.2108, label %178, label %.thread190
 
 .thread:                                          ; preds = %115, %118, %.thread9.i, %123, %159, %162
   %131 = landingpad { ptr, i32 }
@@ -3854,7 +3854,7 @@ _ZN5alloc6string6String8truncate17h3a054fa0b3278baeE.exit: ; preds = %"_ZN5alloc
   unreachable
 
 176:                                              ; preds = %139, %143, %141
-  %.3 = phi i1 [ false, %143 ], [ true, %141 ], [ true, %139 ]
+  %.2108 = phi i1 [ false, %143 ], [ true, %141 ], [ true, %139 ]
   %177 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06d379aa815dd14dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #19

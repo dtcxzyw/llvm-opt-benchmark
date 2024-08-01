@@ -2680,14 +2680,14 @@ define hidden void @zif_inet_pton(ptr noundef %0, ptr nocapture noundef writeonl
 
 18:                                               ; preds = %14, %.thread140
   %.pn = phi ptr [ %13, %.thread140 ], [ %16, %14 ]
-  %.2.ph = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.0130.ph = getelementptr inbounds i8, ptr %.pn, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %4, i8 0, i64 17, i1 false)
-  %19 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2.ph, i32 noundef 58) #19
+  %19 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0130.ph, i32 noundef 58) #19
   %.not135 = icmp eq ptr %19, null
   br i1 %.not135, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2.ph, i32 noundef 46) #19
+  %21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0130.ph, i32 noundef 46) #19
   %.not136 = icmp eq ptr %21, null
   br i1 %.not136, label %22, label %24
 
@@ -2698,7 +2698,7 @@ define hidden void @zif_inet_pton(ptr noundef %0, ptr nocapture noundef writeonl
 
 24:                                               ; preds = %18, %20
   %.0124 = phi i32 [ 2, %20 ], [ 10, %18 ]
-  %25 = call i32 @inet_pton(i32 noundef %.0124, ptr noundef nonnull %.2.ph, ptr noundef nonnull %4) #18
+  %25 = call i32 @inet_pton(i32 noundef %.0124, ptr noundef nonnull %.0130.ph, ptr noundef nonnull %4) #18
   %26 = icmp slt i32 %25, 1
   br i1 %26, label %27, label %29
 
@@ -3431,7 +3431,7 @@ define hidden void @zif_getopt(ptr noundef %0, ptr nocapture noundef %1) #0 {
 .thread477:                                       ; preds = %27, %21, %36, %34
   %.not397489 = phi i1 [ false, %36 ], [ false, %34 ], [ true, %21 ], [ true, %27 ]
   %.0376488 = phi ptr [ %28, %36 ], [ %28, %34 ], [ null, %21 ], [ null, %27 ]
-  %.2487 = phi ptr [ %24, %36 ], [ %24, %34 ], [ null, %21 ], [ %24, %27 ]
+  %.0377487 = phi ptr [ %24, %36 ], [ %24, %34 ], [ null, %21 ], [ %24, %27 ]
   %39 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 400), align 8
   %40 = icmp eq i8 %39, 7
   br i1 %40, label %46, label %41
@@ -3662,7 +3662,7 @@ select.unfold490:                                 ; preds = %56, %46
 
 parse_opts.exit:                                  ; preds = %151, %._crit_edge.i
   %158 = sext i32 %.041.lcssa.i to i64
-  %.not407 = icmp eq ptr %.2487, null
+  %.not407 = icmp eq ptr %.0377487, null
   br i1 %.not407, label %225, label %160
 
 .thread498:                                       ; preds = %68, %select.unfold490, %41
@@ -3671,7 +3671,7 @@ parse_opts.exit:                                  ; preds = %151, %._crit_edge.i
   br label %free_argv.exit
 
 160:                                              ; preds = %parse_opts.exit
-  %161 = load ptr, ptr %.2487, align 8
+  %161 = load ptr, ptr %.0377487, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 28
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
@@ -3681,7 +3681,7 @@ parse_opts.exit:                                  ; preds = %151, %._crit_edge.i
   %168 = getelementptr inbounds %struct._opt_struct, ptr %167, i64 %158
   %169 = shl nsw i64 %164, 4
   call void @llvm.memset.p0.i64(ptr align 8 %168, i8 0, i64 %169, i1 false)
-  %170 = load ptr, ptr %.2487, align 8
+  %170 = load ptr, ptr %.0377487, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 24
   %172 = load i32, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %170, i64 8
@@ -4926,7 +4926,7 @@ thread-pre-split:                                 ; preds = %41
 
 50:                                               ; preds = %43, %45
   %51 = getelementptr inbounds i8, ptr %44, i64 24
-  %.0208 = select i1 %.not, ptr null, ptr %51
+  %.2 = select i1 %.not, ptr null, ptr %51
   %.not226 = icmp eq i32 %8, 4
   br i1 %.not226, label %52, label %.thread287
 
@@ -4948,7 +4948,7 @@ thread-pre-split:                                 ; preds = %41
   store ptr %storemerge227, ptr %5, align 8
   %.not228252 = icmp eq ptr %storemerge227, null
   %58 = getelementptr inbounds i8, ptr %storemerge227, i64 24
-  %.0215253 = select i1 %.not228252, ptr null, ptr %58
+  %.2217253 = select i1 %.not228252, ptr null, ptr %58
   br label %.thread287
 
 59:                                               ; preds = %52
@@ -4957,7 +4957,7 @@ thread-pre-split:                                 ; preds = %41
   %61 = load ptr, ptr %5, align 8
   %.not228 = icmp eq ptr %61, null
   %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %.0215 = select i1 %.not228, ptr null, ptr %62
+  %.2217 = select i1 %.not228, ptr null, ptr %62
   br i1 %cond.fr, label %.thread287, label %.thread270
 
 .thread270:                                       ; preds = %59, %41, %45, %17, %31, %10
@@ -4969,11 +4969,11 @@ thread-pre-split:                                 ; preds = %41
   br label %70
 
 .thread287:                                       ; preds = %59, %50, %33, %19, %.thread304
-  %.2300 = phi ptr [ %.0208, %.thread304 ], [ %.0208, %50 ], [ null, %33 ], [ null, %19 ], [ %.0208, %59 ]
-  %.2217297 = phi ptr [ %.0215253, %.thread304 ], [ null, %50 ], [ null, %33 ], [ null, %19 ], [ %.0215, %59 ]
+  %.0208300 = phi ptr [ %.2, %.thread304 ], [ %.2, %50 ], [ null, %33 ], [ null, %19 ], [ %.2, %59 ]
+  %.0215297 = phi ptr [ %.2217253, %.thread304 ], [ null, %50 ], [ null, %33 ], [ null, %19 ], [ %.2217, %59 ]
   %63 = load i64, ptr %6, align 8
   %64 = trunc i64 %63 to i32
-  %65 = call i32 @_php_error_log_ex(i32 noundef %64, ptr noundef nonnull %23, i64 noundef %22, ptr noundef %.2300, ptr noundef %.2217297)
+  %65 = call i32 @_php_error_log_ex(i32 noundef %64, ptr noundef nonnull %23, i64 noundef %22, ptr noundef %.0208300, ptr noundef %.0215297)
   %66 = icmp eq i32 %65, -1
   %67 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %66, label %68, label %69
@@ -5564,11 +5564,11 @@ define hidden void @zif_forward_static_call(ptr noundef %0, ptr nocapture nounde
 
 23:                                               ; preds = %._crit_edge, %10, %.critedge122
   %24 = phi ptr [ %22, %.critedge122 ], [ %.pre, %._crit_edge ], [ null, %10 ]
-  %.1106.ph = phi i32 [ %., %.critedge122 ], [ 11, %._crit_edge ], [ 1, %10 ]
+  %.0105.ph = phi i32 [ %., %.critedge122 ], [ 11, %._crit_edge ], [ 1, %10 ]
   %.0104.ph = phi i32 [ %.123, %.critedge122 ], [ 0, %._crit_edge ], [ 0, %10 ]
   %.0103.ph = phi ptr [ %12, %.critedge122 ], [ %12, %._crit_edge ], [ null, %10 ]
-  %.1.ph = phi i32 [ 1, %.critedge122 ], [ %8, %._crit_edge ], [ 0, %10 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.1106.ph, i32 noundef %.1.ph, ptr noundef %24, i32 noundef %.0104.ph, ptr noundef %.0103.ph) #18
+  %.0102.ph = phi i32 [ 1, %.critedge122 ], [ %8, %._crit_edge ], [ 0, %10 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0105.ph, i32 noundef %.0102.ph, ptr noundef %24, i32 noundef %.0104.ph, ptr noundef %.0103.ph) #18
   br label %82
 
 25:                                               ; preds = %14
@@ -8080,10 +8080,10 @@ define hidden void @zif_getservbyname(ptr noundef %0, ptr nocapture noundef writ
 
 26:                                               ; preds = %22, %.thread114
   %.pn = phi ptr [ %21, %.thread114 ], [ %24, %22 ]
-  %.2 = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.0105 = getelementptr inbounds i8, ptr %.pn, i64 24
   %27 = load ptr, ptr %4, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = call ptr @getservbyname(ptr noundef nonnull %28, ptr noundef nonnull %.2) #18
+  %29 = call ptr @getservbyname(ptr noundef nonnull %28, ptr noundef nonnull %.0105) #18
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
 
@@ -8168,12 +8168,12 @@ define hidden void @zif_getservbyport(ptr noundef %0, ptr nocapture noundef writ
 
 26:                                               ; preds = %22, %.thread176
   %.pn = phi ptr [ %21, %.thread176 ], [ %24, %22 ]
-  %.2 = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.0166 = getelementptr inbounds i8, ptr %.pn, i64 24
   %27 = load i64, ptr %4, align 8
   %28 = trunc i64 %27 to i16
   %29 = call zeroext i16 @htons(i16 noundef zeroext %28) #21
   %30 = zext i16 %29 to i32
-  %31 = call ptr @getservbyport(i32 noundef %30, ptr noundef nonnull %.2) #18
+  %31 = call ptr @getservbyport(i32 noundef %30, ptr noundef nonnull %.0166) #18
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %35
 
@@ -8252,8 +8252,8 @@ define hidden void @zif_getprotobyname(ptr noundef %0, ptr nocapture noundef wri
 
 17:                                               ; preds = %13, %.thread78
   %.pn = phi ptr [ %12, %.thread78 ], [ %15, %13 ]
-  %.2.ph = getelementptr inbounds i8, ptr %.pn, i64 24
-  %18 = call ptr @getprotobyname(ptr noundef nonnull %.2.ph) #18
+  %.070.ph = getelementptr inbounds i8, ptr %.pn, i64 24
+  %18 = call ptr @getprotobyname(ptr noundef nonnull %.070.ph) #18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 

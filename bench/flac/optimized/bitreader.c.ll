@@ -1508,9 +1508,9 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp15, label %do.body, label %if.end25
 
 do.body:                                          ; preds = %while.body13, %if.end19
-  %x.0 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
-  %cwords.1 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
-  %inc = add i32 %cwords.1, 1
+  %x.1 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
+  %cwords.2 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
+  %inc = add i32 %cwords.2, 1
   %cmp17.not = icmp ult i32 %inc, %words.0.ph
   br i1 %cmp17.not, label %if.end19, label %incomplete_msbs
 
@@ -1521,22 +1521,22 @@ if.end19:                                         ; preds = %do.body
   %8 = load i64, ptr %arrayidx22, align 8
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
-  %add = add i32 %x.0, %cast.i.i92
+  %add = add i32 %x.1, %cast.i.i92
   %cmp24 = icmp eq i64 %8, 0
   br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !17
 
 if.end25:                                         ; preds = %if.end19, %while.body13
-  %x.1 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
+  %x.0 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
   %y.0 = phi i64 [ %6, %while.body13 ], [ %9, %if.end19 ]
-  %cwords.2 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
+  %cwords.1 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
   %b.1 = phi i64 [ %b.0110, %while.body13 ], [ %8, %if.end19 ]
   %shl27 = shl i64 %b.1, %y.0
   %shl28 = shl i64 %shl27, 1
-  %10 = xor i32 %x.1, -1
+  %10 = xor i32 %x.0, -1
   %sub30 = add i32 %ucbits.0109, %10
   %rem = and i32 %sub30, 63
-  store i32 %x.1, ptr %msbs, align 4
-  %cmp31 = icmp ugt i32 %x.1, %shr
+  store i32 %x.0, ptr %msbs, align 4
+  %cmp31 = icmp ugt i32 %x.0, %shr
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end25
@@ -1551,7 +1551,7 @@ if.then39:                                        ; preds = %if.end33
   br label %if.end59
 
 if.else:                                          ; preds = %if.end33
-  %inc43 = add i32 %cwords.2, 1
+  %inc43 = add i32 %cwords.1, 1
   %cmp44.not = icmp ult i32 %inc43, %words.0.ph
   br i1 %cmp44.not, label %if.end47, label %incomplete_lsbs
 
@@ -1572,11 +1572,11 @@ if.end47:                                         ; preds = %if.else
 
 if.end59:                                         ; preds = %if.end47, %if.then39
   %x.2 = phi i32 [ %conv, %if.then39 ], [ %or, %if.end47 ]
-  %cwords.3 = phi i32 [ %cwords.2, %if.then39 ], [ %inc43, %if.end47 ]
+  %cwords.3 = phi i32 [ %cwords.1, %if.then39 ], [ %inc43, %if.end47 ]
   %ucbits.1 = phi i32 [ %sub40, %if.then39 ], [ %add52, %if.end47 ]
   %b.2 = phi i64 [ %shl42, %if.then39 ], [ %shl58, %if.end47 ]
   store i32 %x.2, ptr %lsbs, align 4
-  %shl60 = shl i32 %x.1, %parameter
+  %shl60 = shl i32 %x.0, %parameter
   %or61 = or i32 %x.2, %shl60
   %shr62 = lshr i32 %or61, 1
   %and63 = and i32 %or61, 1
@@ -1596,7 +1596,7 @@ incomplete_msbs:                                  ; preds = %do.body
   br label %if.end71
 
 if.end71:                                         ; preds = %cond.end, %if.end4, %incomplete_msbs
-  %x.4 = phi i32 [ %x.0, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
+  %x.4 = phi i32 [ %x.1, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
   %val.3 = phi ptr [ %val.1111, %incomplete_msbs ], [ %vals, %if.end4 ], [ %incdec.ptr93, %cond.end ]
   %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs)
   %tobool73.not = icmp eq i32 %call72, 0
@@ -1615,7 +1615,7 @@ incomplete_lsbs:                                  ; preds = %if.else
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end75, %incomplete_lsbs
-  %15 = phi i32 [ %add76, %if.end75 ], [ %x.1, %incomplete_lsbs ]
+  %15 = phi i32 [ %add76, %if.end75 ], [ %x.0, %incomplete_lsbs ]
   %x.5 = phi i32 [ 0, %if.end75 ], [ %conv, %incomplete_lsbs ]
   %ucbits.2 = phi i32 [ 0, %if.end75 ], [ %rem, %incomplete_lsbs ]
   %val.4 = phi ptr [ %val.3, %if.end75 ], [ %val.1111, %incomplete_lsbs ]
@@ -1763,9 +1763,9 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp15, label %do.body, label %if.end25
 
 do.body:                                          ; preds = %while.body13, %if.end19
-  %x.0 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
-  %cwords.1 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
-  %inc = add i32 %cwords.1, 1
+  %x.1 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
+  %cwords.2 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
+  %inc = add i32 %cwords.2, 1
   %cmp17.not = icmp ult i32 %inc, %words.0.ph
   br i1 %cmp17.not, label %if.end19, label %incomplete_msbs
 
@@ -1776,22 +1776,22 @@ if.end19:                                         ; preds = %do.body
   %8 = load i64, ptr %arrayidx22, align 8
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
-  %add = add i32 %x.0, %cast.i.i92
+  %add = add i32 %x.1, %cast.i.i92
   %cmp24 = icmp eq i64 %8, 0
   br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !21
 
 if.end25:                                         ; preds = %if.end19, %while.body13
-  %x.1 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
+  %x.0 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
   %y.0 = phi i64 [ %6, %while.body13 ], [ %9, %if.end19 ]
-  %cwords.2 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
+  %cwords.1 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
   %b.1 = phi i64 [ %b.0110, %while.body13 ], [ %8, %if.end19 ]
   %shl27 = shl i64 %b.1, %y.0
   %shl28 = shl i64 %shl27, 1
-  %10 = xor i32 %x.1, -1
+  %10 = xor i32 %x.0, -1
   %sub30 = add i32 %ucbits.0109, %10
   %rem = and i32 %sub30, 63
-  store i32 %x.1, ptr %msbs, align 4
-  %cmp31 = icmp ugt i32 %x.1, %shr
+  store i32 %x.0, ptr %msbs, align 4
+  %cmp31 = icmp ugt i32 %x.0, %shr
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end25
@@ -1806,7 +1806,7 @@ if.then39:                                        ; preds = %if.end33
   br label %if.end59
 
 if.else:                                          ; preds = %if.end33
-  %inc43 = add i32 %cwords.2, 1
+  %inc43 = add i32 %cwords.1, 1
   %cmp44.not = icmp ult i32 %inc43, %words.0.ph
   br i1 %cmp44.not, label %if.end47, label %incomplete_lsbs
 
@@ -1827,11 +1827,11 @@ if.end47:                                         ; preds = %if.else
 
 if.end59:                                         ; preds = %if.end47, %if.then39
   %x.2 = phi i32 [ %conv, %if.then39 ], [ %or, %if.end47 ]
-  %cwords.3 = phi i32 [ %cwords.2, %if.then39 ], [ %inc43, %if.end47 ]
+  %cwords.3 = phi i32 [ %cwords.1, %if.then39 ], [ %inc43, %if.end47 ]
   %ucbits.1 = phi i32 [ %sub40, %if.then39 ], [ %add52, %if.end47 ]
   %b.2 = phi i64 [ %shl42, %if.then39 ], [ %shl58, %if.end47 ]
   store i32 %x.2, ptr %lsbs, align 4
-  %shl60 = shl i32 %x.1, %parameter
+  %shl60 = shl i32 %x.0, %parameter
   %or61 = or i32 %x.2, %shl60
   %shr62 = lshr i32 %or61, 1
   %and63 = and i32 %or61, 1
@@ -1851,7 +1851,7 @@ incomplete_msbs:                                  ; preds = %do.body
   br label %if.end71
 
 if.end71:                                         ; preds = %cond.end, %if.end4, %incomplete_msbs
-  %x.4 = phi i32 [ %x.0, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
+  %x.4 = phi i32 [ %x.1, %incomplete_msbs ], [ 0, %if.end4 ], [ 0, %cond.end ]
   %val.3 = phi ptr [ %val.1111, %incomplete_msbs ], [ %vals, %if.end4 ], [ %incdec.ptr93, %cond.end ]
   %call72 = call i32 @FLAC__bitreader_read_unary_unsigned(ptr noundef nonnull %br, ptr noundef nonnull %msbs)
   %tobool73.not = icmp eq i32 %call72, 0
@@ -1870,7 +1870,7 @@ incomplete_lsbs:                                  ; preds = %if.else
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end75, %incomplete_lsbs
-  %15 = phi i32 [ %add76, %if.end75 ], [ %x.1, %incomplete_lsbs ]
+  %15 = phi i32 [ %add76, %if.end75 ], [ %x.0, %incomplete_lsbs ]
   %x.5 = phi i32 [ 0, %if.end75 ], [ %conv, %incomplete_lsbs ]
   %ucbits.2 = phi i32 [ 0, %if.end75 ], [ %rem, %incomplete_lsbs ]
   %val.4 = phi ptr [ %val.3, %if.end75 ], [ %val.1111, %incomplete_lsbs ]

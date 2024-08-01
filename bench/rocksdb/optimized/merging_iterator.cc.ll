@@ -9008,7 +9008,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %6 = phi ptr [ %1, %if.end.lr.ph ], [ %24, %if.end30 ]
   %add.i86 = phi i64 [ %add.i77, %if.end.lr.ph ], [ %add.i, %if.end30 ]
   %mul.i85 = phi i64 [ %mul.i76, %if.end.lr.ph ], [ %mul.i, %if.end30 ]
-  %index.addr.084 = phi i64 [ %index, %if.end.lr.ph ], [ %picked_child.1, %if.end30 ]
+  %index.addr.084 = phi i64 [ %index, %if.end.lr.ph ], [ %picked_child.2, %if.end30 ]
   %add = add nuw i64 %mul.i85, 2
   %cmp7 = icmp eq i64 %index.addr.084, 0
   %7 = load i64, ptr %root_cmp_cache_, align 8
@@ -9041,11 +9041,11 @@ land.lhs.true16:                                  ; preds = %if.else
 
 if.end24:                                         ; preds = %if.end, %land.lhs.true16, %if.else
   %13 = phi ptr [ %6, %if.else ], [ %.pre, %land.lhs.true16 ], [ %6, %if.end ]
-  %picked_child.1 = phi i64 [ %add.i86, %if.else ], [ %spec.select, %land.lhs.true16 ], [ %7, %if.end ]
-  %cmp.i47 = icmp ult i64 %picked_child.1, 8
+  %picked_child.2 = phi i64 [ %add.i86, %if.else ], [ %spec.select, %land.lhs.true16 ], [ %7, %if.end ]
+  %cmp.i47 = icmp ult i64 %picked_child.2, 8
   %14 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i49 = getelementptr inbounds ptr, ptr %14, i64 %picked_child.1
-  %15 = getelementptr ptr, ptr %13, i64 %picked_child.1
+  %arrayidx.i49 = getelementptr inbounds ptr, ptr %14, i64 %picked_child.2
+  %15 = getelementptr ptr, ptr %13, i64 %picked_child.2
   %add.ptr.i.i51 = getelementptr i8, ptr %15, i64 -64
   %retval.0.i52 = select i1 %cmp.i47, ptr %arrayidx.i49, ptr %add.ptr.i.i51
   %16 = load ptr, ptr %retval.0.i52, align 8
@@ -9054,9 +9054,9 @@ if.end24:                                         ; preds = %if.end, %land.lhs.t
 
 if.end30:                                         ; preds = %if.end24
   %17 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %picked_child.1
+  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %picked_child.2
   %18 = load ptr, ptr %vect_.i, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %picked_child.1
+  %19 = getelementptr ptr, ptr %18, i64 %picked_child.2
   %add.ptr.i.i57 = getelementptr i8, ptr %19, i64 -64
   %retval.0.i58 = select i1 %cmp.i47, ptr %arrayidx.i55, ptr %add.ptr.i.i57
   %20 = load ptr, ptr %retval.0.i58, align 8
@@ -9066,7 +9066,7 @@ if.end30:                                         ; preds = %if.end24
   %add.ptr.i.i63 = getelementptr i8, ptr %21, i64 -64
   %retval.0.i64 = select i1 %cmp.i59, ptr %arrayidx.i61, ptr %add.ptr.i.i63
   store ptr %20, ptr %retval.0.i64, align 8
-  %mul.i = shl i64 %picked_child.1, 1
+  %mul.i = shl i64 %picked_child.2, 1
   %add.i = or disjoint i64 %mul.i, 1
   %22 = load i64, ptr %data_, align 8
   %23 = load ptr, ptr %_M_finish.i.i, align 8
@@ -9080,8 +9080,8 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp.not, label %if.end, label %while.end, !llvm.loop !271
 
 while.end:                                        ; preds = %if.end30, %if.end24, %entry
-  %index.addr.0.lcssa = phi i64 [ %index, %entry ], [ %index.addr.084, %if.end24 ], [ %picked_child.1, %if.end30 ]
-  %picked_child.2 = phi i64 [ -1, %entry ], [ %picked_child.1, %if.end24 ], [ %picked_child.1, %if.end30 ]
+  %index.addr.0.lcssa = phi i64 [ %index, %entry ], [ %index.addr.084, %if.end24 ], [ %picked_child.2, %if.end30 ]
+  %picked_child.1 = phi i64 [ -1, %entry ], [ %picked_child.2, %if.end24 ], [ %picked_child.2, %if.end30 ]
   %cmp35 = icmp eq i64 %index.addr.0.lcssa, 0
   br i1 %cmp35, label %if.then36, label %if.else38
 
@@ -9100,7 +9100,7 @@ if.else38:                                        ; preds = %while.end
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else38, %if.then36
-  %.sink = phi i64 [ %picked_child.2, %if.then36 ], [ -1, %if.else38 ]
+  %.sink = phi i64 [ %picked_child.1, %if.then36 ], [ -1, %if.else38 ]
   %phi.call = phi ptr [ %25, %if.then36 ], [ %retval.0.i75, %if.else38 ]
   %29 = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %.sink, ptr %29, align 8
@@ -9289,7 +9289,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %6 = phi ptr [ %1, %if.end.lr.ph ], [ %24, %if.end30 ]
   %add.i86 = phi i64 [ %add.i77, %if.end.lr.ph ], [ %add.i, %if.end30 ]
   %mul.i85 = phi i64 [ %mul.i76, %if.end.lr.ph ], [ %mul.i, %if.end30 ]
-  %index.addr.084 = phi i64 [ %index, %if.end.lr.ph ], [ %picked_child.1, %if.end30 ]
+  %index.addr.084 = phi i64 [ %index, %if.end.lr.ph ], [ %picked_child.2, %if.end30 ]
   %add = add nuw i64 %mul.i85, 2
   %cmp7 = icmp eq i64 %index.addr.084, 0
   %7 = load i64, ptr %root_cmp_cache_, align 8
@@ -9322,11 +9322,11 @@ land.lhs.true16:                                  ; preds = %if.else
 
 if.end24:                                         ; preds = %if.end, %land.lhs.true16, %if.else
   %13 = phi ptr [ %6, %if.else ], [ %.pre, %land.lhs.true16 ], [ %6, %if.end ]
-  %picked_child.1 = phi i64 [ %add.i86, %if.else ], [ %spec.select, %land.lhs.true16 ], [ %7, %if.end ]
-  %cmp.i47 = icmp ult i64 %picked_child.1, 8
+  %picked_child.2 = phi i64 [ %add.i86, %if.else ], [ %spec.select, %land.lhs.true16 ], [ %7, %if.end ]
+  %cmp.i47 = icmp ult i64 %picked_child.2, 8
   %14 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i49 = getelementptr inbounds ptr, ptr %14, i64 %picked_child.1
-  %15 = getelementptr ptr, ptr %13, i64 %picked_child.1
+  %arrayidx.i49 = getelementptr inbounds ptr, ptr %14, i64 %picked_child.2
+  %15 = getelementptr ptr, ptr %13, i64 %picked_child.2
   %add.ptr.i.i51 = getelementptr i8, ptr %15, i64 -64
   %retval.0.i52 = select i1 %cmp.i47, ptr %arrayidx.i49, ptr %add.ptr.i.i51
   %16 = load ptr, ptr %retval.0.i52, align 8
@@ -9335,9 +9335,9 @@ if.end24:                                         ; preds = %if.end, %land.lhs.t
 
 if.end30:                                         ; preds = %if.end24
   %17 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %picked_child.1
+  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %picked_child.2
   %18 = load ptr, ptr %vect_.i, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %picked_child.1
+  %19 = getelementptr ptr, ptr %18, i64 %picked_child.2
   %add.ptr.i.i57 = getelementptr i8, ptr %19, i64 -64
   %retval.0.i58 = select i1 %cmp.i47, ptr %arrayidx.i55, ptr %add.ptr.i.i57
   %20 = load ptr, ptr %retval.0.i58, align 8
@@ -9347,7 +9347,7 @@ if.end30:                                         ; preds = %if.end24
   %add.ptr.i.i63 = getelementptr i8, ptr %21, i64 -64
   %retval.0.i64 = select i1 %cmp.i59, ptr %arrayidx.i61, ptr %add.ptr.i.i63
   store ptr %20, ptr %retval.0.i64, align 8
-  %mul.i = shl i64 %picked_child.1, 1
+  %mul.i = shl i64 %picked_child.2, 1
   %add.i = or disjoint i64 %mul.i, 1
   %22 = load i64, ptr %data_, align 8
   %23 = load ptr, ptr %_M_finish.i.i, align 8
@@ -9361,8 +9361,8 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp.not, label %if.end, label %while.end, !llvm.loop !272
 
 while.end:                                        ; preds = %if.end30, %if.end24, %entry
-  %index.addr.0.lcssa = phi i64 [ %index, %entry ], [ %index.addr.084, %if.end24 ], [ %picked_child.1, %if.end30 ]
-  %picked_child.2 = phi i64 [ -1, %entry ], [ %picked_child.1, %if.end24 ], [ %picked_child.1, %if.end30 ]
+  %index.addr.0.lcssa = phi i64 [ %index, %entry ], [ %index.addr.084, %if.end24 ], [ %picked_child.2, %if.end30 ]
+  %picked_child.1 = phi i64 [ -1, %entry ], [ %picked_child.2, %if.end24 ], [ %picked_child.2, %if.end30 ]
   %cmp35 = icmp eq i64 %index.addr.0.lcssa, 0
   br i1 %cmp35, label %if.then36, label %if.else38
 
@@ -9381,7 +9381,7 @@ if.else38:                                        ; preds = %while.end
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else38, %if.then36
-  %.sink = phi i64 [ %picked_child.2, %if.then36 ], [ -1, %if.else38 ]
+  %.sink = phi i64 [ %picked_child.1, %if.then36 ], [ -1, %if.else38 ]
   %phi.call = phi ptr [ %25, %if.then36 ], [ %retval.0.i75, %if.else38 ]
   %29 = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %.sink, ptr %29, align 8
@@ -12027,7 +12027,7 @@ if.end.i:                                         ; preds = %if.end30.i, %if.end
   %64 = phi ptr [ %60, %if.end.lr.ph.i ], [ %100, %if.end30.i ]
   %add.i86.i = phi i64 [ 1, %if.end.lr.ph.i ], [ %add.i.i, %if.end30.i ]
   %mul.i85.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %mul.i.i, %if.end30.i ]
-  %index.addr.084.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %picked_child.1.i, %if.end30.i ]
+  %index.addr.084.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %picked_child.2.i, %if.end30.i ]
   %add.i = add nuw i64 %mul.i85.i, 2
   %cmp7.i = icmp eq i64 %index.addr.084.i, 0
   %65 = load i64, ptr %root_cmp_cache_.i, align 8
@@ -12177,11 +12177,11 @@ _ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit95
 
 if.end24.i:                                       ; preds = %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit95, %if.else.i, %if.end.i
   %80 = phi ptr [ %64, %if.else.i ], [ %.pre.i, %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit95 ], [ %64, %if.end.i ]
-  %picked_child.1.i = phi i64 [ %add.i86.i, %if.else.i ], [ %spec.select.i, %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit95 ], [ %65, %if.end.i ]
-  %cmp.i47.i = icmp ult i64 %picked_child.1.i, 8
+  %picked_child.2.i = phi i64 [ %add.i86.i, %if.else.i ], [ %spec.select.i, %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit95 ], [ %65, %if.end.i ]
+  %cmp.i47.i = icmp ult i64 %picked_child.2.i, 8
   %81 = load ptr, ptr %values_.i.i.i.i.i, align 8
-  %arrayidx.i49.i = getelementptr inbounds ptr, ptr %81, i64 %picked_child.1.i
-  %82 = getelementptr ptr, ptr %80, i64 %picked_child.1.i
+  %arrayidx.i49.i = getelementptr inbounds ptr, ptr %81, i64 %picked_child.2.i
+  %82 = getelementptr ptr, ptr %80, i64 %picked_child.2.i
   %add.ptr.i.i51.i = getelementptr i8, ptr %82, i64 -64
   %retval.0.i52.i = select i1 %cmp.i47.i, ptr %arrayidx.i49.i, ptr %add.ptr.i.i51.i
   %83 = load ptr, ptr %retval.0.i52.i, align 8
@@ -12303,9 +12303,9 @@ _ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit: 
 
 if.end30.i:                                       ; preds = %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit
   %93 = load ptr, ptr %values_.i.i.i.i.i, align 8
-  %arrayidx.i55.i = getelementptr inbounds ptr, ptr %93, i64 %picked_child.1.i
+  %arrayidx.i55.i = getelementptr inbounds ptr, ptr %93, i64 %picked_child.2.i
   %94 = load ptr, ptr %vect_.i.i.i.i, align 8
-  %95 = getelementptr ptr, ptr %94, i64 %picked_child.1.i
+  %95 = getelementptr ptr, ptr %94, i64 %picked_child.2.i
   %add.ptr.i.i57.i = getelementptr i8, ptr %95, i64 -64
   %retval.0.i58.i = select i1 %cmp.i47.i, ptr %arrayidx.i55.i, ptr %add.ptr.i.i57.i
   %96 = load ptr, ptr %retval.0.i58.i, align 8
@@ -12315,7 +12315,7 @@ if.end30.i:                                       ; preds = %_ZNK7rocksdb15Mergi
   %add.ptr.i.i63.i = getelementptr i8, ptr %97, i64 -64
   %retval.0.i64.i = select i1 %cmp.i59.i, ptr %arrayidx.i61.i, ptr %add.ptr.i.i63.i
   store ptr %96, ptr %retval.0.i64.i, align 8
-  %mul.i.i = shl i64 %picked_child.1.i, 1
+  %mul.i.i = shl i64 %picked_child.2.i, 1
   %add.i.i = or disjoint i64 %mul.i.i, 1
   %98 = load i64, ptr %data_.i.i, align 8
   %99 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
@@ -12329,7 +12329,7 @@ if.end30.i:                                       ; preds = %_ZNK7rocksdb15Mergi
   br i1 %cmp.not.i, label %if.end.i, label %while.end.i, !llvm.loop !271
 
 while.end.i:                                      ; preds = %if.end30.i, %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit
-  %index.addr.0.lcssa.i = phi i64 [ %index.addr.084.i, %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit ], [ %picked_child.1.i, %if.end30.i ]
+  %index.addr.0.lcssa.i = phi i64 [ %index.addr.084.i, %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit ], [ %picked_child.2.i, %if.end30.i ]
   %cmp35.i = icmp eq i64 %index.addr.0.lcssa.i, 0
   %.pre = load ptr, ptr %values_.i.i.i.i.i, align 8
   br i1 %cmp35.i, label %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEE8downheapEm.exit, label %if.else38.i
@@ -12344,7 +12344,7 @@ if.else38.i:                                      ; preds = %while.end.i
   br label %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEE8downheapEm.exit
 
 _ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MinHeapItemComparatorEE8downheapEm.exit: ; preds = %while.end.i, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMinHeapEmbb.exit, %if.else38.i
-  %.sink.i = phi i64 [ -1, %if.else38.i ], [ %picked_child.1.i, %while.end.i ], [ -1, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMinHeapEmbb.exit ]
+  %.sink.i = phi i64 [ -1, %if.else38.i ], [ %picked_child.2.i, %while.end.i ], [ -1, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMinHeapEmbb.exit ]
   %phi.call.i = phi ptr [ %retval.0.i75.i, %if.else38.i ], [ %.pre, %while.end.i ], [ %59, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMinHeapEmbb.exit ]
   store i64 %.sink.i, ptr %root_cmp_cache_.i, align 8
   store ptr %61, ptr %phi.call.i, align 8
@@ -12702,7 +12702,7 @@ if.end.i:                                         ; preds = %if.end30.i, %if.end
   %74 = phi ptr [ %70, %if.end.lr.ph.i ], [ %110, %if.end30.i ]
   %add.i86.i = phi i64 [ 1, %if.end.lr.ph.i ], [ %add.i.i, %if.end30.i ]
   %mul.i85.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %mul.i.i, %if.end30.i ]
-  %index.addr.084.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %picked_child.1.i, %if.end30.i ]
+  %index.addr.084.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %picked_child.2.i, %if.end30.i ]
   %add.i = add nuw i64 %mul.i85.i, 2
   %cmp7.i = icmp eq i64 %index.addr.084.i, 0
   %75 = load i64, ptr %root_cmp_cache_.i, align 8
@@ -12852,11 +12852,11 @@ _ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit10
 
 if.end24.i:                                       ; preds = %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit103, %if.else.i, %if.end.i
   %90 = phi ptr [ %74, %if.else.i ], [ %.pre.i, %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit103 ], [ %74, %if.end.i ]
-  %picked_child.1.i = phi i64 [ %add.i86.i, %if.else.i ], [ %spec.select.i, %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit103 ], [ %75, %if.end.i ]
-  %cmp.i47.i = icmp ult i64 %picked_child.1.i, 8
+  %picked_child.2.i = phi i64 [ %add.i86.i, %if.else.i ], [ %spec.select.i, %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit103 ], [ %75, %if.end.i ]
+  %cmp.i47.i = icmp ult i64 %picked_child.2.i, 8
   %91 = load ptr, ptr %values_.i.i.i.i.i29, align 8
-  %arrayidx.i49.i = getelementptr inbounds ptr, ptr %91, i64 %picked_child.1.i
-  %92 = getelementptr ptr, ptr %90, i64 %picked_child.1.i
+  %arrayidx.i49.i = getelementptr inbounds ptr, ptr %91, i64 %picked_child.2.i
+  %92 = getelementptr ptr, ptr %90, i64 %picked_child.2.i
   %add.ptr.i.i51.i = getelementptr i8, ptr %92, i64 -64
   %retval.0.i52.i = select i1 %cmp.i47.i, ptr %arrayidx.i49.i, ptr %add.ptr.i.i51.i
   %93 = load ptr, ptr %retval.0.i52.i, align 8
@@ -12978,9 +12978,9 @@ _ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit: 
 
 if.end30.i:                                       ; preds = %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit
   %103 = load ptr, ptr %values_.i.i.i.i.i29, align 8
-  %arrayidx.i55.i = getelementptr inbounds ptr, ptr %103, i64 %picked_child.1.i
+  %arrayidx.i55.i = getelementptr inbounds ptr, ptr %103, i64 %picked_child.2.i
   %104 = load ptr, ptr %vect_.i.i, align 8
-  %105 = getelementptr ptr, ptr %104, i64 %picked_child.1.i
+  %105 = getelementptr ptr, ptr %104, i64 %picked_child.2.i
   %add.ptr.i.i57.i = getelementptr i8, ptr %105, i64 -64
   %retval.0.i58.i = select i1 %cmp.i47.i, ptr %arrayidx.i55.i, ptr %add.ptr.i.i57.i
   %106 = load ptr, ptr %retval.0.i58.i, align 8
@@ -12990,7 +12990,7 @@ if.end30.i:                                       ; preds = %_ZNK7rocksdb15Mergi
   %add.ptr.i.i63.i = getelementptr i8, ptr %107, i64 -64
   %retval.0.i64.i = select i1 %cmp.i59.i, ptr %arrayidx.i61.i, ptr %add.ptr.i.i63.i
   store ptr %106, ptr %retval.0.i64.i, align 8
-  %mul.i.i = shl i64 %picked_child.1.i, 1
+  %mul.i.i = shl i64 %picked_child.2.i, 1
   %add.i.i = or disjoint i64 %mul.i.i, 1
   %108 = load i64, ptr %data_.i30, align 8
   %109 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -13004,7 +13004,7 @@ if.end30.i:                                       ; preds = %_ZNK7rocksdb15Mergi
   br i1 %cmp.not.i, label %if.end.i, label %while.end.i, !llvm.loop !272
 
 while.end.i:                                      ; preds = %if.end30.i, %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit
-  %index.addr.0.lcssa.i = phi i64 [ %index.addr.084.i, %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit ], [ %picked_child.1.i, %if.end30.i ]
+  %index.addr.0.lcssa.i = phi i64 [ %index.addr.084.i, %_ZNK7rocksdb15MergingIterator21MaxHeapItemComparatorclEPNS0_8HeapItemES3_.exit ], [ %picked_child.2.i, %if.end30.i ]
   %cmp35.i = icmp eq i64 %index.addr.0.lcssa.i, 0
   %.pre119 = load ptr, ptr %values_.i.i.i.i.i29, align 8
   br i1 %cmp35.i, label %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MaxHeapItemComparatorEE8downheapEm.exit, label %if.else38.i
@@ -13019,7 +13019,7 @@ if.else38.i:                                      ; preds = %while.end.i
   br label %_ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MaxHeapItemComparatorEE8downheapEm.exit
 
 _ZN7rocksdb10BinaryHeapIPNS_15MergingIterator8HeapItemENS1_21MaxHeapItemComparatorEE8downheapEm.exit: ; preds = %while.end.i, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMaxHeapEmbb.exit, %if.else38.i
-  %.sink.i = phi i64 [ -1, %if.else38.i ], [ %picked_child.1.i, %while.end.i ], [ -1, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMaxHeapEmbb.exit ]
+  %.sink.i = phi i64 [ -1, %if.else38.i ], [ %picked_child.2.i, %while.end.i ], [ -1, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMaxHeapEmbb.exit ]
   %phi.call.i = phi ptr [ %retval.0.i75.i, %if.else38.i ], [ %.pre119, %while.end.i ], [ %69, %_ZN7rocksdb15MergingIterator29InsertRangeTombstoneToMaxHeapEmbb.exit ]
   %113 = getelementptr inbounds i8, ptr %66, i64 112
   store i64 %.sink.i, ptr %113, align 8

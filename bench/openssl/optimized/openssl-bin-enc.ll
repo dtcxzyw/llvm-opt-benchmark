@@ -597,8 +597,8 @@ if.else234:                                       ; preds = %if.end206
   br label %if.end236
 
 if.end236:                                        ; preds = %if.else234, %if.end232
-  %in.3 = phi ptr [ %call233, %if.end232 ], [ %call235, %if.else234 ]
-  %cmp237 = icmp eq ptr %in.3, null
+  %in.4 = phi ptr [ %call233, %if.end232 ], [ %call235, %if.else234 ]
+  %cmp237 = icmp eq ptr %in.4, null
   br i1 %cmp237, label %end, label %if.end240
 
 if.end240:                                        ; preds = %if.end236
@@ -669,10 +669,10 @@ if.end288:                                        ; preds = %if.end283
   br i1 %tobool289.not, label %if.end327, label %if.then290
 
 if.then290:                                       ; preds = %if.end288
-  call void @BIO_set_callback_ex(ptr noundef %in.3, ptr noundef nonnull @BIO_debug_callback_ex) #11
+  call void @BIO_set_callback_ex(ptr noundef %in.4, ptr noundef nonnull @BIO_debug_callback_ex) #11
   call void @BIO_set_callback_ex(ptr noundef nonnull %call284, ptr noundef nonnull @BIO_debug_callback_ex) #11
   %29 = load ptr, ptr @bio_err, align 8
-  call void @BIO_set_callback_arg(ptr noundef %in.3, ptr noundef %29) #11
+  call void @BIO_set_callback_arg(ptr noundef %in.4, ptr noundef %29) #11
   %30 = load ptr, ptr @bio_err, align 8
   call void @BIO_set_callback_arg(ptr noundef nonnull %call284, ptr noundef %30) #11
   br label %if.end327
@@ -711,13 +711,13 @@ if.then343:                                       ; preds = %if.end341
   br label %if.end348
 
 if.else345:                                       ; preds = %if.end341
-  %call346 = call ptr @BIO_push(ptr noundef nonnull %call331, ptr noundef %in.3) #11
+  %call346 = call ptr @BIO_push(ptr noundef nonnull %call331, ptr noundef %in.4) #11
   br label %if.end348
 
 if.end348:                                        ; preds = %if.then343, %if.else345, %if.end327
   %wbio.2 = phi ptr [ %call344, %if.then343 ], [ %call284, %if.else345 ], [ %call284, %if.end327 ]
-  %rbio.2 = phi ptr [ %in.3, %if.then343 ], [ %call346, %if.else345 ], [ %in.3, %if.end327 ]
-  %b64.0 = phi ptr [ %call331, %if.then343 ], [ %call331, %if.else345 ], [ null, %if.end327 ]
+  %rbio.2 = phi ptr [ %in.4, %if.then343 ], [ %call346, %if.else345 ], [ %in.4, %if.end327 ]
+  %b64.1 = phi ptr [ %call331, %if.then343 ], [ %call331, %if.else345 ], [ null, %if.end327 ]
   %32 = load ptr, ptr %cipher, align 8
   %cmp349.not = icmp eq ptr %32, null
   br i1 %cmp349.not, label %if.end613, label %if.then351
@@ -1093,7 +1093,7 @@ if.then611:                                       ; preds = %if.end602, %if.end5
   br label %if.end613
 
 if.end613:                                        ; preds = %if.end348, %if.then611
-  %benc.0173 = phi ptr [ %call510, %if.then611 ], [ null, %if.end348 ]
+  %benc.1173 = phi ptr [ %call510, %if.then611 ], [ null, %if.end348 ]
   %wbio.3 = phi ptr [ %call612, %if.then611 ], [ %wbio.2, %if.end348 ]
   br i1 %tobool226.fr, label %while.cond614.us, label %while.cond614, !llvm.loop !11
 
@@ -1180,7 +1180,7 @@ if.end657:                                        ; preds = %while.end646
 
 if.then659:                                       ; preds = %if.end657
   %96 = load ptr, ptr @bio_err, align 8
-  %call660 = call i64 @BIO_number_read(ptr noundef %in.3) #11
+  %call660 = call i64 @BIO_number_read(ptr noundef %in.4) #11
   %call661 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %96, ptr noundef nonnull @.str.116, i64 noundef %call660) #11
   %97 = load ptr, ptr @bio_err, align 8
   %call662 = call i64 @BIO_number_written(ptr noundef %call284) #11
@@ -1191,18 +1191,18 @@ end:                                              ; preds = %sw.bb142, %sw.bb136
   %strbuf.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ %call214, %if.then230 ], [ %call214, %if.end236 ], [ %call214, %if.end283 ], [ %call214, %if.then329 ], [ %call214, %if.then495 ], [ %call214, %if.end508 ], [ %call214, %if.then659 ], [ %call214, %if.end657 ], [ %call214, %if.then652 ], [ %call214, %if.else654 ], [ %call214, %if.then640 ], [ %call214, %if.then634 ], [ %call214, %if.then543 ], [ %call214, %if.then522 ], [ %call214, %if.then505 ], [ %call214, %if.then478 ], [ %call214, %if.then440 ], [ %call214, %if.then456 ], [ %call214, %if.then377 ], [ %call214, %if.then392 ], [ %call214, %if.then405 ], [ %call214, %if.then417 ], [ %call214, %if.else420 ], [ %call214, %if.then365 ], [ %call214, %if.then280 ], [ %call214, %if.then249 ], [ null, %if.end151 ], [ %call214, %if.then270 ], [ %call214, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb12 ], [ 0, %sw.bb11 ], [ 1, %if.then230 ], [ 1, %if.end236 ], [ 1, %if.end283 ], [ 1, %if.then329 ], [ 1, %if.then495 ], [ 1, %if.end508 ], [ 0, %if.then659 ], [ 0, %if.end657 ], [ 1, %if.then652 ], [ 1, %if.else654 ], [ 1, %if.then640 ], [ 1, %if.then634 ], [ 1, %if.then543 ], [ 1, %if.then522 ], [ 1, %if.then505 ], [ 1, %if.then478 ], [ 1, %if.then440 ], [ 1, %if.then456 ], [ 1, %if.then377 ], [ 1, %if.then392 ], [ 1, %if.then405 ], [ 1, %if.then417 ], [ 1, %if.else420 ], [ 1, %if.then365 ], [ 1, %if.then280 ], [ 1, %if.then249 ], [ 1, %if.end151 ], [ 1, %if.then270 ], [ 0, %if.end602 ], [ 1, %sw.bb136 ], [ 1, %sw.bb142 ]
   %buff.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ %call222, %if.then230 ], [ %call222, %if.end236 ], [ %call222, %if.end283 ], [ %call222, %if.then329 ], [ %call222, %if.then495 ], [ %call222, %if.end508 ], [ %call222, %if.then659 ], [ %call222, %if.end657 ], [ %call222, %if.then652 ], [ %call222, %if.else654 ], [ %call222, %if.then640 ], [ %call222, %if.then634 ], [ %call222, %if.then543 ], [ %call222, %if.then522 ], [ %call222, %if.then505 ], [ %call222, %if.then478 ], [ %call222, %if.then440 ], [ %call222, %if.then456 ], [ %call222, %if.then377 ], [ %call222, %if.then392 ], [ %call222, %if.then405 ], [ %call222, %if.then417 ], [ %call222, %if.else420 ], [ %call222, %if.then365 ], [ %call222, %if.then280 ], [ %call222, %if.then249 ], [ null, %if.end151 ], [ %call222, %if.then270 ], [ %call222, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
-  %benc.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ null, %if.end283 ], [ null, %if.then329 ], [ null, %if.then495 ], [ null, %if.end508 ], [ %benc.0173, %if.then659 ], [ %benc.0173, %if.end657 ], [ %benc.0173, %if.then652 ], [ %benc.0173, %if.else654 ], [ %benc.0173, %if.then640 ], [ %benc.0173, %if.then634 ], [ %call510, %if.then543 ], [ %call510, %if.then522 ], [ null, %if.then505 ], [ null, %if.then478 ], [ null, %if.then440 ], [ null, %if.then456 ], [ null, %if.then377 ], [ null, %if.then392 ], [ null, %if.then405 ], [ null, %if.then417 ], [ null, %if.else420 ], [ null, %if.then365 ], [ null, %if.then280 ], [ null, %if.then249 ], [ null, %if.end151 ], [ null, %if.then270 ], [ %call510, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
-  %b64.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ null, %if.end283 ], [ null, %if.then329 ], [ %b64.0, %if.then495 ], [ %b64.0, %if.end508 ], [ %b64.0, %if.then659 ], [ %b64.0, %if.end657 ], [ %b64.0, %if.then652 ], [ %b64.0, %if.else654 ], [ %b64.0, %if.then640 ], [ %b64.0, %if.then634 ], [ %b64.0, %if.then543 ], [ %b64.0, %if.then522 ], [ %b64.0, %if.then505 ], [ %b64.0, %if.then478 ], [ %b64.0, %if.then440 ], [ %b64.0, %if.then456 ], [ %b64.0, %if.then377 ], [ %b64.0, %if.then392 ], [ %b64.0, %if.then405 ], [ %b64.0, %if.then417 ], [ %b64.0, %if.else420 ], [ %b64.0, %if.then365 ], [ null, %if.then280 ], [ null, %if.then249 ], [ null, %if.end151 ], [ null, %if.then270 ], [ %b64.0, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
+  %benc.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ null, %if.end283 ], [ null, %if.then329 ], [ null, %if.then495 ], [ null, %if.end508 ], [ %benc.1173, %if.then659 ], [ %benc.1173, %if.end657 ], [ %benc.1173, %if.then652 ], [ %benc.1173, %if.else654 ], [ %benc.1173, %if.then640 ], [ %benc.1173, %if.then634 ], [ %call510, %if.then543 ], [ %call510, %if.then522 ], [ null, %if.then505 ], [ null, %if.then478 ], [ null, %if.then440 ], [ null, %if.then456 ], [ null, %if.then377 ], [ null, %if.then392 ], [ null, %if.then405 ], [ null, %if.then417 ], [ null, %if.else420 ], [ null, %if.then365 ], [ null, %if.then280 ], [ null, %if.then249 ], [ null, %if.end151 ], [ null, %if.then270 ], [ %call510, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
+  %b64.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ null, %if.end283 ], [ null, %if.then329 ], [ %b64.1, %if.then495 ], [ %b64.1, %if.end508 ], [ %b64.1, %if.then659 ], [ %b64.1, %if.end657 ], [ %b64.1, %if.then652 ], [ %b64.1, %if.else654 ], [ %b64.1, %if.then640 ], [ %b64.1, %if.then634 ], [ %b64.1, %if.then543 ], [ %b64.1, %if.then522 ], [ %b64.1, %if.then505 ], [ %b64.1, %if.then478 ], [ %b64.1, %if.then440 ], [ %b64.1, %if.then456 ], [ %b64.1, %if.then377 ], [ %b64.1, %if.then392 ], [ %b64.1, %if.then405 ], [ %b64.1, %if.then417 ], [ %b64.1, %if.else420 ], [ %b64.1, %if.then365 ], [ null, %if.then280 ], [ null, %if.then249 ], [ null, %if.end151 ], [ null, %if.then270 ], [ %b64.1, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
   %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ null, %if.end283 ], [ %call284, %if.then329 ], [ %call284, %if.then495 ], [ %call284, %if.end508 ], [ %call284, %if.then659 ], [ %call284, %if.end657 ], [ %call284, %if.then652 ], [ %call284, %if.else654 ], [ %call284, %if.then640 ], [ %call284, %if.then634 ], [ %call284, %if.then543 ], [ %call284, %if.then522 ], [ %call284, %if.then505 ], [ %call284, %if.then478 ], [ %call284, %if.then440 ], [ %call284, %if.then456 ], [ %call284, %if.then377 ], [ %call284, %if.then392 ], [ %call284, %if.then405 ], [ %call284, %if.then417 ], [ %call284, %if.else420 ], [ %call284, %if.then365 ], [ null, %if.then280 ], [ null, %if.then249 ], [ null, %if.end151 ], [ null, %if.then270 ], [ %call284, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
-  %in.4 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ %in.3, %if.end283 ], [ %in.3, %if.then329 ], [ %in.3, %if.then495 ], [ %in.3, %if.end508 ], [ %in.3, %if.then659 ], [ %in.3, %if.end657 ], [ %in.3, %if.then652 ], [ %in.3, %if.else654 ], [ %in.3, %if.then640 ], [ %in.3, %if.then634 ], [ %in.3, %if.then543 ], [ %in.3, %if.then522 ], [ %in.3, %if.then505 ], [ %in.3, %if.then478 ], [ %in.3, %if.then440 ], [ %in.3, %if.then456 ], [ %in.3, %if.then377 ], [ %in.3, %if.then392 ], [ %in.3, %if.then405 ], [ %in.3, %if.then417 ], [ %in.3, %if.else420 ], [ %in.3, %if.then365 ], [ %in.3, %if.then280 ], [ %in.3, %if.then249 ], [ null, %if.end151 ], [ %in.3, %if.then270 ], [ %in.3, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
+  %in.3 = phi ptr [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb11 ], [ null, %if.then230 ], [ null, %if.end236 ], [ %in.4, %if.end283 ], [ %in.4, %if.then329 ], [ %in.4, %if.then495 ], [ %in.4, %if.end508 ], [ %in.4, %if.then659 ], [ %in.4, %if.end657 ], [ %in.4, %if.then652 ], [ %in.4, %if.else654 ], [ %in.4, %if.then640 ], [ %in.4, %if.then634 ], [ %in.4, %if.then543 ], [ %in.4, %if.then522 ], [ %in.4, %if.then505 ], [ %in.4, %if.then478 ], [ %in.4, %if.then440 ], [ %in.4, %if.then456 ], [ %in.4, %if.then377 ], [ %in.4, %if.then392 ], [ %in.4, %if.then405 ], [ %in.4, %if.then417 ], [ %in.4, %if.else420 ], [ %in.4, %if.then365 ], [ %in.4, %if.then280 ], [ %in.4, %if.then249 ], [ null, %if.end151 ], [ %in.4, %if.then270 ], [ %in.4, %if.end602 ], [ null, %sw.bb136 ], [ null, %sw.bb142 ]
   %98 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %98) #11
   call void @CRYPTO_free(ptr noundef %strbuf.0, ptr noundef nonnull @.str.118, i32 noundef 718) #11
   call void @CRYPTO_free(ptr noundef %buff.0, ptr noundef nonnull @.str.118, i32 noundef 719) #11
-  %call665 = call i32 @BIO_free(ptr noundef %in.4) #11
+  %call665 = call i32 @BIO_free(ptr noundef %in.3) #11
   call void @BIO_free_all(ptr noundef %out.0) #11
-  %call666 = call i32 @BIO_free(ptr noundef %benc.1) #11
-  %call667 = call i32 @BIO_free(ptr noundef %b64.1) #11
+  %call666 = call i32 @BIO_free(ptr noundef %benc.0) #11
+  %call667 = call i32 @BIO_free(ptr noundef %b64.0) #11
   %99 = load ptr, ptr %dgst, align 8
   call void @EVP_MD_free(ptr noundef %99) #11
   %100 = load ptr, ptr %cipher, align 8

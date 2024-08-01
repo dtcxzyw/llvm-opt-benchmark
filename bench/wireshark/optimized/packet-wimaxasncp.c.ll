@@ -1080,7 +1080,7 @@ define internal fastcc i32 @dissect_wimaxasncp_tlvs(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %25, %.lr.ph.i
   %.022.i = phi ptr [ %.019.i, %.lr.ph.i ], [ %.0.i, %25 ]
-  %.01321.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %25 ]
+  %.121.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %25 ]
   %14 = load i16, ptr %.022.i, align 8
   %15 = icmp eq i16 %14, %10
   br i1 %15, label %16, label %25
@@ -1092,11 +1092,11 @@ define internal fastcc i32 @dissect_wimaxasncp_tlvs(ptr noundef %0, ptr noundef 
   br i1 %.not17.i, label %25, label %19
 
 19:                                               ; preds = %16
-  %.not18.i = icmp eq ptr %.01321.i, null
+  %.not18.i = icmp eq ptr %.121.i, null
   br i1 %.not18.i, label %24, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.01321.i, i64 28
+  %21 = getelementptr inbounds i8, ptr %.121.i, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = icmp ugt i32 %18, %22
   br i1 %23, label %24, label %25
@@ -1105,17 +1105,17 @@ define internal fastcc i32 @dissect_wimaxasncp_tlvs(ptr noundef %0, ptr noundef 
   br label %25
 
 25:                                               ; preds = %24, %20, %16, %13
-  %.1.i = phi ptr [ %.022.i, %24 ], [ %.01321.i, %20 ], [ %.01321.i, %16 ], [ %.01321.i, %13 ]
+  %.2.i = phi ptr [ %.022.i, %24 ], [ %.121.i, %20 ], [ %.121.i, %16 ], [ %.121.i, %13 ]
   %26 = getelementptr inbounds i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %26, align 8
   %.not16.i = icmp eq ptr %.0.i, null
   br i1 %.not16.i, label %.loopexit.i, label %13, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %25, %.preheader.i, %9
-  %.2.i = phi ptr [ null, %9 ], [ null, %.preheader.i ], [ %.1.i, %25 ]
+  %.013.i = phi ptr [ null, %9 ], [ null, %.preheader.i ], [ %.2.i, %25 ]
   %27 = load i32, ptr @debug_enabled, align 4
   %28 = icmp eq i32 %27, 0
-  %29 = icmp ne ptr %.2.i, null
+  %29 = icmp ne ptr %.013.i, null
   %or.cond.i = select i1 %28, i1 true, i1 %29
   br i1 %or.cond.i, label %wimaxasncp_get_tlv_info.exit, label %30
 
@@ -1125,7 +1125,7 @@ define internal fastcc i32 @dissect_wimaxasncp_tlvs(ptr noundef %0, ptr noundef 
   br label %wimaxasncp_get_tlv_info.exit
 
 wimaxasncp_get_tlv_info.exit:                     ; preds = %.loopexit.i, %30
-  %32 = select i1 %29, ptr %.2.i, ptr @wimaxasncp_tlv_not_found
+  %32 = select i1 %29, ptr %.013.i, ptr @wimaxasncp_tlv_not_found
   %33 = add i32 %.0109, 2
   %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %33) #8
   %35 = zext i16 %34 to i32

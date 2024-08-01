@@ -515,7 +515,7 @@ while.body.lr.ph:                                 ; preds = %if.end211
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end231
-  %err.135 = phi i32 [ %err.0.lcssa, %while.body.lr.ph ], [ %or235, %if.end231 ]
+  %err.235 = phi i32 [ %err.0.lcssa, %while.body.lr.ph ], [ %or235, %if.end231 ]
   %36 = load i32, ptr @nul_term_line, align 4
   %tobool218.not = icmp eq i32 %36, 0
   %.pre42 = load ptr, ptr %buf220, align 8
@@ -560,7 +560,7 @@ if.end231:                                        ; preds = %if.end230, %land.lh
   %40 = phi ptr [ %.pre41, %if.end230 ], [ %.pre42, %land.lhs.true219 ], [ %.pre42, %while.body ]
   %call233 = call ptr @prefix_path(ptr noundef %prefix, i32 noundef %conv, ptr noundef %40) #13
   %call234 = call fastcc i32 @checkout_file(ptr noundef %call233, ptr noundef %prefix)
-  %or235 = or i32 %call234, %err.135
+  %or235 = or i32 %call234, %err.235
   call void @free(ptr noundef %call233) #13
   %41 = load ptr, ptr @stdin, align 8
   %call214 = call i32 %cond213(ptr noundef nonnull %buf, ptr noundef %41) #13, !callees !7
@@ -568,13 +568,13 @@ if.end231:                                        ; preds = %if.end230, %land.lh
   br i1 %cmp215.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end231, %if.end211
-  %err.1.lcssa = phi i32 [ %err.0.lcssa, %if.end211 ], [ %or235, %if.end231 ]
+  %err.2.lcssa = phi i32 [ %err.0.lcssa, %if.end211 ], [ %or235, %if.end231 ]
   call void @strbuf_release(ptr noundef nonnull %unquoted) #13
   call void @strbuf_release(ptr noundef nonnull %buf) #13
   br label %if.end236
 
 if.end236:                                        ; preds = %while.end, %for.end
-  %err.2 = phi i32 [ %err.1.lcssa, %while.end ], [ %err.0.lcssa, %for.end ]
+  %err.1 = phi i32 [ %err.2.lcssa, %while.end ], [ %err.0.lcssa, %for.end ]
   %42 = load i32, ptr %all, align 4
   %tobool237.not = icmp eq i32 %42, 0
   br i1 %tobool237.not, label %if.end241, label %if.then238
@@ -594,7 +594,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %44 = phi ptr [ %.pre46.i, %for.body.lr.ph.i ], [ %60, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %last_ce.042.i = phi ptr [ null, %for.body.lr.ph.i ], [ %last_ce.1.i, %for.inc.i ]
-  %errs.041.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %errs.2.i, %for.inc.i ]
+  %errs.041.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %errs.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i
   %45 = load ptr, ptr %arrayidx.i, align 8
   %ce_mode.i = getelementptr inbounds i8, ptr %45, i64 52
@@ -727,7 +727,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
 
 for.inc.i:                                        ; preds = %cond.end.i, %lor.lhs.false32.i, %land.lhs.true29.i, %land.lhs.true18.i, %if.end8.i, %if.end.i
   %60 = phi ptr [ %51, %land.lhs.true18.i ], [ %51, %land.lhs.true29.i ], [ %51, %lor.lhs.false32.i ], [ %.pre.i, %cond.end.i ], [ %44, %if.end.i ], [ %51, %if.end8.i ]
-  %errs.2.i = phi i32 [ %errs.041.i, %land.lhs.true18.i ], [ %errs.041.i, %land.lhs.true29.i ], [ %errs.041.i, %lor.lhs.false32.i ], [ %spec.select.i, %cond.end.i ], [ %errs.041.i, %if.end.i ], [ %errs.041.i, %if.end8.i ]
+  %errs.1.i = phi i32 [ %errs.041.i, %land.lhs.true18.i ], [ %errs.041.i, %land.lhs.true29.i ], [ %errs.041.i, %lor.lhs.false32.i ], [ %spec.select.i, %cond.end.i ], [ %errs.041.i, %if.end.i ], [ %errs.041.i, %if.end8.i ]
   %last_ce.1.i = phi ptr [ %last_ce.042.i, %land.lhs.true18.i ], [ %last_ce.042.i, %land.lhs.true29.i ], [ %last_ce.042.i, %lor.lhs.false32.i ], [ %ce.0.ph.i, %cond.end.i ], [ %last_ce.042.i, %if.end.i ], [ %last_ce.042.i, %if.end8.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %61 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
@@ -736,7 +736,7 @@ for.inc.i:                                        ; preds = %cond.end.i, %lor.lh
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.inc.i
-  %63 = icmp ne i32 %errs.2.i, 0
+  %63 = icmp ne i32 %errs.1.i, 0
   %tobool74.i = icmp ne ptr %last_ce.1.i, null
   %64 = load i32, ptr @to_tempfile, align 4
   %tobool76.i = icmp ne i32 %64, 0
@@ -751,11 +751,11 @@ if.then77.i:                                      ; preds = %for.end.i
 checkout_all.exit:                                ; preds = %if.then238, %for.end.i, %if.then77.i
   %errs.0.lcssa60.shrunk.i = phi i1 [ %63, %if.then77.i ], [ %63, %for.end.i ], [ false, %if.then238 ]
   %errs.0.lcssa60.i = zext i1 %errs.0.lcssa60.shrunk.i to i32
-  %or240 = or i32 %err.2, %errs.0.lcssa60.i
+  %or240 = or i32 %err.1, %errs.0.lcssa60.i
   br label %if.end241
 
 if.end241:                                        ; preds = %checkout_all.exit, %if.end236
-  %err.3 = phi i32 [ %or240, %checkout_all.exit ], [ %err.2, %if.end236 ]
+  %err.3 = phi i32 [ %or240, %checkout_all.exit ], [ %err.1, %if.end236 ]
   %65 = load i32, ptr %pc_workers, align 4
   %cmp242 = icmp sgt i32 %65, 1
   br i1 %cmp242, label %if.then244, label %if.end247

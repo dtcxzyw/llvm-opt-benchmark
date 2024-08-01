@@ -476,7 +476,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 
 26:                                               ; preds = %5, %10, %25
   %.098 = phi i32 [ 0, %25 ], [ 0, %10 ], [ 128, %5 ]
-  %.093 = phi i32 [ 2, %25 ], [ 2, %10 ], [ 0, %5 ]
+  %.194 = phi i32 [ 2, %25 ], [ 2, %10 ], [ 0, %5 ]
   %27 = getelementptr i8, ptr %1, i64 1
   %28 = getelementptr inbounds i8, ptr %0, i64 697
   %29 = load i8, ptr %28, align 1
@@ -690,10 +690,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %157
 
 157:                                              ; preds = %90, %156
-  %.096 = phi i64 [ %92, %90 ], [ %115, %156 ]
+  %.197 = phi i64 [ %92, %90 ], [ %115, %156 ]
   %.095 = phi i64 [ %94, %90 ], [ %122, %156 ]
-  %.089 = phi ptr [ %95, %90 ], [ %136, %156 ]
-  %158 = getelementptr inbounds i8, ptr %.089, i64 320
+  %.190 = phi ptr [ %95, %90 ], [ %136, %156 ]
+  %158 = getelementptr inbounds i8, ptr %.190, i64 320
   %159 = load i64, ptr %158, align 8
   %160 = sub i64 %.092.lcssa, %159
   %161 = getelementptr inbounds i8, ptr %0, i64 259
@@ -728,7 +728,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %194
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %.089, i64 296
+  %185 = getelementptr inbounds i8, ptr %.190, i64 296
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 %160
   %188 = call i32 %2(ptr noundef %187, i64 noundef %.091.lcssa, ptr noundef %3) #4
@@ -742,12 +742,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %194
 
 194:                                              ; preds = %152, %173, %180, %190, %184
-  %.197 = phi i64 [ %.096, %173 ], [ %.096, %180 ], [ %.096, %190 ], [ %.096, %184 ], [ %115, %152 ]
-  %.190 = phi ptr [ %.089, %173 ], [ %.089, %180 ], [ %.089, %190 ], [ %.089, %184 ], [ %136, %152 ]
+  %.096 = phi i64 [ %.197, %173 ], [ %.197, %180 ], [ %.197, %190 ], [ %.197, %184 ], [ %115, %152 ]
+  %.089 = phi ptr [ %.190, %173 ], [ %.190, %180 ], [ %.190, %190 ], [ %.190, %184 ], [ %136, %152 ]
   %.086 = phi i32 [ -1, %173 ], [ -1, %180 ], [ -1, %190 ], [ 0, %184 ], [ -1, %152 ]
   %195 = getelementptr inbounds i8, ptr %0, i64 600
   %196 = load ptr, ptr %195, align 8
-  %197 = call i32 @H5AC_unprotect(ptr noundef %196, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %.197, ptr noundef nonnull %.190, i32 noundef %.093) #4
+  %197 = call i32 @H5AC_unprotect(ptr noundef %196, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %.096, ptr noundef nonnull %.089, i32 noundef %.194) #4
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %199, label %.thread
 

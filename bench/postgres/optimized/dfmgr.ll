@@ -155,8 +155,8 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br i1 %10, label %14, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %.179 = load ptr, ptr @file_list, align 8
-  %.not6880 = icmp eq ptr %.179, null
+  %.279 = load ptr, ptr @file_list, align 8
+  %.not6880 = icmp eq ptr %.279, null
   br i1 %.not6880, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -174,21 +174,21 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   unreachable
 
 18:                                               ; preds = %.lr.ph, %.critedge74
-  %.181 = phi ptr [ %.179, %.lr.ph ], [ %.1, %.critedge74 ]
-  %19 = getelementptr inbounds i8, ptr %.181, i64 16
+  %.281 = phi ptr [ %.279, %.lr.ph ], [ %.2, %.critedge74 ]
+  %19 = getelementptr inbounds i8, ptr %.281, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %12, %20
   br i1 %21, label %22, label %.critedge74
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.181, i64 8
+  %23 = getelementptr inbounds i8, ptr %.281, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %13, %24
   br i1 %25, label %.critedge2.thread, label %.critedge74
 
 .critedge74:                                      ; preds = %18, %22
-  %.1 = load ptr, ptr %.181, align 8
-  %.not68 = icmp eq ptr %.1, null
+  %.2 = load ptr, ptr %.281, align 8
+  %.not68 = icmp eq ptr %.2, null
   br i1 %.not68, label %.critedge2, label %18, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.critedge74, %.preheader
@@ -311,7 +311,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %5, %22, %80
-  %.3 = phi ptr [ %28, %80 ], [ %.181, %22 ], [ %.0, %5 ]
+  %.3 = phi ptr [ %28, %80 ], [ %.281, %22 ], [ %.0, %5 ]
   %84 = getelementptr inbounds i8, ptr %.3, i64 24
   %85 = load ptr, ptr %84, align 8
   ret ptr %85

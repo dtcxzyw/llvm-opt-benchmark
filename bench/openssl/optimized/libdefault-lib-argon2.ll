@@ -2177,13 +2177,13 @@ if.then31.i:                                      ; preds = %if.end27.i
 
 index_alpha.exit:                                 ; preds = %if.then.i, %if.then2.i, %if.else5.i, %if.end27.i, %if.then31.i
   %start_pos.0.i = phi i64 [ 0, %if.then.i ], [ 0, %if.then2.i ], [ 0, %if.else5.i ], [ %12, %if.then31.i ], [ 0, %if.end27.i ]
-  %ref_area_sz.1.i = phi i32 [ %sub.i, %if.then.i ], [ %sub4.i, %if.then2.i ], [ %add11.i, %if.else5.i ], [ %add26.i, %if.then31.i ], [ %add26.i, %if.end27.i ]
+  %ref_area_sz.0.i = phi i32 [ %sub.i, %if.then.i ], [ %sub4.i, %if.then2.i ], [ %add11.i, %if.else5.i ], [ %add26.i, %if.then31.i ], [ %add26.i, %if.end27.i ]
   %conv37.i = and i64 %rnd.0, 4294967295
   %mul38.i = mul nuw i64 %conv37.i, %conv37.i
   %shr.i = lshr i64 %mul38.i, 32
-  %sub39.i = add i32 %ref_area_sz.1.i, -1
+  %sub39.i = add i32 %ref_area_sz.0.i, -1
   %conv40.i = zext i32 %sub39.i to i64
-  %conv41.i = zext i32 %ref_area_sz.1.i to i64
+  %conv41.i = zext i32 %ref_area_sz.0.i to i64
   %mul42.i = mul nuw i64 %shr.i, %conv41.i
   %shr43.i = lshr i64 %mul42.i, 32
   %sub44.i = add nuw nsw i64 %start_pos.0.i, %conv40.i

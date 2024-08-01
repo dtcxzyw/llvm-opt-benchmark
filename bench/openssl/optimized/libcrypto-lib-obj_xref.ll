@@ -77,7 +77,7 @@ if.then15:                                        ; preds = %if.then12
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then12, %if.then15, %if.end10
-  %rv.0 = phi ptr [ %call.i11, %if.then15 ], [ null, %if.then12 ], [ null, %if.end10 ]
+  %rv.1 = phi ptr [ %call.i11, %if.then15 ], [ null, %if.then12 ], [ null, %if.end10 ]
   br i1 %tobool6.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
@@ -86,16 +86,16 @@ if.then20:                                        ; preds = %if.end18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.end18
-  %cmp23 = icmp eq ptr %rv.0, null
+  %cmp23 = icmp eq ptr %rv.1, null
   br i1 %cmp23, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.end22, %if.end
-  %rv.1 = phi ptr [ %rv.0, %if.end22 ], [ %call.i, %if.end ]
+  %rv.0 = phi ptr [ %rv.1, %if.end22 ], [ %call.i, %if.end ]
   %cmp27.not = icmp eq ptr %pdig_nid, null
   br i1 %cmp27.not, label %if.end29, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %hash_id = getelementptr inbounds i8, ptr %rv.1, i64 4
+  %hash_id = getelementptr inbounds i8, ptr %rv.0, i64 4
   %5 = load i32, ptr %hash_id, align 4
   store i32 %5, ptr %pdig_nid, align 4
   br label %if.end29
@@ -105,7 +105,7 @@ if.end29:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp30.not, label %return, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %pkey_id = getelementptr inbounds i8, ptr %rv.1, i64 8
+  %pkey_id = getelementptr inbounds i8, ptr %rv.0, i64 8
   %6 = load i32, ptr %pkey_id, align 4
   store i32 %6, ptr %ppkey_nid, align 4
   br label %return
@@ -177,12 +177,12 @@ if.end17:                                         ; preds = %if.then11
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end17, %if.end
-  %rv.1 = phi ptr [ %t, %if.end17 ], [ %call.i, %if.end ]
+  %rv.0 = phi ptr [ %t, %if.end17 ], [ %call.i, %if.end ]
   %cmp23.not = icmp eq ptr %psignid, null
   br i1 %cmp23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %6 = load ptr, ptr %rv.1, align 8
+  %6 = load ptr, ptr %rv.0, align 8
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %psignid, align 4
   br label %return
@@ -278,10 +278,10 @@ if.end18.i:                                       ; preds = %if.then12.i
   br i1 %cmp23.i, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.end18.i, %if.end.i
-  %rv.1.i = phi ptr [ %call.i11.i, %if.end18.i ], [ %call.i.i, %if.end.i ]
-  %hash_id.i = getelementptr inbounds i8, ptr %rv.1.i, i64 4
+  %rv.0.i = phi ptr [ %call.i11.i, %if.end18.i ], [ %call.i.i, %if.end.i ]
+  %hash_id.i = getelementptr inbounds i8, ptr %rv.0.i, i64 4
   %5 = load i32, ptr %hash_id.i, align 4
-  %pkey_id.i = getelementptr inbounds i8, ptr %rv.1.i, i64 8
+  %pkey_id.i = getelementptr inbounds i8, ptr %rv.0.i, i64 8
   %6 = load i32, ptr %pkey_id.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %tmp.i)
   %cmp16 = icmp eq i32 %5, %dig_id

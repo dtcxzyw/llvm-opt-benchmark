@@ -583,14 +583,14 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br label %.loopexit
 
 181:                                              ; preds = %172, %175
-  %.0118 = phi i32 [ 18, %175 ], [ 17, %172 ]
+  %.1 = phi i32 [ 18, %175 ], [ 17, %172 ]
   %bcmp132 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %156, ptr noundef nonnull dereferenceable(8) @.str.14, i64 8)
   %182 = icmp eq i32 %bcmp132, 0
   br i1 %182, label %183, label %192
 
 183:                                              ; preds = %181
   %184 = getelementptr inbounds i8, ptr %6, i64 18
-  %185 = zext nneg i32 %.0118 to i64
+  %185 = zext nneg i32 %.1 to i64
   %186 = getelementptr i8, ptr %14, i64 %185
   %187 = call fastcc i32 @parse_hex_dump(ptr noundef nonnull %184, ptr noundef %186, i8 noundef signext 45, i8 noundef signext 44)
   %.not133 = icmp eq i32 %187, 5
@@ -603,12 +603,12 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br label %.loopexit
 
 190:                                              ; preds = %183
-  %191 = add nuw nsw i32 %.0118, 5
+  %191 = add nuw nsw i32 %.1, 5
   br label %192
 
 192:                                              ; preds = %190, %181
-  %.1 = phi i32 [ %191, %190 ], [ %.0118, %181 ]
-  %193 = add nsw i32 %.1, -14
+  %.2 = phi i32 [ %191, %190 ], [ %.1, %181 ]
+  %193 = add nsw i32 %.2, -14
   %194 = add nuw i32 %193, %149
   %195 = lshr i32 %194, 8
   %196 = trunc i32 %195 to i8
@@ -620,7 +620,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br label %200
 
 200:                                              ; preds = %157, %192
-  %.2 = phi i32 [ %.1, %192 ], [ 14, %157 ]
+  %.0118 = phi i32 [ %.2, %192 ], [ 14, %157 ]
   store i32 0, ptr %1, align 8
   %201 = call ptr @wtap_block_create(i32 noundef 5) #10
   %202 = getelementptr inbounds i8, ptr %1, i64 232
@@ -654,7 +654,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %219 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %218, ptr %219, align 8
   %220 = load i32, ptr %7, align 4
-  %221 = add i32 %220, %.2
+  %221 = add i32 %220, %.0118
   %222 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 %221, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %1, i64 68
@@ -699,7 +699,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br label %.loopexit
 
 243:                                              ; preds = %237
-  %244 = add i32 %.0116, %.2
+  %244 = add i32 %.0116, %.0118
   %245 = sext i32 %244 to i64
   %246 = getelementptr i8, ptr %232, i64 %245
   %247 = call fastcc i32 @parse_single_hex_dump_line(ptr noundef nonnull %6, ptr noundef %246, i32 noundef %.0116)

@@ -1780,14 +1780,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 377:                                              ; preds = %376, %301, %265
   %.pn184.pn = phi { ptr, i32 } [ %.pn184, %376 ], [ %266, %265 ], [ %.pn181, %301 ]
-  %.5 = extractvalue { ptr, i32 } %.pn184.pn, 0
-  %.5133 = extractvalue { ptr, i32 } %.pn184.pn, 1
+  %.7 = extractvalue { ptr, i32 } %.pn184.pn, 0
+  %.7135 = extractvalue { ptr, i32 } %.pn184.pn, 1
   %378 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #19
-  %379 = icmp eq i32 %.5133, %378
+  %379 = icmp eq i32 %.7135, %378
   br i1 %379, label %380, label %385
 
 380:                                              ; preds = %377
-  %381 = call ptr @__cxa_begin_catch(ptr %.5) #19
+  %381 = call ptr @__cxa_begin_catch(ptr %.7) #19
   %382 = load i8, ptr %68, align 8
   %383 = trunc i8 %382 to i1
   %or.cond = and i1 %69, %383
@@ -1799,8 +1799,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 385:                                              ; preds = %377
   %386 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
-  %387 = icmp eq i32 %.5133, %386
-  %388 = call ptr @__cxa_begin_catch(ptr %.5) #19
+  %387 = icmp eq i32 %.7135, %386
+  %388 = call ptr @__cxa_begin_catch(ptr %.7) #19
   %389 = load i8, ptr %68, align 8
   %390 = trunc i8 %389 to i1
   %or.cond6 = and i1 %69, %390
@@ -3859,14 +3859,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 381:                                              ; preds = %380, %305, %269
   %.pn193.pn = phi { ptr, i32 } [ %.pn193, %380 ], [ %270, %269 ], [ %.pn190, %305 ]
-  %.5 = extractvalue { ptr, i32 } %.pn193.pn, 0
-  %.5141 = extractvalue { ptr, i32 } %.pn193.pn, 1
+  %.7 = extractvalue { ptr, i32 } %.pn193.pn, 0
+  %.7143 = extractvalue { ptr, i32 } %.pn193.pn, 1
   %382 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #19
-  %383 = icmp eq i32 %.5141, %382
+  %383 = icmp eq i32 %.7143, %382
   br i1 %383, label %384, label %389
 
 384:                                              ; preds = %381
-  %385 = call ptr @__cxa_begin_catch(ptr %.5) #19
+  %385 = call ptr @__cxa_begin_catch(ptr %.7) #19
   %386 = load i8, ptr %73, align 8
   %387 = trunc i8 %386 to i1
   %or.cond = and i1 %74, %387
@@ -3878,8 +3878,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 389:                                              ; preds = %381
   %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
-  %391 = icmp eq i32 %.5141, %390
-  %392 = call ptr @__cxa_begin_catch(ptr %.5) #19
+  %391 = icmp eq i32 %.7143, %390
+  %392 = call ptr @__cxa_begin_catch(ptr %.7) #19
   %393 = load i8, ptr %73, align 8
   %394 = trunc i8 %393 to i1
   %or.cond6 = and i1 %74, %394

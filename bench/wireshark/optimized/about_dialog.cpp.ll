@@ -15367,7 +15367,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %_ZN9QtPrivate17QFor
   br label %_ZN5QListIiED2Ev.exit94
 
 96:                                               ; preds = %.lr.ph153, %_ZN5QListI7QStringED2Ev.exit
-  %.134152 = phi i32 [ %.033, %.lr.ph153 ], [ %.437, %_ZN5QListI7QStringED2Ev.exit ]
+  %.134152 = phi i32 [ %.033, %.lr.ph153 ], [ %.235, %_ZN5QListI7QStringED2Ev.exit ]
   %.sroa.9.0151 = phi ptr [ %70, %.lr.ph153 ], [ %268, %_ZN5QListI7QStringED2Ev.exit ]
   %.sroa.0125.0.copyload = load i32, ptr %.sroa.9.0151, align 8
   %.sroa.5129.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.9.0151, i64 4
@@ -15852,7 +15852,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZS
   br label %_ZN5QListI7QStringED2Ev.exit
 
 _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i, %255, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
-  %.437 = phi i32 [ %.134152, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %.336, %255 ], [ %.336, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %.336, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ]
+  %.235 = phi i32 [ %.134152, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ %.336, %255 ], [ %.336, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %.336, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ]
   %268 = getelementptr i8, ptr %.sroa.9.0151, i64 24
   %.not142 = icmp eq ptr %268, %74
   br i1 %.not142, label %._crit_edge, label %96, !llvm.loop !122

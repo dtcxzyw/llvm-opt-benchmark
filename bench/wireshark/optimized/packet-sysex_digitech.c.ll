@@ -764,19 +764,19 @@ unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loo
   br label %.lr.ph161.i
 
 .lr.ph161.i:                                      ; preds = %89, %.lr.ph161.preheader.i
-  %.0145160.i = phi i32 [ %95, %89 ], [ 2, %.lr.ph161.preheader.i ]
+  %.1160.i = phi i32 [ %95, %89 ], [ 2, %.lr.ph161.preheader.i ]
   %.0146159.i = phi i16 [ %96, %89 ], [ %87, %.lr.ph161.preheader.i ]
-  %88 = tail call i32 @tvb_strsize(ptr noundef %58, i32 noundef %.0145160.i) #3
+  %88 = tail call i32 @tvb_strsize(ptr noundef %58, i32 noundef %.1160.i) #3
   %.not153.i = icmp eq i32 %88, 0
   br i1 %.not153.i, label %.critedge.i, label %89
 
 89:                                               ; preds = %.lr.ph161.i
   %90 = load ptr, ptr %38, align 8
   %91 = add i32 %88, -1
-  %92 = tail call ptr @tvb_get_string_enc(ptr noundef %90, ptr noundef %58, i32 noundef %.0145160.i, i32 noundef %91, i32 noundef 0) #3
+  %92 = tail call ptr @tvb_get_string_enc(ptr noundef %90, ptr noundef %58, i32 noundef %.1160.i, i32 noundef %91, i32 noundef 0) #3
   %93 = load i32, ptr @hf_digitech_preset_name, align 4
-  %94 = tail call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %93, ptr noundef %58, i32 noundef %.0145160.i, i32 noundef %88, ptr noundef %92) #3
-  %95 = add i32 %88, %.0145160.i
+  %94 = tail call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %93, ptr noundef %58, i32 noundef %.1160.i, i32 noundef %88, ptr noundef %92) #3
+  %95 = add i32 %88, %.1160.i
   %96 = add nsw i16 %.0146159.i, -1
   %.not152.i = icmp eq i16 %96, 0
   br i1 %.not152.i, label %.critedge.i, label %.lr.ph161.i, !llvm.loop !7
@@ -816,9 +816,9 @@ unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loo
   br i1 %.not155.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %120, %.lr.ph.i
-  %.1157.i = phi i32 [ %124, %.lr.ph.i ], [ 2, %120 ]
+  %.2157.i = phi i32 [ %124, %.lr.ph.i ], [ 2, %120 ]
   %.1147156.i = phi i16 [ %125, %.lr.ph.i ], [ %121, %120 ]
-  %124 = tail call fastcc i32 @dissect_digitech_parameter(ptr noundef %58, ptr noundef %11, ptr noundef nonnull %.0.i49, i32 noundef %.1157.i)
+  %124 = tail call fastcc i32 @dissect_digitech_parameter(ptr noundef %58, ptr noundef %11, ptr noundef nonnull %.0.i49, i32 noundef %.2157.i)
   %125 = add i16 %.1147156.i, -1
   %.not.i = icmp eq i16 %125, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
@@ -838,13 +838,13 @@ unpack_digitech_message.exit.i:                   ; preds = %.lr.ph48.i.i, %.loo
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %89, %.lr.ph161.i, %131, %128, %126, %120, %102, %97, %81, %78, %75, %74, %67, %60, %unpack_digitech_message.exit.i
-  %.2.i = phi i32 [ 0, %unpack_digitech_message.exit.i ], [ 1, %131 ], [ 1, %128 ], [ %127, %126 ], [ %119, %102 ], [ 2, %97 ], [ 1, %78 ], [ 3, %74 ], [ 4, %75 ], [ 3, %60 ], [ 3, %67 ], [ 2, %81 ], [ 2, %120 ], [ %.0145160.i, %.lr.ph161.i ], [ %95, %89 ], [ %124, %.lr.ph.i ]
-  %134 = icmp slt i32 %.2.i, %59
+  %.0145.i = phi i32 [ 0, %unpack_digitech_message.exit.i ], [ 1, %131 ], [ 1, %128 ], [ %127, %126 ], [ %119, %102 ], [ 2, %97 ], [ 1, %78 ], [ 3, %74 ], [ 4, %75 ], [ 3, %60 ], [ 3, %67 ], [ 2, %81 ], [ 2, %120 ], [ %.1160.i, %.lr.ph161.i ], [ %95, %89 ], [ %124, %.lr.ph.i ]
+  %134 = icmp slt i32 %.0145.i, %59
   br i1 %134, label %135, label %dissect_digitech_procedure.exit
 
 135:                                              ; preds = %.critedge.i
-  %136 = sub i32 %59, %.2.i
-  %137 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_digitech_undecoded, ptr noundef %58, i32 noundef %.2.i, i32 noundef %136) #3
+  %136 = sub i32 %59, %.0145.i
+  %137 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef %1, ptr noundef nonnull @ei_digitech_undecoded, ptr noundef %58, i32 noundef %.0145.i, i32 noundef %136) #3
   br label %dissect_digitech_procedure.exit
 
 dissect_digitech_procedure.exit:                  ; preds = %28, %.critedge.i, %135
@@ -981,15 +981,15 @@ get_digitech_hf_parameter_id_by_position.exit:    ; preds = %switch.lookup, %8, 
 
 40:                                               ; preds = %33, %27
   %.pre-phi = phi i32 [ %37, %33 ], [ %.pre, %27 ]
-  %.1 = phi i32 [ %39, %33 ], [ %32, %27 ]
+  %.2 = phi i32 [ %39, %33 ], [ %32, %27 ]
   %41 = load i32, ptr @hf_digitech_parameter_multibyte_data, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %.1, i32 noundef %.pre-phi, i32 noundef 0) #3
-  %43 = add i32 %.1, %.pre-phi
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %.2, i32 noundef %.pre-phi, i32 noundef 0) #3
+  %43 = add i32 %.2, %.pre-phi
   br label %44
 
 44:                                               ; preds = %40, %22
-  %.2 = phi i32 [ %25, %22 ], [ %43, %40 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %25, %22 ], [ %43, %40 ]
+  ret i32 %.1
 }
 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

@@ -2516,13 +2516,13 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
 
 .lr.ph382:                                        ; preds = %.lr.ph374, %.lr.ph382
   %indvars.iv432 = phi i64 [ %indvars.iv.next433, %.lr.ph382 ], [ 0, %.lr.ph374 ]
-  %.0251371381 = phi ptr [ %346, %.lr.ph382 ], [ null, %.lr.ph374 ]
+  %.1252371381 = phi ptr [ %346, %.lr.ph382 ], [ null, %.lr.ph374 ]
   %341 = load ptr, ptr %338, align 8
   %342 = getelementptr %union.ListCell, ptr %341, i64 %indvars.iv432
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 4
   %345 = load i32, ptr %344, align 4
-  %346 = call ptr @bms_add_member(ptr noundef %.0251371381, i32 noundef %345) #10
+  %346 = call ptr @bms_add_member(ptr noundef %.1252371381, i32 noundef %345) #10
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %347 = load i32, ptr %337, align 4
   %348 = sext i32 %347 to i64
@@ -2643,7 +2643,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   unreachable
 
 .thread311:                                       ; preds = %.lr.ph382, %.lr.ph389, %.lr.ph395, %.lr.ph401, %.lr.ph407, %.lr.ph413, %331, %.lr.ph374, %315, %.lr.ph386, %299, %.lr.ph392, %283, %.lr.ph398, %267, %.lr.ph404, %230, %.lr.ph410, %70, %70, %70, %70, %70, %70, %70, %413, %417, %406, %410, %387, %391, %420, %399, %380, %375, %368, %364, %357, %350, %251, %221, %218, %212, %201, %181, %175, %._crit_edge417, %140, %122, %116, %110, %106, %94, %85, %79, %76, %72
-  %.1252 = phi ptr [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %420 ], [ null, %417 ], [ null, %413 ], [ null, %410 ], [ null, %406 ], [ null, %399 ], [ null, %391 ], [ null, %387 ], [ null, %380 ], [ null, %375 ], [ null, %368 ], [ null, %364 ], [ null, %357 ], [ null, %350 ], [ null, %251 ], [ null, %221 ], [ null, %218 ], [ null, %212 ], [ null, %201 ], [ null, %181 ], [ null, %175 ], [ null, %._crit_edge417 ], [ null, %140 ], [ null, %122 ], [ null, %116 ], [ null, %110 ], [ null, %106 ], [ null, %94 ], [ null, %85 ], [ null, %79 ], [ null, %76 ], [ null, %72 ], [ null, %.lr.ph410 ], [ null, %230 ], [ null, %.lr.ph404 ], [ null, %267 ], [ null, %.lr.ph398 ], [ null, %283 ], [ null, %.lr.ph392 ], [ null, %299 ], [ null, %.lr.ph386 ], [ null, %315 ], [ null, %331 ], [ null, %.lr.ph374 ], [ null, %.lr.ph413 ], [ null, %.lr.ph407 ], [ null, %.lr.ph401 ], [ null, %.lr.ph395 ], [ null, %.lr.ph389 ], [ %346, %.lr.ph382 ]
+  %.0251 = phi ptr [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %420 ], [ null, %417 ], [ null, %413 ], [ null, %410 ], [ null, %406 ], [ null, %399 ], [ null, %391 ], [ null, %387 ], [ null, %380 ], [ null, %375 ], [ null, %368 ], [ null, %364 ], [ null, %357 ], [ null, %350 ], [ null, %251 ], [ null, %221 ], [ null, %218 ], [ null, %212 ], [ null, %201 ], [ null, %181 ], [ null, %175 ], [ null, %._crit_edge417 ], [ null, %140 ], [ null, %122 ], [ null, %116 ], [ null, %110 ], [ null, %106 ], [ null, %94 ], [ null, %85 ], [ null, %79 ], [ null, %76 ], [ null, %72 ], [ null, %.lr.ph410 ], [ null, %230 ], [ null, %.lr.ph404 ], [ null, %267 ], [ null, %.lr.ph398 ], [ null, %283 ], [ null, %.lr.ph392 ], [ null, %299 ], [ null, %.lr.ph386 ], [ null, %315 ], [ null, %331 ], [ null, %.lr.ph374 ], [ null, %.lr.ph413 ], [ null, %.lr.ph407 ], [ null, %.lr.ph401 ], [ null, %.lr.ph395 ], [ null, %.lr.ph389 ], [ %346, %.lr.ph382 ]
   %.0250 = phi i32 [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %420 ], [ %415, %417 ], [ %415, %413 ], [ %408, %410 ], [ %408, %406 ], [ -1, %399 ], [ -1, %391 ], [ -1, %387 ], [ %382, %380 ], [ %377, %375 ], [ -1, %368 ], [ -1, %364 ], [ -1, %357 ], [ -1, %350 ], [ %253, %251 ], [ -1, %221 ], [ -1, %218 ], [ -1, %212 ], [ -1, %201 ], [ -1, %181 ], [ -1, %175 ], [ -1, %._crit_edge417 ], [ -1, %140 ], [ -1, %122 ], [ -1, %116 ], [ -1, %110 ], [ -1, %106 ], [ -1, %94 ], [ -1, %85 ], [ -1, %79 ], [ -1, %76 ], [ -1, %72 ], [ -1, %.lr.ph410 ], [ -1, %230 ], [ -1, %.lr.ph404 ], [ -1, %267 ], [ -1, %.lr.ph398 ], [ -1, %283 ], [ -1, %.lr.ph392 ], [ -1, %299 ], [ -1, %.lr.ph386 ], [ -1, %315 ], [ -1, %331 ], [ -1, %.lr.ph374 ], [ -1, %.lr.ph413 ], [ -1, %.lr.ph407 ], [ -1, %.lr.ph401 ], [ -1, %.lr.ph395 ], [ -1, %.lr.ph389 ], [ -1, %.lr.ph382 ]
   %.0249 = phi ptr [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %420 ], [ %4, %417 ], [ %4, %413 ], [ %4, %410 ], [ %4, %406 ], [ %4, %399 ], [ %4, %391 ], [ %4, %387 ], [ %386, %380 ], [ %4, %375 ], [ %4, %368 ], [ %4, %364 ], [ %4, %357 ], [ %4, %350 ], [ %257, %251 ], [ %4, %221 ], [ %4, %218 ], [ %4, %212 ], [ %4, %201 ], [ %4, %181 ], [ %4, %175 ], [ %4, %._crit_edge417 ], [ %4, %140 ], [ %4, %122 ], [ %4, %116 ], [ %4, %110 ], [ %4, %106 ], [ %4, %94 ], [ %4, %85 ], [ %4, %79 ], [ %4, %76 ], [ %4, %72 ], [ %4, %.lr.ph410 ], [ %4, %230 ], [ %4, %.lr.ph404 ], [ %4, %267 ], [ %4, %.lr.ph398 ], [ %4, %283 ], [ %4, %.lr.ph392 ], [ %4, %299 ], [ %4, %.lr.ph386 ], [ %4, %315 ], [ %4, %331 ], [ %4, %.lr.ph374 ], [ %4, %.lr.ph413 ], [ %4, %.lr.ph407 ], [ %4, %.lr.ph401 ], [ %4, %.lr.ph395 ], [ %4, %.lr.ph389 ], [ %4, %.lr.ph382 ]
   %.1 = phi ptr [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %420 ], [ %419, %417 ], [ %.0248, %413 ], [ %412, %410 ], [ %.0248, %406 ], [ %.0248, %399 ], [ %.0248, %391 ], [ %.0248, %387 ], [ %384, %380 ], [ %379, %375 ], [ %.0248, %368 ], [ %.0248, %364 ], [ %.0248, %357 ], [ %.0248, %350 ], [ %255, %251 ], [ %.0248, %221 ], [ %.0248, %218 ], [ %.0248, %212 ], [ %.0248, %201 ], [ %.0248, %181 ], [ %.0248, %175 ], [ %.0248, %._crit_edge417 ], [ %.0248, %140 ], [ %.0248, %122 ], [ %.0248, %116 ], [ %.0248, %110 ], [ %.0248, %106 ], [ %.0248, %94 ], [ %.0248, %85 ], [ %.0248, %79 ], [ %.0248, %76 ], [ %.0248, %72 ], [ %.0248, %.lr.ph410 ], [ %.0248, %230 ], [ %.0248, %.lr.ph404 ], [ %.0248, %267 ], [ %.0248, %.lr.ph398 ], [ %.0248, %283 ], [ %.0248, %.lr.ph392 ], [ %.0248, %299 ], [ %.0248, %.lr.ph386 ], [ %.0248, %315 ], [ %.0248, %331 ], [ %.0248, %.lr.ph374 ], [ %.0248, %.lr.ph413 ], [ %.0248, %.lr.ph407 ], [ %.0248, %.lr.ph401 ], [ %.0248, %.lr.ph395 ], [ %.0248, %.lr.ph389 ], [ %.0248, %.lr.ph382 ]
@@ -2654,16 +2654,16 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   %431 = load ptr, ptr %11, align 8
   %432 = call ptr @bms_add_members(ptr noundef %431, ptr noundef %430) #10
   store ptr %432, ptr %11, align 8
-  %.not296 = icmp eq ptr %.1252, null
+  %.not296 = icmp eq ptr %.0251, null
   %433 = getelementptr inbounds i8, ptr %1, i64 72
   %434 = load ptr, ptr %433, align 8
   br i1 %.not296, label %439, label %435
 
 435:                                              ; preds = %.thread311
-  %436 = call ptr @bms_union(ptr noundef nonnull %.1252, ptr noundef %.1) #10
+  %436 = call ptr @bms_union(ptr noundef nonnull %.0251, ptr noundef %.1) #10
   %437 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %434, i32 noundef %.0247, ptr noundef %436, ptr noundef %.0249)
-  %438 = call ptr @bms_difference(ptr noundef %437, ptr noundef nonnull %.1252) #10
-  call void @bms_free(ptr noundef nonnull %.1252) #10
+  %438 = call ptr @bms_difference(ptr noundef %437, ptr noundef nonnull %.0251) #10
+  call void @bms_free(ptr noundef nonnull %.0251) #10
   br label %441
 
 439:                                              ; preds = %.thread311
@@ -3434,12 +3434,12 @@ list_length.exit:                                 ; preds = %137, %139
 .thread199:                                       ; preds = %166, %185, %194, %191, %188, %186, %146, %80, %124, %153, %112, %72
   %.0167 = phi i1 [ true, %72 ], [ true, %80 ], [ true, %112 ], [ true, %124 ], [ true, %153 ], [ false, %146 ], [ false, %186 ], [ false, %188 ], [ false, %191 ], [ false, %194 ], [ false, %185 ], [ false, %166 ]
   %.0166 = phi ptr [ %73, %72 ], [ %91, %80 ], [ %117, %112 ], [ %128, %124 ], [ %154, %153 ], [ %14, %146 ], [ %14, %186 ], [ %14, %188 ], [ %14, %191 ], [ %14, %194 ], [ %14, %185 ], [ %14, %166 ]
-  %.1 = phi ptr [ %1, %72 ], [ %1, %80 ], [ %1, %112 ], [ %1, %124 ], [ %1, %153 ], [ %1, %146 ], [ %1, %186 ], [ %1, %188 ], [ %1, %191 ], [ %195, %194 ], [ %1, %185 ], [ %1, %166 ]
+  %.0 = phi ptr [ %1, %72 ], [ %1, %80 ], [ %1, %112 ], [ %1, %124 ], [ %1, %153 ], [ %1, %146 ], [ %1, %186 ], [ %1, %188 ], [ %1, %191 ], [ %195, %194 ], [ %1, %185 ], [ %1, %166 ]
   %196 = getelementptr inbounds i8, ptr %0, i64 16
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
-  %200 = call ptr @lappend(ptr noundef %199, ptr noundef %.1) #10
+  %200 = call ptr @lappend(ptr noundef %199, ptr noundef %.0) #10
   %201 = load ptr, ptr %196, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 16
   store ptr %200, ptr %202, align 8
@@ -3568,7 +3568,7 @@ list_length.exit196:                              ; preds = %232, %234
   br i1 %275, label %.lr.ph219, label %.thread204
 
 .thread204:                                       ; preds = %.lr.ph219, %247, %.lr.ph215, %list_length.exit196
-  call void @cost_subplan(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %.1) #10
+  call void @cost_subplan(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %.0) #10
   ret ptr %.0166
 }
 

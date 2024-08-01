@@ -287,7 +287,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %.096 = phi i64 [ %40, %39 ], [ 0, %4 ]
   %.06295 = phi i64 [ %.163, %39 ], [ 0, %4 ]
   %.06594 = phi i32 [ %.166, %39 ], [ 0, %4 ]
-  %.07193 = phi i32 [ %.273, %39 ], [ 0, %4 ]
+  %.07193 = phi i32 [ %.172, %39 ], [ 0, %4 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 %.096
   %14 = load i8, ptr %13, align 1
   %15 = or disjoint i64 %.096, 1
@@ -323,7 +323,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not89, label %33, label %39
 
 33:                                               ; preds = %30, %31
-  %.172 = phi i32 [ 1, %31 ], [ 0, %30 ]
+  %.273 = phi i32 [ 1, %31 ], [ 0, %30 ]
   %.064 = phi i8 [ %14, %31 ], [ 32, %30 ]
   %34 = zext i8 %.064 to i32
   %35 = tail call i32 @tolower(i32 noundef %34) #9
@@ -334,7 +334,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br label %39
 
 39:                                               ; preds = %31, %30, %33, %20
-  %.273 = phi i32 [ 1, %31 ], [ %.172, %33 ], [ 0, %30 ], [ %.07193, %20 ]
+  %.172 = phi i32 [ 1, %31 ], [ %.273, %33 ], [ 0, %30 ], [ %.07193, %20 ]
   %.166 = phi i32 [ %.06594, %31 ], [ %.06594, %33 ], [ %.06594, %30 ], [ %21, %20 ]
   %.163 = phi i64 [ %.06295, %31 ], [ %37, %33 ], [ %.06295, %30 ], [ %.06295, %20 ]
   %40 = add i64 %.096, 2

@@ -423,8 +423,8 @@ if.end119:                                        ; preds = %if.end115
   br label %if.end125
 
 if.end125:                                        ; preds = %if.end119, %if.end85
-  %ctx.0 = phi ptr [ null, %if.end85 ], [ %call97, %if.end119 ]
-  %store.0 = phi ptr [ null, %if.end85 ], [ %call88, %if.end119 ]
+  %ctx.1 = phi ptr [ null, %if.end85 ], [ %call97, %if.end119 ]
+  %store.1 = phi ptr [ null, %if.end85 ], [ %call88, %if.end119 ]
   %cmp126.not = icmp eq ptr %crldiff.0, null
   br i1 %cmp126.not, label %if.end146, label %if.then127
 
@@ -471,12 +471,12 @@ if.else143:                                       ; preds = %if.end139
   br label %if.then264
 
 if.end146:                                        ; preds = %if.then142, %if.end125
-  %x.0 = phi ptr [ %call140, %if.then142 ], [ %call82, %if.end125 ]
+  %x.1 = phi ptr [ %call140, %if.then142 ], [ %call82, %if.end125 ]
   %tobool147.not = icmp eq i32 %badsig.0, 0
   br i1 %tobool147.not, label %if.end149, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
-  call void @X509_CRL_get0_signature(ptr noundef nonnull %x.0, ptr noundef nonnull %sig, ptr noundef null) #2
+  call void @X509_CRL_get0_signature(ptr noundef nonnull %x.1, ptr noundef nonnull %sig, ptr noundef null) #2
   %11 = load ptr, ptr %sig, align 8
   call void @corrupt_signature(ptr noundef %11) #2
   br label %if.end149
@@ -496,7 +496,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then154:                                       ; preds = %for.body
   %12 = load ptr, ptr @bio_out, align 8
-  %call155 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %x.0) #2
+  %call155 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %x.1) #2
   call void @print_name(ptr noundef %12, ptr noundef nonnull @.str.80, ptr noundef %call155) #2
   br label %if.end156
 
@@ -505,7 +505,7 @@ if.end156:                                        ; preds = %if.then154, %for.bo
   br i1 %cmp157, label %if.then158, label %if.end169
 
 if.then158:                                       ; preds = %if.end156
-  %call159 = call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %x.0, i32 noundef 88, ptr noundef null, ptr noundef null) #2
+  %call159 = call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %x.1, i32 noundef 88, ptr noundef null, ptr noundef null) #2
   %13 = load ptr, ptr @bio_out, align 8
   %call160 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.81) #2
   %tobool161.not = icmp eq ptr %call159, null
@@ -533,7 +533,7 @@ if.end169:                                        ; preds = %if.end167, %if.end1
   br i1 %cmp170, label %if.then171, label %if.end186
 
 if.then171:                                       ; preds = %if.end169
-  %call172 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %x.0) #2
+  %call172 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %x.1) #2
   %call173 = call ptr @app_get0_libctx() #2
   %call174 = call ptr @app_get0_propq() #2
   %call175 = call i64 @X509_NAME_hash_ex(ptr noundef %call172, ptr noundef %call173, ptr noundef %call174, ptr noundef nonnull %ok) #2
@@ -572,7 +572,7 @@ if.then190:                                       ; preds = %if.then188
 
 if.end192:                                        ; preds = %if.then190, %if.then188
   %21 = load ptr, ptr @bio_out, align 8
-  %call193 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %x.0) #2
+  %call193 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %x.1) #2
   %call194 = call i64 @X509_NAME_hash_old(ptr noundef %call193) #2
   %call195 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %21, ptr noundef nonnull @.str.86, i64 noundef %call194) #2
   br label %if.end196
@@ -585,7 +585,7 @@ if.then198:                                       ; preds = %if.end196
   %22 = load ptr, ptr @bio_out, align 8
   %call199 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.89) #2
   %23 = load ptr, ptr @bio_out, align 8
-  %call200 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %x.0) #2
+  %call200 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %x.1) #2
   %24 = load i64, ptr %dateopt, align 8
   %call201 = call i32 @ASN1_TIME_print_ex(ptr noundef %23, ptr noundef %call200, i64 noundef %24) #2
   %25 = load ptr, ptr @bio_out, align 8
@@ -599,13 +599,13 @@ if.end203:                                        ; preds = %if.then198, %if.end
 if.then205:                                       ; preds = %if.end203
   %26 = load ptr, ptr @bio_out, align 8
   %call206 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.90) #2
-  %call207 = call ptr @X509_CRL_get0_nextUpdate(ptr noundef nonnull %x.0) #2
+  %call207 = call ptr @X509_CRL_get0_nextUpdate(ptr noundef nonnull %x.1) #2
   %tobool208.not = icmp eq ptr %call207, null
   %27 = load ptr, ptr @bio_out, align 8
   br i1 %tobool208.not, label %if.else212, label %if.then209
 
 if.then209:                                       ; preds = %if.then205
-  %call210 = call ptr @X509_CRL_get0_nextUpdate(ptr noundef nonnull %x.0) #2
+  %call210 = call ptr @X509_CRL_get0_nextUpdate(ptr noundef nonnull %x.1) #2
   %28 = load i64, ptr %dateopt, align 8
   %call211 = call i32 @ASN1_TIME_print_ex(ptr noundef %27, ptr noundef %call210, i64 noundef %28) #2
   br label %if.end214
@@ -625,7 +625,7 @@ if.end216:                                        ; preds = %if.end214, %if.end2
 
 if.then218:                                       ; preds = %if.end216
   %30 = load ptr, ptr %digest, align 8
-  %call219 = call i32 @X509_CRL_digest(ptr noundef nonnull %x.0, ptr noundef %30, ptr noundef nonnull %md, ptr noundef nonnull %n) #2
+  %call219 = call i32 @X509_CRL_digest(ptr noundef nonnull %x.1, ptr noundef %30, ptr noundef nonnull %md, ptr noundef nonnull %n) #2
   %tobool220.not = icmp eq i32 %call219, 0
   br i1 %tobool220.not, label %if.then221, label %if.end223
 
@@ -677,7 +677,7 @@ if.end242:                                        ; preds = %if.end237
 
 if.then244:                                       ; preds = %if.end242
   %call245 = call i64 @get_nameopt() #2
-  %call246 = call i32 @X509_CRL_print_ex(ptr noundef nonnull %call238, ptr noundef nonnull %x.0, i64 noundef %call245) #2
+  %call246 = call i32 @X509_CRL_print_ex(ptr noundef nonnull %call238, ptr noundef nonnull %x.1, i64 noundef %call245) #2
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then244, %if.end242
@@ -690,11 +690,11 @@ if.end250:                                        ; preds = %if.end247
   br i1 %cmp251, label %if.then253, label %if.else255
 
 if.then253:                                       ; preds = %if.end250
-  %call254 = call i32 @i2d_X509_CRL_bio(ptr noundef nonnull %call238, ptr noundef nonnull %x.0) #2
+  %call254 = call i32 @i2d_X509_CRL_bio(ptr noundef nonnull %call238, ptr noundef nonnull %x.1) #2
   br label %if.end257
 
 if.else255:                                       ; preds = %if.end250
-  %call256 = call i32 @PEM_write_bio_X509_CRL(ptr noundef nonnull %call238, ptr noundef nonnull %x.0) #2
+  %call256 = call i32 @PEM_write_bio_X509_CRL(ptr noundef nonnull %call238, ptr noundef nonnull %x.1) #2
   br label %if.end257
 
 if.end257:                                        ; preds = %if.else255, %if.then253
@@ -708,26 +708,26 @@ if.then259:                                       ; preds = %if.end257
   br label %if.then264
 
 if.then264:                                       ; preds = %sw.bb69, %opthelp, %if.end81, %if.then87, %if.end91, %if.then101, %if.then107, %if.then113, %if.end115, %if.then138, %if.then221, %if.else183, %if.end237, %if.then259, %if.else143, %if.end131, %if.then129
-  %ctx.1.ph = phi ptr [ %ctx.0, %if.then129 ], [ %ctx.0, %if.end131 ], [ %ctx.0, %if.else143 ], [ %ctx.0, %if.then259 ], [ %ctx.0, %if.end237 ], [ %ctx.0, %if.else183 ], [ %ctx.0, %if.then221 ], [ %ctx.0, %if.then138 ], [ %call97, %if.end115 ], [ %call97, %if.then113 ], [ %call97, %if.then107 ], [ %call97, %if.then101 ], [ null, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
-  %store.1.ph = phi ptr [ %store.0, %if.then129 ], [ %store.0, %if.end131 ], [ %store.0, %if.else143 ], [ %store.0, %if.then259 ], [ %store.0, %if.end237 ], [ %store.0, %if.else183 ], [ %store.0, %if.then221 ], [ %store.0, %if.then138 ], [ %call88, %if.end115 ], [ %call88, %if.then113 ], [ %call88, %if.then107 ], [ %call88, %if.then101 ], [ %call88, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
+  %ctx.0.ph = phi ptr [ %ctx.1, %if.then129 ], [ %ctx.1, %if.end131 ], [ %ctx.1, %if.else143 ], [ %ctx.1, %if.then259 ], [ %ctx.1, %if.end237 ], [ %ctx.1, %if.else183 ], [ %ctx.1, %if.then221 ], [ %ctx.1, %if.then138 ], [ %call97, %if.end115 ], [ %call97, %if.then113 ], [ %call97, %if.then107 ], [ %call97, %if.then101 ], [ null, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
+  %store.0.ph = phi ptr [ %store.1, %if.then129 ], [ %store.1, %if.end131 ], [ %store.1, %if.else143 ], [ %store.1, %if.then259 ], [ %store.1, %if.end237 ], [ %store.1, %if.else183 ], [ %store.1, %if.then221 ], [ %store.1, %if.then138 ], [ %call88, %if.end115 ], [ %call88, %if.then113 ], [ %call88, %if.then107 ], [ %call88, %if.then101 ], [ %call88, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
   %out.0.ph = phi ptr [ null, %if.then129 ], [ null, %if.end131 ], [ null, %if.else143 ], [ %call238, %if.then259 ], [ null, %if.end237 ], [ null, %if.else183 ], [ null, %if.then221 ], [ null, %if.then138 ], [ null, %if.end115 ], [ null, %if.then113 ], [ null, %if.then107 ], [ null, %if.then101 ], [ null, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
-  %x.1.ph = phi ptr [ %call82, %if.then129 ], [ %call82, %if.end131 ], [ %call82, %if.else143 ], [ %x.0, %if.then259 ], [ %x.0, %if.end237 ], [ %x.0, %if.else183 ], [ %x.0, %if.then221 ], [ %call82, %if.then138 ], [ %call82, %if.end115 ], [ %call82, %if.then113 ], [ %call82, %if.then107 ], [ %call82, %if.then101 ], [ %call82, %if.end91 ], [ %call82, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
+  %x.0.ph = phi ptr [ %call82, %if.then129 ], [ %call82, %if.end131 ], [ %call82, %if.else143 ], [ %x.1, %if.then259 ], [ %x.1, %if.end237 ], [ %x.1, %if.else183 ], [ %x.1, %if.then221 ], [ %call82, %if.then138 ], [ %call82, %if.end115 ], [ %call82, %if.then113 ], [ %call82, %if.then107 ], [ %call82, %if.then101 ], [ %call82, %if.end91 ], [ %call82, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
   %44 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %44) #2
   br label %if.end265
 
 if.end265:                                        ; preds = %sw.bb4, %if.end247, %if.end257, %if.then264
-  %x.183 = phi ptr [ %x.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %x.0, %if.end247 ], [ %x.0, %if.end257 ]
+  %x.083 = phi ptr [ %x.0.ph, %if.then264 ], [ null, %sw.bb4 ], [ %x.1, %if.end247 ], [ %x.1, %if.end257 ]
   %out.081 = phi ptr [ %out.0.ph, %if.then264 ], [ null, %sw.bb4 ], [ %call238, %if.end247 ], [ %call238, %if.end257 ]
-  %store.179 = phi ptr [ %store.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %store.0, %if.end247 ], [ %store.0, %if.end257 ]
-  %ctx.177 = phi ptr [ %ctx.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %ctx.0, %if.end247 ], [ %ctx.0, %if.end257 ]
+  %store.079 = phi ptr [ %store.0.ph, %if.then264 ], [ null, %sw.bb4 ], [ %store.1, %if.end247 ], [ %store.1, %if.end257 ]
+  %ctx.077 = phi ptr [ %ctx.0.ph, %if.then264 ], [ null, %sw.bb4 ], [ %ctx.1, %if.end247 ], [ %ctx.1, %if.end257 ]
   %ret.075 = phi i32 [ 1, %if.then264 ], [ 0, %sw.bb4 ], [ 0, %if.end247 ], [ 0, %if.end257 ]
   call void @BIO_free_all(ptr noundef %out.081) #2
   %45 = load ptr, ptr %digest, align 8
   call void @EVP_MD_free(ptr noundef %45) #2
-  call void @X509_CRL_free(ptr noundef %x.183) #2
-  call void @X509_STORE_CTX_free(ptr noundef %ctx.177) #2
-  call void @X509_STORE_free(ptr noundef %store.179) #2
+  call void @X509_CRL_free(ptr noundef %x.083) #2
+  call void @X509_STORE_CTX_free(ptr noundef %ctx.077) #2
+  call void @X509_STORE_free(ptr noundef %store.079) #2
   ret i32 %ret.075
 }
 

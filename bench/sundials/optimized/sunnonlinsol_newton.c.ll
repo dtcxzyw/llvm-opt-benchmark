@@ -167,8 +167,8 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr nocapture readnone %1, 
   br i1 %.not64, label %27, label %59
 
 59:                                               ; preds = %36, %56, %27
-  %.052 = phi i32 [ %35, %27 ], [ %58, %56 ], [ %42, %36 ]
-  %60 = icmp sgt i32 %.052, 0
+  %.1 = phi i32 [ %35, %27 ], [ %58, %56 ], [ %42, %36 ]
+  %60 = icmp sgt i32 %.1, 0
   br i1 %60, label %..thread_crit_edge, label %._crit_edge
 
 ..thread_crit_edge:                               ; preds = %59
@@ -177,7 +177,7 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr nocapture readnone %1, 
 
 .thread:                                          ; preds = %46, %..thread_crit_edge
   %61 = phi ptr [ %.pre, %..thread_crit_edge ], [ %51, %46 ]
-  %.05268 = phi i32 [ %.052, %..thread_crit_edge ], [ 902, %46 ]
+  %.168 = phi i32 [ %.1, %..thread_crit_edge ], [ 902, %46 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 40
   %63 = load i32, ptr %62, align 8
   %.not65 = icmp eq i32 %63, 0
@@ -202,7 +202,7 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr nocapture readnone %1, 
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %67, %18, %64, %.thread, %59, %7
-  %.1 = phi i32 [ %16, %7 ], [ %.052, %59 ], [ %.05268, %.thread ], [ %.05268, %64 ], [ %23, %18 ], [ %73, %67 ]
+  %.052 = phi i32 [ %16, %7 ], [ %.1, %59 ], [ %.168, %.thread ], [ %.168, %64 ], [ %23, %18 ], [ %73, %67 ]
   %74 = load ptr, ptr %0, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 64
   %76 = load i64, ptr %75, align 8
@@ -211,7 +211,7 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr nocapture readnone %1, 
   br label %78
 
 78:                                               ; preds = %._crit_edge, %43
-  %.0 = phi i32 [ %.1, %._crit_edge ], [ 0, %43 ]
+  %.0 = phi i32 [ %.052, %._crit_edge ], [ 0, %43 ]
   ret i32 %.0
 }
 

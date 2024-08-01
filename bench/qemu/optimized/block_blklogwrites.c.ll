@@ -246,7 +246,7 @@ if.then78:                                        ; preds = %blk_log_writes_log2
   br label %if.then83
 
 if.then83:                                        ; preds = %if.then14, %if.then28, %if.then34, %if.then39, %if.then56, %if.then78, %if.then69
-  %ret.0.ph = phi i32 [ -22, %if.then69 ], [ -22, %if.then78 ], [ -22, %if.then56 ], [ -22, %if.then39 ], [ -22, %if.then34 ], [ %call26, %if.then28 ], [ -22, %if.then14 ]
+  %ret.1.ph = phi i32 [ -22, %if.then69 ], [ -22, %if.then78 ], [ -22, %if.then56 ], [ -22, %if.then39 ], [ -22, %if.then34 ], [ %call26, %if.then28 ], [ -22, %if.then14 ]
   call void @bdrv_graph_wrlock(ptr noundef null) #8
   %18 = load ptr, ptr %0, align 8
   call void @bdrv_unref_child(ptr noundef nonnull %bs, ptr noundef %18) #8
@@ -255,9 +255,9 @@ if.then83:                                        ; preds = %if.then14, %if.then
   br label %fail
 
 fail:                                             ; preds = %blk_log_writes_log2.exit, %if.end4, %entry, %if.then83, %if.end
-  %ret.1 = phi i32 [ %call2, %if.end ], [ %ret.0.ph, %if.then83 ], [ -22, %entry ], [ -22, %if.end4 ], [ 0, %blk_log_writes_log2.exit ]
+  %ret.0 = phi i32 [ %call2, %if.end ], [ %ret.1.ph, %if.then83 ], [ -22, %entry ], [ -22, %if.end4 ], [ 0, %blk_log_writes_log2.exit ]
   call void @qemu_opts_del(ptr noundef %call) #8
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

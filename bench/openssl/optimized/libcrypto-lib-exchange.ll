@@ -493,16 +493,16 @@ if.end74:                                         ; preds = %if.end62
   br i1 %cmp75, label %if.then77, label %for.inc
 
 if.then77:                                        ; preds = %if.end62, %if.end74
-  %provkey.179 = phi ptr [ %call73, %if.end74 ], [ null, %if.end62 ]
+  %provkey.279 = phi ptr [ %call73, %if.end74 ], [ null, %if.end62 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call66) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %if.end74, %if.then77
   %exchange.174 = phi ptr [ %exchange.1.ph, %if.then77 ], [ %exchange.1.ph, %if.end74 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ %provkey.179, %if.then77 ], [ %call73, %if.end74 ], [ null, %sw.bb ]
+  %provkey.1 = phi ptr [ %provkey.279, %if.then77 ], [ %call73, %if.end74 ], [ null, %sw.bb ]
   %inc = add nuw nsw i32 %iter.084, 1
   %cmp40 = icmp ult i32 %iter.084, 2
-  %cmp42 = icmp eq ptr %provkey.2, null
+  %cmp42 = icmp eq ptr %provkey.1, null
   %20 = select i1 %cmp40, i1 %cmp42, i1 false
   br i1 %20, label %for.body, label %for.end, !llvm.loop !6
 
@@ -561,7 +561,7 @@ if.then92:                                        ; preds = %if.end82
 if.end93:                                         ; preds = %if.end82
   %init = getelementptr inbounds i8, ptr %exchange.174, i64 48
   %26 = load ptr, ptr %init, align 8
-  %call96 = call i32 %26(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
+  %call96 = call i32 %26(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.1, ptr noundef %params) #4
   %27 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %27) #4
   %tobool97.not = icmp ne i32 %call96, 0

@@ -457,9 +457,9 @@ if.then7:                                         ; preds = %if.then
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %if.then7, %entry
-  %total_size.1 = phi i64 [ %add11, %if.then7 ], [ %spec.select, %if.then ], [ 0, %entry ]
+  %total_size.0 = phi i64 [ %add11, %if.then7 ], [ %spec.select, %if.then ], [ 0, %entry ]
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
-  %call14 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.1, ptr noundef nonnull %_cached_size_)
+  %call14 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.0, ptr noundef nonnull %_cached_size_)
   ret i64 %call14
 }
 

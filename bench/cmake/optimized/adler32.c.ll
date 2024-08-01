@@ -180,10 +180,10 @@ define dso_local i64 @cm_zlib_adler32_z(i64 noundef %0, ptr noundef readonly %1,
   br i1 %123, label %.lr.ph216.preheader, label %.lr.ph226.preheader
 
 .lr.ph216.preheader:                              ; preds = %.preheader202, %.preheader201
-  %.4215.ph = phi i64 [ %5, %.preheader202 ], [ %121, %.preheader201 ]
+  %.5215.ph = phi i64 [ %5, %.preheader202 ], [ %121, %.preheader201 ]
   %.2175214.ph = phi i64 [ %2, %.preheader202 ], [ %36, %.preheader201 ]
   %.3180213.ph = phi ptr [ %1, %.preheader202 ], [ %scevgep, %.preheader201 ]
-  %.5187212.ph = phi i64 [ %6, %.preheader202 ], [ %120, %.preheader201 ]
+  %.6188212.ph = phi i64 [ %6, %.preheader202 ], [ %120, %.preheader201 ]
   br label %.lr.ph216
 
 .preheader200:                                    ; preds = %.lr.ph216
@@ -191,22 +191,22 @@ define dso_local i64 @cm_zlib_adler32_z(i64 noundef %0, ptr noundef readonly %1,
   br i1 %.not196221, label %._crit_edge227, label %.lr.ph226.preheader
 
 .lr.ph226.preheader:                              ; preds = %.preheader201, %.preheader200
-  %.5225.ph = phi i64 [ %121, %.preheader201 ], [ %203, %.preheader200 ]
+  %.6225.ph = phi i64 [ %121, %.preheader201 ], [ %203, %.preheader200 ]
   %.3176224.ph = phi i64 [ %36, %.preheader201 ], [ %124, %.preheader200 ]
   %.4181223.ph = phi ptr [ %scevgep, %.preheader201 ], [ %204, %.preheader200 ]
-  %.6188222.ph = phi i64 [ %120, %.preheader201 ], [ %202, %.preheader200 ]
+  %.7222.ph = phi i64 [ %120, %.preheader201 ], [ %202, %.preheader200 ]
   br label %.lr.ph226
 
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
-  %.4215 = phi i64 [ %203, %.lr.ph216 ], [ %.4215.ph, %.lr.ph216.preheader ]
+  %.5215 = phi i64 [ %203, %.lr.ph216 ], [ %.5215.ph, %.lr.ph216.preheader ]
   %.2175214 = phi i64 [ %124, %.lr.ph216 ], [ %.2175214.ph, %.lr.ph216.preheader ]
   %.3180213 = phi ptr [ %204, %.lr.ph216 ], [ %.3180213.ph, %.lr.ph216.preheader ]
-  %.5187212 = phi i64 [ %202, %.lr.ph216 ], [ %.5187212.ph, %.lr.ph216.preheader ]
+  %.6188212 = phi i64 [ %202, %.lr.ph216 ], [ %.6188212.ph, %.lr.ph216.preheader ]
   %124 = add nsw i64 %.2175214, -16
   %125 = load i8, ptr %.3180213, align 1
   %126 = zext i8 %125 to i64
-  %127 = add i64 %.5187212, %126
-  %128 = add i64 %127, %.4215
+  %127 = add i64 %.6188212, %126
+  %128 = add i64 %127, %.5215
   %129 = getelementptr inbounds i8, ptr %.3180213, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i64
@@ -287,31 +287,31 @@ define dso_local i64 @cm_zlib_adler32_z(i64 noundef %0, ptr noundef readonly %1,
   br i1 %205, label %.lr.ph216, label %.preheader200, !llvm.loop !9
 
 .lr.ph226:                                        ; preds = %.lr.ph226.preheader, %.lr.ph226
-  %.5225 = phi i64 [ %211, %.lr.ph226 ], [ %.5225.ph, %.lr.ph226.preheader ]
+  %.6225 = phi i64 [ %211, %.lr.ph226 ], [ %.6225.ph, %.lr.ph226.preheader ]
   %.3176224 = phi i64 [ %206, %.lr.ph226 ], [ %.3176224.ph, %.lr.ph226.preheader ]
   %.4181223 = phi ptr [ %207, %.lr.ph226 ], [ %.4181223.ph, %.lr.ph226.preheader ]
-  %.6188222 = phi i64 [ %210, %.lr.ph226 ], [ %.6188222.ph, %.lr.ph226.preheader ]
+  %.7222 = phi i64 [ %210, %.lr.ph226 ], [ %.7222.ph, %.lr.ph226.preheader ]
   %206 = add i64 %.3176224, -1
   %207 = getelementptr inbounds i8, ptr %.4181223, i64 1
   %208 = load i8, ptr %.4181223, align 1
   %209 = zext i8 %208 to i64
-  %210 = add i64 %.6188222, %209
-  %211 = add i64 %210, %.5225
+  %210 = add i64 %.7222, %209
+  %211 = add i64 %210, %.6225
   %.not196 = icmp eq i64 %206, 0
   br i1 %.not196, label %._crit_edge227, label %.lr.ph226, !llvm.loop !10
 
 ._crit_edge227:                                   ; preds = %.lr.ph226, %.preheader200
-  %.6188.lcssa = phi i64 [ %202, %.preheader200 ], [ %210, %.lr.ph226 ]
-  %.5.lcssa = phi i64 [ %203, %.preheader200 ], [ %211, %.lr.ph226 ]
-  %212 = urem i64 %.6188.lcssa, 65521
-  %213 = urem i64 %.5.lcssa, 65521
+  %.7.lcssa = phi i64 [ %202, %.preheader200 ], [ %210, %.lr.ph226 ]
+  %.6.lcssa = phi i64 [ %203, %.preheader200 ], [ %211, %.lr.ph226 ]
+  %212 = urem i64 %.7.lcssa, 65521
+  %213 = urem i64 %.6.lcssa, 65521
   br label %214
 
 214:                                              ; preds = %._crit_edge227, %._crit_edge
-  %.7 = phi i64 [ %212, %._crit_edge227 ], [ %120, %._crit_edge ]
-  %.6 = phi i64 [ %213, %._crit_edge227 ], [ %121, %._crit_edge ]
-  %215 = shl nuw nsw i64 %.6, 16
-  %216 = or disjoint i64 %215, %.7
+  %.5187 = phi i64 [ %212, %._crit_edge227 ], [ %120, %._crit_edge ]
+  %.4 = phi i64 [ %213, %._crit_edge227 ], [ %121, %._crit_edge ]
+  %215 = shl nuw nsw i64 %.4, 16
+  %216 = or disjoint i64 %215, %.5187
   br label %217
 
 217:                                              ; preds = %20, %214, %._crit_edge236, %8

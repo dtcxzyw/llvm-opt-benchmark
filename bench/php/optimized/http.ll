@@ -1210,8 +1210,8 @@ define hidden void @zif_http_build_query(ptr noundef %0, ptr nocapture noundef w
 
 .thread321:                                       ; preds = %.thread321thread-pre-split, %.critedge
   %47 = phi i8 [ %.pr, %.thread321thread-pre-split ], [ %14, %.critedge ]
-  %.2332 = phi ptr [ %28, %.thread321thread-pre-split ], [ null, %.critedge ]
-  %.2282331 = phi i64 [ %27, %.thread321thread-pre-split ], [ 0, %.critedge ]
+  %.0279332 = phi ptr [ %28, %.thread321thread-pre-split ], [ null, %.critedge ]
+  %.0280331 = phi i64 [ %27, %.thread321thread-pre-split ], [ 0, %.critedge ]
   switch i8 %47, label %.thread351 [
     i8 7, label %48
     i8 8, label %50
@@ -1240,7 +1240,7 @@ define hidden void @zif_http_build_query(ptr noundef %0, ptr nocapture noundef w
   %60 = load ptr, ptr %4, align 8
   %61 = load i64, ptr %6, align 8
   %62 = trunc i64 %61 to i32
-  call void @php_url_encode_hash_ex(ptr noundef %58, ptr noundef nonnull %5, ptr noundef %.2332, i64 noundef %.2282331, ptr noundef null, ptr noundef %59, ptr noundef %60, i32 noundef %62)
+  call void @php_url_encode_hash_ex(ptr noundef %58, ptr noundef nonnull %5, ptr noundef %.0279332, i64 noundef %.0280331, ptr noundef null, ptr noundef %59, ptr noundef %60, i32 noundef %62)
   %63 = load ptr, ptr %5, align 8
   %.not298 = icmp eq ptr %63, null
   br i1 %.not298, label %112, label %64

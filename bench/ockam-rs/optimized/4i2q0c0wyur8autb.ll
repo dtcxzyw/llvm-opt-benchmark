@@ -132,11 +132,11 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.i.
   br label %33
 
 33:                                               ; preds = %34, %32
-  %.0 = phi ptr [ %.1.i.i.i, %34 ], [ null, %32 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0.i.i.i, %34 ], [ null, %32 ]
+  ret ptr %.1
 
 34:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.i.i.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.thread.i.i.i, %2
-  %.1.i.i.i = phi ptr [ %30, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.i.i.i ], [ %28, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.thread.i.i.i ], [ %25, %2 ]
+  %.0.i.i.i = phi ptr [ %30, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.i.i.i ], [ %28, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h44e04459c237ee17E.exit.thread.i.i.i ], [ %25, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !5
   br label %33
@@ -1465,11 +1465,11 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit: ;
   br label %46
 
 46:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit
-  %.0 = phi ptr [ %.1, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit.thread ], [ null, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit.thread ], [ null, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit ]
+  ret ptr %.1
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h198cf7e639f90bc3E.exit.thread: ; preds = %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h5a09857183497c35E.exit.i.i.i.i.i", %40, %31, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h315642ea14732536E.exit.i.i", %2
-  %.1 = phi ptr [ %21, %2 ], [ %44, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h315642ea14732536E.exit.i.i" ], [ %36, %31 ], [ %42, %40 ], [ %38, %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h5a09857183497c35E.exit.i.i.i.i.i" ]
+  %.0 = phi ptr [ %21, %2 ], [ %44, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h315642ea14732536E.exit.i.i" ], [ %36, %31 ], [ %42, %40 ], [ %38, %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h5a09857183497c35E.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %46
 }
@@ -1506,8 +1506,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3d8a
   br i1 %17, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3355ab73a57c78c3E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3355ab73a57c78c3E.exit: ; preds = %14, %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %16, %14 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %16, %14 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1547,8 +1547,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha8ec
   br i1 %18, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h3c934f0001b709b6E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3c934f0001b709b6E.exit: ; preds = %15, %.preheader, %2
-  %.0 = phi ptr [ %11, %2 ], [ %17, %15 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %11, %2 ], [ %17, %15 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1643,8 +1643,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %17, label %.preheader, label %_ZN5serde3ser10Serializer11collect_seq17h3d8a0d1554f344d5E.llvm.1333392777243939226.exit
 
 _ZN5serde3ser10Serializer11collect_seq17h3d8a0d1554f344d5E.llvm.1333392777243939226.exit: ; preds = %.preheader, %14, %2
-  %.0.i = phi ptr [ %10, %2 ], [ null, %.preheader ], [ %16, %14 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %10, %2 ], [ null, %.preheader ], [ %16, %14 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1685,8 +1685,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %18, label %.preheader, label %_ZN5serde3ser10Serializer11collect_seq17ha8ec6745c8ee1653E.llvm.1333392777243939226.exit
 
 _ZN5serde3ser10Serializer11collect_seq17ha8ec6745c8ee1653E.llvm.1333392777243939226.exit: ; preds = %.preheader, %15, %2
-  %.0.i = phi ptr [ %11, %2 ], [ null, %.preheader ], [ %17, %15 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %11, %2 ], [ null, %.preheader ], [ %17, %15 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2897,13 +2897,13 @@ common.resume:                                    ; preds = %76, %16
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread.sink.split": ; preds = %59, %57
-  %.sroa.11.1.ph.ph = phi ptr [ %.sroa.026.0.copyload.i, %57 ], [ %.sroa.01.0.copyload.i, %59 ]
+  %.sroa.11.0.ph.ph = phi ptr [ %.sroa.026.0.copyload.i, %57 ], [ %.sroa.01.0.copyload.i, %59 ]
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.528.0..sroa_idx.i, i64 24, i1 false)
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread"
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread": ; preds = %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread.sink.split", %57, %27, %59
-  %.sroa.11.1.ph = phi ptr [ null, %59 ], [ null, %27 ], [ null, %57 ], [ %.sroa.11.1.ph.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread.sink.split" ]
+  %.sroa.11.0.ph = phi ptr [ null, %59 ], [ null, %27 ], [ null, %57 ], [ %.sroa.11.0.ph.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread.sink.split" ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4), !noalias !461
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !457
   br label %68
@@ -2928,7 +2928,7 @@ common.resume:                                    ; preds = %76, %16
   unreachable
 
 68:                                               ; preds = %47, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread"
-  %.sroa.11.223 = phi ptr [ %.sroa.011.0.copyload.i, %47 ], [ %.sroa.11.1.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread" ]
+  %.sroa.11.223 = phi ptr [ %.sroa.011.0.copyload.i, %47 ], [ %.sroa.11.0.ph, %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h79c9c7a132a5ab85E.exit.thread" ]
   %69 = icmp eq ptr %.sroa.11.223, null
   br i1 %69, label %75, label %71
 
@@ -3098,8 +3098,8 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %21, label %.preheader.i, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h1faa308b3c3dc2e3E.llvm.1333392777243939226.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h1faa308b3c3dc2e3E.llvm.1333392777243939226.exit": ; preds = %.preheader.i, %18, %4
-  %.0.i.i = phi ptr [ %14, %4 ], [ %20, %18 ], [ null, %.preheader.i ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %14, %4 ], [ %20, %18 ], [ null, %.preheader.i ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3137,8 +3137,8 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %20, label %.preheader.i, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h0b1ed6fbf1545027E.llvm.1333392777243939226.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h0b1ed6fbf1545027E.llvm.1333392777243939226.exit": ; preds = %.preheader.i, %17, %4
-  %.0.i.i = phi ptr [ %13, %4 ], [ %19, %17 ], [ null, %.preheader.i ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %13, %4 ], [ %19, %17 ], [ null, %.preheader.i ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

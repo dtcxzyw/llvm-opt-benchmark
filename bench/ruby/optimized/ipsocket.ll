@@ -137,16 +137,16 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
 38:                                               ; preds = %.lr.ph108, %90
   %.073107 = phi ptr [ %.073101, %.lr.ph108 ], [ %.073, %90 ]
   %.072106 = phi i32 [ 0, %.lr.ph108 ], [ %.1, %90 ]
-  %.076105 = phi i32 [ -1, %.lr.ph108 ], [ %.177, %90 ]
-  %.079104 = phi i32 [ 0, %.lr.ph108 ], [ %.3, %90 ]
-  %.082103 = phi ptr [ null, %.lr.ph108 ], [ %.385, %90 ]
+  %.076105 = phi i32 [ -1, %.lr.ph108 ], [ %.2, %90 ]
+  %.079104 = phi i32 [ 0, %.lr.ph108 ], [ %.281, %90 ]
+  %.082103 = phi ptr [ null, %.lr.ph108 ], [ %.284, %90 ]
   %39 = load ptr, ptr %35, align 8
   %.not92 = icmp eq ptr %39, null
   br i1 %.not92, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %38
-  %.07498 = load ptr, ptr %39, align 8
-  %.not9399 = icmp eq ptr %.07498, null
+  %.17598 = load ptr, ptr %39, align 8
+  %.not9399 = icmp eq ptr %.17598, null
   br i1 %.not9399, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -155,16 +155,16 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %.lr.ph, %46
-  %.074100 = phi ptr [ %.07498, %.lr.ph ], [ %.074, %46 ]
-  %43 = getelementptr inbounds i8, ptr %.074100, i64 4
+  %.175100 = phi ptr [ %.17598, %.lr.ph ], [ %.175, %46 ]
+  %43 = getelementptr inbounds i8, ptr %.175100, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %41
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.074100, i64 40
-  %.074 = load ptr, ptr %47, align 8
-  %.not93 = icmp eq ptr %.074, null
+  %47 = getelementptr inbounds i8, ptr %.175100, i64 40
+  %.175 = load ptr, ptr %47, align 8
+  %.not93 = icmp eq ptr %.175, null
   br i1 %.not93, label %.critedge, label %42, !llvm.loop !6
 
 .critedge:                                        ; preds = %46, %.preheader
@@ -177,7 +177,7 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   br i1 %or.cond, label %90, label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.critedge, %38
-  %.175 = phi ptr [ null, %38 ], [ %.07498, %.critedge ], [ %.074100, %42 ]
+  %.074 = phi ptr [ null, %38 ], [ %.17598, %.critedge ], [ %.175100, %42 ]
   %53 = getelementptr inbounds i8, ptr %.073107, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds i8, ptr %.073107, i64 8
@@ -209,15 +209,15 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   br label %thread-pre-split95
 
 72:                                               ; preds = %64
-  %.not94 = icmp eq ptr %.175, null
+  %.not94 = icmp eq ptr %.074, null
   br i1 %.not94, label %thread-pre-split.thread, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %72
   store i32 1, ptr %2, align 4
   %73 = call i32 @setsockopt(i32 noundef %59, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 4) #6
-  %74 = getelementptr inbounds i8, ptr %.175, i64 24
+  %74 = getelementptr inbounds i8, ptr %.074, i64 24
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.175, i64 16
+  %76 = getelementptr inbounds i8, ptr %.074, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = call i32 @bind(i32 noundef %59, ptr %75, i32 noundef %77) #6
   store i32 %78, ptr %2, align 4
@@ -225,7 +225,7 @@ thread-pre-split:                                 ; preds = %72
   br i1 %79, label %thread-pre-split.thread, label %thread-pre-split95.thread
 
 thread-pre-split.thread:                          ; preds = %72, %thread-pre-split
-  %.180125 = phi i32 [ %78, %thread-pre-split ], [ %.079104, %72 ]
+  %.4125 = phi i32 [ %78, %thread-pre-split ], [ %.079104, %72 ]
   %80 = getelementptr inbounds i8, ptr %.073107, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %.073107, i64 16
@@ -235,15 +235,15 @@ thread-pre-split.thread:                          ; preds = %72, %thread-pre-spl
 
 thread-pre-split95:                               ; preds = %thread-pre-split.thread, %65
   %85 = phi i32 [ %84, %thread-pre-split.thread ], [ %71, %65 ]
-  %.284 = phi ptr [ @.str.12, %thread-pre-split.thread ], [ @.str.11, %65 ]
-  %.281 = phi i32 [ %.180125, %thread-pre-split.thread ], [ %.079104, %65 ]
+  %.385 = phi ptr [ @.str.12, %thread-pre-split.thread ], [ @.str.11, %65 ]
+  %.3 = phi i32 [ %.4125, %thread-pre-split.thread ], [ %.079104, %65 ]
   store i32 %85, ptr %2, align 4
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %thread-pre-split95.thread, label %._crit_edge.thread
 
 thread-pre-split95.thread:                        ; preds = %thread-pre-split, %thread-pre-split95
-  %.281129 = phi i32 [ %.281, %thread-pre-split95 ], [ %78, %thread-pre-split ]
-  %.284128 = phi ptr [ %.284, %thread-pre-split95 ], [ @.str.11, %thread-pre-split ]
+  %.3129 = phi i32 [ %.3, %thread-pre-split95 ], [ %78, %thread-pre-split ]
+  %.385128 = phi ptr [ %.385, %thread-pre-split95 ], [ @.str.11, %thread-pre-split ]
   %87 = call ptr @rb_errno_ptr() #6
   %88 = load i32, ptr %87, align 4
   %89 = call i32 @close(i32 noundef %59) #6
@@ -251,9 +251,9 @@ thread-pre-split95.thread:                        ; preds = %thread-pre-split, %
   br label %90
 
 90:                                               ; preds = %.critedge, %thread-pre-split95.thread, %61
-  %.385 = phi ptr [ @.str.10, %61 ], [ %.284128, %thread-pre-split95.thread ], [ %.082103, %.critedge ]
-  %.3 = phi i32 [ %.079104, %61 ], [ %.281129, %thread-pre-split95.thread ], [ %.079104, %.critedge ]
-  %.177 = phi i32 [ %59, %61 ], [ -1, %thread-pre-split95.thread ], [ %.076105, %.critedge ]
+  %.284 = phi ptr [ @.str.10, %61 ], [ %.385128, %thread-pre-split95.thread ], [ %.082103, %.critedge ]
+  %.281 = phi i32 [ %.079104, %61 ], [ %.3129, %thread-pre-split95.thread ], [ %.079104, %.critedge ]
+  %.2 = phi i32 [ %59, %61 ], [ -1, %thread-pre-split95.thread ], [ %.076105, %.critedge ]
   %.1 = phi i32 [ %63, %61 ], [ %88, %thread-pre-split95.thread ], [ %.072106, %.critedge ]
   %91 = getelementptr inbounds i8, ptr %.073107, i64 40
   %.073 = load ptr, ptr %91, align 8
@@ -266,23 +266,23 @@ thread-pre-split95.thread:                        ; preds = %thread-pre-split, %
   br i1 %92, label %93, label %._crit_edge.thread
 
 93:                                               ; preds = %._crit_edge
-  %94 = icmp slt i32 %.3, 0
+  %94 = icmp slt i32 %.281, 0
   %95 = getelementptr inbounds i8, ptr %4, i64 32
   %96 = getelementptr inbounds i8, ptr %4, i64 40
   %.071.in = select i1 %94, ptr %95, ptr %15
   %.0.in = select i1 %94, ptr %96, ptr %17
   %.0 = load i64, ptr %.0.in, align 8
   %.071 = load i64, ptr %.071.in, align 8
-  call void @rsock_syserr_fail_host_port(i32 noundef %.1, ptr noundef %.385, i64 noundef %.071, i64 noundef %.0) #7
+  call void @rsock_syserr_fail_host_port(i32 noundef %.1, ptr noundef %.284, i64 noundef %.071, i64 noundef %.0) #7
   unreachable
 
 ._crit_edge.thread:                               ; preds = %thread-pre-split95, %32, %._crit_edge
-  %.2134 = phi i32 [ %.177, %._crit_edge ], [ -1, %32 ], [ %59, %thread-pre-split95 ]
+  %.177134 = phi i32 [ %.2, %._crit_edge ], [ -1, %32 ], [ %59, %thread-pre-split95 ]
   store i32 -1, ptr %34, align 4
   br i1 %19, label %97, label %104
 
 97:                                               ; preds = %._crit_edge.thread
-  %98 = call i32 @listen(i32 noundef %.2134, i32 noundef 4096) #6
+  %98 = call i32 @listen(i32 noundef %.177134, i32 noundef 4096) #6
   store i32 %98, ptr %2, align 4
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %104
@@ -290,13 +290,13 @@ thread-pre-split95.thread:                        ; preds = %thread-pre-split, %
 100:                                              ; preds = %97
   %101 = call ptr @rb_errno_ptr() #6
   %102 = load i32, ptr %101, align 4
-  %103 = call i32 @close(i32 noundef %.2134) #6
+  %103 = call i32 @close(i32 noundef %.177134) #6
   call void @rb_syserr_fail(i32 noundef %102, ptr noundef nonnull @.str.13) #7
   unreachable
 
 104:                                              ; preds = %97, %._crit_edge.thread
   %105 = load i64, ptr %4, align 8
-  %106 = call i64 @rsock_init_sock(i64 noundef %105, i32 noundef %.2134) #6
+  %106 = call i64 @rsock_init_sock(i64 noundef %105, i32 noundef %.177134) #6
   ret i64 %106
 }
 
@@ -599,7 +599,7 @@ rsock_revlookup_flag.exit:                        ; preds = %11, %3
   br label %rsock_revlookup_flag.exit.thread
 
 rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i, %Check_Type.exit.i, %28, %rsock_revlookup_flag.exit
-  %.1 = phi i32 [ %36, %rsock_revlookup_flag.exit ], [ 0, %.sink.split.i ], [ 0, %28 ], [ 1, %Check_Type.exit.i ], [ 1, %11 ]
+  %.0 = phi i32 [ %36, %rsock_revlookup_flag.exit ], [ 0, %.sink.split.i ], [ 0, %28 ], [ 1, %Check_Type.exit.i ], [ 1, %11 ]
   %37 = getelementptr inbounds i8, ptr %9, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = call i32 @getsockname(i32 noundef %38, ptr nonnull %4, ptr noundef nonnull %5) #6
@@ -614,7 +614,7 @@ rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i,
 
 44:                                               ; preds = %rsock_revlookup_flag.exit.thread
   %45 = load i32, ptr %5, align 4
-  %46 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %45, i32 noundef %.1) #6
+  %46 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %45, i32 noundef %.0) #6
   ret i64 %46
 }
 
@@ -689,7 +689,7 @@ rsock_revlookup_flag.exit:                        ; preds = %11, %3
   br label %rsock_revlookup_flag.exit.thread
 
 rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i, %Check_Type.exit.i, %28, %rsock_revlookup_flag.exit
-  %.1 = phi i32 [ %36, %rsock_revlookup_flag.exit ], [ 0, %.sink.split.i ], [ 0, %28 ], [ 1, %Check_Type.exit.i ], [ 1, %11 ]
+  %.0 = phi i32 [ %36, %rsock_revlookup_flag.exit ], [ 0, %.sink.split.i ], [ 0, %28 ], [ 1, %Check_Type.exit.i ], [ 1, %11 ]
   %37 = getelementptr inbounds i8, ptr %9, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = call i32 @getpeername(i32 noundef %38, ptr nonnull %4, ptr noundef nonnull %5) #6
@@ -704,7 +704,7 @@ rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i,
 
 44:                                               ; preds = %rsock_revlookup_flag.exit.thread
   %45 = load i32, ptr %5, align 4
-  %46 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %45, i32 noundef %.1) #6
+  %46 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %45, i32 noundef %.0) #6
   ret i64 %46
 }
 

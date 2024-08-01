@@ -568,7 +568,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc79
   %indvars.iv86 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next87, %for.inc79 ]
-  %penetration.081 = phi i1 [ false, %for.body.lr.ph ], [ %penetration.4, %for.inc79 ]
+  %penetration.081 = phi i1 [ false, %for.body.lr.ph ], [ %penetration.1, %for.inc79 ]
   %15 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %15, 0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
@@ -687,7 +687,7 @@ for.body50.lr.ph:                                 ; preds = %if.end45
 for.body50:                                       ; preds = %for.body50.lr.ph, %for.inc76
   %indvars.iv84 = phi i64 [ 0, %for.body50.lr.ph ], [ %indvars.iv.next85, %for.inc76 ]
   %39 = phi float [ %arrayidx12.i.promoted, %for.body50.lr.ph ], [ %62, %for.inc76 ]
-  %penetration.172 = phi i1 [ %penetration.081, %for.body50.lr.ph ], [ %penetration.2.lcssa, %for.inc76 ]
+  %penetration.272 = phi i1 [ %penetration.081, %for.body50.lr.ph ], [ %penetration.3.lcssa, %for.inc76 ]
   %40 = phi <2 x float> [ %38, %for.body50.lr.ph ], [ %63, %for.inc76 ]
   %arrayidx.i34 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv84
   %41 = load ptr, ptr %arrayidx.i34, align 8
@@ -710,7 +710,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   %46 = phi i32 [ %43, %for.body59.lr.ph ], [ %58, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %47 = phi float [ %39, %for.body59.lr.ph ], [ %59, %for.inc ]
-  %penetration.264 = phi i1 [ %penetration.172, %for.body59.lr.ph ], [ %penetration.3, %for.inc ]
+  %penetration.364 = phi i1 [ %penetration.272, %for.body59.lr.ph ], [ %penetration.4, %for.inc ]
   %48 = phi <2 x float> [ %40, %for.body59.lr.ph ], [ %60, %for.inc ]
   %arrayidx.i36 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache.i, i64 0, i64 %indvars.iv
   %m_distance1.i = getelementptr inbounds i8, ptr %arrayidx.i36, i64 80
@@ -741,7 +741,7 @@ if.then63:                                        ; preds = %for.body59
 for.inc:                                          ; preds = %if.then63, %for.body59
   %58 = phi i32 [ %.pre, %if.then63 ], [ %46, %for.body59 ]
   %59 = phi float [ %add13.i, %if.then63 ], [ %47, %for.body59 ]
-  %penetration.3 = phi i1 [ true, %if.then63 ], [ %penetration.264, %for.body59 ]
+  %penetration.4 = phi i1 [ true, %if.then63 ], [ %penetration.364, %for.body59 ]
   %60 = phi <2 x float> [ %57, %if.then63 ], [ %48, %for.body59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = sext i32 %58 to i64
@@ -750,14 +750,14 @@ for.inc:                                          ; preds = %if.then63, %for.bod
 
 for.inc76:                                        ; preds = %for.inc, %for.body50
   %62 = phi float [ %39, %for.body50 ], [ %59, %for.inc ]
-  %penetration.2.lcssa = phi i1 [ %penetration.172, %for.body50 ], [ %penetration.3, %for.inc ]
+  %penetration.3.lcssa = phi i1 [ %penetration.272, %for.body50 ], [ %penetration.4, %for.inc ]
   %63 = phi <2 x float> [ %40, %for.body50 ], [ %60, %for.inc ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
   br i1 %exitcond.not, label %for.inc79, label %for.body50, !llvm.loop !8
 
 for.inc79:                                        ; preds = %for.inc76, %if.end45, %if.end, %land.lhs.true, %land.lhs.true32
-  %penetration.4 = phi i1 [ %penetration.081, %if.end ], [ %penetration.081, %land.lhs.true32 ], [ %penetration.081, %land.lhs.true ], [ %penetration.081, %if.end45 ], [ %penetration.2.lcssa, %for.inc76 ]
+  %penetration.1 = phi i1 [ %penetration.081, %if.end ], [ %penetration.081, %land.lhs.true32 ], [ %penetration.081, %land.lhs.true ], [ %penetration.081, %if.end45 ], [ %penetration.3.lcssa, %for.inc76 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %64 = load ptr, ptr %m_ghostObject, align 8
   %m_hashPairCache.i26 = getelementptr inbounds i8, ptr %64, i64 408
@@ -771,7 +771,7 @@ for.inc79:                                        ; preds = %for.inc76, %if.end4
   br i1 %cmp, label %for.body, label %for.end81, !llvm.loop !9
 
 for.end81:                                        ; preds = %for.inc79, %entry
-  %penetration.0.lcssa = phi i1 [ false, %entry ], [ %penetration.4, %for.inc79 ]
+  %penetration.0.lcssa = phi i1 [ false, %entry ], [ %penetration.1, %for.inc79 ]
   %68 = load ptr, ptr %m_ghostObject, align 8
   %m_origin3.i = getelementptr inbounds i8, ptr %68, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %newTrans.sroa.6, ptr noundef nonnull align 4 dereferenceable(16) %m_currentPosition, i64 16, i1 false)

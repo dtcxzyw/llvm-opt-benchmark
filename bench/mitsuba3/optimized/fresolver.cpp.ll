@@ -450,7 +450,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16removeB8ne190000INS_11__wrap_iterIPN7m
 12:                                               ; preds = %.lr.ph, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit
   %13 = phi ptr [ %10, %.lr.ph ], [ %58, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
   %.sroa.0.019 = phi ptr [ %5, %.lr.ph ], [ %13, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
-  %.sroa.010.017 = phi ptr [ %9, %.lr.ph ], [ %.sroa.010.1, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
+  %.sroa.010.117 = phi ptr [ %9, %.lr.ph ], [ %.sroa.010.2, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
   %14 = load ptr, ptr %11, align 8
   %15 = load ptr, ptr %2, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -532,19 +532,19 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %12
-  %56 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN7mitsuba10filesystem4pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.010.017, ptr noundef nonnull align 8 dereferenceable(25) %13)
-  %57 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 32
+  %56 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN7mitsuba10filesystem4pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.010.117, ptr noundef nonnull align 8 dereferenceable(25) %13)
+  %57 = getelementptr inbounds i8, ptr %.sroa.010.117, i64 32
   br label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %26, %.loopexit
-  %.sroa.010.1 = phi ptr [ %57, %.loopexit ], [ %.sroa.010.017, %26 ], [ %.sroa.010.017, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ]
+  %.sroa.010.2 = phi ptr [ %57, %.loopexit ], [ %.sroa.010.117, %26 ], [ %.sroa.010.117, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ]
   %58 = getelementptr inbounds i8, ptr %13, i64 32
   %.not13 = icmp eq ptr %58, %1
   br i1 %.not13, label %.loopexit15, label %12, !llvm.loop !8
 
 .loopexit15:                                      ; preds = %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, %.preheader, %3
-  %.sroa.010.2 = phi ptr [ %9, %3 ], [ %9, %.preheader ], [ %.sroa.010.1, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
-  ret ptr %.sroa.010.2
+  %.sroa.010.0 = phi ptr [ %9, %3 ], [ %9, %.preheader ], [ %.sroa.010.2, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
+  ret ptr %.sroa.010.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2229,8 +2229,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.1 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
-  ret ptr %.sroa.034.1
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  ret ptr %.sroa.034.0
 }
 
 ; Function Attrs: nounwind

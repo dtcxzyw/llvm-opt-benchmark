@@ -2464,13 +2464,13 @@ define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly %1,
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %18 ]
   %24 = phi ptr [ %32, %.lr.ph ], [ %21, %18 ]
-  %.087 = phi i32 [ %29, %.lr.ph ], [ %19, %18 ]
+  %.187 = phi i32 [ %29, %.lr.ph ], [ %19, %18 ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val67 = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds ptr, ptr %.val67, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @Gia_ManFlattenLogicPrepare(ptr noundef %27)
-  %29 = add nsw i32 %28, %.087
+  %29 = add nsw i32 %28, %.187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 24
@@ -2482,7 +2482,7 @@ define ptr @Abc_NtkFlattenHierarchyGia(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph, %18, %15
-  %.1 = phi i32 [ %17, %15 ], [ %19, %18 ], [ %29, %.lr.ph ]
+  %.0 = phi i32 [ %17, %15 ], [ %19, %18 ], [ %29, %.lr.ph ]
   %36 = getelementptr i8, ptr %0, i64 32
   %.val76 = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %.val76, i64 4
@@ -2601,7 +2601,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %80
 87:                                               ; preds = %Vec_PtrFree.exit, %82
   %88 = phi i32 [ %86, %82 ], [ 0, %Vec_PtrFree.exit ]
   %.val = load i32, ptr %5, align 4
-  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %88, i32 noundef %.val, i32 noundef %.1)
+  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %88, i32 noundef %.val, i32 noundef %.0)
   %.val7398 = load ptr, ptr %10, align 8
   %90 = getelementptr i8, ptr %.val7398, i64 4
   %.val73.val99 = load i32, ptr %90, align 4

@@ -87,14 +87,14 @@ if.else:                                          ; preds = %if.end
 
 while.body:                                       ; preds = %if.else, %if.end95
   %save_dl.0119 = phi i32 [ %dec92, %if.end95 ], [ %dl, %if.else ]
-  %c.5118 = phi i64 [ %spec.select98, %if.end95 ], [ %call, %if.else ]
+  %c.6118 = phi i64 [ %spec.select98, %if.end95 ], [ %call, %if.else ]
   %a.addr.0117 = phi ptr [ %add.ptr96, %if.end95 ], [ %add.ptr2, %if.else ]
   %r.addr.1116 = phi ptr [ %add.ptr97, %if.end95 ], [ %add.ptr, %if.else ]
   %10 = load i64, ptr %a.addr.0117, align 8
-  %sub54 = sub i64 %10, %c.5118
+  %sub54 = sub i64 %10, %c.6118
   store i64 %sub54, ptr %r.addr.1116, align 8
   %cmp57.not = icmp eq i64 %10, 0
-  %spec.select96 = select i1 %cmp57.not, i64 %c.5118, i64 0
+  %spec.select96 = select i1 %cmp57.not, i64 %c.6118, i64 0
   %cmp60 = icmp slt i32 %save_dl.0119, 2
   br i1 %cmp60, label %return, label %if.end62
 

@@ -2648,7 +2648,7 @@ propagateall.exit:                                ; preds = %while.body.i, %mark
 
 while.body.i45:                                   ; preds = %propagateall.exit, %if.end28.i
   %15 = phi ptr [ %28, %if.end28.i ], [ %14, %propagateall.exit ]
-  %work.022.i = phi i32 [ %work.2.i, %if.end28.i ], [ 0, %propagateall.exit ]
+  %work.022.i = phi i32 [ %work.1.i, %if.end28.i ], [ 0, %propagateall.exit ]
   %p.021.i = phi ptr [ %p.1.i, %if.end28.i ], [ %twups.i, %propagateall.exit ]
   %inc.i = add nsw i32 %work.022.i, 1
   %marked.i46 = getelementptr inbounds i8, ptr %15, i64 9
@@ -2679,8 +2679,8 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %w
 
 for.body.i48:                                     ; preds = %if.else.i, %for.inc.i49
   %uv.019.i = phi ptr [ %uv.0.i, %for.inc.i49 ], [ %uv.016.i, %if.else.i ]
-  %work.118.i = phi i32 [ %inc9.i, %for.inc.i49 ], [ %inc.i, %if.else.i ]
-  %inc9.i = add nsw i32 %work.118.i, 1
+  %work.218.i = phi i32 [ %inc9.i, %for.inc.i49 ], [ %inc.i, %if.else.i ]
+  %inc9.i = add nsw i32 %work.218.i, 1
   %marked10.i = getelementptr inbounds i8, ptr %uv.019.i, i64 9
   %20 = load i8, ptr %marked10.i, align 1
   %21 = and i8 %20, 24
@@ -2716,7 +2716,7 @@ for.inc.i49:                                      ; preds = %if.then24.i, %land.
 
 if.end28.i:                                       ; preds = %for.inc.i49, %if.else.i, %if.then.i50
   %p.1.i = phi ptr [ %twups3.i, %if.then.i50 ], [ %p.021.i, %if.else.i ], [ %p.021.i, %for.inc.i49 ]
-  %work.2.i = phi i32 [ %inc.i, %if.then.i50 ], [ %inc.i, %if.else.i ], [ %inc9.i, %for.inc.i49 ]
+  %work.1.i = phi i32 [ %inc.i, %if.then.i50 ], [ %inc.i, %if.else.i ], [ %inc9.i, %for.inc.i49 ]
   %28 = load ptr, ptr %p.1.i, align 8
   %cmp.not.i = icmp eq ptr %28, null
   br i1 %cmp.not.i, label %remarkupvals.exit, label %while.body.i45, !llvm.loop !23
@@ -2735,7 +2735,7 @@ while.body.i53:                                   ; preds = %remarkupvals.exit, 
   br i1 %tobool.not.i57, label %propagateall.exit59, label %while.body.i53, !llvm.loop !21
 
 propagateall.exit59:                              ; preds = %while.body.i53, %propagateall.exit, %remarkupvals.exit
-  %work.0.lcssa.i180 = phi i32 [ %work.2.i, %remarkupvals.exit ], [ 0, %propagateall.exit ], [ %work.2.i, %while.body.i53 ]
+  %work.0.lcssa.i180 = phi i32 [ %work.1.i, %remarkupvals.exit ], [ 0, %propagateall.exit ], [ %work.1.i, %while.body.i53 ]
   %tot.0.lcssa.i58 = phi i64 [ 0, %remarkupvals.exit ], [ 0, %propagateall.exit ], [ %add.i56, %while.body.i53 ]
   store ptr %1, ptr %gray.i, align 8
   %tobool.not3.i61 = icmp eq ptr %1, null

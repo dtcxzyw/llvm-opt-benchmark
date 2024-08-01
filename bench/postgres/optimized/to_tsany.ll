@@ -986,9 +986,9 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %19, %30
   %26 = phi i32 [ %32, %30 ], [ %20, %19 ]
-  %.14860 = phi i32 [ %31, %30 ], [ %.04776, %19 ]
+  %.24960 = phi i32 [ %31, %30 ], [ %.04776, %19 ]
   call void @pushStop(ptr noundef %1) #8
-  %.not58 = icmp eq i32 %.14860, 0
+  %.not58 = icmp eq i32 %.24960, 0
   br i1 %.not58, label %30, label %27
 
 27:                                               ; preds = %.lr.ph
@@ -998,7 +998,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %30
 
 30:                                               ; preds = %27, %.lr.ph
-  %31 = add i32 %.14860, 1
+  %31 = add i32 %.24960, 1
   %32 = add nuw nsw i32 %26, 1
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr %struct.ParsedWord, ptr %33, i64 %21, i32 4
@@ -1015,7 +1015,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %.pre-phi = phi i64 [ %.pre82, %..loopexit_crit_edge ], [ %21, %.loopexit.loopexit ], [ %21, %19 ]
   %38 = phi i32 [ %18, %..loopexit_crit_edge ], [ %.pre79, %.loopexit.loopexit ], [ %18, %19 ]
   %39 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %33, %.loopexit.loopexit ], [ %.pre, %19 ]
-  %.249 = phi i32 [ %.04776, %..loopexit_crit_edge ], [ %31, %.loopexit.loopexit ], [ %.04776, %19 ]
+  %.148 = phi i32 [ %.04776, %..loopexit_crit_edge ], [ %31, %.loopexit.loopexit ], [ %.04776, %19 ]
   %40 = getelementptr %struct.ParsedWord, ptr %39, i64 %.pre-phi, i32 4
   %41 = load i16, ptr %40, align 8
   %42 = zext i16 %41 to i32
@@ -1122,7 +1122,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 .critedge:                                        ; preds = %.lr.ph71, %97, %.loopexit
   %102 = phi i32 [ %38, %.loopexit ], [ %98, %97 ], [ %44, %.lr.ph71 ]
   %.1.lcssa = phi i32 [ %.077, %.loopexit ], [ %.2.lcssa, %97 ], [ %.170, %.lr.ph71 ]
-  %.not55 = icmp eq i32 %.249, 0
+  %.not55 = icmp eq i32 %.148, 0
   br i1 %.not55, label %106, label %103
 
 103:                                              ; preds = %.critedge
@@ -1134,7 +1134,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 106:                                              ; preds = %103, %.critedge
   %107 = phi i32 [ %.pre81, %103 ], [ %102, %.critedge ]
-  %108 = add i32 %.249, 1
+  %108 = add i32 %.148, 1
   %109 = icmp slt i32 %.1.lcssa, %107
   br i1 %109, label %17, label %._crit_edge, !llvm.loop !13
 

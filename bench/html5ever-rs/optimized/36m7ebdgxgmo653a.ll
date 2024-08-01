@@ -240,8 +240,8 @@ define hidden noundef ptr @"_ZN5alloc2rc17Weak$LT$T$C$A$GT$7upgrade17ha63475f8fe
   unreachable
 
 _ZN5alloc2rc10RcInnerPtr10inc_strong17h3209bc4ef07a8faaE.llvm.12614863965278530802.exit: ; preds = %4, %7, %1
-  %.1 = phi ptr [ null, %1 ], [ null, %4 ], [ %2, %7 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %2, %7 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

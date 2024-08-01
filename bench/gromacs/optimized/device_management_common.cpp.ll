@@ -715,10 +715,10 @@ define noundef zeroext i1 @_Z20deviceIdIsCompatibleN3gmx8ArrayRefIKSt10unique_pt
 
 64:                                               ; preds = %60, %62
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
-  %.1 = phi i1 [ %.0, %62 ], [ true, %60 ]
+  %.3 = phi i1 [ %.0, %62 ], [ true, %60 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  br i1 %.1, label %65, label %70
+  br i1 %.3, label %65, label %70
 
 65:                                               ; preds = %.thread28, %.thread, %64
   %.pn.pn.pn27 = phi { ptr, i32 } [ %58, %.thread ], [ %.pn, %64 ], [ %59, %.thread28 ]

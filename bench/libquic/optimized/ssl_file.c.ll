@@ -34,8 +34,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp821, label %if.end33, label %if.end10
 
 if.end10:                                         ; preds = %for.cond.preheader, %if.end31
-  %ret.022 = phi ptr [ %ret.1, %if.end31 ], [ null, %for.cond.preheader ]
-  %cmp11 = icmp eq ptr %ret.022, null
+  %ret.122 = phi ptr [ %ret.2, %if.end31 ], [ null, %for.cond.preheader ]
+  %cmp11 = icmp eq ptr %ret.122, null
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
@@ -48,7 +48,7 @@ if.then15:                                        ; preds = %if.then12
   br label %err
 
 if.end17:                                         ; preds = %if.then12, %if.end10
-  %ret.1 = phi ptr [ %call13, %if.then12 ], [ %ret.022, %if.end10 ]
+  %ret.2 = phi ptr [ %call13, %if.then12 ], [ %ret.122, %if.end10 ]
   %0 = load ptr, ptr %x, align 8
   %call18 = call ptr @X509_get_subject_name(ptr noundef %0) #3
   %cmp19 = icmp eq ptr %call18, null
@@ -70,7 +70,7 @@ if.then28:                                        ; preds = %if.end25
 
 if.else:                                          ; preds = %if.end25
   %call29 = call i64 @sk_push(ptr noundef %call, ptr noundef nonnull %call22) #3
-  %call30 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %call22) #3
+  %call30 = call i64 @sk_push(ptr noundef nonnull %ret.2, ptr noundef nonnull %call22) #3
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then28
@@ -79,12 +79,12 @@ if.end31:                                         ; preds = %if.else, %if.then28
   br i1 %cmp8, label %if.end33, label %if.end10
 
 err:                                              ; preds = %if.end21, %if.end17, %if.end, %if.then15, %if.then
-  %ret.2 = phi ptr [ null, %if.then ], [ null, %if.then15 ], [ null, %if.end ], [ %ret.1, %if.end17 ], [ %ret.1, %if.end21 ]
-  call void @sk_pop_free(ptr noundef %ret.2, ptr noundef nonnull @X509_NAME_free) #3
+  %ret.0 = phi ptr [ null, %if.then ], [ null, %if.then15 ], [ null, %if.end ], [ %ret.2, %if.end17 ], [ %ret.2, %if.end21 ]
+  call void @sk_pop_free(ptr noundef %ret.0, ptr noundef nonnull @X509_NAME_free) #3
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end31, %for.cond.preheader, %err
-  %ret.3 = phi ptr [ null, %err ], [ null, %for.cond.preheader ], [ %ret.1, %if.end31 ]
+  %ret.3 = phi ptr [ null, %err ], [ null, %for.cond.preheader ], [ %ret.2, %if.end31 ]
   call void @sk_free(ptr noundef %call) #3
   %call34 = call i32 @BIO_free(ptr noundef %call2) #3
   %1 = load ptr, ptr %x, align 8
@@ -259,8 +259,8 @@ if.else13:                                        ; preds = %if.end5
 
 if.end15:                                         ; preds = %if.then10, %if.then7
   %reason_code.0 = phi i32 [ 12, %if.then7 ], [ 9, %if.then10 ]
-  %x.0 = phi ptr [ %call8, %if.then7 ], [ %call12, %if.then10 ]
-  %cmp16 = icmp eq ptr %x.0, null
+  %x.1 = phi ptr [ %call8, %if.then7 ], [ %call12, %if.then10 ]
+  %cmp16 = icmp eq ptr %x.1, null
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end15
@@ -268,13 +268,13 @@ if.then17:                                        ; preds = %if.end15
   br label %end
 
 if.end18:                                         ; preds = %if.end15
-  %call19 = tail call i32 @SSL_use_certificate(ptr noundef %ssl, ptr noundef nonnull %x.0) #3
+  %call19 = tail call i32 @SSL_use_certificate(ptr noundef %ssl, ptr noundef nonnull %x.1) #3
   br label %end
 
 end:                                              ; preds = %if.end18, %if.then17, %if.else13, %if.then4, %if.then
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then17 ], [ %call19, %if.end18 ], [ 0, %if.else13 ]
-  %x.1 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then17 ], [ %x.0, %if.end18 ], [ null, %if.else13 ]
-  tail call void @X509_free(ptr noundef %x.1) #3
+  %x.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then17 ], [ %x.1, %if.end18 ], [ null, %if.else13 ]
+  tail call void @X509_free(ptr noundef %x.0) #3
   %call20 = tail call i32 @BIO_free(ptr noundef %call1) #3
   ret i32 %ret.0
 }
@@ -476,8 +476,8 @@ if.else12:                                        ; preds = %if.end5
 
 if.end14:                                         ; preds = %if.then10, %if.then7
   %reason_code.0 = phi i32 [ 12, %if.then7 ], [ 9, %if.then10 ]
-  %x.0 = phi ptr [ %call8, %if.then7 ], [ %call11, %if.then10 ]
-  %cmp15 = icmp eq ptr %x.0, null
+  %x.1 = phi ptr [ %call8, %if.then7 ], [ %call11, %if.then10 ]
+  %cmp15 = icmp eq ptr %x.1, null
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
@@ -485,13 +485,13 @@ if.then16:                                        ; preds = %if.end14
   br label %end
 
 if.end17:                                         ; preds = %if.end14
-  %call18 = tail call i32 @SSL_CTX_use_certificate(ptr noundef %ctx, ptr noundef nonnull %x.0) #3
+  %call18 = tail call i32 @SSL_CTX_use_certificate(ptr noundef %ctx, ptr noundef nonnull %x.1) #3
   br label %end
 
 end:                                              ; preds = %if.end17, %if.then16, %if.else12, %if.then4, %if.then
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then16 ], [ %call18, %if.end17 ], [ 0, %if.else12 ]
-  %x.1 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then16 ], [ %x.0, %if.end17 ], [ null, %if.else12 ]
-  tail call void @X509_free(ptr noundef %x.1) #3
+  %x.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then16 ], [ %x.1, %if.end17 ], [ null, %if.else12 ]
+  tail call void @X509_free(ptr noundef %x.0) #3
   %call19 = tail call i32 @BIO_free(ptr noundef %call1) #3
   ret i32 %ret.0
 }
@@ -705,10 +705,10 @@ if.then29:                                        ; preds = %while.end
 
 end:                                              ; preds = %while.end, %if.end9, %if.then29, %if.then23, %if.then8, %if.then4, %if.then
   %x.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then8 ], [ %call6, %if.then23 ], [ %call6, %if.then29 ], [ %call6, %if.end9 ], [ %call6, %while.end ]
-  %ret.1 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then8 ], [ 0, %if.then23 ], [ %spec.select, %if.then29 ], [ 0, %if.end9 ], [ 0, %while.end ]
+  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then8 ], [ 0, %if.then23 ], [ %spec.select, %if.then29 ], [ 0, %if.end9 ], [ 0, %while.end ]
   tail call void @X509_free(ptr noundef %x.0) #3
   %call32 = tail call i32 @BIO_free(ptr noundef %call1) #3
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 declare ptr @PEM_read_bio_X509_AUX(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

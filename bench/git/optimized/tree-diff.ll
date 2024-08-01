@@ -130,7 +130,7 @@ if.end32.lr.ph:                                   ; preds = %for.end
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.lr.ph, %if.end193
-  %p.addr.0205 = phi ptr [ %p, %if.end32.lr.ph ], [ %p.addr.3, %if.end193 ]
+  %p.addr.0205 = phi ptr [ %p, %if.end32.lr.ph ], [ %p.addr.2, %if.end193 ]
   %9 = load i32, ptr %max_changes, align 8
   %tobool33.not = icmp ne i32 %9, 0
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
@@ -484,7 +484,7 @@ if.end190:                                        ; preds = %for.cond175, %if.el
   br label %skip_emit_tp
 
 skip_emit_tp:                                     ; preds = %for.body178, %if.end190
-  %p.addr.2 = phi ptr [ %call191, %if.end190 ], [ %p.addr.0205, %for.body178 ]
+  %p.addr.3 = phi ptr [ %call191, %if.end190 ], [ %p.addr.0205, %for.body178 ]
   br i1 %cmp18185257, label %for.body.i154, label %if.end193
 
 for.body.i154:                                    ; preds = %skip_emit_tp, %for.inc.i159
@@ -505,7 +505,7 @@ for.inc.i159:                                     ; preds = %if.then.i162, %for.
   br i1 %exitcond.not.i161, label %if.end193, label %for.body.i154, !llvm.loop !13
 
 if.end193:                                        ; preds = %for.inc.i159, %for.inc.i, %skip_emit_tp, %skip_emit_t_tp, %if.then168
-  %p.addr.3 = phi ptr [ %call169, %if.then168 ], [ %p.addr.1, %skip_emit_t_tp ], [ %p.addr.2, %skip_emit_tp ], [ %p.addr.1, %for.inc.i ], [ %p.addr.2, %for.inc.i159 ]
+  %p.addr.2 = phi ptr [ %call169, %if.then168 ], [ %p.addr.1, %skip_emit_t_tp ], [ %p.addr.3, %skip_emit_tp ], [ %p.addr.1, %for.inc.i ], [ %p.addr.3, %for.inc.i159 ]
   %call30 = call i32 @diff_can_quit_early(ptr noundef %opt) #10
   %tobool.not = icmp eq i32 %call30, 0
   br i1 %tobool.not, label %if.end32, label %for.end194
@@ -515,7 +515,7 @@ for.end194.thread:                                ; preds = %for.cond54.preheade
   br label %do.body203
 
 for.end194:                                       ; preds = %if.end193, %if.end32, %for.cond54, %for.end
-  %p.addr.0184 = phi ptr [ %p, %for.end ], [ %p.addr.0205, %for.cond54 ], [ %p.addr.3, %if.end193 ], [ %p.addr.0205, %if.end32 ]
+  %p.addr.0184 = phi ptr [ %p, %for.end ], [ %p.addr.0205, %for.cond54 ], [ %p.addr.2, %if.end193 ], [ %p.addr.0205, %if.end32 ]
   call void @free(ptr noundef %call26) #10
   br i1 %cmp18185257, label %for.body198.preheader, label %do.body203
 

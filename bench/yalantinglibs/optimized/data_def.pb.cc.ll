@@ -748,11 +748,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.126 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.126, align 1
+  %ptr.addr.226 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.226, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.126, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.226, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -765,11 +765,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.126, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.226, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.126, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.226, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -889,8 +889,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp43.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then38
-  %ptr.addr.2 = phi ptr [ %retval.0.i31, %if.then38 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.2
+  %ptr.addr.1 = phi ptr [ %retval.0.i31, %if.then38 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.1
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1760,11 +1760,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.134 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.134, align 1
+  %ptr.addr.234 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.234, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.134, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.234, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -1777,11 +1777,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.134, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.234, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.134, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.234, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -1937,8 +1937,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp47.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then42
-  %ptr.addr.2 = phi ptr [ %retval.0.i39, %if.then42 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.2
+  %ptr.addr.1 = phi ptr [ %retval.0.i39, %if.then42 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6mygame6Weapon22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.1
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -3636,11 +3636,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.1255 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.1255, align 1
+  %ptr.addr.4255 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.4255, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.1255, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.4255, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -3653,11 +3653,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.1255, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.4255, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.1255, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.4255, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -3992,8 +3992,8 @@ if.then116:                                       ; preds = %sw.bb109
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then116
-  %ptr.addr.2 = phi ptr [ %add.ptr, %if.then116 ], [ %call5.i115, %do.cond ]
-  %add.ptr117 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 1
+  %ptr.addr.1 = phi ptr [ %add.ptr, %if.then116 ], [ %call5.i115, %do.cond ]
+  %add.ptr117 = getelementptr inbounds i8, ptr %ptr.addr.1, i64 1
   %49 = load ptr, ptr %rep_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i, label %entry.if.then10_crit_edge.i.i.i, label %land.lhs.true.i.i.i
@@ -4055,7 +4055,7 @@ _ZN6mygame7Monster21_internal_add_weaponsEv.exit: ; preds = %if.then.i.i.i91, %i
   br i1 %cmp.i.i93, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i127, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i127: ; preds = %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
-  %add.ptr.i.i128 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 2
+  %add.ptr.i.i128 = getelementptr inbounds i8, ptr %ptr.addr.1, i64 2
   br label %if.end.i97
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94: ; preds = %_ZN6mygame7Monster21_internal_add_weaponsEv.exit
@@ -4220,8 +4220,8 @@ if.then155:                                       ; preds = %sw.bb148
   br label %do.body157
 
 do.body157:                                       ; preds = %do.cond169, %if.then155
-  %ptr.addr.3 = phi ptr [ %add.ptr156, %if.then155 ], [ %call5.i204, %do.cond169 ]
-  %add.ptr158 = getelementptr inbounds i8, ptr %ptr.addr.3, i64 1
+  %ptr.addr.2 = phi ptr [ %add.ptr156, %if.then155 ], [ %call5.i204, %do.cond169 ]
+  %add.ptr158 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 1
   %call.i.i180 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %path_.i, ptr noundef null)
   %87 = load i8, ptr %add.ptr158, align 1
   %conv.i.i181 = zext i8 %87 to i32
@@ -4229,7 +4229,7 @@ do.body157:                                       ; preds = %do.cond169, %if.the
   br i1 %cmp.i.i182, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i216, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i216: ; preds = %do.body157
-  %add.ptr.i.i217 = getelementptr inbounds i8, ptr %ptr.addr.3, i64 2
+  %add.ptr.i.i217 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 2
   br label %if.end.i186
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183: ; preds = %do.body157
@@ -4357,8 +4357,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp181.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end8.i167, %if.end4.i164, %if.end.i147, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i144, %if.end8.i, %if.end4.i, %if.end.i20, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit90, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i206, %if.end4.i203, %if.end.i186, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183, %if.end8.i117, %if.end4.i114, %if.end.i97, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94, %if.then176
-  %ptr.addr.4 = phi ptr [ %retval.0.i260, %if.then176 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94 ], [ null, %if.end.i97 ], [ null, %if.end4.i114 ], [ null, %if.end8.i117 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183 ], [ null, %if.end.i186 ], [ null, %if.end4.i203 ], [ null, %if.end8.i206 ], [ null, %if.end8.i167 ], [ null, %if.end4.i164 ], [ null, %if.end.i147 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i144 ], [ null, %if.end8.i ], [ null, %if.end4.i ], [ null, %if.end.i20 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ null, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit90 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.4
+  %ptr.addr.3 = phi ptr [ %retval.0.i260, %if.then176 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i94 ], [ null, %if.end.i97 ], [ null, %if.end4.i114 ], [ null, %if.end8.i117 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i183 ], [ null, %if.end.i186 ], [ null, %if.end4.i203 ], [ null, %if.end8.i206 ], [ null, %if.end8.i167 ], [ null, %if.end4.i164 ], [ null, %if.end.i147 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i144 ], [ null, %if.end8.i ], [ null, %if.end4.i ], [ null, %if.end.i20 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ null, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit90 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6384,11 +6384,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.141 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.141, align 1
+  %ptr.addr.341 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.341, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.141, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.341, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -6401,11 +6401,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.141, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.341, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.141, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.341, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -6422,8 +6422,8 @@ if.then9:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then9
-  %ptr.addr.2 = phi ptr [ %add.ptr, %if.then9 ], [ %call5.i, %do.cond ]
-  %add.ptr10 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 1
+  %ptr.addr.1 = phi ptr [ %add.ptr, %if.then9 ], [ %call5.i, %do.cond ]
+  %add.ptr10 = getelementptr inbounds i8, ptr %ptr.addr.1, i64 1
   %10 = load ptr, ptr %rep_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %entry.if.then10_crit_edge.i.i.i, label %land.lhs.true.i.i.i
@@ -6485,7 +6485,7 @@ _ZN6mygame8Monsters22_internal_add_monstersEv.exit: ; preds = %if.then.i.i.i, %i
   br i1 %cmp.i.i9, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.2, i64 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.1, i64 2
   br label %if.end.i10
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN6mygame8Monsters22_internal_add_monstersEv.exit
@@ -6617,8 +6617,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp30.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i, %if.end4.i, %if.end.i10, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.then25
-  %ptr.addr.3 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.3
+  %ptr.addr.2 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7431,11 +7431,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.190 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.190, align 1
+  %ptr.addr.290 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.290, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.190, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.290, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -7448,11 +7448,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.190, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.290, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.190, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.290, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -7700,8 +7700,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp76.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then71
-  %ptr.addr.2 = phi ptr [ %retval.0.i95, %if.then71 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.2
+  %ptr.addr.1 = phi ptr [ %retval.0.i95, %if.then71 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8859,11 +8859,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.142 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.142, align 1
+  %ptr.addr.342 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.342, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.142, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.342, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -8876,11 +8876,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.142, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.342, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.142, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.342, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -8897,8 +8897,8 @@ if.then9:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then9
-  %ptr.addr.2 = phi ptr [ %add.ptr, %if.then9 ], [ %call5.i, %do.cond ]
-  %add.ptr10 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 1
+  %ptr.addr.1 = phi ptr [ %add.ptr, %if.then9 ], [ %call5.i, %do.cond ]
+  %add.ptr10 = getelementptr inbounds i8, ptr %ptr.addr.1, i64 1
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_.i, ptr noundef null)
   %10 = load i8, ptr %add.ptr10, align 1
   %conv.i.i8 = zext i8 %10 to i32
@@ -8906,7 +8906,7 @@ do.body:                                          ; preds = %do.cond, %if.then9
   br i1 %cmp.i.i9, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %do.body
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.2, i64 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.1, i64 2
   br label %if.end.i11
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %do.body
@@ -9038,8 +9038,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp30.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i, %if.end4.i, %if.end.i11, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.then25
-  %ptr.addr.3 = phi ptr [ %retval.0.i47, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i11 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.3
+  %ptr.addr.2 = phi ptr [ %retval.0.i47, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i11 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9932,11 +9932,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.156 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.156, align 1
+  %ptr.addr.256 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.256, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.156, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.256, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -9949,11 +9949,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.156, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.256, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.156, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.256, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -10162,8 +10162,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp75.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then70
-  %ptr.addr.2 = phi ptr [ %retval.0.i61, %if.then70 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.2
+  %ptr.addr.1 = phi ptr [ %retval.0.i61, %if.then70 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11366,11 +11366,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool12.i.i, label %success, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.141 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %6 = load i8, ptr %ptr.addr.141, align 1
+  %ptr.addr.341 = phi ptr [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %6 = load i8, ptr %ptr.addr.341, align 1
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.141, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.341, i64 1
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -11383,11 +11383,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.141, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.341, i64 2
   br label %if.end
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.141, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.341, i32 noundef %add.i)
   %8 = extractvalue { ptr, i32 } %call.i, 0
   %9 = extractvalue { ptr, i32 } %call.i, 1
   %tobool.not = icmp eq ptr %8, null
@@ -11404,8 +11404,8 @@ if.then9:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then9
-  %ptr.addr.2 = phi ptr [ %add.ptr, %if.then9 ], [ %call5.i, %do.cond ]
-  %add.ptr10 = getelementptr inbounds i8, ptr %ptr.addr.2, i64 1
+  %ptr.addr.1 = phi ptr [ %add.ptr, %if.then9 ], [ %call5.i, %do.cond ]
+  %add.ptr10 = getelementptr inbounds i8, ptr %ptr.addr.1, i64 1
   %10 = load ptr, ptr %rep_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %entry.if.then10_crit_edge.i.i.i, label %land.lhs.true.i.i.i
@@ -11467,7 +11467,7 @@ _ZN6mygame7persons25_internal_add_person_listEv.exit: ; preds = %if.then.i.i.i, 
   br i1 %cmp.i.i9, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %_ZN6mygame7persons25_internal_add_person_listEv.exit
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.2, i64 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %ptr.addr.1, i64 2
   br label %if.end.i10
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN6mygame7persons25_internal_add_person_listEv.exit
@@ -11599,8 +11599,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %cmp30.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.end8.i, %if.end4.i, %if.end.i10, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %if.then25
-  %ptr.addr.3 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.3
+  %ptr.addr.2 = phi ptr [ %retval.0.i46, %if.then25 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %if.end.i10 ], [ null, %if.end4.i ], [ null, %if.end8.i ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.2
 }
 
 ; Function Attrs: mustprogress uwtable

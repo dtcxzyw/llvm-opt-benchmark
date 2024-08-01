@@ -792,7 +792,7 @@ for.body.i14:                                     ; preds = %setup_workers.exit,
   br i1 %exitcond.not.i18, label %while.cond.outer.split.i, label %for.body.i14, !llvm.loop !10
 
 while.cond.loopexit.i:                            ; preds = %for.inc61.i, %for.cond15.preheader.i
-  %active_workers.1.lcssa.i = phi i32 [ %active_workers.0.ph52.i, %for.cond15.preheader.i ], [ %active_workers.3.i, %for.inc61.i ]
+  %active_workers.1.lcssa.i = phi i32 [ %active_workers.0.ph52.i, %for.cond15.preheader.i ], [ %active_workers.2.i, %for.inc61.i ]
   %tobool.not.i27 = icmp eq i32 %active_workers.1.lcssa.i, 0
   br i1 %tobool.not.i27, label %for.body.preheader.i, label %while.cond.outer.split.i
 
@@ -821,7 +821,7 @@ if.end.i13:                                       ; preds = %if.then.i30
 
 for.body20.i20:                                   ; preds = %for.cond15.preheader.i, %for.inc61.i
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %for.inc61.i ], [ 0, %for.cond15.preheader.i ]
-  %active_workers.149.i = phi i32 [ %active_workers.3.i, %for.inc61.i ], [ %active_workers.0.ph52.i, %for.cond15.preheader.i ]
+  %active_workers.149.i = phi i32 [ %active_workers.2.i, %for.inc61.i ], [ %active_workers.0.ph52.i, %for.cond15.preheader.i ]
   %nr.048.i = phi i32 [ %nr.1.i, %for.inc61.i ], [ %call7.i19, %for.cond15.preheader.i ]
   %arrayidx22.i21 = getelementptr inbounds %struct.pc_worker, ptr %call1.i, i64 %indvars.iv62.i
   %arrayidx24.i = getelementptr inbounds %struct.pollfd, ptr %call.i, i64 %indvars.iv62.i
@@ -961,13 +961,13 @@ if.then56.i:                                      ; preds = %if.else51.i
   unreachable
 
 if.end59.i:                                       ; preds = %if.else51.i, %if.then48.i, %if.then.i20.i.i, %if.then27.i.i, %if.end23.i.i, %if.then38.i
-  %active_workers.2.i = phi i32 [ %dec.i, %if.then38.i ], [ %dec50.i, %if.then48.i ], [ %active_workers.149.i, %if.else51.i ], [ %active_workers.149.i, %if.end23.i.i ], [ %active_workers.149.i, %if.then27.i.i ], [ %active_workers.149.i, %if.then.i20.i.i ]
+  %active_workers.3.i = phi i32 [ %dec.i, %if.then38.i ], [ %dec50.i, %if.then48.i ], [ %active_workers.149.i, %if.else51.i ], [ %active_workers.149.i, %if.end23.i.i ], [ %active_workers.149.i, %if.then27.i.i ], [ %active_workers.149.i, %if.then.i20.i.i ]
   %dec60.i = add nsw i32 %nr.048.i, -1
   br label %for.inc61.i
 
 for.inc61.i:                                      ; preds = %if.end59.i, %for.body20.i20
   %nr.1.i = phi i32 [ %dec60.i, %if.end59.i ], [ %nr.048.i, %for.body20.i20 ]
-  %active_workers.3.i = phi i32 [ %active_workers.2.i, %if.end59.i ], [ %active_workers.149.i, %for.body20.i20 ]
+  %active_workers.2.i = phi i32 [ %active_workers.3.i, %if.end59.i ], [ %active_workers.149.i, %for.body20.i20 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %cmp16.i = icmp ult i64 %indvars.iv.next63.i, %conv.i
   %cmp18.i = icmp sgt i32 %nr.1.i, 0

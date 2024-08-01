@@ -619,13 +619,13 @@ if.then4.i7.i:                                    ; preds = %if.then.i4.i
   br label %if.end.i12.i
 
 if.end.i12.i:                                     ; preds = %if.then4.i7.i, %if.then.i4.i
-  %precomputed.0.i13.i = phi i64 [ %sub.i11.i, %if.then4.i7.i ], [ 0, %if.then.i4.i ]
-  store i64 %precomputed.0.i13.i, ptr %null_count.i1.i, align 8
+  %precomputed.1.i13.i = phi i64 [ %sub.i11.i, %if.then4.i7.i ], [ 0, %if.then.i4.i ]
+  store i64 %precomputed.1.i13.i, ptr %null_count.i1.i, align 8
   br label %_ZNK5arrow9ArraySpan12GetNullCountEv.exit14.i
 
 _ZNK5arrow9ArraySpan12GetNullCountEv.exit14.i:    ; preds = %if.end.i12.i, %lor.rhs.i
-  %precomputed.1.i3.i = phi i64 [ %precomputed.0.i13.i, %if.end.i12.i ], [ %11, %lor.rhs.i ]
-  %cmp4.i = icmp ne i64 %precomputed.1.i3.i, 0
+  %precomputed.0.i3.i = phi i64 [ %precomputed.1.i13.i, %if.end.i12.i ], [ %11, %lor.rhs.i ]
+  %cmp4.i = icmp ne i64 %precomputed.0.i3.i, 0
   br label %return
 
 if.end15:                                         ; preds = %if.end7
@@ -1774,13 +1774,13 @@ if.then5:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then5
-  %precomputed.0 = phi i64 [ %sub, %if.then5 ], [ 0, %if.then ]
-  store atomic i64 %precomputed.0, ptr %null_count seq_cst, align 8
+  %precomputed.1 = phi i64 [ %sub, %if.then5 ], [ 0, %if.then ]
+  store atomic i64 %precomputed.1, ptr %null_count seq_cst, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %entry
-  %precomputed.1 = phi i64 [ %precomputed.0, %if.end ], [ %0, %entry ]
-  ret i64 %precomputed.1
+  %precomputed.0 = phi i64 [ %precomputed.1, %if.end ], [ %0, %entry ]
+  ret i64 %precomputed.0
 }
 
 declare noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -1830,8 +1830,8 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.then.i
-  %precomputed.0.i = phi i64 [ %sub.i, %if.then5.i ], [ 0, %if.then.i ]
-  store atomic i64 %precomputed.0.i, ptr %null_count.i seq_cst, align 8
+  %precomputed.1.i = phi i64 [ %sub.i, %if.then5.i ], [ 0, %if.then.i ]
+  store atomic i64 %precomputed.1.i, ptr %null_count.i seq_cst, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -1889,7 +1889,7 @@ lpad:                                             ; preds = %_ZN5arrow9ArraySpan
   br label %common.resume
 
 return:                                           ; preds = %if.then.i.i.i, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit.i, %if.end.i, %if.then
-  %retval.0 = phi i64 [ %precomputed.0.i, %if.end.i ], [ %4, %if.then ], [ %call6, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit.i ], [ %call6, %if.then.i.i.i ]
+  %retval.0 = phi i64 [ %precomputed.1.i, %if.end.i ], [ %4, %if.then ], [ %call6, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit.i ], [ %call6, %if.then.i.i.i ]
   ret i64 %retval.0
 }
 
@@ -1944,12 +1944,12 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then4.i, %if.then.i
-  %precomputed.0.i = phi i64 [ %sub.i, %if.then4.i ], [ 0, %if.then.i ]
-  store i64 %precomputed.0.i, ptr %null_count.i, align 8
+  %precomputed.1.i = phi i64 [ %sub.i, %if.then4.i ], [ 0, %if.then.i ]
+  store i64 %precomputed.1.i, ptr %null_count.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end14, %if.then12, %if.then8, %if.then4, %if.then
-  %retval.0 = phi i64 [ %call2, %if.then ], [ %call5, %if.then4 ], [ %call9, %if.then8 ], [ %call13, %if.then12 ], [ %precomputed.0.i, %if.end.i ], [ %2, %if.end14 ]
+  %retval.0 = phi i64 [ %call2, %if.then ], [ %call5, %if.then4 ], [ %call9, %if.then8 ], [ %call13, %if.then12 ], [ %precomputed.1.i, %if.end.i ], [ %2, %if.end14 ]
   ret i64 %retval.0
 }
 
@@ -3259,13 +3259,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then4
-  %precomputed.0 = phi i64 [ %sub, %if.then4 ], [ 0, %if.then ]
-  store i64 %precomputed.0, ptr %null_count, align 8
+  %precomputed.1 = phi i64 [ %sub, %if.then4 ], [ 0, %if.then ]
+  store i64 %precomputed.1, ptr %null_count, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %entry
-  %precomputed.1 = phi i64 [ %precomputed.0, %if.end ], [ %0, %entry ]
-  ret i64 %precomputed.1
+  %precomputed.0 = phi i64 [ %precomputed.1, %if.end ], [ %0, %entry ]
+  ret i64 %precomputed.0
 }
 
 declare noundef i64 @_ZN5arrow10union_util27LogicalSparseUnionNullCountERKNS_9ArraySpanE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #3
@@ -4540,13 +4540,13 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then4.i, %if.then.i
-  %precomputed.0.i = phi i64 [ %sub.i, %if.then4.i ], [ 0, %if.then.i ]
-  store i64 %precomputed.0.i, ptr %null_count.i, align 8
+  %precomputed.1.i = phi i64 [ %sub.i, %if.then4.i ], [ 0, %if.then.i ]
+  store i64 %precomputed.1.i, ptr %null_count.i, align 8
   br label %_ZNK5arrow9ArraySpan12GetNullCountEv.exit
 
 _ZNK5arrow9ArraySpan12GetNullCountEv.exit:        ; preds = %entry, %if.end.i
-  %precomputed.1.i = phi i64 [ %precomputed.0.i, %if.end.i ], [ %0, %entry ]
-  %cmp.not = icmp eq i64 %precomputed.1.i, 0
+  %precomputed.0.i = phi i64 [ %precomputed.1.i, %if.end.i ], [ %0, %entry ]
+  %cmp.not = icmp eq i64 %precomputed.0.i, 0
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %_ZNK5arrow9ArraySpan12GetNullCountEv.exit
@@ -4573,13 +4573,13 @@ if.then4.i7:                                      ; preds = %if.then.i4
   br label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.then4.i7, %if.then.i4
-  %precomputed.0.i13 = phi i64 [ %sub.i11, %if.then4.i7 ], [ 0, %if.then.i4 ]
-  store i64 %precomputed.0.i13, ptr %null_count.i1, align 8
+  %precomputed.1.i13 = phi i64 [ %sub.i11, %if.then4.i7 ], [ 0, %if.then.i4 ]
+  store i64 %precomputed.1.i13, ptr %null_count.i1, align 8
   br label %_ZNK5arrow9ArraySpan12GetNullCountEv.exit14
 
 _ZNK5arrow9ArraySpan12GetNullCountEv.exit14:      ; preds = %lor.rhs, %if.end.i12
-  %precomputed.1.i3 = phi i64 [ %precomputed.0.i13, %if.end.i12 ], [ %5, %lor.rhs ]
-  %cmp4 = icmp ne i64 %precomputed.1.i3, 0
+  %precomputed.0.i3 = phi i64 [ %precomputed.1.i13, %if.end.i12 ], [ %5, %lor.rhs ]
+  %cmp4 = icmp ne i64 %precomputed.0.i3, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZNK5arrow9ArraySpan12GetNullCountEv.exit14, %_ZNK5arrow9ArraySpan12GetNullCountEv.exit
@@ -6291,13 +6291,13 @@ call11.i114.noexc:                                ; preds = %if.then5.i
   br label %if.end.i115
 
 if.end.i115:                                      ; preds = %call11.i114.noexc, %if.then.i113
-  %precomputed.0.i = phi i64 [ %sub.i, %call11.i114.noexc ], [ 0, %if.then.i113 ]
-  store atomic i64 %precomputed.0.i, ptr %null_count.i seq_cst, align 8
+  %precomputed.1.i = phi i64 [ %sub.i, %call11.i114.noexc ], [ 0, %if.then.i113 ]
+  store atomic i64 %precomputed.1.i, ptr %null_count.i seq_cst, align 8
   br label %invoke.cont58
 
 invoke.cont58:                                    ; preds = %if.end.i115, %land.lhs.true56
-  %precomputed.1.i = phi i64 [ %precomputed.0.i, %if.end.i115 ], [ %64, %land.lhs.true56 ]
-  %cmp60.not = icmp eq i64 %precomputed.1.i, 0
+  %precomputed.0.i = phi i64 [ %precomputed.1.i, %if.end.i115 ], [ %64, %land.lhs.true56 ]
+  %cmp60.not = icmp eq i64 %precomputed.0.i, 0
   br i1 %cmp60.not, label %while.end82, label %if.then61
 
 if.then61:                                        ; preds = %invoke.cont58
@@ -6744,13 +6744,13 @@ call11.i338.noexc:                                ; preds = %if.then5.i331
   br label %if.end.i340
 
 if.end.i340:                                      ; preds = %call11.i338.noexc, %if.then.i328
-  %precomputed.0.i341 = phi i64 [ %sub.i339, %call11.i338.noexc ], [ 0, %if.then.i328 ]
-  store atomic i64 %precomputed.0.i341, ptr %null_count.i325 seq_cst, align 8
+  %precomputed.1.i341 = phi i64 [ %sub.i339, %call11.i338.noexc ], [ 0, %if.then.i328 ]
+  store atomic i64 %precomputed.1.i341, ptr %null_count.i325 seq_cst, align 8
   br label %invoke.cont147
 
 invoke.cont147:                                   ; preds = %if.end.i340, %_ZN5arrow6StatusD2Ev.exit323
-  %precomputed.1.i327 = phi i64 [ %precomputed.0.i341, %if.end.i340 ], [ %135, %_ZN5arrow6StatusD2Ev.exit323 ]
-  %cmp149.not = icmp eq i64 %precomputed.1.i327, 0
+  %precomputed.0.i327 = phi i64 [ %precomputed.1.i341, %if.end.i340 ], [ %135, %_ZN5arrow6StatusD2Ev.exit323 ]
+  %cmp149.not = icmp eq i64 %precomputed.0.i327, 0
   br i1 %cmp149.not, label %if.end159, label %if.then150
 
 if.then150:                                       ; preds = %invoke.cont147

@@ -5426,8 +5426,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.1 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
-  ret ptr %.sroa.034.1
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  ret ptr %.sroa.034.0
 }
 
 ; Function Attrs: nounwind
@@ -5702,13 +5702,13 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_7Textur
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_7TextureIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEEERNS_9allocatorISA_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
-  %.0.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %36, %24 ]
+  %.1.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %36, %24 ]
   %.014.i.i = phi ptr [ %38, %.lr.ph.i.i ], [ %30, %24 ]
   %37 = load ptr, ptr %.014.i.i, align 8
-  store ptr %37, ptr %.0.i.i, align 8
+  store ptr %37, ptr %.1.i.i, align 8
   store ptr null, ptr %.014.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   %.not.i.i = icmp eq ptr %38, %29
   br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !49
 
@@ -6557,7 +6557,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
 
 136:                                              ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit, %119
   %137 = phi i8 [ %.pr, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %49, %119 ]
-  %.1113 = phi ptr [ %130, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %storemerge, %119 ]
+  %.0 = phi ptr [ %130, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %storemerge, %119 ]
   %138 = icmp eq i8 %137, 42
   br i1 %138, label %139, label %184
 
@@ -6636,25 +6636,25 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %181 = zext nneg i32 %.1 to i64
   %182 = getelementptr inbounds i8, ptr %180, i64 24
   store i64 %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %.1113, i64 1
+  %183 = getelementptr inbounds i8, ptr %.0, i64 1
   %.pre = load i8, ptr %183, align 1
   br label %184
 
 184:                                              ; preds = %.thread, %136
   %185 = phi i8 [ %.pre, %.thread ], [ %137, %136 ]
-  %.2 = phi ptr [ %183, %.thread ], [ %.1113, %136 ]
+  %.1113 = phi ptr [ %183, %.thread ], [ %.0, %136 ]
   %.164 = phi i1 [ true, %.thread ], [ %or.cond, %136 ]
   %186 = icmp ne i8 %185, 46
   br i1 %186, label %.preheader, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %.2, i64 1
+  %188 = getelementptr inbounds i8, ptr %.1113, i64 1
   %189 = load i8, ptr %188, align 1
   %190 = icmp eq i8 %189, 42
   br i1 %190, label %191, label %203
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %.2, i64 2
+  %192 = getelementptr inbounds i8, ptr %.1113, i64 2
   %193 = load i32, ptr %5, align 4
   %194 = icmp slt i32 %193, %6
   br i1 %194, label %195, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
@@ -6694,7 +6694,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   br i1 %214, label %215, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %.2, i64 2
+  %216 = getelementptr inbounds i8, ptr %.1113, i64 2
   %217 = load i8, ptr %216, align 1
   %218 = add i8 %217, -48
   %or.cond6.i96 = icmp ult i8 %218, 10
@@ -6709,7 +6709,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   br i1 %or.cond.i101, label %.lr.ph.i98, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, !llvm.loop !55
 
 _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %.lr.ph.i90, %215, %213, %195, %191
-  %.5 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
+  %.3 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
   %.059 = phi i32 [ %202, %195 ], [ 0, %191 ], [ 0, %213 ], [ 0, %215 ], [ %209, %.lr.ph.i90 ], [ 0, %.lr.ph.i98 ]
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr i8, ptr %223, i64 -24
@@ -6721,12 +6721,12 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, %184
-  %.7.ph = phi ptr [ %.2, %184 ], [ %.5, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
+  %.4.ph = phi ptr [ %.1113, %184 ], [ %.3, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
   br label %229
 
 229:                                              ; preds = %.preheader, %.critedge
-  %.7 = phi ptr [ %231, %.critedge ], [ %.7.ph, %.preheader ]
-  %230 = load i8, ptr %.7, align 1
+  %.4 = phi ptr [ %231, %.critedge ], [ %.4.ph, %.preheader ]
+  %230 = load i8, ptr %.4, align 1
   switch i8 %230, label %.critedge76 [
     i8 108, label %.critedge
     i8 104, label %.critedge
@@ -6752,7 +6752,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   ]
 
 .critedge:                                        ; preds = %229, %229, %229, %229, %229, %229
-  %231 = getelementptr inbounds i8, ptr %.7, i64 1
+  %231 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %229, !llvm.loop !56
 
 232:                                              ; preds = %229
@@ -6956,11 +6956,11 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.critedge76
 
 .critedge76:                                      ; preds = %229, %311, %.loopexit117, %.loopexit116, %.loopexit115, %.loopexit, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105
-  %360 = getelementptr inbounds i8, ptr %.7, i64 1
+  %360 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %.loopexit118
 
 .loopexit118:                                     ; preds = %229, %7, %.critedge76
-  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.7, %229 ]
+  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.4, %229 ]
   ret ptr %.066
 }
 
@@ -8361,8 +8361,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__131__partition_with_equals_on_le
   br i1 %47, label %.critedge, label %.preheader54, !llvm.loop !67
 
 .preheader55:                                     ; preds = %3, %50
-  %.1 = phi ptr [ %48, %50 ], [ %0, %3 ]
-  %48 = getelementptr inbounds i8, ptr %.1, i64 24
+  %.2 = phi ptr [ %48, %50 ], [ %0, %3 ]
+  %48 = getelementptr inbounds i8, ptr %.2, i64 24
   %49 = icmp ult ptr %48, %1
   br i1 %49, label %50, label %.critedge
 
@@ -8370,11 +8370,11 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__131__partition_with_equals_on_le
   %51 = load i8, ptr %48, align 8
   %52 = and i8 %51, 1
   %.not.i.i.i.i.i.i15 = icmp eq i8 %52, 0
-  %53 = getelementptr inbounds i8, ptr %.1, i64 40
+  %53 = getelementptr inbounds i8, ptr %.2, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.1, i64 25
+  %55 = getelementptr inbounds i8, ptr %.2, i64 25
   %56 = select i1 %.not.i.i.i.i.i.i15, ptr %55, ptr %54
-  %57 = getelementptr inbounds i8, ptr %.1, i64 32
+  %57 = getelementptr inbounds i8, ptr %.2, i64 32
   %58 = load i64, ptr %57, align 8
   %59 = lshr i8 %51, 1
   %60 = zext nneg i8 %59 to i64
@@ -8388,21 +8388,21 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__131__partition_with_equals_on_le
   br i1 %65, label %.critedge, label %.preheader55, !llvm.loop !68
 
 .critedge:                                        ; preds = %50, %.preheader55, %.preheader54
-  %.2 = phi ptr [ %32, %.preheader54 ], [ %48, %.preheader55 ], [ %48, %50 ]
-  %66 = icmp ult ptr %.2, %1
+  %.1 = phi ptr [ %32, %.preheader54 ], [ %48, %.preheader55 ], [ %48, %50 ]
+  %66 = icmp ult ptr %.1, %1
   br i1 %66, label %.preheader53, label %.loopexit
 
 .preheader53:                                     ; preds = %.critedge, %.preheader53
-  %.049 = phi ptr [ %67, %.preheader53 ], [ %1, %.critedge ]
-  %67 = getelementptr inbounds i8, ptr %.049, i64 -24
+  %.150 = phi ptr [ %67, %.preheader53 ], [ %1, %.critedge ]
+  %67 = getelementptr inbounds i8, ptr %.150, i64 -24
   %68 = load i8, ptr %67, align 8
   %69 = and i8 %68, 1
   %.not.i.i.i.i.i.i19 = icmp eq i8 %69, 0
-  %70 = getelementptr inbounds i8, ptr %.049, i64 -8
+  %70 = getelementptr inbounds i8, ptr %.150, i64 -8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.049, i64 -23
+  %72 = getelementptr inbounds i8, ptr %.150, i64 -23
   %73 = select i1 %.not.i.i.i.i.i.i19, ptr %72, ptr %71
-  %74 = getelementptr inbounds i8, ptr %.049, i64 -16
+  %74 = getelementptr inbounds i8, ptr %.150, i64 -16
   %75 = load i64, ptr %74, align 8
   %76 = lshr i8 %68, 1
   %77 = zext nneg i8 %76 to i64
@@ -8416,13 +8416,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__131__partition_with_equals_on_le
   br i1 %82, label %.preheader53, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.preheader53, %.critedge
-  %.150 = phi ptr [ %1, %.critedge ], [ %67, %.preheader53 ]
-  %83 = icmp ult ptr %.2, %.150
+  %.049 = phi ptr [ %1, %.critedge ], [ %67, %.preheader53 ]
+  %83 = icmp ult ptr %.1, %.049
   br i1 %83, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %125
-  %.364 = phi ptr [ %93, %125 ], [ %.2, %.loopexit ]
-  %.25163 = phi ptr [ %109, %125 ], [ %.150, %.loopexit ]
+  %.364 = phi ptr [ %93, %125 ], [ %.1, %.loopexit ]
+  %.25163 = phi ptr [ %109, %125 ], [ %.049, %.loopexit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.364, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.364, ptr noundef nonnull align 8 dereferenceable(24) %.25163, i64 24, i1 false)
@@ -8490,7 +8490,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__131__partition_with_equals_on_le
   br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %125, %.loopexit
-  %.3.lcssa = phi ptr [ %.2, %.loopexit ], [ %93, %125 ]
+  %.3.lcssa = phi ptr [ %.1, %.loopexit ], [ %93, %125 ]
   %127 = getelementptr inbounds i8, ptr %.3.lcssa, i64 -24
   %.not = icmp eq ptr %127, %0
   %.pre = load i8, ptr %0, align 8
@@ -8606,19 +8606,19 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_ri
   br i1 %52, label %.critedge, label %.preheader48, !llvm.loop !74
 
 .preheader49:                                     ; preds = %33, %.preheader49
-  %.146 = phi ptr [ %53, %.preheader49 ], [ %1, %33 ]
-  %53 = getelementptr inbounds i8, ptr %.146, i64 -24
+  %.247 = phi ptr [ %53, %.preheader49 ], [ %1, %33 ]
+  %53 = getelementptr inbounds i8, ptr %.247, i64 -24
   %54 = load i8, ptr %53, align 8
   %55 = and i8 %54, 1
   %.not.i.i.i.i.i16 = icmp eq i8 %55, 0
-  %56 = getelementptr inbounds i8, ptr %.146, i64 -16
+  %56 = getelementptr inbounds i8, ptr %.247, i64 -16
   %57 = load i64, ptr %56, align 8
   %58 = lshr i8 %54, 1
   %59 = zext nneg i8 %58 to i64
   %60 = select i1 %.not.i.i.i.i.i16, i64 %59, i64 %57
-  %61 = getelementptr inbounds i8, ptr %.146, i64 -8
+  %61 = getelementptr inbounds i8, ptr %.247, i64 -8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.146, i64 -23
+  %63 = getelementptr inbounds i8, ptr %.247, i64 -23
   %64 = select i1 %.not.i.i.i.i.i16, ptr %63, ptr %62
   %.sroa.speculated.i.i.i.i17 = tail call i64 @llvm.umin.i64(i64 %15, i64 %60)
   %65 = call noundef i32 @memcmp(ptr noundef %64, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i17) #28
@@ -8629,13 +8629,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_ri
   br i1 %68, label %.critedge, label %.preheader49, !llvm.loop !75
 
 .critedge:                                        ; preds = %.preheader49, %36, %.preheader48
-  %.247 = phi ptr [ %.045, %.preheader48 ], [ %37, %36 ], [ %53, %.preheader49 ]
-  %69 = icmp ult ptr %17, %.247
+  %.146 = phi ptr [ %.045, %.preheader48 ], [ %37, %36 ], [ %53, %.preheader49 ]
+  %69 = icmp ult ptr %17, %.146
   br i1 %69, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge, %111
   %.162 = phi ptr [ %79, %111 ], [ %17, %.critedge ]
-  %.361 = phi ptr [ %95, %111 ], [ %.247, %.critedge ]
+  %.361 = phi ptr [ %95, %111 ], [ %.146, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.162, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.162, ptr noundef nonnull align 8 dereferenceable(24) %.361, i64 24, i1 false)
@@ -8737,7 +8737,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_ri
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit28
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit28: ; preds = %.thread, %121, %122
-  %125 = icmp uge ptr %17, %.247
+  %125 = icmp uge ptr %17, %.146
   %126 = zext i1 %125 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i8 0, ptr %4, align 8
@@ -8950,8 +8950,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   br i1 %.not, label %.loopexit, label %59, !llvm.loop !80
 
 .loopexit:                                        ; preds = %118, %51, %115, %9, %37, %3, %3, %46, %42, %38
-  %.3 = phi i1 [ %117, %115 ], [ true, %46 ], [ true, %42 ], [ true, %38 ], [ true, %3 ], [ true, %3 ], [ true, %37 ], [ true, %9 ], [ true, %51 ], [ true, %118 ]
-  ret i1 %.3
+  %.018 = phi i1 [ %117, %115 ], [ true, %46 ], [ true, %42 ], [ true, %38 ], [ true, %3 ], [ true, %3 ], [ true, %37 ], [ true, %9 ], [ true, %51 ], [ true, %118 ]
+  ret i1 %.018
 }
 
 ; Function Attrs: mustprogress uwtable

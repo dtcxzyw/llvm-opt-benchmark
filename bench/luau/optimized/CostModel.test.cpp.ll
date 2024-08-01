@@ -4280,8 +4280,8 @@ define internal fastcc noundef i64 @_ZL13modelFunctionPKc(ptr noundef %0) unname
 
 42:                                               ; preds = %39, %37
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
-  %.05 = extractvalue { ptr, i32 } %.pn, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %.05) #12
+  %.38 = extractvalue { ptr, i32 } %.pn, 0
+  %43 = call ptr @__cxa_begin_catch(ptr %.38) #12
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %44 unwind label %49
 
@@ -4386,8 +4386,8 @@ define internal fastcc noundef i64 @_ZL13modelFunctionPKc(ptr noundef %0) unname
 
 82:                                               ; preds = %79, %77
   %.pn12 = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ]
-  %.27 = extractvalue { ptr, i32 } %.pn12, 0
-  %83 = call ptr @__cxa_begin_catch(ptr %.27) #12
+  %.5 = extractvalue { ptr, i32 } %.pn12, 0
+  %83 = call ptr @__cxa_begin_catch(ptr %.5) #12
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %84 unwind label %89
 

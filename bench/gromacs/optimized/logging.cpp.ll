@@ -208,22 +208,22 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %14, %17
 
 40:                                               ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  %.1 = phi i1 [ %.0, %38 ], [ true, %36 ]
+  %.4 = phi i1 [ %.0, %38 ], [ true, %36 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   br label %41
 
 41:                                               ; preds = %40, %34
   %.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %35, %34 ]
-  %.2 = phi i1 [ %.1, %40 ], [ true, %34 ]
+  %.3 = phi i1 [ %.4, %40 ], [ true, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   br label %42
 
 42:                                               ; preds = %32, %41
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %41 ], [ %33, %32 ]
-  %.3 = phi i1 [ %.2, %41 ], [ true, %32 ]
+  %.2 = phi i1 [ %.3, %41 ], [ true, %32 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
-  br i1 %.3, label %43, label %53
+  br i1 %.2, label %43, label %53
 
 43:                                               ; preds = %.thread, %42
   %.pn.pn.pn.pn27 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn.pn.pn, %42 ]

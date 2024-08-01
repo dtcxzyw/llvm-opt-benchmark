@@ -771,15 +771,15 @@ if.then2:                                         ; preds = %if.end
   %suffix8 = getelementptr inbounds i8, ptr %opts, i64 8
   %1 = load ptr, ptr %suffix8, align 8
   %tobool9.not = icmp eq ptr %1, null
-  %suffix.0 = select i1 %tobool9.not, ptr @.str.1, ptr %1
+  %suffix.1 = select i1 %tobool9.not, ptr @.str.1, ptr %1
   %separator13 = getelementptr inbounds i8, ptr %opts, i64 16
   %2 = load ptr, ptr %separator13, align 8
   %tobool14.not = icmp eq ptr %2, null
-  %separator.0 = select i1 %tobool14.not, ptr @.str.2, ptr %2
+  %separator.1 = select i1 %tobool14.not, ptr @.str.2, ptr %2
   %pointer18 = getelementptr inbounds i8, ptr %opts, i64 24
   %3 = load ptr, ptr %pointer18, align 8
   %tobool19.not = icmp eq ptr %3, null
-  %pointer.0 = select i1 %tobool19.not, ptr @.str.3, ptr %3
+  %pointer.1 = select i1 %tobool19.not, ptr @.str.3, ptr %3
   %tag23 = getelementptr inbounds i8, ptr %opts, i64 32
   %4 = load ptr, ptr %tag23, align 8
   %tobool24.not = icmp eq ptr %4, null
@@ -787,10 +787,10 @@ if.then2:                                         ; preds = %if.end
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then2, %if.end
-  %prefix.1 = phi ptr [ @.str, %if.end ], [ %spec.select, %if.then2 ]
-  %suffix.1 = phi ptr [ @.str.1, %if.end ], [ %suffix.0, %if.then2 ]
-  %separator.1 = phi ptr [ @.str.2, %if.end ], [ %separator.0, %if.then2 ]
-  %pointer.1 = phi ptr [ @.str.3, %if.end ], [ %pointer.0, %if.then2 ]
+  %prefix.0 = phi ptr [ @.str, %if.end ], [ %spec.select, %if.then2 ]
+  %suffix.0 = phi ptr [ @.str.1, %if.end ], [ %suffix.1, %if.then2 ]
+  %separator.0 = phi ptr [ @.str.2, %if.end ], [ %separator.1, %if.then2 ]
+  %pointer.0 = phi ptr [ @.str.3, %if.end ], [ %pointer.1, %if.then2 ]
   %tag.0 = phi ptr [ @.str.4, %if.end ], [ %spec.select57, %if.then2 ]
   %call29 = tail call ptr @diff_get_color(i32 noundef %use_color, i32 noundef 6) #12
   %call.i58 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %use_color) #12
@@ -855,7 +855,7 @@ current_pointed_by_HEAD.exit:                     ; preds = %for.inc.i, %land.lh
 
 while.body:                                       ; preds = %current_pointed_by_HEAD.exit, %if.end53
   %decoration.0100 = phi ptr [ %call.i, %current_pointed_by_HEAD.exit ], [ %18, %if.end53 ]
-  %prefix.299 = phi ptr [ %prefix.1, %current_pointed_by_HEAD.exit ], [ %prefix.3, %if.end53 ]
+  %prefix.299 = phi ptr [ %prefix.0, %current_pointed_by_HEAD.exit ], [ %prefix.3, %if.end53 ]
   %cmp.not = icmp eq ptr %decoration.0100, %retval.0.i60
   br i1 %cmp.not, label %if.end53, label %if.then33
 
@@ -931,8 +931,8 @@ land.lhs.true45:                                  ; preds = %show_name.exit
 if.then49:                                        ; preds = %land.lhs.true45
   %call.i77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef %call29, i64 noundef %call.i77) #12
-  %call.i78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pointer.1) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %pointer.1, i64 noundef %call.i78) #12
+  %call.i78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pointer.0) #13
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %pointer.0, i64 noundef %call.i78) #12
   %call.i79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %retval.0.i, i64 noundef %call.i79) #12
   %16 = load i32, ptr %type50, align 8
@@ -964,21 +964,21 @@ show_name.exit93:                                 ; preds = %if.then.i90, %if.el
   br label %if.end53
 
 if.end53:                                         ; preds = %show_name.exit, %land.lhs.true45, %show_name.exit93, %while.body
-  %prefix.3 = phi ptr [ %prefix.299, %while.body ], [ %separator.1, %show_name.exit93 ], [ %separator.1, %land.lhs.true45 ], [ %separator.1, %show_name.exit ]
+  %prefix.3 = phi ptr [ %prefix.299, %while.body ], [ %separator.0, %show_name.exit93 ], [ %separator.0, %land.lhs.true45 ], [ %separator.0, %show_name.exit ]
   %18 = load ptr, ptr %decoration.0100, align 8
   %tobool32.not = icmp eq ptr %18, null
   br i1 %tobool32.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end53
-  %19 = load i8, ptr %suffix.1, align 1
+  %19 = load i8, ptr %suffix.0, align 1
   %tobool54.not = icmp eq i8 %19, 0
   br i1 %tobool54.not, label %if.end56, label %if.then55
 
 if.then55:                                        ; preds = %while.end
   %call.i95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef %call29, i64 noundef %call.i95) #12
-  %call.i96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix.1) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %suffix.1, i64 noundef %call.i96) #12
+  %call.i96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %suffix.0) #13
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %suffix.0, i64 noundef %call.i96) #12
   %call.i97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %retval.0.i, i64 noundef %call.i97) #12
   br label %if.end56

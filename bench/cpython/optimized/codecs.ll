@@ -3986,7 +3986,7 @@ for.body50.lr.ph:                                 ; preds = %PyUnicode_DATA.exit
   br label %for.body50
 
 for.body50:                                       ; preds = %for.body50.lr.ph, %for.inc123
-  %outp.0109 = phi ptr [ %retval.0.i58, %for.body50.lr.ph ], [ %outp.2, %for.inc123 ]
+  %outp.0109 = phi ptr [ %retval.0.i58, %for.body50.lr.ph ], [ %outp.1, %for.inc123 ]
   %i.1108 = phi i64 [ %14, %for.body50.lr.ph ], [ %inc124, %for.inc123 ]
   %bf.load.i61 = load i32, ptr %state.i60, align 8
   %bf.lshr.i62 = lshr i32 %bf.load.i61, 2
@@ -4166,26 +4166,26 @@ if.else110:                                       ; preds = %if.else95
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then98, %if.else110, %if.then67
-  %outp.1 = phi ptr [ %incdec.ptr94, %if.then67 ], [ %incdec.ptr109, %if.then98 ], [ %incdec.ptr99, %if.else110 ]
+  %outp.2 = phi ptr [ %incdec.ptr94, %if.then67 ], [ %incdec.ptr109, %if.then98 ], [ %incdec.ptr99, %if.else110 ]
   %45 = load ptr, ptr @Py_hexdigits, align 8
   %shr114 = lshr i32 %retval.0.i74, 4
   %and115 = and i32 %shr114, 15
   %idxprom116 = zext nneg i32 %and115 to i64
   %arrayidx117 = getelementptr i8, ptr %45, i64 %idxprom116
   %46 = load i8, ptr %arrayidx117, align 1
-  %incdec.ptr118 = getelementptr i8, ptr %outp.1, i64 1
-  store i8 %46, ptr %outp.1, align 1
+  %incdec.ptr118 = getelementptr i8, ptr %outp.2, i64 1
+  store i8 %46, ptr %outp.2, align 1
   %47 = load ptr, ptr @Py_hexdigits, align 8
   %and119 = and i32 %retval.0.i74, 15
   %idxprom120 = zext nneg i32 %and119 to i64
   %arrayidx121 = getelementptr i8, ptr %47, i64 %idxprom120
   %48 = load i8, ptr %arrayidx121, align 1
-  %incdec.ptr122 = getelementptr i8, ptr %outp.1, i64 2
+  %incdec.ptr122 = getelementptr i8, ptr %outp.2, i64 2
   store i8 %48, ptr %incdec.ptr118, align 1
   br label %for.inc123
 
 for.inc123:                                       ; preds = %if.end113, %if.then56
-  %outp.2 = phi ptr [ %incdec.ptr63, %if.then56 ], [ %incdec.ptr122, %if.end113 ]
+  %outp.1 = phi ptr [ %incdec.ptr63, %if.then56 ], [ %incdec.ptr122, %if.end113 ]
   %inc124 = add nsw i64 %i.1108, 1
   %49 = load i64, ptr %end, align 8
   %cmp48 = icmp slt i64 %inc124, %49

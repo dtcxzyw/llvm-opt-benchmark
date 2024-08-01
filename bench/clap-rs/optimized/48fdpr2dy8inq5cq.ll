@@ -2359,8 +2359,8 @@ define noundef range(i8 0, 3) i8 @_ZN12clap_builder7builder7command7Command9get_
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %5, %1
-  %.1 = phi i8 [ 2, %1 ], [ 2, %5 ], [ %spec.select, %9 ]
-  ret i8 %.1
+  %.0 = phi i8 [ 2, %1 ], [ 2, %5 ], [ %spec.select, %9 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -357,7 +357,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i, %invoke.cont15
-  %retval.0 = phi ptr [ null, %invoke.cont15 ], [ %v2, %invoke.cont.i.i.i ], [ %v2, %if.then.i.i.i.i.i ]
+  %retval.1 = phi ptr [ null, %invoke.cont15 ], [ %v2, %invoke.cont.i.i.i ], [ %v2, %if.then.i.i.i.i.i ]
   %8 = load ptr, ptr %temp, align 16
   %_M_finish.i16 = getelementptr inbounds i8, ptr %temp, i64 8
   %9 = load ptr, ptr %_M_finish.i16, align 8
@@ -397,8 +397,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.bb, %if.then.i.i.i26, %invoke.cont.i24, %entry, %sw.epilog, %sw.bb20, %sw.bb18, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %invoke.cont4
-  %retval.1 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ @_ZTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 24 to ptr), %entry ], [ %call5.i.i14, %sw.bb ], [ %retval.0, %invoke.cont.i24 ], [ %retval.0, %if.then.i.i.i26 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ @_ZTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 24 to ptr), %entry ], [ %call5.i.i14, %sw.bb ], [ %retval.1, %invoke.cont.i24 ], [ %retval.1, %if.then.i.i.i26 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3389,7 +3389,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorIPKN4ab
 while.end:                                        ; preds = %while.cond.outer.backedge, %while.cond.backedge, %do.end146
   %input_args.val47 = phi ptr [ %input_args.val42, %do.end146 ], [ %input_args.val45719, %while.cond.outer.backedge ], [ %input_args.val45, %while.cond.backedge ]
   %input_args.val46 = phi ptr [ %input_args.val, %do.end146 ], [ %input_args.val44718, %while.cond.outer.backedge ], [ %input_args.val45, %while.cond.backedge ]
-  %success.3 = phi i8 [ %frombool, %do.end146 ], [ %success.0.ph.be, %while.cond.outer.backedge ], [ %frombool, %while.cond.backedge ]
+  %success.1 = phi i8 [ %frombool, %do.end146 ], [ %success.0.ph.be, %while.cond.outer.backedge ], [ %frombool, %while.cond.backedge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp9.i249)
   %219 = load ptr, ptr %flagfile_value, align 8
@@ -3993,7 +3993,7 @@ for.end239:                                       ; preds = %for.end239.loopexit
   store ptr %283, ptr %filtered, align 8
   store ptr %282, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %285, ptr %_M_end_of_storage.i.i336, align 8
-  %tobool240 = trunc nuw i8 %success.3 to i1
+  %tobool240 = trunc nuw i8 %success.1 to i1
   br i1 %tobool240, label %if.end247, label %if.then241
 
 if.then241:                                       ; preds = %for.end239
@@ -5367,7 +5367,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %success.054 = phi i1 [ true, %for.body.lr.ph ], [ %success.3, %for.inc ]
+  %success.054 = phi i1 [ true, %for.body.lr.ph ], [ %success.1, %for.inc ]
   %__begin2.sroa.0.053 = phi ptr [ %.pre, %for.body.lr.ph ], [ %incdec.ptr.i28, %for.inc ]
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.053, ptr noundef nonnull @.str.5) #22
   %cmp.i12 = icmp eq i32 %call.i, 0
@@ -5503,18 +5503,18 @@ if.else.i.i:                                      ; preds = %invoke.cont50
 
 cleanup.sink.split:                               ; preds = %if.else.i.i, %if.then.i.i, %invoke.cont35
   %ref.tmp30.sink = phi ptr [ %ref.tmp30, %invoke.cont35 ], [ %ref.tmp41, %if.then.i.i ], [ %ref.tmp41, %if.else.i.i ]
-  %success.2.ph = phi i1 [ false, %invoke.cont35 ], [ %success.054, %if.then.i.i ], [ %success.054, %if.else.i.i ]
+  %success.3.ph = phi i1 [ false, %invoke.cont35 ], [ %success.054, %if.then.i.i ], [ %success.054, %if.else.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.sink) #22
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then27
-  %success.2 = phi i1 [ %success.054, %if.then27 ], [ %success.2.ph, %cleanup.sink.split ]
+  %success.3 = phi i1 [ %success.054, %if.then27 ], [ %success.3.ph, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %envval) #22
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont14, %cleanup
   %envname.sink = phi ptr [ %envname, %cleanup ], [ %ref.tmp, %invoke.cont14 ]
-  %success.3 = phi i1 [ %success.2, %cleanup ], [ false, %invoke.cont14 ]
+  %success.1 = phi i1 [ %success.3, %cleanup ], [ false, %invoke.cont14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %envname.sink) #22
   %incdec.ptr.i28 = getelementptr inbounds i8, ptr %__begin2.sroa.0.053, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i28, %.pre55
@@ -5533,7 +5533,7 @@ ehcleanup:                                        ; preds = %lpad51, %lpad37, %l
   br label %ehcleanup63
 
 for.end:                                          ; preds = %for.inc
-  br i1 %success.3, label %if.then57, label %if.end60
+  br i1 %success.1, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %invoke.cont, %for.end
   %_M_finish.i29 = getelementptr inbounds i8, ptr %input_args, i64 8

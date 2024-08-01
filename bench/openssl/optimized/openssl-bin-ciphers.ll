@@ -270,12 +270,12 @@ if.else84:                                        ; preds = %if.end80
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else84, %if.then82
-  %sk.0 = phi ptr [ %call83, %if.then82 ], [ %call85, %if.else84 ]
+  %sk.1 = phi ptr [ %call83, %if.then82 ], [ %call85, %if.else84 ]
   %tobool87.not = icmp eq i32 %verbose.0, 0
   br i1 %tobool87.not, label %for.cond.preheader, label %for.cond117.preheader
 
 for.cond117.preheader:                            ; preds = %if.end86
-  %call11973 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk.0) #3
+  %call11973 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk.1) #3
   %cmp12074 = icmp sgt i32 %call11973, 0
   br i1 %cmp12074, label %for.body122.lr.ph, label %end
 
@@ -289,7 +289,7 @@ for.body122.lr.ph.split.us:                       ; preds = %for.body122.lr.ph
 
 for.body122.us.us:                                ; preds = %for.body122.lr.ph.split.us, %for.inc170.us.us
   %i.175.us.us = phi i32 [ %inc171.us.us, %for.inc170.us.us ], [ 0, %for.body122.lr.ph.split.us ]
-  %call125.us.us = call ptr @OPENSSL_sk_value(ptr noundef %sk.0, i32 noundef %i.175.us.us) #3
+  %call125.us.us = call ptr @OPENSSL_sk_value(ptr noundef %sk.1, i32 noundef %i.175.us.us) #3
   %cmp126.not.us.us = icmp eq ptr %call125.us.us, null
   br i1 %cmp126.not.us.us, label %for.inc170.us.us, label %if.end137.us.us
 
@@ -301,13 +301,13 @@ if.end137.us.us:                                  ; preds = %for.body122.us.us
 
 for.inc170.us.us:                                 ; preds = %if.end137.us.us, %for.body122.us.us
   %inc171.us.us = add nuw nsw i32 %i.175.us.us, 1
-  %call119.us.us = call i32 @OPENSSL_sk_num(ptr noundef %sk.0) #3
+  %call119.us.us = call i32 @OPENSSL_sk_num(ptr noundef %sk.1) #3
   %cmp120.us.us = icmp slt i32 %inc171.us.us, %call119.us.us
   br i1 %cmp120.us.us, label %for.body122.us.us, label %end, !llvm.loop !7
 
 for.body122.us:                                   ; preds = %for.body122.lr.ph.split.us, %for.inc170.us
   %i.175.us = phi i32 [ %inc171.us, %for.inc170.us ], [ 0, %for.body122.lr.ph.split.us ]
-  %call125.us = call ptr @OPENSSL_sk_value(ptr noundef %sk.0, i32 noundef %i.175.us) #3
+  %call125.us = call ptr @OPENSSL_sk_value(ptr noundef %sk.1, i32 noundef %i.175.us) #3
   %cmp126.not.us = icmp eq ptr %call125.us, null
   br i1 %cmp126.not.us, label %for.inc170.us, label %if.end137.us
 
@@ -324,18 +324,18 @@ if.end137.us:                                     ; preds = %for.body122.us
 
 for.inc170.us:                                    ; preds = %if.end137.us, %for.body122.us
   %inc171.us = add nuw nsw i32 %i.175.us, 1
-  %call119.us = call i32 @OPENSSL_sk_num(ptr noundef %sk.0) #3
+  %call119.us = call i32 @OPENSSL_sk_num(ptr noundef %sk.1) #3
   %cmp120.us = icmp slt i32 %inc171.us, %call119.us
   br i1 %cmp120.us, label %for.body122.us, label %end, !llvm.loop !7
 
 for.cond.preheader:                               ; preds = %if.end86
-  %call9076 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk.0) #3
+  %call9076 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk.1) #3
   %cmp9177 = icmp sgt i32 %call9076, 0
   br i1 %cmp9177, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.078 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call94 = tail call ptr @OPENSSL_sk_value(ptr noundef %sk.0, i32 noundef %i.078) #3
+  %call94 = tail call ptr @OPENSSL_sk_value(ptr noundef %sk.1, i32 noundef %i.078) #3
   %cmp95.not = icmp eq ptr %call94, null
   br i1 %cmp95.not, label %for.inc, label %if.end103
 
@@ -360,7 +360,7 @@ if.end113:                                        ; preds = %if.then111, %if.end
 
 for.inc:                                          ; preds = %for.body, %if.end113
   %inc = add nuw nsw i32 %i.078, 1
-  %call90 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk.0) #3
+  %call90 = tail call i32 @OPENSSL_sk_num(ptr noundef %sk.1) #3
   %cmp91 = icmp slt i32 %inc, %call90
   br i1 %cmp91, label %for.body, label %for.end, !llvm.loop !8
 
@@ -371,7 +371,7 @@ for.end:                                          ; preds = %for.inc, %if.end103
 
 for.body122:                                      ; preds = %for.body122.lr.ph, %for.inc170
   %i.175 = phi i32 [ %inc171, %for.inc170 ], [ 0, %for.body122.lr.ph ]
-  %call125 = call ptr @OPENSSL_sk_value(ptr noundef %sk.0, i32 noundef %i.175) #3
+  %call125 = call ptr @OPENSSL_sk_value(ptr noundef %sk.1, i32 noundef %i.175) #3
   %cmp126.not = icmp eq ptr %call125, null
   br i1 %cmp126.not, label %for.inc170, label %if.end137
 
@@ -416,7 +416,7 @@ if.end167:                                        ; preds = %if.then160, %if.end
 
 for.inc170:                                       ; preds = %for.body122, %if.end167
   %inc171 = add nuw nsw i32 %i.175, 1
-  %call119 = call i32 @OPENSSL_sk_num(ptr noundef %sk.0) #3
+  %call119 = call i32 @OPENSSL_sk_num(ptr noundef %sk.1) #3
   %cmp120 = icmp slt i32 %inc171, %call119
   br i1 %cmp120, label %for.body122, label %end, !llvm.loop !7
 
@@ -433,19 +433,19 @@ err:                                              ; preds = %err.sink.split, %if
 
 end:                                              ; preds = %sw.bb21, %for.inc170, %for.inc170.us, %for.inc170.us.us, %for.cond117.preheader, %for.end, %err, %if.then33, %sw.bb4, %opthelp
   %ret.0 = phi i32 [ 0, %sw.bb4 ], [ 1, %opthelp ], [ 0, %if.then33 ], [ 1, %err ], [ 0, %for.end ], [ 0, %for.cond117.preheader ], [ 0, %for.inc170.us.us ], [ 0, %for.inc170.us ], [ 0, %for.inc170 ], [ 1, %sw.bb21 ]
-  %sk.1 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %sk.0, %for.end ], [ %sk.0, %for.cond117.preheader ], [ %sk.0, %for.inc170.us.us ], [ %sk.0, %for.inc170.us ], [ %sk.0, %for.inc170 ], [ null, %sw.bb21 ]
-  %ssl.1 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %call76, %for.end ], [ %call76, %for.cond117.preheader ], [ %call76, %for.inc170.us.us ], [ %call76, %for.inc170.us ], [ %call76, %for.inc170 ], [ null, %sw.bb21 ]
+  %sk.0 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %sk.1, %for.end ], [ %sk.1, %for.cond117.preheader ], [ %sk.1, %for.inc170.us.us ], [ %sk.1, %for.inc170.us ], [ %sk.1, %for.inc170 ], [ null, %sw.bb21 ]
+  %ssl.0 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %call76, %for.end ], [ %call76, %for.cond117.preheader ], [ %call76, %for.inc170.us.us ], [ %call76, %for.inc170.us ], [ %call76, %for.inc170 ], [ null, %sw.bb21 ]
   %ctx.0 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ %call39, %err ], [ %call39, %for.end ], [ %call39, %for.cond117.preheader ], [ %call39, %for.inc170.us.us ], [ %call39, %for.inc170.us ], [ %call39, %for.inc170 ], [ null, %sw.bb21 ]
   %tobool174.not = icmp eq i32 %use_supported.0, 0
   br i1 %tobool174.not, label %if.end177, label %if.then175
 
 if.then175:                                       ; preds = %end
-  call void @OPENSSL_sk_free(ptr noundef %sk.1) #3
+  call void @OPENSSL_sk_free(ptr noundef %sk.0) #3
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then175, %end
   call void @SSL_CTX_free(ptr noundef %ctx.0) #3
-  call void @SSL_free(ptr noundef %ssl.1) #3
+  call void @SSL_free(ptr noundef %ssl.0) #3
   ret i32 %ret.0
 }
 

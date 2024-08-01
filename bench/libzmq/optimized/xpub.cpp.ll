@@ -1941,7 +1941,7 @@ if.else198:                                       ; preds = %invoke.cont163
   br label %if.end238
 
 if.end238:                                        ; preds = %if.else198, %do.end194, %sw.default150
-  %it.sroa.65.2 = phi i8 [ %it.sroa.65.0.copyload, %sw.default150 ], [ %it.sroa.65.0.copyload, %do.end194 ], [ %spec.select, %if.else198 ]
+  %it.sroa.65.1 = phi i8 [ %it.sroa.65.0.copyload, %sw.default150 ], [ %it.sroa.65.0.copyload, %do.end194 ], [ %spec.select, %if.else198 ]
   %it.sroa.82.1 = phi i8 [ %it.sroa.82.0.copyload, %sw.default150 ], [ %it.sroa.82.0.copyload, %do.end194 ], [ %spec.select151, %if.else198 ]
   %inc240 = add i16 %it.sroa.53.0.copyload, 1
   %40 = load i16, ptr %_count114, align 2
@@ -1968,7 +1968,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   %it.sroa.53.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 48
   store i16 %inc240, ptr %it.sroa.53.0._M_storage.i.i.i.i40.sroa_idx, align 8
   %it.sroa.65.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 50
-  store i8 %it.sroa.65.2, ptr %it.sroa.65.0._M_storage.i.i.i.i40.sroa_idx, align 2
+  store i8 %it.sroa.65.1, ptr %it.sroa.65.0._M_storage.i.i.i.i40.sroa_idx, align 2
   %it.sroa.82.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 51
   store i8 %it.sroa.82.1, ptr %it.sroa.82.0._M_storage.i.i.i.i40.sroa_idx, align 1
   %it.sroa.93.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 52
@@ -2007,7 +2007,7 @@ sw.bb271:                                         ; preds = %do.end267
   br label %if.end550
 
 do.body279:                                       ; preds = %do.end267
-  %cmp284.not = icmp eq i8 %it.sroa.65.2, %it.sroa.82.1
+  %cmp284.not = icmp eq i8 %it.sroa.65.1, %it.sroa.82.1
   br i1 %cmp284.not, label %do.body296, label %if.then287
 
 if.then287:                                       ; preds = %do.body279
@@ -2021,7 +2021,7 @@ if.then287:                                       ; preds = %do.body279
 do.body296:                                       ; preds = %do.body279, %if.then287
   %_min300 = getelementptr inbounds i8, ptr %it.sroa.0.0.copyload, i64 16
   %49 = load i8, ptr %_min300, align 8
-  %cmp302.not = icmp ult i8 %it.sroa.65.2, %49
+  %cmp302.not = icmp ult i8 %it.sroa.65.1, %49
   br i1 %cmp302.not, label %if.then305, label %do.body314
 
 if.then305:                                       ; preds = %do.body296
@@ -2038,7 +2038,7 @@ if.then305.do.body314_crit_edge:                  ; preds = %if.then305
 
 do.body314:                                       ; preds = %if.then305.do.body314_crit_edge, %do.body296
   %52 = phi i8 [ %.pre255, %if.then305.do.body314_crit_edge ], [ %49, %do.body296 ]
-  %conv316 = zext i8 %it.sroa.65.2 to i32
+  %conv316 = zext i8 %it.sroa.65.1 to i32
   %conv319 = zext i8 %52 to i32
   %53 = load i16, ptr %_count114, align 2
   %conv322 = zext i16 %53 to i32
@@ -2061,7 +2061,7 @@ if.then327.do.end335_crit_edge:                   ; preds = %if.then327
 do.end335:                                        ; preds = %if.then327.do.end335_crit_edge, %do.body314
   %56 = phi i8 [ %.pre256, %if.then327.do.end335_crit_edge ], [ %52, %do.body314 ]
   %57 = load ptr, ptr %_next152, align 8
-  %conv340 = zext i8 %it.sroa.65.2 to i64
+  %conv340 = zext i8 %it.sroa.65.1 to i64
   %conv343 = zext i8 %56 to i64
   %sub344 = sub nsw i64 %conv340, %conv343
   %arrayidx346 = getelementptr inbounds ptr, ptr %57, i64 %sub344
@@ -2086,13 +2086,13 @@ do.end359:                                        ; preds = %if.then351.do.end35
   call void @free(ptr noundef %61) #21
   store ptr %58, ptr %_next152, align 8
   store i16 1, ptr %_count114, align 2
-  store i8 %it.sroa.65.2, ptr %_min300, align 8
+  store i8 %it.sroa.65.1, ptr %_min300, align 8
   br label %if.end550
 
 sw.default369:                                    ; preds = %do.end267
   %_min373 = getelementptr inbounds i8, ptr %it.sroa.0.0.copyload, i64 16
   %62 = load i8, ptr %_min373, align 8
-  %cmp375 = icmp ugt i8 %it.sroa.65.2, %62
+  %cmp375 = icmp ugt i8 %it.sroa.65.1, %62
   br i1 %cmp375, label %do.body389, label %lor.lhs.false376
 
 lor.lhs.false376:                                 ; preds = %sw.default369
@@ -2106,7 +2106,7 @@ lor.lhs.false376:                                 ; preds = %sw.default369
   br i1 %cmp387, label %do.body389, label %if.end550
 
 do.body389:                                       ; preds = %sw.default369, %lor.lhs.false376
-  %cmp396.not = icmp ugt i8 %it.sroa.82.1, %it.sroa.65.2
+  %cmp396.not = icmp ugt i8 %it.sroa.82.1, %it.sroa.65.1
   br i1 %cmp396.not, label %do.end407, label %if.then399
 
 if.then399:                                       ; preds = %do.body389
@@ -2124,7 +2124,7 @@ if.then399.do.end407_crit_edge:                   ; preds = %if.then399
 do.end407:                                        ; preds = %if.then399.do.end407_crit_edge, %do.body389
   %66 = phi i8 [ %.pre258, %if.then399.do.end407_crit_edge ], [ %62, %do.body389 ]
   %67 = load ptr, ptr %_next152, align 8
-  %cmp416 = icmp ugt i8 %it.sroa.65.2, %66
+  %cmp416 = icmp ugt i8 %it.sroa.65.1, %66
   br i1 %cmp416, label %do.body439, label %lor.rhs
 
 lor.rhs:                                          ; preds = %do.end407
@@ -2151,7 +2151,7 @@ if.then430.do.body439_crit_edge:                  ; preds = %if.then430
 
 do.body439:                                       ; preds = %if.then430.do.body439_crit_edge, %do.end407, %lor.rhs
   %71 = phi i8 [ %.pre259, %if.then430.do.body439_crit_edge ], [ %66, %do.end407 ], [ %66, %lor.rhs ]
-  %cmp445.not = icmp ult i8 %it.sroa.65.2, %71
+  %cmp445.not = icmp ult i8 %it.sroa.65.1, %71
   br i1 %cmp445.not, label %if.then448, label %do.body457
 
 if.then448:                                       ; preds = %do.body439
@@ -2191,7 +2191,7 @@ if.then471.do.body480_crit_edge:                  ; preds = %if.then471
 
 do.body480:                                       ; preds = %if.then471.do.body480_crit_edge, %do.body457
   %conv489.pre-phi = phi i32 [ %.pre264, %if.then471.do.body480_crit_edge ], [ %conv465, %do.body457 ]
-  %conv484 = zext i8 %it.sroa.65.2 to i32
+  %conv484 = zext i8 %it.sroa.65.1 to i32
   %reass.sub = sub nsw i32 %conv459, %conv484
   %add486 = add nsw i32 %reass.sub, 1
   %cmp490.not = icmp slt i32 %add486, %conv489.pre-phi
@@ -2207,7 +2207,7 @@ if.then493:                                       ; preds = %do.body480
 
 do.end501:                                        ; preds = %if.then493, %do.body480
   %conv503 = zext i8 %it.sroa.82.1 to i16
-  %conv505 = zext i8 %it.sroa.65.2 to i16
+  %conv505 = zext i8 %it.sroa.65.1 to i16
   %sub506 = sub nsw i16 %conv503, %conv505
   %add507 = add nsw i16 %sub506, 1
   store i16 %add507, ptr %_count114, align 2
@@ -2236,14 +2236,14 @@ if.then523.do.end531_crit_edge:                   ; preds = %if.then523
 do.end531:                                        ; preds = %if.then523.do.end531_crit_edge, %do.end501
   %mul543.pre-phi = phi i64 [ %.pre266, %if.then523.do.end531_crit_edge ], [ %mul, %do.end501 ]
   %82 = phi ptr [ %.pre262, %if.then523.do.end531_crit_edge ], [ %call514, %do.end501 ]
-  %conv535 = zext i8 %it.sroa.65.2 to i64
+  %conv535 = zext i8 %it.sroa.65.1 to i64
   %83 = load i8, ptr %_min373, align 8
   %conv538 = zext i8 %83 to i64
   %sub539 = sub nsw i64 %conv535, %conv538
   %add.ptr = getelementptr inbounds ptr, ptr %67, i64 %sub539
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %82, ptr align 8 %add.ptr, i64 %mul543.pre-phi, i1 false)
   call void @free(ptr noundef %67) #21
-  store i8 %it.sroa.65.2, ptr %_min373, align 8
+  store i8 %it.sroa.65.1, ptr %_min373, align 8
   br label %if.end550
 
 if.end550:                                        ; preds = %if.else, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit39, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit29, %delete.end127, %if.then140, %invoke.cont120, %lor.lhs.false376, %do.end531, %do.end359, %sw.bb271, %if.end42, %invoke.cont87
@@ -2852,7 +2852,7 @@ if.else198:                                       ; preds = %invoke.cont163
   br label %if.end238
 
 if.end238:                                        ; preds = %if.else198, %do.end194, %sw.default150
-  %it.sroa.65.2 = phi i8 [ %it.sroa.65.0.copyload, %sw.default150 ], [ %it.sroa.65.0.copyload, %do.end194 ], [ %spec.select, %if.else198 ]
+  %it.sroa.65.1 = phi i8 [ %it.sroa.65.0.copyload, %sw.default150 ], [ %it.sroa.65.0.copyload, %do.end194 ], [ %spec.select, %if.else198 ]
   %it.sroa.82.1 = phi i8 [ %it.sroa.82.0.copyload, %sw.default150 ], [ %it.sroa.82.0.copyload, %do.end194 ], [ %spec.select151, %if.else198 ]
   %inc240 = add i16 %it.sroa.53.0.copyload, 1
   %40 = load i16, ptr %_count114, align 2
@@ -2879,7 +2879,7 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
   %it.sroa.53.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 48
   store i16 %inc240, ptr %it.sroa.53.0._M_storage.i.i.i.i40.sroa_idx, align 8
   %it.sroa.65.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 50
-  store i8 %it.sroa.65.2, ptr %it.sroa.65.0._M_storage.i.i.i.i40.sroa_idx, align 2
+  store i8 %it.sroa.65.1, ptr %it.sroa.65.0._M_storage.i.i.i.i40.sroa_idx, align 2
   %it.sroa.82.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 51
   store i8 %it.sroa.82.1, ptr %it.sroa.82.0._M_storage.i.i.i.i40.sroa_idx, align 1
   %it.sroa.93.0._M_storage.i.i.i.i40.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i43, i64 52
@@ -2918,7 +2918,7 @@ sw.bb271:                                         ; preds = %do.end267
   br label %if.end550
 
 do.body279:                                       ; preds = %do.end267
-  %cmp284.not = icmp eq i8 %it.sroa.65.2, %it.sroa.82.1
+  %cmp284.not = icmp eq i8 %it.sroa.65.1, %it.sroa.82.1
   br i1 %cmp284.not, label %do.body296, label %if.then287
 
 if.then287:                                       ; preds = %do.body279
@@ -2932,7 +2932,7 @@ if.then287:                                       ; preds = %do.body279
 do.body296:                                       ; preds = %do.body279, %if.then287
   %_min300 = getelementptr inbounds i8, ptr %it.sroa.0.0.copyload, i64 16
   %49 = load i8, ptr %_min300, align 8
-  %cmp302.not = icmp ult i8 %it.sroa.65.2, %49
+  %cmp302.not = icmp ult i8 %it.sroa.65.1, %49
   br i1 %cmp302.not, label %if.then305, label %do.body314
 
 if.then305:                                       ; preds = %do.body296
@@ -2949,7 +2949,7 @@ if.then305.do.body314_crit_edge:                  ; preds = %if.then305
 
 do.body314:                                       ; preds = %if.then305.do.body314_crit_edge, %do.body296
   %52 = phi i8 [ %.pre255, %if.then305.do.body314_crit_edge ], [ %49, %do.body296 ]
-  %conv316 = zext i8 %it.sroa.65.2 to i32
+  %conv316 = zext i8 %it.sroa.65.1 to i32
   %conv319 = zext i8 %52 to i32
   %53 = load i16, ptr %_count114, align 2
   %conv322 = zext i16 %53 to i32
@@ -2972,7 +2972,7 @@ if.then327.do.end335_crit_edge:                   ; preds = %if.then327
 do.end335:                                        ; preds = %if.then327.do.end335_crit_edge, %do.body314
   %56 = phi i8 [ %.pre256, %if.then327.do.end335_crit_edge ], [ %52, %do.body314 ]
   %57 = load ptr, ptr %_next152, align 8
-  %conv340 = zext i8 %it.sroa.65.2 to i64
+  %conv340 = zext i8 %it.sroa.65.1 to i64
   %conv343 = zext i8 %56 to i64
   %sub344 = sub nsw i64 %conv340, %conv343
   %arrayidx346 = getelementptr inbounds ptr, ptr %57, i64 %sub344
@@ -2997,13 +2997,13 @@ do.end359:                                        ; preds = %if.then351.do.end35
   call void @free(ptr noundef %61) #21
   store ptr %58, ptr %_next152, align 8
   store i16 1, ptr %_count114, align 2
-  store i8 %it.sroa.65.2, ptr %_min300, align 8
+  store i8 %it.sroa.65.1, ptr %_min300, align 8
   br label %if.end550
 
 sw.default369:                                    ; preds = %do.end267
   %_min373 = getelementptr inbounds i8, ptr %it.sroa.0.0.copyload, i64 16
   %62 = load i8, ptr %_min373, align 8
-  %cmp375 = icmp ugt i8 %it.sroa.65.2, %62
+  %cmp375 = icmp ugt i8 %it.sroa.65.1, %62
   br i1 %cmp375, label %do.body389, label %lor.lhs.false376
 
 lor.lhs.false376:                                 ; preds = %sw.default369
@@ -3017,7 +3017,7 @@ lor.lhs.false376:                                 ; preds = %sw.default369
   br i1 %cmp387, label %do.body389, label %if.end550
 
 do.body389:                                       ; preds = %sw.default369, %lor.lhs.false376
-  %cmp396.not = icmp ugt i8 %it.sroa.82.1, %it.sroa.65.2
+  %cmp396.not = icmp ugt i8 %it.sroa.82.1, %it.sroa.65.1
   br i1 %cmp396.not, label %do.end407, label %if.then399
 
 if.then399:                                       ; preds = %do.body389
@@ -3035,7 +3035,7 @@ if.then399.do.end407_crit_edge:                   ; preds = %if.then399
 do.end407:                                        ; preds = %if.then399.do.end407_crit_edge, %do.body389
   %66 = phi i8 [ %.pre258, %if.then399.do.end407_crit_edge ], [ %62, %do.body389 ]
   %67 = load ptr, ptr %_next152, align 8
-  %cmp416 = icmp ugt i8 %it.sroa.65.2, %66
+  %cmp416 = icmp ugt i8 %it.sroa.65.1, %66
   br i1 %cmp416, label %do.body439, label %lor.rhs
 
 lor.rhs:                                          ; preds = %do.end407
@@ -3062,7 +3062,7 @@ if.then430.do.body439_crit_edge:                  ; preds = %if.then430
 
 do.body439:                                       ; preds = %if.then430.do.body439_crit_edge, %do.end407, %lor.rhs
   %71 = phi i8 [ %.pre259, %if.then430.do.body439_crit_edge ], [ %66, %do.end407 ], [ %66, %lor.rhs ]
-  %cmp445.not = icmp ult i8 %it.sroa.65.2, %71
+  %cmp445.not = icmp ult i8 %it.sroa.65.1, %71
   br i1 %cmp445.not, label %if.then448, label %do.body457
 
 if.then448:                                       ; preds = %do.body439
@@ -3102,7 +3102,7 @@ if.then471.do.body480_crit_edge:                  ; preds = %if.then471
 
 do.body480:                                       ; preds = %if.then471.do.body480_crit_edge, %do.body457
   %conv489.pre-phi = phi i32 [ %.pre264, %if.then471.do.body480_crit_edge ], [ %conv465, %do.body457 ]
-  %conv484 = zext i8 %it.sroa.65.2 to i32
+  %conv484 = zext i8 %it.sroa.65.1 to i32
   %reass.sub = sub nsw i32 %conv459, %conv484
   %add486 = add nsw i32 %reass.sub, 1
   %cmp490.not = icmp slt i32 %add486, %conv489.pre-phi
@@ -3118,7 +3118,7 @@ if.then493:                                       ; preds = %do.body480
 
 do.end501:                                        ; preds = %if.then493, %do.body480
   %conv503 = zext i8 %it.sroa.82.1 to i16
-  %conv505 = zext i8 %it.sroa.65.2 to i16
+  %conv505 = zext i8 %it.sroa.65.1 to i16
   %sub506 = sub nsw i16 %conv503, %conv505
   %add507 = add nsw i16 %sub506, 1
   store i16 %add507, ptr %_count114, align 2
@@ -3147,14 +3147,14 @@ if.then523.do.end531_crit_edge:                   ; preds = %if.then523
 do.end531:                                        ; preds = %if.then523.do.end531_crit_edge, %do.end501
   %mul543.pre-phi = phi i64 [ %.pre266, %if.then523.do.end531_crit_edge ], [ %mul, %do.end501 ]
   %82 = phi ptr [ %.pre262, %if.then523.do.end531_crit_edge ], [ %call514, %do.end501 ]
-  %conv535 = zext i8 %it.sroa.65.2 to i64
+  %conv535 = zext i8 %it.sroa.65.1 to i64
   %83 = load i8, ptr %_min373, align 8
   %conv538 = zext i8 %83 to i64
   %sub539 = sub nsw i64 %conv535, %conv538
   %add.ptr = getelementptr inbounds ptr, ptr %67, i64 %sub539
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %82, ptr align 8 %add.ptr, i64 %mul543.pre-phi, i1 false)
   call void @free(ptr noundef %67) #21
-  store i8 %it.sroa.65.2, ptr %_min373, align 8
+  store i8 %it.sroa.65.1, ptr %_min373, align 8
   br label %if.end550
 
 if.end550:                                        ; preds = %if.else, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit39, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit29, %delete.end127, %if.then140, %invoke.cont120, %lor.lhs.false376, %do.end531, %do.end359, %sw.bb271, %if.end42, %invoke.cont87

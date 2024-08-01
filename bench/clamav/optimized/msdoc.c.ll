@@ -1626,7 +1626,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
 
 46:                                               ; preds = %.preheader125, %55
   %.091149 = phi i64 [ 0, %.preheader125 ], [ %56, %55 ]
-  %.097148 = phi ptr [ null, %.preheader125 ], [ %.198, %55 ]
+  %.198148 = phi ptr [ null, %.preheader125 ], [ %.2, %55 ]
   %47 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.091149
   %48 = load i16, ptr %47, align 16
   %49 = icmp eq i16 %45, %48
@@ -1642,14 +1642,14 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %50, %53
-  %.198 = phi ptr [ %52, %50 ], [ %.097148, %53 ]
+  %.2 = phi ptr [ %52, %50 ], [ %.198148, %53 ]
   %56 = add nuw nsw i64 %.091149, 1
   %exitcond163.not = icmp eq i64 %56, 152
   br i1 %exitcond163.not, label %57, label %46
 
 57:                                               ; preds = %53, %55
-  %.097.lcssa = phi ptr [ %.097148, %53 ], [ %.198, %55 ]
-  %.not116 = icmp eq ptr %.097.lcssa, null
+  %.198.lcssa = phi ptr [ %.198148, %53 ], [ %.2, %55 ]
+  %.not116 = icmp eq ptr %.198.lcssa, null
   br i1 %.not116, label %58, label %63
 
 58:                                               ; preds = %57
@@ -1663,8 +1663,8 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br label %.loopexit126
 
 63:                                               ; preds = %57, %44
-  %.2 = phi ptr [ %3, %44 ], [ %.097.lcssa, %57 ]
-  %64 = tail call ptr @iconv_open(ptr noundef nonnull @.str.95, ptr noundef nonnull %.2) #10
+  %.097 = phi ptr [ %3, %44 ], [ %.198.lcssa, %57 ]
+  %64 = tail call ptr @iconv_open(ptr noundef nonnull @.str.95, ptr noundef nonnull %.097) #10
   %65 = icmp eq ptr %64, inttoptr (i64 -1 to ptr)
   br i1 %65, label %69, label %.preheader.preheader
 
@@ -1679,7 +1679,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   %70 = tail call ptr @__errno_location() #12
   %71 = load i32, ptr %70, align 4
   %72 = call ptr @cli_strerror(i32 noundef %71, ptr noundef nonnull %9, i64 noundef 128) #10
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.2, ptr noundef nonnull %9) #10
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.097, ptr noundef nonnull %9) #10
   %73 = getelementptr inbounds i8, ptr %0, i64 40
   %74 = load i32, ptr %73, align 8
   %75 = or i32 %74, 2048
@@ -1769,13 +1769,13 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br label %114
 
 114:                                              ; preds = %110, %69
-  %.2101 = phi ptr [ null, %69 ], [ %77, %110 ]
+  %.099 = phi ptr [ null, %69 ], [ %77, %110 ]
   %115 = call i32 @iconv_close(ptr noundef %64) #10
   call void @free(ptr noundef %43) #10
   br label %.loopexit126
 
 .loopexit126:                                     ; preds = %.lr.ph147.preheader, %41, %42, %19, %22, %40, %16, %114, %.preheader._crit_edge, %58, %11
-  %.089 = phi ptr [ %12, %11 ], [ %.2101, %114 ], [ null, %.preheader._crit_edge ], [ null, %58 ], [ null, %16 ], [ %18, %40 ], [ %18, %22 ], [ %18, %19 ], [ null, %42 ], [ %18, %41 ], [ %18, %.lr.ph147.preheader ]
+  %.089 = phi ptr [ %12, %11 ], [ %.099, %114 ], [ null, %.preheader._crit_edge ], [ null, %58 ], [ null, %16 ], [ %18, %40 ], [ %18, %22 ], [ %18, %19 ], [ null, %42 ], [ %18, %41 ], [ %18, %.lr.ph147.preheader ]
   ret ptr %.089
 }
 

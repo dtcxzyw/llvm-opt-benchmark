@@ -734,7 +734,7 @@ if.end43:                                         ; preds = %if.end34
   br i1 %cmp50, label %fail, label %if.end54
 
 if.end54:                                         ; preds = %if.end43, %if.end25
-  %masterkey.0 = phi ptr [ %call29, %if.end43 ], [ null, %if.end25 ]
+  %masterkey.2 = phi ptr [ %call29, %if.end43 ], [ null, %if.end25 ]
   %sector_size = getelementptr inbounds i8, ptr %block, i64 128
   store i64 512, ptr %sector_size, align 8
   %62 = load i32, ptr %payload_offset_sector.i, align 8
@@ -756,11 +756,11 @@ fail:                                             ; preds = %for.body.i58, %for.
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %fail, %if.end54, %if.then2
-  %masterkey.2 = phi ptr [ null, %if.then2 ], [ null, %if.end ], [ %masterkey.1, %fail ], [ %masterkey.0, %if.end54 ]
+  %masterkey.0 = phi ptr [ null, %if.then2 ], [ null, %if.end ], [ %masterkey.1, %fail ], [ %masterkey.2, %if.end54 ]
   %password.1 = phi ptr [ null, %if.then2 ], [ null, %if.end ], [ %password.0, %fail ], [ %password.0, %if.end54 ]
   %retval.0 = phi i32 [ -1, %if.then2 ], [ -1, %if.end ], [ -1, %fail ], [ 0, %if.end54 ]
   call void @g_free(ptr noundef %password.1) #16
-  call void @g_free(ptr noundef %masterkey.2) #16
+  call void @g_free(ptr noundef %masterkey.0) #16
   ret i32 %retval.0
 }
 
@@ -1335,23 +1335,23 @@ sw.bb1:                                           ; preds = %entry
   %new_secret.i10 = getelementptr inbounds i8, ptr %options, i64 16
   %15 = load ptr, ptr %new_secret.i10, align 8
   %tobool.not.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i, label %if.end.i13, label %if.then.i11
+  br i1 %tobool.not.i, label %if.end.i14, label %if.then.i11
 
 if.then.i11:                                      ; preds = %sw.bb1
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1681, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.48) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
-if.end.i13:                                       ; preds = %sw.bb1
-  %has_iter_time.i14 = getelementptr inbounds i8, ptr %options, i64 48
-  %16 = load i8, ptr %has_iter_time.i14, align 8
+if.end.i14:                                       ; preds = %sw.bb1
+  %has_iter_time.i15 = getelementptr inbounds i8, ptr %options, i64 48
+  %16 = load i8, ptr %has_iter_time.i15, align 8
   %tobool2.i = trunc i8 %16 to i1
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
 
-if.then3.i:                                       ; preds = %if.end.i13
+if.then3.i:                                       ; preds = %if.end.i14
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1686, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.49) #16
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
-if.end4.i:                                        ; preds = %if.end.i13
+if.end4.i:                                        ; preds = %if.end.i14
   %secret.i = getelementptr inbounds i8, ptr %options, i64 64
   %17 = load ptr, ptr %secret.i, align 8
   %tobool5.not.i = icmp eq ptr %17, null
@@ -1362,26 +1362,26 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end7.i:                                        ; preds = %if.end4.i
-  %old_secret.i15 = getelementptr inbounds i8, ptr %options, i64 24
-  %18 = load ptr, ptr %old_secret.i15, align 8
+  %old_secret.i16 = getelementptr inbounds i8, ptr %options, i64 24
+  %18 = load ptr, ptr %old_secret.i16, align 8
   %tobool8.not.i = icmp eq ptr %18, null
   br i1 %tobool8.not.i, label %if.end15.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end7.i
   %call.i = tail call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %18, ptr noundef %errp) #16
-  %tobool11.not.i16 = icmp eq ptr %call.i, null
-  br i1 %tobool11.not.i16, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %if.end13.i17
+  %tobool11.not.i17 = icmp eq ptr %call.i, null
+  br i1 %tobool11.not.i17, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %if.end13.i18
 
-if.end13.i17:                                     ; preds = %if.then9.i
-  %master_key_len.i18 = getelementptr inbounds i8, ptr %14, i64 108
-  %19 = load i32, ptr %master_key_len.i18, align 4
-  %conv.i19 = zext i32 %19 to i64
-  %call14.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i19, i64 noundef 1) #17
+if.end13.i18:                                     ; preds = %if.then9.i
+  %master_key_len.i19 = getelementptr inbounds i8, ptr %14, i64 108
+  %19 = load i32, ptr %master_key_len.i19, align 4
+  %conv.i20 = zext i32 %19 to i64
+  %call14.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i20, i64 noundef 1) #17
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.end13.i17, %if.end7.i
-  %tmpkey.0.i = phi ptr [ null, %if.end7.i ], [ %call14.i, %if.end13.i17 ]
-  %old_password.0.i20 = phi ptr [ null, %if.end7.i ], [ %call.i, %if.end13.i17 ]
+if.end15.i:                                       ; preds = %if.end13.i18, %if.end7.i
+  %tmpkey.1.i = phi ptr [ null, %if.end7.i ], [ %call14.i, %if.end13.i18 ]
+  %old_password.1.i = phi ptr [ null, %if.end7.i ], [ %call.i, %if.end13.i18 ]
   %has_keyslot.i21 = getelementptr inbounds i8, ptr %options, i64 32
   %20 = load i8, ptr %has_keyslot.i21, align 8
   %tobool16.i = trunc i8 %20 to i1
@@ -1399,13 +1399,13 @@ if.then23.i:                                      ; preds = %if.then17.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end24.i:                                       ; preds = %if.then17.i
-  %22 = load ptr, ptr %old_secret.i15, align 8
+  %22 = load ptr, ptr %old_secret.i16, align 8
   %tobool26.not.i = icmp eq ptr %22, null
   br i1 %tobool26.not.i, label %if.end38.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   %conv28.i = and i64 %21, 7
-  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
+  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.1.i, ptr noundef %tmpkey.1.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
   switch i32 %call29.i, label %if.end38.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 0, label %if.then35.i
@@ -1460,7 +1460,7 @@ if.then52.i:                                      ; preds = %if.end49.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.else54.i:                                      ; preds = %if.end15.i
-  %25 = load ptr, ptr %old_secret.i15, align 8
+  %25 = load ptr, ptr %old_secret.i16, align 8
   %tobool56.not.i = icmp eq ptr %25, null
   br i1 %tobool56.not.i, label %if.else100.i, label %if.then57.i
 
@@ -1470,7 +1470,7 @@ if.then57.i:                                      ; preds = %if.else54.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then57.i
   %i.076.i = phi i64 [ 0, %if.then57.i ], [ %inc.i, %for.inc.i ]
-  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
+  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.1.i, ptr noundef %tmpkey.1.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
   switch i32 %call61.i, label %for.inc.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 1, label %if.then68.i
@@ -1555,11 +1555,11 @@ if.else100.i:                                     ; preds = %if.else54.i
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 qcrypto_block_luks_amend_erase_keyslots.exit:     ; preds = %for.body.i, %for.inc97.i, %if.then.i11, %if.then3.i, %if.then6.i, %if.then9.i, %if.then23.i, %if.then27.i, %if.then35.i, %if.then41.i28, %if.then48.i, %if.end49.i, %if.then52.i, %if.then75.i, %if.then82.i, %if.then95.i, %if.else100.i
-  %tmpkey.1.i = phi ptr [ null, %if.then3.i ], [ %tmpkey.0.i, %if.then23.i ], [ %tmpkey.0.i, %if.end49.i ], [ %tmpkey.0.i, %if.then52.i ], [ %tmpkey.0.i, %if.then48.i ], [ %tmpkey.0.i, %if.then41.i28 ], [ %tmpkey.0.i, %if.then35.i ], [ %tmpkey.0.i, %if.then27.i ], [ %tmpkey.0.i, %if.else100.i ], [ %tmpkey.0.i, %if.then75.i ], [ %tmpkey.0.i, %if.then95.i ], [ %tmpkey.0.i, %if.then82.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then.i11 ], [ %tmpkey.0.i, %for.inc97.i ], [ %tmpkey.0.i, %for.body.i ]
-  %old_password.1.i = phi ptr [ null, %if.then3.i ], [ %old_password.0.i20, %if.then23.i ], [ %old_password.0.i20, %if.end49.i ], [ %old_password.0.i20, %if.then52.i ], [ %old_password.0.i20, %if.then48.i ], [ %old_password.0.i20, %if.then41.i28 ], [ %old_password.0.i20, %if.then35.i ], [ %old_password.0.i20, %if.then27.i ], [ %old_password.0.i20, %if.else100.i ], [ %old_password.0.i20, %if.then75.i ], [ %old_password.0.i20, %if.then95.i ], [ %old_password.0.i20, %if.then82.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then.i11 ], [ %old_password.0.i20, %for.inc97.i ], [ %old_password.0.i20, %for.body.i ]
-  %retval.0.i12 = phi i32 [ -1, %if.then3.i ], [ -1, %if.then23.i ], [ 0, %if.end49.i ], [ -1, %if.then52.i ], [ -1, %if.then48.i ], [ -1, %if.then41.i28 ], [ -1, %if.then35.i ], [ %call29.i, %if.then27.i ], [ -1, %if.else100.i ], [ -1, %if.then75.i ], [ -1, %if.then95.i ], [ -1, %if.then82.i ], [ -1, %if.then9.i ], [ -1, %if.then6.i ], [ -1, %if.then.i11 ], [ 0, %for.inc97.i ], [ %call61.i, %for.body.i ]
-  call void @g_free(ptr noundef %old_password.1.i) #16
-  call void @g_free(ptr noundef %tmpkey.1.i) #16
+  %tmpkey.0.i = phi ptr [ null, %if.then3.i ], [ %tmpkey.1.i, %if.then23.i ], [ %tmpkey.1.i, %if.end49.i ], [ %tmpkey.1.i, %if.then52.i ], [ %tmpkey.1.i, %if.then48.i ], [ %tmpkey.1.i, %if.then41.i28 ], [ %tmpkey.1.i, %if.then35.i ], [ %tmpkey.1.i, %if.then27.i ], [ %tmpkey.1.i, %if.else100.i ], [ %tmpkey.1.i, %if.then75.i ], [ %tmpkey.1.i, %if.then95.i ], [ %tmpkey.1.i, %if.then82.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then.i11 ], [ %tmpkey.1.i, %for.inc97.i ], [ %tmpkey.1.i, %for.body.i ]
+  %old_password.0.i12 = phi ptr [ null, %if.then3.i ], [ %old_password.1.i, %if.then23.i ], [ %old_password.1.i, %if.end49.i ], [ %old_password.1.i, %if.then52.i ], [ %old_password.1.i, %if.then48.i ], [ %old_password.1.i, %if.then41.i28 ], [ %old_password.1.i, %if.then35.i ], [ %old_password.1.i, %if.then27.i ], [ %old_password.1.i, %if.else100.i ], [ %old_password.1.i, %if.then75.i ], [ %old_password.1.i, %if.then95.i ], [ %old_password.1.i, %if.then82.i ], [ null, %if.then9.i ], [ null, %if.then6.i ], [ null, %if.then.i11 ], [ %old_password.1.i, %for.inc97.i ], [ %old_password.1.i, %for.body.i ]
+  %retval.0.i13 = phi i32 [ -1, %if.then3.i ], [ -1, %if.then23.i ], [ 0, %if.end49.i ], [ -1, %if.then52.i ], [ -1, %if.then48.i ], [ -1, %if.then41.i28 ], [ -1, %if.then35.i ], [ %call29.i, %if.then27.i ], [ -1, %if.else100.i ], [ -1, %if.then75.i ], [ -1, %if.then95.i ], [ -1, %if.then82.i ], [ -1, %if.then9.i ], [ -1, %if.then6.i ], [ -1, %if.then.i11 ], [ 0, %for.inc97.i ], [ %call61.i, %for.body.i ]
+  call void @g_free(ptr noundef %old_password.0.i12) #16
+  call void @g_free(ptr noundef %tmpkey.0.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slots_to_erase_bitmap.i)
   br label %sw.epilog
 
@@ -1568,7 +1568,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %qcrypto_block_luks_amend_erase_keyslots.exit, %qcrypto_block_luks_amend_add_keyslot.exit
-  %retval.0 = phi i32 [ %retval.0.i12, %qcrypto_block_luks_amend_erase_keyslots.exit ], [ %retval.0.i, %qcrypto_block_luks_amend_add_keyslot.exit ]
+  %retval.0 = phi i32 [ %retval.0.i13, %qcrypto_block_luks_amend_erase_keyslots.exit ], [ %retval.0.i, %qcrypto_block_luks_amend_add_keyslot.exit ]
   ret i32 %retval.0
 }
 

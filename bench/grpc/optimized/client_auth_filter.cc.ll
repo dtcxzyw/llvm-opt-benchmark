@@ -671,7 +671,7 @@ if.end49.sink.split:                              ; preds = %if.else, %_ZN9grpc_
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end49.sink.split, %if.then12
-  %creds8.sroa.0.1 = phi ptr [ %call19, %if.then12 ], [ %.sink, %if.end49.sink.split ]
+  %creds8.sroa.0.3 = phi ptr [ %call19, %if.then12 ], [ %.sink, %if.end49.sink.split ]
   %auth_context = getelementptr inbounds i8, ptr %this, i64 32
   %30 = load ptr, ptr %auth_context, align 8
   invoke void @grpc_auth_context_find_properties_by_name(ptr nonnull sret(%struct.grpc_auth_property_iterator) align 8 %it, ptr noundef %30, ptr noundef nonnull @.str.4)
@@ -695,14 +695,14 @@ _ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit75
   %arg.i70 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_202308028StatusOrINS_8CallArgsEEENS_14promise_detail9ImmediateINS3_6StatusEEEE6vtableE, ptr %agg.result, align 16
   store i64 %31, ptr %arg.i70, align 16
-  %cmp.not.i149 = icmp eq ptr %creds8.sroa.0.1, null
+  %cmp.not.i149 = icmp eq ptr %creds8.sroa.0.3, null
   br i1 %cmp.not.i149, label %return, label %if.then.i150
 
 if.end68:                                         ; preds = %invoke.cont54
-  %vtable = load ptr, ptr %creds8.sroa.0.1, align 8
+  %vtable = load ptr, ptr %creds8.sroa.0.3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %32 = load ptr, ptr %vfn, align 8
-  %call72 = invoke noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.1)
+  %call72 = invoke noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.3)
           to label %invoke.cont71 unwind label %ehcleanup118.thread201
 
 invoke.cont71:                                    ; preds = %if.end68
@@ -746,10 +746,10 @@ if.end90:                                         ; preds = %_ZL37convert_securi
   %38 = getelementptr inbounds i8, ptr %agg.tmp98, i64 8
   store i64 %37, ptr %38, align 8
   store ptr null, ptr %36, align 8
-  %vtable100 = load ptr, ptr %creds8.sroa.0.1, align 8
+  %vtable100 = load ptr, ptr %creds8.sroa.0.3, align 8
   %vfn101 = getelementptr inbounds i8, ptr %vtable100, i64 16
   %39 = load ptr, ptr %vfn101, align 8
-  invoke void %39(ptr nonnull sret(%"class.grpc_core::ArenaPromise.29") align 16 %agg.tmp94, ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.1, ptr noundef nonnull %agg.tmp98, ptr noundef nonnull %args_)
+  invoke void %39(ptr nonnull sret(%"class.grpc_core::ArenaPromise.29") align 16 %agg.tmp94, ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.3, ptr noundef nonnull %agg.tmp98, ptr noundef nonnull %args_)
           to label %invoke.cont109 unwind label %lpad102
 
 invoke.cont109:                                   ; preds = %if.end90
@@ -981,16 +981,16 @@ ehcleanup118.thread:                              ; preds = %lpad102, %lpad110
   br label %if.then.i158
 
 if.then.i150:                                     ; preds = %_ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit90, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit144, %_ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit75
-  %refs_.i.i151 = getelementptr inbounds i8, ptr %creds8.sroa.0.1, i64 8
+  %refs_.i.i151 = getelementptr inbounds i8, ptr %creds8.sroa.0.3, i64 8
   %80 = atomicrmw sub ptr %refs_.i.i151, i64 1 acq_rel, align 8
   %cmp.i.i.i152 = icmp eq i64 %80, 1
   br i1 %cmp.i.i.i152, label %if.then.i.i153, label %return
 
 if.then.i.i153:                                   ; preds = %if.then.i150
-  %vtable.i.i.i154 = load ptr, ptr %creds8.sroa.0.1, align 8
+  %vtable.i.i.i154 = load ptr, ptr %creds8.sroa.0.3, align 8
   %vfn.i.i.i155 = getelementptr inbounds i8, ptr %vtable.i.i.i154, i64 8
   %81 = load ptr, ptr %vfn.i.i.i155, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.1) #21
+  call void %81(ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.3) #21
   br label %return
 
 ehcleanup118.thread201:                           ; preds = %if.end68, %if.then79
@@ -1001,21 +1001,21 @@ ehcleanup118.thread201:                           ; preds = %if.end68, %if.then7
 ehcleanup118:                                     ; preds = %if.end49, %invoke.cont53, %if.then57
   %lpad.thr_comm.split-lp200 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i157 = icmp eq ptr %creds8.sroa.0.1, null
+  %cmp.not.i157 = icmp eq ptr %creds8.sroa.0.3, null
   br i1 %cmp.not.i157, label %eh.resume, label %if.then.i158
 
 if.then.i158:                                     ; preds = %ehcleanup118.thread201, %ehcleanup118.thread, %ehcleanup118
   %.pn19.pn186 = phi { ptr, i32 } [ %.pn13.pn.pn, %ehcleanup118.thread ], [ %lpad.thr_comm.split-lp200, %ehcleanup118 ], [ %lpad.thr_comm199, %ehcleanup118.thread201 ]
-  %refs_.i.i159 = getelementptr inbounds i8, ptr %creds8.sroa.0.1, i64 8
+  %refs_.i.i159 = getelementptr inbounds i8, ptr %creds8.sroa.0.3, i64 8
   %82 = atomicrmw sub ptr %refs_.i.i159, i64 1 acq_rel, align 8
   %cmp.i.i.i160 = icmp eq i64 %82, 1
   br i1 %cmp.i.i.i160, label %if.then.i.i161, label %eh.resume
 
 if.then.i.i161:                                   ; preds = %if.then.i158
-  %vtable.i.i.i162 = load ptr, ptr %creds8.sroa.0.1, align 8
+  %vtable.i.i.i162 = load ptr, ptr %creds8.sroa.0.3, align 8
   %vfn.i.i.i163 = getelementptr inbounds i8, ptr %vtable.i.i.i162, i64 8
   %83 = load ptr, ptr %vfn.i.i.i163, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.1) #21
+  call void %83(ptr noundef nonnull align 8 dereferenceable(20) %creds8.sroa.0.3) #21
   br label %eh.resume
 
 return:                                           ; preds = %if.then24, %if.then.i.i153, %if.then.i150, %_ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit75, %invoke.cont7
@@ -4441,9 +4441,9 @@ delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i2.i.i.i.i.
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i", %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i, %if.then.i.i
-  %agg.tmp.sroa.10.0 = phi ptr [ undef, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ %14, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
-  %agg.tmp.sroa.6.0 = phi i8 [ undef, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ %12, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
-  %agg.tmp.sroa.0.0 = phi i8 [ undef, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ 0, %if.then.i.i ]
+  %agg.tmp.sroa.10.4 = phi ptr [ undef, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ %14, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
+  %agg.tmp.sroa.6.4 = phi i8 [ undef, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ %12, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ undef, %if.then.i.i ]
+  %agg.tmp.sroa.0.2 = phi i8 [ undef, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ 0, %if.then.i.i ]
   %48 = phi ptr [ %7, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ %7, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ %5, %if.then.i.i ]
   %switch.i.i = phi i1 [ true, %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0EEEEvPT_.exit.i.i" ], [ false, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i ], [ false, %if.then.i.i ]
   %49 = load i8, ptr %result.i.i, align 8, !noalias !164
@@ -4471,9 +4471,9 @@ _ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i: ; preds = %if.the
   br i1 %switch.i.i, label %sw.bb16.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES8_EEE3$_0SH_EEclEv.exit"
 
 sw.bb16.i.i:                                      ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i, %entry
-  %agg.tmp.sroa.10.1 = phi ptr [ undef, %entry ], [ %agg.tmp.sroa.10.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.6.1 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.6.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.0.1 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.0.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.10.0 = phi ptr [ undef, %entry ], [ %agg.tmp.sroa.10.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.6.0 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.6.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.0.0 = phi i8 [ undef, %entry ], [ %agg.tmp.sroa.0.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ref.tmp.i17.i.i), !noalias !164
   %53 = load ptr, ptr %0, align 16, !noalias !203
@@ -4615,9 +4615,9 @@ _ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8f
   br label %cleanup44.i.i
 
 cleanup44.i.i:                                    ; preds = %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i, %if.then23.i.i
-  %agg.tmp.sroa.10.2 = phi ptr [ %agg.tmp.sroa.10.1, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ %66, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ %agg.tmp.sroa.10.1, %if.then23.i.i ]
-  %agg.tmp.sroa.6.2 = phi i8 [ %agg.tmp.sroa.6.1, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ %64, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ %agg.tmp.sroa.6.1, %if.then23.i.i ]
-  %agg.tmp.sroa.0.2 = phi i8 [ %agg.tmp.sroa.0.1, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ 0, %if.then23.i.i ]
+  %agg.tmp.sroa.10.1 = phi ptr [ %agg.tmp.sroa.10.0, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ %66, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ %agg.tmp.sroa.10.0, %if.then23.i.i ]
+  %agg.tmp.sroa.6.1 = phi i8 [ %agg.tmp.sroa.6.0, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ %64, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ %agg.tmp.sroa.6.0, %if.then23.i.i ]
+  %agg.tmp.sroa.0.1 = phi i8 [ %agg.tmp.sroa.0.0, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ 1, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ 0, %if.then23.i.i ]
   %81 = phi ptr [ %56, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ %56, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ %59, %if.then23.i.i ]
   %switch10.i.i = phi i1 [ true, %_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EEEEEEvPT_.exit.i.i ], [ false, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit37.i.i ], [ false, %if.then23.i.i ]
   %82 = load i8, ptr %result17.i.i, align 8, !noalias !164
@@ -4673,9 +4673,9 @@ eh.resume.i.i:                                    ; preds = %if.then.i26.i.i, %l
   resume { ptr, i32 } %.pn.i.i
 
 "_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES8_EEE3$_0SH_EEclEv.exit": ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i
-  %agg.tmp.sroa.10.5 = phi ptr [ %agg.tmp.sroa.10.2, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i ], [ %agg.tmp.sroa.10.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.6.5 = phi i8 [ %agg.tmp.sroa.6.2, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i ], [ %agg.tmp.sroa.6.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
-  %agg.tmp.sroa.0.3 = phi i8 [ %agg.tmp.sroa.0.2, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i ], [ %agg.tmp.sroa.0.0, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.10.5 = phi ptr [ %agg.tmp.sroa.10.1, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i ], [ %agg.tmp.sroa.10.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.6.5 = phi i8 [ %agg.tmp.sroa.6.1, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i ], [ %agg.tmp.sroa.6.4, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
+  %agg.tmp.sroa.0.3 = phi i8 [ %agg.tmp.sroa.0.1, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit50.i.i ], [ %agg.tmp.sroa.0.2, %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i), !noalias !161
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !161
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %next_promise.sroa.3.i.i)

@@ -3517,7 +3517,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef %0) local_unnamed_addr #0 
   %24 = phi i32 [ %21, %.lr.ph23.preheader ], [ %37, %36 ]
   %25 = phi ptr [ %.pre29, %.lr.ph23.preheader ], [ %38, %36 ]
   %indvars.iv26 = phi i64 [ %23, %.lr.ph23.preheader ], [ %indvars.iv.next27, %36 ]
-  %.221 = phi i32 [ 0, %.lr.ph23.preheader ], [ %.3, %36 ]
+  %.321 = phi i32 [ 0, %.lr.ph23.preheader ], [ %.4, %36 ]
   %26 = getelementptr ptr, ptr %25, i64 %indvars.iv26
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 4
@@ -3530,8 +3530,8 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef %0) local_unnamed_addr #0 
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %0, align 8
-  %33 = add i32 %.221, 1
-  %34 = sext i32 %.221 to i64
+  %33 = add i32 %.321, 1
+  %34 = sext i32 %.321 to i64
   %35 = getelementptr i32, ptr %32, i64 %34
   store i32 %31, ptr %35, align 4
   %.pre = load ptr, ptr @plpgsql_Datums, align 8
@@ -3541,7 +3541,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef %0) local_unnamed_addr #0 
 36:                                               ; preds = %29, %.lr.ph23
   %37 = phi i32 [ %24, %.lr.ph23 ], [ %.pre30, %29 ]
   %38 = phi ptr [ %25, %.lr.ph23 ], [ %.pre, %29 ]
-  %.3 = phi i32 [ %.221, %.lr.ph23 ], [ %33, %29 ]
+  %.4 = phi i32 [ %.321, %.lr.ph23 ], [ %33, %29 ]
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %39 = sext i32 %37 to i64
   %40 = icmp slt i64 %indvars.iv.next27, %39
@@ -3554,9 +3554,9 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef %0) local_unnamed_addr #0 
 
 .loopexit:                                        ; preds = %36, %._crit_edge.thread, %16, %.thread, %._crit_edge
   %41 = phi i32 [ %3, %.thread ], [ %3, %._crit_edge ], [ %21, %16 ], [ %3, %._crit_edge.thread ], [ %37, %36 ]
-  %.4 = phi i32 [ %.0.lcssa3335, %.thread ], [ %.1, %._crit_edge ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.3, %36 ]
+  %.2 = phi i32 [ %.0.lcssa3335, %.thread ], [ %.1, %._crit_edge ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
   store i32 %41, ptr @datums_last, align 4
-  ret i32 %.4
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable

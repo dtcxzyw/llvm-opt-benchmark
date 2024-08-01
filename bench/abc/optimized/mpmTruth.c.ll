@@ -982,7 +982,7 @@ Abc_TtHasVar.exit.us.preheader.i.i.i:             ; preds = %.lr.ph.i.i.i24
   br label %Abc_TtHasVar.exit.us.i.i.i
 
 Abc_TtHasVar.exit.us.i.i.i:                       ; preds = %Abc_TtHasVar.exit.us.i.i.i, %Abc_TtHasVar.exit.us.preheader.i.i.i
-  %.037.i.i34 = phi i32 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %.138.i.i, %Abc_TtHasVar.exit.us.i.i.i ]
+  %.2.i.i34 = phi i32 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %.3.i.i, %Abc_TtHasVar.exit.us.i.i.i ]
   %544 = phi i32 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %554, %Abc_TtHasVar.exit.us.i.i.i ]
   %indvars.iv52.i.i.i = phi i64 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %indvars.iv.next53.i.i.i, %Abc_TtHasVar.exit.us.i.i.i ]
   %.022.us.i.i.i = phi i32 [ 0, %Abc_TtHasVar.exit.us.preheader.i.i.i ], [ %.1.us.i.i.i, %Abc_TtHasVar.exit.us.i.i.i ]
@@ -996,7 +996,7 @@ Abc_TtHasVar.exit.us.i.i.i:                       ; preds = %Abc_TtHasVar.exit.u
   %552 = and i64 %551, %550
   %.not18.us.i.i.i = icmp eq i64 %552, 0
   %553 = add nsw i32 %544, 1
-  %.138.i.i = select i1 %.not18.us.i.i.i, i32 %.037.i.i34, i32 %553
+  %.3.i.i = select i1 %.not18.us.i.i.i, i32 %.2.i.i34, i32 %553
   %554 = select i1 %.not18.us.i.i.i, i32 %544, i32 %553
   %555 = select i1 %.not18.us.i.i.i, i32 0, i32 %546
   %.1.us.i.i.i = or i32 %555, %.022.us.i.i.i
@@ -1005,7 +1005,7 @@ Abc_TtHasVar.exit.us.i.i.i:                       ; preds = %Abc_TtHasVar.exit.u
   br i1 %exitcond56.not.i.i.i, label %Abc_TtSupportAndSize.exit.i.i, label %Abc_TtHasVar.exit.us.i.i.i, !llvm.loop !14
 
 .lr.ph.split.split.split.i.i.i:                   ; preds = %.lr.ph.i.i.i24, %Abc_TtHasVar.exit.thread.i.i.i
-  %.2.i.i25 = phi i32 [ %.3.i.i, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i24 ]
+  %.037.i.i25 = phi i32 [ %.138.i.i, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i24 ]
   %556 = phi i32 [ %587, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i24 ]
   %indvars.iv.i.i.i26 = phi i64 [ %indvars.iv.next.i.i.i28, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i24 ]
   %.022.i.i.i = phi i32 [ %.1.i.i.i27, %Abc_TtHasVar.exit.thread.i.i.i ], [ 0, %.lr.ph.i.i.i24 ]
@@ -1078,7 +1078,7 @@ Abc_TtHasVar.exit.thread15.i.i.i:                 ; preds = %564, %Abc_TtHasVar.
   br label %Abc_TtHasVar.exit.thread.i.i.i
 
 Abc_TtHasVar.exit.thread.i.i.i:                   ; preds = %582, %563, %Abc_TtHasVar.exit.thread15.i.i.i
-  %.3.i.i = phi i32 [ %586, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.2.i.i25, %563 ], [ %.2.i.i25, %582 ]
+  %.138.i.i = phi i32 [ %586, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.037.i.i25, %563 ], [ %.037.i.i25, %582 ]
   %587 = phi i32 [ %586, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %556, %563 ], [ %556, %582 ]
   %.1.i.i.i27 = phi i32 [ %585, %Abc_TtHasVar.exit.thread15.i.i.i ], [ %.022.i.i.i, %563 ], [ %.022.i.i.i, %582 ]
   %indvars.iv.next.i.i.i28 = add nuw nsw i64 %indvars.iv.i.i.i26, 1
@@ -1086,7 +1086,7 @@ Abc_TtHasVar.exit.thread.i.i.i:                   ; preds = %582, %563, %Abc_TtH
   br i1 %exitcond.not.i.i.i29, label %Abc_TtSupportAndSize.exit.i.i, label %.lr.ph.split.split.split.i.i.i, !llvm.loop !14
 
 Abc_TtSupportAndSize.exit.i.i:                    ; preds = %Abc_TtHasVar.exit.thread.i.i.i, %Abc_TtHasVar.exit.us.i.i.i, %519
-  %.4.i.i = phi i32 [ 0, %519 ], [ %.138.i.i, %Abc_TtHasVar.exit.us.i.i.i ], [ %.3.i.i, %Abc_TtHasVar.exit.thread.i.i.i ]
+  %.4.i.i = phi i32 [ 0, %519 ], [ %.3.i.i, %Abc_TtHasVar.exit.us.i.i.i ], [ %.138.i.i, %Abc_TtHasVar.exit.thread.i.i.i ]
   %.0.lcssa.i.i.i30 = phi i32 [ 0, %519 ], [ %.1.us.i.i.i, %Abc_TtHasVar.exit.us.i.i.i ], [ %.1.i.i.i27, %Abc_TtHasVar.exit.thread.i.i.i ]
   %588 = icmp eq i32 %.4.i.i, %537
   br i1 %588, label %Mpm_CutComputeTruth7.exit, label %589

@@ -2231,13 +2231,13 @@ convert_link_to_directory.exit182:                ; preds = %164, %168
   br label %220
 
 220:                                              ; preds = %218, %216
-  %.1 = phi i32 [ %7, %216 ], [ %.0138, %218 ]
+  %.0127 = phi i32 [ %7, %216 ], [ %.0138, %218 ]
   %.0 = phi ptr [ %217, %216 ], [ %219, %218 ]
   %221 = load i32, ptr %12, align 4
   %222 = load i32, ptr %13, align 4
   %223 = load i32, ptr %14, align 4
   %224 = load i64, ptr %54, align 8
-  %225 = call i32 @GetFileBackupMethod(ptr noundef nonnull %8, ptr noundef %.0, i32 noundef %.0145, i32 noundef %.1, i32 noundef %221, i32 noundef %222, i32 noundef %223, i64 noundef %224, ptr noundef nonnull %17, ptr noundef %.0146, ptr noundef nonnull %18) #18
+  %225 = call i32 @GetFileBackupMethod(ptr noundef nonnull %8, ptr noundef %.0, i32 noundef %.0145, i32 noundef %.0127, i32 noundef %221, i32 noundef %222, i32 noundef %223, i64 noundef %224, ptr noundef nonnull %17, ptr noundef %.0146, ptr noundef nonnull %18) #18
   %226 = icmp eq i32 %225, 1
   br i1 %226, label %227, label %231
 
@@ -2249,12 +2249,12 @@ convert_link_to_directory.exit182:                ; preds = %164, %168
   br label %231
 
 231:                                              ; preds = %227, %220
-  %.0129 = phi ptr [ %19, %227 ], [ %gep, %220 ]
+  %.1130 = phi ptr [ %19, %227 ], [ %gep, %220 ]
   call void @pfree(ptr noundef %.0) #18
   br label %232
 
 232:                                              ; preds = %214, %231
-  %.1130 = phi ptr [ %.0129, %231 ], [ %gep, %214 ]
+  %.0129 = phi ptr [ %.1130, %231 ], [ %gep, %214 ]
   %.0128 = phi i32 [ %225, %231 ], [ 0, %214 ]
   br i1 %3, label %.critedge180, label %233
 
@@ -2265,7 +2265,7 @@ convert_link_to_directory.exit182:                ; preds = %164, %168
   %237 = icmp eq i32 %.0128, 1
   %238 = select i1 %237, ptr %.0146, ptr null
   %239 = load i32, ptr %18, align 4
-  %240 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.1130, ptr noundef nonnull %11, i1 noundef zeroext true, i32 noundef %.0145, i32 noundef %7, i32 noundef %234, i32 noundef %235, ptr noundef %6, i32 noundef %236, ptr noundef %238, i32 noundef %239)
+  %240 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0129, ptr noundef nonnull %11, i1 noundef zeroext true, i32 noundef %.0145, i32 noundef %7, i32 noundef %234, i32 noundef %235, ptr noundef %6, i32 noundef %236, ptr noundef %238, i32 noundef %239)
   br i1 %240, label %.critedge180, label %.backedge
 
 .critedge180:                                     ; preds = %232, %233

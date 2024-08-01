@@ -203,7 +203,7 @@ pkey_type2param.exit.i.i:                         ; preds = %if.end32.i.i.i, %if
   br i1 %cmp18.i.i, label %ecdh_cms_set_peerkey.exit.thread.i, label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %pkey_type2param.exit.i.i, %if.end11.i.i
-  %pkpeer.0.i.i = phi ptr [ %call8.i.i, %if.end11.i.i ], [ %retval.0.i.i.i, %pkey_type2param.exit.i.i ]
+  %pkpeer.1.i.i = phi ptr [ %call8.i.i, %if.end11.i.i ], [ %retval.0.i.i.i, %pkey_type2param.exit.i.i ]
   %call22.i.i = call i32 @ASN1_STRING_length(ptr noundef nonnull %1) #3
   %call23.i.i = call ptr @ASN1_STRING_get0_data(ptr noundef nonnull %1) #3
   %cmp24.i.i = icmp eq ptr %call23.i.i, null
@@ -213,22 +213,22 @@ if.end21.i.i:                                     ; preds = %pkey_type2param.exi
 
 if.end28.i.i:                                     ; preds = %if.end21.i.i
   %conv.i.i = sext i32 %call22.i.i to i64
-  %call29.i.i = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef nonnull %pkpeer.0.i.i, ptr noundef nonnull %call23.i.i, i64 noundef %conv.i.i) #3
+  %call29.i.i = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef nonnull %pkpeer.1.i.i, ptr noundef nonnull %call23.i.i, i64 noundef %conv.i.i) #3
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %ecdh_cms_set_peerkey.exit.thread.i, label %ecdh_cms_set_peerkey.exit.i
 
 ecdh_cms_set_peerkey.exit.thread.i:               ; preds = %if.end28.i.i, %if.end21.i.i, %pkey_type2param.exit.i.i, %pkey_type2param.exit.thread.i.i, %if.end11.i.i, %if.end7.i.i, %if.then3.i.i, %if.end10.i
-  %pkpeer.1.i.ph.i = phi ptr [ null, %pkey_type2param.exit.thread.i.i ], [ null, %pkey_type2param.exit.i.i ], [ %call8.i.i, %if.end11.i.i ], [ %pkpeer.0.i.i, %if.end28.i.i ], [ %pkpeer.0.i.i, %if.end21.i.i ], [ null, %if.end7.i.i ], [ null, %if.then3.i.i ], [ null, %if.end10.i ]
-  call void @EVP_PKEY_free(ptr noundef %pkpeer.1.i.ph.i) #3
+  %pkpeer.0.i.ph.i = phi ptr [ null, %pkey_type2param.exit.thread.i.i ], [ null, %pkey_type2param.exit.i.i ], [ %call8.i.i, %if.end11.i.i ], [ %pkpeer.1.i.i, %if.end28.i.i ], [ %pkpeer.1.i.i, %if.end21.i.i ], [ null, %if.end7.i.i ], [ null, %if.then3.i.i ], [ null, %if.end10.i ]
+  call void @EVP_PKEY_free(ptr noundef %pkpeer.0.i.ph.i) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %aoid.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %atype.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %aval.i.i)
   br label %if.then13.i
 
 ecdh_cms_set_peerkey.exit.i:                      ; preds = %if.end28.i.i
-  %call33.i.i = call i32 @EVP_PKEY_derive_set_peer(ptr noundef nonnull %call.i, ptr noundef nonnull %pkpeer.0.i.i) #3
+  %call33.i.i = call i32 @EVP_PKEY_derive_set_peer(ptr noundef nonnull %call.i, ptr noundef nonnull %pkpeer.1.i.i) #3
   %cmp34.i.i = icmp slt i32 %call33.i.i, 1
-  call void @EVP_PKEY_free(ptr noundef nonnull %pkpeer.0.i.i) #3
+  call void @EVP_PKEY_free(ptr noundef nonnull %pkpeer.1.i.i) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %aoid.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %atype.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %aval.i.i)

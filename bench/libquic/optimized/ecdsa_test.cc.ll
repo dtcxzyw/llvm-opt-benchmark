@@ -243,10 +243,10 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i1.i.i.
   br label %invoke.cont85.i
 
 invoke.cont85.i:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc.i, %invoke.cont81.i
-  %signature.sroa.0.1.i = phi ptr [ %call5.i.i.i.i1.i.i71.i, %call5.i.i.i.i1.i.i.noexc.i ], [ %call5.i.i.i.i1.i.i71.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont81.i ]
-  %signature.sroa.28.1.i = phi ptr [ %add.ptr.i.i.i.i, %call5.i.i.i.i1.i.i.noexc.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont81.i ]
+  %signature.sroa.0.7.i = phi ptr [ %call5.i.i.i.i1.i.i71.i, %call5.i.i.i.i1.i.i.noexc.i ], [ %call5.i.i.i.i1.i.i71.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont81.i ]
+  %signature.sroa.28.5.i = phi ptr [ %add.ptr.i.i.i.i, %call5.i.i.i.i1.i.i.noexc.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont81.i ]
   %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont81.i ]
-  %call91.i = invoke i32 @ECDSA_sign(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.1.i, ptr noundef nonnull %sig_len.i, ptr noundef nonnull %call27.i)
+  %call91.i = invoke i32 @ECDSA_sign(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.7.i, ptr noundef nonnull %sig_len.i, ptr noundef nonnull %call27.i)
           to label %invoke.cont90.i unwind label %lpad89.i
 
 invoke.cont90.i:                                  ; preds = %invoke.cont85.i
@@ -263,7 +263,7 @@ lpad84.i:                                         ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup256.i
 
 lpad89.i:                                         ; preds = %if.end158.i, %if.end143.i, %if.end128.i, %if.end113.i, %invoke.cont98.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i, %invoke.cont85.i
-  %signature.sroa.0.2.i = phi ptr [ %signature.sroa.0.3.i, %if.end158.i ], [ %signature.sroa.0.3.i, %if.end143.i ], [ %signature.sroa.0.3.i, %if.end128.i ], [ %signature.sroa.0.3.i, %if.end113.i ], [ %signature.sroa.0.3.i, %invoke.cont98.i ], [ %signature.sroa.0.1.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i ], [ %signature.sroa.0.1.i, %invoke.cont85.i ]
+  %signature.sroa.0.4.i = phi ptr [ %signature.sroa.0.8.i, %if.end158.i ], [ %signature.sroa.0.8.i, %if.end143.i ], [ %signature.sroa.0.8.i, %if.end128.i ], [ %signature.sroa.0.8.i, %if.end113.i ], [ %signature.sroa.0.8.i, %invoke.cont98.i ], [ %signature.sroa.0.7.i, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i.i ], [ %signature.sroa.0.7.i, %invoke.cont85.i ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
@@ -272,14 +272,14 @@ if.end96.i:                                       ; preds = %invoke.cont90.i
   %17 = load i32, ptr %sig_len.i, align 4
   %conv97.i = zext i32 %17 to i64
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %signature.sroa.0.1.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %signature.sroa.0.7.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i72.i = icmp ult i64 %sub.ptr.sub.i.i.i, %conv97.i
   br i1 %cmp.i72.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end96.i
   %sub.i.i = sub nuw nsw i64 %conv97.i, %sub.ptr.sub.i.i.i
-  %sub.ptr.lhs.cast.i8.i.i = ptrtoint ptr %signature.sroa.28.1.i to i64
+  %sub.ptr.lhs.cast.i8.i.i = ptrtoint ptr %signature.sroa.28.5.i to i64
   %sub.ptr.sub.i9.i.i = sub i64 %sub.ptr.lhs.cast.i8.i.i, %sub.ptr.lhs.cast.i.i.i
   %sub.i.i.i = xor i64 %sub.ptr.sub.i.i.i, 9223372036854775807
   %cmp6.i.i.i = icmp ule i64 %sub.ptr.sub.i9.i.i, %sub.i.i.i
@@ -318,19 +318,19 @@ if.then.i.i.i.i.i.i.i25.i.i.i:                    ; preds = %call5.i.i.i.i.i.noe
   br label %try.cont.i.i.i
 
 try.cont.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
-  %cmp.i.i.i.i.not.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i.i, %signature.sroa.0.1.i
+  %cmp.i.i.i.i.not.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i.i, %signature.sroa.0.7.i
   br i1 %cmp.i.i.i.i.not.i.i.i, label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %try.cont.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i79.i, ptr align 1 %signature.sroa.0.1.i, i64 %sub.ptr.sub.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i79.i, ptr align 1 %signature.sroa.0.7.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i
 
 _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %try.cont.i.i.i
-  %tobool.not.i30.i.i.i = icmp eq ptr %signature.sroa.0.1.i, null
+  %tobool.not.i30.i.i.i = icmp eq ptr %signature.sroa.0.7.i, null
   br i1 %tobool.not.i30.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i, label %if.then.i31.i.i.i
 
 if.then.i31.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %signature.sroa.0.1.i) #16
+  call void @_ZdlPv(ptr noundef nonnull %signature.sroa.0.7.i) #16
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i: ; preds = %if.then.i31.i.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i
@@ -340,19 +340,19 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i: ; preds = %if.then.
 
 if.else.i.i:                                      ; preds = %if.end96.i
   %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %conv97.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %signature.sroa.0.1.i, i64 %conv97.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %signature.sroa.0.7.i, i64 %conv97.i
   %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i.i, ptr %__first.addr.0.i.i.i.i.i.i
   br label %invoke.cont98.i
 
 invoke.cont98.i:                                  ; preds = %if.else.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i, %if.then.i.i.i.i.i73.i
   %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i, %if.else.i.i ], [ %.pre137.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i73.i ]
-  %signature.sroa.0.3.i = phi ptr [ %signature.sroa.0.1.i, %if.else.i.i ], [ %call5.i.i.i.i.i79.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %signature.sroa.0.1.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %signature.sroa.0.1.i, %if.then.i.i.i.i.i73.i ]
-  %signature.sroa.18.1.i = phi ptr [ %spec.select.i, %if.else.i.i ], [ %add.ptr36.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %incdec.ptr.i.i.i.i.i74.i, %if.then.i.i.i.i.i73.i ]
+  %signature.sroa.0.8.i = phi ptr [ %signature.sroa.0.7.i, %if.else.i.i ], [ %call5.i.i.i.i.i79.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %signature.sroa.0.7.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %signature.sroa.0.7.i, %if.then.i.i.i.i.i73.i ]
+  %signature.sroa.18.5.i = phi ptr [ %spec.select.i, %if.else.i.i ], [ %add.ptr36.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %incdec.ptr.i.i.i.i.i74.i, %if.then.i.i.i.i.i73.i ]
   %fputc54.i = call i32 @fputc(i32 46, ptr %0)
   %call102.i = call i32 @fflush(ptr noundef %0)
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %signature.sroa.18.1.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %signature.sroa.18.5.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.pre-phi.i
-  %call108.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.3.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef nonnull %call27.i)
+  %call108.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.8.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef nonnull %call27.i)
           to label %invoke.cont107.i unwind label %lpad89.i
 
 invoke.cont107.i:                                 ; preds = %invoke.cont98.i
@@ -367,7 +367,7 @@ if.end113.i:                                      ; preds = %invoke.cont107.i
   %fputc55.i = call i32 @fputc(i32 46, ptr %0)
   %call117.i = call i32 @fflush(ptr noundef %0)
   %19 = load ptr, ptr %wrong_eckey.i, align 8
-  %call123.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.3.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef %19)
+  %call123.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.8.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef %19)
           to label %invoke.cont122.i unwind label %lpad89.i
 
 invoke.cont122.i:                                 ; preds = %if.end113.i
@@ -382,7 +382,7 @@ if.end128.i:                                      ; preds = %invoke.cont122.i
   %fputc56.i = call i32 @fputc(i32 46, ptr %0)
   %call132.i = call i32 @fflush(ptr noundef %0)
   %21 = load ptr, ptr %eckey.i, align 8
-  %call138.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %wrong_digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.3.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef %21)
+  %call138.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %wrong_digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.8.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef %21)
           to label %invoke.cont137.i unwind label %lpad89.i
 
 invoke.cont137.i:                                 ; preds = %if.end128.i
@@ -398,7 +398,7 @@ if.end143.i:                                      ; preds = %invoke.cont137.i
   %call147.i = call i32 @fflush(ptr noundef %0)
   %sub.i = add i64 %sub.ptr.sub.i.i, -1
   %23 = load ptr, ptr %eckey.i, align 8
-  %call153.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.3.i, i64 noundef %sub.i, ptr noundef %23)
+  %call153.i = invoke i32 @ECDSA_verify(i32 noundef 0, ptr noundef nonnull %digest.i, i64 noundef 20, ptr noundef %signature.sroa.0.8.i, i64 noundef %sub.i, ptr noundef %23)
           to label %invoke.cont152.i unwind label %lpad89.i
 
 invoke.cont152.i:                                 ; preds = %if.end143.i
@@ -412,7 +412,7 @@ if.then155.i:                                     ; preds = %invoke.cont152.i
 if.end158.i:                                      ; preds = %invoke.cont152.i
   %fputc58.i = call i32 @fputc(i32 46, ptr %0)
   %call162.i = call i32 @fflush(ptr noundef %0)
-  %call166.i = invoke ptr @ECDSA_SIG_from_bytes(ptr noundef %signature.sroa.0.3.i, i64 noundef %sub.ptr.sub.i.i)
+  %call166.i = invoke ptr @ECDSA_SIG_from_bytes(ptr noundef %signature.sroa.0.8.i, i64 noundef %sub.ptr.sub.i.i)
           to label %invoke.cont165.i unwind label %lpad89.i
 
 invoke.cont165.i:                                 ; preds = %if.end158.i
@@ -502,22 +502,22 @@ cleanup.sink.split.i:                             ; preds = %invoke.cont241.i, %
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %if.end246.i
-  %cleanup.dest.slot.0.i = phi i32 [ 0, %if.end246.i ], [ 1, %cleanup.sink.split.i ]
+  %cleanup.dest.slot.4.i = phi i32 [ 0, %if.end246.i ], [ 1, %cleanup.sink.split.i ]
   call void @_ZNSt10unique_ptrI12ecdsa_sig_st14OpenSSLDeleterIS0_XadL_Z14ECDSA_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ecdsa_sig.i) #17
   br label %cleanup254.i
 
 cleanup254.i:                                     ; preds = %cleanup.i, %if.then155.i, %if.then140.i, %if.then125.i, %if.then110.i, %if.then93.i
-  %signature.sroa.0.4.i = phi ptr [ %signature.sroa.0.1.i, %if.then93.i ], [ %signature.sroa.0.3.i, %if.then110.i ], [ %signature.sroa.0.3.i, %cleanup.i ], [ %signature.sroa.0.3.i, %if.then155.i ], [ %signature.sroa.0.3.i, %if.then140.i ], [ %signature.sroa.0.3.i, %if.then125.i ]
-  %cleanup.dest.slot.1.i = phi i32 [ 1, %if.then93.i ], [ 1, %if.then110.i ], [ %cleanup.dest.slot.0.i, %cleanup.i ], [ 1, %if.then155.i ], [ 1, %if.then140.i ], [ 1, %if.then125.i ]
-  %tobool.not.i.i.i.i = icmp eq ptr %signature.sroa.0.4.i, null
+  %signature.sroa.0.5.i = phi ptr [ %signature.sroa.0.7.i, %if.then93.i ], [ %signature.sroa.0.8.i, %if.then110.i ], [ %signature.sroa.0.8.i, %cleanup.i ], [ %signature.sroa.0.8.i, %if.then155.i ], [ %signature.sroa.0.8.i, %if.then140.i ], [ %signature.sroa.0.8.i, %if.then125.i ]
+  %cleanup.dest.slot.3.i = phi i32 [ 1, %if.then93.i ], [ 1, %if.then110.i ], [ %cleanup.dest.slot.4.i, %cleanup.i ], [ 1, %if.then155.i ], [ 1, %if.then140.i ], [ 1, %if.then125.i ]
+  %tobool.not.i.i.i.i = icmp eq ptr %signature.sroa.0.5.i, null
   br i1 %tobool.not.i.i.i.i, label %cleanup255.i, label %if.then.i.i.i98.i
 
 if.then.i.i.i98.i:                                ; preds = %cleanup254.i
-  call void @_ZdlPv(ptr noundef nonnull %signature.sroa.0.4.i) #16
+  call void @_ZdlPv(ptr noundef nonnull %signature.sroa.0.5.i) #16
   br label %cleanup255.i
 
 cleanup255.i:                                     ; preds = %if.then.i.i.i98.i, %cleanup254.i, %if.then72.i, %if.then60.i
-  %cleanup.dest.slot.2.i = phi i32 [ 1, %if.then60.i ], [ 1, %if.then72.i ], [ %cleanup.dest.slot.1.i, %cleanup254.i ], [ %cleanup.dest.slot.1.i, %if.then.i.i.i98.i ]
+  %cleanup.dest.slot.2.i = phi i32 [ 1, %if.then60.i ], [ 1, %if.then72.i ], [ %cleanup.dest.slot.3.i, %cleanup254.i ], [ %cleanup.dest.slot.3.i, %if.then.i.i.i98.i ]
   %35 = load ptr, ptr %wrong_eckey.i, align 8
   %cmp.not.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, label %if.then.i99.i
@@ -540,7 +540,7 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
 
 cleanup257.i:                                     ; preds = %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, %if.then41.i
   %38 = phi ptr [ %call27.i, %if.then41.i ], [ %.pre.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
-  %cleanup.dest.slot.3.i = phi i32 [ 1, %if.then41.i ], [ %cleanup.dest.slot.2.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
+  %cleanup.dest.slot.1.i = phi i32 [ 1, %if.then41.i ], [ %cleanup.dest.slot.2.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
   %cmp.not.i100.i = icmp eq ptr %38, null
   br i1 %cmp.not.i100.i, label %cleanup259.i, label %if.then.i101.i
 
@@ -562,7 +562,7 @@ cleanup259.i:                                     ; preds = %if.then.i101.i, %cl
   br i1 %cmp.not.i104.i, label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i, label %if.then.i105.i
 
 if.then.i105.i:                                   ; preds = %cleanup259.i, %cleanup259.thread141.i
-  %cleanup.dest.slot.4144.i = phi i32 [ 4, %cleanup259.thread141.i ], [ %cleanup.dest.slot.3.i, %cleanup259.i ]
+  %cleanup.dest.slot.0144.i = phi i32 [ 4, %cleanup259.thread141.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
   %41 = phi ptr [ %call11.i, %cleanup259.thread141.i ], [ %.pre136.i, %cleanup259.i ]
   invoke void @EC_GROUP_free(ptr noundef nonnull %41)
           to label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i106.i
@@ -575,19 +575,19 @@ terminate.lpad.i106.i:                            ; preds = %if.then.i105.i
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i: ; preds = %if.then.i105.i, %cleanup259.i
-  %cleanup.dest.slot.4140.i = phi i32 [ %cleanup.dest.slot.3.i, %cleanup259.i ], [ %cleanup.dest.slot.4144.i, %if.then.i105.i ]
+  %cleanup.dest.slot.0140.i = phi i32 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0144.i, %if.then.i105.i ]
   store ptr null, ptr %group.i, align 8
-  %switch.not.i = icmp eq i32 %cleanup.dest.slot.4140.i, 1
+  %switch.not.i = icmp eq i32 %cleanup.dest.slot.0140.i, 1
   br i1 %switch.not.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread, label %for.cond.i
 
 ehcleanup.i:                                      ; preds = %lpad172.i, %lpad89.i
-  %signature.sroa.0.8.i = phi ptr [ %signature.sroa.0.2.i, %lpad89.i ], [ %signature.sroa.0.3.i, %lpad172.i ]
+  %signature.sroa.0.6.i = phi ptr [ %signature.sroa.0.4.i, %lpad89.i ], [ %signature.sroa.0.8.i, %lpad172.i ]
   %.pn.i = phi { ptr, i32 } [ %16, %lpad89.i ], [ %26, %lpad172.i ]
-  %tobool.not.i.i.i107.i = icmp eq ptr %signature.sroa.0.8.i, null
+  %tobool.not.i.i.i107.i = icmp eq ptr %signature.sroa.0.6.i, null
   br i1 %tobool.not.i.i.i107.i, label %ehcleanup256.i, label %if.then.i.i.i108.i
 
 if.then.i.i.i108.i:                               ; preds = %ehcleanup.i
-  call void @_ZdlPv(ptr noundef nonnull %signature.sroa.0.8.i) #16
+  call void @_ZdlPv(ptr noundef nonnull %signature.sroa.0.6.i) #16
   br label %ehcleanup256.i
 
 ehcleanup256.i:                                   ; preds = %if.then.i.i.i108.i, %ehcleanup.i, %lpad84.i, %lpad51.i
@@ -802,8 +802,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i18
   unreachable
 
 _ZNSt10unique_ptrI12ecdsa_sig_st14OpenSSLDeleterIS0_XadL_Z14ECDSA_SIG_freeEEEED2Ev.exit: ; preds = %entry, %if.then.i18
-  %retval.231 = phi i1 [ %retval.1, %if.then.i18 ], [ false, %entry ]
-  ret i1 %retval.231
+  %retval.031 = phi i1 [ %retval.1, %if.then.i18 ], [ false, %entry ]
+  ret i1 %retval.031
 
 ehcleanup34:                                      ; preds = %if.then.i.i.i15, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i15 ]
@@ -1030,13 +1030,13 @@ cleanup:                                          ; preds = %invoke.cont9, %invo
   br i1 %tobool.not.i.i.i37, label %return, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %lor.lhs.false64, %invoke.cont43, %invoke.cont39, %invoke.cont32, %invoke.cont61, %invoke.cont54, %invoke.cont43.thread, %cleanup
-  %retval.026 = phi i1 [ false, %cleanup ], [ %call66, %lor.lhs.false64 ], [ false, %invoke.cont43.thread ], [ false, %invoke.cont54 ], [ false, %invoke.cont61 ], [ false, %invoke.cont32 ], [ false, %invoke.cont39 ], [ false, %invoke.cont43 ]
+  %retval.126 = phi i1 [ false, %cleanup ], [ %call66, %lor.lhs.false64 ], [ false, %invoke.cont43.thread ], [ false, %invoke.cont54 ], [ false, %invoke.cont61 ], [ false, %invoke.cont32 ], [ false, %invoke.cont39 ], [ false, %invoke.cont43 ]
   call void @_ZdlPv(ptr noundef nonnull %raw_buf.sroa.0.0) #16
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i38, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %cleanup ], [ %retval.026, %if.then.i.i.i38 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %cleanup ], [ %retval.126, %if.then.i.i.i38 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad8.body
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %lpad8.body ], [ %eh.lpad-body18, %if.then.i.i.i ]

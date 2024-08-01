@@ -91,19 +91,19 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   br label %11
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54, %.preheader
-  %.sroa.20.2.lcssa = phi ptr [ %.sroa.20.1140, %.preheader ], [ %.sroa.20.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %.sroa.8.2.lcssa = phi ptr [ %12, %.preheader ], [ %.sroa.8.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %.sroa.080.3.lcssa = phi ptr [ %.sroa.080.1142, %.preheader ], [ %.sroa.080.4, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %10 = icmp eq ptr %.sroa.080.3.lcssa, %.sroa.8.2.lcssa
+  %.sroa.20.1.lcssa = phi ptr [ %.sroa.20.0140, %.preheader ], [ %.sroa.20.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
+  %.sroa.8.1.lcssa = phi ptr [ %12, %.preheader ], [ %.sroa.8.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
+  %.sroa.080.3.lcssa = phi ptr [ %.sroa.080.1142, %.preheader ], [ %.sroa.080.5, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
+  %10 = icmp eq ptr %.sroa.080.3.lcssa, %.sroa.8.1.lcssa
   br i1 %10, label %.loopexit100, label %11, !llvm.loop !4
 
 11:                                               ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit, %.loopexit
   %.sroa.080.1142 = phi ptr [ %8, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit ], [ %.sroa.080.3.lcssa, %.loopexit ]
-  %.sroa.8.1141 = phi ptr [ %9, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit ], [ %.sroa.8.2.lcssa, %.loopexit ]
-  %.sroa.20.1140 = phi ptr [ %9, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit ], [ %.sroa.20.2.lcssa, %.loopexit ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.8.1141, i64 -24
+  %.sroa.8.0141 = phi ptr [ %9, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit ], [ %.sroa.8.1.lcssa, %.loopexit ]
+  %.sroa.20.0140 = phi ptr [ %9, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit ], [ %.sroa.20.1.lcssa, %.loopexit ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.8.0141, i64 -24
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.1141, i64 -8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.0141, i64 -8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.not = icmp ne ptr %.sroa.0.0.copyload, null
   br i1 %.not, label %13, label %74
@@ -123,7 +123,7 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %105, %2
-  %.sroa.080.2.ph.ph = phi ptr [ %.sroa.080.3135, %105 ], [ null, %2 ]
+  %.sroa.080.0.ph.ph = phi ptr [ %.sroa.080.3135, %105 ], [ null, %2 ]
   %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -270,13 +270,13 @@ _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.loopexit.split-lp
 
 74:                                               ; preds = %11
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.1141, i64 -16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.0141, i64 -16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %75 = icmp eq ptr %.sroa.4.0.copyload, null
   br i1 %75, label %.loopexit100, label %.thread
 
 .thread:                                          ; preds = %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %74
-  %.12193 = phi ptr [ %.sroa.4.0.copyload, %74 ], [ %44, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %.02093 = phi ptr [ %.sroa.4.0.copyload, %74 ], [ %44, %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   store i32 0, ptr %6, align 4
   %76 = load ptr, ptr %0, align 8
   %77 = call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %6, ptr noundef %76)
@@ -294,7 +294,7 @@ _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_trai
 
 .lr.ph:                                           ; preds = %.preheader96, %79
   %.016132 = phi i32 [ %80, %79 ], [ 0, %.preheader96 ]
-  %81 = invoke noundef zeroext i1 @_ZN5draco15MetadataDecoder11DecodeEntryEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.12193)
+  %81 = invoke noundef zeroext i1 @_ZN5draco15MetadataDecoder11DecodeEntryEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.02093)
           to label %82 unwind label %.loopexit.split-lp.loopexit
 
 82:                                               ; preds = %.lr.ph
@@ -331,22 +331,22 @@ _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_trai
   %.pre171 = phi i32 [ %86, %.lr.ph137 ], [ %.pre172, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
   %98 = phi i32 [ %86, %.lr.ph137 ], [ %122, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
   %.0136 = phi i32 [ 0, %.lr.ph137 ], [ %123, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %.sroa.080.3135 = phi ptr [ %.sroa.080.1142, %.lr.ph137 ], [ %.sroa.080.4, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %.sroa.8.2134 = phi ptr [ %12, %.lr.ph137 ], [ %.sroa.8.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %.sroa.20.2133 = phi ptr [ %.sroa.20.1140, %.lr.ph137 ], [ %.sroa.20.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
-  %.not.i.i43 = icmp eq ptr %.sroa.8.2134, %.sroa.20.2133
+  %.sroa.080.3135 = phi ptr [ %.sroa.080.1142, %.lr.ph137 ], [ %.sroa.080.5, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
+  %.sroa.8.1134 = phi ptr [ %12, %.lr.ph137 ], [ %.sroa.8.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
+  %.sroa.20.1133 = phi ptr [ %.sroa.20.0140, %.lr.ph137 ], [ %.sroa.20.3, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54 ]
+  %.not.i.i43 = icmp eq ptr %.sroa.8.1134, %.sroa.20.1133
   br i1 %.not.i.i43, label %100, label %99
 
 99:                                               ; preds = %97
-  store ptr %.12193, ptr %.sroa.8.2134, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.2134, i64 8
+  store ptr %.02093, ptr %.sroa.8.1134, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.1134, i64 8
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx61 = getelementptr inbounds i8, ptr %.sroa.8.2134, i64 16
+  %.sroa.4.0..sroa_idx61 = getelementptr inbounds i8, ptr %.sroa.8.1134, i64 16
   store i32 %96, ptr %.sroa.4.0..sroa_idx61, align 8
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54
 
 100:                                              ; preds = %97
-  %101 = ptrtoint ptr %.sroa.8.2134 to i64
+  %101 = ptrtoint ptr %.sroa.8.1134 to i64
   %102 = ptrtoint ptr %.sroa.080.3135 to i64
   %103 = sub i64 %101, %102
   %104 = icmp eq i64 %103, 9223372036854775800
@@ -361,7 +361,7 @@ _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_trai
 
 _ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45: ; preds = %100
   %106 = sdiv exact i64 %103, 24
-  %107 = icmp eq ptr %.sroa.8.2134, %.sroa.080.3135
+  %107 = icmp eq ptr %.sroa.8.1134, %.sroa.080.3135
   %.sroa.speculated.i.i.i.i46 = select i1 %107, i64 1, i64 %106
   %108 = add nsw i64 %.sroa.speculated.i.i.i.i46, %106
   %109 = icmp ult i64 %108, %106
@@ -378,7 +378,7 @@ _ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metada
 _ZNSt12_Vector_baseIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE11_M_allocateEm.exit.i.i.i48: ; preds = %112, %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45
   %115 = phi ptr [ null, %_ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE12_M_check_lenEmPKc.exit.i.i.i45 ], [ %114, %112 ]
   %116 = getelementptr inbounds %struct.MetadataTuple, ptr %115, i64 %106
-  store ptr %.12193, ptr %116, align 8
+  store ptr %.02093, ptr %116, align 8
   %.sroa.3.0..sroa_idx59 = getelementptr inbounds i8, ptr %116, i64 8
   store ptr null, ptr %.sroa.3.0..sroa_idx59, align 8
   %.sroa.4.0..sroa_idx63 = getelementptr inbounds i8, ptr %116, i64 16
@@ -408,9 +408,9 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit54: ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51, %99
   %.pre172 = phi i32 [ %.pre, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.pre171, %99 ]
   %122 = phi i32 [ %.pre, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %98, %99 ]
-  %.sroa.20.3 = phi ptr [ %121, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.sroa.20.2133, %99 ]
-  %.pn94 = phi ptr [ %119, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.sroa.8.2134, %99 ]
-  %.sroa.080.4 = phi ptr [ %115, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.sroa.080.3135, %99 ]
+  %.sroa.20.3 = phi ptr [ %121, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.sroa.20.1133, %99 ]
+  %.pn94 = phi ptr [ %119, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.sroa.8.1134, %99 ]
+  %.sroa.080.5 = phi ptr [ %115, %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i51 ], [ %.sroa.080.3135, %99 ]
   %.sroa.8.3 = getelementptr inbounds i8, ptr %.pn94, i64 24
   %123 = add nuw i32 %.0136, 1
   %124 = icmp ult i32 %123, %122
@@ -430,13 +430,13 @@ _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metadat
   ret i1 %125
 
 .loopexit.split-lp:                               ; preds = %.loopexit95, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %73
-  %.sroa.080.5 = phi ptr [ %.sroa.080.1142, %73 ], [ %.sroa.080.3135, %.loopexit95 ], [ %.sroa.080.1142, %.loopexit.split-lp.loopexit ], [ %.sroa.080.2.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.080.2 = phi ptr [ %.sroa.080.1142, %73 ], [ %.sroa.080.3135, %.loopexit95 ], [ %.sroa.080.1142, %.loopexit.split-lp.loopexit ], [ %.sroa.080.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn27 = phi { ptr, i32 } [ %.pn, %73 ], [ %lpad.loopexit, %.loopexit95 ], [ %lpad.loopexit97, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i.i.i55 = icmp eq ptr %.sroa.080.5, null
+  %.not.i.i.i55 = icmp eq ptr %.sroa.080.2, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit56, label %127
 
 127:                                              ; preds = %.loopexit.split-lp
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.080.5) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.080.2) #18
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit56
 
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EED2Ev.exit56: ; preds = %.loopexit.split-lp, %127
@@ -603,8 +603,8 @@ _ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit22, %8, %3, %._crit_edge
-  %.2 = phi i1 [ %65, %._crit_edge ], [ false, %3 ], [ false, %8 ], [ false, %_ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit22 ], [ false, %.lr.ph ]
-  ret i1 %.2
+  %.014 = phi i1 [ %65, %._crit_edge ], [ false, %3 ], [ false, %8 ], [ false, %_ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit22 ], [ false, %.lr.ph ]
+  ret i1 %.014
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -899,9 +899,9 @@ _ZN5draco13DecoderBuffer6DecodeEPvm.exit.thread:  ; preds = %56, %_ZN5draco13Dec
   br label %_ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN5draco15MetadataDecoder10DecodeNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN5draco13DecoderBuffer6DecodeEPvm.exit.thread, %_ZN5draco13DecoderBuffer6DecodeEPvm.exit, %2, %.noexc8, %39, %36, %33
-  %.1 = phi i1 [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %.noexc8 ], [ false, %2 ], [ true, %_ZN5draco13DecoderBuffer6DecodeEPvm.exit ], [ %59, %_ZN5draco13DecoderBuffer6DecodeEPvm.exit.thread ]
+  %.05 = phi i1 [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %.noexc8 ], [ false, %2 ], [ true, %_ZN5draco13DecoderBuffer6DecodeEPvm.exit ], [ %59, %_ZN5draco13DecoderBuffer6DecodeEPvm.exit.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  ret i1 %.1
+  ret i1 %.05
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %65, %62, %60, %31
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %32, %31 ], [ %63, %62 ], [ %63, %65 ]

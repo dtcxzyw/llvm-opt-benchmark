@@ -519,8 +519,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit153:            ; preds = %163, %161, %159, %1
 218:                                              ; preds = %211, %216, %.loopexit187
   %219 = phi i32 [ %217, %216 ], [ %212, %211 ], [ %193, %.loopexit187 ]
   %.0134 = phi i1 [ true, %216 ], [ false, %211 ], [ false, %.loopexit187 ]
-  %.1131 = phi i1 [ %.not, %216 ], [ %.not, %211 ], [ false, %.loopexit187 ]
-  %.1129 = phi i1 [ %201, %216 ], [ %201, %211 ], [ false, %.loopexit187 ]
+  %.0130 = phi i1 [ %.not, %216 ], [ %.not, %211 ], [ false, %.loopexit187 ]
+  %.0128 = phi i1 [ %201, %216 ], [ %201, %211 ], [ false, %.loopexit187 ]
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %0, i64 8
   %222 = load ptr, ptr %221, align 8
@@ -547,7 +547,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit153:            ; preds = %163, %161, %159, %1
   br label %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
 
 _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
-  br i1 %.1129, label %235, label %242
+  br i1 %.0128, label %235, label %242
 
 235:                                              ; preds = %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
   store i32 0, ptr %166, align 4
@@ -562,7 +562,7 @@ _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
 
 242:                                              ; preds = %235, %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
   %.0126 = phi i32 [ 0, %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit ], [ 1, %235 ]
-  br i1 %.1131, label %243, label %254
+  br i1 %.0130, label %243, label %254
 
 243:                                              ; preds = %242
   store i32 %.0126, ptr %167, align 4
@@ -633,22 +633,22 @@ _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
 
 280:                                              ; preds = %278, %280
   %indvars.iv213 = phi i64 [ 0, %278 ], [ %indvars.iv.next214, %280 ]
-  %.2137197 = phi i32 [ 0, %278 ], [ %spec.select, %280 ]
+  %.3138197 = phi i32 [ 0, %278 ], [ %spec.select, %280 ]
   %281 = getelementptr inbounds [7 x i8], ptr %279, i64 0, i64 %indvars.iv213
   %282 = load i8, ptr %281, align 1
   %283 = and i8 %282, 1
   %284 = zext nneg i8 %283 to i32
-  %spec.select = add nuw nsw i32 %.2137197, %284
+  %spec.select = add nuw nsw i32 %.3138197, %284
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %.not179 = icmp eq i64 %indvars.iv.next214, 7
   br i1 %.not179, label %.loopexit182, label %280
 
 .loopexit182:                                     ; preds = %280, %277
-  %.4139 = phi i32 [ %.1136, %277 ], [ %spec.select, %280 ]
+  %.2137 = phi i32 [ %.1136, %277 ], [ %spec.select, %280 ]
   %.4 = phi i32 [ %.3, %277 ], [ %.1127, %280 ]
   %285 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %.4, ptr %285, align 8
-  %286 = sext i32 %.4139 to i64
+  %286 = sext i32 %.2137 to i64
   %287 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 548, i64 noundef %286, i64 noundef 8)
           to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -706,7 +706,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %.loopexit182
   %317 = load i32, ptr %316, align 4
   %318 = getelementptr inbounds i8, ptr %315, i64 280
   %319 = load double, ptr %318, align 8
-  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %314, i32 noundef %317, double noundef %319, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef %.4139, ptr noundef %287)
+  invoke fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %314, i32 noundef %317, double noundef %319, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef %.2137, ptr noundef %287)
           to label %320 unwind label %.loopexit
 
 320:                                              ; preds = %312
@@ -2356,7 +2356,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %177 = phi i32 [ %165, %.lr.ph.i ], [ %261, %258 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %258 ]
   %.0125.i = phi i1 [ false, %.lr.ph.i ], [ %.2.i, %258 ]
-  %.0111123.i = phi i32 [ 0, %.lr.ph.i ], [ %.1112.i, %258 ]
+  %.1112123.i = phi i32 [ 0, %.lr.ph.i ], [ %.2113.i, %258 ]
   br i1 %.0125.i, label %258, label %178
 
 178:                                              ; preds = %174
@@ -2504,7 +2504,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   br label %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i
 
 _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edge88.i.i
-  %249 = add nsw i32 %.0111123.i, 1
+  %249 = add nsw i32 %.1112123.i, 1
   %250 = getelementptr inbounds [2 x %"class.std::vector.5"], ptr %170, i64 0, i64 %indvars.iv.i
   %251 = zext i32 %245 to i64
   %252 = load ptr, ptr %250, align 8
@@ -2521,7 +2521,7 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
   %259 = phi i32 [ %175, %174 ], [ %.pre171.i, %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i ]
   %260 = phi i32 [ %176, %174 ], [ %242, %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i ]
   %261 = phi i32 [ %177, %174 ], [ %242, %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i ]
-  %.1112.i = phi i32 [ %.0111123.i, %174 ], [ %249, %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i ]
+  %.2113.i = phi i32 [ %.1112123.i, %174 ], [ %249, %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i ]
   %.2.i = phi i1 [ true, %174 ], [ %257, %_ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %262 = sext i32 %259 to i64
@@ -2529,14 +2529,14 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
   br i1 %263, label %174, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %258, %.preheader.i
-  %.0111.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1112.i, %258 ]
+  %.1112.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2113.i, %258 ]
   %264 = getelementptr inbounds i8, ptr %99, i64 188
   store i8 1, ptr %264, align 4
   br label %265
 
 265:                                              ; preds = %._crit_edge.i, %163
-  %.2113.i = phi i32 [ %.0111.lcssa.i, %._crit_edge.i ], [ 0, %163 ]
-  %266 = add nsw i32 %.2113.i, 2
+  %.0111.i = phi i32 [ %.1112.lcssa.i, %._crit_edge.i ], [ 0, %163 ]
+  %266 = add nsw i32 %.0111.i, 2
   tail call void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr noundef %97, i32 noundef %266)
   store i32 5, ptr %97, align 8
   %267 = getelementptr inbounds i8, ptr %99, i64 184
@@ -2601,7 +2601,7 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
   %304 = load ptr, ptr %299, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 16
   store ptr %303, ptr %305, align 8
-  %306 = sext i32 %.2113.i to i64
+  %306 = sext i32 %.0111.i to i64
   %307 = getelementptr inbounds i8, ptr %99, i64 192
   store i64 %306, ptr %307, align 8
   %308 = getelementptr inbounds i8, ptr %99, i64 152
@@ -2609,12 +2609,12 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds i8, ptr %99, i64 200
   store i64 %310, ptr %311, align 8
-  %312 = icmp sgt i32 %.2113.i, 0
+  %312 = icmp sgt i32 %.0111.i, 0
   br i1 %312, label %.lr.ph132.i, label %._crit_edge133.i
 
 .lr.ph132.i:                                      ; preds = %.loopexit122.i
   %313 = getelementptr inbounds i8, ptr %99, i64 128
-  %wide.trip.count.i = zext nneg i32 %.2113.i to i64
+  %wide.trip.count.i = zext nneg i32 %.0111.i to i64
   br label %314
 
 314:                                              ; preds = %314, %.lr.ph132.i
@@ -2640,7 +2640,7 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
   %321 = sext i32 %320 to i64
   %322 = getelementptr inbounds [5 x i64], ptr %307, i64 0, i64 %.0107.lcssa.i
   store i64 %321, ptr %322, align 8
-  %323 = add nsw i32 %.2113.i, 3
+  %323 = add nsw i32 %.0111.i, 3
   %324 = load ptr, ptr %299, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 80
   store i32 %323, ptr %325, align 8
@@ -2655,7 +2655,7 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %247, %._crit_edg
 .lr.ph137.i:                                      ; preds = %._crit_edge133.i
   %330 = getelementptr inbounds i8, ptr %99, i64 144
   %331 = getelementptr inbounds i8, ptr %99, i64 64
-  %wide.trip.count163.i = zext nneg i32 %.2113.i to i64
+  %wide.trip.count163.i = zext nneg i32 %.0111.i to i64
   br label %332
 
 332:                                              ; preds = %332, %.lr.ph137.i

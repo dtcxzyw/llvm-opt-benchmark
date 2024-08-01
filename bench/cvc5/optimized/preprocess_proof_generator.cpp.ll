@@ -2641,7 +2641,7 @@ ehcleanup257:                                     ; preds = %ehcleanup255, %lpad
   br label %ehcleanup259
 
 if.end258:                                        ; preds = %if.then13.i.i886, %if.then.i.i879, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit876, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit715
-  %proofStepProcessed.1 = phi i8 [ %proofStepProcessed.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit715 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit876 ], [ 1, %if.then.i.i879 ], [ 1, %if.then13.i.i886 ]
+  %proofStepProcessed.2 = phi i8 [ %proofStepProcessed.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit715 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit876 ], [ 1, %if.then.i.i879 ], [ 1, %if.then13.i.i886 ]
   %109 = load ptr, ptr %pr, align 8
   %bf.load.i.i889 = load i64, ptr %109, align 8
   %110 = and i64 %bf.load.i.i889, 1152920405095219200
@@ -2674,7 +2674,7 @@ ehcleanup259:                                     ; preds = %ehcleanup257, %lpad
   br label %ehcleanup382
 
 if.end260:                                        ; preds = %if.then13.i.i898, %if.then.i.i891, %if.end258, %cond.true164
-  %proofStepProcessed.2 = phi i8 [ %proofStepProcessed.0, %cond.true164 ], [ %proofStepProcessed.1, %if.end258 ], [ %proofStepProcessed.1, %if.then.i.i891 ], [ %proofStepProcessed.1, %if.then13.i.i898 ]
+  %proofStepProcessed.1 = phi i8 [ %proofStepProcessed.0, %cond.true164 ], [ %proofStepProcessed.2, %if.end258 ], [ %proofStepProcessed.2, %if.then.i.i891 ], [ %proofStepProcessed.2, %if.then13.i.i898 ]
   %113 = load ptr, ptr %_M_finish.i901, align 8
   %114 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i902 = icmp eq ptr %113, %114
@@ -2920,7 +2920,7 @@ lpad264:                                          ; preds = %if.then13.i4.i, %if
 
 if.end303:                                        ; preds = %if.end3.i.i.i.i.i1064, %lor.lhs.false.i.i.i.i.i1067, %for.cond.i.i.i1081, %invoke.cont158, %call2.i.i.i.i1054.noexc, %if.else.i1076
   %it.sroa.0.1 = phi ptr [ %142, %if.else.i1076 ], [ null, %call2.i.i.i.i1054.noexc ], [ %it.sroa.0.0, %invoke.cont158 ], [ null, %for.cond.i.i.i1081 ], [ null, %lor.lhs.false.i.i.i.i.i1067 ], [ null, %if.end3.i.i.i.i.i1064 ]
-  %proofStepProcessed.3 = phi i8 [ %proofStepProcessed.2, %if.else.i1076 ], [ %proofStepProcessed.2, %call2.i.i.i.i1054.noexc ], [ %proofStepProcessed.0, %invoke.cont158 ], [ %proofStepProcessed.2, %for.cond.i.i.i1081 ], [ %proofStepProcessed.2, %lor.lhs.false.i.i.i.i.i1067 ], [ %proofStepProcessed.2, %if.end3.i.i.i.i.i1064 ]
+  %proofStepProcessed.3 = phi i8 [ %proofStepProcessed.1, %if.else.i1076 ], [ %proofStepProcessed.1, %call2.i.i.i.i1054.noexc ], [ %proofStepProcessed.0, %invoke.cont158 ], [ %proofStepProcessed.1, %for.cond.i.i.i1081 ], [ %proofStepProcessed.1, %lor.lhs.false.i.i.i.i.i1067 ], [ %proofStepProcessed.1, %if.end3.i.i.i.i.i1064 ]
   %tobool304 = trunc nuw i8 %proofStepProcessed.3 to i1
   br i1 %tobool304, label %if.end381, label %cond.true309
 

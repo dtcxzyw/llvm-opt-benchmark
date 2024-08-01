@@ -90,30 +90,30 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %8
 
 6:                                                ; preds = %290, %72
-  %.0495 = phi ptr [ %269, %290 ], [ %.2497, %72 ]
-  %.0485 = phi ptr [ %270, %290 ], [ %73, %72 ]
-  %.0467 = phi i32 [ %291, %290 ], [ %67, %72 ]
-  %.0462 = phi i32 [ %.5, %290 ], [ -2, %72 ]
-  %7 = getelementptr inbounds i8, ptr %.0495, i64 1
+  %.1496 = phi ptr [ %269, %290 ], [ %.2497, %72 ]
+  %.1486 = phi ptr [ %270, %290 ], [ %73, %72 ]
+  %.1468 = phi i32 [ %291, %290 ], [ %67, %72 ]
+  %.1 = phi i32 [ %.8, %290 ], [ -2, %72 ]
+  %7 = getelementptr inbounds i8, ptr %.1496, i64 1
   br label %8
 
 8:                                                ; preds = %6, %0
-  %.1496 = phi ptr [ %2, %0 ], [ %7, %6 ]
+  %.0495 = phi ptr [ %2, %0 ], [ %7, %6 ]
   %.0493 = phi ptr [ %3, %0 ], [ %.1494, %6 ]
-  %.1486 = phi ptr [ %3, %0 ], [ %.0485, %6 ]
+  %.0485 = phi ptr [ %3, %0 ], [ %.1486, %6 ]
   %.0475 = phi ptr [ %2, %0 ], [ %.1476, %6 ]
   %.0473 = phi i64 [ 200, %0 ], [ %.1474, %6 ]
-  %.1468 = phi i32 [ 0, %0 ], [ %.0467, %6 ]
-  %.1 = phi i32 [ -2, %0 ], [ %.0462, %6 ]
-  %9 = trunc nsw i32 %.1468 to i8
-  store i8 %9, ptr %.1496, align 1
+  %.0467 = phi i32 [ 0, %0 ], [ %.1468, %6 ]
+  %.0462 = phi i32 [ -2, %0 ], [ %.1, %6 ]
+  %9 = trunc nsw i32 %.0467 to i8
+  store i8 %9, ptr %.0495, align 1
   %10 = getelementptr inbounds i8, ptr %.0475, i64 %.0473
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
-  %.not = icmp ugt ptr %11, %.1496
+  %.not = icmp ugt ptr %11, %.0495
   br i1 %.not, label %33, label %12
 
 12:                                               ; preds = %8
-  %13 = ptrtoint ptr %.1496 to i64
+  %13 = ptrtoint ptr %.0495 to i64
   %14 = ptrtoint ptr %.0475 to i64
   %15 = sub i64 %13, %14
   %16 = add nsw i64 %15, 1
@@ -148,19 +148,19 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %31 = getelementptr inbounds %struct._phpdbg_param, ptr %26, i64 %16
   %32 = getelementptr inbounds i8, ptr %31, i64 -88
   %.not523 = icmp sgt i64 %spec.store.select, %16
-  br i1 %.not523, label %33, label %.thread579.thread
+  br i1 %.not523, label %33, label %.thread578.thread
 
 33:                                               ; preds = %29, %8
-  %.2497 = phi ptr [ %30, %29 ], [ %.1496, %8 ]
+  %.2497 = phi ptr [ %30, %29 ], [ %.0495, %8 ]
   %.1494 = phi ptr [ %26, %29 ], [ %.0493, %8 ]
-  %.2487 = phi ptr [ %32, %29 ], [ %.1486, %8 ]
+  %.2487 = phi ptr [ %32, %29 ], [ %.0485, %8 ]
   %.1476 = phi ptr [ %22, %29 ], [ %.0475, %8 ]
   %.1474 = phi i64 [ %spec.store.select, %29 ], [ %.0473, %8 ]
-  %34 = icmp eq i32 %.1468, 27
-  br i1 %34, label %.thread579, label %35
+  %34 = icmp eq i32 %.0467, 27
+  br i1 %34, label %.thread578, label %35
 
 35:                                               ; preds = %33
-  %36 = sext i32 %.1468 to i64
+  %36 = sext i32 %.0467 to i64
   %37 = getelementptr inbounds [46 x i8], ptr @yypact, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
@@ -170,7 +170,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br i1 %.not524, label %42, label %74
 
 42:                                               ; preds = %35
-  %43 = icmp eq i32 %.1, -2
+  %43 = icmp eq i32 %.0462, -2
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -178,20 +178,20 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %46
 
 46:                                               ; preds = %44, %42
-  %.2 = phi i32 [ %45, %44 ], [ %.1, %42 ]
-  %47 = icmp slt i32 %.2, 1
+  %.5 = phi i32 [ %45, %44 ], [ %.0462, %42 ]
+  %47 = icmp slt i32 %.5, 1
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp eq i32 %.2, 256
-  br i1 %49, label %.thread579, label %50
+  %49 = icmp eq i32 %.5, 256
+  br i1 %49, label %.thread578, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %.2, 278
+  %51 = icmp ult i32 %.5, 278
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50
-  %53 = zext nneg i32 %.2 to i64
+  %53 = zext nneg i32 %.5 to i64
   %54 = getelementptr inbounds [278 x i8], ptr @yytranslate, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
@@ -199,7 +199,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 57:                                               ; preds = %52, %50, %46
   %.0482 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
-  %.3 = phi i32 [ 0, %46 ], [ %.2, %52 ], [ %.2, %50 ]
+  %.6 = phi i32 [ 0, %46 ], [ %.5, %52 ], [ %.5, %50 ]
   %58 = add nsw i32 %.0482, %39
   %or.cond3 = icmp ugt i32 %58, 51
   br i1 %or.cond3, label %74, label %59
@@ -231,7 +231,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %6
 
 74:                                               ; preds = %57, %59, %35
-  %.4 = phi i32 [ %.1, %35 ], [ %.3, %57 ], [ %.3, %59 ]
+  %.4 = phi i32 [ %.0462, %35 ], [ %.6, %57 ], [ %.6, %59 ]
   %75 = getelementptr inbounds [46 x i8], ptr @yydefact, i64 0, i64 %36
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
@@ -242,7 +242,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 80:                                               ; preds = %74, %70
   %.0484 = phi i32 [ %77, %74 ], [ %71, %70 ]
-  %.5 = phi i32 [ %.4, %74 ], [ %.3, %70 ]
+  %.8 = phi i32 [ %.4, %74 ], [ %.6, %70 ]
   %81 = sext i32 %.0484 to i64
   %82 = getelementptr inbounds [31 x i8], ptr @yyr2, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
@@ -792,7 +792,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %311
 
 311:                                              ; preds = %300, %310, %307, %303
-  %.0556 = phi ptr [ %4, %300 ], [ %4, %310 ], [ %306, %307 ], [ %4, %303 ]
+  %.2558 = phi ptr [ %4, %300 ], [ %4, %310 ], [ %306, %307 ], [ %4, %303 ]
   %.0461 = phi ptr [ @.str, %300 ], [ @.str, %310 ], [ %306, %307 ], [ %4, %303 ]
   %.0 = phi i1 [ true, %300 ], [ true, %310 ], [ %309, %307 ], [ false, %303 ]
   %312 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
@@ -810,19 +810,19 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br i1 %.not.i, label %yyerror.exit, label %.lr.ph.i
 
 yyerror.exit:                                     ; preds = %.lr.ph.i
-  br i1 %.0, label %.loopexit, label %.thread579
+  br i1 %.0, label %.loopexit, label %.thread578
 
 yyerror.exit.thread:                              ; preds = %311
-  br i1 %.0, label %.loopexit, label %.thread579
+  br i1 %.0, label %.loopexit, label %.thread578
 
 .loopexit:                                        ; preds = %18, %12, %yyerror.exit.thread, %yyerror.exit
-  %.3559 = phi ptr [ %.0556, %yyerror.exit ], [ %.0556, %yyerror.exit.thread ], [ %4, %12 ], [ %4, %18 ]
-  %.3478 = phi ptr [ %.1476, %yyerror.exit ], [ %.1476, %yyerror.exit.thread ], [ %.0475, %12 ], [ %.0475, %18 ]
+  %.0556 = phi ptr [ %.2558, %yyerror.exit ], [ %.2558, %yyerror.exit.thread ], [ %4, %12 ], [ %4, %18 ]
+  %.2477 = phi ptr [ %.1476, %yyerror.exit ], [ %.1476, %yyerror.exit.thread ], [ %.0475, %12 ], [ %.0475, %18 ]
   %315 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %316 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %315, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #12
   %.04.i545 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
   %.not5.i546 = icmp eq ptr %.04.i545, null
-  br i1 %.not5.i546, label %.thread579, label %.lr.ph.i547
+  br i1 %.not5.i546, label %.thread578, label %.lr.ph.i547
 
 .lr.ph.i547:                                      ; preds = %.loopexit, %.lr.ph.i547
   %.06.i548 = phi ptr [ %.0.i549, %.lr.ph.i547 ], [ %.04.i545, %.loopexit ]
@@ -830,34 +830,34 @@ yyerror.exit.thread:                              ; preds = %311
   %317 = getelementptr inbounds i8, ptr %.06.i548, i64 72
   %.0.i549 = load ptr, ptr %317, align 8
   %.not.i550 = icmp eq ptr %.0.i549, null
-  br i1 %.not.i550, label %.thread579, label %.lr.ph.i547
+  br i1 %.not.i550, label %.thread578, label %.lr.ph.i547
 
-.thread579:                                       ; preds = %33, %48, %.lr.ph.i547, %yyerror.exit.thread, %yyerror.exit, %.loopexit
-  %.4479577 = phi ptr [ %.3478, %.loopexit ], [ %.1476, %yyerror.exit ], [ %.1476, %yyerror.exit.thread ], [ %.3478, %.lr.ph.i547 ], [ %.1476, %48 ], [ %.1476, %33 ]
-  %.0483575 = phi i32 [ 2, %.loopexit ], [ 1, %yyerror.exit ], [ 1, %yyerror.exit.thread ], [ 2, %.lr.ph.i547 ], [ 0, %33 ], [ 1, %48 ]
-  %.4560569 = phi ptr [ %.3559, %.loopexit ], [ %.0556, %yyerror.exit ], [ %.0556, %yyerror.exit.thread ], [ %.3559, %.lr.ph.i547 ], [ %4, %48 ], [ %4, %33 ]
-  %.not538 = icmp eq ptr %.4479577, %2
-  br i1 %.not538, label %318, label %.thread579.thread
+.thread578:                                       ; preds = %33, %48, %.lr.ph.i547, %yyerror.exit.thread, %yyerror.exit, %.loopexit
+  %.4479576 = phi ptr [ %.2477, %.loopexit ], [ %.1476, %yyerror.exit ], [ %.1476, %yyerror.exit.thread ], [ %.2477, %.lr.ph.i547 ], [ %.1476, %48 ], [ %.1476, %33 ]
+  %.0483574 = phi i32 [ 2, %.loopexit ], [ 1, %yyerror.exit ], [ 1, %yyerror.exit.thread ], [ 2, %.lr.ph.i547 ], [ 0, %33 ], [ 1, %48 ]
+  %.4559568 = phi ptr [ %.0556, %.loopexit ], [ %.2558, %yyerror.exit ], [ %.2558, %yyerror.exit.thread ], [ %.0556, %.lr.ph.i547 ], [ %4, %48 ], [ %4, %33 ]
+  %.not538 = icmp eq ptr %.4479576, %2
+  br i1 %.not538, label %318, label %.thread578.thread
 
-.thread579.thread:                                ; preds = %29, %.thread579
-  %.4560569637 = phi ptr [ %.4560569, %.thread579 ], [ %4, %29 ]
-  %.0483575635 = phi i32 [ %.0483575, %.thread579 ], [ 1, %29 ]
-  %.4479577634 = phi ptr [ %.4479577, %.thread579 ], [ %22, %29 ]
-  call void @free(ptr noundef %.4479577634) #12
+.thread578.thread:                                ; preds = %29, %.thread578
+  %.4559568636 = phi ptr [ %.4559568, %.thread578 ], [ %4, %29 ]
+  %.0483574634 = phi i32 [ %.0483574, %.thread578 ], [ 1, %29 ]
+  %.4479576633 = phi ptr [ %.4479576, %.thread578 ], [ %22, %29 ]
+  call void @free(ptr noundef %.4479576633) #12
   br label %318
 
-318:                                              ; preds = %.thread579.thread, %.thread579
-  %.4560569638 = phi ptr [ %.4560569637, %.thread579.thread ], [ %.4560569, %.thread579 ]
-  %.0483575636 = phi i32 [ %.0483575635, %.thread579.thread ], [ %.0483575, %.thread579 ]
-  %.not539 = icmp eq ptr %.4560569638, %4
+318:                                              ; preds = %.thread578.thread, %.thread578
+  %.4559568637 = phi ptr [ %.4559568636, %.thread578.thread ], [ %.4559568, %.thread578 ]
+  %.0483574635 = phi i32 [ %.0483574634, %.thread578.thread ], [ %.0483574, %.thread578 ]
+  %.not539 = icmp eq ptr %.4559568637, %4
   br i1 %.not539, label %320, label %319
 
 319:                                              ; preds = %318
-  call void @free(ptr noundef %.4560569638) #12
+  call void @free(ptr noundef %.4559568637) #12
   br label %320
 
 320:                                              ; preds = %319, %318
-  ret i32 %.0483575636
+  ret i32 %.0483574635
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -913,7 +913,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %34
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ %19, %.lr.ph.i.i ]
-  %.0333.i.i = phi i32 [ %.2.i.fr.i, %34 ], [ 0, %.lr.ph.i.i ]
+  %.13.i.i = phi i32 [ %.033.i.fr.i, %34 ], [ 0, %.lr.ph.i.i ]
   %21 = add nsw i64 %indvars.iv.i.i, %20
   %22 = getelementptr inbounds [52 x i8], ptr @yycheck, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
@@ -925,25 +925,25 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %or.cond.i.i, label %28, label %34
 
 28:                                               ; preds = %.lr.ph.split.i.i
-  %29 = icmp eq i32 %.0333.i.i, 4
+  %29 = icmp eq i32 %.13.i.i, 4
   br i1 %29, label %yy_syntax_error_arguments.exit.thread8, label %30
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.0333.i.i, 1
-  %32 = sext i32 %.0333.i.i to i64
+  %31 = add nsw i32 %.13.i.i, 1
+  %32 = sext i32 %.13.i.i to i64
   %33 = getelementptr inbounds i32, ptr %4, i64 %32
   store i32 %24, ptr %33, align 4
   br label %34
 
 34:                                               ; preds = %30, %.lr.ph.split.i.i
-  %.1.i.i = phi i32 [ %31, %30 ], [ %.0333.i.i, %.lr.ph.split.i.i ]
-  %.2.i.fr.i = freeze i32 %.1.i.i
+  %.2.i.i = phi i32 [ %31, %30 ], [ %.13.i.i, %.lr.ph.split.i.i ]
+  %.033.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count10.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.split.i.i
 
 .loopexit.i.i:                                    ; preds = %34
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+  switch i32 %.033.i.fr.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.loopexit.i.i.thread
     i32 -2, label %yy_syntax_error_arguments.exit.thread10
   ]
@@ -953,8 +953,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br label %yy_syntax_error_arguments.exit.thread8
 
 yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
-  %35 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread8 [
+  %35 = add nsw i32 %.033.i.fr.i, 1
+  switch i32 %.033.i.fr.i, label %yy_syntax_error_arguments.exit.thread8 [
     i32 -3, label %yy_syntax_error_arguments.exit.thread10
     i32 4, label %39
     i32 3, label %38
@@ -1126,7 +1126,7 @@ yytnamerr.exit58:                                 ; preds = %66, %.preheader, %.
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread10:          ; preds = %yytnamerr.exit, %.preheader, %.loopexit.i.i, %63, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %63 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %63 ], [ %.033.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   ret i32 %.038
 }
 

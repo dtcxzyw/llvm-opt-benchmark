@@ -1160,7 +1160,7 @@ _ZN8nanobind3strD2Ev.exit110:                     ; preds = %297, %294, %293, %_
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit114:                  ; preds = %315, %312, %311, %_ZN8nanobind18gil_scoped_acquireC2Ev.exit
-  %.0 = phi ptr [ %12, %_ZN8nanobind18gil_scoped_acquireC2Ev.exit ], [ %307, %311 ], [ %307, %312 ], [ %307, %315 ]
+  %.1 = phi ptr [ %12, %_ZN8nanobind18gil_scoped_acquireC2Ev.exit ], [ %307, %311 ], [ %307, %312 ], [ %307, %315 ]
   invoke void @PyGILState_Release(i32 noundef %8)
           to label %_ZN8nanobind18gil_scoped_acquireD2Ev.exit unwind label %319
 
@@ -1172,8 +1172,8 @@ _ZN8nanobind6objectD2Ev.exit114:                  ; preds = %315, %312, %311, %_
   unreachable
 
 _ZN8nanobind18gil_scoped_acquireD2Ev.exit:        ; preds = %_ZN8nanobind6objectD2Ev.exit114, %1
-  %.1 = phi ptr [ %6, %1 ], [ %.0, %_ZN8nanobind6objectD2Ev.exit114 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %6, %1 ], [ %.1, %_ZN8nanobind6objectD2Ev.exit114 ]
+  ret ptr %.0
 
 .loopexit:                                        ; preds = %.lr.ph156, %_ZNK8nanobind3str5c_strEv.exit, %151, %157, %_ZNK8nanobind3str5c_strEv.exit76, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit, %_ZN8nanobind6objectC2ENS_6handleENS_6detail8borrow_tE.exit74, %222, %226
   %lpad.loopexit = landingpad { ptr, i32 }

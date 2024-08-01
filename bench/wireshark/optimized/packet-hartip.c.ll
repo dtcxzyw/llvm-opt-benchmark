@@ -1065,13 +1065,13 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %188
 
 188:                                              ; preds = %182, %.thread166.i
-  %.7121.i = phi i32 [ %187, %182 ], [ %.5119.i, %.thread166.i ]
-  %.7.i = phi i32 [ %186, %182 ], [ %.5.i, %.thread166.i ]
-  %189 = icmp sgt i32 %.7121.i, 1
+  %.6120.i = phi i32 [ %187, %182 ], [ %.5119.i, %.thread166.i ]
+  %.6.i = phi i32 [ %186, %182 ], [ %.5.i, %.thread166.i ]
+  %189 = icmp sgt i32 %.6120.i, 1
   br i1 %189, label %190, label %540
 
 190:                                              ; preds = %188
-  %191 = add nsw i32 %.7121.i, -1
+  %191 = add nsw i32 %.6120.i, -1
   switch i8 %.0123172.i, label %dissect_parse_hart_cmds.exit.thread182.i [
     i8 0, label %192
     i8 11, label %192
@@ -1108,62 +1108,62 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 194:                                              ; preds = %192
   %195 = load i32, ptr @hf_hartip_pt_rsp_expansion_code, align 4
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %195, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %197 = add i32 %.7.i, 1
+  %196 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %195, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %197 = add i32 %.6.i, 1
   %198 = load i32, ptr @hf_hartip_pt_rsp_expanded_device_type, align 4
   %199 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %198, ptr noundef %0, i32 noundef %197, i32 noundef 2, i32 noundef 0) #4
-  %200 = add i32 %.7.i, 3
+  %200 = add i32 %.6.i, 3
   %201 = load i32, ptr @hf_hartip_pt_rsp_req_min_preambles, align 4
   %202 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %201, ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef 0) #4
-  %203 = add i32 %.7.i, 4
+  %203 = add i32 %.6.i, 4
   %204 = load i32, ptr @hf_hartip_pt_rsp_hart_protocol_major_rev, align 4
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #4
-  %206 = add i32 %.7.i, 5
+  %206 = add i32 %.6.i, 5
   %207 = load i32, ptr @hf_hartip_pt_rsp_device_rev, align 4
   %208 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %207, ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0) #4
-  %209 = add i32 %.7.i, 6
+  %209 = add i32 %.6.i, 6
   %210 = load i32, ptr @hf_hartip_pt_rsp_software_rev, align 4
   %211 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef 0) #4
-  %212 = add i32 %.7.i, 7
+  %212 = add i32 %.6.i, 7
   %213 = load i32, ptr @hf_hartip_pt_rsp_hardware_rev_physical_signal, align 4
   %214 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %213, ptr noundef %0, i32 noundef %212, i32 noundef 1, i32 noundef 0) #4
-  %215 = add i32 %.7.i, 8
+  %215 = add i32 %.6.i, 8
   %216 = load i32, ptr @hf_hartip_pt_rsp_flage, align 4
   %217 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 1, i32 noundef 0) #4
-  %218 = add i32 %.7.i, 9
+  %218 = add i32 %.6.i, 9
   %219 = load i32, ptr @hf_hartip_pt_rsp_device_id, align 4
   %220 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %219, ptr noundef %0, i32 noundef %218, i32 noundef 3, i32 noundef 0) #4
   %221 = icmp ugt i32 %191, 15
   br i1 %221, label %222, label %.thread184.i
 
 222:                                              ; preds = %194
-  %223 = add i32 %.7.i, 12
+  %223 = add i32 %.6.i, 12
   %224 = load i32, ptr @hf_hartip_pt_rsp_rsp_min_preambles, align 4
   %225 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %224, ptr noundef %0, i32 noundef %223, i32 noundef 1, i32 noundef 0) #4
-  %226 = add i32 %.7.i, 13
+  %226 = add i32 %.6.i, 13
   %227 = load i32, ptr @hf_hartip_pt_rsp_max_device_variables, align 4
   %228 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef 1, i32 noundef 0) #4
-  %229 = add i32 %.7.i, 14
+  %229 = add i32 %.6.i, 14
   %230 = load i32, ptr @hf_hartip_pt_rsp_configuration_change_counter, align 4
   %231 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %230, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef 0) #4
-  %232 = add i32 %.7.i, 16
+  %232 = add i32 %.6.i, 16
   %233 = load i32, ptr @hf_hartip_pt_rsp_extended_device_status, align 4
   %234 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %233, ptr noundef %0, i32 noundef %232, i32 noundef 1, i32 noundef 0) #4
   %235 = icmp ugt i32 %191, 17
   br i1 %235, label %236, label %.thread184.i
 
 236:                                              ; preds = %222
-  %237 = add i32 %.7.i, 17
+  %237 = add i32 %.6.i, 17
   %238 = load i32, ptr @hf_hartip_pt_rsp_manufacturer_Identification_code, align 4
   %239 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 2, i32 noundef 0) #4
   %240 = icmp ugt i32 %191, 21
   br i1 %240, label %241, label %.thread184.i
 
 241:                                              ; preds = %236
-  %242 = add i32 %.7.i, 19
+  %242 = add i32 %.6.i, 19
   %243 = load i32, ptr @hf_hartip_pt_rsp_private_label, align 4
   %244 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %243, ptr noundef %0, i32 noundef %242, i32 noundef 2, i32 noundef 0) #4
-  %245 = add i32 %.7.i, 21
+  %245 = add i32 %.6.i, 21
   %246 = load i32, ptr @hf_hartip_pt_rsp_device_profile, align 4
   %247 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %246, ptr noundef %0, i32 noundef %245, i32 noundef 1, i32 noundef 0) #4
   br label %.thread184.i
@@ -1174,8 +1174,8 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 250:                                              ; preds = %248
   %251 = load i32, ptr @hf_hartip_pt_rsp_pv_units, align 4
-  %252 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %251, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %253 = add i32 %.7.i, 1
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %251, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %253 = add i32 %.6.i, 1
   %254 = load i32, ptr @hf_hartip_pt_rsp_pv, align 4
   %255 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 4, i32 noundef 0) #4
   br label %.thread184.i
@@ -1186,14 +1186,14 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 258:                                              ; preds = %256
   %259 = load i32, ptr @hf_hartip_pt_rsp_pv_loop_current, align 4
-  %260 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %259, ptr noundef %0, i32 noundef %.7.i, i32 noundef 4, i32 noundef 0) #4
-  %261 = add i32 %.7.i, 4
+  %260 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %259, ptr noundef %0, i32 noundef %.6.i, i32 noundef 4, i32 noundef 0) #4
+  %261 = add i32 %.6.i, 4
   %262 = load i32, ptr @hf_hartip_pt_rsp_pv_percent_range, align 4
   %263 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef 4, i32 noundef 0) #4
   br label %.thread184.i
 
 264:                                              ; preds = %190
-  %265 = tail call fastcc i32 @dissect_cmd3(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
+  %265 = tail call fastcc i32 @dissect_cmd3(ptr noundef %86, ptr noundef %0, i32 noundef %.6.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 266:                                              ; preds = %190, %190
@@ -1202,8 +1202,8 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 268:                                              ; preds = %266
   %269 = load i32, ptr @hf_hartip_pt_rsp_poll_address, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %269, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %271 = add i32 %.7.i, 1
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %269, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %271 = add i32 %.6.i, 1
   %272 = load i32, ptr @hf_hartip_pt_rsp_loop_current_mode, align 4
   %273 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %272, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef 0) #4
   br label %.thread184.i
@@ -1214,20 +1214,20 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 276:                                              ; preds = %274
   %277 = load i32, ptr @hf_hartip_pt_rsp_primary_var_classify, align 4
-  %278 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %277, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %279 = add i32 %.7.i, 1
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %277, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %279 = add i32 %.6.i, 1
   %280 = load i32, ptr @hf_hartip_pt_rsp_secondary_var_classify, align 4
   %281 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %280, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0) #4
-  %282 = add i32 %.7.i, 2
+  %282 = add i32 %.6.i, 2
   %283 = load i32, ptr @hf_hartip_pt_rsp_tertiary_var_classify, align 4
   %284 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %283, ptr noundef %0, i32 noundef %282, i32 noundef 1, i32 noundef 0) #4
-  %285 = add i32 %.7.i, 3
+  %285 = add i32 %.6.i, 3
   %286 = load i32, ptr @hf_hartip_pt_rsp_quaternary_var_classify, align 4
   %287 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %286, ptr noundef %0, i32 noundef %285, i32 noundef 1, i32 noundef 0) #4
   br label %.thread184.i
 
 288:                                              ; preds = %190
-  %289 = tail call fastcc i32 @dissect_cmd9(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
+  %289 = tail call fastcc i32 @dissect_cmd9(ptr noundef %86, ptr noundef %0, i32 noundef %.6.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 290:                                              ; preds = %190, %190
@@ -1236,7 +1236,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 292:                                              ; preds = %290
   %293 = load i32, ptr @hf_hartip_pt_rsp_message, align 4
-  %294 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %293, ptr noundef %0, i32 noundef %.7.i, i32 noundef 24)
+  %294 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %293, ptr noundef %0, i32 noundef %.6.i, i32 noundef 24)
   br label %.thread184.i
 
 295:                                              ; preds = %190, %190
@@ -1245,17 +1245,17 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 297:                                              ; preds = %295
   %298 = load i32, ptr @hf_hartip_pt_rsp_tag, align 4
-  %299 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %298, ptr noundef %0, i32 noundef %.7.i, i32 noundef 6)
-  %300 = add i32 %.7.i, 6
+  %299 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %298, ptr noundef %0, i32 noundef %.6.i, i32 noundef 6)
+  %300 = add i32 %.6.i, 6
   %301 = load i32, ptr @hf_hartip_pt_rsp_packed_descriptor, align 4
   %302 = tail call fastcc i32 @dissect_packAscii(ptr noundef %86, i32 noundef %301, ptr noundef %0, i32 noundef %300, i32 noundef 12)
-  %303 = add i32 %.7.i, 18
+  %303 = add i32 %.6.i, 18
   %304 = load i32, ptr @hf_hartip_pt_rsp_day, align 4
   %305 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef 1, i32 noundef 0) #4
-  %306 = add i32 %.7.i, 19
+  %306 = add i32 %.6.i, 19
   %307 = load i32, ptr @hf_hartip_pt_rsp_month, align 4
   %308 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %307, ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef 0) #4
-  %309 = add i32 %.7.i, 20
+  %309 = add i32 %.6.i, 20
   %310 = load i32, ptr @hf_hartip_pt_rsp_year, align 4
   %311 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %310, ptr noundef %0, i32 noundef %309, i32 noundef 1, i32 noundef 0) #4
   br label %.thread184.i
@@ -1266,17 +1266,17 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 314:                                              ; preds = %312
   %315 = load i32, ptr @hf_hartip_pt_rsp_transducer_serial_number, align 4
-  %316 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %315, ptr noundef %0, i32 noundef %.7.i, i32 noundef 3, i32 noundef 0) #4
-  %317 = add i32 %.7.i, 3
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %315, ptr noundef %0, i32 noundef %.6.i, i32 noundef 3, i32 noundef 0) #4
+  %317 = add i32 %.6.i, 3
   %318 = load i32, ptr @hf_hartip_pt_rsp_transducer_limit_min_span_units, align 4
   %319 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %318, ptr noundef %0, i32 noundef %317, i32 noundef 1, i32 noundef 0) #4
-  %320 = add i32 %.7.i, 4
+  %320 = add i32 %.6.i, 4
   %321 = load i32, ptr @hf_hartip_pt_rsp_upper_transducer_limit, align 4
   %322 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %321, ptr noundef %0, i32 noundef %320, i32 noundef 4, i32 noundef 0) #4
-  %323 = add i32 %.7.i, 8
+  %323 = add i32 %.6.i, 8
   %324 = load i32, ptr @hf_hartip_pt_rsp_lower_transducer_limit, align 4
   %325 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %324, ptr noundef %0, i32 noundef %323, i32 noundef 4, i32 noundef 0) #4
-  %326 = add i32 %.7.i, 12
+  %326 = add i32 %.6.i, 12
   %327 = load i32, ptr @hf_hartip_pt_rsp_minimum_span, align 4
   %328 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %327, ptr noundef %0, i32 noundef %326, i32 noundef 4, i32 noundef 0) #4
   br label %.thread184.i
@@ -1287,29 +1287,29 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 331:                                              ; preds = %329
   %332 = load i32, ptr @hf_hartip_pt_rsp_pv_alarm_selection_code, align 4
-  %333 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %332, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %334 = add i32 %.7.i, 1
+  %333 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %332, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %334 = add i32 %.6.i, 1
   %335 = load i32, ptr @hf_hartip_pt_rsp_pv_transfer_function_code, align 4
   %336 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %335, ptr noundef %0, i32 noundef %334, i32 noundef 1, i32 noundef 0) #4
-  %337 = add i32 %.7.i, 2
+  %337 = add i32 %.6.i, 2
   %338 = load i32, ptr @hf_hartip_pt_rsp_pv_upper_and_lower_range_values_units, align 4
   %339 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %338, ptr noundef %0, i32 noundef %337, i32 noundef 1, i32 noundef 0) #4
-  %340 = add i32 %.7.i, 3
+  %340 = add i32 %.6.i, 3
   %341 = load i32, ptr @hf_hartip_pt_rsp_pv_upper_range_value, align 4
   %342 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %341, ptr noundef %0, i32 noundef %340, i32 noundef 4, i32 noundef 0) #4
-  %343 = add i32 %.7.i, 7
+  %343 = add i32 %.6.i, 7
   %344 = load i32, ptr @hf_hartip_pt_rsp_pv_lower_range_value, align 4
   %345 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %344, ptr noundef %0, i32 noundef %343, i32 noundef 4, i32 noundef 0) #4
-  %346 = add i32 %.7.i, 11
+  %346 = add i32 %.6.i, 11
   %347 = load i32, ptr @hf_hartip_pt_rsp_pv_damping_value, align 4
   %348 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %347, ptr noundef %0, i32 noundef %346, i32 noundef 4, i32 noundef 0) #4
-  %349 = add i32 %.7.i, 15
+  %349 = add i32 %.6.i, 15
   %350 = load i32, ptr @hf_hartip_pt_rsp_write_protect_code, align 4
   %351 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef 0) #4
-  %352 = add i32 %.7.i, 16
+  %352 = add i32 %.6.i, 16
   %353 = load i32, ptr @hf_hartip_pt_rsp_reserved, align 4
   %354 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %353, ptr noundef %0, i32 noundef %352, i32 noundef 1, i32 noundef 0) #4
-  %355 = add i32 %.7.i, 17
+  %355 = add i32 %.6.i, 17
   %356 = load i32, ptr @hf_hartip_pt_rsp_pv_analog_channel_flags, align 4
   %357 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %356, ptr noundef %0, i32 noundef %355, i32 noundef 1, i32 noundef 0) #4
   br label %.thread184.i
@@ -1320,7 +1320,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 360:                                              ; preds = %358
   %361 = load i32, ptr @hf_hartip_pt_rsp_final_assembly_number, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %361, ptr noundef %0, i32 noundef %.7.i, i32 noundef 3, i32 noundef 0) #4
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %361, ptr noundef %0, i32 noundef %.6.i, i32 noundef 3, i32 noundef 0) #4
   br label %.thread184.i
 
 363:                                              ; preds = %190, %190
@@ -1329,7 +1329,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 365:                                              ; preds = %363
   %366 = load i32, ptr @hf_hartip_pt_rsp_tag, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %366, ptr noundef %0, i32 noundef %.7.i, i32 noundef 32, i32 noundef 0) #4
+  %367 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %366, ptr noundef %0, i32 noundef %.6.i, i32 noundef 32, i32 noundef 0) #4
   br label %.thread184.i
 
 368:                                              ; preds = %190
@@ -1337,11 +1337,11 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br i1 %369, label %370, label %dissect_parse_hart_cmds.exit.thread182.i
 
 370:                                              ; preds = %368
-  %371 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.7.i) #4
+  %371 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.6.i) #4
   %372 = load i32, ptr @hf_hartip_pt_rsp_command_number, align 4
-  %373 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %372, ptr noundef %0, i32 noundef %.7.i, i32 noundef 2, i32 noundef 0) #4
-  %374 = add i32 %.7.i, 2
-  %375 = add nsw i32 %.7121.i, -3
+  %373 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %372, ptr noundef %0, i32 noundef %.6.i, i32 noundef 2, i32 noundef 0) #4
+  %374 = add i32 %.6.i, 2
+  %375 = add nsw i32 %.6120.i, -3
   %.not.i.i.i = icmp eq i32 %191, 2
   br i1 %.not.i.i.i, label %.thread184.i, label %376
 
@@ -1365,50 +1365,50 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 384:                                              ; preds = %382
   %385 = load i32, ptr @hf_hartip_pt_rsp_slot0_device_var, align 4
-  %386 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %385, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %387 = add i32 %.7.i, 1
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %385, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %387 = add i32 %.6.i, 1
   %388 = load i32, ptr @hf_hartip_pt_rsp_slot0_units, align 4
   %389 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %388, ptr noundef %0, i32 noundef %387, i32 noundef 1, i32 noundef 0) #4
-  %390 = add i32 %.7.i, 2
+  %390 = add i32 %.6.i, 2
   %391 = load i32, ptr @hf_hartip_pt_rsp_slot0_device_var_value, align 4
   %392 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 4, i32 noundef 0) #4
   %393 = icmp ugt i32 %191, 11
   br i1 %393, label %394, label %.thread184.i
 
 394:                                              ; preds = %384
-  %395 = add i32 %.7.i, 6
+  %395 = add i32 %.6.i, 6
   %396 = load i32, ptr @hf_hartip_pt_rsp_slot1_device_var, align 4
   %397 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %396, ptr noundef %0, i32 noundef %395, i32 noundef 1, i32 noundef 0) #4
-  %398 = add i32 %.7.i, 7
+  %398 = add i32 %.6.i, 7
   %399 = load i32, ptr @hf_hartip_pt_rsp_slot1_units, align 4
   %400 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %399, ptr noundef %0, i32 noundef %398, i32 noundef 1, i32 noundef 0) #4
-  %401 = add i32 %.7.i, 8
+  %401 = add i32 %.6.i, 8
   %402 = load i32, ptr @hf_hartip_pt_rsp_slot1_device_var_value, align 4
   %403 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %402, ptr noundef %0, i32 noundef %401, i32 noundef 4, i32 noundef 0) #4
   %404 = icmp ugt i32 %191, 17
   br i1 %404, label %405, label %.thread184.i
 
 405:                                              ; preds = %394
-  %406 = add i32 %.7.i, 12
+  %406 = add i32 %.6.i, 12
   %407 = load i32, ptr @hf_hartip_pt_rsp_slot2_device_var, align 4
   %408 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %407, ptr noundef %0, i32 noundef %406, i32 noundef 1, i32 noundef 0) #4
-  %409 = add i32 %.7.i, 13
+  %409 = add i32 %.6.i, 13
   %410 = load i32, ptr @hf_hartip_pt_rsp_slot2_units, align 4
   %411 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %410, ptr noundef %0, i32 noundef %409, i32 noundef 1, i32 noundef 0) #4
-  %412 = add i32 %.7.i, 14
+  %412 = add i32 %.6.i, 14
   %413 = load i32, ptr @hf_hartip_pt_rsp_slot2_device_var_value, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef 0) #4
   %415 = icmp ugt i32 %191, 23
   br i1 %415, label %416, label %.thread184.i
 
 416:                                              ; preds = %405
-  %417 = add i32 %.7.i, 18
+  %417 = add i32 %.6.i, 18
   %418 = load i32, ptr @hf_hartip_pt_rsp_slot3_device_var, align 4
   %419 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %418, ptr noundef %0, i32 noundef %417, i32 noundef 1, i32 noundef 0) #4
-  %420 = add i32 %.7.i, 19
+  %420 = add i32 %.6.i, 19
   %421 = load i32, ptr @hf_hartip_pt_rsp_slot3_units, align 4
   %422 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef 1, i32 noundef 0) #4
-  %423 = add i32 %.7.i, 20
+  %423 = add i32 %.6.i, 20
   %424 = load i32, ptr @hf_hartip_pt_rsp_slot3_device_var_value, align 4
   %425 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %424, ptr noundef %0, i32 noundef %423, i32 noundef 4, i32 noundef 0) #4
   br label %.thread184.i
@@ -1419,11 +1419,11 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 428:                                              ; preds = %426
   %429 = load i32, ptr @hf_hartip_pt_rsp_configuration_change_counter, align 4
-  %430 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %429, ptr noundef %0, i32 noundef %.7.i, i32 noundef 2, i32 noundef 0) #4
+  %430 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %429, ptr noundef %0, i32 noundef %.6.i, i32 noundef 2, i32 noundef 0) #4
   br label %.thread184.i
 
 431:                                              ; preds = %190
-  %432 = tail call fastcc i32 @dissect_cmd48(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
+  %432 = tail call fastcc i32 @dissect_cmd48(ptr noundef %86, ptr noundef %0, i32 noundef %.6.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 433:                                              ; preds = %190
@@ -1432,11 +1432,11 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 435:                                              ; preds = %433
   %436 = load i32, ptr @hf_hartip_pt_rsp_io_card, align 4
-  %437 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %436, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef 0) #4
-  %438 = add i32 %.7.i, 1
+  %437 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %436, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
+  %438 = add i32 %.6.i, 1
   %439 = load i32, ptr @hf_hartip_pt_rsp_channel, align 4
   %440 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %439, ptr noundef %0, i32 noundef %438, i32 noundef 1, i32 noundef 0) #4
-  %441 = add i32 %.7.i, 2
+  %441 = add i32 %.6.i, 2
   switch i8 %134, label %442 [
     i8 6, label %446
     i8 1, label %446
@@ -1445,7 +1445,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 442:                                              ; preds = %435
   %443 = load i32, ptr @hf_hartip_pt_req_tx_preamble_count, align 4
   %444 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %443, ptr noundef %0, i32 noundef %441, i32 noundef 1, i32 noundef 0) #4
-  %445 = add i32 %.7.i, 3
+  %445 = add i32 %.6.i, 3
   br label %446
 
 446:                                              ; preds = %442, %435, %435
@@ -1487,7 +1487,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 
 472:                                              ; preds = %461
   %473 = zext i8 %466 to i32
-  %474 = add nsw i32 %.7121.i, -7
+  %474 = add nsw i32 %.6120.i, -7
   %.not77.i.i.i = icmp ult i32 %474, %473
   br i1 %.not77.i.i.i, label %.thread184.i, label %475
 
@@ -1500,9 +1500,9 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %481 = add i8 %466, -2
   %482 = zext i8 %481 to i32
   %483 = icmp eq i8 %481, 0
-  %484 = icmp ult i32 %.7121.i, 10
+  %484 = icmp ult i32 %.6120.i, 10
   %or.cond3.not82.i.i.i = or i1 %484, %483
-  %485 = add nsw i32 %.7121.i, -9
+  %485 = add nsw i32 %.6120.i, -9
   %.not78.i.i.i = icmp ult i32 %485, %482
   %or.cond79.i.i.i = select i1 %or.cond3.not82.i.i.i, i1 true, i1 %.not78.i.i.i
   br i1 %or.cond79.i.i.i, label %.thread184.i, label %486
@@ -1518,16 +1518,16 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br i1 %491, label %492, label %dissect_parse_hart_cmds.exit.thread182.i
 
 492:                                              ; preds = %490
-  %493 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7.i) #4
+  %493 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6.i) #4
   %494 = load i32, ptr @hf_hartip_pt_rsp_number_of_commands, align 4
   %495 = zext i8 %493 to i32
-  %496 = tail call ptr @proto_tree_add_uint(ptr noundef %86, i32 noundef %494, ptr noundef %0, i32 noundef %.7.i, i32 noundef 1, i32 noundef %495) #4
+  %496 = tail call ptr @proto_tree_add_uint(ptr noundef %86, i32 noundef %494, ptr noundef %0, i32 noundef %.6.i, i32 noundef 1, i32 noundef %495) #4
   %.not81.i.i.i = icmp eq i8 %493, 0
   br i1 %.not81.i.i.i, label %.thread184.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %492
-  %497 = add nsw i32 %.7121.i, -2
-  %498 = add i32 %.7.i, 1
+  %497 = add nsw i32 %.6120.i, -2
+  %498 = add i32 %.6.i, 1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %529, %.lr.ph.preheader.i.i.i
@@ -1600,7 +1600,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br i1 %or.cond72.i.i.i, label %.lr.ph.i.i.i, label %dissect_parse_hart_cmds.exit.i, !llvm.loop !7
 
 534:                                              ; preds = %190
-  %535 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191)
+  %535 = tail call fastcc i32 @dissect_cmd203(ptr noundef %86, ptr noundef %0, i32 noundef %.6.i, i32 noundef %191)
   br label %dissect_parse_hart_cmds.exit.i
 
 dissect_parse_hart_cmds.exit.i:                   ; preds = %529, %534, %431, %288, %264
@@ -1610,19 +1610,19 @@ dissect_parse_hart_cmds.exit.i:                   ; preds = %529, %534, %431, %2
 
 dissect_parse_hart_cmds.exit.thread182.i:         ; preds = %dissect_parse_hart_cmds.exit.i, %490, %433, %426, %382, %368, %363, %358, %329, %312, %295, %290, %274, %266, %256, %248, %192, %190
   %537 = load i32, ptr @hf_hartip_pt_payload, align 4
-  %538 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %537, ptr noundef %0, i32 noundef %.7.i, i32 noundef %191, i32 noundef 0) #4
+  %538 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %537, ptr noundef %0, i32 noundef %.6.i, i32 noundef %191, i32 noundef 0) #4
   br label %.thread184.i
 
 .thread184.i:                                     ; preds = %dissect_parse_hart_cmds.exit.thread182.i, %dissect_parse_hart_cmds.exit.i, %492, %486, %475, %472, %461, %428, %416, %405, %394, %384, %.critedge.i.i.i, %377, %370, %365, %360, %331, %314, %297, %292, %276, %268, %258, %250, %241, %236, %222, %194
-  %539 = add i32 %.7.i, %191
+  %539 = add i32 %.6.i, %191
   br label %542
 
 540:                                              ; preds = %188
-  %541 = icmp eq i32 %.7121.i, 1
+  %541 = icmp eq i32 %.6120.i, 1
   br i1 %541, label %542, label %dissect_pass_through.exit
 
 542:                                              ; preds = %540, %.thread184.i
-  %.8187.i = phi i32 [ %539, %.thread184.i ], [ %.7.i, %540 ]
+  %.8187.i = phi i32 [ %539, %.thread184.i ], [ %.6.i, %540 ]
   %543 = load i32, ptr @hf_hartip_pt_checksum, align 4
   %544 = tail call ptr @proto_tree_add_checksum(ptr noundef %86, ptr noundef %0, i32 noundef %.8187.i, i32 noundef %543, i32 noundef -1, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   br label %dissect_pass_through.exit

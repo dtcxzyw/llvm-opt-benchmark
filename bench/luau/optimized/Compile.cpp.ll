@@ -2856,14 +2856,14 @@ _ZN4Luau12AstNameTableD2Ev.exit82.i:              ; preds = %419, %417, %325
 
 421:                                              ; preds = %420, %299
   %.pn63.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn63.pn.pn.pn.i, %420 ], [ %300, %299 ]
-  %.6.i = extractvalue { ptr, i32 } %.pn63.pn.pn.pn.pn.i, 0
-  %.653.i = extractvalue { ptr, i32 } %.pn63.pn.pn.pn.pn.i, 1
+  %.3.i = extractvalue { ptr, i32 } %.pn63.pn.pn.pn.pn.i, 0
+  %.350.i = extractvalue { ptr, i32 } %.pn63.pn.pn.pn.pn.i, 1
   %422 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4Luau11ParseErrorsE) #23
-  %423 = icmp eq i32 %.653.i, %422
+  %423 = icmp eq i32 %.350.i, %422
   br i1 %423, label %424, label %433
 
 424:                                              ; preds = %421
-  %425 = call ptr @__cxa_begin_catch(ptr %.6.i) #23
+  %425 = call ptr @__cxa_begin_catch(ptr %.3.i) #23
   %426 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4Luau11ParseErrors9getErrorsEv(ptr noundef nonnull align 8 dereferenceable(64) %425)
           to label %427 unwind label %.loopexit.split-lp.i
 
@@ -2886,11 +2886,11 @@ _ZN4Luau12AstNameTableD2Ev.exit82.i:              ; preds = %419, %417, %325
 
 433:                                              ; preds = %421
   %434 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4Luau12CompileErrorE) #23
-  %435 = icmp eq i32 %.653.i, %434
+  %435 = icmp eq i32 %.350.i, %434
   br i1 %435, label %436, label %.loopexit238
 
 436:                                              ; preds = %433
-  %437 = call ptr @__cxa_begin_catch(ptr %.6.i) #23
+  %437 = call ptr @__cxa_begin_catch(ptr %.3.i) #23
   invoke fastcc void @_ZL11reportErrorPKcRKN4Luau12CompileErrorE(ptr noundef nonnull %268, ptr noundef nonnull align 8 dereferenceable(56) %437)
           to label %._crit_edge.invoke.i unwind label %438
 
@@ -2935,8 +2935,8 @@ _ZN4Luau12AstNameTableD2Ev.exit82.i:              ; preds = %419, %417, %325
   br label %459
 
 .loopexit238:                                     ; preds = %433, %442, %438, %295
-  %.754.i = phi i32 [ %444, %442 ], [ %298, %295 ], [ %441, %438 ], [ %.653.i, %433 ]
-  %.7.i = phi ptr [ %443, %442 ], [ %297, %295 ], [ %440, %438 ], [ %.6.i, %433 ]
+  %.249.i = phi i32 [ %444, %442 ], [ %298, %295 ], [ %441, %438 ], [ %.350.i, %433 ]
+  %.2.i = phi ptr [ %443, %442 ], [ %297, %295 ], [ %440, %438 ], [ %.3.i, %433 ]
   %450 = load i8, ptr %240, align 8
   %451 = trunc i8 %450 to i1
   br i1 %451, label %452, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit83.i
@@ -2947,10 +2947,10 @@ _ZN4Luau12AstNameTableD2Ev.exit82.i:              ; preds = %419, %417, %325
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit83.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit83.i: ; preds = %452, %.loopexit238, %.body.i
-  %.855.i = phi i32 [ %.047.i, %.body.i ], [ %.754.i, %.loopexit238 ], [ %.754.i, %452 ]
-  %.8.i = phi ptr [ %.046.i, %.body.i ], [ %.7.i, %.loopexit238 ], [ %.7.i, %452 ]
-  %453 = insertvalue { ptr, i32 } poison, ptr %.8.i, 0
-  %454 = insertvalue { ptr, i32 } %453, i32 %.855.i, 1
+  %.148.i = phi i32 [ %.047.i, %.body.i ], [ %.249.i, %.loopexit238 ], [ %.249.i, %452 ]
+  %.1.i = phi ptr [ %.046.i, %.body.i ], [ %.2.i, %.loopexit238 ], [ %.2.i, %452 ]
+  %453 = insertvalue { ptr, i32 } poison, ptr %.1.i, 0
+  %454 = insertvalue { ptr, i32 } %453, i32 %.148.i, 1
   br label %.body171
 
 455:                                              ; preds = %442, %438
@@ -3282,7 +3282,7 @@ _ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
   br label %615
 
 615:                                              ; preds = %613, %589
-  %.0137 = phi i32 [ %614, %613 ], [ 1, %589 ]
+  %.1 = phi i32 [ %614, %613 ], [ 1, %589 ]
   %616 = load ptr, ptr %22, align 8
   %617 = getelementptr inbounds i8, ptr %22, i64 8
   %618 = load ptr, ptr %617, align 8
@@ -3432,9 +3432,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %669
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %46, %168, %662, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %178, %173, %134, %119, %99, %79, %66, %56
-  %.1 = phi i32 [ 1, %56 ], [ 1, %66 ], [ 1, %79 ], [ 1, %99 ], [ 1, %119 ], [ 1, %134 ], [ 1, %173 ], [ 1, %178 ], [ 0, %46 ], [ 1, %168 ], [ %.0137, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0137, %662 ]
+  %.0137 = phi i32 [ 1, %56 ], [ 1, %66 ], [ 1, %79 ], [ 1, %99 ], [ 1, %119 ], [ 1, %134 ], [ 1, %173 ], [ 1, %178 ], [ 0, %46 ], [ 1, %168 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %662 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
-  ret i32 %.1
+  ret i32 %.0137
 
 669:                                              ; preds = %.loopexit239, %.loopexit.split-lp240, %668
   %.pn163 = phi { ptr, i32 } [ %.pn, %668 ], [ %lpad.loopexit241, %.loopexit239 ], [ %lpad.loopexit.split-lp242, %.loopexit.split-lp240 ]

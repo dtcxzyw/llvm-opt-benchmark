@@ -2118,7 +2118,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %cmp_with_full_history_ts_low.0 = phi i32 [ %cmp_with_full_history_ts_low.2, %for.inc ], [ 0, %for.cond.preheader ]
   %hit_the_next_user_key.0 = phi i1 [ %hit_the_next_user_key.2, %for.inc ], [ false, %for.cond.preheader ]
   %original_key_is_iter.0 = phi i1 [ false, %for.inc ], [ true, %for.cond.preheader ]
-  %first_key.0 = phi i1 [ %first_key.3, %for.inc ], [ true, %for.cond.preheader ]
+  %first_key.0 = phi i1 [ %first_key.1, %for.inc ], [ true, %for.cond.preheader ]
   %vtable13 = load ptr, ptr %iter, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
   %30 = load ptr, ptr %vfn14, align 8
@@ -2246,7 +2246,7 @@ invoke.cont57:                                    ; preds = %if.then47
   br i1 %cmp.i88, label %if.else, label %if.then59
 
 if.then59:                                        ; preds = %invoke.cont40, %invoke.cont57
-  %cmp_with_full_history_ts_low.1914 = phi i32 [ %call54, %invoke.cont57 ], [ %cmp_with_full_history_ts_low.0, %invoke.cont40 ]
+  %cmp_with_full_history_ts_low.3914 = phi i32 [ %call54, %invoke.cont57 ], [ %cmp_with_full_history_ts_low.0, %invoke.cont40 ]
   %51 = phi i8 [ %.pr.pre, %invoke.cont57 ], [ %45, %invoke.cont40 ]
   %52 = load i8, ptr %assert_valid_internal_key_, align 8
   %tobool60 = trunc i8 %52 to i1
@@ -2280,7 +2280,7 @@ _ZN7rocksdb6StatusD2Ev.exit558.thread:            ; preds = %if.then61
   br label %cleanup527
 
 if.else:                                          ; preds = %invoke.cont44, %invoke.cont57
-  %cmp_with_full_history_ts_low.1.ph956 = phi i32 [ %call54, %invoke.cont57 ], [ %cmp_with_full_history_ts_low.0, %invoke.cont44 ]
+  %cmp_with_full_history_ts_low.3.ph956 = phi i32 [ %call54, %invoke.cont57 ], [ %cmp_with_full_history_ts_low.0, %invoke.cont44 ]
   br i1 %first_key.0, label %if.end100, label %if.else65
 
 if.else65:                                        ; preds = %if.else
@@ -2306,7 +2306,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
           to label %invoke.cont78 unwind label %lpad38
 
 invoke.cont78:                                    ; preds = %land.lhs.true
-  %cmp81 = icmp slt i32 %cmp_with_full_history_ts_low.1.ph956, 0
+  %cmp81 = icmp slt i32 %cmp_with_full_history_ts_low.3.ph956, 0
   %or.cond.not = select i1 %call79, i1 true, i1 %cmp81
   br i1 %or.cond.not, label %if.else83, label %cleanup350
 
@@ -3553,9 +3553,9 @@ if.then.i.i538:                                   ; preds = %_ZN7rocksdb12MergeC
   br label %cleanup350
 
 cleanup350:                                       ; preds = %if.else334.invoke, %land.end, %_ZN7rocksdb12MergeContext5ClearEv.exit535, %if.then.i.i538, %if.then105, %if.then.i.i110, %if.then61, %if.end288, %invoke.cont93, %land.lhs.true87, %invoke.cont71, %invoke.cont78, %if.then59, %cleanup262
-  %cmp_with_full_history_ts_low.1913.ph = phi i32 [ %cmp_with_full_history_ts_low.1.ph956, %land.end ], [ %cmp_with_full_history_ts_low.1.ph956, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ %cmp_with_full_history_ts_low.1.ph956, %if.then.i.i538 ], [ %cmp_with_full_history_ts_low.1.ph956, %if.then105 ], [ %cmp_with_full_history_ts_low.1.ph956, %if.then.i.i110 ], [ %cmp_with_full_history_ts_low.1914, %if.then61 ], [ %cmp_with_full_history_ts_low.1.ph956, %if.end288 ], [ %cmp_with_full_history_ts_low.1.ph956, %invoke.cont93 ], [ %cmp_with_full_history_ts_low.1.ph956, %land.lhs.true87 ], [ %cmp_with_full_history_ts_low.1.ph956, %invoke.cont71 ], [ %cmp_with_full_history_ts_low.1.ph956, %invoke.cont78 ], [ %cmp_with_full_history_ts_low.1914, %if.then59 ], [ %cmp_with_full_history_ts_low.1.ph956, %cleanup262 ], [ %cmp_with_full_history_ts_low.1.ph956, %if.else334.invoke ]
-  %hit_the_next_user_key.1.ph = phi i1 [ %hit_the_next_user_key.0, %land.end ], [ %hit_the_next_user_key.0, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ %hit_the_next_user_key.0, %if.then.i.i538 ], [ %hit_the_next_user_key.0, %if.then105 ], [ %hit_the_next_user_key.0, %if.then.i.i110 ], [ %hit_the_next_user_key.0, %if.then61 ], [ %hit_the_next_user_key.0, %if.end288 ], [ %hit_the_next_user_key.0, %invoke.cont93 ], [ %hit_the_next_user_key.0, %land.lhs.true87 ], [ true, %invoke.cont71 ], [ true, %invoke.cont78 ], [ %hit_the_next_user_key.0, %if.then59 ], [ %hit_the_next_user_key.0, %cleanup262 ], [ %hit_the_next_user_key.0, %if.else334.invoke ]
-  %cleanup.dest.slot.2.ph = phi i32 [ 0, %land.end ], [ 1, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ 1, %if.then.i.i538 ], [ 1, %if.then105 ], [ 1, %if.then.i.i110 ], [ 1, %if.then61 ], [ 0, %if.end288 ], [ 2, %invoke.cont93 ], [ 2, %land.lhs.true87 ], [ 2, %invoke.cont71 ], [ 2, %invoke.cont78 ], [ 2, %if.then59 ], [ 1, %cleanup262 ], [ 0, %if.else334.invoke ]
+  %cmp_with_full_history_ts_low.3913.ph = phi i32 [ %cmp_with_full_history_ts_low.3.ph956, %land.end ], [ %cmp_with_full_history_ts_low.3.ph956, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ %cmp_with_full_history_ts_low.3.ph956, %if.then.i.i538 ], [ %cmp_with_full_history_ts_low.3.ph956, %if.then105 ], [ %cmp_with_full_history_ts_low.3.ph956, %if.then.i.i110 ], [ %cmp_with_full_history_ts_low.3914, %if.then61 ], [ %cmp_with_full_history_ts_low.3.ph956, %if.end288 ], [ %cmp_with_full_history_ts_low.3.ph956, %invoke.cont93 ], [ %cmp_with_full_history_ts_low.3.ph956, %land.lhs.true87 ], [ %cmp_with_full_history_ts_low.3.ph956, %invoke.cont71 ], [ %cmp_with_full_history_ts_low.3.ph956, %invoke.cont78 ], [ %cmp_with_full_history_ts_low.3914, %if.then59 ], [ %cmp_with_full_history_ts_low.3.ph956, %cleanup262 ], [ %cmp_with_full_history_ts_low.3.ph956, %if.else334.invoke ]
+  %hit_the_next_user_key.3.ph = phi i1 [ %hit_the_next_user_key.0, %land.end ], [ %hit_the_next_user_key.0, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ %hit_the_next_user_key.0, %if.then.i.i538 ], [ %hit_the_next_user_key.0, %if.then105 ], [ %hit_the_next_user_key.0, %if.then.i.i110 ], [ %hit_the_next_user_key.0, %if.then61 ], [ %hit_the_next_user_key.0, %if.end288 ], [ %hit_the_next_user_key.0, %invoke.cont93 ], [ %hit_the_next_user_key.0, %land.lhs.true87 ], [ true, %invoke.cont71 ], [ true, %invoke.cont78 ], [ %hit_the_next_user_key.0, %if.then59 ], [ %hit_the_next_user_key.0, %cleanup262 ], [ %hit_the_next_user_key.0, %if.else334.invoke ]
+  %cleanup.dest.slot.0.ph = phi i32 [ 0, %land.end ], [ 1, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ 1, %if.then.i.i538 ], [ 1, %if.then105 ], [ 1, %if.then.i.i110 ], [ 1, %if.then61 ], [ 0, %if.end288 ], [ 2, %invoke.cont93 ], [ 2, %land.lhs.true87 ], [ 2, %invoke.cont71 ], [ 2, %invoke.cont78 ], [ 2, %if.then59 ], [ 1, %cleanup262 ], [ 0, %if.else334.invoke ]
   %first_key.2.ph = phi i1 [ false, %land.end ], [ false, %_ZN7rocksdb12MergeContext5ClearEv.exit535 ], [ false, %if.then.i.i538 ], [ false, %if.then105 ], [ false, %if.then.i.i110 ], [ %first_key.0, %if.then61 ], [ false, %if.end288 ], [ false, %invoke.cont93 ], [ false, %land.lhs.true87 ], [ false, %invoke.cont71 ], [ false, %invoke.cont78 ], [ %first_key.0, %if.then59 ], [ false, %cleanup262 ], [ false, %if.else334.invoke ]
   %.pr = load ptr, ptr %state_.i2.i104, align 8
   %cmp.not.i.i556 = icmp eq ptr %.pr, null
@@ -3567,15 +3567,15 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit558:                   ; preds = %cleanup350, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i557
   store ptr null, ptr %state_.i2.i104, align 8
-  switch i32 %cleanup.dest.slot.2.ph, label %cleanup527 [
+  switch i32 %cleanup.dest.slot.0.ph, label %cleanup527 [
     i32 0, label %for.inc
     i32 2, label %for.end
   ]
 
 for.inc:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit558, %invoke.cont26
-  %cmp_with_full_history_ts_low.2 = phi i32 [ %cmp_with_full_history_ts_low.0, %invoke.cont26 ], [ %cmp_with_full_history_ts_low.1913.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ]
-  %hit_the_next_user_key.2 = phi i1 [ %hit_the_next_user_key.0, %invoke.cont26 ], [ %hit_the_next_user_key.1.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ]
-  %first_key.3 = phi i1 [ %first_key.0, %invoke.cont26 ], [ %first_key.2.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ]
+  %cmp_with_full_history_ts_low.2 = phi i32 [ %cmp_with_full_history_ts_low.0, %invoke.cont26 ], [ %cmp_with_full_history_ts_low.3913.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ]
+  %hit_the_next_user_key.2 = phi i1 [ %hit_the_next_user_key.0, %invoke.cont26 ], [ %hit_the_next_user_key.3.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ]
+  %first_key.1 = phi i1 [ %first_key.0, %invoke.cont26 ], [ %first_key.2.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ]
   %vtable354 = load ptr, ptr %iter, align 8
   %vfn355 = getelementptr inbounds i8, ptr %vtable354, i64 64
   %279 = load ptr, ptr %vfn355, align 8
@@ -3597,9 +3597,9 @@ _ZN7rocksdb6StatusD2Ev.exit562:                   ; preds = %ehcleanup353, %_ZNK
   br label %ehcleanup528
 
 for.end:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit558, %invoke.cont15
-  %cmp_with_full_history_ts_low.3 = phi i32 [ %cmp_with_full_history_ts_low.1913.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ], [ %cmp_with_full_history_ts_low.0, %invoke.cont15 ]
-  %hit_the_next_user_key.3 = phi i1 [ %hit_the_next_user_key.1.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ], [ %hit_the_next_user_key.0, %invoke.cont15 ]
-  %cmp357 = icmp sgt i32 %cmp_with_full_history_ts_low.3, -1
+  %cmp_with_full_history_ts_low.1 = phi i32 [ %cmp_with_full_history_ts_low.3913.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ], [ %cmp_with_full_history_ts_low.0, %invoke.cont15 ]
+  %hit_the_next_user_key.1 = phi i1 [ %hit_the_next_user_key.3.ph, %_ZN7rocksdb6StatusD2Ev.exit558 ], [ %hit_the_next_user_key.0, %invoke.cont15 ]
+  %cmp357 = icmp sgt i32 %cmp_with_full_history_ts_low.1, -1
   %.pr933.pre951 = load ptr, ptr %merge_context_, align 8
   br i1 %cmp357, label %if.then358, label %if.end373
 
@@ -3673,7 +3673,7 @@ if.then.i.i582:                                   ; preds = %if.then378
   br label %cleanup527
 
 if.end379:                                        ; preds = %_ZNK7rocksdb12MergeContext14GetNumOperandsEv.exit579
-  br i1 %hit_the_next_user_key.3, label %land.lhs.true386, label %lor.lhs.false381
+  br i1 %hit_the_next_user_key.1, label %land.lhs.true386, label %lor.lhs.false381
 
 lor.lhs.false381:                                 ; preds = %if.end379
   %vtable382 = load ptr, ptr %iter, align 8
@@ -3691,7 +3691,7 @@ land.lhs.true386:                                 ; preds = %if.end379
   br i1 %at_bottom, label %land.rhs388, label %invoke.cont444
 
 land.rhs388:                                      ; preds = %invoke.cont384, %land.lhs.true386
-  %cmp391 = icmp slt i32 %cmp_with_full_history_ts_low.3, 0
+  %cmp391 = icmp slt i32 %cmp_with_full_history_ts_low.1, 0
   %294 = or i1 %cmp.not, %cmp391
   br i1 %294, label %if.then396, label %invoke.cont444
 
@@ -5020,11 +5020,11 @@ if.then22:                                        ; preds = %if.end20
   br label %if.end36
 
 if.else:                                          ; preds = %if.end, %if.end20
-  %slice.sroa.14.177 = phi i64 [ %sub.ptr.sub.i, %if.end20 ], [ %sub, %if.end ]
-  %slice.sroa.0.176 = phi ptr [ %call2.i10, %if.end20 ], [ %add.ptr, %if.end ]
+  %slice.sroa.14.077 = phi i64 [ %sub.ptr.sub.i, %if.end20 ], [ %sub, %if.end ]
+  %slice.sroa.0.076 = phi ptr [ %call2.i10, %if.end20 ], [ %add.ptr, %if.end ]
   %file_number_ = getelementptr inbounds i8, ptr %this, i64 32
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %slice.sroa.0.176, i64 %slice.sroa.14.177
-  %call2.i18 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %slice.sroa.0.176, ptr noundef nonnull %add.ptr.i17, ptr noundef nonnull %file_number_)
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %slice.sroa.0.076, i64 %slice.sroa.14.077
+  %call2.i18 = tail call noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef nonnull %slice.sroa.0.076, ptr noundef nonnull %add.ptr.i17, ptr noundef nonnull %file_number_)
   %cmp.i19.not = icmp eq ptr %call2.i18, null
   br i1 %cmp.i19.not, label %if.else32, label %land.lhs.true
 

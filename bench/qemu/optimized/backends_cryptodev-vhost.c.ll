@@ -275,7 +275,7 @@ for.inc43:                                        ; preds = %if.end.i.i, %if.end
   br i1 %exitcond97.not, label %return, label %for.body20, !llvm.loop !8
 
 err_start:                                        ; preds = %cryptodev_get_vhost.exit54, %vhost_set_vring_enable.exit, %fail_start.i
-  %r.0 = phi i32 [ %call6.i, %fail_start.i ], [ %call.i55, %cryptodev_get_vhost.exit54 ], [ %call6.i61, %vhost_set_vring_enable.exit ]
+  %r.1 = phi i32 [ %call6.i, %fail_start.i ], [ %call.i55, %cryptodev_get_vhost.exit54 ], [ %call6.i61, %vhost_set_vring_enable.exit ]
   %cmp4684.not = icmp eq i64 %indvars.iv93, 0
   br i1 %cmp4684.not, label %while.end, label %while.body.preheader
 
@@ -321,7 +321,7 @@ if.then60:                                        ; preds = %while.end
   br label %return
 
 return:                                           ; preds = %for.inc43, %for.end.thread, %for.cond17.preheader, %if.then15, %if.then60, %while.end, %if.then
-  %retval.0 = phi i32 [ -38, %if.then ], [ %call12105, %if.then15 ], [ %r.0, %if.then60 ], [ %r.0, %while.end ], [ 0, %for.cond17.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc43 ]
+  %retval.0 = phi i32 [ -38, %if.then ], [ %call12105, %if.then15 ], [ %r.1, %if.then60 ], [ %r.1, %while.end ], [ 0, %for.cond17.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc43 ]
   ret i32 %retval.0
 }
 

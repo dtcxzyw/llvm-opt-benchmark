@@ -8953,29 +8953,29 @@ define ptr @slurmdb_make_tres_string_from_simple(ptr noundef %0, ptr noundef %1,
   br label %84
 
 84:                                               ; preds = %82, %81
-  %.1 = phi ptr [ %.0, %81 ], [ %83, %82 ]
+  %.3 = phi ptr [ %.0, %81 ], [ %83, %82 ]
   %85 = load ptr, ptr %7, align 8
-  call void @list_append(ptr noundef %.1, ptr noundef %85) #20
+  call void @list_append(ptr noundef %.3, ptr noundef %85) #20
   store ptr null, ptr %7, align 8
   br label %86
 
 86:                                               ; preds = %80, %84, %35, %26, %29, %22
   %.149 = phi ptr [ %.048, %22 ], [ %36, %35 ], [ %36, %80 ], [ %36, %84 ], [ %.048, %29 ], [ %.048, %26 ]
-  %.2 = phi ptr [ %.0, %22 ], [ %.0, %35 ], [ %.0, %80 ], [ %.1, %84 ], [ %.0, %29 ], [ %.0, %26 ]
+  %.2 = phi ptr [ %.0, %22 ], [ %.0, %35 ], [ %.0, %80 ], [ %.3, %84 ], [ %.0, %29 ], [ %.0, %26 ]
   %87 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.149, i32 noundef 44) #21
   %.not73 = icmp eq ptr %87, null
   %88 = getelementptr inbounds i8, ptr %87, i64 1
   br i1 %.not73, label %.loopexit, label %19, !llvm.loop !44
 
 .loopexit:                                        ; preds = %86, %33
-  %.3 = phi ptr [ %.0, %33 ], [ %.2, %86 ]
-  %.not74 = icmp eq ptr %.3, null
+  %.1 = phi ptr [ %.0, %33 ], [ %.2, %86 ]
+  %.not74 = icmp eq ptr %.1, null
   br i1 %.not74, label %91, label %89
 
 89:                                               ; preds = %.loopexit
-  %90 = call ptr @slurm_char_list_to_xstr(ptr noundef nonnull %.3) #20
+  %90 = call ptr @slurm_char_list_to_xstr(ptr noundef nonnull %.1) #20
   store ptr %90, ptr %7, align 8
-  call void @list_destroy(ptr noundef nonnull %.3) #20
+  call void @list_destroy(ptr noundef nonnull %.1) #20
   br label %91
 
 91:                                               ; preds = %.loopexit, %89, %6, %14
@@ -9354,7 +9354,7 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
   br label %18
 
 18:                                               ; preds = %106, %12
-  %.080 = phi i32 [ 0, %12 ], [ %.181, %106 ]
+  %.080 = phi i32 [ 0, %12 ], [ %.2, %106 ]
   %.1 = phi ptr [ %.0, %12 ], [ %108, %106 ]
   %19 = load i8, ptr %.1, align 1
   %20 = add i8 %19, -48
@@ -9556,15 +9556,15 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
   br label %106
 
 106:                                              ; preds = %62, %79, %96, %97, %91, %105, %104, %98, %82, %88, %87
-  %.181 = phi i32 [ %.080, %79 ], [ %.080, %87 ], [ %.080, %88 ], [ %.080, %82 ], [ %.080, %96 ], [ %.080, %97 ], [ %.080, %91 ], [ %.080, %104 ], [ %.080, %105 ], [ %.080, %98 ], [ %spec.select, %62 ]
+  %.2 = phi i32 [ %.080, %79 ], [ %.080, %87 ], [ %.080, %88 ], [ %.080, %82 ], [ %.080, %96 ], [ %.080, %97 ], [ %.080, %91 ], [ %.080, %104 ], [ %.080, %105 ], [ %.080, %98 ], [ %spec.select, %62 ]
   %107 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 44) #21
   %.not111 = icmp eq ptr %107, null
   %108 = getelementptr inbounds i8, ptr %107, i64 1
   br i1 %.not111, label %.loopexit, label %18, !llvm.loop !49
 
 .loopexit:                                        ; preds = %106, %51, %47, %38, %33, %28
-  %.2 = phi i32 [ %.080, %47 ], [ %.080, %51 ], [ %.080, %38 ], [ %.080, %33 ], [ %.080, %28 ], [ %.181, %106 ]
-  %.not112 = icmp eq i32 %.2, 0
+  %.181 = phi i32 [ %.080, %47 ], [ %.080, %51 ], [ %.080, %38 ], [ %.080, %33 ], [ %.080, %28 ], [ %.2, %106 ]
+  %.not112 = icmp eq i32 %.181, 0
   %109 = and i32 %2, 4
   %.not113 = icmp eq i32 %109, 0
   %or.cond119 = or i1 %.not113, %.not112
@@ -9574,7 +9574,7 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
   store i64 -1, ptr %7, align 8
   %111 = load ptr, ptr %0, align 8
   %112 = call i32 @list_delete_all(ptr noundef %111, ptr noundef nonnull @slurmdb_find_tres_in_list_by_count, ptr noundef nonnull %7) #20
-  %.not114 = icmp eq i32 %112, %.2
+  %.not114 = icmp eq i32 %112, %.181
   br i1 %.not114, label %117, label %113
 
 113:                                              ; preds = %110
@@ -9583,7 +9583,7 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %113
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.175, i32 noundef %.2, i32 noundef %112) #20
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.175, i32 noundef %.181, i32 noundef %112) #20
   br label %117
 
 117:                                              ; preds = %110, %116, %113, %.loopexit

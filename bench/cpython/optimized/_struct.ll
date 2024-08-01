@@ -1564,7 +1564,7 @@ if.end12:                                         ; preds = %if.end7
 
 land.rhs:                                         ; preds = %if.end12, %while.end
   %1 = phi i8 [ %8, %while.end ], [ 120, %if.end12 ]
-  %other.035 = phi ptr [ %other.2, %while.end ], [ @lilendian_table, %if.end12 ]
+  %other.035 = phi ptr [ %other.1, %while.end ], [ @lilendian_table, %if.end12 ]
   %native.034 = phi ptr [ %incdec.ptr66, %while.end ], [ @native_table, %if.end12 ]
   %2 = load i8, ptr %other.035, align 8
   %cmp22.not = icmp eq i8 %2, 0
@@ -1612,7 +1612,7 @@ if.end64:                                         ; preds = %while.body29
   br i1 %cmp27.not, label %while.end, label %while.body29, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end64, %if.end45, %if.end45, %if.end45, %if.then36, %if.end61
-  %other.2 = phi ptr [ %spec.select, %if.then36 ], [ %spec.select, %if.end45 ], [ %spec.select, %if.end61 ], [ %spec.select, %if.end45 ], [ %spec.select, %if.end45 ], [ %other.035, %if.end64 ]
+  %other.1 = phi ptr [ %spec.select, %if.then36 ], [ %spec.select, %if.end45 ], [ %spec.select, %if.end61 ], [ %spec.select, %if.end45 ], [ %spec.select, %if.end45 ], [ %other.035, %if.end64 ]
   %incdec.ptr66 = getelementptr i8, ptr %native.034, i64 40
   %8 = load i8, ptr %incdec.ptr66, align 8
   %cmp18.not = icmp eq i8 %8, 0

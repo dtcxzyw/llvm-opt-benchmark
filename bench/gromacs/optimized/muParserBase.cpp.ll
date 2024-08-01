@@ -11515,14 +11515,14 @@ _ZNK2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6GetV
 
 .body:                                            ; preds = %94, %114, %135, %155, %169, %189, %203, %77, %217, %210, %196, %175, %162, %141, %128, %108, %.body154, %219, %177, %143, %116, %96, %83
   %.pn42 = phi { ptr, i32 } [ %eh.lpad-body155, %.body154 ], [ %220, %219 ], [ %178, %177 ], [ %144, %143 ], [ %117, %116 ], [ %97, %96 ], [ %84, %83 ], [ %95, %94 ], [ %109, %108 ], [ %115, %114 ], [ %129, %128 ], [ %136, %135 ], [ %142, %141 ], [ %156, %155 ], [ %163, %162 ], [ %170, %169 ], [ %176, %175 ], [ %190, %189 ], [ %197, %196 ], [ %204, %203 ], [ %211, %210 ], [ %78, %77 ], [ %218, %217 ]
-  %.236 = extractvalue { ptr, i32 } %.pn42, 1
+  %.337 = extractvalue { ptr, i32 } %.pn42, 1
   %232 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #22
-  %233 = icmp eq i32 %.236, %232
+  %233 = icmp eq i32 %.337, %232
   br i1 %233, label %234, label %.body159
 
 234:                                              ; preds = %.body
-  %.2 = extractvalue { ptr, i32 } %.pn42, 0
-  %235 = call ptr @__cxa_begin_catch(ptr %.2) #22
+  %.3 = extractvalue { ptr, i32 } %.pn42, 0
+  %235 = call ptr @__cxa_begin_catch(ptr %.3) #22
   %236 = getelementptr inbounds i8, ptr %1, i64 120
   %237 = load ptr, ptr %236, align 8
   %238 = invoke noundef i32 @_ZNK2mu17ParserTokenReader6GetPosEv(ptr noundef nonnull align 8 dereferenceable(400) %237)

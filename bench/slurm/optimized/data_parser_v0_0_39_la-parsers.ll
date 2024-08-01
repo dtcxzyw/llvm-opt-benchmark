@@ -4683,12 +4683,12 @@ define internal i32 @_v39_parse_HOSTLIST(ptr noundef %0, ptr nocapture noundef w
   br label %43
 
 43:                                               ; preds = %.thread, %42, %41, %27, %19
-  %.1 = phi i32 [ 9202, %42 ], [ 9202, %41 ], [ 0, %.thread ], [ %23, %19 ], [ %32, %27 ]
+  %.027 = phi i32 [ 9202, %42 ], [ 9202, %41 ], [ 0, %.thread ], [ %23, %19 ], [ %32, %27 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #16
   br label %44
 
 44:                                               ; preds = %13, %15, %5, %43
-  %.0 = phi i32 [ %.1, %43 ], [ 0, %5 ], [ 0, %15 ], [ 0, %13 ]
+  %.0 = phi i32 [ %.027, %43 ], [ 0, %5 ], [ 0, %15 ], [ 0, %13 ]
   ret i32 %.0
 }
 

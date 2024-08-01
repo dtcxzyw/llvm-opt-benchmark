@@ -1138,8 +1138,8 @@ define linkonce_odr hidden noundef ptr @_ZN14LoaderTreeNode4findEP7oopDesc(ptr n
   br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %2
-  %.1 = phi ptr [ %0, %2 ], [ null, %5 ], [ %7, %.lr.ph ]
-  ret ptr %.1
+  %.08 = phi ptr [ %0, %2 ], [ null, %5 ], [ %7, %.lr.ph ]
+  ret ptr %.08
 }
 
 declare noundef ptr @_ZN21java_lang_ClassLoader6parentEP7oopDesc(ptr noundef) local_unnamed_addr #1

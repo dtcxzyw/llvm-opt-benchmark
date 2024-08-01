@@ -196,13 +196,13 @@ land.lhs.true44:                                  ; preds = %land.lhs.true40
   br label %if.end50
 
 if.end50:                                         ; preds = %land.lhs.true44, %land.lhs.true40, %if.then31
-  %ret.0 = phi i32 [ -1, %land.lhs.true40 ], [ -1, %if.then31 ], [ %spec.select, %land.lhs.true44 ]
+  %ret.1 = phi i32 [ -1, %land.lhs.true40 ], [ -1, %if.then31 ], [ %spec.select, %land.lhs.true44 ]
   call void @CRYPTO_free(ptr noundef nonnull %call29, ptr noundef nonnull @.str.1, i32 noundef 155) #13
   br label %if.else58
 
 err:                                              ; preds = %if.end.i19, %if.then, %sw.default
-  %ret.1 = phi i32 [ %call, %if.then ], [ %call12, %sw.default ], [ %call.i21, %if.end.i19 ]
-  %cmp56 = icmp eq i32 %ret.1, -2
+  %ret.0 = phi i32 [ %call, %if.then ], [ %call12, %sw.default ], [ %call.i21, %if.end.i19 ]
+  %cmp56 = icmp eq i32 %ret.0, -2
   br i1 %cmp56, label %if.then57, label %if.else58
 
 if.then57:                                        ; preds = %if.else13, %if.then5, %if.then5, %if.then5, %err
@@ -212,20 +212,20 @@ if.then57:                                        ; preds = %if.else13, %if.then
   br label %if.end62
 
 if.else58:                                        ; preds = %if.end50, %err
-  %ret.125 = phi i32 [ %ret.1, %err ], [ %ret.0, %if.end50 ]
-  %cmp59 = icmp slt i32 %ret.125, 1
+  %ret.025 = phi i32 [ %ret.0, %err ], [ %ret.1, %if.end50 ]
+  %cmp59 = icmp slt i32 %ret.025, 1
   br i1 %cmp59, label %if.then60, label %if.end62
 
 if.then60:                                        ; preds = %land.lhs.true26, %if.end21, %if.then15, %sw.bb9, %if.else58
-  %ret.12534 = phi i32 [ %ret.125, %if.else58 ], [ -1, %land.lhs.true26 ], [ -1, %if.end21 ], [ -1, %if.then15 ], [ 0, %sw.bb9 ]
+  %ret.02534 = phi i32 [ %ret.025, %if.else58 ], [ -1, %land.lhs.true26 ], [ -1, %if.end21 ], [ -1, %if.then15 ], [ 0, %sw.bb9 ]
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 165, ptr noundef nonnull @__func__.evp_cipher_param_to_asn1_ex) #13
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 122, ptr noundef null) #13
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then8, %EVP_CIPHER_is_a.exit, %if.else58, %if.then60, %if.then57
-  %ret.126 = phi i32 [ %ret.125, %if.else58 ], [ %ret.12534, %if.then60 ], [ -2, %if.then57 ], [ 1, %EVP_CIPHER_is_a.exit ], [ 1, %if.then8 ]
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %ret.126, i32 -1)
+  %ret.026 = phi i32 [ %ret.025, %if.else58 ], [ %ret.02534, %if.then60 ], [ -2, %if.then57 ], [ 1, %EVP_CIPHER_is_a.exit ], [ 1, %if.then8 ]
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %ret.026, i32 -1)
   ret i32 %spec.store.select
 }
 
@@ -363,20 +363,20 @@ if.then29:                                        ; preds = %if.then5, %if.then5
   br label %if.end35
 
 if.else30:                                        ; preds = %evp_cipher_get_asn1_aead_params.exit, %if.end26
-  %ret.127 = phi i32 [ %call, %if.end26 ], [ %retval.0.i, %evp_cipher_get_asn1_aead_params.exit ]
-  %cmp31 = icmp slt i32 %ret.127, 1
+  %ret.027 = phi i32 [ %call, %if.end26 ], [ %retval.0.i, %evp_cipher_get_asn1_aead_params.exit ]
+  %cmp31 = icmp slt i32 %ret.027, 1
   br i1 %cmp31, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.then17, %if.then14, %EVP_CIPHER_get_asn1_iv.exit.thread, %if.else30
-  %ret.12737 = phi i32 [ %ret.127, %if.else30 ], [ -1, %EVP_CIPHER_get_asn1_iv.exit.thread ], [ -1, %if.then14 ], [ -1, %if.then17 ]
+  %ret.02737 = phi i32 [ %ret.027, %if.else30 ], [ -1, %EVP_CIPHER_get_asn1_iv.exit.thread ], [ -1, %if.then14 ], [ -1, %if.then17 ]
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__func__.evp_cipher_asn1_to_param_ex) #13
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 122, ptr noundef null) #13
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then17, %if.then5, %4, %if.else30, %if.then33, %if.then29
-  %ret.128 = phi i32 [ %ret.127, %if.else30 ], [ %ret.12737, %if.then33 ], [ -2, %if.then29 ], [ 1, %4 ], [ 1, %if.then5 ], [ 1, %if.then17 ]
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %ret.128, i32 -1)
+  %ret.028 = phi i32 [ %ret.027, %if.else30 ], [ %ret.02737, %if.then33 ], [ -2, %if.then29 ], [ 1, %4 ], [ 1, %if.then5 ], [ 1, %if.then17 ]
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %ret.028, i32 -1)
   ret i32 %spec.store.select
 }
 

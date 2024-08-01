@@ -320,7 +320,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5Bl
 21:                                               ; preds = %.lr.ph, %45
   %22 = phi i32 [ %18, %.lr.ph ], [ %46, %45 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.028 = phi i32 [ %16, %.lr.ph ], [ %.1, %45 ]
+  %.128 = phi i32 [ %16, %.lr.ph ], [ %.2, %45 ]
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -359,27 +359,27 @@ define hidden noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5Bl
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %26, %38
   store ptr null, ptr %24, align 8
   %43 = tail call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %44 = add nsw i32 %43, %.028
+  %44 = add nsw i32 %43, %.128
   %.pre = load i32, ptr %17, align 8
   br label %45
 
 45:                                               ; preds = %21, %_ZN4Node7set_reqEjPS_.exit
   %46 = phi i32 [ %.pre, %_ZN4Node7set_reqEjPS_.exit ], [ %22, %21 ]
-  %.1 = phi i32 [ %44, %_ZN4Node7set_reqEjPS_.exit ], [ %.028, %21 ]
+  %.2 = phi i32 [ %44, %_ZN4Node7set_reqEjPS_.exit ], [ %.128, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ult i64 %indvars.iv.next, %47
   br i1 %48, label %21, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %45, %15
-  %.0.lcssa = phi i32 [ %16, %15 ], [ %.1, %45 ]
+  %.1.lcssa = phi i32 [ %16, %15 ], [ %.2, %45 ]
   %49 = load ptr, ptr %11, align 8
   tail call void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef %49) #9
   br label %50
 
 50:                                               ; preds = %._crit_edge, %10, %6
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %10 ], [ 0, %6 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %10 ], [ 0, %6 ]
+  ret i32 %.0
 }
 
 declare void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
@@ -1399,17 +1399,17 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %43, %46
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.135 = phi i32 [ %60, %.lr.ph ], [ %.02536, %.preheader ]
+  %.235 = phi i32 [ %60, %.lr.ph ], [ %.02536, %.preheader ]
   %.02634 = phi i32 [ %61, %.lr.ph ], [ 1, %.preheader ]
   %59 = call noundef i32 @_ZN12PhaseChaitin23possibly_merge_multidefEP4NodejP5BlockR13GrowableArrayINS_9RegDefUseEE(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %51, i32 noundef %.02634, ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %60 = add i32 %59, %.135
+  %60 = add i32 %59, %.235
   %61 = add nuw i32 %.02634, 1
   %62 = load i32, ptr %56, align 8
   %63 = icmp ult i32 %61, %62
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.1.lcssa = phi i32 [ %.02536, %.preheader ], [ %60, %.lr.ph ]
+  %.2.lcssa = phi i32 [ %.02536, %.preheader ], [ %60, %.lr.ph ]
   %64 = getelementptr inbounds i8, ptr %51, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = load ptr, ptr %28, align 8
@@ -1439,8 +1439,8 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %43, %46
   br label %84
 
 84:                                               ; preds = %._crit_edge, %70, %79, %_ZNK5Block8get_nodeEj.exit
-  %.2 = phi i32 [ %.02536, %_ZNK5Block8get_nodeEj.exit ], [ %.1.lcssa, %79 ], [ %.1.lcssa, %70 ], [ %.1.lcssa, %._crit_edge ]
-  %85 = add i32 %.2, 1
+  %.1 = phi i32 [ %.02536, %_ZNK5Block8get_nodeEj.exit ], [ %.2.lcssa, %79 ], [ %.2.lcssa, %70 ], [ %.2.lcssa, %._crit_edge ]
+  %85 = add i32 %.1, 1
   %86 = load i32, ptr %38, align 8
   %87 = icmp ult i32 %85, %86
   br i1 %87, label %43, label %.preheader33, !llvm.loop !18
@@ -1702,7 +1702,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %122, %126
 
 .loopexit:                                        ; preds = %_ZNK5Block8get_nodeEj.exit, %132, %_ZN12LiveRangeMap6extendEjj.exit, %43
   %.053 = phi ptr [ %35, %43 ], [ %.0.i.i.i, %_ZN12LiveRangeMap6extendEjj.exit ], [ %.0.i.i.i, %132 ], [ %.0.i.i.i, %_ZNK5Block8get_nodeEj.exit ]
-  %.0 = phi i32 [ 0, %43 ], [ 1, %_ZN12LiveRangeMap6extendEjj.exit ], [ 1, %132 ], [ 1, %_ZNK5Block8get_nodeEj.exit ]
+  %.2 = phi i32 [ 0, %43 ], [ 1, %_ZN12LiveRangeMap6extendEjj.exit ], [ 1, %132 ], [ 1, %_ZNK5Block8get_nodeEj.exit ]
   %137 = load ptr, ptr %6, align 8
   %138 = getelementptr inbounds ptr, ptr %137, i64 %8
   %139 = load ptr, ptr %138, align 8
@@ -1785,7 +1785,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %122, %126
   br label %_ZN4Node7set_reqEjPS_.exit
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %178, %167, %36, %28
-  %.1 = phi i32 [ 0, %36 ], [ 0, %28 ], [ %.0, %167 ], [ %.0, %178 ]
+  %.1 = phi i32 [ 0, %36 ], [ 0, %28 ], [ %.2, %167 ], [ %.2, %178 ]
   %184 = load ptr, ptr %31, align 8
   %185 = getelementptr inbounds %"class.PhaseChaitin::RegDefUse", ptr %184, i64 %33
   %186 = load ptr, ptr %6, align 8
@@ -1802,8 +1802,8 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %178, %167, %36, %28
   br label %_ZN12PhaseChaitin9RegDefUse6updateEP4NodeS2_.exit
 
 _ZN12PhaseChaitin9RegDefUse6updateEP4NodeS2_.exit: ; preds = %190, %_ZN4Node7set_reqEjPS_.exit, %18, %5
-  %.2 = phi i32 [ 0, %18 ], [ 0, %5 ], [ %.1, %_ZN4Node7set_reqEjPS_.exit ], [ %.1, %190 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %18 ], [ 0, %5 ], [ %.1, %_ZN4Node7set_reqEjPS_.exit ], [ %.1, %190 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
@@ -1965,9 +1965,9 @@ _ZNK5Block8get_nodeEj.exit._crit_edge:            ; preds = %75, %_ZNK5Block8get
   %85 = phi ptr [ %79, %.lr.ph667 ], [ %238, %.thread ]
   %.0333664 = phi i1 [ false, %.lr.ph667 ], [ %.1334, %.thread ]
   %.0335663 = phi ptr [ null, %.lr.ph667 ], [ %.1336, %.thread ]
-  %.sroa.30.1662 = phi ptr [ %.sroa.30.0720, %.lr.ph667 ], [ %.sroa.30.4, %.thread ]
+  %.sroa.30.1662 = phi ptr [ %.sroa.30.0720, %.lr.ph667 ], [ %.sroa.30.2, %.thread ]
   %.sroa.0558.1661 = phi i32 [ %.sroa.0558.0719, %.lr.ph667 ], [ %.sroa.0558.2, %.thread ]
-  %.sroa.19.1660 = phi i32 [ %.sroa.19.0718, %.lr.ph667 ], [ %.sroa.19.4, %.thread ]
+  %.sroa.19.1660 = phi i32 [ %.sroa.19.0718, %.lr.ph667 ], [ %.sroa.19.2, %.thread ]
   %86 = load ptr, ptr %16, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8
@@ -2169,16 +2169,16 @@ _ZN13GrowableArrayIP9Node_ListE8allocateEv.exit.i: ; preds = %._crit_edge658
   br i1 %exitcond755.not, label %.preheader16.i, label %.lr.ph.i528, !llvm.loop !25
 
 _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %._crit_edge658, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.19.2 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.19.1660, %._crit_edge658 ]
-  %.sroa.30.2 = phi ptr [ %189, %.lr.ph19.preheader.i ], [ %189, %.preheader16.i ], [ %.sroa.30.1662, %._crit_edge658 ]
+  %.sroa.19.3 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.19.1660, %._crit_edge658 ]
+  %.sroa.30.3 = phi ptr [ %189, %.lr.ph19.preheader.i ], [ %189, %.preheader16.i ], [ %.sroa.30.1662, %._crit_edge658 ]
   %203 = load ptr, ptr %164, align 8
   %204 = sext i32 %.sroa.0558.1661 to i64
-  %205 = getelementptr inbounds ptr, ptr %.sroa.30.2, i64 %204
+  %205 = getelementptr inbounds ptr, ptr %.sroa.30.3, i64 %204
   store ptr %203, ptr %205, align 8
   %206 = load i32, ptr %161, align 4
   %207 = zext i32 %206 to i64
   %208 = getelementptr inbounds ptr, ptr %36, i64 %207
-  %209 = icmp eq i32 %180, %.sroa.19.2
+  %209 = icmp eq i32 %180, %.sroa.19.3
   %210 = add nsw i32 %.sroa.0558.1661, 2
   br i1 %209, label %_ZN13GrowableArrayIP9Node_ListE8allocateEv.exit.i532, label %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390
 
@@ -2220,7 +2220,7 @@ _ZN13GrowableArrayIP9Node_ListE8allocateEv.exit.i532: ; preds = %_ZN26GrowableAr
 .lr.ph.i543:                                      ; preds = %.lr.ph.i543.preheader, %.lr.ph.i543
   %indvars.iv.i544 = phi i64 [ %indvars.iv.next.i545, %.lr.ph.i543 ], [ 0, %.lr.ph.i543.preheader ]
   %230 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv.i544
-  %231 = getelementptr inbounds ptr, ptr %.sroa.30.2, i64 %indvars.iv.i544
+  %231 = getelementptr inbounds ptr, ptr %.sroa.30.3, i64 %indvars.iv.i544
   %232 = load ptr, ptr %231, align 8
   store ptr %232, ptr %230, align 8
   %indvars.iv.next.i545 = add nuw nsw i64 %indvars.iv.i544, 1
@@ -2228,18 +2228,18 @@ _ZN13GrowableArrayIP9Node_ListE8allocateEv.exit.i532: ; preds = %_ZN26GrowableAr
   br i1 %exitcond756.not, label %.preheader16.i534, label %.lr.ph.i543, !llvm.loop !25
 
 _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390: ; preds = %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit, %.lr.ph19.preheader.i539, %.preheader16.i534
-  %.sroa.19.3 = phi i32 [ %.0.i.i.i.i.i388, %.lr.ph19.preheader.i539 ], [ %.0.i.i.i.i.i388, %.preheader16.i534 ], [ %.sroa.19.2, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit ]
-  %.sroa.30.3 = phi ptr [ %219, %.lr.ph19.preheader.i539 ], [ %219, %.preheader16.i534 ], [ %.sroa.30.2, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit ]
+  %.sroa.19.4 = phi i32 [ %.0.i.i.i.i.i388, %.lr.ph19.preheader.i539 ], [ %.0.i.i.i.i.i388, %.preheader16.i534 ], [ %.sroa.19.3, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit ]
+  %.sroa.30.4 = phi ptr [ %219, %.lr.ph19.preheader.i539 ], [ %219, %.preheader16.i534 ], [ %.sroa.30.3, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit ]
   %233 = load ptr, ptr %208, align 8
   %234 = sext i32 %180 to i64
-  %235 = getelementptr inbounds ptr, ptr %.sroa.30.3, i64 %234
+  %235 = getelementptr inbounds ptr, ptr %.sroa.30.4, i64 %234
   store ptr %233, ptr %235, align 8
   br label %.thread
 
 .thread:                                          ; preds = %171, %._crit_edge655, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390
-  %.sroa.19.4 = phi i32 [ %.sroa.19.1660, %._crit_edge655 ], [ %.sroa.19.3, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.sroa.19.1660, %171 ]
+  %.sroa.19.2 = phi i32 [ %.sroa.19.1660, %._crit_edge655 ], [ %.sroa.19.4, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.sroa.19.1660, %171 ]
   %.sroa.0558.2 = phi i32 [ %.sroa.0558.1661, %._crit_edge655 ], [ %210, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.sroa.0558.1661, %171 ]
-  %.sroa.30.4 = phi ptr [ %.sroa.30.1662, %._crit_edge655 ], [ %.sroa.30.3, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.sroa.30.1662, %171 ]
+  %.sroa.30.2 = phi ptr [ %.sroa.30.1662, %._crit_edge655 ], [ %.sroa.30.4, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.sroa.30.1662, %171 ]
   %.1336 = phi ptr [ %.0335663, %._crit_edge655 ], [ %97, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.0335663, %171 ]
   %.1334 = phi i1 [ true, %._crit_edge655 ], [ %.0333664, %_ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit390 ], [ %.0333664, %171 ]
   %indvars.iv.next759 = add nuw nsw i64 %indvars.iv758, 1
@@ -2255,9 +2255,9 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE4pushERKS1_.exit
   br i1 %242, label %84, label %._crit_edge668, !llvm.loop !26
 
 ._crit_edge668:                                   ; preds = %.thread, %_ZNK5Block8get_nodeEj.exit._crit_edge
-  %.sroa.19.1.lcssa = phi i32 [ %.sroa.19.0718, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.sroa.19.4, %.thread ]
+  %.sroa.19.1.lcssa = phi i32 [ %.sroa.19.0718, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.sroa.19.2, %.thread ]
   %.sroa.0558.1.lcssa = phi i32 [ %.sroa.0558.0719, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.sroa.0558.2, %.thread ]
-  %.sroa.30.1.lcssa = phi ptr [ %.sroa.30.0720, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.sroa.30.4, %.thread ]
+  %.sroa.30.1.lcssa = phi ptr [ %.sroa.30.0720, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.sroa.30.2, %.thread ]
   %.0335.lcssa = phi ptr [ null, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.1336, %.thread ]
   %.0333.lcssa = phi i1 [ false, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.1334, %.thread ]
   %243 = icmp eq i32 %.sroa.0558.1.lcssa, 0
@@ -3159,18 +3159,18 @@ _ZN10Node_Array3mapEjP4Node.exit429:              ; preds = %_ZN10Node_Array3map
   br i1 %739, label %.lr.ph704, label %._crit_edge705
 
 .lr.ph704:                                        ; preds = %736, %.lr.ph704
-  %.5702 = phi i32 [ %742, %.lr.ph704 ], [ %.4715, %736 ]
+  %.6702 = phi i32 [ %742, %.lr.ph704 ], [ %.4715, %736 ]
   %.1347701 = phi i32 [ %743, %.lr.ph704 ], [ 1, %736 ]
   %740 = icmp ne i32 %738, %.1347701
   %741 = call noundef i32 @_ZN12PhaseChaitin10elide_copyEP4NodeiP5BlockP9Node_ListS5_b(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %572, i32 noundef %.1347701, ptr noundef nonnull %59, ptr noundef %308, ptr noundef %307, i1 noundef zeroext %740)
-  %742 = sub i32 %.5702, %741
+  %742 = sub i32 %.6702, %741
   %743 = add nuw i32 %.1347701, 1
   %744 = load i32, ptr %589, align 8
   %745 = icmp ult i32 %743, %744
   br i1 %745, label %.lr.ph704, label %._crit_edge705, !llvm.loop !36
 
 ._crit_edge705:                                   ; preds = %.lr.ph704, %736
-  %.5.lcssa = phi i32 [ %.4715, %736 ], [ %742, %.lr.ph704 ]
+  %.6.lcssa = phi i32 [ %.4715, %736 ], [ %742, %.lr.ph704 ]
   %746 = getelementptr inbounds i8, ptr %572, i64 40
   %747 = load i32, ptr %746, align 8
   %748 = load ptr, ptr %47, align 8
@@ -3495,7 +3495,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit: ;
   %926 = phi ptr [ %925, %922 ], [ null, %.loopexit614 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %572, ptr noundef %926) #9
   %927 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %572, ptr noundef nonnull %572, ptr noundef %59, ptr noundef nonnull %308, ptr noundef nonnull %307)
-  %928 = sub i32 %.5.lcssa, %927
+  %928 = sub i32 %.6.lcssa, %927
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
 929:                                              ; preds = %_ZNK10Node_ArrayixEj.exit42.i, %831, %_ZNK10Node_ArrayixEj.exit38.i, %_ZNK10Node_ArrayixEj.exit37.i, %821, %_ZNK10Node_ArrayixEj.exit.i
@@ -3630,7 +3630,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit457
   %999 = phi ptr [ %998, %994 ], [ null, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread604 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %572, ptr noundef %999) #9
   %1000 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %572, ptr noundef nonnull %572, ptr noundef %59, ptr noundef nonnull %308, ptr noundef nonnull %307)
-  %1001 = sub i32 %.5.lcssa, %1000
+  %1001 = sub i32 %.6.lcssa, %1000
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
 1002:                                             ; preds = %_ZNK10Node_ArrayixEj.exit438.thread
@@ -3762,7 +3762,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit471
   %1050 = phi ptr [ %1049, %1045 ], [ null, %1042 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %572, ptr noundef %1050) #9
   %1051 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %572, ptr noundef nonnull %572, ptr noundef %59, ptr noundef nonnull %308, ptr noundef nonnull %307)
-  %1052 = sub i32 %.5.lcssa, %1051
+  %1052 = sub i32 %.6.lcssa, %1051
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
 1053:                                             ; preds = %1002
@@ -4073,7 +4073,7 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit504
   %1226 = phi ptr [ %1225, %1222 ], [ null, %.loopexit616 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %572, ptr noundef %1226) #9
   %1227 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %572, ptr noundef nonnull %572, ptr noundef %59, ptr noundef nonnull %308, ptr noundef nonnull %307)
-  %1228 = sub i32 %.5.lcssa, %1227
+  %1228 = sub i32 %.6.lcssa, %1227
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
 1229:                                             ; preds = %_ZNK10Node_ArrayixEj.exit42.i486, %_ZNK10Node_ArrayixEj.exit41.i, %_ZNK10Node_ArrayixEj.exit40.i, %_ZNK10Node_ArrayixEj.exit38.i483, %_ZNK10Node_ArrayixEj.exit37.i481, %1115, %_ZNK10Node_ArrayixEj.exit.i477, %_ZNK10Node_ArrayixEj.exit39.i
@@ -4149,11 +4149,11 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit514
   %1258 = phi ptr [ %1257, %1253 ], [ null, %1250 ]
   call void @_ZN4Node10replace_byEPS_(ptr noundef nonnull align 8 dereferenceable(52) %572, ptr noundef %1258) #9
   %1259 = call noundef i32 @_ZN12PhaseChaitin20yank_if_dead_recurseEP4NodeS1_P5BlockP9Node_ListS5_(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %572, ptr noundef nonnull %572, ptr noundef %59, ptr noundef nonnull %308, ptr noundef nonnull %307)
-  %1260 = sub i32 %.5.lcssa, %1259
+  %1260 = sub i32 %.6.lcssa, %1259
   br label %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread
 
 _ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread: ; preds = %_ZN10Node_Array3mapEjP4Node.exit469, %989, %954, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit.thread, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit471, %1248, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit514, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit504, %_ZN10Node_Array3mapEjP4Node.exit512, %_ZN10Node_Array3mapEjP4Node.exit453, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit457, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit
-  %.6 = phi i32 [ %928, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit ], [ %.5.lcssa, %_ZN10Node_Array3mapEjP4Node.exit453 ], [ %.5.lcssa, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit ], [ %1001, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit457 ], [ %1052, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit471 ], [ %.5.lcssa, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit.thread ], [ %1228, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit504 ], [ %.5.lcssa, %_ZN10Node_Array3mapEjP4Node.exit512 ], [ %.5.lcssa, %1248 ], [ %1260, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit514 ], [ %.5.lcssa, %954 ], [ %.5.lcssa, %989 ], [ %.5.lcssa, %_ZN10Node_Array3mapEjP4Node.exit469 ]
+  %.7 = phi i32 [ %928, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit453 ], [ %.6.lcssa, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit ], [ %1001, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit457 ], [ %1052, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit471 ], [ %.6.lcssa, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit.thread ], [ %1228, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit504 ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit512 ], [ %.6.lcssa, %1248 ], [ %1260, %_ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit514 ], [ %.6.lcssa, %954 ], [ %.6.lcssa, %989 ], [ %.6.lcssa, %_ZN10Node_Array3mapEjP4Node.exit469 ]
   %1261 = icmp eq i32 %797, 999
   br i1 %1261, label %1262, label %.loopexit613
 
@@ -4169,13 +4169,13 @@ _ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread: ; preds = %_ZN10No
   br label %1271
 
 1271:                                             ; preds = %1272, %1262
-  %.sroa.7.0 = phi i32 [ %1268, %1262 ], [ %1273, %1272 ]
-  %.not10.i.i = icmp ugt i32 %.sroa.7.0, %1270
+  %.sroa.7.1 = phi i32 [ %1268, %1262 ], [ %1273, %1272 ]
+  %.not10.i.i = icmp ugt i32 %.sroa.7.1, %1270
   br i1 %.not10.i.i, label %.loopexit613, label %1272
 
 1272:                                             ; preds = %1271
-  %1273 = add i32 %.sroa.7.0, 1
-  %1274 = zext i32 %.sroa.7.0 to i64
+  %1273 = add i32 %.sroa.7.1, 1
+  %1274 = zext i32 %.sroa.7.1 to i64
   %1275 = getelementptr inbounds [11 x i64], ptr %1266, i64 0, i64 %1274
   %1276 = load i64, ptr %1275, align 8
   %.not11.i.i = icmp eq i64 %1276, 0
@@ -4196,10 +4196,10 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1272
   br label %.lr.ph714
 
 .lr.ph714:                                        ; preds = %.lr.ph714.preheader, %_ZN10Node_Array3mapEjP4Node.exit521
-  %.sroa.0.2713 = phi i64 [ %.sroa.0.4, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %1283, %.lr.ph714.preheader ]
-  %.sroa.7.2712 = phi i32 [ %.sroa.7.4, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %1273, %.lr.ph714.preheader ]
+  %.sroa.0.0713 = phi i64 [ %.sroa.0.4, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %1283, %.lr.ph714.preheader ]
+  %.sroa.7.0712 = phi i32 [ %.sroa.7.4, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %1273, %.lr.ph714.preheader ]
   %.sroa.11.0711 = phi i32 [ %.sink.i, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %1281, %.lr.ph714.preheader ]
-  %.not.i515 = icmp eq i64 %.sroa.0.2713, 0
+  %.not.i515 = icmp eq i64 %.sroa.0.0713, 0
   br i1 %.not.i515, label %.preheader.i516.preheader, label %1285
 
 .preheader.i516.preheader:                        ; preds = %.lr.ph714
@@ -4207,15 +4207,15 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1272
   br label %.preheader.i516
 
 1285:                                             ; preds = %.lr.ph714
-  %1286 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.0.2713, i1 true)
+  %1286 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.0.0713, i1 true)
   %1287 = trunc nuw nsw i64 %1286 to i32
-  %1288 = lshr i64 %.sroa.0.2713, %1286
+  %1288 = lshr i64 %.sroa.0.0713, %1286
   %1289 = add i64 %1288, -1
   %1290 = add nsw i32 %.sroa.11.0711, %1287
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 .preheader.i516:                                  ; preds = %.preheader.i516.preheader, %1291
-  %.sroa.7.3 = phi i32 [ %1292, %1291 ], [ %.sroa.7.2712, %.preheader.i516.preheader ]
+  %.sroa.7.3 = phi i32 [ %1292, %1291 ], [ %.sroa.7.0712, %.preheader.i516.preheader ]
   %.not10.i = icmp ugt i32 %.sroa.7.3, %1284
   br i1 %.not10.i, label %_ZN15RegMaskIterator4nextEv.exit, label %1291
 
@@ -4238,7 +4238,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %1272
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i516, %1285, %1296
-  %.sroa.7.4 = phi i32 [ %1292, %1296 ], [ %.sroa.7.2712, %1285 ], [ %.sroa.7.3, %.preheader.i516 ]
+  %.sroa.7.4 = phi i32 [ %1292, %1296 ], [ %.sroa.7.0712, %1285 ], [ %.sroa.7.3, %.preheader.i516 ]
   %.sroa.0.4 = phi i64 [ %1300, %1296 ], [ %1289, %1285 ], [ 0, %.preheader.i516 ]
   %.sink.i = phi i32 [ %1303, %1296 ], [ %1290, %1285 ], [ -1, %.preheader.i516 ]
   %1304 = load i32, ptr %489, align 8
@@ -4270,8 +4270,8 @@ _ZN10Node_Array3mapEjP4Node.exit521:              ; preds = %_ZN10Node_Array3map
   br i1 %.not611, label %.loopexit613, label %.lr.ph714, !llvm.loop !40
 
 .loopexit613:                                     ; preds = %1271, %_ZN10Node_Array3mapEjP4Node.exit521, %_ZN15RegMaskIteratorC2ERK7RegMask.exit, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread, %._crit_edge705, %585
-  %.7 = phi i32 [ %.6, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread ], [ %.5.lcssa, %._crit_edge705 ], [ %587, %585 ], [ %.6, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.6, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %.6, %1271 ]
-  %1313 = add i32 %.7, 1
+  %.5 = phi i32 [ %.7, %_ZNK12PhaseChaitin21may_be_copy_of_calleeEP4Node.exit.thread ], [ %.6.lcssa, %._crit_edge705 ], [ %587, %585 ], [ %.7, %_ZN15RegMaskIteratorC2ERK7RegMask.exit ], [ %.7, %_ZN10Node_Array3mapEjP4Node.exit521 ], [ %.7, %1271 ]
+  %1313 = add i32 %.5, 1
   %1314 = load i32, ptr %60, align 8
   %1315 = icmp ult i32 %1313, %1314
   br i1 %1315, label %564, label %._crit_edge717, !llvm.loop !41

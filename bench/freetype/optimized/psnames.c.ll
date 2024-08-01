@@ -523,8 +523,8 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
   br i1 %.not41, label %._crit_edge.thread, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
-  %.244 = phi ptr [ %spec.select, %._crit_edge ], [ %.03150, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %.244, i64 4
+  %.13744 = phi ptr [ %spec.select, %._crit_edge ], [ %.03150, %.lr.ph ]
+  %28 = getelementptr inbounds i8, ptr %.13744, i64 4
   %29 = load i32, ptr %28, align 4
   br label %._crit_edge.thread
 
@@ -549,7 +549,7 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br label %10
 
 10:                                               ; preds = %.lr.ph, %24
-  %.056 = phi i32 [ 0, %.lr.ph ], [ %.1, %24 ]
+  %.056 = phi i32 [ 0, %.lr.ph ], [ %.2, %24 ]
   %.03955 = phi i32 [ %7, %.lr.ph ], [ %.140, %24 ]
   %.04154 = phi i32 [ %6, %.lr.ph ], [ %.142, %24 ]
   %.04353 = phi i32 [ 0, %.lr.ph ], [ %.144, %24 ]
@@ -575,7 +575,7 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br label %24
 
 24:                                               ; preds = %21, %18
-  %.1 = phi i32 [ %23, %21 ], [ %.056, %18 ]
+  %.2 = phi i32 [ %23, %21 ], [ %.056, %18 ]
   %25 = icmp ult i32 %19, %4
   %26 = add i32 %.03955, 1
   %.144 = select i1 %25, i32 %26, i32 %.04353
@@ -593,7 +593,7 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br i1 %33, label %10, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24
-  %.not = icmp eq i32 %.1, 0
+  %.not = icmp eq i32 %.2, 0
   br i1 %.not, label %._crit_edge.thread, label %44
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
@@ -614,9 +614,9 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
 
 44:                                               ; preds = %._crit_edge.thread, %35, %._crit_edge, %15
   %.045 = phi i32 [ %4, %15 ], [ %4, %._crit_edge ], [ %43, %35 ], [ 0, %._crit_edge.thread ]
-  %.2 = phi i32 [ %17, %15 ], [ %.1, %._crit_edge ], [ %41, %35 ], [ 0, %._crit_edge.thread ]
+  %.1 = phi i32 [ %17, %15 ], [ %.2, %._crit_edge ], [ %41, %35 ], [ 0, %._crit_edge.thread ]
   store i32 %.045, ptr %1, align 4
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

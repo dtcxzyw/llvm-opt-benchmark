@@ -545,16 +545,16 @@ if.end254:                                        ; preds = %if.end248
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end223, %if.end195, %for.end, %if.end67, %cond.end, %if.end254, %if.then251, %if.then192, %if.then53, %if.then41, %if.then34
-  %retval.sroa.0.0 = phi i32 [ %call36, %if.then34 ], [ 1, %if.end254 ], [ %call253, %if.then251 ], [ %call194, %if.then192 ], [ %call55, %if.then53 ], [ 1, %if.then41 ], [ 0, %cond.end ], [ 0, %if.end67 ], [ 0, %for.end ], [ 0, %if.end195 ], [ 0, %if.end223 ]
-  %retval.sroa.15.0 = phi i64 [ undef, %if.then34 ], [ %retval.sroa.0.0.copyload.i196, %if.end254 ], [ undef, %if.then251 ], [ undef, %if.then192 ], [ undef, %if.then53 ], [ %or.i.i.i, %if.then41 ], [ undef, %cond.end ], [ undef, %if.end67 ], [ undef, %for.end ], [ undef, %if.end195 ], [ undef, %if.end223 ]
+  %retval.sroa.0.1 = phi i32 [ %call36, %if.then34 ], [ 1, %if.end254 ], [ %call253, %if.then251 ], [ %call194, %if.then192 ], [ %call55, %if.then53 ], [ 1, %if.then41 ], [ 0, %cond.end ], [ 0, %if.end67 ], [ 0, %for.end ], [ 0, %if.end195 ], [ 0, %if.end223 ]
+  %retval.sroa.15.1 = phi i64 [ undef, %if.then34 ], [ %retval.sroa.0.0.copyload.i196, %if.end254 ], [ undef, %if.then251 ], [ undef, %if.then192 ], [ undef, %if.then53 ], [ %or.i.i.i, %if.then41 ], [ undef, %cond.end ], [ undef, %if.end67 ], [ undef, %for.end ], [ undef, %if.end195 ], [ undef, %if.end223 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #12
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then14, %if.then5, %if.then
-  %retval.sroa.0.1 = phi i32 [ %call1, %if.then ], [ %retval.sroa.0.0, %cleanup ], [ %call16, %if.then14 ], [ %call7, %if.then5 ]
-  %retval.sroa.15.1 = phi i64 [ undef, %if.then ], [ %retval.sroa.15.0, %cleanup ], [ undef, %if.then14 ], [ undef, %if.then5 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.15.1, 1
+  %retval.sroa.0.0 = phi i32 [ %call1, %if.then ], [ %retval.sroa.0.1, %cleanup ], [ %call16, %if.then14 ], [ %call7, %if.then5 ]
+  %retval.sroa.15.0 = phi i64 [ undef, %if.then ], [ %retval.sroa.15.1, %cleanup ], [ undef, %if.then14 ], [ undef, %if.then5 ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.15.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -1238,8 +1238,8 @@ for.end.i:                                        ; preds = %for.inc.i, %_ZN6her
 
 cleanup.i:                                        ; preds = %if.then96.i, %if.end81.i, %if.then66.i, %if.then48.i, %for.end.i
   %conv.i.i.i.pre-phi.i = phi i64 [ %.pre.pre-phi.i, %for.end.i ], [ %conv.i.i.i, %if.then48.i ], [ %conv.i.i.i, %if.then66.i ], [ %conv.i.i.i, %if.end81.i ], [ %conv.i.i.i, %if.then96.i ]
-  %retval.sroa.0.0.i47 = phi i32 [ 1, %for.end.i ], [ 0, %if.then48.i ], [ 0, %if.then66.i ], [ 0, %if.end81.i ], [ 0, %if.then96.i ]
-  %retval.sroa.7.0.i = phi i64 [ %retval.sroa.0.0.copyload.i81.i, %for.end.i ], [ undef, %if.then48.i ], [ undef, %if.then66.i ], [ undef, %if.end81.i ], [ undef, %if.then96.i ]
+  %retval.sroa.0.1.i = phi i32 [ 1, %for.end.i ], [ 0, %if.then48.i ], [ 0, %if.then66.i ], [ 0, %if.end81.i ], [ 0, %if.then96.i ]
+  %retval.sroa.7.1.i = phi i64 [ %retval.sroa.0.0.copyload.i81.i, %for.end.i ], [ undef, %if.then48.i ], [ undef, %if.then66.i ], [ undef, %if.end81.i ], [ undef, %if.then96.i ]
   %chunks_.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 144
   %63 = load ptr, ptr %chunks_.i.i.i.i, align 8
   %arrayidx.i18.i.i.i.i = getelementptr inbounds ptr, ptr %63, i64 %conv.i.i.i.pre-phi.i
@@ -1252,8 +1252,8 @@ cleanup.i:                                        ; preds = %if.then96.i, %if.en
   br label %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit
 
 _ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit: ; preds = %if.then50, %cleanup.i
-  %retval.sroa.0.1.i = phi i32 [ %retval.sroa.0.0.i47, %cleanup.i ], [ 0, %if.then50 ]
-  %retval.sroa.7.1.i = phi i64 [ %retval.sroa.7.0.i, %cleanup.i ], [ undef, %if.then50 ]
+  %retval.sroa.0.0.i47 = phi i32 [ %retval.sroa.0.1.i, %cleanup.i ], [ 0, %if.then50 ]
+  %retval.sroa.7.0.i = phi i64 [ %retval.sroa.7.1.i, %cleanup.i ], [ undef, %if.then50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmpSymbolStorage.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc82.i)
@@ -1350,8 +1350,8 @@ if.end81:                                         ; preds = %_ZN6hermes2vm13Muta
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.end, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit, %if.end81, %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1.i, %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit ], [ 1, %if.end81 ], [ 1, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ], [ 1, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ 1, %if.end ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.7.1.i, %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit ], [ %retval.sroa.0.0.copyload.i78, %if.end81 ], [ -1688849860263936, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ], [ %7, %if.end ], [ undef, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ %7, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.i47, %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit ], [ 1, %if.end81 ], [ 1, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ], [ 1, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ 1, %if.end ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.7.0.i, %_ZN6hermes2vm12_GLOBAL__N_130copyDataPropertiesSlowPath_RJSERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEES6_S6_.exit ], [ %retval.sroa.0.0.copyload.i78, %if.end81 ], [ -1688849860263936, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ], [ %7, %if.end ], [ undef, %_ZN6hermes2vm13MutableHandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit ], [ %7, %if.end ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #12
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
@@ -2616,8 +2616,8 @@ _ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11P
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then59, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit
-  %retval.sroa.0.0 = phi i32 [ %spec.select, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ 0, %if.then59 ]
-  %retval.sroa.10.0 = phi i64 [ %spec.select246, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ undef, %if.then59 ]
+  %retval.sroa.0.1 = phi i32 [ %spec.select, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ 0, %if.then59 ]
+  %retval.sroa.10.1 = phi i64 [ %spec.select246, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ undef, %if.then59 ]
   %66 = load ptr, ptr %chunks_.i.i, align 8
   %arrayidx.i18.i.i.i = getelementptr inbounds ptr, ptr %66, i64 %conv.i.i82
   %67 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
@@ -2740,8 +2740,8 @@ if.end169:                                        ; preds = %if.end147
 
 cleanup178:                                       ; preds = %if.end169, %if.end134, %if.end147, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit167.cleanup178_crit_edge, %if.then129
   %conv.i.i.i206.pre-phi = phi i64 [ %.pre258, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit167.cleanup178_crit_edge ], [ %conv.i.i195, %if.then129 ], [ %conv.i.i195, %if.end147 ], [ %conv.i.i195, %if.end134 ], [ %conv.i.i195, %if.end169 ]
-  %retval.sroa.0.1 = phi i32 [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit167.cleanup178_crit_edge ], [ 1, %if.then129 ], [ 0, %if.end147 ], [ 0, %if.end134 ], [ 0, %if.end169 ]
-  %retval.sroa.10.1 = phi i64 [ undef, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit167.cleanup178_crit_edge ], [ %retval.sroa.0.0.copyload.i178, %if.then129 ], [ undef, %if.end147 ], [ undef, %if.end134 ], [ undef, %if.end169 ]
+  %retval.sroa.0.3 = phi i32 [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit167.cleanup178_crit_edge ], [ 1, %if.then129 ], [ 0, %if.end147 ], [ 0, %if.end134 ], [ 0, %if.end169 ]
+  %retval.sroa.10.3 = phi i64 [ undef, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit167.cleanup178_crit_edge ], [ %retval.sroa.0.0.copyload.i178, %if.then129 ], [ undef, %if.end147 ], [ undef, %if.end134 ], [ undef, %if.end169 ]
   %chunks_.i.i.i205 = getelementptr inbounds i8, ptr %77, i64 144
   %89 = load ptr, ptr %chunks_.i.i.i205, align 8
   %arrayidx.i18.i.i.i207 = getelementptr inbounds ptr, ptr %89, i64 %conv.i.i.i206.pre-phi
@@ -2756,8 +2756,8 @@ cleanup178:                                       ; preds = %if.end169, %if.end1
 
 cleanup179:                                       ; preds = %if.end101, %cleanup178
   %91 = phi i8 [ %.pre, %cleanup178 ], [ %70, %if.end101 ]
-  %retval.sroa.0.2 = phi i32 [ %retval.sroa.0.1, %cleanup178 ], [ 0, %if.end101 ]
-  %retval.sroa.10.2 = phi i64 [ %retval.sroa.10.1, %cleanup178 ], [ undef, %if.end101 ]
+  %retval.sroa.0.2 = phi i32 [ %retval.sroa.0.3, %cleanup178 ], [ 0, %if.end101 ]
+  %retval.sroa.10.2 = phi i64 [ %retval.sroa.10.3, %cleanup178 ], [ undef, %if.end101 ]
   %tobool.i.i.i.i = trunc i8 %91 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %cleanup180
 
@@ -2766,8 +2766,8 @@ if.then.i.i.i.i:                                  ; preds = %cleanup179
   br label %cleanup180
 
 cleanup180:                                       ; preds = %if.then.i.i.i.i, %cleanup179, %cleanup, %if.then
-  %retval.sroa.0.3 = phi i32 [ %retval.sroa.0.0, %cleanup ], [ %call3, %if.then ], [ %retval.sroa.0.2, %cleanup179 ], [ %retval.sroa.0.2, %if.then.i.i.i.i ]
-  %retval.sroa.10.3 = phi i64 [ %retval.sroa.10.0, %cleanup ], [ undef, %if.then ], [ %retval.sroa.10.2, %cleanup179 ], [ %retval.sroa.10.2, %if.then.i.i.i.i ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ %call3, %if.then ], [ %retval.sroa.0.2, %cleanup179 ], [ %retval.sroa.0.2, %if.then.i.i.i.i ]
+  %retval.sroa.10.0 = phi i64 [ %retval.sroa.10.1, %cleanup ], [ undef, %if.then ], [ %retval.sroa.10.2, %cleanup179 ], [ %retval.sroa.10.2, %if.then.i.i.i.i ]
   %chunks_.i.i.i216 = getelementptr inbounds i8, ptr %1, i64 144
   %conv.i.i.i217 = zext i32 %3 to i64
   %92 = load ptr, ptr %chunks_.i.i.i216, align 8
@@ -2778,8 +2778,8 @@ cleanup180:                                       ; preds = %if.then.i.i.i.i, %c
   %curChunkEnd_.i.i.i221 = getelementptr inbounds i8, ptr %1, i64 200
   store ptr %add.ptr.i.i.i219, ptr %curChunkEnd_.i.i.i221, align 8
   store ptr %2, ptr %next_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.3, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.10.3, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.10.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -3224,8 +3224,8 @@ if.end91:                                         ; preds = %for.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then75, %if.end91, %if.end.i, %cond.false.i, %if.then54
-  %retval.sroa.0.0 = phi i32 [ %call55, %if.then54 ], [ 1, %cond.false.i ], [ 1, %if.end.i ], [ %spec.select129, %if.end91 ], [ 0, %if.then75 ]
-  %retval.sroa.9.0 = phi i64 [ undef, %if.then54 ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %cond.false.i ], [ %50, %if.end.i ], [ %spec.select130, %if.end91 ], [ undef, %if.then75 ]
+  %retval.sroa.0.1 = phi i32 [ %call55, %if.then54 ], [ 1, %cond.false.i ], [ 1, %if.end.i ], [ %spec.select129, %if.end91 ], [ 0, %if.then75 ]
+  %retval.sroa.9.1 = phi i64 [ undef, %if.then54 ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %cond.false.i ], [ %50, %if.end.i ], [ %spec.select130, %if.end91 ], [ undef, %if.then75 ]
   %52 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %dec.i = add i32 %52, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i.i, align 8
@@ -3233,8 +3233,8 @@ cleanup:                                          ; preds = %if.then75, %if.end9
   br label %cleanup105
 
 cleanup105:                                       ; preds = %if.then25, %cleanup, %if.then15, %if.then
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %cleanup ], [ %call16, %if.then15 ], [ %call.i, %if.then ], [ 0, %if.then25 ]
-  %retval.sroa.9.1 = phi i64 [ %retval.sroa.9.0, %cleanup ], [ undef, %if.then15 ], [ undef, %if.then ], [ undef, %if.then25 ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ %call16, %if.then15 ], [ %call.i, %if.then ], [ 0, %if.then25 ]
+  %retval.sroa.9.0 = phi i64 [ %retval.sroa.9.1, %cleanup ], [ undef, %if.then15 ], [ undef, %if.then ], [ undef, %if.then25 ]
   %chunks_.i.i.i = getelementptr inbounds i8, ptr %1, i64 144
   %conv.i.i.i94 = zext i32 %3 to i64
   %53 = load ptr, ptr %chunks_.i.i.i, align 8
@@ -3245,8 +3245,8 @@ cleanup105:                                       ; preds = %if.then25, %cleanup
   %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
   store ptr %add.ptr.i.i.i95, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %2, ptr %next_.i.i, align 8
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.9.1, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.9.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

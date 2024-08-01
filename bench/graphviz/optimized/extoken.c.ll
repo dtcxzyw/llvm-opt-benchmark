@@ -1375,13 +1375,13 @@ lex.exit524:                                      ; preds = %472, %474
   br label %lex.exit553
 
 lex.exit553:                                      ; preds = %lex.exit553.backedge, %481
-  %.5 = phi i32 [ %483, %481 ], [ %.5.be, %lex.exit553.backedge ]
-  %484 = add i32 %.5, -48
+  %.6 = phi i32 [ %483, %481 ], [ %.6.be, %lex.exit553.backedge ]
+  %484 = add i32 %.6, -48
   %485 = icmp ult i32 %484, 10
   br i1 %485, label %gv_isxdigit.exit.thread, label %switch.early.test845
 
 switch.early.test845:                             ; preds = %lex.exit553
-  switch i32 %.5, label %lex.exit626.thread.thread [
+  switch i32 %.6, label %lex.exit626.thread.thread [
     i32 102, label %gv_isxdigit.exit.thread
     i32 101, label %gv_isxdigit.exit.thread
     i32 100, label %gv_isxdigit.exit.thread
@@ -1397,7 +1397,7 @@ switch.early.test845:                             ; preds = %lex.exit553
   ]
 
 gv_isxdigit.exit.thread:                          ; preds = %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %switch.early.test845, %lex.exit553
-  %486 = trunc i32 %.5 to i8
+  %486 = trunc i32 %.6 to i8
   %.val.i.i526 = load i8, ptr %13, align 1
   %.not.i.i527 = icmp eq i8 %.val.i.i526, -1
   br i1 %.not.i.i527, label %488, label %agxblen.exit.i528
@@ -1515,7 +1515,7 @@ agxbputc.exit536:                                 ; preds = %493, %498
   ]
 
 lex.exit553.backedge:                             ; preds = %526, %520, %.loopexit.i541, %529, %533
-  %.5.be = phi i32 [ %.0.i542, %.loopexit.i541 ], [ %.0.i542, %533 ], [ 10, %529 ], [ 0, %520 ], [ 0, %526 ]
+  %.6.be = phi i32 [ %.0.i542, %.loopexit.i541 ], [ %.0.i542, %533 ], [ 10, %529 ], [ 0, %520 ], [ 0, %526 ]
   br label %lex.exit553
 
 529:                                              ; preds = %.loopexit.i541
@@ -1541,8 +1541,8 @@ lex.exit553.backedge:                             ; preds = %526, %520, %.loopex
   br label %lex.exit553.backedge
 
 .lr.ph1038:                                       ; preds = %.preheader, %lex.exit581
-  %.61037 = phi i32 [ %.0.i570, %lex.exit581 ], [ %.0.i513, %.preheader ]
-  %537 = trunc nuw i32 %.61037 to i8
+  %.81037 = phi i32 [ %.0.i570, %lex.exit581 ], [ %.0.i513, %.preheader ]
+  %537 = trunc nuw i32 %.81037 to i8
   %.val.i.i554 = load i8, ptr %13, align 1
   %.not.i.i555 = icmp eq i8 %.val.i.i554, -1
   br i1 %.not.i.i555, label %539, label %agxblen.exit.i556
@@ -1679,8 +1679,8 @@ lex.exit581:                                      ; preds = %580, %582
   br i1 %587, label %.lr.ph1038, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %lex.exit581, %.preheader
-  %.6.lcssa = phi i32 [ %.0.i513, %.preheader ], [ %.0.i570, %lex.exit581 ]
-  switch i32 %.6.lcssa, label %lex.exit626.thread [
+  %.8.lcssa = phi i32 [ %.0.i513, %.preheader ], [ %.0.i570, %lex.exit581 ]
+  switch i32 %.8.lcssa, label %lex.exit626.thread [
     i32 35, label %588
     i32 46, label %647
   ]
@@ -1690,8 +1690,8 @@ lex.exit581:                                      ; preds = %580, %582
   br label %589
 
 589:                                              ; preds = %lex.exit609, %588
-  %.7 = phi i32 [ 35, %588 ], [ %.032.i599, %lex.exit609 ]
-  %590 = trunc i32 %.7 to i8
+  %.9 = phi i32 [ 35, %588 ], [ %.032.i599, %lex.exit609 ]
+  %590 = trunc i32 %.9 to i8
   %.val.i.i582 = load i8, ptr %13, align 1
   %.not.i.i583 = icmp eq i8 %.val.i.i582, -1
   br i1 %.not.i.i583, label %592, label %agxblen.exit.i584
@@ -1841,8 +1841,8 @@ lex.exit609:                                      ; preds = %624, %630, %.loopex
   br i1 %646, label %589, label %lex.exit626.thread.thread
 
 647:                                              ; preds = %._crit_edge, %agxbclear.exit493
-  %.8 = phi i8 [ %428, %agxbclear.exit493 ], [ 46, %._crit_edge ]
-  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %.8)
+  %.5 = phi i8 [ %428, %agxbclear.exit493 ], [ 46, %._crit_edge ]
+  tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %.5)
   br label %agxbputc.exit637
 
 agxbputc.exit637:                                 ; preds = %agxbputc.exit637.backedge, %647
@@ -1985,14 +1985,14 @@ agxbputc.exit637.backedge:                        ; preds = %688, %693
   br label %agxbputc.exit637.backedge
 
 lex.exit626.thread:                               ; preds = %lex.exit626, %._crit_edge
-  %.2294 = phi i32 [ 259, %._crit_edge ], [ 262, %lex.exit626 ]
-  %.9 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.0.i615, %lex.exit626 ]
-  %699 = and i32 %.9, -33
+  %.3295 = phi i32 [ 259, %._crit_edge ], [ 262, %lex.exit626 ]
+  %.10 = phi i32 [ %.8.lcssa, %._crit_edge ], [ %.0.i615, %lex.exit626 ]
+  %699 = and i32 %.10, -33
   %or.cond5 = icmp eq i32 %699, 69
   br i1 %or.cond5, label %700, label %lex.exit626.thread.thread
 
 700:                                              ; preds = %lex.exit626.thread
-  %701 = trunc nuw i32 %.9 to i8
+  %701 = trunc nuw i32 %.10 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %701)
   %702 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   switch i32 %702, label %706 [
@@ -2007,14 +2007,14 @@ lex.exit626.thread:                               ; preds = %lex.exit626, %._cri
   br label %706
 
 706:                                              ; preds = %700, %703
-  %.10 = phi i32 [ %705, %703 ], [ %702, %700 ]
-  %707 = add i32 %.10, -48
+  %.11 = phi i32 [ %705, %703 ], [ %702, %700 ]
+  %707 = add i32 %.11, -48
   %708 = icmp ult i32 %707, 10
   br i1 %708, label %.lr.ph1042, label %lex.exit626.thread.thread
 
 .lr.ph1042:                                       ; preds = %706, %lex.exit665
-  %.111040 = phi i32 [ %.0.i654, %lex.exit665 ], [ %.10, %706 ]
-  %709 = trunc nuw i32 %.111040 to i8
+  %.121040 = phi i32 [ %.0.i654, %lex.exit665 ], [ %.11, %706 ]
+  %709 = trunc nuw i32 %.121040 to i8
   %.val.i.i638 = load i8, ptr %13, align 1
   %.not.i.i639 = icmp eq i8 %.val.i.i638, -1
   br i1 %.not.i.i639, label %711, label %agxblen.exit.i640
@@ -2151,15 +2151,15 @@ lex.exit665:                                      ; preds = %752, %754
   br i1 %759, label %.lr.ph1042, label %lex.exit626.thread.thread
 
 lex.exit626.thread.thread.sink.split:             ; preds = %.loopexit.i569, %.loopexit.i614, %.loopexit.i653, %.loopexit.i512
-  %.3295.ph = phi i32 [ 259, %.loopexit.i512 ], [ 262, %.loopexit.i653 ], [ 262, %.loopexit.i614 ], [ 259, %.loopexit.i569 ]
+  %.2294.ph = phi i32 [ 259, %.loopexit.i512 ], [ 262, %.loopexit.i653 ], [ 262, %.loopexit.i614 ], [ 259, %.loopexit.i569 ]
   store ptr %9, ptr %10, align 8
   store i32 0, ptr %11, align 4
   br label %lex.exit626.thread.thread
 
 lex.exit626.thread.thread:                        ; preds = %469, %463, %.loopexit.i569, %571, %577, %.loopexit.i614, %670, %664, %lex.exit609, %.loopexit.i653, %lex.exit665, %743, %749, %switch.early.test845, %lex.exit626.thread.thread.sink.split, %.loopexit.i512, %706, %lex.exit626.thread
-  %.3295 = phi i32 [ %.2294, %lex.exit626.thread ], [ 262, %706 ], [ 259, %.loopexit.i512 ], [ %.3295.ph, %lex.exit626.thread.thread.sink.split ], [ 259, %switch.early.test845 ], [ 262, %749 ], [ 262, %743 ], [ 262, %lex.exit665 ], [ 262, %.loopexit.i653 ], [ 259, %lex.exit609 ], [ 262, %664 ], [ 262, %670 ], [ 262, %.loopexit.i614 ], [ 259, %577 ], [ 259, %571 ], [ 259, %.loopexit.i569 ], [ 259, %463 ], [ 259, %469 ]
-  %.2289 = phi i32 [ 0, %lex.exit626.thread ], [ 0, %706 ], [ %.0.i513, %.loopexit.i512 ], [ 0, %lex.exit626.thread.thread.sink.split ], [ 16, %switch.early.test845 ], [ 0, %749 ], [ 0, %743 ], [ %.0.i654, %.loopexit.i653 ], [ 0, %lex.exit665 ], [ 0, %lex.exit609 ], [ 0, %664 ], [ 0, %670 ], [ %.0.i615, %.loopexit.i614 ], [ 0, %577 ], [ 0, %571 ], [ %.0.i570, %.loopexit.i569 ], [ 0, %463 ], [ 0, %469 ]
-  %.12 = phi i32 [ %.9, %lex.exit626.thread ], [ %.10, %706 ], [ %.0.i513, %.loopexit.i512 ], [ 10, %lex.exit626.thread.thread.sink.split ], [ %.5, %switch.early.test845 ], [ 0, %749 ], [ 0, %743 ], [ %.0.i654, %lex.exit665 ], [ %.0.i654, %.loopexit.i653 ], [ %.032.i599, %lex.exit609 ], [ 0, %664 ], [ 0, %670 ], [ %.0.i615, %.loopexit.i614 ], [ 0, %577 ], [ 0, %571 ], [ %.0.i570, %.loopexit.i569 ], [ 0, %463 ], [ 0, %469 ]
+  %.2294 = phi i32 [ %.3295, %lex.exit626.thread ], [ 262, %706 ], [ 259, %.loopexit.i512 ], [ %.2294.ph, %lex.exit626.thread.thread.sink.split ], [ 259, %switch.early.test845 ], [ 262, %749 ], [ 262, %743 ], [ 262, %lex.exit665 ], [ 262, %.loopexit.i653 ], [ 259, %lex.exit609 ], [ 262, %664 ], [ 262, %670 ], [ 262, %.loopexit.i614 ], [ 259, %577 ], [ 259, %571 ], [ 259, %.loopexit.i569 ], [ 259, %463 ], [ 259, %469 ]
+  %.1288 = phi i32 [ 0, %lex.exit626.thread ], [ 0, %706 ], [ %.0.i513, %.loopexit.i512 ], [ 0, %lex.exit626.thread.thread.sink.split ], [ 16, %switch.early.test845 ], [ 0, %749 ], [ 0, %743 ], [ %.0.i654, %.loopexit.i653 ], [ 0, %lex.exit665 ], [ 0, %lex.exit609 ], [ 0, %664 ], [ 0, %670 ], [ %.0.i615, %.loopexit.i614 ], [ 0, %577 ], [ 0, %571 ], [ %.0.i570, %.loopexit.i569 ], [ 0, %463 ], [ 0, %469 ]
+  %.7 = phi i32 [ %.10, %lex.exit626.thread ], [ %.11, %706 ], [ %.0.i513, %.loopexit.i512 ], [ 10, %lex.exit626.thread.thread.sink.split ], [ %.6, %switch.early.test845 ], [ 0, %749 ], [ 0, %743 ], [ %.0.i654, %lex.exit665 ], [ %.0.i654, %.loopexit.i653 ], [ %.032.i599, %lex.exit609 ], [ 0, %664 ], [ 0, %670 ], [ %.0.i615, %.loopexit.i614 ], [ 0, %577 ], [ 0, %571 ], [ %.0.i570, %.loopexit.i569 ], [ 0, %463 ], [ 0, %469 ]
   %.val.i.i.i = load i8, ptr %13, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   br i1 %.not.i.i.i, label %761, label %agxblen.exit.i.i
@@ -2225,7 +2225,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %777
   %779 = phi ptr [ %778, %777 ], [ %12, %agxbclear.exit.thread.i ]
-  %780 = icmp eq i32 %.3295, 262
+  %780 = icmp eq i32 %.2294, 262
   br i1 %780, label %781, label %783
 
 781:                                              ; preds = %agxbuse.exit
@@ -2234,24 +2234,24 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br label %790
 
 783:                                              ; preds = %agxbuse.exit
-  %784 = and i32 %.12, -33
+  %784 = and i32 %.7, -33
   %or.cond9 = icmp eq i32 %784, 85
   br i1 %or.cond9, label %785, label %788
 
 785:                                              ; preds = %783
   %786 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
-  %787 = call i64 @strtoull(ptr noundef %779, ptr noundef nonnull %2, i32 noundef %.2289) #14
+  %787 = call i64 @strtoull(ptr noundef %779, ptr noundef nonnull %2, i32 noundef %.1288) #14
   store i64 %787, ptr @ex_lval, align 8
   br label %790
 
 788:                                              ; preds = %783
-  %789 = call i64 @strtoll(ptr noundef %779, ptr noundef nonnull %2, i32 noundef %.2289) #14
+  %789 = call i64 @strtoll(ptr noundef %779, ptr noundef nonnull %2, i32 noundef %.1288) #14
   store i64 %789, ptr @ex_lval, align 8
   br label %790
 
 790:                                              ; preds = %785, %788, %781
-  %.4296 = phi i32 [ 262, %781 ], [ 260, %785 ], [ %.3295, %788 ]
-  %.13 = phi i32 [ %.12, %781 ], [ %786, %785 ], [ %.12, %788 ]
+  %.4296 = phi i32 [ 262, %781 ], [ 260, %785 ], [ %.2294, %788 ]
+  %.13 = phi i32 [ %.7, %781 ], [ %786, %785 ], [ %.7, %788 ]
   %791 = load ptr, ptr %10, align 8
   %792 = getelementptr inbounds i8, ptr %791, i64 -1
   store ptr %792, ptr %10, align 8
@@ -2583,9 +2583,9 @@ agxbclear.exit700:                                ; preds = %916, %917
 
 lex.exit790:                                      ; preds = %lex.exit790.backedge, %agxbclear.exit700
   %.0285 = phi i32 [ 1, %agxbclear.exit700 ], [ %.1286, %lex.exit790.backedge ]
-  %.0282 = phi i32 [ 0, %agxbclear.exit700 ], [ %.2284, %lex.exit790.backedge ]
-  %.0278 = phi i32 [ 0, %agxbclear.exit700 ], [ %.3281, %lex.exit790.backedge ]
-  %.0275 = phi i32 [ 0, %agxbclear.exit700 ], [ %.2277, %lex.exit790.backedge ]
+  %.0282 = phi i32 [ 0, %agxbclear.exit700 ], [ %.1283, %lex.exit790.backedge ]
+  %.0278 = phi i32 [ 0, %agxbclear.exit700 ], [ %.1279, %lex.exit790.backedge ]
+  %.0275 = phi i32 [ 0, %agxbclear.exit700 ], [ %.1276, %lex.exit790.backedge ]
   %.14 = phi i32 [ %918, %agxbclear.exit700 ], [ %.14.be, %lex.exit790.backedge ]
   switch i32 %.14, label %1122 [
     i32 0, label %lex.exit.thread
@@ -2817,8 +2817,8 @@ lex.exit717.thread:                               ; preds = %.loopexit.i705, %95
 
 987:                                              ; preds = %980, %981, %982, %983, %984
   %.sink1400 = phi i32 [ %986, %984 ], [ 1, %983 ], [ 1, %982 ], [ 1, %981 ], [ 1, %980 ]
-  %.2280 = phi i32 [ %.0278, %984 ], [ 93, %983 ], [ 125, %982 ], [ 41, %981 ], [ %.0278, %980 ]
-  %.1276 = phi i32 [ %.0275, %984 ], [ %.14, %983 ], [ %.14, %982 ], [ %.14, %981 ], [ %.14, %980 ]
+  %.3281 = phi i32 [ %.0278, %984 ], [ 93, %983 ], [ 125, %982 ], [ 41, %981 ], [ %.0278, %980 ]
+  %.2277 = phi i32 [ %.0275, %984 ], [ %.14, %983 ], [ %.14, %982 ], [ %.14, %981 ], [ %.14, %980 ]
   %spec.select = add nsw i32 %.0282, %.sink1400
   %988 = trunc i32 %.14 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %988)
@@ -3196,9 +3196,9 @@ agxbputc.exit773.backedge:                        ; preds = %1106, %1111
 
 1124:                                             ; preds = %1001, %995, %998, %965, %968, %971, %1122, %1117, %1004, %987, %977, %973
   %.1286 = phi i32 [ 0, %1122 ], [ 0, %1117 ], [ 0, %1004 ], [ 0, %998 ], [ 0, %995 ], [ 0, %987 ], [ %978, %977 ], [ 1, %973 ], [ 0, %971 ], [ 1, %968 ], [ %966, %965 ], [ 0, %1001 ]
-  %.2284 = phi i32 [ %.0282, %1122 ], [ %.0282, %1117 ], [ %.0282, %1004 ], [ %999, %998 ], [ %.0282, %995 ], [ %spec.select, %987 ], [ %.0282, %977 ], [ %.0282, %973 ], [ %.0282, %971 ], [ %.0282, %968 ], [ %.0282, %965 ], [ %999, %1001 ]
-  %.3281 = phi i32 [ %.0278, %1122 ], [ %.0278, %1117 ], [ %.0278, %1004 ], [ %.0278, %998 ], [ %.0278, %995 ], [ %.2280, %987 ], [ %.0278, %977 ], [ %.0278, %973 ], [ %.0278, %971 ], [ %.0278, %968 ], [ %.0278, %965 ], [ %.0278, %1001 ]
-  %.2277 = phi i32 [ %.0275, %1122 ], [ %.0275, %1117 ], [ %.0275, %1004 ], [ %.0275, %998 ], [ %.0275, %995 ], [ %.1276, %987 ], [ %.0275, %977 ], [ %.0275, %973 ], [ %.0275, %971 ], [ %.0275, %968 ], [ %.0275, %965 ], [ 0, %1001 ]
+  %.1283 = phi i32 [ %.0282, %1122 ], [ %.0282, %1117 ], [ %.0282, %1004 ], [ %999, %998 ], [ %.0282, %995 ], [ %spec.select, %987 ], [ %.0282, %977 ], [ %.0282, %973 ], [ %.0282, %971 ], [ %.0282, %968 ], [ %.0282, %965 ], [ %999, %1001 ]
+  %.1279 = phi i32 [ %.0278, %1122 ], [ %.0278, %1117 ], [ %.0278, %1004 ], [ %.0278, %998 ], [ %.0278, %995 ], [ %.3281, %987 ], [ %.0278, %977 ], [ %.0278, %973 ], [ %.0278, %971 ], [ %.0278, %968 ], [ %.0278, %965 ], [ %.0278, %1001 ]
+  %.1276 = phi i32 [ %.0275, %1122 ], [ %.0275, %1117 ], [ %.0275, %1004 ], [ %.0275, %998 ], [ %.0275, %995 ], [ %.2277, %987 ], [ %.0275, %977 ], [ %.0275, %973 ], [ %.0275, %971 ], [ %.0275, %968 ], [ %.0275, %965 ], [ 0, %1001 ]
   %1125 = load ptr, ptr %8, align 8
   %1126 = getelementptr inbounds i8, ptr %1125, i64 40
   %1127 = load i32, ptr %1126, align 8

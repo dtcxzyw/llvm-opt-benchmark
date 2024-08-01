@@ -7137,7 +7137,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   br label %36
 
 36:                                               ; preds = %20, %23
-  %.049 = phi i8 [ 3, %23 ], [ 1, %20 ]
+  %.1 = phi i8 [ 3, %23 ], [ 1, %20 ]
   %.044 = phi i1 [ %35, %23 ], [ false, %20 ]
   %.042 = phi double [ %30, %23 ], [ 0.000000e+00, %20 ]
   %.040 = phi double [ %34, %23 ], [ 1.000000e+00, %20 ]
@@ -7160,7 +7160,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   br label %51
 
 51:                                               ; preds = %36, %38
-  %.1 = phi i8 [ %.049, %38 ], [ 2, %36 ]
+  %.2 = phi i8 [ %.1, %38 ], [ 2, %36 ]
   %.043 = phi i1 [ %50, %38 ], [ false, %36 ]
   %.041 = phi double [ %45, %38 ], [ 0.000000e+00, %36 ]
   %.0 = phi double [ %49, %38 ], [ 0.000000e+00, %36 ]
@@ -7170,7 +7170,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   br label %55
 
 55:                                               ; preds = %51, %8
-  %.2 = phi i8 [ 0, %8 ], [ %.1, %51 ]
+  %.049 = phi i8 [ 0, %8 ], [ %.2, %51 ]
   %.048.in = phi i1 [ %19, %8 ], [ %52, %51 ]
   %.pn = phi double [ %15, %8 ], [ %54, %51 ]
   %.045 = phi double [ %18, %8 ], [ %53, %51 ]
@@ -7183,7 +7183,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   br i1 %or.cond54, label %59, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
 
 59:                                               ; preds = %55
-  switch i8 %.2, label %default.unreachable55 [
+  switch i8 %.049, label %default.unreachable55 [
     i8 0, label %60
     i8 1, label %62
     i8 2, label %64
@@ -7278,7 +7278,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %.065 = phi double [ %48, %34 ], [ 0.000000e+00, %31 ]
   %.063 = phi double [ %41, %34 ], [ 0.000000e+00, %31 ]
   %.061 = phi double [ %45, %34 ], [ 1.000000e+00, %31 ]
-  %.059 = phi i8 [ 3, %34 ], [ 1, %31 ]
+  %.1 = phi i8 [ 3, %34 ], [ 1, %31 ]
   %51 = fcmp ugt double %0, 0.000000e+00
   br i1 %51, label %52, label %68
 
@@ -7305,7 +7305,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
   %.064 = phi double [ %66, %52 ], [ 0.000000e+00, %50 ]
   %.062 = phi double [ %59, %52 ], [ 0.000000e+00, %50 ]
   %.060 = phi double [ %63, %52 ], [ 0.000000e+00, %50 ]
-  %.1 = phi i8 [ %.059, %52 ], [ 2, %50 ]
+  %.2 = phi i8 [ %.1, %52 ], [ 2, %50 ]
   %69 = fsub double %.061, %.060
   %70 = fsub double %.063, %.062
   %71 = fsub double %.065, %.064
@@ -7320,7 +7320,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
 
 79:                                               ; preds = %68, %8
   %.068.in = phi i1 [ %30, %8 ], [ %73, %68 ]
-  %.2 = phi i8 [ 0, %8 ], [ %.1, %68 ]
+  %.059 = phi i8 [ 0, %8 ], [ %.2, %68 ]
   %.057 = phi double [ %29, %8 ], [ %78, %68 ]
   %.0 = phi double [ %26, %8 ], [ %77, %68 ]
   %80 = fdiv double %.0, %.057
@@ -7333,7 +7333,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common7AFTLossINS0_18NormalDistr
 83:                                               ; preds = %79
   %84 = fmul double %3, %3
   %85 = fdiv double 1.000000e+00, %84
-  switch i8 %.2, label %default.unreachable74 [
+  switch i8 %.059, label %default.unreachable74 [
     i8 0, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_18NormalDistributionEEEdNS0_13CensoringTypeEbd.exit
     i8 1, label %86
     i8 2, label %88
@@ -8257,7 +8257,7 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit53: ; preds = %46, %53, %57
   br label %67
 
 67:                                               ; preds = %43, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53
-  %.049 = phi i8 [ 3, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1, %43 ]
+  %.1 = phi i8 [ 3, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1, %43 ]
   %.044 = phi i1 [ %66, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ false, %43 ]
   %.042 = phi double [ %.0.i52, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 0.000000e+00, %43 ]
   %.040 = phi double [ %65, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit53 ], [ 1.000000e+00, %43 ]
@@ -8296,7 +8296,7 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %69, %76, %80
   br label %90
 
 90:                                               ; preds = %67, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55
-  %.1 = phi i8 [ %.049, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 2, %67 ]
+  %.2 = phi i8 [ %.1, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 2, %67 ]
   %.043 = phi i1 [ %89, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ false, %67 ]
   %.041 = phi double [ %.0.i54, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %67 ]
   %.0 = phi double [ %88, %_ZN7xgboost6common20LogisticDistribution3PDFEd.exit55 ], [ 0.000000e+00, %67 ]
@@ -8306,7 +8306,7 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %69, %76, %80
   br label %94
 
 94:                                               ; preds = %90, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit
-  %.2 = phi i8 [ 0, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.1, %90 ]
+  %.049 = phi i8 [ 0, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %.2, %90 ]
   %.048.in = phi i1 [ %42, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %91, %90 ]
   %.pn = phi double [ %.0.i, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %93, %90 ]
   %.045 = phi double [ %41, %_ZN7xgboost6common20LogisticDistribution7GradPDFEd.exit ], [ %92, %90 ]
@@ -8319,7 +8319,7 @@ _ZN7xgboost6common20LogisticDistribution3PDFEd.exit55: ; preds = %69, %76, %80
   br i1 %or.cond59, label %98, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_20LogisticDistributionEEEdNS0_13CensoringTypeEbd.exit
 
 98:                                               ; preds = %94
-  switch i8 %.2, label %default.unreachable60 [
+  switch i8 %.049, label %default.unreachable60 [
     i8 0, label %99
     i8 1, label %101
     i8 2, label %104
@@ -9485,7 +9485,7 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52: ; preds = %38, %44
   br label %54
 
 54:                                               ; preds = %35, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52
-  %.049 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1, %35 ]
+  %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1, %35 ]
   %.044 = phi i1 [ %53, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ false, %35 ]
   %.042 = phi double [ %48, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 0.000000e+00, %35 ]
   %.040 = phi double [ %52, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit52 ], [ 1.000000e+00, %35 ]
@@ -9516,7 +9516,7 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %56, %62
   br label %72
 
 72:                                               ; preds = %54, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53
-  %.1 = phi i8 [ %.049, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 2, %54 ]
+  %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 2, %54 ]
   %.043 = phi i1 [ %71, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ false, %54 ]
   %.041 = phi double [ %66, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %54 ]
   %.0 = phi double [ %70, %_ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53 ], [ 0.000000e+00, %54 ]
@@ -9526,7 +9526,7 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %56, %62
   br label %76
 
 76:                                               ; preds = %72, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit
-  %.2 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.1, %72 ]
+  %.049 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %.2, %72 ]
   %.048.in = phi i1 [ %34, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %73, %72 ]
   %.pn = phi double [ %18, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %75, %72 ]
   %.045 = phi double [ %33, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit ], [ %74, %72 ]
@@ -9539,7 +9539,7 @@ _ZN7xgboost6common19ExtremeDistribution3PDFEd.exit53: ; preds = %56, %62
   br i1 %or.cond56, label %80, label %_ZN7xgboost6common3aft21GetLimitGradAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
 80:                                               ; preds = %76
-  switch i8 %.2, label %default.unreachable57 [
+  switch i8 %.049, label %default.unreachable57 [
     i8 0, label %81
     i8 1, label %84
     i8 2, label %86
@@ -9726,7 +9726,7 @@ _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74: ; preds = %_ZN7xgboost
   %.065 = phi double [ %94, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 0.000000e+00, %62 ]
   %.063 = phi double [ %75, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 0.000000e+00, %62 ]
   %.061 = phi double [ %79, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1.000000e+00, %62 ]
-  %.059 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1, %62 ]
+  %.1 = phi i8 [ 3, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit74 ], [ 1, %62 ]
   %97 = fcmp ugt double %0, 0.000000e+00
   br i1 %97, label %98, label %129
 
@@ -9783,7 +9783,7 @@ _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost
   %.064 = phi double [ %127, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %96 ]
   %.062 = phi double [ %108, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %96 ]
   %.060 = phi double [ %112, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 0.000000e+00, %96 ]
-  %.1 = phi i8 [ %.059, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 2, %96 ]
+  %.2 = phi i8 [ %.1, %_ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77 ], [ 2, %96 ]
   %130 = fsub double %.061, %.060
   %131 = fsub double %.063, %.062
   %132 = fsub double %.065, %.064
@@ -9798,7 +9798,7 @@ _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost
 
 140:                                              ; preds = %129, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit
   %.068.in = phi i1 [ %61, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %134, %129 ]
-  %.2 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.1, %129 ]
+  %.059 = phi i8 [ 0, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %.2, %129 ]
   %.057 = phi double [ %60, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %139, %129 ]
   %.0 = phi double [ %57, %_ZN7xgboost6common19ExtremeDistribution7HessPDFEd.exit ], [ %138, %129 ]
   %141 = fdiv double %.0, %.057
@@ -9809,7 +9809,7 @@ _ZN7xgboost6common19ExtremeDistribution7GradPDFEd.exit77: ; preds = %_ZN7xgboost
   br i1 %or.cond81, label %144, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit
 
 144:                                              ; preds = %140
-  switch i8 %.2, label %default.unreachable82 [
+  switch i8 %.059, label %default.unreachable82 [
     i8 0, label %145
     i8 1, label %145
     i8 2, label %_ZN7xgboost6common3aft21GetLimitHessAtInfPredINS0_19ExtremeDistributionEEEdNS0_13CensoringTypeEbd.exit

@@ -454,7 +454,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %18, %14
   %storemerge = phi i64 [ %19, %18 ], [ 0, %14 ]
-  %.1 = phi i1 [ false, %18 ], [ true, %14 ]
+  %.2 = phi i1 [ false, %18 ], [ true, %14 ]
   store i64 %storemerge, ptr %3, align 8
   br label %22
 
@@ -463,7 +463,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   br i1 %21, label %22, label %.thread129
 
 22:                                               ; preds = %.thread, %20
-  %.2109 = phi i1 [ %.1, %.thread ], [ false, %20 ]
+  %.3109 = phi i1 [ %.2, %.thread ], [ false, %20 ]
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %23, label %.thread140.thread
 
@@ -499,7 +499,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 .thread140.thread:                                ; preds = %22
   %31 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 0, ptr %31, align 4
-  br i1 %.2109, label %40, label %48
+  br i1 %.3109, label %40, label %48
 
 .thread140:                                       ; preds = %..thread140thread-pre-split_crit_edge, %.thread115
   %32 = phi i64 [ %28, %.thread115 ], [ %.pr.pre, %..thread140thread-pre-split_crit_edge ]
@@ -512,7 +512,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str) #6
   %34 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 1, ptr %34, align 4
-  br i1 %.2109, label %40, label %48
+  br i1 %.3109, label %40, label %48
 
 35:                                               ; preds = %.thread140
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.1) #6
@@ -524,7 +524,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 38:                                               ; preds = %.thread140
   %39 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 2500
   store i8 0, ptr %39, align 4
-  br i1 %.2109, label %40, label %48
+  br i1 %.3109, label %40, label %48
 
 40:                                               ; preds = %.thread140.thread.thread, %.thread140.thread, %33, %38
   %41 = call i32 @php_random_bytes(ptr noundef nonnull %3, i64 noundef 8, i1 noundef zeroext true) #6

@@ -409,12 +409,12 @@ if.end29:                                         ; preds = %if.end22
   br i1 %cmp7, label %while.body, label %out1, !llvm.loop !5
 
 out1:                                             ; preds = %while.body, %if.end22, %if.end29, %if.end6
-  %ret.1 = phi i32 [ 1, %if.end6 ], [ %call25, %if.end29 ], [ %call25, %if.end22 ], [ %call14, %while.body ]
+  %ret.2 = phi i32 [ 1, %if.end6 ], [ %call25, %if.end29 ], [ %call25, %if.end22 ], [ %call14, %while.body ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #8
   br label %return
 
 return:                                           ; preds = %sw.bb2.i, %sw.bb3.i, %sw.bb7.i, %entry, %if.then2.i, %if.then2, %out1
-  %retval.0 = phi i32 [ %ret.1, %out1 ], [ %call4, %if.then2 ], [ 0, %if.then2.i ], [ -5, %entry ], [ -5, %sw.bb7.i ], [ -5, %sw.bb3.i ], [ -5, %sw.bb2.i ]
+  %retval.0 = phi i32 [ %ret.2, %out1 ], [ %call4, %if.then2 ], [ 0, %if.then2.i ], [ -5, %entry ], [ -5, %sw.bb7.i ], [ -5, %sw.bb3.i ], [ -5, %sw.bb2.i ]
   ret i32 %retval.0
 }
 

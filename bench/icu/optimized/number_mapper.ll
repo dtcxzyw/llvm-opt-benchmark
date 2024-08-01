@@ -504,9 +504,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1076,8 +1076,8 @@ invoke.cont261:                                   ; preds = %if.then258
 
 if.end269.sink.split:                             ; preds = %invoke.cont261, %invoke.cont247
   %call265.sink213 = phi { i64, i8 } [ %call251, %invoke.cont247 ], [ %call265, %invoke.cont261 ]
-  %minInt.1.ph = phi i32 [ %minInt.0, %invoke.cont247 ], [ 1, %invoke.cont261 ]
-  %maxInt.1.ph = phi i32 [ %minInt.0, %invoke.cont247 ], [ %maxInt.0, %invoke.cont261 ]
+  %minInt.2.ph = phi i32 [ %minInt.0, %invoke.cont247 ], [ 1, %invoke.cont261 ]
+  %maxInt.2.ph = phi i32 [ %minInt.0, %invoke.cont247 ], [ %maxInt.0, %invoke.cont261 ]
   %call265.fca.0.extract = extractvalue { i64, i8 } %call265.sink213, 0
   %call265.fca.1.extract = extractvalue { i64, i8 } %call265.sink213, 1
   store i64 %call265.fca.0.extract, ptr %integerWidth, align 4
@@ -1086,11 +1086,11 @@ if.end269.sink.split:                             ; preds = %invoke.cont261, %in
   br label %if.end269
 
 if.end269:                                        ; preds = %if.end269.sink.split, %if.else254
-  %minInt.1 = phi i32 [ %minInt.0, %if.else254 ], [ %minInt.1.ph, %if.end269.sink.split ]
-  %maxInt.1 = phi i32 [ %maxInt.0, %if.else254 ], [ %maxInt.1.ph, %if.end269.sink.split ]
-  %cond274 = call i32 @llvm.smax.i32(i32 %maxInt.1, i32 -1)
+  %minInt.2 = phi i32 [ %minInt.0, %if.else254 ], [ %minInt.2.ph, %if.end269.sink.split ]
+  %maxInt.2 = phi i32 [ %maxInt.0, %if.else254 ], [ %maxInt.2.ph, %if.end269.sink.split ]
+  %cond274 = call i32 @llvm.smax.i32(i32 %maxInt.2, i32 -1)
   %conv276 = trunc i32 %cond274 to i8
-  %cmp277 = icmp eq i32 %cond274, %minInt.1
+  %cmp277 = icmp eq i32 %cond274, %minInt.2
   %37 = load i32, ptr %minimumExponentDigits, align 4
   %conv279 = trunc i32 %37 to i16
   %exponentSignAlwaysShown = getelementptr inbounds i8, ptr %properties, i64 66
@@ -1149,8 +1149,8 @@ if.end317:                                        ; preds = %if.else305, %if.the
   br label %if.end320
 
 if.end320:                                        ; preds = %invoke.cont282, %if.end317, %if.end236
-  %minInt.2 = phi i32 [ %minInt.1, %if.end317 ], [ %minInt.1, %invoke.cont282 ], [ %minInt.0, %if.end236 ]
-  %maxInt.2 = phi i32 [ %maxInt.1, %if.end317 ], [ %maxInt.1, %invoke.cont282 ], [ %maxInt.0, %if.end236 ]
+  %minInt.1 = phi i32 [ %minInt.2, %if.end317 ], [ %minInt.2, %invoke.cont282 ], [ %minInt.0, %if.end236 ]
+  %maxInt.1 = phi i32 [ %maxInt.2, %if.end317 ], [ %maxInt.2, %invoke.cont282 ], [ %maxInt.0, %if.end236 ]
   %46 = load i8, ptr %properties, align 8
   %tobool.i142 = trunc i8 %46 to i1
   br i1 %tobool.i142, label %if.end341, label %if.then323
@@ -1236,9 +1236,9 @@ invoke.cont348:                                   ; preds = %if.then346
   store i32 %cond.i136, ptr %fValue.i154, align 4
   store i8 0, ptr %roundingMode350, align 4
   %minimumIntegerDigits353 = getelementptr inbounds i8, ptr %exportedProperties, i64 112
-  store i32 %minInt.2, ptr %minimumIntegerDigits353, align 8
-  %cmp354 = icmp eq i32 %maxInt.2, -1
-  %cond358 = select i1 %cmp354, i32 2147483647, i32 %maxInt.2
+  store i32 %minInt.1, ptr %minimumIntegerDigits353, align 8
+  %cmp354 = icmp eq i32 %maxInt.1, -1
+  %cond358 = select i1 %cmp354, i32 2147483647, i32 %maxInt.1
   %maximumIntegerDigits359 = getelementptr inbounds i8, ptr %exportedProperties, i64 92
   store i32 %cond358, ptr %maximumIntegerDigits359, align 4
   %cmp362 = icmp eq i32 %29, 8

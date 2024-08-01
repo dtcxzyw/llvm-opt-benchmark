@@ -685,7 +685,7 @@ do.body.i125:                                     ; preds = %do.body.i125, %if.t
 
 if.end:                                           ; preds = %do.body.i125, %ctype_raw.exit
   %15 = phi i32 [ %11, %ctype_raw.exit ], [ %14, %do.body.i125 ]
-  %p.0 = phi ptr [ %add.ptr, %ctype_raw.exit ], [ %12, %do.body.i125 ]
+  %p.1 = phi ptr [ %add.ptr, %ctype_raw.exit ], [ %12, %do.body.i125 ]
   %ct.0 = phi ptr [ %ct.i.0, %ctype_raw.exit ], [ %arrayidx.i.i.i128, %do.body.i125 ]
   %and9 = and i32 %15, -201326592
   %cmp10 = icmp eq i32 %and9, 872415232
@@ -734,11 +734,11 @@ if.else31.if.end51_crit_edge:                     ; preds = %if.else31
   br label %if.end51
 
 if.then35:                                        ; preds = %if.else31
-  %23 = load ptr, ptr %p.0, align 8
+  %23 = load ptr, ptr %p.1, align 8
   br label %if.end71
 
 if.then41:                                        ; preds = %if.else31
-  %24 = load ptr, ptr %p.0, align 8
+  %24 = load ptr, ptr %p.1, align 8
   br label %if.end71
 
 if.then47:                                        ; preds = %if.else31
@@ -746,13 +746,13 @@ if.then47:                                        ; preds = %if.else31
   br i1 %cmp.i132, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then47
-  %25 = load i32, ptr %p.0, align 4
+  %25 = load i32, ptr %p.1, align 4
   %conv.i = zext i32 %25 to i64
   %26 = inttoptr i64 %conv.i to ptr
   br label %cdata_getptr.exit
 
 if.else.i:                                        ; preds = %if.then47
-  %27 = load ptr, ptr %p.0, align 8
+  %27 = load ptr, ptr %p.1, align 8
   br label %cdata_getptr.exit
 
 cdata_getptr.exit:                                ; preds = %if.else.i, %if.then.i
@@ -772,7 +772,7 @@ do.body.i:                                        ; preds = %do.body.i, %cdata_g
 if.end51:                                         ; preds = %do.body.i, %if.else31.if.end51_crit_edge
   %shr53.mask.pre-phi = phi i32 [ %.pre, %if.else31.if.end51_crit_edge ], [ %shr.i115.mask, %do.body.i ]
   %30 = phi i32 [ %15, %if.else31.if.end51_crit_edge ], [ %29, %do.body.i ]
-  %p.1 = phi ptr [ %p.0, %if.else31.if.end51_crit_edge ], [ %retval.i.0, %do.body.i ]
+  %p.2 = phi ptr [ %p.1, %if.else31.if.end51_crit_edge ], [ %retval.i.0, %do.body.i ]
   %ct.1 = phi ptr [ %ct.0, %if.else31.if.end51_crit_edge ], [ %arrayidx.i.i.i, %do.body.i ]
   %cmp54 = icmp eq i32 %shr53.mask.pre-phi, 268435456
   %and57 = and i32 %30, -134217728
@@ -797,10 +797,10 @@ if.then63:                                        ; preds = %if.then60
 if.end71:                                         ; preds = %if.end51, %if.then35, %if.then60, %if.then41, %if.then
   %msg.0 = phi ptr [ @.str.8, %if.then ], [ @.str.7, %if.then35 ], [ @.str.9, %if.then41 ], [ @.str.7, %if.then60 ], [ @.str.7, %if.end51 ]
   %id.0 = phi i32 [ %5, %if.then ], [ %conv, %if.then35 ], [ %conv, %if.then41 ], [ %conv, %if.then60 ], [ %conv, %if.end51 ]
-  %p.2 = phi ptr [ %add.ptr, %if.then ], [ %23, %if.then35 ], [ %24, %if.then41 ], [ %p.1, %if.then60 ], [ %p.1, %if.end51 ]
+  %p.0 = phi ptr [ %add.ptr, %if.then ], [ %23, %if.then35 ], [ %24, %if.then41 ], [ %p.2, %if.then60 ], [ %p.2, %if.end51 ]
   %call72 = tail call ptr @lj_ctype_repr(ptr noundef %L, i32 noundef %id.0, ptr noundef null) #9
   %add.ptr73 = getelementptr inbounds i8, ptr %call72, i64 24
-  %call74 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull %msg.0, ptr noundef nonnull %add.ptr73, ptr noundef %p.2) #9
+  %call74 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull %msg.0, ptr noundef nonnull %add.ptr73, ptr noundef %p.0) #9
   br label %checkgc
 
 checkgc:                                          ; preds = %if.end71, %if.then24, %if.then12
@@ -2650,8 +2650,8 @@ cond.true:                                        ; preds = %if.else19
   br label %if.end
 
 if.end:                                           ; preds = %cond.true, %ffi_checkint.exit
-  %sz.0 = phi i32 [ %call18, %ffi_checkint.exit ], [ %26, %cond.true ]
-  %cmp24 = icmp eq i32 %sz.0, -1
+  %sz.1 = phi i32 [ %call18, %ffi_checkint.exit ], [ %26, %cond.true ]
+  %cmp24 = icmp eq i32 %sz.1, -1
   br i1 %cmp24, label %if.then32, label %if.end35
 
 if.then32:                                        ; preds = %if.else19, %if.end
@@ -2661,10 +2661,10 @@ if.then32:                                        ; preds = %if.else19, %if.end
   br label %return
 
 if.end35:                                         ; preds = %if.end, %if.then
-  %sz.1 = phi i32 [ %16, %if.then ], [ %sz.0, %if.end ]
+  %sz.0 = phi i32 [ %16, %if.then ], [ %sz.1, %if.end ]
   %28 = load ptr, ptr %top.i, align 8
   %add.ptr37 = getelementptr inbounds i8, ptr %28, i64 -8
-  %conv.i = sitofp i32 %sz.1 to double
+  %conv.i = sitofp i32 %sz.0 to double
   store double %conv.i, ptr %add.ptr37, align 8
   br label %return
 

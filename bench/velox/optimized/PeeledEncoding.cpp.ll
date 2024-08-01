@@ -334,7 +334,7 @@ entry:
 
 do.body:                                          ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239, %entry
   %nonConstant.0 = phi i1 [ false, %entry ], [ true, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239 ]
-  %firstPeeled.0 = phi i32 [ -1, %entry ], [ %firstPeeled.5675, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239 ]
+  %firstPeeled.0 = phi i32 [ -1, %entry ], [ %firstPeeled.2675, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239 ]
   %numLevels.0 = phi i32 [ 0, %entry ], [ %numLevels.1, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239 ]
   store ptr null, ptr %firstIndices, align 8
   invoke void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %maybePeeled, i64 noundef %sub.ptr.div.i)
@@ -350,8 +350,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit, %for.body.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit ], [ 0, %for.body.lr.ph ]
   %peeled.0634 = phi i1 [ %peeled.2, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit ], [ true, %for.body.lr.ph ]
-  %firstPeeled.1630 = phi i32 [ %firstPeeled.4, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit ], [ %firstPeeled.0, %for.body.lr.ph ]
-  %nonConstant.1629 = phi i1 [ %nonConstant.2, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit ], [ %nonConstant.0, %for.body.lr.ph ]
+  %firstPeeled.1630 = phi i32 [ %firstPeeled.3, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit ], [ %firstPeeled.0, %for.body.lr.ph ]
+  %nonConstant.1629 = phi i1 [ %nonConstant.3, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit ], [ %nonConstant.0, %for.body.lr.ph ]
   %4 = load ptr, ptr %peeledVectors, align 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
@@ -1008,9 +1008,9 @@ cleanupthread-pre-split:                          ; preds = %invoke.cont75, %if.
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %if.else
   %101 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %81, %if.else ]
-  %firstPeeled.3 = phi i32 [ %spec.select, %cleanupthread-pre-split ], [ %firstPeeled.1630, %if.else ]
-  %cleanup.dest.slot.0 = phi i32 [ 0, %cleanupthread-pre-split ], [ 4, %if.else ]
-  %peeled.1 = phi i1 [ %peeled.0634, %cleanupthread-pre-split ], [ false, %if.else ]
+  %firstPeeled.4 = phi i32 [ %spec.select, %cleanupthread-pre-split ], [ %firstPeeled.1630, %if.else ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %cleanupthread-pre-split ], [ 4, %if.else ]
+  %peeled.3 = phi i1 [ %peeled.0634, %cleanupthread-pre-split ], [ false, %if.else ]
   %cmp.not.i = icmp eq ptr %101, null
   br i1 %cmp.not.i, label %cleanup80thread-pre-split, label %if.then.i190
 
@@ -1060,18 +1060,18 @@ lpad74:                                           ; preds = %if.end67
   br label %ehcleanup
 
 cleanup80thread-pre-split:                        ; preds = %invoke.cont43, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit, %land.lhs.true52, %if.end46, %if.end9.i.i.i.i, %cleanup, %if.then.i190, %if.then2.i.i.i, %delete.notnull.i.i.i
-  %nonConstant.2.ph = phi i1 [ true, %delete.notnull.i.i.i ], [ true, %if.then2.i.i.i ], [ true, %if.then.i190 ], [ true, %cleanup ], [ %nonConstant.1629, %if.end9.i.i.i.i ], [ true, %if.end46 ], [ true, %land.lhs.true52 ], [ %nonConstant.1629, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %nonConstant.1629, %invoke.cont43 ]
-  %firstPeeled.4.ph = phi i32 [ %firstPeeled.3, %delete.notnull.i.i.i ], [ %firstPeeled.3, %if.then2.i.i.i ], [ %firstPeeled.3, %if.then.i190 ], [ %firstPeeled.3, %cleanup ], [ %firstPeeled.1630, %if.end9.i.i.i.i ], [ %firstPeeled.1630, %if.end46 ], [ %firstPeeled.1630, %land.lhs.true52 ], [ %firstPeeled.1630, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %firstPeeled.1630, %invoke.cont43 ]
-  %cleanup.dest.slot.1.ph = phi i32 [ %cleanup.dest.slot.0, %delete.notnull.i.i.i ], [ %cleanup.dest.slot.0, %if.then2.i.i.i ], [ %cleanup.dest.slot.0, %if.then.i190 ], [ %cleanup.dest.slot.0, %cleanup ], [ 6, %if.end9.i.i.i.i ], [ 4, %if.end46 ], [ 4, %land.lhs.true52 ], [ 6, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ 6, %invoke.cont43 ]
-  %peeled.2.ph = phi i1 [ %peeled.1, %delete.notnull.i.i.i ], [ %peeled.1, %if.then2.i.i.i ], [ %peeled.1, %if.then.i190 ], [ %peeled.1, %cleanup ], [ %peeled.0634, %if.end9.i.i.i.i ], [ false, %if.end46 ], [ false, %land.lhs.true52 ], [ %peeled.0634, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %peeled.0634, %invoke.cont43 ]
+  %nonConstant.3.ph = phi i1 [ true, %delete.notnull.i.i.i ], [ true, %if.then2.i.i.i ], [ true, %if.then.i190 ], [ true, %cleanup ], [ %nonConstant.1629, %if.end9.i.i.i.i ], [ true, %if.end46 ], [ true, %land.lhs.true52 ], [ %nonConstant.1629, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %nonConstant.1629, %invoke.cont43 ]
+  %firstPeeled.3.ph = phi i32 [ %firstPeeled.4, %delete.notnull.i.i.i ], [ %firstPeeled.4, %if.then2.i.i.i ], [ %firstPeeled.4, %if.then.i190 ], [ %firstPeeled.4, %cleanup ], [ %firstPeeled.1630, %if.end9.i.i.i.i ], [ %firstPeeled.1630, %if.end46 ], [ %firstPeeled.1630, %land.lhs.true52 ], [ %firstPeeled.1630, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %firstPeeled.1630, %invoke.cont43 ]
+  %cleanup.dest.slot.0.ph = phi i32 [ %cleanup.dest.slot.1, %delete.notnull.i.i.i ], [ %cleanup.dest.slot.1, %if.then2.i.i.i ], [ %cleanup.dest.slot.1, %if.then.i190 ], [ %cleanup.dest.slot.1, %cleanup ], [ 6, %if.end9.i.i.i.i ], [ 4, %if.end46 ], [ 4, %land.lhs.true52 ], [ 6, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ 6, %invoke.cont43 ]
+  %peeled.2.ph = phi i1 [ %peeled.3, %delete.notnull.i.i.i ], [ %peeled.3, %if.then2.i.i.i ], [ %peeled.3, %if.then.i190 ], [ %peeled.3, %cleanup ], [ %peeled.0634, %if.end9.i.i.i.i ], [ false, %if.end46 ], [ false, %land.lhs.true52 ], [ %peeled.0634, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %peeled.0634, %invoke.cont43 ]
   %.pr611 = load ptr, ptr %_M_refcount.i.i, align 8
   br label %cleanup80
 
 cleanup80:                                        ; preds = %cleanup80thread-pre-split, %if.then30
   %110 = phi ptr [ %.pr611, %cleanup80thread-pre-split ], [ %38, %if.then30 ]
-  %nonConstant.2 = phi i1 [ %nonConstant.2.ph, %cleanup80thread-pre-split ], [ %nonConstant.1629, %if.then30 ]
-  %firstPeeled.4 = phi i32 [ %firstPeeled.4.ph, %cleanup80thread-pre-split ], [ %firstPeeled.1630, %if.then30 ]
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.1.ph, %cleanup80thread-pre-split ], [ 6, %if.then30 ]
+  %nonConstant.3 = phi i1 [ %nonConstant.3.ph, %cleanup80thread-pre-split ], [ %nonConstant.1629, %if.then30 ]
+  %firstPeeled.3 = phi i32 [ %firstPeeled.3.ph, %cleanup80thread-pre-split ], [ %firstPeeled.1630, %if.then30 ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanup80thread-pre-split ], [ 6, %if.then30 ]
   %peeled.2 = phi i1 [ %peeled.2.ph, %cleanup80thread-pre-split ], [ %peeled.0634, %if.then30 ]
   %cmp.not.i.i.i193 = icmp eq ptr %110, null
   br i1 %cmp.not.i.i.i193, label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit, label %if.then.i.i.i194
@@ -1145,7 +1145,7 @@ if.end8.sink.split.i.i.i.i214:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit: ; preds = %cleanup80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i201, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i211, %if.end8.sink.split.i.i.i.i214
-  %switch = icmp ne i32 %cleanup.dest.slot.1, 4
+  %switch = icmp ne i32 %cleanup.dest.slot.0, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
   %or.cond = select i1 %switch, i1 %cmp, i1 false
@@ -1160,8 +1160,8 @@ for.end:                                          ; preds = %_ZNSt10shared_ptrIN
   br i1 %peeled.2, label %if.then84, label %if.end87
 
 if.then84:                                        ; preds = %for.cond.preheader, %for.end
-  %firstPeeled.5676 = phi i32 [ %firstPeeled.4, %for.end ], [ %firstPeeled.0, %for.cond.preheader ]
-  %nonConstant.3674 = phi i1 [ %nonConstant.2, %for.end ], [ %nonConstant.0, %for.cond.preheader ]
+  %firstPeeled.2676 = phi i32 [ %firstPeeled.3, %for.end ], [ %firstPeeled.0, %for.cond.preheader ]
+  %nonConstant.2674 = phi i1 [ %nonConstant.3, %for.end ], [ %nonConstant.0, %for.cond.preheader ]
   %inc85 = add nsw i32 %numLevels.0, 1
   %121 = load ptr, ptr %peeledVectors, align 8
   %122 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1262,9 +1262,9 @@ if.then.i.i.i.i609:                               ; preds = %invoke.cont.i.i
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then.i.i.i.i609, %invoke.cont.i.i, %for.end
-  %peeled.3677 = phi i1 [ false, %for.end ], [ %nonConstant.3674, %invoke.cont.i.i ], [ %nonConstant.3674, %if.then.i.i.i.i609 ]
-  %firstPeeled.5675 = phi i32 [ %firstPeeled.4, %for.end ], [ %firstPeeled.5676, %invoke.cont.i.i ], [ %firstPeeled.5676, %if.then.i.i.i.i609 ]
-  %nonConstant.3673 = phi i1 [ %nonConstant.2, %for.end ], [ %nonConstant.3674, %invoke.cont.i.i ], [ %nonConstant.3674, %if.then.i.i.i.i609 ]
+  %peeled.1677 = phi i1 [ false, %for.end ], [ %nonConstant.2674, %invoke.cont.i.i ], [ %nonConstant.2674, %if.then.i.i.i.i609 ]
+  %firstPeeled.2675 = phi i32 [ %firstPeeled.3, %for.end ], [ %firstPeeled.2676, %invoke.cont.i.i ], [ %firstPeeled.2676, %if.then.i.i.i.i609 ]
+  %nonConstant.2673 = phi i1 [ %nonConstant.3, %for.end ], [ %nonConstant.2674, %invoke.cont.i.i ], [ %nonConstant.2674, %if.then.i.i.i.i609 ]
   %numLevels.1 = phi i32 [ %numLevels.0, %for.end ], [ %inc85, %invoke.cont.i.i ], [ %inc85, %if.then.i.i.i.i609 ]
   %136 = load ptr, ptr %firstIndices, align 8
   %cmp.not.i223 = icmp eq ptr %136, null
@@ -1310,11 +1310,11 @@ terminate.lpad.i230:                              ; preds = %if.then2.i.i.i235, 
   unreachable
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239: ; preds = %if.end87, %if.then.i224, %if.then2.i.i.i235, %delete.notnull.i.i.i237
-  br i1 %peeled.3677, label %do.body, label %do.end, !llvm.loop !7
+  br i1 %peeled.1677, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit239
   %cmp93 = icmp eq i32 %numLevels.1, 0
-  %brmerge.not = select i1 %cmp93, i1 %nonConstant.3673, i1 false
+  %brmerge.not = select i1 %cmp93, i1 %nonConstant.2673, i1 false
   br i1 %brmerge.not, label %cleanup228, label %if.end97
 
 ehcleanup88:                                      ; preds = %ehcleanup, %lpad
@@ -1323,7 +1323,7 @@ ehcleanup88:                                      ; preds = %ehcleanup, %lpad
   br label %ehcleanup229
 
 if.end97:                                         ; preds = %do.end
-  %cmp98 = icmp eq i32 %firstPeeled.5675, -1
+  %cmp98 = icmp eq i32 %firstPeeled.2675, -1
   br i1 %cmp98, label %if.then99, label %if.else134
 
 if.then99:                                        ; preds = %if.end97
@@ -1602,7 +1602,7 @@ if.else129:                                       ; preds = %invoke.cont108, %if
   br label %cleanup228
 
 if.else134:                                       ; preds = %if.end97
-  %conv135 = sext i32 %firstPeeled.5675 to i64
+  %conv135 = sext i32 %firstPeeled.2675 to i64
   %191 = load ptr, ptr %vectorsToPeel, align 8
   %add.ptr.i340 = getelementptr inbounds %"class.std::shared_ptr.38", ptr %191, i64 %conv135
   %192 = load ptr, ptr %add.ptr.i340, align 8

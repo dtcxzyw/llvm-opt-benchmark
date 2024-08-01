@@ -1123,9 +1123,9 @@ for.body.lr.ph.i89:                               ; preds = %if.end160
 
 for.body.i90:                                     ; preds = %for.inc.i91, %for.body.lr.ph.i89
   %43 = phi i32 [ %42, %for.body.lr.ph.i89 ], [ %62, %for.inc.i91 ]
-  %ambiguous_flags.0124.i = phi i32 [ 0, %for.body.lr.ph.i89 ], [ %ambiguous_flags.2.i, %for.inc.i91 ]
+  %ambiguous_flags.0124.i = phi i32 [ 0, %for.body.lr.ph.i89 ], [ %ambiguous_flags.1.i, %for.inc.i91 ]
   %abbrev_flags.0122.i = phi i32 [ 0, %for.body.lr.ph.i89 ], [ %abbrev_flags.1.i, %for.inc.i91 ]
-  %ambiguous_option.0120.i = phi ptr [ null, %for.body.lr.ph.i89 ], [ %ambiguous_option.2.i, %for.inc.i91 ]
+  %ambiguous_option.0120.i = phi ptr [ null, %for.body.lr.ph.i89 ], [ %ambiguous_option.1.i, %for.inc.i91 ]
   %abbrev_option.0118.i = phi ptr [ null, %for.body.lr.ph.i89 ], [ %abbrev_option.1.i, %for.inc.i91 ]
   %options.addr.0115.i = phi ptr [ %options, %for.body.lr.ph.i89 ], [ %incdec.ptr.i92, %for.inc.i91 ]
   %long_name1.i = getelementptr inbounds i8, ptr %options.addr.0115.i, i64 8
@@ -1171,7 +1171,7 @@ land.lhs.true.i96:                                ; preds = %if.then10.i
 
 is_abbreviated.i:                                 ; preds = %if.end33.i, %land.lhs.true.i96, %if.then49.i
   %tobool23.not.i = phi i1 [ false, %if.then49.i ], [ true, %land.lhs.true.i96 ], [ false, %if.end33.i ]
-  %flags.0.i = phi i32 [ 2, %if.then49.i ], [ 0, %land.lhs.true.i96 ], [ 2, %if.end33.i ]
+  %flags.1.i = phi i32 [ 2, %if.then49.i ], [ 0, %land.lhs.true.i96 ], [ 2, %if.end33.i ]
   %tobool16.not.i = icmp eq ptr %abbrev_option.0118.i, null
   br i1 %tobool16.not.i, label %if.end21.i, label %land.lhs.true17.i
 
@@ -1233,8 +1233,8 @@ for.inc.i.i:                                      ; preds = %while.cond.ithread-
   br i1 %tobool7.not.i.i, label %if.end21.i, label %while.cond.i.preheader.i.i, !llvm.loop !15
 
 if.end21.i:                                       ; preds = %for.inc.i.i, %while.body.i10.i.i, %for.cond.preheader.i.i, %lor.lhs.false.i.i, %if.end.i.i, %land.lhs.true17.i, %is_abbreviated.i
-  %ambiguous_option.1.i = phi ptr [ %ambiguous_option.0120.i, %is_abbreviated.i ], [ %abbrev_option.0118.i, %land.lhs.true17.i ], [ %abbrev_option.0118.i, %lor.lhs.false.i.i ], [ %abbrev_option.0118.i, %if.end.i.i ], [ %abbrev_option.0118.i, %for.cond.preheader.i.i ], [ %ambiguous_option.0120.i, %while.body.i10.i.i ], [ %abbrev_option.0118.i, %for.inc.i.i ]
-  %ambiguous_flags.1.i = phi i32 [ %ambiguous_flags.0124.i, %is_abbreviated.i ], [ %abbrev_flags.0122.i, %land.lhs.true17.i ], [ %abbrev_flags.0122.i, %lor.lhs.false.i.i ], [ %abbrev_flags.0122.i, %if.end.i.i ], [ %abbrev_flags.0122.i, %for.cond.preheader.i.i ], [ %ambiguous_flags.0124.i, %while.body.i10.i.i ], [ %abbrev_flags.0122.i, %for.inc.i.i ]
+  %ambiguous_option.2.i = phi ptr [ %ambiguous_option.0120.i, %is_abbreviated.i ], [ %abbrev_option.0118.i, %land.lhs.true17.i ], [ %abbrev_option.0118.i, %lor.lhs.false.i.i ], [ %abbrev_option.0118.i, %if.end.i.i ], [ %abbrev_option.0118.i, %for.cond.preheader.i.i ], [ %ambiguous_option.0120.i, %while.body.i10.i.i ], [ %abbrev_option.0118.i, %for.inc.i.i ]
+  %ambiguous_flags.2.i = phi i32 [ %ambiguous_flags.0124.i, %is_abbreviated.i ], [ %abbrev_flags.0122.i, %land.lhs.true17.i ], [ %abbrev_flags.0122.i, %lor.lhs.false.i.i ], [ %abbrev_flags.0122.i, %if.end.i.i ], [ %abbrev_flags.0122.i, %for.cond.preheader.i.i ], [ %ambiguous_flags.0124.i, %while.body.i10.i.i ], [ %abbrev_flags.0122.i, %for.inc.i.i ]
   br i1 %tobool23.not.i, label %land.lhs.true24.i, label %if.end27.i
 
 land.lhs.true24.i:                                ; preds = %if.end21.i
@@ -1247,7 +1247,7 @@ if.then26.i:                                      ; preds = %land.lhs.true24.i
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then26.i, %land.lhs.true24.i, %if.end21.i
-  %xor.i = xor i32 %flags.0.i, %opt_flags.0.i
+  %xor.i = xor i32 %flags.1.i, %opt_flags.0.i
   br label %for.inc.i91
 
 if.end28.i:                                       ; preds = %land.lhs.true.i96, %if.then10.i
@@ -1305,29 +1305,29 @@ if.then49.i:                                      ; preds = %do.cond.i59.i
   br i1 %tobool52.not.i, label %for.inc.i91, label %is_abbreviated.i
 
 if.end55.i:                                       ; preds = %do.body.i55.i, %do.body.i.i
-  %rest.6.i = phi ptr [ %str.addr.0.i.i, %do.body.i.i ], [ %str.addr.0.i56.i, %do.body.i55.i ]
-  %flags.1.i = phi i32 [ 0, %do.body.i.i ], [ 2, %do.body.i55.i ]
-  %61 = load i8, ptr %rest.6.i, align 1
+  %rest.4.i = phi ptr [ %str.addr.0.i.i, %do.body.i.i ], [ %str.addr.0.i56.i, %do.body.i55.i ]
+  %flags.0.i = phi i32 [ 0, %do.body.i.i ], [ 2, %do.body.i55.i ]
+  %61 = load i8, ptr %rest.4.i, align 1
   switch i8 %61, label %for.inc.i91 [
     i8 0, label %if.end65.i
     i8 61, label %if.end62.i
   ]
 
 if.end62.i:                                       ; preds = %if.end55.i
-  %add.ptr63.i = getelementptr inbounds i8, ptr %rest.6.i, i64 1
+  %add.ptr63.i = getelementptr inbounds i8, ptr %rest.4.i, i64 1
   store ptr %add.ptr63.i, ptr %opt, align 8
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.end55.i, %if.end62.i
-  %xor66.i = xor i32 %flags.1.i, %opt_flags.0.i
+  %xor66.i = xor i32 %flags.0.i, %opt_flags.0.i
   %call67.i = tail call fastcc i32 @get_value(ptr noundef nonnull %ctx, ptr noundef nonnull %options.addr.0115.i, i32 noundef %xor66.i)
   br label %parse_long_opt.exit
 
 for.inc.i91:                                      ; preds = %if.end28.i, %do.cond.i49.i, %if.end55.i, %if.then49.i, %if.end27.i, %for.body.i90
   %abbrev_option.1.i = phi ptr [ %options.addr.0115.i, %if.end27.i ], [ %abbrev_option.0118.i, %if.then49.i ], [ %abbrev_option.0118.i, %for.body.i90 ], [ %abbrev_option.0118.i, %if.end55.i ], [ %abbrev_option.0118.i, %do.cond.i49.i ], [ %abbrev_option.0118.i, %if.end28.i ]
-  %ambiguous_option.2.i = phi ptr [ %ambiguous_option.1.i, %if.end27.i ], [ %ambiguous_option.0120.i, %if.then49.i ], [ %ambiguous_option.0120.i, %for.body.i90 ], [ %ambiguous_option.0120.i, %if.end55.i ], [ %ambiguous_option.0120.i, %do.cond.i49.i ], [ %ambiguous_option.0120.i, %if.end28.i ]
+  %ambiguous_option.1.i = phi ptr [ %ambiguous_option.2.i, %if.end27.i ], [ %ambiguous_option.0120.i, %if.then49.i ], [ %ambiguous_option.0120.i, %for.body.i90 ], [ %ambiguous_option.0120.i, %if.end55.i ], [ %ambiguous_option.0120.i, %do.cond.i49.i ], [ %ambiguous_option.0120.i, %if.end28.i ]
   %abbrev_flags.1.i = phi i32 [ %xor.i, %if.end27.i ], [ %abbrev_flags.0122.i, %if.then49.i ], [ %abbrev_flags.0122.i, %for.body.i90 ], [ %abbrev_flags.0122.i, %if.end55.i ], [ %abbrev_flags.0122.i, %do.cond.i49.i ], [ %abbrev_flags.0122.i, %if.end28.i ]
-  %ambiguous_flags.2.i = phi i32 [ %ambiguous_flags.1.i, %if.end27.i ], [ %ambiguous_flags.0124.i, %if.then49.i ], [ %ambiguous_flags.0124.i, %for.body.i90 ], [ %ambiguous_flags.0124.i, %if.end55.i ], [ %ambiguous_flags.0124.i, %do.cond.i49.i ], [ %ambiguous_flags.0124.i, %if.end28.i ]
+  %ambiguous_flags.1.i = phi i32 [ %ambiguous_flags.2.i, %if.end27.i ], [ %ambiguous_flags.0124.i, %if.then49.i ], [ %ambiguous_flags.0124.i, %for.body.i90 ], [ %ambiguous_flags.0124.i, %if.end55.i ], [ %ambiguous_flags.0124.i, %do.cond.i49.i ], [ %ambiguous_flags.0124.i, %if.end28.i ]
   %incdec.ptr.i92 = getelementptr inbounds i8, ptr %options.addr.0115.i, i64 88
   %62 = load i32, ptr %incdec.ptr.i92, align 8
   %cmp.not.i93 = icmp eq i32 %62, 0
@@ -1344,7 +1344,7 @@ for.end.thread.i:                                 ; preds = %if.end160
   br i1 %tobool68.not164.i, label %unknown, label %land.lhs.true69.i
 
 land.lhs.true69.i:                                ; preds = %for.end.thread.i, %for.end.i
-  %ambiguous_option.0.lcssa168.i = phi ptr [ null, %for.end.thread.i ], [ %ambiguous_option.2.i, %for.end.i ]
+  %ambiguous_option.0.lcssa168.i = phi ptr [ null, %for.end.thread.i ], [ %ambiguous_option.1.i, %for.end.i ]
   %abbrev_option.0.lcssa166.i = phi ptr [ null, %for.end.thread.i ], [ %abbrev_option.1.i, %for.end.i ]
   %tobool70.i = icmp ne ptr %ambiguous_option.0.lcssa168.i, null
   %tobool71.i = icmp ne ptr %abbrev_option.0.lcssa166.i, null
@@ -1360,11 +1360,11 @@ if.then72.i:                                      ; preds = %land.lhs.true69.i
   unreachable
 
 if.end77.i:                                       ; preds = %for.end.i
-  %tobool78.not.i = icmp eq ptr %ambiguous_option.2.i, null
+  %tobool78.not.i = icmp eq ptr %ambiguous_option.1.i, null
   br i1 %tobool78.not.i, label %if.end90.i, label %if.then79.i
 
 if.then79.i:                                      ; preds = %if.end77.i
-  %65 = and i32 %ambiguous_flags.2.i, 2
+  %65 = and i32 %ambiguous_flags.1.i, 2
   %66 = icmp eq i32 %65, 0
   %67 = select i1 %66, ptr @.str.59, ptr @.str.61
   %68 = load i32, ptr @git_gettext_enabled, align 4
@@ -1377,7 +1377,7 @@ if.end3.i.i:                                      ; preds = %if.then79.i
 
 parse_long_opt.exit.thread103:                    ; preds = %if.then79.i, %if.end3.i.i
   %retval.0.i67.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.71, %if.then79.i ]
-  %long_name83.i = getelementptr inbounds i8, ptr %ambiguous_option.2.i, i64 8
+  %long_name83.i = getelementptr inbounds i8, ptr %ambiguous_option.1.i, i64 8
   %69 = load ptr, ptr %long_name83.i, align 8
   %and84.i = and i32 %abbrev_flags.1.i, 2
   %tobool85.not.i = icmp eq i32 %and84.i, 0
@@ -1514,7 +1514,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %1 = phi i32 [ %6, %for.inc.us ], [ %0, %for.body.lr.ph ]
-  %nr_noopts.022.us = phi i32 [ %nr_noopts.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %nr_noopts.022.us = phi i32 [ %nr_noopts.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %opts.addr.021.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %opts, %for.body.lr.ph ]
   %long_name.us = getelementptr inbounds i8, ptr %opts.addr.021.us, i64 8
   %2 = load ptr, ptr %long_name.us, align 8
@@ -1557,7 +1557,7 @@ sw.epilog.us:                                     ; preds = %sw.bb.us, %sw.bb7.u
   %call.us = tail call i32 @starts_with(ptr noundef nonnull %2, ptr noundef nonnull @.str.61) #17
   %tobool29.not.us = icmp ne i32 %call.us, 0
   %inc.us = zext i1 %tobool29.not.us to i32
-  %nr_noopts.1.us = add nsw i32 %nr_noopts.022.us, %inc.us
+  %nr_noopts.2.us = add nsw i32 %nr_noopts.022.us, %inc.us
   %cmp32.us = icmp eq ptr %opts.addr.021.us, %opts
   %cond.us = select i1 %cmp32.us, ptr @.str.59, ptr @.str.65
   %5 = load ptr, ptr %long_name.us, align 8
@@ -1565,7 +1565,7 @@ sw.epilog.us:                                     ; preds = %sw.bb.us, %sw.bb7.u
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %sw.epilog.us, %if.end4.us, %if.end.us, %for.body.us
-  %nr_noopts.2.us = phi i32 [ %nr_noopts.1.us, %sw.epilog.us ], [ %nr_noopts.022.us, %if.end4.us ], [ %nr_noopts.022.us, %if.end.us ], [ %nr_noopts.022.us, %for.body.us ]
+  %nr_noopts.1.us = phi i32 [ %nr_noopts.2.us, %sw.epilog.us ], [ %nr_noopts.022.us, %if.end4.us ], [ %nr_noopts.022.us, %if.end.us ], [ %nr_noopts.022.us, %for.body.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %opts.addr.021.us, i64 88
   %6 = load i32, ptr %incdec.ptr.us, align 8
   %cmp.not.us = icmp eq i32 %6, 0
@@ -1573,7 +1573,7 @@ for.inc.us:                                       ; preds = %sw.epilog.us, %if.e
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %7 = phi i32 [ %13, %for.inc ], [ %0, %for.body.lr.ph ]
-  %nr_noopts.022 = phi i32 [ %nr_noopts.2, %for.inc ], [ 0, %for.body.lr.ph ]
+  %nr_noopts.022 = phi i32 [ %nr_noopts.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %opts.addr.021 = phi ptr [ %incdec.ptr, %for.inc ], [ %opts, %for.body.lr.ph ]
   %long_name = getelementptr inbounds i8, ptr %opts.addr.021, i64 8
   %8 = load ptr, ptr %long_name, align 8
@@ -1613,7 +1613,7 @@ sw.epilog:                                        ; preds = %sw.bb7, %if.end, %s
   %call = tail call i32 @starts_with(ptr noundef nonnull %8, ptr noundef nonnull @.str.61) #17
   %tobool29.not = icmp ne i32 %call, 0
   %inc = zext i1 %tobool29.not to i32
-  %nr_noopts.1 = add nsw i32 %nr_noopts.022, %inc
+  %nr_noopts.2 = add nsw i32 %nr_noopts.022, %inc
   %cmp32 = icmp eq ptr %opts.addr.021, %opts
   %cond = select i1 %cmp32, ptr @.str.59, ptr @.str.65
   %12 = load ptr, ptr %long_name, align 8
@@ -1621,14 +1621,14 @@ sw.epilog:                                        ; preds = %sw.bb7, %if.end, %s
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body, %sw.epilog
-  %nr_noopts.2 = phi i32 [ %nr_noopts.1, %sw.epilog ], [ %nr_noopts.022, %if.end ], [ %nr_noopts.022, %for.body ]
+  %nr_noopts.1 = phi i32 [ %nr_noopts.2, %sw.epilog ], [ %nr_noopts.022, %if.end ], [ %nr_noopts.022, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %opts.addr.021, i64 88
   %13 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %13, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
-  %nr_noopts.0.lcssa = phi i32 [ 0, %entry ], [ %nr_noopts.2.us, %for.inc.us ], [ %nr_noopts.2, %for.inc ]
+  %nr_noopts.0.lcssa = phi i32 [ 0, %entry ], [ %nr_noopts.1.us, %for.inc.us ], [ %nr_noopts.1, %for.inc ]
   tail call fastcc void @show_negated_gitcomp(ptr noundef nonnull %opts, i32 noundef %show_all, i32 noundef -1)
   tail call fastcc void @show_negated_gitcomp(ptr noundef nonnull %opts, i32 noundef %show_all, i32 noundef %nr_noopts.0.lcssa)
   %14 = load ptr, ptr @stdout, align 8
@@ -1977,7 +1977,7 @@ for.end:                                          ; preds = %for.inc.us, %for.in
   br i1 %tobool12.not, label %for.cond41.preheader, label %while.body, !llvm.loop !23
 
 for.cond41:                                       ; preds = %for.cond41.preheader, %for.inc182
-  %need_newline.0 = phi i32 [ %need_newline.2, %for.inc182 ], [ 1, %for.cond41.preheader ]
+  %need_newline.0 = phi i32 [ %need_newline.1, %for.inc182 ], [ 1, %for.cond41.preheader ]
   %opts.addr.0 = phi ptr [ %incdec.ptr183, %for.inc182 ], [ %opts, %for.cond41.preheader ]
   %23 = load i32, ptr %opts.addr.0, align 8
   switch i32 %23, label %if.end61 [
@@ -2095,14 +2095,14 @@ do.cond.i:                                        ; preds = %do.body.i
 
 if.end119.sink.split:                             ; preds = %do.cond.i, %do.body.i, %if.then102
   %.str.85.sink = phi ptr [ @.str.85, %if.then102 ], [ @.str.85, %do.body.i ], [ @.str.86, %do.cond.i ]
-  %positive_name.2.ph = phi ptr [ null, %if.then102 ], [ %scevgep, %do.body.i ], [ null, %do.cond.i ]
+  %positive_name.0.ph = phi ptr [ null, %if.then102 ], [ %scevgep, %do.body.i ], [ null, %do.cond.i ]
   %call111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull %.str.85.sink, ptr noundef nonnull %32)
   %conv112 = sext i32 %call111 to i64
   %add113 = add nsw i64 %pos.1203, %conv112
   br label %if.end119
 
 if.end119:                                        ; preds = %if.end119.sink.split, %if.end90, %if.end99
-  %positive_name.2 = phi ptr [ null, %if.end99 ], [ null, %if.end90 ], [ %positive_name.2.ph, %if.end119.sink.split ]
+  %positive_name.0 = phi ptr [ null, %if.end99 ], [ null, %if.end90 ], [ %positive_name.0.ph, %if.end119.sink.split ]
   %pos.2 = phi i64 [ %add98, %if.end99 ], [ %pos.0, %if.end90 ], [ %add113, %if.end119.sink.split ]
   %36 = load i32, ptr %opts.addr.0, align 8
   %cmp121 = icmp eq i32 %36, 2
@@ -2303,7 +2303,7 @@ usage_padding.exit161:                            ; preds = %if.then.i157, %if.e
 
 for.end166:                                       ; preds = %usage_padding.exit161, %cond.end154
   %call167 = call i32 @fputc(i32 noundef 10, ptr noundef %cond)
-  %tobool168.not = icmp eq ptr %positive_name.2, null
+  %tobool168.not = icmp eq ptr %positive_name.0, null
   br i1 %tobool168.not, label %for.inc182, label %if.then169
 
 if.then169:                                       ; preds = %for.end166
@@ -2319,7 +2319,7 @@ for.body.i:                                       ; preds = %if.then169, %for.in
   br i1 %tobool.not.i162, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(1) %positive_name.2) #18
+  %call.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(1) %positive_name.0) #18
   %tobool3.not.i = icmp eq i32 %call.i163, 0
   br i1 %tobool3.not.i, label %for.inc182, label %for.inc.i
 
@@ -2332,7 +2332,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 if.end173:                                        ; preds = %for.inc.i, %if.then169
   %call.i166 = call noundef i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.90)
   %conv175 = sext i32 %call.i166 to i64
-  %call176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.85, ptr noundef nonnull %positive_name.2)
+  %call176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.85, ptr noundef nonnull %positive_name.0)
   %conv177 = sext i32 %call176 to i64
   %add178 = add nsw i64 %conv177, %conv175
   %cmp.i167 = icmp ult i64 %add178, 26
@@ -2359,11 +2359,11 @@ if.end3.i178:                                     ; preds = %usage_padding.exit1
 
 _.exit181:                                        ; preds = %usage_padding.exit175, %if.end3.i178
   %retval.0.i180 = phi ptr [ %call.i179, %if.end3.i178 ], [ @.str.88, %usage_padding.exit175 ]
-  %call180 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %cond, ptr noundef %retval.0.i180, ptr noundef nonnull %positive_name.2) #17
+  %call180 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %cond, ptr noundef %retval.0.i180, ptr noundef nonnull %positive_name.0) #17
   br label %for.inc182
 
 for.inc182:                                       ; preds = %land.lhs.true.i, %for.cond41, %for.end166, %_.exit181, %land.lhs.true63, %if.then53, %_.exit122, %_.exit145
-  %need_newline.2 = phi i32 [ 0, %_.exit122 ], [ 0, %if.then53 ], [ 0, %_.exit145 ], [ 0, %_.exit181 ], [ 0, %for.end166 ], [ %need_newline.0, %land.lhs.true63 ], [ %need_newline.0, %for.cond41 ], [ 0, %land.lhs.true.i ]
+  %need_newline.1 = phi i32 [ 0, %_.exit122 ], [ 0, %if.then53 ], [ 0, %_.exit145 ], [ 0, %_.exit181 ], [ 0, %for.end166 ], [ %need_newline.0, %land.lhs.true63 ], [ %need_newline.0, %for.cond41 ], [ 0, %land.lhs.true.i ]
   %incdec.ptr183 = getelementptr inbounds i8, ptr %opts.addr.0, i64 88
   br label %for.cond41, !llvm.loop !26
 
@@ -3900,7 +3900,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %1 = phi i32 [ %8, %for.inc.us ], [ %0, %for.body.lr.ph ]
-  %printed_dashdash.018.us = phi i32 [ %printed_dashdash.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %printed_dashdash.018.us = phi i32 [ %printed_dashdash.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %nr_noopts.addr.017.us = phi i32 [ %nr_noopts.addr.1.us, %for.inc.us ], [ %nr_noopts, %for.body.lr.ph ]
   %opts.addr.016.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %opts, %for.body.lr.ph ]
   %long_name.us = getelementptr inbounds i8, ptr %opts.addr.016.us, i64 8
@@ -3964,7 +3964,7 @@ if.then25.us:                                     ; preds = %if.then21.us
 
 if.end27.us:                                      ; preds = %if.then25.us, %if.then21.us
   %7 = phi ptr [ %2, %if.then21.us ], [ %.pre24, %if.then25.us ]
-  %printed_dashdash.1.us = phi i32 [ %printed_dashdash.018.us, %if.then21.us ], [ 1, %if.then25.us ]
+  %printed_dashdash.2.us = phi i32 [ %printed_dashdash.018.us, %if.then21.us ], [ 1, %if.then25.us ]
   %call29.us = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %7)
   %inc.us = add nuw nsw i32 %nr_noopts.addr.017.us, 1
   br label %for.inc.us
@@ -3979,7 +3979,7 @@ if.then17.us:                                     ; preds = %if.then15.us
 
 for.inc.us:                                       ; preds = %if.then17.us, %if.then15.us, %if.end27.us, %if.else.us, %if.end9.us, %if.end.us, %for.body.us
   %nr_noopts.addr.1.us = phi i32 [ %nr_noopts.addr.017.us, %for.body.us ], [ %nr_noopts.addr.017.us, %if.end9.us ], [ %nr_noopts.addr.017.us, %if.then17.us ], [ %nr_noopts.addr.017.us, %if.then15.us ], [ %inc.us, %if.end27.us ], [ %nr_noopts.addr.017.us, %if.else.us ], [ %nr_noopts.addr.017.us, %if.end.us ]
-  %printed_dashdash.2.us = phi i32 [ %printed_dashdash.018.us, %for.body.us ], [ %printed_dashdash.018.us, %if.end9.us ], [ %printed_dashdash.018.us, %if.then17.us ], [ %printed_dashdash.018.us, %if.then15.us ], [ %printed_dashdash.1.us, %if.end27.us ], [ %printed_dashdash.018.us, %if.else.us ], [ %printed_dashdash.018.us, %if.end.us ]
+  %printed_dashdash.1.us = phi i32 [ %printed_dashdash.018.us, %for.body.us ], [ %printed_dashdash.018.us, %if.end9.us ], [ %printed_dashdash.018.us, %if.then17.us ], [ %printed_dashdash.018.us, %if.then15.us ], [ %printed_dashdash.2.us, %if.end27.us ], [ %printed_dashdash.018.us, %if.else.us ], [ %printed_dashdash.018.us, %if.end.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %opts.addr.016.us, i64 88
   %8 = load i32, ptr %incdec.ptr.us, align 8
   %cmp.not.us = icmp eq i32 %8, 0
@@ -3987,7 +3987,7 @@ for.inc.us:                                       ; preds = %if.then17.us, %if.t
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %9 = phi i32 [ %15, %for.inc ], [ %0, %for.body.lr.ph ]
-  %printed_dashdash.018 = phi i32 [ %printed_dashdash.2, %for.inc ], [ 0, %for.body.lr.ph ]
+  %printed_dashdash.018 = phi i32 [ %printed_dashdash.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %nr_noopts.addr.017 = phi i32 [ %nr_noopts.addr.1, %for.inc ], [ %nr_noopts, %for.body.lr.ph ]
   %opts.addr.016 = phi ptr [ %incdec.ptr, %for.inc ], [ %opts, %for.body.lr.ph ]
   %long_name = getelementptr inbounds i8, ptr %opts.addr.016, i64 8
@@ -4059,14 +4059,14 @@ if.then25:                                        ; preds = %if.then21
 
 if.end27:                                         ; preds = %if.then25, %if.then21
   %14 = phi ptr [ %10, %if.then21 ], [ %.pre, %if.then25 ]
-  %printed_dashdash.1 = phi i32 [ %printed_dashdash.018, %if.then21 ], [ 1, %if.then25 ]
+  %printed_dashdash.2 = phi i32 [ %printed_dashdash.018, %if.then21 ], [ 1, %if.then25 ]
   %call29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %14)
   %inc = add nuw nsw i32 %nr_noopts.addr.017, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end9, %if.then17, %if.then15, %if.end27, %if.else, %if.end, %for.body
   %nr_noopts.addr.1 = phi i32 [ %nr_noopts.addr.017, %for.body ], [ %nr_noopts.addr.017, %if.end9 ], [ %nr_noopts.addr.017, %if.then17 ], [ %nr_noopts.addr.017, %if.then15 ], [ %inc, %if.end27 ], [ %nr_noopts.addr.017, %if.else ], [ %nr_noopts.addr.017, %if.end ]
-  %printed_dashdash.2 = phi i32 [ %printed_dashdash.018, %for.body ], [ %printed_dashdash.018, %if.end9 ], [ %printed_dashdash.018, %if.then17 ], [ %printed_dashdash.018, %if.then15 ], [ %printed_dashdash.1, %if.end27 ], [ %printed_dashdash.018, %if.else ], [ %printed_dashdash.018, %if.end ]
+  %printed_dashdash.1 = phi i32 [ %printed_dashdash.018, %for.body ], [ %printed_dashdash.018, %if.end9 ], [ %printed_dashdash.018, %if.then17 ], [ %printed_dashdash.018, %if.then15 ], [ %printed_dashdash.2, %if.end27 ], [ %printed_dashdash.018, %if.else ], [ %printed_dashdash.018, %if.end ]
   %incdec.ptr = getelementptr inbounds i8, ptr %opts.addr.016, i64 88
   %15 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %15, 0

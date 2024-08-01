@@ -5987,8 +5987,8 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImp
 .lr.ph.i.i:                                       ; preds = %84, %.lr.ph.i.i
   %.01555.i.i = phi i64 [ %91, %.lr.ph.i.i ], [ 0, %84 ]
   %.sroa.0.054.i.i = phi ptr [ %90, %.lr.ph.i.i ], [ %85, %84 ]
-  %.sroa.020.253.i.i = phi ptr [ %89, %.lr.ph.i.i ], [ %87, %84 ]
-  %89 = getelementptr inbounds i8, ptr %.sroa.020.253.i.i, i64 -12
+  %.sroa.020.353.i.i = phi ptr [ %89, %.lr.ph.i.i ], [ %87, %84 ]
+  %89 = getelementptr inbounds i8, ptr %.sroa.020.353.i.i, i64 -12
   %90 = getelementptr inbounds i8, ptr %.sroa.0.054.i.i, i64 -12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %89, i64 12, i1 false)
@@ -6000,7 +6000,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImp
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !85
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %84
-  %.sroa.020.2.lcssa.i.i = phi ptr [ %87, %84 ], [ %.sroa.020.0.i.i, %.lr.ph.i.i ]
+  %.sroa.020.3.lcssa.i.i = phi ptr [ %87, %84 ], [ %.sroa.020.0.i.i, %.lr.ph.i.i ]
   %92 = srem i64 %.050.i.i, %72
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit, label %.backedge
@@ -6008,7 +6008,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImp
 .backedge:                                        ; preds = %._crit_edge.i.i, %82
   %.050.i.i.be = phi i64 [ %.049.i.i, %82 ], [ %72, %._crit_edge.i.i ]
   %.049.i.i.be = phi i64 [ %83, %82 ], [ %92, %._crit_edge.i.i ]
-  %.sroa.020.0.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i, %82 ], [ %.sroa.020.2.lcssa.i.i, %._crit_edge.i.i ]
+  %.sroa.020.0.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i, %82 ], [ %.sroa.020.3.lcssa.i.i, %._crit_edge.i.i ]
   br label %71, !llvm.loop !86
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge61.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %52, %54
@@ -6859,8 +6859,8 @@ _ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norm
 .lr.ph.i.i:                                       ; preds = %69, %.lr.ph.i.i
   %.01555.i.i = phi i64 [ %76, %.lr.ph.i.i ], [ 0, %69 ]
   %.sroa.0.054.i.i = phi ptr [ %75, %.lr.ph.i.i ], [ %70, %69 ]
-  %.sroa.020.253.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %72, %69 ]
-  %74 = getelementptr inbounds i8, ptr %.sroa.020.253.i.i, i64 -12
+  %.sroa.020.353.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %72, %69 ]
+  %74 = getelementptr inbounds i8, ptr %.sroa.020.353.i.i, i64 -12
   %75 = getelementptr inbounds i8, ptr %.sroa.0.054.i.i, i64 -12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false)
@@ -6872,7 +6872,7 @@ _ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norm
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !85
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %69
-  %.sroa.020.2.lcssa.i.i = phi ptr [ %72, %69 ], [ %.sroa.020.0.i.i, %.lr.ph.i.i ]
+  %.sroa.020.3.lcssa.i.i = phi ptr [ %72, %69 ], [ %.sroa.020.0.i.i, %.lr.ph.i.i ]
   %77 = srem i64 %.050.i.i, %57
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit, label %.backedge
@@ -6880,7 +6880,7 @@ _ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__norm
 .backedge:                                        ; preds = %._crit_edge.i.i, %67
   %.050.i.i.be = phi i64 [ %.049.i.i, %67 ], [ %57, %._crit_edge.i.i ]
   %.049.i.i.be = phi i64 [ %68, %67 ], [ %77, %._crit_edge.i.i ]
-  %.sroa.020.0.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i, %67 ], [ %.sroa.020.2.lcssa.i.i, %._crit_edge.i.i ]
+  %.sroa.020.0.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i, %67 ], [ %.sroa.020.3.lcssa.i.i, %._crit_edge.i.i ]
   br label %56, !llvm.loop !86
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %._crit_edge.i.i, %._crit_edge61.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN2cv23LineSegmentDetectorImpl9normPointEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit

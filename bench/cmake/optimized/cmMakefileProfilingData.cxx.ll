@@ -174,10 +174,10 @@ _ZNSt10unique_ptrIN4Json12StreamWriterESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 38:                                               ; preds = %34, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  %.1 = phi i1 [ %.0, %36 ], [ true, %34 ]
+  %.2 = phi i1 [ %.0, %36 ], [ true, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  br i1 %.1, label %39, label %43
+  br i1 %.2, label %39, label %43
 
 39:                                               ; preds = %.thread, %38
   %.pn.pn24 = phi { ptr, i32 } [ %33, %.thread ], [ %.pn, %38 ]
@@ -585,11 +585,11 @@ define dso_local void @_ZN23cmMakefileProfilingData10StartEntryERKNSt7__cxx1112b
 
 96:                                               ; preds = %95, %29
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %95 ], [ %30, %29 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.210 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.08 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E) #11
-  %98 = icmp eq i32 %.210, %97
-  %99 = call ptr @__cxa_begin_catch(ptr %.2) #11
+  %98 = icmp eq i32 %.08, %97
+  %99 = call ptr @__cxa_begin_catch(ptr %.0) #11
   br i1 %98, label %100, label %108
 
 100:                                              ; preds = %96
@@ -875,11 +875,11 @@ define dso_local void @_ZN23cmMakefileProfilingData9StopEntryEv(ptr noundef nonn
 
 66:                                               ; preds = %65, %50
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %65 ], [ %51, %50 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.28 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.06 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E) #11
-  %68 = icmp eq i32 %.28, %67
-  %69 = call ptr @__cxa_begin_catch(ptr %.2) #11
+  %68 = icmp eq i32 %.06, %67
+  %69 = call ptr @__cxa_begin_catch(ptr %.0) #11
   br i1 %68, label %70, label %78
 
 70:                                               ; preds = %66

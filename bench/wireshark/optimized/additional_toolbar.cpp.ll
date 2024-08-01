@@ -167,7 +167,7 @@ define noundef ptr @_ZN17AdditionalToolBar6createEP7QWidgetP14_ext_toolbar_t(ptr
 
 19:                                               ; preds = %.lr.ph, %_ZN5QListIP7QActionED2Ev.exit47
   %.03764 = phi ptr [ %.03761, %.lr.ph ], [ %.037, %_ZN5QListIP7QActionED2Ev.exit47 ]
-  %.03563 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN5QListIP7QActionED2Ev.exit47 ]
+  %.03563 = phi i1 [ true, %.lr.ph ], [ %.136, %_ZN5QListIP7QActionED2Ev.exit47 ]
   %20 = load ptr, ptr %.03764, align 8
   %.not39 = icmp eq ptr %20, null
   br i1 %.not39, label %.critedge, label %21
@@ -314,14 +314,14 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i53: ; preds = %_ZN5QListIP7QAc
   br label %_ZN5QListIP7QActionED2Ev.exit55
 
 _ZN5QListIP7QActionED2Ev.exit47:                  ; preds = %54, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i45, %_ZN5QListIP7QActionED2Ev.exit, %21
-  %.2 = phi i1 [ %.03563, %21 ], [ %spec.select, %_ZN5QListIP7QActionED2Ev.exit ], [ %spec.select, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i45 ], [ %spec.select, %54 ]
+  %.136 = phi i1 [ %.03563, %21 ], [ %spec.select, %_ZN5QListIP7QActionED2Ev.exit ], [ %spec.select, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i45 ], [ %spec.select, %54 ]
   %70 = getelementptr inbounds i8, ptr %.03764, i64 8
   %.037 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %.critedge, label %19, !llvm.loop !4
 
 .critedge:                                        ; preds = %19, %_ZN5QListIP7QActionED2Ev.exit47, %11
-  %.035.lcssa = phi i1 [ true, %11 ], [ %.2, %_ZN5QListIP7QActionED2Ev.exit47 ], [ %.03563, %19 ]
+  %.035.lcssa = phi i1 [ true, %11 ], [ %.136, %_ZN5QListIP7QActionED2Ev.exit47 ], [ %.03563, %19 ]
   %71 = getelementptr inbounds i8, ptr %10, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 40
@@ -2263,7 +2263,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i26:    ; preds = %.body
   br i1 %.not.i.i27, label %_ZN7QStringD2Ev.exit28.sink.split, label %_ZN7QStringD2Ev.exit28
 
 43:                                               ; preds = %37, %_ZN7QStringD2Ev.exit
-  %.013 = phi ptr [ %40, %37 ], [ null, %_ZN7QStringD2Ev.exit ]
+  %.1 = phi ptr [ %40, %37 ], [ null, %_ZN7QStringD2Ev.exit ]
   %44 = load ptr, ptr %2, align 8
   %.not.i.i.i29 = icmp eq ptr %44, null
   br i1 %.not.i.i.i29, label %_ZN5QListIP13ApplyLineEditED2Ev.exit, label %_ZN17QArrayDataPointerIP13ApplyLineEditE5derefEv.exit.i.i
@@ -2279,14 +2279,14 @@ _ZN17QArrayDataPointerIP13ApplyLineEditE5derefEv.exit.i.i: ; preds = %43
   br label %_ZN5QListIP13ApplyLineEditED2Ev.exit
 
 _ZN5QListIP13ApplyLineEditED2Ev.exit:             ; preds = %46, %_ZN17QArrayDataPointerIP13ApplyLineEditE5derefEv.exit.i.i, %43
-  %.not23 = icmp eq ptr %.013, null
+  %.not23 = icmp eq ptr %.1, null
   br i1 %.not23, label %_ZN7QStringD2Ev.exit34, label %_ZN5QListIP13ApplyLineEditED2Ev.exit.thread48
 
 _ZN5QListIP13ApplyLineEditED2Ev.exit.thread48:    ; preds = %13, %_ZN5QListIP13ApplyLineEditED2Ev.exit
-  %.151 = phi ptr [ %.013, %_ZN5QListIP13ApplyLineEditED2Ev.exit ], [ %14, %13 ]
+  %.01351 = phi ptr [ %.1, %_ZN5QListIP13ApplyLineEditED2Ev.exit ], [ %14, %13 ]
   %48 = getelementptr inbounds i8, ptr %6, i64 88
   %49 = load ptr, ptr %48, align 8
-  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.151)
+  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.01351)
   %50 = invoke noundef ptr @_Z14qstring_strdup7QString(ptr noundef nonnull %4)
           to label %51 unwind label %59
 
@@ -3645,7 +3645,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %41
   br label %45
 
 .thread18:                                        ; preds = %21, %39, %29, %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit
-  %.0 = phi ptr [ %42, %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit ], [ null, %29 ], [ null, %39 ], [ null, %21 ]
+  %.1 = phi ptr [ %42, %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit ], [ null, %29 ], [ null, %39 ], [ null, %21 ]
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   br label %.thread
 
@@ -3655,8 +3655,8 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %41
   resume { ptr, i32 } %.pn
 
 .thread:                                          ; preds = %2, %11, %.thread18
-  %.1 = phi ptr [ %.0, %.thread18 ], [ null, %11 ], [ null, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %.thread18 ], [ null, %11 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

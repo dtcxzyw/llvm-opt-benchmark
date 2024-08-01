@@ -7477,17 +7477,17 @@ define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr nocaptu
   br i1 %cond.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
-  %.086 = phi i32 [ %110, %.lr.ph.split.us.i ], [ 17, %.lr.ph.i ]
+  %.1 = phi i32 [ %110, %.lr.ph.split.us.i ], [ 17, %.lr.ph.i ]
   %.049.us.i = phi i32 [ %111, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %102 = load i32, ptr @hf_zbee_zcl_daily_schedule_schedule_entry_start_time, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %102, ptr noundef %0, i32 noundef %.086, i32 noundef 2, i32 noundef -2147483648) #6
-  %104 = add nuw nsw i32 %.086, 2
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %102, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #6
+  %104 = add nuw nsw i32 %.1, 2
   %105 = load i32, ptr @hf_zbee_zcl_daily_schedule_schedule_entry_price_tier, align 4
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %105, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #6
-  %107 = add nuw nsw i32 %.086, 3
+  %107 = add nuw nsw i32 %.1, 3
   %108 = load i32, ptr @hf_zbee_zcl_daily_schedule_schedule_entry_auxiliary_load_switch_state, align 4
   %109 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %108, ptr noundef %0, i32 noundef %107, i32 noundef 1, i32 noundef 0) #6
-  %110 = add nuw nsw i32 %.086, 4
+  %110 = add nuw nsw i32 %.1, 4
   %111 = add nuw nsw i32 %.049.us.i, 1
   %112 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %110) #6
   %113 = icmp sgt i32 %112, 3
@@ -7496,11 +7496,11 @@ define internal i32 @dissect_zbee_zcl_daily_schedule(ptr noundef %0, ptr nocaptu
   br i1 %115, label %.lr.ph.split.us.i, label %dissect_zcl_daily_schedule_publish_day_profile.exit, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.1 = phi i32 [ %118, %.lr.ph.split.i ], [ 17, %.lr.ph.i ]
+  %.086 = phi i32 [ %118, %.lr.ph.split.i ], [ 17, %.lr.ph.i ]
   %.049.i = phi i32 [ %119, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %116 = load i32, ptr @hf_zbee_zcl_daily_schedule_schedule_entry_start_time, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %116, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #6
-  %118 = add nuw nsw i32 %.1, 2
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %116, ptr noundef %0, i32 noundef %.086, i32 noundef 2, i32 noundef -2147483648) #6
+  %118 = add nuw nsw i32 %.086, 2
   %119 = add nuw nsw i32 %.049.i, 1
   %120 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %118) #6
   %121 = icmp sgt i32 %120, 3

@@ -423,18 +423,18 @@ TidRangeEval.exit:                                ; preds = %.lr.ph
   br label %98
 
 98:                                               ; preds = %87, %72
-  %.023 = phi ptr [ %81, %72 ], [ %8, %87 ]
+  %.1 = phi ptr [ %81, %72 ], [ %8, %87 ]
   store i8 1, ptr %15, align 4
   br label %99
 
 99:                                               ; preds = %98, %1
-  %.1 = phi ptr [ %8, %1 ], [ %.023, %98 ]
-  %100 = load ptr, ptr %.1, align 8
+  %.023 = phi ptr [ %8, %1 ], [ %.1, %98 ]
+  %100 = load ptr, ptr %.023, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 312
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 56
   %104 = load ptr, ptr %103, align 8
-  %105 = call zeroext i1 %104(ptr noundef nonnull %.1, i32 noundef %14, ptr noundef %12) #7
+  %105 = call zeroext i1 %104(ptr noundef nonnull %.023, i32 noundef %14, ptr noundef %12) #7
   br i1 %105, label %111, label %106
 
 106:                                              ; preds = %99

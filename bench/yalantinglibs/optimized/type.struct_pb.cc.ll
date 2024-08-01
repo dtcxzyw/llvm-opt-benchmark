@@ -106,7 +106,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i40, label %if.end24, label %for.body
 
 for.body:                                         ; preds = %if.end, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122
-  %total.177 = phi i64 [ %add22, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122 ], [ %total.0, %if.end ]
+  %total.277 = phi i64 [ %add22, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122 ], [ %total.0, %if.end ]
   %__begin3.sroa.0.076 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122 ], [ %4, %if.end ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call18 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf5FieldEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(176) %__begin3.sroa.0.076, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -121,7 +121,7 @@ do.body.i118:                                     ; preds = %for.body, %do.body.
   br i1 %cmp.i121.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122, label %do.body.i118, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit122: ; preds = %do.body.i118
-  %add20 = add i64 %total.177, 2
+  %add20 = add i64 %total.277, 2
   %add21 = add i64 %add20, %call18
   %add22 = add i64 %add21, %ret.i117.0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.076, i64 176
@@ -129,7 +129,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit122: ; preds = %do.body.i118
   br i1 %cmp.i41, label %if.end24, label %for.body
 
 if.end24:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122, %if.end
-  %total.2 = phi i64 [ %total.0, %if.end ], [ %add22, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122 ]
+  %total.1 = phi i64 [ %total.0, %if.end ], [ %add22, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit122 ]
   %oneofs = getelementptr inbounds i8, ptr %t, i64 56
   %6 = load ptr, ptr %oneofs, align 8
   %_M_finish.i45 = getelementptr inbounds i8, ptr %t, i64 64
@@ -138,7 +138,7 @@ if.end24:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i4678, label %for.end42, label %for.body32
 
 for.body32:                                       ; preds = %if.end24, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115
-  %total.380 = phi i64 [ %add39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ], [ %total.2, %if.end24 ]
+  %total.380 = phi i64 [ %add39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ], [ %total.1, %if.end24 ]
   %__begin2.sroa.0.079 = phi ptr [ %incdec.ptr.i49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ], [ %6, %if.end24 ]
   %_M_string_length.i47 = getelementptr inbounds i8, ptr %__begin2.sroa.0.079, i64 8
   %8 = load i64, ptr %_M_string_length.i47, align 8
@@ -161,7 +161,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit115: ; preds = %do.body.i111
   br i1 %cmp.i46, label %for.end42, label %for.body32
 
 for.end42:                                        ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115, %if.end24
-  %total.3.lcssa = phi i64 [ %total.2, %if.end24 ], [ %add39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ]
+  %total.3.lcssa = phi i64 [ %total.1, %if.end24 ], [ %add39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit115 ]
   %options = getelementptr inbounds i8, ptr %t, i64 80
   %9 = load ptr, ptr %options, align 8
   %_M_finish.i.i50 = getelementptr inbounds i8, ptr %t, i64 88
@@ -170,7 +170,7 @@ for.end42:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i51, label %if.end72, label %for.body56
 
 for.body56:                                       ; preds = %for.end42, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108
-  %total.482 = phi i64 [ %add68, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108 ], [ %total.3.lcssa, %for.end42 ]
+  %total.582 = phi i64 [ %add68, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108 ], [ %total.3.lcssa, %for.end42 ]
   %__begin347.sroa.0.081 = phi ptr [ %incdec.ptr.i57, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108 ], [ %9, %for.end42 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp60, i8 0, i64 24, i1 false)
   %call64 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin347.sroa.0.081, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp60)
@@ -185,7 +185,7 @@ do.body.i104:                                     ; preds = %for.body56, %do.bod
   br i1 %cmp.i107.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108, label %do.body.i104, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit108: ; preds = %do.body.i104
-  %add66 = add i64 %total.482, 2
+  %add66 = add i64 %total.582, 2
   %add67 = add i64 %add66, %call64
   %add68 = add i64 %add67, %ret.i103.0
   %incdec.ptr.i57 = getelementptr inbounds i8, ptr %__begin347.sroa.0.081, i64 40
@@ -193,7 +193,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit108: ; preds = %do.body.i104
   br i1 %cmp.i53, label %if.end72, label %for.body56
 
 if.end72:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108, %for.end42
-  %total.5 = phi i64 [ %total.3.lcssa, %for.end42 ], [ %add68, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108 ]
+  %total.4 = phi i64 [ %total.3.lcssa, %for.end42 ], [ %add68, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit108 ]
   %source_context = getelementptr inbounds i8, ptr %t, i64 104
   %11 = load ptr, ptr %source_context, align 8
   %cmp.i61.not = icmp eq ptr %11, null
@@ -225,7 +225,7 @@ do.body.i97:                                      ; preds = %do.body.i97.prehead
   br i1 %cmp.i100.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit101, label %do.body.i97, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit101: ; preds = %do.body.i97
-  %add84 = add i64 %total.5, 2
+  %add84 = add i64 %total.4, 2
   %add85 = add i64 %add84, %call82
   %add86 = add i64 %add85, %ret.i96.0
   br label %if.end87
@@ -242,7 +242,7 @@ if.then.i.i.i.i66:                                ; preds = %lpad80
   br label %eh.resume
 
 if.end87:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit101, %if.end72
-  %total.6 = phi i64 [ %add86, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit101 ], [ %total.5, %if.end72 ]
+  %total.6 = phi i64 [ %add86, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit101 ], [ %total.4, %if.end72 ]
   %syntax = getelementptr inbounds i8, ptr %t, i64 112
   %15 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %15, 0
@@ -445,7 +445,7 @@ if.end49:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i65, label %if.end74, label %for.body
 
 for.body:                                         ; preds = %if.end49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111
-  %total.782 = phi i64 [ %add72, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111 ], [ %total.6, %if.end49 ]
+  %total.882 = phi i64 [ %add72, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111 ], [ %total.6, %if.end49 ]
   %__begin3.sroa.0.081 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111 ], [ %10, %if.end49 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call68 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.081, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -460,7 +460,7 @@ do.body.i107:                                     ; preds = %for.body, %do.body.
   br i1 %cmp.i110.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111, label %do.body.i107, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit111: ; preds = %do.body.i107
-  %add70 = add i64 %total.782, 2
+  %add70 = add i64 %total.882, 2
   %add71 = add i64 %add70, %call68
   %add72 = add i64 %add71, %ret.i106.0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.081, i64 40
@@ -468,7 +468,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit111: ; preds = %do.body.i107
   br i1 %cmp.i66, label %if.end74, label %for.body
 
 if.end74:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111, %if.end49
-  %total.8 = phi i64 [ %total.6, %if.end49 ], [ %add72, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111 ]
+  %total.7 = phi i64 [ %total.6, %if.end49 ], [ %add72, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit111 ]
   %_M_string_length.i.i70 = getelementptr inbounds i8, ptr %t, i64 120
   %12 = load i64, ptr %_M_string_length.i.i70, align 8
   %cmp.i71 = icmp eq i64 %12, 0
@@ -483,13 +483,13 @@ do.body.i100:                                     ; preds = %if.end74, %do.body.
   br i1 %cmp.i103.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit104, label %do.body.i100, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit104: ; preds = %do.body.i100
-  %add80 = add i64 %total.8, 2
+  %add80 = add i64 %total.7, 2
   %add83 = add i64 %add80, %12
   %add84 = add i64 %add83, %ret.i99.0
   br label %if.end85
 
 if.end85:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit104, %if.end74
-  %total.9 = phi i64 [ %total.8, %if.end74 ], [ %add84, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit104 ]
+  %total.9 = phi i64 [ %total.7, %if.end74 ], [ %add84, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit104 ]
   %_M_string_length.i.i74 = getelementptr inbounds i8, ptr %t, i64 152
   %13 = load i64, ptr %_M_string_length.i.i74, align 8
   %cmp.i75 = icmp eq i64 %13, 0
@@ -641,22 +641,22 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282: ; preds = %entry
 
 while.body.i260:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282, %while.body.i260
   %v.addr.i254.0209 = phi i64 [ %shr.i265, %while.body.i260 ], [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ]
-  %pos.0208 = phi i64 [ %inc.i263, %while.body.i260 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ]
+  %pos.1208 = phi i64 [ %inc.i263, %while.body.i260 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ]
   %2 = trunc i64 %v.addr.i254.0209 to i8
   %conv.i262 = or i8 %2, -128
-  %inc.i263 = add nuw nsw i64 %pos.0208, 1
-  %arrayidx.i264 = getelementptr inbounds i8, ptr %data, i64 %pos.0208
+  %inc.i263 = add nuw nsw i64 %pos.1208, 1
+  %arrayidx.i264 = getelementptr inbounds i8, ptr %data, i64 %pos.1208
   store i8 %conv.i262, ptr %arrayidx.i264, align 1
   %shr.i265 = lshr i64 %v.addr.i254.0209, 7
   %cmp.i256 = icmp ugt i64 %v.addr.i254.0209, 16383
   br i1 %cmp.i256, label %while.body.i260, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266: ; preds = %while.body.i260, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282
-  %pos.0.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ], [ %inc.i263, %while.body.i260 ]
+  %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ], [ %inc.i263, %while.body.i260 ]
   %v.addr.i254.0.lcssa = phi i64 [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ], [ %shr.i265, %while.body.i260 ]
   %conv1.i257 = trunc nuw nsw i64 %v.addr.i254.0.lcssa to i8
-  %inc2.i258 = add i64 %pos.0.lcssa, 1
-  %arrayidx3.i259 = getelementptr inbounds i8, ptr %data, i64 %pos.0.lcssa
+  %inc2.i258 = add i64 %pos.1.lcssa, 1
+  %arrayidx3.i259 = getelementptr inbounds i8, ptr %data, i64 %pos.1.lcssa
   store i8 %conv1.i257, ptr %arrayidx3.i259, align 1
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %inc2.i258
   %3 = load ptr, ptr %t, align 8
@@ -667,7 +667,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266: ; preds = %while.body.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266, %entry
-  %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ]
+  %pos.0 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ]
   %fields = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load ptr, ptr %fields, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 40
@@ -676,35 +676,35 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i, label %if.end26, label %for.body
 
 for.body:                                         ; preds = %if.end, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234
-  %pos.2219 = phi i64 [ %add24, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %pos.1, %if.end ]
+  %pos.3219 = phi i64 [ %add24, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %pos.0, %if.end ]
   %__begin3.sroa.0.0218 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %6, %if.end ]
-  %arrayidx3.i243 = getelementptr inbounds i8, ptr %data, i64 %pos.2219
+  %arrayidx3.i243 = getelementptr inbounds i8, ptr %data, i64 %pos.3219
   store i8 18, ptr %arrayidx3.i243, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call18 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf5FieldEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(176) %__begin3.sroa.0.0218, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-  %pos.3211 = add i64 %pos.2219, 1
+  %pos.4211 = add i64 %pos.3219, 1
   %cmp.i224212 = icmp ugt i64 %call18, 127
   br i1 %cmp.i224212, label %while.body.i228, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234
 
 while.body.i228:                                  ; preds = %for.body, %while.body.i228
-  %pos.3214 = phi i64 [ %pos.3, %while.body.i228 ], [ %pos.3211, %for.body ]
+  %pos.4214 = phi i64 [ %pos.4, %while.body.i228 ], [ %pos.4211, %for.body ]
   %v.addr.i222.0213 = phi i64 [ %shr.i233, %while.body.i228 ], [ %call18, %for.body ]
   %8 = trunc i64 %v.addr.i222.0213 to i8
   %conv.i230 = or i8 %8, -128
-  %arrayidx.i232 = getelementptr inbounds i8, ptr %data, i64 %pos.3214
+  %arrayidx.i232 = getelementptr inbounds i8, ptr %data, i64 %pos.4214
   store i8 %conv.i230, ptr %arrayidx.i232, align 1
   %shr.i233 = lshr i64 %v.addr.i222.0213, 7
-  %pos.3 = add i64 %pos.3214, 1
+  %pos.4 = add i64 %pos.4214, 1
   %cmp.i224 = icmp ugt i64 %v.addr.i222.0213, 16383
   br i1 %cmp.i224, label %while.body.i228, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234: ; preds = %while.body.i228, %for.body
-  %pos.3.in.lcssa = phi i64 [ %pos.2219, %for.body ], [ %pos.3214, %while.body.i228 ]
+  %pos.4.in.lcssa = phi i64 [ %pos.3219, %for.body ], [ %pos.4214, %while.body.i228 ]
   %v.addr.i222.0.lcssa = phi i64 [ %call18, %for.body ], [ %shr.i233, %while.body.i228 ]
-  %pos.3.lcssa = phi i64 [ %pos.3211, %for.body ], [ %pos.3, %while.body.i228 ]
+  %pos.4.lcssa = phi i64 [ %pos.4211, %for.body ], [ %pos.4, %while.body.i228 ]
   %conv1.i225 = trunc nuw nsw i64 %v.addr.i222.0.lcssa to i8
-  %inc2.i226 = add i64 %pos.3.in.lcssa, 2
-  %arrayidx3.i227 = getelementptr inbounds i8, ptr %data, i64 %pos.3.lcssa
+  %inc2.i226 = add i64 %pos.4.in.lcssa, 2
+  %arrayidx3.i227 = getelementptr inbounds i8, ptr %data, i64 %pos.4.lcssa
   store i8 %conv1.i225, ptr %arrayidx3.i227, align 1
   %add.ptr19 = getelementptr inbounds i8, ptr %data, i64 %inc2.i226
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp20, i8 0, i64 24, i1 false)
@@ -715,7 +715,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234: ; preds = %while.body.i
   br i1 %cmp.i123, label %if.end26, label %for.body
 
 if.end26:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234, %if.end
-  %pos.4 = phi i64 [ %pos.1, %if.end ], [ %add24, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ]
+  %pos.2 = phi i64 [ %pos.0, %if.end ], [ %add24, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ]
   %oneofs = getelementptr inbounds i8, ptr %t, i64 56
   %9 = load ptr, ptr %oneofs, align 8
   %_M_finish.i.i133 = getelementptr inbounds i8, ptr %t, i64 64
@@ -724,35 +724,35 @@ if.end26:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i134, label %if.end51, label %for.body40
 
 for.body40:                                       ; preds = %if.end26, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202
-  %pos.5228 = phi i64 [ %add47, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ], [ %pos.4, %if.end26 ]
+  %pos.6228 = phi i64 [ %add47, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ], [ %pos.2, %if.end26 ]
   %__begin331.sroa.0.0227 = phi ptr [ %incdec.ptr.i140, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ], [ %9, %if.end26 ]
-  %arrayidx3.i211 = getelementptr inbounds i8, ptr %data, i64 %pos.5228
+  %arrayidx3.i211 = getelementptr inbounds i8, ptr %data, i64 %pos.6228
   store i8 26, ptr %arrayidx3.i211, align 1
   %_M_string_length.i137 = getelementptr inbounds i8, ptr %__begin331.sroa.0.0227, i64 8
   %11 = load i64, ptr %_M_string_length.i137, align 8
-  %pos.6220 = add i64 %pos.5228, 1
+  %pos.7220 = add i64 %pos.6228, 1
   %cmp.i192221 = icmp ugt i64 %11, 127
   br i1 %cmp.i192221, label %while.body.i196, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202
 
 while.body.i196:                                  ; preds = %for.body40, %while.body.i196
-  %pos.6223 = phi i64 [ %pos.6, %while.body.i196 ], [ %pos.6220, %for.body40 ]
+  %pos.7223 = phi i64 [ %pos.7, %while.body.i196 ], [ %pos.7220, %for.body40 ]
   %v.addr.i190.0222 = phi i64 [ %shr.i201, %while.body.i196 ], [ %11, %for.body40 ]
   %12 = trunc i64 %v.addr.i190.0222 to i8
   %conv.i198 = or i8 %12, -128
-  %arrayidx.i200 = getelementptr inbounds i8, ptr %data, i64 %pos.6223
+  %arrayidx.i200 = getelementptr inbounds i8, ptr %data, i64 %pos.7223
   store i8 %conv.i198, ptr %arrayidx.i200, align 1
   %shr.i201 = lshr i64 %v.addr.i190.0222, 7
-  %pos.6 = add i64 %pos.6223, 1
+  %pos.7 = add i64 %pos.7223, 1
   %cmp.i192 = icmp ugt i64 %v.addr.i190.0222, 16383
   br i1 %cmp.i192, label %while.body.i196, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202: ; preds = %while.body.i196, %for.body40
-  %pos.6.in.lcssa = phi i64 [ %pos.5228, %for.body40 ], [ %pos.6223, %while.body.i196 ]
+  %pos.7.in.lcssa = phi i64 [ %pos.6228, %for.body40 ], [ %pos.7223, %while.body.i196 ]
   %v.addr.i190.0.lcssa = phi i64 [ %11, %for.body40 ], [ %shr.i201, %while.body.i196 ]
-  %pos.6.lcssa = phi i64 [ %pos.6220, %for.body40 ], [ %pos.6, %while.body.i196 ]
+  %pos.7.lcssa = phi i64 [ %pos.7220, %for.body40 ], [ %pos.7, %while.body.i196 ]
   %conv1.i193 = trunc nuw nsw i64 %v.addr.i190.0.lcssa to i8
-  %inc2.i194 = add i64 %pos.6.in.lcssa, 2
-  %arrayidx3.i195 = getelementptr inbounds i8, ptr %data, i64 %pos.6.lcssa
+  %inc2.i194 = add i64 %pos.7.in.lcssa, 2
+  %arrayidx3.i195 = getelementptr inbounds i8, ptr %data, i64 %pos.7.lcssa
   store i8 %conv1.i193, ptr %arrayidx3.i195, align 1
   %add.ptr43 = getelementptr inbounds i8, ptr %data, i64 %inc2.i194
   %13 = load ptr, ptr %__begin331.sroa.0.0227, align 8
@@ -765,7 +765,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202: ; preds = %while.body.i
   br i1 %cmp.i136, label %if.end51, label %for.body40
 
 if.end51:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202, %if.end26
-  %pos.7 = phi i64 [ %pos.4, %if.end26 ], [ %add47, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ]
+  %pos.5 = phi i64 [ %pos.2, %if.end26 ], [ %add47, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ]
   %options = getelementptr inbounds i8, ptr %t, i64 80
   %16 = load ptr, ptr %options, align 8
   %_M_finish.i.i141 = getelementptr inbounds i8, ptr %t, i64 88
@@ -774,35 +774,35 @@ if.end51:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i142, label %if.end83, label %for.body65
 
 for.body65:                                       ; preds = %if.end51, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170
-  %pos.8237 = phi i64 [ %add79, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170 ], [ %pos.7, %if.end51 ]
+  %pos.9237 = phi i64 [ %add79, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170 ], [ %pos.5, %if.end51 ]
   %__begin356.sroa.0.0236 = phi ptr [ %incdec.ptr.i151, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170 ], [ %16, %if.end51 ]
-  %arrayidx3.i179 = getelementptr inbounds i8, ptr %data, i64 %pos.8237
+  %arrayidx3.i179 = getelementptr inbounds i8, ptr %data, i64 %pos.9237
   store i8 34, ptr %arrayidx3.i179, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69, i8 0, i64 24, i1 false)
   %call73 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin356.sroa.0.0236, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp69)
-  %pos.9229 = add i64 %pos.8237, 1
+  %pos.10229 = add i64 %pos.9237, 1
   %cmp.i160230 = icmp ugt i64 %call73, 127
   br i1 %cmp.i160230, label %while.body.i164, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170
 
 while.body.i164:                                  ; preds = %for.body65, %while.body.i164
-  %pos.9232 = phi i64 [ %pos.9, %while.body.i164 ], [ %pos.9229, %for.body65 ]
+  %pos.10232 = phi i64 [ %pos.10, %while.body.i164 ], [ %pos.10229, %for.body65 ]
   %v.addr.i158.0231 = phi i64 [ %shr.i169, %while.body.i164 ], [ %call73, %for.body65 ]
   %18 = trunc i64 %v.addr.i158.0231 to i8
   %conv.i166 = or i8 %18, -128
-  %arrayidx.i168 = getelementptr inbounds i8, ptr %data, i64 %pos.9232
+  %arrayidx.i168 = getelementptr inbounds i8, ptr %data, i64 %pos.10232
   store i8 %conv.i166, ptr %arrayidx.i168, align 1
   %shr.i169 = lshr i64 %v.addr.i158.0231, 7
-  %pos.9 = add i64 %pos.9232, 1
+  %pos.10 = add i64 %pos.10232, 1
   %cmp.i160 = icmp ugt i64 %v.addr.i158.0231, 16383
   br i1 %cmp.i160, label %while.body.i164, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170: ; preds = %while.body.i164, %for.body65
-  %pos.9.in.lcssa = phi i64 [ %pos.8237, %for.body65 ], [ %pos.9232, %while.body.i164 ]
+  %pos.10.in.lcssa = phi i64 [ %pos.9237, %for.body65 ], [ %pos.10232, %while.body.i164 ]
   %v.addr.i158.0.lcssa = phi i64 [ %call73, %for.body65 ], [ %shr.i169, %while.body.i164 ]
-  %pos.9.lcssa = phi i64 [ %pos.9229, %for.body65 ], [ %pos.9, %while.body.i164 ]
+  %pos.10.lcssa = phi i64 [ %pos.10229, %for.body65 ], [ %pos.10, %while.body.i164 ]
   %conv1.i161 = trunc nuw nsw i64 %v.addr.i158.0.lcssa to i8
-  %inc2.i162 = add i64 %pos.9.in.lcssa, 2
-  %arrayidx3.i163 = getelementptr inbounds i8, ptr %data, i64 %pos.9.lcssa
+  %inc2.i162 = add i64 %pos.10.in.lcssa, 2
+  %arrayidx3.i163 = getelementptr inbounds i8, ptr %data, i64 %pos.10.lcssa
   store i8 %conv1.i161, ptr %arrayidx3.i163, align 1
   %add.ptr74 = getelementptr inbounds i8, ptr %data, i64 %inc2.i162
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp75, i8 0, i64 24, i1 false)
@@ -813,14 +813,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170: ; preds = %while.body.i
   br i1 %cmp.i144, label %if.end83, label %for.body65
 
 if.end83:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170, %if.end51
-  %pos.10 = phi i64 [ %pos.7, %if.end51 ], [ %add79, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170 ]
+  %pos.8 = phi i64 [ %pos.5, %if.end51 ], [ %add79, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit170 ]
   %source_context = getelementptr inbounds i8, ptr %t, i64 104
   %19 = load ptr, ptr %source_context, align 8
   %cmp.i158.not = icmp eq ptr %19, null
   br i1 %cmp.i158.not, label %if.end102, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154: ; preds = %if.end83
-  %arrayidx3.i147 = getelementptr inbounds i8, ptr %data, i64 %pos.10
+  %arrayidx3.i147 = getelementptr inbounds i8, ptr %data, i64 %pos.8
   store i8 42, ptr %arrayidx3.i147, align 1
   %20 = load ptr, ptr %source_context, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp89, i8 0, i64 24, i1 false)
@@ -837,29 +837,29 @@ if.then.i.i.i.i160:                               ; preds = %invoke.cont92
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit161
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit161:         ; preds = %invoke.cont92, %if.then.i.i.i.i160
-  %pos.11238 = add i64 %pos.10, 1
+  %pos.12238 = add i64 %pos.8, 1
   %cmp.i128239 = icmp ugt i64 %call93, 127
   br i1 %cmp.i128239, label %while.body.i132, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138
 
 while.body.i132:                                  ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit161, %while.body.i132
-  %pos.11241 = phi i64 [ %pos.11, %while.body.i132 ], [ %pos.11238, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ]
+  %pos.12241 = phi i64 [ %pos.12, %while.body.i132 ], [ %pos.12238, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ]
   %v.addr.i126.0240 = phi i64 [ %shr.i137, %while.body.i132 ], [ %call93, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ]
   %22 = trunc i64 %v.addr.i126.0240 to i8
   %conv.i134 = or i8 %22, -128
-  %arrayidx.i136 = getelementptr inbounds i8, ptr %data, i64 %pos.11241
+  %arrayidx.i136 = getelementptr inbounds i8, ptr %data, i64 %pos.12241
   store i8 %conv.i134, ptr %arrayidx.i136, align 1
   %shr.i137 = lshr i64 %v.addr.i126.0240, 7
-  %pos.11 = add i64 %pos.11241, 1
+  %pos.12 = add i64 %pos.12241, 1
   %cmp.i128 = icmp ugt i64 %v.addr.i126.0240, 16383
   br i1 %cmp.i128, label %while.body.i132, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138: ; preds = %while.body.i132, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161
-  %pos.11.in.lcssa = phi i64 [ %pos.10, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ], [ %pos.11241, %while.body.i132 ]
+  %pos.12.in.lcssa = phi i64 [ %pos.8, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ], [ %pos.12241, %while.body.i132 ]
   %v.addr.i126.0.lcssa = phi i64 [ %call93, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ], [ %shr.i137, %while.body.i132 ]
-  %pos.11.lcssa = phi i64 [ %pos.11238, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ], [ %pos.11, %while.body.i132 ]
+  %pos.12.lcssa = phi i64 [ %pos.12238, %_ZN9struct_pb13UnknownFieldsD2Ev.exit161 ], [ %pos.12, %while.body.i132 ]
   %conv1.i129 = trunc nuw nsw i64 %v.addr.i126.0.lcssa to i8
-  %inc2.i130 = add i64 %pos.11.in.lcssa, 2
-  %arrayidx3.i131 = getelementptr inbounds i8, ptr %data, i64 %pos.11.lcssa
+  %inc2.i130 = add i64 %pos.12.in.lcssa, 2
+  %arrayidx3.i131 = getelementptr inbounds i8, ptr %data, i64 %pos.12.lcssa
   store i8 %conv1.i129, ptr %arrayidx3.i131, align 1
   %add.ptr94 = getelementptr inbounds i8, ptr %data, i64 %inc2.i130
   %23 = load ptr, ptr %source_context, align 8
@@ -895,45 +895,45 @@ lpad99:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.not.i.i.i.i168, label %eh.resume, label %eh.resume.sink.split
 
 if.end102:                                        ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit164, %if.end83
-  %pos.12 = phi i64 [ %add101, %_ZN9struct_pb13UnknownFieldsD2Ev.exit164 ], [ %pos.10, %if.end83 ]
+  %pos.11 = phi i64 [ %add101, %_ZN9struct_pb13UnknownFieldsD2Ev.exit164 ], [ %pos.8, %if.end83 ]
   %syntax = getelementptr inbounds i8, ptr %t, i64 112
   %29 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %29, 0
   br i1 %cmp.not, label %if.end105, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122: ; preds = %if.end102
-  %arrayidx3.i115 = getelementptr inbounds i8, ptr %data, i64 %pos.12
+  %arrayidx3.i115 = getelementptr inbounds i8, ptr %data, i64 %pos.11
   store i8 48, ptr %arrayidx3.i115, align 1
   %30 = load i32, ptr %syntax, align 8
   %conv = sext i32 %30 to i64
-  %pos.13245 = add i64 %pos.12, 1
+  %pos.14245 = add i64 %pos.11, 1
   %cmp.i246 = icmp ugt i32 %30, 127
   br i1 %cmp.i246, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
 
 while.body.i:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122, %while.body.i
-  %pos.13248 = phi i64 [ %pos.13, %while.body.i ], [ %pos.13245, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ]
+  %pos.14248 = phi i64 [ %pos.14, %while.body.i ], [ %pos.14245, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ]
   %v.addr.i.0247 = phi i64 [ %shr.i, %while.body.i ], [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ]
   %31 = trunc i64 %v.addr.i.0247 to i8
   %conv.i = or i8 %31, -128
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.13248
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.14248
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.0247, 7
-  %pos.13 = add i64 %pos.13248, 1
+  %pos.14 = add i64 %pos.14248, 1
   %cmp.i = icmp ugt i64 %v.addr.i.0247, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122
-  %pos.13.in.lcssa = phi i64 [ %pos.12, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ], [ %pos.13248, %while.body.i ]
+  %pos.14.in.lcssa = phi i64 [ %pos.11, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ], [ %pos.14248, %while.body.i ]
   %v.addr.i.0.lcssa = phi i64 [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ], [ %shr.i, %while.body.i ]
-  %pos.13.lcssa = phi i64 [ %pos.13245, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ], [ %pos.13, %while.body.i ]
+  %pos.14.lcssa = phi i64 [ %pos.14245, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ], [ %pos.14, %while.body.i ]
   %conv1.i = trunc nuw nsw i64 %v.addr.i.0.lcssa to i8
-  %inc2.i = add i64 %pos.13.in.lcssa, 2
-  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.13.lcssa
+  %inc2.i = add i64 %pos.14.in.lcssa, 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.14.lcssa
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   br label %if.end105
 
 if.end105:                                        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end102
-  %pos.14 = phi i64 [ %pos.12, %if.end102 ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
+  %pos.13 = phi i64 [ %pos.11, %if.end102 ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %32 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i171 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %33 = load ptr, ptr %_M_finish.i.i171, align 8
@@ -941,7 +941,7 @@ if.end105:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end105, %for.body.i
-  %pos.15 = phi i64 [ %add.i, %for.body.i ], [ %pos.14, %if.end105 ]
+  %pos.15 = phi i64 [ %add.i, %for.body.i ], [ %pos.13, %if.end105 ]
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %32, %if.end105 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.15
   %34 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
@@ -989,103 +989,103 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394: ; preds = %entry
 
 while.body.i372:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394, %while.body.i372
   %v.addr.i366.0253 = phi i64 [ %shr.i377, %while.body.i372 ], [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394 ]
-  %pos.0252 = phi i64 [ %inc.i375, %while.body.i372 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394 ]
+  %pos.1252 = phi i64 [ %inc.i375, %while.body.i372 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394 ]
   %2 = trunc i64 %v.addr.i366.0253 to i8
   %conv.i374 = or i8 %2, -128
-  %inc.i375 = add nuw nsw i64 %pos.0252, 1
-  %arrayidx.i376 = getelementptr inbounds i8, ptr %data, i64 %pos.0252
+  %inc.i375 = add nuw nsw i64 %pos.1252, 1
+  %arrayidx.i376 = getelementptr inbounds i8, ptr %data, i64 %pos.1252
   store i8 %conv.i374, ptr %arrayidx.i376, align 1
   %shr.i377 = lshr i64 %v.addr.i366.0253, 7
   %cmp.i368 = icmp ugt i64 %v.addr.i366.0253, 16383
   br i1 %cmp.i368, label %while.body.i372, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378: ; preds = %while.body.i372, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394
-  %pos.0.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394 ], [ %inc.i375, %while.body.i372 ]
+  %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394 ], [ %inc.i375, %while.body.i372 ]
   %v.addr.i366.0.lcssa = phi i64 [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit394 ], [ %shr.i377, %while.body.i372 ]
   %conv1.i369 = trunc nuw nsw i64 %v.addr.i366.0.lcssa to i8
-  %inc2.i370 = add i64 %pos.0.lcssa, 1
-  %arrayidx3.i371 = getelementptr inbounds i8, ptr %data, i64 %pos.0.lcssa
+  %inc2.i370 = add i64 %pos.1.lcssa, 1
+  %arrayidx3.i371 = getelementptr inbounds i8, ptr %data, i64 %pos.1.lcssa
   store i8 %conv1.i369, ptr %arrayidx3.i371, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378, %entry
-  %pos.1 = phi i64 [ 0, %entry ], [ %inc2.i370, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378 ]
+  %pos.0 = phi i64 [ 0, %entry ], [ %inc2.i370, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit378 ]
   %cardinality = getelementptr inbounds i8, ptr %t, i64 4
   %3 = load i32, ptr %cardinality, align 4
   %cmp2.not = icmp eq i32 %3, 0
   br i1 %cmp2.not, label %if.end6, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362: ; preds = %if.end
-  %arrayidx3.i355 = getelementptr inbounds i8, ptr %data, i64 %pos.1
+  %arrayidx3.i355 = getelementptr inbounds i8, ptr %data, i64 %pos.0
   store i8 16, ptr %arrayidx3.i355, align 1
   %4 = load i32, ptr %cardinality, align 4
   %conv5 = sext i32 %4 to i64
-  %pos.2255 = add i64 %pos.1, 1
+  %pos.3255 = add i64 %pos.0, 1
   %cmp.i336256 = icmp ugt i32 %4, 127
   br i1 %cmp.i336256, label %while.body.i340, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346
 
 while.body.i340:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362, %while.body.i340
-  %pos.2258 = phi i64 [ %pos.2, %while.body.i340 ], [ %pos.2255, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ]
+  %pos.3258 = phi i64 [ %pos.3, %while.body.i340 ], [ %pos.3255, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ]
   %v.addr.i334.0257 = phi i64 [ %shr.i345, %while.body.i340 ], [ %conv5, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ]
   %5 = trunc i64 %v.addr.i334.0257 to i8
   %conv.i342 = or i8 %5, -128
-  %arrayidx.i344 = getelementptr inbounds i8, ptr %data, i64 %pos.2258
+  %arrayidx.i344 = getelementptr inbounds i8, ptr %data, i64 %pos.3258
   store i8 %conv.i342, ptr %arrayidx.i344, align 1
   %shr.i345 = lshr i64 %v.addr.i334.0257, 7
-  %pos.2 = add nuw nsw i64 %pos.2258, 1
+  %pos.3 = add nuw nsw i64 %pos.3258, 1
   %cmp.i336 = icmp ugt i64 %v.addr.i334.0257, 16383
   br i1 %cmp.i336, label %while.body.i340, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346: ; preds = %while.body.i340, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362
-  %pos.2.in.lcssa = phi i64 [ %pos.1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ], [ %pos.2258, %while.body.i340 ]
+  %pos.3.in.lcssa = phi i64 [ %pos.0, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ], [ %pos.3258, %while.body.i340 ]
   %v.addr.i334.0.lcssa = phi i64 [ %conv5, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ], [ %shr.i345, %while.body.i340 ]
-  %pos.2.lcssa = phi i64 [ %pos.2255, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ], [ %pos.2, %while.body.i340 ]
+  %pos.3.lcssa = phi i64 [ %pos.3255, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit362 ], [ %pos.3, %while.body.i340 ]
   %conv1.i337 = trunc nuw nsw i64 %v.addr.i334.0.lcssa to i8
-  %inc2.i338 = add i64 %pos.2.in.lcssa, 2
-  %arrayidx3.i339 = getelementptr inbounds i8, ptr %data, i64 %pos.2.lcssa
+  %inc2.i338 = add i64 %pos.3.in.lcssa, 2
+  %arrayidx3.i339 = getelementptr inbounds i8, ptr %data, i64 %pos.3.lcssa
   store i8 %conv1.i337, ptr %arrayidx3.i339, align 1
   br label %if.end6
 
 if.end6:                                          ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346, %if.end
-  %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i338, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346 ]
+  %pos.2 = phi i64 [ %pos.0, %if.end ], [ %inc2.i338, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit346 ]
   %number = getelementptr inbounds i8, ptr %t, i64 8
   %6 = load i32, ptr %number, align 8
   %cmp7.not = icmp eq i32 %6, 0
   br i1 %cmp7.not, label %if.end11, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330: ; preds = %if.end6
-  %arrayidx3.i323 = getelementptr inbounds i8, ptr %data, i64 %pos.3
+  %arrayidx3.i323 = getelementptr inbounds i8, ptr %data, i64 %pos.2
   store i8 24, ptr %arrayidx3.i323, align 1
   %7 = load i32, ptr %number, align 8
   %conv10 = sext i32 %7 to i64
-  %pos.4262 = add i64 %pos.3, 1
+  %pos.5262 = add i64 %pos.2, 1
   %cmp.i304263 = icmp ugt i32 %7, 127
   br i1 %cmp.i304263, label %while.body.i308, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314
 
 while.body.i308:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330, %while.body.i308
-  %pos.4265 = phi i64 [ %pos.4, %while.body.i308 ], [ %pos.4262, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ]
+  %pos.5265 = phi i64 [ %pos.5, %while.body.i308 ], [ %pos.5262, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ]
   %v.addr.i302.0264 = phi i64 [ %shr.i313, %while.body.i308 ], [ %conv10, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ]
   %8 = trunc i64 %v.addr.i302.0264 to i8
   %conv.i310 = or i8 %8, -128
-  %arrayidx.i312 = getelementptr inbounds i8, ptr %data, i64 %pos.4265
+  %arrayidx.i312 = getelementptr inbounds i8, ptr %data, i64 %pos.5265
   store i8 %conv.i310, ptr %arrayidx.i312, align 1
   %shr.i313 = lshr i64 %v.addr.i302.0264, 7
-  %pos.4 = add nuw nsw i64 %pos.4265, 1
+  %pos.5 = add nuw nsw i64 %pos.5265, 1
   %cmp.i304 = icmp ugt i64 %v.addr.i302.0264, 16383
   br i1 %cmp.i304, label %while.body.i308, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314: ; preds = %while.body.i308, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330
-  %pos.4.in.lcssa = phi i64 [ %pos.3, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ], [ %pos.4265, %while.body.i308 ]
+  %pos.5.in.lcssa = phi i64 [ %pos.2, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ], [ %pos.5265, %while.body.i308 ]
   %v.addr.i302.0.lcssa = phi i64 [ %conv10, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ], [ %shr.i313, %while.body.i308 ]
-  %pos.4.lcssa = phi i64 [ %pos.4262, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ], [ %pos.4, %while.body.i308 ]
+  %pos.5.lcssa = phi i64 [ %pos.5262, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit330 ], [ %pos.5, %while.body.i308 ]
   %conv1.i305 = trunc nuw nsw i64 %v.addr.i302.0.lcssa to i8
-  %inc2.i306 = add i64 %pos.4.in.lcssa, 2
-  %arrayidx3.i307 = getelementptr inbounds i8, ptr %data, i64 %pos.4.lcssa
+  %inc2.i306 = add i64 %pos.5.in.lcssa, 2
+  %arrayidx3.i307 = getelementptr inbounds i8, ptr %data, i64 %pos.5.lcssa
   store i8 %conv1.i305, ptr %arrayidx3.i307, align 1
   br label %if.end11
 
 if.end11:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314, %if.end6
-  %pos.5 = phi i64 [ %pos.3, %if.end6 ], [ %inc2.i306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314 ]
+  %pos.4 = phi i64 [ %pos.2, %if.end6 ], [ %inc2.i306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit314 ]
   %name = getelementptr inbounds i8, ptr %t, i64 16
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %t, i64 24
   %9 = load i64, ptr %_M_string_length.i.i, align 8
@@ -1093,32 +1093,32 @@ if.end11:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i182, label %if.end21, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298: ; preds = %if.end11
-  %arrayidx3.i291 = getelementptr inbounds i8, ptr %data, i64 %pos.5
+  %arrayidx3.i291 = getelementptr inbounds i8, ptr %data, i64 %pos.4
   store i8 34, ptr %arrayidx3.i291, align 1
   %10 = load i64, ptr %_M_string_length.i.i, align 8
-  %pos.6269 = add i64 %pos.5, 1
+  %pos.7269 = add i64 %pos.4, 1
   %cmp.i272270 = icmp ugt i64 %10, 127
   br i1 %cmp.i272270, label %while.body.i276, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282
 
 while.body.i276:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298, %while.body.i276
-  %pos.6272 = phi i64 [ %pos.6, %while.body.i276 ], [ %pos.6269, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ]
+  %pos.7272 = phi i64 [ %pos.7, %while.body.i276 ], [ %pos.7269, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ]
   %v.addr.i270.0271 = phi i64 [ %shr.i281, %while.body.i276 ], [ %10, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ]
   %11 = trunc i64 %v.addr.i270.0271 to i8
   %conv.i278 = or i8 %11, -128
-  %arrayidx.i280 = getelementptr inbounds i8, ptr %data, i64 %pos.6272
+  %arrayidx.i280 = getelementptr inbounds i8, ptr %data, i64 %pos.7272
   store i8 %conv.i278, ptr %arrayidx.i280, align 1
   %shr.i281 = lshr i64 %v.addr.i270.0271, 7
-  %pos.6 = add nuw nsw i64 %pos.6272, 1
+  %pos.7 = add nuw nsw i64 %pos.7272, 1
   %cmp.i272 = icmp ugt i64 %v.addr.i270.0271, 16383
   br i1 %cmp.i272, label %while.body.i276, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282: ; preds = %while.body.i276, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298
-  %pos.6.in.lcssa = phi i64 [ %pos.5, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ], [ %pos.6272, %while.body.i276 ]
+  %pos.7.in.lcssa = phi i64 [ %pos.4, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ], [ %pos.7272, %while.body.i276 ]
   %v.addr.i270.0.lcssa = phi i64 [ %10, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ], [ %shr.i281, %while.body.i276 ]
-  %pos.6.lcssa = phi i64 [ %pos.6269, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ], [ %pos.6, %while.body.i276 ]
+  %pos.7.lcssa = phi i64 [ %pos.7269, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit298 ], [ %pos.7, %while.body.i276 ]
   %conv1.i273 = trunc nuw nsw i64 %v.addr.i270.0.lcssa to i8
-  %inc2.i274 = add i64 %pos.6.in.lcssa, 2
-  %arrayidx3.i275 = getelementptr inbounds i8, ptr %data, i64 %pos.6.lcssa
+  %inc2.i274 = add i64 %pos.7.in.lcssa, 2
+  %arrayidx3.i275 = getelementptr inbounds i8, ptr %data, i64 %pos.7.lcssa
   store i8 %conv1.i273, ptr %arrayidx3.i275, align 1
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %inc2.i274
   %12 = load ptr, ptr %name, align 8
@@ -1129,7 +1129,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282: ; preds = %while.body.i
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282, %if.end11
-  %pos.7 = phi i64 [ %pos.5, %if.end11 ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ]
+  %pos.6 = phi i64 [ %pos.4, %if.end11 ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit282 ]
   %type_url = getelementptr inbounds i8, ptr %t, i64 48
   %_M_string_length.i.i185 = getelementptr inbounds i8, ptr %t, i64 56
   %15 = load i64, ptr %_M_string_length.i.i185, align 8
@@ -1137,32 +1137,32 @@ if.end21:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i186, label %if.end34, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266: ; preds = %if.end21
-  %arrayidx3.i259 = getelementptr inbounds i8, ptr %data, i64 %pos.7
+  %arrayidx3.i259 = getelementptr inbounds i8, ptr %data, i64 %pos.6
   store i8 50, ptr %arrayidx3.i259, align 1
   %16 = load i64, ptr %_M_string_length.i.i185, align 8
-  %pos.8276 = add i64 %pos.7, 1
+  %pos.9276 = add i64 %pos.6, 1
   %cmp.i240277 = icmp ugt i64 %16, 127
   br i1 %cmp.i240277, label %while.body.i244, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250
 
 while.body.i244:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266, %while.body.i244
-  %pos.8279 = phi i64 [ %pos.8, %while.body.i244 ], [ %pos.8276, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ]
+  %pos.9279 = phi i64 [ %pos.9, %while.body.i244 ], [ %pos.9276, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ]
   %v.addr.i238.0278 = phi i64 [ %shr.i249, %while.body.i244 ], [ %16, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ]
   %17 = trunc i64 %v.addr.i238.0278 to i8
   %conv.i246 = or i8 %17, -128
-  %arrayidx.i248 = getelementptr inbounds i8, ptr %data, i64 %pos.8279
+  %arrayidx.i248 = getelementptr inbounds i8, ptr %data, i64 %pos.9279
   store i8 %conv.i246, ptr %arrayidx.i248, align 1
   %shr.i249 = lshr i64 %v.addr.i238.0278, 7
-  %pos.8 = add i64 %pos.8279, 1
+  %pos.9 = add i64 %pos.9279, 1
   %cmp.i240 = icmp ugt i64 %v.addr.i238.0278, 16383
   br i1 %cmp.i240, label %while.body.i244, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250: ; preds = %while.body.i244, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266
-  %pos.8.in.lcssa = phi i64 [ %pos.7, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ], [ %pos.8279, %while.body.i244 ]
+  %pos.9.in.lcssa = phi i64 [ %pos.6, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ], [ %pos.9279, %while.body.i244 ]
   %v.addr.i238.0.lcssa = phi i64 [ %16, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ], [ %shr.i249, %while.body.i244 ]
-  %pos.8.lcssa = phi i64 [ %pos.8276, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ], [ %pos.8, %while.body.i244 ]
+  %pos.9.lcssa = phi i64 [ %pos.9276, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit266 ], [ %pos.9, %while.body.i244 ]
   %conv1.i241 = trunc nuw nsw i64 %v.addr.i238.0.lcssa to i8
-  %inc2.i242 = add i64 %pos.8.in.lcssa, 2
-  %arrayidx3.i243 = getelementptr inbounds i8, ptr %data, i64 %pos.8.lcssa
+  %inc2.i242 = add i64 %pos.9.in.lcssa, 2
+  %arrayidx3.i243 = getelementptr inbounds i8, ptr %data, i64 %pos.9.lcssa
   store i8 %conv1.i241, ptr %arrayidx3.i243, align 1
   %add.ptr26 = getelementptr inbounds i8, ptr %data, i64 %inc2.i242
   %18 = load ptr, ptr %type_url, align 8
@@ -1173,62 +1173,62 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250: ; preds = %while.body.i
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250, %if.end21
-  %pos.9 = phi i64 [ %pos.7, %if.end21 ], [ %add33, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250 ]
+  %pos.8 = phi i64 [ %pos.6, %if.end21 ], [ %add33, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit250 ]
   %oneof_index = getelementptr inbounds i8, ptr %t, i64 80
   %21 = load i32, ptr %oneof_index, align 8
   %cmp35.not = icmp eq i32 %21, 0
   br i1 %cmp35.not, label %if.end39, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234: ; preds = %if.end34
-  %arrayidx3.i227 = getelementptr inbounds i8, ptr %data, i64 %pos.9
+  %arrayidx3.i227 = getelementptr inbounds i8, ptr %data, i64 %pos.8
   store i8 56, ptr %arrayidx3.i227, align 1
   %22 = load i32, ptr %oneof_index, align 8
   %conv38 = sext i32 %22 to i64
-  %pos.10283 = add i64 %pos.9, 1
+  %pos.11283 = add i64 %pos.8, 1
   %cmp.i208284 = icmp ugt i32 %22, 127
   br i1 %cmp.i208284, label %while.body.i212, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218
 
 while.body.i212:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234, %while.body.i212
-  %pos.10286 = phi i64 [ %pos.10, %while.body.i212 ], [ %pos.10283, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ]
+  %pos.11286 = phi i64 [ %pos.11, %while.body.i212 ], [ %pos.11283, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ]
   %v.addr.i206.0285 = phi i64 [ %shr.i217, %while.body.i212 ], [ %conv38, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ]
   %23 = trunc i64 %v.addr.i206.0285 to i8
   %conv.i214 = or i8 %23, -128
-  %arrayidx.i216 = getelementptr inbounds i8, ptr %data, i64 %pos.10286
+  %arrayidx.i216 = getelementptr inbounds i8, ptr %data, i64 %pos.11286
   store i8 %conv.i214, ptr %arrayidx.i216, align 1
   %shr.i217 = lshr i64 %v.addr.i206.0285, 7
-  %pos.10 = add i64 %pos.10286, 1
+  %pos.11 = add i64 %pos.11286, 1
   %cmp.i208 = icmp ugt i64 %v.addr.i206.0285, 16383
   br i1 %cmp.i208, label %while.body.i212, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218: ; preds = %while.body.i212, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234
-  %pos.10.in.lcssa = phi i64 [ %pos.9, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %pos.10286, %while.body.i212 ]
+  %pos.11.in.lcssa = phi i64 [ %pos.8, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %pos.11286, %while.body.i212 ]
   %v.addr.i206.0.lcssa = phi i64 [ %conv38, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %shr.i217, %while.body.i212 ]
-  %pos.10.lcssa = phi i64 [ %pos.10283, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %pos.10, %while.body.i212 ]
+  %pos.11.lcssa = phi i64 [ %pos.11283, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit234 ], [ %pos.11, %while.body.i212 ]
   %conv1.i209 = trunc nuw nsw i64 %v.addr.i206.0.lcssa to i8
-  %inc2.i210 = add i64 %pos.10.in.lcssa, 2
-  %arrayidx3.i211 = getelementptr inbounds i8, ptr %data, i64 %pos.10.lcssa
+  %inc2.i210 = add i64 %pos.11.in.lcssa, 2
+  %arrayidx3.i211 = getelementptr inbounds i8, ptr %data, i64 %pos.11.lcssa
   store i8 %conv1.i209, ptr %arrayidx3.i211, align 1
   br label %if.end39
 
 if.end39:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218, %if.end34
-  %pos.11 = phi i64 [ %pos.9, %if.end34 ], [ %inc2.i210, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218 ]
+  %pos.10 = phi i64 [ %pos.8, %if.end34 ], [ %inc2.i210, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit218 ]
   %packed = getelementptr inbounds i8, ptr %t, i64 84
   %24 = load i8, ptr %packed, align 4
   %tobool = trunc i8 %24 to i1
   br i1 %tobool, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202, label %if.end46
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202: ; preds = %if.end39
-  %arrayidx3.i195 = getelementptr i8, ptr %data, i64 %pos.11
+  %arrayidx3.i195 = getelementptr i8, ptr %data, i64 %pos.10
   store i8 64, ptr %arrayidx3.i195, align 1
   %25 = load i8, ptr %packed, align 4
   %conv1.i177 = and i8 %25, 1
-  %inc2.i178 = add i64 %pos.11, 2
+  %inc2.i178 = add i64 %pos.10, 2
   %arrayidx3.i179 = getelementptr i8, ptr %arrayidx3.i195, i64 1
   store i8 %conv1.i177, ptr %arrayidx3.i179, align 1
   br label %if.end46
 
 if.end46:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202, %if.end39
-  %pos.12 = phi i64 [ %inc2.i178, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ], [ %pos.11, %if.end39 ]
+  %pos.12 = phi i64 [ %inc2.i178, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit202 ], [ %pos.10, %if.end39 ]
   %options = getelementptr inbounds i8, ptr %t, i64 88
   %26 = load ptr, ptr %options, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 96
@@ -1237,35 +1237,35 @@ if.end46:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i, label %if.end63, label %for.body
 
 for.body:                                         ; preds = %if.end46, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154
-  %pos.13298 = phi i64 [ %add61, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154 ], [ %pos.12, %if.end46 ]
+  %pos.14298 = phi i64 [ %add61, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154 ], [ %pos.12, %if.end46 ]
   %__begin3.sroa.0.0297 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154 ], [ %26, %if.end46 ]
-  %arrayidx3.i163 = getelementptr inbounds i8, ptr %data, i64 %pos.13298
+  %arrayidx3.i163 = getelementptr inbounds i8, ptr %data, i64 %pos.14298
   store i8 74, ptr %arrayidx3.i163, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call55 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.0297, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-  %pos.14290 = add i64 %pos.13298, 1
+  %pos.15290 = add i64 %pos.14298, 1
   %cmp.i144291 = icmp ugt i64 %call55, 127
   br i1 %cmp.i144291, label %while.body.i148, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154
 
 while.body.i148:                                  ; preds = %for.body, %while.body.i148
-  %pos.14293 = phi i64 [ %pos.14, %while.body.i148 ], [ %pos.14290, %for.body ]
+  %pos.15293 = phi i64 [ %pos.15, %while.body.i148 ], [ %pos.15290, %for.body ]
   %v.addr.i142.0292 = phi i64 [ %shr.i153, %while.body.i148 ], [ %call55, %for.body ]
   %28 = trunc i64 %v.addr.i142.0292 to i8
   %conv.i150 = or i8 %28, -128
-  %arrayidx.i152 = getelementptr inbounds i8, ptr %data, i64 %pos.14293
+  %arrayidx.i152 = getelementptr inbounds i8, ptr %data, i64 %pos.15293
   store i8 %conv.i150, ptr %arrayidx.i152, align 1
   %shr.i153 = lshr i64 %v.addr.i142.0292, 7
-  %pos.14 = add i64 %pos.14293, 1
+  %pos.15 = add i64 %pos.15293, 1
   %cmp.i144 = icmp ugt i64 %v.addr.i142.0292, 16383
   br i1 %cmp.i144, label %while.body.i148, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154: ; preds = %while.body.i148, %for.body
-  %pos.14.in.lcssa = phi i64 [ %pos.13298, %for.body ], [ %pos.14293, %while.body.i148 ]
+  %pos.15.in.lcssa = phi i64 [ %pos.14298, %for.body ], [ %pos.15293, %while.body.i148 ]
   %v.addr.i142.0.lcssa = phi i64 [ %call55, %for.body ], [ %shr.i153, %while.body.i148 ]
-  %pos.14.lcssa = phi i64 [ %pos.14290, %for.body ], [ %pos.14, %while.body.i148 ]
+  %pos.15.lcssa = phi i64 [ %pos.15290, %for.body ], [ %pos.15, %while.body.i148 ]
   %conv1.i145 = trunc nuw nsw i64 %v.addr.i142.0.lcssa to i8
-  %inc2.i146 = add i64 %pos.14.in.lcssa, 2
-  %arrayidx3.i147 = getelementptr inbounds i8, ptr %data, i64 %pos.14.lcssa
+  %inc2.i146 = add i64 %pos.15.in.lcssa, 2
+  %arrayidx3.i147 = getelementptr inbounds i8, ptr %data, i64 %pos.15.lcssa
   store i8 %conv1.i145, ptr %arrayidx3.i147, align 1
   %add.ptr56 = getelementptr inbounds i8, ptr %data, i64 %inc2.i146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp57, i8 0, i64 24, i1 false)
@@ -1276,7 +1276,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154: ; preds = %while.body.i
   br i1 %cmp.i190, label %if.end63, label %for.body
 
 if.end63:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154, %if.end46
-  %pos.15 = phi i64 [ %pos.12, %if.end46 ], [ %add61, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154 ]
+  %pos.13 = phi i64 [ %pos.12, %if.end46 ], [ %add61, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit154 ]
   %json_name = getelementptr inbounds i8, ptr %t, i64 112
   %_M_string_length.i.i200 = getelementptr inbounds i8, ptr %t, i64 120
   %29 = load i64, ptr %_M_string_length.i.i200, align 8
@@ -1284,32 +1284,32 @@ if.end63:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i201, label %if.end76, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138: ; preds = %if.end63
-  %arrayidx3.i131 = getelementptr inbounds i8, ptr %data, i64 %pos.15
+  %arrayidx3.i131 = getelementptr inbounds i8, ptr %data, i64 %pos.13
   store i8 82, ptr %arrayidx3.i131, align 1
   %30 = load i64, ptr %_M_string_length.i.i200, align 8
-  %pos.16299 = add i64 %pos.15, 1
+  %pos.17299 = add i64 %pos.13, 1
   %cmp.i112300 = icmp ugt i64 %30, 127
   br i1 %cmp.i112300, label %while.body.i116, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122
 
 while.body.i116:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138, %while.body.i116
-  %pos.16302 = phi i64 [ %pos.16, %while.body.i116 ], [ %pos.16299, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ]
+  %pos.17302 = phi i64 [ %pos.17, %while.body.i116 ], [ %pos.17299, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ]
   %v.addr.i110.0301 = phi i64 [ %shr.i121, %while.body.i116 ], [ %30, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ]
   %31 = trunc i64 %v.addr.i110.0301 to i8
   %conv.i118 = or i8 %31, -128
-  %arrayidx.i120 = getelementptr inbounds i8, ptr %data, i64 %pos.16302
+  %arrayidx.i120 = getelementptr inbounds i8, ptr %data, i64 %pos.17302
   store i8 %conv.i118, ptr %arrayidx.i120, align 1
   %shr.i121 = lshr i64 %v.addr.i110.0301, 7
-  %pos.16 = add i64 %pos.16302, 1
+  %pos.17 = add i64 %pos.17302, 1
   %cmp.i112 = icmp ugt i64 %v.addr.i110.0301, 16383
   br i1 %cmp.i112, label %while.body.i116, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122: ; preds = %while.body.i116, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138
-  %pos.16.in.lcssa = phi i64 [ %pos.15, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ], [ %pos.16302, %while.body.i116 ]
+  %pos.17.in.lcssa = phi i64 [ %pos.13, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ], [ %pos.17302, %while.body.i116 ]
   %v.addr.i110.0.lcssa = phi i64 [ %30, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ], [ %shr.i121, %while.body.i116 ]
-  %pos.16.lcssa = phi i64 [ %pos.16299, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ], [ %pos.16, %while.body.i116 ]
+  %pos.17.lcssa = phi i64 [ %pos.17299, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit138 ], [ %pos.17, %while.body.i116 ]
   %conv1.i113 = trunc nuw nsw i64 %v.addr.i110.0.lcssa to i8
-  %inc2.i114 = add i64 %pos.16.in.lcssa, 2
-  %arrayidx3.i115 = getelementptr inbounds i8, ptr %data, i64 %pos.16.lcssa
+  %inc2.i114 = add i64 %pos.17.in.lcssa, 2
+  %arrayidx3.i115 = getelementptr inbounds i8, ptr %data, i64 %pos.17.lcssa
   store i8 %conv1.i113, ptr %arrayidx3.i115, align 1
   %add.ptr68 = getelementptr inbounds i8, ptr %data, i64 %inc2.i114
   %32 = load ptr, ptr %json_name, align 8
@@ -1320,7 +1320,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122: ; preds = %while.body.i
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122, %if.end63
-  %pos.17 = phi i64 [ %pos.15, %if.end63 ], [ %add75, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ]
+  %pos.16 = phi i64 [ %pos.13, %if.end63 ], [ %add75, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit122 ]
   %default_value = getelementptr inbounds i8, ptr %t, i64 144
   %_M_string_length.i.i205 = getelementptr inbounds i8, ptr %t, i64 152
   %35 = load i64, ptr %_M_string_length.i.i205, align 8
@@ -1328,32 +1328,32 @@ if.end76:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i206, label %if.end89, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106: ; preds = %if.end76
-  %arrayidx3.i99 = getelementptr inbounds i8, ptr %data, i64 %pos.17
+  %arrayidx3.i99 = getelementptr inbounds i8, ptr %data, i64 %pos.16
   store i8 90, ptr %arrayidx3.i99, align 1
   %36 = load i64, ptr %_M_string_length.i.i205, align 8
-  %pos.18306 = add i64 %pos.17, 1
+  %pos.19306 = add i64 %pos.16, 1
   %cmp.i307 = icmp ugt i64 %36, 127
   br i1 %cmp.i307, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
 
 while.body.i:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106, %while.body.i
-  %pos.18309 = phi i64 [ %pos.18, %while.body.i ], [ %pos.18306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ]
+  %pos.19309 = phi i64 [ %pos.19, %while.body.i ], [ %pos.19306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ]
   %v.addr.i.0308 = phi i64 [ %shr.i, %while.body.i ], [ %36, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ]
   %37 = trunc i64 %v.addr.i.0308 to i8
   %conv.i = or i8 %37, -128
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.18309
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.19309
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.0308, 7
-  %pos.18 = add i64 %pos.18309, 1
+  %pos.19 = add i64 %pos.19309, 1
   %cmp.i = icmp ugt i64 %v.addr.i.0308, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106
-  %pos.18.in.lcssa = phi i64 [ %pos.17, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ], [ %pos.18309, %while.body.i ]
+  %pos.19.in.lcssa = phi i64 [ %pos.16, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ], [ %pos.19309, %while.body.i ]
   %v.addr.i.0.lcssa = phi i64 [ %36, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ], [ %shr.i, %while.body.i ]
-  %pos.18.lcssa = phi i64 [ %pos.18306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ], [ %pos.18, %while.body.i ]
+  %pos.19.lcssa = phi i64 [ %pos.19306, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit106 ], [ %pos.19, %while.body.i ]
   %conv1.i = trunc nuw nsw i64 %v.addr.i.0.lcssa to i8
-  %inc2.i = add i64 %pos.18.in.lcssa, 2
-  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.18.lcssa
+  %inc2.i = add i64 %pos.19.in.lcssa, 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.19.lcssa
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   %add.ptr81 = getelementptr inbounds i8, ptr %data, i64 %inc2.i
   %38 = load ptr, ptr %default_value, align 8
@@ -1364,7 +1364,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
   br label %if.end89
 
 if.end89:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end76
-  %pos.19 = phi i64 [ %pos.17, %if.end76 ], [ %add88, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
+  %pos.18 = phi i64 [ %pos.16, %if.end76 ], [ %add88, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %41 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i210 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %42 = load ptr, ptr %_M_finish.i.i210, align 8
@@ -1372,7 +1372,7 @@ if.end89:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end89, %for.body.i
-  %pos.20 = phi i64 [ %add.i, %for.body.i ], [ %pos.19, %if.end89 ]
+  %pos.20 = phi i64 [ %add.i, %for.body.i ], [ %pos.18, %if.end89 ]
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %41, %if.end89 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.20
   %43 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
@@ -1407,22 +1407,22 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71: ; preds = %entry
 
 while.body.i49:                                   ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71, %while.body.i49
   %v.addr.i43.065 = phi i64 [ %shr.i54, %while.body.i49 ], [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71 ]
-  %pos.064 = phi i64 [ %inc.i52, %while.body.i49 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71 ]
+  %pos.164 = phi i64 [ %inc.i52, %while.body.i49 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71 ]
   %2 = trunc i64 %v.addr.i43.065 to i8
   %conv.i51 = or i8 %2, -128
-  %inc.i52 = add nuw nsw i64 %pos.064, 1
-  %arrayidx.i53 = getelementptr inbounds i8, ptr %data, i64 %pos.064
+  %inc.i52 = add nuw nsw i64 %pos.164, 1
+  %arrayidx.i53 = getelementptr inbounds i8, ptr %data, i64 %pos.164
   store i8 %conv.i51, ptr %arrayidx.i53, align 1
   %shr.i54 = lshr i64 %v.addr.i43.065, 7
   %cmp.i45 = icmp ugt i64 %v.addr.i43.065, 16383
   br i1 %cmp.i45, label %while.body.i49, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55: ; preds = %while.body.i49, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71
-  %pos.0.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71 ], [ %inc.i52, %while.body.i49 ]
+  %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71 ], [ %inc.i52, %while.body.i49 ]
   %v.addr.i43.0.lcssa = phi i64 [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit71 ], [ %shr.i54, %while.body.i49 ]
   %conv1.i46 = trunc nuw nsw i64 %v.addr.i43.0.lcssa to i8
-  %inc2.i47 = add i64 %pos.0.lcssa, 1
-  %arrayidx3.i48 = getelementptr inbounds i8, ptr %data, i64 %pos.0.lcssa
+  %inc2.i47 = add i64 %pos.1.lcssa, 1
+  %arrayidx3.i48 = getelementptr inbounds i8, ptr %data, i64 %pos.1.lcssa
   store i8 %conv1.i46, ptr %arrayidx3.i48, align 1
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %inc2.i47
   %3 = load ptr, ptr %t, align 8
@@ -1433,14 +1433,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55: ; preds = %while.body.i4
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55, %entry
-  %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55 ]
+  %pos.0 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit55 ]
   %value = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load ptr, ptr %value, align 8
   %cmp.i44.not = icmp eq ptr %6, null
   br i1 %cmp.i44.not, label %if.end22, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit39
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit39: ; preds = %if.end
-  %arrayidx3.i32 = getelementptr inbounds i8, ptr %data, i64 %pos.1
+  %arrayidx3.i32 = getelementptr inbounds i8, ptr %data, i64 %pos.0
   store i8 18, ptr %arrayidx3.i32, align 1
   %7 = load ptr, ptr %value, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -1457,29 +1457,29 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i.i
-  %pos.267 = add i64 %pos.1, 1
+  %pos.367 = add i64 %pos.0, 1
   %cmp.i68 = icmp ugt i64 %call13, 127
   br i1 %cmp.i68, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
 
 while.body.i:                                     ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit, %while.body.i
-  %pos.270 = phi i64 [ %pos.2, %while.body.i ], [ %pos.267, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
+  %pos.370 = phi i64 [ %pos.3, %while.body.i ], [ %pos.367, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
   %v.addr.i.069 = phi i64 [ %shr.i, %while.body.i ], [ %call13, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
   %9 = trunc i64 %v.addr.i.069 to i8
   %conv.i = or i8 %9, -128
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.270
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.370
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.069, 7
-  %pos.2 = add i64 %pos.270, 1
+  %pos.3 = add i64 %pos.370, 1
   %cmp.i = icmp ugt i64 %v.addr.i.069, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %pos.2.in.lcssa = phi i64 [ %pos.1, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.270, %while.body.i ]
+  %pos.3.in.lcssa = phi i64 [ %pos.0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.370, %while.body.i ]
   %v.addr.i.0.lcssa = phi i64 [ %call13, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i, %while.body.i ]
-  %pos.2.lcssa = phi i64 [ %pos.267, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.2, %while.body.i ]
+  %pos.3.lcssa = phi i64 [ %pos.367, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.3, %while.body.i ]
   %conv1.i = trunc nuw nsw i64 %v.addr.i.0.lcssa to i8
-  %inc2.i = add i64 %pos.2.in.lcssa, 2
-  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.2.lcssa
+  %inc2.i = add i64 %pos.3.in.lcssa, 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.3.lcssa
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   %add.ptr14 = getelementptr inbounds i8, ptr %data, i64 %inc2.i
   %10 = load ptr, ptr %value, align 8
@@ -1515,7 +1515,7 @@ lpad19:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.not.i.i.i.i51, label %eh.resume, label %eh.resume.sink.split
 
 if.end22:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit47, %if.end
-  %pos.3 = phi i64 [ %add21, %_ZN9struct_pb13UnknownFieldsD2Ev.exit47 ], [ %pos.1, %if.end ]
+  %pos.2 = phi i64 [ %add21, %_ZN9struct_pb13UnknownFieldsD2Ev.exit47 ], [ %pos.0, %if.end ]
   %16 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %17 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1523,7 +1523,7 @@ if.end22:                                         ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end22, %for.body.i
-  %pos.4 = phi i64 [ %add.i, %for.body.i ], [ %pos.3, %if.end22 ]
+  %pos.4 = phi i64 [ %add.i, %for.body.i ], [ %pos.2, %if.end22 ]
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %16, %if.end22 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.4
   %18 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
@@ -1711,7 +1711,7 @@ if.end73.i945:                                    ; preds = %if.end64.i937
   br i1 %cmp80.i952, label %if.end, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit982
 
 land.rhs.i879:                                    ; preds = %while.cond.i856.preheader, %while.body.i870
-  %val.i848.0734 = phi i64 [ %or101.i877, %while.body.i870 ], [ 0, %while.cond.i856.preheader ]
+  %val.i848.1734 = phi i64 [ %or101.i877, %while.body.i870 ], [ 0, %while.cond.i856.preheader ]
   %shift.i850.0733 = phi i32 [ %add.i878, %while.body.i870 ], [ 0, %while.cond.i856.preheader ]
   %inc96.i871730732 = phi i64 [ %inc96.i871, %while.body.i870 ], [ %pos.promoted, %while.cond.i856.preheader ]
   %arrayidx93.i880 = getelementptr inbounds i8, ptr %data, i64 %inc96.i871730732
@@ -1725,7 +1725,7 @@ while.body.i870:                                  ; preds = %land.rhs.i879
   %and99.i874 = zext nneg i8 %13 to i64
   %sh_prom.i875 = zext nneg i32 %shift.i850.0733 to i64
   %shl100.i876 = shl i64 %and99.i874, %sh_prom.i875
-  %or101.i877 = or i64 %shl100.i876, %val.i848.0734
+  %or101.i877 = or i64 %shl100.i876, %val.i848.1734
   %add.i878 = add i32 %shift.i850.0733, 7
   %cmp92.i857.not = icmp eq i64 %inc96.i871, %size
   br i1 %cmp92.i857.not, label %return.loopexit933, label %land.rhs.i879, !llvm.loop !8
@@ -1735,7 +1735,7 @@ if.end104.i861:                                   ; preds = %land.rhs.i879
   %conv107.i864 = zext nneg i8 %12 to i64
   %sh_prom108.i865 = zext nneg i32 %shift.i850.0733 to i64
   %shl109.i866 = shl i64 %conv107.i864, %sh_prom108.i865
-  %or110.i867 = or i64 %shl109.i866, %val.i848.0734
+  %or110.i867 = or i64 %shl109.i866, %val.i848.1734
   br label %if.end
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit982: ; preds = %if.end73.i945
@@ -1894,7 +1894,7 @@ if.end73.i:                                       ; preds = %if.end64.i
   br i1 %cmp80.i, label %if.end5, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i
-  %val.i.0770 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
+  %val.i.1770 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %shift.i.0769 = phi i32 [ %add.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %inc96.i766768 = phi i64 [ %inc96.i, %while.body.i ], [ %pos.promoted765, %while.cond.i.preheader ]
   %arrayidx93.i = getelementptr inbounds i8, ptr %data, i64 %inc96.i766768
@@ -1908,7 +1908,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %and99.i = zext nneg i8 %27 to i64
   %sh_prom.i = zext nneg i32 %shift.i.0769 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
-  %or101.i = or i64 %shl100.i, %val.i.0770
+  %or101.i = or i64 %shl100.i, %val.i.1770
   %add.i = add i32 %shift.i.0769, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
   br i1 %cmp92.i.not, label %return.loopexit, label %land.rhs.i, !llvm.loop !8
@@ -1918,7 +1918,7 @@ if.end104.i:                                      ; preds = %land.rhs.i
   %conv107.i = zext nneg i8 %26 to i64
   %sh_prom108.i = zext nneg i32 %shift.i.0769 to i64
   %shl109.i = shl i64 %conv107.i, %sh_prom108.i
-  %or110.i = or i64 %shl109.i, %val.i.0770
+  %or110.i = or i64 %shl109.i, %val.i.1770
   br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
@@ -2144,7 +2144,7 @@ if.end73.i235:                                    ; preds = %if.end64.i227
   br i1 %cmp80.i242, label %if.end18, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit272
 
 land.rhs.i169:                                    ; preds = %while.cond.i146.preheader, %while.body.i160
-  %val.i138.0764 = phi i64 [ %or101.i167, %while.body.i160 ], [ 0, %while.cond.i146.preheader ]
+  %val.i138.1764 = phi i64 [ %or101.i167, %while.body.i160 ], [ 0, %while.cond.i146.preheader ]
   %shift.i140.0763 = phi i32 [ %add.i168, %while.body.i160 ], [ 0, %while.cond.i146.preheader ]
   %inc96.i161760762 = phi i64 [ %inc96.i161, %while.body.i160 ], [ %pos.promoted765, %while.cond.i146.preheader ]
   %arrayidx93.i170 = getelementptr inbounds i8, ptr %data, i64 %inc96.i161760762
@@ -2158,7 +2158,7 @@ while.body.i160:                                  ; preds = %land.rhs.i169
   %and99.i164 = zext nneg i8 %50 to i64
   %sh_prom.i165 = zext nneg i32 %shift.i140.0763 to i64
   %shl100.i166 = shl i64 %and99.i164, %sh_prom.i165
-  %or101.i167 = or i64 %shl100.i166, %val.i138.0764
+  %or101.i167 = or i64 %shl100.i166, %val.i138.1764
   %add.i168 = add i32 %shift.i140.0763, 7
   %cmp92.i147.not = icmp eq i64 %inc96.i161, %size
   br i1 %cmp92.i147.not, label %return.loopexit929, label %land.rhs.i169, !llvm.loop !8
@@ -2168,7 +2168,7 @@ if.end104.i151:                                   ; preds = %land.rhs.i169
   %conv107.i154 = zext nneg i8 %49 to i64
   %sh_prom108.i155 = zext nneg i32 %shift.i140.0763 to i64
   %shl109.i156 = shl i64 %conv107.i154, %sh_prom108.i155
-  %or110.i157 = or i64 %shl109.i156, %val.i138.0764
+  %or110.i157 = or i64 %shl109.i156, %val.i138.1764
   br label %if.end18
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit272: ; preds = %if.end73.i235
@@ -2396,7 +2396,7 @@ if.end73.i377:                                    ; preds = %if.end64.i369
   br i1 %cmp80.i384, label %if.end36, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit414
 
 land.rhs.i311:                                    ; preds = %while.cond.i288.preheader, %while.body.i302
-  %val.i280.0758 = phi i64 [ %or101.i309, %while.body.i302 ], [ 0, %while.cond.i288.preheader ]
+  %val.i280.1758 = phi i64 [ %or101.i309, %while.body.i302 ], [ 0, %while.cond.i288.preheader ]
   %shift.i282.0757 = phi i32 [ %add.i310, %while.body.i302 ], [ 0, %while.cond.i288.preheader ]
   %inc96.i303754756 = phi i64 [ %inc96.i303, %while.body.i302 ], [ %63, %while.cond.i288.preheader ]
   %arrayidx93.i312 = getelementptr inbounds i8, ptr %data, i64 %inc96.i303754756
@@ -2410,7 +2410,7 @@ while.body.i302:                                  ; preds = %land.rhs.i311
   %and99.i306 = zext nneg i8 %76 to i64
   %sh_prom.i307 = zext nneg i32 %shift.i282.0757 to i64
   %shl100.i308 = shl i64 %and99.i306, %sh_prom.i307
-  %or101.i309 = or i64 %shl100.i308, %val.i280.0758
+  %or101.i309 = or i64 %shl100.i308, %val.i280.1758
   %add.i310 = add i32 %shift.i282.0757, 7
   %cmp92.i289.not = icmp eq i64 %inc96.i303, %size
   br i1 %cmp92.i289.not, label %cleanup.loopexit, label %land.rhs.i311, !llvm.loop !8
@@ -2420,7 +2420,7 @@ if.end104.i293:                                   ; preds = %land.rhs.i311
   %conv107.i296 = zext nneg i8 %75 to i64
   %sh_prom108.i297 = zext nneg i32 %shift.i282.0757 to i64
   %shl109.i298 = shl i64 %conv107.i296, %sh_prom108.i297
-  %or110.i299 = or i64 %shl109.i298, %val.i280.0758
+  %or110.i299 = or i64 %shl109.i298, %val.i280.1758
   br label %if.end36
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit414: ; preds = %if.end73.i377
@@ -2737,7 +2737,7 @@ if.end73.i519:                                    ; preds = %if.end64.i511
   br i1 %cmp80.i526, label %if.end52, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit556
 
 land.rhs.i453:                                    ; preds = %while.cond.i430.preheader, %while.body.i444
-  %val.i422.0752 = phi i64 [ %or101.i451, %while.body.i444 ], [ 0, %while.cond.i430.preheader ]
+  %val.i422.1752 = phi i64 [ %or101.i451, %while.body.i444 ], [ 0, %while.cond.i430.preheader ]
   %shift.i424.0751 = phi i32 [ %add.i452, %while.body.i444 ], [ 0, %while.cond.i430.preheader ]
   %inc96.i445748750 = phi i64 [ %inc96.i445, %while.body.i444 ], [ %pos.promoted765, %while.cond.i430.preheader ]
   %arrayidx93.i454 = getelementptr inbounds i8, ptr %data, i64 %inc96.i445748750
@@ -2751,7 +2751,7 @@ while.body.i444:                                  ; preds = %land.rhs.i453
   %and99.i448 = zext nneg i8 %109 to i64
   %sh_prom.i449 = zext nneg i32 %shift.i424.0751 to i64
   %shl100.i450 = shl i64 %and99.i448, %sh_prom.i449
-  %or101.i451 = or i64 %shl100.i450, %val.i422.0752
+  %or101.i451 = or i64 %shl100.i450, %val.i422.1752
   %add.i452 = add i32 %shift.i424.0751, 7
   %cmp92.i431.not = icmp eq i64 %inc96.i445, %size
   br i1 %cmp92.i431.not, label %return.loopexit930, label %land.rhs.i453, !llvm.loop !8
@@ -2761,7 +2761,7 @@ if.end104.i435:                                   ; preds = %land.rhs.i453
   %conv107.i438 = zext nneg i8 %108 to i64
   %sh_prom108.i439 = zext nneg i32 %shift.i424.0751 to i64
   %shl109.i440 = shl i64 %conv107.i438, %sh_prom108.i439
-  %or110.i441 = or i64 %shl109.i440, %val.i422.0752
+  %or110.i441 = or i64 %shl109.i440, %val.i422.1752
   br label %if.end52
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit556: ; preds = %if.end73.i519
@@ -3034,7 +3034,7 @@ if.end73.i661:                                    ; preds = %if.end64.i653
   br i1 %cmp80.i668, label %if.end75, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit698
 
 land.rhs.i595:                                    ; preds = %while.cond.i572.preheader, %while.body.i586
-  %val.i564.0746 = phi i64 [ %or101.i593, %while.body.i586 ], [ 0, %while.cond.i572.preheader ]
+  %val.i564.1746 = phi i64 [ %or101.i593, %while.body.i586 ], [ 0, %while.cond.i572.preheader ]
   %shift.i566.0745 = phi i32 [ %add.i594, %while.body.i586 ], [ 0, %while.cond.i572.preheader ]
   %inc96.i587742744 = phi i64 [ %inc96.i587, %while.body.i586 ], [ %130, %while.cond.i572.preheader ]
   %arrayidx93.i596 = getelementptr inbounds i8, ptr %data, i64 %inc96.i587742744
@@ -3048,7 +3048,7 @@ while.body.i586:                                  ; preds = %land.rhs.i595
   %and99.i590 = zext nneg i8 %143 to i64
   %sh_prom.i591 = zext nneg i32 %shift.i566.0745 to i64
   %shl100.i592 = shl i64 %and99.i590, %sh_prom.i591
-  %or101.i593 = or i64 %shl100.i592, %val.i564.0746
+  %or101.i593 = or i64 %shl100.i592, %val.i564.1746
   %add.i594 = add i32 %shift.i566.0745, 7
   %cmp92.i573.not = icmp eq i64 %inc96.i587, %size
   br i1 %cmp92.i573.not, label %return.loopexit931, label %land.rhs.i595, !llvm.loop !8
@@ -3058,7 +3058,7 @@ if.end104.i577:                                   ; preds = %land.rhs.i595
   %conv107.i580 = zext nneg i8 %142 to i64
   %sh_prom108.i581 = zext nneg i32 %shift.i566.0745 to i64
   %shl109.i582 = shl i64 %conv107.i580, %sh_prom108.i581
-  %or110.i583 = or i64 %shl109.i582, %val.i564.0746
+  %or110.i583 = or i64 %shl109.i582, %val.i564.1746
   br label %if.end75
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit698: ; preds = %if.end73.i661
@@ -3203,7 +3203,7 @@ if.end73.i803:                                    ; preds = %if.end64.i795
   br i1 %cmp80.i810, label %if.end90, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit840
 
 land.rhs.i737:                                    ; preds = %while.cond.i714.preheader, %while.body.i728
-  %val.i706.0740 = phi i64 [ %or101.i735, %while.body.i728 ], [ 0, %while.cond.i714.preheader ]
+  %val.i706.1740 = phi i64 [ %or101.i735, %while.body.i728 ], [ 0, %while.cond.i714.preheader ]
   %shift.i708.0739 = phi i32 [ %add.i736, %while.body.i728 ], [ 0, %while.cond.i714.preheader ]
   %inc96.i729736738 = phi i64 [ %inc96.i729, %while.body.i728 ], [ %pos.promoted765, %while.cond.i714.preheader ]
   %arrayidx93.i738 = getelementptr inbounds i8, ptr %data, i64 %inc96.i729736738
@@ -3217,7 +3217,7 @@ while.body.i728:                                  ; preds = %land.rhs.i737
   %and99.i732 = zext nneg i8 %160 to i64
   %sh_prom.i733 = zext nneg i32 %shift.i708.0739 to i64
   %shl100.i734 = shl i64 %and99.i732, %sh_prom.i733
-  %or101.i735 = or i64 %shl100.i734, %val.i706.0740
+  %or101.i735 = or i64 %shl100.i734, %val.i706.1740
   %add.i736 = add i32 %shift.i708.0739, 7
   %cmp92.i715.not = icmp eq i64 %inc96.i729, %size
   br i1 %cmp92.i715.not, label %return.loopexit932, label %land.rhs.i737, !llvm.loop !8
@@ -3227,7 +3227,7 @@ if.end104.i719:                                   ; preds = %land.rhs.i737
   %conv107.i722 = zext nneg i8 %159 to i64
   %sh_prom108.i723 = zext nneg i32 %shift.i708.0739 to i64
   %shl109.i724 = shl i64 %conv107.i722, %sh_prom108.i723
-  %or110.i725 = or i64 %shl109.i724, %val.i706.0740
+  %or110.i725 = or i64 %shl109.i724, %val.i706.1740
   br label %if.end90
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit840: ; preds = %if.end73.i803
@@ -3280,8 +3280,8 @@ return.loopexit933:                               ; preds = %while.body.i870
   br label %return
 
 return:                                           ; preds = %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit982, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit556, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit698, %if.end75, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit840, %sw.epilog, %while.cond.i856.preheader, %while.cond.i714.preheader, %while.cond.i572.preheader, %while.cond.i430.preheader, %while.cond.i146.preheader, %while.cond.i.preheader, %return.loopexit933, %return.loopexit932, %return.loopexit931, %return.loopexit930, %return.loopexit929, %return.loopexit, %entry, %sw.default, %if.then60, %if.then26
-  %retval.3 = phi i1 [ %call92, %sw.default ], [ false, %if.then60 ], [ false, %if.then26 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit929 ], [ false, %return.loopexit930 ], [ false, %return.loopexit931 ], [ false, %return.loopexit932 ], [ false, %return.loopexit933 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i146.preheader ], [ false, %while.cond.i430.preheader ], [ false, %while.cond.i572.preheader ], [ false, %while.cond.i714.preheader ], [ false, %while.cond.i856.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit982 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit272 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit556 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit698 ], [ false, %if.end75 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit840 ], [ true, %sw.epilog ]
-  ret i1 %retval.3
+  %retval.1 = phi i1 [ %call92, %sw.default ], [ false, %if.then60 ], [ false, %if.then26 ], [ true, %entry ], [ false, %return.loopexit ], [ false, %return.loopexit929 ], [ false, %return.loopexit930 ], [ false, %return.loopexit931 ], [ false, %return.loopexit932 ], [ false, %return.loopexit933 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i146.preheader ], [ false, %while.cond.i430.preheader ], [ false, %while.cond.i572.preheader ], [ false, %while.cond.i714.preheader ], [ false, %while.cond.i856.preheader ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit982 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit272 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit556 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit698 ], [ false, %if.end75 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit840 ], [ true, %sw.epilog ]
+  ret i1 %retval.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3819,7 +3819,7 @@ if.end73.i143:                                    ; preds = %if.end64.i135
   br i1 %cmp80.i150, label %if.end15, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit180
 
 land.rhs.i76:                                     ; preds = %while.cond.i53.preheader, %while.body.i67
-  %val.i45.0304 = phi i64 [ %or101.i74, %while.body.i67 ], [ 0, %while.cond.i53.preheader ]
+  %val.i45.1304 = phi i64 [ %or101.i74, %while.body.i67 ], [ 0, %while.cond.i53.preheader ]
   %shift.i47.0303 = phi i32 [ %add.i75, %while.body.i67 ], [ 0, %while.cond.i53.preheader ]
   %36 = phi i64 [ %inc96.i68, %while.body.i67 ], [ %0, %while.cond.i53.preheader ]
   %arrayidx93.i77 = getelementptr inbounds i8, ptr %data, i64 %36
@@ -3835,7 +3835,7 @@ while.body.i67:                                   ; preds = %land.rhs.i76
   %and99.i71 = zext nneg i8 %39 to i64
   %sh_prom.i72 = zext nneg i32 %shift.i47.0303 to i64
   %shl100.i73 = shl i64 %and99.i71, %sh_prom.i72
-  %or101.i74 = or i64 %shl100.i73, %val.i45.0304
+  %or101.i74 = or i64 %shl100.i73, %val.i45.1304
   %add.i75 = add i32 %shift.i47.0303, 7
   %cmp92.i54.not = icmp eq i64 %inc96.i68, %size
   br i1 %cmp92.i54.not, label %return, label %land.rhs.i76, !llvm.loop !8
@@ -3844,7 +3844,7 @@ if.end104.i58:                                    ; preds = %land.rhs.i76
   %conv107.i61 = sext i8 %38 to i64
   %sh_prom108.i62 = zext nneg i32 %shift.i47.0303 to i64
   %shl109.i63 = shl i64 %conv107.i61, %sh_prom108.i62
-  %or110.i64 = or i64 %shl109.i63, %val.i45.0304
+  %or110.i64 = or i64 %shl109.i63, %val.i45.1304
   br label %if.end15
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit180: ; preds = %if.end73.i143
@@ -4223,7 +4223,7 @@ if.end73.i1554:                                   ; preds = %if.end64.i1546
   br i1 %cmp80.i1561, label %if.end, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1591
 
 land.rhs.i1488:                                   ; preds = %while.cond.i1465.preheader, %while.body.i1479
-  %val.i1457.01100 = phi i64 [ %or101.i1486, %while.body.i1479 ], [ 0, %while.cond.i1465.preheader ]
+  %val.i1457.11100 = phi i64 [ %or101.i1486, %while.body.i1479 ], [ 0, %while.cond.i1465.preheader ]
   %shift.i1459.01099 = phi i32 [ %add.i1487, %while.body.i1479 ], [ 0, %while.cond.i1465.preheader ]
   %inc96.i148010961098 = phi i64 [ %inc96.i1480, %while.body.i1479 ], [ %pos.promoted, %while.cond.i1465.preheader ]
   %arrayidx93.i1489 = getelementptr inbounds i8, ptr %data, i64 %inc96.i148010961098
@@ -4237,7 +4237,7 @@ while.body.i1479:                                 ; preds = %land.rhs.i1488
   %and99.i1483 = zext nneg i8 %15 to i64
   %sh_prom.i1484 = zext nneg i32 %shift.i1459.01099 to i64
   %shl100.i1485 = shl i64 %and99.i1483, %sh_prom.i1484
-  %or101.i1486 = or i64 %shl100.i1485, %val.i1457.01100
+  %or101.i1486 = or i64 %shl100.i1485, %val.i1457.11100
   %add.i1487 = add i32 %shift.i1459.01099, 7
   %cmp92.i1466.not = icmp eq i64 %inc96.i1480, %size
   br i1 %cmp92.i1466.not, label %return.loopexit1412, label %land.rhs.i1488, !llvm.loop !8
@@ -4247,7 +4247,7 @@ if.end104.i1470:                                  ; preds = %land.rhs.i1488
   %conv107.i1473 = zext nneg i8 %14 to i64
   %sh_prom108.i1474 = zext nneg i32 %shift.i1459.01099 to i64
   %shl109.i1475 = shl i64 %conv107.i1473, %sh_prom108.i1474
-  %or110.i1476 = or i64 %shl109.i1475, %val.i1457.01100
+  %or110.i1476 = or i64 %shl109.i1475, %val.i1457.11100
   br label %if.end
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1591: ; preds = %if.end73.i1554
@@ -4394,7 +4394,7 @@ if.end73.i:                                       ; preds = %if.end64.i
   br i1 %cmp80.i, label %if.end5, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i
-  %val.i.01160 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
+  %val.i.11160 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %shift.i.01159 = phi i32 [ %add.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %inc96.i11561158 = phi i64 [ %inc96.i, %while.body.i ], [ %pos.promoted1155, %while.cond.i.preheader ]
   %arrayidx93.i = getelementptr inbounds i8, ptr %data, i64 %inc96.i11561158
@@ -4408,7 +4408,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %and99.i = zext nneg i8 %29 to i64
   %sh_prom.i = zext nneg i32 %shift.i.01159 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
-  %or101.i = or i64 %shl100.i, %val.i.01160
+  %or101.i = or i64 %shl100.i, %val.i.11160
   %add.i = add i32 %shift.i.01159, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
   br i1 %cmp92.i.not, label %return.loopexit, label %land.rhs.i, !llvm.loop !8
@@ -4418,7 +4418,7 @@ if.end104.i:                                      ; preds = %land.rhs.i
   %conv107.i = zext nneg i8 %28 to i64
   %sh_prom108.i = zext nneg i32 %shift.i.01159 to i64
   %shl109.i = shl i64 %conv107.i, %sh_prom108.i
-  %or110.i = or i64 %shl109.i, %val.i.01160
+  %or110.i = or i64 %shl109.i, %val.i.11160
   br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
@@ -4553,7 +4553,7 @@ if.end73.i276:                                    ; preds = %if.end64.i268
   br i1 %cmp80.i283, label %if.end12, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit313
 
 land.rhs.i210:                                    ; preds = %while.cond.i187.preheader, %while.body.i201
-  %val.i179.01154 = phi i64 [ %or101.i208, %while.body.i201 ], [ 0, %while.cond.i187.preheader ]
+  %val.i179.11154 = phi i64 [ %or101.i208, %while.body.i201 ], [ 0, %while.cond.i187.preheader ]
   %shift.i181.01153 = phi i32 [ %add.i209, %while.body.i201 ], [ 0, %while.cond.i187.preheader ]
   %inc96.i20211501152 = phi i64 [ %inc96.i202, %while.body.i201 ], [ %pos.promoted1155, %while.cond.i187.preheader ]
   %arrayidx93.i211 = getelementptr inbounds i8, ptr %data, i64 %inc96.i20211501152
@@ -4567,7 +4567,7 @@ while.body.i201:                                  ; preds = %land.rhs.i210
   %and99.i205 = zext nneg i8 %44 to i64
   %sh_prom.i206 = zext nneg i32 %shift.i181.01153 to i64
   %shl100.i207 = shl i64 %and99.i205, %sh_prom.i206
-  %or101.i208 = or i64 %shl100.i207, %val.i179.01154
+  %or101.i208 = or i64 %shl100.i207, %val.i179.11154
   %add.i209 = add i32 %shift.i181.01153, 7
   %cmp92.i188.not = icmp eq i64 %inc96.i202, %size
   br i1 %cmp92.i188.not, label %return.loopexit1403, label %land.rhs.i210, !llvm.loop !8
@@ -4577,7 +4577,7 @@ if.end104.i192:                                   ; preds = %land.rhs.i210
   %conv107.i195 = zext nneg i8 %43 to i64
   %sh_prom108.i196 = zext nneg i32 %shift.i181.01153 to i64
   %shl109.i197 = shl i64 %conv107.i195, %sh_prom108.i196
-  %or110.i198 = or i64 %shl109.i197, %val.i179.01154
+  %or110.i198 = or i64 %shl109.i197, %val.i179.11154
   br label %if.end12
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit313: ; preds = %if.end73.i276
@@ -4712,7 +4712,7 @@ if.end73.i418:                                    ; preds = %if.end64.i410
   br i1 %cmp80.i425, label %if.end19, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit455
 
 land.rhs.i352:                                    ; preds = %while.cond.i329.preheader, %while.body.i343
-  %val.i321.01148 = phi i64 [ %or101.i350, %while.body.i343 ], [ 0, %while.cond.i329.preheader ]
+  %val.i321.11148 = phi i64 [ %or101.i350, %while.body.i343 ], [ 0, %while.cond.i329.preheader ]
   %shift.i323.01147 = phi i32 [ %add.i351, %while.body.i343 ], [ 0, %while.cond.i329.preheader ]
   %inc96.i34411441146 = phi i64 [ %inc96.i344, %while.body.i343 ], [ %pos.promoted1155, %while.cond.i329.preheader ]
   %arrayidx93.i353 = getelementptr inbounds i8, ptr %data, i64 %inc96.i34411441146
@@ -4726,7 +4726,7 @@ while.body.i343:                                  ; preds = %land.rhs.i352
   %and99.i347 = zext nneg i8 %59 to i64
   %sh_prom.i348 = zext nneg i32 %shift.i323.01147 to i64
   %shl100.i349 = shl i64 %and99.i347, %sh_prom.i348
-  %or101.i350 = or i64 %shl100.i349, %val.i321.01148
+  %or101.i350 = or i64 %shl100.i349, %val.i321.11148
   %add.i351 = add i32 %shift.i323.01147, 7
   %cmp92.i330.not = icmp eq i64 %inc96.i344, %size
   br i1 %cmp92.i330.not, label %return.loopexit1404, label %land.rhs.i352, !llvm.loop !8
@@ -4736,7 +4736,7 @@ if.end104.i334:                                   ; preds = %land.rhs.i352
   %conv107.i337 = zext nneg i8 %58 to i64
   %sh_prom108.i338 = zext nneg i32 %shift.i323.01147 to i64
   %shl109.i339 = shl i64 %conv107.i337, %sh_prom108.i338
-  %or110.i340 = or i64 %shl109.i339, %val.i321.01148
+  %or110.i340 = or i64 %shl109.i339, %val.i321.11148
   br label %if.end19
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit455: ; preds = %if.end73.i418
@@ -4887,7 +4887,7 @@ if.end73.i560:                                    ; preds = %if.end64.i552
   br i1 %cmp80.i567, label %if.end26, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit597
 
 land.rhs.i494:                                    ; preds = %while.cond.i471.preheader, %while.body.i485
-  %val.i463.01142 = phi i64 [ %or101.i492, %while.body.i485 ], [ 0, %while.cond.i471.preheader ]
+  %val.i463.11142 = phi i64 [ %or101.i492, %while.body.i485 ], [ 0, %while.cond.i471.preheader ]
   %shift.i465.01141 = phi i32 [ %add.i493, %while.body.i485 ], [ 0, %while.cond.i471.preheader ]
   %inc96.i48611381140 = phi i64 [ %inc96.i486, %while.body.i485 ], [ %pos.promoted1155, %while.cond.i471.preheader ]
   %arrayidx93.i495 = getelementptr inbounds i8, ptr %data, i64 %inc96.i48611381140
@@ -4901,7 +4901,7 @@ while.body.i485:                                  ; preds = %land.rhs.i494
   %and99.i489 = zext nneg i8 %74 to i64
   %sh_prom.i490 = zext nneg i32 %shift.i465.01141 to i64
   %shl100.i491 = shl i64 %and99.i489, %sh_prom.i490
-  %or101.i492 = or i64 %shl100.i491, %val.i463.01142
+  %or101.i492 = or i64 %shl100.i491, %val.i463.11142
   %add.i493 = add i32 %shift.i465.01141, 7
   %cmp92.i472.not = icmp eq i64 %inc96.i486, %size
   br i1 %cmp92.i472.not, label %return.loopexit1405, label %land.rhs.i494, !llvm.loop !8
@@ -4911,7 +4911,7 @@ if.end104.i476:                                   ; preds = %land.rhs.i494
   %conv107.i479 = zext nneg i8 %73 to i64
   %sh_prom108.i480 = zext nneg i32 %shift.i465.01141 to i64
   %shl109.i481 = shl i64 %conv107.i479, %sh_prom108.i480
-  %or110.i482 = or i64 %shl109.i481, %val.i463.01142
+  %or110.i482 = or i64 %shl109.i481, %val.i463.11142
   br label %if.end26
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit597: ; preds = %if.end73.i560
@@ -5137,7 +5137,7 @@ if.end73.i702:                                    ; preds = %if.end64.i694
   br i1 %cmp80.i709, label %if.end39, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit739
 
 land.rhs.i636:                                    ; preds = %while.cond.i613.preheader, %while.body.i627
-  %val.i605.01136 = phi i64 [ %or101.i634, %while.body.i627 ], [ 0, %while.cond.i613.preheader ]
+  %val.i605.11136 = phi i64 [ %or101.i634, %while.body.i627 ], [ 0, %while.cond.i613.preheader ]
   %shift.i607.01135 = phi i32 [ %add.i635, %while.body.i627 ], [ 0, %while.cond.i613.preheader ]
   %inc96.i62811321134 = phi i64 [ %inc96.i628, %while.body.i627 ], [ %pos.promoted1155, %while.cond.i613.preheader ]
   %arrayidx93.i637 = getelementptr inbounds i8, ptr %data, i64 %inc96.i62811321134
@@ -5151,7 +5151,7 @@ while.body.i627:                                  ; preds = %land.rhs.i636
   %and99.i631 = zext nneg i8 %97 to i64
   %sh_prom.i632 = zext nneg i32 %shift.i607.01135 to i64
   %shl100.i633 = shl i64 %and99.i631, %sh_prom.i632
-  %or101.i634 = or i64 %shl100.i633, %val.i605.01136
+  %or101.i634 = or i64 %shl100.i633, %val.i605.11136
   %add.i635 = add i32 %shift.i607.01135, 7
   %cmp92.i614.not = icmp eq i64 %inc96.i628, %size
   br i1 %cmp92.i614.not, label %return.loopexit1406, label %land.rhs.i636, !llvm.loop !8
@@ -5161,7 +5161,7 @@ if.end104.i618:                                   ; preds = %land.rhs.i636
   %conv107.i621 = zext nneg i8 %96 to i64
   %sh_prom108.i622 = zext nneg i32 %shift.i607.01135 to i64
   %shl109.i623 = shl i64 %conv107.i621, %sh_prom108.i622
-  %or110.i624 = or i64 %shl109.i623, %val.i605.01136
+  %or110.i624 = or i64 %shl109.i623, %val.i605.11136
   br label %if.end39
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit739: ; preds = %if.end73.i702
@@ -5371,7 +5371,7 @@ if.end73.i844:                                    ; preds = %if.end64.i836
   br i1 %cmp80.i851, label %if.end54, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit881
 
 land.rhs.i778:                                    ; preds = %while.cond.i755.preheader, %while.body.i769
-  %val.i747.01130 = phi i64 [ %or101.i776, %while.body.i769 ], [ 0, %while.cond.i755.preheader ]
+  %val.i747.11130 = phi i64 [ %or101.i776, %while.body.i769 ], [ 0, %while.cond.i755.preheader ]
   %shift.i749.01129 = phi i32 [ %add.i777, %while.body.i769 ], [ 0, %while.cond.i755.preheader ]
   %inc96.i77011261128 = phi i64 [ %inc96.i770, %while.body.i769 ], [ %pos.promoted1155, %while.cond.i755.preheader ]
   %arrayidx93.i779 = getelementptr inbounds i8, ptr %data, i64 %inc96.i77011261128
@@ -5385,7 +5385,7 @@ while.body.i769:                                  ; preds = %land.rhs.i778
   %and99.i773 = zext nneg i8 %120 to i64
   %sh_prom.i774 = zext nneg i32 %shift.i749.01129 to i64
   %shl100.i775 = shl i64 %and99.i773, %sh_prom.i774
-  %or101.i776 = or i64 %shl100.i775, %val.i747.01130
+  %or101.i776 = or i64 %shl100.i775, %val.i747.11130
   %add.i777 = add i32 %shift.i749.01129, 7
   %cmp92.i756.not = icmp eq i64 %inc96.i770, %size
   br i1 %cmp92.i756.not, label %return.loopexit1407, label %land.rhs.i778, !llvm.loop !8
@@ -5395,7 +5395,7 @@ if.end104.i760:                                   ; preds = %land.rhs.i778
   %conv107.i763 = zext nneg i8 %119 to i64
   %sh_prom108.i764 = zext nneg i32 %shift.i749.01129 to i64
   %shl109.i765 = shl i64 %conv107.i763, %sh_prom108.i764
-  %or110.i766 = or i64 %shl109.i765, %val.i747.01130
+  %or110.i766 = or i64 %shl109.i765, %val.i747.11130
   br label %if.end54
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit881: ; preds = %if.end73.i844
@@ -5546,7 +5546,7 @@ if.end73.i986:                                    ; preds = %if.end64.i978
   br i1 %cmp80.i993, label %if.end62, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1023
 
 land.rhs.i920:                                    ; preds = %while.cond.i897.preheader, %while.body.i911
-  %val.i889.01124 = phi i64 [ %or101.i918, %while.body.i911 ], [ 0, %while.cond.i897.preheader ]
+  %val.i889.11124 = phi i64 [ %or101.i918, %while.body.i911 ], [ 0, %while.cond.i897.preheader ]
   %shift.i891.01123 = phi i32 [ %add.i919, %while.body.i911 ], [ 0, %while.cond.i897.preheader ]
   %inc96.i91211201122 = phi i64 [ %inc96.i912, %while.body.i911 ], [ %pos.promoted1155, %while.cond.i897.preheader ]
   %arrayidx93.i921 = getelementptr inbounds i8, ptr %data, i64 %inc96.i91211201122
@@ -5560,7 +5560,7 @@ while.body.i911:                                  ; preds = %land.rhs.i920
   %and99.i915 = zext nneg i8 %135 to i64
   %sh_prom.i916 = zext nneg i32 %shift.i891.01123 to i64
   %shl100.i917 = shl i64 %and99.i915, %sh_prom.i916
-  %or101.i918 = or i64 %shl100.i917, %val.i889.01124
+  %or101.i918 = or i64 %shl100.i917, %val.i889.11124
   %add.i919 = add i32 %shift.i891.01123, 7
   %cmp92.i898.not = icmp eq i64 %inc96.i912, %size
   br i1 %cmp92.i898.not, label %return.loopexit1408, label %land.rhs.i920, !llvm.loop !8
@@ -5570,7 +5570,7 @@ if.end104.i902:                                   ; preds = %land.rhs.i920
   %conv107.i905 = zext nneg i8 %134 to i64
   %sh_prom108.i906 = zext nneg i32 %shift.i891.01123 to i64
   %shl109.i907 = shl i64 %conv107.i905, %sh_prom108.i906
-  %or110.i908 = or i64 %shl109.i907, %val.i889.01124
+  %or110.i908 = or i64 %shl109.i907, %val.i889.11124
   br label %if.end62
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1023: ; preds = %if.end73.i986
@@ -5725,7 +5725,7 @@ if.end73.i1128:                                   ; preds = %if.end64.i1120
   br i1 %cmp80.i1135, label %if.end71, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1165
 
 land.rhs.i1062:                                   ; preds = %while.cond.i1039.preheader, %while.body.i1053
-  %val.i1031.01118 = phi i64 [ %or101.i1060, %while.body.i1053 ], [ 0, %while.cond.i1039.preheader ]
+  %val.i1031.11118 = phi i64 [ %or101.i1060, %while.body.i1053 ], [ 0, %while.cond.i1039.preheader ]
   %shift.i1033.01117 = phi i32 [ %add.i1061, %while.body.i1053 ], [ 0, %while.cond.i1039.preheader ]
   %inc96.i105411141116 = phi i64 [ %inc96.i1054, %while.body.i1053 ], [ %pos.promoted1155, %while.cond.i1039.preheader ]
   %arrayidx93.i1063 = getelementptr inbounds i8, ptr %data, i64 %inc96.i105411141116
@@ -5739,7 +5739,7 @@ while.body.i1053:                                 ; preds = %land.rhs.i1062
   %and99.i1057 = zext nneg i8 %150 to i64
   %sh_prom.i1058 = zext nneg i32 %shift.i1033.01117 to i64
   %shl100.i1059 = shl i64 %and99.i1057, %sh_prom.i1058
-  %or101.i1060 = or i64 %shl100.i1059, %val.i1031.01118
+  %or101.i1060 = or i64 %shl100.i1059, %val.i1031.11118
   %add.i1061 = add i32 %shift.i1033.01117, 7
   %cmp92.i1040.not = icmp eq i64 %inc96.i1054, %size
   br i1 %cmp92.i1040.not, label %return.loopexit1409, label %land.rhs.i1062, !llvm.loop !8
@@ -5749,7 +5749,7 @@ if.end104.i1044:                                  ; preds = %land.rhs.i1062
   %conv107.i1047 = zext nneg i8 %149 to i64
   %sh_prom108.i1048 = zext nneg i32 %shift.i1033.01117 to i64
   %shl109.i1049 = shl i64 %conv107.i1047, %sh_prom108.i1048
-  %or110.i1050 = or i64 %shl109.i1049, %val.i1031.01118
+  %or110.i1050 = or i64 %shl109.i1049, %val.i1031.11118
   br label %if.end71
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1165: ; preds = %if.end73.i1128
@@ -5978,7 +5978,7 @@ if.end73.i1270:                                   ; preds = %if.end64.i1262
   br i1 %cmp80.i1277, label %if.end89, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1307
 
 land.rhs.i1204:                                   ; preds = %while.cond.i1181.preheader, %while.body.i1195
-  %val.i1173.01112 = phi i64 [ %or101.i1202, %while.body.i1195 ], [ 0, %while.cond.i1181.preheader ]
+  %val.i1173.11112 = phi i64 [ %or101.i1202, %while.body.i1195 ], [ 0, %while.cond.i1181.preheader ]
   %shift.i1175.01111 = phi i32 [ %add.i1203, %while.body.i1195 ], [ 0, %while.cond.i1181.preheader ]
   %inc96.i119611081110 = phi i64 [ %inc96.i1196, %while.body.i1195 ], [ %pos.promoted1155, %while.cond.i1181.preheader ]
   %arrayidx93.i1205 = getelementptr inbounds i8, ptr %data, i64 %inc96.i119611081110
@@ -5992,7 +5992,7 @@ while.body.i1195:                                 ; preds = %land.rhs.i1204
   %and99.i1199 = zext nneg i8 %176 to i64
   %sh_prom.i1200 = zext nneg i32 %shift.i1175.01111 to i64
   %shl100.i1201 = shl i64 %and99.i1199, %sh_prom.i1200
-  %or101.i1202 = or i64 %shl100.i1201, %val.i1173.01112
+  %or101.i1202 = or i64 %shl100.i1201, %val.i1173.11112
   %add.i1203 = add i32 %shift.i1175.01111, 7
   %cmp92.i1182.not = icmp eq i64 %inc96.i1196, %size
   br i1 %cmp92.i1182.not, label %return.loopexit1410, label %land.rhs.i1204, !llvm.loop !8
@@ -6002,7 +6002,7 @@ if.end104.i1186:                                  ; preds = %land.rhs.i1204
   %conv107.i1189 = zext nneg i8 %175 to i64
   %sh_prom108.i1190 = zext nneg i32 %shift.i1175.01111 to i64
   %shl109.i1191 = shl i64 %conv107.i1189, %sh_prom108.i1190
-  %or110.i1192 = or i64 %shl109.i1191, %val.i1173.01112
+  %or110.i1192 = or i64 %shl109.i1191, %val.i1173.11112
   br label %if.end89
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1307: ; preds = %if.end73.i1270
@@ -6228,7 +6228,7 @@ if.end73.i1412:                                   ; preds = %if.end64.i1404
   br i1 %cmp80.i1419, label %if.end104, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1449
 
 land.rhs.i1346:                                   ; preds = %while.cond.i1323.preheader, %while.body.i1337
-  %val.i1315.01106 = phi i64 [ %or101.i1344, %while.body.i1337 ], [ 0, %while.cond.i1323.preheader ]
+  %val.i1315.11106 = phi i64 [ %or101.i1344, %while.body.i1337 ], [ 0, %while.cond.i1323.preheader ]
   %shift.i1317.01105 = phi i32 [ %add.i1345, %while.body.i1337 ], [ 0, %while.cond.i1323.preheader ]
   %inc96.i133811021104 = phi i64 [ %inc96.i1338, %while.body.i1337 ], [ %pos.promoted1155, %while.cond.i1323.preheader ]
   %arrayidx93.i1347 = getelementptr inbounds i8, ptr %data, i64 %inc96.i133811021104
@@ -6242,7 +6242,7 @@ while.body.i1337:                                 ; preds = %land.rhs.i1346
   %and99.i1341 = zext nneg i8 %199 to i64
   %sh_prom.i1342 = zext nneg i32 %shift.i1317.01105 to i64
   %shl100.i1343 = shl i64 %and99.i1341, %sh_prom.i1342
-  %or101.i1344 = or i64 %shl100.i1343, %val.i1315.01106
+  %or101.i1344 = or i64 %shl100.i1343, %val.i1315.11106
   %add.i1345 = add i32 %shift.i1317.01105, 7
   %cmp92.i1324.not = icmp eq i64 %inc96.i1338, %size
   br i1 %cmp92.i1324.not, label %return.loopexit1411, label %land.rhs.i1346, !llvm.loop !8
@@ -6252,7 +6252,7 @@ if.end104.i1328:                                  ; preds = %land.rhs.i1346
   %conv107.i1331 = zext nneg i8 %198 to i64
   %sh_prom108.i1332 = zext nneg i32 %shift.i1317.01105 to i64
   %shl109.i1333 = shl i64 %conv107.i1331, %sh_prom108.i1332
-  %or110.i1334 = or i64 %shl109.i1333, %val.i1315.01106
+  %or110.i1334 = or i64 %shl109.i1333, %val.i1315.11106
   br label %if.end104
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit1449: ; preds = %if.end73.i1412
@@ -6457,7 +6457,7 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i34, label %if.end23, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i: ; preds = %if.end, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96
-  %total.1101 = phi i64 [ %add21, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ], [ %total.0, %if.end ]
+  %total.2101 = phi i64 [ %add21, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ], [ %total.0, %if.end ]
   %__begin3.sroa.0.0100 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ], [ %4, %if.end ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8
@@ -6511,7 +6511,7 @@ if.end14.i:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i20.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72: ; preds = %if.end14.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i
-  %total.229.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
+  %total.329.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
   %__begin3.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i39, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %8, %if.end14.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i62)
   %_M_string_length.i.i.i74 = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 8
@@ -6591,7 +6591,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %call2
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
-  %add25.i = add i64 %total.229.i, 2
+  %add25.i = add i64 %total.329.i, 2
   %add26.i = add i64 %add25.i, %total.1.i88
   %add27.i = add i64 %add26.i, %ret.i.0.i
   %incdec.ptr.i.i39 = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 40
@@ -6599,27 +6599,27 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
   br i1 %cmp.i21.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i72
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, %if.end14.i
-  %total.3.i = phi i64 [ %total.1.i, %if.end14.i ], [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ]
+  %total.2.i = phi i64 [ %total.1.i, %if.end14.i ], [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ]
   br label %do.body.i92
 
 do.body.i92:                                      ; preds = %do.body.i92, %_ZN9struct_pb13UnknownFieldsD2Ev.exit
   %ret.i91.0 = phi i64 [ 0, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %inc.i93, %do.body.i92 ]
-  %v.addr.i90.0 = phi i64 [ %total.3.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i94, %do.body.i92 ]
+  %v.addr.i90.0 = phi i64 [ %total.2.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i94, %do.body.i92 ]
   %inc.i93 = add nuw nsw i64 %ret.i91.0, 1
   %shr.i94 = lshr i64 %v.addr.i90.0, 7
   %cmp.i95.not = icmp ult i64 %v.addr.i90.0, 128
   br i1 %cmp.i95.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96, label %do.body.i92, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit96: ; preds = %do.body.i92
-  %add19 = add i64 %total.1101, 2
-  %add20 = add i64 %add19, %total.3.i
+  %add19 = add i64 %total.2101, 2
+  %add20 = add i64 %add19, %total.2.i
   %add21 = add i64 %add20, %ret.i91.0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0100, i64 64
   %cmp.i35 = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i35, label %if.end23, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 if.end23:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96, %if.end
-  %total.2 = phi i64 [ %total.0, %if.end ], [ %add21, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ]
+  %total.1 = phi i64 [ %total.0, %if.end ], [ %add21, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit96 ]
   %options = getelementptr inbounds i8, ptr %t, i64 56
   %15 = load ptr, ptr %options, align 8
   %_M_finish.i.i44 = getelementptr inbounds i8, ptr %t, i64 64
@@ -6628,7 +6628,7 @@ if.end23:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i45, label %if.end53, label %for.body37
 
 for.body37:                                       ; preds = %if.end23, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89
-  %total.3103 = phi i64 [ %add49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89 ], [ %total.2, %if.end23 ]
+  %total.4103 = phi i64 [ %add49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89 ], [ %total.1, %if.end23 ]
   %__begin328.sroa.0.0102 = phi ptr [ %incdec.ptr.i51, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89 ], [ %15, %if.end23 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41, i8 0, i64 24, i1 false)
   %call45 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin328.sroa.0.0102, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41)
@@ -6643,7 +6643,7 @@ do.body.i85:                                      ; preds = %for.body37, %do.bod
   br i1 %cmp.i88.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89, label %do.body.i85, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit89: ; preds = %do.body.i85
-  %add47 = add i64 %total.3103, 2
+  %add47 = add i64 %total.4103, 2
   %add48 = add i64 %add47, %call45
   %add49 = add i64 %add48, %ret.i84.0
   %incdec.ptr.i51 = getelementptr inbounds i8, ptr %__begin328.sroa.0.0102, i64 40
@@ -6651,7 +6651,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit89: ; preds = %do.body.i85
   br i1 %cmp.i47, label %if.end53, label %for.body37
 
 if.end53:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89, %if.end23
-  %total.4 = phi i64 [ %total.2, %if.end23 ], [ %add49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89 ]
+  %total.3 = phi i64 [ %total.1, %if.end23 ], [ %add49, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit89 ]
   %source_context = getelementptr inbounds i8, ptr %t, i64 80
   %17 = load ptr, ptr %source_context, align 8
   %cmp.i55.not = icmp eq ptr %17, null
@@ -6683,7 +6683,7 @@ do.body.i78:                                      ; preds = %do.body.i78.prehead
   br i1 %cmp.i81.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit82, label %do.body.i78, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit82: ; preds = %do.body.i78
-  %add65 = add i64 %total.4, 2
+  %add65 = add i64 %total.3, 2
   %add66 = add i64 %add65, %call63
   %add67 = add i64 %add66, %ret.i77.0
   br label %if.end68
@@ -6696,7 +6696,7 @@ lpad61:                                           ; preds = %if.then55
   br i1 %tobool.not.i.i.i.i59, label %eh.resume, label %eh.resume.sink.split
 
 if.end68:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit82, %if.end53
-  %total.5 = phi i64 [ %add67, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit82 ], [ %total.4, %if.end53 ]
+  %total.5 = phi i64 [ %add67, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit82 ], [ %total.3, %if.end53 ]
   %syntax = getelementptr inbounds i8, ptr %t, i64 88
   %21 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %21, 0
@@ -6809,7 +6809,7 @@ if.end14:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i20, label %if.end29, label %for.body
 
 for.body:                                         ; preds = %if.end14, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit
-  %total.229 = phi i64 [ %add27, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %total.1, %if.end14 ]
+  %total.329 = phi i64 [ %add27, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %total.1, %if.end14 ]
   %__begin3.sroa.0.028 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %5, %if.end14 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call23 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.028, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -6824,7 +6824,7 @@ do.body.i:                                        ; preds = %for.body, %do.body.
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
-  %add25 = add i64 %total.229, 2
+  %add25 = add i64 %total.329, 2
   %add26 = add i64 %add25, %call23
   %add27 = add i64 %add26, %ret.i.0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.028, i64 40
@@ -6832,8 +6832,8 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   br i1 %cmp.i21, label %if.end29, label %for.body
 
 if.end29:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %if.end14
-  %total.3 = phi i64 [ %total.1, %if.end14 ], [ %add27, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ]
-  ret i64 %total.3
+  %total.2 = phi i64 [ %total.1, %if.end14 ], [ %add27, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ]
+  ret i64 %total.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6858,22 +6858,22 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224: ; preds = %entry
 
 while.body.i202:                                  ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224, %while.body.i202
   %v.addr.i196.0213 = phi i64 [ %shr.i207, %while.body.i202 ], [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224 ]
-  %pos.0212 = phi i64 [ %inc.i205, %while.body.i202 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224 ]
+  %pos.1212 = phi i64 [ %inc.i205, %while.body.i202 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224 ]
   %2 = trunc i64 %v.addr.i196.0213 to i8
   %conv.i204 = or i8 %2, -128
-  %inc.i205 = add nuw nsw i64 %pos.0212, 1
-  %arrayidx.i206 = getelementptr inbounds i8, ptr %data, i64 %pos.0212
+  %inc.i205 = add nuw nsw i64 %pos.1212, 1
+  %arrayidx.i206 = getelementptr inbounds i8, ptr %data, i64 %pos.1212
   store i8 %conv.i204, ptr %arrayidx.i206, align 1
   %shr.i207 = lshr i64 %v.addr.i196.0213, 7
   %cmp.i198 = icmp ugt i64 %v.addr.i196.0213, 16383
   br i1 %cmp.i198, label %while.body.i202, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208: ; preds = %while.body.i202, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224
-  %pos.0.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224 ], [ %inc.i205, %while.body.i202 ]
+  %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224 ], [ %inc.i205, %while.body.i202 ]
   %v.addr.i196.0.lcssa = phi i64 [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit224 ], [ %shr.i207, %while.body.i202 ]
   %conv1.i199 = trunc nuw nsw i64 %v.addr.i196.0.lcssa to i8
-  %inc2.i200 = add i64 %pos.0.lcssa, 1
-  %arrayidx3.i201 = getelementptr inbounds i8, ptr %data, i64 %pos.0.lcssa
+  %inc2.i200 = add i64 %pos.1.lcssa, 1
+  %arrayidx3.i201 = getelementptr inbounds i8, ptr %data, i64 %pos.1.lcssa
   store i8 %conv1.i199, ptr %arrayidx3.i201, align 1
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %inc2.i200
   %3 = load ptr, ptr %t, align 8
@@ -6884,7 +6884,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208: ; preds = %while.body.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208, %entry
-  %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208 ]
+  %pos.0 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit208 ]
   %enumvalue = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load ptr, ptr %enumvalue, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 40
@@ -6893,9 +6893,9 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i, label %if.end25, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i: ; preds = %if.end, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176
-  %pos.2223 = phi i64 [ %add23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ], [ %pos.1, %if.end ]
+  %pos.3223 = phi i64 [ %add23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ], [ %pos.0, %if.end ]
   %__begin3.sroa.0.0222 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ], [ %6, %if.end ]
-  %arrayidx3.i185 = getelementptr inbounds i8, ptr %data, i64 %pos.2223
+  %arrayidx3.i185 = getelementptr inbounds i8, ptr %data, i64 %pos.3223
   store i8 18, ptr %arrayidx3.i185, align 1
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8
@@ -6949,7 +6949,7 @@ if.end14.i:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i20.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161: ; preds = %if.end14.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i
-  %total.229.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
+  %total.329.i = phi i64 [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %total.1.i, %if.end14.i ]
   %__begin3.sroa.0.028.i = phi ptr [ %incdec.ptr.i.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ], [ %10, %if.end14.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i151)
   %_M_string_length.i.i.i163 = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 8
@@ -7029,7 +7029,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %call2
   br i1 %cmp.i.not.i, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, label %do.body.i.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
-  %add25.i = add i64 %total.229.i, 2
+  %add25.i = add i64 %total.329.i, 2
   %add26.i = add i64 %add25.i, %total.1.i177
   %add27.i = add i64 %add26.i, %ret.i.0.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.028.i, i64 40
@@ -7037,41 +7037,41 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
   br i1 %cmp.i21.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i161
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit:            ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i, %if.end14.i
-  %total.3.i = phi i64 [ %total.1.i, %if.end14.i ], [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ]
-  %pos.3215 = add i64 %pos.2223, 1
-  %cmp.i166216 = icmp ugt i64 %total.3.i, 127
+  %total.2.i = phi i64 [ %total.1.i, %if.end14.i ], [ %add27.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i ]
+  %pos.4215 = add i64 %pos.3223, 1
+  %cmp.i166216 = icmp ugt i64 %total.2.i, 127
   br i1 %cmp.i166216, label %while.body.i170, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176
 
 while.body.i170:                                  ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit, %while.body.i170
-  %pos.3218 = phi i64 [ %pos.3, %while.body.i170 ], [ %pos.3215, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
-  %v.addr.i164.0217 = phi i64 [ %shr.i175, %while.body.i170 ], [ %total.3.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
+  %pos.4218 = phi i64 [ %pos.4, %while.body.i170 ], [ %pos.4215, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
+  %v.addr.i164.0217 = phi i64 [ %shr.i175, %while.body.i170 ], [ %total.2.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ]
   %17 = trunc i64 %v.addr.i164.0217 to i8
   %conv.i172 = or i8 %17, -128
-  %arrayidx.i174 = getelementptr inbounds i8, ptr %data, i64 %pos.3218
+  %arrayidx.i174 = getelementptr inbounds i8, ptr %data, i64 %pos.4218
   store i8 %conv.i172, ptr %arrayidx.i174, align 1
   %shr.i175 = lshr i64 %v.addr.i164.0217, 7
-  %pos.3 = add i64 %pos.3218, 1
+  %pos.4 = add i64 %pos.4218, 1
   %cmp.i166 = icmp ugt i64 %v.addr.i164.0217, 16383
   br i1 %cmp.i166, label %while.body.i170, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176: ; preds = %while.body.i170, %_ZN9struct_pb13UnknownFieldsD2Ev.exit
-  %pos.3.in.lcssa = phi i64 [ %pos.2223, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.3218, %while.body.i170 ]
-  %v.addr.i164.0.lcssa = phi i64 [ %total.3.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i175, %while.body.i170 ]
-  %pos.3.lcssa = phi i64 [ %pos.3215, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.3, %while.body.i170 ]
+  %pos.4.in.lcssa = phi i64 [ %pos.3223, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.4218, %while.body.i170 ]
+  %v.addr.i164.0.lcssa = phi i64 [ %total.2.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %shr.i175, %while.body.i170 ]
+  %pos.4.lcssa = phi i64 [ %pos.4215, %_ZN9struct_pb13UnknownFieldsD2Ev.exit ], [ %pos.4, %while.body.i170 ]
   %conv1.i167 = trunc nuw nsw i64 %v.addr.i164.0.lcssa to i8
-  %inc2.i168 = add i64 %pos.3.in.lcssa, 2
-  %arrayidx3.i169 = getelementptr inbounds i8, ptr %data, i64 %pos.3.lcssa
+  %inc2.i168 = add i64 %pos.4.in.lcssa, 2
+  %arrayidx3.i169 = getelementptr inbounds i8, ptr %data, i64 %pos.4.lcssa
   store i8 %conv1.i167, ptr %arrayidx3.i169, align 1
   %add.ptr18 = getelementptr inbounds i8, ptr %data, i64 %inc2.i168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19, i8 0, i64 24, i1 false)
   call void @_ZN9struct_pb8internal12serialize_toIN6google8protobuf9EnumValueEEEvPcmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull %add.ptr18, i64 poison, ptr noundef nonnull align 8 dereferenceable(64) %__begin3.sroa.0.0222, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19)
-  %add23 = add i64 %inc2.i168, %total.3.i
+  %add23 = add i64 %inc2.i168, %total.2.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0222, i64 64
   %cmp.i103 = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i103, label %if.end25, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i
 
 if.end25:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176, %if.end
-  %pos.4 = phi i64 [ %pos.1, %if.end ], [ %add23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ]
+  %pos.2 = phi i64 [ %pos.0, %if.end ], [ %add23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit176 ]
   %options = getelementptr inbounds i8, ptr %t, i64 56
   %18 = load ptr, ptr %options, align 8
   %_M_finish.i.i116 = getelementptr inbounds i8, ptr %t, i64 64
@@ -7080,35 +7080,35 @@ if.end25:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i117, label %if.end57, label %for.body39
 
 for.body39:                                       ; preds = %if.end25, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144
-  %pos.5232 = phi i64 [ %add53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144 ], [ %pos.4, %if.end25 ]
+  %pos.6232 = phi i64 [ %add53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144 ], [ %pos.2, %if.end25 ]
   %__begin330.sroa.0.0231 = phi ptr [ %incdec.ptr.i126, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144 ], [ %18, %if.end25 ]
-  %arrayidx3.i153 = getelementptr inbounds i8, ptr %data, i64 %pos.5232
+  %arrayidx3.i153 = getelementptr inbounds i8, ptr %data, i64 %pos.6232
   store i8 26, ptr %arrayidx3.i153, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, i8 0, i64 24, i1 false)
   %call47 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin330.sroa.0.0231, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43)
-  %pos.6224 = add i64 %pos.5232, 1
+  %pos.7224 = add i64 %pos.6232, 1
   %cmp.i134225 = icmp ugt i64 %call47, 127
   br i1 %cmp.i134225, label %while.body.i138, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144
 
 while.body.i138:                                  ; preds = %for.body39, %while.body.i138
-  %pos.6227 = phi i64 [ %pos.6, %while.body.i138 ], [ %pos.6224, %for.body39 ]
+  %pos.7227 = phi i64 [ %pos.7, %while.body.i138 ], [ %pos.7224, %for.body39 ]
   %v.addr.i132.0226 = phi i64 [ %shr.i143, %while.body.i138 ], [ %call47, %for.body39 ]
   %20 = trunc i64 %v.addr.i132.0226 to i8
   %conv.i140 = or i8 %20, -128
-  %arrayidx.i142 = getelementptr inbounds i8, ptr %data, i64 %pos.6227
+  %arrayidx.i142 = getelementptr inbounds i8, ptr %data, i64 %pos.7227
   store i8 %conv.i140, ptr %arrayidx.i142, align 1
   %shr.i143 = lshr i64 %v.addr.i132.0226, 7
-  %pos.6 = add i64 %pos.6227, 1
+  %pos.7 = add i64 %pos.7227, 1
   %cmp.i134 = icmp ugt i64 %v.addr.i132.0226, 16383
   br i1 %cmp.i134, label %while.body.i138, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144: ; preds = %while.body.i138, %for.body39
-  %pos.6.in.lcssa = phi i64 [ %pos.5232, %for.body39 ], [ %pos.6227, %while.body.i138 ]
+  %pos.7.in.lcssa = phi i64 [ %pos.6232, %for.body39 ], [ %pos.7227, %while.body.i138 ]
   %v.addr.i132.0.lcssa = phi i64 [ %call47, %for.body39 ], [ %shr.i143, %while.body.i138 ]
-  %pos.6.lcssa = phi i64 [ %pos.6224, %for.body39 ], [ %pos.6, %while.body.i138 ]
+  %pos.7.lcssa = phi i64 [ %pos.7224, %for.body39 ], [ %pos.7, %while.body.i138 ]
   %conv1.i135 = trunc nuw nsw i64 %v.addr.i132.0.lcssa to i8
-  %inc2.i136 = add i64 %pos.6.in.lcssa, 2
-  %arrayidx3.i137 = getelementptr inbounds i8, ptr %data, i64 %pos.6.lcssa
+  %inc2.i136 = add i64 %pos.7.in.lcssa, 2
+  %arrayidx3.i137 = getelementptr inbounds i8, ptr %data, i64 %pos.7.lcssa
   store i8 %conv1.i135, ptr %arrayidx3.i137, align 1
   %add.ptr48 = getelementptr inbounds i8, ptr %data, i64 %inc2.i136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49, i8 0, i64 24, i1 false)
@@ -7119,14 +7119,14 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144: ; preds = %while.body.i
   br i1 %cmp.i119, label %if.end57, label %for.body39
 
 if.end57:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144, %if.end25
-  %pos.7 = phi i64 [ %pos.4, %if.end25 ], [ %add53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144 ]
+  %pos.5 = phi i64 [ %pos.2, %if.end25 ], [ %add53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit144 ]
   %source_context = getelementptr inbounds i8, ptr %t, i64 80
   %21 = load ptr, ptr %source_context, align 8
   %cmp.i133.not = icmp eq ptr %21, null
   br i1 %cmp.i133.not, label %if.end76, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit128: ; preds = %if.end57
-  %arrayidx3.i121 = getelementptr inbounds i8, ptr %data, i64 %pos.7
+  %arrayidx3.i121 = getelementptr inbounds i8, ptr %data, i64 %pos.5
   store i8 34, ptr %arrayidx3.i121, align 1
   %22 = load ptr, ptr %source_context, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp63, i8 0, i64 24, i1 false)
@@ -7143,29 +7143,29 @@ if.then.i.i.i.i135:                               ; preds = %invoke.cont66
   br label %_ZN9struct_pb13UnknownFieldsD2Ev.exit136
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit136:         ; preds = %invoke.cont66, %if.then.i.i.i.i135
-  %pos.8233 = add i64 %pos.7, 1
+  %pos.9233 = add i64 %pos.5, 1
   %cmp.i102234 = icmp ugt i64 %call67, 127
   br i1 %cmp.i102234, label %while.body.i106, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit112
 
 while.body.i106:                                  ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit136, %while.body.i106
-  %pos.8236 = phi i64 [ %pos.8, %while.body.i106 ], [ %pos.8233, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ]
+  %pos.9236 = phi i64 [ %pos.9, %while.body.i106 ], [ %pos.9233, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ]
   %v.addr.i100.0235 = phi i64 [ %shr.i111, %while.body.i106 ], [ %call67, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ]
   %24 = trunc i64 %v.addr.i100.0235 to i8
   %conv.i108 = or i8 %24, -128
-  %arrayidx.i110 = getelementptr inbounds i8, ptr %data, i64 %pos.8236
+  %arrayidx.i110 = getelementptr inbounds i8, ptr %data, i64 %pos.9236
   store i8 %conv.i108, ptr %arrayidx.i110, align 1
   %shr.i111 = lshr i64 %v.addr.i100.0235, 7
-  %pos.8 = add i64 %pos.8236, 1
+  %pos.9 = add i64 %pos.9236, 1
   %cmp.i102 = icmp ugt i64 %v.addr.i100.0235, 16383
   br i1 %cmp.i102, label %while.body.i106, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit112, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit112: ; preds = %while.body.i106, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136
-  %pos.8.in.lcssa = phi i64 [ %pos.7, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ], [ %pos.8236, %while.body.i106 ]
+  %pos.9.in.lcssa = phi i64 [ %pos.5, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ], [ %pos.9236, %while.body.i106 ]
   %v.addr.i100.0.lcssa = phi i64 [ %call67, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ], [ %shr.i111, %while.body.i106 ]
-  %pos.8.lcssa = phi i64 [ %pos.8233, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ], [ %pos.8, %while.body.i106 ]
+  %pos.9.lcssa = phi i64 [ %pos.9233, %_ZN9struct_pb13UnknownFieldsD2Ev.exit136 ], [ %pos.9, %while.body.i106 ]
   %conv1.i103 = trunc nuw nsw i64 %v.addr.i100.0.lcssa to i8
-  %inc2.i104 = add i64 %pos.8.in.lcssa, 2
-  %arrayidx3.i105 = getelementptr inbounds i8, ptr %data, i64 %pos.8.lcssa
+  %inc2.i104 = add i64 %pos.9.in.lcssa, 2
+  %arrayidx3.i105 = getelementptr inbounds i8, ptr %data, i64 %pos.9.lcssa
   store i8 %conv1.i103, ptr %arrayidx3.i105, align 1
   %add.ptr68 = getelementptr inbounds i8, ptr %data, i64 %inc2.i104
   %25 = load ptr, ptr %source_context, align 8
@@ -7201,45 +7201,45 @@ lpad73:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.not.i.i.i.i143, label %eh.resume, label %eh.resume.sink.split
 
 if.end76:                                         ; preds = %_ZN9struct_pb13UnknownFieldsD2Ev.exit139, %if.end57
-  %pos.9 = phi i64 [ %add75, %_ZN9struct_pb13UnknownFieldsD2Ev.exit139 ], [ %pos.7, %if.end57 ]
+  %pos.8 = phi i64 [ %add75, %_ZN9struct_pb13UnknownFieldsD2Ev.exit139 ], [ %pos.5, %if.end57 ]
   %syntax = getelementptr inbounds i8, ptr %t, i64 88
   %31 = load i32, ptr %syntax, align 8
   %cmp.not = icmp eq i32 %31, 0
   br i1 %cmp.not, label %if.end79, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96: ; preds = %if.end76
-  %arrayidx3.i89 = getelementptr inbounds i8, ptr %data, i64 %pos.9
+  %arrayidx3.i89 = getelementptr inbounds i8, ptr %data, i64 %pos.8
   store i8 40, ptr %arrayidx3.i89, align 1
   %32 = load i32, ptr %syntax, align 8
   %conv = sext i32 %32 to i64
-  %pos.10240 = add i64 %pos.9, 1
+  %pos.11240 = add i64 %pos.8, 1
   %cmp.i241 = icmp ugt i32 %32, 127
   br i1 %cmp.i241, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
 
 while.body.i:                                     ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96, %while.body.i
-  %pos.10243 = phi i64 [ %pos.10, %while.body.i ], [ %pos.10240, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ]
+  %pos.11243 = phi i64 [ %pos.11, %while.body.i ], [ %pos.11240, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ]
   %v.addr.i.0242 = phi i64 [ %shr.i, %while.body.i ], [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ]
   %33 = trunc i64 %v.addr.i.0242 to i8
   %conv.i = or i8 %33, -128
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.10243
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.11243
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.0242, 7
-  %pos.10 = add i64 %pos.10243, 1
+  %pos.11 = add i64 %pos.11243, 1
   %cmp.i = icmp ugt i64 %v.addr.i.0242, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96
-  %pos.10.in.lcssa = phi i64 [ %pos.9, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ], [ %pos.10243, %while.body.i ]
+  %pos.11.in.lcssa = phi i64 [ %pos.8, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ], [ %pos.11243, %while.body.i ]
   %v.addr.i.0.lcssa = phi i64 [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ], [ %shr.i, %while.body.i ]
-  %pos.10.lcssa = phi i64 [ %pos.10240, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ], [ %pos.10, %while.body.i ]
+  %pos.11.lcssa = phi i64 [ %pos.11240, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit96 ], [ %pos.11, %while.body.i ]
   %conv1.i = trunc nuw nsw i64 %v.addr.i.0.lcssa to i8
-  %inc2.i = add i64 %pos.10.in.lcssa, 2
-  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.10.lcssa
+  %inc2.i = add i64 %pos.11.in.lcssa, 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.11.lcssa
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   br label %if.end79
 
 if.end79:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end76
-  %pos.11 = phi i64 [ %pos.9, %if.end76 ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
+  %pos.10 = phi i64 [ %pos.8, %if.end76 ], [ %inc2.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %34 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i146 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %35 = load ptr, ptr %_M_finish.i.i146, align 8
@@ -7247,7 +7247,7 @@ if.end79:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i147
 
 for.body.i147:                                    ; preds = %if.end79, %for.body.i147
-  %pos.12 = phi i64 [ %add.i148, %for.body.i147 ], [ %pos.11, %if.end79 ]
+  %pos.12 = phi i64 [ %add.i148, %for.body.i147 ], [ %pos.10, %if.end79 ]
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i149, %for.body.i147 ], [ %34, %if.end79 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.12
   %36 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
@@ -7292,22 +7292,22 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109: ; preds = %entry
 
 while.body.i87:                                   ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109, %while.body.i87
   %v.addr.i81.091 = phi i64 [ %shr.i92, %while.body.i87 ], [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109 ]
-  %pos.090 = phi i64 [ %inc.i90, %while.body.i87 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109 ]
+  %pos.190 = phi i64 [ %inc.i90, %while.body.i87 ], [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109 ]
   %2 = trunc i64 %v.addr.i81.091 to i8
   %conv.i89 = or i8 %2, -128
-  %inc.i90 = add nuw nsw i64 %pos.090, 1
-  %arrayidx.i91 = getelementptr inbounds i8, ptr %data, i64 %pos.090
+  %inc.i90 = add nuw nsw i64 %pos.190, 1
+  %arrayidx.i91 = getelementptr inbounds i8, ptr %data, i64 %pos.190
   store i8 %conv.i89, ptr %arrayidx.i91, align 1
   %shr.i92 = lshr i64 %v.addr.i81.091, 7
   %cmp.i83 = icmp ugt i64 %v.addr.i81.091, 16383
   br i1 %cmp.i83, label %while.body.i87, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93: ; preds = %while.body.i87, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109
-  %pos.0.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109 ], [ %inc.i90, %while.body.i87 ]
+  %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109 ], [ %inc.i90, %while.body.i87 ]
   %v.addr.i81.0.lcssa = phi i64 [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit109 ], [ %shr.i92, %while.body.i87 ]
   %conv1.i84 = trunc nuw nsw i64 %v.addr.i81.0.lcssa to i8
-  %inc2.i85 = add i64 %pos.0.lcssa, 1
-  %arrayidx3.i86 = getelementptr inbounds i8, ptr %data, i64 %pos.0.lcssa
+  %inc2.i85 = add i64 %pos.1.lcssa, 1
+  %arrayidx3.i86 = getelementptr inbounds i8, ptr %data, i64 %pos.1.lcssa
   store i8 %conv1.i84, ptr %arrayidx3.i86, align 1
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %inc2.i85
   %3 = load ptr, ptr %t, align 8
@@ -7318,45 +7318,45 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93: ; preds = %while.body.i8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93, %entry
-  %pos.1 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93 ]
+  %pos.0 = phi i64 [ 0, %entry ], [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit93 ]
   %number = getelementptr inbounds i8, ptr %t, i64 32
   %6 = load i32, ptr %number, align 8
   %cmp.not = icmp eq i32 %6, 0
   br i1 %cmp.not, label %if.end11, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77: ; preds = %if.end
-  %arrayidx3.i70 = getelementptr inbounds i8, ptr %data, i64 %pos.1
+  %arrayidx3.i70 = getelementptr inbounds i8, ptr %data, i64 %pos.0
   store i8 16, ptr %arrayidx3.i70, align 1
   %7 = load i32, ptr %number, align 8
   %conv = sext i32 %7 to i64
-  %pos.293 = add i64 %pos.1, 1
+  %pos.393 = add i64 %pos.0, 1
   %cmp.i5194 = icmp ugt i32 %7, 127
   br i1 %cmp.i5194, label %while.body.i55, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61
 
 while.body.i55:                                   ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77, %while.body.i55
-  %pos.296 = phi i64 [ %pos.2, %while.body.i55 ], [ %pos.293, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ]
+  %pos.396 = phi i64 [ %pos.3, %while.body.i55 ], [ %pos.393, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ]
   %v.addr.i49.095 = phi i64 [ %shr.i60, %while.body.i55 ], [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ]
   %8 = trunc i64 %v.addr.i49.095 to i8
   %conv.i57 = or i8 %8, -128
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %data, i64 %pos.296
+  %arrayidx.i59 = getelementptr inbounds i8, ptr %data, i64 %pos.396
   store i8 %conv.i57, ptr %arrayidx.i59, align 1
   %shr.i60 = lshr i64 %v.addr.i49.095, 7
-  %pos.2 = add i64 %pos.296, 1
+  %pos.3 = add i64 %pos.396, 1
   %cmp.i51 = icmp ugt i64 %v.addr.i49.095, 16383
   br i1 %cmp.i51, label %while.body.i55, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61: ; preds = %while.body.i55, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77
-  %pos.2.in.lcssa = phi i64 [ %pos.1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ], [ %pos.296, %while.body.i55 ]
+  %pos.3.in.lcssa = phi i64 [ %pos.0, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ], [ %pos.396, %while.body.i55 ]
   %v.addr.i49.0.lcssa = phi i64 [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ], [ %shr.i60, %while.body.i55 ]
-  %pos.2.lcssa = phi i64 [ %pos.293, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ], [ %pos.2, %while.body.i55 ]
+  %pos.3.lcssa = phi i64 [ %pos.393, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit77 ], [ %pos.3, %while.body.i55 ]
   %conv1.i52 = trunc nuw nsw i64 %v.addr.i49.0.lcssa to i8
-  %inc2.i53 = add i64 %pos.2.in.lcssa, 2
-  %arrayidx3.i54 = getelementptr inbounds i8, ptr %data, i64 %pos.2.lcssa
+  %inc2.i53 = add i64 %pos.3.in.lcssa, 2
+  %arrayidx3.i54 = getelementptr inbounds i8, ptr %data, i64 %pos.3.lcssa
   store i8 %conv1.i52, ptr %arrayidx3.i54, align 1
   br label %if.end11
 
 if.end11:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61, %if.end
-  %pos.3 = phi i64 [ %pos.1, %if.end ], [ %inc2.i53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61 ]
+  %pos.2 = phi i64 [ %pos.0, %if.end ], [ %inc2.i53, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit61 ]
   %options = getelementptr inbounds i8, ptr %t, i64 40
   %9 = load ptr, ptr %options, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %t, i64 48
@@ -7365,35 +7365,35 @@ if.end11:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i, label %if.end28, label %for.body
 
 for.body:                                         ; preds = %if.end11, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
-  %pos.4108 = phi i64 [ %add26, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.3, %if.end11 ]
+  %pos.5108 = phi i64 [ %add26, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.2, %if.end11 ]
   %__begin3.sroa.0.0107 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %9, %if.end11 ]
-  %arrayidx3.i38 = getelementptr inbounds i8, ptr %data, i64 %pos.4108
+  %arrayidx3.i38 = getelementptr inbounds i8, ptr %data, i64 %pos.5108
   store i8 26, ptr %arrayidx3.i38, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call20 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6OptionEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.0107, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-  %pos.5100 = add i64 %pos.4108, 1
+  %pos.6100 = add i64 %pos.5108, 1
   %cmp.i101 = icmp ugt i64 %call20, 127
   br i1 %cmp.i101, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
 
 while.body.i:                                     ; preds = %for.body, %while.body.i
-  %pos.5103 = phi i64 [ %pos.5, %while.body.i ], [ %pos.5100, %for.body ]
+  %pos.6103 = phi i64 [ %pos.6, %while.body.i ], [ %pos.6100, %for.body ]
   %v.addr.i.0102 = phi i64 [ %shr.i, %while.body.i ], [ %call20, %for.body ]
   %11 = trunc i64 %v.addr.i.0102 to i8
   %conv.i = or i8 %11, -128
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.5103
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.6103
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.0102, 7
-  %pos.5 = add i64 %pos.5103, 1
+  %pos.6 = add i64 %pos.6103, 1
   %cmp.i = icmp ugt i64 %v.addr.i.0102, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %for.body
-  %pos.5.in.lcssa = phi i64 [ %pos.4108, %for.body ], [ %pos.5103, %while.body.i ]
+  %pos.6.in.lcssa = phi i64 [ %pos.5108, %for.body ], [ %pos.6103, %while.body.i ]
   %v.addr.i.0.lcssa = phi i64 [ %call20, %for.body ], [ %shr.i, %while.body.i ]
-  %pos.5.lcssa = phi i64 [ %pos.5100, %for.body ], [ %pos.5, %while.body.i ]
+  %pos.6.lcssa = phi i64 [ %pos.6100, %for.body ], [ %pos.6, %while.body.i ]
   %conv1.i = trunc nuw nsw i64 %v.addr.i.0.lcssa to i8
-  %inc2.i = add i64 %pos.5.in.lcssa, 2
-  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.5.lcssa
+  %inc2.i = add i64 %pos.6.in.lcssa, 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.6.lcssa
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   %add.ptr21 = getelementptr inbounds i8, ptr %data, i64 %inc2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22, i8 0, i64 24, i1 false)
@@ -7404,7 +7404,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
   br i1 %cmp.i61, label %if.end28, label %for.body
 
 if.end28:                                         ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %if.end11
-  %pos.6 = phi i64 [ %pos.3, %if.end11 ], [ %add26, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
+  %pos.4 = phi i64 [ %pos.2, %if.end11 ], [ %add26, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %12 = load ptr, ptr %unknown_fields, align 8
   %_M_finish.i.i71 = getelementptr inbounds i8, ptr %unknown_fields, i64 8
   %13 = load ptr, ptr %_M_finish.i.i71, align 8
@@ -7412,7 +7412,7 @@ if.end28:                                         ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i7.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end28, %for.body.i
-  %pos.7 = phi i64 [ %add.i, %for.body.i ], [ %pos.6, %if.end28 ]
+  %pos.7 = phi i64 [ %add.i, %for.body.i ], [ %pos.4, %if.end28 ]
   %__begin2.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %12, %if.end28 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %pos.7
   %14 = load ptr, ptr %__begin2.sroa.0.08.i, align 8
@@ -7582,7 +7582,7 @@ if.end73.i781:                                    ; preds = %if.end64.i773
   br i1 %cmp80.i788, label %if.end, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit818
 
 land.rhs.i715:                                    ; preds = %while.cond.i692.preheader, %while.body.i706
-  %val.i684.0604 = phi i64 [ %or101.i713, %while.body.i706 ], [ 0, %while.cond.i692.preheader ]
+  %val.i684.1604 = phi i64 [ %or101.i713, %while.body.i706 ], [ 0, %while.cond.i692.preheader ]
   %shift.i686.0603 = phi i32 [ %add.i714, %while.body.i706 ], [ 0, %while.cond.i692.preheader ]
   %inc96.i707600602 = phi i64 [ %inc96.i707, %while.body.i706 ], [ %pos.promoted, %while.cond.i692.preheader ]
   %arrayidx93.i716 = getelementptr inbounds i8, ptr %data, i64 %inc96.i707600602
@@ -7596,7 +7596,7 @@ while.body.i706:                                  ; preds = %land.rhs.i715
   %12 = and i8 %11, 127
   %and99.i710 = zext nneg i8 %12 to i64
   %shl100.i712 = shl i64 %and99.i710, %sh_prom.i711
-  %or101.i713 = or i64 %shl100.i712, %val.i684.0604
+  %or101.i713 = or i64 %shl100.i712, %val.i684.1604
   %add.i714 = add i32 %shift.i686.0603, 7
   %cmp92.i693.not = icmp eq i64 %inc96.i707, %size
   br i1 %cmp92.i693.not, label %return.loopexit684, label %land.rhs.i715, !llvm.loop !8
@@ -7605,7 +7605,7 @@ if.end104.i697:                                   ; preds = %land.rhs.i715
   store i64 %inc96.i707, ptr %pos, align 8
   %conv107.i700 = zext nneg i8 %11 to i64
   %shl109.i702 = shl i64 %conv107.i700, %sh_prom.i711
-  %or110.i703 = or i64 %shl109.i702, %val.i684.0604
+  %or110.i703 = or i64 %shl109.i702, %val.i684.1604
   br label %if.end
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit818: ; preds = %if.end73.i781
@@ -7763,7 +7763,7 @@ if.end73.i:                                       ; preds = %if.end64.i
   br i1 %cmp80.i, label %if.end5, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i
-  %val.i.0634 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
+  %val.i.1634 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %shift.i.0633 = phi i32 [ %add.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %inc96.i630632 = phi i64 [ %inc96.i, %while.body.i ], [ %pos.promoted629, %while.cond.i.preheader ]
   %arrayidx93.i = getelementptr inbounds i8, ptr %data, i64 %inc96.i630632
@@ -7777,7 +7777,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %and99.i = zext nneg i8 %26 to i64
   %sh_prom.i = zext nneg i32 %shift.i.0633 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
-  %or101.i = or i64 %shl100.i, %val.i.0634
+  %or101.i = or i64 %shl100.i, %val.i.1634
   %add.i = add i32 %shift.i.0633, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
   br i1 %cmp92.i.not, label %return.loopexit, label %land.rhs.i, !llvm.loop !8
@@ -7787,7 +7787,7 @@ if.end104.i:                                      ; preds = %land.rhs.i
   %conv107.i = zext nneg i8 %25 to i64
   %sh_prom108.i = zext nneg i32 %shift.i.0633 to i64
   %shl109.i = shl i64 %conv107.i, %sh_prom108.i
-  %or110.i = or i64 %shl109.i, %val.i.0634
+  %or110.i = or i64 %shl109.i, %val.i.1634
   br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
@@ -8013,7 +8013,7 @@ if.end73.i213:                                    ; preds = %if.end64.i205
   br i1 %cmp80.i220, label %if.end18, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit250
 
 land.rhs.i147:                                    ; preds = %while.cond.i124.preheader, %while.body.i138
-  %val.i116.0628 = phi i64 [ %or101.i145, %while.body.i138 ], [ 0, %while.cond.i124.preheader ]
+  %val.i116.1628 = phi i64 [ %or101.i145, %while.body.i138 ], [ 0, %while.cond.i124.preheader ]
   %shift.i118.0627 = phi i32 [ %add.i146, %while.body.i138 ], [ 0, %while.cond.i124.preheader ]
   %inc96.i139624626 = phi i64 [ %inc96.i139, %while.body.i138 ], [ %pos.promoted629, %while.cond.i124.preheader ]
   %arrayidx93.i148 = getelementptr inbounds i8, ptr %data, i64 %inc96.i139624626
@@ -8027,7 +8027,7 @@ while.body.i138:                                  ; preds = %land.rhs.i147
   %49 = and i8 %48, 127
   %and99.i142 = zext nneg i8 %49 to i64
   %shl100.i144 = shl i64 %and99.i142, %sh_prom.i143
-  %or101.i145 = or i64 %shl100.i144, %val.i116.0628
+  %or101.i145 = or i64 %shl100.i144, %val.i116.1628
   %add.i146 = add i32 %shift.i118.0627, 7
   %cmp92.i125.not = icmp eq i64 %inc96.i139, %size
   br i1 %cmp92.i125.not, label %return.loopexit680, label %land.rhs.i147, !llvm.loop !8
@@ -8036,7 +8036,7 @@ if.end104.i129:                                   ; preds = %land.rhs.i147
   store i64 %inc96.i139, ptr %pos, align 8
   %conv107.i132 = zext nneg i8 %48 to i64
   %shl109.i134 = shl i64 %conv107.i132, %sh_prom.i143
-  %or110.i135 = or i64 %shl109.i134, %val.i116.0628
+  %or110.i135 = or i64 %shl109.i134, %val.i116.1628
   br label %if.end18
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit250: ; preds = %if.end73.i213
@@ -8313,7 +8313,7 @@ if.end73.i355:                                    ; preds = %if.end64.i347
   br i1 %cmp80.i362, label %if.end36, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit392
 
 land.rhs.i289:                                    ; preds = %while.cond.i266.preheader, %while.body.i280
-  %val.i258.0622 = phi i64 [ %or101.i287, %while.body.i280 ], [ 0, %while.cond.i266.preheader ]
+  %val.i258.1622 = phi i64 [ %or101.i287, %while.body.i280 ], [ 0, %while.cond.i266.preheader ]
   %shift.i260.0621 = phi i32 [ %add.i288, %while.body.i280 ], [ 0, %while.cond.i266.preheader ]
   %inc96.i281618620 = phi i64 [ %inc96.i281, %while.body.i280 ], [ %pos.promoted629, %while.cond.i266.preheader ]
   %arrayidx93.i290 = getelementptr inbounds i8, ptr %data, i64 %inc96.i281618620
@@ -8327,7 +8327,7 @@ while.body.i280:                                  ; preds = %land.rhs.i289
   %81 = and i8 %80, 127
   %and99.i284 = zext nneg i8 %81 to i64
   %shl100.i286 = shl i64 %and99.i284, %sh_prom.i285
-  %or101.i287 = or i64 %shl100.i286, %val.i258.0622
+  %or101.i287 = or i64 %shl100.i286, %val.i258.1622
   %add.i288 = add i32 %shift.i260.0621, 7
   %cmp92.i267.not = icmp eq i64 %inc96.i281, %size
   br i1 %cmp92.i267.not, label %return.loopexit681, label %land.rhs.i289, !llvm.loop !8
@@ -8336,7 +8336,7 @@ if.end104.i271:                                   ; preds = %land.rhs.i289
   store i64 %inc96.i281, ptr %pos, align 8
   %conv107.i274 = zext nneg i8 %80 to i64
   %shl109.i276 = shl i64 %conv107.i274, %sh_prom.i285
-  %or110.i277 = or i64 %shl109.i276, %val.i258.0622
+  %or110.i277 = or i64 %shl109.i276, %val.i258.1622
   br label %if.end36
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit392: ; preds = %if.end73.i355
@@ -8605,7 +8605,7 @@ if.end73.i497:                                    ; preds = %if.end64.i489
   br i1 %cmp80.i504, label %if.end59, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit534
 
 land.rhs.i431:                                    ; preds = %while.cond.i408.preheader, %while.body.i422
-  %val.i400.0616 = phi i64 [ %or101.i429, %while.body.i422 ], [ 0, %while.cond.i408.preheader ]
+  %val.i400.1616 = phi i64 [ %or101.i429, %while.body.i422 ], [ 0, %while.cond.i408.preheader ]
   %shift.i402.0615 = phi i32 [ %add.i430, %while.body.i422 ], [ 0, %while.cond.i408.preheader ]
   %inc96.i423612614 = phi i64 [ %inc96.i423, %while.body.i422 ], [ %102, %while.cond.i408.preheader ]
   %arrayidx93.i432 = getelementptr inbounds i8, ptr %data, i64 %inc96.i423612614
@@ -8619,7 +8619,7 @@ while.body.i422:                                  ; preds = %land.rhs.i431
   %115 = and i8 %114, 127
   %and99.i426 = zext nneg i8 %115 to i64
   %shl100.i428 = shl i64 %and99.i426, %sh_prom.i427
-  %or101.i429 = or i64 %shl100.i428, %val.i400.0616
+  %or101.i429 = or i64 %shl100.i428, %val.i400.1616
   %add.i430 = add i32 %shift.i402.0615, 7
   %cmp92.i409.not = icmp eq i64 %inc96.i423, %size
   br i1 %cmp92.i409.not, label %return.loopexit682, label %land.rhs.i431, !llvm.loop !8
@@ -8628,7 +8628,7 @@ if.end104.i413:                                   ; preds = %land.rhs.i431
   store i64 %inc96.i423, ptr %pos, align 8
   %conv107.i416 = zext nneg i8 %114 to i64
   %shl109.i418 = shl i64 %conv107.i416, %sh_prom.i427
-  %or110.i419 = or i64 %shl109.i418, %val.i400.0616
+  %or110.i419 = or i64 %shl109.i418, %val.i400.1616
   br label %if.end59
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit534: ; preds = %if.end73.i497
@@ -8773,7 +8773,7 @@ if.end73.i639:                                    ; preds = %if.end64.i631
   br i1 %cmp80.i646, label %if.end74, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit676
 
 land.rhs.i573:                                    ; preds = %while.cond.i550.preheader, %while.body.i564
-  %val.i542.0610 = phi i64 [ %or101.i571, %while.body.i564 ], [ 0, %while.cond.i550.preheader ]
+  %val.i542.1610 = phi i64 [ %or101.i571, %while.body.i564 ], [ 0, %while.cond.i550.preheader ]
   %shift.i544.0609 = phi i32 [ %add.i572, %while.body.i564 ], [ 0, %while.cond.i550.preheader ]
   %inc96.i565606608 = phi i64 [ %inc96.i565, %while.body.i564 ], [ %pos.promoted629, %while.cond.i550.preheader ]
   %arrayidx93.i574 = getelementptr inbounds i8, ptr %data, i64 %inc96.i565606608
@@ -8787,7 +8787,7 @@ while.body.i564:                                  ; preds = %land.rhs.i573
   %132 = and i8 %131, 127
   %and99.i568 = zext nneg i8 %132 to i64
   %shl100.i570 = shl i64 %and99.i568, %sh_prom.i569
-  %or101.i571 = or i64 %shl100.i570, %val.i542.0610
+  %or101.i571 = or i64 %shl100.i570, %val.i542.1610
   %add.i572 = add i32 %shift.i544.0609, 7
   %cmp92.i551.not = icmp eq i64 %inc96.i565, %size
   br i1 %cmp92.i551.not, label %return.loopexit683, label %land.rhs.i573, !llvm.loop !8
@@ -8796,7 +8796,7 @@ if.end104.i555:                                   ; preds = %land.rhs.i573
   store i64 %inc96.i565, ptr %pos, align 8
   %conv107.i558 = zext nneg i8 %131 to i64
   %shl109.i560 = shl i64 %conv107.i558, %sh_prom.i569
-  %or110.i561 = or i64 %shl109.i560, %val.i542.0610
+  %or110.i561 = or i64 %shl109.i560, %val.i542.1610
   br label %if.end74
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit676: ; preds = %if.end73.i639
@@ -9069,7 +9069,7 @@ if.end73.i448:                                    ; preds = %if.end64.i440
   br i1 %cmp80.i455, label %if.end, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit485
 
 land.rhs.i382:                                    ; preds = %while.cond.i359.preheader, %while.body.i373
-  %val.i351.0379 = phi i64 [ %or101.i380, %while.body.i373 ], [ 0, %while.cond.i359.preheader ]
+  %val.i351.1379 = phi i64 [ %or101.i380, %while.body.i373 ], [ 0, %while.cond.i359.preheader ]
   %shift.i353.0378 = phi i32 [ %add.i381, %while.body.i373 ], [ 0, %while.cond.i359.preheader ]
   %inc96.i374374377 = phi i64 [ %inc96.i374, %while.body.i373 ], [ %pos.promoted, %while.cond.i359.preheader ]
   %arrayidx93.i383 = getelementptr inbounds i8, ptr %data, i64 %inc96.i374374377
@@ -9083,7 +9083,7 @@ while.body.i373:                                  ; preds = %land.rhs.i382
   %12 = and i8 %11, 127
   %and99.i377 = zext nneg i8 %12 to i64
   %shl100.i379 = shl i64 %and99.i377, %sh_prom.i378
-  %or101.i380 = or i64 %shl100.i379, %val.i351.0379
+  %or101.i380 = or i64 %shl100.i379, %val.i351.1379
   %add.i381 = add i32 %shift.i353.0378, 7
   %cmp92.i360.not = icmp eq i64 %inc96.i374, %size
   br i1 %cmp92.i360.not, label %return, label %land.rhs.i382, !llvm.loop !8
@@ -9092,7 +9092,7 @@ if.end104.i364:                                   ; preds = %land.rhs.i382
   store i64 %inc96.i374, ptr %pos, align 8
   %conv107.i367 = zext nneg i8 %11 to i64
   %shl109.i369 = shl i64 %conv107.i367, %sh_prom.i378
-  %or110.i370 = or i64 %shl109.i369, %val.i351.0379
+  %or110.i370 = or i64 %shl109.i369, %val.i351.1379
   br label %if.end
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit485: ; preds = %if.end73.i448
@@ -9238,7 +9238,7 @@ if.end73.i:                                       ; preds = %if.end64.i
   br i1 %cmp80.i, label %if.end5, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i
-  %val.i.0405 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
+  %val.i.1405 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %shift.i.0404 = phi i32 [ %add.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %inc96.i400403 = phi i64 [ %inc96.i, %while.body.i ], [ %pos.promoted399, %while.cond.i.preheader ]
   %arrayidx93.i = getelementptr inbounds i8, ptr %data, i64 %inc96.i400403
@@ -9252,7 +9252,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %26 = and i8 %25, 127
   %and99.i = zext nneg i8 %26 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
-  %or101.i = or i64 %shl100.i, %val.i.0405
+  %or101.i = or i64 %shl100.i, %val.i.1405
   %add.i = add i32 %shift.i.0404, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
@@ -9261,7 +9261,7 @@ if.end104.i:                                      ; preds = %land.rhs.i
   store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %25 to i64
   %shl109.i = shl i64 %conv107.i, %sh_prom.i
-  %or110.i = or i64 %shl109.i, %val.i.0405
+  %or110.i = or i64 %shl109.i, %val.i.1405
   br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
@@ -9467,7 +9467,7 @@ if.end73.i164:                                    ; preds = %if.end64.i156
   br i1 %cmp80.i171, label %if.end17, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit201
 
 land.rhs.i98:                                     ; preds = %while.cond.i75.preheader, %while.body.i89
-  %val.i67.0396 = phi i64 [ %or101.i96, %while.body.i89 ], [ 0, %while.cond.i75.preheader ]
+  %val.i67.1396 = phi i64 [ %or101.i96, %while.body.i89 ], [ 0, %while.cond.i75.preheader ]
   %shift.i69.0395 = phi i32 [ %add.i97, %while.body.i89 ], [ 0, %while.cond.i75.preheader ]
   %inc96.i90391394 = phi i64 [ %inc96.i90, %while.body.i89 ], [ %pos.promoted399, %while.cond.i75.preheader ]
   %arrayidx93.i99 = getelementptr inbounds i8, ptr %data, i64 %inc96.i90391394
@@ -9481,7 +9481,7 @@ while.body.i89:                                   ; preds = %land.rhs.i98
   %47 = and i8 %46, 127
   %and99.i93 = zext nneg i8 %47 to i64
   %shl100.i95 = shl i64 %and99.i93, %sh_prom.i94
-  %or101.i96 = or i64 %shl100.i95, %val.i67.0396
+  %or101.i96 = or i64 %shl100.i95, %val.i67.1396
   %add.i97 = add i32 %shift.i69.0395, 7
   %cmp92.i76.not = icmp eq i64 %inc96.i90, %size
   br i1 %cmp92.i76.not, label %return, label %land.rhs.i98, !llvm.loop !8
@@ -9490,7 +9490,7 @@ if.end104.i80:                                    ; preds = %land.rhs.i98
   store i64 %inc96.i90, ptr %pos, align 8
   %conv107.i83 = zext nneg i8 %46 to i64
   %shl109.i85 = shl i64 %conv107.i83, %sh_prom.i94
-  %or110.i86 = or i64 %shl109.i85, %val.i67.0396
+  %or110.i86 = or i64 %shl109.i85, %val.i67.1396
   br label %if.end17
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit201: ; preds = %if.end73.i164
@@ -9641,7 +9641,7 @@ if.end73.i306:                                    ; preds = %if.end64.i298
   br i1 %cmp80.i313, label %if.end24, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit343
 
 land.rhs.i240:                                    ; preds = %while.cond.i217.preheader, %while.body.i231
-  %val.i209.0387 = phi i64 [ %or101.i238, %while.body.i231 ], [ 0, %while.cond.i217.preheader ]
+  %val.i209.1387 = phi i64 [ %or101.i238, %while.body.i231 ], [ 0, %while.cond.i217.preheader ]
   %shift.i211.0386 = phi i32 [ %add.i239, %while.body.i231 ], [ 0, %while.cond.i217.preheader ]
   %inc96.i232382385 = phi i64 [ %inc96.i232, %while.body.i231 ], [ %pos.promoted399, %while.cond.i217.preheader ]
   %arrayidx93.i241 = getelementptr inbounds i8, ptr %data, i64 %inc96.i232382385
@@ -9655,7 +9655,7 @@ while.body.i231:                                  ; preds = %land.rhs.i240
   %62 = and i8 %61, 127
   %and99.i235 = zext nneg i8 %62 to i64
   %shl100.i237 = shl i64 %and99.i235, %sh_prom.i236
-  %or101.i238 = or i64 %shl100.i237, %val.i209.0387
+  %or101.i238 = or i64 %shl100.i237, %val.i209.1387
   %add.i239 = add i32 %shift.i211.0386, 7
   %cmp92.i218.not = icmp eq i64 %inc96.i232, %size
   br i1 %cmp92.i218.not, label %return, label %land.rhs.i240, !llvm.loop !8
@@ -9664,7 +9664,7 @@ if.end104.i222:                                   ; preds = %land.rhs.i240
   store i64 %inc96.i232, ptr %pos, align 8
   %conv107.i225 = zext nneg i8 %61 to i64
   %shl109.i227 = shl i64 %conv107.i225, %sh_prom.i236
-  %or110.i228 = or i64 %shl109.i227, %val.i209.0387
+  %or110.i228 = or i64 %shl109.i227, %val.i209.1387
   br label %if.end24
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit343: ; preds = %if.end73.i306
@@ -9922,7 +9922,7 @@ if.end73.i297:                                    ; preds = %if.end64.i289
   br i1 %cmp80.i304, label %if.end, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit334
 
 land.rhs.i231:                                    ; preds = %while.cond.i208.preheader, %while.body.i222
-  %val.i200.0289 = phi i64 [ %or101.i229, %while.body.i222 ], [ 0, %while.cond.i208.preheader ]
+  %val.i200.1289 = phi i64 [ %or101.i229, %while.body.i222 ], [ 0, %while.cond.i208.preheader ]
   %shift.i202.0288 = phi i32 [ %add.i230, %while.body.i222 ], [ 0, %while.cond.i208.preheader ]
   %inc96.i223284287 = phi i64 [ %inc96.i223, %while.body.i222 ], [ %pos.promoted, %while.cond.i208.preheader ]
   %arrayidx93.i232 = getelementptr inbounds i8, ptr %data, i64 %inc96.i223284287
@@ -9936,7 +9936,7 @@ while.body.i222:                                  ; preds = %land.rhs.i231
   %12 = and i8 %11, 127
   %and99.i226 = zext nneg i8 %12 to i64
   %shl100.i228 = shl i64 %and99.i226, %sh_prom.i227
-  %or101.i229 = or i64 %shl100.i228, %val.i200.0289
+  %or101.i229 = or i64 %shl100.i228, %val.i200.1289
   %add.i230 = add i32 %shift.i202.0288, 7
   %cmp92.i209.not = icmp eq i64 %inc96.i223, %size
   br i1 %cmp92.i209.not, label %return, label %land.rhs.i231, !llvm.loop !8
@@ -9945,7 +9945,7 @@ if.end104.i213:                                   ; preds = %land.rhs.i231
   store i64 %inc96.i223, ptr %pos, align 8
   %conv107.i216 = zext nneg i8 %11 to i64
   %shl109.i218 = shl i64 %conv107.i216, %sh_prom.i227
-  %or110.i219 = or i64 %shl109.i218, %val.i200.0289
+  %or110.i219 = or i64 %shl109.i218, %val.i200.1289
   br label %if.end
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit334: ; preds = %if.end73.i297
@@ -10092,7 +10092,7 @@ if.end73.i:                                       ; preds = %if.end64.i
   br i1 %cmp80.i, label %if.end5, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i
-  %val.i.0306 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
+  %val.i.1306 = phi i64 [ %or101.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %shift.i.0305 = phi i32 [ %add.i, %while.body.i ], [ 0, %while.cond.i.preheader ]
   %inc96.i301304 = phi i64 [ %inc96.i, %while.body.i ], [ %pos.promoted300, %while.cond.i.preheader ]
   %arrayidx93.i = getelementptr inbounds i8, ptr %data, i64 %inc96.i301304
@@ -10106,7 +10106,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %26 = and i8 %25, 127
   %and99.i = zext nneg i8 %26 to i64
   %shl100.i = shl i64 %and99.i, %sh_prom.i
-  %or101.i = or i64 %shl100.i, %val.i.0306
+  %or101.i = or i64 %shl100.i, %val.i.1306
   %add.i = add i32 %shift.i.0305, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
   br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
@@ -10115,7 +10115,7 @@ if.end104.i:                                      ; preds = %land.rhs.i
   store i64 %inc96.i, ptr %pos, align 8
   %conv107.i = zext nneg i8 %25 to i64
   %shl109.i = shl i64 %conv107.i, %sh_prom.i
-  %or110.i = or i64 %shl109.i, %val.i.0306
+  %or110.i = or i64 %shl109.i, %val.i.1306
   br label %if.end5
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit: ; preds = %if.end73.i
@@ -10403,7 +10403,7 @@ if.end73.i155:                                    ; preds = %if.end64.i147
   br i1 %cmp80.i162, label %if.end23, label %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit192
 
 land.rhs.i89:                                     ; preds = %while.cond.i66.preheader, %while.body.i80
-  %val.i58.0297 = phi i64 [ %or101.i87, %while.body.i80 ], [ 0, %while.cond.i66.preheader ]
+  %val.i58.1297 = phi i64 [ %or101.i87, %while.body.i80 ], [ 0, %while.cond.i66.preheader ]
   %shift.i60.0296 = phi i32 [ %add.i88, %while.body.i80 ], [ 0, %while.cond.i66.preheader ]
   %inc96.i81292295 = phi i64 [ %inc96.i81, %while.body.i80 ], [ %pos.promoted300, %while.cond.i66.preheader ]
   %arrayidx93.i90 = getelementptr inbounds i8, ptr %data, i64 %inc96.i81292295
@@ -10417,7 +10417,7 @@ while.body.i80:                                   ; preds = %land.rhs.i89
   %59 = and i8 %58, 127
   %and99.i84 = zext nneg i8 %59 to i64
   %shl100.i86 = shl i64 %and99.i84, %sh_prom.i85
-  %or101.i87 = or i64 %shl100.i86, %val.i58.0297
+  %or101.i87 = or i64 %shl100.i86, %val.i58.1297
   %add.i88 = add i32 %shift.i60.0296, 7
   %cmp92.i67.not = icmp eq i64 %inc96.i81, %size
   br i1 %cmp92.i67.not, label %return, label %land.rhs.i89, !llvm.loop !8
@@ -10426,7 +10426,7 @@ if.end104.i71:                                    ; preds = %land.rhs.i89
   store i64 %inc96.i81, ptr %pos, align 8
   %conv107.i74 = zext nneg i8 %58 to i64
   %shl109.i76 = shl i64 %conv107.i74, %sh_prom.i85
-  %or110.i77 = or i64 %shl109.i76, %val.i58.0297
+  %or110.i77 = or i64 %shl109.i76, %val.i58.1297
   br label %if.end23
 
 _ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit192: ; preds = %if.end73.i155

@@ -933,8 +933,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %20, %30
   br label %39
 
 39:                                               ; preds = %9, %4, %_ZNK7oopDesc5klassEv.exit
-  %.1 = phi i32 [ %., %_ZNK7oopDesc5klassEv.exit ], [ 0, %4 ], [ 0, %9 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %., %_ZNK7oopDesc5klassEv.exit ], [ 0, %4 ], [ 0, %9 ]
+  ret i32 %.0
 }
 
 declare void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleS6_S6_P10JavaThread(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr, ptr, i64, ptr noundef) local_unnamed_addr #3
@@ -1005,8 +1005,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %20, %30
   br label %39
 
 39:                                               ; preds = %9, %4, %_ZNK7oopDesc5klassEv.exit
-  %.1 = phi i32 [ %., %_ZNK7oopDesc5klassEv.exit ], [ 0, %4 ], [ 0, %9 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %., %_ZNK7oopDesc5klassEv.exit ], [ 0, %4 ], [ 0, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11735,13 +11735,13 @@ define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP
   unreachable
 
 44:                                               ; preds = %34, %36, %38, %40, %22, %18
-  %.0 = phi i8 [ %6, %22 ], [ 83, %40 ], [ 67, %38 ], [ 66, %36 ], [ 90, %34 ], [ %6, %18 ]
+  %.1 = phi i8 [ %6, %22 ], [ 83, %40 ], [ 67, %38 ], [ 66, %36 ], [ 90, %34 ], [ %6, %18 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   br label %45
 
 45:                                               ; preds = %17, %44
-  %.1 = phi i8 [ %.0, %44 ], [ %6, %17 ]
-  %46 = icmp eq i8 %.1, 76
+  %.0 = phi i8 [ %.1, %44 ], [ %6, %17 ]
+  %46 = icmp eq i8 %.0, 76
   br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %45
@@ -11758,7 +11758,7 @@ define hidden void @_ZN11JvmtiExport27post_raw_field_modificationEP10JavaThreadP
   br label %_ZN10JNIHandles13destroy_localEP8_jobject.exit
 
 .critedge:                                        ; preds = %45
-  call void @_ZN11JvmtiExport23post_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4, ptr noundef %5, i8 noundef signext %.1, ptr noundef %7)
+  call void @_ZN11JvmtiExport23post_field_modificationEP10JavaThreadP6MethodPhP5Klass6HandleP9_jfieldIDcP6jvalue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4, ptr noundef %5, i8 noundef signext %.0, ptr noundef %7)
   br label %_ZN10JNIHandles13destroy_localEP8_jobject.exit
 
 _ZN10JNIHandles13destroy_localEP8_jobject.exit:   ; preds = %51, %47, %.critedge, %8
@@ -21040,8 +21040,8 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.0 = phi ptr [ %34, %33 ], [ %21, %32 ]
-  %36 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %34, %33 ], [ %21, %32 ]
+  %36 = icmp eq ptr %.1, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -21050,7 +21050,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %39
 
 39:                                               ; preds = %30, %37, %35, %8, %16
-  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.0, %35 ], [ %21, %30 ]
+  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
   ret ptr %.025
 }
 

@@ -30,7 +30,7 @@ define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %4, %eatquote.exit.i
   %.036.i = phi i64 [ %.1.i, %eatquote.exit.i ], [ 0, %4 ]
-  %.01835.i = phi i64 [ %.2.i, %eatquote.exit.i ], [ 0, %4 ]
+  %.01835.i = phi i64 [ %.119.i, %eatquote.exit.i ], [ 0, %4 ]
   %.02034.i = phi i64 [ %.121.i, %eatquote.exit.i ], [ 0, %4 ]
   %.02333.i = phi ptr [ %.124.i, %eatquote.exit.i ], [ %6, %4 ]
   %15 = getelementptr inbounds i8, ptr %.02333.i, i64 1
@@ -95,15 +95,15 @@ define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr nocapture no
 eatquote.exit.i:                                  ; preds = %21, %36, %34, %23, %.lr.ph.i
   %.124.i = phi ptr [ %15, %.lr.ph.i ], [ %15, %23 ], [ %15, %34 ], [ %15, %36 ], [ %.0913.i.i, %21 ]
   %.121.i = phi i64 [ %.02034.i, %.lr.ph.i ], [ %24, %23 ], [ 0, %34 ], [ 0, %36 ], [ %.02034.i, %21 ]
-  %.2.i = phi i64 [ %.01835.i, %.lr.ph.i ], [ %.01835.i, %23 ], [ %.02034.i, %34 ], [ %.01835.i, %36 ], [ %.01835.i, %21 ]
+  %.119.i = phi i64 [ %.01835.i, %.lr.ph.i ], [ %.01835.i, %23 ], [ %.02034.i, %34 ], [ %.01835.i, %36 ], [ %.01835.i, %21 ]
   %.1.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %.036.i, %23 ], [ %26, %34 ], [ %26, %36 ], [ %.036.i, %21 ]
   %37 = icmp ult ptr %.124.i, %9
   br i1 %37, label %.lr.ph.i, label %csv_parse.exit
 
 csv_parse.exit:                                   ; preds = %17, %eatquote.exit.i, %.backedge.i.i
   %.147.i = phi i64 [ %.036.i, %.backedge.i.i ], [ %.1.i, %eatquote.exit.i ], [ %.036.i, %17 ]
-  %.246.i = phi i64 [ %.01835.i, %.backedge.i.i ], [ %.2.i, %eatquote.exit.i ], [ %.01835.i, %17 ]
-  %38 = icmp ne i64 %.246.i, 0
+  %.11946.i = phi i64 [ %.01835.i, %.backedge.i.i ], [ %.119.i, %eatquote.exit.i ], [ %.01835.i, %17 ]
+  %38 = icmp ne i64 %.11946.i, 0
   %39 = icmp ugt i64 %.147.i, 1
   %40 = select i1 %38, i1 %39, i1 false
   br i1 %40, label %41, label %csv_parse.exit.thread

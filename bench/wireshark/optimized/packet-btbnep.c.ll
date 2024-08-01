@@ -652,14 +652,14 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr nocaptur
 
 .lr.ph117:                                        ; preds = %50, %.lr.ph117
   %.0116 = phi i32 [ %56, %.lr.ph117 ], [ 0, %50 ]
-  %.0108115 = phi i32 [ %62, %.lr.ph117 ], [ %54, %50 ]
+  %.1109115 = phi i32 [ %62, %.lr.ph117 ], [ %54, %50 ]
   %56 = add nuw nsw i32 %.0116, 4
   %57 = load i32, ptr @hf_btbnep_network_type_start, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %.0108115, i32 noundef 2, i32 noundef 0) #2
-  %59 = add i32 %.0108115, 2
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %.1109115, i32 noundef 2, i32 noundef 0) #2
+  %59 = add i32 %.1109115, 2
   %60 = load i32, ptr @hf_btbnep_network_type_end, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef 0) #2
-  %62 = add i32 %.0108115, 4
+  %62 = add i32 %.1109115, 4
   %63 = icmp ult i32 %56, %55
   br i1 %63, label %.lr.ph117, label %.loopexit, !llvm.loop !4
 
@@ -685,14 +685,14 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %72, %.lr.ph
   %.1114 = phi i32 [ %78, %.lr.ph ], [ 0, %72 ]
-  %.1109113 = phi i32 [ %84, %.lr.ph ], [ %76, %72 ]
+  %.2113 = phi i32 [ %84, %.lr.ph ], [ %76, %72 ]
   %78 = add nuw nsw i32 %.1114, 12
   %79 = load i32, ptr @hf_btbnep_multicast_address_start, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %.1109113, i32 noundef 6, i32 noundef 0) #2
-  %81 = add i32 %.1109113, 6
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %.2113, i32 noundef 6, i32 noundef 0) #2
+  %81 = add i32 %.2113, 6
   %82 = load i32, ptr @hf_btbnep_multicast_address_end, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 6, i32 noundef 0) #2
-  %84 = add i32 %.1109113, 12
+  %84 = add i32 %.2113, 12
   %85 = icmp ult i32 %78, %77
   br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
@@ -708,8 +708,8 @@ define internal fastcc noundef i32 @dissect_control(ptr noundef %0, ptr nocaptur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph117, %72, %50, %86, %64, %42, %21, %13, %4
-  %.2 = phi i32 [ %9, %4 ], [ %90, %86 ], [ %68, %64 ], [ %46, %42 ], [ %38, %21 ], [ %17, %13 ], [ %54, %50 ], [ %76, %72 ], [ %62, %.lr.ph117 ], [ %84, %.lr.ph ]
-  ret i32 %.2
+  %.0108 = phi i32 [ %9, %4 ], [ %90, %86 ], [ %68, %64 ], [ %46, %42 ], [ %38, %21 ], [ %17, %13 ], [ %54, %50 ], [ %76, %72 ], [ %62, %.lr.ph117 ], [ %84, %.lr.ph ]
+  ret i32 %.0108
 }
 
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

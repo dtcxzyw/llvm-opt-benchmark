@@ -812,8 +812,8 @@ define dso_local noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18A
   br i1 %.not166, label %.loopexit165, label %.cont
 
 .cont:                                            ; preds = %12, %.cont
-  %.075169 = phi i32 [ %.075., %.cont ], [ %18, %12 ]
-  %.076168 = phi i32 [ %..076, %.cont ], [ %24, %12 ]
+  %.1169 = phi i32 [ %.1., %.cont ], [ %18, %12 ]
+  %.177168 = phi i32 [ %..177, %.cont ], [ %24, %12 ]
   %.080167 = phi ptr [ %33, %.cont ], [ %3, %12 ]
   %.sroa.054.0.copyload = load i8, ptr %.080167, align 1
   %26 = and i8 %.sroa.054.0.copyload, 7
@@ -823,17 +823,17 @@ define dso_local noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18A
   %29 = zext nneg i8 %28 to i32
   %30 = shl nuw i32 1, %29
   %31 = xor i32 %30, -1
-  %.sroa.speculated = select i1 %switch.i, i32 %.076168, i32 %.075169
+  %.sroa.speculated = select i1 %switch.i, i32 %.177168, i32 %.1169
   %32 = and i32 %.sroa.speculated, %31
-  %..076 = select i1 %switch.i, i32 %32, i32 %.076168
-  %.075. = select i1 %switch.i, i32 %.075169, i32 %32
+  %..177 = select i1 %switch.i, i32 %32, i32 %.177168
+  %.1. = select i1 %switch.i, i32 %.1169, i32 %32
   %33 = getelementptr inbounds i8, ptr %.080167, i64 1
   %.not = icmp eq ptr %33, %25
   br i1 %.not, label %.loopexit165, label %.cont
 
 .loopexit165:                                     ; preds = %.cont, %12, %5
-  %.278 = phi i32 [ 0, %5 ], [ %24, %12 ], [ %..076, %.cont ]
-  %.2 = phi i32 [ 0, %5 ], [ %18, %12 ], [ %.075., %.cont ]
+  %.076 = phi i32 [ 0, %5 ], [ %24, %12 ], [ %..177, %.cont ]
+  %.075 = phi i32 [ 0, %5 ], [ %18, %12 ], [ %.1., %.cont ]
   %34 = getelementptr inbounds i8, ptr %0, i64 312
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   %36 = getelementptr inbounds i8, ptr %0, i64 320
@@ -1203,7 +1203,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
 .preheader:                                       ; preds = %200, %215
   %.0174 = phi i32 [ %216, %215 ], [ 0, %200 ]
   %203 = shl nuw i32 1, %.0174
-  %204 = and i32 %203, %.2
+  %204 = and i32 %203, %.075
   %.not89 = icmp eq i32 %204, 0
   br i1 %.not89, label %209, label %205
 
@@ -1215,7 +1215,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   br label %209
 
 209:                                              ; preds = %205, %.preheader
-  %210 = and i32 %203, %.278
+  %210 = and i32 %203, %.076
   %.not90 = icmp eq i32 %210, 0
   br i1 %.not90, label %215, label %211
 

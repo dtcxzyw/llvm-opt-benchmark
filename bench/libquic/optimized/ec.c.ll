@@ -532,7 +532,7 @@ lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
   br i1 %tobool18.not.i, label %if.then19.i, label %if.end20.i
 
 if.then19.i:                                      ; preds = %lor.lhs.false12.i, %lor.lhs.false.i, %if.end.i
-  %a.0.i = phi ptr [ %call10.i, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ]
+  %a.1.i = phi ptr [ %call10.i, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ]
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 461) #11
   br label %for.end
 
@@ -570,7 +570,7 @@ if.then38.i:                                      ; preds = %if.else.i
   br label %for.end
 
 if.end.i.i:                                       ; preds = %if.else.i, %lor.lhs.false29.i
-  %group.0.i = phi ptr [ %call26.i, %lor.lhs.false29.i ], [ %call35.i, %if.else.i ]
+  %group.1.i = phi ptr [ %call26.i, %lor.lhs.false29.i ], [ %call35.i, %if.else.i ]
   %call.i.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
@@ -580,7 +580,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br label %if.then44.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %6 = load ptr, ptr %group.0.i, align 8
+  %6 = load ptr, ptr %group.1.i, align 8
   store ptr %6, ptr %call.i.i, align 8
   %call5.i.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call5.i.i, 0
@@ -615,7 +615,7 @@ if.then59.i:                                      ; preds = %lor.lhs.false52.i, 
   br label %if.end.i47.i
 
 if.end60.i:                                       ; preds = %lor.lhs.false52.i
-  %call61.i = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group.0.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call50.i, ptr noundef nonnull %call57.i, ptr noundef nonnull %call.i)
+  %call61.i = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %group.1.i, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call50.i, ptr noundef nonnull %call57.i, ptr noundef nonnull %call.i)
   %tobool62.not.i = icmp eq i32 %call61.i, 0
   br i1 %tobool62.not.i, label %if.then63.i, label %if.end64.i
 
@@ -627,13 +627,13 @@ if.end64.i:                                       ; preds = %if.end60.i
   %mul65.i = mul nuw nsw i32 %conv.i, 5
   %idx.ext66.i = zext nneg i32 %mul65.i to i64
   %add.ptr67.i = getelementptr inbounds i8, ptr %data3.i, i64 %idx.ext66.i
-  %order.i = getelementptr inbounds i8, ptr %group.0.i, i64 16
+  %order.i = getelementptr inbounds i8, ptr %group.1.i, i64 16
   %call69.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr67.i, i64 noundef %conv4.i, ptr noundef nonnull %order.i) #11
   %tobool70.not.i = icmp eq ptr %call69.i, null
   br i1 %tobool70.not.i, label %if.then76.i, label %lor.lhs.false71.i
 
 lor.lhs.false71.i:                                ; preds = %if.end64.i
-  %cofactor.i = getelementptr inbounds i8, ptr %group.0.i, i64 40
+  %cofactor.i = getelementptr inbounds i8, ptr %group.1.i, i64 40
   %cofactor72.i = getelementptr inbounds i8, ptr %1, i64 9
   %7 = load i8, ptr %cofactor72.i, align 1
   %conv73.i = zext i8 %7 to i64
@@ -654,12 +654,12 @@ if.end77.i:                                       ; preds = %lor.lhs.false71.i
 if.then80.i:                                      ; preds = %if.end77.i
   %arrayidx82.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.lcssa
   %9 = load ptr, ptr %arrayidx82.i, align 8
-  %mont_data.i = getelementptr inbounds i8, ptr %group.0.i, i64 72
+  %mont_data.i = getelementptr inbounds i8, ptr %group.1.i, i64 72
   store ptr %9, ptr %mont_data.i, align 8
   br label %err.i
 
 err.i:                                            ; preds = %if.then80.i, %if.end77.i
-  %generator.i = getelementptr inbounds i8, ptr %group.0.i, i64 8
+  %generator.i = getelementptr inbounds i8, ptr %group.1.i, i64 8
   store ptr %call.i.i, ptr %generator.i, align 8
   br label %for.end
 
@@ -668,22 +668,22 @@ if.then85.i:                                      ; preds = %lor.lhs.false29.i
   br label %if.end.i47.i
 
 if.end.i47.i:                                     ; preds = %if.then85.i, %if.then76.i, %if.then63.i, %if.then59.i, %if.then44.i
-  %group.1.ph93.i = phi ptr [ %call26.i, %if.then85.i ], [ %group.0.i, %if.then59.i ], [ %group.0.i, %if.then63.i ], [ %group.0.i, %if.then76.i ], [ %group.0.i, %if.then44.i ]
+  %group.0.ph93.i = phi ptr [ %call26.i, %if.then85.i ], [ %group.1.i, %if.then59.i ], [ %group.1.i, %if.then63.i ], [ %group.1.i, %if.then76.i ], [ %group.1.i, %if.then44.i ]
   %P.0.ph91.i = phi ptr [ null, %if.then85.i ], [ %call.i.i, %if.then59.i ], [ %call.i.i, %if.then63.i ], [ %call.i.i, %if.then76.i ], [ null, %if.then44.i ]
-  %y.1.ph83.i = phi ptr [ null, %if.then85.i ], [ null, %if.then59.i ], [ %call57.i, %if.then63.i ], [ %call57.i, %if.then76.i ], [ null, %if.then44.i ]
+  %y.0.ph83.i = phi ptr [ null, %if.then85.i ], [ null, %if.then59.i ], [ %call57.i, %if.then63.i ], [ %call57.i, %if.then76.i ], [ null, %if.then44.i ]
   %x.0.ph81.i = phi ptr [ null, %if.then85.i ], [ %call50.i, %if.then59.i ], [ %call50.i, %if.then63.i ], [ %call50.i, %if.then76.i ], [ null, %if.then44.i ]
-  %10 = load ptr, ptr %group.1.ph93.i, align 8
+  %10 = load ptr, ptr %group.0.ph93.i, align 8
   %group_finish.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %group_finish.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %if.end4.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i47.i
-  tail call void %11(ptr noundef nonnull %group.1.ph93.i) #11
+  tail call void %11(ptr noundef nonnull %group.0.ph93.i) #11
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then1.i.i, %if.end.i47.i
-  %generator.i.i = getelementptr inbounds i8, ptr %group.1.ph93.i, i64 8
+  %generator.i.i = getelementptr inbounds i8, ptr %group.0.ph93.i, i64 8
   %12 = load ptr, ptr %generator.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %if.end86.i, label %if.end.i.i.i
@@ -694,11 +694,11 @@ if.end.i.i.i:                                     ; preds = %if.end4.i.i
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.end.i.i.i, %if.end4.i.i
-  %order.i.i = getelementptr inbounds i8, ptr %group.1.ph93.i, i64 16
+  %order.i.i = getelementptr inbounds i8, ptr %group.0.ph93.i, i64 16
   tail call void @BN_free(ptr noundef nonnull %order.i.i) #11
-  %cofactor.i.i = getelementptr inbounds i8, ptr %group.1.ph93.i, i64 40
+  %cofactor.i.i = getelementptr inbounds i8, ptr %group.0.ph93.i, i64 40
   tail call void @BN_free(ptr noundef nonnull %cofactor.i.i) #11
-  tail call void @free(ptr noundef nonnull %group.1.ph93.i) #11
+  tail call void @free(ptr noundef nonnull %group.0.ph93.i) #11
   %tobool.not.i48.i = icmp eq ptr %P.0.ph91.i, null
   br i1 %tobool.not.i48.i, label %for.end, label %if.end.i49.i
 
@@ -708,18 +708,18 @@ if.end.i49.i:                                     ; preds = %if.end86.i
   br label %for.end
 
 for.end:                                          ; preds = %if.end.i49.i, %if.end86.i, %err.i, %if.then38.i, %if.then85.thread104.i, %if.then19.i, %if.then.i
-  %group.2119.i = phi ptr [ null, %if.end86.i ], [ null, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %group.0.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
+  %group.2119.i = phi ptr [ null, %if.end86.i ], [ null, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %group.1.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
   %x.060118.i = phi ptr [ %x.0.ph81.i, %if.end86.i ], [ %x.0.ph81.i, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %call50.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
-  %y.162117.i = phi ptr [ %y.1.ph83.i, %if.end86.i ], [ %y.1.ph83.i, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %call57.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
-  %b.164116.i = phi ptr [ %call17.i, %if.end86.i ], [ %call17.i, %if.end.i49.i ], [ %call17.i, %if.then85.thread104.i ], [ %call17.i, %err.i ], [ null, %if.then19.i ], [ %call17.i, %if.then38.i ], [ null, %if.then.i ]
-  %a.166115.i = phi ptr [ %call10.i, %if.end86.i ], [ %call10.i, %if.end.i49.i ], [ %call10.i, %if.then85.thread104.i ], [ %call10.i, %err.i ], [ %a.0.i, %if.then19.i ], [ %call10.i, %if.then38.i ], [ null, %if.then.i ]
+  %y.062117.i = phi ptr [ %y.0.ph83.i, %if.end86.i ], [ %y.0.ph83.i, %if.end.i49.i ], [ null, %if.then85.thread104.i ], [ %call57.i, %err.i ], [ null, %if.then19.i ], [ null, %if.then38.i ], [ null, %if.then.i ]
+  %b.064116.i = phi ptr [ %call17.i, %if.end86.i ], [ %call17.i, %if.end.i49.i ], [ %call17.i, %if.then85.thread104.i ], [ %call17.i, %err.i ], [ null, %if.then19.i ], [ %call17.i, %if.then38.i ], [ null, %if.then.i ]
+  %a.066115.i = phi ptr [ %call10.i, %if.end86.i ], [ %call10.i, %if.end.i49.i ], [ %call10.i, %if.then85.thread104.i ], [ %call10.i, %err.i ], [ %a.1.i, %if.then19.i ], [ %call10.i, %if.then38.i ], [ null, %if.then.i ]
   %p.068114.i = phi ptr [ %call5.i, %if.end86.i ], [ %call5.i, %if.end.i49.i ], [ %call5.i, %if.then85.thread104.i ], [ %call5.i, %err.i ], [ %call5.i, %if.then19.i ], [ %call5.i, %if.then38.i ], [ null, %if.then.i ]
   tail call void @BN_CTX_free(ptr noundef %call.i) #11
   tail call void @BN_free(ptr noundef %p.068114.i) #11
-  tail call void @BN_free(ptr noundef %a.166115.i) #11
-  tail call void @BN_free(ptr noundef %b.164116.i) #11
+  tail call void @BN_free(ptr noundef %a.066115.i) #11
+  tail call void @BN_free(ptr noundef %b.064116.i) #11
   tail call void @BN_free(ptr noundef %x.060118.i) #11
-  tail call void @BN_free(ptr noundef %y.162117.i) #11
+  tail call void @BN_free(ptr noundef %y.062117.i) #11
   %cmp6 = icmp eq ptr %group.2119.i, null
   br i1 %cmp6, label %if.then7, label %if.end8
 

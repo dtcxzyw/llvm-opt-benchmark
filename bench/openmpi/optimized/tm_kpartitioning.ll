@@ -275,7 +275,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 .lr.ph54.i.i:                                     ; preds = %84, %114
   %indvars.iv58.i.i = phi i64 [ %indvars.iv.next59.i.i, %114 ], [ 0, %84 ]
   %.053.i.i = phi double [ %.1.i.i, %114 ], [ -1.000000e+00, %84 ]
-  %.03851.i.i = phi i32 [ %.139.i.i, %114 ], [ 0, %84 ]
+  %.13951.i.i = phi i32 [ %.2.i.i, %114 ], [ 0, %84 ]
   %95 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv58.i.i
   %96 = load i32, ptr %95, align 4
   %.not44.i.i = icmp eq i32 %96, -1
@@ -309,16 +309,16 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   br label %114
 
 114:                                              ; preds = %113, %110, %97, %.lr.ph54.i.i
-  %.139.i.i = phi i32 [ %96, %113 ], [ %.03851.i.i, %110 ], [ %.03851.i.i, %97 ], [ %.03851.i.i, %.lr.ph54.i.i ]
+  %.2.i.i = phi i32 [ %96, %113 ], [ %.13951.i.i, %110 ], [ %.13951.i.i, %97 ], [ %.13951.i.i, %.lr.ph54.i.i ]
   %.1.i.i = phi double [ %111, %113 ], [ %.053.i.i, %110 ], [ %.053.i.i, %97 ], [ %.053.i.i, %.lr.ph54.i.i ]
   %indvars.iv.next59.i.i = add nuw nsw i64 %indvars.iv58.i.i, 1
   %exitcond62.not.i.i = icmp eq i64 %indvars.iv.next59.i.i, %wide.trip.count.i.i
   br i1 %exitcond62.not.i.i, label %allocate_vertex.exit.i, label %.lr.ph54.i.i, !llvm.loop !11
 
 allocate_vertex.exit.i:                           ; preds = %94, %89, %114
-  %.2.i.i = phi i32 [ %.139.i.i, %114 ], [ 0, %94 ], [ %88, %89 ]
-  store i32 %.2.i.i, ptr %81, align 4
-  %115 = sext i32 %.2.i.i to i64
+  %.038.i.i = phi i32 [ %.2.i.i, %114 ], [ 0, %94 ], [ %88, %89 ]
+  store i32 %.038.i.i, ptr %81, align 4
+  %115 = sext i32 %.038.i.i to i64
   %116 = getelementptr inbounds i32, ptr %50, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, 1

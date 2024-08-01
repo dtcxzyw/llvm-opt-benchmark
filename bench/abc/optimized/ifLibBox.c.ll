@@ -381,7 +381,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %75, %6
-  %.060.ph.ph = phi ptr [ %.161, %75 ], [ null, %6 ]
+  %.060.ph.ph = phi ptr [ %.262, %75 ], [ null, %6 ]
   %.058.ph.ph = phi ptr [ %76, %75 ], [ null, %6 ]
   %.046.ph.ph = phi i32 [ %56, %75 ], [ 0, %6 ]
   %.0.ph.ph = phi i32 [ %58, %75 ], [ 0, %6 ]
@@ -562,7 +562,7 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   br label %75
 
 75:                                               ; preds = %68, %._crit_edge
-  %.161 = phi ptr [ %69, %68 ], [ %.060.ph.ph, %._crit_edge ]
+  %.262 = phi ptr [ %69, %68 ], [ %.060.ph.ph, %._crit_edge ]
   %76 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #19
   store ptr %54, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 12
@@ -582,7 +582,7 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   %85 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 4) #19
   %86 = getelementptr inbounds i8, ptr %76, i64 24
   store ptr %85, ptr %86, align 8
-  tail call void @If_LibBoxAdd(ptr noundef nonnull %.161, ptr noundef nonnull %76)
+  tail call void @If_LibBoxAdd(ptr noundef nonnull %.262, ptr noundef nonnull %76)
   br label %.outer.outer, !llvm.loop !8
 
 .split82.us:                                      ; preds = %37, %35

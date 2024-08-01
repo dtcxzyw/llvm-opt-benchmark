@@ -1662,8 +1662,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !18
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.167 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %17, %for.cond17.preheader ]
-  %m_ptr.i26 = getelementptr inbounds i8, ptr %curr.167, i64 8
+  %curr.267 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %17, %for.cond17.preheader ]
+  %m_ptr.i26 = getelementptr inbounds i8, ptr %curr.267, i64 8
   %23 = load ptr, ptr %m_ptr.i26, align 8
   %magicptr48 = ptrtoint ptr %23 to i64
   switch i64 %magicptr48, label %if.then21 [
@@ -1672,7 +1672,7 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %24 = load i32, ptr %curr.167, align 8
+  %24 = load i32, ptr %curr.267, align 8
   %cmp23 = icmp eq i32 %24, %xor35.i.i.i
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
@@ -1694,19 +1694,19 @@ _ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_ha
   br i1 %cmp6.i.i.i39, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %land.lhs.true.i.i.i32, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit40, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.167, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.267, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !19
 
 end_remove:                                       ; preds = %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit40
-  %curr.2 = phi ptr [ %curr.167, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit40 ], [ %curr.065, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.267, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit40 ], [ %curr.065, %_ZNK14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE6equalsERKPS2_SB_.exit ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %17, ptr %add.ptr37
   %m_ptr.i43 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %28 = load ptr, ptr %m_ptr.i43, align 8
   %cmp.i44 = icmp eq ptr %28, null
-  %m_ptr.i45 = getelementptr inbounds i8, ptr %curr.2, i64 8
+  %m_ptr.i45 = getelementptr inbounds i8, ptr %curr.1, i64 8
   br i1 %cmp.i44, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

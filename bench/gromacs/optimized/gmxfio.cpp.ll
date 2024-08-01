@@ -1286,13 +1286,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %58, %37
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit37
 
 _ZNSt6vectorIhSaIhEED2Ev.exit37:                  ; preds = %47, %68
-  %.0 = phi i32 [ %65, %68 ], [ -1, %47 ]
+  %.1 = phi i32 [ %65, %68 ], [ -1, %47 ]
   call void @_ZdlPv(ptr noundef nonnull %22) #21
   br label %71
 
 71:                                               ; preds = %12, %3, %_ZNSt6vectorIhSaIhEED2Ev.exit37, %18
-  %.1 = phi i32 [ -1, %18 ], [ %.0, %_ZNSt6vectorIhSaIhEED2Ev.exit37 ], [ -1, %3 ], [ -1, %12 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %18 ], [ %.1, %_ZNSt6vectorIhSaIhEED2Ev.exit37 ], [ -1, %3 ], [ -1, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

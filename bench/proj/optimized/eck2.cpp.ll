@@ -87,20 +87,20 @@ define internal { double, double } @_ZL14eck2_s_inverse5PJ_XYP8PJconsts(double %
   br label %21
 
 21:                                               ; preds = %19, %16
-  %.sroa.3.0 = phi double [ %18, %16 ], [ %20, %19 ]
+  %.sroa.3.1 = phi double [ %18, %16 ], [ %20, %19 ]
   %22 = fcmp olt double %1, 0.000000e+00
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = fneg double %.sroa.3.0
+  %24 = fneg double %.sroa.3.1
   br label %25
 
 25:                                               ; preds = %21, %23, %14
-  %.sroa.3.1 = phi double [ %9, %14 ], [ %24, %23 ], [ %.sroa.3.0, %21 ]
+  %.sroa.3.0 = phi double [ %9, %14 ], [ %24, %23 ], [ %.sroa.3.1, %21 ]
   %26 = fmul double %6, 0x3FDD7B6F52FAC55A
   %27 = fdiv double %0, %26
   %.fca.0.insert = insertvalue { double, double } poison, double %27, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
 }
 

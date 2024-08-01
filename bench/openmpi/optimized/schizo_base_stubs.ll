@@ -875,11 +875,11 @@ prte_schizo_base_strip_quotes.exit89:             ; preds = %prte_schizo_base_st
   br label %152
 
 152:                                              ; preds = %134, %145, %148, %141, %127
-  %.0 = phi ptr [ %130, %127 ], [ %137, %134 ], [ %144, %141 ], [ %151, %148 ], [ %93, %145 ]
+  %.1 = phi ptr [ %130, %127 ], [ %137, %134 ], [ %144, %141 ], [ %151, %148 ], [ %93, %145 ]
   br i1 %8, label %153, label %167
 
 153:                                              ; preds = %152
-  %154 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %.0) #17
+  %154 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %.1) #17
   %155 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond79 = icmp ult i32 %155, 64
   br i1 %or.cond79, label %156, label %163
@@ -893,7 +893,7 @@ prte_schizo_base_strip_quotes.exit89:             ; preds = %prte_schizo_base_st
 
 161:                                              ; preds = %156
   %162 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #17
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %155, ptr noundef nonnull @.str.36, ptr noundef %162, ptr noundef %.0) #17
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %155, ptr noundef nonnull @.str.36, ptr noundef %162, ptr noundef %.1) #17
   br label %163
 
 163:                                              ; preds = %161, %156, %153
@@ -917,25 +917,25 @@ prte_schizo_base_strip_quotes.exit89:             ; preds = %prte_schizo_base_st
 
 174:                                              ; preds = %169
   %175 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #17
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %168, ptr noundef nonnull @.str.37, ptr noundef %175, ptr noundef %.0) #17
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %168, ptr noundef nonnull @.str.37, ptr noundef %175, ptr noundef %.1) #17
   br label %176
 
 176:                                              ; preds = %174, %169, %167
   %177 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef nonnull @.str.23) #17
-  %178 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef %.0) #17
+  %178 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef %.1) #17
   %179 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef %102) #17
   br label %prte_schizo_base_check_prte_param.exit
 
 prte_schizo_base_check_prte_param.exit:           ; preds = %117, %.preheader.i, %163, %176
-  %.171 = phi i32 [ %85, %176 ], [ %85, %163 ], [ %.07092, %.preheader.i ], [ %.07092, %117 ]
-  %.1 = phi ptr [ %.0, %176 ], [ %.0, %163 ], [ %93, %.preheader.i ], [ %93, %117 ]
-  call void @free(ptr noundef %.1) #17
+  %.2 = phi i32 [ %85, %176 ], [ %85, %163 ], [ %.07092, %.preheader.i ], [ %.07092, %117 ]
+  %.0 = phi ptr [ %.1, %176 ], [ %.1, %163 ], [ %93, %.preheader.i ], [ %93, %117 ]
+  call void @free(ptr noundef %.0) #17
   call void @free(ptr noundef %102) #17
   br label %180
 
 180:                                              ; preds = %77, %prte_schizo_base_check_prte_param.exit, %76
-  %.2 = phi i32 [ %33, %76 ], [ %.171, %prte_schizo_base_check_prte_param.exit ], [ %.07092, %77 ]
-  %181 = add nsw i32 %.2, 1
+  %.171 = phi i32 [ %33, %76 ], [ %.2, %prte_schizo_base_check_prte_param.exit ], [ %.07092, %77 ]
+  %181 = add nsw i32 %.171, 1
   %182 = icmp slt i32 %181, %6
   br i1 %182, label %sub_0, label %.loopexit91, !llvm.loop !10
 
@@ -1303,11 +1303,11 @@ prte_schizo_base_strip_quotes.exit106:            ; preds = %prte_schizo_base_st
   br label %162
 
 162:                                              ; preds = %151, %158, %155, %144
-  %.0 = phi ptr [ %147, %144 ], [ %154, %151 ], [ %161, %158 ], [ %101, %155 ]
+  %.1 = phi ptr [ %147, %144 ], [ %154, %151 ], [ %161, %158 ], [ %101, %155 ]
   br i1 %8, label %163, label %178
 
 163:                                              ; preds = %162
-  %164 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, ptr noundef %.0) #17
+  %164 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, ptr noundef %.1) #17
   %165 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond97 = icmp ult i32 %165, 64
   br i1 %or.cond97, label %166, label %174
@@ -1334,13 +1334,13 @@ prte_schizo_base_strip_quotes.exit106:            ; preds = %prte_schizo_base_st
 
 178:                                              ; preds = %162
   %179 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef nonnull @.str.39) #17
-  %180 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef %.0) #17
+  %180 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef %.1) #17
   %181 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef nonnull %110) #17
   br label %182
 
 182:                                              ; preds = %174, %178, %137
-  %.1 = phi ptr [ %.0, %174 ], [ %.0, %178 ], [ %101, %137 ]
-  call void @free(ptr noundef %.1) #17
+  %.0 = phi ptr [ %.1, %174 ], [ %.1, %178 ], [ %101, %137 ]
+  call void @free(ptr noundef %.0) #17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %136, %182

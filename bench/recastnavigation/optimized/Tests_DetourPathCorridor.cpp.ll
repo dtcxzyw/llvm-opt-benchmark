@@ -343,8 +343,8 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_0v() #1 personality ptr @__gxx_p
   %126 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #10
-  %.0 = extractvalue { ptr, i32 } %126, 0
-  %127 = call ptr @__cxa_begin_catch(ptr %.0) #10
+  %.1 = extractvalue { ptr, i32 } %126, 0
+  %127 = call ptr @__cxa_begin_catch(ptr %.1) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
           to label %128 unwind label %143
 
@@ -454,8 +454,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %134, %130, %109
   %170 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %13) #10
-  %.3 = extractvalue { ptr, i32 } %170, 0
-  %171 = call ptr @__cxa_begin_catch(ptr %.3) #10
+  %.5 = extractvalue { ptr, i32 } %170, 0
+  %171 = call ptr @__cxa_begin_catch(ptr %.5) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
           to label %172 unwind label %200
 
@@ -547,8 +547,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit181:          ; preds = %174, %178
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %17) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #10
-  %.6 = extractvalue { ptr, i32 } %206, 0
-  %207 = call ptr @__cxa_begin_catch(ptr %.6) #10
+  %.7 = extractvalue { ptr, i32 } %206, 0
+  %207 = call ptr @__cxa_begin_catch(ptr %.7) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %15)
           to label %208 unwind label %223
 
@@ -658,8 +658,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit182:          ; preds = %214, %210, %153
   %250 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %25) #10
-  %.9 = extractvalue { ptr, i32 } %250, 0
-  %251 = call ptr @__cxa_begin_catch(ptr %.9) #10
+  %.11 = extractvalue { ptr, i32 } %250, 0
+  %251 = call ptr @__cxa_begin_catch(ptr %.11) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %23)
           to label %252 unwind label %267
 
@@ -770,8 +770,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit184:          ; preds = %258, %254, %233
   %294 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %33) #10
-  %.12 = extractvalue { ptr, i32 } %294, 0
-  %295 = call ptr @__cxa_begin_catch(ptr %.12) #10
+  %.14 = extractvalue { ptr, i32 } %294, 0
+  %295 = call ptr @__cxa_begin_catch(ptr %.14) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %31)
           to label %296 unwind label %326
 
@@ -875,8 +875,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit186:          ; preds = %298, %302
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %37) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %38) #10
-  %.15 = extractvalue { ptr, i32 } %332, 0
-  %333 = call ptr @__cxa_begin_catch(ptr %.15) #10
+  %.16 = extractvalue { ptr, i32 } %332, 0
+  %333 = call ptr @__cxa_begin_catch(ptr %.16) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %35)
           to label %334 unwind label %349
 
@@ -987,8 +987,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit187:          ; preds = %340, %336, %277
   %376 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %46) #10
-  %.18 = extractvalue { ptr, i32 } %376, 0
-  %377 = call ptr @__cxa_begin_catch(ptr %.18) #10
+  %.20 = extractvalue { ptr, i32 } %376, 0
+  %377 = call ptr @__cxa_begin_catch(ptr %.20) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %44)
           to label %378 unwind label %408
 
@@ -1092,8 +1092,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit189:          ; preds = %380, %384
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %50) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #10
-  %.21 = extractvalue { ptr, i32 } %414, 0
-  %415 = call ptr @__cxa_begin_catch(ptr %.21) #10
+  %.22 = extractvalue { ptr, i32 } %414, 0
+  %415 = call ptr @__cxa_begin_catch(ptr %.22) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %48)
           to label %416 unwind label %431
 
@@ -1204,8 +1204,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit196:          ; preds = %422, %418, %359
   %458 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %59) #10
-  %.24 = extractvalue { ptr, i32 } %458, 0
-  %459 = call ptr @__cxa_begin_catch(ptr %.24) #10
+  %.26 = extractvalue { ptr, i32 } %458, 0
+  %459 = call ptr @__cxa_begin_catch(ptr %.26) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %57)
           to label %460 unwind label %490
 
@@ -1309,8 +1309,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit198:          ; preds = %462, %466
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %63) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %64) #10
-  %.27 = extractvalue { ptr, i32 } %496, 0
-  %497 = call ptr @__cxa_begin_catch(ptr %.27) #10
+  %.28 = extractvalue { ptr, i32 } %496, 0
+  %497 = call ptr @__cxa_begin_catch(ptr %.28) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %61)
           to label %498 unwind label %513
 
@@ -1421,8 +1421,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit206:          ; preds = %504, %500, %441
   %540 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %72) #10
-  %.30 = extractvalue { ptr, i32 } %540, 0
-  %541 = call ptr @__cxa_begin_catch(ptr %.30) #10
+  %.32 = extractvalue { ptr, i32 } %540, 0
+  %541 = call ptr @__cxa_begin_catch(ptr %.32) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %70)
           to label %542 unwind label %572
 
@@ -1526,8 +1526,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit208:          ; preds = %544, %548
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %76) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %77) #10
-  %.33 = extractvalue { ptr, i32 } %578, 0
-  %579 = call ptr @__cxa_begin_catch(ptr %.33) #10
+  %.34 = extractvalue { ptr, i32 } %578, 0
+  %579 = call ptr @__cxa_begin_catch(ptr %.34) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %74)
           to label %580 unwind label %595
 
@@ -1638,8 +1638,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit216:          ; preds = %586, %582, %523
   %622 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %85) #10
-  %.36 = extractvalue { ptr, i32 } %622, 0
-  %623 = call ptr @__cxa_begin_catch(ptr %.36) #10
+  %.38 = extractvalue { ptr, i32 } %622, 0
+  %623 = call ptr @__cxa_begin_catch(ptr %.38) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %83)
           to label %624 unwind label %654
 
@@ -1743,8 +1743,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit218:          ; preds = %626, %630
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %89) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %90) #10
-  %.39 = extractvalue { ptr, i32 } %660, 0
-  %661 = call ptr @__cxa_begin_catch(ptr %.39) #10
+  %.40 = extractvalue { ptr, i32 } %660, 0
+  %661 = call ptr @__cxa_begin_catch(ptr %.40) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %87)
           to label %662 unwind label %677
 
@@ -1855,8 +1855,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit226:          ; preds = %668, %664, %605
   %704 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %98) #10
-  %.42 = extractvalue { ptr, i32 } %704, 0
-  %705 = call ptr @__cxa_begin_catch(ptr %.42) #10
+  %.44 = extractvalue { ptr, i32 } %704, 0
+  %705 = call ptr @__cxa_begin_catch(ptr %.44) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %96)
           to label %706 unwind label %736
 
@@ -1960,8 +1960,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit228:          ; preds = %708, %712
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %102) #10
   call void @_ZN5Catch8Matchers18MatcherGenericBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %103) #10
-  %.45 = extractvalue { ptr, i32 } %742, 0
-  %743 = call ptr @__cxa_begin_catch(ptr %.45) #10
+  %.46 = extractvalue { ptr, i32 } %742, 0
+  %743 = call ptr @__cxa_begin_catch(ptr %.46) #10
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %100)
           to label %744 unwind label %759
 

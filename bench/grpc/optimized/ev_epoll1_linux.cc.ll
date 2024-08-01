@@ -1985,7 +1985,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   br label %cleanup24
 
 cleanup24:                                        ; preds = %invoke.cont, %_ZN4absl12lts_202308029MutexLockD2Ev.exit7, %for.end
-  %retval.1 = phi i32 [ %cond23, %for.end ], [ 2, %_ZN4absl12lts_202308029MutexLockD2Ev.exit7 ], [ 1, %invoke.cont ]
+  %retval.0 = phi i32 [ %cond23, %for.end ], [ 2, %_ZN4absl12lts_202308029MutexLockD2Ev.exit7 ], [ 1, %invoke.cont ]
   %18 = load i64, ptr %pending_events, align 8
   %and.i.i.i.i = and i64 %18, 1
   %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
@@ -1998,7 +1998,7 @@ if.then.i.i.i:                                    ; preds = %cleanup24
   br label %_ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS5_EED2Ev.exit
 
 _ZN4absl12lts_2023080213InlinedVectorIPN17grpc_event_engine12experimental17Epoll1EventHandleELm5ESaIS5_EED2Ev.exit: ; preds = %cleanup24, %if.then.i.i.i
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad8
   %.pn = phi { ptr, i32 } [ %3, %lpad8 ], [ %lpad.loopexit20, %lpad.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp ]

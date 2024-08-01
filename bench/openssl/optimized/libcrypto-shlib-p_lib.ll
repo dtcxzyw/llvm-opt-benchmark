@@ -566,7 +566,7 @@ if.else:                                          ; preds = %if.end33
 
 if.end42:                                         ; preds = %if.then36, %if.else
   %6 = phi ptr [ %call37, %if.then36 ], [ %.pre, %if.else ]
-  %allocpkey.0 = phi ptr [ %call37, %if.then36 ], [ null, %if.else ]
+  %allocpkey.1 = phi ptr [ %call37, %if.then36 ], [ null, %if.else ]
   %call.i = tail call fastcc range(i32 0, 2) i32 @pkey_set_type(ptr noundef %6, ptr noundef null, i32 noundef %4, ptr noundef null, i32 noundef -1, ptr noundef null)
   %tobool44.not = icmp eq i32 %call.i, 0
   br i1 %tobool44.not, label %if.end73, label %if.then45
@@ -639,11 +639,11 @@ if.end71:                                         ; preds = %if.end70, %if.then5
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end42, %if.end71
-  %cmp74.not = icmp eq ptr %allocpkey.0, null
+  %cmp74.not = icmp eq ptr %allocpkey.1, null
   br i1 %cmp74.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end73
-  %references.i = getelementptr inbounds i8, ptr %allocpkey.0, i64 48
+  %references.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 48
   %19 = atomicrmw sub ptr %references.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %19, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -657,16 +657,16 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_PKEY_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %allocpkey.0)
-  %ex_data.i = getelementptr inbounds i8, ptr %allocpkey.0, i64 80
-  tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %allocpkey.0, ptr noundef nonnull %ex_data.i) #12
-  %lock.i = getelementptr inbounds i8, ptr %allocpkey.0, i64 56
+  tail call fastcc void @evp_pkey_free_it(ptr noundef nonnull %allocpkey.1)
+  %ex_data.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 80
+  tail call void @CRYPTO_free_ex_data(i32 noundef 17, ptr noundef nonnull %allocpkey.1, ptr noundef nonnull %ex_data.i) #12
+  %lock.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 56
   %20 = load ptr, ptr %lock.i, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %20) #12
-  %attributes.i = getelementptr inbounds i8, ptr %allocpkey.0, i64 64
+  %attributes.i = getelementptr inbounds i8, ptr %allocpkey.1, i64 64
   %21 = load ptr, ptr %attributes.i, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %21, ptr noundef nonnull @X509_ATTRIBUTE_free) #12
-  tail call void @CRYPTO_free(ptr noundef nonnull %allocpkey.0, ptr noundef nonnull @.str, i32 noundef 1809) #12
+  tail call void @CRYPTO_free(ptr noundef nonnull %allocpkey.1, ptr noundef nonnull @.str, i32 noundef 1809) #12
   br label %EVP_PKEY_free.exit
 
 EVP_PKEY_free.exit:                               ; preds = %CRYPTO_DOWN_REF.exit.i, %if.end3.i
@@ -1377,11 +1377,11 @@ if.then4:                                         ; preds = %if.else
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then4, %if.then2
-  %ameth.0 = phi ptr [ %call, %if.then2 ], [ %call5, %if.then4 ], [ null, %if.else ]
+  %ameth.1 = phi ptr [ %call, %if.then2 ], [ %call5, %if.then4 ], [ null, %if.else ]
   %0 = load ptr, ptr %tmpe, align 8
   %cmp7 = icmp eq ptr %0, null
   %call10 = call i32 @ENGINE_finish(ptr noundef %0) #12
-  %1 = icmp eq ptr %ameth.0, null
+  %1 = icmp eq ptr %ameth.1, null
   %2 = select i1 %cmp7, i1 true, i1 %1
   br i1 %2, label %if.then14, label %if.end33
 
@@ -2394,15 +2394,15 @@ if.then40:                                        ; preds = %if.end36
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then40, %if.end36
-  %ret.0 = phi ptr [ %9, %if.then40 ], [ %7, %if.end36 ]
+  %ret.1 = phi ptr [ %9, %if.then40 ], [ %7, %if.end36 ]
   %10 = load ptr, ptr %lock, align 8
   %call46 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %10) #12
   %tobool47.not = icmp eq i32 %call46, 0
-  %spec.select = select i1 %tobool47.not, ptr null, ptr %ret.0
+  %spec.select = select i1 %tobool47.not, ptr null, ptr %ret.1
   br label %err
 
 err:                                              ; preds = %if.end44, %if.end31, %if.end27
-  %ret.1 = phi ptr [ null, %if.end31 ], [ null, %if.end27 ], [ %spec.select, %if.end44 ]
+  %ret.0 = phi ptr [ null, %if.end31 ], [ null, %if.end27 ], [ %spec.select, %if.end44 ]
   %11 = load ptr, ptr %tmp_copy, align 8
   %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2435,7 +2435,7 @@ if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exi
   br label %return
 
 return:                                           ; preds = %if.end3.i, %CRYPTO_DOWN_REF.exit.i, %err, %if.end10, %if.end23, %if.end18, %if.end15, %lor.lhs.false, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end15 ], [ null, %if.end18 ], [ %4, %if.end23 ], [ %0, %if.end10 ], [ %ret.1, %err ], [ %ret.1, %CRYPTO_DOWN_REF.exit.i ], [ %ret.1, %if.end3.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %if.end15 ], [ null, %if.end18 ], [ %4, %if.end23 ], [ %0, %if.end10 ], [ %ret.0, %err ], [ %ret.0, %CRYPTO_DOWN_REF.exit.i ], [ %ret.0, %if.end3.i ]
   ret ptr %retval.0
 }
 

@@ -703,9 +703,9 @@ fmap_readn.exit.thread:                           ; preds = %32, %28, %fmap_read
   br i1 %exitcond.not, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %49, %52, %46, %3, %fmap_readn.exit.thread
-  %.2 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %3 ], [ %51, %49 ], [ 0, %52 ], [ %48, %46 ]
+  %.1 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 0, %3 ], [ %51, %49 ], [ 0, %52 ], [ %48, %46 ]
   %55 = call i32 @partition_intersection_list_free(ptr noundef nonnull %4) #7
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1009,8 +1009,8 @@ fmap_readn.exit.thread:                           ; preds = %117, %113, %fmap_re
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %219, %fmap_readn.exit.thread, %221, %220
-  %.24061 = phi i32 [ %212, %221 ], [ %212, %220 ], [ 0, %._crit_edge ], [ 0, %219 ], [ 26, %fmap_readn.exit.thread ]
-  ret i32 %.24061
+  %.13961 = phi i32 [ %212, %221 ], [ %212, %220 ], [ 0, %._crit_edge ], [ 0, %219 ], [ 26, %fmap_readn.exit.thread ]
+  ret i32 %.13961
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

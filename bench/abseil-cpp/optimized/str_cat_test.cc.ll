@@ -4627,13 +4627,13 @@ ehcleanup9.thread:                                ; preds = %lpad.i, %lpad
 
 ehcleanup9:                                       ; preds = %lpad7.body, %lpad.i71, %lpad3
   %.pn = phi { ptr, i32 } [ %eh.lpad-body83, %lpad7.body ], [ %8, %lpad3 ], [ %1, %lpad.i71 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element5, %lpad7.body ], [ %arrayinit.element, %lpad3 ], [ %arrayinit.element, %lpad.i71 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element5, %lpad7.body ], [ %arrayinit.element, %lpad3 ], [ %arrayinit.element, %lpad.i71 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %ehcleanup9, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.0, %ehcleanup9 ]
+  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.1, %ehcleanup9 ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #22
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %strs
@@ -4665,14 +4665,14 @@ ehcleanup28.thread:                               ; preds = %lpad.i87, %lpad15
   br label %ehcleanup610
 
 ehcleanup28:                                      ; preds = %lpad23.body, %lpad.i95, %lpad19
-  %arrayinit.endOfInit13.0 = phi ptr [ %arrayinit.element21, %lpad23.body ], [ %arrayinit.element17, %lpad.i95 ], [ %arrayinit.element17, %lpad19 ]
+  %arrayinit.endOfInit13.1 = phi ptr [ %arrayinit.element21, %lpad23.body ], [ %arrayinit.element17, %lpad.i95 ], [ %arrayinit.element17, %lpad19 ]
   %.pn7 = phi { ptr, i32 } [ %eh.lpad-body107, %lpad23.body ], [ %4, %lpad.i95 ], [ %11, %lpad19 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #22
   br label %arraydestroy.body33
 
 arraydestroy.body33:                              ; preds = %ehcleanup28, %arraydestroy.body33
-  %arraydestroy.elementPast34 = phi ptr [ %arraydestroy.element35, %arraydestroy.body33 ], [ %arrayinit.endOfInit13.0, %ehcleanup28 ]
+  %arraydestroy.elementPast34 = phi ptr [ %arraydestroy.element35, %arraydestroy.body33 ], [ %arrayinit.endOfInit13.1, %ehcleanup28 ]
   %arraydestroy.element35 = getelementptr inbounds i8, ptr %arraydestroy.elementPast34, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element35) #22
   %arraydestroy.done36 = icmp eq ptr %arraydestroy.element35, %stdstrs
@@ -17252,14 +17252,14 @@ ehcleanup12.thread:                               ; preds = %lpad.i54, %lpad3
   br label %ehcleanup523
 
 ehcleanup12:                                      ; preds = %lpad10.body, %lpad.i62, %lpad6
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element8, %lpad10.body ], [ %arrayinit.element, %lpad.i62 ], [ %arrayinit.element, %lpad6 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element8, %lpad10.body ], [ %arrayinit.element, %lpad.i62 ], [ %arrayinit.element, %lpad6 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body74, %lpad10.body ], [ %2, %lpad.i62 ], [ %11, %lpad6 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #22
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %ehcleanup12, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.0, %ehcleanup12 ]
+  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.1, %ehcleanup12 ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #22
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %strs
@@ -17291,14 +17291,14 @@ ehcleanup31.thread:                               ; preds = %lpad.i78, %lpad18
   br label %ehcleanup516
 
 ehcleanup31:                                      ; preds = %lpad26.body, %lpad.i86, %lpad22
-  %arrayinit.endOfInit16.0 = phi ptr [ %arrayinit.element24, %lpad26.body ], [ %arrayinit.element20, %lpad.i86 ], [ %arrayinit.element20, %lpad22 ]
+  %arrayinit.endOfInit16.1 = phi ptr [ %arrayinit.element24, %lpad26.body ], [ %arrayinit.element20, %lpad.i86 ], [ %arrayinit.element20, %lpad22 ]
   %.pn4 = phi { ptr, i32 } [ %eh.lpad-body98, %lpad26.body ], [ %5, %lpad.i86 ], [ %14, %lpad22 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #22
   br label %arraydestroy.body36
 
 arraydestroy.body36:                              ; preds = %ehcleanup31, %arraydestroy.body36
-  %arraydestroy.elementPast37 = phi ptr [ %arraydestroy.element38, %arraydestroy.body36 ], [ %arrayinit.endOfInit16.0, %ehcleanup31 ]
+  %arraydestroy.elementPast37 = phi ptr [ %arraydestroy.element38, %arraydestroy.body36 ], [ %arrayinit.endOfInit16.1, %ehcleanup31 ]
   %arraydestroy.element38 = getelementptr inbounds i8, ptr %arraydestroy.elementPast37, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element38) #22
   %arraydestroy.done39 = icmp eq ptr %arraydestroy.element38, %stdstrs
@@ -25629,10 +25629,10 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i.i:    ; preds = %if.end.i.i.i.i.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i.i, %if.end.i.i.i.i.i
   %sub.ptr.rhs.cast26.i.i.i.pre-phi.i.i = phi i64 [ %.pre.i81.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %writer.3.i.i.i.i.i = phi ptr [ %add.ptr18.i.i.i.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i.i ], [ %incdec.ptr6.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %writer.2.i.i.i.i.i = phi ptr [ %add.ptr18.i.i.i.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i.i ], [ %incdec.ptr6.i.i.i.i.i, %if.end.i.i.i.i.i ]
   %sub.ptr.lhs.cast25.i.i.i.i.i = ptrtoint ptr %arrayidx.i.i.i.i16.i to i64
   %sub.ptr.sub27.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast25.i.i.i.i.i, %sub.ptr.rhs.cast26.i.i.i.pre-phi.i.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i7.i, i64 %sub.ptr.sub27.i.i.i.i.i, ptr nonnull %writer.3.i.i.i.i.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i7.i, i64 %sub.ptr.sub27.i.i.i.i.i, ptr nonnull %writer.2.i.i.i.i.i)
           to label %invoke.cont.i21.i unwind label %lpad.i18.i
 
 invoke.cont.i21.i:                                ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i
@@ -25835,9 +25835,9 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i66.i.i:  ; preds = %while.end.i.i.i47.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i60.i.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i66.i.i, %while.end.i.i.i47.i.i
   %sub.ptr.rhs.cast26.i.i.i63.pre-phi.i.i = phi i64 [ %.pre14.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i66.i.i ], [ %sub.ptr.lhs.cast.i.i.i56.i.i, %while.end.i.i.i47.i.i ]
-  %writer.3.i.i.i61.i.i = phi ptr [ %add.ptr18.i.i.i72.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i66.i.i ], [ %incdec.ptr6.i.i.i52.i.i, %while.end.i.i.i47.i.i ]
+  %writer.2.i.i.i61.i.i = phi ptr [ %add.ptr18.i.i.i72.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i66.i.i ], [ %incdec.ptr6.i.i.i52.i.i, %while.end.i.i.i47.i.i ]
   %sub.ptr.sub27.i.i.i64.i.i = sub i64 %sub.ptr.lhs.cast25.i.i.i62.i.i, %sub.ptr.rhs.cast26.i.i.i63.pre-phi.i.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i12.i, i64 %sub.ptr.sub27.i.i.i64.i.i, ptr nonnull %writer.3.i.i.i61.i.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i12.i, i64 %sub.ptr.sub27.i.i.i64.i.i, ptr nonnull %writer.2.i.i.i61.i.i)
           to label %invoke.cont28.i64.i unwind label %lpad27.i62.i
 
 invoke.cont28.i64.i:                              ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i60.i.i
@@ -26079,9 +26079,9 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i173.i.i: ; preds = %while.end.i.i.i154.
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i167.i.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i173.i.i, %while.end.i.i.i154.i.i
   %sub.ptr.rhs.cast26.i.i.i170.pre-phi.i.i = phi i64 [ %.pre15.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i173.i.i ], [ %sub.ptr.lhs.cast.i.i.i163.i.i, %while.end.i.i.i154.i.i ]
-  %writer.3.i.i.i168.i.i = phi ptr [ %add.ptr18.i.i.i179.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i173.i.i ], [ %incdec.ptr6.i.i.i159.i.i, %while.end.i.i.i154.i.i ]
+  %writer.2.i.i.i168.i.i = phi ptr [ %add.ptr18.i.i.i179.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i173.i.i ], [ %incdec.ptr6.i.i.i159.i.i, %while.end.i.i.i154.i.i ]
   %sub.ptr.sub27.i.i.i171.i.i = sub i64 %sub.ptr.lhs.cast25.i.i.i169.i.i, %sub.ptr.rhs.cast26.i.i.i170.pre-phi.i.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i.i, i64 %sub.ptr.sub27.i.i.i171.i.i, ptr nonnull %writer.3.i.i.i168.i.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i.i, i64 %sub.ptr.sub27.i.i.i171.i.i, ptr nonnull %writer.2.i.i.i168.i.i)
           to label %invoke.cont80.i.i unwind label %lpad79.i.i
 
 invoke.cont80.i.i:                                ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i167.i.i
@@ -26372,11 +26372,11 @@ if.then21.i.i.i.i.i:                              ; preds = %if.end.i.i.i.thread
   br label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i109.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i109.i: ; preds = %if.then21.i.i.i.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i245.i, %if.end.i.i.i.thread.i.i, %if.end.i.i.i.i240.i
-  %writer.3.i.i.i.i110.i = phi ptr [ %incdec.ptr22.i.i.i.i.i, %if.then21.i.i.i.i.i ], [ %add.ptr18.i.i.i.i247.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i245.i ], [ %incdec.ptr6.i.i.i.i108.i, %if.end.i.i.i.i240.i ], [ %incdec.ptr7.i.i.i.i.i, %if.end.i.i.i.thread.i.i ]
+  %writer.2.i.i.i.i110.i = phi ptr [ %incdec.ptr22.i.i.i.i.i, %if.then21.i.i.i.i.i ], [ %add.ptr18.i.i.i.i247.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i245.i ], [ %incdec.ptr6.i.i.i.i108.i, %if.end.i.i.i.i240.i ], [ %incdec.ptr7.i.i.i.i.i, %if.end.i.i.i.thread.i.i ]
   %sub.ptr.lhs.cast25.i.i.i.i111.i = ptrtoint ptr %arrayidx.i.i.i.i101.i to i64
-  %sub.ptr.rhs.cast26.i.i.i.i.i = ptrtoint ptr %writer.3.i.i.i.i110.i to i64
+  %sub.ptr.rhs.cast26.i.i.i.i.i = ptrtoint ptr %writer.2.i.i.i.i110.i to i64
   %sub.ptr.sub27.i.i.i.i112.i = sub i64 %sub.ptr.lhs.cast25.i.i.i.i111.i, %sub.ptr.rhs.cast26.i.i.i.i.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i87.i, i64 %sub.ptr.sub27.i.i.i.i112.i, ptr nonnull %writer.3.i.i.i.i110.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i87.i, i64 %sub.ptr.sub27.i.i.i.i112.i, ptr nonnull %writer.2.i.i.i.i110.i)
           to label %invoke.cont.i117.i unwind label %lpad.i113.i
 
 invoke.cont.i117.i:                               ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i109.i
@@ -26600,10 +26600,10 @@ if.then21.i.i.i75.i.i:                            ; preds = %if.end.i.i.i56.i.i
   br label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i62.i.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i62.i.i: ; preds = %if.then21.i.i.i75.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i68.thread.i.i, %if.end.i.i.i56.thread.i.i, %if.end.i.i.i56.i.i
-  %writer.3.i.i.i63.i.i = phi ptr [ %incdec.ptr22.i.i.i76.i.i, %if.then21.i.i.i75.i.i ], [ %incdec.ptr7.i.i.i78.i.i, %if.end.i.i.i56.i.i ], [ %incdec.ptr6.i.i.i54.i.i, %if.end.i.i.i56.thread.i.i ], [ %add.ptr18.i.i.i7442.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i68.thread.i.i ]
-  %sub.ptr.rhs.cast26.i.i.i65.i.i = ptrtoint ptr %writer.3.i.i.i63.i.i to i64
+  %writer.2.i.i.i63.i.i = phi ptr [ %incdec.ptr22.i.i.i76.i.i, %if.then21.i.i.i75.i.i ], [ %incdec.ptr7.i.i.i78.i.i, %if.end.i.i.i56.i.i ], [ %incdec.ptr6.i.i.i54.i.i, %if.end.i.i.i56.thread.i.i ], [ %add.ptr18.i.i.i7442.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i68.thread.i.i ]
+  %sub.ptr.rhs.cast26.i.i.i65.i.i = ptrtoint ptr %writer.2.i.i.i63.i.i to i64
   %sub.ptr.sub27.i.i.i66.i.i = sub i64 %sub.ptr.lhs.cast25.i.i.i64.i.i, %sub.ptr.rhs.cast26.i.i.i65.i.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i92.i, i64 %sub.ptr.sub27.i.i.i66.i.i, ptr nonnull %writer.3.i.i.i63.i.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i92.i, i64 %sub.ptr.sub27.i.i.i66.i.i, ptr nonnull %writer.2.i.i.i63.i.i)
           to label %invoke.cont28.i170.i unwind label %lpad27.i168.i
 
 invoke.cont28.i170.i:                             ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i62.i.i
@@ -26853,9 +26853,9 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i178.i.i: ; preds = %if.end.i.i.i166.i.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i172.i.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i178.i.i, %if.end.i.i.i166.i.i
   %sub.ptr.rhs.cast26.i.i.i175.i.pre-phi.i = phi i64 [ %.pre.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i178.i.i ], [ %sub.ptr.lhs.cast.i.i.i168.i.i, %if.end.i.i.i166.i.i ]
-  %writer.3.i.i.i173.i.i = phi ptr [ %add.ptr18.i.i.i184.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i178.i.i ], [ %writer.1.i.i.i167.i.i, %if.end.i.i.i166.i.i ]
+  %writer.2.i.i.i173.i.i = phi ptr [ %add.ptr18.i.i.i184.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i178.i.i ], [ %writer.1.i.i.i167.i.i, %if.end.i.i.i166.i.i ]
   %sub.ptr.sub27.i.i.i176.i.i = sub i64 %sub.ptr.lhs.cast25.i.i.i174.i.i, %sub.ptr.rhs.cast26.i.i.i175.i.pre-phi.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i97.i, i64 %sub.ptr.sub27.i.i.i176.i.i, ptr nonnull %writer.3.i.i.i173.i.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i97.i, i64 %sub.ptr.sub27.i.i.i176.i.i, ptr nonnull %writer.2.i.i.i173.i.i)
           to label %invoke.cont80.i206.i unwind label %lpad79.i204.i
 
 invoke.cont80.i206.i:                             ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i172.i.i
@@ -27872,10 +27872,10 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %if.end.i.i.i.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i, %if.end.i.i.i.i
   %sub.ptr.rhs.cast26.i.i.i.pre-phi.i = phi i64 [ %.pre.i80, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i, %if.end.i.i.i.i ]
-  %writer.3.i.i.i.i = phi ptr [ %add.ptr18.i.i.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i ], [ %incdec.ptr6.i.i.i.i, %if.end.i.i.i.i ]
+  %writer.2.i.i.i.i = phi ptr [ %add.ptr18.i.i.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i ], [ %incdec.ptr6.i.i.i.i, %if.end.i.i.i.i ]
   %sub.ptr.lhs.cast25.i.i.i.i = ptrtoint ptr %arrayidx.i.i.i.i16 to i64
   %sub.ptr.sub27.i.i.i.i = sub i64 %sub.ptr.lhs.cast25.i.i.i.i, %sub.ptr.rhs.cast26.i.i.i.pre-phi.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i8, i64 %sub.ptr.sub27.i.i.i.i, ptr nonnull %writer.3.i.i.i.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i8, i64 %sub.ptr.sub27.i.i.i.i, ptr nonnull %writer.2.i.i.i.i)
           to label %invoke.cont.i21 unwind label %lpad.i18
 
 invoke.cont.i21:                                  ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i
@@ -28078,9 +28078,9 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i65.i:    ; preds = %while.end.i.i.i46.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i59.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i65.i, %while.end.i.i.i46.i
   %sub.ptr.rhs.cast26.i.i.i62.pre-phi.i = phi i64 [ %.pre14.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i65.i ], [ %sub.ptr.lhs.cast.i.i.i55.i, %while.end.i.i.i46.i ]
-  %writer.3.i.i.i60.i = phi ptr [ %add.ptr18.i.i.i71.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i65.i ], [ %incdec.ptr6.i.i.i51.i, %while.end.i.i.i46.i ]
+  %writer.2.i.i.i60.i = phi ptr [ %add.ptr18.i.i.i71.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i65.i ], [ %incdec.ptr6.i.i.i51.i, %while.end.i.i.i46.i ]
   %sub.ptr.sub27.i.i.i63.i = sub i64 %sub.ptr.lhs.cast25.i.i.i61.i, %sub.ptr.rhs.cast26.i.i.i62.pre-phi.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i13, i64 %sub.ptr.sub27.i.i.i63.i, ptr nonnull %writer.3.i.i.i60.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i13, i64 %sub.ptr.sub27.i.i.i63.i, ptr nonnull %writer.2.i.i.i60.i)
           to label %invoke.cont28.i63 unwind label %lpad27.i61
 
 invoke.cont28.i63:                                ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i59.i
@@ -28322,9 +28322,9 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i171.i:   ; preds = %while.end.i.i.i152.
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i165.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i171.i, %while.end.i.i.i152.i
   %sub.ptr.rhs.cast26.i.i.i168.pre-phi.i = phi i64 [ %.pre15.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i171.i ], [ %sub.ptr.lhs.cast.i.i.i161.i, %while.end.i.i.i152.i ]
-  %writer.3.i.i.i166.i = phi ptr [ %add.ptr18.i.i.i177.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i171.i ], [ %incdec.ptr6.i.i.i157.i, %while.end.i.i.i152.i ]
+  %writer.2.i.i.i166.i = phi ptr [ %add.ptr18.i.i.i177.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i171.i ], [ %incdec.ptr6.i.i.i157.i, %while.end.i.i.i152.i ]
   %sub.ptr.sub27.i.i.i169.i = sub i64 %sub.ptr.lhs.cast25.i.i.i167.i, %sub.ptr.rhs.cast26.i.i.i168.pre-phi.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i, i64 %sub.ptr.sub27.i.i.i169.i, ptr nonnull %writer.3.i.i.i166.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i, i64 %sub.ptr.sub27.i.i.i169.i, ptr nonnull %writer.2.i.i.i166.i)
           to label %invoke.cont80.i unwind label %lpad79.i
 
 invoke.cont80.i:                                  ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i165.i
@@ -28613,11 +28613,11 @@ if.then21.i.i.i.i:                                ; preds = %if.end.i.i.i.thread
   br label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i108
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i108: ; preds = %if.then21.i.i.i.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i246, %if.end.i.i.i.thread.i, %if.end.i.i.i.i241
-  %writer.3.i.i.i.i109 = phi ptr [ %incdec.ptr22.i.i.i.i, %if.then21.i.i.i.i ], [ %add.ptr18.i.i.i.i248, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i246 ], [ %incdec.ptr6.i.i.i.i107, %if.end.i.i.i.i241 ], [ %incdec.ptr7.i.i.i.i, %if.end.i.i.i.thread.i ]
+  %writer.2.i.i.i.i109 = phi ptr [ %incdec.ptr22.i.i.i.i, %if.then21.i.i.i.i ], [ %add.ptr18.i.i.i.i248, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i246 ], [ %incdec.ptr6.i.i.i.i107, %if.end.i.i.i.i241 ], [ %incdec.ptr7.i.i.i.i, %if.end.i.i.i.thread.i ]
   %sub.ptr.lhs.cast25.i.i.i.i110 = ptrtoint ptr %arrayidx.i.i.i.i100 to i64
-  %sub.ptr.rhs.cast26.i.i.i.i = ptrtoint ptr %writer.3.i.i.i.i109 to i64
+  %sub.ptr.rhs.cast26.i.i.i.i = ptrtoint ptr %writer.2.i.i.i.i109 to i64
   %sub.ptr.sub27.i.i.i.i111 = sub i64 %sub.ptr.lhs.cast25.i.i.i.i110, %sub.ptr.rhs.cast26.i.i.i.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i86, i64 %sub.ptr.sub27.i.i.i.i111, ptr nonnull %writer.3.i.i.i.i109)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i86, i64 %sub.ptr.sub27.i.i.i.i111, ptr nonnull %writer.2.i.i.i.i109)
           to label %invoke.cont.i116 unwind label %lpad.i112
 
 invoke.cont.i116:                                 ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i108
@@ -28842,10 +28842,10 @@ if.then21.i.i.i75.i:                              ; preds = %if.end.i.i.i56.thre
   br label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i62.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i62.i: ; preds = %if.then21.i.i.i75.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i68.i, %if.end.i.i.i56.thread.i, %if.end.i.i.i56.i
-  %writer.3.i.i.i63.i = phi ptr [ %incdec.ptr22.i.i.i76.i, %if.then21.i.i.i75.i ], [ %add.ptr18.i.i.i74.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i68.i ], [ %incdec.ptr6.i.i.i54.i, %if.end.i.i.i56.i ], [ %incdec.ptr7.i.i.i78.i, %if.end.i.i.i56.thread.i ]
-  %sub.ptr.rhs.cast26.i.i.i65.i = ptrtoint ptr %writer.3.i.i.i63.i to i64
+  %writer.2.i.i.i63.i = phi ptr [ %incdec.ptr22.i.i.i76.i, %if.then21.i.i.i75.i ], [ %add.ptr18.i.i.i74.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i68.i ], [ %incdec.ptr6.i.i.i54.i, %if.end.i.i.i56.i ], [ %incdec.ptr7.i.i.i78.i, %if.end.i.i.i56.thread.i ]
+  %sub.ptr.rhs.cast26.i.i.i65.i = ptrtoint ptr %writer.2.i.i.i63.i to i64
   %sub.ptr.sub27.i.i.i66.i = sub i64 %sub.ptr.lhs.cast25.i.i.i64.i, %sub.ptr.rhs.cast26.i.i.i65.i
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i91, i64 %sub.ptr.sub27.i.i.i66.i, ptr nonnull %writer.3.i.i.i63.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i91, i64 %sub.ptr.sub27.i.i.i66.i, ptr nonnull %writer.2.i.i.i63.i)
           to label %invoke.cont28.i169 unwind label %lpad27.i167
 
 invoke.cont28.i169:                               ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i62.i
@@ -29096,9 +29096,9 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i177.i:   ; preds = %if.end.i.i.i165.i
 
 _ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i171.i: ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i177.i, %if.end.i.i.i165.i
   %sub.ptr.rhs.cast26.i.i.i174.i.pre-phi = phi i64 [ %.pre, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i177.i ], [ %sub.ptr.lhs.cast.i.i.i167.i, %if.end.i.i.i165.i ]
-  %writer.3.i.i.i172.i = phi ptr [ %add.ptr18.i.i.i183.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i177.i ], [ %writer.1.i.i.i166.i, %if.end.i.i.i165.i ]
+  %writer.2.i.i.i172.i = phi ptr [ %add.ptr18.i.i.i183.i, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i177.i ], [ %writer.1.i.i.i166.i, %if.end.i.i.i165.i ]
   %sub.ptr.sub27.i.i.i175.i = sub i64 %sub.ptr.lhs.cast25.i.i.i173.i, %sub.ptr.rhs.cast26.i.i.i174.i.pre-phi
-  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i96, i64 %sub.ptr.sub27.i.i.i175.i, ptr nonnull %writer.3.i.i.i172.i)
+  invoke void @_ZN4absl16strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i96, i64 %sub.ptr.sub27.i.i.i175.i, ptr nonnull %writer.2.i.i.i172.i)
           to label %invoke.cont80.i209 unwind label %lpad79.i207
 
 invoke.cont80.i209:                               ; preds = %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i171.i

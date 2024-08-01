@@ -162,7 +162,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 delete.notnull:                                   ; preds = %if.then, %if.then6
-  %szColorMap.0 = phi ptr [ %call7, %if.then6 ], [ @_ZL21g_aclrDefaultColorMap, %if.then ]
+  %szColorMap.1 = phi ptr [ %call7, %if.then6 ], [ @_ZL21g_aclrDefaultColorMap, %if.then ]
   %vtable12 = load ptr, ptr %call3.i8, align 8
   %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 8
   %7 = load ptr, ptr %vfn13, align 8
@@ -170,8 +170,8 @@ delete.notnull:                                   ; preds = %if.then, %if.then6
   br label %if.end14
 
 if.end14:                                         ; preds = %delete.notnull, %invoke.cont4
-  %szColorMap.1 = phi ptr [ %szColorMap.0, %delete.notnull ], [ @_ZL21g_aclrDefaultColorMap, %invoke.cont4 ]
-  store ptr %szColorMap.1, ptr %pszColorMap, align 8
+  %szColorMap.0 = phi ptr [ %szColorMap.1, %delete.notnull ], [ @_ZL21g_aclrDefaultColorMap, %invoke.cont4 ]
+  store ptr %szColorMap.0, ptr %pszColorMap, align 8
   ret void
 }
 

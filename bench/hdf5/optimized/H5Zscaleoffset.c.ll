@@ -777,11 +777,11 @@ H5Z__scaleoffset_convert.exit237:                 ; preds = %._crit_edge.us.i236
   br label %H5Z__scaleoffset_convert.exit228
 
 H5Z__scaleoffset_convert.exit228:                 ; preds = %._crit_edge.us.i227, %200, %201, %120
-  %.0193 = phi ptr [ %101, %120 ], [ %174, %201 ], [ %174, %200 ], [ %101, %._crit_edge.us.i227 ]
+  %.1194 = phi ptr [ %101, %120 ], [ %174, %201 ], [ %174, %200 ], [ %101, %._crit_edge.us.i227 ]
   %.0188 = phi i64 [ %100, %120 ], [ %173, %201 ], [ %173, %200 ], [ %100, %._crit_edge.us.i227 ]
   %205 = load ptr, ptr %5, align 8
   %206 = tail call ptr @H5MM_xfree(ptr noundef %205) #12
-  store ptr %.0193, ptr %5, align 8
+  store ptr %.1194, ptr %5, align 8
   store i64 %.0188, ptr %4, align 8
   br label %.thread247
 
@@ -1619,35 +1619,35 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef w
 
 .lr.ph35.i.us.us:                                 ; preds = %.lr.ph39.split.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us
   %.138.us.us = phi i64 [ %54, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph39.split.us ]
-  %.02237.us.us = phi i32 [ %.3.us.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 8, %.lr.ph39.split.us ]
-  %.02436.us.us = phi i64 [ %.327.us.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph39.split.us ]
+  %.02237.us.us = phi i32 [ %.6.us.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 8, %.lr.ph39.split.us ]
+  %.02436.us.us = phi i64 [ %.630.us.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph39.split.us ]
   %20 = mul nuw i64 %.138.us.us, %7
   %invariant.gep32.i.us.us = getelementptr i8, ptr %0, i64 %20
   br label %21
 
 21:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us, %.lr.ph35.i.us.us
-  %.125.us.us = phi i64 [ %.02436.us.us, %.lr.ph35.i.us.us ], [ %.327.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
-  %.123.us.us = phi i32 [ %.02237.us.us, %.lr.ph35.i.us.us ], [ %.3.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
+  %.428.us.us = phi i64 [ %.02436.us.us, %.lr.ph35.i.us.us ], [ %.630.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
+  %.4.us.us = phi i32 [ %.02237.us.us, %.lr.ph35.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
   %indvars.iv37.i.us.us = phi i64 [ %18, %.lr.ph35.i.us.us ], [ %indvars.iv.next38.i.us.us, %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %.125.us.us
+  %22 = getelementptr inbounds i8, ptr %2, i64 %.428.us.us
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i64 %indvars.iv37.i.us.us, %18
   %.0.i.i.us.us = select i1 %24, i32 %14, i32 8
-  %25 = icmp ugt i32 %.123.us.us, %.0.i.i.us.us
+  %25 = icmp ugt i32 %.4.us.us, %.0.i.i.us.us
   %26 = zext i8 %23 to i32
   %gep33.i.us.us = getelementptr i8, ptr %invariant.gep32.i.us.us, i64 %indvars.iv37.i.us.us
   br i1 %25, label %46, label %27
 
 27:                                               ; preds = %21
-  %28 = shl nsw i32 -1, %.123.us.us
+  %28 = shl nsw i32 -1, %.4.us.us
   %29 = xor i32 %28, -1
   %30 = and i32 %26, %29
-  %31 = sub nuw i32 %.0.i.i.us.us, %.123.us.us
+  %31 = sub nuw i32 %.0.i.i.us.us, %.4.us.us
   %32 = shl nuw nsw i32 %30, %31
   %33 = trunc i32 %32 to i8
   store i8 %33, ptr %gep33.i.us.us, align 1
-  %34 = add i64 %.125.us.us, 1
-  %35 = icmp eq i32 %.0.i.i.us.us, %.123.us.us
+  %34 = add i64 %.428.us.us, 1
+  %35 = icmp eq i32 %.0.i.i.us.us, %.4.us.us
   br i1 %35, label %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us, label %36
 
 36:                                               ; preds = %27
@@ -1663,7 +1663,7 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef w
   br label %.sink.split.i.i.us.us
 
 46:                                               ; preds = %21
-  %47 = sub nuw i32 %.123.us.us, %.0.i.i.us.us
+  %47 = sub nuw i32 %.4.us.us, %.0.i.i.us.us
   %48 = lshr i32 %26, %47
   %49 = shl nsw i32 -1, %.0.i.i.us.us
   %50 = xor i32 %49, -1
@@ -1672,15 +1672,15 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef w
 
 .sink.split.i.i.us.us:                            ; preds = %46, %36
   %.pre-phi = phi i32 [ %47, %46 ], [ %40, %36 ]
-  %.226.us.us = phi i64 [ %.125.us.us, %46 ], [ %34, %36 ]
+  %.529.us.us = phi i64 [ %.428.us.us, %46 ], [ %34, %36 ]
   %.sink.i.i.in.us.us = phi i32 [ %51, %46 ], [ %45, %36 ]
   %.sink.i.i.us.us = trunc i32 %.sink.i.i.in.us.us to i8
   store i8 %.sink.i.i.us.us, ptr %gep33.i.us.us, align 1
   br label %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us
 
 H5Z__scaleoffset_decompress_one_byte.exit.i.us.us: ; preds = %.sink.split.i.i.us.us, %27
-  %.327.us.us = phi i64 [ %.226.us.us, %.sink.split.i.i.us.us ], [ %34, %27 ]
-  %.3.us.us = phi i32 [ %.pre-phi, %.sink.split.i.i.us.us ], [ 8, %27 ]
+  %.630.us.us = phi i64 [ %.529.us.us, %.sink.split.i.i.us.us ], [ %34, %27 ]
+  %.6.us.us = phi i32 [ %.pre-phi, %.sink.split.i.i.us.us ], [ 8, %27 ]
   %indvars.iv.next38.i.us.us = add nsw i64 %indvars.iv37.i.us.us, -1
   %52 = trunc nuw i64 %indvars.iv37.i.us.us to i32
   %53 = icmp sgt i32 %52, 0
@@ -1698,27 +1698,27 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
 
 .lr.ph.i:                                         ; preds = %.lr.ph39.split, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32
   %.138 = phi i64 [ %88, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32 ], [ 0, %.lr.ph39.split ]
-  %.02237 = phi i32 [ %.6, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32 ], [ 8, %.lr.ph39.split ]
-  %.02436 = phi i64 [ %.630, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32 ], [ 0, %.lr.ph39.split ]
+  %.02237 = phi i32 [ %.3, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32 ], [ 8, %.lr.ph39.split ]
+  %.02436 = phi i64 [ %.327, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32 ], [ 0, %.lr.ph39.split ]
   %56 = mul nuw i64 %.138, %7
   %invariant.gep.i = getelementptr i8, ptr %0, i64 %56
   br label %57
 
 57:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.exit28.i, %.lr.ph.i
-  %.428 = phi i64 [ %.02436, %.lr.ph.i ], [ %.630, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
-  %.4 = phi i32 [ %.02237, %.lr.ph.i ], [ %.6, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
+  %.125 = phi i64 [ %.02436, %.lr.ph.i ], [ %.327, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
+  %.123 = phi i32 [ %.02237, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_decompress_one_byte.exit28.i ]
-  %58 = getelementptr inbounds i8, ptr %2, i64 %.428
+  %58 = getelementptr inbounds i8, ptr %2, i64 %.125
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i64 %indvars.iv.i, %15
   %.0.i24.i = select i1 %60, i32 %14, i32 8
-  %61 = icmp ugt i32 %.4, %.0.i24.i
+  %61 = icmp ugt i32 %.123, %.0.i24.i
   %62 = zext i8 %59 to i32
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   br i1 %61, label %63, label %69
 
 63:                                               ; preds = %57
-  %64 = sub nuw i32 %.4, %.0.i24.i
+  %64 = sub nuw i32 %.123, %.0.i24.i
   %65 = lshr i32 %62, %64
   %66 = shl nsw i32 -1, %.0.i24.i
   %67 = xor i32 %66, -1
@@ -1726,15 +1726,15 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   br label %.sink.split.i25.i
 
 69:                                               ; preds = %57
-  %70 = shl nsw i32 -1, %.4
+  %70 = shl nsw i32 -1, %.123
   %71 = xor i32 %70, -1
   %72 = and i32 %62, %71
-  %73 = sub nuw i32 %.0.i24.i, %.4
+  %73 = sub nuw i32 %.0.i24.i, %.123
   %74 = shl nuw nsw i32 %72, %73
   %75 = trunc i32 %74 to i8
   store i8 %75, ptr %gep.i, align 1
-  %76 = add i64 %.428, 1
-  %77 = icmp eq i32 %.0.i24.i, %.4
+  %76 = add i64 %.125, 1
+  %77 = icmp eq i32 %.0.i24.i, %.123
   br i1 %77, label %H5Z__scaleoffset_decompress_one_byte.exit28.i, label %78
 
 78:                                               ; preds = %69
@@ -1751,15 +1751,15 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
 
 .sink.split.i25.i:                                ; preds = %78, %63
   %.pre-phi51 = phi i32 [ %82, %78 ], [ %64, %63 ]
-  %.529 = phi i64 [ %76, %78 ], [ %.428, %63 ]
+  %.226 = phi i64 [ %76, %78 ], [ %.125, %63 ]
   %.sink.i26.i.in = phi i32 [ %87, %78 ], [ %68, %63 ]
   %.sink.i26.i = trunc i32 %.sink.i26.i.in to i8
   store i8 %.sink.i26.i, ptr %gep.i, align 1
   br label %H5Z__scaleoffset_decompress_one_byte.exit28.i
 
 H5Z__scaleoffset_decompress_one_byte.exit28.i:    ; preds = %.sink.split.i25.i, %69
-  %.630 = phi i64 [ %.529, %.sink.split.i25.i ], [ %76, %69 ]
-  %.6 = phi i32 [ %.pre-phi51, %.sink.split.i25.i ], [ 8, %69 ]
+  %.327 = phi i64 [ %.226, %.sink.split.i25.i ], [ %76, %69 ]
+  %.3 = phi i32 [ %.pre-phi51, %.sink.split.i25.i ], [ 8, %69 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %7
   br i1 %exitcond.not.i, label %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32, label %57
@@ -2726,20 +2726,20 @@ define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 
 .lr.ph2822:                                       ; preds = %.lr.ph2822.preheader, %.lr.ph2822
   %indvars.iv3263 = phi i64 [ %31, %.lr.ph2822.preheader ], [ %indvars.iv.next3264, %.lr.ph2822 ]
   %.114532821 = phi i8 [ %.01452, %.lr.ph2822.preheader ], [ %.21454, %.lr.ph2822 ]
-  %.115022820 = phi i8 [ %.01452, %.lr.ph2822.preheader ], [ %.31504, %.lr.ph2822 ]
+  %.115022820 = phi i8 [ %.01452, %.lr.ph2822.preheader ], [ %.21503, %.lr.ph2822 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3263
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, %storemerge1909
   %spec.select = tail call i8 @llvm.umax.i8(i8 %33, i8 %.115022820)
   %spec.select1974 = tail call i8 @llvm.umin.i8(i8 %33, i8 %.114532821)
-  %.31504 = select i1 %34, i8 %.115022820, i8 %spec.select
+  %.21503 = select i1 %34, i8 %.115022820, i8 %spec.select
   %.21454 = select i1 %34, i8 %.114532821, i8 %spec.select1974
   %indvars.iv.next3264 = add nuw nsw i64 %indvars.iv3263, 1
   %exitcond3266.not = icmp eq i64 %indvars.iv.next3264, %wide.trip.count3265
   br i1 %exitcond3266.not, label %._crit_edge2823, label %.lr.ph2822
 
 ._crit_edge2823:                                  ; preds = %28, %.lr.ph2822, %.critedge1912
-  %.11502.lcssa = phi i8 [ %.01452, %.critedge1912 ], [ %.31504, %.lr.ph2822 ], [ 0, %28 ]
+  %.11502.lcssa = phi i8 [ %.01452, %.critedge1912 ], [ %.21503, %.lr.ph2822 ], [ 0, %28 ]
   %.11453.lcssa = phi i8 [ %.01452, %.critedge1912 ], [ %.21454, %.lr.ph2822 ], [ 0, %28 ]
   %35 = zext i8 %.11502.lcssa to i32
   %36 = zext i8 %.11453.lcssa to i32
@@ -2800,7 +2800,7 @@ H5Z__scaleoffset_log2.exit:                       ; preds = %H5Z__scaleoffset_lo
 
 .critedge1913:                                    ; preds = %.lr.ph2802, %.preheader2294
   %.21581.lcssa = phi i32 [ 0, %.preheader2294 ], [ %.215812801, %.lr.ph2802 ]
-  %.31455 = phi i8 [ 0, %.preheader2294 ], [ %53, %.lr.ph2802 ]
+  %.41456 = phi i8 [ 0, %.preheader2294 ], [ %53, %.lr.ph2802 ]
   %57 = icmp ult i32 %.21581.lcssa, %1
   br i1 %57, label %.lr.ph2810.preheader, label %thread-pre-split
 
@@ -2811,26 +2811,26 @@ H5Z__scaleoffset_log2.exit:                       ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2810:                                       ; preds = %.lr.ph2810.preheader, %.lr.ph2810
   %indvars.iv3254 = phi i64 [ %58, %.lr.ph2810.preheader ], [ %indvars.iv.next3255, %.lr.ph2810 ]
-  %.414562809 = phi i8 [ %.31455, %.lr.ph2810.preheader ], [ %.51457, %.lr.ph2810 ]
+  %.514572809 = phi i8 [ %.41456, %.lr.ph2810.preheader ], [ %.61458, %.lr.ph2810 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3254
   %60 = load i8, ptr %59, align 1
   %.not2292 = icmp eq i8 %60, %storemerge1909
-  %61 = tail call i8 @llvm.umin.i8(i8 %60, i8 %.414562809)
-  %.51457 = select i1 %.not2292, i8 %.414562809, i8 %61
+  %61 = tail call i8 @llvm.umin.i8(i8 %60, i8 %.514572809)
+  %.61458 = select i1 %.not2292, i8 %.514572809, i8 %61
   %indvars.iv.next3255 = add nuw nsw i64 %indvars.iv3254, 1
   %exitcond3257.not = icmp eq i64 %indvars.iv.next3255, %wide.trip.count3256
   br i1 %exitcond3257.not, label %thread-pre-split, label %.lr.ph2810
 
 thread-pre-split:                                 ; preds = %55, %.lr.ph2810, %.critedge1913, %H5Z__scaleoffset_log2.exit
   %62 = phi i32 [ %.011.i, %H5Z__scaleoffset_log2.exit ], [ %23, %.critedge1913 ], [ %23, %.lr.ph2810 ], [ %23, %55 ]
-  %.61458 = phi i8 [ %.11453.lcssa, %H5Z__scaleoffset_log2.exit ], [ %.31455, %.critedge1913 ], [ %.51457, %.lr.ph2810 ], [ 0, %55 ]
+  %.31455 = phi i8 [ %.11453.lcssa, %H5Z__scaleoffset_log2.exit ], [ %.41456, %.critedge1913 ], [ %.61458, %.lr.ph2810 ], [ 0, %55 ]
   %.not1910 = icmp ne i32 %62, 8
   %63 = icmp ne i32 %1, 0
   %or.cond = and i1 %.not1910, %63
   br i1 %or.cond, label %.lr.ph2827, label %.loopexit
 
 .lr.ph2827:                                       ; preds = %thread-pre-split
-  %64 = zext i8 %.61458 to i32
+  %64 = zext i8 %.31455 to i32
   %wide.trip.count3270 = zext i32 %1 to i64
   br label %65
 
@@ -2876,21 +2876,21 @@ thread-pre-split:                                 ; preds = %55, %.lr.ph2810, %.
 
 .lr.ph2795:                                       ; preds = %.lr.ph2795.preheader, %.lr.ph2795
   %indvars.iv3244 = phi i64 [ 0, %.lr.ph2795.preheader ], [ %indvars.iv.next3245, %.lr.ph2795 ]
-  %.714592793 = phi i8 [ %81, %.lr.ph2795.preheader ], [ %.81460, %.lr.ph2795 ]
+  %.814602793 = phi i8 [ %81, %.lr.ph2795.preheader ], [ %.91461, %.lr.ph2795 ]
   %.415052792 = phi i8 [ %81, %.lr.ph2795.preheader ], [ %spec.select1914, %.lr.ph2795 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3244
   %84 = load i8, ptr %83, align 1
   %spec.select1914 = tail call i8 @llvm.umax.i8(i8 %84, i8 %.415052792)
-  %.81460 = tail call i8 @llvm.umin.i8(i8 %84, i8 %.714592793)
+  %.91461 = tail call i8 @llvm.umin.i8(i8 %84, i8 %.814602793)
   %indvars.iv.next3245 = add nuw nsw i64 %indvars.iv3244, 1
   %exitcond3247.not = icmp eq i64 %indvars.iv.next3245, %wide.trip.count3246
   br i1 %exitcond3247.not, label %._crit_edge2796, label %.lr.ph2795
 
 ._crit_edge2796:                                  ; preds = %.lr.ph2795, %82
   %.41505.lcssa = phi i8 [ %81, %82 ], [ %spec.select1914, %.lr.ph2795 ]
-  %.71459.lcssa = phi i8 [ %81, %82 ], [ %.81460, %.lr.ph2795 ]
+  %.81460.lcssa = phi i8 [ %81, %82 ], [ %.91461, %.lr.ph2795 ]
   %85 = zext i8 %.41505.lcssa to i32
-  %86 = zext i8 %.71459.lcssa to i32
+  %86 = zext i8 %.81460.lcssa to i32
   %87 = sub nsw i32 %85, %86
   %88 = icmp sgt i32 %87, 253
   br i1 %88, label %89, label %90
@@ -2941,17 +2941,17 @@ H5Z__scaleoffset_log2.exit1994:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2789:                                       ; preds = %.lr.ph2789.preheader, %.lr.ph2789
   %indvars.iv3240 = phi i64 [ 0, %.lr.ph2789.preheader ], [ %indvars.iv.next3241, %.lr.ph2789 ]
-  %.914612787 = phi i8 [ %81, %.lr.ph2789.preheader ], [ %spec.select1915, %.lr.ph2789 ]
+  %.1114632787 = phi i8 [ %81, %.lr.ph2789.preheader ], [ %spec.select1915, %.lr.ph2789 ]
   %101 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3240
   %102 = load i8, ptr %101, align 1
-  %spec.select1915 = tail call i8 @llvm.umin.i8(i8 %102, i8 %.914612787)
+  %spec.select1915 = tail call i8 @llvm.umin.i8(i8 %102, i8 %.1114632787)
   %indvars.iv.next3241 = add nuw nsw i64 %indvars.iv3240, 1
   %exitcond3243.not = icmp eq i64 %indvars.iv.next3241, %wide.trip.count3242
   br i1 %exitcond3243.not, label %thread-pre-split2245, label %.lr.ph2789
 
 thread-pre-split2245:                             ; preds = %.lr.ph2789, %H5Z__scaleoffset_log2.exit1994
   %103 = phi i32 [ %.011.i1993, %H5Z__scaleoffset_log2.exit1994 ], [ %79, %.lr.ph2789 ]
-  %.111463 = phi i8 [ %.71459.lcssa, %H5Z__scaleoffset_log2.exit1994 ], [ %spec.select1915, %.lr.ph2789 ]
+  %.101462 = phi i8 [ %.81460.lcssa, %H5Z__scaleoffset_log2.exit1994 ], [ %spec.select1915, %.lr.ph2789 ]
   %.not1908 = icmp ne i32 %103, 8
   %104 = icmp ne i32 %1, 0
   %or.cond2828 = and i1 %.not1908, %104
@@ -2965,15 +2965,15 @@ thread-pre-split2245:                             ; preds = %.lr.ph2789, %H5Z__s
   %indvars.iv3248 = phi i64 [ 0, %.lr.ph2800.preheader ], [ %indvars.iv.next3249, %.lr.ph2800 ]
   %105 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3248
   %106 = load i8, ptr %105, align 1
-  %107 = sub i8 %106, %.111463
+  %107 = sub i8 %106, %.101462
   store i8 %107, ptr %105, align 1
   %indvars.iv.next3249 = add nuw nsw i64 %indvars.iv3248, 1
   %exitcond3252.not = icmp eq i64 %indvars.iv.next3249, %wide.trip.count3251
   br i1 %exitcond3252.not, label %.loopexit, label %.lr.ph2800
 
 .loopexit:                                        ; preds = %.lr.ph2800, %75, %100, %thread-pre-split2245, %thread-pre-split
-  %.121464 = phi i8 [ %.61458, %thread-pre-split ], [ %.111463, %thread-pre-split2245 ], [ %81, %100 ], [ %.61458, %75 ], [ %.111463, %.lr.ph2800 ]
-  %108 = zext i8 %.121464 to i64
+  %.71459 = phi i8 [ %.31455, %thread-pre-split ], [ %.101462, %thread-pre-split2245 ], [ %81, %100 ], [ %.31455, %75 ], [ %.101462, %.lr.ph2800 ]
+  %108 = zext i8 %.71459 to i64
   store i64 %108, ptr %6, align 8
   br label %960
 
@@ -3033,7 +3033,7 @@ thread-pre-split2245:                             ; preds = %.lr.ph2789, %H5Z__s
 
 .lr.ph2780:                                       ; preds = %.lr.ph2780.preheader, %.lr.ph2780
   %indvars.iv3231 = phi i64 [ %124, %.lr.ph2780.preheader ], [ %indvars.iv.next3232, %.lr.ph2780 ]
-  %.117582778 = phi i16 [ %.01757, %.lr.ph2780.preheader ], [ %.31760, %.lr.ph2780 ]
+  %.117582778 = phi i16 [ %.01757, %.lr.ph2780.preheader ], [ %.21759, %.lr.ph2780 ]
   %.117642777 = phi i16 [ %.01757, %.lr.ph2780.preheader ], [ %.21765, %.lr.ph2780 ]
   %125 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3231
   %126 = load i16, ptr %125, align 2
@@ -3041,14 +3041,14 @@ thread-pre-split2245:                             ; preds = %.lr.ph2789, %H5Z__s
   %spec.select1917 = tail call i16 @llvm.umax.i16(i16 %126, i16 %.117582778)
   %spec.select1975 = tail call i16 @llvm.umin.i16(i16 %126, i16 %.117642777)
   %.21765 = select i1 %127, i16 %.117642777, i16 %spec.select1975
-  %.31760 = select i1 %127, i16 %.117582778, i16 %spec.select1917
+  %.21759 = select i1 %127, i16 %.117582778, i16 %spec.select1917
   %indvars.iv.next3232 = add nuw nsw i64 %indvars.iv3231, 1
   %exitcond3234.not = icmp eq i64 %indvars.iv.next3232, %wide.trip.count3233
   br i1 %exitcond3234.not, label %._crit_edge2781, label %.lr.ph2780
 
 ._crit_edge2781:                                  ; preds = %121, %.lr.ph2780, %.critedge1916
   %.11764.lcssa = phi i16 [ %.01757, %.critedge1916 ], [ %.21765, %.lr.ph2780 ], [ 0, %121 ]
-  %.11758.lcssa = phi i16 [ %.01757, %.critedge1916 ], [ %.31760, %.lr.ph2780 ], [ 0, %121 ]
+  %.11758.lcssa = phi i16 [ %.01757, %.critedge1916 ], [ %.21759, %.lr.ph2780 ], [ 0, %121 ]
   %128 = zext i16 %.11758.lcssa to i32
   %129 = zext i16 %.11764.lcssa to i32
   %130 = sub nsw i32 %128, %129
@@ -3108,7 +3108,7 @@ H5Z__scaleoffset_log2.exit2005:                   ; preds = %H5Z__scaleoffset_lo
 
 .critedge1918:                                    ; preds = %.lr.ph2760, %.preheader2300
   %.21751.lcssa = phi i32 [ 0, %.preheader2300 ], [ %.217512759, %.lr.ph2760 ]
-  %.31766 = phi i16 [ 0, %.preheader2300 ], [ %146, %.lr.ph2760 ]
+  %.41767 = phi i16 [ 0, %.preheader2300 ], [ %146, %.lr.ph2760 ]
   %150 = icmp ult i32 %.21751.lcssa, %1
   br i1 %150, label %.lr.ph2768.preheader, label %thread-pre-split2247
 
@@ -3119,26 +3119,26 @@ H5Z__scaleoffset_log2.exit2005:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2768:                                       ; preds = %.lr.ph2768.preheader, %.lr.ph2768
   %indvars.iv3222 = phi i64 [ %151, %.lr.ph2768.preheader ], [ %indvars.iv.next3223, %.lr.ph2768 ]
-  %.417672766 = phi i16 [ %.31766, %.lr.ph2768.preheader ], [ %.51768, %.lr.ph2768 ]
+  %.517682766 = phi i16 [ %.41767, %.lr.ph2768.preheader ], [ %.61769, %.lr.ph2768 ]
   %152 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3222
   %153 = load i16, ptr %152, align 2
   %.not2291 = icmp eq i16 %153, %storemerge1905
-  %154 = tail call i16 @llvm.umin.i16(i16 %153, i16 %.417672766)
-  %.51768 = select i1 %.not2291, i16 %.417672766, i16 %154
+  %154 = tail call i16 @llvm.umin.i16(i16 %153, i16 %.517682766)
+  %.61769 = select i1 %.not2291, i16 %.517682766, i16 %154
   %indvars.iv.next3223 = add nuw nsw i64 %indvars.iv3222, 1
   %exitcond3225.not = icmp eq i64 %indvars.iv.next3223, %wide.trip.count3224
   br i1 %exitcond3225.not, label %thread-pre-split2247, label %.lr.ph2768
 
 thread-pre-split2247:                             ; preds = %148, %.lr.ph2768, %.critedge1918, %H5Z__scaleoffset_log2.exit2005
   %155 = phi i32 [ %.011.i2004, %H5Z__scaleoffset_log2.exit2005 ], [ %116, %.critedge1918 ], [ %116, %.lr.ph2768 ], [ %116, %148 ]
-  %.61769 = phi i16 [ %.11764.lcssa, %H5Z__scaleoffset_log2.exit2005 ], [ %.31766, %.critedge1918 ], [ %.51768, %.lr.ph2768 ], [ 0, %148 ]
+  %.31766 = phi i16 [ %.11764.lcssa, %H5Z__scaleoffset_log2.exit2005 ], [ %.41767, %.critedge1918 ], [ %.61769, %.lr.ph2768 ], [ 0, %148 ]
   %.not1906 = icmp ne i32 %155, 16
   %156 = icmp ne i32 %1, 0
   %or.cond2829 = and i1 %.not1906, %156
   br i1 %or.cond2829, label %.lr.ph2785, label %.loopexit2298
 
 .lr.ph2785:                                       ; preds = %thread-pre-split2247
-  %157 = zext i16 %.61769 to i32
+  %157 = zext i16 %.31766 to i32
   %wide.trip.count3238 = zext i32 %1 to i64
   br label %158
 
@@ -3185,20 +3185,20 @@ thread-pre-split2247:                             ; preds = %148, %.lr.ph2768, %
 .lr.ph2753:                                       ; preds = %.lr.ph2753.preheader, %.lr.ph2753
   %indvars.iv3212 = phi i64 [ 0, %.lr.ph2753.preheader ], [ %indvars.iv.next3213, %.lr.ph2753 ]
   %.417612750 = phi i16 [ %174, %.lr.ph2753.preheader ], [ %spec.select1920, %.lr.ph2753 ]
-  %.717702749 = phi i16 [ %174, %.lr.ph2753.preheader ], [ %.81771, %.lr.ph2753 ]
+  %.817712749 = phi i16 [ %174, %.lr.ph2753.preheader ], [ %.91772, %.lr.ph2753 ]
   %176 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3212
   %177 = load i16, ptr %176, align 2
   %spec.select1920 = tail call i16 @llvm.umax.i16(i16 %177, i16 %.417612750)
-  %.81771 = tail call i16 @llvm.umin.i16(i16 %177, i16 %.717702749)
+  %.91772 = tail call i16 @llvm.umin.i16(i16 %177, i16 %.817712749)
   %indvars.iv.next3213 = add nuw nsw i64 %indvars.iv3212, 1
   %exitcond3215.not = icmp eq i64 %indvars.iv.next3213, %wide.trip.count3214
   br i1 %exitcond3215.not, label %._crit_edge2754, label %.lr.ph2753
 
 ._crit_edge2754:                                  ; preds = %.lr.ph2753, %175
-  %.71770.lcssa = phi i16 [ %174, %175 ], [ %.81771, %.lr.ph2753 ]
+  %.81771.lcssa = phi i16 [ %174, %175 ], [ %.91772, %.lr.ph2753 ]
   %.41761.lcssa = phi i16 [ %174, %175 ], [ %spec.select1920, %.lr.ph2753 ]
   %178 = zext i16 %.41761.lcssa to i32
-  %179 = zext i16 %.71770.lcssa to i32
+  %179 = zext i16 %.81771.lcssa to i32
   %180 = sub nsw i32 %178, %179
   %181 = icmp sgt i32 %180, 65533
   br i1 %181, label %182, label %183
@@ -3249,17 +3249,17 @@ H5Z__scaleoffset_log2.exit2016:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2747:                                       ; preds = %.lr.ph2747.preheader, %.lr.ph2747
   %indvars.iv3208 = phi i64 [ 0, %.lr.ph2747.preheader ], [ %indvars.iv.next3209, %.lr.ph2747 ]
-  %.917722744 = phi i16 [ %174, %.lr.ph2747.preheader ], [ %spec.select1921, %.lr.ph2747 ]
+  %.1117742744 = phi i16 [ %174, %.lr.ph2747.preheader ], [ %spec.select1921, %.lr.ph2747 ]
   %194 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3208
   %195 = load i16, ptr %194, align 2
-  %spec.select1921 = tail call i16 @llvm.umin.i16(i16 %195, i16 %.917722744)
+  %spec.select1921 = tail call i16 @llvm.umin.i16(i16 %195, i16 %.1117742744)
   %indvars.iv.next3209 = add nuw nsw i64 %indvars.iv3208, 1
   %exitcond3211.not = icmp eq i64 %indvars.iv.next3209, %wide.trip.count3210
   br i1 %exitcond3211.not, label %thread-pre-split2249, label %.lr.ph2747
 
 thread-pre-split2249:                             ; preds = %.lr.ph2747, %H5Z__scaleoffset_log2.exit2016
   %196 = phi i32 [ %.011.i2015, %H5Z__scaleoffset_log2.exit2016 ], [ %172, %.lr.ph2747 ]
-  %.111774 = phi i16 [ %.71770.lcssa, %H5Z__scaleoffset_log2.exit2016 ], [ %spec.select1921, %.lr.ph2747 ]
+  %.101773 = phi i16 [ %.81771.lcssa, %H5Z__scaleoffset_log2.exit2016 ], [ %spec.select1921, %.lr.ph2747 ]
   %.not1904 = icmp ne i32 %196, 16
   %197 = icmp ne i32 %1, 0
   %or.cond2830 = and i1 %.not1904, %197
@@ -3273,15 +3273,15 @@ thread-pre-split2249:                             ; preds = %.lr.ph2747, %H5Z__s
   %indvars.iv3216 = phi i64 [ 0, %.lr.ph2758.preheader ], [ %indvars.iv.next3217, %.lr.ph2758 ]
   %198 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3216
   %199 = load i16, ptr %198, align 2
-  %200 = sub i16 %199, %.111774
+  %200 = sub i16 %199, %.101773
   store i16 %200, ptr %198, align 2
   %indvars.iv.next3217 = add nuw nsw i64 %indvars.iv3216, 1
   %exitcond3220.not = icmp eq i64 %indvars.iv.next3217, %wide.trip.count3219
   br i1 %exitcond3220.not, label %.loopexit2298, label %.lr.ph2758
 
 .loopexit2298:                                    ; preds = %.lr.ph2758, %168, %193, %thread-pre-split2249, %thread-pre-split2247
-  %.121775 = phi i16 [ %.61769, %thread-pre-split2247 ], [ %.111774, %thread-pre-split2249 ], [ %174, %193 ], [ %.61769, %168 ], [ %.111774, %.lr.ph2758 ]
-  %201 = zext i16 %.121775 to i64
+  %.71770 = phi i16 [ %.31766, %thread-pre-split2247 ], [ %.101773, %thread-pre-split2249 ], [ %174, %193 ], [ %.31766, %168 ], [ %.101773, %.lr.ph2758 ]
+  %201 = zext i16 %.71770 to i64
   store i64 %201, ptr %6, align 8
   br label %960
 
@@ -3336,7 +3336,7 @@ thread-pre-split2249:                             ; preds = %.lr.ph2747, %H5Z__s
 
 214:                                              ; preds = %.lr.ph2738, %214
   %indvars.iv3198 = phi i64 [ %213, %.lr.ph2738 ], [ %indvars.iv.next3199, %214 ]
-  %.117202736 = phi i32 [ %.01719, %.lr.ph2738 ], [ %.31722, %214 ]
+  %.117202736 = phi i32 [ %.01719, %.lr.ph2738 ], [ %.21721, %214 ]
   %.117262735 = phi i32 [ %.01719, %.lr.ph2738 ], [ %.21727, %214 ]
   %215 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3198
   %216 = load i32, ptr %215, align 4
@@ -3344,14 +3344,14 @@ thread-pre-split2249:                             ; preds = %.lr.ph2747, %H5Z__s
   %spec.select1923 = tail call i32 @llvm.umax.i32(i32 %216, i32 %.117202736)
   %spec.select1976 = tail call i32 @llvm.umin.i32(i32 %216, i32 %.117262735)
   %.21727 = select i1 %217, i32 %.117262735, i32 %spec.select1976
-  %.31722 = select i1 %217, i32 %.117202736, i32 %spec.select1923
+  %.21721 = select i1 %217, i32 %.117202736, i32 %spec.select1923
   %indvars.iv.next3199 = add nuw nsw i64 %indvars.iv3198, 1
   %exitcond3202.not = icmp eq i64 %indvars.iv.next3199, %wide.trip.count3201
   br i1 %exitcond3202.not, label %._crit_edge2739, label %214
 
 ._crit_edge2739:                                  ; preds = %210, %214, %.critedge1922
   %.11726.lcssa = phi i32 [ %.01719, %.critedge1922 ], [ %.21727, %214 ], [ 0, %210 ]
-  %.11720.lcssa = phi i32 [ %.01719, %.critedge1922 ], [ %.31722, %214 ], [ 0, %210 ]
+  %.11720.lcssa = phi i32 [ %.01719, %.critedge1922 ], [ %.21721, %214 ], [ 0, %210 ]
   %218 = sub i32 %.11720.lcssa, %.11726.lcssa
   %219 = icmp ugt i32 %218, -3
   br i1 %219, label %220, label %221
@@ -3398,7 +3398,7 @@ H5Z__scaleoffset_log2.exit2027:                   ; preds = %.lr.ph.i2019
 
 .critedge1924:                                    ; preds = %.lr.ph2718, %.preheader2306
   %.21713.lcssa = phi i32 [ 0, %.preheader2306 ], [ %.217132717, %.lr.ph2718 ]
-  %.31728 = phi i32 [ 0, %.preheader2306 ], [ %232, %.lr.ph2718 ]
+  %.41729 = phi i32 [ 0, %.preheader2306 ], [ %232, %.lr.ph2718 ]
   %236 = icmp ult i32 %.21713.lcssa, %1
   br i1 %236, label %.lr.ph2726, label %thread-pre-split2251
 
@@ -3409,19 +3409,19 @@ H5Z__scaleoffset_log2.exit2027:                   ; preds = %.lr.ph.i2019
 
 238:                                              ; preds = %.lr.ph2726, %238
   %indvars.iv3188 = phi i64 [ %237, %.lr.ph2726 ], [ %indvars.iv.next3189, %238 ]
-  %.417292724 = phi i32 [ %.31728, %.lr.ph2726 ], [ %.51730, %238 ]
+  %.517302724 = phi i32 [ %.41729, %.lr.ph2726 ], [ %.61731, %238 ]
   %239 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3188
   %240 = load i32, ptr %239, align 4
   %.not2290 = icmp eq i32 %240, %.03289
-  %241 = tail call i32 @llvm.umin.i32(i32 %240, i32 %.417292724)
-  %.51730 = select i1 %.not2290, i32 %.417292724, i32 %241
+  %241 = tail call i32 @llvm.umin.i32(i32 %240, i32 %.517302724)
+  %.61731 = select i1 %.not2290, i32 %.517302724, i32 %241
   %indvars.iv.next3189 = add nuw nsw i64 %indvars.iv3188, 1
   %exitcond3192.not = icmp eq i64 %indvars.iv.next3189, %wide.trip.count3191
   br i1 %exitcond3192.not, label %thread-pre-split2251, label %238
 
 thread-pre-split2251:                             ; preds = %234, %238, %.critedge1924, %H5Z__scaleoffset_log2.exit2027
   %242 = phi i32 [ %.011.i2026, %H5Z__scaleoffset_log2.exit2027 ], [ %204, %.critedge1924 ], [ %204, %238 ], [ %204, %234 ]
-  %.61731 = phi i32 [ %.11726.lcssa, %H5Z__scaleoffset_log2.exit2027 ], [ %.31728, %.critedge1924 ], [ %.51730, %238 ], [ 0, %234 ]
+  %.31728 = phi i32 [ %.11726.lcssa, %H5Z__scaleoffset_log2.exit2027 ], [ %.41729, %.critedge1924 ], [ %.61731, %238 ], [ 0, %234 ]
   %.not1902 = icmp ne i32 %242, 32
   %243 = icmp ne i32 %1, 0
   %or.cond2831 = and i1 %.not1902, %243
@@ -3445,7 +3445,7 @@ thread-pre-split2251:                             ; preds = %234, %238, %.crited
   br label %253
 
 251:                                              ; preds = %244
-  %252 = sub i32 %246, %.61731
+  %252 = sub i32 %246, %.31728
   br label %253
 
 253:                                              ; preds = %251, %248
@@ -3472,19 +3472,19 @@ thread-pre-split2251:                             ; preds = %234, %238, %.crited
 .lr.ph2704:                                       ; preds = %.lr.ph2704.preheader, %.lr.ph2704
   %indvars.iv3177 = phi i64 [ 0, %.lr.ph2704.preheader ], [ %indvars.iv.next3178, %.lr.ph2704 ]
   %.417232701 = phi i32 [ %258, %.lr.ph2704.preheader ], [ %spec.select1926, %.lr.ph2704 ]
-  %.717322700 = phi i32 [ %258, %.lr.ph2704.preheader ], [ %.81733, %.lr.ph2704 ]
+  %.817332700 = phi i32 [ %258, %.lr.ph2704.preheader ], [ %.91734, %.lr.ph2704 ]
   %260 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3177
   %261 = load i32, ptr %260, align 4
   %spec.select1926 = tail call i32 @llvm.umax.i32(i32 %261, i32 %.417232701)
-  %.81733 = tail call i32 @llvm.umin.i32(i32 %261, i32 %.717322700)
+  %.91734 = tail call i32 @llvm.umin.i32(i32 %261, i32 %.817332700)
   %indvars.iv.next3178 = add nuw nsw i64 %indvars.iv3177, 1
   %exitcond3181.not = icmp eq i64 %indvars.iv.next3178, %wide.trip.count3180
   br i1 %exitcond3181.not, label %._crit_edge2705, label %.lr.ph2704
 
 ._crit_edge2705:                                  ; preds = %.lr.ph2704, %259
-  %.71732.lcssa = phi i32 [ %258, %259 ], [ %.81733, %.lr.ph2704 ]
+  %.81733.lcssa = phi i32 [ %258, %259 ], [ %.91734, %.lr.ph2704 ]
   %.41723.lcssa = phi i32 [ %258, %259 ], [ %spec.select1926, %.lr.ph2704 ]
-  %262 = sub i32 %.41723.lcssa, %.71732.lcssa
+  %262 = sub i32 %.41723.lcssa, %.81733.lcssa
   %263 = icmp ugt i32 %262, -3
   br i1 %263, label %264, label %265
 
@@ -3495,7 +3495,7 @@ thread-pre-split2251:                             ; preds = %234, %238, %.crited
 265:                                              ; preds = %._crit_edge2705
   %266 = add nuw i32 %262, 1
   %267 = zext i32 %266 to i64
-  %.not13.i2028 = icmp eq i32 %.41723.lcssa, %.71732.lcssa
+  %.not13.i2028 = icmp eq i32 %.41723.lcssa, %.81733.lcssa
   br i1 %.not13.i2028, label %H5Z__scaleoffset_log2.exit2038, label %.lr.ph.preheader.i2029
 
 .lr.ph.preheader.i2029:                           ; preds = %265
@@ -3533,17 +3533,17 @@ H5Z__scaleoffset_log2.exit2038:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2698:                                       ; preds = %.lr.ph2698.preheader, %.lr.ph2698
   %indvars.iv3172 = phi i64 [ 0, %.lr.ph2698.preheader ], [ %indvars.iv.next3173, %.lr.ph2698 ]
-  %.917342695 = phi i32 [ %258, %.lr.ph2698.preheader ], [ %spec.select1927, %.lr.ph2698 ]
+  %.1117362695 = phi i32 [ %258, %.lr.ph2698.preheader ], [ %spec.select1927, %.lr.ph2698 ]
   %275 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3172
   %276 = load i32, ptr %275, align 4
-  %spec.select1927 = tail call i32 @llvm.umin.i32(i32 %276, i32 %.917342695)
+  %spec.select1927 = tail call i32 @llvm.umin.i32(i32 %276, i32 %.1117362695)
   %indvars.iv.next3173 = add nuw nsw i64 %indvars.iv3172, 1
   %exitcond3176.not = icmp eq i64 %indvars.iv.next3173, %wide.trip.count3175
   br i1 %exitcond3176.not, label %thread-pre-split2253, label %.lr.ph2698
 
 thread-pre-split2253:                             ; preds = %.lr.ph2698, %H5Z__scaleoffset_log2.exit2038
   %277 = phi i32 [ %.011.i2037, %H5Z__scaleoffset_log2.exit2038 ], [ %256, %.lr.ph2698 ]
-  %.111736 = phi i32 [ %.71732.lcssa, %H5Z__scaleoffset_log2.exit2038 ], [ %spec.select1927, %.lr.ph2698 ]
+  %.101735 = phi i32 [ %.81733.lcssa, %H5Z__scaleoffset_log2.exit2038 ], [ %spec.select1927, %.lr.ph2698 ]
   %.not1900 = icmp ne i32 %277, 32
   %278 = icmp ne i32 %1, 0
   %or.cond2832 = and i1 %.not1900, %278
@@ -3557,15 +3557,15 @@ thread-pre-split2253:                             ; preds = %.lr.ph2698, %H5Z__s
   %indvars.iv3182 = phi i64 [ 0, %.lr.ph2709.preheader ], [ %indvars.iv.next3183, %.lr.ph2709 ]
   %279 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3182
   %280 = load i32, ptr %279, align 4
-  %281 = sub i32 %280, %.111736
+  %281 = sub i32 %280, %.101735
   store i32 %281, ptr %279, align 4
   %indvars.iv.next3183 = add nuw nsw i64 %indvars.iv3182, 1
   %exitcond3186.not = icmp eq i64 %indvars.iv.next3183, %wide.trip.count3185
   br i1 %exitcond3186.not, label %.loopexit2304, label %.lr.ph2709
 
 .loopexit2304:                                    ; preds = %.lr.ph2709, %253, %274, %thread-pre-split2253, %thread-pre-split2251
-  %.121737 = phi i32 [ %.61731, %thread-pre-split2251 ], [ %.111736, %thread-pre-split2253 ], [ %258, %274 ], [ %.61731, %253 ], [ %.111736, %.lr.ph2709 ]
-  %282 = zext i32 %.121737 to i64
+  %.71732 = phi i32 [ %.31728, %thread-pre-split2251 ], [ %.101735, %thread-pre-split2253 ], [ %258, %274 ], [ %.31728, %253 ], [ %.101735, %.lr.ph2709 ]
+  %282 = zext i32 %.71732 to i64
   store i64 %282, ptr %6, align 8
   br label %960
 
@@ -3666,7 +3666,7 @@ thread-pre-split2253:                             ; preds = %.lr.ph2698, %H5Z__s
 
 314:                                              ; preds = %.lr.ph2689, %314
   %indvars.iv3162 = phi i64 [ %313, %.lr.ph2689 ], [ %indvars.iv.next3163, %314 ]
-  %.116822687 = phi i64 [ %.01681, %.lr.ph2689 ], [ %.31684, %314 ]
+  %.116822687 = phi i64 [ %.01681, %.lr.ph2689 ], [ %.21683, %314 ]
   %.116882686 = phi i64 [ %.01681, %.lr.ph2689 ], [ %.21689, %314 ]
   %315 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3162
   %316 = load i64, ptr %315, align 8
@@ -3674,14 +3674,14 @@ thread-pre-split2253:                             ; preds = %.lr.ph2698, %H5Z__s
   %spec.select1930 = tail call i64 @llvm.umax.i64(i64 %316, i64 %.116822687)
   %spec.select1977 = tail call i64 @llvm.umin.i64(i64 %316, i64 %.116882686)
   %.21689 = select i1 %317, i64 %.116882686, i64 %spec.select1977
-  %.31684 = select i1 %317, i64 %.116822687, i64 %spec.select1930
+  %.21683 = select i1 %317, i64 %.116822687, i64 %spec.select1930
   %indvars.iv.next3163 = add nuw nsw i64 %indvars.iv3162, 1
   %exitcond3166.not = icmp eq i64 %indvars.iv.next3163, %wide.trip.count3165
   br i1 %exitcond3166.not, label %._crit_edge2690, label %314
 
 ._crit_edge2690:                                  ; preds = %309, %314, %.critedge1929
   %.11688.lcssa = phi i64 [ %.01681, %.critedge1929 ], [ %.21689, %314 ], [ 0, %309 ]
-  %.11682.lcssa = phi i64 [ %.01681, %.critedge1929 ], [ %.31684, %314 ], [ 0, %309 ]
+  %.11682.lcssa = phi i64 [ %.01681, %.critedge1929 ], [ %.21683, %314 ], [ 0, %309 ]
   %318 = sub i64 %.11682.lcssa, %.11688.lcssa
   %319 = icmp ugt i64 %318, -3
   br i1 %319, label %320, label %321
@@ -3727,7 +3727,7 @@ H5Z__scaleoffset_log2.exit2049:                   ; preds = %.lr.ph.i2041
 
 .critedge1931:                                    ; preds = %329, %.preheader2313
   %.21675.lcssa = phi i32 [ 0, %.preheader2313 ], [ %.216752668, %329 ]
-  %.31690 = phi i64 [ 0, %.preheader2313 ], [ %332, %329 ]
+  %.41691 = phi i64 [ 0, %.preheader2313 ], [ %332, %329 ]
   %336 = icmp ult i32 %.21675.lcssa, %1
   br i1 %336, label %.lr.ph2677, label %thread-pre-split2255
 
@@ -3739,19 +3739,19 @@ H5Z__scaleoffset_log2.exit2049:                   ; preds = %.lr.ph.i2041
 
 339:                                              ; preds = %.lr.ph2677, %339
   %indvars.iv3152 = phi i64 [ %338, %.lr.ph2677 ], [ %indvars.iv.next3153, %339 ]
-  %.416912675 = phi i64 [ %.31690, %.lr.ph2677 ], [ %.51692, %339 ]
+  %.516922675 = phi i64 [ %.41691, %.lr.ph2677 ], [ %.61693, %339 ]
   %340 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3152
   %341 = load i64, ptr %340, align 8
   %.not2289 = icmp eq i64 %341, %337
-  %342 = tail call i64 @llvm.umin.i64(i64 %341, i64 %.416912675)
-  %.51692 = select i1 %.not2289, i64 %.416912675, i64 %342
+  %342 = tail call i64 @llvm.umin.i64(i64 %341, i64 %.516922675)
+  %.61693 = select i1 %.not2289, i64 %.516922675, i64 %342
   %indvars.iv.next3153 = add nuw nsw i64 %indvars.iv3152, 1
   %exitcond3156.not = icmp eq i64 %indvars.iv.next3153, %wide.trip.count3155
   br i1 %exitcond3156.not, label %thread-pre-split2255, label %339
 
 thread-pre-split2255:                             ; preds = %334, %339, %.critedge1931, %H5Z__scaleoffset_log2.exit2049
   %343 = phi i32 [ %.011.i2048, %H5Z__scaleoffset_log2.exit2049 ], [ %301, %.critedge1931 ], [ %301, %339 ], [ %301, %334 ]
-  %.61693 = phi i64 [ %.11688.lcssa, %H5Z__scaleoffset_log2.exit2049 ], [ %.31690, %.critedge1931 ], [ %.51692, %339 ], [ 0, %334 ]
+  %.31690 = phi i64 [ %.11688.lcssa, %H5Z__scaleoffset_log2.exit2049 ], [ %.41691, %.critedge1931 ], [ %.61693, %339 ], [ 0, %334 ]
   %.not1898 = icmp ne i32 %343, 64
   %344 = icmp ne i32 %1, 0
   %or.cond2833 = and i1 %.not1898, %344
@@ -3777,7 +3777,7 @@ thread-pre-split2255:                             ; preds = %334, %339, %.crited
   br label %356
 
 354:                                              ; preds = %346
-  %355 = sub i64 %348, %.61693
+  %355 = sub i64 %348, %.31690
   br label %356
 
 356:                                              ; preds = %354, %350
@@ -3804,19 +3804,19 @@ thread-pre-split2255:                             ; preds = %334, %339, %.crited
 .lr.ph2658:                                       ; preds = %.lr.ph2658.preheader, %.lr.ph2658
   %indvars.iv3138 = phi i64 [ 0, %.lr.ph2658.preheader ], [ %indvars.iv.next3139, %.lr.ph2658 ]
   %.416852655 = phi i64 [ %361, %.lr.ph2658.preheader ], [ %spec.select1933, %.lr.ph2658 ]
-  %.716942654 = phi i64 [ %361, %.lr.ph2658.preheader ], [ %.81695, %.lr.ph2658 ]
+  %.816952654 = phi i64 [ %361, %.lr.ph2658.preheader ], [ %.91696, %.lr.ph2658 ]
   %363 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3138
   %364 = load i64, ptr %363, align 8
   %spec.select1933 = tail call i64 @llvm.umax.i64(i64 %364, i64 %.416852655)
-  %.81695 = tail call i64 @llvm.umin.i64(i64 %364, i64 %.716942654)
+  %.91696 = tail call i64 @llvm.umin.i64(i64 %364, i64 %.816952654)
   %indvars.iv.next3139 = add nuw nsw i64 %indvars.iv3138, 1
   %exitcond3142.not = icmp eq i64 %indvars.iv.next3139, %wide.trip.count3141
   br i1 %exitcond3142.not, label %._crit_edge2659, label %.lr.ph2658
 
 ._crit_edge2659:                                  ; preds = %.lr.ph2658, %362
-  %.71694.lcssa = phi i64 [ %361, %362 ], [ %.81695, %.lr.ph2658 ]
+  %.81695.lcssa = phi i64 [ %361, %362 ], [ %.91696, %.lr.ph2658 ]
   %.41685.lcssa = phi i64 [ %361, %362 ], [ %spec.select1933, %.lr.ph2658 ]
-  %365 = sub i64 %.41685.lcssa, %.71694.lcssa
+  %365 = sub i64 %.41685.lcssa, %.81695.lcssa
   %366 = icmp ugt i64 %365, -3
   br i1 %366, label %367, label %368
 
@@ -3826,7 +3826,7 @@ thread-pre-split2255:                             ; preds = %334, %339, %.crited
 
 368:                                              ; preds = %._crit_edge2659
   %369 = add nuw i64 %365, 1
-  %.not13.i2050 = icmp eq i64 %.41685.lcssa, %.71694.lcssa
+  %.not13.i2050 = icmp eq i64 %.41685.lcssa, %.81695.lcssa
   br i1 %.not13.i2050, label %H5Z__scaleoffset_log2.exit2060, label %.lr.ph.preheader.i2051
 
 .lr.ph.preheader.i2051:                           ; preds = %368
@@ -3864,17 +3864,17 @@ H5Z__scaleoffset_log2.exit2060:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2652:                                       ; preds = %.lr.ph2652.preheader, %.lr.ph2652
   %indvars.iv3133 = phi i64 [ 0, %.lr.ph2652.preheader ], [ %indvars.iv.next3134, %.lr.ph2652 ]
-  %.916962649 = phi i64 [ %361, %.lr.ph2652.preheader ], [ %spec.select1934, %.lr.ph2652 ]
+  %.1116982649 = phi i64 [ %361, %.lr.ph2652.preheader ], [ %spec.select1934, %.lr.ph2652 ]
   %377 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3133
   %378 = load i64, ptr %377, align 8
-  %spec.select1934 = tail call i64 @llvm.umin.i64(i64 %378, i64 %.916962649)
+  %spec.select1934 = tail call i64 @llvm.umin.i64(i64 %378, i64 %.1116982649)
   %indvars.iv.next3134 = add nuw nsw i64 %indvars.iv3133, 1
   %exitcond3137.not = icmp eq i64 %indvars.iv.next3134, %wide.trip.count3136
   br i1 %exitcond3137.not, label %thread-pre-split2257, label %.lr.ph2652
 
 thread-pre-split2257:                             ; preds = %.lr.ph2652, %H5Z__scaleoffset_log2.exit2060
   %379 = phi i32 [ %.011.i2059, %H5Z__scaleoffset_log2.exit2060 ], [ %359, %.lr.ph2652 ]
-  %.111698 = phi i64 [ %.71694.lcssa, %H5Z__scaleoffset_log2.exit2060 ], [ %spec.select1934, %.lr.ph2652 ]
+  %.101697 = phi i64 [ %.81695.lcssa, %H5Z__scaleoffset_log2.exit2060 ], [ %spec.select1934, %.lr.ph2652 ]
   %.not1894 = icmp ne i32 %379, 64
   %380 = icmp ne i32 %1, 0
   %or.cond2834 = and i1 %.not1894, %380
@@ -3888,15 +3888,15 @@ thread-pre-split2257:                             ; preds = %.lr.ph2652, %H5Z__s
   %indvars.iv3143 = phi i64 [ 0, %.lr.ph2663.preheader ], [ %indvars.iv.next3144, %.lr.ph2663 ]
   %381 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3143
   %382 = load i64, ptr %381, align 8
-  %383 = sub i64 %382, %.111698
+  %383 = sub i64 %382, %.101697
   store i64 %383, ptr %381, align 8
   %indvars.iv.next3144 = add nuw nsw i64 %indvars.iv3143, 1
   %exitcond3147.not = icmp eq i64 %indvars.iv.next3144, %wide.trip.count3146
   br i1 %exitcond3147.not, label %.loopexit2311, label %.lr.ph2663
 
 .loopexit2311:                                    ; preds = %.lr.ph2663, %356, %376, %thread-pre-split2257, %thread-pre-split2255
-  %.121699 = phi i64 [ %.61693, %thread-pre-split2255 ], [ %.111698, %thread-pre-split2257 ], [ %361, %376 ], [ %.61693, %356 ], [ %.111698, %.lr.ph2663 ]
-  store i64 %.121699, ptr %6, align 8
+  %.71694 = phi i64 [ %.31690, %thread-pre-split2255 ], [ %.101697, %thread-pre-split2257 ], [ %361, %376 ], [ %.31690, %356 ], [ %.101697, %.lr.ph2663 ]
+  store i64 %.71694, ptr %6, align 8
   br label %960
 
 384:                                              ; preds = %7
@@ -3996,7 +3996,7 @@ thread-pre-split2257:                             ; preds = %.lr.ph2652, %H5Z__s
 
 415:                                              ; preds = %.lr.ph2643, %415
   %indvars.iv3123 = phi i64 [ %414, %.lr.ph2643 ], [ %indvars.iv.next3124, %415 ]
-  %.116432641 = phi i64 [ %.01642, %.lr.ph2643 ], [ %.31645, %415 ]
+  %.116432641 = phi i64 [ %.01642, %.lr.ph2643 ], [ %.21644, %415 ]
   %.116492640 = phi i64 [ %.01642, %.lr.ph2643 ], [ %.21650, %415 ]
   %416 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3123
   %417 = load i64, ptr %416, align 8
@@ -4004,14 +4004,14 @@ thread-pre-split2257:                             ; preds = %.lr.ph2652, %H5Z__s
   %spec.select1937 = tail call i64 @llvm.umax.i64(i64 %417, i64 %.116432641)
   %spec.select1978 = tail call i64 @llvm.umin.i64(i64 %417, i64 %.116492640)
   %.21650 = select i1 %418, i64 %.116492640, i64 %spec.select1978
-  %.31645 = select i1 %418, i64 %.116432641, i64 %spec.select1937
+  %.21644 = select i1 %418, i64 %.116432641, i64 %spec.select1937
   %indvars.iv.next3124 = add nuw nsw i64 %indvars.iv3123, 1
   %exitcond3127.not = icmp eq i64 %indvars.iv.next3124, %wide.trip.count3126
   br i1 %exitcond3127.not, label %._crit_edge2644, label %415
 
 ._crit_edge2644:                                  ; preds = %410, %415, %.critedge1936
   %.11649.lcssa = phi i64 [ %.01642, %.critedge1936 ], [ %.21650, %415 ], [ 0, %410 ]
-  %.11643.lcssa = phi i64 [ %.01642, %.critedge1936 ], [ %.31645, %415 ], [ 0, %410 ]
+  %.11643.lcssa = phi i64 [ %.01642, %.critedge1936 ], [ %.21644, %415 ], [ 0, %410 ]
   %419 = sub i64 %.11643.lcssa, %.11649.lcssa
   %420 = icmp ugt i64 %419, -3
   br i1 %420, label %421, label %422
@@ -4057,7 +4057,7 @@ H5Z__scaleoffset_log2.exit2071:                   ; preds = %.lr.ph.i2063
 
 .critedge1938:                                    ; preds = %430, %.preheader2322
   %.21636.lcssa = phi i32 [ 0, %.preheader2322 ], [ %.216362622, %430 ]
-  %.31651 = phi i64 [ 0, %.preheader2322 ], [ %433, %430 ]
+  %.41652 = phi i64 [ 0, %.preheader2322 ], [ %433, %430 ]
   %437 = icmp ult i32 %.21636.lcssa, %1
   br i1 %437, label %.lr.ph2631, label %thread-pre-split2259
 
@@ -4069,19 +4069,19 @@ H5Z__scaleoffset_log2.exit2071:                   ; preds = %.lr.ph.i2063
 
 440:                                              ; preds = %.lr.ph2631, %440
   %indvars.iv3113 = phi i64 [ %439, %.lr.ph2631 ], [ %indvars.iv.next3114, %440 ]
-  %.416522629 = phi i64 [ %.31651, %.lr.ph2631 ], [ %.51653, %440 ]
+  %.516532629 = phi i64 [ %.41652, %.lr.ph2631 ], [ %.61654, %440 ]
   %441 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3113
   %442 = load i64, ptr %441, align 8
   %.not2288 = icmp eq i64 %442, %438
-  %443 = tail call i64 @llvm.umin.i64(i64 %442, i64 %.416522629)
-  %.51653 = select i1 %.not2288, i64 %.416522629, i64 %443
+  %443 = tail call i64 @llvm.umin.i64(i64 %442, i64 %.516532629)
+  %.61654 = select i1 %.not2288, i64 %.516532629, i64 %443
   %indvars.iv.next3114 = add nuw nsw i64 %indvars.iv3113, 1
   %exitcond3117.not = icmp eq i64 %indvars.iv.next3114, %wide.trip.count3116
   br i1 %exitcond3117.not, label %thread-pre-split2259, label %440
 
 thread-pre-split2259:                             ; preds = %435, %440, %.critedge1938, %H5Z__scaleoffset_log2.exit2071
   %444 = phi i32 [ %.011.i2070, %H5Z__scaleoffset_log2.exit2071 ], [ %402, %.critedge1938 ], [ %402, %440 ], [ %402, %435 ]
-  %.61654 = phi i64 [ %.11649.lcssa, %H5Z__scaleoffset_log2.exit2071 ], [ %.31651, %.critedge1938 ], [ %.51653, %440 ], [ 0, %435 ]
+  %.31651 = phi i64 [ %.11649.lcssa, %H5Z__scaleoffset_log2.exit2071 ], [ %.41652, %.critedge1938 ], [ %.61654, %440 ], [ 0, %435 ]
   %.not1892 = icmp ne i32 %444, 64
   %445 = icmp ne i32 %1, 0
   %or.cond2835 = and i1 %.not1892, %445
@@ -4107,7 +4107,7 @@ thread-pre-split2259:                             ; preds = %435, %440, %.crited
   br label %457
 
 455:                                              ; preds = %447
-  %456 = sub i64 %449, %.61654
+  %456 = sub i64 %449, %.31651
   br label %457
 
 457:                                              ; preds = %455, %451
@@ -4134,19 +4134,19 @@ thread-pre-split2259:                             ; preds = %435, %440, %.crited
 .lr.ph2612:                                       ; preds = %.lr.ph2612.preheader, %.lr.ph2612
   %indvars.iv3099 = phi i64 [ 0, %.lr.ph2612.preheader ], [ %indvars.iv.next3100, %.lr.ph2612 ]
   %.416462609 = phi i64 [ %462, %.lr.ph2612.preheader ], [ %spec.select1940, %.lr.ph2612 ]
-  %.716552608 = phi i64 [ %462, %.lr.ph2612.preheader ], [ %.81656, %.lr.ph2612 ]
+  %.816562608 = phi i64 [ %462, %.lr.ph2612.preheader ], [ %.91657, %.lr.ph2612 ]
   %464 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3099
   %465 = load i64, ptr %464, align 8
   %spec.select1940 = tail call i64 @llvm.umax.i64(i64 %465, i64 %.416462609)
-  %.81656 = tail call i64 @llvm.umin.i64(i64 %465, i64 %.716552608)
+  %.91657 = tail call i64 @llvm.umin.i64(i64 %465, i64 %.816562608)
   %indvars.iv.next3100 = add nuw nsw i64 %indvars.iv3099, 1
   %exitcond3103.not = icmp eq i64 %indvars.iv.next3100, %wide.trip.count3102
   br i1 %exitcond3103.not, label %._crit_edge2613, label %.lr.ph2612
 
 ._crit_edge2613:                                  ; preds = %.lr.ph2612, %463
-  %.71655.lcssa = phi i64 [ %462, %463 ], [ %.81656, %.lr.ph2612 ]
+  %.81656.lcssa = phi i64 [ %462, %463 ], [ %.91657, %.lr.ph2612 ]
   %.41646.lcssa = phi i64 [ %462, %463 ], [ %spec.select1940, %.lr.ph2612 ]
-  %466 = sub i64 %.41646.lcssa, %.71655.lcssa
+  %466 = sub i64 %.41646.lcssa, %.81656.lcssa
   %467 = icmp ugt i64 %466, -3
   br i1 %467, label %468, label %469
 
@@ -4156,7 +4156,7 @@ thread-pre-split2259:                             ; preds = %435, %440, %.crited
 
 469:                                              ; preds = %._crit_edge2613
   %470 = add nuw i64 %466, 1
-  %.not13.i2072 = icmp eq i64 %.41646.lcssa, %.71655.lcssa
+  %.not13.i2072 = icmp eq i64 %.41646.lcssa, %.81656.lcssa
   br i1 %.not13.i2072, label %H5Z__scaleoffset_log2.exit2082, label %.lr.ph.preheader.i2073
 
 .lr.ph.preheader.i2073:                           ; preds = %469
@@ -4194,17 +4194,17 @@ H5Z__scaleoffset_log2.exit2082:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2606:                                       ; preds = %.lr.ph2606.preheader, %.lr.ph2606
   %indvars.iv3094 = phi i64 [ 0, %.lr.ph2606.preheader ], [ %indvars.iv.next3095, %.lr.ph2606 ]
-  %.916572603 = phi i64 [ %462, %.lr.ph2606.preheader ], [ %spec.select1941, %.lr.ph2606 ]
+  %.1116592603 = phi i64 [ %462, %.lr.ph2606.preheader ], [ %spec.select1941, %.lr.ph2606 ]
   %478 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3094
   %479 = load i64, ptr %478, align 8
-  %spec.select1941 = tail call i64 @llvm.umin.i64(i64 %479, i64 %.916572603)
+  %spec.select1941 = tail call i64 @llvm.umin.i64(i64 %479, i64 %.1116592603)
   %indvars.iv.next3095 = add nuw nsw i64 %indvars.iv3094, 1
   %exitcond3098.not = icmp eq i64 %indvars.iv.next3095, %wide.trip.count3097
   br i1 %exitcond3098.not, label %thread-pre-split2261, label %.lr.ph2606
 
 thread-pre-split2261:                             ; preds = %.lr.ph2606, %H5Z__scaleoffset_log2.exit2082
   %480 = phi i32 [ %.011.i2081, %H5Z__scaleoffset_log2.exit2082 ], [ %460, %.lr.ph2606 ]
-  %.111659 = phi i64 [ %.71655.lcssa, %H5Z__scaleoffset_log2.exit2082 ], [ %spec.select1941, %.lr.ph2606 ]
+  %.101658 = phi i64 [ %.81656.lcssa, %H5Z__scaleoffset_log2.exit2082 ], [ %spec.select1941, %.lr.ph2606 ]
   %.not1888 = icmp ne i32 %480, 64
   %481 = icmp ne i32 %1, 0
   %or.cond2836 = and i1 %.not1888, %481
@@ -4218,15 +4218,15 @@ thread-pre-split2261:                             ; preds = %.lr.ph2606, %H5Z__s
   %indvars.iv3104 = phi i64 [ 0, %.lr.ph2617.preheader ], [ %indvars.iv.next3105, %.lr.ph2617 ]
   %482 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv3104
   %483 = load i64, ptr %482, align 8
-  %484 = sub i64 %483, %.111659
+  %484 = sub i64 %483, %.101658
   store i64 %484, ptr %482, align 8
   %indvars.iv.next3105 = add nuw nsw i64 %indvars.iv3104, 1
   %exitcond3108.not = icmp eq i64 %indvars.iv.next3105, %wide.trip.count3107
   br i1 %exitcond3108.not, label %.loopexit2320, label %.lr.ph2617
 
 .loopexit2320:                                    ; preds = %.lr.ph2617, %457, %477, %thread-pre-split2261, %thread-pre-split2259
-  %.121660 = phi i64 [ %.61654, %thread-pre-split2259 ], [ %.111659, %thread-pre-split2261 ], [ %462, %477 ], [ %.61654, %457 ], [ %.111659, %.lr.ph2617 ]
-  store i64 %.121660, ptr %6, align 8
+  %.71655 = phi i64 [ %.31651, %thread-pre-split2259 ], [ %.101658, %thread-pre-split2261 ], [ %462, %477 ], [ %.31651, %457 ], [ %.101658, %.lr.ph2617 ]
+  store i64 %.71655, ptr %6, align 8
   br label %960
 
 485:                                              ; preds = %7
@@ -4285,7 +4285,7 @@ thread-pre-split2261:                             ; preds = %.lr.ph2606, %H5Z__s
 
 .lr.ph2597:                                       ; preds = %.lr.ph2597.preheader, %.lr.ph2597
   %indvars.iv3085 = phi i64 [ %500, %.lr.ph2597.preheader ], [ %indvars.iv.next3086, %.lr.ph2597 ]
-  %.116052595 = phi i8 [ %.01604, %.lr.ph2597.preheader ], [ %.31607, %.lr.ph2597 ]
+  %.116052595 = phi i8 [ %.01604, %.lr.ph2597.preheader ], [ %.21606, %.lr.ph2597 ]
   %.116112594 = phi i8 [ %.01604, %.lr.ph2597.preheader ], [ %.21612, %.lr.ph2597 ]
   %501 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3085
   %502 = load i8, ptr %501, align 1
@@ -4293,14 +4293,14 @@ thread-pre-split2261:                             ; preds = %.lr.ph2606, %H5Z__s
   %spec.select1943 = tail call i8 @llvm.smax.i8(i8 %502, i8 %.116052595)
   %spec.select1979 = tail call i8 @llvm.smin.i8(i8 %502, i8 %.116112594)
   %.21612 = select i1 %503, i8 %.116112594, i8 %spec.select1979
-  %.31607 = select i1 %503, i8 %.116052595, i8 %spec.select1943
+  %.21606 = select i1 %503, i8 %.116052595, i8 %spec.select1943
   %indvars.iv.next3086 = add nuw nsw i64 %indvars.iv3085, 1
   %exitcond3088.not = icmp eq i64 %indvars.iv.next3086, %wide.trip.count3087
   br i1 %exitcond3088.not, label %._crit_edge2598, label %.lr.ph2597
 
 ._crit_edge2598:                                  ; preds = %497, %.lr.ph2597, %.critedge1942
   %.11611.lcssa = phi i8 [ %.01604, %.critedge1942 ], [ %.21612, %.lr.ph2597 ], [ 0, %497 ]
-  %.11605.lcssa = phi i8 [ %.01604, %.critedge1942 ], [ %.31607, %.lr.ph2597 ], [ 0, %497 ]
+  %.11605.lcssa = phi i8 [ %.01604, %.critedge1942 ], [ %.21606, %.lr.ph2597 ], [ 0, %497 ]
   %504 = zext i8 %.11605.lcssa to i32
   %505 = zext i8 %.11611.lcssa to i32
   %506 = sub nsw i32 %504, %505
@@ -4361,7 +4361,7 @@ H5Z__scaleoffset_log2.exit2093:                   ; preds = %H5Z__scaleoffset_lo
 
 .critedge1944:                                    ; preds = %.lr.ph2577, %.preheader2331
   %.21598.lcssa = phi i32 [ 0, %.preheader2331 ], [ %.215982576, %.lr.ph2577 ]
-  %.31613 = phi i8 [ 0, %.preheader2331 ], [ %523, %.lr.ph2577 ]
+  %.41614 = phi i8 [ 0, %.preheader2331 ], [ %523, %.lr.ph2577 ]
   %527 = icmp ult i32 %.21598.lcssa, %1
   br i1 %527, label %.lr.ph2585.preheader, label %thread-pre-split2263
 
@@ -4372,26 +4372,26 @@ H5Z__scaleoffset_log2.exit2093:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2585:                                       ; preds = %.lr.ph2585.preheader, %.lr.ph2585
   %indvars.iv3076 = phi i64 [ %528, %.lr.ph2585.preheader ], [ %indvars.iv.next3077, %.lr.ph2585 ]
-  %.416142583 = phi i8 [ %.31613, %.lr.ph2585.preheader ], [ %.51615, %.lr.ph2585 ]
+  %.516152583 = phi i8 [ %.41614, %.lr.ph2585.preheader ], [ %.61616, %.lr.ph2585 ]
   %529 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3076
   %530 = load i8, ptr %529, align 1
   %.not2287 = icmp eq i8 %530, %storemerge1885
-  %531 = tail call i8 @llvm.smin.i8(i8 %530, i8 %.416142583)
-  %.51615 = select i1 %.not2287, i8 %.416142583, i8 %531
+  %531 = tail call i8 @llvm.smin.i8(i8 %530, i8 %.516152583)
+  %.61616 = select i1 %.not2287, i8 %.516152583, i8 %531
   %indvars.iv.next3077 = add nuw nsw i64 %indvars.iv3076, 1
   %exitcond3079.not = icmp eq i64 %indvars.iv.next3077, %wide.trip.count3078
   br i1 %exitcond3079.not, label %thread-pre-split2263, label %.lr.ph2585
 
 thread-pre-split2263:                             ; preds = %525, %.lr.ph2585, %.critedge1944, %H5Z__scaleoffset_log2.exit2093
   %532 = phi i32 [ %.011.i2092, %H5Z__scaleoffset_log2.exit2093 ], [ %492, %.critedge1944 ], [ %492, %.lr.ph2585 ], [ %492, %525 ]
-  %.61616 = phi i8 [ %.11611.lcssa, %H5Z__scaleoffset_log2.exit2093 ], [ %.31613, %.critedge1944 ], [ %.51615, %.lr.ph2585 ], [ 0, %525 ]
+  %.31613 = phi i8 [ %.11611.lcssa, %H5Z__scaleoffset_log2.exit2093 ], [ %.41614, %.critedge1944 ], [ %.61616, %.lr.ph2585 ], [ 0, %525 ]
   %.not1886 = icmp ne i32 %532, 8
   %533 = icmp ne i32 %1, 0
   %or.cond2837 = and i1 %.not1886, %533
   br i1 %or.cond2837, label %.lr.ph2602, label %.loopexit2329
 
 .lr.ph2602:                                       ; preds = %thread-pre-split2263
-  %534 = zext i8 %.61616 to i32
+  %534 = zext i8 %.31613 to i32
   %wide.trip.count3092 = zext i32 %1 to i64
   br label %535
 
@@ -4438,20 +4438,20 @@ thread-pre-split2263:                             ; preds = %525, %.lr.ph2585, %
 .lr.ph2570:                                       ; preds = %.lr.ph2570.preheader, %.lr.ph2570
   %indvars.iv3066 = phi i64 [ 0, %.lr.ph2570.preheader ], [ %indvars.iv.next3067, %.lr.ph2570 ]
   %.416082567 = phi i8 [ %551, %.lr.ph2570.preheader ], [ %spec.select1946, %.lr.ph2570 ]
-  %.716172566 = phi i8 [ %551, %.lr.ph2570.preheader ], [ %.81618, %.lr.ph2570 ]
+  %.816182566 = phi i8 [ %551, %.lr.ph2570.preheader ], [ %.91619, %.lr.ph2570 ]
   %553 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3066
   %554 = load i8, ptr %553, align 1
   %spec.select1946 = tail call i8 @llvm.smax.i8(i8 %554, i8 %.416082567)
-  %.81618 = tail call i8 @llvm.smin.i8(i8 %554, i8 %.716172566)
+  %.91619 = tail call i8 @llvm.smin.i8(i8 %554, i8 %.816182566)
   %indvars.iv.next3067 = add nuw nsw i64 %indvars.iv3066, 1
   %exitcond3069.not = icmp eq i64 %indvars.iv.next3067, %wide.trip.count3068
   br i1 %exitcond3069.not, label %._crit_edge2571, label %.lr.ph2570
 
 ._crit_edge2571:                                  ; preds = %.lr.ph2570, %552
-  %.71617.lcssa = phi i8 [ %551, %552 ], [ %.81618, %.lr.ph2570 ]
+  %.81618.lcssa = phi i8 [ %551, %552 ], [ %.91619, %.lr.ph2570 ]
   %.41608.lcssa = phi i8 [ %551, %552 ], [ %spec.select1946, %.lr.ph2570 ]
   %555 = zext i8 %.41608.lcssa to i32
-  %556 = zext i8 %.71617.lcssa to i32
+  %556 = zext i8 %.81618.lcssa to i32
   %557 = sub nsw i32 %555, %556
   %558 = and i32 %557, 254
   %559 = icmp eq i32 %558, 254
@@ -4459,7 +4459,7 @@ thread-pre-split2263:                             ; preds = %525, %.lr.ph2585, %
 
 560:                                              ; preds = %._crit_edge2571
   store i32 8, ptr %5, align 4
-  %561 = sext i8 %.71617.lcssa to i64
+  %561 = sext i8 %.81618.lcssa to i64
   store i64 %561, ptr %6, align 8
   br label %960
 
@@ -4505,17 +4505,17 @@ H5Z__scaleoffset_log2.exit2104:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2564:                                       ; preds = %.lr.ph2564.preheader, %.lr.ph2564
   %indvars.iv3062 = phi i64 [ 0, %.lr.ph2564.preheader ], [ %indvars.iv.next3063, %.lr.ph2564 ]
-  %.916192561 = phi i8 [ %551, %.lr.ph2564.preheader ], [ %spec.select1947, %.lr.ph2564 ]
+  %.1116212561 = phi i8 [ %551, %.lr.ph2564.preheader ], [ %spec.select1947, %.lr.ph2564 ]
   %573 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3062
   %574 = load i8, ptr %573, align 1
-  %spec.select1947 = tail call i8 @llvm.smin.i8(i8 %574, i8 %.916192561)
+  %spec.select1947 = tail call i8 @llvm.smin.i8(i8 %574, i8 %.1116212561)
   %indvars.iv.next3063 = add nuw nsw i64 %indvars.iv3062, 1
   %exitcond3065.not = icmp eq i64 %indvars.iv.next3063, %wide.trip.count3064
   br i1 %exitcond3065.not, label %thread-pre-split2265, label %.lr.ph2564
 
 thread-pre-split2265:                             ; preds = %.lr.ph2564, %H5Z__scaleoffset_log2.exit2104
   %575 = phi i32 [ %.011.i2103, %H5Z__scaleoffset_log2.exit2104 ], [ %549, %.lr.ph2564 ]
-  %.111621 = phi i8 [ %.71617.lcssa, %H5Z__scaleoffset_log2.exit2104 ], [ %spec.select1947, %.lr.ph2564 ]
+  %.101620 = phi i8 [ %.81618.lcssa, %H5Z__scaleoffset_log2.exit2104 ], [ %spec.select1947, %.lr.ph2564 ]
   %.not1884 = icmp ne i32 %575, 8
   %576 = icmp ne i32 %1, 0
   %or.cond2838 = and i1 %.not1884, %576
@@ -4529,15 +4529,15 @@ thread-pre-split2265:                             ; preds = %.lr.ph2564, %H5Z__s
   %indvars.iv3070 = phi i64 [ 0, %.lr.ph2575.preheader ], [ %indvars.iv.next3071, %.lr.ph2575 ]
   %577 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv3070
   %578 = load i8, ptr %577, align 1
-  %579 = sub i8 %578, %.111621
+  %579 = sub i8 %578, %.101620
   store i8 %579, ptr %577, align 1
   %indvars.iv.next3071 = add nuw nsw i64 %indvars.iv3070, 1
   %exitcond3074.not = icmp eq i64 %indvars.iv.next3071, %wide.trip.count3073
   br i1 %exitcond3074.not, label %.loopexit2329, label %.lr.ph2575
 
 .loopexit2329:                                    ; preds = %.lr.ph2575, %545, %572, %thread-pre-split2265, %thread-pre-split2263
-  %.121622 = phi i8 [ %.61616, %thread-pre-split2263 ], [ %.111621, %thread-pre-split2265 ], [ %551, %572 ], [ %.61616, %545 ], [ %.111621, %.lr.ph2575 ]
-  %580 = sext i8 %.121622 to i64
+  %.71617 = phi i8 [ %.31613, %thread-pre-split2263 ], [ %.101620, %thread-pre-split2265 ], [ %551, %572 ], [ %.31613, %545 ], [ %.101620, %.lr.ph2575 ]
+  %580 = sext i8 %.71617 to i64
   store i64 %580, ptr %6, align 8
   br label %960
 
@@ -4597,7 +4597,7 @@ thread-pre-split2265:                             ; preds = %.lr.ph2564, %H5Z__s
 
 .lr.ph2555:                                       ; preds = %.lr.ph2555.preheader, %.lr.ph2555
   %indvars.iv3053 = phi i64 [ %596, %.lr.ph2555.preheader ], [ %indvars.iv.next3054, %.lr.ph2555 ]
-  %.115612553 = phi i16 [ %.01560, %.lr.ph2555.preheader ], [ %.31563, %.lr.ph2555 ]
+  %.115612553 = phi i16 [ %.01560, %.lr.ph2555.preheader ], [ %.21562, %.lr.ph2555 ]
   %.115672552 = phi i16 [ %.01560, %.lr.ph2555.preheader ], [ %.21568, %.lr.ph2555 ]
   %597 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3053
   %598 = load i16, ptr %597, align 2
@@ -4605,14 +4605,14 @@ thread-pre-split2265:                             ; preds = %.lr.ph2564, %H5Z__s
   %spec.select1949 = tail call i16 @llvm.smax.i16(i16 %598, i16 %.115612553)
   %spec.select1980 = tail call i16 @llvm.smin.i16(i16 %598, i16 %.115672552)
   %.21568 = select i1 %599, i16 %.115672552, i16 %spec.select1980
-  %.31563 = select i1 %599, i16 %.115612553, i16 %spec.select1949
+  %.21562 = select i1 %599, i16 %.115612553, i16 %spec.select1949
   %indvars.iv.next3054 = add nuw nsw i64 %indvars.iv3053, 1
   %exitcond3056.not = icmp eq i64 %indvars.iv.next3054, %wide.trip.count3055
   br i1 %exitcond3056.not, label %._crit_edge2556, label %.lr.ph2555
 
 ._crit_edge2556:                                  ; preds = %593, %.lr.ph2555, %.critedge1948
   %.11567.lcssa = phi i16 [ %.01560, %.critedge1948 ], [ %.21568, %.lr.ph2555 ], [ 0, %593 ]
-  %.11561.lcssa = phi i16 [ %.01560, %.critedge1948 ], [ %.31563, %.lr.ph2555 ], [ 0, %593 ]
+  %.11561.lcssa = phi i16 [ %.01560, %.critedge1948 ], [ %.21562, %.lr.ph2555 ], [ 0, %593 ]
   %600 = zext i16 %.11561.lcssa to i32
   %601 = zext i16 %.11567.lcssa to i32
   %602 = sub nsw i32 %600, %601
@@ -4673,7 +4673,7 @@ H5Z__scaleoffset_log2.exit2115:                   ; preds = %H5Z__scaleoffset_lo
 
 .critedge1950:                                    ; preds = %.lr.ph2535, %.preheader2337
   %.21554.lcssa = phi i32 [ 0, %.preheader2337 ], [ %.215542534, %.lr.ph2535 ]
-  %.31569 = phi i16 [ 0, %.preheader2337 ], [ %619, %.lr.ph2535 ]
+  %.41570 = phi i16 [ 0, %.preheader2337 ], [ %619, %.lr.ph2535 ]
   %623 = icmp ult i32 %.21554.lcssa, %1
   br i1 %623, label %.lr.ph2543.preheader, label %thread-pre-split2267
 
@@ -4684,26 +4684,26 @@ H5Z__scaleoffset_log2.exit2115:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2543:                                       ; preds = %.lr.ph2543.preheader, %.lr.ph2543
   %indvars.iv3044 = phi i64 [ %624, %.lr.ph2543.preheader ], [ %indvars.iv.next3045, %.lr.ph2543 ]
-  %.415702541 = phi i16 [ %.31569, %.lr.ph2543.preheader ], [ %.51571, %.lr.ph2543 ]
+  %.515712541 = phi i16 [ %.41570, %.lr.ph2543.preheader ], [ %.61572, %.lr.ph2543 ]
   %625 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3044
   %626 = load i16, ptr %625, align 2
   %.not2286 = icmp eq i16 %626, %storemerge
-  %627 = tail call i16 @llvm.smin.i16(i16 %626, i16 %.415702541)
-  %.51571 = select i1 %.not2286, i16 %.415702541, i16 %627
+  %627 = tail call i16 @llvm.smin.i16(i16 %626, i16 %.515712541)
+  %.61572 = select i1 %.not2286, i16 %.515712541, i16 %627
   %indvars.iv.next3045 = add nuw nsw i64 %indvars.iv3044, 1
   %exitcond3047.not = icmp eq i64 %indvars.iv.next3045, %wide.trip.count3046
   br i1 %exitcond3047.not, label %thread-pre-split2267, label %.lr.ph2543
 
 thread-pre-split2267:                             ; preds = %621, %.lr.ph2543, %.critedge1950, %H5Z__scaleoffset_log2.exit2115
   %628 = phi i32 [ %.011.i2114, %H5Z__scaleoffset_log2.exit2115 ], [ %588, %.critedge1950 ], [ %588, %.lr.ph2543 ], [ %588, %621 ]
-  %.61572 = phi i16 [ %.11567.lcssa, %H5Z__scaleoffset_log2.exit2115 ], [ %.31569, %.critedge1950 ], [ %.51571, %.lr.ph2543 ], [ 0, %621 ]
+  %.31569 = phi i16 [ %.11567.lcssa, %H5Z__scaleoffset_log2.exit2115 ], [ %.41570, %.critedge1950 ], [ %.61572, %.lr.ph2543 ], [ 0, %621 ]
   %.not1882 = icmp ne i32 %628, 16
   %629 = icmp ne i32 %1, 0
   %or.cond2839 = and i1 %.not1882, %629
   br i1 %or.cond2839, label %.lr.ph2560, label %.loopexit2335
 
 .lr.ph2560:                                       ; preds = %thread-pre-split2267
-  %630 = zext i16 %.61572 to i32
+  %630 = zext i16 %.31569 to i32
   %wide.trip.count3060 = zext i32 %1 to i64
   br label %631
 
@@ -4752,20 +4752,20 @@ thread-pre-split2267:                             ; preds = %621, %.lr.ph2543, %
 .lr.ph2528:                                       ; preds = %.lr.ph2528.preheader, %.lr.ph2528
   %indvars.iv3034 = phi i64 [ 0, %.lr.ph2528.preheader ], [ %indvars.iv.next3035, %.lr.ph2528 ]
   %.415642525 = phi i16 [ %648, %.lr.ph2528.preheader ], [ %spec.select1952, %.lr.ph2528 ]
-  %.715732524 = phi i16 [ %648, %.lr.ph2528.preheader ], [ %.81574, %.lr.ph2528 ]
+  %.815742524 = phi i16 [ %648, %.lr.ph2528.preheader ], [ %.91575, %.lr.ph2528 ]
   %650 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3034
   %651 = load i16, ptr %650, align 2
   %spec.select1952 = tail call i16 @llvm.smax.i16(i16 %651, i16 %.415642525)
-  %.81574 = tail call i16 @llvm.smin.i16(i16 %651, i16 %.715732524)
+  %.91575 = tail call i16 @llvm.smin.i16(i16 %651, i16 %.815742524)
   %indvars.iv.next3035 = add nuw nsw i64 %indvars.iv3034, 1
   %exitcond3037.not = icmp eq i64 %indvars.iv.next3035, %wide.trip.count3036
   br i1 %exitcond3037.not, label %._crit_edge2529, label %.lr.ph2528
 
 ._crit_edge2529:                                  ; preds = %.lr.ph2528, %649
-  %.71573.lcssa = phi i16 [ %648, %649 ], [ %.81574, %.lr.ph2528 ]
+  %.81574.lcssa = phi i16 [ %648, %649 ], [ %.91575, %.lr.ph2528 ]
   %.41564.lcssa = phi i16 [ %648, %649 ], [ %spec.select1952, %.lr.ph2528 ]
   %652 = zext i16 %.41564.lcssa to i32
-  %653 = zext i16 %.71573.lcssa to i32
+  %653 = zext i16 %.81574.lcssa to i32
   %654 = sub nsw i32 %652, %653
   %655 = and i32 %654, 65534
   %656 = icmp eq i32 %655, 65534
@@ -4817,17 +4817,17 @@ H5Z__scaleoffset_log2.exit2126:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2522:                                       ; preds = %.lr.ph2522.preheader, %.lr.ph2522
   %indvars.iv3030 = phi i64 [ 0, %.lr.ph2522.preheader ], [ %indvars.iv.next3031, %.lr.ph2522 ]
-  %.915752519 = phi i16 [ %648, %.lr.ph2522.preheader ], [ %spec.select1953, %.lr.ph2522 ]
+  %.1115772519 = phi i16 [ %648, %.lr.ph2522.preheader ], [ %spec.select1953, %.lr.ph2522 ]
   %669 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3030
   %670 = load i16, ptr %669, align 2
-  %spec.select1953 = tail call i16 @llvm.smin.i16(i16 %670, i16 %.915752519)
+  %spec.select1953 = tail call i16 @llvm.smin.i16(i16 %670, i16 %.1115772519)
   %indvars.iv.next3031 = add nuw nsw i64 %indvars.iv3030, 1
   %exitcond3033.not = icmp eq i64 %indvars.iv.next3031, %wide.trip.count3032
   br i1 %exitcond3033.not, label %thread-pre-split2269, label %.lr.ph2522
 
 thread-pre-split2269:                             ; preds = %.lr.ph2522, %H5Z__scaleoffset_log2.exit2126
   %671 = phi i32 [ %.011.i2125, %H5Z__scaleoffset_log2.exit2126 ], [ %646, %.lr.ph2522 ]
-  %.111577 = phi i16 [ %.71573.lcssa, %H5Z__scaleoffset_log2.exit2126 ], [ %spec.select1953, %.lr.ph2522 ]
+  %.101576 = phi i16 [ %.81574.lcssa, %H5Z__scaleoffset_log2.exit2126 ], [ %spec.select1953, %.lr.ph2522 ]
   %.not1881 = icmp ne i32 %671, 16
   %672 = icmp ne i32 %1, 0
   %or.cond2840 = and i1 %.not1881, %672
@@ -4841,15 +4841,15 @@ thread-pre-split2269:                             ; preds = %.lr.ph2522, %H5Z__s
   %indvars.iv3038 = phi i64 [ 0, %.lr.ph2533.preheader ], [ %indvars.iv.next3039, %.lr.ph2533 ]
   %673 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv3038
   %674 = load i16, ptr %673, align 2
-  %675 = sub i16 %674, %.111577
+  %675 = sub i16 %674, %.101576
   store i16 %675, ptr %673, align 2
   %indvars.iv.next3039 = add nuw nsw i64 %indvars.iv3038, 1
   %exitcond3042.not = icmp eq i64 %indvars.iv.next3039, %wide.trip.count3041
   br i1 %exitcond3042.not, label %.loopexit2335, label %.lr.ph2533
 
 .loopexit2335:                                    ; preds = %.lr.ph2533, %642, %668, %thread-pre-split2269, %thread-pre-split2267
-  %.121578 = phi i16 [ %.61572, %thread-pre-split2267 ], [ %.111577, %thread-pre-split2269 ], [ %648, %668 ], [ %.61572, %642 ], [ %.111577, %.lr.ph2533 ]
-  %676 = sext i16 %.121578 to i64
+  %.71573 = phi i16 [ %.31569, %thread-pre-split2267 ], [ %.101576, %thread-pre-split2269 ], [ %648, %668 ], [ %.31569, %642 ], [ %.101576, %.lr.ph2533 ]
+  %676 = sext i16 %.71573 to i64
   store i64 %676, ptr %6, align 8
   br label %960
 
@@ -4904,7 +4904,7 @@ thread-pre-split2269:                             ; preds = %.lr.ph2522, %H5Z__s
 
 689:                                              ; preds = %.lr.ph2513, %689
   %indvars.iv3020 = phi i64 [ %688, %.lr.ph2513 ], [ %indvars.iv.next3021, %689 ]
-  %.115252511 = phi i32 [ %.01524, %.lr.ph2513 ], [ %.31527, %689 ]
+  %.115252511 = phi i32 [ %.01524, %.lr.ph2513 ], [ %.21526, %689 ]
   %.115312510 = phi i32 [ %.01524, %.lr.ph2513 ], [ %.21532, %689 ]
   %690 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3020
   %691 = load i32, ptr %690, align 4
@@ -4912,14 +4912,14 @@ thread-pre-split2269:                             ; preds = %.lr.ph2522, %H5Z__s
   %spec.select1955 = tail call i32 @llvm.smax.i32(i32 %691, i32 %.115252511)
   %spec.select1981 = tail call i32 @llvm.smin.i32(i32 %691, i32 %.115312510)
   %.21532 = select i1 %692, i32 %.115312510, i32 %spec.select1981
-  %.31527 = select i1 %692, i32 %.115252511, i32 %spec.select1955
+  %.21526 = select i1 %692, i32 %.115252511, i32 %spec.select1955
   %indvars.iv.next3021 = add nuw nsw i64 %indvars.iv3020, 1
   %exitcond3024.not = icmp eq i64 %indvars.iv.next3021, %wide.trip.count3023
   br i1 %exitcond3024.not, label %._crit_edge2514, label %689
 
 ._crit_edge2514:                                  ; preds = %685, %689, %.critedge1954
   %.11531.lcssa = phi i32 [ %.01524, %.critedge1954 ], [ %.21532, %689 ], [ 0, %685 ]
-  %.11525.lcssa = phi i32 [ %.01524, %.critedge1954 ], [ %.31527, %689 ], [ 0, %685 ]
+  %.11525.lcssa = phi i32 [ %.01524, %.critedge1954 ], [ %.21526, %689 ], [ 0, %685 ]
   %693 = sub nsw i32 %.11525.lcssa, %.11531.lcssa
   %694 = icmp ugt i32 %693, -3
   br i1 %694, label %695, label %696
@@ -4966,7 +4966,7 @@ H5Z__scaleoffset_log2.exit2137:                   ; preds = %.lr.ph.i2129
 
 .critedge1956:                                    ; preds = %.lr.ph2493, %.preheader2343
   %.21518.lcssa = phi i32 [ 0, %.preheader2343 ], [ %.215182492, %.lr.ph2493 ]
-  %.31533 = phi i32 [ 0, %.preheader2343 ], [ %707, %.lr.ph2493 ]
+  %.41534 = phi i32 [ 0, %.preheader2343 ], [ %707, %.lr.ph2493 ]
   %711 = icmp ult i32 %.21518.lcssa, %1
   br i1 %711, label %.lr.ph2501, label %thread-pre-split2271
 
@@ -4977,19 +4977,19 @@ H5Z__scaleoffset_log2.exit2137:                   ; preds = %.lr.ph.i2129
 
 713:                                              ; preds = %.lr.ph2501, %713
   %indvars.iv3010 = phi i64 [ %712, %.lr.ph2501 ], [ %indvars.iv.next3011, %713 ]
-  %.415342499 = phi i32 [ %.31533, %.lr.ph2501 ], [ %.51535, %713 ]
+  %.515352499 = phi i32 [ %.41534, %.lr.ph2501 ], [ %.61536, %713 ]
   %714 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3010
   %715 = load i32, ptr %714, align 4
   %.not2285 = icmp eq i32 %715, %.03288
-  %716 = tail call i32 @llvm.smin.i32(i32 %715, i32 %.415342499)
-  %.51535 = select i1 %.not2285, i32 %.415342499, i32 %716
+  %716 = tail call i32 @llvm.smin.i32(i32 %715, i32 %.515352499)
+  %.61536 = select i1 %.not2285, i32 %.515352499, i32 %716
   %indvars.iv.next3011 = add nuw nsw i64 %indvars.iv3010, 1
   %exitcond3014.not = icmp eq i64 %indvars.iv.next3011, %wide.trip.count3013
   br i1 %exitcond3014.not, label %thread-pre-split2271, label %713
 
 thread-pre-split2271:                             ; preds = %709, %713, %.critedge1956, %H5Z__scaleoffset_log2.exit2137
   %717 = phi i32 [ %.011.i2136, %H5Z__scaleoffset_log2.exit2137 ], [ %679, %.critedge1956 ], [ %679, %713 ], [ %679, %709 ]
-  %.61536 = phi i32 [ %.11531.lcssa, %H5Z__scaleoffset_log2.exit2137 ], [ %.31533, %.critedge1956 ], [ %.51535, %713 ], [ 0, %709 ]
+  %.31533 = phi i32 [ %.11531.lcssa, %H5Z__scaleoffset_log2.exit2137 ], [ %.41534, %.critedge1956 ], [ %.61536, %713 ], [ 0, %709 ]
   %.not1879 = icmp ne i32 %717, 32
   %718 = icmp ne i32 %1, 0
   %or.cond2841 = and i1 %.not1879, %718
@@ -5013,7 +5013,7 @@ thread-pre-split2271:                             ; preds = %709, %713, %.crited
   br label %728
 
 726:                                              ; preds = %719
-  %727 = sub nsw i32 %721, %.61536
+  %727 = sub nsw i32 %721, %.31533
   br label %728
 
 728:                                              ; preds = %726, %723
@@ -5040,19 +5040,19 @@ thread-pre-split2271:                             ; preds = %709, %713, %.crited
 .lr.ph2480:                                       ; preds = %.lr.ph2480.preheader, %.lr.ph2480
   %indvars.iv2999 = phi i64 [ 0, %.lr.ph2480.preheader ], [ %indvars.iv.next3000, %.lr.ph2480 ]
   %.415282477 = phi i32 [ %733, %.lr.ph2480.preheader ], [ %spec.select1958, %.lr.ph2480 ]
-  %.715372476 = phi i32 [ %733, %.lr.ph2480.preheader ], [ %.81538, %.lr.ph2480 ]
+  %.815382476 = phi i32 [ %733, %.lr.ph2480.preheader ], [ %.91539, %.lr.ph2480 ]
   %735 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv2999
   %736 = load i32, ptr %735, align 4
   %spec.select1958 = tail call i32 @llvm.smax.i32(i32 %736, i32 %.415282477)
-  %.81538 = tail call i32 @llvm.smin.i32(i32 %736, i32 %.715372476)
+  %.91539 = tail call i32 @llvm.smin.i32(i32 %736, i32 %.815382476)
   %indvars.iv.next3000 = add nuw nsw i64 %indvars.iv2999, 1
   %exitcond3003.not = icmp eq i64 %indvars.iv.next3000, %wide.trip.count3002
   br i1 %exitcond3003.not, label %._crit_edge2481, label %.lr.ph2480
 
 ._crit_edge2481:                                  ; preds = %.lr.ph2480, %734
-  %.71537.lcssa = phi i32 [ %733, %734 ], [ %.81538, %.lr.ph2480 ]
+  %.81538.lcssa = phi i32 [ %733, %734 ], [ %.91539, %.lr.ph2480 ]
   %.41528.lcssa = phi i32 [ %733, %734 ], [ %spec.select1958, %.lr.ph2480 ]
-  %737 = sub nsw i32 %.41528.lcssa, %.71537.lcssa
+  %737 = sub nsw i32 %.41528.lcssa, %.81538.lcssa
   %738 = icmp ugt i32 %737, -3
   br i1 %738, label %739, label %740
 
@@ -5063,7 +5063,7 @@ thread-pre-split2271:                             ; preds = %709, %713, %.crited
 740:                                              ; preds = %._crit_edge2481
   %741 = add nuw nsw i32 %737, 1
   %742 = zext i32 %741 to i64
-  %.not13.i2138 = icmp eq i32 %.41528.lcssa, %.71537.lcssa
+  %.not13.i2138 = icmp eq i32 %.41528.lcssa, %.81538.lcssa
   br i1 %.not13.i2138, label %H5Z__scaleoffset_log2.exit2148, label %.lr.ph.preheader.i2139
 
 .lr.ph.preheader.i2139:                           ; preds = %740
@@ -5101,17 +5101,17 @@ H5Z__scaleoffset_log2.exit2148:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2474:                                       ; preds = %.lr.ph2474.preheader, %.lr.ph2474
   %indvars.iv2994 = phi i64 [ 0, %.lr.ph2474.preheader ], [ %indvars.iv.next2995, %.lr.ph2474 ]
-  %.915392471 = phi i32 [ %733, %.lr.ph2474.preheader ], [ %spec.select1959, %.lr.ph2474 ]
+  %.1115412471 = phi i32 [ %733, %.lr.ph2474.preheader ], [ %spec.select1959, %.lr.ph2474 ]
   %750 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv2994
   %751 = load i32, ptr %750, align 4
-  %spec.select1959 = tail call i32 @llvm.smin.i32(i32 %751, i32 %.915392471)
+  %spec.select1959 = tail call i32 @llvm.smin.i32(i32 %751, i32 %.1115412471)
   %indvars.iv.next2995 = add nuw nsw i64 %indvars.iv2994, 1
   %exitcond2998.not = icmp eq i64 %indvars.iv.next2995, %wide.trip.count2997
   br i1 %exitcond2998.not, label %thread-pre-split2273, label %.lr.ph2474
 
 thread-pre-split2273:                             ; preds = %.lr.ph2474, %H5Z__scaleoffset_log2.exit2148
   %752 = phi i32 [ %.011.i2147, %H5Z__scaleoffset_log2.exit2148 ], [ %731, %.lr.ph2474 ]
-  %.111541 = phi i32 [ %.71537.lcssa, %H5Z__scaleoffset_log2.exit2148 ], [ %spec.select1959, %.lr.ph2474 ]
+  %.101540 = phi i32 [ %.81538.lcssa, %H5Z__scaleoffset_log2.exit2148 ], [ %spec.select1959, %.lr.ph2474 ]
   %.not1877 = icmp ne i32 %752, 32
   %753 = icmp ne i32 %1, 0
   %or.cond2842 = and i1 %.not1877, %753
@@ -5125,15 +5125,15 @@ thread-pre-split2273:                             ; preds = %.lr.ph2474, %H5Z__s
   %indvars.iv3004 = phi i64 [ 0, %.lr.ph2485.preheader ], [ %indvars.iv.next3005, %.lr.ph2485 ]
   %754 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv3004
   %755 = load i32, ptr %754, align 4
-  %756 = sub nsw i32 %755, %.111541
+  %756 = sub nsw i32 %755, %.101540
   store i32 %756, ptr %754, align 4
   %indvars.iv.next3005 = add nuw nsw i64 %indvars.iv3004, 1
   %exitcond3008.not = icmp eq i64 %indvars.iv.next3005, %wide.trip.count3007
   br i1 %exitcond3008.not, label %.loopexit2341, label %.lr.ph2485
 
 .loopexit2341:                                    ; preds = %.lr.ph2485, %728, %749, %thread-pre-split2273, %thread-pre-split2271
-  %.121542 = phi i32 [ %.61536, %thread-pre-split2271 ], [ %.111541, %thread-pre-split2273 ], [ %733, %749 ], [ %.61536, %728 ], [ %.111541, %.lr.ph2485 ]
-  %757 = sext i32 %.121542 to i64
+  %.71537 = phi i32 [ %.31533, %thread-pre-split2271 ], [ %.101540, %thread-pre-split2273 ], [ %733, %749 ], [ %.31533, %728 ], [ %.101540, %.lr.ph2485 ]
+  %757 = sext i32 %.71537 to i64
   store i64 %757, ptr %6, align 8
   br label %960
 
@@ -5234,7 +5234,7 @@ thread-pre-split2273:                             ; preds = %.lr.ph2474, %H5Z__s
 
 789:                                              ; preds = %.lr.ph2465, %789
   %indvars.iv2984 = phi i64 [ %788, %.lr.ph2465 ], [ %indvars.iv.next2985, %789 ]
-  %.114832463 = phi i64 [ %.01482, %.lr.ph2465 ], [ %.31485, %789 ]
+  %.114832463 = phi i64 [ %.01482, %.lr.ph2465 ], [ %.21484, %789 ]
   %.114892462 = phi i64 [ %.01482, %.lr.ph2465 ], [ %.21490, %789 ]
   %790 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2984
   %791 = load i64, ptr %790, align 8
@@ -5242,14 +5242,14 @@ thread-pre-split2273:                             ; preds = %.lr.ph2474, %H5Z__s
   %spec.select1962 = tail call i64 @llvm.smax.i64(i64 %791, i64 %.114832463)
   %spec.select1982 = tail call i64 @llvm.smin.i64(i64 %791, i64 %.114892462)
   %.21490 = select i1 %792, i64 %.114892462, i64 %spec.select1982
-  %.31485 = select i1 %792, i64 %.114832463, i64 %spec.select1962
+  %.21484 = select i1 %792, i64 %.114832463, i64 %spec.select1962
   %indvars.iv.next2985 = add nuw nsw i64 %indvars.iv2984, 1
   %exitcond2988.not = icmp eq i64 %indvars.iv.next2985, %wide.trip.count2987
   br i1 %exitcond2988.not, label %._crit_edge2466, label %789
 
 ._crit_edge2466:                                  ; preds = %784, %789, %.critedge1961
   %.11489.lcssa = phi i64 [ %.01482, %.critedge1961 ], [ %.21490, %789 ], [ 0, %784 ]
-  %.11483.lcssa = phi i64 [ %.01482, %.critedge1961 ], [ %.31485, %789 ], [ 0, %784 ]
+  %.11483.lcssa = phi i64 [ %.01482, %.critedge1961 ], [ %.21484, %789 ], [ 0, %784 ]
   %793 = sub nsw i64 %.11483.lcssa, %.11489.lcssa
   %794 = icmp ugt i64 %793, -3
   br i1 %794, label %795, label %796
@@ -5295,7 +5295,7 @@ H5Z__scaleoffset_log2.exit2159:                   ; preds = %.lr.ph.i2151
 
 .critedge1963:                                    ; preds = %804, %.preheader2350
   %.21476.lcssa = phi i32 [ 0, %.preheader2350 ], [ %.214762444, %804 ]
-  %.31491 = phi i64 [ 0, %.preheader2350 ], [ %807, %804 ]
+  %.41492 = phi i64 [ 0, %.preheader2350 ], [ %807, %804 ]
   %811 = icmp ult i32 %.21476.lcssa, %1
   br i1 %811, label %.lr.ph2453, label %thread-pre-split2275
 
@@ -5307,19 +5307,19 @@ H5Z__scaleoffset_log2.exit2159:                   ; preds = %.lr.ph.i2151
 
 814:                                              ; preds = %.lr.ph2453, %814
   %indvars.iv2974 = phi i64 [ %813, %.lr.ph2453 ], [ %indvars.iv.next2975, %814 ]
-  %.414922451 = phi i64 [ %.31491, %.lr.ph2453 ], [ %.51493, %814 ]
+  %.514932451 = phi i64 [ %.41492, %.lr.ph2453 ], [ %.61494, %814 ]
   %815 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2974
   %816 = load i64, ptr %815, align 8
   %.not2284 = icmp eq i64 %816, %812
-  %817 = tail call i64 @llvm.smin.i64(i64 %816, i64 %.414922451)
-  %.51493 = select i1 %.not2284, i64 %.414922451, i64 %817
+  %817 = tail call i64 @llvm.smin.i64(i64 %816, i64 %.514932451)
+  %.61494 = select i1 %.not2284, i64 %.514932451, i64 %817
   %indvars.iv.next2975 = add nuw nsw i64 %indvars.iv2974, 1
   %exitcond2978.not = icmp eq i64 %indvars.iv.next2975, %wide.trip.count2977
   br i1 %exitcond2978.not, label %thread-pre-split2275, label %814
 
 thread-pre-split2275:                             ; preds = %809, %814, %.critedge1963, %H5Z__scaleoffset_log2.exit2159
   %818 = phi i32 [ %.011.i2158, %H5Z__scaleoffset_log2.exit2159 ], [ %776, %.critedge1963 ], [ %776, %814 ], [ %776, %809 ]
-  %.61494 = phi i64 [ %.11489.lcssa, %H5Z__scaleoffset_log2.exit2159 ], [ %.31491, %.critedge1963 ], [ %.51493, %814 ], [ 0, %809 ]
+  %.31491 = phi i64 [ %.11489.lcssa, %H5Z__scaleoffset_log2.exit2159 ], [ %.41492, %.critedge1963 ], [ %.61494, %814 ], [ 0, %809 ]
   %.not1875 = icmp ne i32 %818, 64
   %819 = icmp ne i32 %1, 0
   %or.cond2843 = and i1 %.not1875, %819
@@ -5345,7 +5345,7 @@ thread-pre-split2275:                             ; preds = %809, %814, %.crited
   br label %831
 
 829:                                              ; preds = %821
-  %830 = sub nsw i64 %823, %.61494
+  %830 = sub nsw i64 %823, %.31491
   br label %831
 
 831:                                              ; preds = %829, %825
@@ -5372,19 +5372,19 @@ thread-pre-split2275:                             ; preds = %809, %814, %.crited
 .lr.ph2434:                                       ; preds = %.lr.ph2434.preheader, %.lr.ph2434
   %indvars.iv2960 = phi i64 [ 0, %.lr.ph2434.preheader ], [ %indvars.iv.next2961, %.lr.ph2434 ]
   %.414862431 = phi i64 [ %836, %.lr.ph2434.preheader ], [ %spec.select1965, %.lr.ph2434 ]
-  %.714952430 = phi i64 [ %836, %.lr.ph2434.preheader ], [ %.81496, %.lr.ph2434 ]
+  %.814962430 = phi i64 [ %836, %.lr.ph2434.preheader ], [ %.91497, %.lr.ph2434 ]
   %838 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2960
   %839 = load i64, ptr %838, align 8
   %spec.select1965 = tail call i64 @llvm.smax.i64(i64 %839, i64 %.414862431)
-  %.81496 = tail call i64 @llvm.smin.i64(i64 %839, i64 %.714952430)
+  %.91497 = tail call i64 @llvm.smin.i64(i64 %839, i64 %.814962430)
   %indvars.iv.next2961 = add nuw nsw i64 %indvars.iv2960, 1
   %exitcond2964.not = icmp eq i64 %indvars.iv.next2961, %wide.trip.count2963
   br i1 %exitcond2964.not, label %._crit_edge2435, label %.lr.ph2434
 
 ._crit_edge2435:                                  ; preds = %.lr.ph2434, %837
-  %.71495.lcssa = phi i64 [ %836, %837 ], [ %.81496, %.lr.ph2434 ]
+  %.81496.lcssa = phi i64 [ %836, %837 ], [ %.91497, %.lr.ph2434 ]
   %.41486.lcssa = phi i64 [ %836, %837 ], [ %spec.select1965, %.lr.ph2434 ]
-  %840 = sub nsw i64 %.41486.lcssa, %.71495.lcssa
+  %840 = sub nsw i64 %.41486.lcssa, %.81496.lcssa
   %841 = icmp ugt i64 %840, -3
   br i1 %841, label %842, label %843
 
@@ -5394,7 +5394,7 @@ thread-pre-split2275:                             ; preds = %809, %814, %.crited
 
 843:                                              ; preds = %._crit_edge2435
   %844 = add nuw nsw i64 %840, 1
-  %.not13.i2160 = icmp eq i64 %.41486.lcssa, %.71495.lcssa
+  %.not13.i2160 = icmp eq i64 %.41486.lcssa, %.81496.lcssa
   br i1 %.not13.i2160, label %H5Z__scaleoffset_log2.exit2170, label %.lr.ph.preheader.i2161
 
 .lr.ph.preheader.i2161:                           ; preds = %843
@@ -5432,17 +5432,17 @@ H5Z__scaleoffset_log2.exit2170:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph2428:                                       ; preds = %.lr.ph2428.preheader, %.lr.ph2428
   %indvars.iv2955 = phi i64 [ 0, %.lr.ph2428.preheader ], [ %indvars.iv.next2956, %.lr.ph2428 ]
-  %.914972425 = phi i64 [ %836, %.lr.ph2428.preheader ], [ %spec.select1966, %.lr.ph2428 ]
+  %.1114992425 = phi i64 [ %836, %.lr.ph2428.preheader ], [ %spec.select1966, %.lr.ph2428 ]
   %852 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2955
   %853 = load i64, ptr %852, align 8
-  %spec.select1966 = tail call i64 @llvm.smin.i64(i64 %853, i64 %.914972425)
+  %spec.select1966 = tail call i64 @llvm.smin.i64(i64 %853, i64 %.1114992425)
   %indvars.iv.next2956 = add nuw nsw i64 %indvars.iv2955, 1
   %exitcond2959.not = icmp eq i64 %indvars.iv.next2956, %wide.trip.count2958
   br i1 %exitcond2959.not, label %thread-pre-split2277, label %.lr.ph2428
 
 thread-pre-split2277:                             ; preds = %.lr.ph2428, %H5Z__scaleoffset_log2.exit2170
   %854 = phi i32 [ %.011.i2169, %H5Z__scaleoffset_log2.exit2170 ], [ %834, %.lr.ph2428 ]
-  %.111499 = phi i64 [ %.71495.lcssa, %H5Z__scaleoffset_log2.exit2170 ], [ %spec.select1966, %.lr.ph2428 ]
+  %.101498 = phi i64 [ %.81496.lcssa, %H5Z__scaleoffset_log2.exit2170 ], [ %spec.select1966, %.lr.ph2428 ]
   %.not1871 = icmp ne i32 %854, 64
   %855 = icmp ne i32 %1, 0
   %or.cond2844 = and i1 %.not1871, %855
@@ -5456,15 +5456,15 @@ thread-pre-split2277:                             ; preds = %.lr.ph2428, %H5Z__s
   %indvars.iv2965 = phi i64 [ 0, %.lr.ph2439.preheader ], [ %indvars.iv.next2966, %.lr.ph2439 ]
   %856 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2965
   %857 = load i64, ptr %856, align 8
-  %858 = sub nsw i64 %857, %.111499
+  %858 = sub nsw i64 %857, %.101498
   store i64 %858, ptr %856, align 8
   %indvars.iv.next2966 = add nuw nsw i64 %indvars.iv2965, 1
   %exitcond2969.not = icmp eq i64 %indvars.iv.next2966, %wide.trip.count2968
   br i1 %exitcond2969.not, label %.loopexit2348, label %.lr.ph2439
 
 .loopexit2348:                                    ; preds = %.lr.ph2439, %831, %851, %thread-pre-split2277, %thread-pre-split2275
-  %.121500 = phi i64 [ %.61494, %thread-pre-split2275 ], [ %.111499, %thread-pre-split2277 ], [ %836, %851 ], [ %.61494, %831 ], [ %.111499, %.lr.ph2439 ]
-  store i64 %.121500, ptr %6, align 8
+  %.71495 = phi i64 [ %.31491, %thread-pre-split2275 ], [ %.101498, %thread-pre-split2277 ], [ %836, %851 ], [ %.31491, %831 ], [ %.101498, %.lr.ph2439 ]
+  store i64 %.71495, ptr %6, align 8
   br label %960
 
 859:                                              ; preds = %7
@@ -5564,7 +5564,7 @@ thread-pre-split2277:                             ; preds = %.lr.ph2428, %H5Z__s
 
 890:                                              ; preds = %.lr.ph2419, %890
   %indvars.iv2945 = phi i64 [ %889, %.lr.ph2419 ], [ %indvars.iv.next2946, %890 ]
-  %.114392417 = phi i64 [ %.01438, %.lr.ph2419 ], [ %.31441, %890 ]
+  %.114392417 = phi i64 [ %.01438, %.lr.ph2419 ], [ %.21440, %890 ]
   %.114452416 = phi i64 [ %.01438, %.lr.ph2419 ], [ %.21446, %890 ]
   %891 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2945
   %892 = load i64, ptr %891, align 8
@@ -5572,14 +5572,14 @@ thread-pre-split2277:                             ; preds = %.lr.ph2428, %H5Z__s
   %spec.select1969 = tail call i64 @llvm.smax.i64(i64 %892, i64 %.114392417)
   %spec.select1983 = tail call i64 @llvm.smin.i64(i64 %892, i64 %.114452416)
   %.21446 = select i1 %893, i64 %.114452416, i64 %spec.select1983
-  %.31441 = select i1 %893, i64 %.114392417, i64 %spec.select1969
+  %.21440 = select i1 %893, i64 %.114392417, i64 %spec.select1969
   %indvars.iv.next2946 = add nuw nsw i64 %indvars.iv2945, 1
   %exitcond2949.not = icmp eq i64 %indvars.iv.next2946, %wide.trip.count2948
   br i1 %exitcond2949.not, label %._crit_edge2420, label %890
 
 ._crit_edge2420:                                  ; preds = %885, %890, %.critedge1968
   %.11445.lcssa = phi i64 [ %.01438, %.critedge1968 ], [ %.21446, %890 ], [ 0, %885 ]
-  %.11439.lcssa = phi i64 [ %.01438, %.critedge1968 ], [ %.31441, %890 ], [ 0, %885 ]
+  %.11439.lcssa = phi i64 [ %.01438, %.critedge1968 ], [ %.21440, %890 ], [ 0, %885 ]
   %894 = sub nsw i64 %.11439.lcssa, %.11445.lcssa
   %895 = icmp ugt i64 %894, -3
   br i1 %895, label %896, label %897
@@ -5625,7 +5625,7 @@ H5Z__scaleoffset_log2.exit2181:                   ; preds = %.lr.ph.i2173
 
 .critedge1970:                                    ; preds = %905, %.preheader2359
   %.21437.lcssa = phi i32 [ 0, %.preheader2359 ], [ %.214372398, %905 ]
-  %.31447 = phi i64 [ 0, %.preheader2359 ], [ %908, %905 ]
+  %.41448 = phi i64 [ 0, %.preheader2359 ], [ %908, %905 ]
   %912 = icmp ult i32 %.21437.lcssa, %1
   br i1 %912, label %.lr.ph2407, label %thread-pre-split2279
 
@@ -5637,19 +5637,19 @@ H5Z__scaleoffset_log2.exit2181:                   ; preds = %.lr.ph.i2173
 
 915:                                              ; preds = %.lr.ph2407, %915
   %indvars.iv2935 = phi i64 [ %914, %.lr.ph2407 ], [ %indvars.iv.next2936, %915 ]
-  %.414482405 = phi i64 [ %.31447, %.lr.ph2407 ], [ %.51449, %915 ]
+  %.514492405 = phi i64 [ %.41448, %.lr.ph2407 ], [ %.61450, %915 ]
   %916 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2935
   %917 = load i64, ptr %916, align 8
   %.not2283 = icmp eq i64 %917, %913
-  %918 = tail call i64 @llvm.smin.i64(i64 %917, i64 %.414482405)
-  %.51449 = select i1 %.not2283, i64 %.414482405, i64 %918
+  %918 = tail call i64 @llvm.smin.i64(i64 %917, i64 %.514492405)
+  %.61450 = select i1 %.not2283, i64 %.514492405, i64 %918
   %indvars.iv.next2936 = add nuw nsw i64 %indvars.iv2935, 1
   %exitcond2939.not = icmp eq i64 %indvars.iv.next2936, %wide.trip.count2938
   br i1 %exitcond2939.not, label %thread-pre-split2279, label %915
 
 thread-pre-split2279:                             ; preds = %910, %915, %.critedge1970, %H5Z__scaleoffset_log2.exit2181
   %919 = phi i32 [ %.011.i2180, %H5Z__scaleoffset_log2.exit2181 ], [ %877, %.critedge1970 ], [ %877, %915 ], [ %877, %910 ]
-  %.61450 = phi i64 [ %.11445.lcssa, %H5Z__scaleoffset_log2.exit2181 ], [ %.31447, %.critedge1970 ], [ %.51449, %915 ], [ 0, %910 ]
+  %.31447 = phi i64 [ %.11445.lcssa, %H5Z__scaleoffset_log2.exit2181 ], [ %.41448, %.critedge1970 ], [ %.61450, %915 ], [ 0, %910 ]
   %.not1870 = icmp ne i32 %919, 64
   %920 = icmp ne i32 %1, 0
   %or.cond2845 = and i1 %.not1870, %920
@@ -5675,7 +5675,7 @@ thread-pre-split2279:                             ; preds = %910, %915, %.crited
   br label %932
 
 930:                                              ; preds = %922
-  %931 = sub nsw i64 %924, %.61450
+  %931 = sub nsw i64 %924, %.31447
   br label %932
 
 932:                                              ; preds = %930, %926
@@ -5702,19 +5702,19 @@ thread-pre-split2279:                             ; preds = %910, %915, %.crited
 .lr.ph2389:                                       ; preds = %.lr.ph2389.preheader, %.lr.ph2389
   %indvars.iv2921 = phi i64 [ 0, %.lr.ph2389.preheader ], [ %indvars.iv.next2922, %.lr.ph2389 ]
   %.414422387 = phi i64 [ %937, %.lr.ph2389.preheader ], [ %spec.select1972, %.lr.ph2389 ]
-  %.714512386 = phi i64 [ %937, %.lr.ph2389.preheader ], [ %.8, %.lr.ph2389 ]
+  %.82386 = phi i64 [ %937, %.lr.ph2389.preheader ], [ %.9, %.lr.ph2389 ]
   %939 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2921
   %940 = load i64, ptr %939, align 8
   %spec.select1972 = tail call i64 @llvm.smax.i64(i64 %940, i64 %.414422387)
-  %.8 = tail call i64 @llvm.smin.i64(i64 %940, i64 %.714512386)
+  %.9 = tail call i64 @llvm.smin.i64(i64 %940, i64 %.82386)
   %indvars.iv.next2922 = add nuw nsw i64 %indvars.iv2921, 1
   %exitcond2925.not = icmp eq i64 %indvars.iv.next2922, %wide.trip.count2924
   br i1 %exitcond2925.not, label %._crit_edge, label %.lr.ph2389
 
 ._crit_edge:                                      ; preds = %.lr.ph2389, %938
-  %.71451.lcssa = phi i64 [ %937, %938 ], [ %.8, %.lr.ph2389 ]
+  %.8.lcssa = phi i64 [ %937, %938 ], [ %.9, %.lr.ph2389 ]
   %.41442.lcssa = phi i64 [ %937, %938 ], [ %spec.select1972, %.lr.ph2389 ]
-  %941 = sub nsw i64 %.41442.lcssa, %.71451.lcssa
+  %941 = sub nsw i64 %.41442.lcssa, %.8.lcssa
   %942 = icmp ugt i64 %941, -3
   br i1 %942, label %943, label %944
 
@@ -5724,7 +5724,7 @@ thread-pre-split2279:                             ; preds = %910, %915, %.crited
 
 944:                                              ; preds = %._crit_edge
   %945 = add nuw nsw i64 %941, 1
-  %.not13.i2182 = icmp eq i64 %.41442.lcssa, %.71451.lcssa
+  %.not13.i2182 = icmp eq i64 %.41442.lcssa, %.8.lcssa
   br i1 %.not13.i2182, label %H5Z__scaleoffset_log2.exit2192, label %.lr.ph.preheader.i2183
 
 .lr.ph.preheader.i2183:                           ; preds = %944
@@ -5762,17 +5762,17 @@ H5Z__scaleoffset_log2.exit2192:                   ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.92384 = phi i64 [ %937, %.lr.ph.preheader ], [ %spec.select1973, %.lr.ph ]
+  %.112384 = phi i64 [ %937, %.lr.ph.preheader ], [ %spec.select1973, %.lr.ph ]
   %953 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
   %954 = load i64, ptr %953, align 8
-  %spec.select1973 = tail call i64 @llvm.smin.i64(i64 %954, i64 %.92384)
+  %spec.select1973 = tail call i64 @llvm.smin.i64(i64 %954, i64 %.112384)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %thread-pre-split2281, label %.lr.ph
 
 thread-pre-split2281:                             ; preds = %.lr.ph, %H5Z__scaleoffset_log2.exit2192
   %955 = phi i32 [ %.011.i2191, %H5Z__scaleoffset_log2.exit2192 ], [ %935, %.lr.ph ]
-  %.11 = phi i64 [ %.71451.lcssa, %H5Z__scaleoffset_log2.exit2192 ], [ %spec.select1973, %.lr.ph ]
+  %.10 = phi i64 [ %.8.lcssa, %H5Z__scaleoffset_log2.exit2192 ], [ %spec.select1973, %.lr.ph ]
   %.not = icmp ne i32 %955, 64
   %956 = icmp ne i32 %1, 0
   %or.cond2846 = and i1 %.not, %956
@@ -5786,15 +5786,15 @@ thread-pre-split2281:                             ; preds = %.lr.ph, %H5Z__scale
   %indvars.iv2926 = phi i64 [ 0, %.lr.ph2393.preheader ], [ %indvars.iv.next2927, %.lr.ph2393 ]
   %957 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv2926
   %958 = load i64, ptr %957, align 8
-  %959 = sub nsw i64 %958, %.11
+  %959 = sub nsw i64 %958, %.10
   store i64 %959, ptr %957, align 8
   %indvars.iv.next2927 = add nuw nsw i64 %indvars.iv2926, 1
   %exitcond2930.not = icmp eq i64 %indvars.iv.next2927, %wide.trip.count2929
   br i1 %exitcond2930.not, label %.loopexit2357, label %.lr.ph2393
 
 .loopexit2357:                                    ; preds = %.lr.ph2393, %932, %952, %thread-pre-split2281, %thread-pre-split2279
-  %.12 = phi i64 [ %.61450, %thread-pre-split2279 ], [ %.11, %thread-pre-split2281 ], [ %937, %952 ], [ %.61450, %932 ], [ %.11, %.lr.ph2393 ]
-  store i64 %.12, ptr %6, align 8
+  %.71451 = phi i64 [ %.31447, %thread-pre-split2279 ], [ %.10, %thread-pre-split2281 ], [ %937, %952 ], [ %.31447, %932 ], [ %.10, %.lr.ph2393 ]
+  store i64 %.71451, ptr %6, align 8
   br label %960
 
 960:                                              ; preds = %7, %.loopexit2298, %.loopexit2311, %.loopexit2329, %.loopexit2341, %.loopexit2357, %.loopexit2348, %.loopexit2335, %.loopexit2320, %.loopexit2304, %943, %896, %842, %795, %739, %695, %657, %605, %560, %509, %468, %421, %367, %320, %264, %220, %182, %132, %.loopexit, %89, %39
@@ -5863,7 +5863,7 @@ define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture nound
 29:                                               ; preds = %.lr.ph435, %42
   %indvars.iv501 = phi i64 [ %28, %.lr.ph435 ], [ %indvars.iv.next502, %42 ]
   %.1280434 = phi float [ %.0279, %.lr.ph435 ], [ %.2281, %42 ]
-  %.1300432 = phi float [ %.0279, %.lr.ph435 ], [ %.3302, %42 ]
+  %.1300432 = phi float [ %.0279, %.lr.ph435 ], [ %.2301, %42 ]
   %30 = getelementptr inbounds float, ptr %0, i64 %indvars.iv501
   %31 = load float, ptr %30, align 4
   %32 = fsub float %31, %.0512
@@ -5876,7 +5876,7 @@ define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture nound
 37:                                               ; preds = %29
   %38 = load float, ptr %30, align 4
   %39 = fcmp ogt float %38, %.1300432
-  %.2301 = select i1 %39, float %38, float %.1300432
+  %.3302 = select i1 %39, float %38, float %.1300432
   %40 = fcmp olt float %38, %.1280434
   br i1 %40, label %41, label %42
 
@@ -5884,14 +5884,14 @@ define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture nound
   br label %42
 
 42:                                               ; preds = %37, %41, %29
-  %.3302 = phi float [ %.1300432, %29 ], [ %.2301, %41 ], [ %.2301, %37 ]
+  %.2301 = phi float [ %.1300432, %29 ], [ %.3302, %41 ], [ %.3302, %37 ]
   %.2281 = phi float [ %.1280434, %29 ], [ %38, %41 ], [ %.1280434, %37 ]
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count504
   br i1 %exitcond505.not, label %._crit_edge436, label %29
 
 ._crit_edge436:                                   ; preds = %22, %42, %.critedge331
-  %.1300.lcssa = phi float [ %.0279, %.critedge331 ], [ %.3302, %42 ], [ 0.000000e+00, %22 ]
+  %.1300.lcssa = phi float [ %.0279, %.critedge331 ], [ %.2301, %42 ], [ 0.000000e+00, %22 ]
   %.1280.lcssa = phi float [ %.0279, %.critedge331 ], [ %.2281, %42 ], [ 0.000000e+00, %22 ]
   %43 = fptrunc double %7 to float
   %44 = tail call float @powf(float noundef 1.000000e+01, float noundef %43) #12
@@ -5995,25 +5995,25 @@ H5Z__scaleoffset_log2.exit:                       ; preds = %H5Z__scaleoffset_lo
 
 .lr.ph415:                                        ; preds = %.lr.ph415.preheader, %.lr.ph415
   %indvars.iv486 = phi i64 [ 0, %.lr.ph415.preheader ], [ %indvars.iv.next487, %.lr.ph415 ]
-  %.3282413 = phi float [ %87, %.lr.ph415.preheader ], [ %.4283, %.lr.ph415 ]
+  %.4283413 = phi float [ %87, %.lr.ph415.preheader ], [ %.5284, %.lr.ph415 ]
   %.4303411 = phi float [ %87, %.lr.ph415.preheader ], [ %.5304, %.lr.ph415 ]
   %88 = getelementptr inbounds float, ptr %0, i64 %indvars.iv486
   %89 = load float, ptr %88, align 4
   %90 = fcmp ogt float %89, %.4303411
   %.5304 = select i1 %90, float %89, float %.4303411
-  %91 = fcmp olt float %89, %.3282413
-  %.4283 = select i1 %91, float %89, float %.3282413
+  %91 = fcmp olt float %89, %.4283413
+  %.5284 = select i1 %91, float %89, float %.4283413
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
   br i1 %exitcond490.not, label %._crit_edge416, label %.lr.ph415
 
 ._crit_edge416:                                   ; preds = %.lr.ph415, %86
   %.4303.lcssa = phi float [ %87, %86 ], [ %.5304, %.lr.ph415 ]
-  %.3282.lcssa = phi float [ %87, %86 ], [ %.4283, %.lr.ph415 ]
+  %.4283.lcssa = phi float [ %87, %86 ], [ %.5284, %.lr.ph415 ]
   %92 = fptrunc double %7 to float
   %93 = tail call float @powf(float noundef 1.000000e+01, float noundef %92) #12
   %94 = tail call float @powf(float noundef 1.000000e+01, float noundef %92) #12
-  %95 = fneg float %.3282.lcssa
+  %95 = fneg float %.4283.lcssa
   %96 = fmul float %94, %95
   %97 = tail call float @llvm.fmuladd.f32(float %.4303.lcssa, float %93, float %96)
   %98 = tail call float @llvm.round.f32(float %97)
@@ -6083,18 +6083,18 @@ H5Z__scaleoffset_log2.exit343:                    ; preds = %H5Z__scaleoffset_lo
   br i1 %exitcond495.not, label %.loopexit, label %.lr.ph420
 
 .loopexit:                                        ; preds = %.lr.ph420, %85, %H5Z__scaleoffset_log2.exit343, %H5Z__scaleoffset_log2.exit
-  %.5284 = phi float [ %.1280.lcssa, %H5Z__scaleoffset_log2.exit ], [ %.3282.lcssa, %H5Z__scaleoffset_log2.exit343 ], [ %.1280.lcssa, %85 ], [ %.3282.lcssa, %.lr.ph420 ]
+  %.3282 = phi float [ %.1280.lcssa, %H5Z__scaleoffset_log2.exit ], [ %.4283.lcssa, %H5Z__scaleoffset_log2.exit343 ], [ %.1280.lcssa, %85 ], [ %.4283.lcssa, %.lr.ph420 ]
   %123 = load i32, ptr @H5T_native_order_g, align 4
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %.loopexit
-  store float %.5284, ptr %6, align 8
+  store float %.3282, ptr %6, align 8
   br label %258
 
 126:                                              ; preds = %.loopexit
   %127 = getelementptr inbounds i8, ptr %6, i64 4
-  store float %.5284, ptr %127, align 1
+  store float %.3282, ptr %127, align 1
   br label %258
 
 128:                                              ; preds = %8
@@ -6190,7 +6190,7 @@ H5Z__scaleoffset_log2.exit343:                    ; preds = %H5Z__scaleoffset_lo
 
 163:                                              ; preds = %.lr.ph405, %175
   %indvars.iv476 = phi i64 [ %162, %.lr.ph405 ], [ %indvars.iv.next477, %175 ]
-  %.1269403 = phi double [ %.0268, %.lr.ph405 ], [ %.3271, %175 ]
+  %.1269403 = phi double [ %.0268, %.lr.ph405 ], [ %.2270, %175 ]
   %.1274402 = phi double [ %.0268, %.lr.ph405 ], [ %.2275, %175 ]
   %164 = getelementptr inbounds double, ptr %0, i64 %indvars.iv476
   %165 = load double, ptr %164, align 8
@@ -6203,7 +6203,7 @@ H5Z__scaleoffset_log2.exit343:                    ; preds = %H5Z__scaleoffset_lo
 170:                                              ; preds = %163
   %171 = load double, ptr %164, align 8
   %172 = fcmp ogt double %171, %.1269403
-  %.2270 = select i1 %172, double %171, double %.1269403
+  %.3271 = select i1 %172, double %171, double %.1269403
   %173 = fcmp olt double %171, %.1274402
   br i1 %173, label %174, label %175
 
@@ -6212,14 +6212,14 @@ H5Z__scaleoffset_log2.exit343:                    ; preds = %H5Z__scaleoffset_lo
 
 175:                                              ; preds = %170, %174, %163
   %.2275 = phi double [ %.1274402, %163 ], [ %171, %174 ], [ %.1274402, %170 ]
-  %.3271 = phi double [ %.1269403, %163 ], [ %.2270, %174 ], [ %.2270, %170 ]
+  %.2270 = phi double [ %.1269403, %163 ], [ %.3271, %174 ], [ %.3271, %170 ]
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %exitcond480.not = icmp eq i64 %indvars.iv.next477, %wide.trip.count479
   br i1 %exitcond480.not, label %._crit_edge406, label %163
 
 ._crit_edge406:                                   ; preds = %155, %175, %.critedge332
   %.1274.lcssa = phi double [ %.0268, %.critedge332 ], [ %.2275, %175 ], [ 0.000000e+00, %155 ]
-  %.1269.lcssa = phi double [ %.0268, %.critedge332 ], [ %.3271, %175 ], [ 0.000000e+00, %155 ]
+  %.1269.lcssa = phi double [ %.0268, %.critedge332 ], [ %.2270, %175 ], [ 0.000000e+00, %155 ]
   %176 = tail call double @pow(double noundef 1.000000e+01, double noundef %7) #12
   %177 = tail call double @pow(double noundef 1.000000e+01, double noundef %7) #12
   %178 = fneg double %.1274.lcssa
@@ -6323,23 +6323,23 @@ H5Z__scaleoffset_log2.exit354:                    ; preds = %H5Z__scaleoffset_lo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.4272388 = phi double [ %220, %.lr.ph.preheader ], [ %.5, %.lr.ph ]
-  %.3276387 = phi double [ %220, %.lr.ph.preheader ], [ %.4277, %.lr.ph ]
+  %.4277387 = phi double [ %220, %.lr.ph.preheader ], [ %.5278, %.lr.ph ]
   %221 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
   %222 = load double, ptr %221, align 8
   %223 = fcmp ogt double %222, %.4272388
   %.5 = select i1 %223, double %222, double %.4272388
-  %224 = fcmp olt double %222, %.3276387
-  %.4277 = select i1 %224, double %222, double %.3276387
+  %224 = fcmp olt double %222, %.4277387
+  %.5278 = select i1 %224, double %222, double %.4277387
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %219
-  %.3276.lcssa = phi double [ %220, %219 ], [ %.4277, %.lr.ph ]
+  %.4277.lcssa = phi double [ %220, %219 ], [ %.5278, %.lr.ph ]
   %.4272.lcssa = phi double [ %220, %219 ], [ %.5, %.lr.ph ]
   %225 = tail call double @pow(double noundef 1.000000e+01, double noundef %7) #12
   %226 = tail call double @pow(double noundef 1.000000e+01, double noundef %7) #12
-  %227 = fneg double %.3276.lcssa
+  %227 = fneg double %.4277.lcssa
   %228 = fmul double %226, %227
   %229 = tail call double @llvm.fmuladd.f64(double %.4272.lcssa, double %225, double %228)
   %230 = tail call double @llvm.round.f64(double %229)
@@ -6408,17 +6408,17 @@ H5Z__scaleoffset_log2.exit365:                    ; preds = %H5Z__scaleoffset_lo
   br i1 %exitcond467.not, label %.loopexit372, label %.lr.ph392
 
 .loopexit372:                                     ; preds = %.lr.ph392, %218, %H5Z__scaleoffset_log2.exit365, %H5Z__scaleoffset_log2.exit354
-  %.5278 = phi double [ %.1274.lcssa, %H5Z__scaleoffset_log2.exit354 ], [ %.3276.lcssa, %H5Z__scaleoffset_log2.exit365 ], [ %.1274.lcssa, %218 ], [ %.3276.lcssa, %.lr.ph392 ]
+  %.3276 = phi double [ %.1274.lcssa, %H5Z__scaleoffset_log2.exit354 ], [ %.4277.lcssa, %H5Z__scaleoffset_log2.exit365 ], [ %.1274.lcssa, %218 ], [ %.4277.lcssa, %.lr.ph392 ]
   %254 = load i32, ptr @H5T_native_order_g, align 4
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %257
 
 256:                                              ; preds = %.loopexit372
-  store double %.5278, ptr %6, align 8
+  store double %.3276, ptr %6, align 8
   br label %258
 
 257:                                              ; preds = %.loopexit372
-  store double %.5278, ptr %6, align 1
+  store double %.3276, ptr %6, align 1
   br label %258
 
 258:                                              ; preds = %8, %125, %126, %257, %256, %232, %183, %100, %51
@@ -6462,37 +6462,37 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
 
 .lr.ph34.i.us.us:                                 ; preds = %.lr.ph34.split.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us
   %.033.us.us = phi i64 [ %53, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph34.split.us ]
-  %.02032.us.us = phi i32 [ %.3.us.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 8, %.lr.ph34.split.us ]
-  %.02131.us.us = phi i64 [ %.324.us.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph34.split.us ]
+  %.02032.us.us = phi i32 [ %.6.us.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 8, %.lr.ph34.split.us ]
+  %.02131.us.us = phi i64 [ %.627.us.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph34.split.us ]
   %20 = mul nuw i64 %.033.us.us, %8
   %invariant.gep31.i.us.us = getelementptr i8, ptr %0, i64 %20
   br label %21
 
 21:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.exit.i.us.us, %.lr.ph34.i.us.us
-  %.122.us.us = phi i64 [ %.02131.us.us, %.lr.ph34.i.us.us ], [ %.324.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
-  %.1.us.us = phi i32 [ %.02032.us.us, %.lr.ph34.i.us.us ], [ %.3.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
+  %.425.us.us = phi i64 [ %.02131.us.us, %.lr.ph34.i.us.us ], [ %.627.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
+  %.4.us.us = phi i32 [ %.02032.us.us, %.lr.ph34.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
   %indvars.iv36.i.us.us = phi i64 [ %18, %.lr.ph34.i.us.us ], [ %indvars.iv.next37.i.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
   %gep32.i.us.us = getelementptr i8, ptr %invariant.gep31.i.us.us, i64 %indvars.iv36.i.us.us
   %22 = load i8, ptr %gep32.i.us.us, align 1
   %23 = icmp eq i64 %indvars.iv36.i.us.us, %18
   %.0.i.i.us.us = select i1 %23, i32 %14, i32 8
-  %24 = icmp ugt i32 %.1.us.us, %.0.i.i.us.us
+  %24 = icmp ugt i32 %.4.us.us, %.0.i.i.us.us
   %25 = zext i8 %22 to i32
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.122.us.us
+  %26 = getelementptr inbounds i8, ptr %2, i64 %.425.us.us
   %27 = load i8, ptr %26, align 1
   br i1 %24, label %43, label %28
 
 28:                                               ; preds = %21
-  %29 = sub nuw i32 %.0.i.i.us.us, %.1.us.us
+  %29 = sub nuw i32 %.0.i.i.us.us, %.4.us.us
   %30 = lshr i32 %25, %29
-  %31 = shl nsw i32 -1, %.1.us.us
+  %31 = shl nsw i32 -1, %.4.us.us
   %32 = xor i32 %31, -1
   %33 = and i32 %30, %32
   %34 = trunc nuw i32 %33 to i8
   %35 = or i8 %27, %34
   store i8 %35, ptr %26, align 1
-  %36 = add i64 %.122.us.us, 1
-  %37 = icmp eq i32 %.0.i.i.us.us, %.1.us.us
+  %36 = add i64 %.425.us.us, 1
+  %37 = icmp eq i32 %.0.i.i.us.us, %.4.us.us
   br i1 %37, label %H5Z__scaleoffset_compress_one_byte.exit.i.us.us, label %38
 
 38:                                               ; preds = %28
@@ -6507,7 +6507,7 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
   %44 = shl nsw i32 -1, %.0.i.i.us.us
   %45 = xor i32 %44, -1
   %46 = and i32 %45, %25
-  %47 = sub nuw i32 %.1.us.us, %.0.i.i.us.us
+  %47 = sub nuw i32 %.4.us.us, %.0.i.i.us.us
   %48 = shl i32 %46, %47
   %49 = trunc i32 %48 to i8
   %50 = or i8 %27, %49
@@ -6515,8 +6515,8 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef rea
   br label %H5Z__scaleoffset_compress_one_byte.exit.i.us.us
 
 H5Z__scaleoffset_compress_one_byte.exit.i.us.us:  ; preds = %38, %43, %28
-  %.324.us.us = phi i64 [ %36, %28 ], [ %.122.us.us, %43 ], [ %36, %38 ]
-  %.3.us.us = phi i32 [ 8, %28 ], [ %47, %43 ], [ %39, %38 ]
+  %.627.us.us = phi i64 [ %36, %28 ], [ %.425.us.us, %43 ], [ %36, %38 ]
+  %.6.us.us = phi i32 [ 8, %28 ], [ %47, %43 ], [ %39, %38 ]
   %indvars.iv.next37.i.us.us = add nsw i64 %indvars.iv36.i.us.us, -1
   %51 = trunc nuw i64 %indvars.iv36.i.us.us to i32
   %52 = icmp sgt i32 %51, 0
@@ -6534,23 +6534,23 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
 
 .lr.ph.i:                                         ; preds = %.lr.ph34.split, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29
   %.033 = phi i64 [ %86, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29 ], [ 0, %.lr.ph34.split ]
-  %.02032 = phi i32 [ %.6, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29 ], [ 8, %.lr.ph34.split ]
-  %.02131 = phi i64 [ %.627, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29 ], [ 0, %.lr.ph34.split ]
+  %.02032 = phi i32 [ %.3, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29 ], [ 8, %.lr.ph34.split ]
+  %.02131 = phi i64 [ %.324, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29 ], [ 0, %.lr.ph34.split ]
   %55 = mul nuw i64 %.033, %8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 %55
   br label %56
 
 56:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.exit27.i, %.lr.ph.i
-  %.425 = phi i64 [ %.02131, %.lr.ph.i ], [ %.627, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
-  %.4 = phi i32 [ %.02032, %.lr.ph.i ], [ %.6, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
+  %.122 = phi i64 [ %.02131, %.lr.ph.i ], [ %.324, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
+  %.1 = phi i32 [ %.02032, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_compress_one_byte.exit27.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %57 = load i8, ptr %gep.i, align 1
   %58 = icmp eq i64 %indvars.iv.i, %15
   %.0.i24.i = select i1 %58, i32 %14, i32 8
-  %59 = icmp ugt i32 %.4, %.0.i24.i
+  %59 = icmp ugt i32 %.1, %.0.i24.i
   %60 = zext i8 %57 to i32
-  %61 = getelementptr inbounds i8, ptr %2, i64 %.425
+  %61 = getelementptr inbounds i8, ptr %2, i64 %.122
   %62 = load i8, ptr %61, align 1
   br i1 %59, label %63, label %71
 
@@ -6558,7 +6558,7 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   %64 = shl nsw i32 -1, %.0.i24.i
   %65 = xor i32 %64, -1
   %66 = and i32 %65, %60
-  %67 = sub nuw i32 %.4, %.0.i24.i
+  %67 = sub nuw i32 %.1, %.0.i24.i
   %68 = shl i32 %66, %67
   %69 = trunc i32 %68 to i8
   %70 = or i8 %62, %69
@@ -6566,16 +6566,16 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   br label %H5Z__scaleoffset_compress_one_byte.exit27.i
 
 71:                                               ; preds = %56
-  %72 = sub nuw i32 %.0.i24.i, %.4
+  %72 = sub nuw i32 %.0.i24.i, %.1
   %73 = lshr i32 %60, %72
-  %74 = shl nsw i32 -1, %.4
+  %74 = shl nsw i32 -1, %.1
   %75 = xor i32 %74, -1
   %76 = and i32 %73, %75
   %77 = trunc nuw i32 %76 to i8
   %78 = or i8 %62, %77
   store i8 %78, ptr %61, align 1
-  %79 = add i64 %.425, 1
-  %80 = icmp eq i32 %.0.i24.i, %.4
+  %79 = add i64 %.122, 1
+  %80 = icmp eq i32 %.0.i24.i, %.1
   br i1 %80, label %H5Z__scaleoffset_compress_one_byte.exit27.i, label %81
 
 81:                                               ; preds = %71
@@ -6587,8 +6587,8 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   br label %H5Z__scaleoffset_compress_one_byte.exit27.i
 
 H5Z__scaleoffset_compress_one_byte.exit27.i:      ; preds = %63, %81, %71
-  %.627 = phi i64 [ %79, %71 ], [ %79, %81 ], [ %.425, %63 ]
-  %.6 = phi i32 [ 8, %71 ], [ %82, %81 ], [ %67, %63 ]
+  %.324 = phi i64 [ %79, %71 ], [ %79, %81 ], [ %.122, %63 ]
+  %.3 = phi i32 [ 8, %71 ], [ %82, %81 ], [ %67, %63 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
   br i1 %exitcond.not.i, label %H5Z__scaleoffset_compress_one_atomic.exit.loopexit29, label %56

@@ -736,11 +736,11 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit: ; preds = %7, %"
   br label %27
 
 27:                                               ; preds = %1, %26
-  %.sroa.4.1 = phi i32 [ %.sroa.0.0.copyload.i, %26 ], [ undef, %1 ]
-  %.sroa.0.1 = phi i8 [ 1, %26 ], [ 0, %1 ]
-  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.1 to i40
+  %.sroa.4.0 = phi i32 [ %.sroa.0.0.copyload.i, %26 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i8 [ 1, %26 ], [ 0, %1 ]
+  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.0 to i40
   %.sroa.4.0.insert.shift = shl nuw i40 %.sroa.4.0.insert.ext, 8
-  %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.1 to i40
+  %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.0 to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   ret i40 %.sroa.0.0.insert.insert
 }
@@ -810,10 +810,10 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit: ; preds = %7, %"
   br label %28
 
 28:                                               ; preds = %1, %26
-  %.sroa.4.1 = phi i16 [ %27, %26 ], [ undef, %1 ]
-  %.sroa.0.1 = phi i16 [ 1, %26 ], [ 0, %1 ]
-  %29 = insertvalue { i16, i16 } poison, i16 %.sroa.0.1, 0
-  %30 = insertvalue { i16, i16 } %29, i16 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i16 [ %27, %26 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i16 [ 1, %26 ], [ 0, %1 ]
+  %29 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %30 = insertvalue { i16, i16 } %29, i16 %.sroa.4.0, 1
   ret { i16, i16 } %30
 }
 

@@ -724,14 +724,14 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 284:                                              ; preds = %257, %252, %251
   %285 = phi i1 [ true, %257 ], [ true, %252 ], [ false, %251 ]
   %.1527590 = phi ptr [ %.1527589, %257 ], [ %.1527589, %252 ], [ null, %251 ]
-  %.1506 = phi i32 [ 52, %257 ], [ 0, %252 ], [ 0, %251 ]
-  %286 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1506) #6
+  %.2 = phi i32 [ 52, %257 ], [ 0, %252 ], [ 0, %251 ]
+  %286 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #6
   %287 = icmp sgt i32 %286, 0
   br i1 %287, label %288, label %.loopexit600
 
 288:                                              ; preds = %284
   %289 = load i32, ptr @hf_data, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %289, ptr noundef %0, i32 noundef %.1506, i32 noundef -1, i32 noundef 0) #6
+  %290 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %289, ptr noundef %0, i32 noundef %.2, i32 noundef -1, i32 noundef 0) #6
   %291 = load i32, ptr @ett_data, align 4
   %292 = call ptr @proto_item_add_subtree(ptr noundef %290, i32 noundef %291) #6
   %293 = load ptr, ptr %215, align 8
@@ -743,7 +743,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   br i1 %or.cond8, label %298, label %309
 
 298:                                              ; preds = %288
-  %299 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1506) #6
+  %299 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #6
   %300 = getelementptr inbounds i8, ptr %.1527590, i64 4
   %301 = load i32, ptr %300, align 4
   %302 = add i32 %301, %299
@@ -807,35 +807,35 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   br i1 %334, label %.preheader599, label %.critedge
 
 .preheader599:                                    ; preds = %331
-  %335 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1506) #6
+  %335 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #6
   %336 = icmp sgt i32 %335, 0
   br i1 %336, label %.lr.ph610, label %.loopexit600
 
 .lr.ph610:                                        ; preds = %.preheader599, %343
-  %.2609 = phi i32 [ %354, %343 ], [ %.1506, %.preheader599 ]
-  %337 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2609) #6
+  %.3609 = phi i32 [ %354, %343 ], [ %.2, %.preheader599 ]
+  %337 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3609) #6
   %338 = icmp slt i32 %337, 2
   br i1 %338, label %339, label %343
 
 339:                                              ; preds = %.lr.ph610
   %340 = load i32, ptr @hf_fragment, align 4
-  %341 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %340, ptr noundef %0, i32 noundef %.2609, i32 noundef -1, i32 noundef 0) #6
-  %342 = add i32 %.2609, 1
+  %341 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %340, ptr noundef %0, i32 noundef %.3609, i32 noundef -1, i32 noundef 0) #6
+  %342 = add i32 %.3609, 1
   br label %343
 
 343:                                              ; preds = %339, %.lr.ph610
-  %.3 = phi i32 [ %342, %339 ], [ %.2609, %.lr.ph610 ]
+  %.4 = phi i32 [ %342, %339 ], [ %.3609, %.lr.ph610 ]
   %344 = load i32, ptr @hf_framebuffer_pixel, align 4
-  %345 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %344, ptr noundef %0, i32 noundef %.3, i32 noundef 2, i32 noundef 0) #6
+  %345 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %344, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0) #6
   %346 = load i32, ptr @ett_pixel, align 4
   %347 = call ptr @proto_item_add_subtree(ptr noundef %345, i32 noundef %346) #6
   %348 = load i32, ptr @hf_framebuffer_blue_5, align 4
-  %349 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %348, ptr noundef %0, i32 noundef %.3, i32 noundef 2, i32 noundef -2147483648) #6
+  %349 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %348, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef -2147483648) #6
   %350 = load i32, ptr @hf_framebuffer_green_6, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %350, ptr noundef %0, i32 noundef %.3, i32 noundef 2, i32 noundef -2147483648) #6
+  %351 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %350, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef -2147483648) #6
   %352 = load i32, ptr @hf_framebuffer_red_5, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %352, ptr noundef %0, i32 noundef %.3, i32 noundef 2, i32 noundef -2147483648) #6
-  %354 = add i32 %.3, 2
+  %353 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %352, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef -2147483648) #6
+  %354 = add i32 %.4, 2
   %355 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %354) #6
   %356 = icmp sgt i32 %355, 0
   br i1 %356, label %.lr.ph610, label %.loopexit600, !llvm.loop !7
@@ -861,7 +861,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   ]
 
 368:                                              ; preds = %365, %365
-  %369 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1506) #6
+  %369 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #6
   %370 = icmp sgt i32 %369, 0
   br i1 %370, label %.lr.ph607, label %.loopexit600
 
@@ -873,13 +873,13 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   br label %375
 
 375:                                              ; preds = %.lr.ph607, %416
-  %.4605 = phi i32 [ %.1506, %.lr.ph607 ], [ %417, %416 ]
-  %376 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4605) #6
+  %.5605 = phi i32 [ %.2, %.lr.ph607 ], [ %417, %416 ]
+  %376 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5605) #6
   %377 = icmp slt i32 %376, 3
   br i1 %377, label %383, label %378
 
 378:                                              ; preds = %375
-  %379 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4605) #6
+  %379 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5605) #6
   %380 = icmp slt i32 %379, 4
   br i1 %380, label %381, label %387
 
@@ -890,29 +890,29 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 
 383:                                              ; preds = %381, %375
   %384 = load i32, ptr @hf_fragment, align 4
-  %385 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %384, ptr noundef %0, i32 noundef %.4605, i32 noundef -1, i32 noundef 0) #6
+  %385 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %384, ptr noundef %0, i32 noundef %.5605, i32 noundef -1, i32 noundef 0) #6
   %386 = call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %.loopexit600
 
 387:                                              ; preds = %381, %378
   %388 = load i32, ptr @hf_framebuffer_pixel, align 4
-  %389 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %388, ptr noundef %0, i32 noundef %.4605, i32 noundef 3, i32 noundef 0) #6
+  %389 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %388, ptr noundef %0, i32 noundef %.5605, i32 noundef 3, i32 noundef 0) #6
   %390 = load i32, ptr @ett_pixel, align 4
   %391 = call ptr @proto_item_add_subtree(ptr noundef %389, i32 noundef %390) #6
   %392 = load i32, ptr @hf_framebuffer_red, align 4
   %393 = load i32, ptr %372, align 4
   %394 = lshr i32 %393, 3
-  %395 = add i32 %394, %.4605
+  %395 = add i32 %394, %.5605
   %396 = call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %392, ptr noundef %0, i32 noundef %395, i32 noundef 1, i32 noundef -2147483648) #6
   %397 = load i32, ptr @hf_framebuffer_green, align 4
   %398 = load i32, ptr %373, align 4
   %399 = lshr i32 %398, 3
-  %400 = add i32 %399, %.4605
+  %400 = add i32 %399, %.5605
   %401 = call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %397, ptr noundef %0, i32 noundef %400, i32 noundef 1, i32 noundef -2147483648) #6
   %402 = load i32, ptr @hf_framebuffer_blue, align 4
   %403 = load i32, ptr %374, align 4
   %404 = lshr i32 %403, 3
-  %405 = add i32 %404, %.4605
+  %405 = add i32 %404, %.5605
   %406 = call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %402, ptr noundef %0, i32 noundef %405, i32 noundef 1, i32 noundef -2147483648) #6
   %407 = load i32, ptr %371, align 4
   %.not562 = icmp eq i32 %407, 0
@@ -922,18 +922,18 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %409 = load i32, ptr %366, align 4
   %410 = icmp eq i32 %409, 0
   %411 = lshr i32 %407, 3
-  %412 = add i32 %411, %.4605
+  %412 = add i32 %411, %.5605
   %hf_framebuffer_unused.val = load i32, ptr @hf_framebuffer_unused, align 4
   %hf_framebuffer_alpha.val = load i32, ptr @hf_framebuffer_alpha, align 4
   %413 = select i1 %410, i32 %hf_framebuffer_unused.val, i32 %hf_framebuffer_alpha.val
   %414 = call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef 1, i32 noundef -2147483648) #6
-  %415 = add i32 %.4605, 1
+  %415 = add i32 %.5605, 1
   call void @proto_item_set_len(ptr noundef %389, i32 noundef 4) #6
   br label %416
 
 416:                                              ; preds = %408, %387
-  %.5 = phi i32 [ %415, %408 ], [ %.4605, %387 ]
-  %417 = add i32 %.5, 3
+  %.6 = phi i32 [ %415, %408 ], [ %.5605, %387 ]
+  %417 = add i32 %.6, 3
   %418 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %417) #6
   %419 = icmp sgt i32 %418, 0
   br i1 %419, label %375, label %.loopexit600, !llvm.loop !8
@@ -1435,8 +1435,8 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   br label %.loopexit600
 
 .loopexit600:                                     ; preds = %416, %343, %368, %.preheader599, %154, %137, %421, %.critedge, %383, %284, %.loopexit, %640, %672, %663, %661, %646, %636, %443, %169, %186, %96, %97, %114
-  %.6 = phi i32 [ %125, %114 ], [ %.0505584, %97 ], [ %.0505584, %96 ], [ 4, %154 ], [ 4, %137 ], [ 4, %186 ], [ 4, %169 ], [ %386, %383 ], [ %420, %.critedge ], [ %422, %421 ], [ %.1506, %284 ], [ %444, %443 ], [ %616, %.loopexit ], [ %637, %636 ], [ %643, %640 ], [ %649, %646 ], [ %671, %663 ], [ 0, %661 ], [ %675, %672 ], [ %.1506, %.preheader599 ], [ %.1506, %368 ], [ %354, %343 ], [ %417, %416 ]
-  ret i32 %.6
+  %.1506 = phi i32 [ %125, %114 ], [ %.0505584, %97 ], [ %.0505584, %96 ], [ 4, %154 ], [ 4, %137 ], [ 4, %186 ], [ 4, %169 ], [ %386, %383 ], [ %420, %.critedge ], [ %422, %421 ], [ %.2, %284 ], [ %444, %443 ], [ %616, %.loopexit ], [ %637, %636 ], [ %643, %640 ], [ %649, %646 ], [ %671, %663 ], [ 0, %661 ], [ %675, %672 ], [ %.2, %.preheader599 ], [ %.2, %368 ], [ %354, %343 ], [ %417, %416 ]
+  ret i32 %.1506
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

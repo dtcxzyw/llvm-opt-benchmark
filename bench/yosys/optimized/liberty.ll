@@ -927,13 +927,13 @@ define linkonce_odr void @_ZN5Yosys15LibertyFrontend7executeERPSiNSt7__cxx1112ba
 
 .lr.ph:                                           ; preds = %5, %143
   %95 = phi ptr [ %146, %143 ], [ %90, %5 ]
-  %.01212 = phi i8 [ %.1.ph, %143 ], [ 0, %5 ]
-  %.01401211 = phi i1 [ %.1141.ph, %143 ], [ false, %5 ]
-  %.01431210 = phi i1 [ %.1144.ph, %143 ], [ false, %5 ]
-  %.01461209 = phi i1 [ %.1147.ph, %143 ], [ false, %5 ]
-  %.01491208 = phi i1 [ %.1150.ph, %143 ], [ false, %5 ]
-  %.01521207 = phi i1 [ %.1153.ph, %143 ], [ false, %5 ]
-  %.01551206 = phi i1 [ %.1156.ph, %143 ], [ false, %5 ]
+  %.01212 = phi i8 [ %.2.ph, %143 ], [ 0, %5 ]
+  %.01401211 = phi i1 [ %.2142.ph, %143 ], [ false, %5 ]
+  %.01431210 = phi i1 [ %.2145.ph, %143 ], [ false, %5 ]
+  %.01461209 = phi i1 [ %.2148.ph, %143 ], [ false, %5 ]
+  %.01491208 = phi i1 [ %.2151.ph, %143 ], [ false, %5 ]
+  %.01521207 = phi i1 [ %.2154.ph, %143 ], [ false, %5 ]
+  %.01551206 = phi i1 [ %.2157.ph, %143 ], [ false, %5 ]
   %.01581205 = phi i64 [ %144, %143 ], [ 1, %5 ]
   %96 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %95, i64 %.01581205
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %96)
@@ -1039,16 +1039,16 @@ define linkonce_odr void @_ZN5Yosys15LibertyFrontend7executeERPSiNSt7__cxx1112ba
   br label %1992
 
 143:                                              ; preds = %138, %97, %102, %108, %105, %111, %114, %117, %120
-  %.1159.ph = phi i64 [ %.01581205, %120 ], [ %.01581205, %117 ], [ %.01581205, %114 ], [ %.01581205, %111 ], [ %.01581205, %105 ], [ %.01581205, %108 ], [ %.01581205, %102 ], [ %.01581205, %97 ], [ %127, %138 ]
-  %.1156.ph = phi i1 [ true, %120 ], [ %.01551206, %117 ], [ %.01551206, %114 ], [ %.01551206, %111 ], [ %.01551206, %105 ], [ %.01551206, %108 ], [ %.01551206, %102 ], [ %.01551206, %97 ], [ %.01551206, %138 ]
-  %.1153.ph = phi i1 [ %.01521207, %120 ], [ true, %117 ], [ %.01521207, %114 ], [ %.01521207, %111 ], [ %.01521207, %105 ], [ %.01521207, %108 ], [ %.01521207, %102 ], [ %.01521207, %97 ], [ %.01521207, %138 ]
-  %.1150.ph = phi i1 [ %.01491208, %120 ], [ %.01491208, %117 ], [ true, %114 ], [ %.01491208, %111 ], [ %.01491208, %105 ], [ %.01491208, %108 ], [ %.01491208, %102 ], [ %.01491208, %97 ], [ %.01491208, %138 ]
-  %.1147.ph = phi i1 [ %.01461209, %120 ], [ %.01461209, %117 ], [ %.01461209, %114 ], [ true, %111 ], [ false, %105 ], [ false, %108 ], [ %.01461209, %102 ], [ %.01461209, %97 ], [ %.01461209, %138 ]
-  %.1144.ph = phi i1 [ %.01431210, %120 ], [ %.01431210, %117 ], [ %.01431210, %114 ], [ false, %111 ], [ true, %105 ], [ true, %108 ], [ %.01431210, %102 ], [ %.01431210, %97 ], [ %.01431210, %138 ]
-  %.1141.ph = phi i1 [ %.01401211, %120 ], [ %.01401211, %117 ], [ %.01401211, %114 ], [ %.01401211, %111 ], [ %.01401211, %105 ], [ %.01401211, %108 ], [ true, %102 ], [ %.01401211, %97 ], [ %.01401211, %138 ]
-  %.1.ph = phi i8 [ %.01212, %120 ], [ %.01212, %117 ], [ %.01212, %114 ], [ %.01212, %111 ], [ %.01212, %105 ], [ %.01212, %108 ], [ %.01212, %102 ], [ 1, %97 ], [ %.01212, %138 ]
+  %.2160.ph = phi i64 [ %.01581205, %120 ], [ %.01581205, %117 ], [ %.01581205, %114 ], [ %.01581205, %111 ], [ %.01581205, %105 ], [ %.01581205, %108 ], [ %.01581205, %102 ], [ %.01581205, %97 ], [ %127, %138 ]
+  %.2157.ph = phi i1 [ true, %120 ], [ %.01551206, %117 ], [ %.01551206, %114 ], [ %.01551206, %111 ], [ %.01551206, %105 ], [ %.01551206, %108 ], [ %.01551206, %102 ], [ %.01551206, %97 ], [ %.01551206, %138 ]
+  %.2154.ph = phi i1 [ %.01521207, %120 ], [ true, %117 ], [ %.01521207, %114 ], [ %.01521207, %111 ], [ %.01521207, %105 ], [ %.01521207, %108 ], [ %.01521207, %102 ], [ %.01521207, %97 ], [ %.01521207, %138 ]
+  %.2151.ph = phi i1 [ %.01491208, %120 ], [ %.01491208, %117 ], [ true, %114 ], [ %.01491208, %111 ], [ %.01491208, %105 ], [ %.01491208, %108 ], [ %.01491208, %102 ], [ %.01491208, %97 ], [ %.01491208, %138 ]
+  %.2148.ph = phi i1 [ %.01461209, %120 ], [ %.01461209, %117 ], [ %.01461209, %114 ], [ true, %111 ], [ false, %105 ], [ false, %108 ], [ %.01461209, %102 ], [ %.01461209, %97 ], [ %.01461209, %138 ]
+  %.2145.ph = phi i1 [ %.01431210, %120 ], [ %.01431210, %117 ], [ %.01431210, %114 ], [ false, %111 ], [ true, %105 ], [ true, %108 ], [ %.01431210, %102 ], [ %.01431210, %97 ], [ %.01431210, %138 ]
+  %.2142.ph = phi i1 [ %.01401211, %120 ], [ %.01401211, %117 ], [ %.01401211, %114 ], [ %.01401211, %111 ], [ %.01401211, %105 ], [ %.01401211, %108 ], [ true, %102 ], [ %.01401211, %97 ], [ %.01401211, %138 ]
+  %.2.ph = phi i8 [ %.01212, %120 ], [ %.01212, %117 ], [ %.01212, %114 ], [ %.01212, %111 ], [ %.01212, %105 ], [ %.01212, %108 ], [ %.01212, %102 ], [ 1, %97 ], [ %.01212, %138 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #21
-  %144 = add nuw i64 %.1159.ph, 1
+  %144 = add nuw i64 %.2160.ph, 1
   %145 = load ptr, ptr %88, align 8
   %146 = load ptr, ptr %3, align 8
   %147 = ptrtoint ptr %145 to i64
@@ -1060,13 +1060,13 @@ define linkonce_odr void @_ZN5Yosys15LibertyFrontend7executeERPSiNSt7__cxx1112ba
 
 .loopexit661:                                     ; preds = %143, %5, %141
   %.01581204 = phi i64 [ %.01581205, %141 ], [ 1, %5 ], [ %144, %143 ]
-  %.01551199 = phi i1 [ %.01551206, %141 ], [ false, %5 ], [ %.1156.ph, %143 ]
-  %.01521194 = phi i1 [ %.01521207, %141 ], [ false, %5 ], [ %.1153.ph, %143 ]
-  %.01491189 = phi i1 [ %.01491208, %141 ], [ false, %5 ], [ %.1150.ph, %143 ]
-  %.01461184 = phi i1 [ %.01461209, %141 ], [ false, %5 ], [ %.1147.ph, %143 ]
-  %.01431179 = phi i1 [ %.01431210, %141 ], [ false, %5 ], [ %.1144.ph, %143 ]
-  %.01401174 = phi i1 [ %.01401211, %141 ], [ false, %5 ], [ %.1141.ph, %143 ]
-  %.01169 = phi i8 [ %.01212, %141 ], [ 0, %5 ], [ %.1.ph, %143 ]
+  %.01551199 = phi i1 [ %.01551206, %141 ], [ false, %5 ], [ %.2157.ph, %143 ]
+  %.01521194 = phi i1 [ %.01521207, %141 ], [ false, %5 ], [ %.2154.ph, %143 ]
+  %.01491189 = phi i1 [ %.01491208, %141 ], [ false, %5 ], [ %.2151.ph, %143 ]
+  %.01461184 = phi i1 [ %.01461209, %141 ], [ false, %5 ], [ %.2148.ph, %143 ]
+  %.01431179 = phi i1 [ %.01431210, %141 ], [ false, %5 ], [ %.2145.ph, %143 ]
+  %.01401174 = phi i1 [ %.01401211, %141 ], [ false, %5 ], [ %.2142.ph, %143 ]
+  %.01169 = phi i8 [ %.01212, %141 ], [ 0, %5 ], [ %.2.ph, %143 ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %152 unwind label %.loopexit.split-lp663
 
@@ -1260,7 +1260,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %282
 
 282:                                              ; preds = %.lr.ph1242, %1975
-  %.01821239 = phi i32 [ 0, %.lr.ph1242 ], [ %.3185, %1975 ]
+  %.01821239 = phi i32 [ 0, %.lr.ph1242 ], [ %.1183, %1975 ]
   %.sroa.0569.01238 = phi ptr [ %182, %.lr.ph1242 ], [ %1976, %1975 ]
   %283 = load ptr, ptr %.sroa.0569.01238, align 8
   %284 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull @.str.49) #21
@@ -6216,7 +6216,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %1961, %_ZSt8_Destro
   br label %1970
 
 1970:                                             ; preds = %1941, %1830, %606, %1968
-  %.1183 = phi i32 [ %.01821239, %606 ], [ %.01821239, %1941 ], [ %1969, %1968 ], [ %.01821239, %1830 ]
+  %.3185 = phi i32 [ %.01821239, %606 ], [ %.01821239, %1941 ], [ %1969, %1968 ], [ %.01821239, %1830 ]
   %1971 = load ptr, ptr %190, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St5tupleIJiibEEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef %1971)
           to label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit250 unwind label %1972
@@ -6229,12 +6229,12 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %1961, %_ZSt8_Destro
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit250:             ; preds = %1970, %422, %415, %410
-  %.2184 = phi i32 [ %.01821239, %410 ], [ %.01821239, %415 ], [ %.01821239, %422 ], [ %.1183, %1970 ]
+  %.2184 = phi i32 [ %.01821239, %410 ], [ %.01821239, %415 ], [ %.01821239, %422 ], [ %.3185, %1970 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
   br label %1975
 
 1975:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit250, %282, %285
-  %.3185 = phi i32 [ %.01821239, %282 ], [ %.01821239, %285 ], [ %.2184, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit250 ]
+  %.1183 = phi i32 [ %.01821239, %282 ], [ %.01821239, %285 ], [ %.2184, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit250 ]
   %1976 = getelementptr inbounds i8, ptr %.sroa.0569.01238, i64 8
   %.not602 = icmp eq ptr %1976, %184
   br i1 %.not602, label %._crit_edge1243, label %282
@@ -6250,7 +6250,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit250:             ; preds = %1970, %422, %415, %
   br label %1991
 
 ._crit_edge1243:                                  ; preds = %1975, %179
-  %.0182.lcssa = phi i32 [ 0, %179 ], [ %.3185, %1975 ]
+  %.0182.lcssa = phi i32 [ 0, %179 ], [ %.1183, %1975 ]
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.73, i32 noundef %.0182.lcssa)
           to label %1978 unwind label %.loopexit.split-lp649
 
@@ -12638,7 +12638,7 @@ define internal fastcc void @_ZN5YosysL15parse_func_exprEPNS_5RTLIL6ModuleEPKc(p
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %49, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i68, %322
-  %.0.be = phi ptr [ %50, %49 ], [ %.2, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i68 ], [ %.2, %322 ]
+  %.0.be = phi ptr [ %50, %49 ], [ %.1, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i68 ], [ %.1, %322 ]
   br label %.outer, !llvm.loop !95
 
 51:                                               ; preds = %.outer
@@ -12996,7 +12996,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit55.i:            ; preds = %178, %171, %166
   br label %.body
 
 185:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55.i, %69
-  %.1 = phi ptr [ %64, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55.i ], [ %70, %69 ]
+  %.2 = phi ptr [ %64, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55.i ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -13151,7 +13151,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
   br label %.body
 
 _ZN5Yosys7token_tD2Ev.exit:                       ; preds = %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i.i, %217, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i
-  %.2 = phi ptr [ %53, %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i.i ], [ %.1, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.1, %217 ]
+  %.1 = phi ptr [ %53, %_ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EEaSEOS4_.exit.i.i ], [ %.2, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.2, %217 ]
   br label %220
 
 220:                                              ; preds = %_ZN5Yosys7token_tD2Ev.exit55, %_ZN5Yosys7token_tD2Ev.exit

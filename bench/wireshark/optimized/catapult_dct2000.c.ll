@@ -935,7 +935,7 @@ switch.early.test453:                             ; preds = %90
 
 .critedge7:                                       ; preds = %.critedge7.loopexit, %84
   %.lcssa551 = phi i64 [ %86, %84 ], [ %indvars.iv.next677, %.critedge7.loopexit ]
-  %.2.lcssa = phi i32 [ %85, %84 ], [ %103, %.critedge7.loopexit ]
+  %.3.lcssa = phi i32 [ %85, %84 ], [ %103, %.critedge7.loopexit ]
   %.0363.lcssa = phi i32 [ 0, %84 ], [ %104, %.critedge7.loopexit ]
   %.lcssa522 = phi i1 [ true, %84 ], [ %102, %.critedge7.loopexit ]
   %105 = icmp ne i32 %.0363.lcssa, 64
@@ -952,7 +952,7 @@ switch.early.test453:                             ; preds = %90
   br i1 %.not399, label %111, label %.critedge25
 
 111:                                              ; preds = %106
-  %112 = add nsw i32 %.2.lcssa, 1
+  %112 = add nsw i32 %.3.lcssa, 1
   %113 = sext i32 %112 to i64
   %114 = getelementptr i8, ptr %0, i64 %113
   %115 = load i8, ptr %114, align 1
@@ -964,7 +964,7 @@ switch.early.test453:                             ; preds = %90
   br i1 %.not599, label %.critedge11..critedge11.thread_crit_edge, label %.lr.ph564.preheader
 
 .lr.ph564.preheader:                              ; preds = %111
-  %120 = add i32 %.2.lcssa, 2
+  %120 = add i32 %.3.lcssa, 2
   %121 = icmp slt i32 %120, %1
   br i1 %121, label %.lr.ph851, label %.critedge11.thread.loopexit
 
@@ -999,22 +999,22 @@ switch.early.test453:                             ; preds = %90
 
 .critedge11..critedge11.thread_crit_edge:         ; preds = %111, %.critedge11
   %.0364.lcssa738 = phi i32 [ %136, %.critedge11 ], [ 0, %111 ]
-  %.3.lcssa737 = phi i32 [ %124, %.critedge11 ], [ %112, %111 ]
+  %.4.lcssa737 = phi i32 [ %124, %.critedge11 ], [ %112, %111 ]
   %.lcssa561736 = phi i64 [ %127, %.critedge11 ], [ %113, %111 ]
-  %.pre = add i32 %.3.lcssa737, 1
+  %.pre = add i32 %.4.lcssa737, 1
   br label %.critedge11.thread
 
 .critedge11.thread.loopexit:                      ; preds = %.lr.ph564, %.lr.ph564.preheader
   %indvars.iv678.lcssa = phi i64 [ 0, %.lr.ph564.preheader ], [ %indvars.iv.next679, %.lr.ph564 ]
   %.lcssa839 = phi i64 [ %113, %.lr.ph564.preheader ], [ %127, %.lr.ph564 ]
-  %.3562.lcssa = phi i32 [ %112, %.lr.ph564.preheader ], [ %124, %.lr.ph564 ]
+  %.4562.lcssa = phi i32 [ %112, %.lr.ph564.preheader ], [ %124, %.lr.ph564 ]
   %.lcssa836 = phi i32 [ %120, %.lr.ph564.preheader ], [ %122, %.lr.ph564 ]
   %138 = trunc nuw nsw i64 %indvars.iv678.lcssa to i32
   br label %.critedge11.thread
 
 .critedge11.thread:                               ; preds = %.critedge11..critedge11.thread_crit_edge, %.critedge11.thread.loopexit
   %.pre-phi = phi i32 [ %.pre, %.critedge11..critedge11.thread_crit_edge ], [ %.lcssa836, %.critedge11.thread.loopexit ]
-  %.3521 = phi i32 [ %.3.lcssa737, %.critedge11..critedge11.thread_crit_edge ], [ %.3562.lcssa, %.critedge11.thread.loopexit ]
+  %.4521 = phi i32 [ %.4.lcssa737, %.critedge11..critedge11.thread_crit_edge ], [ %.4562.lcssa, %.critedge11.thread.loopexit ]
   %.0364519 = phi i32 [ %.0364.lcssa738, %.critedge11..critedge11.thread_crit_edge ], [ %138, %.critedge11.thread.loopexit ]
   %.pn = phi i64 [ %.lcssa561736, %.critedge11..critedge11.thread_crit_edge ], [ %.lcssa839, %.critedge11.thread.loopexit ]
   %139 = getelementptr i8, ptr %0, i64 %.pn
@@ -1056,8 +1056,8 @@ switch.early.test453:                             ; preds = %90
 
 .preheader485:                                    ; preds = %153, %171
   %indvars.iv680 = phi i64 [ %indvars.iv.next681, %171 ], [ 0, %153 ]
-  %.4 = phi i32 [ %168, %171 ], [ %.pre-phi, %153 ]
-  %156 = sext i32 %.4 to i64
+  %.5 = phi i32 [ %168, %171 ], [ %.pre-phi, %153 ]
+  %156 = sext i32 %.5 to i64
   %157 = getelementptr i8, ptr %0, i64 %156
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i64
@@ -1074,7 +1074,7 @@ switch.early.test453:                             ; preds = %90
   br i1 %or.cond13, label %167, label %..critedge15_crit_edge
 
 ..critedge15_crit_edge:                           ; preds = %163
-  %.pre711 = add i32 %.4, 1
+  %.pre711 = add i32 %.5, 1
   br label %.critedge15
 
 166:                                              ; preds = %.preheader485
@@ -1082,7 +1082,7 @@ switch.early.test453:                             ; preds = %90
   br i1 %.old12, label %167, label %.critedge25
 
 167:                                              ; preds = %163, %166
-  %168 = add i32 %.4, 1
+  %168 = add i32 %.5, 1
   %169 = icmp slt i32 %168, %1
   br i1 %169, label %170, label %.critedge15
 
@@ -1111,7 +1111,7 @@ switch.early.test453:                             ; preds = %90
   br label %sub_0
 
 sub_0:                                            ; preds = %45, %174, %153
-  %.5 = phi i32 [ %.0366540, %45 ], [ %.4, %174 ], [ %.3521, %153 ]
+  %.1 = phi i32 [ %.0366540, %45 ], [ %.5, %174 ], [ %.4521, %153 ]
   %176 = load i8, ptr %15, align 1
   %177 = zext i8 %176 to i32
   %178 = add nsw i32 %177, -105
@@ -1257,25 +1257,25 @@ sub_2471:                                         ; preds = %sub_1470
 
 254:                                              ; preds = %218, %213
   store i32 14, ptr %9, align 4
-  %255 = add i32 %.5, 1
+  %255 = add i32 %.1, 1
   %256 = sext i32 %255 to i64
   br label %257
 
 257:                                              ; preds = %254, %257
   %indvars.iv685 = phi i64 [ %256, %254 ], [ %indvars.iv.next686, %257 ]
-  %.6 = phi i32 [ %.5, %254 ], [ %262, %257 ]
-  %258 = sext i32 %.6 to i64
+  %.7 = phi i32 [ %.1, %254 ], [ %262, %257 ]
+  %258 = sext i32 %.7 to i64
   %259 = getelementptr i8, ptr %0, i64 %258
   %260 = load i8, ptr %259, align 1
   %261 = icmp ne i8 %260, 36
-  %262 = add i32 %.6, 1
+  %262 = add i32 %.7, 1
   %263 = icmp slt i32 %262, %1
   %264 = and i1 %261, %263
   %indvars.iv.next686 = add nsw i64 %indvars.iv685, 1
   br i1 %264, label %257, label %265, !llvm.loop !12
 
 265:                                              ; preds = %257
-  %266 = add i32 %.6, 2
+  %266 = add i32 %.7, 2
   %.not411 = icmp slt i32 %266, %1
   %or.cond598 = and i1 %.not411, %263
   br i1 %or.cond598, label %.lr.ph571, label %.critedge25
@@ -1333,8 +1333,8 @@ sub_2471:                                         ; preds = %sub_1470
 
 .thread:                                          ; preds = %.thread.sink.split, %.critedge17
   %.not433462 = phi i1 [ true, %.critedge17 ], [ %.not433462.ph, %.thread.sink.split ]
-  %.8 = phi i32 [ %286, %.critedge17 ], [ %.5, %.thread.sink.split ]
-  %287 = add i32 %.8, 1
+  %.6 = phi i32 [ %286, %.critedge17 ], [ %.1, %.thread.sink.split ]
+  %287 = add i32 %.6, 1
   %288 = sext i32 %287 to i64
   %289 = getelementptr i8, ptr %0, i64 %288
   %290 = load i8, ptr %289, align 1
@@ -1346,33 +1346,33 @@ sub_2471:                                         ; preds = %sub_1470
   br i1 %.not414, label %.critedge19, label %.preheader482.preheader
 
 .preheader482.preheader:                          ; preds = %.thread
-  %295 = add i32 %.8, 2
+  %295 = add i32 %.6, 2
   %smax692 = call i32 @llvm.smax.i32(i32 %1, i32 %295)
   %296 = add i32 %smax692, -1
   br label %.preheader482
 
 .preheader482:                                    ; preds = %.preheader482.preheader, %299
-  %.9 = phi i32 [ %297, %299 ], [ %287, %.preheader482.preheader ]
-  %297 = add i32 %.9, 1
+  %.10 = phi i32 [ %297, %299 ], [ %287, %.preheader482.preheader ]
+  %297 = add i32 %.10, 1
   %298 = icmp slt i32 %297, %1
   br i1 %298, label %299, label %.critedge19
 
 299:                                              ; preds = %.preheader482
-  %300 = sext i32 %.9 to i64
+  %300 = sext i32 %.10 to i64
   %301 = getelementptr i8, ptr %0, i64 %300
   %302 = load i8, ptr %301, align 1
   %.not415 = icmp eq i8 %302, 47
   br i1 %.not415, label %.critedge19, label %.preheader482, !llvm.loop !14
 
 .critedge19:                                      ; preds = %299, %.preheader482, %.thread
-  %.10 = phi i32 [ %287, %.thread ], [ %.9, %299 ], [ %296, %.preheader482 ]
-  %303 = add i32 %.10, 1
+  %.9 = phi i32 [ %287, %.thread ], [ %.10, %299 ], [ %296, %.preheader482 ]
+  %303 = add i32 %.9, 1
   %smax693 = call i32 @llvm.smax.i32(i32 %1, i32 %303)
   %304 = add i32 %smax693, -1
   br label %305
 
 305:                                              ; preds = %308, %.critedge19
-  %.11 = phi i32 [ %.10, %.critedge19 ], [ %306, %308 ]
+  %.11 = phi i32 [ %.9, %.critedge19 ], [ %306, %308 ]
   %306 = add i32 %.11, 1
   %307 = icmp slt i32 %306, %1
   br i1 %307, label %308, label %.critedge448
@@ -1662,8 +1662,8 @@ sub_1475:                                         ; preds = %sub_0474
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %436
-  %.18 = phi i32 [ %437, %436 ], [ %418, %.preheader.preheader ]
-  %433 = sext i32 %.18 to i64
+  %.19 = phi i32 [ %437, %436 ], [ %418, %.preheader.preheader ]
+  %433 = sext i32 %.19 to i64
   %434 = getelementptr i8, ptr %0, i64 %433
   %435 = load i8, ptr %434, align 1
   switch i8 %435, label %436 [
@@ -1672,23 +1672,23 @@ sub_1475:                                         ; preds = %sub_0474
   ]
 
 436:                                              ; preds = %.preheader
-  %437 = add i32 %.18, 1
+  %437 = add i32 %.19, 1
   %438 = icmp slt i32 %437, %1
   br i1 %438, label %.preheader, label %.critedge37, !llvm.loop !21
 
 .critedge37:                                      ; preds = %.preheader, %.preheader, %436
-  %.18.lcssa = phi i32 [ %.18, %.preheader ], [ %.18, %.preheader ], [ %432, %436 ]
+  %.19.lcssa = phi i32 [ %.19, %.preheader ], [ %.19, %.preheader ], [ %432, %436 ]
   %439 = icmp ne i8 %435, 39
-  %440 = add i32 %.18.lcssa, 1
+  %440 = add i32 %.19.lcssa, 1
   %.not432 = icmp slt i32 %440, %1
   %or.cond457 = and i1 %439, %.not432
   br i1 %or.cond457, label %441, label %.critedge25
 
 441:                                              ; preds = %.critedge37, %429
-  %.19 = phi i32 [ %418, %429 ], [ %440, %.critedge37 ]
-  %442 = sext i32 %.19 to i64
+  %.18 = phi i32 [ %418, %429 ], [ %440, %.critedge37 ]
+  %442 = sext i32 %.18 to i64
   store i64 %442, ptr %6, align 8
-  %443 = sub i32 %1, %.19
+  %443 = sub i32 %1, %.18
   store i32 %443, ptr %7, align 4
   br i1 %.not433462, label %.critedge25, label %444
 

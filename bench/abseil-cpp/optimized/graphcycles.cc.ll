@@ -3144,7 +3144,7 @@ for.cond.backedge:                                ; preds = %_ZN4absl24synchroni
   br label %for.cond, !llvm.loop !24
 
 cleanup:                                          ; preds = %invoke.cont38, %while.condthread-pre-split, %if.then25
-  %retval.0 = phi i32 [ 0, %if.then25 ], [ 0, %while.condthread-pre-split ], [ %inc, %invoke.cont38 ]
+  %retval.1 = phi i32 [ 0, %if.then25 ], [ 0, %while.condthread-pre-split ], [ %inc, %invoke.cont38 ]
   %41 = load ptr, ptr %seen, align 8
   %cmp.not.i.i.i115 = icmp eq ptr %41, %space_.i.i.i
   br i1 %cmp.not.i.i.i115, label %return, label %if.then.i.i.i116
@@ -3161,8 +3161,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i116
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i116, %cleanup, %entry, %lor.lhs.false
-  %retval.1 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i116 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i116 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -406,12 +406,12 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   br label %55
 
 55:                                               ; preds = %47, %48
-  %.1106 = phi i32 [ %54, %48 ], [ %33, %47 ]
+  %.2 = phi i32 [ %54, %48 ], [ %33, %47 ]
   br i1 %42, label %56, label %.loopexit
 
 56:                                               ; preds = %55
   %57 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %reass.sub = sub i32 %57, %.1106
+  %reass.sub = sub i32 %57, %.2
   %58 = add i32 %reass.sub, -3
   %59 = udiv i32 %58, %.0
   %60 = and i32 %59, 65535
@@ -420,10 +420,10 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
   %.0104127 = phi i8 [ %64, %.lr.ph ], [ 0, %56 ]
-  %.2126 = phi i32 [ %63, %.lr.ph ], [ %.1106, %56 ]
+  %.3126 = phi i32 [ %63, %.lr.ph ], [ %.2, %56 ]
   %61 = load i32, ptr @hf_pcomascii_address_value, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %61, ptr noundef %0, i32 noundef %.2126, i32 noundef %.0, i32 noundef 0) #2
-  %63 = add i32 %.2126, %.0
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %61, ptr noundef %0, i32 noundef %.3126, i32 noundef %.0, i32 noundef 0) #2
+  %63 = add i32 %.3126, %.0
   %64 = add i8 %.0104127, 1
   %65 = zext i8 %64 to i32
   %66 = icmp ugt i32 %60, %65
@@ -443,10 +443,10 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph130:                                        ; preds = %68, %.lr.ph130
   %.1129 = phi i8 [ %76, %.lr.ph130 ], [ 0, %68 ]
-  %.3128 = phi i32 [ %75, %.lr.ph130 ], [ %33, %68 ]
+  %.4128 = phi i32 [ %75, %.lr.ph130 ], [ %33, %68 ]
   %73 = load i32, ptr @hf_pcomascii_address_value, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %73, ptr noundef %0, i32 noundef %.3128, i32 noundef %.0, i32 noundef 0) #2
-  %75 = add i32 %.3128, %.0
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %73, ptr noundef %0, i32 noundef %.4128, i32 noundef %.0, i32 noundef 0) #2
+  %75 = add i32 %.4128, %.0
   %76 = add i8 %.1129, 1
   %77 = zext i8 %76 to i32
   %78 = icmp ugt i32 %72, %77
@@ -454,18 +454,18 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph130, %56, %68, %55, %67, %24
   %79 = phi i1 [ false, %55 ], [ false, %67 ], [ true, %24 ], [ false, %68 ], [ false, %56 ], [ false, %.lr.ph130 ], [ false, %.lr.ph ]
-  %.4 = phi i32 [ %.1106, %55 ], [ %33, %67 ], [ %17, %24 ], [ %33, %68 ], [ %.1106, %56 ], [ %75, %.lr.ph130 ], [ %63, %.lr.ph ]
+  %.1106 = phi i32 [ %.2, %55 ], [ %33, %67 ], [ %17, %24 ], [ %33, %68 ], [ %.2, %56 ], [ %75, %.lr.ph130 ], [ %63, %.lr.ph ]
   %80 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %81 = sub i32 %80, %.4
+  %81 = sub i32 %80, %.1106
   %.not115 = icmp eq i32 %81, 3
   br i1 %.not115, label %91, label %82
 
 82:                                               ; preds = %.loopexit
   %83 = load i32, ptr @hf_pcomascii_command, align 4
   %84 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %reass.sub135 = sub i32 %84, %.4
+  %reass.sub135 = sub i32 %84, %.1106
   %85 = add i32 %reass.sub135, -3
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %83, ptr noundef %0, i32 noundef %.4, i32 noundef %85, i32 noundef 0) #2
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %83, ptr noundef %0, i32 noundef %.1106, i32 noundef %85, i32 noundef 0) #2
   %87 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %88 = add i32 %87, -3
   br i1 %79, label %89, label %91
@@ -475,7 +475,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   br label %91
 
 91:                                               ; preds = %82, %89, %.loopexit
-  %.5 = phi i32 [ %88, %89 ], [ %88, %82 ], [ %.4, %.loopexit ]
+  %.5 = phi i32 [ %88, %89 ], [ %88, %82 ], [ %.1106, %.loopexit ]
   %92 = load i32, ptr @hf_pcomascii_checksum, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %92, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef -2147483648) #2
   %94 = add i32 %.5, 2

@@ -1727,12 +1727,12 @@ define hidden void @_ZN6sparse6common18scores_memory_pool16ScoresMemoryPool11ret
 
 10:                                               ; preds = %.body, %12
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %eh.lpad-body, %.body ]
-  %.0 = phi i8 [ %.1, %12 ], [ %.2.lpad-body, %.body ]
-  %11 = trunc nuw i8 %.0 to i1
+  %.1 = phi i8 [ %.0, %12 ], [ %.2.lpad-body, %.body ]
+  %11 = trunc nuw i8 %.1 to i1
   br i1 %11, label %56, label %55
 
 12:                                               ; preds = %34, %32, %.noexc, %7
-  %.1 = phi i8 [ 1, %7 ], [ 1, %.noexc ], [ %.3, %32 ], [ %.3, %34 ]
+  %.0 = phi i8 [ 1, %7 ], [ 1, %.noexc ], [ %.3, %32 ], [ %.3, %34 ]
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %10

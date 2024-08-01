@@ -1290,7 +1290,7 @@ invoke.cont41:                                    ; preds = %if.end3.i52.invoke.
   br label %if.end45
 
 if.end45:                                         ; preds = %invoke.cont41, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
-  %handle_value_charge.1 = phi i64 [ %add.i, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %sub, %invoke.cont41 ]
+  %handle_value_charge.0 = phi i64 [ %add.i, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %sub, %invoke.cont41 ]
   %data_ptr.0 = phi ptr [ %24, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %retval.0.i53, %invoke.cont41 ]
   %source.0 = phi i8 [ 1, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %conv43, %invoke.cont41 ]
   %type.0 = phi i8 [ %9, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %conv39, %invoke.cont41 ]
@@ -1325,7 +1325,7 @@ if.then59:                                        ; preds = %lor.lhs.false, %if.
   %38 = load ptr, ptr %create_cb, align 8
   store ptr %data_ptr.0, ptr %ref.tmp61, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
-  store i64 %handle_value_charge.1, ptr %size_.i, align 8
+  store i64 %handle_value_charge.0, ptr %size_.i, align 8
   invoke void %38(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %create_context, ptr noundef %34, ptr noundef nonnull %value, ptr noundef nonnull %charge)
           to label %invoke.cont63 unwind label %lpad56
 
@@ -1372,7 +1372,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont63
   br i1 %cmp.not.i.i, label %invoke.cont104.sink.split, label %invoke.cont104.sink.split.sink.split
 
 lpad56:                                           ; preds = %if.then.i129, %if.end145, %if.else138, %invoke.cont128, %if.then115, %if.then106, %if.else96, %if.else65, %if.then59
-  %handle.sroa.0.0 = phi ptr [ %call147, %if.then.i129 ], [ null, %if.end145 ], [ null, %invoke.cont128 ], [ null, %if.then115 ], [ null, %if.else138 ], [ null, %if.then106 ], [ null, %if.then59 ], [ null, %if.else65 ], [ null, %if.else96 ]
+  %handle.sroa.0.3 = phi ptr [ %call147, %if.then.i129 ], [ null, %if.end145 ], [ null, %invoke.cont128 ], [ null, %if.then115 ], [ null, %if.else138 ], [ null, %if.then106 ], [ null, %if.then59 ], [ null, %if.else65 ], [ null, %if.else96 ]
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup153
@@ -1411,7 +1411,7 @@ invoke.cont70:                                    ; preds = %invoke.cont.i, %ini
   store i64 0, ptr %uncompressed_size, align 8
   %compress_format_version = getelementptr inbounds i8, ptr %this, i64 140
   %52 = load i32, ptr %compress_format_version, align 4
-  invoke void @_ZN7rocksdb14UncompressDataERKNS_17UncompressionInfoEPKcmPmjPNS_15MemoryAllocatorEPS4_(ptr nonnull sret(%"class.std::unique_ptr.14") align 8 %uncompressed, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data_ptr.0, i64 noundef %handle_value_charge.1, ptr noundef nonnull %uncompressed_size, i32 noundef %52, ptr noundef %34, ptr noundef null)
+  invoke void @_ZN7rocksdb14UncompressDataERKNS_17UncompressionInfoEPKcmPmjPNS_15MemoryAllocatorEPS4_(ptr nonnull sret(%"class.std::unique_ptr.14") align 8 %uncompressed, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data_ptr.0, i64 noundef %handle_value_charge.0, ptr noundef nonnull %uncompressed_size, i32 noundef %52, ptr noundef %34, ptr noundef null)
           to label %invoke.cont76 unwind label %lpad69
 
 invoke.cont76:                                    ; preds = %invoke.cont70
@@ -1546,7 +1546,7 @@ if.else96:                                        ; preds = %if.end45
   %74 = load ptr, ptr %create_cb98, align 8
   store ptr %data_ptr.0, ptr %ref.tmp99, align 8
   %size_.i90 = getelementptr inbounds i8, ptr %ref.tmp99, i64 8
-  store i64 %handle_value_charge.1, ptr %size_.i90, align 8
+  store i64 %handle_value_charge.0, ptr %size_.i90, align 8
   invoke void %74(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99, i8 noundef zeroext %type.0, i8 noundef zeroext %source.0, ptr noundef %create_context, ptr noundef %34, ptr noundef nonnull %value, ptr noundef nonnull %charge)
           to label %invoke.cont101 unwind label %lpad56
 
@@ -1778,7 +1778,7 @@ terminate.lpad.i146:                              ; preds = %if.then.i.i143
   unreachable
 
 ehcleanup153:                                     ; preds = %ehcleanup, %lpad56
-  %handle.sroa.0.2 = phi ptr [ %handle.sroa.0.0, %lpad56 ], [ null, %ehcleanup ]
+  %handle.sroa.0.4 = phi ptr [ %handle.sroa.0.3, %lpad56 ], [ null, %ehcleanup ]
   %.pn34 = phi { ptr, i32 } [ %47, %lpad56 ], [ %.pn, %ehcleanup ]
   %108 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i151 = icmp eq ptr %108, null
@@ -1791,14 +1791,14 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 ehcleanup157:                                     ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i152, %ehcleanup153
   store ptr null, ptr %state_.i, align 8
   call void @_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %merged_value) #21
-  %cmp.not.i158 = icmp eq ptr %handle.sroa.0.2, null
+  %cmp.not.i158 = icmp eq ptr %handle.sroa.0.4, null
   br i1 %cmp.not.i158, label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit163, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i159
 
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i159: ; preds = %ehcleanup157
-  %vtable.i.i160 = load ptr, ptr %handle.sroa.0.2, align 8
+  %vtable.i.i160 = load ptr, ptr %handle.sroa.0.4, align 8
   %vfn.i.i161 = getelementptr inbounds i8, ptr %vtable.i.i160, i64 8
   %109 = load ptr, ptr %vfn.i.i161, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %handle.sroa.0.2) #21
+  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %handle.sroa.0.4) #21
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit163
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit163: ; preds = %ehcleanup157.thread177, %ehcleanup157, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i159
@@ -2694,7 +2694,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %delete.notn
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then49, %if.end63, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
-  %total_size.0 = phi i64 [ %add58, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %add58, %if.end63 ], [ %add, %if.then49 ]
+  %total_size.1 = phi i64 [ %add58, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %add58, %if.end63 ], [ %add, %if.then49 ]
   %49 = load ptr, ptr %compression_context, align 8
   %cmp.not.i.i62 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i62, label %_ZN7rocksdb18CompressionContextD2Ev.exit, label %if.then.i.i63
@@ -2714,7 +2714,7 @@ _ZN7rocksdb18CompressionContextD2Ev.exit:         ; preds = %cleanup, %if.then.i
   br i1 %call47, label %if.end78, label %cleanup107
 
 if.end78:                                         ; preds = %_ZN7rocksdb18CompressionContextD2Ev.exit, %land.lhs.true25, %if.end17
-  %total_size.1 = phi i64 [ %add, %land.lhs.true25 ], [ %total_size.0, %_ZN7rocksdb18CompressionContextD2Ev.exit ], [ %add, %if.end17 ]
+  %total_size.0 = phi i64 [ %add, %land.lhs.true25 ], [ %total_size.1, %_ZN7rocksdb18CompressionContextD2Ev.exit ], [ %add, %if.end17 ]
   %.not.i66 = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
   br i1 %.not.i66, label %_ZTWN7rocksdb10perf_levelE.exit67, label %52
 
@@ -2862,7 +2862,7 @@ invoke.cont98:                                    ; preds = %if.else
   %vtable104 = load ptr, ptr %72, align 8
   %vfn105 = getelementptr inbounds i8, ptr %vtable104, i64 24
   %73 = load ptr, ptr %vfn105, align 8
-  invoke void %73(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull %call99, ptr noundef nonnull %retval.0.i, i64 noundef %total_size.1, ptr noundef null, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102, i8 noundef zeroext 0)
+  invoke void %73(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull %call99, ptr noundef nonnull %retval.0.i, i64 noundef %total_size.0, ptr noundef null, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp102, i8 noundef zeroext 0)
           to label %cleanup107 unwind label %lpad27.loopexit.split-lp
 
 cleanup107:                                       ; preds = %invoke.cont98, %invoke.cont90, %_ZN7rocksdb18CompressionContextD2Ev.exit
@@ -4443,8 +4443,8 @@ if.else:                                          ; preds = %entry
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread, %if.else
-  %input_length.addr.1 = phi i64 [ %input_length, %if.else ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
-  %input_data.addr.1 = phi ptr [ %input_data, %if.else ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_length.addr.0 = phi i64 [ %input_length, %if.else ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_data.addr.0 = phi ptr [ %input_data, %if.else ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_stream, i8 0, i64 112, i1 false)
   %cmp6 = icmp sgt i32 %windowBits, 0
   %add7 = add nuw nsw i32 %windowBits, 32
@@ -4478,8 +4478,8 @@ if.then21:                                        ; preds = %if.then15
   br label %return
 
 if.end23:                                         ; preds = %if.then15, %if.end11
-  store ptr %input_data.addr.1, ptr %_stream, align 8
-  %conv24 = trunc i64 %input_length.addr.1 to i32
+  store ptr %input_data.addr.0, ptr %_stream, align 8
+  %conv24 = trunc i64 %input_length.addr.0 to i32
   %avail_in = getelementptr inbounds i8, ptr %_stream, i64 8
   store i32 %conv24, ptr %avail_in, align 8
   %4 = load i32, ptr %output_len, align 4
@@ -4760,8 +4760,8 @@ if.end4:                                          ; preds = %if.else
 
 if.end5:                                          ; preds = %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread, %if.end4
   %2 = phi i32 [ %1, %if.end4 ], [ %.pre, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
-  %input_data.addr.1 = phi ptr [ %add.ptr, %if.end4 ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
-  %input_length.addr.1 = phi i64 [ %sub, %if.end4 ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_data.addr.0 = phi ptr [ %add.ptr, %if.end4 ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_length.addr.0 = phi i64 [ %sub, %if.end4 ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   %conv = zext i32 %2 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %tobool.not.i = icmp eq ptr %allocator, null
@@ -4810,9 +4810,9 @@ lpad:                                             ; preds = %invoke.cont22, %if.
   resume { ptr, i32 } %10
 
 if.end19:                                         ; preds = %if.then11, %invoke.cont
-  %conv21 = trunc i64 %input_length.addr.1 to i32
+  %conv21 = trunc i64 %input_length.addr.0 to i32
   %11 = load i32, ptr %output_len, align 4
-  %call23 = invoke i32 @LZ4_decompress_safe_continue(ptr noundef %call6, ptr noundef nonnull %input_data.addr.1, ptr noundef %5, i32 noundef %conv21, i32 noundef %11)
+  %call23 = invoke i32 @LZ4_decompress_safe_continue(ptr noundef %call6, ptr noundef nonnull %input_data.addr.0, ptr noundef %5, i32 noundef %conv21, i32 noundef %11)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.end19

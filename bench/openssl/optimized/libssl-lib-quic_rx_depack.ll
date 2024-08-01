@@ -637,7 +637,7 @@ depack_do_frame_crypto.exit.thread.i:             ; preds = %if.end2.i.i, %if.th
   br label %91
 
 depack_do_frame_crypto.exit.i:                    ; preds = %if.end32.i179.i, %if.end.i172.i
-  %datalen.0.i = phi i64 [ 0, %if.end.i172.i ], [ %48, %if.end32.i179.i ]
+  %datalen.1.i = phi i64 [ 0, %if.end.i172.i ], [ %48, %if.end32.i179.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f.i.i)
   br label %sw.epilog198.i
 
@@ -855,7 +855,7 @@ depack_do_frame_stream.exit.thread.i:             ; preds = %if.end.i193.i, %if.
   br label %91
 
 depack_do_frame_stream.exit.i:                    ; preds = %if.end85.i.i, %if.end39.i.i, %if.end20.i215.i, %if.end4.i196.i
-  %datalen.1.i = phi i64 [ 0, %if.end4.i196.i ], [ %69, %if.end85.i.i ], [ 0, %if.end39.i.i ], [ 0, %if.end20.i215.i ]
+  %datalen.2.i = phi i64 [ 0, %if.end4.i196.i ], [ %69, %if.end85.i.i ], [ 0, %if.end39.i.i ], [ 0, %if.end20.i215.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %frame_data.i189.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stream.i190.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rs_avail.i.i)
@@ -1340,7 +1340,7 @@ sw.default197.i:                                  ; preds = %sw.epilog.i
   br label %91
 
 sw.epilog198.i:                                   ; preds = %depack_do_frame_handshake_done.exit.i, %depack_do_frame_conn_close.exit.i, %depack_do_frame_path_response.exit.i, %depack_do_frame_path_challenge.exit.i, %depack_do_frame_retire_conn_id.exit.i, %depack_do_frame_new_conn_id.exit.i, %depack_do_frame_streams_blocked.exit.i, %depack_do_frame_stream_data_blocked.exit.i, %depack_do_frame_data_blocked.exit.i, %depack_do_frame_max_streams.exit.i, %depack_do_frame_max_stream_data.exit.i, %depack_do_frame_max_data.exit.i, %depack_do_frame_stream.exit.i, %depack_do_frame_new_token.exit.i, %depack_do_frame_crypto.exit.i, %depack_do_frame_stop_sending.exit.i, %depack_do_frame_reset_stream.exit.i, %depack_do_frame_ack.exit.i, %sw.bb21.i, %depack_do_frame_ping.exit.i
-  %datalen.2.i = phi i64 [ 0, %depack_do_frame_handshake_done.exit.i ], [ 0, %depack_do_frame_conn_close.exit.i ], [ 0, %depack_do_frame_path_response.exit.i ], [ 0, %depack_do_frame_path_challenge.exit.i ], [ 0, %depack_do_frame_retire_conn_id.exit.i ], [ 0, %depack_do_frame_new_conn_id.exit.i ], [ 0, %depack_do_frame_streams_blocked.exit.i ], [ 0, %depack_do_frame_stream_data_blocked.exit.i ], [ 0, %depack_do_frame_data_blocked.exit.i ], [ 0, %depack_do_frame_max_streams.exit.i ], [ 0, %depack_do_frame_max_stream_data.exit.i ], [ 0, %depack_do_frame_max_data.exit.i ], [ %datalen.1.i, %depack_do_frame_stream.exit.i ], [ 0, %depack_do_frame_new_token.exit.i ], [ %datalen.0.i, %depack_do_frame_crypto.exit.i ], [ 0, %depack_do_frame_stop_sending.exit.i ], [ 0, %depack_do_frame_reset_stream.exit.i ], [ 0, %depack_do_frame_ack.exit.i ], [ 0, %sw.bb21.i ], [ 0, %depack_do_frame_ping.exit.i ]
+  %datalen.0.i = phi i64 [ 0, %depack_do_frame_handshake_done.exit.i ], [ 0, %depack_do_frame_conn_close.exit.i ], [ 0, %depack_do_frame_path_response.exit.i ], [ 0, %depack_do_frame_path_challenge.exit.i ], [ 0, %depack_do_frame_retire_conn_id.exit.i ], [ 0, %depack_do_frame_new_conn_id.exit.i ], [ 0, %depack_do_frame_streams_blocked.exit.i ], [ 0, %depack_do_frame_stream_data_blocked.exit.i ], [ 0, %depack_do_frame_data_blocked.exit.i ], [ 0, %depack_do_frame_max_streams.exit.i ], [ 0, %depack_do_frame_max_stream_data.exit.i ], [ 0, %depack_do_frame_max_data.exit.i ], [ %datalen.2.i, %depack_do_frame_stream.exit.i ], [ 0, %depack_do_frame_new_token.exit.i ], [ %datalen.1.i, %depack_do_frame_crypto.exit.i ], [ 0, %depack_do_frame_stop_sending.exit.i ], [ 0, %depack_do_frame_reset_stream.exit.i ], [ 0, %depack_do_frame_ack.exit.i ], [ 0, %sw.bb21.i ], [ 0, %depack_do_frame_ping.exit.i ]
   %87 = load ptr, ptr %msg_callback.i, align 8
   %cmp200.not.i = icmp eq ptr %87, null
   br i1 %cmp200.not.i, label %if.end211.i, label %if.then201.i
@@ -1360,7 +1360,7 @@ if.else.i:                                        ; preds = %if.then201.i
   %cmp206.i = icmp eq i64 %88, 6
   %or.cond13.i = or i1 %cmp206.i, %cmp205.i
   %spec.select.i = select i1 %or.cond13.i, i32 515, i32 514
-  %sub.i = select i1 %or.cond13.i, i64 %datalen.2.i, i64 0
+  %sub.i = select i1 %or.cond13.i, i64 %datalen.0.i, i64 0
   %spec.select367.i = sub i64 %sub.ptr.sub.i, %sub.i
   br label %if.end209.i
 

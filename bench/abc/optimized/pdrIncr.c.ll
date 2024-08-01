@@ -2131,14 +2131,14 @@ IPdr_ManRestoreAbsFlops.exit:                     ; preds = %.critedge.i, %Vec_I
   br label %.outer
 
 .outer:                                           ; preds = %1195, %IPdr_ManRestoreAbsFlops.exit
-  %.0427.ph = phi i64 [ %.4, %1195 ], [ 0, %IPdr_ManRestoreAbsFlops.exit ]
+  %.0427.ph = phi i64 [ %.2429, %1195 ], [ 0, %IPdr_ManRestoreAbsFlops.exit ]
   %.2.ph = phi i32 [ %1018, %1195 ], [ %.1, %IPdr_ManRestoreAbsFlops.exit ]
   %304 = call noundef i32 @llvm.smax.i32(i32 %.2.ph, i32 1)
   %305 = icmp eq i32 %.2.ph, 1
   br label %306
 
 306:                                              ; preds = %.outer, %1013
-  %.0427 = phi i64 [ %.4, %1013 ], [ %.0427.ph, %.outer ]
+  %.0427 = phi i64 [ %.2429, %1013 ], [ %.0427.ph, %.outer ]
   %307 = load ptr, ptr %0, align 8
   %308 = getelementptr inbounds i8, ptr %307, i64 92
   %309 = load i32, ptr %308, align 4
@@ -2547,7 +2547,7 @@ Abc_Clock.exit637:                                ; preds = %Abc_Clock.exit635, 
   br label %511
 
 511:                                              ; preds = %Abc_Clock.exit637, %487
-  %.2429 = phi i64 [ %.0.i634, %Abc_Clock.exit637 ], [ %.1428801, %487 ]
+  %.4 = phi i64 [ %.0.i634, %Abc_Clock.exit637 ], [ %.1428801, %487 ]
   br label %512
 
 512:                                              ; preds = %.backedge, %511
@@ -3295,7 +3295,7 @@ Abc_Clock.exit661:                                ; preds = %865, %868
 Abc_Clock.exit663:                                ; preds = %876, %879
   %.0.i662 = phi i64 [ %884, %879 ], [ -1, %876 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %885 = sub nsw i64 %.0.i662, %.2429
+  %885 = sub nsw i64 %.0.i662, %.4
   %886 = load ptr, ptr %281, align 8
   %887 = load i32, ptr %276, align 8
   %888 = sext i32 %887 to i64
@@ -3361,7 +3361,7 @@ Abc_Clock.exit663:                                ; preds = %876, %879
   br label %925
 
 925:                                              ; preds = %.critedge547, %924, %363, %359, %353, %Abc_Clock.exit633
-  %.3430 = phi i64 [ %.1428801, %353 ], [ %.1428801, %359 ], [ %.1428801, %363 ], [ %.1428801, %Abc_Clock.exit633 ], [ %.2429, %924 ], [ %.2429, %.critedge547 ]
+  %.3430 = phi i64 [ %.1428801, %353 ], [ %.1428801, %359 ], [ %.1428801, %363 ], [ %.1428801, %Abc_Clock.exit633 ], [ %.4, %924 ], [ %.4, %.critedge547 ]
   %926 = load i32, ptr %276, align 8
   %927 = add nsw i32 %926, 1
   store i32 %927, ptr %276, align 8
@@ -3373,7 +3373,7 @@ Abc_Clock.exit663:                                ; preds = %876, %879
 
 .critedge5:                                       ; preds = %925, %341, %764
   %931 = phi i1 [ true, %764 ], [ false, %341 ], [ false, %925 ]
-  %.4 = phi i64 [ %.2429, %764 ], [ %.0427, %341 ], [ %.3430, %925 ]
+  %.2429 = phi i64 [ %.4, %764 ], [ %.0427, %341 ], [ %.3430, %925 ]
   %.not506 = xor i1 %931, true
   %932 = load ptr, ptr %0, align 8
   %933 = getelementptr inbounds i8, ptr %932, i64 92

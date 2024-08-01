@@ -201,7 +201,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
 16:                                               ; preds = %.lr.ph, %tbm_lossify.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %tbm_lossify.exit ]
   %.03156 = phi i32 [ -1, %.lr.ph ], [ %.2, %tbm_lossify.exit ]
-  %.03255 = phi ptr [ null, %.lr.ph ], [ %.23447, %tbm_lossify.exit ]
+  %.03255 = phi ptr [ null, %.lr.ph ], [ %.13347, %tbm_lossify.exit ]
   %17 = getelementptr %struct.ItemPointerData, ptr %1, i64 %indvars.iv
   %.val = load i16, ptr %17, align 2
   %18 = getelementptr i8, ptr %17, i64 2
@@ -367,13 +367,13 @@ tbm_get_pageentry.exit:                           ; preds = %77, %81, %.loopexit
   br label %tbm_page_is_lossy.exit
 
 tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.exit, %29
-  %.234 = phi ptr [ %.03255, %29 ], [ %.0.i40, %tbm_get_pageentry.exit ]
+  %.133 = phi ptr [ %.03255, %29 ], [ %.0.i40, %tbm_get_pageentry.exit ]
   %.1 = phi i32 [ %.03156, %29 ], [ %22, %tbm_get_pageentry.exit ]
-  %106 = icmp eq ptr %.234, null
+  %106 = icmp eq ptr %.133, null
   br i1 %106, label %tbm_lossify.exit, label %107
 
 107:                                              ; preds = %tbm_page_is_lossy.exit
-  %108 = getelementptr inbounds i8, ptr %.234, i64 5
+  %108 = getelementptr inbounds i8, ptr %.133, i64 5
   %109 = load i8, ptr %108, align 1
   %110 = trunc i8 %109 to i1
   %111 = add nsw i32 %24, -1
@@ -383,13 +383,13 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %115 = zext nneg i32 %113 to i64
   %116 = shl nuw i64 1, %115
   %117 = select i1 %110, i64 1, i64 %116
-  %118 = getelementptr inbounds i8, ptr %.234, i64 8
+  %118 = getelementptr inbounds i8, ptr %.133, i64 8
   %119 = select i1 %110, i64 0, i64 %114
   %120 = getelementptr [5 x i64], ptr %118, i64 0, i64 %119
   %121 = load i64, ptr %120, align 8
   %122 = or i64 %117, %121
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %.234, i64 6
+  %123 = getelementptr inbounds i8, ptr %.133, i64 6
   %124 = load i8, ptr %123, align 2
   %125 = and i8 %124, 1
   %126 = or i8 %125, %13
@@ -494,7 +494,7 @@ pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.e
   br label %tbm_lossify.exit
 
 tbm_lossify.exit:                                 ; preds = %65, %169, %pagetable_iterate.exit.thread.i, %107, %tbm_page_is_lossy.exit
-  %.23447 = phi ptr [ null, %tbm_page_is_lossy.exit ], [ %.234, %107 ], [ %.234, %pagetable_iterate.exit.thread.i ], [ %.234, %169 ], [ null, %65 ]
+  %.13347 = phi ptr [ null, %tbm_page_is_lossy.exit ], [ %.133, %107 ], [ %.133, %pagetable_iterate.exit.thread.i ], [ %.133, %169 ], [ null, %65 ]
   %.2 = phi i32 [ %.1, %tbm_page_is_lossy.exit ], [ %.1, %107 ], [ -1, %pagetable_iterate.exit.thread.i ], [ -1, %169 ], [ %22, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1854,7 +1854,7 @@ tbm_find_pageentry.exit85:                        ; preds = %171, %pagetable_loo
 
 209:                                              ; preds = %tbm_find_pageentry.exit85, %209
   %indvars.iv = phi i64 [ 0, %tbm_find_pageentry.exit85 ], [ %indvars.iv.next, %209 ]
-  %.018 = phi i1 [ true, %tbm_find_pageentry.exit85 ], [ %spec.select59, %209 ]
+  %.118 = phi i1 [ true, %tbm_find_pageentry.exit85 ], [ %spec.select59, %209 ]
   %210 = getelementptr [5 x i64], ptr %207, i64 0, i64 %indvars.iv
   %211 = load i64, ptr %210, align 8
   %212 = getelementptr [5 x i64], ptr %208, i64 0, i64 %indvars.iv
@@ -1862,7 +1862,7 @@ tbm_find_pageentry.exit85:                        ; preds = %171, %pagetable_loo
   %214 = and i64 %213, %211
   store i64 %214, ptr %212, align 8
   %.not54 = icmp eq i64 %214, 0
-  %spec.select59 = select i1 %.not54, i1 %.018, i1 false
+  %spec.select59 = select i1 %.not54, i1 %.118, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %215, label %209, !llvm.loop !17

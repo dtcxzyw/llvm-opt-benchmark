@@ -2375,8 +2375,8 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit35: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37", %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3, %70
-  %.1 = phi i1 [ true, %70 ], [ true, %3 ], [ true, %49 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ false, %.preheader ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
-  ret i1 %.1
+  %.017 = phi i1 [ true, %70 ], [ true, %3 ], [ true, %49 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ false, %.preheader ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit37" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
+  ret i1 %.017
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2458,7 +2458,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread"
-  %.sroa.6.0.ph = phi ptr [ %.sroa.11.095101, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %.sroa.6.290, %.outer.backedge ]
+  %.sroa.6.0.ph = phi ptr [ %.sroa.11.095101, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %.sroa.6.190, %.outer.backedge ]
   %.sroa.0.084.ph = phi i1 [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ true, %.outer.backedge ]
   %.056.ph = phi i1 [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %.not61, %.outer.backedge ]
   %.055.ph = phi i1 [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %.1, %.outer.backedge ]
@@ -2475,7 +2475,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   br label %15
 
 15:                                               ; preds = %.outer, %61
-  %.sroa.6.0 = phi ptr [ %.sroa.6.290, %61 ], [ %.sroa.6.0.ph, %.outer ]
+  %.sroa.6.0 = phi ptr [ %.sroa.6.190, %61 ], [ %.sroa.6.0.ph, %.outer ]
   %.sroa.0.084 = phi i1 [ true, %61 ], [ %.sroa.0.084.ph, %.outer ]
   %.056 = phi i1 [ true, %61 ], [ %.056.ph, %.outer ]
   %.055 = phi i1 [ %.1, %61 ], [ %.055.ph, %.outer ]
@@ -2506,7 +2506,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
 
 22:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread87", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit"
   %.05191 = phi ptr [ %21, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread87" ], [ %.0.i.i.i102, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit" ]
-  %.sroa.6.290 = phi ptr [ %20, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread87" ], [ %.sroa.6.0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit" ]
+  %.sroa.6.190 = phi ptr [ %20, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit.thread87" ], [ %.sroa.6.0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eed7328b348a32fE.exit" ]
   %23 = load ptr, ptr %.05191, align 8, !nonnull !4, !align !5, !noundef !4
   %24 = getelementptr inbounds i8, ptr %23, i64 56
   %25 = load <4 x i32>, ptr %24, align 8
@@ -2605,8 +2605,8 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
 
 61:                                               ; preds = %62, %59, %58
   %.1 = phi i1 [ true, %58 ], [ false, %62 ], [ true, %59 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %58 ], [ %.sroa.7.2, %62 ], [ undef, %59 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %58 ], [ %.sroa.0.2, %62 ], [ 0, %59 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %58 ], [ %.sroa.7.3, %62 ], [ undef, %59 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %58 ], [ %.sroa.0.3, %62 ], [ 0, %59 ]
   br i1 %.056, label %15, label %66
 
 62:                                               ; preds = %59
@@ -2615,8 +2615,8 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
   %switch.i = icmp eq i64 %.sroa.0.0, 0
   %65 = icmp ult i64 %64, %.sroa.7.0
   %spec.select.i = select i1 %switch.i, i1 true, i1 %65
-  %.sroa.7.2 = select i1 %spec.select.i, i64 %64, i64 %.sroa.7.0
-  %.sroa.0.2 = select i1 %spec.select.i, i64 1, i64 %.sroa.0.0
+  %.sroa.7.3 = select i1 %spec.select.i, i64 %64, i64 %.sroa.7.0
+  %.sroa.0.3 = select i1 %spec.select.i, i64 1, i64 %.sroa.0.0
   br label %61
 
 66:                                               ; preds = %61
@@ -2631,13 +2631,13 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
   %switch.i70 = icmp eq i64 %.sroa.11.0.ph, 0
   %72 = icmp ugt i64 %71, %.sroa.15.0.ph
   %spec.select.i71 = select i1 %switch.i70, i1 true, i1 %72
-  %.sroa.15.1 = select i1 %spec.select.i71, i64 %71, i64 %.sroa.15.0.ph
-  %.sroa.11.1 = select i1 %spec.select.i71, i64 1, i64 %.sroa.11.0.ph
+  %.sroa.15.3 = select i1 %spec.select.i71, i64 %71, i64 %.sroa.15.0.ph
+  %.sroa.11.3 = select i1 %spec.select.i71, i64 1, i64 %.sroa.11.0.ph
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %69, %66
-  %.sroa.15.0.ph.be = phi i64 [ undef, %66 ], [ %.sroa.15.1, %69 ]
-  %.sroa.11.0.ph.be = phi i64 [ 0, %66 ], [ %.sroa.11.1, %69 ]
+  %.sroa.15.0.ph.be = phi i64 [ undef, %66 ], [ %.sroa.15.3, %69 ]
+  %.sroa.11.0.ph.be = phi i64 [ 0, %66 ], [ %.sroa.11.3, %69 ]
   br label %.outer
 }
 

@@ -2410,7 +2410,7 @@ if.end81.fold.split:                              ; preds = %if.then68
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then68, %if.end81.fold.split, %if.end65
-  %isconnected.0 = phi i1 [ false, %if.end65 ], [ true, %if.then68 ], [ false, %if.end81.fold.split ]
+  %isconnected.1 = phi i1 [ false, %if.end65 ], [ true, %if.then68 ], [ false, %if.end81.fold.split ]
   %30 = load i32, ptr %addr, align 8
   switch i32 %30, label %if.else121 [
     i32 2, label %if.then89
@@ -2810,7 +2810,7 @@ if.then97.thread:                                 ; preds = %if.then40.i, %for.e
   br label %if.then111
 
 if.then111:                                       ; preds = %set_remote_ip.exit, %if.then68, %if.end.i, %67, %if.then97.thread
-  %result.1.ph = phi i32 [ 45, %if.then97.thread ], [ 7, %67 ], [ 7, %if.end.i ], [ 42, %if.then68 ], [ 2, %set_remote_ip.exit ]
+  %result.0.ph = phi i32 [ 45, %if.then97.thread ], [ 7, %67 ], [ 7, %if.end.i ], [ 42, %if.then68 ], [ 2, %set_remote_ip.exit ]
   %68 = load i32, ptr %sock, align 8
   %cmp113.not = icmp eq i32 %68, -1
   br i1 %cmp113.not, label %land.lhs.true134, label %if.then115
@@ -2857,7 +2857,7 @@ if.else121:                                       ; preds = %bindlocal.exit, %if
   %bf.clear109 = and i8 %bf.load108, -5
   %bf.set = or disjoint i8 %bf.clear109, %bf.shl
   store i8 %bf.set, ptr %sock_connected, align 4
-  br i1 %isconnected.0, label %if.then123, label %land.lhs.true134
+  br i1 %isconnected.1, label %if.then123, label %land.lhs.true134
 
 if.then123:                                       ; preds = %if.else121
   %cf.val = load ptr, ptr %ctx1, align 8
@@ -2876,7 +2876,7 @@ if.then123:                                       ; preds = %if.else121
   br label %land.lhs.true134
 
 land.lhs.true134:                                 ; preds = %if.else121, %if.then123, %if.then111, %socket_close.exit
-  %result.1106 = phi i32 [ %result.1.ph, %socket_close.exit ], [ %result.1.ph, %if.then111 ], [ 0, %if.then123 ], [ 0, %if.else121 ]
+  %result.0106 = phi i32 [ %result.0.ph, %socket_close.exit ], [ %result.0.ph, %if.then111 ], [ 0, %if.then123 ], [ 0, %if.else121 ]
   %verbose136 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load137 = load i64, ptr %verbose136, align 2
   %77 = and i64 %bf.load137, 536870912
@@ -2894,11 +2894,11 @@ land.lhs.true144:                                 ; preds = %land.lhs.true134
 
 if.then147:                                       ; preds = %land.lhs.true144
   %80 = load i32, ptr %sock, align 8
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.13, i32 noundef %result.1106, i32 noundef %80) #13
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.13, i32 noundef %result.0106, i32 noundef %80) #13
   br label %do.end150
 
 do.end150:                                        ; preds = %land.lhs.true134, %land.lhs.true144, %if.then147
-  ret i32 %result.1106
+  ret i32 %result.0106
 }
 
 ; Function Attrs: nounwind uwtable

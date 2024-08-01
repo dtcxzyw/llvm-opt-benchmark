@@ -37,13 +37,13 @@ define noalias noundef ptr @_Z12textFileReadPc(ptr noundef readonly %0) local_un
   br label %17
 
 17:                                               ; preds = %9, %4
-  %.0 = phi ptr [ %12, %9 ], [ null, %4 ]
+  %.1 = phi ptr [ %12, %9 ], [ null, %4 ]
   %18 = tail call i32 @fclose(ptr noundef nonnull %3)
   br label %19
 
 19:                                               ; preds = %2, %17, %1
-  %.1 = phi ptr [ %.0, %17 ], [ null, %2 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %17 ], [ null, %2 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -87,8 +87,8 @@ define noundef range(i32 0, 2) i32 @_Z13textFileWritePcS_(ptr noundef readonly %
   br label %11
 
 11:                                               ; preds = %3, %5, %2
-  %.1 = phi i32 [ %spec.select, %5 ], [ 0, %3 ], [ 0, %2 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %spec.select, %5 ], [ 0, %3 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

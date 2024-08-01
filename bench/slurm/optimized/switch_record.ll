@@ -201,7 +201,7 @@ _read_topo_file.exit:                             ; preds = %13
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph247.preheader ], [ %indvars.iv.next, %123 ]
   %.0127244 = phi ptr [ %36, %.lr.ph247.preheader ], [ %124, %123 ]
-  %.0186243 = phi ptr [ null, %.lr.ph247.preheader ], [ %.5191, %123 ]
+  %.0186243 = phi ptr [ null, %.lr.ph247.preheader ], [ %.1187, %123 ]
   %38 = getelementptr inbounds ptr, ptr %.sink.i, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
@@ -282,7 +282,7 @@ _read_topo_file.exit:                             ; preds = %13
   br label %96
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %94
-  %.1187 = phi ptr [ %.2188, %94 ], [ %.0186243, %.preheader.i ]
+  %.2188 = phi ptr [ %.3189, %94 ], [ %.0186243, %.preheader.i ]
   %79 = phi ptr [ %95, %94 ], [ %76, %.preheader.i ]
   %80 = call ptr @find_node_record(ptr noundef nonnull %79) #6
   %.not22.i = icmp eq ptr %80, null
@@ -305,11 +305,11 @@ _read_topo_file.exit:                             ; preds = %13
   br label %89
 
 89:                                               ; preds = %88, %85
-  %.not23.i = icmp eq ptr %.1187, null
+  %.not23.i = icmp eq ptr %.2188, null
   br i1 %.not23.i, label %92, label %90
 
 90:                                               ; preds = %89
-  %91 = call i32 @hostlist_push_host(ptr noundef nonnull %.1187, ptr noundef nonnull %79) #6
+  %91 = call i32 @hostlist_push_host(ptr noundef nonnull %.2188, ptr noundef nonnull %79) #6
   br label %94
 
 92:                                               ; preds = %89
@@ -317,7 +317,7 @@ _read_topo_file.exit:                             ; preds = %13
   br label %94
 
 94:                                               ; preds = %92, %90, %81
-  %.2188 = phi ptr [ %93, %92 ], [ %.1187, %90 ], [ %.1187, %81 ]
+  %.3189 = phi ptr [ %93, %92 ], [ %.2188, %90 ], [ %.2188, %81 ]
   call void @free(ptr noundef nonnull %79) #6
   %95 = call ptr @hostlist_shift(ptr noundef nonnull %74) #6
   %.not.i163 = icmp eq ptr %95, null
@@ -331,7 +331,7 @@ _read_topo_file.exit:                             ; preds = %13
   unreachable
 
 .loopexit210:                                     ; preds = %94, %.preheader.i
-  %.3189 = phi ptr [ %.0186243, %.preheader.i ], [ %.2188, %94 ]
+  %.4190 = phi ptr [ %.0186243, %.preheader.i ], [ %.3189, %94 ]
   call void @hostlist_destroy(ptr noundef nonnull %74) #6
   %100 = load ptr, ptr %7, align 8
   %.not160 = icmp eq ptr %100, null
@@ -386,7 +386,7 @@ _read_topo_file.exit:                             ; preds = %13
   unreachable
 
 123:                                              ; preds = %116, %112, %109
-  %.5191 = phi ptr [ %.0186243, %116 ], [ %.3189, %112 ], [ %.3189, %109 ]
+  %.1187 = phi ptr [ %.0186243, %116 ], [ %.4190, %112 ], [ %.4190, %109 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = getelementptr inbounds i8, ptr %.0127244, i64 72
   %125 = load i32, ptr @switch_record_cnt, align 4
@@ -406,7 +406,7 @@ _read_topo_file.exit:                             ; preds = %13
 
 .lr.ph258:                                        ; preds = %.lr.ph258.preheader, %188
   %131 = phi i32 [ %189, %188 ], [ %128, %.lr.ph258.preheader ]
-  %.0120256 = phi i1 [ %.2, %188 ], [ true, %.lr.ph258.preheader ]
+  %.0120256 = phi i1 [ %.1, %188 ], [ true, %.lr.ph258.preheader ]
   %.1124253 = phi i32 [ %190, %188 ], [ 0, %.lr.ph258.preheader ]
   %.1128250 = phi ptr [ %191, %188 ], [ %130, %.lr.ph258.preheader ]
   %132 = load i32, ptr %.1128250, align 8
@@ -531,21 +531,21 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   br i1 %.not155, label %.loopexit207, label %142, !llvm.loop !12
 
 .loopexit207:                                     ; preds = %185, %.preheader206, %169
-  %.1 = phi i1 [ false, %169 ], [ %.0120256, %.preheader206 ], [ %.0120256, %185 ]
+  %.2 = phi i1 [ false, %169 ], [ %.0120256, %.preheader206 ], [ %.0120256, %185 ]
   call void @hostlist_destroy(ptr noundef nonnull %136) #6
   %.pre = load i32, ptr @switch_record_cnt, align 4
   br label %188
 
 188:                                              ; preds = %.lr.ph258, %.loopexit207
   %189 = phi i32 [ %131, %.lr.ph258 ], [ %.pre, %.loopexit207 ]
-  %.2 = phi i1 [ %.0120256, %.lr.ph258 ], [ %.1, %.loopexit207 ]
+  %.1 = phi i1 [ %.0120256, %.lr.ph258 ], [ %.2, %.loopexit207 ]
   %190 = add nuw nsw i32 %.1124253, 1
   %191 = getelementptr inbounds i8, ptr %.1128250, i64 72
   %192 = icmp slt i32 %190, %189
   br i1 %192, label %.lr.ph258, label %._crit_edge259, !llvm.loop !13
 
 ._crit_edge259:                                   ; preds = %188
-  br i1 %.2, label %.split.us, label %193
+  br i1 %.1, label %.split.us, label %193
 
 193:                                              ; preds = %._crit_edge259
   %194 = add nuw nsw i32 %.0119, 1
@@ -557,7 +557,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   unreachable
 
 .split.us.thread:                                 ; preds = %.preheader209.split, %.preheader209, %28
-  %.0186.lcssa364.ph = phi ptr [ %.5191, %.preheader209 ], [ null, %28 ], [ %.5191, %.preheader209.split ]
+  %.0186.lcssa364.ph = phi ptr [ %.1187, %.preheader209 ], [ null, %28 ], [ %.1187, %.preheader209.split ]
   store i32 0, ptr @switch_levels, align 4
   br label %._crit_edge267
 
@@ -600,7 +600,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   br i1 %212, label %.lr.ph266, label %._crit_edge267, !llvm.loop !16
 
 ._crit_edge267:                                   ; preds = %207, %.split.us.thread, %.split.us
-  %.0186.lcssa364366 = phi ptr [ %.0186.lcssa364.ph, %.split.us.thread ], [ %.5191, %.split.us ], [ %.5191, %207 ]
+  %.0186.lcssa364366 = phi ptr [ %.0186.lcssa364.ph, %.split.us.thread ], [ %.1187, %.split.us ], [ %.1187, %207 ]
   %213 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %213, null
   br i1 %.not, label %225, label %214

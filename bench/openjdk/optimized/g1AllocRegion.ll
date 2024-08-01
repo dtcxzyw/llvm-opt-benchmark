@@ -917,7 +917,7 @@ _ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit: ; preds = %_ZN13G1All
   br label %69
 
 69:                                               ; preds = %_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit, %_ZN18MutatorAllocRegion13should_retainEP12G1HeapRegion.exit
-  %.0 = phi i64 [ %65, %_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit ], [ 0, %_ZN18MutatorAllocRegion13should_retainEP12G1HeapRegion.exit ]
+  %.1 = phi i64 [ %65, %_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit ], [ 0, %_ZN18MutatorAllocRegion13should_retainEP12G1HeapRegion.exit ]
   store volatile ptr %4, ptr %18, align 8
   br label %104
 
@@ -1003,18 +1003,18 @@ _ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit30: ; preds = %70, %_ZN
   br label %104
 
 104:                                              ; preds = %_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit30, %69
-  %.1 = phi i64 [ %.0, %69 ], [ %.0.i10, %_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit30 ]
+  %.2 = phi i64 [ %.1, %69 ], [ %.0.i10, %_ZN13G1AllocRegion15retire_internalEP12G1HeapRegionb.exit30 ]
   %105 = load ptr, ptr @_ZN13G1AllocRegion13_dummy_regionE, align 8
   store volatile ptr %105, ptr %3, align 8
   br label %106
 
 106:                                              ; preds = %104, %2
-  %.2 = phi i64 [ %.1, %104 ], [ 0, %2 ]
+  %.0 = phi i64 [ %.2, %104 ], [ 0, %2 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 40
   %108 = load i64, ptr %107, align 8
-  %109 = add i64 %108, %.2
+  %109 = add i64 %108, %.0
   store i64 %109, ptr %107, align 8
-  ret i64 %.2
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
@@ -7245,9 +7245,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -7491,9 +7491,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit

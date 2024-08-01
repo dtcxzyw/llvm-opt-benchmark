@@ -489,7 +489,7 @@ if.end:                                           ; preds = %entry
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end99, %if.end
-  %advise_slowlog_tuning.0.ph = phi i32 [ %advise_slowlog_tuning.2, %if.end99 ], [ 0, %if.end ]
+  %advise_slowlog_tuning.0.ph = phi i32 [ %advise_slowlog_tuning.1, %if.end99 ], [ 0, %if.end ]
   %advise_slowlog_inspect.0.ph = phi i32 [ %advise_slowlog_inspect.1, %if.end99 ], [ 0, %if.end ]
   %advise_disk_contention.0.ph = phi i32 [ %advise_disk_contention.2, %if.end99 ], [ 0, %if.end ]
   %advise_scheduler.0.ph = phi i32 [ %spec.select69, %if.end99 ], [ 0, %if.end ]
@@ -503,8 +503,8 @@ while.cond.outer:                                 ; preds = %if.end99, %if.end
   %advise_mass_eviction.0.ph = phi i32 [ %advise_mass_eviction.1, %if.end99 ], [ 0, %if.end ]
   %advise_relax_fsync_policy.0.ph = phi i32 [ %spec.select71, %if.end99 ], [ 0, %if.end ]
   %advices.0.ph = phi i32 [ %advices.14, %if.end99 ], [ 0, %if.end ]
-  %advise_slowlog_enabled.0.ph = phi i32 [ %advise_slowlog_enabled.2, %if.end99 ], [ 0, %if.end ]
-  %advise_better_vm.0.ph = phi i32 [ %advise_better_vm.2, %if.end99 ], [ 0, %if.end ]
+  %advise_slowlog_enabled.0.ph = phi i32 [ %advise_slowlog_enabled.1, %if.end99 ], [ 0, %if.end ]
+  %advise_better_vm.0.ph = phi i32 [ %advise_better_vm.1, %if.end99 ], [ 0, %if.end ]
   %eventnum.0.ph = phi i32 [ %inc, %if.end99 ], [ 0, %if.end ]
   %report.0.ph = phi ptr [ %call115, %if.end99 ], [ %call, %if.end ]
   br label %while.cond
@@ -572,15 +572,15 @@ if.else33:                                        ; preds = %if.else
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else33, %if.then31, %if.then27
-  %advices.1 = phi i32 [ %inc28, %if.then27 ], [ %inc32, %if.then31 ], [ %advices.0.ph, %if.else33 ]
-  %advise_better_vm.1 = phi i32 [ 1, %if.then27 ], [ 1, %if.then31 ], [ %advise_better_vm.0.ph, %if.else33 ]
+  %advices.2 = phi i32 [ %inc28, %if.then27 ], [ %inc32, %if.then31 ], [ %advices.0.ph, %if.else33 ]
+  %advise_better_vm.2 = phi i32 [ 1, %if.then27 ], [ 1, %if.then31 ], [ %advise_better_vm.0.ph, %if.else33 ]
   %fork_quality.0 = phi ptr [ @.str.5, %if.then27 ], [ @.str.6, %if.then31 ], [ %.str.7..str.8, %if.else33 ]
   %call41 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call22, ptr noundef nonnull @.str.9, double noundef %9, ptr noundef nonnull %fork_quality.0) #14
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end40, %if.end16
-  %advices.2 = phi i32 [ %advices.0.ph, %if.end16 ], [ %advices.1, %if.end40 ]
-  %advise_better_vm.2 = phi i32 [ %advise_better_vm.0.ph, %if.end16 ], [ %advise_better_vm.1, %if.end40 ]
+  %advices.1 = phi i32 [ %advices.0.ph, %if.end16 ], [ %advices.2, %if.end40 ]
+  %advise_better_vm.1 = phi i32 [ %advise_better_vm.0.ph, %if.end16 ], [ %advise_better_vm.2, %if.end40 ]
   %report.2 = phi ptr [ %call22, %if.end16 ], [ %call41, %if.end40 ]
   %call43 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.10) #13
   %tobool44.not = icmp eq i32 %call43, 0
@@ -601,23 +601,23 @@ if.else50:                                        ; preds = %if.then45
 
 if.end57:                                         ; preds = %if.then45, %if.else50
   %inc55.sink = phi i32 [ %inc55, %if.else50 ], [ 1, %if.then45 ]
-  %advise_slowlog_tuning.1 = phi i32 [ %spec.select, %if.else50 ], [ %advise_slowlog_tuning.0.ph, %if.then45 ]
-  %advise_slowlog_enabled.1 = phi i32 [ %advise_slowlog_enabled.0.ph, %if.else50 ], [ 1, %if.then45 ]
-  %spec.select68 = add nsw i32 %advices.2, %inc55.sink
+  %advise_slowlog_tuning.2 = phi i32 [ %spec.select, %if.else50 ], [ %advise_slowlog_tuning.0.ph, %if.then45 ]
+  %advise_slowlog_enabled.2 = phi i32 [ %advise_slowlog_enabled.0.ph, %if.else50 ], [ 1, %if.then45 ]
+  %spec.select68 = add nsw i32 %advices.1, %inc55.sink
   %add58 = add nsw i32 %spec.select68, 2
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end57, %if.end42
-  %advise_slowlog_tuning.2 = phi i32 [ %advise_slowlog_tuning.0.ph, %if.end42 ], [ %advise_slowlog_tuning.1, %if.end57 ]
+  %advise_slowlog_tuning.1 = phi i32 [ %advise_slowlog_tuning.0.ph, %if.end42 ], [ %advise_slowlog_tuning.2, %if.end57 ]
   %advise_slowlog_inspect.1 = phi i32 [ %advise_slowlog_inspect.0.ph, %if.end42 ], [ 1, %if.end57 ]
   %advise_large_objects.1 = phi i32 [ %advise_large_objects.0.ph, %if.end42 ], [ 1, %if.end57 ]
-  %advices.4 = phi i32 [ %advices.2, %if.end42 ], [ %add58, %if.end57 ]
-  %advise_slowlog_enabled.2 = phi i32 [ %advise_slowlog_enabled.0.ph, %if.end42 ], [ %advise_slowlog_enabled.1, %if.end57 ]
+  %advices.3 = phi i32 [ %advices.1, %if.end42 ], [ %add58, %if.end57 ]
+  %advise_slowlog_enabled.1 = phi i32 [ %advise_slowlog_enabled.0.ph, %if.end42 ], [ %advise_slowlog_enabled.2, %if.end57 ]
   %call60 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.11) #13
   %tobool61.not = icmp eq i32 %call60, 0
   %spec.select69 = select i1 %tobool61.not, i32 1, i32 %advise_scheduler.0.ph
   %inc63 = zext i1 %tobool61.not to i32
-  %spec.select70 = add nsw i32 %advices.4, %inc63
+  %spec.select70 = add nsw i32 %advices.3, %inc63
   %call65 = tail call i32 @strcasecmp(ptr noundef %call8, ptr noundef nonnull @.str.12) #13
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.then67, label %if.end69
@@ -752,92 +752,92 @@ if.then140:                                       ; preds = %if.else137
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then140, %if.else137
-  %report.3 = phi ptr [ %call141, %if.then140 ], [ %call138, %if.else137 ]
+  %report.4 = phi ptr [ %call141, %if.then140 ], [ %call138, %if.else137 ]
   %tobool143.not = icmp eq i32 %advise_slowlog_enabled.0.ph, 0
   br i1 %tobool143.not, label %if.end146, label %if.then144
 
 if.then144:                                       ; preds = %if.end142
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
   %mul = mul i64 %13, 1000
-  %call145 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.3, ptr noundef nonnull @.str.28, i64 noundef %mul) #14
+  %call145 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.4, ptr noundef nonnull @.str.28, i64 noundef %mul) #14
   br label %if.end146
 
 if.end146:                                        ; preds = %if.then144, %if.end142
-  %report.4 = phi ptr [ %call145, %if.then144 ], [ %report.3, %if.end142 ]
+  %report.5 = phi ptr [ %call145, %if.then144 ], [ %report.4, %if.end142 ]
   %tobool147.not = icmp eq i32 %advise_slowlog_tuning.0.ph, 0
   br i1 %tobool147.not, label %if.end151, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
   %mul149 = mul i64 %14, 1000
-  %call150 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.4, ptr noundef nonnull @.str.29, i64 noundef %mul149) #14
+  %call150 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.5, ptr noundef nonnull @.str.29, i64 noundef %mul149) #14
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then148, %if.end146
-  %report.5 = phi ptr [ %call150, %if.then148 ], [ %report.4, %if.end146 ]
+  %report.6 = phi ptr [ %call150, %if.then148 ], [ %report.5, %if.end146 ]
   %tobool152.not = icmp eq i32 %advise_slowlog_inspect.0.ph, 0
   br i1 %tobool152.not, label %if.end155, label %if.then153
 
 if.then153:                                       ; preds = %if.end151
-  %call154 = tail call ptr @sdscat(ptr noundef %report.5, ptr noundef nonnull @.str.30) #14
+  %call154 = tail call ptr @sdscat(ptr noundef %report.6, ptr noundef nonnull @.str.30) #14
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then153, %if.end151
-  %report.6 = phi ptr [ %call154, %if.then153 ], [ %report.5, %if.end151 ]
+  %report.7 = phi ptr [ %call154, %if.then153 ], [ %report.6, %if.end151 ]
   %tobool156.not = icmp eq i32 %advise_scheduler.0.ph, 0
   br i1 %tobool156.not, label %if.end159, label %if.then157
 
 if.then157:                                       ; preds = %if.end155
-  %call158 = tail call ptr @sdscat(ptr noundef %report.6, ptr noundef nonnull @.str.31) #14
+  %call158 = tail call ptr @sdscat(ptr noundef %report.7, ptr noundef nonnull @.str.31) #14
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then157, %if.end155
-  %report.7 = phi ptr [ %call158, %if.then157 ], [ %report.6, %if.end155 ]
+  %report.8 = phi ptr [ %call158, %if.then157 ], [ %report.7, %if.end155 ]
   %tobool160.not = icmp eq i32 %advise_local_disk.0.ph, 0
   br i1 %tobool160.not, label %if.end163, label %if.then161
 
 if.then161:                                       ; preds = %if.end159
-  %call162 = tail call ptr @sdscat(ptr noundef %report.7, ptr noundef nonnull @.str.32) #14
+  %call162 = tail call ptr @sdscat(ptr noundef %report.8, ptr noundef nonnull @.str.32) #14
   br label %if.end163
 
 if.end163:                                        ; preds = %if.then161, %if.end159
-  %report.8 = phi ptr [ %call162, %if.then161 ], [ %report.7, %if.end159 ]
+  %report.9 = phi ptr [ %call162, %if.then161 ], [ %report.8, %if.end159 ]
   %tobool164.not = icmp eq i32 %advise_ssd.0.ph, 0
   br i1 %tobool164.not, label %if.end167, label %if.then165
 
 if.then165:                                       ; preds = %if.end163
-  %call166 = tail call ptr @sdscat(ptr noundef %report.8, ptr noundef nonnull @.str.33) #14
+  %call166 = tail call ptr @sdscat(ptr noundef %report.9, ptr noundef nonnull @.str.33) #14
   br label %if.end167
 
 if.end167:                                        ; preds = %if.then165, %if.end163
-  %report.9 = phi ptr [ %call166, %if.then165 ], [ %report.8, %if.end163 ]
+  %report.10 = phi ptr [ %call166, %if.then165 ], [ %report.9, %if.end163 ]
   %tobool168.not = icmp eq i32 %advise_data_writeback.0.ph, 0
   br i1 %tobool168.not, label %if.end171, label %if.then169
 
 if.then169:                                       ; preds = %if.end167
-  %call170 = tail call ptr @sdscat(ptr noundef %report.9, ptr noundef nonnull @.str.34) #14
+  %call170 = tail call ptr @sdscat(ptr noundef %report.10, ptr noundef nonnull @.str.34) #14
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then169, %if.end167
-  %report.10 = phi ptr [ %call170, %if.then169 ], [ %report.9, %if.end167 ]
+  %report.11 = phi ptr [ %call170, %if.then169 ], [ %report.10, %if.end167 ]
   %tobool172.not = icmp eq i32 %advise_disk_contention.0.ph, 0
   br i1 %tobool172.not, label %if.end175, label %if.then173
 
 if.then173:                                       ; preds = %if.end171
-  %call174 = tail call ptr @sdscat(ptr noundef %report.10, ptr noundef nonnull @.str.35) #14
+  %call174 = tail call ptr @sdscat(ptr noundef %report.11, ptr noundef nonnull @.str.35) #14
   br label %if.end175
 
 if.end175:                                        ; preds = %if.then173, %if.end171
-  %report.11 = phi ptr [ %call174, %if.then173 ], [ %report.10, %if.end171 ]
+  %report.12 = phi ptr [ %call174, %if.then173 ], [ %report.11, %if.end171 ]
   %tobool176.not = icmp eq i32 %advise_no_appendfsync.0.ph, 0
   br i1 %tobool176.not, label %if.end179, label %if.then177
 
 if.then177:                                       ; preds = %if.end175
-  %call178 = tail call ptr @sdscat(ptr noundef %report.11, ptr noundef nonnull @.str.36) #14
+  %call178 = tail call ptr @sdscat(ptr noundef %report.12, ptr noundef nonnull @.str.36) #14
   br label %if.end179
 
 if.end179:                                        ; preds = %if.then177, %if.end175
-  %report.12 = phi ptr [ %call178, %if.then177 ], [ %report.11, %if.end175 ]
+  %report.13 = phi ptr [ %call178, %if.then177 ], [ %report.12, %if.end175 ]
   %tobool180.not = icmp ne i32 %advise_relax_fsync_policy.0.ph, 0
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3908), align 4
   %cmp182 = icmp eq i32 %15, 1
@@ -845,20 +845,20 @@ if.end179:                                        ; preds = %if.then177, %if.end
   br i1 %or.cond74, label %if.then184, label %if.end186
 
 if.then184:                                       ; preds = %if.end179
-  %call185 = tail call ptr @sdscat(ptr noundef %report.12, ptr noundef nonnull @.str.37) #14
+  %call185 = tail call ptr @sdscat(ptr noundef %report.13, ptr noundef nonnull @.str.37) #14
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then184, %if.end179
-  %report.13 = phi ptr [ %call185, %if.then184 ], [ %report.12, %if.end179 ]
+  %report.14 = phi ptr [ %call185, %if.then184 ], [ %report.13, %if.end179 ]
   %tobool187.not = icmp eq i32 %advise_write_load_info.0.ph, 0
   br i1 %tobool187.not, label %if.end190, label %if.then188
 
 if.then188:                                       ; preds = %if.end186
-  %call189 = tail call ptr @sdscat(ptr noundef %report.13, ptr noundef nonnull @.str.38) #14
+  %call189 = tail call ptr @sdscat(ptr noundef %report.14, ptr noundef nonnull @.str.38) #14
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then188, %if.end186
-  %report.14 = phi ptr [ %call189, %if.then188 ], [ %report.13, %if.end186 ]
+  %report.15 = phi ptr [ %call189, %if.then188 ], [ %report.14, %if.end186 ]
   %tobool191.not = icmp ne i32 %advise_hz.0.ph, 0
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 52), align 4
   %cmp193 = icmp slt i32 %16, 100
@@ -866,37 +866,37 @@ if.end190:                                        ; preds = %if.then188, %if.end
   br i1 %or.cond75, label %if.then195, label %if.end197
 
 if.then195:                                       ; preds = %if.end190
-  %call196 = tail call ptr @sdscat(ptr noundef %report.14, ptr noundef nonnull @.str.39) #14
+  %call196 = tail call ptr @sdscat(ptr noundef %report.15, ptr noundef nonnull @.str.39) #14
   br label %if.end197
 
 if.end197:                                        ; preds = %if.then195, %if.end190
-  %report.15 = phi ptr [ %call196, %if.then195 ], [ %report.14, %if.end190 ]
+  %report.16 = phi ptr [ %call196, %if.then195 ], [ %report.15, %if.end190 ]
   %tobool198.not = icmp eq i32 %advise_large_objects.0.ph, 0
   br i1 %tobool198.not, label %if.end201, label %if.then199
 
 if.then199:                                       ; preds = %if.end197
-  %call200 = tail call ptr @sdscat(ptr noundef %report.15, ptr noundef nonnull @.str.40) #14
+  %call200 = tail call ptr @sdscat(ptr noundef %report.16, ptr noundef nonnull @.str.40) #14
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then199, %if.end197
-  %report.16 = phi ptr [ %call200, %if.then199 ], [ %report.15, %if.end197 ]
+  %report.17 = phi ptr [ %call200, %if.then199 ], [ %report.16, %if.end197 ]
   %tobool202.not = icmp eq i32 %advise_mass_eviction.0.ph, 0
   br i1 %tobool202.not, label %if.end205, label %if.then203
 
 if.then203:                                       ; preds = %if.end201
-  %call204 = tail call ptr @sdscat(ptr noundef %report.16, ptr noundef nonnull @.str.41) #14
+  %call204 = tail call ptr @sdscat(ptr noundef %report.17, ptr noundef nonnull @.str.41) #14
   br label %if.end205
 
 if.end205:                                        ; preds = %if.then203, %if.end201
-  %report.17 = phi ptr [ %call204, %if.then203 ], [ %report.16, %if.end201 ]
+  %report.18 = phi ptr [ %call204, %if.then203 ], [ %report.17, %if.end201 ]
   br i1 %cmp117, label %if.then207, label %return
 
 if.then207:                                       ; preds = %if.end205
-  %call208 = tail call ptr @sdscat(ptr noundef %report.17, ptr noundef nonnull @.str.42) #14
+  %call208 = tail call ptr @sdscat(ptr noundef %report.18, ptr noundef nonnull @.str.42) #14
   br label %return
 
 return:                                           ; preds = %if.then127, %if.end205, %if.then207, %if.then135, %if.then
-  %retval.0 = phi ptr [ %call4, %if.then ], [ %call128, %if.then127 ], [ %call136, %if.then135 ], [ %call208, %if.then207 ], [ %report.17, %if.end205 ]
+  %retval.0 = phi ptr [ %call4, %if.then ], [ %call128, %if.then127 ], [ %call136, %if.then135 ], [ %call208, %if.then207 ], [ %report.18, %if.end205 ]
   ret ptr %retval.0
 }
 
@@ -1085,7 +1085,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 2, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %command_with_data.047 = phi i32 [ 0, %for.body.lr.ph ], [ %command_with_data.4, %for.inc ]
+  %command_with_data.047 = phi i32 [ 0, %for.body.lr.ph ], [ %command_with_data.1, %for.inc ]
   %1 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
@@ -1153,7 +1153,7 @@ sdslen.exit:                                      ; preds = %if.then3, %sw.bb.i,
   br label %if.end7
 
 if.end7:                                          ; preds = %sdslen.exit, %if.end
-  %command_with_data.1 = phi i32 [ %inc, %sdslen.exit ], [ %command_with_data.047, %if.end ]
+  %command_with_data.2 = phi i32 [ %inc, %sdslen.exit ], [ %command_with_data.047, %if.end ]
   %subcommands_dict = getelementptr inbounds i8, ptr %call1, i64 288
   %12 = load ptr, ptr %subcommands_dict, align 8
   %tobool8.not = icmp eq ptr %12, null
@@ -1167,7 +1167,7 @@ if.then9:                                         ; preds = %if.end7
 
 while.body:                                       ; preds = %if.then9, %if.end23
   %call1244 = phi ptr [ %call12, %if.end23 ], [ %call1241, %if.then9 ]
-  %command_with_data.243 = phi i32 [ %command_with_data.3, %if.end23 ], [ %command_with_data.1, %if.then9 ]
+  %command_with_data.343 = phi i32 [ %command_with_data.4, %if.end23 ], [ %command_with_data.2, %if.then9 ]
   %call14 = call ptr @dictGetVal(ptr noundef nonnull %call1244) #14
   %latency_histogram15 = getelementptr inbounds i8, ptr %call14, i64 224
   %13 = load ptr, ptr %latency_histogram15, align 8
@@ -1261,22 +1261,22 @@ fillCommandCDF.exit:                              ; preds = %sdslen.exit40, %whi
   %samples.0.lcssa.i = phi i64 [ 0, %sdslen.exit40 ], [ %24, %while.end.loopexit.i ]
   call void @setDeferredMapLen(ptr noundef %c, ptr noundef %call.i, i64 noundef %samples.0.lcssa.i) #14
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %iter.i)
-  %inc22 = add nsw i32 %command_with_data.243, 1
+  %inc22 = add nsw i32 %command_with_data.343, 1
   br label %if.end23
 
 if.end23:                                         ; preds = %fillCommandCDF.exit, %while.body
-  %command_with_data.3 = phi i32 [ %inc22, %fillCommandCDF.exit ], [ %command_with_data.243, %while.body ]
+  %command_with_data.4 = phi i32 [ %inc22, %fillCommandCDF.exit ], [ %command_with_data.343, %while.body ]
   %call12 = call ptr @dictNext(ptr noundef %call11) #14
   %cmp13.not = icmp eq ptr %call12, null
   br i1 %cmp13.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end23, %if.then9
-  %command_with_data.2.lcssa = phi i32 [ %command_with_data.1, %if.then9 ], [ %command_with_data.3, %if.end23 ]
+  %command_with_data.3.lcssa = phi i32 [ %command_with_data.2, %if.then9 ], [ %command_with_data.4, %if.end23 ]
   call void @dictReleaseIterator(ptr noundef %call11) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end7, %while.end, %for.body
-  %command_with_data.4 = phi i32 [ %command_with_data.047, %for.body ], [ %command_with_data.2.lcssa, %while.end ], [ %command_with_data.1, %if.end7 ]
+  %command_with_data.1 = phi i32 [ %command_with_data.047, %for.body ], [ %command_with_data.3.lcssa, %while.end ], [ %command_with_data.2, %if.end7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %argc, align 8
   %26 = sext i32 %25 to i64
@@ -1284,7 +1284,7 @@ for.inc:                                          ; preds = %if.end7, %while.end
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !13
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %27 = sext i32 %command_with_data.4 to i64
+  %27 = sext i32 %command_with_data.1 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -1403,8 +1403,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %j.041 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
-  %max.040 = phi i32 [ 0, %entry ], [ %max.3, %for.inc ]
-  %min.039 = phi i32 [ 0, %entry ], [ %min.2, %for.inc ]
+  %max.040 = phi i32 [ 0, %entry ], [ %max.1, %for.inc ]
+  %min.039 = phi i32 [ 0, %entry ], [ %min.1, %for.inc ]
   %0 = load i32, ptr %ts, align 4
   %add = add nsw i32 %0, %j.041
   %rem = srem i32 %add, 160
@@ -1427,7 +1427,7 @@ if.else:                                          ; preds = %if.end
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end, %if.else
-  %min.1 = phi i32 [ %spec.select37, %if.else ], [ %3, %if.end ]
+  %min.2 = phi i32 [ %spec.select37, %if.else ], [ %3, %if.end ]
   %max.2 = phi i32 [ %spec.select, %if.else ], [ %3, %if.end ]
   %call31 = call i64 @time(ptr noundef null) #14
   %4 = load i32, ptr %arrayidx, align 4
@@ -1473,15 +1473,15 @@ if.end60:                                         ; preds = %if.then44, %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end60
-  %min.2 = phi i32 [ %min.039, %for.body ], [ %min.1, %if.end60 ]
-  %max.3 = phi i32 [ %max.040, %for.body ], [ %max.2, %if.end60 ]
+  %min.1 = phi i32 [ %min.039, %for.body ], [ %min.2, %if.end60 ]
+  %max.1 = phi i32 [ %max.040, %for.body ], [ %max.2, %if.end60 ]
   %inc = add nuw nsw i32 %j.041, 1
   %exitcond.not = icmp eq i32 %inc, 160
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
-  %conv67 = zext i32 %max.3 to i64
-  %conv68 = zext i32 %min.2 to i64
+  %conv67 = zext i32 %max.1 to i64
+  %conv68 = zext i32 %min.1 to i64
   %max69 = getelementptr inbounds i8, ptr %ts, i64 4
   %7 = load i32, ptr %max69, align 4
   %conv70 = zext i32 %7 to i64

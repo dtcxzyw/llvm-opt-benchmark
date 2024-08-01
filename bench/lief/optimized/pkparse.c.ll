@@ -1375,12 +1375,12 @@ asn1_get_nonzero_mpi.exit.thread:                 ; preds = %21, %asn1_get_nonze
   br label %.thread79
 
 .thread79:                                        ; preds = %62, %asn1_get_nonzero_mpi.exit.thread, %asn1_get_nonzero_mpi.exit.thread.thread
-  %.1 = phi i32 [ -15616, %asn1_get_nonzero_mpi.exit.thread.thread ], [ %spec.select, %asn1_get_nonzero_mpi.exit.thread ], [ -15616, %62 ]
+  %.2 = phi i32 [ -15616, %asn1_get_nonzero_mpi.exit.thread.thread ], [ %spec.select, %asn1_get_nonzero_mpi.exit.thread ], [ -15616, %62 ]
   call void @mbedtls_rsa_free(ptr noundef %0) #10
   br label %67
 
 67:                                               ; preds = %62, %.thread79, %19, %17, %10
-  %.030 = phi i32 [ %11, %10 ], [ %18, %17 ], [ -15744, %19 ], [ %.1, %.thread79 ], [ 0, %62 ]
+  %.030 = phi i32 [ %11, %10 ], [ %18, %17 ], [ -15744, %19 ], [ %.2, %.thread79 ], [ 0, %62 ]
   ret i32 %.030
 }
 

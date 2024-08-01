@@ -1624,14 +1624,14 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br label %43
 
 43:                                               ; preds = %49, %40
-  %.1 = phi ptr [ %5, %40 ], [ %45, %49 ]
-  %44 = getelementptr inbounds i8, ptr %.1, i64 32
+  %.2 = phi ptr [ %5, %40 ], [ %45, %49 ]
+  %44 = getelementptr inbounds i8, ptr %.2, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.loopexit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.1, i64 16
+  %47 = getelementptr inbounds i8, ptr %.2, i64 16
   %48 = load i32, ptr %47, align 8
   %.off = add i32 %48, -3
   %switch = icmp ult i32 %.off, 2
@@ -1644,10 +1644,10 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br i1 %.not64, label %.loopexit, label %43
 
 .loopexit:                                        ; preds = %46, %49, %43, %27, %23, %20
-  %.2 = phi ptr [ %.057, %20 ], [ %.057, %23 ], [ %.057, %27 ], [ %.1, %43 ], [ %.1, %49 ], [ %.1, %46 ]
+  %.1 = phi ptr [ %.057, %20 ], [ %.057, %23 ], [ %.057, %27 ], [ %.2, %43 ], [ %.2, %49 ], [ %.2, %46 ]
   %52 = getelementptr inbounds i8, ptr %1, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.2, i64 8
+  %54 = getelementptr inbounds i8, ptr %.1, i64 8
   %55 = tail call ptr @H5SL_remove(ptr noundef %53, ptr noundef nonnull %54) #9
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %61
@@ -1661,8 +1661,8 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
 61:                                               ; preds = %.loopexit
   %62 = getelementptr inbounds i8, ptr %1, i64 64
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %.2
-  %65 = getelementptr inbounds i8, ptr %.2, i64 24
+  %64 = icmp eq ptr %63, %.1
+  %65 = getelementptr inbounds i8, ptr %.1, i64 24
   %66 = load ptr, ptr %65, align 8
   br i1 %64, label %67, label %70
 
@@ -1677,7 +1677,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br label %74
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %.2, i64 32
+  %71 = getelementptr inbounds i8, ptr %.1, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   store ptr %66, ptr %73, align 8
@@ -1685,8 +1685,8 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
 
 74:                                               ; preds = %67, %68, %70
   %75 = load ptr, ptr %4, align 8
-  %76 = icmp eq ptr %75, %.2
-  %77 = getelementptr inbounds i8, ptr %.2, i64 32
+  %76 = icmp eq ptr %75, %.1
+  %77 = getelementptr inbounds i8, ptr %.1, i64 32
   %78 = load ptr, ptr %77, align 8
   br i1 %76, label %79, label %82
 
@@ -1701,20 +1701,20 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br label %86
 
 82:                                               ; preds = %74
-  %83 = getelementptr inbounds i8, ptr %.2, i64 24
+  %83 = getelementptr inbounds i8, ptr %.1, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 32
   store ptr %78, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %79, %80, %82
-  %87 = getelementptr inbounds i8, ptr %.2, i64 24
+  %87 = getelementptr inbounds i8, ptr %.1, i64 24
   %88 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, -1
   store i64 %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %.2, i64 16
+  %91 = getelementptr inbounds i8, ptr %.1, i64 16
   %92 = load i32, ptr %91, align 8
   %.off69 = add i32 %92, -3
   %switch70 = icmp ult i32 %.off69, 2
@@ -1735,13 +1735,13 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br label %101
 
 101:                                              ; preds = %97, %93
-  %102 = getelementptr inbounds i8, ptr %.2, i64 20
+  %102 = getelementptr inbounds i8, ptr %.1, i64 20
   %103 = load i8, ptr %102, align 4
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %101
-  %106 = tail call fastcc i32 @H5PB__write_entry(ptr noundef %0, ptr noundef nonnull %.2)
+  %106 = tail call fastcc i32 @H5PB__write_entry(ptr noundef %0, ptr noundef nonnull %.1)
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %108, label %112
 
@@ -1774,10 +1774,10 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
 122:                                              ; preds = %118, %114
   %123 = getelementptr inbounds i8, ptr %1, i64 80
   %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %.2, align 8
+  %125 = load ptr, ptr %.1, align 8
   %126 = tail call ptr @H5FL_fac_free(ptr noundef %124, ptr noundef %125) #9
-  store ptr %126, ptr %.2, align 8
-  %127 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5PB_entry_t_reg_free_list, ptr noundef nonnull %.2) #9
+  store ptr %126, ptr %.1, align 8
+  %127 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5PB_entry_t_reg_free_list, ptr noundef nonnull %.1) #9
   br label %128
 
 128:                                              ; preds = %34, %11, %122, %108, %57

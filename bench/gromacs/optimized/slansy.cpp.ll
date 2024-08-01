@@ -56,19 +56,19 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 .lr.ph222:                                        ; preds = %.lr.ph222.preheader, %31
   %indvars.iv282 = phi i64 [ 1, %.lr.ph222.preheader ], [ %indvars.iv.next283, %31 ]
   %indvars.iv280 = phi i64 [ 2, %.lr.ph222.preheader ], [ %indvars.iv.next281, %31 ]
-  %.0220 = phi float [ 0.000000e+00, %.lr.ph222.preheader ], [ %30, %31 ]
+  %.1220 = phi float [ 0.000000e+00, %.lr.ph222.preheader ], [ %30, %31 ]
   %25 = mul nsw i64 %indvars.iv282, %23
   %invariant.gep314 = getelementptr float, ptr %14, i64 %25
   br label %26
 
 26:                                               ; preds = %.lr.ph222, %26
   %indvars.iv273 = phi i64 [ 1, %.lr.ph222 ], [ %indvars.iv.next274, %26 ]
-  %.1215 = phi float [ %.0220, %.lr.ph222 ], [ %30, %26 ]
+  %.2215 = phi float [ %.1220, %.lr.ph222 ], [ %30, %26 ]
   %gep315 = getelementptr float, ptr %invariant.gep314, i64 %indvars.iv273
   %27 = load float, ptr %gep315, align 4
   %28 = tail call noundef float @llvm.fabs.f32(float %27)
-  %29 = fcmp ogt float %.1215, %28
-  %30 = select i1 %29, float %.1215, float %28
+  %29 = fcmp ogt float %.2215, %28
+  %30 = select i1 %29, float %.2215, float %28
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond279.not = icmp eq i64 %indvars.iv.next274, %indvars.iv280
   br i1 %exitcond279.not, label %31, label %26, !llvm.loop !4
@@ -91,19 +91,19 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %41
   %indvars.iv289 = phi i64 [ 1, %.lr.ph233.preheader ], [ %indvars.iv.next290, %41 ]
-  %.2231 = phi float [ 0.000000e+00, %.lr.ph233.preheader ], [ %40, %41 ]
+  %.3231 = phi float [ 0.000000e+00, %.lr.ph233.preheader ], [ %40, %41 ]
   %35 = mul nsw i64 %indvars.iv289, %34
   %invariant.gep316 = getelementptr float, ptr %14, i64 %35
   br label %36
 
 36:                                               ; preds = %.lr.ph233, %36
   %indvars.iv291 = phi i64 [ %indvars.iv289, %.lr.ph233 ], [ %indvars.iv.next292, %36 ]
-  %.3226 = phi float [ %.2231, %.lr.ph233 ], [ %40, %36 ]
+  %.4226 = phi float [ %.3231, %.lr.ph233 ], [ %40, %36 ]
   %gep317 = getelementptr float, ptr %invariant.gep316, i64 %indvars.iv291
   %37 = load float, ptr %gep317, align 4
   %38 = tail call noundef float @llvm.fabs.f32(float %37)
-  %39 = fcmp ogt float %.3226, %38
-  %40 = select i1 %39, float %.3226, float %38
+  %39 = fcmp ogt float %.4226, %38
+  %40 = select i1 %39, float %.4226, float %38
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count297
   br i1 %exitcond295.not, label %41, label %36, !llvm.loop !7
@@ -183,11 +183,11 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
   %indvars.iv255 = phi i64 [ 1, %.lr.ph187.preheader ], [ %indvars.iv.next256, %.lr.ph187 ]
-  %.4185 = phi float [ 0.000000e+00, %.lr.ph187.preheader ], [ %71, %.lr.ph187 ]
+  %.5185 = phi float [ 0.000000e+00, %.lr.ph187.preheader ], [ %71, %.lr.ph187 ]
   %68 = getelementptr inbounds float, ptr %15, i64 %indvars.iv255
   %69 = load float, ptr %68, align 4
-  %70 = fcmp ogt float %.4185, %69
-  %71 = select i1 %70, float %.4185, float %69
+  %70 = fcmp ogt float %.5185, %69
+  %71 = select i1 %70, float %.5185, float %69
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count
   br i1 %exitcond258.not, label %.loopexit162, label %.lr.ph187, !llvm.loop !11
@@ -213,7 +213,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 .lr.ph210:                                        ; preds = %.lr.ph210.preheader, %._crit_edge200
   %indvars.iv268 = phi i64 [ 1, %.lr.ph210.preheader ], [ %indvars.iv.next269, %._crit_edge200 ]
   %indvars.iv262 = phi i32 [ 2, %.lr.ph210.preheader ], [ %indvars.iv.next263, %._crit_edge200 ]
-  %.5208 = phi float [ 0.000000e+00, %.lr.ph210.preheader ], [ %.6, %._crit_edge200 ]
+  %.6208 = phi float [ 0.000000e+00, %.lr.ph210.preheader ], [ %.7, %._crit_edge200 ]
   %indvars270 = trunc i64 %indvars.iv268 to i32
   %77 = getelementptr inbounds float, ptr %15, i64 %indvars.iv268
   %78 = load float, ptr %77, align 4
@@ -255,8 +255,8 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 ._crit_edge200:                                   ; preds = %.lr.ph199, %.lr.ph210
   %.lcssa195 = phi float [ %85, %.lr.ph210 ], [ %94, %.lr.ph199 ]
-  %98 = fcmp ogt float %.lcssa195, %.5208
-  %.6 = select i1 %98, float %.lcssa195, float %.5208
+  %98 = fcmp ogt float %.lcssa195, %.6208
+  %.7 = select i1 %98, float %.lcssa195, float %.6208
   %indvars.iv.next263 = add nuw i32 %indvars.iv262, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %.loopexit162, label %.lr.ph210, !llvm.loop !13
@@ -331,8 +331,8 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br label %.loopexit162
 
 .loopexit162:                                     ; preds = %.lr.ph187, %._crit_edge200, %31, %41, %._crit_edge193, %72, %22, %32, %44, %66, %18, %6, %.loopexit163
-  %.7 = phi float [ %124, %.loopexit163 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %._crit_edge193 ], [ 0.000000e+00, %72 ], [ %40, %41 ], [ %30, %31 ], [ %.6, %._crit_edge200 ], [ %71, %.lr.ph187 ]
-  ret float %.7
+  %.0 = phi float [ %124, %.loopexit163 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %66 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %._crit_edge193 ], [ 0.000000e+00, %72 ], [ %40, %41 ], [ %30, %31 ], [ %.7, %._crit_edge200 ], [ %71, %.lr.ph187 ]
+  ret float %.0
 }
 
 declare void @slassq_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

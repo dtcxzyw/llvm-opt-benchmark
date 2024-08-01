@@ -1016,7 +1016,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
 .lr.ph131.split.us:                               ; preds = %.lr.ph131, %.loopexit.split.us.us
   %19 = phi i32 [ %31, %.loopexit.split.us.us ], [ %14, %.lr.ph131 ]
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.loopexit.split.us.us ], [ 0, %.lr.ph131 ]
-  %.079129.us = phi ptr [ %.1.us, %.loopexit.split.us.us ], [ null, %.lr.ph131 ]
+  %.1129.us = phi ptr [ %.2.us, %.loopexit.split.us.us ], [ null, %.lr.ph131 ]
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr i64, ptr %20, i64 %indvars.iv158
   %22 = load i64, ptr %21, align 8
@@ -1031,13 +1031,13 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
 
 .thread109.us:                                    ; preds = %54, %.lr.ph131.split.us
   %29 = load ptr, ptr @CurrentMemoryContext, align 8
-  %30 = call ptr @accumArrayResult(ptr noundef %.079129.us, i64 noundef %22, i1 noundef zeroext false, i32 noundef 25, ptr noundef %29) #12
+  %30 = call ptr @accumArrayResult(ptr noundef %.1129.us, i64 noundef %22, i1 noundef zeroext false, i32 noundef 25, ptr noundef %29) #12
   %.pre164 = load i32, ptr %8, align 4
   br label %.loopexit.split.us.us
 
 .loopexit.split.us.us:                            ; preds = %51, %.thread109.us
   %31 = phi i32 [ %.pre164, %.thread109.us ], [ %19, %51 ]
-  %.1.us = phi ptr [ %30, %.thread109.us ], [ %.079129.us, %51 ]
+  %.2.us = phi ptr [ %30, %.thread109.us ], [ %.1129.us, %51 ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next159, %32
@@ -1086,7 +1086,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
 .lr.ph131.split:                                  ; preds = %.lr.ph131, %.loopexit.split
   %55 = phi i32 [ %91, %.loopexit.split ], [ %14, %.lr.ph131 ]
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.loopexit.split ], [ 0, %.lr.ph131 ]
-  %.079129 = phi ptr [ %.1, %.loopexit.split ], [ null, %.lr.ph131 ]
+  %.1129 = phi ptr [ %.2, %.loopexit.split ], [ null, %.lr.ph131 ]
   %56 = load ptr, ptr %7, align 8
   %57 = getelementptr i64, ptr %56, i64 %indvars.iv150
   %58 = load i64, ptr %57, align 8
@@ -1146,20 +1146,20 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
 
 .thread109:                                       ; preds = %88, %.lr.ph131.split
   %89 = load ptr, ptr @CurrentMemoryContext, align 8
-  %90 = call ptr @accumArrayResult(ptr noundef %.079129, i64 noundef %58, i1 noundef zeroext false, i32 noundef 25, ptr noundef %89) #12
+  %90 = call ptr @accumArrayResult(ptr noundef %.1129, i64 noundef %58, i1 noundef zeroext false, i32 noundef 25, ptr noundef %89) #12
   %.pre = load i32, ptr %8, align 4
   br label %.loopexit.split
 
 .loopexit.split:                                  ; preds = %85, %.thread109
   %91 = phi i32 [ %.pre, %.thread109 ], [ %55, %85 ]
-  %.1 = phi ptr [ %90, %.thread109 ], [ %.079129, %85 ]
+  %.2 = phi ptr [ %90, %.thread109 ], [ %.1129, %85 ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next151, %92
   br i1 %93, label %.lr.ph131.split, label %.loopexit119, !llvm.loop !5
 
 .loopexit119:                                     ; preds = %.loopexit.split, %.loopexit.split.us.us, %11, %10
-  %.2 = phi ptr [ null, %10 ], [ null, %11 ], [ %.1.us, %.loopexit.split.us.us ], [ %.1, %.loopexit.split ]
+  %.079 = phi ptr [ null, %10 ], [ null, %11 ], [ %.2.us, %.loopexit.split.us.us ], [ %.2, %.loopexit.split ]
   %94 = getelementptr inbounds i8, ptr %1, i64 4
   %95 = load i32, ptr %94, align 4
   %.not92137 = icmp sgt i32 %95, 0
@@ -1192,7 +1192,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
 
 .lr.ph140.split:                                  ; preds = %.lr.ph140, %.thread117
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.thread117 ], [ 0, %.lr.ph140 ]
-  %.3139 = phi ptr [ %.4, %.thread117 ], [ %.2, %.lr.ph140 ]
+  %.3139 = phi ptr [ %.4, %.thread117 ], [ %.079, %.lr.ph140 ]
   %106 = load ptr, ptr %96, align 8
   %107 = getelementptr %union.ListCell, ptr %106, i64 %indvars.iv161
   %108 = load ptr, ptr %107, align 8
@@ -1319,7 +1319,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %.not92, label %.lr.ph140.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.thread117, %.thread117.us, %.loopexit119
-  %.3.lcssa = phi ptr [ %.2, %.loopexit119 ], [ %.2, %.thread117.us ], [ %.4, %.thread117 ]
+  %.3.lcssa = phi ptr [ %.079, %.loopexit119 ], [ %.079, %.thread117.us ], [ %.4, %.thread117 ]
   %.not93 = icmp eq ptr %.3.lcssa, null
   br i1 %.not93, label %172, label %169
 
@@ -1828,7 +1828,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread96
   %indvars.iv123 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next124, %.thread96 ]
-  %.080109 = phi i32 [ %8, %.preheader.preheader ], [ %.2100, %.thread96 ]
+  %.080109 = phi i32 [ %8, %.preheader.preheader ], [ %.1100, %.thread96 ]
   %11 = getelementptr %struct.relopt_value, ptr %2, i64 %indvars.iv123
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
@@ -2009,13 +2009,13 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   unreachable
 
 .thread96:                                        ; preds = %79, %76, %82, %.thread94, %47, %40, %33, %27, %._crit_edge
-  %.2100 = phi i32 [ %.080109, %._crit_edge ], [ %.080109, %27 ], [ %.080109, %33 ], [ %.080109, %40 ], [ %.080109, %47 ], [ %89, %82 ], [ %.080109, %.thread94 ], [ %.080109, %79 ], [ %78, %76 ]
+  %.1100 = phi i32 [ %.080109, %._crit_edge ], [ %.080109, %27 ], [ %.080109, %33 ], [ %.080109, %40 ], [ %.080109, %47 ], [ %89, %82 ], [ %.080109, %.thread94 ], [ %.080109, %79 ], [ %78, %76 ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %._crit_edge111, label %.preheader, !llvm.loop !15
 
 ._crit_edge111:                                   ; preds = %.thread96, %.preheader.lr.ph.split.us, %7
-  %.080.lcssa = phi i32 [ %8, %7 ], [ %8, %.preheader.lr.ph.split.us ], [ %.2100, %.thread96 ]
+  %.080.lcssa = phi i32 [ %8, %7 ], [ %8, %.preheader.lr.ph.split.us ], [ %.1100, %.thread96 ]
   %102 = shl i32 %.080.lcssa, 2
   store i32 %102, ptr %0, align 4
   ret void
@@ -2871,8 +2871,8 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br i1 %.not86.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %146, %142, %135
-  %.0.i = phi i8 [ 1, %142 ], [ 0, %135 ], [ 0, %146 ]
-  %149 = trunc nuw i8 %.0.i to i1
+  %.1.i = phi i8 [ 1, %142 ], [ 0, %135 ], [ 0, %146 ]
+  %149 = trunc nuw i8 %.1.i to i1
   br i1 %1, label %150, label %162
 
 150:                                              ; preds = %.loopexit.i
@@ -2938,8 +2938,8 @@ parse_one_reloption.exit.thread:                  ; preds = %167, %169, %172
   br label %196
 
 .thread.i:                                        ; preds = %163, %162, %150, %120, %114, %89, %83, %63
-  %.1.i = phi i8 [ %.0.i, %162 ], [ %.0.i, %163 ], [ %107, %120 ], [ %107, %114 ], [ %76, %89 ], [ %76, %83 ], [ %66, %63 ], [ %.0.i, %150 ]
-  %179 = trunc nuw i8 %.1.i to i1
+  %.0.i = phi i8 [ %.1.i, %162 ], [ %.1.i, %163 ], [ %107, %120 ], [ %107, %114 ], [ %76, %89 ], [ %76, %83 ], [ %66, %63 ], [ %.1.i, %150 ]
+  %179 = trunc nuw i8 %.0.i to i1
   br i1 %179, label %180, label %.thread100.i
 
 180:                                              ; preds = %.thread.i

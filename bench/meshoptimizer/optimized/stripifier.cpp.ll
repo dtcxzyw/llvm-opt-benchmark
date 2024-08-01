@@ -67,8 +67,8 @@ while.cond5.preheader:                            ; preds = %while.cond5.prehead
   %strip.sroa.0.0358 = phi i32 [ 0, %while.cond5.preheader.lr.ph ], [ %strip.sroa.0.1, %if.end227 ]
   %strip.sroa.7.0357 = phi i32 [ 0, %while.cond5.preheader.lr.ph ], [ %strip.sroa.7.1, %if.end227 ]
   %parity.0356 = phi i32 [ 0, %while.cond5.preheader.lr.ph ], [ %parity.1, %if.end227 ]
-  %strip_size.0355 = phi i64 [ 0, %while.cond5.preheader.lr.ph ], [ %strip_size.3, %if.end227 ]
-  %next.0354 = phi i32 [ -1, %while.cond5.preheader.lr.ph ], [ %next.2, %if.end227 ]
+  %strip_size.0355 = phi i64 [ 0, %while.cond5.preheader.lr.ph ], [ %strip_size.1, %if.end227 ]
+  %next.0354 = phi i32 [ -1, %while.cond5.preheader.lr.ph ], [ %next.1, %if.end227 ]
   %cmp6348 = icmp ult i32 %buffer_size.0360, 8
   %cmp7349 = icmp ult i64 %index_offset.0359, %index_count
   %4 = select i1 %cmp6348, i1 %cmp7349, i1 false
@@ -520,7 +520,7 @@ if.then178:                                       ; preds = %if.else176
   br label %if.end182
 
 if.end182:                                        ; preds = %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit, %if.else173, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread, %if.then178, %if.else176
-  %next.1 = phi i32 [ %retval.0.i282, %if.then178 ], [ %next.0354, %if.else176 ], [ %retval.0.i214.fr, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread ], [ %retval.0.i248, %if.else173 ], [ %next.0354, %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit ]
+  %next.2 = phi i32 [ %retval.0.i282, %if.then178 ], [ %next.0354, %if.else176 ], [ %retval.0.i214.fr, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread ], [ %retval.0.i248, %if.else173 ], [ %next.0354, %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit ]
   %a108.0 = phi i32 [ %32, %if.then178 ], [ %30, %if.else176 ], [ %30, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread ], [ %31, %if.else173 ], [ %30, %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit ]
   %b112.0 = phi i32 [ %30, %if.then178 ], [ %31, %if.else176 ], [ %31, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread ], [ %32, %if.else173 ], [ %31, %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit ]
   %c116.0 = phi i32 [ %31, %if.then178 ], [ %32, %if.else176 ], [ %32, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit294.thread ], [ %30, %if.else173 ], [ %32, %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit ]
@@ -537,12 +537,12 @@ if.then186:                                       ; preds = %if.then184
   br label %if.end189
 
 if.end189:                                        ; preds = %if.then186, %if.then184
-  %strip_size.1 = phi i64 [ %inc187, %if.then186 ], [ 0, %if.then184 ]
-  %arrayidx191 = getelementptr inbounds i32, ptr %destination, i64 %strip_size.1
+  %strip_size.2 = phi i64 [ %inc187, %if.then186 ], [ 0, %if.then184 ]
+  %arrayidx191 = getelementptr inbounds i32, ptr %destination, i64 %strip_size.2
   store i32 %a108.0, ptr %arrayidx191, align 4
   %arrayidx193 = getelementptr i8, ptr %arrayidx191, i64 4
   store i32 %b112.0, ptr %arrayidx193, align 4
-  %inc194 = add i64 %strip_size.1, 3
+  %inc194 = add i64 %strip_size.2, 3
   %arrayidx195 = getelementptr i8, ptr %arrayidx191, i64 8
   store i32 %c116.0, ptr %arrayidx195, align 4
   br label %if.end227
@@ -559,23 +559,23 @@ if.then200:                                       ; preds = %if.else198
   br label %if.end206
 
 if.end206:                                        ; preds = %if.then200, %if.else198
-  %strip_size.2 = phi i64 [ %inc204, %if.then200 ], [ 0, %if.else198 ]
+  %strip_size.3 = phi i64 [ %inc204, %if.then200 ], [ 0, %if.else198 ]
   %tobool207.not = icmp eq i32 %parity.0356, 0
   %cond211 = select i1 %tobool207.not, i32 %b112.0, i32 %c116.0
   %cond216 = select i1 %tobool207.not, i32 %c116.0, i32 %b112.0
-  %arrayidx218 = getelementptr inbounds i32, ptr %destination, i64 %strip_size.2
+  %arrayidx218 = getelementptr inbounds i32, ptr %destination, i64 %strip_size.3
   store i32 %a108.0, ptr %arrayidx218, align 4
   %arrayidx220 = getelementptr i8, ptr %arrayidx218, i64 4
   store i32 %cond211, ptr %arrayidx220, align 4
-  %inc221 = add i64 %strip_size.2, 3
+  %inc221 = add i64 %strip_size.3, 3
   %arrayidx222 = getelementptr i8, ptr %arrayidx218, i64 8
   store i32 %cond216, ptr %arrayidx222, align 4
   %xor225 = xor i32 %parity.0356, 1
   br label %if.end227
 
 if.end227:                                        ; preds = %if.end189, %if.end206, %if.then90, %if.else
-  %next.2 = phi i32 [ %cond87, %if.then90 ], [ %retval.0.i300309, %if.else ], [ %next.1, %if.end189 ], [ %next.1, %if.end206 ]
-  %strip_size.3 = phi i64 [ %inc94, %if.then90 ], [ %inc97, %if.else ], [ %inc194, %if.end189 ], [ %inc221, %if.end206 ]
+  %next.1 = phi i32 [ %cond87, %if.then90 ], [ %retval.0.i300309, %if.else ], [ %next.2, %if.end189 ], [ %next.2, %if.end206 ]
+  %strip_size.1 = phi i64 [ %inc94, %if.then90 ], [ %inc97, %if.else ], [ %inc194, %if.end189 ], [ %inc221, %if.end206 ]
   %parity.1 = phi i32 [ %parity.0356, %if.then90 ], [ %xor, %if.else ], [ 1, %if.end189 ], [ %xor225, %if.end206 ]
   %strip.sroa.7.1 = phi i32 [ %13, %if.then90 ], [ %13, %if.else ], [ %c116.0, %if.end189 ], [ %cond216, %if.end206 ]
   %strip.sroa.0.1 = phi i32 [ %strip.sroa.0.0358, %if.then90 ], [ %strip.sroa.7.0357, %if.else ], [ %b112.0, %if.end189 ], [ %cond211, %if.end206 ]
@@ -586,7 +586,7 @@ if.end227:                                        ; preds = %if.end189, %if.end2
   br i1 %46, label %while.cond5.preheader, label %while.end228, !llvm.loop !10
 
 while.end228:                                     ; preds = %if.end227, %invoke.cont
-  %strip_size.0.lcssa = phi i64 [ 0, %invoke.cont ], [ %strip_size.3, %if.end227 ]
+  %strip_size.0.lcssa = phi i64 [ 0, %invoke.cont ], [ %strip_size.1, %if.end227 ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i296, %while.end228

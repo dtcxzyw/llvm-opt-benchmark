@@ -671,10 +671,10 @@ delete.notnull.i.i:                               ; preds = %invoke.cont28.i, %i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %delete.notnull.i.i, %if.end66.invoke.i, %if.then4.i, %if.then5
-  %retval.1.i = phi ptr [ null, %if.then5 ], [ null, %delete.notnull.i.i ], [ null, %if.then4.i ], [ %call1.i, %if.end66.invoke.i ]
+  %retval.0.i = phi ptr [ null, %if.then5 ], [ null, %delete.notnull.i.i ], [ null, %if.then4.i ], [ %call1.i, %if.end66.invoke.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %set.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sa.i)
-  store ptr %retval.1.i, ptr %arrayidx, align 8
+  store ptr %retval.0.i, ptr %arrayidx, align 8
   br label %if.end9
 
 lpad.body:                                        ; preds = %lpad.i, %lpad8.i
@@ -693,7 +693,7 @@ _ZN6icu_755MutexD2Ev.exit:                        ; preds = %lpad.body
   resume { ptr, i32 } %eh.lpad-body
 
 if.end9:                                          ; preds = %invoke.cont, %if.end3
-  %set.0 = phi ptr [ %retval.1.i, %invoke.cont ], [ %1, %if.end3 ]
+  %set.0 = phi ptr [ %retval.0.i, %invoke.cont ], [ %1, %if.end3 ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
           to label %return unwind label %terminate.lpad.i8
 
@@ -873,7 +873,7 @@ invoke.cont41.i:                                  ; preds = %if.end36.i
           to label %cleanup.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup.i:                                        ; preds = %invoke.cont41.i, %invoke.cont.i
-  %retval.0.i = phi ptr [ null, %invoke.cont.i ], [ %call54.i, %invoke.cont41.i ]
+  %retval.1.i = phi ptr [ null, %invoke.cont.i ], [ %call54.i, %invoke.cont41.i ]
   %cmp.not.i.i = icmp eq ptr %call1.i9, null
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
@@ -889,9 +889,9 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i, %cleanup.i, %if.then5
-  %retval.1.i = phi ptr [ null, %if.then5 ], [ %retval.0.i, %cleanup.i ], [ %retval.0.i, %if.then.i.i ]
+  %retval.0.i = phi ptr [ null, %if.then5 ], [ %retval.1.i, %cleanup.i ], [ %retval.1.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mutableTrie.i)
-  store ptr %retval.1.i, ptr %arrayidx, align 8
+  store ptr %retval.0.i, ptr %arrayidx, align 8
   br label %if.end10
 
 lpad:                                             ; preds = %if.end.i
@@ -915,7 +915,7 @@ _ZN6icu_755MutexD2Ev.exit:                        ; preds = %lpad.body
   resume { ptr, i32 } %eh.lpad-body
 
 if.end10:                                         ; preds = %invoke.cont, %if.end3
-  %map.0 = phi ptr [ %retval.1.i, %invoke.cont ], [ %2, %if.end3 ]
+  %map.0 = phi ptr [ %retval.0.i, %invoke.cont ], [ %2, %if.end3 ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
           to label %return unwind label %terminate.lpad.i11
 

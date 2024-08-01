@@ -27,8 +27,8 @@ if.then7:                                         ; preds = %for.body, %for.body
   br label %while.cond
 
 while.cond:                                       ; preds = %land.lhs.true, %if.then7
-  %i.1 = phi i64 [ %i.037, %if.then7 ], [ %inc, %land.lhs.true ]
-  %inc = add i64 %i.1, 1
+  %i.2 = phi i64 [ %i.037, %if.then7 ], [ %inc, %land.lhs.true ]
+  %inc = add i64 %i.2, 1
   %cmp8 = icmp ult i64 %inc, %call1
   br i1 %cmp8, label %land.lhs.true, label %if.end15
 
@@ -41,21 +41,21 @@ land.lhs.true:                                    ; preds = %while.cond
   ]
 
 if.end15:                                         ; preds = %land.lhs.true, %land.lhs.true, %while.cond, %for.body
-  %i.2 = phi i64 [ %i.037, %for.body ], [ %inc, %land.lhs.true ], [ %inc, %land.lhs.true ], [ %umax, %while.cond ]
-  %sub = sub i64 %call1, %i.2
+  %i.1 = phi i64 [ %i.037, %for.body ], [ %inc, %land.lhs.true ], [ %inc, %land.lhs.true ], [ %umax, %while.cond ]
+  %sub = sub i64 %call1, %i.1
   %cmp16 = icmp ult i64 %sub, %spec.select
   br i1 %cmp16, label %for.end, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %add.ptr = getelementptr inbounds i8, ptr %szBuffer, i64 %i.2
+  %add.ptr = getelementptr inbounds i8, ptr %szBuffer, i64 %i.1
   %call19 = tail call i32 @strncmp(ptr noundef %add.ptr, ptr noundef %szComment, i64 noundef %spec.select) #3
   %tobool.not = icmp eq i32 %call19, 0
-  %cmp2227 = icmp ult i64 %i.2, %call1
+  %cmp2227 = icmp ult i64 %i.1, %call1
   %or.cond = and i1 %tobool.not, %cmp2227
   br i1 %or.cond, label %land.rhs23, label %for.inc
 
 land.rhs23:                                       ; preds = %if.end18, %while.body27
-  %i.328 = phi i64 [ %inc28, %while.body27 ], [ %i.2, %if.end18 ]
+  %i.328 = phi i64 [ %inc28, %while.body27 ], [ %i.1, %if.end18 ]
   %arrayidx24 = getelementptr inbounds i8, ptr %szBuffer, i64 %i.328
   %3 = load i8, ptr %arrayidx24, align 1
   switch i8 %3, label %while.body27 [
@@ -72,7 +72,7 @@ while.body27:                                     ; preds = %land.rhs23
   br i1 %exitcond.not, label %for.inc, label %land.rhs23, !llvm.loop !4
 
 for.inc:                                          ; preds = %while.body27, %land.rhs23, %land.rhs23, %land.rhs23, %land.rhs23, %if.end18
-  %i.4 = phi i64 [ %i.2, %if.end18 ], [ %call1, %while.body27 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ]
+  %i.4 = phi i64 [ %i.1, %if.end18 ], [ %call1, %while.body27 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ], [ %i.328, %land.rhs23 ]
   %inc32 = add i64 %i.4, 1
   %cmp2 = icmp ult i64 %inc32, %call1
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !6
@@ -110,8 +110,8 @@ while.cond4.us.preheader:                         ; preds = %while.cond.us, %whi
 
 while.cond4.us:                                   ; preds = %while.cond4.us.preheader, %land.lhs.true.us
   %1 = phi i8 [ %2, %land.lhs.true.us ], [ %0, %while.cond4.us.preheader ]
-  %szBuffer.addr.1.us = phi ptr [ %incdec.ptr.us, %land.lhs.true.us ], [ %szBuffer.addr.0.us, %while.cond4.us.preheader ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %szBuffer.addr.1.us, i64 1
+  %szBuffer.addr.2.us = phi ptr [ %incdec.ptr.us, %land.lhs.true.us ], [ %szBuffer.addr.0.us, %while.cond4.us.preheader ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %szBuffer.addr.2.us, i64 1
   %tobool5.not.us = icmp eq i8 %1, 0
   br i1 %tobool5.not.us, label %if.end.us, label %land.lhs.true.us
 
@@ -123,17 +123,17 @@ land.lhs.true.us:                                 ; preds = %while.cond4.us
   ]
 
 if.end.us:                                        ; preds = %while.cond4.us, %land.lhs.true.us, %land.lhs.true.us, %while.cond.us
-  %szBuffer.addr.2.us = phi ptr [ %szBuffer.addr.0.us, %while.cond.us ], [ %incdec.ptr.us, %land.lhs.true.us ], [ %incdec.ptr.us, %land.lhs.true.us ], [ %incdec.ptr.us, %while.cond4.us ]
-  %call11.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.2.us, ptr noundef %szCommentStart, i64 noundef %call1) #3
+  %szBuffer.addr.1.us = phi ptr [ %szBuffer.addr.0.us, %while.cond.us ], [ %incdec.ptr.us, %land.lhs.true.us ], [ %incdec.ptr.us, %land.lhs.true.us ], [ %incdec.ptr.us, %while.cond4.us ]
+  %call11.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.1.us, ptr noundef %szCommentStart, i64 noundef %call1) #3
   %tobool12.not.us = icmp eq i32 %call11.us, 0
   br i1 %tobool12.not.us, label %while.cond14.preheader.us, label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.end.us
-  %incdec.ptr27.us = getelementptr inbounds i8, ptr %szBuffer.addr.2.us, i64 1
+  %incdec.ptr27.us = getelementptr inbounds i8, ptr %szBuffer.addr.1.us, i64 1
   br label %while.cond.backedge.us
 
 while.body16.us:                                  ; preds = %while.cond14.preheader.us, %if.end23.us
-  %szBuffer.addr.320.us = phi ptr [ %incdec.ptr24.us, %if.end23.us ], [ %szBuffer.addr.2.us, %while.cond14.preheader.us ]
+  %szBuffer.addr.320.us = phi ptr [ %incdec.ptr24.us, %if.end23.us ], [ %szBuffer.addr.1.us, %while.cond14.preheader.us ]
   %call17.us = tail call i32 @strncmp(ptr noundef nonnull %szBuffer.addr.320.us, ptr noundef %szCommentEnd, i64 noundef %call.fr) #3
   %tobool18.not.us = icmp eq i32 %call17.us, 0
   br i1 %tobool18.not.us, label %for.body.us, label %if.end23.us
@@ -147,21 +147,21 @@ if.end23.us:                                      ; preds = %while.body16.us
 
 for.body.us:                                      ; preds = %while.body16.us, %for.body.us
   %i.023.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %while.body16.us ]
-  %szBuffer.addr.422.us = phi ptr [ %incdec.ptr22.us, %for.body.us ], [ %szBuffer.addr.320.us, %while.body16.us ]
-  %incdec.ptr22.us = getelementptr inbounds i8, ptr %szBuffer.addr.422.us, i64 1
-  store i8 %chReplacement, ptr %szBuffer.addr.422.us, align 1
+  %szBuffer.addr.522.us = phi ptr [ %incdec.ptr22.us, %for.body.us ], [ %szBuffer.addr.320.us, %while.body16.us ]
+  %incdec.ptr22.us = getelementptr inbounds i8, ptr %szBuffer.addr.522.us, i64 1
+  store i8 %chReplacement, ptr %szBuffer.addr.522.us, align 1
   %inc.us = add i32 %i.023.us, 1
   %conv20.us = zext i32 %inc.us to i64
   %cmp21.us = icmp ugt i64 %call.fr, %conv20.us
   br i1 %cmp21.us, label %for.body.us, label %while.cond.backedge.us, !llvm.loop !8
 
 while.cond14.preheader.us:                        ; preds = %if.end.us
-  %4 = load i8, ptr %szBuffer.addr.2.us, align 1
+  %4 = load i8, ptr %szBuffer.addr.1.us, align 1
   %tobool15.not19.us = icmp eq i8 %4, 0
   br i1 %tobool15.not19.us, label %while.cond.backedge.us, label %while.body16.us
 
 while.cond.backedge.us:                           ; preds = %if.end23.us, %for.body.us, %while.cond14.preheader.us, %if.end26.us
-  %szBuffer.addr.0.be.us = phi ptr [ %incdec.ptr27.us, %if.end26.us ], [ %szBuffer.addr.2.us, %while.cond14.preheader.us ], [ %incdec.ptr22.us, %for.body.us ], [ %incdec.ptr24.us, %if.end23.us ]
+  %szBuffer.addr.0.be.us = phi ptr [ %incdec.ptr27.us, %if.end26.us ], [ %szBuffer.addr.1.us, %while.cond14.preheader.us ], [ %incdec.ptr22.us, %for.body.us ], [ %incdec.ptr24.us, %if.end23.us ]
   br label %while.cond.us, !llvm.loop !9
 
 while.end28:                                      ; preds = %while.cond.us, %entry

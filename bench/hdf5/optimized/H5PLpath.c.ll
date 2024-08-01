@@ -510,7 +510,7 @@ H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %14
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %21 = phi ptr [ %91, %.backedge.i ], [ %20, %.preheader.i ]
-  %.068.i = phi ptr [ %.0.be.i, %.backedge.i ], [ null, %.preheader.i ]
+  %.168.i = phi ptr [ %.1.be.i, %.backedge.i ], [ null, %.preheader.i ]
   %22 = getelementptr inbounds i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
@@ -635,7 +635,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %89, %61, %37, %.tail.i
-  %.0.be.i = phi ptr [ %44, %61 ], [ %.068.i, %.tail.i ], [ %90, %89 ], [ %.068.i, %37 ]
+  %.1.be.i = phi ptr [ %44, %61 ], [ %.168.i, %.tail.i ], [ %90, %89 ], [ %.168.i, %37 ]
   %91 = call ptr @readdir64(ptr noundef nonnull %18) #13
   %.not46.i = icmp eq ptr %91, null
   br i1 %.not46.i, label %.thread.i, label %sub_0.i
@@ -651,8 +651,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.backedge.i, %94, %92, %68, %54, %46, %.preheader.i
-  %.4.i = phi i32 [ -1, %46 ], [ -1, %54 ], [ -1, %68 ], [ %88, %94 ], [ %88, %92 ], [ 0, %.preheader.i ], [ 0, %.backedge.i ]
-  %.3.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %68 ], [ %44, %94 ], [ %44, %92 ], [ null, %.preheader.i ], [ %.0.be.i, %.backedge.i ]
+  %.035.i = phi i32 [ -1, %46 ], [ -1, %54 ], [ -1, %68 ], [ %88, %94 ], [ %88, %92 ], [ 0, %.preheader.i ], [ 0, %.backedge.i ]
+  %.0.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %68 ], [ %44, %94 ], [ %44, %92 ], [ null, %.preheader.i ], [ %.1.be.i, %.backedge.i ]
   %98 = call i32 @closedir(ptr noundef nonnull %18)
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %H5PL__path_table_iterate_process_path.exit.thread, label %H5PL__path_table_iterate_process_path.exit
@@ -664,7 +664,7 @@ H5PL__path_table_iterate_process_path.exit.thread: ; preds = %.thread.i
   %103 = load i32, ptr %102, align 4
   %104 = call ptr @strerror(i32 noundef %103) #13
   %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 685, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.29, ptr noundef %104) #13
-  %106 = call ptr @H5MM_xfree(ptr noundef %.3.i) #13
+  %106 = call ptr @H5MM_xfree(ptr noundef %.0.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -672,12 +672,12 @@ H5PL__path_table_iterate_process_path.exit.thread: ; preds = %.thread.i
   br label %.loopexit17
 
 H5PL__path_table_iterate_process_path.exit:       ; preds = %.thread.i
-  %107 = call ptr @H5MM_xfree(ptr noundef %.3.i) #13
+  %107 = call ptr @H5MM_xfree(ptr noundef %.0.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
-  %108 = icmp slt i32 %.4.i, 0
+  %108 = icmp slt i32 %.035.i, 0
   br i1 %108, label %.loopexit17, label %115
 
 .loopexit17:                                      ; preds = %H5PL__path_table_iterate_process_path.exit, %H5PL__path_table_iterate_process_path.exit.thread
@@ -690,7 +690,7 @@ H5PL__path_table_iterate_process_path.exit:       ; preds = %.thread.i
   br label %.loopexit
 
 115:                                              ; preds = %H5PL__path_table_iterate_process_path.exit.thread13, %H5PL__path_table_iterate_process_path.exit
-  %.5.i16 = phi i32 [ 0, %H5PL__path_table_iterate_process_path.exit.thread13 ], [ %.4.i, %H5PL__path_table_iterate_process_path.exit ]
+  %.5.i16 = phi i32 [ 0, %H5PL__path_table_iterate_process_path.exit.thread13 ], [ %.035.i, %H5PL__path_table_iterate_process_path.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr @H5PL_num_paths_g, align 4
   %117 = zext i32 %116 to i64
@@ -749,7 +749,7 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readon
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %21 = phi ptr [ %66, %.backedge.i ], [ %17, %.preheader.i ]
-  %.048.i = phi ptr [ %.0.be.i, %.backedge.i ], [ null, %.preheader.i ]
+  %.148.i = phi ptr [ %.1.be.i, %.backedge.i ], [ null, %.preheader.i ]
   %22 = getelementptr inbounds i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
@@ -829,7 +829,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %37, %.tail.i
-  %.0.be.i = phi ptr [ %.048.i, %.tail.i ], [ %.048.i, %37 ], [ %65, %.backedge.sink.split.i ]
+  %.1.be.i = phi ptr [ %.148.i, %.tail.i ], [ %.148.i, %37 ], [ %65, %.backedge.sink.split.i ]
   %66 = tail call ptr @readdir64(ptr noundef nonnull %16) #13
   %.not38.i = icmp eq ptr %66, null
   br i1 %.not38.i, label %.loopexit.i, label %sub_0.i
@@ -854,7 +854,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .loopexit.i:                                      ; preds = %76, %.backedge.i, %72, %54, %46, %.preheader.i
   %79 = phi i1 [ true, %46 ], [ true, %54 ], [ true, %72 ], [ false, %.preheader.i ], [ false, %.backedge.i ], [ false, %76 ]
-  %.2.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %72 ], [ null, %.preheader.i ], [ %44, %76 ], [ %.0.be.i, %.backedge.i ]
+  %.0.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %72 ], [ null, %.preheader.i ], [ %44, %76 ], [ %.1.be.i, %.backedge.i ]
   %80 = tail call i32 @closedir(ptr noundef nonnull %16)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %H5PL__find_plugin_in_path.exit
@@ -869,13 +869,13 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %H5PL__find_plugin_in_path.exit.thread
 
 H5PL__find_plugin_in_path.exit.thread:            ; preds = %82, %.thread.i
-  %.244.i.ph = phi ptr [ null, %.thread.i ], [ %.2.i, %82 ]
-  %89 = tail call ptr @H5MM_xfree(ptr noundef %.244.i.ph) #13
+  %.044.i.ph = phi ptr [ null, %.thread.i ], [ %.0.i, %82 ]
+  %89 = tail call ptr @H5MM_xfree(ptr noundef %.044.i.ph) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %91
 
 H5PL__find_plugin_in_path.exit:                   ; preds = %.loopexit.i
-  %90 = tail call ptr @H5MM_xfree(ptr noundef %.2.i) #13
+  %90 = tail call ptr @H5MM_xfree(ptr noundef %.0.i) #13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br i1 %79, label %91, label %98
 

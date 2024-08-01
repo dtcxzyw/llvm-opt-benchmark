@@ -576,18 +576,18 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %6
 12:                                               ; preds = %.thread
   %13 = landingpad { ptr, i32 }
           cleanup
-  %.not.i = icmp eq ptr %.sroa.0.1, null
+  %.not.i = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %12
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0) #23
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %12, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   resume { ptr, i32 } %13
 
 .thread:                                          ; preds = %4, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit, %6
-  %.sroa.0.1 = phi ptr [ null, %6 ], [ %9, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit ], [ null, %4 ]
+  %.sroa.0.0 = phi ptr [ null, %6 ], [ %9, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit ], [ null, %4 ]
   %.013 = phi ptr [ %1, %6 ], [ %9, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit ], [ %1, %4 ]
   %.0 = phi ptr [ %0, %6 ], [ %11, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit ], [ null, %4 ]
   %14 = icmp ne ptr %.0, null
@@ -603,11 +603,11 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %12, %_ZNKSt14
           to label %22 unwind label %12
 
 22:                                               ; preds = %.thread
-  %.not.i16 = icmp eq ptr %.sroa.0.1, null
+  %.not.i16 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i16, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit18, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17: ; preds = %22
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.1) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0) #23
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit18
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit18: ; preds = %22, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17
@@ -2957,13 +2957,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit83:                  ; preds = %120, %119
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit85
 
 _ZNSt6vectorIlSaIlEED2Ev.exit85:                  ; preds = %121, %_ZNSt6vectorIfSaIfEED2Ev.exit83, %59, %32
-  %.sroa.0104.3 = phi ptr [ %.sroa.0104.2, %59 ], [ %.sroa.0104.0, %32 ], [ %.sroa.0104.2, %_ZNSt6vectorIfSaIfEED2Ev.exit83 ], [ %.sroa.0104.2, %121 ]
+  %.sroa.0104.1 = phi ptr [ %.sroa.0104.2, %59 ], [ %.sroa.0104.0, %32 ], [ %.sroa.0104.2, %_ZNSt6vectorIfSaIfEED2Ev.exit83 ], [ %.sroa.0104.2, %121 ]
   %.pn68.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %33, %32 ], [ %.pn68, %_ZNSt6vectorIfSaIfEED2Ev.exit83 ], [ %.pn68.pn118, %121 ]
-  %.not.i86 = icmp eq ptr %.sroa.0104.3, null
+  %.not.i86 = icmp eq ptr %.sroa.0104.1, null
   br i1 %.not.i86, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit88, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i87
 
 _ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i87: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit85
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0104.3) #23
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0104.1) #23
   br label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit88
 
 _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit88: ; preds = %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i87, %_ZNSt6vectorIlSaIlEED2Ev.exit85, %27
@@ -3306,13 +3306,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit82:                  ; preds = %119, %118
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit84
 
 _ZNSt6vectorIlSaIlEED2Ev.exit84:                  ; preds = %120, %_ZNSt6vectorIfSaIfEED2Ev.exit82, %58, %31
-  %.sroa.0103.3 = phi ptr [ %.sroa.0103.2, %58 ], [ %.sroa.0103.0, %31 ], [ %.sroa.0103.2, %_ZNSt6vectorIfSaIfEED2Ev.exit82 ], [ %.sroa.0103.2, %120 ]
+  %.sroa.0103.1 = phi ptr [ %.sroa.0103.2, %58 ], [ %.sroa.0103.0, %31 ], [ %.sroa.0103.2, %_ZNSt6vectorIfSaIfEED2Ev.exit82 ], [ %.sroa.0103.2, %120 ]
   %.pn67.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %32, %31 ], [ %.pn67, %_ZNSt6vectorIfSaIfEED2Ev.exit82 ], [ %.pn67.pn117, %120 ]
-  %.not.i85 = icmp eq ptr %.sroa.0103.3, null
+  %.not.i85 = icmp eq ptr %.sroa.0103.1, null
   br i1 %.not.i85, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit87, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i86
 
 _ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i86: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit84
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0103.3) #23
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0103.1) #23
   br label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit87
 
 _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit87: ; preds = %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i86, %_ZNSt6vectorIlSaIlEED2Ev.exit84, %26
@@ -3648,7 +3648,7 @@ _ZNSt10unique_ptrIN5faiss25IndexIVFResidualQuantizerESt14default_deleteIS1_EED2E
   br label %140
 
 140:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN5faiss25IndexIVFResidualQuantizerESt14default_deleteIS1_EED2Ev.exit49, %134
-  %.sroa.063.0 = phi ptr [ null, %_ZNSt10unique_ptrIN5faiss25IndexIVFResidualQuantizerESt14default_deleteIS1_EED2Ev.exit49 ], [ %40, %134 ], [ %40, %.loopexit.split-lp ], [ %40, %.loopexit ]
+  %.sroa.063.1 = phi ptr [ null, %_ZNSt10unique_ptrIN5faiss25IndexIVFResidualQuantizerESt14default_deleteIS1_EED2Ev.exit49 ], [ %40, %134 ], [ %40, %.loopexit.split-lp ], [ %40, %.loopexit ]
   %.pn34 = phi { ptr, i32 } [ %136, %_ZNSt10unique_ptrIN5faiss25IndexIVFResidualQuantizerESt14default_deleteIS1_EED2Ev.exit49 ], [ %135, %134 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %141 = load ptr, ptr %5, align 8
   %.not.i.i.i50 = icmp eq ptr %141, null
@@ -3659,16 +3659,16 @@ _ZNSt10unique_ptrIN5faiss25IndexIVFResidualQuantizerESt14default_deleteIS1_EED2E
   br label %_ZNSt6vectorImSaImEED2Ev.exit51
 
 _ZNSt6vectorImSaImEED2Ev.exit51:                  ; preds = %142, %140
-  %.not.i52 = icmp eq ptr %.sroa.063.0, null
+  %.not.i52 = icmp eq ptr %.sroa.063.1, null
   br i1 %.not.i52, label %_ZNSt10unique_ptrIN5faiss23ResidualCoarseQuantizerESt14default_deleteIS1_EED2Ev.exit54, label %_ZNKSt14default_deleteIN5faiss23ResidualCoarseQuantizerEEclEPS1_.exit.i53
 
 _ZNKSt14default_deleteIN5faiss23ResidualCoarseQuantizerEEclEPS1_.exit.i53: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit51.thread, %_ZNSt6vectorImSaImEED2Ev.exit51
   %.pn34.pn82 = phi { ptr, i32 } [ %119, %_ZNSt6vectorImSaImEED2Ev.exit51.thread ], [ %.pn34, %_ZNSt6vectorImSaImEED2Ev.exit51 ]
-  %.sroa.063.181 = phi ptr [ %40, %_ZNSt6vectorImSaImEED2Ev.exit51.thread ], [ %.sroa.063.0, %_ZNSt6vectorImSaImEED2Ev.exit51 ]
-  %143 = load ptr, ptr %.sroa.063.181, align 8
+  %.sroa.063.081 = phi ptr [ %40, %_ZNSt6vectorImSaImEED2Ev.exit51.thread ], [ %.sroa.063.1, %_ZNSt6vectorImSaImEED2Ev.exit51 ]
+  %143 = load ptr, ptr %.sroa.063.081, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(508) %.sroa.063.181) #16
+  call void %145(ptr noundef nonnull align 8 dereferenceable(508) %.sroa.063.081) #16
   br label %_ZNSt10unique_ptrIN5faiss23ResidualCoarseQuantizerESt14default_deleteIS1_EED2Ev.exit54
 
 _ZNSt10unique_ptrIN5faiss23ResidualCoarseQuantizerESt14default_deleteIS1_EED2Ev.exit54: ; preds = %_ZNKSt14default_deleteIN5faiss23ResidualCoarseQuantizerEEclEPS1_.exit.i53, %_ZNSt6vectorImSaImEED2Ev.exit51, %117, %115
@@ -4069,7 +4069,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %_ZN5faiss15BitstringReader4readEi.exit
 
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
-  %.sroa.4.0 = phi i64 [ %69, %._crit_edge.i ], [ %66, %61 ]
+  %.sroa.4.1 = phi i64 [ %69, %._crit_edge.i ], [ %66, %61 ]
   %.0.i = phi i64 [ %87, %._crit_edge.i ], [ %65, %61 ]
   %88 = srem i64 %.0.i, %42
   %89 = icmp eq i64 %88, %43
@@ -4088,14 +4088,14 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
 93:                                               ; preds = %.lr.ph, %_ZN5faiss15BitstringWriter5writeEmi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %.sroa.8.0114 = phi i64 [ 0, %.lr.ph ], [ %.sroa.8.1, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
-  %.sroa.4.1113 = phi i64 [ %.sroa.4.0, %.lr.ph ], [ %.sroa.4.2, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
+  %.sroa.4.0113 = phi i64 [ %.sroa.4.1, %.lr.ph ], [ %.sroa.4.2, %_ZN5faiss15BitstringWriter5writeEmi.exit ]
   %94 = getelementptr inbounds i64, ptr %92, i64 %indvars.iv
   %95 = load i64, ptr %94, align 8
   %96 = trunc i64 %95 to i32
-  %97 = trunc i64 %.sroa.4.1113 to i32
+  %97 = trunc i64 %.sroa.4.0113 to i32
   %98 = and i32 %97, 7
   %99 = sub nuw nsw i32 8, %98
-  %100 = lshr i64 %.sroa.4.1113, 3
+  %100 = lshr i64 %.sroa.4.0113, 3
   %101 = getelementptr inbounds i8, ptr %55, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
@@ -4164,7 +4164,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
 _ZN5faiss15BitstringReader4readEi.exit65:         ; preds = %105, %._crit_edge.i50
   %.pn = phi i64 [ %112, %._crit_edge.i50 ], [ %109, %105 ]
   %.0.i48 = phi i64 [ %132, %._crit_edge.i50 ], [ %108, %105 ]
-  %.sroa.4.2 = add i64 %.pn, %.sroa.4.1113
+  %.sroa.4.2 = add i64 %.pn, %.sroa.4.0113
   %133 = and i64 %.sroa.8.0114, 7
   %134 = trunc nuw nsw i64 %133 to i32
   %135 = sub nuw nsw i32 8, %134

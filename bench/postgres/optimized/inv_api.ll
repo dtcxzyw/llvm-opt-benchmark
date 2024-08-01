@@ -591,8 +591,8 @@ open_lo_relation.exit:                            ; preds = %19, %35
 
 98:                                               ; preds = %.loopexit, %59
   %99 = phi i64 [ %97, %.loopexit ], [ %68, %59 ]
-  %.1 = phi i32 [ %95, %.loopexit ], [ %.071, %59 ]
-  %100 = icmp slt i32 %.1, %2
+  %.2 = phi i32 [ %95, %.loopexit ], [ %.071, %59 ]
+  %100 = icmp slt i32 %.2, %2
   br i1 %100, label %101, label %137
 
 101:                                              ; preds = %98
@@ -636,23 +636,23 @@ getdatafield.exit:                                ; preds = %109
 
 123:                                              ; preds = %getdatafield.exit
   %124 = sub nsw i64 %121, %103
-  %125 = sub i32 %2, %.1
+  %125 = sub i32 %2, %.2
   %126 = sext i32 %125 to i64
   %.87 = call i64 @llvm.smin.i64(i64 %124, i64 %126)
-  %127 = sext i32 %.1 to i64
+  %127 = sext i32 %.2 to i64
   %128 = getelementptr i8, ptr %1, i64 %127
   %129 = getelementptr inbounds i8, ptr %.015.i, i64 4
   %130 = getelementptr i8, ptr %129, i64 %103
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr align 1 %130, i64 %.87, i1 false)
   %131 = trunc i64 %.87 to i32
-  %132 = add i32 %.1, %131
+  %132 = add i32 %.2, %131
   %133 = load i64, ptr %6, align 8
   %134 = add i64 %133, %.87
   store i64 %134, ptr %6, align 8
   br label %135
 
 135:                                              ; preds = %123, %getdatafield.exit
-  %.2 = phi i32 [ %132, %123 ], [ %.1, %getdatafield.exit ]
+  %.4 = phi i32 [ %132, %123 ], [ %.2, %getdatafield.exit ]
   br i1 %.not92, label %137, label %136
 
 136:                                              ; preds = %135
@@ -660,17 +660,17 @@ getdatafield.exit:                                ; preds = %109
   br label %137
 
 137:                                              ; preds = %135, %136, %98
-  %.3 = phi i32 [ %.2, %136 ], [ %.2, %135 ], [ %.1, %98 ]
+  %.3 = phi i32 [ %.4, %136 ], [ %.4, %135 ], [ %.2, %98 ]
   %.not86 = icmp slt i32 %.3, %2
   br i1 %.not86, label %48, label %138, !llvm.loop !5
 
 138:                                              ; preds = %137, %48
-  %.4 = phi i32 [ %.3, %137 ], [ %.071, %48 ]
+  %.1 = phi i32 [ %.3, %137 ], [ %.071, %48 ]
   call void @systable_endscan_ordered(ptr noundef %45) #9
   br label %139
 
 139:                                              ; preds = %17, %138
-  %.0 = phi i32 [ %.4, %138 ], [ 0, %17 ]
+  %.0 = phi i32 [ %.1, %138 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -835,19 +835,19 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr nocapture noundef 
   br label %88
 
 88:                                               ; preds = %72, %83, %71
-  %.2123 = phi ptr [ %.0121155, %71 ], [ %87, %83 ], [ %.0121155, %72 ]
+  %.1122 = phi ptr [ %.0121155, %71 ], [ %87, %83 ], [ %.0121155, %72 ]
   %.1120 = phi ptr [ %.0119156, %71 ], [ %73, %83 ], [ null, %72 ]
-  %.not135 = icmp eq ptr %.2123, null
+  %.not135 = icmp eq ptr %.1122, null
   br i1 %.not135, label %162, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.2123, i64 4
+  %90 = getelementptr inbounds i8, ptr %.1122, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, %.0117157
   br i1 %92, label %93, label %162
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.2123, i64 8
+  %94 = getelementptr inbounds i8, ptr %.1122, i64 8
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 3
   %.not145 = icmp eq i8 %96, 0
@@ -867,11 +867,11 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr nocapture noundef 
   br i1 %or.cond.i140, label %104, label %getdatafield.exit
 
 104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %.2123, i64 4
+  %105 = getelementptr inbounds i8, ptr %.1122, i64 4
   %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %106)
   %107 = call i32 @errcode(i32 noundef 16779816) #9
-  %108 = load i32, ptr %.2123, align 4
+  %108 = load i32, ptr %.1122, align 4
   %109 = load i32, ptr %105, align 4
   %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %108, i32 noundef %109, i32 noundef %102) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__func__.getdatafield) #9
@@ -1031,7 +1031,7 @@ getdatafield.exit:                                ; preds = %99
 197:                                              ; preds = %.loopexit, %.loopexit146
   %.sink = phi ptr [ %195, %.loopexit ], [ %159, %.loopexit146 ]
   %.2126 = phi i1 [ false, %.loopexit ], [ true, %.loopexit146 ]
-  %.3 = phi ptr [ %.2123, %.loopexit ], [ null, %.loopexit146 ]
+  %.3 = phi ptr [ %.1122, %.loopexit ], [ null, %.loopexit146 ]
   %.2 = phi ptr [ %.1120, %.loopexit ], [ null, %.loopexit146 ]
   %.pn = phi i32 [ %180, %.loopexit ], [ %145, %.loopexit146 ]
   call void @heap_freetuple(ptr noundef %.sink) #9

@@ -568,7 +568,7 @@ for.cond.preheader:                               ; preds = %invoke.cont14
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.056 = phi i64 [ %inc26, %for.inc ], [ 0, %for.cond.preheader ]
-  %num_headers.055 = phi i64 [ %num_headers.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %num_headers.155 = phi i64 [ %num_headers.2, %for.inc ], [ 0, %for.cond.preheader ]
   %16 = load ptr, ptr %header_strings, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %16, i64 %i.056
   %17 = load ptr, ptr %arrayidx, align 8
@@ -606,29 +606,29 @@ if.end22:                                         ; preds = %for.body
   %19 = load ptr, ptr %header_strings, align 8
   %arrayidx23 = getelementptr inbounds ptr, ptr %19, i64 %i.056
   %20 = load ptr, ptr %arrayidx23, align 8
-  %arrayidx24 = getelementptr inbounds %struct.grpc_http_header, ptr %call16, i64 %num_headers.055
+  %arrayidx24 = getelementptr inbounds %struct.grpc_http_header, ptr %call16, i64 %num_headers.155
   store ptr %20, ptr %arrayidx24, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call17, i64 1
   %value = getelementptr inbounds i8, ptr %arrayidx24, i64 8
   store ptr %add.ptr, ptr %value, align 8
-  %inc = add i64 %num_headers.055, 1
+  %inc = add i64 %num_headers.155, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then19, %if.end22
-  %num_headers.1 = phi i64 [ %num_headers.055, %if.then19 ], [ %inc, %if.end22 ]
+  %num_headers.2 = phi i64 [ %num_headers.155, %if.then19 ], [ %inc, %if.end22 ]
   %inc26 = add nuw i64 %i.056, 1
   %21 = load i64, ptr %num_header_strings, align 8
   %cmp = icmp ult i64 %inc26, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %num_headers.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %num_headers.1, %for.inc ]
+  %num_headers.1.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %num_headers.2, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer) #14
   br label %if.end27
 
 if.end27:                                         ; preds = %for.end, %if.end
   %headers.0 = phi ptr [ %call16, %for.end ], [ null, %if.end ]
-  %num_headers.2 = phi i64 [ %num_headers.0.lcssa, %for.end ], [ 0, %if.end ]
+  %num_headers.0 = phi i64 [ %num_headers.1.lcssa, %for.end ], [ 0, %if.end ]
   %mu_29 = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_29)
   %args_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -687,7 +687,7 @@ invoke.cont44:                                    ; preds = %invoke.cont40
   %hdrs = getelementptr inbounds i8, ptr %request, i64 32
   store ptr %headers.0, ptr %hdrs, align 8
   %hdr_count = getelementptr inbounds i8, ptr %request, i64 24
-  store i64 %num_headers.2, ptr %hdr_count, align 8
+  store i64 %num_headers.0, ptr %hdr_count, align 8
   %body_length = getelementptr inbounds i8, ptr %request, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %body_length, i8 0, i64 16, i1 false)
   %call45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %server_name_string) #14

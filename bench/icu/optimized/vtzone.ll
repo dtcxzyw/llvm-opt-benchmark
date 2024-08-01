@@ -988,7 +988,7 @@ lpad4:                                            ; preds = %if.end3
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont5, %delete.notnull, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %delete.notnull ], [ %call1, %invoke.cont5 ]
+  %retval.1 = phi ptr [ null, %if.then2 ], [ null, %delete.notnull ], [ %call1, %invoke.cont5 ]
   call void @_ZN6icu_759VTZReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %reader) #15
   br label %return
 
@@ -998,8 +998,8 @@ ehcleanup:                                        ; preds = %lpad, %lpad4
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2465,8 +2465,8 @@ delete.notnull.i60:                               ; preds = %invoke.cont49
   br label %cleanup94.sink.split
 
 ehcleanup92:                                      ; preds = %ehcleanup, %delete.notnull.i55, %lpad47, %lpad19
-  %lpStd.sroa.0.2 = phi ptr [ %lpStd.sroa.0.0, %lpad19 ], [ %lpStd.sroa.0.1, %lpad47 ], [ %lpStd.sroa.0.1, %ehcleanup ], [ %lpStd.sroa.0.1, %delete.notnull.i55 ]
-  %lpDst.sroa.0.2 = phi ptr [ %lpDst.sroa.0.0, %lpad19 ], [ %lpDst.sroa.0.1, %lpad47 ], [ %lpDst.sroa.0.1, %ehcleanup ], [ %lpDst.sroa.0.1, %delete.notnull.i55 ]
+  %lpStd.sroa.0.3 = phi ptr [ %lpStd.sroa.0.0, %lpad19 ], [ %lpStd.sroa.0.1, %lpad47 ], [ %lpStd.sroa.0.1, %ehcleanup ], [ %lpStd.sroa.0.1, %delete.notnull.i55 ]
+  %lpDst.sroa.0.3 = phi ptr [ %lpDst.sroa.0.0, %lpad19 ], [ %lpDst.sroa.0.1, %lpad47 ], [ %lpDst.sroa.0.1, %ehcleanup ], [ %lpDst.sroa.0.1, %delete.notnull.i55 ]
   %.pn15 = phi { ptr, i32 } [ %8, %lpad19 ], [ %17, %lpad47 ], [ %lpad.thr_comm.split-lp, %ehcleanup ], [ %.pn119, %delete.notnull.i55 ]
   call void @_ZN6icu_7517RuleBasedTimeZoneD1Ev(ptr noundef nonnull align 8 dereferenceable(105) %rbtz) #15
   br label %ehcleanup95
@@ -2476,39 +2476,39 @@ cleanup94.sink.split:                             ; preds = %if.end33, %delete.n
   br label %cleanup94
 
 cleanup94:                                        ; preds = %cleanup94.sink.split, %invoke.cont8
-  %lpStd.sroa.0.3 = phi ptr [ %3, %invoke.cont8 ], [ %lpStd.sroa.0.1, %cleanup94.sink.split ]
-  %lpDst.sroa.0.3 = phi ptr [ %4, %invoke.cont8 ], [ %lpDst.sroa.0.1, %cleanup94.sink.split ]
-  %lpInitial.sroa.0.1 = phi ptr [ %2, %invoke.cont8 ], [ null, %cleanup94.sink.split ]
-  %isnull.i64 = icmp eq ptr %lpDst.sroa.0.3, null
+  %lpStd.sroa.0.4 = phi ptr [ %3, %invoke.cont8 ], [ %lpStd.sroa.0.1, %cleanup94.sink.split ]
+  %lpDst.sroa.0.4 = phi ptr [ %4, %invoke.cont8 ], [ %lpDst.sroa.0.1, %cleanup94.sink.split ]
+  %lpInitial.sroa.0.2 = phi ptr [ %2, %invoke.cont8 ], [ null, %cleanup94.sink.split ]
+  %isnull.i64 = icmp eq ptr %lpDst.sroa.0.4, null
   br i1 %isnull.i64, label %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, label %delete.notnull.i65
 
 delete.notnull.i65:                               ; preds = %cleanup94
-  %vtable.i66 = load ptr, ptr %lpDst.sroa.0.3, align 8
+  %vtable.i66 = load ptr, ptr %lpDst.sroa.0.4, align 8
   %vfn.i67 = getelementptr inbounds i8, ptr %vtable.i66, i64 8
   %27 = load ptr, ptr %vfn.i67, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(96) %lpDst.sroa.0.3) #15
+  call void %27(ptr noundef nonnull align 8 dereferenceable(96) %lpDst.sroa.0.4) #15
   br label %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit: ; preds = %cleanup94, %delete.notnull.i65
-  %isnull.i68 = icmp eq ptr %lpStd.sroa.0.3, null
+  %isnull.i68 = icmp eq ptr %lpStd.sroa.0.4, null
   br i1 %isnull.i68, label %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit72, label %delete.notnull.i69
 
 delete.notnull.i69:                               ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit
-  %vtable.i70 = load ptr, ptr %lpStd.sroa.0.3, align 8
+  %vtable.i70 = load ptr, ptr %lpStd.sroa.0.4, align 8
   %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 8
   %28 = load ptr, ptr %vfn.i71, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(96) %lpStd.sroa.0.3) #15
+  call void %28(ptr noundef nonnull align 8 dereferenceable(96) %lpStd.sroa.0.4) #15
   br label %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit72
 
 _ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit72: ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit, %delete.notnull.i69
-  %isnull.i73 = icmp eq ptr %lpInitial.sroa.0.1, null
+  %isnull.i73 = icmp eq ptr %lpInitial.sroa.0.2, null
   br i1 %isnull.i73, label %_ZN6icu_7512LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit, label %delete.notnull.i74
 
 delete.notnull.i74:                               ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit72
-  %vtable.i75 = load ptr, ptr %lpInitial.sroa.0.1, align 8
+  %vtable.i75 = load ptr, ptr %lpInitial.sroa.0.2, align 8
   %vfn.i76 = getelementptr inbounds i8, ptr %vtable.i75, i64 8
   %29 = load ptr, ptr %vfn.i76, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(80) %lpInitial.sroa.0.1) #15
+  call void %29(ptr noundef nonnull align 8 dereferenceable(80) %lpInitial.sroa.0.2) #15
   br label %_ZN6icu_7512LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit72, %delete.notnull.i74
@@ -2520,40 +2520,40 @@ cleanup.cont104:                                  ; preds = %entry, %_ZN6icu_751
   ret void
 
 ehcleanup95:                                      ; preds = %ehcleanup92, %lpad9
-  %lpStd.sroa.0.4 = phi ptr [ %lpStd.sroa.0.2, %ehcleanup92 ], [ %3, %lpad9 ]
-  %lpDst.sroa.0.4 = phi ptr [ %lpDst.sroa.0.2, %ehcleanup92 ], [ %4, %lpad9 ]
-  %lpInitial.sroa.0.2 = phi ptr [ null, %ehcleanup92 ], [ %lpInitial.sroa.0.0, %lpad9 ]
+  %lpStd.sroa.0.2 = phi ptr [ %lpStd.sroa.0.3, %ehcleanup92 ], [ %3, %lpad9 ]
+  %lpDst.sroa.0.2 = phi ptr [ %lpDst.sroa.0.3, %ehcleanup92 ], [ %4, %lpad9 ]
+  %lpInitial.sroa.0.1 = phi ptr [ null, %ehcleanup92 ], [ %lpInitial.sroa.0.0, %lpad9 ]
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %ehcleanup92 ], [ %7, %lpad9 ]
-  %isnull.i77 = icmp eq ptr %lpDst.sroa.0.4, null
+  %isnull.i77 = icmp eq ptr %lpDst.sroa.0.2, null
   br i1 %isnull.i77, label %ehcleanup97, label %delete.notnull.i78
 
 delete.notnull.i78:                               ; preds = %ehcleanup95
-  %vtable.i79 = load ptr, ptr %lpDst.sroa.0.4, align 8
+  %vtable.i79 = load ptr, ptr %lpDst.sroa.0.2, align 8
   %vfn.i80 = getelementptr inbounds i8, ptr %vtable.i79, i64 8
   %30 = load ptr, ptr %vfn.i80, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(96) %lpDst.sroa.0.4) #15
+  call void %30(ptr noundef nonnull align 8 dereferenceable(96) %lpDst.sroa.0.2) #15
   br label %ehcleanup97
 
 ehcleanup97:                                      ; preds = %delete.notnull.i78, %ehcleanup95
-  %isnull.i82 = icmp eq ptr %lpStd.sroa.0.4, null
+  %isnull.i82 = icmp eq ptr %lpStd.sroa.0.2, null
   br i1 %isnull.i82, label %ehcleanup99, label %delete.notnull.i83
 
 delete.notnull.i83:                               ; preds = %ehcleanup97
-  %vtable.i84 = load ptr, ptr %lpStd.sroa.0.4, align 8
+  %vtable.i84 = load ptr, ptr %lpStd.sroa.0.2, align 8
   %vfn.i85 = getelementptr inbounds i8, ptr %vtable.i84, i64 8
   %31 = load ptr, ptr %vfn.i85, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(96) %lpStd.sroa.0.4) #15
+  call void %31(ptr noundef nonnull align 8 dereferenceable(96) %lpStd.sroa.0.2) #15
   br label %ehcleanup99
 
 ehcleanup99:                                      ; preds = %delete.notnull.i83, %ehcleanup97
-  %isnull.i87 = icmp eq ptr %lpInitial.sroa.0.2, null
+  %isnull.i87 = icmp eq ptr %lpInitial.sroa.0.1, null
   br i1 %isnull.i87, label %ehcleanup101, label %delete.notnull.i88
 
 delete.notnull.i88:                               ; preds = %ehcleanup99
-  %vtable.i89 = load ptr, ptr %lpInitial.sroa.0.2, align 8
+  %vtable.i89 = load ptr, ptr %lpInitial.sroa.0.1, align 8
   %vfn.i90 = getelementptr inbounds i8, ptr %vtable.i89, i64 8
   %32 = load ptr, ptr %vfn.i90, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(80) %lpInitial.sroa.0.2) #15
+  call void %32(ptr noundef nonnull align 8 dereferenceable(80) %lpInitial.sroa.0.1) #15
   br label %ehcleanup101
 
 ehcleanup101:                                     ; preds = %delete.notnull.i88, %ehcleanup99, %lpad2
@@ -2862,13 +2862,13 @@ lpad21.loopexit.split-lp:                         ; preds = %if.end423
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %8 = phi ptr [ %4, %for.body.lr.ph ], [ %134, %for.inc ]
-  %state.0603 = phi i32 [ 0, %for.body.lr.ph ], [ %state.2, %for.inc ]
+  %state.0603 = phi i32 [ 0, %for.body.lr.ph ], [ %state.1, %for.inc ]
   %n.0602 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %dst.0601 = phi i8 [ 0, %for.body.lr.ph ], [ %dst.1, %for.inc ]
   %isRRULE.0600 = phi i8 [ 0, %for.body.lr.ph ], [ %isRRULE.1, %for.inc ]
-  %initialRawOffset.0599 = phi i32 [ 0, %for.body.lr.ph ], [ %initialRawOffset.3, %for.inc ]
-  %initialDSTSavings.0598 = phi i32 [ 0, %for.body.lr.ph ], [ %initialDSTSavings.3, %for.inc ]
-  %firstStart.0597 = phi double [ 0x43846A3EDDF8CD80, %for.body.lr.ph ], [ %firstStart.3, %for.inc ]
+  %initialRawOffset.0599 = phi i32 [ 0, %for.body.lr.ph ], [ %initialRawOffset.1, %for.inc ]
+  %initialDSTSavings.0598 = phi i32 [ 0, %for.body.lr.ph ], [ %initialDSTSavings.1, %for.inc ]
+  %firstStart.0597 = phi double [ 0x43846A3EDDF8CD80, %for.body.lr.ph ], [ %firstStart.1, %for.inc ]
   %call33 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef %n.0602)
           to label %invoke.cont32 unwind label %lpad21.loopexit
 
@@ -3398,8 +3398,8 @@ lpad246:                                          ; preds = %new.notnull243
   br label %ehcleanup643
 
 if.end254:                                        ; preds = %new.cont252.thread, %new.cont.thread, %delete.notnull5.i298, %if.then3.i295, %new.cont252, %delete.notnull5.i, %if.then3.i, %new.cont
-  %dstr.sroa.0.4 = phi ptr [ null, %delete.notnull5.i ], [ null, %if.then3.i ], [ %call231, %new.cont ], [ null, %delete.notnull5.i298 ], [ null, %if.then3.i295 ], [ %call231, %new.cont252 ], [ null, %new.cont.thread ], [ null, %new.cont252.thread ]
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %dates, ptr noundef %dstr.sroa.0.4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %dstr.sroa.0.2 = phi ptr [ null, %delete.notnull5.i ], [ null, %if.then3.i ], [ %call231, %new.cont ], [ null, %delete.notnull5.i298 ], [ null, %if.then3.i295 ], [ %call231, %new.cont252 ], [ null, %new.cont.thread ], [ null, %new.cont252.thread ]
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %dates, ptr noundef %dstr.sroa.0.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont257 unwind label %lpad226
 
 invoke.cont257:                                   ; preds = %if.end254
@@ -3628,9 +3628,9 @@ if.then387:                                       ; preds = %land.lhs.true385
   br label %if.end399
 
 if.end399:                                        ; preds = %if.then387, %invoke.cont382, %land.lhs.true385
-  %firstStart.1 = phi double [ %firstStart.0597, %land.lhs.true385 ], [ %firstStart.0597, %invoke.cont382 ], [ %130, %if.then387 ]
-  %initialDSTSavings.1 = phi i32 [ %initialDSTSavings.0598, %land.lhs.true385 ], [ %initialDSTSavings.0598, %invoke.cont382 ], [ %spec.select136, %if.then387 ]
-  %initialRawOffset.1 = phi i32 [ %initialRawOffset.0599, %land.lhs.true385 ], [ %initialRawOffset.0599, %invoke.cont382 ], [ %spec.select137, %if.then387 ]
+  %firstStart.3 = phi double [ %firstStart.0597, %land.lhs.true385 ], [ %firstStart.0597, %invoke.cont382 ], [ %130, %if.then387 ]
+  %initialDSTSavings.3 = phi i32 [ %initialDSTSavings.0598, %land.lhs.true385 ], [ %initialDSTSavings.0598, %invoke.cont382 ], [ %spec.select136, %if.then387 ]
+  %initialRawOffset.3 = phi i32 [ %initialRawOffset.0599, %land.lhs.true385 ], [ %initialRawOffset.0599, %invoke.cont382 ], [ %spec.select137, %if.then387 ]
   %131 = load ptr, ptr %rule, align 8
   store ptr null, ptr %rule, align 8
   invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %rules, ptr noundef %131, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -3644,10 +3644,10 @@ invoke.cont402:                                   ; preds = %if.end399
 
 cleanup408:                                       ; preds = %invoke.cont402, %if.end374, %invoke.cont358
   %cond1.ph = phi i1 [ %cmp.i371, %invoke.cont402 ], [ false, %if.end374 ], [ false, %invoke.cont358 ]
-  %firstStart.2.ph = phi double [ %firstStart.1, %invoke.cont402 ], [ %firstStart.0597, %if.end374 ], [ %firstStart.0597, %invoke.cont358 ]
-  %initialDSTSavings.2.ph = phi i32 [ %initialDSTSavings.1, %invoke.cont402 ], [ %initialDSTSavings.0598, %if.end374 ], [ %initialDSTSavings.0598, %invoke.cont358 ]
-  %initialRawOffset.2.ph = phi i32 [ %initialRawOffset.1, %invoke.cont402 ], [ %initialRawOffset.0599, %if.end374 ], [ %initialRawOffset.0599, %invoke.cont358 ]
-  %state.1.ph = phi i32 [ %.130, %invoke.cont402 ], [ 2, %if.end374 ], [ 2, %invoke.cont358 ]
+  %firstStart.2.ph = phi double [ %firstStart.3, %invoke.cont402 ], [ %firstStart.0597, %if.end374 ], [ %firstStart.0597, %invoke.cont358 ]
+  %initialDSTSavings.2.ph = phi i32 [ %initialDSTSavings.3, %invoke.cont402 ], [ %initialDSTSavings.0598, %if.end374 ], [ %initialDSTSavings.0598, %invoke.cont358 ]
+  %initialRawOffset.2.ph = phi i32 [ %initialRawOffset.3, %invoke.cont402 ], [ %initialRawOffset.0599, %if.end374 ], [ %initialRawOffset.0599, %invoke.cont358 ]
+  %state.2.ph = phi i32 [ %.130, %invoke.cont402 ], [ 2, %if.end374 ], [ 2, %invoke.cont358 ]
   %.pr = load ptr, ptr %rule, align 8
   %isnull.i373 = icmp eq ptr %.pr, null
   br i1 %isnull.i373, label %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378, label %delete.notnull.i374
@@ -3666,12 +3666,12 @@ default.unreachable:                              ; preds = %invoke.cont41
   unreachable
 
 for.inc:                                          ; preds = %while.cond, %if.then172.invoke, %if.then69.invoke, %delete.notnull.i374, %cleanup.done, %cleanup.done.thread, %invoke.cont142, %invoke.cont152, %invoke.cont93, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378, %invoke.cont311, %invoke.cont34
-  %firstStart.3 = phi double [ %firstStart.0597, %invoke.cont34 ], [ %firstStart.0597, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %firstStart.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %firstStart.0597, %invoke.cont311 ], [ %firstStart.0597, %invoke.cont93 ], [ %firstStart.0597, %invoke.cont152 ], [ %firstStart.0597, %invoke.cont142 ], [ %firstStart.0597, %cleanup.done.thread ], [ %firstStart.0597, %cleanup.done ], [ %firstStart.2.ph, %delete.notnull.i374 ], [ %firstStart.0597, %if.then69.invoke ], [ %firstStart.0597, %if.then172.invoke ], [ %firstStart.0597, %while.cond ]
-  %initialDSTSavings.3 = phi i32 [ %initialDSTSavings.0598, %invoke.cont34 ], [ %initialDSTSavings.0598, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %initialDSTSavings.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %initialDSTSavings.0598, %invoke.cont311 ], [ %initialDSTSavings.0598, %invoke.cont93 ], [ %initialDSTSavings.0598, %invoke.cont152 ], [ %initialDSTSavings.0598, %invoke.cont142 ], [ %initialDSTSavings.0598, %cleanup.done.thread ], [ %initialDSTSavings.0598, %cleanup.done ], [ %initialDSTSavings.2.ph, %delete.notnull.i374 ], [ %initialDSTSavings.0598, %if.then69.invoke ], [ %initialDSTSavings.0598, %if.then172.invoke ], [ %initialDSTSavings.0598, %while.cond ]
-  %initialRawOffset.3 = phi i32 [ %initialRawOffset.0599, %invoke.cont34 ], [ %initialRawOffset.0599, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %initialRawOffset.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %initialRawOffset.0599, %invoke.cont311 ], [ %initialRawOffset.0599, %invoke.cont93 ], [ %initialRawOffset.0599, %invoke.cont152 ], [ %initialRawOffset.0599, %invoke.cont142 ], [ %initialRawOffset.0599, %cleanup.done.thread ], [ %initialRawOffset.0599, %cleanup.done ], [ %initialRawOffset.2.ph, %delete.notnull.i374 ], [ %initialRawOffset.0599, %if.then69.invoke ], [ %initialRawOffset.0599, %if.then172.invoke ], [ %initialRawOffset.0599, %while.cond ]
+  %firstStart.1 = phi double [ %firstStart.0597, %invoke.cont34 ], [ %firstStart.0597, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %firstStart.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %firstStart.0597, %invoke.cont311 ], [ %firstStart.0597, %invoke.cont93 ], [ %firstStart.0597, %invoke.cont152 ], [ %firstStart.0597, %invoke.cont142 ], [ %firstStart.0597, %cleanup.done.thread ], [ %firstStart.0597, %cleanup.done ], [ %firstStart.2.ph, %delete.notnull.i374 ], [ %firstStart.0597, %if.then69.invoke ], [ %firstStart.0597, %if.then172.invoke ], [ %firstStart.0597, %while.cond ]
+  %initialDSTSavings.1 = phi i32 [ %initialDSTSavings.0598, %invoke.cont34 ], [ %initialDSTSavings.0598, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %initialDSTSavings.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %initialDSTSavings.0598, %invoke.cont311 ], [ %initialDSTSavings.0598, %invoke.cont93 ], [ %initialDSTSavings.0598, %invoke.cont152 ], [ %initialDSTSavings.0598, %invoke.cont142 ], [ %initialDSTSavings.0598, %cleanup.done.thread ], [ %initialDSTSavings.0598, %cleanup.done ], [ %initialDSTSavings.2.ph, %delete.notnull.i374 ], [ %initialDSTSavings.0598, %if.then69.invoke ], [ %initialDSTSavings.0598, %if.then172.invoke ], [ %initialDSTSavings.0598, %while.cond ]
+  %initialRawOffset.1 = phi i32 [ %initialRawOffset.0599, %invoke.cont34 ], [ %initialRawOffset.0599, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %initialRawOffset.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %initialRawOffset.0599, %invoke.cont311 ], [ %initialRawOffset.0599, %invoke.cont93 ], [ %initialRawOffset.0599, %invoke.cont152 ], [ %initialRawOffset.0599, %invoke.cont142 ], [ %initialRawOffset.0599, %cleanup.done.thread ], [ %initialRawOffset.0599, %cleanup.done ], [ %initialRawOffset.2.ph, %delete.notnull.i374 ], [ %initialRawOffset.0599, %if.then69.invoke ], [ %initialRawOffset.0599, %if.then172.invoke ], [ %initialRawOffset.0599, %while.cond ]
   %isRRULE.1 = phi i8 [ %isRRULE.0600, %invoke.cont34 ], [ 1, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %isRRULE.0600, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %isRRULE.0600, %invoke.cont311 ], [ %isRRULE.0600, %invoke.cont93 ], [ %isRRULE.0600, %invoke.cont152 ], [ 0, %invoke.cont142 ], [ %isRRULE.0600, %cleanup.done.thread ], [ %isRRULE.0600, %cleanup.done ], [ %isRRULE.0600, %delete.notnull.i374 ], [ %isRRULE.0600, %if.then69.invoke ], [ %isRRULE.0600, %if.then172.invoke ], [ 0, %while.cond ]
   %dst.1 = phi i8 [ %dst.0601, %invoke.cont34 ], [ %dst.0601, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %dst.0601, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ %dst.0601, %invoke.cont311 ], [ %dst.0601, %invoke.cont93 ], [ %dst.0601, %invoke.cont152 ], [ %conv117, %invoke.cont142 ], [ %dst.0601, %cleanup.done.thread ], [ %dst.0601, %cleanup.done ], [ %dst.0601, %delete.notnull.i374 ], [ %dst.0601, %if.then69.invoke ], [ %dst.0601, %if.then172.invoke ], [ %dst.0601, %while.cond ]
-  %state.2 = phi i32 [ %state.0603, %invoke.cont34 ], [ 2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %state.1.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ 2, %invoke.cont311 ], [ 1, %invoke.cont93 ], [ 1, %invoke.cont152 ], [ 2, %invoke.cont142 ], [ 0, %cleanup.done.thread ], [ %spec.select, %cleanup.done ], [ %state.1.ph, %delete.notnull.i374 ], [ 1, %if.then69.invoke ], [ 2, %if.then172.invoke ], [ 2, %while.cond ]
+  %state.1 = phi i32 [ %state.0603, %invoke.cont34 ], [ 2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333 ], [ %state.2.ph, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378 ], [ 2, %invoke.cont311 ], [ 1, %invoke.cont93 ], [ 1, %invoke.cont152 ], [ 2, %invoke.cont142 ], [ 0, %cleanup.done.thread ], [ %spec.select, %cleanup.done ], [ %state.2.ph, %delete.notnull.i374 ], [ 1, %if.then69.invoke ], [ 2, %if.then172.invoke ], [ 2, %while.cond ]
   %inc = add nuw nsw i32 %n.0602, 1
   %134 = load ptr, ptr %vtzlines, align 8
   %count.i146 = getelementptr inbounds i8, ptr %134, i64 8
@@ -3680,8 +3680,8 @@ for.inc:                                          ; preds = %while.cond, %if.the
   br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %initialDSTSavings.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %initialDSTSavings.3, %for.inc ]
-  %initialRawOffset.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %initialRawOffset.3, %for.inc ]
+  %initialDSTSavings.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %initialDSTSavings.1, %for.inc ]
+  %initialRawOffset.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %initialRawOffset.1, %for.inc ]
   %count.i385 = getelementptr inbounds i8, ptr %rules, i64 8
   %136 = load i32, ptr %count.i385, align 8
   %cmp421 = icmp eq i32 %136, 0
@@ -4087,20 +4087,20 @@ cleanup638:                                       ; preds = %invoke.cont620, %de
   br i1 %new.isnull445, label %cleanup642, label %cleanup640
 
 cleanup640:                                       ; preds = %invoke.cont458, %cleanup638
-  %initialRule.sroa.0.0652 = phi ptr [ null, %cleanup638 ], [ %call425, %invoke.cont458 ]
+  %initialRule.sroa.0.2652 = phi ptr [ null, %cleanup638 ], [ %call425, %invoke.cont458 ]
   %vtable.i434 = load ptr, ptr %call444, align 8
   %vfn.i435 = getelementptr inbounds i8, ptr %vtable.i434, i64 8
   %171 = load ptr, ptr %vfn.i435, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(105) %call444) #15
-  %isnull.i437 = icmp eq ptr %initialRule.sroa.0.0652, null
+  %isnull.i437 = icmp eq ptr %initialRule.sroa.0.2652, null
   br i1 %isnull.i437, label %cleanup642, label %delete.notnull.i438
 
 delete.notnull.i438:                              ; preds = %if.then.i395, %new.cont457, %invoke.cont437, %cleanup640
-  %initialRule.sroa.0.1659 = phi ptr [ %initialRule.sroa.0.0652, %cleanup640 ], [ %call425, %invoke.cont437 ], [ %call425, %new.cont457 ], [ %call425, %if.then.i395 ]
-  %vtable.i439 = load ptr, ptr %initialRule.sroa.0.1659, align 8
+  %initialRule.sroa.0.0659 = phi ptr [ %initialRule.sroa.0.2652, %cleanup640 ], [ %call425, %invoke.cont437 ], [ %call425, %new.cont457 ], [ %call425, %if.then.i395 ]
+  %vtable.i439 = load ptr, ptr %initialRule.sroa.0.0659, align 8
   %vfn.i440 = getelementptr inbounds i8, ptr %vtable.i439, i64 8
   %172 = load ptr, ptr %vfn.i440, align 8
-  call void %172(ptr noundef nonnull align 8 dereferenceable(80) %initialRule.sroa.0.1659) #15
+  call void %172(ptr noundef nonnull align 8 dereferenceable(80) %initialRule.sroa.0.0659) #15
   br label %cleanup642
 
 cleanup642:                                       ; preds = %invoke.cont336, %if.then274, %invoke.cont317, %invoke.cont321, %invoke.cont325, %if.then220, %invoke.cont122, %invoke.cont129, %invoke.cont93, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit333, %_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEED2Ev.exit378, %delete.notnull.i374, %invoke.cont257, %new.cont436, %if.then.i389, %cleanup638, %if.end634, %delete.notnull.i438, %cleanup640, %for.end, %invoke.cont20
@@ -4119,16 +4119,16 @@ cleanup.cont660:                                  ; preds = %entry, %cleanup642,
   ret void
 
 ehcleanup639:                                     ; preds = %lpad459.loopexit, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad459.loopexit.split-lp.loopexit, %delete.notnull.i413, %ehcleanup604
-  %rbtz.sroa.0.2 = phi ptr [ %call444, %ehcleanup604 ], [ %call444, %delete.notnull.i413 ], [ %call444, %lpad459.loopexit ], [ %call444, %lpad459.loopexit.split-lp.loopexit ], [ %call444, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %rbtz.sroa.0.0.ph.ph.ph, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %rbtz.sroa.0.1 = phi ptr [ %call444, %ehcleanup604 ], [ %call444, %delete.notnull.i413 ], [ %call444, %lpad459.loopexit ], [ %call444, %lpad459.loopexit.split-lp.loopexit ], [ %call444, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %rbtz.sroa.0.0.ph.ph.ph, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn113 = phi { ptr, i32 } [ %.pn, %ehcleanup604 ], [ %.pn, %delete.notnull.i413 ], [ %lpad.loopexit, %lpad459.loopexit ], [ %lpad.loopexit531, %lpad459.loopexit.split-lp.loopexit ], [ %lpad.loopexit534, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad459.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %isnull.i442 = icmp eq ptr %rbtz.sroa.0.2, null
+  %isnull.i442 = icmp eq ptr %rbtz.sroa.0.1, null
   br i1 %isnull.i442, label %ehcleanup643, label %delete.notnull.i443
 
 delete.notnull.i443:                              ; preds = %ehcleanup639
-  %vtable.i444 = load ptr, ptr %rbtz.sroa.0.2, align 8
+  %vtable.i444 = load ptr, ptr %rbtz.sroa.0.1, align 8
   %vfn.i445 = getelementptr inbounds i8, ptr %vtable.i444, i64 8
   %173 = load ptr, ptr %vfn.i445, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(105) %rbtz.sroa.0.2) #15
+  call void %173(ptr noundef nonnull align 8 dereferenceable(105) %rbtz.sroa.0.1) #15
   br label %ehcleanup643
 
 delete.notnull.i449:                              ; preds = %new.notnull446
@@ -4732,7 +4732,7 @@ if.then10:                                        ; preds = %_ZNK6icu_7513Unicod
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then10
-  %sign.0 = phi i32 [ -1000, %if.then10 ], [ 1000, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
+  %sign.1 = phi i32 [ -1000, %if.then10 ], [ 1000, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %cond.i2.i.i, i64 2
   %8 = load i16, ptr %arrayidx.i.i.i, align 2
   switch i16 %8, label %for.body.lr.ph.i [
@@ -4903,12 +4903,12 @@ if.then25:                                        ; preds = %for.body.i, %_ZNK6i
   br label %return
 
 if.end26:                                         ; preds = %for.end.i102, %_ZN6icu_75L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit64
-  %sec.0 = phi i32 [ 0, %_ZN6icu_75L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit64 ], [ %mul30.i103, %for.end.i102 ]
+  %sec.1 = phi i32 [ 0, %_ZN6icu_75L16parseAsciiDigitsERKNS_13UnicodeStringEiiR10UErrorCode.exit64 ], [ %mul30.i103, %for.end.i102 ]
   %mul = mul nsw i32 %mul30.i, 60
   %add = add nsw i32 %mul, %mul30.i53
   %mul27 = mul nsw i32 %add, 60
-  %add28 = add nsw i32 %sec.0, %mul27
-  %mul30 = mul i32 %sign.0, %add28
+  %add28 = add nsw i32 %sec.1, %mul27
+  %mul30 = mul i32 %sign.1, %add28
   br label %return
 
 return:                                           ; preds = %entry, %if.end26, %if.then25
@@ -5149,7 +5149,7 @@ cond.end:                                         ; preds = %for.body75, %cond.f
 for.body94:                                       ; preds = %for.cond91.preheader, %if.end179
   %i.3127 = phi i32 [ %inc182, %if.end179 ], [ 1, %for.cond91.preheader ]
   %anotherMonth.0126 = phi i32 [ %anotherMonth.1, %if.end179 ], [ -1, %for.cond91.preheader ]
-  %earliestDay.1125 = phi i32 [ %earliestDay.4, %if.end179 ], [ %earliestDay.0.lcssa, %for.cond91.preheader ]
+  %earliestDay.1125 = phi i32 [ %earliestDay.3, %if.end179 ], [ %earliestDay.0.lcssa, %for.cond91.preheader ]
   %earliestMonth.0124 = phi i32 [ %earliestMonth.1, %if.end179 ], [ %11, %for.cond91.preheader ]
   %16 = phi double [ %19, %if.end179 ], [ %until.promoted, %for.cond91.preheader ]
   %add115118123 = phi i32 [ %add115, %if.end179 ], [ %13, %for.cond91.preheader ]
@@ -5232,7 +5232,7 @@ for.body149.lr.ph:                                ; preds = %if.end144
 
 for.body149:                                      ; preds = %for.body149.lr.ph, %cond.end163
   %indvars.iv147 = phi i64 [ 0, %for.body149.lr.ph ], [ %indvars.iv.next148, %cond.end163 ]
-  %earliestDay.3112 = phi i32 [ %earliestDay.2, %for.body149.lr.ph ], [ %cond164.earliestDay.3, %cond.end163 ]
+  %earliestDay.4112 = phi i32 [ %earliestDay.2, %for.body149.lr.ph ], [ %cond164.earliestDay.4, %cond.end163 ]
   %arrayidx151 = getelementptr inbounds [7 x i32], ptr %tmp_days, i64 0, i64 %indvars.iv147
   %23 = load i32, ptr %arrayidx151, align 4
   %cmp152 = icmp sgt i32 %23, 0
@@ -5247,13 +5247,13 @@ cond.false156:                                    ; preds = %for.body149
 cond.end163:                                      ; preds = %for.body149, %cond.false156
   %cond164 = phi i32 [ %add162, %cond.false156 ], [ %23, %for.body149 ]
   store i32 %cond164, ptr %arrayidx151, align 4
-  %cond164.earliestDay.3 = call i32 @llvm.smin.i32(i32 %cond164, i32 %earliestDay.3112)
+  %cond164.earliestDay.4 = call i32 @llvm.smin.i32(i32 %cond164, i32 %earliestDay.4112)
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
   br i1 %exitcond151.not, label %if.end179, label %for.body149, !llvm.loop !22
 
 if.end179:                                        ; preds = %cond.end163, %if.end144
-  %earliestDay.4 = phi i32 [ %earliestDay.2, %if.end144 ], [ %cond164.earliestDay.3, %cond.end163 ]
+  %earliestDay.3 = phi i32 [ %earliestDay.2, %if.end144 ], [ %cond164.earliestDay.4, %cond.end163 ]
   %inc182 = add nuw nsw i32 %i.3127, 1
   %25 = load i32, ptr %count.i, align 8
   %cmp93 = icmp slt i32 %inc182, %25
@@ -5263,7 +5263,7 @@ for.end183:                                       ; preds = %if.end179, %for.con
   %add115118.lcssa = phi i32 [ %13, %for.cond91.preheader ], [ %add115, %if.end179 ]
   %.lcssa = phi double [ %until.promoted, %for.cond91.preheader ], [ %19, %if.end179 ]
   %earliestMonth.0.lcssa = phi i32 [ %11, %for.cond91.preheader ], [ %earliestMonth.1, %if.end179 ]
-  %earliestDay.1.lcssa = phi i32 [ %earliestDay.0.lcssa, %for.cond91.preheader ], [ %earliestDay.4, %if.end179 ]
+  %earliestDay.1.lcssa = phi i32 [ %earliestDay.0.lcssa, %for.cond91.preheader ], [ %earliestDay.3, %if.end179 ]
   store double %.lcssa, ptr %until, align 8
   %cmp184.not = icmp eq i32 %add115118.lcssa, 7
   br i1 %cmp184.not, label %if.end186, label %unsupportedRRule
@@ -5395,7 +5395,7 @@ unsupportedRRule:                                 ; preds = %if.then125, %land.l
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont100, %if.end255, %new.notnull258, %invoke.cont, %unsupportedRRule
-  %retval.0 = phi ptr [ null, %unsupportedRRule ], [ null, %invoke.cont ], [ null, %if.end255 ], [ %call256, %new.notnull258 ], [ null, %invoke.cont100 ]
+  %retval.1 = phi ptr [ null, %unsupportedRRule ], [ null, %invoke.cont ], [ null, %if.end255 ], [ %call256, %new.notnull258 ], [ null, %invoke.cont100 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %rrule) #15
   br label %return
 
@@ -5405,8 +5405,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi ptr [ null, %if.then3 ], [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then3 ], [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5655,12 +5655,12 @@ invoke.cont12:                                    ; preds = %invoke.cont
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end118, %invoke.cont12
-  %dstWeekInMonth.0.ph = phi i32 [ %dstWeekInMonth.1, %if.end118 ], [ 0, %invoke.cont12 ]
+  %dstWeekInMonth.0.ph = phi i32 [ %dstWeekInMonth.2, %if.end118 ], [ 0, %invoke.cont12 ]
   %dstMillisInDay.0.ph = phi i32 [ %dstMillisInDay.1, %if.end118 ], [ 0, %invoke.cont12 ]
-  %dstStartTime.0.ph = phi double [ %dstStartTime.1, %if.end118 ], [ 0.000000e+00, %invoke.cont12 ]
+  %dstStartTime.0.ph = phi double [ %dstStartTime.2, %if.end118 ], [ 0.000000e+00, %invoke.cont12 ]
   %dstUntilTime.0.ph = phi double [ %call22, %if.end118 ], [ 0.000000e+00, %invoke.cont12 ]
-  %dstCount.0.ph = phi i32 [ %dstCount.3, %if.end118 ], [ 0, %invoke.cont12 ]
-  %finalDstRule.0.ph = phi ptr [ %finalDstRule.1, %if.end118 ], [ null, %invoke.cont12 ]
+  %dstCount.0.ph = phi i32 [ %dstCount.4, %if.end118 ], [ 0, %invoke.cont12 ]
+  %finalDstRule.0.ph = phi ptr [ %finalDstRule.2, %if.end118 ], [ null, %invoke.cont12 ]
   %stdFromOffset.0.ph = phi i32 [ %stdFromOffset.0, %if.end118 ], [ 0, %invoke.cont12 ]
   %stdFromDSTSavings.0.ph = phi i32 [ %stdFromDSTSavings.0, %if.end118 ], [ 0, %invoke.cont12 ]
   %stdToOffset.0.ph = phi i32 [ %stdToOffset.0, %if.end118 ], [ 0, %invoke.cont12 ]
@@ -5674,29 +5674,29 @@ while.cond.outer:                                 ; preds = %if.end118, %invoke.
   %stdCount.0.ph = phi i32 [ %stdCount.0, %if.end118 ], [ 0, %invoke.cont12 ]
   %finalStdRule.0.ph = phi ptr [ %finalStdRule.0, %if.end118 ], [ null, %invoke.cont12 ]
   %tobool193.not.ph = phi i1 [ false, %if.end118 ], [ true, %invoke.cont12 ]
-  %dstDayOfWeek.0.ph = phi i32 [ %dstDayOfWeek.1, %if.end118 ], [ 0, %invoke.cont12 ]
-  %dstMonth.0.ph = phi i32 [ %dstMonth.1, %if.end118 ], [ 0, %invoke.cont12 ]
+  %dstDayOfWeek.0.ph = phi i32 [ %dstDayOfWeek.2, %if.end118 ], [ 0, %invoke.cont12 ]
+  %dstMonth.0.ph = phi i32 [ %dstMonth.2, %if.end118 ], [ 0, %invoke.cont12 ]
   %dstStartYear.0.ph = phi i32 [ %dstStartYear.1, %if.end118 ], [ 0, %invoke.cont12 ]
-  %dstToOffset.0.ph = phi i32 [ %dstToOffset.1, %if.end118 ], [ 0, %invoke.cont12 ]
-  %dstFromDSTSavings.0.ph = phi i32 [ %dstFromDSTSavings.1, %if.end118 ], [ 0, %invoke.cont12 ]
-  %dstFromOffset.0.ph = phi i32 [ %dstFromOffset.1, %if.end118 ], [ 0, %invoke.cont12 ]
+  %dstToOffset.0.ph = phi i32 [ %dstToOffset.2, %if.end118 ], [ 0, %invoke.cont12 ]
+  %dstFromDSTSavings.0.ph = phi i32 [ %dstFromDSTSavings.2, %if.end118 ], [ 0, %invoke.cont12 ]
+  %dstFromOffset.0.ph = phi i32 [ %dstFromOffset.2, %if.end118 ], [ 0, %invoke.cont12 ]
   %t.0.ph = phi double [ %call22, %if.end118 ], [ 0xC384763B62073280, %invoke.cont12 ]
   %cmp189 = icmp ne ptr %finalDstRule.0.ph, null
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %if.end186
-  %stdFromOffset.0 = phi i32 [ %stdFromOffset.1, %if.end186 ], [ %stdFromOffset.0.ph, %while.cond.outer ]
-  %stdFromDSTSavings.0 = phi i32 [ %stdFromDSTSavings.1, %if.end186 ], [ %stdFromDSTSavings.0.ph, %while.cond.outer ]
-  %stdToOffset.0 = phi i32 [ %stdToOffset.1, %if.end186 ], [ %stdToOffset.0.ph, %while.cond.outer ]
-  %stdStartYear.0 = phi i32 [ %stdStartYear.1, %if.end186 ], [ %stdStartYear.0.ph, %while.cond.outer ]
-  %stdMonth.0 = phi i32 [ %stdMonth.1, %if.end186 ], [ %stdMonth.0.ph, %while.cond.outer ]
-  %stdDayOfWeek.0 = phi i32 [ %stdDayOfWeek.1, %if.end186 ], [ %stdDayOfWeek.0.ph, %while.cond.outer ]
-  %stdWeekInMonth.0 = phi i32 [ %stdWeekInMonth.1, %if.end186 ], [ %stdWeekInMonth.0.ph, %while.cond.outer ]
-  %stdMillisInDay.0 = phi i32 [ %stdMillisInDay.1, %if.end186 ], [ %stdMillisInDay.0.ph, %while.cond.outer ]
-  %stdStartTime.0 = phi double [ %stdStartTime.1, %if.end186 ], [ %stdStartTime.0.ph, %while.cond.outer ]
+  %stdFromOffset.0 = phi i32 [ %stdFromOffset.3, %if.end186 ], [ %stdFromOffset.0.ph, %while.cond.outer ]
+  %stdFromDSTSavings.0 = phi i32 [ %stdFromDSTSavings.3, %if.end186 ], [ %stdFromDSTSavings.0.ph, %while.cond.outer ]
+  %stdToOffset.0 = phi i32 [ %stdToOffset.3, %if.end186 ], [ %stdToOffset.0.ph, %while.cond.outer ]
+  %stdStartYear.0 = phi i32 [ %stdStartYear.2, %if.end186 ], [ %stdStartYear.0.ph, %while.cond.outer ]
+  %stdMonth.0 = phi i32 [ %stdMonth.3, %if.end186 ], [ %stdMonth.0.ph, %while.cond.outer ]
+  %stdDayOfWeek.0 = phi i32 [ %stdDayOfWeek.3, %if.end186 ], [ %stdDayOfWeek.0.ph, %while.cond.outer ]
+  %stdWeekInMonth.0 = phi i32 [ %stdWeekInMonth.3, %if.end186 ], [ %stdWeekInMonth.0.ph, %while.cond.outer ]
+  %stdMillisInDay.0 = phi i32 [ %stdMillisInDay.2, %if.end186 ], [ %stdMillisInDay.0.ph, %while.cond.outer ]
+  %stdStartTime.0 = phi double [ %stdStartTime.3, %if.end186 ], [ %stdStartTime.0.ph, %while.cond.outer ]
   %stdUntilTime.0 = phi double [ %call22, %if.end186 ], [ %stdUntilTime.0.ph, %while.cond.outer ]
-  %stdCount.0 = phi i32 [ %stdCount.3, %if.end186 ], [ %stdCount.0.ph, %while.cond.outer ]
-  %finalStdRule.0 = phi ptr [ %finalStdRule.1, %if.end186 ], [ %finalStdRule.0.ph, %while.cond.outer ]
+  %stdCount.0 = phi i32 [ %stdCount.5, %if.end186 ], [ %stdCount.0.ph, %while.cond.outer ]
+  %finalStdRule.0 = phi ptr [ %finalStdRule.4, %if.end186 ], [ %finalStdRule.0.ph, %while.cond.outer ]
   %tobool193.not = phi i1 [ false, %if.end186 ], [ %tobool193.not.ph, %while.cond.outer ]
   %t.0 = phi double [ %call22, %if.end186 ], [ %t.0.ph, %while.cond.outer ]
   %vtable = load ptr, ptr %basictz, align 8
@@ -5845,7 +5845,7 @@ if.then70:                                        ; preds = %invoke.cont67
           to label %if.end75 unwind label %lpad15.loopexit.loopexit.split-lp
 
 if.end75:                                         ; preds = %invoke.cont63, %if.then70, %invoke.cont67, %dynamic_cast.end, %if.then61
-  %finalDstRule.1 = phi ptr [ null, %invoke.cont67 ], [ null, %dynamic_cast.end ], [ %finalDstRule.0.ph, %if.then61 ], [ %call74, %if.then70 ], [ null, %invoke.cont63 ]
+  %finalDstRule.2 = phi ptr [ null, %invoke.cont67 ], [ null, %dynamic_cast.end ], [ %finalDstRule.0.ph, %if.then61 ], [ %call74, %if.then70 ], [ null, %invoke.cont63 ]
   %cmp76 = icmp sgt i32 %dstCount.0.ph, 0
   br i1 %cmp76, label %if.then77, label %if.then115
 
@@ -5944,18 +5944,18 @@ invoke.cont116:                                   ; preds = %if.then115
   br label %if.end118
 
 if.end118:                                        ; preds = %if.end113, %invoke.cont116
-  %dstWeekInMonth.1 = phi i32 [ %dstWeekInMonth.0.ph, %if.end113 ], [ %call59, %invoke.cont116 ]
+  %dstWeekInMonth.2 = phi i32 [ %dstWeekInMonth.0.ph, %if.end113 ], [ %call59, %invoke.cont116 ]
   %dstMillisInDay.1 = phi i32 [ %dstMillisInDay.0.ph, %if.end113 ], [ %37, %invoke.cont116 ]
-  %dstStartTime.1 = phi double [ %dstStartTime.0.ph, %if.end113 ], [ %call22, %invoke.cont116 ]
-  %dstCount.3 = phi i32 [ %inc98, %if.end113 ], [ 1, %invoke.cont116 ]
-  %dstDayOfWeek.1 = phi i32 [ %dstDayOfWeek.0.ph, %if.end113 ], [ %36, %invoke.cont116 ]
-  %dstMonth.1 = phi i32 [ %dstMonth.0.ph, %if.end113 ], [ %35, %invoke.cont116 ]
+  %dstStartTime.2 = phi double [ %dstStartTime.0.ph, %if.end113 ], [ %call22, %invoke.cont116 ]
+  %dstCount.4 = phi i32 [ %inc98, %if.end113 ], [ 1, %invoke.cont116 ]
+  %dstDayOfWeek.2 = phi i32 [ %dstDayOfWeek.0.ph, %if.end113 ], [ %36, %invoke.cont116 ]
+  %dstMonth.2 = phi i32 [ %dstMonth.0.ph, %if.end113 ], [ %35, %invoke.cont116 ]
   %dstStartYear.1 = phi i32 [ %dstStartYear.0.ph, %if.end113 ], [ %34, %invoke.cont116 ]
-  %dstToOffset.1 = phi i32 [ %dstToOffset.0.ph, %if.end113 ], [ %add52, %invoke.cont116 ]
-  %dstFromDSTSavings.1 = phi i32 [ %dstFromDSTSavings.0.ph, %if.end113 ], [ %call43, %invoke.cont116 ]
-  %dstFromOffset.1 = phi i32 [ %dstFromOffset.0.ph, %if.end113 ], [ %add, %invoke.cont116 ]
+  %dstToOffset.2 = phi i32 [ %dstToOffset.0.ph, %if.end113 ], [ %add52, %invoke.cont116 ]
+  %dstFromDSTSavings.2 = phi i32 [ %dstFromDSTSavings.0.ph, %if.end113 ], [ %call43, %invoke.cont116 ]
+  %dstFromOffset.2 = phi i32 [ %dstFromOffset.0.ph, %if.end113 ], [ %add, %invoke.cont116 ]
   %cmp119 = icmp ne ptr %finalStdRule.0, null
-  %cmp121 = icmp ne ptr %finalDstRule.1, null
+  %cmp121 = icmp ne ptr %finalDstRule.2, null
   %or.cond = select i1 %cmp119, i1 %cmp121, i1 false
   br i1 %or.cond, label %if.else234, label %while.cond.outer, !llvm.loop !26
 
@@ -5992,7 +5992,7 @@ if.then137:                                       ; preds = %invoke.cont134
           to label %if.end142 unwind label %lpad15.loopexit.loopexit
 
 if.end142:                                        ; preds = %invoke.cont127, %if.then137, %invoke.cont134, %dynamic_cast.end131, %if.else124
-  %finalStdRule.1 = phi ptr [ null, %invoke.cont134 ], [ null, %dynamic_cast.end131 ], [ %finalStdRule.0, %if.else124 ], [ %call141, %if.then137 ], [ null, %invoke.cont127 ]
+  %finalStdRule.4 = phi ptr [ null, %invoke.cont134 ], [ null, %dynamic_cast.end131 ], [ %finalStdRule.0, %if.else124 ], [ %call141, %if.then137 ], [ null, %invoke.cont127 ]
   %cmp143 = icmp sgt i32 %stdCount.0, 0
   br i1 %cmp143, label %if.then144, label %if.then183
 
@@ -6091,17 +6091,17 @@ invoke.cont184:                                   ; preds = %if.then183
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end181, %invoke.cont184
-  %stdFromOffset.1 = phi i32 [ %stdFromOffset.0, %if.end181 ], [ %add, %invoke.cont184 ]
-  %stdFromDSTSavings.1 = phi i32 [ %stdFromDSTSavings.0, %if.end181 ], [ %call43, %invoke.cont184 ]
-  %stdToOffset.1 = phi i32 [ %stdToOffset.0, %if.end181 ], [ %add52, %invoke.cont184 ]
-  %stdStartYear.1 = phi i32 [ %stdStartYear.0, %if.end181 ], [ %56, %invoke.cont184 ]
-  %stdMonth.1 = phi i32 [ %stdMonth.0, %if.end181 ], [ %57, %invoke.cont184 ]
-  %stdDayOfWeek.1 = phi i32 [ %stdDayOfWeek.0, %if.end181 ], [ %58, %invoke.cont184 ]
-  %stdWeekInMonth.1 = phi i32 [ %stdWeekInMonth.0, %if.end181 ], [ %call59, %invoke.cont184 ]
-  %stdMillisInDay.1 = phi i32 [ %stdMillisInDay.0, %if.end181 ], [ %59, %invoke.cont184 ]
-  %stdStartTime.1 = phi double [ %stdStartTime.0, %if.end181 ], [ %call22, %invoke.cont184 ]
-  %stdCount.3 = phi i32 [ %inc165, %if.end181 ], [ 1, %invoke.cont184 ]
-  %cmp187 = icmp ne ptr %finalStdRule.1, null
+  %stdFromOffset.3 = phi i32 [ %stdFromOffset.0, %if.end181 ], [ %add, %invoke.cont184 ]
+  %stdFromDSTSavings.3 = phi i32 [ %stdFromDSTSavings.0, %if.end181 ], [ %call43, %invoke.cont184 ]
+  %stdToOffset.3 = phi i32 [ %stdToOffset.0, %if.end181 ], [ %add52, %invoke.cont184 ]
+  %stdStartYear.2 = phi i32 [ %stdStartYear.0, %if.end181 ], [ %56, %invoke.cont184 ]
+  %stdMonth.3 = phi i32 [ %stdMonth.0, %if.end181 ], [ %57, %invoke.cont184 ]
+  %stdDayOfWeek.3 = phi i32 [ %stdDayOfWeek.0, %if.end181 ], [ %58, %invoke.cont184 ]
+  %stdWeekInMonth.3 = phi i32 [ %stdWeekInMonth.0, %if.end181 ], [ %call59, %invoke.cont184 ]
+  %stdMillisInDay.2 = phi i32 [ %stdMillisInDay.0, %if.end181 ], [ %59, %invoke.cont184 ]
+  %stdStartTime.3 = phi double [ %stdStartTime.0, %if.end181 ], [ %call22, %invoke.cont184 ]
+  %stdCount.5 = phi i32 [ %inc165, %if.end181 ], [ 1, %invoke.cont184 ]
+  %cmp187 = icmp ne ptr %finalStdRule.4, null
   %or.cond1 = select i1 %cmp187, i1 %cmp189, i1 false
   br i1 %or.cond1, label %if.else218, label %while.cond, !llvm.loop !26
 
@@ -6156,16 +6156,16 @@ lpad207:                                          ; preds = %invoke.cont206, %in
   br label %ehcleanup
 
 if.else218:                                       ; preds = %if.end186, %while.end
-  %finalStdRule.3330 = phi ptr [ %finalStdRule.0, %while.end ], [ %finalStdRule.1, %if.end186 ]
-  %stdCount.5329 = phi i32 [ %stdCount.0, %while.end ], [ %stdCount.3, %if.end186 ]
-  %stdUntilTime.5328 = phi double [ %stdUntilTime.0, %while.end ], [ %call22, %if.end186 ]
-  %stdStartTime.3327 = phi double [ %stdStartTime.0, %while.end ], [ %stdStartTime.1, %if.end186 ]
-  %stdWeekInMonth.3326 = phi i32 [ %stdWeekInMonth.0, %while.end ], [ %stdWeekInMonth.1, %if.end186 ]
-  %stdDayOfWeek.3325 = phi i32 [ %stdDayOfWeek.0, %while.end ], [ %stdDayOfWeek.1, %if.end186 ]
-  %stdMonth.3324 = phi i32 [ %stdMonth.0, %while.end ], [ %stdMonth.1, %if.end186 ]
-  %stdToOffset.3323 = phi i32 [ %stdToOffset.0, %while.end ], [ %stdToOffset.1, %if.end186 ]
-  %stdFromDSTSavings.3322 = phi i32 [ %stdFromDSTSavings.0, %while.end ], [ %stdFromDSTSavings.1, %if.end186 ]
-  %stdFromOffset.3321 = phi i32 [ %stdFromOffset.0, %while.end ], [ %stdFromOffset.1, %if.end186 ]
+  %finalStdRule.1330 = phi ptr [ %finalStdRule.0, %while.end ], [ %finalStdRule.4, %if.end186 ]
+  %stdCount.1329 = phi i32 [ %stdCount.0, %while.end ], [ %stdCount.5, %if.end186 ]
+  %stdUntilTime.1328 = phi double [ %stdUntilTime.0, %while.end ], [ %call22, %if.end186 ]
+  %stdStartTime.1327 = phi double [ %stdStartTime.0, %while.end ], [ %stdStartTime.3, %if.end186 ]
+  %stdWeekInMonth.1326 = phi i32 [ %stdWeekInMonth.0, %while.end ], [ %stdWeekInMonth.3, %if.end186 ]
+  %stdDayOfWeek.1325 = phi i32 [ %stdDayOfWeek.0, %while.end ], [ %stdDayOfWeek.3, %if.end186 ]
+  %stdMonth.1324 = phi i32 [ %stdMonth.0, %while.end ], [ %stdMonth.3, %if.end186 ]
+  %stdToOffset.1323 = phi i32 [ %stdToOffset.0, %while.end ], [ %stdToOffset.3, %if.end186 ]
+  %stdFromDSTSavings.1322 = phi i32 [ %stdFromDSTSavings.0, %while.end ], [ %stdFromDSTSavings.3, %if.end186 ]
+  %stdFromOffset.1321 = phi i32 [ %stdFromOffset.0, %while.end ], [ %stdFromOffset.3, %if.end186 ]
   %cmp219 = icmp sgt i32 %dstCount.0.ph, 0
   br i1 %cmp219, label %if.then220, label %if.end272
 
@@ -6191,45 +6191,45 @@ if.end228:                                        ; preds = %if.else226, %if.the
   br i1 %cmp.i263, label %if.end272, label %cleanupWriteZone
 
 if.else234:                                       ; preds = %if.end118, %if.then220
-  %dstFromOffset.3336496567 = phi i32 [ %dstFromOffset.0.ph, %if.then220 ], [ %dstFromOffset.1, %if.end118 ]
-  %dstFromDSTSavings.3335497566 = phi i32 [ %dstFromDSTSavings.0.ph, %if.then220 ], [ %dstFromDSTSavings.1, %if.end118 ]
-  %dstToOffset.3334498565 = phi i32 [ %dstToOffset.0.ph, %if.then220 ], [ %dstToOffset.1, %if.end118 ]
-  %dstMonth.3333499564 = phi i32 [ %dstMonth.0.ph, %if.then220 ], [ %dstMonth.1, %if.end118 ]
-  %dstDayOfWeek.3332500563 = phi i32 [ %dstDayOfWeek.0.ph, %if.then220 ], [ %dstDayOfWeek.1, %if.end118 ]
-  %finalStdRule.3330501562 = phi ptr [ %finalStdRule.3330, %if.then220 ], [ %finalStdRule.0, %if.end118 ]
-  %stdCount.5329504561 = phi i32 [ %stdCount.5329, %if.then220 ], [ %stdCount.0, %if.end118 ]
-  %stdUntilTime.5328506560 = phi double [ %stdUntilTime.5328, %if.then220 ], [ %stdUntilTime.0, %if.end118 ]
-  %stdStartTime.3327508559 = phi double [ %stdStartTime.3327, %if.then220 ], [ %stdStartTime.0, %if.end118 ]
-  %stdWeekInMonth.3326510558 = phi i32 [ %stdWeekInMonth.3326, %if.then220 ], [ %stdWeekInMonth.0, %if.end118 ]
-  %stdDayOfWeek.3325512557 = phi i32 [ %stdDayOfWeek.3325, %if.then220 ], [ %stdDayOfWeek.0, %if.end118 ]
-  %stdMonth.3324514556 = phi i32 [ %stdMonth.3324, %if.then220 ], [ %stdMonth.0, %if.end118 ]
-  %stdToOffset.3323516555 = phi i32 [ %stdToOffset.3323, %if.then220 ], [ %stdToOffset.0, %if.end118 ]
-  %stdFromDSTSavings.3322518554 = phi i32 [ %stdFromDSTSavings.3322, %if.then220 ], [ %stdFromDSTSavings.0, %if.end118 ]
-  %stdFromOffset.3321520553 = phi i32 [ %stdFromOffset.3321, %if.then220 ], [ %stdFromOffset.0, %if.end118 ]
-  %finalDstRule.3319521552 = phi ptr [ %finalDstRule.0.ph, %if.then220 ], [ %finalDstRule.1, %if.end118 ]
-  %dstCount.5318523551 = phi i32 [ %dstCount.0.ph, %if.then220 ], [ %dstCount.3, %if.end118 ]
-  %dstUntilTime.5317524550 = phi double [ %dstUntilTime.0.ph, %if.then220 ], [ %call22, %if.end118 ]
-  %dstStartTime.3316525549 = phi double [ %dstStartTime.0.ph, %if.then220 ], [ %dstStartTime.1, %if.end118 ]
-  %dstWeekInMonth.3315526548 = phi i32 [ %dstWeekInMonth.0.ph, %if.then220 ], [ %dstWeekInMonth.1, %if.end118 ]
-  %cmp235 = icmp eq i32 %dstCount.5318523551, 1
+  %dstFromOffset.1336496567 = phi i32 [ %dstFromOffset.0.ph, %if.then220 ], [ %dstFromOffset.2, %if.end118 ]
+  %dstFromDSTSavings.1335497566 = phi i32 [ %dstFromDSTSavings.0.ph, %if.then220 ], [ %dstFromDSTSavings.2, %if.end118 ]
+  %dstToOffset.1334498565 = phi i32 [ %dstToOffset.0.ph, %if.then220 ], [ %dstToOffset.2, %if.end118 ]
+  %dstMonth.1333499564 = phi i32 [ %dstMonth.0.ph, %if.then220 ], [ %dstMonth.2, %if.end118 ]
+  %dstDayOfWeek.1332500563 = phi i32 [ %dstDayOfWeek.0.ph, %if.then220 ], [ %dstDayOfWeek.2, %if.end118 ]
+  %finalStdRule.1330501562 = phi ptr [ %finalStdRule.1330, %if.then220 ], [ %finalStdRule.0, %if.end118 ]
+  %stdCount.1329504561 = phi i32 [ %stdCount.1329, %if.then220 ], [ %stdCount.0, %if.end118 ]
+  %stdUntilTime.1328506560 = phi double [ %stdUntilTime.1328, %if.then220 ], [ %stdUntilTime.0, %if.end118 ]
+  %stdStartTime.1327508559 = phi double [ %stdStartTime.1327, %if.then220 ], [ %stdStartTime.0, %if.end118 ]
+  %stdWeekInMonth.1326510558 = phi i32 [ %stdWeekInMonth.1326, %if.then220 ], [ %stdWeekInMonth.0, %if.end118 ]
+  %stdDayOfWeek.1325512557 = phi i32 [ %stdDayOfWeek.1325, %if.then220 ], [ %stdDayOfWeek.0, %if.end118 ]
+  %stdMonth.1324514556 = phi i32 [ %stdMonth.1324, %if.then220 ], [ %stdMonth.0, %if.end118 ]
+  %stdToOffset.1323516555 = phi i32 [ %stdToOffset.1323, %if.then220 ], [ %stdToOffset.0, %if.end118 ]
+  %stdFromDSTSavings.1322518554 = phi i32 [ %stdFromDSTSavings.1322, %if.then220 ], [ %stdFromDSTSavings.0, %if.end118 ]
+  %stdFromOffset.1321520553 = phi i32 [ %stdFromOffset.1321, %if.then220 ], [ %stdFromOffset.0, %if.end118 ]
+  %finalDstRule.1319521552 = phi ptr [ %finalDstRule.0.ph, %if.then220 ], [ %finalDstRule.2, %if.end118 ]
+  %dstCount.1318523551 = phi i32 [ %dstCount.0.ph, %if.then220 ], [ %dstCount.4, %if.end118 ]
+  %dstUntilTime.1317524550 = phi double [ %dstUntilTime.0.ph, %if.then220 ], [ %call22, %if.end118 ]
+  %dstStartTime.1316525549 = phi double [ %dstStartTime.0.ph, %if.then220 ], [ %dstStartTime.2, %if.end118 ]
+  %dstWeekInMonth.1315526548 = phi i32 [ %dstWeekInMonth.0.ph, %if.then220 ], [ %dstWeekInMonth.2, %if.end118 ]
+  %cmp235 = icmp eq i32 %dstCount.1318523551, 1
   br i1 %cmp235, label %if.then236, label %if.else239
 
 if.then236:                                       ; preds = %if.else234
-  %sub237 = sub nsw i32 %dstFromOffset.3336496567, %dstFromDSTSavings.3335497566
+  %sub237 = sub nsw i32 %dstFromOffset.1336496567, %dstFromDSTSavings.1335497566
   br label %if.then236.invoke
 
 if.then236.invoke:                                ; preds = %if.then260, %if.then236
   %67 = phi i32 [ %sub237, %if.then236 ], [ %sub254, %if.then260 ]
-  %68 = phi double [ %dstStartTime.3316525549, %if.then236 ], [ %71, %if.then260 ]
-  invoke void @_ZNK6icu_759VTimeZone14writeFinalRuleERNS_9VTZWriterEaPKNS_18AnnualTimeZoneRuleEiidR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 1, ptr noundef nonnull %finalDstRule.3319521552, i32 noundef %67, i32 noundef %dstFromDSTSavings.3335497566, double noundef %68, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %68 = phi double [ %dstStartTime.1316525549, %if.then236 ], [ %71, %if.then260 ]
+  invoke void @_ZNK6icu_759VTimeZone14writeFinalRuleERNS_9VTZWriterEaPKNS_18AnnualTimeZoneRuleEiidR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 1, ptr noundef nonnull %finalDstRule.1319521552, i32 noundef %67, i32 noundef %dstFromDSTSavings.1335497566, double noundef %68, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end265 unwind label %lpad15.loopexit.split-lp
 
 if.else239:                                       ; preds = %if.else234
-  %call241 = invoke noundef ptr @_ZNK6icu_7518AnnualTimeZoneRule7getRuleEv(ptr noundef nonnull align 8 dereferenceable(96) %finalDstRule.3319521552)
+  %call241 = invoke noundef ptr @_ZNK6icu_7518AnnualTimeZoneRule7getRuleEv(ptr noundef nonnull align 8 dereferenceable(96) %finalDstRule.1319521552)
           to label %invoke.cont240 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont240:                                   ; preds = %if.else239
-  %call243 = invoke fastcc noundef signext i8 @_ZN6icu_75L20isEquivalentDateRuleEiiiPKNS_12DateTimeRuleE(i32 noundef %dstMonth.3333499564, i32 noundef %dstWeekInMonth.3315526548, i32 noundef %dstDayOfWeek.3332500563, ptr noundef %call241)
+  %call243 = invoke fastcc noundef signext i8 @_ZN6icu_75L20isEquivalentDateRuleEiiiPKNS_12DateTimeRuleE(i32 noundef %dstMonth.1333499564, i32 noundef %dstWeekInMonth.1315526548, i32 noundef %dstDayOfWeek.1332500563, ptr noundef %call241)
           to label %invoke.cont242 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont242:                                   ; preds = %invoke.cont240
@@ -6237,11 +6237,11 @@ invoke.cont242:                                   ; preds = %invoke.cont240
   br i1 %tobool244.not, label %if.else247, label %if.then245
 
 if.then245:                                       ; preds = %invoke.cont242
-  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %dstName, i32 noundef %dstFromOffset.3336496567, i32 noundef %dstToOffset.3334498565, i32 noundef %dstMonth.3333499564, i32 noundef %dstWeekInMonth.3315526548, i32 noundef %dstDayOfWeek.3332500563, double noundef %dstStartTime.3316525549, double noundef 0x43846A3EDDF8CD80, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %dstName, i32 noundef %dstFromOffset.1336496567, i32 noundef %dstToOffset.1334498565, i32 noundef %dstMonth.1333499564, i32 noundef %dstWeekInMonth.1315526548, i32 noundef %dstDayOfWeek.1332500563, double noundef %dstStartTime.1316525549, double noundef 0x43846A3EDDF8CD80, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end265 unwind label %lpad15.loopexit.split-lp
 
 if.else247:                                       ; preds = %invoke.cont242
-  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %dstName, i32 noundef %dstFromOffset.3336496567, i32 noundef %dstToOffset.3334498565, i32 noundef %dstMonth.3333499564, i32 noundef %dstWeekInMonth.3315526548, i32 noundef %dstDayOfWeek.3332500563, double noundef %dstStartTime.3316525549, double noundef %dstUntilTime.5317524550, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %dstName, i32 noundef %dstFromOffset.1336496567, i32 noundef %dstToOffset.1334498565, i32 noundef %dstMonth.1333499564, i32 noundef %dstWeekInMonth.1315526548, i32 noundef %dstDayOfWeek.1332500563, double noundef %dstStartTime.1316525549, double noundef %dstUntilTime.1317524550, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont248 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont248:                                   ; preds = %if.else247
@@ -6250,11 +6250,11 @@ invoke.cont248:                                   ; preds = %if.else247
   br i1 %cmp.i265, label %if.end253, label %cleanupWriteZone
 
 if.end253:                                        ; preds = %invoke.cont248
-  %sub254 = sub nsw i32 %dstFromOffset.3336496567, %dstFromDSTSavings.3335497566
-  %vtable255 = load ptr, ptr %finalDstRule.3319521552, align 8
+  %sub254 = sub nsw i32 %dstFromOffset.1336496567, %dstFromDSTSavings.1335497566
+  %vtable255 = load ptr, ptr %finalDstRule.1319521552, align 8
   %vfn256 = getelementptr inbounds i8, ptr %vtable255, i64 72
   %70 = load ptr, ptr %vfn256, align 8
-  %call258 = invoke noundef signext i8 %70(ptr noundef nonnull align 8 dereferenceable(96) %finalDstRule.3319521552, double noundef %dstUntilTime.5317524550, i32 noundef %sub254, i32 noundef %dstFromDSTSavings.3335497566, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %nextStart)
+  %call258 = invoke noundef signext i8 %70(ptr noundef nonnull align 8 dereferenceable(96) %finalDstRule.1319521552, double noundef %dstUntilTime.1317524550, i32 noundef %sub254, i32 noundef %dstFromDSTSavings.1335497566, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %nextStart)
           to label %invoke.cont257 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont257:                                   ; preds = %if.end253
@@ -6271,34 +6271,34 @@ if.end265:                                        ; preds = %if.then236.invoke, 
   br i1 %cmp.i267, label %if.end272, label %cleanupWriteZone
 
 if.end272:                                        ; preds = %if.end228, %if.end265, %if.else218
-  %finalDstRule.3319522 = phi ptr [ null, %if.end228 ], [ %finalDstRule.3319521552, %if.end265 ], [ %finalDstRule.0.ph, %if.else218 ]
-  %stdFromOffset.3321519 = phi i32 [ %stdFromOffset.3321, %if.end228 ], [ %stdFromOffset.3321520553, %if.end265 ], [ %stdFromOffset.3321, %if.else218 ]
-  %stdFromDSTSavings.3322517 = phi i32 [ %stdFromDSTSavings.3322, %if.end228 ], [ %stdFromDSTSavings.3322518554, %if.end265 ], [ %stdFromDSTSavings.3322, %if.else218 ]
-  %stdToOffset.3323515 = phi i32 [ %stdToOffset.3323, %if.end228 ], [ %stdToOffset.3323516555, %if.end265 ], [ %stdToOffset.3323, %if.else218 ]
-  %stdMonth.3324513 = phi i32 [ %stdMonth.3324, %if.end228 ], [ %stdMonth.3324514556, %if.end265 ], [ %stdMonth.3324, %if.else218 ]
-  %stdDayOfWeek.3325511 = phi i32 [ %stdDayOfWeek.3325, %if.end228 ], [ %stdDayOfWeek.3325512557, %if.end265 ], [ %stdDayOfWeek.3325, %if.else218 ]
-  %stdWeekInMonth.3326509 = phi i32 [ %stdWeekInMonth.3326, %if.end228 ], [ %stdWeekInMonth.3326510558, %if.end265 ], [ %stdWeekInMonth.3326, %if.else218 ]
-  %stdStartTime.3327507 = phi double [ %stdStartTime.3327, %if.end228 ], [ %stdStartTime.3327508559, %if.end265 ], [ %stdStartTime.3327, %if.else218 ]
-  %stdUntilTime.5328505 = phi double [ %stdUntilTime.5328, %if.end228 ], [ %stdUntilTime.5328506560, %if.end265 ], [ %stdUntilTime.5328, %if.else218 ]
-  %stdCount.5329503 = phi i32 [ %stdCount.5329, %if.end228 ], [ %stdCount.5329504561, %if.end265 ], [ %stdCount.5329, %if.else218 ]
-  %finalStdRule.3330502 = phi ptr [ %finalStdRule.3330, %if.end228 ], [ %finalStdRule.3330501562, %if.end265 ], [ %finalStdRule.3330, %if.else218 ]
-  %cmp273 = icmp sgt i32 %stdCount.5329503, 0
+  %finalDstRule.1319522 = phi ptr [ null, %if.end228 ], [ %finalDstRule.1319521552, %if.end265 ], [ %finalDstRule.0.ph, %if.else218 ]
+  %stdFromOffset.1321519 = phi i32 [ %stdFromOffset.1321, %if.end228 ], [ %stdFromOffset.1321520553, %if.end265 ], [ %stdFromOffset.1321, %if.else218 ]
+  %stdFromDSTSavings.1322517 = phi i32 [ %stdFromDSTSavings.1322, %if.end228 ], [ %stdFromDSTSavings.1322518554, %if.end265 ], [ %stdFromDSTSavings.1322, %if.else218 ]
+  %stdToOffset.1323515 = phi i32 [ %stdToOffset.1323, %if.end228 ], [ %stdToOffset.1323516555, %if.end265 ], [ %stdToOffset.1323, %if.else218 ]
+  %stdMonth.1324513 = phi i32 [ %stdMonth.1324, %if.end228 ], [ %stdMonth.1324514556, %if.end265 ], [ %stdMonth.1324, %if.else218 ]
+  %stdDayOfWeek.1325511 = phi i32 [ %stdDayOfWeek.1325, %if.end228 ], [ %stdDayOfWeek.1325512557, %if.end265 ], [ %stdDayOfWeek.1325, %if.else218 ]
+  %stdWeekInMonth.1326509 = phi i32 [ %stdWeekInMonth.1326, %if.end228 ], [ %stdWeekInMonth.1326510558, %if.end265 ], [ %stdWeekInMonth.1326, %if.else218 ]
+  %stdStartTime.1327507 = phi double [ %stdStartTime.1327, %if.end228 ], [ %stdStartTime.1327508559, %if.end265 ], [ %stdStartTime.1327, %if.else218 ]
+  %stdUntilTime.1328505 = phi double [ %stdUntilTime.1328, %if.end228 ], [ %stdUntilTime.1328506560, %if.end265 ], [ %stdUntilTime.1328, %if.else218 ]
+  %stdCount.1329503 = phi i32 [ %stdCount.1329, %if.end228 ], [ %stdCount.1329504561, %if.end265 ], [ %stdCount.1329, %if.else218 ]
+  %finalStdRule.1330502 = phi ptr [ %finalStdRule.1330, %if.end228 ], [ %finalStdRule.1330501562, %if.end265 ], [ %finalStdRule.1330, %if.else218 ]
+  %cmp273 = icmp sgt i32 %stdCount.1329503, 0
   br i1 %cmp273, label %if.then274, label %if.end329
 
 if.then274:                                       ; preds = %if.end272
-  %cmp275 = icmp eq ptr %finalStdRule.3330502, null
-  %cmp277 = icmp eq i32 %stdCount.5329503, 1
+  %cmp275 = icmp eq ptr %finalStdRule.1330502, null
+  %cmp277 = icmp eq i32 %stdCount.1329503, 1
   br i1 %cmp275, label %if.then276, label %if.else288
 
 if.then276:                                       ; preds = %if.then274
   br i1 %cmp277, label %if.then278, label %if.else280
 
 if.then278:                                       ; preds = %if.then276
-  invoke void @_ZNK6icu_759VTimeZone20writeZonePropsByTimeERNS_9VTZWriterEaRKNS_13UnicodeStringEiidaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.3321519, i32 noundef %stdToOffset.3323515, double noundef %stdStartTime.3327507, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759VTimeZone20writeZonePropsByTimeERNS_9VTZWriterEaRKNS_13UnicodeStringEiidaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.1321519, i32 noundef %stdToOffset.1323515, double noundef %stdStartTime.1327507, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end282 unwind label %lpad15.loopexit.split-lp
 
 if.else280:                                       ; preds = %if.then276
-  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.3321519, i32 noundef %stdToOffset.3323515, i32 noundef %stdMonth.3324513, i32 noundef %stdWeekInMonth.3326509, i32 noundef %stdDayOfWeek.3325511, double noundef %stdStartTime.3327507, double noundef %stdUntilTime.5328505, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.1321519, i32 noundef %stdToOffset.1323515, i32 noundef %stdMonth.1324513, i32 noundef %stdWeekInMonth.1326509, i32 noundef %stdDayOfWeek.1325511, double noundef %stdStartTime.1327507, double noundef %stdUntilTime.1328505, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end282 unwind label %lpad15.loopexit.split-lp
 
 if.end282:                                        ; preds = %if.else280, %if.then278
@@ -6310,21 +6310,21 @@ if.else288:                                       ; preds = %if.then274
   br i1 %cmp277, label %if.then290, label %if.else293
 
 if.then290:                                       ; preds = %if.else288
-  %sub291 = sub nsw i32 %stdFromOffset.3321519, %stdFromDSTSavings.3322517
+  %sub291 = sub nsw i32 %stdFromOffset.1321519, %stdFromDSTSavings.1322517
   br label %if.then290.invoke
 
 if.then290.invoke:                                ; preds = %if.then316, %if.then290
   %74 = phi i32 [ %sub291, %if.then290 ], [ %sub310, %if.then316 ]
-  %75 = phi double [ %stdStartTime.3327507, %if.then290 ], [ %78, %if.then316 ]
-  invoke void @_ZNK6icu_759VTimeZone14writeFinalRuleERNS_9VTZWriterEaPKNS_18AnnualTimeZoneRuleEiidR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull %finalStdRule.3330502, i32 noundef %74, i32 noundef %stdFromDSTSavings.3322517, double noundef %75, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %75 = phi double [ %stdStartTime.1327507, %if.then290 ], [ %78, %if.then316 ]
+  invoke void @_ZNK6icu_759VTimeZone14writeFinalRuleERNS_9VTZWriterEaPKNS_18AnnualTimeZoneRuleEiidR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull %finalStdRule.1330502, i32 noundef %74, i32 noundef %stdFromDSTSavings.1322517, double noundef %75, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end321 unwind label %lpad15.loopexit.split-lp
 
 if.else293:                                       ; preds = %if.else288
-  %call295 = invoke noundef ptr @_ZNK6icu_7518AnnualTimeZoneRule7getRuleEv(ptr noundef nonnull align 8 dereferenceable(96) %finalStdRule.3330502)
+  %call295 = invoke noundef ptr @_ZNK6icu_7518AnnualTimeZoneRule7getRuleEv(ptr noundef nonnull align 8 dereferenceable(96) %finalStdRule.1330502)
           to label %invoke.cont294 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont294:                                   ; preds = %if.else293
-  %call297 = invoke fastcc noundef signext i8 @_ZN6icu_75L20isEquivalentDateRuleEiiiPKNS_12DateTimeRuleE(i32 noundef %stdMonth.3324513, i32 noundef %stdWeekInMonth.3326509, i32 noundef %stdDayOfWeek.3325511, ptr noundef %call295)
+  %call297 = invoke fastcc noundef signext i8 @_ZN6icu_75L20isEquivalentDateRuleEiiiPKNS_12DateTimeRuleE(i32 noundef %stdMonth.1324513, i32 noundef %stdWeekInMonth.1326509, i32 noundef %stdDayOfWeek.1325511, ptr noundef %call295)
           to label %invoke.cont296 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont296:                                   ; preds = %invoke.cont294
@@ -6332,11 +6332,11 @@ invoke.cont296:                                   ; preds = %invoke.cont294
   br i1 %tobool298.not, label %if.else301, label %if.then299
 
 if.then299:                                       ; preds = %invoke.cont296
-  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.3321519, i32 noundef %stdToOffset.3323515, i32 noundef %stdMonth.3324513, i32 noundef %stdWeekInMonth.3326509, i32 noundef %stdDayOfWeek.3325511, double noundef %stdStartTime.3327507, double noundef 0x43846A3EDDF8CD80, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.1321519, i32 noundef %stdToOffset.1323515, i32 noundef %stdMonth.1324513, i32 noundef %stdWeekInMonth.1326509, i32 noundef %stdDayOfWeek.1325511, double noundef %stdStartTime.1327507, double noundef 0x43846A3EDDF8CD80, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end321 unwind label %lpad15.loopexit.split-lp
 
 if.else301:                                       ; preds = %invoke.cont296
-  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.3321519, i32 noundef %stdToOffset.3323515, i32 noundef %stdMonth.3324513, i32 noundef %stdWeekInMonth.3326509, i32 noundef %stdDayOfWeek.3325511, double noundef %stdStartTime.3327507, double noundef %stdUntilTime.5328505, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void @_ZNK6icu_759VTimeZone19writeZonePropsByDOWERNS_9VTZWriterEaRKNS_13UnicodeStringEiiiiiddR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %stdName, i32 noundef %stdFromOffset.1321519, i32 noundef %stdToOffset.1323515, i32 noundef %stdMonth.1324513, i32 noundef %stdWeekInMonth.1326509, i32 noundef %stdDayOfWeek.1325511, double noundef %stdStartTime.1327507, double noundef %stdUntilTime.1328505, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont302 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont302:                                   ; preds = %if.else301
@@ -6345,11 +6345,11 @@ invoke.cont302:                                   ; preds = %if.else301
   br i1 %cmp.i271, label %if.end307, label %delete.notnull
 
 if.end307:                                        ; preds = %invoke.cont302
-  %sub310 = sub nsw i32 %stdFromOffset.3321519, %stdFromDSTSavings.3322517
-  %vtable311 = load ptr, ptr %finalStdRule.3330502, align 8
+  %sub310 = sub nsw i32 %stdFromOffset.1321519, %stdFromDSTSavings.1322517
+  %vtable311 = load ptr, ptr %finalStdRule.1330502, align 8
   %vfn312 = getelementptr inbounds i8, ptr %vtable311, i64 72
   %77 = load ptr, ptr %vfn312, align 8
-  %call314 = invoke noundef signext i8 %77(ptr noundef nonnull align 8 dereferenceable(96) %finalStdRule.3330502, double noundef %stdUntilTime.5328505, i32 noundef %sub310, i32 noundef %stdFromDSTSavings.3322517, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %nextStart308)
+  %call314 = invoke noundef signext i8 %77(ptr noundef nonnull align 8 dereferenceable(96) %finalStdRule.1330502, double noundef %stdUntilTime.1328505, i32 noundef %sub310, i32 noundef %stdFromDSTSavings.1322517, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %nextStart308)
           to label %invoke.cont313 unwind label %lpad15.loopexit.split-lp
 
 invoke.cont313:                                   ; preds = %if.end307
@@ -6366,36 +6366,36 @@ if.end321:                                        ; preds = %if.then290.invoke, 
   br i1 %cmp.i273, label %if.end329, label %delete.notnull
 
 if.end329:                                        ; preds = %invoke.cont212, %if.end272, %if.end321, %if.end282
-  %finalStdRule.3331 = phi ptr [ %finalStdRule.0, %invoke.cont212 ], [ %finalStdRule.3330502, %if.end272 ], [ %finalStdRule.3330502, %if.end321 ], [ null, %if.end282 ]
-  %finalDstRule.3320 = phi ptr [ %finalDstRule.0.ph, %invoke.cont212 ], [ %finalDstRule.3319522, %if.end272 ], [ %finalDstRule.3319522, %if.end321 ], [ %finalDstRule.3319522, %if.end282 ]
+  %finalStdRule.1331 = phi ptr [ %finalStdRule.0, %invoke.cont212 ], [ %finalStdRule.1330502, %if.end272 ], [ %finalStdRule.1330502, %if.end321 ], [ null, %if.end282 ]
+  %finalDstRule.1320 = phi ptr [ %finalDstRule.0.ph, %invoke.cont212 ], [ %finalDstRule.1319522, %if.end272 ], [ %finalDstRule.1319522, %if.end321 ], [ %finalDstRule.1319522, %if.end282 ]
   invoke void @_ZNK6icu_759VTimeZone11writeFooterERNS_9VTZWriterER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %w, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanupWriteZone unwind label %lpad15.loopexit.split-lp
 
 cleanupWriteZone:                                 ; preds = %if.end174, %if.end106, %invoke.cont212, %if.end329, %if.end265, %invoke.cont248, %if.end228, %invoke.cont197
-  %finalDstRule.4 = phi ptr [ null, %if.end228 ], [ %finalDstRule.3320, %if.end329 ], [ %finalDstRule.3319521552, %if.end265 ], [ %finalDstRule.3319521552, %invoke.cont248 ], [ %finalDstRule.0.ph, %invoke.cont197 ], [ %finalDstRule.0.ph, %invoke.cont212 ], [ %finalDstRule.0.ph, %if.end174 ], [ %finalDstRule.1, %if.end106 ]
-  %finalStdRule.4 = phi ptr [ %finalStdRule.3330, %if.end228 ], [ %finalStdRule.3331, %if.end329 ], [ %finalStdRule.3330501562, %if.end265 ], [ %finalStdRule.3330501562, %invoke.cont248 ], [ %finalStdRule.0, %invoke.cont197 ], [ %finalStdRule.0, %invoke.cont212 ], [ %finalStdRule.1, %if.end174 ], [ %finalStdRule.0, %if.end106 ]
-  %cmp331.not = icmp eq ptr %finalStdRule.4, null
+  %finalDstRule.3 = phi ptr [ null, %if.end228 ], [ %finalDstRule.1320, %if.end329 ], [ %finalDstRule.1319521552, %if.end265 ], [ %finalDstRule.1319521552, %invoke.cont248 ], [ %finalDstRule.0.ph, %invoke.cont197 ], [ %finalDstRule.0.ph, %invoke.cont212 ], [ %finalDstRule.0.ph, %if.end174 ], [ %finalDstRule.2, %if.end106 ]
+  %finalStdRule.2 = phi ptr [ %finalStdRule.1330, %if.end228 ], [ %finalStdRule.1331, %if.end329 ], [ %finalStdRule.1330501562, %if.end265 ], [ %finalStdRule.1330501562, %invoke.cont248 ], [ %finalStdRule.0, %invoke.cont197 ], [ %finalStdRule.0, %invoke.cont212 ], [ %finalStdRule.4, %if.end174 ], [ %finalStdRule.0, %if.end106 ]
+  %cmp331.not = icmp eq ptr %finalStdRule.2, null
   br i1 %cmp331.not, label %if.end335, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont302, %if.end321, %cleanupWriteZone
-  %finalStdRule.4342 = phi ptr [ %finalStdRule.4, %cleanupWriteZone ], [ %finalStdRule.3330502, %if.end321 ], [ %finalStdRule.3330502, %invoke.cont302 ]
-  %finalDstRule.4340 = phi ptr [ %finalDstRule.4, %cleanupWriteZone ], [ %finalDstRule.3319522, %if.end321 ], [ %finalDstRule.3319522, %invoke.cont302 ]
-  %vtable333 = load ptr, ptr %finalStdRule.4342, align 8
+  %finalStdRule.2342 = phi ptr [ %finalStdRule.2, %cleanupWriteZone ], [ %finalStdRule.1330502, %if.end321 ], [ %finalStdRule.1330502, %invoke.cont302 ]
+  %finalDstRule.3340 = phi ptr [ %finalDstRule.3, %cleanupWriteZone ], [ %finalDstRule.1319522, %if.end321 ], [ %finalDstRule.1319522, %invoke.cont302 ]
+  %vtable333 = load ptr, ptr %finalStdRule.2342, align 8
   %vfn334 = getelementptr inbounds i8, ptr %vtable333, i64 8
   %80 = load ptr, ptr %vfn334, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(96) %finalStdRule.4342) #15
+  call void %80(ptr noundef nonnull align 8 dereferenceable(96) %finalStdRule.2342) #15
   br label %if.end335
 
 if.end335:                                        ; preds = %if.end282, %delete.notnull, %cleanupWriteZone
-  %finalDstRule.4341 = phi ptr [ %finalDstRule.4340, %delete.notnull ], [ %finalDstRule.4, %cleanupWriteZone ], [ %finalDstRule.3319522, %if.end282 ]
-  %cmp336.not = icmp eq ptr %finalDstRule.4341, null
+  %finalDstRule.3341 = phi ptr [ %finalDstRule.3340, %delete.notnull ], [ %finalDstRule.3, %cleanupWriteZone ], [ %finalDstRule.1319522, %if.end282 ]
+  %cmp336.not = icmp eq ptr %finalDstRule.3341, null
   br i1 %cmp336.not, label %if.end343, label %delete.notnull339
 
 delete.notnull339:                                ; preds = %if.end335
-  %vtable340 = load ptr, ptr %finalDstRule.4341, align 8
+  %vtable340 = load ptr, ptr %finalDstRule.3341, align 8
   %vfn341 = getelementptr inbounds i8, ptr %vtable340, i64 8
   %81 = load ptr, ptr %vfn341, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(96) %finalDstRule.4341) #15
+  call void %81(ptr noundef nonnull align 8 dereferenceable(96) %finalDstRule.3341) #15
   br label %if.end343
 
 if.end343:                                        ; preds = %delete.notnull339, %if.end335
@@ -7140,9 +7140,9 @@ if.else36.i:                                      ; preds = %if.then30.i
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.else36.i, %if.then33.i, %if.then28.i
-  %dom.0.i = phi i32 [ %add35.i, %if.then33.i ], [ %add39.i, %if.else36.i ], [ %call24.i, %if.then28.i ]
-  %dtype.0.i = phi i32 [ 2, %if.then33.i ], [ 3, %if.else36.i ], [ %call26.i, %if.then28.i ]
-  %add42.i = add nsw i32 %dom.0.i, %dshift.0.i
+  %dom.1.i = phi i32 [ %add35.i, %if.then33.i ], [ %add39.i, %if.else36.i ], [ %call24.i, %if.then28.i ]
+  %dtype.1.i = phi i32 [ 2, %if.then33.i ], [ 3, %if.else36.i ], [ %call26.i, %if.then28.i ]
+  %add42.i = add nsw i32 %dom.1.i, %dshift.0.i
   %cmp43.i = icmp eq i32 %add42.i, 0
   br i1 %cmp43.i, label %if.then44.i, label %if.else48.i
 
@@ -7169,9 +7169,9 @@ if.then52.i:                                      ; preds = %if.else48.i
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.then52.i, %if.else48.i, %if.then44.i
-  %dom.1.i = phi i32 [ %5, %if.then44.i ], [ 1, %if.then52.i ], [ %add42.i, %if.else48.i ]
-  %month.0.i = phi i32 [ %cond.i, %if.then44.i ], [ %cond57.i, %if.then52.i ], [ %call23.i, %if.else48.i ]
-  %cmp60.not.i = icmp eq i32 %dtype.0.i, 0
+  %dom.2.i = phi i32 [ %5, %if.then44.i ], [ 1, %if.then52.i ], [ %add42.i, %if.else48.i ]
+  %month.1.i = phi i32 [ %cond.i, %if.then44.i ], [ %cond57.i, %if.then52.i ], [ %call23.i, %if.else48.i ]
+  %cmp60.not.i = icmp eq i32 %dtype.1.i, 0
   br i1 %cmp60.not.i, label %if.then73.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.end59.i
@@ -7189,14 +7189,14 @@ if.end71.i:                                       ; preds = %if.end22.i
   br i1 %cmp72.i, label %if.then73.i, label %if.else75.i
 
 if.then73.i:                                      ; preds = %if.end71.i, %if.end59.i
-  %month.160.i = phi i32 [ %call23.i, %if.end71.i ], [ %month.0.i, %if.end59.i ]
-  %dom.259.i = phi i32 [ %call24.i, %if.end71.i ], [ %dom.1.i, %if.end59.i ]
+  %month.060.i = phi i32 [ %call23.i, %if.end71.i ], [ %month.1.i, %if.end59.i ]
+  %dom.059.i = phi i32 [ %call24.i, %if.end71.i ], [ %dom.2.i, %if.end59.i ]
   %call74.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #15
   %new.isnull.i = icmp eq ptr %call74.i, null
   br i1 %new.isnull.i, label %if.then90.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then73.i
-  invoke void @_ZN6icu_7512DateTimeRuleC1EiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call74.i, i32 noundef %month.160.i, i32 noundef %dom.259.i, i32 noundef %wallt.1.i, i32 noundef 0)
+  invoke void @_ZN6icu_7512DateTimeRuleC1EiiiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call74.i, i32 noundef %month.060.i, i32 noundef %dom.059.i, i32 noundef %wallt.1.i, i32 noundef 0)
           to label %_ZN6icu_75L14toWallTimeRuleEPKNS_12DateTimeRuleEiiR10UErrorCode.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %new.notnull.i
@@ -7205,18 +7205,18 @@ lpad.i:                                           ; preds = %new.notnull.i
   br label %eh.resume.i
 
 if.else75.i:                                      ; preds = %if.end71.i, %if.else65.i, %if.then61.i
-  %month.152.i = phi i32 [ %call23.i, %if.end71.i ], [ %month.0.i, %if.else65.i ], [ %month.0.i, %if.then61.i ]
-  %dtype.151.i = phi i32 [ %call26.i, %if.end71.i ], [ %dtype.0.i, %if.else65.i ], [ %dtype.0.i, %if.then61.i ]
+  %month.052.i = phi i32 [ %call23.i, %if.end71.i ], [ %month.1.i, %if.else65.i ], [ %month.1.i, %if.then61.i ]
+  %dtype.051.i = phi i32 [ %call26.i, %if.end71.i ], [ %dtype.1.i, %if.else65.i ], [ %dtype.1.i, %if.then61.i ]
   %dow.050.i = phi i32 [ %call25.i, %if.end71.i ], [ %spec.store.select.i, %if.else65.i ], [ 7, %if.then61.i ]
-  %dom.249.i = phi i32 [ %call24.i, %if.end71.i ], [ %dom.1.i, %if.else65.i ], [ %dom.1.i, %if.then61.i ]
+  %dom.049.i = phi i32 [ %call24.i, %if.end71.i ], [ %dom.2.i, %if.else65.i ], [ %dom.2.i, %if.then61.i ]
   %call76.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #15
   %new.isnull77.i = icmp eq ptr %call76.i, null
   br i1 %new.isnull77.i, label %if.then90.i, label %new.notnull78.i
 
 new.notnull78.i:                                  ; preds = %if.else75.i
-  %cmp81.i = icmp eq i32 %dtype.151.i, 2
+  %cmp81.i = icmp eq i32 %dtype.051.i, 2
   %conv.i51 = zext i1 %cmp81.i to i8
-  invoke void @_ZN6icu_7512DateTimeRuleC1EiiiaiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call76.i, i32 noundef %month.152.i, i32 noundef %dom.249.i, i32 noundef %dow.050.i, i8 noundef signext %conv.i51, i32 noundef %wallt.1.i, i32 noundef 0)
+  invoke void @_ZN6icu_7512DateTimeRuleC1EiiiaiNS0_12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(36) %call76.i, i32 noundef %month.052.i, i32 noundef %dom.049.i, i32 noundef %dow.050.i, i8 noundef signext %conv.i51, i32 noundef %wallt.1.i, i32 noundef 0)
           to label %_ZN6icu_75L14toWallTimeRuleEPKNS_12DateTimeRuleEiiR10UErrorCode.exit unwind label %lpad82.i
 
 lpad82.i:                                         ; preds = %new.notnull78.i

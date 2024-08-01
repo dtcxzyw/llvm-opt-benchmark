@@ -1183,8 +1183,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ6module1_84_$LT$impl$u2
   br label %63
 
 63:                                               ; preds = %60, %2, %12, %16, %23, %26, %30, %34, %38, %42, %48, %52, %56
-  %.0 = phi ptr [ %10, %2 ], [ %14, %12 ], [ %21, %16 ], [ %24, %23 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ], [ %46, %42 ], [ %50, %48 ], [ %54, %52 ], [ %58, %56 ], [ %62, %60 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %14, %12 ], [ %21, %16 ], [ %24, %23 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ], [ %46, %42 ], [ %50, %48 ], [ %54, %52 ], [ %58, %56 ], [ %62, %60 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1286,8 +1286,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ6module1_84_$LT$impl$u2
   br label %63
 
 63:                                               ; preds = %60, %2, %12, %16, %23, %26, %30, %34, %38, %42, %48, %52, %56
-  %.0 = phi ptr [ %10, %2 ], [ %14, %12 ], [ %21, %16 ], [ %24, %23 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ], [ %46, %42 ], [ %50, %48 ], [ %54, %52 ], [ %58, %56 ], [ %62, %60 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %14, %12 ], [ %21, %16 ], [ %24, %23 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ], [ %46, %42 ], [ %50, %48 ], [ %54, %52 ], [ %58, %56 ], [ %62, %60 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1528,8 +1528,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ6module1_84_$LT$impl$u2
   br label %143
 
 143:                                              ; preds = %140, %34, %40, %59, %65, %68, %72, %76, %80, %84, %128, %132, %136
-  %.0 = phi ptr [ %38, %34 ], [ %42, %40 ], [ %63, %59 ], [ %66, %65 ], [ %70, %68 ], [ %74, %72 ], [ %78, %76 ], [ %82, %80 ], [ %126, %84 ], [ %130, %128 ], [ %134, %132 ], [ %138, %136 ], [ %142, %140 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %38, %34 ], [ %42, %40 ], [ %63, %59 ], [ %66, %65 ], [ %70, %68 ], [ %74, %72 ], [ %78, %76 ], [ %82, %80 ], [ %126, %84 ], [ %130, %128 ], [ %134, %132 ], [ %138, %136 ], [ %142, %140 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3924,8 +3924,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_104_$L
   br label %45
 
 45:                                               ; preds = %26, %5
-  %.0 = phi ptr [ %25, %5 ], [ %44, %26 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %25, %5 ], [ %44, %26 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3951,8 +3951,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_104_$L
   br label %14
 
 14:                                               ; preds = %12, %8
-  %.0 = phi ptr [ %11, %8 ], [ %13, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %11, %8 ], [ %13, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3978,8 +3978,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_104_$L
   br label %14
 
 14:                                               ; preds = %12, %8
-  %.0 = phi ptr [ %11, %8 ], [ %13, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %11, %8 ], [ %13, %12 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4114,8 +4114,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$L
   br label %39
 
 39:                                               ; preds = %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h1e3fbf83dd59ebf5E.exit", %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h1e3fbf83dd59ebf5E.exit.thread"
-  %.0 = phi ptr [ null, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h1e3fbf83dd59ebf5E.exit.thread" ], [ %38, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h1e3fbf83dd59ebf5E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h1e3fbf83dd59ebf5E.exit.thread" ], [ %38, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h1e3fbf83dd59ebf5E.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -5138,8 +5138,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_95_$LT
   br label %23
 
 23:                                               ; preds = %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcb759ec826dba247E.exit", %20
-  %.0 = phi ptr [ null, %20 ], [ %9, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcb759ec826dba247E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %20 ], [ %9, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hcb759ec826dba247E.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5229,8 +5229,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_95_$LT
   br label %45
 
 45:                                               ; preds = %2, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h328dd651ff61de15E.exit", %35
-  %.0 = phi ptr [ null, %35 ], [ %12, %2 ], [ %33, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h328dd651ff61de15E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %35 ], [ %12, %2 ], [ %33, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h328dd651ff61de15E.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5283,8 +5283,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_95_$LT
   br label %23
 
 23:                                               ; preds = %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h225a7099f010c7dfE.exit", %20
-  %.0 = phi ptr [ null, %20 ], [ %9, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h225a7099f010c7dfE.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %20 ], [ %9, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h225a7099f010c7dfE.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5342,8 +5342,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_96_$LT
   br label %33
 
 33:                                               ; preds = %30, %2, %5, %9, %13, %17, %24
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %22, %17 ], [ %28, %24 ], [ %32, %30 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %22, %17 ], [ %28, %24 ], [ %32, %30 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5492,8 +5492,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_96_$LT
   br label %92
 
 92:                                               ; preds = %89, %2, %5, %9, %13, %17, %61
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %59, %17 ], [ %87, %61 ], [ %91, %89 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %59, %17 ], [ %87, %61 ], [ %91, %89 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5545,8 +5545,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_96_$LT
   br label %33
 
 33:                                               ; preds = %30, %2, %5, %9, %13, %17, %24
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %22, %17 ], [ %28, %24 ], [ %32, %30 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %22, %17 ], [ %28, %24 ], [ %32, %30 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6111,8 +6111,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_101_$
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6127,8 +6127,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_101_$
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6143,8 +6143,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_101_$
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -6509,8 +6509,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_102_$
   br label %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h03e80b77deb01085E.exit.thread"
 
 "_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h03e80b77deb01085E.exit.thread": ; preds = %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h03e80b77deb01085E.exit", %53, %2, %5, %9, %13, %17, %21, %25, %29, %33, %37, %41, %45, %49
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ null, %53 ], [ %60, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h03e80b77deb01085E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ null, %53 ], [ %60, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h03e80b77deb01085E.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6609,8 +6609,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_102_$
   br label %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h53cf60d8434728d4E.exit.thread"
 
 "_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h53cf60d8434728d4E.exit.thread": ; preds = %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h53cf60d8434728d4E.exit", %53, %2, %5, %9, %13, %17, %21, %25, %29, %33, %37, %41, %45, %49
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ null, %53 ], [ %60, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h53cf60d8434728d4E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ null, %53 ], [ %60, %"_ZN83_$LT$bincode..ser..SizeCompound$LT$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h53cf60d8434728d4E.exit" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6697,8 +6697,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_102_$
   br label %56
 
 56:                                               ; preds = %53, %2, %5, %9, %13, %17, %21, %25, %29, %33, %37, %41, %45, %49
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ %55, %53 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ], [ %11, %9 ], [ %15, %13 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ], [ %43, %41 ], [ %47, %45 ], [ %51, %49 ], [ %55, %53 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -8432,8 +8432,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_96_$L
   br label %33
 
 33:                                               ; preds = %2, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8620,8 +8620,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_97_$L
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8708,8 +8708,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_97_$L
   br label %9
 
 9:                                                ; preds = %6, %2
-  %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %4, %2 ], [ %8, %6 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8736,8 +8736,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$L
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8752,8 +8752,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$L
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8768,8 +8768,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$L
   br label %8
 
 8:                                                ; preds = %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8853,8 +8853,8 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5type
   br label %33
 
 33:                                               ; preds = %2, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8921,8 +8921,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_98_$L
   br label %9
 
 9:                                                ; preds = %6, %2
-  %.0 = phi ptr [ %4, %2 ], [ %8, %6 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %4, %2 ], [ %8, %6 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9382,8 +9382,8 @@ define hidden noalias noundef align 8 ptr @"_ZN16wasmtime_environ9component5type
   br label %59
 
 59:                                               ; preds = %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdd9de0d9ca706df8E.exit", %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdd9de0d9ca706df8E.exit41", %32, %36
-  %.0 = phi ptr [ null, %36 ], [ %15, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdd9de0d9ca706df8E.exit" ], [ %30, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdd9de0d9ca706df8E.exit41" ], [ %34, %32 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %36 ], [ %15, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdd9de0d9ca706df8E.exit" ], [ %30, %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdd9de0d9ca706df8E.exit41" ], [ %34, %32 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9630,8 +9630,8 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component5types1_99_$L
   br label %33
 
 33:                                               ; preds = %2, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ %3, %2 ], [ %7, %5 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %9 ], [ %3, %2 ], [ %7, %5 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11848,10 +11848,10 @@ common.resume:                                    ; preds = %.thread, %118, %44
   unreachable
 
 109:                                              ; preds = %70, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39", %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit"
-  %.sroa.4.1 = phi ptr [ %72, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ %71, %70 ], [ %26, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
-  %.sroa.0.1 = phi i64 [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ 0, %70 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
-  %110 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %111 = insertvalue { i64, ptr } %110, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %72, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ %71, %70 ], [ %26, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ 0, %70 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
+  %110 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %111 = insertvalue { i64, ptr } %110, ptr %.sroa.4.0, 1
   ret { i64, ptr } %111
 
 112:                                              ; preds = %.noexc36, %101, %105
@@ -12734,10 +12734,10 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17ha4c730e7cc8ee3beE.exit.thre
   unreachable
 
 289:                                              ; preds = %214, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit78", %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit"
-  %.sroa.4.1 = phi ptr [ %257, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit78" ], [ %215, %214 ], [ %40, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
-  %.sroa.0.1 = phi i64 [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit78" ], [ 0, %214 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
-  %290 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %291 = insertvalue { i64, ptr } %290, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %257, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit78" ], [ %215, %214 ], [ %40, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit78" ], [ 0, %214 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
+  %290 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %291 = insertvalue { i64, ptr } %290, ptr %.sroa.4.0, 1
   ret { i64, ptr } %291
 
 292:                                              ; preds = %.noexc75, %281, %285
@@ -13056,10 +13056,10 @@ common.resume:                                    ; preds = %.thread, %118, %44
   unreachable
 
 109:                                              ; preds = %70, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39", %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit"
-  %.sroa.4.1 = phi ptr [ %72, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ %71, %70 ], [ %26, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
-  %.sroa.0.1 = phi i64 [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ 0, %70 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
-  %110 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %111 = insertvalue { i64, ptr } %110, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %72, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ %71, %70 ], [ %26, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit39" ], [ 0, %70 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$wasmtime_runtime..instance..allocator..InstanceAllocationRequest$GT$17h594994fdcad90b7aE.exit" ]
+  %110 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %111 = insertvalue { i64, ptr } %110, ptr %.sroa.4.0, 1
   ret { i64, ptr } %111
 
 112:                                              ; preds = %.noexc36, %101, %105
@@ -20323,8 +20323,8 @@ define internal fastcc noundef align 8 ptr @"_ZN83_$LT$bincode..ser..Compound$LT
   br label %"_ZN16wasmtime_environ6module1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module..TableInitialization$GT$9serialize17h99bf4c28a21a1ba2E.exit"
 
 "_ZN16wasmtime_environ6module1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module..TableInitialization$GT$9serialize17h99bf4c28a21a1ba2E.exit": ; preds = %1, %4
-  %.0.i = phi ptr [ %2, %1 ], [ %6, %4 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %2, %1 ], [ %6, %4 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -20422,8 +20422,8 @@ define internal fastcc noundef align 8 ptr @"_ZN83_$LT$bincode..ser..SizeCompoun
   br label %"_ZN16wasmtime_environ6module1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module..TableInitialization$GT$9serialize17h66af6782aa90fae7E.exit"
 
 "_ZN16wasmtime_environ6module1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module..TableInitialization$GT$9serialize17h66af6782aa90fae7E.exit": ; preds = %1, %4
-  %.0.i = phi ptr [ %2, %1 ], [ %6, %4 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %2, %1 ], [ %6, %4 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -20438,8 +20438,8 @@ define internal fastcc noundef align 8 ptr @"_ZN83_$LT$bincode..ser..SizeCompoun
   br label %"_ZN16wasmtime_environ6module1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module..TableInitialization$GT$9serialize17h415d91f7a109a8e0E.exit"
 
 "_ZN16wasmtime_environ6module1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..module..TableInitialization$GT$9serialize17h415d91f7a109a8e0E.exit": ; preds = %1, %4
-  %.0.i = phi ptr [ %2, %1 ], [ %6, %4 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %2, %1 ], [ %6, %4 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -29457,8 +29457,8 @@ define noundef align 4 dereferenceable_or_null(4) ptr @_ZN8wasmtime7runtime2gc7e
   br label %.thread
 
 .thread:                                          ; preds = %17, %"_ZN13wasmtime_slab13Slab$LT$T$GT$3get17h9a0e86eaf938497eE.exit", %21
-  %.1 = phi ptr [ %.08.i, %"_ZN13wasmtime_slab13Slab$LT$T$GT$3get17h9a0e86eaf938497eE.exit" ], [ %..011., %21 ], [ null, %17 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.08.i, %"_ZN13wasmtime_slab13Slab$LT$T$GT$3get17h9a0e86eaf938497eE.exit" ], [ %..011., %21 ], [ null, %17 ]
+  ret ptr %.0
 
 30:                                               ; preds = %13
   %31 = and i32 %.val.i.i, 2147483647
@@ -36443,8 +36443,8 @@ define hidden noundef align 8 ptr @"_ZN8wasmtime6engine13serialization1_93_$LT$i
   br label %31
 
 31:                                               ; preds = %28, %2, %20, %24
-  %.0 = phi ptr [ %18, %2 ], [ %22, %20 ], [ %26, %24 ], [ %30, %28 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %18, %2 ], [ %22, %20 ], [ %26, %24 ], [ %30, %28 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36480,8 +36480,8 @@ define hidden noundef align 8 ptr @"_ZN8wasmtime6engine13serialization1_93_$LT$i
   br label %22
 
 22:                                               ; preds = %2, %11, %15, %19
-  %.0 = phi ptr [ null, %19 ], [ %9, %2 ], [ %13, %11 ], [ %17, %15 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %19 ], [ %9, %2 ], [ %13, %11 ], [ %17, %15 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

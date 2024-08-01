@@ -1141,7 +1141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
   br label %240
 
 235:                                              ; preds = %216, %229
-  %.0 = xor i1 %217, true
+  %.1 = xor i1 %217, true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   %236 = load ptr, ptr %16, align 8
   %.not.i.i.i = icmp eq ptr %236, null
@@ -1183,8 +1183,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit63:                  ; preds = %_ZNSt6vectorIcSaIcE
   br label %244
 
 243:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit63, %58, %35
-  %.1 = phi i1 [ %.0, %_ZNSt6vectorIcSaIcEED2Ev.exit63 ], [ false, %58 ], [ false, %35 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZNSt6vectorIcSaIcEED2Ev.exit63 ], [ false, %58 ], [ false, %35 ]
+  ret i1 %.0
 
 244:                                              ; preds = %242, %63, %40
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %242 ], [ %.pn41, %63 ], [ %.pn, %40 ]
@@ -1436,7 +1436,7 @@ define dso_local noundef zeroext i1 @_ZN11cmCTestCurl11HttpRequestERKNSt7__cxx11
   br i1 %91, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %86, %109
-  %.03264 = phi ptr [ %108, %109 ], [ null, %86 ]
+  %.13364 = phi ptr [ %108, %109 ], [ null, %86 ]
   %.sroa.056.063 = phi ptr [ %110, %109 ], [ %88, %86 ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %11)
           to label %92 unwind label %.loopexit59
@@ -1473,7 +1473,7 @@ define dso_local noundef zeroext i1 @_ZN11cmCTestCurl11HttpRequestERKNSt7__cxx11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %11) #16
   %107 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.056.063) #16
-  %108 = invoke ptr @curl_slist_append(ptr noundef %.03264, ptr noundef %107)
+  %108 = invoke ptr @curl_slist_append(ptr noundef %.13364, ptr noundef %107)
           to label %109 unwind label %.loopexit59
 
 109:                                              ; preds = %106
@@ -1508,9 +1508,9 @@ define dso_local noundef zeroext i1 @_ZN11cmCTestCurl11HttpRequestERKNSt7__cxx11
   br label %210
 
 .loopexit:                                        ; preds = %109, %86
-  %.133 = phi ptr [ null, %86 ], [ %108, %109 ]
+  %.032 = phi ptr [ null, %86 ], [ %108, %109 ]
   %116 = load ptr, ptr %63, align 8
-  %117 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %116, i32 noundef 10023, ptr noundef %.133)
+  %117 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %116, i32 noundef 10023, ptr noundef %.032)
           to label %118 unwind label %.loopexit.split-lp
 
 118:                                              ; preds = %.loopexit
@@ -1519,7 +1519,7 @@ define dso_local noundef zeroext i1 @_ZN11cmCTestCurl11HttpRequestERKNSt7__cxx11
           to label %121 unwind label %.loopexit.split-lp
 
 121:                                              ; preds = %118
-  invoke void @curl_slist_free_all(ptr noundef %.133)
+  invoke void @curl_slist_free_all(ptr noundef %.032)
           to label %122 unwind label %.loopexit.split-lp
 
 122:                                              ; preds = %121

@@ -3891,9 +3891,9 @@ cond.true9.preheader:                             ; preds = %cond.end
 cond.true9:                                       ; preds = %cond.true9.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %cond.true9.preheader ], [ %indvars.iv.next, %for.inc ]
   %min_term_size.0995 = phi i32 [ 0, %cond.true9.preheader ], [ %min_term_size.1, %for.inc ]
-  %szs.sroa.0.0993 = phi ptr [ null, %cond.true9.preheader ], [ %szs.sroa.0.3, %for.inc ]
-  %szs.sroa.8.0992 = phi ptr [ null, %cond.true9.preheader ], [ %szs.sroa.8.3, %for.inc ]
-  %szs.sroa.16.0991 = phi ptr [ null, %cond.true9.preheader ], [ %szs.sroa.16.3, %for.inc ]
+  %szs.sroa.0.0993 = phi ptr [ null, %cond.true9.preheader ], [ %szs.sroa.0.1, %for.inc ]
+  %szs.sroa.8.0992 = phi ptr [ null, %cond.true9.preheader ], [ %szs.sroa.8.1, %for.inc ]
+  %szs.sroa.16.0991 = phi ptr [ null, %cond.true9.preheader ], [ %szs.sroa.16.1, %for.inc ]
   %3 = load ptr, ptr %enum_values, align 8
   %add.ptr.i149 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i149, align 8
@@ -4115,10 +4115,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i204
-  %szs.sroa.16.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %szs.sroa.16.0991, %if.then.i204 ]
+  %szs.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %szs.sroa.16.0991, %if.then.i204 ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %szs.sroa.8.0992, %if.then.i204 ]
-  %szs.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %szs.sroa.0.0993, %if.then.i204 ]
-  %szs.sroa.8.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 4
+  %szs.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %szs.sroa.0.0993, %if.then.i204 ]
+  %szs.sroa.8.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 4
   %cmp56 = icmp eq i64 %indvars.iv, 0
   %24 = call i32 @llvm.umin.i32(i32 %call54, i32 %min_term_size.0995)
   %spec.select = select i1 %cmp56, i32 %call54, i32 %24
@@ -4204,16 +4204,16 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i210, %invoke.cont55
-  %szs.sroa.16.3 = phi ptr [ %szs.sroa.16.1, %invoke.cont55 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %szs.sroa.16.0991, %if.then.i.i210 ]
-  %szs.sroa.8.3 = phi ptr [ %szs.sroa.8.1, %invoke.cont55 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i211, %if.then.i.i210 ]
-  %szs.sroa.0.3 = phi ptr [ %szs.sroa.0.1, %invoke.cont55 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %szs.sroa.0.0993, %if.then.i.i210 ]
+  %szs.sroa.16.1 = phi ptr [ %szs.sroa.16.2, %invoke.cont55 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %szs.sroa.16.0991, %if.then.i.i210 ]
+  %szs.sroa.8.1 = phi ptr [ %szs.sroa.8.2, %invoke.cont55 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i211, %if.then.i.i210 ]
+  %szs.sroa.0.1 = phi ptr [ %szs.sroa.0.2, %invoke.cont55 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %szs.sroa.0.0993, %if.then.i.i210 ]
   %min_term_size.1 = phi i32 [ %spec.select, %invoke.cont55 ], [ %min_term_size.0995, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %min_term_size.0995, %if.then.i.i210 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %cond.true9, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %cond.end
-  %szs.sroa.0.0.lcssa = phi ptr [ null, %cond.end ], [ %szs.sroa.0.3, %for.inc ]
+  %szs.sroa.0.0.lcssa = phi ptr [ null, %cond.end ], [ %szs.sroa.0.1, %for.inc ]
   %min_term_size.0.lcssa = phi i32 [ 0, %cond.end ], [ %min_term_size.1, %for.inc ]
   %call63 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont62 unwind label %lpad.loopexit.split-lp937
@@ -4240,9 +4240,9 @@ for.body71.preheader:                             ; preds = %invoke.cont62
 
 for.body71:                                       ; preds = %for.body71.preheader, %for.inc89
   %indvars.iv1032 = phi i64 [ 0, %for.body71.preheader ], [ %indvars.iv.next1033, %for.inc89 ]
-  %enum_consider.sroa.14.01000 = phi ptr [ null, %for.body71.preheader ], [ %enum_consider.sroa.14.2, %for.inc89 ]
-  %enum_consider.sroa.8.0999 = phi ptr [ null, %for.body71.preheader ], [ %enum_consider.sroa.8.2, %for.inc89 ]
-  %enum_consider.sroa.0.0998 = phi ptr [ null, %for.body71.preheader ], [ %enum_consider.sroa.0.2, %for.inc89 ]
+  %enum_consider.sroa.14.01000 = phi ptr [ null, %for.body71.preheader ], [ %enum_consider.sroa.14.1, %for.inc89 ]
+  %enum_consider.sroa.8.0999 = phi ptr [ null, %for.body71.preheader ], [ %enum_consider.sroa.8.1, %for.inc89 ]
+  %enum_consider.sroa.0.0998 = phi ptr [ null, %for.body71.preheader ], [ %enum_consider.sroa.0.1, %for.inc89 ]
   %33 = load ptr, ptr %enum_values, align 8
   %add.ptr.i220 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %33, i64 %indvars.iv1032
   %34 = load ptr, ptr %add.ptr.i220, align 8
@@ -4379,16 +4379,16 @@ lpad74.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i266, %
   br label %ehcleanup197
 
 for.inc89:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263, %if.then.i237, %invoke.cont80, %invoke.cont75
-  %enum_consider.sroa.0.2 = phi ptr [ %enum_consider.sroa.0.0998, %invoke.cont75 ], [ %enum_consider.sroa.0.0998, %invoke.cont80 ], [ %cond.i10.i.i255, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263 ], [ %enum_consider.sroa.0.0998, %if.then.i237 ]
-  %enum_consider.sroa.8.2 = phi ptr [ %enum_consider.sroa.8.0999, %invoke.cont75 ], [ %enum_consider.sroa.8.0999, %invoke.cont80 ], [ %incdec.ptr.i.i260, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263 ], [ %incdec.ptr.i238, %if.then.i237 ]
-  %enum_consider.sroa.14.2 = phi ptr [ %enum_consider.sroa.14.01000, %invoke.cont75 ], [ %enum_consider.sroa.14.01000, %invoke.cont80 ], [ %add.ptr19.i.i264, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263 ], [ %enum_consider.sroa.14.01000, %if.then.i237 ]
+  %enum_consider.sroa.0.1 = phi ptr [ %enum_consider.sroa.0.0998, %invoke.cont75 ], [ %enum_consider.sroa.0.0998, %invoke.cont80 ], [ %cond.i10.i.i255, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263 ], [ %enum_consider.sroa.0.0998, %if.then.i237 ]
+  %enum_consider.sroa.8.1 = phi ptr [ %enum_consider.sroa.8.0999, %invoke.cont75 ], [ %enum_consider.sroa.8.0999, %invoke.cont80 ], [ %incdec.ptr.i.i260, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263 ], [ %incdec.ptr.i238, %if.then.i237 ]
+  %enum_consider.sroa.14.1 = phi ptr [ %enum_consider.sroa.14.01000, %invoke.cont75 ], [ %enum_consider.sroa.14.01000, %invoke.cont80 ], [ %add.ptr19.i.i264, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i263 ], [ %enum_consider.sroa.14.01000, %if.then.i237 ]
   %indvars.iv.next1033 = add nuw nsw i64 %indvars.iv1032, 1
   %exitcond1036.not = icmp eq i64 %indvars.iv.next1033, %wide.trip.count1035
   br i1 %exitcond1036.not, label %cond.true95, label %for.body71, !llvm.loop !31
 
 cond.true95:                                      ; preds = %for.inc89, %invoke.cont62
-  %enum_consider.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont62 ], [ %enum_consider.sroa.0.2, %for.inc89 ]
-  %enum_consider.sroa.8.0.lcssa = phi ptr [ null, %invoke.cont62 ], [ %enum_consider.sroa.8.2, %for.inc89 ]
+  %enum_consider.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont62 ], [ %enum_consider.sroa.0.1, %for.inc89 ]
+  %enum_consider.sroa.8.0.lcssa = phi ptr [ null, %invoke.cont62 ], [ %enum_consider.sroa.8.1, %for.inc89 ]
   %call118 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
           to label %invoke.cont117 unwind label %lpad74.loopexit.split-lp.loopexit.split-lp
 

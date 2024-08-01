@@ -147,7 +147,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %30
 
 30:                                               ; preds = %.lr.ph, %99
-  %.1162 = phi i32 [ 4, %.lr.ph ], [ %.2, %99 ]
+  %.1162 = phi i32 [ 4, %.lr.ph ], [ %.3, %99 ]
   %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1162) #2
   %32 = add i32 %.1162, 2
   %33 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %32) #2
@@ -244,14 +244,14 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 99:                                               ; preds = %64, %73, %47, %53, %94
   %.pn = phi i32 [ %34, %94 ], [ %34, %53 ], [ %34, %47 ], [ %spec.select, %73 ], [ %spec.select, %64 ]
-  %.2 = add i32 %.pn, %.1162
-  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
+  %.3 = add i32 %.pn, %.1162
+  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #2
   %.not150 = icmp eq i32 %100, 0
   br i1 %.not150, label %.loopexit, label %30, !llvm.loop !4
 
 .loopexit:                                        ; preds = %99, %27, %36
-  %.3 = phi i32 [ %45, %36 ], [ 4, %27 ], [ %.2, %99 ]
-  %101 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #2
+  %.2 = phi i32 [ %45, %36 ], [ 4, %27 ], [ %.3, %99 ]
+  %101 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #2
   %102 = tail call i32 @call_data_dissector(ptr noundef %101, ptr noundef %1, ptr noundef %.0143) #2
   %103 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %.loopexit153

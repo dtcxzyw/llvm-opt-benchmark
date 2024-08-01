@@ -174,7 +174,7 @@ define dso_local void @set_cheapest(ptr nocapture noundef %0) local_unnamed_addr
 
 11:                                               ; preds = %.lr.ph, %compare_path_costs.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %compare_path_costs.exit ]
-  %.089 = phi ptr [ null, %.lr.ph ], [ %.2, %compare_path_costs.exit ]
+  %.089 = phi ptr [ null, %.lr.ph ], [ %.1, %compare_path_costs.exit ]
   %.04888 = phi ptr [ null, %.lr.ph ], [ %.149, %compare_path_costs.exit ]
   %.05286 = phi ptr [ null, %.lr.ph ], [ %.153, %compare_path_costs.exit ]
   %.05585 = phi ptr [ null, %.lr.ph ], [ %.156, %compare_path_costs.exit ]
@@ -292,7 +292,7 @@ compare_path_costs.exit69:                        ; preds = %68, %60, %70
   br label %.thread77
 
 .thread77:                                        ; preds = %54, %62, %compare_path_costs.exit69, %70
-  %.1 = phi ptr [ %14, %compare_path_costs.exit69 ], [ %.089, %70 ], [ %.089, %62 ], [ %.089, %54 ]
+  %.2 = phi ptr [ %14, %compare_path_costs.exit69 ], [ %.089, %70 ], [ %.089, %62 ], [ %.089, %54 ]
   %77 = getelementptr inbounds i8, ptr %.04888, i64 56
   %78 = load double, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %14, i64 56
@@ -331,7 +331,7 @@ compare_path_costs.exit:                          ; preds = %50, %.thread77, %84
   %.156 = phi ptr [ %.05585, %17 ], [ %.05585, %33 ], [ %14, %51 ], [ %.05585, %compare_path_costs.exit71 ], [ %.05585, %91 ], [ %14, %19 ], [ %.05585, %52 ], [ %14, %44 ], [ %14, %36 ], [ %.05585, %42 ], [ %.05585, %50 ], [ %.05585, %84 ], [ %.05585, %.thread77 ]
   %.153 = phi ptr [ %18, %17 ], [ %18, %33 ], [ %18, %51 ], [ %.05286, %compare_path_costs.exit71 ], [ %.05286, %91 ], [ %18, %19 ], [ %.05286, %52 ], [ %18, %44 ], [ %18, %36 ], [ %18, %42 ], [ %18, %50 ], [ %.05286, %84 ], [ %.05286, %.thread77 ]
   %.149 = phi ptr [ %.04888, %17 ], [ null, %33 ], [ null, %51 ], [ %14, %compare_path_costs.exit71 ], [ %.04888, %91 ], [ null, %19 ], [ %14, %52 ], [ null, %44 ], [ null, %36 ], [ null, %42 ], [ null, %50 ], [ %.04888, %84 ], [ %.04888, %.thread77 ]
-  %.2 = phi ptr [ %.089, %17 ], [ %.089, %33 ], [ %.089, %51 ], [ %.1, %compare_path_costs.exit71 ], [ %.1, %91 ], [ %.089, %19 ], [ %14, %52 ], [ %.089, %44 ], [ %.089, %36 ], [ %.089, %42 ], [ %.089, %50 ], [ %.1, %84 ], [ %.1, %.thread77 ]
+  %.1 = phi ptr [ %.089, %17 ], [ %.089, %33 ], [ %.089, %51 ], [ %.2, %compare_path_costs.exit71 ], [ %.2, %91 ], [ %.089, %19 ], [ %14, %52 ], [ %.089, %44 ], [ %.089, %36 ], [ %.089, %42 ], [ %.089, %50 ], [ %.2, %84 ], [ %.2, %.thread77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %5, align 4
   %99 = sext i32 %98 to i64
@@ -347,7 +347,7 @@ compare_path_costs.exit:                          ; preds = %50, %.thread77, %84
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %100, %._crit_edge
-  %.0.lcssa99 = phi ptr [ %.2, %100 ], [ %.2, %._crit_edge ], [ null, %.preheader ]
+  %.0.lcssa99 = phi ptr [ %.1, %100 ], [ %.1, %._crit_edge ], [ null, %.preheader ]
   %spec.select67 = phi ptr [ %.149, %100 ], [ %.156, %._crit_edge ], [ null, %.preheader ]
   %.254 = phi ptr [ %101, %100 ], [ %.153, %._crit_edge ], [ null, %.preheader ]
   %102 = getelementptr inbounds i8, ptr %0, i64 64
@@ -413,8 +413,8 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   br label %20
 
 20:                                               ; preds = %226, %.lr.ph
-  %.0163 = phi i8 [ 1, %.lr.ph ], [ %.1152, %226 ]
-  %.0101162 = phi i32 [ 0, %.lr.ph ], [ %.1102, %226 ]
+  %.0163 = phi i8 [ 1, %.lr.ph ], [ %.2152, %226 ]
+  %.0101162 = phi i32 [ 0, %.lr.ph ], [ %.2103, %226 ]
   %.sroa.5.0161 = phi i32 [ 0, %.lr.ph ], [ %228, %226 ]
   %.sroa.0.0160 = phi ptr [ %14, %.lr.ph ], [ %.sroa.0.1, %226 ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.0160, i64 4
@@ -766,7 +766,7 @@ compare_path_costs_fuzzily.exit.thread149.sink.split: ; preds = %200, %159, %123
   br label %compare_path_costs_fuzzily.exit.thread149
 
 compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_fuzzily.exit.thread149.sink.split, %148, %153, %70, %47, %128, %143, %136, %91, %159, %121, %123, %109, %110, %164, %176, %179, %184, %196, %200, %145, %115, %compare_path_costs_fuzzily.exit
-  %.1153 = phi i8 [ %.0163, %compare_path_costs_fuzzily.exit ], [ %.0163, %115 ], [ 0, %145 ], [ %.0163, %70 ], [ %.0163, %47 ], [ %.0163, %128 ], [ 0, %143 ], [ 0, %136 ], [ %.0163, %91 ], [ %.0163, %159 ], [ %.0163, %121 ], [ %.0163, %123 ], [ %.0163, %109 ], [ %.0163, %110 ], [ %.0163, %164 ], [ %.0163, %176 ], [ %.0163, %179 ], [ %.0163, %184 ], [ %.0163, %196 ], [ %.0163, %200 ], [ %.0163, %153 ], [ %.0163, %148 ], [ %spec.select142, %compare_path_costs_fuzzily.exit.thread149.sink.split ]
+  %.2153 = phi i8 [ %.0163, %compare_path_costs_fuzzily.exit ], [ %.0163, %115 ], [ 0, %145 ], [ %.0163, %70 ], [ %.0163, %47 ], [ %.0163, %128 ], [ 0, %143 ], [ 0, %136 ], [ %.0163, %91 ], [ %.0163, %159 ], [ %.0163, %121 ], [ %.0163, %123 ], [ %.0163, %109 ], [ %.0163, %110 ], [ %.0163, %164 ], [ %.0163, %176 ], [ %.0163, %179 ], [ %.0163, %184 ], [ %.0163, %196 ], [ %.0163, %200 ], [ %.0163, %153 ], [ %.0163, %148 ], [ %spec.select142, %compare_path_costs_fuzzily.exit.thread149.sink.split ]
   %221 = load double, ptr %15, align 8
   %222 = load double, ptr %31, align 8
   %223 = fcmp ult double %221, %222
@@ -777,26 +777,26 @@ compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_
   br label %226
 
 226:                                              ; preds = %compare_path_costs_fuzzily.exit.thread149, %224, %compare_path_costs_fuzzily.exit.thread155, %215
-  %.1152 = phi i8 [ %.0163, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0163, %215 ], [ %.1153, %224 ], [ %.1153, %compare_path_costs_fuzzily.exit.thread149 ]
+  %.2152 = phi i8 [ %.0163, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0163, %215 ], [ %.2153, %224 ], [ %.2153, %compare_path_costs_fuzzily.exit.thread149 ]
   %.sroa.0.1 = phi ptr [ %212, %compare_path_costs_fuzzily.exit.thread155 ], [ %212, %215 ], [ %.sroa.0.0160, %224 ], [ %.sroa.0.0160, %compare_path_costs_fuzzily.exit.thread149 ]
   %.sroa.5.1 = phi i32 [ %211, %compare_path_costs_fuzzily.exit.thread155 ], [ %211, %215 ], [ %.sroa.5.0161, %224 ], [ %.sroa.5.0161, %compare_path_costs_fuzzily.exit.thread149 ]
-  %.1102 = phi i32 [ %.0101162, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0101162, %215 ], [ %225, %224 ], [ %.0101162, %compare_path_costs_fuzzily.exit.thread149 ]
-  %227 = trunc nuw i8 %.1152 to i1
+  %.2103 = phi i32 [ %.0101162, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0101162, %215 ], [ %225, %224 ], [ %.0101162, %compare_path_costs_fuzzily.exit.thread149 ]
+  %227 = trunc nuw i8 %.2152 to i1
   %228 = add i32 %.sroa.5.1, 1
   %.not120 = icmp ne ptr %.sroa.0.1, null
   %or.cond175.not = select i1 %227, i1 %.not120, i1 false
   br i1 %or.cond175.not, label %20, label %.thread, !llvm.loop !7
 
 .thread:                                          ; preds = %226, %20
-  %.2103.ph = phi i32 [ %.1102, %226 ], [ %.0101162, %20 ]
-  %.2.ph = phi i8 [ %.1152, %226 ], [ %.0163, %20 ]
-  %229 = trunc nuw i8 %.2.ph to i1
+  %.1102.ph = phi i32 [ %.2103, %226 ], [ %.0101162, %20 ]
+  %.1.ph = phi i8 [ %.2152, %226 ], [ %.0163, %20 ]
+  %229 = trunc nuw i8 %.1.ph to i1
   br i1 %229, label %.thread.thread, label %232
 
 .thread.thread:                                   ; preds = %11, %.thread
-  %.2103173 = phi i32 [ %.2103.ph, %.thread ], [ 0, %11 ]
+  %.1102173 = phi i32 [ %.1102.ph, %.thread ], [ 0, %11 ]
   %230 = load ptr, ptr %13, align 8
-  %231 = tail call ptr @list_insert_nth(ptr noundef %230, i32 noundef %.2103173, ptr noundef %1) #10
+  %231 = tail call ptr @list_insert_nth(ptr noundef %230, i32 noundef %.1102173, ptr noundef %1) #10
   store ptr %231, ptr %13, align 8
   br label %236
 
@@ -1086,8 +1086,8 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
   br label %10
 
 10:                                               ; preds = %42, %.lr.ph
-  %.063 = phi i8 [ 1, %.lr.ph ], [ %.153, %42 ]
-  %.03462 = phi i32 [ 0, %.lr.ph ], [ %.135, %42 ]
+  %.063 = phi i8 [ 1, %.lr.ph ], [ %.253, %42 ]
+  %.03462 = phi i32 [ 0, %.lr.ph ], [ %.236, %42 ]
   %.sroa.0.061 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.1, %42 ]
   %.sroa.5.060 = phi i32 [ 0, %.lr.ph ], [ %44, %42 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.0.061, i64 4
@@ -1150,7 +1150,7 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
   br label %42
 
 .thread50:                                        ; preds = %14, %32, %27, %31, %33
-  %.154 = phi i8 [ 0, %33 ], [ %.063, %31 ], [ %spec.select, %27 ], [ 0, %32 ], [ %.063, %14 ]
+  %.254 = phi i8 [ 0, %33 ], [ %.063, %31 ], [ %spec.select, %27 ], [ 0, %32 ], [ %.063, %14 ]
   %39 = fcmp ult double %.pre, %.pre71
   br i1 %39, label %42, label %40
 
@@ -1159,26 +1159,26 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
   br label %42
 
 42:                                               ; preds = %.thread50, %40, %.thread55
-  %.153 = phi i8 [ %.063, %.thread55 ], [ %.154, %40 ], [ %.154, %.thread50 ]
+  %.253 = phi i8 [ %.063, %.thread55 ], [ %.254, %40 ], [ %.254, %.thread50 ]
   %.sroa.5.1 = phi i32 [ %37, %.thread55 ], [ %.sroa.5.060, %40 ], [ %.sroa.5.060, %.thread50 ]
   %.sroa.0.1 = phi ptr [ %38, %.thread55 ], [ %.sroa.0.061, %40 ], [ %.sroa.0.061, %.thread50 ]
-  %.135 = phi i32 [ %.03462, %.thread55 ], [ %41, %40 ], [ %.03462, %.thread50 ]
-  %43 = trunc nuw i8 %.153 to i1
+  %.236 = phi i32 [ %.03462, %.thread55 ], [ %41, %40 ], [ %.03462, %.thread50 ]
+  %43 = trunc nuw i8 %.253 to i1
   %44 = add i32 %.sroa.5.1, 1
   %.not41 = icmp ne ptr %.sroa.0.1, null
   %or.cond.not = select i1 %43, i1 %.not41, i1 false
   br i1 %or.cond.not, label %10, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %42, %10
-  %.236.ph = phi i32 [ %.135, %42 ], [ %.03462, %10 ]
-  %.2.ph = phi i8 [ %.153, %42 ], [ %.063, %10 ]
-  %45 = trunc nuw i8 %.2.ph to i1
+  %.135.ph = phi i32 [ %.236, %42 ], [ %.03462, %10 ]
+  %.1.ph = phi i8 [ %.253, %42 ], [ %.063, %10 ]
+  %45 = trunc nuw i8 %.1.ph to i1
   br i1 %45, label %.thread.thread, label %48
 
 .thread.thread:                                   ; preds = %5, %.thread
-  %.23674 = phi i32 [ %.236.ph, %.thread ], [ 0, %5 ]
+  %.13574 = phi i32 [ %.135.ph, %.thread ], [ 0, %5 ]
   %46 = load ptr, ptr %6, align 8
-  %47 = tail call ptr @list_insert_nth(ptr noundef %46, i32 noundef %.23674, ptr noundef %1) #10
+  %47 = tail call ptr @list_insert_nth(ptr noundef %46, i32 noundef %.13574, ptr noundef %1) #10
   store ptr %47, ptr %6, align 8
   br label %49
 

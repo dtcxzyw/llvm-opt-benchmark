@@ -56,7 +56,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %.062104 = phi i64 [ %.1, %31 ], [ 8, %.lr.ph.preheader ]
+  %.062104 = phi i64 [ %.2, %31 ], [ 8, %.lr.ph.preheader ]
   %.063103 = phi i64 [ %.164, %31 ], [ 0, %.lr.ph.preheader ]
   %.069102 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
   %17 = load ptr, ptr %8, align 8
@@ -88,7 +88,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
 
 31:                                               ; preds = %26, %28
   %.164 = phi i64 [ %.063103, %26 ], [ %30, %28 ]
-  %.1 = phi i64 [ %27, %26 ], [ %.062104, %28 ]
+  %.2 = phi i64 [ %27, %26 ], [ %.062104, %28 ]
   %32 = add nuw nsw i64 %.069102, 1
   %33 = icmp ult i64 %32, %spec.select
   %34 = icmp ult i64 %.164, 6
@@ -164,7 +164,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   br label %66
 
 66:                                               ; preds = %.lr.ph114, %83
-  %.3113 = phi i64 [ %.1, %.lr.ph114 ], [ %.4, %83 ]
+  %.3113 = phi i64 [ %.2, %.lr.ph114 ], [ %.4, %83 ]
   %.265112 = phi i64 [ 6, %.lr.ph114 ], [ %.366, %83 ]
   %.170111 = phi i64 [ %32, %.lr.ph114 ], [ %84, %83 ]
   %67 = icmp ult i64 %.265112, %65

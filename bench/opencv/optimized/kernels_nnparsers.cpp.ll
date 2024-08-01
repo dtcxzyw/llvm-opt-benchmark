@@ -949,7 +949,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 .body60:                                          ; preds = %.body64, %46, %43, %74
   %.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %.body64 ], [ %44, %46 ], [ %44, %43 ]
-  %.1 = phi i1 [ true, %74 ], [ false, %.body64 ], [ true, %46 ], [ true, %43 ]
+  %.4 = phi i1 [ true, %74 ], [ false, %.body64 ], [ true, %46 ], [ true, %43 ]
   br label %76
 
 76:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit68, %.body60
@@ -974,7 +974,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   br i1 %86, label %87, label %76
 
 87:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit68
-  br i1 %.1, label %.thread, label %.critedge
+  br i1 %.4, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %87
   %88 = load ptr, ptr %26, align 8
@@ -1464,7 +1464,7 @@ _ZN2cv6detail5YieldINS_6GArrayINS_5Rect_IiEEEEE5yieldERNS_5GCallEi.exit: ; preds
 
 .body58:                                          ; preds = %.body62, %46, %43, %68
   %.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %.body62 ], [ %44, %46 ], [ %44, %43 ]
-  %.1 = phi i1 [ true, %68 ], [ false, %.body62 ], [ true, %46 ], [ true, %43 ]
+  %.4 = phi i1 [ true, %68 ], [ false, %.body62 ], [ true, %46 ], [ true, %43 ]
   %70 = load i64, ptr %14, align 8
   %71 = getelementptr inbounds [3 x ptr], ptr @constinit.22, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
@@ -1480,7 +1480,7 @@ _ZN2cv6detail5YieldINS_6GArrayINS_5Rect_IiEEEEE5yieldERNS_5GCallEi.exit: ; preds
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65: ; preds = %.body58
-  br i1 %.1, label %77, label %.critedge
+  br i1 %.4, label %77, label %.critedge
 
 77:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65
   %78 = load ptr, ptr %30, align 8
@@ -1981,7 +1981,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 .body60:                                          ; preds = %.body64, %47, %44, %75
   %.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %.body64 ], [ %45, %47 ], [ %45, %44 ]
-  %.1 = phi i1 [ true, %75 ], [ false, %.body64 ], [ true, %47 ], [ true, %44 ]
+  %.4 = phi i1 [ true, %75 ], [ false, %.body64 ], [ true, %47 ], [ true, %44 ]
   br label %77
 
 77:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit68, %.body60
@@ -2006,7 +2006,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   br i1 %87, label %88, label %77
 
 88:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit68
-  br i1 %.1, label %.thread, label %.critedge
+  br i1 %.4, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %88
   %89 = load ptr, ptr %27, align 8

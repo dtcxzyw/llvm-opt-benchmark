@@ -507,12 +507,12 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
 
 .sink.split:                                      ; preds = %98, %100
   %.sink = phi i64 [ %104, %100 ], [ 10, %98 ]
-  %.0.ph = phi i64 [ %102, %100 ], [ 0, %98 ]
+  %.1.ph = phi i64 [ %102, %100 ], [ 0, %98 ]
   store i64 %.sink, ptr %2, align 8
   br label %105
 
 105:                                              ; preds = %.sink.split, %94
-  %.0 = phi i64 [ %95, %94 ], [ %.0.ph, %.sink.split ]
+  %.1 = phi i64 [ %95, %94 ], [ %.1.ph, %.sink.split ]
   %106 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not70 = icmp eq ptr %106, null
   br i1 %.not70, label %113, label %107
@@ -532,7 +532,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br i1 %.not71, label %123, label %115
 
 115:                                              ; preds = %113
-  %116 = uitofp i64 %.0 to double
+  %116 = uitofp i64 %.1 to double
   %117 = fmul double %116, 0x3F50000000000000
   %118 = load i64, ptr %2, align 8
   %119 = getelementptr inbounds i8, ptr %0, i64 192
@@ -543,7 +543,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br label %123
 
 123:                                              ; preds = %92, %113, %115, %65
-  %.1 = phi i64 [ %.0, %115 ], [ %.0, %113 ], [ 0, %92 ], [ 0, %65 ]
+  %.0 = phi i64 [ %.1, %115 ], [ %.1, %113 ], [ 0, %92 ], [ 0, %65 ]
   %124 = getelementptr inbounds i8, ptr %0, i64 200
   %125 = load i64, ptr %124, align 8
   %126 = icmp ugt i64 %18, %125
@@ -552,7 +552,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
 127:                                              ; preds = %123
   %128 = sub nuw i64 %18, %125
   %129 = tail call noundef i64 @llvm.umin.i64(i64 %128, i64 %66)
-  %130 = tail call noundef i64 @llvm.umax.i64(i64 %.1, i64 %129)
+  %130 = tail call noundef i64 @llvm.umax.i64(i64 %.0, i64 %129)
   %131 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not72 = icmp eq ptr %131, null
   br i1 %.not72, label %140, label %132
@@ -569,7 +569,7 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br label %140
 
 140:                                              ; preds = %132, %127, %123
-  %.2 = phi i64 [ %130, %132 ], [ %130, %127 ], [ %.1, %123 ]
+  %.2 = phi i64 [ %130, %132 ], [ %130, %127 ], [ %.0, %123 ]
   %141 = getelementptr inbounds i8, ptr %0, i64 192
   %142 = load i64, ptr %141, align 8
   %.not = icmp ult i64 %.2, %142

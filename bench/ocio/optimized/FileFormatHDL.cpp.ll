@@ -1953,7 +1953,7 @@ for.body:                                         ; preds = %_ZNSt6vectorINSt7__
   %123 = phi ptr [ %135, %for.inc ], [ %117, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
   %conv765 = phi i64 [ %conv, %for.inc ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
   %i.0764 = phi i32 [ %inc, %for.inc ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
-  %lut_sizes.sroa.0.0763 = phi ptr [ %lut_sizes.sroa.0.1, %for.inc ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
+  %lut_sizes.sroa.0.0763 = phi ptr [ %lut_sizes.sroa.0.2, %for.inc ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
   %lut_sizes.sroa.13.0762 = phi ptr [ %lut_sizes.sroa.13.1, %for.inc ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
   %lut_sizes.sroa.9.0761 = phi ptr [ %lut_sizes.sroa.9.1, %for.inc ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ]
   store i32 -1, ptr %tmpsize, align 4
@@ -2130,7 +2130,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %lut_sizes.sroa.9.0761, %if.then.i ]
   %lut_sizes.sroa.13.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %lut_sizes.sroa.13.0762, %if.then.i ]
-  %lut_sizes.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %lut_sizes.sroa.0.0763, %if.then.i ]
+  %lut_sizes.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %lut_sizes.sroa.0.0763, %if.then.i ]
   %lut_sizes.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
   %inc = add i32 %i.0764, 1
   %conv = zext i32 %inc to i64
@@ -2144,7 +2144,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342
-  %lut_sizes.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ], [ %lut_sizes.sroa.0.1, %for.inc ]
+  %lut_sizes.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit342 ], [ %lut_sizes.sroa.0.2, %for.inc ]
   %call.i353 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %hdltype.i, ptr noundef nonnull @.str.19) #20
   %cmp.i = icmp eq i32 %call.i353, 0
   br i1 %cmp.i, label %if.then322, label %lor.lhs.false317
@@ -3851,15 +3851,15 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i315
   br label %invoke.cont58
 
 invoke.cont58:                                    ; preds = %.noexc, %invoke.cont57
-  %prelutData.sroa.0.1 = phi ptr [ %call5.i.i.i.i321, %.noexc ], [ null, %invoke.cont57 ]
+  %prelutData.sroa.0.3 = phi ptr [ %call5.i.i.i.i321, %.noexc ], [ null, %invoke.cont57 ]
   %10 = load float, ptr %fromInStart, align 4
   %11 = load float, ptr %fromInEnd, align 4
-  invoke void @_ZN19OpenColorIO_v2_4dev24GenerateLinearScaleLut1DEPfiiff(ptr noundef %prelutData.sroa.0.1, i32 noundef %spec.store.select3, i32 noundef 3, float noundef %10, float noundef %11)
+  invoke void @_ZN19OpenColorIO_v2_4dev24GenerateLinearScaleLut1DEPfiiff(ptr noundef %prelutData.sroa.0.3, i32 noundef %spec.store.select3, i32 noundef 3, float noundef %10, float noundef %11)
           to label %invoke.cont60 unwind label %lpad56
 
 invoke.cont60:                                    ; preds = %invoke.cont58
   %conv62 = zext nneg i32 %spec.store.select3 to i64
-  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvlll(ptr noundef nonnull align 8 dereferenceable(16) %prelutImg, ptr noundef nonnull %prelutData.sroa.0.1, i64 noundef %conv62, i64 noundef 1, i64 noundef 3)
+  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvlll(ptr noundef nonnull align 8 dereferenceable(16) %prelutImg, ptr noundef nonnull %prelutData.sroa.0.3, i64 noundef %conv62, i64 noundef 1, i64 noundef 3)
           to label %invoke.cont63 unwind label %lpad56
 
 invoke.cont63:                                    ; preds = %invoke.cont60
@@ -3950,7 +3950,7 @@ if.end71.thread:                                  ; preds = %if.end8.sink.split.
   br label %if.then74
 
 lpad56:                                           ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %if.then.i.i, %invoke.cont60, %invoke.cont58, %if.then55
-  %prelutData.sroa.0.2 = phi ptr [ %prelutData.sroa.0.1, %invoke.cont60 ], [ %prelutData.sroa.0.1, %invoke.cont58 ], [ null, %if.then.i.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ null, %if.then55 ]
+  %prelutData.sroa.0.1 = phi ptr [ %prelutData.sroa.0.3, %invoke.cont60 ], [ %prelutData.sroa.0.3, %invoke.cont58 ], [ null, %if.then.i.i ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ null, %if.then55 ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup358
@@ -3972,7 +3972,7 @@ ehcleanup70:                                      ; preds = %lpad67, %lpad64
   br label %ehcleanup358
 
 if.then74:                                        ; preds = %if.end53, %if.end71.thread
-  %prelutData.sroa.0.3463 = phi ptr [ %prelutData.sroa.0.1, %if.end71.thread ], [ null, %if.end53 ]
+  %prelutData.sroa.0.0463 = phi ptr [ %prelutData.sroa.0.3, %if.end71.thread ], [ null, %if.end53 ]
   %required_lut.0450457 = phi i32 [ 3, %if.end71.thread ], [ 2, %if.end53 ]
   %cmp54448461 = xor i1 %call42, true
   %mul75 = mul nsw i32 %spec.store.select, %spec.store.select
@@ -4006,13 +4006,13 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i346: ; preds = %if.else.i344
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %.noexc131, %if.then74
-  %cubeData.sroa.0.1 = phi ptr [ %call5.i.i.i.i366, %.noexc131 ], [ null, %if.then74 ]
-  invoke void @_ZN19OpenColorIO_v2_4dev21GenerateIdentityLut3DEPfiiNS_10Lut3DOrderE(ptr noundef nonnull %cubeData.sroa.0.1, i32 noundef %spec.store.select, i32 noundef 3, i32 noundef 0)
+  %cubeData.sroa.0.3 = phi ptr [ %call5.i.i.i.i366, %.noexc131 ], [ null, %if.then74 ]
+  invoke void @_ZN19OpenColorIO_v2_4dev21GenerateIdentityLut3DEPfiiNS_10Lut3DOrderE(ptr noundef nonnull %cubeData.sroa.0.3, i32 noundef %spec.store.select, i32 noundef 3, i32 noundef 0)
           to label %invoke.cont82 unwind label %lpad79
 
 invoke.cont82:                                    ; preds = %invoke.cont80
   %conv86 = zext nneg i32 %mul76 to i64
-  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvlll(ptr noundef nonnull align 8 dereferenceable(16) %cubeImg, ptr noundef nonnull %cubeData.sroa.0.1, i64 noundef %conv86, i64 noundef 1, i64 noundef 3)
+  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvlll(ptr noundef nonnull align 8 dereferenceable(16) %cubeImg, ptr noundef nonnull %cubeData.sroa.0.3, i64 noundef %conv86, i64 noundef 1, i64 noundef 3)
           to label %invoke.cont87 unwind label %lpad79
 
 invoke.cont87:                                    ; preds = %invoke.cont82
@@ -4034,7 +4034,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEEaSEOS3_.exit: ; preds =
   br label %if.end96
 
 lpad79:                                           ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i346, %if.then.i.i363, %invoke.cont82, %invoke.cont80
-  %cubeData.sroa.0.2 = phi ptr [ %cubeData.sroa.0.1, %invoke.cont82 ], [ %cubeData.sroa.0.1, %invoke.cont80 ], [ null, %if.then.i.i363 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i346 ]
+  %cubeData.sroa.0.1 = phi ptr [ %cubeData.sroa.0.3, %invoke.cont82 ], [ %cubeData.sroa.0.3, %invoke.cont80 ], [ null, %if.then.i.i363 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i346 ]
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup357
@@ -4256,7 +4256,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392: ; preds = %if.else.i390
   br label %invoke.cont107
 
 invoke.cont107:                                   ; preds = %.noexc246, %if.then103
-  %onedData.sroa.0.1 = phi ptr [ %call5.i.i.i.i412, %.noexc246 ], [ null, %if.then103 ]
+  %onedData.sroa.0.3 = phi ptr [ %call5.i.i.i.i412, %.noexc246 ], [ null, %if.then103 ]
   %call108 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %shaperSpace) #20
   br i1 %call108, label %if.else113, label %if.then109
 
@@ -4267,7 +4267,7 @@ if.then109:                                       ; preds = %invoke.cont107
 invoke.cont110:                                   ; preds = %if.then109
   %60 = load float, ptr %fromInStart, align 4
   %61 = load float, ptr %fromInEnd, align 4
-  invoke void @_ZN19OpenColorIO_v2_4dev24GenerateLinearScaleLut1DEPfiiff(ptr noundef %onedData.sroa.0.1, i32 noundef %spec.store.select1, i32 noundef 3, float noundef %60, float noundef %61)
+  invoke void @_ZN19OpenColorIO_v2_4dev24GenerateLinearScaleLut1DEPfiiff(ptr noundef %onedData.sroa.0.3, i32 noundef %spec.store.select1, i32 noundef 3, float noundef %60, float noundef %61)
           to label %if.end116 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 lpad106.loopexit:                                 ; preds = %for.body339, %invoke.cont340, %invoke.cont346
@@ -4296,20 +4296,20 @@ lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %ehcleanup356
 
 lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then109, %invoke.cont110, %if.else113, %if.end116, %if.end124, %invoke.cont125, %invoke.cont127, %invoke.cont129, %invoke.cont131, %invoke.cont133, %invoke.cont135, %if.then140, %if.then145, %if.then150, %if.end153, %invoke.cont154, %invoke.cont156, %invoke.cont158, %invoke.cont160, %invoke.cont162, %invoke.cont164, %invoke.cont166, %invoke.cont168, %invoke.cont170, %invoke.cont172, %invoke.cont174, %invoke.cont176, %invoke.cont178, %invoke.cont180, %invoke.cont182, %invoke.cont184, %if.then189, %invoke.cont190, %invoke.cont192, %invoke.cont194, %invoke.cont196, %if.then202, %invoke.cont203, %invoke.cont205, %if.then211, %invoke.cont212, %invoke.cont214, %if.end218, %if.then222, %for.end, %if.then239, %if.then244, %for.end286, %if.then291, %for.end310, %invoke.cont311, %for.end331, %invoke.cont332, %for.end352, %if.then.i.i409, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392
-  %cubeData.sroa.0.3542 = phi ptr [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392 ], [ null, %if.then.i.i409 ], [ null, %if.then109 ], [ null, %invoke.cont110 ], [ null, %if.else113 ], [ null, %if.end116 ], [ %cubeData.sroa.0.3539, %if.end124 ], [ %cubeData.sroa.0.3539, %invoke.cont125 ], [ %cubeData.sroa.0.3539, %invoke.cont127 ], [ %cubeData.sroa.0.3539, %invoke.cont129 ], [ %cubeData.sroa.0.3539, %invoke.cont131 ], [ %cubeData.sroa.0.3539, %invoke.cont133 ], [ %cubeData.sroa.0.3539, %invoke.cont135 ], [ %cubeData.sroa.0.3539, %if.then140 ], [ %cubeData.sroa.0.3539, %if.then145 ], [ %cubeData.sroa.0.3539, %if.then150 ], [ %cubeData.sroa.0.3539, %if.end153 ], [ %cubeData.sroa.0.3539, %invoke.cont154 ], [ %cubeData.sroa.0.3539, %invoke.cont156 ], [ %cubeData.sroa.0.3539, %invoke.cont158 ], [ %cubeData.sroa.0.3539, %invoke.cont160 ], [ %cubeData.sroa.0.3539, %invoke.cont162 ], [ %cubeData.sroa.0.3539, %invoke.cont164 ], [ %cubeData.sroa.0.3539, %invoke.cont166 ], [ %cubeData.sroa.0.3539, %invoke.cont168 ], [ %cubeData.sroa.0.3539, %invoke.cont170 ], [ %cubeData.sroa.0.3539, %invoke.cont172 ], [ %cubeData.sroa.0.3539, %invoke.cont174 ], [ %cubeData.sroa.0.3539, %invoke.cont176 ], [ %cubeData.sroa.0.3539, %invoke.cont178 ], [ %cubeData.sroa.0.3539, %invoke.cont180 ], [ %cubeData.sroa.0.3539, %invoke.cont182 ], [ %cubeData.sroa.0.3539, %invoke.cont184 ], [ %cubeData.sroa.0.3539, %if.then189 ], [ %cubeData.sroa.0.3539, %invoke.cont190 ], [ %cubeData.sroa.0.3539, %invoke.cont192 ], [ %cubeData.sroa.0.3539, %invoke.cont194 ], [ %cubeData.sroa.0.3539, %invoke.cont196 ], [ %cubeData.sroa.0.3539, %if.then202 ], [ %cubeData.sroa.0.3539, %invoke.cont203 ], [ %cubeData.sroa.0.3539, %invoke.cont205 ], [ %cubeData.sroa.0.3539, %if.then211 ], [ %cubeData.sroa.0.3539, %invoke.cont212 ], [ %cubeData.sroa.0.3539, %invoke.cont214 ], [ %cubeData.sroa.0.3539, %if.end218 ], [ %cubeData.sroa.0.3539, %if.then222 ], [ %cubeData.sroa.0.3539, %for.end ], [ %cubeData.sroa.0.3539, %if.then239 ], [ %cubeData.sroa.0.3539, %if.then244 ], [ %cubeData.sroa.0.3539, %for.end286 ], [ %cubeData.sroa.0.3539, %if.then291 ], [ %cubeData.sroa.0.3539, %for.end310 ], [ %cubeData.sroa.0.3539, %invoke.cont311 ], [ %cubeData.sroa.0.3539, %for.end331 ], [ %cubeData.sroa.0.3539, %invoke.cont332 ], [ %cubeData.sroa.0.3539, %for.end352 ]
-  %prelutData.sroa.0.3462535 = phi ptr [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392 ], [ null, %if.then.i.i409 ], [ null, %if.then109 ], [ null, %invoke.cont110 ], [ null, %if.else113 ], [ null, %if.end116 ], [ %prelutData.sroa.0.3462532, %if.end124 ], [ %prelutData.sroa.0.3462532, %invoke.cont125 ], [ %prelutData.sroa.0.3462532, %invoke.cont127 ], [ %prelutData.sroa.0.3462532, %invoke.cont129 ], [ %prelutData.sroa.0.3462532, %invoke.cont131 ], [ %prelutData.sroa.0.3462532, %invoke.cont133 ], [ %prelutData.sroa.0.3462532, %invoke.cont135 ], [ %prelutData.sroa.0.3462532, %if.then140 ], [ %prelutData.sroa.0.3462532, %if.then145 ], [ %prelutData.sroa.0.3462532, %if.then150 ], [ %prelutData.sroa.0.3462532, %if.end153 ], [ %prelutData.sroa.0.3462532, %invoke.cont154 ], [ %prelutData.sroa.0.3462532, %invoke.cont156 ], [ %prelutData.sroa.0.3462532, %invoke.cont158 ], [ %prelutData.sroa.0.3462532, %invoke.cont160 ], [ %prelutData.sroa.0.3462532, %invoke.cont162 ], [ %prelutData.sroa.0.3462532, %invoke.cont164 ], [ %prelutData.sroa.0.3462532, %invoke.cont166 ], [ %prelutData.sroa.0.3462532, %invoke.cont168 ], [ %prelutData.sroa.0.3462532, %invoke.cont170 ], [ %prelutData.sroa.0.3462532, %invoke.cont172 ], [ %prelutData.sroa.0.3462532, %invoke.cont174 ], [ %prelutData.sroa.0.3462532, %invoke.cont176 ], [ %prelutData.sroa.0.3462532, %invoke.cont178 ], [ %prelutData.sroa.0.3462532, %invoke.cont180 ], [ %prelutData.sroa.0.3462532, %invoke.cont182 ], [ %prelutData.sroa.0.3462532, %invoke.cont184 ], [ %prelutData.sroa.0.3462532, %if.then189 ], [ %prelutData.sroa.0.3462532, %invoke.cont190 ], [ %prelutData.sroa.0.3462532, %invoke.cont192 ], [ %prelutData.sroa.0.3462532, %invoke.cont194 ], [ %prelutData.sroa.0.3462532, %invoke.cont196 ], [ %prelutData.sroa.0.3462532, %if.then202 ], [ %prelutData.sroa.0.3462532, %invoke.cont203 ], [ %prelutData.sroa.0.3462532, %invoke.cont205 ], [ %prelutData.sroa.0.3462532, %if.then211 ], [ %prelutData.sroa.0.3462532, %invoke.cont212 ], [ %prelutData.sroa.0.3462532, %invoke.cont214 ], [ %prelutData.sroa.0.3462532, %if.end218 ], [ %prelutData.sroa.0.3462532, %if.then222 ], [ %prelutData.sroa.0.3462532, %for.end ], [ %prelutData.sroa.0.3462532, %if.then239 ], [ %prelutData.sroa.0.3462532, %if.then244 ], [ %prelutData.sroa.0.3462532, %for.end286 ], [ %prelutData.sroa.0.3462532, %if.then291 ], [ %prelutData.sroa.0.3462532, %for.end310 ], [ %prelutData.sroa.0.3462532, %invoke.cont311 ], [ %prelutData.sroa.0.3462532, %for.end331 ], [ %prelutData.sroa.0.3462532, %invoke.cont332 ], [ %prelutData.sroa.0.3462532, %for.end352 ]
-  %onedData.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392 ], [ null, %if.then.i.i409 ], [ %onedData.sroa.0.1, %if.then109 ], [ %onedData.sroa.0.1, %invoke.cont110 ], [ %onedData.sroa.0.1, %if.else113 ], [ %onedData.sroa.0.1, %if.end116 ], [ %onedData.sroa.0.3, %if.end124 ], [ %onedData.sroa.0.3, %invoke.cont125 ], [ %onedData.sroa.0.3, %invoke.cont127 ], [ %onedData.sroa.0.3, %invoke.cont129 ], [ %onedData.sroa.0.3, %invoke.cont131 ], [ %onedData.sroa.0.3, %invoke.cont133 ], [ %onedData.sroa.0.3, %invoke.cont135 ], [ %onedData.sroa.0.3, %if.then140 ], [ %onedData.sroa.0.3, %if.then145 ], [ %onedData.sroa.0.3, %if.then150 ], [ %onedData.sroa.0.3, %if.end153 ], [ %onedData.sroa.0.3, %invoke.cont154 ], [ %onedData.sroa.0.3, %invoke.cont156 ], [ %onedData.sroa.0.3, %invoke.cont158 ], [ %onedData.sroa.0.3, %invoke.cont160 ], [ %onedData.sroa.0.3, %invoke.cont162 ], [ %onedData.sroa.0.3, %invoke.cont164 ], [ %onedData.sroa.0.3, %invoke.cont166 ], [ %onedData.sroa.0.3, %invoke.cont168 ], [ %onedData.sroa.0.3, %invoke.cont170 ], [ %onedData.sroa.0.3, %invoke.cont172 ], [ %onedData.sroa.0.3, %invoke.cont174 ], [ %onedData.sroa.0.3, %invoke.cont176 ], [ %onedData.sroa.0.3, %invoke.cont178 ], [ %onedData.sroa.0.3, %invoke.cont180 ], [ %onedData.sroa.0.3, %invoke.cont182 ], [ %onedData.sroa.0.3, %invoke.cont184 ], [ %onedData.sroa.0.3, %if.then189 ], [ %onedData.sroa.0.3, %invoke.cont190 ], [ %onedData.sroa.0.3, %invoke.cont192 ], [ %onedData.sroa.0.3, %invoke.cont194 ], [ %onedData.sroa.0.3, %invoke.cont196 ], [ %onedData.sroa.0.3, %if.then202 ], [ %onedData.sroa.0.3, %invoke.cont203 ], [ %onedData.sroa.0.3, %invoke.cont205 ], [ %onedData.sroa.0.3, %if.then211 ], [ %onedData.sroa.0.3, %invoke.cont212 ], [ %onedData.sroa.0.3, %invoke.cont214 ], [ %onedData.sroa.0.3, %if.end218 ], [ %onedData.sroa.0.3, %if.then222 ], [ %onedData.sroa.0.3, %for.end ], [ %onedData.sroa.0.3, %if.then239 ], [ %onedData.sroa.0.3, %if.then244 ], [ %onedData.sroa.0.3, %for.end286 ], [ %onedData.sroa.0.3, %if.then291 ], [ %onedData.sroa.0.3, %for.end310 ], [ %onedData.sroa.0.3, %invoke.cont311 ], [ %onedData.sroa.0.3, %for.end331 ], [ %onedData.sroa.0.3, %invoke.cont332 ], [ %onedData.sroa.0.3, %for.end352 ]
+  %cubeData.sroa.0.0542 = phi ptr [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392 ], [ null, %if.then.i.i409 ], [ null, %if.then109 ], [ null, %invoke.cont110 ], [ null, %if.else113 ], [ null, %if.end116 ], [ %cubeData.sroa.0.0539, %if.end124 ], [ %cubeData.sroa.0.0539, %invoke.cont125 ], [ %cubeData.sroa.0.0539, %invoke.cont127 ], [ %cubeData.sroa.0.0539, %invoke.cont129 ], [ %cubeData.sroa.0.0539, %invoke.cont131 ], [ %cubeData.sroa.0.0539, %invoke.cont133 ], [ %cubeData.sroa.0.0539, %invoke.cont135 ], [ %cubeData.sroa.0.0539, %if.then140 ], [ %cubeData.sroa.0.0539, %if.then145 ], [ %cubeData.sroa.0.0539, %if.then150 ], [ %cubeData.sroa.0.0539, %if.end153 ], [ %cubeData.sroa.0.0539, %invoke.cont154 ], [ %cubeData.sroa.0.0539, %invoke.cont156 ], [ %cubeData.sroa.0.0539, %invoke.cont158 ], [ %cubeData.sroa.0.0539, %invoke.cont160 ], [ %cubeData.sroa.0.0539, %invoke.cont162 ], [ %cubeData.sroa.0.0539, %invoke.cont164 ], [ %cubeData.sroa.0.0539, %invoke.cont166 ], [ %cubeData.sroa.0.0539, %invoke.cont168 ], [ %cubeData.sroa.0.0539, %invoke.cont170 ], [ %cubeData.sroa.0.0539, %invoke.cont172 ], [ %cubeData.sroa.0.0539, %invoke.cont174 ], [ %cubeData.sroa.0.0539, %invoke.cont176 ], [ %cubeData.sroa.0.0539, %invoke.cont178 ], [ %cubeData.sroa.0.0539, %invoke.cont180 ], [ %cubeData.sroa.0.0539, %invoke.cont182 ], [ %cubeData.sroa.0.0539, %invoke.cont184 ], [ %cubeData.sroa.0.0539, %if.then189 ], [ %cubeData.sroa.0.0539, %invoke.cont190 ], [ %cubeData.sroa.0.0539, %invoke.cont192 ], [ %cubeData.sroa.0.0539, %invoke.cont194 ], [ %cubeData.sroa.0.0539, %invoke.cont196 ], [ %cubeData.sroa.0.0539, %if.then202 ], [ %cubeData.sroa.0.0539, %invoke.cont203 ], [ %cubeData.sroa.0.0539, %invoke.cont205 ], [ %cubeData.sroa.0.0539, %if.then211 ], [ %cubeData.sroa.0.0539, %invoke.cont212 ], [ %cubeData.sroa.0.0539, %invoke.cont214 ], [ %cubeData.sroa.0.0539, %if.end218 ], [ %cubeData.sroa.0.0539, %if.then222 ], [ %cubeData.sroa.0.0539, %for.end ], [ %cubeData.sroa.0.0539, %if.then239 ], [ %cubeData.sroa.0.0539, %if.then244 ], [ %cubeData.sroa.0.0539, %for.end286 ], [ %cubeData.sroa.0.0539, %if.then291 ], [ %cubeData.sroa.0.0539, %for.end310 ], [ %cubeData.sroa.0.0539, %invoke.cont311 ], [ %cubeData.sroa.0.0539, %for.end331 ], [ %cubeData.sroa.0.0539, %invoke.cont332 ], [ %cubeData.sroa.0.0539, %for.end352 ]
+  %prelutData.sroa.0.0462535 = phi ptr [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392 ], [ null, %if.then.i.i409 ], [ null, %if.then109 ], [ null, %invoke.cont110 ], [ null, %if.else113 ], [ null, %if.end116 ], [ %prelutData.sroa.0.0462532, %if.end124 ], [ %prelutData.sroa.0.0462532, %invoke.cont125 ], [ %prelutData.sroa.0.0462532, %invoke.cont127 ], [ %prelutData.sroa.0.0462532, %invoke.cont129 ], [ %prelutData.sroa.0.0462532, %invoke.cont131 ], [ %prelutData.sroa.0.0462532, %invoke.cont133 ], [ %prelutData.sroa.0.0462532, %invoke.cont135 ], [ %prelutData.sroa.0.0462532, %if.then140 ], [ %prelutData.sroa.0.0462532, %if.then145 ], [ %prelutData.sroa.0.0462532, %if.then150 ], [ %prelutData.sroa.0.0462532, %if.end153 ], [ %prelutData.sroa.0.0462532, %invoke.cont154 ], [ %prelutData.sroa.0.0462532, %invoke.cont156 ], [ %prelutData.sroa.0.0462532, %invoke.cont158 ], [ %prelutData.sroa.0.0462532, %invoke.cont160 ], [ %prelutData.sroa.0.0462532, %invoke.cont162 ], [ %prelutData.sroa.0.0462532, %invoke.cont164 ], [ %prelutData.sroa.0.0462532, %invoke.cont166 ], [ %prelutData.sroa.0.0462532, %invoke.cont168 ], [ %prelutData.sroa.0.0462532, %invoke.cont170 ], [ %prelutData.sroa.0.0462532, %invoke.cont172 ], [ %prelutData.sroa.0.0462532, %invoke.cont174 ], [ %prelutData.sroa.0.0462532, %invoke.cont176 ], [ %prelutData.sroa.0.0462532, %invoke.cont178 ], [ %prelutData.sroa.0.0462532, %invoke.cont180 ], [ %prelutData.sroa.0.0462532, %invoke.cont182 ], [ %prelutData.sroa.0.0462532, %invoke.cont184 ], [ %prelutData.sroa.0.0462532, %if.then189 ], [ %prelutData.sroa.0.0462532, %invoke.cont190 ], [ %prelutData.sroa.0.0462532, %invoke.cont192 ], [ %prelutData.sroa.0.0462532, %invoke.cont194 ], [ %prelutData.sroa.0.0462532, %invoke.cont196 ], [ %prelutData.sroa.0.0462532, %if.then202 ], [ %prelutData.sroa.0.0462532, %invoke.cont203 ], [ %prelutData.sroa.0.0462532, %invoke.cont205 ], [ %prelutData.sroa.0.0462532, %if.then211 ], [ %prelutData.sroa.0.0462532, %invoke.cont212 ], [ %prelutData.sroa.0.0462532, %invoke.cont214 ], [ %prelutData.sroa.0.0462532, %if.end218 ], [ %prelutData.sroa.0.0462532, %if.then222 ], [ %prelutData.sroa.0.0462532, %for.end ], [ %prelutData.sroa.0.0462532, %if.then239 ], [ %prelutData.sroa.0.0462532, %if.then244 ], [ %prelutData.sroa.0.0462532, %for.end286 ], [ %prelutData.sroa.0.0462532, %if.then291 ], [ %prelutData.sroa.0.0462532, %for.end310 ], [ %prelutData.sroa.0.0462532, %invoke.cont311 ], [ %prelutData.sroa.0.0462532, %for.end331 ], [ %prelutData.sroa.0.0462532, %invoke.cont332 ], [ %prelutData.sroa.0.0462532, %for.end352 ]
+  %onedData.sroa.0.1.ph.ph.ph.ph.ph = phi ptr [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i392 ], [ null, %if.then.i.i409 ], [ %onedData.sroa.0.3, %if.then109 ], [ %onedData.sroa.0.3, %invoke.cont110 ], [ %onedData.sroa.0.3, %if.else113 ], [ %onedData.sroa.0.3, %if.end116 ], [ %onedData.sroa.0.0, %if.end124 ], [ %onedData.sroa.0.0, %invoke.cont125 ], [ %onedData.sroa.0.0, %invoke.cont127 ], [ %onedData.sroa.0.0, %invoke.cont129 ], [ %onedData.sroa.0.0, %invoke.cont131 ], [ %onedData.sroa.0.0, %invoke.cont133 ], [ %onedData.sroa.0.0, %invoke.cont135 ], [ %onedData.sroa.0.0, %if.then140 ], [ %onedData.sroa.0.0, %if.then145 ], [ %onedData.sroa.0.0, %if.then150 ], [ %onedData.sroa.0.0, %if.end153 ], [ %onedData.sroa.0.0, %invoke.cont154 ], [ %onedData.sroa.0.0, %invoke.cont156 ], [ %onedData.sroa.0.0, %invoke.cont158 ], [ %onedData.sroa.0.0, %invoke.cont160 ], [ %onedData.sroa.0.0, %invoke.cont162 ], [ %onedData.sroa.0.0, %invoke.cont164 ], [ %onedData.sroa.0.0, %invoke.cont166 ], [ %onedData.sroa.0.0, %invoke.cont168 ], [ %onedData.sroa.0.0, %invoke.cont170 ], [ %onedData.sroa.0.0, %invoke.cont172 ], [ %onedData.sroa.0.0, %invoke.cont174 ], [ %onedData.sroa.0.0, %invoke.cont176 ], [ %onedData.sroa.0.0, %invoke.cont178 ], [ %onedData.sroa.0.0, %invoke.cont180 ], [ %onedData.sroa.0.0, %invoke.cont182 ], [ %onedData.sroa.0.0, %invoke.cont184 ], [ %onedData.sroa.0.0, %if.then189 ], [ %onedData.sroa.0.0, %invoke.cont190 ], [ %onedData.sroa.0.0, %invoke.cont192 ], [ %onedData.sroa.0.0, %invoke.cont194 ], [ %onedData.sroa.0.0, %invoke.cont196 ], [ %onedData.sroa.0.0, %if.then202 ], [ %onedData.sroa.0.0, %invoke.cont203 ], [ %onedData.sroa.0.0, %invoke.cont205 ], [ %onedData.sroa.0.0, %if.then211 ], [ %onedData.sroa.0.0, %invoke.cont212 ], [ %onedData.sroa.0.0, %invoke.cont214 ], [ %onedData.sroa.0.0, %if.end218 ], [ %onedData.sroa.0.0, %if.then222 ], [ %onedData.sroa.0.0, %for.end ], [ %onedData.sroa.0.0, %if.then239 ], [ %onedData.sroa.0.0, %if.then244 ], [ %onedData.sroa.0.0, %for.end286 ], [ %onedData.sroa.0.0, %if.then291 ], [ %onedData.sroa.0.0, %for.end310 ], [ %onedData.sroa.0.0, %invoke.cont311 ], [ %onedData.sroa.0.0, %for.end331 ], [ %onedData.sroa.0.0, %invoke.cont332 ], [ %onedData.sroa.0.0, %for.end352 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup356
 
 if.else113:                                       ; preds = %invoke.cont107
-  invoke void @_ZN19OpenColorIO_v2_4dev21GenerateIdentityLut1DEPfii(ptr noundef nonnull %onedData.sroa.0.1, i32 noundef %spec.store.select1, i32 noundef 3)
+  invoke void @_ZN19OpenColorIO_v2_4dev21GenerateIdentityLut1DEPfii(ptr noundef nonnull %onedData.sroa.0.3, i32 noundef %spec.store.select1, i32 noundef 3)
           to label %if.end116 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end116:                                        ; preds = %if.else113, %invoke.cont110
   %conv118 = zext nneg i32 %spec.store.select1 to i64
-  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvlll(ptr noundef nonnull align 8 dereferenceable(16) %onedImg, ptr noundef nonnull %onedData.sroa.0.1, i64 noundef %conv118, i64 noundef 1, i64 noundef 3)
+  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvlll(ptr noundef nonnull align 8 dereferenceable(16) %onedImg, ptr noundef nonnull %onedData.sroa.0.3, i64 noundef %conv118, i64 noundef 1, i64 noundef 3)
           to label %invoke.cont119 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont119:                                   ; preds = %if.end116
@@ -4325,12 +4325,12 @@ lpad121:                                          ; preds = %invoke.cont119
 
 if.end124:                                        ; preds = %invoke.cont119, %invoke.cont98, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219, %if.end8.sink.split.i.i.i.i222
   %cubeImg.sink = phi ptr [ %cubeImg, %if.end8.sink.split.i.i.i.i222 ], [ %cubeImg, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %cubeImg, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %cubeImg, %invoke.cont98 ], [ %onedImg, %invoke.cont119 ]
-  %cubeData.sroa.0.3539 = phi ptr [ %cubeData.sroa.0.1, %if.end8.sink.split.i.i.i.i222 ], [ %cubeData.sroa.0.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %cubeData.sroa.0.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %cubeData.sroa.0.1, %invoke.cont98 ], [ null, %invoke.cont119 ]
+  %cubeData.sroa.0.0539 = phi ptr [ %cubeData.sroa.0.3, %if.end8.sink.split.i.i.i.i222 ], [ %cubeData.sroa.0.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %cubeData.sroa.0.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %cubeData.sroa.0.3, %invoke.cont98 ], [ null, %invoke.cont119 ]
   %required_lut.0450456538 = phi i32 [ %required_lut.0450457, %if.end8.sink.split.i.i.i.i222 ], [ %required_lut.0450457, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %required_lut.0450457, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %required_lut.0450457, %invoke.cont98 ], [ 1, %invoke.cont119 ]
   %cmp72449458537 = phi i1 [ %call42, %if.end8.sink.split.i.i.i.i222 ], [ %call42, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %call42, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %call42, %invoke.cont98 ], [ false, %invoke.cont119 ]
   %cmp54448460536 = phi i1 [ %cmp54448461, %if.end8.sink.split.i.i.i.i222 ], [ %cmp54448461, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %cmp54448461, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %cmp54448461, %invoke.cont98 ], [ false, %invoke.cont119 ]
-  %prelutData.sroa.0.3462532 = phi ptr [ %prelutData.sroa.0.3463, %if.end8.sink.split.i.i.i.i222 ], [ %prelutData.sroa.0.3463, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %prelutData.sroa.0.3463, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %prelutData.sroa.0.3463, %invoke.cont98 ], [ null, %invoke.cont119 ]
-  %onedData.sroa.0.3 = phi ptr [ null, %if.end8.sink.split.i.i.i.i222 ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ null, %invoke.cont98 ], [ %onedData.sroa.0.1, %invoke.cont119 ]
+  %prelutData.sroa.0.0462532 = phi ptr [ %prelutData.sroa.0.0463, %if.end8.sink.split.i.i.i.i222 ], [ %prelutData.sroa.0.0463, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %prelutData.sroa.0.0463, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %prelutData.sroa.0.0463, %invoke.cont98 ], [ null, %invoke.cont119 ]
+  %onedData.sroa.0.0 = phi ptr [ null, %if.end8.sink.split.i.i.i.i222 ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ null, %invoke.cont98 ], [ %onedData.sroa.0.3, %invoke.cont119 ]
   call void @_ZN19OpenColorIO_v2_4dev15PackedImageDescD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %cubeImg.sink) #20
   %call126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ostream, ptr noundef nonnull @.str.62)
           to label %invoke.cont125 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4530,7 +4530,7 @@ for.body:                                         ; preds = %for.body.preheader,
 invoke.cont226:                                   ; preds = %for.body
   %66 = mul nuw nsw i64 %indvars.iv, 3
   %67 = add nuw nsw i64 %66, 1
-  %add.ptr.i250 = getelementptr inbounds float, ptr %prelutData.sroa.0.3462532, i64 %67
+  %add.ptr.i250 = getelementptr inbounds float, ptr %prelutData.sroa.0.0462532, i64 %67
   %68 = load float, ptr %add.ptr.i250, align 4
   %call232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call227, float noundef %68)
           to label %invoke.cont231 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4579,7 +4579,7 @@ for.body257:                                      ; preds = %for.body257.prehead
 
 invoke.cont258:                                   ; preds = %for.body257
   %69 = mul nuw nsw i64 %indvars.iv492, 3
-  %add.ptr.i251 = getelementptr inbounds float, ptr %cubeData.sroa.0.3539, i64 %69
+  %add.ptr.i251 = getelementptr inbounds float, ptr %cubeData.sroa.0.0539, i64 %69
   %70 = load float, ptr %add.ptr.i251, align 4
   %call265 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call259, float noundef %70)
           to label %invoke.cont264 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4590,7 +4590,7 @@ invoke.cont264:                                   ; preds = %invoke.cont258
 
 invoke.cont266:                                   ; preds = %invoke.cont264
   %71 = add nuw nsw i64 %69, 1
-  %add.ptr.i252 = getelementptr inbounds float, ptr %cubeData.sroa.0.3539, i64 %71
+  %add.ptr.i252 = getelementptr inbounds float, ptr %cubeData.sroa.0.0539, i64 %71
   %72 = load float, ptr %add.ptr.i252, align 4
   %call273 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call267, float noundef %72)
           to label %invoke.cont272 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4601,7 +4601,7 @@ invoke.cont272:                                   ; preds = %invoke.cont266
 
 invoke.cont274:                                   ; preds = %invoke.cont272
   %73 = add nuw nsw i64 %69, 2
-  %add.ptr.i253 = getelementptr inbounds float, ptr %cubeData.sroa.0.3539, i64 %73
+  %add.ptr.i253 = getelementptr inbounds float, ptr %cubeData.sroa.0.0539, i64 %73
   %74 = load float, ptr %add.ptr.i253, align 4
   %call281 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call275, float noundef %74)
           to label %invoke.cont280 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4641,7 +4641,7 @@ for.body297:                                      ; preds = %for.body297.prehead
 
 invoke.cont298:                                   ; preds = %for.body297
   %add.ptr.i254.idx = mul i64 %indvars.iv500, 12
-  %add.ptr.i254 = getelementptr inbounds i8, ptr %onedData.sroa.0.3, i64 %add.ptr.i254.idx
+  %add.ptr.i254 = getelementptr inbounds i8, ptr %onedData.sroa.0.0, i64 %add.ptr.i254.idx
   %75 = load float, ptr %add.ptr.i254, align 4
   %call305 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call299, float noundef %75)
           to label %invoke.cont304 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4678,7 +4678,7 @@ for.body318:                                      ; preds = %for.body318.prehead
 invoke.cont319:                                   ; preds = %for.body318
   %76 = mul nuw nsw i64 %indvars.iv506, 3
   %77 = add nuw nsw i64 %76, 1
-  %add.ptr.i255 = getelementptr inbounds float, ptr %onedData.sroa.0.3, i64 %77
+  %add.ptr.i255 = getelementptr inbounds float, ptr %onedData.sroa.0.0, i64 %77
   %78 = load float, ptr %add.ptr.i255, align 4
   %call326 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call320, float noundef %78)
           to label %invoke.cont325 unwind label %lpad106.loopexit.split-lp.loopexit
@@ -4715,7 +4715,7 @@ for.body339:                                      ; preds = %for.body339.prehead
 invoke.cont340:                                   ; preds = %for.body339
   %79 = mul nuw nsw i64 %indvars.iv513, 3
   %80 = add nuw nsw i64 %79, 2
-  %add.ptr.i256 = getelementptr inbounds float, ptr %onedData.sroa.0.3, i64 %80
+  %add.ptr.i256 = getelementptr inbounds float, ptr %onedData.sroa.0.0, i64 %80
   %81 = load float, ptr %add.ptr.i256, align 4
   %call347 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call341, float noundef %81)
           to label %invoke.cont346 unwind label %lpad106.loopexit
@@ -4734,27 +4734,27 @@ for.end352:                                       ; preds = %for.inc350, %for.co
           to label %if.end355 unwind label %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end355:                                        ; preds = %for.end352, %if.end289
-  %tobool.not.i.i.i = icmp eq ptr %onedData.sroa.0.3, null
+  %tobool.not.i.i.i = icmp eq ptr %onedData.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i257
 
 if.then.i.i.i257:                                 ; preds = %if.end355
-  call void @_ZdlPv(ptr noundef nonnull %onedData.sroa.0.3) #22
+  call void @_ZdlPv(ptr noundef nonnull %onedData.sroa.0.0) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %if.end355, %if.then.i.i.i257
-  %tobool.not.i.i.i258 = icmp eq ptr %cubeData.sroa.0.3539, null
+  %tobool.not.i.i.i258 = icmp eq ptr %cubeData.sroa.0.0539, null
   br i1 %tobool.not.i.i.i258, label %_ZNSt6vectorIfSaIfEED2Ev.exit260, label %if.then.i.i.i259
 
 if.then.i.i.i259:                                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %cubeData.sroa.0.3539) #22
+  call void @_ZdlPv(ptr noundef nonnull %cubeData.sroa.0.0539) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit260
 
 _ZNSt6vectorIfSaIfEED2Ev.exit260:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %if.then.i.i.i259
-  %tobool.not.i.i.i261 = icmp eq ptr %prelutData.sroa.0.3462532, null
+  %tobool.not.i.i.i261 = icmp eq ptr %prelutData.sroa.0.0462532, null
   br i1 %tobool.not.i.i.i261, label %_ZNSt6vectorIfSaIfEED2Ev.exit263, label %if.then.i.i.i262
 
 if.then.i.i.i262:                                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit260
-  call void @_ZdlPv(ptr noundef nonnull %prelutData.sroa.0.3462532) #22
+  call void @_ZdlPv(ptr noundef nonnull %prelutData.sroa.0.0462532) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit263
 
 _ZNSt6vectorIfSaIfEED2Ev.exit263:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit260, %if.then.i.i.i262
@@ -4836,36 +4836,36 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12CPUProcessorEED2Ev.exit295: ; preds =
   ret void
 
 ehcleanup356:                                     ; preds = %lpad106.loopexit, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad106.loopexit.split-lp.loopexit, %lpad121
-  %cubeData.sroa.0.3541 = phi ptr [ null, %lpad121 ], [ %cubeData.sroa.0.3539, %lpad106.loopexit ], [ %cubeData.sroa.0.3539, %lpad106.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.3539, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.3539, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.3539, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.3542, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %prelutData.sroa.0.3462534 = phi ptr [ null, %lpad121 ], [ %prelutData.sroa.0.3462532, %lpad106.loopexit ], [ %prelutData.sroa.0.3462532, %lpad106.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.3462532, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.3462532, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.3462532, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.3462535, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %onedData.sroa.0.4 = phi ptr [ %onedData.sroa.0.1, %lpad121 ], [ %onedData.sroa.0.3, %lpad106.loopexit ], [ %onedData.sroa.0.3, %lpad106.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.3, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.3, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.3, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.2.ph.ph.ph.ph.ph, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %cubeData.sroa.0.0541 = phi ptr [ null, %lpad121 ], [ %cubeData.sroa.0.0539, %lpad106.loopexit ], [ %cubeData.sroa.0.0539, %lpad106.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.0539, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.0539, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.0539, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cubeData.sroa.0.0542, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %prelutData.sroa.0.0462534 = phi ptr [ null, %lpad121 ], [ %prelutData.sroa.0.0462532, %lpad106.loopexit ], [ %prelutData.sroa.0.0462532, %lpad106.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.0462532, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.0462532, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.0462532, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %prelutData.sroa.0.0462535, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %onedData.sroa.0.2 = phi ptr [ %onedData.sroa.0.3, %lpad121 ], [ %onedData.sroa.0.0, %lpad106.loopexit ], [ %onedData.sroa.0.0, %lpad106.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.0, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.0, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.0, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %onedData.sroa.0.1.ph.ph.ph.ph.ph, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn103 = phi { ptr, i32 } [ %63, %lpad121 ], [ %lpad.loopexit, %lpad106.loopexit ], [ %lpad.loopexit469, %lpad106.loopexit.split-lp.loopexit ], [ %lpad.loopexit472, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit474, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit477, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad106.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i296 = icmp eq ptr %onedData.sroa.0.4, null
+  %tobool.not.i.i.i296 = icmp eq ptr %onedData.sroa.0.2, null
   br i1 %tobool.not.i.i.i296, label %ehcleanup357, label %if.then.i.i.i297
 
 if.then.i.i.i297:                                 ; preds = %ehcleanup356
-  call void @_ZdlPv(ptr noundef nonnull %onedData.sroa.0.4) #22
+  call void @_ZdlPv(ptr noundef nonnull %onedData.sroa.0.2) #22
   br label %ehcleanup357
 
 ehcleanup357:                                     ; preds = %if.then.i.i.i297, %ehcleanup356, %lpad91, %lpad79
-  %prelutData.sroa.0.3464 = phi ptr [ %prelutData.sroa.0.3463, %lpad91 ], [ %prelutData.sroa.0.3463, %lpad79 ], [ %prelutData.sroa.0.3462534, %ehcleanup356 ], [ %prelutData.sroa.0.3462534, %if.then.i.i.i297 ]
-  %cubeData.sroa.0.4 = phi ptr [ %cubeData.sroa.0.1, %lpad91 ], [ %cubeData.sroa.0.2, %lpad79 ], [ %cubeData.sroa.0.3541, %ehcleanup356 ], [ %cubeData.sroa.0.3541, %if.then.i.i.i297 ]
+  %prelutData.sroa.0.0464 = phi ptr [ %prelutData.sroa.0.0463, %lpad91 ], [ %prelutData.sroa.0.0463, %lpad79 ], [ %prelutData.sroa.0.0462534, %ehcleanup356 ], [ %prelutData.sroa.0.0462534, %if.then.i.i.i297 ]
+  %cubeData.sroa.0.2 = phi ptr [ %cubeData.sroa.0.3, %lpad91 ], [ %cubeData.sroa.0.1, %lpad79 ], [ %cubeData.sroa.0.0541, %ehcleanup356 ], [ %cubeData.sroa.0.0541, %if.then.i.i.i297 ]
   %.pn103.pn = phi { ptr, i32 } [ %31, %lpad91 ], [ %30, %lpad79 ], [ %.pn103, %ehcleanup356 ], [ %.pn103, %if.then.i.i.i297 ]
-  %tobool.not.i.i.i299 = icmp eq ptr %cubeData.sroa.0.4, null
+  %tobool.not.i.i.i299 = icmp eq ptr %cubeData.sroa.0.2, null
   br i1 %tobool.not.i.i.i299, label %ehcleanup358, label %if.then.i.i.i300
 
 if.then.i.i.i300:                                 ; preds = %ehcleanup357
-  call void @_ZdlPv(ptr noundef nonnull %cubeData.sroa.0.4) #22
+  call void @_ZdlPv(ptr noundef nonnull %cubeData.sroa.0.2) #22
   br label %ehcleanup358
 
 ehcleanup358:                                     ; preds = %if.then.i.i.i300, %ehcleanup357, %ehcleanup70, %lpad56
-  %prelutData.sroa.0.4 = phi ptr [ %prelutData.sroa.0.1, %ehcleanup70 ], [ %prelutData.sroa.0.2, %lpad56 ], [ %prelutData.sroa.0.3464, %ehcleanup357 ], [ %prelutData.sroa.0.3464, %if.then.i.i.i300 ]
+  %prelutData.sroa.0.2 = phi ptr [ %prelutData.sroa.0.3, %ehcleanup70 ], [ %prelutData.sroa.0.1, %lpad56 ], [ %prelutData.sroa.0.0464, %ehcleanup357 ], [ %prelutData.sroa.0.0464, %if.then.i.i.i300 ]
   %.pn103.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup70 ], [ %24, %lpad56 ], [ %.pn103.pn, %ehcleanup357 ], [ %.pn103.pn, %if.then.i.i.i300 ]
-  %tobool.not.i.i.i302 = icmp eq ptr %prelutData.sroa.0.4, null
+  %tobool.not.i.i.i302 = icmp eq ptr %prelutData.sroa.0.2, null
   br i1 %tobool.not.i.i.i302, label %ehcleanup359, label %if.then.i.i.i303
 
 if.then.i.i.i303:                                 ; preds = %ehcleanup358
-  call void @_ZdlPv(ptr noundef nonnull %prelutData.sroa.0.4) #22
+  call void @_ZdlPv(ptr noundef nonnull %prelutData.sroa.0.2) #22
   br label %ehcleanup359
 
 ehcleanup359:                                     ; preds = %if.then.i.i.i303, %ehcleanup358, %lpad38

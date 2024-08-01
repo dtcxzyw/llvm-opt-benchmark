@@ -91,7 +91,7 @@ define i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 noundef %1) l
 
 .lr.ph:                                           ; preds = %.preheader19, %15
   %.in = phi i32 [ %16, %15 ], [ %1, %.preheader19 ]
-  %.123 = phi i64 [ %19, %15 ], [ 0, %.preheader19 ]
+  %.223 = phi i64 [ %19, %15 ], [ 0, %.preheader19 ]
   %.11522 = phi ptr [ %20, %15 ], [ %0, %.preheader19 ]
   %13 = load i8, ptr %.11522, align 1
   %14 = and i8 %13, -8
@@ -100,7 +100,7 @@ define i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 noundef %1) l
 
 15:                                               ; preds = %.lr.ph
   %16 = add i32 %.in, -1
-  %17 = shl i64 %.123, 3
+  %17 = shl i64 %.223, 3
   %narrow = add nsw i8 %13, -48
   %18 = zext nneg i8 %narrow to i64
   %19 = or disjoint i64 %17, %18
@@ -109,8 +109,8 @@ define i64 @read_tar_number(ptr nocapture noundef readonly %0, i32 noundef %1) l
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %15, %.lr.ph29, %.preheader19, %.preheader
-  %.2 = phi i64 [ 0, %.preheader ], [ 0, %.preheader19 ], [ %11, %.lr.ph29 ], [ %.123, %.lr.ph ], [ %19, %15 ]
-  ret i64 %.2
+  %.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader19 ], [ %11, %.lr.ph29 ], [ %.223, %.lr.ph ], [ %19, %15 ]
+  ret i64 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

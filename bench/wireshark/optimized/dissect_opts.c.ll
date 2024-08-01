@@ -90,12 +90,12 @@ define hidden range(i32 0, 2) i32 @dissect_opts_handle_opt(i32 noundef %0, ptr n
   br label %91
 
 22:                                               ; preds = %17, %14
-  %.041 = phi i32 [ -1, %14 ], [ %19, %17 ]
+  %.1 = phi i32 [ -1, %14 ], [ %19, %17 ]
   store i8 0, ptr %13, align 1
   br label %sub_0
 
 sub_0:                                            ; preds = %12, %22
-  %.1 = phi i32 [ %.041, %22 ], [ -2, %12 ]
+  %.041 = phi i32 [ %.1, %22 ], [ -2, %12 ]
   %23 = load i8, ptr %1, align 1
   switch i8 %23, label %.critedge [
     i8 114, label %sub_1
@@ -212,7 +212,7 @@ sub_180:                                          ; preds = %.tail74
 
 62:                                               ; preds = %61
   store i8 46, ptr %13, align 1
-  store i32 %.1, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
+  store i32 %.041, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
   br label %.loopexit
 
 sub_084:                                          ; preds = %2

@@ -6761,14 +6761,14 @@ if.then59:                                        ; preds = %if.then53
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end158
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end158 ], [ 0, %for.cond.preheader ]
-  %length.addr.0101 = phi i32 [ %sub108, %if.end158 ], [ %sub13, %for.cond.preheader ]
+  %length.addr.1101 = phi i32 [ %sub108, %if.end158 ], [ %sub13, %for.cond.preheader ]
   %13 = load ptr, ptr %comments, align 8
   %arrayidx69 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %13, i64 %indvars.iv
   store i32 0, ptr %arrayidx69, align 8
   %14 = load ptr, ptr %comments, align 8
   %entry74 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %14, i64 %indvars.iv, i32 1
   store ptr null, ptr %entry74, align 8
-  %cmp75 = icmp ult i32 %length.addr.0101, 4
+  %cmp75 = icmp ult i32 %length.addr.1101, 4
   br i1 %cmp75, label %if.then77, label %if.else79
 
 if.then77:                                        ; preds = %for.body
@@ -6777,7 +6777,7 @@ if.then77:                                        ; preds = %for.body
   br label %skip
 
 if.else79:                                        ; preds = %for.body
-  %sub80 = add i32 %length.addr.0101, -4
+  %sub80 = add i32 %length.addr.1101, -4
   %16 = load ptr, ptr %private_, align 8
   %input83 = getelementptr inbounds i8, ptr %16, i64 88
   %17 = load ptr, ptr %input83, align 8
@@ -6881,8 +6881,8 @@ if.else170:                                       ; preds = %entry
   br label %return
 
 skip:                                             ; preds = %if.end158, %for.cond.preheader, %if.end49, %if.then148, %if.then77, %if.then6
-  %length.addr.1 = phi i32 [ %sub, %if.then6 ], [ %length.addr.0101, %if.then77 ], [ %sub108, %if.then148 ], [ %sub13, %if.end49 ], [ %sub13, %for.cond.preheader ], [ %sub108, %if.end158 ]
-  %cmp174.not = icmp eq i32 %length.addr.1, 0
+  %length.addr.0 = phi i32 [ %sub, %if.then6 ], [ %length.addr.1101, %if.then77 ], [ %sub108, %if.then148 ], [ %sub13, %if.end49 ], [ %sub13, %for.cond.preheader ], [ %sub108, %if.end158 ]
+  %cmp174.not = icmp eq i32 %length.addr.0, 0
   br i1 %cmp174.not, label %return, label %if.then176
 
 if.then176:                                       ; preds = %skip

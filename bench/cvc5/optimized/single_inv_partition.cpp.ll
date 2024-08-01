@@ -8459,8 +8459,8 @@ ehcleanup:                                        ; preds = %lpad12.loopexit, %l
   br label %common.resume
 
 if.end179:                                        ; preds = %if.then13.i.i381, %if.then.i.i375, %if.end178, %for.end
-  %ret.5 = phi i8 [ %spec.select, %for.end ], [ %ret.4, %if.end178 ], [ %ret.4, %if.then.i.i375 ], [ %ret.4, %if.then13.i.i381 ]
-  %tobool180 = trunc nuw i8 %ret.5 to i1
+  %ret.2 = phi i8 [ %spec.select, %for.end ], [ %ret.4, %if.end178 ], [ %ret.4, %if.then.i.i375 ], [ %ret.4, %if.then13.i.i381 ]
+  %tobool180 = trunc nuw i8 %ret.2 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %103 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -8511,7 +8511,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEix
   %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %frombool = and i8 %ret.5, 1
+  %frombool = and i8 %ret.2, 1
   store i8 %frombool, ptr %second.i, align 1
   br label %return
 
@@ -10315,7 +10315,7 @@ ehcleanup100:                                     ; preds = %lpad18.loopexit, %l
   br label %ehcleanup107
 
 if.end101:                                        ; preds = %if.then.i.i.i463, %invoke.cont.i462, %invoke.cont14, %lor.lhs.false
-  %ret.1 = phi i1 [ false, %invoke.cont14 ], [ false, %lor.lhs.false ], [ %cmp22514, %invoke.cont.i462 ], [ %cmp22514, %if.then.i.i.i463 ]
+  %ret.0 = phi i1 [ false, %invoke.cont14 ], [ false, %lor.lhs.false ], [ %cmp22514, %invoke.cont.i462 ], [ %cmp22514, %if.then.i.i.i463 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i464)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i465)
   %135 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -10366,7 +10366,7 @@ invoke.cont104:                                   ; preds = %lor.rhs.i485, %if.t
   %second.i491 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i490, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i464)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i465)
-  %frombool = zext i1 %ret.1 to i8
+  %frombool = zext i1 %ret.0 to i8
   store i8 %frombool, ptr %second.i491, align 1
   %139 = load ptr, ptr %tn, align 8
   %bf.load.i.i496 = load i64, ptr %139, align 8
@@ -10400,7 +10400,7 @@ ehcleanup107:                                     ; preds = %ehcleanup100, %lpad
   resume { ptr, i32 } %.pn11
 
 return:                                           ; preds = %if.then13.i.i505, %if.then.i.i498, %invoke.cont104, %if.then
-  %retval.0 = phi i1 [ %tobool, %if.then ], [ %ret.1, %invoke.cont104 ], [ %ret.1, %if.then.i.i498 ], [ %ret.1, %if.then13.i.i505 ]
+  %retval.0 = phi i1 [ %tobool, %if.then ], [ %ret.0, %invoke.cont104 ], [ %ret.0, %if.then.i.i498 ], [ %ret.0, %if.then13.i.i505 ]
   ret i1 %retval.0
 }
 

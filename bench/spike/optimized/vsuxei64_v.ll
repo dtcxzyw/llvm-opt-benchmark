@@ -392,10 +392,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %172
 
 172:                                              ; preds = %.lr.ph284, %.loopexit
-  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.1, %.loopexit ]
   %.0167279 = phi i64 [ 0, %.lr.ph284 ], [ %367, %.loopexit ]
   %173 = load ptr, ptr %160, align 8
   %174 = load ptr, ptr %173, align 8
@@ -437,10 +437,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %202
 
 202:                                              ; preds = %189, %.critedge2
-  %.sroa.09.1278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.3, %.critedge2 ]
   %.0274 = phi i64 [ 0, %189 ], [ %366, %.critedge2 ]
   %203 = load i64, ptr %91, align 8
   %204 = load ptr, ptr %163, align 8
@@ -456,7 +456,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %207 = add i64 %206, %28
   %208 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %207, i64 noundef %.0167279, i1 noundef zeroext false)
   %209 = load i8, ptr %208, align 1
-  %210 = and i8 %.sroa.021.1275, -8
+  %210 = and i8 %.sroa.021.2275, -8
   %211 = lshr i64 %.reass, 12
   %212 = getelementptr inbounds i8, ptr %204, i64 41104
   %213 = and i64 %211, 255
@@ -527,7 +527,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit190: ; preds = %202
   %247 = add i64 %246, %28
   %248 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %247, i64 noundef %.0167279, i1 noundef zeroext false)
   %249 = load i16, ptr %248, align 2
-  %250 = and i8 %.sroa.017.1276, -8
+  %250 = and i8 %.sroa.017.2276, -8
   %251 = lshr i64 %245, 12
   %252 = and i64 %251, 255
   %253 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -599,7 +599,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit195: ; preds = %202
   %288 = add i64 %287, %28
   %289 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %288, i64 noundef %.0167279, i1 noundef zeroext false)
   %290 = load i32, ptr %289, align 4
-  %291 = and i8 %.sroa.013.1277, -8
+  %291 = and i8 %.sroa.013.2277, -8
   %292 = lshr i64 %286, 12
   %293 = and i64 %292, 255
   %294 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -671,7 +671,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200: ; preds = %202
   %329 = add i64 %328, %28
   %330 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %329, i64 noundef %.0167279, i1 noundef zeroext false)
   %331 = load i64, ptr %330, align 8
-  %332 = and i8 %.sroa.09.1278, -8
+  %332 = and i8 %.sroa.09.2278, -8
   %333 = lshr i64 %327, 12
   %334 = and i64 %333, 255
   %335 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -736,19 +736,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %364, %357, %324, %317, %283, %276, %242, %235, %222, %225, %263, %266, %304, %307, %345, %348
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1275, %348 ], [ %.sroa.021.1275, %345 ], [ %.sroa.021.1275, %307 ], [ %.sroa.021.1275, %304 ], [ %.sroa.021.1275, %266 ], [ %.sroa.021.1275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.1275, %276 ], [ %.sroa.021.1275, %283 ], [ %.sroa.021.1275, %317 ], [ %.sroa.021.1275, %324 ], [ %.sroa.021.1275, %357 ], [ %.sroa.021.1275, %364 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1276, %348 ], [ %.sroa.017.1276, %345 ], [ %.sroa.017.1276, %307 ], [ %.sroa.017.1276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.1276, %225 ], [ %.sroa.017.1276, %222 ], [ %.sroa.017.1276, %235 ], [ %.sroa.017.1276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.1276, %317 ], [ %.sroa.017.1276, %324 ], [ %.sroa.017.1276, %357 ], [ %.sroa.017.1276, %364 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1277, %348 ], [ %.sroa.013.1277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.1277, %266 ], [ %.sroa.013.1277, %263 ], [ %.sroa.013.1277, %225 ], [ %.sroa.013.1277, %222 ], [ %.sroa.013.1277, %235 ], [ %.sroa.013.1277, %242 ], [ %.sroa.013.1277, %276 ], [ %.sroa.013.1277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.1277, %357 ], [ %.sroa.013.1277, %364 ]
-  %.sroa.09.2 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.1278, %307 ], [ %.sroa.09.1278, %304 ], [ %.sroa.09.1278, %266 ], [ %.sroa.09.1278, %263 ], [ %.sroa.09.1278, %225 ], [ %.sroa.09.1278, %222 ], [ %.sroa.09.1278, %235 ], [ %.sroa.09.1278, %242 ], [ %.sroa.09.1278, %276 ], [ %.sroa.09.1278, %283 ], [ %.sroa.09.1278, %317 ], [ %.sroa.09.1278, %324 ], [ %332, %357 ], [ %332, %364 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2275, %348 ], [ %.sroa.021.2275, %345 ], [ %.sroa.021.2275, %307 ], [ %.sroa.021.2275, %304 ], [ %.sroa.021.2275, %266 ], [ %.sroa.021.2275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.2275, %276 ], [ %.sroa.021.2275, %283 ], [ %.sroa.021.2275, %317 ], [ %.sroa.021.2275, %324 ], [ %.sroa.021.2275, %357 ], [ %.sroa.021.2275, %364 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2276, %348 ], [ %.sroa.017.2276, %345 ], [ %.sroa.017.2276, %307 ], [ %.sroa.017.2276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.2276, %225 ], [ %.sroa.017.2276, %222 ], [ %.sroa.017.2276, %235 ], [ %.sroa.017.2276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.2276, %317 ], [ %.sroa.017.2276, %324 ], [ %.sroa.017.2276, %357 ], [ %.sroa.017.2276, %364 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2277, %348 ], [ %.sroa.013.2277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.2277, %266 ], [ %.sroa.013.2277, %263 ], [ %.sroa.013.2277, %225 ], [ %.sroa.013.2277, %222 ], [ %.sroa.013.2277, %235 ], [ %.sroa.013.2277, %242 ], [ %.sroa.013.2277, %276 ], [ %.sroa.013.2277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.2277, %357 ], [ %.sroa.013.2277, %364 ]
+  %.sroa.09.3 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.2278, %307 ], [ %.sroa.09.2278, %304 ], [ %.sroa.09.2278, %266 ], [ %.sroa.09.2278, %263 ], [ %.sroa.09.2278, %225 ], [ %.sroa.09.2278, %222 ], [ %.sroa.09.2278, %235 ], [ %.sroa.09.2278, %242 ], [ %.sroa.09.2278, %276 ], [ %.sroa.09.2278, %283 ], [ %.sroa.09.2278, %317 ], [ %.sroa.09.2278, %324 ], [ %332, %357 ], [ %332, %364 ]
   %366 = add nuw nsw i64 %.0274, 1
   %exitcond.not = icmp eq i64 %.0274, %13
   br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.critedge2, %180, %172
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.3, %.critedge2 ]
   %367 = add nuw i64 %.0167279, 1
   %exitcond288.not = icmp eq i64 %367, %21
   br i1 %exitcond288.not, label %._crit_edge, label %172, !llvm.loop !8
@@ -1090,10 +1090,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %172
 
 172:                                              ; preds = %.lr.ph284, %.loopexit
-  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.1, %.loopexit ]
   %.0167279 = phi i64 [ 0, %.lr.ph284 ], [ %367, %.loopexit ]
   %173 = load ptr, ptr %160, align 8
   %174 = load ptr, ptr %173, align 8
@@ -1135,10 +1135,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %202
 
 202:                                              ; preds = %189, %.critedge2
-  %.sroa.09.1278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.3, %.critedge2 ]
   %.0274 = phi i64 [ 0, %189 ], [ %366, %.critedge2 ]
   %203 = load i64, ptr %91, align 8
   %204 = load ptr, ptr %163, align 8
@@ -1154,7 +1154,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %207 = add i64 %206, %28
   %208 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %207, i64 noundef %.0167279, i1 noundef zeroext false)
   %209 = load i8, ptr %208, align 1
-  %210 = and i8 %.sroa.021.1275, -8
+  %210 = and i8 %.sroa.021.2275, -8
   %211 = lshr i64 %.reass, 12
   %212 = getelementptr inbounds i8, ptr %204, i64 41104
   %213 = and i64 %211, 255
@@ -1225,7 +1225,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit190: ; preds = %202
   %247 = add i64 %246, %28
   %248 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %247, i64 noundef %.0167279, i1 noundef zeroext false)
   %249 = load i16, ptr %248, align 2
-  %250 = and i8 %.sroa.017.1276, -8
+  %250 = and i8 %.sroa.017.2276, -8
   %251 = lshr i64 %245, 12
   %252 = and i64 %251, 255
   %253 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -1297,7 +1297,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit195: ; preds = %202
   %288 = add i64 %287, %28
   %289 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %288, i64 noundef %.0167279, i1 noundef zeroext false)
   %290 = load i32, ptr %289, align 4
-  %291 = and i8 %.sroa.013.1277, -8
+  %291 = and i8 %.sroa.013.2277, -8
   %292 = lshr i64 %286, 12
   %293 = and i64 %292, 255
   %294 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -1369,7 +1369,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200: ; preds = %202
   %329 = add i64 %328, %28
   %330 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %329, i64 noundef %.0167279, i1 noundef zeroext false)
   %331 = load i64, ptr %330, align 8
-  %332 = and i8 %.sroa.09.1278, -8
+  %332 = and i8 %.sroa.09.2278, -8
   %333 = lshr i64 %327, 12
   %334 = and i64 %333, 255
   %335 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -1434,19 +1434,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %364, %357, %324, %317, %283, %276, %242, %235, %222, %225, %263, %266, %304, %307, %345, %348
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1275, %348 ], [ %.sroa.021.1275, %345 ], [ %.sroa.021.1275, %307 ], [ %.sroa.021.1275, %304 ], [ %.sroa.021.1275, %266 ], [ %.sroa.021.1275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.1275, %276 ], [ %.sroa.021.1275, %283 ], [ %.sroa.021.1275, %317 ], [ %.sroa.021.1275, %324 ], [ %.sroa.021.1275, %357 ], [ %.sroa.021.1275, %364 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1276, %348 ], [ %.sroa.017.1276, %345 ], [ %.sroa.017.1276, %307 ], [ %.sroa.017.1276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.1276, %225 ], [ %.sroa.017.1276, %222 ], [ %.sroa.017.1276, %235 ], [ %.sroa.017.1276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.1276, %317 ], [ %.sroa.017.1276, %324 ], [ %.sroa.017.1276, %357 ], [ %.sroa.017.1276, %364 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1277, %348 ], [ %.sroa.013.1277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.1277, %266 ], [ %.sroa.013.1277, %263 ], [ %.sroa.013.1277, %225 ], [ %.sroa.013.1277, %222 ], [ %.sroa.013.1277, %235 ], [ %.sroa.013.1277, %242 ], [ %.sroa.013.1277, %276 ], [ %.sroa.013.1277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.1277, %357 ], [ %.sroa.013.1277, %364 ]
-  %.sroa.09.2 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.1278, %307 ], [ %.sroa.09.1278, %304 ], [ %.sroa.09.1278, %266 ], [ %.sroa.09.1278, %263 ], [ %.sroa.09.1278, %225 ], [ %.sroa.09.1278, %222 ], [ %.sroa.09.1278, %235 ], [ %.sroa.09.1278, %242 ], [ %.sroa.09.1278, %276 ], [ %.sroa.09.1278, %283 ], [ %.sroa.09.1278, %317 ], [ %.sroa.09.1278, %324 ], [ %332, %357 ], [ %332, %364 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2275, %348 ], [ %.sroa.021.2275, %345 ], [ %.sroa.021.2275, %307 ], [ %.sroa.021.2275, %304 ], [ %.sroa.021.2275, %266 ], [ %.sroa.021.2275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.2275, %276 ], [ %.sroa.021.2275, %283 ], [ %.sroa.021.2275, %317 ], [ %.sroa.021.2275, %324 ], [ %.sroa.021.2275, %357 ], [ %.sroa.021.2275, %364 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2276, %348 ], [ %.sroa.017.2276, %345 ], [ %.sroa.017.2276, %307 ], [ %.sroa.017.2276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.2276, %225 ], [ %.sroa.017.2276, %222 ], [ %.sroa.017.2276, %235 ], [ %.sroa.017.2276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.2276, %317 ], [ %.sroa.017.2276, %324 ], [ %.sroa.017.2276, %357 ], [ %.sroa.017.2276, %364 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2277, %348 ], [ %.sroa.013.2277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.2277, %266 ], [ %.sroa.013.2277, %263 ], [ %.sroa.013.2277, %225 ], [ %.sroa.013.2277, %222 ], [ %.sroa.013.2277, %235 ], [ %.sroa.013.2277, %242 ], [ %.sroa.013.2277, %276 ], [ %.sroa.013.2277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.2277, %357 ], [ %.sroa.013.2277, %364 ]
+  %.sroa.09.3 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.2278, %307 ], [ %.sroa.09.2278, %304 ], [ %.sroa.09.2278, %266 ], [ %.sroa.09.2278, %263 ], [ %.sroa.09.2278, %225 ], [ %.sroa.09.2278, %222 ], [ %.sroa.09.2278, %235 ], [ %.sroa.09.2278, %242 ], [ %.sroa.09.2278, %276 ], [ %.sroa.09.2278, %283 ], [ %.sroa.09.2278, %317 ], [ %.sroa.09.2278, %324 ], [ %332, %357 ], [ %332, %364 ]
   %366 = add nuw nsw i64 %.0274, 1
   %exitcond.not = icmp eq i64 %.0274, %13
   br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge2, %180, %172
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.3, %.critedge2 ]
   %367 = add nuw i64 %.0167279, 1
   %exitcond288.not = icmp eq i64 %367, %21
   br i1 %exitcond288.not, label %._crit_edge, label %172, !llvm.loop !11
@@ -1757,10 +1757,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %172
 
 172:                                              ; preds = %.lr.ph284, %.loopexit
-  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.1, %.loopexit ]
   %.0167279 = phi i64 [ 0, %.lr.ph284 ], [ %367, %.loopexit ]
   %173 = load ptr, ptr %160, align 8
   %174 = load ptr, ptr %173, align 8
@@ -1802,10 +1802,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %202
 
 202:                                              ; preds = %189, %.critedge2
-  %.sroa.09.1278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.3, %.critedge2 ]
   %.0274 = phi i64 [ 0, %189 ], [ %366, %.critedge2 ]
   %203 = load i64, ptr %91, align 8
   %204 = load ptr, ptr %163, align 8
@@ -1821,7 +1821,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %207 = add i64 %206, %28
   %208 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %207, i64 noundef %.0167279, i1 noundef zeroext false)
   %209 = load i8, ptr %208, align 1
-  %210 = and i8 %.sroa.021.1275, -8
+  %210 = and i8 %.sroa.021.2275, -8
   %211 = lshr i64 %.reass, 12
   %212 = getelementptr inbounds i8, ptr %204, i64 41104
   %213 = and i64 %211, 255
@@ -1892,7 +1892,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit190: ; preds = %202
   %247 = add i64 %246, %28
   %248 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %247, i64 noundef %.0167279, i1 noundef zeroext false)
   %249 = load i16, ptr %248, align 2
-  %250 = and i8 %.sroa.017.1276, -8
+  %250 = and i8 %.sroa.017.2276, -8
   %251 = lshr i64 %245, 12
   %252 = and i64 %251, 255
   %253 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -1964,7 +1964,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit195: ; preds = %202
   %288 = add i64 %287, %28
   %289 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %288, i64 noundef %.0167279, i1 noundef zeroext false)
   %290 = load i32, ptr %289, align 4
-  %291 = and i8 %.sroa.013.1277, -8
+  %291 = and i8 %.sroa.013.2277, -8
   %292 = lshr i64 %286, 12
   %293 = and i64 %292, 255
   %294 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -2036,7 +2036,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200: ; preds = %202
   %329 = add i64 %328, %28
   %330 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %329, i64 noundef %.0167279, i1 noundef zeroext false)
   %331 = load i64, ptr %330, align 8
-  %332 = and i8 %.sroa.09.1278, -8
+  %332 = and i8 %.sroa.09.2278, -8
   %333 = lshr i64 %327, 12
   %334 = and i64 %333, 255
   %335 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -2101,19 +2101,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %364, %357, %324, %317, %283, %276, %242, %235, %222, %225, %263, %266, %304, %307, %345, %348
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1275, %348 ], [ %.sroa.021.1275, %345 ], [ %.sroa.021.1275, %307 ], [ %.sroa.021.1275, %304 ], [ %.sroa.021.1275, %266 ], [ %.sroa.021.1275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.1275, %276 ], [ %.sroa.021.1275, %283 ], [ %.sroa.021.1275, %317 ], [ %.sroa.021.1275, %324 ], [ %.sroa.021.1275, %357 ], [ %.sroa.021.1275, %364 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1276, %348 ], [ %.sroa.017.1276, %345 ], [ %.sroa.017.1276, %307 ], [ %.sroa.017.1276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.1276, %225 ], [ %.sroa.017.1276, %222 ], [ %.sroa.017.1276, %235 ], [ %.sroa.017.1276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.1276, %317 ], [ %.sroa.017.1276, %324 ], [ %.sroa.017.1276, %357 ], [ %.sroa.017.1276, %364 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1277, %348 ], [ %.sroa.013.1277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.1277, %266 ], [ %.sroa.013.1277, %263 ], [ %.sroa.013.1277, %225 ], [ %.sroa.013.1277, %222 ], [ %.sroa.013.1277, %235 ], [ %.sroa.013.1277, %242 ], [ %.sroa.013.1277, %276 ], [ %.sroa.013.1277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.1277, %357 ], [ %.sroa.013.1277, %364 ]
-  %.sroa.09.2 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.1278, %307 ], [ %.sroa.09.1278, %304 ], [ %.sroa.09.1278, %266 ], [ %.sroa.09.1278, %263 ], [ %.sroa.09.1278, %225 ], [ %.sroa.09.1278, %222 ], [ %.sroa.09.1278, %235 ], [ %.sroa.09.1278, %242 ], [ %.sroa.09.1278, %276 ], [ %.sroa.09.1278, %283 ], [ %.sroa.09.1278, %317 ], [ %.sroa.09.1278, %324 ], [ %332, %357 ], [ %332, %364 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2275, %348 ], [ %.sroa.021.2275, %345 ], [ %.sroa.021.2275, %307 ], [ %.sroa.021.2275, %304 ], [ %.sroa.021.2275, %266 ], [ %.sroa.021.2275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.2275, %276 ], [ %.sroa.021.2275, %283 ], [ %.sroa.021.2275, %317 ], [ %.sroa.021.2275, %324 ], [ %.sroa.021.2275, %357 ], [ %.sroa.021.2275, %364 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2276, %348 ], [ %.sroa.017.2276, %345 ], [ %.sroa.017.2276, %307 ], [ %.sroa.017.2276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.2276, %225 ], [ %.sroa.017.2276, %222 ], [ %.sroa.017.2276, %235 ], [ %.sroa.017.2276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.2276, %317 ], [ %.sroa.017.2276, %324 ], [ %.sroa.017.2276, %357 ], [ %.sroa.017.2276, %364 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2277, %348 ], [ %.sroa.013.2277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.2277, %266 ], [ %.sroa.013.2277, %263 ], [ %.sroa.013.2277, %225 ], [ %.sroa.013.2277, %222 ], [ %.sroa.013.2277, %235 ], [ %.sroa.013.2277, %242 ], [ %.sroa.013.2277, %276 ], [ %.sroa.013.2277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.2277, %357 ], [ %.sroa.013.2277, %364 ]
+  %.sroa.09.3 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.2278, %307 ], [ %.sroa.09.2278, %304 ], [ %.sroa.09.2278, %266 ], [ %.sroa.09.2278, %263 ], [ %.sroa.09.2278, %225 ], [ %.sroa.09.2278, %222 ], [ %.sroa.09.2278, %235 ], [ %.sroa.09.2278, %242 ], [ %.sroa.09.2278, %276 ], [ %.sroa.09.2278, %283 ], [ %.sroa.09.2278, %317 ], [ %.sroa.09.2278, %324 ], [ %332, %357 ], [ %332, %364 ]
   %366 = add nuw nsw i64 %.0274, 1
   %exitcond.not = icmp eq i64 %.0274, %13
   br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.critedge2, %180, %172
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.3, %.critedge2 ]
   %367 = add nuw i64 %.0167279, 1
   %exitcond288.not = icmp eq i64 %367, %21
   br i1 %exitcond288.not, label %._crit_edge, label %172, !llvm.loop !14
@@ -2426,10 +2426,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %172
 
 172:                                              ; preds = %.lr.ph284, %.loopexit
-  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0283 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0282 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0281 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0280 = phi i8 [ undef, %.lr.ph284 ], [ %.sroa.021.1, %.loopexit ]
   %.0167279 = phi i64 [ 0, %.lr.ph284 ], [ %367, %.loopexit ]
   %173 = load ptr, ptr %160, align 8
   %174 = load ptr, ptr %173, align 8
@@ -2471,10 +2471,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %202
 
 202:                                              ; preds = %189, %.critedge2
-  %.sroa.09.1278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2278 = phi i8 [ %.sroa.09.0283, %189 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2277 = phi i8 [ %.sroa.013.0282, %189 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2276 = phi i8 [ %.sroa.017.0281, %189 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2275 = phi i8 [ %.sroa.021.0280, %189 ], [ %.sroa.021.3, %.critedge2 ]
   %.0274 = phi i64 [ 0, %189 ], [ %366, %.critedge2 ]
   %203 = load i64, ptr %91, align 8
   %204 = load ptr, ptr %163, align 8
@@ -2490,7 +2490,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %207 = add i64 %206, %28
   %208 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %207, i64 noundef %.0167279, i1 noundef zeroext false)
   %209 = load i8, ptr %208, align 1
-  %210 = and i8 %.sroa.021.1275, -8
+  %210 = and i8 %.sroa.021.2275, -8
   %211 = lshr i64 %.reass, 12
   %212 = getelementptr inbounds i8, ptr %204, i64 41104
   %213 = and i64 %211, 255
@@ -2561,7 +2561,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit190: ; preds = %202
   %247 = add i64 %246, %28
   %248 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %247, i64 noundef %.0167279, i1 noundef zeroext false)
   %249 = load i16, ptr %248, align 2
-  %250 = and i8 %.sroa.017.1276, -8
+  %250 = and i8 %.sroa.017.2276, -8
   %251 = lshr i64 %245, 12
   %252 = and i64 %251, 255
   %253 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -2633,7 +2633,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit195: ; preds = %202
   %288 = add i64 %287, %28
   %289 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %288, i64 noundef %.0167279, i1 noundef zeroext false)
   %290 = load i32, ptr %289, align 4
-  %291 = and i8 %.sroa.013.1277, -8
+  %291 = and i8 %.sroa.013.2277, -8
   %292 = lshr i64 %286, 12
   %293 = and i64 %292, 255
   %294 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -2705,7 +2705,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200: ; preds = %202
   %329 = add i64 %328, %28
   %330 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %329, i64 noundef %.0167279, i1 noundef zeroext false)
   %331 = load i64, ptr %330, align 8
-  %332 = and i8 %.sroa.09.1278, -8
+  %332 = and i8 %.sroa.09.2278, -8
   %333 = lshr i64 %327, 12
   %334 = and i64 %333, 255
   %335 = getelementptr inbounds i8, ptr %204, i64 41104
@@ -2770,19 +2770,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit200.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %364, %357, %324, %317, %283, %276, %242, %235, %222, %225, %263, %266, %304, %307, %345, %348
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1275, %348 ], [ %.sroa.021.1275, %345 ], [ %.sroa.021.1275, %307 ], [ %.sroa.021.1275, %304 ], [ %.sroa.021.1275, %266 ], [ %.sroa.021.1275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.1275, %276 ], [ %.sroa.021.1275, %283 ], [ %.sroa.021.1275, %317 ], [ %.sroa.021.1275, %324 ], [ %.sroa.021.1275, %357 ], [ %.sroa.021.1275, %364 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1276, %348 ], [ %.sroa.017.1276, %345 ], [ %.sroa.017.1276, %307 ], [ %.sroa.017.1276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.1276, %225 ], [ %.sroa.017.1276, %222 ], [ %.sroa.017.1276, %235 ], [ %.sroa.017.1276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.1276, %317 ], [ %.sroa.017.1276, %324 ], [ %.sroa.017.1276, %357 ], [ %.sroa.017.1276, %364 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1277, %348 ], [ %.sroa.013.1277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.1277, %266 ], [ %.sroa.013.1277, %263 ], [ %.sroa.013.1277, %225 ], [ %.sroa.013.1277, %222 ], [ %.sroa.013.1277, %235 ], [ %.sroa.013.1277, %242 ], [ %.sroa.013.1277, %276 ], [ %.sroa.013.1277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.1277, %357 ], [ %.sroa.013.1277, %364 ]
-  %.sroa.09.2 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.1278, %307 ], [ %.sroa.09.1278, %304 ], [ %.sroa.09.1278, %266 ], [ %.sroa.09.1278, %263 ], [ %.sroa.09.1278, %225 ], [ %.sroa.09.1278, %222 ], [ %.sroa.09.1278, %235 ], [ %.sroa.09.1278, %242 ], [ %.sroa.09.1278, %276 ], [ %.sroa.09.1278, %283 ], [ %.sroa.09.1278, %317 ], [ %.sroa.09.1278, %324 ], [ %332, %357 ], [ %332, %364 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2275, %348 ], [ %.sroa.021.2275, %345 ], [ %.sroa.021.2275, %307 ], [ %.sroa.021.2275, %304 ], [ %.sroa.021.2275, %266 ], [ %.sroa.021.2275, %263 ], [ %210, %225 ], [ %210, %222 ], [ %210, %235 ], [ %210, %242 ], [ %.sroa.021.2275, %276 ], [ %.sroa.021.2275, %283 ], [ %.sroa.021.2275, %317 ], [ %.sroa.021.2275, %324 ], [ %.sroa.021.2275, %357 ], [ %.sroa.021.2275, %364 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2276, %348 ], [ %.sroa.017.2276, %345 ], [ %.sroa.017.2276, %307 ], [ %.sroa.017.2276, %304 ], [ %250, %266 ], [ %250, %263 ], [ %.sroa.017.2276, %225 ], [ %.sroa.017.2276, %222 ], [ %.sroa.017.2276, %235 ], [ %.sroa.017.2276, %242 ], [ %250, %276 ], [ %250, %283 ], [ %.sroa.017.2276, %317 ], [ %.sroa.017.2276, %324 ], [ %.sroa.017.2276, %357 ], [ %.sroa.017.2276, %364 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2277, %348 ], [ %.sroa.013.2277, %345 ], [ %291, %307 ], [ %291, %304 ], [ %.sroa.013.2277, %266 ], [ %.sroa.013.2277, %263 ], [ %.sroa.013.2277, %225 ], [ %.sroa.013.2277, %222 ], [ %.sroa.013.2277, %235 ], [ %.sroa.013.2277, %242 ], [ %.sroa.013.2277, %276 ], [ %.sroa.013.2277, %283 ], [ %291, %317 ], [ %291, %324 ], [ %.sroa.013.2277, %357 ], [ %.sroa.013.2277, %364 ]
+  %.sroa.09.3 = phi i8 [ %332, %348 ], [ %332, %345 ], [ %.sroa.09.2278, %307 ], [ %.sroa.09.2278, %304 ], [ %.sroa.09.2278, %266 ], [ %.sroa.09.2278, %263 ], [ %.sroa.09.2278, %225 ], [ %.sroa.09.2278, %222 ], [ %.sroa.09.2278, %235 ], [ %.sroa.09.2278, %242 ], [ %.sroa.09.2278, %276 ], [ %.sroa.09.2278, %283 ], [ %.sroa.09.2278, %317 ], [ %.sroa.09.2278, %324 ], [ %332, %357 ], [ %332, %364 ]
   %366 = add nuw nsw i64 %.0274, 1
   %exitcond.not = icmp eq i64 %.0274, %13
   br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge2, %180, %172
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0280, %172 ], [ %.sroa.021.0280, %180 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0281, %172 ], [ %.sroa.017.0281, %180 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0282, %172 ], [ %.sroa.013.0282, %180 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0283, %172 ], [ %.sroa.09.0283, %180 ], [ %.sroa.09.3, %.critedge2 ]
   %367 = add nuw i64 %.0167279, 1
   %exitcond288.not = icmp eq i64 %367, %21
   br i1 %exitcond288.not, label %._crit_edge, label %172, !llvm.loop !17
@@ -3109,10 +3109,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %179
 
 179:                                              ; preds = %.lr.ph288, %.loopexit
-  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.1, %.loopexit ]
   %.0169283 = phi i64 [ 0, %.lr.ph288 ], [ %374, %.loopexit ]
   %180 = load ptr, ptr %167, align 8
   %181 = load ptr, ptr %180, align 8
@@ -3154,10 +3154,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %209
 
 209:                                              ; preds = %196, %.critedge2
-  %.sroa.09.1282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.3, %.critedge2 ]
   %.0278 = phi i64 [ 0, %196 ], [ %373, %.critedge2 ]
   %210 = load i64, ptr %98, align 8
   %211 = load ptr, ptr %170, align 8
@@ -3173,7 +3173,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %214 = add i64 %213, %35
   %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %214, i64 noundef %.0169283, i1 noundef zeroext false)
   %216 = load i8, ptr %215, align 1
-  %217 = and i8 %.sroa.021.1279, -8
+  %217 = and i8 %.sroa.021.2279, -8
   %218 = lshr i64 %.reass, 12
   %219 = getelementptr inbounds i8, ptr %211, i64 41104
   %220 = and i64 %218, 255
@@ -3244,7 +3244,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit192: ; preds = %209
   %254 = add i64 %253, %35
   %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %254, i64 noundef %.0169283, i1 noundef zeroext false)
   %256 = load i16, ptr %255, align 2
-  %257 = and i8 %.sroa.017.1280, -8
+  %257 = and i8 %.sroa.017.2280, -8
   %258 = lshr i64 %252, 12
   %259 = and i64 %258, 255
   %260 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -3316,7 +3316,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit197: ; preds = %209
   %295 = add i64 %294, %35
   %296 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %295, i64 noundef %.0169283, i1 noundef zeroext false)
   %297 = load i32, ptr %296, align 4
-  %298 = and i8 %.sroa.013.1281, -8
+  %298 = and i8 %.sroa.013.2281, -8
   %299 = lshr i64 %293, 12
   %300 = and i64 %299, 255
   %301 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -3388,7 +3388,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202: ; preds = %209
   %336 = add i64 %335, %35
   %337 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %336, i64 noundef %.0169283, i1 noundef zeroext false)
   %338 = load i64, ptr %337, align 8
-  %339 = and i8 %.sroa.09.1282, -8
+  %339 = and i8 %.sroa.09.2282, -8
   %340 = lshr i64 %334, 12
   %341 = and i64 %340, 255
   %342 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -3453,19 +3453,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %371, %364, %331, %324, %290, %283, %249, %242, %229, %232, %270, %273, %311, %314, %352, %355
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1279, %355 ], [ %.sroa.021.1279, %352 ], [ %.sroa.021.1279, %314 ], [ %.sroa.021.1279, %311 ], [ %.sroa.021.1279, %273 ], [ %.sroa.021.1279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.1279, %283 ], [ %.sroa.021.1279, %290 ], [ %.sroa.021.1279, %324 ], [ %.sroa.021.1279, %331 ], [ %.sroa.021.1279, %364 ], [ %.sroa.021.1279, %371 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1280, %355 ], [ %.sroa.017.1280, %352 ], [ %.sroa.017.1280, %314 ], [ %.sroa.017.1280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.1280, %232 ], [ %.sroa.017.1280, %229 ], [ %.sroa.017.1280, %242 ], [ %.sroa.017.1280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.1280, %324 ], [ %.sroa.017.1280, %331 ], [ %.sroa.017.1280, %364 ], [ %.sroa.017.1280, %371 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1281, %355 ], [ %.sroa.013.1281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.1281, %273 ], [ %.sroa.013.1281, %270 ], [ %.sroa.013.1281, %232 ], [ %.sroa.013.1281, %229 ], [ %.sroa.013.1281, %242 ], [ %.sroa.013.1281, %249 ], [ %.sroa.013.1281, %283 ], [ %.sroa.013.1281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.1281, %364 ], [ %.sroa.013.1281, %371 ]
-  %.sroa.09.2 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.1282, %314 ], [ %.sroa.09.1282, %311 ], [ %.sroa.09.1282, %273 ], [ %.sroa.09.1282, %270 ], [ %.sroa.09.1282, %232 ], [ %.sroa.09.1282, %229 ], [ %.sroa.09.1282, %242 ], [ %.sroa.09.1282, %249 ], [ %.sroa.09.1282, %283 ], [ %.sroa.09.1282, %290 ], [ %.sroa.09.1282, %324 ], [ %.sroa.09.1282, %331 ], [ %339, %364 ], [ %339, %371 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2279, %355 ], [ %.sroa.021.2279, %352 ], [ %.sroa.021.2279, %314 ], [ %.sroa.021.2279, %311 ], [ %.sroa.021.2279, %273 ], [ %.sroa.021.2279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.2279, %283 ], [ %.sroa.021.2279, %290 ], [ %.sroa.021.2279, %324 ], [ %.sroa.021.2279, %331 ], [ %.sroa.021.2279, %364 ], [ %.sroa.021.2279, %371 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2280, %355 ], [ %.sroa.017.2280, %352 ], [ %.sroa.017.2280, %314 ], [ %.sroa.017.2280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.2280, %232 ], [ %.sroa.017.2280, %229 ], [ %.sroa.017.2280, %242 ], [ %.sroa.017.2280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.2280, %324 ], [ %.sroa.017.2280, %331 ], [ %.sroa.017.2280, %364 ], [ %.sroa.017.2280, %371 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2281, %355 ], [ %.sroa.013.2281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.2281, %273 ], [ %.sroa.013.2281, %270 ], [ %.sroa.013.2281, %232 ], [ %.sroa.013.2281, %229 ], [ %.sroa.013.2281, %242 ], [ %.sroa.013.2281, %249 ], [ %.sroa.013.2281, %283 ], [ %.sroa.013.2281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.2281, %364 ], [ %.sroa.013.2281, %371 ]
+  %.sroa.09.3 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.2282, %314 ], [ %.sroa.09.2282, %311 ], [ %.sroa.09.2282, %273 ], [ %.sroa.09.2282, %270 ], [ %.sroa.09.2282, %232 ], [ %.sroa.09.2282, %229 ], [ %.sroa.09.2282, %242 ], [ %.sroa.09.2282, %249 ], [ %.sroa.09.2282, %283 ], [ %.sroa.09.2282, %290 ], [ %.sroa.09.2282, %324 ], [ %.sroa.09.2282, %331 ], [ %339, %364 ], [ %339, %371 ]
   %373 = add nuw nsw i64 %.0278, 1
   %exitcond.not = icmp eq i64 %.0278, %13
   br i1 %exitcond.not, label %.loopexit, label %209, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.critedge2, %187, %179
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.3, %.critedge2 ]
   %374 = add nuw i64 %.0169283, 1
   %exitcond292.not = icmp eq i64 %374, %21
   br i1 %exitcond292.not, label %._crit_edge, label %179, !llvm.loop !20
@@ -3794,10 +3794,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %179
 
 179:                                              ; preds = %.lr.ph288, %.loopexit
-  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.1, %.loopexit ]
   %.0169283 = phi i64 [ 0, %.lr.ph288 ], [ %374, %.loopexit ]
   %180 = load ptr, ptr %167, align 8
   %181 = load ptr, ptr %180, align 8
@@ -3839,10 +3839,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %209
 
 209:                                              ; preds = %196, %.critedge2
-  %.sroa.09.1282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.3, %.critedge2 ]
   %.0278 = phi i64 [ 0, %196 ], [ %373, %.critedge2 ]
   %210 = load i64, ptr %98, align 8
   %211 = load ptr, ptr %170, align 8
@@ -3858,7 +3858,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %214 = add i64 %213, %35
   %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %214, i64 noundef %.0169283, i1 noundef zeroext false)
   %216 = load i8, ptr %215, align 1
-  %217 = and i8 %.sroa.021.1279, -8
+  %217 = and i8 %.sroa.021.2279, -8
   %218 = lshr i64 %.reass, 12
   %219 = getelementptr inbounds i8, ptr %211, i64 41104
   %220 = and i64 %218, 255
@@ -3929,7 +3929,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit192: ; preds = %209
   %254 = add i64 %253, %35
   %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %254, i64 noundef %.0169283, i1 noundef zeroext false)
   %256 = load i16, ptr %255, align 2
-  %257 = and i8 %.sroa.017.1280, -8
+  %257 = and i8 %.sroa.017.2280, -8
   %258 = lshr i64 %252, 12
   %259 = and i64 %258, 255
   %260 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -4001,7 +4001,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit197: ; preds = %209
   %295 = add i64 %294, %35
   %296 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %295, i64 noundef %.0169283, i1 noundef zeroext false)
   %297 = load i32, ptr %296, align 4
-  %298 = and i8 %.sroa.013.1281, -8
+  %298 = and i8 %.sroa.013.2281, -8
   %299 = lshr i64 %293, 12
   %300 = and i64 %299, 255
   %301 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -4073,7 +4073,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202: ; preds = %209
   %336 = add i64 %335, %35
   %337 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %336, i64 noundef %.0169283, i1 noundef zeroext false)
   %338 = load i64, ptr %337, align 8
-  %339 = and i8 %.sroa.09.1282, -8
+  %339 = and i8 %.sroa.09.2282, -8
   %340 = lshr i64 %334, 12
   %341 = and i64 %340, 255
   %342 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -4138,19 +4138,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %371, %364, %331, %324, %290, %283, %249, %242, %229, %232, %270, %273, %311, %314, %352, %355
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1279, %355 ], [ %.sroa.021.1279, %352 ], [ %.sroa.021.1279, %314 ], [ %.sroa.021.1279, %311 ], [ %.sroa.021.1279, %273 ], [ %.sroa.021.1279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.1279, %283 ], [ %.sroa.021.1279, %290 ], [ %.sroa.021.1279, %324 ], [ %.sroa.021.1279, %331 ], [ %.sroa.021.1279, %364 ], [ %.sroa.021.1279, %371 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1280, %355 ], [ %.sroa.017.1280, %352 ], [ %.sroa.017.1280, %314 ], [ %.sroa.017.1280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.1280, %232 ], [ %.sroa.017.1280, %229 ], [ %.sroa.017.1280, %242 ], [ %.sroa.017.1280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.1280, %324 ], [ %.sroa.017.1280, %331 ], [ %.sroa.017.1280, %364 ], [ %.sroa.017.1280, %371 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1281, %355 ], [ %.sroa.013.1281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.1281, %273 ], [ %.sroa.013.1281, %270 ], [ %.sroa.013.1281, %232 ], [ %.sroa.013.1281, %229 ], [ %.sroa.013.1281, %242 ], [ %.sroa.013.1281, %249 ], [ %.sroa.013.1281, %283 ], [ %.sroa.013.1281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.1281, %364 ], [ %.sroa.013.1281, %371 ]
-  %.sroa.09.2 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.1282, %314 ], [ %.sroa.09.1282, %311 ], [ %.sroa.09.1282, %273 ], [ %.sroa.09.1282, %270 ], [ %.sroa.09.1282, %232 ], [ %.sroa.09.1282, %229 ], [ %.sroa.09.1282, %242 ], [ %.sroa.09.1282, %249 ], [ %.sroa.09.1282, %283 ], [ %.sroa.09.1282, %290 ], [ %.sroa.09.1282, %324 ], [ %.sroa.09.1282, %331 ], [ %339, %364 ], [ %339, %371 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2279, %355 ], [ %.sroa.021.2279, %352 ], [ %.sroa.021.2279, %314 ], [ %.sroa.021.2279, %311 ], [ %.sroa.021.2279, %273 ], [ %.sroa.021.2279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.2279, %283 ], [ %.sroa.021.2279, %290 ], [ %.sroa.021.2279, %324 ], [ %.sroa.021.2279, %331 ], [ %.sroa.021.2279, %364 ], [ %.sroa.021.2279, %371 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2280, %355 ], [ %.sroa.017.2280, %352 ], [ %.sroa.017.2280, %314 ], [ %.sroa.017.2280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.2280, %232 ], [ %.sroa.017.2280, %229 ], [ %.sroa.017.2280, %242 ], [ %.sroa.017.2280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.2280, %324 ], [ %.sroa.017.2280, %331 ], [ %.sroa.017.2280, %364 ], [ %.sroa.017.2280, %371 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2281, %355 ], [ %.sroa.013.2281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.2281, %273 ], [ %.sroa.013.2281, %270 ], [ %.sroa.013.2281, %232 ], [ %.sroa.013.2281, %229 ], [ %.sroa.013.2281, %242 ], [ %.sroa.013.2281, %249 ], [ %.sroa.013.2281, %283 ], [ %.sroa.013.2281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.2281, %364 ], [ %.sroa.013.2281, %371 ]
+  %.sroa.09.3 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.2282, %314 ], [ %.sroa.09.2282, %311 ], [ %.sroa.09.2282, %273 ], [ %.sroa.09.2282, %270 ], [ %.sroa.09.2282, %232 ], [ %.sroa.09.2282, %229 ], [ %.sroa.09.2282, %242 ], [ %.sroa.09.2282, %249 ], [ %.sroa.09.2282, %283 ], [ %.sroa.09.2282, %290 ], [ %.sroa.09.2282, %324 ], [ %.sroa.09.2282, %331 ], [ %339, %364 ], [ %339, %371 ]
   %373 = add nuw nsw i64 %.0278, 1
   %exitcond.not = icmp eq i64 %.0278, %13
   br i1 %exitcond.not, label %.loopexit, label %209, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.critedge2, %187, %179
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.3, %.critedge2 ]
   %374 = add nuw i64 %.0169283, 1
   %exitcond292.not = icmp eq i64 %374, %21
   br i1 %exitcond292.not, label %._crit_edge, label %179, !llvm.loop !23
@@ -4477,10 +4477,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %179
 
 179:                                              ; preds = %.lr.ph288, %.loopexit
-  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.1, %.loopexit ]
   %.0169283 = phi i64 [ 0, %.lr.ph288 ], [ %374, %.loopexit ]
   %180 = load ptr, ptr %167, align 8
   %181 = load ptr, ptr %180, align 8
@@ -4522,10 +4522,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %209
 
 209:                                              ; preds = %196, %.critedge2
-  %.sroa.09.1282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.3, %.critedge2 ]
   %.0278 = phi i64 [ 0, %196 ], [ %373, %.critedge2 ]
   %210 = load i64, ptr %98, align 8
   %211 = load ptr, ptr %170, align 8
@@ -4541,7 +4541,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %214 = add i64 %213, %35
   %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %214, i64 noundef %.0169283, i1 noundef zeroext false)
   %216 = load i8, ptr %215, align 1
-  %217 = and i8 %.sroa.021.1279, -8
+  %217 = and i8 %.sroa.021.2279, -8
   %218 = lshr i64 %.reass, 12
   %219 = getelementptr inbounds i8, ptr %211, i64 41104
   %220 = and i64 %218, 255
@@ -4612,7 +4612,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit192: ; preds = %209
   %254 = add i64 %253, %35
   %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %254, i64 noundef %.0169283, i1 noundef zeroext false)
   %256 = load i16, ptr %255, align 2
-  %257 = and i8 %.sroa.017.1280, -8
+  %257 = and i8 %.sroa.017.2280, -8
   %258 = lshr i64 %252, 12
   %259 = and i64 %258, 255
   %260 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -4684,7 +4684,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit197: ; preds = %209
   %295 = add i64 %294, %35
   %296 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %295, i64 noundef %.0169283, i1 noundef zeroext false)
   %297 = load i32, ptr %296, align 4
-  %298 = and i8 %.sroa.013.1281, -8
+  %298 = and i8 %.sroa.013.2281, -8
   %299 = lshr i64 %293, 12
   %300 = and i64 %299, 255
   %301 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -4756,7 +4756,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202: ; preds = %209
   %336 = add i64 %335, %35
   %337 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %336, i64 noundef %.0169283, i1 noundef zeroext false)
   %338 = load i64, ptr %337, align 8
-  %339 = and i8 %.sroa.09.1282, -8
+  %339 = and i8 %.sroa.09.2282, -8
   %340 = lshr i64 %334, 12
   %341 = and i64 %340, 255
   %342 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -4821,19 +4821,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %371, %364, %331, %324, %290, %283, %249, %242, %229, %232, %270, %273, %311, %314, %352, %355
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1279, %355 ], [ %.sroa.021.1279, %352 ], [ %.sroa.021.1279, %314 ], [ %.sroa.021.1279, %311 ], [ %.sroa.021.1279, %273 ], [ %.sroa.021.1279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.1279, %283 ], [ %.sroa.021.1279, %290 ], [ %.sroa.021.1279, %324 ], [ %.sroa.021.1279, %331 ], [ %.sroa.021.1279, %364 ], [ %.sroa.021.1279, %371 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1280, %355 ], [ %.sroa.017.1280, %352 ], [ %.sroa.017.1280, %314 ], [ %.sroa.017.1280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.1280, %232 ], [ %.sroa.017.1280, %229 ], [ %.sroa.017.1280, %242 ], [ %.sroa.017.1280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.1280, %324 ], [ %.sroa.017.1280, %331 ], [ %.sroa.017.1280, %364 ], [ %.sroa.017.1280, %371 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1281, %355 ], [ %.sroa.013.1281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.1281, %273 ], [ %.sroa.013.1281, %270 ], [ %.sroa.013.1281, %232 ], [ %.sroa.013.1281, %229 ], [ %.sroa.013.1281, %242 ], [ %.sroa.013.1281, %249 ], [ %.sroa.013.1281, %283 ], [ %.sroa.013.1281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.1281, %364 ], [ %.sroa.013.1281, %371 ]
-  %.sroa.09.2 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.1282, %314 ], [ %.sroa.09.1282, %311 ], [ %.sroa.09.1282, %273 ], [ %.sroa.09.1282, %270 ], [ %.sroa.09.1282, %232 ], [ %.sroa.09.1282, %229 ], [ %.sroa.09.1282, %242 ], [ %.sroa.09.1282, %249 ], [ %.sroa.09.1282, %283 ], [ %.sroa.09.1282, %290 ], [ %.sroa.09.1282, %324 ], [ %.sroa.09.1282, %331 ], [ %339, %364 ], [ %339, %371 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2279, %355 ], [ %.sroa.021.2279, %352 ], [ %.sroa.021.2279, %314 ], [ %.sroa.021.2279, %311 ], [ %.sroa.021.2279, %273 ], [ %.sroa.021.2279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.2279, %283 ], [ %.sroa.021.2279, %290 ], [ %.sroa.021.2279, %324 ], [ %.sroa.021.2279, %331 ], [ %.sroa.021.2279, %364 ], [ %.sroa.021.2279, %371 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2280, %355 ], [ %.sroa.017.2280, %352 ], [ %.sroa.017.2280, %314 ], [ %.sroa.017.2280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.2280, %232 ], [ %.sroa.017.2280, %229 ], [ %.sroa.017.2280, %242 ], [ %.sroa.017.2280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.2280, %324 ], [ %.sroa.017.2280, %331 ], [ %.sroa.017.2280, %364 ], [ %.sroa.017.2280, %371 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2281, %355 ], [ %.sroa.013.2281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.2281, %273 ], [ %.sroa.013.2281, %270 ], [ %.sroa.013.2281, %232 ], [ %.sroa.013.2281, %229 ], [ %.sroa.013.2281, %242 ], [ %.sroa.013.2281, %249 ], [ %.sroa.013.2281, %283 ], [ %.sroa.013.2281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.2281, %364 ], [ %.sroa.013.2281, %371 ]
+  %.sroa.09.3 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.2282, %314 ], [ %.sroa.09.2282, %311 ], [ %.sroa.09.2282, %273 ], [ %.sroa.09.2282, %270 ], [ %.sroa.09.2282, %232 ], [ %.sroa.09.2282, %229 ], [ %.sroa.09.2282, %242 ], [ %.sroa.09.2282, %249 ], [ %.sroa.09.2282, %283 ], [ %.sroa.09.2282, %290 ], [ %.sroa.09.2282, %324 ], [ %.sroa.09.2282, %331 ], [ %339, %364 ], [ %339, %371 ]
   %373 = add nuw nsw i64 %.0278, 1
   %exitcond.not = icmp eq i64 %.0278, %13
   br i1 %exitcond.not, label %.loopexit, label %209, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.critedge2, %187, %179
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.3, %.critedge2 ]
   %374 = add nuw i64 %.0169283, 1
   %exitcond292.not = icmp eq i64 %374, %21
   br i1 %exitcond292.not, label %._crit_edge, label %179, !llvm.loop !26
@@ -5162,10 +5162,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %179
 
 179:                                              ; preds = %.lr.ph288, %.loopexit
-  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.3, %.loopexit ]
-  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.3, %.loopexit ]
-  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.3, %.loopexit ]
+  %.sroa.09.0287 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.09.1, %.loopexit ]
+  %.sroa.013.0286 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.013.1, %.loopexit ]
+  %.sroa.017.0285 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0284 = phi i8 [ undef, %.lr.ph288 ], [ %.sroa.021.1, %.loopexit ]
   %.0169283 = phi i64 [ 0, %.lr.ph288 ], [ %374, %.loopexit ]
   %180 = load ptr, ptr %167, align 8
   %181 = load ptr, ptr %180, align 8
@@ -5207,10 +5207,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %209
 
 209:                                              ; preds = %196, %.critedge2
-  %.sroa.09.1282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.2, %.critedge2 ]
-  %.sroa.013.1281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.017.1280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.021.1279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.2, %.critedge2 ]
+  %.sroa.09.2282 = phi i8 [ %.sroa.09.0287, %196 ], [ %.sroa.09.3, %.critedge2 ]
+  %.sroa.013.2281 = phi i8 [ %.sroa.013.0286, %196 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.017.2280 = phi i8 [ %.sroa.017.0285, %196 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.021.2279 = phi i8 [ %.sroa.021.0284, %196 ], [ %.sroa.021.3, %.critedge2 ]
   %.0278 = phi i64 [ 0, %196 ], [ %373, %.critedge2 ]
   %210 = load i64, ptr %98, align 8
   %211 = load ptr, ptr %170, align 8
@@ -5226,7 +5226,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %214 = add i64 %213, %35
   %215 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %214, i64 noundef %.0169283, i1 noundef zeroext false)
   %216 = load i8, ptr %215, align 1
-  %217 = and i8 %.sroa.021.1279, -8
+  %217 = and i8 %.sroa.021.2279, -8
   %218 = lshr i64 %.reass, 12
   %219 = getelementptr inbounds i8, ptr %211, i64 41104
   %220 = and i64 %218, 255
@@ -5297,7 +5297,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit192: ; preds = %209
   %254 = add i64 %253, %35
   %255 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltItEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %254, i64 noundef %.0169283, i1 noundef zeroext false)
   %256 = load i16, ptr %255, align 2
-  %257 = and i8 %.sroa.017.1280, -8
+  %257 = and i8 %.sroa.017.2280, -8
   %258 = lshr i64 %252, 12
   %259 = and i64 %258, 255
   %260 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -5369,7 +5369,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit197: ; preds = %209
   %295 = add i64 %294, %35
   %296 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltIjEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %295, i64 noundef %.0169283, i1 noundef zeroext false)
   %297 = load i32, ptr %296, align 4
-  %298 = and i8 %.sroa.013.1281, -8
+  %298 = and i8 %.sroa.013.2281, -8
   %299 = lshr i64 %293, 12
   %300 = and i64 %299, 255
   %301 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -5441,7 +5441,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202: ; preds = %209
   %336 = add i64 %335, %35
   %337 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %336, i64 noundef %.0169283, i1 noundef zeroext false)
   %338 = load i64, ptr %337, align 8
-  %339 = and i8 %.sroa.09.1282, -8
+  %339 = and i8 %.sroa.09.2282, -8
   %340 = lshr i64 %334, 12
   %341 = and i64 %340, 255
   %342 = getelementptr inbounds i8, ptr %211, i64 41104
@@ -5506,19 +5506,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit202.thread: ; preds = %_ZNK13xlate_
   br label %.critedge2
 
 .critedge2:                                       ; preds = %371, %364, %331, %324, %290, %283, %249, %242, %229, %232, %270, %273, %311, %314, %352, %355
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1279, %355 ], [ %.sroa.021.1279, %352 ], [ %.sroa.021.1279, %314 ], [ %.sroa.021.1279, %311 ], [ %.sroa.021.1279, %273 ], [ %.sroa.021.1279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.1279, %283 ], [ %.sroa.021.1279, %290 ], [ %.sroa.021.1279, %324 ], [ %.sroa.021.1279, %331 ], [ %.sroa.021.1279, %364 ], [ %.sroa.021.1279, %371 ]
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1280, %355 ], [ %.sroa.017.1280, %352 ], [ %.sroa.017.1280, %314 ], [ %.sroa.017.1280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.1280, %232 ], [ %.sroa.017.1280, %229 ], [ %.sroa.017.1280, %242 ], [ %.sroa.017.1280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.1280, %324 ], [ %.sroa.017.1280, %331 ], [ %.sroa.017.1280, %364 ], [ %.sroa.017.1280, %371 ]
-  %.sroa.013.2 = phi i8 [ %.sroa.013.1281, %355 ], [ %.sroa.013.1281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.1281, %273 ], [ %.sroa.013.1281, %270 ], [ %.sroa.013.1281, %232 ], [ %.sroa.013.1281, %229 ], [ %.sroa.013.1281, %242 ], [ %.sroa.013.1281, %249 ], [ %.sroa.013.1281, %283 ], [ %.sroa.013.1281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.1281, %364 ], [ %.sroa.013.1281, %371 ]
-  %.sroa.09.2 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.1282, %314 ], [ %.sroa.09.1282, %311 ], [ %.sroa.09.1282, %273 ], [ %.sroa.09.1282, %270 ], [ %.sroa.09.1282, %232 ], [ %.sroa.09.1282, %229 ], [ %.sroa.09.1282, %242 ], [ %.sroa.09.1282, %249 ], [ %.sroa.09.1282, %283 ], [ %.sroa.09.1282, %290 ], [ %.sroa.09.1282, %324 ], [ %.sroa.09.1282, %331 ], [ %339, %364 ], [ %339, %371 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2279, %355 ], [ %.sroa.021.2279, %352 ], [ %.sroa.021.2279, %314 ], [ %.sroa.021.2279, %311 ], [ %.sroa.021.2279, %273 ], [ %.sroa.021.2279, %270 ], [ %217, %232 ], [ %217, %229 ], [ %217, %242 ], [ %217, %249 ], [ %.sroa.021.2279, %283 ], [ %.sroa.021.2279, %290 ], [ %.sroa.021.2279, %324 ], [ %.sroa.021.2279, %331 ], [ %.sroa.021.2279, %364 ], [ %.sroa.021.2279, %371 ]
+  %.sroa.017.3 = phi i8 [ %.sroa.017.2280, %355 ], [ %.sroa.017.2280, %352 ], [ %.sroa.017.2280, %314 ], [ %.sroa.017.2280, %311 ], [ %257, %273 ], [ %257, %270 ], [ %.sroa.017.2280, %232 ], [ %.sroa.017.2280, %229 ], [ %.sroa.017.2280, %242 ], [ %.sroa.017.2280, %249 ], [ %257, %283 ], [ %257, %290 ], [ %.sroa.017.2280, %324 ], [ %.sroa.017.2280, %331 ], [ %.sroa.017.2280, %364 ], [ %.sroa.017.2280, %371 ]
+  %.sroa.013.3 = phi i8 [ %.sroa.013.2281, %355 ], [ %.sroa.013.2281, %352 ], [ %298, %314 ], [ %298, %311 ], [ %.sroa.013.2281, %273 ], [ %.sroa.013.2281, %270 ], [ %.sroa.013.2281, %232 ], [ %.sroa.013.2281, %229 ], [ %.sroa.013.2281, %242 ], [ %.sroa.013.2281, %249 ], [ %.sroa.013.2281, %283 ], [ %.sroa.013.2281, %290 ], [ %298, %324 ], [ %298, %331 ], [ %.sroa.013.2281, %364 ], [ %.sroa.013.2281, %371 ]
+  %.sroa.09.3 = phi i8 [ %339, %355 ], [ %339, %352 ], [ %.sroa.09.2282, %314 ], [ %.sroa.09.2282, %311 ], [ %.sroa.09.2282, %273 ], [ %.sroa.09.2282, %270 ], [ %.sroa.09.2282, %232 ], [ %.sroa.09.2282, %229 ], [ %.sroa.09.2282, %242 ], [ %.sroa.09.2282, %249 ], [ %.sroa.09.2282, %283 ], [ %.sroa.09.2282, %290 ], [ %.sroa.09.2282, %324 ], [ %.sroa.09.2282, %331 ], [ %339, %364 ], [ %339, %371 ]
   %373 = add nuw nsw i64 %.0278, 1
   %exitcond.not = icmp eq i64 %.0278, %13
   br i1 %exitcond.not, label %.loopexit, label %209, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.critedge2, %187, %179
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.2, %.critedge2 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.2, %.critedge2 ]
-  %.sroa.013.3 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.2, %.critedge2 ]
-  %.sroa.09.3 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.2, %.critedge2 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0284, %179 ], [ %.sroa.021.0284, %187 ], [ %.sroa.021.3, %.critedge2 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0285, %179 ], [ %.sroa.017.0285, %187 ], [ %.sroa.017.3, %.critedge2 ]
+  %.sroa.013.1 = phi i8 [ %.sroa.013.0286, %179 ], [ %.sroa.013.0286, %187 ], [ %.sroa.013.3, %.critedge2 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0287, %179 ], [ %.sroa.09.0287, %187 ], [ %.sroa.09.3, %.critedge2 ]
   %374 = add nuw i64 %.0169283, 1
   %exitcond292.not = icmp eq i64 %374, %21
   br i1 %exitcond292.not, label %._crit_edge, label %179, !llvm.loop !29

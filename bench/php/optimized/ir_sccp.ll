@@ -162,7 +162,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br label %83
 
 83:                                               ; preds = %117, %.lr.ph178.i
-  %.sroa.3.1 = phi i32 [ %.0573, %.lr.ph178.i ], [ %.sroa.3.2, %117 ]
+  %.sroa.3.17 = phi i32 [ %.0573, %.lr.ph178.i ], [ %.sroa.3.26, %117 ]
   %.in.i = phi i32 [ %71, %.lr.ph178.i ], [ %84, %117 ]
   %.0125177.i = phi ptr [ %82, %.lr.ph178.i ], [ %118, %117 ]
   %.0127176.i = phi ptr [ %81, %.lr.ph178.i ], [ %119, %117 ]
@@ -215,7 +215,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %112 = load i64, ptr %111, align 8
   %113 = or i64 %112, %109
   store i64 %113, ptr %111, align 8
-  %spec.select781 = tail call i32 @llvm.umin.i32(i32 %106, i32 %.sroa.3.1)
+  %spec.select781 = tail call i32 @llvm.umin.i32(i32 %106, i32 %.sroa.3.17)
   br label %117
 
 114:                                              ; preds = %98
@@ -224,7 +224,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit152.i
 
 117:                                              ; preds = %105, %102, %96, %83
-  %.sroa.3.2 = phi i32 [ %.sroa.3.1, %83 ], [ %.sroa.3.1, %96 ], [ %.sroa.3.1, %102 ], [ %spec.select781, %105 ]
+  %.sroa.3.26 = phi i32 [ %.sroa.3.17, %83 ], [ %.sroa.3.17, %96 ], [ %.sroa.3.17, %102 ], [ %spec.select781, %105 ]
   %118 = getelementptr inbounds i8, ptr %.0125177.i, i64 4
   %119 = getelementptr inbounds i8, ptr %.0127176.i, i64 4
   %120 = icmp sgt i32 %.in.i, 2
@@ -249,7 +249,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not149.i, label %.lr.ph183.split.us.i, label %.lr.ph183.split.i
 
 .lr.ph183.split.us.i:                             ; preds = %.lr.ph183.i, %157
-  %.sroa.3.3 = phi i32 [ %.sroa.3.4, %157 ], [ %.sroa.3.1, %.lr.ph183.i ]
+  %.sroa.3.24 = phi i32 [ %.sroa.3.25, %157 ], [ %.sroa.3.17, %.lr.ph183.i ]
   %124 = phi i32 [ %158, %157 ], [ %122, %.lr.ph183.i ]
   %.1126182.us.i = phi ptr [ %.1126.us.i, %157 ], [ %.1126180.i, %.lr.ph183.i ]
   %.1128181.us.i = phi ptr [ %.1128.us.i, %157 ], [ %.1128179.i, %.lr.ph183.i ]
@@ -306,11 +306,11 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %155 = load i64, ptr %154, align 8
   %156 = or i64 %155, %152
   store i64 %156, ptr %154, align 8
-  %spec.select782 = tail call i32 @llvm.umin.i32(i32 %149, i32 %.sroa.3.3)
+  %spec.select782 = tail call i32 @llvm.umin.i32(i32 %149, i32 %.sroa.3.24)
   br label %157
 
 157:                                              ; preds = %148, %145, %141, %139, %133, %.lr.ph183.split.us.i
-  %.sroa.3.4 = phi i32 [ %.sroa.3.3, %.lr.ph183.split.us.i ], [ %.sroa.3.3, %133 ], [ %.sroa.3.3, %139 ], [ %.sroa.3.3, %141 ], [ %.sroa.3.3, %145 ], [ %spec.select782, %148 ]
+  %.sroa.3.25 = phi i32 [ %.sroa.3.24, %.lr.ph183.split.us.i ], [ %.sroa.3.24, %133 ], [ %.sroa.3.24, %139 ], [ %.sroa.3.24, %141 ], [ %.sroa.3.24, %145 ], [ %spec.select782, %148 ]
   %.1128.us.i = getelementptr inbounds i8, ptr %.1128181.us.i, i64 4
   %.1126.us.i = getelementptr inbounds i8, ptr %.1126182.us.i, i64 4
   %158 = add nsw i32 %124, -1
@@ -318,7 +318,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %159, label %.lr.ph183.split.us.i, label %._crit_edge.i
 
 .lr.ph183.split.i:                                ; preds = %.lr.ph183.i, %206
-  %.sroa.3.5 = phi i32 [ %.sroa.3.9, %206 ], [ %.sroa.3.1, %.lr.ph183.i ]
+  %.sroa.3.19 = phi i32 [ %.sroa.3.21, %206 ], [ %.sroa.3.17, %.lr.ph183.i ]
   %160 = phi i32 [ %207, %206 ], [ %122, %.lr.ph183.i ]
   %.1126182.i = phi ptr [ %.1126.i, %206 ], [ %.1126180.i, %.lr.ph183.i ]
   %.1128181.i = phi ptr [ %.1128.i, %206 ], [ %.1128179.i, %.lr.ph183.i ]
@@ -370,7 +370,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %188 = load i64, ptr %187, align 8
   %189 = or i64 %188, %185
   store i64 %189, ptr %187, align 8
-  %spec.select783 = tail call i32 @llvm.umin.i32(i32 %182, i32 %.sroa.3.5)
+  %spec.select783 = tail call i32 @llvm.umin.i32(i32 %182, i32 %.sroa.3.19)
   br label %206
 
 190:                                              ; preds = %174
@@ -380,7 +380,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %193, label %206, label %.split185.us.i
 
 .split185.us.i:                                   ; preds = %190, %141
-  %.sroa.3.6 = phi i32 [ %.sroa.3.3, %141 ], [ %.sroa.3.5, %190 ]
+  %.sroa.3.22 = phi i32 [ %.sroa.3.24, %141 ], [ %.sroa.3.19, %190 ]
   %194 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   store i32 106, ptr %194, align 8
   br label %ir_sccp_meet_phi.exit.thread
@@ -390,7 +390,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %196, label %206, label %.split.us.i
 
 .split.us.i:                                      ; preds = %195, %139
-  %.sroa.3.7 = phi i32 [ %.sroa.3.3, %139 ], [ %.sroa.3.5, %195 ]
+  %.sroa.3.20 = phi i32 [ %.sroa.3.24, %139 ], [ %.sroa.3.19, %195 ]
   %197 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   store i32 106, ptr %197, align 8
   br label %ir_sccp_meet_phi.exit.thread
@@ -410,13 +410,13 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not151.i, label %206, label %.split187.us.i
 
 .split187.us.i:                                   ; preds = %201, %198, %135, %130
-  %.sroa.3.8 = phi i32 [ %.sroa.3.3, %130 ], [ %.sroa.3.3, %135 ], [ %.sroa.3.5, %198 ], [ %.sroa.3.5, %201 ]
+  %.sroa.3.23 = phi i32 [ %.sroa.3.24, %130 ], [ %.sroa.3.24, %135 ], [ %.sroa.3.19, %198 ], [ %.sroa.3.19, %201 ]
   %205 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   store i32 106, ptr %205, align 8
   br label %ir_sccp_meet_phi.exit.thread
 
 206:                                              ; preds = %181, %201, %195, %190, %178, %172, %.lr.ph183.split.i
-  %.sroa.3.9 = phi i32 [ %.sroa.3.5, %.lr.ph183.split.i ], [ %.sroa.3.5, %201 ], [ %.sroa.3.5, %172 ], [ %.sroa.3.5, %195 ], [ %.sroa.3.5, %190 ], [ %.sroa.3.5, %178 ], [ %spec.select783, %181 ]
+  %.sroa.3.21 = phi i32 [ %.sroa.3.19, %.lr.ph183.split.i ], [ %.sroa.3.19, %201 ], [ %.sroa.3.19, %172 ], [ %.sroa.3.19, %195 ], [ %.sroa.3.19, %190 ], [ %.sroa.3.19, %178 ], [ %spec.select783, %181 ]
   %.1128.i = getelementptr inbounds i8, ptr %.1128181.i, i64 4
   %.1126.i = getelementptr inbounds i8, ptr %.1126182.i, i64 4
   %207 = add nsw i32 %160, -1
@@ -424,7 +424,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %208, label %.lr.ph183.split.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %206, %157, %.loopexit152.i
-  %.sroa.3.10 = phi i32 [ %.sroa.3.1, %.loopexit152.i ], [ %.sroa.3.4, %157 ], [ %.sroa.3.9, %206 ]
+  %.sroa.3.18 = phi i32 [ %.sroa.3.17, %.loopexit152.i ], [ %.sroa.3.25, %157 ], [ %.sroa.3.21, %206 ]
   %.not147.i = icmp eq i32 %.0.i, 0
   %209 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   br i1 %.not147.i, label %226, label %210
@@ -508,7 +508,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %.0585867 = phi i1 [ %.1586, %275 ], [ false, %253 ]
   %.0591866 = phi ptr [ %276, %275 ], [ %255, %253 ]
   %.0594865 = phi i32 [ %277, %275 ], [ %254, %253 ]
-  %.sroa.3.12864 = phi i32 [ %.sroa.3.13, %275 ], [ %.0573, %253 ]
+  %.sroa.3.1864 = phi i32 [ %.sroa.3.2, %275 ], [ %.0573, %253 ]
   %256 = load i32, ptr %.0591866, align 4
   %257 = icmp sgt i32 %256, 0
   br i1 %257, label %258, label %275
@@ -539,14 +539,14 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %272 = load i64, ptr %271, align 8
   %273 = or i64 %272, %269
   store i64 %273, ptr %271, align 8
-  %spec.select784 = tail call i32 @llvm.umin.i32(i32 %266, i32 %.sroa.3.12864)
+  %spec.select784 = tail call i32 @llvm.umin.i32(i32 %266, i32 %.sroa.3.1864)
   br label %275
 
 274:                                              ; preds = %258
   br label %275
 
 275:                                              ; preds = %265, %258, %.lr.ph, %274, %262
-  %.sroa.3.13 = phi i32 [ %.sroa.3.12864, %274 ], [ %.sroa.3.12864, %258 ], [ %.sroa.3.12864, %262 ], [ %.sroa.3.12864, %.lr.ph ], [ %spec.select784, %265 ]
+  %.sroa.3.2 = phi i32 [ %.sroa.3.1864, %274 ], [ %.sroa.3.1864, %258 ], [ %.sroa.3.1864, %262 ], [ %.sroa.3.1864, %.lr.ph ], [ %spec.select784, %265 ]
   %.1586 = phi i1 [ true, %274 ], [ %.0585867, %258 ], [ %.0585867, %262 ], [ %.0585867, %.lr.ph ], [ %.0585867, %265 ]
   %.1584 = phi i1 [ %.0583868, %274 ], [ %.0583868, %258 ], [ true, %262 ], [ %.0583868, %.lr.ph ], [ true, %265 ]
   %276 = getelementptr inbounds i8, ptr %.0591866, i64 4
@@ -561,7 +561,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.1586, label %293, label %.thread
 
 .thread:                                          ; preds = %253, %279
-  %.sroa.3.12.lcssa10041008 = phi i32 [ %.sroa.3.13, %279 ], [ %.0573, %253 ]
+  %.sroa.3.1.lcssa10041008 = phi i32 [ %.sroa.3.2, %279 ], [ %.0573, %253 ]
   %280 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   store i32 106, ptr %280, align 8
   %281 = load i8, ptr %52, align 8
@@ -723,7 +723,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 .backedge.backedge:                               ; preds = %117, %768, %365, %584, %587, %560, %565, %493, %496, %438, %408, %239, %213, %.loopexit153.i, %64, %60, %ir_sccp_meet_phi.exit.thread, %246, %._crit_edge, %470, %477, %661
-  %.sroa.3.0.be = phi i32 [ %.0573, %477 ], [ %.sroa.3.17, %661 ], [ %.0573, %470 ], [ %.0573, %246 ], [ %.sroa.3.13, %._crit_edge ], [ %.sroa.3.22, %ir_sccp_meet_phi.exit.thread ], [ %.0573, %64 ], [ %.sroa.3.10, %239 ], [ %.sroa.3.10, %213 ], [ %.0573, %.loopexit153.i ], [ %.0573, %60 ], [ %.sroa.3.13, %408 ], [ %.sroa.3.13, %438 ], [ %.0573, %493 ], [ %spec.select785, %496 ], [ %.0573, %560 ], [ %spec.select786, %565 ], [ %.0573, %584 ], [ %spec.select787, %587 ], [ %.sroa.3.13, %365 ], [ %.sroa.3.24, %768 ], [ %.sroa.3.2, %117 ]
+  %.sroa.3.0.be = phi i32 [ %.0573, %477 ], [ %.sroa.3.7, %661 ], [ %.0573, %470 ], [ %.0573, %246 ], [ %.sroa.3.2, %._crit_edge ], [ %.sroa.3.3, %ir_sccp_meet_phi.exit.thread ], [ %.0573, %64 ], [ %.sroa.3.18, %239 ], [ %.sroa.3.18, %213 ], [ %.0573, %.loopexit153.i ], [ %.0573, %60 ], [ %.sroa.3.2, %408 ], [ %.sroa.3.2, %438 ], [ %.0573, %493 ], [ %spec.select785, %496 ], [ %.0573, %560 ], [ %spec.select786, %565 ], [ %.0573, %584 ], [ %spec.select787, %587 ], [ %.sroa.3.2, %365 ], [ %.sroa.3.13, %768 ], [ %.sroa.3.26, %117 ]
   br label %.backedge
 
 368:                                              ; preds = %365
@@ -1189,7 +1189,7 @@ ir_sccp_is_true.exit:                             ; preds = %516, %522, %529, %5
   br label %614
 
 614:                                              ; preds = %.lr.ph883, %632
-  %.0577882 = phi i32 [ 0, %.lr.ph883 ], [ %.1, %632 ]
+  %.0577882 = phi i32 [ 0, %.lr.ph883 ], [ %.2, %632 ]
   %.2593881 = phi ptr [ %607, %.lr.ph883 ], [ %634, %632 ]
   %.1599880 = phi i32 [ 0, %.lr.ph883 ], [ %633, %632 ]
   %615 = load i32, ptr %.2593881, align 4
@@ -1220,15 +1220,15 @@ ir_sccp_is_equal.exit:                            ; preds = %614
   br label %632
 
 632:                                              ; preds = %614, %ir_sccp_is_equal.exit, %631
-  %.1 = phi i32 [ %.0577882, %ir_sccp_is_equal.exit ], [ %615, %631 ], [ %.0577882, %614 ]
+  %.2 = phi i32 [ %.0577882, %ir_sccp_is_equal.exit ], [ %615, %631 ], [ %.0577882, %614 ]
   %633 = add nuw nsw i32 %.1599880, 1
   %634 = getelementptr inbounds i8, ptr %.2593881, i64 4
   %exitcond986.not = icmp eq i32 %633, %602
   br i1 %exitcond986.not, label %ir_sccp_is_equal.exit._crit_edge, label %614
 
 ir_sccp_is_equal.exit._crit_edge:                 ; preds = %632, %ir_sccp_is_equal.exit
-  %.2 = phi i32 [ %.1, %632 ], [ %615, %ir_sccp_is_equal.exit ]
-  %.not668 = icmp eq i32 %.2, 0
+  %.1 = phi i32 [ %.2, %632 ], [ %615, %ir_sccp_is_equal.exit ]
+  %.not668 = icmp eq i32 %.1, 0
   br i1 %.not668, label %ir_sccp_is_equal.exit._crit_edge._crit_edge, label %635
 
 ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_sccp_is_equal.exit._crit_edge
@@ -1237,7 +1237,7 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
   br label %661
 
 635:                                              ; preds = %ir_sccp_is_equal.exit._crit_edge
-  %636 = sext i32 %.2 to i64
+  %636 = sext i32 %.1 to i64
   %637 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   %638 = load i32, ptr %637, align 8
   switch i32 %638, label %644 [
@@ -1248,13 +1248,13 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
 639:                                              ; preds = %635
   store i32 100, ptr %637, align 8
   %640 = getelementptr inbounds i8, ptr %637, i64 4
-  store i32 %.2, ptr %640, align 4
+  store i32 %.1, ptr %640, align 4
   br label %645
 
 641:                                              ; preds = %635
   %642 = getelementptr inbounds i8, ptr %637, i64 4
   %643 = load i32, ptr %642, align 4
-  %.not670 = icmp eq i32 %643, %.2
+  %.not670 = icmp eq i32 %643, %.1
   br i1 %.not670, label %645, label %644
 
 644:                                              ; preds = %635, %641
@@ -1263,7 +1263,7 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
 
 645:                                              ; preds = %641, %644, %639
   %646 = phi i32 [ 100, %641 ], [ 106, %644 ], [ 100, %639 ]
-  %647 = icmp sgt i32 %.2, -1
+  %647 = icmp sgt i32 %.1, -1
   br i1 %647, label %648, label %652
 
 648:                                              ; preds = %645
@@ -1273,8 +1273,8 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
   br i1 %651, label %661, label %652
 
 652:                                              ; preds = %648, %645
-  %653 = lshr i32 %.2, 6
-  %654 = and i32 %.2, 63
+  %653 = lshr i32 %.1, 6
+  %654 = and i32 %.1, 63
   %655 = zext nneg i32 %654 to i64
   %656 = shl nuw i64 1, %655
   %657 = zext nneg i32 %653 to i64
@@ -1287,12 +1287,12 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
 
 661:                                              ; preds = %ir_sccp_is_equal.exit._crit_edge._crit_edge, %652, %648
   %662 = phi i32 [ %.pre997, %ir_sccp_is_equal.exit._crit_edge._crit_edge ], [ %646, %648 ], [ %646, %652 ]
-  %.sroa.3.17 = phi i32 [ %.0573, %ir_sccp_is_equal.exit._crit_edge._crit_edge ], [ %.0573, %648 ], [ %spec.select788, %652 ]
+  %.sroa.3.7 = phi i32 [ %.0573, %ir_sccp_is_equal.exit._crit_edge._crit_edge ], [ %.0573, %648 ], [ %spec.select788, %652 ]
   %663 = icmp eq i32 %662, 106
   br i1 %663, label %664, label %.backedge.backedge
 
 664:                                              ; preds = %580, %597, %661
-  %.sroa.3.18 = phi i32 [ %.sroa.3.17, %661 ], [ %.0573, %597 ], [ %.0573, %580 ]
+  %.sroa.3.8 = phi i32 [ %.sroa.3.7, %661 ], [ %.0573, %597 ], [ %.0573, %580 ]
   %665 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %51
   store i32 106, ptr %665, align 8
   br label %ir_sccp_meet_phi.exit.thread
@@ -1353,7 +1353,7 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
 .lr.ph897:                                        ; preds = %.lr.ph897.preheader, %704
   %.3895 = phi ptr [ %706, %704 ], [ %687, %.lr.ph897.preheader ]
   %.3601894 = phi i32 [ %705, %704 ], [ 2, %.lr.ph897.preheader ]
-  %.sroa.3.19893 = phi i32 [ %.sroa.3.20, %704 ], [ %.0573, %.lr.ph897.preheader ]
+  %.sroa.3.9893 = phi i32 [ %.sroa.3.10, %704 ], [ %.0573, %.lr.ph897.preheader ]
   %688 = load i32, ptr %.3895, align 4
   %689 = icmp sgt i32 %688, 0
   br i1 %689, label %690, label %704
@@ -1375,11 +1375,11 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
   %702 = load i64, ptr %701, align 8
   %703 = or i64 %702, %699
   store i64 %703, ptr %701, align 8
-  %spec.select789 = tail call i32 @llvm.umin.i32(i32 %696, i32 %.sroa.3.19893)
+  %spec.select789 = tail call i32 @llvm.umin.i32(i32 %696, i32 %.sroa.3.9893)
   br label %704
 
 704:                                              ; preds = %695, %.lr.ph897, %690
-  %.sroa.3.20 = phi i32 [ %.sroa.3.19893, %690 ], [ %.sroa.3.19893, %.lr.ph897 ], [ %spec.select789, %695 ]
+  %.sroa.3.10 = phi i32 [ %.sroa.3.9893, %690 ], [ %.sroa.3.9893, %.lr.ph897 ], [ %spec.select789, %695 ]
   %705 = add nuw nsw i32 %.3601894, 1
   %706 = getelementptr inbounds i8, ptr %.3895, i64 4
   %exitcond992.not = icmp eq i32 %.3601894, %umax
@@ -1417,7 +1417,7 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
   br label %727
 
 727:                                              ; preds = %718, %713, %709
-  %.sroa.3.21 = phi i32 [ %.0573, %713 ], [ %.0573, %709 ], [ %spec.select790, %718 ]
+  %.sroa.3.11 = phi i32 [ %.0573, %713 ], [ %.0573, %709 ], [ %spec.select790, %718 ]
   %.not665 = icmp eq i32 %.2596, 2
   br i1 %.not665, label %ir_sccp_meet_phi.exit.thread, label %728
 
@@ -1444,11 +1444,11 @@ ir_sccp_is_equal.exit._crit_edge._crit_edge:      ; preds = %.thread776, %ir_scc
   %744 = load i64, ptr %743, align 8
   %745 = or i64 %744, %741
   store i64 %745, ptr %743, align 8
-  %spec.select791 = tail call i32 @llvm.umin.i32(i32 %738, i32 %.sroa.3.21)
+  %spec.select791 = tail call i32 @llvm.umin.i32(i32 %738, i32 %.sroa.3.11)
   br label %ir_sccp_meet_phi.exit.thread
 
 ir_sccp_meet_phi.exit.thread:                     ; preds = %704, %737, %372, %412, %398, %443, %422, %245, %229, %217, %.split.us.i, %.split185.us.i, %.split187.us.i, %.thread, %._crit_edge878.thread, %474, %475, %664, %727, %732, %728, %707, %675, %574, %444, %292, %282
-  %.sroa.3.22 = phi i32 [ %.0573, %675 ], [ %.sroa.3.21, %727 ], [ %.sroa.3.21, %732 ], [ %.sroa.3.21, %728 ], [ %.0573, %707 ], [ %.sroa.3.18, %664 ], [ %.0573, %574 ], [ %.0573, %._crit_edge878.thread ], [ %.0573, %474 ], [ %.0573, %475 ], [ %.sroa.3.12.lcssa10041008, %.thread ], [ %.sroa.3.12.lcssa10041008, %292 ], [ %.sroa.3.12.lcssa10041008, %282 ], [ %.0573, %444 ], [ %.sroa.3.6, %.split185.us.i ], [ %.sroa.3.7, %.split.us.i ], [ %.sroa.3.8, %.split187.us.i ], [ %.sroa.3.10, %217 ], [ %.sroa.3.10, %245 ], [ %.sroa.3.10, %229 ], [ %.sroa.3.13, %422 ], [ %.sroa.3.13, %443 ], [ %.sroa.3.13, %398 ], [ %.sroa.3.13, %412 ], [ %.sroa.3.13, %372 ], [ %spec.select791, %737 ], [ %.sroa.3.20, %704 ]
+  %.sroa.3.3 = phi i32 [ %.0573, %675 ], [ %.sroa.3.11, %727 ], [ %.sroa.3.11, %732 ], [ %.sroa.3.11, %728 ], [ %.0573, %707 ], [ %.sroa.3.8, %664 ], [ %.0573, %574 ], [ %.0573, %._crit_edge878.thread ], [ %.0573, %474 ], [ %.0573, %475 ], [ %.sroa.3.1.lcssa10041008, %.thread ], [ %.sroa.3.1.lcssa10041008, %292 ], [ %.sroa.3.1.lcssa10041008, %282 ], [ %.0573, %444 ], [ %.sroa.3.22, %.split185.us.i ], [ %.sroa.3.20, %.split.us.i ], [ %.sroa.3.23, %.split187.us.i ], [ %.sroa.3.18, %217 ], [ %.sroa.3.18, %245 ], [ %.sroa.3.18, %229 ], [ %.sroa.3.2, %422 ], [ %.sroa.3.2, %443 ], [ %.sroa.3.2, %398 ], [ %.sroa.3.2, %412 ], [ %.sroa.3.2, %372 ], [ %spec.select791, %737 ], [ %.sroa.3.10, %704 ]
   %746 = load ptr, ptr %26, align 8
   %747 = getelementptr inbounds %struct._ir_use_list, ptr %746, i64 %51
   %748 = getelementptr inbounds i8, ptr %747, i64 4
@@ -1466,7 +1466,7 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %704, %737, %372, %4
 .lr.ph902:                                        ; preds = %.lr.ph902.preheader, %768
   %.4901 = phi ptr [ %769, %768 ], [ %754, %.lr.ph902.preheader ]
   %.3597900 = phi i32 [ %770, %768 ], [ %749, %.lr.ph902.preheader ]
-  %.sroa.3.23899 = phi i32 [ %.sroa.3.24, %768 ], [ %.sroa.3.22, %.lr.ph902.preheader ]
+  %.sroa.3.12899 = phi i32 [ %.sroa.3.13, %768 ], [ %.sroa.3.3, %.lr.ph902.preheader ]
   %755 = load i32, ptr %.4901, align 4
   %756 = sext i32 %755 to i64
   %757 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %756
@@ -1484,11 +1484,11 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %704, %737, %372, %4
   %766 = load i64, ptr %765, align 8
   %767 = or i64 %766, %763
   store i64 %767, ptr %765, align 8
-  %spec.select792 = tail call i32 @llvm.umin.i32(i32 %760, i32 %.sroa.3.23899)
+  %spec.select792 = tail call i32 @llvm.umin.i32(i32 %760, i32 %.sroa.3.12899)
   br label %768
 
 768:                                              ; preds = %759, %.lr.ph902
-  %.sroa.3.24 = phi i32 [ %.sroa.3.23899, %.lr.ph902 ], [ %spec.select792, %759 ]
+  %.sroa.3.13 = phi i32 [ %.sroa.3.12899, %.lr.ph902 ], [ %spec.select792, %759 ]
   %769 = getelementptr inbounds i8, ptr %.4901, i64 4
   %770 = add nsw i32 %.3597900, -1
   %771 = icmp sgt i32 %.3597900, 1
@@ -1497,7 +1497,7 @@ ir_sccp_meet_phi.exit.thread:                     ; preds = %704, %737, %372, %4
 .lr.ph911:                                        ; preds = %.preheader801, %ir_sccp_remove_insn.exit
   %indvars.iv994 = phi i64 [ %indvars.iv.next995, %ir_sccp_remove_insn.exit ], [ 1, %.preheader801 ]
   %.pn909 = phi ptr [ %.0589910, %ir_sccp_remove_insn.exit ], [ %6, %.preheader801 ]
-  %.sroa.3.25906 = phi i32 [ %.sroa.3.26, %ir_sccp_remove_insn.exit ], [ %storemerge1000, %.preheader801 ]
+  %.sroa.3.14906 = phi i32 [ %.sroa.3.15, %ir_sccp_remove_insn.exit ], [ %storemerge1000, %.preheader801 ]
   %.0589910 = getelementptr inbounds i8, ptr %.pn909, i64 16
   %772 = load i8, ptr %.0589910, align 8
   switch i8 %772, label %773 [
@@ -1891,7 +1891,7 @@ ir_sccp_make_nop.exit.i:                          ; preds = %.lr.ph.preheader.i.
   %974 = load i64, ptr %973, align 8
   %975 = or i64 %974, %971
   store i64 %975, ptr %973, align 8
-  %spec.select793 = call i32 @llvm.umin.i32(i32 %969, i32 %.sroa.3.25906)
+  %spec.select793 = call i32 @llvm.umin.i32(i32 %969, i32 %.sroa.3.14906)
   br label %ir_sccp_remove_insn.exit
 
 976:                                              ; preds = %782
@@ -1914,7 +1914,7 @@ ir_sccp_make_nop.exit.i:                          ; preds = %.lr.ph.preheader.i.
   br label %ir_sccp_remove_insn.exit
 
 ir_sccp_remove_insn.exit:                         ; preds = %855, %964, %967, %.lr.ph.preheader.i31.i, %ir_sccp_make_nop.exit.i, %915, %803, %802, %782, %.lr.ph911, %783, %ir_sccp_replace_insn.exit, %976, %988, %791, %775
-  %.sroa.3.26 = phi i32 [ %.sroa.3.25906, %775 ], [ %.sroa.3.25906, %782 ], [ %.sroa.3.25906, %988 ], [ %.sroa.3.25906, %976 ], [ %.sroa.3.25906, %ir_sccp_replace_insn.exit ], [ %.sroa.3.25906, %802 ], [ %.sroa.3.25906, %791 ], [ %.sroa.3.25906, %783 ], [ %.sroa.3.25906, %.lr.ph911 ], [ %.sroa.3.25906, %803 ], [ %.sroa.3.25906, %915 ], [ %.sroa.3.25906, %ir_sccp_make_nop.exit.i ], [ %.sroa.3.25906, %.lr.ph.preheader.i31.i ], [ %spec.select793, %967 ], [ %.sroa.3.25906, %964 ], [ %.sroa.3.25906, %855 ]
+  %.sroa.3.15 = phi i32 [ %.sroa.3.14906, %775 ], [ %.sroa.3.14906, %782 ], [ %.sroa.3.14906, %988 ], [ %.sroa.3.14906, %976 ], [ %.sroa.3.14906, %ir_sccp_replace_insn.exit ], [ %.sroa.3.14906, %802 ], [ %.sroa.3.14906, %791 ], [ %.sroa.3.14906, %783 ], [ %.sroa.3.14906, %.lr.ph911 ], [ %.sroa.3.14906, %803 ], [ %.sroa.3.14906, %915 ], [ %.sroa.3.14906, %ir_sccp_make_nop.exit.i ], [ %.sroa.3.14906, %.lr.ph.preheader.i31.i ], [ %spec.select793, %967 ], [ %.sroa.3.14906, %964 ], [ %.sroa.3.14906, %855 ]
   %indvars.iv.next995 = add nuw nsw i64 %indvars.iv994, 1
   %989 = load i32, ptr %3, align 8
   %990 = sext i32 %989 to i64
@@ -1922,18 +1922,18 @@ ir_sccp_remove_insn.exit:                         ; preds = %855, %964, %967, %.
   br i1 %991, label %.lr.ph911, label %.preheader797.preheader
 
 .preheader797.preheader:                          ; preds = %ir_sccp_remove_insn.exit, %.preheader801
-  %.sroa.3.27.ph = phi i32 [ %storemerge1000, %.preheader801 ], [ %.sroa.3.26, %ir_sccp_remove_insn.exit ]
+  %.sroa.3.16.ph = phi i32 [ %storemerge1000, %.preheader801 ], [ %.sroa.3.15, %ir_sccp_remove_insn.exit ]
   br label %.preheader797
 
 .preheader797:                                    ; preds = %.preheader797.backedge, %.preheader797.preheader
-  %.sroa.3.27 = phi i32 [ %.sroa.3.27.ph, %.preheader797.preheader ], [ %.0578, %.preheader797.backedge ]
-  %992 = zext i32 %.sroa.3.27 to i64
+  %.sroa.3.16 = phi i32 [ %.sroa.3.16.ph, %.preheader797.preheader ], [ %.0578, %.preheader797.backedge ]
+  %992 = zext i32 %.sroa.3.16 to i64
   %993 = getelementptr inbounds i64, ptr %22, i64 %992
   br label %994
 
 994:                                              ; preds = %996, %.preheader797
   %.0579 = phi ptr [ %993, %.preheader797 ], [ %997, %996 ]
-  %.0578 = phi i32 [ %.sroa.3.27, %.preheader797 ], [ %998, %996 ]
+  %.0578 = phi i32 [ %.sroa.3.16, %.preheader797 ], [ %998, %996 ]
   %995 = load i64, ptr %.0579, align 8
   %.not652 = icmp eq i64 %995, 0
   br i1 %.not652, label %996, label %.loopexit920
@@ -2059,8 +2059,8 @@ ir_sccp_remove_insn.exit:                         ; preds = %855, %964, %967, %.
 
 .lr.ph259.i:                                      ; preds = %1076, %1056
   %1058 = phi i32 [ %1077, %1076 ], [ %1046, %1056 ]
-  %.0184257.i = phi ptr [ %.1185.i, %1076 ], [ null, %1056 ]
-  %.0187256.i = phi i32 [ %.1188.i, %1076 ], [ 0, %1056 ]
+  %.1185257.i = phi ptr [ %.2186.i, %1076 ], [ null, %1056 ]
+  %.1188256.i = phi i32 [ %.2189.i, %1076 ], [ 0, %1056 ]
   %.0190255.i = phi i32 [ %1078, %1076 ], [ 0, %1056 ]
   %.0192254.i = phi ptr [ %1079, %1076 ], [ %1051, %1056 ]
   %1059 = load i32, ptr %.0192254.i, align 4
@@ -2090,19 +2090,19 @@ ir_sccp_remove_insn.exit:                         ; preds = %855, %964, %967, %.
 1076:                                             ; preds = %1068, %.lr.ph259.i
   %1077 = phi i32 [ %.pre291.i, %1068 ], [ %1058, %.lr.ph259.i ]
   %.1193.i = phi ptr [ %1075, %1068 ], [ %.0192254.i, %.lr.ph259.i ]
-  %.1188.i = phi i32 [ %.0187256.i, %1068 ], [ %1059, %.lr.ph259.i ]
-  %.1185.i = phi ptr [ %.0184257.i, %1068 ], [ %1062, %.lr.ph259.i ]
+  %.2189.i = phi i32 [ %.1188256.i, %1068 ], [ %1059, %.lr.ph259.i ]
+  %.2186.i = phi ptr [ %.1185257.i, %1068 ], [ %1062, %.lr.ph259.i ]
   %1078 = add nuw nsw i32 %.0190255.i, 1
   %1079 = getelementptr inbounds i8, ptr %.1193.i, i64 4
   %1080 = icmp slt i32 %1078, %1077
   br i1 %1080, label %.lr.ph259.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %1076, %1052
-  %.2189.i = phi i32 [ %1053, %1052 ], [ %.1188.i, %1076 ]
-  %.2186.i = phi ptr [ %1055, %1052 ], [ %.1185.i, %1076 ]
-  %1081 = getelementptr inbounds i8, ptr %.2186.i, i64 4
+  %.0187.i = phi i32 [ %1053, %1052 ], [ %.2189.i, %1076 ]
+  %.0184.i = phi ptr [ %1055, %1052 ], [ %.2186.i, %1076 ]
+  %1081 = getelementptr inbounds i8, ptr %.0184.i, i64 4
   store i32 %1042, ptr %1081, align 4
-  call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %1042, i32 noundef %1028, i32 noundef %.2189.i) #9
+  call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %1042, i32 noundef %1028, i32 noundef %.0187.i) #9
   %1082 = load ptr, ptr %26, align 8
   %1083 = getelementptr inbounds %struct._ir_use_list, ptr %1082, i64 %1009
   store i32 0, ptr %1083, align 4

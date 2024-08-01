@@ -1243,10 +1243,10 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %20 = icmp slt i32 %19, 2147483639
   %21 = and i32 %19, -8
   %22 = add nsw i32 %21, 8
-  %.0133 = select i1 %20, i32 %22, i32 2147483647
+  %.1134 = select i1 %20, i32 %22, i32 2147483647
   %23 = getelementptr inbounds i8, ptr %1, i64 160
   %24 = load ptr, ptr %23, align 8
-  %25 = sub nsw i32 %.0133, %13
+  %25 = sub nsw i32 %.1134, %13
   %26 = tail call noalias ptr @png_realloc_array(ptr noundef nonnull %0, ptr noundef %24, i32 noundef %13, i32 noundef %25, i64 noundef 56) #12
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
@@ -1263,7 +1263,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, 16384
   store i32 %32, ptr %30, align 4
-  store i32 %.0133, ptr %10, align 8
+  store i32 %.1134, ptr %10, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %28
@@ -1309,7 +1309,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %55
 
 55:                                               ; preds = %50, %53
-  %.0129 = phi i64 [ %54, %53 ], [ 0, %50 ]
+  %.1 = phi i64 [ %54, %53 ], [ 0, %50 ]
   %56 = getelementptr inbounds i8, ptr %39, i64 48
   %57 = load ptr, ptr %56, align 8
   %.not147 = icmp eq ptr %57, null
@@ -1320,7 +1320,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %60
 
 60:                                               ; preds = %55, %47, %58
-  %.1 = phi i64 [ %.0129, %58 ], [ 0, %47 ], [ %.0129, %55 ]
+  %.0129 = phi i64 [ %.1, %58 ], [ 0, %47 ], [ %.1, %55 ]
   %.0128 = phi i64 [ %59, %58 ], [ 0, %47 ], [ 0, %55 ]
   %61 = getelementptr inbounds i8, ptr %39, i64 16
   %62 = load ptr, ptr %61, align 8
@@ -1346,7 +1346,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %.0131 = phi i64 [ %69, %68 ], [ 0, %67 ]
   store i32 %.sink, ptr %38, align 8
   %71 = add i64 %48, 4
-  %72 = add i64 %71, %.1
+  %72 = add i64 %71, %.0129
   %73 = add i64 %72, %.0128
   %74 = add i64 %73, %.0131
   %75 = tail call noalias ptr @png_malloc_base(ptr noundef %0, i64 noundef %74) #12
@@ -1377,12 +1377,12 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %39, i64 40
   %91 = load ptr, ptr %90, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 1 %91, i64 %.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 1 %91, i64 %.0129, i1 false)
   %92 = load ptr, ptr %89, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 %.1
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.0129
   store i8 0, ptr %93, align 1
   %94 = load ptr, ptr %89, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 %.1
+  %95 = getelementptr inbounds i8, ptr %94, i64 %.0129
   %96 = getelementptr inbounds i8, ptr %95, i64 1
   %97 = getelementptr inbounds i8, ptr %38, i64 48
   store ptr %96, ptr %97, align 8

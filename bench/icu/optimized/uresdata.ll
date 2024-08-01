@@ -3211,7 +3211,7 @@ while.cond.preheader:                             ; preds = %switch.early.test, 
 
 land.lhs.true:                                    ; preds = %while.cond.preheader, %if.end54
   %type.050 = phi i32 [ %shr, %while.cond.preheader ], [ %shr55, %if.end54 ]
-  %t1.049 = phi i32 [ %r, %while.cond.preheader ], [ %t2.1, %if.end54 ]
+  %t1.049 = phi i32 [ %r, %while.cond.preheader ], [ %t2.0, %if.end54 ]
   %pathP.048 = phi ptr [ %0, %while.cond.preheader ], [ %20, %if.end54 ]
   %2 = load i8, ptr %pathP.048, align 1
   %tobool11 = icmp ne i8 %2, 0
@@ -3336,18 +3336,18 @@ _ZL18makeResourceFrom16PK12ResourceDatai.exit.i:  ; preds = %if.else.i.i, %if.th
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i, %sw.bb7.i, %if.then4.i, %if.then2.i, %sw.bb.i, %if.end.i, %if.then42, %land.lhs.true45
-  %t2.0 = phi i32 [ -1, %land.lhs.true45 ], [ -1, %if.then42 ], [ %or.i.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i ], [ %12, %if.then4.i ], [ -1, %if.end.i ], [ -1, %sw.bb7.i ], [ -1, %sw.bb.i ], [ -1, %if.then2.i ]
+  %t2.1 = phi i32 [ -1, %land.lhs.true45 ], [ -1, %if.then42 ], [ %or.i.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit.i ], [ %12, %if.then4.i ], [ -1, %if.end.i ], [ -1, %sw.bb7.i ], [ -1, %sw.bb.i ], [ -1, %if.then2.i ]
   store ptr null, ptr %key, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else38, %if.end51, %if.then36
-  %t2.1 = phi i32 [ %call37, %if.then36 ], [ %t2.0, %if.end51 ], [ -1, %if.else38 ]
-  %shr55 = lshr i32 %t2.1, 28
+  %t2.0 = phi i32 [ %call37, %if.then36 ], [ %t2.1, %if.end51 ], [ -1, %if.else38 ]
+  %shr55 = lshr i32 %t2.0, 28
   %20 = load ptr, ptr %path, align 8
   br i1 %cmp24.not, label %return, label %land.lhs.true, !llvm.loop !9
 
 return:                                           ; preds = %if.end54, %land.lhs.true, %if.then25, %switch.early.test51, %switch.early.test, %entry
-  %retval.0 = phi i32 [ %r, %entry ], [ -1, %switch.early.test ], [ %t2.1, %if.end54 ], [ %t1.049, %land.lhs.true ], [ %t1.049, %switch.early.test51 ], [ -1, %if.then25 ]
+  %retval.0 = phi i32 [ %r, %entry ], [ -1, %switch.early.test ], [ %t2.0, %if.end54 ], [ %t1.049, %land.lhs.true ], [ %t1.049, %switch.early.test51 ], [ -1, %if.then25 ]
   ret i32 %retval.0
 }
 

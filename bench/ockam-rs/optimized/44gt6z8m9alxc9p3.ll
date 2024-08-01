@@ -717,8 +717,8 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core7routing7address1_89_$LT$impl
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.0 = phi ptr [ %6, %2 ], [ %9, %8 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %6, %2 ], [ %9, %8 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2261,8 +2261,8 @@ define hidden noundef align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$c
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb42e0ef6347491a8E.llvm.3380558238963146499.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb42e0ef6347491a8E.llvm.3380558238963146499.exit": ; preds = %2, %11
-  %.0.i.i.i.i.i = phi ptr [ %9, %2 ], [ %12, %11 ]
-  ret ptr %.0.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %9, %2 ], [ %12, %11 ]
+  ret ptr %.1.i.i.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2529,8 +2529,8 @@ define hidden noundef align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator12try_
   br label %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8b4f6016b67e3dd2E.llvm.3380558238963146499.exit"
 
 "_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8b4f6016b67e3dd2E.llvm.3380558238963146499.exit": ; preds = %2, %10
-  %.0.i.i.i.i = phi ptr [ %8, %2 ], [ %11, %10 ]
-  ret ptr %.0.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %8, %2 ], [ %11, %10 ]
+  ret ptr %.1.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4684,8 +4684,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser10Serializer11collect_seq28_$u7
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$17serialize_element17he79d219379bf793eE.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$17serialize_element17he79d219379bf793eE.exit": ; preds = %2, %10
-  %.0.i.i.i = phi ptr [ %8, %2 ], [ %11, %10 ]
-  ret ptr %.0.i.i.i
+  %.1.i.i.i = phi ptr [ %8, %2 ], [ %11, %10 ]
+  ret ptr %.1.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

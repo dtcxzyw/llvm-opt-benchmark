@@ -467,7 +467,7 @@ define internal fastcc void @register_io_tap(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %3 ]
   %30 = phi ptr [ %87, %85 ], [ @.str.17, %3 ]
   %31 = phi ptr [ %86, %85 ], [ @calc_type_table, %3 ]
-  %.0110145 = phi ptr [ %.2, %85 ], [ %2, %3 ]
+  %.0110145 = phi ptr [ %.3, %85 ], [ %2, %3 ]
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #16
   %33 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef nonnull %30, i64 noundef %32) #16
   %34 = icmp eq i32 %33, 0
@@ -565,7 +565,7 @@ define internal fastcc void @register_io_tap(ptr noundef %0, i32 noundef %1, ptr
   br label %85
 
 85:                                               ; preds = %80, %35
-  %.2 = phi ptr [ %.0110145, %35 ], [ %spec.select, %80 ]
+  %.3 = phi ptr [ %.0110145, %35 ], [ %spec.select, %80 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = getelementptr [10 x %struct.calc_type_ent_t], ptr @calc_type_table, i64 0, i64 %indvars.iv.next
   %87 = load ptr, ptr %86, align 16
@@ -637,13 +637,13 @@ define internal fastcc void @register_io_tap(ptr noundef %0, i32 noundef %1, ptr
 
 .thread:                                          ; preds = %85, %.split.us, %64, %88, %103, %99, %96, %96, %96, %96, %96, %96, %96, %96, %96, %96, %107
   %.0109140 = phi ptr [ %69, %88 ], [ %69, %103 ], [ %69, %99 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %96 ], [ %69, %107 ], [ %69, %64 ], [ null, %.split.us ], [ null, %85 ]
-  %.3139 = phi ptr [ %71, %88 ], [ %71, %103 ], [ %71, %99 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %107 ], [ %71, %64 ], [ %spec.select.us, %.split.us ], [ %.2, %85 ]
+  %.1139 = phi ptr [ %71, %88 ], [ %71, %103 ], [ %71, %99 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %96 ], [ %71, %107 ], [ %71, %64 ], [ %spec.select.us, %.split.us ], [ %.3, %85 ]
   tail call void @g_free(ptr noundef %.0109140) #15
   %111 = load ptr, ptr %4, align 8
   %112 = getelementptr %struct._io_stat_item_t, ptr %111, i64 %6
   %.not127 = icmp eq i32 %1, 0
   %113 = select i1 %.not127, ptr @iostat_draw, ptr null
-  %114 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.15, ptr noundef %112, ptr noundef %.3139, i32 noundef 1, ptr noundef null, ptr noundef nonnull @iostat_packet, ptr noundef %113, ptr noundef null) #15
+  %114 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.15, ptr noundef %112, ptr noundef %.1139, i32 noundef 1, ptr noundef null, ptr noundef nonnull @iostat_packet, ptr noundef %113, ptr noundef null) #15
   %.not128 = icmp eq ptr %114, null
   br i1 %.not128, label %121, label %115
 
@@ -2031,7 +2031,7 @@ magnitude.exit614:                                ; preds = %76, %.lr.ph.i609, %
 
 93:                                               ; preds = %.lr.ph687, %210
   %indvars.iv766 = phi i64 [ 0, %.lr.ph687 ], [ %indvars.iv.next767, %210 ]
-  %.0533684 = phi ptr [ null, %.lr.ph687 ], [ %.3536, %210 ]
+  %.0533684 = phi ptr [ null, %.lr.ph687 ], [ %.2535, %210 ]
   %.0553683 = phi i32 [ %.1549, %.lr.ph687 ], [ %.2555, %210 ]
   %94 = load ptr, ptr %90, align 8
   %95 = getelementptr %struct._io_stat_item_t, ptr %94, i64 %indvars.iv766, i32 4
@@ -2284,22 +2284,22 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
 
 205:                                              ; preds = %magnitude.exit638, %magnitude.exit644, %203, %201, %magnitude.exit650, %magnitude.exit632
   %206 = phi i32 [ %198, %magnitude.exit650 ], [ %198, %203 ], [ %198, %201 ], [ %188, %magnitude.exit644 ], [ %164, %magnitude.exit638 ], [ %144, %magnitude.exit632 ]
-  %.2535 = phi ptr [ %.0533684, %magnitude.exit650 ], [ %204, %203 ], [ %202, %201 ], [ %187, %magnitude.exit644 ], [ %163, %magnitude.exit638 ], [ %147, %magnitude.exit632 ]
+  %.3536 = phi ptr [ %.0533684, %magnitude.exit650 ], [ %204, %203 ], [ %202, %201 ], [ %187, %magnitude.exit644 ], [ %163, %magnitude.exit638 ], [ %147, %magnitude.exit632 ]
   %207 = add i32 %.0553683, 3
   %208 = add i32 %207, %206
-  %.not599 = icmp eq ptr %.2535, null
+  %.not599 = icmp eq ptr %.3536, null
   br i1 %.not599, label %210, label %.sink.split
 
 .sink.split:                                      ; preds = %205, %135
-  %.2535.sink = phi ptr [ %.1534, %135 ], [ %.2535, %205 ]
+  %.3536.sink = phi ptr [ %.1534, %135 ], [ %.3536, %205 ]
   %.2555.ph = phi i32 [ %.1554, %135 ], [ %208, %205 ]
   %209 = getelementptr ptr, ptr %13, i64 %indvars.iv766
-  store ptr %.2535.sink, ptr %209, align 8
+  store ptr %.3536.sink, ptr %209, align 8
   br label %210
 
 210:                                              ; preds = %.sink.split, %205, %135
   %.2555 = phi i32 [ %.1554, %135 ], [ %208, %205 ], [ %.2555.ph, %.sink.split ]
-  %.3536 = phi ptr [ null, %135 ], [ null, %205 ], [ %.2535.sink, %.sink.split ]
+  %.2535 = phi ptr [ null, %135 ], [ null, %205 ], [ %.3536.sink, %.sink.split ]
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %exitcond770.not = icmp eq i64 %indvars.iv.next767, %10
   br i1 %exitcond770.not, label %._crit_edge688, label %93, !llvm.loop !21

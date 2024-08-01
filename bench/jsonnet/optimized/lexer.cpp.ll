@@ -1220,9 +1220,9 @@ define void @_ZN7jsonnet8internal11jsonnet_lexERKNSt7__cxx1112basic_stringIcSt11
 
 79:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %3
   %.pre.i = phi ptr [ %2, %3 ], [ %608, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.0277 = phi ptr [ %2, %3 ], [ %.14291, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.0273 = phi i64 [ 1, %3 ], [ %.17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.065 = phi i1 [ true, %3 ], [ %.3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.0277 = phi ptr [ %2, %3 ], [ %.2279, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.0273 = phi i64 [ 1, %3 ], [ %.2275, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.065 = phi i1 [ true, %3 ], [ %.166, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %80 = load i8, ptr %.pre.i, align 1
   %.not = icmp eq i8 %80, 0
   br i1 %.not, label %611, label %81
@@ -1237,8 +1237,8 @@ define void @_ZN7jsonnet8internal11jsonnet_lexERKNSt7__cxx1112basic_stringIcSt11
 82:                                               ; preds = %93, %81
   %83 = phi i32 [ 0, %81 ], [ %94, %93 ]
   %.0294 = phi i32 [ 0, %81 ], [ %.1295, %93 ]
-  %.1278 = phi ptr [ %.0277, %81 ], [ %.2279, %93 ]
-  %.1274 = phi i64 [ %.0273, %81 ], [ %.2275, %93 ]
+  %.10287 = phi ptr [ %.0277, %81 ], [ %.11288, %93 ]
+  %.13 = phi i64 [ %.0273, %81 ], [ %.14, %93 ]
   %.promoted545 = phi ptr [ %.pre.i, %81 ], [ %95, %93 ]
   %84 = load i8, ptr %.promoted545, align 1
   switch i8 %84, label %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit [
@@ -1251,7 +1251,7 @@ define void @_ZN7jsonnet8internal11jsonnet_lexERKNSt7__cxx1112basic_stringIcSt11
 85:                                               ; preds = %82
   store i32 0, ptr %11, align 4
   %86 = add i32 %.0294, 1
-  %87 = add i64 %.1274, 1
+  %87 = add i64 %.13, 1
   %88 = getelementptr inbounds i8, ptr %.promoted545, i64 1
   br label %93
 
@@ -1268,8 +1268,8 @@ define void @_ZN7jsonnet8internal11jsonnet_lexERKNSt7__cxx1112basic_stringIcSt11
 93:                                               ; preds = %91, %89, %85, %82
   %94 = phi i32 [ %90, %89 ], [ 0, %85 ], [ %92, %91 ], [ %83, %82 ]
   %.1295 = phi i32 [ %.0294, %89 ], [ %86, %85 ], [ %.0294, %91 ], [ %.0294, %82 ]
-  %.2279 = phi ptr [ %.1278, %89 ], [ %88, %85 ], [ %.1278, %91 ], [ %.1278, %82 ]
-  %.2275 = phi i64 [ %.1274, %89 ], [ %87, %85 ], [ %.1274, %91 ], [ %.1274, %82 ]
+  %.11288 = phi ptr [ %.10287, %89 ], [ %88, %85 ], [ %.10287, %91 ], [ %.10287, %82 ]
+  %.14 = phi i64 [ %.13, %89 ], [ %87, %85 ], [ %.13, %91 ], [ %.13, %82 ]
   %95 = getelementptr inbounds i8, ptr %.promoted545, i64 1
   br label %82, !llvm.loop !8
 
@@ -1338,12 +1338,12 @@ _ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit: ; preds = %82
           to label %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit unwind label %.loopexit.split-lp388.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit: ; preds = %109, %.noexc, %98
-  %.166 = phi i1 [ %.065, %98 ], [ true, %.noexc ], [ true, %109 ]
+  %.2 = phi i1 [ %.065, %98 ], [ true, %.noexc ], [ true, %109 ]
   %110 = ptrtoint ptr %.promoted545 to i64
-  %111 = ptrtoint ptr %.1278 to i64
+  %111 = ptrtoint ptr %.10287 to i64
   %112 = sub i64 %110, %111
   %113 = add nsw i64 %112, 1
-  store i64 %.1274, ptr %14, align 8
+  store i64 %.13, ptr %14, align 8
   store i64 %113, ptr %68, align 8
   %114 = load i8, ptr %.promoted545, align 1
   switch i8 %114, label %226 [
@@ -1426,8 +1426,8 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4Kind
   br label %575
 
 .preheader386:                                    ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit, %151
-  %.3280 = phi ptr [ %.4281, %151 ], [ %.1278, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
-  %.3276 = phi i64 [ %.4, %151 ], [ %.1274, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
+  %.4281 = phi ptr [ %.5282, %151 ], [ %.10287, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
+  %.4 = phi i64 [ %.5, %151 ], [ %.13, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
   %.pn141 = phi ptr [ %storemerge139488, %151 ], [ %.promoted545, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
   %storemerge139 = getelementptr inbounds i8, ptr %.pn141, i64 1
   %136 = load i8, ptr %storemerge139, align 1
@@ -1489,9 +1489,9 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4Kind
   %storemerge139488 = phi ptr [ %storemerge139, %.preheader386 ], [ %146, %150 ], [ %storemerge139, %145 ]
   %153 = icmp eq i8 %152, 10
   %154 = getelementptr inbounds i8, ptr %storemerge139488, i64 1
-  %.4281 = select i1 %153, ptr %154, ptr %.3280
+  %.5282 = select i1 %153, ptr %154, ptr %.4281
   %155 = zext i1 %153 to i64
-  %.4 = add i64 %.3276, %155
+  %.5 = add i64 %.4, %155
   %156 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext %152)
           to label %.preheader386 unwind label %.loopexit387, !llvm.loop !9
 
@@ -1501,8 +1501,8 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4Kind
   br label %575
 
 .preheader392:                                    ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit, %174
-  %.5282 = phi ptr [ %.6283, %174 ], [ %.1278, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
-  %.5 = phi i64 [ %.6, %174 ], [ %.1274, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
+  %.6283 = phi ptr [ %.7284, %174 ], [ %.10287, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
+  %.6 = phi i64 [ %.7, %174 ], [ %.13, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
   %.pn136 = phi ptr [ %storemerge134484, %174 ], [ %.promoted545, %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_.exit ]
   %storemerge134 = getelementptr inbounds i8, ptr %.pn136, i64 1
   %159 = load i8, ptr %storemerge134, align 1
@@ -1564,9 +1564,9 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4Kind
   %storemerge134484 = phi ptr [ %storemerge134, %.preheader392 ], [ %169, %173 ], [ %storemerge134, %168 ]
   %176 = icmp eq i8 %175, 10
   %177 = getelementptr inbounds i8, ptr %storemerge134484, i64 1
-  %.6283 = select i1 %176, ptr %177, ptr %.5282
+  %.7284 = select i1 %176, ptr %177, ptr %.6283
   %178 = zext i1 %176 to i64
-  %.6 = add i64 %.5, %178
+  %.7 = add i64 %.6, %178
   %179 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext %175)
           to label %.preheader392 unwind label %.loopexit.split-lp388.loopexit, !llvm.loop !10
 
@@ -1909,8 +1909,8 @@ _ZN7jsonnet8internalL10is_horz_wsEc.exit.i:       ; preds = %280, %277
 
 287:                                              ; preds = %299, %285
   %288 = phi i32 [ 0, %285 ], [ %300, %299 ]
-  %.7284 = phi ptr [ %.1278, %285 ], [ %.8285, %299 ]
-  %.7 = phi i64 [ %.1274, %285 ], [ %.8, %299 ]
+  %.12289 = phi ptr [ %.10287, %285 ], [ %.13290, %299 ]
+  %.15 = phi i64 [ %.13, %285 ], [ %.16, %299 ]
   %.020.i = phi i32 [ 0, %285 ], [ %.1.i, %299 ]
   %289 = phi ptr [ %.pre.i.i, %285 ], [ %301, %299 ]
   %290 = load i8, ptr %289, align 1
@@ -1924,7 +1924,7 @@ _ZN7jsonnet8internalL10is_horz_wsEc.exit.i:       ; preds = %280, %277
 291:                                              ; preds = %287
   store i32 0, ptr %27, align 4
   %292 = add i32 %.020.i, 1
-  %293 = add i64 %.7, 1
+  %293 = add i64 %.15, 1
   %294 = getelementptr inbounds i8, ptr %289, i64 1
   br label %299
 
@@ -1940,8 +1940,8 @@ _ZN7jsonnet8internalL10is_horz_wsEc.exit.i:       ; preds = %280, %277
 
 299:                                              ; preds = %297, %295, %291, %287
   %300 = phi i32 [ %296, %295 ], [ 0, %291 ], [ %298, %297 ], [ %288, %287 ]
-  %.8285 = phi ptr [ %.7284, %295 ], [ %294, %291 ], [ %.7284, %297 ], [ %.7284, %287 ]
-  %.8 = phi i64 [ %.7, %295 ], [ %293, %291 ], [ %.7, %297 ], [ %.7, %287 ]
+  %.13290 = phi ptr [ %.12289, %295 ], [ %294, %291 ], [ %.12289, %297 ], [ %.12289, %287 ]
+  %.16 = phi i64 [ %.15, %295 ], [ %293, %291 ], [ %.15, %297 ], [ %.15, %287 ]
   %.1.i = phi i32 [ %.020.i, %295 ], [ %292, %291 ], [ %.020.i, %297 ], [ %.020.i, %287 ]
   %301 = getelementptr inbounds i8, ptr %289, i64 1
   br label %287, !llvm.loop !8
@@ -1958,7 +1958,7 @@ _ZN7jsonnet8internalL10is_horz_wsEc.exit.i:       ; preds = %280, %277
   store i32 %305, ptr %26, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %306 = select i1 %.166, i32 2, i32 0
+  %306 = select i1 %.2, i32 2, i32 0
   store i32 %306, ptr %28, align 4
   %307 = load ptr, ptr %66, align 8
   %308 = load ptr, ptr %67, align 8
@@ -2032,8 +2032,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %328
 
 328:                                              ; preds = %.critedge179.thread, %325
-  %.9286 = phi ptr [ %.1278, %325 ], [ %.10287, %.critedge179.thread ]
-  %.9 = phi i64 [ %.1274, %325 ], [ %.10, %.critedge179.thread ]
+  %.8285 = phi ptr [ %.10287, %325 ], [ %.9286, %.critedge179.thread ]
+  %.8 = phi i64 [ %.13, %325 ], [ %.9, %.critedge179.thread ]
   %storemerge163 = phi ptr [ %327, %325 ], [ %345, %.critedge179.thread ]
   %329 = load i8, ptr %storemerge163, align 1
   switch i8 %329, label %.critedge179.thread [
@@ -2082,13 +2082,13 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.loopexit.split-lp388
 
 342:                                              ; preds = %328
-  %343 = add i64 %.9, 1
+  %343 = add i64 %.8, 1
   %344 = getelementptr inbounds i8, ptr %storemerge163, i64 1
   br label %.critedge179.thread
 
 .critedge179.thread:                              ; preds = %328, %330, %342
-  %.10287 = phi ptr [ %344, %342 ], [ %.9286, %330 ], [ %.9286, %328 ]
-  %.10 = phi i64 [ %343, %342 ], [ %.9, %330 ], [ %.9, %328 ]
+  %.9286 = phi ptr [ %344, %342 ], [ %.8285, %330 ], [ %.8285, %328 ]
+  %.9 = phi i64 [ %343, %342 ], [ %.8, %330 ], [ %.8, %328 ]
   %345 = getelementptr inbounds i8, ptr %storemerge163, i64 1
   br label %328, !llvm.loop !14
 
@@ -2109,9 +2109,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 351:                                              ; preds = %363, %350
   %352 = phi i32 [ 0, %350 ], [ %364, %363 ]
-  %.0296 = phi i32 [ 0, %350 ], [ %.1297, %363 ]
-  %.11288 = phi ptr [ %.9286, %350 ], [ %.12289, %363 ]
-  %.11 = phi i64 [ %.9, %350 ], [ %.12, %363 ]
+  %.1297 = phi i32 [ 0, %350 ], [ %.2298, %363 ]
+  %.14291 = phi ptr [ %.8285, %350 ], [ %.15292, %363 ]
+  %.17 = phi i64 [ %.8, %350 ], [ %.18, %363 ]
   %353 = phi ptr [ %.pre.i190, %350 ], [ %365, %363 ]
   %354 = load i8, ptr %353, align 1
   switch i8 %354, label %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit192 [
@@ -2123,8 +2123,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 355:                                              ; preds = %351
   store i32 0, ptr %33, align 4
-  %356 = add i32 %.0296, 1
-  %357 = add i64 %.11, 1
+  %356 = add i32 %.1297, 1
+  %357 = add i64 %.17, 1
   %358 = getelementptr inbounds i8, ptr %353, i64 1
   br label %363
 
@@ -2140,9 +2140,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 363:                                              ; preds = %361, %359, %355, %351
   %364 = phi i32 [ %360, %359 ], [ 0, %355 ], [ %362, %361 ], [ %352, %351 ]
-  %.1297 = phi i32 [ %.0296, %359 ], [ %356, %355 ], [ %.0296, %361 ], [ %.0296, %351 ]
-  %.12289 = phi ptr [ %.11288, %359 ], [ %358, %355 ], [ %.11288, %361 ], [ %.11288, %351 ]
-  %.12 = phi i64 [ %.11, %359 ], [ %357, %355 ], [ %.11, %361 ], [ %.11, %351 ]
+  %.2298 = phi i32 [ %.1297, %359 ], [ %356, %355 ], [ %.1297, %361 ], [ %.1297, %351 ]
+  %.15292 = phi ptr [ %.14291, %359 ], [ %358, %355 ], [ %.14291, %361 ], [ %.14291, %351 ]
+  %.18 = phi i64 [ %.17, %359 ], [ %357, %355 ], [ %.17, %361 ], [ %.17, %351 ]
   %365 = getelementptr inbounds i8, ptr %353, i64 1
   br label %351, !llvm.loop !8
 
@@ -2166,12 +2166,12 @@ _ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit192: ; preds = %351
           to label %371 unwind label %.loopexit.split-lp366.loopexit.split-lp
 
 371:                                              ; preds = %369
-  %.not166 = icmp eq i32 %.0296, 0
+  %.not166 = icmp eq i32 %.1297, 0
   br i1 %.not166, label %403, label %372
 
 372:                                              ; preds = %371
   store i32 0, ptr %38, align 4
-  %373 = add i32 %.0296, -1
+  %373 = add i32 %.1297, -1
   store i32 %373, ptr %39, align 4
   %374 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL5EMPTYB5cxx11E)
           to label %403 unwind label %.loopexit.split-lp366.loopexit.split-lp
@@ -2257,7 +2257,7 @@ _ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit192: ; preds = %351
   br i1 %.not355, label %.loopexit364, label %.lr.ph519
 
 .loopexit364:                                     ; preds = %393, %378, %.critedge548, %._crit_edge
-  %395 = icmp eq i32 %.0296, 0
+  %395 = icmp eq i32 %.1297, 0
   br i1 %395, label %396, label %.loopexit364._crit_edge
 
 .loopexit364._crit_edge:                          ; preds = %.loopexit364
@@ -2270,8 +2270,8 @@ _ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit192: ; preds = %351
 
 397:                                              ; preds = %.loopexit364._crit_edge, %396
   %398 = phi i32 [ 0, %396 ], [ %.pre642, %.loopexit364._crit_edge ]
-  %.2298 = phi i32 [ 1, %396 ], [ %.0296, %.loopexit364._crit_edge ]
-  %399 = add i32 %.2298, -1
+  %.0296 = phi i32 [ 1, %396 ], [ %.1297, %.loopexit364._crit_edge ]
+  %399 = add i32 %.0296, -1
   store i32 2, ptr %42, align 8
   store i32 %399, ptr %71, align 4
   store i32 %398, ptr %72, align 8
@@ -2293,7 +2293,7 @@ _ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic
   br label %.loopexit.split-lp366
 
 403:                                              ; preds = %372, %371, %400
-  %.2 = phi i1 [ %.166, %371 ], [ true, %400 ], [ true, %372 ]
+  %.3 = phi i1 [ %.2, %371 ], [ true, %400 ], [ true, %372 ]
   %404 = load ptr, ptr %34, align 8
   %405 = load ptr, ptr %70, align 8
   %.not4.i.i.i.i194 = icmp eq ptr %404, %405
@@ -2403,8 +2403,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 435:                                              ; preds = %439, %433
   %436 = phi ptr [ %434, %433 ], [ %440, %439 ]
-  %.13.in = phi i64 [ %.1274, %433 ], [ %.13, %439 ]
-  %.13 = add i64 %.13.in, 1
+  %.10.in = phi i64 [ %.13, %433 ], [ %.10, %439 ]
+  %.10 = add i64 %.10.in, 1
   %437 = load i8, ptr %436, align 1
   %438 = icmp eq i8 %437, 10
   br i1 %438, label %439, label %.preheader382
@@ -2520,7 +2520,7 @@ _ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit: ; preds = %442
 
 459:                                              ; preds = %.preheader378, %_ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit211
   %.lcssa499502 = phi ptr [ %481, %_ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit211 ], [ %.promoted501, %.preheader378 ]
-  %.14 = phi i64 [ %.15, %_ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit211 ], [ %.13, %.preheader378 ]
+  %.11 = phi i64 [ %.12, %_ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit211 ], [ %.10, %.preheader378 ]
   %.096 = phi i64 [ %indvars.iv.i205, %_ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit211 ], [ %indvars.iv.i, %.preheader378 ]
   %sext741 = shl i64 %.096, 32
   %460 = ashr exact i64 %sext741, 32
@@ -2586,8 +2586,8 @@ _ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit: ; preds = %442
 
 480:                                              ; preds = %484, %478
   %481 = phi ptr [ %479, %478 ], [ %485, %484 ]
-  %.15.in = phi i64 [ %.14, %478 ], [ %.15, %484 ]
-  %.15 = add i64 %.15.in, 1
+  %.12.in = phi i64 [ %.11, %478 ], [ %.12, %484 ]
+  %.12 = add i64 %.12.in, 1
   %482 = load i8, ptr %481, align 1
   %483 = icmp eq i8 %482, 10
   br i1 %483, label %484, label %.preheader
@@ -2902,8 +2902,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ;
 
 575:                                              ; preds = %224, %535, %265, %538, %516, %180, %157, %134, %131, %129, %127, %125, %123, %121, %119, %117, %115
   %.0293 = phi i32 [ %.0.i, %265 ], [ 15, %516 ], [ 5, %538 ], [ 14, %180 ], [ 13, %157 ], [ 11, %134 ], [ 9, %131 ], [ 8, %129 ], [ 7, %127 ], [ 6, %125 ], [ 4, %123 ], [ 3, %121 ], [ 2, %119 ], [ 1, %117 ], [ 0, %115 ], [ 12, %535 ], [ %spec.select352, %224 ]
-  %.13290 = phi ptr [ %.1278, %265 ], [ %479, %516 ], [ %.1278, %538 ], [ %.5282, %180 ], [ %.3280, %157 ], [ %.1278, %134 ], [ %.1278, %131 ], [ %.1278, %129 ], [ %.1278, %127 ], [ %.1278, %125 ], [ %.1278, %123 ], [ %.1278, %121 ], [ %.1278, %119 ], [ %.1278, %117 ], [ %.1278, %115 ], [ %.1278, %535 ], [ %.1278, %224 ]
-  %.16 = phi i64 [ %.1274, %265 ], [ %.15, %516 ], [ %.1274, %538 ], [ %.5, %180 ], [ %.3276, %157 ], [ %.1274, %134 ], [ %.1274, %131 ], [ %.1274, %129 ], [ %.1274, %127 ], [ %.1274, %125 ], [ %.1274, %123 ], [ %.1274, %121 ], [ %.1274, %119 ], [ %.1274, %117 ], [ %.1274, %115 ], [ %.1274, %535 ], [ %.1274, %224 ]
+  %.3280 = phi ptr [ %.10287, %265 ], [ %479, %516 ], [ %.10287, %538 ], [ %.6283, %180 ], [ %.4281, %157 ], [ %.10287, %134 ], [ %.10287, %131 ], [ %.10287, %129 ], [ %.10287, %127 ], [ %.10287, %125 ], [ %.10287, %123 ], [ %.10287, %121 ], [ %.10287, %119 ], [ %.10287, %117 ], [ %.10287, %115 ], [ %.10287, %535 ], [ %.10287, %224 ]
+  %.3276 = phi i64 [ %.13, %265 ], [ %.12, %516 ], [ %.13, %538 ], [ %.6, %180 ], [ %.4, %157 ], [ %.13, %134 ], [ %.13, %131 ], [ %.13, %129 ], [ %.13, %127 ], [ %.13, %125 ], [ %.13, %123 ], [ %.13, %121 ], [ %.13, %119 ], [ %.13, %117 ], [ %.13, %115 ], [ %.13, %535 ], [ %.13, %224 ]
   %576 = load ptr, ptr %6, align 8
   %577 = icmp eq ptr %576, %.pre.i
   br i1 %577, label %578, label %586
@@ -2948,10 +2948,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ;
 587:                                              ; preds = %586
   %588 = getelementptr inbounds i8, ptr %576, i64 1
   %589 = ptrtoint ptr %588 to i64
-  %590 = ptrtoint ptr %.13290 to i64
+  %590 = ptrtoint ptr %.3280 to i64
   %591 = sub i64 %589, %590
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  store i64 %.16, ptr %78, align 8
+  store i64 %.3276, ptr %78, align 8
   store i64 %591, ptr %.sroa.2239.0..sroa_idx, align 8
   %592 = invoke noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
           to label %.noexc218 unwind label %609
@@ -3018,9 +3018,9 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i: ; 
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i, %595, %320, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202
   %608 = phi ptr [ %.promoted545, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %353, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ %289, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %289, %320 ], [ %576, %595 ], [ %576, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
-  %.14291 = phi ptr [ %.1278, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %.11288, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ %.7284, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.7284, %320 ], [ %.13290, %595 ], [ %.13290, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
-  %.17 = phi i64 [ %.1274, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %.11, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ %.7, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.7, %320 ], [ %.16, %595 ], [ %.16, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
-  %.3 = phi i1 [ %.065, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %.2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ true, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ true, %320 ], [ false, %595 ], [ false, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
+  %.2279 = phi ptr [ %.10287, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %.14291, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ %.12289, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.12289, %320 ], [ %.3280, %595 ], [ %.3280, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
+  %.2275 = phi i64 [ %.13, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %.17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ %.15, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.15, %320 ], [ %.3276, %595 ], [ %.3276, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
+  %.166 = phi i1 [ %.065, %_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm.exit ], [ %.3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit202 ], [ true, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ true, %320 ], [ false, %595 ], [ false, %_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
@@ -3045,8 +3045,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 611:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %79
   %612 = phi ptr [ %.pre.i, %79 ], [ %608, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.15292 = phi ptr [ %.0277, %79 ], [ %.14291, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.18 = phi i64 [ %.0273, %79 ], [ %.17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.1278 = phi ptr [ %.0277, %79 ], [ %.2279, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.1274 = phi i64 [ %.0273, %79 ], [ %.2275, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   store i32 36, ptr %62, align 4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %613 unwind label %640
@@ -3054,18 +3054,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 613:                                              ; preds = %611
   %614 = getelementptr inbounds i8, ptr %612, i64 1
   %615 = ptrtoint ptr %614 to i64
-  %616 = ptrtoint ptr %.15292 to i64
+  %616 = ptrtoint ptr %.1278 to i64
   %reass.sub549 = sub i64 %615, %616
   %617 = add i64 %reass.sub549, 1
   %618 = ptrtoint ptr %612 to i64
   %reass.sub550 = sub i64 %618, %616
   %619 = add i64 %reass.sub550, 1
   %620 = getelementptr inbounds i8, ptr %63, i64 32
-  store i64 %.18, ptr %620, align 8
+  store i64 %.1274, ptr %620, align 8
   %.sroa.2237.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 40
   store i64 %619, ptr %.sroa.2237.0..sroa_idx, align 8
   %621 = getelementptr inbounds i8, ptr %63, i64 48
-  store i64 %.18, ptr %621, align 8
+  store i64 %.1274, ptr %621, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 56
   store i64 %617, ptr %.sroa.2.0..sroa_idx, align 8
   %622 = invoke noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22

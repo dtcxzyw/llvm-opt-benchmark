@@ -646,15 +646,15 @@ if.else:                                          ; preds = %if.end80
   br i1 %cmp85, label %return, label %if.end89
 
 if.end89:                                         ; preds = %if.end80, %if.else
-  %ctx.0 = phi ptr [ %call84, %if.else ], [ %ctx_passed, %if.end80 ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.0) #5
+  %ctx.1 = phi ptr [ %call84, %if.else ], [ %ctx_passed, %if.end80 ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.1) #5
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load i32, ptr %neg, align 8
   %tobool90.not = icmp eq i32 %2, 0
   br i1 %tobool90.not, label %if.end101, label %if.then91
 
 if.then91:                                        ; preds = %if.end89
-  %call92 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.0) #5
+  %call92 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.1) #5
   %cmp93 = icmp eq ptr %call92, null
   br i1 %cmp93, label %if.then166, label %lor.lhs.false
 
@@ -670,9 +670,9 @@ if.end98:                                         ; preds = %lor.lhs.false
 
 if.end101:                                        ; preds = %if.end89, %if.end98
   %A.0 = phi ptr [ %call92, %if.end98 ], [ %a, %if.end89 ]
-  %call102 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.0) #5
-  %call103 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.0) #5
-  %call104 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.0) #5
+  %call102 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.1) #5
+  %call103 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.1) #5
+  %call104 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.1) #5
   %cmp105 = icmp eq ptr %call104, null
   br i1 %cmp105, label %if.then166, label %if.end108
 
@@ -709,7 +709,7 @@ if.end127:                                        ; preds = %while.end
   br i1 %cmp129, label %if.then166, label %if.end132
 
 if.end132:                                        ; preds = %if.end127
-  %call133 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call128, ptr noundef %A.0, ptr noundef nonnull %ctx.0) #5
+  %call133 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call128, ptr noundef %A.0, ptr noundef nonnull %ctx.1) #5
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %if.then166, label %for.cond137.preheader
 
@@ -734,7 +734,7 @@ if.end144.us:                                     ; preds = %for.body140.us
   br i1 %tobool146.not.us, label %if.then166, label %if.end148.us
 
 if.end148.us:                                     ; preds = %if.end144.us
-  %call149.us = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.0, ptr noundef nonnull %call128)
+  %call149.us = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.1, ptr noundef nonnull %call128)
   switch i32 %call149.us, label %if.then166 [
     i32 -1, label %if.then166.loopexit
     i32 0, label %if.end156.us
@@ -757,7 +757,7 @@ if.end144:                                        ; preds = %for.body140
   br i1 %tobool146.not, label %if.then166, label %if.end148
 
 if.end148:                                        ; preds = %if.end144
-  %call149 = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.0, ptr noundef nonnull %call128)
+  %call149 = tail call fastcc i32 @witness(ptr noundef nonnull %call104, ptr noundef %A.0, ptr noundef %call102, ptr noundef %call103, i32 noundef %k.0, ptr noundef nonnull %ctx.1, ptr noundef nonnull %call128)
   switch i32 %call149, label %if.then166 [
     i32 -1, label %if.then166.loopexit103
     i32 0, label %if.end156
@@ -783,11 +783,11 @@ if.then166.loopexit103:                           ; preds = %if.end148
 if.then166:                                       ; preds = %for.inc161, %for.body140, %if.end144, %if.end156, %if.end156.us, %for.body140.us, %if.end144.us, %if.end148, %if.end148.us, %if.then166.loopexit103, %if.then166.loopexit, %for.cond137.preheader, %if.then91, %if.end101, %if.end127, %if.end132, %while.end, %if.end112, %if.end108, %lor.lhs.false, %if.end116
   %ret.0.ph = phi i32 [ 0, %if.end116 ], [ -1, %lor.lhs.false ], [ -1, %if.end108 ], [ -1, %if.end112 ], [ -1, %while.end ], [ -1, %if.end132 ], [ -1, %if.end127 ], [ -1, %if.end101 ], [ -1, %if.then91 ], [ 1, %for.cond137.preheader ], [ 0, %if.end148.us ], [ 0, %if.end148 ], [ 1, %if.end156.us ], [ -1, %for.body140.us ], [ -1, %if.end144.us ], [ %call149.us, %if.then166.loopexit ], [ 1, %for.inc161 ], [ -1, %for.body140 ], [ -1, %if.end144 ], [ -1, %if.end156 ], [ %call149, %if.then166.loopexit103 ]
   %mont.0.ph = phi ptr [ null, %if.end116 ], [ null, %lor.lhs.false ], [ null, %if.end108 ], [ null, %if.end112 ], [ null, %while.end ], [ %call128, %if.end132 ], [ null, %if.end127 ], [ null, %if.end101 ], [ null, %if.then91 ], [ %call128, %for.cond137.preheader ], [ %call128, %if.end148.us ], [ %call128, %if.end148 ], [ %call128, %if.end144.us ], [ %call128, %for.body140.us ], [ %call128, %if.end156.us ], [ %call128, %if.then166.loopexit ], [ %call128, %if.end156 ], [ %call128, %if.end144 ], [ %call128, %for.body140 ], [ %call128, %for.inc161 ], [ %call128, %if.then166.loopexit103 ]
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.0) #5
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.1) #5
   br i1 %cmp81.not, label %if.then169, label %if.end171
 
 if.then169:                                       ; preds = %if.then166
-  tail call void @BN_CTX_free(ptr noundef nonnull %ctx.0) #5
+  tail call void @BN_CTX_free(ptr noundef nonnull %ctx.1) #5
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then166, %if.then169

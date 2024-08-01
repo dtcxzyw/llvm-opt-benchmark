@@ -2066,11 +2066,11 @@ BufferGetPage.exit277:                            ; preds = %408, %414
   br label %499
 
 499:                                              ; preds = %475, %495, %497
-  %.1 = phi i64 [ %496, %495 ], [ %498, %497 ], [ 1, %475 ]
-  %500 = lshr i64 %.1, 32
+  %.2 = phi i64 [ %496, %495 ], [ %498, %497 ], [ 1, %475 ]
+  %500 = lshr i64 %.2, 32
   %501 = trunc nuw i64 %500 to i32
   store i32 %501, ptr %.0.i.i, align 4
-  %502 = trunc i64 %.1 to i32
+  %502 = trunc i64 %.2 to i32
   %503 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
   store i32 %502, ptr %503, align 4
   %.not250 = icmp eq ptr %7, null
@@ -2082,7 +2082,7 @@ BufferGetPage.exit277:                            ; preds = %408, %414
 
 .loopexit:                                        ; preds = %.lr.ph342, %.preheader, %499, %504, %._crit_edge337
   %.0228.in281 = phi i1 [ true, %._crit_edge337 ], [ false, %504 ], [ false, %499 ], [ true, %.preheader ], [ true, %.lr.ph342 ]
-  %.2 = phi i64 [ %.0, %._crit_edge337 ], [ %.1, %504 ], [ %.1, %499 ], [ %.0, %.preheader ], [ %.0, %.lr.ph342 ]
+  %.1 = phi i64 [ %.0, %._crit_edge337 ], [ %.2, %504 ], [ %.2, %499 ], [ %.0, %.preheader ], [ %.0, %.lr.ph342 ]
   %.not288 = icmp eq i32 %8, 0
   br i1 %.not288, label %537, label %505
 
@@ -2108,14 +2108,14 @@ BufferGetPage.exit277:                            ; preds = %408, %414
 
 BufferGetPage.exit279:                            ; preds = %507, %513
   %.0.i.i278 = phi ptr [ %512, %507 ], [ %518, %513 ]
-  %519 = lshr i64 %.2, 32
+  %519 = lshr i64 %.1, 32
   %520 = trunc nuw i64 %519 to i32
   %521 = getelementptr inbounds i8, ptr %.0.i.i278, i64 16
   %522 = load i16, ptr %521, align 4
   %523 = zext i16 %522 to i64
   %524 = getelementptr i8, ptr %.0.i.i278, i64 %523
   store i32 %520, ptr %524, align 4
-  %525 = trunc i64 %.2 to i32
+  %525 = trunc i64 %.1 to i32
   %526 = load i16, ptr %521, align 4
   %527 = zext i16 %526 to i64
   %528 = getelementptr i8, ptr %.0.i.i278, i64 %527

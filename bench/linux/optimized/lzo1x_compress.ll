@@ -46,7 +46,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %18 = phi ptr [ %13, %.lr.ph ], [ %391, %.loopexit12 ]
   %19 = phi i64 [ %1, %.lr.ph ], [ %392, %.loopexit12 ]
   %20 = phi i64 [ 0, %.lr.ph ], [ %390, %.loopexit12 ]
-  %.061 = phi i8 [ -2, %.lr.ph ], [ %.2, %.loopexit12 ]
+  %.061 = phi i8 [ -2, %.lr.ph ], [ %.4, %.loopexit12 ]
   %21 = tail call i64 @llvm.umin.i64(i64 %19, i64 %12)
   %22 = ptrtoint ptr %17 to i64
   %23 = add i64 %21, %22
@@ -67,7 +67,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %34, label %.preheader71, label %.loopexit12, !prof !5
 
 .preheader71:                                     ; preds = %28, %375
-  %.1 = phi i8 [ %376, %375 ], [ %.061, %28 ]
+  %.3 = phi i8 [ %376, %375 ], [ %.061, %28 ]
   %35 = phi i64 [ 0, %375 ], [ %20, %28 ]
   %36 = phi ptr [ %378, %375 ], [ %33, %28 ]
   %37 = phi ptr [ %377, %375 ], [ %18, %28 ]
@@ -262,7 +262,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %157, label %158, label %166
 
 158:                                              ; preds = %156
-  %159 = sext i8 %.1 to i64
+  %159 = sext i8 %.3 to i64
   %160 = getelementptr i8, ptr %37, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = trunc nuw nsw i64 %154 to i8
@@ -592,7 +592,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %379, label %.preheader71, label %.loopexit12, !prof !14
 
 .loopexit12:                                      ; preds = %375, %.lr.ph68.i, %78, %28
-  %.2 = phi i8 [ %.061, %28 ], [ %.1, %78 ], [ %.1, %.lr.ph68.i ], [ %376, %375 ]
+  %.4 = phi i8 [ %.061, %28 ], [ %.3, %78 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
   %380 = phi ptr [ %17, %28 ], [ %38, %78 ], [ %38, %.lr.ph68.i ], [ %378, %375 ]
   %381 = phi ptr [ %18, %28 ], [ %37, %78 ], [ %37, %.lr.ph68.i ], [ %377, %375 ]
   %382 = phi i64 [ %20, %28 ], [ %35, %78 ], [ %35, %.lr.ph68.i ], [ 0, %375 ]
@@ -611,15 +611,15 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %393, label %16, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %16, %.loopexit12
-  %.4.ph = phi i8 [ %.2, %.loopexit12 ], [ %.061, %16 ]
+  %.2.ph = phi i8 [ %.4, %.loopexit12 ], [ %.061, %16 ]
   %.ph73 = phi i64 [ %390, %.loopexit12 ], [ %20, %16 ]
   %.ph74 = phi i64 [ %392, %.loopexit12 ], [ %19, %16 ]
   %.ph75 = phi ptr [ %391, %.loopexit12 ], [ %18, %16 ]
-  %394 = sext i8 %.4.ph to i64
+  %394 = sext i8 %.2.ph to i64
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %11
-  %.4 = phi i64 [ -2, %11 ], [ %394, %.thread.loopexit ]
+  %.2 = phi i64 [ -2, %11 ], [ %394, %.thread.loopexit ]
   %395 = phi i64 [ 0, %11 ], [ %.ph73, %.thread.loopexit ]
   %396 = phi i64 [ %1, %11 ], [ %.ph74, %.thread.loopexit ]
   %397 = phi ptr [ %13, %11 ], [ %.ph75, %.thread.loopexit ]
@@ -648,7 +648,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br i1 %412, label %.thread9, label %417
 
 .thread9:                                         ; preds = %411
-  %413 = getelementptr i8, ptr %397, i64 %.4
+  %413 = getelementptr i8, ptr %397, i64 %.2
   %414 = load i8, ptr %413, align 1
   %415 = trunc nuw nsw i64 %398 to i8
   %416 = or i8 %414, %415

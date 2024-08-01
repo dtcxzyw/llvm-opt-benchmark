@@ -661,8 +661,8 @@ curl_mime_addpart.exit.thread:                    ; preds = %.lr.ph.split
   br i1 %132, label %.lr.ph.split, label %curl_mime_data.exit, !llvm.loop !8
 
 curl_mime_data.exit:                              ; preds = %curl_mime_addpart.exit.thread, %39
-  %.1 = phi i32 [ %42, %39 ], [ %130, %curl_mime_addpart.exit.thread ]
-  %.not56 = icmp eq i32 %.1, 0
+  %.047 = phi i32 [ %42, %39 ], [ %130, %curl_mime_addpart.exit.thread ]
+  %.not56 = icmp eq i32 %.047, 0
   br i1 %.not56, label %curl_mime_data.exit.thread, label %curl_mime_name.exit.thread
 
 curl_mime_data.exit.thread:                       ; preds = %curl_mime_subparts.exit, %39, %cleanup_part_content.exit.i66, %71, %cleanup_part_content.exit.i, %35, %3, %curl_mime_data.exit
@@ -774,7 +774,7 @@ curl_mime_headers.exit:                           ; preds = %137
   br i1 %.not10.i83, label %curl_mime_name.exit.thread, label %curl_mime_filename.exit
 
 curl_mime_name.exit.thread:                       ; preds = %.lr.ph.split, %73, %80, %.critedge.i.i, %99, %82, %3, %44, %33, %6, %135, %curl_mime_headers.exit, %curl_mime_data.exit, %161, %170, %179
-  %.5.ph = phi i32 [ 27, %179 ], [ 27, %170 ], [ 27, %161 ], [ 27, %135 ], [ 43, %curl_mime_headers.exit ], [ %.1, %curl_mime_data.exit ], [ 43, %44 ], [ 27, %33 ], [ 43, %6 ], [ 43, %3 ], [ 27, %73 ], [ 27, %80 ], [ 43, %.critedge.i.i ], [ 43, %99 ], [ 43, %82 ], [ 27, %.lr.ph.split ]
+  %.5.ph = phi i32 [ 27, %179 ], [ 27, %170 ], [ 27, %161 ], [ 27, %135 ], [ 43, %curl_mime_headers.exit ], [ %.047, %curl_mime_data.exit ], [ 43, %44 ], [ 27, %33 ], [ 43, %6 ], [ 43, %3 ], [ 27, %73 ], [ 27, %80 ], [ 43, %.critedge.i.i ], [ 43, %99 ], [ 43, %82 ], [ 27, %.lr.ph.split ]
   tail call void @Curl_mime_cleanpart(ptr noundef %1)
   br label %curl_mime_filename.exit
 
@@ -916,12 +916,12 @@ cleanup_part_content.exit:                        ; preds = %4, %7
   br label %27
 
 27:                                               ; preds = %26, %24
-  %.023 = phi i32 [ 26, %26 ], [ 0, %24 ]
+  %.1 = phi i32 [ 26, %26 ], [ 0, %24 ]
   %28 = load ptr, ptr @Curl_cstrdup, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %1) #15
   store ptr %29, ptr %12, align 8
   %.not31 = icmp eq ptr %29, null
-  %spec.select = select i1 %.not31, i32 27, i32 %.023
+  %spec.select = select i1 %.not31, i32 27, i32 %.1
   store i64 -1, ptr %14, align 8
   %.not32 = icmp eq i32 %spec.select, 0
   br i1 %.not32, label %30, label %39
@@ -2076,8 +2076,8 @@ thread-pre-split:                                 ; preds = %80, %86
   br label %read_encoded_part_content.exit
 
 read_encoded_part_content.exit:                   ; preds = %74, %94, %75, %89, %98
-  %.056 = phi i64 [ %99, %98 ], [ %.047.i.ph, %89 ], [ %spec.select, %75 ], [ %spec.select153, %94 ], [ %.047.i.ph, %74 ]
-  switch i64 %.056, label %110 [
+  %.1 = phi i64 [ %99, %98 ], [ %.047.i.ph, %89 ], [ %spec.select, %75 ], [ %spec.select153, %94 ], [ %.047.i.ph, %74 ]
+  switch i64 %.1, label %110 [
     i64 0, label %100
     i64 268435456, label %read_encoded_part_content.exit.thread
     i64 268435457, label %read_encoded_part_content.exit.thread
@@ -2105,16 +2105,16 @@ read_encoded_part_content.exit:                   ; preds = %74, %94, %75, %89, 
   br label %read_encoded_part_content.exit.thread
 
 read_encoded_part_content.exit.thread:            ; preds = %89, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %100, %104, %107
-  %.05697 = phi i64 [ 0, %100 ], [ 0, %104 ], [ 0, %107 ], [ -1, %89 ], [ %.056, %read_encoded_part_content.exit ], [ %.056, %read_encoded_part_content.exit ], [ %.056, %read_encoded_part_content.exit ], [ %.056, %read_encoded_part_content.exit ]
+  %.197 = phi i64 [ 0, %100 ], [ 0, %104 ], [ 0, %107 ], [ -1, %89 ], [ %.1, %read_encoded_part_content.exit ], [ %.1, %read_encoded_part_content.exit ], [ %.1, %read_encoded_part_content.exit ], [ %.1, %read_encoded_part_content.exit ]
   %.not69 = icmp eq i64 %.057119, 0
-  %109 = select i1 %.not69, i64 %.05697, i64 %.057119
+  %109 = select i1 %.not69, i64 %.197, i64 %.057119
   br label %.loopexit
 
 110:                                              ; preds = %readback_bytes.exit83, %16, %read_encoded_part_content.exit, %readback_bytes.exit83.thread, %36, %readback_bytes.exit.thread, %readback_bytes.exit, %63, %.preheader.i.preheader, %25, %19
-  %.1 = phi i64 [ 0, %16 ], [ %.056, %read_encoded_part_content.exit ], [ 0, %63 ], [ %spec.select.i82, %readback_bytes.exit83 ], [ 0, %readback_bytes.exit83.thread ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %readback_bytes.exit.thread ], [ 0, %36 ], [ 0, %.preheader.i.preheader ], [ 0, %25 ], [ 0, %19 ]
-  %111 = add i64 %.1, %.057119
-  %112 = getelementptr inbounds i8, ptr %.058117, i64 %.1
-  %113 = sub i64 %.059115, %.1
+  %.056 = phi i64 [ 0, %16 ], [ %.1, %read_encoded_part_content.exit ], [ 0, %63 ], [ %spec.select.i82, %readback_bytes.exit83 ], [ 0, %readback_bytes.exit83.thread ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %readback_bytes.exit.thread ], [ 0, %36 ], [ 0, %.preheader.i.preheader ], [ 0, %25 ], [ 0, %19 ]
+  %111 = add i64 %.056, %.057119
+  %112 = getelementptr inbounds i8, ptr %.058117, i64 %.056
+  %113 = sub i64 %.059115, %.056
   %.not = icmp eq i64 %113, 0
   br i1 %.not, label %.loopexit, label %16, !llvm.loop !12
 
@@ -2417,9 +2417,9 @@ define dso_local i32 @Curl_mime_prepare_headers(ptr noundef %0, ptr nocapture no
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.pn.i.i = phi ptr [ %.0.i.i, %.preheader.i.i ], [ %26, %.preheader.i.i.preheader ]
-  %.0.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 1
-  %27 = load i8, ptr %.0.i.i, align 1
+  %.pn.i.i = phi ptr [ %.1.i.i, %.preheader.i.i ], [ %26, %.preheader.i.i.preheader ]
+  %.1.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 1
+  %27 = load i8, ptr %.1.i.i, align 1
   %28 = icmp eq i8 %27, 32
   br i1 %28, label %.preheader.i.i, label %search_header.exit, !llvm.loop !16
 
@@ -2430,7 +2430,7 @@ match_header.exit.i:                              ; preds = %21, %.lr.ph.i
   br i1 %.not.i, label %search_header.exit, label %.lr.ph.i, !llvm.loop !17
 
 search_header.exit:                               ; preds = %match_header.exit.i, %.preheader.i.i, %16, %13
-  %.0105 = phi ptr [ %15, %13 ], [ null, %16 ], [ %.0.i.i, %.preheader.i.i ], [ null, %match_header.exit.i ]
+  %.0105 = phi ptr [ %15, %13 ], [ null, %16 ], [ %.1.i.i, %.preheader.i.i ], [ null, %match_header.exit.i ]
   %31 = icmp ne ptr %.0105, null
   %spec.select = select i1 %31, ptr %.0105, ptr %2
   %.not135 = icmp eq ptr %spec.select, null
@@ -2561,7 +2561,7 @@ Curl_mime_contenttype.exit185.thread:             ; preds = %65, %Curl_mime_cont
   br i1 %exitcond.not.i192, label %Curl_mime_contenttype.exit193, label %75, !llvm.loop !15
 
 Curl_mime_contenttype.exit193:                    ; preds = %86, %Curl_mime_contenttype.exit, %83, %69, %Curl_mime_contenttype.exit185.thread, %32, %Curl_mime_contenttype.exit185, %search_header.exit
-  %.2114 = phi ptr [ %spec.select, %search_header.exit ], [ %67, %Curl_mime_contenttype.exit185 ], [ @.str.19, %32 ], [ %spec.select169, %Curl_mime_contenttype.exit185.thread ], [ %85, %83 ], [ null, %69 ], [ %51, %Curl_mime_contenttype.exit ], [ null, %86 ]
+  %.1113 = phi ptr [ %spec.select, %search_header.exit ], [ %67, %Curl_mime_contenttype.exit185 ], [ @.str.19, %32 ], [ %spec.select169, %Curl_mime_contenttype.exit185.thread ], [ %85, %83 ], [ null, %69 ], [ %51, %Curl_mime_contenttype.exit ], [ null, %86 ]
   %87 = getelementptr inbounds i8, ptr %1, i64 16
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, 4
@@ -2576,17 +2576,17 @@ Curl_mime_contenttype.exit193:                    ; preds = %86, %Curl_mime_cont
   br label %content_type_match.exit
 
 94:                                               ; preds = %Curl_mime_contenttype.exit193
-  %95 = icmp eq ptr %.2114, null
+  %95 = icmp eq ptr %.1113, null
   %or.cond = or i1 %31, %95
   br i1 %or.cond, label %content_type_match.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call i32 @curl_strnequal(ptr noundef nonnull %.2114, ptr noundef nonnull @.str.11, i64 noundef 10) #15
+  %97 = tail call i32 @curl_strnequal(ptr noundef nonnull %.1113, ptr noundef nonnull @.str.11, i64 noundef 10) #15
   %.not7.i = icmp eq i32 %97, 0
   br i1 %.not7.i, label %content_type_match.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.2114, i64 10
+  %99 = getelementptr inbounds i8, ptr %.1113, i64 10
   %100 = load i8, ptr %99, align 1
   switch i8 %100, label %content_type_match.exit [
     i8 0, label %101
@@ -2611,7 +2611,7 @@ Curl_mime_contenttype.exit193:                    ; preds = %86, %Curl_mime_cont
   br label %content_type_match.exit
 
 content_type_match.exit:                          ; preds = %98, %96, %90, %94, %106, %103
-  %.3115 = phi ptr [ %.2114, %94 ], [ null, %106 ], [ %.2114, %103 ], [ %.2114, %90 ], [ %.2114, %96 ], [ %.2114, %98 ]
+  %.3115 = phi ptr [ %.1113, %94 ], [ null, %106 ], [ %.1113, %103 ], [ %.1113, %90 ], [ %.1113, %96 ], [ %.1113, %98 ]
   %.0107 = phi ptr [ null, %94 ], [ null, %106 ], [ null, %103 ], [ %92, %90 ], [ null, %96 ], [ null, %98 ]
   %.0106 = phi ptr [ null, %94 ], [ null, %106 ], [ null, %103 ], [ %spec.select171, %90 ], [ null, %96 ], [ null, %98 ]
   %107 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2718,12 +2718,12 @@ match_header.exit.i200:                           ; preds = %111, %.lr.ph.i197
 select.unfold249:                                 ; preds = %137, %.thread299, %139
   %.0101258 = phi ptr [ %.0101.ph, %139 ], [ null, %.thread299 ], [ null, %137 ]
   %.0102247256 = phi ptr [ %.0102.ph, %139 ], [ null, %.thread299 ], [ %.0102.ph, %137 ]
-  %.2 = phi i32 [ %146, %139 ], [ 27, %.thread299 ], [ 27, %137 ]
+  %.3 = phi i32 [ %146, %139 ], [ 27, %.thread299 ], [ 27, %137 ]
   %147 = load ptr, ptr @Curl_cfree, align 8
   tail call void %147(ptr noundef %.0102247256) #15
   %148 = load ptr, ptr @Curl_cfree, align 8
   tail call void %148(ptr noundef %.0101258) #15
-  %.not160 = icmp eq i32 %.2, 0
+  %.not160 = icmp eq i32 %.3, 0
   br i1 %.not160, label %search_header.exit207, label %.loopexit
 
 search_header.exit207:                            ; preds = %111, %130, %select.unfold249
@@ -2852,7 +2852,7 @@ content_type_match.exit224:                       ; preds = %185, %183, %182, %1
   br i1 %.not168, label %190, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %190, %191, %178, %.thread267, %search_header.exit207.thread272, %select.unfold249
-  %.0108 = phi i32 [ %.2, %select.unfold249 ], [ %151, %search_header.exit207.thread272 ], [ %171, %.thread267 ], [ 0, %178 ], [ 0, %190 ], [ %192, %191 ]
+  %.0108 = phi i32 [ %.3, %select.unfold249 ], [ %151, %search_header.exit207.thread272 ], [ %171, %.thread267 ], [ 0, %178 ], [ 0, %190 ], [ %192, %191 ]
   ret i32 %.0108
 }
 
@@ -3125,14 +3125,14 @@ define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %0, i64
   br label %23
 
 23:                                               ; preds = %18, %12
-  %.167 = phi i64 [ %22, %18 ], [ %.06686, %12 ]
-  %.163 = phi i64 [ %21, %18 ], [ %.06287, %12 ]
-  %.1 = phi ptr [ %20, %18 ], [ %.088, %12 ]
-  %24 = icmp ult i64 %.167, 4
+  %.268 = phi i64 [ %22, %18 ], [ %.06686, %12 ]
+  %.264 = phi i64 [ %21, %18 ], [ %.06287, %12 ]
+  %.2 = phi ptr [ %20, %18 ], [ %.088, %12 ]
+  %24 = icmp ult i64 %.268, 4
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23
-  %.not = icmp eq i64 %.163, 0
+  %.not = icmp eq i64 %.264, 0
   br i1 %.not, label %127, label %.loopexit
 
 26:                                               ; preds = %23
@@ -3166,57 +3166,57 @@ define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %0, i64
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds [65 x i8], ptr @base64enc, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 %51, ptr %.1, align 1
+  %52 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 %51, ptr %.2, align 1
   %53 = lshr i32 %47, 12
   %54 = and i32 %53, 63
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds [65 x i8], ptr @base64enc, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.1, i64 2
+  %58 = getelementptr inbounds i8, ptr %.2, i64 2
   store i8 %57, ptr %52, align 1
   %59 = lshr i32 %46, 6
   %60 = and i32 %59, 63
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds [65 x i8], ptr @base64enc, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.1, i64 3
+  %64 = getelementptr inbounds i8, ptr %.2, i64 3
   store i8 %63, ptr %58, align 1
   %65 = and i32 %45, 63
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds [65 x i8], ptr @base64enc, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.1, i64 4
+  %69 = getelementptr inbounds i8, ptr %.2, i64 4
   store i8 %68, ptr %64, align 1
-  %70 = add i64 %.163, 4
+  %70 = add i64 %.264, 4
   %71 = load i64, ptr %5, align 8
   %72 = add i64 %71, 4
   store i64 %72, ptr %5, align 8
-  %73 = add i64 %.167, -4
+  %73 = add i64 %.268, -4
   %74 = load i64, ptr %6, align 8
   %75 = load i64, ptr %7, align 8
   %76 = icmp ult i64 %74, %75
   br i1 %76, label %12, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %31, %26, %4, %25, %17
-  %.268 = phi i64 [ %.06686, %17 ], [ %.167, %25 ], [ %1, %4 ], [ %73, %31 ], [ %.167, %26 ]
-  %.264 = phi i64 [ %.06287, %17 ], [ %.163, %25 ], [ 0, %4 ], [ %70, %31 ], [ %.163, %26 ]
-  %.2 = phi ptr [ %.088, %17 ], [ %.1, %25 ], [ %0, %4 ], [ %69, %31 ], [ %.1, %26 ]
+  %.167 = phi i64 [ %.06686, %17 ], [ %.268, %25 ], [ %1, %4 ], [ %73, %31 ], [ %.268, %26 ]
+  %.163 = phi i64 [ %.06287, %17 ], [ %.264, %25 ], [ 0, %4 ], [ %70, %31 ], [ %.264, %26 ]
+  %.1 = phi ptr [ %.088, %17 ], [ %.2, %25 ], [ %0, %4 ], [ %69, %31 ], [ %.2, %26 ]
   br i1 %2, label %77, label %127
 
 77:                                               ; preds = %.loopexit
-  %78 = icmp ult i64 %.268, 4
+  %78 = icmp ult i64 %.167, 4
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
-  %.not74 = icmp eq i64 %.264, 0
-  %spec.select = select i1 %.not74, i64 -2, i64 %.264
+  %.not74 = icmp eq i64 %.163, 0
+  %spec.select = select i1 %.not74, i64 -2, i64 %.163
   br label %127
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.2, i64 3
+  %81 = getelementptr inbounds i8, ptr %.1, i64 3
   store i8 61, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %.2, i64 2
+  %82 = getelementptr inbounds i8, ptr %.1, i64 2
   store i8 61, ptr %82, align 1
   %83 = load i64, ptr %7, align 8
   %84 = load i64, ptr %6, align 8
@@ -3249,13 +3249,13 @@ define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %0, i64
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds [65 x i8], ptr @base64enc, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1
-  store i8 %105, ptr %.2, align 1
+  store i8 %105, ptr %.1, align 1
   %106 = lshr i32 %101, 12
   %107 = and i32 %106, 63
   %108 = zext nneg i32 %107 to i64
   %109 = getelementptr inbounds [65 x i8], ptr @base64enc, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1
-  %111 = getelementptr inbounds i8, ptr %.2, i64 1
+  %111 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 %110, ptr %111, align 1
   %112 = load i64, ptr %6, align 8
   %113 = add i64 %112, 1
@@ -3277,14 +3277,14 @@ define internal i64 @encoder_base64_read(ptr nocapture noundef writeonly %0, i64
   br label %123
 
 123:                                              ; preds = %115, %95
-  %124 = add i64 %.264, 4
+  %124 = add i64 %.163, 4
   %125 = load i64, ptr %5, align 8
   %126 = add i64 %125, 4
   store i64 %126, ptr %5, align 8
   br label %127
 
 127:                                              ; preds = %79, %.loopexit, %80, %123, %25, %17
-  %.065 = phi i64 [ -2, %17 ], [ -2, %25 ], [ %124, %123 ], [ %.264, %80 ], [ %.264, %.loopexit ], [ %spec.select, %79 ]
+  %.065 = phi i64 [ -2, %17 ], [ -2, %25 ], [ %124, %123 ], [ %.163, %80 ], [ %.163, %.loopexit ], [ %spec.select, %79 ]
   ret i64 %.065
 }
 
@@ -3718,10 +3718,10 @@ readback_bytes.exit49.thread:                     ; preds = %29
   br label %readback_bytes.exit43
 
 readback_bytes.exit43:                            ; preds = %readback_bytes.exit49, %48, %58, %67, %64, %63, %61, %readback_bytes.exit49.thread, %27, %24
-  %.1.i = phi i64 [ 0, %24 ], [ %65, %64 ], [ 0, %67 ], [ 0, %63 ], [ 0, %61 ], [ %spec.select.i48, %readback_bytes.exit49 ], [ 0, %readback_bytes.exit49.thread ], [ 0, %27 ], [ %spec.select.i42, %48 ], [ %spec.select.i, %58 ]
-  %70 = add i64 %.1.i, %.046.i63
-  %71 = getelementptr inbounds i8, ptr %.047.i61, i64 %.1.i
-  %72 = sub i64 %.048.i59, %.1.i
+  %.045.i = phi i64 [ 0, %24 ], [ %65, %64 ], [ 0, %67 ], [ 0, %63 ], [ 0, %61 ], [ %spec.select.i48, %readback_bytes.exit49 ], [ 0, %readback_bytes.exit49.thread ], [ 0, %27 ], [ %spec.select.i42, %48 ], [ %spec.select.i, %58 ]
+  %70 = add i64 %.045.i, %.046.i63
+  %71 = getelementptr inbounds i8, ptr %.047.i61, i64 %.045.i
+  %72 = sub i64 %.048.i59, %.045.i
   %.not.i = icmp eq i64 %72, 0
   br i1 %.not.i, label %mime_subparts_read.exit, label %24, !llvm.loop !25
 

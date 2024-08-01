@@ -7211,8 +7211,8 @@ _ZNK2dd11pdd_manager13first_leadingEj.exit:       ; preds = %land.rhs.i.i.i, %_Z
   br i1 %cmp87, label %return, label %sw.epilog
 
 while.cond:                                       ; preds = %while.body, %while.cond.preheader
-  %q.addr.0 = phi i32 [ %q, %while.cond.preheader ], [ %52, %while.body ]
-  %idxprom.i.i239 = zext i32 %q.addr.0 to i64
+  %q.addr.1 = phi i32 [ %q, %while.cond.preheader ], [ %52, %while.body ]
+  %idxprom.i.i239 = zext i32 %q.addr.1 to i64
   %arrayidx.i.i240 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %0, i64 %idxprom.i.i239
   %m_hi.i.i241 = getelementptr inbounds i8, ptr %arrayidx.i.i240, i64 8
   %52 = load i32, ptr %m_hi.i.i241, align 4
@@ -7308,7 +7308,7 @@ sw.epilog.sink.split:                             ; preds = %_ZNK2dd11pdd_manage
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %lor.lhs.false101, %land.rhs.i.i201, %land.rhs.i.i190, %land.rhs.i.i137, %land.rhs.i.i126, %_ZNK2dd11pdd_manager6is_valEj.exit196, %_ZNK2dd11pdd_manager6is_valEj.exit132, %sw.bb105, %_ZNK2dd11pdd_manager6is_valEj.exit291, %_ZNK2dd11pdd_manager13first_leadingEj.exit, %_ZNK2dd11pdd_manager6is_valEj.exit207, %_ZNK2dd11pdd_manager6is_valEj.exit143, %if.end8
   %p.addr.0 = phi i32 [ %p, %sw.bb105 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %p, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %p, %if.end8 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %q, %land.rhs.i.i126 ], [ %p, %land.rhs.i.i137 ], [ %q, %land.rhs.i.i190 ], [ %p, %land.rhs.i.i201 ], [ %p, %lor.lhs.false101 ], [ %spec.select1155, %sw.epilog.sink.split ]
-  %q.addr.1 = phi i32 [ %q, %sw.bb105 ], [ %q.addr.0, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %q, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %q, %if.end8 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %p, %land.rhs.i.i126 ], [ %q, %land.rhs.i.i137 ], [ %p, %land.rhs.i.i190 ], [ %q, %land.rhs.i.i201 ], [ %q.addr.0, %lor.lhs.false101 ], [ %spec.select1156, %sw.epilog.sink.split ]
+  %q.addr.0 = phi i32 [ %q, %sw.bb105 ], [ %q.addr.1, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ %q, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ %q, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ %q, %if.end8 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ %p, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ %p, %land.rhs.i.i126 ], [ %q, %land.rhs.i.i137 ], [ %p, %land.rhs.i.i190 ], [ %q, %land.rhs.i.i201 ], [ %q.addr.1, %lor.lhs.false101 ], [ %spec.select1156, %sw.epilog.sink.split ]
   %op.addr.1 = phi i32 [ 8, %sw.bb105 ], [ 7, %_ZNK2dd11pdd_manager6is_valEj.exit291 ], [ 6, %_ZNK2dd11pdd_manager13first_leadingEj.exit ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit207 ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit143 ], [ 3, %if.end8 ], [ 2, %_ZNK2dd11pdd_manager6is_valEj.exit132 ], [ 5, %_ZNK2dd11pdd_manager6is_valEj.exit196 ], [ 2, %land.rhs.i.i126 ], [ 2, %land.rhs.i.i137 ], [ 5, %land.rhs.i.i190 ], [ 5, %land.rhs.i.i201 ], [ 7, %lor.lhs.false101 ], [ %op.addr.1.ph, %sw.epilog.sink.split ]
   %m_spare_entry.i = getelementptr inbounds i8, ptr %this, i64 120
   %61 = load ptr, ptr %m_spare_entry.i, align 8
@@ -7319,7 +7319,7 @@ if.then.i:                                        ; preds = %sw.epilog
   store ptr null, ptr %m_spare_entry.i, align 8
   store i32 %p.addr.0, ptr %61, align 4
   %m_pdd2.i = getelementptr inbounds i8, ptr %61, i64 4
-  store i32 %q.addr.1, ptr %m_pdd2.i, align 4
+  store i32 %q.addr.0, ptr %m_pdd2.i, align 4
   %m_op.i = getelementptr inbounds i8, ptr %61, i64 8
   store i32 %op.addr.1, ptr %m_op.i, align 4
   br label %_ZN2dd11pdd_manager9pop_entryEjjj.exit
@@ -7329,7 +7329,7 @@ if.else.i:                                        ; preds = %sw.epilog
   %call.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %m_alloc.i, i64 noundef 16)
   store i32 %p.addr.0, ptr %call.i, align 4
   %m_pdd2.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
-  store i32 %q.addr.1, ptr %m_pdd2.i.i, align 4
+  store i32 %q.addr.0, ptr %m_pdd2.i.i, align 4
   %m_op.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %op.addr.1, ptr %m_op.i.i, align 4
   %m_result.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
@@ -7362,7 +7362,7 @@ if.then112:                                       ; preds = %_ZN2dd11pdd_manager
 if.end113:                                        ; preds = %_ZN2dd11pdd_manager9pop_entryEjjj.exit
   store i32 %p.addr.0, ptr %result.0.i, align 4
   %m_pdd2.i294 = getelementptr inbounds i8, ptr %result.0.i, i64 4
-  store i32 %q.addr.1, ptr %m_pdd2.i294, align 4
+  store i32 %q.addr.0, ptr %m_pdd2.i294, align 4
   %m_op.i295 = getelementptr inbounds i8, ptr %result.0.i, i64 8
   store i32 %op.addr.1, ptr %m_op.i295, align 4
   %65 = load ptr, ptr %this, align 8
@@ -7370,7 +7370,7 @@ if.end113:                                        ; preds = %_ZN2dd11pdd_manager
   %arrayidx.i.i298 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297
   %bf.load.i299 = load i32, ptr %arrayidx.i.i298, align 4
   %bf.lshr.i300 = lshr i32 %bf.load.i299, 10
-  %idxprom.i.i301 = zext i32 %q.addr.1 to i64
+  %idxprom.i.i301 = zext i32 %q.addr.0 to i64
   %arrayidx.i.i302 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i301
   %bf.load.i303 = load i32, ptr %arrayidx.i.i302, align 4
   %bf.lshr.i304 = lshr i32 %bf.load.i303, 10
@@ -7404,7 +7404,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit315:            ; preds = %land.rhs.i.i309
 if.then118:                                       ; preds = %land.rhs.i.i309, %_ZNK2dd11pdd_manager6is_valEj.exit315
   %m_lo.i = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297, i32 1
   %69 = load i32, ptr %m_lo.i, align 4
-  %call120 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %69, i32 noundef %q.addr.1, i32 noundef 2)
+  %call120 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %69, i32 noundef %q.addr.0, i32 noundef 2)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call120)
   %m_pdd_stack.i = getelementptr inbounds i8, ptr %this, i64 112
   %70 = load ptr, ptr %m_pdd_stack.i, align 8
@@ -7515,7 +7515,7 @@ _ZN2dd11pdd_manager9make_nodeEjjj.exit362:        ; preds = %_ZN2dd11pdd_manager
   br label %sw.epilog333
 
 if.else136:                                       ; preds = %if.else124
-  %call138 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %77, i32 noundef %q.addr.1, i32 noundef 2)
+  %call138 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %77, i32 noundef %q.addr.0, i32 noundef 2)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call138)
   %m_pdd_stack.i365 = getelementptr inbounds i8, ptr %this, i64 112
   %89 = load ptr, ptr %m_pdd_stack.i365, align 8
@@ -7674,7 +7674,7 @@ _ZNK2dd11pdd_manager6is_valEj.exit452:            ; preds = %_ZNK2dd11pdd_manage
 if.then162:                                       ; preds = %land.rhs.i.i402, %_ZNK2dd11pdd_manager6is_valEj.exit452
   %m_lo.i454 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297, i32 1
   %114 = load i32, ptr %m_lo.i454, align 4
-  %call164 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %114, i32 noundef %q.addr.1, i32 noundef 3)
+  %call164 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %114, i32 noundef %q.addr.0, i32 noundef 3)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call164)
   %m_pdd_stack.i455 = getelementptr inbounds i8, ptr %this, i64 112
   %115 = load ptr, ptr %m_pdd_stack.i455, align 8
@@ -7801,12 +7801,12 @@ _ZNK2dd11pdd_manager6is_valEj.exit524:            ; preds = %land.rhs.i.i518
 if.then182:                                       ; preds = %land.rhs.i.i518, %_ZNK2dd11pdd_manager6is_valEj.exit524
   %m_lo.i526 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297, i32 1
   %137 = load i32, ptr %m_lo.i526, align 4
-  %call184 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %137, i32 noundef %q.addr.1, i32 noundef 5)
+  %call184 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %137, i32 noundef %q.addr.0, i32 noundef 5)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call184)
   %138 = load ptr, ptr %this, align 8
   %m_hi.i528 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %138, i64 %idxprom.i.i297, i32 2
   %139 = load i32, ptr %m_hi.i528, align 4
-  %call186 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %139, i32 noundef %q.addr.1, i32 noundef 5)
+  %call186 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %139, i32 noundef %q.addr.0, i32 noundef 5)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call186)
   %m_pdd_stack.i529 = getelementptr inbounds i8, ptr %this, i64 112
   %140 = load ptr, ptr %m_pdd_stack.i529, align 8
@@ -8231,12 +8231,12 @@ _ZN2dd11pdd_manager9make_nodeEjjj.exit776:        ; preds = %_ZN2dd11pdd_manager
 if.else254:                                       ; preds = %if.else190
   %m_lo.i778 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297, i32 1
   %223 = load i32, ptr %m_lo.i778, align 4
-  %call256 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %223, i32 noundef %q.addr.1, i32 noundef 5)
+  %call256 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %223, i32 noundef %q.addr.0, i32 noundef 5)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call256)
   %224 = load ptr, ptr %this, align 8
   %m_hi.i780 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %224, i64 %idxprom.i.i297, i32 2
   %225 = load i32, ptr %m_hi.i780, align 4
-  %call258 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %225, i32 noundef %q.addr.1, i32 noundef 5)
+  %call258 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %225, i32 noundef %q.addr.0, i32 noundef 5)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call258)
   %m_pdd_stack.i781 = getelementptr inbounds i8, ptr %this, i64 112
   %226 = load ptr, ptr %m_pdd_stack.i781, align 8
@@ -8287,7 +8287,7 @@ _ZN2dd11pdd_manager9make_nodeEjjj.exit809:        ; preds = %_ZN2dd11pdd_manager
   br label %sw.epilog333
 
 sw.bb264:                                         ; preds = %if.end113
-  %call265 = call noundef i32 @_ZNK2dd11pdd_manager13first_leadingEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %q.addr.1)
+  %call265 = call noundef i32 @_ZNK2dd11pdd_manager13first_leadingEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %q.addr.0)
   %233 = load ptr, ptr %this, align 8
   %idxprom.i.i810 = zext i32 %call265 to i64
   %arrayidx.i.i811 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %233, i64 %idxprom.i.i810
@@ -8299,12 +8299,12 @@ sw.bb264:                                         ; preds = %if.end113
 if.then268:                                       ; preds = %sw.bb264
   %m_lo.i815 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %233, i64 %idxprom.i.i297, i32 1
   %234 = load i32, ptr %m_lo.i815, align 4
-  %call270 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %234, i32 noundef %q.addr.1, i32 noundef 6)
+  %call270 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %234, i32 noundef %q.addr.0, i32 noundef 6)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call270)
   %235 = load ptr, ptr %this, align 8
   %m_hi.i817 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %235, i64 %idxprom.i.i297, i32 2
   %236 = load i32, ptr %m_hi.i817, align 4
-  %call272 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %236, i32 noundef %q.addr.1, i32 noundef 6)
+  %call272 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %236, i32 noundef %q.addr.0, i32 noundef 6)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call272)
   %m_pdd_stack.i818 = getelementptr inbounds i8, ptr %this, i64 112
   %237 = load ptr, ptr %m_pdd_stack.i818, align 8
@@ -8441,18 +8441,18 @@ _ZN2dd11pdd_manager4readEj.exit884:               ; preds = %_ZN2dd11pdd_manager
   br label %sw.epilog333
 
 if.else299:                                       ; preds = %sw.bb264
-  %call300 = call noundef i32 @_ZN2dd11pdd_manager15reduce_on_matchEjj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %p.addr.0, i32 noundef %q.addr.1)
+  %call300 = call noundef i32 @_ZN2dd11pdd_manager15reduce_on_matchEjj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %p.addr.0, i32 noundef %q.addr.0)
   br label %sw.epilog333
 
 sw.bb302:                                         ; preds = %if.end113
   %m_lo.i886 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297, i32 1
   %261 = load i32, ptr %m_lo.i886, align 4
-  %call304 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %261, i32 noundef %q.addr.1, i32 noundef 7)
+  %call304 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %261, i32 noundef %q.addr.0, i32 noundef 7)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call304)
   %262 = load ptr, ptr %this, align 8
   %m_hi.i888 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %262, i64 %idxprom.i.i297, i32 2
   %263 = load i32, ptr %m_hi.i888, align 4
-  %call306 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %263, i32 noundef %q.addr.1, i32 noundef 7)
+  %call306 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %263, i32 noundef %q.addr.0, i32 noundef 7)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call306)
   %cmp307 = icmp ugt i32 %bf.lshr.i300, %bf.lshr.i304
   br i1 %cmp307, label %if.then308, label %if.else312
@@ -8588,7 +8588,7 @@ _ZN2dd11pdd_manager9make_nodeEjjj.exit959:        ; preds = %if.then322, %if.end
 if.else325:                                       ; preds = %sw.bb320
   %m_hi.i961 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %65, i64 %idxprom.i.i297, i32 2
   %286 = load i32, ptr %m_hi.i961, align 4
-  %call327 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %286, i32 noundef %q.addr.1, i32 noundef 8)
+  %call327 = call noundef i32 @_ZN2dd11pdd_manager9apply_recEjjNS0_6pdd_opE(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %286, i32 noundef %q.addr.0, i32 noundef 8)
   call void @_ZN2dd11pdd_manager4pushEj(ptr noundef nonnull align 8 dereferenceable(952) %this, i32 noundef %call327)
   %287 = load ptr, ptr %this, align 8
   %m_lo.i963 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %287, i64 %idxprom.i.i297, i32 1
@@ -10612,14 +10612,14 @@ if.then.i.i51:                                    ; preds = %lpad12
 
 catch.dispatch:                                   ; preds = %if.then.i.i51, %lpad12, %lpad5
   %.pn = phi { ptr, i32 } [ %19, %lpad5 ], [ %20, %lpad12 ], [ %20, %if.then.i.i51 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
   %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2dd11pdd_manager7mem_outE) #24
-  %matches = icmp eq i32 %ehselector.slot.1, %22
+  %matches = icmp eq i32 %ehselector.slot.2, %22
   br i1 %matches, label %catch, label %ehcleanup27
 
 catch:                                            ; preds = %catch.dispatch
-  %23 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.1) #24
+  %23 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.2) #24
   invoke void @_ZN2dd11pdd_manager2gcEv(ptr noundef nonnull align 8 dereferenceable(952) %this)
           to label %.noexc unwind label %lpad18
 
@@ -10668,8 +10668,8 @@ lpad23:                                           ; preds = %if.end22
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %catch.dispatch, %lpad18, %lpad23
-  %ehselector.slot.2 = phi i32 [ %31, %lpad23 ], [ %28, %lpad18 ], [ %ehselector.slot.1, %catch.dispatch ]
-  %exn.slot.2 = phi ptr [ %30, %lpad23 ], [ %27, %lpad18 ], [ %exn.slot.1, %catch.dispatch ]
+  %ehselector.slot.3 = phi i32 [ %31, %lpad23 ], [ %28, %lpad18 ], [ %ehselector.slot.2, %catch.dispatch ]
+  %exn.slot.3 = phi ptr [ %30, %lpad23 ], [ %27, %lpad18 ], [ %exn.slot.2, %catch.dispatch ]
   %32 = load ptr, ptr %m_pdd_stack.i, align 8
   %tobool.not.i.i63 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i63, label %eh.resume, label %if.then.i.i64
@@ -10684,10 +10684,10 @@ return:                                           ; preds = %if.then.i.i59, %if.
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i64, %ehcleanup27, %ehcleanup
-  %ehselector.slot.3 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.2, %ehcleanup27 ], [ %ehselector.slot.2, %if.then.i.i64 ]
-  %exn.slot.3 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %exn.slot.2, %ehcleanup27 ], [ %exn.slot.2, %if.then.i.i64 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.3, 0
-  %lpad.val30 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.3, 1
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.3, %ehcleanup27 ], [ %ehselector.slot.3, %if.then.i.i64 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %exn.slot.3, %ehcleanup27 ], [ %exn.slot.3, %if.then.i.i64 ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
+  %lpad.val30 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
   br label %common.resume
 
 terminate.lpad:                                   ; preds = %lpad18
@@ -10756,7 +10756,7 @@ lpad:                                             ; preds = %if.then6
   resume { ptr, i32 } %7
 
 cleanup:                                          ; preds = %invoke.cont, %if.then6
-  %retval.0 = phi i32 [ %call8, %if.then6 ], [ -1, %invoke.cont ]
+  %retval.1 = phi i32 [ %call8, %if.then6 ], [ -1, %invoke.cont ]
   %8 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -10979,8 +10979,8 @@ _ZN2dd11pdd_manager3popEj.exit:                   ; preds = %if.end29, %if.then.
   br label %return
 
 return:                                           ; preds = %.noexc.i, %entry, %_ZN2dd11pdd_manager3popEj.exit, %if.then16
-  %retval.1 = phi i32 [ %14, %if.then16 ], [ %res.081, %_ZN2dd11pdd_manager3popEj.exit ], [ 0, %entry ], [ %retval.0, %.noexc.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %14, %if.then16 ], [ %res.081, %_ZN2dd11pdd_manager3popEj.exit ], [ 0, %entry ], [ %retval.1, %.noexc.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14561,7 +14561,7 @@ _ZN6vectorI7svectorIjjELb1EjE3endEv.exit335:      ; preds = %land.rhs103, %if.en
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont93, %invoke.cont89, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit329, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit335
-  %retval.0 = phi i1 [ false, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit329 ], [ %cmp106, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit335 ], [ %call4.i301, %invoke.cont89 ], [ %call4.i301, %invoke.cont93 ]
+  %retval.1 = phi i1 [ false, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit329 ], [ %cmp106, %_ZN6vectorI7svectorIjjELb1EjE3endEv.exit335 ], [ %call4.i301, %invoke.cont89 ], [ %call4.i301, %invoke.cont93 ]
   %144 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i337 = icmp eq ptr %144, null
   br i1 %tobool.not.i.i337, label %_ZNSt8functionIFbRK7svectorIjjES3_EED2Ev.exit342, label %if.then.i.i338
@@ -14707,8 +14707,8 @@ ehcleanup110:                                     ; preds = %if.then.i.i370, %eh
   resume { ptr, i32 } %.pn26.pn
 
 return:                                           ; preds = %land.rhs.i.i78, %land.rhs.i.i67, %_ZNK2dd11pdd_manager6is_valEj.exit84, %_ZNK2dd11pdd_manager6is_valEj.exit73, %_ZN6vectorI7svectorIjjELb1EjE16destroy_elementsEv.exit.i.i363, %_ZN6vectorI7svectorIjjELb1EjED2Ev.exit, %if.else
-  %retval.1 = phi i1 [ %cmp22, %if.else ], [ %retval.0, %_ZN6vectorI7svectorIjjELb1EjED2Ev.exit ], [ %retval.0, %_ZN6vectorI7svectorIjjELb1EjE16destroy_elementsEv.exit.i.i363 ], [ true, %_ZNK2dd11pdd_manager6is_valEj.exit73 ], [ false, %_ZNK2dd11pdd_manager6is_valEj.exit84 ], [ true, %land.rhs.i.i67 ], [ false, %land.rhs.i.i78 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp22, %if.else ], [ %retval.1, %_ZN6vectorI7svectorIjjELb1EjED2Ev.exit ], [ %retval.1, %_ZN6vectorI7svectorIjjELb1EjE16destroy_elementsEv.exit.i.i363 ], [ true, %_ZNK2dd11pdd_manager6is_valEj.exit73 ], [ false, %_ZNK2dd11pdd_manager6is_valEj.exit84 ], [ true, %land.rhs.i.i67 ], [ false, %land.rhs.i.i78 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27339,7 +27339,7 @@ lpad71.body:                                      ; preds = %lpad.i87, %lpad71
   br label %ehcleanup
 
 cleanup:                                          ; preds = %.noexc.i91, %invoke.cont61
-  %retval.0 = phi ptr [ %call64, %invoke.cont61 ], [ %call1.i86, %.noexc.i91 ]
+  %retval.1 = phi ptr [ %call64, %invoke.cont61 ], [ %call1.i86, %.noexc.i91 ]
   %63 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(16) %neg_val)
           to label %.noexc.i95 unwind label %terminate.lpad.i94
@@ -27361,8 +27361,8 @@ ehcleanup:                                        ; preds = %lpad71.body, %lpad5
   br label %common.resume
 
 return:                                           ; preds = %.noexc.i95, %if.then33, %if.then6, %_ZlsRSoRK8rational.exit
-  %retval.1 = phi ptr [ %call1.i, %_ZlsRSoRK8rational.exit ], [ %call8, %if.then6 ], [ %call42, %if.then33 ], [ %retval.0, %.noexc.i95 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call1.i, %_ZlsRSoRK8rational.exit ], [ %call8, %if.then6 ], [ %call42, %if.then33 ], [ %retval.1, %.noexc.i95 ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
@@ -42249,8 +42249,8 @@ for.body19.lr.ph:                                 ; preds = %for.end
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc34
-  %curr.174 = phi ptr [ %9, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
-  %m_state.i25 = getelementptr inbounds i8, ptr %curr.174, i64 4
+  %curr.274 = phi ptr [ %9, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
+  %m_state.i25 = getelementptr inbounds i8, ptr %curr.274, i64 4
   %10 = load i32, ptr %m_state.i25, align 4
   switch i32 %10, label %for.inc34 [
     i32 2, label %if.then21
@@ -42258,14 +42258,14 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %11 = load i32, ptr %curr.174, align 8
+  %11 = load i32, ptr %curr.274, align 8
   %cmp23 = icmp eq i32 %11, %add.i.i.i.i.i
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i27 = getelementptr inbounds i8, ptr %curr.174, i64 8
+  %m_data.i27 = getelementptr inbounds i8, ptr %curr.274, i64 8
   %12 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %m_kind.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %curr.174, i64 12
+  %m_kind.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %curr.274, i64 12
   %bf.load.i.i.i.i.i.i.i.i29 = load i8, ptr %m_kind.i.i.i.i.i.i.i.i28, align 4
   %bf.clear.i.i.i.i.i.i.i.i30 = and i8 %bf.load.i.i.i.i.i.i.i.i29, 1
   %cmp.i.i.i.i.i.i.i.i31 = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i30, 0
@@ -42289,8 +42289,8 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i32: ; preds = %land.lhs.true.i
   br i1 %cmp5.i.i.i.i.i.i.i34, label %land.rhs.i.i.i.i.i35, label %for.inc34
 
 land.rhs.i.i.i.i.i35:                             ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i57
-  %m_den.i.i.i.i.i36 = getelementptr inbounds i8, ptr %curr.174, i64 24
-  %m_kind.i.i.i3.i.i.i.i.i38 = getelementptr inbounds i8, ptr %curr.174, i64 28
+  %m_den.i.i.i.i.i36 = getelementptr inbounds i8, ptr %curr.274, i64 24
+  %m_kind.i.i.i3.i.i.i.i.i38 = getelementptr inbounds i8, ptr %curr.274, i64 28
   %bf.load.i.i.i4.i.i.i.i.i39 = load i8, ptr %m_kind.i.i.i3.i.i.i.i.i38, align 4
   %bf.clear.i.i.i5.i.i.i.i.i40 = and i8 %bf.load.i.i.i4.i.i.i.i.i39, 1
   %cmp.i.i.i6.i.i.i.i.i41 = icmp eq i8 %bf.clear.i.i.i5.i.i.i.i.i40, 0
@@ -42314,20 +42314,20 @@ _ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoE
   br i1 %cmp5.i.i9.i.i.i.i.i44, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then.i.i.i.i.i.i.i57, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i32, %if.then.i.i16.i.i.i.i.i50, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit59, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.174, i64 48
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.274, i64 48
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !467
 
 end_remove:                                       ; preds = %if.then.i.i16.i.i.i.i.i, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit, %if.then.i.i16.i.i.i.i.i50, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit59
-  %curr.2 = phi ptr [ %curr.174, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit59 ], [ %curr.174, %if.then.i.i16.i.i.i.i.i50 ], [ %curr.072, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit ], [ %curr.072, %if.then.i.i16.i.i.i.i.i ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 48
+  %curr.1 = phi ptr [ %curr.274, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit59 ], [ %curr.274, %if.then.i.i16.i.i.i.i.i50 ], [ %curr.072, %_ZNK14core_hashtableI17default_map_entryI8rationalN2dd11pdd_manager10const_infoEEN9table2mapIS5_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS9_13entry_eq_procEE6equalsERK9_key_dataIS1_S4_ESG_.exit ], [ %curr.072, %if.then.i.i16.i.i.i.i.i ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 48
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %17 = load ptr, ptr %this, align 8
   %spec.select = select i1 %cmp38, ptr %17, ptr %add.ptr37
   %m_state.i62 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %18 = load i32, ptr %m_state.i62, align 4
   %cmp.i63 = icmp eq i32 %18, 0
-  %m_state.i64 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i64 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i63, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

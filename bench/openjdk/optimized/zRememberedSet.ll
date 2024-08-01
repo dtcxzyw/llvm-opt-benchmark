@@ -259,9 +259,9 @@ define hidden void @_ZN14ZRememberedSet19swap_remset_bitmapsEv(ptr noundef nonnu
   br label %29
 
 29:                                               ; preds = %27, %20
-  %.1.ph.i.i.i.i = phi i64 [ %18, %20 ], [ %26, %27 ]
+  %.027.ph.i.i.i.i = phi i64 [ %18, %20 ], [ %26, %27 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0916.i.i, %20 ], [ %28, %27 ]
-  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %31 = add i64 %.026.ph.i.i.i.i, %30
   %32 = icmp ult i64 %31, %6
   br i1 %32, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %"_ZNK6BitMap7iterateIZN14ZRememberedSet19swap_remset_bitmapsEvE3$_0EEbT_.exit"
@@ -353,9 +353,9 @@ define hidden void @_ZN14ZRememberedSet24iterator_limited_currentEmm(ptr dead_on
   br label %32
 
 32:                                               ; preds = %30, %19
-  %.1.ph.i.i.i = phi i64 [ %17, %19 ], [ %29, %30 ]
+  %.027.ph.i.i.i = phi i64 [ %17, %19 ], [ %29, %30 ]
   %.026.ph.i.i.i = phi i64 [ %5, %19 ], [ %31, %30 ]
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %34 = add nuw i64 %.026.ph.i.i.i, %33
   %35 = icmp ult i64 %34, %10
   br i1 %35, label %_ZN6BitMap8IteratorC2ERKS_mm.exit, label %.loopexit.i.i.i
@@ -422,9 +422,9 @@ define hidden void @_ZN14ZRememberedSet25iterator_limited_previousEmm(ptr dead_o
   br label %33
 
 33:                                               ; preds = %31, %20
-  %.1.ph.i.i.i = phi i64 [ %18, %20 ], [ %30, %31 ]
+  %.027.ph.i.i.i = phi i64 [ %18, %20 ], [ %30, %31 ]
   %.026.ph.i.i.i = phi i64 [ %5, %20 ], [ %32, %31 ]
-  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %35 = add nuw i64 %.026.ph.i.i.i, %34
   %36 = icmp ult i64 %35, %11
   br i1 %36, label %_ZN6BitMap8IteratorC2ERKS_mm.exit, label %.loopexit.i.i.i
@@ -538,22 +538,22 @@ define hidden noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24
   br label %29
 
 29:                                               ; preds = %31, %27
-  %.027.i.i.i.i.i = phi i64 [ %16, %27 ], [ %32, %31 ]
-  %30 = icmp ugt i64 %.027.i.i.i.i.i, %28
+  %.1.i.i.i.i.i = phi i64 [ %16, %27 ], [ %32, %31 ]
+  %30 = icmp ugt i64 %.1.i.i.i.i.i, %28
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %29
-  %32 = add nsw i64 %.027.i.i.i.i.i, -1
+  %32 = add nsw i64 %.1.i.i.i.i.i, -1
   %33 = getelementptr inbounds i64, ptr %17, i64 %32
   %34 = load i64, ptr %33, align 8
   %.not37.i.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not37.i.i.i.i.i, label %29, label %.loopexit45.i.i.i.i.i, !llvm.loop !24
 
 .loopexit45.i.i.i.i.i:                            ; preds = %31, %23
-  %.129.ph.i.i.i.i.i = phi i64 [ %25, %23 ], [ %34, %31 ]
-  %.1.ph.i.i.i.i.i = phi i64 [ %16, %23 ], [ %32, %31 ]
-  %35 = shl i64 %.1.ph.i.i.i.i.i, 6
-  %36 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i.i.i, i1 true)
+  %.028.ph.i.i.i.i.i = phi i64 [ %25, %23 ], [ %34, %31 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %16, %23 ], [ %32, %31 ]
+  %35 = shl i64 %.027.ph.i.i.i.i.i, 6
+  %36 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i.i.i, i1 true)
   %37 = or disjoint i64 %35, %36
   %38 = xor i64 %37, 63
   %.not39.i.i.i.i.i = icmp ult i64 %38, %8
@@ -619,22 +619,22 @@ _ZN6BitMap15ReverseIteratorC2ERKS_mm.exit.i:      ; preds = %.loopexit45.i.i.i.i
   br label %75
 
 75:                                               ; preds = %77, %73
-  %.027.i.i.i.i.i20 = phi i64 [ %62, %73 ], [ %78, %77 ]
-  %76 = icmp ugt i64 %.027.i.i.i.i.i20, %74
+  %.1.i.i.i.i.i20 = phi i64 [ %62, %73 ], [ %78, %77 ]
+  %76 = icmp ugt i64 %.1.i.i.i.i.i20, %74
   br i1 %76, label %77, label %_ZN7ZBitMap15ReverseIterator4nextEPm.exit22.thread
 
 77:                                               ; preds = %75
-  %78 = add nsw i64 %.027.i.i.i.i.i20, -1
+  %78 = add nsw i64 %.1.i.i.i.i.i20, -1
   %79 = getelementptr inbounds i64, ptr %63, i64 %78
   %80 = load i64, ptr %79, align 8
   %.not37.i.i.i.i.i21 = icmp eq i64 %80, 0
   br i1 %.not37.i.i.i.i.i21, label %75, label %.loopexit45.i.i.i.i.i16, !llvm.loop !24
 
 .loopexit45.i.i.i.i.i16:                          ; preds = %77, %69
-  %.129.ph.i.i.i.i.i17 = phi i64 [ %71, %69 ], [ %80, %77 ]
-  %.1.ph.i.i.i.i.i18 = phi i64 [ %62, %69 ], [ %78, %77 ]
-  %81 = shl i64 %.1.ph.i.i.i.i.i18, 6
-  %82 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i.i.i17, i1 true)
+  %.028.ph.i.i.i.i.i17 = phi i64 [ %71, %69 ], [ %80, %77 ]
+  %.027.ph.i.i.i.i.i18 = phi i64 [ %62, %69 ], [ %78, %77 ]
+  %81 = shl i64 %.027.ph.i.i.i.i.i18, 6
+  %82 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i.i.i17, i1 true)
   %83 = or disjoint i64 %81, %82
   %84 = xor i64 %83, 63
   %.not39.i.i.i.i.i19 = icmp ult i64 %84, %54
@@ -1142,22 +1142,22 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
   br label %36
 
 36:                                               ; preds = %38, %34
-  %.027.i.i.i = phi i64 [ %22, %34 ], [ %39, %38 ]
-  %37 = icmp ugt i64 %.027.i.i.i, %35
+  %.1.i.i.i = phi i64 [ %22, %34 ], [ %39, %38 ]
+  %37 = icmp ugt i64 %.1.i.i.i, %35
   br i1 %37, label %38, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread
 
 38:                                               ; preds = %36
-  %39 = add nsw i64 %.027.i.i.i, -1
+  %39 = add nsw i64 %.1.i.i.i, -1
   %40 = getelementptr inbounds i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
   br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !24
 
 .loopexit45.i.i.i:                                ; preds = %38, %30
-  %.129.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
-  %.1.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
-  %42 = shl i64 %.1.ph.i.i.i, 6
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i, i1 true)
+  %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
+  %.027.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
+  %42 = shl i64 %.027.ph.i.i.i, 6
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i, i1 true)
   %44 = or disjoint i64 %42, %43
   %45 = xor i64 %44, 63
   %.not39.i.i.i = icmp ult i64 %45, %17
@@ -1223,22 +1223,22 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
   br label %80
 
 80:                                               ; preds = %82, %78
-  %.027.i.i.i27 = phi i64 [ %66, %78 ], [ %83, %82 ]
-  %81 = icmp ugt i64 %.027.i.i.i27, %79
+  %.1.i.i.i27 = phi i64 [ %66, %78 ], [ %83, %82 ]
+  %81 = icmp ugt i64 %.1.i.i.i27, %79
   br i1 %81, label %82, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread
 
 82:                                               ; preds = %80
-  %83 = add nsw i64 %.027.i.i.i27, -1
+  %83 = add nsw i64 %.1.i.i.i27, -1
   %84 = getelementptr inbounds i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
   br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !24
 
 .loopexit45.i.i.i23:                              ; preds = %82, %74
-  %.129.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
-  %.1.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
-  %86 = shl i64 %.1.ph.i.i.i25, 6
-  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i24, i1 true)
+  %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
+  %.027.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
+  %86 = shl i64 %.027.ph.i.i.i25, 6
+  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i24, i1 true)
   %88 = or disjoint i64 %86, %87
   %89 = xor i64 %88, 63
   %.not39.i.i.i26 = icmp ult i64 %89, %61

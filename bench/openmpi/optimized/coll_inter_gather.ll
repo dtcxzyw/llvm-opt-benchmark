@@ -92,7 +92,7 @@ opal_datatype_span.exit:                          ; preds = %21, %33
   br i1 %.not46, label %63, label %69
 
 63:                                               ; preds = %60, %49
-  %.038 = phi i32 [ 0, %60 ], [ %58, %49 ]
+  %.1 = phi i32 [ 0, %60 ], [ %58, %49 ]
   tail call void @free(ptr noundef nonnull %47) #4
   br label %69
 
@@ -104,7 +104,7 @@ opal_datatype_span.exit:                          ; preds = %21, %33
   br label %69
 
 69:                                               ; preds = %64, %63, %ompi_comm_remote_size.exit, %60, %opal_datatype_span.exit
-  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %62, %60 ], [ %.038, %63 ], [ 0, %ompi_comm_remote_size.exit ], [ %68, %64 ]
+  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %62, %60 ], [ %.1, %63 ], [ 0, %ompi_comm_remote_size.exit ], [ %68, %64 ]
   ret i32 %.0
 }
 

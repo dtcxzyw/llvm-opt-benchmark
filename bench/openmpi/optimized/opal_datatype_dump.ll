@@ -61,7 +61,7 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
 21:                                               ; preds = %18, %44
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %44 ]
   %.041 = phi i64 [ 1, %18 ], [ %45, %44 ]
-  %.240 = phi i32 [ %.1, %18 ], [ %.3, %44 ]
+  %.240 = phi i32 [ %.1, %18 ], [ %.4, %44 ]
   %22 = load i32, ptr %19, align 4
   %23 = zext i32 %22 to i64
   %24 = and i64 %.041, %23
@@ -92,8 +92,8 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
   br label %42
 
 42:                                               ; preds = %34, %37, %21
-  %.3 = phi i32 [ %36, %34 ], [ %41, %37 ], [ %.240, %21 ]
-  %43 = sext i32 %.3 to i64
+  %.4 = phi i32 [ %36, %34 ], [ %41, %37 ], [ %.240, %21 ]
+  %43 = sext i32 %.4 to i64
   %.not38 = icmp ult i64 %43, %2
   br i1 %.not38, label %44, label %46
 
@@ -104,7 +104,7 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
   br i1 %exitcond.not, label %46, label %21, !llvm.loop !4
 
 46:                                               ; preds = %42, %44
-  ret i32 %.3
+  ret i32 %.4
 }
 
 ; Function Attrs: nofree nounwind
@@ -228,7 +228,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br label %7
 
 7:                                                ; preds = %102, %.lr.ph
-  %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %102 ]
+  %.062 = phi i32 [ 0, %.lr.ph ], [ %.2, %102 ]
   %.05261 = phi i32 [ 0, %.lr.ph ], [ %105, %102 ]
   %.05360 = phi ptr [ %0, %.lr.ph ], [ %104, %102 ]
   %8 = sext i32 %.062 to i64
@@ -407,8 +407,8 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
 
 102:                                              ; preds = %76, %84, %68
   %.pn = phi i32 [ %75, %68 ], [ %83, %76 ], [ %101, %84 ]
-  %.1 = add nsw i32 %.pn, %62
-  %103 = sext i32 %.1 to i64
+  %.2 = add nsw i32 %.pn, %62
+  %103 = sext i32 %.2 to i64
   %.not59 = icmp ult i64 %103, %3
   %104 = getelementptr inbounds i8, ptr %.05360, i64 32
   %105 = add nuw nsw i32 %.05261, 1
@@ -417,8 +417,8 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
   br i1 %or.cond, label %7, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %opal_datatype_dump_data_flags.exit, %52, %102, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.1, %102 ], [ %62, %52 ], [ %50, %opal_datatype_dump_data_flags.exit ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %4 ], [ %.2, %102 ], [ %62, %52 ], [ %50, %opal_datatype_dump_data_flags.exit ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -479,28 +479,28 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
 
 48:                                               ; preds = %42, %40
   %49 = phi i16 [ %.pre, %42 ], [ %38, %40 ]
-  %.0 = phi i32 [ %47, %42 ], [ %37, %40 ]
+  %.1 = phi i32 [ %47, %42 ], [ %37, %40 ]
   %50 = and i16 %49, 16
   %.not111 = icmp eq i16 %50, 0
   br i1 %.not111, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %48, %1
-  %.0.sink117 = phi i32 [ %37, %1 ], [ %.0, %48 ]
+  %.1.sink117 = phi i32 [ %37, %1 ], [ %.1, %48 ]
   %.str.12.sink = phi ptr [ @.str.10, %1 ], [ @.str.12, %48 ]
-  %51 = sext i32 %.0.sink117 to i64
+  %51 = sext i32 %.1.sink117 to i64
   %52 = getelementptr inbounds i8, ptr %10, i64 %51
   %53 = sub i64 %9, %51
   %54 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %52, i64 noundef %53, ptr noundef nonnull %.str.12.sink) #8
-  %55 = add nsw i32 %54, %.0.sink117
+  %55 = add nsw i32 %54, %.1.sink117
   br label %56
 
 56:                                               ; preds = %.sink.split, %48
-  %.1 = phi i32 [ %.0, %48 ], [ %55, %.sink.split ]
-  %57 = sext i32 %.1 to i64
+  %.0 = phi i32 [ %.1, %48 ], [ %55, %.sink.split ]
+  %57 = sext i32 %.0 to i64
   %58 = getelementptr inbounds i8, ptr %10, i64 %57
   %59 = sub i64 %9, %57
   %60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %58, i64 noundef %59, ptr noundef nonnull @.str.13) #8
-  %61 = add nsw i32 %60, %.1
+  %61 = add nsw i32 %60, %.0
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %10, i64 %62
   %64 = sub i64 %9, %62

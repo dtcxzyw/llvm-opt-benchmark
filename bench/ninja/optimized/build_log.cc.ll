@@ -107,55 +107,55 @@ define dso_local noundef i64 @_ZN8BuildLog8LogEntry11HashCommandE11StringPiece(p
   br label %21
 
 21:                                               ; preds = %15, %._crit_edge.i
-  %.1.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %20, %15 ]
+  %.2.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %20, %15 ]
   %22 = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 5
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %24, 40
-  %26 = xor i64 %25, %.1.i
+  %26 = xor i64 %25, %.2.i
   br label %27
 
 27:                                               ; preds = %21, %._crit_edge.i
-  %.2.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %26, %21 ]
+  %.3.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %26, %21 ]
   %28 = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 4
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %30, 32
-  %32 = xor i64 %31, %.2.i
+  %32 = xor i64 %31, %.3.i
   br label %33
 
 33:                                               ; preds = %27, %._crit_edge.i
-  %.3.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %32, %27 ]
+  %.4.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %32, %27 ]
   %34 = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 3
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %36, 24
-  %38 = xor i64 %37, %.3.i
+  %38 = xor i64 %37, %.4.i
   br label %39
 
 39:                                               ; preds = %33, %._crit_edge.i
-  %.4.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %38, %33 ]
+  %.5.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %38, %33 ]
   %40 = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 16
-  %44 = xor i64 %43, %.4.i
+  %44 = xor i64 %43, %.5.i
   br label %45
 
 45:                                               ; preds = %39, %._crit_edge.i
-  %.5.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %44, %39 ]
+  %.6.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %44, %39 ]
   %46 = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
   %49 = shl nuw nsw i64 %48, 8
-  %50 = xor i64 %49, %.5.i
+  %50 = xor i64 %49, %.6.i
   br label %51
 
 51:                                               ; preds = %45, %._crit_edge.i
-  %.6.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %50, %45 ]
+  %.7.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %50, %45 ]
   %52 = load i8, ptr %.034.lcssa.i, align 1
   %53 = zext i8 %52 to i64
-  %54 = xor i64 %.6.i, %53
+  %54 = xor i64 %.7.i, %53
   %55 = mul i64 %54, -4132994306676758123
   br label %_ZN12_GLOBAL__N_113MurmurHash64AEPKvm.exit
 
@@ -163,9 +163,9 @@ default.unreachable.i:                            ; preds = %._crit_edge.i
   unreachable
 
 _ZN12_GLOBAL__N_113MurmurHash64AEPKvm.exit:       ; preds = %._crit_edge.i, %51
-  %.7.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %55, %51 ]
-  %56 = lshr i64 %.7.i, 47
-  %57 = xor i64 %56, %.7.i
+  %.1.i = phi i64 [ %.035.lcssa.i, %._crit_edge.i ], [ %55, %51 ]
+  %56 = lshr i64 %.1.i, 47
+  %57 = xor i64 %56, %.1.i
   %58 = mul i64 %57, -4132994306676758123
   %59 = lshr i64 %58, 47
   %60 = xor i64 %59, %58
@@ -462,12 +462,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %.not6378, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit
-  %.not86 = icmp eq ptr %.sroa.7.2, %.sroa.056.2
+  %.not86 = icmp eq ptr %.sroa.7.1, %.sroa.056.1
   br i1 %.not86, label %._crit_edge, label %.lr.ph85.preheader
 
 .lr.ph85.preheader:                               ; preds = %.preheader
-  %59 = ptrtoint ptr %.sroa.7.2 to i64
-  %60 = ptrtoint ptr %.sroa.056.2 to i64
+  %59 = ptrtoint ptr %.sroa.7.1 to i64
+  %60 = ptrtoint ptr %.sroa.056.1 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 4
   %umax = call i64 @llvm.umax.i64(i64 %62, i64 1)
@@ -475,9 +475,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .lr.ph:                                           ; preds = %57, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit
   %.sroa.051.082 = phi ptr [ %.sroa.051.0, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ %.sroa.051.077, %57 ]
-  %.sroa.056.081 = phi ptr [ %.sroa.056.2, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ null, %57 ]
-  %.sroa.12.080 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ null, %57 ]
-  %.sroa.7.079 = phi ptr [ %.sroa.7.2, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ null, %57 ]
+  %.sroa.056.081 = phi ptr [ %.sroa.056.1, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ null, %57 ]
+  %.sroa.12.080 = phi ptr [ %.sroa.12.1, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ null, %57 ]
+  %.sroa.7.079 = phi ptr [ %.sroa.7.1, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ null, %57 ]
   %63 = getelementptr inbounds i8, ptr %.sroa.051.082, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %63, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.051.082, i64 16
@@ -575,7 +575,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.sroa.056.071 = phi ptr [ %.sroa.056.2, %.loopexit ], [ %.sroa.056.081, %.loopexit.split-lp.loopexit ], [ %.sroa.056.073, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.056.071 = phi ptr [ %.sroa.056.1, %.loopexit ], [ %.sroa.056.081, %.loopexit.split-lp.loopexit ], [ %.sroa.056.073, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i47 = icmp eq ptr %.sroa.056.071, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit, label %92
@@ -612,16 +612,16 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   br label %130
 
 _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %69, %93
-  %.sroa.7.2 = phi ptr [ %.sroa.7.079, %93 ], [ %89, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %70, %69 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.080, %93 ], [ %91, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.12.080, %69 ]
-  %.sroa.056.2 = phi ptr [ %.sroa.056.081, %93 ], [ %85, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.056.081, %69 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.7.079, %93 ], [ %89, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %70, %69 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.080, %93 ], [ %91, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.12.080, %69 ]
+  %.sroa.056.1 = phi ptr [ %.sroa.056.081, %93 ], [ %85, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.sroa.056.081, %69 ]
   %.sroa.051.0 = load ptr, ptr %.sroa.051.082, align 8
   %.not63 = icmp eq ptr %.sroa.051.0, null
   br i1 %.not63, label %.preheader, label %.lr.ph, !llvm.loop !14
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %_ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE5eraseERS9_.exit
   %.084 = phi i64 [ %116, %_ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE5eraseERS9_.exit ], [ 0, %.lr.ph85.preheader ]
-  %114 = getelementptr inbounds %struct.StringPiece, ptr %.sroa.056.2, i64 %.084
+  %114 = getelementptr inbounds %struct.StringPiece, ptr %.sroa.056.1, i64 %.084
   %115 = invoke noundef i64 @_ZNSt10_HashtableI11StringPieceSt4pairIKS0_PN8BuildLog8LogEntryEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %114)
           to label %_ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE5eraseERS9_.exit unwind label %.loopexit
 
@@ -631,7 +631,7 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE5eraseERS9_.exit, %57, %.preheader
-  %.sroa.056.0.lcssa93 = phi ptr [ %.sroa.056.2, %.preheader ], [ null, %57 ], [ %.sroa.056.2, %_ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE5eraseERS9_.exit ]
+  %.sroa.056.0.lcssa93 = phi ptr [ %.sroa.056.1, %.preheader ], [ null, %57 ], [ %.sroa.056.1, %_ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_S3_EEE5eraseERS9_.exit ]
   %117 = call i32 @fclose(ptr noundef nonnull %32)
   %118 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   %119 = call i32 @unlink(ptr noundef %118) #20
@@ -654,7 +654,7 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
 
 130:                                              ; preds = %.invoke, %121, %112
   %.sroa.056.070 = phi ptr [ %.sroa.056.081, %112 ], [ %.sroa.056.0.lcssa93, %121 ], [ %.sroa.056.0.lcssa93, %.invoke ]
-  %.025 = phi i1 [ false, %112 ], [ true, %121 ], [ false, %.invoke ]
+  %.1 = phi i1 [ false, %112 ], [ true, %121 ], [ false, %.invoke ]
   %.not.i.i.i49 = icmp eq ptr %.sroa.056.070, null
   br i1 %.not.i.i.i49, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit50, label %131
 
@@ -663,10 +663,10 @@ _ZNSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS0_ESt8equal_toIS
   br label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit50
 
 _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit50:    ; preds = %131, %130, %33, %55
-  %.1 = phi i1 [ false, %55 ], [ false, %33 ], [ %.025, %130 ], [ %.025, %131 ]
+  %.025 = phi i1 [ false, %55 ], [ false, %33 ], [ %.1, %130 ], [ %.1, %131 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZN12ScopedMetricD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
-  ret i1 %.1
+  ret i1 %.025
 
 _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit:      ; preds = %92, %.loopexit.split-lp, %45
   %.pn39 = phi { ptr, i32 } [ %46, %45 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %92 ]
@@ -738,55 +738,55 @@ define dso_local noundef zeroext i1 @_ZN8BuildLog13RecordCommandEP4Edgeiil(ptr n
   br label %29
 
 29:                                               ; preds = %23, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %28, %23 ]
+  %.2.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %28, %23 ]
   %30 = getelementptr inbounds i8, ptr %.034.lcssa.i.i, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 40
-  %34 = xor i64 %33, %.1.i.i
+  %34 = xor i64 %33, %.2.i.i
   br label %35
 
 35:                                               ; preds = %29, %._crit_edge.i.i
-  %.2.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %34, %29 ]
+  %.3.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %34, %29 ]
   %36 = getelementptr inbounds i8, ptr %.034.lcssa.i.i, i64 4
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 32
-  %40 = xor i64 %39, %.2.i.i
+  %40 = xor i64 %39, %.3.i.i
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i
-  %.3.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %40, %35 ]
+  %.4.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %40, %35 ]
   %42 = getelementptr inbounds i8, ptr %.034.lcssa.i.i, i64 3
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
   %45 = shl nuw nsw i64 %44, 24
-  %46 = xor i64 %45, %.3.i.i
+  %46 = xor i64 %45, %.4.i.i
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i.i
-  %.4.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %46, %41 ]
+  %.5.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %46, %41 ]
   %48 = getelementptr inbounds i8, ptr %.034.lcssa.i.i, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i64
   %51 = shl nuw nsw i64 %50, 16
-  %52 = xor i64 %51, %.4.i.i
+  %52 = xor i64 %51, %.5.i.i
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i.i
-  %.5.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %52, %47 ]
+  %.6.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %52, %47 ]
   %54 = getelementptr inbounds i8, ptr %.034.lcssa.i.i, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   %57 = shl nuw nsw i64 %56, 8
-  %58 = xor i64 %57, %.5.i.i
+  %58 = xor i64 %57, %.6.i.i
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i.i
-  %.6.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %58, %53 ]
+  %.7.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %58, %53 ]
   %60 = load i8, ptr %.034.lcssa.i.i, align 1
   %61 = zext i8 %60 to i64
-  %62 = xor i64 %.6.i.i, %61
+  %62 = xor i64 %.7.i.i, %61
   %63 = mul i64 %62, -4132994306676758123
   br label %64
 
@@ -794,9 +794,9 @@ default.unreachable.i.i:                          ; preds = %._crit_edge.i.i
   unreachable
 
 64:                                               ; preds = %59, %._crit_edge.i.i
-  %.7.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %63, %59 ]
-  %65 = lshr i64 %.7.i.i, 47
-  %66 = xor i64 %65, %.7.i.i
+  %.1.i.i = phi i64 [ %.035.lcssa.i.i, %._crit_edge.i.i ], [ %63, %59 ]
+  %65 = lshr i64 %.1.i.i, 47
+  %66 = xor i64 %65, %.1.i.i
   %67 = mul i64 %66, -4132994306676758123
   %68 = lshr i64 %67, 47
   %69 = xor i64 %68, %67
@@ -1936,19 +1936,19 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   br label %36
 
 36:                                               ; preds = %30, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %30 ]
+  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %30 ]
   %37 = getelementptr inbounds i8, ptr %.026.lcssa.i.i.i, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
-  %41 = xor i32 %40, %.1.i.i.i
+  %41 = xor i32 %40, %.2.i.i.i
   br label %42
 
 42:                                               ; preds = %36, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %36 ]
+  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %41, %36 ]
   %43 = load i8, ptr %.026.lcssa.i.i.i, align 1
   %44 = zext i8 %43 to i32
-  %45 = xor i32 %.2.i.i.i, %44
+  %45 = xor i32 %.3.i.i.i, %44
   %46 = mul i32 %45, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
 
@@ -1956,9 +1956,9 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %42
-  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %42 ]
-  %47 = lshr i32 %.3.i.i.i, 13
-  %48 = xor i32 %47, %.3.i.i.i
+  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %42 ]
+  %47 = lshr i32 %.1.i.i.i, 13
+  %48 = xor i32 %47, %.1.i.i.i
   %49 = mul i32 %48, 1540483477
   %50 = lshr i32 %49, 15
   %51 = xor i32 %50, %49
@@ -2107,19 +2107,19 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   br label %38
 
 38:                                               ; preds = %32, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %32 ]
+  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %37, %32 ]
   %39 = getelementptr inbounds i8, ptr %.026.lcssa.i.i.i, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 8
-  %43 = xor i32 %42, %.1.i.i.i
+  %43 = xor i32 %42, %.2.i.i.i
   br label %44
 
 44:                                               ; preds = %38, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %38 ]
+  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %38 ]
   %45 = load i8, ptr %.026.lcssa.i.i.i, align 1
   %46 = zext i8 %45 to i32
-  %47 = xor i32 %.2.i.i.i, %46
+  %47 = xor i32 %.3.i.i.i, %46
   %48 = mul i32 %47, 1540483477
   br label %49
 
@@ -2127,9 +2127,9 @@ _ZNKSt8__detail15_Hashtable_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEE
   unreachable
 
 49:                                               ; preds = %._crit_edge.i.i.i, %44
-  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %44 ]
-  %50 = lshr i32 %.3.i.i.i, 13
-  %51 = xor i32 %50, %.3.i.i.i
+  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %48, %44 ]
+  %50 = lshr i32 %.1.i.i.i, 13
+  %51 = xor i32 %50, %.1.i.i.i
   %52 = mul i32 %51, 1540483477
   %53 = lshr i32 %52, 15
   %54 = xor i32 %53, %52
@@ -2614,19 +2614,19 @@ _ZNSt10_HashtableI11StringPieceSt4pairIKS0_PN8BuildLog8LogEntryEESaIS6_ENSt8__de
   br label %44
 
 44:                                               ; preds = %38, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %38 ]
+  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %43, %38 ]
   %45 = getelementptr inbounds i8, ptr %.026.lcssa.i.i.i, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 8
-  %49 = xor i32 %48, %.1.i.i.i
+  %49 = xor i32 %48, %.2.i.i.i
   br label %50
 
 50:                                               ; preds = %44, %._crit_edge.i.i.i
-  %.2.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %49, %44 ]
+  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %49, %44 ]
   %51 = load i8, ptr %.026.lcssa.i.i.i, align 1
   %52 = zext i8 %51 to i32
-  %53 = xor i32 %.2.i.i.i, %52
+  %53 = xor i32 %.3.i.i.i, %52
   %54 = mul i32 %53, 1540483477
   br label %_ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit
 
@@ -2634,9 +2634,9 @@ _ZNSt10_HashtableI11StringPieceSt4pairIKS0_PN8BuildLog8LogEntryEESaIS6_ENSt8__de
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseI11StringPieceSt4pairIKS1_PN8BuildLog8LogEntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS3_.exit: ; preds = %._crit_edge.i.i.i, %50
-  %.3.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %50 ]
-  %55 = lshr i32 %.3.i.i.i, 13
-  %56 = xor i32 %55, %.3.i.i.i
+  %.1.i.i.i = phi i32 [ %.027.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %54, %50 ]
+  %55 = lshr i32 %.1.i.i.i, 13
+  %56 = xor i32 %55, %.1.i.i.i
   %57 = mul i32 %56, 1540483477
   %58 = lshr i32 %57, 15
   %59 = xor i32 %58, %57

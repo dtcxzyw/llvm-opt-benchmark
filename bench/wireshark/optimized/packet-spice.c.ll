@@ -1648,8 +1648,8 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 160:                                              ; preds = %.lr.ph549, %197
-  %.0433548 = phi i32 [ 0, %.lr.ph549 ], [ %.2, %197 ]
-  %.0436547 = phi i32 [ 0, %.lr.ph549 ], [ %.2438, %197 ]
+  %.0433548 = phi i32 [ 0, %.lr.ph549 ], [ %.1, %197 ]
+  %.0436547 = phi i32 [ 0, %.lr.ph549 ], [ %.1437, %197 ]
   %161 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0436547) #4
   %162 = icmp ult i32 %161, 4
   br i1 %162, label %163, label %167
@@ -1718,10 +1718,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 197:                                              ; preds = %195, %172
   %.1440 = phi i32 [ 4, %172 ], [ %175, %195 ]
-  %.2438 = phi i32 [ %173, %172 ], [ %196, %195 ]
-  %.2 = phi i32 [ %.0433548, %172 ], [ 1, %195 ]
+  %.1437 = phi i32 [ %173, %172 ], [ %196, %195 ]
+  %.1 = phi i32 [ %.0433548, %172 ], [ 1, %195 ]
   %198 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %199 = icmp ult i32 %.2438, %198
+  %199 = icmp ult i32 %.1437, %198
   br i1 %199, label %160, label %.loopexit, !llvm.loop !4
 
 200:                                              ; preds = %38, %38
@@ -2967,15 +2967,15 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %145 = shl nuw nsw i32 %144, 1
   %146 = load i32, ptr @ett_record_server, align 4
   %147 = call ptr @proto_tree_add_subtree(ptr noundef %.0131, ptr noundef %0, i32 noundef %143, i32 noundef %145, i32 noundef %146, ptr noundef null, ptr noundef nonnull @.str.876) #4
-  %.not.i136 = icmp eq i8 %140, 0
-  br i1 %.not.i136, label %dissect_spice_playback_server.exit, label %.lr.ph.i
+  %.not.i137 = icmp eq i8 %140, 0
+  br i1 %.not.i137, label %dissect_spice_playback_server.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %139, %.lr.ph.i
-  %.067.i = phi i32 [ %150, %.lr.ph.i ], [ %143, %139 ]
+  %.167.i = phi i32 [ %150, %.lr.ph.i ], [ %143, %139 ]
   %.06566.i = phi i8 [ %151, %.lr.ph.i ], [ 0, %139 ]
   %148 = load i32, ptr @hf_audio_volume, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %0, i32 noundef %.067.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %150 = add i32 %.067.i, 2
+  %149 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %0, i32 noundef %.167.i, i32 noundef 2, i32 noundef -2147483648) #4
+  %150 = add i32 %.167.i, 2
   %151 = add nuw i8 %.06566.i, 1
   %exitcond.not.i = icmp eq i8 %151, %140
   br i1 %exitcond.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3013,18 +3013,18 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %170 = shl nuw nsw i32 %169, 1
   %171 = load i32, ptr @ett_record_server, align 4
   %172 = call ptr @proto_tree_add_subtree(ptr noundef %.0131, ptr noundef %0, i32 noundef %168, i32 noundef %170, i32 noundef %171, ptr noundef null, ptr noundef nonnull @.str.878) #4
-  %.not.i138 = icmp eq i8 %165, 0
-  br i1 %.not.i138, label %dissect_spice_playback_server.exit, label %.lr.ph.i139
+  %.not.i139 = icmp eq i8 %165, 0
+  br i1 %.not.i139, label %dissect_spice_playback_server.exit, label %.lr.ph.i140
 
-.lr.ph.i139:                                      ; preds = %164, %.lr.ph.i139
-  %.026.i = phi i32 [ %175, %.lr.ph.i139 ], [ %168, %164 ]
-  %.02425.i = phi i8 [ %176, %.lr.ph.i139 ], [ 0, %164 ]
+.lr.ph.i140:                                      ; preds = %164, %.lr.ph.i140
+  %.126.i = phi i32 [ %175, %.lr.ph.i140 ], [ %168, %164 ]
+  %.02425.i = phi i8 [ %176, %.lr.ph.i140 ], [ 0, %164 ]
   %173 = load i32, ptr @hf_audio_volume, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %173, ptr noundef %0, i32 noundef %.026.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %175 = add i32 %.026.i, 2
+  %174 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %173, ptr noundef %0, i32 noundef %.126.i, i32 noundef 2, i32 noundef -2147483648) #4
+  %175 = add i32 %.126.i, 2
   %176 = add nuw i8 %.02425.i, 1
-  %exitcond.not.i140 = icmp eq i8 %176, %165
-  br i1 %exitcond.not.i140, label %dissect_spice_playback_server.exit, label %.lr.ph.i139, !llvm.loop !12
+  %exitcond.not.i141 = icmp eq i8 %176, %165
+  br i1 %exitcond.not.i141, label %dissect_spice_playback_server.exit, label %.lr.ph.i140, !llvm.loop !12
 
 177:                                              ; preds = %163
   %178 = load i32, ptr @hf_audio_mute, align 4
@@ -3126,26 +3126,26 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %243 = shl i32 %239, 1
   %244 = load i32, ptr @ett_main_client, align 4
   %245 = call ptr @proto_tree_add_subtree(ptr noundef %.0131, ptr noundef %0, i32 noundef %242, i32 noundef %243, i32 noundef %244, ptr noundef null, ptr noundef nonnull @.str.880) #4
-  %.not.i142 = icmp eq i32 %239, 0
-  br i1 %.not.i142, label %dissect_spice_playback_server.exit, label %.lr.ph.i143
+  %.not.i143 = icmp eq i32 %239, 0
+  br i1 %.not.i143, label %dissect_spice_playback_server.exit, label %.lr.ph.i144
 
-.lr.ph.i143:                                      ; preds = %238, %.lr.ph.i143
-  %.0160.i = phi i32 [ %256, %.lr.ph.i143 ], [ %242, %238 ]
-  %.0156159.i = phi i32 [ %257, %.lr.ph.i143 ], [ 0, %238 ]
+.lr.ph.i144:                                      ; preds = %238, %.lr.ph.i144
+  %.1160.i = phi i32 [ %256, %.lr.ph.i144 ], [ %242, %238 ]
+  %.0156159.i = phi i32 [ %257, %.lr.ph.i144 ], [ 0, %238 ]
   %246 = load i32, ptr @ett_main_client, align 4
-  %247 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0160.i) #4
+  %247 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1160.i) #4
   %248 = zext i8 %247 to i32
   %249 = call ptr @val_to_str_const(i32 noundef %248, ptr noundef nonnull @channel_types_vs, ptr noundef nonnull @.str.679) #4
-  %250 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %245, ptr noundef %0, i32 noundef %.0160.i, i32 noundef 2, i32 noundef %246, ptr noundef null, ptr noundef nonnull @.str.881, i32 noundef %.0156159.i, ptr noundef %249) #4
+  %250 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %245, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 2, i32 noundef %246, ptr noundef null, ptr noundef nonnull @.str.881, i32 noundef %.0156159.i, ptr noundef %249) #4
   %251 = load i32, ptr @hf_channel_type, align 4
-  %252 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %.0160.i, i32 noundef 1, i32 noundef -2147483648) #4
-  %253 = add i32 %.0160.i, 1
+  %252 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %253 = add i32 %.1160.i, 1
   %254 = load i32, ptr @hf_channel_id, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef -2147483648) #4
-  %256 = add i32 %.0160.i, 2
+  %256 = add i32 %.1160.i, 2
   %257 = add nuw i32 %.0156159.i, 1
-  %exitcond.not.i144 = icmp eq i32 %257, %239
-  br i1 %exitcond.not.i144, label %dissect_spice_playback_server.exit, label %.lr.ph.i143, !llvm.loop !13
+  %exitcond.not.i145 = icmp eq i32 %257, %239
+  br i1 %exitcond.not.i145, label %dissect_spice_playback_server.exit, label %.lr.ph.i144, !llvm.loop !13
 
 258:                                              ; preds = %184
   %hf_supported_mouse_modes_flags.val.i157.i = load i32, ptr @hf_supported_mouse_modes_flags, align 4
@@ -3346,15 +3346,15 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
 
 .lr.ph456.i:                                      ; preds = %.lr.ph456.i, %.lr.ph456.preheader.i
   %indvars.iv462.i = phi i32 [ 0, %.lr.ph456.preheader.i ], [ %indvars.iv.next463.i, %.lr.ph456.i ]
-  %.0455.i = phi i32 [ %367, %.lr.ph456.preheader.i ], [ %374, %.lr.ph456.i ]
+  %.1455.i = phi i32 [ %367, %.lr.ph456.preheader.i ], [ %374, %.lr.ph456.i ]
   %indvars.iv.next463.i = add nuw nsw i32 %indvars.iv462.i, 1
   %368 = load i32, ptr @ett_cursor_header, align 4
-  %369 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0131, ptr noundef %0, i32 noundef %.0455.i, i32 noundef 9, i32 noundef %368, ptr noundef null, ptr noundef nonnull @.str.888, i32 noundef %indvars.iv.next463.i) #4
+  %369 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0131, ptr noundef %0, i32 noundef %.1455.i, i32 noundef 9, i32 noundef %368, ptr noundef null, ptr noundef nonnull @.str.888, i32 noundef %indvars.iv.next463.i) #4
   %370 = load i32, ptr @hf_resource_type, align 4
-  %371 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %370, ptr noundef %0, i32 noundef %.0455.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %371 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %370, ptr noundef %0, i32 noundef %.1455.i, i32 noundef 1, i32 noundef -2147483648) #4
   %372 = load i32, ptr @hf_resource_id, align 4
-  %373 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %372, ptr noundef %0, i32 noundef %.0455.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %374 = add i32 %.0455.i, 9
+  %373 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %372, ptr noundef %0, i32 noundef %.1455.i, i32 noundef 8, i32 noundef -2147483648) #4
+  %374 = add i32 %.1455.i, 9
   %exitcond466.not.i = icmp eq i32 %indvars.iv.next463.i, %wide.trip.count465.i
   br i1 %exitcond466.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph456.i, !llvm.loop !14
 
@@ -3511,16 +3511,16 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   br label %496
 
 496:                                              ; preds = %493, %481
-  %.1.i149 = phi i32 [ %490, %481 ], [ %495, %493 ]
+  %.2.i = phi i32 [ %490, %481 ], [ %495, %493 ]
   %497 = load i32, ptr @hf_display_text_fore_mode, align 4
-  %498 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %497, ptr noundef %0, i32 noundef %.1.i149, i32 noundef 2, i32 noundef -2147483648) #4
-  %499 = add i32 %.1.i149, 2
+  %498 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %497, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef -2147483648) #4
+  %499 = add i32 %.2.i, 2
   %500 = load i32, ptr @hf_display_text_back_mode, align 4
   %501 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %500, ptr noundef %0, i32 noundef %499, i32 noundef 2, i32 noundef -2147483648) #4
-  %502 = add i32 %.1.i149, 4
+  %502 = add i32 %.2.i, 4
   %503 = load i32, ptr @hf_num_glyphs, align 4
   %504 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %503, ptr noundef %0, i32 noundef %502, i32 noundef 2, i32 noundef -2147483648) #4
-  %505 = add i32 %.1.i149, 6
+  %505 = add i32 %.2.i, 6
   %506 = load i32, ptr @hf_spice_glyph_flags, align 4
   %507 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %506, ptr noundef %0, i32 noundef %505, i32 noundef 2, i32 noundef 0) #4
   br label %dissect_spice_playback_server.exit
@@ -3683,42 +3683,42 @@ dissect_Clip.exit447.i:                           ; preds = %557, %526
   %631 = load i32, ptr @hf_display_monitor_config_max_allowed, align 4
   %632 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %631, ptr noundef %0, i32 noundef %630, i32 noundef 2, i32 noundef -2147483648) #4
   %633 = add i32 %53, 4
-  %.not.i146 = icmp eq i16 %629, 0
-  br i1 %.not.i146, label %dissect_spice_playback_server.exit, label %.lr.ph.preheader.i
+  %.not.i148 = icmp eq i16 %629, 0
+  br i1 %.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %626
   %wide.trip.count.i = zext i16 %629 to i32
-  br label %.lr.ph.i147
+  br label %.lr.ph.i149
 
-.lr.ph.i147:                                      ; preds = %.lr.ph.i147, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i147 ]
-  %.2453.i = phi i32 [ %633, %.lr.ph.preheader.i ], [ %656, %.lr.ph.i147 ]
+.lr.ph.i149:                                      ; preds = %.lr.ph.i149, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i149 ]
+  %.3453.i = phi i32 [ %633, %.lr.ph.preheader.i ], [ %656, %.lr.ph.i149 ]
   %634 = load i32, ptr @ett_SpiceHead, align 4
-  %635 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0131, ptr noundef %0, i32 noundef %.2453.i, i32 noundef 28, i32 noundef %634, ptr noundef null, ptr noundef nonnull @.str.913, i32 noundef %indvars.iv.i) #4
+  %635 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0131, ptr noundef %0, i32 noundef %.3453.i, i32 noundef 28, i32 noundef %634, ptr noundef null, ptr noundef nonnull @.str.913, i32 noundef %indvars.iv.i) #4
   %636 = load i32, ptr @hf_display_head_id, align 4
-  %637 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %636, ptr noundef %0, i32 noundef %.2453.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %638 = add i32 %.2453.i, 4
+  %637 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %636, ptr noundef %0, i32 noundef %.3453.i, i32 noundef 4, i32 noundef -2147483648) #4
+  %638 = add i32 %.3453.i, 4
   %639 = load i32, ptr @hf_display_head_surface_id, align 4
   %640 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %639, ptr noundef %0, i32 noundef %638, i32 noundef 4, i32 noundef -2147483648) #4
-  %641 = add i32 %.2453.i, 8
+  %641 = add i32 %.3453.i, 8
   %642 = load i32, ptr @hf_display_head_width, align 4
   %643 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %642, ptr noundef %0, i32 noundef %641, i32 noundef 4, i32 noundef -2147483648) #4
-  %644 = add i32 %.2453.i, 12
+  %644 = add i32 %.3453.i, 12
   %645 = load i32, ptr @hf_display_head_height, align 4
   %646 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %645, ptr noundef %0, i32 noundef %644, i32 noundef 4, i32 noundef -2147483648) #4
-  %647 = add i32 %.2453.i, 16
+  %647 = add i32 %.3453.i, 16
   %648 = load i32, ptr @hf_display_head_x, align 4
   %649 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %648, ptr noundef %0, i32 noundef %647, i32 noundef 4, i32 noundef -2147483648) #4
-  %650 = add i32 %.2453.i, 20
+  %650 = add i32 %.3453.i, 20
   %651 = load i32, ptr @hf_display_head_y, align 4
   %652 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %651, ptr noundef %0, i32 noundef %650, i32 noundef 4, i32 noundef -2147483648) #4
-  %653 = add i32 %.2453.i, 24
+  %653 = add i32 %.3453.i, 24
   %654 = load i32, ptr @hf_display_head_flags, align 4
   %655 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %654, ptr noundef %0, i32 noundef %653, i32 noundef 4, i32 noundef -2147483648) #4
-  %656 = add i32 %.2453.i, 28
+  %656 = add i32 %.3453.i, 28
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
-  %exitcond.not.i148 = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !15
+  %exitcond.not.i150 = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i150, label %dissect_spice_playback_server.exit, label %.lr.ph.i149, !llvm.loop !15
 
 657:                                              ; preds = %346
   %658 = load i32, ptr @hf_display_stream_id, align 4
@@ -3852,8 +3852,8 @@ dissect_Clip.exit447.i:                           ; preds = %557, %526
   %743 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %742, ptr noundef nonnull @ei_spice_unknown_message, ptr noundef nonnull @.str.872) #4
   br label %dissect_spice_playback_server.exit
 
-dissect_spice_playback_server.exit:               ; preds = %.lr.ph.i147, %.lr.ph456.i, %.lr.ph.i143, %.lr.ph.i139, %.lr.ph.i, %738, %734, %723, %719, %715, %711, %701, %698, %686, %674, %670, %657, %626, %622, %606, %588, %584, %567, %564, %dissect_Clip.exit447.i, %523, %dissect_Clip.exit.i, %508, %496, %461, %443, %427, %424, %414, %409, %404, %391, %386, %375, %363, %360, %357, %347, %346, %346, %346, %343, %339, %332, %330, %326, %313, %312, %312, %312, %310, %306, %298, %294, %278, %274, %270, %258, %238, %208, %204, %186, %184, %184, %184, %184, %181, %177, %164, %163, %160, %156, %152, %139, %126, %117, %109, %108, %741, %707, %704
-  %.0132 = phi i32 [ %53, %741 ], [ %53, %707 ], [ %53, %704 ], [ %53, %160 ], [ %159, %156 ], [ %155, %152 ], [ %53, %108 ], [ %138, %126 ], [ %125, %117 ], [ %116, %109 ], [ %143, %139 ], [ %53, %181 ], [ %180, %177 ], [ %53, %163 ], [ %168, %164 ], [ %53, %310 ], [ %309, %306 ], [ %305, %298 ], [ %297, %294 ], [ %293, %278 ], [ %277, %274 ], [ %273, %270 ], [ %269, %258 ], [ %237, %208 ], [ %53, %184 ], [ %53, %184 ], [ %53, %184 ], [ %53, %184 ], [ %207, %204 ], [ %202, %186 ], [ %242, %238 ], [ %53, %343 ], [ %342, %339 ], [ %338, %332 ], [ %331, %330 ], [ %329, %326 ], [ %53, %312 ], [ %53, %312 ], [ %53, %312 ], [ %325, %313 ], [ %53, %670 ], [ %669, %657 ], [ %625, %622 ], [ %621, %606 ], [ %605, %588 ], [ %587, %584 ], [ %583, %567 ], [ %566, %564 ], [ %562, %dissect_Clip.exit447.i ], [ %525, %523 ], [ %521, %dissect_Clip.exit.i ], [ %510, %508 ], [ %505, %496 ], [ %53, %346 ], [ %53, %346 ], [ %53, %346 ], [ %480, %461 ], [ %460, %443 ], [ %442, %427 ], [ %426, %424 ], [ %423, %414 ], [ %413, %409 ], [ %408, %404 ], [ %403, %391 ], [ %390, %386 ], [ %385, %375 ], [ %53, %360 ], [ %53, %357 ], [ %356, %347 ], [ %367, %363 ], [ %633, %626 ], [ %53, %701 ], [ %53, %698 ], [ %697, %686 ], [ %685, %674 ], [ %714, %711 ], [ %53, %715 ], [ %53, %738 ], [ %737, %734 ], [ %733, %723 ], [ %722, %719 ], [ %150, %.lr.ph.i ], [ %175, %.lr.ph.i139 ], [ %256, %.lr.ph.i143 ], [ %374, %.lr.ph456.i ], [ %656, %.lr.ph.i147 ]
+dissect_spice_playback_server.exit:               ; preds = %.lr.ph.i149, %.lr.ph456.i, %.lr.ph.i144, %.lr.ph.i140, %.lr.ph.i, %738, %734, %723, %719, %715, %711, %701, %698, %686, %674, %670, %657, %626, %622, %606, %588, %584, %567, %564, %dissect_Clip.exit447.i, %523, %dissect_Clip.exit.i, %508, %496, %461, %443, %427, %424, %414, %409, %404, %391, %386, %375, %363, %360, %357, %347, %346, %346, %346, %343, %339, %332, %330, %326, %313, %312, %312, %312, %310, %306, %298, %294, %278, %274, %270, %258, %238, %208, %204, %186, %184, %184, %184, %184, %181, %177, %164, %163, %160, %156, %152, %139, %126, %117, %109, %108, %741, %707, %704
+  %.0132 = phi i32 [ %53, %741 ], [ %53, %707 ], [ %53, %704 ], [ %53, %160 ], [ %159, %156 ], [ %155, %152 ], [ %53, %108 ], [ %138, %126 ], [ %125, %117 ], [ %116, %109 ], [ %143, %139 ], [ %53, %181 ], [ %180, %177 ], [ %53, %163 ], [ %168, %164 ], [ %53, %310 ], [ %309, %306 ], [ %305, %298 ], [ %297, %294 ], [ %293, %278 ], [ %277, %274 ], [ %273, %270 ], [ %269, %258 ], [ %237, %208 ], [ %53, %184 ], [ %53, %184 ], [ %53, %184 ], [ %53, %184 ], [ %207, %204 ], [ %202, %186 ], [ %242, %238 ], [ %53, %343 ], [ %342, %339 ], [ %338, %332 ], [ %331, %330 ], [ %329, %326 ], [ %53, %312 ], [ %53, %312 ], [ %53, %312 ], [ %325, %313 ], [ %53, %670 ], [ %669, %657 ], [ %625, %622 ], [ %621, %606 ], [ %605, %588 ], [ %587, %584 ], [ %583, %567 ], [ %566, %564 ], [ %562, %dissect_Clip.exit447.i ], [ %525, %523 ], [ %521, %dissect_Clip.exit.i ], [ %510, %508 ], [ %505, %496 ], [ %53, %346 ], [ %53, %346 ], [ %53, %346 ], [ %480, %461 ], [ %460, %443 ], [ %442, %427 ], [ %426, %424 ], [ %423, %414 ], [ %413, %409 ], [ %408, %404 ], [ %403, %391 ], [ %390, %386 ], [ %385, %375 ], [ %53, %360 ], [ %53, %357 ], [ %356, %347 ], [ %367, %363 ], [ %633, %626 ], [ %53, %701 ], [ %53, %698 ], [ %697, %686 ], [ %685, %674 ], [ %714, %711 ], [ %53, %715 ], [ %53, %738 ], [ %737, %734 ], [ %733, %723 ], [ %722, %719 ], [ %150, %.lr.ph.i ], [ %175, %.lr.ph.i140 ], [ %256, %.lr.ph.i144 ], [ %374, %.lr.ph456.i ], [ %656, %.lr.ph.i149 ]
   %744 = sub i32 %.0132, %53
   %.not135 = icmp eq i32 %744, %.0129
   br i1 %.not135, label %dissect_spice_common_server_messages.exit, label %745
@@ -4190,25 +4190,25 @@ define internal fastcc noundef i32 @dissect_spice_agent_message(ptr noundef %0, 
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.0117 = phi i32 [ %52, %.lr.ph ], [ 0, %26 ]
-  %.0115116 = phi i32 [ %51, %.lr.ph ], [ %33, %26 ]
+  %.1116 = phi i32 [ %51, %.lr.ph ], [ %33, %26 ]
   %34 = load i32, ptr @ett_SpiceHead, align 4
   %35 = and i32 %.0117, 65535
-  %36 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0115116, i32 noundef 20, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.862, i32 noundef %35) #4
+  %36 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1116, i32 noundef 20, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.862, i32 noundef %35) #4
   %37 = load i32, ptr @hf_agent_monitor_height, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.0115116, i32 noundef 4, i32 noundef -2147483648) #4
-  %39 = add i32 %.0115116, 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.1116, i32 noundef 4, i32 noundef -2147483648) #4
+  %39 = add i32 %.1116, 4
   %40 = load i32, ptr @hf_agent_monitor_width, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648) #4
-  %42 = add i32 %.0115116, 8
+  %42 = add i32 %.1116, 8
   %43 = load i32, ptr @hf_agent_monitor_depth, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef -2147483648) #4
-  %45 = add i32 %.0115116, 12
+  %45 = add i32 %.1116, 12
   %46 = load i32, ptr @hf_agent_monitor_x, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648) #4
-  %48 = add i32 %.0115116, 16
+  %48 = add i32 %.1116, 16
   %49 = load i32, ptr @hf_agent_monitor_y, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef -2147483648) #4
-  %51 = add i32 %.0115116, 20
+  %51 = add i32 %.1116, 20
   %52 = add nuw i32 %.0117, 1
   %exitcond.not = icmp eq i32 %52, %27
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -4296,8 +4296,8 @@ define internal fastcc noundef i32 @dissect_spice_agent_message(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %117, %114, %102, %93, %68, %64, %60, %53, %9
-  %.1 = phi i32 [ %6, %117 ], [ %6, %114 ], [ %113, %102 ], [ %101, %93 ], [ %92, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %53 ], [ %25, %9 ], [ %33, %26 ], [ %51, %.lr.ph ]
-  ret i32 %.1
+  %.0115 = phi i32 [ %6, %117 ], [ %6, %114 ], [ %113, %102 ], [ %101, %93 ], [ %92, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %53 ], [ %25, %9 ], [ %33, %26 ], [ %51, %.lr.ph ]
+  ret i32 %.0115
 }
 
 declare i32 @tvb_get_letohil(ptr noundef, i32 noundef) local_unnamed_addr #1

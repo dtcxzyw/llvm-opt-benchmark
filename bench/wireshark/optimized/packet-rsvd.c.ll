@@ -727,7 +727,7 @@ get_itl_nexus.exit.i:                             ; preds = %201, %194
   br label %253
 
 253:                                              ; preds = %251, %215
-  %.1.i = phi i32 [ %252, %251 ], [ %245, %215 ]
+  %.2.i = phi i32 [ %252, %251 ], [ %245, %215 ]
   %254 = load ptr, ptr @rsvd_conv_data, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
@@ -771,11 +771,11 @@ get_itl_nexus.exit188.i:                          ; preds = %267, %260
   br label %dissect_RSVD_TUNNEL_SCSI.exit
 
 dissect_RSVD_TUNNEL_SCSI.exit:                    ; preds = %213, %253, %257, %get_itl_nexus.exit188.i
-  %.2.i = phi i32 [ %214, %213 ], [ %.1.i, %get_itl_nexus.exit188.i ], [ %.1.i, %257 ], [ %.1.i, %253 ]
+  %.1.i = phi i32 [ %214, %213 ], [ %.2.i, %get_itl_nexus.exit188.i ], [ %.2.i, %257 ], [ %.2.i, %253 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  %277 = add i32 %.2.i, 16
+  %277 = add i32 %.1.i, 16
   br label %484
 
 278:                                              ; preds = %4

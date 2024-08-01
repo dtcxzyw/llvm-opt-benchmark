@@ -454,7 +454,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 
 48:                                               ; preds = %36, %42, %46
   %.not82 = phi i1 [ false, %46 ], [ true, %42 ], [ true, %36 ]
-  %.067 = phi i32 [ 0, %46 ], [ 1, %42 ], [ 1, %36 ]
+  %.168 = phi i32 [ 0, %46 ], [ 1, %42 ], [ 1, %36 ]
   br i1 %.not79, label %66, label %49
 
 49:                                               ; preds = %48
@@ -490,7 +490,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 
 67:                                               ; preds = %.thread86, %66
   %68 = phi ptr [ %35, %.thread86 ], [ %38, %66 ]
-  %.16890 = phi i32 [ 0, %.thread86 ], [ %.067, %66 ]
+  %.06790 = phi i32 [ 0, %.thread86 ], [ %.168, %66 ]
   %69 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   %70 = tail call noalias ptr @g_strdup(ptr noundef %24) #14
   store ptr %70, ptr %69, align 8
@@ -538,7 +538,7 @@ decode_build_reset_list.exit:                     ; preds = %72, %76, %78
   br label %.thread
 
 .thread:                                          ; preds = %31, %4, %23, %decode_build_reset_list.exit, %66
-  %.2 = phi i32 [ %.16890, %decode_build_reset_list.exit ], [ %.067, %66 ], [ 1, %23 ], [ 2, %4 ], [ 0, %31 ]
+  %.2 = phi i32 [ %.06790, %decode_build_reset_list.exit ], [ %.168, %66 ], [ 1, %23 ], [ 2, %4 ], [ 0, %31 ]
   br label %84
 
 84:                                               ; preds = %.thread, %84

@@ -553,10 +553,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %_ZN6google8protobuf8internal8TcParser16ParseLoopInlinedEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.i.121 = phi ptr [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.0, %while.cond.i ]
+  %ptr.addr.i.221 = phi ptr [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.0, %while.cond.i ]
   %7 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0) #26, !srcloc !4
   %add.ptr2.i = getelementptr inbounds i8, ptr %7, i64 -48
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.121, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.221, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %7, i64 -40
   %8 = load i8, ptr %fast_idx_mask.i, align 8
   %9 = zext i8 %8 to i16
@@ -573,7 +573,7 @@ while.body.i:                                     ; preds = %while.cond.i, %_ZN6
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %11 = load atomic i64, ptr %add.ptr2.i13 monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %11 to ptr
-  %call10.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.121, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %add.ptr2.i, i64 noundef 0)
+  %call10.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.221, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %add.ptr2.i, i64 noundef 0)
   %cmp.i = icmp eq ptr %call10.i, null
   br i1 %cmp.i, label %_ZN6google8protobuf8internal8TcParser16ParseLoopInlinedEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit, label %if.end.i
 
@@ -583,8 +583,8 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp6.i.not, label %while.cond.i, label %_ZN6google8protobuf8internal8TcParser16ParseLoopInlinedEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit, !llvm.loop !5
 
 _ZN6google8protobuf8internal8TcParser16ParseLoopInlinedEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit: ; preds = %if.end.i, %while.body.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then3.i.i
-  %ptr.addr.i.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %call10.i, %if.end.i ], [ null, %while.body.i ], [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.i.2
+  %ptr.addr.i.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %call10.i, %if.end.i ], [ null, %while.body.i ], [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.i.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
@@ -1802,9 +1802,9 @@ if.end8.i.i:                                      ; preds = %if.end.i.i54
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %call.i7.i.noexc
 
 call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if.end8.i.i
-  %ptr.addr.i.i15.186 = phi ptr [ %27, %if.end8.i.i ], [ %ptr.addr.i.i15.0, %while.cond.i.i ]
+  %ptr.addr.i.i15.286 = phi ptr [ %27, %if.end8.i.i ], [ %ptr.addr.i.i15.0, %while.cond.i.i ]
   %29 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i16.0) #26, !srcloc !4
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i15.186, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i15.286, align 1
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %29, i64 -48
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %29, i64 -40
   %30 = load i8, ptr %fast_idx_mask.i.i, align 8
@@ -1822,7 +1822,7 @@ call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %33 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %33 to ptr
-  %call10.i.i30 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %21, ptr noundef nonnull %ptr.addr.i.i15.186, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i30 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %21, ptr noundef nonnull %ptr.addr.i.i15.286, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i25 = icmp eq ptr %call10.i.i30, null
   br i1 %cmp.i.i25, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i26
 
@@ -1832,13 +1832,13 @@ if.end.i.i26:                                     ; preds = %call.i7.i.noexc
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %if.end8.i.i, %call.i7.i.noexc, %if.end.i.i26
-  %ptr.addr.i.i15.2.ph = phi ptr [ %27, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i30, %if.end.i.i26 ]
+  %ptr.addr.i.i15.1.ph = phi ptr [ %27, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i30, %if.end.i.i26 ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %35 = phi i32 [ %conv.i.i, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i15.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i15.2.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i15.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i15.1.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %36 = load i32, ptr %depth_.i.i, align 8
   %inc.i = add nsw i32 %36, 1
   store i32 %inc.i, ptr %depth_.i.i, align 8
@@ -1857,7 +1857,7 @@ if.end.i61:                                       ; preds = %_ZZN6google8protobu
   br label %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
 
 _ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit, %if.end.i61, %if.end.i45, %lor.lhs.false.i.i
-  %retval.i4.0 = phi ptr [ null, %lor.lhs.false.i.i ], [ null, %if.end.i45 ], [ %ptr.addr.i.i15.2, %if.end.i61 ], [ null, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit ]
+  %retval.i4.0 = phi ptr [ null, %lor.lhs.false.i.i ], [ null, %if.end.i45 ], [ %ptr.addr.i.i15.1, %if.end.i61 ], [ null, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit ]
   ret ptr %retval.i4.0
 }
 
@@ -2020,9 +2020,9 @@ if.end8.i.i:                                      ; preds = %if.end.i.i54
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %call.i7.i.noexc
 
 call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if.end8.i.i
-  %ptr.addr.i.i15.187 = phi ptr [ %27, %if.end8.i.i ], [ %ptr.addr.i.i15.0, %while.cond.i.i ]
+  %ptr.addr.i.i15.287 = phi ptr [ %27, %if.end8.i.i ], [ %ptr.addr.i.i15.0, %while.cond.i.i ]
   %29 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i16.0) #26, !srcloc !4
-  %tmp.0.copyload.i.i56 = load i16, ptr %ptr.addr.i.i15.187, align 1
+  %tmp.0.copyload.i.i56 = load i16, ptr %ptr.addr.i.i15.287, align 1
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %29, i64 -48
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %29, i64 -40
   %30 = load i8, ptr %fast_idx_mask.i.i, align 8
@@ -2040,7 +2040,7 @@ call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %33 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %33 to ptr
-  %call10.i.i30 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %21, ptr noundef nonnull %ptr.addr.i.i15.187, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i30 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %21, ptr noundef nonnull %ptr.addr.i.i15.287, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i25 = icmp eq ptr %call10.i.i30, null
   br i1 %cmp.i.i25, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i26
 
@@ -2050,13 +2050,13 @@ if.end.i.i26:                                     ; preds = %call.i7.i.noexc
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %if.end8.i.i, %call.i7.i.noexc, %if.end.i.i26
-  %ptr.addr.i.i15.2.ph = phi ptr [ %27, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i30, %if.end.i.i26 ]
+  %ptr.addr.i.i15.1.ph = phi ptr [ %27, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i30, %if.end.i.i26 ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %35 = phi i32 [ %conv.i.i, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i15.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i15.2.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i15.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i15.1.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %36 = load i32, ptr %depth_.i.i, align 8
   %inc.i = add nsw i32 %36, 1
   store i32 %inc.i, ptr %depth_.i.i, align 8
@@ -2075,7 +2075,7 @@ if.end.i62:                                       ; preds = %_ZZN6google8protobu
   br label %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
 
 _ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit, %if.end.i62, %if.end.i45, %lor.lhs.false.i.i
-  %retval.i4.0 = phi ptr [ null, %lor.lhs.false.i.i ], [ null, %if.end.i45 ], [ %ptr.addr.i.i15.2, %if.end.i62 ], [ null, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit ]
+  %retval.i4.0 = phi ptr [ null, %lor.lhs.false.i.i ], [ null, %if.end.i45 ], [ %ptr.addr.i.i15.1, %if.end.i62 ], [ null, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit ]
   ret ptr %retval.i4.0
 }
 
@@ -2211,10 +2211,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.i.i.157 = phi ptr [ %24, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
+  %ptr.addr.i.i.257 = phi ptr [ %24, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
   %26 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i12.0) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %26, i64 -48
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i.157, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i.257, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %26, i64 -40
   %27 = load i8, ptr %fast_idx_mask.i.i, align 8
   %28 = zext i8 %27 to i16
@@ -2231,7 +2231,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %_Z
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %30 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %30 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %18, ptr noundef nonnull %ptr.addr.i.i.157, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %18, ptr noundef nonnull %ptr.addr.i.i.257, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i
 
@@ -2241,13 +2241,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %while.body.i.i, %if.end.i.i
-  %ptr.addr.i.i.2.ph = phi ptr [ %24, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
+  %ptr.addr.i.i.1.ph = phi ptr [ %24, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
   %.pre = load i32, ptr %group_depth_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %32 = phi i32 [ %19, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.2.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.1.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %dec14.i = add nsw i32 %32, -1
   store i32 %dec14.i, ptr %group_depth_.i, align 4
   %33 = load i32, ptr %depth_.i, align 8
@@ -2256,7 +2256,7 @@ _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEP
   %34 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp eq i32 %34, %conv.i40
   store i32 0, ptr %last_tag_minus_1_.i, align 8
-  %. = select i1 %cmp.i, ptr %ptr.addr.i.i.2, ptr null
+  %. = select i1 %cmp.i, ptr %ptr.addr.i.i.1, ptr null
   br label %_ZN6google8protobuf8internal12ParseContext17ParseGroupInlinedIZNS1_8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_jRKT_.exit
 
 _ZN6google8protobuf8internal12ParseContext17ParseGroupInlinedIZNS1_8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_jRKT_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit, %_ZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm.exit
@@ -2400,10 +2400,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.i.i.160 = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
+  %ptr.addr.i.i.260 = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
   %25 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i12.0) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %25, i64 -48
-  %tmp.0.copyload.i.i46 = load i16, ptr %ptr.addr.i.i.160, align 1
+  %tmp.0.copyload.i.i46 = load i16, ptr %ptr.addr.i.i.260, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %25, i64 -40
   %26 = load i8, ptr %fast_idx_mask.i.i, align 8
   %27 = zext i8 %26 to i16
@@ -2420,7 +2420,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %_Z
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %29 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %29 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %17, ptr noundef nonnull %ptr.addr.i.i.160, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %17, ptr noundef nonnull %ptr.addr.i.i.260, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i
 
@@ -2430,13 +2430,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %while.body.i.i, %if.end.i.i
-  %ptr.addr.i.i.2.ph = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
+  %ptr.addr.i.i.1.ph = phi ptr [ %23, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
   %.pre = load i32, ptr %group_depth_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %31 = phi i32 [ %18, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.2.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.1.ph, %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %dec14.i = add nsw i32 %31, -1
   store i32 %dec14.i, ptr %group_depth_.i, align 4
   %32 = load i32, ptr %depth_.i, align 8
@@ -2445,7 +2445,7 @@ _ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEP
   %33 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp eq i32 %33, %shr.i42
   store i32 0, ptr %last_tag_minus_1_.i, align 8
-  %. = select i1 %cmp.i, ptr %ptr.addr.i.i.2, ptr null
+  %. = select i1 %cmp.i, ptr %ptr.addr.i.i.1, ptr null
   br label %_ZN6google8protobuf8internal12ParseContext17ParseGroupInlinedIZNS1_8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_jRKT_.exit
 
 _ZN6google8protobuf8internal12ParseContext17ParseGroupInlinedIZNS1_8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_jRKT_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit, %_ZN6google8protobuf8internal8TcParser27SingularParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm.exit
@@ -2952,7 +2952,7 @@ if.end.i:                                         ; preds = %entry
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end34.i, %if.end.i
-  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i59.2, %if.end34.i ]
+  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i59.1, %if.end34.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 1
   %call15.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddMessageEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i71, ptr noundef %6)
   %7 = load i8, ptr %add.ptr.i, align 1
@@ -3030,9 +3030,9 @@ if.end8.i.i:                                      ; preds = %if.end.i.i82
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %call.i7.i.noexc
 
 call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if.end8.i.i
-  %ptr.addr.i.i59.1127 = phi ptr [ %18, %if.end8.i.i ], [ %ptr.addr.i.i59.0, %while.cond.i.i ]
+  %ptr.addr.i.i59.2127 = phi ptr [ %18, %if.end8.i.i ], [ %ptr.addr.i.i59.0, %while.cond.i.i ]
   %20 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i60.0) #26, !srcloc !4
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i59.1127, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i59.2127, align 1
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %20, i64 -48
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %20, i64 -40
   %21 = load i8, ptr %fast_idx_mask.i.i, align 8
@@ -3050,7 +3050,7 @@ call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %24 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %24 to ptr
-  %call10.i.i74 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i59.1127, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i74 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i59.2127, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i69 = icmp eq ptr %call10.i.i74, null
   br i1 %cmp.i.i69, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i70
 
@@ -3060,13 +3060,13 @@ if.end.i.i70:                                     ; preds = %call.i7.i.noexc
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %if.end8.i.i, %call.i7.i.noexc, %if.end.i.i70
-  %ptr.addr.i.i59.2.ph = phi ptr [ %18, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i74, %if.end.i.i70 ]
+  %ptr.addr.i.i59.1.ph = phi ptr [ %18, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i74, %if.end.i.i70 ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %26 = phi i32 [ %conv.i.i, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i59.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i59.2.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i59.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i59.1.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %27 = load i32, ptr %depth_.i.i, align 8
   %inc.i = add nsw i32 %27, 1
   store i32 %inc.i, ptr %depth_.i.i, align 8
@@ -3082,7 +3082,7 @@ _ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8Tc
   %idx.ext.i92 = sext i32 %.sroa.speculated.i91 to i64
   %add.ptr.i93 = getelementptr inbounds i8, ptr %29, i64 %idx.ext.i92
   store ptr %add.ptr.i93, ptr %ctx, align 8
-  %cmp17.i = icmp eq ptr %ptr.addr.i.i59.2, null
+  %cmp17.i = icmp eq ptr %ptr.addr.i.i59.1, null
   br i1 %cmp17.i, label %if.then19.i, label %if.end25.i
 
 if.then19.i:                                      ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit, %if.end.i73, %lor.lhs.false.i.i, %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
@@ -3092,7 +3092,7 @@ if.then19.i:                                      ; preds = %_ZZN6google8protobu
 
 common.ret131.sink.split:                         ; preds = %if.then19.i, %if.then28.i
   %.sink = phi i16 [ %32, %if.then28.i ], [ %30, %if.then19.i ]
-  %common.ret131.op.ph = phi ptr [ %ptr.addr.i.i59.2, %if.then28.i ], [ null, %if.then19.i ]
+  %common.ret131.op.ph = phi ptr [ %ptr.addr.i.i59.1, %if.then28.i ], [ null, %if.then19.i ]
   %conv2.i.i44 = trunc i64 %hasbits to i32
   %conv3.i.i45 = zext i16 %.sink to i64
   %add.ptr.i100 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
@@ -3102,11 +3102,11 @@ common.ret131.sink.split:                         ; preds = %if.then19.i, %if.th
   br label %common.ret131
 
 common.ret131:                                    ; preds = %common.ret131.sink.split, %if.then28.i, %if.then19.i
-  %common.ret131.op = phi ptr [ null, %if.then19.i ], [ %ptr.addr.i.i59.2, %if.then28.i ], [ %common.ret131.op.ph, %common.ret131.sink.split ]
+  %common.ret131.op = phi ptr [ null, %if.then19.i ], [ %ptr.addr.i.i59.1, %if.then28.i ], [ %common.ret131.op.ph, %common.ret131.sink.split ]
   ret ptr %common.ret131.op
 
 if.end25.i:                                       ; preds = %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27RepeatedParseMessageAuxImplIhLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
-  %cmp.i99 = icmp ugt ptr %add.ptr.i93, %ptr.addr.i.i59.2
+  %cmp.i99 = icmp ugt ptr %add.ptr.i93, %ptr.addr.i.i59.1
   br i1 %cmp.i99, label %if.end34.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end25.i
@@ -3115,12 +3115,12 @@ if.then28.i:                                      ; preds = %if.end25.i
   br i1 %tobool.i.i42.not, label %common.ret131, label %common.ret131.sink.split
 
 if.end34.i:                                       ; preds = %if.end25.i
-  %33 = load i8, ptr %ptr.addr.i.i59.2, align 1
+  %33 = load i8, ptr %ptr.addr.i.i59.1, align 1
   %cmp38.i = icmp eq i8 %33, %1
   br i1 %cmp38.i, label %do.body.i, label %if.end.i12, !llvm.loop !24
 
 if.end.i12:                                       ; preds = %if.end34.i
-  %tmp.0.copyload.i.i103 = load i16, ptr %ptr.addr.i.i59.2, align 1
+  %tmp.0.copyload.i.i103 = load i16, ptr %ptr.addr.i.i59.1, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %34 = load i8, ptr %fast_idx_mask.i, align 8
   %35 = zext i8 %34 to i16
@@ -3138,7 +3138,7 @@ if.end.i12:                                       ; preds = %if.end34.i
   %xor.i = xor i64 %data.i19.sroa.0.0.copyload, %conv6.i
   %37 = load atomic i64, ptr %add.ptr2.i105 monotonic, align 8
   %atomic-temp.i.0.i.i106 = inttoptr i64 %37 to ptr
-  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i106(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i59.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i106(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i59.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i26
 }
 
@@ -3179,7 +3179,7 @@ if.end.i:                                         ; preds = %entry
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end34.i, %if.end.i
-  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i59.2, %if.end34.i ]
+  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i59.1, %if.end34.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.i.0, i64 2
   %call15.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddMessageEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i71, ptr noundef %5)
   %6 = load i8, ptr %add.ptr.i, align 1
@@ -3257,9 +3257,9 @@ if.end8.i.i:                                      ; preds = %if.end.i.i82
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %call.i7.i.noexc
 
 call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if.end8.i.i
-  %ptr.addr.i.i59.1129 = phi ptr [ %17, %if.end8.i.i ], [ %ptr.addr.i.i59.0, %while.cond.i.i ]
+  %ptr.addr.i.i59.2129 = phi ptr [ %17, %if.end8.i.i ], [ %ptr.addr.i.i59.0, %while.cond.i.i ]
   %19 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i60.0) #26, !srcloc !4
-  %tmp.0.copyload.i.i84 = load i16, ptr %ptr.addr.i.i59.1129, align 1
+  %tmp.0.copyload.i.i84 = load i16, ptr %ptr.addr.i.i59.2129, align 1
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %19, i64 -48
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %19, i64 -40
   %20 = load i8, ptr %fast_idx_mask.i.i, align 8
@@ -3277,7 +3277,7 @@ call.i7.i.noexc:                                  ; preds = %while.cond.i.i, %if
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %23 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %23 to ptr
-  %call10.i.i74 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i59.1129, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i74 = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i59.2129, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i69 = icmp eq ptr %call10.i.i74, null
   br i1 %cmp.i.i69, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i70
 
@@ -3287,13 +3287,13 @@ if.end.i.i70:                                     ; preds = %call.i7.i.noexc
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %if.end8.i.i, %call.i7.i.noexc, %if.end.i.i70
-  %ptr.addr.i.i59.2.ph = phi ptr [ %17, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i74, %if.end.i.i70 ]
+  %ptr.addr.i.i59.1.ph = phi ptr [ %17, %if.end8.i.i ], [ null, %call.i7.i.noexc ], [ %call10.i.i74, %if.end.i.i70 ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %25 = phi i32 [ %conv.i.i, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i59.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i59.2.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i59.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i59.1.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %26 = load i32, ptr %depth_.i.i, align 8
   %inc.i = add nsw i32 %26, 1
   store i32 %inc.i, ptr %depth_.i.i, align 8
@@ -3309,7 +3309,7 @@ _ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8Tc
   %idx.ext.i93 = sext i32 %.sroa.speculated.i92 to i64
   %add.ptr.i94 = getelementptr inbounds i8, ptr %28, i64 %idx.ext.i93
   store ptr %add.ptr.i94, ptr %ctx, align 8
-  %cmp17.i = icmp eq ptr %ptr.addr.i.i59.2, null
+  %cmp17.i = icmp eq ptr %ptr.addr.i.i59.1, null
   br i1 %cmp17.i, label %if.then19.i, label %if.end25.i
 
 if.then19.i:                                      ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit, %if.end.i73, %lor.lhs.false.i.i, %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
@@ -3319,7 +3319,7 @@ if.then19.i:                                      ; preds = %_ZZN6google8protobu
 
 common.ret133.sink.split:                         ; preds = %if.then19.i, %if.then28.i
   %.sink = phi i16 [ %31, %if.then28.i ], [ %29, %if.then19.i ]
-  %common.ret133.op.ph = phi ptr [ %ptr.addr.i.i59.2, %if.then28.i ], [ null, %if.then19.i ]
+  %common.ret133.op.ph = phi ptr [ %ptr.addr.i.i59.1, %if.then28.i ], [ null, %if.then19.i ]
   %conv2.i.i44 = trunc i64 %hasbits to i32
   %conv3.i.i45 = zext i16 %.sink to i64
   %add.ptr.i101 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
@@ -3329,11 +3329,11 @@ common.ret133.sink.split:                         ; preds = %if.then19.i, %if.th
   br label %common.ret133
 
 common.ret133:                                    ; preds = %common.ret133.sink.split, %if.then28.i, %if.then19.i
-  %common.ret133.op = phi ptr [ null, %if.then19.i ], [ %ptr.addr.i.i59.2, %if.then28.i ], [ %common.ret133.op.ph, %common.ret133.sink.split ]
+  %common.ret133.op = phi ptr [ null, %if.then19.i ], [ %ptr.addr.i.i59.1, %if.then28.i ], [ %common.ret133.op.ph, %common.ret133.sink.split ]
   ret ptr %common.ret133.op
 
 if.end25.i:                                       ; preds = %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser27RepeatedParseMessageAuxImplItLb0ELb1EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
-  %cmp.i100 = icmp ugt ptr %add.ptr.i94, %ptr.addr.i.i59.2
+  %cmp.i100 = icmp ugt ptr %add.ptr.i94, %ptr.addr.i.i59.1
   br i1 %cmp.i100, label %if.end34.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end25.i
@@ -3342,7 +3342,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   br i1 %tobool.i.i42.not, label %common.ret133, label %common.ret133.sink.split
 
 if.end34.i:                                       ; preds = %if.end25.i
-  %tmp.0.copyload.i.i102 = load i16, ptr %ptr.addr.i.i59.2, align 1
+  %tmp.0.copyload.i.i102 = load i16, ptr %ptr.addr.i.i59.1, align 1
   %cmp38.i = icmp eq i16 %tmp.0.copyload.i.i102, %tmp.0.copyload.i.i
   br i1 %cmp38.i, label %do.body.i, label %if.end.i12, !llvm.loop !28
 
@@ -3364,7 +3364,7 @@ if.end.i12:                                       ; preds = %if.end34.i
   %xor.i = xor i64 %data.i19.sroa.0.0.copyload, %conv6.i
   %35 = load atomic i64, ptr %add.ptr2.i107 monotonic, align 8
   %atomic-temp.i.0.i.i108 = inttoptr i64 %35 to ptr
-  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i108(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i59.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i108(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i59.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i26
 }
 
@@ -3406,7 +3406,7 @@ if.end.i:                                         ; preds = %entry
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end35.i, %if.end.i
-  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i.2, %if.end35.i ]
+  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i.1, %if.end35.i ]
   %call15.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddMessageEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i68, ptr noundef %6)
   %7 = load i32, ptr %depth_.i, align 8
   %dec.i = add nsw i32 %7, -1
@@ -3455,10 +3455,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.i.i.198 = phi ptr [ %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
+  %ptr.addr.i.i.298 = phi ptr [ %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
   %16 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i58.0) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %16, i64 -48
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i.198, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.i.i.298, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %16, i64 -40
   %17 = load i8, ptr %fast_idx_mask.i.i, align 8
   %18 = zext i8 %17 to i16
@@ -3475,7 +3475,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %_Z
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %20 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %20 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i.198, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i.298, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i
 
@@ -3485,13 +3485,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %while.body.i.i, %if.end.i.i
-  %ptr.addr.i.i.2.ph = phi ptr [ %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
+  %ptr.addr.i.i.1.ph = phi ptr [ %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
   %.pre = load i32, ptr %group_depth_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %22 = phi i32 [ %9, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.2.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.1.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %dec14.i = add nsw i32 %22, -1
   store i32 %dec14.i, ptr %group_depth_.i, align 4
   %23 = load i32, ptr %depth_.i, align 8
@@ -3500,7 +3500,7 @@ _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEP
   %24 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp ne i32 %24, %conv.i69
   store i32 0, ptr %last_tag_minus_1_.i, align 8
-  %cmp18.i = icmp eq ptr %ptr.addr.i.i.2, null
+  %cmp18.i = icmp eq ptr %ptr.addr.i.i.1, null
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp18.i
   br i1 %or.cond, label %if.then20.i, label %if.end26.i
 
@@ -3511,7 +3511,7 @@ if.then20.i:                                      ; preds = %_ZZN6google8protobu
 
 common.ret101.sink.split:                         ; preds = %if.then20.i, %if.then29.i
   %.sink = phi i16 [ %28, %if.then29.i ], [ %25, %if.then20.i ]
-  %common.ret101.op.ph = phi ptr [ %ptr.addr.i.i.2, %if.then29.i ], [ null, %if.then20.i ]
+  %common.ret101.op.ph = phi ptr [ %ptr.addr.i.i.1, %if.then29.i ], [ null, %if.then20.i ]
   %conv2.i.i44 = trunc i64 %hasbits to i32
   %conv3.i.i45 = zext i16 %.sink to i64
   %add.ptr.i82 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
@@ -3521,12 +3521,12 @@ common.ret101.sink.split:                         ; preds = %if.then20.i, %if.th
   br label %common.ret101
 
 common.ret101:                                    ; preds = %common.ret101.sink.split, %if.then29.i, %if.then20.i
-  %common.ret101.op = phi ptr [ null, %if.then20.i ], [ %ptr.addr.i.i.2, %if.then29.i ], [ %common.ret101.op.ph, %common.ret101.sink.split ]
+  %common.ret101.op = phi ptr [ null, %if.then20.i ], [ %ptr.addr.i.i.1, %if.then29.i ], [ %common.ret101.op.ph, %common.ret101.sink.split ]
   ret ptr %common.ret101.op
 
 if.end26.i:                                       ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplIhLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
   %27 = load ptr, ptr %ctx, align 8
-  %cmp.i81 = icmp ugt ptr %27, %ptr.addr.i.i.2
+  %cmp.i81 = icmp ugt ptr %27, %ptr.addr.i.i.1
   br i1 %cmp.i81, label %if.end35.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end26.i
@@ -3535,12 +3535,12 @@ if.then29.i:                                      ; preds = %if.end26.i
   br i1 %tobool.i.i42.not, label %common.ret101, label %common.ret101.sink.split
 
 if.end35.i:                                       ; preds = %if.end26.i
-  %29 = load i8, ptr %ptr.addr.i.i.2, align 1
+  %29 = load i8, ptr %ptr.addr.i.i.1, align 1
   %cmp39.i = icmp eq i8 %29, %1
   br i1 %cmp39.i, label %do.body.i, label %if.end.i12, !llvm.loop !29
 
 if.end.i12:                                       ; preds = %if.end35.i
-  %tmp.0.copyload.i.i85 = load i16, ptr %ptr.addr.i.i.2, align 1
+  %tmp.0.copyload.i.i85 = load i16, ptr %ptr.addr.i.i.1, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %30 = load i8, ptr %fast_idx_mask.i, align 8
   %31 = zext i8 %30 to i16
@@ -3558,7 +3558,7 @@ if.end.i12:                                       ; preds = %if.end35.i
   %xor.i = xor i64 %data.i19.sroa.0.0.copyload, %conv6.i
   %33 = load atomic i64, ptr %add.ptr2.i87 monotonic, align 8
   %atomic-temp.i.0.i.i88 = inttoptr i64 %33 to ptr
-  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i88(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i88(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i26
 }
 
@@ -3604,7 +3604,7 @@ if.end.i:                                         ; preds = %entry
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end35.i, %if.end.i
-  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i.2, %if.end35.i ]
+  %ptr.addr.i.0 = phi ptr [ %ptr, %if.end.i ], [ %ptr.addr.i.i.1, %if.end35.i ]
   %call15.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase10AddMessageEPKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i68, ptr noundef %5)
   %6 = load i32, ptr %depth_.i, align 8
   %dec.i = add nsw i32 %6, -1
@@ -3653,10 +3653,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.i.i.1102 = phi ptr [ %13, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
+  %ptr.addr.i.i.2102 = phi ptr [ %13, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.i.i.0, %while.cond.i.i ]
   %15 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.i58.0) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %15, i64 -48
-  %tmp.0.copyload.i.i75 = load i16, ptr %ptr.addr.i.i.1102, align 1
+  %tmp.0.copyload.i.i75 = load i16, ptr %ptr.addr.i.i.2102, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %15, i64 -40
   %16 = load i8, ptr %fast_idx_mask.i.i, align 8
   %17 = zext i8 %16 to i16
@@ -3673,7 +3673,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %_Z
   %xor.i.i = xor i64 %data.i.i.sroa.0.0.copyload, %conv6.i.i
   %19 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %19 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i.1102, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %call15.i, ptr noundef nonnull %ptr.addr.i.i.2102, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, label %if.end.i.i
 
@@ -3683,13 +3683,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.i.not, label %while.cond.i.i, label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, !llvm.loop !5
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit: ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %while.body.i.i, %if.end.i.i
-  %ptr.addr.i.i.2.ph = phi ptr [ %13, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
+  %ptr.addr.i.i.1.ph = phi ptr [ %13, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %while.body.i.i ], [ %call10.i.i, %if.end.i.i ]
   %.pre = load i32, ptr %group_depth_.i, align 4
   br label %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
 
 _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit: ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit, %if.then3.i.i
   %21 = phi i32 [ %8, %if.then3.i.i ], [ %.pre, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
-  %ptr.addr.i.i.2 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.2.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
+  %ptr.addr.i.i.1 = phi ptr [ %spec.select, %if.then3.i.i ], [ %ptr.addr.i.i.1.ph, %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit.loopexit ]
   %dec14.i = add nsw i32 %21, -1
   store i32 %dec14.i, ptr %group_depth_.i, align 4
   %22 = load i32, ptr %depth_.i, align 8
@@ -3698,7 +3698,7 @@ _ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEP
   %23 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp ne i32 %23, %shr.i71
   store i32 0, ptr %last_tag_minus_1_.i, align 8
-  %cmp18.i = icmp eq ptr %ptr.addr.i.i.2, null
+  %cmp18.i = icmp eq ptr %ptr.addr.i.i.1, null
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp18.i
   br i1 %or.cond, label %if.then20.i, label %if.end26.i
 
@@ -3709,7 +3709,7 @@ if.then20.i:                                      ; preds = %_ZZN6google8protobu
 
 common.ret105.sink.split:                         ; preds = %if.then20.i, %if.then29.i
   %.sink = phi i16 [ %27, %if.then29.i ], [ %24, %if.then20.i ]
-  %common.ret105.op.ph = phi ptr [ %ptr.addr.i.i.2, %if.then29.i ], [ null, %if.then20.i ]
+  %common.ret105.op.ph = phi ptr [ %ptr.addr.i.i.1, %if.then29.i ], [ null, %if.then20.i ]
   %conv2.i.i44 = trunc i64 %hasbits to i32
   %conv3.i.i45 = zext i16 %.sink to i64
   %add.ptr.i85 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
@@ -3719,12 +3719,12 @@ common.ret105.sink.split:                         ; preds = %if.then20.i, %if.th
   br label %common.ret105
 
 common.ret105:                                    ; preds = %common.ret105.sink.split, %if.then29.i, %if.then20.i
-  %common.ret105.op = phi ptr [ null, %if.then20.i ], [ %ptr.addr.i.i.2, %if.then29.i ], [ %common.ret105.op.ph, %common.ret105.sink.split ]
+  %common.ret105.op = phi ptr [ null, %if.then20.i ], [ %ptr.addr.i.i.1, %if.then29.i ], [ %common.ret105.op.ph, %common.ret105.sink.split ]
   ret ptr %common.ret105.op
 
 if.end26.i:                                       ; preds = %_ZZN6google8protobuf8internal8TcParser27RepeatedParseMessageAuxImplItLb1ELb1EEEPKcPNS0_11MessageLiteES5_PNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmENKUlS5_E_clES5_.exit
   %26 = load ptr, ptr %ctx, align 8
-  %cmp.i84 = icmp ugt ptr %26, %ptr.addr.i.i.2
+  %cmp.i84 = icmp ugt ptr %26, %ptr.addr.i.i.1
   br i1 %cmp.i84, label %if.end35.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.end26.i
@@ -3733,7 +3733,7 @@ if.then29.i:                                      ; preds = %if.end26.i
   br i1 %tobool.i.i42.not, label %common.ret105, label %common.ret105.sink.split
 
 if.end35.i:                                       ; preds = %if.end26.i
-  %tmp.0.copyload.i.i86 = load i16, ptr %ptr.addr.i.i.2, align 1
+  %tmp.0.copyload.i.i86 = load i16, ptr %ptr.addr.i.i.1, align 1
   %cmp39.i = icmp eq i16 %tmp.0.copyload.i.i86, %tmp.0.copyload.i.i
   br i1 %cmp39.i, label %do.body.i, label %if.end.i12, !llvm.loop !30
 
@@ -3755,7 +3755,7 @@ if.end.i12:                                       ; preds = %if.end35.i
   %xor.i = xor i64 %data.i19.sroa.0.0.copyload, %conv6.i
   %31 = load atomic i64, ptr %add.ptr2.i91 monotonic, align 8
   %atomic-temp.i.0.i.i92 = inttoptr i64 %31 to ptr
-  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i92(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i26 = musttail call noundef ptr %atomic-temp.i.0.i.i92(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.i.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i26
 }
 
@@ -4875,16 +4875,16 @@ if.end50.i:                                       ; preds = %if.end42.i
   br i1 %tobool60.i.not, label %done2.i, label %if.then10.i
 
 done2.i:                                          ; preds = %if.end50.i, %if.end42.i, %if.end34.i, %if.end26.i, %if.end21.i, %if.end16.i30, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i56, %if.end6.i ], [ %incdec.ptr.i57, %if.end11.i ], [ %incdec.ptr.i58, %if.end16.i30 ], [ %incdec.ptr.i59, %if.end21.i ], [ %incdec.ptr.i60, %if.end26.i ], [ %incdec.ptr.i61, %if.end34.i ], [ %incdec.ptr.i62, %if.end42.i ], [ %incdec.ptr.i63, %if.end50.i ]
-  %res2.i.0 = phi i64 [ %or.i60, %if.end6.i ], [ %and.i47, %if.end11.i ], [ %and.i47, %if.end16.i30 ], [ %and.i47, %if.end21.i ], [ %and.i47, %if.end26.i ], [ %and.i47, %if.end34.i ], [ %and.i47, %if.end42.i ], [ %and.i47, %if.end50.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i56, %if.end6.i ], [ %incdec.ptr.i57, %if.end11.i ], [ %incdec.ptr.i58, %if.end16.i30 ], [ %incdec.ptr.i59, %if.end21.i ], [ %incdec.ptr.i60, %if.end26.i ], [ %incdec.ptr.i61, %if.end34.i ], [ %incdec.ptr.i62, %if.end42.i ], [ %incdec.ptr.i63, %if.end50.i ]
+  %res2.i.1 = phi i64 [ %or.i60, %if.end6.i ], [ %and.i47, %if.end11.i ], [ %and.i47, %if.end16.i30 ], [ %and.i47, %if.end21.i ], [ %and.i47, %if.end26.i ], [ %and.i47, %if.end34.i ], [ %and.i47, %if.end42.i ], [ %and.i47, %if.end50.i ]
   %res3.i.0 = phi i64 [ %or.i66, %if.end6.i ], [ %or.i66, %if.end11.i ], [ %and.i53, %if.end16.i30 ], [ %and.i53, %if.end21.i ], [ %and.i53, %if.end26.i ], [ %and.i53, %if.end34.i ], [ %and.i53, %if.end42.i ], [ %and.i53, %if.end50.i ]
-  %and64.i = and i64 %res3.i.0, %res2.i.0
+  %and64.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i28, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i55, %if.end.i28 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i60, %if.end.i28 ], [ %and64.i, %done2.i ]
-  %and65.i = and i64 %res2.i.1, %conv.i26
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i55, %if.end.i28 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i60, %if.end.i28 ], [ %and64.i, %done2.i ]
+  %and65.i = and i64 %res2.i.0, %conv.i26
   br label %if.end16.i
 
 if.then10.i:                                      ; preds = %if.end50.i
@@ -4910,7 +4910,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end16.i:                                       ; preds = %done1.i, %if.end.i
   %res.i.0.ph = phi i64 [ %conv.i26, %if.end.i ], [ %and65.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.0, %done1.i ]
   %shr.i68 = lshr i64 %data.coerce, 16
   %sh_prom.i = and i64 %shr.i68, 255
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -5143,16 +5143,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i32, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i77, %if.end6.i ], [ %incdec.ptr.i78, %if.end11.i ], [ %incdec.ptr.i79, %if.end16.i32 ], [ %incdec.ptr.i80, %if.end21.i ], [ %incdec.ptr.i81, %if.end26.i ], [ %incdec.ptr.i82, %if.end31.i ], [ %incdec.ptr.i83, %if.end36.i ], [ %incdec.ptr.i84, %if.end41.i ], [ %incdec.ptr.i84, %if.then57.i ], [ %incdec.ptr.i84, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i30, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i32 ], [ %and.i38, %if.end21.i ], [ %and.i38, %if.end26.i ], [ %and.i50, %if.end31.i ], [ %and.i50, %if.end36.i ], [ %and.i50, %if.end41.i ], [ %and.i50, %if.then57.i ], [ %and.i50, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i77, %if.end6.i ], [ %incdec.ptr.i78, %if.end11.i ], [ %incdec.ptr.i79, %if.end16.i32 ], [ %incdec.ptr.i80, %if.end21.i ], [ %incdec.ptr.i81, %if.end26.i ], [ %incdec.ptr.i82, %if.end31.i ], [ %incdec.ptr.i83, %if.end36.i ], [ %incdec.ptr.i84, %if.end41.i ], [ %incdec.ptr.i84, %if.then57.i ], [ %incdec.ptr.i84, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i30, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i32 ], [ %and.i38, %if.end21.i ], [ %and.i38, %if.end26.i ], [ %and.i50, %if.end31.i ], [ %and.i50, %if.end36.i ], [ %and.i50, %if.end41.i ], [ %and.i50, %if.then57.i ], [ %and.i50, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i32 ], [ %and.i80.i, %if.end21.i ], [ %and.i44, %if.end26.i ], [ %and.i44, %if.end31.i ], [ %and.i56, %if.end36.i ], [ %and.i56, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i56, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i28, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i76, %if.end.i28 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i30, %if.end.i28 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i26
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i76, %if.end.i28 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i30, %if.end.i28 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i26
   br label %if.end16.i
 
 if.then10.i:                                      ; preds = %if.end47.i
@@ -5178,7 +5178,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end16.i:                                       ; preds = %done1.i, %if.end.i
   %res.i.0.ph = phi i64 [ %conv.i26, %if.end.i ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.0, %done1.i ]
   %shr.i90 = lshr i64 %data.coerce, 16
   %sh_prom.i = and i64 %shr.i90, 255
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -6107,16 +6107,16 @@ if.end50.i.i:                                     ; preds = %if.end42.i.i
   br i1 %tobool60.i.i.not, label %done2.i.i, label %if.then14.i
 
 done2.i.i:                                        ; preds = %if.end50.i.i, %if.end42.i.i, %if.end34.i.i, %if.end26.i.i, %if.end21.i.i, %if.end16.i.i, %if.end11.i.i, %if.end6.i.i
-  %p.addr.i.i.0 = phi ptr [ %incdec.ptr.i71, %if.end6.i.i ], [ %incdec.ptr.i72, %if.end11.i.i ], [ %incdec.ptr.i73, %if.end16.i.i ], [ %incdec.ptr.i74, %if.end21.i.i ], [ %incdec.ptr.i75, %if.end26.i.i ], [ %incdec.ptr.i76, %if.end34.i.i ], [ %incdec.ptr.i77, %if.end42.i.i ], [ %incdec.ptr.i78, %if.end50.i.i ]
-  %res2.i.i.0 = phi i64 [ %or.i.i46, %if.end6.i.i ], [ %and.i12.i, %if.end11.i.i ], [ %and.i12.i, %if.end16.i.i ], [ %and.i12.i, %if.end21.i.i ], [ %and.i12.i, %if.end26.i.i ], [ %and.i12.i, %if.end34.i.i ], [ %and.i12.i, %if.end42.i.i ], [ %and.i12.i, %if.end50.i.i ]
+  %p.addr.i.i.1 = phi ptr [ %incdec.ptr.i71, %if.end6.i.i ], [ %incdec.ptr.i72, %if.end11.i.i ], [ %incdec.ptr.i73, %if.end16.i.i ], [ %incdec.ptr.i74, %if.end21.i.i ], [ %incdec.ptr.i75, %if.end26.i.i ], [ %incdec.ptr.i76, %if.end34.i.i ], [ %incdec.ptr.i77, %if.end42.i.i ], [ %incdec.ptr.i78, %if.end50.i.i ]
+  %res2.i.i.1 = phi i64 [ %or.i.i46, %if.end6.i.i ], [ %and.i12.i, %if.end11.i.i ], [ %and.i12.i, %if.end16.i.i ], [ %and.i12.i, %if.end21.i.i ], [ %and.i12.i, %if.end26.i.i ], [ %and.i12.i, %if.end34.i.i ], [ %and.i12.i, %if.end42.i.i ], [ %and.i12.i, %if.end50.i.i ]
   %res3.i.i.0 = phi i64 [ %or.i28.i, %if.end6.i.i ], [ %or.i28.i, %if.end11.i.i ], [ %and.i18.i, %if.end16.i.i ], [ %and.i18.i, %if.end21.i.i ], [ %and.i18.i, %if.end26.i.i ], [ %and.i18.i, %if.end34.i.i ], [ %and.i18.i, %if.end42.i.i ], [ %and.i18.i, %if.end50.i.i ]
-  %and64.i.i = and i64 %res3.i.i.0, %res2.i.i.0
+  %and64.i.i = and i64 %res3.i.i.0, %res2.i.i.1
   br label %done1.i.i
 
 done1.i.i:                                        ; preds = %if.end.i.i45, %done2.i.i
-  %p.addr.i.i.1 = phi ptr [ %incdec.ptr.i70, %if.end.i.i45 ], [ %p.addr.i.i.0, %done2.i.i ]
-  %res2.i.i.1 = phi i64 [ %or.i.i46, %if.end.i.i45 ], [ %and64.i.i, %done2.i.i ]
-  %and65.i.i = and i64 %res2.i.i.1, %conv.i.i44
+  %p.addr.i.i.0 = phi ptr [ %incdec.ptr.i70, %if.end.i.i45 ], [ %p.addr.i.i.1, %done2.i.i ]
+  %res2.i.i.0 = phi i64 [ %or.i.i46, %if.end.i.i45 ], [ %and64.i.i, %done2.i.i ]
+  %and65.i.i = and i64 %res2.i.i.0, %conv.i.i44
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end50.i.i
@@ -6141,7 +6141,7 @@ common.ret118:                                    ; preds = %common.ret118.sink.
 
 if.end20.i:                                       ; preds = %done1.i.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i.i44, %do.body.i ], [ %and65.i.i, %done1.i.i ]
-  %retval.i.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.i.1, %done1.i.i ]
+  %retval.i.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.i.0, %done1.i.i ]
   %conv.i48 = trunc i64 %res.i.0.ph to i32
   %14 = load i32, ptr %total_size_.i, align 4
   %15 = load i32, ptr %add.ptr.i69, align 8
@@ -6307,16 +6307,16 @@ if.end50.i.i:                                     ; preds = %if.end42.i.i
   br i1 %tobool60.i.i.not, label %done2.i.i, label %if.then14.i
 
 done2.i.i:                                        ; preds = %if.end50.i.i, %if.end42.i.i, %if.end34.i.i, %if.end26.i.i, %if.end21.i.i, %if.end16.i.i, %if.end11.i.i, %if.end6.i.i
-  %p.addr.i.i.0 = phi ptr [ %incdec.ptr.i71, %if.end6.i.i ], [ %incdec.ptr.i72, %if.end11.i.i ], [ %incdec.ptr.i73, %if.end16.i.i ], [ %incdec.ptr.i74, %if.end21.i.i ], [ %incdec.ptr.i75, %if.end26.i.i ], [ %incdec.ptr.i76, %if.end34.i.i ], [ %incdec.ptr.i77, %if.end42.i.i ], [ %incdec.ptr.i78, %if.end50.i.i ]
-  %res2.i.i.0 = phi i64 [ %or.i.i46, %if.end6.i.i ], [ %and.i12.i, %if.end11.i.i ], [ %and.i12.i, %if.end16.i.i ], [ %and.i12.i, %if.end21.i.i ], [ %and.i12.i, %if.end26.i.i ], [ %and.i12.i, %if.end34.i.i ], [ %and.i12.i, %if.end42.i.i ], [ %and.i12.i, %if.end50.i.i ]
+  %p.addr.i.i.1 = phi ptr [ %incdec.ptr.i71, %if.end6.i.i ], [ %incdec.ptr.i72, %if.end11.i.i ], [ %incdec.ptr.i73, %if.end16.i.i ], [ %incdec.ptr.i74, %if.end21.i.i ], [ %incdec.ptr.i75, %if.end26.i.i ], [ %incdec.ptr.i76, %if.end34.i.i ], [ %incdec.ptr.i77, %if.end42.i.i ], [ %incdec.ptr.i78, %if.end50.i.i ]
+  %res2.i.i.1 = phi i64 [ %or.i.i46, %if.end6.i.i ], [ %and.i12.i, %if.end11.i.i ], [ %and.i12.i, %if.end16.i.i ], [ %and.i12.i, %if.end21.i.i ], [ %and.i12.i, %if.end26.i.i ], [ %and.i12.i, %if.end34.i.i ], [ %and.i12.i, %if.end42.i.i ], [ %and.i12.i, %if.end50.i.i ]
   %res3.i.i.0 = phi i64 [ %or.i28.i, %if.end6.i.i ], [ %or.i28.i, %if.end11.i.i ], [ %and.i18.i, %if.end16.i.i ], [ %and.i18.i, %if.end21.i.i ], [ %and.i18.i, %if.end26.i.i ], [ %and.i18.i, %if.end34.i.i ], [ %and.i18.i, %if.end42.i.i ], [ %and.i18.i, %if.end50.i.i ]
-  %and64.i.i = and i64 %res3.i.i.0, %res2.i.i.0
+  %and64.i.i = and i64 %res3.i.i.0, %res2.i.i.1
   br label %done1.i.i
 
 done1.i.i:                                        ; preds = %if.end.i.i45, %done2.i.i
-  %p.addr.i.i.1 = phi ptr [ %incdec.ptr.i70, %if.end.i.i45 ], [ %p.addr.i.i.0, %done2.i.i ]
-  %res2.i.i.1 = phi i64 [ %or.i.i46, %if.end.i.i45 ], [ %and64.i.i, %done2.i.i ]
-  %and65.i.i = and i64 %res2.i.i.1, %conv.i.i44
+  %p.addr.i.i.0 = phi ptr [ %incdec.ptr.i70, %if.end.i.i45 ], [ %p.addr.i.i.1, %done2.i.i ]
+  %res2.i.i.0 = phi i64 [ %or.i.i46, %if.end.i.i45 ], [ %and64.i.i, %done2.i.i ]
+  %and65.i.i = and i64 %res2.i.i.0, %conv.i.i44
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end50.i.i
@@ -6341,7 +6341,7 @@ common.ret120:                                    ; preds = %common.ret120.sink.
 
 if.end20.i:                                       ; preds = %done1.i.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i.i44, %do.body.i ], [ %and65.i.i, %done1.i.i ]
-  %retval.i.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.i.1, %done1.i.i ]
+  %retval.i.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.i.0, %done1.i.i ]
   %conv.i48 = trunc i64 %res.i.0.ph to i32
   %13 = load i32, ptr %total_size_.i, align 4
   %14 = load i32, ptr %add.ptr.i69, align 8
@@ -6535,16 +6535,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i56, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i68, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %and.i68, %if.then57.i ], [ %and.i68, %if.end52.i ]
+  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i56, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i68, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %and.i68, %if.then57.i ], [ %and.i68, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i62, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i74, %if.end36.i ], [ %and.i74, %if.end41.i ], [ %13, %if.then57.i ], [ %and.i74, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i48, %done2.i
-  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i46
+  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i46
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end47.i
@@ -6569,7 +6569,7 @@ common.ret142:                                    ; preds = %common.ret142.sink.
 
 if.end20.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i46, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.0, %done1.i ]
   %16 = load i32, ptr %total_size_.i, align 4
   %17 = load i32, ptr %add.ptr.i90, align 8
   %cmp.i = icmp eq i32 %17, %16
@@ -6763,16 +6763,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i56, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i68, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %and.i68, %if.then57.i ], [ %and.i68, %if.end52.i ]
+  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i56, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i68, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %and.i68, %if.then57.i ], [ %and.i68, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i62, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i74, %if.end36.i ], [ %and.i74, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i74, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i48, %done2.i
-  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i46
+  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i46
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end47.i
@@ -6797,7 +6797,7 @@ common.ret144:                                    ; preds = %common.ret144.sink.
 
 if.end20.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i46, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.0, %done1.i ]
   %15 = load i32, ptr %total_size_.i, align 4
   %16 = load i32, ptr %add.ptr.i90, align 8
   %cmp.i = icmp eq i32 %16, %15
@@ -6961,16 +6961,16 @@ if.end50.i:                                       ; preds = %if.end42.i
   br i1 %tobool60.i.not, label %done2.i, label %if.then14.i
 
 done2.i:                                          ; preds = %if.end50.i, %if.end42.i, %if.end34.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i45.0 = phi ptr [ %incdec.ptr.i71, %if.end6.i ], [ %incdec.ptr.i72, %if.end11.i ], [ %incdec.ptr.i73, %if.end16.i ], [ %incdec.ptr.i74, %if.end21.i ], [ %incdec.ptr.i75, %if.end26.i ], [ %incdec.ptr.i76, %if.end34.i ], [ %incdec.ptr.i77, %if.end42.i ], [ %incdec.ptr.i78, %if.end50.i ]
-  %res2.i.0 = phi i64 [ %or.i.i51, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i.i, %if.end21.i ], [ %and.i.i, %if.end26.i ], [ %and.i.i, %if.end34.i ], [ %and.i.i, %if.end42.i ], [ %and.i.i, %if.end50.i ]
+  %p.addr.i45.1 = phi ptr [ %incdec.ptr.i71, %if.end6.i ], [ %incdec.ptr.i72, %if.end11.i ], [ %incdec.ptr.i73, %if.end16.i ], [ %incdec.ptr.i74, %if.end21.i ], [ %incdec.ptr.i75, %if.end26.i ], [ %incdec.ptr.i76, %if.end34.i ], [ %incdec.ptr.i77, %if.end42.i ], [ %incdec.ptr.i78, %if.end50.i ]
+  %res2.i.1 = phi i64 [ %or.i.i51, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i.i, %if.end21.i ], [ %and.i.i, %if.end26.i ], [ %and.i.i, %if.end34.i ], [ %and.i.i, %if.end42.i ], [ %and.i.i, %if.end50.i ]
   %res3.i.0 = phi i64 [ %or.i94.i, %if.end6.i ], [ %or.i94.i, %if.end11.i ], [ %and.i85.i, %if.end16.i ], [ %and.i85.i, %if.end21.i ], [ %and.i85.i, %if.end26.i ], [ %and.i85.i, %if.end34.i ], [ %and.i85.i, %if.end42.i ], [ %and.i85.i, %if.end50.i ]
-  %and64.i = and i64 %res3.i.0, %res2.i.0
+  %and64.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i49, %done2.i
-  %p.addr.i45.1 = phi ptr [ %incdec.ptr.i70, %if.end.i49 ], [ %p.addr.i45.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i51, %if.end.i49 ], [ %and64.i, %done2.i ]
-  %and65.i = and i64 %res2.i.1, %conv.i47
+  %p.addr.i45.0 = phi ptr [ %incdec.ptr.i70, %if.end.i49 ], [ %p.addr.i45.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i51, %if.end.i49 ], [ %and64.i, %done2.i ]
+  %and65.i = and i64 %res2.i.0, %conv.i47
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end50.i
@@ -6995,7 +6995,7 @@ common.ret119:                                    ; preds = %common.ret119.sink.
 
 if.end20.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i47, %do.body.i ], [ %and65.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i45.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i45.0, %done1.i ]
   %conv.i44 = trunc i64 %res.i.0.ph to i32
   %shr.i.i = lshr i32 %conv.i44, 1
   %and.i.i83 = and i32 %conv.i44, 1
@@ -7165,16 +7165,16 @@ if.end50.i:                                       ; preds = %if.end42.i
   br i1 %tobool60.i.not, label %done2.i, label %if.then14.i
 
 done2.i:                                          ; preds = %if.end50.i, %if.end42.i, %if.end34.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i45.0 = phi ptr [ %incdec.ptr.i71, %if.end6.i ], [ %incdec.ptr.i72, %if.end11.i ], [ %incdec.ptr.i73, %if.end16.i ], [ %incdec.ptr.i74, %if.end21.i ], [ %incdec.ptr.i75, %if.end26.i ], [ %incdec.ptr.i76, %if.end34.i ], [ %incdec.ptr.i77, %if.end42.i ], [ %incdec.ptr.i78, %if.end50.i ]
-  %res2.i.0 = phi i64 [ %or.i.i51, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i.i, %if.end21.i ], [ %and.i.i, %if.end26.i ], [ %and.i.i, %if.end34.i ], [ %and.i.i, %if.end42.i ], [ %and.i.i, %if.end50.i ]
+  %p.addr.i45.1 = phi ptr [ %incdec.ptr.i71, %if.end6.i ], [ %incdec.ptr.i72, %if.end11.i ], [ %incdec.ptr.i73, %if.end16.i ], [ %incdec.ptr.i74, %if.end21.i ], [ %incdec.ptr.i75, %if.end26.i ], [ %incdec.ptr.i76, %if.end34.i ], [ %incdec.ptr.i77, %if.end42.i ], [ %incdec.ptr.i78, %if.end50.i ]
+  %res2.i.1 = phi i64 [ %or.i.i51, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i.i, %if.end21.i ], [ %and.i.i, %if.end26.i ], [ %and.i.i, %if.end34.i ], [ %and.i.i, %if.end42.i ], [ %and.i.i, %if.end50.i ]
   %res3.i.0 = phi i64 [ %or.i94.i, %if.end6.i ], [ %or.i94.i, %if.end11.i ], [ %and.i85.i, %if.end16.i ], [ %and.i85.i, %if.end21.i ], [ %and.i85.i, %if.end26.i ], [ %and.i85.i, %if.end34.i ], [ %and.i85.i, %if.end42.i ], [ %and.i85.i, %if.end50.i ]
-  %and64.i = and i64 %res3.i.0, %res2.i.0
+  %and64.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i49, %done2.i
-  %p.addr.i45.1 = phi ptr [ %incdec.ptr.i70, %if.end.i49 ], [ %p.addr.i45.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i51, %if.end.i49 ], [ %and64.i, %done2.i ]
-  %and65.i = and i64 %res2.i.1, %conv.i47
+  %p.addr.i45.0 = phi ptr [ %incdec.ptr.i70, %if.end.i49 ], [ %p.addr.i45.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i51, %if.end.i49 ], [ %and64.i, %done2.i ]
+  %and65.i = and i64 %res2.i.0, %conv.i47
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end50.i
@@ -7199,7 +7199,7 @@ common.ret121:                                    ; preds = %common.ret121.sink.
 
 if.end20.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i47, %do.body.i ], [ %and65.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i45.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i45.0, %done1.i ]
   %conv.i44 = trunc i64 %res.i.0.ph to i32
   %shr.i.i = lshr i32 %conv.i44, 1
   %and.i.i83 = and i32 %conv.i44, 1
@@ -7397,16 +7397,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i105.i, %if.end21.i ], [ %and.i105.i, %if.end26.i ], [ %and.i117.i, %if.end31.i ], [ %and.i117.i, %if.end36.i ], [ %and.i117.i, %if.end41.i ], [ %and.i117.i, %if.then57.i ], [ %and.i117.i, %if.end52.i ]
+  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i105.i, %if.end21.i ], [ %and.i105.i, %if.end26.i ], [ %and.i117.i, %if.end31.i ], [ %and.i117.i, %if.end36.i ], [ %and.i117.i, %if.end41.i ], [ %and.i117.i, %if.then57.i ], [ %and.i117.i, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i111.i, %if.end26.i ], [ %and.i111.i, %if.end31.i ], [ %and.i123.i, %if.end36.i ], [ %and.i123.i, %if.end41.i ], [ %13, %if.then57.i ], [ %and.i123.i, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i48, %done2.i
-  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i46
+  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i46
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end47.i
@@ -7431,7 +7431,7 @@ common.ret143:                                    ; preds = %common.ret143.sink.
 
 if.end20.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i46, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.0, %done1.i ]
   %shr.i.i = lshr i64 %res.i.0.ph, 1
   %and.i.i105 = and i64 %res.i.0.ph, 1
   %add.i.i = sub nsw i64 0, %and.i.i105
@@ -7629,16 +7629,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i105.i, %if.end21.i ], [ %and.i105.i, %if.end26.i ], [ %and.i117.i, %if.end31.i ], [ %and.i117.i, %if.end36.i ], [ %and.i117.i, %if.end41.i ], [ %and.i117.i, %if.then57.i ], [ %and.i117.i, %if.end52.i ]
+  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i92, %if.end6.i ], [ %incdec.ptr.i93, %if.end11.i ], [ %incdec.ptr.i94, %if.end16.i ], [ %incdec.ptr.i95, %if.end21.i ], [ %incdec.ptr.i96, %if.end26.i ], [ %incdec.ptr.i97, %if.end31.i ], [ %incdec.ptr.i98, %if.end36.i ], [ %incdec.ptr.i99, %if.end41.i ], [ %incdec.ptr.i99, %if.then57.i ], [ %incdec.ptr.i99, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i50, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i105.i, %if.end21.i ], [ %and.i105.i, %if.end26.i ], [ %and.i117.i, %if.end31.i ], [ %and.i117.i, %if.end36.i ], [ %and.i117.i, %if.end41.i ], [ %and.i117.i, %if.then57.i ], [ %and.i117.i, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i111.i, %if.end26.i ], [ %and.i111.i, %if.end31.i ], [ %and.i123.i, %if.end36.i ], [ %and.i123.i, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i123.i, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i48, %done2.i
-  %p.addr.i44.1 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i46
+  %p.addr.i44.0 = phi ptr [ %incdec.ptr.i91, %if.end.i48 ], [ %p.addr.i44.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i50, %if.end.i48 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i46
   br label %if.end20.i
 
 if.then14.i:                                      ; preds = %if.end47.i
@@ -7663,7 +7663,7 @@ common.ret145:                                    ; preds = %common.ret145.sink.
 
 if.end20.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.0.ph = phi i64 [ %conv.i46, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i44.0, %done1.i ]
   %shr.i.i = lshr i64 %res.i.0.ph, 1
   %and.i.i105 = and i64 %res.i.0.ph, 1
   %add.i.i = sub nsw i64 0, %and.i.i105
@@ -8220,16 +8220,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i35.0 = phi ptr [ %incdec.ptr.i90, %if.end6.i ], [ %incdec.ptr.i91, %if.end11.i ], [ %incdec.ptr.i92, %if.end16.i ], [ %incdec.ptr.i93, %if.end21.i ], [ %incdec.ptr.i94, %if.end26.i ], [ %incdec.ptr.i95, %if.end31.i ], [ %incdec.ptr.i96, %if.end36.i ], [ %incdec.ptr.i97, %if.end41.i ], [ %incdec.ptr.i97, %if.then57.i ], [ %incdec.ptr.i97, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i41, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i46, %if.end21.i ], [ %and.i46, %if.end26.i ], [ %and.i58, %if.end31.i ], [ %and.i58, %if.end36.i ], [ %and.i58, %if.end41.i ], [ %and.i58, %if.then57.i ], [ %and.i58, %if.end52.i ]
+  %p.addr.i35.1 = phi ptr [ %incdec.ptr.i90, %if.end6.i ], [ %incdec.ptr.i91, %if.end11.i ], [ %incdec.ptr.i92, %if.end16.i ], [ %incdec.ptr.i93, %if.end21.i ], [ %incdec.ptr.i94, %if.end26.i ], [ %incdec.ptr.i95, %if.end31.i ], [ %incdec.ptr.i96, %if.end36.i ], [ %incdec.ptr.i97, %if.end41.i ], [ %incdec.ptr.i97, %if.then57.i ], [ %incdec.ptr.i97, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i41, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i46, %if.end21.i ], [ %and.i46, %if.end26.i ], [ %and.i58, %if.end31.i ], [ %and.i58, %if.end36.i ], [ %and.i58, %if.end41.i ], [ %and.i58, %if.then57.i ], [ %and.i58, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i52, %if.end26.i ], [ %and.i52, %if.end31.i ], [ %and.i64, %if.end36.i ], [ %and.i64, %if.end41.i ], [ %17, %if.then57.i ], [ %and.i64, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i39, %done2.i
-  %p.addr.i35.1 = phi ptr [ %incdec.ptr.i89, %if.end.i39 ], [ %p.addr.i35.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i41, %if.end.i39 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i37
+  %p.addr.i35.0 = phi ptr [ %incdec.ptr.i89, %if.end.i39 ], [ %p.addr.i35.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i41, %if.end.i39 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i37
   br label %if.end14
 
 if.then8:                                         ; preds = %if.end47.i
@@ -8239,7 +8239,7 @@ if.then8:                                         ; preds = %if.end47.i
 
 if.end14:                                         ; preds = %done1.i, %if.end
   %res.i.0.ph = phi i64 [ %conv.i37, %if.end ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %if.end ], [ %p.addr.i35.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %if.end ], [ %p.addr.i35.0, %done1.i ]
   %conv = trunc i64 %res.i.0.ph to i32
   %fallback.i.i = getelementptr inbounds i8, ptr %table, i64 40
   %19 = load ptr, ptr %fallback.i.i, align 8
@@ -8399,16 +8399,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i27.0 = phi ptr [ %incdec.ptr.i73, %if.end6.i ], [ %incdec.ptr.i74, %if.end11.i ], [ %incdec.ptr.i75, %if.end16.i ], [ %incdec.ptr.i76, %if.end21.i ], [ %incdec.ptr.i77, %if.end26.i ], [ %incdec.ptr.i78, %if.end31.i ], [ %incdec.ptr.i79, %if.end36.i ], [ %incdec.ptr.i80, %if.end41.i ], [ %incdec.ptr.i80, %if.then57.i ], [ %incdec.ptr.i80, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i33, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i38, %if.end21.i ], [ %and.i38, %if.end26.i ], [ %and.i50, %if.end31.i ], [ %and.i50, %if.end36.i ], [ %and.i50, %if.end41.i ], [ %and.i50, %if.then57.i ], [ %and.i50, %if.end52.i ]
+  %p.addr.i27.1 = phi ptr [ %incdec.ptr.i73, %if.end6.i ], [ %incdec.ptr.i74, %if.end11.i ], [ %incdec.ptr.i75, %if.end16.i ], [ %incdec.ptr.i76, %if.end21.i ], [ %incdec.ptr.i77, %if.end26.i ], [ %incdec.ptr.i78, %if.end31.i ], [ %incdec.ptr.i79, %if.end36.i ], [ %incdec.ptr.i80, %if.end41.i ], [ %incdec.ptr.i80, %if.then57.i ], [ %incdec.ptr.i80, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i33, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i38, %if.end21.i ], [ %and.i38, %if.end26.i ], [ %and.i50, %if.end31.i ], [ %and.i50, %if.end36.i ], [ %and.i50, %if.end41.i ], [ %and.i50, %if.then57.i ], [ %and.i50, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i44, %if.end26.i ], [ %and.i44, %if.end31.i ], [ %and.i56, %if.end36.i ], [ %and.i56, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i56, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i31, %done2.i
-  %p.addr.i27.1 = phi ptr [ %incdec.ptr.i72, %if.end.i31 ], [ %p.addr.i27.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i33, %if.end.i31 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i29
+  %p.addr.i27.0 = phi ptr [ %incdec.ptr.i72, %if.end.i31 ], [ %p.addr.i27.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i33, %if.end.i31 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i29
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -8433,7 +8433,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %entry
   %res.i.0.ph = phi i64 [ %conv.i29, %entry ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %entry ], [ %p.addr.i27.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %entry ], [ %p.addr.i27.0, %done1.i ]
   %conv = trunc i64 %res.i.0.ph to i32
   %fallback.i.i = getelementptr inbounds i8, ptr %table, i64 40
   %14 = load ptr, ptr %fallback.i.i, align 8
@@ -8600,16 +8600,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i60, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i115, %if.end6.i ], [ %incdec.ptr.i116, %if.end11.i ], [ %incdec.ptr.i117, %if.end16.i ], [ %incdec.ptr.i118, %if.end21.i60 ], [ %incdec.ptr.i119, %if.end26.i ], [ %incdec.ptr.i120, %if.end31.i ], [ %incdec.ptr.i121, %if.end36.i ], [ %incdec.ptr.i122, %if.end41.i ], [ %incdec.ptr.i122, %if.then57.i ], [ %incdec.ptr.i122, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i115, %if.end6.i ], [ %incdec.ptr.i116, %if.end11.i ], [ %incdec.ptr.i117, %if.end16.i ], [ %incdec.ptr.i118, %if.end21.i60 ], [ %incdec.ptr.i119, %if.end26.i ], [ %incdec.ptr.i120, %if.end31.i ], [ %incdec.ptr.i121, %if.end36.i ], [ %incdec.ptr.i122, %if.end41.i ], [ %incdec.ptr.i122, %if.then57.i ], [ %incdec.ptr.i122, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i60 ], [ %and.i73, %if.end26.i ], [ %and.i73, %if.end31.i ], [ %and.i85, %if.end36.i ], [ %and.i85, %if.end41.i ], [ %16, %if.then57.i ], [ %and.i85, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i56, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i114, %if.end.i56 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i54
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i114, %if.end.i56 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i54
   br label %if.end21.i
 
 if.then15.i:                                      ; preds = %if.end47.i
@@ -8635,7 +8635,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21.i:                                       ; preds = %done1.i, %if.end.i
   %res.i.i.0.ph = phi i64 [ %conv.i54, %if.end.i ], [ %and60.i, %done1.i ]
-  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.0, %done1.i ]
   %conv22.i = trunc i64 %res.i.i.0.ph to i32
   %19 = ptrtoint ptr %aux.i.sroa.0.0.copyload to i64
   %aux.i25.sroa.0.0.extract.trunc = trunc i64 %19 to i32
@@ -8819,16 +8819,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i60, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i115, %if.end6.i ], [ %incdec.ptr.i116, %if.end11.i ], [ %incdec.ptr.i117, %if.end16.i ], [ %incdec.ptr.i118, %if.end21.i60 ], [ %incdec.ptr.i119, %if.end26.i ], [ %incdec.ptr.i120, %if.end31.i ], [ %incdec.ptr.i121, %if.end36.i ], [ %incdec.ptr.i122, %if.end41.i ], [ %incdec.ptr.i122, %if.then57.i ], [ %incdec.ptr.i122, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i115, %if.end6.i ], [ %incdec.ptr.i116, %if.end11.i ], [ %incdec.ptr.i117, %if.end16.i ], [ %incdec.ptr.i118, %if.end21.i60 ], [ %incdec.ptr.i119, %if.end26.i ], [ %incdec.ptr.i120, %if.end31.i ], [ %incdec.ptr.i121, %if.end36.i ], [ %incdec.ptr.i122, %if.end41.i ], [ %incdec.ptr.i122, %if.then57.i ], [ %incdec.ptr.i122, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i60 ], [ %and.i73, %if.end26.i ], [ %and.i73, %if.end31.i ], [ %and.i85, %if.end36.i ], [ %and.i85, %if.end41.i ], [ %16, %if.then57.i ], [ %and.i85, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i56, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i114, %if.end.i56 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i54
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i114, %if.end.i56 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i54
   br label %if.end21.i
 
 if.then15.i:                                      ; preds = %if.end47.i
@@ -8854,7 +8854,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21.i:                                       ; preds = %done1.i, %if.end.i
   %res.i.i.0.ph = phi i64 [ %conv.i54, %if.end.i ], [ %and60.i, %done1.i ]
-  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.0, %done1.i ]
   %conv22.i = trunc i64 %res.i.i.0.ph to i32
   %19 = ptrtoint ptr %aux.i.sroa.0.0.copyload to i64
   %aux.i25.sroa.0.0.extract.trunc = trunc i64 %19 to i32
@@ -9038,16 +9038,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i60, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i117, %if.end6.i ], [ %incdec.ptr.i118, %if.end11.i ], [ %incdec.ptr.i119, %if.end16.i ], [ %incdec.ptr.i120, %if.end21.i60 ], [ %incdec.ptr.i121, %if.end26.i ], [ %incdec.ptr.i122, %if.end31.i ], [ %incdec.ptr.i123, %if.end36.i ], [ %incdec.ptr.i124, %if.end41.i ], [ %incdec.ptr.i124, %if.then57.i ], [ %incdec.ptr.i124, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i117, %if.end6.i ], [ %incdec.ptr.i118, %if.end11.i ], [ %incdec.ptr.i119, %if.end16.i ], [ %incdec.ptr.i120, %if.end21.i60 ], [ %incdec.ptr.i121, %if.end26.i ], [ %incdec.ptr.i122, %if.end31.i ], [ %incdec.ptr.i123, %if.end36.i ], [ %incdec.ptr.i124, %if.end41.i ], [ %incdec.ptr.i124, %if.then57.i ], [ %incdec.ptr.i124, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i60 ], [ %and.i73, %if.end26.i ], [ %and.i73, %if.end31.i ], [ %and.i85, %if.end36.i ], [ %and.i85, %if.end41.i ], [ %16, %if.then57.i ], [ %and.i85, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i56, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i116, %if.end.i56 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i54
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i116, %if.end.i56 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i54
   br label %if.end21.i
 
 if.then15.i:                                      ; preds = %if.end47.i
@@ -9073,7 +9073,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21.i:                                       ; preds = %done1.i, %if.end.i
   %res.i.i.0.ph = phi i64 [ %conv.i54, %if.end.i ], [ %and60.i, %done1.i ]
-  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.0, %done1.i ]
   %conv22.i = trunc i64 %res.i.i.0.ph to i32
   %19 = load i32, ptr %aux.i.sroa.0.0.copyload, align 4
   %conv.i37 = zext i32 %19 to i64
@@ -9305,16 +9305,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i60, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i117, %if.end6.i ], [ %incdec.ptr.i118, %if.end11.i ], [ %incdec.ptr.i119, %if.end16.i ], [ %incdec.ptr.i120, %if.end21.i60 ], [ %incdec.ptr.i121, %if.end26.i ], [ %incdec.ptr.i122, %if.end31.i ], [ %incdec.ptr.i123, %if.end36.i ], [ %incdec.ptr.i124, %if.end41.i ], [ %incdec.ptr.i124, %if.then57.i ], [ %incdec.ptr.i124, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i117, %if.end6.i ], [ %incdec.ptr.i118, %if.end11.i ], [ %incdec.ptr.i119, %if.end16.i ], [ %incdec.ptr.i120, %if.end21.i60 ], [ %incdec.ptr.i121, %if.end26.i ], [ %incdec.ptr.i122, %if.end31.i ], [ %incdec.ptr.i123, %if.end36.i ], [ %incdec.ptr.i124, %if.end41.i ], [ %incdec.ptr.i124, %if.then57.i ], [ %incdec.ptr.i124, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i58, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i60 ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i60 ], [ %and.i73, %if.end26.i ], [ %and.i73, %if.end31.i ], [ %and.i85, %if.end36.i ], [ %and.i85, %if.end41.i ], [ %16, %if.then57.i ], [ %and.i85, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i56, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i116, %if.end.i56 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i54
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i116, %if.end.i56 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i58, %if.end.i56 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i54
   br label %if.end21.i
 
 if.then15.i:                                      ; preds = %if.end47.i
@@ -9340,7 +9340,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21.i:                                       ; preds = %done1.i, %if.end.i
   %res.i.i.0.ph = phi i64 [ %conv.i54, %if.end.i ], [ %and60.i, %done1.i ]
-  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i52.0.ph = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %p.addr.i.0, %done1.i ]
   %conv22.i = trunc i64 %res.i.i.0.ph to i32
   %19 = load i32, ptr %aux.i.sroa.0.0.copyload, align 4
   %conv.i37 = zext i32 %19 to i64
@@ -9596,16 +9596,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i75, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i128, %if.end6.i ], [ %incdec.ptr.i129, %if.end11.i ], [ %incdec.ptr.i130, %if.end16.i ], [ %incdec.ptr.i131, %if.end21.i ], [ %incdec.ptr.i132, %if.end26.i ], [ %incdec.ptr.i133, %if.end31.i ], [ %incdec.ptr.i134, %if.end36.i75 ], [ %incdec.ptr.i135, %if.end41.i ], [ %incdec.ptr.i135, %if.then57.i ], [ %incdec.ptr.i135, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i128, %if.end6.i ], [ %incdec.ptr.i129, %if.end11.i ], [ %incdec.ptr.i130, %if.end16.i ], [ %incdec.ptr.i131, %if.end21.i ], [ %incdec.ptr.i132, %if.end26.i ], [ %incdec.ptr.i133, %if.end31.i ], [ %incdec.ptr.i134, %if.end36.i75 ], [ %incdec.ptr.i135, %if.end41.i ], [ %incdec.ptr.i135, %if.then57.i ], [ %incdec.ptr.i135, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i90, %if.end26.i ], [ %and.i90, %if.end31.i ], [ %and.i102, %if.end36.i75 ], [ %and.i102, %if.end41.i ], [ %19, %if.then57.i ], [ %and.i102, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i71, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i127, %if.end.i71 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i69
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i127, %if.end.i71 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i69
   br label %if.end25.i
 
 if.then19.i:                                      ; preds = %if.end47.i77
@@ -9630,7 +9630,7 @@ common.ret182:                                    ; preds = %common.ret182.sink.
 
 if.end25.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.i.0.ph = phi i64 [ %conv.i69, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.0, %done1.i ]
   %conv26.i = trunc i64 %res.i.i.0.ph to i32
   %cmp2.i.not = icmp sle i32 %conv1.i, %conv26.i
   %cmp5.i = icmp sgt i32 %add.i, %conv26.i
@@ -9851,16 +9851,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i75, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i128, %if.end6.i ], [ %incdec.ptr.i129, %if.end11.i ], [ %incdec.ptr.i130, %if.end16.i ], [ %incdec.ptr.i131, %if.end21.i ], [ %incdec.ptr.i132, %if.end26.i ], [ %incdec.ptr.i133, %if.end31.i ], [ %incdec.ptr.i134, %if.end36.i75 ], [ %incdec.ptr.i135, %if.end41.i ], [ %incdec.ptr.i135, %if.then57.i ], [ %incdec.ptr.i135, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i128, %if.end6.i ], [ %incdec.ptr.i129, %if.end11.i ], [ %incdec.ptr.i130, %if.end16.i ], [ %incdec.ptr.i131, %if.end21.i ], [ %incdec.ptr.i132, %if.end26.i ], [ %incdec.ptr.i133, %if.end31.i ], [ %incdec.ptr.i134, %if.end36.i75 ], [ %incdec.ptr.i135, %if.end41.i ], [ %incdec.ptr.i135, %if.then57.i ], [ %incdec.ptr.i135, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i90, %if.end26.i ], [ %and.i90, %if.end31.i ], [ %and.i102, %if.end36.i75 ], [ %and.i102, %if.end41.i ], [ %18, %if.then57.i ], [ %and.i102, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i71, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i127, %if.end.i71 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i69
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i127, %if.end.i71 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i69
   br label %if.end25.i
 
 if.then19.i:                                      ; preds = %if.end47.i77
@@ -9885,7 +9885,7 @@ common.ret184:                                    ; preds = %common.ret184.sink.
 
 if.end25.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.i.0.ph = phi i64 [ %conv.i69, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.0, %done1.i ]
   %conv26.i = trunc i64 %res.i.i.0.ph to i32
   %cmp2.i.not = icmp sle i32 %conv1.i, %conv26.i
   %cmp5.i = icmp sgt i32 %add.i, %conv26.i
@@ -10101,16 +10101,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i75, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i130, %if.end6.i ], [ %incdec.ptr.i131, %if.end11.i ], [ %incdec.ptr.i132, %if.end16.i ], [ %incdec.ptr.i133, %if.end21.i ], [ %incdec.ptr.i134, %if.end26.i ], [ %incdec.ptr.i135, %if.end31.i ], [ %incdec.ptr.i136, %if.end36.i75 ], [ %incdec.ptr.i137, %if.end41.i ], [ %incdec.ptr.i137, %if.then57.i ], [ %incdec.ptr.i137, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i130, %if.end6.i ], [ %incdec.ptr.i131, %if.end11.i ], [ %incdec.ptr.i132, %if.end16.i ], [ %incdec.ptr.i133, %if.end21.i ], [ %incdec.ptr.i134, %if.end26.i ], [ %incdec.ptr.i135, %if.end31.i ], [ %incdec.ptr.i136, %if.end36.i75 ], [ %incdec.ptr.i137, %if.end41.i ], [ %incdec.ptr.i137, %if.then57.i ], [ %incdec.ptr.i137, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i90, %if.end26.i ], [ %and.i90, %if.end31.i ], [ %and.i102, %if.end36.i75 ], [ %and.i102, %if.end41.i ], [ %17, %if.then57.i ], [ %and.i102, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i71, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i129, %if.end.i71 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i69
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i129, %if.end.i71 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i69
   br label %if.end25.i
 
 if.then19.i:                                      ; preds = %if.end47.i77
@@ -10135,7 +10135,7 @@ common.ret185:                                    ; preds = %common.ret185.sink.
 
 if.end25.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.i.0.ph = phi i64 [ %conv.i69, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.0, %done1.i ]
   %conv26.i = trunc i64 %res.i.i.0.ph to i32
   %20 = load i32, ptr %aux.i.sroa.0.0.copyload, align 4
   %conv.i55 = zext i32 %20 to i64
@@ -10403,16 +10403,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i75, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i.0 = phi ptr [ %incdec.ptr.i130, %if.end6.i ], [ %incdec.ptr.i131, %if.end11.i ], [ %incdec.ptr.i132, %if.end16.i ], [ %incdec.ptr.i133, %if.end21.i ], [ %incdec.ptr.i134, %if.end26.i ], [ %incdec.ptr.i135, %if.end31.i ], [ %incdec.ptr.i136, %if.end36.i75 ], [ %incdec.ptr.i137, %if.end41.i ], [ %incdec.ptr.i137, %if.then57.i ], [ %incdec.ptr.i137, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
+  %p.addr.i.1 = phi ptr [ %incdec.ptr.i130, %if.end6.i ], [ %incdec.ptr.i131, %if.end11.i ], [ %incdec.ptr.i132, %if.end16.i ], [ %incdec.ptr.i133, %if.end21.i ], [ %incdec.ptr.i134, %if.end26.i ], [ %incdec.ptr.i135, %if.end31.i ], [ %incdec.ptr.i136, %if.end36.i75 ], [ %incdec.ptr.i137, %if.end41.i ], [ %incdec.ptr.i137, %if.then57.i ], [ %incdec.ptr.i137, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i73, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i84, %if.end21.i ], [ %and.i84, %if.end26.i ], [ %and.i96, %if.end31.i ], [ %and.i96, %if.end36.i75 ], [ %and.i96, %if.end41.i ], [ %and.i96, %if.then57.i ], [ %and.i96, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i90, %if.end26.i ], [ %and.i90, %if.end31.i ], [ %and.i102, %if.end36.i75 ], [ %and.i102, %if.end41.i ], [ %16, %if.then57.i ], [ %and.i102, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i71, %done2.i
-  %p.addr.i.1 = phi ptr [ %incdec.ptr.i129, %if.end.i71 ], [ %p.addr.i.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i69
+  %p.addr.i.0 = phi ptr [ %incdec.ptr.i129, %if.end.i71 ], [ %p.addr.i.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i73, %if.end.i71 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i69
   br label %if.end25.i
 
 if.then19.i:                                      ; preds = %if.end47.i77
@@ -10437,7 +10437,7 @@ common.ret187:                                    ; preds = %common.ret187.sink.
 
 if.end25.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.i.0.ph = phi i64 [ %conv.i69, %do.body.i ], [ %and60.i, %done1.i ]
-  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.1, %done1.i ]
+  %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.0, %done1.i ]
   %conv26.i = trunc i64 %res.i.i.0.ph to i32
   %19 = load i32, ptr %aux.i.sroa.0.0.copyload, align 4
   %conv.i55 = zext i32 %19 to i64
@@ -13087,7 +13087,7 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 
 common.ret150.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %35, %do.body37.i.split ], [ %39, %if.then.i.i ], [ %44, %parse_loop.i ], [ %31, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %common.ret150.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
+  %common.ret150.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %conv2.i.i38 = trunc i64 %hasbits to i32
   %conv3.i.i39 = zext i16 %.sink to i64
   %add.ptr.i125 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
@@ -13097,7 +13097,7 @@ common.ret150.sink.split:                         ; preds = %_ZN6google8protobuf
   br label %common.ret150
 
 common.ret150:                                    ; preds = %common.ret150.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
-  %common.ret150.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ %common.ret150.op.ph, %common.ret150.sink.split ]
+  %common.ret150.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ %common.ret150.op.ph, %common.ret150.sink.split ]
   ret ptr %common.ret150.op
 
 if.end27.i:                                       ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread145
@@ -13112,8 +13112,8 @@ if.end32.i:                                       ; preds = %if.end27.i
   br i1 %cmp36.i, label %do.body.i, label %if.end65.i, !llvm.loop !55
 
 do.body37.i:                                      ; preds = %do.body37.i.preheader, %if.end58.i
-  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
-  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.1, i64 1
+  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
+  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.3, i64 1
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i79, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call40.i = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call2.i.i, ptr noundef nonnull %add.ptr38.i, ptr noundef %ctx)
   %cmp41.i = icmp eq ptr %call40.i, null
@@ -13168,7 +13168,7 @@ if.end.i.i:                                       ; preds = %if.end65.i
   ret ptr %call10.i15
 
 parse_loop.i:                                     ; preds = %if.end27.i, %if.end53.i
-  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94149, %if.end27.i ]
+  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94149, %if.end27.i ]
   %44 = load i16, ptr %table, align 8
   %tobool.i.i.not = icmp eq i16 %44, 0
   br i1 %tobool.i.i.not, label %common.ret150, label %common.ret150.sink.split
@@ -13363,7 +13363,7 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 
 common.ret153.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %33, %do.body37.i.split ], [ %36, %if.then.i.i ], [ %41, %parse_loop.i ], [ %30, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %common.ret153.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
+  %common.ret153.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %conv2.i.i38 = trunc i64 %hasbits to i32
   %conv3.i.i39 = zext i16 %.sink to i64
   %add.ptr.i127 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
@@ -13373,7 +13373,7 @@ common.ret153.sink.split:                         ; preds = %_ZN6google8protobuf
   br label %common.ret153
 
 common.ret153:                                    ; preds = %common.ret153.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
-  %common.ret153.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ %common.ret153.op.ph, %common.ret153.sink.split ]
+  %common.ret153.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ %common.ret153.op.ph, %common.ret153.sink.split ]
   ret ptr %common.ret153.op
 
 if.end27.i:                                       ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread148
@@ -13388,8 +13388,8 @@ if.end32.i:                                       ; preds = %if.end27.i
   br i1 %cmp36.i, label %do.body.i, label %if.end65.i, !llvm.loop !57
 
 do.body37.i:                                      ; preds = %do.body37.i.preheader, %if.end58.i
-  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
-  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.1, i64 2
+  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
+  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.3, i64 2
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i79, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call40.i = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call2.i.i, ptr noundef nonnull %add.ptr38.i, ptr noundef %ctx)
   %cmp41.i = icmp eq ptr %call40.i, null
@@ -13444,7 +13444,7 @@ if.end.i.i:                                       ; preds = %if.end65.i
   ret ptr %call10.i15
 
 parse_loop.i:                                     ; preds = %if.end27.i, %if.end53.i
-  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94152, %if.end27.i ]
+  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94152, %if.end27.i ]
   %41 = load i16, ptr %table, align 8
   %tobool.i.i.not = icmp eq i16 %41, 0
   br i1 %tobool.i.i.not, label %common.ret153, label %common.ret153.sink.split
@@ -13639,7 +13639,7 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 
 common.ret150.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %35, %do.body37.i.split ], [ %39, %if.then.i.i ], [ %44, %parse_loop.i ], [ %31, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %common.ret150.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
+  %common.ret150.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %conv2.i.i38 = trunc i64 %hasbits to i32
   %conv3.i.i39 = zext i16 %.sink to i64
   %add.ptr.i125 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
@@ -13649,7 +13649,7 @@ common.ret150.sink.split:                         ; preds = %_ZN6google8protobuf
   br label %common.ret150
 
 common.ret150:                                    ; preds = %common.ret150.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
-  %common.ret150.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ %common.ret150.op.ph, %common.ret150.sink.split ]
+  %common.ret150.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ %common.ret150.op.ph, %common.ret150.sink.split ]
   ret ptr %common.ret150.op
 
 if.end27.i:                                       ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread145
@@ -13664,8 +13664,8 @@ if.end32.i:                                       ; preds = %if.end27.i
   br i1 %cmp36.i, label %do.body.i, label %if.end65.i, !llvm.loop !59
 
 do.body37.i:                                      ; preds = %do.body37.i.preheader, %if.end58.i
-  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
-  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.1, i64 1
+  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
+  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.3, i64 1
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i79, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call40.i = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call2.i.i, ptr noundef nonnull %add.ptr38.i, ptr noundef %ctx)
   %cmp41.i = icmp eq ptr %call40.i, null
@@ -13720,7 +13720,7 @@ if.end.i.i:                                       ; preds = %if.end65.i
   ret ptr %call10.i15
 
 parse_loop.i:                                     ; preds = %if.end27.i, %if.end53.i
-  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94149, %if.end27.i ]
+  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94149, %if.end27.i ]
   %44 = load i16, ptr %table, align 8
   %tobool.i.i.not = icmp eq i16 %44, 0
   br i1 %tobool.i.i.not, label %common.ret150, label %common.ret150.sink.split
@@ -13915,7 +13915,7 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 
 common.ret153.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %33, %do.body37.i.split ], [ %36, %if.then.i.i ], [ %41, %parse_loop.i ], [ %30, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %common.ret153.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
+  %common.ret153.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %conv2.i.i38 = trunc i64 %hasbits to i32
   %conv3.i.i39 = zext i16 %.sink to i64
   %add.ptr.i127 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
@@ -13925,7 +13925,7 @@ common.ret153.sink.split:                         ; preds = %_ZN6google8protobuf
   br label %common.ret153
 
 common.ret153:                                    ; preds = %common.ret153.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
-  %common.ret153.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ %common.ret153.op.ph, %common.ret153.sink.split ]
+  %common.ret153.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ %common.ret153.op.ph, %common.ret153.sink.split ]
   ret ptr %common.ret153.op
 
 if.end27.i:                                       ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread148
@@ -13940,8 +13940,8 @@ if.end32.i:                                       ; preds = %if.end27.i
   br i1 %cmp36.i, label %do.body.i, label %if.end65.i, !llvm.loop !61
 
 do.body37.i:                                      ; preds = %do.body37.i.preheader, %if.end58.i
-  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
-  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.1, i64 2
+  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end58.i ], [ %ptr, %do.body37.i.preheader ]
+  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.3, i64 2
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i79, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call40.i = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call2.i.i, ptr noundef nonnull %add.ptr38.i, ptr noundef %ctx)
   %cmp41.i = icmp eq ptr %call40.i, null
@@ -13996,7 +13996,7 @@ if.end.i.i:                                       ; preds = %if.end65.i
   ret ptr %call10.i15
 
 parse_loop.i:                                     ; preds = %if.end27.i, %if.end53.i
-  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94152, %if.end27.i ]
+  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94152, %if.end27.i ]
   %41 = load i16, ptr %table, align 8
   %tobool.i.i.not = icmp eq i16 %41, 0
   br i1 %tobool.i.i.not, label %common.ret153, label %common.ret153.sink.split
@@ -14188,7 +14188,7 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 
 common.ret170.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split
   %.sink = phi i16 [ %40, %lor.rhs.i.split ], [ %43, %do.body37.i.split ], [ %51, %lor.rhs42.i.split ], [ %55, %if.then.i.i ], [ %60, %parse_loop.i ], [ %31, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %common.ret170.op.ph = phi ptr [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
+  %common.ret170.op.ph = phi ptr [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %conv2.i.i38 = trunc i64 %hasbits to i32
   %conv3.i.i39 = zext i16 %.sink to i64
   %add.ptr.i142 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
@@ -14198,7 +14198,7 @@ common.ret170.sink.split:                         ; preds = %_ZN6google8protobuf
   br label %common.ret170
 
 common.ret170:                                    ; preds = %common.ret170.sink.split, %if.then.i.i, %parse_loop.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
-  %common.ret170.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ %common.ret170.op.ph, %common.ret170.sink.split ]
+  %common.ret170.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ %common.ret170.op.ph, %common.ret170.sink.split ]
   ret ptr %common.ret170.op
 
 lor.rhs.i:                                        ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread165, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
@@ -14244,8 +14244,8 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   br label %do.body37.i
 
 do.body37.i:                                      ; preds = %if.end58.i, %if.else.i
-  %ptr.addr.i.1 = phi ptr [ %ptr, %if.else.i ], [ %call40.i, %if.end58.i ]
-  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.1, i64 1
+  %ptr.addr.i.3 = phi ptr [ %ptr, %if.else.i ], [ %call40.i, %if.end58.i ]
+  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.3, i64 1
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i79, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call40.i = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call2.i.i, ptr noundef nonnull %add.ptr38.i, ptr noundef %ctx)
   %cmp41.i = icmp eq ptr %call40.i, null
@@ -14327,7 +14327,7 @@ if.end.i.i:                                       ; preds = %if.end65.i
   ret ptr %call10.i15
 
 parse_loop.i:                                     ; preds = %if.end27.i, %if.end53.i
-  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94169, %if.end27.i ]
+  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94169, %if.end27.i ]
   %60 = load i16, ptr %table, align 8
   %tobool.i.i.not = icmp eq i16 %60, 0
   br i1 %tobool.i.i.not, label %common.ret170, label %common.ret170.sink.split
@@ -14519,7 +14519,7 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 
 common.ret178.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split
   %.sink = phi i16 [ %39, %lor.rhs.i.split ], [ %41, %do.body37.i.split ], [ %49, %lor.rhs42.i.split ], [ %52, %if.then.i.i ], [ %57, %parse_loop.i ], [ %30, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %common.ret178.op.ph = phi ptr [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
+  %common.ret178.op.ph = phi ptr [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %conv2.i.i38 = trunc i64 %hasbits to i32
   %conv3.i.i39 = zext i16 %.sink to i64
   %add.ptr.i149 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
@@ -14529,7 +14529,7 @@ common.ret178.sink.split:                         ; preds = %_ZN6google8protobuf
   br label %common.ret178
 
 common.ret178:                                    ; preds = %common.ret178.sink.split, %if.then.i.i, %parse_loop.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
-  %common.ret178.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ %common.ret178.op.ph, %common.ret178.sink.split ]
+  %common.ret178.op = phi ptr [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ], [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.1, %parse_loop.i ], [ %common.ret178.op.ph, %common.ret178.sink.split ]
   ret ptr %common.ret178.op
 
 lor.rhs.i:                                        ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread173, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
@@ -14579,8 +14579,8 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   br label %do.body37.i
 
 do.body37.i:                                      ; preds = %if.end58.i, %if.else.i
-  %ptr.addr.i.1 = phi ptr [ %ptr, %if.else.i ], [ %call40.i, %if.end58.i ]
-  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.1, i64 2
+  %ptr.addr.i.3 = phi ptr [ %ptr, %if.else.i ], [ %call40.i, %if.end58.i ]
+  %add.ptr38.i = getelementptr inbounds i8, ptr %ptr.addr.i.3, i64 2
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i79, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call40.i = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %call2.i.i, ptr noundef nonnull %add.ptr38.i, ptr noundef %ctx)
   %cmp41.i = icmp eq ptr %call40.i, null
@@ -14666,7 +14666,7 @@ if.end.i.i:                                       ; preds = %if.end65.i
   ret ptr %call10.i15
 
 parse_loop.i:                                     ; preds = %if.end27.i, %if.end53.i
-  %ptr.addr.i.3 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94177, %if.end27.i ]
+  %ptr.addr.i.1 = phi ptr [ %call40.i, %if.end53.i ], [ %retval.0.i94177, %if.end27.i ]
   %57 = load i16, ptr %table, align 8
   %tobool.i.i.not = icmp eq i16 %57, 0
   br i1 %tobool.i.i.not, label %common.ret178, label %common.ret178.sink.split
@@ -15336,8 +15336,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.1184 = phi ptr [ %11, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %13 = load i8, ptr %ptr.addr.1184, align 1
+  %ptr.addr.3184 = phi ptr [ %11, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %13 = load i8, ptr %ptr.addr.3184, align 1
   %cmp = icmp ne i8 %2, %13
   %cmp11 = icmp ne i8 %4, %13
   %14 = and i1 %cmp, %cmp11
@@ -15346,7 +15346,7 @@ while.body:                                       ; preds = %while.cond, %_ZN6go
 if.then:                                          ; preds = %while.body
   %conv.i71 = zext i8 %13 to i32
   %cmp.i72 = icmp sgt i8 %13, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.1184, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.3184, i64 1
   br i1 %cmp.i72, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %if.end.i73
 
 if.end.i73:                                       ; preds = %if.then
@@ -15359,20 +15359,20 @@ if.end.i73:                                       ; preds = %if.then
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i75
 
 if.then4.i:                                       ; preds = %if.end.i73
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.1184, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.3184, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.end6.i75:                                      ; preds = %if.end.i73
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.1184, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.3184, i32 noundef %add.i)
   %16 = extractvalue { ptr, i32 } %call.i, 0
   %17 = extractvalue { ptr, i32 } %call.i, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.then, %if.then4.i, %if.end6.i75
-  %inner_tag.0 = phi i32 [ %add.i, %if.then4.i ], [ %17, %if.end6.i75 ], [ %conv.i71, %if.then ]
+  %inner_tag.1 = phi i32 [ %add.i, %if.then4.i ], [ %17, %if.end6.i75 ], [ %conv.i71, %if.then ]
   %retval.0.i = phi ptr [ %add.ptr5.i, %if.then4.i ], [ %16, %if.end6.i75 ], [ %add.ptr.i, %if.then ]
-  %cmp15 = icmp ne i32 %inner_tag.0, %or.i66
-  %cmp18 = icmp ne i32 %inner_tag.0, %or.i68
+  %cmp15 = icmp ne i32 %inner_tag.1, %or.i66
+  %cmp18 = icmp ne i32 %inner_tag.1, %or.i68
   %18 = and i1 %cmp15, %cmp18
   br i1 %18, label %if.then21, label %if.end35
 
@@ -15381,32 +15381,32 @@ if.then21:                                        ; preds = %_ZN6google8protobuf
   br i1 %cmp22, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then21
-  %cmp25 = icmp eq i32 %inner_tag.0, 0
-  %and = and i32 %inner_tag.0, 7
+  %cmp25 = icmp eq i32 %inner_tag.1, 0
+  %and = and i32 %inner_tag.1, 7
   %cmp26 = icmp eq i32 %and, 4
   %or.cond = or i1 %cmp25, %cmp26
   br i1 %or.cond, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.end
-  %sub.i77 = add i32 %inner_tag.0, -1
+  %sub.i77 = add i32 %inner_tag.1, -1
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i77, ptr %last_tag_minus_1_.i, align 8
   br label %return
 
 if.end28:                                         ; preds = %if.end
-  %call29 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %inner_tag.0, ptr noundef null, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %ctx)
+  %call29 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %inner_tag.1, ptr noundef null, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %ctx)
   %cmp30 = icmp eq ptr %call29, null
   br i1 %cmp30, label %return, label %while.cond.backedge
 
 if.else:                                          ; preds = %while.body
   %conv8 = sext i8 %13 to i32
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.addr.1184, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.addr.3184, i64 1
   br label %if.end35
 
 if.end35:                                         ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %if.else
   %ptr.addr.2 = phi ptr [ %retval.0.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %incdec.ptr, %if.else ]
-  %inner_tag.1 = phi i32 [ %inner_tag.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %conv8, %if.else ]
-  %cmp37 = icmp eq i32 %inner_tag.1, %or.i66
+  %inner_tag.0 = phi i32 [ %inner_tag.1, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %conv8, %if.else ]
+  %cmp37 = icmp eq i32 %inner_tag.0, %or.i66
   %type_card.sroa.0.0 = select i1 %cmp37, i8 %map_info.sroa.0.0.extract.trunc, i8 %map_info.sroa.3.0.extract.trunc
   %obj.0.v = select i1 %cmp37, i64 8, i64 %idx.ext.i
   %obj.0 = getelementptr inbounds i8, ptr %node, i64 %obj.0.v
@@ -15523,21 +15523,21 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i119.0 = phi ptr [ %incdec.ptr.i82, %if.end6.i ], [ %incdec.ptr.i83, %if.end11.i ], [ %incdec.ptr.i84, %if.end16.i ], [ %incdec.ptr.i85, %if.end21.i ], [ %incdec.ptr.i86, %if.end26.i ], [ %incdec.ptr.i87, %if.end31.i ], [ %incdec.ptr.i88, %if.end36.i ], [ %incdec.ptr.i89, %if.end41.i ], [ %incdec.ptr.i89, %if.then57.i ], [ %incdec.ptr.i89, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i121, %if.end21.i ], [ %and.i121, %if.end26.i ], [ %and.i133, %if.end31.i ], [ %and.i133, %if.end36.i ], [ %and.i133, %if.end41.i ], [ %and.i133, %if.then57.i ], [ %and.i133, %if.end52.i ]
+  %p.addr.i119.1 = phi ptr [ %incdec.ptr.i82, %if.end6.i ], [ %incdec.ptr.i83, %if.end11.i ], [ %incdec.ptr.i84, %if.end16.i ], [ %incdec.ptr.i85, %if.end21.i ], [ %incdec.ptr.i86, %if.end26.i ], [ %incdec.ptr.i87, %if.end31.i ], [ %incdec.ptr.i88, %if.end36.i ], [ %incdec.ptr.i89, %if.end41.i ], [ %incdec.ptr.i89, %if.then57.i ], [ %incdec.ptr.i89, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i121, %if.end21.i ], [ %and.i121, %if.end26.i ], [ %and.i133, %if.end31.i ], [ %and.i133, %if.end36.i ], [ %and.i133, %if.end41.i ], [ %and.i133, %if.then57.i ], [ %and.i133, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i127, %if.end26.i ], [ %and.i127, %if.end31.i ], [ %and.i139, %if.end36.i ], [ %and.i139, %if.end41.i ], [ %31, %if.then57.i ], [ %and.i139, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i, %done2.i
-  %p.addr.i119.1 = phi ptr [ %incdec.ptr.i81, %if.end.i ], [ %p.addr.i119.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i, %if.end.i ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i
+  %p.addr.i119.0 = phi ptr [ %incdec.ptr.i81, %if.end.i ], [ %p.addr.i119.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i, %if.end.i ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i
   br label %if.end50
 
 if.end50:                                         ; preds = %done1.i, %sw.bb
   %res.i.0.ph = phi i64 [ %conv.i, %sw.bb ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %sw.bb ], [ %p.addr.i119.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %sw.bb ], [ %p.addr.i119.0, %done1.i ]
   %32 = lshr i8 %type_card.sroa.0.0, 3
   %33 = and i8 %32, 7
   switch i8 %33, label %sw.default [
@@ -16497,16 +16497,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i149.0 = phi ptr [ %incdec.ptr.i149, %if.end6.i ], [ %incdec.ptr.i150, %if.end11.i ], [ %incdec.ptr.i151, %if.end16.i ], [ %incdec.ptr.i152, %if.end21.i ], [ %incdec.ptr.i153, %if.end26.i ], [ %incdec.ptr.i154, %if.end31.i ], [ %incdec.ptr.i155, %if.end36.i ], [ %incdec.ptr.i156, %if.end41.i ], [ %incdec.ptr.i156, %if.then57.i ], [ %incdec.ptr.i156, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i155, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i161, %if.end21.i ], [ %and.i161, %if.end26.i ], [ %and.i173, %if.end31.i ], [ %and.i173, %if.end36.i ], [ %and.i173, %if.end41.i ], [ %and.i173, %if.then57.i ], [ %and.i173, %if.end52.i ]
+  %p.addr.i149.1 = phi ptr [ %incdec.ptr.i149, %if.end6.i ], [ %incdec.ptr.i150, %if.end11.i ], [ %incdec.ptr.i151, %if.end16.i ], [ %incdec.ptr.i152, %if.end21.i ], [ %incdec.ptr.i153, %if.end26.i ], [ %incdec.ptr.i154, %if.end31.i ], [ %incdec.ptr.i155, %if.end36.i ], [ %incdec.ptr.i156, %if.end41.i ], [ %incdec.ptr.i156, %if.then57.i ], [ %incdec.ptr.i156, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i155, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i161, %if.end21.i ], [ %and.i161, %if.end26.i ], [ %and.i173, %if.end31.i ], [ %and.i173, %if.end36.i ], [ %and.i173, %if.end41.i ], [ %and.i173, %if.then57.i ], [ %and.i173, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i167, %if.end26.i ], [ %and.i167, %if.end31.i ], [ %and.i179, %if.end36.i ], [ %and.i179, %if.end41.i ], [ %13, %if.then57.i ], [ %and.i179, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i153, %done2.i
-  %p.addr.i149.1 = phi ptr [ %incdec.ptr.i148, %if.end.i153 ], [ %p.addr.i149.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i155, %if.end.i153 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i151
+  %p.addr.i149.0 = phi ptr [ %incdec.ptr.i148, %if.end.i153 ], [ %p.addr.i149.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i155, %if.end.i153 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i151
   br label %if.end36
 
 if.then30:                                        ; preds = %if.end47.i
@@ -16531,7 +16531,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end36:                                         ; preds = %done1.i, %if.end19
   %res.i.0.ph = phi i64 [ %conv.i151, %if.end19 ], [ %and60.i, %done1.i ]
-  %retval.i148.0.ph = phi ptr [ %incdec.ptr.i, %if.end19 ], [ %p.addr.i149.1, %done1.i ]
+  %retval.i148.0.ph = phi ptr [ %incdec.ptr.i, %if.end19 ], [ %p.addr.i149.0, %done1.i ]
   %16 = and i16 %0, 448
   %cmp41 = icmp eq i16 %16, 192
   br i1 %cmp41, label %if.then42, label %if.else
@@ -17572,10 +17572,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i
   br i1 %tobool.i.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.cond.i.i
-  %ptr.addr.i.121.i = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
+  %ptr.addr.i.221.i = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
   %30 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %30, i64 -48
-  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.121.i, align 1
+  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.221.i, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %30, i64 -40
   %31 = load i8, ptr %fast_idx_mask.i.i, align 8
   %32 = zext i8 %31 to i16
@@ -17592,7 +17592,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %xor.i.i = xor i64 %data.i.sroa.0.0.copyload.i, %conv6.i.i
   %34 = load atomic i64, ptr %add.ptr2.i13.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %34 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %22, ptr noundef nonnull %ptr.addr.i.121.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %22, ptr noundef nonnull %ptr.addr.i.221.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %if.end.i.i
 
@@ -17602,13 +17602,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.not.i, label %while.cond.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, !llvm.loop !5
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit: ; preds = %if.end.i.i, %while.body.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i
-  %ptr.addr.i.2.i.ph = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %while.body.i.i ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
+  %ptr.addr.i.1.i.ph = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %while.body.i.i ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
   %.pre196 = load i32, ptr %group_depth_.i, align 4
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit: ; preds = %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, %if.then3.i.i.i
   %36 = phi i32 [ %23, %if.then3.i.i.i ], [ %.pre196, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
-  %ptr.addr.i.2.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.2.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
+  %ptr.addr.i.1.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.1.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
   %dec14.i = add nsw i32 %36, -1
   store i32 %dec14.i, ptr %group_depth_.i, align 4
   %37 = load i32, ptr %depth_.i, align 8
@@ -17617,7 +17617,7 @@ _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12Par
   %38 = load i32, ptr %last_tag_minus_1_.i.i, align 8
   %cmp.i89 = icmp eq i32 %38, %conv.i84
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %call.i176. = select i1 %cmp.i89, ptr %ptr.addr.i.2.i, ptr null
+  %call.i176. = select i1 %cmp.i89, ptr %ptr.addr.i.1.i, ptr null
   br label %return
 
 cond.false:                                       ; preds = %if.end73
@@ -17704,10 +17704,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113: ; preds = %if.en
   br i1 %tobool.i.i.i115, label %invoke.cont2.i.loopexit, label %while.body.i.i116
 
 while.body.i.i116:                                ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113, %while.cond.i.i103
-  %ptr.addr.i.121.i117 = phi ptr [ %51, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113 ], [ %ptr.addr.i.0.i104, %while.cond.i.i103 ]
+  %ptr.addr.i.221.i117 = phi ptr [ %51, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113 ], [ %ptr.addr.i.0.i104, %while.cond.i.i103 ]
   %53 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i105) #26, !srcloc !4
   %add.ptr2.i.i118 = getelementptr inbounds i8, ptr %53, i64 -48
-  %tmp.0.copyload.i.i.i119 = load i16, ptr %ptr.addr.i.121.i117, align 1
+  %tmp.0.copyload.i.i.i119 = load i16, ptr %ptr.addr.i.221.i117, align 1
   %fast_idx_mask.i.i120 = getelementptr inbounds i8, ptr %53, i64 -40
   %54 = load i8, ptr %fast_idx_mask.i.i120, align 8
   %55 = zext i8 %54 to i16
@@ -17724,7 +17724,7 @@ while.body.i.i116:                                ; preds = %_ZN6google8protobuf
   %xor.i.i129 = xor i64 %data.i.sroa.0.0.copyload.i127, %conv6.i.i128
   %57 = load atomic i64, ptr %add.ptr2.i13.i125 monotonic, align 8
   %atomic-temp.i.0.i.i.i130 = inttoptr i64 %57 to ptr
-  %call10.i.i131143 = tail call noundef ptr %atomic-temp.i.0.i.i.i130(ptr noundef %45, ptr noundef nonnull %ptr.addr.i.121.i117, ptr noundef nonnull %ctx, i64 %xor.i.i129, ptr noundef nonnull %add.ptr2.i.i118, i64 noundef 0)
+  %call10.i.i131143 = tail call noundef ptr %atomic-temp.i.0.i.i.i130(ptr noundef %45, ptr noundef nonnull %ptr.addr.i.221.i117, ptr noundef nonnull %ctx, i64 %xor.i.i129, ptr noundef nonnull %add.ptr2.i.i118, i64 noundef 0)
   %cmp.i.i132 = icmp eq ptr %call10.i.i131143, null
   br i1 %cmp.i.i132, label %invoke.cont2.i.loopexit, label %if.end.i.i133
 
@@ -17734,13 +17734,13 @@ if.end.i.i133:                                    ; preds = %while.body.i.i116
   br i1 %cmp6.i.not.i134, label %while.cond.i.i103, label %invoke.cont2.i.loopexit, !llvm.loop !5
 
 invoke.cont2.i.loopexit:                          ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113, %while.body.i.i116, %if.end.i.i133
-  %ptr.addr.i.2.i135.ph = phi ptr [ %call10.i.i131143, %if.end.i.i133 ], [ null, %while.body.i.i116 ], [ %51, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113 ]
+  %ptr.addr.i.1.i135.ph = phi ptr [ %call10.i.i131143, %if.end.i.i133 ], [ null, %while.body.i.i116 ], [ %51, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i113 ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont2.i.loopexit, %if.then3.i.i.i136
   %59 = phi i32 [ %conv.i.i.i111, %if.then3.i.i.i136 ], [ %.pre, %invoke.cont2.i.loopexit ]
-  %ptr.addr.i.2.i135 = phi ptr [ %spec.select.i141, %if.then3.i.i.i136 ], [ %ptr.addr.i.2.i135.ph, %invoke.cont2.i.loopexit ]
+  %ptr.addr.i.1.i135 = phi ptr [ %spec.select.i141, %if.then3.i.i.i136 ], [ %ptr.addr.i.1.i135.ph, %invoke.cont2.i.loopexit ]
   %60 = load i32, ptr %depth_.i157, align 8
   %inc.i116 = add nsw i32 %60, 1
   store i32 %inc.i116, ptr %depth_.i157, align 8
@@ -17846,7 +17846,7 @@ if.end101:                                        ; preds = %if.end97
   br label %return
 
 return:                                           ; preds = %invoke.cont2.i, %if.end.i149, %if.end.i92, %lor.lhs.false.i, %if.then99, %if.end.i130, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit, %cond.true, %if.end101
-  %retval.0 = phi ptr [ %call102, %if.end101 ], [ null, %cond.true ], [ %call.i176., %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit ], [ null, %if.then99 ], [ %call.i135., %if.end.i130 ], [ null, %lor.lhs.false.i ], [ null, %if.end.i92 ], [ %ptr.addr.i.2.i135, %if.end.i149 ], [ null, %invoke.cont2.i ]
+  %retval.0 = phi ptr [ %call102, %if.end101 ], [ null, %cond.true ], [ %call.i176., %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit ], [ null, %if.then99 ], [ %call.i135., %if.end.i130 ], [ null, %lor.lhs.false.i ], [ null, %if.end.i92 ], [ %ptr.addr.i.1.i135, %if.end.i149 ], [ null, %invoke.cont2.i ]
   ret ptr %retval.0
 }
 
@@ -18486,16 +18486,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i149.0 = phi ptr [ %incdec.ptr.i149, %if.end6.i ], [ %incdec.ptr.i150, %if.end11.i ], [ %incdec.ptr.i151, %if.end16.i ], [ %incdec.ptr.i152, %if.end21.i ], [ %incdec.ptr.i153, %if.end26.i ], [ %incdec.ptr.i154, %if.end31.i ], [ %incdec.ptr.i155, %if.end36.i ], [ %incdec.ptr.i156, %if.end41.i ], [ %incdec.ptr.i156, %if.then57.i ], [ %incdec.ptr.i156, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i155, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i161, %if.end21.i ], [ %and.i161, %if.end26.i ], [ %and.i173, %if.end31.i ], [ %and.i173, %if.end36.i ], [ %and.i173, %if.end41.i ], [ %and.i173, %if.then57.i ], [ %and.i173, %if.end52.i ]
+  %p.addr.i149.1 = phi ptr [ %incdec.ptr.i149, %if.end6.i ], [ %incdec.ptr.i150, %if.end11.i ], [ %incdec.ptr.i151, %if.end16.i ], [ %incdec.ptr.i152, %if.end21.i ], [ %incdec.ptr.i153, %if.end26.i ], [ %incdec.ptr.i154, %if.end31.i ], [ %incdec.ptr.i155, %if.end36.i ], [ %incdec.ptr.i156, %if.end41.i ], [ %incdec.ptr.i156, %if.then57.i ], [ %incdec.ptr.i156, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i155, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i161, %if.end21.i ], [ %and.i161, %if.end26.i ], [ %and.i173, %if.end31.i ], [ %and.i173, %if.end36.i ], [ %and.i173, %if.end41.i ], [ %and.i173, %if.then57.i ], [ %and.i173, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i167, %if.end26.i ], [ %and.i167, %if.end31.i ], [ %and.i179, %if.end36.i ], [ %and.i179, %if.end41.i ], [ %13, %if.then57.i ], [ %and.i179, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i153, %done2.i
-  %p.addr.i149.1 = phi ptr [ %incdec.ptr.i148, %if.end.i153 ], [ %p.addr.i149.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i155, %if.end.i153 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i151
+  %p.addr.i149.0 = phi ptr [ %incdec.ptr.i148, %if.end.i153 ], [ %p.addr.i149.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i155, %if.end.i153 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i151
   br label %if.end36
 
 if.then30:                                        ; preds = %if.end47.i
@@ -18520,7 +18520,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end36:                                         ; preds = %done1.i, %if.end19
   %res.i.0.ph = phi i64 [ %conv.i151, %if.end19 ], [ %and60.i, %done1.i ]
-  %retval.i148.0.ph = phi ptr [ %incdec.ptr.i, %if.end19 ], [ %p.addr.i149.1, %done1.i ]
+  %retval.i148.0.ph = phi ptr [ %incdec.ptr.i, %if.end19 ], [ %p.addr.i149.0, %done1.i ]
   %16 = and i16 %0, 448
   %cmp41 = icmp eq i16 %16, 192
   br i1 %cmp41, label %if.then42, label %if.else
@@ -19864,10 +19864,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i
   br i1 %tobool.i.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.cond.i.i
-  %ptr.addr.i.121.i = phi ptr [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
+  %ptr.addr.i.221.i = phi ptr [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
   %41 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %41, i64 -48
-  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.121.i, align 1
+  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.221.i, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %41, i64 -40
   %42 = load i8, ptr %fast_idx_mask.i.i, align 8
   %43 = zext i8 %42 to i16
@@ -19884,7 +19884,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %xor.i.i = xor i64 %data.i.sroa.0.0.copyload.i, %conv6.i.i
   %45 = load atomic i64, ptr %add.ptr2.i13.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %45 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %33, ptr noundef nonnull %ptr.addr.i.121.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %33, ptr noundef nonnull %ptr.addr.i.221.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i95 = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i95, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %if.end.i.i96
 
@@ -19894,13 +19894,13 @@ if.end.i.i96:                                     ; preds = %while.body.i.i
   br i1 %cmp6.i.not.i, label %while.cond.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, !llvm.loop !5
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit: ; preds = %if.end.i.i96, %while.body.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i
-  %ptr.addr.i.2.i.ph = phi ptr [ %call10.i.i, %if.end.i.i96 ], [ null, %while.body.i.i ], [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
+  %ptr.addr.i.1.i.ph = phi ptr [ %call10.i.i, %if.end.i.i96 ], [ null, %while.body.i.i ], [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
   %.pre204 = load i32, ptr %group_depth_.i116, align 4
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit: ; preds = %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, %if.then3.i.i.i
   %47 = phi i32 [ %34, %if.then3.i.i.i ], [ %.pre204, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
-  %ptr.addr.i.2.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.2.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
+  %ptr.addr.i.1.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.1.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
   %dec14.i124 = add nsw i32 %47, -1
   store i32 %dec14.i124, ptr %group_depth_.i116, align 4
   %48 = load i32, ptr %depth_.i112, align 8
@@ -19909,7 +19909,7 @@ _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12Par
   %49 = load i32, ptr %last_tag_minus_1_.i.i, align 8
   %cmp.i97 = icmp eq i32 %49, %conv.i84
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %call.i155. = select i1 %cmp.i97, ptr %ptr.addr.i.2.i, ptr null
+  %call.i155. = select i1 %cmp.i97, ptr %ptr.addr.i.1.i, ptr null
   br label %return
 
 cond.false:                                       ; preds = %if.end73
@@ -19996,10 +19996,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121: ; preds = %if.en
   br i1 %tobool.i.i.i123, label %invoke.cont2.i.loopexit, label %while.body.i.i124
 
 while.body.i.i124:                                ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121, %while.cond.i.i111
-  %ptr.addr.i.121.i125 = phi ptr [ %62, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121 ], [ %ptr.addr.i.0.i112, %while.cond.i.i111 ]
+  %ptr.addr.i.221.i125 = phi ptr [ %62, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121 ], [ %ptr.addr.i.0.i112, %while.cond.i.i111 ]
   %64 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i113) #26, !srcloc !4
   %add.ptr2.i.i126 = getelementptr inbounds i8, ptr %64, i64 -48
-  %tmp.0.copyload.i.i.i127 = load i16, ptr %ptr.addr.i.121.i125, align 1
+  %tmp.0.copyload.i.i.i127 = load i16, ptr %ptr.addr.i.221.i125, align 1
   %fast_idx_mask.i.i128 = getelementptr inbounds i8, ptr %64, i64 -40
   %65 = load i8, ptr %fast_idx_mask.i.i128, align 8
   %66 = zext i8 %65 to i16
@@ -20016,7 +20016,7 @@ while.body.i.i124:                                ; preds = %_ZN6google8protobuf
   %xor.i.i137 = xor i64 %data.i.sroa.0.0.copyload.i135, %conv6.i.i136
   %68 = load atomic i64, ptr %add.ptr2.i13.i133 monotonic, align 8
   %atomic-temp.i.0.i.i.i138 = inttoptr i64 %68 to ptr
-  %call10.i.i139151 = tail call noundef ptr %atomic-temp.i.0.i.i.i138(ptr noundef %56, ptr noundef nonnull %ptr.addr.i.121.i125, ptr noundef nonnull %ctx, i64 %xor.i.i137, ptr noundef nonnull %add.ptr2.i.i126, i64 noundef 0)
+  %call10.i.i139151 = tail call noundef ptr %atomic-temp.i.0.i.i.i138(ptr noundef %56, ptr noundef nonnull %ptr.addr.i.221.i125, ptr noundef nonnull %ctx, i64 %xor.i.i137, ptr noundef nonnull %add.ptr2.i.i126, i64 noundef 0)
   %cmp.i.i140 = icmp eq ptr %call10.i.i139151, null
   br i1 %cmp.i.i140, label %invoke.cont2.i.loopexit, label %if.end.i.i141
 
@@ -20026,13 +20026,13 @@ if.end.i.i141:                                    ; preds = %while.body.i.i124
   br i1 %cmp6.i.not.i142, label %while.cond.i.i111, label %invoke.cont2.i.loopexit, !llvm.loop !5
 
 invoke.cont2.i.loopexit:                          ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121, %while.body.i.i124, %if.end.i.i141
-  %ptr.addr.i.2.i143.ph = phi ptr [ %call10.i.i139151, %if.end.i.i141 ], [ null, %while.body.i.i124 ], [ %62, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121 ]
+  %ptr.addr.i.1.i143.ph = phi ptr [ %call10.i.i139151, %if.end.i.i141 ], [ null, %while.body.i.i124 ], [ %62, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i121 ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont2.i.loopexit, %if.then3.i.i.i144
   %70 = phi i32 [ %conv.i.i.i119, %if.then3.i.i.i144 ], [ %.pre, %invoke.cont2.i.loopexit ]
-  %ptr.addr.i.2.i143 = phi ptr [ %spec.select.i149, %if.then3.i.i.i144 ], [ %ptr.addr.i.2.i143.ph, %invoke.cont2.i.loopexit ]
+  %ptr.addr.i.1.i143 = phi ptr [ %spec.select.i149, %if.then3.i.i.i144 ], [ %ptr.addr.i.1.i143.ph, %invoke.cont2.i.loopexit ]
   %71 = load i32, ptr %depth_.i.i, align 8
   %inc.i143 = add nsw i32 %71, 1
   store i32 %inc.i143, ptr %depth_.i.i, align 8
@@ -20136,7 +20136,7 @@ if.end101:                                        ; preds = %if.end97
   br label %return
 
 return:                                           ; preds = %invoke.cont2.i, %if.end.i157, %if.end.i100, %lor.lhs.false.i.i, %if.then99, %if.end.i, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit, %cond.true, %if.end101
-  %retval.0 = phi ptr [ %call102, %if.end101 ], [ null, %cond.true ], [ %call.i155., %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit ], [ null, %if.then99 ], [ %call.i104., %if.end.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.end.i100 ], [ %ptr.addr.i.2.i143, %if.end.i157 ], [ null, %invoke.cont2.i ]
+  %retval.0 = phi ptr [ %call102, %if.end101 ], [ null, %cond.true ], [ %call.i155., %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit ], [ null, %if.then99 ], [ %call.i104., %if.end.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.end.i100 ], [ %ptr.addr.i.1.i143, %if.end.i157 ], [ null, %invoke.cont2.i ]
   ret ptr %retval.0
 }
 
@@ -20898,16 +20898,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i29.0 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i32, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i33, %if.end21.i ], [ %and.i33, %if.end26.i ], [ %and.i45, %if.end31.i ], [ %and.i45, %if.end36.i ], [ %and.i45, %if.end41.i ], [ %and.i45, %if.then57.i ], [ %and.i45, %if.end52.i ]
+  %p.addr.i29.1 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i32, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i33, %if.end21.i ], [ %and.i33, %if.end26.i ], [ %and.i45, %if.end31.i ], [ %and.i45, %if.end36.i ], [ %and.i45, %if.end41.i ], [ %and.i45, %if.then57.i ], [ %and.i45, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i39, %if.end26.i ], [ %and.i39, %if.end31.i ], [ %and.i51, %if.end36.i ], [ %and.i51, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i51, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i, %done2.i
-  %p.addr.i29.1 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i29.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i32, %if.end.i ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i
+  %p.addr.i29.0 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i29.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i32, %if.end.i ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -20932,7 +20932,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i29.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i29.0, %done1.i ]
   %15 = load i32, ptr %total_size_.i, align 4
   %16 = load i32, ptr %add.ptr.i.i.i, align 8
   %cmp.i81 = icmp eq i32 %16, %15
@@ -21130,16 +21130,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i30.0 = phi ptr [ %incdec.ptr.i69, %if.end6.i ], [ %incdec.ptr.i70, %if.end11.i ], [ %incdec.ptr.i71, %if.end16.i ], [ %incdec.ptr.i72, %if.end21.i ], [ %incdec.ptr.i73, %if.end26.i ], [ %incdec.ptr.i74, %if.end31.i ], [ %incdec.ptr.i75, %if.end36.i ], [ %incdec.ptr.i76, %if.end41.i ], [ %incdec.ptr.i76, %if.then57.i ], [ %incdec.ptr.i76, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i33, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i34, %if.end21.i ], [ %and.i34, %if.end26.i ], [ %and.i46, %if.end31.i ], [ %and.i46, %if.end36.i ], [ %and.i46, %if.end41.i ], [ %and.i46, %if.then57.i ], [ %and.i46, %if.end52.i ]
+  %p.addr.i30.1 = phi ptr [ %incdec.ptr.i69, %if.end6.i ], [ %incdec.ptr.i70, %if.end11.i ], [ %incdec.ptr.i71, %if.end16.i ], [ %incdec.ptr.i72, %if.end21.i ], [ %incdec.ptr.i73, %if.end26.i ], [ %incdec.ptr.i74, %if.end31.i ], [ %incdec.ptr.i75, %if.end36.i ], [ %incdec.ptr.i76, %if.end41.i ], [ %incdec.ptr.i76, %if.then57.i ], [ %incdec.ptr.i76, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i33, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i34, %if.end21.i ], [ %and.i34, %if.end26.i ], [ %and.i46, %if.end31.i ], [ %and.i46, %if.end36.i ], [ %and.i46, %if.end41.i ], [ %and.i46, %if.then57.i ], [ %and.i46, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i40, %if.end26.i ], [ %and.i40, %if.end31.i ], [ %and.i52, %if.end36.i ], [ %and.i52, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i52, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i, %done2.i
-  %p.addr.i30.1 = phi ptr [ %incdec.ptr.i68, %if.end.i ], [ %p.addr.i30.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i33, %if.end.i ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i
+  %p.addr.i30.0 = phi ptr [ %incdec.ptr.i68, %if.end.i ], [ %p.addr.i30.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i33, %if.end.i ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -21164,7 +21164,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i30.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i30.0, %done1.i ]
   %shr.i82 = lshr i64 %res.i.0.ph, 1
   %and.i = and i64 %res.i.0.ph, 1
   %add.i = sub nsw i64 0, %and.i
@@ -21366,16 +21366,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i30.0 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i33, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i34, %if.end21.i ], [ %and.i34, %if.end26.i ], [ %and.i46, %if.end31.i ], [ %and.i46, %if.end36.i ], [ %and.i46, %if.end41.i ], [ %and.i46, %if.then57.i ], [ %and.i46, %if.end52.i ]
+  %p.addr.i30.1 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i33, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i34, %if.end21.i ], [ %and.i34, %if.end26.i ], [ %and.i46, %if.end31.i ], [ %and.i46, %if.end36.i ], [ %and.i46, %if.end41.i ], [ %and.i46, %if.then57.i ], [ %and.i46, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i40, %if.end26.i ], [ %and.i40, %if.end31.i ], [ %and.i52, %if.end36.i ], [ %and.i52, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i52, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i, %done2.i
-  %p.addr.i30.1 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i30.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i33, %if.end.i ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i
+  %p.addr.i30.0 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i30.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i33, %if.end.i ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -21400,7 +21400,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i30.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i30.0, %done1.i ]
   %conv10 = trunc i64 %res.i.0.ph to i32
   %15 = load i32, ptr %total_size_.i, align 4
   %16 = load i32, ptr %add.ptr.i.i.i, align 8
@@ -21599,16 +21599,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i33.0 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i36, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i37, %if.end21.i ], [ %and.i37, %if.end26.i ], [ %and.i49, %if.end31.i ], [ %and.i49, %if.end36.i ], [ %and.i49, %if.end41.i ], [ %and.i49, %if.then57.i ], [ %and.i49, %if.end52.i ]
+  %p.addr.i33.1 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i36, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i37, %if.end21.i ], [ %and.i37, %if.end26.i ], [ %and.i49, %if.end31.i ], [ %and.i49, %if.end36.i ], [ %and.i49, %if.end41.i ], [ %and.i49, %if.then57.i ], [ %and.i49, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i43, %if.end26.i ], [ %and.i43, %if.end31.i ], [ %and.i55, %if.end36.i ], [ %and.i55, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i55, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i, %done2.i
-  %p.addr.i33.1 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i33.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i36, %if.end.i ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i
+  %p.addr.i33.0 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i33.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i36, %if.end.i ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -21633,7 +21633,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i33.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i33.0, %done1.i ]
   %conv10 = trunc i64 %res.i.0.ph to i32
   %shr.i81 = lshr i32 %conv10, 1
   %and.i = and i32 %conv10, 1
@@ -21850,16 +21850,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i56.0 = phi ptr [ %incdec.ptr.i103, %if.end6.i ], [ %incdec.ptr.i104, %if.end11.i ], [ %incdec.ptr.i105, %if.end16.i ], [ %incdec.ptr.i106, %if.end21.i ], [ %incdec.ptr.i107, %if.end26.i ], [ %incdec.ptr.i108, %if.end31.i ], [ %incdec.ptr.i109, %if.end36.i ], [ %incdec.ptr.i110, %if.end41.i ], [ %incdec.ptr.i110, %if.then57.i ], [ %incdec.ptr.i110, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i62, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
+  %p.addr.i56.1 = phi ptr [ %incdec.ptr.i103, %if.end6.i ], [ %incdec.ptr.i104, %if.end11.i ], [ %incdec.ptr.i105, %if.end16.i ], [ %incdec.ptr.i106, %if.end21.i ], [ %incdec.ptr.i107, %if.end26.i ], [ %incdec.ptr.i108, %if.end31.i ], [ %incdec.ptr.i109, %if.end36.i ], [ %incdec.ptr.i110, %if.end41.i ], [ %incdec.ptr.i110, %if.then57.i ], [ %incdec.ptr.i110, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i62, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i73, %if.end26.i ], [ %and.i73, %if.end31.i ], [ %and.i85, %if.end36.i ], [ %and.i85, %if.end41.i ], [ %18, %if.then57.i ], [ %and.i85, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i60, %done2.i
-  %p.addr.i56.1 = phi ptr [ %incdec.ptr.i102, %if.end.i60 ], [ %p.addr.i56.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i62, %if.end.i60 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i58
+  %p.addr.i56.0 = phi ptr [ %incdec.ptr.i102, %if.end.i60 ], [ %p.addr.i56.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i62, %if.end.i60 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i58
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -21884,7 +21884,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i58, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i55.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i56.1, %done1.i ]
+  %retval.i55.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i56.0, %done1.i ]
   %conv12 = trunc i64 %res.i.0.ph to i32
   %21 = load i32, ptr %6, align 4
   %conv.i48 = zext i32 %21 to i64
@@ -22160,16 +22160,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i56.0 = phi ptr [ %incdec.ptr.i98, %if.end6.i ], [ %incdec.ptr.i99, %if.end11.i ], [ %incdec.ptr.i100, %if.end16.i ], [ %incdec.ptr.i101, %if.end21.i ], [ %incdec.ptr.i102, %if.end26.i ], [ %incdec.ptr.i103, %if.end31.i ], [ %incdec.ptr.i104, %if.end36.i ], [ %incdec.ptr.i105, %if.end41.i ], [ %incdec.ptr.i105, %if.then57.i ], [ %incdec.ptr.i105, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i62, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
+  %p.addr.i56.1 = phi ptr [ %incdec.ptr.i98, %if.end6.i ], [ %incdec.ptr.i99, %if.end11.i ], [ %incdec.ptr.i100, %if.end16.i ], [ %incdec.ptr.i101, %if.end21.i ], [ %incdec.ptr.i102, %if.end26.i ], [ %incdec.ptr.i103, %if.end31.i ], [ %incdec.ptr.i104, %if.end36.i ], [ %incdec.ptr.i105, %if.end41.i ], [ %incdec.ptr.i105, %if.then57.i ], [ %incdec.ptr.i105, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i62, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i67, %if.end21.i ], [ %and.i67, %if.end26.i ], [ %and.i79, %if.end31.i ], [ %and.i79, %if.end36.i ], [ %and.i79, %if.end41.i ], [ %and.i79, %if.then57.i ], [ %and.i79, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i73, %if.end26.i ], [ %and.i73, %if.end31.i ], [ %and.i85, %if.end36.i ], [ %and.i85, %if.end41.i ], [ %18, %if.then57.i ], [ %and.i85, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i60, %done2.i
-  %p.addr.i56.1 = phi ptr [ %incdec.ptr.i97, %if.end.i60 ], [ %p.addr.i56.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i62, %if.end.i60 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i58
+  %p.addr.i56.0 = phi ptr [ %incdec.ptr.i97, %if.end.i60 ], [ %p.addr.i56.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i62, %if.end.i60 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i58
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -22194,7 +22194,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i58, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i55.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i56.1, %done1.i ]
+  %retval.i55.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i56.0, %done1.i ]
   %conv12 = trunc i64 %res.i.0.ph to i32
   %cmp2.i.not = icmp sle i32 %conv1.i, %conv12
   %cmp5.i = icmp sgt i32 %add.i, %conv12
@@ -22403,16 +22403,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i29.0 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i32, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i33, %if.end21.i ], [ %and.i33, %if.end26.i ], [ %and.i45, %if.end31.i ], [ %and.i45, %if.end36.i ], [ %and.i45, %if.end41.i ], [ %and.i45, %if.then57.i ], [ %and.i45, %if.end52.i ]
+  %p.addr.i29.1 = phi ptr [ %incdec.ptr.i68, %if.end6.i ], [ %incdec.ptr.i69, %if.end11.i ], [ %incdec.ptr.i70, %if.end16.i ], [ %incdec.ptr.i71, %if.end21.i ], [ %incdec.ptr.i72, %if.end26.i ], [ %incdec.ptr.i73, %if.end31.i ], [ %incdec.ptr.i74, %if.end36.i ], [ %incdec.ptr.i75, %if.end41.i ], [ %incdec.ptr.i75, %if.then57.i ], [ %incdec.ptr.i75, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i32, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i33, %if.end21.i ], [ %and.i33, %if.end26.i ], [ %and.i45, %if.end31.i ], [ %and.i45, %if.end36.i ], [ %and.i45, %if.end41.i ], [ %and.i45, %if.then57.i ], [ %and.i45, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i39, %if.end26.i ], [ %and.i39, %if.end31.i ], [ %and.i51, %if.end36.i ], [ %and.i51, %if.end41.i ], [ %12, %if.then57.i ], [ %and.i51, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i, %done2.i
-  %p.addr.i29.1 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i29.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i32, %if.end.i ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i
+  %p.addr.i29.0 = phi ptr [ %incdec.ptr.i67, %if.end.i ], [ %p.addr.i29.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i32, %if.end.i ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i
   br label %if.end
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -22437,7 +22437,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end:                                           ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i29.1, %done1.i ]
+  %retval.i.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i29.0, %done1.i ]
   %tobool = icmp ne i64 %res.i.0.ph, 0
   %15 = load i32, ptr %total_size_.i, align 4
   %16 = load i32, ptr %add.ptr.i.i.i, align 8
@@ -25411,9 +25411,9 @@ do.cond67:                                        ; preds = %if.end61, %if.then4
   br i1 %cmp68, label %do.body53, label %if.end70, !llvm.loop !105
 
 if.end70:                                         ; preds = %do.cond67, %do.cond
-  %ptr.addr.0 = phi ptr [ %add.ptr, %do.cond ], [ %add.ptr56, %do.cond67 ]
+  %ptr.addr.2 = phi ptr [ %add.ptr, %do.cond ], [ %add.ptr56, %do.cond67 ]
   %24 = load ptr, ptr %ctx, align 8
-  %cmp.i117 = icmp ugt ptr %24, %ptr.addr.0
+  %cmp.i117 = icmp ugt ptr %24, %ptr.addr.2
   br i1 %cmp.i117, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end70
@@ -25423,7 +25423,7 @@ if.then.i:                                        ; preds = %if.end70
 
 common.ret140.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %31, %parse_loop ], [ %32, %error ], [ %25, %if.then.i ]
-  %common.ret140.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
+  %common.ret140.op.ph = phi ptr [ %ptr.addr.0, %parse_loop ], [ null, %error ], [ %ptr.addr.2, %if.then.i ]
   %conv2.i.i123 = trunc i64 %hasbits to i32
   %conv3.i.i124 = zext i16 %.sink to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i124
@@ -25433,11 +25433,11 @@ common.ret140.sink.split:                         ; preds = %if.then.i, %error, 
   br label %common.ret140
 
 common.ret140:                                    ; preds = %common.ret140.sink.split, %error, %if.then.i, %parse_loop
-  %common.ret140.op = phi ptr [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret140.op.ph, %common.ret140.sink.split ]
+  %common.ret140.op = phi ptr [ %ptr.addr.2, %if.then.i ], [ %ptr.addr.0, %parse_loop ], [ null, %error ], [ %common.ret140.op.ph, %common.ret140.sink.split ]
   ret ptr %common.ret140.op
 
 if.end.i:                                         ; preds = %if.end70
-  %tmp.0.copyload.i.i119 = load i16, ptr %ptr.addr.0, align 1
+  %tmp.0.copyload.i.i119 = load i16, ptr %ptr.addr.2, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %27 = load i8, ptr %fast_idx_mask.i, align 8
   %28 = zext i8 %27 to i16
@@ -25455,11 +25455,11 @@ if.end.i:                                         ; preds = %if.end70
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %30 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %30 to ptr
-  %call10.i94 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %msg, ptr noundef nonnull %ptr.addr.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i94 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %msg, ptr noundef nonnull %ptr.addr.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i94
 
 parse_loop:                                       ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddEv.exit, %_ZN6google8protobuf13RepeatedFieldImE3AddEv.exit
-  %ptr.addr.1 = phi ptr [ %add.ptr, %_ZN6google8protobuf13RepeatedFieldImE3AddEv.exit ], [ %add.ptr56, %_ZN6google8protobuf13RepeatedFieldIjE3AddEv.exit ]
+  %ptr.addr.0 = phi ptr [ %add.ptr, %_ZN6google8protobuf13RepeatedFieldImE3AddEv.exit ], [ %add.ptr56, %_ZN6google8protobuf13RepeatedFieldIjE3AddEv.exit ]
   %31 = load i16, ptr %table, align 8
   %tobool.i.i110.not = icmp eq i16 %31, 0
   br i1 %tobool.i.i110.not, label %common.ret140, label %common.ret140.sink.split
@@ -26500,10 +26500,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i
   br i1 %tobool.i.i.i, label %invoke.cont2.i.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.cond.i.i
-  %ptr.addr.i.121.i = phi ptr [ %22, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
+  %ptr.addr.i.221.i = phi ptr [ %22, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
   %24 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %24, i64 -48
-  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.121.i, align 1
+  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.221.i, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %24, i64 -40
   %25 = load i8, ptr %fast_idx_mask.i.i, align 8
   %26 = zext i8 %25 to i16
@@ -26520,7 +26520,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %xor.i.i = xor i64 %data.i.sroa.0.0.copyload.i, %conv6.i.i
   %28 = load atomic i64, ptr %add.ptr2.i13.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %28 to ptr
-  %call10.i.i84 = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.121.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i84 = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.221.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i84, null
   br i1 %cmp.i.i, label %invoke.cont2.i.loopexit, label %if.end.i.i
 
@@ -26530,13 +26530,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.not.i, label %while.cond.i.i, label %invoke.cont2.i.loopexit, !llvm.loop !5
 
 invoke.cont2.i.loopexit:                          ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.body.i.i, %if.end.i.i
-  %ptr.addr.i.2.i.ph = phi ptr [ %call10.i.i84, %if.end.i.i ], [ null, %while.body.i.i ], [ %22, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
+  %ptr.addr.i.1.i.ph = phi ptr [ %call10.i.i84, %if.end.i.i ], [ null, %while.body.i.i ], [ %22, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont2.i.loopexit, %if.then3.i.i.i
   %30 = phi i32 [ %conv.i.i.i, %if.then3.i.i.i ], [ %.pre, %invoke.cont2.i.loopexit ]
-  %ptr.addr.i.2.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.2.i.ph, %invoke.cont2.i.loopexit ]
+  %ptr.addr.i.1.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.1.i.ph, %invoke.cont2.i.loopexit ]
   %31 = load i32, ptr %depth_.i138, align 8
   %inc.i = add nsw i32 %31, 1
   store i32 %inc.i, ptr %depth_.i138, align 8
@@ -26552,18 +26552,18 @@ _ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8Tc
   %idx.ext.i92 = sext i32 %.sroa.speculated.i91 to i64
   %add.ptr.i93 = getelementptr inbounds i8, ptr %33, i64 %idx.ext.i92
   store ptr %add.ptr.i93, ptr %ctx, align 8
-  %cmp26 = icmp eq ptr %ptr.addr.i.2.i, null
+  %cmp26 = icmp eq ptr %ptr.addr.i.1.i, null
   br i1 %cmp26, label %error, label %if.end29
 
 if.end29:                                         ; preds = %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser24MpRepeatedMessageOrGroupILb0ELb0EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
-  %cmp.i94 = icmp ugt ptr %add.ptr.i93, %ptr.addr.i.2.i
+  %cmp.i94 = icmp ugt ptr %add.ptr.i93, %ptr.addr.i.1.i
   br i1 %cmp.i94, label %if.end33, label %parse_loop
 
 if.end33:                                         ; preds = %if.end29
-  %34 = load i8, ptr %ptr.addr.i.2.i, align 1
+  %34 = load i8, ptr %ptr.addr.i.1.i, align 1
   %conv.i95 = zext i8 %34 to i32
   %cmp.i96 = icmp sgt i8 %34, -1
-  %add.ptr.i103 = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 1
+  %add.ptr.i103 = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 1
   br i1 %cmp.i96, label %do.cond, label %if.end.i97
 
 if.end.i97:                                       ; preds = %if.end33
@@ -26576,11 +26576,11 @@ if.end.i97:                                       ; preds = %if.end33
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i97
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 2
   br label %do.cond
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i97
-  %call.i100 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.2.i, i32 noundef %add.i99)
+  %call.i100 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.1.i, i32 noundef %add.i99)
   %36 = extractvalue { ptr, i32 } %call.i100, 0
   %37 = extractvalue { ptr, i32 } %call.i100, 1
   %cmp35 = icmp eq ptr %36, null
@@ -26646,9 +26646,9 @@ do.cond74:                                        ; preds = %if.end68, %if.then4
   br i1 %cmp75, label %do.body56, label %if.end77, !llvm.loop !114
 
 if.end77:                                         ; preds = %do.cond, %do.cond74
-  %ptr.addr.0 = phi ptr [ %call59, %do.cond74 ], [ %ptr.addr.i.2.i, %do.cond ]
+  %ptr.addr.2 = phi ptr [ %call59, %do.cond74 ], [ %ptr.addr.i.1.i, %do.cond ]
   %44 = load ptr, ptr %ctx, align 8
-  %cmp.i122 = icmp ugt ptr %44, %ptr.addr.0
+  %cmp.i122 = icmp ugt ptr %44, %ptr.addr.2
   br i1 %cmp.i122, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end77
@@ -26658,7 +26658,7 @@ if.then.i:                                        ; preds = %if.end77
 
 common.ret159.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %51, %parse_loop ], [ %52, %error ], [ %45, %if.then.i ]
-  %common.ret159.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
+  %common.ret159.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.2, %if.then.i ]
   %conv2.i.i127 = trunc i64 %hasbits to i32
   %conv3.i.i128 = zext i16 %.sink to i64
   %add.ptr.i.i129 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i128
@@ -26668,11 +26668,11 @@ common.ret159.sink.split:                         ; preds = %if.then.i, %error, 
   br label %common.ret159
 
 common.ret159:                                    ; preds = %common.ret159.sink.split, %error, %if.then.i, %parse_loop
-  %common.ret159.op = phi ptr [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret159.op.ph, %common.ret159.sink.split ]
+  %common.ret159.op = phi ptr [ %ptr.addr.2, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret159.op.ph, %common.ret159.sink.split ]
   ret ptr %common.ret159.op
 
 if.end.i:                                         ; preds = %if.end77
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.0, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.2, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %47 = load i8, ptr %fast_idx_mask.i, align 8
   %48 = zext i8 %47 to i16
@@ -26690,11 +26690,11 @@ if.end.i:                                         ; preds = %if.end77
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %50 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %50 to ptr
-  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i101
 
 parse_loop:                                       ; preds = %if.end29, %if.end63
-  %ptr.addr.1 = phi ptr [ %call59, %if.end63 ], [ %ptr.addr.i.2.i, %if.end29 ]
+  %ptr.addr.1 = phi ptr [ %call59, %if.end63 ], [ %ptr.addr.i.1.i, %if.end29 ]
   %51 = load i16, ptr %table, align 8
   %tobool.i.i117.not = icmp eq i16 %51, 0
   br i1 %tobool.i.i117.not, label %common.ret159, label %common.ret159.sink.split
@@ -26806,10 +26806,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i
   br i1 %tobool.i.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.cond.i.i
-  %ptr.addr.i.121.i = phi ptr [ %18, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
+  %ptr.addr.i.221.i = phi ptr [ %18, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
   %20 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %20, i64 -48
-  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.121.i, align 1
+  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.221.i, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %20, i64 -40
   %21 = load i8, ptr %fast_idx_mask.i.i, align 8
   %22 = zext i8 %21 to i16
@@ -26826,7 +26826,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %xor.i.i = xor i64 %data.i.sroa.0.0.copyload.i, %conv6.i.i
   %24 = load atomic i64, ptr %add.ptr2.i13.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %24 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.121.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.221.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %if.end.i.i
 
@@ -26836,13 +26836,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.not.i, label %while.cond.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, !llvm.loop !5
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit: ; preds = %if.end.i.i, %while.body.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i
-  %ptr.addr.i.2.i.ph = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %while.body.i.i ], [ %18, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
+  %ptr.addr.i.1.i.ph = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %while.body.i.i ], [ %18, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
   %.pre = load i32, ptr %group_depth_.i140, align 4
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit: ; preds = %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, %if.then3.i.i.i
   %26 = phi i32 [ %13, %if.then3.i.i.i ], [ %.pre, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
-  %ptr.addr.i.2.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.2.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
+  %ptr.addr.i.1.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.1.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
   %dec14.i148 = add nsw i32 %26, -1
   store i32 %dec14.i148, ptr %group_depth_.i140, align 4
   %27 = load i32, ptr %depth_.i136, align 8
@@ -26851,20 +26851,20 @@ _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12Par
   %28 = load i32, ptr %last_tag_minus_1_.i.i, align 8
   %cmp.i74 = icmp ne i32 %28, %conv.i70
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %cmp26 = icmp eq ptr %ptr.addr.i.2.i, null
+  %cmp26 = icmp eq ptr %ptr.addr.i.1.i, null
   %or.cond = select i1 %cmp.i74, i1 true, i1 %cmp26
   br i1 %or.cond, label %error, label %if.end29
 
 if.end29:                                         ; preds = %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
   %29 = load ptr, ptr %ctx, align 8
-  %cmp.i75 = icmp ugt ptr %29, %ptr.addr.i.2.i
+  %cmp.i75 = icmp ugt ptr %29, %ptr.addr.i.1.i
   br i1 %cmp.i75, label %if.end33, label %parse_loop
 
 if.end33:                                         ; preds = %if.end29
-  %30 = load i8, ptr %ptr.addr.i.2.i, align 1
+  %30 = load i8, ptr %ptr.addr.i.1.i, align 1
   %conv.i76 = zext i8 %30 to i32
   %cmp.i77 = icmp sgt i8 %30, -1
-  %add.ptr.i81 = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 1
+  %add.ptr.i81 = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 1
   br i1 %cmp.i77, label %do.cond, label %if.end.i78
 
 if.end.i78:                                       ; preds = %if.end33
@@ -26877,11 +26877,11 @@ if.end.i78:                                       ; preds = %if.end33
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i:                                       ; preds = %if.end.i78
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 2
   br label %do.cond
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i78
-  %call.i79 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.2.i, i32 noundef %add.i)
+  %call.i79 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.1.i, i32 noundef %add.i)
   %32 = extractvalue { ptr, i32 } %call.i79, 0
   %33 = extractvalue { ptr, i32 } %call.i79, 1
   %cmp35 = icmp eq ptr %32, null
@@ -26970,9 +26970,9 @@ do.cond74:                                        ; preds = %if.end68, %if.then4
   br i1 %cmp75, label %do.body56, label %if.end77, !llvm.loop !116
 
 if.end77:                                         ; preds = %do.cond, %do.cond74
-  %ptr.addr.0 = phi ptr [ %call.i128, %do.cond74 ], [ %ptr.addr.i.2.i, %do.cond ]
+  %ptr.addr.2 = phi ptr [ %call.i128, %do.cond74 ], [ %ptr.addr.i.1.i, %do.cond ]
   %46 = load ptr, ptr %ctx, align 8
-  %cmp.i102 = icmp ugt ptr %46, %ptr.addr.0
+  %cmp.i102 = icmp ugt ptr %46, %ptr.addr.2
   br i1 %cmp.i102, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end77
@@ -26982,7 +26982,7 @@ if.then.i:                                        ; preds = %if.end77
 
 common.ret130.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %53, %parse_loop ], [ %54, %error ], [ %47, %if.then.i ]
-  %common.ret130.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
+  %common.ret130.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.2, %if.then.i ]
   %conv2.i.i107 = trunc i64 %hasbits to i32
   %conv3.i.i108 = zext i16 %.sink to i64
   %add.ptr.i.i109 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i108
@@ -26992,11 +26992,11 @@ common.ret130.sink.split:                         ; preds = %if.then.i, %error, 
   br label %common.ret130
 
 common.ret130:                                    ; preds = %common.ret130.sink.split, %error, %if.then.i, %parse_loop
-  %common.ret130.op = phi ptr [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret130.op.ph, %common.ret130.sink.split ]
+  %common.ret130.op = phi ptr [ %ptr.addr.2, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret130.op.ph, %common.ret130.sink.split ]
   ret ptr %common.ret130.op
 
 if.end.i:                                         ; preds = %if.end77
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.0, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.2, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %49 = load i8, ptr %fast_idx_mask.i, align 8
   %50 = zext i8 %49 to i16
@@ -27014,11 +27014,11 @@ if.end.i:                                         ; preds = %if.end77
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %52 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %52 to ptr
-  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i101
 
 parse_loop:                                       ; preds = %if.end29, %if.end63
-  %ptr.addr.1 = phi ptr [ %call.i128, %if.end63 ], [ %ptr.addr.i.2.i, %if.end29 ]
+  %ptr.addr.1 = phi ptr [ %call.i128, %if.end63 ], [ %ptr.addr.i.1.i, %if.end29 ]
   %53 = load i16, ptr %table, align 8
   %tobool.i.i117.not = icmp eq i16 %53, 0
   br i1 %tobool.i.i117.not, label %common.ret130, label %common.ret130.sink.split
@@ -30049,16 +30049,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i72.0 = phi ptr [ %incdec.ptr.i121, %if.end6.i ], [ %incdec.ptr.i122, %if.end11.i ], [ %incdec.ptr.i123, %if.end16.i ], [ %incdec.ptr.i124, %if.end21.i ], [ %incdec.ptr.i125, %if.end26.i ], [ %incdec.ptr.i126, %if.end31.i ], [ %incdec.ptr.i127, %if.end36.i ], [ %incdec.ptr.i128, %if.end41.i ], [ %incdec.ptr.i128, %if.then57.i ], [ %incdec.ptr.i128, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i78, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i83, %if.end21.i ], [ %and.i83, %if.end26.i ], [ %and.i95, %if.end31.i ], [ %and.i95, %if.end36.i ], [ %and.i95, %if.end41.i ], [ %and.i95, %if.then57.i ], [ %and.i95, %if.end52.i ]
+  %p.addr.i72.1 = phi ptr [ %incdec.ptr.i121, %if.end6.i ], [ %incdec.ptr.i122, %if.end11.i ], [ %incdec.ptr.i123, %if.end16.i ], [ %incdec.ptr.i124, %if.end21.i ], [ %incdec.ptr.i125, %if.end26.i ], [ %incdec.ptr.i126, %if.end31.i ], [ %incdec.ptr.i127, %if.end36.i ], [ %incdec.ptr.i128, %if.end41.i ], [ %incdec.ptr.i128, %if.then57.i ], [ %incdec.ptr.i128, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i78, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i83, %if.end21.i ], [ %and.i83, %if.end26.i ], [ %and.i95, %if.end31.i ], [ %and.i95, %if.end36.i ], [ %and.i95, %if.end41.i ], [ %and.i95, %if.then57.i ], [ %and.i95, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i89, %if.end26.i ], [ %and.i89, %if.end31.i ], [ %and.i101, %if.end36.i ], [ %and.i101, %if.end41.i ], [ %39, %if.then57.i ], [ %and.i101, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i76, %done2.i
-  %p.addr.i72.1 = phi ptr [ %incdec.ptr.i120, %if.end.i76 ], [ %p.addr.i72.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i78, %if.end.i76 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i74
+  %p.addr.i72.0 = phi ptr [ %incdec.ptr.i120, %if.end.i76 ], [ %p.addr.i72.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i78, %if.end.i76 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i74
   br label %if.end21
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -30083,7 +30083,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21:                                         ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i74, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i71.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i72.1, %done1.i ]
+  %retval.i71.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i72.0, %done1.i ]
   br i1 %tobool.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
@@ -30451,16 +30451,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i75.0 = phi ptr [ %incdec.ptr.i122, %if.end6.i ], [ %incdec.ptr.i123, %if.end11.i ], [ %incdec.ptr.i124, %if.end16.i ], [ %incdec.ptr.i125, %if.end21.i ], [ %incdec.ptr.i126, %if.end26.i ], [ %incdec.ptr.i127, %if.end31.i ], [ %incdec.ptr.i128, %if.end36.i ], [ %incdec.ptr.i129, %if.end41.i ], [ %incdec.ptr.i129, %if.then57.i ], [ %incdec.ptr.i129, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i81, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i86, %if.end21.i ], [ %and.i86, %if.end26.i ], [ %and.i98, %if.end31.i ], [ %and.i98, %if.end36.i ], [ %and.i98, %if.end41.i ], [ %and.i98, %if.then57.i ], [ %and.i98, %if.end52.i ]
+  %p.addr.i75.1 = phi ptr [ %incdec.ptr.i122, %if.end6.i ], [ %incdec.ptr.i123, %if.end11.i ], [ %incdec.ptr.i124, %if.end16.i ], [ %incdec.ptr.i125, %if.end21.i ], [ %incdec.ptr.i126, %if.end26.i ], [ %incdec.ptr.i127, %if.end31.i ], [ %incdec.ptr.i128, %if.end36.i ], [ %incdec.ptr.i129, %if.end41.i ], [ %incdec.ptr.i129, %if.then57.i ], [ %incdec.ptr.i129, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i81, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i86, %if.end21.i ], [ %and.i86, %if.end26.i ], [ %and.i98, %if.end31.i ], [ %and.i98, %if.end36.i ], [ %and.i98, %if.end41.i ], [ %and.i98, %if.then57.i ], [ %and.i98, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i92, %if.end26.i ], [ %and.i92, %if.end31.i ], [ %and.i104, %if.end36.i ], [ %and.i104, %if.end41.i ], [ %39, %if.then57.i ], [ %and.i104, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i79, %done2.i
-  %p.addr.i75.1 = phi ptr [ %incdec.ptr.i121, %if.end.i79 ], [ %p.addr.i75.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i81, %if.end.i79 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i77
+  %p.addr.i75.0 = phi ptr [ %incdec.ptr.i121, %if.end.i79 ], [ %p.addr.i75.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i81, %if.end.i79 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i77
   br label %if.end21
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -30485,7 +30485,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21:                                         ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i77, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i74.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i75.1, %done1.i ]
+  %retval.i74.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i75.0, %done1.i ]
   br i1 %tobool.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
@@ -30856,16 +30856,16 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i75.0 = phi ptr [ %incdec.ptr.i122, %if.end6.i ], [ %incdec.ptr.i123, %if.end11.i ], [ %incdec.ptr.i124, %if.end16.i ], [ %incdec.ptr.i125, %if.end21.i ], [ %incdec.ptr.i126, %if.end26.i ], [ %incdec.ptr.i127, %if.end31.i ], [ %incdec.ptr.i128, %if.end36.i ], [ %incdec.ptr.i129, %if.end41.i ], [ %incdec.ptr.i129, %if.then57.i ], [ %incdec.ptr.i129, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i81, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i86, %if.end21.i ], [ %and.i86, %if.end26.i ], [ %and.i98, %if.end31.i ], [ %and.i98, %if.end36.i ], [ %and.i98, %if.end41.i ], [ %and.i98, %if.then57.i ], [ %and.i98, %if.end52.i ]
+  %p.addr.i75.1 = phi ptr [ %incdec.ptr.i122, %if.end6.i ], [ %incdec.ptr.i123, %if.end11.i ], [ %incdec.ptr.i124, %if.end16.i ], [ %incdec.ptr.i125, %if.end21.i ], [ %incdec.ptr.i126, %if.end26.i ], [ %incdec.ptr.i127, %if.end31.i ], [ %incdec.ptr.i128, %if.end36.i ], [ %incdec.ptr.i129, %if.end41.i ], [ %incdec.ptr.i129, %if.then57.i ], [ %incdec.ptr.i129, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i81, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i86, %if.end21.i ], [ %and.i86, %if.end26.i ], [ %and.i98, %if.end31.i ], [ %and.i98, %if.end36.i ], [ %and.i98, %if.end41.i ], [ %and.i98, %if.then57.i ], [ %and.i98, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i92, %if.end26.i ], [ %and.i92, %if.end31.i ], [ %and.i104, %if.end36.i ], [ %and.i104, %if.end41.i ], [ %39, %if.then57.i ], [ %and.i104, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %done1.i
 
 done1.i:                                          ; preds = %if.end.i79, %done2.i
-  %p.addr.i75.1 = phi ptr [ %incdec.ptr.i121, %if.end.i79 ], [ %p.addr.i75.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i81, %if.end.i79 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i77
+  %p.addr.i75.0 = phi ptr [ %incdec.ptr.i121, %if.end.i79 ], [ %p.addr.i75.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i81, %if.end.i79 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i77
   br label %if.end21
 
 _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ; preds = %if.end47.i
@@ -30890,7 +30890,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 if.end21:                                         ; preds = %done1.i, %do.body
   %res.i.0.ph = phi i64 [ %conv.i77, %do.body ], [ %and60.i, %done1.i ]
-  %retval.i74.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i75.1, %done1.i ]
+  %retval.i74.0.ph = phi ptr [ %incdec.ptr.i, %do.body ], [ %p.addr.i75.0, %done1.i ]
   br i1 %tobool.not, label %if.else, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
@@ -33874,9 +33874,9 @@ do.cond67:                                        ; preds = %if.end61, %if.then4
   br i1 %cmp68, label %do.body53, label %if.end70, !llvm.loop !159
 
 if.end70:                                         ; preds = %do.cond67, %do.cond
-  %ptr.addr.0 = phi ptr [ %add.ptr, %do.cond ], [ %add.ptr56, %do.cond67 ]
+  %ptr.addr.2 = phi ptr [ %add.ptr, %do.cond ], [ %add.ptr56, %do.cond67 ]
   %48 = load ptr, ptr %ctx, align 8
-  %cmp.i145 = icmp ugt ptr %48, %ptr.addr.0
+  %cmp.i145 = icmp ugt ptr %48, %ptr.addr.2
   br i1 %cmp.i145, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end70
@@ -33886,7 +33886,7 @@ if.then.i:                                        ; preds = %if.end70
 
 common.ret169.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %55, %parse_loop ], [ %56, %error ], [ %49, %if.then.i ]
-  %common.ret169.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
+  %common.ret169.op.ph = phi ptr [ %ptr.addr.0, %parse_loop ], [ null, %error ], [ %ptr.addr.2, %if.then.i ]
   %conv2.i.i151 = trunc i64 %hasbits to i32
   %conv3.i.i152 = zext i16 %.sink to i64
   %add.ptr.i.i153 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i152
@@ -33896,11 +33896,11 @@ common.ret169.sink.split:                         ; preds = %if.then.i, %error, 
   br label %common.ret169
 
 common.ret169:                                    ; preds = %common.ret169.sink.split, %error, %if.then.i, %parse_loop
-  %common.ret169.op = phi ptr [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret169.op.ph, %common.ret169.sink.split ]
+  %common.ret169.op = phi ptr [ %ptr.addr.2, %if.then.i ], [ %ptr.addr.0, %parse_loop ], [ null, %error ], [ %common.ret169.op.ph, %common.ret169.sink.split ]
   ret ptr %common.ret169.op
 
 if.end.i:                                         ; preds = %if.end70
-  %tmp.0.copyload.i.i147 = load i16, ptr %ptr.addr.0, align 1
+  %tmp.0.copyload.i.i147 = load i16, ptr %ptr.addr.2, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %51 = load i8, ptr %fast_idx_mask.i, align 8
   %52 = zext i8 %51 to i16
@@ -33918,11 +33918,11 @@ if.end.i:                                         ; preds = %if.end70
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %54 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %54 to ptr
-  %call10.i94 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i94 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i94
 
 parse_loop:                                       ; preds = %_ZN6google8protobuf13RepeatedFieldIjE3AddEv.exit, %_ZN6google8protobuf13RepeatedFieldImE3AddEv.exit
-  %ptr.addr.1 = phi ptr [ %add.ptr, %_ZN6google8protobuf13RepeatedFieldImE3AddEv.exit ], [ %add.ptr56, %_ZN6google8protobuf13RepeatedFieldIjE3AddEv.exit ]
+  %ptr.addr.0 = phi ptr [ %add.ptr, %_ZN6google8protobuf13RepeatedFieldImE3AddEv.exit ], [ %add.ptr56, %_ZN6google8protobuf13RepeatedFieldIjE3AddEv.exit ]
   %55 = load i16, ptr %table, align 8
   %tobool.i.i110.not = icmp eq i16 %55, 0
   br i1 %tobool.i.i110.not, label %common.ret169, label %common.ret169.sink.split
@@ -34747,10 +34747,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i
   br i1 %tobool.i.i.i, label %invoke.cont2.i.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.cond.i.i
-  %ptr.addr.i.121.i = phi ptr [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
+  %ptr.addr.i.221.i = phi ptr [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
   %41 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %41, i64 -48
-  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.121.i, align 1
+  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.221.i, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %41, i64 -40
   %42 = load i8, ptr %fast_idx_mask.i.i, align 8
   %43 = zext i8 %42 to i16
@@ -34767,7 +34767,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %xor.i.i = xor i64 %data.i.sroa.0.0.copyload.i, %conv6.i.i
   %45 = load atomic i64, ptr %add.ptr2.i13.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %45 to ptr
-  %call10.i.i106 = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.121.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i106 = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.221.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i103 = icmp eq ptr %call10.i.i106, null
   br i1 %cmp.i.i103, label %invoke.cont2.i.loopexit, label %if.end.i.i104
 
@@ -34777,13 +34777,13 @@ if.end.i.i104:                                    ; preds = %while.body.i.i
   br i1 %cmp6.i.not.i, label %while.cond.i.i, label %invoke.cont2.i.loopexit, !llvm.loop !5
 
 invoke.cont2.i.loopexit:                          ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.body.i.i, %if.end.i.i104
-  %ptr.addr.i.2.i.ph = phi ptr [ %call10.i.i106, %if.end.i.i104 ], [ null, %while.body.i.i ], [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
+  %ptr.addr.i.1.i.ph = phi ptr [ %call10.i.i106, %if.end.i.i104 ], [ null, %while.body.i.i ], [ %39, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
   %.pre = load i32, ptr %limit_.i, align 4
   br label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont2.i.loopexit, %if.then3.i.i.i
   %47 = phi i32 [ %conv.i.i.i101, %if.then3.i.i.i ], [ %.pre, %invoke.cont2.i.loopexit ]
-  %ptr.addr.i.2.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.2.i.ph, %invoke.cont2.i.loopexit ]
+  %ptr.addr.i.1.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.1.i.ph, %invoke.cont2.i.loopexit ]
   %48 = load i32, ptr %depth_.i.i, align 8
   %inc.i = add nsw i32 %48, 1
   store i32 %inc.i, ptr %depth_.i.i, align 8
@@ -34799,18 +34799,18 @@ _ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8Tc
   %idx.ext.i114 = sext i32 %.sroa.speculated.i113 to i64
   %add.ptr.i115 = getelementptr inbounds i8, ptr %50, i64 %idx.ext.i114
   store ptr %add.ptr.i115, ptr %ctx, align 8
-  %cmp26 = icmp eq ptr %ptr.addr.i.2.i, null
+  %cmp26 = icmp eq ptr %ptr.addr.i.1.i, null
   br i1 %cmp26, label %error, label %if.end29
 
 if.end29:                                         ; preds = %_ZN6google8protobuf8internal12ParseContext27ParseLengthDelimitedInlinedIZNS1_8TcParser24MpRepeatedMessageOrGroupILb1ELb0EEEPKcPNS0_11MessageLiteES7_PS2_NS1_11TcFieldDataEPKNS1_16TcParseTableBaseEmEUlS7_E_EES7_S7_RKT_.exit
-  %cmp.i116 = icmp ugt ptr %add.ptr.i115, %ptr.addr.i.2.i
+  %cmp.i116 = icmp ugt ptr %add.ptr.i115, %ptr.addr.i.1.i
   br i1 %cmp.i116, label %if.end33, label %parse_loop
 
 if.end33:                                         ; preds = %if.end29
-  %51 = load i8, ptr %ptr.addr.i.2.i, align 1
+  %51 = load i8, ptr %ptr.addr.i.1.i, align 1
   %conv.i117 = zext i8 %51 to i32
   %cmp.i118 = icmp sgt i8 %51, -1
-  %add.ptr.i126 = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 1
+  %add.ptr.i126 = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 1
   br i1 %cmp.i118, label %do.cond, label %if.end.i119
 
 if.end.i119:                                      ; preds = %if.end33
@@ -34823,11 +34823,11 @@ if.end.i119:                                      ; preds = %if.end33
   br i1 %cmp3.i, label %if.then4.i124, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i124:                                    ; preds = %if.end.i119
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 2
   br label %do.cond
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i119
-  %call.i122 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.2.i, i32 noundef %add.i121)
+  %call.i122 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.1.i, i32 noundef %add.i121)
   %53 = extractvalue { ptr, i32 } %call.i122, 0
   %54 = extractvalue { ptr, i32 } %call.i122, 1
   %cmp35 = icmp eq ptr %53, null
@@ -34893,9 +34893,9 @@ do.cond74:                                        ; preds = %if.end68, %if.then4
   br i1 %cmp75, label %do.body56, label %if.end77, !llvm.loop !166
 
 if.end77:                                         ; preds = %do.cond, %do.cond74
-  %ptr.addr.0 = phi ptr [ %call59, %do.cond74 ], [ %ptr.addr.i.2.i, %do.cond ]
+  %ptr.addr.2 = phi ptr [ %call59, %do.cond74 ], [ %ptr.addr.i.1.i, %do.cond ]
   %61 = load ptr, ptr %ctx, align 8
-  %cmp.i146 = icmp ugt ptr %61, %ptr.addr.0
+  %cmp.i146 = icmp ugt ptr %61, %ptr.addr.2
   br i1 %cmp.i146, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end77
@@ -34905,7 +34905,7 @@ if.then.i:                                        ; preds = %if.end77
 
 common.ret183.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %68, %parse_loop ], [ %69, %error ], [ %62, %if.then.i ]
-  %common.ret183.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
+  %common.ret183.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.2, %if.then.i ]
   %conv2.i.i151 = trunc i64 %hasbits to i32
   %conv3.i.i152 = zext i16 %.sink to i64
   %add.ptr.i.i153 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i152
@@ -34915,11 +34915,11 @@ common.ret183.sink.split:                         ; preds = %if.then.i, %error, 
   br label %common.ret183
 
 common.ret183:                                    ; preds = %common.ret183.sink.split, %error, %if.then.i, %parse_loop
-  %common.ret183.op = phi ptr [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret183.op.ph, %common.ret183.sink.split ]
+  %common.ret183.op = phi ptr [ %ptr.addr.2, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret183.op.ph, %common.ret183.sink.split ]
   ret ptr %common.ret183.op
 
 if.end.i:                                         ; preds = %if.end77
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.0, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.2, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %64 = load i8, ptr %fast_idx_mask.i, align 8
   %65 = zext i8 %64 to i16
@@ -34937,11 +34937,11 @@ if.end.i:                                         ; preds = %if.end77
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %67 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %67 to ptr
-  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i101
 
 parse_loop:                                       ; preds = %if.end29, %if.end63
-  %ptr.addr.1 = phi ptr [ %call59, %if.end63 ], [ %ptr.addr.i.2.i, %if.end29 ]
+  %ptr.addr.1 = phi ptr [ %call59, %if.end63 ], [ %ptr.addr.i.1.i, %if.end29 ]
   %68 = load i16, ptr %table, align 8
   %tobool.i.i117.not = icmp eq i16 %68, 0
   br i1 %tobool.i.i117.not, label %common.ret183, label %common.ret183.sink.split
@@ -35158,10 +35158,10 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i: ; preds = %if.end.i
   br i1 %tobool.i.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i, %while.cond.i.i
-  %ptr.addr.i.121.i = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
+  %ptr.addr.i.221.i = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ], [ %ptr.addr.i.0.i, %while.cond.i.i ]
   %37 = tail call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %table.addr.i.0.i) #26, !srcloc !4
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %37, i64 -48
-  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.121.i, align 1
+  %tmp.0.copyload.i.i.i = load i16, ptr %ptr.addr.i.221.i, align 1
   %fast_idx_mask.i.i = getelementptr inbounds i8, ptr %37, i64 -40
   %38 = load i8, ptr %fast_idx_mask.i.i, align 8
   %39 = zext i8 %38 to i16
@@ -35178,7 +35178,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %xor.i.i = xor i64 %data.i.sroa.0.0.copyload.i, %conv6.i.i
   %41 = load atomic i64, ptr %add.ptr2.i13.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %41 to ptr
-  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.121.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
+  %call10.i.i = tail call noundef ptr %atomic-temp.i.0.i.i.i(ptr noundef %call24, ptr noundef nonnull %ptr.addr.i.221.i, ptr noundef nonnull %ctx, i64 %xor.i.i, ptr noundef nonnull %add.ptr2.i.i, i64 noundef 0)
   %cmp.i.i92 = icmp eq ptr %call10.i.i, null
   br i1 %cmp.i.i92, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, label %if.end.i.i
 
@@ -35188,13 +35188,13 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp6.i.not.i, label %while.cond.i.i, label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, !llvm.loop !5
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit: ; preds = %if.end.i.i, %while.body.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i
-  %ptr.addr.i.2.i.ph = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %while.body.i.i ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
+  %ptr.addr.i.1.i.ph = phi ptr [ %call10.i.i, %if.end.i.i ], [ null, %while.body.i.i ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.i ]
   %.pre = load i32, ptr %group_depth_.i140, align 4
   br label %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
 
 _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit: ; preds = %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit, %if.then3.i.i.i
   %43 = phi i32 [ %30, %if.then3.i.i.i ], [ %.pre, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
-  %ptr.addr.i.2.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.2.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
+  %ptr.addr.i.1.i = phi ptr [ %spec.select.i, %if.then3.i.i.i ], [ %ptr.addr.i.1.i.ph, %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit.loopexit ]
   %dec14.i148 = add nsw i32 %43, -1
   store i32 %dec14.i148, ptr %group_depth_.i140, align 4
   %44 = load i32, ptr %depth_.i136, align 8
@@ -35203,20 +35203,20 @@ _ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12Par
   %45 = load i32, ptr %last_tag_minus_1_.i.i, align 8
   %cmp.i93 = icmp ne i32 %45, %conv.i70
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %cmp26 = icmp eq ptr %ptr.addr.i.2.i, null
+  %cmp26 = icmp eq ptr %ptr.addr.i.1.i, null
   %or.cond = select i1 %cmp.i93, i1 true, i1 %cmp26
   br i1 %or.cond, label %error, label %if.end29
 
 if.end29:                                         ; preds = %_ZN6google8protobuf8internal8TcParser9ParseLoopEPNS0_11MessageLiteEPKcPNS1_12ParseContextEPKNS1_16TcParseTableBaseE.exit
   %46 = load ptr, ptr %ctx, align 8
-  %cmp.i94 = icmp ugt ptr %46, %ptr.addr.i.2.i
+  %cmp.i94 = icmp ugt ptr %46, %ptr.addr.i.1.i
   br i1 %cmp.i94, label %if.end33, label %parse_loop
 
 if.end33:                                         ; preds = %if.end29
-  %47 = load i8, ptr %ptr.addr.i.2.i, align 1
+  %47 = load i8, ptr %ptr.addr.i.1.i, align 1
   %conv.i95 = zext i8 %47 to i32
   %cmp.i96 = icmp sgt i8 %47, -1
-  %add.ptr.i101 = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 1
+  %add.ptr.i101 = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 1
   br i1 %cmp.i96, label %do.cond, label %if.end.i97
 
 if.end.i97:                                       ; preds = %if.end33
@@ -35229,11 +35229,11 @@ if.end.i97:                                       ; preds = %if.end33
   br i1 %cmp3.i, label %if.then4.i99, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.then4.i99:                                     ; preds = %if.end.i97
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.2.i, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.i.1.i, i64 2
   br label %do.cond
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i97
-  %call.i98 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.2.i, i32 noundef %add.i)
+  %call.i98 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.i.1.i, i32 noundef %add.i)
   %49 = extractvalue { ptr, i32 } %call.i98, 0
   %50 = extractvalue { ptr, i32 } %call.i98, 1
   %cmp35 = icmp eq ptr %49, null
@@ -35322,9 +35322,9 @@ do.cond74:                                        ; preds = %if.end68, %if.then4
   br i1 %cmp75, label %do.body56, label %if.end77, !llvm.loop !168
 
 if.end77:                                         ; preds = %do.cond, %do.cond74
-  %ptr.addr.0 = phi ptr [ %call.i128, %do.cond74 ], [ %ptr.addr.i.2.i, %do.cond ]
+  %ptr.addr.2 = phi ptr [ %call.i128, %do.cond74 ], [ %ptr.addr.i.1.i, %do.cond ]
   %63 = load ptr, ptr %ctx, align 8
-  %cmp.i122 = icmp ugt ptr %63, %ptr.addr.0
+  %cmp.i122 = icmp ugt ptr %63, %ptr.addr.2
   br i1 %cmp.i122, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end77
@@ -35334,7 +35334,7 @@ if.then.i:                                        ; preds = %if.end77
 
 common.ret150.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %70, %parse_loop ], [ %71, %error ], [ %64, %if.then.i ]
-  %common.ret150.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
+  %common.ret150.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.2, %if.then.i ]
   %conv2.i.i127 = trunc i64 %hasbits to i32
   %conv3.i.i128 = zext i16 %.sink to i64
   %add.ptr.i.i129 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i128
@@ -35344,11 +35344,11 @@ common.ret150.sink.split:                         ; preds = %if.then.i, %error, 
   br label %common.ret150
 
 common.ret150:                                    ; preds = %common.ret150.sink.split, %error, %if.then.i, %parse_loop
-  %common.ret150.op = phi ptr [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret150.op.ph, %common.ret150.sink.split ]
+  %common.ret150.op = phi ptr [ %ptr.addr.2, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %common.ret150.op.ph, %common.ret150.sink.split ]
   ret ptr %common.ret150.op
 
 if.end.i:                                         ; preds = %if.end77
-  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.0, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %ptr.addr.2, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
   %66 = load i8, ptr %fast_idx_mask.i, align 8
   %67 = zext i8 %66 to i16
@@ -35366,11 +35366,11 @@ if.end.i:                                         ; preds = %if.end77
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %69 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %69 to ptr
-  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
+  %call10.i101 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef %msg, ptr noundef nonnull %ptr.addr.2, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i101
 
 parse_loop:                                       ; preds = %if.end29, %if.end63
-  %ptr.addr.1 = phi ptr [ %call.i128, %if.end63 ], [ %ptr.addr.i.2.i, %if.end29 ]
+  %ptr.addr.1 = phi ptr [ %call.i128, %if.end63 ], [ %ptr.addr.i.1.i, %if.end29 ]
   %70 = load i16, ptr %table, align 8
   %tobool.i.i117.not = icmp eq i16 %70, 0
   br i1 %tobool.i.i117.not, label %common.ret150, label %common.ret150.sink.split
@@ -35503,10 +35503,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
+  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i56, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i68, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -35524,7 +35524,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink120 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink121 to i32
   %conv3.i.i = zext i16 %.sink120 to i64
   %add.ptr.i91 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -35534,13 +35534,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i43, %done2.i
-  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i41
+  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i41
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -35551,7 +35551,7 @@ if.end:                                           ; preds = %if.end.i43, %done2.
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %add.ptr.i, align 1
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i90 = icmp ugt ptr %21, %p.addr.i39.1
+  %cmp.i90 = icmp ugt ptr %21, %p.addr.i39.0
   br i1 %cmp.i90, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -35560,7 +35560,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -35578,7 +35578,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i33
 }
 
@@ -35696,10 +35696,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i40.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i46, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i51, %if.end21.i ], [ %and.i51, %if.end26.i ], [ %and.i63, %if.end31.i ], [ %and.i63, %if.end36.i ], [ %and.i63, %if.end41.i ], [ %and.i63, %if.then57.i ], [ %and.i63, %if.end52.i ]
+  %p.addr.i40.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i46, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i51, %if.end21.i ], [ %and.i51, %if.end26.i ], [ %and.i63, %if.end31.i ], [ %and.i63, %if.end36.i ], [ %and.i63, %if.end41.i ], [ %and.i63, %if.then57.i ], [ %and.i63, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i57, %if.end26.i ], [ %and.i57, %if.end31.i ], [ %and.i69, %if.end36.i ], [ %and.i69, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i69, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -35717,7 +35717,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink120 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink121 to i32
   %conv3.i.i = zext i16 %.sink120 to i64
   %add.ptr.i91 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -35727,13 +35727,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i40.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i40.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i44, %done2.i
-  %p.addr.i40.1 = phi ptr [ %incdec.ptr.i75, %if.end.i44 ], [ %p.addr.i40.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i46, %if.end.i44 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i42
+  %p.addr.i40.0 = phi ptr [ %incdec.ptr.i75, %if.end.i44 ], [ %p.addr.i40.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i46, %if.end.i44 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i42
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -35743,7 +35743,7 @@ if.end:                                           ; preds = %if.end.i44, %done2.
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %shr.i89
   store i32 %conv15, ptr %add.ptr.i, align 4
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i90 = icmp ugt ptr %21, %p.addr.i40.1
+  %cmp.i90 = icmp ugt ptr %21, %p.addr.i40.0
   br i1 %cmp.i90, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -35752,7 +35752,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i40.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i40.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -35770,7 +35770,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i34 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i40.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i34 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i40.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i34
 }
 
@@ -35888,10 +35888,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
+  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i56, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i68, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -35909,7 +35909,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink120 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink121 to i32
   %conv3.i.i = zext i16 %.sink120 to i64
   %add.ptr.i91 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -35919,13 +35919,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i43, %done2.i
-  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i41
+  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i41
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -35934,7 +35934,7 @@ if.end:                                           ; preds = %if.end.i43, %done2.
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %shr.i89
   store i64 %and60.i, ptr %add.ptr.i, align 8
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i90 = icmp ugt ptr %21, %p.addr.i39.1
+  %cmp.i90 = icmp ugt ptr %21, %p.addr.i39.0
   br i1 %cmp.i90, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -35943,7 +35943,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -35961,7 +35961,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i33
 }
 
@@ -36079,10 +36079,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i40.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i46, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i51, %if.end21.i ], [ %and.i51, %if.end26.i ], [ %and.i63, %if.end31.i ], [ %and.i63, %if.end36.i ], [ %and.i63, %if.end41.i ], [ %and.i63, %if.then57.i ], [ %and.i63, %if.end52.i ]
+  %p.addr.i40.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i46, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i51, %if.end21.i ], [ %and.i51, %if.end26.i ], [ %and.i63, %if.end31.i ], [ %and.i63, %if.end36.i ], [ %and.i63, %if.end41.i ], [ %and.i63, %if.then57.i ], [ %and.i63, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i57, %if.end26.i ], [ %and.i57, %if.end31.i ], [ %and.i69, %if.end36.i ], [ %and.i69, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i69, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -36100,7 +36100,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink122 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink122 to i32
   %conv3.i.i = zext i16 %.sink121 to i64
   %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -36110,13 +36110,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i40.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i40.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i44, %done2.i
-  %p.addr.i40.1 = phi ptr [ %incdec.ptr.i75, %if.end.i44 ], [ %p.addr.i40.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i46, %if.end.i44 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i42
+  %p.addr.i40.0 = phi ptr [ %incdec.ptr.i75, %if.end.i44 ], [ %p.addr.i40.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i46, %if.end.i44 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i42
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -36130,7 +36130,7 @@ if.end:                                           ; preds = %if.end.i44, %done2.
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %shr.i90
   store i32 %xor.i.i, ptr %add.ptr.i, align 4
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i91 = icmp ugt ptr %21, %p.addr.i40.1
+  %cmp.i91 = icmp ugt ptr %21, %p.addr.i40.0
   br i1 %cmp.i91, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -36139,7 +36139,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i40.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i40.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -36157,7 +36157,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i34 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i40.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i34 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i40.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i34
 }
 
@@ -36275,10 +36275,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i40.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i46, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i51, %if.end21.i ], [ %and.i51, %if.end26.i ], [ %and.i63, %if.end31.i ], [ %and.i63, %if.end36.i ], [ %and.i63, %if.end41.i ], [ %and.i63, %if.then57.i ], [ %and.i63, %if.end52.i ]
+  %p.addr.i40.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i46, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i51, %if.end21.i ], [ %and.i51, %if.end26.i ], [ %and.i63, %if.end31.i ], [ %and.i63, %if.end36.i ], [ %and.i63, %if.end41.i ], [ %and.i63, %if.then57.i ], [ %and.i63, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i57, %if.end26.i ], [ %and.i57, %if.end31.i ], [ %and.i69, %if.end36.i ], [ %and.i69, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i69, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -36296,7 +36296,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink122 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink122 to i32
   %conv3.i.i = zext i16 %.sink121 to i64
   %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -36306,13 +36306,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i40.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i40.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i44, %done2.i
-  %p.addr.i40.1 = phi ptr [ %incdec.ptr.i75, %if.end.i44 ], [ %p.addr.i40.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i46, %if.end.i44 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i42
+  %p.addr.i40.0 = phi ptr [ %incdec.ptr.i75, %if.end.i44 ], [ %p.addr.i40.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i46, %if.end.i44 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i42
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -36326,7 +36326,7 @@ if.end:                                           ; preds = %if.end.i44, %done2.
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %shr.i90
   store i32 %xor.i.i, ptr %add.ptr.i, align 4
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i91 = icmp ugt ptr %21, %p.addr.i40.1
+  %cmp.i91 = icmp ugt ptr %21, %p.addr.i40.0
   br i1 %cmp.i91, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -36335,7 +36335,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i40.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i40.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -36353,7 +36353,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i34 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i40.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i34 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i40.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i34
 }
 
@@ -36471,10 +36471,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
+  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i56, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i68, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -36492,7 +36492,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink122 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink122 to i32
   %conv3.i.i = zext i16 %.sink121 to i64
   %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -36502,13 +36502,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i43, %done2.i
-  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i41
+  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i41
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -36521,7 +36521,7 @@ if.end:                                           ; preds = %if.end.i43, %done2.
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %shr.i90
   store i64 %xor.i.i, ptr %add.ptr.i, align 8
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i91 = icmp ugt ptr %21, %p.addr.i39.1
+  %cmp.i91 = icmp ugt ptr %21, %p.addr.i39.0
   br i1 %cmp.i91, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -36530,7 +36530,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -36548,7 +36548,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i33
 }
 
@@ -36666,10 +36666,10 @@ if.then57.i:                                      ; preds = %if.end52.i
   br label %done2.i
 
 done2.i:                                          ; preds = %if.end52.i, %if.then57.i, %if.end41.i, %if.end36.i, %if.end31.i, %if.end26.i, %if.end21.i, %if.end16.i, %if.end11.i, %if.end6.i
-  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
-  %res2.i.0 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
+  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i76, %if.end6.i ], [ %incdec.ptr.i77, %if.end11.i ], [ %incdec.ptr.i78, %if.end16.i ], [ %incdec.ptr.i79, %if.end21.i ], [ %incdec.ptr.i80, %if.end26.i ], [ %incdec.ptr.i81, %if.end31.i ], [ %incdec.ptr.i82, %if.end36.i ], [ %incdec.ptr.i83, %if.end41.i ], [ %incdec.ptr.i83, %if.then57.i ], [ %incdec.ptr.i83, %if.end52.i ]
+  %res2.i.1 = phi i64 [ %or.i.i45, %if.end6.i ], [ %and.i.i, %if.end11.i ], [ %and.i.i, %if.end16.i ], [ %and.i50, %if.end21.i ], [ %and.i50, %if.end26.i ], [ %and.i62, %if.end31.i ], [ %and.i62, %if.end36.i ], [ %and.i62, %if.end41.i ], [ %and.i62, %if.then57.i ], [ %and.i62, %if.end52.i ]
   %res3.i.0 = phi i64 [ %or.i89.i, %if.end6.i ], [ %or.i89.i, %if.end11.i ], [ %and.i80.i, %if.end16.i ], [ %and.i80.i, %if.end21.i ], [ %and.i56, %if.end26.i ], [ %and.i56, %if.end31.i ], [ %and.i68, %if.end36.i ], [ %and.i68, %if.end41.i ], [ %11, %if.then57.i ], [ %and.i68, %if.end52.i ]
-  %and59.i = and i64 %res3.i.0, %res2.i.0
+  %and59.i = and i64 %res3.i.0, %res2.i.1
   br label %if.end
 
 if.then:                                          ; preds = %if.end47.i
@@ -36687,7 +36687,7 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink122 = phi i64 [ %14, %if.then.i.i85 ], [ %20, %if.then.i ]
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
-  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
+  %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.0, %if.then.i ]
   %conv2.i.i = trunc i64 %.sink122 to i32
   %conv3.i.i = zext i16 %.sink121 to i64
   %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
@@ -36697,13 +36697,13 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
-  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.1, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
+  %common.ret.op = phi ptr [ null, %if.then ], [ %p.addr.i39.0, %if.then.i ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret ptr %common.ret.op
 
 if.end:                                           ; preds = %if.end.i43, %done2.i
-  %p.addr.i39.1 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.0, %done2.i ]
-  %res2.i.1 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
-  %and60.i = and i64 %res2.i.1, %conv.i41
+  %p.addr.i39.0 = phi ptr [ %incdec.ptr.i75, %if.end.i43 ], [ %p.addr.i39.1, %done2.i ]
+  %res2.i.0 = phi i64 [ %or.i.i45, %if.end.i43 ], [ %and59.i, %done2.i ]
+  %and60.i = and i64 %res2.i.0, %conv.i41
   %17 = load i64, ptr %spill, align 8
   %18 = load ptr, ptr %msg2, align 8
   %19 = load ptr, ptr %table3, align 8
@@ -36716,7 +36716,7 @@ if.end:                                           ; preds = %if.end.i43, %done2.
   %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %shr.i90
   store i64 %xor.i.i, ptr %add.ptr.i, align 8
   %21 = load ptr, ptr %ctx, align 8
-  %cmp.i91 = icmp ugt ptr %21, %p.addr.i39.1
+  %cmp.i91 = icmp ugt ptr %21, %p.addr.i39.0
   br i1 %cmp.i91, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -36725,7 +36725,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.i.i.not, label %common.ret, label %common.ret.sink.split
 
 if.end.i:                                         ; preds = %if.end
-  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.1, align 1
+  %tmp.0.copyload.i.i = load i16, ptr %p.addr.i39.0, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr %fast_idx_mask.i, align 8
   %24 = zext i8 %23 to i16
@@ -36743,7 +36743,7 @@ if.end.i:                                         ; preds = %if.end
   %xor.i = xor i64 %data.i.sroa.0.0.copyload, %conv6.i
   %26 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
-  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.1, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
+  %call10.i33 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %18, ptr noundef nonnull %p.addr.i39.0, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %19, i64 noundef %20)
   ret ptr %call10.i33
 }
 

@@ -460,7 +460,7 @@ sw.epilog.loopexit153:                            ; preds = %do.body.i42, %do.bo
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.body.i42, %do.body.i42, %sw.epilog.loopexit153, %sw.epilog.loopexit, %sw.bb40
-  %color.0 = phi i32 [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 5, %sw.epilog.loopexit153 ], [ 3, %do.body.i42 ], [ 3, %do.body.i42 ]
+  %color.2 = phi i32 [ 7, %sw.bb40 ], [ 6, %sw.epilog.loopexit ], [ 5, %sw.epilog.loopexit153 ], [ 3, %do.body.i42 ], [ 3, %do.body.i42 ]
   store i8 1, ptr %colorsSpecified, align 1
   br label %do.body.i47
 
@@ -479,7 +479,7 @@ do.body.i47.backedge:                             ; preds = %do.body.i47, %do.bo
   br label %do.body.i47
 
 READ_CONTROL_POINTS:                              ; preds = %do.body.i42, %do.body.i47
-  %color.1 = phi i32 [ %color.0, %do.body.i47 ], [ 7, %do.body.i42 ]
+  %color.1 = phi i32 [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
   %call.i.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %arrayidx14, ptr noundef nonnull %y.i39)
   switch i32 %call.i.i, label %do.body.i15.i [
     i32 2, label %do.body.i.i
@@ -550,7 +550,7 @@ do.body.i51.backedge:                             ; preds = %do.body.i51, %do.bo
 
 FINISH_EDGE:                                      ; preds = %do.body.i42, %do.body.i47, %do.body.i51
   %controlPoints.0 = phi i32 [ %retval.0.i, %do.body.i51 ], [ 0, %do.body.i47 ], [ 0, %do.body.i42 ]
-  %color.2 = phi i32 [ %color.1, %do.body.i51 ], [ %color.0, %do.body.i47 ], [ 7, %do.body.i42 ]
+  %color.0 = phi i32 [ %color.1, %do.body.i51 ], [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
   %add = add nuw nsw i32 %controlPoints.0, 1
   %idxprom = zext nneg i32 %add to i64
   %arrayidx55 = getelementptr inbounds [4 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
@@ -590,7 +590,7 @@ if.end71:                                         ; preds = %FINISH_EDGE, %if.th
   ]
 
 sw.bb72:                                          ; preds = %if.end71
-  %call.i61 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.2)
+  %call.i61 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.0)
   store ptr %call.i61, ptr %ref.tmp73, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73)
           to label %invoke.cont79 unwind label %lpad78
@@ -608,7 +608,7 @@ lpad78:                                           ; preds = %sw.bb72
 sw.bb82:                                          ; preds = %if.end71
   %agg.tmp88.sroa.0.0.copyload = load double, ptr %arrayidx3.i, align 16
   %agg.tmp88.sroa.2.0.copyload = load double, ptr %y.i9.i, align 8
-  %call.i62 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp88.sroa.0.0.copyload, double %agg.tmp88.sroa.2.0.copyload, i32 noundef %color.2)
+  %call.i62 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp88.sroa.0.0.copyload, double %agg.tmp88.sroa.2.0.copyload, i32 noundef %color.0)
   store ptr %call.i62, ptr %ref.tmp83, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83)
           to label %invoke.cont91 unwind label %lpad90
@@ -628,7 +628,7 @@ sw.bb94:                                          ; preds = %if.end71
   %agg.tmp100.sroa.2.0.copyload = load double, ptr %y.i9.i, align 8
   %agg.tmp102.sroa.0.0.copyload = load double, ptr %arrayidx103, align 16
   %agg.tmp102.sroa.2.0.copyload = load double, ptr %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx, align 8
-  %call.i63 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp100.sroa.0.0.copyload, double %agg.tmp100.sroa.2.0.copyload, double %agg.tmp102.sroa.0.0.copyload, double %agg.tmp102.sroa.2.0.copyload, i32 noundef %color.2)
+  %call.i63 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp100.sroa.0.0.copyload, double %agg.tmp100.sroa.2.0.copyload, double %agg.tmp102.sroa.0.0.copyload, double %agg.tmp102.sroa.2.0.copyload, i32 noundef %color.0)
   store ptr %call.i63, ptr %ref.tmp95, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95)
           to label %invoke.cont105 unwind label %lpad104
@@ -1156,7 +1156,7 @@ sw.epilog.loopexit:                               ; preds = %do.body.i62, %do.bo
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.body.i62, %do.body.i62, %sw.epilog.loopexit, %sw.bb40, %sw.bb39
-  %color.0 = phi i32 [ 7, %sw.bb40 ], [ 3, %sw.bb39 ], [ 6, %sw.epilog.loopexit ], [ 5, %do.body.i62 ], [ 5, %do.body.i62 ]
+  %color.2 = phi i32 [ 7, %sw.bb40 ], [ 3, %sw.bb39 ], [ 6, %sw.epilog.loopexit ], [ 5, %do.body.i62 ], [ 5, %do.body.i62 ]
   store i8 1, ptr %colorsSpecified, align 1
   %input.promoted.i71 = load ptr, ptr %input, align 8
   br label %do.body.i72
@@ -1180,7 +1180,7 @@ do.body.i72.backedge:                             ; preds = %do.body.i72, %do.bo
 
 READ_CONTROL_POINTS:                              ; preds = %do.body.i62, %do.body.i72
   %17 = phi ptr [ %incdec.ptr.i74, %do.body.i72 ], [ %incdec.ptr.i64, %do.body.i62 ]
-  %color.1 = phi i32 [ %color.0, %do.body.i72 ], [ 7, %do.body.i62 ]
+  %color.1 = phi i32 [ %color.2, %do.body.i72 ], [ 7, %do.body.i62 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   store ptr null, ptr %end.i.i, align 8
   %call.i.i = call double @strtod(ptr noundef nonnull %17, ptr noundef nonnull %end.i.i) #12
@@ -1345,7 +1345,7 @@ do.body.i82.backedge:                             ; preds = %do.body.i82, %do.bo
 FINISH_EDGE:                                      ; preds = %do.body.i62, %do.body.i72, %do.body.i82
   %32 = phi ptr [ %incdec.ptr.i84, %do.body.i82 ], [ %incdec.ptr.i74, %do.body.i72 ], [ %incdec.ptr.i64, %do.body.i62 ]
   %controlPoints.0 = phi i32 [ %retval.0.i80, %do.body.i82 ], [ 0, %do.body.i72 ], [ 0, %do.body.i62 ]
-  %color.2 = phi i32 [ %color.1, %do.body.i82 ], [ %color.0, %do.body.i72 ], [ 7, %do.body.i62 ]
+  %color.0 = phi i32 [ %color.1, %do.body.i82 ], [ %color.2, %do.body.i72 ], [ 7, %do.body.i62 ]
   %add = add nuw nsw i32 %controlPoints.0, 1
   %idxprom = zext nneg i32 %add to i64
   %arrayidx55 = getelementptr inbounds [4 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
@@ -1432,7 +1432,7 @@ if.end71:                                         ; preds = %_ZN7msdfgen10readCo
   ]
 
 sw.bb72:                                          ; preds = %if.end71
-  %call.i114 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.2)
+  %call.i114 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.0)
   store ptr %call.i114, ptr %ref.tmp73, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73)
           to label %invoke.cont79 unwind label %lpad78
@@ -1450,7 +1450,7 @@ lpad78:                                           ; preds = %sw.bb72
 sw.bb82:                                          ; preds = %if.end71
   %agg.tmp88.sroa.0.0.copyload = load double, ptr %arrayidx3.i, align 16
   %agg.tmp88.sroa.2.0.copyload = load double, ptr %y.i19.i, align 8
-  %call.i115 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp88.sroa.0.0.copyload, double %agg.tmp88.sroa.2.0.copyload, i32 noundef %color.2)
+  %call.i115 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp88.sroa.0.0.copyload, double %agg.tmp88.sroa.2.0.copyload, i32 noundef %color.0)
   store ptr %call.i115, ptr %ref.tmp83, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83)
           to label %invoke.cont91 unwind label %lpad90
@@ -1470,7 +1470,7 @@ sw.bb94:                                          ; preds = %if.end71
   %agg.tmp100.sroa.2.0.copyload = load double, ptr %y.i19.i, align 8
   %agg.tmp102.sroa.0.0.copyload = load double, ptr %arrayidx103, align 16
   %agg.tmp102.sroa.2.0.copyload = load double, ptr %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx, align 8
-  %call.i116 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp100.sroa.0.0.copyload, double %agg.tmp100.sroa.2.0.copyload, double %agg.tmp102.sroa.0.0.copyload, double %agg.tmp102.sroa.2.0.copyload, i32 noundef %color.2)
+  %call.i116 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, double %agg.tmp100.sroa.0.0.copyload, double %agg.tmp100.sroa.2.0.copyload, double %agg.tmp102.sroa.0.0.copyload, double %agg.tmp102.sroa.2.0.copyload, i32 noundef %color.0)
   store ptr %call.i116, ptr %ref.tmp95, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95)
           to label %invoke.cont105 unwind label %lpad104

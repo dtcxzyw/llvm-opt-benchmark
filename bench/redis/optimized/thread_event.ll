@@ -112,12 +112,12 @@ if.else21:                                        ; preds = %if.else
 
 if.end23:                                         ; preds = %if.then19, %if.else21, %if.then16
   %event_wait.0 = phi i64 [ %sub17, %if.then16 ], [ %call22, %if.else21 ], [ %call20, %if.then19 ]
-  %is_tcache_gc_triggered.0 = phi i1 [ false, %if.then16 ], [ true, %if.else21 ], [ false, %if.then19 ]
+  %is_tcache_gc_triggered.1 = phi i1 [ false, %if.then16 ], [ true, %if.else21 ], [ false, %if.then19 ]
   store i64 %event_wait.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end23, %land.end
-  %is_tcache_gc_triggered.1 = phi i1 [ false, %land.end ], [ %is_tcache_gc_triggered.0, %if.end23 ]
+  %is_tcache_gc_triggered.0 = phi i1 [ false, %land.end ], [ %is_tcache_gc_triggered.1, %if.end23 ]
   %wait.0 = phi i64 [ -1, %land.end ], [ %event_wait.0, %if.end23 ]
   %10 = load i64, ptr @opt_stats_interval, align 8
   %cmp66 = icmp sgt i64 %10, -1
@@ -147,13 +147,13 @@ if.else81:                                        ; preds = %if.else77
 
 if.end84:                                         ; preds = %if.then79, %if.else81, %if.then75
   %event_wait69.0 = phi i64 [ %sub76, %if.then75 ], [ %call82, %if.else81 ], [ %call80, %if.then79 ]
-  %is_stats_interval_triggered.0 = phi i1 [ false, %if.then75 ], [ true, %if.else81 ], [ false, %if.then79 ]
+  %is_stats_interval_triggered.1 = phi i1 [ false, %if.then75 ], [ true, %if.else81 ], [ false, %if.then79 ]
   store i64 %event_wait69.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
   %spec.select114 = tail call i64 @llvm.umin.i64(i64 %event_wait69.0, i64 %wait.0)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end84, %if.end29
-  %is_stats_interval_triggered.1 = phi i1 [ false, %if.end29 ], [ %is_stats_interval_triggered.0, %if.end84 ]
+  %is_stats_interval_triggered.0 = phi i1 [ false, %if.end29 ], [ %is_stats_interval_triggered.1, %if.end84 ]
   %wait.1 = phi i64 [ %wait.0, %if.end29 ], [ %spec.select114, %if.end84 ]
   %cmp93 = icmp eq i8 %tobool.mask, 0
   %12 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
@@ -190,7 +190,7 @@ if.end114:                                        ; preds = %if.then109, %if.els
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end114, %if.end90
-  %is_tcache_gc_dalloc_triggered.1 = phi i1 [ true, %if.end90 ], [ %14, %if.end114 ]
+  %is_tcache_gc_dalloc_triggered.0 = phi i1 [ true, %if.end90 ], [ %14, %if.end114 ]
   %wait.2 = phi i64 [ %wait.1, %if.end90 ], [ %spec.select115, %if.end114 ]
   br i1 %tobool, label %if.then125, label %if.end147
 
@@ -223,7 +223,7 @@ if.end141:                                        ; preds = %if.then136, %if.els
   br label %if.end147
 
 if.end147:                                        ; preds = %if.end141, %if.end120
-  %is_peak_alloc_triggered.1 = phi i1 [ true, %if.end120 ], [ %16, %if.end141 ]
+  %is_peak_alloc_triggered.0 = phi i1 [ true, %if.end120 ], [ %16, %if.end141 ]
   %wait.3 = phi i64 [ %wait.2, %if.end120 ], [ %spec.select116, %if.end141 ]
   br i1 %cmp93, label %if.then152, label %do.end176
 
@@ -306,7 +306,7 @@ te_adjust_thresholds_helper.exit:                 ; preds = %if.end.i.i, %if.end
   %22 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
   %cmp182 = icmp ne i64 %22, 0
   %or.cond3.not = select i1 %tobool, i1 %cmp182, i1 false
-  %brmerge.not = and i1 %or.cond3.not, %is_tcache_gc_triggered.1
+  %brmerge.not = and i1 %or.cond3.not, %is_tcache_gc_triggered.0
   br i1 %brmerge.not, label %do.end189, label %if.end191
 
 do.end189:                                        ; preds = %te_adjust_thresholds_helper.exit
@@ -317,7 +317,7 @@ if.end191:                                        ; preds = %te_adjust_threshold
   %23 = load i64, ptr @opt_stats_interval, align 8
   %cmp214 = icmp sgt i64 %23, -1
   %or.cond4.not = select i1 %tobool, i1 %cmp214, i1 false
-  %brmerge119.not = and i1 %or.cond4.not, %is_stats_interval_triggered.1
+  %brmerge119.not = and i1 %or.cond4.not, %is_stats_interval_triggered.0
   br i1 %brmerge119.not, label %do.end221, label %if.end224
 
 do.end221:                                        ; preds = %if.end191
@@ -335,7 +335,7 @@ if.end224:                                        ; preds = %if.end191, %do.end2
   %cmp230 = icmp eq i64 %26, 0
   %not.cmp93 = xor i1 %cmp93, true
   %or.cond5 = select i1 %not.cmp93, i1 true, i1 %cmp230
-  %brmerge120 = or i1 %is_tcache_gc_dalloc_triggered.1, %or.cond5
+  %brmerge120 = or i1 %is_tcache_gc_dalloc_triggered.0, %or.cond5
   br i1 %brmerge120, label %if.end240, label %do.end237
 
 do.end237:                                        ; preds = %if.end224
@@ -344,7 +344,7 @@ do.end237:                                        ; preds = %if.end224
 
 if.end240:                                        ; preds = %if.end224, %do.end237
   %tobool.not = xor i1 %tobool, true
-  %brmerge121 = or i1 %is_peak_alloc_triggered.1, %tobool.not
+  %brmerge121 = or i1 %is_peak_alloc_triggered.0, %tobool.not
   br i1 %brmerge121, label %if.end253, label %do.end250
 
 do.end250:                                        ; preds = %if.end240

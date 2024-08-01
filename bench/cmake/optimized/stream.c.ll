@@ -1202,13 +1202,13 @@ uv__stream_open.exit.uv__stream_open.exit.thread38_crit_edge: ; preds = %uv__str
   br i1 %.not, label %.thread, label %uv__stream_open.exit.thread38.sink.split
 
 uv__stream_open.exit.thread38.sink.split:         ; preds = %29, %uv__stream_open.exit.uv__stream_open.exit.thread38_crit_edge
-  %.1.ph = phi i32 [ %.0.i, %uv__stream_open.exit.uv__stream_open.exit.thread38_crit_edge ], [ %30, %29 ]
+  %.026.ph = phi i32 [ %.0.i, %uv__stream_open.exit.uv__stream_open.exit.thread38_crit_edge ], [ %30, %29 ]
   %.pre = load i32, ptr %3, align 4
   br label %uv__stream_open.exit.thread38
 
 uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exit.thread38.sink.split, %9
   %.sink = phi i32 [ %4, %9 ], [ %.pre, %uv__stream_open.exit.thread38.sink.split ]
-  %.1 = phi i32 [ -16, %9 ], [ %.1.ph, %uv__stream_open.exit.thread38.sink.split ]
+  %.026 = phi i32 [ -16, %9 ], [ %.026.ph, %uv__stream_open.exit.thread38.sink.split ]
   %31 = tail call i32 @uv__close(i32 noundef %.sink) #12
   %32 = getelementptr inbounds i8, ptr %0, i64 240
   %33 = load ptr, ptr %32, align 8
@@ -1228,7 +1228,7 @@ uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exi
 39:                                               ; preds = %.thread, %uv__stream_open.exit.thread38
   %40 = phi ptr [ %38, %.thread ], [ %33, %uv__stream_open.exit.thread38 ]
   %41 = phi ptr [ %37, %.thread ], [ %32, %uv__stream_open.exit.thread38 ]
-  %.145 = phi i32 [ 0, %.thread ], [ %.1, %uv__stream_open.exit.thread38 ]
+  %.02645 = phi i32 [ 0, %.thread ], [ %.026, %uv__stream_open.exit.thread38 ]
   %42 = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %3, align 4
@@ -1264,7 +1264,7 @@ uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exi
   br label %58
 
 58:                                               ; preds = %53, %49, %48, %54, %6, %2
-  %.0 = phi i32 [ -11, %2 ], [ -22, %6 ], [ %.1, %53 ], [ 0, %54 ], [ %.145, %48 ], [ %.145, %49 ]
+  %.0 = phi i32 [ -11, %2 ], [ -22, %6 ], [ %.026, %53 ], [ 0, %54 ], [ %.02645, %48 ], [ %.02645, %49 ]
   ret i32 %.0
 }
 

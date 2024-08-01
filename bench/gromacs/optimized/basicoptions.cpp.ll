@@ -2400,10 +2400,10 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
 
 45:                                               ; preds = %43, %41
   %.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.114.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
+  %.3.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  br i1 %.114.i, label %46, label %51
+  br i1 %.3.i, label %46, label %51
 
 46:                                               ; preds = %45, %.thread29.i, %.thread.i
   %.pn.pn.pn28.i = phi { ptr, i32 } [ %39, %.thread.i ], [ %.pn.i, %45 ], [ %40, %.thread29.i ]
@@ -3199,10 +3199,10 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
 
 45:                                               ; preds = %43, %41
   %.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.114.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
+  %.3.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  br i1 %.114.i, label %46, label %51
+  br i1 %.3.i, label %46, label %51
 
 46:                                               ; preds = %45, %.thread29.i, %.thread.i
   %.pn.pn.pn28.i = phi { ptr, i32 } [ %39, %.thread.i ], [ %.pn.i, %45 ], [ %40, %.thread29.i ]
@@ -3831,10 +3831,10 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
 
 45:                                               ; preds = %43, %41
   %.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.114.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
+  %.3.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  br i1 %.114.i, label %46, label %51
+  br i1 %.3.i, label %46, label %51
 
 46:                                               ; preds = %45, %.thread29.i, %.thread.i
   %.pn.pn.pn28.i = phi { ptr, i32 } [ %39, %.thread.i ], [ %.pn.i, %45 ], [ %40, %.thread29.i ]
@@ -4132,14 +4132,14 @@ define void @_ZN3gmx19StringOptionStorageC2ERKNS_12StringOptionE(ptr noundef non
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %.loopexit123.loopexit, %44
-  %.141 = phi i32 [ %46, %44 ], [ %50, %.loopexit123.loopexit ]
-  %.not125 = icmp eq i32 %.141, 0
+  %.040 = phi i32 [ %46, %44 ], [ %50, %.loopexit123.loopexit ]
+  %.not125 = icmp eq i32 %.040, 0
   br i1 %.not125, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit123
   %51 = getelementptr inbounds i8, ptr %0, i64 224
   %52 = getelementptr inbounds i8, ptr %0, i64 232
-  %wide.trip.count = zext i32 %.141 to i64
+  %wide.trip.count = zext i32 %.040 to i64
   br label %53
 
 53:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKPKcEEERS5_DpOT_.exit
@@ -4245,7 +4245,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %77, label %78, label %119
 
 78:                                               ; preds = %._crit_edge
-  %.not59 = icmp slt i32 %76, %.141
+  %.not59 = icmp slt i32 %76, %.040
   br i1 %.not59, label %90, label %79
 
 79:                                               ; preds = %78
@@ -4970,10 +4970,10 @@ define internal fastcc ptr @_ZN12_GLOBAL__N_113findEnumValueERKSt6vectorINSt7__c
 
 37:                                               ; preds = %33, %35
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  %.1 = phi i1 [ %.0, %35 ], [ true, %33 ]
+  %.3 = phi i1 [ %.0, %35 ], [ true, %33 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  br i1 %.1, label %38, label %40
+  br i1 %.3, label %38, label %40
 
 38:                                               ; preds = %.thread33, %.thread, %37
   %.pn.pn.pn32 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn, %37 ], [ %32, %.thread33 ]
@@ -5174,14 +5174,14 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit:
   br label %.loopexit68
 
 .loopexit68:                                      ; preds = %.loopexit68.loopexit, %49
-  %.132 = phi i32 [ %3, %49 ], [ %53, %.loopexit68.loopexit ]
-  %.not70 = icmp eq i32 %.132, 0
+  %.031 = phi i32 [ %3, %49 ], [ %53, %.loopexit68.loopexit ]
+  %.not70 = icmp eq i32 %.031, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit68
   %54 = getelementptr inbounds i8, ptr %0, i64 224
   %55 = getelementptr inbounds i8, ptr %0, i64 232
-  %wide.trip.count = zext i32 %.132 to i64
+  %wide.trip.count = zext i32 %.031 to i64
   br label %56
 
 56:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKPKcEEERS5_DpOT_.exit

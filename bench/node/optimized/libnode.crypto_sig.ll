@@ -2548,7 +2548,7 @@ if.then.i27.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i: ; preds = %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i, %if.then.i27.i
-  %buffer.sroa.0.0 = phi ptr [ %storemerge.i, %if.then.i27.i ], [ null, %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i ]
+  %buffer.sroa.0.1 = phi ptr [ %storemerge.i, %if.then.i27.i ], [ null, %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i ]
   %sig.sroa.0.145.i = phi ptr [ %sig.sroa.0.144.i, %if.then.i27.i ], [ %9, %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i ]
   %cmp.not.i28.i = icmp eq ptr %sig.sroa.0.145.i, null
   br i1 %cmp.not.i28.i, label %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i29.i
@@ -2567,7 +2567,7 @@ _ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp53.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp56.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i16 = icmp ne ptr %buffer.sroa.0.0, null
+  %cmp.i16 = icmp ne ptr %buffer.sroa.0.1, null
   %cond = select i1 %cmp.i16, i32 0, i32 5
   %cmp10 = icmp eq i32 %dsa_sig_enc, 1
   %or.cond = and i1 %cmp10, %cmp.i16
@@ -2611,9 +2611,9 @@ if.then.i9.i:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i31
 
 _ZN4node26NoArrayBufferZeroFillScopeD2Ev.exit.i31: ; preds = %if.then.i9.i, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.i28
-  %call5.i = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %buffer.sroa.0.0) #20, !noalias !9
+  %call5.i = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %buffer.sroa.0.1) #20, !noalias !9
   %call7.i = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %23) #20, !noalias !9
-  %call9.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %buffer.sroa.0.0) #20, !noalias !9
+  %call9.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %buffer.sroa.0.1) #20, !noalias !9
   %conv10.i = zext i32 %call.i20 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sig_data.addr.i.i), !noalias !9
   store ptr %call5.i, ptr %sig_data.addr.i.i, align 8, !noalias !9
@@ -2656,12 +2656,12 @@ _ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_1
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i: ; preds = %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i19)
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer.sroa.0.0) #20
-  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.0) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %buffer.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.1) #20
   br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38: ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i, %_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyEOSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS9_EE.exit.thread
-  %ref.tmp12.sroa.0.067 = phi ptr [ %buffer.sroa.0.0, %_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyEOSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS9_EE.exit.thread ], [ %23, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i ]
+  %ref.tmp12.sroa.0.067 = phi ptr [ %buffer.sroa.0.1, %_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyEOSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS9_EE.exit.thread ], [ %23, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i ]
   %call16 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.sroa.0.067) #20
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %do.body21, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit43
@@ -2673,10 +2673,10 @@ do.body21:                                        ; preds = %_ZNSt10unique_ptrIN
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit43: ; preds = %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit.thread
   %cond63 = phi i32 [ %cond, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38 ], [ %cond, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit ], [ 5, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit.thread ]
-  %buffer.sroa.0.3 = phi ptr [ %ref.tmp12.sroa.0.067, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38 ], [ %buffer.sroa.0.0, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit ], [ null, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit.thread ]
+  %buffer.sroa.0.0 = phi ptr [ %ref.tmp12.sroa.0.067, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38 ], [ %buffer.sroa.0.1, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit ], [ null, %_ZN4node6crypto12_GLOBAL__N_114Node_SignFinalEPNS_11EnvironmentEOSt10unique_ptrI13evp_md_ctx_stNS_15FunctionDeleterIS5_XadL_Z15EVP_MD_CTX_freeEEEEERKNS0_14ManagedEVPPKeyEiN2v85MaybeIiEE.exit.thread ]
   store i32 %cond63, ptr %agg.result, align 8
   %signature.i39 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %24 = ptrtoint ptr %buffer.sroa.0.3 to i64
+  %24 = ptrtoint ptr %buffer.sroa.0.0 to i64
   store i64 %24, ptr %signature.i39, align 8
   br label %if.then.i45
 
@@ -4068,7 +4068,7 @@ if.then.i:                                        ; preds = %if.then21, %land.lh
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i, %if.end6, %if.end
-  %retval.0 = phi i32 [ 6, %if.end ], [ 0, %if.end6 ], [ 0, %if.then.i ]
+  %retval.1 = phi i32 [ 6, %if.end ], [ 0, %if.end6 ], [ 0, %if.then.i ]
   %cmp.not.i5 = icmp eq i64 %1, 0
   br i1 %cmp.not.i5, label %return, label %if.then.i6
 
@@ -4077,8 +4077,8 @@ if.then.i6:                                       ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i6, %cleanup, %entry
-  %retval.1 = phi i32 [ 3, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i6 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 3, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i6 ]
+  ret i32 %retval.0
 }
 
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -5715,7 +5715,7 @@ _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit221:      ; preds = %_ZNSt10shared_ptrIN
   br label %cleanup204
 
 cleanup204:                                       ; preds = %if.end163, %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit221, %if.end30, %_ZN4node9Utf8ValueD2Ev.exit, %if.then180, %if.then160, %if.then49
-  %retval.sroa.0.1 = phi i16 [ 0, %if.then49 ], [ 0, %if.then160 ], [ 0, %if.then180 ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 0, %if.end30 ], [ 257, %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit221 ], [ 257, %if.end163 ]
+  %retval.sroa.0.0 = phi i16 [ 0, %if.then49 ], [ 0, %if.then160 ], [ 0, %if.then180 ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 0, %if.end30 ], [ 257, %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit221 ], [ 257, %if.end163 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %key, align 8
   %151 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i223 = icmp eq ptr %151, null
@@ -5801,7 +5801,7 @@ if.then.i.i237:                                   ; preds = %_ZNSt10shared_ptrIN
 _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit257:      ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i234, %if.then.i.i237
   store ptr null, ptr %pkey_.i, align 8
   call void @ERR_clear_error() #20
-  ret i16 %retval.sroa.0.1
+  ret i16 %retval.sroa.0.0
 }
 
 declare noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -6118,8 +6118,8 @@ if.then10.i:                                      ; preds = %do.end7.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then10.i, %do.end7.i
-  %buf.sroa.0.0 = phi ptr [ null, %if.then10.i ], [ %call1.i.i, %do.end7.i ]
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %buf.sroa.0.0, i64 noundef %22) #20
+  %buf.sroa.0.1 = phi ptr [ null, %if.then10.i ], [ %call1.i.i, %do.end7.i ]
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %buf.sroa.0.1, i64 noundef %22) #20
   %call53 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #20
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #20
   call void @CRYPTO_clear_free(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.100, i32 noundef 225) #20
@@ -6247,7 +6247,7 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108: ; preds = %
   br label %cleanup113
 
 cleanup113:                                       ; preds = %if.end29, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108, %cleanup, %cleanup88.thread, %cleanup88, %cleanup.thread, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit
-  %retval.2 = phi i1 [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65 ], [ false, %cleanup88 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit ], [ false, %cleanup.thread ], [ true, %cleanup88.thread ], [ true, %cleanup ], [ true, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108 ], [ true, %if.end29 ]
+  %retval.0 = phi i1 [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit65 ], [ false, %cleanup88 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit79 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit54 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit47 ], [ false, %_ZN4node6crypto12_GLOBAL__N_110CheckThrowEPNS_11EnvironmentENS0_8SignBase5ErrorE.exit ], [ false, %cleanup.thread ], [ true, %cleanup88.thread ], [ true, %cleanup ], [ true, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit108 ], [ true, %if.end29 ]
   %cmp.not.i110 = icmp eq ptr %call, null
   br i1 %cmp.not.i110, label %_ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit, label %if.then.i111
 
@@ -6257,7 +6257,7 @@ if.then.i111:                                     ; preds = %cleanup113
 
 _ZNSt10unique_ptrI13evp_md_ctx_stN4node15FunctionDeleterIS0_XadL_Z15EVP_MD_CTX_freeEEEEED2Ev.exit: ; preds = %cleanup113, %if.then.i111
   call void @ERR_clear_error() #20
-  ret i1 %retval.2
+  ret i1 %retval.0
 }
 
 declare i32 @EVP_DigestSignInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0

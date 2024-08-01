@@ -227,8 +227,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.not, label %while.cond, label %return
 
 while.cond:                                       ; preds = %if.then, %while.body
-  %p.0 = phi ptr [ %incdec.ptr6, %while.body ], [ %incdec.ptr, %if.then ]
-  %incdec.ptr6 = getelementptr i8, ptr %p.0, i64 1
+  %p.1 = phi ptr [ %incdec.ptr6, %while.body ], [ %incdec.ptr, %if.then ]
+  %incdec.ptr6 = getelementptr i8, ptr %p.1, i64 1
   %2 = load i8, ptr %incdec.ptr6, align 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %while.body
@@ -252,14 +252,14 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %while.end
-  %incdec.ptr24 = getelementptr i8, ptr %p.0, i64 2
+  %incdec.ptr24 = getelementptr i8, ptr %p.1, i64 2
   %.pre = load i8, ptr %incdec.ptr24, align 1
   br label %if.end25
 
 if.end25:                                         ; preds = %entry.if.end25_crit_edge, %if.end23
   %call26.pre-phi = phi ptr [ %.pre35, %entry.if.end25_crit_edge ], [ %call, %if.end23 ]
   %6 = phi i8 [ %0, %entry.if.end25_crit_edge ], [ %.pre, %if.end23 ]
-  %p.1 = phi ptr [ %str, %entry.if.end25_crit_edge ], [ %incdec.ptr24, %if.end23 ]
+  %p.0 = phi ptr [ %str, %entry.if.end25_crit_edge ], [ %incdec.ptr24, %if.end23 ]
   %7 = load ptr, ptr %call26.pre-phi, align 8
   %idxprom28 = zext i8 %6 to i64
   %arrayidx29 = getelementptr i16, ptr %7, i64 %idxprom28
@@ -269,7 +269,7 @@ if.end25:                                         ; preds = %entry.if.end25_crit
   br i1 %tobool32.not, label %return, label %while.cond35.preheader
 
 while.cond35.preheader:                           ; preds = %if.end25
-  %incdec.ptr3629 = getelementptr i8, ptr %p.1, i64 1
+  %incdec.ptr3629 = getelementptr i8, ptr %p.0, i64 1
   %10 = load i8, ptr %incdec.ptr3629, align 1
   %tobool37.not30 = icmp eq i8 %10, 0
   br i1 %tobool37.not30, label %if.end63, label %while.body38

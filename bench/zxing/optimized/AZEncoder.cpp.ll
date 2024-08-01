@@ -208,7 +208,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 75:                                               ; preds = %.preheader370, %99
   %.pre772777 = phi ptr [ null, %.preheader370 ], [ %.pre772778, %99 ]
   %.pre774 = phi ptr [ null, %.preheader370 ], [ %.pre775, %99 ]
-  %.0175546 = phi i32 [ 0, %.preheader370 ], [ %.2, %99 ]
+  %.1546 = phi i32 [ 0, %.preheader370 ], [ %.2, %99 ]
   %.0187545 = phi i32 [ 0, %.preheader370 ], [ %77, %99 ]
   %76 = icmp ult i32 %.0187545, 4
   %77 = add nuw nsw i32 %.0187545, 1
@@ -224,7 +224,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
   %85 = zext nneg i32 %78 to i64
   %86 = getelementptr inbounds [33 x i32], ptr @_ZN5ZXing5AztecL9WORD_SIZEE, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
-  %.not197 = icmp eq i32 %.0175546, %87
+  %.not197 = icmp eq i32 %.1546, %87
   br i1 %.not197, label %89, label %88
 
 88:                                               ; preds = %84
@@ -239,14 +239,14 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 89:                                               ; preds = %._crit_edge, %84
   %.pre772 = phi ptr [ %.pre772.pre, %._crit_edge ], [ %.pre772777, %84 ]
   %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %.pre774, %84 ]
-  %.1 = phi i32 [ %87, %._crit_edge ], [ %.0175546, %84 ]
-  %90 = srem i32 %82, %.1
+  %.3 = phi i32 [ %87, %._crit_edge ], [ %.1546, %84 ]
+  %90 = srem i32 %82, %.3
   %91 = sub nsw i32 %82, %90
   %92 = ptrtoint ptr %.pre to i64
   %93 = ptrtoint ptr %.pre772 to i64
   %94 = sub i64 %92, %93
   %95 = trunc i64 %94 to i32
-  %96 = shl nsw i32 %.1, 6
+  %96 = shl nsw i32 %.3, 6
   %97 = icmp slt i32 %96, %95
   %or.cond970 = select i1 %76, i1 %97, i1 false
   %98 = add nsw i32 %21, %95
@@ -257,7 +257,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 99:                                               ; preds = %89, %75
   %.pre772778 = phi ptr [ %.pre772777, %75 ], [ %.pre772, %89 ]
   %.pre775 = phi ptr [ %.pre774, %75 ], [ %.pre, %89 ]
-  %.2 = phi i32 [ %.0175546, %75 ], [ %.1, %89 ]
+  %.2 = phi i32 [ %.1546, %75 ], [ %.3, %89 ]
   %exitcond = icmp eq i32 %77, 33
   br i1 %exitcond, label %71, label %75, !llvm.loop !4
 
@@ -526,13 +526,13 @@ _ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit: ; preds = %170, %172
 177:                                              ; preds = %.loopexit376, %64
   %178 = phi ptr [ %52, %64 ], [ %.pre772, %.loopexit376 ]
   %179 = phi ptr [ %51, %64 ], [ %.pre, %.loopexit376 ]
-  %.3.ph = phi i32 [ %46, %64 ], [ %.1, %.loopexit376 ]
+  %.0175.ph = phi i32 [ %46, %64 ], [ %.3, %.loopexit376 ]
   %.0174.ph = phi i32 [ %43, %64 ], [ %82, %.loopexit376 ]
   %.0171.ph = phi i32 [ %27, %64 ], [ %78, %.loopexit376 ]
   %.0169.ph = phi i8 [ %26, %64 ], [ %176, %.loopexit376 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN5ZXing5AztecL18GenerateCheckWordsERKNS_8BitArrayEiiRS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.0174.ph, i32 noundef %.3.ph, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5ZXing5AztecL18GenerateCheckWordsERKNS_8BitArrayEiiRS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.0174.ph, i32 noundef %.0175.ph, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %180 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 180:                                              ; preds = %177
@@ -540,7 +540,7 @@ _ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit: ; preds = %170, %172
   %182 = ptrtoint ptr %178 to i64
   %183 = sub i64 %181, %182
   %184 = trunc i64 %183 to i32
-  %185 = sdiv i32 %184, %.3.ph
+  %185 = sdiv i32 %184, %.0175.ph
   %186 = trunc nuw i8 %.0169.ph to i1
   %187 = load ptr, ptr %11, align 8
   %188 = getelementptr inbounds i8, ptr %11, i64 8

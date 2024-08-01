@@ -33414,8 +33414,8 @@ for.body19.lr.ph:                                 ; preds = %for.end
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc34
-  %curr.181 = phi ptr [ %14, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
-  %m_state.i25 = getelementptr inbounds i8, ptr %curr.181, i64 4
+  %curr.281 = phi ptr [ %14, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
+  %m_state.i25 = getelementptr inbounds i8, ptr %curr.281, i64 4
   %15 = load i32, ptr %m_state.i25, align 4
   switch i32 %15, label %for.inc34 [
     i32 2, label %if.then21
@@ -33423,14 +33423,14 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %16 = load i32, ptr %curr.181, align 8
+  %16 = load i32, ptr %curr.281, align 8
   %cmp23 = icmp eq i32 %16, %xor6.i.i.i.i
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i27 = getelementptr inbounds i8, ptr %curr.181, i64 8
+  %m_data.i27 = getelementptr inbounds i8, ptr %curr.281, i64 8
   %17 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %m_kind.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %curr.181, i64 12
+  %m_kind.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %curr.281, i64 12
   %bf.load.i.i.i.i.i.i.i.i.i29 = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i28, align 4
   %bf.clear.i.i.i.i.i.i.i.i.i30 = and i8 %bf.load.i.i.i.i.i.i.i.i.i29, 1
   %cmp.i.i.i.i.i.i.i.i.i31 = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i.i30, 0
@@ -33454,8 +33454,8 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i.i32: ; preds = %land.lhs.true
   br i1 %cmp5.i.i.i.i.i.i.i.i34, label %land.rhs.i.i.i.i.i.i38, label %for.inc34
 
 land.rhs.i.i.i.i.i.i38:                           ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i.i32, %if.then.i.i.i.i.i.i.i.i60
-  %m_den.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %curr.181, i64 24
-  %m_kind.i.i.i3.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %curr.181, i64 28
+  %m_den.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %curr.281, i64 24
+  %m_kind.i.i.i3.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %curr.281, i64 28
   %bf.load.i.i.i4.i.i.i.i.i.i42 = load i8, ptr %m_kind.i.i.i3.i.i.i.i.i.i41, align 4
   %bf.clear.i.i.i5.i.i.i.i.i.i43 = and i8 %bf.load.i.i.i4.i.i.i.i.i.i42, 1
   %cmp.i.i.i6.i.i.i.i.i.i44 = icmp eq i8 %bf.clear.i.i.i5.i.i.i.i.i.i43, 0
@@ -33480,7 +33480,7 @@ if.else.i.i7.i.i.i.i.i.i45:                       ; preds = %land.lhs.true.i.i11
 
 _ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit62: ; preds = %if.then.i.i16.i.i.i.i.i.i53, %if.else.i.i7.i.i.i.i.i.i45
   %22 = phi i1 [ %cmp.i.i17.i.i.i.i.i.i54, %if.then.i.i16.i.i.i.i.i.i53 ], [ %cmp5.i.i9.i.i.i.i.i.i47, %if.else.i.i7.i.i.i.i.i.i45 ]
-  %second.i.i.i.i35 = getelementptr inbounds i8, ptr %curr.181, i64 40
+  %second.i.i.i.i35 = getelementptr inbounds i8, ptr %curr.281, i64 40
   %23 = load i32, ptr %second.i.i.i.i35, align 8
   %24 = load i32, ptr %second.i.i.i, align 8
   %cmp.i.i.i.i37 = icmp eq i32 %23, %24
@@ -33488,20 +33488,20 @@ _ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pa
   br i1 %25, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then.i.i.i.i.i.i.i.i60, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i.i32, %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit62, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.181, i64 56
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.281, i64 56
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !103
 
 end_remove:                                       ; preds = %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit, %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit62
-  %curr.2 = phi ptr [ %curr.181, %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit62 ], [ %curr.079, %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 56
+  %curr.1 = phi ptr [ %curr.281, %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit62 ], [ %curr.079, %_ZNK14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE6equalsERK9_key_dataIS3_iESK_.exit ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 56
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %26 = load ptr, ptr %m_table, align 8
   %spec.select = select i1 %cmp38, ptr %26, ptr %add.ptr37
   %m_state.i65 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %27 = load i32, ptr %m_state.i65, align 4
   %cmp.i66 = icmp eq i32 %27, 0
-  %m_state.i67 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i67 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i66, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

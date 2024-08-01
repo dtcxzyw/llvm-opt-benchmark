@@ -1683,7 +1683,7 @@ if.then19:                                        ; preds = %lor.lhs.false, %if.
 
 for.body:                                         ; preds = %if.then19, %for.inc
   %c.040 = phi ptr [ %c.0, %for.inc ], [ %c.037, %if.then19 ]
-  %parent_child.039 = phi ptr [ %parent_child.1, %for.inc ], [ null, %if.then19 ]
+  %parent_child.139 = phi ptr [ %parent_child.2, %for.inc ], [ null, %if.then19 ]
   %role21 = getelementptr inbounds i8, ptr %c.040, i64 24
   %3 = load i32, ptr %role21, align 8
   %and22 = and i32 %3, 1
@@ -1691,23 +1691,23 @@ for.body:                                         ; preds = %if.then19, %for.inc
   br i1 %tobool23.not, label %for.inc, label %if.then24
 
 if.then24:                                        ; preds = %for.body
-  %tobool25.not = icmp eq ptr %parent_child.039, null
+  %tobool25.not = icmp eq ptr %parent_child.139, null
   br i1 %tobool25.not, label %for.inc, label %if.end35
 
 for.inc:                                          ; preds = %if.then24, %for.body
-  %parent_child.1 = phi ptr [ %parent_child.039, %for.body ], [ %c.040, %if.then24 ]
+  %parent_child.2 = phi ptr [ %parent_child.139, %for.body ], [ %c.040, %if.then24 ]
   %next = getelementptr inbounds i8, ptr %c.040, i64 64
   %c.0 = load ptr, ptr %next, align 8
   %tobool20.not = icmp eq ptr %c.0, null
   br i1 %tobool20.not, label %if.end29, label %for.body, !llvm.loop !14
 
 if.end29:                                         ; preds = %for.inc
-  %tobool30.not = icmp eq ptr %parent_child.1, null
+  %tobool30.not = icmp eq ptr %parent_child.2, null
   br i1 %tobool30.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %lor.lhs.false, %if.end29
-  %parent_child.232 = phi ptr [ %parent_child.1, %if.end29 ], [ %call16, %lor.lhs.false ]
-  %4 = load ptr, ptr %parent_child.232, align 8
+  %parent_child.032 = phi ptr [ %parent_child.2, %if.end29 ], [ %call16, %lor.lhs.false ]
+  %4 = load ptr, ptr %parent_child.032, align 8
   %call34 = tail call fastcc ptr @bdrv_query_bds_stats(ptr noundef %4, i1 noundef zeroext %blk_level)
   %parent = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call34, ptr %parent, align 8

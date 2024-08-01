@@ -3803,7 +3803,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEd
   %67 = phi i32 [ 0, %.lr.ph561 ], [ %.pre-phi569, %._crit_edge ]
   %.0117559 = phi i32 [ undef, %.lr.ph561 ], [ %.1118, %._crit_edge ]
   %storemerge558 = phi i32 [ 0, %.lr.ph561 ], [ %.pre-phi, %._crit_edge ]
-  %.0557 = phi i32 [ undef, %.lr.ph561 ], [ %.2, %._crit_edge ]
+  %.0557 = phi i32 [ undef, %.lr.ph561 ], [ %.1486, %._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %68 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEvE2id" acquire, align 8, !noalias !84
   %69 = icmp eq i8 %68, 0
@@ -4428,24 +4428,24 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit234:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %353 = add nsw i32 %storemerge558, %.0112
   %.sroa.speculated390 = call i32 @llvm.smax.i32(i32 %353, i32 0)
   %.sroa.speculated385 = call i32 @llvm.smin.i32(i32 %57, i32 %.sroa.speculated390)
-  %.1486 = select i1 %36, i32 %.sroa.speculated385, i32 %.sroa.speculated390
+  %.2 = select i1 %36, i32 %.sroa.speculated385, i32 %.sroa.speculated390
   %354 = add nuw i32 %58, %storemerge558
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %40, i32 %354)
   br label %355
 
 355:                                              ; preds = %281, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234, %352, %135
-  %.2 = phi i32 [ %.sroa.speculated416, %135 ], [ %.sroa.speculated404, %281 ], [ %.1486, %352 ], [ %.0557, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234 ]
+  %.1486 = phi i32 [ %.sroa.speculated416, %135 ], [ %.sroa.speculated404, %281 ], [ %.2, %352 ], [ %.0557, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234 ]
   %.1118 = phi i32 [ %.sroa.speculated411, %135 ], [ %.sroa.speculated399, %281 ], [ %.sroa.speculated, %352 ], [ %.0117559, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234 ]
   %.1 = phi i32 [ %spec.select, %135 ], [ %40, %281 ], [ %56, %352 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit234 ]
   %356 = icmp slt i32 %storemerge558, %.1
   br i1 %356, label %.preheader, label %410
 
 .preheader:                                       ; preds = %355
-  %357 = icmp slt i32 %.2, %.1118
+  %357 = icmp slt i32 %.1486, %.1118
   br i1 %357, label %.lr.ph, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit251
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit243
-  %.0141551 = phi i32 [ %407, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit243 ], [ %.2, %.preheader ]
+  %.0141551 = phi i32 [ %407, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit243 ], [ %.1486, %.preheader ]
   %358 = load i32, ptr @_ZN5Yosys5RTLIL2ID1AE, align 4
   %.not.i.i = icmp eq i32 %358, 0
   br i1 %.not.i.i, label %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit, label %359

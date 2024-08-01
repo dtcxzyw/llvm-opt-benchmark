@@ -197,14 +197,14 @@ _ZNSt10shared_ptrIN6opencc9ConverterEED2Ev.exit:  ; preds = %_ZN12InternalDataC2
 
 62:                                               ; preds = %61, %55
   %.pn.pn = phi { ptr, i32 } [ %.pn, %61 ], [ %56, %55 ]
-  %.18 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.07 = extractvalue { ptr, i32 } %.pn.pn, 1
   %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6opencc9ExceptionE) #13
-  %64 = icmp eq i32 %.18, %63
+  %64 = icmp eq i32 %.07, %63
   br i1 %64, label %65, label %78
 
 65:                                               ; preds = %62
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %66 = call ptr @__cxa_begin_catch(ptr %.1) #13
+  %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %66 = call ptr @__cxa_begin_catch(ptr %.0) #13
   %67 = call ptr @__cxa_allocate_exception(i64 16) #13
   %68 = load ptr, ptr %66, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
@@ -713,14 +713,14 @@ define noundef ptr @_Z20opencc_open_internalPKc(ptr noundef %0) local_unnamed_ad
 
 16:                                               ; preds = %15, %9
   %.pn.pn = phi { ptr, i32 } [ %.pn, %15 ], [ %10, %9 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.09 = extractvalue { ptr, i32 } %.pn.pn, 1
   %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #13
-  %18 = icmp eq i32 %.1, %17
+  %18 = icmp eq i32 %.09, %17
   br i1 %18, label %19, label %30
 
 19:                                               ; preds = %16
-  %.111 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %20 = call ptr @__cxa_begin_catch(ptr %.111) #13
+  %.010 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %20 = call ptr @__cxa_begin_catch(ptr %.010) #13
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8

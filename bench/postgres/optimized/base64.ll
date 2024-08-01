@@ -166,7 +166,7 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr
   %.092.ph = phi i32 [ %.282, %56 ], [ 0, %.lr.ph ]
   %.06291.ph = phi i32 [ %.163, %56 ], [ 0, %.lr.ph ]
   %.06490.ph = phi i32 [ %.165, %56 ], [ 0, %.lr.ph ]
-  %.06989.ph = phi ptr [ %.3, %56 ], [ %2, %.lr.ph ]
+  %.06989.ph = phi ptr [ %.170, %56 ], [ %2, %.lr.ph ]
   %.07288.ph = phi ptr [ %11, %56 ], [ %0, %.lr.ph ]
   br label %10
 
@@ -213,9 +213,9 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr
   br i1 %23, label %.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %13, %18
-  %.167 = phi i32 [ %22, %18 ], [ 0, %13 ]
+  %.066 = phi i32 [ %22, %18 ], [ 0, %13 ]
   %24 = shl i32 %.06490, 6
-  %25 = add i32 %.167, %24
+  %25 = add i32 %.066, %24
   %26 = add i32 %.06291, 1
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %28, label %56
@@ -254,13 +254,13 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr
   br label %47
 
 47:                                               ; preds = %33, %43
-  %.170 = phi ptr [ %46, %43 ], [ %36, %33 ]
+  %.271 = phi ptr [ %46, %43 ], [ %36, %33 ]
   %48 = icmp sgt i32 %.281, 2
   %or.cond15 = or i1 %37, %48
   br i1 %or.cond15, label %49, label %56
 
 49:                                               ; preds = %47
-  %50 = ptrtoint ptr %.170 to i64
+  %50 = ptrtoint ptr %.271 to i64
   %reass.sub95 = sub i64 %50, %8
   %51 = add i64 %reass.sub95, 1
   %52 = icmp sgt i64 %51, %9
@@ -268,13 +268,13 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr
 
 53:                                               ; preds = %49
   %54 = trunc i32 %29 to i8
-  %55 = getelementptr i8, ptr %.170, i64 1
-  store i8 %54, ptr %.170, align 1
+  %55 = getelementptr i8, ptr %.271, i64 1
+  store i8 %54, ptr %.271, align 1
   br label %56
 
 56:                                               ; preds = %53, %47, %.loopexit
   %.282 = phi i32 [ %.092, %.loopexit ], [ %.281, %53 ], [ %.281, %47 ]
-  %.3 = phi ptr [ %.06989.ph, %.loopexit ], [ %55, %53 ], [ %.170, %47 ]
+  %.170 = phi ptr [ %.06989.ph, %.loopexit ], [ %55, %53 ], [ %.271, %47 ]
   %.165 = phi i32 [ %25, %.loopexit ], [ 0, %53 ], [ 0, %47 ]
   %.163 = phi i32 [ %26, %.loopexit ], [ 0, %53 ], [ 0, %47 ]
   %exitcond.not = icmp eq ptr %11, %6
@@ -294,7 +294,7 @@ define dso_local i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr
   br label %.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.069.lcssa98 = phi ptr [ %.3, %._crit_edge ], [ %2, %4 ]
+  %.069.lcssa98 = phi ptr [ %.170, %._crit_edge ], [ %2, %4 ]
   %59 = ptrtoint ptr %.069.lcssa98 to i64
   %60 = ptrtoint ptr %2 to i64
   %61 = sub i64 %59, %60

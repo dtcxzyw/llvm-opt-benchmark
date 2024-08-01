@@ -453,12 +453,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %168
 
 168:                                              ; preds = %160, %157, %143, %140, %137, %131, %123, %119, %116, %111, %163, %155, %104, %91, %79, %67, %55
-  %.2 = phi i32 [ -30, %55 ], [ -30, %67 ], [ -30, %79 ], [ -30, %91 ], [ -30, %104 ], [ %114, %111 ], [ %117, %116 ], [ %121, %119 ], [ %126, %123 ], [ %135, %131 ], [ %138, %137 ], [ %141, %140 ], [ %146, %143 ], [ %158, %157 ], [ %spec.select169, %163 ], [ -25, %155 ], [ %161, %160 ]
+  %.0136 = phi i32 [ -30, %55 ], [ -30, %67 ], [ -30, %79 ], [ -30, %91 ], [ -30, %104 ], [ %114, %111 ], [ %117, %116 ], [ %121, %119 ], [ %126, %123 ], [ %135, %131 ], [ %138, %137 ], [ %141, %140 ], [ %146, %143 ], [ %158, %157 ], [ %spec.select169, %163 ], [ -25, %155 ], [ %161, %160 ]
   call void @archive_entry_free(ptr noundef null) #11
   br label %169
 
 169:                                              ; preds = %168, %41
-  %.0 = phi i32 [ -30, %41 ], [ %.2, %168 ]
+  %.0 = phi i32 [ -30, %41 ], [ %.0136, %168 ]
   ret i32 %.0
 }
 
@@ -929,7 +929,7 @@ format_octal.exit144.thread:                      ; preds = %._crit_edge.i139
   br label %format_octal.exit144
 
 format_octal.exit144:                             ; preds = %._crit_edge.i139, %format_octal.exit144.thread
-  %.386 = phi i32 [ -25, %format_octal.exit144.thread ], [ %.285, %._crit_edge.i139 ]
+  %.4 = phi i32 [ -25, %format_octal.exit144.thread ], [ %.285, %._crit_edge.i139 ]
   %153 = tail call i64 @archive_entry_rdevminor(ptr noundef %2) #11
   %spec.store.select.i145 = tail call i64 @llvm.smax.i64(i64 %153, i64 0)
   %154 = getelementptr inbounds i8, ptr %1, i64 343
@@ -959,7 +959,7 @@ format_octal.exit155.thread:                      ; preds = %._crit_edge.i150
   br label %format_octal.exit155
 
 format_octal.exit155:                             ; preds = %._crit_edge.i150, %format_octal.exit155.thread, %139
-  %.4 = phi i32 [ -25, %format_octal.exit155.thread ], [ %.285, %139 ], [ %.386, %._crit_edge.i150 ]
+  %.386 = phi i32 [ -25, %format_octal.exit155.thread ], [ %.285, %139 ], [ %.4, %._crit_edge.i150 ]
   %163 = trunc nuw nsw i32 %3 to i8
   %164 = getelementptr inbounds i8, ptr %1, i64 156
   store i8 %163, ptr %164, align 1
@@ -1005,7 +1005,7 @@ format_octal.exit155:                             ; preds = %._crit_edge.i150, %
   br label %format_octal.exit166
 
 format_octal.exit166:                             ; preds = %._crit_edge.i161, %.lr.ph21.preheader.i164
-  ret i32 %.4
+  ret i32 %.386
 }
 
 declare void @archive_entry_free(ptr noundef) local_unnamed_addr #2

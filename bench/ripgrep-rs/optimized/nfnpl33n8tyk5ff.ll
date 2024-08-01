@@ -2734,10 +2734,10 @@ _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit: ; preds = %23
           to label %.thread122 unwind label %129
 
 .thread144:                                       ; preds = %246, %224, %230
-  %.sroa.0192.2 = phi i64 [ %225, %230 ], [ %.sroa.0192.0.copyload194, %246 ], [ -9223372036854775808, %224 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.0, %230 ], [ %.sroa.8.0.copyload197, %246 ], [ %.sroa.8.0, %224 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.0, %230 ], [ %.sroa.11.0.copyload202, %246 ], [ %.sroa.11.0, %224 ]
-  %.sroa.14.2 = phi i8 [ %.sroa.14.0, %230 ], [ %.sroa.14.0.copyload207, %246 ], [ %.sroa.14.0, %224 ]
+  %.sroa.0192.1 = phi i64 [ %225, %230 ], [ %.sroa.0192.0.copyload194, %246 ], [ -9223372036854775808, %224 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %230 ], [ %.sroa.8.0.copyload197, %246 ], [ %.sroa.8.0, %224 ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.0, %230 ], [ %.sroa.11.0.copyload202, %246 ], [ %.sroa.11.0, %224 ]
+  %.sroa.14.1 = phi i8 [ %.sroa.14.0, %230 ], [ %.sroa.14.0.copyload207, %246 ], [ %.sroa.14.0, %224 ]
   %249 = icmp ugt i32 %80, %spec.select62.i
   br i1 %249, label %251, label %_ZN10grep_regex7literal4TSeq12make_inexact17h2b2e65ee766ac2e1E.exit
 
@@ -2746,41 +2746,41 @@ _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit: ; preds = %23
   br label %.lr.ph.i.i71.preheader
 
 _ZN10grep_regex7literal4TSeq12make_inexact17h2b2e65ee766ac2e1E.exit: ; preds = %.lr.ph.i.i71, %253, %251, %.thread144
-  %.sroa.14.2222 = phi i8 [ %.sroa.14.2, %253 ], [ %.sroa.14.2, %251 ], [ %.sroa.14.2, %.thread144 ], [ %.sroa.14.2223228240, %.lr.ph.i.i71 ]
-  %.sroa.11.2220 = phi i64 [ 0, %253 ], [ %.sroa.11.2, %251 ], [ %.sroa.11.2, %.thread144 ], [ %.sroa.11.2221229239, %.lr.ph.i.i71 ]
-  %.sroa.8.2218 = phi ptr [ %.sroa.8.2, %253 ], [ %.sroa.8.2, %251 ], [ %.sroa.8.2, %.thread144 ], [ %.sroa.8.2219230238, %.lr.ph.i.i71 ]
-  %.sroa.0192.2217 = phi i64 [ %.sroa.0192.2, %253 ], [ -9223372036854775808, %251 ], [ %.sroa.0192.2, %.thread144 ], [ %.sroa.0192.2216231237, %.lr.ph.i.i71 ]
-  store i64 %.sroa.0192.2217, ptr %0, align 8, !noalias !423
+  %.sroa.14.1222 = phi i8 [ %.sroa.14.1, %253 ], [ %.sroa.14.1, %251 ], [ %.sroa.14.1, %.thread144 ], [ %.sroa.14.1223228240, %.lr.ph.i.i71 ]
+  %.sroa.11.1220 = phi i64 [ 0, %253 ], [ %.sroa.11.1, %251 ], [ %.sroa.11.1, %.thread144 ], [ %.sroa.11.1221229239, %.lr.ph.i.i71 ]
+  %.sroa.8.1218 = phi ptr [ %.sroa.8.1, %253 ], [ %.sroa.8.1, %251 ], [ %.sroa.8.1, %.thread144 ], [ %.sroa.8.1219230238, %.lr.ph.i.i71 ]
+  %.sroa.0192.1217 = phi i64 [ %.sroa.0192.1, %253 ], [ -9223372036854775808, %251 ], [ %.sroa.0192.1, %.thread144 ], [ %.sroa.0192.1216231237, %.lr.ph.i.i71 ]
+  store i64 %.sroa.0192.1217, ptr %0, align 8, !noalias !423
   %.sroa.8.0..sroa_idx198 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.8.2218, ptr %.sroa.8.0..sroa_idx198, align 8, !noalias !423
+  store ptr %.sroa.8.1218, ptr %.sroa.8.0..sroa_idx198, align 8, !noalias !423
   %.sroa.11.0..sroa_idx203 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.11.2220, ptr %.sroa.11.0..sroa_idx203, align 8, !noalias !423
+  store i64 %.sroa.11.1220, ptr %.sroa.11.0..sroa_idx203, align 8, !noalias !423
   %.sroa.14.0..sroa_idx208 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %.sroa.14.2222, ptr %.sroa.14.0..sroa_idx208, align 8, !noalias !423
+  store i8 %.sroa.14.1222, ptr %.sroa.14.0..sroa_idx208, align 8, !noalias !423
   %.sroa.15.0..sroa_idx211 = getelementptr inbounds i8, ptr %0, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15.0..sroa_idx211, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15, i64 7, i1 false), !noalias !423
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.15)
   br label %260
 
 251:                                              ; preds = %.thread144
-  %252 = icmp eq i64 %.sroa.0192.2, -9223372036854775808
+  %252 = icmp eq i64 %.sroa.0192.1, -9223372036854775808
   br i1 %252, label %_ZN10grep_regex7literal4TSeq12make_inexact17h2b2e65ee766ac2e1E.exit, label %253
 
 253:                                              ; preds = %251
-  %254 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.sroa.8.2, i64 %.sroa.11.2
-  %255 = icmp eq i64 %.sroa.11.2, 0
+  %254 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.sroa.8.1, i64 %.sroa.11.1
+  %255 = icmp eq i64 %.sroa.11.1, 0
   br i1 %255, label %_ZN10grep_regex7literal4TSeq12make_inexact17h2b2e65ee766ac2e1E.exit, label %.lr.ph.i.i71.preheader
 
 .lr.ph.i.i71.preheader:                           ; preds = %.thread232, %253
   %256 = phi ptr [ %250, %.thread232 ], [ %254, %253 ]
-  %.sroa.14.2223228240 = phi i8 [ 1, %.thread232 ], [ %.sroa.14.2, %253 ]
-  %.sroa.11.2221229239 = phi i64 [ 1, %.thread232 ], [ %.sroa.11.2, %253 ]
-  %.sroa.8.2219230238 = phi ptr [ %212, %.thread232 ], [ %.sroa.8.2, %253 ]
-  %.sroa.0192.2216231237 = phi i64 [ 1, %.thread232 ], [ %.sroa.0192.2, %253 ]
+  %.sroa.14.1223228240 = phi i8 [ 1, %.thread232 ], [ %.sroa.14.1, %253 ]
+  %.sroa.11.1221229239 = phi i64 [ 1, %.thread232 ], [ %.sroa.11.1, %253 ]
+  %.sroa.8.1219230238 = phi ptr [ %212, %.thread232 ], [ %.sroa.8.1, %253 ]
+  %.sroa.0192.1216231237 = phi i64 [ 1, %.thread232 ], [ %.sroa.0192.1, %253 ]
   br label %.lr.ph.i.i71
 
 .lr.ph.i.i71:                                     ; preds = %.lr.ph.i.i71.preheader, %.lr.ph.i.i71
-  %.sroa.0.08.i.i = phi ptr [ %257, %.lr.ph.i.i71 ], [ %.sroa.8.2219230238, %.lr.ph.i.i71.preheader ]
+  %.sroa.0.08.i.i = phi ptr [ %257, %.lr.ph.i.i71 ], [ %.sroa.8.1219230238, %.lr.ph.i.i71.preheader ]
   %257 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 32
   %258 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 24
   store i8 0, ptr %258, align 8, !noalias !455

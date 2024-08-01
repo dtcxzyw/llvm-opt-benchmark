@@ -1224,8 +1224,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %31, %_ZN26GrowableA
   br i1 %77, label %31, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %65, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %64, %2
-  %.sroa.017.2 = phi ptr [ null, %64 ], [ null, %2 ], [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i, %65 ]
-  ret ptr %.sroa.017.2
+  %.sroa.017.0 = phi ptr [ null, %64 ], [ null, %2 ], [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ %storemerge.i.i, %65 ]
+  ret ptr %.sroa.017.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1463,12 +1463,12 @@ _ZN13DeadlockCycleC2Ev.exit:                      ; preds = %._crit_edge, %49
   br label %58
 
 58:                                               ; preds = %.lr.ph201, %_ZN18JavaThreadIterator4nextEv.exit138
-  %.0200 = phi i32 [ 0, %.lr.ph201 ], [ %.2, %_ZN18JavaThreadIterator4nextEv.exit138 ]
+  %.0200 = phi i32 [ 0, %.lr.ph201 ], [ %.1, %_ZN18JavaThreadIterator4nextEv.exit138 ]
   %.076199 = phi ptr [ %56, %.lr.ph201 ], [ %248, %_ZN18JavaThreadIterator4nextEv.exit138 ]
   %.077198 = phi ptr [ %46, %.lr.ph201 ], [ %.178, %_ZN18JavaThreadIterator4nextEv.exit138 ]
   %.079197 = phi ptr [ null, %.lr.ph201 ], [ %.180, %_ZN18JavaThreadIterator4nextEv.exit138 ]
-  %.081196 = phi ptr [ null, %.lr.ph201 ], [ %.3, %_ZN18JavaThreadIterator4nextEv.exit138 ]
-  %.090194 = phi ptr [ null, %.lr.ph201 ], [ %.4, %_ZN18JavaThreadIterator4nextEv.exit138 ]
+  %.081196 = phi ptr [ null, %.lr.ph201 ], [ %.182, %_ZN18JavaThreadIterator4nextEv.exit138 ]
+  %.090194 = phi ptr [ null, %.lr.ph201 ], [ %.191, %_ZN18JavaThreadIterator4nextEv.exit138 ]
   %.sroa.5.1193 = phi i32 [ 0, %.lr.ph201 ], [ %243, %_ZN18JavaThreadIterator4nextEv.exit138 ]
   %59 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %.076199) #12
   %.not.i104 = icmp eq ptr %59, null
@@ -1555,21 +1555,21 @@ _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118: ; preds 
   br label %101
 
 101:                                              ; preds = %99, %93
-  %.191 = phi ptr [ %100, %99 ], [ %.090194, %93 ]
+  %.292 = phi ptr [ %100, %99 ], [ %.090194, %93 ]
   %102 = icmp ne ptr %98, null
-  %.1170 = add nsw i32 %.0200, 1
+  %.2170 = add nsw i32 %.0200, 1
   %103 = icmp ne ptr %96, null
   %or.cond171 = or i1 %102, %103
-  %104 = icmp ne ptr %.191, null
+  %104 = icmp ne ptr %.292, null
   %or.cond3172 = select i1 %or.cond171, i1 true, i1 %104
   br i1 %or.cond3172, label %.critedge, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread
 
 .critedge:                                        ; preds = %101, %239
   %105 = phi i1 [ %240, %239 ], [ %103, %101 ]
-  %.1176 = phi i32 [ %.1, %239 ], [ %.1170, %101 ]
+  %.2176 = phi i32 [ %.2, %239 ], [ %.2170, %101 ]
   %.075175 = phi ptr [ %220, %239 ], [ %96, %101 ]
   %.087174 = phi ptr [ %.189150, %239 ], [ %.076199, %101 ]
-  %.292173 = phi ptr [ %.393, %239 ], [ %.191, %101 ]
+  %.393173 = phi ptr [ %.4, %239 ], [ %.292, %101 ]
   %106 = load ptr, ptr %.077198, align 8
   %107 = load i32, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %106, i64 4
@@ -1643,7 +1643,7 @@ _ZN13DeadlockCycle10add_threadEP10JavaThread.exit: ; preds = %.critedge, %111
   br label %145
 
 145:                                              ; preds = %141, %143
-  %.182 = phi ptr [ %.081196, %143 ], [ %.077198, %141 ]
+  %.283 = phi ptr [ %.081196, %143 ], [ %.077198, %141 ]
   %146 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #12
   %147 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #12
   %148 = icmp eq ptr %147, null
@@ -1672,7 +1672,7 @@ _ZN13DeadlockCycleC2Ev.exit119:                   ; preds = %145, %149
   %156 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 800), align 8
   %157 = load i8, ptr @UseCompressedClassPointers, align 1
   %158 = trunc i8 %157 to i1
-  %159 = getelementptr inbounds i8, ptr %.292173, i64 8
+  %159 = getelementptr inbounds i8, ptr %.393173, i64 8
   br i1 %158, label %160, label %170
 
 160:                                              ; preds = %155
@@ -1710,7 +1710,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit:                   ; preds = %178
   br i1 %179, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassEv.exit.i, %_ZNK7oopDesc4is_aEP5Klass.exit
-  %180 = tail call noundef ptr @_ZN54java_util_concurrent_locks_AbstractOwnableSynchronizer19get_owner_threadObjEP7oopDesc(ptr noundef nonnull %.292173) #12
+  %180 = tail call noundef ptr @_ZN54java_util_concurrent_locks_AbstractOwnableSynchronizer19get_owner_threadObjEP7oopDesc(ptr noundef nonnull %.393173) #12
   %.not99 = icmp eq ptr %180, null
   br i1 %.not99, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread, label %181
 
@@ -1792,7 +1792,7 @@ _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit134: ; preds 
   br i1 %217, label %218, label %221
 
 218:                                              ; preds = %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit134
-  store i32 %.1176, ptr %215, align 8
+  store i32 %.2176, ptr %215, align 8
   %219 = getelementptr inbounds i8, ptr %.189150, i64 1048
   %220 = load volatile ptr, ptr %219, align 8
   br i1 %1, label %237, label %239
@@ -1813,7 +1813,7 @@ _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit134: ; preds 
   br label %228
 
 228:                                              ; preds = %224, %226
-  %.283 = phi ptr [ %.081196, %226 ], [ %.077198, %224 ]
+  %.3 = phi ptr [ %.081196, %226 ], [ %.077198, %224 ]
   %229 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #12
   %230 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #12
   %231 = icmp eq ptr %230, null
@@ -1840,27 +1840,27 @@ _ZN13DeadlockCycleC2Ev.exit135:                   ; preds = %228, %232
   br label %239
 
 239:                                              ; preds = %237, %218
-  %.393 = phi ptr [ %238, %237 ], [ %.292173, %218 ]
-  %.1 = add nsw i32 %.1176, 1
+  %.4 = phi ptr [ %238, %237 ], [ %.393173, %218 ]
+  %.2 = add nsw i32 %.2176, 1
   %240 = icmp ne ptr %220, null
   %or.cond = or i1 %102, %240
-  %241 = icmp ne ptr %.393, null
+  %241 = icmp ne ptr %.4, null
   %or.cond3 = select i1 %or.cond, i1 true, i1 %241
   br i1 %or.cond3, label %.critedge, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread, !llvm.loop !17
 
 _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split: ; preds = %_ZN13DeadlockCycleC2Ev.exit135, %_ZN13DeadlockCycleC2Ev.exit119
   %.sink238 = phi ptr [ %146, %_ZN13DeadlockCycleC2Ev.exit119 ], [ %229, %_ZN13DeadlockCycleC2Ev.exit135 ]
-  %.3.ph = phi ptr [ %.182, %_ZN13DeadlockCycleC2Ev.exit119 ], [ %.283, %_ZN13DeadlockCycleC2Ev.exit135 ]
+  %.182.ph = phi ptr [ %.283, %_ZN13DeadlockCycleC2Ev.exit119 ], [ %.3, %_ZN13DeadlockCycleC2Ev.exit135 ]
   %242 = getelementptr inbounds i8, ptr %.sink238, i64 8
   store ptr null, ptr %242, align 8
   br label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread
 
 _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread: ; preds = %.lr.ph.i.i.i111, %181, %239, %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZNK7oopDesc4is_aEP5Klass.exit, %178, %_ZNK7oopDesc4is_aEP5Klass.exit.i133, %_ZNK7oopDesc5klassEv.exit.i.i121, %.lr.ph.i.i.i127, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split, %101, %_ZNK7oopDesc5klassEv.exit.i.i105, %_ZNK7oopDesc4is_aEP5Klass.exit.i117, %221, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118
-  %.4 = phi ptr [ %.090194, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.292173, %221 ], [ %.090194, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.090194, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ null, %101 ], [ %.292173, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.292173, %.lr.ph.i.i.i127 ], [ %.292173, %181 ], [ null, %239 ], [ %.292173, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.292173, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.292173, %178 ], [ %.292173, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.292173, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.090194, %.lr.ph.i.i.i111 ]
-  %.3 = phi ptr [ %.081196, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.081196, %221 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.081196, %101 ], [ %.3.ph, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.081196, %.lr.ph.i.i.i127 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.081196, %178 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.081196, %239 ], [ %.081196, %181 ], [ %.081196, %.lr.ph.i.i.i111 ]
+  %.191 = phi ptr [ %.090194, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.393173, %221 ], [ %.090194, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.090194, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ null, %101 ], [ %.393173, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.393173, %.lr.ph.i.i.i127 ], [ %.393173, %181 ], [ null, %239 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.393173, %178 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.393173, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.090194, %.lr.ph.i.i.i111 ]
+  %.182 = phi ptr [ %.081196, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.081196, %221 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.081196, %101 ], [ %.182.ph, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.081196, %.lr.ph.i.i.i127 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.081196, %178 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.081196, %239 ], [ %.081196, %181 ], [ %.081196, %.lr.ph.i.i.i111 ]
   %.180 = phi ptr [ %.079197, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.079197, %221 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.079197, %101 ], [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.079197, %.lr.ph.i.i.i127 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.079197, %178 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.079197, %239 ], [ %.079197, %181 ], [ %.079197, %.lr.ph.i.i.i111 ]
   %.178 = phi ptr [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.077198, %221 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.077198, %101 ], [ %.sink238, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.077198, %.lr.ph.i.i.i127 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.077198, %178 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.077198, %239 ], [ %.077198, %181 ], [ %.077198, %.lr.ph.i.i.i111 ]
-  %.2 = phi i32 [ %.0200, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.1176, %221 ], [ %.0200, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.0200, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.1170, %101 ], [ %.1176, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.1176, %.lr.ph.i.i.i127 ], [ %.1176, %181 ], [ %.1, %239 ], [ %.1176, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.1176, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.1176, %178 ], [ %.1176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.1176, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.0200, %.lr.ph.i.i.i111 ]
+  %.1 = phi i32 [ %.0200, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.2176, %221 ], [ %.0200, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.0200, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.2170, %101 ], [ %.2176, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.2176, %.lr.ph.i.i.i127 ], [ %.2176, %181 ], [ %.2, %239 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.2176, %178 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.2176, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.0200, %.lr.ph.i.i.i111 ]
   %243 = add i32 %.sroa.5.1193, 1
   %244 = load i32, ptr %57, align 4
   %.not.i136 = icmp ult i32 %243, %244
@@ -1880,7 +1880,7 @@ _ZN18JavaThreadIterator4nextEv.exit138:           ; preds = %_ZN13ThreadService2
 
 ._crit_edge202.thread:                            ; preds = %_ZN13DeadlockCycleC2Ev.exit, %._crit_edge202
   %.077.lcssa225 = phi ptr [ %.178, %._crit_edge202 ], [ %46, %_ZN13DeadlockCycleC2Ev.exit ]
-  %.081.lcssa223 = phi ptr [ %.3, %._crit_edge202 ], [ null, %_ZN13DeadlockCycleC2Ev.exit ]
+  %.081.lcssa223 = phi ptr [ %.182, %._crit_edge202 ], [ null, %_ZN13DeadlockCycleC2Ev.exit ]
   %250 = load ptr, ptr %.077.lcssa225, align 8
   %251 = icmp eq ptr %250, null
   br i1 %251, label %_ZN13DeadlockCycleD2Ev.exit, label %252
@@ -1906,7 +1906,7 @@ _ZN13DeadlockCycleD2Ev.exit:                      ; preds = %._crit_edge202.thre
   br label %257
 
 257:                                              ; preds = %_ZN13DeadlockCycleD2Ev.exit, %._crit_edge202
-  %.081.lcssa224 = phi ptr [ %.081.lcssa223, %_ZN13DeadlockCycleD2Ev.exit ], [ %.3, %._crit_edge202 ]
+  %.081.lcssa224 = phi ptr [ %.081.lcssa223, %_ZN13DeadlockCycleD2Ev.exit ], [ %.182, %._crit_edge202 ]
   ret ptr %.081.lcssa224
 }
 

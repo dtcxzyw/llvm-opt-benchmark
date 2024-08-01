@@ -152,7 +152,7 @@ invoke.cont3.lr.ph:                               ; preds = %entry
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %invoke.cont3.lr.ph, %for.inc
-  %numNewVertices.097 = phi i64 [ 0, %invoke.cont3.lr.ph ], [ %numNewVertices.2, %for.inc ]
+  %numNewVertices.097 = phi i64 [ 0, %invoke.cont3.lr.ph ], [ %numNewVertices.1, %for.inc ]
   %it.sroa.0.096 = phi ptr [ %1, %invoke.cont3.lr.ph ], [ %incdec.ptr.i.i, %for.inc ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.096, i64 -16
   %v.sroa.0.0.copyload = load ptr, ptr %incdec.ptr.i.i, align 8
@@ -1041,7 +1041,7 @@ invoke.cont106.i:                                 ; preds = %for.end104.i
           to label %cleanup.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 cleanup.i:                                        ; preds = %invoke.cont106.i, %do.end.i
-  %numNewVertices.1 = phi i64 [ %add.i, %invoke.cont106.i ], [ %numNewVertices.097, %do.end.i ]
+  %numNewVertices.2 = phi i64 [ %add.i, %invoke.cont106.i ], [ %numNewVertices.097, %do.end.i ]
   %84 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue25depthESt4pairIKS1_St6vectorINS0_12graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaISC_EEESt10_Select1stISF_ESt4lessIS1_ESaISF_EE8_M_eraseEPSt13_Rb_tree_nodeISF_E(ptr noundef nonnull align 8 dereferenceable(48) %predGroups.i, ptr noundef %84)
           to label %invoke.cont39 unwind label %terminate.lpad.i.i.i
@@ -1059,7 +1059,7 @@ invoke.cont39:                                    ; preds = %cleanup.i
   br i1 %cmp.i34, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i, %invoke.cont39, %invoke.cont11, %invoke.cont6, %invoke.cont3
-  %numNewVertices.2 = phi i64 [ %numNewVertices.097, %invoke.cont3 ], [ %numNewVertices.097, %invoke.cont6 ], [ %numNewVertices.097, %invoke.cont11 ], [ %numNewVertices.1, %invoke.cont39 ], [ %numNewVertices.097, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
+  %numNewVertices.1 = phi i64 [ %numNewVertices.097, %invoke.cont3 ], [ %numNewVertices.097, %invoke.cont6 ], [ %numNewVertices.097, %invoke.cont11 ], [ %numNewVertices.2, %invoke.cont39 ], [ %numNewVertices.097, %_ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.i.i.not, label %for.end, label %invoke.cont3, !llvm.loop !40
 

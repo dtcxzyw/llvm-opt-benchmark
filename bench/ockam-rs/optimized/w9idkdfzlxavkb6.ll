@@ -378,9 +378,9 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i: ; preds = %2
   br label %"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit"
 
 "_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i", %17, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %.thread.i.i.i
-  %.0.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i ], [ %20, %17 ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i" ]
+  %.1.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i ], [ %20, %17 ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  ret ptr %.0.i.i.i
+  ret ptr %.1.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2114,15 +2114,15 @@ _ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.1532853630
 
 39:                                               ; preds = %_ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.15328536302644105373.exit, %20
   %.pn = phi { i64, ptr } [ %38, %_ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.15328536302644105373.exit ], [ zeroinitializer, %20 ]
-  %.sroa.0.0 = extractvalue { i64, ptr } %.pn, 0
-  %.sroa.4.0 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.0.1 = extractvalue { i64, ptr } %.pn, 0
+  %.sroa.4.1 = extractvalue { i64, ptr } %.pn, 1
   br label %40
 
 40:                                               ; preds = %39, %18
-  %.sroa.4.1 = phi ptr [ %.sroa.66.0.ph, %18 ], [ %.sroa.4.0, %39 ]
-  %.sroa.0.1 = phi i64 [ 1, %18 ], [ %.sroa.0.0, %39 ]
-  %41 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %42 = insertvalue { i64, ptr } %41, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %.sroa.66.0.ph, %18 ], [ %.sroa.4.1, %39 ]
+  %.sroa.0.0 = phi i64 [ 1, %18 ], [ %.sroa.0.1, %39 ]
+  %41 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %42 = insertvalue { i64, ptr } %41, ptr %.sroa.4.0, 1
   ret { i64, ptr } %42
 }
 
@@ -4312,9 +4312,9 @@ _ZN10serde_bare2de10from_slice17hd71fb9df94651cedE.llvm.15328536302644105373.exi
   br label %23
 
 21:                                               ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i, %17, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i"
-  %.0.i.i.i.i.ph = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i" ], [ %20, %17 ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i ]
+  %.1.i.i.i.i.ph = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i" ], [ %20, %17 ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1150
-  %22 = call noundef nonnull align 8 ptr @"_ZN10ockam_core7message106_$LT$impl$u20$core..convert..From$LT$serde_bare..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7dbbf957bb8a38b8E"(ptr noalias noundef nonnull align 8 %.0.i.i.i.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.39.llvm.15328536302644105373)
+  %22 = call noundef nonnull align 8 ptr @"_ZN10ockam_core7message106_$LT$impl$u20$core..convert..From$LT$serde_bare..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7dbbf957bb8a38b8E"(ptr noalias noundef nonnull align 8 %.1.i.i.i.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.39.llvm.15328536302644105373)
   br label %23
 
 23:                                               ; preds = %_ZN10serde_bare2de10from_slice17hd71fb9df94651cedE.llvm.15328536302644105373.exit, %21
@@ -6939,8 +6939,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i: ; preds = %5
   br label %"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit"
 
 "_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i", %15, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %.thread.i
-  %.0.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i ], [ %18, %15 ], [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i" ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i ], [ %18, %15 ], [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i" ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7751,8 +7751,8 @@ default.unreachable112:                           ; preds = %2
   br label %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit.thread"
 
 "_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit.thread": ; preds = %41, %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit95", %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit", %22, %33, %25, %16, %14, %12, %10, %18
-  %.0 = phi ptr [ %11, %10 ], [ %20, %18 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %30, %25 ], [ %38, %33 ], [ %24, %22 ], [ %32, %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit" ], [ %40, %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit95" ], [ %43, %41 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %11, %10 ], [ %20, %18 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %30, %25 ], [ %38, %33 ], [ %24, %22 ], [ %32, %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit" ], [ %40, %"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h25fd6661879637b0E.exit95" ], [ %43, %41 ]
+  ret ptr %.1
 
 25:                                               ; preds = %12
   %26 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8908,8 +8908,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i: ; preds = %1
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %.thread.i.i
-  %.0.i.i = phi ptr [ null, %.thread.i.i ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i" ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ null, %.thread.i.i ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i" ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8956,8 +8956,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit: ; preds = %1
   br label %.thread32
 
 .thread32:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %.thread ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

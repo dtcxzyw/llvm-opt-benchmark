@@ -438,12 +438,12 @@ define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %38 = phi ptr [ %37, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.26783 = phi i32 [ %spec.select61, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.36783 = phi i32 [ %spec.select61, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv82 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   tail call void @Nwk_ManLevel_rec(ptr noundef nonnull %38)
   %39 = getelementptr i8, ptr %38, i64 44
   %.val56 = load i32, ptr %39, align 4
-  %spec.select61 = tail call i32 @llvm.smax.i32(i32 %.26783, i32 %.val56)
+  %spec.select61 = tail call i32 @llvm.smax.i32(i32 %.36783, i32 %.val56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv82, 1
   %40 = load i32, ptr %30, align 4
   %41 = sext i32 %40 to i64
@@ -456,27 +456,27 @@ define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %.critedge.loopexit
 
 .critedge.loopexit:                               ; preds = %.critedge.loopexit.loopexit, %.lr.ph.preheader
-  %.2.lcssa.ph = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select61, %.critedge.loopexit.loopexit ]
+  %.3.lcssa.ph = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select61, %.critedge.loopexit.loopexit ]
   %.lcssa.ph = phi i32 [ 1, %.lr.ph.preheader ], [ %44, %.critedge.loopexit.loopexit ]
   %.val.pre = load i32, ptr %8, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %28
   %.val = phi i32 [ %.val53, %28 ], [ %.val.pre, %.critedge.loopexit ]
-  %.2.lcssa = phi i32 [ 0, %28 ], [ %.2.lcssa.ph, %.critedge.loopexit ]
+  %.3.lcssa = phi i32 [ 0, %28 ], [ %.3.lcssa.ph, %.critedge.loopexit ]
   %.lcssa = phi i32 [ 0, %28 ], [ %.lcssa.ph, %.critedge.loopexit ]
   %45 = and i32 %.val, 7
   %.not65 = icmp eq i32 %45, 3
   br i1 %.not65, label %46, label %._crit_edge
 
 46:                                               ; preds = %.critedge
-  %spec.select = add nuw nsw i32 %.2.lcssa, %.lcssa
+  %spec.select = add nuw nsw i32 %.3.lcssa, %.lcssa
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit, %7, %46, %.critedge, %10, %11
-  %.4 = phi i32 [ 0, %11 ], [ 0, %10 ], [ %.2.lcssa, %.critedge ], [ %spec.select, %46 ], [ 0, %7 ], [ 1, %15 ], [ %27, %._crit_edge.loopexit ]
+  %.2 = phi i32 [ 0, %11 ], [ 0, %10 ], [ %.3.lcssa, %.critedge ], [ %spec.select, %46 ], [ 0, %7 ], [ 1, %15 ], [ %27, %._crit_edge.loopexit ]
   %47 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.4, ptr %47, align 4
+  store i32 %.2, ptr %47, align 4
   br label %48
 
 48:                                               ; preds = %1, %._crit_edge

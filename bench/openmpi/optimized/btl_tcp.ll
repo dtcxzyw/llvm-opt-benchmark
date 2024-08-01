@@ -253,7 +253,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
   br label %.thread
 
 .thread:                                          ; preds = %34, %88, %98
-  %.3 = phi ptr [ %41, %98 ], [ %41, %88 ], [ %36, %34 ]
+  %.4 = phi ptr [ %41, %98 ], [ %41, %88 ], [ %36, %34 ]
   %100 = load i8, ptr @opal_uses_threads, align 1
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %105
@@ -273,7 +273,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
 
 109:                                              ; preds = %106, %105
   %110 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv64
-  store ptr %.3, ptr %110, align 8
+  store ptr %.4, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %18, %14, %109

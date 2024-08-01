@@ -8170,7 +8170,7 @@ lpad12:                                           ; preds = %if.then.i5
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.end.i, %_ZNK7rocksdb18VersionStorageInfo19GetBlobFileMetaDataEm.exitthread-pre-split, %invoke.cont13
-  %retval.0 = phi ptr [ %second16, %invoke.cont13 ], [ null, %_ZNK7rocksdb18VersionStorageInfo19GetBlobFileMetaDataEm.exitthread-pre-split ], [ null, %if.end.i ]
+  %retval.1 = phi ptr [ %second16, %invoke.cont13 ], [ null, %_ZNK7rocksdb18VersionStorageInfo19GetBlobFileMetaDataEm.exitthread-pre-split ], [ null, %if.end.i ]
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %meta, i64 8
   %19 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i8 = icmp eq ptr %19, null
@@ -8250,8 +8250,8 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %cleanup, %if.then
-  %retval.1 = phi ptr [ %second, %if.then ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %retval.0, %if.end8.sink.split.i.i.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %second, %if.then ], [ %retval.1, %cleanup ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %retval.1, %if.end8.sink.split.i.i.i.i ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10686,8 +10686,8 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i: ; p
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i, %if.end.i
-  %added_files4.sroa.17.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
-  %added_files4.sroa.9.0 = phi ptr [ %call5.i.i.i.i17, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
+  %added_files4.sroa.17.1 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
+  %added_files4.sroa.9.1 = phi ptr [ %call5.i.i.i.i17, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %added_files, i64 16
   %__begin2.sroa.0.094 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i18.not95 = icmp eq ptr %__begin2.sroa.0.094, null
@@ -10695,20 +10695,20 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %__begin2.sroa.0.099 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.094, %invoke.cont ]
-  %added_files4.sroa.0.198 = phi ptr [ %added_files4.sroa.0.2, %for.inc ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.9.197 = phi ptr [ %added_files4.sroa.9.2, %for.inc ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.17.196 = phi ptr [ %added_files4.sroa.17.2, %for.inc ], [ %added_files4.sroa.17.0, %invoke.cont ]
+  %added_files4.sroa.0.198 = phi ptr [ %added_files4.sroa.0.3, %for.inc ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.9.097 = phi ptr [ %added_files4.sroa.9.2, %for.inc ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.17.096 = phi ptr [ %added_files4.sroa.17.2, %for.inc ], [ %added_files4.sroa.17.1, %invoke.cont ]
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.099, i64 16
-  %cmp.not.i = icmp eq ptr %added_files4.sroa.9.197, %added_files4.sroa.17.196
+  %cmp.not.i = icmp eq ptr %added_files4.sroa.9.097, %added_files4.sroa.17.096
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i21
 
 if.then.i21:                                      ; preds = %for.body
   %11 = load ptr, ptr %second, align 8
-  store ptr %11, ptr %added_files4.sroa.9.197, align 8
+  store ptr %11, ptr %added_files4.sroa.9.097, align 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.9.197 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.9.097 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.0.198 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -10762,9 +10762,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i21
-  %added_files4.sroa.17.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.17.196, %if.then.i21 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.9.197, %if.then.i21 ]
-  %added_files4.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.0.198, %if.then.i21 ]
+  %added_files4.sroa.17.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.17.096, %if.then.i21 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.9.097, %if.then.i21 ]
+  %added_files4.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.0.198, %if.then.i21 ]
   %added_files4.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.099, align 8
   %cmp.i18.not = icmp eq ptr %__begin2.sroa.0.0, null
@@ -10786,7 +10786,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %cond.true.i.i.i
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %.noexc39, %if.then.i.i34, %if.then.i.i.i28
-  %added_files4.sroa.0.191 = phi ptr [ %added_files4.sroa.0.2, %.noexc39 ], [ %added_files4.sroa.0.2, %if.then.i.i34 ], [ %added_files4.sroa.0.198, %if.then.i.i.i28 ]
+  %added_files4.sroa.0.191 = phi ptr [ %added_files4.sroa.0.3, %.noexc39 ], [ %added_files4.sroa.0.3, %if.then.i.i34 ], [ %added_files4.sroa.0.198, %if.then.i.i.i28 ]
   %lpad.loopexit.split-lp85 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -10805,27 +10805,27 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %lpad, %if.th
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i.not.i.i = icmp eq ptr %added_files4.sroa.0.2, %added_files4.sroa.9.2
+  %cmp.i.not.i.i = icmp eq ptr %added_files4.sroa.0.3, %added_files4.sroa.9.2
   br i1 %cmp.i.not.i.i, label %invoke.cont23, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %for.end
   %sub.ptr.lhs.cast.i.i.i35 = ptrtoint ptr %added_files4.sroa.9.2 to i64
-  %sub.ptr.rhs.cast.i.i.i36 = ptrtoint ptr %added_files4.sroa.0.2 to i64
+  %sub.ptr.rhs.cast.i.i.i36 = ptrtoint ptr %added_files4.sroa.0.3 to i64
   %sub.ptr.sub.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i35, %sub.ptr.rhs.cast.i.i.i36
   %sub.ptr.div.i.i.i38 = ashr exact i64 %sub.ptr.sub.i.i.i37, 3
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i38, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %14, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS2_18NewestFirstBySeqNoEEEEvT_SE_T0_T1_(ptr %added_files4.sroa.0.2, ptr nonnull %added_files4.sroa.9.2, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS2_18NewestFirstBySeqNoEEEEvT_SE_T0_T1_(ptr %added_files4.sroa.0.3, ptr nonnull %added_files4.sroa.9.2, i64 noundef %mul.i.i)
           to label %.noexc39 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc39:                                         ; preds = %if.then.i.i34
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_18NewestFirstBySeqNoEEEEvT_SE_T0_(ptr %added_files4.sroa.0.2, ptr nonnull %added_files4.sroa.9.2)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_18NewestFirstBySeqNoEEEEvT_SE_T0_(ptr %added_files4.sroa.0.3, ptr nonnull %added_files4.sroa.9.2)
           to label %invoke.cont23 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %invoke.cont, %for.end, %.noexc39
-  %added_files4.sroa.0.1.lcssa109 = phi ptr [ %added_files4.sroa.0.2, %for.end ], [ %added_files4.sroa.0.2, %.noexc39 ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.9.1.lcssa108 = phi ptr [ %added_files4.sroa.9.2, %for.end ], [ %added_files4.sroa.9.2, %.noexc39 ], [ %added_files4.sroa.9.0, %invoke.cont ]
+  %added_files4.sroa.0.1.lcssa109 = phi ptr [ %added_files4.sroa.0.3, %for.end ], [ %added_files4.sroa.0.3, %.noexc39 ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.9.0.lcssa108 = phi ptr [ %added_files4.sroa.9.2, %for.end ], [ %added_files4.sroa.9.2, %.noexc39 ], [ %added_files4.sroa.9.1, %invoke.cont ]
   %15 = load ptr, ptr %arrayidx.i, align 8
   %16 = load ptr, ptr %_M_finish.i, align 8
   br label %while.cond.outer
@@ -10838,7 +10838,7 @@ while.cond.outer:                                 ; preds = %if.else, %invoke.co
 
 while.cond:                                       ; preds = %while.cond.outer, %if.then
   %added_iter.sroa.0.0 = phi ptr [ %incdec.ptr.i50, %if.then ], [ %added_iter.sroa.0.0.ph, %while.cond.outer ]
-  %cmp.i43.not = icmp eq ptr %added_iter.sroa.0.0, %added_files4.sroa.9.1.lcssa108
+  %cmp.i43.not = icmp eq ptr %added_iter.sroa.0.0, %added_files4.sroa.9.0.lcssa108
   br i1 %cmp.i43.not, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %while.cond
@@ -11004,8 +11004,8 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i: ; p
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i, %if.end.i
-  %added_files4.sroa.17.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
-  %added_files4.sroa.9.0 = phi ptr [ %call5.i.i.i.i17, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
+  %added_files4.sroa.17.1 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
+  %added_files4.sroa.9.1 = phi ptr [ %call5.i.i.i.i17, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %added_files, i64 16
   %__begin2.sroa.0.090 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i18.not91 = icmp eq ptr %__begin2.sroa.0.090, null
@@ -11013,20 +11013,20 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %__begin2.sroa.0.095 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.090, %invoke.cont ]
-  %added_files4.sroa.0.194 = phi ptr [ %added_files4.sroa.0.2, %for.inc ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.9.193 = phi ptr [ %added_files4.sroa.9.2, %for.inc ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.17.192 = phi ptr [ %added_files4.sroa.17.2, %for.inc ], [ %added_files4.sroa.17.0, %invoke.cont ]
+  %added_files4.sroa.0.194 = phi ptr [ %added_files4.sroa.0.3, %for.inc ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.9.093 = phi ptr [ %added_files4.sroa.9.2, %for.inc ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.17.092 = phi ptr [ %added_files4.sroa.17.2, %for.inc ], [ %added_files4.sroa.17.1, %invoke.cont ]
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.095, i64 16
-  %cmp.not.i = icmp eq ptr %added_files4.sroa.9.193, %added_files4.sroa.17.192
+  %cmp.not.i = icmp eq ptr %added_files4.sroa.9.093, %added_files4.sroa.17.092
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i21
 
 if.then.i21:                                      ; preds = %for.body
   %11 = load ptr, ptr %second, align 8
-  store ptr %11, ptr %added_files4.sroa.9.193, align 8
+  store ptr %11, ptr %added_files4.sroa.9.093, align 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.9.193 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.9.093 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.0.194 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -11080,9 +11080,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i21
-  %added_files4.sroa.17.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.17.192, %if.then.i21 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.9.193, %if.then.i21 ]
-  %added_files4.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.0.194, %if.then.i21 ]
+  %added_files4.sroa.17.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.17.092, %if.then.i21 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.9.093, %if.then.i21 ]
+  %added_files4.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.0.194, %if.then.i21 ]
   %added_files4.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.095, align 8
   %cmp.i18.not = icmp eq ptr %__begin2.sroa.0.0, null
@@ -11123,9 +11123,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %lpad, %if.th
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %invoke.cont
-  %added_files4.sroa.9.1.lcssa = phi ptr [ %added_files4.sroa.9.0, %invoke.cont ], [ %added_files4.sroa.9.2, %for.inc ]
-  %added_files4.sroa.0.1.lcssa = phi ptr [ %added_files4.sroa.9.0, %invoke.cont ], [ %added_files4.sroa.0.2, %for.inc ]
-  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_SG_T0_(ptr %added_files4.sroa.0.1.lcssa, ptr %added_files4.sroa.9.1.lcssa)
+  %added_files4.sroa.9.0.lcssa = phi ptr [ %added_files4.sroa.9.1, %invoke.cont ], [ %added_files4.sroa.9.2, %for.inc ]
+  %added_files4.sroa.0.1.lcssa = phi ptr [ %added_files4.sroa.9.1, %invoke.cont ], [ %added_files4.sroa.0.3, %for.inc ]
+  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_SG_T0_(ptr %added_files4.sroa.0.1.lcssa, ptr %added_files4.sroa.9.0.lcssa)
           to label %invoke.cont23 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %for.end
@@ -11141,7 +11141,7 @@ while.cond.outer:                                 ; preds = %if.else, %invoke.co
 
 while.cond:                                       ; preds = %while.cond.outer, %if.then
   %added_iter.sroa.0.0 = phi ptr [ %incdec.ptr.i46, %if.then ], [ %added_iter.sroa.0.0.ph, %while.cond.outer ]
-  %cmp.i37.not = icmp eq ptr %added_iter.sroa.0.0, %added_files4.sroa.9.1.lcssa
+  %cmp.i37.not = icmp eq ptr %added_iter.sroa.0.0, %added_files4.sroa.9.0.lcssa
   br i1 %cmp.i37.not, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %while.cond
@@ -11319,8 +11319,8 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i: ; p
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i, %if.end.i
-  %added_files4.sroa.17.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
-  %added_files4.sroa.9.0 = phi ptr [ %call5.i.i.i.i17, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
+  %added_files4.sroa.17.1 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
+  %added_files4.sroa.9.1 = phi ptr [ %call5.i.i.i.i17, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %added_files, i64 16
   %__begin2.sroa.0.099 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i18.not100 = icmp eq ptr %__begin2.sroa.0.099, null
@@ -11328,20 +11328,20 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %__begin2.sroa.0.0104 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.099, %invoke.cont ]
-  %added_files4.sroa.0.1103 = phi ptr [ %added_files4.sroa.0.2, %for.inc ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.9.1102 = phi ptr [ %added_files4.sroa.9.2, %for.inc ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.17.1101 = phi ptr [ %added_files4.sroa.17.2, %for.inc ], [ %added_files4.sroa.17.0, %invoke.cont ]
+  %added_files4.sroa.0.1103 = phi ptr [ %added_files4.sroa.0.3, %for.inc ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.9.0102 = phi ptr [ %added_files4.sroa.9.2, %for.inc ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.17.0101 = phi ptr [ %added_files4.sroa.17.2, %for.inc ], [ %added_files4.sroa.17.1, %invoke.cont ]
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.0104, i64 16
-  %cmp.not.i = icmp eq ptr %added_files4.sroa.9.1102, %added_files4.sroa.17.1101
+  %cmp.not.i = icmp eq ptr %added_files4.sroa.9.0102, %added_files4.sroa.17.0101
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i21
 
 if.then.i21:                                      ; preds = %for.body
   %11 = load ptr, ptr %second, align 8
-  store ptr %11, ptr %added_files4.sroa.9.1102, align 8
+  store ptr %11, ptr %added_files4.sroa.9.0102, align 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.9.1102 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.9.0102 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %added_files4.sroa.0.1103 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -11395,9 +11395,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i21
-  %added_files4.sroa.17.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.17.1101, %if.then.i21 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.9.1102, %if.then.i21 ]
-  %added_files4.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.0.1103, %if.then.i21 ]
+  %added_files4.sroa.17.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.17.0101, %if.then.i21 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.9.0102, %if.then.i21 ]
+  %added_files4.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %added_files4.sroa.0.1103, %if.then.i21 ]
   %added_files4.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0104, align 8
   %cmp.i18.not = icmp eq ptr %__begin2.sroa.0.0, null
@@ -11419,7 +11419,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %cond.true.i.i.i
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.else.i.i.i, %.noexc41, %if.then.i.i.i39, %if.then.i.i34, %if.then.i.i.i28
-  %added_files4.sroa.0.196 = phi ptr [ %added_files4.sroa.0.2, %if.else.i.i.i ], [ %added_files4.sroa.0.2, %.noexc41 ], [ %added_files4.sroa.0.2, %if.then.i.i.i39 ], [ %added_files4.sroa.0.2, %if.then.i.i34 ], [ %added_files4.sroa.0.1103, %if.then.i.i.i28 ]
+  %added_files4.sroa.0.196 = phi ptr [ %added_files4.sroa.0.3, %if.else.i.i.i ], [ %added_files4.sroa.0.3, %.noexc41 ], [ %added_files4.sroa.0.3, %if.then.i.i.i39 ], [ %added_files4.sroa.0.3, %if.then.i.i34 ], [ %added_files4.sroa.0.1103, %if.then.i.i.i28 ]
   %lpad.loopexit.split-lp90 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -11438,18 +11438,18 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %lpad, %if.th
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i.not.i.i = icmp eq ptr %added_files4.sroa.0.2, %added_files4.sroa.9.2
+  %cmp.i.not.i.i = icmp eq ptr %added_files4.sroa.0.3, %added_files4.sroa.9.2
   br i1 %cmp.i.not.i.i, label %invoke.cont25, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %for.end
   %sub.ptr.lhs.cast.i.i.i35 = ptrtoint ptr %added_files4.sroa.9.2 to i64
-  %sub.ptr.rhs.cast.i.i.i36 = ptrtoint ptr %added_files4.sroa.0.2 to i64
+  %sub.ptr.rhs.cast.i.i.i36 = ptrtoint ptr %added_files4.sroa.0.3 to i64
   %sub.ptr.sub.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i35, %sub.ptr.rhs.cast.i.i.i36
   %sub.ptr.div.i.i.i38 = ashr exact i64 %sub.ptr.sub.i.i.i37, 3
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i38, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %14, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep13BySmallestKeyEEEEvT_SG_T0_T1_(ptr %added_files4.sroa.0.2, ptr nonnull %added_files4.sroa.9.2, i64 noundef %mul.i.i, ptr %cmp.coerce)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep13BySmallestKeyEEEEvT_SG_T0_T1_(ptr %added_files4.sroa.0.3, ptr nonnull %added_files4.sroa.9.2, i64 noundef %mul.i.i, ptr %cmp.coerce)
           to label %.noexc40 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc40:                                         ; preds = %if.then.i.i34
@@ -11457,8 +11457,8 @@ if.then.i.i34:                                    ; preds = %for.end
   br i1 %cmp.i1.i.i, label %if.then.i.i.i39, label %if.else.i.i.i
 
 if.then.i.i.i39:                                  ; preds = %.noexc40
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %added_files4.sroa.0.2, i64 128
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep13BySmallestKeyEEEEvT_SG_T0_(ptr %added_files4.sroa.0.2, ptr nonnull %add.ptr.i.i.i.i, ptr %cmp.coerce)
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %added_files4.sroa.0.3, i64 128
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep13BySmallestKeyEEEEvT_SG_T0_(ptr %added_files4.sroa.0.3, ptr nonnull %add.ptr.i.i.i.i, ptr %cmp.coerce)
           to label %.noexc41 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc41:                                         ; preds = %if.then.i.i.i39
@@ -11466,12 +11466,12 @@ if.then.i.i.i39:                                  ; preds = %.noexc40
           to label %invoke.cont25 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.else.i.i.i:                                    ; preds = %.noexc40
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep13BySmallestKeyEEEEvT_SG_T0_(ptr %added_files4.sroa.0.2, ptr nonnull %added_files4.sroa.9.2, ptr %cmp.coerce)
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS2_14VersionBuilder3Rep13BySmallestKeyEEEEvT_SG_T0_(ptr %added_files4.sroa.0.3, ptr nonnull %added_files4.sroa.9.2, ptr %cmp.coerce)
           to label %invoke.cont25 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont25:                                    ; preds = %invoke.cont, %for.end, %.noexc41, %if.else.i.i.i
-  %added_files4.sroa.0.1.lcssa112 = phi ptr [ %added_files4.sroa.0.2, %for.end ], [ %added_files4.sroa.0.2, %.noexc41 ], [ %added_files4.sroa.0.2, %if.else.i.i.i ], [ %added_files4.sroa.9.0, %invoke.cont ]
-  %added_files4.sroa.9.1.lcssa111 = phi ptr [ %added_files4.sroa.9.2, %for.end ], [ %added_files4.sroa.9.2, %.noexc41 ], [ %added_files4.sroa.9.2, %if.else.i.i.i ], [ %added_files4.sroa.9.0, %invoke.cont ]
+  %added_files4.sroa.0.1.lcssa112 = phi ptr [ %added_files4.sroa.0.3, %for.end ], [ %added_files4.sroa.0.3, %.noexc41 ], [ %added_files4.sroa.0.3, %if.else.i.i.i ], [ %added_files4.sroa.9.1, %invoke.cont ]
+  %added_files4.sroa.9.0.lcssa111 = phi ptr [ %added_files4.sroa.9.2, %for.end ], [ %added_files4.sroa.9.2, %.noexc41 ], [ %added_files4.sroa.9.2, %if.else.i.i.i ], [ %added_files4.sroa.9.1, %invoke.cont ]
   %15 = load ptr, ptr %arrayidx.i, align 8
   %16 = load ptr, ptr %_M_finish.i, align 8
   br label %while.cond.outer
@@ -11484,7 +11484,7 @@ while.cond.outer:                                 ; preds = %if.else, %invoke.co
 
 while.cond:                                       ; preds = %while.cond.outer, %if.then
   %added_iter.sroa.0.0 = phi ptr [ %incdec.ptr.i55, %if.then ], [ %added_iter.sroa.0.0.ph, %while.cond.outer ]
-  %cmp.i46.not = icmp eq ptr %added_iter.sroa.0.0, %added_files4.sroa.9.1.lcssa111
+  %cmp.i46.not = icmp eq ptr %added_iter.sroa.0.0, %added_files4.sroa.9.0.lcssa111
   br i1 %cmp.i46.not, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %while.cond

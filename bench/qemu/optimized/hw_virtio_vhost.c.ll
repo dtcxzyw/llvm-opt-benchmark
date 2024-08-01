@@ -873,7 +873,7 @@ if.then100:                                       ; preds = %land.lhs.true95
   br i1 %tobool104.not, label %return, label %fail_alloc
 
 fail_alloc:                                       ; preds = %do.body81, %if.then100, %if.end67
-  %r.0 = phi i32 [ %call69, %if.end67 ], [ %call78, %do.body81 ], [ %call103, %if.then100 ]
+  %r.3 = phi i32 [ %call69, %if.end67 ], [ %call78, %do.body81 ], [ %call103, %if.then100 ]
   %25 = load ptr, ptr %used, align 8
   %call109 = call i64 @virtio_queue_get_used_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   %dev.val98 = load ptr, ptr %dev, align 8
@@ -881,7 +881,7 @@ fail_alloc:                                       ; preds = %do.body81, %if.then
   br label %fail_alloc_used
 
 fail_alloc_used:                                  ; preds = %if.end56, %fail_alloc
-  %r.1 = phi i32 [ %r.0, %fail_alloc ], [ -12, %if.end56 ]
+  %r.2 = phi i32 [ %r.3, %fail_alloc ], [ -12, %if.end56 ]
   %26 = load ptr, ptr %avail, align 8
   %call111 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   %dev.val99 = load ptr, ptr %dev, align 8
@@ -889,7 +889,7 @@ fail_alloc_used:                                  ; preds = %if.end56, %fail_all
   br label %fail_alloc_avail
 
 fail_alloc_avail:                                 ; preds = %vhost_memory_map.exit128, %fail_alloc_used
-  %r.2 = phi i32 [ %r.1, %fail_alloc_used ], [ -12, %vhost_memory_map.exit128 ]
+  %r.1 = phi i32 [ %r.2, %fail_alloc_used ], [ -12, %vhost_memory_map.exit128 ]
   %27 = load ptr, ptr %desc, align 8
   %call113 = call i64 @virtio_queue_get_desc_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   %dev.val100 = load ptr, ptr %dev, align 8
@@ -912,7 +912,7 @@ if.then.i132:                                     ; preds = %vhost_dev_has_iommu
   br label %return
 
 return:                                           ; preds = %if.then.i132, %vhost_dev_has_iommu.exit.i134, %vhost_virtqueue_set_vring_endian_legacy.exit.thread, %vhost_memory_map.exit, %if.end90, %land.lhs.true, %land.lhs.true95, %if.then100, %vhost_virtqueue_set_vring_endian_legacy.exit, %entry, %do.body24, %do.body
-  %retval.0 = phi i32 [ %call13, %do.body ], [ %call21, %do.body24 ], [ 0, %entry ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit ], [ 0, %if.then100 ], [ 0, %land.lhs.true95 ], [ 0, %land.lhs.true ], [ 0, %if.end90 ], [ -12, %vhost_memory_map.exit ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit.thread ], [ %r.2, %vhost_dev_has_iommu.exit.i134 ], [ %r.2, %if.then.i132 ]
+  %retval.0 = phi i32 [ %call13, %do.body ], [ %call21, %do.body24 ], [ 0, %entry ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit ], [ 0, %if.then100 ], [ 0, %land.lhs.true95 ], [ 0, %land.lhs.true ], [ 0, %if.end90 ], [ -12, %vhost_memory_map.exit ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit.thread ], [ %r.1, %vhost_dev_has_iommu.exit.i134 ], [ %r.1, %if.then.i132 ]
   ret i32 %retval.0
 }
 
@@ -1498,9 +1498,9 @@ for.body33.lr.ph:                                 ; preds = %for.end
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.inc41
-  %i.1155 = phi i32 [ 0, %for.body33.lr.ph ], [ %inc42, %for.inc41 ]
+  %i.2155 = phi i32 [ 0, %for.body33.lr.ph ], [ %inc42, %for.inc41 ]
   %22 = load i32, ptr %vq_index34, align 4
-  %add35 = add i32 %22, %i.1155
+  %add35 = add i32 %22, %i.2155
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %state.i)
   %23 = load ptr, ptr %vhost_ops, align 8
   %vhost_get_vq_index.i87 = getelementptr inbounds i8, ptr %23, i64 208
@@ -1542,15 +1542,15 @@ if.then38:                                        ; preds = %vhost_virtqueue_set
   br label %while.cond.preheader
 
 for.inc41:                                        ; preds = %vhost_virtqueue_set_busyloop_timeout.exit.thread126, %vhost_virtqueue_set_busyloop_timeout.exit
-  %inc42 = add nuw i32 %i.1155, 1
+  %inc42 = add nuw i32 %i.2155, 1
   %27 = load i32, ptr %nvqs, align 8
   %cmp32 = icmp ult i32 %inc42, %27
   br i1 %cmp32, label %for.body33, label %if.end44, !llvm.loop !13
 
 if.end44:                                         ; preds = %for.inc41, %for.end, %for.end.thread
   %tobool.not187 = phi i1 [ %tobool.not, %for.end ], [ %tobool.not180, %for.end.thread ], [ false, %for.inc41 ]
-  %n_initialized_vqs.0.lcssa184 = phi i32 [ %inc, %for.end ], [ 0, %for.end.thread ], [ %inc, %for.inc41 ]
-  %i.2 = phi i32 [ %inc.lcssa.mux, %for.end ], [ 0, %for.end.thread ], [ %inc42, %for.inc41 ]
+  %n_initialized_vqs.1.lcssa184 = phi i32 [ %inc, %for.end ], [ 0, %for.end.thread ], [ %inc, %for.inc41 ]
+  %i.1 = phi i32 [ %inc.lcssa.mux, %for.end ], [ 0, %for.end.thread ], [ %inc42, %for.inc41 ]
   %28 = load i64, ptr %features, align 8
   %features45 = getelementptr inbounds i8, ptr %hdev, i64 456
   store i64 %28, ptr %features45, align 8
@@ -1699,9 +1699,9 @@ fail_busyloop:                                    ; preds = %if.then87
   br i1 %tobool.not187, label %fail, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then38, %if.then117, %fail_busyloop
-  %i.3193 = phi i32 [ %i.1155, %if.then38 ], [ %i.2, %fail_busyloop ], [ %i.2, %if.then117 ]
-  %r.0192 = phi i32 [ %retval.0.i93125, %if.then38 ], [ %call89, %fail_busyloop ], [ -22, %if.then117 ]
-  %n_initialized_vqs.0.lcssa182191 = phi i32 [ %inc, %if.then38 ], [ %n_initialized_vqs.0.lcssa184, %fail_busyloop ], [ %n_initialized_vqs.0.lcssa184, %if.then117 ]
+  %i.3193 = phi i32 [ %i.2155, %if.then38 ], [ %i.1, %fail_busyloop ], [ %i.1, %if.then117 ]
+  %r.1192 = phi i32 [ %retval.0.i93125, %if.then38 ], [ %call89, %fail_busyloop ], [ -22, %if.then117 ]
+  %n_initialized_vqs.1.lcssa182191 = phi i32 [ %inc, %if.then38 ], [ %n_initialized_vqs.1.lcssa184, %fail_busyloop ], [ %n_initialized_vqs.1.lcssa184, %if.then117 ]
   %dec157 = add i32 %i.3193, -1
   %cmp121158 = icmp sgt i32 %dec157, -1
   br i1 %cmp121158, label %while.body.lr.ph, label %fail
@@ -1746,15 +1746,15 @@ vhost_virtqueue_set_busyloop_timeout.exit111:     ; preds = %while.body, %if.end
   br i1 %cmp121, label %while.body, label %fail, !llvm.loop !14
 
 fail:                                             ; preds = %vhost_virtqueue_set_busyloop_timeout.exit111, %if.then117, %while.cond.preheader, %fail_busyloop, %switch.lookup, %if.then25, %if.then20, %if.then13, %if.then8
-  %n_initialized_vqs.1 = phi i32 [ 0, %switch.lookup ], [ 0, %if.then8 ], [ 0, %if.then13 ], [ 0, %if.then20 ], [ %i.0151, %if.then25 ], [ %n_initialized_vqs.0.lcssa184, %fail_busyloop ], [ %n_initialized_vqs.0.lcssa182191, %while.cond.preheader ], [ %n_initialized_vqs.0.lcssa184, %if.then117 ], [ %n_initialized_vqs.0.lcssa182191, %vhost_virtqueue_set_busyloop_timeout.exit111 ]
-  %r.1 = phi i32 [ %call1, %switch.lookup ], [ %call6, %if.then8 ], [ %call11, %if.then13 ], [ -22, %if.then20 ], [ %retval.0.i119, %if.then25 ], [ %call89, %fail_busyloop ], [ %r.0192, %while.cond.preheader ], [ -22, %if.then117 ], [ %r.0192, %vhost_virtqueue_set_busyloop_timeout.exit111 ]
+  %n_initialized_vqs.0 = phi i32 [ 0, %switch.lookup ], [ 0, %if.then8 ], [ 0, %if.then13 ], [ 0, %if.then20 ], [ %i.0151, %if.then25 ], [ %n_initialized_vqs.1.lcssa184, %fail_busyloop ], [ %n_initialized_vqs.1.lcssa182191, %while.cond.preheader ], [ %n_initialized_vqs.1.lcssa184, %if.then117 ], [ %n_initialized_vqs.1.lcssa182191, %vhost_virtqueue_set_busyloop_timeout.exit111 ]
+  %r.0 = phi i32 [ %call1, %switch.lookup ], [ %call6, %if.then8 ], [ %call11, %if.then13 ], [ -22, %if.then20 ], [ %retval.0.i119, %if.then25 ], [ %call89, %fail_busyloop ], [ %r.1192, %while.cond.preheader ], [ -22, %if.then117 ], [ %r.1192, %vhost_virtqueue_set_busyloop_timeout.exit111 ]
   %nvqs126 = getelementptr inbounds i8, ptr %hdev, i64 440
-  store i32 %n_initialized_vqs.1, ptr %nvqs126, align 8
+  store i32 %n_initialized_vqs.0, ptr %nvqs126, align 8
   call void @vhost_dev_cleanup(ptr noundef nonnull %hdev)
   br label %return
 
 return:                                           ; preds = %if.end113, %fail
-  %retval.0 = phi i32 [ %r.1, %fail ], [ 0, %if.end113 ]
+  %retval.0 = phi i32 [ %r.0, %fail ], [ 0, %if.end113 ]
   ret i32 %retval.0
 }
 
@@ -2132,9 +2132,9 @@ for.inc.i:                                        ; preds = %if.end5.i56.i, %if.
   br i1 %exitcond.not.i, label %for.inc76, label %for.body.i, !llvm.loop !17
 
 if.then74:                                        ; preds = %if.end5.i.i, %if.end5.i40.i, %if.end5.i56.i, %if.end.i.i, %if.end.i38.i, %if.end.i54.i
-  %j.2.ph76.i.sink = phi i64 [ 2, %if.end.i54.i ], [ 1, %if.end.i38.i ], [ 0, %if.end.i.i ], [ 2, %if.end5.i56.i ], [ 1, %if.end5.i40.i ], [ 0, %if.end5.i.i ]
+  %j.1.ph76.i.sink = phi i64 [ 2, %if.end.i54.i ], [ 1, %if.end.i38.i ], [ 0, %if.end.i.i ], [ 2, %if.end5.i56.i ], [ 1, %if.end5.i40.i ], [ 0, %if.end5.i.i ]
   %.str.74.sink = phi ptr [ @.str.73, %if.end.i54.i ], [ @.str.73, %if.end.i38.i ], [ @.str.73, %if.end.i.i ], [ @.str.74, %if.end5.i56.i ], [ @.str.74, %if.end5.i40.i ], [ @.str.74, %if.end5.i.i ]
-  %arrayidx27.i = getelementptr [3 x ptr], ptr @__const.vhost_verify_ring_mappings.part_name, i64 0, i64 %j.2.ph76.i.sink
+  %arrayidx27.i = getelementptr [3 x ptr], ptr @__const.vhost_verify_ring_mappings.part_name, i64 0, i64 %j.1.ph76.i.sink
   %68 = load ptr, ptr %arrayidx27.i, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.74.sink, ptr noundef %68, i32 noundef %i.085.i) #19
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65, i32 noundef %i.2131) #19
@@ -2571,7 +2571,7 @@ if.then.i12:                                      ; preds = %trace_vhost_region_
   %tobool11.not.i = icmp eq i64 %and10.i, 0
   %sub13.i = sub i64 %call4.i, %and10.i
   %add14.i = select i1 %tobool11.not.i, i64 0, i64 %sub13.i
-  %mrs_size.1.i = add i64 %add14.i, %add7.i
+  %mrs_size.2.i = add i64 %add14.i, %add7.i
   %45 = load ptr, ptr %mr1.i, align 16
   %name17.i13 = getelementptr inbounds i8, ptr %45, i64 232
   %46 = load ptr, ptr %name17.i13, align 8
@@ -2600,11 +2600,11 @@ if.then8.i.i93.i:                                 ; preds = %if.then.i.i90.i
   %51 = load i64, ptr %_now.i.i83.i, align 8
   %tv_usec.i.i96.i = getelementptr inbounds i8, ptr %_now.i.i83.i, i64 8
   %52 = load i64, ptr %tv_usec.i.i96.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i95.i, i64 noundef %51, i64 noundef %52, ptr noundef %46, i64 noundef %sub8.i, i64 noundef %mrs_size.1.i, i64 noundef %sub6.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i95.i, i64 noundef %51, i64 noundef %52, ptr noundef %46, i64 noundef %sub8.i, i64 noundef %mrs_size.2.i, i64 noundef %sub6.i) #19
   br label %trace_vhost_region_add_section_aligned.exit.i
 
 if.else.i.i92.i:                                  ; preds = %if.then.i.i90.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef %46, i64 noundef %sub8.i, i64 noundef %mrs_size.1.i, i64 noundef %sub6.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef %46, i64 noundef %sub8.i, i64 noundef %mrs_size.2.i, i64 noundef %sub6.i) #19
   br label %trace_vhost_region_add_section_aligned.exit.i
 
 trace_vhost_region_add_section_aligned.exit.i:    ; preds = %if.else.i.i92.i, %if.then8.i.i93.i, %land.lhs.true5.i.i87.i, %if.then.i12
@@ -2612,9 +2612,9 @@ trace_vhost_region_add_section_aligned.exit.i:    ; preds = %if.else.i.i92.i, %i
   br label %if.end18.i10
 
 if.end18.i10:                                     ; preds = %trace_vhost_region_add_section_aligned.exit.i, %trace_vhost_region_add_section.exit.i
-  %mrs_host.1.i = phi i64 [ %sub6.i, %trace_vhost_region_add_section_aligned.exit.i ], [ %add.i, %trace_vhost_region_add_section.exit.i ]
-  %mrs_gpa.1.i = phi i64 [ %sub8.i, %trace_vhost_region_add_section_aligned.exit.i ], [ %30, %trace_vhost_region_add_section.exit.i ]
-  %mrs_size.2.i = phi i64 [ %mrs_size.1.i, %trace_vhost_region_add_section_aligned.exit.i ], [ %coerce.sroa.0.0.extract.trunc.i, %trace_vhost_region_add_section.exit.i ]
+  %mrs_host.0.i = phi i64 [ %sub6.i, %trace_vhost_region_add_section_aligned.exit.i ], [ %add.i, %trace_vhost_region_add_section.exit.i ]
+  %mrs_gpa.0.i = phi i64 [ %sub8.i, %trace_vhost_region_add_section_aligned.exit.i ], [ %30, %trace_vhost_region_add_section.exit.i ]
+  %mrs_size.0.i = phi i64 [ %mrs_size.2.i, %trace_vhost_region_add_section_aligned.exit.i ], [ %coerce.sroa.0.0.extract.trunc.i, %trace_vhost_region_add_section.exit.i ]
   %n_tmp_sections.i = getelementptr i8, ptr %listener, i64 408
   %53 = load i32, ptr %n_tmp_sections.i, align 8
   %tobool19.not.i = icmp eq i32 %53, 0
@@ -2654,11 +2654,11 @@ int128_get64.exit99.i:                            ; preds = %if.then21.i
   %add.i100.i = add i64 %coerce26.sroa.0.0.extract.trunc.i, -1
   %sub.i101.i = add i64 %add.i100.i, %add32.i
   %add34.i = add i64 %56, %coerce26.sroa.0.0.extract.trunc.i
-  %cmp35.not.i = icmp ugt i64 %mrs_gpa.1.i, %add34.i
+  %cmp35.not.i = icmp ugt i64 %mrs_gpa.0.i, %add34.i
   br i1 %cmp35.not.i, label %if.then99.critedge.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %int128_get64.exit99.i
-  %cmp37.i = icmp ult i64 %mrs_gpa.1.i, %56
+  %cmp37.i = icmp ult i64 %mrs_gpa.0.i, %56
   br i1 %cmp37.i, label %if.then38.i, label %if.end43.i
 
 if.then38.i:                                      ; preds = %if.then36.i
@@ -2668,13 +2668,13 @@ if.then38.i:                                      ; preds = %if.then36.i
   %63 = load ptr, ptr %mr29.i, align 16
   %name42.i = getelementptr inbounds i8, ptr %63, i64 232
   %64 = load ptr, ptr %name42.i, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.vhost_region_add_section, ptr noundef %62, i64 noundef %mrs_gpa.1.i, ptr noundef %64, i64 noundef %56) #19
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.vhost_region_add_section, ptr noundef %62, i64 noundef %mrs_gpa.0.i, ptr noundef %64, i64 noundef %56) #19
   br label %return
 
 if.end43.i:                                       ; preds = %if.then36.i
-  %sub44.i = sub nuw i64 %mrs_gpa.1.i, %56
+  %sub44.i = sub nuw i64 %mrs_gpa.0.i, %56
   %add45.i = add i64 %sub44.i, %add32.i
-  %cmp46.i = icmp eq i64 %add45.i, %mrs_host.1.i
+  %cmp46.i = icmp eq i64 %add45.i, %mrs_host.0.i
   br i1 %cmp46.i, label %land.lhs.true47.i, label %if.else.i11
 
 land.lhs.true47.i:                                ; preds = %if.end43.i
@@ -2690,10 +2690,10 @@ land.lhs.true51.i:                                ; preds = %land.lhs.true47.i
   br i1 %tobool53.i, label %if.else.i11, label %if.then54.i
 
 if.then54.i:                                      ; preds = %land.lhs.true51.i
-  %add55.i = add i64 %mrs_size.2.i, %mrs_host.1.i
+  %add55.i = add i64 %mrs_size.0.i, %mrs_host.0.i
   %cond.i = tail call i64 @llvm.umax.i64(i64 %sub.i101.i, i64 %add55.i)
   store i64 %56, ptr %offset_within_address_space24.i, align 8
-  %cond69.i = tail call i64 @llvm.umin.i64(i64 %add32.i, i64 %mrs_host.1.i)
+  %cond69.i = tail call i64 @llvm.umin.i64(i64 %add32.i, i64 %mrs_host.0.i)
   %call71.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef %66) #19
   %68 = ptrtoint ptr %call71.i to i64
   %sub72.i = sub i64 %cond69.i, %68
@@ -2709,11 +2709,11 @@ if.then54.i:                                      ; preds = %land.lhs.true51.i
   br label %return
 
 if.else.i11:                                      ; preds = %land.lhs.true51.i, %land.lhs.true47.i, %if.end43.i
-  %cmp92.not.i = icmp eq i64 %mrs_gpa.1.i, %add34.i
+  %cmp92.not.i = icmp eq i64 %mrs_gpa.0.i, %add34.i
   br i1 %cmp92.not.i, label %if.then99.critedge.i, label %if.then93.i
 
 if.then93.i:                                      ; preds = %if.else.i11
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80, ptr noundef nonnull @__func__.vhost_region_add_section, i64 noundef %mrs_gpa.1.i) #19
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80, ptr noundef nonnull @__func__.vhost_region_add_section, i64 noundef %mrs_gpa.0.i) #19
   br label %return
 
 if.then99.critedge.i:                             ; preds = %if.else.i11, %int128_get64.exit99.i, %land.lhs.true.i, %if.end18.i10
@@ -4227,7 +4227,7 @@ if.end3.i114:                                     ; preds = %land.lhs.true.i117,
   br label %fail_log
 
 fail_log:                                         ; preds = %if.end3.i114, %land.lhs.true.i117, %if.then97, %fail_start, %vhost_dev_set_vring_enable.exit, %do.body54
-  %r.0 = phi i32 [ %call51, %do.body54 ], [ %call6.i, %vhost_dev_set_vring_enable.exit ], [ %call73, %fail_start ], [ %call73, %if.then97 ], [ %call73, %land.lhs.true.i117 ], [ %call73, %if.end3.i114 ]
+  %r.3 = phi i32 [ %call51, %do.body54 ], [ %call6.i, %vhost_dev_set_vring_enable.exit ], [ %call73, %fail_start ], [ %call73, %if.then97 ], [ %call73, %land.lhs.true.i117 ], [ %call73, %if.end3.i114 ]
   %log1.i = getelementptr inbounds i8, ptr %hdev, i64 544
   %60 = load ptr, ptr %log1.i, align 8
   %tobool.not.i122 = icmp eq ptr %60, null
@@ -4284,7 +4284,7 @@ if.end18.i:                                       ; preds = %if.end17.i128, %if.
 
 fail_vq:                                          ; preds = %for.body, %if.end18.i, %fail_log, %do.body25
   %i.0146 = phi i32 [ %i.0.lcssa, %do.body25 ], [ %i.0.lcssa, %fail_log ], [ %i.0.lcssa, %if.end18.i ], [ %i.0148, %for.body ]
-  %r.1 = phi i32 [ %call22, %do.body25 ], [ %r.0, %fail_log ], [ %r.0, %if.end18.i ], [ %call17, %for.body ]
+  %r.2 = phi i32 [ %call22, %do.body25 ], [ %r.3, %fail_log ], [ %r.3, %if.end18.i ], [ %call17, %for.body ]
   %dec151 = add i32 %i.0146, -1
   %cmp100152 = icmp sgt i32 %dec151, -1
   br i1 %cmp100152, label %while.body.lr.ph, label %fail_mem
@@ -4308,7 +4308,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp100.not, label %fail_mem, label %while.body, !llvm.loop !30
 
 fail_mem:                                         ; preds = %while.body, %fail_vq, %do.body
-  %r.2 = phi i32 [ %call10, %do.body ], [ %r.1, %fail_vq ], [ %r.1, %while.body ]
+  %r.1 = phi i32 [ %call10, %do.body ], [ %r.2, %fail_vq ], [ %r.2, %while.body ]
   %72 = load ptr, ptr %hdev, align 8
   %tobool.not.i130 = icmp eq ptr %72, null
   br i1 %tobool.not.i130, label %fail_features, label %if.then.i131
@@ -4330,13 +4330,13 @@ if.then107:                                       ; preds = %vhost_dev_has_iommu
   br label %fail_features
 
 fail_features:                                    ; preds = %fail_mem, %if.then.i131, %vhost_dev_has_iommu.exit138, %if.then107, %trace_vhost_dev_start.exit
-  %r.3 = phi i32 [ %call, %trace_vhost_dev_start.exit ], [ %r.2, %if.then107 ], [ %r.2, %vhost_dev_has_iommu.exit138 ], [ %r.2, %if.then.i131 ], [ %r.2, %fail_mem ]
+  %r.0 = phi i32 [ %call, %trace_vhost_dev_start.exit ], [ %r.1, %if.then107 ], [ %r.1, %vhost_dev_has_iommu.exit138 ], [ %r.1, %if.then.i131 ], [ %r.1, %fail_mem ]
   store i8 0, ptr %vhost_started, align 2
   store i8 0, ptr %started, align 8
   br label %return
 
 return:                                           ; preds = %if.then8.i, %if.then3.i, %if.end.i104, %fail_features
-  %retval.0 = phi i32 [ %r.3, %fail_features ], [ 0, %if.end.i104 ], [ 0, %if.then3.i ], [ 0, %if.then8.i ]
+  %retval.0 = phi i32 [ %r.0, %fail_features ], [ 0, %if.end.i104 ], [ 0, %if.then3.i ], [ 0, %if.then8.i ]
   ret i32 %retval.0
 }
 
@@ -4877,12 +4877,12 @@ if.then9:                                         ; preds = %if.end7
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end7
-  %read_fd.0 = phi i32 [ %8, %if.then9 ], [ %2, %if.end7 ]
+  %read_fd.1 = phi i32 [ %8, %if.then9 ], [ %2, %if.end7 ]
   %call12 = call noalias dereferenceable_or_null(1048576) ptr @g_malloc(i64 noundef 1048576) #21
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %if.end11
-  %call13 = call i64 @read(i32 noundef %read_fd.0, ptr noundef %call12, i64 noundef 1048576) #19
+  %call13 = call i64 @read(i32 noundef %read_fd.1, ptr noundef %call12, i64 noundef 1048576) #19
   %cmp14 = icmp eq i64 %call13, -1
   br i1 %cmp14, label %land.rhs, label %do.end
 
@@ -4929,7 +4929,7 @@ if.end29:                                         ; preds = %if.end25
   br label %do.body.backedge
 
 while.end:                                        ; preds = %if.end25
-  %call30 = call i32 @close(i32 noundef %read_fd.0) #19
+  %call30 = call i32 @close(i32 noundef %read_fd.1) #19
   %11 = load i8, ptr %started, align 8
   %tobool32 = trunc i8 %11 to i1
   br i1 %tobool32, label %if.else34, label %if.end35
@@ -4961,12 +4961,12 @@ vhost_check_device_state.exit:                    ; preds = %if.then.i23, %if.en
 fail:                                             ; preds = %if.then18, %if.then6
   %transfer_buf.0 = phi ptr [ null, %if.then6 ], [ %call12, %if.then18 ]
   %ret.0 = phi i32 [ %retval.0.i30, %if.then6 ], [ %sub, %if.then18 ]
-  %read_fd.1 = phi i32 [ %2, %if.then6 ], [ %read_fd.0, %if.then18 ]
-  %cmp41 = icmp sgt i32 %read_fd.1, -1
+  %read_fd.0 = phi i32 [ %2, %if.then6 ], [ %read_fd.1, %if.then18 ]
+  %cmp41 = icmp sgt i32 %read_fd.0, -1
   br i1 %cmp41, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %fail
-  %call44 = call i32 @close(i32 noundef %read_fd.1) #19
+  %call44 = call i32 @close(i32 noundef %read_fd.0) #19
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then, %vhost_check_device_state.exit, %if.then43, %fail
@@ -5067,7 +5067,7 @@ if.then9:                                         ; preds = %if.end7
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end7
-  %write_fd.0 = phi i32 [ %8, %if.then9 ], [ %2, %if.end7 ]
+  %write_fd.1 = phi i32 [ %8, %if.then9 ], [ %2, %if.end7 ]
   %call1259 = call i32 @qemu_get_be32(ptr noundef %f) #19
   %cmp1361 = icmp eq i32 %call1259, 0
   br i1 %cmp1361, label %while.end54, label %if.end16
@@ -5080,19 +5080,19 @@ while.cond.loopexit:                              ; preds = %if.end52
 if.end16:                                         ; preds = %if.end11, %while.cond.loopexit
   %conv64.in = phi i32 [ %call12, %while.cond.loopexit ], [ %call1259, %if.end11 ]
   %transfer_buf_size.063 = phi i64 [ %transfer_buf_size.1, %while.cond.loopexit ], [ 0, %if.end11 ]
-  %transfer_buf.062 = phi ptr [ %transfer_buf.1, %while.cond.loopexit ], [ null, %if.end11 ]
+  %transfer_buf.162 = phi ptr [ %transfer_buf.2, %while.cond.loopexit ], [ null, %if.end11 ]
   %conv64 = zext i32 %conv64.in to i64
   %cmp17 = icmp ult i64 %transfer_buf_size.063, %conv64
   br i1 %cmp17, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end16
-  %call20 = call ptr @g_realloc(ptr noundef %transfer_buf.062, i64 noundef %conv64) #19
+  %call20 = call ptr @g_realloc(ptr noundef %transfer_buf.162, i64 noundef %conv64) #19
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end16
-  %transfer_buf.1 = phi ptr [ %call20, %if.then19 ], [ %transfer_buf.062, %if.end16 ]
+  %transfer_buf.2 = phi ptr [ %call20, %if.then19 ], [ %transfer_buf.162, %if.end16 ]
   %transfer_buf_size.1 = phi i64 [ %conv64, %if.then19 ], [ %transfer_buf_size.063, %if.end16 ]
-  %call22 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %transfer_buf.1, i64 noundef %conv64) #19
+  %call22 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %transfer_buf.2, i64 noundef %conv64) #19
   %cmp23 = icmp ult i64 %call22, %conv64
   br i1 %cmp23, label %if.then25, label %do.body.preheader
 
@@ -5101,12 +5101,12 @@ if.then25:                                        ; preds = %if.end21
   br label %fail
 
 do.body.preheader:                                ; preds = %if.end21, %if.end52
-  %transfer_pointer.058 = phi ptr [ %add.ptr, %if.end52 ], [ %transfer_buf.1, %if.end21 ]
+  %transfer_pointer.058 = phi ptr [ %add.ptr, %if.end52 ], [ %transfer_buf.2, %if.end21 ]
   %this_chunk_size.057 = phi i64 [ %sub53, %if.end52 ], [ %conv64, %if.end21 ]
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
-  %call31 = call i64 @write(i32 noundef %write_fd.0, ptr noundef %transfer_pointer.058, i64 noundef %this_chunk_size.057) #19
+  %call31 = call i64 @write(i32 noundef %write_fd.1, ptr noundef %transfer_pointer.058, i64 noundef %this_chunk_size.057) #19
   %cmp32 = icmp eq i64 %call31, -1
   br i1 %cmp32, label %land.rhs, label %do.end
 
@@ -5154,8 +5154,8 @@ if.end52:                                         ; preds = %if.end47
   br i1 %cmp28.not, label %while.cond.loopexit, label %do.body.preheader, !llvm.loop !35
 
 while.end54:                                      ; preds = %while.cond.loopexit, %if.end11
-  %transfer_buf.0.lcssa = phi ptr [ null, %if.end11 ], [ %transfer_buf.1, %while.cond.loopexit ]
-  %call55 = call i32 @close(i32 noundef %write_fd.0) #19
+  %transfer_buf.1.lcssa = phi ptr [ null, %if.end11 ], [ %transfer_buf.2, %while.cond.loopexit ]
+  %call55 = call i32 @close(i32 noundef %write_fd.1) #19
   %11 = load i8, ptr %started, align 8
   %tobool57 = trunc i8 %11 to i1
   br i1 %tobool57, label %if.else59, label %if.end60
@@ -5170,19 +5170,19 @@ if.end60:                                         ; preds = %while.end54
   br label %if.end70
 
 fail:                                             ; preds = %if.then45, %if.then39, %if.then25, %if.then6
-  %transfer_buf.2 = phi ptr [ null, %if.then6 ], [ %transfer_buf.1, %if.then25 ], [ %transfer_buf.1, %if.then39 ], [ %transfer_buf.1, %if.then45 ]
+  %transfer_buf.0 = phi ptr [ null, %if.then6 ], [ %transfer_buf.2, %if.then25 ], [ %transfer_buf.2, %if.then39 ], [ %transfer_buf.2, %if.then45 ]
   %ret.0 = phi i32 [ %retval.0.i37, %if.then6 ], [ -22, %if.then25 ], [ %sub, %if.then39 ], [ -104, %if.then45 ]
-  %write_fd.1 = phi i32 [ %2, %if.then6 ], [ %write_fd.0, %if.then25 ], [ %write_fd.0, %if.then39 ], [ %write_fd.0, %if.then45 ]
-  %cmp66 = icmp sgt i32 %write_fd.1, -1
+  %write_fd.0 = phi i32 [ %2, %if.then6 ], [ %write_fd.1, %if.then25 ], [ %write_fd.1, %if.then39 ], [ %write_fd.1, %if.then45 ]
+  %cmp66 = icmp sgt i32 %write_fd.0, -1
   br i1 %cmp66, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %fail
-  %call69 = call i32 @close(i32 noundef %write_fd.1) #19
+  %call69 = call i32 @close(i32 noundef %write_fd.0) #19
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then, %if.end60, %if.then68, %fail
   %ret.044 = phi i32 [ %ret.0, %if.then68 ], [ %ret.0, %fail ], [ -22, %if.then ], [ %spec.store.select, %if.end60 ]
-  %transfer_buf.243 = phi ptr [ %transfer_buf.2, %if.then68 ], [ %transfer_buf.2, %fail ], [ null, %if.then ], [ %transfer_buf.0.lcssa, %if.end60 ]
+  %transfer_buf.043 = phi ptr [ %transfer_buf.0, %if.then68 ], [ %transfer_buf.0, %fail ], [ null, %if.then ], [ %transfer_buf.1.lcssa, %if.end60 ]
   %g_err.val = load ptr, ptr %g_err, align 8
   %tobool.not.i.i = icmp eq ptr %g_err.val, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i
@@ -5192,7 +5192,7 @@ if.then.i.i:                                      ; preds = %if.end70
   br label %glib_autoptr_cleanup_GError.exit
 
 glib_autoptr_cleanup_GError.exit:                 ; preds = %if.end70, %if.then.i.i
-  call void @g_free(ptr noundef %transfer_buf.243) #19
+  call void @g_free(ptr noundef %transfer_buf.043) #19
   ret i32 %ret.044
 }
 
@@ -5428,7 +5428,7 @@ for.body:                                         ; preds = %int128_get64.exit, 
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.inc85
   %i.189 = phi i32 [ 0, %for.body15.lr.ph ], [ %inc86, %for.inc85 ]
-  %.compoundliteral.sroa.0.088 = phi i32 [ undef, %for.body15.lr.ph ], [ %.compoundliteral.sroa.0.2, %for.inc85 ]
+  %.compoundliteral.sroa.0.088 = phi i32 [ undef, %for.body15.lr.ph ], [ %.compoundliteral.sroa.0.1, %for.inc85 ]
   %12 = load ptr, ptr %vqs, align 8
   %idx.ext16 = sext i32 %i.189 to i64
   %add.ptr17 = getelementptr %struct.vhost_virtqueue, ptr %12, i64 %idx.ext16
@@ -5475,7 +5475,7 @@ while.body.preheader:                             ; preds = %if.then23
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end65
-  %.compoundliteral.sroa.0.186 = phi i32 [ %bf.clear31, %if.end65 ], [ %.compoundliteral.sroa.0.088, %while.body.preheader ]
+  %.compoundliteral.sroa.0.286 = phi i32 [ %bf.clear31, %if.end65 ], [ %.compoundliteral.sroa.0.088, %while.body.preheader ]
   %used_phys24.085 = phi i64 [ %add78, %if.end65 ], [ %.pre94, %while.body.preheader ]
   %used_size26.084 = phi i64 [ %sub77, %if.end65 ], [ %conv, %while.body.preheader ]
   %call.i65 = call ptr @get_ptr_rcu_reader() #19
@@ -5498,7 +5498,7 @@ rcu_read_lock.exit:                               ; preds = %while.body, %while.
   %20 = load ptr, ptr %dev, align 8
   %dma_as = getelementptr inbounds i8, ptr %20, i64 472
   %21 = load ptr, ptr %dma_as, align 8
-  %bf.set = and i32 %.compoundliteral.sroa.0.186, -67108864
+  %bf.set = and i32 %.compoundliteral.sroa.0.286, -67108864
   %bf.clear31 = or disjoint i32 %bf.set, 1
   call void @address_space_get_iotlb_entry(ptr nonnull sret(%struct.IOMMUTLBEntry) align 8 %tmp29, ptr noundef %21, i64 noundef %used_phys24.085, i1 noundef zeroext true, i32 %bf.clear31) #19
   %iotlb.sroa.0.0.copyload = load ptr, ptr %tmp29, align 8
@@ -5573,7 +5573,7 @@ if.else:                                          ; preds = %if.then.i.if.else_c
   br label %for.inc85
 
 for.inc85:                                        ; preds = %if.end65, %if.then23, %if.else, %land.lhs.true
-  %.compoundliteral.sroa.0.2 = phi i32 [ %.compoundliteral.sroa.0.088, %if.else ], [ %.compoundliteral.sroa.0.088, %land.lhs.true ], [ %.compoundliteral.sroa.0.088, %if.then23 ], [ %bf.clear31, %if.end65 ]
+  %.compoundliteral.sroa.0.1 = phi i32 [ %.compoundliteral.sroa.0.088, %if.else ], [ %.compoundliteral.sroa.0.088, %land.lhs.true ], [ %.compoundliteral.sroa.0.088, %if.then23 ], [ %bf.clear31, %if.end65 ]
   %inc86 = add nuw i32 %i.189, 1
   %27 = load i32, ptr %nvqs, align 8
   %cmp14 = icmp ult i32 %inc86, %27

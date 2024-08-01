@@ -481,10 +481,10 @@ define void @_ZN5rfb_t18handle_set_addressE9command_t(ptr nocapture noundef nonn
 
 22:                                               ; preds = %18, %20
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  %.1 = phi i1 [ %.0, %20 ], [ true, %18 ]
+  %.2 = phi i1 [ %.0, %20 ], [ true, %18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-  br i1 %.1, label %23, label %36
+  br i1 %.2, label %23, label %36
 
 23:                                               ; preds = %.thread, %22
   %.pn.pn12 = phi { ptr, i32 } [ %17, %.thread ], [ %.pn, %22 ]

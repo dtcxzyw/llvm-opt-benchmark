@@ -654,7 +654,7 @@ for.cond40.preheader:                             ; preds = %for.inc
   br i1 %cmp4144, label %for.body43, label %end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %number.addr.042 = phi i32 [ %number, %for.body.lr.ph ], [ %number.addr.1, %for.inc ]
+  %number.addr.042 = phi i32 [ %number, %for.body.lr.ph ], [ %number.addr.2, %for.inc ]
   %p.041 = phi ptr [ %call, %for.body.lr.ph ], [ %q.060, %for.inc ]
   %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.041, i32 noundef %conv16) #8
   %cmp18 = icmp eq ptr %call17, null
@@ -712,45 +712,45 @@ if.then37:                                        ; preds = %if.else32
   br label %end
 
 for.inc:                                          ; preds = %namemap_name2num.exit, %if.else32
-  %number.addr.1 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
+  %number.addr.2 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
   %4 = load i8, ptr %q.060, align 1
   %cmp14.not = icmp eq i8 %4, 0
   br i1 %cmp14.not, label %for.cond40.preheader, label %for.body, !llvm.loop !7
 
 for.body43:                                       ; preds = %for.cond40.preheader, %for.inc58
-  %number.addr.246 = phi i32 [ %number.addr.3, %for.inc58 ], [ %number.addr.1, %for.cond40.preheader ]
+  %number.addr.346 = phi i32 [ %number.addr.4, %for.inc58 ], [ %number.addr.2, %for.cond40.preheader ]
   %p.145 = phi ptr [ %add.ptr47, %for.inc58 ], [ %call, %for.cond40.preheader ]
   %call45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.145) #8
   %add.ptr46 = getelementptr inbounds i8, ptr %p.145, i64 %call45
   %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 1
-  %call48 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap, i32 noundef %number.addr.246, ptr noundef nonnull %p.145)
-  %cmp49 = icmp eq i32 %number.addr.246, 0
+  %call48 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap, i32 noundef %number.addr.346, ptr noundef nonnull %p.145)
+  %cmp49 = icmp eq i32 %number.addr.346, 0
   br i1 %cmp49, label %for.inc58, label %if.else52
 
 if.else52:                                        ; preds = %for.body43
-  %cmp53.not = icmp eq i32 %call48, %number.addr.246
+  %cmp53.not = icmp eq i32 %call48, %number.addr.346
   br i1 %cmp53.not, label %for.inc58, label %if.then55
 
 if.then55:                                        ; preds = %if.else52
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @__func__.ossl_namemap_add_names) #7
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %call48, i32 noundef %number.addr.246) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %call48, i32 noundef %number.addr.346) #7
   br label %end
 
 for.inc58:                                        ; preds = %for.body43, %if.else52
-  %number.addr.3 = phi i32 [ %number.addr.246, %if.else52 ], [ %call48, %for.body43 ]
+  %number.addr.4 = phi i32 [ %number.addr.346, %if.else52 ], [ %call48, %for.body43 ]
   %cmp41 = icmp ult ptr %add.ptr47, %q.060
   br i1 %cmp41, label %for.body43, label %end, !llvm.loop !8
 
 end:                                              ; preds = %for.inc58, %for.cond.preheader, %for.cond40.preheader, %if.then55, %if.then37, %if.then26
-  %number.addr.4 = phi i32 [ 0, %if.then26 ], [ 0, %if.then37 ], [ 0, %if.then55 ], [ %number.addr.1, %for.cond40.preheader ], [ %number, %for.cond.preheader ], [ %number.addr.3, %for.inc58 ]
+  %number.addr.1 = phi i32 [ 0, %if.then26 ], [ 0, %if.then37 ], [ 0, %if.then55 ], [ %number.addr.2, %for.cond40.preheader ], [ %number, %for.cond.preheader ], [ %number.addr.4, %for.inc58 ]
   %5 = load ptr, ptr %lock, align 8
   %call61 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #7
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 371) #7
   br label %return
 
 return:                                           ; preds = %if.end, %end, %if.then11, %if.then
-  %retval.0 = phi i32 [ %number.addr.4, %end ], [ 0, %if.then11 ], [ 0, %if.then ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %number.addr.1, %end ], [ 0, %if.then11 ], [ 0, %if.then ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

@@ -4482,8 +4482,8 @@ if.end87:                                         ; preds = %_ZNSt6vectorIN4cvc5
   br label %return
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, %if.end87
-  %retval.6 = phi i1 [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ], [ true, %if.end87 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i1 %retval.6
+  %retval.3 = phi i1 [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ], [ true, %if.end87 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i1 %retval.3
 
 eh.resume:                                        ; preds = %if.then.i.i.i27, %ehcleanup86, %lpad17
   %.pn11 = phi { ptr, i32 } [ %11, %lpad17 ], [ %.pn.pn.pn, %ehcleanup86 ], [ %.pn.pn.pn, %if.then.i.i.i27 ]

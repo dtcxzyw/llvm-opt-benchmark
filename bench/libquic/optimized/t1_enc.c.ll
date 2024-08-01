@@ -319,11 +319,11 @@ append_digest.exit:                               ; preds = %lor.lhs.false.i
   br label %if.end
 
 if.end:                                           ; preds = %append_digest.exit, %entry
-  %md5_len.1 = phi i64 [ 0, %entry ], [ %conv.i, %append_digest.exit ]
+  %md5_len.0 = phi i64 [ 0, %entry ], [ %conv.i, %append_digest.exit ]
   %3 = load ptr, ptr %s3, align 8
   %handshake_hash = getelementptr inbounds i8, ptr %3, i64 176
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %md5_len.1
-  %sub = sub i64 %out_len, %md5_len.1
+  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %md5_len.0
+  %sub = sub i64 %out_len, %md5_len.0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx_copy.i5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i6)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx_copy.i5) #8
@@ -356,7 +356,7 @@ if.end8:                                          ; preds = %lor.lhs.false.i12
   %call6.i18 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx_copy.i5) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ctx_copy.i5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i6)
-  %5 = trunc nuw i64 %md5_len.1 to i32
+  %5 = trunc nuw i64 %md5_len.0 to i32
   %conv = add i32 %4, %5
   br label %return
 

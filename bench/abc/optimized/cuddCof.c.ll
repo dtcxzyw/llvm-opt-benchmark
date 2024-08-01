@@ -213,8 +213,8 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %108
 
 108:                                              ; preds = %106, %102
-  %.1 = phi ptr [ %105, %102 ], [ %107, %106 ]
-  %109 = icmp eq ptr %.1, null
+  %.2 = phi ptr [ %105, %102 ], [ %107, %106 ]
+  %109 = icmp eq ptr %.2, null
   br i1 %109, label %.thread116, label %.thread118
 
 .thread116:                                       ; preds = %98, %108
@@ -223,7 +223,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %119
 
 .thread118:                                       ; preds = %87, %108
-  %.1120 = phi ptr [ %.1, %108 ], [ %75, %87 ]
+  %.2120 = phi ptr [ %.2, %108 ], [ %75, %87 ]
   %110 = load i32, ptr %81, align 4
   %111 = add i32 %110, -1
   store i32 %111, ptr %81, align 4
@@ -233,9 +233,9 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %114
 
 114:                                              ; preds = %72, %.thread118
-  %.2 = phi ptr [ %.095, %72 ], [ %.1120, %.thread118 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Cofactor, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %.2) #5
-  %115 = ptrtoint ptr %.2 to i64
+  %.1 = phi ptr [ %.095, %72 ], [ %.2120, %.thread118 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Cofactor, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %.1) #5
+  %115 = ptrtoint ptr %.1 to i64
   %116 = zext i1 %14 to i64
   %117 = xor i64 %115, %116
   %118 = inttoptr i64 %117 to ptr

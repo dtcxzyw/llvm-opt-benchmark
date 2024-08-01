@@ -342,10 +342,10 @@ invoke.cont27.lr.ph:                              ; preds = %_ZN6vectorIjLb0EjE3
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %invoke.cont27.lr.ph, %for.inc172
-  %best_v.0235 = phi i32 [ 2147483647, %invoke.cont27.lr.ph ], [ %best_v.3, %for.inc172 ]
-  %best_score.0234 = phi double [ -1.000000e+00, %invoke.cont27.lr.ph ], [ %best_score.3, %for.inc172 ]
-  %ns.0231 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %ns.2, %for.inc172 ]
-  %n.0230 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %n.2, %for.inc172 ]
+  %best_v.0235 = phi i32 [ 2147483647, %invoke.cont27.lr.ph ], [ %best_v.2, %for.inc172 ]
+  %best_score.0234 = phi double [ -1.000000e+00, %invoke.cont27.lr.ph ], [ %best_score.1, %for.inc172 ]
+  %ns.0231 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %ns.1, %for.inc172 ]
+  %n.0230 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %n.1, %for.inc172 ]
   %__begin1.0229 = phi ptr [ %20, %invoke.cont27.lr.ph ], [ %incdec.ptr, %for.inc172 ]
   %23 = load i32, ptr %__begin1.0229, align 4
   %24 = load ptr, ptr %this, align 8
@@ -788,8 +788,8 @@ invoke.cont151:                                   ; preds = %if.end142
   %inc153 = add i32 %n.0230, 1
   %rem = urem i32 %and.i.i, %inc153
   %cmp154 = icmp eq i32 %rem, 0
-  %best_score.1 = select i1 %cmp154, double %94, double %best_score.0234
-  %best_v.1 = select i1 %cmp154, i32 %23, i32 %best_v.0235
+  %best_score.2 = select i1 %cmp154, double %94, double %best_score.0234
+  %best_v.3 = select i1 %cmp154, i32 %23, i32 %best_v.0235
   br label %if.end166
 
 if.else:                                          ; preds = %if.end142
@@ -811,25 +811,25 @@ if.then164:                                       ; preds = %invoke.cont160
   br label %if.end166
 
 if.end166:                                        ; preds = %if.else, %invoke.cont160, %if.then164, %invoke.cont151
-  %n.1 = phi i32 [ %inc153, %invoke.cont151 ], [ 0, %if.then164 ], [ %n.0230, %invoke.cont160 ], [ %n.0230, %if.else ]
-  %ns.1 = phi i32 [ 0, %invoke.cont151 ], [ 0, %if.then164 ], [ %ns.0231, %invoke.cont160 ], [ %ns.0231, %if.else ]
-  %best_score.2 = phi double [ %best_score.1, %invoke.cont151 ], [ %94, %if.then164 ], [ %best_score.0234, %invoke.cont160 ], [ %best_score.0234, %if.else ]
-  %best_v.2 = phi i32 [ %best_v.1, %invoke.cont151 ], [ %23, %if.then164 ], [ %best_v.0235, %invoke.cont160 ], [ %best_v.0235, %if.else ]
-  %inc168 = add i32 %ns.1, 1
+  %n.2 = phi i32 [ %inc153, %invoke.cont151 ], [ 0, %if.then164 ], [ %n.0230, %invoke.cont160 ], [ %n.0230, %if.else ]
+  %ns.2 = phi i32 [ 0, %invoke.cont151 ], [ 0, %if.then164 ], [ %ns.0231, %invoke.cont160 ], [ %ns.0231, %if.else ]
+  %best_score.3 = phi double [ %best_score.2, %invoke.cont151 ], [ %94, %if.then164 ], [ %best_score.0234, %invoke.cont160 ], [ %best_score.0234, %if.else ]
+  %best_v.4 = phi i32 [ %best_v.3, %invoke.cont151 ], [ %23, %if.then164 ], [ %best_v.0235, %invoke.cont160 ], [ %best_v.0235, %if.else ]
+  %inc168 = add i32 %ns.2, 1
   %cmp169 = icmp ugt i32 %inc168, %budget
   br i1 %cmp169, label %invoke.cont178, label %for.inc172
 
 for.inc172:                                       ; preds = %invoke.cont83.invoke, %if.end166, %invoke.cont27
-  %n.2 = phi i32 [ %n.1, %if.end166 ], [ %n.0230, %invoke.cont27 ], [ %n.0230, %invoke.cont83.invoke ]
-  %ns.2 = phi i32 [ %inc168, %if.end166 ], [ %ns.0231, %invoke.cont27 ], [ %ns.0231, %invoke.cont83.invoke ]
-  %best_score.3 = phi double [ %best_score.2, %if.end166 ], [ %best_score.0234, %invoke.cont27 ], [ %best_score.0234, %invoke.cont83.invoke ]
-  %best_v.3 = phi i32 [ %best_v.2, %if.end166 ], [ %best_v.0235, %invoke.cont27 ], [ %best_v.0235, %invoke.cont83.invoke ]
+  %n.1 = phi i32 [ %n.2, %if.end166 ], [ %n.0230, %invoke.cont27 ], [ %n.0230, %invoke.cont83.invoke ]
+  %ns.1 = phi i32 [ %inc168, %if.end166 ], [ %ns.0231, %invoke.cont27 ], [ %ns.0231, %invoke.cont83.invoke ]
+  %best_score.1 = phi double [ %best_score.3, %if.end166 ], [ %best_score.0234, %invoke.cont27 ], [ %best_score.0234, %invoke.cont83.invoke ]
+  %best_v.2 = phi i32 [ %best_v.4, %if.end166 ], [ %best_v.0235, %invoke.cont27 ], [ %best_v.0235, %invoke.cont83.invoke ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0229, i64 4
   %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i32
   br i1 %cmp23.not, label %invoke.cont178, label %invoke.cont27
 
 invoke.cont178:                                   ; preds = %if.end166, %invoke.cont32, %for.inc172, %for.end, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread, %invoke.cont17, %_ZN6vectorIjLb0EjE3endEv.exit33
-  %best_v.4 = phi i32 [ 2147483647, %_ZN6vectorIjLb0EjE3endEv.exit33 ], [ 2147483647, %invoke.cont17 ], [ 2147483647, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ 2147483647, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ 2147483647, %for.end ], [ %best_v.3, %for.inc172 ], [ %best_v.0235, %invoke.cont32 ], [ %best_v.2, %if.end166 ]
+  %best_v.1 = phi i32 [ 2147483647, %_ZN6vectorIjLb0EjE3endEv.exit33 ], [ 2147483647, %invoke.cont17 ], [ 2147483647, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ 2147483647, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ 2147483647, %for.end ], [ %best_v.2, %for.inc172 ], [ %best_v.0235, %invoke.cont32 ], [ %best_v.4, %if.end166 ]
   %m174 = getelementptr inbounds i8, ptr %this, i64 8
   %100 = load ptr, ptr %m174, align 8
   store ptr null, ptr %agg.result, align 8
@@ -863,13 +863,13 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then180, %_ZN11a
   br label %cleanup
 
 if.else186:                                       ; preds = %invoke.cont178
-  %cmp187.not = icmp eq i32 %best_v.4, 2147483647
+  %cmp187.not = icmp eq i32 %best_v.1, 2147483647
   br i1 %cmp187.not, label %if.else194, label %invoke.cont190
 
 invoke.cont190:                                   ; preds = %if.else186
   %m_bool_var2expr.i173 = getelementptr inbounds i8, ptr %101, i64 9384
   %107 = load ptr, ptr %m_bool_var2expr.i173, align 8
-  %idxprom.i.i174 = zext i32 %best_v.4 to i64
+  %idxprom.i.i174 = zext i32 %best_v.1 to i64
   %arrayidx.i.i175 = getelementptr inbounds ptr, ptr %107, i64 %idxprom.i.i174
   %108 = load ptr, ptr %arrayidx.i.i175, align 8
   %tobool.not.i176 = icmp eq ptr %108, null

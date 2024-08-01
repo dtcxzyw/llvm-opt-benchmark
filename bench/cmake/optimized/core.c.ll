@@ -503,7 +503,7 @@ uv__backend_timeout.exit:                         ; preds = %71, %68, %65, %62, 
   br label %73
 
 73:                                               ; preds = %uv__backend_timeout.exit, %uv__run_pending.exit60
-  %.166 = phi i32 [ 0, %uv__backend_timeout.exit ], [ %88, %uv__run_pending.exit60 ]
+  %.266 = phi i32 [ 0, %uv__backend_timeout.exit ], [ %88, %uv__run_pending.exit60 ]
   %74 = load ptr, ptr %18, align 8
   %.not50 = icmp eq ptr %18, %74
   br i1 %.not50, label %.critedge5, label %75
@@ -543,7 +543,7 @@ uv__backend_timeout.exit:                         ; preds = %71, %68, %65, %62, 
 
 uv__run_pending.exit60:                           ; preds = %.lr.ph.i58, %75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %88 = add nuw nsw i32 %.166, 1
+  %88 = add nuw nsw i32 %.266, 1
   %exitcond.not = icmp eq i32 %88, 8
   br i1 %exitcond.not, label %.critedge5, label %73, !llvm.loop !7
 
@@ -682,7 +682,7 @@ uv__loop_alive.exit65:                            ; preds = %137, %139, %141, %1
   br i1 %or.cond9, label %.critedge53, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %uv__loop_alive.exit65, %.critedge53, %28
-  %.2 = phi i32 [ 0, %28 ], [ 1, %.critedge53 ], [ %148, %uv__loop_alive.exit65 ]
+  %.1 = phi i32 [ 0, %28 ], [ 1, %.critedge53 ], [ %148, %uv__loop_alive.exit65 ]
   %150 = getelementptr inbounds i8, ptr %0, i64 48
   %151 = load i32, ptr %150, align 8
   %.not51 = icmp eq i32 %151, 0
@@ -693,7 +693,7 @@ uv__loop_alive.exit65:                            ; preds = %137, %139, %141, %1
   br label %153
 
 153:                                              ; preds = %152, %.critedge
-  ret i32 %.2
+  ret i32 %.1
 }
 
 declare void @uv__run_timers(ptr noundef) local_unnamed_addr #1

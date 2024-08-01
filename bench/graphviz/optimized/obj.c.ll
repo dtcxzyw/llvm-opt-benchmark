@@ -438,25 +438,25 @@ define range(i32 -1, 1) i32 @agpopdisc(ptr noundef %0, ptr noundef readnone %1) 
   br i1 %9, label %14, label %.preheader
 
 .preheader:                                       ; preds = %7, %.preheader
-  %.0 = phi ptr [ %11, %.preheader ], [ %6, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.1 = phi ptr [ %11, %.preheader ], [ %6, %7 ]
+  %10 = getelementptr inbounds i8, ptr %.1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %.not20 = icmp eq ptr %12, %1
   br i1 %.not20, label %.critedge, label %.preheader
 
 .critedge:                                        ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.0, i64 16
+  %13 = getelementptr inbounds i8, ptr %.1, i64 16
   br label %14
 
 14:                                               ; preds = %7, %.critedge
   %.sink = phi ptr [ %11, %.critedge ], [ %6, %7 ]
   %.sink26 = phi ptr [ %13, %.critedge ], [ %5, %7 ]
-  %.1 = phi ptr [ %.0, %.critedge ], [ %6, %7 ]
+  %.0 = phi ptr [ %.1, %.critedge ], [ %6, %7 ]
   %15 = getelementptr inbounds i8, ptr %.sink, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %.sink26, align 8
-  tail call void @agfree(ptr noundef %0, ptr noundef nonnull %.1) #4
+  tail call void @agfree(ptr noundef %0, ptr noundef nonnull %.0) #4
   br label %17
 
 17:                                               ; preds = %2, %14

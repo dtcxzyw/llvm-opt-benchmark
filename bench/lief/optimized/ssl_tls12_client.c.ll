@@ -1971,8 +1971,8 @@ ssl_parse_certificate_request.exit:               ; preds = %545, %549, %553, %5
 
 784:                                              ; preds = %701
   %785 = tail call i32 @mbedtls_ssl_ciphersuite_uses_psk(ptr noundef nonnull %705) #11
-  %.not.i48 = icmp eq i32 %785, 0
-  br i1 %.not.i48, label %882, label %786
+  %.not.i47 = icmp eq i32 %785, 0
+  br i1 %.not.i47, label %882, label %786
 
 786:                                              ; preds = %784
   %787 = load ptr, ptr %0, align 8
@@ -1990,8 +1990,8 @@ ssl_parse_certificate_request.exit:               ; preds = %545, %549, %553, %5
 795:                                              ; preds = %791
   %796 = getelementptr inbounds i8, ptr %787, i64 296
   %797 = load ptr, ptr %796, align 8
-  %.not.i.i49 = icmp eq ptr %797, null
-  br i1 %.not.i.i49, label %ssl_write_client_key_exchange.exit, label %798
+  %.not.i.i48 = icmp eq ptr %797, null
+  br i1 %.not.i.i48, label %ssl_write_client_key_exchange.exit, label %798
 
 798:                                              ; preds = %795
   %799 = getelementptr inbounds i8, ptr %787, i64 304
@@ -2125,7 +2125,7 @@ mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %798
   br label %ssl_write_client_key_exchange.exit
 
 877:                                              ; preds = %873, %837, %827, %826
-  %.0127.i = phi i64 [ %824, %826 ], [ %824, %827 ], [ %833, %837 ], [ %824, %873 ]
+  %.1.i49 = phi i64 [ %824, %826 ], [ %824, %827 ], [ %833, %837 ], [ %824, %873 ]
   %878 = load i8, ptr %706, align 2
   %879 = zext i8 %878 to i32
   %880 = call i32 @mbedtls_ssl_psk_derive_premaster(ptr noundef nonnull %0, i32 noundef %879) #11
@@ -2151,9 +2151,9 @@ mbedtls_ssl_conf_has_static_psk.exit.i:           ; preds = %798
   br label %ssl_write_client_key_exchange.exit
 
 888:                                              ; preds = %885, %877, %781, %751
-  %.1.i47 = phi i64 [ 6, %751 ], [ 4, %781 ], [ %.0127.i, %877 ], [ 4, %885 ]
+  %.0127.i = phi i64 [ 6, %751 ], [ 4, %781 ], [ %.1.i49, %877 ], [ 4, %885 ]
   %889 = load i64, ptr %5, align 8
-  %890 = add i64 %889, %.1.i47
+  %890 = add i64 %889, %.0127.i
   %891 = getelementptr inbounds i8, ptr %0, i64 376
   store i64 %890, ptr %891, align 8
   %892 = getelementptr inbounds i8, ptr %0, i64 368

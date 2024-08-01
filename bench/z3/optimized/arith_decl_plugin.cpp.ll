@@ -12099,8 +12099,8 @@ ehcleanup:                                        ; preds = %ehcleanup.loopexit.
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %land.rhs.i, %if.end.i.i.i.i.i71, %_ZN8rationalD2Ev.exit, %_Z11is_uninterpPK4expr.exit, %_ZNK17arith_recognizers6is_intEPK4expr.exit
-  %retval.1 = phi i1 [ true, %_ZNK17arith_recognizers6is_intEPK4expr.exit ], [ false, %_Z11is_uninterpPK4expr.exit ], [ %cmp.i5.lcssa.ph, %_ZN8rationalD2Ev.exit ], [ %cmp.i5.lcssa.ph, %if.end.i.i.i.i.i71 ], [ false, %land.rhs.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK17arith_recognizers6is_intEPK4expr.exit ], [ false, %_Z11is_uninterpPK4expr.exit ], [ %cmp.i5.lcssa.ph, %_ZN8rationalD2Ev.exit ], [ %cmp.i5.lcssa.ph, %if.end.i.i.i.i.i71 ], [ false, %land.rhs.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14100,7 +14100,7 @@ lpad81:                                           ; preds = %invoke.cont80
   br label %ehcleanup
 
 cleanup85:                                        ; preds = %land.rhs.i.i.i144, %invoke.cont69, %_ZNK17arith_recognizers6is_subEPK4expr.exit.i, %land.lhs.true.i151, %invoke.cont73, %invoke.cont76, %invoke.cont82
-  %retval.2 = phi i1 [ true, %invoke.cont82 ], [ false, %invoke.cont76 ], [ false, %invoke.cont73 ], [ false, %land.lhs.true.i151 ], [ false, %_ZNK17arith_recognizers6is_subEPK4expr.exit.i ], [ false, %invoke.cont69 ], [ false, %land.rhs.i.i.i144 ]
+  %retval.3 = phi i1 [ true, %invoke.cont82 ], [ false, %invoke.cont76 ], [ false, %invoke.cont73 ], [ false, %land.lhs.true.i151 ], [ false, %_ZNK17arith_recognizers6is_subEPK4expr.exit.i ], [ false, %invoke.cont69 ], [ false, %land.rhs.i.i.i144 ]
   %63 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(16) %k2)
           to label %.noexc.i157 unwind label %terminate.lpad.i156
@@ -14139,7 +14139,7 @@ ehcleanup:                                        ; preds = %lpad81, %lpad70
   br label %ehcleanup89
 
 cleanup88:                                        ; preds = %land.lhs.true.i36, %.noexc.i161, %.noexc.i118, %.noexc.i, %if.then6, %.noexc19, %if.else.i.i
-  %retval.3 = phi i1 [ true, %if.else.i.i ], [ true, %.noexc19 ], [ false, %if.then6 ], [ %cmp.not.lcssa, %.noexc.i ], [ %cmp51.not187, %.noexc.i118 ], [ %retval.2, %.noexc.i161 ], [ false, %land.lhs.true.i36 ]
+  %retval.0 = phi i1 [ true, %if.else.i.i ], [ true, %.noexc19 ], [ false, %if.then6 ], [ %cmp.not.lcssa, %.noexc.i ], [ %cmp51.not187, %.noexc.i118 ], [ %retval.3, %.noexc.i161 ], [ false, %land.lhs.true.i36 ]
   %69 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(16) %mul)
           to label %.noexc.i165 unwind label %terminate.lpad.i164
@@ -14156,7 +14156,7 @@ terminate.lpad.i164:                              ; preds = %.noexc.i165, %clean
   unreachable
 
 _ZN8rationalD2Ev.exit167:                         ; preds = %.noexc.i165
-  ret i1 %retval.3
+  ret i1 %retval.0
 
 ehcleanup89:                                      ; preds = %ehcleanup, %lpad38, %lpad19, %lpad
   %.pn16 = phi { ptr, i32 } [ %6, %lpad ], [ %32, %lpad19 ], [ %lpad.phi, %lpad38 ], [ %.pn, %ehcleanup ]

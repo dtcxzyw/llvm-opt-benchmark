@@ -3748,9 +3748,9 @@ _ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit:      ; preds = %198
   %220 = getelementptr inbounds i8, ptr %216, i64 8
   %221 = load float, ptr %220, align 4, !noalias !93
   %222 = fcmp ogt float %217, 2.550000e+02
-  %.sroa.0160.0 = select i1 %222, float 2.550000e+02, float %217
+  %.sroa.0160.1 = select i1 %222, float 2.550000e+02, float %217
   %223 = fcmp ogt float %219, 2.550000e+02
-  %.sroa.5.0 = select i1 %223, float 2.550000e+02, float %219
+  %.sroa.5.1 = select i1 %223, float 2.550000e+02, float %219
   %224 = fcmp ogt float %221, 2.550000e+02
   br i1 %224, label %225, label %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit
 
@@ -3758,9 +3758,9 @@ _ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit:      ; preds = %198
   br label %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit
 
 _ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit:      ; preds = %225, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %134, %130, %124, %117, %74
-  %.sroa.0160.1 = phi float [ %111, %134 ], [ %111, %130 ], [ %111, %124 ], [ %111, %117 ], [ %111, %74 ], [ %.sroa.0160.0, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %.sroa.0160.0, %225 ]
-  %.sroa.5.1 = phi float [ %112, %134 ], [ %112, %130 ], [ %112, %124 ], [ %112, %117 ], [ %112, %74 ], [ %.sroa.5.0, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %.sroa.5.0, %225 ]
-  %.sroa.10.1 = phi float [ %113, %134 ], [ %113, %130 ], [ %113, %124 ], [ %113, %117 ], [ %113, %74 ], [ %221, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ 2.550000e+02, %225 ]
+  %.sroa.0160.0 = phi float [ %111, %134 ], [ %111, %130 ], [ %111, %124 ], [ %111, %117 ], [ %111, %74 ], [ %.sroa.0160.1, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %.sroa.0160.1, %225 ]
+  %.sroa.5.0 = phi float [ %112, %134 ], [ %112, %130 ], [ %112, %124 ], [ %112, %117 ], [ %112, %74 ], [ %.sroa.5.1, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %.sroa.5.1, %225 ]
+  %.sroa.10.0 = phi float [ %113, %134 ], [ %113, %130 ], [ %113, %124 ], [ %113, %117 ], [ %113, %74 ], [ %221, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ 2.550000e+02, %225 ]
   %.sroa.0164.0 = phi float [ %111, %134 ], [ %111, %130 ], [ %111, %124 ], [ %111, %117 ], [ %111, %74 ], [ %203, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %203, %225 ]
   %.sroa.3165.0 = phi float [ %112, %134 ], [ %112, %130 ], [ %112, %124 ], [ %112, %117 ], [ %112, %74 ], [ %204, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %204, %225 ]
   %.sroa.6.0 = phi float [ %113, %134 ], [ %113, %130 ], [ %113, %124 ], [ %113, %117 ], [ %113, %74 ], [ %205, %_ZN2cvngIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %205, %225 ]
@@ -3784,11 +3784,11 @@ _ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit:      ; preds = %225, %_ZN2cvngIfLi3
   %.sroa.4127.0..sroa_idx = getelementptr inbounds i8, ptr %227, i64 12
   store float 0.000000e+00, ptr %.sroa.4127.0..sroa_idx, align 4
   %228 = getelementptr inbounds %"class.cv::Vec.3", ptr %66, i64 %indvars.iv
-  store float %.sroa.0160.1, ptr %228, align 4
+  store float %.sroa.0160.0, ptr %228, align 4
   %.sroa.2119.0..sroa_idx = getelementptr inbounds i8, ptr %228, i64 4
-  store float %.sroa.5.1, ptr %.sroa.2119.0..sroa_idx, align 4
+  store float %.sroa.5.0, ptr %.sroa.2119.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %228, i64 8
-  store float %.sroa.10.1, ptr %.sroa.3.0..sroa_idx, align 4
+  store float %.sroa.10.0, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4120.0..sroa_idx = getelementptr inbounds i8, ptr %228, i64 12
   store float 0.000000e+00, ptr %.sroa.4120.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

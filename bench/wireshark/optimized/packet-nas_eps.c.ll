@@ -3776,7 +3776,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   br i1 %.not147, label %.loopexit124, label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %7, %.loopexit
-  %.0109145 = phi i32 [ %.3, %.loopexit ], [ %3, %7 ]
+  %.0109145 = phi i32 [ %.2111, %.loopexit ], [ %3, %7 ]
   %9 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %10 = shl i32 %.0109145, 3
   %11 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #10
@@ -3889,8 +3889,8 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
 
 .preheader122:                                    ; preds = %60, %.preheader122
   %.2138 = phi i32 [ %70, %.preheader122 ], [ 0, %60 ]
-  %.2111137 = phi i32 [ %69, %.preheader122 ], [ %24, %60 ]
-  %66 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %.2111137, i32 noundef 6, i32 noundef 1) #10
+  %.3137 = phi i32 [ %69, %.preheader122 ], [ %24, %60 ]
+  %66 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %.3137, i32 noundef 6, i32 noundef 1) #10
   %67 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 2, i32 noundef 0) #10
   %69 = add i32 %66, 2
@@ -3902,8 +3902,8 @@ default.unreachable164:                           ; preds = %23
   unreachable
 
 .loopexit:                                        ; preds = %.preheader122, %proto_item_set_generated.exit, %.preheader, %41
-  %.3 = phi i32 [ %45, %41 ], [ %40, %.preheader ], [ %45, %proto_item_set_generated.exit ], [ %69, %.preheader122 ]
-  %71 = sub i32 %.3, %3
+  %.2111 = phi i32 [ %45, %41 ], [ %40, %.preheader ], [ %45, %proto_item_set_generated.exit ], [ %69, %.preheader122 ]
+  %71 = sub i32 %.2111, %3
   %72 = icmp ult i32 %71, %4
   br i1 %72, label %.lr.ph146, label %.loopexit124, !llvm.loop !9
 

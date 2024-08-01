@@ -2934,7 +2934,7 @@ for.body170.lr.ph:                                ; preds = %invoke.cont166
   br label %for.body170
 
 for.body170:                                      ; preds = %for.body170.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679
-  %success.05631 = phi i1 [ %call75, %for.body170.lr.ph ], [ %and2091142, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679 ]
+  %success.15631 = phi i1 [ %call75, %for.body170.lr.ph ], [ %and2091142, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679 ]
   %i.05630 = phi i64 [ 0, %for.body170.lr.ph ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679 ]
   %63 = load ptr, ptr %d_cl, align 8
   store ptr %63, ptr %agg.tmp172, align 8
@@ -3155,7 +3155,7 @@ invoke.cont200:                                   ; preds = %if.else.i.i1565, %i
           to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit unwind label %lpad203
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont200
-  %and2091142 = and i1 %success.05631, %call205
+  %and2091142 = and i1 %success.15631, %call205
   %.pre5728 = load ptr, ptr %ref.tmp201, align 8
   %.pre5729 = load ptr, ptr %_M_finish.i1577, align 8
   %cmp.not3.i.i.i.i1578 = icmp eq ptr %.pre5728, %.pre5729
@@ -3517,7 +3517,7 @@ lpad219:                                          ; preds = %if.else.i.i1664, %i
   br label %ehcleanup426
 
 for.end223:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679, %invoke.cont166
-  %success.0.lcssa = phi i1 [ %call75, %invoke.cont166 ], [ %and2091142, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679 ]
+  %success.1.lcssa = phi i1 [ %call75, %invoke.cont166 ], [ %and2091142, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1679 ]
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %vp2a, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(24) %notAnd)
           to label %invoke.cont224 unwind label %lpad174.loopexit.split-lp
 
@@ -3841,7 +3841,7 @@ invoke.cont395:                                   ; preds = %invoke.cont382
 
 invoke.cont398:                                   ; preds = %invoke.cont395
   %159 = and i1 %150, %call399
-  %and4031133 = and i1 %success.0.lcssa, %159
+  %and4031133 = and i1 %success.1.lcssa, %159
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp396) #17
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp376) #17
   %160 = load ptr, ptr %ref.tmp378, align 8
@@ -4006,7 +4006,7 @@ ehcleanup428:                                     ; preds = %arraydestroy.body16
   br label %ehcleanup1181
 
 if.end429:                                        ; preds = %invoke.cont85, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1759
-  %success.2.in = phi i1 [ %call75, %invoke.cont85 ], [ %and4031133, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1759 ]
+  %success.0.in = phi i1 [ %call75, %invoke.cont85 ], [ %and4031133, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1759 ]
   %176 = load ptr, ptr %d_cl, align 8
   store ptr %176, ptr %agg.tmp430, align 8
   %177 = load ptr, ptr %andNode, align 8
@@ -4054,7 +4054,7 @@ invoke.cont477:                                   ; preds = %invoke.cont474
           to label %invoke.cont481 unwind label %lpad480
 
 invoke.cont481:                                   ; preds = %invoke.cont477
-  %and4861153 = and i1 %success.2.in, %call482
+  %and4861153 = and i1 %success.0.in, %call482
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp479) #17
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp478) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp475) #17
@@ -5674,7 +5674,7 @@ ehcleanup1305:                                    ; preds = %lpad1267, %lpad1250
 
 cleanup:                                          ; preds = %invoke.cont1232, %invoke.cont1268
   %agg.tmp1238.sink = phi ptr [ %agg.tmp1238, %invoke.cont1268 ], [ %agg.tmp1231, %invoke.cont1232 ]
-  %retval.0 = phi i1 [ %call1269, %invoke.cont1268 ], [ %call1235, %invoke.cont1232 ]
+  %retval.1 = phi i1 [ %call1269, %invoke.cont1268 ], [ %call1235, %invoke.cont1232 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp1238.sink) #17
   %357 = load ptr, ptr %newArgs1209, align 8
   %_M_finish.i1930 = getelementptr inbounds i8, ptr %newArgs1209, i64 8
@@ -5773,7 +5773,7 @@ for.cond1319:                                     ; preds = %_ZN4cvc58internal12
   br i1 %cmp.i1959.not, label %if.end1344, label %for.body1322
 
 for.body1322:                                     ; preds = %invoke.cont1316, %for.cond1319
-  %retval.15624 = phi i1 [ %retval.2, %for.cond1319 ], [ undef, %invoke.cont1316 ]
+  %retval.25624 = phi i1 [ %retval.3, %for.cond1319 ], [ undef, %invoke.cont1316 ]
   %__begin5.sroa.0.05623 = phi ptr [ %incdec.ptr.i2025, %for.cond1319 ], [ %spec.select.i.i, %invoke.cont1316 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %368 = load ptr, ptr %__begin5.sroa.0.05623, align 8, !noalias !28
@@ -5879,7 +5879,7 @@ lpad1332:                                         ; preds = %invoke.cont1330
   br label %ehcleanup1339
 
 cleanup1338:                                      ; preds = %if.then13.i.i2010, %if.then.i.i2003, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2000, %invoke.cont1324
-  %retval.2 = phi i1 [ %retval.15624, %invoke.cont1324 ], [ %call1334, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2000 ], [ %call1334, %if.then.i.i2003 ], [ %call1334, %if.then13.i.i2010 ]
+  %retval.3 = phi i1 [ %retval.25624, %invoke.cont1324 ], [ %call1334, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2000 ], [ %call1334, %if.then.i.i2003 ], [ %call1334, %if.then13.i.i2010 ]
   %bf.load.i.i2013 = load i64, ptr %368, align 8
   %377 = and i64 %bf.load.i.i2013, 1152920405095219200
   %cmp.not.i.i2014 = icmp eq i64 %377, 1152920405095219200
@@ -6130,7 +6130,7 @@ cond.false1532:                                   ; preds = %invoke.cont1498
   br label %cond.end1533
 
 cond.end1533:                                     ; preds = %invoke.cont1523, %cond.false1532
-  %arrayinit.endOfInit1507.0 = phi ptr [ %arrayinit.element1521, %invoke.cont1523 ], [ undef, %cond.false1532 ]
+  %arrayinit.endOfInit1507.1 = phi ptr [ %arrayinit.element1521, %invoke.cont1523 ], [ undef, %cond.false1532 ]
   %call1537 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback19addAletheStepFromOrENS1_10AletheRuleENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EESA_RNS0_7CDProofE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef 44, ptr noundef nonnull %agg.tmp1467, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1470, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1500, ptr noundef nonnull align 8 dereferenceable(217) %cdp)
           to label %cleanup.done1540 unwind label %ehcleanup1548
 
@@ -6370,7 +6370,7 @@ ehcleanup1585.thread:                             ; preds = %invoke.cont1514
   br label %cleanup.action1600
 
 ehcleanup1574.thread:                             ; preds = %invoke.cont1517, %invoke.cont1520
-  %arrayinit.endOfInit1507.1 = phi ptr [ %arrayinit.element1521, %invoke.cont1520 ], [ %ref.tmp1505, %invoke.cont1517 ]
+  %arrayinit.endOfInit1507.0 = phi ptr [ %arrayinit.element1521, %invoke.cont1520 ], [ %ref.tmp1505, %invoke.cont1517 ]
   %429 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1585
@@ -6388,7 +6388,7 @@ ehcleanup1548:                                    ; preds = %cond.end1533
 
 cleanup.action1550:                               ; preds = %ehcleanup1548.thread, %ehcleanup1548
   %.pn10884912 = phi { ptr, i32 } [ %430, %ehcleanup1548.thread ], [ %431, %ehcleanup1548 ]
-  %arrayinit.endOfInit1507.24911 = phi ptr [ %arrayinit.element1521, %ehcleanup1548.thread ], [ %arrayinit.endOfInit1507.0, %ehcleanup1548 ]
+  %arrayinit.endOfInit1507.54911 = phi ptr [ %arrayinit.element1521, %ehcleanup1548.thread ], [ %arrayinit.endOfInit1507.1, %ehcleanup1548 ]
   %432 = getelementptr inbounds i8, ptr %ref.tmp1505, i64 16
   br label %arraydestroy.body1565
 
@@ -6401,16 +6401,16 @@ arraydestroy.body1565:                            ; preds = %arraydestroy.body15
 
 ehcleanup1585:                                    ; preds = %arraydestroy.body1565, %ehcleanup1574.thread
   %.pn1088.pn4920 = phi { ptr, i32 } [ %429, %ehcleanup1574.thread ], [ %.pn10884912, %arraydestroy.body1565 ]
-  %arrayinit.endOfInit1507.34919 = phi ptr [ %arrayinit.endOfInit1507.1, %ehcleanup1574.thread ], [ %arrayinit.endOfInit1507.24911, %arraydestroy.body1565 ]
+  %arrayinit.endOfInit1507.44919 = phi ptr [ %arrayinit.endOfInit1507.0, %ehcleanup1574.thread ], [ %arrayinit.endOfInit1507.54911, %arraydestroy.body1565 ]
   %433 = phi i1 [ false, %ehcleanup1574.thread ], [ true, %arraydestroy.body1565 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1510) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1511) #17
-  %arraydestroy.isempty1588 = icmp eq ptr %ref.tmp1505, %arrayinit.endOfInit1507.34919
+  %arraydestroy.isempty1588 = icmp eq ptr %ref.tmp1505, %arrayinit.endOfInit1507.44919
   %or.cond1230 = or i1 %433, %arraydestroy.isempty1588
   br i1 %or.cond1230, label %cleanup.action1600, label %arraydestroy.body1589
 
 arraydestroy.body1589:                            ; preds = %ehcleanup1585, %arraydestroy.body1589
-  %arraydestroy.elementPast1590 = phi ptr [ %arraydestroy.element1591, %arraydestroy.body1589 ], [ %arrayinit.endOfInit1507.34919, %ehcleanup1585 ]
+  %arraydestroy.elementPast1590 = phi ptr [ %arraydestroy.element1591, %arraydestroy.body1589 ], [ %arrayinit.endOfInit1507.44919, %ehcleanup1585 ]
   %arraydestroy.element1591 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1590, i64 -8
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element1591) #17
   %arraydestroy.done1592 = icmp eq ptr %arraydestroy.element1591, %ref.tmp1505
@@ -6719,7 +6719,7 @@ for.body1896.lr.ph:                               ; preds = %for.cond1894.prehea
   br label %for.body1896
 
 for.body1896:                                     ; preds = %for.body1896.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356
-  %success1672.05620 = phi i1 [ true, %for.body1896.lr.ph ], [ %and19361070, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356 ]
+  %success1672.15620 = phi i1 [ true, %for.body1896.lr.ph ], [ %and19361070, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356 ]
   %i1888.05619 = phi i64 [ 0, %for.body1896.lr.ph ], [ %inc1961, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356 ]
   %470 = load ptr, ptr %d_cl1678, align 8
   store ptr %470, ptr %agg.tmp1897, align 8
@@ -6931,7 +6931,7 @@ invoke.cont1927:                                  ; preds = %if.else.i.i2214, %i
           to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2247 unwind label %lpad1930
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2247: ; preds = %invoke.cont1927
-  %and19361070 = and i1 %success1672.05620, %call1932
+  %and19361070 = and i1 %success1672.15620, %call1932
   %.pre5721 = load ptr, ptr %ref.tmp1928, align 8
   %.pre5722 = load ptr, ptr %_M_finish.i2248, align 8
   %cmp.not3.i.i.i.i2249 = icmp eq ptr %.pre5721, %.pre5722
@@ -7327,7 +7327,7 @@ ehcleanup1959:                                    ; preds = %lpad1953, %ehcleanu
   br label %ehcleanup2052
 
 for.end1962:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356, %for.cond1894.preheader
-  %success1672.0.lcssa = phi i1 [ true, %for.cond1894.preheader ], [ %and19361070, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356 ]
+  %success1672.1.lcssa = phi i1 [ true, %for.cond1894.preheader ], [ %and19361070, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2356 ]
   invoke void @_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %vp31963, ptr noundef nonnull align 8 dereferenceable(3360) %call12, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(24) %resNodes)
           to label %invoke.cont1964 unwind label %lpad1891
 
@@ -7377,7 +7377,7 @@ invoke.cont2019:                                  ; preds = %invoke.cont2006
 
 invoke.cont2022:                                  ; preds = %invoke.cont2019
   %545 = and i1 %call1973, %call2023
-  %and20271051 = and i1 %success1672.0.lcssa, %545
+  %and20271051 = and i1 %success1672.1.lcssa, %545
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2020) #17
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2000) #17
   %546 = load ptr, ptr %ref.tmp2002, align 8
@@ -7521,7 +7521,7 @@ if.end2057.critedge:                              ; preds = %invoke.cont1735
   br label %if.end2057
 
 if.end2057:                                       ; preds = %invoke.cont1755, %invoke.cont1755, %invoke.cont2048, %if.end2057.critedge, %land.rhs1739
-  %success1672.1 = phi i1 [ %and20271051, %invoke.cont2048 ], [ true, %invoke.cont1755 ], [ true, %land.rhs1739 ], [ true, %if.end2057.critedge ], [ true, %invoke.cont1755 ]
+  %success1672.0 = phi i1 [ %and20271051, %invoke.cont2048 ], [ true, %invoke.cont1755 ], [ true, %land.rhs1739 ], [ true, %if.end2057.critedge ], [ true, %invoke.cont1755 ]
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2058, ptr noundef nonnull align 8 dereferenceable(8) %vp11673)
           to label %invoke.cont2059 unwind label %lpad1730
 
@@ -7536,7 +7536,7 @@ invoke.cont2062:                                  ; preds = %invoke.cont2059
           to label %invoke.cont2066 unwind label %lpad2065
 
 invoke.cont2066:                                  ; preds = %invoke.cont2062
-  %and20711057 = and i1 %success1672.1, %call2067
+  %and20711057 = and i1 %success1672.0, %call2067
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2064) #17
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2063) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2060) #17
@@ -23309,7 +23309,7 @@ cleanup10460.sink.split.sink.split.sink.split:    ; preds = %_ZN4cvc58internal12
   %vp59341.sink.ph = phi ptr [ %vp59341, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4774 ], [ %vp59970, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4822 ]
   %agg.tmp9007.sink.ph.ph = phi ptr [ %vp49222, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4774 ], [ %vp49859, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4822 ]
   %agg.tmp9004.sink.ph.ph = phi ptr [ %vp39195, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4774 ], [ %vp39832, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4822 ]
-  %retval.3.ph.ph.ph = phi i1 [ %2039, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4774 ], [ %2130, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4822 ]
+  %retval.4.ph.ph.ph = phi i1 [ %2039, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4774 ], [ %2130, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4822 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp10020.sink) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp10016.sink) #17
   br label %cleanup10460.sink.split.sink.split
@@ -23318,20 +23318,20 @@ cleanup10460.sink.split.sink.split:               ; preds = %cleanup10460.sink.s
   %vp59341.sink = phi ptr [ %vp59341, %invoke.cont9374 ], [ %vp59970, %invoke.cont10003 ], [ %vp59341.sink.ph, %cleanup10460.sink.split.sink.split.sink.split ]
   %agg.tmp9007.sink.ph = phi ptr [ %vp49222, %invoke.cont9374 ], [ %vp49859, %invoke.cont10003 ], [ %agg.tmp9007.sink.ph.ph, %cleanup10460.sink.split.sink.split.sink.split ]
   %agg.tmp9004.sink.ph = phi ptr [ %vp39195, %invoke.cont9374 ], [ %vp39832, %invoke.cont10003 ], [ %agg.tmp9004.sink.ph.ph, %cleanup10460.sink.split.sink.split.sink.split ]
-  %retval.3.ph.ph = phi i1 [ false, %invoke.cont9374 ], [ false, %invoke.cont10003 ], [ %retval.3.ph.ph.ph, %cleanup10460.sink.split.sink.split.sink.split ]
+  %retval.4.ph.ph = phi i1 [ false, %invoke.cont9374 ], [ false, %invoke.cont10003 ], [ %retval.4.ph.ph.ph, %cleanup10460.sink.split.sink.split.sink.split ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vp59341.sink) #17
   br label %cleanup10460.sink.split
 
 cleanup10460.sink.split:                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4725, %cleanup10460.sink.split.sink.split
   %agg.tmp9007.sink = phi ptr [ %agg.tmp9007.sink.ph, %cleanup10460.sink.split.sink.split ], [ %agg.tmp9007, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4725 ]
   %agg.tmp9004.sink = phi ptr [ %agg.tmp9004.sink.ph, %cleanup10460.sink.split.sink.split ], [ %agg.tmp9004, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4725 ]
-  %retval.3.ph = phi i1 [ %retval.3.ph.ph, %cleanup10460.sink.split.sink.split ], [ %call9095, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4725 ]
+  %retval.4.ph = phi i1 [ %retval.4.ph.ph, %cleanup10460.sink.split.sink.split ], [ %call9095, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4725 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9007.sink) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9004.sink) #17
   br label %cleanup10460
 
 cleanup10460:                                     ; preds = %cleanup10460.sink.split, %if.then9001
-  %retval.3 = phi i1 [ false, %if.then9001 ], [ %retval.3.ph, %cleanup10460.sink.split ]
+  %retval.4 = phi i1 [ false, %if.then9001 ], [ %retval.4.ph, %cleanup10460.sink.split ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vp28795) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vp18724) #17
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vp_child2) #17
@@ -23427,7 +23427,7 @@ ehcleanup10494:                                   ; preds = %lpad10490, %lpad104
   br label %ehcleanup10498
 
 cleanup10497:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2024, %if.then13.i.i4548, %if.then.i.i4541, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4538, %if.then.i.i.i1949, %invoke.cont.i1947, %invoke.cont10491, %cleanup10460, %cleanup.done8193, %cleanup.done7981, %invoke.cont7738, %cleanup.done7594, %invoke.cont7222, %arraydestroy.done7177, %invoke.cont6509, %invoke.cont6485, %cleanup.done6456, %cleanup.done6117, %cleanup.done5530, %cleanup.done5195, %invoke.cont4866, %cleanup.done4844, %invoke.cont4705, %invoke.cont4683, %invoke.cont4658, %cleanup.done4626, %cleanup.done3983, %invoke.cont3353, %invoke.cont3344, %invoke.cont3335, %invoke.cont3326, %invoke.cont3317, %invoke.cont3308, %invoke.cont3299, %invoke.cont3290, %invoke.cont3281, %invoke.cont3272, %invoke.cont3263, %invoke.cont3254, %invoke.cont3245, %invoke.cont3236, %invoke.cont3227, %invoke.cont3218, %invoke.cont3209, %invoke.cont3200, %invoke.cont3191, %invoke.cont3182, %invoke.cont3173, %invoke.cont3164, %invoke.cont3155, %invoke.cont3146, %invoke.cont3137, %invoke.cont3128, %invoke.cont3119, %invoke.cont3110, %invoke.cont3101, %invoke.cont3092, %invoke.cont3083, %invoke.cont3074, %invoke.cont3062, %invoke.cont3040, %invoke.cont3021, %invoke.cont3009, %cleanup.done2977, %invoke.cont2786, %cleanup.done2757, %cleanup.done2681, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2436, %arraydestroy.done2200, %cleanup.done1658, %invoke.cont1371, %invoke.cont1359, %invoke.cont1201, %if.end1174, %invoke.cont18
-  %retval.4 = phi i1 [ %call10492, %invoke.cont10491 ], [ %retval.3, %cleanup10460 ], [ %1807, %cleanup.done8193 ], [ %1760, %cleanup.done7981 ], [ %call7739, %invoke.cont7738 ], [ %1637, %cleanup.done7594 ], [ %call7223, %invoke.cont7222 ], [ true, %arraydestroy.done7177 ], [ %call6510, %invoke.cont6509 ], [ %call6486, %invoke.cont6485 ], [ %1276, %cleanup.done6456 ], [ %1211, %cleanup.done6117 ], [ %1136, %cleanup.done5530 ], [ %1087, %cleanup.done5195 ], [ %1051, %cleanup.done4844 ], [ %call4867, %invoke.cont4866 ], [ %call4706, %invoke.cont4705 ], [ %call4684, %invoke.cont4683 ], [ %call4659, %invoke.cont4658 ], [ %913, %cleanup.done4626 ], [ %828, %cleanup.done3983 ], [ %call3354, %invoke.cont3353 ], [ %call3345, %invoke.cont3344 ], [ %call3336, %invoke.cont3335 ], [ %call3327, %invoke.cont3326 ], [ %call3318, %invoke.cont3317 ], [ %call3309, %invoke.cont3308 ], [ %call3300, %invoke.cont3299 ], [ %call3291, %invoke.cont3290 ], [ %call3282, %invoke.cont3281 ], [ %call3273, %invoke.cont3272 ], [ %call3264, %invoke.cont3263 ], [ %call3255, %invoke.cont3254 ], [ %call3246, %invoke.cont3245 ], [ %call3237, %invoke.cont3236 ], [ %call3228, %invoke.cont3227 ], [ %call3219, %invoke.cont3218 ], [ %call3210, %invoke.cont3209 ], [ %call3201, %invoke.cont3200 ], [ %call3192, %invoke.cont3191 ], [ %call3183, %invoke.cont3182 ], [ %call3174, %invoke.cont3173 ], [ %call3165, %invoke.cont3164 ], [ %call3156, %invoke.cont3155 ], [ %call3147, %invoke.cont3146 ], [ %call3138, %invoke.cont3137 ], [ %call3129, %invoke.cont3128 ], [ %call3120, %invoke.cont3119 ], [ %call3111, %invoke.cont3110 ], [ %call3102, %invoke.cont3101 ], [ %call3093, %invoke.cont3092 ], [ %call3084, %invoke.cont3083 ], [ %call3075, %invoke.cont3074 ], [ %call3063, %invoke.cont3062 ], [ %call3041, %invoke.cont3040 ], [ %call3022, %invoke.cont3021 ], [ %call3010, %invoke.cont3009 ], [ %733, %cleanup.done2977 ], [ %call2787, %invoke.cont2786 ], [ %call2740, %cleanup.done2757 ], [ %650, %cleanup.done2681 ], [ %609, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2436 ], [ %and21631064, %arraydestroy.done2200 ], [ %409, %cleanup.done1658 ], [ %call1372, %invoke.cont1371 ], [ %call1360, %invoke.cont1359 ], [ %call1202, %invoke.cont1201 ], [ %success.3.in, %if.end1174 ], [ %call19, %invoke.cont18 ], [ %retval.0, %invoke.cont.i1947 ], [ %retval.0, %if.then.i.i.i1949 ], [ %call7775, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4538 ], [ %call7775, %if.then.i.i4541 ], [ %call7775, %if.then13.i.i4548 ], [ %retval.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2024 ]
+  %retval.0 = phi i1 [ %call10492, %invoke.cont10491 ], [ %retval.4, %cleanup10460 ], [ %1807, %cleanup.done8193 ], [ %1760, %cleanup.done7981 ], [ %call7739, %invoke.cont7738 ], [ %1637, %cleanup.done7594 ], [ %call7223, %invoke.cont7222 ], [ true, %arraydestroy.done7177 ], [ %call6510, %invoke.cont6509 ], [ %call6486, %invoke.cont6485 ], [ %1276, %cleanup.done6456 ], [ %1211, %cleanup.done6117 ], [ %1136, %cleanup.done5530 ], [ %1087, %cleanup.done5195 ], [ %1051, %cleanup.done4844 ], [ %call4867, %invoke.cont4866 ], [ %call4706, %invoke.cont4705 ], [ %call4684, %invoke.cont4683 ], [ %call4659, %invoke.cont4658 ], [ %913, %cleanup.done4626 ], [ %828, %cleanup.done3983 ], [ %call3354, %invoke.cont3353 ], [ %call3345, %invoke.cont3344 ], [ %call3336, %invoke.cont3335 ], [ %call3327, %invoke.cont3326 ], [ %call3318, %invoke.cont3317 ], [ %call3309, %invoke.cont3308 ], [ %call3300, %invoke.cont3299 ], [ %call3291, %invoke.cont3290 ], [ %call3282, %invoke.cont3281 ], [ %call3273, %invoke.cont3272 ], [ %call3264, %invoke.cont3263 ], [ %call3255, %invoke.cont3254 ], [ %call3246, %invoke.cont3245 ], [ %call3237, %invoke.cont3236 ], [ %call3228, %invoke.cont3227 ], [ %call3219, %invoke.cont3218 ], [ %call3210, %invoke.cont3209 ], [ %call3201, %invoke.cont3200 ], [ %call3192, %invoke.cont3191 ], [ %call3183, %invoke.cont3182 ], [ %call3174, %invoke.cont3173 ], [ %call3165, %invoke.cont3164 ], [ %call3156, %invoke.cont3155 ], [ %call3147, %invoke.cont3146 ], [ %call3138, %invoke.cont3137 ], [ %call3129, %invoke.cont3128 ], [ %call3120, %invoke.cont3119 ], [ %call3111, %invoke.cont3110 ], [ %call3102, %invoke.cont3101 ], [ %call3093, %invoke.cont3092 ], [ %call3084, %invoke.cont3083 ], [ %call3075, %invoke.cont3074 ], [ %call3063, %invoke.cont3062 ], [ %call3041, %invoke.cont3040 ], [ %call3022, %invoke.cont3021 ], [ %call3010, %invoke.cont3009 ], [ %733, %cleanup.done2977 ], [ %call2787, %invoke.cont2786 ], [ %call2740, %cleanup.done2757 ], [ %650, %cleanup.done2681 ], [ %609, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2436 ], [ %and21631064, %arraydestroy.done2200 ], [ %409, %cleanup.done1658 ], [ %call1372, %invoke.cont1371 ], [ %call1360, %invoke.cont1359 ], [ %call1202, %invoke.cont1201 ], [ %success.3.in, %if.end1174 ], [ %call19, %invoke.cont18 ], [ %retval.1, %invoke.cont.i1947 ], [ %retval.1, %if.then.i.i.i1949 ], [ %call7775, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4538 ], [ %call7775, %if.then.i.i4541 ], [ %call7775, %if.then13.i.i4548 ], [ %retval.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2024 ]
   %2184 = load ptr, ptr %new_args, align 8
   %_M_finish.i4823 = getelementptr inbounds i8, ptr %new_args, i64 8
   %2185 = load ptr, ptr %_M_finish.i4823, align 8
@@ -23481,7 +23481,7 @@ if.then.i.i.i4842:                                ; preds = %invoke.cont.i4840
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit4846
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit4846: ; preds = %invoke.cont.i4840, %if.then.i.i.i4842
-  ret i1 %retval.4
+  ret i1 %retval.0
 
 ehcleanup10498:                                   ; preds = %arraydestroy.body2825, %ehcleanup4045, %ehcleanup3402, %ehcleanup4046, %ehcleanup4047, %ehcleanup3403, %ehcleanup3404, %ehcleanup1714, %ehcleanup1715, %lpad2799, %lpad28, %lpad.loopexit5437, %lpad.loopexit.split-lp5438.loopexit.split-lp, %lpad.loopexit.split-lp5438.loopexit, %lpad1698, %lpad8001, %lpad8008, %lpad7789, %lpad7796, %lpad7609, %lpad7271, %ehcleanup7286, %lpad6142, %lpad6146, %lpad5551, %lpad5555, %lpad5216, %lpad5220, %lpad4881, %lpad4885, %lpad2799.thread, %lpad2479, %lpad2486, %lpad2224, %lpad2231, %lpad1385, %ehcleanup1403, %lpad23, %ehcleanup10494, %ehcleanup10477, %ehcleanup8204, %ehcleanup7992, %ehcleanup7778, %ehcleanup7756, %ehcleanup7605, %ehcleanup7258, %lpad7236, %ehcleanup7229, %ehcleanup7198, %ehcleanup6514, %ehcleanup6490, %ehcleanup6468, %ehcleanup6133, %ehcleanup5542, %ehcleanup5207, %ehcleanup4870, %ehcleanup4850, %ehcleanup4709, %ehcleanup4687, %ehcleanup4662, %ehcleanup4642, %ehcleanup3999, %lpad3352, %lpad3343, %lpad3334, %lpad3325, %lpad3316, %lpad3307, %lpad3298, %lpad3289, %lpad3280, %lpad3271, %lpad3262, %lpad3253, %lpad3244, %lpad3235, %lpad3226, %lpad3217, %lpad3208, %lpad3199, %lpad3190, %lpad3181, %lpad3172, %lpad3163, %lpad3154, %lpad3145, %lpad3136, %lpad3127, %lpad3118, %lpad3109, %lpad3100, %lpad3091, %lpad3082, %lpad3073, %ehcleanup3066, %ehcleanup3044, %lpad3020, %ehcleanup3013, %ehcleanup2993, %ehcleanup2790, %ehcleanup2769, %ehcleanup2691, %ehcleanup2470, %ehcleanup2215, %ehcleanup1670, %lpad1370, %ehcleanup1363, %ehcleanup1339, %ehcleanup1306, %ehcleanup1205, %ehcleanup1184, %ehcleanup
   %.pn1227.pn = phi { ptr, i32 } [ %.pn1227, %ehcleanup10494 ], [ %.pn651.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup10477 ], [ %.pn672.pn.pn.pn.pn.pn.pn, %ehcleanup8204 ], [ %.pn686.pn.pn.pn.pn.pn.pn, %ehcleanup7992 ], [ %.pn694, %ehcleanup7778 ], [ %.pn702.pn.pn, %ehcleanup7756 ], [ %.pn725.pn, %ehcleanup7258 ], [ %.pn711.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup7605 ], [ %1602, %lpad7236 ], [ %.pn728.pn, %ehcleanup7229 ], [ %.pn791.pn.pn.pn.pn.pn.pn.pn, %ehcleanup7198 ], [ %.pn800, %ehcleanup6514 ], [ %.pn802, %ehcleanup6490 ], [ %.pn808.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup6468 ], [ %.pn832.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup6133 ], [ %.pn860.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup5542 ], [ %.pn878.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup5207 ], [ %.pn902.pn.pn, %ehcleanup4850 ], [ %.pn892, %ehcleanup4870 ], [ %.pn907, %ehcleanup4709 ], [ %.pn909, %ehcleanup4687 ], [ %.pn911, %ehcleanup4662 ], [ %.pn932.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup4642 ], [ %.pn972.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup3999 ], [ %782, %lpad3352 ], [ %781, %lpad3343 ], [ %780, %lpad3334 ], [ %779, %lpad3325 ], [ %778, %lpad3316 ], [ %777, %lpad3307 ], [ %776, %lpad3298 ], [ %775, %lpad3289 ], [ %774, %lpad3280 ], [ %773, %lpad3271 ], [ %772, %lpad3262 ], [ %771, %lpad3253 ], [ %770, %lpad3244 ], [ %769, %lpad3235 ], [ %768, %lpad3226 ], [ %767, %lpad3217 ], [ %766, %lpad3208 ], [ %765, %lpad3199 ], [ %764, %lpad3190 ], [ %763, %lpad3181 ], [ %762, %lpad3172 ], [ %761, %lpad3163 ], [ %760, %lpad3154 ], [ %759, %lpad3145 ], [ %758, %lpad3136 ], [ %757, %lpad3127 ], [ %756, %lpad3118 ], [ %755, %lpad3109 ], [ %754, %lpad3100 ], [ %753, %lpad3091 ], [ %752, %lpad3082 ], [ %751, %lpad3073 ], [ %.pn993, %ehcleanup3066 ], [ %.pn995, %ehcleanup3044 ], [ %742, %lpad3020 ], [ %.pn997, %ehcleanup3013 ], [ %.pn1007, %ehcleanup2993 ], [ %.pn1009, %ehcleanup2790 ], [ %.pn1011.pn.pn, %ehcleanup2769 ], [ %.pn1017.pn.pn.pn.pn.pn.pn.pn, %ehcleanup2691 ], [ %.pn1028.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup2470 ], [ %.pn1071.pn.pn.pn.pn.pn, %ehcleanup2215 ], [ %.pn1088.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1670 ], [ %384, %lpad1370 ], [ %.pn1103, %ehcleanup1339 ], [ %.pn1101, %ehcleanup1363 ], [ %.pn1108, %ehcleanup1306 ], [ %.pn1110, %ehcleanup1205 ], [ %.pn1222.pn, %ehcleanup1184 ], [ %36, %lpad23 ], [ %.pn1225, %ehcleanup ], [ %.pn1078.pn, %ehcleanup1403 ], [ %410, %lpad1385 ], [ %615, %lpad2231 ], [ %614, %lpad2224 ], [ %652, %lpad2486 ], [ %651, %lpad2479 ], [ %682, %lpad2799.thread ], [ %1089, %lpad4885 ], [ %1088, %lpad4881 ], [ %1138, %lpad5220 ], [ %1137, %lpad5216 ], [ %1213, %lpad5555 ], [ %1212, %lpad5551 ], [ %1278, %lpad6146 ], [ %1277, %lpad6142 ], [ %.pn706, %ehcleanup7286 ], [ %1638, %lpad7271 ], [ %1696, %lpad7609 ], [ %1762, %lpad7796 ], [ %1761, %lpad7789 ], [ %1809, %lpad8008 ], [ %1808, %lpad8001 ], [ %515, %lpad1698 ], [ %lpad.loopexit5439, %lpad.loopexit5437 ], [ %lpad.loopexit5485, %lpad.loopexit.split-lp5438.loopexit ], [ %lpad.loopexit.split-lp5486, %lpad.loopexit.split-lp5438.loopexit.split-lp ], [ %37, %lpad28 ], [ %703, %lpad2799 ], [ %516, %ehcleanup1714 ], [ %517, %ehcleanup1715 ], [ %.pn953, %ehcleanup3402 ], [ %831, %ehcleanup3403 ], [ %832, %ehcleanup3404 ], [ %.pn913, %ehcleanup4045 ], [ %916, %ehcleanup4046 ], [ %917, %ehcleanup4047 ], [ %704, %arraydestroy.body2825 ]
@@ -29228,7 +29228,7 @@ for.body.lr.ph:                                   ; preds = %if.end262
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasUpdated.23008 = phi i1 [ %hasUpdated.1, %for.body.lr.ph ], [ %hasUpdated.4, %for.inc ]
+  %hasUpdated.23008 = phi i1 [ %hasUpdated.1, %for.body.lr.ph ], [ %hasUpdated.3, %for.inc ]
   %i.03006 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
   %sub = shl i64 %i.03006, 1
   %add = or disjoint i64 %sub, 1
@@ -30529,7 +30529,7 @@ ehcleanup547:                                     ; preds = %lpad428, %lpad.i111
   br label %ehcleanup549
 
 if.end548:                                        ; preds = %lor.rhs364.thread2908, %land.rhs366.thread2910, %if.then.i.i.i1475, %invoke.cont.i1473, %cleanup.done381
-  %hasUpdated.3 = phi i1 [ %hasUpdated.23008, %cleanup.done381 ], [ true, %invoke.cont.i1473 ], [ true, %if.then.i.i.i1475 ], [ %hasUpdated.23008, %land.rhs366.thread2910 ], [ %hasUpdated.23008, %lor.rhs364.thread2908 ]
+  %hasUpdated.4 = phi i1 [ %hasUpdated.23008, %cleanup.done381 ], [ true, %invoke.cont.i1473 ], [ true, %if.then.i.i.i1475 ], [ %hasUpdated.23008, %land.rhs366.thread2910 ], [ %hasUpdated.23008, %lor.rhs364.thread2908 ]
   %289 = load ptr, ptr %childConclusion326, align 8
   %bf.load.i.i1480 = load i64, ptr %289, align 8
   %290 = and i64 %bf.load.i.i1480, 1152920405095219200
@@ -30849,13 +30849,13 @@ lpad576:                                          ; preds = %if.then13.i4.i1582,
   br label %ehcleanup664
 
 for.inc:                                          ; preds = %if.then13.i.i1602, %if.then.i.i1595, %invoke.cont577, %for.body, %if.end8.sink.split.i.i.i.i1514, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1511, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1501, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1491, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1556, %cleanup.done310
-  %hasUpdated.4 = phi i1 [ %hasUpdated.23008, %cleanup.done310 ], [ %hasUpdated.23008, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1556 ], [ %hasUpdated.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1491 ], [ %hasUpdated.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1501 ], [ %hasUpdated.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1511 ], [ %hasUpdated.3, %if.end8.sink.split.i.i.i.i1514 ], [ %hasUpdated.23008, %for.body ], [ true, %invoke.cont577 ], [ true, %if.then.i.i1595 ], [ true, %if.then13.i.i1602 ]
+  %hasUpdated.3 = phi i1 [ %hasUpdated.23008, %cleanup.done310 ], [ %hasUpdated.23008, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1556 ], [ %hasUpdated.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1491 ], [ %hasUpdated.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i1501 ], [ %hasUpdated.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i1511 ], [ %hasUpdated.4, %if.end8.sink.split.i.i.i.i1514 ], [ %hasUpdated.23008, %for.body ], [ true, %invoke.cont577 ], [ true, %if.then.i.i1595 ], [ true, %if.then13.i.i1602 ]
   %inc = add nuw i64 %i.03006, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i695
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !189
 
 for.end:                                          ; preds = %for.inc, %if.end262
-  %hasUpdated.2.lcssa = phi i1 [ %hasUpdated.1, %if.end262 ], [ %hasUpdated.4, %for.inc ]
+  %hasUpdated.2.lcssa = phi i1 [ %hasUpdated.1, %if.end262 ], [ %hasUpdated.3, %for.inc ]
   br i1 %hasUpdated.2.lcssa, label %cond.true591, label %lor.lhs.false585
 
 lor.lhs.false585:                                 ; preds = %for.end
@@ -31081,7 +31081,7 @@ ehcleanup649:                                     ; preds = %lpad.i1794.thread, 
   br label %ehcleanup664
 
 cleanup:                                          ; preds = %lor.lhs.false585, %if.then13.i.i1837, %if.then.i.i1830, %cleanup.done644
-  %retval.0 = phi i1 [ true, %cleanup.done644 ], [ true, %if.then.i.i1830 ], [ true, %if.then13.i.i1837 ], [ false, %lor.lhs.false585 ]
+  %retval.1 = phi i1 [ true, %cleanup.done644 ], [ true, %if.then.i.i1830 ], [ true, %if.then13.i.i1837 ], [ false, %lor.lhs.false585 ]
   %352 = load ptr, ptr %newChildren, align 8
   %353 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i1845 = icmp eq ptr %352, %353
@@ -32657,8 +32657,8 @@ ehcleanup964:                                     ; preds = %ehcleanup962, %lpad
   br label %common.resume
 
 return:                                           ; preds = %cond.end, %if.end8.sink.split.i.i.i.i2768, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2765, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i2755, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2745, %if.then.i.i.i1863, %invoke.cont.i1861, %sw.bb
-  %retval.2 = phi i1 [ false, %sw.bb ], [ %retval.0, %invoke.cont.i1861 ], [ %retval.0, %if.then.i.i.i1863 ], [ %498, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2745 ], [ %498, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i2755 ], [ %498, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2765 ], [ %498, %if.end8.sink.split.i.i.i.i2768 ], [ false, %cond.end ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %sw.bb ], [ %retval.1, %invoke.cont.i1861 ], [ %retval.1, %if.then.i.i.i1863 ], [ %498, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2745 ], [ %498, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i2755 ], [ %498, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2765 ], [ %498, %if.end8.sink.split.i.i.i.i2768 ], [ false, %cond.end ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internal7CDProof7addStepENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS3_SaIS3_EES9_bNS0_12CDPOverwriteE(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
@@ -34258,7 +34258,7 @@ arraydestroy.body191:                             ; preds = %arraydestroy.body19
   br i1 %arraydestroy.done194, label %ehcleanup196, label %arraydestroy.body191
 
 ehcleanup196:                                     ; preds = %arraydestroy.body191, %lpad170
-  %arrayinit.endOfInit166.1 = phi ptr [ %arrayinit.endOfInit166.0, %lpad170 ], [ %arrayinit.element174, %arraydestroy.body191 ]
+  %arrayinit.endOfInit166.2 = phi ptr [ %arrayinit.endOfInit166.0, %lpad170 ], [ %arrayinit.element174, %arraydestroy.body191 ]
   %169 = phi i1 [ false, %lpad170 ], [ true, %arraydestroy.body191 ]
   %.pn22 = phi { ptr, i32 } [ %168, %lpad170 ], [ %141, %arraydestroy.body191 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp167)
@@ -34272,12 +34272,12 @@ terminate.lpad.i.i514:                            ; preds = %ehcleanup196
   unreachable
 
 ehcleanup197:                                     ; preds = %ehcleanup196
-  %arraydestroy.isempty200 = icmp eq ptr %ref.tmp164, %arrayinit.endOfInit166.1
+  %arraydestroy.isempty200 = icmp eq ptr %ref.tmp164, %arrayinit.endOfInit166.2
   %or.cond = or i1 %169, %arraydestroy.isempty200
   br i1 %or.cond, label %ehcleanup230, label %arraydestroy.body201
 
 arraydestroy.body201:                             ; preds = %ehcleanup197, %arraydestroy.body201
-  %arraydestroy.elementPast202 = phi ptr [ %arraydestroy.element203, %arraydestroy.body201 ], [ %arrayinit.endOfInit166.1, %ehcleanup197 ]
+  %arraydestroy.elementPast202 = phi ptr [ %arraydestroy.element203, %arraydestroy.body201 ], [ %arrayinit.endOfInit166.2, %ehcleanup197 ]
   %arraydestroy.element203 = getelementptr inbounds i8, ptr %arraydestroy.elementPast202, i64 -8
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element203) #17
   %arraydestroy.done204 = icmp eq ptr %arraydestroy.element203, %ref.tmp164

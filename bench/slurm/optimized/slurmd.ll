@@ -4809,8 +4809,8 @@ _handle_node_reg_resp.exit:                       ; preds = %252, %254, %255, %2
   br label %317
 
 317:                                              ; preds = %.thread, %313, %315, %247
-  %.1 = phi i32 [ -1, %247 ], [ 0, %315 ], [ %245, %313 ], [ %312, %.thread ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %247 ], [ 0, %315 ], [ %245, %313 ], [ %312, %.thread ]
+  ret i32 %.0
 }
 
 declare void @slurm_msg_t_init(ptr noundef) local_unnamed_addr #3

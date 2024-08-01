@@ -4507,7 +4507,7 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
   %indvars.iv216 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next217, %.loopexit ]
   %.1190 = phi i32 [ 0, %.lr.ph191 ], [ %.reass, %.loopexit ]
   %.0126189 = phi float [ 0.000000e+00, %.lr.ph191 ], [ %.1127, %.loopexit ]
-  %.0128188 = phi float [ 0.000000e+00, %.lr.ph191 ], [ %.2, %.loopexit ]
+  %.0128188 = phi float [ 0.000000e+00, %.lr.ph191 ], [ %.1129, %.loopexit ]
   %.0131186 = phi i32 [ 0, %.lr.ph191 ], [ %.1132, %.loopexit ]
   %71 = sext i32 %.1190 to i64
   %72 = getelementptr inbounds i32, ptr %22, i64 %71
@@ -4673,7 +4673,7 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
 
 _ZL4add5if.exit:                                  ; preds = %164, %._crit_edge.i, %146
   %167 = fcmp ogt float %144, %.0128188
-  %.1129 = select i1 %167, float %144, float %.0128188
+  %.2 = select i1 %167, float %144, float %.0128188
   %168 = fadd float %.0126189, %144
   br i1 %24, label %.lr.ph185, label %.loopexit
 
@@ -4703,7 +4703,7 @@ _ZL4add5if.exit:                                  ; preds = %164, %._crit_edge.i
 
 .loopexit:                                        ; preds = %181, %_ZL4add5if.exit, %116
   %.1132 = phi i32 [ %.0131186, %116 ], [ %147, %_ZL4add5if.exit ], [ %147, %181 ]
-  %.2 = phi float [ %.0128188, %116 ], [ %.1129, %_ZL4add5if.exit ], [ %.1129, %181 ]
+  %.1129 = phi float [ %.0128188, %116 ], [ %.2, %_ZL4add5if.exit ], [ %.2, %181 ]
   %.1127 = phi float [ %.0126189, %116 ], [ %168, %_ZL4add5if.exit ], [ %168, %181 ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %182 = load ptr, ptr %23, align 8
@@ -4724,7 +4724,7 @@ _ZL4add5if.exit:                                  ; preds = %164, %._crit_edge.i
   %.pre-phi = phi i64 [ %.pre221, %.preheader.._crit_edge192_crit_edge ], [ %44, %._crit_edge192.loopexit ]
   %.0131.lcssa = phi i32 [ 0, %.preheader.._crit_edge192_crit_edge ], [ %.1132, %._crit_edge192.loopexit ]
   %.0130.lcssa = phi i32 [ 0, %.preheader.._crit_edge192_crit_edge ], [ %190, %._crit_edge192.loopexit ]
-  %.0128.lcssa = phi float [ 0.000000e+00, %.preheader.._crit_edge192_crit_edge ], [ %.2, %._crit_edge192.loopexit ]
+  %.0128.lcssa = phi float [ 0.000000e+00, %.preheader.._crit_edge192_crit_edge ], [ %.1129, %._crit_edge192.loopexit ]
   %.0126.lcssa = phi float [ 0.000000e+00, %.preheader.._crit_edge192_crit_edge ], [ %.1127, %._crit_edge192.loopexit ]
   %191 = getelementptr inbounds %struct.t_dr_result, ptr %6, i64 %.pre-phi
   store i32 %.0131.lcssa, ptr %191, align 8

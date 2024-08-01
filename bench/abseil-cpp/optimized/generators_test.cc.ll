@@ -6163,8 +6163,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -6249,8 +6249,8 @@ while.body.i.i.i48:                               ; preds = %if.then6.i.i.i44, %
   br i1 %cmp10.i.i.i53, label %while.body.i.i.i48, label %if.end13.i.i.i37, !llvm.loop !7
 
 if.end13.i.i.i37:                                 ; preds = %while.body.i.i.i48, %if.then6.i.i.i44, %if.end.i.i.i31
-  %product.1.i.i.i38 = phi i64 [ %mul.i.i.i.i34, %if.end.i.i.i31 ], [ %mul.i.i.i.i34, %if.then6.i.i.i44 ], [ %mul.i19.i.i.i51, %while.body.i.i.i48 ]
-  %shr.i.i.i.i39 = lshr i64 %product.1.i.i.i38, 32
+  %product.0.i.i.i38 = phi i64 [ %mul.i.i.i.i34, %if.end.i.i.i31 ], [ %mul.i.i.i.i34, %if.then6.i.i.i44 ], [ %mul.i19.i.i.i51, %while.body.i.i.i48 ]
+  %shr.i.i.i.i39 = lshr i64 %product.0.i.i.i38, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit56
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit56: ; preds = %if.then.i.i.i54, %if.end13.i.i.i37
@@ -6306,8 +6306,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -6397,8 +6397,8 @@ while.body.i.i.i38:                               ; preds = %if.then15.i.i.i, %w
   br i1 %cmp25.i.i.i, label %while.body.i.i.i38, label %if.end28.i.i.i, !llvm.loop !10
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i38, %if.then15.i.i.i, %if.end.i.i.i30
-  %product.1.i.i.i34 = phi i16 [ %mul.i.i.i.i32, %if.end.i.i.i30 ], [ %mul.i.i.i.i32, %if.then15.i.i.i ], [ %mul.i20.i.i.i, %while.body.i.i.i38 ]
-  %10 = lshr i16 %product.1.i.i.i34, 8
+  %product.0.i.i.i34 = phi i16 [ %mul.i.i.i.i32, %if.end.i.i.i30 ], [ %mul.i.i.i.i32, %if.then15.i.i.i ], [ %mul.i20.i.i.i, %while.body.i.i.i38 ]
+  %10 = lshr i16 %product.0.i.i.i34, 8
   %conv1.i21.i.i.i = trunc nuw i16 %10 to i8
   br label %_ZN4absl24uniform_int_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_.exit
 
@@ -6451,8 +6451,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -6542,8 +6542,8 @@ while.body.i.i.i38:                               ; preds = %if.then15.i.i.i, %w
   br i1 %cmp25.i.i.i, label %while.body.i.i.i38, label %if.end28.i.i.i, !llvm.loop !11
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i38, %if.then15.i.i.i, %if.end.i.i.i30
-  %product.1.i.i.i33 = phi i32 [ %mul.i.i.i.i32, %if.end.i.i.i30 ], [ %mul.i.i.i.i32, %if.then15.i.i.i ], [ %mul.i21.i.i.i, %while.body.i.i.i38 ]
-  %shr.i.i.i.i34 = lshr i32 %product.1.i.i.i33, 16
+  %product.0.i.i.i33 = phi i32 [ %mul.i.i.i.i32, %if.end.i.i.i30 ], [ %mul.i.i.i.i32, %if.then15.i.i.i ], [ %mul.i21.i.i.i, %while.body.i.i.i38 ]
+  %shr.i.i.i.i34 = lshr i32 %product.0.i.i.i33, 16
   %conv.i22.i.i.i = trunc nuw i32 %shr.i.i.i.i34 to i16
   br label %_ZN4absl24uniform_int_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_.exit
 
@@ -6596,8 +6596,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -6687,8 +6687,8 @@ while.body.i.i.i38:                               ; preds = %if.then15.i.i.i, %w
   br i1 %cmp25.i.i.i, label %while.body.i.i.i38, label %if.end28.i.i.i, !llvm.loop !12
 
 if.end28.i.i.i:                                   ; preds = %while.body.i.i.i38, %if.then15.i.i.i, %if.end.i.i.i30
-  %product.1.i.i.i33 = phi i32 [ %mul.i.i.i.i32, %if.end.i.i.i30 ], [ %mul.i.i.i.i32, %if.then15.i.i.i ], [ %mul.i21.i.i.i, %while.body.i.i.i38 ]
-  %shr.i.i.i.i34 = lshr i32 %product.1.i.i.i33, 16
+  %product.0.i.i.i33 = phi i32 [ %mul.i.i.i.i32, %if.end.i.i.i30 ], [ %mul.i.i.i.i32, %if.then15.i.i.i ], [ %mul.i21.i.i.i, %while.body.i.i.i38 ]
+  %shr.i.i.i.i34 = lshr i32 %product.0.i.i.i33, 16
   %conv.i22.i.i.i = trunc nuw i32 %shr.i.i.i.i34 to i16
   br label %_ZN4absl24uniform_int_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_.exit
 
@@ -6741,8 +6741,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -6827,8 +6827,8 @@ while.body.i.i.i48:                               ; preds = %if.then6.i.i.i44, %
   br i1 %cmp10.i.i.i53, label %while.body.i.i.i48, label %if.end13.i.i.i37, !llvm.loop !52
 
 if.end13.i.i.i37:                                 ; preds = %while.body.i.i.i48, %if.then6.i.i.i44, %if.end.i.i.i31
-  %product.1.i.i.i38 = phi i64 [ %mul.i.i.i.i34, %if.end.i.i.i31 ], [ %mul.i.i.i.i34, %if.then6.i.i.i44 ], [ %mul.i19.i.i.i51, %while.body.i.i.i48 ]
-  %shr.i.i.i.i39 = lshr i64 %product.1.i.i.i38, 32
+  %product.0.i.i.i38 = phi i64 [ %mul.i.i.i.i34, %if.end.i.i.i31 ], [ %mul.i.i.i.i34, %if.then6.i.i.i44 ], [ %mul.i19.i.i.i51, %while.body.i.i.i48 ]
+  %shr.i.i.i.i39 = lshr i64 %product.0.i.i.i38, 32
   br label %_ZN4absl24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_.exit
 
 _ZN4absl24uniform_int_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_.exit: ; preds = %if.then.i.i.i54, %if.end13.i.i.i37
@@ -6881,8 +6881,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -7022,8 +7022,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -7247,8 +7247,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -7661,8 +7661,8 @@ while.body.i.i.i:                                 ; preds = %if.then6.i.i.i, %wh
   br i1 %cmp10.i.i.i, label %while.body.i.i.i, label %if.end13.i.i.i, !llvm.loop !7
 
 if.end13.i.i.i:                                   ; preds = %while.body.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ], [ %mul.i19.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -9413,8 +9413,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !81
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -10186,8 +10186,8 @@ _ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !85
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29, %if.then15, %if.end
-  %product.1 = phi i16 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29 ]
-  %14 = lshr i16 %product.1, 8
+  %product.0 = phi i16 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i32, %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit29 ]
+  %14 = lshr i16 %product.0, 8
   %conv1.i33 = trunc nuw i16 %14 to i8
   br label %return
 
@@ -10295,8 +10295,8 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !86
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30, %if.then15, %if.end
-  %product.1 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i33, %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30 ]
-  %shr.i = lshr i32 %product.1, 16
+  %product.0 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i33, %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30 ]
+  %shr.i = lshr i32 %product.0, 16
   %conv.i34 = trunc nuw i32 %shr.i to i16
   br label %return
 
@@ -10404,8 +10404,8 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp25, label %while.body, label %if.end28, !llvm.loop !87
 
 if.end28:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30, %if.then15, %if.end
-  %product.1 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i33, %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30 ]
-  %shr.i = lshr i32 %product.1, 16
+  %product.0 = phi i32 [ %mul.i, %if.end ], [ %mul.i, %if.then15 ], [ %mul.i33, %_ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEtRT_.exit30 ]
+  %shr.i = lshr i32 %product.0, 16
   %conv.i34 = trunc nuw i32 %shr.i to i16
   br label %return
 
@@ -10510,8 +10510,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !88
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -21585,8 +21585,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -21706,8 +21706,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i81:   ; preds = %while.body.i.i.i62
   br label %if.end13.i.i.i51
 
 if.end13.i.i.i51:                                 ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i81, %if.then6.i.i.i58, %if.end.i.i.i45
-  %product.1.i.i.i52 = phi i64 [ %mul.i.i.i.i48, %if.end.i.i.i45 ], [ %mul.i33.i.i.i78, %while.cond.if.end13.loopexit_crit_edge.i.i.i81 ], [ %mul.i.i.i.i48, %if.then6.i.i.i58 ]
-  %shr.i.i.i.i53 = lshr i64 %product.1.i.i.i52, 32
+  %product.0.i.i.i52 = phi i64 [ %mul.i.i.i.i48, %if.end.i.i.i45 ], [ %mul.i33.i.i.i78, %while.cond.if.end13.loopexit_crit_edge.i.i.i81 ], [ %mul.i.i.i.i48, %if.then6.i.i.i58 ]
+  %shr.i.i.i.i53 = lshr i64 %product.0.i.i.i52, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit84
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit84: ; preds = %if.then.i.i.i82, %if.end13.i.i.i51
@@ -21796,8 +21796,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -21922,8 +21922,8 @@ while.cond.if.end28.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i52
   br label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %while.cond.if.end28.loopexit_crit_edge.i.i.i, %if.then15.i.i.i, %if.end.i.i.i44
-  %product.1.i.i.i48 = phi i16 [ %mul.i.i.i.i46, %if.end.i.i.i44 ], [ %mul.i34.i.i.i, %while.cond.if.end28.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i46, %if.then15.i.i.i ]
-  %14 = lshr i16 %product.1.i.i.i48, 8
+  %product.0.i.i.i48 = phi i16 [ %mul.i.i.i.i46, %if.end.i.i.i44 ], [ %mul.i34.i.i.i, %while.cond.if.end28.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i46, %if.then15.i.i.i ]
+  %14 = lshr i16 %product.0.i.i.i48, 8
   %conv1.i35.i.i.i = trunc nuw i16 %14 to i8
   br label %_ZN4absl24uniform_int_distributionIaEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEaRT_.exit
 
@@ -22012,8 +22012,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -22138,8 +22138,8 @@ while.cond.if.end28.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i52
   br label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %while.cond.if.end28.loopexit_crit_edge.i.i.i, %if.then15.i.i.i, %if.end.i.i.i44
-  %product.1.i.i.i47 = phi i32 [ %mul.i.i.i.i46, %if.end.i.i.i44 ], [ %mul.i35.i.i.i, %while.cond.if.end28.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i46, %if.then15.i.i.i ]
-  %shr.i.i.i.i48 = lshr i32 %product.1.i.i.i47, 16
+  %product.0.i.i.i47 = phi i32 [ %mul.i.i.i.i46, %if.end.i.i.i44 ], [ %mul.i35.i.i.i, %while.cond.if.end28.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i46, %if.then15.i.i.i ]
+  %shr.i.i.i.i48 = lshr i32 %product.0.i.i.i47, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i48 to i16
   br label %_ZN4absl24uniform_int_distributionIsEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEsRT_.exit
 
@@ -22228,8 +22228,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -22354,8 +22354,8 @@ while.cond.if.end28.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i52
   br label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %while.cond.if.end28.loopexit_crit_edge.i.i.i, %if.then15.i.i.i, %if.end.i.i.i44
-  %product.1.i.i.i47 = phi i32 [ %mul.i.i.i.i46, %if.end.i.i.i44 ], [ %mul.i35.i.i.i, %while.cond.if.end28.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i46, %if.then15.i.i.i ]
-  %shr.i.i.i.i48 = lshr i32 %product.1.i.i.i47, 16
+  %product.0.i.i.i47 = phi i32 [ %mul.i.i.i.i46, %if.end.i.i.i44 ], [ %mul.i35.i.i.i, %while.cond.if.end28.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i46, %if.then15.i.i.i ]
+  %shr.i.i.i.i48 = lshr i32 %product.0.i.i.i47, 16
   %conv.i36.i.i.i = trunc nuw i32 %shr.i.i.i.i48 to i16
   br label %_ZN4absl24uniform_int_distributionItEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEtRT_.exit
 
@@ -22444,8 +22444,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -22565,8 +22565,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i81:   ; preds = %while.body.i.i.i62
   br label %if.end13.i.i.i51
 
 if.end13.i.i.i51:                                 ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i81, %if.then6.i.i.i58, %if.end.i.i.i45
-  %product.1.i.i.i52 = phi i64 [ %mul.i.i.i.i48, %if.end.i.i.i45 ], [ %mul.i33.i.i.i78, %while.cond.if.end13.loopexit_crit_edge.i.i.i81 ], [ %mul.i.i.i.i48, %if.then6.i.i.i58 ]
-  %shr.i.i.i.i53 = lshr i64 %product.1.i.i.i52, 32
+  %product.0.i.i.i52 = phi i64 [ %mul.i.i.i.i48, %if.end.i.i.i45 ], [ %mul.i33.i.i.i78, %while.cond.if.end13.loopexit_crit_edge.i.i.i81 ], [ %mul.i.i.i.i48, %if.then6.i.i.i58 ]
+  %shr.i.i.i.i53 = lshr i64 %product.0.i.i.i52, 32
   br label %_ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit
 
 _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit: ; preds = %if.then.i.i.i82, %if.end13.i.i.i51
@@ -22655,8 +22655,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -22864,8 +22864,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -23157,8 +23157,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i
@@ -23664,8 +23664,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i

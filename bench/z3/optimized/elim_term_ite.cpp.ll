@@ -453,7 +453,7 @@ lpad30:                                           ; preds = %if.then.i
 
 cleanup:                                          ; preds = %invoke.cont16, %_ZN14justified_exprD2Ev.exit
   %29 = phi ptr [ %.pre58, %_ZN14justified_exprD2Ev.exit ], [ %.pre59, %invoke.cont16 ]
-  %retval.0 = phi i32 [ 4, %_ZN14justified_exprD2Ev.exit ], [ 5, %invoke.cont16 ]
+  %retval.1 = phi i32 [ 4, %_ZN14justified_exprD2Ev.exit ], [ 5, %invoke.cont16 ]
   %tobool.not.i.i20 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i20, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i21
 
@@ -562,8 +562,8 @@ ehcleanup36:                                      ; preds = %ehcleanup, %lpad5
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK11ast_manager6is_iteEPK9func_decl.exit.i, %if.then2.i.i.i56, %if.then.i.i.i50, %_ZN7obj_refI3app11ast_managerED2Ev.exit48, %_ZNK11ast_manager11is_term_iteEPK9func_decl.exit
-  %retval.1 = phi i32 [ 5, %_ZNK11ast_manager11is_term_iteEPK9func_decl.exit ], [ %retval.0, %_ZN7obj_refI3app11ast_managerED2Ev.exit48 ], [ %retval.0, %if.then.i.i.i50 ], [ %retval.0, %if.then2.i.i.i56 ], [ 5, %_ZNK11ast_manager6is_iteEPK9func_decl.exit.i ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ 5, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 5, %_ZNK11ast_manager11is_term_iteEPK9func_decl.exit ], [ %retval.1, %_ZN7obj_refI3app11ast_managerED2Ev.exit48 ], [ %retval.1, %if.then.i.i.i50 ], [ %retval.1, %if.then2.i.i.i56 ], [ 5, %_ZNK11ast_manager6is_iteEPK9func_decl.exit.i ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ 5, %entry ]
+  ret i32 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)

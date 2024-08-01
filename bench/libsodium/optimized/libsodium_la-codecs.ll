@@ -442,7 +442,7 @@ while.body43:                                     ; preds = %while.cond40.prehea
   %acc.1148 = phi i32 [ %add48, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
   %acc_len.2147 = phi i64 [ %sub54, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
   %bin_pos.1146 = phi i64 [ %inc45, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
-  %b64_pos.2145 = phi i64 [ %inc60, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
+  %b64_pos.3145 = phi i64 [ %inc60, %while.cond40.loopexit ], [ 0, %while.cond40.preheader ]
   %shl44 = shl i32 %acc.1148, 8
   %arrayidx46 = getelementptr i8, ptr %bin, i64 %bin_pos.1146
   %3 = load i8, ptr %arrayidx46, align 1
@@ -453,7 +453,7 @@ while.body43:                                     ; preds = %while.cond40.prehea
 
 while.body53:                                     ; preds = %while.body43, %while.body53
   %acc_len.3143 = phi i64 [ %add49, %while.body43 ], [ %sub54, %while.body53 ]
-  %b64_pos.3142 = phi i64 [ %b64_pos.2145, %while.body43 ], [ %inc60, %while.body53 ]
+  %b64_pos.4142 = phi i64 [ %b64_pos.3145, %while.body43 ], [ %inc60, %while.body53 ]
   %sub54 = add i64 %acc_len.3143, -6
   %sh_prom55 = trunc i64 %sub54 to i32
   %shr56 = lshr i32 %add48, %sh_prom55
@@ -488,8 +488,8 @@ while.body53:                                     ; preds = %while.body43, %whil
   %or28.i102 = or i32 %or21.i101, %and27.i95
   %or35.i103 = or i32 %or28.i102, %and10.i85
   %conv59 = trunc i32 %or35.i103 to i8
-  %inc60 = add i64 %b64_pos.3142, 1
-  %arrayidx61 = getelementptr i8, ptr %b64, i64 %b64_pos.3142
+  %inc60 = add i64 %b64_pos.4142, 1
+  %arrayidx61 = getelementptr i8, ptr %b64, i64 %b64_pos.4142
   store i8 %conv59, ptr %arrayidx61, align 1
   %cmp51 = icmp ugt i64 %sub54, 5
   br i1 %cmp51, label %while.body53, label %while.cond40.loopexit, !llvm.loop !11
@@ -545,18 +545,18 @@ if.end76.sink.split:                              ; preds = %while.end63, %while
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end76.sink.split, %while.cond40.preheader, %while.cond.preheader, %while.end63, %while.end26
-  %b64_pos.4 = phi i64 [ %inc24, %while.end26 ], [ %inc60, %while.end63 ], [ 0, %while.cond.preheader ], [ 0, %while.cond40.preheader ], [ %inc73, %if.end76.sink.split ]
-  %cmp78152 = icmp ult i64 %b64_pos.4, %b64_len.0
+  %b64_pos.2 = phi i64 [ %inc24, %while.end26 ], [ %inc60, %while.end63 ], [ 0, %while.cond.preheader ], [ 0, %while.cond40.preheader ], [ %inc73, %if.end76.sink.split ]
+  %cmp78152 = icmp ult i64 %b64_pos.2, %b64_len.0
   br i1 %cmp78152, label %while.body80.preheader, label %do.body.preheader
 
 while.body80.preheader:                           ; preds = %if.end76
-  %scevgep = getelementptr i8, ptr %b64, i64 %b64_pos.4
-  %9 = sub nuw i64 %b64_len.0, %b64_pos.4
+  %scevgep = getelementptr i8, ptr %b64, i64 %b64_pos.2
+  %9 = sub nuw i64 %b64_len.0, %b64_pos.2
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 61, i64 %9, i1 false)
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %while.body80.preheader, %if.end76
-  %b64_pos.5.lcssa = phi i64 [ %b64_pos.4, %if.end76 ], [ %b64_len.0, %while.body80.preheader ]
+  %b64_pos.5.lcssa = phi i64 [ %b64_pos.2, %if.end76 ], [ %b64_len.0, %while.body80.preheader ]
   %scevgep156 = getelementptr i8, ptr %b64, i64 %b64_pos.5.lcssa
   %10 = add i64 %b64_pos.5.lcssa, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %b64_maxlen, i64 %10)
@@ -582,7 +582,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %while.cond.preheade
   br i1 %tobool.not, label %while.body.lr.ph.us, label %while.body.lr.ph
 
 while.body.lr.ph.us:                              ; preds = %while.body.lr.ph.lr.ph, %if.end28.us
-  %acc_len.0.ph140.us = phi i64 [ %acc_len.1.us, %if.end28.us ], [ 0, %while.body.lr.ph.lr.ph ]
+  %acc_len.0.ph140.us = phi i64 [ %acc_len.2.us, %if.end28.us ], [ 0, %while.body.lr.ph.lr.ph ]
   %acc.0.ph139.us = phi i32 [ %add.us, %if.end28.us ], [ 0, %while.body.lr.ph.lr.ph ]
   %bin_pos.0.ph138.us = phi i64 [ %bin_pos.1.us, %if.end28.us ], [ 0, %while.body.lr.ph.lr.ph ]
   %b64_pos.0.ph137.us = phi i64 [ %inc29.us, %if.end28.us ], [ 0, %while.body.lr.ph.lr.ph ]
@@ -604,7 +604,7 @@ if.end23.us:                                      ; preds = %if.then18.us
 
 if.end28.us:                                      ; preds = %if.end14.split.us.us, %if.end23.us
   %bin_pos.1.us = phi i64 [ %inc26.us, %if.end23.us ], [ %bin_pos.0.ph138.us, %if.end14.split.us.us ]
-  %acc_len.1.us = phi i64 [ %sub.us, %if.end23.us ], [ %add15.us, %if.end14.split.us.us ]
+  %acc_len.2.us = phi i64 [ %sub.us, %if.end23.us ], [ %add15.us, %if.end14.split.us.us ]
   %inc29.us = add nuw i64 %b64_pos.0107.us.us, 1
   %cmp106.us = icmp ult i64 %inc29.us, %b64_len
   br i1 %cmp106.us, label %while.body.lr.ph.us, label %while.end, !llvm.loop !12
@@ -786,13 +786,13 @@ if.end23:                                         ; preds = %if.then18
 
 if.end28:                                         ; preds = %if.end23, %if.end14.split
   %bin_pos.1 = phi i64 [ %inc26, %if.end23 ], [ %bin_pos.0.ph138, %if.end14.split ]
-  %acc_len.1 = phi i64 [ %sub, %if.end23 ], [ %add15, %if.end14.split ]
+  %acc_len.2 = phi i64 [ %sub, %if.end23 ], [ %add15, %if.end14.split ]
   %inc29 = add nuw i64 %b64_pos.0107, 1
   %cmp106 = icmp ult i64 %inc29, %b64_len
   br i1 %cmp106, label %while.body.lr.ph, label %while.end, !llvm.loop !12
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end28
-  %acc_len.0.ph140 = phi i64 [ %acc_len.1, %if.end28 ], [ 0, %while.body.lr.ph.lr.ph ]
+  %acc_len.0.ph140 = phi i64 [ %acc_len.2, %if.end28 ], [ 0, %while.body.lr.ph.lr.ph ]
   %acc.0.ph139 = phi i32 [ %add, %if.end28 ], [ 0, %while.body.lr.ph.lr.ph ]
   %bin_pos.0.ph138 = phi i64 [ %bin_pos.1, %if.end28 ], [ 0, %while.body.lr.ph.lr.ph ]
   %b64_pos.0.ph137 = phi i64 [ %inc29, %if.end28 ], [ 0, %while.body.lr.ph.lr.ph ]
@@ -813,17 +813,17 @@ while.end:                                        ; preds = %if.end28, %if.then5
   %b64_pos.0101 = phi i64 [ %.us-phi148, %if.then21 ], [ %umax200.le, %while.end.loopexit.split.loop.exit259 ], [ %umax.le, %while.end.loopexit219.split.loop.exit248 ], [ %b64_pos.0.ph137.us, %if.then5.us.us ], [ %b64_pos.0107.us.us, %land.lhs.true.us.us ], [ %inc29.us, %if.end28.us ], [ %b64_pos.0.ph137, %if.then5 ], [ %b64_pos.0107, %land.lhs.true ], [ %inc29, %if.end28 ]
   %cmp40.not = phi i1 [ true, %if.then21 ], [ false, %while.end.loopexit.split.loop.exit259 ], [ false, %while.end.loopexit219.split.loop.exit248 ], [ false, %land.lhs.true.us.us ], [ false, %if.then5.us.us ], [ false, %if.end28.us ], [ false, %land.lhs.true ], [ false, %if.then5 ], [ false, %if.end28 ]
   %acc.1 = phi i32 [ %.us-phi147, %if.then21 ], [ %acc.0.ph139.us, %while.end.loopexit.split.loop.exit259 ], [ %acc.0.ph139, %while.end.loopexit219.split.loop.exit248 ], [ %acc.0.ph139.us, %land.lhs.true.us.us ], [ %acc.0.ph139.us, %if.then5.us.us ], [ %add.us, %if.end28.us ], [ %acc.0.ph139, %land.lhs.true ], [ %acc.0.ph139, %if.then5 ], [ %add, %if.end28 ]
-  %acc_len.2 = phi i64 [ %.us-phi146, %if.then21 ], [ %acc_len.0.ph140.us, %while.end.loopexit.split.loop.exit259 ], [ %acc_len.0.ph140, %while.end.loopexit219.split.loop.exit248 ], [ %acc_len.0.ph140.us, %land.lhs.true.us.us ], [ %acc_len.0.ph140.us, %if.then5.us.us ], [ %acc_len.1.us, %if.end28.us ], [ %acc_len.0.ph140, %land.lhs.true ], [ %acc_len.0.ph140, %if.then5 ], [ %acc_len.1, %if.end28 ]
-  %cmp30 = icmp ugt i64 %acc_len.2, 4
+  %acc_len.1 = phi i64 [ %.us-phi146, %if.then21 ], [ %acc_len.0.ph140.us, %while.end.loopexit.split.loop.exit259 ], [ %acc_len.0.ph140, %while.end.loopexit219.split.loop.exit248 ], [ %acc_len.0.ph140.us, %land.lhs.true.us.us ], [ %acc_len.0.ph140.us, %if.then5.us.us ], [ %acc_len.2.us, %if.end28.us ], [ %acc_len.0.ph140, %land.lhs.true ], [ %acc_len.0.ph140, %if.then5 ], [ %acc_len.2, %if.end28 ]
+  %cmp30 = icmp ugt i64 %acc_len.1, 4
   br i1 %cmp30, label %if.end69, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.cond.preheader, %while.end
-  %acc_len.2213 = phi i64 [ %acc_len.2, %while.end ], [ 0, %while.cond.preheader ]
+  %acc_len.1213 = phi i64 [ %acc_len.1, %while.end ], [ 0, %while.cond.preheader ]
   %acc.1212 = phi i32 [ %acc.1, %while.end ], [ 0, %while.cond.preheader ]
   %cmp40.not211 = phi i1 [ %cmp40.not, %while.end ], [ false, %while.cond.preheader ]
   %b64_pos.0101210 = phi i64 [ %b64_pos.0101, %while.end ], [ 0, %while.cond.preheader ]
   %bin_pos.0.ph105209 = phi i64 [ %bin_pos.0.ph105, %while.end ], [ 0, %while.cond.preheader ]
-  %sh_prom32 = trunc nuw nsw i64 %acc_len.2213 to i32
+  %sh_prom32 = trunc nuw nsw i64 %acc_len.1213 to i32
   %notmask = shl nsw i32 -1, %sh_prom32
   %sub34 = xor i32 %notmask, -1
   %and35 = and i32 %acc.1212, %sub34
@@ -834,12 +834,12 @@ lor.lhs.false:                                    ; preds = %while.cond.preheade
 land.lhs.true42:                                  ; preds = %lor.lhs.false
   %and43 = and i32 %variant, 2
   %cmp44 = icmp ne i32 %and43, 0
-  %cmp.not6.i = icmp ult i64 %acc_len.2213, 2
+  %cmp.not6.i = icmp ult i64 %acc_len.1213, 2
   %or.cond = or i1 %cmp44, %cmp.not6.i
   br i1 %or.cond, label %if.else53, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.lhs.true42
-  %div31 = lshr i64 %acc_len.2213, 1
+  %div31 = lshr i64 %acc_len.1213, 1
   %cmp5.i = icmp eq ptr %ignore, null
   %umax202 = tail call i64 @llvm.umax.i64(i64 %b64_pos.0101210, i64 %b64_len)
   br i1 %cmp5.i, label %while.body.us.i.preheader, label %while.body.i
@@ -849,33 +849,33 @@ while.body.us.i.preheader:                        ; preds = %while.body.lr.ph.i
   br label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %while.body.us.i.preheader, %if.then4.us.i
-  %b64_pos.1 = phi i64 [ %inc.us.i, %if.then4.us.i ], [ %b64_pos.0101210, %while.body.us.i.preheader ]
+  %b64_pos.6 = phi i64 [ %inc.us.i, %if.then4.us.i ], [ %b64_pos.0101210, %while.body.us.i.preheader ]
   %padding_len.addr.07.us.i = phi i64 [ %dec.us.i, %if.then4.us.i ], [ %div31, %while.body.us.i.preheader ]
-  %cmp1.not.us.i = icmp ult i64 %b64_pos.1, %b64_len
+  %cmp1.not.us.i = icmp ult i64 %b64_pos.6, %b64_len
   br i1 %cmp1.not.us.i, label %if.end.us.i, label %return.sink.split.i
 
 if.end.us.i:                                      ; preds = %while.body.us.i
   fence acquire
-  %arrayidx.us.i = getelementptr i8, ptr %b64, i64 %b64_pos.1
+  %arrayidx.us.i = getelementptr i8, ptr %b64, i64 %b64_pos.6
   %41 = load i8, ptr %arrayidx.us.i, align 1
   %cmp2.us.i = icmp eq i8 %41, 61
   br i1 %cmp2.us.i, label %if.then4.us.i, label %return.sink.split.i
 
 if.then4.us.i:                                    ; preds = %if.end.us.i
   %dec.us.i = add nsw i64 %padding_len.addr.07.us.i, -1
-  %inc.us.i = add nuw i64 %b64_pos.1, 1
+  %inc.us.i = add nuw i64 %b64_pos.6, 1
   %cmp.not.us.i = icmp eq i64 %dec.us.i, 0
   br i1 %cmp.not.us.i, label %if.else53, label %while.body.us.i, !llvm.loop !13
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %if.end13.i
-  %b64_pos.2 = phi i64 [ %inc.i, %if.end13.i ], [ %b64_pos.0101210, %while.body.lr.ph.i ]
+  %b64_pos.4 = phi i64 [ %inc.i, %if.end13.i ], [ %b64_pos.0101210, %while.body.lr.ph.i ]
   %padding_len.addr.07.i = phi i64 [ %padding_len.addr.1.i, %if.end13.i ], [ %div31, %while.body.lr.ph.i ]
-  %cmp1.not.i = icmp ult i64 %b64_pos.2, %b64_len
+  %cmp1.not.i = icmp ult i64 %b64_pos.4, %b64_len
   br i1 %cmp1.not.i, label %if.end.i, label %return.sink.split.i
 
 if.end.i:                                         ; preds = %while.body.i
   fence acquire
-  %arrayidx.i = getelementptr i8, ptr %b64, i64 %b64_pos.2
+  %arrayidx.i = getelementptr i8, ptr %b64, i64 %b64_pos.4
   %42 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %42, 61
   br i1 %cmp2.i, label %if.then4.i, label %if.else.i
@@ -892,27 +892,27 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.else.i, %if.then4.i
   %padding_len.addr.1.i = phi i64 [ %dec.i, %if.then4.i ], [ %padding_len.addr.07.i, %if.else.i ]
-  %inc.i = add nuw i64 %b64_pos.2, 1
+  %inc.i = add nuw i64 %b64_pos.4, 1
   %cmp.not.i80 = icmp eq i64 %padding_len.addr.1.i, 0
   br i1 %cmp.not.i80, label %if.else53, label %while.body.i, !llvm.loop !13
 
 return.sink.split.i:                              ; preds = %if.else.i, %while.body.i, %if.end.us.i, %while.body.us.i
-  %b64_pos.3 = phi i64 [ %b64_pos.1, %if.end.us.i ], [ %umax202, %while.body.us.i ], [ %b64_pos.2, %if.else.i ], [ %umax202, %while.body.i ]
+  %b64_pos.5 = phi i64 [ %b64_pos.6, %if.end.us.i ], [ %umax202, %while.body.us.i ], [ %b64_pos.4, %if.else.i ], [ %umax202, %while.body.i ]
   %.sink.i = phi i32 [ 22, %if.end.us.i ], [ 34, %while.body.us.i ], [ 22, %if.else.i ], [ 34, %while.body.i ]
   %call11.i = tail call ptr @__errno_location() #9
   store i32 %.sink.i, ptr %call11.i, align 4
   br label %if.end69
 
 if.else53:                                        ; preds = %if.end13.i, %if.then4.us.i, %land.lhs.true42
-  %b64_pos.5.ph = phi i64 [ %b64_pos.0101210, %land.lhs.true42 ], [ %40, %if.then4.us.i ], [ %inc.i, %if.end13.i ]
+  %b64_pos.1.ph = phi i64 [ %b64_pos.0101210, %land.lhs.true42 ], [ %40, %if.then4.us.i ], [ %inc.i, %if.end13.i ]
   %cmp54.not = icmp ne ptr %ignore, null
-  %cmp58165 = icmp ult i64 %b64_pos.5.ph, %b64_len
+  %cmp58165 = icmp ult i64 %b64_pos.1.ph, %b64_len
   %or.cond169 = and i1 %cmp54.not, %cmp58165
   br i1 %or.cond169, label %land.rhs, label %if.end69
 
 land.rhs:                                         ; preds = %if.else53, %while.body65
-  %b64_pos.6166 = phi i64 [ %inc66, %while.body65 ], [ %b64_pos.5.ph, %if.else53 ]
-  %arrayidx60 = getelementptr i8, ptr %b64, i64 %b64_pos.6166
+  %b64_pos.3166 = phi i64 [ %inc66, %while.body65 ], [ %b64_pos.1.ph, %if.else53 ]
+  %arrayidx60 = getelementptr i8, ptr %b64, i64 %b64_pos.3166
   %43 = load i8, ptr %arrayidx60, align 1
   %conv61 = sext i8 %43 to i32
   %call62 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ignore, i32 noundef %conv61) #8
@@ -920,24 +920,24 @@ land.rhs:                                         ; preds = %if.else53, %while.b
   br i1 %cmp63.not, label %if.end69, label %while.body65
 
 while.body65:                                     ; preds = %land.rhs
-  %inc66 = add i64 %b64_pos.6166, 1
+  %inc66 = add i64 %b64_pos.3166, 1
   %exitcond.not = icmp eq i64 %inc66, %b64_len
   br i1 %exitcond.not, label %if.end69, label %land.rhs, !llvm.loop !14
 
 if.end69:                                         ; preds = %land.rhs, %while.body65, %while.end, %lor.lhs.false, %return.sink.split.i, %if.else53
   %ret.193 = phi i32 [ 0, %if.else53 ], [ -1, %lor.lhs.false ], [ -1, %while.end ], [ -1, %return.sink.split.i ], [ 0, %while.body65 ], [ 0, %land.rhs ]
-  %b64_pos.7 = phi i64 [ %b64_pos.5.ph, %if.else53 ], [ %b64_pos.0101210, %lor.lhs.false ], [ %b64_pos.0101, %while.end ], [ %b64_pos.3, %return.sink.split.i ], [ %b64_pos.6166, %land.rhs ], [ %b64_len, %while.body65 ]
+  %b64_pos.2 = phi i64 [ %b64_pos.1.ph, %if.else53 ], [ %b64_pos.0101210, %lor.lhs.false ], [ %b64_pos.0101, %while.end ], [ %b64_pos.5, %return.sink.split.i ], [ %b64_pos.3166, %land.rhs ], [ %b64_len, %while.body65 ]
   %bin_pos.2 = phi i64 [ %bin_pos.0.ph105209, %if.else53 ], [ 0, %lor.lhs.false ], [ 0, %while.end ], [ 0, %return.sink.split.i ], [ %bin_pos.0.ph105209, %while.body65 ], [ %bin_pos.0.ph105209, %land.rhs ]
   %cmp70.not = icmp eq ptr %b64_end, null
   br i1 %cmp70.not, label %if.else74, label %if.then72
 
 if.then72:                                        ; preds = %if.end69
-  %arrayidx73 = getelementptr i8, ptr %b64, i64 %b64_pos.7
+  %arrayidx73 = getelementptr i8, ptr %b64, i64 %b64_pos.2
   store ptr %arrayidx73, ptr %b64_end, align 8
   br label %if.end80
 
 if.else74:                                        ; preds = %if.end69
-  %cmp75.not = icmp eq i64 %b64_pos.7, %b64_len
+  %cmp75.not = icmp eq i64 %b64_pos.2, %b64_len
   br i1 %cmp75.not, label %if.end80, label %if.then77
 
 if.then77:                                        ; preds = %if.else74

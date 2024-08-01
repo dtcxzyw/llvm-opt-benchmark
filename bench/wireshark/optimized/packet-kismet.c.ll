@@ -195,7 +195,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br i1 %.not.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69
-  %.0172197.us = phi ptr [ %.2.us, %69 ], [ %9, %.lr.ph ]
+  %.0172197.us = phi ptr [ %.1.us, %69 ], [ %9, %.lr.ph ]
   %.0173196.us = phi i32 [ %70, %69 ], [ 0, %.lr.ph ]
   %53 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0173196.us, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %.not185.us = icmp eq i32 %53, 0
@@ -222,14 +222,14 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br label %69
 
 69:                                               ; preds = %65, %54, %.lr.ph.split.us
-  %.2.us = phi ptr [ %68, %65 ], [ %.0172197.us, %54 ], [ %.0172197.us, %.lr.ph.split.us ]
+  %.1.us = phi ptr [ %68, %65 ], [ %.0172197.us, %54 ], [ %.0172197.us, %.lr.ph.split.us ]
   %70 = load i32, ptr %5, align 4
   %71 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %70) #3
   %.not.us = icmp eq i32 %71, 0
   br i1 %.not.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %205
-  %.0172197 = phi ptr [ %.2, %205 ], [ %9, %.lr.ph ]
+  %.0172197 = phi ptr [ %.1, %205 ], [ %9, %.lr.ph ]
   %.0173196 = phi i32 [ %206, %205 ], [ 0, %.lr.ph ]
   %72 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0173196, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %.not185 = icmp eq i32 %72, 0
@@ -348,7 +348,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
 
 176:                                              ; preds = %88, %84
   %.1174 = phi i32 [ %.0173196, %84 ], [ %166, %88 ]
-  %.1 = phi ptr [ %.0172197, %84 ], [ %162, %88 ]
+  %.2 = phi ptr [ %.0172197, %84 ], [ %162, %88 ]
   %.0171 = phi i32 [ %72, %84 ], [ %167, %88 ]
   %177 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(6) @.str.29, i64 noundef 5) #4
   %.not188 = icmp eq i32 %177, 0
@@ -358,7 +358,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   store i32 0, ptr %52, align 8
   %179 = load ptr, ptr %6, align 8
   %180 = ptrtoint ptr %179 to i64
-  %181 = ptrtoint ptr %.1 to i64
+  %181 = ptrtoint ptr %.2 to i64
   %182 = sub i64 %180, %181
   %183 = trunc i64 %182 to i32
   %184 = add i32 %.1174, %183
@@ -395,7 +395,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br label %205
 
 205:                                              ; preds = %73, %203, %.lr.ph.split
-  %.2 = phi ptr [ %204, %203 ], [ %.0172197, %73 ], [ %.0172197, %.lr.ph.split ]
+  %.1 = phi ptr [ %204, %203 ], [ %.0172197, %73 ], [ %.0172197, %.lr.ph.split ]
   %206 = load i32, ptr %5, align 4
   %207 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %206) #3
   %.not = icmp eq i32 %207, 0

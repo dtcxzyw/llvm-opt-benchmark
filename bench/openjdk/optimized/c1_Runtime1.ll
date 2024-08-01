@@ -3875,9 +3875,9 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203: ; preds = %477, %475
   unreachable
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203, %463, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i, %_ZNK5Klass11java_mirrorEv.exit, %212, %443, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit192, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit184, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit176, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
-  %.sroa.0251.0 = phi ptr [ null, %443 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit192 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit184 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit176 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %212 ], [ %.0.i.i.i.i204, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203 ], [ null, %463 ]
+  %.sroa.0251.1 = phi ptr [ null, %443 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit192 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit184 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit176 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %212 ], [ %.0.i.i.i.i204, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203 ], [ null, %463 ]
   %.0149 = phi ptr [ %447, %443 ], [ %398, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit192 ], [ %356, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit184 ], [ %314, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit176 ], [ %272, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %212 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203 ], [ null, %463 ]
-  %.0143 = phi ptr [ null, %443 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit192 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit184 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit176 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.0.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ %.0.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i, %212 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203 ], [ null, %463 ]
+  %.1144 = phi ptr [ null, %443 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit192 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit184 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit176 ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ], [ %.0.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ %.0.i, %_ZNK5Klass11java_mirrorEv.exit ], [ %.0.i, %212 ], [ null, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i203 ], [ null, %463 ]
   %481 = ptrtoint ptr %.0149 to i64
   br label %586
 
@@ -4078,9 +4078,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit217:           ; preds = %_ZN10HandleArea15al
 
 586:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit217, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %155
   %.sroa.0250.0 = phi ptr [ null, %155 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %storemerge.in.sroa.speculated.in, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
-  %.sroa.0251.1 = phi ptr [ null, %155 ], [ %.sroa.0251.0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
+  %.sroa.0251.0 = phi ptr [ null, %155 ], [ %.sroa.0251.1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
   %.0145 = phi i64 [ 0, %155 ], [ %481, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
-  %.1144 = phi ptr [ null, %155 ], [ %.0143, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
+  %.0143 = phi ptr [ null, %155 ], [ %.1144, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
   %.1142 = phi i32 [ %.0141, %155 ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ -1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
   %.1140 = phi i1 [ %.0139, %155 ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
   %.1 = phi i1 [ %.0, %155 ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit217 ]
@@ -4166,7 +4166,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %596
   br i1 %or.cond, label %639, label %635
 
 635:                                              ; preds = %633
-  %636 = getelementptr inbounds i8, ptr %.1144, i64 305
+  %636 = getelementptr inbounds i8, ptr %.0143, i64 305
   %637 = load volatile i8, ptr %636, align 1
   %638 = icmp eq i8 %637, 4
   br label %639
@@ -4181,11 +4181,11 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %596
   br i1 %82, label %.sink.split, label %644
 
 644:                                              ; preds = %643
-  %645 = icmp eq ptr %.sroa.0251.1, null
+  %645 = icmp eq ptr %.sroa.0251.0, null
   br i1 %645, label %.sink.split, label %646
 
 646:                                              ; preds = %644
-  %647 = load ptr, ptr %.sroa.0251.1, align 8
+  %647 = load ptr, ptr %.sroa.0251.0, align 8
   %648 = ptrtoint ptr %647 to i64
   br label %.sink.split
 

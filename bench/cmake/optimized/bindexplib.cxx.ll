@@ -300,13 +300,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %53, %.loopexit.sink.split.i.i
-  %.0.i.i = xor i1 %52, true
+  %.1.i.i = xor i1 %52, true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %7) #16
   br label %75
 
 75:                                               ; preds = %.loopexit.i.i, %38
-  %.1.i.i = phi i1 [ false, %38 ], [ %.0.i.i, %.loopexit.i.i ]
+  %.0.i.i = phi i1 [ false, %38 ], [ %.1.i.i, %.loopexit.i.i ]
   %76 = load ptr, ptr %5, align 8
   %77 = load ptr, ptr %11, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %76, %77
@@ -346,7 +346,7 @@ _ZL8DumpFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcRSt3setIS4_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  ret i1 %.1.i.i
+  ret i1 %.0.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

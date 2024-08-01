@@ -717,7 +717,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit92:   ; preds = %232, %234
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit94
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit90:   ; preds = %225, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88
-  %.0 = phi i32 [ 1, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88 ], [ 0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 0, %225 ]
+  %.2 = phi i32 [ 1, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88 ], [ 0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 0, %225 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #8
   br label %237
 
@@ -727,7 +727,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit94:   ; preds = %236, %_ZNSt6vectorI
   br label %.body73
 
 237:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit90, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit80
-  %.1 = phi i32 [ %.0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit90 ], [ 1, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit80 ]
+  %.1 = phi i32 [ %.2, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit90 ], [ 1, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit80 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
   br label %238
 
@@ -737,9 +737,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit94:   ; preds = %236, %_ZNSt6vectorI
   br label %239
 
 238:                                              ; preds = %237, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.2 = phi i32 [ 1, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %237 ]
+  %.0 = phi i32 [ 1, %_ZL4helpRKN2cv17CommandLineParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %237 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
-  ret i32 %.2
+  ret i32 %.0
 
 239:                                              ; preds = %.body73, %88, %67, %62
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %67 ], [ %.pn60.pn.pn, %.body73 ], [ %.pn39, %88 ], [ %.pn37, %62 ]

@@ -471,12 +471,12 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
   br label %62
 
 62:                                               ; preds = %60, %58
-  %.1128 = phi ptr [ %59, %58 ], [ %61, %60 ]
-  tail call void @Cudd_Ref(ptr noundef %.1128) #14
+  %.2 = phi ptr [ %59, %58 ], [ %61, %60 ]
+  tail call void @Cudd_Ref(ptr noundef %.2) #14
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0129166) #14
-  %63 = tail call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef %.1128) #14
+  %63 = tail call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef %.2) #14
   tail call void @Cudd_Ref(ptr noundef %63) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1128) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2) #14
   %64 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %63, ptr noundef %.0130165) #14
   %.not136 = icmp eq i32 %64, 0
   br i1 %.not136, label %65, label %.loopexit
@@ -525,8 +525,8 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
   %.0124158 = phi i32 [ %.0124167, %70 ], [ 1, %52 ], [ %56, %.critedge142 ], [ %.0124167, %62 ], [ %.0124167, %65 ]
   %.not135156 = phi i1 [ %.not135168, %70 ], [ true, %52 ], [ %.not135, %.critedge142 ], [ %.not135168, %62 ], [ %.not135168, %65 ]
   %.1131 = phi ptr [ null, %70 ], [ %3, %52 ], [ %77, %.critedge142 ], [ %.0130165, %62 ], [ %.0130165, %65 ]
-  %.2 = phi ptr [ %63, %70 ], [ null, %52 ], [ %63, %65 ], [ %63, %62 ], [ %63, %.critedge142 ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2) #14
+  %.1128 = phi ptr [ %63, %70 ], [ null, %52 ], [ %63, %65 ], [ %63, %62 ], [ %63, %.critedge142 ]
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1128) #14
   br i1 %.not, label %84, label %83
 
 83:                                               ; preds = %.loopexit

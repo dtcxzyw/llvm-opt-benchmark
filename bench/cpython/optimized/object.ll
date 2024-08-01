@@ -4829,7 +4829,7 @@ if.else67:                                        ; preds = %Py_INCREF.exit
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else67, %if.then65
-  %res.0 = phi i32 [ %call66, %if.then65 ], [ %call68, %if.else67 ]
+  %res.2 = phi i32 [ %call66, %if.then65 ], [ %call68, %if.else67 ]
   %25 = load i64, ptr %dict, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i134.not = icmp eq i64 %26, 0
@@ -4850,7 +4850,7 @@ if.then1.i130:                                    ; preds = %if.end.i127
   br label %error_check
 
 error_check:                                      ; preds = %if.else60, %if.end69, %if.then1.i130, %if.end.i127, %if.end36, %if.then26
-  %res.1 = phi i32 [ %call29, %if.then26 ], [ %call39, %if.end36 ], [ %call61, %if.else60 ], [ %res.0, %if.end69 ], [ %res.0, %if.then1.i130 ], [ %res.0, %if.end.i127 ]
+  %res.1 = phi i32 [ %call29, %if.then26 ], [ %call39, %if.end36 ], [ %call61, %if.else60 ], [ %res.2, %if.end69 ], [ %res.2, %if.then1.i130 ], [ %res.2, %if.end.i127 ]
   %cmp71 = icmp slt i32 %res.1, 0
   br i1 %cmp71, label %land.lhs.true72, label %done
 
@@ -4873,11 +4873,11 @@ if.then75:                                        ; preds = %land.lhs.true72
   br label %done
 
 done:                                             ; preds = %error_check, %land.lhs.true72, %if.then75, %if.then32
-  %res.2 = phi i32 [ %res.1, %if.then75 ], [ %res.1, %land.lhs.true72 ], [ %res.1, %error_check ], [ -1, %if.then32 ]
+  %res.0 = phi i32 [ %res.1, %if.then75 ], [ %res.1, %land.lhs.true72 ], [ %res.1, %error_check ], [ -1, %if.then32 ]
   br i1 %cmp11.not, label %Py_XDECREF.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then15, %if.else56, %done
-  %res.293 = phi i32 [ %res.2, %done ], [ -1, %if.else56 ], [ %call16, %if.then15 ]
+  %res.093 = phi i32 [ %res.0, %done ], [ -1, %if.else56 ], [ %call16, %if.then15 ]
   %32 = load i64, ptr %call10, align 8
   %33 = and i64 %32, 2147483648
   %cmp.i2.not.i = icmp eq i64 %33, 0
@@ -4898,7 +4898,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.then46, %done, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %res.294 = phi i32 [ %res.2, %done ], [ %res.293, %if.then.i ], [ %res.293, %if.end.i.i ], [ %res.293, %if.then1.i.i ], [ -1, %if.then46 ]
+  %res.094 = phi i32 [ %res.0, %done ], [ %res.093, %if.then.i ], [ %res.093, %if.end.i.i ], [ %res.093, %if.then1.i.i ], [ -1, %if.then46 ]
   %36 = load i64, ptr %obj.val, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i137.not = icmp eq i64 %37, 0
@@ -4938,7 +4938,7 @@ if.then1.i:                                       ; preds = %if.end.i112
   br label %return
 
 return:                                           ; preds = %if.end.i112, %if.then1.i, %Py_DECREF.exit123, %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %land.lhs.true ], [ %res.294, %Py_DECREF.exit123 ], [ %res.294, %if.then1.i ], [ %res.294, %if.end.i112 ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %land.lhs.true ], [ %res.094, %Py_DECREF.exit123 ], [ %res.094, %if.then1.i ], [ %res.094, %if.end.i112 ]
   ret i32 %retval.0
 }
 

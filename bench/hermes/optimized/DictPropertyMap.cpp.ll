@@ -344,7 +344,7 @@ if.then26:                                        ; preds = %for.end
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then26
-  %count.2 = phi i32 [ %count.0.lcssa, %if.then26 ], [ %add, %do.body ]
+  %count.3 = phi i32 [ %count.0.lcssa, %if.then26 ], [ %add, %do.body ]
   %dst.2 = phi ptr [ %dst.0.lcssa, %if.then26 ], [ %incdec.ptr43, %do.body ]
   %deletedIndex.0 = phi i32 [ %14, %if.then26 ], [ %17, %do.body ]
   %idx.ext31 = zext i32 %deletedIndex.0 to i64
@@ -357,7 +357,7 @@ do.body:                                          ; preds = %do.body, %if.then26
   %second.i = getelementptr inbounds i8, ptr %add.ptr32, i64 4
   %17 = load i32, ptr %second.i, align 4
   %cmp42.not = icmp eq i32 %17, -1
-  %add = add i32 %count.2, 1
+  %add = add i32 %count.3, 1
   %cond = select i1 %cmp42.not, i32 -1, i32 %add
   %second.i46 = getelementptr inbounds i8, ptr %dst.2, i64 4
   store i32 %cond, ptr %second.i46, align 4
@@ -365,9 +365,9 @@ do.body:                                          ; preds = %do.body, %if.then26
   br i1 %cmp42.not, label %if.end46, label %do.body, !llvm.loop !17
 
 if.end46:                                         ; preds = %do.body, %for.end
-  %count.3 = phi i32 [ %count.0.lcssa, %for.end ], [ %add, %do.body ]
+  %count.2 = phi i32 [ %count.0.lcssa, %for.end ], [ %add, %do.body ]
   %numDescriptors_47 = getelementptr inbounds i8, ptr %call, i64 12
-  store atomic i32 %count.3, ptr %numDescriptors_47 release, align 4
+  store atomic i32 %count.2, ptr %numDescriptors_47 release, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end46

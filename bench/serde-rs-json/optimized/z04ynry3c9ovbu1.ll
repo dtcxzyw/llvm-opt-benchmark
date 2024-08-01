@@ -402,10 +402,10 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i: ; preds = %53, %
   br label %79
 
 79:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0edd0c039799c6acE.exit", %75, %1
-  %.sroa.4.1 = phi i64 [ undef, %1 ], [ %78, %75 ], [ %74, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0edd0c039799c6acE.exit" ]
-  %.sroa.0.1 = phi ptr [ null, %1 ], [ %77, %75 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0edd0c039799c6acE.exit" ]
-  %80 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %81 = insertvalue { ptr, i64 } %80, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %78, %75 ], [ %74, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0edd0c039799c6acE.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %77, %75 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0edd0c039799c6acE.exit" ]
+  %80 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %81 = insertvalue { ptr, i64 } %80, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %81
 }
 
@@ -690,7 +690,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter6tra
   br label %20
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5ebe2cbb00a7be81E.exit", %3
-  %.010 = phi ptr [ %1, %3 ], [ %.1.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5ebe2cbb00a7be81E.exit" ]
+  %.010 = phi ptr [ %1, %3 ], [ %.0.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5ebe2cbb00a7be81E.exit" ]
   %21 = call { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h45c3a2e7ebe73d9bE.llvm.9344173145647081186"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   %.fca.0.extract = extractvalue { ptr, i64 } %21, 0
   %.not = icmp eq ptr %.fca.0.extract, null
@@ -784,7 +784,7 @@ common.resume.i:                                  ; preds = %51, %25
   br label %50
 
 50:                                               ; preds = %47, %.noexc.i.i
-  %.0.i.i.i = phi ptr [ %49, %47 ], [ null, %.noexc.i.i ]
+  %.1.i.i.i = phi ptr [ %49, %47 ], [ null, %.noexc.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !88
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hd3a7603bb84cf785E.exit.i.i"
 
@@ -811,7 +811,7 @@ common.resume.i:                                  ; preds = %51, %25
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hd3a7603bb84cf785E.exit.i.i"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hd3a7603bb84cf785E.exit.i.i": ; preds = %54, %53, %50, %39, %"_ZN10serde_json5value5Value7pointer28_$u7b$$u7b$closure$u7d$$u7d$17h1514e431ef22ecc4E.exit.i"
-  %.1.i.i = phi ptr [ null, %"_ZN10serde_json5value5Value7pointer28_$u7b$$u7b$closure$u7d$$u7d$17h1514e431ef22ecc4E.exit.i" ], [ null, %53 ], [ %.0.i9.i.i, %54 ], [ %.0.i.i.i, %50 ], [ null, %39 ]
+  %.0.i.i = phi ptr [ null, %"_ZN10serde_json5value5Value7pointer28_$u7b$$u7b$closure$u7d$$u7d$17h1514e431ef22ecc4E.exit.i" ], [ null, %53 ], [ %.0.i9.i.i, %54 ], [ %.1.i.i.i, %50 ], [ null, %39 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !90
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc4fb6c2e2cd2ccd0E.llvm.12266911530922283489"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !72
   %59 = load i64, ptr %18, align 8, !range !71, !noalias !90, !noundef !4
@@ -834,7 +834,7 @@ common.resume.i:                                  ; preds = %51, %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !90
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !55
-  %65 = icmp eq ptr %.1.i.i, null
+  %65 = icmp eq ptr %.0.i.i, null
   br i1 %65, label %66, label %20
 
 66:                                               ; preds = %20, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5ebe2cbb00a7be81E.exit"
@@ -864,7 +864,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter6tra
   br label %20
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc54050ebaca7baaeE.exit", %3
-  %.010 = phi ptr [ %1, %3 ], [ %.1.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc54050ebaca7baaeE.exit" ]
+  %.010 = phi ptr [ %1, %3 ], [ %.0.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc54050ebaca7baaeE.exit" ]
   %21 = call { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h45c3a2e7ebe73d9bE.llvm.9344173145647081186"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   %.fca.0.extract = extractvalue { ptr, i64 } %21, 0
   %.not = icmp eq ptr %.fca.0.extract, null
@@ -950,7 +950,7 @@ common.resume.i:                                  ; preds = %48, %25
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8, !noalias !133, !nonnull !4
   %.sroa.27.0.copyload.i.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i, align 8, !noalias !133
   %47 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.27.0.copyload.i.i.i
-  %.0.i.i.i = select i1 %trunc.i.i.i, ptr null, ptr %47
+  %.1.i.i.i = select i1 %trunc.i.i.i, ptr null, ptr %47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !133
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h652503905436b9c7E.exit.i.i"
 
@@ -977,7 +977,7 @@ common.resume.i:                                  ; preds = %48, %25
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h652503905436b9c7E.exit.i.i"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h652503905436b9c7E.exit.i.i": ; preds = %51, %50, %.noexc.i.i, %39, %"_ZN10serde_json5value5Value11pointer_mut28_$u7b$$u7b$closure$u7d$$u7d$17hbb3988ba2fffd951E.exit.i"
-  %.1.i.i = phi ptr [ null, %"_ZN10serde_json5value5Value11pointer_mut28_$u7b$$u7b$closure$u7d$$u7d$17hbb3988ba2fffd951E.exit.i" ], [ null, %50 ], [ %.0.i9.i.i, %51 ], [ %.0.i.i.i, %.noexc.i.i ], [ null, %39 ]
+  %.0.i.i = phi ptr [ null, %"_ZN10serde_json5value5Value11pointer_mut28_$u7b$$u7b$closure$u7d$$u7d$17hbb3988ba2fffd951E.exit.i" ], [ null, %50 ], [ %.0.i9.i.i, %51 ], [ %.1.i.i.i, %.noexc.i.i ], [ null, %39 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !134
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc4fb6c2e2cd2ccd0E.llvm.12266911530922283489"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !118
   %56 = load i64, ptr %18, align 8, !range !71, !noalias !134, !noundef !4
@@ -1000,7 +1000,7 @@ common.resume.i:                                  ; preds = %48, %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !134
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !102
-  %62 = icmp eq ptr %.1.i.i, null
+  %62 = icmp eq ptr %.0.i.i, null
   br i1 %62, label %63, label %20
 
 63:                                               ; preds = %20, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc54050ebaca7baaeE.exit"

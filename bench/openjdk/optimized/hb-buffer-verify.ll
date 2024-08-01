@@ -32,9 +32,9 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_f
   %18 = getelementptr inbounds i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %switch.i = icmp ult i32 %19, 2
-  %indvars.iv129.i.sroa.gep60 = getelementptr inbounds i8, ptr %13, i64 8
-  %indvars.iv129.i.sroa.gep63 = getelementptr inbounds i8, ptr %12, i64 4
-  %indvars.iv129.i.sroa.gep66 = getelementptr inbounds i8, ptr %7, i64 8
+  %indvars.iv129.i.sroa.gep59 = getelementptr inbounds i8, ptr %13, i64 8
+  %indvars.iv129.i.sroa.gep62 = getelementptr inbounds i8, ptr %12, i64 4
+  %indvars.iv129.i.sroa.gep65 = getelementptr inbounds i8, ptr %7, i64 8
   br i1 %switch.i, label %20, label %.loopexit
 
 20:                                               ; preds = %6
@@ -120,8 +120,8 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 55:                                               ; preds = %113, %.lr.ph109.i
   %56 = phi i32 [ %48, %.lr.ph109.i ], [ %114, %113 ]
   %indvars.iv115.i = phi i64 [ 1, %.lr.ph109.i ], [ %indvars.iv.next116.i, %113 ]
-  %.083108.i = phi i32 [ %52, %.lr.ph109.i ], [ %.3.i, %113 ]
-  %.086105.i = phi i32 [ %52, %.lr.ph109.i ], [ %.389.i, %113 ]
+  %.083108.i = phi i32 [ %52, %.lr.ph109.i ], [ %.184.i, %113 ]
+  %.086105.i = phi i32 [ %52, %.lr.ph109.i ], [ %.187.i, %113 ]
   %57 = zext i32 %56 to i64
   %58 = icmp ult i64 %indvars.iv115.i, %57
   br i1 %58, label %59, label %72
@@ -225,19 +225,19 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   call void @hb_buffer_append(ptr noundef %37, ptr noundef %1, i32 noundef %.2.fr.i, i32 noundef %.288.i)
   %105 = call i32 @hb_shape_full(ptr noundef %2, ptr noundef %37, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   %.not97.i = icmp eq i32 %105, 0
-  br i1 %.not97.i, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread69, label %106
+  br i1 %.not97.i, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread68, label %106
 
 106:                                              ; preds = %.critedge.i
   %107 = load i8, ptr %53, align 8
   %108 = trunc i8 %107 to i1
-  br i1 %108, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread69, label %109
+  br i1 %108, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread68, label %109
 
 109:                                              ; preds = %106
   %110 = load i8, ptr %54, align 1
   %111 = trunc i8 %110 to i1
-  br i1 %111, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread69, label %112
+  br i1 %111, label %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread68, label %112
 
-_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread69: ; preds = %.critedge.i, %106, %109
+_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread68: ; preds = %.critedge.i, %106, %109
   call void @hb_buffer_destroy(ptr noundef %40)
   call void @hb_buffer_destroy(ptr noundef %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -252,8 +252,8 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 
 113:                                              ; preds = %112, %66, %59
   %114 = phi i32 [ %56, %59 ], [ %56, %66 ], [ %.pre.i20, %112 ]
-  %.389.i = phi i32 [ %.086105.i, %59 ], [ %.086105.i, %66 ], [ %.2..288.i, %112 ]
-  %.3.i = phi i32 [ %.083108.i, %59 ], [ %.083108.i, %66 ], [ %.2..288.i, %112 ]
+  %.187.i = phi i32 [ %.086105.i, %59 ], [ %.086105.i, %66 ], [ %.2..288.i, %112 ]
+  %.184.i = phi i32 [ %.083108.i, %59 ], [ %.083108.i, %66 ], [ %.2..288.i, %112 ]
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %115 = add i32 %114, 1
   %116 = zext i32 %115 to i64
@@ -289,8 +289,8 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %125
 
-125:                                              ; preds = %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread69, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit, %.critedge
-  %126 = phi i1 [ false, %.critedge ], [ %34, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit ], [ %34, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread69 ], [ %34, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread ]
+125:                                              ; preds = %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread68, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit, %.critedge
+  %126 = phi i1 [ false, %.critedge ], [ %34, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit ], [ %34, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread68 ], [ %34, %_ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread ]
   %127 = getelementptr inbounds i8, ptr %0, i64 24
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, 64
@@ -323,7 +323,7 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %133 = call ptr @hb_buffer_create_similar(ptr noundef nonnull %0)
   store ptr %133, ptr %7, align 16
   %134 = call ptr @hb_buffer_create_similar(ptr noundef nonnull %0)
-  store ptr %134, ptr %indvars.iv129.i.sroa.gep66, align 8
+  store ptr %134, ptr %indvars.iv129.i.sroa.gep65, align 8
   %135 = call i32 @hb_buffer_get_flags(ptr noundef %133)
   %136 = and i32 %135, -33
   call void @hb_buffer_set_flags(ptr noundef %133, i32 noundef %136)
@@ -358,8 +358,8 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
 .lr.ph112.i:                                      ; preds = %148, %187
   %152 = phi i32 [ %188, %187 ], [ %149, %148 ]
   %indvars.iv126.i = phi i64 [ %indvars.iv.next127.i, %187 ], [ 1, %148 ]
-  %.091111.i = phi i32 [ %.1.i31, %187 ], [ 0, %148 ]
-  %.093108.i = phi i32 [ %.3.i30, %187 ], [ 0, %148 ]
+  %.091111.i = phi i32 [ %.1.i30, %187 ], [ 0, %148 ]
+  %.093108.i = phi i32 [ %.194.i, %187 ], [ 0, %148 ]
   %.095107.i = phi i32 [ %.196.i, %187 ], [ 0, %148 ]
   %153 = zext i32 %152 to i64
   %154 = icmp ult i64 %indvars.iv126.i, %153
@@ -395,31 +395,31 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %173 = load i32, ptr %172, align 4
   %174 = load i32, ptr %10, align 4
   %175 = icmp ult i32 %.093108.i, %174
-  br i1 %175, label %.lr.ph.preheader.i32, label %.critedge.i27
+  br i1 %175, label %.lr.ph.preheader.i31, label %.critedge.i27
 
-.lr.ph.preheader.i32:                             ; preds = %171
+.lr.ph.preheader.i31:                             ; preds = %171
   %176 = zext i32 %.093108.i to i64
   %177 = zext i32 %174 to i64
-  br label %.lr.ph.i33
+  br label %.lr.ph.i32
 
-.lr.ph.i33:                                       ; preds = %181, %.lr.ph.preheader.i32
-  %indvars.iv.i34 = phi i64 [ %176, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i36, %181 ]
-  %178 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %143, i64 %indvars.iv.i34, i32 2
+.lr.ph.i32:                                       ; preds = %181, %.lr.ph.preheader.i31
+  %indvars.iv.i33 = phi i64 [ %176, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i35, %181 ]
+  %178 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %143, i64 %indvars.iv.i33, i32 2
   %179 = load i32, ptr %178, align 4
   %180 = icmp ult i32 %179, %173
-  br i1 %180, label %181, label %.critedge.loopexit.split.loop.exit.i35
+  br i1 %180, label %181, label %.critedge.loopexit.split.loop.exit.i34
 
-181:                                              ; preds = %.lr.ph.i33
-  %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i34, 1
-  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %177
-  br i1 %exitcond.not.i37, label %.critedge.i27, label %.lr.ph.i33, !llvm.loop !11
+181:                                              ; preds = %.lr.ph.i32
+  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i33, 1
+  %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %177
+  br i1 %exitcond.not.i36, label %.critedge.i27, label %.lr.ph.i32, !llvm.loop !11
 
-.critedge.loopexit.split.loop.exit.i35:           ; preds = %.lr.ph.i33
-  %182 = trunc nuw i64 %indvars.iv.i34 to i32
+.critedge.loopexit.split.loop.exit.i34:           ; preds = %.lr.ph.i32
+  %182 = trunc nuw i64 %indvars.iv.i33 to i32
   br label %.critedge.i27
 
-.critedge.i27:                                    ; preds = %181, %.critedge.loopexit.split.loop.exit.i35, %171, %169
-  %.2.i28 = phi i32 [ %170, %169 ], [ %.093108.i, %171 ], [ %182, %.critedge.loopexit.split.loop.exit.i35 ], [ %174, %181 ]
+.critedge.i27:                                    ; preds = %181, %.critedge.loopexit.split.loop.exit.i34, %171, %169
+  %.2.i28 = phi i32 [ %170, %169 ], [ %.093108.i, %171 ], [ %182, %.critedge.loopexit.split.loop.exit.i34 ], [ %174, %181 ]
   %183 = zext nneg i32 %.091111.i to i64
   %184 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %183
   %185 = load ptr, ptr %184, align 8
@@ -431,8 +431,8 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
 187:                                              ; preds = %.critedge.i27, %163, %155
   %188 = phi i32 [ %152, %155 ], [ %152, %163 ], [ %.pre.i29, %.critedge.i27 ]
   %.196.i = phi i32 [ %.095107.i, %155 ], [ %.095107.i, %163 ], [ %.2.i28, %.critedge.i27 ]
-  %.3.i30 = phi i32 [ %.093108.i, %155 ], [ %.093108.i, %163 ], [ %.2.i28, %.critedge.i27 ]
-  %.1.i31 = phi i32 [ %.091111.i, %155 ], [ %.091111.i, %163 ], [ %186, %.critedge.i27 ]
+  %.194.i = phi i32 [ %.093108.i, %155 ], [ %.093108.i, %163 ], [ %.2.i28, %.critedge.i27 ]
+  %.1.i30 = phi i32 [ %.091111.i, %155 ], [ %.091111.i, %163 ], [ %186, %.critedge.i27 ]
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
   %189 = add i32 %188, 1
   %190 = zext i32 %189 to i64
@@ -442,36 +442,36 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
 ._crit_edge.i26:                                  ; preds = %187, %148
   %192 = call i32 @hb_shape_full(ptr noundef %2, ptr noundef %133, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   %.not99.i = icmp eq i32 %192, 0
-  br i1 %.not99.i, label %.critedge88, label %193
+  br i1 %.not99.i, label %.critedge87, label %193
 
 193:                                              ; preds = %._crit_edge.i26
   %194 = getelementptr inbounds i8, ptr %133, i64 80
   %195 = load i8, ptr %194, align 8
   %196 = trunc i8 %195 to i1
-  br i1 %196, label %197, label %.critedge88
+  br i1 %196, label %197, label %.critedge87
 
 197:                                              ; preds = %193
   %198 = getelementptr inbounds i8, ptr %133, i64 81
   %199 = load i8, ptr %198, align 1
   %200 = trunc i8 %199 to i1
-  br i1 %200, label %.critedge88, label %201
+  br i1 %200, label %.critedge87, label %201
 
 201:                                              ; preds = %197
   %202 = call i32 @hb_shape_full(ptr noundef %2, ptr noundef %134, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   %.not100.i = icmp eq i32 %202, 0
-  br i1 %.not100.i, label %.critedge88, label %203
+  br i1 %.not100.i, label %.critedge87, label %203
 
 203:                                              ; preds = %201
   %204 = getelementptr inbounds i8, ptr %134, i64 80
   %205 = load i8, ptr %204, align 8
   %206 = trunc i8 %205 to i1
-  br i1 %206, label %207, label %.critedge88
+  br i1 %206, label %207, label %.critedge87
 
 207:                                              ; preds = %203
   %208 = getelementptr inbounds i8, ptr %134, i64 81
   %209 = load i8, ptr %208, align 1
   %210 = trunc i8 %209 to i1
-  br i1 %210, label %.critedge88, label %211
+  br i1 %210, label %.critedge87, label %211
 
 211:                                              ; preds = %207
   br i1 %146, label %.preheader.i.critedge, label %212
@@ -485,12 +485,12 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   store i64 0, ptr %11, align 8
   %213 = call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %133, ptr noundef nonnull %12)
   store ptr %213, ptr %13, align 16
-  %214 = call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %134, ptr noundef nonnull %indvars.iv129.i.sroa.gep63)
-  store ptr %214, ptr %indvars.iv129.i.sroa.gep60, align 8
+  %214 = call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %134, ptr noundef nonnull %indvars.iv129.i.sroa.gep62)
+  store ptr %214, ptr %indvars.iv129.i.sroa.gep59, align 8
   %215 = getelementptr inbounds i8, ptr %11, i64 4
   %216 = load i32, ptr %12, align 4
   %217 = icmp ne i32 %216, 0
-  %218 = load i32, ptr %indvars.iv129.i.sroa.gep63, align 4
+  %218 = load i32, ptr %indvars.iv129.i.sroa.gep62, align 4
   %219 = icmp ne i32 %218, 0
   %220 = select i1 %217, i1 true, i1 %219
   br i1 %220, label %.lr.ph123.i, label %._crit_edge124.i
@@ -554,7 +554,7 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %247 = load i32, ptr %12, align 4
   %248 = icmp ult i32 %246, %247
   %249 = load i32, ptr %215, align 4
-  %250 = load i32, ptr %indvars.iv129.i.sroa.gep63, align 4
+  %250 = load i32, ptr %indvars.iv129.i.sroa.gep62, align 4
   %251 = icmp ult i32 %249, %250
   %252 = select i1 %248, i1 true, i1 %251
   br i1 %252, label %.lr.ph123.i, label %._crit_edge124.i, !llvm.loop !14
@@ -571,13 +571,13 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %255 = getelementptr inbounds i8, ptr %139, i64 80
   %256 = load i8, ptr %255, align 8
   %257 = trunc i8 %256 to i1
-  br i1 %257, label %258, label %.critedge88
+  br i1 %257, label %258, label %.critedge87
 
 258:                                              ; preds = %254
   %259 = call i32 @hb_buffer_diff(ptr noundef nonnull %139, ptr noundef nonnull %0, i32 noundef -1, i32 noundef 0)
   %260 = and i32 %259, -65
   %.not101.i = icmp eq i32 %260, 0
-  br i1 %.not101.i, label %.critedge88, label %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
+  br i1 %.not101.i, label %.critedge87, label %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit
 
 _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit: ; preds = %258
   call void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.3)
@@ -595,7 +595,7 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %.thread
 
-.critedge88:                                      ; preds = %._crit_edge.i26, %193, %201, %203, %254, %258, %207, %197
+.critedge87:                                      ; preds = %._crit_edge.i26, %193, %201, %203, %254, %258, %207, %197
   call void @hb_buffer_destroy(ptr noundef %139)
   call void @hb_buffer_destroy(ptr noundef %133)
   call void @hb_buffer_destroy(ptr noundef %134)
@@ -608,8 +608,8 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %262
 
-262:                                              ; preds = %.critedge88, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %125
-  br i1 %126, label %_ZN11hb_vector_tIcLb0EED2Ev.exit40, label %.thread
+262:                                              ; preds = %.critedge87, %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit.thread, %125
+  br i1 %126, label %_ZN11hb_vector_tIcLb0EED2Ev.exit39, label %.thread
 
 .thread:                                          ; preds = %_ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjPKPKc.exit, %262
   %263 = getelementptr inbounds i8, ptr %1, i64 88
@@ -622,9 +622,9 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
 
 .preheader.i.i:                                   ; preds = %.thread, %.preheader.i.i
-  %.01553.i.i = phi i32 [ %270, %.preheader.i.i ], [ 0, %.thread ]
-  %268 = lshr i32 %.01553.i.i, 1
-  %269 = add i32 %.01553.i.i, 8
+  %.153.i.i = phi i32 [ %270, %.preheader.i.i ], [ 0, %.thread ]
+  %268 = lshr i32 %.153.i.i, 1
+  %269 = add i32 %.153.i.i, 8
   %270 = add i32 %269, %268
   %271 = icmp ult i32 %270, %267
   br i1 %271, label %.preheader.i.i, label %.thread39.i.i, !llvm.loop !15
@@ -635,7 +635,7 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %.not52.i.i = icmp ne ptr %malloc, null
   %.not21.i.i.not = icmp eq i32 %270, 0
   %or.cond = or i1 %.not52.i.i, %.not21.i.i.not
-  br i1 %or.cond, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread82
+  br i1 %or.cond, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread81
 
 _ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i: ; preds = %.thread39.i.i
   %273 = zext nneg i32 %267 to i64
@@ -644,37 +644,37 @@ _ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_c
   br label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
 
 _ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread: ; preds = %.thread, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
-  %.sroa.14.0102 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %.thread ]
-  %.sroa.0.0101 = phi i1 [ %274, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ true, %.thread ]
-  %275 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef %1, i32 noundef 0, i32 noundef %264, ptr noundef %.sroa.14.0102, i32 noundef %267, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
+  %.sroa.14.0101 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %.thread ]
+  %.sroa.0.0100 = phi i1 [ %274, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ true, %.thread ]
+  %275 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef %1, i32 noundef 0, i32 noundef %264, ptr noundef %.sroa.14.0101, i32 noundef %267, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
           to label %276 unwind label %277
 
 276:                                              ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.0102)
+  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.0101)
           to label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit unwind label %277
 
 277:                                              ; preds = %276, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
   %278 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.sroa.0.0101, label %_ZN11hb_vector_tIcLb0EED2Ev.exit, label %279
+  br i1 %.sroa.0.0100, label %_ZN11hb_vector_tIcLb0EED2Ev.exit, label %279
 
 279:                                              ; preds = %277
-  call void @free(ptr noundef %.sroa.14.0102) #10
+  call void @free(ptr noundef %.sroa.14.0101) #10
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit
 
 _ZN11hb_vector_tIcLb0EED2Ev.exit:                 ; preds = %277, %279
   resume { ptr, i32 } %278
 
 _ZN11hb_vector_tIcLb0EE6resizeEibb.exit:          ; preds = %276
-  br i1 %.sroa.0.0101, label %_ZN11hb_vector_tIcLb0EED2Ev.exit40, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread82
+  br i1 %.sroa.0.0100, label %_ZN11hb_vector_tIcLb0EED2Ev.exit39, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread81
 
-_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread82: ; preds = %.thread39.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
-  %.sroa.14.18186 = phi ptr [ %.sroa.14.0102, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
-  call void @free(ptr noundef %.sroa.14.18186) #10
-  br label %_ZN11hb_vector_tIcLb0EED2Ev.exit40
+_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread81: ; preds = %.thread39.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
+  %.sroa.14.18085 = phi ptr [ %.sroa.14.0101, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
+  call void @free(ptr noundef %.sroa.14.18085) #10
+  br label %_ZN11hb_vector_tIcLb0EED2Ev.exit39
 
-_ZN11hb_vector_tIcLb0EED2Ev.exit40:               ; preds = %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread82, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit, %262
-  %280 = phi i1 [ true, %262 ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread82 ]
+_ZN11hb_vector_tIcLb0EED2Ev.exit39:               ; preds = %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread81, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit, %262
+  %280 = phi i1 [ true, %262 ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread81 ]
   ret i1 %280
 }
 

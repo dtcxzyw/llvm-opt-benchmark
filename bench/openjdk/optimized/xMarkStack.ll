@@ -609,7 +609,7 @@ define hidden noundef zeroext i1 @_ZN22XMarkThreadLocalStacks5flushEP19XMarkStac
 
 7:                                                ; preds = %.lr.ph, %43
   %8 = phi i64 [ %4, %.lr.ph ], [ %44, %43 ]
-  %.018 = phi i1 [ false, %.lr.ph ], [ %.2, %43 ]
+  %.018 = phi i1 [ false, %.lr.ph ], [ %.1, %43 ]
   %.01517 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
   %9 = getelementptr inbounds [16 x %class.XMarkStripe], ptr %5, i64 0, i64 %.01517
   %10 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %.01517
@@ -681,20 +681,20 @@ _ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkSt
   br i1 %42, label %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit, label %.split.i.i, !llvm.loop !10
 
 _ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit: ; preds = %.split.i.i, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
-  %.1 = phi i1 [ %.018, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit ], [ true, %.split.i.i ]
+  %.2 = phi i1 [ %.018, %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit ], [ true, %.split.i.i ]
   store ptr null, ptr %10, align 8
   %.pre = load i64, ptr %2, align 64
   br label %43
 
 43:                                               ; preds = %7, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit
   %44 = phi i64 [ %8, %7 ], [ %.pre, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit ]
-  %.2 = phi i1 [ %.018, %7 ], [ %.1, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit ]
+  %.1 = phi i1 [ %.018, %7 ], [ %.2, %_ZN11XMarkStripe13publish_stackEP6XStackI15XMarkStackEntryLm254EEb.exit ]
   %45 = add nuw i64 %.01517, 1
   %46 = icmp ult i64 %45, %44
   br i1 %46, label %7, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %43, %3
-  %.0.lcssa = phi i1 [ false, %3 ], [ %.2, %43 ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ %.1, %43 ]
   ret i1 %.0.lcssa
 }
 

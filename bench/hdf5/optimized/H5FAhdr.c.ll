@@ -380,8 +380,8 @@ define i64 @H5FA__hdr_create(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %111
 
 111:                                              ; preds = %.thread, %107, %104, %82
-  %.3 = phi i64 [ -1, %107 ], [ -1, %104 ], [ %83, %82 ], [ -1, %.thread ]
-  ret i64 %.3
+  %.1 = phi i64 [ -1, %107 ], [ -1, %104 ], [ %83, %82 ], [ -1, %.thread ]
+  ret i64 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

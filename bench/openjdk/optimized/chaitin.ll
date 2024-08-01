@@ -974,7 +974,7 @@ define hidden void @_ZN12PhaseChaitin7compactEv(ptr noundef nonnull align 8 dere
 
 7:                                                ; preds = %.lr.ph, %23
   %8 = phi i32 [ %4, %.lr.ph ], [ %24, %23 ]
-  %.020 = phi i32 [ 1, %.lr.ph ], [ %.2, %23 ]
+  %.020 = phi i32 [ 1, %.lr.ph ], [ %.1, %23 ]
   %.01619 = phi i32 [ 1, %.lr.ph ], [ %25, %23 ]
   %9 = load ptr, ptr %6, align 8
   %10 = sext i32 %.01619 to i64
@@ -998,7 +998,7 @@ define hidden void @_ZN12PhaseChaitin7compactEv(ptr noundef nonnull align 8 dere
   br label %21
 
 21:                                               ; preds = %17, %15
-  %.1 = phi i32 [ %16, %15 ], [ %.020, %17 ]
+  %.2 = phi i32 [ %16, %15 ], [ %.020, %17 ]
   %22 = phi i32 [ %.020, %15 ], [ %20, %17 ]
   store i32 %22, ptr %11, align 4
   %.pre = load i32, ptr %3, align 8
@@ -1006,13 +1006,13 @@ define hidden void @_ZN12PhaseChaitin7compactEv(ptr noundef nonnull align 8 dere
 
 23:                                               ; preds = %7, %21
   %24 = phi i32 [ %.pre, %21 ], [ %8, %7 ]
-  %.2 = phi i32 [ %.1, %21 ], [ %.020, %7 ]
+  %.1 = phi i32 [ %.2, %21 ], [ %.020, %7 ]
   %25 = add nuw i32 %.01619, 1
   %26 = icmp ult i32 %25, %24
   br i1 %26, label %7, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %23, %1
-  %.0.lcssa = phi i32 [ 1, %1 ], [ %.2, %23 ]
+  %.0.lcssa = phi i32 [ 1, %1 ], [ %.1, %23 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 256
   %28 = load i32, ptr %27, align 8
   %.not25 = icmp eq i32 %28, 0
@@ -3029,7 +3029,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %21, %23
   br i1 %81, label %.lr.ph101, label %._crit_edge
 
 .lr.ph101:                                        ; preds = %47, %.loopexit
-  %.1100 = phi i32 [ %.5, %.loopexit ], [ %.0103, %47 ]
+  %.1100 = phi i32 [ %.3, %.loopexit ], [ %.0103, %47 ]
   %.06399 = phi i32 [ %82, %.loopexit ], [ %80, %47 ]
   %82 = add i32 %.06399, -1
   %83 = load i32, ptr %64, align 8
@@ -3363,7 +3363,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %_ZN8IndexSet6remove
 
 293:                                              ; preds = %366, %_ZN16IndexSetIteratorC2EP8IndexSet.exit
   %294 = phi i64 [ 0, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ], [ %.pre, %366 ]
-  %.3 = phi i32 [ %.2, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ], [ %.4, %366 ]
+  %.4 = phi i32 [ %.2, %_ZN16IndexSetIteratorC2EP8IndexSet.exit ], [ %.5, %366 ]
   %.not.i84 = icmp eq i64 %294, 0
   br i1 %.not.i84, label %302, label %295
 
@@ -3476,16 +3476,16 @@ _ZN16IndexSetIterator4nextEv.exit:                ; preds = %295, %309
   %364 = getelementptr inbounds ptr, ptr %362, i64 %363
   %365 = load ptr, ptr %364, align 8
   %.not78 = icmp eq ptr %365, %52
-  %spec.select = select i1 %.not78, i32 %.3, i32 1
+  %spec.select = select i1 %.not78, i32 %.4, i32 1
   br label %366
 
 366:                                              ; preds = %359, %342, %358, %328, %325, %311
-  %.4 = phi i32 [ %.3, %358 ], [ %.3, %342 ], [ %.3, %328 ], [ %.3, %325 ], [ %.3, %311 ], [ %spec.select, %359 ]
+  %.5 = phi i32 [ %.4, %358 ], [ %.4, %342 ], [ %.4, %328 ], [ %.4, %325 ], [ %.4, %311 ], [ %spec.select, %359 ]
   %.pre = load i64, ptr %5, align 8
   br label %293, !llvm.loop !32
 
 _ZN16IndexSetIterator4nextEv.exit.thread:         ; preds = %305, %_ZN16IndexSetIterator4nextEv.exit, %_ZN8IndexSet6removeEj.exit83
-  %.5 = phi i32 [ %.2, %_ZN8IndexSet6removeEj.exit83 ], [ %.3, %_ZN16IndexSetIterator4nextEv.exit ], [ %.3, %305 ]
+  %.3 = phi i32 [ %.2, %_ZN8IndexSet6removeEj.exit83 ], [ %.4, %_ZN16IndexSetIterator4nextEv.exit ], [ %.4, %305 ]
   %367 = load i32, ptr %91, align 4
   %368 = and i32 %367, 15
   %369 = icmp eq i32 %368, 12
@@ -3565,7 +3565,7 @@ _ZN8IndexSet6insertEj.exit:                       ; preds = %407, %396, %374
   br i1 %413, label %.lr.ph101, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.loopexit, %47
-  %.1.lcssa = phi i32 [ %.0103, %47 ], [ %.5, %.loopexit ]
+  %.1.lcssa = phi i32 [ %.0103, %47 ], [ %.3, %.loopexit ]
   store i32 0, ptr %4, align 8
   %414 = load i32, ptr %41, align 4
   %.not6.i = icmp eq i32 %414, 0
@@ -4106,7 +4106,7 @@ _ZN16IndexSetIterator4nextEv.exit106:             ; preds = %105, %119
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %241
   %.080126 = phi i32 [ %.080, %241 ], [ %157, %.lr.ph.preheader ]
-  %.071125 = phi i32 [ %.1, %241 ], [ %157, %.lr.ph.preheader ]
+  %.071125 = phi i32 [ %.2, %241 ], [ %157, %.lr.ph.preheader ]
   %.072124 = phi double [ %.173, %241 ], [ %.0.i108, %.lr.ph.preheader ]
   %.074123 = phi double [ %.175, %241 ], [ %166, %.lr.ph.preheader ]
   %.076122 = phi double [ %.177, %241 ], [ %164, %.lr.ph.preheader ]
@@ -4213,15 +4213,15 @@ _ZNK3LRG5scoreEv.exit111:                         ; preds = %197, %206, %211, %2
   %.177 = phi double [ %198, %240 ], [ %.076122, %235 ], [ %.076122, %230 ]
   %.175 = phi double [ %200, %240 ], [ %.074123, %235 ], [ %.074123, %230 ]
   %.173 = phi double [ %.0.i110, %240 ], [ %.072124, %235 ], [ %.072124, %230 ]
-  %.1 = phi i32 [ %.080126, %240 ], [ %.071125, %235 ], [ %.071125, %230 ]
+  %.2 = phi i32 [ %.080126, %240 ], [ %.071125, %235 ], [ %.071125, %230 ]
   %242 = getelementptr inbounds i8, ptr %188, i64 40
   %.080 = load i32, ptr %242, align 8
   %.not90 = icmp eq i32 %.080, 0
   br i1 %.not90, label %._crit_edge127, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge127:                                   ; preds = %241, %.lr.ph
-  %.2.ph = phi i32 [ %.1, %241 ], [ %.080126, %.lr.ph ]
-  %243 = zext i32 %.2.ph to i64
+  %.1.ph = phi i32 [ %.2, %241 ], [ %.080126, %.lr.ph ]
+  %243 = zext i32 %.1.ph to i64
   %244 = getelementptr inbounds %class.LRG, ptr %161, i64 %243
   %245 = getelementptr inbounds i8, ptr %244, i64 44
   %246 = load i32, ptr %245, align 4
@@ -4255,7 +4255,7 @@ _ZNK3LRG5scoreEv.exit111:                         ; preds = %197, %206, %211, %2
   %263 = load i16, ptr %262, align 2
   %264 = or i16 %263, -32768
   store i16 %264, ptr %262, align 2
-  store i32 %.2.ph, ptr %6, align 8
+  store i32 %.1.ph, ptr %6, align 8
   store i32 0, ptr %247, align 8
   br label %24, !llvm.loop !43
 

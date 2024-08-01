@@ -263,7 +263,7 @@ default.unreachable73:                            ; preds = %308, %2
 
 76:                                               ; preds = %72, %49
   %77 = phi ptr [ %52, %49 ], [ %69, %72 ]
-  %.015.i.i.ph.i = phi ptr [ %50, %49 ], [ %73, %72 ]
+  %.1.i.i.ph.i = phi ptr [ %50, %49 ], [ %73, %72 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !26
   %78 = load i64, ptr %77, align 8, !range !29, !noalias !26, !noundef !4
   %79 = icmp eq i64 %78, 2
@@ -304,7 +304,7 @@ default.unreachable73:                            ; preds = %308, %2
   %89 = load ptr, ptr %31, align 8, !noalias !26, !nonnull !4, !align !5, !noundef !4
   store ptr %89, ptr %77, align 8, !noalias !26
   %.sroa.649.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr %.015.i.i.ph.i, ptr %.sroa.649.0..sroa_idx.i, align 8, !noalias !26
+  store ptr %.1.i.i.ph.i, ptr %.sroa.649.0..sroa_idx.i, align 8, !noalias !26
   %.sroa.750.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.i, i64 16, i1 false), !noalias !26
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 208
@@ -353,7 +353,7 @@ default.unreachable73:                            ; preds = %308, %2
   unreachable
 
 97:                                               ; preds = %._crit_edge71, %.thread114.i
-  %98 = phi ptr [ %.015.i.i.ph.i, %.thread114.i ], [ %.pre72, %._crit_edge71 ]
+  %98 = phi ptr [ %.1.i.i.ph.i, %.thread114.i ], [ %.pre72, %._crit_edge71 ]
   %99 = phi ptr [ %.sroa.8.0..sroa_idx.i, %.thread114.i ], [ %.phi.trans.insert109.i, %._crit_edge71 ]
   %100 = phi ptr [ %90, %.thread114.i ], [ %95, %._crit_edge71 ]
   %101 = getelementptr inbounds i8, ptr %0, i64 192

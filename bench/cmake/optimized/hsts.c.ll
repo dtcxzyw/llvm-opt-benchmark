@@ -172,26 +172,26 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %.critedge8
 
 .preheader:                                       ; preds = %28, %34
-  %.5 = phi ptr [ %35, %34 ], [ %.1, %28 ]
-  %33 = load i8, ptr %.5, align 1
+  %.6 = phi ptr [ %35, %34 ], [ %.1, %28 ]
+  %33 = load i8, ptr %.6, align 1
   switch i8 %33, label %34 [
     i8 0, label %.critedge8
     i8 59, label %.critedge8
   ]
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %.5, i64 1
+  %35 = getelementptr inbounds i8, ptr %.6, i64 1
   br label %.preheader, !llvm.loop !9
 
 .critedge8:                                       ; preds = %.preheader, %.preheader, %22, %26, %31
   %.171 = phi i8 [ %.070, %31 ], [ 1, %26 ], [ 1, %22 ], [ %.070, %.preheader ], [ %.070, %.preheader ]
   %.169 = phi i1 [ true, %31 ], [ %.068, %26 ], [ %.068, %22 ], [ %.068, %.preheader ], [ %.068, %.preheader ]
   %.167 = phi i8 [ 1, %31 ], [ %.066, %26 ], [ %.066, %22 ], [ %.066, %.preheader ], [ %.066, %.preheader ]
-  %.6 = phi ptr [ %32, %31 ], [ %27, %26 ], [ %23, %22 ], [ %.5, %.preheader ], [ %.5, %.preheader ]
+  %.5 = phi ptr [ %32, %31 ], [ %27, %26 ], [ %23, %22 ], [ %.6, %.preheader ], [ %.6, %.preheader ]
   br label %36
 
 36:                                               ; preds = %.critedge12, %.critedge8
-  %.7 = phi ptr [ %.6, %.critedge8 ], [ %38, %.critedge12 ]
+  %.7 = phi ptr [ %.5, %.critedge8 ], [ %38, %.critedge12 ]
   %37 = load i8, ptr %.7, align 1
   switch i8 %37, label %.critedge10 [
     i8 9, label %.critedge12
@@ -557,10 +557,10 @@ hsts_out.exit:                                    ; preds = %42, %58
   br i1 %.not56, label %.loopexit73, label %33, !llvm.loop !13
 
 .loopexit73:                                      ; preds = %hsts_out.exit, %24, %hsts_out.exit.thread
-  %.1 = phi i32 [ %41, %hsts_out.exit.thread ], [ 0, %24 ], [ 0, %hsts_out.exit ]
+  %.3 = phi i32 [ %41, %hsts_out.exit.thread ], [ 0, %24 ], [ 0, %hsts_out.exit ]
   %66 = load ptr, ptr %7, align 8
   %67 = call i32 @fclose(ptr noundef %66)
-  %68 = icmp eq i32 %.1, 0
+  %68 = icmp eq i32 %.3, 0
   %69 = load ptr, ptr %8, align 8
   %70 = icmp ne ptr %69, null
   %or.cond3 = select i1 %68, i1 %70, i1 false
@@ -575,8 +575,8 @@ hsts_out.exit:                                    ; preds = %42, %58
 
 73:                                               ; preds = %71, %.loopexit73
   %74 = phi ptr [ %69, %.loopexit73 ], [ %.pre, %71 ]
-  %.2 = phi i32 [ %.1, %.loopexit73 ], [ %spec.select62, %71 ]
-  %75 = icmp ne i32 %.2, 0
+  %.4 = phi i32 [ %.3, %.loopexit73 ], [ %spec.select62, %71 ]
+  %75 = icmp ne i32 %.4, 0
   %76 = icmp ne ptr %74, null
   %or.cond5 = select i1 %75, i1 %76, i1 false
   br i1 %or.cond5, label %77, label %79
@@ -586,14 +586,14 @@ hsts_out.exit:                                    ; preds = %42, %58
   br label %79
 
 79:                                               ; preds = %73, %77, %22
-  %.3 = phi i32 [ %23, %22 ], [ %.2, %77 ], [ %.2, %73 ]
+  %.1 = phi i32 [ %23, %22 ], [ %.4, %77 ], [ %.4, %73 ]
   %80 = load ptr, ptr @Curl_cfree, align 8
   %81 = load ptr, ptr %8, align 8
   call void %80(ptr noundef %81) #9
   br label %82
 
 82:                                               ; preds = %14, %20, %79
-  %.4 = phi i32 [ %.3, %79 ], [ 0, %20 ], [ 0, %14 ]
+  %.037 = phi i32 [ %.1, %79 ], [ 0, %20 ], [ 0, %14 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 672
   %84 = load ptr, ptr %83, align 8
   %.not59 = icmp eq ptr %84, null
@@ -690,7 +690,7 @@ hsts_push.exit.thread:                            ; preds = %111, %124
   br i1 %.not60, label %.loopexit, label %99, !llvm.loop !14
 
 .loopexit:                                        ; preds = %130, %129, %85, %hsts_push.exit.thread, %82, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.4, %82 ], [ %.0.i64.ph, %hsts_push.exit.thread ], [ %.4, %85 ], [ 0, %129 ], [ 0, %130 ]
+  %.0 = phi i32 [ 0, %3 ], [ %.037, %82 ], [ %.0.i64.ph, %hsts_push.exit.thread ], [ %.037, %85 ], [ 0, %129 ], [ 0, %130 ]
   ret i32 %.0
 }
 

@@ -8315,14 +8315,14 @@ define { ptr, i64 } @_ZN13project_model7sysroot7Sysroot8src_root17he6feafeb64197
   %.sroa.6.0 = phi i64 [ %12, %.split ], [ %10, %.split7 ]
   %.sroa.0.08 = phi ptr [ null, %.split ], [ %9, %.split7 ]
   %14 = icmp eq ptr %.sroa.0.08, null
-  %.sroa.4.0 = select i1 %14, i64 undef, i64 %.sroa.6.0
+  %.sroa.4.1 = select i1 %14, i64 undef, i64 %.sroa.6.0
   br label %15
 
 15:                                               ; preds = %1, %13
-  %.sroa.4.1 = phi i64 [ %.sroa.4.0, %13 ], [ undef, %1 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.08, %13 ], [ null, %1 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ %.sroa.4.1, %13 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.08, %13 ], [ null, %1 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %17
 }
 
@@ -10153,7 +10153,7 @@ define void @_ZN13project_model7sysroot7Sysroot4load17hc2c4ed5eb152cb4eE(ptr noa
   br label %234
 
 232:                                              ; preds = %276
-  br i1 %.2.i, label %.thread559.i, label %.body193
+  br i1 %.3.i, label %.thread559.i, label %.body193
 
 .thread:                                          ; preds = %223, %234, %267, %876
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -10305,13 +10305,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit332.i: ; preds = %234
   br label %896
 
 276:                                              ; preds = %.body347.i, %277
-  %.2.i = phi i1 [ %.4.i, %.body347.i ], [ %.3.i, %277 ]
+  %.3.i = phi i1 [ %.4.i, %.body347.i ], [ %.2.i, %277 ]
   %.pn301.pn.pn.i = phi { ptr, i32 } [ %.pn301.pn.i, %.body347.i ], [ %278, %277 ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17hbfcec4398d81407aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117) #48
           to label %232 unwind label %421, !noalias !2242
 
 277:                                              ; preds = %796, %570, %258
-  %.3.i = phi i1 [ true, %570 ], [ false, %796 ], [ true, %258 ]
+  %.2.i = phi i1 [ true, %570 ], [ false, %796 ], [ true, %258 ]
   %278 = landingpad { ptr, i32 }
           cleanup
   br label %276
@@ -11331,7 +11331,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.thread611.i
 
 .loopexit.split-lp772.i:                          ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7332fed5bb7afcfbE.exit.i", %561
-  %.1270.ph.i = phi i1 [ true, %561 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7332fed5bb7afcfbE.exit.i" ]
+  %.0269.ph.i = phi i1 [ true, %561 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7332fed5bb7afcfbE.exit.i" ]
   %lpad.loopexit.split-lp774.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread611.i
@@ -12453,13 +12453,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 .thread611.i:                                     ; preds = %.loopexit.split-lp772.i, %.loopexit771.i, %.noexc389.i, %566, %564, %562, %508, %506, %504
   %.pn298.pn620.i = phi { ptr, i32 } [ %.pn.i, %.noexc389.i ], [ %509, %508 ], [ %507, %506 ], [ %505, %504 ], [ %567, %566 ], [ %565, %564 ], [ %563, %562 ], [ %lpad.loopexit773.i, %.loopexit771.i ], [ %lpad.loopexit.split-lp774.i, %.loopexit.split-lp772.i ]
-  %.0269618.i = phi i1 [ false, %.noexc389.i ], [ true, %508 ], [ true, %506 ], [ true, %504 ], [ true, %566 ], [ true, %564 ], [ true, %562 ], [ true, %.loopexit771.i ], [ %.1270.ph.i, %.loopexit.split-lp772.i ]
+  %.1270618.i = phi i1 [ false, %.noexc389.i ], [ true, %508 ], [ true, %506 ], [ true, %504 ], [ true, %566 ], [ true, %564 ], [ true, %562 ], [ true, %.loopexit771.i ], [ %.0269.ph.i, %.loopexit.split-lp772.i ]
   %.0271617.i = phi i1 [ false, %.noexc389.i ], [ true, %508 ], [ true, %506 ], [ true, %504 ], [ true, %566 ], [ true, %564 ], [ true, %562 ], [ true, %.loopexit771.i ], [ true, %.loopexit.split-lp772.i ]
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$cargo_metadata..PackageId$GT$$GT$17h07817d1d169d2c69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92) #48
           to label %855 unwind label %421, !noalias !2242
 
 856:                                              ; preds = %857, %855
-  br i1 %.0269618.i, label %858, label %860
+  br i1 %.1270618.i, label %858, label %860
 
 857:                                              ; preds = %855
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$cargo_metadata..PackageId$GT$$GT$17h07817d1d169d2c69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #48
@@ -12477,7 +12477,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %859 unwind label %421, !noalias !2242
 
 861:                                              ; preds = %862, %859
-  br i1 %.0269618.i, label %863, label %.thread728.i
+  br i1 %.1270618.i, label %863, label %.thread728.i
 
 862:                                              ; preds = %859
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$$LP$usize$C$cargo_metadata..PackageId$RP$$GT$$GT$17ha5e029eda792c0b5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %96) #48
@@ -12858,10 +12858,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.thread378
 
 949:                                              ; preds = %944, %._crit_edge.i.i.i.i
-  %.sroa.4.0.i.i.i = phi i64 [ %948, %944 ], [ %943, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %947, %944 ], [ %942, %._crit_edge.i.i.i.i ]
+  %.sroa.4.1.i.i.i = phi i64 [ %948, %944 ], [ %943, %._crit_edge.i.i.i.i ]
+  %.sroa.0.1.i.i.i = phi ptr [ %947, %944 ], [ %942, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !3025
-  %950 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %923, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.4.0.i.i.i)
+  %950 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %923, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i, i64 noundef %.sroa.4.1.i.i.i)
           to label %951 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 951:                                              ; preds = %949
@@ -13016,10 +13016,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.thread386
 
 999:                                              ; preds = %994, %._crit_edge.i.i.i.i228
-  %.sroa.4.0.i.i.i230 = phi i64 [ %998, %994 ], [ %993, %._crit_edge.i.i.i.i228 ]
-  %.sroa.0.0.i.i.i231 = phi ptr [ %997, %994 ], [ %992, %._crit_edge.i.i.i.i228 ]
+  %.sroa.4.1.i.i.i230 = phi i64 [ %998, %994 ], [ %993, %._crit_edge.i.i.i.i228 ]
+  %.sroa.0.1.i.i.i231 = phi ptr [ %997, %994 ], [ %992, %._crit_edge.i.i.i.i228 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !3082
-  %1000 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %982, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i231, i64 noundef %.sroa.4.0.i.i.i230)
+  %1000 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %982, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i231, i64 noundef %.sroa.4.1.i.i.i230)
           to label %1001 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1001:                                             ; preds = %999
@@ -13227,10 +13227,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.thread398
 
 1072:                                             ; preds = %1067, %._crit_edge.i.i.i.i269
-  %.sroa.4.0.i.i.i271 = phi i64 [ %1071, %1067 ], [ %1066, %._crit_edge.i.i.i.i269 ]
-  %.sroa.0.0.i.i.i272 = phi ptr [ %1070, %1067 ], [ %1065, %._crit_edge.i.i.i.i269 ]
+  %.sroa.4.1.i.i.i271 = phi i64 [ %1071, %1067 ], [ %1066, %._crit_edge.i.i.i.i269 ]
+  %.sroa.0.1.i.i.i272 = phi ptr [ %1070, %1067 ], [ %1065, %._crit_edge.i.i.i.i269 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !3147
-  %1073 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %1055, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i272, i64 noundef %.sroa.4.0.i.i.i271)
+  %1073 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %1055, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i272, i64 noundef %.sroa.4.1.i.i.i271)
           to label %1074 unwind label %.loopexit.split-lp.loopexit
 
 1074:                                             ; preds = %1072
@@ -13407,10 +13407,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.thread410
 
 1132:                                             ; preds = %1127, %._crit_edge.i.i.i.i302
-  %.sroa.4.0.i.i.i304 = phi i64 [ %1131, %1127 ], [ %1126, %._crit_edge.i.i.i.i302 ]
-  %.sroa.0.0.i.i.i305 = phi ptr [ %1130, %1127 ], [ %1125, %._crit_edge.i.i.i.i302 ]
+  %.sroa.4.1.i.i.i304 = phi i64 [ %1131, %1127 ], [ %1126, %._crit_edge.i.i.i.i302 ]
+  %.sroa.0.1.i.i.i305 = phi ptr [ %1130, %1127 ], [ %1125, %._crit_edge.i.i.i.i302 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !3194
-  %1133 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %1115, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i305, i64 noundef %.sroa.4.0.i.i.i304)
+  %1133 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.17711156728711097856"(ptr noalias noundef nonnull readonly align 1 %1115, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i305, i64 noundef %.sroa.4.1.i.i.i304)
           to label %1134 unwind label %.loopexit
 
 1134:                                             ; preds = %1132

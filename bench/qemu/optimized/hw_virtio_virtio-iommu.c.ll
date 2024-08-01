@@ -1963,20 +1963,20 @@ sw.default:                                       ; preds = %while.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %virtio_iommu_handle_probe.exit, %virtio_iommu_handle_unmap.exit, %virtio_iommu_handle_map.exit, %virtio_iommu_handle_detach.exit, %virtio_iommu_handle_attach.exit
-  %output_size.0 = phi i64 [ 4, %sw.default ], [ %add, %virtio_iommu_handle_probe.exit ], [ 4, %virtio_iommu_handle_unmap.exit ], [ 4, %virtio_iommu_handle_map.exit ], [ 4, %virtio_iommu_handle_detach.exit ], [ 4, %virtio_iommu_handle_attach.exit ]
-  %buf.1 = phi ptr [ null, %sw.default ], [ %call33, %virtio_iommu_handle_probe.exit ], [ null, %virtio_iommu_handle_unmap.exit ], [ null, %virtio_iommu_handle_map.exit ], [ null, %virtio_iommu_handle_detach.exit ], [ null, %virtio_iommu_handle_attach.exit ]
+  %output_size.1 = phi i64 [ 4, %sw.default ], [ %add, %virtio_iommu_handle_probe.exit ], [ 4, %virtio_iommu_handle_unmap.exit ], [ 4, %virtio_iommu_handle_map.exit ], [ 4, %virtio_iommu_handle_detach.exit ], [ 4, %virtio_iommu_handle_attach.exit ]
+  %buf.2 = phi ptr [ null, %sw.default ], [ %call33, %virtio_iommu_handle_probe.exit ], [ null, %virtio_iommu_handle_unmap.exit ], [ null, %virtio_iommu_handle_map.exit ], [ null, %virtio_iommu_handle_detach.exit ], [ null, %virtio_iommu_handle_attach.exit ]
   call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 815) #12
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then13, %sw.epilog
-  %output_size.1 = phi i64 [ 4, %if.then13 ], [ %output_size.0, %sw.epilog ]
-  %buf.2 = phi ptr [ null, %if.then13 ], [ %buf.1, %sw.epilog ]
-  %tobool43.not = icmp eq ptr %buf.2, null
-  %cond = select i1 %tobool43.not, ptr %tail, ptr %buf.2
+  %output_size.0 = phi i64 [ 4, %if.then13 ], [ %output_size.1, %sw.epilog ]
+  %buf.1 = phi ptr [ null, %if.then13 ], [ %buf.2, %sw.epilog ]
+  %tobool43.not = icmp eq ptr %buf.1, null
+  %cond = select i1 %tobool43.not, ptr %tail, ptr %buf.1
   %176 = load i32, ptr %in_num, align 8
   %177 = load ptr, ptr %in_sg, align 8
-  %call.i221 = call i64 @iov_from_buf_full(ptr noundef %177, i32 noundef %176, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %output_size.1) #12
-  %cmp45 = icmp eq i64 %call.i221, %output_size.1
+  %call.i221 = call i64 @iov_from_buf_full(ptr noundef %177, i32 noundef %176, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %output_size.0) #12
+  %cmp45 = icmp eq i64 %call.i221, %output_size.0
   br i1 %cmp45, label %if.end48, label %if.else
 
 if.else:                                          ; preds = %iov_from_buf.exit
@@ -1984,11 +1984,11 @@ if.else:                                          ; preds = %iov_from_buf.exit
   unreachable
 
 if.end48:                                         ; preds = %iov_from_buf.exit
-  %conv49 = trunc i64 %output_size.1 to i32
+  %conv49 = trunc i64 %output_size.0 to i32
   call void @virtqueue_push(ptr noundef %vq, ptr noundef nonnull %call1240, i32 noundef %conv49) #12
   call void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) #12
   call void @g_free(ptr noundef nonnull %call1240) #12
-  call void @g_free(ptr noundef %buf.2) #12
+  call void @g_free(ptr noundef %buf.1) #12
   %call1 = call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #12
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %for.end, label %if.end

@@ -1172,14 +1172,14 @@ _ZN5draco6StatusC2ERKS0_.exit.thread16:           ; preds = %15
           to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %26
 
 _ZN5draco6StatusC2ERKS0_.exit14:                  ; preds = %25, %31, %28
-  %.012 = phi i32 [ 2, %28 ], [ 0, %31 ], [ 1, %25 ]
+  %.1 = phi i32 [ 2, %28 ], [ 0, %31 ], [ 1, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   br label %_ZN5draco6StatusC2ERKS0_.exit
 
 _ZN5draco6StatusC2ERKS0_.exit:                    ; preds = %20, %_ZN5draco6StatusC2ERKS0_.exit14
-  %.1 = phi i32 [ %.012, %_ZN5draco6StatusC2ERKS0_.exit14 ], [ 2, %20 ]
+  %.012 = phi i32 [ %.1, %_ZN5draco6StatusC2ERKS0_.exit14 ], [ 2, %20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  %switch = icmp eq i32 %.1, 1
+  %switch = icmp eq i32 %.012, 1
   br i1 %switch, label %.loopexit18, label %11
 
 32:                                               ; preds = %.loopexit, %.loopexit.split-lp, %26

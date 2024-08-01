@@ -2579,7 +2579,7 @@ _ZN7rocksdb6StatusD2Ev.exit37:                    ; preds = %lpad15, %_ZNKSt14de
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %if.then18
-  %retval.0 = phi ptr [ %call20, %if.then18 ], [ undef, %invoke.cont16 ]
+  %retval.1 = phi ptr [ %call20, %if.then18 ], [ undef, %invoke.cont16 ]
   %state_.i38 = getelementptr inbounds i8, ptr %s, i64 8
   %16 = load ptr, ptr %state_.i38, align 8
   %cmp.not.i.i39 = icmp eq ptr %16, null
@@ -2623,7 +2623,7 @@ _ZN7rocksdb6StatusD2Ev.exit46:                    ; preds = %lpad24, %_ZNKSt14de
   br label %ehcleanup
 
 cleanup31:                                        ; preds = %invoke.cont25, %if.then27
-  %retval.1 = phi ptr [ %call29, %if.then27 ], [ undef, %invoke.cont25 ]
+  %retval.4 = phi ptr [ %call29, %if.then27 ], [ undef, %invoke.cont25 ]
   %state_.i47 = getelementptr inbounds i8, ptr %s22, i64 8
   %20 = load ptr, ptr %state_.i47, align 8
   %cmp.not.i.i48 = icmp eq ptr %20, null
@@ -2638,7 +2638,7 @@ _ZN7rocksdb6StatusD2Ev.exit50:                    ; preds = %cleanup31, %_ZNKSt1
   br i1 %cmp.i42, label %if.end34, label %cleanup90
 
 if.end34:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit50, %_ZN7rocksdb6StatusD2Ev.exit41
-  %retval.2 = phi ptr [ %retval.0, %_ZN7rocksdb6StatusD2Ev.exit41 ], [ %retval.1, %_ZN7rocksdb6StatusD2Ev.exit50 ]
+  %retval.3 = phi ptr [ %retval.1, %_ZN7rocksdb6StatusD2Ev.exit41 ], [ %retval.4, %_ZN7rocksdb6StatusD2Ev.exit50 ]
   %vtable = load ptr, ptr %column_family, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %21 = load ptr, ptr %vfn, align 8
@@ -2697,7 +2697,7 @@ _ZN7rocksdb6StatusD2Ev.exit57:                    ; preds = %lpad54, %_ZNKSt14de
   br label %ehcleanup
 
 cleanup65:                                        ; preds = %invoke.cont55, %invoke.cont60
-  %retval.3 = phi ptr [ %call63, %invoke.cont60 ], [ %retval.2, %invoke.cont55 ]
+  %retval.5 = phi ptr [ %call63, %invoke.cont60 ], [ %retval.3, %invoke.cont55 ]
   %state_.i58 = getelementptr inbounds i8, ptr %s51, i64 8
   %29 = load ptr, ptr %state_.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %29, null
@@ -2762,7 +2762,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %cleanup90 unwind label %lpad13
 
 cleanup90:                                        ; preds = %invoke.cont85, %_ZN7rocksdb6StatusD2Ev.exit41, %_ZN7rocksdb6StatusD2Ev.exit61, %_ZN7rocksdb6StatusD2Ev.exit50
-  %retval.4 = phi ptr [ %retval.3, %_ZN7rocksdb6StatusD2Ev.exit61 ], [ %retval.0, %_ZN7rocksdb6StatusD2Ev.exit41 ], [ %retval.1, %_ZN7rocksdb6StatusD2Ev.exit50 ], [ %call78, %invoke.cont85 ]
+  %retval.2 = phi ptr [ %retval.5, %_ZN7rocksdb6StatusD2Ev.exit61 ], [ %retval.1, %_ZN7rocksdb6StatusD2Ev.exit41 ], [ %retval.4, %_ZN7rocksdb6StatusD2Ev.exit50 ], [ %call78, %invoke.cont85 ]
   %41 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i63 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i.i63, label %return, label %if.then.i.i.i64
@@ -2796,8 +2796,8 @@ terminate.lpad.i.i.i73:                           ; preds = %if.then.i.i.i70
   unreachable
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %invoke.cont, %if.then.i.i.i64, %cleanup90
-  %retval.5 = phi ptr [ %retval.4, %cleanup90 ], [ %retval.4, %if.then.i.i.i64 ], [ %call, %invoke.cont ], [ %call, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ]
-  ret ptr %retval.5
+  %retval.0 = phi ptr [ %retval.2, %cleanup90 ], [ %retval.2, %if.then.i.i.i64 ], [ %call, %invoke.cont ], [ %call, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZN7rocksdb16NewErrorIteratorERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3

@@ -528,13 +528,13 @@ while.cond.outer:                                 ; preds = %if.end250, %while.c
   %currGroupSepType.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %cond252, %if.end250 ]
   %currGroupOffset.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %currGroupOffset.1, %if.end250 ]
   %digitsAfterDecimalPlace.0.ph = phi i32 [ 0, %while.cond.preheader ], [ %digitsAfterDecimalPlace.0, %if.end250 ]
-  %maybeMore.0.ph = phi i8 [ 0, %while.cond.preheader ], [ %maybeMore.6225, %if.end250 ]
+  %maybeMore.0.ph = phi i8 [ 0, %while.cond.preheader ], [ %maybeMore.7225, %if.end250 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %invoke.cont66
   %currGroupCount.0 = phi i32 [ %inc67, %invoke.cont66 ], [ 0, %while.cond.outer ]
   %digitsAfterDecimalPlace.0 = phi i32 [ %spec.select, %invoke.cont66 ], [ %digitsAfterDecimalPlace.0.ph, %while.cond.outer ]
-  %maybeMore.0 = phi i8 [ %maybeMore.3215, %invoke.cont66 ], [ %maybeMore.0.ph, %while.cond.outer ]
+  %maybeMore.0 = phi i8 [ %maybeMore.2215, %invoke.cont66 ], [ %maybeMore.0.ph, %while.cond.outer ]
   %call13 = invoke noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
           to label %invoke.cont12 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit
 
@@ -603,7 +603,7 @@ land.lhs.true28:                                  ; preds = %invoke.cont17, %if.
 
 for.body:                                         ; preds = %land.lhs.true28, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.lhs.true28 ]
-  %maybeMore.1343 = phi i8 [ %maybeMore.2, %for.inc ], [ 0, %land.lhs.true28 ]
+  %maybeMore.3343 = phi i8 [ %maybeMore.4, %for.inc ], [ 0, %land.lhs.true28 ]
   %2 = load ptr, ptr %fLocalDigitStrings, align 8
   %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %2, i64 %indvars.iv
   %fUnion.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -635,7 +635,7 @@ if.end56.thread:                                  ; preds = %if.then48
   br label %if.then59
 
 if.end51:                                         ; preds = %invoke.cont45
-  %tobool52 = trunc nuw i8 %maybeMore.1343 to i1
+  %tobool52 = trunc nuw i8 %maybeMore.3343 to i1
   br i1 %tobool52, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end51
@@ -652,7 +652,7 @@ lor.end:                                          ; preds = %invoke.cont53, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %lor.end
-  %maybeMore.2 = phi i8 [ %maybeMore.1343, %for.body ], [ %frombool, %lor.end ]
+  %maybeMore.4 = phi i8 [ %maybeMore.3343, %for.body ], [ %frombool, %lor.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %if.end74, label %for.body, !llvm.loop !6
@@ -662,7 +662,7 @@ if.end56:                                         ; preds = %if.end25
   br i1 %cmp58, label %if.then59, label %if.end74
 
 if.then59:                                        ; preds = %if.end56.thread, %if.end56
-  %maybeMore.3215 = phi i8 [ %maybeMore.1343, %if.end56.thread ], [ 0, %if.end56 ]
+  %maybeMore.2215 = phi i8 [ %maybeMore.3343, %if.end56.thread ], [ 0, %if.end56 ]
   %digit.1214 = phi i8 [ %conv50, %if.end56.thread ], [ %conv24, %if.end56 ]
   %8 = load i8, ptr %bogus, align 8
   %tobool61 = trunc i8 %8 to i1
@@ -687,7 +687,7 @@ invoke.cont66:                                    ; preds = %if.end65
   br label %while.cond, !llvm.loop !7
 
 if.end74:                                         ; preds = %land.lhs.true28, %if.end56, %for.inc
-  %maybeMore.3220 = phi i8 [ %maybeMore.2, %for.inc ], [ 0, %if.end56 ], [ 0, %land.lhs.true28 ]
+  %maybeMore.2220 = phi i8 [ %maybeMore.4, %for.inc ], [ 0, %if.end56 ], [ 0, %land.lhs.true28 ]
   %12 = load i16, ptr %fUnion2.i113, align 8
   %conv2.i118258 = and i16 %12, 1
   %tobool77.not = icmp ne i16 %conv2.i118258, 0
@@ -701,7 +701,7 @@ if.then82:                                        ; preds = %if.end74
           to label %invoke.cont85 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont85:                                    ; preds = %if.then82
-  %tobool87 = trunc nuw i8 %maybeMore.3220 to i1
+  %tobool87 = trunc nuw i8 %maybeMore.2220 to i1
   br i1 %tobool87, label %invoke.cont95, label %lor.rhs88
 
 lor.rhs88:                                        ; preds = %invoke.cont85
@@ -730,7 +730,7 @@ if.then98:                                        ; preds = %invoke.cont95
 
 if.end103:                                        ; preds = %invoke.cont95, %if.then98, %if.end74
   %isDecimal.0 = phi i1 [ true, %if.then98 ], [ false, %invoke.cont95 ], [ false, %if.end74 ]
-  %maybeMore.4 = phi i8 [ %frombool93, %if.then98 ], [ %frombool93, %invoke.cont95 ], [ %maybeMore.3220, %if.end74 ]
+  %maybeMore.5 = phi i8 [ %frombool93, %if.then98 ], [ %frombool93, %invoke.cont95 ], [ %maybeMore.2220, %if.end74 ]
   %18 = load i16, ptr %fUnion2.i, align 8
   %conv2.i128259 = and i16 %18, 1
   %tobool106.not = icmp eq i16 %conv2.i128259, 0
@@ -741,7 +741,7 @@ if.then107:                                       ; preds = %if.end103
           to label %invoke.cont109 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont109:                                   ; preds = %if.then107
-  %tobool111 = trunc nuw i8 %maybeMore.4 to i1
+  %tobool111 = trunc nuw i8 %maybeMore.5 to i1
   br i1 %tobool111, label %invoke.cont118, label %lor.rhs112
 
 lor.rhs112:                                       ; preds = %invoke.cont109
@@ -768,7 +768,7 @@ invoke.cont118:                                   ; preds = %invoke.cont109, %in
 if.end123:                                        ; preds = %invoke.cont118, %if.end103
   %23 = phi i16 [ %18, %if.end103 ], [ %20, %invoke.cont118 ]
   %isGrouping.0 = phi i8 [ 0, %if.end103 ], [ %spec.select108, %invoke.cont118 ]
-  %maybeMore.5 = phi i8 [ %maybeMore.4, %if.end103 ], [ %frombool117, %invoke.cont118 ]
+  %maybeMore.6 = phi i8 [ %maybeMore.5, %if.end103 ], [ %frombool117, %invoke.cont118 ]
   %24 = load i8, ptr %groupingDisabled, align 1
   %tobool124 = trunc i8 %24 to i1
   %conv2.i135260 = and i16 %23, 1
@@ -790,7 +790,7 @@ if.then137:                                       ; preds = %land.lhs.true129
           to label %invoke.cont140 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 invoke.cont140:                                   ; preds = %if.then137
-  %tobool142 = trunc nuw i8 %maybeMore.5 to i1
+  %tobool142 = trunc nuw i8 %maybeMore.6 to i1
   br i1 %tobool142, label %invoke.cont150, label %lor.rhs143
 
 lor.rhs143:                                       ; preds = %invoke.cont140
@@ -818,7 +818,7 @@ if.then153:                                       ; preds = %invoke.cont150
           to label %if.end172 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.end158:                                        ; preds = %invoke.cont150, %land.lhs.true129, %if.end123
-  %maybeMore.6 = phi i8 [ %maybeMore.5, %if.end123 ], [ %frombool148, %invoke.cont150 ], [ %maybeMore.5, %land.lhs.true129 ]
+  %maybeMore.7 = phi i8 [ %maybeMore.6, %if.end123 ], [ %frombool148, %invoke.cont150 ], [ %maybeMore.6, %land.lhs.true129 ]
   %tobool159 = trunc nuw i8 %isGrouping.0 to i1
   br i1 %tobool159, label %if.end172, label %land.lhs.true160
 
@@ -847,7 +847,7 @@ invoke.cont169:                                   ; preds = %if.then168
   br label %if.end172
 
 if.end172:                                        ; preds = %if.then153, %invoke.cont165, %invoke.cont169, %land.lhs.true160, %if.end158
-  %maybeMore.6225 = phi i8 [ %maybeMore.6, %if.end158 ], [ %maybeMore.6, %invoke.cont169 ], [ %maybeMore.6, %invoke.cont165 ], [ %maybeMore.6, %land.lhs.true160 ], [ %frombool148, %if.then153 ]
+  %maybeMore.7225 = phi i8 [ %maybeMore.7, %if.end158 ], [ %maybeMore.7, %invoke.cont169 ], [ %maybeMore.7, %invoke.cont165 ], [ %maybeMore.7, %land.lhs.true160 ], [ %frombool148, %if.then153 ]
   %isGrouping.1224 = phi i8 [ %isGrouping.0, %if.end158 ], [ %isGrouping.0, %invoke.cont169 ], [ %isGrouping.0, %invoke.cont165 ], [ %isGrouping.0, %land.lhs.true160 ], [ 1, %if.then153 ]
   %isDecimal.1 = phi i1 [ %isDecimal.0, %if.end158 ], [ true, %invoke.cont169 ], [ %isDecimal.0, %invoke.cont165 ], [ %isDecimal.0, %land.lhs.true160 ], [ %isDecimal.0, %if.then153 ]
   %33 = load i8, ptr %groupingDisabled, align 1
@@ -1008,7 +1008,7 @@ if.end250:                                        ; preds = %if.then247, %if.els
 
 while.end:                                        ; preds = %if.else231, %land.lhs.true199, %land.lhs.true194, %invoke.cont12, %if.then219, %invoke.cont227
   %currGroupCount.0366 = phi i32 [ %currGroupCount.0, %if.then219 ], [ %currGroupCount.0, %invoke.cont227 ], [ %currGroupCount.0, %invoke.cont12 ], [ 0, %if.else231 ], [ %currGroupCount.0, %land.lhs.true199 ], [ %currGroupCount.0, %land.lhs.true194 ]
-  %maybeMore.7 = phi i8 [ %maybeMore.6225, %if.then219 ], [ %maybeMore.6225, %invoke.cont227 ], [ %maybeMore.0, %invoke.cont12 ], [ %maybeMore.6225, %land.lhs.true194 ], [ %maybeMore.6225, %land.lhs.true199 ], [ %maybeMore.6225, %if.else231 ]
+  %maybeMore.1 = phi i8 [ %maybeMore.7225, %if.then219 ], [ %maybeMore.7225, %invoke.cont227 ], [ %maybeMore.0, %invoke.cont12 ], [ %maybeMore.7225, %land.lhs.true194 ], [ %maybeMore.7225, %land.lhs.true199 ], [ %maybeMore.7225, %if.else231 ]
   %cmp263 = icmp ne i32 %currGroupSepType.0.ph, 2
   %cmp265 = icmp eq i32 %currGroupCount.0366, 0
   %or.cond4 = select i1 %cmp263, i1 %cmp265, i1 false
@@ -1025,7 +1025,7 @@ if.end268:                                        ; preds = %land.lhs.true204, %
   %currGroupCount.1 = phi i32 [ %currGroupCount.0366, %while.end ], [ %prevGroupCount.0.ph, %if.then266 ], [ %currGroupCount.0, %land.lhs.true204 ]
   %currGroupSepType.1 = phi i32 [ %currGroupSepType.0.ph, %while.end ], [ %prevGroupSepType.0.ph, %if.then266 ], [ 2, %land.lhs.true204 ]
   %currGroupOffset.2 = phi i32 [ %currGroupOffset.0.ph, %while.end ], [ %prevGroupOffset.0.ph, %if.then266 ], [ %currGroupOffset.0.ph, %land.lhs.true204 ]
-  %maybeMore.8 = phi i8 [ %maybeMore.7, %while.end ], [ 1, %if.then266 ], [ %maybeMore.6225, %land.lhs.true204 ]
+  %maybeMore.8 = phi i8 [ %maybeMore.1, %while.end ], [ 1, %if.then266 ], [ %maybeMore.7225, %land.lhs.true204 ]
   %46 = load i8, ptr %requireGroupingMatch.i, align 8
   %tobool.i175 = trunc i8 %46 to i1
   br i1 %tobool.i175, label %if.then.i181, label %if.then279
@@ -1090,7 +1090,7 @@ if.end294:                                        ; preds = %if.then281
   br i1 %cmp295.not, label %if.end301, label %if.then296
 
 if.then296:                                       ; preds = %if.then290, %if.end294
-  %maybeMore.9246 = phi i8 [ %maybeMore.8, %if.end294 ], [ 1, %if.then290 ]
+  %maybeMore.10246 = phi i8 [ %maybeMore.8, %if.end294 ], [ 1, %if.then290 ]
   %digitsToRemove.0245.neg = phi i32 [ %add283.neg, %if.end294 ], [ -1, %if.then290 ]
   %call298 = invoke noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %digitsConsumed, i32 noundef %digitsToRemove.0245.neg)
           to label %invoke.cont297 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
@@ -1101,12 +1101,12 @@ invoke.cont297:                                   ; preds = %if.then296
 
 if.end301:                                        ; preds = %if.then.i199, %if.else284, %if.end294, %invoke.cont297
   %prevValidSecondary269.0 = phi i1 [ true, %invoke.cont297 ], [ true, %if.end294 ], [ %retval.0.i180.ph, %if.then.i199 ], [ true, %if.else284 ]
-  %maybeMore.10 = phi i8 [ %maybeMore.9246, %invoke.cont297 ], [ %maybeMore.8, %if.end294 ], [ %maybeMore.8, %if.then.i199 ], [ %maybeMore.8, %if.else284 ]
+  %maybeMore.9 = phi i8 [ %maybeMore.10246, %invoke.cont297 ], [ %maybeMore.8, %if.end294 ], [ %maybeMore.8, %if.then.i199 ], [ %maybeMore.8, %if.else284 ]
   %cmp302.not = icmp eq i32 %currGroupSepType.1, 2
   br i1 %cmp302.not, label %if.end309, label %land.lhs.true303
 
 land.lhs.true303:                                 ; preds = %if.end301.thread, %if.end301
-  %maybeMore.10253 = phi i8 [ %maybeMore.8, %if.end301.thread ], [ %maybeMore.10, %if.end301 ]
+  %maybeMore.9253 = phi i8 [ %maybeMore.8, %if.end301.thread ], [ %maybeMore.9, %if.end301 ]
   %currValidPrimary273.0252 = phi i1 [ %cmp16.i204, %if.end301.thread ], [ false, %if.end301 ]
   %prevValidSecondary269.0251 = phi i1 [ %retval.0.i180.ph, %if.end301.thread ], [ %prevValidSecondary269.0, %if.end301 ]
   %prevValidSecondary269.0.not = xor i1 %prevValidSecondary269.0251, true
@@ -1118,13 +1118,13 @@ if.then307:                                       ; preds = %land.lhs.true303
   br label %if.end309
 
 if.end309:                                        ; preds = %land.lhs.true303, %if.then307, %if.end301
-  %maybeMore.10254 = phi i8 [ %maybeMore.10253, %land.lhs.true303 ], [ %maybeMore.10253, %if.then307 ], [ %maybeMore.10, %if.end301 ]
+  %maybeMore.9254 = phi i8 [ %maybeMore.9253, %land.lhs.true303 ], [ %maybeMore.9253, %if.then307 ], [ %maybeMore.9, %if.end301 ]
   %52 = load i8, ptr %bogus, align 8
   %tobool311 = trunc i8 %52 to i1
   br i1 %tobool311, label %if.then312, label %if.end322
 
 if.then312:                                       ; preds = %if.end309
-  %tobool313 = trunc nuw i8 %maybeMore.10254 to i1
+  %tobool313 = trunc nuw i8 %maybeMore.9254 to i1
   br i1 %tobool313, label %lor.end318, label %lor.rhs314
 
 lor.rhs314:                                       ; preds = %if.then312
@@ -1224,20 +1224,20 @@ invoke.cont374:                                   ; preds = %if.end373
 
 invoke.cont375:                                   ; preds = %invoke.cont374
   %cmp377 = icmp eq i32 %call376, 0
-  %tobool379 = trunc nuw i8 %maybeMore.10254 to i1
+  %tobool379 = trunc nuw i8 %maybeMore.9254 to i1
   %57 = select i1 %cmp377, i1 true, i1 %tobool379
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.end318, %invoke.cont375
-  %retval.0 = phi i1 [ %57, %invoke.cont375 ], [ %53, %lor.end318 ]
+  %retval.1 = phi i1 [ %57, %invoke.cont375 ], [ %53, %lor.end318 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %actualDecimalString) #7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %actualGroupingString) #7
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %digitsConsumed) #7
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #1

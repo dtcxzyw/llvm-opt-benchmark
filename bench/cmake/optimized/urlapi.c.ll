@@ -100,8 +100,8 @@ switch.early.test:                                ; preds = %12
   br i1 %exitcond.not, label %18, label %.preheader, !llvm.loop !5
 
 18:                                               ; preds = %switch.early.test, %.preheader, %17
-  %.053.lcssa = phi i64 [ %indvars.iv, %switch.early.test ], [ %indvars.iv, %.preheader ], [ 40, %17 ]
-  %19 = and i64 %.053.lcssa, 4294967295
+  %.1.lcssa = phi i64 [ %indvars.iv, %switch.early.test ], [ %indvars.iv, %.preheader ], [ 40, %17 ]
+  %19 = and i64 %.1.lcssa, 4294967295
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 58
@@ -1435,7 +1435,7 @@ find_host_sep.exit:                               ; preds = %16, %17
 
 25:                                               ; preds = %.lr.ph, %61
   %.03964 = phi ptr [ %1, %.lr.ph ], [ %62, %61 ]
-  %.04063 = phi i1 [ %7, %.lr.ph ], [ %.2, %61 ]
+  %.04063 = phi i1 [ %7, %.lr.ph ], [ %.141, %61 ]
   %.04362 = phi i64 [ %2, %.lr.ph ], [ %63, %61 ]
   %26 = icmp ult ptr %.03964, %.038
   br i1 %26, label %27, label %32
@@ -1508,12 +1508,12 @@ switch.early.test.thread:                         ; preds = %switch.early.test
   br label %57
 
 switch.early.test.thread.thread:                  ; preds = %32, %switch.early.test, %switch.early.test, %43, %switch.early.test.thread
-  %.14157 = phi i1 [ %.04063, %switch.early.test ], [ %.04063, %switch.early.test ], [ %.04063, %43 ], [ %.04063, %switch.early.test.thread ], [ false, %32 ]
+  %.257 = phi i1 [ %.04063, %switch.early.test ], [ %.04063, %switch.early.test ], [ %.04063, %43 ], [ %.04063, %switch.early.test.thread ], [ false, %32 ]
   %56 = call i32 @Curl_dyn_addn(ptr noundef %0, ptr noundef nonnull %.03964, i64 noundef 1) #10
   br label %57
 
 57:                                               ; preds = %switch.early.test.thread.thread, %46
-  %.14156 = phi i1 [ %.14157, %switch.early.test.thread.thread ], [ %.04063, %46 ]
+  %.256 = phi i1 [ %.257, %switch.early.test.thread.thread ], [ %.04063, %46 ]
   %.1 = phi i32 [ %56, %switch.early.test.thread.thread ], [ %55, %46 ]
   %.not49 = icmp eq i32 %.1, 0
   br i1 %.not49, label %61, label %58
@@ -1524,7 +1524,7 @@ switch.early.test.thread.thread:                  ; preds = %32, %switch.early.t
   br label %.loopexit
 
 61:                                               ; preds = %57, %39, %27
-  %.2 = phi i1 [ %.04063, %27 ], [ %.04063, %39 ], [ %.14156, %57 ]
+  %.141 = phi i1 [ %.04063, %27 ], [ %.04063, %39 ], [ %.256, %57 ]
   %62 = getelementptr inbounds i8, ptr %.03964, i64 1
   %63 = add i64 %.04362, -1
   %.not = icmp eq i64 %63, 0
@@ -2282,8 +2282,8 @@ switch.early.test.i.i:                            ; preds = %26
   br i1 %exitcond.not.i.i, label %32, label %.preheader.i.i, !llvm.loop !5
 
 32:                                               ; preds = %31, %switch.early.test.i.i, %.preheader.i.i
-  %.053.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %switch.early.test.i.i ], [ %indvars.iv.i.i, %.preheader.i.i ], [ 40, %31 ]
-  %33 = and i64 %.053.lcssa.i.i, 4294967295
+  %.1.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %switch.early.test.i.i ], [ %indvars.iv.i.i, %.preheader.i.i ], [ 40, %31 ]
+  %33 = and i64 %.1.lcssa.i.i, 4294967295
   %34 = getelementptr inbounds i8, ptr %0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 58
@@ -2486,10 +2486,10 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
 
 120:                                              ; preds = %.critedge.thread.i, %117
   %.ph.i = phi i1 [ true, %117 ], [ false, %.critedge.thread.i ]
-  %.1169.ph.i = phi ptr [ %4, %117 ], [ @.str.6, %.critedge.thread.i ]
+  %.0168.ph.i = phi ptr [ %4, %117 ], [ @.str.6, %.critedge.thread.i ]
   %.0167.ph.i = phi ptr [ %.0165.i, %117 ], [ %0, %.critedge.thread.i ]
   %121 = load ptr, ptr @Curl_cstrdup, align 8
-  %122 = call ptr %121(ptr noundef nonnull %.1169.ph.i) #10
+  %122 = call ptr %121(ptr noundef nonnull %.0168.ph.i) #10
   store ptr %122, ptr %10, align 8
   %.not217.i = icmp eq ptr %122, null
   br i1 %.not217.i, label %parseurl.exit, label %123
@@ -2737,7 +2737,7 @@ Curl_is_absolute_url.exit.i:                      ; preds = %43
   br label %261
 
 parseurl.exit:                                    ; preds = %3, %13, %17, %50, %52, %78, %97, %97, %97, %106, %106, %106, %114, %117, %.critedge.i, %120, %131, %149, %152, %154, %165, %172, %188, %195, %200, %207, %218, %226
-  %.5.i = phi i32 [ %132, %131 ], [ %168, %165 ], [ %191, %188 ], [ %208, %207 ], [ 19, %50 ], [ 7, %52 ], [ 19, %78 ], [ 19, %106 ], [ 19, %106 ], [ 19, %106 ], [ 19, %97 ], [ 19, %97 ], [ 19, %97 ], [ 5, %114 ], [ 28, %117 ], [ 27, %.critedge.i ], [ 7, %120 ], [ 7, %149 ], [ 7, %154 ], [ 14, %152 ], [ 7, %172 ], [ 7, %195 ], [ 7, %200 ], [ 7, %218 ], [ 7, %226 ], [ 3, %3 ], [ 3, %17 ], [ 3, %13 ]
+  %.0172.i = phi i32 [ %132, %131 ], [ %168, %165 ], [ %191, %188 ], [ %208, %207 ], [ 19, %50 ], [ 7, %52 ], [ 19, %78 ], [ 19, %106 ], [ 19, %106 ], [ 19, %106 ], [ 19, %97 ], [ 19, %97 ], [ 19, %97 ], [ 5, %114 ], [ 28, %117 ], [ 27, %.critedge.i ], [ 7, %120 ], [ 7, %149 ], [ 7, %154 ], [ 14, %152 ], [ 7, %172 ], [ 7, %195 ], [ 7, %200 ], [ 7, %218 ], [ 7, %226 ], [ 3, %3 ], [ 3, %17 ], [ 3, %13 ]
   call void @Curl_dyn_free(ptr noundef nonnull %5) #10
   %232 = load ptr, ptr @Curl_cfree, align 8
   %233 = load ptr, ptr %10, align 8
@@ -2839,7 +2839,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %50, %
   br label %293
 
 293:                                              ; preds = %parseurl.exit, %261
-  %.0.i7 = phi i32 [ 0, %261 ], [ %.5.i, %parseurl.exit ]
+  %.0.i7 = phi i32 [ 0, %261 ], [ %.0172.i, %parseurl.exit ]
   ret i32 %.0.i7
 }
 
@@ -3458,19 +3458,19 @@ sub_2127:                                         ; preds = %sub_1126
   br label %83
 
 83:                                               ; preds = %85, %81
-  %.161 = phi ptr [ %.060, %81 ], [ %86, %85 ]
-  %84 = icmp ugt ptr %.161, %9
+  %.262 = phi ptr [ %.060, %81 ], [ %86, %85 ]
+  %84 = icmp ugt ptr %.262, %9
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %.161, i64 -1
+  %86 = getelementptr inbounds i8, ptr %.262, i64 -1
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 47
   br i1 %88, label %89, label %83, !llvm.loop !18
 
 89:                                               ; preds = %85, %83
-  %.262 = phi ptr [ %86, %85 ], [ %.161, %83 ]
-  store i8 0, ptr %.262, align 1
+  %.363 = phi ptr [ %86, %85 ], [ %.262, %83 ]
+  store i8 0, ptr %.363, align 1
   br label %.thread
 
 90:                                               ; preds = %79
@@ -3487,12 +3487,12 @@ sub_2127:                                         ; preds = %sub_1126
   br label %94
 
 94:                                               ; preds = %.preheader, %96
-  %.363 = phi ptr [ %97, %96 ], [ %.060, %.preheader ]
-  %95 = icmp ugt ptr %.363, %9
+  %.4 = phi ptr [ %97, %96 ], [ %.060, %.preheader ]
+  %95 = icmp ugt ptr %.4, %9
   br i1 %95, label %96, label %.loopexit.sink.split.sink.split
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %.363, i64 -1
+  %97 = getelementptr inbounds i8, ptr %.4, i64 -1
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, 47
   br i1 %99, label %.loopexit.sink.split.sink.split, label %94, !llvm.loop !19
@@ -3516,13 +3516,13 @@ sub_2127:                                         ; preds = %sub_1126
   br label %.thread
 
 .thread:                                          ; preds = %59, %89, %15, %26, %.critedge
-  %.7 = phi ptr [ %103, %.critedge ], [ %.060, %59 ], [ %.262, %89 ], [ %.060, %15 ], [ %.060, %26 ]
+  %.7 = phi ptr [ %103, %.critedge ], [ %.060, %59 ], [ %.363, %89 ], [ %.060, %15 ], [ %.060, %26 ]
   %.3 = phi ptr [ %102, %.critedge ], [ %60, %59 ], [ %82, %89 ], [ %16, %15 ], [ %27, %26 ]
   %105 = icmp ult ptr %.3, %4
   br i1 %105, label %11, label %.loopexit, !llvm.loop !20
 
 .loopexit.sink.split.sink.split:                  ; preds = %.tail119, %.tail124, %94, %96
-  %.060.lcssa.sink158 = phi ptr [ %97, %96 ], [ %.363, %94 ], [ %.060, %.tail124 ], [ %.060, %.tail119 ]
+  %.060.lcssa.sink158 = phi ptr [ %97, %96 ], [ %.4, %94 ], [ %.060, %.tail124 ], [ %.060, %.tail119 ]
   %106 = getelementptr inbounds i8, ptr %.060.lcssa.sink158, i64 1
   store i8 47, ptr %.060.lcssa.sink158, align 1
   br label %.loopexit.sink.split

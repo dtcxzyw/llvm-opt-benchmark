@@ -1906,8 +1906,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !10
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc34
-  %curr.142 = phi ptr [ %2, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
-  %11 = load ptr, ptr %curr.142, align 8
+  %curr.242 = phi ptr [ %2, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
+  %11 = load ptr, ptr %curr.242, align 8
   %magicptr33 = ptrtoint ptr %11 to i64
   switch i64 %magicptr33, label %if.then21 [
     i64 0, label %if.end55
@@ -1915,27 +1915,27 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %m_hash.i.i25 = getelementptr inbounds i8, ptr %curr.142, i64 40
+  %m_hash.i.i25 = getelementptr inbounds i8, ptr %curr.242, i64 40
   %12 = load i32, ptr %m_hash.i.i25, align 8
   %cmp23 = icmp eq i32 %12, %0
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
   %cmp.i.i.i26 = icmp eq ptr %11, %5
-  %m_key2.i.i.i27 = getelementptr inbounds i8, ptr %curr.142, i64 8
+  %m_key2.i.i.i27 = getelementptr inbounds i8, ptr %curr.242, i64 8
   %13 = load ptr, ptr %m_key2.i.i.i27, align 8
   %cmp4.i.i.i29 = icmp eq ptr %13, %6
   %14 = select i1 %cmp.i.i.i26, i1 %cmp4.i.i.i29, i1 false
   br i1 %14, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.142, i64 48
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.242, i64 48
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !11
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.142, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 48
+  %curr.1 = phi ptr [ %curr.242, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 48
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %15 = load ptr, ptr %spec.select, align 8
@@ -1943,7 +1943,7 @@ end_remove:                                       ; preds = %land.lhs.true, %lan
   br i1 %cmp.i31, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %16 = load i32, ptr %m_size, align 4
   %dec = add i32 %16, -1
@@ -1951,7 +1951,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %17, 1

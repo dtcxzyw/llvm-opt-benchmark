@@ -5194,7 +5194,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %132, %133
 
 242:                                              ; preds = %.lr.ph295, %.loopexit
   %indvars.iv = phi i64 [ %241, %.lr.ph295 ], [ %indvars.iv.next, %.loopexit ]
-  %.0108293 = phi i8 [ 0, %.lr.ph295 ], [ %.4112, %.loopexit ]
+  %.0108293 = phi i8 [ 0, %.lr.ph295 ], [ %.2110, %.loopexit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %243 = load ptr, ptr %70, align 8
   %244 = getelementptr inbounds %"class.cv::Mat", ptr %243, i64 %indvars.iv.next
@@ -5260,7 +5260,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit146:              ; preds = %245
 
 .lr.ph:                                           ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit146, %272
   %.087289 = phi i32 [ %273, %272 ], [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit146 ]
-  %.1109288 = phi i8 [ %.2110, %272 ], [ %.0108293, %_ZNK2cv7MatExprcvNS_3MatEEv.exit146 ]
+  %.1109288 = phi i8 [ %.4112, %272 ], [ %.0108293, %_ZNK2cv7MatExprcvNS_3MatEEv.exit146 ]
   invoke void @_ZNK2cv3Mat3invEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %84, ptr noundef nonnull align 8 dereferenceable(96) %71, i32 noundef 1)
           to label %278 unwind label %298
 
@@ -6874,7 +6874,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %1010
   br label %1015
 
 1015:                                             ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %842
-  %.2110 = phi i8 [ 1, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.1109288, %842 ]
+  %.4112 = phi i8 [ 1, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.1109288, %842 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %87) #26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %83) #26
@@ -6902,7 +6902,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %1010
   br label %1021
 
 .loopexit:                                        ; preds = %272, %1015, %_ZNK2cv7MatExprcvNS_3MatEEv.exit146, %.thread218
-  %.4112 = phi i8 [ %.1109288, %.thread218 ], [ %.0108293, %_ZNK2cv7MatExprcvNS_3MatEEv.exit146 ], [ %.2110, %1015 ], [ %.2110, %272 ]
+  %.2110 = phi i8 [ %.1109288, %.thread218 ], [ %.0108293, %_ZNK2cv7MatExprcvNS_3MatEEv.exit146 ], [ %.4112, %1015 ], [ %.4112, %272 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %82) #26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %81) #26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %80) #26
@@ -6925,7 +6925,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %1010
   br label %1116
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNK2cv7MatExprcvNS_3MatEEv.exit
-  %.0108.lcssa = phi i8 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ], [ %.4112, %.loopexit ]
+  %.0108.lcssa = phi i8 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ], [ %.2110, %.loopexit ]
   %1022 = getelementptr inbounds i8, ptr %71, i64 64
   %1023 = load ptr, ptr %1022, align 8
   %1024 = getelementptr inbounds i8, ptr %1023, i64 4
@@ -14421,7 +14421,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
 222:                                              ; preds = %.lr.ph204, %_ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread
   %223 = phi i32 [ %205, %.lr.ph204 ], [ %324, %_ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread ]
   %indvars.iv229 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next230, %_ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread ]
-  %.1157202 = phi i32 [ %.0156207, %.lr.ph204 ], [ %.3159, %_ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread ]
+  %.1157202 = phi i32 [ %.0156207, %.lr.ph204 ], [ %.2158, %_ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread ]
   %224 = getelementptr inbounds float, ptr %211, i64 %indvars.iv229
   %225 = load float, ptr %224, align 4
   %226 = getelementptr inbounds i8, ptr %216, i64 %indvars.iv229
@@ -14546,7 +14546,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
   br label %322
 
 322:                                              ; preds = %320, %297
-  %.2158 = phi i32 [ %.1157202, %297 ], [ %321, %320 ]
+  %.3159 = phi i32 [ %.1157202, %297 ], [ %321, %320 ]
   %323 = trunc nuw nsw i64 %indvars.iv229 to i32
   %.sroa.0184.0.insert.ext = and i32 %323, 65535
   %.sroa.0184.0.insert.insert = or disjoint i32 %.sroa.0184.0.insert.ext, %.sroa.2185.0.insert.ext
@@ -14556,7 +14556,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
 
 _ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread: ; preds = %239, %222, %322, %278, %268, %228, %297
   %324 = phi i32 [ %223, %297 ], [ %.pre, %322 ], [ %223, %278 ], [ %223, %268 ], [ %223, %228 ], [ %223, %222 ], [ %223, %239 ]
-  %.3159 = phi i32 [ %.1157202, %297 ], [ %.2158, %322 ], [ %.1157202, %278 ], [ %.1157202, %268 ], [ %.1157202, %228 ], [ %.1157202, %222 ], [ %.1157202, %239 ]
+  %.2158 = phi i32 [ %.1157202, %297 ], [ %.3159, %322 ], [ %.1157202, %278 ], [ %.1157202, %268 ], [ %.1157202, %228 ], [ %.1157202, %222 ], [ %.1157202, %239 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %325 = sext i32 %324 to i64
   %326 = icmp slt i64 %indvars.iv.next230, %325
@@ -14570,7 +14570,7 @@ _ZNK2cv5Rect_IiE8containsERKNS_6Point_IiEE.exit.thread: ; preds = %239, %222, %3
   %327 = phi i32 [ %204, %.lr.ph209.split ], [ %.pre241, %._crit_edge205.loopexit ]
   %328 = phi i32 [ %205, %.lr.ph209.split ], [ %324, %._crit_edge205.loopexit ]
   %329 = phi i32 [ %206, %.lr.ph209.split ], [ %324, %._crit_edge205.loopexit ]
-  %.1157.lcssa = phi i32 [ %.0156207, %.lr.ph209.split ], [ %.3159, %._crit_edge205.loopexit ]
+  %.1157.lcssa = phi i32 [ %.0156207, %.lr.ph209.split ], [ %.2158, %._crit_edge205.loopexit ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %330 = sext i32 %327 to i64
   %331 = icmp slt i64 %indvars.iv.next233, %330

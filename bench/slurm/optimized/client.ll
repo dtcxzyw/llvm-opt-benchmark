@@ -288,9 +288,9 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %46, %.critedge.loopexit69.i, %.critedge.loopexit.split.loop.exit.i, %41, %38
-  %.2.i = phi i32 [ 4, %38 ], [ 4, %41 ], [ %50, %.critedge.loopexit69.i ], [ %indvars.le.i, %.critedge.loopexit.split.loop.exit.i ], [ %smax.i, %46 ]
+  %.1.i = phi i32 [ 4, %38 ], [ 4, %41 ], [ %50, %.critedge.loopexit69.i ], [ %indvars.le.i, %.critedge.loopexit.split.loop.exit.i ], [ %smax.i, %46 ]
   %51 = load i32, ptr %4, align 8
-  %.not52.i = icmp slt i32 %.2.i, %51
+  %.not52.i = icmp slt i32 %.1.i, %51
   br i1 %.not52.i, label %54, label %52
 
 52:                                               ; preds = %.critedge.i
@@ -298,10 +298,10 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %_parse_cmd.exit
 
 54:                                               ; preds = %.critedge.i
-  %55 = zext nneg i32 %.2.i to i64
+  %55 = zext nneg i32 %.1.i to i64
   %56 = getelementptr inbounds i8, ptr %20, i64 %55
   store i8 0, ptr %56, align 1
-  %57 = add nuw nsw i32 %.2.i, 1
+  %57 = add nuw nsw i32 %.1.i, 1
   store i32 %57, ptr %6, align 4
   br label %_parse_cmd.exit.thread
 
@@ -690,7 +690,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 .lr.ph203:                                        ; preds = %.preheader, %.loopexit
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.loopexit ], [ 0, %.preheader ]
-  %.1202 = phi i32 [ %.4, %.loopexit ], [ %.0.lcssa, %.preheader ]
+  %.1202 = phi i32 [ %.3, %.loopexit ], [ %.0.lcssa, %.preheader ]
   %106 = tail call ptr @spawn_subcmd_new() #11
   %107 = load ptr, ptr %24, align 8
   %108 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv243
@@ -1024,7 +1024,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %251, %.loopexit.loopexit, %252, %230
-  %.4 = phi i32 [ %.2.lcssa, %230 ], [ %240, %252 ], [ %316, %.loopexit.loopexit ], [ %240, %251 ]
+  %.3 = phi i32 [ %.2.lcssa, %230 ], [ %240, %252 ], [ %316, %.loopexit.loopexit ], [ %240, %251 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %317 = load i32, ptr %20, align 8
   %318 = zext i32 %317 to i64

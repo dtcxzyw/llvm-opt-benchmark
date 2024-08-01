@@ -57,21 +57,21 @@ if.else3.i:                                       ; preds = %if.else.i
   br i1 %cmp5.i, label %return.sink.split, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.else3.i, %while.cond.i
-  %ostr.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %add.ptr.i, %if.else3.i ]
-  %3 = load i8, ptr %ostr.0.i, align 1
+  %ostr.1.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %add.ptr.i, %if.else3.i ]
+  %3 = load i8, ptr %ostr.1.i, align 1
   %conv8.i = sext i8 %3 to i32
   %call9.i = tail call i32 @ossl_ctype_check(i32 noundef %conv8.i, i32 noundef 8) #5
   %tobool.not.i = icmp eq i32 %call9.i, 0
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ostr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ostr.1.i, i64 1
   br i1 %tobool.not.i, label %while.cond10.i, label %while.cond.i, !llvm.loop !6
 
 while.cond10.i:                                   ; preds = %while.cond.i, %while.cond10.i
-  %ln.0.i = phi ptr [ %incdec.ptr15.i, %while.cond10.i ], [ %0, %while.cond.i ]
-  %4 = load i8, ptr %ln.0.i, align 1
+  %ln.1.i = phi ptr [ %incdec.ptr15.i, %while.cond10.i ], [ %0, %while.cond.i ]
+  %4 = load i8, ptr %ln.1.i, align 1
   %conv11.i = sext i8 %4 to i32
   %call12.i = tail call i32 @ossl_ctype_check(i32 noundef %conv11.i, i32 noundef 8) #5
   %tobool13.not.i = icmp eq i32 %call12.i, 0
-  %incdec.ptr15.i = getelementptr inbounds i8, ptr %ln.0.i, i64 1
+  %incdec.ptr15.i = getelementptr inbounds i8, ptr %ln.1.i, i64 1
   br i1 %tobool13.not.i, label %while.cond18.i, label %while.cond10.i, !llvm.loop !7
 
 while.cond18.i:                                   ; preds = %while.cond10.i, %while.body22.i
@@ -84,12 +84,12 @@ while.cond18.i:                                   ; preds = %while.cond10.i, %wh
   br i1 %tobool21.not.i, label %while.end28.i, label %while.body22.i
 
 while.body22.i:                                   ; preds = %while.cond18.i
-  %cmp23.i = icmp eq ptr %p.0.i, %ln.0.i
+  %cmp23.i = icmp eq ptr %p.0.i, %ln.1.i
   br i1 %cmp23.i, label %return.sink.split, label %while.cond18.i, !llvm.loop !8
 
 while.end28.i:                                    ; preds = %while.cond18.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.pn.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %ln.0.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %ln.1.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.i = add nsw i64 %sub.ptr.sub.i, 1
   %call30.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef nonnull @.str.1, i32 noundef 90) #5
@@ -97,16 +97,16 @@ while.end28.i:                                    ; preds = %while.cond18.i
   br i1 %cmp31.i, label %return.sink.split, label %if.end34.i
 
 if.end34.i:                                       ; preds = %while.end28.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30.i, ptr nonnull align 1 %ln.0.i, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30.i, ptr nonnull align 1 %ln.1.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call30.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %do_create.exit
 
 do_create.exit:                                   ; preds = %for.body, %if.else.i, %if.end34.i
-  %ln.1.i = phi ptr [ %call30.i, %if.end34.i ], [ %1, %for.body ], [ %1, %if.else.i ]
-  %ostr.1.i = phi ptr [ %ostr.0.i, %if.end34.i ], [ %0, %for.body ], [ %add.ptr.i, %if.else.i ]
+  %ln.0.i = phi ptr [ %call30.i, %if.end34.i ], [ %1, %for.body ], [ %1, %if.else.i ]
+  %ostr.0.i = phi ptr [ %ostr.1.i, %if.end34.i ], [ %0, %for.body ], [ %add.ptr.i, %if.else.i ]
   %lntmp.0.i = phi ptr [ %call30.i, %if.end34.i ], [ null, %for.body ], [ null, %if.else.i ]
-  %call43.i = tail call i32 @OBJ_create(ptr noundef %ostr.1.i, ptr noundef %1, ptr noundef %ln.1.i) #5
+  %call43.i = tail call i32 @OBJ_create(ptr noundef %ostr.0.i, ptr noundef %1, ptr noundef %ln.0.i) #5
   tail call void @CRYPTO_free(ptr noundef %lntmp.0.i, ptr noundef nonnull @.str.1, i32 noundef 99) #5
   %cmp44.i.not = icmp eq i32 %call43.i, 0
   br i1 %cmp44.i.not, label %return.sink.split, label %for.cond

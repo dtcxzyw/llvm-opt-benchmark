@@ -640,15 +640,15 @@ dissect_iso7816_params.exit.i:                    ; preds = %158, %155, %154, %1
   br label %178
 
 178:                                              ; preds = %173, %169
-  %.1.i = phi i32 [ %177, %173 ], [ 5, %169 ]
-  %179 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #3
+  %.2.i = phi i32 [ %177, %173 ], [ 5, %169 ]
+  %179 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #3
   %180 = icmp sgt i32 %179, 0
   br i1 %180, label %181, label %dissect_iso7816_cmd_apdu.exit
 
 181:                                              ; preds = %178
   %182 = load i32, ptr @hf_iso7816_le, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0) #3
-  %184 = add nuw nsw i32 %.1.i, 1
+  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #3
+  %184 = add nuw nsw i32 %.2.i, 1
   br label %dissect_iso7816_cmd_apdu.exit
 
 185:                                              ; preds = %9
@@ -715,28 +715,28 @@ dissect_iso7816_params.exit.i:                    ; preds = %158, %155, %154, %1
   %215 = load i32, ptr @hf_iso7816_resp_to, align 4
   %216 = load i32, ptr %203, align 8
   %217 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %17, i32 noundef %215, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %216, ptr noundef nonnull @.str.166, i32 noundef %216, ptr noundef %214) #3
-  %.not.i.i41 = icmp eq ptr %217, null
-  br i1 %.not.i.i41, label %proto_item_set_generated.exit.i43, label %218
+  %.not.i.i40 = icmp eq ptr %217, null
+  br i1 %.not.i.i40, label %proto_item_set_generated.exit.i42, label %218
 
 218:                                              ; preds = %210
   %219 = getelementptr inbounds i8, ptr %217, i64 32
   %220 = load ptr, ptr %219, align 8
-  %.not5.i.i42 = icmp eq ptr %220, null
-  br i1 %.not5.i.i42, label %proto_item_set_generated.exit.i43, label %221
+  %.not5.i.i41 = icmp eq ptr %220, null
+  br i1 %.not5.i.i41, label %proto_item_set_generated.exit.i42, label %221
 
 221:                                              ; preds = %218
   %222 = getelementptr inbounds i8, ptr %220, i64 28
   %223 = load i32, ptr %222, align 4
   %224 = or i32 %223, 2
   store i32 %224, ptr %222, align 4
-  br label %proto_item_set_generated.exit.i43
+  br label %proto_item_set_generated.exit.i42
 
-proto_item_set_generated.exit.i43:                ; preds = %221, %218, %210
+proto_item_set_generated.exit.i42:                ; preds = %221, %218, %210
   %225 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, ptr noundef %214) #3
   br label %226
 
-226:                                              ; preds = %proto_item_set_generated.exit.i43, %208
+226:                                              ; preds = %proto_item_set_generated.exit.i42, %208
   %227 = getelementptr inbounds i8, ptr %203, i64 16
   %228 = load ptr, ptr %227, align 8
   %.not45.i = icmp eq ptr %228, null
@@ -773,7 +773,7 @@ proto_item_set_generated.exit.i43:                ; preds = %221, %218, %210
   br label %dissect_iso7816_cmd_apdu.exit
 
 dissect_iso7816_cmd_apdu.exit:                    ; preds = %241, %238, %181, %178, %167, %164, %83, %80, %select.unfold.i, %4, %195, %9
-  %.028 = phi i32 [ 0, %4 ], [ %196, %195 ], [ 0, %9 ], [ 1, %83 ], [ %81, %80 ], [ -1, %select.unfold.i ], [ 5, %164 ], [ %184, %181 ], [ %.1.i, %178 ], [ 4, %167 ], [ %247, %241 ], [ %.0.i39, %238 ]
+  %.028 = phi i32 [ 0, %4 ], [ %196, %195 ], [ 0, %9 ], [ 1, %83 ], [ %81, %80 ], [ -1, %select.unfold.i ], [ 5, %164 ], [ %184, %181 ], [ %.2.i, %178 ], [ 4, %167 ], [ %247, %241 ], [ %.0.i39, %238 ]
   ret i32 %.028
 }
 

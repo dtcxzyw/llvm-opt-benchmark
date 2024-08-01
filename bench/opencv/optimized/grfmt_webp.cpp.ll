@@ -1255,14 +1255,14 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %22, i64 4
   %32 = load i32, ptr %31, align 4
-  %.060112 = tail call i32 @llvm.smax.i32(i32 %32, i32 1)
-  %.060 = uitofp nneg i32 %.060112 to float
+  %.161112 = tail call i32 @llvm.smax.i32(i32 %32, i32 1)
+  %.161 = uitofp nneg i32 %.161112 to float
   %33 = icmp sgt i32 %32, 100
   br label %34
 
 34:                                               ; preds = %30, %27, %15
   %.062 = phi i1 [ true, %27 ], [ true, %15 ], [ %33, %30 ]
-  %.161 = phi float [ 1.000000e+02, %27 ], [ 1.000000e+02, %15 ], [ %.060, %30 ]
+  %.060 = phi float [ 1.000000e+02, %27 ], [ 1.000000e+02, %15 ], [ %.161, %30 ]
   %35 = lshr exact i32 %11, 3
   %36 = and i32 %35, 511
   %37 = add nuw nsw i32 %36, 1
@@ -1347,7 +1347,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   %68 = getelementptr inbounds i8, ptr %.058.sroa.phi, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
-  %71 = invoke i64 @WebPEncodeBGR(ptr noundef %67, i32 noundef %17, i32 noundef %19, i32 noundef %70, float noundef %.161, ptr noundef nonnull %7)
+  %71 = invoke i64 @WebPEncodeBGR(ptr noundef %67, i32 noundef %17, i32 noundef %19, i32 noundef %70, float noundef %.060, ptr noundef nonnull %7)
           to label %78 unwind label %47
 
 72:                                               ; preds = %65
@@ -1355,7 +1355,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPEncoder5writeERKNS_3MatERKSt6vecto
   %74 = getelementptr inbounds i8, ptr %.058.sroa.phi, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = trunc i64 %75 to i32
-  %77 = invoke i64 @WebPEncodeBGRA(ptr noundef %73, i32 noundef %17, i32 noundef %19, i32 noundef %76, float noundef %.161, ptr noundef nonnull %7)
+  %77 = invoke i64 @WebPEncodeBGRA(ptr noundef %73, i32 noundef %17, i32 noundef %19, i32 noundef %76, float noundef %.060, ptr noundef nonnull %7)
           to label %78 unwind label %47
 
 78:                                               ; preds = %72, %65, %66, %59, %52, %53

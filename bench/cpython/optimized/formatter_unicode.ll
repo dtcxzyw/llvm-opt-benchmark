@@ -1269,8 +1269,8 @@ PyUnicode_DATA.exit26.i.i:                        ; preds = %if.end.i24.i.i, %if
 if.end75.i:                                       ; preds = %PyUnicode_DATA.exit.i.i, %PyUnicode_DATA.exit16.i.i, %PyUnicode_DATA.exit26.i.i
   %retval.0.i.i = phi i32 [ %conv.i55.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit16.i.i ], [ %29, %PyUnicode_DATA.exit26.i.i ]
   %cmp68.i = icmp eq i32 %retval.0.i.i, 45
-  %sign_char.0.i = select i1 %cmp68.i, i32 45, i32 0
-  %prefix.0.i = zext i1 %cmp68.i to i64
+  %sign_char.1.i = select i1 %cmp68.i, i32 45, i32 0
+  %prefix.1.i = zext i1 %cmp68.i to i64
   %inc71.i = zext i1 %cmp68.i to i32
   %leading_chars_to_skip.1.i = or disjoint i32 %leading_chars_to_skip.0.i, %inc71.i
   %conv73.i = zext nneg i32 %leading_chars_to_skip.1.i to i64
@@ -1279,25 +1279,25 @@ if.end75.i:                                       ; preds = %PyUnicode_DATA.exit
   br i1 %cmp77.i, label %cond.end82.i, label %cond.false80.i
 
 cond.false80.i:                                   ; preds = %if.end75.i.thread, %if.end75.i
-  %prefix.1.i48 = phi i64 [ 0, %if.end75.i.thread ], [ %prefix.0.i, %if.end75.i ]
-  %n_prefix.1.i46 = phi i64 [ 0, %if.end75.i.thread ], [ %spec.select.i, %if.end75.i ]
+  %prefix.0.i48 = phi i64 [ 0, %if.end75.i.thread ], [ %prefix.1.i, %if.end75.i ]
+  %n_prefix.0.i46 = phi i64 [ 0, %if.end75.i.thread ], [ %spec.select.i, %if.end75.i ]
   %n_remainder.0.i44 = phi i64 [ 1, %if.end75.i.thread ], [ 0, %if.end75.i ]
   %n_digits.0.i42 = phi i64 [ 1, %if.end75.i.thread ], [ %sub.i, %if.end75.i ]
-  %sign_char.1.i40 = phi i32 [ 0, %if.end75.i.thread ], [ %sign_char.0.i, %if.end75.i ]
+  %sign_char.0.i40 = phi i32 [ 0, %if.end75.i.thread ], [ %sign_char.1.i, %if.end75.i ]
   %inumeric_chars.0.i38 = phi i64 [ 0, %if.end75.i.thread ], [ %conv73.i, %if.end75.i ]
-  %tmp.0.i36 = phi ptr [ %call20.i, %if.end75.i.thread ], [ %call61.i, %if.end75.i ]
+  %tmp.1.i36 = phi ptr [ %call20.i, %if.end75.i.thread ], [ %call61.i, %if.end75.i ]
   %thousands_separators81.i = getelementptr inbounds i8, ptr %format, i64 32
   %30 = load i32, ptr %thousands_separators81.i, align 8
   br label %cond.end82.i
 
 cond.end82.i:                                     ; preds = %cond.false80.i, %if.end75.i
-  %prefix.1.i49 = phi i64 [ %prefix.1.i48, %cond.false80.i ], [ %prefix.0.i, %if.end75.i ]
-  %n_prefix.1.i47 = phi i64 [ %n_prefix.1.i46, %cond.false80.i ], [ %spec.select.i, %if.end75.i ]
+  %prefix.0.i49 = phi i64 [ %prefix.0.i48, %cond.false80.i ], [ %prefix.1.i, %if.end75.i ]
+  %n_prefix.0.i47 = phi i64 [ %n_prefix.0.i46, %cond.false80.i ], [ %spec.select.i, %if.end75.i ]
   %n_remainder.0.i45 = phi i64 [ %n_remainder.0.i44, %cond.false80.i ], [ 0, %if.end75.i ]
   %n_digits.0.i43 = phi i64 [ %n_digits.0.i42, %cond.false80.i ], [ %sub.i, %if.end75.i ]
-  %sign_char.1.i41 = phi i32 [ %sign_char.1.i40, %cond.false80.i ], [ %sign_char.0.i, %if.end75.i ]
+  %sign_char.0.i41 = phi i32 [ %sign_char.0.i40, %cond.false80.i ], [ %sign_char.1.i, %if.end75.i ]
   %inumeric_chars.0.i39 = phi i64 [ %inumeric_chars.0.i38, %cond.false80.i ], [ %conv73.i, %if.end75.i ]
-  %tmp.0.i37 = phi ptr [ %tmp.0.i36, %cond.false80.i ], [ %call61.i, %if.end75.i ]
+  %tmp.1.i37 = phi ptr [ %tmp.1.i36, %cond.false80.i ], [ %call61.i, %if.end75.i ]
   %cond83.i = phi i32 [ %30, %cond.false80.i ], [ 97, %if.end75.i ]
   %call84.i = call fastcc i32 @get_locale_info(i32 noundef %cond83.i, ptr noundef nonnull %locale.i)
   %cmp85.i = icmp eq i32 %call84.i, -1
@@ -1305,7 +1305,7 @@ cond.end82.i:                                     ; preds = %cond.false80.i, %if
 
 if.end88.i:                                       ; preds = %cond.end82.i
   %add89.i = add i64 %inumeric_chars.0.i39, %n_digits.0.i43
-  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef nonnull %spec.i, i64 noundef %n_prefix.1.i47, i32 noundef %sign_char.1.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef nonnull %locale.i, ptr noundef nonnull readonly %format, ptr noundef nonnull %maxchar.i)
+  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef nonnull %spec.i, i64 noundef %n_prefix.0.i47, i32 noundef %sign_char.0.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef nonnull %locale.i, ptr noundef nonnull readonly %format, ptr noundef nonnull %maxchar.i)
   %cmp91.i = icmp eq i64 %call90.i, -1
   br i1 %cmp91.i, label %done.i, label %if.end94.i
 
@@ -1340,28 +1340,28 @@ if.end116.i:                                      ; preds = %cond.false107.i, %c
   %36 = load i32, ptr %format, align 8
   %cmp118.i = icmp eq i32 %3, 88
   %conv119.i = zext i1 %cmp118.i to i32
-  %call120.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %spec.i, ptr noundef %tmp.0.i37, i64 noundef %inumeric_chars.0.i39, ptr noundef %tmp.0.i37, i64 noundef %prefix.1.i49, i32 noundef %36, ptr noundef nonnull %locale.i, i32 noundef %conv119.i)
+  %call120.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %spec.i, ptr noundef %tmp.1.i37, i64 noundef %inumeric_chars.0.i39, ptr noundef %tmp.1.i37, i64 noundef %prefix.0.i49, i32 noundef %36, ptr noundef nonnull %locale.i, i32 noundef %conv119.i)
   br label %done.i
 
 done.i:                                           ; preds = %if.end116.i, %cond.false107.i, %if.end88.i, %cond.end82.i
   %result.0.i = phi i32 [ -1, %cond.end82.i ], [ -1, %if.end88.i ], [ -1, %cond.false107.i ], [ %call120.i, %if.end116.i ]
-  %cmp.not.i.i = icmp eq ptr %tmp.0.i37, null
+  %cmp.not.i.i = icmp eq ptr %tmp.1.i37, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i56.i
 
 if.then.i56.i:                                    ; preds = %done.i
-  %37 = load i64, ptr %tmp.0.i37, align 8
+  %37 = load i64, ptr %tmp.1.i37, align 8
   %38 = and i64 %37, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %38, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i57.i, label %Py_XDECREF.exit.i
 
 if.end.i.i57.i:                                   ; preds = %if.then.i56.i
   %dec.i.i.i = add i64 %37, -1
-  store i64 %dec.i.i.i, ptr %tmp.0.i37, align 8
+  store i64 %dec.i.i.i, ptr %tmp.1.i37, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_XDECREF.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i57.i
-  call void @_Py_Dealloc(ptr noundef nonnull %tmp.0.i37) #12
+  call void @_Py_Dealloc(ptr noundef nonnull %tmp.1.i37) #12
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i57.i, %if.then.i56.i, %done.i, %if.end55.i, %if.then18.i, %land.lhs.true.i, %if.then9.i, %if.then6.i, %if.then1.i, %if.then.i

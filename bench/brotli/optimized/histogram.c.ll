@@ -65,9 +65,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0116 = phi i64 [ 0, %for.body.lr.ph ], [ %inc51, %for.inc50 ]
   %pos.0115 = phi i64 [ %start_pos, %for.body.lr.ph ], [ %add24, %for.inc50 ]
   %literal_it.sroa.2.0114 = phi i64 [ 0, %for.body.lr.ph ], [ %literal_it.sroa.2.1.lcssa, %for.inc50 ]
-  %dist_it.sroa.5.0113 = phi i64 [ 0, %for.body.lr.ph ], [ %dist_it.sroa.5.2, %for.inc50 ]
+  %dist_it.sroa.5.0113 = phi i64 [ 0, %for.body.lr.ph ], [ %dist_it.sroa.5.1, %for.inc50 ]
   %dist_it.sroa.7.0112 = phi i64 [ %cond.i49, %for.body.lr.ph ], [ %dist_it.sroa.7.1, %for.inc50 ]
-  %dist_it.sroa.2.0111 = phi i64 [ 0, %for.body.lr.ph ], [ %dist_it.sroa.2.2, %for.inc50 ]
+  %dist_it.sroa.2.0111 = phi i64 [ 0, %for.body.lr.ph ], [ %dist_it.sroa.2.1, %for.inc50 ]
   %literal_it.sroa.7.0110 = phi i64 [ %cond.i, %for.body.lr.ph ], [ %literal_it.sroa.7.1.lcssa, %for.inc50 ]
   %insert_and_copy_it.sroa.5.0109 = phi i64 [ 0, %for.body.lr.ph ], [ %insert_and_copy_it.sroa.5.1, %for.inc50 ]
   %insert_and_copy_it.sroa.7.0108 = phi i64 [ %cond.i42, %for.body.lr.ph ], [ %dec.i, %for.inc50 ]
@@ -268,11 +268,11 @@ if.then.i76:                                      ; preds = %if.then37
   br label %BlockSplitIteratorNext.exit86
 
 BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then.i76
-  %dist_it.sroa.2.1 = phi i64 [ %inc.i78, %if.then.i76 ], [ %dist_it.sroa.2.0111, %if.then37 ]
-  %dist_it.sroa.5.1 = phi i64 [ %conv.i81, %if.then.i76 ], [ %dist_it.sroa.5.0113, %if.then37 ]
+  %dist_it.sroa.2.2 = phi i64 [ %inc.i78, %if.then.i76 ], [ %dist_it.sroa.2.0111, %if.then37 ]
+  %dist_it.sroa.5.2 = phi i64 [ %conv.i81, %if.then.i76 ], [ %dist_it.sroa.5.0113, %if.then37 ]
   %48 = phi i64 [ %conv5.i85, %if.then.i76 ], [ %dist_it.sroa.7.0112, %if.then37 ]
   %dec.i75 = add i64 %48, -1
-  %shl40 = shl nuw nsw i64 %dist_it.sroa.5.1, 2
+  %shl40 = shl nuw nsw i64 %dist_it.sroa.5.2, 2
   %conv.i = zext i16 %43 to i32
   %shr.i = lshr i32 %conv.i, 6
   %and.i64 = and i32 %conv.i, 7
@@ -301,9 +301,9 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   br label %for.inc50
 
 for.inc50:                                        ; preds = %for.end, %BlockSplitIteratorNext.exit86, %if.then27
-  %dist_it.sroa.2.2 = phi i64 [ %dist_it.sroa.2.0111, %for.end ], [ %dist_it.sroa.2.1, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.2.0111, %if.then27 ]
+  %dist_it.sroa.2.1 = phi i64 [ %dist_it.sroa.2.0111, %for.end ], [ %dist_it.sroa.2.2, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.2.0111, %if.then27 ]
   %dist_it.sroa.7.1 = phi i64 [ %dist_it.sroa.7.0112, %for.end ], [ %dec.i75, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.7.0112, %if.then27 ]
-  %dist_it.sroa.5.2 = phi i64 [ %dist_it.sroa.5.0113, %for.end ], [ %dist_it.sroa.5.1, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.5.0113, %if.then27 ]
+  %dist_it.sroa.5.1 = phi i64 [ %dist_it.sroa.5.0113, %for.end ], [ %dist_it.sroa.5.2, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.5.0113, %if.then27 ]
   %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.1.lcssa, %for.end ], [ %41, %BlockSplitIteratorNext.exit86 ], [ %41, %if.then27 ]
   %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.1.lcssa, %for.end ], [ %42, %BlockSplitIteratorNext.exit86 ], [ %42, %if.then27 ]
   %inc51 = add nuw i64 %i.0116, 1

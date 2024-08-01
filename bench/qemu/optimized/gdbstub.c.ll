@@ -4121,8 +4121,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 while.body12.i:                                   ; preds = %while.cond10.preheader.i, %sw.epilog.i
   %7 = phi ptr [ %61, %sw.epilog.i ], [ %2, %while.cond10.preheader.i ]
-  %last_target.0119.i = phi ptr [ %last_target.5.i, %sw.epilog.i ], [ null, %while.cond10.preheader.i ]
-  %target_count.0118.i = phi i32 [ %target_count.5.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
+  %last_target.0119.i = phi ptr [ %last_target.1.i, %sw.epilog.i ], [ null, %while.cond10.preheader.i ]
+  %target_count.0118.i = phi i32 [ %target_count.1.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
   %signal.0117.i = phi i32 [ %signal.1.i, %sw.epilog.i ], [ 0, %while.cond10.preheader.i ]
   %incdec.ptr.i = getelementptr i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %p.addr.i, align 8
@@ -4327,8 +4327,8 @@ gdb_first_attached_cpu.exit.i:                    ; preds = %while.end8.i.i.i, %
   br i1 %tobool62.not109.i, label %sw.epilog.i, label %while.body63.i
 
 while.body63.i:                                   ; preds = %gdb_first_attached_cpu.exit.i, %gdb_next_attached_cpu.exit.i
-  %last_target.1112.i = phi ptr [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.0119.i, %gdb_first_attached_cpu.exit.i ]
-  %target_count.1111.i = phi i32 [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.0118.i, %gdb_first_attached_cpu.exit.i ]
+  %last_target.2112.i = phi ptr [ %last_target.3.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.0119.i, %gdb_first_attached_cpu.exit.i ]
+  %target_count.2111.i = phi i32 [ %target_count.3.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.0118.i, %gdb_first_attached_cpu.exit.i ]
   %cpu.1110.i = phi ptr [ %cpu.addr.0.lcssa.i.i, %gdb_next_attached_cpu.exit.i ], [ %retval.0.i32.i, %gdb_first_attached_cpu.exit.i ]
   %cpu_index64.i = getelementptr inbounds i8, ptr %cpu.1110.i, i64 712
   %37 = load i32, ptr %cpu_index64.i, align 8
@@ -4340,12 +4340,12 @@ while.body63.i:                                   ; preds = %gdb_first_attached_
 
 if.then70.i:                                      ; preds = %while.body63.i
   store i8 %cur_action.0.i, ptr %arrayidx66.i, align 1
-  %inc.i = add i32 %target_count.1111.i, 1
+  %inc.i = add i32 %target_count.2111.i, 1
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then70.i, %while.body63.i
-  %target_count.2.i = phi i32 [ %inc.i, %if.then70.i ], [ %target_count.1111.i, %while.body63.i ]
-  %last_target.2.i = phi ptr [ %cpu.1110.i, %if.then70.i ], [ %last_target.1112.i, %while.body63.i ]
+  %target_count.3.i = phi i32 [ %inc.i, %if.then70.i ], [ %target_count.2111.i, %while.body63.i ]
+  %last_target.3.i = phi ptr [ %cpu.1110.i, %if.then70.i ], [ %last_target.2112.i, %while.body63.i ]
   %node.i.i = getelementptr inbounds i8, ptr %cpu.1110.i, i64 568
   %39 = load atomic i64, ptr %node.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -4465,8 +4465,8 @@ while.end5.i.i:                                   ; preds = %for.body.i51.i
   br i1 %tobool.not.i54.i, label %sw.epilog.i, label %for.body.i51.i, !llvm.loop !14
 
 while.body85.i:                                   ; preds = %for.body.i51.i, %gdb_next_cpu_in_process.exit.i
-  %last_target.3107.i = phi ptr [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0119.i, %for.body.i51.i ]
-  %target_count.3106.i = phi i32 [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0118.i, %for.body.i51.i ]
+  %last_target.4107.i = phi ptr [ %last_target.5.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0119.i, %for.body.i51.i ]
+  %target_count.4106.i = phi i32 [ %target_count.5.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0118.i, %for.body.i51.i ]
   %cpu.2105.i = phi ptr [ %cpu.addr.0.lcssa.i67.i, %gdb_next_cpu_in_process.exit.i ], [ %cpu.06.i.i, %for.body.i51.i ]
   %cpu_index86.i = getelementptr inbounds i8, ptr %cpu.2105.i, i64 712
   %55 = load i32, ptr %cpu_index86.i, align 8
@@ -4478,12 +4478,12 @@ while.body85.i:                                   ; preds = %for.body.i51.i, %gd
 
 if.then92.i:                                      ; preds = %while.body85.i
   store i8 %cur_action.0.i, ptr %arrayidx88.i, align 1
-  %inc96.i = add i32 %target_count.3106.i, 1
+  %inc96.i = add i32 %target_count.4106.i, 1
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %if.then92.i, %while.body85.i
-  %target_count.4.i = phi i32 [ %inc96.i, %if.then92.i ], [ %target_count.3106.i, %while.body85.i ]
-  %last_target.4.i = phi ptr [ %cpu.2105.i, %if.then92.i ], [ %last_target.3107.i, %while.body85.i ]
+  %target_count.5.i = phi i32 [ %inc96.i, %if.then92.i ], [ %target_count.4106.i, %while.body85.i ]
+  %last_target.5.i = phi ptr [ %cpu.2105.i, %if.then92.i ], [ %last_target.4107.i, %while.body85.i ]
   %call.i.i56.i = call i32 @getpid() #18
   %node.i57.i = getelementptr inbounds i8, ptr %cpu.2105.i, i64 568
   %57 = load atomic i64, ptr %node.i57.i monotonic, align 8
@@ -4535,19 +4535,19 @@ if.then111.i:                                     ; preds = %if.end104.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %while.end5.i.i, %gdb_next_cpu_in_process.exit.i, %gdb_next_attached_cpu.exit.i, %if.then111.i, %if.end104.i, %if.end81.i, %gdb_first_attached_cpu.exit.i
-  %target_count.5.i = phi i32 [ %inc115.i, %if.then111.i ], [ %target_count.0118.i, %if.end104.i ], [ %target_count.0118.i, %gdb_first_attached_cpu.exit.i ], [ %target_count.0118.i, %if.end81.i ], [ %target_count.2.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.4.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0118.i, %while.end5.i.i ]
-  %last_target.5.i = phi ptr [ %call101.i, %if.then111.i ], [ %last_target.0119.i, %if.end104.i ], [ %last_target.0119.i, %gdb_first_attached_cpu.exit.i ], [ %last_target.0119.i, %if.end81.i ], [ %last_target.2.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.4.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0119.i, %while.end5.i.i ]
+  %target_count.1.i = phi i32 [ %inc115.i, %if.then111.i ], [ %target_count.0118.i, %if.end104.i ], [ %target_count.0118.i, %gdb_first_attached_cpu.exit.i ], [ %target_count.0118.i, %if.end81.i ], [ %target_count.3.i, %gdb_next_attached_cpu.exit.i ], [ %target_count.5.i, %gdb_next_cpu_in_process.exit.i ], [ %target_count.0118.i, %while.end5.i.i ]
+  %last_target.1.i = phi ptr [ %call101.i, %if.then111.i ], [ %last_target.0119.i, %if.end104.i ], [ %last_target.0119.i, %gdb_first_attached_cpu.exit.i ], [ %last_target.0119.i, %if.end81.i ], [ %last_target.3.i, %gdb_next_attached_cpu.exit.i ], [ %last_target.5.i, %gdb_next_cpu_in_process.exit.i ], [ %last_target.0119.i, %while.end5.i.i ]
   %61 = load ptr, ptr %p.addr.i, align 8
   %62 = load i8, ptr %61, align 1
   %tobool11.not.i = icmp eq i8 %62, 0
   br i1 %tobool11.not.i, label %while.end117.i, label %while.body12.i, !llvm.loop !37
 
 while.end117.i:                                   ; preds = %sw.epilog.i
-  %63 = icmp sgt i32 %target_count.5.i, 0
+  %63 = icmp sgt i32 %target_count.1.i, 0
   br i1 %63, label %if.then120.i, label %gdb_handle_vcont.exit.thread8
 
 if.then120.i:                                     ; preds = %while.end117.i
-  store ptr %last_target.5.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  store ptr %last_target.1.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   br label %gdb_handle_vcont.exit.thread8
 
 gdb_handle_vcont.exit.thread8:                    ; preds = %while.cond10.preheader.i, %while.end117.i, %if.then120.i
@@ -5756,11 +5756,11 @@ if.then9:                                         ; preds = %for.inc57.i, %if.en
   br label %return
 
 if.end11:                                         ; preds = %if.then.i, %if.then29.i, %get_feature_xml.exit
-  %retval.1.i25 = phi ptr [ %.pre.i, %get_feature_xml.exit ], [ %12, %if.then.i ], [ %call33.i, %if.then29.i ]
+  %retval.0.i25 = phi ptr [ %.pre.i, %get_feature_xml.exit ], [ %12, %if.then.i ], [ %call33.i, %if.then29.i ]
   %29 = load ptr, ptr %params, align 8
   %arrayidx13 = getelementptr i8, ptr %29, i64 16
   %30 = load i64, ptr %arrayidx13, align 8
-  %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.1.i25) #19
+  %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i25) #19
   %cmp17 = icmp ugt i64 %30, %call16
   br i1 %cmp17, label %if.then18, label %if.end20
 
@@ -5775,7 +5775,7 @@ if.end20:                                         ; preds = %if.end11
   %sub = sub nuw i64 %call16, %30
   %cmp24 = icmp ult i64 %spec.store.select, %sub
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %add.ptr = getelementptr i8, ptr %retval.1.i25, i64 %30
+  %add.ptr = getelementptr i8, ptr %retval.0.i25, i64 %30
   %.str.45..str.107 = select i1 %cmp24, ptr @.str.45, ptr @.str.107
   %spec.store.select.sub = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 %sub)
   %call27 = tail call ptr @g_string_assign(ptr noundef %32, ptr noundef nonnull %.str.45..str.107) #18

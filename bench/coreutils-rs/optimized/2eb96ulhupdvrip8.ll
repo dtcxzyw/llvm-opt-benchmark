@@ -748,7 +748,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h49ac236cbdc63c1aE.exit.i: 
   %trunc.i = trunc nuw i8 %196 to i1
   %197 = getelementptr inbounds i8, ptr %27, i64 8
   %198 = load i64, ptr %197, align 8, !noalias !88
-  %.sroa.6.1.i = select i1 %trunc.i, i64 undef, i64 %198
+  %.sroa.6.3.i = select i1 %trunc.i, i64 undef, i64 %198
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !88
   br label %201
 
@@ -768,7 +768,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
           to label %113 unwind label %389
 
 201:                                              ; preds = %.noexc88, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit.i.i", %_ZN12clap_builder6parser5error12MatchesError6unwrap17h49ac236cbdc63c1aE.exit.i, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h996a1b22e9c40309E.exit.i, %.noexc80
-  %.sroa.6.0.i = phi i64 [ %159, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h996a1b22e9c40309E.exit.i ], [ undef, %.noexc80 ], [ %.sroa.6.1.i, %.noexc88 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit.i.i" ], [ undef, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h49ac236cbdc63c1aE.exit.i ]
+  %.sroa.6.0.i = phi i64 [ %159, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h996a1b22e9c40309E.exit.i ], [ undef, %.noexc80 ], [ %.sroa.6.3.i, %.noexc88 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit.i.i" ], [ undef, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h49ac236cbdc63c1aE.exit.i ]
   %.sroa.0.0.i = phi i1 [ false, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h996a1b22e9c40309E.exit.i ], [ true, %.noexc80 ], [ %trunc.i, %.noexc88 ], [ true, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ce5e01e5b15779eE.exit.i.i" ], [ true, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h49ac236cbdc63c1aE.exit.i ]
   %202 = invoke noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17ha74e160c857441dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.1d86752e3500b213ea3aae889ff55469.35, i64 noundef 4)
           to label %.noexc98 unwind label %199

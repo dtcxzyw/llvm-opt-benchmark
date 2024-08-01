@@ -7723,8 +7723,8 @@ match_wkwn_sids.exit:                             ; preds = %.lr.ph, %55
   br i1 %.not243, label %63, label %match_wkwn_sids.exit.thread
 
 match_wkwn_sids.exit.thread:                      ; preds = %50, %49, %match_wkwn_sids.exit
-  %.1214357 = phi ptr [ %60, %match_wkwn_sids.exit ], [ @.str.6930, %50 ], [ @.str.6434, %49 ]
-  tail call void @wmem_strbuf_append(ptr noundef %42, ptr noundef nonnull %.1214357) #7
+  %.2357 = phi ptr [ %60, %match_wkwn_sids.exit ], [ @.str.6930, %50 ], [ @.str.6434, %49 ]
+  tail call void @wmem_strbuf_append(ptr noundef %42, ptr noundef nonnull %.2357) #7
   %61 = load i32, ptr @sid_display_hex, align 4
   %.not244 = icmp eq i32 %61, 0
   %..0215 = select i1 %.not244, ptr %32, ptr %.0215
@@ -7734,7 +7734,7 @@ match_wkwn_sids.exit.thread:                      ; preds = %50, %49, %match_wkw
 
 63:                                               ; preds = %match_wkwn_sids.exit, %match_wkwn_sids.exit.thread, %38
   %.0227 = phi i32 [ 8, %match_wkwn_sids.exit.thread ], [ 0, %match_wkwn_sids.exit ], [ 0, %38 ]
-  %.2 = phi ptr [ %.1214357, %match_wkwn_sids.exit.thread ], [ null, %match_wkwn_sids.exit ], [ null, %38 ]
+  %.1214 = phi ptr [ %.2357, %match_wkwn_sids.exit.thread ], [ null, %match_wkwn_sids.exit ], [ null, %38 ]
   %64 = tail call ptr @wmem_packet_scope() #7
   %65 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %64, ptr noundef nonnull @.str.6430) #7
   %66 = tail call ptr @wmem_packet_scope() #7
@@ -7753,7 +7753,7 @@ match_wkwn_sids.exit.thread:                      ; preds = %50, %49, %match_wkw
   %.0207333 = phi i32 [ 0, %.lr.ph336 ], [ %.1208, %152 ]
   %.0209332 = phi i32 [ 0, %.lr.ph336 ], [ %.1210, %152 ]
   %.0211331 = phi ptr [ null, %.lr.ph336 ], [ %.1212, %152 ]
-  %.3330 = phi ptr [ %.2, %.lr.ph336 ], [ %.4, %152 ]
+  %.3330 = phi ptr [ %.1214, %.lr.ph336 ], [ %.4, %152 ]
   %.0217329 = phi i32 [ 0, %.lr.ph336 ], [ %.1218, %152 ]
   %.1221328 = phi i32 [ %28, %.lr.ph336 ], [ %153, %152 ]
   %.1224327 = phi i32 [ 1, %.lr.ph336 ], [ %154, %152 ]
@@ -7979,7 +7979,7 @@ match_wkwn_sids.exit295.thread:                   ; preds = %123, %match_wkwn_si
   %.0225.lcssa = phi i32 [ 0, %63 ], [ %.1226, %152 ]
   %.1221.lcssa = phi i32 [ %28, %63 ], [ %153, %152 ]
   %.0217.lcssa = phi i32 [ 0, %63 ], [ %.1218, %152 ]
-  %.3.lcssa = phi ptr [ %.2, %63 ], [ %.4, %152 ]
+  %.3.lcssa = phi ptr [ %.1214, %63 ], [ %.4, %152 ]
   %.0211.lcssa = phi ptr [ null, %63 ], [ %.1212, %152 ]
   %.0209.lcssa = phi i32 [ 0, %63 ], [ %.1210, %152 ]
   %.0207.lcssa = phi i32 [ 0, %63 ], [ %.1208, %152 ]
@@ -9401,8 +9401,8 @@ dissect_nt_ace_object.exit.i:                     ; preds = %129, %128, %124, %.
   br label %135
 
 135:                                              ; preds = %dissect_nt_ace_object.exit.i, %101
-  %.059.i = phi i32 [ %103, %101 ], [ %.1.i65.i, %dissect_nt_ace_object.exit.i ]
-  %136 = call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %.059.i, ptr noundef %57, ptr noundef nonnull @.str.6519, ptr noundef nonnull %11, i32 noundef -1)
+  %.1.i = phi i32 [ %103, %101 ], [ %.1.i65.i, %dissect_nt_ace_object.exit.i ]
+  %136 = call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %.1.i, ptr noundef %57, ptr noundef nonnull @.str.6519, ptr noundef nonnull %11, i32 noundef -1)
   %137 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %137, null
   br i1 %.not.i, label %142, label %138
@@ -9624,9 +9624,9 @@ dissect_nt_ace_system_resource_attribute.exit.i:  ; preds = %dissect_nt_ace_syst
   br label %dissect_nt_conditional_ace.exit.i
 
 dissect_nt_conditional_ace.exit.i:                ; preds = %.lr.ph.i.i, %dissect_nt_ace_system_resource_attribute.exit.i, %151, %148, %145, %142, %98
-  %.1.i = phi i32 [ %100, %98 ], [ %136, %142 ], [ %136, %dissect_nt_ace_system_resource_attribute.exit.i ], [ %136, %145 ], [ %136, %148 ], [ %136, %151 ], [ %136, %.lr.ph.i.i ]
+  %.059.i = phi i32 [ %100, %98 ], [ %136, %142 ], [ %136, %dissect_nt_ace_system_resource_attribute.exit.i ], [ %136, %145 ], [ %136, %148 ], [ %136, %151 ], [ %136, %.lr.ph.i.i ]
   %247 = load ptr, ptr %10, align 8
-  %248 = sub i32 %.1.i, %.0..0..0..0.28
+  %248 = sub i32 %.059.i, %.0..0..0..0.28
   call void @proto_item_set_len(ptr noundef %247, i32 noundef %248) #7
   %249 = add i32 %.0..0..0..0.28, %93
   br label %dissect_nt_v2_ace.exit
@@ -9871,8 +9871,8 @@ define internal fastcc i32 @dissect_nt_conditional_ace_token(ptr noundef %0, i32
   br label %77
 
 77:                                               ; preds = %.lr.ph, %77
-  %.0148 = phi i32 [ %69, %.lr.ph ], [ %78, %77 ]
-  %78 = tail call fastcc i32 @dissect_nt_conditional_ace_token(ptr noundef %0, i32 noundef %.0148, i16 noundef zeroext %76, ptr noundef %.0141)
+  %.1148 = phi i32 [ %69, %.lr.ph ], [ %78, %77 ]
+  %78 = tail call fastcc i32 @dissect_nt_conditional_ace_token(ptr noundef %0, i32 noundef %.1148, i16 noundef zeroext %76, ptr noundef %.0141)
   %79 = icmp slt i32 %78, %74
   br i1 %79, label %77, label %.loopexit, !llvm.loop !10
 
@@ -9925,10 +9925,10 @@ define internal fastcc i32 @dissect_nt_conditional_ace_token(ptr noundef %0, i32
   unreachable
 
 .loopexit:                                        ; preds = %77, %73, %109, %67, %80, %103, %97, %91, %85, %82, %61, %55, %45, %35, %25, %15
-  %.1 = phi i32 [ %14, %109 ], [ %108, %103 ], [ %102, %97 ], [ %96, %91 ], [ %90, %85 ], [ %84, %82 ], [ %81, %80 ], [ %69, %67 ], [ %66, %61 ], [ %60, %55 ], [ %54, %45 ], [ %44, %35 ], [ %34, %25 ], [ %24, %15 ], [ %69, %73 ], [ %78, %77 ]
-  %111 = sub i32 %.1, %1
+  %.0 = phi i32 [ %14, %109 ], [ %108, %103 ], [ %102, %97 ], [ %96, %91 ], [ %90, %85 ], [ %84, %82 ], [ %81, %80 ], [ %69, %67 ], [ %66, %61 ], [ %60, %55 ], [ %54, %45 ], [ %44, %35 ], [ %34, %25 ], [ %24, %15 ], [ %69, %73 ], [ %78, %77 ]
+  %111 = sub i32 %.0, %1
   tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %111) #7
-  ret i32 %.1
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

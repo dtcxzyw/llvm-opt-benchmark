@@ -125,7 +125,7 @@ sub_1225:                                         ; preds = %sub_0224
   br label %41
 
 41:                                               ; preds = %.loopexit, %._crit_edge
-  %.0114 = phi i32 [ 1, %._crit_edge ], [ %.3117, %.loopexit ]
+  %.0114 = phi i32 [ 1, %._crit_edge ], [ %.2116, %.loopexit ]
   %.2 = phi ptr [ %0, %._crit_edge ], [ %306, %.loopexit ]
   %42 = load i8, ptr %.2, align 1
   switch i8 %42, label %115 [
@@ -447,7 +447,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.sink.split, %159, %72
-  %.2116316 = phi i32 [ %.0114, %159 ], [ 3, %72 ], [ 3, %.preheader.sink.split ]
+  %.3117316 = phi i32 [ %.0114, %159 ], [ 3, %72 ], [ 3, %.preheader.sink.split ]
   %165 = load ptr, ptr %39, align 8
   %166 = load i32, ptr %8, align 4
   %167 = add nsw i32 %166, -1
@@ -750,8 +750,8 @@ Vec_IntGrow.exit.i208:                            ; preds = %289, %287
 .loopexit.sink.split.sink.split:                  ; preds = %301, %Vec_IntGrow.exit.i208, %.Vec_IntGrow.exit10_crit_edge.i203, %176, %Vec_IntPush.exit174.sink.split, %.Vec_IntGrow.exit10_crit_edge.i158, %Vec_IntGrow.exit.i163, %101, %Vec_IntGrow.exit.i187
   %.sink359.ph = phi ptr [ %214, %Vec_IntGrow.exit.i187 ], [ %.pre.i160, %.Vec_IntGrow.exit10_crit_edge.i158 ], [ %102, %101 ], [ %91, %Vec_IntGrow.exit.i163 ], [ %171, %176 ], [ %.sink350, %Vec_IntPush.exit174.sink.split ], [ %.pre.i205, %.Vec_IntGrow.exit10_crit_edge.i203 ], [ %302, %301 ], [ %291, %Vec_IntGrow.exit.i208 ]
   %.sink357.ph = phi i32 [ %.lcssa234, %Vec_IntGrow.exit.i187 ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i158 ], [ 1, %101 ], [ 1, %Vec_IntGrow.exit.i163 ], [ %175, %176 ], [ %175, %Vec_IntPush.exit174.sink.split ], [ %215, %.Vec_IntGrow.exit10_crit_edge.i203 ], [ %215, %301 ], [ %215, %Vec_IntGrow.exit.i208 ]
-  %.3117.ph.ph = phi i32 [ %.2116316, %Vec_IntGrow.exit.i187 ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i158 ], [ 1, %101 ], [ 1, %Vec_IntGrow.exit.i163 ], [ 2, %176 ], [ 2, %Vec_IntPush.exit174.sink.split ], [ %.2116316, %.Vec_IntGrow.exit10_crit_edge.i203 ], [ %.2116316, %301 ], [ %.2116316, %Vec_IntGrow.exit.i208 ]
-  %.5.ph.ph = phi ptr [ %.2, %Vec_IntGrow.exit.i187 ], [ %.2, %.Vec_IntGrow.exit10_crit_edge.i158 ], [ %.2, %101 ], [ %.2, %Vec_IntGrow.exit.i163 ], [ %.4322, %176 ], [ %.4322, %Vec_IntPush.exit174.sink.split ], [ %.2, %.Vec_IntGrow.exit10_crit_edge.i203 ], [ %.2, %301 ], [ %.2, %Vec_IntGrow.exit.i208 ]
+  %.2116.ph.ph = phi i32 [ %.3117316, %Vec_IntGrow.exit.i187 ], [ 1, %.Vec_IntGrow.exit10_crit_edge.i158 ], [ 1, %101 ], [ 1, %Vec_IntGrow.exit.i163 ], [ 2, %176 ], [ 2, %Vec_IntPush.exit174.sink.split ], [ %.3117316, %.Vec_IntGrow.exit10_crit_edge.i203 ], [ %.3117316, %301 ], [ %.3117316, %Vec_IntGrow.exit.i208 ]
+  %.3.ph.ph = phi ptr [ %.2, %Vec_IntGrow.exit.i187 ], [ %.2, %.Vec_IntGrow.exit10_crit_edge.i158 ], [ %.2, %101 ], [ %.2, %Vec_IntGrow.exit.i163 ], [ %.4322, %176 ], [ %.4322, %Vec_IntPush.exit174.sink.split ], [ %.2, %.Vec_IntGrow.exit10_crit_edge.i203 ], [ %.2, %301 ], [ %.2, %Vec_IntGrow.exit.i208 ]
   %.pre312 = load i32, ptr %8, align 4
   br label %.loopexit.sink.split
 
@@ -759,8 +759,8 @@ Vec_IntGrow.exit.i208:                            ; preds = %289, %287
   %.sink363 = phi i32 [ 0, %._crit_edge272 ], [ %.pre312, %.loopexit.sink.split.sink.split ]
   %.sink359 = phi ptr [ %.lcssa243, %._crit_edge272 ], [ %.sink359.ph, %.loopexit.sink.split.sink.split ]
   %.sink357 = phi i32 [ %.lcssa234, %._crit_edge272 ], [ %.sink357.ph, %.loopexit.sink.split.sink.split ]
-  %.3117.ph = phi i32 [ %.2116316, %._crit_edge272 ], [ %.3117.ph.ph, %.loopexit.sink.split.sink.split ]
-  %.5.ph = phi ptr [ %.2, %._crit_edge272 ], [ %.5.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.2116.ph = phi i32 [ %.3117316, %._crit_edge272 ], [ %.2116.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.3.ph = phi ptr [ %.2, %._crit_edge272 ], [ %.3.ph.ph, %.loopexit.sink.split.sink.split ]
   %303 = add nsw i32 %.sink363, 1
   store i32 %303, ptr %8, align 4
   %304 = sext i32 %.sink363 to i64
@@ -769,9 +769,9 @@ Vec_IntGrow.exit.i208:                            ; preds = %289, %287
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit181, %.loopexit.sink.split, %159, %.preheader227, %41, %41, %41, %41
-  %.3117 = phi i32 [ %.0114, %41 ], [ %.0114, %41 ], [ %.0114, %41 ], [ %.0114, %41 ], [ 1, %159 ], [ 2, %.preheader227 ], [ %.3117.ph, %.loopexit.sink.split ], [ 2, %Vec_PtrPush.exit181 ]
-  %.5 = phi ptr [ %.2, %41 ], [ %.2, %41 ], [ %.2, %41 ], [ %.2, %41 ], [ %.2, %159 ], [ %.4322, %.preheader227 ], [ %.5.ph, %.loopexit.sink.split ], [ %.4322, %Vec_PtrPush.exit181 ]
-  %306 = getelementptr inbounds i8, ptr %.5, i64 1
+  %.2116 = phi i32 [ %.0114, %41 ], [ %.0114, %41 ], [ %.0114, %41 ], [ %.0114, %41 ], [ 1, %159 ], [ 2, %.preheader227 ], [ %.2116.ph, %.loopexit.sink.split ], [ 2, %Vec_PtrPush.exit181 ]
+  %.3 = phi ptr [ %.2, %41 ], [ %.2, %41 ], [ %.2, %41 ], [ %.2, %41 ], [ %.2, %159 ], [ %.4322, %.preheader227 ], [ %.3.ph, %.loopexit.sink.split ], [ %.4322, %Vec_PtrPush.exit181 ]
+  %306 = getelementptr inbounds i8, ptr %.3, i64 1
   br label %41, !llvm.loop !6
 
 307:                                              ; preds = %41
@@ -1037,7 +1037,7 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
 
 .preheader:                                       ; preds = %2, %12
   %11 = phi i8 [ %.pr80, %12 ], [ %3, %2 ]
-  %.1 = phi ptr [ %13, %12 ], [ %0, %2 ]
+  %.2 = phi ptr [ %13, %12 ], [ %0, %2 ]
   switch i8 %11, label %12 [
     i8 0, label %.critedge
     i8 32, label %.critedge
@@ -1058,14 +1058,14 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr nocaptu
   ]
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.1, i64 1
+  %13 = getelementptr inbounds i8, ptr %.2, i64 1
   %.pr80 = load i8, ptr %13, align 1
   br label %.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %7, %7
-  %.2 = phi ptr [ %.047, %7 ], [ %.047, %7 ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ]
+  %.1 = phi ptr [ %.047, %7 ], [ %.047, %7 ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ]
   %.046 = phi ptr [ %6, %7 ], [ %6, %7 ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ], [ %0, %.preheader ]
-  %14 = ptrtoint ptr %.2 to i64
+  %14 = ptrtoint ptr %.1 to i64
   %15 = ptrtoint ptr %.046 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i32

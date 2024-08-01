@@ -833,9 +833,9 @@ if.else45:                                        ; preds = %if.then39
   br i1 %or.cond9, label %if.end53, label %if.then55
 
 if.end53:                                         ; preds = %if.then39, %if.else45
-  %name.addr.0.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_name, i64 16), %if.else45 ], [ getelementptr inbounds (i8, ptr @git_author_name, i64 16), %if.then39 ]
-  %name.addr.0 = load ptr, ptr %name.addr.0.in, align 8
-  %tobool54.not.not = icmp eq ptr %name.addr.0, null
+  %name.addr.1.in = phi ptr [ getelementptr inbounds (i8, ptr @git_committer_name, i64 16), %if.else45 ], [ getelementptr inbounds (i8, ptr @git_author_name, i64 16), %if.then39 ]
+  %name.addr.1 = load ptr, ptr %name.addr.1.in, align 8
+  %tobool54.not.not = icmp eq ptr %name.addr.1, null
   br i1 %tobool54.not.not, label %if.then55, label %if.end72
 
 if.then55:                                        ; preds = %if.else45, %if.end53
@@ -871,8 +871,8 @@ if.then69:                                        ; preds = %if.end64
 
 if.end72:                                         ; preds = %if.then37, %if.end64, %if.end53
   %tobool54.not.not82 = phi i1 [ false, %if.end53 ], [ true, %if.end64 ], [ false, %if.then37 ]
-  %name.addr.1 = phi ptr [ %name.addr.0, %if.end53 ], [ %call65, %if.end64 ], [ %name, %if.then37 ]
-  %11 = load i8, ptr %name.addr.1, align 1
+  %name.addr.2 = phi ptr [ %name.addr.1, %if.end53 ], [ %call65, %if.end64 ], [ %name, %if.then37 ]
+  %11 = load i8, ptr %name.addr.2, align 1
   %tobool73.not = icmp eq i8 %11, 0
   %tobool75.not = icmp eq i32 %and, 0
   br i1 %tobool73.not, label %if.then74, label %if.end83
@@ -914,7 +914,7 @@ if.end83:                                         ; preds = %if.end72
 
 for.body.i:                                       ; preds = %if.end83, %for.inc.i
   %12 = phi i8 [ %13, %for.inc.i ], [ %11, %if.end83 ]
-  %str.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %name.addr.1, %if.end83 ]
+  %str.addr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %name.addr.2, %if.end83 ]
   %cmp.i.i = icmp ult i8 %12, 33
   br i1 %cmp.i.i, label %for.inc.i, label %switch.early.test.i.i
 
@@ -938,11 +938,11 @@ for.inc.i:                                        ; preds = %switch.early.test.i
 
 if.then88:                                        ; preds = %for.inc.i
   %call89 = tail call fastcc ptr @_(ptr noundef nonnull @.str.7)
-  tail call void (ptr, ...) @die(ptr noundef %call89, ptr noundef nonnull %name.addr.1) #20
+  tail call void (ptr, ...) @die(ptr noundef %call89, ptr noundef nonnull %name.addr.2) #20
   unreachable
 
 if.end91:                                         ; preds = %switch.early.test.i.i, %if.then.i, %if.end81.if.end83.thread_crit_edge, %if.end83, %if.end35
-  %name.addr.3 = phi ptr [ %name.addr.1, %if.end83 ], [ %name, %if.end35 ], [ %.pre, %if.end81.if.end83.thread_crit_edge ], [ @.str.17, %if.then.i ], [ %name.addr.1, %switch.early.test.i.i ]
+  %name.addr.0 = phi ptr [ %name.addr.2, %if.end83 ], [ %name, %if.end35 ], [ %.pre, %if.end81.if.end83.thread_crit_edge ], [ @.str.17, %if.then.i ], [ %name.addr.2, %switch.early.test.i.i ]
   %len2.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 0, ptr %len2.i, align 8
   %buf.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -958,7 +958,7 @@ strbuf_setlen.exit:                               ; preds = %if.end91, %if.then4
   br i1 %tobool3.not, label %if.then93, label %if.end97.critedge
 
 if.then93:                                        ; preds = %strbuf_setlen.exit
-  tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %arrayidx, ptr noundef %name.addr.3)
+  tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %arrayidx, ptr noundef %name.addr.0)
   tail call void @strbuf_add(ptr noundef nonnull %arrayidx, ptr noundef nonnull @.str.8, i64 noundef 2) #18
   tail call fastcc void @strbuf_addstr_without_crud(ptr noundef nonnull %arrayidx, ptr noundef %email.addr.1)
   %15 = load i64, ptr %arrayidx, align 8

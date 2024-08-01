@@ -1712,35 +1712,35 @@ mca_btl_tcp_endpoint_connected.exit:              ; preds = %49, %71
   br label %141
 
 141:                                              ; preds = %126, %110
-  %.1 = phi ptr [ %118, %126 ], [ %112, %110 ]
+  %.0 = phi ptr [ %118, %126 ], [ %112, %110 ]
   %142 = load i32, ptr %6, align 8
-  %143 = tail call zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef nonnull %.1, i32 noundef %142) #10
+  %143 = tail call zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef nonnull %.0, i32 noundef %142) #10
   br i1 %143, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %.1, i64 152
-  %145 = getelementptr inbounds i8, ptr %.1, i64 153
+  %144 = getelementptr inbounds i8, ptr %.0, i64 152
+  %145 = getelementptr inbounds i8, ptr %.0, i64 153
   %146 = getelementptr inbounds i8, ptr %5, i64 8
-  %147 = getelementptr inbounds i8, ptr %.1, i64 56
+  %147 = getelementptr inbounds i8, ptr %.0, i64 56
   %148 = getelementptr inbounds i8, ptr %5, i64 16
-  %149 = getelementptr inbounds i8, ptr %.1, i64 64
+  %149 = getelementptr inbounds i8, ptr %.0, i64 64
   %150 = getelementptr inbounds i8, ptr %5, i64 24
   %151 = getelementptr inbounds i8, ptr %5, i64 32
-  %152 = getelementptr inbounds i8, ptr %.1, i64 144
+  %152 = getelementptr inbounds i8, ptr %.0, i64 144
   %153 = getelementptr inbounds i8, ptr %2, i64 88
-  %154 = getelementptr inbounds i8, ptr %.1, i64 268
+  %154 = getelementptr inbounds i8, ptr %.0, i64 268
   %155 = getelementptr inbounds i8, ptr %2, i64 40
-  %156 = getelementptr inbounds i8, ptr %.1, i64 136
-  %157 = getelementptr inbounds i8, ptr %.1, i64 160
-  %158 = getelementptr inbounds i8, ptr %.1, i64 168
-  %159 = getelementptr inbounds i8, ptr %.1, i64 248
-  %160 = getelementptr inbounds i8, ptr %.1, i64 252
-  %161 = getelementptr inbounds i8, ptr %.1, i64 240
-  %162 = getelementptr inbounds i8, ptr %.1, i64 104
+  %156 = getelementptr inbounds i8, ptr %.0, i64 136
+  %157 = getelementptr inbounds i8, ptr %.0, i64 160
+  %158 = getelementptr inbounds i8, ptr %.0, i64 168
+  %159 = getelementptr inbounds i8, ptr %.0, i64 248
+  %160 = getelementptr inbounds i8, ptr %.0, i64 252
+  %161 = getelementptr inbounds i8, ptr %.0, i64 240
+  %162 = getelementptr inbounds i8, ptr %.0, i64 104
   br label %163
 
 ._crit_edge:                                      ; preds = %178, %141
-  store ptr %.1, ptr %111, align 8
+  store ptr %.0, ptr %111, align 8
   br label %opal_free_list_return.exit
 
 163:                                              ; preds = %.lr.ph, %178
@@ -1785,11 +1785,11 @@ mca_btl_tcp_endpoint_connected.exit:              ; preds = %49, %71
   store ptr %162, ptr %147, align 8
   store i64 1, ptr %149, align 8
   %180 = load i32, ptr %6, align 8
-  %181 = call zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef nonnull %.1, i32 noundef %180) #10
+  %181 = call zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef nonnull %.0, i32 noundef %180) #10
   br i1 %181, label %163, label %._crit_edge
 
 182:                                              ; preds = %176
-  %183 = getelementptr inbounds i8, ptr %.1, i64 272
+  %183 = getelementptr inbounds i8, ptr %.0, i64 272
   %184 = load ptr, ptr %183, align 8
   %185 = load i8, ptr @opal_uses_threads, align 1
   %186 = trunc i8 %185 to i1
@@ -1798,11 +1798,11 @@ mca_btl_tcp_endpoint_connected.exit:              ; preds = %49, %71
   br i1 %186, label %189, label %206
 
 189:                                              ; preds = %182
-  %190 = getelementptr inbounds i8, ptr %.1, i64 16
+  %190 = getelementptr inbounds i8, ptr %.0, i64 16
   %.08.i.i.i = inttoptr i64 %188 to ptr
   store volatile ptr %.08.i.i.i, ptr %190, align 8
   fence release
-  %191 = ptrtoint ptr %.1 to i64
+  %191 = ptrtoint ptr %.0 to i64
   %192 = cmpxchg volatile ptr %187, i64 %188, i64 %191 acquire monotonic, align 8
   %193 = extractvalue { i64, i1 } %192, 1
   br i1 %193, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
@@ -1837,11 +1837,11 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
 
 206:                                              ; preds = %182
   %207 = inttoptr i64 %188 to ptr
-  %208 = getelementptr inbounds i8, ptr %.1, i64 16
+  %208 = getelementptr inbounds i8, ptr %.0, i64 16
   store volatile ptr %207, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %.1, i64 32
+  %209 = getelementptr inbounds i8, ptr %.0, i64 32
   store i32 0, ptr %209, align 8
-  %210 = ptrtoint ptr %.1 to i64
+  %210 = ptrtoint ptr %.0 to i64
   store volatile i64 %210, ptr %187, align 8
   %211 = load volatile ptr, ptr %208, align 8
   %212 = getelementptr inbounds i8, ptr %184, i64 32

@@ -2040,7 +2040,7 @@ for.inc.i60:                                      ; preds = %if.then.i18.i68, %i
   br i1 %cmp.i.not.i63, label %if.end19, label %for.body.i41
 
 if.end19:                                         ; preds = %for.inc.i60, %lor.lhs.false.i48, %for.body.i41, %for.inc.i, %lor.lhs.false.i, %for.body.i, %if.else, %if.then15
-  %useStrictNode.0 = phi ptr [ null, %if.then15 ], [ null, %if.else ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ null, %for.inc.i ], [ %result.1.i54, %for.inc.i60 ], [ %result.026.i43, %lor.lhs.false.i48 ], [ %result.026.i43, %for.body.i41 ]
+  %useStrictNode.1 = phi ptr [ null, %if.then15 ], [ null, %if.else ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ null, %for.inc.i ], [ %result.1.i54, %for.inc.i60 ], [ %result.026.i43, %lor.lhs.false.i48 ], [ %result.026.i43, %for.body.i41 ]
   %46 = load ptr, ptr %funcCtx_.i, align 8
   %strictMode.i83 = getelementptr inbounds i8, ptr %46, i64 80
   %47 = load i8, ptr %strictMode.i83, align 8
@@ -2056,7 +2056,7 @@ if.end19:                                         ; preds = %for.inc.i60, %lor.l
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end19, %if.end
-  %useStrictNode.1 = phi ptr [ %useStrictNode.0, %if.end19 ], [ null, %if.end ]
+  %useStrictNode.0 = phi ptr [ %useStrictNode.1, %if.end19 ], [ null, %if.end ]
   %tobool21.not = icmp eq ptr %id, null
   br i1 %tobool21.not, label %if.end23, label %if.then22
 
@@ -2162,16 +2162,16 @@ for.inc:                                          ; preds = %if.end61, %if.then5
 
 for.end:                                          ; preds = %for.inc, %if.end51
   %call65 = call noundef zeroext i1 @_ZN6hermes6ESTree15hasSimpleParamsEPNS0_16FunctionLikeNodeE(ptr noundef %node) #21
-  %tobool68 = icmp eq ptr %useStrictNode.1, null
+  %tobool68 = icmp eq ptr %useStrictNode.0, null
   %or.cond.not = or i1 %tobool68, %call65
   br i1 %or.cond.not, label %if.end74, label %if.then69
 
 if.then69:                                        ; preds = %for.end
   %sm_70 = getelementptr inbounds i8, ptr %this, i64 8
   %67 = load ptr, ptr %sm_70, align 8
-  %sourceRange_.i104 = getelementptr inbounds i8, ptr %useStrictNode.1, i64 24
+  %sourceRange_.i104 = getelementptr inbounds i8, ptr %useStrictNode.0, i64 24
   %retval.sroa.0.0.copyload.i105 = load ptr, ptr %sourceRange_.i104, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i106 = getelementptr inbounds i8, ptr %useStrictNode.1, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i106 = getelementptr inbounds i8, ptr %useStrictNode.0, i64 32
   %retval.sroa.2.0.copyload.i107 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i106, align 8
   %LHSKind.i110 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
   %RHSKind.i111 = getelementptr inbounds i8, ptr %ref.tmp73, i64 17
@@ -7299,8 +7299,8 @@ if.end8.i:                                        ; preds = %if.end
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
 land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.body.i6.i12.i9.i
-  %retval.sroa.0.2.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %17, %if.end8.i ]
-  %19 = load ptr, ptr %retval.sroa.0.2.i7.i, align 8
+  %retval.sroa.0.3.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %17, %if.end8.i ]
+  %19 = load ptr, ptr %retval.sroa.0.3.i7.i, align 8
   %magicptr.i5.i11.i8.i = ptrtoint ptr %19 to i64
   switch i64 %magicptr.i5.i11.i8.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5beginEv.exit [
     i64 -8, label %while.body.i6.i12.i9.i
@@ -7308,12 +7308,12 @@ land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.b
   ]
 
 while.body.i6.i12.i9.i:                           ; preds = %land.rhs.i4.i9.i6.i, %land.rhs.i4.i9.i6.i
-  %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i7.i, i64 16
+  %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.3.i7.i, i64 16
   %cmp.not.i7.i14.i11.i = icmp eq ptr %incdec.ptr.i.i13.i10.i, %add.ptr.i.i.i7
   br i1 %cmp.not.i7.i14.i11.i, label %return, label %land.rhs.i4.i9.i6.i, !llvm.loop !233
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %if.end8.i
-  %add.ptr.i.i.pn16.i = phi ptr [ %17, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
+  %add.ptr.i.i.pn16.i = phi ptr [ %17, %if.end8.i ], [ %retval.sroa.0.3.i7.i, %land.rhs.i4.i9.i6.i ]
   %cmp.i.i9.not17 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i.i7
   br i1 %cmp.i.i9.not17, label %return, label %for.body
 
@@ -7636,8 +7636,8 @@ if.end8.i:                                        ; preds = %if.end
   br i1 %cmp.not3.i3.i7.i5.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E5beginEv.exit, label %land.rhs.i4.i9.i6.i
 
 land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.body.i6.i12.i9.i
-  %retval.sroa.0.2.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %19, %if.end8.i ]
-  %21 = load ptr, ptr %retval.sroa.0.2.i7.i, align 8
+  %retval.sroa.0.3.i7.i = phi ptr [ %incdec.ptr.i.i13.i10.i, %while.body.i6.i12.i9.i ], [ %19, %if.end8.i ]
+  %21 = load ptr, ptr %retval.sroa.0.3.i7.i, align 8
   %magicptr.i5.i11.i8.i = ptrtoint ptr %21 to i64
   switch i64 %magicptr.i5.i11.i8.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E5beginEv.exit [
     i64 -8, label %while.body.i6.i12.i9.i
@@ -7645,12 +7645,12 @@ land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.b
   ]
 
 while.body.i6.i12.i9.i:                           ; preds = %land.rhs.i4.i9.i6.i, %land.rhs.i4.i9.i6.i
-  %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i7.i, i64 16
+  %incdec.ptr.i.i13.i10.i = getelementptr inbounds i8, ptr %retval.sroa.0.3.i7.i, i64 16
   %cmp.not.i7.i14.i11.i = icmp eq ptr %incdec.ptr.i.i13.i10.i, %add.ptr.i.i.i
   br i1 %cmp.not.i7.i14.i11.i, label %for.end63, label %land.rhs.i4.i9.i6.i, !llvm.loop !238
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E5beginEv.exit: ; preds = %land.rhs.i4.i9.i6.i, %if.end8.i
-  %add.ptr.i.i.pn16.i = phi ptr [ %19, %if.end8.i ], [ %retval.sroa.0.2.i7.i, %land.rhs.i4.i9.i6.i ]
+  %add.ptr.i.i.pn16.i = phi ptr [ %19, %if.end8.i ], [ %retval.sroa.0.3.i7.i, %land.rhs.i4.i9.i6.i ]
   %cmp.i.i18.not49 = icmp eq ptr %add.ptr.i.i.pn16.i, %add.ptr.i.i.i
   br i1 %cmp.i.i18.not49, label %for.end63, label %for.body25.lr.ph
 

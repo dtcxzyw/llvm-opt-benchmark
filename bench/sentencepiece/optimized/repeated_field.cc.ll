@@ -11152,12 +11152,12 @@ define weak_odr noundef i64 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx111
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %10 = phi ptr [ %17, %.lr.ph.i ], [ %7, %.preheader.i ]
-  %.067.i = phi i64 [ %16, %.lr.ph.i ], [ %5, %.preheader.i ]
+  %.17.i = phi i64 [ %16, %.lr.ph.i ], [ %5, %.preheader.i ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = getelementptr inbounds [268435454 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %15 = add i64 %.067.i, 32
+  %15 = add i64 %.17.i, 32
   %16 = add i64 %15, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = load ptr, ptr %6, align 8
@@ -11167,13 +11167,13 @@ define weak_odr noundef i64 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx111
   br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.06.lcssa.i = phi i64 [ %5, %.preheader.i ], [ %16, %.lr.ph.i ]
-  %21 = add i64 %.06.lcssa.i, 8
+  %.1.lcssa.i = phi i64 [ %5, %.preheader.i ], [ %16, %.lr.ph.i ]
+  %21 = add i64 %.1.lcssa.i, 8
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase26SpaceUsedExcludingSelfLongINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEmv.exit
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase26SpaceUsedExcludingSelfLongINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEmv.exit: ; preds = %1, %._crit_edge.i
-  %.1.i = phi i64 [ %21, %._crit_edge.i ], [ %5, %1 ]
-  ret i64 %.1.i
+  %.06.i = phi i64 [ %21, %._crit_edge.i ], [ %5, %1 ]
+  ret i64 %.06.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11195,12 +11195,12 @@ define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx111
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %10 = phi ptr [ %17, %.lr.ph.i.i ], [ %7, %.preheader.i.i ]
-  %.067.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %5, %.preheader.i.i ]
+  %.17.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ %5, %.preheader.i.i ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = getelementptr inbounds [268435454 x ptr], ptr %11, i64 0, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %15 = add i64 %.067.i.i, 32
+  %15 = add i64 %.17.i.i, 32
   %16 = add i64 %15, %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %17 = load ptr, ptr %6, align 8
@@ -11210,13 +11210,13 @@ define weak_odr noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx111
   br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.06.lcssa.i.i = phi i64 [ %5, %.preheader.i.i ], [ %16, %.lr.ph.i.i ]
-  %21 = add i64 %.06.lcssa.i.i, 8
+  %.1.lcssa.i.i = phi i64 [ %5, %.preheader.i.i ], [ %16, %.lr.ph.i.i ]
+  %21 = add i64 %.1.lcssa.i.i, 8
   br label %_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26SpaceUsedExcludingSelfLongEv.exit
 
 _ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26SpaceUsedExcludingSelfLongEv.exit: ; preds = %1, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %21, %._crit_edge.i.i ], [ %5, %1 ]
-  %22 = trunc i64 %.1.i.i to i32
+  %.06.i.i = phi i64 [ %21, %._crit_edge.i.i ], [ %5, %1 ]
+  %22 = trunc i64 %.06.i.i to i32
   ret i32 %22
 }
 

@@ -720,15 +720,15 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
   br label %25
 
 25:                                               ; preds = %14, %16
-  %.0 = phi i32 [ 0, %16 ], [ -1, %14 ]
+  %.1 = phi i32 [ 0, %16 ], [ -1, %14 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #9
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br label %26
 
 26:                                               ; preds = %4, %25
   %27 = phi ptr [ %.pre, %25 ], [ %13, %4 ]
-  %.1 = phi i32 [ %.0, %25 ], [ -1, %4 ]
-  %28 = icmp eq i32 %.1, -1
+  %.0 = phi i32 [ %.1, %25 ], [ -1, %4 ]
+  %28 = icmp eq i32 %.0, -1
   %.not18 = icmp eq ptr %27, null
   %or.cond19 = select i1 %28, i1 %.not18, i1 false
   br i1 %or.cond19, label %29, label %34
@@ -741,7 +741,7 @@ define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly 
   br label %34
 
 34:                                               ; preds = %26, %29, %15
-  %.016 = phi i32 [ -1, %15 ], [ -1, %29 ], [ %.1, %26 ]
+  %.016 = phi i32 [ -1, %15 ], [ -1, %29 ], [ %.0, %26 ]
   ret i32 %.016
 }
 

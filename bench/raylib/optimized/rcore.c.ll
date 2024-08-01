@@ -28385,7 +28385,7 @@ GetCameraUp.exit:
   %38 = tail call float @atan2f(float noundef %sqrt.i, float noundef %37) #54
   %39 = fadd float %38, 0xBF50624DE0000000
   %40 = fcmp olt float %39, %1
-  %.0 = select i1 %40, float %39, float %1
+  %.1 = select i1 %40, float %39, float %1
   %41 = fneg float %.sroa.617.0.i.i
   %42 = fmul float %.sroa.617.0.i.i, %21
   %43 = tail call float @llvm.fmuladd.f32(float %29, float %19, float %42)
@@ -28402,14 +28402,14 @@ GetCameraUp.exit:
   %53 = tail call float @llvm.fmuladd.f32(float %41, float %19, float %52)
   %54 = tail call float @atan2f(float noundef %sqrt.i112, float noundef %53) #54
   %55 = fsub float 0x3F50624DE0000000, %54
-  %56 = fcmp olt float %.0, %55
+  %56 = fcmp olt float %.1, %55
   br i1 %56, label %57, label %GetCameraForward.exit.i
 
 57:                                               ; preds = %20
   br label %GetCameraForward.exit.i
 
 GetCameraForward.exit.i:                          ; preds = %20, %57, %GetCameraUp.exit
-  %.1 = phi float [ %55, %57 ], [ %.0, %20 ], [ %1, %GetCameraUp.exit ]
+  %.0 = phi float [ %55, %57 ], [ %.1, %20 ], [ %1, %GetCameraUp.exit ]
   %.sroa.011.0.copyload.i.i = load <2 x float>, ptr %17, align 4
   %.sroa.212.0.copyload.i.i = load float, ptr %.sroa.272.0..sroa_idx, align 4
   %.sroa.09.0.copyload.i.i = load <2 x float>, ptr %0, align 4
@@ -28493,7 +28493,7 @@ GetCameraRight.exit:                              ; preds = %GetCameraForward.ex
   %107 = insertelement <2 x float> poison, float %103, i64 0
   %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
   %109 = fmul <2 x float> %106, %108
-  %110 = fmul float %.1, 5.000000e-01
+  %110 = fmul float %.0, 5.000000e-01
   %111 = tail call float @sinf(float noundef %110) #54
   %112 = fmul float %111, %104
   %113 = tail call float @cosf(float noundef %110) #54
@@ -33079,7 +33079,7 @@ sinfl_get.exit:                                   ; preds = %160, %168
   br label %195
 
 195:                                              ; preds = %189, %.loopexit
-  %.1129294 = phi i32 [ 0, %189 ], [ %.5, %.loopexit ]
+  %.1129294 = phi i32 [ 0, %189 ], [ %.2130, %.loopexit ]
   %196 = phi ptr [ %.promoted288, %189 ], [ %348, %.loopexit ]
   %storemerge290293 = phi i32 [ %184, %189 ], [ %storemerge291, %.loopexit ]
   %197 = phi i64 [ %183, %189 ], [ %347, %.loopexit ]
@@ -33359,8 +33359,8 @@ sinfl_get.exit183:                                ; preds = %319, %326
   %347 = phi i64 [ %243, %247 ], [ %277, %.loopexit.loopexit ], [ %307, %sinfl_get.exit178 ], [ %338, %sinfl_get.exit183 ]
   %storemerge291 = phi i32 [ %244, %247 ], [ %278, %.loopexit.loopexit ], [ %308, %sinfl_get.exit178 ], [ %339, %sinfl_get.exit183 ]
   %348 = phi ptr [ %.sink357, %247 ], [ %.sink359, %.loopexit.loopexit ], [ %.sink360, %sinfl_get.exit178 ], [ %.sink361, %sinfl_get.exit183 ]
-  %.5 = phi i32 [ %249, %247 ], [ %346, %.loopexit.loopexit ], [ %314, %sinfl_get.exit178 ], [ %345, %sinfl_get.exit183 ]
-  %349 = icmp slt i32 %.5, %194
+  %.2130 = phi i32 [ %249, %247 ], [ %346, %.loopexit.loopexit ], [ %314, %sinfl_get.exit178 ], [ %345, %sinfl_get.exit183 ]
+  %349 = icmp slt i32 %.2130, %194
   br i1 %349, label %195, label %350
 
 350:                                              ; preds = %.loopexit
@@ -33374,7 +33374,7 @@ sinfl_get.exit183:                                ; preds = %319, %326
   br label %32
 
 .preheader262:                                    ; preds = %32, %.preheader262.backedge
-  %.1 = phi ptr [ %.1.be, %.preheader262.backedge ], [ %.0119.ph.ph, %32 ]
+  %.2 = phi ptr [ %.2.be, %.preheader262.backedge ], [ %.0119.ph.ph, %32 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %353 = load ptr, ptr %23, align 8
   %354 = load ptr, ptr %13, align 8
@@ -33465,19 +33465,19 @@ sinfl_decode.exit196:                             ; preds = %sinfl_refill.exit18
   br i1 %411, label %412, label %451
 
 412:                                              ; preds = %sinfl_decode.exit196
-  %.not = icmp ult ptr %.1, %19
+  %.not = icmp ult ptr %.2, %19
   br i1 %.not, label %417, label %413
 
 413:                                              ; preds = %412
-  %414 = ptrtoint ptr %.1 to i64
+  %414 = ptrtoint ptr %.2 to i64
   %415 = sub i64 %414, %28
   %416 = trunc i64 %415 to i32
   br label %.loopexit263
 
 417:                                              ; preds = %412
   %418 = trunc i32 %409 to i8
-  %419 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 %418, ptr %.1, align 1
+  %419 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 %418, ptr %.2, align 1
   %.val.i197 = load i64, ptr %25, align 8
   %420 = shl i64 %.val.i197, 2
   %421 = and i64 %420, 4092
@@ -33525,19 +33525,19 @@ sinfl_decode.exit205:                             ; preds = %._crit_edge.i202, %
 
 448:                                              ; preds = %sinfl_decode.exit205
   %449 = trunc i32 %445 to i8
-  %450 = getelementptr inbounds i8, ptr %.1, i64 2
+  %450 = getelementptr inbounds i8, ptr %.2, i64 2
   store i8 %449, ptr %419, align 1
   br label %.preheader262.backedge
 
 .preheader262.backedge:                           ; preds = %585, %573, %563, %542, %448
-  %.1.be = phi ptr [ %450, %448 ], [ %529, %542 ], [ %529, %563 ], [ %529, %573 ], [ %529, %585 ]
+  %.2.be = phi ptr [ %450, %448 ], [ %529, %542 ], [ %529, %563 ], [ %529, %573 ], [ %529, %585 ]
   br label %.preheader262
 
 451:                                              ; preds = %sinfl_decode.exit205, %sinfl_decode.exit196
   %452 = phi i32 [ %444, %sinfl_decode.exit205 ], [ %408, %sinfl_decode.exit196 ]
   %.val.i206 = phi i64 [ %443, %sinfl_decode.exit205 ], [ %407, %sinfl_decode.exit196 ]
   %.0133 = phi i32 [ %446, %sinfl_decode.exit205 ], [ %410, %sinfl_decode.exit196 ]
-  %.2 = phi ptr [ %419, %sinfl_decode.exit205 ], [ %.1, %sinfl_decode.exit196 ]
+  %.3 = phi ptr [ %419, %sinfl_decode.exit205 ], [ %.2, %sinfl_decode.exit196 ]
   %453 = icmp eq i32 %.0133, 256
   br i1 %453, label %454, label %459
 
@@ -33546,11 +33546,11 @@ sinfl_decode.exit205:                             ; preds = %._crit_edge.i202, %
   br i1 %.not145, label %.outer.outer.backedge, label %455
 
 .outer.outer.backedge:                            ; preds = %454, %105
-  %.0119.ph.ph.be = phi ptr [ %107, %105 ], [ %.2, %454 ]
+  %.0119.ph.ph.be = phi ptr [ %107, %105 ], [ %.3, %454 ]
   br label %.outer.outer
 
 455:                                              ; preds = %454
-  %456 = ptrtoint ptr %.2 to i64
+  %456 = ptrtoint ptr %.3 to i64
   %457 = sub i64 %456, %28
   %458 = trunc i64 %457 to i32
   br label %.loopexit263
@@ -33560,7 +33560,7 @@ sinfl_decode.exit205:                             ; preds = %._crit_edge.i202, %
   br i1 %460, label %461, label %465
 
 461:                                              ; preds = %459
-  %462 = ptrtoint ptr %.2 to i64
+  %462 = ptrtoint ptr %.3 to i64
   %463 = sub i64 %462, %28
   %464 = trunc i64 %463 to i32
   br label %.loopexit263
@@ -33632,8 +33632,8 @@ sinfl_decode.exit216:                             ; preds = %465, %483
   %517 = add nsw i32 %510, %516
   %518 = sext i32 %517 to i64
   %519 = sub nsw i64 0, %518
-  %520 = getelementptr i8, ptr %.2, i64 %519
-  %521 = ptrtoint ptr %.2 to i64
+  %520 = getelementptr i8, ptr %.3, i64 %519
+  %521 = ptrtoint ptr %.3 to i64
   %522 = sub i64 %521, %28
   %523 = trunc i64 %522 to i32
   %524 = icmp sgt i32 %517, %523
@@ -33644,7 +33644,7 @@ sinfl_decode.exit216:                             ; preds = %465, %483
   %527 = add i64 %473, %526
   %sext = shl i64 %527, 32
   %528 = ashr exact i64 %sext, 32
-  %529 = getelementptr inbounds i8, ptr %.2, i64 %528
+  %529 = getelementptr inbounds i8, ptr %.3, i64 %528
   %530 = ptrtoint ptr %529 to i64
   %531 = sub i64 %29, %530
   %532 = icmp sgt i64 %531, 20
@@ -33656,12 +33656,12 @@ sinfl_decode.exit216:                             ; preds = %465, %483
 
 535:                                              ; preds = %533
   %536 = load i64, ptr %520, align 1
-  store i64 %536, ptr %.2, align 1
-  %537 = getelementptr inbounds i8, ptr %.2, i64 8
+  store i64 %536, ptr %.3, align 1
+  %537 = getelementptr inbounds i8, ptr %.3, i64 8
   %538 = getelementptr inbounds i8, ptr %520, i64 8
   %539 = load i64, ptr %538, align 1
   store i64 %539, ptr %537, align 1
-  %540 = getelementptr i8, ptr %.2, i64 16
+  %540 = getelementptr i8, ptr %.3, i64 16
   %541 = getelementptr i8, ptr %520, i64 16
   br label %542
 
@@ -33691,10 +33691,10 @@ sinfl_decode.exit216:                             ; preds = %465, %483
   %558 = zext i32 %557 to i64
   %559 = shl nuw i64 %558, 32
   %560 = or disjoint i64 %559, %558
-  store i64 %560, ptr %.2, align 1
-  %561 = getelementptr inbounds i8, ptr %.2, i64 8
+  store i64 %560, ptr %.3, align 1
+  %561 = getelementptr inbounds i8, ptr %.3, i64 8
   store i64 %560, ptr %561, align 1
-  %562 = getelementptr inbounds i8, ptr %.2, i64 16
+  %562 = getelementptr inbounds i8, ptr %.3, i64 16
   br label %563
 
 563:                                              ; preds = %563, %549
@@ -33707,11 +33707,11 @@ sinfl_decode.exit216:                             ; preds = %465, %483
 566:                                              ; preds = %547
   %567 = getelementptr inbounds i8, ptr %520, i64 1
   %568 = load i8, ptr %520, align 1
-  %569 = getelementptr inbounds i8, ptr %.2, i64 1
-  store i8 %568, ptr %.2, align 1
+  %569 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %568, ptr %.3, align 1
   %570 = getelementptr i8, ptr %520, i64 2
   %571 = load i8, ptr %567, align 1
-  %572 = getelementptr i8, ptr %.2, i64 2
+  %572 = getelementptr i8, ptr %.3, i64 2
   store i8 %571, ptr %569, align 1
   br label %573
 
@@ -33728,11 +33728,11 @@ sinfl_decode.exit216:                             ; preds = %465, %483
 578:                                              ; preds = %525
   %579 = getelementptr inbounds i8, ptr %520, i64 1
   %580 = load i8, ptr %520, align 1
-  %581 = getelementptr inbounds i8, ptr %.2, i64 1
-  store i8 %580, ptr %.2, align 1
+  %581 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %580, ptr %.3, align 1
   %582 = getelementptr i8, ptr %520, i64 2
   %583 = load i8, ptr %579, align 1
-  %584 = getelementptr i8, ptr %.2, i64 2
+  %584 = getelementptr i8, ptr %.3, i64 2
   store i8 %583, ptr %581, align 1
   br label %585
 
@@ -33948,7 +33948,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef %0, ptr noundef %1, ptr noca
   br label %36
 
 36:                                               ; preds = %.preheader212, %sdefl_flush.exit
-  %.0196 = phi ptr [ %.43, %sdefl_flush.exit ], [ %1, %.preheader212 ]
+  %.0196 = phi ptr [ %.44, %sdefl_flush.exit ], [ %1, %.preheader212 ]
   %.088 = phi i32 [ %.189.lcssa373, %sdefl_flush.exit ], [ 0, %.preheader212 ]
   %37 = add nsw i32 %.088, 262144
   %38 = call i32 @llvm.smin.i32(i32 %37, i32 %3)
@@ -33994,8 +33994,8 @@ define internal fastcc i32 @sdefl_compr(ptr noundef %0, ptr noundef %1, ptr noca
   br label %.lr.ph48.split.us.i
 
 .lr.ph48.split.us.i:                              ; preds = %83, %.lr.ph48.i
-  %.sroa.6.0 = phi i32 [ 0, %.lr.ph48.i ], [ %.sroa.6.1, %83 ]
-  %.sroa.0165.0 = phi i32 [ 0, %.lr.ph48.i ], [ %.sroa.0165.1, %83 ]
+  %.sroa.6.4 = phi i32 [ 0, %.lr.ph48.i ], [ %.sroa.6.5, %83 ]
+  %.sroa.0165.3 = phi i32 [ 0, %.lr.ph48.i ], [ %.sroa.0165.4, %83 ]
   %58 = phi i32 [ 0, %.lr.ph48.i ], [ %81, %83 ]
   %.03847.us.i = phi i32 [ %.03845.i, %.lr.ph48.i ], [ %.038.us.i, %83 ]
   %.03746.us.i = phi i32 [ %14, %.lr.ph48.i ], [ %82, %83 ]
@@ -34041,8 +34041,8 @@ define internal fastcc i32 @sdefl_compr(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %79, label %sdefl_fnd.exit, label %80
 
 80:                                               ; preds = %77, %.critedge.us.i, %68, %.lr.ph48.split.us.i
-  %.sroa.6.1 = phi i32 [ %.0.lcssa.us.i, %77 ], [ %.sroa.6.0, %.critedge.us.i ], [ %.sroa.6.0, %68 ], [ %.sroa.6.0, %.lr.ph48.split.us.i ]
-  %.sroa.0165.1 = phi i32 [ %78, %77 ], [ %.sroa.0165.0, %.critedge.us.i ], [ %.sroa.0165.0, %68 ], [ %.sroa.0165.0, %.lr.ph48.split.us.i ]
+  %.sroa.6.5 = phi i32 [ %.0.lcssa.us.i, %77 ], [ %.sroa.6.4, %.critedge.us.i ], [ %.sroa.6.4, %68 ], [ %.sroa.6.4, %.lr.ph48.split.us.i ]
+  %.sroa.0165.4 = phi i32 [ %78, %77 ], [ %.sroa.0165.3, %.critedge.us.i ], [ %.sroa.0165.3, %68 ], [ %.sroa.0165.3, %.lr.ph48.split.us.i ]
   %81 = phi i32 [ %.0.lcssa.us.i, %77 ], [ %58, %.critedge.us.i ], [ %58, %68 ], [ %58, %.lr.ph48.split.us.i ]
   %82 = add nsw i32 %.03746.us.i, -1
   %.not.us.i = icmp eq i32 %82, 0
@@ -34062,11 +34062,11 @@ define internal fastcc i32 @sdefl_compr(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %exitcond.not.i, label %.critedge.us.i, label %.preheader.us.i
 
 sdefl_fnd.exit:                                   ; preds = %83, %80, %77
-  %.sroa.6.5 = phi i32 [ %44, %77 ], [ %.sroa.6.1, %80 ], [ %.sroa.6.1, %83 ]
-  %.sroa.0165.5 = phi i32 [ %78, %77 ], [ %.sroa.0165.1, %80 ], [ %.sroa.0165.1, %83 ]
-  %89 = icmp sgt i32 %.sroa.6.5, 3
+  %.sroa.6.0 = phi i32 [ %44, %77 ], [ %.sroa.6.5, %80 ], [ %.sroa.6.5, %83 ]
+  %.sroa.0165.0 = phi i32 [ %78, %77 ], [ %.sroa.0165.4, %80 ], [ %.sroa.0165.4, %83 ]
+  %89 = icmp sgt i32 %.sroa.6.0, 3
   %or.cond = select i1 %22, i1 %89, i1 false
-  %90 = add nsw i32 %.sroa.6.5, 1
+  %90 = add nsw i32 %.sroa.6.0, 1
   %91 = icmp slt i32 %90, %.
   %or.cond106 = select i1 %or.cond, i1 %91, i1 false
   br i1 %or.cond106, label %92, label %133
@@ -34091,7 +34091,7 @@ sdefl_fnd.exit:                                   ; preds = %83, %80, %77
   br label %.lr.ph48.split.us.i134
 
 .lr.ph48.split.us.i134:                           ; preds = %127, %.lr.ph48.split.us.preheader.i130
-  %.sroa.4.0 = phi i32 [ 0, %.lr.ph48.split.us.preheader.i130 ], [ %.sroa.4.1, %127 ]
+  %.sroa.4.2 = phi i32 [ 0, %.lr.ph48.split.us.preheader.i130 ], [ %.sroa.4.3, %127 ]
   %103 = phi i32 [ 0, %.lr.ph48.split.us.preheader.i130 ], [ %125, %127 ]
   %.03847.us.i135 = phi i32 [ %.03845.i110, %.lr.ph48.split.us.preheader.i130 ], [ %.038.us.i138, %127 ]
   %.03746.us.i136 = phi i32 [ %14, %.lr.ph48.split.us.preheader.i130 ], [ %126, %127 ]
@@ -34136,7 +34136,7 @@ sdefl_fnd.exit:                                   ; preds = %83, %80, %77
   br i1 %123, label %.thread356, label %124
 
 124:                                              ; preds = %122, %.critedge.us.i148, %113, %.lr.ph48.split.us.i134
-  %.sroa.4.1 = phi i32 [ %.0.lcssa.us.i149, %122 ], [ %.sroa.4.0, %.critedge.us.i148 ], [ %.sroa.4.0, %113 ], [ %.sroa.4.0, %.lr.ph48.split.us.i134 ]
+  %.sroa.4.3 = phi i32 [ %.0.lcssa.us.i149, %122 ], [ %.sroa.4.2, %.critedge.us.i148 ], [ %.sroa.4.2, %113 ], [ %.sroa.4.2, %.lr.ph48.split.us.i134 ]
   %125 = phi i32 [ %.0.lcssa.us.i149, %122 ], [ %103, %.critedge.us.i148 ], [ %103, %113 ], [ %103, %.lr.ph48.split.us.i134 ]
   %126 = add nsw i32 %.03746.us.i136, -1
   %.not.us.i137 = icmp eq i32 %126, 0
@@ -34156,8 +34156,8 @@ sdefl_fnd.exit:                                   ; preds = %83, %80, %77
   br i1 %exitcond.not.i151, label %.critedge.us.i148, label %.preheader.us.i143
 
 sdefl_fnd.exit152:                                ; preds = %124, %127, %92
-  %.sroa.4.4 = phi i32 [ 0, %92 ], [ %.sroa.4.1, %127 ], [ %.sroa.4.1, %124 ]
-  %.not282 = icmp sgt i32 %.sroa.4.4, %.sroa.6.5
+  %.sroa.4.4 = phi i32 [ 0, %92 ], [ %.sroa.4.3, %127 ], [ %.sroa.4.3, %124 ]
+  %.not282 = icmp sgt i32 %.sroa.4.4, %.sroa.6.0
   br i1 %.not282, label %.thread356, label %134
 
 133:                                              ; preds = %sdefl_fnd.exit
@@ -34182,19 +34182,19 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
 
 142:                                              ; preds = %135, %134
   %143 = phi i32 [ %141, %135 ], [ %.pre, %134 ]
-  %144 = sub nsw i32 0, %.sroa.0165.5
+  %144 = sub nsw i32 0, %.sroa.0165.0
   %145 = sext i32 %143 to i64
   %146 = getelementptr inbounds [87382 x %struct.sdefl_seqt], ptr %23, i64 0, i64 %145
   store i32 %144, ptr %146, align 4
   %147 = getelementptr inbounds [87382 x %struct.sdefl_seqt], ptr %23, i64 0, i64 %145, i32 1
-  store i32 %.sroa.6.5, ptr %147, align 4
+  store i32 %.sroa.6.0, ptr %147, align 4
   %148 = load i32, ptr %24, align 4
   %149 = add nsw i32 %148, 1
   store i32 %149, ptr %24, align 4
-  %150 = zext nneg i32 %.sroa.6.5 to i64
+  %150 = zext nneg i32 %.sroa.6.0 to i64
   %151 = getelementptr inbounds [259 x i8], ptr @sdefl_match_codes.lslot, i64 0, i64 %150
   %152 = load i8, ptr %151, align 1
-  %153 = add nsw i32 %.sroa.0165.5, -1
+  %153 = add nsw i32 %.sroa.0165.0, -1
   %.not.i.i.i = icmp eq i32 %153, 0
   %154 = sext i32 %153 to i64
   %155 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %154, i1 true)
@@ -34219,7 +34219,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %169 = getelementptr inbounds [14 x i16], ptr @sdefl_match_codes.dxmax, i64 0, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = sext i16 %170 to i32
-  %172 = icmp sgt i32 %.sroa.0165.5, %171
+  %172 = icmp sgt i32 %.sroa.0165.0, %171
   %173 = zext i1 %172 to i32
   %174 = or disjoint i32 %167, %173
   %.pre.i = zext nneg i32 %174 to i64
@@ -34237,7 +34237,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %182 = load i32, ptr %181, align 4
   %183 = add i32 %182, 1
   store i32 %183, ptr %181, align 4
-  %184 = add nsw i32 %.sroa.6.5, %.189278
+  %184 = add nsw i32 %.sroa.6.0, %.189278
   %185 = sub nsw i32 %3, %184
   %186 = icmp sgt i32 %185, 4
   br i1 %186, label %.preheader, label %.loopexit
@@ -34256,10 +34256,10 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   br i1 %195, label %.lr.ph.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %175
-  %.not104 = icmp slt i32 %.sroa.6.5, %.
+  %.not104 = icmp slt i32 %.sroa.6.0, %.
   %or.cond107 = select i1 %26, i1 true, i1 %.not104
-  %spec.select = select i1 %or.cond107, i32 %.sroa.6.5, i32 1
-  %spec.select108 = select i1 %or.cond107, i32 1, i32 %.sroa.6.5
+  %spec.select = select i1 %or.cond107, i32 %.sroa.6.0, i32 1
+  %spec.select108 = select i1 %or.cond107, i32 1, i32 %.sroa.6.0
   %196 = icmp sgt i32 %spec.select, 0
   br i1 %196, label %.lr.ph.preheader, label %.loopexit
 
@@ -34462,15 +34462,15 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   br label %285
 
 285:                                              ; preds = %285, %277
-  %.279.i.i = phi i32 [ %283, %277 ], [ %292, %285 ]
-  %.2.i.i = phi ptr [ %282, %277 ], [ %290, %285 ]
-  %286 = sub i32 %284, %.279.i.i
+  %.380.i.i = phi i32 [ %283, %277 ], [ %292, %285 ]
+  %.3.i.i = phi ptr [ %282, %277 ], [ %290, %285 ]
+  %286 = sub i32 %284, %.380.i.i
   %287 = call i32 @llvm.umin.i32(i32 %286, i32 3)
   %288 = shl nuw nsw i32 %287, 5
   %289 = or disjoint i32 %288, 16
-  %290 = getelementptr inbounds i8, ptr %.2.i.i, i64 4
-  store i32 %289, ptr %.2.i.i, align 4
-  %291 = add i32 %.279.i.i, 3
+  %290 = getelementptr inbounds i8, ptr %.3.i.i, i64 4
+  store i32 %289, ptr %.3.i.i, align 4
+  %291 = add i32 %.380.i.i, 3
   %292 = add i32 %291, %287
   %293 = load i32, ptr %29, align 16
   %294 = add i32 %293, 1
@@ -34480,9 +34480,9 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   br i1 %296, label %285, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %285, %275, %._crit_edge.i.i
-  %.380.i.i = phi i32 [ %.077.i.i, %275 ], [ %.178.lcssa.i.i, %._crit_edge.i.i ], [ %292, %285 ]
-  %.3.i.i = phi ptr [ %.0.i.i, %275 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %290, %285 ]
-  %.not93106.i.i = icmp eq i32 %.380.i.i, %.lcssa.i.i
+  %.279.i.i = phi i32 [ %.077.i.i, %275 ], [ %.178.lcssa.i.i, %._crit_edge.i.i ], [ %292, %285 ]
+  %.2.i.i = phi ptr [ %.0.i.i, %275 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %290, %285 ]
+  %.not93106.i.i = icmp eq i32 %.279.i.i, %.lcssa.i.i
   br i1 %.not93106.i.i, label %._crit_edge111.i.i, label %.lr.ph110.i.i
 
 .lr.ph110.i.i:                                    ; preds = %.loopexit.i.i
@@ -34491,8 +34491,8 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   br label %299
 
 299:                                              ; preds = %299, %.lr.ph110.i.i
-  %.4108.i.i = phi ptr [ %.3.i.i, %.lr.ph110.i.i ], [ %302, %299 ]
-  %.481107.i.i = phi i32 [ %.380.i.i, %.lr.ph110.i.i ], [ %303, %299 ]
+  %.4108.i.i = phi ptr [ %.2.i.i, %.lr.ph110.i.i ], [ %302, %299 ]
+  %.481107.i.i = phi i32 [ %.279.i.i, %.lr.ph110.i.i ], [ %303, %299 ]
   %300 = load i32, ptr %298, align 4
   %301 = add i32 %300, 1
   store i32 %301, ptr %298, align 4
@@ -34508,7 +34508,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
 
 ._crit_edge111.i.i:                               ; preds = %._crit_edge111.loopexit.i.i, %.loopexit.i.i, %.loopexit.thread.i.i
   %.481.lcssa.i.i = phi i32 [ %.lcssa.i.i, %.loopexit.i.i ], [ %304, %._crit_edge111.loopexit.i.i ], [ %.lcssa.i.i, %.loopexit.thread.i.i ]
-  %.4.lcssa.i.i = phi ptr [ %.3.i.i, %.loopexit.i.i ], [ %302, %._crit_edge111.loopexit.i.i ], [ %274, %.loopexit.thread.i.i ]
+  %.4.lcssa.i.i = phi ptr [ %.2.i.i, %.loopexit.i.i ], [ %302, %._crit_edge111.loopexit.i.i ], [ %274, %.loopexit.thread.i.i ]
   %.not94.i.i = icmp eq i32 %.481.lcssa.i.i, %238
   br i1 %.not94.i.i, label %sdefl_precode.exit.i, label %243
 
@@ -34644,7 +34644,7 @@ sdefl_blk_type.exit.i:                            ; preds = %.preheader.i124.i
   br label %377
 
 377:                                              ; preds = %sdefl_put.exit138.i, %.lr.ph.i
-  %.1197 = phi ptr [ %.0196, %.lr.ph.i ], [ %434, %sdefl_put.exit138.i ]
+  %.2198 = phi ptr [ %.0196, %.lr.ph.i ], [ %434, %sdefl_put.exit138.i ]
   %indvars.iv253.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next254.i, %sdefl_put.exit138.i ]
   %.0230.i = phi i32 [ %221, %.lr.ph.i ], [ %435, %sdefl_put.exit138.i ]
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
@@ -34664,22 +34664,22 @@ sdefl_blk_type.exit.i:                            ; preds = %.preheader.i124.i
 
 .lr.ph.i126.i:                                    ; preds = %377, %.lr.ph.i126.i
   %388 = phi i32 [ %391, %.lr.ph.i126.i ], [ %385, %377 ]
-  %.2198 = phi ptr [ %394, %.lr.ph.i126.i ], [ %.1197, %377 ]
+  %.7 = phi ptr [ %394, %.lr.ph.i126.i ], [ %.2198, %377 ]
   %389 = trunc i32 %388 to i8
-  store i8 %389, ptr %.2198, align 1
+  store i8 %389, ptr %.7, align 1
   %390 = load i32, ptr %0, align 4
   %391 = ashr i32 %390, 8
   store i32 %391, ptr %0, align 4
   %392 = load i32, ptr %34, align 4
   %393 = add nsw i32 %392, -8
   store i32 %393, ptr %34, align 4
-  %394 = getelementptr inbounds i8, ptr %.2198, i64 1
+  %394 = getelementptr inbounds i8, ptr %.7, i64 1
   %395 = icmp sgt i32 %392, 15
   br i1 %395, label %.lr.ph.i126.i, label %sdefl_put.exit.i
 
 sdefl_put.exit.i:                                 ; preds = %.lr.ph.i126.i, %377
   %396 = phi i32 [ %385, %377 ], [ %391, %.lr.ph.i126.i ]
-  %.3199 = phi ptr [ %.1197, %377 ], [ %394, %.lr.ph.i126.i ]
+  %.3199 = phi ptr [ %.2198, %377 ], [ %394, %.lr.ph.i126.i ]
   %397 = phi i32 [ %386, %377 ], [ %393, %.lr.ph.i126.i ]
   %398 = add nsw i32 %397, 2
   store i32 %398, ptr %34, align 4
@@ -34688,22 +34688,22 @@ sdefl_put.exit.i:                                 ; preds = %.lr.ph.i126.i, %377
 
 .lr.ph.i130.i:                                    ; preds = %sdefl_put.exit.i, %.lr.ph.i130.i
   %400 = phi i32 [ %403, %.lr.ph.i130.i ], [ %396, %sdefl_put.exit.i ]
-  %.4 = phi ptr [ %406, %.lr.ph.i130.i ], [ %.3199, %sdefl_put.exit.i ]
+  %.6 = phi ptr [ %406, %.lr.ph.i130.i ], [ %.3199, %sdefl_put.exit.i ]
   %401 = trunc i32 %400 to i8
-  store i8 %401, ptr %.4, align 1
+  store i8 %401, ptr %.6, align 1
   %402 = load i32, ptr %0, align 4
   %403 = ashr i32 %402, 8
   store i32 %403, ptr %0, align 4
   %404 = load i32, ptr %34, align 4
   %405 = add nsw i32 %404, -8
   store i32 %405, ptr %34, align 4
-  %406 = getelementptr inbounds i8, ptr %.4, i64 1
+  %406 = getelementptr inbounds i8, ptr %.6, i64 1
   %407 = icmp sgt i32 %404, 15
   br i1 %407, label %.lr.ph.i130.i, label %sdefl_put.exit132.i
 
 sdefl_put.exit132.i:                              ; preds = %.lr.ph.i130.i, %sdefl_put.exit.i
   %408 = phi i32 [ %396, %sdefl_put.exit.i ], [ %403, %.lr.ph.i130.i ]
-  %.5 = phi ptr [ %.3199, %sdefl_put.exit.i ], [ %406, %.lr.ph.i130.i ]
+  %.4 = phi ptr [ %.3199, %sdefl_put.exit.i ], [ %406, %.lr.ph.i130.i ]
   %409 = phi i32 [ %398, %sdefl_put.exit.i ], [ %405, %.lr.ph.i130.i ]
   %.not123.i = icmp eq i32 %409, 0
   br i1 %.not123.i, label %sdefl_put.exit138.i, label %.lr.ph.preheader.i134.i
@@ -34714,21 +34714,21 @@ sdefl_put.exit132.i:                              ; preds = %.lr.ph.i130.i, %sde
 
 .lr.ph.i136.i:                                    ; preds = %.lr.ph.i136.i, %.lr.ph.preheader.i134.i
   %410 = phi i32 [ %408, %.lr.ph.preheader.i134.i ], [ %413, %.lr.ph.i136.i ]
-  %.6 = phi ptr [ %.5, %.lr.ph.preheader.i134.i ], [ %416, %.lr.ph.i136.i ]
+  %.5 = phi ptr [ %.4, %.lr.ph.preheader.i134.i ], [ %416, %.lr.ph.i136.i ]
   %411 = trunc i32 %410 to i8
-  store i8 %411, ptr %.6, align 1
+  store i8 %411, ptr %.5, align 1
   %412 = load i32, ptr %0, align 4
   %413 = ashr i32 %412, 8
   store i32 %413, ptr %0, align 4
   %414 = load i32, ptr %34, align 4
   %415 = add nsw i32 %414, -8
   store i32 %415, ptr %34, align 4
-  %416 = getelementptr inbounds i8, ptr %.6, i64 1
+  %416 = getelementptr inbounds i8, ptr %.5, i64 1
   %417 = icmp sgt i32 %414, 15
   br i1 %417, label %.lr.ph.i136.i, label %sdefl_put.exit138.i
 
 sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sdefl_put.exit132.i
-  %418 = phi ptr [ %.5, %sdefl_put.exit132.i ], [ %416, %.lr.ph.i136.i ]
+  %418 = phi ptr [ %.4, %sdefl_put.exit132.i ], [ %416, %.lr.ph.i136.i ]
   %419 = trunc i32 %381 to i16
   %420 = trunc i32 %381 to i8
   store i8 %420, ptr %418, align 1
@@ -34768,16 +34768,16 @@ sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sde
 
 .lr.ph.i142.i:                                    ; preds = %436, %.lr.ph.i142.i
   %444 = phi i32 [ %447, %.lr.ph.i142.i ], [ %441, %436 ]
-  %.7 = phi ptr [ %450, %.lr.ph.i142.i ], [ %.0196, %436 ]
+  %.43 = phi ptr [ %450, %.lr.ph.i142.i ], [ %.0196, %436 ]
   %445 = trunc i32 %444 to i8
-  store i8 %445, ptr %.7, align 1
+  store i8 %445, ptr %.43, align 1
   %446 = load i32, ptr %0, align 4
   %447 = ashr i32 %446, 8
   store i32 %447, ptr %0, align 4
   %448 = load i32, ptr %34, align 4
   %449 = add nsw i32 %448, -8
   store i32 %449, ptr %34, align 4
-  %450 = getelementptr inbounds i8, ptr %.7, i64 1
+  %450 = getelementptr inbounds i8, ptr %.43, i64 1
   %451 = icmp sgt i32 %448, 15
   br i1 %451, label %.lr.ph.i142.i, label %sdefl_put.exit144.i
 
@@ -34795,21 +34795,21 @@ sdefl_put.exit144.i:                              ; preds = %.lr.ph.i142.i, %436
 
 .lr.ph.i148.i:                                    ; preds = %sdefl_put.exit144.i, %.lr.ph.i148.i
   %458 = phi i32 [ %461, %.lr.ph.i148.i ], [ %455, %sdefl_put.exit144.i ]
-  %.9 = phi ptr [ %464, %.lr.ph.i148.i ], [ %.8, %sdefl_put.exit144.i ]
+  %.42 = phi ptr [ %464, %.lr.ph.i148.i ], [ %.8, %sdefl_put.exit144.i ]
   %459 = trunc i32 %458 to i8
-  store i8 %459, ptr %.9, align 1
+  store i8 %459, ptr %.42, align 1
   %460 = load i32, ptr %0, align 4
   %461 = ashr i32 %460, 8
   store i32 %461, ptr %0, align 4
   %462 = load i32, ptr %34, align 4
   %463 = add nsw i32 %462, -8
   store i32 %463, ptr %34, align 4
-  %464 = getelementptr inbounds i8, ptr %.9, i64 1
+  %464 = getelementptr inbounds i8, ptr %.42, i64 1
   %465 = icmp sgt i32 %462, 15
   br i1 %465, label %.lr.ph.i148.i, label %sdefl_put.exit150.i
 
 sdefl_put.exit150.i:                              ; preds = %.lr.ph.i148.i, %sdefl_put.exit144.i
-  %.10 = phi ptr [ %.8, %sdefl_put.exit144.i ], [ %464, %.lr.ph.i148.i ]
+  %.9 = phi ptr [ %.8, %sdefl_put.exit144.i ], [ %464, %.lr.ph.i148.i ]
   %466 = phi i32 [ %455, %sdefl_put.exit144.i ], [ %461, %.lr.ph.i148.i ]
   %467 = phi i32 [ %456, %sdefl_put.exit144.i ], [ %463, %.lr.ph.i148.i ]
   %468 = add nsw i32 %.sroa.3.1.i, -257
@@ -34823,21 +34823,21 @@ sdefl_put.exit150.i:                              ; preds = %.lr.ph.i148.i, %sde
 
 .lr.ph.i154.i:                                    ; preds = %sdefl_put.exit150.i, %.lr.ph.i154.i
   %473 = phi i32 [ %476, %.lr.ph.i154.i ], [ %470, %sdefl_put.exit150.i ]
-  %.11 = phi ptr [ %479, %.lr.ph.i154.i ], [ %.10, %sdefl_put.exit150.i ]
+  %.41 = phi ptr [ %479, %.lr.ph.i154.i ], [ %.9, %sdefl_put.exit150.i ]
   %474 = trunc i32 %473 to i8
-  store i8 %474, ptr %.11, align 1
+  store i8 %474, ptr %.41, align 1
   %475 = load i32, ptr %0, align 4
   %476 = ashr i32 %475, 8
   store i32 %476, ptr %0, align 4
   %477 = load i32, ptr %34, align 4
   %478 = add nsw i32 %477, -8
   store i32 %478, ptr %34, align 4
-  %479 = getelementptr inbounds i8, ptr %.11, i64 1
+  %479 = getelementptr inbounds i8, ptr %.41, i64 1
   %480 = icmp sgt i32 %477, 15
   br i1 %480, label %.lr.ph.i154.i, label %sdefl_put.exit156.i
 
 sdefl_put.exit156.i:                              ; preds = %.lr.ph.i154.i, %sdefl_put.exit150.i
-  %.12 = phi ptr [ %.10, %sdefl_put.exit150.i ], [ %479, %.lr.ph.i154.i ]
+  %.10 = phi ptr [ %.9, %sdefl_put.exit150.i ], [ %479, %.lr.ph.i154.i ]
   %481 = phi i32 [ %470, %sdefl_put.exit150.i ], [ %476, %.lr.ph.i154.i ]
   %482 = phi i32 [ %471, %sdefl_put.exit150.i ], [ %478, %.lr.ph.i154.i ]
   %483 = add nsw i32 %.sroa.6.1.i, -1
@@ -34851,21 +34851,21 @@ sdefl_put.exit156.i:                              ; preds = %.lr.ph.i154.i, %sde
 
 .lr.ph.i160.i:                                    ; preds = %sdefl_put.exit156.i, %.lr.ph.i160.i
   %488 = phi i32 [ %491, %.lr.ph.i160.i ], [ %485, %sdefl_put.exit156.i ]
-  %.13 = phi ptr [ %494, %.lr.ph.i160.i ], [ %.12, %sdefl_put.exit156.i ]
+  %.40 = phi ptr [ %494, %.lr.ph.i160.i ], [ %.10, %sdefl_put.exit156.i ]
   %489 = trunc i32 %488 to i8
-  store i8 %489, ptr %.13, align 1
+  store i8 %489, ptr %.40, align 1
   %490 = load i32, ptr %0, align 4
   %491 = ashr i32 %490, 8
   store i32 %491, ptr %0, align 4
   %492 = load i32, ptr %34, align 4
   %493 = add nsw i32 %492, -8
   store i32 %493, ptr %34, align 4
-  %494 = getelementptr inbounds i8, ptr %.13, i64 1
+  %494 = getelementptr inbounds i8, ptr %.40, i64 1
   %495 = icmp sgt i32 %492, 15
   br i1 %495, label %.lr.ph.i160.i, label %sdefl_put.exit162.i
 
 sdefl_put.exit162.i:                              ; preds = %.lr.ph.i160.i, %sdefl_put.exit156.i
-  %.14 = phi ptr [ %.12, %sdefl_put.exit156.i ], [ %494, %.lr.ph.i160.i ]
+  %.11 = phi ptr [ %.10, %sdefl_put.exit156.i ], [ %494, %.lr.ph.i160.i ]
   %496 = phi i32 [ %485, %sdefl_put.exit156.i ], [ %491, %.lr.ph.i160.i ]
   %497 = phi i32 [ %486, %sdefl_put.exit156.i ], [ %493, %.lr.ph.i160.i ]
   %498 = add nsw i32 %.0118.lcssa.i, -4
@@ -34879,22 +34879,22 @@ sdefl_put.exit162.i:                              ; preds = %.lr.ph.i160.i, %sde
 
 .lr.ph.i166.i:                                    ; preds = %sdefl_put.exit162.i, %.lr.ph.i166.i
   %503 = phi i32 [ %506, %.lr.ph.i166.i ], [ %500, %sdefl_put.exit162.i ]
-  %.15 = phi ptr [ %509, %.lr.ph.i166.i ], [ %.14, %sdefl_put.exit162.i ]
+  %.39 = phi ptr [ %509, %.lr.ph.i166.i ], [ %.11, %sdefl_put.exit162.i ]
   %504 = trunc i32 %503 to i8
-  store i8 %504, ptr %.15, align 1
+  store i8 %504, ptr %.39, align 1
   %505 = load i32, ptr %0, align 4
   %506 = ashr i32 %505, 8
   store i32 %506, ptr %0, align 4
   %507 = load i32, ptr %34, align 4
   %508 = add nsw i32 %507, -8
   store i32 %508, ptr %34, align 4
-  %509 = getelementptr inbounds i8, ptr %.15, i64 1
+  %509 = getelementptr inbounds i8, ptr %.39, i64 1
   %510 = icmp sgt i32 %507, 15
   br i1 %510, label %.lr.ph.i166.i, label %sdefl_put.exit168.i
 
 sdefl_put.exit168.i:                              ; preds = %.lr.ph.i166.i, %sdefl_put.exit162.i
   %511 = phi i32 [ %500, %sdefl_put.exit162.i ], [ %506, %.lr.ph.i166.i ]
-  %.16 = phi ptr [ %.14, %sdefl_put.exit162.i ], [ %509, %.lr.ph.i166.i ]
+  %.12 = phi ptr [ %.11, %sdefl_put.exit162.i ], [ %509, %.lr.ph.i166.i ]
   %512 = phi i32 [ %501, %sdefl_put.exit162.i ], [ %508, %.lr.ph.i166.i ]
   %513 = icmp sgt i32 %.0118.lcssa.i, 0
   br i1 %513, label %.lr.ph232.preheader.i, label %.preheader217.i
@@ -34905,7 +34905,7 @@ sdefl_put.exit168.i:                              ; preds = %.lr.ph.i166.i, %sde
 
 .preheader217.i:                                  ; preds = %sdefl_put.exit174.i, %sdefl_put.exit168.i
   %514 = phi i32 [ %511, %sdefl_put.exit168.i ], [ %537, %sdefl_put.exit174.i ]
-  %.17 = phi ptr [ %.16, %sdefl_put.exit168.i ], [ %.20, %sdefl_put.exit174.i ]
+  %.13 = phi ptr [ %.12, %sdefl_put.exit168.i ], [ %.37, %sdefl_put.exit174.i ]
   %515 = phi i32 [ %512, %sdefl_put.exit168.i ], [ %538, %sdefl_put.exit174.i ]
   %516 = icmp sgt i32 %308, 0
   br i1 %516, label %.lr.ph234.preheader.i, label %.preheader214.i
@@ -34916,7 +34916,7 @@ sdefl_put.exit168.i:                              ; preds = %.lr.ph.i166.i, %sde
 
 .lr.ph232.i:                                      ; preds = %sdefl_put.exit174.i, %.lr.ph232.preheader.i
   %517 = phi i32 [ %511, %.lr.ph232.preheader.i ], [ %537, %sdefl_put.exit174.i ]
-  %.18 = phi ptr [ %.16, %.lr.ph232.preheader.i ], [ %.20, %sdefl_put.exit174.i ]
+  %.36 = phi ptr [ %.12, %.lr.ph232.preheader.i ], [ %.37, %sdefl_put.exit174.i ]
   %518 = phi i32 [ %512, %.lr.ph232.preheader.i ], [ %538, %sdefl_put.exit174.i ]
   %indvars.iv256.i = phi i64 [ 0, %.lr.ph232.preheader.i ], [ %indvars.iv.next257.i, %sdefl_put.exit174.i ]
   %519 = getelementptr inbounds [19 x i8], ptr @sdefl_flush.perm, i64 0, i64 %indvars.iv256.i
@@ -34935,22 +34935,22 @@ sdefl_put.exit168.i:                              ; preds = %.lr.ph.i166.i, %sde
 
 .lr.ph.i172.i:                                    ; preds = %.lr.ph232.i, %.lr.ph.i172.i
   %529 = phi i32 [ %532, %.lr.ph.i172.i ], [ %526, %.lr.ph232.i ]
-  %.19 = phi ptr [ %535, %.lr.ph.i172.i ], [ %.18, %.lr.ph232.i ]
+  %.38 = phi ptr [ %535, %.lr.ph.i172.i ], [ %.36, %.lr.ph232.i ]
   %530 = trunc i32 %529 to i8
-  store i8 %530, ptr %.19, align 1
+  store i8 %530, ptr %.38, align 1
   %531 = load i32, ptr %0, align 4
   %532 = ashr i32 %531, 8
   store i32 %532, ptr %0, align 4
   %533 = load i32, ptr %34, align 4
   %534 = add nsw i32 %533, -8
   store i32 %534, ptr %34, align 4
-  %535 = getelementptr inbounds i8, ptr %.19, i64 1
+  %535 = getelementptr inbounds i8, ptr %.38, i64 1
   %536 = icmp sgt i32 %533, 15
   br i1 %536, label %.lr.ph.i172.i, label %sdefl_put.exit174.i
 
 sdefl_put.exit174.i:                              ; preds = %.lr.ph.i172.i, %.lr.ph232.i
   %537 = phi i32 [ %526, %.lr.ph232.i ], [ %532, %.lr.ph.i172.i ]
-  %.20 = phi ptr [ %.18, %.lr.ph232.i ], [ %535, %.lr.ph.i172.i ]
+  %.37 = phi ptr [ %.36, %.lr.ph232.i ], [ %535, %.lr.ph.i172.i ]
   %538 = phi i32 [ %527, %.lr.ph232.i ], [ %534, %.lr.ph.i172.i ]
   %indvars.iv.next257.i = add nuw nsw i64 %indvars.iv256.i, 1
   %exitcond260.not.i = icmp eq i64 %indvars.iv.next257.i, %wide.trip.count259.i
@@ -34958,7 +34958,7 @@ sdefl_put.exit174.i:                              ; preds = %.lr.ph.i172.i, %.lr
 
 .preheader214.i:                                  ; preds = %sdefl_put.exit186.i, %.preheader217.i
   %539 = phi i32 [ %514, %.preheader217.i ], [ %607, %sdefl_put.exit186.i ]
-  %.21 = phi ptr [ %.17, %.preheader217.i ], [ %.28, %sdefl_put.exit186.i ]
+  %.14 = phi ptr [ %.13, %.preheader217.i ], [ %.31, %sdefl_put.exit186.i ]
   %540 = phi i32 [ %515, %.preheader217.i ], [ %608, %sdefl_put.exit186.i ]
   %541 = load i32, ptr %24, align 4
   %542 = icmp sgt i32 %541, 0
@@ -34966,7 +34966,7 @@ sdefl_put.exit174.i:                              ; preds = %.lr.ph.i172.i, %.lr
 
 .lr.ph234.i:                                      ; preds = %sdefl_put.exit186.i, %.lr.ph234.preheader.i
   %543 = phi i32 [ %514, %.lr.ph234.preheader.i ], [ %607, %sdefl_put.exit186.i ]
-  %.22 = phi ptr [ %.17, %.lr.ph234.preheader.i ], [ %.28, %sdefl_put.exit186.i ]
+  %.29 = phi ptr [ %.13, %.lr.ph234.preheader.i ], [ %.31, %sdefl_put.exit186.i ]
   %544 = phi i32 [ %515, %.lr.ph234.preheader.i ], [ %608, %sdefl_put.exit186.i ]
   %indvars.iv261.i = phi i64 [ 0, %.lr.ph234.preheader.i ], [ %indvars.iv.next262.i, %sdefl_put.exit186.i ]
   %545 = getelementptr inbounds [320 x i32], ptr %9, i64 0, i64 %indvars.iv261.i
@@ -34988,22 +34988,22 @@ sdefl_put.exit174.i:                              ; preds = %.lr.ph.i172.i, %.lr
 
 .lr.ph.i178.i:                                    ; preds = %.lr.ph234.i, %.lr.ph.i178.i
   %558 = phi i32 [ %561, %.lr.ph.i178.i ], [ %555, %.lr.ph234.i ]
-  %.23 = phi ptr [ %564, %.lr.ph.i178.i ], [ %.22, %.lr.ph234.i ]
+  %.35 = phi ptr [ %564, %.lr.ph.i178.i ], [ %.29, %.lr.ph234.i ]
   %559 = trunc i32 %558 to i8
-  store i8 %559, ptr %.23, align 1
+  store i8 %559, ptr %.35, align 1
   %560 = load i32, ptr %0, align 4
   %561 = ashr i32 %560, 8
   store i32 %561, ptr %0, align 4
   %562 = load i32, ptr %34, align 4
   %563 = add nsw i32 %562, -8
   store i32 %563, ptr %34, align 4
-  %564 = getelementptr inbounds i8, ptr %.23, i64 1
+  %564 = getelementptr inbounds i8, ptr %.35, i64 1
   %565 = icmp sgt i32 %562, 15
   br i1 %565, label %.lr.ph.i178.i, label %sdefl_put.exit180.i
 
 sdefl_put.exit180.i:                              ; preds = %.lr.ph.i178.i, %.lr.ph234.i
   %566 = phi i32 [ %555, %.lr.ph234.i ], [ %561, %.lr.ph.i178.i ]
-  %.24 = phi ptr [ %.22, %.lr.ph234.i ], [ %564, %.lr.ph.i178.i ]
+  %.30 = phi ptr [ %.29, %.lr.ph234.i ], [ %564, %.lr.ph.i178.i ]
   %567 = phi i32 [ %556, %.lr.ph234.i ], [ %563, %.lr.ph.i178.i ]
   %568 = icmp ult i32 %547, 16
   br i1 %568, label %sdefl_put.exit186.i, label %569
@@ -35027,16 +35027,16 @@ sdefl_put.exit180.i:                              ; preds = %.lr.ph.i178.i, %.lr
 
 .lr.ph.i184.i:                                    ; preds = %574, %.lr.ph.i184.i
   %577 = phi i32 [ %580, %.lr.ph.i184.i ], [ %573, %574 ]
-  %.25 = phi ptr [ %583, %.lr.ph.i184.i ], [ %.24, %574 ]
+  %.33 = phi ptr [ %583, %.lr.ph.i184.i ], [ %.30, %574 ]
   %578 = trunc i32 %577 to i8
-  store i8 %578, ptr %.25, align 1
+  store i8 %578, ptr %.33, align 1
   %579 = load i32, ptr %0, align 4
   %580 = ashr i32 %579, 8
   store i32 %580, ptr %0, align 4
   %581 = load i32, ptr %34, align 4
   %582 = add nsw i32 %581, -8
   store i32 %582, ptr %34, align 4
-  %583 = getelementptr inbounds i8, ptr %.25, i64 1
+  %583 = getelementptr inbounds i8, ptr %.33, i64 1
   %584 = icmp sgt i32 %581, 15
   br i1 %584, label %.lr.ph.i184.i, label %sdefl_put.exit186.i
 
@@ -35048,16 +35048,16 @@ sdefl_put.exit180.i:                              ; preds = %.lr.ph.i178.i, %.lr
 
 .lr.ph.i190.i:                                    ; preds = %585, %.lr.ph.i190.i
   %588 = phi i32 [ %591, %.lr.ph.i190.i ], [ %573, %585 ]
-  %.26 = phi ptr [ %594, %.lr.ph.i190.i ], [ %.24, %585 ]
+  %.32 = phi ptr [ %594, %.lr.ph.i190.i ], [ %.30, %585 ]
   %589 = trunc i32 %588 to i8
-  store i8 %589, ptr %.26, align 1
+  store i8 %589, ptr %.32, align 1
   %590 = load i32, ptr %0, align 4
   %591 = ashr i32 %590, 8
   store i32 %591, ptr %0, align 4
   %592 = load i32, ptr %34, align 4
   %593 = add nsw i32 %592, -8
   store i32 %593, ptr %34, align 4
-  %594 = getelementptr inbounds i8, ptr %.26, i64 1
+  %594 = getelementptr inbounds i8, ptr %.32, i64 1
   %595 = icmp sgt i32 %592, 15
   br i1 %595, label %.lr.ph.i190.i, label %sdefl_put.exit186.i
 
@@ -35069,22 +35069,22 @@ sdefl_put.exit180.i:                              ; preds = %.lr.ph.i178.i, %.lr
 
 .lr.ph.i196.i:                                    ; preds = %596, %.lr.ph.i196.i
   %599 = phi i32 [ %602, %.lr.ph.i196.i ], [ %573, %596 ]
-  %.27 = phi ptr [ %605, %.lr.ph.i196.i ], [ %.24, %596 ]
+  %.34 = phi ptr [ %605, %.lr.ph.i196.i ], [ %.30, %596 ]
   %600 = trunc i32 %599 to i8
-  store i8 %600, ptr %.27, align 1
+  store i8 %600, ptr %.34, align 1
   %601 = load i32, ptr %0, align 4
   %602 = ashr i32 %601, 8
   store i32 %602, ptr %0, align 4
   %603 = load i32, ptr %34, align 4
   %604 = add nsw i32 %603, -8
   store i32 %604, ptr %34, align 4
-  %605 = getelementptr inbounds i8, ptr %.27, i64 1
+  %605 = getelementptr inbounds i8, ptr %.34, i64 1
   %606 = icmp sgt i32 %603, 15
   br i1 %606, label %.lr.ph.i196.i, label %sdefl_put.exit186.i
 
 sdefl_put.exit186.i:                              ; preds = %.lr.ph.i190.i, %.lr.ph.i184.i, %.lr.ph.i196.i, %596, %585, %574, %sdefl_put.exit180.i
   %607 = phi i32 [ %566, %sdefl_put.exit180.i ], [ %573, %596 ], [ %573, %585 ], [ %573, %574 ], [ %602, %.lr.ph.i196.i ], [ %580, %.lr.ph.i184.i ], [ %591, %.lr.ph.i190.i ]
-  %.28 = phi ptr [ %.24, %sdefl_put.exit180.i ], [ %.24, %596 ], [ %.24, %585 ], [ %.24, %574 ], [ %605, %.lr.ph.i196.i ], [ %583, %.lr.ph.i184.i ], [ %594, %.lr.ph.i190.i ]
+  %.31 = phi ptr [ %.30, %sdefl_put.exit180.i ], [ %.30, %596 ], [ %.30, %585 ], [ %.30, %574 ], [ %605, %.lr.ph.i196.i ], [ %583, %.lr.ph.i184.i ], [ %594, %.lr.ph.i190.i ]
   %608 = phi i32 [ %567, %sdefl_put.exit180.i ], [ %597, %596 ], [ %586, %585 ], [ %575, %574 ], [ %604, %.lr.ph.i196.i ], [ %582, %.lr.ph.i184.i ], [ %593, %.lr.ph.i190.i ]
   %indvars.iv.next262.i = add nuw nsw i64 %indvars.iv261.i, 1
   %exitcond265.not.i = icmp eq i64 %indvars.iv.next262.i, %wide.trip.count264.i
@@ -35092,7 +35092,7 @@ sdefl_put.exit186.i:                              ; preds = %.lr.ph.i190.i, %.lr
 
 .lr.ph238.i:                                      ; preds = %.preheader214.i, %sdefl_match.exit.i
   %609 = phi i32 [ %754, %sdefl_match.exit.i ], [ %539, %.preheader214.i ]
-  %.29 = phi ptr [ %.40, %sdefl_match.exit.i ], [ %.21, %.preheader214.i ]
+  %.17 = phi ptr [ %.21, %sdefl_match.exit.i ], [ %.14, %.preheader214.i ]
   %610 = phi i32 [ %755, %sdefl_match.exit.i ], [ %540, %.preheader214.i ]
   %indvars.iv266.i = phi i64 [ %indvars.iv.next267.i, %sdefl_match.exit.i ], [ 0, %.preheader214.i ]
   %611 = getelementptr inbounds [87382 x %struct.sdefl_seqt], ptr %23, i64 0, i64 %indvars.iv266.i
@@ -35108,7 +35108,7 @@ sdefl_put.exit186.i:                              ; preds = %.lr.ph.i190.i, %.lr
 
 .lr.ph236.i:                                      ; preds = %.preheader.i, %sdefl_put.exit204.i
   %617 = phi i32 [ %643, %sdefl_put.exit204.i ], [ %609, %.preheader.i ]
-  %.30 = phi ptr [ %.32, %sdefl_put.exit204.i ], [ %.29, %.preheader.i ]
+  %.26 = phi ptr [ %.27, %sdefl_put.exit204.i ], [ %.17, %.preheader.i ]
   %618 = phi i32 [ %644, %sdefl_put.exit204.i ], [ %615, %.preheader.i ]
   %619 = phi i32 [ %645, %sdefl_put.exit204.i ], [ %610, %.preheader.i ]
   %.0116235.i = phi i32 [ %646, %sdefl_put.exit204.i ], [ 0, %.preheader.i ]
@@ -35133,16 +35133,16 @@ sdefl_put.exit186.i:                              ; preds = %.lr.ph.i190.i, %.lr
 
 .lr.ph.i202.i:                                    ; preds = %.lr.ph236.i, %.lr.ph.i202.i
   %635 = phi i32 [ %638, %.lr.ph.i202.i ], [ %632, %.lr.ph236.i ]
-  %.31 = phi ptr [ %641, %.lr.ph.i202.i ], [ %.30, %.lr.ph236.i ]
+  %.28 = phi ptr [ %641, %.lr.ph.i202.i ], [ %.26, %.lr.ph236.i ]
   %636 = trunc i32 %635 to i8
-  store i8 %636, ptr %.31, align 1
+  store i8 %636, ptr %.28, align 1
   %637 = load i32, ptr %0, align 4
   %638 = ashr i32 %637, 8
   store i32 %638, ptr %0, align 4
   %639 = load i32, ptr %34, align 4
   %640 = add nsw i32 %639, -8
   store i32 %640, ptr %34, align 4
-  %641 = getelementptr inbounds i8, ptr %.31, i64 1
+  %641 = getelementptr inbounds i8, ptr %.28, i64 1
   %642 = icmp sgt i32 %639, 15
   br i1 %642, label %.lr.ph.i202.i, label %sdefl_put.exit204.loopexit.i
 
@@ -35152,7 +35152,7 @@ sdefl_put.exit204.loopexit.i:                     ; preds = %.lr.ph.i202.i
 
 sdefl_put.exit204.i:                              ; preds = %sdefl_put.exit204.loopexit.i, %.lr.ph236.i
   %643 = phi i32 [ %638, %sdefl_put.exit204.loopexit.i ], [ %632, %.lr.ph236.i ]
-  %.32 = phi ptr [ %641, %sdefl_put.exit204.loopexit.i ], [ %.30, %.lr.ph236.i ]
+  %.27 = phi ptr [ %641, %sdefl_put.exit204.loopexit.i ], [ %.26, %.lr.ph236.i ]
   %644 = phi i32 [ %.pre273.i, %sdefl_put.exit204.loopexit.i ], [ %618, %.lr.ph236.i ]
   %645 = phi i32 [ %640, %sdefl_put.exit204.loopexit.i ], [ %633, %.lr.ph236.i ]
   %646 = add nuw nsw i32 %.0116235.i, 1
@@ -35213,21 +35213,21 @@ sdefl_match_codes.exit.i.i:                       ; preds = %667, %648
 
 .lr.ph.i.i.i:                                     ; preds = %sdefl_match_codes.exit.i.i, %.lr.ph.i.i.i
   %687 = phi i32 [ %690, %.lr.ph.i.i.i ], [ %684, %sdefl_match_codes.exit.i.i ]
-  %.33 = phi ptr [ %693, %.lr.ph.i.i.i ], [ %.29, %sdefl_match_codes.exit.i.i ]
+  %.25 = phi ptr [ %693, %.lr.ph.i.i.i ], [ %.17, %sdefl_match_codes.exit.i.i ]
   %688 = trunc i32 %687 to i8
-  store i8 %688, ptr %.33, align 1
+  store i8 %688, ptr %.25, align 1
   %689 = load i32, ptr %0, align 4
   %690 = ashr i32 %689, 8
   store i32 %690, ptr %0, align 4
   %691 = load i32, ptr %34, align 4
   %692 = add nsw i32 %691, -8
   store i32 %692, ptr %34, align 4
-  %693 = getelementptr inbounds i8, ptr %.33, i64 1
+  %693 = getelementptr inbounds i8, ptr %.25, i64 1
   %694 = icmp sgt i32 %691, 15
   br i1 %694, label %.lr.ph.i.i.i, label %sdefl_put.exit.i.i
 
 sdefl_put.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %sdefl_match_codes.exit.i.i
-  %.34 = phi ptr [ %.29, %sdefl_match_codes.exit.i.i ], [ %693, %.lr.ph.i.i.i ]
+  %.18 = phi ptr [ %.17, %sdefl_match_codes.exit.i.i ], [ %693, %.lr.ph.i.i.i ]
   %695 = phi i32 [ %684, %sdefl_match_codes.exit.i.i ], [ %690, %.lr.ph.i.i.i ]
   %696 = phi i32 [ %685, %sdefl_match_codes.exit.i.i ], [ %692, %.lr.ph.i.i.i ]
   %697 = getelementptr inbounds [29 x i16], ptr @sdefl_match.lmin, i64 0, i64 %655
@@ -35247,21 +35247,21 @@ sdefl_put.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %sdef
 
 .lr.ph.i17.i.i:                                   ; preds = %sdefl_put.exit.i.i, %.lr.ph.i17.i.i
   %708 = phi i32 [ %711, %.lr.ph.i17.i.i ], [ %705, %sdefl_put.exit.i.i ]
-  %.35 = phi ptr [ %714, %.lr.ph.i17.i.i ], [ %.34, %sdefl_put.exit.i.i ]
+  %.24 = phi ptr [ %714, %.lr.ph.i17.i.i ], [ %.18, %sdefl_put.exit.i.i ]
   %709 = trunc i32 %708 to i8
-  store i8 %709, ptr %.35, align 1
+  store i8 %709, ptr %.24, align 1
   %710 = load i32, ptr %0, align 4
   %711 = ashr i32 %710, 8
   store i32 %711, ptr %0, align 4
   %712 = load i32, ptr %34, align 4
   %713 = add nsw i32 %712, -8
   store i32 %713, ptr %34, align 4
-  %714 = getelementptr inbounds i8, ptr %.35, i64 1
+  %714 = getelementptr inbounds i8, ptr %.24, i64 1
   %715 = icmp sgt i32 %712, 15
   br i1 %715, label %.lr.ph.i17.i.i, label %sdefl_put.exit19.i.i
 
 sdefl_put.exit19.i.i:                             ; preds = %.lr.ph.i17.i.i, %sdefl_put.exit.i.i
-  %.36 = phi ptr [ %.34, %sdefl_put.exit.i.i ], [ %714, %.lr.ph.i17.i.i ]
+  %.19 = phi ptr [ %.18, %sdefl_put.exit.i.i ], [ %714, %.lr.ph.i17.i.i ]
   %716 = phi i32 [ %705, %sdefl_put.exit.i.i ], [ %711, %.lr.ph.i17.i.i ]
   %717 = phi i32 [ %706, %sdefl_put.exit.i.i ], [ %713, %.lr.ph.i17.i.i ]
   %718 = sext i32 %677 to i64
@@ -35280,21 +35280,21 @@ sdefl_put.exit19.i.i:                             ; preds = %.lr.ph.i17.i.i, %sd
 
 .lr.ph.i22.i.i:                                   ; preds = %sdefl_put.exit19.i.i, %.lr.ph.i22.i.i
   %728 = phi i32 [ %731, %.lr.ph.i22.i.i ], [ %725, %sdefl_put.exit19.i.i ]
-  %.37 = phi ptr [ %734, %.lr.ph.i22.i.i ], [ %.36, %sdefl_put.exit19.i.i ]
+  %.23 = phi ptr [ %734, %.lr.ph.i22.i.i ], [ %.19, %sdefl_put.exit19.i.i ]
   %729 = trunc i32 %728 to i8
-  store i8 %729, ptr %.37, align 1
+  store i8 %729, ptr %.23, align 1
   %730 = load i32, ptr %0, align 4
   %731 = ashr i32 %730, 8
   store i32 %731, ptr %0, align 4
   %732 = load i32, ptr %34, align 4
   %733 = add nsw i32 %732, -8
   store i32 %733, ptr %34, align 4
-  %734 = getelementptr inbounds i8, ptr %.37, i64 1
+  %734 = getelementptr inbounds i8, ptr %.23, i64 1
   %735 = icmp sgt i32 %732, 15
   br i1 %735, label %.lr.ph.i22.i.i, label %sdefl_put.exit24.i.i
 
 sdefl_put.exit24.i.i:                             ; preds = %.lr.ph.i22.i.i, %sdefl_put.exit19.i.i
-  %.38 = phi ptr [ %.36, %sdefl_put.exit19.i.i ], [ %734, %.lr.ph.i22.i.i ]
+  %.20 = phi ptr [ %.19, %sdefl_put.exit19.i.i ], [ %734, %.lr.ph.i22.i.i ]
   %736 = phi i32 [ %725, %sdefl_put.exit19.i.i ], [ %731, %.lr.ph.i22.i.i ]
   %737 = phi i32 [ %726, %sdefl_put.exit19.i.i ], [ %733, %.lr.ph.i22.i.i ]
   %738 = getelementptr inbounds [30 x i16], ptr @sdefl_match.dmin, i64 0, i64 %718
@@ -35311,22 +35311,22 @@ sdefl_put.exit24.i.i:                             ; preds = %.lr.ph.i22.i.i, %sd
 
 .lr.ph.i27.i.i:                                   ; preds = %sdefl_put.exit24.i.i, %.lr.ph.i27.i.i
   %746 = phi i32 [ %749, %.lr.ph.i27.i.i ], [ %743, %sdefl_put.exit24.i.i ]
-  %.39 = phi ptr [ %752, %.lr.ph.i27.i.i ], [ %.38, %sdefl_put.exit24.i.i ]
+  %.22 = phi ptr [ %752, %.lr.ph.i27.i.i ], [ %.20, %sdefl_put.exit24.i.i ]
   %747 = trunc i32 %746 to i8
-  store i8 %747, ptr %.39, align 1
+  store i8 %747, ptr %.22, align 1
   %748 = load i32, ptr %0, align 4
   %749 = ashr i32 %748, 8
   store i32 %749, ptr %0, align 4
   %750 = load i32, ptr %34, align 4
   %751 = add nsw i32 %750, -8
   store i32 %751, ptr %34, align 4
-  %752 = getelementptr inbounds i8, ptr %.39, i64 1
+  %752 = getelementptr inbounds i8, ptr %.22, i64 1
   %753 = icmp sgt i32 %750, 15
   br i1 %753, label %.lr.ph.i27.i.i, label %sdefl_match.exit.i
 
 sdefl_match.exit.i:                               ; preds = %.lr.ph.i27.i.i, %sdefl_put.exit204.i, %sdefl_put.exit24.i.i, %.preheader.i
   %754 = phi i32 [ %609, %.preheader.i ], [ %743, %sdefl_put.exit24.i.i ], [ %643, %sdefl_put.exit204.i ], [ %749, %.lr.ph.i27.i.i ]
-  %.40 = phi ptr [ %.29, %.preheader.i ], [ %.38, %sdefl_put.exit24.i.i ], [ %.32, %sdefl_put.exit204.i ], [ %752, %.lr.ph.i27.i.i ]
+  %.21 = phi ptr [ %.17, %.preheader.i ], [ %.20, %sdefl_put.exit24.i.i ], [ %.27, %sdefl_put.exit204.i ], [ %752, %.lr.ph.i27.i.i ]
   %755 = phi i32 [ %610, %.preheader.i ], [ %744, %sdefl_put.exit24.i.i ], [ %645, %sdefl_put.exit204.i ], [ %751, %.lr.ph.i27.i.i ]
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
   %756 = load i32, ptr %24, align 4
@@ -35336,7 +35336,7 @@ sdefl_match.exit.i:                               ; preds = %.lr.ph.i27.i.i, %sd
 
 ._crit_edge.i:                                    ; preds = %sdefl_match.exit.i, %.preheader214.i
   %759 = phi i32 [ %539, %.preheader214.i ], [ %754, %sdefl_match.exit.i ]
-  %.41 = phi ptr [ %.21, %.preheader214.i ], [ %.40, %sdefl_match.exit.i ]
+  %.15 = phi ptr [ %.14, %.preheader214.i ], [ %.21, %sdefl_match.exit.i ]
   %760 = phi i32 [ %540, %.preheader214.i ], [ %755, %sdefl_match.exit.i ]
   %761 = load i32, ptr %35, align 4
   %762 = load i8, ptr %33, align 4
@@ -35351,21 +35351,21 @@ sdefl_match.exit.i:                               ; preds = %.lr.ph.i27.i.i, %sd
 
 .lr.ph.i209.i:                                    ; preds = %._crit_edge.i, %.lr.ph.i209.i
   %768 = phi i32 [ %771, %.lr.ph.i209.i ], [ %765, %._crit_edge.i ]
-  %.42 = phi ptr [ %774, %.lr.ph.i209.i ], [ %.41, %._crit_edge.i ]
+  %.16 = phi ptr [ %774, %.lr.ph.i209.i ], [ %.15, %._crit_edge.i ]
   %769 = trunc i32 %768 to i8
-  store i8 %769, ptr %.42, align 1
+  store i8 %769, ptr %.16, align 1
   %770 = load i32, ptr %0, align 4
   %771 = ashr i32 %770, 8
   store i32 %771, ptr %0, align 4
   %772 = load i32, ptr %34, align 4
   %773 = add nsw i32 %772, -8
   store i32 %773, ptr %34, align 4
-  %774 = getelementptr inbounds i8, ptr %.42, i64 1
+  %774 = getelementptr inbounds i8, ptr %.16, i64 1
   %775 = icmp sgt i32 %772, 15
   br i1 %775, label %.lr.ph.i209.i, label %sdefl_flush.exit
 
 sdefl_flush.exit:                                 ; preds = %sdefl_put.exit138.i, %.lr.ph.i209.i, %.preheader218.i, %._crit_edge.i
-  %.43 = phi ptr [ %.41, %._crit_edge.i ], [ %.0196, %.preheader218.i ], [ %774, %.lr.ph.i209.i ], [ %434, %sdefl_put.exit138.i ]
+  %.44 = phi ptr [ %.15, %._crit_edge.i ], [ %.0196, %.preheader218.i ], [ %774, %.lr.ph.i209.i ], [ %434, %sdefl_put.exit138.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1280) %15, i8 0, i64 1280, i1 false)
   store i32 0, ptr %24, align 4
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6)
@@ -35387,22 +35387,22 @@ sdefl_flush.exit:                                 ; preds = %sdefl_put.exit138.i
 
 .lr.ph.i163:                                      ; preds = %.lr.ph.i163, %.lr.ph.preheader.i
   %779 = phi i32 [ %.pre353, %.lr.ph.preheader.i ], [ %782, %.lr.ph.i163 ]
-  %.44 = phi ptr [ %.43, %.lr.ph.preheader.i ], [ %785, %.lr.ph.i163 ]
+  %.45 = phi ptr [ %.44, %.lr.ph.preheader.i ], [ %785, %.lr.ph.i163 ]
   %780 = trunc i32 %779 to i8
-  store i8 %780, ptr %.44, align 1
+  store i8 %780, ptr %.45, align 1
   %781 = load i32, ptr %0, align 4
   %782 = ashr i32 %781, 8
   store i32 %782, ptr %0, align 4
   %783 = load i32, ptr %34, align 4
   %784 = add nsw i32 %783, -8
   store i32 %784, ptr %34, align 4
-  %785 = getelementptr inbounds i8, ptr %.44, i64 1
+  %785 = getelementptr inbounds i8, ptr %.45, i64 1
   %786 = icmp sgt i32 %783, 15
   br i1 %786, label %.lr.ph.i163, label %sdefl_put.exit
 
 sdefl_put.exit:                                   ; preds = %.lr.ph.i163, %777
-  %.46 = phi ptr [ %.43, %777 ], [ %785, %.lr.ph.i163 ]
-  %787 = ptrtoint ptr %.46 to i64
+  %.1197 = phi ptr [ %.44, %777 ], [ %785, %.lr.ph.i163 ]
+  %787 = ptrtoint ptr %.1197 to i64
   %788 = ptrtoint ptr %1 to i64
   %789 = sub i64 %787, %788
   %790 = trunc i64 %789 to i32
@@ -35419,16 +35419,16 @@ define hidden i32 @zsdeflate(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %6 = phi i32 [ 120, %.lr.ph.preheader.i ], [ %9, %.lr.ph.i ]
-  %.034 = phi ptr [ %1, %.lr.ph.preheader.i ], [ %12, %.lr.ph.i ]
+  %.1 = phi ptr [ %1, %.lr.ph.preheader.i ], [ %12, %.lr.ph.i ]
   %7 = trunc i32 %6 to i8
-  store i8 %7, ptr %.034, align 1
+  store i8 %7, ptr %.1, align 1
   %8 = load i32, ptr %0, align 4
   %9 = ashr i32 %8, 8
   store i32 %9, ptr %0, align 4
   %10 = load i32, ptr %5, align 4
   %11 = add nsw i32 %10, -8
   store i32 %11, ptr %5, align 4
-  %12 = getelementptr inbounds i8, ptr %.034, i64 1
+  %12 = getelementptr inbounds i8, ptr %.1, i64 1
   %13 = icmp sgt i32 %10, 15
   br i1 %13, label %.lr.ph.i, label %sdefl_put.exit
 
@@ -35442,24 +35442,24 @@ sdefl_put.exit:                                   ; preds = %.lr.ph.i
 
 .lr.ph.i19:                                       ; preds = %sdefl_put.exit, %.lr.ph.i19
   %17 = phi i32 [ %20, %.lr.ph.i19 ], [ %15, %sdefl_put.exit ]
-  %.2 = phi ptr [ %23, %.lr.ph.i19 ], [ %12, %sdefl_put.exit ]
+  %.3 = phi ptr [ %23, %.lr.ph.i19 ], [ %12, %sdefl_put.exit ]
   %18 = trunc i32 %17 to i8
-  store i8 %18, ptr %.2, align 1
+  store i8 %18, ptr %.3, align 1
   %19 = load i32, ptr %0, align 4
   %20 = ashr i32 %19, 8
   store i32 %20, ptr %0, align 4
   %21 = load i32, ptr %5, align 4
   %22 = add nsw i32 %21, -8
   store i32 %22, ptr %5, align 4
-  %23 = getelementptr inbounds i8, ptr %.2, i64 1
+  %23 = getelementptr inbounds i8, ptr %.3, i64 1
   %24 = icmp sgt i32 %21, 15
   br i1 %24, label %.lr.ph.i19, label %sdefl_put.exit21
 
 sdefl_put.exit21:                                 ; preds = %.lr.ph.i19, %sdefl_put.exit
-  %.3 = phi ptr [ %12, %sdefl_put.exit ], [ %23, %.lr.ph.i19 ]
-  %25 = tail call fastcc i32 @sdefl_compr(ptr noundef nonnull %0, ptr noundef nonnull %.3, ptr noundef %2, i32 noundef %3, i32 noundef %4)
+  %.4 = phi ptr [ %12, %sdefl_put.exit ], [ %23, %.lr.ph.i19 ]
+  %25 = tail call fastcc i32 @sdefl_compr(ptr noundef nonnull %0, ptr noundef nonnull %.4, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %.3, i64 %26
+  %27 = getelementptr inbounds i8, ptr %.4, i64 %26
   %.not78.i = icmp eq i32 %3, 0
   br i1 %.not78.i, label %sdefl_adler32.exit, label %.preheader62.preheader.i
 
@@ -35574,7 +35574,7 @@ sdefl_adler32.exit:                               ; preds = %sdefl_put.exit21, %
   %88 = phi i32 [ %.pre, %sdefl_adler32.exit ], [ %103, %sdefl_put.exit28 ]
   %.048 = phi i32 [ %85, %sdefl_adler32.exit ], [ %104, %sdefl_put.exit28 ]
   %.01647 = phi i32 [ 0, %sdefl_adler32.exit ], [ %105, %sdefl_put.exit28 ]
-  %.446 = phi ptr [ %27, %sdefl_adler32.exit ], [ %.6, %sdefl_put.exit28 ]
+  %.03446 = phi ptr [ %27, %sdefl_adler32.exit ], [ %.6, %sdefl_put.exit28 ]
   %89 = lshr i32 %.048, 24
   %90 = shl i32 %89, %88
   %91 = or i32 %87, %90
@@ -35586,7 +35586,7 @@ sdefl_adler32.exit:                               ; preds = %sdefl_put.exit21, %
 
 .lr.ph.i26:                                       ; preds = %86, %.lr.ph.i26
   %94 = phi i32 [ %97, %.lr.ph.i26 ], [ %91, %86 ]
-  %.5 = phi ptr [ %100, %.lr.ph.i26 ], [ %.446, %86 ]
+  %.5 = phi ptr [ %100, %.lr.ph.i26 ], [ %.03446, %86 ]
   %95 = trunc i32 %94 to i8
   store i8 %95, ptr %.5, align 1
   %96 = load i32, ptr %0, align 4
@@ -35602,7 +35602,7 @@ sdefl_adler32.exit:                               ; preds = %sdefl_put.exit21, %
 sdefl_put.exit28:                                 ; preds = %.lr.ph.i26, %86
   %102 = phi i32 [ %91, %86 ], [ %97, %.lr.ph.i26 ]
   %103 = phi i32 [ %92, %86 ], [ %99, %.lr.ph.i26 ]
-  %.6 = phi ptr [ %.446, %86 ], [ %100, %.lr.ph.i26 ]
+  %.6 = phi ptr [ %.03446, %86 ], [ %100, %.lr.ph.i26 ]
   %104 = shl i32 %.048, 8
   %105 = add nuw nsw i32 %.01647, 1
   %exitcond.not = icmp eq i32 %105, 4
@@ -35949,7 +35949,7 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %21, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %21 ]
-  %.062 = phi i32 [ %.1, %59 ], [ 0, %21 ]
+  %.162 = phi i32 [ %.2, %59 ], [ 0, %21 ]
   %.03561 = phi i32 [ %.136, %59 ], [ 2147483647, %21 ]
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
@@ -36004,7 +36004,7 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   %56 = add nuw nsw i32 %55, %54
   %57 = icmp slt i32 %56, %.03561
   %spec.select56 = call i32 @llvm.smin.i32(i32 %56, i32 %.03561)
-  %spec.select57 = select i1 %57, i32 %.pre-phi, i32 %.062
+  %spec.select57 = select i1 %57, i32 %.pre-phi, i32 %.162
   br label %59
 
 58:                                               ; preds = %.lr.ph
@@ -36013,7 +36013,7 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
 
 59:                                               ; preds = %49, %58
   %.136 = phi i32 [ %.03561, %58 ], [ %spec.select56, %49 ]
-  %.1 = phi i32 [ %.062, %58 ], [ %spec.select57, %49 ]
+  %.2 = phi i32 [ %.162, %58 ], [ %spec.select57, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %1, align 4
   %61 = sext i32 %60 to i64
@@ -36025,8 +36025,8 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %47, %20, %.loopexit.loopexit.split.loop.exit, %21, %12, %0
-  %.2 = phi i32 [ 0, %0 ], [ 0, %12 ], [ 0, %21 ], [ %63, %.loopexit.loopexit.split.loop.exit ], [ 0, %20 ], [ %.1, %59 ], [ %48, %47 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %0 ], [ 0, %12 ], [ 0, %21 ], [ %63, %.loopexit.loopexit.split.loop.exit ], [ 0, %20 ], [ %.2, %59 ], [ %48, %47 ]
+  ret i32 %.0
 }
 
 declare ptr @glfwGetMonitors(ptr noundef) local_unnamed_addr #2
@@ -43078,13 +43078,13 @@ define noundef i32 @GetFileLength(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ %9, %8 ]
+  %.1 = phi i32 [ 0, %7 ], [ %9, %8 ]
   %11 = tail call i32 @fclose(ptr noundef nonnull %2)
   br label %12
 
 12:                                               ; preds = %10, %1
-  %.1 = phi i32 [ %.0, %10 ], [ 0, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %10 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -45412,7 +45412,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   br label %.loopexit.i.outer
 
 .loopexit.i.outer:                                ; preds = %.loopexit.i.loopexit, %.loopexit
-  %.sroa.15.5.ph = phi i32 [ %143, %.loopexit.i.loopexit ], [ %.sroa.15.3.ph, %.loopexit ]
+  %.sroa.15.4.ph = phi i32 [ %143, %.loopexit.i.loopexit ], [ %.sroa.15.3.ph, %.loopexit ]
   %.sroa.24.3.ph = phi i32 [ %138, %.loopexit.i.loopexit ], [ %.sroa.24.2.ph, %.loopexit ]
   %.sroa.3147.3.ph = phi ptr [ %131, %.loopexit.i.loopexit ], [ %.sroa.3147.2.ph, %.loopexit ]
   %.pre79.i.ph = phi i32 [ %93, %.loopexit.i.loopexit ], [ %.sroa.0.3.ph, %.loopexit ]
@@ -45429,7 +45429,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.outer, %130
-  %.sroa.15.5 = phi i32 [ %139, %130 ], [ %.sroa.15.5.ph, %.loopexit.i.outer ]
+  %.sroa.15.4 = phi i32 [ %139, %130 ], [ %.sroa.15.4.ph, %.loopexit.i.outer ]
   %.sroa.24.3 = phi i32 [ %138, %130 ], [ %.sroa.24.3.ph, %.loopexit.i.outer ]
   %.sroa.3147.3 = phi ptr [ %131, %130 ], [ %.sroa.3147.3.ph, %.loopexit.i.outer ]
   %.056.i = phi i32 [ %.157.i, %130 ], [ %.056.i.ph, %.loopexit.i.outer ]
@@ -45440,12 +45440,12 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not.i36, label %._crit_edge135, label %99
 
 99:                                               ; preds = %.loopexit.i
-  %100 = icmp slt i32 %.sroa.15.5, %.pre137
+  %100 = icmp slt i32 %.sroa.15.4, %.pre137
   br i1 %100, label %.lr.ph.i38, label %._crit_edge.i37
 
 .lr.ph.i38:                                       ; preds = %99, %.lr.ph.i38
   %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i40, %.lr.ph.i38 ], [ %94, %99 ]
-  %.064.i = phi i32 [ %106, %.lr.ph.i38 ], [ %.sroa.15.5, %99 ]
+  %.064.i = phi i32 [ %106, %.lr.ph.i38 ], [ %.sroa.15.4, %99 ]
   %indvars.iv.next.i40 = add i64 %indvars.iv.i39, 1
   %101 = shl i32 %.064.i, 1
   %102 = trunc i64 %indvars.iv.i39 to i32
@@ -45507,7 +45507,7 @@ define internal fastcc void @sinfl_build(ptr nocapture noundef %0, ptr nocapture
   %136 = add nsw i32 %135, -1
   %137 = and i32 %136, %.sroa.24.3
   %138 = or i32 %137, %135
-  %139 = add nsw i32 %.sroa.15.5, -1
+  %139 = add nsw i32 %.sroa.15.4, -1
   %.not6266.i = icmp eq i32 %139, 0
   br i1 %.not6266.i, label %.lr.ph68.i, label %.loopexit.i
 
@@ -45904,8 +45904,8 @@ sdefl_build_tree.exit:                            ; preds = %139
   br label %.loopexit.i
 
 .preheader.i42:                                   ; preds = %.lr.ph.i39, %.preheader.i42
-  %.0.i43 = phi i32 [ %183, %.preheader.i42 ], [ %4, %.lr.ph.i39 ]
-  %183 = add i32 %.0.i43, -1
+  %.1.i43 = phi i32 [ %183, %.preheader.i42 ], [ %4, %.lr.ph.i39 ]
+  %183 = add i32 %.1.i43, -1
   %184 = zext i32 %183 to i64
   %185 = getelementptr inbounds i32, ptr %8, i64 %184
   %186 = load i32, ptr %185, align 4
@@ -45915,11 +45915,11 @@ sdefl_build_tree.exit:                            ; preds = %139
 .loopexit.i:                                      ; preds = %.preheader.i42, %.lr.ph..loopexit_crit_edge.i
   %.pre-phi.i44 = phi i64 [ %.phi.trans.insert.i, %.lr.ph..loopexit_crit_edge.i ], [ %184, %.preheader.i42 ]
   %187 = phi i32 [ %.pre.i, %.lr.ph..loopexit_crit_edge.i ], [ %186, %.preheader.i42 ]
-  %.1.i45 = phi i32 [ %179, %.lr.ph..loopexit_crit_edge.i ], [ %183, %.preheader.i42 ]
+  %.0.i45 = phi i32 [ %179, %.lr.ph..loopexit_crit_edge.i ], [ %183, %.preheader.i42 ]
   %188 = getelementptr inbounds i32, ptr %8, i64 %.pre-phi.i44
   %189 = add i32 %187, -1
   store i32 %189, ptr %188, align 4
-  %190 = add i32 %.1.i45, 1
+  %190 = add i32 %.0.i45, 1
   %191 = zext i32 %190 to i64
   %192 = getelementptr inbounds i32, ptr %8, i64 %191
   %193 = load i32, ptr %192, align 4

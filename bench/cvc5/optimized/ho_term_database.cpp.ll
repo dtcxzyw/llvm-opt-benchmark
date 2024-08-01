@@ -3818,7 +3818,7 @@ ehcleanup36:                                      ; preds = %lpad33, %lpad31
   br label %ehcleanup39
 
 cleanup:                                          ; preds = %if.then13.i.i55, %if.then.i.i49, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit46, %invoke.cont16, %invoke.cont22, %invoke.cont24
-  %retval.0 = phi i1 [ false, %invoke.cont24 ], [ false, %invoke.cont22 ], [ true, %invoke.cont16 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit46 ], [ true, %if.then.i.i49 ], [ true, %if.then13.i.i55 ]
+  %retval.1 = phi i1 [ false, %invoke.cont24 ], [ false, %invoke.cont22 ], [ true, %invoke.cont16 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit46 ], [ true, %if.then.i.i49 ], [ true, %if.then13.i.i55 ]
   %37 = load ptr, ptr %bf, align 8
   %bf.load.i.i58 = load i64, ptr %37, align 8
   %38 = and i64 %bf.load.i.i58, 1152920405095219200
@@ -3878,8 +3878,8 @@ ehcleanup39:                                      ; preds = %ehcleanup36, %lpad1
   br label %eh.resume
 
 return:                                           ; preds = %if.then13.i.i77, %if.then.i.i71, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68 ], [ %retval.0, %if.then.i.i71 ], [ %retval.0, %if.then13.i.i77 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68 ], [ %retval.1, %if.then.i.i71 ], [ %retval.1, %if.then13.i.i77 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad15, %ehcleanup39, %lpad5
   %af.sink = phi ptr [ %ref.tmp, %lpad5 ], [ %af, %ehcleanup39 ], [ %af, %lpad15 ]

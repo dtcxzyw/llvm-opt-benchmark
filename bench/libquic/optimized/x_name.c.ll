@@ -717,8 +717,8 @@ while.body37.i:                                   ; preds = %land.rhs28.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %asn1_string_canon.exit.thread52, !llvm.loop !13
 
 while.body45.i:                                   ; preds = %while.body45.i.preheader, %if.end83.i
-  %i.056.i = phi i32 [ %i.2.i, %if.end83.i ], [ 0, %while.body45.i.preheader ]
-  %from.155.i = phi ptr [ %from.3.i, %if.end83.i ], [ %from.039.i, %while.body45.i.preheader ]
+  %i.056.i = phi i32 [ %i.1.i, %if.end83.i ], [ 0, %while.body45.i.preheader ]
+  %from.155.i = phi ptr [ %from.2.i, %if.end83.i ], [ %from.039.i, %while.body45.i.preheader ]
   %to.154.i = phi ptr [ %to.2.i, %if.end83.i ], [ %11, %while.body45.i.preheader ]
   %20 = load i8, ptr %from.155.i, align 1
   %conv46.i = zext i8 %20 to i32
@@ -746,10 +746,10 @@ if.then59.i:                                      ; preds = %if.else.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs66.i, %if.then59.i
-  %from.2.i = phi ptr [ %from.155.i, %if.then59.i ], [ %incdec.ptr61.i, %land.rhs66.i ]
-  %i.1.i = phi i32 [ %i.056.i, %if.then59.i ], [ %inc62.i, %land.rhs66.i ]
-  %incdec.ptr61.i = getelementptr inbounds i8, ptr %from.2.i, i64 1
-  %inc62.i = add nsw i32 %i.1.i, 1
+  %from.3.i = phi ptr [ %from.155.i, %if.then59.i ], [ %incdec.ptr61.i, %land.rhs66.i ]
+  %i.2.i = phi i32 [ %i.056.i, %if.then59.i ], [ %inc62.i, %land.rhs66.i ]
+  %incdec.ptr61.i = getelementptr inbounds i8, ptr %from.3.i, i64 1
+  %inc62.i = add nsw i32 %i.2.i, 1
   %24 = load i8, ptr %incdec.ptr61.i, align 1
   %tobool65.not.i = icmp sgt i8 %24, -1
   br i1 %tobool65.not.i, label %land.rhs66.i, label %if.end83.i
@@ -772,10 +772,10 @@ if.else75.i:                                      ; preds = %if.else.i
   br label %if.end83.i
 
 if.end83.i:                                       ; preds = %land.rhs66.i, %do.body.i, %if.else75.i, %if.then49.i
-  %from.3.i = phi ptr [ %incdec.ptr50.i, %if.then49.i ], [ %incdec.ptr80.i, %if.else75.i ], [ %incdec.ptr61.i, %do.body.i ], [ %incdec.ptr61.i, %land.rhs66.i ]
-  %i.2.i = phi i32 [ %inc.i, %if.then49.i ], [ %inc81.i, %if.else75.i ], [ %inc62.i, %do.body.i ], [ %inc62.i, %land.rhs66.i ]
+  %from.2.i = phi ptr [ %incdec.ptr50.i, %if.then49.i ], [ %incdec.ptr80.i, %if.else75.i ], [ %incdec.ptr61.i, %do.body.i ], [ %incdec.ptr61.i, %land.rhs66.i ]
+  %i.1.i = phi i32 [ %inc.i, %if.then49.i ], [ %inc81.i, %if.else75.i ], [ %inc62.i, %do.body.i ], [ %inc62.i, %land.rhs66.i ]
   %to.2.i = getelementptr inbounds i8, ptr %to.154.i, i64 1
-  %cmp43.i = icmp slt i32 %i.2.i, %len.148.i
+  %cmp43.i = icmp slt i32 %i.1.i, %len.148.i
   br i1 %cmp43.i, label %while.body45.i, label %while.end84.loopexit.i, !llvm.loop !15
 
 while.end84.loopexit.i:                           ; preds = %if.end83.i

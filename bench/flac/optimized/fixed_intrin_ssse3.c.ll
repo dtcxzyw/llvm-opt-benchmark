@@ -151,71 +151,71 @@ for.body183.preheader:                            ; preds = %for.end107
 
 for.body183:                                      ; preds = %for.body183.preheader, %for.body183
   %indvars.iv264 = phi i64 [ %34, %for.body183.preheader ], [ %indvars.iv.next265, %for.body183 ]
-  %total_error_0.0248 = phi i32 [ %29, %for.body183.preheader ], [ %add188, %for.body183 ]
-  %total_error_1.0247 = phi i32 [ %30, %for.body183.preheader ], [ %add196, %for.body183 ]
+  %total_error_0.1248 = phi i32 [ %29, %for.body183.preheader ], [ %add188, %for.body183 ]
+  %total_error_1.1247 = phi i32 [ %30, %for.body183.preheader ], [ %add196, %for.body183 ]
   %last_error_3.0246 = phi i32 [ %sub180, %for.body183.preheader ], [ %sub205, %for.body183 ]
   %last_error_2.0245 = phi i32 [ %sub167, %for.body183.preheader ], [ %sub197, %for.body183 ]
   %last_error_1.0244 = phi i32 [ %sub159, %for.body183.preheader ], [ %sub189, %for.body183 ]
   %last_error_0.0243 = phi i32 [ %40, %for.body183.preheader ], [ %41, %for.body183 ]
-  %total_error_2.0242 = phi i32 [ %31, %for.body183.preheader ], [ %add204, %for.body183 ]
-  %total_error_3.0241 = phi i32 [ %32, %for.body183.preheader ], [ %add212, %for.body183 ]
-  %total_error_4.0240 = phi i32 [ %33, %for.body183.preheader ], [ %add220, %for.body183 ]
+  %total_error_2.1242 = phi i32 [ %31, %for.body183.preheader ], [ %add204, %for.body183 ]
+  %total_error_3.1241 = phi i32 [ %32, %for.body183.preheader ], [ %add212, %for.body183 ]
+  %total_error_4.1240 = phi i32 [ %33, %for.body183.preheader ], [ %add220, %for.body183 ]
   %arrayidx185 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv264
   %41 = load i32, ptr %arrayidx185, align 4
   %cond = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
-  %add188 = add i32 %cond, %total_error_0.0248
+  %add188 = add i32 %cond, %total_error_0.1248
   %sub189 = sub nsw i32 %41, %last_error_0.0243
   %cond195 = tail call i32 @llvm.abs.i32(i32 %sub189, i1 true)
-  %add196 = add i32 %cond195, %total_error_1.0247
+  %add196 = add i32 %cond195, %total_error_1.1247
   %sub197 = sub nsw i32 %sub189, %last_error_1.0244
   %cond203 = tail call i32 @llvm.abs.i32(i32 %sub197, i1 true)
-  %add204 = add i32 %cond203, %total_error_2.0242
+  %add204 = add i32 %cond203, %total_error_2.1242
   %sub205 = sub nsw i32 %sub197, %last_error_2.0245
   %cond211 = tail call i32 @llvm.abs.i32(i32 %sub205, i1 true)
-  %add212 = add i32 %cond211, %total_error_3.0241
+  %add212 = add i32 %cond211, %total_error_3.1241
   %sub213 = sub nsw i32 %sub205, %last_error_3.0246
   %cond219 = tail call i32 @llvm.abs.i32(i32 %sub213, i1 true)
-  %add220 = add i32 %cond219, %total_error_4.0240
+  %add220 = add i32 %cond219, %total_error_4.1240
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %42 = trunc nuw i64 %indvars.iv.next265 to i32
   %cmp182 = icmp slt i32 %42, %data_len
   br i1 %cmp182, label %for.body183, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body183, %for.end107
-  %total_error_4.1 = phi i32 [ %33, %for.end107 ], [ %add220, %for.body183 ]
-  %total_error_3.1 = phi i32 [ %32, %for.end107 ], [ %add212, %for.body183 ]
-  %total_error_2.1 = phi i32 [ %31, %for.end107 ], [ %add204, %for.body183 ]
-  %total_error_1.1 = phi i32 [ %30, %for.end107 ], [ %add196, %for.body183 ]
-  %total_error_0.1 = phi i32 [ %29, %for.end107 ], [ %add188, %for.body183 ]
-  %cond228 = tail call i32 @llvm.umin.i32(i32 %total_error_1.1, i32 %total_error_2.1)
-  %cond228.total_error_3.1 = tail call i32 @llvm.umin.i32(i32 %cond228, i32 %total_error_3.1)
-  %cond258 = tail call i32 @llvm.umin.i32(i32 %cond228.total_error_3.1, i32 %total_error_4.1)
-  %cmp259.not = icmp ugt i32 %total_error_0.1, %cond258
+  %total_error_4.0 = phi i32 [ %33, %for.end107 ], [ %add220, %for.body183 ]
+  %total_error_3.0 = phi i32 [ %32, %for.end107 ], [ %add212, %for.body183 ]
+  %total_error_2.0 = phi i32 [ %31, %for.end107 ], [ %add204, %for.body183 ]
+  %total_error_1.0 = phi i32 [ %30, %for.end107 ], [ %add196, %for.body183 ]
+  %total_error_0.0 = phi i32 [ %29, %for.end107 ], [ %add188, %for.body183 ]
+  %cond228 = tail call i32 @llvm.umin.i32(i32 %total_error_1.0, i32 %total_error_2.0)
+  %cond228.total_error_3.0 = tail call i32 @llvm.umin.i32(i32 %cond228, i32 %total_error_3.0)
+  %cond258 = tail call i32 @llvm.umin.i32(i32 %cond228.total_error_3.0, i32 %total_error_4.0)
+  %cmp259.not = icmp ugt i32 %total_error_0.0, %cond258
   br i1 %cmp259.not, label %if.else, label %if.end293
 
 if.else:                                          ; preds = %if.end
-  %cond265 = tail call i32 @llvm.umin.i32(i32 %total_error_2.1, i32 %total_error_3.1)
-  %cond265.total_error_4.1 = tail call i32 @llvm.umin.i32(i32 %cond265, i32 %total_error_4.1)
-  %cmp276.not = icmp ugt i32 %total_error_1.1, %cond265.total_error_4.1
+  %cond265 = tail call i32 @llvm.umin.i32(i32 %total_error_2.0, i32 %total_error_3.0)
+  %cond265.total_error_4.0 = tail call i32 @llvm.umin.i32(i32 %cond265, i32 %total_error_4.0)
+  %cmp276.not = icmp ugt i32 %total_error_1.0, %cond265.total_error_4.0
   br i1 %cmp276.not, label %if.else278, label %cond.true295
 
 if.else278:                                       ; preds = %if.else
-  %cond283 = tail call i32 @llvm.umin.i32(i32 %total_error_3.1, i32 %total_error_4.1)
-  %cmp284.not = icmp ugt i32 %total_error_2.1, %cond283
+  %cond283 = tail call i32 @llvm.umin.i32(i32 %total_error_3.0, i32 %total_error_4.0)
+  %cmp284.not = icmp ugt i32 %total_error_2.0, %cond283
   br i1 %cmp284.not, label %if.else286, label %cond.true295
 
 if.else286:                                       ; preds = %if.else278
-  %cmp287.not = icmp ugt i32 %total_error_3.1, %total_error_4.1
+  %cmp287.not = icmp ugt i32 %total_error_3.0, %total_error_4.0
   %. = select i1 %cmp287.not, i32 4, i32 3
   br label %cond.true295
 
 if.end293:                                        ; preds = %if.end
-  %cmp294.not = icmp eq i32 %total_error_0.1, 0
+  %cmp294.not = icmp eq i32 %total_error_0.0, 0
   br i1 %cmp294.not, label %cond.end302, label %cond.true295
 
 cond.true295:                                     ; preds = %if.else, %if.else278, %if.else286, %if.end293
   %order.0221 = phi i32 [ 0, %if.end293 ], [ %., %if.else286 ], [ 2, %if.else278 ], [ 1, %if.else ]
-  %conv = uitofp i32 %total_error_0.1 to double
+  %conv = uitofp i32 %total_error_0.0 to double
   %mul296 = fmul reassoc nsz arcp double %conv, 0x3FE62E42FEFA39EF
   %conv297 = uitofp i32 %data_len to double
   %div298 = fdiv reassoc nsz arcp double %mul296, %conv297
@@ -228,11 +228,11 @@ cond.end302:                                      ; preds = %if.end293, %cond.tr
   %order.0222 = phi i32 [ %order.0221, %cond.true295 ], [ 0, %if.end293 ]
   %cond303 = phi float [ %43, %cond.true295 ], [ 0.000000e+00, %if.end293 ]
   store float %cond303, ptr %residual_bits_per_sample, align 4
-  %cmp306.not = icmp eq i32 %total_error_1.1, 0
+  %cmp306.not = icmp eq i32 %total_error_1.0, 0
   br i1 %cmp306.not, label %cond.end316, label %cond.true308
 
 cond.true308:                                     ; preds = %cond.end302
-  %conv309 = uitofp i32 %total_error_1.1 to double
+  %conv309 = uitofp i32 %total_error_1.0 to double
   %mul310 = fmul reassoc nsz arcp double %conv309, 0x3FE62E42FEFA39EF
   %conv311 = uitofp i32 %data_len to double
   %div312 = fdiv reassoc nsz arcp double %mul310, %conv311
@@ -245,11 +245,11 @@ cond.end316:                                      ; preds = %cond.end302, %cond.
   %cond317 = phi float [ %44, %cond.true308 ], [ 0.000000e+00, %cond.end302 ]
   %arrayidx319 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %cond317, ptr %arrayidx319, align 4
-  %cmp320.not = icmp eq i32 %total_error_2.1, 0
+  %cmp320.not = icmp eq i32 %total_error_2.0, 0
   br i1 %cmp320.not, label %cond.end330, label %cond.true322
 
 cond.true322:                                     ; preds = %cond.end316
-  %conv323 = uitofp i32 %total_error_2.1 to double
+  %conv323 = uitofp i32 %total_error_2.0 to double
   %mul324 = fmul reassoc nsz arcp double %conv323, 0x3FE62E42FEFA39EF
   %conv325 = uitofp i32 %data_len to double
   %div326 = fdiv reassoc nsz arcp double %mul324, %conv325
@@ -262,11 +262,11 @@ cond.end330:                                      ; preds = %cond.end316, %cond.
   %cond331 = phi float [ %45, %cond.true322 ], [ 0.000000e+00, %cond.end316 ]
   %arrayidx333 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %cond331, ptr %arrayidx333, align 4
-  %cmp334.not = icmp eq i32 %total_error_3.1, 0
+  %cmp334.not = icmp eq i32 %total_error_3.0, 0
   br i1 %cmp334.not, label %cond.end344, label %cond.true336
 
 cond.true336:                                     ; preds = %cond.end330
-  %conv337 = uitofp i32 %total_error_3.1 to double
+  %conv337 = uitofp i32 %total_error_3.0 to double
   %mul338 = fmul reassoc nsz arcp double %conv337, 0x3FE62E42FEFA39EF
   %conv339 = uitofp i32 %data_len to double
   %div340 = fdiv reassoc nsz arcp double %mul338, %conv339
@@ -279,11 +279,11 @@ cond.end344:                                      ; preds = %cond.end330, %cond.
   %cond345 = phi float [ %46, %cond.true336 ], [ 0.000000e+00, %cond.end330 ]
   %arrayidx347 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %cond345, ptr %arrayidx347, align 4
-  %cmp348.not = icmp eq i32 %total_error_4.1, 0
+  %cmp348.not = icmp eq i32 %total_error_4.0, 0
   br i1 %cmp348.not, label %cond.end358, label %cond.true350
 
 cond.true350:                                     ; preds = %cond.end344
-  %conv351 = uitofp i32 %total_error_4.1 to double
+  %conv351 = uitofp i32 %total_error_4.0 to double
   %mul352 = fmul reassoc nsz arcp double %conv351, 0x3FE62E42FEFA39EF
   %conv353 = uitofp i32 %data_len to double
   %div354 = fdiv reassoc nsz arcp double %mul352, %conv353

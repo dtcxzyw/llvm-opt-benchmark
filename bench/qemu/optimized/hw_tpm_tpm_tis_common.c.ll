@@ -501,14 +501,14 @@ while.body.lr.ph:                                 ; preds = %if.then75
   br i1 %27, label %while.body, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
-  %size.addr.177.us = phi i32 [ %dec.us, %while.body.us ], [ %spec.select, %while.body.lr.ph ]
-  %shift.076.us = phi i32 [ %add.us, %while.body.us ], [ 0, %while.body.lr.ph ]
-  %val.175.us = phi i32 [ %or98.us, %while.body.us ], [ 0, %while.body.lr.ph ]
-  %conv96.us = and i32 %shift.076.us, 255
+  %size.addr.277.us = phi i32 [ %dec.us, %while.body.us ], [ %spec.select, %while.body.lr.ph ]
+  %shift.176.us = phi i32 [ %add.us, %while.body.us ], [ 0, %while.body.lr.ph ]
+  %val.275.us = phi i32 [ %or98.us, %while.body.us ], [ 0, %while.body.lr.ph ]
+  %conv96.us = and i32 %shift.176.us, 255
   %shl97.us = shl i32 255, %conv96.us
-  %or98.us = or i32 %shl97.us, %val.175.us
+  %or98.us = or i32 %shl97.us, %val.275.us
   %add.us = add nuw nsw i32 %conv96.us, 8
-  %dec.us = add i32 %size.addr.177.us, -1
+  %dec.us = add i32 %size.addr.277.us, -1
   %cmp86.not.us = icmp eq i32 %dec.us, 0
   br i1 %cmp86.not.us, label %sw.epilog109.thread, label %while.body.us, !llvm.loop !8
 
@@ -519,9 +519,9 @@ while.bodythread-pre-split:                       ; preds = %sw.epilog94
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.bodythread-pre-split
   %28 = phi i32 [ %.pr, %while.bodythread-pre-split ], [ 2, %while.body.lr.ph ]
-  %size.addr.177 = phi i32 [ %dec, %while.bodythread-pre-split ], [ %spec.select, %while.body.lr.ph ]
-  %shift.076 = phi i32 [ %add, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
-  %val.175 = phi i32 [ %or98, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
+  %size.addr.277 = phi i32 [ %dec, %while.bodythread-pre-split ], [ %spec.select, %while.body.lr.ph ]
+  %shift.176 = phi i32 [ %add, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
+  %val.275 = phi i32 [ %or98, %while.bodythread-pre-split ], [ 0, %while.body.lr.ph ]
   %cond1 = icmp eq i32 %28, 2
   br i1 %cond1, label %sw.bb91, label %sw.epilog94
 
@@ -599,10 +599,10 @@ trace_tpm_tis_data_read.exit.i:                   ; preds = %if.else.i.i.i, %if.
 
 sw.epilog94:                                      ; preds = %trace_tpm_tis_data_read.exit.i, %sw.bb91, %while.body
   %v.0 = phi i32 [ 255, %while.body ], [ %conv6.i, %trace_tpm_tis_data_read.exit.i ], [ 255, %sw.bb91 ]
-  %conv96 = and i32 %shift.076, 255
+  %conv96 = and i32 %shift.176, 255
   %shl97 = shl i32 %v.0, %conv96
-  %or98 = or i32 %shl97, %val.175
-  %dec = add i32 %size.addr.177, -1
+  %or98 = or i32 %shl97, %val.275
+  %dec = add i32 %size.addr.277, -1
   %cmp86.not = icmp eq i32 %dec, 0
   br i1 %cmp86.not, label %sw.epilog109.thread, label %while.bodythread-pre-split, !llvm.loop !9
 
@@ -630,12 +630,12 @@ switch.lookup:                                    ; preds = %sw.bb22
   br label %sw.epilog109
 
 sw.epilog109:                                     ; preds = %switch.lookup, %sw.bb22, %sw.bb69, %sw.bb26, %if.else, %if.then36, %sw.bb108, %sw.bb107, %sw.bb106, %sw.bb102, %sw.bb18, %sw.bb17, %sw.bb13, %.loopexit, %if.end
-  %val.2 = phi i32 [ -1, %if.end ], [ -1, %sw.bb108 ], [ 1, %sw.bb107 ], [ 69652, %sw.bb106 ], [ %40, %sw.bb102 ], [ -1, %sw.bb69 ], [ %conv48, %if.then36 ], [ %or65, %if.else ], [ -1, %sw.bb26 ], [ -1, %sw.bb22 ], [ %11, %sw.bb18 ], [ %10, %sw.bb17 ], [ %9, %sw.bb13 ], [ %or12, %.loopexit ], [ %switch.load, %switch.lookup ]
-  %shr = lshr i32 %val.2, %conv2
+  %val.0 = phi i32 [ -1, %if.end ], [ -1, %sw.bb108 ], [ 1, %sw.bb107 ], [ 69652, %sw.bb106 ], [ %40, %sw.bb102 ], [ -1, %sw.bb69 ], [ %conv48, %if.then36 ], [ %or65, %if.else ], [ -1, %sw.bb26 ], [ -1, %sw.bb22 ], [ %11, %sw.bb18 ], [ %10, %sw.bb17 ], [ %9, %sw.bb13 ], [ %or12, %.loopexit ], [ %switch.load, %switch.lookup ]
+  %shr = lshr i32 %val.0, %conv2
   br label %sw.epilog109.thread
 
 sw.epilog109.thread:                              ; preds = %while.body.us, %sw.epilog94, %if.then75, %sw.epilog109
-  %size.addr.271 = phi i32 [ %size, %sw.epilog109 ], [ 0, %if.then75 ], [ 0, %sw.epilog94 ], [ 0, %while.body.us ]
+  %size.addr.071 = phi i32 [ %size, %sw.epilog109 ], [ 0, %if.then75 ], [ 0, %sw.epilog94 ], [ 0, %while.body.us ]
   %42 = phi i32 [ %shr, %sw.epilog109 ], [ 0, %if.then75 ], [ %or98, %sw.epilog94 ], [ %or98.us, %while.body.us ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %43 = load i32, ptr @trace_events_enabled_count, align 4
@@ -662,11 +662,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %47 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %48 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %47, i64 noundef %48, i32 noundef %size.addr.271, i32 noundef %2, i32 noundef %42) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %47, i64 noundef %48, i32 noundef %size.addr.071, i32 noundef %2, i32 noundef %42) #10
   br label %trace_tpm_tis_mmio_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %size.addr.271, i32 noundef %2, i32 noundef %42) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %size.addr.071, i32 noundef %2, i32 noundef %42) #10
   br label %trace_tpm_tis_mmio_read.exit
 
 trace_tpm_tis_mmio_read.exit:                     ; preds = %sw.epilog109.thread, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -5377,8 +5377,8 @@ if.then224:                                       ; preds = %land.lhs.true219
   br label %return
 
 return:                                           ; preds = %invoke.cont61, %if.end213, %land.lhs.true219, %if.then224, %entry, %invoke.cont139, %invoke.cont116, %invoke.cont83, %invoke.cont13
-  %retval.1 = phi i1 [ false, %invoke.cont139 ], [ false, %invoke.cont116 ], [ false, %invoke.cont83 ], [ false, %invoke.cont13 ], [ false, %entry ], [ true, %if.then224 ], [ true, %land.lhs.true219 ], [ true, %if.end213 ], [ false, %invoke.cont61 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %invoke.cont139 ], [ false, %invoke.cont116 ], [ false, %invoke.cont83 ], [ false, %invoke.cont13 ], [ false, %entry ], [ true, %if.then224 ], [ true, %land.lhs.true219 ], [ true, %if.end213 ], [ false, %invoke.cont61 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad138, %ehcleanup118, %lpad94.body, %ehcleanup85, %ehcleanup71, %ehcleanup
   %.pn16 = phi { ptr, i32 } [ %34, %lpad138 ], [ %.pn14, %ehcleanup118 ], [ %eh.lpad-body34, %lpad94.body ], [ %.pn12, %ehcleanup85 ], [ %.pn8.pn.pn, %ehcleanup71 ], [ %.pn, %ehcleanup ]

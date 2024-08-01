@@ -609,18 +609,18 @@ list_length.exit129.i:                            ; preds = %311, %find_compatib
   br label %341
 
 341:                                              ; preds = %339, %337, %334, %322, %321, %list_length.exit129.i, %find_compatible_trans.exit.i
-  %.0107.i = phi i32 [ %314, %list_length.exit129.i ], [ %314, %337 ], [ %314, %339 ], [ %314, %334 ], [ %314, %322 ], [ %314, %321 ], [ %.0.i122.i, %find_compatible_trans.exit.i ]
+  %.1.i = phi i32 [ %314, %list_length.exit129.i ], [ %314, %337 ], [ %314, %339 ], [ %314, %334 ], [ %314, %322 ], [ %314, %321 ], [ %.0.i122.i, %find_compatible_trans.exit.i ]
   %342 = getelementptr inbounds i8, ptr %189, i64 16
-  store i32 %.0107.i, ptr %342, align 8
+  store i32 %.1.i, ptr %342, align 8
   br label %preprocess_aggref.exit
 
 preprocess_aggref.exit:                           ; preds = %178, %341
-  %.1.i = phi i32 [ %188, %178 ], [ %.0107.i, %341 ]
+  %.0107.i = phi i32 [ %188, %178 ], [ %.1.i, %341 ]
   %.0106.i = phi i32 [ %98, %178 ], [ %199, %341 ]
   %343 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %.0106.i, ptr %343, align 4
   %344 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 %.1.i, ptr %344, align 8
+  store i32 %.0107.i, ptr %344, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)

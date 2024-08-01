@@ -984,7 +984,7 @@ _ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit: ; preds = %_ZN13G1Alloc
   br label %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread
 
 _ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread: ; preds = %58, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.i, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %.0 = phi ptr [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ null, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit ], [ %57, %58 ], [ %43, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.i ]
+  %.1 = phi ptr [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ null, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit ], [ %57, %58 ], [ %43, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.i ]
   br i1 %.not.i.i18, label %_ZN11MutexLockerD2Ev.exit, label %59
 
 59:                                               ; preds = %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread
@@ -992,7 +992,7 @@ _ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread: ; preds = %58, %
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %59, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread
-  %.not = icmp eq ptr %.0, null
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %_ZN11MutexLockerD2Ev.exit.thread, label %_ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge
 
 _ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge: ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -1001,10 +1001,10 @@ _ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge: ; preds 
 
 _ZN11MutexLockerD2Ev.exit.thread26:               ; preds = %_ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit
   %60 = phi i64 [ %.pre42, %_ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge ], [ %21, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit ]
-  %.129 = phi ptr [ %.0, %_ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge ], [ %15, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit ]
+  %.029 = phi ptr [ %.1, %_ZN11MutexLockerD2Ev.exit._ZN11MutexLockerD2Ev.exit.thread26_crit_edge ], [ %15, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit ]
   %61 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr %.129, ptr %6, align 8
+  store ptr %.029, ptr %6, align 8
   %62 = getelementptr inbounds i8, ptr %6, i64 8
   %.idx.i = and i64 %60, 2305843009213693951
   store i64 %.idx.i, ptr %62, align 8
@@ -1015,8 +1015,8 @@ _ZN11MutexLockerD2Ev.exit.thread26:               ; preds = %_ZN11MutexLockerD2E
   br label %_ZN11MutexLockerD2Ev.exit.thread
 
 _ZN11MutexLockerD2Ev.exit.thread:                 ; preds = %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.thread, %_ZN11MutexLockerD2Ev.exit.thread26, %_ZN11MutexLockerD2Ev.exit
-  %.125 = phi ptr [ %.129, %_ZN11MutexLockerD2Ev.exit.thread26 ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ null, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.thread ]
-  ret ptr %.125
+  %.025 = phi ptr [ %.029, %_ZN11MutexLockerD2Ev.exit.thread26 ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ null, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.thread ]
+  ret ptr %.025
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1116,7 +1116,7 @@ _ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit: ; preds = %_ZN13G1Alloc
   br label %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread
 
 _ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread: ; preds = %51, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.i, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %.0 = phi ptr [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ null, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit ], [ %50, %51 ], [ %36, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.i ]
+  %.1 = phi ptr [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ null, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit ], [ %50, %51 ], [ %36, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.i ]
   br i1 %.not.i.i13, label %_ZN11MutexLockerD2Ev.exit, label %52
 
 52:                                               ; preds = %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread
@@ -1124,8 +1124,8 @@ _ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread: ; preds = %51, %
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %52, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.thread, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit
-  %.1 = phi ptr [ null, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.thread ], [ %11, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit ], [ %.0, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread ], [ %.0, %52 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit.thread ], [ %11, %_ZN13G1AllocRegion18attempt_allocationEmmPm.exit ], [ %.1, %_ZN13G1AllocRegion25attempt_allocation_lockedEmmPm.exit.thread ], [ %.1, %52 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: noreturn
@@ -7956,9 +7956,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -8205,9 +8205,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit

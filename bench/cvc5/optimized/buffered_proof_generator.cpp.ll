@@ -810,8 +810,8 @@ lpad23:                                           ; preds = %_ZSt11make_sharedIN
   br label %common.resume
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont24, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofStepEESt4hashIS4_EE4findERKS4_.exit
-  %retval.1 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofStepEESt4hashIS4_EE4findERKS4_.exit ], [ true, %invoke.cont24 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofStepEESt4hashIS4_EE4findERKS4_.exit ], [ true, %invoke.cont24 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN4cvc58internal7CDProof11getSymmFactENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef) local_unnamed_addr #0
@@ -1266,7 +1266,7 @@ cleanup.sink.split:                               ; preds = %lor.lhs.false.i.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont35
-  %it.sroa.0.0 = phi ptr [ %39, %invoke.cont35 ], [ null, %cleanup.sink.split ]
+  %it.sroa.0.1 = phi ptr [ %39, %invoke.cont35 ], [ null, %cleanup.sink.split ]
   %switch = phi i1 [ true, %invoke.cont35 ], [ false, %cleanup.sink.split ]
   %40 = load ptr, ptr %symFact, align 8
   %bf.load.i.i = load i64, ptr %40, align 8
@@ -1298,7 +1298,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cleanup, %if.then.i
   br i1 %switch, label %cond.end68, label %return
 
 cond.end68:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofStepEESt4hashIS4_EE4findERKS4_.exit
-  %it.sroa.0.1 = phi ptr [ %it.sroa.0.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %15, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofStepEESt4hashIS4_EE4findERKS4_.exit ]
+  %it.sroa.0.0 = phi ptr [ %it.sroa.0.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %15, %_ZNK4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofStepEESt4hashIS4_EE4findERKS4_.exit ]
   %d_env = getelementptr inbounds i8, ptr %this, i64 8
   %44 = load ptr, ptr %d_env, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #18
@@ -1335,7 +1335,7 @@ invoke.cont76:                                    ; preds = %invoke.cont72
   br i1 %tobool77, label %if.then78, label %if.end116
 
 if.then78:                                        ; preds = %invoke.cont76
-  %second82 = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 48
+  %second82 = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 48
   %48 = load ptr, ptr %second82, align 8
   %d_children = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load ptr, ptr %d_children, align 8
@@ -1733,7 +1733,7 @@ if.then13.i.i337:                                 ; preds = %if.else.i.i335
           to label %invoke.cont120 unwind label %lpad79.loopexit.split-lp
 
 invoke.cont120:                                   ; preds = %if.then13.i.i337, %if.then.i.i339, %if.else.i.i335
-  %second122 = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 48
+  %second122 = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 48
   %105 = load ptr, ptr %second122, align 8
   %106 = load i8, ptr %d_mkUniqueAssume, align 8
   %tobool125 = trunc i8 %106 to i1
@@ -2326,8 +2326,8 @@ if.end19:                                         ; preds = %_ZN4cvc58internal12
   br label %return
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then, %if.end19
-  %retval.1 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %if.end19 ], [ false, %if.then ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %if.end19 ], [ false, %if.then ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: uwtable

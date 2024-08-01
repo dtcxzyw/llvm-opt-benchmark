@@ -933,7 +933,7 @@ _ZNK6HandleclEv.exit151:                          ; preds = %.lr.ph212, %267
   br label %282
 
 282:                                              ; preds = %.thread, %.loopexit, %_ZNK6HandleclEv.exit151
-  %.1122192 = phi ptr [ null, %_ZNK6HandleclEv.exit151 ], [ null, %.loopexit ], [ %263, %.thread ]
+  %.0121192 = phi ptr [ null, %_ZNK6HandleclEv.exit151 ], [ null, %.loopexit ], [ %263, %.thread ]
   %.1 = phi i1 [ false, %_ZNK6HandleclEv.exit151 ], [ true, %.loopexit ], [ %.not133, %.thread ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %283
 
@@ -952,11 +952,11 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %282, %283
   br label %377
 
 287:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
-  %.not = icmp eq ptr %.1122192, null
+  %.not = icmp eq ptr %.0121192, null
   br i1 %.not, label %290, label %288
 
 288:                                              ; preds = %287
-  call fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10JavaThread(ptr noundef nonnull %.0.i, ptr noundef nonnull %.1122192, ptr noundef nonnull %5)
+  call fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10JavaThread(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0121192, ptr noundef nonnull %5)
   %289 = load ptr, ptr %24, align 8
   %.not196 = icmp eq ptr %289, null
   br i1 %.not196, label %290, label %377
@@ -3352,13 +3352,13 @@ _ZL25get_package_entry_by_nameP6Symbol6Handle.exit: ; preds = %12, %8
   br label %.thread20
 
 .thread20:                                        ; preds = %25, %22, %20, %17, %_ZL25get_package_entry_by_nameP6Symbol6Handle.exit
-  %.022 = phi ptr [ null, %_ZL25get_package_entry_by_nameP6Symbol6Handle.exit ], [ null, %17 ], [ null, %20 ], [ null, %22 ], [ %26, %25 ]
+  %.122 = phi ptr [ null, %_ZL25get_package_entry_by_nameP6Symbol6Handle.exit ], [ null, %17 ], [ null, %20 ], [ null, %22 ], [ %26, %25 ]
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %7) #13
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %4, %.thread20, %2
-  %.1 = phi ptr [ null, %2 ], [ %.022, %.thread20 ], [ null, %4 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %.122, %.thread20 ], [ null, %4 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZNK11ModuleEntry6moduleEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1

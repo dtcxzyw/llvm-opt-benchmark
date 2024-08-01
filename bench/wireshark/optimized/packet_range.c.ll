@@ -75,10 +75,10 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph.i:                                         ; preds = %.preheader125.i, %107
   %39 = phi ptr [ %109, %107 ], [ %33, %.preheader125.i ]
-  %.0131.i = phi i32 [ %.3.i, %107 ], [ 0, %.preheader125.i ]
-  %.092130.i = phi i32 [ %.395.i, %107 ], [ 0, %.preheader125.i ]
-  %.096129.i = phi i32 [ %.298.i, %107 ], [ 0, %.preheader125.i ]
-  %.099128.i = phi i32 [ %.2101.i, %107 ], [ 0, %.preheader125.i ]
+  %.0131.i = phi i32 [ %.1.i, %107 ], [ 0, %.preheader125.i ]
+  %.092130.i = phi i32 [ %.193.i, %107 ], [ 0, %.preheader125.i ]
+  %.096129.i = phi i32 [ %.197.i, %107 ], [ 0, %.preheader125.i ]
+  %.099128.i = phi i32 [ %.1100.i, %107 ], [ 0, %.preheader125.i ]
   %.0102127.i = phi i32 [ %108, %107 ], [ 1, %.preheader125.i ]
   %40 = getelementptr inbounds i8, ptr %39, i64 280
   %41 = load ptr, ptr %40, align 8
@@ -167,7 +167,7 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
 84:                                               ; preds = %81, %76
   %85 = icmp eq i32 %.092130.i, 0
   %spec.select.i = select i1 %85, i32 %.0102127.i, i32 %.092130.i
-  %.1.i = tail call i32 @llvm.umax.i32(i32 %.0102127.i, i32 %.0131.i)
+  %.3.i = tail call i32 @llvm.umax.i32(i32 %.0102127.i, i32 %.0131.i)
   %86 = load ptr, ptr %8, align 8
   %87 = load ptr, ptr %4, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 280
@@ -177,10 +177,10 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
 
 90:                                               ; preds = %84, %73
   %.294.i = phi i32 [ %spec.select.i, %84 ], [ %.092130.i, %73 ]
-  %.2.i = phi i32 [ %.1.i, %84 ], [ %.0131.i, %73 ]
+  %.2.i = phi i32 [ %.3.i, %84 ], [ %.0131.i, %73 ]
   %91 = icmp eq i32 %.099128.i, 0
   %spec.select122.i = select i1 %91, i32 %.0102127.i, i32 %.099128.i
-  %.197.i = tail call i32 @llvm.umax.i32(i32 %.0102127.i, i32 %.096129.i)
+  %.298.i = tail call i32 @llvm.umax.i32(i32 %.0102127.i, i32 %.096129.i)
   %92 = load ptr, ptr %6, align 8
   %93 = load ptr, ptr %4, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 280
@@ -191,10 +191,10 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
 
 96:                                               ; preds = %90, %65
   %97 = phi i16 [ %.pre140.i, %90 ], [ %66, %65 ]
-  %.2101.i = phi i32 [ %spec.select122.i, %90 ], [ %.099128.i, %65 ]
-  %.298.i = phi i32 [ %.197.i, %90 ], [ %.096129.i, %65 ]
-  %.395.i = phi i32 [ %.294.i, %90 ], [ %.092130.i, %65 ]
-  %.3.i = phi i32 [ %.2.i, %90 ], [ %.0131.i, %65 ]
+  %.1100.i = phi i32 [ %spec.select122.i, %90 ], [ %.099128.i, %65 ]
+  %.197.i = phi i32 [ %.298.i, %90 ], [ %.096129.i, %65 ]
+  %.193.i = phi i32 [ %.294.i, %90 ], [ %.092130.i, %65 ]
+  %.1.i = phi i32 [ %.2.i, %90 ], [ %.0131.i, %65 ]
   %98 = and i16 %97, 64
   %.not120.i = icmp eq i16 %98, 0
   br i1 %.not120.i, label %107, label %99
@@ -228,8 +228,8 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
   %113 = getelementptr inbounds i8, ptr %112, i64 280
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @frame_data_sequence_find(ptr noundef %114, i32 noundef %.1103136.i) #8
-  %.not106.i = icmp ult i32 %.1103136.i, %.2101.i
-  %.not107.i = icmp ugt i32 %.1103136.i, %.298.i
+  %.not106.i = icmp ult i32 %.1103136.i, %.1100.i
+  %.not107.i = icmp ugt i32 %.1103136.i, %.197.i
   %or.cond123.i = select i1 %.not106.i, i1 true, i1 %.not107.i
   br i1 %or.cond123.i, label %130, label %116
 
@@ -258,8 +258,8 @@ define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unna
   br label %130
 
 130:                                              ; preds = %125, %.lr.ph137.i
-  %.not109.i = icmp ult i32 %.1103136.i, %.395.i
-  %.not110.i = icmp ugt i32 %.1103136.i, %.3.i
+  %.not109.i = icmp ult i32 %.1103136.i, %.193.i
+  %.not110.i = icmp ugt i32 %.1103136.i, %.1.i
   %or.cond124.i = select i1 %.not109.i, i1 true, i1 %.not110.i
   br i1 %or.cond124.i, label %148, label %131
 

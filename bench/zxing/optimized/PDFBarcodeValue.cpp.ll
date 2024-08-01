@@ -133,13 +133,13 @@ define void @_ZNK5ZXing6Pdf41712BarcodeValue5valueEv(ptr dead_on_unwind noalias 
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %12 = phi ptr [ %16, %.lr.ph.i.i ], [ %11, %.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %8, %.preheader.i.i ]
-  %13 = getelementptr i8, ptr %.sroa.02.010.i.i, i64 36
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %8, %.preheader.i.i ]
+  %13 = getelementptr i8, ptr %.sroa.02.110.i.i, i64 36
   %.val.i.i.i = load i32, ptr %13, align 4
   %14 = getelementptr i8, ptr %12, i64 36
   %.val1.i.i.i = load i32, ptr %14, align 4
   %15 = icmp slt i32 %.val.i.i.i, %.val1.i.i.i
-  %spec.select.i.i = select i1 %15, ptr %12, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %15, ptr %12, ptr %.sroa.02.110.i.i
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %12) #13
   %.not.i.i = icmp eq ptr %16, %9
   br i1 %.not.i.i, label %"_ZSt11max_elementISt23_Rb_tree_const_iteratorISt4pairIKiiEEZNK5ZXing6Pdf41712BarcodeValue5valueEvE3$_0ET_S9_S9_T0_.exit", label %.lr.ph.i.i, !llvm.loop !6

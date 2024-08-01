@@ -753,7 +753,7 @@ entry:
   br i1 %cmp7.i, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %result.0 = phi i32 [ %result.2, %for.inc.i ], [ 0, %entry ]
+  %result.0 = phi i32 [ %result.1, %for.inc.i ], [ 0, %entry ]
   %1 = phi i32 [ %16, %for.inc.i ], [ %0, %entry ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
   %2 = load ptr, ptr %io.i, align 8
@@ -816,7 +816,7 @@ if.end30.i:                                       ; preds = %land.lhs.true23.i, 
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end30.i, %for.body.i
-  %result.2 = phi i32 [ %result.0, %for.body.i ], [ %spec.select, %if.end30.i ]
+  %result.1 = phi i32 [ %result.0, %for.body.i ], [ %spec.select, %if.end30.i ]
   %16 = phi i32 [ %1, %for.body.i ], [ %.pre.i, %if.end30.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
@@ -824,11 +824,11 @@ for.inc.i:                                        ; preds = %if.end30.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %evmap_io_foreach_fd.exit, !llvm.loop !10
 
 evmap_io_foreach_fd.exit:                         ; preds = %for.inc.i
-  %cmp = icmp slt i32 %result.2, 0
+  %cmp = icmp slt i32 %result.1, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %evmap_io_foreach_fd.exit
-  %result.324 = phi i32 [ %result.2, %evmap_io_foreach_fd.exit ], [ 0, %entry ]
+  %result.224 = phi i32 [ %result.1, %evmap_io_foreach_fd.exit ], [ 0, %entry ]
   %sigmap1.i = getelementptr inbounds i8, ptr %base, i64 824
   %nentries.i2 = getelementptr inbounds i8, ptr %base, i64 832
   %18 = load i32, ptr %nentries.i2, align 8
@@ -841,7 +841,7 @@ for.body.i5.preheader:                            ; preds = %if.end
 
 for.body.i5:                                      ; preds = %for.body.i5.preheader, %for.inc.i13
   %.pre.i1226 = phi i32 [ %.pre.i1227, %for.inc.i13 ], [ %18, %for.body.i5.preheader ]
-  %result.4 = phi i32 [ %result.6, %for.inc.i13 ], [ %result.324, %for.body.i5.preheader ]
+  %result.3 = phi i32 [ %result.4, %for.inc.i13 ], [ %result.224, %for.body.i5.preheader ]
   %19 = phi i32 [ %26, %for.inc.i13 ], [ %18, %for.body.i5.preheader ]
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i14, %for.inc.i13 ], [ 0, %for.body.i5.preheader ]
   %20 = load ptr, ptr %sigmap1.i, align 8
@@ -862,13 +862,13 @@ if.then.i:                                        ; preds = %if.end.i9
   %25 = load ptr, ptr %add.i20, align 8
   %call.i = tail call i32 %25(ptr noundef nonnull %base, i32 noundef %23, i16 noundef signext 1, i16 noundef signext 8, ptr noundef nonnull %22) #7
   %cmp3.i = icmp eq i32 %call.i, -1
-  %spec.select25 = select i1 %cmp3.i, i32 -1, i32 %result.4
+  %spec.select25 = select i1 %cmp3.i, i32 -1, i32 %result.3
   %.pre.i12.pre = load i32, ptr %nentries.i2, align 8
   br label %for.inc.i13
 
 for.inc.i13:                                      ; preds = %if.end.i9, %if.then.i, %for.body.i5
   %.pre.i1227 = phi i32 [ %.pre.i1226, %for.body.i5 ], [ %.pre.i1226, %if.end.i9 ], [ %.pre.i12.pre, %if.then.i ]
-  %result.6 = phi i32 [ %result.4, %for.body.i5 ], [ %result.4, %if.end.i9 ], [ %spec.select25, %if.then.i ]
+  %result.4 = phi i32 [ %result.3, %for.body.i5 ], [ %result.3, %if.end.i9 ], [ %spec.select25, %if.then.i ]
   %26 = phi i32 [ %19, %for.body.i5 ], [ %.pre.i1226, %if.end.i9 ], [ %.pre.i12.pre, %if.then.i ]
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i6, 1
   %27 = sext i32 %26 to i64
@@ -876,12 +876,12 @@ for.inc.i13:                                      ; preds = %if.end.i9, %if.then
   br i1 %cmp.i15, label %for.body.i5, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
 
 evmap_signal_foreach_signal.exit:                 ; preds = %for.inc.i13, %if.end
-  %result.7 = phi i32 [ %result.324, %if.end ], [ %result.6, %for.inc.i13 ]
-  %result.7.lobit = ashr i32 %result.7, 31
+  %result.5 = phi i32 [ %result.224, %if.end ], [ %result.4, %for.inc.i13 ]
+  %result.5.lobit = ashr i32 %result.5, 31
   br label %return
 
 return:                                           ; preds = %evmap_signal_foreach_signal.exit, %evmap_io_foreach_fd.exit
-  %retval.0 = phi i32 [ -1, %evmap_io_foreach_fd.exit ], [ %result.7.lobit, %evmap_signal_foreach_signal.exit ]
+  %retval.0 = phi i32 [ -1, %evmap_io_foreach_fd.exit ], [ %result.5.lobit, %evmap_signal_foreach_signal.exit ]
   ret i32 %retval.0
 }
 

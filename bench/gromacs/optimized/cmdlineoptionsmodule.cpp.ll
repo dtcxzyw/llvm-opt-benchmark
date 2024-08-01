@@ -529,13 +529,13 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS
   br label %21
 
 19:                                               ; preds = %14, %13, %21
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %21 ], [ null, %14 ], [ null, %13 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %21 ], [ null, %14 ], [ null, %13 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %58
 
 21:                                               ; preds = %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS4_.exit, %2
-  %.sroa.0.1 = phi ptr [ %18, %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %18, %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS4_.exit ], [ null, %2 ]
   %.0 = phi ptr [ %18, %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEaSEOS4_.exit ], [ %9, %2 ]
   invoke void @_ZN3gmx7OptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %22 unwind label %19
@@ -613,14 +613,14 @@ _ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsD2Ev.exit: ; preds = %_ZS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
   call void @_ZN3gmx25OptionsBehaviorCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZN3gmx7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
-  %.not.i17 = icmp eq ptr %.sroa.0.1, null
+  %.not.i17 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i17, label %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit19, label %_ZNKSt14default_deleteIN3gmx25ICommandLineOptionsModuleEEclEPS1_.exit.i18
 
 _ZNKSt14default_deleteIN3gmx25ICommandLineOptionsModuleEEclEPS1_.exit.i18: ; preds = %_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsD2Ev.exit
-  %47 = load ptr, ptr %.sroa.0.1, align 8
+  %47 = load ptr, ptr %.sroa.0.0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.1) #18
+  call void %49(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0) #18
   br label %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit19
 
 _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit19: ; preds = %_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsD2Ev.exit, %_ZNKSt14default_deleteIN3gmx25ICommandLineOptionsModuleEEclEPS1_.exit.i18
@@ -654,7 +654,7 @@ _ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.
   br label %58
 
 58:                                               ; preds = %57, %19
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %19 ], [ %.sroa.0.1, %57 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %19 ], [ %.sroa.0.0, %57 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %.pn.pn, %57 ]
   %.not.i20 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i20, label %_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev.exit22, label %_ZNKSt14default_deleteIN3gmx25ICommandLineOptionsModuleEEclEPS1_.exit.i21

@@ -1118,11 +1118,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %289
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc116.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.10.2.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %299, %.noexc116.i ]
-  %.sroa.0328.2.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %298, %.noexc116.i ]
-  store ptr %.sroa.0328.2.i, ptr %10, align 8
-  store ptr %.sroa.10.2.i, ptr %42, align 8
-  store ptr %.sroa.10.2.i, ptr %43, align 8
+  %.sroa.10.3.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %299, %.noexc116.i ]
+  %.sroa.0328.3.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %298, %.noexc116.i ]
+  store ptr %.sroa.0328.3.i, ptr %10, align 8
+  store ptr %.sroa.10.3.i, ptr %42, align 8
+  store ptr %.sroa.10.3.i, ptr %43, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %286, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %300
 
@@ -1147,7 +1147,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc116.i, %_ZNSt
   br label %.body.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %300, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i, %285
-  %303 = phi ptr [ %286, %285 ], [ %.pre.i, %300 ], [ %.sroa.0328.2.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i ]
+  %303 = phi ptr [ %286, %285 ], [ %.pre.i, %300 ], [ %.sroa.0328.3.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i ]
   %304 = getelementptr inbounds i8, ptr %.sroa.0337.0429.i, i64 16
   %305 = load i32, ptr %304, align 8
   %306 = sext i32 %305 to i64

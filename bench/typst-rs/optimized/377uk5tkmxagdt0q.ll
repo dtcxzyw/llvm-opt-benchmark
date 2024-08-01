@@ -9777,7 +9777,7 @@ _ZN10pdf_writer7content7Content15set_text_matrix17h68bb66d5fbf43fb0E.exit: ; pre
   br label %362
 
 359:                                              ; preds = %554, %369
-  %360 = trunc nuw i8 %.1 to i1
+  %360 = trunc nuw i8 %.2 to i1
   br i1 %360, label %555, label %common.resume
 
 .thread171:                                       ; preds = %358
@@ -9805,14 +9805,14 @@ _ZN10pdf_writer7content7Content15set_text_matrix17h68bb66d5fbf43fb0E.exit: ; pre
           to label %374 unwind label %371
 
 369:                                              ; preds = %373, %371
-  %.043 = phi i8 [ %.2, %371 ], [ %.245, %373 ]
-  %.1 = phi i8 [ %.2, %371 ], [ %.3, %373 ]
+  %.144 = phi i8 [ %.1, %371 ], [ %.245, %373 ]
+  %.2 = phi i8 [ %.1, %371 ], [ %.3, %373 ]
   %.pn = phi { ptr, i32 } [ %372, %371 ], [ %lpad.phi, %373 ]
-  %370 = trunc nuw i8 %.043 to i1
+  %370 = trunc nuw i8 %.144 to i1
   br i1 %370, label %554, label %359
 
 371:                                              ; preds = %444, %362
-  %.2 = phi i8 [ 1, %362 ], [ 0, %444 ]
+  %.1 = phi i8 [ 1, %362 ], [ 0, %444 ]
   %372 = landingpad { ptr, i32 }
           cleanup
   br label %369
@@ -10656,10 +10656,10 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
 
 29:                                               ; preds = %.lr.ph, %102
   %.sroa.0.055 = phi ptr [ %1, %.lr.ph ], [ %30, %102 ]
-  %.sroa.11.054 = phi i8 [ undef, %.lr.ph ], [ %.sroa.11.2, %102 ]
-  %.sroa.8.053 = phi ptr [ undef, %.lr.ph ], [ %.sroa.8.2, %102 ]
-  %.sroa.9.052 = phi i64 [ undef, %.lr.ph ], [ %.sroa.9.2, %102 ]
-  %.sroa.10.051 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10.2, %102 ]
+  %.sroa.11.054 = phi i8 [ undef, %.lr.ph ], [ %.sroa.11.1, %102 ]
+  %.sroa.8.053 = phi ptr [ undef, %.lr.ph ], [ %.sroa.8.1, %102 ]
+  %.sroa.9.052 = phi i64 [ undef, %.lr.ph ], [ %.sroa.9.1, %102 ]
+  %.sroa.10.051 = phi i64 [ undef, %.lr.ph ], [ %.sroa.10.1, %102 ]
   %30 = getelementptr inbounds i8, ptr %.sroa.0.055, i64 96
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
   invoke void @_ZN9typst_pdf4page14construct_page17he68708e5b01fbb45E(ptr noalias nocapture noundef nonnull sret({ i32, [1 x i32], { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] } }) align 8 dereferenceable(152) %7, ptr noalias noundef nonnull align 8 dereferenceable(856) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.055)
@@ -10776,11 +10776,11 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
   unreachable
 
 _ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit: ; preds = %37, %40, %71, %70, %69, %.noexc17, %.thread37.i, %31
-  %.sroa.10.2 = phi i64 [ %.sroa.10.051, %31 ], [ %.sroa.10.051, %37 ], [ %.sroa.10.051, %40 ], [ 0, %.noexc17 ], [ %39, %.thread37.i ], [ %39, %70 ], [ %39, %71 ], [ %39, %69 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.052, %31 ], [ %.sroa.9.052, %37 ], [ %.sroa.9.052, %40 ], [ %.sroa.48.sroa.3.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ %66, %70 ], [ %66, %71 ], [ %66, %69 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.053, %31 ], [ %.sroa.8.053, %37 ], [ %.sroa.8.053, %40 ], [ %.sroa.48.sroa.0.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ inttoptr (i64 16 to ptr), %70 ], [ %.sroa.0.0.copyload29.i, %71 ], [ %.sroa.0.0.copyload29.i, %69 ]
-  %.sroa.025.1 = phi i64 [ 2, %31 ], [ 2, %37 ], [ 2, %40 ], [ 1, %.noexc17 ], [ 0, %.thread37.i ], [ 1, %70 ], [ 1, %71 ], [ 1, %69 ]
-  %.sroa.11.2 = phi i8 [ %.sroa.11.054, %31 ], [ %.sroa.11.054, %37 ], [ %.sroa.11.054, %40 ], [ 5, %.noexc17 ], [ %.01639.i, %.thread37.i ], [ %.01639.i, %70 ], [ %.01639.i, %71 ], [ %.01639.i, %69 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.051, %31 ], [ %.sroa.10.051, %37 ], [ %.sroa.10.051, %40 ], [ 0, %.noexc17 ], [ %39, %.thread37.i ], [ %39, %70 ], [ %39, %71 ], [ %39, %69 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.052, %31 ], [ %.sroa.9.052, %37 ], [ %.sroa.9.052, %40 ], [ %.sroa.48.sroa.3.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ %66, %70 ], [ %66, %71 ], [ %66, %69 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.053, %31 ], [ %.sroa.8.053, %37 ], [ %.sroa.8.053, %40 ], [ %.sroa.48.sroa.0.0.copyload.i, %.noexc17 ], [ undef, %.thread37.i ], [ inttoptr (i64 16 to ptr), %70 ], [ %.sroa.0.0.copyload29.i, %71 ], [ %.sroa.0.0.copyload29.i, %69 ]
+  %.sroa.025.0 = phi i64 [ 2, %31 ], [ 2, %37 ], [ 2, %40 ], [ 1, %.noexc17 ], [ 0, %.thread37.i ], [ 1, %70 ], [ 1, %71 ], [ 1, %69 ]
+  %.sroa.11.1 = phi i8 [ %.sroa.11.054, %31 ], [ %.sroa.11.054, %37 ], [ %.sroa.11.054, %40 ], [ 5, %.noexc17 ], [ %.01639.i, %.thread37.i ], [ %.01639.i, %70 ], [ %.01639.i, %71 ], [ %.01639.i, %69 ]
   %76 = load i64, ptr %8, align 8, !range !343, !alias.scope !2072, !noundef !14
   %77 = icmp eq i64 %76, 2
   br i1 %77, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit", label %78
@@ -10809,19 +10809,19 @@ _ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit: ; preds = %3
 .thread:                                          ; preds = %82
   %83 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.025.1, ptr %8, align 8
-  store ptr %.sroa.8.2, ptr %14, align 8
-  store i64 %.sroa.9.2, ptr %.sroa.9.0..sroa_idx29, align 8
-  store i64 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx31, align 8
-  store i8 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx33, align 8
+  store i64 %.sroa.025.0, ptr %8, align 8
+  store ptr %.sroa.8.1, ptr %14, align 8
+  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx29, align 8
+  store i64 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx31, align 8
+  store i8 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx33, align 8
   br label %.thread42
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit": ; preds = %78, %_ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit, %82
-  store i64 %.sroa.025.1, ptr %8, align 8
-  store ptr %.sroa.8.2, ptr %14, align 8
-  store i64 %.sroa.9.2, ptr %.sroa.9.0..sroa_idx29, align 8
-  store i64 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx31, align 8
-  store i8 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx33, align 8
+  store i64 %.sroa.025.0, ptr %8, align 8
+  store ptr %.sroa.8.1, ptr %14, align 8
+  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx29, align 8
+  store i64 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx31, align 8
+  store i8 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx33, align 8
   %84 = load i64, ptr %16, align 8, !alias.scope !2080, !noundef !14
   %85 = load i64, ptr %15, align 8, !alias.scope !2080, !noundef !14
   %86 = icmp eq i64 %84, %85

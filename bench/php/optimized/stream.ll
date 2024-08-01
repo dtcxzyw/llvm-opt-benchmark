@@ -1989,7 +1989,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %223
 
 223:                                              ; preds = %.lr.ph, %288
-  %.1584 = phi i32 [ %.0496575, %.lr.ph ], [ %.2, %288 ]
+  %.2584 = phi i32 [ %.0496575, %.lr.ph ], [ %.3, %288 ]
   %.0497583 = phi ptr [ %212, %.lr.ph ], [ %289, %288 ]
   %224 = getelementptr inbounds i8, ptr %.0497583, i64 8
   %225 = load i8, ptr %224, align 8
@@ -2098,7 +2098,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %288
 
 288:                                              ; preds = %227, %234, %238, %243, %285, %223
-  %.2 = phi i32 [ %.1584, %223 ], [ %.1584, %227 ], [ 1, %285 ], [ %.1584, %243 ], [ %.1584, %238 ], [ %.1584, %234 ]
+  %.3 = phi i32 [ %.2584, %223 ], [ %.2584, %227 ], [ 1, %285 ], [ %.2584, %243 ], [ %.2584, %238 ], [ %.2584, %234 ]
   %289 = getelementptr inbounds i8, ptr %.0497583, i64 32
   %.not549 = icmp eq ptr %289, %216
   br i1 %.not549, label %._crit_edge.loopexit, label %223
@@ -2109,7 +2109,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread571
   %290 = phi ptr [ %210, %.thread571 ], [ %.pre596, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.0496575, %.thread571 ], [ %.2, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i32 [ %.0496575, %.thread571 ], [ %.3, %._crit_edge.loopexit ]
   %291 = getelementptr inbounds i8, ptr %290, i64 72
   call void @zend_hash_rehash(ptr noundef nonnull %291) #14
   %292 = load ptr, ptr %8, align 8
@@ -2364,7 +2364,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   %426 = phi ptr [ %.pre598, %._crit_edge594.loopexit ], [ %360, %._crit_edge589 ]
   %427 = getelementptr inbounds i8, ptr %426, i64 184
   call void @zend_hash_rehash(ptr noundef nonnull %427) #14
-  %.not554 = icmp eq i32 %.1.lcssa, 0
+  %.not554 = icmp eq i32 %.2.lcssa, 0
   br i1 %.not554, label %434, label %.thread576
 
 .thread576:                                       ; preds = %191, %._crit_edge594

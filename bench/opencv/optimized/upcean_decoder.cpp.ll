@@ -809,9 +809,9 @@ define hidden void @_ZNK2cv7barcode13UPCEANDecoder9decodeROIERKNS_3MatE(ptr dead
 
 51:                                               ; preds = %30, %_ZNSt6vectorIhSaIhEED2Ev.exit55
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
-  %.02975 = phi i32 [ 0, %30 ], [ %.231, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
-  %.03274 = phi i32 [ 0, %30 ], [ %.234, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
-  %.03673 = phi i32 [ 0, %30 ], [ %.238, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
+  %.02975 = phi i32 [ 0, %30 ], [ %.130, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
+  %.03274 = phi i32 [ 0, %30 ], [ %.133, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
+  %.03673 = phi i32 [ 0, %30 ], [ %.137, %_ZNSt6vectorIhSaIhEED2Ev.exit55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = mul nsw i64 %indvars.iv.next, %50
   %53 = icmp slt i64 %52, 0
@@ -938,9 +938,9 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   br label %.body59
 
 102:                                              ; preds = %86, %94, %75
-  %.137 = phi i32 [ %80, %94 ], [ %80, %86 ], [ %.03673, %75 ]
-  %.133 = phi i32 [ %95, %94 ], [ %.03274, %86 ], [ %.03274, %75 ]
-  %.130 = phi i32 [ %92, %94 ], [ %.02975, %86 ], [ %.02975, %75 ]
+  %.238 = phi i32 [ %80, %94 ], [ %80, %86 ], [ %.03673, %75 ]
+  %.234 = phi i32 [ %95, %94 ], [ %.03274, %86 ], [ %.03274, %75 ]
+  %.231 = phi i32 [ %92, %94 ], [ %.02975, %86 ], [ %.02975, %75 ]
   %103 = load ptr, ptr %10, align 8
   %.not.i.i.i53 = icmp eq ptr %103, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIhSaIhEED2Ev.exit55, label %104
@@ -950,16 +950,16 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit55
 
 _ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %104, %102, %51
-  %.238 = phi i32 [ %.03673, %51 ], [ %.137, %102 ], [ %.137, %104 ]
-  %.234 = phi i32 [ %.03274, %51 ], [ %.133, %102 ], [ %.133, %104 ]
-  %.231 = phi i32 [ %.02975, %51 ], [ %.130, %102 ], [ %.130, %104 ]
+  %.137 = phi i32 [ %.03673, %51 ], [ %.238, %102 ], [ %.238, %104 ]
+  %.133 = phi i32 [ %.03274, %51 ], [ %.234, %102 ], [ %.234, %104 ]
+  %.130 = phi i32 [ %.02975, %51 ], [ %.231, %102 ], [ %.231, %104 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
   br i1 %exitcond.not, label %105, label %51, !llvm.loop !12
 
 105:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit55
-  %106 = icmp eq i32 %.238, 0
-  %107 = shl i32 %.231, 2
-  %108 = icmp slt i32 %107, %.238
+  %106 = icmp eq i32 %.137, 0
+  %107 = shl i32 %.130, 2
+  %108 = icmp slt i32 %107, %.137
   %or.cond48 = select i1 %106, i1 true, i1 %108
   br i1 %or.cond48, label %109, label %117
 
@@ -991,9 +991,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %104, %102, %51
   br label %138
 
 117:                                              ; preds = %105
-  %118 = sitofp i32 %.231 to float
+  %118 = sitofp i32 %.130 to float
   %119 = fdiv float %118, 1.500000e+01
-  %120 = icmp eq i32 %.234, 2
+  %120 = icmp eq i32 %.133, 2
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %117
@@ -1015,7 +1015,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %104, %102, %51
   br label %129
 
 129:                                              ; preds = %127, %123, %117
-  %.335 = phi i32 [ 3, %127 ], [ 2, %123 ], [ %.234, %117 ]
+  %.335 = phi i32 [ 3, %127 ], [ 2, %123 ], [ %.133, %117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   %130 = getelementptr inbounds i8, ptr %15, i64 32
   store i32 0, ptr %130, align 8
@@ -1574,11 +1574,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit65:                  ; preds = %81, %85
 
 87:                                               ; preds = %60, %64, %68, %72, %76, %74, %70, %66, %62
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ]
-  %.832 = phi ptr [ %29, %60 ], [ %31, %62 ], [ %33, %64 ], [ %35, %66 ], [ %37, %68 ], [ %39, %70 ], [ %41, %72 ], [ %43, %74 ], [ %45, %76 ]
+  %.024 = phi ptr [ %29, %60 ], [ %31, %62 ], [ %33, %64 ], [ %35, %66 ], [ %37, %68 ], [ %39, %70 ], [ %41, %72 ], [ %43, %74 ], [ %45, %76 ]
   br label %88
 
 88:                                               ; preds = %87, %_ZNSt6vectorIiSaIiEED2Ev.exit67
-  %89 = phi ptr [ %90, %_ZNSt6vectorIiSaIiEED2Ev.exit67 ], [ %.832, %87 ]
+  %89 = phi ptr [ %90, %_ZNSt6vectorIiSaIiEED2Ev.exit67 ], [ %.024, %87 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 -24
   %91 = load ptr, ptr %90, align 8
   %.not.i.i.i66 = icmp eq ptr %91, null

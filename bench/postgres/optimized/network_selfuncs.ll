@@ -1258,7 +1258,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
 
 90:                                               ; preds = %.lr.ph, %inet_semi_join_sel.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %inet_semi_join_sel.exit ]
-  %.069120 = phi double [ 0.000000e+00, %.lr.ph ], [ %112, %inet_semi_join_sel.exit ]
+  %.170120 = phi double [ 0.000000e+00, %.lr.ph ], [ %112, %inet_semi_join_sel.exit ]
   %91 = load ptr, ptr %82, align 8
   %92 = getelementptr float, ptr %91, i64 %indvars.iv
   %93 = load float, ptr %92, align 4
@@ -1300,13 +1300,13 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
 
 inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i103, %.loopexit.i, %105, %108
   %.0.i100 = phi double [ %111, %108 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %.loopexit.i ], [ 1.000000e+00, %.lr.ph.i103 ]
-  %112 = call double @llvm.fmuladd.f64(double %94, double %.0.i100, double %.069120)
+  %112 = call double @llvm.fmuladd.f64(double %94, double %.0.i100, double %.170120)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %90, !llvm.loop !13
 
 .loopexit:                                        ; preds = %inet_semi_join_sel.exit, %80
-  %.170 = phi double [ 0.000000e+00, %80 ], [ %112, %inet_semi_join_sel.exit ]
+  %.069 = phi double [ 0.000000e+00, %80 ], [ %112, %inet_semi_join_sel.exit ]
   %113 = getelementptr inbounds i8, ptr %7, i64 24
   %114 = load i32, ptr %113, align 8
   %115 = icmp sgt i32 %114, 2
@@ -1386,11 +1386,11 @@ inet_semi_join_sel.exit118:                       ; preds = %.lr.ph.i113, %.loop
   %153 = fsub double %152, %.079
   %154 = fmul double %153, %145
   %155 = fdiv double %154, %151
-  %156 = fadd double %.170, %155
+  %156 = fadd double %.069, %155
   br label %157
 
 157:                                              ; preds = %._crit_edge, %.loopexit
-  %.2 = phi double [ %156, %._crit_edge ], [ %.170, %.loopexit ]
+  %.2 = phi double [ %156, %._crit_edge ], [ %.069, %.loopexit ]
   %brmerge86 = select i1 %.074.shrunk, i1 true, i1 %.072.shrunk
   %or.cond90 = select i1 %brmerge86, i1 %brmerge, i1 false
   br i1 %or.cond90, label %165, label %158

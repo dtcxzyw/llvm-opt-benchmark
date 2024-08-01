@@ -869,8 +869,8 @@ while.body31.preheader.i:                         ; preds = %land.rhs18.i
   br label %while.body31.i
 
 while.body31.i:                                   ; preds = %if.end57.i, %while.body31.preheader.i
-  %i.049.i = phi i32 [ %i.2.i, %if.end57.i ], [ 0, %while.body31.preheader.i ]
-  %from.148.i = phi ptr [ %from.3.i, %if.end57.i ], [ %from.036.i, %while.body31.preheader.i ]
+  %i.049.i = phi i32 [ %i.1.i, %if.end57.i ], [ 0, %while.body31.preheader.i ]
+  %from.148.i = phi ptr [ %from.2.i, %if.end57.i ], [ %from.036.i, %while.body31.preheader.i ]
   %to.147.i = phi ptr [ %to.2.i, %if.end57.i ], [ %15, %while.body31.preheader.i ]
   %16 = load i8, ptr %from.148.i, align 1
   %cmp34.i = icmp sgt i8 %16, -1
@@ -893,10 +893,10 @@ if.then42.i:                                      ; preds = %if.else.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then42.i
-  %from.2.i = phi ptr [ %from.148.i, %if.then42.i ], [ %incdec.ptr44.i, %do.body.i ]
-  %i.1.i = phi i32 [ %i.049.i, %if.then42.i ], [ %inc45.i, %do.body.i ]
-  %incdec.ptr44.i = getelementptr inbounds i8, ptr %from.2.i, i64 1
-  %inc45.i = add nsw i32 %i.1.i, 1
+  %from.3.i = phi ptr [ %from.148.i, %if.then42.i ], [ %incdec.ptr44.i, %do.body.i ]
+  %i.2.i = phi i32 [ %i.049.i, %if.then42.i ], [ %inc45.i, %do.body.i ]
+  %incdec.ptr44.i = getelementptr inbounds i8, ptr %from.3.i, i64 1
+  %inc45.i = add nsw i32 %i.2.i, 1
   %17 = load i8, ptr %incdec.ptr44.i, align 1
   %conv46.i = zext i8 %17 to i32
   %call47.i = tail call i32 @ossl_ctype_check(i32 noundef %conv46.i, i32 noundef 8) #6
@@ -914,10 +914,10 @@ if.else49.i:                                      ; preds = %if.else.i
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %do.body.i, %if.else49.i, %if.then36.i
-  %from.3.i = phi ptr [ %incdec.ptr54.i, %if.else49.i ], [ %incdec.ptr37.i, %if.then36.i ], [ %incdec.ptr44.i, %do.body.i ]
-  %i.2.i = phi i32 [ %inc55.i, %if.else49.i ], [ %inc.i, %if.then36.i ], [ %inc45.i, %do.body.i ]
+  %from.2.i = phi ptr [ %incdec.ptr54.i, %if.else49.i ], [ %incdec.ptr37.i, %if.then36.i ], [ %incdec.ptr44.i, %do.body.i ]
+  %i.1.i = phi i32 [ %inc55.i, %if.else49.i ], [ %inc.i, %if.then36.i ], [ %inc45.i, %do.body.i ]
   %to.2.i = getelementptr inbounds i8, ptr %to.147.i, i64 1
-  %cmp29.i = icmp slt i32 %i.2.i, %len.143.i
+  %cmp29.i = icmp slt i32 %i.1.i, %len.143.i
   br i1 %cmp29.i, label %while.body31.i, label %while.end58.loopexit.i, !llvm.loop !12
 
 while.end58.loopexit.i:                           ; preds = %if.end57.i
@@ -1020,9 +1020,9 @@ i2d_name_canon.exit49:                            ; preds = %for.body.i38, %if.e
   br label %err
 
 err:                                              ; preds = %if.end4.i, %asn1_string_canon.exit, %if.then18, %i2d_name_canon.exit.thread, %if.end53, %i2d_name_canon.exit49, %if.then48, %if.then37, %if.then31, %if.then24, %if.then7
-  %tmpentry.1 = phi ptr [ null, %if.then7 ], [ null, %if.then31 ], [ %call1.i, %if.then37 ], [ %call1.i, %if.then48 ], [ null, %if.then24 ], [ null, %if.end53 ], [ null, %i2d_name_canon.exit49 ], [ null, %i2d_name_canon.exit.thread ], [ %call1.i, %if.end4.i ], [ %call1.i, %asn1_string_canon.exit ], [ null, %if.then18 ]
+  %tmpentry.0 = phi ptr [ null, %if.then7 ], [ null, %if.then31 ], [ %call1.i, %if.then37 ], [ %call1.i, %if.then48 ], [ null, %if.then24 ], [ null, %if.end53 ], [ null, %i2d_name_canon.exit49 ], [ null, %i2d_name_canon.exit.thread ], [ %call1.i, %if.end4.i ], [ %call1.i, %asn1_string_canon.exit ], [ null, %if.then18 ]
   %ret.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.then31 ], [ 0, %if.then37 ], [ 0, %if.then48 ], [ 0, %if.then24 ], [ 0, %if.end53 ], [ 1, %i2d_name_canon.exit49 ], [ 0, %i2d_name_canon.exit.thread ], [ 0, %if.then18 ], [ 0, %asn1_string_canon.exit ], [ 0, %if.end4.i ]
-  call void @ASN1_item_free(ptr noundef %tmpentry.1, ptr noundef nonnull @X509_NAME_ENTRY_it.local_it) #6
+  call void @ASN1_item_free(ptr noundef %tmpentry.0, ptr noundef nonnull @X509_NAME_ENTRY_it.local_it) #6
   call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_pop_free) #6
   br label %return
 

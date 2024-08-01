@@ -184,7 +184,7 @@ if.end61:                                         ; preds = %if.then57
 
 if.end75:                                         ; preds = %sw.bb54, %if.end61
   %.sink141 = phi i32 [ %.144, %if.end61 ], [ 8528, %sw.bb54 ]
-  %skip.1 = phi i32 [ 0, %if.end61 ], [ 1, %sw.bb54 ]
+  %skip.2 = phi i32 [ 0, %if.end61 ], [ 1, %sw.bb54 ]
   store i32 %.sink141, ptr %state8, align 4
   store i32 0, ptr %init_num245, align 8
   br label %sw.epilog
@@ -226,7 +226,7 @@ if.then96:                                        ; preds = %land.lhs.true, %sw.
   br i1 %cmp98, label %end, label %if.end103
 
 if.end103:                                        ; preds = %lor.lhs.false93, %land.lhs.true, %if.then96
-  %skip.2 = phi i32 [ 0, %if.then96 ], [ 1, %land.lhs.true ], [ 1, %lor.lhs.false93 ]
+  %skip.3 = phi i32 [ 0, %if.then96 ], [ 1, %land.lhs.true ], [ 1, %lor.lhs.false93 ]
   store i32 8544, ptr %state8, align 4
   store i32 0, ptr %init_num245, align 8
   br label %sw.epilog
@@ -245,7 +245,7 @@ if.then110:                                       ; preds = %sw.bb106
   br i1 %cmp112, label %end, label %if.end117
 
 if.end117:                                        ; preds = %sw.bb106, %if.then110
-  %skip.3 = phi i32 [ 0, %if.then110 ], [ 1, %sw.bb106 ]
+  %skip.4 = phi i32 [ 0, %if.then110 ], [ 1, %sw.bb106 ]
   store i32 8560, ptr %state8, align 4
   store i32 0, ptr %init_num245, align 8
   br label %sw.epilog
@@ -431,11 +431,11 @@ sw.default:                                       ; preds = %for.cond
   br label %end
 
 sw.epilog:                                        ; preds = %if.end217, %if.end229, %if.end209, %if.end202, %if.end179, %if.end167, %if.end159, %if.end151, %if.end135, %if.end125, %if.end117, %if.end103, %if.end81, %if.end75, %if.end52, %if.end34, %if.end28
-  %skip.4 = phi i32 [ 0, %if.end229 ], [ 0, %if.end217 ], [ 0, %if.end209 ], [ 0, %if.end202 ], [ 0, %if.end179 ], [ 0, %if.end167 ], [ 0, %if.end159 ], [ 0, %if.end151 ], [ 0, %if.end135 ], [ 0, %if.end125 ], [ %skip.3, %if.end117 ], [ %skip.2, %if.end103 ], [ 0, %if.end81 ], [ %skip.1, %if.end75 ], [ 0, %if.end52 ], [ 0, %if.end34 ], [ 0, %if.end28 ]
+  %skip.1 = phi i32 [ 0, %if.end229 ], [ 0, %if.end217 ], [ 0, %if.end209 ], [ 0, %if.end202 ], [ 0, %if.end179 ], [ 0, %if.end167 ], [ 0, %if.end159 ], [ 0, %if.end151 ], [ 0, %if.end135 ], [ 0, %if.end125 ], [ %skip.4, %if.end117 ], [ %skip.3, %if.end103 ], [ 0, %if.end81 ], [ %skip.2, %if.end75 ], [ 0, %if.end52 ], [ 0, %if.end34 ], [ 0, %if.end28 ]
   %30 = load ptr, ptr %s3237, align 8
   %reuse_message = getelementptr inbounds i8, ptr %30, i64 452
   %31 = load i32, ptr %reuse_message, align 4
-  %32 = or i32 %31, %skip.4
+  %32 = or i32 %31, %skip.1
   %or.cond.not140 = icmp eq i32 %32, 0
   %or.cond1 = and i1 %cmp261, %or.cond.not140
   br i1 %or.cond1, label %land.lhs.true263, label %for.cond.backedge
@@ -456,8 +456,8 @@ if.then267:                                       ; preds = %land.lhs.true263
 
 end:                                              ; preds = %if.end217, %if.end175, %if.end20, %if.then14, %lor.lhs.false, %sw.bb224, %sw.bb212, %sw.bb204, %sw.bb181, %sw.bb170, %sw.bb162, %sw.bb154, %if.then145, %sw.bb120, %if.then110, %if.then96, %sw.bb77, %if.then57, %sw.bb37, %sw.bb30, %sw.default, %if.end252, %if.then134, %if.then27
   %ret.0 = phi i32 [ -1, %sw.default ], [ 1, %if.end252 ], [ -1, %if.then134 ], [ -1, %if.then27 ], [ -1, %if.end217 ], [ -1, %if.end175 ], [ -1, %if.end20 ], [ -1, %if.then14 ], [ -1, %lor.lhs.false ], [ %call31, %sw.bb30 ], [ %call38, %sw.bb37 ], [ %call58, %if.then57 ], [ %call78, %sw.bb77 ], [ %call97, %if.then96 ], [ %call111, %if.then110 ], [ %call121, %sw.bb120 ], [ %call146, %if.then145 ], [ %call155, %sw.bb154 ], [ %call163, %sw.bb162 ], [ %call171, %sw.bb170 ], [ %call182, %sw.bb181 ], [ %call205, %sw.bb204 ], [ %call213, %sw.bb212 ], [ %call225, %sw.bb224 ]
-  %buf.3 = phi ptr [ null, %sw.default ], [ null, %if.end252 ], [ null, %if.then134 ], [ null, %if.then27 ], [ null, %if.end217 ], [ null, %if.end175 ], [ null, %if.end20 ], [ null, %if.then14 ], [ %call, %lor.lhs.false ], [ null, %sw.bb30 ], [ null, %sw.bb37 ], [ null, %if.then57 ], [ null, %sw.bb77 ], [ null, %if.then96 ], [ null, %if.then110 ], [ null, %sw.bb120 ], [ null, %if.then145 ], [ null, %sw.bb154 ], [ null, %sw.bb162 ], [ null, %sw.bb170 ], [ null, %sw.bb181 ], [ null, %sw.bb204 ], [ null, %sw.bb212 ], [ null, %sw.bb224 ]
-  tail call void @BUF_MEM_free(ptr noundef %buf.3) #2
+  %buf.2 = phi ptr [ null, %sw.default ], [ null, %if.end252 ], [ null, %if.then134 ], [ null, %if.then27 ], [ null, %if.end217 ], [ null, %if.end175 ], [ null, %if.end20 ], [ null, %if.then14 ], [ %call, %lor.lhs.false ], [ null, %sw.bb30 ], [ null, %sw.bb37 ], [ null, %if.then57 ], [ null, %sw.bb77 ], [ null, %if.then96 ], [ null, %if.then110 ], [ null, %sw.bb120 ], [ null, %if.then145 ], [ null, %sw.bb154 ], [ null, %sw.bb162 ], [ null, %sw.bb170 ], [ null, %sw.bb181 ], [ null, %sw.bb204 ], [ null, %sw.bb212 ], [ null, %sw.bb224 ]
+  tail call void @BUF_MEM_free(ptr noundef %buf.2) #2
   br i1 %cmp10.not, label %if.end276, label %if.then275
 
 if.then275:                                       ; preds = %end

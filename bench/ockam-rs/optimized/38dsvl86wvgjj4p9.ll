@@ -1554,8 +1554,8 @@ common.resume:                                    ; preds = %496, %435, %152, %1
   br label %492
 
 492:                                              ; preds = %486, %394
-  %.6 = phi i1 [ true, %394 ], [ %491, %486 ]
-  ret i1 %.6
+  %.5 = phi i1 [ true, %394 ], [ %491, %486 ]
+  ret i1 %.5
 
 "_ZN4core3ptr72drop_in_place$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$GT$17ha3cbb8d694aae3efE.exit263": ; preds = %424, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h93719df78d10979aE.exit.i.i259"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)

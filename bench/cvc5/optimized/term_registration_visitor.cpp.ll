@@ -473,7 +473,7 @@ lpad25:                                           ; preds = %invoke.cont24
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit43, %cleanup.done
-  %retval.0 = phi i1 [ true, %cleanup.done ], [ %call29, %_ZN4cvc58internal8TypeNodeD2Ev.exit43 ]
+  %retval.1 = phi i1 [ true, %cleanup.done ], [ %call29, %_ZN4cvc58internal8TypeNodeD2Ev.exit43 ]
   %18 = load ptr, ptr %type, align 8
   %bf.load.i.i44 = load i64, ptr %18, align 8
   %19 = and i64 %bf.load.i.i44, 1152920405095219200
@@ -506,8 +506,8 @@ ehcleanup:                                        ; preds = %lpad15, %lpad25, %l
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then13.i.i52, %if.then.i.i46, %cleanup, %if.end4, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %if.end4 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i46 ], [ %retval.0, %if.then13.i.i52 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %if.end4 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i46 ], [ %retval.1, %if.then13.i.i52 ]
+  ret i1 %retval.0
 }
 
 declare noundef i32 @_ZNK4cvc58internal3Env8theoryOfENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(576), ptr noundef) local_unnamed_addr #0

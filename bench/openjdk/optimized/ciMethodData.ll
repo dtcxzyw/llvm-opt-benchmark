@@ -1174,7 +1174,7 @@ _ZNK10MethodData20parameters_type_dataEv.exit.thread: ; preds = %._crit_edge, %1
   br label %243
 
 243:                                              ; preds = %239, %242
-  %.0 = phi i1 [ true, %242 ], [ false, %239 ]
+  %.1 = phi i1 [ true, %242 ], [ false, %239 ]
   %244 = load ptr, ptr %141, align 8
   %.not.i.i.i.i = icmp eq ptr %244, null
   br i1 %.not.i.i.i.i, label %246, label %245
@@ -1196,8 +1196,8 @@ _ZNK10MethodData20parameters_type_dataEv.exit.thread: ; preds = %._crit_edge, %1
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %248, %246, %1
-  %.1 = phi i1 [ false, %1 ], [ %.0, %246 ], [ %.0, %248 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %1 ], [ %.1, %246 ], [ %.1, %248 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1597,7 +1597,7 @@ define noundef i32 @Fra_ClausCollectLatchClauses(ptr nocapture noundef %0, ptr n
   %.val103237 = phi i32 [ %.val102240, %.lr.ph244 ], [ %.val102, %633 ]
   %indvars.iv250 = phi i64 [ %25, %.lr.ph244 ], [ %indvars.iv.next251, %633 ]
   %28 = phi ptr [ %15, %.lr.ph244 ], [ %636, %633 ]
-  %.0243 = phi i32 [ 0, %.lr.ph244 ], [ %.3, %633 ]
+  %.0243 = phi i32 [ 0, %.lr.ph244 ], [ %.2, %633 ]
   %.085242 = phi i32 [ 0, %.lr.ph244 ], [ %.186, %633 ]
   %29 = getelementptr i8, ptr %28, i64 8
   %.val = load ptr, ptr %29, align 8
@@ -1863,7 +1863,7 @@ Fra_ClausSmlNodeIsConst.exit:                     ; preds = %.lr.ph.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Fra_ClausSmlNodesAreImpC.exit
   %indvars.iv = phi i64 [ %155, %.lr.ph.preheader ], [ %indvars.iv.next, %Fra_ClausSmlNodesAreImpC.exit ]
   %156 = phi ptr [ %28, %.lr.ph.preheader ], [ %624, %Fra_ClausSmlNodesAreImpC.exit ]
-  %.1239 = phi i32 [ %.0243, %.lr.ph.preheader ], [ %.2, %Fra_ClausSmlNodesAreImpC.exit ]
+  %.3239 = phi i32 [ %.0243, %.lr.ph.preheader ], [ %.4, %Fra_ClausSmlNodesAreImpC.exit ]
   %157 = getelementptr i8, ptr %156, i64 8
   %.val93 = load ptr, ptr %157, align 8
   %158 = getelementptr inbounds ptr, ptr %.val93, i64 %indvars.iv
@@ -2786,11 +2786,11 @@ Fra_ClausSmlNodesAreImpC.exit.sink.split:         ; preds = %615, %Vec_IntGrow.e
   %619 = sext i32 %617 to i64
   %620 = getelementptr inbounds i32, ptr %.sink254, i64 %619
   store i32 %5, ptr %620, align 4
-  %621 = add nsw i32 %.1239, 1
+  %621 = add nsw i32 %.3239, 1
   br label %Fra_ClausSmlNodesAreImpC.exit
 
 Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_ClausSmlNodesAreImpC.exit.sink.split
-  %.2 = phi i32 [ %621, %Fra_ClausSmlNodesAreImpC.exit.sink.split ], [ %.1239, %.lr.ph.i192 ]
+  %.4 = phi i32 [ %621, %Fra_ClausSmlNodesAreImpC.exit.sink.split ], [ %.3239, %.lr.ph.i192 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %622 = load ptr, ptr %9, align 8
   %623 = getelementptr inbounds i8, ptr %622, i64 16
@@ -2803,8 +2803,8 @@ Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_C
 
 .critedge2:                                       ; preds = %Fra_ClausSmlNodesAreImpC.exit, %Fra_ClausSmlNodeIsConst.exit
   %628 = phi ptr [ %27, %Fra_ClausSmlNodeIsConst.exit ], [ %622, %Fra_ClausSmlNodesAreImpC.exit ]
-  %.1.lcssa = phi i32 [ %.0243, %Fra_ClausSmlNodeIsConst.exit ], [ %.2, %Fra_ClausSmlNodesAreImpC.exit ]
-  %629 = add nsw i32 %.1.lcssa, %.085242
+  %.3.lcssa = phi i32 [ %.0243, %Fra_ClausSmlNodeIsConst.exit ], [ %.4, %Fra_ClausSmlNodesAreImpC.exit ]
+  %629 = add nsw i32 %.3.lcssa, %.085242
   %630 = load i32, ptr %24, align 8
   %631 = sdiv i32 %630, 2
   %632 = icmp sgt i32 %629, %631
@@ -2813,7 +2813,7 @@ Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_C
 633:                                              ; preds = %.critedge2, %Vec_IntPush.exit117
   %634 = phi ptr [ %.pre, %Vec_IntPush.exit117 ], [ %628, %.critedge2 ]
   %.186 = phi i32 [ %150, %Vec_IntPush.exit117 ], [ %.085242, %.critedge2 ]
-  %.3 = phi i32 [ %.0243, %Vec_IntPush.exit117 ], [ %.1.lcssa, %.critedge2 ]
+  %.2 = phi i32 [ %.0243, %Vec_IntPush.exit117 ], [ %.3.lcssa, %.critedge2 ]
   %indvars.iv.next251 = add nsw i64 %indvars.iv250, 1
   %635 = getelementptr inbounds i8, ptr %634, i64 16
   %636 = load ptr, ptr %635, align 8
@@ -2825,7 +2825,7 @@ Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_C
 
 .critedge:                                        ; preds = %.critedge2, %633, %2
   %.085.lcssa = phi i32 [ 0, %2 ], [ %.186, %633 ], [ %.085242, %.critedge2 ]
-  %.4 = phi i32 [ 0, %2 ], [ %.3, %633 ], [ %.1.lcssa, %.critedge2 ]
+  %.1 = phi i32 [ 0, %2 ], [ %.2, %633 ], [ %.3.lcssa, %.critedge2 ]
   store i32 0, ptr %8, align 8
   %640 = getelementptr inbounds i8, ptr %0, i64 36
   %641 = load i32, ptr %640, align 4
@@ -2833,11 +2833,11 @@ Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_C
   br i1 %.not89, label %644, label %642
 
 642:                                              ; preds = %.critedge
-  %643 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.085.lcssa, i32 noundef %.4)
+  %643 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.085.lcssa, i32 noundef %.1)
   br label %644
 
 644:                                              ; preds = %642, %.critedge
-  %645 = add nsw i32 %.4, %.085.lcssa
+  %645 = add nsw i32 %.1, %.085.lcssa
   %646 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %645, ptr %646, align 8
   %647 = getelementptr inbounds i8, ptr %0, i64 148
@@ -3922,7 +3922,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
   %64 = phi ptr [ %55, %.lr.ph198 ], [ %116, %.loopexit189 ]
   %indvars.iv218 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next219, %.loopexit189 ]
   %65 = phi ptr [ %57, %.lr.ph198 ], [ %118, %.loopexit189 ]
-  %.0136197 = phi i32 [ 0, %.lr.ph198 ], [ %.3, %.loopexit189 ]
+  %.0136197 = phi i32 [ 0, %.lr.ph198 ], [ %.1137, %.loopexit189 ]
   %66 = getelementptr i8, ptr %65, i64 8
   %.val = load ptr, ptr %66, align 8
   %67 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv218
@@ -3962,7 +3962,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
   br label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.loopexit
-  %.1137193 = phi i32 [ %.2, %.loopexit ], [ %.0136197, %.lr.ph194.preheader ]
+  %.2193 = phi i32 [ %.3, %.loopexit ], [ %.0136197, %.lr.ph194.preheader ]
   %.0139192 = phi i32 [ %109, %.loopexit ], [ 0, %.lr.ph194.preheader ]
   %.0143191 = phi ptr [ %113, %.loopexit ], [ %87, %.lr.ph194.preheader ]
   %88 = getelementptr inbounds i8, ptr %.0143191, i64 23
@@ -3971,7 +3971,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
   br i1 %90, label %91, label %.loopexit
 
 91:                                               ; preds = %.lr.ph194
-  %92 = add nsw i32 %.1137193, 1
+  %92 = add nsw i32 %.2193, 1
   call void @Fra_ClausProcessClausesCut3(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %.0143191, ptr noundef nonnull %8)
   call void @Fra_ClausProcessClausesCut3(ptr noundef %0, ptr noundef %37, ptr noundef nonnull %.0143191, ptr noundef nonnull %9)
   %93 = load i8, ptr %88, align 1
@@ -4008,7 +4008,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
   br i1 %108, label %.lr.ph, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %103, %91, %.lr.ph194
-  %.2 = phi i32 [ %.1137193, %.lr.ph194 ], [ %92, %91 ], [ %92, %103 ]
+  %.3 = phi i32 [ %.2193, %.lr.ph194 ], [ %92, %91 ], [ %92, %103 ]
   %109 = add nuw nsw i32 %.0139192, 1
   %110 = getelementptr inbounds i8, ptr %.0143191, i64 20
   %111 = load i16, ptr %110, align 4
@@ -4024,7 +4024,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
 
 .loopexit189:                                     ; preds = %.loopexit189.loopexit, %81, %70, %63, %75
   %116 = phi ptr [ %64, %63 ], [ %64, %75 ], [ %64, %70 ], [ %64, %81 ], [ %.pre235, %.loopexit189.loopexit ]
-  %.3 = phi i32 [ %.0136197, %63 ], [ %.0136197, %75 ], [ %.0136197, %70 ], [ %.0136197, %81 ], [ %.2, %.loopexit189.loopexit ]
+  %.1137 = phi i32 [ %.0136197, %63 ], [ %.0136197, %75 ], [ %.0136197, %70 ], [ %.0136197, %81 ], [ %.3, %.loopexit189.loopexit ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %117 = getelementptr inbounds i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
@@ -4035,7 +4035,7 @@ Abc_Clock.exit184:                                ; preds = %Abc_Clock.exit182, 
   br i1 %121, label %63, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.loopexit189, %Abc_Clock.exit184
-  %.0136.lcssa = phi i32 [ 0, %Abc_Clock.exit184 ], [ %.3, %.loopexit189 ]
+  %.0136.lcssa = phi i32 [ 0, %Abc_Clock.exit184 ], [ %.1137, %.loopexit189 ]
   call void @Fra_SmlStop(ptr noundef %22) #22
   call void @Fra_SmlStop(ptr noundef %37) #22
   %122 = getelementptr inbounds i8, ptr %0, i64 140

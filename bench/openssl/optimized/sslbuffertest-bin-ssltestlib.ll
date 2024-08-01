@@ -621,7 +621,7 @@ for.body.lr.ph:                                   ; preds = %lor.lhs.false12, %i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end68
-  %outl.addr.158 = phi i32 [ %spec.select, %for.body.lr.ph ], [ %outl.addr.2, %if.end68 ]
+  %outl.addr.258 = phi i32 [ %spec.select, %for.body.lr.ph ], [ %outl.addr.3, %if.end68 ]
   %rem.056 = phi i32 [ %5, %for.body.lr.ph ], [ %sub71, %if.end68 ]
   %rec.055 = phi ptr [ %9, %for.body.lr.ph ], [ %rec.1, %if.end68 ]
   %cmp17 = icmp ult i32 %rem.056, 13
@@ -705,7 +705,7 @@ if.then56:                                        ; preds = %if.then53
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then56, %if.then53
-  %sub60 = sub i32 %outl.addr.158, %add
+  %sub60 = sub i32 %outl.addr.258, %add
   store i32 -1, ptr %droprec46, align 4
   %cmp62 = icmp eq i32 %sub60, 0
   br i1 %cmp62, label %if.then64, label %if.end68
@@ -721,7 +721,7 @@ if.else:                                          ; preds = %land.lhs.true50, %i
 
 if.end68:                                         ; preds = %if.end59, %if.then64, %if.else
   %rec.1 = phi ptr [ %rec.055, %if.then64 ], [ %rec.055, %if.end59 ], [ %add.ptr67, %if.else ]
-  %outl.addr.2 = phi i32 [ 0, %if.then64 ], [ %sub60, %if.end59 ], [ %outl.addr.158, %if.else ]
+  %outl.addr.3 = phi i32 [ 0, %if.then64 ], [ %sub60, %if.end59 ], [ %outl.addr.258, %if.else ]
   %19 = load i32, ptr %currrec, align 4
   %inc70 = add i32 %19, 1
   store i32 %inc70, ptr %currrec, align 4
@@ -730,9 +730,9 @@ if.end68:                                         ; preds = %if.end59, %if.then6
   br i1 %cmp16, label %for.body, label %if.end72, !llvm.loop !9
 
 if.end72:                                         ; preds = %if.end68, %if.then14, %lor.lhs.false12, %if.end
-  %outl.addr.3 = phi i32 [ %spec.select, %lor.lhs.false12 ], [ %spec.select, %if.end ], [ %spec.select, %if.then14 ], [ %outl.addr.2, %if.end68 ]
+  %outl.addr.1 = phi i32 [ %spec.select, %lor.lhs.false12 ], [ %spec.select, %if.end ], [ %spec.select, %if.then14 ], [ %outl.addr.3, %if.end68 ]
   %20 = load ptr, ptr %call.i, align 8
-  %conv74 = sext i32 %outl.addr.3 to i64
+  %conv74 = sext i32 %outl.addr.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr align 1 %20, i64 %conv74, i1 false)
   %21 = load ptr, ptr %call.i, align 8
   %cmp.not.i = icmp eq ptr %21, null
@@ -747,7 +747,7 @@ mempacket_free.exit:                              ; preds = %if.end72, %if.then.
   br label %return
 
 return:                                           ; preds = %do.end, %for.body, %mempacket_free.exit, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %outl.addr.3, %mempacket_free.exit ], [ -1, %for.body ], [ -1, %do.end ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ %outl.addr.1, %mempacket_free.exit ], [ -1, %for.body ], [ -1, %do.end ]
   ret i32 %retval.0
 }
 
@@ -1715,7 +1715,7 @@ if.else17:                                        ; preds = %if.then13
   br i1 %tobool20.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.then13, %if.else17, %if.end10
-  %clientctx.0 = phi ptr [ %call18, %if.else17 ], [ null, %if.end10 ], [ %1, %if.then13 ]
+  %clientctx.1 = phi ptr [ %call18, %if.else17 ], [ null, %if.end10 ], [ %1, %if.then13 ]
   %cmp25 = icmp ne ptr %serverctx.0, null
   br i1 %cmp25, label %land.lhs.true, label %if.end47
 
@@ -1746,7 +1746,7 @@ land.lhs.true39:                                  ; preds = %lor.lhs.false36
   br i1 %tobool45.not, label %err, label %if.end47
 
 if.end47:                                         ; preds = %land.lhs.true39, %lor.lhs.false36, %if.end24
-  %cmp48.not = icmp eq ptr %clientctx.0, null
+  %cmp48.not = icmp eq ptr %clientctx.1, null
   br i1 %cmp48.not, label %if.end71, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %if.end47
@@ -1755,7 +1755,7 @@ land.lhs.true50:                                  ; preds = %if.end47
 
 land.lhs.true53:                                  ; preds = %land.lhs.true50
   %conv54 = zext nneg i32 %min_proto_version to i64
-  %call55 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %clientctx.0, i32 noundef 123, i64 noundef %conv54, ptr noundef null) #13
+  %call55 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %clientctx.1, i32 noundef 123, i64 noundef %conv54, ptr noundef null) #13
   %cmp56 = icmp ne i64 %call55, 0
   %conv57 = zext i1 %cmp56 to i32
   %call58 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @.str.34, i32 noundef %conv57) #13
@@ -1768,7 +1768,7 @@ lor.lhs.false60:                                  ; preds = %land.lhs.true53, %l
 
 land.lhs.true63:                                  ; preds = %lor.lhs.false60
   %conv64 = zext nneg i32 %max_proto_version to i64
-  %call65 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %clientctx.0, i32 noundef 124, i64 noundef %conv64, ptr noundef null) #13
+  %call65 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %clientctx.1, i32 noundef 124, i64 noundef %conv64, ptr noundef null) #13
   %cmp66 = icmp ne i64 %call65, 0
   %conv67 = zext i1 %cmp66 to i32
   %call68 = tail call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 953, ptr noundef nonnull @.str.35, i32 noundef %conv67) #13
@@ -1811,15 +1811,15 @@ if.end98:                                         ; preds = %if.then97, %if.end9
   br i1 %cmp11.not, label %return, label %if.then101
 
 if.then101:                                       ; preds = %if.end98
-  store ptr %clientctx.0, ptr %cctx, align 8
+  store ptr %clientctx.1, ptr %cctx, align 8
   br label %return
 
 err:                                              ; preds = %if.then80, %lor.lhs.false84, %lor.lhs.false88, %land.lhs.true53, %land.lhs.true63, %land.lhs.true29, %land.lhs.true39, %if.else17
-  %clientctx.1 = phi ptr [ %clientctx.0, %lor.lhs.false88 ], [ %clientctx.0, %lor.lhs.false84 ], [ %clientctx.0, %if.then80 ], [ %clientctx.0, %land.lhs.true63 ], [ %clientctx.0, %land.lhs.true53 ], [ %clientctx.0, %land.lhs.true39 ], [ %clientctx.0, %land.lhs.true29 ], [ %call18, %if.else17 ]
+  %clientctx.0 = phi ptr [ %clientctx.1, %lor.lhs.false88 ], [ %clientctx.1, %lor.lhs.false84 ], [ %clientctx.1, %if.then80 ], [ %clientctx.1, %land.lhs.true63 ], [ %clientctx.1, %land.lhs.true53 ], [ %clientctx.1, %land.lhs.true39 ], [ %clientctx.1, %land.lhs.true29 ], [ %call18, %if.else17 ]
   br i1 %cmp.not, label %if.end109, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %lor.lhs.false, %if.else, %err
-  %clientctx.140 = phi ptr [ %clientctx.1, %err ], [ null, %if.else ], [ null, %lor.lhs.false ]
+  %clientctx.040 = phi ptr [ %clientctx.0, %err ], [ null, %if.else ], [ null, %lor.lhs.false ]
   %serverctx.139 = phi ptr [ %serverctx.0, %err ], [ %call, %if.else ], [ %call, %lor.lhs.false ]
   %3 = load ptr, ptr %sctx, align 8
   %cmp106 = icmp eq ptr %3, null
@@ -1830,7 +1830,7 @@ if.then108:                                       ; preds = %land.lhs.true105
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %land.lhs.true105, %err
-  %clientctx.141 = phi ptr [ %clientctx.140, %if.then108 ], [ %clientctx.140, %land.lhs.true105 ], [ %clientctx.1, %err ]
+  %clientctx.041 = phi ptr [ %clientctx.040, %if.then108 ], [ %clientctx.040, %land.lhs.true105 ], [ %clientctx.0, %err ]
   %cmp110.not = icmp eq ptr %cctx, null
   br i1 %cmp110.not, label %return, label %land.lhs.true112
 
@@ -1840,7 +1840,7 @@ land.lhs.true112:                                 ; preds = %if.end109
   br i1 %cmp113, label %if.then115, label %return
 
 if.then115:                                       ; preds = %land.lhs.true112
-  tail call void @SSL_CTX_free(ptr noundef %clientctx.141) #13
+  tail call void @SSL_CTX_free(ptr noundef %clientctx.041) #13
   br label %return
 
 return:                                           ; preds = %if.end109, %land.lhs.true112, %if.then115, %if.end98, %if.then101
@@ -1980,23 +1980,23 @@ if.else:                                          ; preds = %land.lhs.true54, %i
   br i1 %cmp45, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %if.else, %if.end36
-  %sfd.1.lcssa = phi i32 [ %call1, %if.end36 ], [ %call44, %if.else ]
+  %sfd.2.lcssa = phi i32 [ %call1, %if.end36 ], [ %call44, %if.else ]
   %call60 = call i32 @BIO_socket_nbio(i32 noundef %call28, i32 noundef 1) #13
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.then68.thread58, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end
-  %call62 = call i32 @BIO_socket_nbio(i32 noundef %sfd.1.lcssa, i32 noundef 1) #13
+  %call62 = call i32 @BIO_socket_nbio(i32 noundef %sfd.2.lcssa, i32 noundef 1) #13
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %if.then68.thread58, label %if.end65
 
 if.end65:                                         ; preds = %lor.lhs.false
   store i32 %call28, ptr %cfdp, align 4
-  store i32 %sfd.1.lcssa, ptr %sfdp, align 4
+  store i32 %sfd.2.lcssa, ptr %sfdp, align 4
   br label %success
 
 if.then68.thread:                                 ; preds = %land.lhs.true47, %if.end32
-  %afd.138.ph = phi i32 [ %call1, %if.end32 ], [ %spec.select, %land.lhs.true47 ]
+  %afd.038.ph = phi i32 [ %call1, %if.end32 ], [ %spec.select, %land.lhs.true47 ]
   %call6955 = call i32 @close(i32 noundef %call28) #13
   br label %success
 
@@ -2010,13 +2010,13 @@ if.then68:                                        ; preds = %land.lhs.true54
   br i1 %cmp71.not, label %success, label %if.then73
 
 if.then73:                                        ; preds = %if.then68.thread58, %if.then68
-  %sfd.24063 = phi i32 [ %sfd.1.lcssa, %if.then68.thread58 ], [ %call44, %if.then68 ]
-  %call74 = call i32 @close(i32 noundef %sfd.24063) #13
+  %sfd.04063 = phi i32 [ %sfd.2.lcssa, %if.then68.thread58 ], [ %call44, %if.then68 ]
+  %call74 = call i32 @close(i32 noundef %sfd.04063) #13
   br label %success
 
 success:                                          ; preds = %if.then68.thread, %if.then68, %if.then73, %if.end65
   %ret.0 = phi i32 [ 0, %if.then73 ], [ 0, %if.then68 ], [ 1, %if.end65 ], [ 0, %if.then68.thread ]
-  %afd.2 = phi i32 [ %spec.select, %if.then73 ], [ %spec.select, %if.then68 ], [ %spec.select, %if.end65 ], [ %afd.138.ph, %if.then68.thread ]
+  %afd.2 = phi i32 [ %spec.select, %if.then73 ], [ %spec.select, %if.then68 ], [ %spec.select, %if.end65 ], [ %afd.038.ph, %if.then68.thread ]
   %cmp76.not = icmp eq i32 %afd.2, -1
   br i1 %cmp76.not, label %return, label %if.then78
 
@@ -2091,7 +2091,7 @@ if.else6:                                         ; preds = %if.end3
   br i1 %tobool9.not, label %error, label %if.end12
 
 if.end12:                                         ; preds = %if.end3, %if.else6
-  %clientssl.0 = phi ptr [ %call7, %if.else6 ], [ %1, %if.end3 ]
+  %clientssl.1 = phi ptr [ %call7, %if.else6 ], [ %1, %if.end3 ]
   %call13 = tail call ptr @BIO_new_socket(i32 noundef %sfd, i32 noundef 0) #13
   %call14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 1095, ptr noundef nonnull @.str.43, ptr noundef %call13) #13
   %tobool15.not = icmp eq i32 %call14, 0
@@ -2104,12 +2104,12 @@ lor.lhs.false:                                    ; preds = %if.end12
   br i1 %tobool18.not, label %error, label %if.end20
 
 if.end20:                                         ; preds = %lor.lhs.false
-  %call21 = call i32 @SSL_get_rpoll_descriptor(ptr noundef %clientssl.0, ptr noundef nonnull %rdesc) #13
+  %call21 = call i32 @SSL_get_rpoll_descriptor(ptr noundef %clientssl.1, ptr noundef nonnull %rdesc) #13
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.end20
-  %call23 = call i32 @SSL_get_wpoll_descriptor(ptr noundef %clientssl.0, ptr noundef nonnull %wdesc) #13
+  %call23 = call i32 @SSL_get_wpoll_descriptor(ptr noundef %clientssl.1, ptr noundef nonnull %wdesc) #13
   %cmp24 = icmp ne i32 %call23, 0
   %conv = zext i1 %cmp24 to i32
   %call25 = call i32 @test_false(ptr noundef nonnull @.str.1, i32 noundef 1100, ptr noundef nonnull @.str.46, i32 noundef %conv) #13
@@ -2124,9 +2124,9 @@ lor.end:                                          ; preds = %lor.rhs, %if.end20
   br i1 %tobool30.not, label %error, label %if.end32
 
 if.end32:                                         ; preds = %lor.end
-  call void @SSL_set_bio(ptr noundef %clientssl.0, ptr noundef %call16, ptr noundef %call16) #13
+  call void @SSL_set_bio(ptr noundef %clientssl.1, ptr noundef %call16, ptr noundef %call16) #13
   call void @SSL_set_bio(ptr noundef %serverssl.0, ptr noundef %call13, ptr noundef %call13) #13
-  %call33 = call i32 @SSL_get_rpoll_descriptor(ptr noundef %clientssl.0, ptr noundef nonnull %rdesc) #13
+  %call33 = call i32 @SSL_get_rpoll_descriptor(ptr noundef %clientssl.1, ptr noundef nonnull %rdesc) #13
   %cmp34 = icmp ne i32 %call33, 0
   %conv35 = zext i1 %cmp34 to i32
   %call36 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 1106, ptr noundef nonnull @.str.47, i32 noundef %conv35) #13
@@ -2134,7 +2134,7 @@ if.end32:                                         ; preds = %lor.end
   br i1 %tobool37.not, label %error, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %if.end32
-  %call39 = call i32 @SSL_get_wpoll_descriptor(ptr noundef %clientssl.0, ptr noundef nonnull %wdesc) #13
+  %call39 = call i32 @SSL_get_wpoll_descriptor(ptr noundef %clientssl.1, ptr noundef nonnull %wdesc) #13
   %cmp40 = icmp ne i32 %call39, 0
   %conv41 = zext i1 %cmp40 to i32
   %call42 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 1107, ptr noundef nonnull @.str.46, i32 noundef %conv41) #13
@@ -2209,16 +2209,16 @@ lor.lhs.false83:                                  ; preds = %lor.lhs.false79
 
 if.end88:                                         ; preds = %lor.lhs.false83
   store ptr %serverssl.0, ptr %sssl, align 8
-  store ptr %clientssl.0, ptr %cssl, align 8
+  store ptr %clientssl.1, ptr %cssl, align 8
   br label %return
 
 error:                                            ; preds = %if.end59, %lor.lhs.false65, %lor.lhs.false71, %lor.lhs.false75, %lor.lhs.false79, %lor.lhs.false83, %if.end32, %lor.lhs.false38, %lor.lhs.false44, %lor.lhs.false47, %lor.lhs.false51, %lor.lhs.false54, %lor.end, %if.end12, %lor.lhs.false, %if.else6, %if.else
   %serverssl.1 = phi ptr [ %serverssl.0, %lor.lhs.false83 ], [ %serverssl.0, %lor.lhs.false79 ], [ %serverssl.0, %lor.lhs.false75 ], [ %serverssl.0, %lor.lhs.false71 ], [ %serverssl.0, %lor.lhs.false65 ], [ %serverssl.0, %if.end59 ], [ %serverssl.0, %lor.lhs.false54 ], [ %serverssl.0, %lor.lhs.false51 ], [ %serverssl.0, %lor.lhs.false47 ], [ %serverssl.0, %lor.lhs.false44 ], [ %serverssl.0, %lor.lhs.false38 ], [ %serverssl.0, %if.end32 ], [ %serverssl.0, %lor.end ], [ %serverssl.0, %lor.lhs.false ], [ %serverssl.0, %if.end12 ], [ %serverssl.0, %if.else6 ], [ %call, %if.else ]
-  %clientssl.1 = phi ptr [ %clientssl.0, %lor.lhs.false83 ], [ %clientssl.0, %lor.lhs.false79 ], [ %clientssl.0, %lor.lhs.false75 ], [ %clientssl.0, %lor.lhs.false71 ], [ %clientssl.0, %lor.lhs.false65 ], [ %clientssl.0, %if.end59 ], [ %clientssl.0, %lor.lhs.false54 ], [ %clientssl.0, %lor.lhs.false51 ], [ %clientssl.0, %lor.lhs.false47 ], [ %clientssl.0, %lor.lhs.false44 ], [ %clientssl.0, %lor.lhs.false38 ], [ %clientssl.0, %if.end32 ], [ %clientssl.0, %lor.end ], [ %clientssl.0, %lor.lhs.false ], [ %clientssl.0, %if.end12 ], [ %call7, %if.else6 ], [ null, %if.else ]
+  %clientssl.0 = phi ptr [ %clientssl.1, %lor.lhs.false83 ], [ %clientssl.1, %lor.lhs.false79 ], [ %clientssl.1, %lor.lhs.false75 ], [ %clientssl.1, %lor.lhs.false71 ], [ %clientssl.1, %lor.lhs.false65 ], [ %clientssl.1, %if.end59 ], [ %clientssl.1, %lor.lhs.false54 ], [ %clientssl.1, %lor.lhs.false51 ], [ %clientssl.1, %lor.lhs.false47 ], [ %clientssl.1, %lor.lhs.false44 ], [ %clientssl.1, %lor.lhs.false38 ], [ %clientssl.1, %if.end32 ], [ %clientssl.1, %lor.end ], [ %clientssl.1, %lor.lhs.false ], [ %clientssl.1, %if.end12 ], [ %call7, %if.else6 ], [ null, %if.else ]
   %s_to_c_bio.0 = phi ptr [ %call13, %lor.lhs.false83 ], [ %call13, %lor.lhs.false79 ], [ %call13, %lor.lhs.false75 ], [ %call13, %lor.lhs.false71 ], [ %call13, %lor.lhs.false65 ], [ %call13, %if.end59 ], [ %call13, %lor.lhs.false54 ], [ %call13, %lor.lhs.false51 ], [ %call13, %lor.lhs.false47 ], [ %call13, %lor.lhs.false44 ], [ %call13, %lor.lhs.false38 ], [ %call13, %if.end32 ], [ %call13, %lor.end ], [ %call13, %lor.lhs.false ], [ %call13, %if.end12 ], [ null, %if.else6 ], [ null, %if.else ]
   %c_to_s_bio.0 = phi ptr [ %call16, %lor.lhs.false83 ], [ %call16, %lor.lhs.false79 ], [ %call16, %lor.lhs.false75 ], [ %call16, %lor.lhs.false71 ], [ %call16, %lor.lhs.false65 ], [ %call16, %if.end59 ], [ %call16, %lor.lhs.false54 ], [ %call16, %lor.lhs.false51 ], [ %call16, %lor.lhs.false47 ], [ %call16, %lor.lhs.false44 ], [ %call16, %lor.lhs.false38 ], [ %call16, %if.end32 ], [ %call16, %lor.end ], [ %call16, %lor.lhs.false ], [ null, %if.end12 ], [ null, %if.else6 ], [ null, %if.else ]
   call void @SSL_free(ptr noundef %serverssl.1) #13
-  call void @SSL_free(ptr noundef %clientssl.1) #13
+  call void @SSL_free(ptr noundef %clientssl.0) #13
   %call89 = call i32 @BIO_free(ptr noundef %s_to_c_bio.0) #13
   %call90 = call i32 @BIO_free(ptr noundef %c_to_s_bio.0) #13
   br label %return
@@ -2270,8 +2270,8 @@ if.else6:                                         ; preds = %if.end3
   br i1 %tobool9.not, label %error, label %if.end12
 
 if.end12:                                         ; preds = %if.end3, %if.else6
-  %clientssl.0 = phi ptr [ %call7, %if.else6 ], [ %1, %if.end3 ]
-  %call13 = tail call i32 @SSL_is_dtls(ptr noundef %clientssl.0) #13
+  %clientssl.1 = phi ptr [ %call7, %if.else6 ], [ %1, %if.end3 ]
+  %call13 = tail call i32 @SSL_is_dtls(ptr noundef %clientssl.1) #13
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.else26, label %if.then15
 
@@ -2304,49 +2304,49 @@ lor.lhs.false31:                                  ; preds = %if.else26
   br i1 %tobool35.not, label %error, label %if.end38
 
 if.end38:                                         ; preds = %lor.lhs.false31, %lor.lhs.false
-  %s_to_c_bio.0 = phi ptr [ %call17, %lor.lhs.false ], [ %call28, %lor.lhs.false31 ]
-  %c_to_s_bio.0 = phi ptr [ %call21, %lor.lhs.false ], [ %call33, %lor.lhs.false31 ]
+  %s_to_c_bio.1 = phi ptr [ %call17, %lor.lhs.false ], [ %call28, %lor.lhs.false31 ]
+  %c_to_s_bio.1 = phi ptr [ %call21, %lor.lhs.false ], [ %call33, %lor.lhs.false31 ]
   %cmp39.not = icmp eq ptr %s_to_c_fbio, null
   br i1 %cmp39.not, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end38
-  %call40 = tail call ptr @BIO_push(ptr noundef nonnull %s_to_c_fbio, ptr noundef %s_to_c_bio.0) #13
+  %call40 = tail call ptr @BIO_push(ptr noundef nonnull %s_to_c_fbio, ptr noundef %s_to_c_bio.1) #13
   %call41 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 1172, ptr noundef nonnull @.str.61, ptr noundef %call40) #13
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %error, label %if.end44
 
 if.end44:                                         ; preds = %land.lhs.true, %if.end38
-  %s_to_c_bio.1 = phi ptr [ %call40, %land.lhs.true ], [ %s_to_c_bio.0, %if.end38 ]
+  %s_to_c_bio.2 = phi ptr [ %call40, %land.lhs.true ], [ %s_to_c_bio.1, %if.end38 ]
   %cmp45.not = icmp eq ptr %c_to_s_fbio, null
   br i1 %cmp45.not, label %if.end51, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %if.end44
-  %call47 = tail call ptr @BIO_push(ptr noundef nonnull %c_to_s_fbio, ptr noundef %c_to_s_bio.0) #13
+  %call47 = tail call ptr @BIO_push(ptr noundef nonnull %c_to_s_fbio, ptr noundef %c_to_s_bio.1) #13
   %call48 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 1175, ptr noundef nonnull @.str.62, ptr noundef %call47) #13
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %error, label %if.end51
 
 if.end51:                                         ; preds = %land.lhs.true46, %if.end44
-  %c_to_s_bio.1 = phi ptr [ %call47, %land.lhs.true46 ], [ %c_to_s_bio.0, %if.end44 ]
-  %call52 = tail call i64 @BIO_ctrl(ptr noundef %s_to_c_bio.1, i32 noundef 130, i64 noundef -1, ptr noundef null) #13
-  %call53 = tail call i64 @BIO_ctrl(ptr noundef %c_to_s_bio.1, i32 noundef 130, i64 noundef -1, ptr noundef null) #13
-  tail call void @SSL_set_bio(ptr noundef %serverssl.0, ptr noundef %c_to_s_bio.1, ptr noundef %s_to_c_bio.1) #13
-  %call54 = tail call i32 @BIO_up_ref(ptr noundef %s_to_c_bio.1) #13
-  %call55 = tail call i32 @BIO_up_ref(ptr noundef %c_to_s_bio.1) #13
-  tail call void @SSL_set_bio(ptr noundef %clientssl.0, ptr noundef %s_to_c_bio.1, ptr noundef %c_to_s_bio.1) #13
+  %c_to_s_bio.2 = phi ptr [ %call47, %land.lhs.true46 ], [ %c_to_s_bio.1, %if.end44 ]
+  %call52 = tail call i64 @BIO_ctrl(ptr noundef %s_to_c_bio.2, i32 noundef 130, i64 noundef -1, ptr noundef null) #13
+  %call53 = tail call i64 @BIO_ctrl(ptr noundef %c_to_s_bio.2, i32 noundef 130, i64 noundef -1, ptr noundef null) #13
+  tail call void @SSL_set_bio(ptr noundef %serverssl.0, ptr noundef %c_to_s_bio.2, ptr noundef %s_to_c_bio.2) #13
+  %call54 = tail call i32 @BIO_up_ref(ptr noundef %s_to_c_bio.2) #13
+  %call55 = tail call i32 @BIO_up_ref(ptr noundef %c_to_s_bio.2) #13
+  tail call void @SSL_set_bio(ptr noundef %clientssl.1, ptr noundef %s_to_c_bio.2, ptr noundef %c_to_s_bio.2) #13
   store ptr %serverssl.0, ptr %sssl, align 8
-  store ptr %clientssl.0, ptr %cssl, align 8
+  store ptr %clientssl.1, ptr %cssl, align 8
   br label %return
 
 error:                                            ; preds = %land.lhs.true46, %land.lhs.true, %if.else26, %lor.lhs.false31, %if.then15, %lor.lhs.false, %if.else6, %if.else
   %serverssl.1 = phi ptr [ %serverssl.0, %land.lhs.true46 ], [ %serverssl.0, %land.lhs.true ], [ %serverssl.0, %lor.lhs.false ], [ %serverssl.0, %if.then15 ], [ %serverssl.0, %lor.lhs.false31 ], [ %serverssl.0, %if.else26 ], [ %serverssl.0, %if.else6 ], [ %call, %if.else ]
-  %clientssl.1 = phi ptr [ %clientssl.0, %land.lhs.true46 ], [ %clientssl.0, %land.lhs.true ], [ %clientssl.0, %lor.lhs.false ], [ %clientssl.0, %if.then15 ], [ %clientssl.0, %lor.lhs.false31 ], [ %clientssl.0, %if.else26 ], [ %call7, %if.else6 ], [ null, %if.else ]
-  %s_to_c_bio.2 = phi ptr [ %s_to_c_bio.1, %land.lhs.true46 ], [ %call40, %land.lhs.true ], [ %call17, %lor.lhs.false ], [ %call17, %if.then15 ], [ %call28, %lor.lhs.false31 ], [ %call28, %if.else26 ], [ null, %if.else6 ], [ null, %if.else ]
-  %c_to_s_bio.2 = phi ptr [ %call47, %land.lhs.true46 ], [ %c_to_s_bio.0, %land.lhs.true ], [ %call21, %lor.lhs.false ], [ null, %if.then15 ], [ %call33, %lor.lhs.false31 ], [ null, %if.else26 ], [ null, %if.else6 ], [ null, %if.else ]
+  %clientssl.0 = phi ptr [ %clientssl.1, %land.lhs.true46 ], [ %clientssl.1, %land.lhs.true ], [ %clientssl.1, %lor.lhs.false ], [ %clientssl.1, %if.then15 ], [ %clientssl.1, %lor.lhs.false31 ], [ %clientssl.1, %if.else26 ], [ %call7, %if.else6 ], [ null, %if.else ]
+  %s_to_c_bio.0 = phi ptr [ %s_to_c_bio.2, %land.lhs.true46 ], [ %call40, %land.lhs.true ], [ %call17, %lor.lhs.false ], [ %call17, %if.then15 ], [ %call28, %lor.lhs.false31 ], [ %call28, %if.else26 ], [ null, %if.else6 ], [ null, %if.else ]
+  %c_to_s_bio.0 = phi ptr [ %call47, %land.lhs.true46 ], [ %c_to_s_bio.1, %land.lhs.true ], [ %call21, %lor.lhs.false ], [ null, %if.then15 ], [ %call33, %lor.lhs.false31 ], [ null, %if.else26 ], [ null, %if.else6 ], [ null, %if.else ]
   tail call void @SSL_free(ptr noundef %serverssl.1) #13
-  tail call void @SSL_free(ptr noundef %clientssl.1) #13
-  %call56 = tail call i32 @BIO_free(ptr noundef %s_to_c_bio.2) #13
-  %call57 = tail call i32 @BIO_free(ptr noundef %c_to_s_bio.2) #13
+  tail call void @SSL_free(ptr noundef %clientssl.0) #13
+  %call56 = tail call i32 @BIO_free(ptr noundef %s_to_c_bio.0) #13
+  %call57 = tail call i32 @BIO_free(ptr noundef %c_to_s_bio.0) #13
   %call58 = tail call i32 @BIO_free(ptr noundef %s_to_c_fbio) #13
   %call59 = tail call i32 @BIO_free(ptr noundef %c_to_s_fbio) #13
   br label %return

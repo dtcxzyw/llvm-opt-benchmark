@@ -253,23 +253,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .preheader194:                                    ; preds = %73, %.preheader194
   %.0131 = phi ptr [ %84, %.preheader194 ], [ %75, %73 ]
-  %.0126 = phi i32 [ %spec.select, %.preheader194 ], [ 0, %73 ]
+  %.1 = phi i32 [ %spec.select, %.preheader194 ], [ 0, %73 ]
   %80 = getelementptr inbounds i8, ptr %.0131, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 @strcasecmp(ptr noundef %81, ptr noundef nonnull @.str.12) #21
   %.not169 = icmp eq i32 %82, 0
-  %spec.select = select i1 %.not169, i32 1, i32 %.0126
+  %spec.select = select i1 %.not169, i32 1, i32 %.1
   %83 = getelementptr inbounds i8, ptr %.0131, i64 48
   %84 = load ptr, ptr %83, align 8
   %.old1.not = icmp eq ptr %84, null
   br i1 %.old1.not, label %.loopexit195, label %.preheader194
 
 .loopexit195:                                     ; preds = %.preheader194, %73
-  %.2 = phi i32 [ 0, %73 ], [ %spec.select, %.preheader194 ]
+  %.0126 = phi i32 [ 0, %73 ], [ %spec.select, %.preheader194 ]
   %85 = call ptr @optget(ptr noundef %9, ptr noundef nonnull @.str.13) #15
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   %87 = load i32, ptr %86, align 8
-  %88 = call i32 @cli_bytecode_load(ptr noundef nonnull %38, ptr noundef nonnull %31, ptr noundef null, i32 noundef %87, i32 noundef %.2) #15
+  %88 = call i32 @cli_bytecode_load(ptr noundef nonnull %38, ptr noundef nonnull %31, ptr noundef null, i32 noundef %87, i32 noundef %.0126) #15
   %.not170 = icmp eq i32 %88, 0
   br i1 %.not170, label %93, label %89
 
@@ -702,7 +702,7 @@ print_src.exit:                                   ; preds = %116, %168
   unreachable
 
 294:                                              ; preds = %287, %.loopexit
-  %.0127 = phi i32 [ %271, %287 ], [ -1, %.loopexit ]
+  %.1128 = phi i32 [ %271, %287 ], [ -1, %.loopexit ]
   %.0 = phi ptr [ %282, %287 ], [ null, %.loopexit ]
   %295 = getelementptr inbounds i8, ptr %201, i64 96
   %296 = getelementptr inbounds i8, ptr %201, i64 112
@@ -755,16 +755,16 @@ print_src.exit:                                   ; preds = %116, %168
   br label %.loopexit193
 
 .loopexit193:                                     ; preds = %.lr.ph, %174, %print_src.exit, %312, %107
-  %.1128 = phi i32 [ -1, %107 ], [ -1, %print_src.exit ], [ %.0127, %312 ], [ -1, %174 ], [ -1, %.lr.ph ]
+  %.0127 = phi i32 [ -1, %107 ], [ -1, %print_src.exit ], [ %.1128, %312 ], [ -1, %174 ], [ -1, %.lr.ph ]
   call void @cli_bytecode_destroy(ptr noundef nonnull %38) #15
   %316 = call i32 @cli_bytecode_done(ptr noundef nonnull %4) #15
   call void @free(ptr noundef %38) #15
   call void @optfree(ptr noundef %9) #15
-  %.not191 = icmp eq i32 %.1128, -1
+  %.not191 = icmp eq i32 %.0127, -1
   br i1 %.not191, label %319, label %317
 
 317:                                              ; preds = %.loopexit193
-  %318 = call i32 @close(i32 noundef %.1128) #15
+  %318 = call i32 @close(i32 noundef %.0127) #15
   br label %319
 
 319:                                              ; preds = %317, %.loopexit193

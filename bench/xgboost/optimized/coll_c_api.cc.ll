@@ -2357,14 +2357,14 @@ _ZNSt10shared_ptrIN7xgboost10collective7TrackerEED2Ev.exit: ; preds = %_ZNSt6fut
 
 _ZN7xgboost4JsonD2Ev.exit65:                      ; preds = %27, %29, %114, %116, %120
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ], [ %.pn.pn, %114 ], [ %.pn.pn, %116 ], [ %.pn.pn, %120 ]
-  %.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
-  %.316 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %.012 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
+  %.013 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   %124 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %125 = icmp eq i32 %.316, %124
+  %125 = icmp eq i32 %.013, %124
   br i1 %125, label %126, label %132
 
 126:                                              ; preds = %_ZN7xgboost4JsonD2Ev.exit65
-  %127 = call ptr @__cxa_begin_catch(ptr %.3) #10
+  %127 = call ptr @__cxa_begin_catch(ptr %.012) #10
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
@@ -2378,11 +2378,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %126
 
 132:                                              ; preds = %_ZN7xgboost4JsonD2Ev.exit65
   %133 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %134 = icmp eq i32 %.316, %133
+  %134 = icmp eq i32 %.013, %133
   br i1 %134, label %135, label %154
 
 135:                                              ; preds = %132
-  %136 = call ptr @__cxa_begin_catch(ptr %.3) #10
+  %136 = call ptr @__cxa_begin_catch(ptr %.012) #10
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
@@ -3144,14 +3144,14 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc26, %_ZN4dmlc
 
 _ZN7xgboost4JsonD2Ev.exit28:                      ; preds = %71, %81, %_ZN7xgboost4JsonD2Ev.exit6.i, %73, %77
   %.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %82, %81 ], [ %35, %_ZN7xgboost4JsonD2Ev.exit6.i ], [ %35, %73 ], [ %35, %77 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.115 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.013 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.014 = extractvalue { ptr, i32 } %.pn.pn, 1
   %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %86 = icmp eq i32 %.115, %85
+  %86 = icmp eq i32 %.014, %85
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit28
-  %88 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %88 = call ptr @__cxa_begin_catch(ptr %.013) #10
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
@@ -3165,11 +3165,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %87
 
 93:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit28
   %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %95 = icmp eq i32 %.115, %94
+  %95 = icmp eq i32 %.014, %94
   br i1 %95, label %96, label %116
 
 96:                                               ; preds = %93
-  %97 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %97 = call ptr @__cxa_begin_catch(ptr %.013) #10
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
@@ -3599,14 +3599,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 111:                                              ; preds = %28, %30
   %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.011 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.012 = extractvalue { ptr, i32 } %.pn.pn, 1
   %112 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %113 = icmp eq i32 %.113, %112
+  %113 = icmp eq i32 %.012, %112
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %111
-  %115 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %115 = call ptr @__cxa_begin_catch(ptr %.011) #10
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
@@ -3620,11 +3620,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %114
 
 120:                                              ; preds = %111
   %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %122 = icmp eq i32 %.113, %121
+  %122 = icmp eq i32 %.012, %121
   br i1 %122, label %123, label %142
 
 123:                                              ; preds = %120
-  %124 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %124 = call ptr @__cxa_begin_catch(ptr %.011) #10
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8
@@ -3977,14 +3977,14 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit34: ; preds = %.noexc33, %_ZN4dmlc
 
 _ZN7xgboost4JsonD2Ev.exit36:                      ; preds = %26, %28, %66, %68, %72
   %.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ], [ %.pn, %66 ], [ %.pn, %68 ], [ %.pn, %72 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.215 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.012 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.013 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %76 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %77 = icmp eq i32 %.215, %76
+  %77 = icmp eq i32 %.013, %76
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit36
-  %79 = call ptr @__cxa_begin_catch(ptr %.2) #10
+  %79 = call ptr @__cxa_begin_catch(ptr %.012) #10
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -3998,11 +3998,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %78
 
 84:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit36
   %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %86 = icmp eq i32 %.215, %85
+  %86 = icmp eq i32 %.013, %85
   br i1 %86, label %87, label %106
 
 87:                                               ; preds = %84
-  %88 = call ptr @__cxa_begin_catch(ptr %.2) #10
+  %88 = call ptr @__cxa_begin_catch(ptr %.012) #10
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
@@ -4896,14 +4896,14 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
 
 69:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.body
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
-  %.322 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %.018 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
+  %.019 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %71 = icmp eq i32 %.322, %70
+  %71 = icmp eq i32 %.019, %70
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %69
-  %73 = call ptr @__cxa_begin_catch(ptr %.3) #10
+  %73 = call ptr @__cxa_begin_catch(ptr %.018) #10
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
@@ -4917,11 +4917,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %72
 
 78:                                               ; preds = %69
   %79 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %80 = icmp eq i32 %.322, %79
+  %80 = icmp eq i32 %.019, %79
   br i1 %80, label %81, label %101
 
 81:                                               ; preds = %78
-  %82 = call ptr @__cxa_begin_catch(ptr %.3) #10
+  %82 = call ptr @__cxa_begin_catch(ptr %.018) #10
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
@@ -5335,14 +5335,14 @@ _ZN7xgboost4JsonD2Ev.exit29:                      ; preds = %60, %56, %53
 
 _ZN7xgboost4JsonD2Ev.exit31:                      ; preds = %22, %24, %_ZN7xgboost4JsonD2Ev.exit29, %65, %69
   %.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ], [ %54, %_ZN7xgboost4JsonD2Ev.exit29 ], [ %54, %65 ], [ %54, %69 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.212 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.09 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.010 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %74 = icmp eq i32 %.212, %73
+  %74 = icmp eq i32 %.010, %73
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit31
-  %76 = call ptr @__cxa_begin_catch(ptr %.2) #10
+  %76 = call ptr @__cxa_begin_catch(ptr %.09) #10
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
@@ -5356,11 +5356,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %75
 
 81:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit31
   %82 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %83 = icmp eq i32 %.212, %82
+  %83 = icmp eq i32 %.010, %82
   br i1 %83, label %84, label %103
 
 84:                                               ; preds = %81
-  %85 = call ptr @__cxa_begin_catch(ptr %.2) #10
+  %85 = call ptr @__cxa_begin_catch(ptr %.09) #10
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
@@ -5647,14 +5647,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %17, %11, %19
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %12, %11 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
-  %.1 = extractvalue { ptr, i32 } %.pn, 0
-  %.110 = extractvalue { ptr, i32 } %.pn, 1
+  %.08 = extractvalue { ptr, i32 } %.pn, 0
+  %.09 = extractvalue { ptr, i32 } %.pn, 1
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %22 = icmp eq i32 %.110, %21
+  %22 = icmp eq i32 %.09, %21
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %.body
-  %24 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %24 = call ptr @__cxa_begin_catch(ptr %.08) #10
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
@@ -5668,11 +5668,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %23
 
 29:                                               ; preds = %.body
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %31 = icmp eq i32 %.110, %30
+  %31 = icmp eq i32 %.09, %30
   br i1 %31, label %32, label %52
 
 32:                                               ; preds = %29
-  %33 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %33 = call ptr @__cxa_begin_catch(ptr %.08) #10
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -5843,14 +5843,14 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc24, %_ZN4dmlc
 
 32:                                               ; preds = %26, %28
   %.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.011 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.012 = extractvalue { ptr, i32 } %.pn.pn, 1
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %34 = icmp eq i32 %.113, %33
+  %34 = icmp eq i32 %.012, %33
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %32
-  %36 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %36 = call ptr @__cxa_begin_catch(ptr %.011) #10
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -5864,11 +5864,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %35
 
 41:                                               ; preds = %32
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %43 = icmp eq i32 %.113, %42
+  %43 = icmp eq i32 %.012, %42
   br i1 %43, label %44, label %64
 
 44:                                               ; preds = %41
-  %45 = call ptr @__cxa_begin_catch(ptr %.1) #10
+  %45 = call ptr @__cxa_begin_catch(ptr %.011) #10
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -6431,14 +6431,14 @@ _ZN7xgboost10collective6ResultD2Ev.exit29:        ; preds = %_ZN7xgboost10collec
 
 42:                                               ; preds = %30, %.body
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %31, %30 ]
-  %.4 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn, 0
-  %.413 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn, 1
+  %.08 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn, 0
+  %.09 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn, 1
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4dmlc5ErrorE) #10
-  %44 = icmp eq i32 %.413, %43
+  %44 = icmp eq i32 %.09, %43
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %42
-  %46 = call ptr @__cxa_begin_catch(ptr %.4) #10
+  %46 = call ptr @__cxa_begin_catch(ptr %.08) #10
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
@@ -6452,11 +6452,11 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit:    ; preds = %45
 
 51:                                               ; preds = %42
   %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %53 = icmp eq i32 %.413, %52
+  %53 = icmp eq i32 %.09, %52
   br i1 %53, label %54, label %74
 
 54:                                               ; preds = %51
-  %55 = call ptr @__cxa_begin_catch(ptr %.4) #10
+  %55 = call ptr @__cxa_begin_catch(ptr %.08) #10
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8

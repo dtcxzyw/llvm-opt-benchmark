@@ -2118,7 +2118,7 @@ lpad92:                                           ; preds = %invoke.cont107, %.n
 
 cleanup:                                          ; preds = %if.then.i.i113, %if.then.i.i68, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE13dec_range_refEPKPS1_S8_.exit.i, %if.end76
   %113 = phi ptr [ %call39, %if.end76 ], [ %call39, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE13dec_range_refEPKPS1_S8_.exit.i ], [ %.pre166, %if.then.i.i68 ], [ %call39, %if.then.i.i113 ]
-  %retval.0 = phi i32 [ -1, %if.end76 ], [ -1, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE13dec_range_refEPKPS1_S8_.exit.i ], [ -1, %if.then.i.i68 ], [ 1, %if.then.i.i113 ]
+  %retval.1 = phi i32 [ -1, %if.end76 ], [ -1, %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE13dec_range_refEPKPS1_S8_.exit.i ], [ -1, %if.then.i.i68 ], [ 1, %if.then.i.i113 ]
   %tobool.not.i.i114 = icmp eq ptr %113, null
   br i1 %tobool.not.i.i114, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i115
 
@@ -2170,8 +2170,8 @@ ehcleanup117:                                     ; preds = %lpad.loopexit132, %
   resume { ptr, i32 } %.pn25
 
 return:                                           ; preds = %for.inc, %if.then.i.i.i120, %_ZN7obj_refI3app11ast_managerED2Ev.exit, %for.end
-  %retval.1 = phi i32 [ 0, %for.end ], [ %retval.0, %_ZN7obj_refI3app11ast_managerED2Ev.exit ], [ %retval.0, %if.then.i.i.i120 ], [ 0, %for.inc ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %for.end ], [ %retval.1, %_ZN7obj_refI3app11ast_managerED2Ev.exit ], [ %retval.1, %if.then.i.i.i120 ], [ 0, %for.inc ]
+  ret i32 %retval.0
 }
 
 declare noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -3377,7 +3377,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %replace_original_rule.0 = phi i1 [ %replace_original_rule.1, %for.inc ], [ false, %entry ]
+  %replace_original_rule.0 = phi i1 [ %replace_original_rule.2, %for.inc ], [ false, %entry ]
   %4 = load ptr, ptr %arg_indices, align 8
   %cmp.i19 = icmp eq ptr %4, null
   br i1 %cmp.i19, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -3491,13 +3491,13 @@ if.else:                                          ; preds = %land.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
-  %replace_original_rule.1 = phi i1 [ true, %if.then ], [ %replace_original_rule.0, %if.else ]
+  %replace_original_rule.2 = phi i1 [ true, %if.then ], [ %replace_original_rule.0, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !24
 
 for.end:                                          ; preds = %if.then, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %replace_original_rule.2 = phi i1 [ %replace_original_rule.0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ true, %if.then ]
-  ret i1 %replace_original_rule.2
+  %replace_original_rule.1 = phi i1 [ %replace_original_rule.0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ true, %if.then ]
+  ret i1 %replace_original_rule.1
 }
 
 ; Function Attrs: mustprogress uwtable

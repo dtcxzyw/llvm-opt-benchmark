@@ -678,7 +678,7 @@ define hidden void @_ZN16LogConfiguration16configure_outputEmRK16LogSelectionLis
 
 .lr.ph:                                           ; preds = %3, %31
   %.03353 = phi ptr [ %.033, %31 ], [ %.03349, %3 ]
-  %.03451 = phi i1 [ %.2, %31 ], [ false, %3 ]
+  %.03451 = phi i1 [ %.1, %31 ], [ false, %3 ]
   %9 = tail call noundef i32 @_ZNK16LogSelectionList9level_forERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(15368) %1, ptr noundef nonnull align 8 dereferenceable(112) %.03353) #11
   %10 = tail call noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(112) %.03353, ptr noundef %7) #11
   %11 = and i32 %9, -9
@@ -735,13 +735,13 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9lev
   br label %31
 
 31:                                               ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread, %12
-  %.2 = phi i1 [ %26, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread ], [ %.03451, %12 ]
+  %.1 = phi i1 [ %26, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread ], [ %.03451, %12 ]
   %.033 = load ptr, ptr %.03353, align 8
   %.not37 = icmp eq ptr %.033, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %31, %3
-  %.034.lcssa = phi i1 [ false, %3 ], [ %.2, %31 ]
+  %.034.lcssa = phi i1 [ false, %3 ], [ %.1, %31 ]
   tail call void @_ZN14AsyncLogWriter5flushEv() #11
   %32 = getelementptr inbounds i8, ptr %7, i64 152
   %33 = load i32, ptr %2, align 4
@@ -1445,13 +1445,13 @@ _ZN16LogConfiguration23notify_update_listenersEv.exit: ; preds = %.lr.ph.i45, %.
   br label %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread
 
 _ZL21normalize_output_namePKcPcmP12outputStream.exit.thread: ; preds = %.thread, %81, %76, %102, %_ZN16LogConfiguration23notify_update_listenersEv.exit, %28
-  %.0 = phi i1 [ false, %28 ], [ true, %_ZN16LogConfiguration23notify_update_listenersEv.exit ], [ false, %102 ], [ false, %76 ], [ false, %81 ], [ false, %.thread ]
+  %.1 = phi i1 [ false, %28 ], [ true, %_ZN16LogConfiguration23notify_update_listenersEv.exit ], [ false, %102 ], [ false, %76 ], [ false, %81 ], [ false, %.thread ]
   call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17ConfigurationLock10_semaphoreE, i32 noundef 1) #11
   br label %119
 
 119:                                              ; preds = %17, %_ZN16LogSelectionListC2Ev.exit, %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread
-  %.1 = phi i1 [ %.0, %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread ], [ false, %_ZN16LogSelectionListC2Ev.exit ], [ false, %17 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread ], [ false, %_ZN16LogSelectionListC2Ev.exit ], [ false, %17 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

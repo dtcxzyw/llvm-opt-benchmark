@@ -855,13 +855,13 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i168
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %sw.bb.i.i168
-  %val.addr.0.i.i = phi i16 [ %91, %if.then.i.i ], [ %conv24.i, %sw.bb.i.i168 ]
-  %92 = and i16 %val.addr.0.i.i, 4096
+  %val.addr.1.i.i = phi i16 [ %91, %if.then.i.i ], [ %conv24.i, %sw.bb.i.i168 ]
+  %92 = and i16 %val.addr.1.i.i, 4096
   %tobool6.not.i.i = icmp eq i16 %92, 0
   br i1 %tobool6.not.i.i, label %if.end13.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
-  %and9.i.i = and i16 %val.addr.0.i.i, 28159
+  %and9.i.i = and i16 %val.addr.1.i.i, 28159
   %arrayidx.i23.i = getelementptr i8, ptr %opaque, i64 19728
   %93 = load i16, ptr %arrayidx.i23.i, align 2
   %94 = or i16 %93, 32
@@ -869,19 +869,19 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then7.i.i, %if.end.i.i
-  %val.addr.1.i.i = phi i16 [ %and9.i.i, %if.then7.i.i ], [ %val.addr.0.i.i, %if.end.i.i ]
+  %val.addr.2.i.i = phi i16 [ %and9.i.i, %if.then7.i.i ], [ %val.addr.1.i.i, %if.end.i.i ]
   %phy_loop21.i.i = getelementptr inbounds i8, ptr %opaque, i64 19790
-  %95 = lshr i16 %val.addr.1.i.i, 14
+  %95 = lshr i16 %val.addr.2.i.i, 14
   %96 = trunc nuw nsw i16 %95 to i8
   store i8 %96, ptr %phy_loop21.i.i, align 2
   br label %gem_phy_write.exit.i
 
 gem_phy_write.exit.i:                             ; preds = %if.end13.i.i, %sw.bb23.i
-  %val.addr.2.i.i = phi i16 [ %conv24.i, %sw.bb23.i ], [ %val.addr.1.i.i, %if.end13.i.i ]
+  %val.addr.0.i.i = phi i16 [ %conv24.i, %sw.bb23.i ], [ %val.addr.2.i.i, %if.end13.i.i ]
   %phy_regs23.i.i = getelementptr inbounds i8, ptr %opaque, i64 19726
   %idxprom.i22.i = zext nneg i32 %and.i17.i to i64
   %arrayidx24.i.i = getelementptr [32 x i16], ptr %phy_regs23.i.i, i64 0, i64 %idxprom.i22.i
-  store i16 %val.addr.2.i.i, ptr %arrayidx24.i.i, align 2
+  store i16 %val.addr.0.i.i, ptr %arrayidx24.i.i, align 2
   br label %do.end120
 
 do.end120:                                        ; preds = %for.body.i157, %for.body.i140, %for.body.i123, %for.body.i106, %for.body.i89, %for.body.i78, %if.then19.i, %if.then24.i, %if.then.i, %if.then3.i, %gem_phy_write.exit.i, %sw.bb.i, %if.end10.i, %if.then6.i, %if.then.i167, %sw.bb102, %sw.bb96, %sw.bb87, %sw.bb75, %sw.bb74, %sw.bb56, %if.then52, %sw.bb113, %sw.bb110, %sw.bb82, %sw.bb68, %sw.bb64, %sw.bb60, %sw.bb57, %entry
@@ -2435,21 +2435,21 @@ do.end125.i:                                      ; preds = %if.then123.i, %do.b
   br label %sw.bb127.i
 
 sw.bb127.i:                                       ; preds = %do.end125.i, %if.end102.i
-  %offset.0.i = phi i32 [ %and.i75.i, %if.end102.i ], [ %add126.i, %do.end125.i ]
-  %add128.i = add nuw nsw i32 %offset.0.i, 20
+  %offset.1.i = phi i32 [ %and.i75.i, %if.end102.i ], [ %add126.i, %do.end125.i ]
+  %add128.i = add nuw nsw i32 %offset.1.i, 20
   br label %sw.bb129.i
 
 sw.bb129.i:                                       ; preds = %sw.bb127.i, %if.end102.i
-  %offset.1.i = phi i32 [ %and.i75.i, %if.end102.i ], [ %add128.i, %sw.bb127.i ]
-  %add130.i = add nuw nsw i32 %offset.1.i, 14
+  %offset.2.i = phi i32 [ %and.i75.i, %if.end102.i ], [ %add128.i, %sw.bb127.i ]
+  %add130.i = add nuw nsw i32 %offset.2.i, 14
   br label %sw.epilog.i
 
 default.unreachable:                              ; preds = %if.end102.i
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb129.i, %if.end102.i
-  %offset.2.i = phi i32 [ %and.i75.i, %if.end102.i ], [ %add130.i, %sw.bb129.i ]
-  %idxprom132.i = zext nneg i32 %offset.2.i to i64
+  %offset.0.i = phi i32 [ %and.i75.i, %if.end102.i ], [ %add130.i, %sw.bb129.i ]
+  %idxprom132.i = zext nneg i32 %offset.0.i to i64
   %arrayidx133.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 %idxprom132.i
   %54 = load i8, ptr %arrayidx133.i, align 1
   %conv134.i = zext i8 %54 to i32

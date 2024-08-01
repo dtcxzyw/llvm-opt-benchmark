@@ -2796,7 +2796,7 @@ sharkd_session_create_columns.exit:               ; preds = %145, %json_find_att
 178:                                              ; preds = %.lr.ph176, %241
   %.051175 = phi i32 [ 0, %.lr.ph176 ], [ %.1, %241 ]
   %.052170 = phi i32 [ 1, %.lr.ph176 ], [ %242, %241 ]
-  %.053169 = phi i32 [ 0, %.lr.ph176 ], [ %.5, %241 ]
+  %.053169 = phi i32 [ 0, %.lr.ph176 ], [ %.154, %241 ]
   %.not75 = icmp ne i32 %.052170, 1
   %179 = zext i1 %.not75 to i32
   br i1 %.not76, label %189, label %180
@@ -2877,7 +2877,7 @@ sharkd_session_create_columns.exit:               ; preds = %145, %json_find_att
 
 .loopexit:                                        ; preds = %206, %200, %217
   %221 = phi i8 [ %.pre195, %217 ], [ %202, %200 ], [ %208, %206 ]
-  %.2 = phi i32 [ %213, %217 ], [ %196, %200 ], [ %213, %206 ]
+  %.5 = phi i32 [ %213, %217 ], [ %196, %200 ], [ %213, %206 ]
   %222 = icmp eq i8 %221, 0
   br i1 %222, label %223, label %226
 
@@ -2891,13 +2891,13 @@ sharkd_session_create_columns.exit:               ; preds = %145, %json_find_att
   br label %226
 
 226:                                              ; preds = %.loopexit, %223, %225, %195
-  %.3 = phi i32 [ %224, %225 ], [ %.2, %223 ], [ %.2, %.loopexit ], [ %.053169, %195 ]
+  %.3 = phi i32 [ %224, %225 ], [ %.5, %223 ], [ %.5, %.loopexit ], [ %.053169, %195 ]
   %.not83 = icmp eq i32 %.3, 0
   %spec.select86 = select i1 %.not83, i32 %179, i32 %.3
   br label %227
 
 227:                                              ; preds = %226, %193
-  %.4 = phi i32 [ %.053169, %193 ], [ %.3, %226 ]
+  %.2 = phi i32 [ %.053169, %193 ], [ %.3, %226 ]
   %.050 = phi i32 [ %179, %193 ], [ %spec.select86, %226 ]
   %228 = call ptr @sharkd_get_frame(i32 noundef %.052170) #17
   %229 = getelementptr inbounds i8, ptr %228, i64 40
@@ -2925,7 +2925,7 @@ sharkd_session_create_columns.exit:               ; preds = %145, %json_find_att
   br i1 %240, label %._crit_edge, label %241
 
 241:                                              ; preds = %236, %238, %180, %191
-  %.5 = phi i32 [ %.053169, %191 ], [ %.4, %238 ], [ %.4, %236 ], [ %.053169, %180 ]
+  %.154 = phi i32 [ %.053169, %191 ], [ %.2, %238 ], [ %.2, %236 ], [ %.053169, %180 ]
   %.1 = phi i32 [ %.052170, %191 ], [ %.052170, %238 ], [ %.052170, %236 ], [ %.051175, %180 ]
   %242 = add i32 %.052170, 1
   %243 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
@@ -3153,8 +3153,8 @@ sub_2.us:                                         ; preds = %sub_1.us
 sub_0283.us:                                      ; preds = %92, %112
   %95 = phi ptr [ %116, %112 ], [ %94, %92 ]
   %.0343.us = phi i32 [ %113, %112 ], [ 0, %92 ]
-  %.0201342.us = phi i32 [ %.1202.us, %112 ], [ 0, %92 ]
-  %.0203341.us = phi i32 [ %.1204.us, %112 ], [ 0, %92 ]
+  %.1202342.us = phi i32 [ %.2.us, %112 ], [ 0, %92 ]
+  %.1204341.us = phi i32 [ %.2205.us, %112 ], [ 0, %92 ]
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = sub nsw i32 105, %97
@@ -3192,8 +3192,8 @@ sub_2285.us:                                      ; preds = %sub_1284.us
   br i1 %.not271.us, label %112, label %.split353.us
 
 112:                                              ; preds = %110, %108, %.tail282.us
-  %.1204.us = phi i32 [ 1, %108 ], [ 1, %.tail282.us ], [ %.0203341.us, %110 ]
-  %.1202.us = phi i32 [ %.0201342.us, %108 ], [ %.0201342.us, %.tail282.us ], [ 1, %110 ]
+  %.2205.us = phi i32 [ 1, %108 ], [ 1, %.tail282.us ], [ %.1204341.us, %110 ]
+  %.2.us = phi i32 [ %.1202342.us, %108 ], [ %.1202342.us, %.tail282.us ], [ 1, %110 ]
   %113 = add i32 %.0343.us, 1
   %114 = sext i32 %113 to i64
   %115 = getelementptr ptr, ptr %93, i64 %114
@@ -3202,19 +3202,19 @@ sub_2285.us:                                      ; preds = %sub_1284.us
   br i1 %.not268.us, label %._crit_edge.us, label %sub_0283.us, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %112, %92
-  %.0203.lcssa.us = phi i32 [ 0, %92 ], [ %.1204.us, %112 ]
-  %.0201.lcssa.us = phi i32 [ 0, %92 ], [ %.1202.us, %112 ]
+  %.1204.lcssa.us = phi i32 [ 0, %92 ], [ %.2205.us, %112 ]
+  %.1202.lcssa.us = phi i32 [ 0, %92 ], [ %.2.us, %112 ]
   call void @g_strfreev(ptr noundef nonnull %93) #17
   br label %117
 
 117:                                              ; preds = %._crit_edge.us, %89
-  %.2205.us = phi i32 [ %.0203.lcssa.us, %._crit_edge.us ], [ 1, %89 ]
-  %.2.us = phi i32 [ %.0201.lcssa.us, %._crit_edge.us ], [ 1, %89 ]
+  %.0203.us = phi i32 [ %.1204.lcssa.us, %._crit_edge.us ], [ 1, %89 ]
+  %.0201.us = phi i32 [ %.1202.lcssa.us, %._crit_edge.us ], [ 1, %89 ]
   %118 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   %119 = getelementptr inbounds i8, ptr %118, i64 8
-  store i32 %.2205.us, ptr %119, align 8
+  store i32 %.0203.us, ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %118, i64 12
-  store i32 %.2.us, ptr %120, align 4
+  store i32 %.0201.us, ptr %120, align 4
   store ptr %46, ptr %118, align 8
   %121 = load ptr, ptr %6, align 8
   %122 = call ptr @register_tap_listener(ptr noundef nonnull @.str.24, ptr noundef nonnull %118, ptr noundef %121, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull @sharkd_session_process_tap_hosts_cb, ptr noundef null) #17
@@ -4433,7 +4433,7 @@ json_find_attr.exit67:                            ; preds = %34, %27
   %.04488.us = phi i32 [ %90, %82 ], [ 1, %.lr.ph ]
   %.sroa.4.087.us = phi i64 [ %89, %82 ], [ 0, %.lr.ph ]
   %.04586.us = phi i64 [ %.2.us, %82 ], [ 0, %.lr.ph ]
-  %.04685.us = phi i64 [ %.147.us, %82 ], [ 0, %.lr.ph ]
+  %.04685.us = phi i64 [ %.248.us, %82 ], [ 0, %.lr.ph ]
   %.sroa.0.084.us = phi i32 [ %88, %82 ], [ 0, %.lr.ph ]
   %63 = call ptr @sharkd_get_frame(i32 noundef %.04488.us) #17
   %64 = getelementptr inbounds i8, ptr %63, i64 56
@@ -4467,15 +4467,15 @@ json_find_attr.exit67:                            ; preds = %34, %27
   br label %82
 
 82:                                               ; preds = %81, %.lr.ph.split.us
-  %.147.us = phi i64 [ %78, %81 ], [ %.04685.us, %.lr.ph.split.us ]
+  %.248.us = phi i64 [ %78, %81 ], [ %.04685.us, %.lr.ph.split.us ]
   %.2.us = phi i64 [ %spec.select.us, %81 ], [ %.04586.us, %.lr.ph.split.us ]
-  %.sroa.024.1.us = phi i32 [ 0, %81 ], [ %.sroa.024.089.us, %.lr.ph.split.us ]
-  %.sroa.8.1.us = phi i64 [ 0, %81 ], [ %.sroa.8.090.us, %.lr.ph.split.us ]
-  %83 = add i32 %.sroa.024.1.us, 1
+  %.sroa.024.2.us = phi i32 [ 0, %81 ], [ %.sroa.024.089.us, %.lr.ph.split.us ]
+  %.sroa.8.2.us = phi i64 [ 0, %81 ], [ %.sroa.8.090.us, %.lr.ph.split.us ]
+  %83 = add i32 %.sroa.024.2.us, 1
   %84 = getelementptr inbounds i8, ptr %63, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
-  %87 = add i64 %.sroa.8.1.us, %86
+  %87 = add i64 %.sroa.8.2.us, %86
   %88 = add i32 %.sroa.0.084.us, 1
   %89 = add i64 %.sroa.4.087.us, %86
   %90 = add i32 %.04488.us, 1
@@ -4485,12 +4485,12 @@ json_find_attr.exit67:                            ; preds = %34, %27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %129
   %92 = phi i32 [ %130, %129 ], [ %.pre, %.lr.ph ]
-  %.sroa.8.090 = phi i64 [ %.sroa.8.2, %129 ], [ 0, %.lr.ph ]
-  %.sroa.024.089 = phi i32 [ %.sroa.024.2, %129 ], [ 0, %.lr.ph ]
+  %.sroa.8.090 = phi i64 [ %.sroa.8.1, %129 ], [ 0, %.lr.ph ]
+  %.sroa.024.089 = phi i32 [ %.sroa.024.1, %129 ], [ 0, %.lr.ph ]
   %.04488 = phi i32 [ %131, %129 ], [ 1, %.lr.ph ]
   %.sroa.4.087 = phi i64 [ %.sroa.4.1, %129 ], [ 0, %.lr.ph ]
-  %.04586 = phi i64 [ %.3, %129 ], [ 0, %.lr.ph ]
-  %.04685 = phi i64 [ %.248, %129 ], [ 0, %.lr.ph ]
+  %.04586 = phi i64 [ %.1, %129 ], [ 0, %.lr.ph ]
+  %.04685 = phi i64 [ %.147, %129 ], [ 0, %.lr.ph ]
   %.sroa.0.084 = phi i32 [ %.sroa.0.1, %129 ], [ 0, %.lr.ph ]
   %93 = lshr i32 %.04488, 3
   %94 = zext nneg i32 %93 to i64
@@ -4536,15 +4536,15 @@ json_find_attr.exit67:                            ; preds = %34, %27
   br label %121
 
 121:                                              ; preds = %120, %101
-  %.147 = phi i64 [ %117, %120 ], [ %.04685, %101 ]
+  %.248 = phi i64 [ %117, %120 ], [ %.04685, %101 ]
   %.2 = phi i64 [ %spec.select, %120 ], [ %.04586, %101 ]
-  %.sroa.024.1 = phi i32 [ 0, %120 ], [ %.sroa.024.089, %101 ]
-  %.sroa.8.1 = phi i64 [ 0, %120 ], [ %.sroa.8.090, %101 ]
-  %122 = add i32 %.sroa.024.1, 1
+  %.sroa.024.2 = phi i32 [ 0, %120 ], [ %.sroa.024.089, %101 ]
+  %.sroa.8.2 = phi i64 [ 0, %120 ], [ %.sroa.8.090, %101 ]
+  %122 = add i32 %.sroa.024.2, 1
   %123 = getelementptr inbounds i8, ptr %102, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = zext i32 %124 to i64
-  %126 = add i64 %.sroa.8.1, %125
+  %126 = add i64 %.sroa.8.2, %125
   %127 = add i32 %.sroa.0.084, 1
   %128 = add i64 %.sroa.4.087, %125
   %.pre107 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
@@ -4553,22 +4553,22 @@ json_find_attr.exit67:                            ; preds = %34, %27
 129:                                              ; preds = %.lr.ph.split, %121
   %130 = phi i32 [ %.pre107, %121 ], [ %92, %.lr.ph.split ]
   %.sroa.0.1 = phi i32 [ %127, %121 ], [ %.sroa.0.084, %.lr.ph.split ]
-  %.248 = phi i64 [ %.147, %121 ], [ %.04685, %.lr.ph.split ]
-  %.3 = phi i64 [ %.2, %121 ], [ %.04586, %.lr.ph.split ]
+  %.147 = phi i64 [ %.248, %121 ], [ %.04685, %.lr.ph.split ]
+  %.1 = phi i64 [ %.2, %121 ], [ %.04586, %.lr.ph.split ]
   %.sroa.4.1 = phi i64 [ %128, %121 ], [ %.sroa.4.087, %.lr.ph.split ]
-  %.sroa.024.2 = phi i32 [ %122, %121 ], [ %.sroa.024.089, %.lr.ph.split ]
-  %.sroa.8.2 = phi i64 [ %126, %121 ], [ %.sroa.8.090, %.lr.ph.split ]
+  %.sroa.024.1 = phi i32 [ %122, %121 ], [ %.sroa.024.089, %.lr.ph.split ]
+  %.sroa.8.1 = phi i64 [ %126, %121 ], [ %.sroa.8.090, %.lr.ph.split ]
   %131 = add i32 %.04488, 1
   %.not56 = icmp ugt i32 %131, %130
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %129, %82
   %.sroa.0.0.lcssa = phi i32 [ %88, %82 ], [ %.sroa.0.1, %129 ]
-  %.046.lcssa = phi i64 [ %.147.us, %82 ], [ %.248, %129 ]
-  %.045.lcssa = phi i64 [ %.2.us, %82 ], [ %.3, %129 ]
+  %.046.lcssa = phi i64 [ %.248.us, %82 ], [ %.147, %129 ]
+  %.045.lcssa = phi i64 [ %.2.us, %82 ], [ %.1, %129 ]
   %.sroa.4.0.lcssa = phi i64 [ %89, %82 ], [ %.sroa.4.1, %129 ]
-  %.sroa.024.0.lcssa = phi i32 [ %83, %82 ], [ %.sroa.024.2, %129 ]
-  %.sroa.8.0.lcssa = phi i64 [ %87, %82 ], [ %.sroa.8.2, %129 ]
+  %.sroa.024.0.lcssa = phi i32 [ %83, %82 ], [ %.sroa.024.1, %129 ]
+  %.sroa.8.0.lcssa = phi i64 [ %87, %82 ], [ %.sroa.8.1, %129 ]
   %.not57 = icmp eq i32 %.sroa.024.0.lcssa, 0
   br i1 %.not57, label %._crit_edge.thread, label %132
 
@@ -6756,7 +6756,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr nocapture noundef r
 85:                                               ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %86 = phi ptr [ %25, %.lr.ph ], [ %108, %106 ]
-  %.391 = phi i32 [ 0, %.lr.ph ], [ %spec.select87, %106 ]
+  %.491 = phi i32 [ 0, %.lr.ph ], [ %spec.select87, %106 ]
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr %struct._endpoint_item_t, ptr %87, i64 %indvars.iv
   tail call void @json_dumper_begin_object(ptr noundef nonnull @dumper) #17
@@ -6802,7 +6802,7 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr nocapture noundef r
   tail call void @wmem_free(ptr noundef null, ptr noundef %91) #17
   %107 = tail call fastcc i32 @sharkd_session_geoip_addr(ptr noundef nonnull %89, ptr noundef nonnull @.str.199)
   %.not85 = icmp eq i32 %107, 0
-  %spec.select87 = select i1 %.not85, i32 %.391, i32 1
+  %spec.select87 = select i1 %.not85, i32 %.491, i32 1
   tail call void @json_dumper_end_object(ptr noundef nonnull @dumper) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = load ptr, ptr %24, align 8
@@ -6813,12 +6813,12 @@ define internal void @sharkd_session_process_tap_conv_cb(ptr nocapture noundef r
   br i1 %112, label %85, label %.thread, !llvm.loop !46
 
 .thread:                                          ; preds = %106, %70, %.preheader89, %.preheader, %22, %79
-  %.5 = phi i32 [ 0, %79 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ %.2, %70 ], [ %spec.select87, %106 ]
+  %.3 = phi i32 [ 0, %79 ], [ 0, %22 ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ %.2, %70 ], [ %spec.select87, %106 ]
   tail call void @json_dumper_end_array(ptr noundef nonnull @dumper) #17
   tail call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.37) #17
   tail call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %.0) #17
-  %.5.fr = freeze i32 %.5
-  %.not86 = icmp eq i32 %.5.fr, 0
+  %.3.fr = freeze i32 %.3
+  %.not86 = icmp eq i32 %.3.fr, 0
   %spec.select88 = select i1 %.not86, ptr @.str.99, ptr @.str.98
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.270, ptr noundef nonnull %spec.select88)
   tail call void @json_dumper_end_object(ptr noundef nonnull @dumper) #17
@@ -10711,10 +10711,10 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
 
 22:                                               ; preds = %.lr.ph, %75
   %.04763 = phi ptr [ %.04757, %.lr.ph ], [ %.047, %75 ]
-  %.062 = phi i32 [ 0, %.lr.ph ], [ %.2, %75 ]
-  %.03661 = phi ptr [ null, %.lr.ph ], [ %.3, %75 ]
-  %.03960 = phi i64 [ 4096, %.lr.ph ], [ %.4, %75 ]
-  %.04359 = phi ptr [ %11, %.lr.ph ], [ %.346, %75 ]
+  %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %75 ]
+  %.03661 = phi ptr [ null, %.lr.ph ], [ %.137, %75 ]
+  %.03960 = phi i64 [ 4096, %.lr.ph ], [ %.140, %75 ]
+  %.04359 = phi ptr [ %11, %.lr.ph ], [ %.144, %75 ]
   %23 = load ptr, ptr %.04763, align 8
   store ptr null, ptr %5, align 8
   %24 = call i64 @decode_rtp_packet(ptr noundef %23, ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
@@ -10750,9 +10750,9 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
 
 36:                                               ; preds = %30, %28
   %37 = phi i32 [ %.pre, %30 ], [ %26, %28 ]
-  %.1 = phi i32 [ %26, %30 ], [ %.062, %28 ]
+  %.2 = phi i32 [ %26, %30 ], [ %.062, %28 ]
   %38 = load ptr, ptr %5, align 8
-  %.not54 = icmp eq i32 %.1, %37
+  %.not54 = icmp eq i32 %.2, %37
   br i1 %.not54, label %74, label %39
 
 39:                                               ; preds = %36
@@ -10760,7 +10760,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
   br i1 %.not55, label %40, label %43
 
 40:                                               ; preds = %39
-  %41 = call ptr @speex_resampler_init(i32 noundef 1, i32 noundef %37, i32 noundef %.1, i32 noundef 10, ptr noundef null) #17
+  %41 = call ptr @speex_resampler_init(i32 noundef 1, i32 noundef %37, i32 noundef %.2, i32 noundef 10, ptr noundef null) #17
   %42 = call i32 @speex_resampler_skip_zeros(ptr noundef %41) #17
   br label %49
 
@@ -10777,16 +10777,16 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
   br label %49
 
 49:                                               ; preds = %43, %46, %40
-  %.137 = phi ptr [ %.03661, %46 ], [ %.03661, %43 ], [ %41, %40 ]
+  %.3 = phi ptr [ %.03661, %46 ], [ %.03661, %43 ], [ %41, %40 ]
   %50 = getelementptr inbounds i8, ptr %23, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 56
   %53 = load i32, ptr %52, align 8
   store i32 %53, ptr %7, align 4
-  %54 = mul i32 %53, %.1
+  %54 = mul i32 %53, %.2
   %55 = load i32, ptr %4, align 4
   %56 = udiv i32 %54, %55
-  %57 = urem i32 %.1, %55
+  %57 = urem i32 %.2, %55
   %58 = icmp ne i32 %57, 0
   %59 = zext i1 %58 to i32
   %60 = add i32 %56, %59
@@ -10797,39 +10797,39 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
   br i1 %63, label %.preheader, label %68
 
 .preheader:                                       ; preds = %49, %.preheader
-  %.140 = phi i64 [ %65, %.preheader ], [ %.03960, %49 ]
-  %64 = icmp ult i64 %.140, %62
-  %65 = shl nuw nsw i64 %.140, 1
+  %.4 = phi i64 [ %65, %.preheader ], [ %.03960, %49 ]
+  %64 = icmp ult i64 %.4, %62
+  %65 = shl nuw nsw i64 %.4, 1
   br i1 %64, label %.preheader, label %66, !llvm.loop !75
 
 66:                                               ; preds = %.preheader
-  %67 = call ptr @g_realloc(ptr noundef %.04359, i64 noundef %.140) #17
+  %67 = call ptr @g_realloc(ptr noundef %.04359, i64 noundef %.4) #17
   br label %68
 
 68:                                               ; preds = %66, %49
-  %.144 = phi ptr [ %67, %66 ], [ %.04359, %49 ]
-  %.241 = phi i64 [ %.140, %66 ], [ %.03960, %49 ]
+  %.346 = phi ptr [ %67, %66 ], [ %.04359, %49 ]
+  %.342 = phi i64 [ %.4, %66 ], [ %.03960, %49 ]
   %69 = load ptr, ptr %5, align 8
-  %70 = call i32 @speex_resampler_process_int(ptr noundef %.137, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %7, ptr noundef %.144, ptr noundef nonnull %8) #17
+  %70 = call i32 @speex_resampler_process_int(ptr noundef %.3, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %7, ptr noundef %.346, ptr noundef nonnull %8) #17
   %71 = load i32, ptr %8, align 4
   %72 = shl i32 %71, 1
   %73 = zext i32 %72 to i64
   br label %74
 
 74:                                               ; preds = %68, %36
-  %.049 = phi ptr [ %.144, %68 ], [ %38, %36 ]
+  %.049 = phi ptr [ %.346, %68 ], [ %38, %36 ]
   %.048 = phi i64 [ %73, %68 ], [ %24, %36 ]
-  %.245 = phi ptr [ %.144, %68 ], [ %.04359, %36 ]
-  %.342 = phi i64 [ %.241, %68 ], [ %.03960, %36 ]
-  %.238 = phi ptr [ %.137, %68 ], [ %.03661, %36 ]
+  %.245 = phi ptr [ %.346, %68 ], [ %.04359, %36 ]
+  %.241 = phi i64 [ %.342, %68 ], [ %.03960, %36 ]
+  %.238 = phi ptr [ %.3, %68 ], [ %.03661, %36 ]
   call void @json_dumper_write_base64(ptr noundef nonnull @dumper, ptr noundef %.049, i64 noundef %.048) #17
   br label %75
 
 75:                                               ; preds = %22, %74
-  %.346 = phi ptr [ %.245, %74 ], [ %.04359, %22 ]
-  %.4 = phi i64 [ %.342, %74 ], [ %.03960, %22 ]
-  %.3 = phi ptr [ %.238, %74 ], [ %.03661, %22 ]
-  %.2 = phi i32 [ %.1, %74 ], [ %.062, %22 ]
+  %.144 = phi ptr [ %.245, %74 ], [ %.04359, %22 ]
+  %.140 = phi i64 [ %.241, %74 ], [ %.03960, %22 ]
+  %.137 = phi ptr [ %.238, %74 ], [ %.03661, %22 ]
+  %.1 = phi i32 [ %.2, %74 ], [ %.062, %22 ]
   %.sink = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %.sink) #17
   %76 = getelementptr inbounds i8, ptr %.04763, i64 8
@@ -10838,7 +10838,7 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %75, %1
-  %.043.lcssa = phi ptr [ %11, %1 ], [ %.346, %75 ]
+  %.043.lcssa = phi ptr [ %11, %1 ], [ %.144, %75 ]
   call void @g_free(ptr noundef %.043.lcssa) #17
   call void @g_hash_table_destroy(ptr noundef %10) #17
   ret void

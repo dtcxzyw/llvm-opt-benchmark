@@ -6650,7 +6650,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %732, label %.preheader121, label %.loopexit123
 
 .preheader121:                                    ; preds = %729, %844
-  %.0 = phi i32 [ %.6, %844 ], [ -1, %729 ]
+  %.2 = phi i32 [ %.4, %844 ], [ -1, %729 ]
   %733 = phi i32 [ %846, %844 ], [ %731, %729 ]
   %734 = phi i64 [ %845, %844 ], [ %730, %729 ]
   %735 = phi i32 [ %826, %844 ], [ %705, %729 ]
@@ -6670,7 +6670,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br label %744
 
 744:                                              ; preds = %788, %741
-  %.1 = phi i32 [ %.0, %741 ], [ %.2, %788 ]
+  %.8 = phi i32 [ %.2, %741 ], [ %.11, %788 ]
   %745 = phi i64 [ 0, %741 ], [ %791, %788 ]
   %746 = phi i8 [ 1, %741 ], [ %789, %788 ]
   %747 = load i64, ptr %743, align 8
@@ -6691,7 +6691,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
 758:                                              ; preds = %754
   %759 = tail call i32 @available_idle_cpu(i32 noundef %756) #27
   %760 = icmp eq i32 %759, 0
-  %761 = icmp eq i32 %.1, -1
+  %761 = icmp eq i32 %.8, -1
   br i1 %760, label %762, label %781
 
 762:                                              ; preds = %758
@@ -6734,7 +6734,7 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br label %788
 
 788:                                              ; preds = %782, %781, %776, %763
-  %.2 = phi i32 [ -1, %763 ], [ -1, %776 ], [ %.1, %781 ], [ %spec.select, %782 ]
+  %.11 = phi i32 [ -1, %763 ], [ -1, %776 ], [ %.8, %781 ], [ %spec.select, %782 ]
   %789 = phi i8 [ 0, %763 ], [ 0, %776 ], [ %746, %781 ], [ %746, %782 ]
   %790 = add nuw nsw i64 %755, 1
   %791 = and i64 %790, 127
@@ -6742,14 +6742,14 @@ define internal i32 @select_task_rq_fair(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %792, label %744, label %.thread.i, !prof !20, !llvm.loop !113
 
 .thread.i:                                        ; preds = %788, %754, %744
-  %.3 = phi i32 [ %.1, %744 ], [ %.2, %788 ], [ %.1, %754 ]
+  %.9 = phi i32 [ %.8, %744 ], [ %.11, %788 ], [ %.8, %754 ]
   %.lcssa.i = phi i8 [ %746, %744 ], [ %789, %788 ], [ %746, %754 ]
   %793 = and i8 %.lcssa.i, 1
   %794 = icmp eq i8 %793, 0
   br i1 %794, label %select_idle_core.exit.thread, label %select_idle_core.exit
 
 select_idle_core.exit.thread:                     ; preds = %762, %776, %.thread.i
-  %.4 = phi i32 [ %.3, %.thread.i ], [ %756, %776 ], [ %.1, %762 ]
+  %.10 = phi i32 [ %.9, %.thread.i ], [ %756, %776 ], [ %.8, %762 ]
   %795 = load i64, ptr %743, align 8
   %796 = add i64 %795, ptrtoint (ptr @cpu_sibling_map to i64)
   %797 = inttoptr i64 %796 to ptr
@@ -6799,7 +6799,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br i1 %825, label %.thread106, label %.thread100
 
 .thread100:                                       ; preds = %811, %select_idle_core.exit.thread, %823, %select_idle_core.exit, %.preheader121
-  %.6 = phi i32 [ %.0, %.preheader121 ], [ %.3, %select_idle_core.exit ], [ %733, %823 ], [ %.4, %select_idle_core.exit.thread ], [ -1, %811 ]
+  %.4 = phi i32 [ %.2, %.preheader121 ], [ %.9, %select_idle_core.exit ], [ %733, %823 ], [ %.10, %select_idle_core.exit.thread ], [ -1, %811 ]
   %826 = phi i32 [ %735, %.preheader121 ], [ %735, %select_idle_core.exit ], [ %805, %823 ], [ %735, %select_idle_core.exit.thread ], [ %805, %811 ]
   %827 = add i64 %734, 1
   %828 = and i64 %827, 4294967295
@@ -6836,7 +6836,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br i1 %847, label %.preheader121, label %.loopexit123, !llvm.loop !114
 
 .loopexit123:                                     ; preds = %844, %729
-  %.7 = phi i32 [ -1, %729 ], [ %.6, %844 ]
+  %.3 = phi i32 [ -1, %729 ], [ %.4, %844 ]
   %848 = phi i32 [ %705, %729 ], [ %826, %844 ]
   %849 = load i64, ptr %687, align 8
   %850 = load i64, ptr %714, align 8
@@ -6846,7 +6846,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br label %853
 
 853:                                              ; preds = %706, %.loopexit123, %704
-  %.9 = phi i32 [ -1, %704 ], [ -1, %706 ], [ %.7, %.loopexit123 ]
+  %.0 = phi i32 [ -1, %704 ], [ -1, %706 ], [ %.3, %.loopexit123 ]
   %854 = phi i32 [ %705, %704 ], [ %705, %706 ], [ %848, %.loopexit123 ]
   %855 = add i32 %358, 1
   %856 = sext i32 %855 to i64
@@ -6878,7 +6878,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br i1 %872, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %869, %979
-  %.10 = phi i32 [ %.16, %979 ], [ %.9, %869 ]
+  %.5 = phi i32 [ %.7, %979 ], [ %.0, %869 ]
   %873 = phi i32 [ %981, %979 ], [ %871, %869 ]
   %874 = phi i64 [ %980, %979 ], [ %870, %869 ]
   %875 = phi i32 [ %961, %979 ], [ %854, %869 ]
@@ -6890,7 +6890,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br label %879
 
 879:                                              ; preds = %923, %876
-  %.11 = phi i32 [ %.10, %876 ], [ %.12, %923 ]
+  %.13 = phi i32 [ %.5, %876 ], [ %.16, %923 ]
   %880 = phi i64 [ 0, %876 ], [ %926, %923 ]
   %881 = phi i8 [ 1, %876 ], [ %924, %923 ]
   %882 = load i64, ptr %878, align 8
@@ -6911,7 +6911,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
 893:                                              ; preds = %889
   %894 = tail call i32 @available_idle_cpu(i32 noundef %891) #27
   %895 = icmp eq i32 %894, 0
-  %896 = icmp eq i32 %.11, -1
+  %896 = icmp eq i32 %.13, -1
   br i1 %895, label %897, label %916
 
 897:                                              ; preds = %893
@@ -6954,7 +6954,7 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br label %923
 
 923:                                              ; preds = %917, %916, %911, %898
-  %.12 = phi i32 [ -1, %898 ], [ -1, %911 ], [ %.11, %916 ], [ %spec.select120, %917 ]
+  %.16 = phi i32 [ -1, %898 ], [ -1, %911 ], [ %.13, %916 ], [ %spec.select120, %917 ]
   %924 = phi i8 [ 0, %898 ], [ 0, %911 ], [ %881, %916 ], [ %881, %917 ]
   %925 = add nuw nsw i64 %890, 1
   %926 = and i64 %925, 127
@@ -6962,14 +6962,14 @@ select_idle_core.exit:                            ; preds = %.thread.i
   br i1 %927, label %879, label %.thread.i72, !prof !20, !llvm.loop !113
 
 .thread.i72:                                      ; preds = %923, %889, %879
-  %.13 = phi i32 [ %.11, %879 ], [ %.12, %923 ], [ %.11, %889 ]
+  %.14 = phi i32 [ %.13, %879 ], [ %.16, %923 ], [ %.13, %889 ]
   %.lcssa.i73 = phi i8 [ %881, %879 ], [ %924, %923 ], [ %881, %889 ]
   %928 = and i8 %.lcssa.i73, 1
   %929 = icmp eq i8 %928, 0
   br i1 %929, label %select_idle_core.exit75.thread, label %select_idle_core.exit75
 
 select_idle_core.exit75.thread:                   ; preds = %897, %911, %.thread.i72
-  %.14 = phi i32 [ %.13, %.thread.i72 ], [ %891, %911 ], [ %.11, %897 ]
+  %.15 = phi i32 [ %.14, %.thread.i72 ], [ %891, %911 ], [ %.13, %897 ]
   %930 = load i64, ptr %878, align 8
   %931 = add i64 %930, ptrtoint (ptr @cpu_sibling_map to i64)
   %932 = inttoptr i64 %931 to ptr
@@ -7016,7 +7016,7 @@ select_idle_core.exit75:                          ; preds = %.thread.i72
   br i1 %960, label %.thread106, label %.thread111
 
 .thread111:                                       ; preds = %945, %select_idle_core.exit75.thread, %958, %select_idle_core.exit75
-  %.16 = phi i32 [ %.13, %select_idle_core.exit75 ], [ %873, %958 ], [ %.14, %select_idle_core.exit75.thread ], [ -1, %945 ]
+  %.7 = phi i32 [ %.14, %select_idle_core.exit75 ], [ %873, %958 ], [ %.15, %select_idle_core.exit75.thread ], [ -1, %945 ]
   %961 = phi i32 [ %875, %select_idle_core.exit75 ], [ %940, %958 ], [ %875, %select_idle_core.exit75.thread ], [ %940, %945 ]
   %962 = add i64 %874, 1
   %963 = and i64 %962, 4294967295
@@ -7053,7 +7053,7 @@ select_idle_core.exit75:                          ; preds = %.thread.i72
   br i1 %982, label %.preheader, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %979, %869
-  %.17 = phi i32 [ %.9, %869 ], [ %.16, %979 ]
+  %.6 = phi i32 [ %.0, %869 ], [ %.7, %979 ]
   br i1 %685, label %983, label %.thread106
 
 983:                                              ; preds = %.loopexit
@@ -7074,7 +7074,7 @@ select_idle_core.exit75:                          ; preds = %.thread.i72
   br label %995
 
 .thread106:                                       ; preds = %823, %select_idle_core.exit, %958, %select_idle_core.exit75, %.loopexit, %983, %989
-  %992 = phi i32 [ %.17, %989 ], [ %.17, %983 ], [ %.17, %.loopexit ], [ %873, %select_idle_core.exit75 ], [ %873, %958 ], [ %733, %select_idle_core.exit ], [ %733, %823 ]
+  %992 = phi i32 [ %.6, %989 ], [ %.6, %983 ], [ %.6, %.loopexit ], [ %873, %select_idle_core.exit75 ], [ %873, %958 ], [ %733, %select_idle_core.exit ], [ %733, %823 ]
   %993 = load i32, ptr @nr_cpu_ids, align 4
   %994 = icmp ult i32 %992, %993
   br i1 %994, label %1001, label %995

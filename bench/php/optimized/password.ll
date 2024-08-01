@@ -1126,7 +1126,7 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br i1 %28, label %.thread, label %.thread159
 
 .thread:                                          ; preds = %22, %26, %24, %27
-  %.2141157 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
+  %.3157 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
   %29 = icmp eq i32 %7, 2
   br i1 %29, label %.thread171, label %30
 
@@ -1150,10 +1150,10 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   br label %52
 
 .thread171:                                       ; preds = %.thread, %.thread181
-  %.2180 = phi ptr [ %34, %.thread181 ], [ null, %.thread ]
+  %.0138180 = phi ptr [ %34, %.thread181 ], [ null, %.thread ]
   %35 = load ptr, ptr %4, align 8
   %36 = load i64, ptr %5, align 8
-  %37 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %35, i64 noundef %36, i1 noundef zeroext %.2141157)
+  %37 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %35, i64 noundef %36, i1 noundef zeroext %.3157)
   %.not151 = icmp eq ptr %37, null
   br i1 %.not151, label %38, label %40
 
@@ -1177,7 +1177,7 @@ define hidden void @zif_password_needs_rehash(ptr noundef %0, ptr nocapture noun
   %46 = getelementptr inbounds i8, ptr %42, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %3, align 8
-  %49 = call zeroext i1 %47(ptr noundef %48, ptr noundef %.2180) #12
+  %49 = call zeroext i1 %47(ptr noundef %48, ptr noundef %.0138180) #12
   %50 = select i1 %49, i32 3, i32 2
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
@@ -1487,7 +1487,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br i1 %28, label %.thread, label %.thread161
 
 .thread:                                          ; preds = %22, %26, %24, %27
-  %.2142159 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
+  %.3159 = phi i1 [ false, %27 ], [ true, %26 ], [ false, %24 ], [ false, %22 ]
   %29 = icmp eq i32 %7, 2
   br i1 %29, label %.thread173, label %30
 
@@ -1511,10 +1511,10 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br label %54
 
 .thread173:                                       ; preds = %.thread, %.thread183
-  %.2182 = phi ptr [ %34, %.thread183 ], [ null, %.thread ]
+  %.0139182 = phi ptr [ %34, %.thread183 ], [ null, %.thread ]
   %35 = load ptr, ptr %4, align 8
   %36 = load i64, ptr %5, align 8
-  %37 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %35, i64 noundef %36, i1 noundef zeroext %.2142159)
+  %37 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %35, i64 noundef %36, i1 noundef zeroext %.3159)
   %.not152 = icmp eq ptr %37, null
   br i1 %.not152, label %38, label %41
 
@@ -1529,7 +1529,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   %42 = getelementptr inbounds i8, ptr %37, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %3, align 8
-  %45 = call ptr %43(ptr noundef %44, ptr noundef %.2182) #12
+  %45 = call ptr %43(ptr noundef %44, ptr noundef %.0139182) #12
   %.not153 = icmp eq ptr %45, null
   br i1 %.not153, label %46, label %52
 

@@ -1073,8 +1073,8 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br label %71
 
 71:                                               ; preds = %61, %59
-  %.1 = phi i64 [ %60, %59 ], [ %70, %61 ]
-  %72 = freeze i64 %.1
+  %.2 = phi i64 [ %60, %59 ], [ %70, %61 ]
+  %72 = freeze i64 %.2
   br i1 %or.cond3, label %90, label %73
 
 73:                                               ; preds = %71
@@ -1114,8 +1114,8 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br label %90
 
 90:                                               ; preds = %71, %86, %84, %30, %38
-  %.2 = phi i64 [ %31, %30 ], [ %31, %38 ], [ %72, %71 ], [ %72, %84 ], [ %72, %86 ]
-  ret i64 %.2
+  %.1 = phi i64 [ %31, %30 ], [ %31, %38 ], [ %72, %71 ], [ %72, %84 ], [ %72, %86 ]
+  ret i64 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1147,7 +1147,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br i1 %24, label %.lr.ph71, label %.thread.thread
 
 .lr.ph71:                                         ; preds = %.lr.ph, %77
-  %.0496270 = phi i8 [ %.2, %77 ], [ 0, %.lr.ph ]
+  %.0496270 = phi i8 [ %.3, %77 ], [ 0, %.lr.ph ]
   %indvars.iv69 = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.lr.ph ]
   %25 = load ptr, ptr %17, align 8
   %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv69
@@ -1198,7 +1198,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br label %46
 
 46:                                               ; preds = %45, %44
-  %.1 = phi i8 [ %.0496270, %45 ], [ 1, %44 ]
+  %.2 = phi i8 [ %.0496270, %45 ], [ 1, %44 ]
   %47 = getelementptr inbounds i8, ptr %27, i64 18
   %48 = load i8, ptr %47, align 2
   %49 = trunc i8 %48 to i1
@@ -1239,7 +1239,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br label %65
 
 65:                                               ; preds = %63, %64, %55, %58
-  %.2 = phi i8 [ %.1, %58 ], [ %.1, %55 ], [ %.0496270, %63 ], [ %.0496270, %64 ]
+  %.3 = phi i8 [ %.2, %58 ], [ %.2, %55 ], [ %.0496270, %63 ], [ %.0496270, %64 ]
   %66 = load ptr, ptr %22, align 8
   tail call void @MemoryContextDeleteChildren(ptr noundef %66) #10
   %67 = load ptr, ptr %14, align 8
@@ -1271,7 +1271,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br i1 %80, label %.lr.ph71, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %65, %77
-  %81 = trunc nuw i8 %.2 to i1
+  %81 = trunc nuw i8 %.3 to i1
   br i1 %81, label %82, label %.thread.thread
 
 82:                                               ; preds = %.thread.loopexit
@@ -1757,7 +1757,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.split.us, %23
-  %.0.us26 = phi i64 [ %27, %23 ], [ 0, %.split.us ]
+  %.1.us26 = phi i64 [ %27, %23 ], [ 0, %.split.us ]
   %21 = load ptr, ptr %3, align 8
   %22 = tail call zeroext i1 %21(ptr noundef %7, ptr noundef nonnull %3) #10
   br i1 %22, label %23, label %.loopexit
@@ -1767,7 +1767,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef %7) #10
-  %27 = add i64 %.0.us26, 1
+  %27 = add i64 %.1.us26, 1
   %28 = load ptr, ptr %14, align 8
   %29 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %28, ptr @CurrentMemoryContext, align 8
@@ -1777,7 +1777,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
   br i1 %31, label %.lr.ph, label %.loopexit
 
 .split:                                           ; preds = %12, %39
-  %.0 = phi i64 [ %43, %39 ], [ 0, %12 ]
+  %.1 = phi i64 [ %43, %39 ], [ 0, %12 ]
   %32 = load ptr, ptr %14, align 8
   %33 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %32, ptr @CurrentMemoryContext, align 8
@@ -1796,17 +1796,17 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef %7) #10
-  %43 = add nuw i64 %.0, 1
+  %43 = add nuw i64 %.1, 1
   %44 = icmp eq i64 %43, %2
   br i1 %44, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %36, %.split, %39, %23, %.lr.ph, %.split.us, %4
-  %.1 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.0.us26, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.0, %.split ], [ %.0, %36 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us26, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef %3) #10
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %7) #10
-  ret i64 %.1
+  ret i64 %.0
 }
 
 declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1

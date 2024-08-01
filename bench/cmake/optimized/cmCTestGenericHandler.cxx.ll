@@ -1000,9 +1000,9 @@ define dso_local noundef zeroext i1 @_ZN21cmCTestGenericHandler17StartResultingX
 
 103:                                              ; preds = %60, %84, %100, %26
   %.sink = phi ptr [ %5, %26 ], [ %7, %100 ], [ %7, %84 ], [ %7, %60 ]
-  %.114 = phi i1 [ false, %26 ], [ true, %100 ], [ false, %84 ], [ false, %60 ]
+  %.013 = phi i1 [ false, %26 ], [ true, %100 ], [ false, %84 ], [ false, %60 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.sink) #20
-  ret i1 %.114
+  ret i1 %.013
 
 104:                                              ; preds = %42, %65, %89, %96, %101, %27, %29
   %.sink25 = phi ptr [ %5, %29 ], [ %5, %27 ], [ %7, %101 ], [ %7, %96 ], [ %7, %89 ], [ %7, %65 ], [ %7, %42 ]
@@ -1397,9 +1397,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
 
 135:                                              ; preds = %110, %97, %30
   %.sink = phi ptr [ %5, %30 ], [ %7, %97 ], [ %7, %110 ]
-  %.117 = phi i1 [ false, %30 ], [ %96, %97 ], [ %96, %110 ]
+  %.016 = phi i1 [ false, %30 ], [ %96, %97 ], [ %96, %110 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.sink) #20
-  ret i1 %.117
+  ret i1 %.016
 
 136:                                              ; preds = %48, %62, %120, %.body34, %134, %31, %33
   %.sink37 = phi ptr [ %5, %33 ], [ %5, %31 ], [ %7, %134 ], [ %7, %.body34 ], [ %7, %120 ], [ %7, %62 ], [ %7, %48 ]

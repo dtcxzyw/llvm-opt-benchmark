@@ -174,7 +174,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 
 75:                                               ; preds = %.lr.ph, %134
   %indvars.iv = phi i64 [ %72, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  %.1530800 = phi i8 [ %.0529802, %.lr.ph ], [ %.3, %134 ]
+  %.1530800 = phi i8 [ %.0529802, %.lr.ph ], [ %.2531, %134 ]
   %76 = load ptr, ptr %48, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv
   %78 = load i8, ptr %77, align 1
@@ -220,7 +220,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
 102:                                              ; preds = %94, %97
   %103 = phi i32 [ %.pre, %97 ], [ %83, %94 ]
   %.1541 = phi i8 [ %.1530800, %97 ], [ %96, %94 ]
-  %.2531 = phi i8 [ %98, %97 ], [ %.1530800, %94 ]
+  %.3 = phi i8 [ %98, %97 ], [ %.1530800, %94 ]
   %104 = lshr i32 %103, 18
   %105 = and i32 %104, 63
   %.not639 = icmp eq i32 %105, 63
@@ -277,13 +277,13 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %14, %18
   br label %134
 
 134:                                              ; preds = %75, %132
-  %.3 = phi i8 [ %.1530800, %75 ], [ %.2531, %132 ]
+  %.2531 = phi i8 [ %.1530800, %75 ], [ %.3, %132 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = icmp ult i64 %indvars.iv.next, %73
   br i1 %135, label %75, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %134, %62
-  %.1530.lcssa = phi i8 [ %.0529802, %62 ], [ %.3, %134 ]
+  %.1530.lcssa = phi i8 [ %.0529802, %62 ], [ %.2531, %134 ]
   %indvars.iv.next928 = add nsw i64 %indvars.iv927, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next928, %wide.trip.count
   br i1 %exitcond.not, label %.preheader790, label %62, !llvm.loop !6
@@ -575,7 +575,7 @@ _ZL9addUniquePhRhih.exit671.thread.us:            ; preds = %_ZL8containsPKhhh.e
 
 .lr.ph830.us:                                     ; preds = %.lr.ph830.us.preheader, %.loopexit785.us
   %indvars.iv953 = phi i64 [ %201, %.lr.ph830.us.preheader ], [ %indvars.iv.next954, %.loopexit785.us ]
-  %.0556828.us = phi i32 [ 0, %.lr.ph830.us.preheader ], [ %.2558.us, %.loopexit785.us ]
+  %.0556828.us = phi i32 [ 0, %.lr.ph830.us.preheader ], [ %.1557.us, %.loopexit785.us ]
   %234 = load ptr, ptr %188, align 8
   %235 = getelementptr inbounds %struct.rcCompactSpan, ptr %234, i64 %indvars.iv953
   %236 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv953
@@ -606,7 +606,7 @@ _ZL9addUniquePhRhih.exit671.thread.us:            ; preds = %_ZL8containsPKhhh.e
   br label %254
 
 254:                                              ; preds = %250, %239
-  %.1557.us = phi i32 [ %251, %250 ], [ %.0556828.us, %239 ]
+  %.2558.us = phi i32 [ %251, %250 ], [ %.0556828.us, %239 ]
   %255 = getelementptr inbounds i8, ptr %235, i64 4
   %256 = getelementptr inbounds %struct.rcLayerRegion, ptr %175, i64 %240, i32 1
   %257 = getelementptr inbounds %struct.rcLayerRegion, ptr %175, i64 %240, i32 6
@@ -691,7 +691,7 @@ _ZL9addUniquePhRhih.exit.us:                      ; preds = %_ZL8containsPKhhh.e
   br i1 %exitcond952.not, label %.loopexit785.us, label %258, !llvm.loop !14
 
 .loopexit785.us:                                  ; preds = %_ZL9addUniquePhRhih.exit.us, %.lr.ph830.us
-  %.2558.us = phi i32 [ %.0556828.us, %.lr.ph830.us ], [ %.1557.us, %_ZL9addUniquePhRhih.exit.us ]
+  %.1557.us = phi i32 [ %.0556828.us, %.lr.ph830.us ], [ %.2558.us, %_ZL9addUniquePhRhih.exit.us ]
   %indvars.iv.next954 = add nuw nsw i64 %indvars.iv953, 1
   %295 = icmp ult i64 %indvars.iv.next954, %202
   br i1 %295, label %.lr.ph830.us, label %.preheader786.us, !llvm.loop !15
@@ -702,13 +702,13 @@ _ZL9addUniquePhRhih.exit.us:                      ; preds = %_ZL8containsPKhhh.e
   br i1 %exitcond967.not, label %._crit_edge837.us, label %.lr.ph834.us, !llvm.loop !16
 
 .preheader786.us:                                 ; preds = %.loopexit785.us
-  %296 = icmp sgt i32 %.2558.us, 1
+  %296 = icmp sgt i32 %.1557.us, 1
   br i1 %296, label %.lr.ph836.us.preheader, label %._crit_edge837.us
 
 .lr.ph836.us.preheader:                           ; preds = %.preheader786.us
-  %297 = add nsw i32 %.2558.us, -1
+  %297 = add nsw i32 %.1557.us, -1
   %wide.trip.count966 = zext nneg i32 %297 to i64
-  %wide.trip.count961 = zext nneg i32 %.2558.us to i64
+  %wide.trip.count961 = zext nneg i32 %.1557.us to i64
   br label %.lr.ph834.us
 
 .lr.ph834.us:                                     ; preds = %.loopexit784.us, %.lr.ph836.us.preheader
@@ -1603,7 +1603,7 @@ _ZL8containsPKhhh.exit681.thread:                 ; preds = %410, %_ZL8containsP
   br i1 %707, label %517, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %704, %_ZL9addUniquePhRhih.exit659.invoke, %.invoke, %502, %._crit_edge884
-  %.0 = phi i1 [ true, %._crit_edge884 ], [ true, %502 ], [ false, %.invoke ], [ false, %_ZL9addUniquePhRhih.exit659.invoke ], [ true, %704 ]
+  %.2 = phi i1 [ true, %._crit_edge884 ], [ true, %502 ], [ false, %.invoke ], [ false, %_ZL9addUniquePhRhih.exit659.invoke ], [ true, %704 ]
   invoke void @_Z6rcFreePv(ptr noundef %175)
           to label %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit682 unwind label %708
 
@@ -1615,7 +1615,7 @@ _ZL8containsPKhhh.exit681.thread:                 ; preds = %410, %_ZL8containsP
   unreachable
 
 _ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit682: ; preds = %.loopexit, %149, %52
-  %.1 = phi i1 [ false, %52 ], [ false, %149 ], [ %.0, %.loopexit ]
+  %.1 = phi i1 [ false, %52 ], [ false, %149 ], [ %.2, %.loopexit ]
   invoke void @_Z6rcFreePv(ptr noundef %41)
           to label %_ZN14rcScopedDeleteI16rcLayerSweepSpanED2Ev.exit unwind label %711
 
@@ -1639,7 +1639,7 @@ _ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit:    ; preds = %180, %53
   unreachable
 
 _ZN14rcScopedDeleteI16rcLayerSweepSpanED2Ev.exit: ; preds = %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit682, %31
-  %.2 = phi i1 [ false, %31 ], [ %.1, %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit682 ]
+  %.0 = phi i1 [ false, %31 ], [ %.1, %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit682 ]
   invoke void @_Z6rcFreePv(ptr noundef %28)
           to label %_ZN14rcScopedDeleteIhED2Ev.exit unwind label %717
 
@@ -1670,7 +1670,7 @@ _ZN14rcScopedDeleteIhED2Ev.exit:                  ; preds = %_ZN14rcScopedDelete
   unreachable
 
 _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %_ZN14rcScopedDeleteIhED2Ev.exit, %722
-  ret i1 %.2
+  ret i1 %.0
 
 _ZN14rcScopedDeleteI16rcLayerSweepSpanED2Ev.exit683: ; preds = %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit, %34
   %.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %_ZN14rcScopedDeleteI13rcLayerRegionED2Ev.exit ]

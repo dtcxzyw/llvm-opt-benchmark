@@ -4087,8 +4087,8 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.then9, %if.then
-  %retval.sroa.0.1 = phi i32 [ %spec.select, %if.then9 ], [ %spec.select, %if.end ], [ %1, %if.then ]
-  ret i32 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i32 [ %spec.select, %if.then9 ], [ %spec.select, %if.end ], [ %1, %if.then ]
+  ret i32 %retval.sroa.0.0
 }
 
 declare noundef zeroext i1 @_ZN3euf15th_internalizer9visit_recER11ast_managerP4exprbb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
@@ -4134,8 +4134,8 @@ if.then9.i:                                       ; preds = %if.end.i
   br label %_ZN11user_solver6solver11internalizeEP4exprbb.exit
 
 _ZN11user_solver6solver11internalizeEP4exprbb.exit: ; preds = %if.then.i, %if.end.i, %if.then9.i
-  %retval.sroa.0.1.i = phi i32 [ %spec.select.i, %if.then9.i ], [ %spec.select.i, %if.end.i ], [ %2, %if.then.i ]
-  ret i32 %retval.sroa.0.1.i
+  %retval.sroa.0.0.i = phi i32 [ %spec.select.i, %if.then9.i ], [ %spec.select.i, %if.end.i ], [ %2, %if.then.i ]
+  ret i32 %retval.sroa.0.0.i
 }
 
 ; Function Attrs: mustprogress uwtable

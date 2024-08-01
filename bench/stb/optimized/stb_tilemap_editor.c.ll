@@ -7671,12 +7671,12 @@ for.body35.lr.ph:                                 ; preds = %for.cond32.preheade
   br label %if.end49
 
 if.end49:                                         ; preds = %for.body35.lr.ph, %for.cond32.preheader, %if.then29
-  %data.1 = phi ptr [ %data.0, %if.then29 ], [ %temp, %for.cond32.preheader ], [ %temp, %for.body35.lr.ph ]
+  %data.2 = phi ptr [ %data.0, %if.then29 ], [ %temp, %for.cond32.preheader ], [ %temp, %for.body35.lr.ph ]
   %idxprom52 = zext nneg i32 %add27 to i64
   %idxprom55 = zext nneg i32 %add to i64
   %arrayidx56 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom52, i64 %idxprom55
   %lnot.ext = zext i1 %tobool.not to i32
-  call void @stbte__paste_stack(ptr noundef nonnull %tm, ptr noundef nonnull %data.1, ptr noundef nonnull %data.1, ptr noundef %arrayidx56, i32 noundef %lnot.ext)
+  call void @stbte__paste_stack(ptr noundef nonnull %tm, ptr noundef nonnull %data.2, ptr noundef nonnull %data.2, ptr noundef %arrayidx56, i32 noundef %lnot.ext)
   %tobool59.not = icmp eq i32 %copy_props, 0
   br i1 %tobool59.not, label %for.cond113.preheader, label %for.body63
 
@@ -7719,7 +7719,7 @@ if.end110:                                        ; preds = %if.then26, %land.lh
   br i1 %tobool111.not, label %if.end151, label %for.cond113.preheader
 
 for.cond113.preheader:                            ; preds = %if.then80, %for.body63, %if.end49, %if.end110
-  %data.2110 = phi ptr [ %data.0, %if.end110 ], [ %data.1, %if.end49 ], [ %data.1, %for.body63 ], [ %data.1, %if.then80 ]
+  %data.1110 = phi ptr [ %data.0, %if.end110 ], [ %data.2, %if.end49 ], [ %data.2, %for.body63 ], [ %data.2, %if.then80 ]
   %num_layers114 = getelementptr inbounds i8, ptr %tm, i64 800008
   %40 = load i32, ptr %num_layers114, align 8
   %cmp11596 = icmp sgt i32 %40, 0
@@ -7735,7 +7735,7 @@ for.body116:                                      ; preds = %for.body116.lr.ph, 
   %indvars.iv = phi i64 [ 0, %for.body116.lr.ph ], [ %indvars.iv.next, %for.inc148 ]
   %arrayidx123 = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom118, i64 %idxprom120, i64 %indvars.iv
   %42 = load i16, ptr %arrayidx123, align 2
-  %arrayidx125 = getelementptr inbounds i16, ptr %data.2110, i64 %indvars.iv
+  %arrayidx125 = getelementptr inbounds i16, ptr %data.1110, i64 %indvars.iv
   %43 = load i16, ptr %arrayidx125, align 2
   %cmp127.not = icmp eq i16 %42, %43
   br i1 %cmp127.not, label %for.inc148, label %if.then129
@@ -9587,7 +9587,7 @@ if.then3:                                         ; preds = %if.end
   %tobool11.not = icmp eq i32 %13, 0
   %cond = select i1 %tobool11.not, i32 1, i32 10
   %add12 = select i1 %tobool9.not, i32 0, i32 %cond
-  %val.addr.0 = add nsw i32 %add12, %val
+  %val.addr.1 = add nsw i32 %add12, %val
   %add14 = add nsw i32 %add6, 9
   %add15 = add nsw i32 %id, 1048576
   %call16 = tail call i32 @stbte__minibutton(i32 noundef 7, i32 noundef %add14, i32 noundef %y, i32 noundef 45, i32 noundef %add15)
@@ -9596,17 +9596,17 @@ if.then3:                                         ; preds = %if.end
   %tobool19.not = icmp eq i32 %14, 0
   %cond20.neg = select i1 %tobool19.not, i32 -1, i32 -10
   %sub21 = select i1 %tobool17.not, i32 0, i32 %cond20.neg
-  %val.addr.1 = add i32 %val.addr.0, %sub21
-  %cmp23 = icmp slt i32 %val.addr.1, 1
+  %val.addr.2 = add i32 %val.addr.1, %sub21
+  %cmp23 = icmp slt i32 %val.addr.2, 1
   br i1 %cmp23, label %if.end31, label %if.else
 
 if.else:                                          ; preds = %if.then3
-  %15 = tail call i32 @llvm.umin.i32(i32 %val.addr.1, i32 4096)
+  %15 = tail call i32 @llvm.umin.i32(i32 %val.addr.2, i32 4096)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then3, %if.else, %if.end
-  %val.addr.2 = phi i32 [ %15, %if.else ], [ %val, %if.end ], [ 1, %if.then3 ]
-  ret i32 %val.addr.2
+  %val.addr.0 = phi i32 [ %15, %if.else ], [ %val, %if.end ], [ 1, %if.then3 ]
+  ret i32 %val.addr.0
 }
 
 ; Function Attrs: nounwind uwtable

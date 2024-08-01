@@ -701,11 +701,11 @@ _ZNSt6vectorIN6casadi8FunctionESaIS1_EED2Ev.exit: ; preds = %45, %_ZSt8_DestroyI
 
 74:                                               ; preds = %73, %.body
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %73 ], [ %.pn, %.body ]
-  %.4 = extractvalue { ptr, i32 } %.pn26.pn, 0
-  %.419 = extractvalue { ptr, i32 } %.pn26.pn, 1
+  %.114 = extractvalue { ptr, i32 } %.pn26.pn, 0
+  %.116 = extractvalue { ptr, i32 } %.pn26.pn, 1
   %75 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
-  %76 = icmp eq i32 %.419, %75
-  %77 = call ptr @__cxa_begin_catch(ptr %.4) #18
+  %76 = icmp eq i32 %.116, %75
+  %77 = call ptr @__cxa_begin_catch(ptr %.114) #18
   br i1 %76, label %78, label %87
 
 78:                                               ; preds = %74

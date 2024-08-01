@@ -118,8 +118,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   br label %15
 
 15:                                               ; preds = %11, %13, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %14, %13 ]
-  %16 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %14, %13 ]
+  %16 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %16
 }
 
@@ -188,8 +188,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %14
 
 14:                                               ; preds = %10, %12, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %13, %12 ]
-  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %13, %12 ]
+  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %15
 }
 
@@ -298,8 +298,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   br label %23
 
 23:                                               ; preds = %11, %17, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %22, %17 ]
-  %24 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %22, %17 ]
+  %24 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %24
 }
 
@@ -408,8 +408,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %22
 
 22:                                               ; preds = %10, %16, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %21, %16 ]
-  %23 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %21, %16 ]
+  %23 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %23
 }
 
@@ -455,10 +455,10 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread": ; preds = %9, %11, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %13, %11 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %13, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
   ret { i64, i64 } %16
 }
 
@@ -503,10 +503,10 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %9, %13, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %17, %13 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
-  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %17, %13 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
 }
 
@@ -545,8 +545,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread": ; preds = %9, %11, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %12, %11 ]
-  %13 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %12, %11 ]
+  %13 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %13
 }
 
@@ -591,8 +591,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread": ; preds = %9, %15, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %20, %15 ]
-  %21 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %20, %15 ]
+  %21 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %21
 }
 
@@ -633,10 +633,10 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread": ; preds = %9, %11, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %13, %11 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %13, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
   ret { i64, i64 } %16
 }
 
@@ -681,10 +681,10 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %9, %13, %1
-  %.sroa.4.1 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %17, %13 ]
-  %.sroa.0.1 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
-  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %17, %13 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
 }
 

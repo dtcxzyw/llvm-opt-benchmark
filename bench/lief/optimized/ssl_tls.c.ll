@@ -2645,43 +2645,43 @@ define internal fastcc range(i32 -28800, 1) i32 @ssl_session_save(ptr nocapture 
   br label %130
 
 130:                                              ; preds = %126, %113
-  %.3.i = phi ptr [ %129, %126 ], [ %123, %113 ]
+  %.4.i = phi ptr [ %129, %126 ], [ %123, %113 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 144
   %132 = load i32, ptr %131, align 8
   %133 = lshr i32 %132, 24
   %134 = trunc nuw i32 %133 to i8
-  store i8 %134, ptr %.3.i, align 1
+  store i8 %134, ptr %.4.i, align 1
   %135 = load i32, ptr %131, align 8
   %136 = lshr i32 %135, 16
   %137 = trunc i32 %136 to i8
-  %138 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %138 = getelementptr inbounds i8, ptr %.4.i, i64 1
   store i8 %137, ptr %138, align 1
   %139 = load i32, ptr %131, align 8
   %140 = lshr i32 %139, 8
   %141 = trunc i32 %140 to i8
-  %142 = getelementptr inbounds i8, ptr %.3.i, i64 2
+  %142 = getelementptr inbounds i8, ptr %.4.i, i64 2
   store i8 %141, ptr %142, align 1
   %143 = load i32, ptr %131, align 8
   %144 = trunc i32 %143 to i8
-  %145 = getelementptr inbounds i8, ptr %.3.i, i64 3
+  %145 = getelementptr inbounds i8, ptr %.4.i, i64 3
   store i8 %144, ptr %145, align 1
-  %146 = getelementptr inbounds i8, ptr %.3.i, i64 4
+  %146 = getelementptr inbounds i8, ptr %.4.i, i64 4
   br label %147
 
 147:                                              ; preds = %130, %108
-  %.4.i = phi ptr [ %146, %130 ], [ %.2.i, %108 ]
+  %.3.i = phi ptr [ %146, %130 ], [ %.2.i, %108 ]
   %148 = add i64 %112, 1
   %.not109.i = icmp ugt i64 %148, %20
   br i1 %.not109.i, label %152, label %149
 
 149:                                              ; preds = %147
   %150 = load i8, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %.4.i, i64 1
-  store i8 %150, ptr %.4.i, align 1
+  %151 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  store i8 %150, ptr %.3.i, align 1
   br label %152
 
 152:                                              ; preds = %149, %147
-  %.5.i = phi ptr [ %151, %149 ], [ %.4.i, %147 ]
+  %.5.i = phi ptr [ %151, %149 ], [ %.3.i, %147 ]
   %153 = add i64 %112, 2
   %.not110.i = icmp ugt i64 %153, %20
   br i1 %.not110.i, label %ssl_session_save_tls12.exit, label %154
@@ -3102,7 +3102,7 @@ ssl_prepare_handshake_step.exit:                  ; preds = %24, %19, %14
   br label %41
 
 41:                                               ; preds = %36, %37, %39, %27
-  %.0 = phi i32 [ %40, %39 ], [ %38, %37 ], [ 0, %36 ], [ 0, %27 ]
+  %.1 = phi i32 [ %40, %39 ], [ %38, %37 ], [ 0, %36 ], [ 0, %27 ]
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8
@@ -3125,8 +3125,8 @@ mbedtls_ssl_conf_is_tls12_only.exit:              ; preds = %46
   br label %mbedtls_ssl_conf_is_tls12_only.exit.thread
 
 mbedtls_ssl_conf_is_tls12_only.exit.thread:       ; preds = %46, %mbedtls_ssl_conf_is_tls12_only.exit, %51, %41
-  %.1 = phi i32 [ %52, %51 ], [ %.0, %mbedtls_ssl_conf_is_tls12_only.exit ], [ %.0, %41 ], [ %.0, %46 ]
-  %.not31 = icmp eq i32 %.1, 0
+  %.2 = phi i32 [ %52, %51 ], [ %.1, %mbedtls_ssl_conf_is_tls12_only.exit ], [ %.1, %41 ], [ %.1, %46 ]
+  %.not31 = icmp eq i32 %.2, 0
   br i1 %.not31, label %ssl_prepare_handshake_step.exit.thread, label %53
 
 53:                                               ; preds = %mbedtls_ssl_conf_is_tls12_only.exit.thread
@@ -3140,7 +3140,7 @@ mbedtls_ssl_conf_is_tls12_only.exit.thread:       ; preds = %46, %mbedtls_ssl_co
   br label %ssl_prepare_handshake_step.exit.thread
 
 ssl_prepare_handshake_step.exit.thread:           ; preds = %24, %12, %56, %ssl_prepare_handshake_step.exit, %53, %mbedtls_ssl_conf_is_tls12_only.exit.thread, %1, %3, %6, %10
-  %.023 = phi i32 [ -28928, %10 ], [ -28928, %6 ], [ -28928, %3 ], [ -28928, %1 ], [ %26, %ssl_prepare_handshake_step.exit ], [ %57, %56 ], [ %.1, %53 ], [ 0, %mbedtls_ssl_conf_is_tls12_only.exit.thread ], [ %25, %24 ], [ %13, %12 ]
+  %.023 = phi i32 [ -28928, %10 ], [ -28928, %6 ], [ -28928, %3 ], [ -28928, %1 ], [ %26, %ssl_prepare_handshake_step.exit ], [ %57, %56 ], [ %.2, %53 ], [ 0, %mbedtls_ssl_conf_is_tls12_only.exit.thread ], [ %25, %24 ], [ %13, %12 ]
   ret i32 %.023
 }
 
@@ -5713,12 +5713,12 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
   br label %163
 
 163:                                              ; preds = %160, %156, %157, %155, %152, %146, %143, %140, %136, %117, %96, %77
-  %.2 = phi i32 [ %135, %136 ], [ %139, %140 ], [ %142, %143 ], [ %145, %146 ], [ %151, %152 ], [ %154, %155 ], [ %159, %157 ], [ %162, %160 ], [ 0, %156 ], [ -27648, %117 ], [ %.0166, %77 ], [ -27648, %96 ]
+  %.1 = phi i32 [ %135, %136 ], [ %139, %140 ], [ %142, %143 ], [ %145, %146 ], [ %151, %152 ], [ %154, %155 ], [ %159, %157 ], [ %162, %160 ], [ 0, %156 ], [ -27648, %117 ], [ %.0166, %77 ], [ -27648, %96 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 256) #22
   br label %164
 
 164:                                              ; preds = %163, %53, %48, %39, %16
-  %.0 = phi i32 [ -28928, %16 ], [ -28928, %39 ], [ -28928, %48 ], [ %52, %53 ], [ %.2, %163 ]
+  %.0 = phi i32 [ -28928, %16 ], [ -28928, %39 ], [ -28928, %48 ], [ %52, %53 ], [ %.1, %163 ]
   ret i32 %.0
 }
 
@@ -8081,7 +8081,7 @@ define internal fastcc i32 @tls_prf_generic(i32 noundef %0, ptr noundef %1, i64 
   br label %.loopexit
 
 .loopexit89:                                      ; preds = %.lr.ph92, %33, %35, %37, %39, %41, %.loopexit, %.preheader, %13, %29, %27, %25, %21
-  %.1 = phi i32 [ %24, %21 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ -32512, %13 ], [ 0, %.preheader ], [ %32, %.lr.ph92 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ %24, %21 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ -32512, %13 ], [ 0, %.preheader ], [ %32, %.lr.ph92 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ 0, %.loopexit ]
   call void @mbedtls_md_free(ptr noundef nonnull %10) #22
   call void @mbedtls_platform_zeroize(ptr noundef %19, i64 noundef %18) #22
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 64) #22
@@ -8089,7 +8089,7 @@ define internal fastcc i32 @tls_prf_generic(i32 noundef %0, ptr noundef %1, i64 
   br label %50
 
 50:                                               ; preds = %8, %.loopexit89
-  %.062 = phi i32 [ %.1, %.loopexit89 ], [ -27648, %8 ]
+  %.062 = phi i32 [ %.0, %.loopexit89 ], [ -27648, %8 ]
   ret i32 %.062
 }
 

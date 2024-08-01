@@ -492,8 +492,8 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
   br label %112
 
 112:                                              ; preds = %.loopexit, %16, %14
-  %.1145 = phi ptr [ %15, %14 ], [ %17, %16 ], [ %.2.lcssa, %.loopexit ]
-  %.not180 = icmp eq ptr %.1145, null
+  %.0144 = phi ptr [ %15, %14 ], [ %17, %16 ], [ %.2.lcssa, %.loopexit ]
+  %.not180 = icmp eq ptr %.0144, null
   br i1 %.not180, label %.thread211, label %120
 
 .thread221:                                       ; preds = %109, %107, %.critedge.thread
@@ -514,18 +514,18 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
 
 120:                                              ; preds = %112
   %121 = load ptr, ptr %0, align 8
-  %122 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.1145, ptr noundef %2, ptr noundef %121) #3
+  %122 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.0144, ptr noundef %2, ptr noundef %121) #3
   br i1 %.not169, label %123, label %174
 
 123:                                              ; preds = %.thread225, %120
-  %.1145224227 = phi ptr [ %117, %.thread225 ], [ %.1145, %120 ]
+  %.0144224227 = phi ptr [ %117, %.thread225 ], [ %.0144, %120 ]
   %124 = load ptr, ptr %2, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 -24
   %126 = load i32, ptr %124, align 4
   %127 = add i32 %126, 1
   store i32 %127, ptr %124, align 4
   %128 = getelementptr inbounds i8, ptr %0, i64 56
-  %129 = load ptr, ptr %.1145224227, align 8
+  %129 = load ptr, ptr %.0144224227, align 8
   %.not181 = icmp eq ptr %129, null
   br i1 %.not181, label %.critedge189, label %130
 

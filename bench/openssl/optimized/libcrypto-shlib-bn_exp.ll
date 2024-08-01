@@ -290,7 +290,7 @@ if.end32:                                         ; preds = %if.else28
   br i1 %tobool34.not, label %if.then130, label %if.end37
 
 if.end37:                                         ; preds = %if.end25, %if.end32
-  %mont.0 = phi ptr [ %call29, %if.end32 ], [ %in_mont, %if.end25 ]
+  %mont.1 = phi ptr [ %call29, %if.end32 ], [ %in_mont, %if.end25 ]
   %cmp38125 = icmp sgt i32 %call9, 1
   br i1 %cmp38125, label %for.body.preheader, label %for.end.thread
 
@@ -318,7 +318,7 @@ if.then42:                                        ; preds = %if.then40
   br i1 %tobool44.not, label %err, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then42
-  %call45 = tail call i32 @BN_to_montgomery(ptr noundef %r.0129, ptr noundef %r.0129, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call45 = tail call i32 @BN_to_montgomery(ptr noundef %r.0129, ptr noundef %r.0129, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %err, label %if.then61
 
@@ -338,19 +338,19 @@ if.end59:                                         ; preds = %for.body
   br i1 %tobool60.not, label %if.then61, label %if.end66
 
 if.then61:                                        ; preds = %land.lhs.true, %land.lhs.true52, %if.end59
-  %t.2108 = phi ptr [ %t.0130, %if.end59 ], [ %r.0129, %land.lhs.true52 ], [ %t.0130, %land.lhs.true ]
-  %r.2106 = phi ptr [ %r.0129, %if.end59 ], [ %t.0130, %land.lhs.true52 ], [ %r.0129, %land.lhs.true ]
+  %t.1108 = phi ptr [ %t.0130, %if.end59 ], [ %r.0129, %land.lhs.true52 ], [ %t.0130, %land.lhs.true ]
+  %r.1106 = phi ptr [ %r.0129, %if.end59 ], [ %t.0130, %land.lhs.true52 ], [ %r.0129, %land.lhs.true ]
   %next_w.0104 = phi i64 [ %mul.val, %if.end59 ], [ 1, %land.lhs.true52 ], [ 1, %land.lhs.true ]
-  %call62 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %r.2106, ptr noundef %r.2106, ptr noundef %r.2106, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call62 = tail call i32 @BN_mod_mul_montgomery(ptr noundef %r.1106, ptr noundef %r.1106, ptr noundef %r.1106, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err, label %if.end66
 
 if.end66:                                         ; preds = %if.then61, %if.end59
   %tobool60.not109 = phi i1 [ true, %if.then61 ], [ false, %if.end59 ]
-  %t.2107 = phi ptr [ %t.2108, %if.then61 ], [ %t.0130, %if.end59 ]
-  %r.2105 = phi ptr [ %r.2106, %if.then61 ], [ %r.0129, %if.end59 ]
+  %t.1107 = phi ptr [ %t.1108, %if.then61 ], [ %t.0130, %if.end59 ]
+  %r.1105 = phi ptr [ %r.1106, %if.then61 ], [ %r.0129, %if.end59 ]
   %next_w.0103 = phi i64 [ %next_w.0104, %if.then61 ], [ %mul.val, %if.end59 ]
-  %r_is_one.2101 = phi i32 [ 0, %if.then61 ], [ %r_is_one.0127, %if.end59 ]
+  %r_is_one.1101 = phi i32 [ 0, %if.then61 ], [ %r_is_one.0127, %if.end59 ]
   %call67 = tail call i32 @BN_is_bit_set(ptr noundef %p, i32 noundef %b.0126) #5
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %for.inc, label %if.then69
@@ -365,30 +365,30 @@ if.then73:                                        ; preds = %if.then69
   br i1 %tobool60.not109, label %if.else83, label %if.then75
 
 if.then75:                                        ; preds = %if.then73
-  %call76 = tail call i32 @BN_set_word(ptr noundef %r.2105, i64 noundef %next_w.0103) #5
+  %call76 = tail call i32 @BN_set_word(ptr noundef %r.1105, i64 noundef %next_w.0103) #5
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %land.lhs.true78
 
 land.lhs.true78:                                  ; preds = %if.then75
-  %call79 = tail call i32 @BN_to_montgomery(ptr noundef %r.2105, ptr noundef %r.2105, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call79 = tail call i32 @BN_to_montgomery(ptr noundef %r.1105, ptr noundef %r.1105, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %err, label %for.inc
 
 if.else83:                                        ; preds = %if.then73
-  %call84 = tail call i32 @BN_mul_word(ptr noundef %r.2105, i64 noundef %next_w.0103) #5
+  %call84 = tail call i32 @BN_mul_word(ptr noundef %r.1105, i64 noundef %next_w.0103) #5
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %err, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %if.else83
-  %call87 = tail call i32 @BN_div(ptr noundef null, ptr noundef %t.2107, ptr noundef %r.2105, ptr noundef %m, ptr noundef %ctx) #5
+  %call87 = tail call i32 @BN_div(ptr noundef null, ptr noundef %t.1107, ptr noundef %r.1105, ptr noundef %m, ptr noundef %ctx) #5
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %err, label %for.inc
 
 for.inc:                                          ; preds = %if.then69, %land.lhs.true86, %land.lhs.true78, %if.end66
-  %r_is_one.5 = phi i32 [ %r_is_one.2101, %if.end66 ], [ %r_is_one.2101, %if.then69 ], [ 0, %land.lhs.true86 ], [ 0, %land.lhs.true78 ]
+  %r_is_one.5 = phi i32 [ %r_is_one.1101, %if.end66 ], [ %r_is_one.1101, %if.then69 ], [ 0, %land.lhs.true86 ], [ 0, %land.lhs.true78 ]
   %w.1 = phi i64 [ %next_w.0103, %if.end66 ], [ %mul.val94, %if.then69 ], [ %a.addr.0, %land.lhs.true86 ], [ %a.addr.0, %land.lhs.true78 ]
-  %r.5 = phi ptr [ %r.2105, %if.end66 ], [ %r.2105, %if.then69 ], [ %t.2107, %land.lhs.true86 ], [ %r.2105, %land.lhs.true78 ]
-  %t.5 = phi ptr [ %t.2107, %if.end66 ], [ %t.2107, %if.then69 ], [ %r.2105, %land.lhs.true86 ], [ %t.2107, %land.lhs.true78 ]
+  %r.5 = phi ptr [ %r.1105, %if.end66 ], [ %r.1105, %if.then69 ], [ %t.1107, %land.lhs.true86 ], [ %r.1105, %land.lhs.true78 ]
+  %t.5 = phi ptr [ %t.1107, %if.end66 ], [ %t.1107, %if.then69 ], [ %r.1105, %land.lhs.true86 ], [ %t.1107, %land.lhs.true78 ]
   %dec = add nsw i32 %b.0126, -1
   %cmp38 = icmp sgt i32 %b.0126, 0
   br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !6
@@ -413,7 +413,7 @@ if.then98:                                        ; preds = %for.end.thread, %if
   br i1 %tobool100.not, label %err, label %land.lhs.true101
 
 land.lhs.true101:                                 ; preds = %if.then98
-  %call102 = tail call i32 @BN_to_montgomery(ptr noundef %r.0.lcssa143149, ptr noundef %r.0.lcssa143149, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call102 = tail call i32 @BN_to_montgomery(ptr noundef %r.0.lcssa143149, ptr noundef %r.0.lcssa143149, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %err, label %if.else123
 
@@ -437,7 +437,7 @@ if.then118:                                       ; preds = %for.end.thread, %if
 
 if.else123:                                       ; preds = %land.lhs.true109, %land.lhs.true101, %if.end116
   %r.6114 = phi ptr [ %r.5, %if.end116 ], [ %t.5, %land.lhs.true109 ], [ %r.0.lcssa143149, %land.lhs.true101 ]
-  %call124 = tail call i32 @BN_from_montgomery(ptr noundef %rr, ptr noundef %r.6114, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call124 = tail call i32 @BN_from_montgomery(ptr noundef %rr, ptr noundef %r.6114, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %if.end128
 
@@ -445,15 +445,15 @@ if.end128:                                        ; preds = %if.else123, %if.the
   br label %err
 
 err:                                              ; preds = %if.else83, %land.lhs.true86, %if.then75, %land.lhs.true78, %if.then61, %if.else49, %land.lhs.true52, %if.then42, %land.lhs.true, %if.else123, %if.then118, %if.else106, %land.lhs.true109, %if.then98, %land.lhs.true101, %if.end20, %if.end128
-  %mont.1 = phi ptr [ null, %if.end20 ], [ %mont.0, %if.end128 ], [ %mont.0, %if.then118 ], [ %mont.0, %if.else123 ], [ %mont.0, %land.lhs.true101 ], [ %mont.0, %if.then98 ], [ %mont.0, %land.lhs.true109 ], [ %mont.0, %if.else106 ], [ %mont.0, %land.lhs.true ], [ %mont.0, %if.then42 ], [ %mont.0, %land.lhs.true52 ], [ %mont.0, %if.else49 ], [ %mont.0, %if.then61 ], [ %mont.0, %land.lhs.true78 ], [ %mont.0, %if.then75 ], [ %mont.0, %land.lhs.true86 ], [ %mont.0, %if.else83 ]
+  %mont.0 = phi ptr [ null, %if.end20 ], [ %mont.1, %if.end128 ], [ %mont.1, %if.then118 ], [ %mont.1, %if.else123 ], [ %mont.1, %land.lhs.true101 ], [ %mont.1, %if.then98 ], [ %mont.1, %land.lhs.true109 ], [ %mont.1, %if.else106 ], [ %mont.1, %land.lhs.true ], [ %mont.1, %if.then42 ], [ %mont.1, %land.lhs.true52 ], [ %mont.1, %if.else49 ], [ %mont.1, %if.then61 ], [ %mont.1, %land.lhs.true78 ], [ %mont.1, %if.then75 ], [ %mont.1, %land.lhs.true86 ], [ %mont.1, %if.else83 ]
   %ret.1 = phi i32 [ 0, %if.end20 ], [ 1, %if.end128 ], [ 0, %if.then118 ], [ 0, %if.else123 ], [ 0, %land.lhs.true101 ], [ 0, %if.then98 ], [ 0, %land.lhs.true109 ], [ 0, %if.else106 ], [ 0, %land.lhs.true ], [ 0, %if.then42 ], [ 0, %land.lhs.true52 ], [ 0, %if.else49 ], [ 0, %if.then61 ], [ 0, %land.lhs.true78 ], [ 0, %if.then75 ], [ 0, %land.lhs.true86 ], [ 0, %if.else83 ]
   %cmp129 = icmp eq ptr %in_mont, null
   br i1 %cmp129, label %if.then130, label %if.end131
 
 if.then130:                                       ; preds = %if.else28, %if.end32, %err
   %ret.1120 = phi i32 [ %ret.1, %err ], [ 0, %if.end32 ], [ 0, %if.else28 ]
-  %mont.1118 = phi ptr [ %mont.1, %err ], [ %call29, %if.end32 ], [ null, %if.else28 ]
-  tail call void @BN_MONT_CTX_free(ptr noundef %mont.1118) #5
+  %mont.0118 = phi ptr [ %mont.0, %err ], [ %call29, %if.end32 ], [ null, %if.else28 ]
+  tail call void @BN_MONT_CTX_free(ptr noundef %mont.0118) #5
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then130, %err
@@ -547,7 +547,7 @@ if.end33:                                         ; preds = %if.else29
   br i1 %tobool35.not, label %if.then195, label %if.end38
 
 if.end38:                                         ; preds = %if.end26, %if.end33
-  %mont.0 = phi ptr [ %call30, %if.end33 ], [ %in_mont, %if.end26 ]
+  %mont.1 = phi ptr [ %call30, %if.end33 ], [ %in_mont, %if.end26 ]
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load i32, ptr %neg, align 8
   %tobool39.not = icmp eq i32 %1, 0
@@ -565,7 +565,7 @@ if.then43:                                        ; preds = %lor.lhs.false40, %i
 
 if.end51:                                         ; preds = %if.then43, %lor.lhs.false40
   %aa.0 = phi ptr [ %a, %lor.lhs.false40 ], [ %call22, %if.then43 ]
-  %call53 = tail call i32 @bn_to_mont_fixed_top(ptr noundef nonnull %call22, ptr noundef nonnull %aa.0, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call53 = tail call i32 @bn_to_mont_fixed_top(ptr noundef nonnull %call22, ptr noundef nonnull %aa.0, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %err, label %if.end56
 
@@ -587,7 +587,7 @@ cond.end68:                                       ; preds = %cond.false60
 
 if.then71:                                        ; preds = %cond.false60, %cond.false, %if.end56, %cond.end68
   %cond69110 = phi i32 [ 3, %cond.end68 ], [ 5, %cond.false ], [ 6, %if.end56 ], [ 4, %cond.false60 ]
-  %call74 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call20, ptr noundef nonnull %call22, ptr noundef nonnull %call22, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call74 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call20, ptr noundef nonnull %call22, ptr noundef nonnull %call22, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %err, label %if.end77
 
@@ -615,7 +615,7 @@ lor.lhs.false82:                                  ; preds = %for.body
   %3 = add nsw i64 %indvars.iv, -1
   %arrayidx87 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %3
   %4 = load ptr, ptr %arrayidx87, align 8
-  %call88 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef nonnull %call79, ptr noundef %4, ptr noundef %call20, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call88 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef nonnull %call79, ptr noundef %4, ptr noundef %call20, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %err, label %for.cond
 
@@ -669,7 +669,7 @@ for.end123:                                       ; preds = %for.body113, %if.en
 
 if.else125:                                       ; preds = %if.end92
   %call126 = tail call ptr @BN_value_one() #5
-  %call127 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call21, ptr noundef %call126, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call127 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call21, ptr noundef %call126, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool128.not = icmp eq i32 %call127, 0
   br i1 %tobool128.not, label %err, label %if.end131
 
@@ -690,7 +690,7 @@ if.then135.lr.ph:                                 ; preds = %for.cond132.outer
 
 if.then135.us:                                    ; preds = %if.then135.lr.ph, %if.end145.us
   %wstart.0130.us = phi i32 [ %dec.us, %if.end145.us ], [ %wstart.0.ph, %if.then135.lr.ph ]
-  %call138.us = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %call21, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call138.us = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %call21, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool139.not.us = icmp eq i32 %call138.us, 0
   br i1 %tobool139.not.us, label %err, label %if.end142.us
 
@@ -754,7 +754,7 @@ for.cond167:                                      ; preds = %for.body169
 
 for.body169:                                      ; preds = %for.end164, %for.cond167
   %i.3140 = phi i32 [ %inc175, %for.cond167 ], [ 0, %for.end164 ]
-  %call170 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %call21, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call170 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %call21, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool171.not = icmp eq i32 %call170, 0
   br i1 %tobool171.not, label %err, label %for.cond167
 
@@ -763,7 +763,7 @@ if.end177:                                        ; preds = %for.cond167, %for.e
   %idxprom178 = sext i32 %shr to i64
   %arrayidx179 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %idxprom178
   %16 = load ptr, ptr %arrayidx179, align 8
-  %call180 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %16, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call180 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call21, ptr noundef %call21, ptr noundef %16, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool181.not = icmp eq i32 %call180, 0
   br i1 %tobool181.not, label %err, label %if.end183
 
@@ -773,21 +773,21 @@ if.end183:                                        ; preds = %if.end177
   br i1 %cmp186, label %for.end189, label %for.cond132.outer
 
 for.end189:                                       ; preds = %if.end183, %if.then135, %if.end142.us
-  %call190 = tail call i32 @BN_from_montgomery(ptr noundef %rr, ptr noundef %call21, ptr noundef nonnull %mont.0, ptr noundef %ctx) #5
+  %call190 = tail call i32 @BN_from_montgomery(ptr noundef %rr, ptr noundef %call21, ptr noundef nonnull %mont.1, ptr noundef %ctx) #5
   %tobool191.not = icmp ne i32 %call190, 0
   %spec.select = zext i1 %tobool191.not to i32
   br label %err
 
 err:                                              ; preds = %for.body, %lor.lhs.false82, %if.end177, %if.then135.us, %for.body169, %for.end189, %if.else125, %if.then100, %if.then71, %if.end51, %if.then43, %if.end19
   %ret.1 = phi i32 [ 0, %if.end19 ], [ 0, %if.then100 ], [ 0, %if.else125 ], [ 0, %if.then71 ], [ 0, %if.end51 ], [ 0, %if.then43 ], [ %spec.select, %for.end189 ], [ 0, %for.body169 ], [ 0, %if.then135.us ], [ 0, %if.end177 ], [ 0, %lor.lhs.false82 ], [ 0, %for.body ]
-  %mont.1 = phi ptr [ null, %if.end19 ], [ %mont.0, %if.then100 ], [ %mont.0, %if.else125 ], [ %mont.0, %if.then71 ], [ %mont.0, %if.end51 ], [ %mont.0, %if.then43 ], [ %mont.0, %for.end189 ], [ %mont.0, %for.body169 ], [ %mont.0, %if.then135.us ], [ %mont.0, %if.end177 ], [ %mont.0, %lor.lhs.false82 ], [ %mont.0, %for.body ]
+  %mont.0 = phi ptr [ null, %if.end19 ], [ %mont.1, %if.then100 ], [ %mont.1, %if.else125 ], [ %mont.1, %if.then71 ], [ %mont.1, %if.end51 ], [ %mont.1, %if.then43 ], [ %mont.1, %for.end189 ], [ %mont.1, %for.body169 ], [ %mont.1, %if.then135.us ], [ %mont.1, %if.end177 ], [ %mont.1, %lor.lhs.false82 ], [ %mont.1, %for.body ]
   %cmp194 = icmp eq ptr %in_mont, null
   br i1 %cmp194, label %if.then195, label %if.end196
 
 if.then195:                                       ; preds = %if.else29, %if.end33, %err
-  %mont.1116 = phi ptr [ %mont.1, %err ], [ %call30, %if.end33 ], [ null, %if.else29 ]
+  %mont.0116 = phi ptr [ %mont.0, %err ], [ %call30, %if.end33 ], [ null, %if.else29 ]
   %ret.1115 = phi i32 [ %ret.1, %err ], [ 0, %if.end33 ], [ 0, %if.else29 ]
-  tail call void @BN_MONT_CTX_free(ptr noundef %mont.1116) #5
+  tail call void @BN_MONT_CTX_free(ptr noundef %mont.0116) #5
   br label %if.end196
 
 if.end196:                                        ; preds = %if.then195, %err
@@ -1301,11 +1301,11 @@ if.else126:                                       ; preds = %cond.end96
 
 if.end134:                                        ; preds = %if.else126, %if.then123
   %spec.select267 = phi ptr [ null, %if.then123 ], [ %call129, %if.else126 ]
-  %powerbufFree.0 = phi ptr [ %19, %if.then123 ], [ %call129, %if.else126 ]
-  %20 = ptrtoint ptr %powerbufFree.0 to i64
+  %powerbufFree.1 = phi ptr [ %19, %if.then123 ], [ %call129, %if.else126 ]
+  %20 = ptrtoint ptr %powerbufFree.1 to i64
   %and = and i64 %20, 63
   %sub = sub nuw nsw i64 64, %and
-  %add.ptr = getelementptr inbounds i8, ptr %powerbufFree.0, i64 %sub
+  %add.ptr = getelementptr inbounds i8, ptr %powerbufFree.1, i64 %sub
   %conv135 = sext i32 %add119 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv135, i1 false)
   %conv140 = sext i32 %0 to i64
@@ -1766,15 +1766,15 @@ if.end460:                                        ; preds = %while.cond431, %if.
 
 err:                                              ; preds = %for.body402, %if.end454, %for.end445, %for.body438, %if.end460, %if.end414, %if.then390, %if.end183, %if.else177, %if.else126, %if.then68, %if.then48, %if.then29, %lor.lhs.false32, %if.end72, %if.end52
   %ret.1 = phi i32 [ 0, %if.then29 ], [ 0, %if.then48 ], [ 1, %if.end52 ], [ 0, %if.then68 ], [ 1, %if.end72 ], [ 0, %if.end414 ], [ 0, %if.then390 ], [ 0, %if.end183 ], [ 0, %if.else177 ], [ 0, %if.else126 ], [ 0, %lor.lhs.false32 ], [ %spec.select268, %if.end460 ], [ 0, %for.body438 ], [ 0, %for.end445 ], [ 0, %if.end454 ], [ 0, %for.body402 ]
-  %powerbufFree.2 = phi ptr [ null, %if.then29 ], [ null, %if.then48 ], [ null, %if.end52 ], [ null, %if.then68 ], [ null, %if.end72 ], [ %spec.select267, %if.end414 ], [ %spec.select267, %if.then390 ], [ %spec.select267, %if.end183 ], [ %spec.select267, %if.else177 ], [ null, %if.else126 ], [ null, %lor.lhs.false32 ], [ %spec.select267, %if.end460 ], [ %spec.select267, %for.body438 ], [ %spec.select267, %for.end445 ], [ %spec.select267, %if.end454 ], [ %spec.select267, %for.body402 ]
-  %powerbufLen.1 = phi i32 [ 0, %if.then29 ], [ 0, %if.then48 ], [ 0, %if.end52 ], [ 0, %if.then68 ], [ 0, %if.end72 ], [ %add119, %if.end414 ], [ %add119, %if.then390 ], [ %add119, %if.end183 ], [ %add119, %if.else177 ], [ %add119, %if.else126 ], [ 0, %lor.lhs.false32 ], [ %add119, %if.end460 ], [ %add119, %for.body438 ], [ %add119, %for.end445 ], [ %add119, %if.end454 ], [ %add119, %for.body402 ]
+  %powerbufFree.0 = phi ptr [ null, %if.then29 ], [ null, %if.then48 ], [ null, %if.end52 ], [ null, %if.then68 ], [ null, %if.end72 ], [ %spec.select267, %if.end414 ], [ %spec.select267, %if.then390 ], [ %spec.select267, %if.end183 ], [ %spec.select267, %if.else177 ], [ null, %if.else126 ], [ null, %lor.lhs.false32 ], [ %spec.select267, %if.end460 ], [ %spec.select267, %for.body438 ], [ %spec.select267, %for.end445 ], [ %spec.select267, %if.end454 ], [ %spec.select267, %for.body402 ]
+  %powerbufLen.0 = phi i32 [ 0, %if.then29 ], [ 0, %if.then48 ], [ 0, %if.end52 ], [ 0, %if.then68 ], [ 0, %if.end72 ], [ %add119, %if.end414 ], [ %add119, %if.then390 ], [ %add119, %if.end183 ], [ %add119, %if.else177 ], [ %add119, %if.else126 ], [ 0, %lor.lhs.false32 ], [ %add119, %if.end460 ], [ %add119, %for.body438 ], [ %add119, %for.end445 ], [ %add119, %if.end454 ], [ %add119, %for.body402 ]
   %powerbuf.0 = phi ptr [ null, %if.then29 ], [ null, %if.then48 ], [ null, %if.end52 ], [ null, %if.then68 ], [ null, %if.end72 ], [ %add.ptr, %if.end414 ], [ %add.ptr, %if.then390 ], [ %add.ptr, %if.end183 ], [ %add.ptr, %if.else177 ], [ null, %if.else126 ], [ null, %lor.lhs.false32 ], [ %add.ptr, %if.end460 ], [ %add.ptr, %for.body438 ], [ %add.ptr, %for.end445 ], [ %add.ptr, %if.end454 ], [ %add.ptr, %for.body402 ]
   br i1 %cmp14.not, label %if.then467, label %if.end468
 
 if.then467:                                       ; preds = %if.else16, %if.end20, %err
   %powerbuf.0328 = phi ptr [ %powerbuf.0, %err ], [ null, %if.end20 ], [ null, %if.else16 ]
-  %powerbufLen.1326 = phi i32 [ %powerbufLen.1, %err ], [ 0, %if.end20 ], [ 0, %if.else16 ]
-  %powerbufFree.2324 = phi ptr [ %powerbufFree.2, %err ], [ null, %if.end20 ], [ null, %if.else16 ]
+  %powerbufLen.0326 = phi i32 [ %powerbufLen.0, %err ], [ 0, %if.end20 ], [ 0, %if.else16 ]
+  %powerbufFree.0324 = phi ptr [ %powerbufFree.0, %err ], [ null, %if.end20 ], [ null, %if.else16 ]
   %mont.1322 = phi ptr [ %mont.0, %err ], [ %call17, %if.end20 ], [ null, %if.else16 ]
   %ret.1321 = phi i32 [ %ret.1, %err ], [ 0, %if.end20 ], [ 0, %if.else16 ]
   call void @BN_MONT_CTX_free(ptr noundef %mont.1322) #5
@@ -1782,16 +1782,16 @@ if.then467:                                       ; preds = %if.else16, %if.end2
 
 if.end468:                                        ; preds = %if.then467, %err
   %powerbuf.0327 = phi ptr [ %powerbuf.0328, %if.then467 ], [ %powerbuf.0, %err ]
-  %powerbufLen.1325 = phi i32 [ %powerbufLen.1326, %if.then467 ], [ %powerbufLen.1, %err ]
-  %powerbufFree.2323 = phi ptr [ %powerbufFree.2324, %if.then467 ], [ %powerbufFree.2, %err ]
+  %powerbufLen.0325 = phi i32 [ %powerbufLen.0326, %if.then467 ], [ %powerbufLen.0, %err ]
+  %powerbufFree.0323 = phi ptr [ %powerbufFree.0324, %if.then467 ], [ %powerbufFree.0, %err ]
   %ret.1320 = phi i32 [ %ret.1321, %if.then467 ], [ %ret.1, %err ]
   %cmp469.not = icmp eq ptr %powerbuf.0327, null
   br i1 %cmp469.not, label %if.end473, label %if.then471
 
 if.then471:                                       ; preds = %if.end468
-  %conv472 = sext i32 %powerbufLen.1325 to i64
+  %conv472 = sext i32 %powerbufLen.0325 to i64
   call void @OPENSSL_cleanse(ptr noundef nonnull %powerbuf.0327, i64 noundef %conv472) #5
-  call void @CRYPTO_free(ptr noundef %powerbufFree.2323, ptr noundef nonnull @.str, i32 noundef 1157) #5
+  call void @CRYPTO_free(ptr noundef %powerbufFree.0323, ptr noundef nonnull @.str, i32 noundef 1157) #5
   br label %if.end473
 
 if.end473:                                        ; preds = %if.then471, %if.end468
@@ -2909,7 +2909,7 @@ if.end65:                                         ; preds = %if.else
   br i1 %tobool67.not, label %err, label %if.end70
 
 if.end70:                                         ; preds = %if.end59, %if.end65
-  %mont1.0 = phi ptr [ %call62, %if.end65 ], [ %in_mont1, %if.end59 ]
+  %mont1.1 = phi ptr [ %call62, %if.end65 ], [ %in_mont1, %if.end59 ]
   %cmp71.not = icmp eq ptr %in_mont2, null
   br i1 %cmp71.not, label %if.else73, label %if.end82
 
@@ -2924,22 +2924,22 @@ if.end77:                                         ; preds = %if.else73
   br i1 %tobool79.not, label %if.then103, label %if.end82
 
 if.end82:                                         ; preds = %if.end70, %if.end77
-  %mont2.0 = phi ptr [ %call74, %if.end77 ], [ %in_mont2, %if.end70 ]
+  %mont2.1 = phi ptr [ %call74, %if.end77 ], [ %in_mont2, %if.end70 ]
   %13 = load ptr, ptr %rr1, align 8
   %14 = load ptr, ptr %a1, align 8
   %15 = load ptr, ptr %p1, align 8
   %16 = load ptr, ptr %m1, align 8
-  %RR = getelementptr inbounds i8, ptr %mont1.0, i64 8
+  %RR = getelementptr inbounds i8, ptr %mont1.1, i64 8
   %17 = load ptr, ptr %RR, align 8
-  %n0 = getelementptr inbounds i8, ptr %mont1.0, i64 80
+  %n0 = getelementptr inbounds i8, ptr %mont1.1, i64 80
   %18 = load i64, ptr %n0, align 8
   %19 = load ptr, ptr %rr2, align 8
   %20 = load ptr, ptr %a2, align 8
   %21 = load ptr, ptr %p2, align 8
   %22 = load ptr, ptr %m2, align 8
-  %RR91 = getelementptr inbounds i8, ptr %mont2.0, i64 8
+  %RR91 = getelementptr inbounds i8, ptr %mont2.1, i64 8
   %23 = load ptr, ptr %RR91, align 8
-  %n093 = getelementptr inbounds i8, ptr %mont2.0, i64 80
+  %n093 = getelementptr inbounds i8, ptr %mont2.1, i64 80
   %24 = load i64, ptr %n093, align 8
   %call95 = tail call i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, i64 noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i64 noundef %24, i32 noundef %call52) #5
   %top96 = getelementptr inbounds i8, ptr %rr1, i64 8
@@ -2961,27 +2961,27 @@ if.end99:                                         ; preds = %land.lhs.true48, %l
   br label %err
 
 err:                                              ; preds = %if.end65, %if.else, %if.end, %if.then, %if.end99, %if.end82
-  %mont2.1 = phi ptr [ null, %if.then ], [ null, %if.end ], [ %mont2.0, %if.end82 ], [ null, %if.else ], [ null, %if.end65 ], [ null, %if.end99 ]
-  %mont1.1 = phi ptr [ null, %if.then ], [ null, %if.end ], [ %mont1.0, %if.end82 ], [ null, %if.else ], [ %call62, %if.end65 ], [ null, %if.end99 ]
+  %mont2.0 = phi ptr [ null, %if.then ], [ null, %if.end ], [ %mont2.1, %if.end82 ], [ null, %if.else ], [ null, %if.end65 ], [ null, %if.end99 ]
+  %mont1.0 = phi ptr [ null, %if.then ], [ null, %if.end ], [ %mont1.1, %if.end82 ], [ null, %if.else ], [ %call62, %if.end65 ], [ null, %if.end99 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.end ], [ %call95, %if.end82 ], [ 0, %if.else ], [ 0, %if.end65 ], [ %and, %if.end99 ]
   %cmp102 = icmp eq ptr %in_mont2, null
   br i1 %cmp102, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %if.else73, %if.end77, %err
   %ret.066 = phi i32 [ %ret.0, %err ], [ 0, %if.end77 ], [ 0, %if.else73 ]
-  %mont1.164 = phi ptr [ %mont1.1, %err ], [ %mont1.0, %if.end77 ], [ %mont1.0, %if.else73 ]
-  %mont2.162 = phi ptr [ %mont2.1, %err ], [ %call74, %if.end77 ], [ null, %if.else73 ]
-  tail call void @BN_MONT_CTX_free(ptr noundef %mont2.162) #5
+  %mont1.064 = phi ptr [ %mont1.0, %err ], [ %mont1.1, %if.end77 ], [ %mont1.1, %if.else73 ]
+  %mont2.062 = phi ptr [ %mont2.0, %err ], [ %call74, %if.end77 ], [ null, %if.else73 ]
+  tail call void @BN_MONT_CTX_free(ptr noundef %mont2.062) #5
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then103, %err
   %ret.065 = phi i32 [ %ret.066, %if.then103 ], [ %ret.0, %err ]
-  %mont1.163 = phi ptr [ %mont1.164, %if.then103 ], [ %mont1.1, %err ]
+  %mont1.063 = phi ptr [ %mont1.064, %if.then103 ], [ %mont1.0, %err ]
   %cmp105 = icmp eq ptr %in_mont1, null
   br i1 %cmp105, label %if.then106, label %if.end107
 
 if.then106:                                       ; preds = %if.end104
-  tail call void @BN_MONT_CTX_free(ptr noundef %mont1.163) #5
+  tail call void @BN_MONT_CTX_free(ptr noundef %mont1.063) #5
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then106, %if.end104

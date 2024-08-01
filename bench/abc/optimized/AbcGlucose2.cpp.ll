@@ -1509,7 +1509,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
 
 12:                                               ; preds = %.critedge2, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit
   %.040 = phi ptr [ %4, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %82, %.critedge2 ]
-  %.0 = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %.2, %.critedge2 ]
+  %.0 = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %.1, %.critedge2 ]
   %13 = load i8, ptr %.040, align 1
   switch i8 %13, label %.preheader [
     i8 0, label %83
@@ -1529,7 +1529,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
 
 .preheader:                                       ; preds = %12, %.critedge
   %17 = phi i8 [ %.pr, %.critedge ], [ %13, %12 ]
-  %.242 = phi ptr [ %18, %.critedge ], [ %.040, %12 ]
+  %.3 = phi ptr [ %18, %.critedge ], [ %.040, %12 ]
   switch i8 %17, label %.loopexit [
     i8 32, label %.critedge
     i8 9, label %.critedge
@@ -1539,22 +1539,22 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
   ]
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %18 = getelementptr inbounds i8, ptr %.242, i64 1
+  %18 = getelementptr inbounds i8, ptr %.3, i64 1
   %.pr = load i8, ptr %18, align 1
   br label %.preheader, !llvm.loop !15
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.242, i64 1
+  %20 = getelementptr inbounds i8, ptr %.3, i64 1
   %.pre = load i8, ptr %20, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %19
   %21 = phi i8 [ %.pre, %19 ], [ %17, %.preheader ]
-  %.3 = phi ptr [ %20, %19 ], [ %.242, %.preheader ]
+  %.4 = phi ptr [ %20, %19 ], [ %.3, %.preheader ]
   %.039 = phi i32 [ 1, %19 ], [ 0, %.preheader ]
   %22 = icmp eq i8 %21, 43
   %spec.select.idx = zext i1 %22 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.3, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.4, i64 %spec.select.idx
   %23 = tail call i32 @atoi(ptr nocapture noundef nonnull %spec.select) #34
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %46
@@ -1676,21 +1676,21 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
   br label %_ZN6Gluco23vecINS_3LitEE5clearEb.exit54
 
 _ZN6Gluco23vecINS_3LitEE5clearEb.exit54:          ; preds = %.preheader.i53, %_ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit, %25, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %.1 = phi i32 [ %.0, %25 ], [ %48, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.0, %_ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit ], [ %.0, %.preheader.i53 ]
+  %.2 = phi i32 [ %.0, %25 ], [ %48, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.0, %_ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit ], [ %.0, %.preheader.i53 ]
   br label %78
 
 78:                                               ; preds = %78, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit54
-  %.5 = phi ptr [ %spec.select, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit54 ], [ %81, %78 ]
-  %79 = load i8, ptr %.5, align 1
+  %.6 = phi ptr [ %spec.select, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit54 ], [ %81, %78 ]
+  %79 = load i8, ptr %.6, align 1
   %80 = add i8 %79, -48
   %or.cond = icmp ult i8 %80, 10
-  %81 = getelementptr inbounds i8, ptr %.5, i64 1
+  %81 = getelementptr inbounds i8, ptr %.6, i64 1
   br i1 %or.cond, label %78, label %.critedge2, !llvm.loop !17
 
 .critedge2:                                       ; preds = %14, %78
-  %.6 = phi ptr [ %.5, %78 ], [ %.141, %14 ]
-  %.2 = phi i32 [ %.1, %78 ], [ %.0, %14 ]
-  %82 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.242 = phi ptr [ %.6, %78 ], [ %.141, %14 ]
+  %.1 = phi i32 [ %.2, %78 ], [ %.0, %14 ]
+  %82 = getelementptr inbounds i8, ptr %.242, i64 1
   br label %12, !llvm.loop !18
 
 83:                                               ; preds = %12

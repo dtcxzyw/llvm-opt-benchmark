@@ -353,7 +353,7 @@ php_iptc_get1.exit.thread.i:                      ; preds = %.loopexit, %.prehea
   %.2553 = phi ptr [ %.2549, %.lr.ph554 ], [ %.2, %.loopexit ]
   %.not361552 = phi i1 [ %.not361548, %.lr.ph554 ], [ %.not361, %.loopexit ]
   %141 = phi i64 [ %130, %.lr.ph554 ], [ %278, %.loopexit ]
-  %.3341476551 = phi i64 [ %33, %.lr.ph554 ], [ %.5343, %.loopexit ]
+  %.3341476551 = phi i64 [ %33, %.lr.ph554 ], [ %.4342, %.loopexit ]
   %.0312478550 = phi i1 [ false, %.lr.ph554 ], [ %.1313, %.loopexit ]
   %142 = trunc i64 %141 to i32
   %143 = icmp sgt i32 %142, 0
@@ -770,7 +770,7 @@ php_iptc_put1.exit400:                            ; preds = %265, %266
   br label %.loopexit
 
 .loopexit:                                        ; preds = %php_iptc_put1.exit400, %php_iptc_put1.exit396, %210, %274
-  %.5343 = phi i64 [ %.3341476551, %274 ], [ %.3341476551, %210 ], [ 0, %php_iptc_put1.exit396 ], [ %spec.select, %php_iptc_put1.exit400 ]
+  %.4342 = phi i64 [ %.3341476551, %274 ], [ %.3341476551, %210 ], [ 0, %php_iptc_put1.exit396 ], [ %spec.select, %php_iptc_put1.exit400 ]
   %.1313 = phi i1 [ %.0312478550, %274 ], [ true, %210 ], [ true, %php_iptc_put1.exit396 ], [ true, %php_iptc_put1.exit400 ]
   %278 = load i64, ptr %15, align 8
   %279 = load ptr, ptr %16, align 8

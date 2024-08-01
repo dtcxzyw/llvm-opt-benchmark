@@ -1856,11 +1856,11 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture
 
 .lr.ph:                                           ; preds = %.preheader40, %29
   %.in = phi i64 [ %25, %29 ], [ %2, %.preheader40 ]
-  %.145 = phi i64 [ %37, %29 ], [ %8, %.preheader40 ]
+  %.245 = phi i64 [ %37, %29 ], [ %8, %.preheader40 ]
   %.13344 = phi ptr [ %35, %29 ], [ %6, %.preheader40 ]
   %.13543 = phi ptr [ %32, %29 ], [ %5, %.preheader40 ]
   %25 = add i64 %.in, -1
-  %26 = icmp eq i64 %.145, 0
+  %26 = icmp eq i64 %.245, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph
@@ -1868,7 +1868,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture
   br label %29
 
 29:                                               ; preds = %27, %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %4, i64 %.145
+  %30 = getelementptr inbounds i8, ptr %4, i64 %.245
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr inbounds i8, ptr %.13543, i64 1
   %33 = load i8, ptr %.13543, align 1
@@ -1876,14 +1876,14 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr nocapture
   %35 = getelementptr inbounds i8, ptr %.13344, i64 1
   store i8 %34, ptr %.13344, align 1
   store i8 %34, ptr %30, align 1
-  %36 = add nuw nsw i64 %.145, 1
+  %36 = add nuw nsw i64 %.245, 1
   %37 = and i64 %36, 15
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %29, %16, %.preheader40, %.preheader
-  %.2 = phi i64 [ %8, %.preheader ], [ %8, %.preheader40 ], [ %24, %16 ], [ %37, %29 ]
-  store i64 %.2, ptr %3, align 8
+  %.1 = phi i64 [ %8, %.preheader ], [ %8, %.preheader40 ], [ %24, %16 ], [ %37, %29 ]
+  store i64 %.1, ptr %3, align 8
   br label %38
 
 38:                                               ; preds = %7, %.loopexit

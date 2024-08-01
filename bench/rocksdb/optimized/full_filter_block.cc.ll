@@ -987,20 +987,20 @@ land.rhs.lr.ph.i.i42:                             ; preds = %invoke.cont20
   br label %land.rhs.i.i48
 
 while.cond.i.i53:                                 ; preds = %land.rhs.i.i48
-  %inc.i.i54 = add i64 %iter.sroa.6.0, 1
+  %inc.i.i54 = add i64 %iter.sroa.6.1, 1
   %exitcond.not.i55 = icmp eq i64 %inc.i.i54, %14
   br i1 %exitcond.not.i55, label %for.end, label %land.rhs.i.i48, !llvm.loop !7
 
 land.rhs.i.i48:                                   ; preds = %while.cond.i.i53, %land.rhs.lr.ph.i.i42
-  %iter.sroa.6.0 = phi i64 [ %ref.tmp15.sroa.2.1, %land.rhs.lr.ph.i.i42 ], [ %inc.i.i54, %while.cond.i.i53 ]
-  %shl.i.i50 = shl nuw i64 1, %iter.sroa.6.0
+  %iter.sroa.6.1 = phi i64 [ %ref.tmp15.sroa.2.1, %land.rhs.lr.ph.i.i42 ], [ %inc.i.i54, %while.cond.i.i53 ]
+  %shl.i.i50 = shl nuw i64 1, %iter.sroa.6.1
   %and.i.i51 = and i64 %shl.i.i50, %or10.i.i47
   %tobool.not.i.i52 = icmp eq i64 %and.i.i51, 0
   br i1 %tobool.not.i.i52, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56, label %while.cond.i.i53
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56: ; preds = %land.rhs.i.i48, %invoke.cont20
-  %iter.sroa.6.1 = phi i64 [ %ref.tmp15.sroa.2.1, %invoke.cont20 ], [ %iter.sroa.6.0, %land.rhs.i.i48 ]
-  %cmp.i62.not213 = icmp eq i64 %iter.sroa.6.1, %14
+  %iter.sroa.6.2 = phi i64 [ %ref.tmp15.sroa.2.1, %invoke.cont20 ], [ %iter.sroa.6.1, %land.rhs.i.i48 ]
+  %cmp.i62.not213 = icmp eq i64 %iter.sroa.6.2, %14
   br i1 %cmp.i62.not213, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56
@@ -1013,20 +1013,20 @@ for.body.lr.ph:                                   ; preds = %_ZNK7rocksdb15Multi
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us ], [ 0, %for.body.lr.ph ]
-  %iter.sroa.6.2215.us = phi i64 [ %inc.i94.us.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us ], [ %iter.sroa.6.1, %for.body.lr.ph ]
-  %arrayidx.i.i.i66.us = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i68, i64 0, i64 %iter.sroa.6.2215.us
+  %iter.sroa.6.0215.us = phi i64 [ %inc.i94.us.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us ], [ %iter.sroa.6.2, %for.body.lr.ph ]
+  %arrayidx.i.i.i66.us = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i68, i64 0, i64 %iter.sroa.6.0215.us
   %24 = load ptr, ptr %arrayidx.i.i.i66.us, align 8
   %ukey_without_ts.us = getelementptr inbounds i8, ptr %24, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx.i.i.us = getelementptr inbounds [32 x ptr], ptr %keys, i64 0, i64 %indvars.iv
   store ptr %ukey_without_ts.us, ptr %arrayidx.i.i.us, align 8
-  %25 = add i64 %iter.sroa.6.2215.us, 1
+  %25 = add i64 %iter.sroa.6.0215.us, 1
   %umax223 = call i64 @llvm.umax.i64(i64 %14, i64 %25)
   %26 = add i64 %umax223, -1
   br label %while.cond.i.us
 
 while.cond.i.us:                                  ; preds = %land.rhs.i.us, %for.body.us
-  %27 = phi i64 [ %inc.i94.us, %land.rhs.i.us ], [ %iter.sroa.6.2215.us, %for.body.us ]
+  %27 = phi i64 [ %inc.i94.us, %land.rhs.i.us ], [ %iter.sroa.6.0215.us, %for.body.us ]
   %exitcond224.not = icmp eq i64 %27, %26
   br i1 %exitcond224.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us, label %land.rhs.i.us
 
@@ -1047,9 +1047,9 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit.us: ; preds = %land.rhs.i.u
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %num_keys.0216 = phi i32 [ %num_keys.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ 0, %for.body.lr.ph ]
-  %iter.sroa.6.2215 = phi i64 [ %inc.i94.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %iter.sroa.6.1, %for.body.lr.ph ]
+  %iter.sroa.6.0215 = phi i64 [ %inc.i94.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %iter.sroa.6.2, %for.body.lr.ph ]
   %filter_range.sroa.18.0214 = phi i64 [ %filter_range.sroa.18.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %20, %for.body.lr.ph ]
-  %arrayidx.i.i.i70 = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i68, i64 0, i64 %iter.sroa.6.2215
+  %arrayidx.i.i.i70 = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i68, i64 0, i64 %iter.sroa.6.0215
   %30 = load ptr, ptr %arrayidx.i.i.i70, align 8
   %ukey_without_ts32 = getelementptr inbounds i8, ptr %30, i64 32
   %vtable = load ptr, ptr %prefix_extractor, align 8
@@ -1235,20 +1235,20 @@ invoke.cont45:                                    ; preds = %if.then.i80, %if.th
   br label %for.inc
 
 if.else50:                                        ; preds = %invoke.cont33
-  %shl.i.i87 = shl nuw i64 1, %iter.sroa.6.2215
+  %shl.i.i87 = shl nuw i64 1, %iter.sroa.6.0215
   %or.i.i89 = or i64 %shl.i.i87, %filter_range.sroa.18.0214
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else50, %invoke.cont45
   %filter_range.sroa.18.1 = phi i64 [ %filter_range.sroa.18.0214, %invoke.cont45 ], [ %or.i.i89, %if.else50 ]
   %num_keys.1 = phi i32 [ %inc47, %invoke.cont45 ], [ %num_keys.0216, %if.else50 ]
-  %50 = add i64 %iter.sroa.6.2215, 1
+  %50 = add i64 %iter.sroa.6.0215, 1
   %umax = call i64 @llvm.umax.i64(i64 %14, i64 %50)
   %51 = add i64 %umax, -1
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %for.inc
-  %52 = phi i64 [ %inc.i94, %land.rhs.i ], [ %iter.sroa.6.2215, %for.inc ]
+  %52 = phi i64 [ %inc.i94, %land.rhs.i ], [ %iter.sroa.6.0215, %for.inc ]
   %exitcond.not = icmp eq i64 %52, %51
   br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %land.rhs.i
 
@@ -1296,20 +1296,20 @@ land.rhs.lr.ph.i.i101:                            ; preds = %invoke.cont60
   br label %land.rhs.i.i107
 
 while.cond.i.i112:                                ; preds = %land.rhs.i.i107
-  %inc.i.i113 = add i64 %iter61.sroa.3.0, 1
+  %inc.i.i113 = add i64 %iter61.sroa.3.1, 1
   %exitcond.not.i114 = icmp eq i64 %inc.i.i113, %.sink.i203242
   br i1 %exitcond.not.i114, label %for.end86, label %land.rhs.i.i107, !llvm.loop !7
 
 land.rhs.i.i107:                                  ; preds = %while.cond.i.i112, %land.rhs.lr.ph.i.i101
-  %iter61.sroa.3.0 = phi i64 [ %filter_range.sroa.7.0202243, %land.rhs.lr.ph.i.i101 ], [ %inc.i.i113, %while.cond.i.i112 ]
-  %shl.i.i109 = shl nuw i64 1, %iter61.sroa.3.0
+  %iter61.sroa.3.1 = phi i64 [ %filter_range.sroa.7.0202243, %land.rhs.lr.ph.i.i101 ], [ %inc.i.i113, %while.cond.i.i112 ]
+  %shl.i.i109 = shl nuw i64 1, %iter61.sroa.3.1
   %and.i.i110 = and i64 %shl.i.i109, %or10.i.i106
   %tobool.not.i.i111 = icmp eq i64 %and.i.i110, 0
   br i1 %tobool.not.i.i111, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115, label %while.cond.i.i112
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115: ; preds = %land.rhs.i.i107, %invoke.cont60
-  %iter61.sroa.3.1 = phi i64 [ %filter_range.sroa.7.0202243, %invoke.cont60 ], [ %iter61.sroa.3.0, %land.rhs.i.i107 ]
-  %cmp.i122.not219 = icmp eq i64 %iter61.sroa.3.1, %.sink.i203242
+  %iter61.sroa.3.2 = phi i64 [ %filter_range.sroa.7.0202243, %invoke.cont60 ], [ %iter61.sroa.3.1, %land.rhs.i.i107 ]
+  %cmp.i122.not219 = icmp eq i64 %iter61.sroa.3.2, %.sink.i203242
   br i1 %cmp.i122.not219, label %for.end86, label %for.body68.lr.ph
 
 for.body68.lr.ph:                                 ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115
@@ -1323,14 +1323,14 @@ for.body68.lr.ph:                                 ; preds = %_ZNK7rocksdb15Multi
 
 for.body68:                                       ; preds = %for.body68.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144
   %indvars.iv228 = phi i64 [ 0, %for.body68.lr.ph ], [ %indvars.iv.next229, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144 ]
-  %iter61.sroa.3.2220 = phi i64 [ %iter61.sroa.3.1, %for.body68.lr.ph ], [ %inc.i135.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144 ]
+  %iter61.sroa.3.0220 = phi i64 [ %iter61.sroa.3.2, %for.body68.lr.ph ], [ %inc.i135.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144 ]
   %arrayidx.i.i123 = getelementptr inbounds [32 x i8], ptr %may_match, i64 0, i64 %indvars.iv228
   %62 = load i8, ptr %arrayidx.i.i123, align 1
   %tobool71 = trunc i8 %62 to i1
   br i1 %tobool71, label %if.else77, label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %for.body68
-  %shl.i.i125 = shl nuw i64 1, %iter61.sroa.3.2220
+  %shl.i.i125 = shl nuw i64 1, %iter61.sroa.3.0220
   %63 = load i64, ptr %skip_mask_.i204241, align 8
   %or.i.i127 = or i64 %63, %shl.i.i125
   store i64 %or.i.i127, ptr %skip_mask_.i204241, align 8
@@ -1369,13 +1369,13 @@ if.end81.sink.split:                              ; preds = %66, %if.then75, %in
 
 if.end81:                                         ; preds = %if.end81.sink.split, %_ZTWN7rocksdb10perf_levelE.exit
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %68 = add i64 %iter61.sroa.3.2220, 1
+  %68 = add i64 %iter61.sroa.3.0220, 1
   %umax226 = call i64 @llvm.umax.i64(i64 %.sink.i203242, i64 %68)
   %69 = add i64 %umax226, -1
   br label %while.cond.i134
 
 while.cond.i134:                                  ; preds = %land.rhs.i137, %if.end81
-  %70 = phi i64 [ %inc.i135, %land.rhs.i137 ], [ %iter61.sroa.3.2220, %if.end81 ]
+  %70 = phi i64 [ %inc.i135, %land.rhs.i137 ], [ %iter61.sroa.3.0220, %if.end81 ]
   %exitcond227.not = icmp eq i64 %70, %69
   br i1 %exitcond227.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit144, label %land.rhs.i137
 
@@ -1898,20 +1898,20 @@ land.rhs.lr.ph.i.i:                               ; preds = %entry
   br label %land.rhs.i.i
 
 while.cond.i.i:                                   ; preds = %land.rhs.i.i
-  %inc.i.i = add i64 %iter.sroa.6.0, 1
+  %inc.i.i = add i64 %iter.sroa.6.1, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, %2
   br i1 %exitcond.not.i, label %for.end, label %land.rhs.i.i, !llvm.loop !7
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i, %land.rhs.lr.ph.i.i
-  %iter.sroa.6.0 = phi i64 [ %0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %while.cond.i.i ]
-  %shl.i.i = shl nuw i64 1, %iter.sroa.6.0
+  %iter.sroa.6.1 = phi i64 [ %0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %while.cond.i.i ]
+  %shl.i.i = shl nuw i64 1, %iter.sroa.6.1
   %and.i.i = and i64 %shl.i.i, %or10.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit, label %while.cond.i.i
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %land.rhs.i.i, %entry
-  %iter.sroa.6.1 = phi i64 [ %0, %entry ], [ %iter.sroa.6.0, %land.rhs.i.i ]
-  %cmp.i.not29 = icmp eq i64 %iter.sroa.6.1, %2
+  %iter.sroa.6.2 = phi i64 [ %0, %entry ], [ %iter.sroa.6.1, %land.rhs.i.i ]
+  %cmp.i.not29 = icmp eq i64 %iter.sroa.6.2, %2
   br i1 %cmp.i.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
@@ -1921,8 +1921,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK7rocksdb15Multi
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
-  %iter.sroa.6.230 = phi i64 [ %iter.sroa.6.1, %for.body.lr.ph ], [ %inc.i.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %arrayidx.i.i.i = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i, i64 0, i64 %iter.sroa.6.230
+  %iter.sroa.6.030 = phi i64 [ %iter.sroa.6.2, %for.body.lr.ph ], [ %inc.i.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %arrayidx.i.i.i = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i, i64 0, i64 %iter.sroa.6.030
   %6 = load ptr, ptr %arrayidx.i.i.i, align 8
   %ukey_without_ts3 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ukey_without_ts, ptr noundef nonnull align 8 dereferenceable(16) %ukey_without_ts3, i64 16, i1 false)
@@ -1937,7 +1937,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %call8, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %shl.i.i16 = shl nuw i64 1, %iter.sroa.6.230
+  %shl.i.i16 = shl nuw i64 1, %iter.sroa.6.030
   %9 = load i64, ptr %skip_mask_.i.i17, align 8
   %or.i.i18 = or i64 %9, %shl.i.i16
   store i64 %or.i.i18, ptr %skip_mask_.i.i17, align 8
@@ -1945,13 +1945,13 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %10 = load i64, ptr %end_.i.i, align 8
-  %11 = add i64 %iter.sroa.6.230, 1
+  %11 = add i64 %iter.sroa.6.030, 1
   %umax = call i64 @llvm.umax.i64(i64 %10, i64 %11)
   %12 = add i64 %umax, -1
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %for.inc
-  %13 = phi i64 [ %inc.i, %land.rhs.i ], [ %iter.sroa.6.230, %for.inc ]
+  %13 = phi i64 [ %inc.i, %land.rhs.i ], [ %iter.sroa.6.030, %for.inc ]
   %exitcond.not = icmp eq i64 %13, %12
   br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %land.rhs.i
 
@@ -2004,20 +2004,20 @@ land.rhs.lr.ph.i.i:                               ; preds = %entry
   br label %land.rhs.i.i
 
 while.cond.i.i:                                   ; preds = %land.rhs.i.i
-  %inc.i.i = add i64 %iter.sroa.6.0, 1
+  %inc.i.i = add i64 %iter.sroa.6.1, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i, %2
   br i1 %exitcond.not.i, label %for.end, label %land.rhs.i.i, !llvm.loop !7
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i, %land.rhs.lr.ph.i.i
-  %iter.sroa.6.0 = phi i64 [ %0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %while.cond.i.i ]
-  %shl.i.i = shl nuw i64 1, %iter.sroa.6.0
+  %iter.sroa.6.1 = phi i64 [ %0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %while.cond.i.i ]
+  %shl.i.i = shl nuw i64 1, %iter.sroa.6.1
   %and.i.i = and i64 %shl.i.i, %or10.i.i
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit, label %while.cond.i.i
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %land.rhs.i.i, %entry
-  %iter.sroa.6.1 = phi i64 [ %0, %entry ], [ %iter.sroa.6.0, %land.rhs.i.i ]
-  %cmp.i.not30 = icmp eq i64 %iter.sroa.6.1, %2
+  %iter.sroa.6.2 = phi i64 [ %0, %entry ], [ %iter.sroa.6.1, %land.rhs.i.i ]
+  %cmp.i.not30 = icmp eq i64 %iter.sroa.6.2, %2
   br i1 %cmp.i.not30, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit
@@ -2028,8 +2028,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK7rocksdb15Multi
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
-  %iter.sroa.6.231 = phi i64 [ %iter.sroa.6.1, %for.body.lr.ph ], [ %inc.i.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
-  %arrayidx.i.i.i = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i, i64 0, i64 %iter.sroa.6.231
+  %iter.sroa.6.031 = phi i64 [ %iter.sroa.6.2, %for.body.lr.ph ], [ %inc.i.lcssa, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
+  %arrayidx.i.i.i = getelementptr inbounds [32 x ptr], ptr %sorted_keys_.i, i64 0, i64 %iter.sroa.6.031
   %7 = load ptr, ptr %arrayidx.i.i.i, align 8
   %ukey_without_ts3 = getelementptr inbounds i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ukey_without_ts, ptr noundef nonnull align 8 dereferenceable(16) %ukey_without_ts3, i64 16, i1 false)
@@ -2059,7 +2059,7 @@ land.rhs:                                         ; preds = %for.body
   br i1 %call14, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  %shl.i.i17 = shl nuw i64 1, %iter.sroa.6.231
+  %shl.i.i17 = shl nuw i64 1, %iter.sroa.6.031
   %14 = load i64, ptr %skip_mask_.i.i18, align 8
   %or.i.i19 = or i64 %14, %shl.i.i17
   store i64 %or.i.i19, ptr %skip_mask_.i.i18, align 8
@@ -2067,13 +2067,13 @@ if.then:                                          ; preds = %land.rhs
 
 for.inc:                                          ; preds = %land.rhs, %if.then, %for.body
   %15 = load i64, ptr %end_.i.i, align 8
-  %16 = add i64 %iter.sroa.6.231, 1
+  %16 = add i64 %iter.sroa.6.031, 1
   %umax = call i64 @llvm.umax.i64(i64 %15, i64 %16)
   %17 = add i64 %umax, -1
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %for.inc
-  %18 = phi i64 [ %inc.i, %land.rhs.i ], [ %iter.sroa.6.231, %for.inc ]
+  %18 = phi i64 [ %inc.i, %land.rhs.i ], [ %iter.sroa.6.031, %for.inc ]
   %exitcond.not = icmp eq i64 %18, %17
   br i1 %exitcond.not, label %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, label %land.rhs.i
 

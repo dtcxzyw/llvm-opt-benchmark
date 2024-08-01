@@ -1067,8 +1067,8 @@ if.then30:                                        ; preds = %if.end27, %if.end27
 
 err:                                              ; preds = %if.then30, %if.then26, %if.then5
   %email.0 = phi ptr [ null, %if.then30 ], [ %.us-phi, %if.then26 ], [ null, %if.then5 ]
-  %gen.2 = phi ptr [ %.us-phi20, %if.then30 ], [ null, %if.then26 ], [ null, %if.then5 ]
-  tail call void @GENERAL_NAME_free(ptr noundef %gen.2) #6
+  %gen.0 = phi ptr [ %.us-phi20, %if.then30 ], [ null, %if.then26 ], [ null, %if.then5 ]
+  tail call void @GENERAL_NAME_free(ptr noundef %gen.0) #6
   tail call void @ASN1_STRING_free(ptr noundef %email.0) #6
   br label %return
 

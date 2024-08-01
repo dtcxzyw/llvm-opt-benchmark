@@ -133,13 +133,13 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br i1 %.not97, label %.thread, label %.lr.ph117, !llvm.loop !7
 
 .loopexit:                                        ; preds = %56, %40
-  %.371 = phi ptr [ %.169, %40 ], [ %.173116, %56 ]
-  %.3 = phi ptr [ %.1, %40 ], [ %43, %56 ]
+  %.270 = phi ptr [ %.169, %40 ], [ %.173116, %56 ]
+  %.162 = phi ptr [ %.1, %40 ], [ %43, %56 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 4704
-  %62 = getelementptr inbounds i8, ptr %.3, i64 24
+  %62 = getelementptr inbounds i8, ptr %.162, i64 24
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %.3, i64 32
+  %64 = getelementptr inbounds i8, ptr %.162, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 4712
   store ptr %65, ptr %66, align 8
@@ -147,14 +147,14 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   store i64 %.164, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 4728
   store i64 %2, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.3, i64 44
+  %69 = getelementptr inbounds i8, ptr %.162, i64 44
   %70 = load i8, ptr %69, align 4
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %71, 134217728
   %73 = getelementptr inbounds i8, ptr %0, i64 4736
   store i32 %72, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 4744
-  store ptr %.371, ptr %74, align 8
+  store ptr %.270, ptr %74, align 8
   store ptr %61, ptr %5, align 8
   br label %.thread
 
@@ -201,8 +201,8 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   br i1 %.not54, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %17, %27
-  %.145 = phi ptr [ %29, %27 ], [ %.044, %17 ]
-  %18 = load ptr, ptr %.145, align 8
+  %.2 = phi ptr [ %29, %27 ], [ %.044, %17 ]
+  %18 = load ptr, ptr %.2, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 44
   %20 = load i8, ptr %19, align 4
   %21 = zext i8 %20 to i32
@@ -217,7 +217,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %23, %.preheader
-  %28 = getelementptr inbounds i8, ptr %.145, i64 16
+  %28 = getelementptr inbounds i8, ptr %.2, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not56 = icmp eq ptr %29, null
   br i1 %.not56, label %.thread, label %.preheader, !llvm.loop !8
@@ -263,7 +263,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
 
 50:                                               ; preds = %44, %40, %34
   %.142 = phi i64 [ %.04168, %40 ], [ %.04168, %34 ], [ %spec.select61, %44 ]
-  %51 = icmp eq ptr %.04370, %.145
+  %51 = icmp eq ptr %.04370, %.2
   %52 = add i64 %.142, -1
   %spec.select62 = select i1 %51, i64 %52, i64 %.04069
   %53 = getelementptr inbounds i8, ptr %.04370, i64 16
@@ -292,7 +292,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
   %65 = getelementptr inbounds i8, ptr %0, i64 4784
   store i32 %64, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 4792
-  store ptr %.145, ptr %66, align 8
+  store ptr %.2, ptr %66, align 8
   br label %.thread
 
 .thread:                                          ; preds = %27, %17, %10, %4, %._crit_edge
@@ -432,33 +432,33 @@ define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nou
   br label %.critedge62
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge2
-  %.04784 = phi i64 [ %54, %.critedge2 ], [ %12, %.preheader ]
-  %.04983 = phi ptr [ %53, %.critedge2 ], [ %1, %.preheader ]
-  %52 = load i8, ptr %.04983, align 1
+  %.184 = phi i64 [ %54, %.critedge2 ], [ %12, %.preheader ]
+  %.15083 = phi ptr [ %53, %.critedge2 ], [ %1, %.preheader ]
+  %52 = load i8, ptr %.15083, align 1
   switch i8 %52, label %.critedge [
     i8 32, label %.critedge2
     i8 9, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %.04983, i64 1
-  %54 = add i64 %.04784, -1
+  %53 = getelementptr inbounds i8, ptr %.15083, i64 1
+  %54 = add i64 %.184, -1
   %.not59 = icmp eq i64 %54, 0
   br i1 %.not59, label %.critedge62, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph, %9
-  %.150 = phi ptr [ %1, %9 ], [ %.04983, %.lr.ph ]
-  %.1 = phi i64 [ %12, %9 ], [ %.04784, %.lr.ph ]
+  %.049 = phi ptr [ %1, %9 ], [ %.15083, %.lr.ph ]
+  %.047 = phi i64 [ %12, %9 ], [ %.184, %.lr.ph ]
   %55 = load ptr, ptr @Curl_ccalloc, align 8
-  %56 = add i64 %.1, 48
+  %56 = add i64 %.047, 48
   %57 = tail call ptr %55(i64 noundef 1, i64 noundef %56) #4
   %.not60 = icmp eq ptr %57, null
   br i1 %.not60, label %.critedge62, label %58
 
 58:                                               ; preds = %.critedge
   %59 = getelementptr inbounds i8, ptr %57, i64 45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %.150, i64 %.1, i1 false)
-  %60 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %.049, i64 %.047, i1 false)
+  %60 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %.047
   store i8 0, ptr %60, align 1
   %61 = icmp eq i8 %2, 16
   br i1 %61, label %62, label %.preheader100

@@ -349,16 +349,16 @@ land.lhs.true4.i85:                               ; preds = %land.lhs.true.i82
 
 if.end15.sink.split:                              ; preds = %land.lhs.true4.i85, %land.lhs.true4.i
   %.sink = phi ptr [ %33, %land.lhs.true4.i ], [ %32, %land.lhs.true4.i85 ]
-  %e1.3.ph = phi ptr [ %32, %land.lhs.true4.i ], [ %33, %land.lhs.true4.i85 ]
+  %e1.2.ph = phi ptr [ %32, %land.lhs.true4.i ], [ %33, %land.lhs.true4.i85 ]
   %arrayidx.i.i68 = getelementptr inbounds i8, ptr %.sink, i64 40
   %48 = load ptr, ptr %arrayidx.i.i68, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end15.sink.split, %land.rhs.i.i.i74, %if.else, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78, %land.lhs.true.i82, %land.lhs.true4.i85, %land.rhs.i.i.i38, %land.lhs.true, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i, %land.lhs.true.i45, %_ZNK10arith_util7is_zeroEPK4expr.exit32
-  %e2.3 = phi ptr [ %spec.select, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select, %land.lhs.true.i45 ], [ %spec.select, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select, %land.lhs.true ], [ %spec.select, %land.rhs.i.i.i38 ], [ %spec.select, %land.lhs.true4.i85 ], [ %spec.select, %land.lhs.true.i82 ], [ %spec.select, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select, %if.else ], [ %spec.select, %land.rhs.i.i.i74 ], [ %48, %if.end15.sink.split ]
-  %e1.3 = phi ptr [ %spec.select132, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select132, %land.lhs.true.i45 ], [ %spec.select132, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select132, %land.lhs.true ], [ %spec.select132, %land.rhs.i.i.i38 ], [ %spec.select132, %land.lhs.true4.i85 ], [ %spec.select132, %land.lhs.true.i82 ], [ %spec.select132, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select132, %if.else ], [ %spec.select132, %land.rhs.i.i.i74 ], [ %e1.3.ph, %if.end15.sink.split ]
-  %call.i = call noundef i32 @_ZN15obj_equiv_classI4expr11ast_managerE16add_if_not_thereEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %equiv, ptr noundef %e1.3)
-  %call2.i = call noundef i32 @_ZN15obj_equiv_classI4expr11ast_managerE16add_if_not_thereEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %equiv, ptr noundef %e2.3)
+  %e2.2 = phi ptr [ %spec.select, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select, %land.lhs.true.i45 ], [ %spec.select, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select, %land.lhs.true ], [ %spec.select, %land.rhs.i.i.i38 ], [ %spec.select, %land.lhs.true4.i85 ], [ %spec.select, %land.lhs.true.i82 ], [ %spec.select, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select, %if.else ], [ %spec.select, %land.rhs.i.i.i74 ], [ %48, %if.end15.sink.split ]
+  %e1.2 = phi ptr [ %spec.select132, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select132, %land.lhs.true.i45 ], [ %spec.select132, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select132, %land.lhs.true ], [ %spec.select132, %land.rhs.i.i.i38 ], [ %spec.select132, %land.lhs.true4.i85 ], [ %spec.select132, %land.lhs.true.i82 ], [ %spec.select132, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select132, %if.else ], [ %spec.select132, %land.rhs.i.i.i74 ], [ %e1.2.ph, %if.end15.sink.split ]
+  %call.i = call noundef i32 @_ZN15obj_equiv_classI4expr11ast_managerE16add_if_not_thereEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %equiv, ptr noundef %e1.2)
+  %call2.i = call noundef i32 @_ZN15obj_equiv_classI4expr11ast_managerE16add_if_not_thereEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %equiv, ptr noundef %e2.2)
   %49 = load ptr, ptr %equiv, align 8
   %cmp.i.i.i.i = icmp eq ptr %49, null
   br i1 %cmp.i.i.i.i, label %_ZN15obj_equiv_classI4expr11ast_managerE5mergeEPS0_S3_.exit, label %_ZNK16basic_union_find12get_num_varsEv.exit.i.i
@@ -2372,8 +2372,8 @@ _ZN15obj_equiv_classI4expr11ast_managerE13add_elem_implEPS0_.exit: ; preds = %lo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit, %_ZN15obj_equiv_classI4expr11ast_managerE13add_elem_implEPS0_.exit
-  %id.1 = phi i32 [ %7, %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit ], [ %retval.0.i.i.i2, %_ZN15obj_equiv_classI4expr11ast_managerE13add_elem_implEPS0_.exit ]
-  ret i32 %id.1
+  %id.0 = phi i32 [ %7, %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit ], [ %retval.0.i.i.i2, %_ZN15obj_equiv_classI4expr11ast_managerE13add_elem_implEPS0_.exit ]
+  ret i32 %id.0
 }
 
 ; Function Attrs: mustprogress uwtable

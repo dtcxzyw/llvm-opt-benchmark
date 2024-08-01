@@ -567,7 +567,7 @@ if.end:                                           ; preds = %if.then
 
 for.body:                                         ; preds = %if.end, %for.body.backedge
   %i.025 = phi i64 [ %i.025.be, %for.body.backedge ], [ 0, %if.end ]
-  %err.024 = phi i32 [ %err.024.be, %for.body.backedge ], [ 0, %if.end ]
+  %err.124 = phi i32 [ %err.124.be, %for.body.backedge ], [ 0, %if.end ]
   %3 = load ptr, ptr %src, align 8
   %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.025
   %4 = load ptr, ptr %dst, align 8
@@ -578,7 +578,7 @@ for.body:                                         ; preds = %if.end, %for.body.b
   br i1 %cmp13.not, label %if.end15, label %for.inc
 
 if.end15:                                         ; preds = %for.body
-  %tobool.not = icmp eq i32 %err.024, 0
+  %tobool.not = icmp eq i32 %err.124, 0
   br i1 %tobool.not, label %if.end17, label %for.inc.thread
 
 if.end17:                                         ; preds = %if.end15
@@ -600,7 +600,7 @@ if.end17:                                         ; preds = %if.end15
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end17, %for.body
-  %err.1 = phi i32 [ %err.024, %for.body ], [ %spec.select, %if.end17 ]
+  %err.2 = phi i32 [ %err.124, %for.body ], [ %spec.select, %if.end17 ]
   %inc = add nuw i64 %i.025, 1
   %9 = load i64, ptr %meths_count, align 8
   %cmp9 = icmp ult i64 %inc, %9
@@ -608,7 +608,7 @@ for.inc:                                          ; preds = %if.end17, %for.body
 
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
   %i.025.be = phi i64 [ %inc, %for.inc ], [ %inc28, %for.inc.thread ]
-  %err.024.be = phi i32 [ %err.1, %for.inc ], [ 1, %for.inc.thread ]
+  %err.124.be = phi i32 [ %err.2, %for.inc ], [ 1, %for.inc.thread ]
   br label %for.body, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end15
@@ -622,7 +622,7 @@ for.inc.thread:                                   ; preds = %if.end15
   br i1 %cmp929, label %for.body.backedge, label %if.then32
 
 if.end30:                                         ; preds = %for.inc
-  %11 = icmp eq i32 %err.1, 0
+  %11 = icmp eq i32 %err.2, 0
   br i1 %11, label %return, label %if.then32
 
 if.then32:                                        ; preds = %for.inc.thread, %if.end30

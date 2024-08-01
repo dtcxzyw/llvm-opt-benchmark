@@ -322,7 +322,7 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
 46:                                               ; preds = %31, %27
   %.pn = phi double [ %22, %27 ], [ %45, %31 ]
   %.pn45 = phi double [ %23, %27 ], [ %43, %31 ]
-  %.sroa.6.0 = phi double [ %30, %27 ], [ %39, %31 ]
+  %.sroa.6.1 = phi double [ %30, %27 ], [ %39, %31 ]
   %.sroa.9.0 = fmul double %.0, %.pn45
   %47 = fcmp oeq double %.sroa.9.0, 0.000000e+00
   br i1 %47, label %57, label %48
@@ -344,10 +344,10 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
   br label %57
 
 57:                                               ; preds = %48, %46, %54, %50, %15, %11
-  %.sroa.6.1 = phi double [ 0.000000e+00, %11 ], [ %51, %50 ], [ %55, %54 ], [ %17, %15 ], [ %.sroa.6.0, %46 ], [ %.sroa.6.0, %48 ]
+  %.sroa.6.0 = phi double [ 0.000000e+00, %11 ], [ %51, %50 ], [ %55, %54 ], [ %17, %15 ], [ %.sroa.6.1, %46 ], [ %.sroa.6.1, %48 ]
   %.sroa.042.0 = phi double [ 0.000000e+00, %11 ], [ %53, %50 ], [ %56, %54 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %46 ], [ %49, %48 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.042.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.0, 1
   ret { double, double } %.fca.1.insert
 }
 

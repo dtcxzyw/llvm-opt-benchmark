@@ -245,15 +245,15 @@ define noundef i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %125, label %.preheader.i.i, label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %124, %.preheader.i.i
-  %.1116.i.i = phi i64 [ %126, %.preheader.i.i ], [ %.0115.i.i, %124 ]
+  %.2117.i.i = phi i64 [ %126, %.preheader.i.i ], [ %.0115.i.i, %124 ]
   %.2.i.i = phi i32 [ %127, %.preheader.i.i ], [ %.1107.i.i, %124 ]
-  %126 = call fastcc i64 @sstep(ptr noundef %92, i64 noundef %29, i64 noundef %30, i64 noundef %.1116.i.i, i32 noundef %.1109.i.i, i64 noundef %.1116.i.i)
+  %126 = call fastcc i64 @sstep(ptr noundef %92, i64 noundef %29, i64 noundef %30, i64 noundef %.2117.i.i, i32 noundef %.1109.i.i, i64 noundef %.2117.i.i)
   %127 = add nsw i32 %.2.i.i, -1
   %.old17.i.i = icmp ugt i32 %.2.i.i, 1
   br i1 %.old17.i.i, label %.preheader.i.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %124
-  %.2117.i.i = phi i64 [ %.0115.i.i, %124 ], [ %126, %.preheader.i.i ]
+  %.1116.i.i = phi i64 [ %.0115.i.i, %124 ], [ %126, %.preheader.i.i ]
   %128 = icmp eq i32 %.1109.i.i, 129
   br i1 %128, label %141, label %129
 
@@ -349,11 +349,11 @@ define noundef i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr noundef %
 
 .thread139.i.i:                                   ; preds = %.thread.i.i, %158, %155
   %.3142.i.i = phi i32 [ %.3.i.i, %.thread.i.i ], [ 134, %155 ], [ 134, %158 ]
-  %167 = call fastcc i64 @sstep(ptr noundef %92, i64 noundef %29, i64 noundef %30, i64 noundef %.2117.i.i, i32 noundef %.3142.i.i, i64 noundef %.2117.i.i)
+  %167 = call fastcc i64 @sstep(ptr noundef %92, i64 noundef %29, i64 noundef %30, i64 noundef %.1116.i.i, i32 noundef %.3142.i.i, i64 noundef %.1116.i.i)
   br label %168
 
 168:                                              ; preds = %.thread139.i.i, %.thread.i.i
-  %.3118.i.i = phi i64 [ %167, %.thread139.i.i ], [ %.2117.i.i, %.thread.i.i ]
+  %.3118.i.i = phi i64 [ %167, %.thread139.i.i ], [ %.1116.i.i, %.thread.i.i ]
   %169 = and i64 %.3118.i.i, %72
   %.not131.i.i = icmp ne i64 %169, 0
   %170 = icmp eq ptr %.0114.i.i, %.0.i
@@ -503,13 +503,13 @@ sfast.exit.i:                                     ; preds = %168
   br i1 %.not166.i, label %.preheader183.i, label %.loopexit.i
 
 .preheader183.i:                                  ; preds = %235, %241
-  %.0142219.i = phi ptr [ %239, %241 ], [ %.lcssa188.i, %235 ]
+  %.1143219.i = phi ptr [ %239, %241 ], [ %.lcssa188.i, %235 ]
   %236 = load ptr, ptr %73, align 8
-  %.not168.i = icmp ugt ptr %.0142219.i, %236
+  %.not168.i = icmp ugt ptr %.1143219.i, %236
   br i1 %.not168.i, label %237, label %243
 
 237:                                              ; preds = %.preheader183.i
-  %238 = getelementptr inbounds i8, ptr %.0142219.i, i64 -1
+  %238 = getelementptr inbounds i8, ptr %.1143219.i, i64 -1
   %239 = call fastcc ptr @sslow(ptr noundef nonnull %7, ptr noundef %236, ptr noundef nonnull %238, i64 noundef %29, i64 noundef %30)
   %240 = icmp eq ptr %239, null
   br i1 %240, label %243, label %241
@@ -520,13 +520,13 @@ sfast.exit.i:                                     ; preds = %168
   br i1 %.not167.i, label %.preheader183.i, label %.loopexit.i
 
 243:                                              ; preds = %237, %.preheader183.i
-  %.1143.ph.i = phi ptr [ null, %237 ], [ %.0142219.i, %.preheader183.i ]
+  %.2144.ph.i = phi ptr [ null, %237 ], [ %.1143219.i, %.preheader183.i ]
   %244 = icmp eq ptr %236, %.0.i
   %245 = getelementptr inbounds i8, ptr %236, i64 1
   br i1 %244, label %.loopexit.i, label %78
 
 .loopexit.i:                                      ; preds = %243, %235, %241
-  %.2144.i = phi ptr [ %239, %241 ], [ %.lcssa188.i, %235 ], [ %.1143.ph.i, %243 ]
+  %.0142.i = phi ptr [ %239, %241 ], [ %.lcssa188.i, %235 ], [ %.2144.ph.i, %243 ]
   br i1 %74, label %.sink.split.sink.split.i, label %.thread178.i
 
 .thread178.i:                                     ; preds = %.loopexit.i
@@ -536,7 +536,7 @@ sfast.exit.i:                                     ; preds = %168
   %247 = ptrtoint ptr %.pre237.i to i64
   %248 = sub i64 %246, %247
   store i64 %248, ptr %3, align 8
-  %249 = ptrtoint ptr %.2144.i to i64
+  %249 = ptrtoint ptr %.0142.i to i64
   %250 = sub i64 %249, %247
   %251 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %250, ptr %251, align 8
@@ -1082,13 +1082,13 @@ lfast.exit.i:                                     ; preds = %436
   br i1 %.not187.i, label %.preheader204.i, label %.loopexit.i41
 
 .preheader204.i:                                  ; preds = %505, %511
-  %.0163239.i = phi ptr [ %509, %511 ], [ %.lcssa.i, %505 ]
+  %.1164239.i = phi ptr [ %509, %511 ], [ %.lcssa.i, %505 ]
   %506 = load ptr, ptr %323, align 8
-  %.not189.i = icmp ugt ptr %.0163239.i, %506
+  %.not189.i = icmp ugt ptr %.1164239.i, %506
   br i1 %.not189.i, label %507, label %513
 
 507:                                              ; preds = %.preheader204.i
-  %508 = getelementptr inbounds i8, ptr %.0163239.i, i64 -1
+  %508 = getelementptr inbounds i8, ptr %.1164239.i, i64 -1
   %509 = call fastcc ptr @lslow(ptr noundef nonnull %6, ptr noundef %506, ptr noundef nonnull %508, i64 noundef %266, i64 noundef %267)
   %510 = icmp eq ptr %509, null
   %.pre256.i = load ptr, ptr %323, align 8
@@ -1101,24 +1101,24 @@ lfast.exit.i:                                     ; preds = %436
 
 513:                                              ; preds = %507, %.preheader204.i
   %514 = phi ptr [ %.pre256.i, %507 ], [ %506, %.preheader204.i ]
-  %.1164.ph.i = phi ptr [ null, %507 ], [ %.0163239.i, %.preheader204.i ]
+  %.2165.ph.i = phi ptr [ null, %507 ], [ %.1164239.i, %.preheader204.i ]
   %515 = icmp eq ptr %514, %.0.i22
   %516 = getelementptr inbounds i8, ptr %514, i64 1
   br i1 %515, label %.loopexit.i41, label %328
 
 .loopexit.i41:                                    ; preds = %513, %505, %511
-  %.2165.i = phi ptr [ %509, %511 ], [ %.lcssa.i, %505 ], [ %.1164.ph.i, %513 ]
+  %.0163.i = phi ptr [ %509, %511 ], [ %.lcssa.i, %505 ], [ %.2165.ph.i, %513 ]
   br i1 %324, label %.sink.split.sink.split.i42, label %.thread199.i
 
 .thread199.i:                                     ; preds = %458, %.loopexit.i41
-  %.2165201.i = phi ptr [ %.2165.i, %.loopexit.i41 ], [ %.lcssa.i, %458 ]
+  %.0163201.i = phi ptr [ %.0163.i, %.loopexit.i41 ], [ %.lcssa.i, %458 ]
   %517 = load ptr, ptr %323, align 8
   %518 = load ptr, ptr %304, align 8
   %519 = ptrtoint ptr %517 to i64
   %520 = ptrtoint ptr %518 to i64
   %521 = sub i64 %519, %520
   store i64 %521, ptr %3, align 8
-  %522 = ptrtoint ptr %.2165201.i to i64
+  %522 = ptrtoint ptr %.0163201.i to i64
   %523 = sub i64 %522, %520
   %524 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %523, ptr %524, align 8
@@ -1294,15 +1294,15 @@ define internal fastcc ptr @sslow(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %61, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %60, %.preheader
-  %.1106 = phi i64 [ %62, %.preheader ], [ %.0105, %60 ]
+  %.2107 = phi i64 [ %62, %.preheader ], [ %.0105, %60 ]
   %.2 = phi i32 [ %63, %.preheader ], [ %.1101, %60 ]
-  %62 = tail call fastcc i64 @sstep(ptr noundef %25, i64 noundef %3, i64 noundef %4, i64 noundef %.1106, i32 noundef %.1103, i64 noundef %.1106)
+  %62 = tail call fastcc i64 @sstep(ptr noundef %25, i64 noundef %3, i64 noundef %4, i64 noundef %.2107, i32 noundef %.1103, i64 noundef %.2107)
   %63 = add nsw i32 %.2, -1
   %.old17 = icmp ugt i32 %.2, 1
   br i1 %.old17, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %60
-  %.2107 = phi i64 [ %.0105, %60 ], [ %62, %.preheader ]
+  %.1106 = phi i64 [ %.0105, %60 ], [ %62, %.preheader ]
   %64 = icmp eq i32 %.1103, 129
   br i1 %64, label %77, label %65
 
@@ -1398,11 +1398,11 @@ define internal fastcc ptr @sslow(ptr nocapture noundef readonly %0, ptr noundef
 
 .thread133:                                       ; preds = %97, %94, %.thread
   %.3136 = phi i32 [ %.3, %.thread ], [ 134, %94 ], [ 134, %97 ]
-  %106 = tail call fastcc i64 @sstep(ptr noundef %25, i64 noundef %3, i64 noundef %4, i64 noundef %.2107, i32 noundef %.3136, i64 noundef %.2107)
+  %106 = tail call fastcc i64 @sstep(ptr noundef %25, i64 noundef %3, i64 noundef %4, i64 noundef %.1106, i32 noundef %.3136, i64 noundef %.1106)
   br label %107
 
 107:                                              ; preds = %.thread, %.thread133
-  %.3108 = phi i64 [ %106, %.thread133 ], [ %.2107, %.thread ]
+  %.3108 = phi i64 [ %106, %.thread133 ], [ %.1106, %.thread ]
   %108 = and i64 %.3108, %33
   %.not125 = icmp eq i64 %108, 0
   %spec.select126 = select i1 %.not125, ptr %.0, ptr %.0111
@@ -1459,9 +1459,9 @@ define internal fastcc ptr @sdissect(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader156, %.lr.ph
   %19 = phi i64 [ %23, %.lr.ph ], [ %13, %.preheader156 ]
-  %.0144162 = phi i64 [ %21, %.lr.ph ], [ %.0146168, %.preheader156 ]
+  %.1145162 = phi i64 [ %21, %.lr.ph ], [ %.0146168, %.preheader156 ]
   %20 = and i64 %19, 134217727
-  %21 = add i64 %20, %.0144162
+  %21 = add i64 %20, %.1145162
   %22 = getelementptr inbounds i64, ptr %11, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 4160749568
@@ -1469,8 +1469,8 @@ define internal fastcc ptr @sdissect(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader156, %16, %9
-  %.1145 = phi i64 [ %.0146168, %9 ], [ %18, %16 ], [ %.0146168, %.preheader156 ], [ %21, %.lr.ph ]
-  %25 = add nsw i64 %.1145, 1
+  %.0144 = phi i64 [ %.0146168, %9 ], [ %18, %16 ], [ %.0146168, %.preheader156 ], [ %21, %.lr.ph ]
+  %25 = add nsw i64 %.0144, 1
   %26 = and i64 %13, 4160749568
   %27 = add nsw i64 %26, -134217728
   %28 = lshr exact i64 %27, 27
@@ -1503,12 +1503,12 @@ define internal fastcc ptr @sdissect(ptr noundef %0, ptr noundef %1, ptr noundef
 
 37:                                               ; preds = %.preheader155
   %38 = add nsw i64 %.0146168, 1
-  %39 = tail call fastcc ptr @sslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.1145)
+  %39 = tail call fastcc ptr @sslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.0144)
   %.not151 = icmp eq ptr %39, null
   br i1 %.not151, label %93, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.1145)
+  %41 = tail call fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.0144)
   br label %93
 
 .preheader154:                                    ; preds = %.loopexit, %.preheader154
@@ -1526,7 +1526,7 @@ define internal fastcc ptr @sdissect(ptr noundef %0, ptr noundef %1, ptr noundef
 48:                                               ; preds = %48, %46
   %.0136 = phi ptr [ %.0142169, %46 ], [ %49, %48 ]
   %.0 = phi ptr [ %.0142169, %46 ], [ %.0136, %48 ]
-  %49 = tail call fastcc ptr @sslow(ptr noundef nonnull %0, ptr noundef %.0136, ptr noundef %42, i64 noundef %47, i64 noundef %.1145)
+  %49 = tail call fastcc ptr @sslow(ptr noundef nonnull %0, ptr noundef %.0136, ptr noundef %42, i64 noundef %47, i64 noundef %.0144)
   %50 = icmp eq ptr %49, null
   %51 = icmp eq ptr %49, %.0136
   %or.cond = or i1 %50, %51
@@ -1535,7 +1535,7 @@ define internal fastcc ptr @sdissect(ptr noundef %0, ptr noundef %1, ptr noundef
 52:                                               ; preds = %48
   %spec.select = select i1 %50, ptr %.0, ptr %.0136
   %spec.select152 = select i1 %50, ptr %.0136, ptr %49
-  %53 = tail call fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select152, i64 noundef %47, i64 noundef %.1145)
+  %53 = tail call fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select152, i64 noundef %47, i64 noundef %.0144)
   br label %93
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
@@ -2671,9 +2671,9 @@ define internal fastcc ptr @ldissect(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader156, %.lr.ph
   %19 = phi i64 [ %23, %.lr.ph ], [ %13, %.preheader156 ]
-  %.0144162 = phi i64 [ %21, %.lr.ph ], [ %.0146168, %.preheader156 ]
+  %.1145162 = phi i64 [ %21, %.lr.ph ], [ %.0146168, %.preheader156 ]
   %20 = and i64 %19, 134217727
-  %21 = add i64 %20, %.0144162
+  %21 = add i64 %20, %.1145162
   %22 = getelementptr inbounds i64, ptr %11, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 4160749568
@@ -2681,8 +2681,8 @@ define internal fastcc ptr @ldissect(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader156, %16, %9
-  %.1145 = phi i64 [ %.0146168, %9 ], [ %18, %16 ], [ %.0146168, %.preheader156 ], [ %21, %.lr.ph ]
-  %25 = add nsw i64 %.1145, 1
+  %.0144 = phi i64 [ %.0146168, %9 ], [ %18, %16 ], [ %.0146168, %.preheader156 ], [ %21, %.lr.ph ]
+  %25 = add nsw i64 %.0144, 1
   %26 = and i64 %13, 4160749568
   %27 = add nsw i64 %26, -134217728
   %28 = lshr exact i64 %27, 27
@@ -2715,12 +2715,12 @@ define internal fastcc ptr @ldissect(ptr noundef %0, ptr noundef %1, ptr noundef
 
 37:                                               ; preds = %.preheader155
   %38 = add nsw i64 %.0146168, 1
-  %39 = tail call fastcc ptr @lslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.1145)
+  %39 = tail call fastcc ptr @lslow(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.0144)
   %.not151 = icmp eq ptr %39, null
   br i1 %.not151, label %99, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.1145)
+  %41 = tail call fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %.0142169, ptr noundef %33, i64 noundef %38, i64 noundef %.0144)
   br label %99
 
 .preheader154:                                    ; preds = %.loopexit, %.preheader154
@@ -2738,7 +2738,7 @@ define internal fastcc ptr @ldissect(ptr noundef %0, ptr noundef %1, ptr noundef
 48:                                               ; preds = %48, %46
   %.0136 = phi ptr [ %.0142169, %46 ], [ %49, %48 ]
   %.0 = phi ptr [ %.0142169, %46 ], [ %.0136, %48 ]
-  %49 = tail call fastcc ptr @lslow(ptr noundef nonnull %0, ptr noundef %.0136, ptr noundef %42, i64 noundef %47, i64 noundef %.1145)
+  %49 = tail call fastcc ptr @lslow(ptr noundef nonnull %0, ptr noundef %.0136, ptr noundef %42, i64 noundef %47, i64 noundef %.0144)
   %50 = icmp eq ptr %49, null
   %51 = icmp eq ptr %49, %.0136
   %or.cond = or i1 %50, %51
@@ -2747,7 +2747,7 @@ define internal fastcc ptr @ldissect(ptr noundef %0, ptr noundef %1, ptr noundef
 52:                                               ; preds = %48
   %spec.select = select i1 %50, ptr %.0, ptr %.0136
   %spec.select152 = select i1 %50, ptr %.0136, ptr %49
-  %53 = tail call fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select152, i64 noundef %47, i64 noundef %.1145)
+  %53 = tail call fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select152, i64 noundef %47, i64 noundef %.0144)
   br label %99
 
 .preheader:                                       ; preds = %.loopexit, %.preheader

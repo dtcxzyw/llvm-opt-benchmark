@@ -2818,7 +2818,7 @@ ehcleanup229:                                     ; preds = %lpad198, %lpad.body
   br label %ehcleanup230
 
 cleanup:                                          ; preds = %if.then.i.i.i.i.i380, %invoke.cont8.i.i377, %_ZN7obj_refI3app11ast_managerED2Ev.exit360, %invoke.cont192
-  %retval.0 = xor i1 %call193, true
+  %retval.1 = xor i1 %call193, true
   %281 = load ptr, ptr %result, align 8
   %282 = load i32, ptr %m_pos.i.i.i.i, align 8
   %idx.ext.i.i.i = zext i32 %282 to i64
@@ -2943,7 +2943,7 @@ ehcleanup234:                                     ; preds = %ehcleanup230, %lpad
   br label %ehcleanup236
 
 cleanup235:                                       ; preds = %if.then.i.i.i414, %if.then.i.i410, %_ZN3refI4goalED2Ev.exit408, %if.then.i.i.i.i.i159, %invoke.cont8.i.i, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ], [ true, %invoke.cont8.i.i ], [ true, %if.then.i.i.i.i.i159 ], [ %retval.0, %_ZN3refI4goalED2Ev.exit408 ], [ %retval.0, %if.then.i.i410 ], [ %retval.0, %if.then.i.i.i414 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ], [ true, %invoke.cont8.i.i ], [ true, %if.then.i.i.i.i.i159 ], [ %retval.1, %_ZN3refI4goalED2Ev.exit408 ], [ %retval.1, %if.then.i.i410 ], [ %retval.1, %if.then.i.i.i414 ]
   %299 = load ptr, ptr %body, align 8
   %tobool.not.i.i416 = icmp eq ptr %299, null
   br i1 %tobool.not.i.i416, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit424, label %if.then.i.i.i417
@@ -3082,7 +3082,7 @@ terminate.lpad.i.i464:                            ; preds = %if.then2.i.i.i.i.i.
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit442, %invoke.cont8.i.i457, %if.then.i.i.i.i.i460
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %rw) #19
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup236:                                     ; preds = %lpad23.loopexit, %lpad23.loopexit.split-lp, %ehcleanup234, %lpad98, %ehcleanup
   %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %ehcleanup234 ], [ %108, %lpad98 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit480, %lpad23.loopexit ], [ %lpad.loopexit.split-lp, %lpad23.loopexit.split-lp ]
@@ -4233,8 +4233,8 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 return:                                           ; preds = %for.end, %if.then.i, %if.end.i.i, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %if.end.i.i ], [ %call2, %for.end ], [ null, %if.then.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end.i.i ], [ %call2, %for.end ], [ null, %if.then.i ]
+  ret ptr %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK7datalog7context13elim_term_iteEv(ptr noundef nonnull align 8 dereferenceable(3556)) local_unnamed_addr #0

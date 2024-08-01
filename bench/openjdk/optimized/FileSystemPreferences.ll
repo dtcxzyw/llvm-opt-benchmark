@@ -22,13 +22,13 @@ define i32 @Java_java_util_prefs_FileSystemPreferences_chmod(ptr noundef %0, ptr
   br label %11
 
 11:                                               ; preds = %8, %6
-  %.0 = phi i32 [ %10, %8 ], [ 0, %6 ]
+  %.1 = phi i32 [ %10, %8 ], [ 0, %6 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5) #7
   br label %12
 
 12:                                               ; preds = %11, %4
-  %.1 = phi i32 [ %.0, %11 ], [ -1, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %11 ], [ -1, %4 ]
+  ret i32 %.0
 }
 
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

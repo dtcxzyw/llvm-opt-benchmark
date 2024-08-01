@@ -1973,13 +1973,13 @@ if.end32:                                         ; preds = %invoke.cont14
           to label %cleanup unwind label %lpad8
 
 cleanup:                                          ; preds = %if.end32, %invoke.cont14, %invoke.cont9
-  %retval.0 = phi ptr [ null, %invoke.cont9 ], [ null, %invoke.cont14 ], [ %call34, %if.end32 ]
+  %retval.1 = phi ptr [ null, %invoke.cont9 ], [ null, %invoke.cont14 ], [ %call34, %if.end32 ]
   call void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %pickle) #19
   br label %return
 
 return:                                           ; preds = %if.end, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ %call5, %if.end ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %call5, %if.end ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2413,7 +2413,7 @@ _ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9: ; pred
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9, %lpad5.thread, %lpad2
   %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %3, %lpad5.thread ], [ %8, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9 ]
-  %cleanup.isactive.0 = phi i1 [ true, %lpad2 ], [ false, %lpad5.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9 ]
+  %cleanup.isactive.1 = phi i1 [ true, %lpad2 ], [ false, %lpad5.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i9 ]
   %10 = load ptr, ptr %agg.tmp1, align 8
   %cmp.not.i13 = icmp eq ptr %10, null
   br i1 %cmp.not.i13, label %ehcleanup7, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i14
@@ -2426,7 +2426,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i14: ; pr
   br label %ehcleanup7
 
 ehcleanup7:                                       ; preds = %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i14, %ehcleanup
-  br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %lpad, %lpad.i, %ehcleanup7
   %.pn.pn25 = phi { ptr, i32 } [ %.pn, %ehcleanup7 ], [ %1, %lpad.i ], [ %6, %lpad ]
@@ -2547,7 +2547,7 @@ _ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12: ; pre
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12, %lpad5.thread, %lpad2
   %.pn = phi { ptr, i32 } [ %6, %lpad2 ], [ %2, %lpad5.thread ], [ %7, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
-  %cleanup.isactive.0 = phi i1 [ true, %lpad2 ], [ false, %lpad5.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
+  %cleanup.isactive.1 = phi i1 [ true, %lpad2 ], [ false, %lpad5.thread ], [ false, %_ZNKSt14default_deleteIN4base24GlobalHistogramAllocatorEEclEPS1_.exit.i12 ]
   %9 = load ptr, ptr %agg.tmp1, align 8
   %cmp.not.i16 = icmp eq ptr %9, null
   br i1 %cmp.not.i16, label %ehcleanup8, label %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i17
@@ -2560,7 +2560,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i17: ; pr
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %ehcleanup, %_ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i17
-  br i1 %cleanup.isactive.0, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %lpad, %lpad.i, %ehcleanup8
   %.pn.pn35 = phi { ptr, i32 } [ %.pn, %ehcleanup8 ], [ %0, %lpad.i ], [ %5, %lpad ]

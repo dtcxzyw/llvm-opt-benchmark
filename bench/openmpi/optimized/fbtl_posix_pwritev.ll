@@ -146,7 +146,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %.critedge, %158
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %158 ], [ 0, %.critedge ]
   %.0112.i = phi i64 [ %.2.i, %158 ], [ 0, %.critedge ]
-  %.078111.i = phi i64 [ %.280.i, %158 ], [ 0, %.critedge ]
+  %.078111.i = phi i64 [ %.179.i, %158 ], [ 0, %.critedge ]
   %.081110.i = phi i64 [ %.182.i, %158 ], [ 0, %.critedge ]
   %.083109.i = phi i32 [ %.285.i, %158 ], [ 0, %.critedge ]
   %.086108.i = phi ptr [ %.187.i, %158 ], [ %73, %.critedge ]
@@ -283,7 +283,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
 
 158:                                              ; preds = %152, %150, %121
   %.285.i = phi i32 [ %137, %121 ], [ 0, %152 ], [ 0, %150 ]
-  %.280.i = phi i64 [ %.078111.i, %121 ], [ %.078111.i, %152 ], [ %151, %150 ]
+  %.179.i = phi i64 [ %.078111.i, %121 ], [ %.078111.i, %152 ], [ %151, %150 ]
   %.2.i = phi i64 [ %136, %121 ], [ %.1.i, %152 ], [ %.1.i, %150 ]
   %159 = load i32, ptr %36, align 8
   %160 = sext i32 %159 to i64
@@ -354,7 +354,7 @@ mca_fbtl_posix_pwritev_single.exit:               ; preds = %176, %.preheader.i5
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 mca_fbtl_posix_pwritev_generic.exit:              ; preds = %._crit_edge.i, %154, %142, %102, %75, %162, %mca_fbtl_posix_pwritev_single.exit
-  %.052 = phi i64 [ %163, %162 ], [ %.0.i, %mca_fbtl_posix_pwritev_single.exit ], [ -2, %75 ], [ -2, %102 ], [ -1, %142 ], [ -1, %154 ], [ %.280.i, %._crit_edge.i ]
+  %.052 = phi i64 [ %163, %162 ], [ %.0.i, %mca_fbtl_posix_pwritev_single.exit ], [ -2, %75 ], [ -2, %102 ], [ -1, %142 ], [ -1, %154 ], [ %.179.i, %._crit_edge.i ]
   %196 = load i32, ptr %8, align 4
   %.not56 = icmp eq i32 %196, 0
   br i1 %.not56, label %198, label %197

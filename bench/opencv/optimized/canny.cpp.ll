@@ -416,7 +416,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %86, %88
   %.sroa.speculated179 = select i1 %116, double %.1199, double 3.276700e+04
   %117 = fcmp ogt double %.sroa.speculated182, 0.000000e+00
   %118 = select i1 %117, double %.sroa.speculated182, double 1.000000e+00
-  %.2 = fmul double %.sroa.speculated182, %118
+  %.3 = fmul double %.sroa.speculated182, %118
   %119 = fcmp ogt double %.sroa.speculated179, 0.000000e+00
   br i1 %119, label %120, label %122
 
@@ -426,8 +426,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %86, %88
 
 122:                                              ; preds = %114, %120, %112
   %.2200 = phi double [ %121, %120 ], [ %.sroa.speculated179, %114 ], [ %.1199, %112 ]
-  %.3 = phi double [ %.2, %120 ], [ %.2, %114 ], [ %.1, %112 ]
-  %123 = call double @llvm.floor.f64(double %.3)
+  %.2 = phi double [ %.3, %120 ], [ %.3, %114 ], [ %.1, %112 ]
+  %123 = call double @llvm.floor.f64(double %.2)
   %124 = fptosi double %123 to i32
   %125 = call double @llvm.floor.f64(double %.2200)
   %126 = fptosi double %125 to i32
@@ -1469,7 +1469,7 @@ _ZNK2cv11_InputArray6getMatEi.exit108:            ; preds = %108, %111
   %.sroa.speculated152 = select i1 %114, double %.0167, double 3.276700e+04
   %115 = fcmp ogt double %.sroa.speculated155, 0.000000e+00
   %116 = select i1 %115, double %.sroa.speculated155, double 1.000000e+00
-  %.1 = fmul double %.sroa.speculated155, %116
+  %.2 = fmul double %.sroa.speculated155, %116
   %117 = fcmp ogt double %.sroa.speculated152, 0.000000e+00
   br i1 %117, label %124, label %126
 
@@ -1494,8 +1494,8 @@ _ZNK2cv11_InputArray6getMatEi.exit108:            ; preds = %108, %111
 
 126:                                              ; preds = %112, %124, %_ZNK2cv11_InputArray6getMatEi.exit108
   %.1168 = phi double [ %125, %124 ], [ %.sroa.speculated152, %112 ], [ %.0167, %_ZNK2cv11_InputArray6getMatEi.exit108 ]
-  %.2 = phi double [ %.1, %124 ], [ %.1, %112 ], [ %.0, %_ZNK2cv11_InputArray6getMatEi.exit108 ]
-  %127 = call double @llvm.floor.f64(double %.2)
+  %.1 = phi double [ %.2, %124 ], [ %.2, %112 ], [ %.0, %_ZNK2cv11_InputArray6getMatEi.exit108 ]
+  %127 = call double @llvm.floor.f64(double %.1)
   %128 = fptosi double %127 to i32
   %129 = call double @llvm.floor.f64(double %.1168)
   %130 = fptosi double %129 to i32
@@ -2896,10 +2896,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc220, %168
   %.0409 = phi ptr [ %183, %.lr.ph413 ], [ %.0358408, %.loopexit377 ]
   %.0358408 = phi ptr [ %184, %.lr.ph413 ], [ %.0359407, %.loopexit377 ]
   %.0359407 = phi ptr [ %185, %.lr.ph413 ], [ %.0409, %.loopexit377 ]
-  %.1406 = phi ptr [ %.0360, %.lr.ph413 ], [ %.4, %.loopexit377 ]
-  %.1362405 = phi ptr [ %.0361, %.lr.ph413 ], [ %.4365, %.loopexit377 ]
-  %.1367404 = phi ptr [ %.0366, %.lr.ph413 ], [ %.4370, %.loopexit377 ]
-  %.1372403 = phi ptr [ %.0371, %.lr.ph413 ], [ %.4375, %.loopexit377 ]
+  %.1406 = phi ptr [ %.0360, %.lr.ph413 ], [ %.3, %.loopexit377 ]
+  %.1362405 = phi ptr [ %.0361, %.lr.ph413 ], [ %.3364, %.loopexit377 ]
+  %.1367404 = phi ptr [ %.0366, %.lr.ph413 ], [ %.3369, %.loopexit377 ]
+  %.1372403 = phi ptr [ %.0371, %.lr.ph413 ], [ %.3374, %.loopexit377 ]
   %224 = icmp slt i64 %indvars.iv438, %222
   br i1 %224, label %225, label %305
 
@@ -3075,10 +3075,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc220, %168
   br label %312
 
 312:                                              ; preds = %305, %311, %302
-  %.3374 = phi ptr [ %.2373, %302 ], [ %.1362405, %311 ], [ %.1372403, %305 ]
-  %.3369 = phi ptr [ %.2368, %302 ], [ %.1406, %311 ], [ %.1367404, %305 ]
-  %.3364 = phi ptr [ %.2363, %302 ], [ %.1372403, %311 ], [ %.1362405, %305 ]
-  %.3 = phi ptr [ %.2, %302 ], [ %.1367404, %311 ], [ %.1406, %305 ]
+  %.4375 = phi ptr [ %.2373, %302 ], [ %.1362405, %311 ], [ %.1372403, %305 ]
+  %.4370 = phi ptr [ %.2368, %302 ], [ %.1406, %311 ], [ %.1367404, %305 ]
+  %.4365 = phi ptr [ %.2363, %302 ], [ %.1372403, %311 ], [ %.1362405, %305 ]
+  %.4 = phi ptr [ %.2, %302 ], [ %.1367404, %311 ], [ %.1406, %305 ]
   %313 = load ptr, ptr %213, align 8
   %314 = getelementptr inbounds i8, ptr %313, i64 16
   %315 = load ptr, ptr %314, align 8
@@ -3114,8 +3114,8 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc220, %168
   br label %341
 
 341:                                              ; preds = %312, %329
-  %.0161 = phi ptr [ %340, %329 ], [ %.3364, %312 ]
-  %.0160 = phi ptr [ %335, %329 ], [ %.3, %312 ]
+  %.0161 = phi ptr [ %340, %329 ], [ %.4365, %312 ]
+  %.0160 = phi ptr [ %335, %329 ], [ %.4, %312 ]
   %342 = load ptr, ptr %56, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 12
   %344 = load i32, ptr %343, align 4
@@ -3291,10 +3291,10 @@ _ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit:       ; preds = %.invoke, %427, %400
   br i1 %437, label %.lr.ph401, label %.loopexit377, !llvm.loop !58
 
 .loopexit377:                                     ; preds = %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit, %341, %302
-  %.4375 = phi ptr [ %.2373, %302 ], [ %.3374, %341 ], [ %.3374, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
-  %.4370 = phi ptr [ %.2368, %302 ], [ %.3369, %341 ], [ %.3369, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
-  %.4365 = phi ptr [ %.2363, %302 ], [ %.3364, %341 ], [ %.3364, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
-  %.4 = phi ptr [ %.2, %302 ], [ %.3, %341 ], [ %.3, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
+  %.3374 = phi ptr [ %.2373, %302 ], [ %.4375, %341 ], [ %.4375, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
+  %.3369 = phi ptr [ %.2368, %302 ], [ %.4370, %341 ], [ %.4370, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
+  %.3364 = phi ptr [ %.2363, %302 ], [ %.4365, %341 ], [ %.4365, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
+  %.3 = phi ptr [ %.2, %302 ], [ %.4, %341 ], [ %.4, %_ZNSt5dequeIPhSaIS0_EE9push_backEOS0_.exit ]
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %438 = load i32, ptr %59, align 4
   %439 = sext i32 %438 to i64

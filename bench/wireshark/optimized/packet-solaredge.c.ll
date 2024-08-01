@@ -873,7 +873,7 @@ solaredge_decrypt.exit:                           ; preds = %.lr.ph43.i, %58
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %376, %106
-  %.tr284.i = phi i32 [ 20, %106 ], [ %.1.i120, %376 ]
+  %.tr284.i = phi i32 [ 20, %106 ], [ %.0.i, %376 ]
   %111 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.tr284.i) #5
   %112 = add nuw nsw i32 %.tr284.i, 2
   %113 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %112) #5
@@ -1210,9 +1210,9 @@ tailrecurse.i:                                    ; preds = %376, %106
   br i1 %362, label %363, label %.thread279.i
 
 363:                                              ; preds = %358
-  %.0.i = add nuw nsw i32 %.tr284.i, 28
+  %.1.i120 = add nuw nsw i32 %.tr284.i, 28
   %364 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %365 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %364, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef -2147483648) #5
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %364, ptr noundef %0, i32 noundef %.1.i120, i32 noundef 4, i32 noundef -2147483648) #5
   %.pr278.i = load i32, ptr @global_show_unknown_fields, align 4
   %366 = icmp eq i32 %.pr278.i, 1
   br i1 %366, label %367, label %.thread279.i
@@ -1233,8 +1233,8 @@ tailrecurse.i:                                    ; preds = %376, %106
   br label %374
 
 374:                                              ; preds = %372, %.thread279.i, %274, %272, %.thread277.i, %143
-  %.1.i120 = phi i32 [ %373, %372 ], [ %371, %.thread279.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread277.i ], [ %162, %143 ]
-  %375 = icmp slt i32 %.1.i120, %28
+  %.0.i = phi i32 [ %373, %372 ], [ %371, %.thread279.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread277.i ], [ %162, %143 ]
+  %375 = icmp slt i32 %.0.i, %28
   br i1 %375, label %376, label %dissect_solaredge_devicedata.exit
 
 376:                                              ; preds = %374
@@ -1312,7 +1312,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   br label %417
 
 417:                                              ; preds = %406, %415, %414, %391
-  %.0110 = phi i32 [ 20, %391 ], [ 52, %406 ], [ 52, %415 ], [ 52, %414 ]
+  %.1 = phi i32 [ 20, %391 ], [ 52, %406 ], [ 52, %415 ], [ 52, %414 ]
   %418 = load ptr, ptr @cipher_hd_system, align 8
   call void @gcry_cipher_close(ptr noundef %418) #5
   br label %dissect_solaredge_devicedata.exit
@@ -1322,7 +1322,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   br label %dissect_solaredge_devicedata.exit
 
 dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %417, %387, %382, %419, %104
-  %.1 = phi i32 [ %420, %419 ], [ 20, %378 ], [ %.0110, %417 ], [ 20, %387 ], [ 20, %382 ], [ %105, %104 ], [ 20, %374 ]
+  %.0110 = phi i32 [ %420, %419 ], [ 20, %378 ], [ %.1, %417 ], [ 20, %387 ], [ 20, %382 ], [ %105, %104 ], [ 20, %374 ]
   %421 = add nuw nsw i32 %28, 20
   %422 = load i32, ptr @hf_solaredge_crc_type, align 4
   %423 = load i32, ptr @hf_solaredge_crc_status_type, align 4
@@ -1351,7 +1351,7 @@ dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %417, %3
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %433 = zext i16 %432 to i32
   %434 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %421, i32 noundef %422, i32 noundef %423, ptr noundef nonnull @ei_solaredge_invalid_crc, ptr noundef %1, i32 noundef %433, i32 noundef -2147483648, i32 noundef 1) #5
-  %435 = add nuw nsw i32 %.1, 2
+  %435 = add nuw nsw i32 %.0110, 2
   br label %436
 
 436:                                              ; preds = %5, %dissect_solaredge_devicedata.exit

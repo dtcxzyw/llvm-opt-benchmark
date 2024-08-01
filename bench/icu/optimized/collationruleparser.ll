@@ -532,9 +532,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4402,7 +4402,7 @@ if.then2.i:                                       ; preds = %if.end.i
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.end.i, %if.end54, %if.then2.i, %_ZN6icu_7513UnicodeString6appendEDs.exit28, %_ZN6icu_7513UnicodeString6appendEDs.exit25, %_ZN6icu_7513UnicodeString6appendEDs.exit
-  %retval.0 = phi i32 [ %inc, %_ZN6icu_7513UnicodeString6appendEDs.exit ], [ %inc, %_ZN6icu_7513UnicodeString6appendEDs.exit25 ], [ %inc, %_ZN6icu_7513UnicodeString6appendEDs.exit28 ], [ %i, %if.then2.i ], [ %i, %if.end54 ], [ %i, %if.end.i ]
+  %retval.1 = phi i32 [ %inc, %_ZN6icu_7513UnicodeString6appendEDs.exit ], [ %inc, %_ZN6icu_7513UnicodeString6appendEDs.exit25 ], [ %inc, %_ZN6icu_7513UnicodeString6appendEDs.exit28 ], [ %i, %if.then2.i ], [ %i, %if.end54 ], [ %i, %if.end.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %raw) #14
   br label %return
 
@@ -4412,8 +4412,8 @@ ehcleanup56:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn17
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4843,7 +4843,7 @@ if.end21:                                         ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp24179, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.end21, %if.end44
-  %i.addr.1.lcssa = phi i32 [ %i.addr.2, %if.end44 ], [ %inc, %if.end21 ]
+  %i.addr.2.lcssa = phi i32 [ %i.addr.3, %if.end44 ], [ %inc, %if.end21 ]
   %20 = load i32, ptr %errorCode, align 4
   %cmp.i.i72 = icmp slt i32 %20, 1
   br i1 %cmp.i.i72, label %if.end.i, label %return
@@ -4861,9 +4861,9 @@ if.end26:                                         ; preds = %if.end21, %if.end44
   %cond.i71181 = phi i32 [ %cond.i71, %if.end44 ], [ %cond.i71178, %if.end21 ]
   %22 = phi i16 [ %29, %if.end44 ], [ %8, %if.end21 ]
   %23 = phi ptr [ %28, %if.end44 ], [ %9, %if.end21 ]
-  %i.addr.1180 = phi i32 [ %i.addr.2, %if.end44 ], [ %inc, %if.end21 ]
-  %inc28 = add nsw i32 %i.addr.1180, 1
-  %cmp.i.i78 = icmp ugt i32 %cond.i71181, %i.addr.1180
+  %i.addr.2180 = phi i32 [ %i.addr.3, %if.end44 ], [ %inc, %if.end21 ]
+  %inc28 = add nsw i32 %i.addr.2180, 1
+  %cmp.i.i78 = icmp ugt i32 %cond.i71181, %i.addr.2180
   br i1 %cmp.i.i78, label %_ZNK6icu_7513UnicodeString6charAtEi.exit87, label %if.end44
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit87:       ; preds = %if.end26
@@ -4873,7 +4873,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit87:       ; preds = %if.end26
   %fArray.i.i.i83 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %fArray.i.i.i83, align 8
   %cond.i2.i.i84 = select i1 %tobool.not.i.i.i81, ptr %25, ptr %fBuffer.i.i.i82
-  %idxprom.i.i85 = sext i32 %i.addr.1180 to i64
+  %idxprom.i.i85 = sext i32 %i.addr.2180 to i64
   %arrayidx.i.i86 = getelementptr inbounds i16, ptr %cond.i2.i.i84, i64 %idxprom.i.i85
   %26 = load i16, ptr %arrayidx.i.i86, align 2
   %cmp31 = icmp eq i16 %26, 39
@@ -4893,12 +4893,12 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit107:      ; preds = %if.then32
   br i1 %cmp40, label %if.then41, label %while.cond.backedge
 
 if.then41:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit107
-  %inc42 = add nuw nsw i32 %i.addr.1180, 2
+  %inc42 = add nuw nsw i32 %i.addr.2180, 2
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end26, %if.then41, %_ZNK6icu_7513UnicodeString6charAtEi.exit87
   %retval.0.i.i79165 = phi i16 [ 39, %if.then41 ], [ %26, %_ZNK6icu_7513UnicodeString6charAtEi.exit87 ], [ -1, %if.end26 ]
-  %i.addr.2 = phi i32 [ %inc42, %if.then41 ], [ %inc28, %_ZNK6icu_7513UnicodeString6charAtEi.exit87 ], [ %inc28, %if.end26 ]
+  %i.addr.3 = phi i32 [ %inc42, %if.then41 ], [ %inc28, %_ZNK6icu_7513UnicodeString6charAtEi.exit87 ], [ %inc28, %if.end26 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i108)
   store i16 %retval.0.i.i79165, ptr %srcChar.addr.i108, align 2
   %call.i109 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %raw, ptr noundef nonnull %srcChar.addr.i108, i32 noundef 0, i32 noundef 1)
@@ -4912,7 +4912,7 @@ if.end44:                                         ; preds = %if.end26, %if.then4
   %fLength.i70 = getelementptr inbounds i8, ptr %28, i64 12
   %31 = load i32, ptr %fLength.i70, align 4
   %cond.i71 = select i1 %cmp.i.i68, i32 %31, i32 %shr.i.i69
-  %cmp24 = icmp eq i32 %i.addr.2, %cond.i71
+  %cmp24 = icmp eq i32 %i.addr.3, %cond.i71
   br i1 %cmp24, label %if.then25, label %if.end26, !llvm.loop !14
 
 if.then49:                                        ; preds = %switch.early.test.i
@@ -5026,12 +5026,12 @@ if.end84:                                         ; preds = %if.end79
   br i1 %cmp74, label %for.body, label %return, !llvm.loop !15
 
 return.sink.split:                                ; preds = %if.end.i137, %if.end.i130, %if.end.i116, %if.end.i
-  %retval.0.ph = phi i32 [ %i.addr.1.lcssa, %if.end.i ], [ %cond.i190, %if.end.i116 ], [ %i.addr.0.lcssa, %if.end.i130 ], [ %i.addr.0.lcssa, %if.end.i137 ]
+  %retval.0.ph = phi i32 [ %i.addr.2.lcssa, %if.end.i ], [ %cond.i190, %if.end.i116 ], [ %i.addr.0.lcssa, %if.end.i130 ], [ %i.addr.0.lcssa, %if.end.i137 ]
   call void @_ZN6icu_7519CollationRuleParser15setErrorContextEv(ptr noundef nonnull align 8 dereferenceable(76) %this)
   br label %return
 
 return:                                           ; preds = %if.end84, %return.sink.split, %while.end, %if.end.i137, %if.then83, %if.end.i130, %if.then78, %if.end.i116, %if.then53, %if.end.i, %if.then25, %entry
-  %retval.0 = phi i32 [ %i, %entry ], [ %i.addr.1.lcssa, %if.then25 ], [ %i.addr.1.lcssa, %if.end.i ], [ %cond.i190, %if.then53 ], [ %cond.i190, %if.end.i116 ], [ %i.addr.0.lcssa, %if.then78 ], [ %i.addr.0.lcssa, %if.end.i130 ], [ %i.addr.0.lcssa, %if.then83 ], [ %i.addr.0.lcssa, %if.end.i137 ], [ %i.addr.0.lcssa, %while.end ], [ %retval.0.ph, %return.sink.split ], [ %i.addr.0.lcssa, %if.end84 ]
+  %retval.0 = phi i32 [ %i, %entry ], [ %i.addr.2.lcssa, %if.then25 ], [ %i.addr.2.lcssa, %if.end.i ], [ %cond.i190, %if.then53 ], [ %cond.i190, %if.end.i116 ], [ %i.addr.0.lcssa, %if.then78 ], [ %i.addr.0.lcssa, %if.end.i130 ], [ %i.addr.0.lcssa, %if.then83 ], [ %i.addr.0.lcssa, %if.end.i137 ], [ %i.addr.0.lcssa, %while.end ], [ %retval.0.ph, %return.sink.split ], [ %i.addr.0.lcssa, %if.end84 ]
   ret i32 %retval.0
 }
 

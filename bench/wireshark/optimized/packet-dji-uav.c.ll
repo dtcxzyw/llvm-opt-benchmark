@@ -373,15 +373,15 @@ request_response_handling.exit:                   ; preds = %44, %61, %.thread70
   br label %.thread
 
 .thread:                                          ; preds = %128, %123, %137, %133
-  %.1 = phi i32 [ %.pre, %137 ], [ 14, %133 ], [ %132, %128 ], [ %127, %123 ]
+  %.2 = phi i32 [ %.pre, %137 ], [ 14, %133 ], [ %132, %128 ], [ %127, %123 ]
   %141 = load i32, ptr @hf_djiuav_checksum, align 4
-  %142 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %.1, i32 noundef %141, i32 noundef -1, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
-  %143 = add nsw i32 %.1, 1
+  %142 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %.2, i32 noundef %141, i32 noundef -1, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
+  %143 = add nsw i32 %.2, 1
   br label %144
 
 144:                                              ; preds = %.thread, %request_response_handling.exit
-  %.2 = phi i32 [ %143, %.thread ], [ 0, %request_response_handling.exit ]
-  ret i32 %.2
+  %.0 = phi i32 [ %143, %.thread ], [ 0, %request_response_handling.exit ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

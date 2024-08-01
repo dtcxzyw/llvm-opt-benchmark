@@ -236,7 +236,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38, %40
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit19
 
 50:                                               ; preds = %44, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %44 ]
+  %.1 = phi i32 [ 1, %25 ], [ 0, %44 ]
   %51 = getelementptr inbounds i8, ptr %4, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
@@ -325,8 +325,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %49, %46, %31, %29
   resume { ptr, i32 } %.pn15.pn
 
 88:                                               ; preds = %2, %_ZN2cv3PtrINS_8StitcherEED2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_8StitcherEED2Ev.exit ], [ 1, %2 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_8StitcherEED2Ev.exit ], [ 1, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -826,8 +826,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %128
   br i1 %195, label %44, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %193, %.preheader, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit, %113, %.loopexit80, %35
-  %.350 = phi i32 [ 1, %35 ], [ 1, %.loopexit80 ], [ 1, %113 ], [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit ], [ 0, %.preheader ], [ 0, %193 ]
-  ret i32 %.350
+  %.047 = phi i32 [ 1, %35 ], [ 1, %.loopexit80 ], [ 1, %113 ], [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit ], [ 0, %.preheader ], [ 0, %193 ]
+  ret i32 %.047
 
 196:                                              ; preds = %192, %137, %111, %104, %102, %87, %74, %67
   %.pn64 = phi { ptr, i32 } [ %112, %111 ], [ %105, %104 ], [ %.pn62, %192 ], [ %.pn53.pn, %137 ], [ %103, %102 ], [ %88, %87 ], [ %75, %74 ], [ %.pn, %67 ]

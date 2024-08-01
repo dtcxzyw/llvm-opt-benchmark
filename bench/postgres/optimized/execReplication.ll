@@ -183,7 +183,7 @@ build_replindex_scan_key.exit:                    ; preds = %68, %5
   br i1 %83, label %.split46.us, label %.loopexit
 
 .split:                                           ; preds = %.backedge, %93
-  %.1 = phi ptr [ %.2, %93 ], [ %.031, %.backedge ]
+  %.1 = phi ptr [ %.4, %93 ], [ %.031, %.backedge ]
   %84 = call zeroext i1 @index_getnext_slot(ptr noundef %74, i32 noundef 1, ptr noundef %4) #5
   br i1 %84, label %85, label %.loopexit
 
@@ -200,12 +200,12 @@ build_replindex_scan_key.exit:                    ; preds = %68, %5
   br label %93
 
 93:                                               ; preds = %87, %85
-  %.2 = phi ptr [ %92, %87 ], [ %.1, %85 ]
-  %94 = call fastcc zeroext i1 @tuples_equal(ptr noundef %4, ptr noundef %3, ptr noundef %.2)
+  %.4 = phi ptr [ %92, %87 ], [ %.1, %85 ]
+  %94 = call fastcc zeroext i1 @tuples_equal(ptr noundef %4, ptr noundef %3, ptr noundef %.4)
   br i1 %94, label %.split46.us, label %.split, !llvm.loop !7
 
 .split46.us:                                      ; preds = %93, %.split.us
-  %.us-phi48 = phi ptr [ %.031, %.split.us ], [ %.2, %93 ]
+  %.us-phi48 = phi ptr [ %.031, %.split.us ], [ %.4, %93 ]
   %95 = load ptr, ptr %76, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8

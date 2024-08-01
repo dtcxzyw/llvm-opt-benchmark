@@ -4767,7 +4767,7 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
   br label %53
 
 53:                                               ; preds = %411, %.lr.ph.i
-  %.0167.i = phi ptr [ %.sroa.2.0.i.i, %.lr.ph.i ], [ %.6.i, %411 ]
+  %.0167.i = phi ptr [ %.sroa.2.0.i.i, %.lr.ph.i ], [ %.1.i, %411 ]
   %54 = load i8, ptr %.0167.i, align 1
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds [256 x i8], ptr @trailingBytesForUTF8, i64 0, i64 %55
@@ -4813,10 +4813,10 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 72:                                               ; preds = %69, %68
   %.pre-phi.i = phi i64 [ %.pre173.i, %69 ], [ %55, %68 ]
-  %.062.i = phi i64 [ %71, %69 ], [ 0, %68 ]
-  %.1.i = phi ptr [ %70, %69 ], [ %.0167.i, %68 ]
-  %73 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  %74 = add nuw nsw i64 %.062.i, %.pre-phi.i
+  %.163.i = phi i64 [ %71, %69 ], [ 0, %68 ]
+  %.2.i = phi ptr [ %70, %69 ], [ %.0167.i, %68 ]
+  %73 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %74 = add nuw nsw i64 %.163.i, %.pre-phi.i
   %75 = shl nuw nsw i64 %74, 6
   %.pre168.i = load i8, ptr %73, align 1
   %.pre174.i = zext i8 %.pre168.i to i64
@@ -4824,10 +4824,10 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 76:                                               ; preds = %72, %68
   %.pre-phi175.i = phi i64 [ %.pre174.i, %72 ], [ %55, %68 ]
-  %.163.i = phi i64 [ %75, %72 ], [ 0, %68 ]
-  %.2.i = phi ptr [ %73, %72 ], [ %.0167.i, %68 ]
-  %77 = getelementptr inbounds i8, ptr %.2.i, i64 1
-  %78 = add nuw nsw i64 %.163.i, %.pre-phi175.i
+  %.264.i = phi i64 [ %75, %72 ], [ 0, %68 ]
+  %.3.i = phi ptr [ %73, %72 ], [ %.0167.i, %68 ]
+  %77 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %78 = add nuw nsw i64 %.264.i, %.pre-phi175.i
   %79 = shl nuw nsw i64 %78, 6
   %.pre169.i = load i8, ptr %77, align 1
   %.pre176.i = zext i8 %.pre169.i to i64
@@ -4835,10 +4835,10 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 80:                                               ; preds = %76, %68
   %.pre-phi177.i = phi i64 [ %.pre176.i, %76 ], [ %55, %68 ]
-  %.264.i = phi i64 [ %79, %76 ], [ 0, %68 ]
-  %.3.i = phi ptr [ %77, %76 ], [ %.0167.i, %68 ]
-  %81 = getelementptr inbounds i8, ptr %.3.i, i64 1
-  %82 = add nuw nsw i64 %.264.i, %.pre-phi177.i
+  %.365.i = phi i64 [ %79, %76 ], [ 0, %68 ]
+  %.4.i = phi ptr [ %77, %76 ], [ %.0167.i, %68 ]
+  %81 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %82 = add nuw nsw i64 %.365.i, %.pre-phi177.i
   %83 = shl nuw nsw i64 %82, 6
   %.pre170.i = load i8, ptr %81, align 1
   %.pre178.i = zext i8 %.pre170.i to i64
@@ -4846,10 +4846,10 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 84:                                               ; preds = %80, %68
   %.pre-phi179.i = phi i64 [ %.pre178.i, %80 ], [ %55, %68 ]
-  %.365.i = phi i64 [ %83, %80 ], [ 0, %68 ]
-  %.4.i = phi ptr [ %81, %80 ], [ %.0167.i, %68 ]
-  %85 = getelementptr inbounds i8, ptr %.4.i, i64 1
-  %86 = add nuw nsw i64 %.365.i, %.pre-phi179.i
+  %.466.i = phi i64 [ %83, %80 ], [ 0, %68 ]
+  %.5.i = phi ptr [ %81, %80 ], [ %.0167.i, %68 ]
+  %85 = getelementptr inbounds i8, ptr %.5.i, i64 1
+  %86 = add nuw nsw i64 %.466.i, %.pre-phi179.i
   %87 = shl nuw nsw i64 %86, 6
   %.pre171.i = load i8, ptr %85, align 1
   %.pre180.i = zext i8 %.pre171.i to i64
@@ -4857,18 +4857,18 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 88:                                               ; preds = %84, %68
   %.pre-phi181.i = phi i64 [ %.pre180.i, %84 ], [ %55, %68 ]
-  %.466.i = phi i64 [ %87, %84 ], [ 0, %68 ]
-  %.5.i = phi ptr [ %85, %84 ], [ %.0167.i, %68 ]
-  %89 = getelementptr inbounds i8, ptr %.5.i, i64 1
-  %90 = add nuw nsw i64 %.466.i, %.pre-phi181.i
+  %.567.i = phi i64 [ %87, %84 ], [ 0, %68 ]
+  %.6.i = phi ptr [ %85, %84 ], [ %.0167.i, %68 ]
+  %89 = getelementptr inbounds i8, ptr %.6.i, i64 1
+  %90 = add nuw nsw i64 %.567.i, %.pre-phi181.i
   br label %91
 
 91:                                               ; preds = %88, %68
-  %.567.i = phi i64 [ 0, %68 ], [ %90, %88 ]
-  %.6.i = phi ptr [ %.0167.i, %68 ], [ %89, %88 ]
+  %.062.i = phi i64 [ 0, %68 ], [ %90, %88 ]
+  %.1.i = phi ptr [ %.0167.i, %68 ], [ %89, %88 ]
   %92 = getelementptr inbounds [6 x i64], ptr @offsetsFromUTF8, i64 0, i64 %59
   %93 = load i64, ptr %92, align 8
-  %94 = sub i64 %.567.i, %93
+  %94 = sub i64 %.062.i, %93
   %95 = icmp ult i64 %94, 65536
   br i1 %95, label %96, label %329
 
@@ -5571,7 +5571,7 @@ unicode_escape_to_buffer.exit143.i:               ; preds = %406, %404
   %412 = load i64, ptr %17, align 8
   %413 = add i64 %412, %.sink183.i
   store i64 %413, ptr %17, align 8
-  %414 = icmp ult ptr %.6.i, %51
+  %414 = icmp ult ptr %.1.i, %51
   br i1 %414, label %53, label %convert_UTF8_to_JSON_ASCII.exit, !llvm.loop !32
 
 convert_UTF8_to_JSON_ASCII.exit:                  ; preds = %411, %RSTRING_PTR.exit.i

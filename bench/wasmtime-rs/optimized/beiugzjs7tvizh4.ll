@@ -157,12 +157,12 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 108:                                              ; preds = %120, %110
   %.pn258 = phi { ptr, i32 } [ %111, %110 ], [ %.pn255.pn, %120 ]
-  %.0168 = phi i8 [ %.1169, %110 ], [ %.2170, %120 ]
-  %109 = trunc nuw i8 %.0168 to i1
+  %.1169 = phi i8 [ %.0168, %110 ], [ %.2170, %120 ]
+  %109 = trunc nuw i8 %.1169 to i1
   br i1 %109, label %.thread, label %104
 
 110:                                              ; preds = %566, %107
-  %.1169 = phi i8 [ 0, %566 ], [ 1, %107 ]
+  %.0168 = phi i8 [ 0, %566 ], [ 1, %107 ]
   %111 = landingpad { ptr, i32 }
           cleanup
   br label %108
@@ -187,7 +187,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 120:                                              ; preds = %.thread264, %132, %129, %121
   %.pn255.pn = phi { ptr, i32 } [ %.pn255268, %.thread264 ], [ %.pn255, %132 ], [ %130, %129 ], [ %122, %121 ]
-  %.2170 = phi i8 [ %.3171269, %.thread264 ], [ %.3171, %132 ], [ 1, %129 ], [ 1, %121 ]
+  %.2170 = phi i8 [ %.4172269, %.thread264 ], [ %.4172, %132 ], [ 1, %129 ], [ 1, %121 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %101) #5
           to label %108 unwind label %568
 
@@ -220,13 +220,13 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 132:                                              ; preds = %145, %134
   %.pn255 = phi { ptr, i32 } [ %135, %134 ], [ %.pn253, %145 ]
-  %.3171 = phi i8 [ %.1, %134 ], [ %.5173, %145 ]
-  %.0 = phi i8 [ %.1, %134 ], [ %.2, %145 ]
-  %133 = trunc nuw i8 %.0 to i1
+  %.4172 = phi i8 [ %.0, %134 ], [ %.6174, %145 ]
+  %.1 = phi i8 [ %.0, %134 ], [ %.3, %145 ]
+  %133 = trunc nuw i8 %.1 to i1
   br i1 %133, label %.thread264, label %120
 
 134:                                              ; preds = %565, %136, %131
-  %.1 = phi i8 [ 0, %565 ], [ 1, %136 ], [ 1, %131 ]
+  %.0 = phi i8 [ 0, %565 ], [ 1, %136 ], [ 1, %131 ]
   %135 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -255,13 +255,13 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 145:                                              ; preds = %157, %154, %146
   %.pn253 = phi { ptr, i32 } [ %147, %146 ], [ %.pn251, %157 ], [ %155, %154 ]
-  %.5173 = phi i8 [ %.3, %146 ], [ %.7175, %157 ], [ 1, %154 ]
-  %.2 = phi i8 [ %.3, %146 ], [ %.4, %157 ], [ 1, %154 ]
+  %.6174 = phi i8 [ %.2, %146 ], [ %.8176, %157 ], [ 1, %154 ]
+  %.3 = phi i8 [ %.2, %146 ], [ %.5, %157 ], [ 1, %154 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %97) #5
           to label %132 unwind label %568
 
 146:                                              ; preds = %564, %148, %144
-  %.3 = phi i8 [ 0, %564 ], [ 1, %148 ], [ 1, %144 ]
+  %.2 = phi i8 [ 0, %564 ], [ 1, %148 ], [ 1, %144 ]
   %147 = landingpad { ptr, i32 }
           cleanup
   br label %145
@@ -290,13 +290,13 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 157:                                              ; preds = %180, %166, %158
   %.pn251 = phi { ptr, i32 } [ %159, %158 ], [ %.pn249, %180 ], [ %.pn, %166 ]
-  %.7175 = phi i8 [ %.5, %158 ], [ %.9177, %180 ], [ 1, %166 ]
-  %.4 = phi i8 [ %.5, %158 ], [ %.6, %180 ], [ 1, %166 ]
+  %.8176 = phi i8 [ %.4, %158 ], [ %.9177, %180 ], [ 1, %166 ]
+  %.5 = phi i8 [ %.4, %158 ], [ %.6, %180 ], [ 1, %166 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %95) #5
           to label %145 unwind label %568
 
 158:                                              ; preds = %563, %160, %156
-  %.5 = phi i8 [ 0, %563 ], [ 1, %160 ], [ 1, %156 ]
+  %.4 = phi i8 [ 0, %563 ], [ 1, %160 ], [ 1, %156 ]
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %157
@@ -565,7 +565,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 255:                                              ; preds = %355, %260, %256
   %.pn235.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn.pn, %355 ], [ %.pn205, %260 ], [ %257, %256 ]
   %.17185 = phi i8 [ 0, %355 ], [ %.18, %260 ], [ 1, %256 ]
-  %.14 = phi i8 [ 0, %355 ], [ %.15, %260 ], [ 1, %256 ]
+  %.14 = phi i8 [ 0, %355 ], [ %.16, %260 ], [ 1, %256 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h140945824f80a0e4E"(ptr nonnull align 8 %80) #5
           to label %249 unwind label %568
 
@@ -581,12 +581,12 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 260:                                              ; preds = %264, %349, %261
   %.pn205 = phi { ptr, i32 } [ %350, %349 ], [ %262, %261 ], [ %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %264 ]
   %.18 = phi i8 [ %.19, %349 ], [ 1, %261 ], [ 1, %264 ]
-  %.15 = phi i8 [ 0, %349 ], [ %.16, %261 ], [ %.17, %264 ]
+  %.16 = phi i8 [ 0, %349 ], [ %.15, %261 ], [ %.17, %264 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %78) #5
           to label %255 unwind label %568
 
 261:                                              ; preds = %334, %258
-  %.16 = phi i8 [ 0, %334 ], [ 1, %258 ]
+  %.15 = phi i8 [ 0, %334 ], [ 1, %258 ]
   %262 = landingpad { ptr, i32 }
           cleanup
   br label %260
@@ -1484,7 +1484,7 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %264 unwind label %568
 
 .thread264:                                       ; preds = %142, %132
-  %.3171269 = phi i8 [ %.3171, %132 ], [ 1, %142 ]
+  %.4172269 = phi i8 [ %.4172, %132 ], [ 1, %142 ]
   %.pn255268 = phi { ptr, i32 } [ %.pn255, %132 ], [ %143, %142 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3da2214d5465b1dfE"(ptr nonnull align 8 %99) #5
           to label %120 unwind label %568

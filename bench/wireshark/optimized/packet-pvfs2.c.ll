@@ -933,11 +933,11 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i.i.i, label %dissect_pvfs2_request.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %111, %.preheader.i.i.i
-  %.02.i.i.i = phi i32 [ %123, %.preheader.i.i.i ], [ 64, %111 ]
+  %.12.i.i.i = phi i32 [ %123, %.preheader.i.i.i ], [ 64, %111 ]
   %.0161.i.i.i = phi i32 [ %124, %.preheader.i.i.i ], [ 0, %111 ]
   %120 = load i32, ptr @ett_pvfs_extent_item, align 4
-  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %0, i32 noundef %.02.i.i.i, i32 noundef 8, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.399, i32 noundef %.0161.i.i.i) #9
-  %122 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.02.i.i.i, ptr noundef %121, ptr noundef nonnull @.str.400)
+  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 8, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.399, i32 noundef %.0161.i.i.i) #9
+  %122 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.12.i.i.i, ptr noundef %121, ptr noundef nonnull @.str.400)
   %123 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %122, ptr noundef %121, ptr noundef nonnull @.str.401)
   %124 = add nuw i32 %.0161.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %124, %117
@@ -1380,16 +1380,16 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %452 = load i32, ptr @hf_pvfs_fs_id, align 4
   %453 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %452, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #9
   %454 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 52) #9
-  %.not.i112.i = icmp eq i32 %454, 0
-  br i1 %.not.i112.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i113.i
+  %.not.i113.i = icmp eq i32 %454, 0
+  br i1 %.not.i113.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i114.i
 
-.lr.ph.i113.i:                                    ; preds = %451, %.lr.ph.i113.i
-  %.02.i.i = phi i32 [ %456, %.lr.ph.i113.i ], [ 0, %451 ]
-  %.0131.i.i = phi i32 [ %455, %.lr.ph.i113.i ], [ 56, %451 ]
+.lr.ph.i114.i:                                    ; preds = %451, %.lr.ph.i114.i
+  %.02.i.i = phi i32 [ %456, %.lr.ph.i114.i ], [ 0, %451 ]
+  %.0131.i.i = phi i32 [ %455, %.lr.ph.i114.i ], [ 56, %451 ]
   %455 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0131.i.i, ptr noundef %21, ptr noundef nonnull @.str.402)
   %456 = add nuw i32 %.02.i.i, 1
-  %exitcond.not.i114.i = icmp eq i32 %456, %454
-  br i1 %exitcond.not.i114.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i113.i, !llvm.loop !8
+  %exitcond.not.i115.i = icmp eq i32 %456, %454
+  br i1 %exitcond.not.i115.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i114.i, !llvm.loop !8
 
 457:                                              ; preds = %100
   %458 = load i32, ptr @hf_pvfs_mgmt_perf_mon_request_event_count, align 4
@@ -1423,8 +1423,8 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %478 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %477, ptr noundef %0, i32 noundef %476, i32 noundef 4, i32 noundef -2147483648) #9
   %479 = add i32 %476, 8
   %480 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %479) #9
-  %.not.i.i115.i = icmp eq i32 %480, 0
-  br i1 %.not.i.i115.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i.preheader
+  %.not.i.i116.i = icmp eq i32 %480, 0
+  br i1 %.not.i.i116.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %475
   %481 = add i32 %476, 12
@@ -1438,8 +1438,8 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %484 = load i32, ptr @hf_pvfs_attribute_value, align 4
   %485 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %484, i32 noundef %483, ptr noundef readonly %1)
   %486 = add nuw i32 %.012.i.i.i, 1
-  %exitcond.not.i.i116.i = icmp eq i32 %486, %480
-  br i1 %exitcond.not.i.i116.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i, !llvm.loop !9
+  %exitcond.not.i.i117.i = icmp eq i32 %486, %480
+  br i1 %exitcond.not.i.i117.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i, !llvm.loop !9
 
 487:                                              ; preds = %100
   %488 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 48, ptr noundef %21, ptr noundef nonnull @.str.402)
@@ -1447,23 +1447,23 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %490 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %489, ptr noundef %0, i32 noundef %488, i32 noundef 4, i32 noundef -2147483648) #9
   %491 = add i32 %488, 8
   %492 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %491) #9
-  %.not.i.i117.i = icmp eq i32 %492, 0
-  br i1 %.not.i.i117.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i118.i.preheader
+  %.not.i.i118.i = icmp eq i32 %492, 0
+  br i1 %.not.i.i118.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i119.i.preheader
 
-.lr.ph.i.i118.i.preheader:                        ; preds = %487
+.lr.ph.i.i119.i.preheader:                        ; preds = %487
   %493 = add i32 %488, 12
-  br label %.lr.ph.i.i118.i
+  br label %.lr.ph.i.i119.i
 
-.lr.ph.i.i118.i:                                  ; preds = %.lr.ph.i.i118.i.preheader, %.lr.ph.i.i118.i
-  %.012.i.i119.i = phi i32 [ %498, %.lr.ph.i.i118.i ], [ 0, %.lr.ph.i.i118.i.preheader ]
-  %.01011.i.i120.i = phi i32 [ %497, %.lr.ph.i.i118.i ], [ %493, %.lr.ph.i.i118.i.preheader ]
+.lr.ph.i.i119.i:                                  ; preds = %.lr.ph.i.i119.i.preheader, %.lr.ph.i.i119.i
+  %.012.i.i120.i = phi i32 [ %498, %.lr.ph.i.i119.i ], [ 0, %.lr.ph.i.i119.i.preheader ]
+  %.01011.i.i121.i = phi i32 [ %497, %.lr.ph.i.i119.i ], [ %493, %.lr.ph.i.i119.i.preheader ]
   %494 = load i32, ptr @hf_pvfs_attribute_key, align 4
-  %495 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %494, i32 noundef %.01011.i.i120.i, ptr noundef readonly %1)
+  %495 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %494, i32 noundef %.01011.i.i121.i, ptr noundef readonly %1)
   %496 = load i32, ptr @hf_pvfs_attribute_value, align 4
   %497 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %496, i32 noundef %495, ptr noundef readonly %1)
-  %498 = add nuw i32 %.012.i.i119.i, 1
-  %exitcond.not.i.i121.i = icmp eq i32 %498, %492
-  br i1 %exitcond.not.i.i121.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i118.i, !llvm.loop !9
+  %498 = add nuw i32 %.012.i.i120.i, 1
+  %exitcond.not.i.i122.i = icmp eq i32 %498, %492
+  br i1 %exitcond.not.i.i122.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i119.i, !llvm.loop !9
 
 499:                                              ; preds = %100
   %500 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 48, ptr noundef %21, ptr noundef nonnull @.str.402)
@@ -1630,7 +1630,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %623, %.preheader.lr.ph.i.i
-  %.096152.i.i = phi ptr [ null, %.preheader.lr.ph.i.i ], [ %.2.i.i, %623 ]
+  %.096152.i.i = phi ptr [ null, %.preheader.lr.ph.i.i ], [ %.1.i.i, %623 ]
   %.097151.i.i = phi i32 [ 52, %.preheader.lr.ph.i.i ], [ %625, %623 ]
   %.098150.i.i = phi ptr [ %569, %.preheader.lr.ph.i.i ], [ %626, %623 ]
   %.0100149.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %627, %623 ]
@@ -1642,7 +1642,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   %.093138.i.i = phi i32 [ %581, %577 ], [ 0, %.preheader.i.i ]
   %.095137.i.i = phi ptr [ %579, %577 ], [ %4, %.preheader.i.i ]
   %.199136.i.i = phi ptr [ %578, %577 ], [ %.098150.i.i, %.preheader.i.i ]
-  %.1101135.i.i = phi i32 [ %580, %577 ], [ %.0100149.i.i, %.preheader.i.i ]
+  %.2102135.i.i = phi i32 [ %580, %577 ], [ %.0100149.i.i, %.preheader.i.i ]
   %576 = load i8, ptr %.199136.i.i, align 1
   switch i8 %576, label %577 [
     i8 10, label %.critedge.thread.i.i
@@ -1653,7 +1653,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   %578 = getelementptr i8, ptr %.199136.i.i, i64 1
   %579 = getelementptr i8, ptr %.095137.i.i, i64 1
   store i8 %576, ptr %.095137.i.i, align 1
-  %580 = add nuw i32 %.1101135.i.i, 1
+  %580 = add nuw i32 %.2102135.i.i, 1
   %581 = add nuw nsw i32 %.093138.i.i, 1
   %582 = icmp ult i32 %580, %spec.select.i.i
   %583 = icmp ult i32 %.093138.i.i, 255
@@ -1672,11 +1672,11 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   ]
 
 .critedge.thread.i.i:                             ; preds = %.lr.ph.i83.i, %.lr.ph.i83.i, %585, %585, %.critedge.i.i, %.preheader.i.i
-  %.1101130.i.i = phi i32 [ %580, %585 ], [ %580, %585 ], [ %580, %.critedge.i.i ], [ %.0100149.i.i, %.preheader.i.i ], [ %.1101135.i.i, %.lr.ph.i83.i ], [ %.1101135.i.i, %.lr.ph.i83.i ]
+  %.2102130.i.i = phi i32 [ %580, %585 ], [ %580, %585 ], [ %580, %.critedge.i.i ], [ %.0100149.i.i, %.preheader.i.i ], [ %.2102135.i.i, %.lr.ph.i83.i ], [ %.2102135.i.i, %.lr.ph.i83.i ]
   %.199127.i.i = phi ptr [ %578, %585 ], [ %578, %585 ], [ %578, %.critedge.i.i ], [ %.098150.i.i, %.preheader.i.i ], [ %.199136.i.i, %.lr.ph.i83.i ], [ %.199136.i.i, %.lr.ph.i83.i ]
   %.095125.i.i = phi ptr [ %579, %585 ], [ %579, %585 ], [ %579, %.critedge.i.i ], [ %4, %.preheader.i.i ], [ %.095137.i.i, %.lr.ph.i83.i ], [ %.095137.i.i, %.lr.ph.i83.i ]
   %.093123.i.i = phi i32 [ 256, %585 ], [ 256, %585 ], [ %581, %.critedge.i.i ], [ 0, %.preheader.i.i ], [ %.093138.i.i, %.lr.ph.i83.i ], [ %.093138.i.i, %.lr.ph.i83.i ]
-  %587 = icmp eq i32 %.1101130.i.i, %spec.select.i.i
+  %587 = icmp eq i32 %.2102130.i.i, %spec.select.i.i
   br i1 %587, label %dissect_pvfs2_getconfig_response.exit.i, label %588
 
 588:                                              ; preds = %.critedge.thread.i.i
@@ -1757,20 +1757,20 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   br label %623
 
 623:                                              ; preds = %619, %617, %614, %611
-  %.2.i.i = phi ptr [ %616, %614 ], [ %spec.select119120.i.i, %619 ], [ %spec.select119.i.i, %617 ], [ null, %611 ]
+  %.1.i.i = phi ptr [ %616, %614 ], [ %spec.select119120.i.i, %619 ], [ %spec.select119.i.i, %617 ], [ null, %611 ]
   %624 = add i32 %.097151.i.i, 1
   %625 = add i32 %624, %.093123.i.i
   %626 = getelementptr i8, ptr %.199127.i.i, i64 1
-  %627 = add i32 %.1101130.i.i, 1
+  %627 = add i32 %.2102130.i.i, 1
   %628 = add nuw i32 %.0104148.i.i, 1
   %exitcond.not.i81.i = icmp eq i32 %628, %563
   br i1 %exitcond.not.i81.i, label %._crit_edge.i82.i, label %.preheader.i.i, !llvm.loop !15
 
 ._crit_edge.i82.i:                                ; preds = %623, %605, %585, %570
   %.097.lcssa.i.i = phi i32 [ 52, %570 ], [ %.097151.i.i, %585 ], [ %.097151.i.i, %605 ], [ %625, %623 ]
-  %.096.lcssa.i.i = phi ptr [ null, %570 ], [ %.096152.i.i, %585 ], [ %.096152.i.i, %605 ], [ %.2.i.i, %623 ]
-  %.2102.i.i = phi i32 [ 0, %570 ], [ %580, %585 ], [ %.1101130.i.i, %605 ], [ %627, %623 ]
-  %629 = icmp ult i32 %.2102.i.i, %spec.select.i.i
+  %.096.lcssa.i.i = phi ptr [ null, %570 ], [ %.096152.i.i, %585 ], [ %.096152.i.i, %605 ], [ %.1.i.i, %623 ]
+  %.1101.i.i = phi i32 [ 0, %570 ], [ %580, %585 ], [ %.2102130.i.i, %605 ], [ %627, %623 ]
+  %629 = icmp ult i32 %.1101.i.i, %spec.select.i.i
   br i1 %629, label %630, label %dissect_pvfs2_getconfig_response.exit.i
 
 630:                                              ; preds = %._crit_edge.i82.i
@@ -1997,7 +1997,7 @@ dissect_pvfs2_mgmt_dspace_info.exit.i.i:          ; preds = %736, %731
   %exitcond.not.i.i.i79 = icmp eq i32 %783, %778
   br i1 %exitcond.not.i.i.i79, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i76, !llvm.loop !9
 
-dissect_pvfs2_request.exit:                       ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i89.i, %.lr.ph.i85.i, %.lr.ph.i77.i, %.lr.ph36.i.i, %.lr.ph.i.i.i76, %.lr.ph.i.i118.i, %.lr.ph.i.i.i, %.lr.ph.i113.i, %.lr.ph.i.i, %240, %214, %.preheader.i.i.i, %777, %775, %771, %755, %730, %713, %672, %639, %636, %632, %dissect_pvfs2_getconfig_response.exit.i, %543, %541, %539, %537, %._crit_edge.i.i, %522, %518, %516, %dissect_pvfs2_error.exit.i, %499, %487, %475, %471, %464, %460, %457, %451, %447, %442, %439, %416, %406, %398, %388, %339, %291, %242, %216, %129, %125, %111, %100, %437, %432, %429, %423, %85
+dissect_pvfs2_request.exit:                       ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i89.i, %.lr.ph.i85.i, %.lr.ph.i77.i, %.lr.ph36.i.i, %.lr.ph.i.i.i76, %.lr.ph.i.i119.i, %.lr.ph.i.i.i, %.lr.ph.i114.i, %.lr.ph.i.i, %240, %214, %.preheader.i.i.i, %777, %775, %771, %755, %730, %713, %672, %639, %636, %632, %dissect_pvfs2_getconfig_response.exit.i, %543, %541, %539, %537, %._crit_edge.i.i, %522, %518, %516, %dissect_pvfs2_error.exit.i, %499, %487, %475, %471, %464, %460, %457, %451, %447, %442, %439, %416, %406, %398, %388, %339, %291, %242, %216, %129, %125, %111, %100, %437, %432, %429, %423, %85
   ret void
 }
 
@@ -2160,7 +2160,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %32 = phi ptr [ %13, %.thread.i ], [ %27, %16 ]
   %.012316.i = phi i64 [ %..i, %.thread.i ], [ %.0123.i, %16 ]
   %.012414.i = phi i32 [ 0, %.thread.i ], [ %.0124.i, %16 ]
-  %.112712.i = phi i1 [ true, %.thread.i ], [ %25, %16 ]
+  %.012612.i = phi i1 [ true, %.thread.i ], [ %25, %16 ]
   %.not1439.i = phi i1 [ false, %.thread.i ], [ %24, %16 ]
   %.01297.i = phi i32 [ %9, %.thread.i ], [ %8, %16 ]
   %33 = zext i32 %8 to i64
@@ -2189,7 +2189,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %48 = phi ptr [ %31, %36 ], [ %31, %44 ], [ %29, %16 ]
   %.012317.i = phi i64 [ %.012316.i, %36 ], [ %.012316.i, %44 ], [ %.0123.i, %16 ]
   %.012415.i = phi i32 [ %.012414.i, %36 ], [ %.012414.i, %44 ], [ %.0124.i, %16 ]
-  %.112713.i = phi i1 [ %.112712.i, %36 ], [ %.112712.i, %44 ], [ %25, %16 ]
+  %.012613.i = phi i1 [ %.012612.i, %36 ], [ %.012612.i, %44 ], [ %25, %16 ]
   %.not14310.i = phi i1 [ %.not1439.i, %36 ], [ %.not1439.i, %44 ], [ %24, %16 ]
   %.01298.i = phi i32 [ %.01297.i, %36 ], [ %.01297.i, %44 ], [ 0, %16 ]
   %.0121.i = phi ptr [ %42, %36 ], [ %46, %44 ], [ @.str.407, %16 ]
@@ -2200,7 +2200,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %53 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %6, ptr noundef nonnull @.str.408, i32 noundef %6) #9
   %54 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %51, i32 noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %.01298.i, ptr noundef %48, ptr noundef nonnull @.str.409, ptr noundef %.0121.i) #9
   %55 = add i32 %.01298.i, %7
-  br i1 %.112713.i, label %61, label %56
+  br i1 %.012613.i, label %61, label %56
 
 56:                                               ; preds = %47
   %.not142.i = icmp eq ptr %51, null

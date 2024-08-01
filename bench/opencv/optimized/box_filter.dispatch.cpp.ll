@@ -3713,7 +3713,7 @@ _ZNK2cv11_InputArray6getMatEi.exit55:             ; preds = %52, %55
   br label %.body
 
 73:                                               ; preds = %65, %70, %.thread
-  %.sroa.4.160 = phi i64 [ %spec.select48, %.thread ], [ %.sroa.4.0.extract.shift, %70 ], [ %.sroa.4.0.extract.shift, %65 ]
+  %.sroa.4.060 = phi i64 [ %spec.select48, %.thread ], [ %.sroa.4.0.extract.shift, %70 ], [ %.sroa.4.0.extract.shift, %65 ]
   %.sroa.030.059 = phi i64 [ %spec.select49, %.thread ], [ %3, %70 ], [ %3, %65 ]
   %74 = load i32, ptr %12, align 8
   %75 = load i32, ptr %13, align 8
@@ -3722,7 +3722,7 @@ _ZNK2cv11_InputArray6getMatEi.exit55:             ; preds = %52, %55
           to label %.noexc56 unwind label %71
 
 .noexc56:                                         ; preds = %73
-  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.160, 32
+  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.060, 32
   %.sroa.030.0.insert.ext = and i64 %.sroa.030.059, 4294967295
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.030.0.insert.ext, %.sroa.4.0.insert.shift
   %76 = and i32 %75, 4095
@@ -4095,7 +4095,7 @@ define void @_ZN2cv12sqrBoxFilterERKNS_11_InputArrayERKNS_12_OutputArrayEiNS_5Si
 
 48:                                               ; preds = %44, %40
   %.sroa.018.0 = phi i32 [ %.sroa.018.0.extract.trunc, %40 ], [ %spec.select37, %44 ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.0.extract.trunc, %40 ], [ %spec.select, %44 ]
+  %.sroa.4.0 = phi i32 [ %.sroa.4.0.extract.trunc, %40 ], [ %spec.select, %44 ]
   %49 = icmp eq i32 %37, 0
   %spec.store.select = select i1 %49, i32 4, i32 6
   %50 = or disjoint i32 %spec.store.select, %38
@@ -4179,11 +4179,11 @@ _ZNK2cv11_InputArray6getMatEi.exit46:             ; preds = %62, %65
           to label %.noexc49 unwind label %260
 
 .noexc49:                                         ; preds = %75
-  %76 = mul nsw i32 %.sroa.4.1, %.sroa.018.0
+  %76 = mul nsw i32 %.sroa.4.0, %.sroa.018.0
   %77 = sitofp i32 %76 to double
   %78 = fdiv double 1.000000e+00, %77
   %79 = select i1 %5, double %78, double 1.000000e+00
-  invoke void @_ZN2cv12cpu_baseline18getColumnSumFilterEiiiid(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.40") align 8 %17, i32 noundef %50, i32 noundef %52, i32 noundef %.sroa.4.1, i32 noundef %.sroa.2.0.extract.trunc, double noundef %79)
+  invoke void @_ZN2cv12cpu_baseline18getColumnSumFilterEiiiid(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.40") align 8 %17, i32 noundef %50, i32 noundef %52, i32 noundef %.sroa.4.0, i32 noundef %.sroa.2.0.extract.trunc, double noundef %79)
           to label %80 unwind label %87
 
 80:                                               ; preds = %.noexc49

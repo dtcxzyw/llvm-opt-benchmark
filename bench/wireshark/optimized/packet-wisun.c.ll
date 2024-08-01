@@ -2393,7 +2393,7 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #3
   %40 = load i32, ptr @hf_wisun_usie_hop_count, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef -2147483648) #3
-  %.187 = add i32 %31, 1
+  %.287 = add i32 %31, 1
   %.not8488 = icmp eq i8 %39, 0
   br i1 %.not8488, label %.loopexit86, label %.lr.ph.preheader
 
@@ -2402,17 +2402,17 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.190 = phi i32 [ %.1, %.lr.ph ], [ %.187, %.lr.ph.preheader ]
+  %.290 = phi i32 [ %.2, %.lr.ph ], [ %.287, %.lr.ph.preheader ]
   %.08289 = phi i32 [ %43, %.lr.ph ], [ %42, %.lr.ph.preheader ]
   %43 = add nsw i32 %.08289, -1
   %44 = load i32, ptr @hf_wisun_usie_hop_list, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %.190, i32 noundef 1, i32 noundef -2147483648) #3
-  %.1 = add i32 %.190, 1
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %.290, i32 noundef 1, i32 noundef -2147483648) #3
+  %.2 = add i32 %.290, 1
   %.not84 = icmp eq i32 %43, 0
   br i1 %.not84, label %.loopexit86, label %.lr.ph, !llvm.loop !9
 
 .loopexit86:                                      ; preds = %.lr.ph, %38, %27, %34
-  %.2 = phi i32 [ %31, %27 ], [ %37, %34 ], [ %.187, %38 ], [ %.1, %.lr.ph ]
+  %.1 = phi i32 [ %31, %27 ], [ %37, %34 ], [ %.287, %38 ], [ %.2, %.lr.ph ]
   %46 = lshr i32 %9, 6
   switch i32 %46, label %.loopexit [
     i32 1, label %47
@@ -2420,14 +2420,14 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   ]
 
 47:                                               ; preds = %.loopexit86
-  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
   %49 = load i32, ptr @hf_wisun_usie_number_ranges, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %49, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef -2147483648) #3
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %49, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef -2147483648) #3
   %.not8591 = icmp eq i8 %48, 0
   br i1 %.not8591, label %.loopexit, label %.lr.ph94.preheader
 
 .lr.ph94.preheader:                               ; preds = %47
-  %51 = add i32 %.2, 1
+  %51 = add i32 %.1, 1
   %52 = zext i8 %48 to i32
   br label %.lr.ph94
 
@@ -2445,9 +2445,9 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   br i1 %.not85, label %.loopexit, label %.lr.ph94, !llvm.loop !10
 
 60:                                               ; preds = %.loopexit86
-  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #3
+  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
   %62 = load i32, ptr @hf_wisun_usie_exclude_mask, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %.2, i32 noundef %61, i32 noundef 0) #3
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %62, ptr noundef %0, i32 noundef %.1, i32 noundef %61, i32 noundef 0) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph94, %47, %60, %.loopexit86, %24

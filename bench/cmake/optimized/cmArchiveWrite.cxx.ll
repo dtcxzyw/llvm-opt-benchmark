@@ -1661,12 +1661,12 @@ sub_2:                                            ; preds = %sub_175
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !163
 
 .sink.split:                                      ; preds = %114, %113, %.preheader
-  %.1.ph = phi i1 [ true, %.preheader ], [ false, %113 ], [ true, %114 ]
+  %.2.ph = phi i1 [ true, %.preheader ], [ false, %113 ], [ true, %114 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
   br label %116
 
 116:                                              ; preds = %.sink.split, %60
-  %.1 = phi i1 [ true, %60 ], [ %.1.ph, %.sink.split ]
+  %.2 = phi i1 [ true, %60 ], [ %.2.ph, %.sink.split ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   br label %118
 
@@ -1681,8 +1681,8 @@ sub_2:                                            ; preds = %sub_175
   br label %118
 
 118:                                              ; preds = %.critedge66, %.critedge, %27, %116
-  %.2 = phi i1 [ %.1, %116 ], [ false, %27 ], [ true, %.critedge ], [ true, %.critedge66 ]
-  ret i1 %.2
+  %.021 = phi i1 [ %.2, %116 ], [ false, %27 ], [ true, %.critedge ], [ true, %.critedge66 ]
+  ret i1 %.021
 
 119:                                              ; preds = %117, %.body
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %117 ], [ %.pn.pn.pn, %.body ]
@@ -2240,7 +2240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %236
 
 236:                                              ; preds = %.sink.split, %230, %233, %234
-  %.0 = phi i1 [ %235, %234 ], [ true, %233 ], [ true, %230 ], [ false, %.sink.split ]
+  %.1 = phi i1 [ %235, %234 ], [ true, %233 ], [ true, %230 ], [ false, %.sink.split ]
   invoke void @archive_entry_free(ptr noundef %49)
           to label %_ZN14cmArchiveWrite5EntryD2Ev.exit unwind label %237
 
@@ -2281,8 +2281,8 @@ _ZN14cmArchiveWrite5EntryD2Ev.exit48:             ; preds = %.body39, %46
   resume { ptr, i32 } %.pn30.pn.pn
 
 246:                                              ; preds = %4, %_ZN14cmArchiveWrite5EntryD2Ev.exit
-  %.1 = phi i1 [ %.0, %_ZN14cmArchiveWrite5EntryD2Ev.exit ], [ true, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZN14cmArchiveWrite5EntryD2Ev.exit ], [ true, %4 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools15FileIsDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

@@ -1583,7 +1583,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
   br label %.critedge
 
 44:                                               ; preds = %.lr.ph40, %._crit_edge
-  %.02239 = phi i32 [ 0, %.lr.ph40 ], [ %.1.lcssa, %._crit_edge ]
+  %.139 = phi i32 [ 0, %.lr.ph40 ], [ %.2.lcssa, %._crit_edge ]
   %.sroa.024.038 = phi ptr [ %.sroa.013.0.lcssa.i.i, %.lr.ph40 ], [ %73, %._crit_edge ]
   %45 = getelementptr inbounds i8, ptr %.sroa.024.038, i64 4
   %46 = load i32, ptr %45, align 4
@@ -1616,7 +1616,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %.135 = phi i32 [ %.02239, %.lr.ph ], [ %.2, %64 ]
+  %.235 = phi i32 [ %.139, %.lr.ph ], [ %.3, %64 ]
   %65 = getelementptr inbounds [1024 x %struct.NVGglyphPosition], ptr %3, i64 0, i64 %indvars.iv
   %66 = getelementptr inbounds i8, ptr %65, i64 12
   %67 = load float, ptr %66, align 4
@@ -1626,12 +1626,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
   %71 = fcmp olt float %70, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %.2 = select i1 %71, i32 %72, i32 %.135
+  %.3 = select i1 %71, i32 %72, i32 %.235
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %64, %49
-  %.1.lcssa = phi i32 [ %.02239, %49 ], [ %.2, %64 ]
+  %.2.lcssa = phi i32 [ %.139, %49 ], [ %.3, %64 ]
   %73 = getelementptr inbounds i8, ptr %.sroa.024.038, i64 64
   %74 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %73, %74
@@ -1639,13 +1639,13 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7nanogui8TextArea5BlockESt6vector
 
 .critedge:                                        ; preds = %._crit_edge, %44, %34
   %.sroa.030.0 = phi ptr [ %35, %34 ], [ %.sroa.013.0.lcssa.i.i, %44 ], [ %.sroa.013.0.lcssa.i.i, %._crit_edge ]
-  %.3 = phi i32 [ %43, %34 ], [ %.1.lcssa, %._crit_edge ], [ %.02239, %44 ]
+  %.022 = phi i32 [ %43, %34 ], [ %.2.lcssa, %._crit_edge ], [ %.139, %44 ]
   %75 = load ptr, ptr %7, align 8
   %76 = ptrtoint ptr %.sroa.030.0 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = lshr exact i64 %78, 6
-  %80 = zext i32 %.3 to i64
+  %80 = zext i32 %.022 to i64
   %81 = shl nuw i64 %80, 32
   %82 = and i64 %79, 4294967295
   %83 = or disjoint i64 %82, %81

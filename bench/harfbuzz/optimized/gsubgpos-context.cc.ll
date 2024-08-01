@@ -256,9 +256,9 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   br i1 %cmp9.not.i.i.i.i, label %while.body.i.i.i.i, label %if.end.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %while.body.i.i.i.i
-  %new_allocated.033.i.i.i.i = phi i32 [ %add15.i.i.i.i, %while.body.i.i.i.i ], [ %2, %if.end.i.i.i.i ]
-  %shr14.i.i.i.i = lshr i32 %new_allocated.033.i.i.i.i, 1
-  %add.i.i.i.i = add i32 %new_allocated.033.i.i.i.i, 8
+  %new_allocated.133.i.i.i.i = phi i32 [ %add15.i.i.i.i, %while.body.i.i.i.i ], [ %2, %if.end.i.i.i.i ]
+  %shr14.i.i.i.i = lshr i32 %new_allocated.133.i.i.i.i, 1
+  %add.i.i.i.i = add i32 %new_allocated.133.i.i.i.i, 8
   %add15.i.i.i.i = add i32 %add.i.i.i.i, %shr14.i.i.i.i
   %cmp13.i.i.i.i = icmp ult i32 %add15.i.i.i.i, %add.i.i.i
   br i1 %cmp13.i.i.i.i, label %while.body.i.i.i.i, label %lor.rhs.i.i.i.i, !llvm.loop !8
@@ -282,9 +282,9 @@ if.then28.i.i.i.i:                                ; preds = %_ZN11hb_vector_tIPc
   br i1 %cmp30.not.i.i.i.i, label %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i, label %if.end.i.i.i
 
 _ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i: ; preds = %if.then28.i.i.i.i, %lor.rhs.i.i.i.i
-  %new_allocated.128.sink.i.ph.in.i.i.i = phi i32 [ %2, %lor.rhs.i.i.i.i ], [ %6, %if.then28.i.i.i.i ]
-  %new_allocated.128.sink.i.ph.i.i.i = xor i32 %new_allocated.128.sink.i.ph.in.i.i.i, -1
-  store i32 %new_allocated.128.sink.i.ph.i.i.i, ptr %buffers.i.i, align 8
+  %new_allocated.028.sink.i.ph.in.i.i.i = phi i32 [ %2, %lor.rhs.i.i.i.i ], [ %6, %if.then28.i.i.i.i ]
+  %new_allocated.028.sink.i.ph.i.i.i = xor i32 %new_allocated.028.sink.i.ph.in.i.i.i, -1
+  store i32 %new_allocated.028.sink.i.ph.i.i.i, ptr %buffers.i.i, align 8
   br label %if.then.i.i.i
 
 _ZN11hb_vector_tIPcLb0EE5allocEjb.exit.i.i.i:     ; preds = %_ZN11hb_vector_tIPcLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i
@@ -293,7 +293,7 @@ _ZN11hb_vector_tIPcLb0EE5allocEjb.exit.i.i.i:     ; preds = %_ZN11hb_vector_tIPc
   br label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i, %land.lhs.true.i.i.i
-  %7 = phi i32 [ %new_allocated.128.sink.i.ph.i.i.i, %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i ], [ %2, %land.lhs.true.i.i.i ]
+  %7 = phi i32 [ %new_allocated.028.sink.i.ph.i.i.i, %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i ], [ %2, %land.lhs.true.i.i.i ]
   %8 = load i64, ptr @_hb_NullPool, align 16
   store i64 %8, ptr @_hb_CrapPool, align 16
   br label %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit
@@ -1514,40 +1514,40 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp9.not.i, label %while.body.i, label %if.end
 
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
-  %new_allocated.029.i = phi i32 [ %add15.i, %while.body.i ], [ %0, %if.else.i ]
-  %shr14.i = lshr i32 %new_allocated.029.i, 1
-  %add.i = add i32 %new_allocated.029.i, 8
+  %new_allocated.129.i = phi i32 [ %add15.i, %while.body.i ], [ %0, %if.else.i ]
+  %shr14.i = lshr i32 %new_allocated.129.i, 1
+  %add.i = add i32 %new_allocated.129.i, 8
   %add15.i = add i32 %add.i, %shr14.i
   %cmp13.i = icmp ult i32 %add15.i, %cond
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !42
 
 lor.rhs.i:                                        ; preds = %while.body.i, %if.then2.i
-  %new_allocated.128.i = phi i32 [ %.sroa.speculated.i, %if.then2.i ], [ %add15.i, %while.body.i ]
-  %2 = icmp ugt i32 %new_allocated.128.i, 31580641
+  %new_allocated.028.i = phi i32 [ %.sroa.speculated.i, %if.then2.i ], [ %add15.i, %while.body.i ]
+  %2 = icmp ugt i32 %new_allocated.028.i, 31580641
   br i1 %2, label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread19, label %if.end23.i
 
 if.end23.i:                                       ; preds = %lor.rhs.i
-  %call24.i = tail call noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXntsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %new_allocated.128.i)
-  %tobool25.i = icmp eq i32 %new_allocated.128.i, 0
+  %call24.i = tail call noundef ptr @_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXntsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %new_allocated.028.i)
+  %tobool25.i = icmp eq i32 %new_allocated.028.i, 0
   %tobool27.i = icmp ne ptr %call24.i, null
   %or.cond.i = or i1 %tobool25.i, %tobool27.i
   br i1 %or.cond.i, label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end23.i
   %3 = load i32, ptr %this, align 8
-  %cmp30.not.i = icmp ugt i32 %new_allocated.128.i, %3
+  %cmp30.not.i = icmp ugt i32 %new_allocated.028.i, %3
   br i1 %cmp30.not.i, label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread19, label %if.end
 
 _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread19: ; preds = %if.then28.i, %lor.rhs.i
-  %new_allocated.128.sink.i.ph.in = phi i32 [ %0, %lor.rhs.i ], [ %3, %if.then28.i ]
-  %new_allocated.128.sink.i.ph = xor i32 %new_allocated.128.sink.i.ph.in, -1
-  store i32 %new_allocated.128.sink.i.ph, ptr %this, align 8
+  %new_allocated.028.sink.i.ph.in = phi i32 [ %0, %lor.rhs.i ], [ %3, %if.then28.i ]
+  %new_allocated.028.sink.i.ph = xor i32 %new_allocated.028.sink.i.ph.in, -1
+  store i32 %new_allocated.028.sink.i.ph, ptr %this, align 8
   br label %return
 
 _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit: ; preds = %if.end23.i
   %arrayZ.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call24.i, ptr %arrayZ.i, align 8
-  store i32 %new_allocated.128.i, ptr %this, align 8
+  store i32 %new_allocated.028.i, ptr %this, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then28.i, %if.else.i, %if.then2.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit

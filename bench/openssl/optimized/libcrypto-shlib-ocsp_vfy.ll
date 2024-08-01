@@ -77,8 +77,8 @@ if.end20:                                         ; preds = %if.then14
   br i1 %tobool.not, label %end, label %if.end24
 
 if.end24:                                         ; preds = %if.end20, %if.then11
-  %untrusted.0 = phi ptr [ %call17, %if.end20 ], [ null, %if.then11 ]
-  %call25 = call fastcc i32 @ocsp_verify_signer(ptr noundef nonnull %.sink.i25, i32 noundef 1, ptr noundef %st, i64 noundef %flags.addr.0, ptr noundef %untrusted.0, ptr noundef nonnull %chain)
+  %untrusted.1 = phi ptr [ %call17, %if.end20 ], [ null, %if.then11 ]
+  %call25 = call fastcc i32 @ocsp_verify_signer(ptr noundef nonnull %.sink.i25, i32 noundef 1, ptr noundef %st, i64 noundef %flags.addr.0, ptr noundef %untrusted.1, ptr noundef nonnull %chain)
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %end, label %if.end28
 
@@ -199,11 +199,11 @@ if.then47:                                        ; preds = %if.end40
   br label %end
 
 end:                                              ; preds = %land.lhs.true.i.i, %if.then.i.i, %if.then11.i, %if.then.i, %if.end40, %if.end28, %if.end36, %ocsp_check_issuer.exit, %if.end24, %if.end20, %if.then14, %if.end4, %if.then47, %if.then
-  %untrusted.1 = phi ptr [ null, %if.then ], [ null, %if.end4 ], [ null, %if.then14 ], [ %untrusted.0, %if.end24 ], [ %untrusted.0, %ocsp_check_issuer.exit ], [ %untrusted.0, %if.end36 ], [ %untrusted.0, %if.then47 ], [ %call17, %if.end20 ], [ %untrusted.0, %if.end28 ], [ %untrusted.0, %if.end40 ], [ %untrusted.0, %if.then.i ], [ %untrusted.0, %if.then11.i ], [ %untrusted.0, %if.then.i.i ], [ %untrusted.0, %land.lhs.true.i.i ]
+  %untrusted.0 = phi ptr [ null, %if.then ], [ null, %if.end4 ], [ null, %if.then14 ], [ %untrusted.1, %if.end24 ], [ %untrusted.1, %ocsp_check_issuer.exit ], [ %untrusted.1, %if.end36 ], [ %untrusted.1, %if.then47 ], [ %call17, %if.end20 ], [ %untrusted.1, %if.end28 ], [ %untrusted.1, %if.end40 ], [ %untrusted.1, %if.then.i ], [ %untrusted.1, %if.then11.i ], [ %untrusted.1, %if.then.i.i ], [ %untrusted.1, %land.lhs.true.i.i ]
   %ret.0 = phi i32 [ 0, %if.then ], [ %call5, %if.end4 ], [ -1, %if.then14 ], [ %call25, %if.end24 ], [ %call25.i, %ocsp_check_issuer.exit ], [ 0, %if.end36 ], [ 0, %if.then47 ], [ -1, %if.end20 ], [ 1, %if.end28 ], [ 1, %if.end40 ], [ -1, %if.then.i ], [ -1, %if.then11.i ], [ -1, %if.then.i.i ], [ 1, %land.lhs.true.i.i ]
   %11 = load ptr, ptr %chain, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %11) #3
-  call void @OPENSSL_sk_free(ptr noundef %untrusted.1) #3
+  call void @OPENSSL_sk_free(ptr noundef %untrusted.0) #3
   ret i32 %ret.0
 }
 
@@ -255,21 +255,21 @@ if.else:                                          ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then4
-  %ret.0 = phi i32 [ %call7, %if.then4 ], [ %call13, %if.else ]
-  %cmp15 = icmp slt i32 %ret.0, 1
+  %ret.1 = phi i32 [ %call7, %if.then4 ], [ %call13, %if.else ]
+  %cmp15 = icmp slt i32 %ret.1, 1
   br i1 %cmp15, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end14, %if.then
   %.sink12 = phi i32 [ 84, %if.then ], [ 92, %if.end14 ]
   %.sink = phi i32 [ 130, %if.then ], [ 117, %if.end14 ]
-  %retval.0.ph = phi i32 [ -1, %if.then ], [ %ret.0, %if.end14 ]
+  %retval.0.ph = phi i32 [ -1, %if.then ], [ %ret.1, %if.end14 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.ocsp_verify) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef %.sink, ptr noundef null) #3
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.end14
-  %retval.0 = phi i32 [ %ret.0, %if.end14 ], [ 1, %entry ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ %ret.1, %if.end14 ], [ 1, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

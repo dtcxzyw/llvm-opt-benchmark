@@ -356,13 +356,13 @@ for.end.i68:                                      ; preds = %if.end7.i62, %for.b
   br i1 %or.cond14.i74, label %return, label %if.end29
 
 if.end29:                                         ; preds = %for.end.i68, %if.end19, %if.end12
-  %minutes.1 = phi i32 [ %value.0.lcssa.i37, %if.end19 ], [ 0, %if.end12 ], [ %value.0.lcssa.i37, %for.end.i68 ]
-  %seconds.1 = phi i32 [ 0, %if.end19 ], [ 0, %if.end12 ], [ %value.0.lcssa.i69, %for.end.i68 ]
+  %minutes.0 = phi i32 [ %value.0.lcssa.i37, %if.end19 ], [ 0, %if.end12 ], [ %value.0.lcssa.i37, %for.end.i68 ]
+  %seconds.0 = phi i32 [ 0, %if.end19 ], [ 0, %if.end12 ], [ %value.0.lcssa.i69, %for.end.i68 ]
   %p.addr.1 = phi ptr [ %p.addr.0.lcssa.i38.ptr, %if.end19 ], [ %p.addr.0.lcssa.i, %if.end12 ], [ %p.addr.0.lcssa.i70.ptr, %for.end.i68 ]
   %mul = mul nsw i32 %value.0.lcssa.i, 60
-  %add = add nsw i32 %minutes.1, %mul
+  %add = add nsw i32 %minutes.0, %mul
   %mul30 = mul nsw i32 %add, 60
-  %add31 = add nsw i32 %mul30, %seconds.1
+  %add31 = add nsw i32 %mul30, %seconds.0
   %mul32 = mul nsw i32 %add31, %sign.addr.0
   %conv33 = sext i32 %mul32 to i64
   store i64 %conv33, ptr %offset, align 8

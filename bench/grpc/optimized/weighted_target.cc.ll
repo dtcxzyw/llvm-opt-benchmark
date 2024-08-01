@@ -6041,10 +6041,10 @@ for.body.lr.ph:                                   ; preds = %if.end3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %num_connecting.0310 = phi i64 [ 0, %for.body.lr.ph ], [ %num_connecting.2, %for.inc ]
-  %num_idle.0309 = phi i64 [ 0, %for.body.lr.ph ], [ %num_idle.2, %for.inc ]
-  %ready_end.0308 = phi i64 [ 0, %for.body.lr.ph ], [ %ready_end.2, %for.inc ]
-  %tf_end.0307 = phi i64 [ 0, %for.body.lr.ph ], [ %tf_end.2, %for.inc ]
+  %num_connecting.0310 = phi i64 [ 0, %for.body.lr.ph ], [ %num_connecting.1, %for.inc ]
+  %num_idle.0309 = phi i64 [ 0, %for.body.lr.ph ], [ %num_idle.1, %for.inc ]
+  %ready_end.0308 = phi i64 [ 0, %for.body.lr.ph ], [ %ready_end.1, %for.inc ]
+  %tf_end.0307 = phi i64 [ 0, %for.body.lr.ph ], [ %tf_end.1, %for.inc ]
   %__begin2.sroa.0.0306 = phi ptr [ %targets_.val, %for.body.lr.ph ], [ %call.i, %for.inc ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0306, i64 32
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.0306, i64 64
@@ -6381,8 +6381,8 @@ invoke.cont70:                                    ; preds = %do.body69
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb49, %sw.bb48
-  %num_idle.1.ph = phi i64 [ %num_idle.0309, %sw.bb48 ], [ %inc50, %sw.bb49 ]
-  %num_connecting.1.ph = phi i64 [ %inc, %sw.bb48 ], [ %num_connecting.0310, %sw.bb49 ]
+  %num_idle.2.ph = phi i64 [ %num_idle.0309, %sw.bb48 ], [ %inc50, %sw.bb49 ]
+  %num_connecting.2.ph = phi i64 [ %inc, %sw.bb48 ], [ %num_connecting.0310, %sw.bb49 ]
   %cmp.not.i42 = icmp eq ptr %11, null
   br i1 %cmp.not.i42, label %for.inc, label %if.then.i43
 
@@ -6419,10 +6419,10 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i45
   unreachable
 
 for.inc:                                          ; preds = %.noexc, %.noexc40, %if.then.i, %if.then.i34, %delete.notnull.i.i.i, %if.end.i.i, %sw.epilog, %invoke.cont
-  %tf_end.2 = phi i64 [ %tf_end.0307, %invoke.cont ], [ %tf_end.0307, %sw.epilog ], [ %tf_end.0307, %if.end.i.i ], [ %tf_end.0307, %delete.notnull.i.i.i ], [ %add66, %if.then.i34 ], [ %tf_end.0307, %if.then.i ], [ %tf_end.0307, %.noexc ], [ %add66, %.noexc40 ]
-  %ready_end.2 = phi i64 [ %ready_end.0308, %invoke.cont ], [ %ready_end.0308, %sw.epilog ], [ %ready_end.0308, %if.end.i.i ], [ %ready_end.0308, %delete.notnull.i.i.i ], [ %ready_end.0308, %if.then.i34 ], [ %add, %if.then.i ], [ %add, %.noexc ], [ %ready_end.0308, %.noexc40 ]
-  %num_idle.2 = phi i64 [ %num_idle.0309, %invoke.cont ], [ %num_idle.1.ph, %sw.epilog ], [ %num_idle.1.ph, %if.end.i.i ], [ %num_idle.1.ph, %delete.notnull.i.i.i ], [ %num_idle.0309, %if.then.i34 ], [ %num_idle.0309, %if.then.i ], [ %num_idle.0309, %.noexc ], [ %num_idle.0309, %.noexc40 ]
-  %num_connecting.2 = phi i64 [ %num_connecting.0310, %invoke.cont ], [ %num_connecting.1.ph, %sw.epilog ], [ %num_connecting.1.ph, %if.end.i.i ], [ %num_connecting.1.ph, %delete.notnull.i.i.i ], [ %num_connecting.0310, %if.then.i34 ], [ %num_connecting.0310, %if.then.i ], [ %num_connecting.0310, %.noexc ], [ %num_connecting.0310, %.noexc40 ]
+  %tf_end.1 = phi i64 [ %tf_end.0307, %invoke.cont ], [ %tf_end.0307, %sw.epilog ], [ %tf_end.0307, %if.end.i.i ], [ %tf_end.0307, %delete.notnull.i.i.i ], [ %add66, %if.then.i34 ], [ %tf_end.0307, %if.then.i ], [ %tf_end.0307, %.noexc ], [ %add66, %.noexc40 ]
+  %ready_end.1 = phi i64 [ %ready_end.0308, %invoke.cont ], [ %ready_end.0308, %sw.epilog ], [ %ready_end.0308, %if.end.i.i ], [ %ready_end.0308, %delete.notnull.i.i.i ], [ %ready_end.0308, %if.then.i34 ], [ %add, %if.then.i ], [ %add, %.noexc ], [ %ready_end.0308, %.noexc40 ]
+  %num_idle.1 = phi i64 [ %num_idle.0309, %invoke.cont ], [ %num_idle.2.ph, %sw.epilog ], [ %num_idle.2.ph, %if.end.i.i ], [ %num_idle.2.ph, %delete.notnull.i.i.i ], [ %num_idle.0309, %if.then.i34 ], [ %num_idle.0309, %if.then.i ], [ %num_idle.0309, %.noexc ], [ %num_idle.0309, %.noexc40 ]
+  %num_connecting.1 = phi i64 [ %num_connecting.0310, %invoke.cont ], [ %num_connecting.2.ph, %sw.epilog ], [ %num_connecting.2.ph, %if.end.i.i ], [ %num_connecting.2.ph, %delete.notnull.i.i.i ], [ %num_connecting.0310, %if.then.i34 ], [ %num_connecting.0310, %if.then.i ], [ %num_connecting.0310, %.noexc ], [ %num_connecting.0310, %.noexc40 ]
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0306) #30
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -6435,11 +6435,11 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i.i46, label %if.else, label %if.end84
 
 if.else:                                          ; preds = %for.end
-  %cmp76.not = icmp eq i64 %num_connecting.2, 0
+  %cmp76.not = icmp eq i64 %num_connecting.1, 0
   br i1 %cmp76.not, label %if.else78, label %if.end84
 
 if.else78:                                        ; preds = %if.else
-  %cmp79.not = icmp eq i64 %num_idle.2, 0
+  %cmp79.not = icmp eq i64 %num_idle.1, 0
   %spec.select = select i1 %cmp79.not, i32 3, i32 0
   br label %if.end84
 

@@ -355,12 +355,12 @@ if.end95:                                         ; preds = %lor.lhs.false87
   br label %return
 
 if.then105.thread:                                ; preds = %if.end69, %lor.lhs.false73, %lor.lhs.false80, %lor.lhs.false87, %if.end57, %if.end38
-  %acceptor.129.ph = phi i32 [ %call53, %lor.lhs.false87 ], [ %call53, %lor.lhs.false80 ], [ %call53, %lor.lhs.false73 ], [ %call53, %if.end69 ], [ %call53, %if.end57 ], [ -1, %if.end38 ]
+  %acceptor.029.ph = phi i32 [ %call53, %lor.lhs.false87 ], [ %call53, %lor.lhs.false80 ], [ %call53, %lor.lhs.false73 ], [ %call53, %if.end69 ], [ %call53, %if.end57 ], [ -1, %if.end38 ]
   %call.i2236 = call i32 @close(i32 noundef %call11) #30
   br label %if.then110
 
 if.then105:                                       ; preds = %if.end62, %if.end50, %if.end43, %if.end31, %if.end26, %if.end21, %if.end15
-  %acceptor.1.ph = phi i32 [ %call53, %if.end62 ], [ %call53, %if.end50 ], [ -1, %if.end43 ], [ -1, %if.end31 ], [ -1, %if.end26 ], [ -1, %if.end21 ], [ -1, %if.end15 ]
+  %acceptor.0.ph = phi i32 [ %call53, %if.end62 ], [ %call53, %if.end50 ], [ -1, %if.end43 ], [ -1, %if.end31 ], [ -1, %if.end26 ], [ -1, %if.end21 ], [ -1, %if.end15 ]
   %connector.0.ph = phi i32 [ %call27, %if.end62 ], [ %call27, %if.end50 ], [ %call27, %if.end43 ], [ %call27, %if.end31 ], [ %call27, %if.end26 ], [ -1, %if.end21 ], [ -1, %if.end15 ]
   %call101 = tail call ptr @__errno_location() #31
   %12 = load i32, ptr %call101, align 4
@@ -370,19 +370,19 @@ if.then105:                                       ; preds = %if.end62, %if.end50
 
 if.then110:                                       ; preds = %if.then105.thread, %if.then105
   %saved_errno.141 = phi i32 [ 103, %if.then105.thread ], [ %12, %if.then105 ]
-  %acceptor.12939 = phi i32 [ %acceptor.129.ph, %if.then105.thread ], [ %acceptor.1.ph, %if.then105 ]
+  %acceptor.02939 = phi i32 [ %acceptor.029.ph, %if.then105.thread ], [ %acceptor.0.ph, %if.then105 ]
   %connector.03138 = phi i32 [ %call27, %if.then105.thread ], [ %connector.0.ph, %if.then105 ]
   %call.i23 = call i32 @close(i32 noundef %connector.03138) #30
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then110, %if.then105
   %saved_errno.142 = phi i32 [ %saved_errno.141, %if.then110 ], [ %12, %if.then105 ]
-  %acceptor.12940 = phi i32 [ %acceptor.12939, %if.then110 ], [ %acceptor.1.ph, %if.then105 ]
-  %cmp113.not = icmp eq i32 %acceptor.12940, -1
+  %acceptor.02940 = phi i32 [ %acceptor.02939, %if.then110 ], [ %acceptor.0.ph, %if.then105 ]
+  %cmp113.not = icmp eq i32 %acceptor.02940, -1
   br i1 %cmp113.not, label %do.body118, label %if.then115
 
 if.then115:                                       ; preds = %if.end112
-  %call.i24 = call i32 @close(i32 noundef %acceptor.12940) #30
+  %call.i24 = call i32 @close(i32 noundef %acceptor.02940) #30
   br label %do.body118
 
 do.body118:                                       ; preds = %if.end112, %if.then115

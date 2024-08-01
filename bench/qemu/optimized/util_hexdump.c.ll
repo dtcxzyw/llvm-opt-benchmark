@@ -61,13 +61,13 @@ for.end:                                          ; preds = %for.inc
 
 if.then14:                                        ; preds = %for.end
   store i8 32, ptr %add.ptr9, align 1
-  %line.addr.327 = getelementptr i8, ptr %add.ptr9, i64 1
+  %line.addr.427 = getelementptr i8, ptr %add.ptr9, i64 1
   %cmp1728.not = icmp eq i32 %len, 0
   br i1 %cmp1728.not, label %if.end35, label %for.body19
 
 for.body19:                                       ; preds = %if.then14, %for.body19
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %for.body19 ], [ 0, %if.then14 ]
-  %line.addr.330 = phi ptr [ %line.addr.3, %for.body19 ], [ %line.addr.327, %if.then14 ]
+  %line.addr.430 = phi ptr [ %line.addr.4, %for.body19 ], [ %line.addr.427, %if.then14 ]
   %3 = trunc nuw nsw i64 %indvars.iv32 to i32
   %add20 = add i32 %3, %b
   %idxprom21 = zext i32 %add20 to i64
@@ -76,15 +76,15 @@ for.body19:                                       ; preds = %if.then14, %for.bod
   %5 = add i8 %4, -127
   %or.cond = icmp ult i8 %5, -95
   %narrow = select i1 %or.cond, i8 46, i8 %4
-  store i8 %narrow, ptr %line.addr.330, align 1
+  store i8 %narrow, ptr %line.addr.430, align 1
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %line.addr.3 = getelementptr i8, ptr %line.addr.330, i64 1
+  %line.addr.4 = getelementptr i8, ptr %line.addr.430, i64 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, %0
   br i1 %exitcond35.not, label %if.end35, label %for.body19, !llvm.loop !7
 
 if.end35:                                         ; preds = %for.body19, %if.then14, %for.end
-  %line.addr.4 = phi ptr [ %add.ptr9, %for.end ], [ %line.addr.327, %if.then14 ], [ %line.addr.3, %for.body19 ]
-  store i8 0, ptr %line.addr.4, align 1
+  %line.addr.3 = phi ptr [ %add.ptr9, %for.end ], [ %line.addr.427, %if.then14 ], [ %line.addr.4, %for.body19 ]
+  store i8 0, ptr %line.addr.3, align 1
   ret void
 }
 
@@ -156,13 +156,13 @@ for.inc.i:                                        ; preds = %if.else.i, %if.then
 
 for.end.i:                                        ; preds = %for.inc.i
   store i8 32, ptr %add.ptr9.i, align 1
-  %line.addr.327.i = getelementptr i8, ptr %add.ptr9.i, i64 1
+  %line.addr.427.i = getelementptr i8, ptr %add.ptr9.i, i64 1
   %cmp1728.not.i = icmp eq i32 %b.06, %0
   br i1 %cmp1728.not.i, label %qemu_hexdump_line.exit, label %for.body19.i
 
 for.body19.i:                                     ; preds = %for.end.i, %for.body19.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %for.body19.i ], [ 0, %for.end.i ]
-  %line.addr.330.i = phi ptr [ %line.addr.3.i, %for.body19.i ], [ %line.addr.327.i, %for.end.i ]
+  %line.addr.430.i = phi ptr [ %line.addr.4.i, %for.body19.i ], [ %line.addr.427.i, %for.end.i ]
   %4 = trunc nuw nsw i64 %indvars.iv32.i to i32
   %add20.i = add i32 %b.06, %4
   %idxprom21.i = zext i32 %add20.i to i64
@@ -171,15 +171,15 @@ for.body19.i:                                     ; preds = %for.end.i, %for.bod
   %6 = add i8 %5, -127
   %or.cond.i = icmp ult i8 %6, -95
   %narrow.i = select i1 %or.cond.i, i8 46, i8 %5
-  store i8 %narrow.i, ptr %line.addr.330.i, align 1
+  store i8 %narrow.i, ptr %line.addr.430.i, align 1
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %line.addr.3.i = getelementptr i8, ptr %line.addr.330.i, i64 1
+  %line.addr.4.i = getelementptr i8, ptr %line.addr.430.i, i64 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, %1
   br i1 %exitcond35.not.i, label %qemu_hexdump_line.exit, label %for.body19.i, !llvm.loop !7
 
 qemu_hexdump_line.exit:                           ; preds = %for.body19.i, %for.end.i
-  %line.addr.4.i = phi ptr [ %line.addr.327.i, %for.end.i ], [ %line.addr.3.i, %for.body19.i ]
-  store i8 0, ptr %line.addr.4.i, align 1
+  %line.addr.3.i = phi ptr [ %line.addr.427.i, %for.end.i ], [ %line.addr.4.i, %for.body19.i ]
+  store i8 0, ptr %line.addr.3.i, align 1
   %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fp, ptr noundef nonnull @.str.3, ptr noundef %prefix, ptr noundef nonnull %line)
   %add = add i32 %b.06, 16
   %conv = zext i32 %add to i64

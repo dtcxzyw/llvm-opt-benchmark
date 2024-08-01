@@ -430,8 +430,8 @@ lor.lhs.false75:                                  ; preds = %if.end71
   br i1 %tobool77.not, label %err, label %while.cond, !llvm.loop !7
 
 if.end80:                                         ; preds = %while.cond, %if.end34
-  %product_of_primes_so_far.0 = phi ptr [ null, %if.end34 ], [ %call50, %while.cond ]
-  %ctx.0 = phi ptr [ null, %if.end34 ], [ %call49, %while.cond ]
+  %product_of_primes_so_far.1 = phi ptr [ null, %if.end34 ], [ %call50, %while.cond ]
+  %ctx.1 = phi ptr [ null, %if.end34 ], [ %call49, %while.cond ]
   %call81 = call i64 @CBS_len(ptr noundef nonnull %child) #5
   %cmp82.not = icmp eq i64 %call81, 0
   br i1 %cmp82.not, label %if.end84, label %if.then83
@@ -441,15 +441,15 @@ if.then83:                                        ; preds = %if.end80
   br label %err
 
 if.end84:                                         ; preds = %if.end80
-  call void @BN_CTX_free(ptr noundef %ctx.0) #5
-  call void @BN_free(ptr noundef %product_of_primes_so_far.0) #5
+  call void @BN_CTX_free(ptr noundef %ctx.1) #5
+  call void @BN_free(ptr noundef %product_of_primes_so_far.1) #5
   br label %return
 
 err:                                              ; preds = %if.end71, %lor.lhs.false75, %while.body, %lor.lhs.false18, %lor.lhs.false15, %lor.lhs.false12, %if.end9, %if.end48, %lor.lhs.false54, %parse_integer.exit, %parse_integer.exit37, %parse_integer.exit43, %parse_integer.exit49, %lor.lhs.false21, %lor.lhs.false24, %lor.lhs.false27, %lor.lhs.false30, %if.then83, %if.then70, %if.then47, %if.then42, %if.then8, %if.then4
-  %product_of_primes_so_far.1 = phi ptr [ null, %if.then8 ], [ null, %if.then42 ], [ null, %if.then47 ], [ %call50, %if.end48 ], [ %call50, %if.then70 ], [ %product_of_primes_so_far.0, %if.then83 ], [ %call50, %lor.lhs.false54 ], [ null, %lor.lhs.false30 ], [ null, %lor.lhs.false27 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false21 ], [ null, %parse_integer.exit49 ], [ null, %parse_integer.exit43 ], [ null, %parse_integer.exit37 ], [ null, %parse_integer.exit ], [ null, %if.then4 ], [ null, %if.end9 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false18 ], [ %call50, %while.body ], [ %call50, %lor.lhs.false75 ], [ %call50, %if.end71 ]
-  %ctx.1 = phi ptr [ null, %if.then8 ], [ null, %if.then42 ], [ null, %if.then47 ], [ %call49, %if.end48 ], [ %call49, %if.then70 ], [ %ctx.0, %if.then83 ], [ %call49, %lor.lhs.false54 ], [ null, %lor.lhs.false30 ], [ null, %lor.lhs.false27 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false21 ], [ null, %parse_integer.exit49 ], [ null, %parse_integer.exit43 ], [ null, %parse_integer.exit37 ], [ null, %parse_integer.exit ], [ null, %if.then4 ], [ null, %if.end9 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false18 ], [ %call49, %while.body ], [ %call49, %lor.lhs.false75 ], [ %call49, %if.end71 ]
-  call void @BN_CTX_free(ptr noundef %ctx.1) #5
-  call void @BN_free(ptr noundef %product_of_primes_so_far.1) #5
+  %product_of_primes_so_far.0 = phi ptr [ null, %if.then8 ], [ null, %if.then42 ], [ null, %if.then47 ], [ %call50, %if.end48 ], [ %call50, %if.then70 ], [ %product_of_primes_so_far.1, %if.then83 ], [ %call50, %lor.lhs.false54 ], [ null, %lor.lhs.false30 ], [ null, %lor.lhs.false27 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false21 ], [ null, %parse_integer.exit49 ], [ null, %parse_integer.exit43 ], [ null, %parse_integer.exit37 ], [ null, %parse_integer.exit ], [ null, %if.then4 ], [ null, %if.end9 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false18 ], [ %call50, %while.body ], [ %call50, %lor.lhs.false75 ], [ %call50, %if.end71 ]
+  %ctx.0 = phi ptr [ null, %if.then8 ], [ null, %if.then42 ], [ null, %if.then47 ], [ %call49, %if.end48 ], [ %call49, %if.then70 ], [ %ctx.1, %if.then83 ], [ %call49, %lor.lhs.false54 ], [ null, %lor.lhs.false30 ], [ null, %lor.lhs.false27 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false21 ], [ null, %parse_integer.exit49 ], [ null, %parse_integer.exit43 ], [ null, %parse_integer.exit37 ], [ null, %parse_integer.exit ], [ null, %if.then4 ], [ null, %if.end9 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false18 ], [ %call49, %while.body ], [ %call49, %lor.lhs.false75 ], [ %call49, %if.end71 ]
+  call void @BN_CTX_free(ptr noundef %ctx.0) #5
+  call void @BN_free(ptr noundef %product_of_primes_so_far.0) #5
   call void @RSA_free(ptr noundef nonnull %call) #5
   br label %return
 

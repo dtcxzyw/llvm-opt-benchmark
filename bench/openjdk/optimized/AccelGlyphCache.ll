@@ -158,7 +158,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   br label %72
 
 72:                                               ; preds = %.preheader, %82
-  %.1 = phi ptr [ null, %82 ], [ %.090120, %.preheader ]
+  %.2 = phi ptr [ null, %82 ], [ %.090120, %.preheader ]
   %73 = load ptr, ptr %0, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
@@ -175,7 +175,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   br label %82
 
 82:                                               ; preds = %81, %77
-  %.2 = phi ptr [ %73, %81 ], [ %.1, %77 ]
+  %.3 = phi ptr [ %73, %81 ], [ %.2, %77 ]
   %83 = getelementptr inbounds i8, ptr %73, i64 16
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %0, align 8
@@ -186,11 +186,11 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   store ptr null, ptr %83, align 8
   %87 = getelementptr inbounds i8, ptr %73, i64 32
   store i32 0, ptr %87, align 8
-  %88 = icmp eq ptr %.2, null
+  %88 = icmp eq ptr %.3, null
   br i1 %88, label %72, label %89, !llvm.loop !6
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %.2, i64 8
+  %90 = getelementptr inbounds i8, ptr %.3, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not99 = icmp eq ptr %91, null
   br i1 %.not99, label %AccelGlyphCache_RemoveCellInfo.exit, label %92
@@ -210,11 +210,11 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %97 = phi ptr [ %.pre, %95 ], [ %91, %92 ]
   %98 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, %.2
+  %100 = icmp eq ptr %99, %.3
   br i1 %100, label %104, label %.lr.ph.i
 
 101:                                              ; preds = %.lr.ph.i
-  %102 = icmp eq ptr %110, %.2
+  %102 = icmp eq ptr %110, %.3
   br i1 %102, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %101
@@ -242,7 +242,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
 
 AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %104, %89
   store ptr %1, ptr %90, align 8
-  %111 = getelementptr inbounds i8, ptr %.2, i64 52
+  %111 = getelementptr inbounds i8, ptr %.3, i64 52
   %112 = load float, ptr %111, align 4
   %113 = uitofp i16 %5 to float
   %114 = getelementptr inbounds i8, ptr %0, i64 20
@@ -250,9 +250,9 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %104, %89
   %116 = sitofp i32 %115 to float
   %117 = fdiv float %113, %116
   %118 = fadd float %112, %117
-  %119 = getelementptr inbounds i8, ptr %.2, i64 60
+  %119 = getelementptr inbounds i8, ptr %.3, i64 60
   store float %118, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %.2, i64 56
+  %120 = getelementptr inbounds i8, ptr %.3, i64 56
   %121 = load float, ptr %120, align 8
   %122 = uitofp i16 %11 to float
   %123 = getelementptr inbounds i8, ptr %0, i64 24
@@ -260,25 +260,25 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %104, %89
   %125 = sitofp i32 %124 to float
   %126 = fdiv float %122, %125
   %127 = fadd float %121, %126
-  %128 = getelementptr inbounds i8, ptr %.2, i64 64
+  %128 = getelementptr inbounds i8, ptr %.3, i64 64
   store float %127, ptr %128, align 8
   br label %129
 
 129:                                              ; preds = %.thread121, %AccelGlyphCache_RemoveCellInfo.exit, %64
-  %.3 = phi ptr [ %.2, %AccelGlyphCache_RemoveCellInfo.exit ], [ %44, %64 ], [ %44, %.thread121 ]
-  %130 = getelementptr inbounds i8, ptr %.3, i64 8
+  %.1 = phi ptr [ %.3, %AccelGlyphCache_RemoveCellInfo.exit ], [ %44, %64 ], [ %44, %.thread121 ]
+  %130 = getelementptr inbounds i8, ptr %.1, i64 8
   store ptr %1, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %1, i64 24
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %.3, i64 24
+  %133 = getelementptr inbounds i8, ptr %.1, i64 24
   store ptr %132, ptr %133, align 8
-  store ptr %.3, ptr %131, align 8
+  store ptr %.1, ptr %131, align 8
   %134 = getelementptr inbounds i8, ptr %1, i64 14
   store i8 1, ptr %134, align 2
   br label %135
 
 135:                                              ; preds = %.thread, %2, %10, %129
-  %.0 = phi ptr [ %.3, %129 ], [ null, %10 ], [ null, %2 ], [ null, %.thread ]
+  %.0 = phi ptr [ %.1, %129 ], [ null, %10 ], [ null, %2 ], [ null, %.thread ]
   ret ptr %.0
 }
 

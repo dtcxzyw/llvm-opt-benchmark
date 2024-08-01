@@ -3194,8 +3194,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !14
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.141 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
-  %6 = load ptr, ptr %curr.141, align 8
+  %curr.241 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
+  %6 = load ptr, ptr %curr.241, align 8
   %magicptr32 = ptrtoint ptr %6 to i64
   switch i64 %magicptr32, label %if.then21 [
     i64 0, label %if.end55
@@ -3211,13 +3211,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond31, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.141, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.241, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !15
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.141, %if.then21 ], [ %curr.039, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.241, %if.then21 ], [ %curr.039, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
   %8 = load ptr, ptr %spec.select, align 8
@@ -3225,7 +3225,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i28, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %m_size, align 4
   %dec = add i32 %9, -1
@@ -3233,7 +3233,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1
@@ -7812,8 +7812,8 @@ return.critedge:                                  ; preds = %invoke.cont147
   br label %return
 
 return:                                           ; preds = %return.critedge, %if.end158, %land.lhs.true160, %lor.lhs.false, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %sw.bb77, %sw.bb70, %sw.bb63, %sw.bb56, %sw.bb49, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %_ZNK4decl13get_decl_kindEv.exit, %sw.bb43, %if.then46, %sw.bb39, %sw.bb36, %if.then20, %if.then10, %if.then164, %sw.bb131, %sw.bb128, %sw.bb125, %sw.bb122, %sw.bb119, %sw.bb116, %sw.bb113, %sw.bb110, %sw.bb108, %sw.bb106, %sw.bb100, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb92, %sw.bb91, %sw.bb90, %sw.bb87, %sw.bb84, %if.end81, %if.end74, %if.end67, %if.end60, %if.end53, %if.end42, %if.end38, %sw.bb, %if.then24, %if.then13, %if.then
-  %retval.1 = phi i32 [ 4, %if.then ], [ 4, %if.then13 ], [ 4, %if.then24 ], [ 3, %lor.lhs.false ], [ 4, %if.then164 ], [ 4, %sw.bb131 ], [ 4, %sw.bb128 ], [ 4, %sw.bb125 ], [ 4, %sw.bb122 ], [ 4, %sw.bb119 ], [ 4, %sw.bb116 ], [ 4, %sw.bb113 ], [ 4, %sw.bb110 ], [ 4, %sw.bb108 ], [ 4, %sw.bb106 ], [ 4, %sw.bb100 ], [ 4, %sw.bb96 ], [ 4, %sw.bb95 ], [ 4, %sw.bb94 ], [ 4, %sw.bb92 ], [ 4, %sw.bb91 ], [ 4, %sw.bb90 ], [ 4, %sw.bb87 ], [ 4, %sw.bb84 ], [ 4, %if.end81 ], [ 4, %if.end74 ], [ 4, %if.end67 ], [ 4, %if.end60 ], [ 4, %if.end53 ], [ 4, %if.end42 ], [ 4, %if.end38 ], [ 4, %sw.bb ], [ 5, %if.then10 ], [ 5, %if.then20 ], [ 5, %sw.bb36 ], [ 5, %sw.bb39 ], [ 5, %if.then46 ], [ 5, %sw.bb43 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %sw.bb49 ], [ 5, %sw.bb56 ], [ 5, %sw.bb63 ], [ 5, %sw.bb70 ], [ 5, %sw.bb77 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %land.lhs.true160 ], [ 5, %if.end158 ], [ 3, %return.critedge ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 4, %if.then ], [ 4, %if.then13 ], [ 4, %if.then24 ], [ 3, %lor.lhs.false ], [ 4, %if.then164 ], [ 4, %sw.bb131 ], [ 4, %sw.bb128 ], [ 4, %sw.bb125 ], [ 4, %sw.bb122 ], [ 4, %sw.bb119 ], [ 4, %sw.bb116 ], [ 4, %sw.bb113 ], [ 4, %sw.bb110 ], [ 4, %sw.bb108 ], [ 4, %sw.bb106 ], [ 4, %sw.bb100 ], [ 4, %sw.bb96 ], [ 4, %sw.bb95 ], [ 4, %sw.bb94 ], [ 4, %sw.bb92 ], [ 4, %sw.bb91 ], [ 4, %sw.bb90 ], [ 4, %sw.bb87 ], [ 4, %sw.bb84 ], [ 4, %if.end81 ], [ 4, %if.end74 ], [ 4, %if.end67 ], [ 4, %if.end60 ], [ 4, %if.end53 ], [ 4, %if.end42 ], [ 4, %if.end38 ], [ 4, %sw.bb ], [ 5, %if.then10 ], [ 5, %if.then20 ], [ 5, %sw.bb36 ], [ 5, %sw.bb39 ], [ 5, %if.then46 ], [ 5, %sw.bb43 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %sw.bb49 ], [ 5, %sw.bb56 ], [ 5, %sw.bb63 ], [ 5, %sw.bb70 ], [ 5, %sw.bb77 ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %_ZNK4decl13get_decl_kindEv.exit ], [ 5, %land.lhs.true160 ], [ 5, %if.end158 ], [ 3, %return.critedge ]
+  ret i32 %retval.0
 }
 
 declare noundef ptr @_ZN11ast_manager10mk_rewriteEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, ptr noundef) local_unnamed_addr #0

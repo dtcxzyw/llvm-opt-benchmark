@@ -2831,7 +2831,7 @@ do.body2.i:                                       ; preds = %if.then27
 
 if.end29:                                         ; preds = %do.body2.i, %if.then27, %if.end22
   %fulls.sroa.0.1 = phi ptr [ %fulls.sroa.0.0114, %if.end22 ], [ %.pre.i, %do.body2.i ], [ %call7, %if.then27 ]
-  %slab.1 = phi ptr [ %call7.mux, %if.end22 ], [ null, %do.body2.i ], [ null, %if.then27 ]
+  %slab.2 = phi ptr [ %call7.mux, %if.end22 ], [ null, %do.body2.i ], [ null, %if.then27 ]
   %cmp = icmp ult i64 %add, %nfill
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !21
 
@@ -2839,7 +2839,7 @@ while.end:                                        ; preds = %land.rhs, %if.end29
   %fulls.sroa.0.0.lcssa = phi ptr [ null, %arena_bin_choose.exit ], [ %fulls.sroa.0.1, %if.end29 ], [ %fulls.sroa.0.0114, %land.rhs ]
   %nslab.0.lcssa = phi i64 [ 0, %arena_bin_choose.exit ], [ %inc, %if.end29 ], [ %nslab.0115, %land.rhs ]
   %filled.0.lcssa = phi i64 [ 0, %arena_bin_choose.exit ], [ %add, %if.end29 ], [ %filled.0116, %land.rhs ]
-  %slab.2 = phi ptr [ null, %arena_bin_choose.exit ], [ %slab.1, %if.end29 ], [ null, %land.rhs ]
+  %slab.1 = phi ptr [ null, %arena_bin_choose.exit ], [ %slab.2, %if.end29 ], [ null, %land.rhs ]
   %lock.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #15
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -2870,11 +2870,11 @@ if.then.i.i:                                      ; preds = %if.end.i57
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i57, %if.then.i.i
-  %cmp30.not = icmp eq ptr %slab.2, null
+  %cmp30.not = icmp eq ptr %slab.1, null
   br i1 %cmp30.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %malloc_mutex_lock.exit
-  tail call fastcc void @arena_bin_lower_slab(ptr noundef %arena, ptr noundef nonnull %slab.2, ptr noundef nonnull %add.ptr.i.i)
+  tail call fastcc void @arena_bin_lower_slab(ptr noundef %arena, ptr noundef nonnull %slab.1, ptr noundef nonnull %add.ptr.i.i)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %malloc_mutex_lock.exit
@@ -6849,13 +6849,13 @@ if.then61.i:                                      ; preds = %percpu_arena_choose
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.then61.i, %percpu_arena_choose.exit.i
-  %ret.1.i = phi ptr [ %12, %if.then61.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
-  %last_thd65.i = getelementptr inbounds i8, ptr %ret.1.i, i64 16
+  %ret.2.i = phi ptr [ %12, %if.then61.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
+  %last_thd65.i = getelementptr inbounds i8, ptr %ret.2.i, i64 16
   store ptr %tsd, ptr %last_thd65.i, align 8
   br label %arena_choose_impl.exit
 
 arena_choose_impl.exit:                           ; preds = %entry, %if.then5.i, %if.then3.i.i, %if.end43.i, %land.lhs.true47.i, %land.lhs.true52.i, %if.end63.i
-  %retval.0.i = phi ptr [ %arena, %entry ], [ %ret.1.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %call4.i.i, %if.then3.i.i ], [ %2, %if.then5.i ]
+  %retval.0.i = phi ptr [ %arena, %entry ], [ %ret.2.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %call4.i.i, %if.then3.i.i ], [ %2, %if.then5.i ]
   ret ptr %retval.0.i
 }
 

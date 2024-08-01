@@ -743,8 +743,8 @@ define noundef ptr @_ZN8tinyxml27StrPair6GetStrEv(ptr nocapture noundef nonnull 
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11, %71
-  %.065 = phi ptr [ %.4, %71 ], [ %13, %11 ]
-  %.04764 = phi ptr [ %.249, %71 ], [ %13, %11 ]
+  %.065 = phi ptr [ %.2, %71 ], [ %13, %11 ]
+  %.04764 = phi ptr [ %.148, %71 ], [ %13, %11 ]
   %16 = load i32, ptr %0, align 8
   %17 = and i32 %16, 2
   %.not53 = icmp eq i32 %17, 0
@@ -772,7 +772,7 @@ define noundef ptr @_ZN8tinyxml27StrPair6GetStrEv(ptr nocapture noundef nonnull 
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 13
   %29 = getelementptr inbounds i8, ptr %.065, i64 2
-  %.2 = select i1 %28, ptr %29, ptr %26
+  %.3 = select i1 %28, ptr %29, ptr %26
   store i8 10, ptr %.04764, align 1
   %30 = getelementptr inbounds i8, ptr %.04764, i64 1
   br label %71
@@ -855,14 +855,14 @@ define noundef ptr @_ZN8tinyxml27StrPair6GetStrEv(ptr nocapture noundef nonnull 
   br label %71
 
 71:                                               ; preds = %.thread56, %25, %43, %40, %66, %68, %19
-  %.249 = phi ptr [ %24, %19 ], [ %30, %25 ], [ %42, %40 ], [ %48, %43 ], [ %67, %66 ], [ %70, %68 ], [ %61, %.thread56 ]
-  %.4 = phi ptr [ %.1, %19 ], [ %.2, %25 ], [ %34, %40 ], [ %38, %43 ], [ %34, %66 ], [ %69, %68 ], [ %64, %.thread56 ]
+  %.148 = phi ptr [ %24, %19 ], [ %30, %25 ], [ %42, %40 ], [ %48, %43 ], [ %67, %66 ], [ %70, %68 ], [ %61, %.thread56 ]
+  %.2 = phi ptr [ %.1, %19 ], [ %.3, %25 ], [ %34, %40 ], [ %38, %43 ], [ %34, %66 ], [ %69, %68 ], [ %64, %.thread56 ]
   %72 = load ptr, ptr %7, align 8
-  %73 = icmp ult ptr %.4, %72
+  %73 = icmp ult ptr %.2, %72
   br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %71, %11
-  %.047.lcssa = phi ptr [ %13, %11 ], [ %.249, %71 ]
+  %.047.lcssa = phi ptr [ %13, %11 ], [ %.148, %71 ]
   store i8 0, ptr %.047.lcssa, align 1
   %.pre73 = load i32, ptr %0, align 8
   %74 = and i32 %.pre73, 4
@@ -1065,7 +1065,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 .lr.ph91:                                         ; preds = %43, %50
   %48 = phi i8 [ %56, %50 ], [ %47, %43 ]
   %.05190 = phi ptr [ %.051, %50 ], [ %.05186, %43 ]
-  %.189 = phi i64 [ %54, %50 ], [ 0, %43 ]
+  %.289 = phi i64 [ %54, %50 ], [ 0, %43 ]
   %.15688 = phi i32 [ %55, %50 ], [ 1, %43 ]
   %49 = add i8 %48, -48
   %or.cond75 = icmp ult i8 %49, 10
@@ -1075,7 +1075,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   %51 = zext nneg i8 %49 to i32
   %52 = mul i32 %.15688, %51
   %53 = zext i32 %52 to i64
-  %54 = add i64 %.189, %53
+  %54 = add i64 %.289, %53
   %55 = mul i32 %.15688, 10
   %.051 = getelementptr inbounds i8, ptr %.05190, i64 -1
   %56 = load i8, ptr %.051, align 1
@@ -1084,7 +1084,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 
 .loopexit:                                        ; preds = %35, %50, %16, %43
   %.052 = phi i64 [ %46, %43 ], [ %19, %16 ], [ %46, %50 ], [ %19, %35 ]
-  %.2 = phi i64 [ 0, %43 ], [ 0, %16 ], [ %54, %50 ], [ %38, %35 ]
+  %.1 = phi i64 [ 0, %43 ], [ 0, %16 ], [ %54, %50 ], [ %38, %35 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1097,11 +1097,11 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   store i64 248, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 252, ptr %61, align 16
-  %62 = icmp ult i64 %.2, 128
+  %62 = icmp ult i64 %.1, 128
   br i1 %62, label %70, label %63
 
 63:                                               ; preds = %.loopexit
-  %64 = icmp ult i64 %.2, 2048
+  %64 = icmp ult i64 %.1, 2048
   br i1 %64, label %.thread32.i, label %65
 
 .thread32.i:                                      ; preds = %63
@@ -1109,7 +1109,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   br label %83
 
 65:                                               ; preds = %63
-  %66 = icmp ult i64 %.2, 65536
+  %66 = icmp ult i64 %.1, 65536
   br i1 %66, label %.thread31.i, label %67
 
 .thread31.i:                                      ; preds = %65
@@ -1117,7 +1117,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   br label %77
 
 67:                                               ; preds = %65
-  %68 = icmp ult i64 %.2, 2097152
+  %68 = icmp ult i64 %.1, 2097152
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %67
@@ -1131,15 +1131,15 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 71:                                               ; preds = %67
   store i32 4, ptr %2, align 4
   %72 = getelementptr inbounds i8, ptr %1, i64 3
-  %73 = trunc i64 %.2 to i8
+  %73 = trunc i64 %.1 to i8
   %74 = and i8 %73, 63
   %75 = or disjoint i8 %74, -128
   store i8 %75, ptr %72, align 1
-  %76 = lshr i64 %.2, 6
+  %76 = lshr i64 %.1, 6
   br label %77
 
 77:                                               ; preds = %71, %.thread31.i
-  %.0.i = phi i64 [ %76, %71 ], [ %.2, %.thread31.i ]
+  %.0.i = phi i64 [ %76, %71 ], [ %.1, %.thread31.i ]
   %78 = getelementptr inbounds i8, ptr %1, i64 2
   %79 = trunc i64 %.0.i to i8
   %80 = and i8 %79, 63
@@ -1149,7 +1149,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   br label %83
 
 83:                                               ; preds = %77, %.thread32.i
-  %.1.i = phi i64 [ %82, %77 ], [ %.2, %.thread32.i ]
+  %.1.i = phi i64 [ %82, %77 ], [ %.1, %.thread32.i ]
   %84 = getelementptr inbounds i8, ptr %1, i64 1
   %85 = trunc i64 %.1.i to i8
   %86 = and i8 %85, 63
@@ -1162,7 +1162,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 
 90:                                               ; preds = %83, %70
   %91 = phi i64 [ 1, %70 ], [ %89, %83 ]
-  %.2.i = phi i64 [ %.2, %70 ], [ %88, %83 ]
+  %.2.i = phi i64 [ %.1, %70 ], [ %88, %83 ]
   %92 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = or i64 %93, %.2.i
@@ -4224,16 +4224,16 @@ _ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit69:     ; preds = %.thread101
   br i1 %.not38, label %.critedge, label %.lr.ph227
 
 .critedge.sink.split:                             ; preds = %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit, %75, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i61.invoke, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i71
-  %.2.ph = phi ptr [ %37, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i71 ], [ null, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i61.invoke ], [ null, %75 ], [ null, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit ]
+  %.027.ph = phi ptr [ %37, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i71 ], [ null, %_ZN8tinyxml211XMLDocument9MarkInUseEPKNS_7XMLNodeE.exit.i61.invoke ], [ null, %75 ], [ null, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit ]
   call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit69, %28, %.lr.ph, %.critedge.sink.split, %_ZN8tinyxml211XMLDocument12DepthTrackerC2EPS0_.exit
-  %.2 = phi ptr [ null, %_ZN8tinyxml211XMLDocument12DepthTrackerC2EPS0_.exit ], [ %.2.ph, %.critedge.sink.split ], [ null, %.lr.ph ], [ null, %28 ], [ null, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit69 ]
+  %.027 = phi ptr [ null, %_ZN8tinyxml211XMLDocument12DepthTrackerC2EPS0_.exit ], [ %.027.ph, %.critedge.sink.split ], [ null, %.lr.ph ], [ null, %28 ], [ null, %_ZN8tinyxml27XMLNode10DeleteNodeEPS0_.exit69 ]
   %259 = load i32, ptr %9, align 4
   %260 = add nsw i32 %259, -1
   store i32 %260, ptr %9, align 4
-  ret ptr %.2
+  ret ptr %.027
 
 261:                                              ; preds = %76, %24
   %.pn = phi { ptr, i32 } [ %lpad.phi, %76 ], [ %25, %24 ]
@@ -11424,7 +11424,7 @@ define void @_ZN8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull alig
 
 .lr.ph46:                                         ; preds = %7, %49
   %10 = phi i8 [ %51, %49 ], [ %9, %7 ]
-  %.045 = phi ptr [ %.2, %49 ], [ %1, %7 ]
+  %.045 = phi ptr [ %.1, %49 ], [ %1, %7 ]
   %.03544 = phi ptr [ %50, %49 ], [ %1, %7 ]
   %or.cond = icmp ult i8 %10, 64
   br i1 %or.cond, label %11, label %49
@@ -11450,19 +11450,19 @@ define void @_ZN8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull alig
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader40
   %18 = phi i8 [ %10, %.preheader40 ], [ %.pre, %.preheader.loopexit ]
-  %.1.lcssa = phi ptr [ %.045, %.preheader40 ], [ %26, %.preheader.loopexit ]
+  %.2.lcssa = phi ptr [ %.045, %.preheader40 ], [ %26, %.preheader.loopexit ]
   br label %29
 
 19:                                               ; preds = %.lr.ph, %19
-  %.141 = phi ptr [ %.045, %.lr.ph ], [ %26, %19 ]
-  %20 = ptrtoint ptr %.141 to i64
+  %.241 = phi ptr [ %.045, %.lr.ph ], [ %26, %19 ]
+  %20 = ptrtoint ptr %.241 to i64
   %21 = sub i64 %17, %20
   %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 2147483647)
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 112
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %.141, i64 noundef %22)
-  %26 = getelementptr inbounds i8, ptr %.141, i64 %22
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %.241, i64 noundef %22)
+  %26 = getelementptr inbounds i8, ptr %.241, i64 %22
   %27 = icmp ult ptr %26, %.03544
   br i1 %27, label %19, label %.preheader.loopexit, !llvm.loop !40
 
@@ -11499,29 +11499,29 @@ define void @_ZN8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef nonnull alig
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %34
-  %48 = getelementptr inbounds i8, ptr %.1.lcssa, i64 1
+  %48 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
   br label %49
 
 49:                                               ; preds = %11, %.loopexit, %.lr.ph46
-  %.2 = phi ptr [ %48, %.loopexit ], [ %.045, %11 ], [ %.045, %.lr.ph46 ]
+  %.1 = phi ptr [ %48, %.loopexit ], [ %.045, %11 ], [ %.045, %.lr.ph46 ]
   %50 = getelementptr inbounds i8, ptr %.03544, i64 1
   %51 = load i8, ptr %50, align 1
   %.not = icmp eq i8 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph46, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %49
-  %52 = icmp ult ptr %.2, %50
+  %52 = icmp ult ptr %.1, %50
   br i1 %52, label %53, label %._crit_edge.thread
 
 53:                                               ; preds = %._crit_edge
   %54 = ptrtoint ptr %50 to i64
-  %55 = ptrtoint ptr %.2 to i64
+  %55 = ptrtoint ptr %.1 to i64
   %56 = sub i64 %54, %55
   %57 = tail call i64 @llvm.umin.i64(i64 %56, i64 2147483647)
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
-  tail call void %60(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %.2, i64 noundef %57)
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %.1, i64 noundef %57)
   br label %._crit_edge.thread
 
 61:                                               ; preds = %3

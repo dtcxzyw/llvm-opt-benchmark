@@ -758,7 +758,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %87
 
 87:                                               ; preds = %83, %85, %77, %69
-  %.0344 = phi i32 [ %86, %85 ], [ 0, %83 ], [ 0, %77 ], [ 0, %69 ]
+  %.1 = phi i32 [ %86, %85 ], [ 0, %83 ], [ 0, %77 ], [ 0, %69 ]
   %88 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %57) #9
   %89 = load ptr, ptr %71, align 8
   %90 = call ptr @tvb_memdup(ptr noundef %89, ptr noundef %0, i32 noundef %56, i64 noundef 6) #9
@@ -799,7 +799,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %107
 
 107:                                              ; preds = %87, %94, %105, %102, %64, %60, %51
-  %.1 = phi i32 [ %106, %105 ], [ %.0344, %102 ], [ %.0344, %94 ], [ %.0344, %87 ], [ 0, %64 ], [ 0, %60 ], [ 0, %51 ]
+  %.0344 = phi i32 [ %106, %105 ], [ %.1, %102 ], [ %.1, %94 ], [ %.1, %87 ], [ 0, %64 ], [ 0, %60 ], [ 0, %51 ]
   %108 = load i32, ptr %10, align 4
   %109 = add i32 %108, -1
   %or.cond18 = icmp ult i32 %109, 2
@@ -1482,7 +1482,7 @@ proto_item_set_generated.exit399:                 ; preds = %427, %424, %421, %p
   br label %483
 
 483:                                              ; preds = %482, %480
-  %.not382 = icmp eq i32 %.1, 0
+  %.not382 = icmp eq i32 %.0344, 0
   br i1 %.not382, label %492, label %484
 
 484:                                              ; preds = %483

@@ -52,13 +52,13 @@ define internal fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1) unnamed
   br i1 %.not21, label %.critedge, label %.preheader, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader, %25, %18
-  %.0 = phi i32 [ -22, %18 ], [ %23, %.preheader ], [ 0, %25 ]
+  %.1 = phi i32 [ -22, %18 ], [ %23, %.preheader ], [ 0, %25 ]
   tail call void @mm_map_unlock() #2
   br label %27
 
 27:                                               ; preds = %.critedge, %14
-  %.1 = phi i32 [ %.0, %.critedge ], [ %16, %14 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %.critedge ], [ %16, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

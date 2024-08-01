@@ -4675,17 +4675,17 @@ cleanup:                                          ; preds = %invoke.cont164, %in
 
 ehcleanup172:                                     ; preds = %ehcleanup167, %ehcleanup145, %ehcleanup101, %ehcleanup40, %ehcleanup, %lpad2
   %.pn17 = phi { ptr, i32 } [ %6, %lpad2 ], [ %.pn15, %ehcleanup167 ], [ %.pn13, %ehcleanup145 ], [ %.pn11, %ehcleanup101 ], [ %.pn9, %ehcleanup40 ], [ %.pn, %ehcleanup ]
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn17, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn17, 1
   %44 = load i32, ptr %d_simplifyAssertionsDepth, align 8
   %dec.i381 = add i32 %44, -1
   store i32 %dec.i381, ptr %d_simplifyAssertionsDepth, align 8
   %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal28TypeCheckingExceptionPrivateE) #18
-  %matches = icmp eq i32 %ehselector.slot.5, %45
+  %matches = icmp eq i32 %ehselector.slot.0, %45
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %ehcleanup172
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn17, 0
-  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #18
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn17, 0
+  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #18
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp173, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal3smt17ProcessAssertions18simplifyAssertionsERNS0_13preprocessing17AssertionPipelineE, ptr noundef nonnull @.str.61, i32 noundef 431)
           to label %invoke.cont175 unwind label %lpad174
 

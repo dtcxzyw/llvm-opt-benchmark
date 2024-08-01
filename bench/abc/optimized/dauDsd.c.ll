@@ -3008,21 +3008,21 @@ define i32 @Dau_DsdPerform_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
 
 ._crit_edge351:                                   ; preds = %5, %.preheader279, %.preheader278, %._crit_edge351.loopexit, %.preheader277
   %.0253.lcssa443445447450 = phi i32 [ %.1254, %.preheader277 ], [ %.1254, %._crit_edge351.loopexit ], [ %.1254, %.preheader278 ], [ %.1254, %.preheader279 ], [ 0, %5 ]
-  %.2 = phi i64 [ -1, %.preheader277 ], [ %267, %._crit_edge351.loopexit ], [ -1, %.preheader278 ], [ -1, %.preheader279 ], [ -1, %5 ]
+  %.1247 = phi i64 [ -1, %.preheader277 ], [ %267, %._crit_edge351.loopexit ], [ -1, %.preheader278 ], [ -1, %.preheader279 ], [ -1, %5 ]
   %268 = sext i32 %2 to i64
   %269 = getelementptr inbounds i8, ptr %1, i64 %268
   store i8 60, ptr %269, align 1
-  %270 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %.2
+  %270 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %.1247
   %271 = load i32, ptr %270, align 4
   %272 = trunc i32 %271 to i8
   %273 = add i8 %272, 97
   %274 = add nsw i32 %2, 2
   %275 = getelementptr i8, ptr %269, i64 1
   store i8 %273, ptr %275, align 1
-  %276 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 %.2
+  %276 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 %.1247
   %277 = load i64, ptr %276, align 8
   %278 = call i32 @Dau_DsdPerform_rec(i64 noundef %277, ptr noundef %1, i32 noundef %274, ptr noundef nonnull %9, i32 noundef %.0253.lcssa443445447450)
-  %279 = getelementptr inbounds [6 x i64], ptr %7, i64 0, i64 %.2
+  %279 = getelementptr inbounds [6 x i64], ptr %7, i64 0, i64 %.1247
   %280 = load i64, ptr %279, align 8
   %281 = call i32 @Dau_DsdPerform_rec(i64 noundef %280, ptr noundef %1, i32 noundef %278, ptr noundef nonnull %9, i32 noundef %.0253.lcssa443445447450)
   %282 = add nsw i32 %281, 1
@@ -4349,7 +4349,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br label %17
 
 17:                                               ; preds = %._crit_edge.thread, %Abc_Clock.exit
-  %.028 = phi i32 [ %3, %Abc_Clock.exit ], [ %.5, %._crit_edge.thread ]
+  %.028 = phi i32 [ %3, %Abc_Clock.exit ], [ %.2, %._crit_edge.thread ]
   %smin = call i32 @llvm.smin.i32(i32 %.028, i32 1)
   %18 = add i32 %smin, -1
   %19 = icmp sgt i32 %.028, 1
@@ -4363,7 +4363,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %._crit_edge
   %indvars.iv.next5688 = phi i64 [ %indvars.iv.next5685, %.lr.ph.lr.ph ], [ %indvars.iv.next56, %._crit_edge ]
-  %.187 = phi i32 [ %.028, %.lr.ph.lr.ph ], [ %.3, %._crit_edge ]
+  %.187 = phi i32 [ %.028, %.lr.ph.lr.ph ], [ %.5, %._crit_edge ]
   %indvars.iv86 = phi i32 [ %20, %.lr.ph.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %21 = trunc i64 %indvars.iv.next5688 to i32
   %22 = zext i32 %indvars.iv86 to i64
@@ -4376,7 +4376,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 28:                                               ; preds = %.lr.ph, %233
   %indvars.iv53 = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next54, %233 ]
-  %.239 = phi i32 [ %.187, %.lr.ph ], [ %.3, %233 ]
+  %.339 = phi i32 [ %.187, %.lr.ph ], [ %.5, %233 ]
   %29 = load i32, ptr %23, align 4
   %30 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv53
   %31 = load i32, ptr %30, align 4
@@ -4634,19 +4634,19 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %209 = load i32, ptr %15, align 4
   %210 = add nsw i32 %209, -1
   store i32 %210, ptr %30, align 4
-  %211 = add nsw i32 %.239, -1
+  %211 = add nsw i32 %.339, -1
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i32, ptr %2, i64 %212
   %214 = load i32, ptr %213, align 4
   store i32 %214, ptr %23, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %1, i32 noundef %.239, i32 noundef %21, i32 noundef %211)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %1, i32 noundef %.339, i32 noundef %21, i32 noundef %211)
   %215 = trunc nuw i64 %indvars.iv53 to i32
   %216 = call fastcc i32 @Dau_Dsd6DecomposeSingleVarOne(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %211, i32 noundef %215)
   %.not116.i = icmp eq i32 %216, 0
   br i1 %.not116.i, label %Dau_Dsd6DecomposeDoubleVarsOne.exit, label %217
 
 217:                                              ; preds = %Dau_DsdAddVarDef.exit.i
-  %218 = add nsw i32 %.239, -2
+  %218 = add nsw i32 %.339, -2
   %219 = call i32 @Dau_Dsd6DecomposeSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %218)
   br label %Dau_Dsd6DecomposeDoubleVarsOne.exit
 
@@ -4654,7 +4654,7 @@ Dau_Dsd6FindSupportOne.exit.i.unreachabledefault: ; preds = %Dau_Dsd6FindSupport
   unreachable
 
 Dau_Dsd6DecomposeDoubleVarsOne.exit:              ; preds = %Dau_Dsd6FindSupportOne.exit.i, %61, %70, %118, %170, %Dau_DsdAddVarDef.exit.i, %217
-  %.0.i30 = phi i32 [ %.239, %Dau_Dsd6FindSupportOne.exit.i ], [ %.239, %118 ], [ %.239, %170 ], [ %.239, %61 ], [ %.239, %70 ], [ %219, %217 ], [ %211, %Dau_DsdAddVarDef.exit.i ]
+  %.0.i30 = phi i32 [ %.339, %Dau_Dsd6FindSupportOne.exit.i ], [ %.339, %118 ], [ %.339, %170 ], [ %.339, %61 ], [ %.339, %70 ], [ %219, %217 ], [ %211, %Dau_DsdAddVarDef.exit.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6)
   %220 = icmp eq i32 %.0.i30, 0
   br i1 %220, label %221, label %231
@@ -4680,11 +4680,11 @@ Abc_Clock.exit32:                                 ; preds = %221, %224
   br label %240
 
 231:                                              ; preds = %Dau_Dsd6DecomposeDoubleVarsOne.exit
-  %232 = icmp sgt i32 %.239, %.0.i30
+  %232 = icmp sgt i32 %.339, %.0.i30
   br i1 %232, label %._crit_edge.thread, label %233
 
 233:                                              ; preds = %231, %28
-  %.3 = phi i32 [ %.239, %28 ], [ %.0.i30, %231 ]
+  %.5 = phi i32 [ %.339, %28 ], [ %.0.i30, %231 ]
   %234 = trunc nuw i64 %indvars.iv53 to i32
   %235 = icmp sgt i32 %234, 0
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
@@ -4698,7 +4698,7 @@ Abc_Clock.exit32:                                 ; preds = %221, %224
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %231, %17
   %.027.lcssa = phi i32 [ %18, %17 ], [ %21, %231 ], [ %18, %._crit_edge ]
-  %.5 = phi i32 [ %.028, %17 ], [ %.0.i30, %231 ], [ %.3, %._crit_edge ]
+  %.2 = phi i32 [ %.028, %17 ], [ %.0.i30, %231 ], [ %.5, %._crit_edge ]
   %237 = icmp eq i32 %.027.lcssa, 0
   br i1 %237, label %238, label %17
 
@@ -4708,7 +4708,7 @@ Abc_Clock.exit32:                                 ; preds = %221, %224
 
 240:                                              ; preds = %238, %Abc_Clock.exit32
   %.sink72 = phi i64 [ %239, %238 ], [ %.0.i31, %Abc_Clock.exit32 ]
-  %.0 = phi i32 [ %.5, %238 ], [ 0, %Abc_Clock.exit32 ]
+  %.0 = phi i32 [ %.2, %238 ], [ 0, %Abc_Clock.exit32 ]
   %241 = add i64 %.sink72, %.0.i.neg48
   %242 = load i64, ptr @s_Times.1, align 16
   %243 = add nsw i64 %241, %242
@@ -5432,12 +5432,12 @@ define internal fastcc range(i32 1, 3) i32 @Dau_DsdWritePrime(ptr noundef %0, pt
 
 .lr.ph.us.i:                                      ; preds = %select.unfold..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
   %.01929.us.i = phi ptr [ %.019.us.i, %select.unfold..loopexit_crit_edge.us.i ], [ %.01926.i, %.lr.ph.us.preheader.i ]
-  %.028.us.i = phi ptr [ %49, %select.unfold..loopexit_crit_edge.us.i ], [ %23, %.lr.ph.us.preheader.i ]
+  %.128.us.i = phi ptr [ %49, %select.unfold..loopexit_crit_edge.us.i ], [ %23, %.lr.ph.us.preheader.i ]
   br label %select.unfold.us.i
 
 select.unfold.us.i:                               ; preds = %select.unfold.us.i, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ %40, %.lr.ph.us.i ], [ %indvars.iv.next.i, %select.unfold.us.i ]
-  %.125.us.i = phi ptr [ %.028.us.i, %.lr.ph.us.i ], [ %49, %select.unfold.us.i ]
+  %.225.us.i = phi ptr [ %.128.us.i, %.lr.ph.us.i ], [ %49, %select.unfold.us.i ]
   %41 = load i64, ptr %.01929.us.i, align 8
   %42 = shl i64 %indvars.iv.i, 2
   %43 = and i64 %42, 4294967292
@@ -5448,8 +5448,8 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   %48 = trunc nuw nsw i32 %46 to i8
   %.0.v.i21.us.i = select i1 %47, i8 48, i8 55
   %.0.i22.us.i = add nuw nsw i8 %.0.v.i21.us.i, %48
-  %49 = getelementptr inbounds i8, ptr %.125.us.i, i64 1
-  store i8 %.0.i22.us.i, ptr %.125.us.i, align 1
+  %49 = getelementptr inbounds i8, ptr %.225.us.i, i64 1
+  store i8 %.0.i22.us.i, ptr %.225.us.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %50 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %50, label %select.unfold.us.i, label %select.unfold..loopexit_crit_edge.us.i, !llvm.loop !82
@@ -5460,8 +5460,8 @@ select.unfold..loopexit_crit_edge.us.i:           ; preds = %select.unfold.us.i
   br i1 %.not.us.i, label %Abc_TtWriteHexRev.exit, label %.lr.ph.us.i, !llvm.loop !83
 
 Abc_TtWriteHexRev.exit:                           ; preds = %select.unfold..loopexit_crit_edge.us.i, %28, %35
-  %.2.i = phi ptr [ %34, %28 ], [ %23, %35 ], [ %49, %select.unfold..loopexit_crit_edge.us.i ]
-  %51 = ptrtoint ptr %.2.i to i64
+  %.0.i = phi ptr [ %34, %28 ], [ %23, %35 ], [ %49, %select.unfold..loopexit_crit_edge.us.i ]
+  %51 = ptrtoint ptr %.0.i to i64
   %52 = ptrtoint ptr %23 to i64
   %53 = sub i64 %51, %52
   %54 = trunc i64 %53 to i32
@@ -5758,12 +5758,12 @@ Dau_DsdWriteString.exit70:                        ; preds = %.lr.ph.i67, %Abc_Tt
 
 .lr.ph.us.i80:                                    ; preds = %select.unfold..loopexit_crit_edge.us.i89, %.lr.ph.us.preheader.i78
   %.01929.us.i81 = phi ptr [ %.019.us.i90, %select.unfold..loopexit_crit_edge.us.i89 ], [ %.01926.i76, %.lr.ph.us.preheader.i78 ]
-  %.028.us.i82 = phi ptr [ %210, %select.unfold..loopexit_crit_edge.us.i89 ], [ %182, %.lr.ph.us.preheader.i78 ]
+  %.128.us.i82 = phi ptr [ %210, %select.unfold..loopexit_crit_edge.us.i89 ], [ %182, %.lr.ph.us.preheader.i78 ]
   br label %select.unfold.us.i83
 
 select.unfold.us.i83:                             ; preds = %select.unfold.us.i83, %.lr.ph.us.i80
   %indvars.iv.i84 = phi i64 [ %201, %.lr.ph.us.i80 ], [ %indvars.iv.next.i88, %select.unfold.us.i83 ]
-  %.125.us.i85 = phi ptr [ %.028.us.i82, %.lr.ph.us.i80 ], [ %210, %select.unfold.us.i83 ]
+  %.225.us.i85 = phi ptr [ %.128.us.i82, %.lr.ph.us.i80 ], [ %210, %select.unfold.us.i83 ]
   %202 = load i64, ptr %.01929.us.i81, align 8
   %203 = shl i64 %indvars.iv.i84, 2
   %204 = and i64 %203, 4294967292
@@ -5774,8 +5774,8 @@ select.unfold.us.i83:                             ; preds = %select.unfold.us.i8
   %209 = trunc nuw nsw i32 %207 to i8
   %.0.v.i21.us.i86 = select i1 %208, i8 48, i8 55
   %.0.i22.us.i87 = add nuw nsw i8 %.0.v.i21.us.i86, %209
-  %210 = getelementptr inbounds i8, ptr %.125.us.i85, i64 1
-  store i8 %.0.i22.us.i87, ptr %.125.us.i85, align 1
+  %210 = getelementptr inbounds i8, ptr %.225.us.i85, i64 1
+  store i8 %.0.i22.us.i87, ptr %.225.us.i85, align 1
   %indvars.iv.next.i88 = add nsw i64 %indvars.iv.i84, -1
   %211 = icmp sgt i64 %indvars.iv.i84, 0
   br i1 %211, label %select.unfold.us.i83, label %select.unfold..loopexit_crit_edge.us.i89, !llvm.loop !82
@@ -5786,8 +5786,8 @@ select.unfold..loopexit_crit_edge.us.i89:         ; preds = %select.unfold.us.i8
   br i1 %.not.us.i91, label %Abc_TtWriteHexRev.exit95, label %.lr.ph.us.i80, !llvm.loop !83
 
 Abc_TtWriteHexRev.exit95:                         ; preds = %select.unfold..loopexit_crit_edge.us.i89, %187, %194
-  %.2.i92 = phi ptr [ %193, %187 ], [ %182, %194 ], [ %210, %select.unfold..loopexit_crit_edge.us.i89 ]
-  %212 = ptrtoint ptr %.2.i92 to i64
+  %.0.i92 = phi ptr [ %193, %187 ], [ %182, %194 ], [ %210, %select.unfold..loopexit_crit_edge.us.i89 ]
+  %212 = ptrtoint ptr %.0.i92 to i64
   %213 = ptrtoint ptr %182 to i64
   %214 = sub i64 %212, %213
   %215 = trunc i64 %214 to i32
@@ -6910,7 +6910,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   br label %27
 
 27:                                               ; preds = %._crit_edge.thread, %Abc_Clock.exit
-  %.028 = phi i32 [ %3, %Abc_Clock.exit ], [ %.5, %._crit_edge.thread ]
+  %.028 = phi i32 [ %3, %Abc_Clock.exit ], [ %.2, %._crit_edge.thread ]
   %smin = call i32 @llvm.smin.i32(i32 %.028, i32 1)
   %28 = add i32 %smin, -1
   %29 = icmp sgt i32 %.028, 1
@@ -6922,7 +6922,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %._crit_edge
-  %.1224 = phi i32 [ %.028, %.lr.ph.lr.ph ], [ %.3, %._crit_edge ]
+  %.1224 = phi i32 [ %.028, %.lr.ph.lr.ph ], [ %.5, %._crit_edge ]
   %indvars.iv223 = phi i32 [ %31, %.lr.ph.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %indvars.iv134222 = phi i64 [ %30, %.lr.ph.lr.ph ], [ %indvars.iv.next135225, %._crit_edge ]
   %indvars.iv.next135225 = add nsw i64 %indvars.iv134222, -1
@@ -6947,7 +6947,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
 
 46:                                               ; preds = %.lr.ph, %938
   %indvars.iv132 = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next133, %938 ]
-  %.268 = phi i32 [ %.1224, %.lr.ph ], [ %.3, %938 ]
+  %.368 = phi i32 [ %.1224, %.lr.ph ], [ %.5, %938 ]
   %47 = load i32, ptr %34, align 4
   %48 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv132
   %49 = load i32, ptr %48, align 4
@@ -6970,12 +6970,12 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false)
-  %55 = icmp slt i32 %.268, 7
-  %56 = add nsw i32 %.268, -6
+  %55 = icmp slt i32 %.368, 7
+  %56 = add nsw i32 %.368, -6
   %57 = shl nuw i32 1, %56
   %58 = select i1 %55, i32 1, i32 %57
   %59 = trunc nuw i64 %indvars.iv132 to i32
-  %60 = call fastcc i32 @Dau_DsdFindSupportOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.268, i32 noundef %32, i32 noundef %59)
+  %60 = call fastcc i32 @Dau_DsdFindSupportOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.368, i32 noundef %32, i32 noundef %59)
   switch i32 %60, label %Dau_DsdDecomposeDoubleVarsOne.exit [
     i32 3, label %61
     i32 2, label %228
@@ -8894,23 +8894,23 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %915 = load i32, ptr %25, align 4
   %916 = add nsw i32 %915, -1
   store i32 %916, ptr %48, align 4
-  %917 = add nsw i32 %.268, -1
+  %917 = add nsw i32 %.368, -1
   %918 = sext i32 %917 to i64
   %919 = getelementptr inbounds i32, ptr %2, i64 %918
   %920 = load i32, ptr %919, align 4
   store i32 %920, ptr %34, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %.268, i32 noundef %32, i32 noundef %917)
+  call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %.368, i32 noundef %32, i32 noundef %917)
   %921 = call fastcc i32 @Dau_DsdDecomposeSingleVarOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %917, i32 noundef %59)
   %.not148.i = icmp eq i32 %921, 0
   br i1 %.not148.i, label %Dau_DsdDecomposeDoubleVarsOne.exit, label %922
 
 922:                                              ; preds = %Dau_DsdAddVarDef.exit.i
-  %923 = add nsw i32 %.268, -2
+  %923 = add nsw i32 %.368, -2
   %924 = call i32 @Dau_DsdDecomposeSingleVar(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %923)
   br label %Dau_DsdDecomposeDoubleVarsOne.exit
 
 Dau_DsdDecomposeDoubleVarsOne.exit:               ; preds = %54, %61, %63, %397, %729, %Dau_DsdAddVarDef.exit.i, %922
-  %.0.i30 = phi i32 [ %.268, %54 ], [ %.268, %397 ], [ %.268, %729 ], [ %.268, %61 ], [ %.268, %63 ], [ %924, %922 ], [ %917, %Dau_DsdAddVarDef.exit.i ]
+  %.0.i30 = phi i32 [ %.368, %54 ], [ %.368, %397 ], [ %.368, %729 ], [ %.368, %61 ], [ %.368, %63 ], [ %924, %922 ], [ %917, %Dau_DsdAddVarDef.exit.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
@@ -8941,12 +8941,12 @@ Abc_Clock.exit32:                                 ; preds = %926, %929
   br label %944
 
 936:                                              ; preds = %Dau_DsdDecomposeDoubleVarsOne.exit
-  %937 = icmp sgt i32 %.268, %.0.i30
+  %937 = icmp sgt i32 %.368, %.0.i30
   br i1 %937, label %._crit_edge.thread, label %938
 
 938:                                              ; preds = %._crit_edge137, %936
   %.pre-phi = phi i32 [ %.pre, %._crit_edge137 ], [ %59, %936 ]
-  %.3 = phi i32 [ %.268, %._crit_edge137 ], [ %.0.i30, %936 ]
+  %.5 = phi i32 [ %.368, %._crit_edge137 ], [ %.0.i30, %936 ]
   %939 = icmp sgt i32 %.pre-phi, 0
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, -1
   br i1 %939, label %46, label %._crit_edge, !llvm.loop !107
@@ -8958,7 +8958,7 @@ Abc_Clock.exit32:                                 ; preds = %926, %929
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %936, %27
   %.027.lcssa = phi i32 [ %28, %27 ], [ %32, %936 ], [ %28, %._crit_edge ]
-  %.5 = phi i32 [ %.028, %27 ], [ %.0.i30, %936 ], [ %.3, %._crit_edge ]
+  %.2 = phi i32 [ %.028, %27 ], [ %.0.i30, %936 ], [ %.5, %._crit_edge ]
   %941 = icmp eq i32 %.027.lcssa, 0
   br i1 %941, label %942, label %27
 
@@ -8968,7 +8968,7 @@ Abc_Clock.exit32:                                 ; preds = %926, %929
 
 944:                                              ; preds = %942, %Abc_Clock.exit32
   %.sink181 = phi i64 [ %943, %942 ], [ %.0.i31, %Abc_Clock.exit32 ]
-  %.0 = phi i32 [ %.5, %942 ], [ 0, %Abc_Clock.exit32 ]
+  %.0 = phi i32 [ %.2, %942 ], [ 0, %Abc_Clock.exit32 ]
   %945 = add i64 %.sink181, %.0.i.neg98
   %946 = load i64, ptr @s_Times.1, align 16
   %947 = add nsw i64 %945, %946
@@ -9703,15 +9703,15 @@ Abc_TtCheckEqualCofs.exit:                        ; preds = %._crit_edge124.spli
   br label %358
 
 358:                                              ; preds = %Abc_TtCheckEqualCofs.exit, %Abc_TtCheckEqualCofs.exit176
-  %.0.in.i = phi i32 [ %224, %Abc_TtCheckEqualCofs.exit176 ], [ %357, %Abc_TtCheckEqualCofs.exit ]
-  %.0.i52 = xor i32 %.0.in.i, 3
+  %.1.in.i = phi i32 [ %224, %Abc_TtCheckEqualCofs.exit176 ], [ %357, %Abc_TtCheckEqualCofs.exit ]
+  %.1.i52 = xor i32 %.1.in.i, 3
   br i1 %.not.i50, label %Dau_DsdFindSupportOne.exit, label %359
 
 359:                                              ; preds = %358
   %360 = load i32, ptr %49, align 4
   %361 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %362 = load i32, ptr %361, align 4
-  %363 = trunc nuw nsw i32 %.0.i52 to i8
+  %363 = trunc nuw nsw i32 %.1.i52 to i8
   %364 = sext i32 %360 to i64
   %365 = sext i32 %362 to i64
   %366 = getelementptr inbounds [32 x [32 x i8]], ptr %18, i64 0, i64 %364, i64 %365
@@ -9719,10 +9719,10 @@ Abc_TtCheckEqualCofs.exit:                        ; preds = %._crit_edge124.spli
   br label %Dau_DsdFindSupportOne.exit
 
 Dau_DsdFindSupportOne.exit:                       ; preds = %63, %358, %359
-  %.1.i51 = phi i32 [ %.0.i52, %359 ], [ %.0.i52, %358 ], [ %71, %63 ]
+  %.0.i51 = phi i32 [ %.1.i52, %359 ], [ %.1.i52, %358 ], [ %71, %63 ]
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %367 = shl i32 %indvars.iv.tr, 1
-  %368 = shl i32 %.1.i51, %367
+  %368 = shl i32 %.0.i51, %367
   %369 = or i32 %368, %.017.i
   br label %370
 
@@ -12403,8 +12403,8 @@ define internal fastcc i32 @Dau_DsdFindSupportOne(ptr noundef %0, ptr noundef %1
   br label %36
 
 36:                                               ; preds = %31, %26
-  %.0.in = phi i32 [ %30, %26 ], [ %35, %31 ]
-  %.0 = xor i32 %.0.in, 3
+  %.1.in = phi i32 [ %30, %26 ], [ %35, %31 ]
+  %.1 = xor i32 %.1.in, 3
   br i1 %.not, label %49, label %37
 
 37:                                               ; preds = %36
@@ -12414,7 +12414,7 @@ define internal fastcc i32 @Dau_DsdFindSupportOne(ptr noundef %0, ptr noundef %1
   %41 = sext i32 %5 to i64
   %42 = getelementptr inbounds i32, ptr %2, i64 %41
   %43 = load i32, ptr %42, align 4
-  %44 = trunc nuw nsw i32 %.0 to i8
+  %44 = trunc nuw nsw i32 %.1 to i8
   %45 = getelementptr inbounds i8, ptr %0, i64 296
   %46 = sext i32 %40 to i64
   %47 = sext i32 %43 to i64
@@ -12423,8 +12423,8 @@ define internal fastcc i32 @Dau_DsdFindSupportOne(ptr noundef %0, ptr noundef %1
   br label %49
 
 49:                                               ; preds = %36, %37, %11
-  %.1 = phi i32 [ %.0, %37 ], [ %.0, %36 ], [ %23, %11 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %37 ], [ %.1, %36 ], [ %23, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

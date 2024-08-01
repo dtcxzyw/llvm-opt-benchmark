@@ -3320,12 +3320,12 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
 
 .sink.split:                                      ; preds = %9, %24
   %.sink = phi ptr [ %27, %24 ], [ %3, %9 ]
-  %.sroa.134.1.ph = phi ptr [ %.sroa.134.0, %24 ], [ null, %9 ]
+  %.sroa.134.2.ph = phi ptr [ %.sroa.134.0, %24 ], [ null, %9 ]
   %50 = load volatile ptr, ptr %.sink, align 8
   br label %51
 
 51:                                               ; preds = %.sink.split, %42, %43, %11
-  %.sroa.134.1 = phi ptr [ %.sroa.134.0, %11 ], [ null, %43 ], [ null, %42 ], [ %.sroa.134.1.ph, %.sink.split ]
+  %.sroa.134.2 = phi ptr [ %.sroa.134.0, %11 ], [ null, %43 ], [ null, %42 ], [ %.sroa.134.2.ph, %.sink.split ]
   %52 = phi ptr [ %18, %11 ], [ %36, %43 ], [ %36, %42 ], [ %50, %.sink.split ]
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %53, 3
@@ -3402,7 +3402,7 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
   br i1 %108, label %xas_load.exit, label %58
 
 xas_load.exit:                                    ; preds = %.split6.us.i, %58, %43, %42, %28, %51
-  %.sroa.134.3 = phi ptr [ %.sroa.134.1, %51 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 1 to ptr), %42 ], [ %.sroa.134.0, %28 ], [ %66, %58 ], [ %66, %.split6.us.i ]
+  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %51 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 1 to ptr), %42 ], [ %.sroa.134.0, %28 ], [ %66, %58 ], [ %66, %.split6.us.i ]
   %109 = phi ptr [ %52, %51 ], [ null, %43 ], [ null, %42 ], [ null, %28 ], [ %107, %58 ], [ %107, %.split6.us.i ]
   %110 = icmp eq ptr %109, inttoptr (i64 1030 to ptr)
   %111 = select i1 %110, ptr null, ptr %109
@@ -3416,7 +3416,7 @@ xas_load.exit:                                    ; preds = %.split6.us.i, %58, 
   br label %.backedge
 
 .backedge:                                        ; preds = %113, %xas_load.exit
-  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %113 ], [ %.sroa.134.3, %xas_load.exit ]
+  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %113 ], [ %.sroa.134.4, %xas_load.exit ]
   br label %5
 
 114:                                              ; preds = %xas_load.exit

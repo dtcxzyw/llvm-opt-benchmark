@@ -220,8 +220,8 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
 
 92:                                               ; preds = %88, %90
   %.pn77 = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
-  %.136 = extractvalue { ptr, i32 } %.pn77, 0
-  %.138 = extractvalue { ptr, i32 } %.pn77, 1
+  %.2 = extractvalue { ptr, i32 } %.pn77, 0
+  %.239 = extractvalue { ptr, i32 } %.pn77, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #12
   br label %480
 
@@ -460,8 +460,8 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 167:                                              ; preds = %165, %163
   %.pn79 = phi { ptr, i32 } [ %166, %165 ], [ %164, %163 ]
-  %.2 = extractvalue { ptr, i32 } %.pn79, 0
-  %.239 = extractvalue { ptr, i32 } %.pn79, 1
+  %.4 = extractvalue { ptr, i32 } %.pn79, 0
+  %.441 = extractvalue { ptr, i32 } %.pn79, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #12
   br label %480
 
@@ -478,8 +478,8 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 172:                                              ; preds = %170, %168
   %.pn81 = phi { ptr, i32 } [ %171, %170 ], [ %169, %168 ]
-  %.3 = extractvalue { ptr, i32 } %.pn81, 0
-  %.340 = extractvalue { ptr, i32 } %.pn81, 1
+  %.5 = extractvalue { ptr, i32 } %.pn81, 0
+  %.542 = extractvalue { ptr, i32 } %.pn81, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #12
   br label %480
 
@@ -496,8 +496,8 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 177:                                              ; preds = %175, %173
   %.pn83 = phi { ptr, i32 } [ %176, %175 ], [ %174, %173 ]
-  %.4 = extractvalue { ptr, i32 } %.pn83, 0
-  %.441 = extractvalue { ptr, i32 } %.pn83, 1
+  %.6 = extractvalue { ptr, i32 } %.pn83, 0
+  %.643 = extractvalue { ptr, i32 } %.pn83, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #12
   br label %480
 
@@ -508,8 +508,8 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 180:                                              ; preds = %.body, %178
   %.pn85 = phi { ptr, i32 } [ %108, %.body ], [ %179, %178 ]
-  %.5 = extractvalue { ptr, i32 } %.pn85, 0
-  %.542 = extractvalue { ptr, i32 } %.pn85, 1
+  %.7 = extractvalue { ptr, i32 } %.pn85, 0
+  %.744 = extractvalue { ptr, i32 } %.pn85, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #12
   br label %480
 
@@ -520,8 +520,8 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 183:                                              ; preds = %.body128, %181
   %.pn87 = phi { ptr, i32 } [ %110, %.body128 ], [ %182, %181 ]
-  %.6 = extractvalue { ptr, i32 } %.pn87, 0
-  %.643 = extractvalue { ptr, i32 } %.pn87, 1
+  %.8 = extractvalue { ptr, i32 } %.pn87, 0
+  %.845 = extractvalue { ptr, i32 } %.pn87, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #12
   br label %478
 
@@ -547,15 +547,15 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
 
 192:                                              ; preds = %190, %188
   %.pn89.pn = phi { ptr, i32 } [ %191, %190 ], [ %189, %188 ]
-  %.8 = extractvalue { ptr, i32 } %.pn89.pn, 0
-  %.845 = extractvalue { ptr, i32 } %.pn89.pn, 1
+  %.11 = extractvalue { ptr, i32 } %.pn89.pn, 0
+  %.1148 = extractvalue { ptr, i32 } %.pn89.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #12
   %193 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #12
-  %194 = icmp eq i32 %.845, %193
+  %194 = icmp eq i32 %.1148, %193
   br i1 %194, label %195, label %476
 
 195:                                              ; preds = %192
-  %196 = call ptr @__cxa_begin_catch(ptr %.8) #12
+  %196 = call ptr @__cxa_begin_catch(ptr %.11) #12
   %197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8)
           to label %198 unwind label %223
 
@@ -1321,52 +1321,52 @@ _ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %_ZNK2cv3MatclERKNS_
 
 474:                                              ; preds = %473, %249
   %.pn120.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn, %473 ], [ %250, %249 ]
-  %.29 = extractvalue { ptr, i32 } %.pn120.pn.pn.pn, 0
-  %.2966 = extractvalue { ptr, i32 } %.pn120.pn.pn.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn120.pn.pn.pn, 0
+  %.1451 = extractvalue { ptr, i32 } %.pn120.pn.pn.pn, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #12
   br label %476
 
 475:                                              ; preds = %222, %.loopexit244
-  %.0 = phi i32 [ 0, %.loopexit244 ], [ 1, %222 ]
+  %.1 = phi i32 [ 0, %.loopexit244 ], [ 1, %222 ]
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #12
   br label %479
 
 476:                                              ; preds = %223, %474, %245, %227, %192
-  %.3067 = phi i32 [ %.2966, %474 ], [ %248, %245 ], [ %230, %227 ], [ %226, %223 ], [ %.845, %192 ]
-  %.30 = phi ptr [ %.29, %474 ], [ %247, %245 ], [ %229, %227 ], [ %225, %223 ], [ %.8, %192 ]
+  %.1350 = phi i32 [ %.1451, %474 ], [ %248, %245 ], [ %230, %227 ], [ %226, %223 ], [ %.1148, %192 ]
+  %.13 = phi ptr [ %.14, %474 ], [ %247, %245 ], [ %229, %227 ], [ %225, %223 ], [ %.11, %192 ]
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #12
   br label %477
 
 477:                                              ; preds = %476, %184
-  %.3168 = phi i32 [ %.3067, %476 ], [ %187, %184 ]
-  %.31 = phi ptr [ %.30, %476 ], [ %186, %184 ]
+  %.1047 = phi i32 [ %.1350, %476 ], [ %187, %184 ]
+  %.10 = phi ptr [ %.13, %476 ], [ %186, %184 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
   br label %478
 
 478:                                              ; preds = %477, %183
-  %.3269 = phi i32 [ %.3168, %477 ], [ %.643, %183 ]
-  %.32 = phi ptr [ %.31, %477 ], [ %.6, %183 ]
+  %.946 = phi i32 [ %.1047, %477 ], [ %.845, %183 ]
+  %.9 = phi ptr [ %.10, %477 ], [ %.8, %183 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #12
   br label %480
 
 479:                                              ; preds = %.critedge.thread, %475
-  %.1 = phi i32 [ %.0, %475 ], [ 0, %.critedge.thread ]
+  %.0 = phi i32 [ %.1, %475 ], [ 0, %.critedge.thread ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  ret i32 %.1
+  ret i32 %.0
 
 480:                                              ; preds = %92, %478, %180, %177, %172, %167, %93
-  %.3370 = phi i32 [ %96, %93 ], [ %.3269, %478 ], [ %.542, %180 ], [ %.441, %177 ], [ %.340, %172 ], [ %.239, %167 ], [ %.138, %92 ]
-  %.33 = phi ptr [ %95, %93 ], [ %.32, %478 ], [ %.5, %180 ], [ %.4, %177 ], [ %.3, %172 ], [ %.2, %167 ], [ %.136, %92 ]
+  %.340 = phi i32 [ %96, %93 ], [ %.946, %478 ], [ %.744, %180 ], [ %.643, %177 ], [ %.542, %172 ], [ %.441, %167 ], [ %.239, %92 ]
+  %.3 = phi ptr [ %95, %93 ], [ %.9, %478 ], [ %.7, %180 ], [ %.6, %177 ], [ %.5, %172 ], [ %.4, %167 ], [ %.2, %92 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   br label %481
 
 481:                                              ; preds = %480, %87
-  %.3471 = phi i32 [ %.3370, %480 ], [ %.037, %87 ]
-  %.34 = phi ptr [ %.33, %480 ], [ %.035, %87 ]
-  %482 = insertvalue { ptr, i32 } poison, ptr %.34, 0
-  %483 = insertvalue { ptr, i32 } %482, i32 %.3471, 1
+  %.138 = phi i32 [ %.340, %480 ], [ %.037, %87 ]
+  %.136 = phi ptr [ %.3, %480 ], [ %.035, %87 ]
+  %482 = insertvalue { ptr, i32 } poison, ptr %.136, 0
+  %483 = insertvalue { ptr, i32 } %482, i32 %.138, 1
   resume { ptr, i32 } %483
 
 484:                                              ; preds = %223

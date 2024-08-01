@@ -1286,7 +1286,7 @@ if.else86:                                        ; preds = %if.else70, %_ZNK6he
   br label %if.end93
 
 if.end93:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit71, %if.then76, %if.else86
-  %f.0 = phi i32 [ %conv92, %if.else86 ], [ %conv, %if.then76 ], [ %conv, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit71 ]
+  %f.1 = phi i32 [ %conv92, %if.else86 ], [ %conv, %if.then76 ], [ %conv, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit71 ]
   %40 = load i32, ptr %decPt, align 4
   %sub94 = add nsw i32 %40, -1
   %41 = load ptr, ptr %dalloc_.i, align 8
@@ -1295,8 +1295,8 @@ if.end93:                                         ; preds = %_ZN4llvh23SmallVect
 
 if.end95:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %if.end93
   %e.0 = phi i32 [ %sub94, %if.end93 ], [ 0, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
-  %f.1 = phi i32 [ %f.0, %if.end93 ], [ %conv, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
-  %cmp96.not = icmp eq i32 %f.1, 0
+  %f.0 = phi i32 [ %f.1, %if.end93 ], [ %conv, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ]
+  %cmp96.not = icmp eq i32 %f.0, 0
   br i1 %cmp96.not, label %if.end101, label %if.then97
 
 if.then97:                                        ; preds = %for.cond.preheader, %if.end95
@@ -1855,7 +1855,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runti
 
 cleanup:                                          ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129, %if.end161, %if.end141, %if.end123
   %call127.pn = phi { i32, i64 } [ %call127, %if.end123 ], [ %call145, %if.end141 ], [ %call165, %if.end161 ], [ %call196, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit129 ], [ %call196, %if.then.i.i.i ]
-  %retval.sroa.13.0 = extractvalue { i32, i64 } %call127.pn, 1
+  %retval.sroa.13.1 = extractvalue { i32, i64 } %call127.pn, 1
   %67 = load ptr, ptr %n, align 8
   %cmp.i.i.i.i132 = icmp eq ptr %67, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i132, label %return, label %if.then.i.i.i133
@@ -1865,10 +1865,10 @@ if.then.i.i.i133:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i133, %cleanup, %if.end41, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.then81, %if.then72, %if.then63, %if.then55, %if.end35, %if.then10
-  %retval.sroa.0.1 = phi i32 [ 1, %if.end35 ], [ 1, %if.then55 ], [ 1, %if.then63 ], [ 1, %if.then72 ], [ %call83, %if.then81 ], [ %call12, %if.then10 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %if.end41 ], [ 1, %cleanup ], [ 1, %if.then.i.i.i133 ]
-  %retval.sroa.13.1 = phi i64 [ %or.i.i.i.i, %if.end35 ], [ %or.i.i.i, %if.then55 ], [ %or.i.i.i56, %if.then63 ], [ %or.i.i.i60, %if.then72 ], [ undef, %if.then81 ], [ undef, %if.then10 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ undef, %if.end41 ], [ %retval.sroa.13.0, %cleanup ], [ %retval.sroa.13.0, %if.then.i.i.i133 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.13.1, 1
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end35 ], [ 1, %if.then55 ], [ 1, %if.then63 ], [ 1, %if.then72 ], [ %call83, %if.then81 ], [ %call12, %if.then10 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %if.end41 ], [ 1, %cleanup ], [ 1, %if.then.i.i.i133 ]
+  %retval.sroa.13.0 = phi i64 [ %or.i.i.i.i, %if.end35 ], [ %or.i.i.i, %if.then55 ], [ %or.i.i.i56, %if.then63 ], [ %or.i.i.i60, %if.then72 ], [ undef, %if.then81 ], [ undef, %if.then10 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ undef, %if.end41 ], [ %retval.sroa.13.1, %cleanup ], [ %retval.sroa.13.1, %if.then.i.i.i133 ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.13.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

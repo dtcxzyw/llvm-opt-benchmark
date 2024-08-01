@@ -306,13 +306,13 @@ if.then24:                                        ; preds = %_ZSt6fill_nIPclcET_
   br label %if.end27
 
 if.end27:                                         ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit, %if.then24, %if.end
-  %writer.3 = phi ptr [ %incdec.ptr25, %if.then24 ], [ %add.ptr21, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit ], [ %writer.1, %if.end ]
+  %writer.2 = phi ptr [ %incdec.ptr25, %if.then24 ], [ %add.ptr21, %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit ], [ %writer.1, %if.end ]
   %sub.ptr.lhs.cast28 = ptrtoint ptr %arrayidx to i64
-  %sub.ptr.rhs.cast29 = ptrtoint ptr %writer.3 to i64
+  %sub.ptr.rhs.cast29 = ptrtoint ptr %writer.2 to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
   store i64 %sub.ptr.sub30, ptr %this, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %writer.3, ptr %ref.tmp.sroa.2.0.this.sroa_idx, align 8
+  store ptr %writer.2, ptr %ref.tmp.sroa.2.0.this.sroa_idx, align 8
   ret void
 }
 

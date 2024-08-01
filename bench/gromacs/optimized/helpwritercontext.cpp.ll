@@ -2250,7 +2250,7 @@ define internal fastcc void @_ZNK3gmx17HelpWriterContext4Impl13processMarkupERKN
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %.preheader.i, %161
-  %.019.i = phi i32 [ %.2.i, %161 ], [ 2, %.preheader.i ]
+  %.019.i = phi i32 [ %.1.i, %161 ], [ 2, %.preheader.i ]
   %.01418.i = phi i64 [ %162, %161 ], [ 0, %.preheader.i ]
   %151 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %.01418.i) #17
   %152 = load i8, ptr %151, align 1
@@ -2278,14 +2278,14 @@ define internal fastcc void @_ZNK3gmx17HelpWriterContext4Impl13processMarkupERKN
   br label %.body
 
 158:                                              ; preds = %154, %.lr.ph.i49
-  %.1.i = phi i32 [ %155, %154 ], [ 0, %.lr.ph.i49 ]
+  %.2.i = phi i32 [ %155, %154 ], [ 0, %.lr.ph.i49 ]
   %159 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %.01418.i) #17
   %160 = load i8, ptr %159, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 noundef signext %160)
           to label %161 unwind label %.loopexit.i
 
 161:                                              ; preds = %158, %154
-  %.2.i = phi i32 [ %155, %154 ], [ %.1.i, %158 ]
+  %.1.i = phi i32 [ %155, %154 ], [ %.2.i, %158 ]
   %162 = add nuw i64 %.01418.i, 1
   %163 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   %164 = icmp ult i64 %162, %163

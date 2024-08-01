@@ -4533,8 +4533,8 @@ _ZN4core3fmt8builders9DebugList7entries17he6f7f8614bfd9023E.exit: ; preds = %.lr
   br label %30
 
 30:                                               ; preds = %2, %_ZN4core3fmt8builders9DebugList7entries17he6f7f8614bfd9023E.exit, %24
-  %.1 = phi i1 [ true, %2 ], [ %23, %_ZN4core3fmt8builders9DebugList7entries17he6f7f8614bfd9023E.exit ], [ %29, %24 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %2 ], [ %23, %_ZN4core3fmt8builders9DebugList7entries17he6f7f8614bfd9023E.exit ], [ %29, %24 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

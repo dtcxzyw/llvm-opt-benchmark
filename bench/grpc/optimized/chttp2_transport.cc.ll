@@ -7551,13 +7551,13 @@ invoke.cont55:                                    ; preds = %while.body.i.i, %_Z
   br i1 %cmp.i.i, label %if.end96, label %invoke.cont59
 
 for.cond73.preheader:                             ; preds = %while.end.i.i
-  %cmp.i.not189 = icmp eq ptr %to_cancel.sroa.0.2, %to_cancel.sroa.6.2
+  %cmp.i.not189 = icmp eq ptr %to_cancel.sroa.0.1, %to_cancel.sroa.6.1
   br i1 %cmp.i.not189, label %for.end94, label %invoke.cont79
 
 invoke.cont59:                                    ; preds = %invoke.cont55, %while.end.i.i
-  %to_cancel.sroa.0.0187 = phi ptr [ %to_cancel.sroa.0.2, %while.end.i.i ], [ null, %invoke.cont55 ]
-  %to_cancel.sroa.6.0186 = phi ptr [ %to_cancel.sroa.6.2, %while.end.i.i ], [ null, %invoke.cont55 ]
-  %to_cancel.sroa.11.0185 = phi ptr [ %to_cancel.sroa.11.2, %while.end.i.i ], [ null, %invoke.cont55 ]
+  %to_cancel.sroa.0.0187 = phi ptr [ %to_cancel.sroa.0.1, %while.end.i.i ], [ null, %invoke.cont55 ]
+  %to_cancel.sroa.6.0186 = phi ptr [ %to_cancel.sroa.6.1, %while.end.i.i ], [ null, %invoke.cont55 ]
+  %to_cancel.sroa.11.0185 = phi ptr [ %to_cancel.sroa.11.1, %while.end.i.i ], [ null, %invoke.cont55 ]
   %__begin2.sroa.6.0184 = phi ptr [ %__begin2.sroa.6.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %invoke.cont55 ]
   %__begin2.sroa.0.0183 = phi ptr [ %__begin2.sroa.0.1, %while.end.i.i ], [ %retval.sroa.0.0.i, %invoke.cont55 ]
   %id_stream.sroa.0.0.copyload = load i32, ptr %__begin2.sroa.6.0184, align 8
@@ -7646,9 +7646,9 @@ lpad52.loopexit.split-lp:                         ; preds = %if.then.i.i.i78
   br label %ehcleanup95
 
 for.inc:                                          ; preds = %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i72, %invoke.cont59
-  %to_cancel.sroa.11.2 = phi ptr [ %to_cancel.sroa.11.0185, %invoke.cont59 ], [ %add.ptr19.i.i, %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %to_cancel.sroa.11.0185, %if.then.i72 ]
-  %to_cancel.sroa.6.2 = phi ptr [ %to_cancel.sroa.6.0186, %invoke.cont59 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i72 ]
-  %to_cancel.sroa.0.2 = phi ptr [ %to_cancel.sroa.0.0187, %invoke.cont59 ], [ %cond.i10.i.i, %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %to_cancel.sroa.0.0187, %if.then.i72 ]
+  %to_cancel.sroa.11.1 = phi ptr [ %to_cancel.sroa.11.0185, %invoke.cont59 ], [ %add.ptr19.i.i, %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %to_cancel.sroa.11.0185, %if.then.i72 ]
+  %to_cancel.sroa.6.1 = phi ptr [ %to_cancel.sroa.6.0186, %invoke.cont59 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i72 ]
+  %to_cancel.sroa.0.1 = phi ptr [ %to_cancel.sroa.0.0187, %invoke.cont59 ], [ %cond.i10.i.i, %_ZNSt6vectorIP18grpc_chttp2_streamSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %to_cancel.sroa.0.0187, %if.then.i72 ]
   %incdec.ptr.i81 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0183, i64 1
   %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin2.sroa.6.0184, i64 16
   %58 = load i8, ptr %incdec.ptr.i81, align 1
@@ -7679,7 +7679,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i86, %
   br i1 %cmp.i.i84, label %for.cond73.preheader, label %invoke.cont59
 
 invoke.cont79:                                    ; preds = %for.cond73.preheader, %_ZN4absl12lts_202308026StatusD2Ev.exit105
-  %__begin268.sroa.0.0190 = phi ptr [ %incdec.ptr.i106, %_ZN4absl12lts_202308026StatusD2Ev.exit105 ], [ %to_cancel.sroa.0.2, %for.cond73.preheader ]
+  %__begin268.sroa.0.0190 = phi ptr [ %incdec.ptr.i106, %_ZN4absl12lts_202308026StatusD2Ev.exit105 ], [ %to_cancel.sroa.0.1, %for.cond73.preheader ]
   %65 = load ptr, ptr %__begin268.sroa.0.0190, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 972
   %66 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
@@ -7722,7 +7722,7 @@ terminate.lpad.i103:                              ; preds = %if.then.i.i102
 
 _ZN4absl12lts_202308026StatusD2Ev.exit105:        ; preds = %invoke.cont90, %if.then.i.i102
   %incdec.ptr.i106 = getelementptr inbounds i8, ptr %__begin268.sroa.0.0190, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i106, %to_cancel.sroa.6.2
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i106, %to_cancel.sroa.6.1
   br i1 %cmp.i.not, label %for.end94, label %invoke.cont79
 
 lpad89:                                           ; preds = %invoke.cont88
@@ -7732,15 +7732,15 @@ lpad89:                                           ; preds = %invoke.cont88
   br label %ehcleanup95
 
 for.end94:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit105, %for.cond73.preheader
-  %tobool.not.i.i.i108 = icmp eq ptr %to_cancel.sroa.0.2, null
+  %tobool.not.i.i.i108 = icmp eq ptr %to_cancel.sroa.0.1, null
   br i1 %tobool.not.i.i.i108, label %if.end96, label %if.then.i.i.i109
 
 if.then.i.i.i109:                                 ; preds = %for.end94
-  call void @_ZdlPv(ptr noundef nonnull %to_cancel.sroa.0.2) #35
+  call void @_ZdlPv(ptr noundef nonnull %to_cancel.sroa.0.1) #35
   br label %if.end96
 
 ehcleanup95:                                      ; preds = %lpad52.loopexit, %lpad52.loopexit.split-lp, %lpad89
-  %to_cancel.sroa.0.0178 = phi ptr [ %to_cancel.sroa.0.2, %lpad89 ], [ %to_cancel.sroa.0.0187, %lpad52.loopexit ], [ %to_cancel.sroa.0.0187, %lpad52.loopexit.split-lp ]
+  %to_cancel.sroa.0.0178 = phi ptr [ %to_cancel.sroa.0.1, %lpad89 ], [ %to_cancel.sroa.0.0187, %lpad52.loopexit ], [ %to_cancel.sroa.0.0187, %lpad52.loopexit.split-lp ]
   %.pn35 = phi { ptr, i32 } [ %73, %lpad89 ], [ %lpad.loopexit, %lpad52.loopexit ], [ %lpad.loopexit.split-lp, %lpad52.loopexit.split-lp ]
   %tobool.not.i.i.i111 = icmp eq ptr %to_cancel.sroa.0.0178, null
   br i1 %tobool.not.i.i.i111, label %eh.resume, label %if.then.i.i.i112
@@ -25246,8 +25246,8 @@ _ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !385
 
 if.end13:                                         ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 

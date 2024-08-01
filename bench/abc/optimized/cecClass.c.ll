@@ -1556,21 +1556,21 @@ define i32 @Cec_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %.lr.ph24
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next30, %.lr.ph24 ]
-  %.11722 = phi i32 [ 0, %.lr.ph24.preheader ], [ %21, %.lr.ph24 ]
+  %.222 = phi i32 [ 0, %.lr.ph24.preheader ], [ %21, %.lr.ph24 ]
   %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv29
   %16 = load i32, ptr %15, align 4
   %17 = and i64 %indvars.iv29, 15
   %18 = getelementptr inbounds [16 x i32], ptr @Cec_ManSimHashKey.s_Primes, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = mul i32 %19, %16
-  %21 = xor i32 %20, %.11722
+  %21 = xor i32 %20, %.222
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %21, %.lr.ph24 ], [ %14, %.lr.ph ]
-  %22 = urem i32 %.2, %2
+  %.117 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %21, %.lr.ph24 ], [ %14, %.lr.ph ]
+  %22 = urem i32 %.117, %2
   ret i32 %22
 }
 
@@ -1884,21 +1884,21 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
 
 .lr.ph24.i:                                       ; preds = %.lr.ph24.i, %.lr.ph24.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph24.i ]
-  %.11722.i = phi i32 [ 0, %.lr.ph24.preheader.i ], [ %51, %.lr.ph24.i ]
+  %.222.i = phi i32 [ 0, %.lr.ph24.preheader.i ], [ %51, %.lr.ph24.i ]
   %45 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv29.i
   %46 = load i32, ptr %45, align 4
   %47 = and i64 %indvars.iv29.i, 15
   %48 = getelementptr inbounds [16 x i32], ptr @Cec_ManSimHashKey.s_Primes, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = mul i32 %49, %46
-  %51 = xor i32 %50, %.11722.i
+  %51 = xor i32 %50, %.222.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
   br i1 %exitcond33.not.i, label %Cec_ManSimHashKey.exit, label %.lr.ph24.i, !llvm.loop !26
 
 Cec_ManSimHashKey.exit:                           ; preds = %.lr.ph.i76, %.lr.ph24.i, %.preheader18.i, %.preheader.i77
-  %.2.i = phi i32 [ 0, %.preheader.i77 ], [ 0, %.preheader18.i ], [ %51, %.lr.ph24.i ], [ %44, %.lr.ph.i76 ]
-  %52 = urem i32 %.2.i, %8
+  %.117.i = phi i32 [ 0, %.preheader.i77 ], [ 0, %.preheader18.i ], [ %51, %.lr.ph24.i ], [ %44, %.lr.ph.i76 ]
+  %52 = urem i32 %.117.i, %8
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %16, i64 %53
   %55 = load i32, ptr %54, align 4
@@ -3013,7 +3013,7 @@ Cec_ManSimMemRelink.exit:                         ; preds = %19, %8
   %indvars.iv388 = phi i64 [ 1, %.lr.ph343 ], [ %indvars.iv.next389, %.critedge2 ]
   %68 = phi ptr [ %56, %.lr.ph343 ], [ %397, %.critedge2 ]
   %.0341 = phi i32 [ 0, %.lr.ph343 ], [ %.1, %.critedge2 ]
-  %.0172340 = phi i32 [ 0, %.lr.ph343 ], [ %.3, %.critedge2 ]
+  %.0172340 = phi i32 [ 0, %.lr.ph343 ], [ %.1173, %.critedge2 ]
   %69 = getelementptr i8, ptr %68, i64 32
   %.val226 = load ptr, ptr %69, align 8
   %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val226, i64 %indvars.iv388
@@ -3077,7 +3077,7 @@ Cec_ManSimMemRelink.exit:                         ; preds = %19, %8
   br i1 %.not210.not, label %.lr.ph331, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph328, %.lr.ph331, %81, %.preheader286
-  %.1173 = phi i32 [ %.0172340, %.preheader286 ], [ %82, %81 ], [ %.0172340, %.lr.ph331 ], [ %82, %.lr.ph328 ]
+  %.2 = phi i32 [ %.0172340, %.preheader286 ], [ %82, %81 ], [ %.0172340, %.lr.ph331 ], [ %82, %.lr.ph328 ]
   %95 = getelementptr inbounds i8, ptr %79, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = and i32 %96, -2
@@ -3328,7 +3328,7 @@ Cec_ManSimSimDeref.exit245:                       ; preds = %Cec_ManSimSimDeref.
 
 .loopexit289:                                     ; preds = %.lr.ph314, %.lr.ph317, %.lr.ph320, %.lr.ph323, %.preheader294, %.preheader292, %.preheader290, %.preheader288, %.loopexit
   %.0182 = phi ptr [ %79, %.loopexit ], [ %140, %.preheader288 ], [ %140, %.preheader290 ], [ %140, %.preheader292 ], [ %140, %.preheader294 ], [ %140, %.lr.ph323 ], [ %140, %.lr.ph320 ], [ %140, %.lr.ph317 ], [ %140, %.lr.ph314 ]
-  %.2 = phi i32 [ %.1173, %.loopexit ], [ %.0172340, %.preheader288 ], [ %.0172340, %.preheader290 ], [ %.0172340, %.preheader292 ], [ %.0172340, %.preheader294 ], [ %.0172340, %.lr.ph323 ], [ %.0172340, %.lr.ph320 ], [ %.0172340, %.lr.ph317 ], [ %.0172340, %.lr.ph314 ]
+  %.3 = phi i32 [ %.2, %.loopexit ], [ %.0172340, %.preheader288 ], [ %.0172340, %.preheader290 ], [ %.0172340, %.preheader292 ], [ %.0172340, %.preheader294 ], [ %.0172340, %.lr.ph323 ], [ %.0172340, %.lr.ph320 ], [ %.0172340, %.lr.ph317 ], [ %.0172340, %.lr.ph314 ]
   %220 = load ptr, ptr %0, align 8
   %221 = getelementptr i8, ptr %220, i64 192
   %.val225 = load ptr, ptr %221, align 8
@@ -3761,7 +3761,7 @@ Cec_ManSimSimDeref.exit264:                       ; preds = %.lr.ph337, %386
   br i1 %396, label %.lr.ph337, label %.critedge2, !llvm.loop !48
 
 .critedge2:                                       ; preds = %.lr.ph306, %.lr.ph311, %Cec_ManSimSimDeref.exit264, %.preheader298, %.preheader296, %._crit_edge, %316, %316, %Gia_ObjIsTail.exit, %Cec_ManSimSimDeref.exit, %75
-  %.3 = phi i32 [ %76, %75 ], [ %.2, %Gia_ObjIsTail.exit ], [ %.0172340, %Cec_ManSimSimDeref.exit ], [ %.2, %316 ], [ %.2, %316 ], [ %.2, %._crit_edge ], [ %.0172340, %.preheader296 ], [ %.0172340, %.preheader298 ], [ %.2, %Cec_ManSimSimDeref.exit264 ], [ %.0172340, %.lr.ph311 ], [ %.0172340, %.lr.ph306 ]
+  %.1173 = phi i32 [ %76, %75 ], [ %.3, %Gia_ObjIsTail.exit ], [ %.0172340, %Cec_ManSimSimDeref.exit ], [ %.3, %316 ], [ %.3, %316 ], [ %.3, %._crit_edge ], [ %.0172340, %.preheader296 ], [ %.0172340, %.preheader298 ], [ %.3, %Cec_ManSimSimDeref.exit264 ], [ %.0172340, %.lr.ph311 ], [ %.0172340, %.lr.ph306 ]
   %.1 = phi i32 [ %.0341, %75 ], [ %.0341, %Gia_ObjIsTail.exit ], [ %.0341, %Cec_ManSimSimDeref.exit ], [ %.0341, %316 ], [ %.0341, %316 ], [ %.0341, %._crit_edge ], [ %123, %.preheader296 ], [ %123, %.preheader298 ], [ %.0341, %Cec_ManSimSimDeref.exit264 ], [ %123, %.lr.ph311 ], [ %123, %.lr.ph306 ]
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %397 = load ptr, ptr %0, align 8

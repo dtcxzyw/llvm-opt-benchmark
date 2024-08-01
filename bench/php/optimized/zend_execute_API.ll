@@ -2708,7 +2708,7 @@ define range(i32 -1, 1) i32 @zend_call_function(ptr noundef %0, ptr noundef %1) 
   %.0387526 = phi i32 [ %236, %.lr.ph528 ], [ %348, %347 ]
   %.0388525 = phi ptr [ %238, %.lr.ph528 ], [ %.1, %347 ]
   %.0392523 = phi ptr [ null, %.lr.ph528 ], [ %.1393, %347 ]
-  %.0395522 = phi i1 [ false, %.lr.ph528 ], [ %.2, %347 ]
+  %.0395522 = phi i1 [ false, %.lr.ph528 ], [ %.1396, %347 ]
   %242 = load i32, ptr %234, align 8
   %243 = and i32 %242, 4
   %.not474 = icmp eq i32 %243, 0
@@ -2918,7 +2918,7 @@ define range(i32 -1, 1) i32 @zend_call_function(ptr noundef %0, ptr noundef %1) 
   br label %347
 
 347:                                              ; preds = %339, %340, %250
-  %.2 = phi i1 [ %.0395522, %250 ], [ true, %339 ], [ false, %340 ]
+  %.1396 = phi i1 [ %.0395522, %250 ], [ true, %339 ], [ false, %340 ]
   %348 = add i32 %.0387526, -1
   %.not444 = icmp eq i32 %348, 0
   br i1 %.not444, label %.loopexit517.loopexit, label %241

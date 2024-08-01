@@ -4664,9 +4664,9 @@ define internal fastcc void @_ZN2cv3dnnL21broadcast1D2TargetMatERNS_3MatERKSt6ve
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ 0, %.preheader ]
-  %.sroa.059.086 = phi ptr [ %.sroa.059.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
-  %.sroa.6.085 = phi ptr [ %.sroa.6.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
-  %.sroa.11.084 = phi ptr [ %.sroa.11.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
+  %.sroa.059.086 = phi ptr [ %.sroa.059.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
+  %.sroa.6.085 = phi ptr [ %.sroa.6.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
+  %.sroa.11.084 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ null, %.preheader ]
   %.not = icmp eq i64 %indvars.iv, %19
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %37
 
@@ -4746,9 +4746,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.body
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %38, %.lr.ph
-  %.sroa.11.2 = phi ptr [ %.sroa.11.084, %.lr.ph ], [ %63, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.11.084, %38 ]
-  %.sroa.6.2 = phi ptr [ %.sroa.6.085, %.lr.ph ], [ %61, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %40, %38 ]
-  %.sroa.059.2 = phi ptr [ %.sroa.059.086, %.lr.ph ], [ %55, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.059.086, %38 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.084, %.lr.ph ], [ %63, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.11.084, %38 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.085, %.lr.ph ], [ %61, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %40, %38 ]
+  %.sroa.059.1 = phi ptr [ %.sroa.059.086, %.lr.ph ], [ %55, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.059.086, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr %12, align 8
   %65 = load ptr, ptr %1, align 8
@@ -4760,8 +4760,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %.preheader
-  %.sroa.6.0.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.6.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.059.0.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.059.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.6.0.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.6.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.059.0.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.059.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %71 = getelementptr inbounds i8, ptr %0, i64 4
   %.val = load i32, ptr %71, align 4
   %72 = getelementptr inbounds i8, ptr %0, i64 64

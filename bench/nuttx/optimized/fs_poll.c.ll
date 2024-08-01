@@ -404,7 +404,7 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   br label %69
 
 69:                                               ; preds = %poll_setup.exit.thread, %67, %65, %61
-  %.019 = phi i32 [ %spec.store.select, %65 ], [ %63, %61 ], [ %68, %67 ], [ 0, %poll_setup.exit.thread ]
+  %.1 = phi i32 [ %spec.store.select, %65 ], [ %63, %61 ], [ %68, %67 ], [ 0, %poll_setup.exit.thread ]
   br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i25
 
 .lr.ph.preheader.i25:                             ; preds = %69
@@ -412,10 +412,10 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   br label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %106, %.lr.ph.preheader.i25
-  %.045 = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %spec.select52, %106 ]
+  %.146 = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %spec.select52, %106 ]
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.preheader.i25 ], [ %indvars.iv.next.i30, %106 ]
   %.026.i = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %.1.i, %106 ]
-  %.02024.i = phi i32 [ %.019, %.lr.ph.preheader.i25 ], [ %spec.select.i, %106 ]
+  %.02024.i = phi i32 [ %.1, %.lr.ph.preheader.i25 ], [ %spec.select.i, %106 ]
   %70 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv.i28
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, -1
@@ -522,7 +522,7 @@ poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.lo
   %109 = load i32, ptr %108, align 8
   %.not.i29 = icmp ne i32 %109, 0
   %110 = zext i1 %.not.i29 to i32
-  %spec.select52 = add nuw nsw i32 %.045, %110
+  %spec.select52 = add nuw nsw i32 %.146, %110
   %111 = getelementptr inbounds i8, ptr %70, i64 16
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i26
@@ -537,25 +537,25 @@ poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.lo
   br label %117
 
 .loopexit:                                        ; preds = %106, %69
-  %.2 = phi i32 [ 0, %69 ], [ %spec.select52, %106 ]
-  %.020.lcssa.i = phi i32 [ %.019, %69 ], [ %spec.select.i, %106 ]
+  %.3 = phi i32 [ 0, %69 ], [ %spec.select52, %106 ]
+  %.020.lcssa.i = phi i32 [ %.1, %69 ], [ %spec.select.i, %106 ]
   %113 = icmp slt i32 %.020.lcssa.i, 0
-  %114 = icmp sgt i32 %.019, -1
+  %114 = icmp sgt i32 %.1, -1
   %or.cond = and i1 %114, %113
-  %spec.select = select i1 %or.cond, i32 %.020.lcssa.i, i32 %.019
+  %spec.select = select i1 %or.cond, i32 %.020.lcssa.i, i32 %.1
   %115 = call i32 @nxsem_destroy(ptr noundef nonnull %7) #4
   %116 = icmp slt i32 %spec.select, 0
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %.thread, %.loopexit
-  %.151 = phi i32 [ %.0.i57.i, %.thread ], [ %spec.select, %.loopexit ]
-  %118 = sub nsw i32 0, %.151
+  %.01951 = phi i32 [ %.0.i57.i, %.thread ], [ %spec.select, %.loopexit ]
+  %118 = sub nsw i32 0, %.01951
   %119 = call ptr @__errno() #4
   store i32 %118, ptr %119, align 4
   br label %120
 
 120:                                              ; preds = %.loopexit, %117
-  %.0 = phi i32 [ -1, %117 ], [ %.2, %.loopexit ]
+  %.0 = phi i32 [ -1, %117 ], [ %.3, %.loopexit ]
   ret i32 %.0
 }
 

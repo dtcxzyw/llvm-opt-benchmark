@@ -551,7 +551,7 @@ if.end31.i53.i:                                   ; preds = %if.then29.i.i, %if.
   br label %verify_chain.exit.i
 
 verify_chain.exit.i:                              ; preds = %if.end31.i53.i, %lor.lhs.false14.i.i, %lor.lhs.false10.i.i, %lor.lhs.false6.i.i, %lor.lhs.false.i45.i, %if.end43.i
-  %ret.1.i.i = phi i32 [ %spec.select.i.i, %if.end31.i53.i ], [ 0, %lor.lhs.false14.i.i ], [ 0, %lor.lhs.false10.i.i ], [ 0, %lor.lhs.false6.i.i ], [ 0, %lor.lhs.false.i45.i ], [ 0, %if.end43.i ]
+  %ret.0.i.i = phi i32 [ %spec.select.i.i, %if.end31.i53.i ], [ 0, %lor.lhs.false14.i.i ], [ 0, %lor.lhs.false10.i.i ], [ 0, %lor.lhs.false6.i.i ], [ 0, %lor.lhs.false.i45.i ], [ 0, %if.end43.i ]
   call void @X509_STORE_CTX_free(ptr noundef %call1.i42.i) #9
   call void @OSSL_STACK_OF_X509_free(ptr noundef %retval.0.i38.i) #9
   %call45.i = call i64 @SSL_get_verify_result(ptr noundef %call14.i) #9
@@ -582,7 +582,7 @@ if.else.i:                                        ; preds = %if.then51.i
   br label %while.end.i
 
 if.end58.i:                                       ; preds = %verify_chain.exit.i
-  %cmp62.i = icmp eq i32 %ret.1.i.i, 0
+  %cmp62.i = icmp eq i32 %ret.0.i.i, 0
   %36 = select i1 %cmp52.i, i1 %cmp62.i, i1 false
   %land.ext.i = zext i1 %36 to i32
   %call67.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 369, ptr noundef nonnull @.str.37, i32 noundef %land.ext.i) #9

@@ -2104,7 +2104,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %825
 
 _ZN2cv3PtrINS_8io_utils11DepthWriterEED2Ev.exit204: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i203, %782, %769, %_ZN2cv3PtrINS_11large_kinfu6ParamsEED2Ev.exit197, %298
-  %.2 = phi i32 [ -1, %298 ], [ 0, %_ZN2cv3PtrINS_11large_kinfu6ParamsEED2Ev.exit197 ], [ 0, %769 ], [ 0, %782 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i203 ]
+  %.1 = phi i32 [ -1, %298 ], [ 0, %_ZN2cv3PtrINS_11large_kinfu6ParamsEED2Ev.exit197 ], [ 0, %769 ], [ 0, %782 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i203 ]
   %789 = getelementptr inbounds i8, ptr %20, i64 8
   %790 = load ptr, ptr %789, align 8
   %.not.i.i.i.i205 = icmp eq ptr %790, null
@@ -2184,10 +2184,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %826
 
 _ZN2cv3PtrINS_8io_utils11DepthSourceEED2Ev.exit211: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210, %820, %807, %_ZN2cv3PtrINS_8io_utils11DepthWriterEED2Ev.exit204, %71, %59
-  %.3 = phi i32 [ -1, %59 ], [ 0, %71 ], [ %.2, %_ZN2cv3PtrINS_8io_utils11DepthWriterEED2Ev.exit204 ], [ %.2, %807 ], [ %.2, %820 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210 ]
+  %.0 = phi i32 [ -1, %59 ], [ 0, %71 ], [ %.1, %_ZN2cv3PtrINS_8io_utils11DepthWriterEED2Ev.exit204 ], [ %.1, %807 ], [ %.1, %820 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i210 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  ret i32 %.3
+  ret i32 %.0
 
 826:                                              ; preds = %825, %109, %100, %97, %85, %76, %65
   %.pn83 = phi { ptr, i32 } [ %66, %65 ], [ %.pn81, %825 ], [ %.pn55, %109 ], [ %.pn53, %100 ], [ %.pn51, %97 ], [ %.pn49, %85 ], [ %.pn47, %76 ]
@@ -3209,9 +3209,9 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource16updateIntrinsicsE
   br label %30
 
 30:                                               ; preds = %27, %19
-  %.016 = phi float [ %21, %19 ], [ %29, %27 ]
-  %.014 = phi float [ %23, %19 ], [ %29, %27 ]
-  %.0 = phi float [ %26, %19 ], [ 1.000000e+03, %27 ]
+  %.117 = phi float [ %21, %19 ], [ %29, %27 ]
+  %.115 = phi float [ %23, %19 ], [ %29, %27 ]
+  %.1 = phi float [ %26, %19 ], [ 1.000000e+03, %27 ]
   %31 = sdiv <2 x i32> %12, <i32 2, i32 2>
   %32 = sitofp <2 x i32> %31 to <2 x float>
   %33 = fadd <2 x float> %32, <float -5.000000e-01, float -5.000000e-01>
@@ -3222,11 +3222,11 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource16updateIntrinsicsE
 36:                                               ; preds = %17, %30, %15
   %.sroa.021.0 = phi i32 [ %34, %30 ], [ %.sroa.021.0.extract.trunc22, %17 ], [ %.sroa.021.0.extract.trunc23, %15 ]
   %.sroa.524.0 = phi i32 [ %35, %30 ], [ %.sroa.524.0.extract.trunc26, %17 ], [ %.sroa.524.0.extract.trunc28, %15 ]
-  %.117 = phi float [ %.016, %30 ], [ 0x4080BB3340000000, %17 ], [ 0x4076E199A0000000, %15 ]
-  %.115 = phi float [ %.014, %30 ], [ 0x4080D999A0000000, %17 ], [ 0x4076E199A0000000, %15 ]
-  %.1 = phi float [ %.0, %30 ], [ 1.000000e+03, %17 ], [ 1.000000e+03, %15 ]
+  %.016 = phi float [ %.117, %30 ], [ 0x4080BB3340000000, %17 ], [ 0x4076E199A0000000, %15 ]
+  %.014 = phi float [ %.115, %30 ], [ 0x4080D999A0000000, %17 ], [ 0x4076E199A0000000, %15 ]
+  %.0 = phi float [ %.1, %30 ], [ 1.000000e+03, %17 ], [ 1.000000e+03, %15 ]
   %37 = phi <2 x float> [ %33, %30 ], [ <float 0x40740199A0000000, float 0x406EF33340000000>, %17 ], [ <float 0x4070233340000000, float 2.040000e+02>, %15 ]
-  store float %.117, ptr %1, align 4
+  store float %.016, ptr %1, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -3235,7 +3235,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource16updateIntrinsicsE
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  store float %.115, ptr %.sroa.5.0..sroa_idx, align 4
+  store float %.014, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
   %39 = extractelement <2 x float> %37, i64 1
   store float %39, ptr %.sroa.6.0..sroa_idx, align 4
@@ -3248,7 +3248,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource16updateIntrinsicsE
   %.sroa.021.0.insert.ext = zext i32 %.sroa.021.0 to i64
   %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.524.0.insert.shift, %.sroa.021.0.insert.ext
   store i64 %.sroa.021.0.insert.insert, ptr %2, align 4
-  store float %.1, ptr %3, align 4
+  store float %.0, ptr %3, align 4
   br label %40
 
 40:                                               ; preds = %36, %4

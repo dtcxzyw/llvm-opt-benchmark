@@ -3258,14 +3258,14 @@ if.then20.i:                                      ; preds = %if.then12.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.then20.i, %if.then12.i
-  %retval.0.i = phi i64 [ %call21.i, %if.then20.i ], [ undef, %if.then12.i ]
+  %retval.2.i = phi i64 [ %call21.i, %if.then20.i ], [ undef, %if.then12.i ]
   %size_str.val.i = load ptr, ptr %size_str.i, align 8
   call void @g_free(ptr noundef %size_str.val.i) #28
   call void @g_free(ptr noundef %call17.i) #28
   br label %cleanup25.i
 
 cleanup25.i:                                      ; preds = %cleanup.i, %land.lhs.true.i, %if.then4.i
-  %retval.2.i = phi i64 [ undef, %land.lhs.true.i ], [ undef, %if.then4.i ], [ %retval.0.i, %cleanup.i ]
+  %retval.3.i = phi i64 [ undef, %land.lhs.true.i ], [ undef, %if.then4.i ], [ %retval.2.i, %cleanup.i ]
   %cleanup.dest.slot.1.i = phi i1 [ true, %land.lhs.true.i ], [ true, %if.then4.i ], [ %tobool19.not.i, %cleanup.i ]
   call void @g_free(ptr noundef %call9.i) #28
   call void @g_free(ptr noundef %call8.i) #28
@@ -3284,17 +3284,17 @@ return.sink.split.i:                              ; preds = %if.end29.i, %if.end
   br label %get_file_size.exit
 
 get_file_size.exit:                               ; preds = %cleanup25.i, %if.end29.i, %return.sink.split.i
-  %retval.3.i = phi i64 [ %retval.2.i, %cleanup25.i ], [ %call30.i, %if.end29.i ], [ %conv36.i, %return.sink.split.i ]
+  %retval.0.i = phi i64 [ %retval.3.i, %cleanup25.i ], [ %call30.i, %if.end29.i ], [ %conv36.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size_str.i)
-  %cmp3 = icmp sgt i64 %retval.3.i, %offset
+  %cmp3 = icmp sgt i64 %retval.0.i, %offset
   %add4 = add i64 %and2, %offset
-  %cmp5 = icmp ult i64 %retval.3.i, %add4
+  %cmp5 = icmp ult i64 %retval.0.i, %add4
   %or.cond = select i1 %cmp3, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %get_file_size.exit
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1924, ptr noundef nonnull @__func__.qemu_ram_alloc_from_fd, ptr noundef nonnull @.str.36, i64 noundef %retval.3.i, i64 noundef %and2) #28
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1924, ptr noundef nonnull @__func__.qemu_ram_alloc_from_fd, ptr noundef nonnull @.str.36, i64 noundef %retval.0.i, i64 noundef %and2) #28
   br label %return
 
 if.end7:                                          ; preds = %get_file_size.exit
@@ -3307,7 +3307,7 @@ if.end7:                                          ; preds = %get_file_size.exit
   store i64 %and2, ptr %max_length, align 8
   %flags = getelementptr inbounds i8, ptr %call15, i64 72
   store i32 %ram_flags, ptr %flags, align 8
-  %tobool.not = icmp eq i64 %retval.3.i, 0
+  %tobool.not = icmp eq i64 %retval.0.i, 0
   %call.i31 = call i64 @qemu_fd_getpagesize(i32 noundef %fd) #28
   %page_size.i = getelementptr inbounds i8, ptr %call15, i64 376
   store i64 %call.i31, ptr %page_size.i, align 8
@@ -4684,9 +4684,9 @@ for.body.lr.ph:                                   ; preds = %while.end10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end30
-  %block.019.in = phi i64 [ %6, %for.body.lr.ph ], [ %9, %while.end30 ]
-  %block.019 = inttoptr i64 %block.019.in to ptr
-  %host13 = getelementptr inbounds i8, ptr %block.019, i64 24
+  %block.119.in = phi i64 [ %6, %for.body.lr.ph ], [ %9, %while.end30 ]
+  %block.119 = inttoptr i64 %block.119.in to ptr
+  %host13 = getelementptr inbounds i8, ptr %block.119, i64 24
   %7 = load ptr, ptr %host13, align 8
   %cmp14 = icmp eq ptr %7, null
   br i1 %cmp14, label %while.end30, label %if.end16
@@ -4694,13 +4694,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %wh
 if.end16:                                         ; preds = %for.body
   %sub.ptr.rhs.cast19 = ptrtoint ptr %7 to i64
   %sub.ptr.sub20 = sub i64 %sub.ptr.lhs.cast18, %sub.ptr.rhs.cast19
-  %max_length21 = getelementptr inbounds i8, ptr %block.019, i64 56
+  %max_length21 = getelementptr inbounds i8, ptr %block.119, i64 56
   %8 = load i64, ptr %max_length21, align 8
   %cmp22 = icmp ult i64 %sub.ptr.sub20, %8
   br i1 %cmp22, label %found, label %while.end30
 
 while.end30:                                      ; preds = %if.end16, %for.body
-  %next = getelementptr inbounds i8, ptr %block.019, i64 336
+  %next = getelementptr inbounds i8, ptr %block.119, i64 336
   %9 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !65
   %tobool12.not = icmp eq i64 %9, 0
@@ -4708,14 +4708,14 @@ while.end30:                                      ; preds = %if.end16, %for.body
 
 found:                                            ; preds = %if.end16, %land.lhs.true3
   %sub.ptr.sub35.pre-phi = phi i64 [ %sub.ptr.sub, %land.lhs.true3 ], [ %sub.ptr.sub20, %if.end16 ]
-  %block.1 = phi ptr [ %3, %land.lhs.true3 ], [ %block.019, %if.end16 ]
+  %block.0 = phi ptr [ %3, %land.lhs.true3 ], [ %block.119, %if.end16 ]
   %and = and i64 %sub.ptr.sub35.pre-phi, -4096
   %spec.select = select i1 %round_offset, i64 %and, i64 %sub.ptr.sub35.pre-phi
   store i64 %spec.select, ptr %offset, align 8
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end30, %while.end10, %found
-  %retval.0 = phi ptr [ %block.1, %found ], [ null, %while.end10 ], [ null, %while.end30 ]
+  %retval.0 = phi ptr [ %block.0, %found ], [ null, %while.end10 ], [ null, %while.end30 ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #28
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %10 = load i32, ptr %depth.i.i.i.i, align 4
@@ -6425,7 +6425,7 @@ flatview_extend_translation.exit:                 ; preds = %for.cond.i, %if.end
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then13, %if.end49, %flatview_extend_translation.exit
-  %retval.0 = phi ptr [ %call54, %flatview_extend_translation.exit ], [ null, %if.then13 ], [ %19, %if.end49 ]
+  %retval.1 = phi ptr [ %call54, %flatview_extend_translation.exit ], [ null, %if.then13 ], [ %19, %if.end49 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #28
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %25 = load i32, ptr %depth.i.i.i.i, align 4
@@ -6457,8 +6457,8 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %if.end.i.i.i.i ], [ %retval.0, %while.end.i.i.i.i ], [ %retval.0, %while.end21.i.i.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %if.end.i.i.i.i ], [ %retval.1, %while.end.i.i.i.i ], [ %retval.1, %while.end21.i.i.i.i ]
+  ret ptr %retval.0
 }
 
 declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -9815,7 +9815,7 @@ if.then25:                                        ; preds = %if.end21
   br label %err
 
 if.end28:                                         ; preds = %if.end21, %if.end7
-  %ret.0 = phi i32 [ 0, %if.end21 ], [ -1, %if.end7 ]
+  %ret.1 = phi i32 [ 0, %if.end21 ], [ -1, %if.end7 ]
   br i1 %cmp9, label %if.then30, label %if.end45
 
 if.then30:                                        ; preds = %if.end28
@@ -9847,7 +9847,7 @@ if.then39:                                        ; preds = %if.end37
   br label %err
 
 if.end45:                                         ; preds = %if.end37, %if.end28
-  %ret.2 = phi i32 [ 0, %if.end37 ], [ %ret.0, %if.end28 ]
+  %ret.2 = phi i32 [ 0, %if.end37 ], [ %ret.1, %if.end28 ]
   %idstr46 = getelementptr inbounds i8, ptr %rb, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -9895,8 +9895,8 @@ if.else50:                                        ; preds = %if.end
   br label %err
 
 err:                                              ; preds = %trace_ram_block_discard_range.exit, %if.else50, %if.then39, %if.then25, %if.then14, %if.then6, %if.then
-  %ret.3 = phi i32 [ -1, %if.then14 ], [ %sub, %if.then25 ], [ %sub41, %if.then39 ], [ %ret.2, %trace_ram_block_discard_range.exit ], [ -1, %if.then6 ], [ -1, %if.else50 ], [ -1, %if.then ]
-  ret i32 %ret.3
+  %ret.0 = phi i32 [ -1, %if.then14 ], [ %sub, %if.then25 ], [ %sub41, %if.then39 ], [ %ret.2, %trace_ram_block_discard_range.exit ], [ -1, %if.then6 ], [ -1, %if.else50 ], [ -1, %if.then ]
+  ret i32 %ret.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

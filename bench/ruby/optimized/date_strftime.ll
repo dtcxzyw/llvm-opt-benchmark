@@ -102,7 +102,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
 
 41:                                               ; preds = %.lr.ph1736, %1117
   %42 = phi i8 [ %30, %.lr.ph1736 ], [ %1119, %1117 ]
-  %.09901731 = phi ptr [ %0, %.lr.ph1736 ], [ %.8, %1117 ]
+  %.09901731 = phi ptr [ %0, %.lr.ph1736 ], [ %.1, %1117 ]
   %.09941730 = phi ptr [ %2, %.lr.ph1736 ], [ %1118, %1117 ]
   %.not1118 = icmp eq i8 %42, 37
   br i1 %.not1118, label %.preheader1431, label %43
@@ -117,8 +117,8 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %.01015 = phi i32 [ %.01015.be, %.preheader1431.backedge ], [ 0, %41 ]
   %.01006 = phi i32 [ %.01006.be, %.preheader1431.backedge ], [ -1, %41 ]
   %.01005 = phi i64 [ %.01005.be, %.preheader1431.backedge ], [ 0, %41 ]
-  %.1995 = phi ptr [ %.1995.be, %.preheader1431.backedge ], [ %.09941730, %41 ]
-  %45 = getelementptr inbounds i8, ptr %.1995, i64 1
+  %.2996 = phi ptr [ %.2996.be, %.preheader1431.backedge ], [ %.09941730, %41 ]
+  %45 = getelementptr inbounds i8, ptr %.2996, i64 1
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %.loopexit.loopexit [
     i8 0, label %.loopexit
@@ -217,7 +217,7 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %.not1263 = icmp eq i32 %64, 0
   %65 = and i32 %.01015, -15
   %66 = or disjoint i32 %65, 8
-  %.21017 = select i1 %.not1263, i32 %.01015, i32 %66
+  %.31018 = select i1 %.not1263, i32 %.01015, i32 %66
   %67 = load ptr, ptr %35, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
@@ -263,7 +263,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
   %spec.select1273 = select i1 %89, i32 2, i32 %.01006
   %90 = and i32 %.01015, 1
   %.not1258 = icmp eq i32 %90, 0
-  %.41010 = select i1 %.not1258, i32 %spec.select1273, i32 1
+  %.51011 = select i1 %.not1258, i32 %spec.select1273, i32 1
   br i1 %.not1417, label %103, label %91
 
 91:                                               ; preds = %rbimpl_intern_const.exit
@@ -274,7 +274,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
   %95 = or i1 %94, %.not1262
   %96 = select i1 %95, ptr @.str.2, ptr @.str.3
   %97 = ashr i64 %87, 1
-  %98 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %93, ptr noundef nonnull %96, i32 noundef %.41010, i64 noundef %97) #10
+  %98 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %93, ptr noundef nonnull %96, i32 noundef %.51011, i64 noundef %97) #10
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %.loopexit1432, label %100
 
@@ -284,7 +284,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %81
   br label %1117
 
 103:                                              ; preds = %rbimpl_intern_const.exit
-  %104 = zext nneg i32 %.41010 to i64
+  %104 = zext nneg i32 %.51011 to i64
   %105 = shl nuw nsw i64 %104, 1
   %106 = or disjoint i64 %105, 1
   store i64 %106, ptr %5, align 16
@@ -476,7 +476,7 @@ upcase.exit1325:                                  ; preds = %167, %159
   %spec.select1274 = select i1 %191, i32 2, i32 %.01006
   %192 = and i32 %.01015, 1
   %.not1246 = icmp eq i32 %192, 0
-  %.61012 = select i1 %.not1246, i32 %spec.select1274, i32 1
+  %.71013 = select i1 %.not1246, i32 %spec.select1274, i32 1
   %193 = ptrtoint ptr %.09901731 to i64
   %194 = sub i64 %34, %193
   switch i8 %.01021, label %.thread1374 [
@@ -495,7 +495,7 @@ upcase.exit1325:                                  ; preds = %167, %159
 
 .thread1374:                                      ; preds = %185, %195, %.thread
   %198 = phi ptr [ @.str.5, %.thread ], [ @.str.6, %195 ], [ @.str.6, %185 ]
-  %199 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %194, ptr noundef nonnull %198, i32 noundef %.61012, i32 noundef %190) #10
+  %199 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %194, ptr noundef nonnull %198, i32 noundef %.71013, i32 noundef %190) #10
   %200 = icmp slt i32 %199, 0
   br i1 %200, label %.loopexit1432, label %201
 
@@ -587,17 +587,17 @@ upcase.exit1329:                                  ; preds = %216, %208
   %243 = icmp slt i32 %.01006, 1
   %244 = icmp sgt i64 %242, -1
   %245 = select i1 %244, i32 4, i32 5
-  %.71013 = select i1 %243, i32 %245, i32 %.01006
+  %.81014 = select i1 %243, i32 %245, i32 %.01006
   %246 = and i32 %.01015, 1
   %.not1239 = icmp eq i32 %246, 0
-  %.81014 = select i1 %.not1239, i32 %.71013, i32 1
+  %.9 = select i1 %.not1239, i32 %.81014, i32 1
   %247 = ptrtoint ptr %.09901731 to i64
   %248 = sub i64 %34, %247
   %249 = icmp eq i8 %.01021, 48
   %.not1240 = icmp eq i8 %.01021, 0
   %250 = or i1 %249, %.not1240
   %251 = select i1 %250, ptr @.str.2, ptr @.str.3
-  %252 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %248, ptr noundef nonnull %251, i32 noundef %.81014, i64 noundef %242) #10
+  %252 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %248, ptr noundef nonnull %251, i32 noundef %.9, i64 noundef %242) #10
   %253 = icmp slt i32 %252, 0
   br i1 %253, label %.loopexit1432, label %254
 
@@ -611,8 +611,8 @@ upcase.exit1329:                                  ; preds = %216, %208
   %spec.select1275 = select i1 %258, i32 4, i32 %.01006
   %259 = and i32 %.01015, 1
   %.not1236 = icmp eq i32 %259, 0
-  %.12 = select i1 %.not1236, i32 %spec.select1275, i32 1
-  %260 = zext nneg i32 %.12 to i64
+  %.13 = select i1 %.not1236, i32 %spec.select1275, i32 1
+  %260 = zext nneg i32 %.13 to i64
   %261 = shl nuw nsw i64 %260, 1
   %262 = or disjoint i64 %261, 1
   store i64 %262, ptr %7, align 16
@@ -673,14 +673,14 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %spec.select1276 = select i1 %288, i32 2, i32 %.01006
   %289 = and i32 %.01015, 1
   %.not1234 = icmp eq i32 %289, 0
-  %.14 = select i1 %.not1234, i32 %spec.select1276, i32 1
+  %.15 = select i1 %.not1234, i32 %spec.select1276, i32 1
   %290 = ptrtoint ptr %.09901731 to i64
   %291 = sub i64 %34, %290
   %292 = icmp eq i8 %.01021, 48
   %.not1235 = icmp eq i8 %.01021, 0
   %293 = or i1 %292, %.not1235
   %294 = select i1 %293, ptr @.str.5, ptr @.str.6
-  %295 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %291, ptr noundef nonnull %294, i32 noundef %.14, i32 noundef %287) #10
+  %295 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %291, ptr noundef nonnull %294, i32 noundef %.15, i32 noundef %287) #10
   %296 = icmp slt i32 %295, 0
   br i1 %296, label %.loopexit1432, label %297
 
@@ -699,7 +699,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %spec.select1277 = select i1 %306, i32 2, i32 %.01006
   %307 = and i32 %.01015, 1
   %.not1232 = icmp eq i32 %307, 0
-  %.16 = select i1 %.not1232, i32 %spec.select1277, i32 1
+  %.17 = select i1 %.not1232, i32 %spec.select1277, i32 1
   %308 = ptrtoint ptr %.09901731 to i64
   %309 = sub i64 %34, %308
   switch i8 %.01021, label %.thread1379 [
@@ -718,7 +718,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
 
 .thread1379:                                      ; preds = %300, %310, %.thread1377
   %313 = phi ptr [ @.str.5, %.thread1377 ], [ @.str.6, %310 ], [ @.str.6, %300 ]
-  %314 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %309, ptr noundef nonnull %313, i32 noundef %.16, i32 noundef %305) #10
+  %314 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %309, ptr noundef nonnull %313, i32 noundef %.17, i32 noundef %305) #10
   %315 = icmp slt i32 %314, 0
   br i1 %315, label %.loopexit1432, label %316
 
@@ -742,7 +742,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %spec.select1280 = select i1 %328, i32 2, i32 %.01006
   %329 = and i32 %.01015, 1
   %.not1230 = icmp eq i32 %329, 0
-  %.18 = select i1 %.not1230, i32 %spec.select1280, i32 1
+  %.19 = select i1 %.not1230, i32 %spec.select1280, i32 1
   %330 = ptrtoint ptr %.09901731 to i64
   %331 = sub i64 %34, %330
   switch i8 %.01021, label %.thread1384 [
@@ -761,7 +761,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
 
 .thread1384:                                      ; preds = %319, %332, %.thread1382
   %335 = phi ptr [ @.str.5, %.thread1382 ], [ @.str.6, %332 ], [ @.str.6, %319 ]
-  %336 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %331, ptr noundef nonnull %335, i32 noundef %.18, i32 noundef %.01003) #10
+  %336 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %331, ptr noundef nonnull %335, i32 noundef %.19, i32 noundef %.01003) #10
   %337 = icmp slt i32 %336, 0
   br i1 %337, label %.loopexit1432, label %338
 
@@ -780,14 +780,14 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %spec.select1282 = select i1 %347, i32 3, i32 %.01006
   %348 = and i32 %.01015, 1
   %.not1228 = icmp eq i32 %348, 0
-  %.20 = select i1 %.not1228, i32 %spec.select1282, i32 1
+  %.21 = select i1 %.not1228, i32 %spec.select1282, i32 1
   %349 = ptrtoint ptr %.09901731 to i64
   %350 = sub i64 %34, %349
   %351 = icmp eq i8 %.01021, 48
   %.not1229 = icmp eq i8 %.01021, 0
   %352 = or i1 %351, %.not1229
   %353 = select i1 %352, ptr @.str.5, ptr @.str.6
-  %354 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %350, ptr noundef nonnull %353, i32 noundef %.20, i32 noundef %346) #10
+  %354 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %350, ptr noundef nonnull %353, i32 noundef %.21, i32 noundef %346) #10
   %355 = icmp slt i32 %354, 0
   br i1 %355, label %.loopexit1432, label %356
 
@@ -800,12 +800,12 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %360 = icmp eq i8 %46, 76
   %. = select i1 %360, i32 3, i32 9
   %361 = icmp slt i32 %.01006, 1
-  %.21 = select i1 %361, i32 %., i32 %.01006
+  %.22 = select i1 %361, i32 %., i32 %.01006
   %.not1225 = icmp ult ptr %.09901731, %16
   br i1 %.not1225, label %362, label %.loopexit1432
 
 362:                                              ; preds = %359
-  %363 = zext nneg i32 %.21 to i64
+  %363 = zext nneg i32 %.22 to i64
   %364 = ptrtoint ptr %.09901731 to i64
   %365 = sub i64 %34, %364
   %366 = add nsw i64 %365, -1
@@ -818,18 +818,18 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %370 = load ptr, ptr %369, align 8
   %371 = load ptr, ptr %3, align 8
   %372 = call i64 %370(ptr noundef %371) #10
-  %373 = icmp sgt i32 %.21, 8
+  %373 = icmp sgt i32 %.22, 8
   br i1 %373, label %.lr.ph, label %.preheader1423
 
 .preheader1423:                                   ; preds = %.lr.ph, %367
-  %.01026.lcssa = phi i32 [ %.21, %367 ], [ %376, %.lr.ph ]
+  %.01026.lcssa = phi i32 [ %.22, %367 ], [ %376, %.lr.ph ]
   %.01024.lcssa = phi i64 [ %372, %367 ], [ %375, %.lr.ph ]
   %374 = icmp sgt i32 %.01026.lcssa, 0
   br i1 %374, label %.lr.ph1728, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %367, %.lr.ph
   %.010241724 = phi i64 [ %375, %.lr.ph ], [ %372, %367 ]
-  %.010261723 = phi i32 [ %376, %.lr.ph ], [ %.21, %367 ]
+  %.010261723 = phi i32 [ %376, %.lr.ph ], [ %.22, %367 ]
   %375 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.010241724, i64 noundef 42, i32 noundef 1, i64 noundef 2000000001) #10
   %376 = add nsw i32 %.010261723, -9
   %377 = icmp ugt i32 %.010261723, 17
@@ -870,7 +870,7 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
 
 387:                                              ; preds = %rbimpl_intern_const.exit1337
   %388 = ashr i64 %385, 1
-  %389 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %365, ptr noundef nonnull @.str.2, i32 noundef %.21, i64 noundef %388) #10
+  %389 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %365, ptr noundef nonnull @.str.2, i32 noundef %.22, i64 noundef %388) #10
   %390 = getelementptr inbounds i8, ptr %.09901731, i64 %363
   br label %1117
 
@@ -897,14 +897,14 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   %spec.select1283 = select i1 %405, i32 2, i32 %.01006
   %406 = and i32 %.01015, 1
   %.not1223 = icmp eq i32 %406, 0
-  %.23 = select i1 %.not1223, i32 %spec.select1283, i32 1
+  %.24 = select i1 %.not1223, i32 %spec.select1283, i32 1
   %407 = ptrtoint ptr %.09901731 to i64
   %408 = sub i64 %34, %407
   %409 = icmp eq i8 %.01021, 48
   %.not1224 = icmp eq i8 %.01021, 0
   %410 = or i1 %409, %.not1224
   %411 = select i1 %410, ptr @.str.5, ptr @.str.6
-  %412 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %408, ptr noundef nonnull %411, i32 noundef %.23, i32 noundef %404) #10
+  %412 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %408, ptr noundef nonnull %411, i32 noundef %.24, i32 noundef %404) #10
   %413 = icmp slt i32 %412, 0
   br i1 %413, label %.loopexit1432, label %414
 
@@ -923,14 +923,14 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   %spec.select1284 = select i1 %423, i32 2, i32 %.01006
   %424 = and i32 %.01015, 1
   %.not1221 = icmp eq i32 %424, 0
-  %.25 = select i1 %.not1221, i32 %spec.select1284, i32 1
+  %.26 = select i1 %.not1221, i32 %spec.select1284, i32 1
   %425 = ptrtoint ptr %.09901731 to i64
   %426 = sub i64 %34, %425
   %427 = icmp eq i8 %.01021, 48
   %.not1222 = icmp eq i8 %.01021, 0
   %428 = or i1 %427, %.not1222
   %429 = select i1 %428, ptr @.str.5, ptr @.str.6
-  %430 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %426, ptr noundef nonnull %429, i32 noundef %.25, i32 noundef %422) #10
+  %430 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %426, ptr noundef nonnull %429, i32 noundef %.26, i32 noundef %422) #10
   %431 = icmp slt i32 %430, 0
   br i1 %431, label %.loopexit1432, label %432
 
@@ -976,9 +976,9 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   br i1 %or.cond1288, label %.loopexit1432, label %453
 
 453:                                              ; preds = %449, %445
-  %.1 = phi ptr [ %448, %445 ], [ %.09901731, %449 ]
-  %454 = getelementptr inbounds i8, ptr %.1, i64 1
-  store i8 10, ptr %.1, align 1
+  %.2 = phi ptr [ %448, %445 ], [ %.09901731, %449 ]
+  %454 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 10, ptr %.2, align 1
   br label %1117
 
 455:                                              ; preds = %.preheader1431
@@ -1018,9 +1018,9 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   br i1 %or.cond1292, label %.loopexit1432, label %473
 
 473:                                              ; preds = %469, %465
-  %.2 = phi ptr [ %468, %465 ], [ %.09901731, %469 ]
-  %474 = getelementptr inbounds i8, ptr %.2, i64 1
-  store i8 9, ptr %.2, align 1
+  %.3 = phi ptr [ %468, %465 ], [ %.09901731, %469 ]
+  %474 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 9, ptr %.3, align 1
   br label %1117
 
 475:                                              ; preds = %.preheader1431, %.preheader1431
@@ -1043,7 +1043,7 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   br label %484
 
 484:                                              ; preds = %481, %478
-  %.31018 = phi i32 [ %483, %481 ], [ %.01015, %478 ]
+  %.41019 = phi i32 [ %483, %481 ], [ %.01015, %478 ]
   %485 = load ptr, ptr %35, align 8
   %486 = getelementptr inbounds i8, ptr %485, i64 80
   %487 = load ptr, ptr %486, align 8
@@ -1067,7 +1067,7 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   br i1 %.not1412, label %511, label %499
 
 499:                                              ; preds = %491
-  %.27 = select i1 %.not1204, i32 %spec.select1296, i32 1
+  %.28 = select i1 %.not1204, i32 %spec.select1296, i32 1
   %500 = ptrtoint ptr %.09901731 to i64
   %501 = sub i64 %34, %500
   %502 = icmp eq i8 %.01021, 48
@@ -1075,7 +1075,7 @@ rbimpl_intern_const.exit1337:                     ; preds = %.lr.ph.i1335, %._cr
   %503 = or i1 %502, %.not1208
   %504 = select i1 %503, ptr @.str.2, ptr @.str.3
   %505 = ashr i64 %496, 1
-  %506 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %501, ptr noundef nonnull %504, i32 noundef %.27, i64 noundef %505) #10
+  %506 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %501, ptr noundef nonnull %504, i32 noundef %.28, i64 noundef %505) #10
   %507 = icmp slt i32 %506, 0
   br i1 %507, label %.loopexit1432, label %508
 
@@ -1266,14 +1266,14 @@ upcase.exit1345:                                  ; preds = %575, %567
   %spec.select1297 = select i1 %599, i32 2, i32 %.01006
   %600 = and i32 %.01015, 1
   %.not1192 = icmp eq i32 %600, 0
-  %.31 = select i1 %.not1192, i32 %spec.select1297, i32 1
+  %.32 = select i1 %.not1192, i32 %spec.select1297, i32 1
   %601 = ptrtoint ptr %.09901731 to i64
   %602 = sub i64 %34, %601
   %603 = icmp eq i8 %.01021, 48
   %.not1193 = icmp eq i8 %.01021, 0
   %604 = or i1 %603, %.not1193
   %605 = select i1 %604, ptr @.str.5, ptr @.str.6
-  %606 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %602, ptr noundef nonnull %605, i32 noundef %.31, i32 noundef %598) #10
+  %606 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %602, ptr noundef nonnull %605, i32 noundef %.32, i32 noundef %598) #10
   %607 = icmp slt i32 %606, 0
   br i1 %607, label %.loopexit1432, label %608
 
@@ -1296,7 +1296,7 @@ upcase.exit1345:                                  ; preds = %575, %567
   br i1 %.not1411, label %631, label %619
 
 619:                                              ; preds = %611
-  %.33 = select i1 %.not1187, i32 %spec.select1299, i32 1
+  %.34 = select i1 %.not1187, i32 %spec.select1299, i32 1
   %620 = ptrtoint ptr %.09901731 to i64
   %621 = sub i64 %34, %620
   %622 = icmp eq i8 %.01021, 48
@@ -1304,7 +1304,7 @@ upcase.exit1345:                                  ; preds = %575, %567
   %623 = or i1 %622, %.not1191
   %624 = select i1 %623, ptr @.str.2, ptr @.str.3
   %625 = ashr i64 %616, 1
-  %626 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %621, ptr noundef nonnull %624, i32 noundef %.33, i64 noundef %625) #10
+  %626 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %621, ptr noundef nonnull %624, i32 noundef %.34, i64 noundef %625) #10
   %627 = icmp slt i32 %626, 0
   br i1 %627, label %.loopexit1432, label %628
 
@@ -1431,14 +1431,14 @@ upcase.exit1349:                                  ; preds = %665, %657
   %spec.select1300 = select i1 %690, i32 2, i32 %.01006
   %691 = and i32 %.01015, 1
   %.not1180 = icmp eq i32 %691, 0
-  %.37 = select i1 %.not1180, i32 %spec.select1300, i32 1
+  %.38 = select i1 %.not1180, i32 %spec.select1300, i32 1
   %692 = ptrtoint ptr %.09901731 to i64
   %693 = sub i64 %34, %692
   %694 = icmp eq i8 %.01021, 48
   %.not1181 = icmp eq i8 %.01021, 0
   %695 = or i1 %694, %.not1181
   %696 = select i1 %695, ptr @.str.5, ptr @.str.6
-  %697 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %693, ptr noundef nonnull %696, i32 noundef %.37, i32 noundef %689) #10
+  %697 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %693, ptr noundef nonnull %696, i32 noundef %.38, i32 noundef %689) #10
   %698 = icmp slt i32 %697, 0
   br i1 %698, label %.loopexit1432, label %699
 
@@ -1456,14 +1456,14 @@ upcase.exit1349:                                  ; preds = %665, %657
   %spec.select1301 = call i32 @llvm.smax.i32(i32 %.01006, i32 1)
   %708 = and i32 %.01015, 1
   %.not1178 = icmp eq i32 %708, 0
-  %.39 = select i1 %.not1178, i32 %spec.select1301, i32 1
+  %.40 = select i1 %.not1178, i32 %spec.select1301, i32 1
   %709 = ptrtoint ptr %.09901731 to i64
   %710 = sub i64 %34, %709
   %711 = icmp eq i8 %.01021, 48
   %.not1179 = icmp eq i8 %.01021, 0
   %712 = or i1 %711, %.not1179
   %713 = select i1 %712, ptr @.str.5, ptr @.str.6
-  %714 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %710, ptr noundef nonnull %713, i32 noundef %.39, i32 noundef %707) #10
+  %714 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %710, ptr noundef nonnull %713, i32 noundef %.40, i32 noundef %707) #10
   %715 = icmp slt i32 %714, 0
   br i1 %715, label %.loopexit1432, label %716
 
@@ -1482,14 +1482,14 @@ upcase.exit1349:                                  ; preds = %665, %657
   %spec.select1302 = select i1 %725, i32 2, i32 %.01006
   %726 = and i32 %.01015, 1
   %.not1176 = icmp eq i32 %726, 0
-  %.41 = select i1 %.not1176, i32 %spec.select1302, i32 1
+  %.42 = select i1 %.not1176, i32 %spec.select1302, i32 1
   %727 = ptrtoint ptr %.09901731 to i64
   %728 = sub i64 %34, %727
   %729 = icmp eq i8 %.01021, 48
   %.not1177 = icmp eq i8 %.01021, 0
   %730 = or i1 %729, %.not1177
   %731 = select i1 %730, ptr @.str.5, ptr @.str.6
-  %732 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %728, ptr noundef nonnull %731, i32 noundef %.41, i32 noundef %724) #10
+  %732 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %728, ptr noundef nonnull %731, i32 noundef %.42, i32 noundef %724) #10
   %733 = icmp slt i32 %732, 0
   br i1 %733, label %.loopexit1432, label %734
 
@@ -1573,14 +1573,14 @@ upcase.exit1353:                                  ; preds = %749, %741
   %spec.select1303 = call i32 @llvm.smax.i32(i32 %.01006, i32 1)
   %773 = and i32 %.01015, 1
   %.not1169 = icmp eq i32 %773, 0
-  %.43 = select i1 %.not1169, i32 %spec.select1303, i32 1
+  %.44 = select i1 %.not1169, i32 %spec.select1303, i32 1
   %774 = ptrtoint ptr %.09901731 to i64
   %775 = sub i64 %34, %774
   %776 = icmp eq i8 %.01021, 48
   %.not1170 = icmp eq i8 %.01021, 0
   %777 = or i1 %776, %.not1170
   %778 = select i1 %777, ptr @.str.5, ptr @.str.6
-  %779 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %775, ptr noundef nonnull %778, i32 noundef %.43, i32 noundef %772) #10
+  %779 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %775, ptr noundef nonnull %778, i32 noundef %.44, i32 noundef %772) #10
   %780 = icmp slt i32 %779, 0
   br i1 %780, label %.loopexit1432, label %781
 
@@ -1726,15 +1726,15 @@ upcase.exit1361:                                  ; preds = %826, %818
   %.not1158 = icmp eq i32 %845, 0
   %846 = and i32 %.01015, -15
   %847 = or disjoint i32 %846, 4
-  %.41019 = select i1 %.not1158, i32 %.01015, i32 %847
+  %.51020 = select i1 %.not1158, i32 %.01015, i32 %847
   %848 = load ptr, ptr %35, align 8
   %849 = getelementptr inbounds i8, ptr %848, i64 136
   %850 = load ptr, ptr %849, align 8
   %851 = load ptr, ptr %3, align 8
   %852 = call ptr %850(ptr noundef %851) #10
   %853 = icmp eq ptr %852, null
-  %.11000 = select i1 %853, ptr @.str.15, ptr %852
-  %854 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.11000) #9
+  %.21001 = select i1 %853, ptr @.str.15, ptr %852
+  %854 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.21001) #9
   br label %1078
 
 855:                                              ; preds = %.preheader1431
@@ -1864,16 +1864,16 @@ upcase.exit1361:                                  ; preds = %826, %818
   br i1 %.not1140, label %926, label %.loopexit1432
 
 926:                                              ; preds = %897, %918, %909, %885, %876, %867
-  %.44 = phi i32 [ %900, %897 ], [ %912, %909 ], [ %921, %918 ], [ %888, %885 ], [ %879, %876 ], [ %870, %867 ]
+  %.45 = phi i32 [ %900, %897 ], [ %912, %909 ], [ %921, %918 ], [ %888, %885 ], [ %879, %876 ], [ %870, %867 ]
   %927 = icmp eq i8 %.01021, 32
-  %928 = icmp sgt i32 %.44, %.0991
+  %928 = icmp sgt i32 %.45, %.0991
   %or.cond1305 = select i1 %927, i1 %928, i1 false
   br i1 %or.cond1305, label %929, label %938
 
 929:                                              ; preds = %926
   %930 = ptrtoint ptr %.09901731 to i64
   %931 = sub i64 %34, %930
-  %932 = sub nuw nsw i32 %.44, %.0991
+  %932 = sub nuw nsw i32 %.45, %.0991
   %933 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %.09901731, i64 noundef %931, ptr noundef nonnull @.str.16, i32 noundef %932, ptr noundef nonnull @.str.15) #10
   %934 = icmp slt i32 %933, 0
   br i1 %934, label %.loopexit1432, label %935
@@ -1884,23 +1884,23 @@ upcase.exit1361:                                  ; preds = %826, %818
   br label %938
 
 938:                                              ; preds = %935, %926
-  %.45 = phi i32 [ %.0991, %935 ], [ %.44, %926 ]
-  %.3 = phi ptr [ %937, %935 ], [ %.09901731, %926 ]
+  %.46 = phi i32 [ %.0991, %935 ], [ %.45, %926 ]
+  %.4 = phi ptr [ %937, %935 ], [ %.09901731, %926 ]
   %storemerge = select i1 %861, i8 45, i8 43
-  %.4 = getelementptr inbounds i8, ptr %.3, i64 1
-  store i8 %storemerge, ptr %.3, align 1
-  %939 = ptrtoint ptr %.4 to i64
+  %.5 = getelementptr inbounds i8, ptr %.4, i64 1
+  store i8 %storemerge, ptr %.4, align 1
+  %939 = ptrtoint ptr %.5 to i64
   %940 = sub i64 %34, %939
   %941 = udiv i32 %862, 3600
   %942 = urem i32 %862, 3600
   %.zext = zext nneg i32 %941 to i64
-  %943 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.4, i64 noundef %940, ptr noundef nonnull @.str.17, i32 noundef %.45, i64 noundef %.zext) #10
+  %943 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.5, i64 noundef %940, ptr noundef nonnull @.str.17, i32 noundef %.46, i64 noundef %.zext) #10
   %944 = icmp slt i32 %943, 0
   br i1 %944, label %.loopexit1432, label %945
 
 945:                                              ; preds = %938
   %946 = zext nneg i32 %943 to i64
-  %947 = getelementptr inbounds i8, ptr %.4, i64 %946
+  %947 = getelementptr inbounds i8, ptr %.5, i64 %946
   %948 = icmp eq i64 %.01005, 3
   %949 = icmp eq i32 %942, 0
   %or.cond38 = and i1 %948, %949
@@ -1916,20 +1916,20 @@ upcase.exit1361:                                  ; preds = %826, %818
   br label %953
 
 953:                                              ; preds = %951, %950
-  %.5 = phi ptr [ %952, %951 ], [ %947, %950 ]
-  %954 = ptrtoint ptr %.5 to i64
+  %.6 = phi ptr [ %952, %951 ], [ %947, %950 ]
+  %954 = ptrtoint ptr %.6 to i64
   %955 = sub i64 %34, %954
   %.lhs.trunc1403 = trunc nuw nsw i32 %942 to i16
   %956 = udiv i16 %.lhs.trunc1403, 60
   %957 = urem i16 %.lhs.trunc1403, 60
   %958 = zext nneg i16 %956 to i32
-  %959 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.5, i64 noundef %955, ptr noundef nonnull @.str.18, i32 noundef %958) #10
+  %959 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %.6, i64 noundef %955, ptr noundef nonnull @.str.18, i32 noundef %958) #10
   %960 = icmp slt i32 %959, 0
   br i1 %960, label %.loopexit1432, label %961
 
 961:                                              ; preds = %953
   %962 = zext nneg i32 %959 to i64
-  %963 = getelementptr inbounds i8, ptr %.5, i64 %962
+  %963 = getelementptr inbounds i8, ptr %.6, i64 %962
   %964 = icmp eq i16 %957, 0
   %or.cond40 = and i1 %948, %964
   %965 = icmp ult i64 %.01005, 2
@@ -2018,7 +2018,7 @@ upcase.exit1365:                                  ; preds = %988, %980
   br label %1117
 
 1006:                                             ; preds = %.preheader1431
-  %1007 = getelementptr inbounds i8, ptr %.1995, i64 2
+  %1007 = getelementptr inbounds i8, ptr %.2996, i64 2
   %1008 = load i8, ptr %1007, align 1
   %.not1130 = icmp eq i8 %1008, 0
   br i1 %.not1130, label %.loopexit.loopexit, label %1009
@@ -2031,7 +2031,7 @@ upcase.exit1365:                                  ; preds = %988, %980
   br i1 %.not1132, label %.loopexit.loopexit, label %.preheader1431.backedge
 
 1012:                                             ; preds = %.preheader1431
-  %1013 = getelementptr inbounds i8, ptr %.1995, i64 2
+  %1013 = getelementptr inbounds i8, ptr %.2996, i64 2
   %1014 = load i8, ptr %1013, align 1
   %.not1128 = icmp eq i8 %1014, 0
   br i1 %.not1128, label %.loopexit.loopexit, label %1015
@@ -2060,7 +2060,7 @@ upcase.exit1365:                                  ; preds = %988, %980
   %.01015.be = phi i32 [ %.01015, %1051 ], [ %1043, %1042 ], [ %1038, %1037 ], [ %1033, %1032 ], [ %1024, %1023 ], [ %1017, %1015 ], [ %1011, %1009 ], [ %.01015, %1026 ]
   %.01006.be = phi i32 [ %1052, %1051 ], [ %.01006, %1042 ], [ %.01006, %1037 ], [ %.01006, %1032 ], [ %.01006, %1023 ], [ %.01006, %1015 ], [ %.01006, %1009 ], [ %.01006, %1026 ]
   %.01005.be = phi i64 [ %.01005, %1051 ], [ %.01005, %1042 ], [ %.01005, %1037 ], [ %.01005, %1032 ], [ %1019, %1023 ], [ %.01005, %1015 ], [ %.01005, %1009 ], [ %.01005, %1026 ]
-  %.1995.be = phi ptr [ %1054, %1051 ], [ %45, %1042 ], [ %45, %1037 ], [ %45, %1032 ], [ %1025, %1023 ], [ %45, %1015 ], [ %45, %1009 ], [ %45, %1026 ]
+  %.2996.be = phi ptr [ %1054, %1051 ], [ %45, %1042 ], [ %45, %1037 ], [ %45, %1032 ], [ %1025, %1023 ], [ %45, %1015 ], [ %45, %1009 ], [ %45, %1026 ]
   br label %.preheader1431
 
 1026:                                             ; preds = %.preheader1431
@@ -2164,17 +2164,17 @@ upcase.exit1365:                                  ; preds = %988, %980
   br i1 %or.cond1315, label %.loopexit1432, label %1073
 
 1073:                                             ; preds = %1069, %1065
-  %.6 = phi ptr [ %1068, %1065 ], [ %.09901731, %1069 ]
-  %1074 = getelementptr inbounds i8, ptr %.6, i64 1
-  store i8 37, ptr %.6, align 1
+  %.7 = phi ptr [ %1068, %1065 ], [ %.09901731, %1069 ]
+  %1074 = getelementptr inbounds i8, ptr %.7, i64 1
+  store i8 37, ptr %.7, align 1
   br label %1117
 
 .loopexit.loopexit:                               ; preds = %.preheader1431, %1009, %1006, %1015, %1012, %1026, %1029, %1034, %1039, %1044, %1018
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader1431, %.loopexit.loopexit, %855
-  %.2996 = phi ptr [ %.1995, %855 ], [ %45, %.loopexit.loopexit ], [ %.1995, %.preheader1431 ]
-  %1075 = ptrtoint ptr %.2996 to i64
+  %.3997 = phi ptr [ %.2996, %855 ], [ %45, %.loopexit.loopexit ], [ %.2996, %.preheader1431 ]
+  %1075 = ptrtoint ptr %.3997 to i64
   %1076 = ptrtoint ptr %.09941730 to i64
   %reass.sub = sub i64 %1075, %1076
   %1077 = add i64 %reass.sub, 1
@@ -2182,27 +2182,27 @@ upcase.exit1365:                                  ; preds = %988, %980
 
 1078:                                             ; preds = %79, %61, %.loopexit, %844
   %.21023 = phi i8 [ 0, %.loopexit ], [ %.01021, %844 ], [ %.01021, %79 ], [ %.01021, %61 ]
-  %.51020 = phi i32 [ 0, %.loopexit ], [ %.41019, %844 ], [ %.21017, %79 ], [ %.11016, %61 ]
-  %.46 = phi i32 [ -1, %.loopexit ], [ %.01006, %844 ], [ %.01006, %79 ], [ %.01006, %61 ]
+  %.21017 = phi i32 [ 0, %.loopexit ], [ %.51020, %844 ], [ %.31018, %79 ], [ %.11016, %61 ]
+  %.11007 = phi i32 [ -1, %.loopexit ], [ %.01006, %844 ], [ %.01006, %79 ], [ %.01006, %61 ]
   %.01002 = phi i64 [ %1077, %.loopexit ], [ %854, %844 ], [ %80, %79 ], [ %62, %61 ]
-  %.21001 = phi ptr [ %.09941730, %.loopexit ], [ %.11000, %844 ], [ %78, %79 ], [ %60, %61 ]
-  %.3997 = phi ptr [ %.2996, %.loopexit ], [ %45, %844 ], [ %45, %79 ], [ %45, %61 ]
+  %.0999 = phi ptr [ %.09941730, %.loopexit ], [ %.21001, %844 ], [ %78, %79 ], [ %60, %61 ]
+  %.4998 = phi ptr [ %.3997, %.loopexit ], [ %45, %844 ], [ %45, %79 ], [ %45, %61 ]
   %.not1265 = icmp eq i64 %.01002, 0
   br i1 %.not1265, label %1117, label %.thread1386
 
 .thread1386:                                      ; preds = %73, %56, %63, %47, %484, %1078
-  %.39971400 = phi ptr [ %.3997, %1078 ], [ %45, %484 ], [ %45, %47 ], [ %45, %63 ], [ %45, %56 ], [ %45, %73 ]
-  %.210011399 = phi ptr [ %.21001, %1078 ], [ %date_strftime_with_tmx.ampm., %484 ], [ @.str, %47 ], [ @.str, %63 ], [ %60, %56 ], [ %78, %73 ]
+  %.49981400 = phi ptr [ %.4998, %1078 ], [ %45, %484 ], [ %45, %47 ], [ %45, %63 ], [ %45, %56 ], [ %45, %73 ]
+  %.09991399 = phi ptr [ %.0999, %1078 ], [ %date_strftime_with_tmx.ampm., %484 ], [ @.str, %47 ], [ @.str, %63 ], [ %60, %56 ], [ %78, %73 ]
   %.010021397 = phi i64 [ %.01002, %1078 ], [ 2, %484 ], [ 1, %47 ], [ 1, %63 ], [ 3, %56 ], [ 3, %73 ]
-  %.461396 = phi i32 [ %.46, %1078 ], [ %.01006, %484 ], [ %.01006, %47 ], [ %.01006, %63 ], [ %.01006, %56 ], [ %.01006, %73 ]
-  %.510201395 = phi i32 [ %.51020, %1078 ], [ %.31018, %484 ], [ %.11016, %47 ], [ %.21017, %63 ], [ %.11016, %56 ], [ %.21017, %73 ]
+  %.110071396 = phi i32 [ %.11007, %1078 ], [ %.01006, %484 ], [ %.01006, %47 ], [ %.01006, %63 ], [ %.01006, %56 ], [ %.01006, %73 ]
+  %.210171395 = phi i32 [ %.21017, %1078 ], [ %.41019, %484 ], [ %.11016, %47 ], [ %.31018, %63 ], [ %.11016, %56 ], [ %.31018, %73 ]
   %.210231394 = phi i8 [ %.21023, %1078 ], [ %.01021, %484 ], [ %.01021, %47 ], [ %.01021, %63 ], [ %.01021, %56 ], [ %.01021, %73 ]
-  %1079 = and i32 %.510201395, 1
+  %1079 = and i32 %.210171395, 1
   %.not1266 = icmp eq i32 %1079, 0
   br i1 %.not1266, label %1080, label %1091
 
 1080:                                             ; preds = %.thread1386
-  %1081 = sext i32 %.461396 to i64
+  %1081 = sext i32 %.110071396 to i64
   %1082 = icmp slt i64 %.010021397, %1081
   br i1 %1082, label %1083, label %1091
 
@@ -2237,16 +2237,16 @@ upcase.exit1365:                                  ; preds = %988, %980
   br i1 %.not1272, label %1096, label %.loopexit1432
 
 1096:                                             ; preds = %1088, %1092
-  %.7 = phi ptr [ %.09901731, %1092 ], [ %1090, %1088 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.7, ptr noundef nonnull align 1 dereferenceable(1) %.210011399, i64 %.010021397, i1 false)
-  %1097 = and i32 %.510201395, 12
+  %.8 = phi ptr [ %.09901731, %1092 ], [ %1090, %1088 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.8, ptr noundef nonnull align 1 dereferenceable(1) %.09991399, i64 %.010021397, i1 false)
+  %1097 = and i32 %.210171395, 12
   switch i32 %1097, label %upcase.exit1369 [
     i32 8, label %.preheader
     i32 4, label %.preheader1418
   ]
 
 .preheader:                                       ; preds = %1096, %1104
-  %.04.i1366 = phi ptr [ %1105, %1104 ], [ %.7, %1096 ]
+  %.04.i1366 = phi ptr [ %1105, %1104 ], [ %.8, %1096 ]
   %.0.i1367 = phi i64 [ %1106, %1104 ], [ %.010021397, %1096 ]
   %1098 = load i8, ptr %.04.i1366, align 1
   %1099 = sext i8 %1098 to i32
@@ -2266,7 +2266,7 @@ upcase.exit1365:                                  ; preds = %988, %980
   br i1 %.not6.i1368, label %upcase.exit1369, label %.preheader, !llvm.loop !8
 
 .preheader1418:                                   ; preds = %1096, %1113
-  %.04.i1370 = phi ptr [ %1114, %1113 ], [ %.7, %1096 ]
+  %.04.i1370 = phi ptr [ %1114, %1113 ], [ %.8, %1096 ]
   %.0.i1371 = phi i64 [ %1115, %1113 ], [ %.010021397, %1096 ]
   %1107 = load i8, ptr %.04.i1370, align 1
   %1108 = sext i8 %1107 to i32
@@ -2286,21 +2286,21 @@ upcase.exit1365:                                  ; preds = %988, %980
   br i1 %.not6.i1372, label %upcase.exit1369, label %.preheader1418, !llvm.loop !11
 
 upcase.exit1369:                                  ; preds = %1113, %1104, %1096
-  %1116 = getelementptr inbounds i8, ptr %.7, i64 %.010021397
+  %1116 = getelementptr inbounds i8, ptr %.8, i64 %.010021397
   br label %1117
 
 1117:                                             ; preds = %1078, %upcase.exit1369, %1004, %1000, %973, %961, %945, %842, %838, %812, %808, %765, %761, %681, %677, %651, %628, %591, %587, %561, %557, %531, %508, %387, %391, %254, %273, %232, %228, %183, %179, %153, %149, %123, %100, %1073, %781, %734, %716, %699, %608, %473, %453, %432, %414, %356, %338, %316, %297, %201, %43
-  %.4998 = phi ptr [ %.09941730, %43 ], [ %.39971400, %upcase.exit1369 ], [ %.3997, %1078 ], [ %45, %1073 ], [ %45, %1004 ], [ %45, %1000 ], [ %45, %945 ], [ %45, %973 ], [ %45, %961 ], [ %45, %842 ], [ %45, %838 ], [ %45, %812 ], [ %45, %808 ], [ %45, %781 ], [ %45, %765 ], [ %45, %761 ], [ %45, %734 ], [ %45, %716 ], [ %45, %699 ], [ %45, %681 ], [ %45, %677 ], [ %45, %628 ], [ %45, %651 ], [ %45, %608 ], [ %45, %591 ], [ %45, %587 ], [ %45, %561 ], [ %45, %557 ], [ %45, %508 ], [ %45, %531 ], [ %45, %473 ], [ %45, %453 ], [ %45, %432 ], [ %45, %414 ], [ %45, %387 ], [ %45, %391 ], [ %45, %356 ], [ %45, %338 ], [ %45, %316 ], [ %45, %297 ], [ %45, %254 ], [ %45, %273 ], [ %45, %232 ], [ %45, %228 ], [ %45, %201 ], [ %45, %183 ], [ %45, %179 ], [ %45, %153 ], [ %45, %149 ], [ %45, %100 ], [ %45, %123 ]
-  %.8 = phi ptr [ %44, %43 ], [ %1116, %upcase.exit1369 ], [ %.09901731, %1078 ], [ %1074, %1073 ], [ %1005, %1004 ], [ %996, %1000 ], [ %947, %945 ], [ %975, %973 ], [ %963, %961 ], [ %843, %842 ], [ %834, %838 ], [ %813, %812 ], [ %804, %808 ], [ %783, %781 ], [ %766, %765 ], [ %757, %761 ], [ %736, %734 ], [ %718, %716 ], [ %701, %699 ], [ %682, %681 ], [ %673, %677 ], [ %630, %628 ], [ %652, %651 ], [ %610, %608 ], [ %592, %591 ], [ %583, %587 ], [ %562, %561 ], [ %553, %557 ], [ %510, %508 ], [ %532, %531 ], [ %474, %473 ], [ %454, %453 ], [ %434, %432 ], [ %416, %414 ], [ %390, %387 ], [ %398, %391 ], [ %358, %356 ], [ %340, %338 ], [ %318, %316 ], [ %299, %297 ], [ %256, %254 ], [ %274, %273 ], [ %233, %232 ], [ %224, %228 ], [ %203, %201 ], [ %184, %183 ], [ %175, %179 ], [ %154, %153 ], [ %145, %149 ], [ %102, %100 ], [ %124, %123 ]
-  %1118 = getelementptr inbounds i8, ptr %.4998, i64 1
+  %.1995 = phi ptr [ %.09941730, %43 ], [ %.49981400, %upcase.exit1369 ], [ %.4998, %1078 ], [ %45, %1073 ], [ %45, %1004 ], [ %45, %1000 ], [ %45, %945 ], [ %45, %973 ], [ %45, %961 ], [ %45, %842 ], [ %45, %838 ], [ %45, %812 ], [ %45, %808 ], [ %45, %781 ], [ %45, %765 ], [ %45, %761 ], [ %45, %734 ], [ %45, %716 ], [ %45, %699 ], [ %45, %681 ], [ %45, %677 ], [ %45, %628 ], [ %45, %651 ], [ %45, %608 ], [ %45, %591 ], [ %45, %587 ], [ %45, %561 ], [ %45, %557 ], [ %45, %508 ], [ %45, %531 ], [ %45, %473 ], [ %45, %453 ], [ %45, %432 ], [ %45, %414 ], [ %45, %387 ], [ %45, %391 ], [ %45, %356 ], [ %45, %338 ], [ %45, %316 ], [ %45, %297 ], [ %45, %254 ], [ %45, %273 ], [ %45, %232 ], [ %45, %228 ], [ %45, %201 ], [ %45, %183 ], [ %45, %179 ], [ %45, %153 ], [ %45, %149 ], [ %45, %100 ], [ %45, %123 ]
+  %.1 = phi ptr [ %44, %43 ], [ %1116, %upcase.exit1369 ], [ %.09901731, %1078 ], [ %1074, %1073 ], [ %1005, %1004 ], [ %996, %1000 ], [ %947, %945 ], [ %975, %973 ], [ %963, %961 ], [ %843, %842 ], [ %834, %838 ], [ %813, %812 ], [ %804, %808 ], [ %783, %781 ], [ %766, %765 ], [ %757, %761 ], [ %736, %734 ], [ %718, %716 ], [ %701, %699 ], [ %682, %681 ], [ %673, %677 ], [ %630, %628 ], [ %652, %651 ], [ %610, %608 ], [ %592, %591 ], [ %583, %587 ], [ %562, %561 ], [ %553, %557 ], [ %510, %508 ], [ %532, %531 ], [ %474, %473 ], [ %454, %453 ], [ %434, %432 ], [ %416, %414 ], [ %390, %387 ], [ %398, %391 ], [ %358, %356 ], [ %340, %338 ], [ %318, %316 ], [ %299, %297 ], [ %256, %254 ], [ %274, %273 ], [ %233, %232 ], [ %224, %228 ], [ %203, %201 ], [ %184, %183 ], [ %175, %179 ], [ %154, %153 ], [ %145, %149 ], [ %102, %100 ], [ %124, %123 ]
+  %1118 = getelementptr inbounds i8, ptr %.1995, i64 1
   %1119 = load i8, ptr %1118, align 1
   %1120 = icmp ne i8 %1119, 0
-  %1121 = icmp ult ptr %.8, %29
+  %1121 = icmp ult ptr %.1, %29
   %1122 = select i1 %1120, i1 %1121, i1 false
   br i1 %1122, label %41, label %._crit_edge1737, !llvm.loop !12
 
 ._crit_edge1737:                                  ; preds = %1117, %28
-  %.0990.lcssa = phi ptr [ %0, %28 ], [ %.8, %1117 ]
+  %.0990.lcssa = phi ptr [ %0, %28 ], [ %.1, %1117 ]
   %.lcssa1696 = phi i8 [ %30, %28 ], [ %1119, %1117 ]
   %.not1117 = icmp ult ptr %.0990.lcssa, %16
   br i1 %.not1117, label %1123, label %.loopexit1432

@@ -5228,7 +5228,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %33, %pmix_pointer_a
 
 .preheader417:                                    ; preds = %._crit_edge, %835, %754, %pmix_pointer_array_get_item.exit
   %.0.i397.ph = phi ptr [ %39, %pmix_pointer_array_get_item.exit ], [ %.0.i396, %754 ], [ %.0.i396, %835 ], [ %.0.i396, %._crit_edge ]
-  %.0210.ph = phi ptr [ undef, %pmix_pointer_array_get_item.exit ], [ %.4, %754 ], [ %.4, %835 ], [ %.4, %._crit_edge ]
+  %.1211.ph = phi ptr [ undef, %pmix_pointer_array_get_item.exit ], [ %.0210, %754 ], [ %.0210, %835 ], [ %.0210, %._crit_edge ]
   store i32 1, ptr %6, align 4
   %42 = getelementptr inbounds i8, ptr %7, i64 256
   %43 = getelementptr inbounds i8, ptr %21, i64 8
@@ -5255,7 +5255,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %33, %pmix_pointer_a
   br label %64
 
 64:                                               ; preds = %.backedge438, %.preheader417
-  %.0210 = phi ptr [ %.0210.ph, %.preheader417 ], [ %.3, %.backedge438 ]
+  %.1211 = phi ptr [ %.1211.ph, %.preheader417 ], [ %.4, %.backedge438 ]
   %65 = call i32 @PMIx_Data_unpack(ptr noundef null, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %6, i16 noundef zeroext 22) #15
   switch i32 %65, label %837 [
     i32 0, label %66
@@ -6045,7 +6045,7 @@ pmix_pointer_array_get_item.exit377:              ; preds = %pmix_pointer_array_
 
 .loopexit412:                                     ; preds = %388, %338, %382
   %390 = phi i1 [ %347, %382 ], [ false, %338 ], [ %389, %388 ]
-  %.2.ph = phi ptr [ %349, %382 ], [ %.0210, %338 ], [ %349, %388 ]
+  %.3.ph = phi ptr [ %349, %382 ], [ %.1211, %338 ], [ %349, %388 ]
   %.pr = load i32, ptr %42, align 4
   %391 = icmp eq i32 %.pr, 1
   br i1 %391, label %392, label %pmix_obj_run_destructors.exit390
@@ -6132,7 +6132,7 @@ pmix_list_remove_first.exit.preheader:            ; preds = %.backedge, %pmix_ob
   br i1 %434, label %435, label %443
 
 435:                                              ; preds = %425
-  store ptr %.2.ph, ptr %428, align 8
+  store ptr %.3.ph, ptr %428, align 8
   %436 = call ptr @prte_hwloc_base_filter_cpus(ptr noundef %.0212) #15
   %437 = load ptr, ptr %426, align 8
   %438 = getelementptr inbounds i8, ptr %437, i64 184
@@ -6393,7 +6393,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %523, %
   br label %pmix_obj_run_destructors.exit390.thread
 
 pmix_obj_run_destructors.exit390.thread:          ; preds = %372, %pmix_obj_new_tma.exit, %548, %pmix_obj_run_destructors.exit390
-  %.3 = phi ptr [ %.2.ph, %pmix_obj_run_destructors.exit390 ], [ %519, %548 ], [ %519, %pmix_obj_new_tma.exit ], [ %349, %372 ]
+  %.4 = phi ptr [ %.3.ph, %pmix_obj_run_destructors.exit390 ], [ %519, %548 ], [ %519, %pmix_obj_new_tma.exit ], [ %349, %372 ]
   %553 = load i8, ptr getelementptr inbounds (i8, ptr @prte_plm_globals, i64 360), align 8
   %554 = trunc i8 %553 to i1
   br i1 %554, label %581, label %555
@@ -6600,7 +6600,7 @@ pmix_obj_run_destructors.exit390.thread:          ; preds = %372, %pmix_obj_new_
 
 646:                                              ; preds = %.loopexit2375, %.loopexit437, %.loopexit436, %.loopexit411, %.loopexit410, %.loopexit435, %.loopexit434, %.loopexit433, %.loopexit432, %.loopexit431, %.loopexit430, %.loopexit429, %.loopexit427, %261, %.loopexit428, %.loopexit426, %.loopexit425, %.loopexit424, %.loopexit416, %.loopexit423, %.loopexit422, %.loopexit421, %.loopexit420, %pmix_pointer_array_get_item.exit369.thread, %pmix_pointer_array_get_item.exit.thread
   %.0.i396 = phi ptr [ null, %pmix_pointer_array_get_item.exit.thread ], [ %.0.i397.ph, %pmix_pointer_array_get_item.exit369.thread ], [ %.0.i397.ph, %.loopexit420 ], [ %.0.i397.ph, %.loopexit421 ], [ %.0.i397.ph, %.loopexit422 ], [ %.0.i397.ph, %.loopexit423 ], [ %.0.i397.ph, %.loopexit416 ], [ %.0.i397.ph, %.loopexit424 ], [ %.0.i397.ph, %.loopexit425 ], [ %.0.i397.ph, %.loopexit426 ], [ %.0.i397.ph, %.loopexit430 ], [ %.0.i397.ph, %.loopexit431 ], [ %.0.i397.ph, %.loopexit432 ], [ %.0.i397.ph, %.loopexit433 ], [ %.0.i397.ph, %.loopexit434 ], [ %.0.i397.ph, %.loopexit435 ], [ %.0.i397.ph, %.loopexit410 ], [ %.0.i397.ph, %.loopexit411 ], [ %.0.i397.ph, %.loopexit436 ], [ %.0.i397.ph, %.loopexit437 ], [ %.0.i397.ph, %.loopexit428 ], [ %.0.i397.ph, %.loopexit429 ], [ %.0.i397.ph, %261 ], [ %.0.i397.ph, %.loopexit427 ], [ %.0.i397.ph, %.loopexit2375 ]
-  %.4 = phi ptr [ undef, %pmix_pointer_array_get_item.exit.thread ], [ %.0210, %pmix_pointer_array_get_item.exit369.thread ], [ %.0210, %.loopexit420 ], [ %.0210, %.loopexit421 ], [ %.0210, %.loopexit422 ], [ %.0210, %.loopexit423 ], [ %.0210, %.loopexit416 ], [ %.0210, %.loopexit424 ], [ %.0210, %.loopexit425 ], [ %.0210, %.loopexit426 ], [ %.0210, %.loopexit430 ], [ %.0210, %.loopexit431 ], [ %.0210, %.loopexit432 ], [ %.0210, %.loopexit433 ], [ %.0210, %.loopexit434 ], [ %.0210, %.loopexit435 ], [ %.2.ph, %.loopexit410 ], [ %.2.ph, %.loopexit411 ], [ %.3, %.loopexit436 ], [ %.3, %.loopexit437 ], [ %.0210, %.loopexit428 ], [ %.0210, %.loopexit429 ], [ %.0210, %261 ], [ %.0210, %.loopexit427 ], [ %.3, %.loopexit2375 ]
+  %.0210 = phi ptr [ undef, %pmix_pointer_array_get_item.exit.thread ], [ %.1211, %pmix_pointer_array_get_item.exit369.thread ], [ %.1211, %.loopexit420 ], [ %.1211, %.loopexit421 ], [ %.1211, %.loopexit422 ], [ %.1211, %.loopexit423 ], [ %.1211, %.loopexit416 ], [ %.1211, %.loopexit424 ], [ %.1211, %.loopexit425 ], [ %.1211, %.loopexit426 ], [ %.1211, %.loopexit430 ], [ %.1211, %.loopexit431 ], [ %.1211, %.loopexit432 ], [ %.1211, %.loopexit433 ], [ %.1211, %.loopexit434 ], [ %.1211, %.loopexit435 ], [ %.3.ph, %.loopexit410 ], [ %.3.ph, %.loopexit411 ], [ %.4, %.loopexit436 ], [ %.4, %.loopexit437 ], [ %.1211, %.loopexit428 ], [ %.1211, %.loopexit429 ], [ %.1211, %261 ], [ %.1211, %.loopexit427 ], [ %.4, %.loopexit2375 ]
   %.0 = phi ptr [ null, %pmix_pointer_array_get_item.exit.thread ], [ null, %pmix_pointer_array_get_item.exit369.thread ], [ %89, %.loopexit420 ], [ %89, %.loopexit421 ], [ %89, %.loopexit422 ], [ %89, %.loopexit423 ], [ %89, %.loopexit416 ], [ %89, %.loopexit424 ], [ %89, %.loopexit425 ], [ %89, %.loopexit426 ], [ %89, %.loopexit430 ], [ %89, %.loopexit431 ], [ %89, %.loopexit432 ], [ %89, %.loopexit433 ], [ %89, %.loopexit434 ], [ %89, %.loopexit435 ], [ %89, %.loopexit410 ], [ %89, %.loopexit411 ], [ %89, %.loopexit436 ], [ %89, %.loopexit437 ], [ %89, %.loopexit428 ], [ %89, %.loopexit429 ], [ %89, %261 ], [ %89, %.loopexit427 ], [ %89, %.loopexit2375 ]
   %647 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond358 = icmp ult i32 %647, 64

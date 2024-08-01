@@ -1343,7 +1343,7 @@ if.then28:                                        ; preds = %if.end20
   br i1 %cmp31, label %err, label %if.end35
 
 if.end35:                                         ; preds = %if.then28, %if.end20
-  %ln.0 = phi ptr [ %call30, %if.then28 ], [ null, %if.end20 ]
+  %ln.1 = phi ptr [ %call30, %if.then28 ], [ null, %if.end20 ]
   %6 = load ptr, ptr %o, align 8
   %cmp37.not = icmp eq ptr %6, null
   br i1 %cmp37.not, label %if.end46, label %if.then39
@@ -1354,9 +1354,9 @@ if.then39:                                        ; preds = %if.end35
   br i1 %cmp42, label %err, label %if.end46
 
 if.end46:                                         ; preds = %if.then39, %if.end35
-  %sn.0 = phi ptr [ %call41, %if.then39 ], [ null, %if.end35 ]
-  store ptr %sn.0, ptr %call, align 8
-  store ptr %ln.0, ptr %ln7, align 8
+  %sn.1 = phi ptr [ %call41, %if.then39 ], [ null, %if.end35 ]
+  store ptr %sn.1, ptr %call, align 8
+  store ptr %ln.1, ptr %ln7, align 8
   %7 = load i32, ptr %flags, align 8
   %or = or i32 %7, 13
   %flags50 = getelementptr inbounds i8, ptr %call, i64 32
@@ -1364,9 +1364,9 @@ if.end46:                                         ; preds = %if.then39, %if.end3
   br label %return
 
 err:                                              ; preds = %if.then39, %if.then28, %if.end5
-  %ln.1 = phi ptr [ null, %if.end5 ], [ null, %if.then28 ], [ %ln.0, %if.then39 ]
+  %ln.0 = phi ptr [ null, %if.end5 ], [ null, %if.then28 ], [ %ln.1, %if.then39 ]
   tail call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 152) #10
-  tail call void @free(ptr noundef %ln.1) #10
+  tail call void @free(ptr noundef %ln.0) #10
   tail call void @free(ptr noundef %call8) #10
   tail call void @free(ptr noundef nonnull %call) #10
   br label %return
@@ -2269,11 +2269,11 @@ for.cond.preheader.preheader:                     ; preds = %if.end23
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %if.end158
-  %out.addr.0133 = phi ptr [ %out.addr.6, %if.end158 ], [ %out, %for.cond.preheader.preheader ]
+  %out.addr.0133 = phi ptr [ %out.addr.5, %if.end158 ], [ %out, %for.cond.preheader.preheader ]
   %p.0132 = phi ptr [ %incdec.ptr118, %if.end158 ], [ %6, %for.cond.preheader.preheader ]
   %bl.0131 = phi ptr [ %bl.1115, %if.end158 ], [ null, %for.cond.preheader.preheader ]
   %tobool76.not130 = phi i1 [ true, %if.end158 ], [ false, %for.cond.preheader.preheader ]
-  %out_len.addr.0129 = phi i32 [ %out_len.addr.6, %if.end158 ], [ %out_len, %for.cond.preheader.preheader ]
+  %out_len.addr.0129 = phi i32 [ %out_len.addr.5, %if.end158 ], [ %out_len, %for.cond.preheader.preheader ]
   %len.0128 = phi i32 [ %dec119, %if.end158 ], [ %5, %for.cond.preheader.preheader ]
   %n.0127 = phi i32 [ %n.2, %if.end158 ], [ 0, %for.cond.preheader.preheader ]
   %7 = load i8, ptr %p.0132, align 1
@@ -2325,8 +2325,8 @@ land.lhs.true58:                                  ; preds = %if.then56
   br i1 %tobool60.not, label %err, label %if.end62
 
 if.end62:                                         ; preds = %land.lhs.true58, %if.then56
-  %bl.2 = phi ptr [ %bl.1115, %if.then56 ], [ %call59, %land.lhs.true58 ]
-  %call63 = call i32 @BN_set_word(ptr noundef nonnull %bl.2, i64 noundef %l.1) #10
+  %bl.4 = phi ptr [ %bl.1115, %if.then56 ], [ %call59, %land.lhs.true58 ]
+  %call63 = call i32 @BN_set_word(ptr noundef nonnull %bl.4, i64 noundef %l.1) #10
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %err, label %if.then69
 
@@ -2334,7 +2334,7 @@ if.end67:                                         ; preds = %if.end51
   br i1 %tobool34.not, label %if.else74, label %if.then69
 
 if.then69:                                        ; preds = %if.end62, %if.end67
-  %bl.399 = phi ptr [ %bl.1115, %if.end67 ], [ %bl.2, %if.end62 ]
+  %bl.399 = phi ptr [ %bl.1115, %if.end67 ], [ %bl.4, %if.end62 ]
   %use_bn.198 = phi i32 [ %use_bn.0114, %if.end67 ], [ 1, %if.end62 ]
   %call70 = call i32 @BN_lshift(ptr noundef %bl.399, ptr noundef %bl.399, i32 noundef 7) #10
   %tobool71.not = icmp eq i32 %call70, 0
@@ -2383,7 +2383,7 @@ if.else89:                                        ; preds = %if.then77
 
 if.end93:                                         ; preds = %if.else87, %if.then82, %if.else89
   %i.0 = phi i8 [ 2, %if.then82 ], [ 2, %if.else87 ], [ %conv90, %if.else89 ]
-  %l.3 = phi i64 [ %l.1, %if.then82 ], [ %sub, %if.else87 ], [ %sub92, %if.else89 ]
+  %l.4 = phi i64 [ %l.1, %if.then82 ], [ %sub, %if.else87 ], [ %sub92, %if.else89 ]
   %tobool94 = icmp ne ptr %out.addr.0133, null
   %cmp96 = icmp sgt i32 %out_len.addr.0129, 1
   %or.cond2 = select i1 %tobool94, i1 %cmp96, i1 false
@@ -2398,16 +2398,16 @@ if.then98:                                        ; preds = %if.end93
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then98, %if.end93
-  %out_len.addr.1 = phi i32 [ %dec101, %if.then98 ], [ %out_len.addr.0129, %if.end93 ]
-  %out.addr.1 = phi ptr [ %incdec.ptr100, %if.then98 ], [ %out.addr.0133, %if.end93 ]
+  %out_len.addr.2 = phi i32 [ %dec101, %if.then98 ], [ %out_len.addr.0129, %if.end93 ]
+  %out.addr.2 = phi ptr [ %incdec.ptr100, %if.then98 ], [ %out.addr.0133, %if.end93 ]
   %inc = add nsw i32 %n.0127, 1
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end102, %for.end
   %n.1 = phi i32 [ %inc, %if.end102 ], [ %n.0127, %for.end ]
-  %out_len.addr.2 = phi i32 [ %out_len.addr.1, %if.end102 ], [ %out_len.addr.0129, %for.end ]
-  %l.4 = phi i64 [ %l.3, %if.end102 ], [ %l.1, %for.end ]
-  %out.addr.2 = phi ptr [ %out.addr.1, %if.end102 ], [ %out.addr.0133, %for.end ]
+  %out_len.addr.1 = phi i32 [ %out_len.addr.2, %if.end102 ], [ %out_len.addr.0129, %for.end ]
+  %l.3 = phi i64 [ %l.4, %if.end102 ], [ %l.1, %for.end ]
+  %out.addr.1 = phi ptr [ %out.addr.2, %if.end102 ], [ %out.addr.0133, %for.end ]
   br i1 %tobool34.not, label %if.else133, label %if.then105
 
 if.then105:                                       ; preds = %if.end103
@@ -2418,83 +2418,83 @@ if.then105:                                       ; preds = %if.end103
 if.end109:                                        ; preds = %if.then105
   %call110 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call106) #12
   %conv111 = trunc i64 %call110 to i32
-  %tobool112.not = icmp eq ptr %out.addr.2, null
+  %tobool112.not = icmp eq ptr %out.addr.1, null
   br i1 %tobool112.not, label %if.end130, label %if.then113
 
 if.then113:                                       ; preds = %if.end109
-  %cmp114 = icmp sgt i32 %out_len.addr.2, 1
+  %cmp114 = icmp sgt i32 %out_len.addr.1, 1
   br i1 %cmp114, label %if.then116, label %if.end119
 
 if.then116:                                       ; preds = %if.then113
-  %incdec.ptr117 = getelementptr inbounds i8, ptr %out.addr.2, i64 1
-  store i8 46, ptr %out.addr.2, align 1
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %out.addr.1, i64 1
+  store i8 46, ptr %out.addr.1, align 1
   store i8 0, ptr %incdec.ptr117, align 1
-  %dec118 = add nsw i32 %out_len.addr.2, -1
+  %dec118 = add nsw i32 %out_len.addr.1, -1
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.then113
-  %out_len.addr.3 = phi i32 [ %dec118, %if.then116 ], [ %out_len.addr.2, %if.then113 ]
-  %out.addr.3 = phi ptr [ %incdec.ptr117, %if.then116 ], [ %out.addr.2, %if.then113 ]
-  %conv120 = sext i32 %out_len.addr.3 to i64
-  %call121 = call i64 @BUF_strlcpy(ptr noundef nonnull %out.addr.3, ptr noundef nonnull %call106, i64 noundef %conv120) #10
-  %cmp122 = icmp slt i32 %out_len.addr.3, %conv111
+  %out_len.addr.4 = phi i32 [ %dec118, %if.then116 ], [ %out_len.addr.1, %if.then113 ]
+  %out.addr.4 = phi ptr [ %incdec.ptr117, %if.then116 ], [ %out.addr.1, %if.then113 ]
+  %conv120 = sext i32 %out_len.addr.4 to i64
+  %call121 = call i64 @BUF_strlcpy(ptr noundef nonnull %out.addr.4, ptr noundef nonnull %call106, i64 noundef %conv120) #10
+  %cmp122 = icmp slt i32 %out_len.addr.4, %conv111
   br i1 %cmp122, label %if.then124, label %if.else125
 
 if.then124:                                       ; preds = %if.end119
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.3, i64 %conv120
+  %add.ptr = getelementptr inbounds i8, ptr %out.addr.4, i64 %conv120
   br label %if.end130
 
 if.else125:                                       ; preds = %if.end119
   %sext83 = shl i64 %call110, 32
   %idx.ext126 = ashr exact i64 %sext83, 32
-  %add.ptr127 = getelementptr inbounds i8, ptr %out.addr.3, i64 %idx.ext126
-  %sub128 = sub nsw i32 %out_len.addr.3, %conv111
+  %add.ptr127 = getelementptr inbounds i8, ptr %out.addr.4, i64 %idx.ext126
+  %sub128 = sub nsw i32 %out_len.addr.4, %conv111
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then124, %if.else125, %if.end109
-  %out_len.addr.4 = phi i32 [ 0, %if.then124 ], [ %sub128, %if.else125 ], [ %out_len.addr.2, %if.end109 ]
-  %out.addr.4 = phi ptr [ %add.ptr, %if.then124 ], [ %add.ptr127, %if.else125 ], [ null, %if.end109 ]
+  %out_len.addr.3 = phi i32 [ 0, %if.then124 ], [ %sub128, %if.else125 ], [ %out_len.addr.1, %if.end109 ]
+  %out.addr.3 = phi ptr [ %add.ptr, %if.then124 ], [ %add.ptr127, %if.else125 ], [ null, %if.end109 ]
   %inc131 = add nsw i32 %n.1, 1
   %add132 = add nsw i32 %inc131, %conv111
   call void @free(ptr noundef nonnull %call106) #10
   br label %if.end158
 
 if.else133:                                       ; preds = %if.end103
-  %call134 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %tbuf, i64 noundef 37, ptr noundef nonnull @.str.1, i64 noundef %l.4) #10
+  %call134 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %tbuf, i64 noundef 37, ptr noundef nonnull @.str.1, i64 noundef %l.3) #10
   %call136 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tbuf) #12
   %conv137 = trunc i64 %call136 to i32
-  %tobool138 = icmp ne ptr %out.addr.2, null
-  %cmp140 = icmp sgt i32 %out_len.addr.2, 0
+  %tobool138 = icmp ne ptr %out.addr.1, null
+  %cmp140 = icmp sgt i32 %out_len.addr.1, 0
   %or.cond3 = select i1 %tobool138, i1 %cmp140, i1 false
   br i1 %or.cond3, label %if.then142, label %if.end156
 
 if.then142:                                       ; preds = %if.else133
-  %conv144 = zext nneg i32 %out_len.addr.2 to i64
-  %call145 = call i64 @BUF_strlcpy(ptr noundef nonnull %out.addr.2, ptr noundef nonnull %tbuf, i64 noundef %conv144) #10
-  %cmp146 = icmp slt i32 %out_len.addr.2, %conv137
+  %conv144 = zext nneg i32 %out_len.addr.1 to i64
+  %call145 = call i64 @BUF_strlcpy(ptr noundef nonnull %out.addr.1, ptr noundef nonnull %tbuf, i64 noundef %conv144) #10
+  %cmp146 = icmp slt i32 %out_len.addr.1, %conv137
   br i1 %cmp146, label %if.then148, label %if.else151
 
 if.then148:                                       ; preds = %if.then142
-  %add.ptr150 = getelementptr inbounds i8, ptr %out.addr.2, i64 %conv144
+  %add.ptr150 = getelementptr inbounds i8, ptr %out.addr.1, i64 %conv144
   br label %if.end156
 
 if.else151:                                       ; preds = %if.then142
   %sext = shl i64 %call136, 32
   %idx.ext152 = ashr exact i64 %sext, 32
-  %add.ptr153 = getelementptr inbounds i8, ptr %out.addr.2, i64 %idx.ext152
-  %sub154 = sub nsw i32 %out_len.addr.2, %conv137
+  %add.ptr153 = getelementptr inbounds i8, ptr %out.addr.1, i64 %idx.ext152
+  %sub154 = sub nsw i32 %out_len.addr.1, %conv137
   br label %if.end156
 
 if.end156:                                        ; preds = %if.then148, %if.else151, %if.else133
-  %out_len.addr.5 = phi i32 [ 0, %if.then148 ], [ %sub154, %if.else151 ], [ %out_len.addr.2, %if.else133 ]
-  %out.addr.5 = phi ptr [ %add.ptr150, %if.then148 ], [ %add.ptr153, %if.else151 ], [ %out.addr.2, %if.else133 ]
+  %out_len.addr.6 = phi i32 [ 0, %if.then148 ], [ %sub154, %if.else151 ], [ %out_len.addr.1, %if.else133 ]
+  %out.addr.6 = phi ptr [ %add.ptr150, %if.then148 ], [ %add.ptr153, %if.else151 ], [ %out.addr.1, %if.else133 ]
   %add157 = add nsw i32 %n.1, %conv137
   br label %if.end158
 
 if.end158:                                        ; preds = %if.end156, %if.end130
   %n.2 = phi i32 [ %add132, %if.end130 ], [ %add157, %if.end156 ]
-  %out_len.addr.6 = phi i32 [ %out_len.addr.4, %if.end130 ], [ %out_len.addr.5, %if.end156 ]
-  %out.addr.6 = phi ptr [ %out.addr.4, %if.end130 ], [ %out.addr.5, %if.end156 ]
+  %out_len.addr.5 = phi i32 [ %out_len.addr.3, %if.end130 ], [ %out_len.addr.6, %if.end156 ]
+  %out.addr.5 = phi ptr [ %out.addr.3, %if.end130 ], [ %out.addr.6, %if.end156 ]
   %cmp25 = icmp sgt i32 %dec119, 0
   br i1 %cmp25, label %for.cond.preheader, label %while.end, !llvm.loop !7
 
@@ -2505,8 +2505,8 @@ while.end:                                        ; preds = %if.end158, %if.end2
   br label %return
 
 err:                                              ; preds = %if.then105, %if.then82, %for.cond.preheader, %if.then35, %land.lhs.true58, %if.end62, %if.then69, %if.end75
-  %bl.4 = phi ptr [ %bl.1115, %if.then35 ], [ null, %land.lhs.true58 ], [ %bl.2, %if.end62 ], [ %bl.399, %if.then69 ], [ %bl.3100, %if.end75 ], [ %bl.0131, %for.cond.preheader ], [ %bl.1115, %if.then82 ], [ %bl.1115, %if.then105 ]
-  call void @BN_free(ptr noundef %bl.4) #10
+  %bl.2 = phi ptr [ %bl.1115, %if.then35 ], [ null, %land.lhs.true58 ], [ %bl.4, %if.end62 ], [ %bl.399, %if.then69 ], [ %bl.3100, %if.end75 ], [ %bl.0131, %for.cond.preheader ], [ %bl.1115, %if.then82 ], [ %bl.1115, %if.then105 ]
+  call void @BN_free(ptr noundef %bl.2) #10
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %err, %while.end, %if.end19
@@ -2649,11 +2649,11 @@ if.then18:                                        ; preds = %obj_add_object.exit
   br label %err
 
 err:                                              ; preds = %obj_add_object.exit, %if.then18, %if.end10, %if.end5, %entry, %if.then4
-  %ret.1 = phi i32 [ 0, %entry ], [ 0, %if.then4 ], [ 0, %if.end5 ], [ 0, %if.end10 ], [ %11, %if.then18 ], [ 0, %obj_add_object.exit ]
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then4 ], [ 0, %if.end5 ], [ 0, %if.end10 ], [ %11, %if.then18 ], [ 0, %obj_add_object.exit ]
   %buf.0 = phi ptr [ null, %entry ], [ null, %if.then4 ], [ %call1, %if.end5 ], [ %call1, %if.end10 ], [ %call1, %if.then18 ], [ %call1, %obj_add_object.exit ]
   call void @ASN1_OBJECT_free(ptr noundef null) #10
   call void @free(ptr noundef %buf.0) #10
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 declare ptr @ASN1_OBJECT_create(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

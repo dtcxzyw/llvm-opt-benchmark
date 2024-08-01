@@ -94,14 +94,14 @@ ehcleanup.thread:                                 ; preds = %if.then7
   br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit21
 
 if.end14:                                         ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EE5resetEPS1_.exit, %if.then3
-  %tentative_histogram.sroa.0.2 = phi ptr [ %3, %if.then3 ], [ %call9, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EE5resetEPS1_.exit ]
-  %call18 = call noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %tentative_histogram.sroa.0.2)
+  %tentative_histogram.sroa.0.3 = phi ptr [ %3, %if.then3 ], [ %call9, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EE5resetEPS1_.exit ]
+  %call18 = call noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS_13HistogramBaseE(ptr noundef nonnull %tentative_histogram.sroa.0.3)
   %5 = load i32, ptr %histogram_ref, align 4
   %tobool19.not = icmp eq i32 %5, 0
   br i1 %tobool19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end14
-  %cmp = icmp eq ptr %call18, %tentative_histogram.sroa.0.2
+  %cmp = icmp eq ptr %call18, %tentative_histogram.sroa.0.3
   call void @_ZN4base28PersistentHistogramAllocator17FinalizeHistogramEjb(ptr noundef nonnull align 8 dereferenceable(132) %call1, i32 noundef %5, i1 noundef zeroext %cmp)
   br label %if.end22
 

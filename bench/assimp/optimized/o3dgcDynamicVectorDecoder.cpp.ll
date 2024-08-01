@@ -967,7 +967,7 @@ for.body44.us:                                    ; preds = %for.cond42.preheade
 
 do.body.i.i.us:                                   ; preds = %for.body44.us, %do.body.i.i.us
   %65 = phi i64 [ %inc3.i.i.us, %do.body.i.i.us ], [ %inc.i.i.us, %for.body44.us ]
-  %value.0.i.i.us = phi i64 [ %add.i.i.us, %do.body.i.i.us ], [ 127, %for.body44.us ]
+  %value.1.i.i.us = phi i64 [ %add.i.i.us, %do.body.i.i.us ], [ 127, %for.body44.us ]
   %i.0.i.i.us = phi i64 [ %add6.i.i.us, %do.body.i.i.us ], [ 0, %for.body44.us ]
   %inc3.i.i.us = add i64 %65, 1
   store i64 %inc3.i.i.us, ptr %m_iterator, align 8
@@ -977,20 +977,20 @@ do.body.i.i.us:                                   ; preds = %for.body44.us, %do.
   %conv5.i.i.us = zext i8 %67 to i64
   %shr.i.i.us = lshr i64 %conv5.i.i.us, 1
   %shl.i.i.us = shl i64 %shr.i.i.us, %i.0.i.i.us
-  %add.i.i.us = add i64 %shl.i.i.us, %value.0.i.i.us
+  %add.i.i.us = add i64 %shl.i.i.us, %value.1.i.i.us
   %add6.i.i.us = add i64 %i.0.i.i.us, 6
   %and.i.i.us = and i64 %conv5.i.i.us, 1
   %tobool.not.i.i.us = icmp eq i64 %and.i.i.us, 0
   br i1 %tobool.not.i.i.us, label %invoke.cont46.us, label %do.body.i.i.us, !llvm.loop !15
 
 invoke.cont46.us:                                 ; preds = %do.body.i.i.us, %for.body44.us
-  %value.1.i.i.us = phi i64 [ %conv.i.i.us, %for.body44.us ], [ %add.i.i.us, %do.body.i.i.us ]
-  %and.i1.i.us = and i64 %value.1.i.i.us, 1
+  %value.0.i.i.us = phi i64 [ %conv.i.i.us, %for.body44.us ], [ %add.i.i.us, %do.body.i.i.us ]
+  %and.i1.i.us = and i64 %value.0.i.i.us, 1
   %tobool.not.i2.i.us = icmp eq i64 %and.i1.i.us, 0
-  %add.i3.i.us = add i64 %value.1.i.i.us, 1
+  %add.i3.i.us = add i64 %value.0.i.i.us, 1
   %shr.i4.i.us = lshr exact i64 %add.i3.i.us, 1
   %sub.i.i.us = sub nsw i64 0, %shr.i4.i.us
-  %shr1.i.i.us = lshr exact i64 %value.1.i.i.us, 1
+  %shr1.i.i.us = lshr exact i64 %value.0.i.i.us, 1
   %cond.i.i.us = select i1 %tobool.not.i2.i.us, i64 %shr1.i.i.us, i64 %sub.i.i.us
   %68 = load ptr, ptr %m_quantVectors48, align 8
   %mul49.us = mul i64 %d.0186.us, %3

@@ -116,17 +116,17 @@ define i32 @stats_tree_branch_max_namelen(ptr nocapture noundef readonly %0, i32
   br label %7
 
 7:                                                ; preds = %.preheader, %7
-  %.02329 = phi i32 [ 0, %.preheader ], [ %9, %7 ]
+  %.129 = phi i32 [ 0, %.preheader ], [ %9, %7 ]
   %.02428 = phi ptr [ %5, %.preheader ], [ %11, %7 ]
   %8 = tail call i32 @stats_tree_branch_max_namelen(ptr noundef nonnull %.02428, i32 noundef %6)
-  %9 = tail call i32 @llvm.umax.i32(i32 %8, i32 %.02329)
+  %9 = tail call i32 @llvm.umax.i32(i32 %8, i32 %.129)
   %10 = getelementptr inbounds i8, ptr %.02428, i64 112
   %11 = load ptr, ptr %10, align 8
   %.not26 = icmp eq ptr %11, null
   br i1 %.not26, label %.loopexit, label %7, !llvm.loop !4
 
 .loopexit:                                        ; preds = %7, %2
-  %.1 = phi i32 [ 0, %2 ], [ %9, %7 ]
+  %.023 = phi i32 [ 0, %2 ], [ %9, %7 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 536870912
@@ -183,7 +183,7 @@ stats_tree_get_displayname.exit:                  ; preds = %30, %16, %.preheade
   %.pn.in = phi i64 [ %32, %stats_tree_get_displayname.exit ], [ %34, %33 ]
   %.pn = trunc i64 %.pn.in to i32
   %.0 = add i32 %3, %.pn
-  %36 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %.1)
+  %36 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %.023)
   ret i32 %36
 }
 

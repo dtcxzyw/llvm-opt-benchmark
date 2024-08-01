@@ -430,8 +430,8 @@ define noalias noundef ptr @Mop_ManRead(ptr nocapture noundef readonly %0) local
   br i1 %.not108, label %.critedge, label %.preheader101
 
 .preheader101:                                    ; preds = %.loopexit103, %.preheader101.backedge
-  %.1 = phi ptr [ %.1.be, %.preheader101.backedge ], [ %24, %.loopexit103 ]
-  %25 = load i8, ptr %.1, align 1
+  %.2 = phi ptr [ %.2.be, %.preheader101.backedge ], [ %24, %.loopexit103 ]
+  %25 = load i8, ptr %.2, align 1
   switch i8 %25, label %27 [
     i8 32, label %Mop_ManIsSpace.exit.thread
     i8 12, label %Mop_ManIsSpace.exit.thread
@@ -445,11 +445,11 @@ define noalias noundef ptr @Mop_ManRead(ptr nocapture noundef readonly %0) local
   ]
 
 Mop_ManIsSpace.exit.thread:                       ; preds = %.preheader101, %.preheader101, %.preheader101, %.preheader101, %.preheader101, %.preheader101
-  %26 = getelementptr inbounds i8, ptr %.1, i64 1
+  %26 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %.preheader101.backedge
 
 .preheader101.backedge:                           ; preds = %Mop_ManIsSpace.exit.thread, %27
-  %.1.be = phi ptr [ %26, %Mop_ManIsSpace.exit.thread ], [ %28, %27 ]
+  %.2.be = phi ptr [ %26, %Mop_ManIsSpace.exit.thread ], [ %28, %27 ]
   br label %.preheader101, !llvm.loop !6
 
 27:                                               ; preds = %.preheader101
@@ -468,7 +468,7 @@ Mop_ManIsSpace.exit.thread:                       ; preds = %.preheader101, %.pr
   br label %36
 
 36:                                               ; preds = %.lr.ph120, %Vec_IntPush.exit
-  %.3118 = phi ptr [ %.1, %.lr.ph120 ], [ %122, %Vec_IntPush.exit ]
+  %.3118 = phi ptr [ %.2, %.lr.ph120 ], [ %122, %Vec_IntPush.exit ]
   %.055117 = phi i32 [ 0, %.lr.ph120 ], [ %123, %Vec_IntPush.exit ]
   %37 = load i8, ptr %.3118, align 1
   switch i8 %37, label %.critedge [

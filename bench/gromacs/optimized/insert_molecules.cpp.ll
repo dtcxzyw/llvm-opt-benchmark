@@ -2088,18 +2088,18 @@ _ZL15center_moleculeN3gmx8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %.lr.p
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %253 = phi float [ %257, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %.lr.ph.preheader.i.i.i ]
   %254 = phi ptr [ %258, %.lr.ph.i.i.i ], [ %252, %.lr.ph.preheader.i.i.i ]
-  %.sroa.02.010.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %248, %.lr.ph.preheader.i.i.i ]
+  %.sroa.02.110.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %248, %.lr.ph.preheader.i.i.i ]
   %255 = load float, ptr %254, align 4
   %256 = fcmp olt float %253, %255
   %257 = select i1 %256, float %255, float %253
-  %spec.select.i.i.i = select i1 %256, ptr %254, ptr %.sroa.02.010.i.i.i
+  %spec.select.i.i.i = select i1 %256, ptr %254, ptr %.sroa.02.110.i.i.i
   %258 = getelementptr inbounds i8, ptr %254, i64 4
   %.not.i.i.i20 = icmp eq ptr %258, %250
   br i1 %.not.i.i.i20, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEET_S8_S8_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEET_S8_S8_.exit.i: ; preds = %.lr.ph.i.i.i, %247
-  %.sroa.02.2.i.i.i = phi ptr [ %248, %247 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %259 = load float, ptr %.sroa.02.2.i.i.i, align 4
+  %.sroa.02.0.i.i.i = phi ptr [ %248, %247 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %259 = load float, ptr %.sroa.02.0.i.i.i, align 4
   %260 = load ptr, ptr %9, align 8
   %261 = getelementptr inbounds i8, ptr %9, i64 8
   %262 = load ptr, ptr %261, align 8
@@ -2118,18 +2118,18 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEET_S8_S8_
 .lr.ph.i.i129.i:                                  ; preds = %.lr.ph.i.i129.i, %.lr.ph.preheader.i.i127.i
   %266 = phi float [ %270, %.lr.ph.i.i129.i ], [ %.pre.i.i128.i, %.lr.ph.preheader.i.i127.i ]
   %267 = phi ptr [ %271, %.lr.ph.i.i129.i ], [ %265, %.lr.ph.preheader.i.i127.i ]
-  %.sroa.02.010.i.i130.i = phi ptr [ %spec.select.i.i131.i, %.lr.ph.i.i129.i ], [ %260, %.lr.ph.preheader.i.i127.i ]
+  %.sroa.02.110.i.i130.i = phi ptr [ %spec.select.i.i131.i, %.lr.ph.i.i129.i ], [ %260, %.lr.ph.preheader.i.i127.i ]
   %268 = load float, ptr %267, align 4
   %269 = fcmp olt float %266, %268
   %270 = select i1 %269, float %268, float %266
-  %spec.select.i.i131.i = select i1 %269, ptr %267, ptr %.sroa.02.010.i.i130.i
+  %spec.select.i.i131.i = select i1 %269, ptr %267, ptr %.sroa.02.110.i.i130.i
   %271 = getelementptr inbounds i8, ptr %267, i64 4
   %.not.i.i132.i = icmp eq ptr %271, %262
   br i1 %.not.i.i132.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit.i, label %.lr.ph.i.i129.i, !llvm.loop !7
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.exit.i: ; preds = %.lr.ph.i.i129.i, %264
-  %.sroa.02.2.i.i133.i = phi ptr [ %260, %264 ], [ %spec.select.i.i131.i, %.lr.ph.i.i129.i ]
-  %272 = load float, ptr %.sroa.02.2.i.i133.i, align 4
+  %.sroa.02.0.i.i133.i = phi ptr [ %260, %264 ], [ %spec.select.i.i131.i, %.lr.ph.i.i129.i ]
+  %272 = load float, ptr %.sroa.02.0.i.i133.i, align 4
   %273 = fcmp olt float %259, %272
   %.sroa.speculated.i = select i1 %273, float %272, float %259
   br label %280

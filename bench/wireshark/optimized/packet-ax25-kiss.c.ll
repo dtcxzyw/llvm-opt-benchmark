@@ -217,7 +217,7 @@ define internal i32 @dissect_ax25_kiss(ptr noundef %0, ptr noundef %1, ptr nound
   br label %73
 
 73:                                               ; preds = %42, %70, %67, %64, %61, %58, %55, %52
-  %.0 = phi i32 [ 1, %42 ], [ %40, %67 ], [ %40, %64 ], [ %40, %61 ], [ %40, %58 ], [ %40, %55 ], [ %40, %52 ], [ %40, %70 ]
+  %.1 = phi i32 [ 1, %42 ], [ %40, %67 ], [ %40, %64 ], [ %40, %61 ], [ %40, %58 ], [ %40, %55 ], [ %40, %52 ], [ %40, %70 ]
   %74 = load i32, ptr @gPREF_CKSUM_MODE, align 4
   %.not134 = icmp eq i32 %74, 0
   br i1 %.not134, label %86, label %75
@@ -244,14 +244,14 @@ define internal i32 @dissect_ax25_kiss(ptr noundef %0, ptr noundef %1, ptr nound
   br label %86
 
 86:                                               ; preds = %73, %83, %75, %39
-  %.1 = phi i32 [ %.0, %83 ], [ %.0, %75 ], [ %.0, %73 ], [ %40, %39 ]
+  %.0 = phi i32 [ %.1, %83 ], [ %.1, %75 ], [ %.1, %73 ], [ %40, %39 ]
   switch i32 %13, label %91 [
     i32 12, label %87
     i32 0, label %87
   ]
 
 87:                                               ; preds = %86, %86
-  %88 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #4
+  %88 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #4
   %89 = load ptr, ptr @ax25_handle, align 8
   %90 = tail call i32 @call_dissector(ptr noundef %89, ptr noundef %88, ptr noundef %1, ptr noundef %2) #4
   br label %91

@@ -121,7 +121,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %depth.025 = phi i64 [ 0, %while.body.lr.ph ], [ %depth.1, %while.cond.backedge ]
+  %depth.025 = phi i64 [ 0, %while.body.lr.ph ], [ %depth.2, %while.cond.backedge ]
   %skip_initial.addr.024 = phi i64 [ %skip_initial, %while.body.lr.ph ], [ %skip_initial.addr.1, %while.cond.backedge ]
   %fp.023 = phi i64 [ %3, %while.body.lr.ph ], [ %fp.0.be, %while.cond.backedge ]
   %cmp1.not = icmp eq i64 %skip_initial.addr.024, 0
@@ -145,7 +145,7 @@ if.else:                                          ; preds = %while.body
 if.end:                                           ; preds = %if.else, %if.then
   %.pre-phi = phi ptr [ %4, %if.else ], [ %.pre, %if.then ]
   %skip_initial.addr.1 = phi i64 [ 0, %if.else ], [ %dec, %if.then ]
-  %depth.1 = phi i64 [ %inc, %if.else ], [ %depth.025, %if.then ]
+  %depth.2 = phi i64 [ %inc, %if.else ], [ %depth.025, %if.then ]
   %7 = load i64, ptr %.pre-phi, align 8
   %cmp.not.i = icmp ugt i64 %7, %fp.023
   %sub.i = sub nuw i64 %7, %fp.023
@@ -234,12 +234,12 @@ _ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit: ; preds = %if.end11
 
 while.cond.backedge:                              ; preds = %if.end11.i, %if.end5.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit
   %fp.0.be = phi i64 [ %fp.addr.040.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %7, %if.end5.i ], [ %7, %if.end11.i ]
-  %cmp = icmp ult i64 %depth.1, %max_depth
+  %cmp = icmp ult i64 %depth.2, %max_depth
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond.backedge, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %if.end6, %if.end.i, %for.inc.i, %entry
-  %depth.2 = phi i64 [ 0, %entry ], [ %depth.1, %for.inc.i ], [ %depth.1, %if.end.i ], [ %depth.1, %if.end6 ], [ %depth.1, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %depth.1, %while.cond.backedge ]
-  ret i64 %depth.2
+  %depth.1 = phi i64 [ 0, %entry ], [ %depth.2, %for.inc.i ], [ %depth.2, %if.end.i ], [ %depth.2, %if.end6 ], [ %depth.2, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %depth.2, %while.cond.backedge ]
+  ret i64 %depth.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)

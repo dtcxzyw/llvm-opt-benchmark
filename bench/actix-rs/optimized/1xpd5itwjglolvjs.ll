@@ -3975,10 +3975,10 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i: ; preds =
   br label %.noexc42
 
 .noexc42:                                         ; preds = %175, %174
-  %.sroa.19.0 = phi ptr [ %.sroa.19.8.copyload82, %174 ], [ %.sroa.19.8.copyload83, %175 ]
-  %.sroa.25.0 = phi ptr [ %.sroa.25.8.copyload85, %174 ], [ %.sroa.25.8.copyload87, %175 ]
-  %.sroa.28.0 = phi i64 [ %.sroa.28.8.copyload89, %174 ], [ %.sroa.28.8.copyload91, %175 ]
-  %.sroa.31.0 = phi ptr [ %.sroa.31.8.copyload93, %174 ], [ %.sroa.31.8.copyload95, %175 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.8.copyload82, %174 ], [ %.sroa.19.8.copyload83, %175 ]
+  %.sroa.25.1 = phi ptr [ %.sroa.25.8.copyload85, %174 ], [ %.sroa.25.8.copyload87, %175 ]
+  %.sroa.28.1 = phi i64 [ %.sroa.28.8.copyload89, %174 ], [ %.sroa.28.8.copyload91, %175 ]
+  %.sroa.31.1 = phi ptr [ %.sroa.31.8.copyload93, %174 ], [ %.sroa.31.8.copyload95, %175 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !793
   br label %392
 
@@ -4581,19 +4581,19 @@ _ZN15actix_multipart6server10InnerField8read_len17hc7c6020b99c6f5e3E.exit: ; pre
   br label %68
 
 392:                                              ; preds = %.noexc42, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i
-  %.sroa.19.4.ph = phi ptr [ %.sroa.0181.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.0173.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.0.0.i47, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.19.0, %.noexc42 ]
-  %.sroa.25.4.ph = phi ptr [ %.sroa.5183.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.5175.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.5.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.25.0, %.noexc42 ]
-  %.sroa.28.4.ph = phi i64 [ %.sroa.6185.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.6177.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.6.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.28.0, %.noexc42 ]
-  %.sroa.31.4.ph = phi ptr [ %.sroa.7187.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.7179.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.7.0189.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.31.0, %.noexc42 ]
+  %.sroa.19.0.ph = phi ptr [ %.sroa.0181.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.0173.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.0.0.i47, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.19.1, %.noexc42 ]
+  %.sroa.25.0.ph = phi ptr [ %.sroa.5183.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.5175.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.5.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.25.1, %.noexc42 ]
+  %.sroa.28.0.ph = phi i64 [ %.sroa.6185.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.6177.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.6.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.28.1, %.noexc42 ]
+  %.sroa.31.0.ph = phi ptr [ %.sroa.7187.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit.i ], [ %.sroa.7179.0.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit153.i ], [ %.sroa.7.0189.i, %_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit165.i ], [ %.sroa.31.1, %.noexc42 ]
   store i64 13, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.19.4.ph, ptr %.sroa.45.0..sroa_idx, align 8
+  store ptr %.sroa.19.0.ph, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.25.4.ph, ptr %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.25.0.ph, ptr %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx, align 8
   %.sroa.45.sroa.5.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.28.4.ph, ptr %.sroa.45.sroa.5.0..sroa.45.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.28.0.ph, ptr %.sroa.45.sroa.5.0..sroa.45.0..sroa_idx.sroa_idx, align 8
   %.sroa.45.sroa.6.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.31.4.ph, ptr %.sroa.45.sroa.6.0..sroa.45.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.31.0.ph, ptr %.sroa.45.sroa.6.0..sroa.45.0..sroa_idx.sroa_idx, align 8
   br label %394
 
 393:                                              ; preds = %197, %.thread85.i, %77

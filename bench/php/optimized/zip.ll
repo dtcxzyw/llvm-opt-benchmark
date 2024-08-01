@@ -531,7 +531,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
 
 238:                                              ; preds = %.lr.ph, %1955
   %indvars.iv = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next, %1955 ]
-  %.012671822 = phi ptr [ null, %.lr.ph ], [ %.6, %1955 ]
+  %.012671822 = phi ptr [ null, %.lr.ph ], [ %.1, %1955 ]
   %239 = call i64 @_php_stream_tell(ptr noundef %0) #15
   store i32 0, ptr %195, align 8
   store ptr null, ptr %196, align 8
@@ -4397,7 +4397,7 @@ phar_find_eocd.exit:                              ; preds = %.thread71.i
 
 1926:                                             ; preds = %1924, %1578, %1574
   %1927 = phi i32 [ 15, %1578 ], [ %.pre1854, %1924 ], [ %1576, %1574 ]
-  %.5 = phi ptr [ null, %1578 ], [ %.4, %1924 ], [ %.012671822, %1574 ]
+  %.2 = phi ptr [ null, %1578 ], [ %.4, %1924 ], [ %.012671822, %1574 ]
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8)
   %1928 = load ptr, ptr %185, align 8
   %1929 = getelementptr inbounds i8, ptr %1928, i64 8
@@ -4456,13 +4456,13 @@ phar_set_inode.exit:                              ; preds = %1926, %1935
   br label %1955
 
 1955:                                             ; preds = %phar_set_inode.exit, %1953, %838
-  %.6 = phi ptr [ %.5, %1953 ], [ %.012671822, %838 ], [ %.5, %phar_set_inode.exit ]
+  %.1 = phi ptr [ %.2, %1953 ], [ %.012671822, %838 ], [ %.2, %phar_set_inode.exit ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %74
   br i1 %exitcond.not, label %._crit_edge, label %238
 
 ._crit_edge:                                      ; preds = %1955, %164
-  %.01267.lcssa = phi ptr [ null, %164 ], [ %.6, %1955 ]
+  %.01267.lcssa = phi ptr [ null, %164 ], [ %.1, %1955 ]
   %1956 = call ptr @zend_hash_str_find(ptr noundef nonnull %172, ptr noundef nonnull @.str.45, i64 noundef 14) #15
   %.not1391 = icmp eq ptr %1956, null
   %1957 = load i16, ptr %101, align 4
@@ -6778,7 +6778,7 @@ phar_zip_u2d_time.exit:                           ; preds = %75, %85
   br label %359
 
 311:                                              ; preds = %184, %phar_zip_u2d_time.exit
-  %.0227 = phi i32 [ 0, %phar_zip_u2d_time.exit ], [ 1, %184 ]
+  %.1 = phi i32 [ 0, %phar_zip_u2d_time.exit ], [ 1, %184 ]
   %312 = getelementptr inbounds i8, ptr %7, i64 24
   %313 = load i32, ptr %0, align 8
   %314 = lshr i32 %313, 24
@@ -6850,7 +6850,7 @@ phar_zip_u2d_time.exit:                           ; preds = %75, %85
   br label %634
 
 359:                                              ; preds = %279, %347, %311, %223
-  %.1 = phi i32 [ %.0227, %347 ], [ %.0227, %311 ], [ 0, %279 ], [ 0, %223 ]
+  %.2 = phi i32 [ %.1, %347 ], [ %.1, %311 ], [ 0, %279 ], [ 0, %223 ]
   %360 = getelementptr inbounds i8, ptr %7, i64 16
   %361 = getelementptr inbounds i8, ptr %0, i64 12
   %362 = load i32, ptr %361, align 4
@@ -6879,7 +6879,7 @@ phar_zip_u2d_time.exit:                           ; preds = %75, %85
   br label %377
 
 377:                                              ; preds = %154, %159, %165, %168, %359
-  %.2 = phi i32 [ 0, %168 ], [ 0, %165 ], [ 0, %159 ], [ 0, %154 ], [ %.1, %359 ]
+  %.0227 = phi i32 [ 0, %168 ], [ 0, %165 ], [ 0, %159 ], [ 0, %154 ], [ %.2, %359 ]
   %378 = getelementptr inbounds i8, ptr %0, i64 24
   %379 = load i16, ptr %9, align 2
   %380 = lshr i16 %379, 8
@@ -7092,7 +7092,7 @@ phar_zip_u2d_time.exit:                           ; preds = %75, %85
   br label %634
 
 523:                                              ; preds = %513
-  %.not269 = icmp ne i32 %.2, 0
+  %.not269 = icmp ne i32 %.0227, 0
   %.pre = load i16, ptr %9, align 2
   %524 = and i16 %.pre, 2
   %.not270 = icmp eq i16 %524, 0

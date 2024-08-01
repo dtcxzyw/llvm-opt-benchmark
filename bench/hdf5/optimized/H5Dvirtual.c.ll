@@ -2264,12 +2264,12 @@ H5D_virtual_free_parsed_name.exit48:              ; preds = %.lr.ph.i45, %H5D_vi
   br label %81
 
 81:                                               ; preds = %77, %74
-  %.5 = phi i32 [ -1, %77 ], [ %.039.lcssa, %74 ]
+  %.6 = phi i32 [ -1, %77 ], [ %.039.lcssa, %74 ]
   store i64 -1, ptr %71, align 8
   br label %82
 
 82:                                               ; preds = %81, %._crit_edge55
-  %.6 = phi i32 [ %.5, %81 ], [ %.039.lcssa, %._crit_edge55 ]
+  %.5 = phi i32 [ %.6, %81 ], [ %.039.lcssa, %._crit_edge55 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 2240
   %84 = load i64, ptr %83, align 8
   %85 = icmp sgt i64 %84, -1
@@ -2287,15 +2287,15 @@ H5D_virtual_free_parsed_name.exit48:              ; preds = %.lr.ph.i45, %H5D_vi
   br label %93
 
 93:                                               ; preds = %89, %86
-  %.7 = phi i32 [ -1, %89 ], [ %.6, %86 ]
+  %.8 = phi i32 [ -1, %89 ], [ %.5, %86 ]
   store i64 -1, ptr %83, align 8
   br label %94
 
 94:                                               ; preds = %93, %82
-  %.8 = phi i32 [ %.7, %93 ], [ %.6, %82 ]
+  %.7 = phi i32 [ %.8, %93 ], [ %.5, %82 ]
   %95 = getelementptr inbounds i8, ptr %0, i64 2248
   store i8 0, ptr %95, align 8
-  ret i32 %.8
+  ret i32 %.7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2317,12 +2317,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_reset_source_dset(ptr 
   br label %12
 
 12:                                               ; preds = %8, %5
-  %.0 = phi i32 [ -1, %8 ], [ 0, %5 ]
+  %.1 = phi i32 [ -1, %8 ], [ 0, %5 ]
   store ptr null, ptr %3, align 8
   br label %13
 
 13:                                               ; preds = %12, %2
-  %.1 = phi i32 [ %.0, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ %.1, %12 ], [ 0, %2 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   %.not38 = icmp eq ptr %15, null
@@ -2381,14 +2381,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_reset_source_dset(ptr 
   br label %42
 
 42:                                               ; preds = %35, %38, %34
-  %.2 = phi i32 [ -1, %38 ], [ %.1, %35 ], [ %.1, %34 ]
+  %.3 = phi i32 [ -1, %38 ], [ %.0, %35 ], [ %.0, %34 ]
   store ptr null, ptr %32, align 8
   %.pre = load ptr, ptr %1, align 8
   br label %43
 
 43:                                               ; preds = %42, %31
   %44 = phi ptr [ %.pre, %42 ], [ %.pre47, %31 ]
-  %.3 = phi i32 [ %.2, %42 ], [ %.1, %31 ]
+  %.2 = phi i32 [ %.3, %42 ], [ %.0, %31 ]
   %.not44 = icmp eq ptr %44, null
   br i1 %.not44, label %53, label %45
 
@@ -2404,12 +2404,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_reset_source_dset(ptr 
   br label %52
 
 52:                                               ; preds = %48, %45
-  %.4 = phi i32 [ -1, %48 ], [ %.3, %45 ]
+  %.5 = phi i32 [ -1, %48 ], [ %.2, %45 ]
   store ptr null, ptr %1, align 8
   br label %53
 
 53:                                               ; preds = %52, %43
-  %.5 = phi i32 [ %.4, %52 ], [ %.3, %43 ]
+  %.4 = phi i32 [ %.5, %52 ], [ %.2, %43 ]
   %54 = getelementptr inbounds i8, ptr %1, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not45 = icmp eq ptr %55, null
@@ -2433,13 +2433,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_reset_source_dset(ptr 
   br label %66
 
 66:                                               ; preds = %59, %62, %56
-  %.6 = phi i32 [ -1, %62 ], [ %.5, %59 ], [ %.5, %56 ]
+  %.7 = phi i32 [ -1, %62 ], [ %.4, %59 ], [ %.4, %56 ]
   store ptr null, ptr %54, align 8
   br label %67
 
 67:                                               ; preds = %66, %53
-  %.7 = phi i32 [ %.6, %66 ], [ %.5, %53 ]
-  ret i32 %.7
+  %.6 = phi i32 [ %.7, %66 ], [ %.4, %53 ]
+  ret i32 %.6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2830,7 +2830,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
 
 24:                                               ; preds = %.lr.ph532, %406
   %25 = phi ptr [ %.pre, %.lr.ph532 ], [ %407, %406 ]
-  %.0408531 = phi i32 [ 0, %.lr.ph532 ], [ %.5, %406 ]
+  %.1409531 = phi i32 [ 0, %.lr.ph532 ], [ %.6, %406 ]
   %.1414530 = phi i64 [ 0, %.lr.ph532 ], [ %408, %406 ]
   %26 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %25, i64 %.1414530
   %27 = getelementptr inbounds i8, ptr %26, i64 180
@@ -3070,7 +3070,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
 
 .preheader476:                                    ; preds = %30, %._crit_edge608
   %.0406529 = phi i64 [ %.1407, %._crit_edge608 ], [ 0, %30 ]
-  %.1409528 = phi i32 [ %.3, %._crit_edge608 ], [ %.0408531, %30 ]
+  %.3528 = phi i32 [ %.5, %._crit_edge608 ], [ %.1409531, %30 ]
   %.0410527 = phi i64 [ %.pre-phi, %._crit_edge608 ], [ 0, %30 ]
   %177 = load ptr, ptr %21, align 8
   %178 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %177, i64 %.1414530
@@ -3317,7 +3317,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   br label %329
 
 329:                                              ; preds = %325, %322
-  %.2 = phi i32 [ -1, %325 ], [ %.1409528, %322 ]
+  %.4 = phi i32 [ -1, %325 ], [ %.3528, %322 ]
   %330 = load ptr, ptr %21, align 8
   %331 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %330, i64 %.1414530, i32 4
   %332 = load ptr, ptr %331, align 8
@@ -3327,7 +3327,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
 
 ._crit_edge608:                                   ; preds = %316, %228, %329
   %.pre-phi = phi i64 [ %229, %228 ], [ %.pre609, %329 ], [ %.pre609, %316 ]
-  %.3 = phi i32 [ %.1409528, %228 ], [ %.2, %329 ], [ %.1409528, %316 ]
+  %.5 = phi i32 [ %.3528, %228 ], [ %.4, %329 ], [ %.3528, %316 ]
   %.1407 = phi i64 [ %229, %228 ], [ %.pre609, %329 ], [ %.0406529, %316 ]
   %334 = load i64, ptr %22, align 8
   %335 = add i64 %334, %.1407
@@ -3406,17 +3406,17 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
 
 385:                                              ; preds = %345, %362, %378
   %386 = phi ptr [ %363, %362 ], [ %379, %378 ], [ %337, %345 ]
-  %.0 = phi i64 [ %369, %362 ], [ %384, %378 ], [ 0, %345 ]
+  %.1 = phi i64 [ %369, %362 ], [ %384, %378 ], [ 0, %345 ]
   %387 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %386, i64 %.1414530, i32 6
   store i64 %.1407, ptr %387, align 8
   %388 = load ptr, ptr %21, align 8
   %389 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %388, i64 %.1414530, i32 19
-  store i64 %.0, ptr %389, align 8
+  store i64 %.1, ptr %389, align 8
   br label %390
 
 390:                                              ; preds = %342, %44, %385, %166, %80
-  %.4 = phi i32 [ %.0408531, %80 ], [ %.0408531, %166 ], [ %.3, %385 ], [ %.0408531, %44 ], [ %.3, %342 ]
-  %.1 = phi i64 [ %82, %80 ], [ %89, %166 ], [ %.0, %385 ], [ 0, %44 ], [ %344, %342 ]
+  %.2 = phi i32 [ %.1409531, %80 ], [ %.1409531, %166 ], [ %.5, %385 ], [ %.1409531, %44 ], [ %.5, %342 ]
+  %.0 = phi i64 [ %82, %80 ], [ %89, %166 ], [ %.1, %385 ], [ 0, %44 ], [ %344, %342 ]
   %391 = load ptr, ptr %21, align 8
   %392 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %391, i64 %.1414530, i32 16
   %393 = load i32, ptr %392, align 4
@@ -3432,27 +3432,27 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   br i1 %400, label %401, label %403
 
 401:                                              ; preds = %398
-  %402 = icmp ult i64 %.1, %396
+  %402 = icmp ult i64 %.0, %396
   br i1 %402, label %405, label %406
 
 403:                                              ; preds = %398
-  %404 = icmp ugt i64 %.1, %396
+  %404 = icmp ugt i64 %.0, %396
   br i1 %404, label %405, label %406
 
 405:                                              ; preds = %403, %401, %390
-  store i64 %.1, ptr %395, align 8
+  store i64 %.0, ptr %395, align 8
   br label %406
 
 406:                                              ; preds = %24, %405, %403, %401
   %407 = phi ptr [ %391, %405 ], [ %391, %401 ], [ %391, %403 ], [ %25, %24 ]
-  %.5 = phi i32 [ %.4, %405 ], [ %.4, %401 ], [ %.4, %403 ], [ %.0408531, %24 ]
+  %.6 = phi i32 [ %.2, %405 ], [ %.2, %401 ], [ %.2, %403 ], [ %.1409531, %24 ]
   %408 = add nuw i64 %.1414530, 1
   %409 = load i64, ptr %19, align 8
   %410 = icmp ult i64 %408, %409
   br i1 %410, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %406, %.preheader477
-  %.0408.lcssa = phi i32 [ 0, %.preheader477 ], [ %.5, %406 ]
+  %.1409.lcssa = phi i32 [ 0, %.preheader477 ], [ %.6, %406 ]
   %411 = load ptr, ptr %7, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 32
   %413 = load ptr, ptr %412, align 8
@@ -3979,8 +3979,8 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   br label %708
 
 708:                                              ; preds = %.loopexit475, %693, %678, %662, %649, %612, %589, %564, %555, %543, %521, %506, %494, %454, %443, %417, %374, %358, %312, %283, %265, %244, %200, %187, %162, %147, %135, %124, %115, %103, %65, %55, %40, %15
-  %.6 = phi i32 [ -1, %15 ], [ -1, %55 ], [ -1, %65 ], [ -1, %103 ], [ -1, %115 ], [ -1, %124 ], [ -1, %135 ], [ -1, %147 ], [ -1, %162 ], [ -1, %40 ], [ -1, %187 ], [ -1, %312 ], [ -1, %283 ], [ -1, %265 ], [ -1, %244 ], [ -1, %200 ], [ -1, %358 ], [ -1, %374 ], [ -1, %417 ], [ -1, %443 ], [ -1, %454 ], [ -1, %494 ], [ -1, %506 ], [ -1, %521 ], [ -1, %543 ], [ -1, %555 ], [ -1, %564 ], [ -1, %649 ], [ -1, %662 ], [ -1, %678 ], [ -1, %693 ], [ -1, %589 ], [ -1, %612 ], [ %.0408.lcssa, %.loopexit475 ]
-  ret i32 %.6
+  %.0408 = phi i32 [ -1, %15 ], [ -1, %55 ], [ -1, %65 ], [ -1, %103 ], [ -1, %115 ], [ -1, %124 ], [ -1, %135 ], [ -1, %147 ], [ -1, %162 ], [ -1, %40 ], [ -1, %187 ], [ -1, %312 ], [ -1, %283 ], [ -1, %265 ], [ -1, %244 ], [ -1, %200 ], [ -1, %358 ], [ -1, %374 ], [ -1, %417 ], [ -1, %443 ], [ -1, %454 ], [ -1, %494 ], [ -1, %506 ], [ -1, %521 ], [ -1, %543 ], [ -1, %555 ], [ -1, %564 ], [ -1, %649 ], [ -1, %662 ], [ -1, %678 ], [ -1, %693 ], [ -1, %589 ], [ -1, %612 ], [ %.1409.lcssa, %.loopexit475 ]
+  ret i32 %.0408
 }
 
 ; Function Attrs: nounwind uwtable

@@ -126,8 +126,8 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp19, label %land.rhs, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %land.rhs, %while.body, %do.end
-  %length.2 = phi i32 [ %.us-phi, %do.end ], [ %minDigits, %while.body ], [ %2, %land.rhs ]
-  %idx.ext = sext i32 %length.2 to i64
+  %length.1 = phi i32 [ %.us-phi, %do.end ], [ %minDigits, %while.body ], [ %2, %land.rhs ]
+  %idx.ext = sext i32 %length.1 to i64
   %add.ptr = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext
   %incdec.ptr26 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
   %cmp2527 = icmp ugt ptr %incdec.ptr26, %buffer
@@ -146,7 +146,7 @@ while.body26:                                     ; preds = %if.end, %while.body
   br i1 %cmp25, label %while.body26, label %while.end28, !llvm.loop !7
 
 while.end28:                                      ; preds = %while.body26, %if.end
-  store i32 %length.2, ptr %len, align 4
+  store i32 %length.1, ptr %len, align 4
   ret void
 }
 

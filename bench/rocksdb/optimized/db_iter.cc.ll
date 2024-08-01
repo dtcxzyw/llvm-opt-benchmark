@@ -2625,8 +2625,8 @@ return.sink.split:                                ; preds = %_ZNKSt14default_del
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit23
-  %retval.1 = phi i1 [ %cmp.i, %_ZN7rocksdb6StatusD2Ev.exit23 ], [ %cmp.i, %if.then.i.i.i ], [ %tobool, %return.sink.split ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp.i, %_ZN7rocksdb6StatusD2Ev.exit23 ], [ %cmp.i, %if.then.i.i.i ], [ %tobool, %return.sink.split ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNK7rocksdb7Version7GetBlobERKNS_11ReadOptionsERKNS_5SliceES6_PNS_18FilePrefetchBufferEPNS_13PinnableSliceEPm(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 16 dereferenceable(4953), ptr noundef nonnull align 8 dereferenceable(154), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -7615,7 +7615,7 @@ while.cond:                                       ; preds = %_ZN7rocksdb19Iterat
   br i1 %tobool.i25, label %while.body, label %invoke.cont135, !llvm.loop !78
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
-  %last_not_merge_type.0233 = phi i8 [ 0, %while.body.lr.ph ], [ %last_not_merge_type.1, %while.cond ]
+  %last_not_merge_type.0233 = phi i8 [ 0, %while.body.lr.ph ], [ %last_not_merge_type.2, %while.cond ]
   %last_key_entry_type.0232 = phi i8 [ 0, %while.body.lr.ph ], [ %76, %while.cond ]
   %valid_entry_seen.0231 = phi i1 [ false, %while.body.lr.ph ], [ true, %while.cond ]
   %num_skipped.0230 = phi i64 [ 0, %while.body.lr.ph ], [ %inc, %while.cond ]
@@ -8180,20 +8180,20 @@ lpad113:                                          ; preds = %invoke.cont
 
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then104, %if.then90
   %internal_merge_count.sink256.ph = phi ptr [ %internal_delete_skipped_count, %if.then90 ], [ %internal_merge_count, %if.then104 ]
-  %last_not_merge_type.1.ph.ph = phi i8 [ %76, %if.then90 ], [ %last_not_merge_type.0233, %if.then104 ]
+  %last_not_merge_type.2.ph.ph = phi i8 [ %76, %if.then90 ], [ %last_not_merge_type.0233, %if.then104 ]
   call void @_ZTHN7rocksdb12perf_contextE()
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.then104, %if.then90
   %internal_merge_count.sink256 = phi ptr [ %internal_delete_skipped_count, %if.then90 ], [ %internal_merge_count, %if.then104 ], [ %internal_merge_count.sink256.ph, %sw.epilog.sink.split.sink.split ]
-  %last_not_merge_type.1.ph = phi i8 [ %76, %if.then90 ], [ %last_not_merge_type.0233, %if.then104 ], [ %last_not_merge_type.1.ph.ph, %sw.epilog.sink.split.sink.split ]
+  %last_not_merge_type.2.ph = phi i8 [ %76, %if.then90 ], [ %last_not_merge_type.0233, %if.then104 ], [ %last_not_merge_type.2.ph.ph, %sw.epilog.sink.split.sink.split ]
   %119 = load i64, ptr %internal_merge_count.sink256, align 8
   %add105 = add i64 %119, 1
   store i64 %add105, ptr %internal_merge_count.sink256, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZTWN7rocksdb10perf_levelE.exit111, %_ZTWN7rocksdb10perf_levelE.exit, %_ZN7rocksdb12MergeContext5ClearEv.exit85
-  %last_not_merge_type.1 = phi i8 [ %last_not_merge_type.0233, %_ZTWN7rocksdb10perf_levelE.exit111 ], [ %76, %_ZTWN7rocksdb10perf_levelE.exit ], [ %76, %_ZN7rocksdb12MergeContext5ClearEv.exit85 ], [ %last_not_merge_type.1.ph, %sw.epilog.sink.split ]
+  %last_not_merge_type.2 = phi i8 [ %last_not_merge_type.0233, %_ZTWN7rocksdb10perf_levelE.exit111 ], [ %76, %_ZTWN7rocksdb10perf_levelE.exit ], [ %76, %_ZN7rocksdb12MergeContext5ClearEv.exit85 ], [ %last_not_merge_type.2.ph, %sw.epilog.sink.split ]
   br i1 %.not.i.i, label %_ZTWN7rocksdb10perf_levelE.exit124, label %120
 
 120:                                              ; preds = %sw.epilog
@@ -8256,7 +8256,7 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit: ; preds = %if.end124, 
 invoke.cont135:                                   ; preds = %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit, %land.lhs.true, %lor.lhs.false, %if.end, %while.cond, %_ZN7rocksdb6DBIter11TempPinDataEv.exit
   %valid_entry_seen.1 = phi i1 [ false, %_ZN7rocksdb6DBIter11TempPinDataEv.exit ], [ true, %while.cond ], [ %valid_entry_seen.0231, %if.end ], [ %valid_entry_seen.0231, %lor.lhs.false ], [ %valid_entry_seen.0231, %land.lhs.true ], [ true, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ]
   %last_key_entry_type.1 = phi i8 [ 0, %_ZN7rocksdb6DBIter11TempPinDataEv.exit ], [ %76, %while.cond ], [ %last_key_entry_type.0232, %if.end ], [ %last_key_entry_type.0232, %lor.lhs.false ], [ %last_key_entry_type.0232, %land.lhs.true ], [ %76, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ]
-  %last_not_merge_type.2 = phi i8 [ 0, %_ZN7rocksdb6DBIter11TempPinDataEv.exit ], [ %last_not_merge_type.1, %while.cond ], [ %last_not_merge_type.0233, %if.end ], [ %last_not_merge_type.0233, %lor.lhs.false ], [ %last_not_merge_type.0233, %land.lhs.true ], [ %last_not_merge_type.1, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ]
+  %last_not_merge_type.1 = phi i8 [ 0, %_ZN7rocksdb6DBIter11TempPinDataEv.exit ], [ %last_not_merge_type.2, %while.cond ], [ %last_not_merge_type.0233, %if.end ], [ %last_not_merge_type.0233, %lor.lhs.false ], [ %last_not_merge_type.0233, %land.lhs.true ], [ %last_not_merge_type.2, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE4PrevEv.exit ]
   %133 = load ptr, ptr %iter_, align 8, !noalias !79
   %vtable.i133 = load ptr, ptr %133, align 8, !noalias !79
   %vfn.i134 = getelementptr inbounds i8, ptr %vtable.i133, i64 112
@@ -8318,7 +8318,7 @@ if.else156:                                       ; preds = %sw.bb151
 
 sw.bb159:                                         ; preds = %if.end145
   store i8 1, ptr %current_entry_is_merged_, align 2
-  switch i8 %last_not_merge_type.2, label %if.else218 [
+  switch i8 %last_not_merge_type.1, label %if.else218 [
     i8 20, label %if.then169
     i8 7, label %if.then169
     i8 0, label %if.then169

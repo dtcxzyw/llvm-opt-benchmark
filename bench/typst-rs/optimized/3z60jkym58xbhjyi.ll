@@ -2434,23 +2434,23 @@ define hidden void @"_ZN88_$LT$png..text_metadata..ITXtChunk$u20$as$u20$png..tex
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %81, %.lr.ph.preheader.i
-  %.01423.i = phi ptr [ %83, %81 ], [ %77, %.lr.ph.preheader.i ]
-  %.01522.i = phi i64 [ %82, %81 ], [ %..i, %.lr.ph.preheader.i ]
-  %78 = load i64, ptr %.01423.i, align 8, !alias.scope !403, !noundef !4
+  %.01422.i = phi ptr [ %83, %81 ], [ %77, %.lr.ph.preheader.i ]
+  %.01521.i = phi i64 [ %82, %81 ], [ %..i, %.lr.ph.preheader.i ]
+  %78 = load i64, ptr %.01422.i, align 8, !alias.scope !403, !noundef !4
   %79 = and i64 %78, -9187201950435737472
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %81, label %_ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread
 
 81:                                               ; preds = %.lr.ph.i
-  %82 = add nuw i64 %.01522.i, 8
-  %83 = getelementptr inbounds i8, ptr %.01423.i, i64 8
+  %82 = add nuw i64 %.01521.i, 8
+  %83 = getelementptr inbounds i8, ptr %.01422.i, i64 8
   %84 = icmp ult i64 %82, %75
   br i1 %84, label %.lr.ph.i, label %_ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit
 
 .preheader.i:                                     ; preds = %54, %85
   %.sroa.6.0.i = phi i64 [ %86, %85 ], [ %63, %54 ]
-  %.not19.i = icmp eq i64 %.sroa.6.0.i, 0
-  br i1 %.not19.i, label %_ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201, label %85
+  %.not18.i = icmp eq i64 %.sroa.6.0.i, 0
+  br i1 %.not18.i, label %_ZN4core5slice5ascii8is_ascii17h00fd71ffd9c41faeE.exit.thread201, label %85
 
 85:                                               ; preds = %.preheader.i
   %86 = add i64 %.sroa.6.0.i, -1
@@ -4567,11 +4567,11 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
           to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %97
-  %.036 = phi i8 [ %.238, %97 ], [ %.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.032 = phi i8 [ %.335, %97 ], [ %.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.031 = phi i8 [ %.4, %97 ], [ %.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.137 = phi i8 [ %.238, %97 ], [ %.031.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.133 = phi i8 [ %.335, %97 ], [ %.031.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1 = phi i8 [ %.4, %97 ], [ %.031.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %98, %97 ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp.loopexit.split-lp ]
-  %40 = trunc nuw i8 %.036 to i1
+  %40 = trunc nuw i8 %.137 to i1
   br i1 %40, label %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread", label %69
 
 .loopexit91:                                      ; preds = %.preheader, %131, %133, %139, %140, %146, %157, %158
@@ -4585,7 +4585,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   br label %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread"
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %108, %94, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exit
-  %.1.ph.ph = phi i8 [ 1, %94 ], [ 1, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exit ], [ 0, %108 ]
+  %.031.ph.ph = phi i8 [ 1, %94 ], [ 1, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exit ], [ 0, %108 ]
   %lpad.loopexit.split-lp93 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit"
@@ -4647,9 +4647,9 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
 
 69:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread", %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit"
   %.pn107 = phi { ptr, i32 } [ %.pn108, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread" ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ]
-  %.031105 = phi i8 [ %.031106, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread" ], [ %.031, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ]
-  %.032103 = phi i8 [ %.032104, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread" ], [ %.032, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ]
-  %70 = trunc nuw i8 %.032103 to i1
+  %.1105 = phi i8 [ %.1106, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread" ], [ %.1, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ]
+  %.133103 = phi i8 [ %.133104, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread" ], [ %.133, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ]
+  %70 = trunc nuw i8 %.133103 to i1
   br i1 %70, label %189, label %81
 
 .thread74:                                        ; preds = %58
@@ -4682,7 +4682,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   br label %84
 
 81:                                               ; preds = %189, %69
-  %.3 = phi i8 [ %.278, %189 ], [ %.031105, %69 ]
+  %.3 = phi i8 [ %.278, %189 ], [ %.1105, %69 ]
   %.pn45 = phi { ptr, i32 } [ %.pn4379, %189 ], [ %.pn107, %69 ]
   %82 = trunc nuw i8 %.3 to i1
   br i1 %82, label %191, label %190
@@ -4970,14 +4970,14 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
 
 "_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit.thread": ; preds = %.loopexit.split-lp.loopexit, %.loopexit91, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit"
   %.pn108 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit91 ]
-  %.031106 = phi i8 [ %.031, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit91 ]
-  %.032104 = phi i8 [ %.032, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit91 ]
+  %.1106 = phi i8 [ %.1, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit91 ]
+  %.133104 = phi i8 [ %.133, %"_ZN4core3ptr61drop_in_place$LT$pdf_writer..functions..StitchingFunction$GT$17h39520e9472e8b6d2E.exit" ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit91 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hfb359f1674083fddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #31
           to label %69 unwind label %109
 
 189:                                              ; preds = %.thread74, %69
   %.pn4379 = phi { ptr, i32 } [ %71, %.thread74 ], [ %.pn107, %69 ]
-  %.278 = phi i8 [ 1, %.thread74 ], [ %.031105, %69 ]
+  %.278 = phi i8 [ 1, %.thread74 ], [ %.1105, %69 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hfb359f1674083fddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #31
           to label %81 unwind label %109
 

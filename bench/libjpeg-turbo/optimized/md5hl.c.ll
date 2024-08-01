@@ -51,12 +51,12 @@ define dso_local noundef ptr @MD5FileChunk(ptr nocapture noundef readonly %0, pt
   %.033 = phi i64 [ %27, %25 ], [ %.027, %.preheader ]
   %..033 = call i64 @llvm.umin.i64(i64 %.033, i64 8192)
   %23 = call i64 @read(i32 noundef %9, ptr noundef nonnull %6, i64 noundef %..033) #9
-  %.1 = trunc i64 %23 to i32
-  %24 = icmp slt i32 %.1, 0
+  %.2 = trunc i64 %23 to i32
+  %24 = icmp slt i32 %.2, 0
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.lr.ph
-  call void @MD5Update(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %.1) #9
+  call void @MD5Update(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %.2) #9
   %26 = and i64 %23, 2147483647
   %27 = sub nsw i64 %.033, %26
   %28 = icmp sgt i64 %27, 0

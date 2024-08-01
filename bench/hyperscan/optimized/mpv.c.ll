@@ -561,7 +561,7 @@ while.body.i:                                     ; preds = %for.body.i, %if.end
   %report.i256 = phi ptr [ %report.i, %if.end27.i ], [ %report.i250, %for.body.i ]
   %did_stuff.i.0255 = phi i8 [ %did_stuff.i.1, %if.end27.i ], [ 0, %for.body.i ]
   %curr.i.0254 = phi ptr [ %incdec.ptr28.i, %if.end27.i ], [ %32, %for.body.i ]
-  %rl.addr.i.1252 = phi ptr [ %rl.addr.i.3, %if.end27.i ], [ %rl.addr.i.0281, %for.body.i ]
+  %rl.addr.i.1252 = phi ptr [ %rl.addr.i.2, %if.end27.i ], [ %rl.addr.i.0281, %for.body.i ]
   %unbounded.i = getelementptr inbounds i8, ptr %curr.i.0254, i64 4
   %37 = load i8, ptr %unbounded.i, align 4
   %tobool.i.not = icmp eq i8 %37, 0
@@ -587,13 +587,13 @@ if.then17.i:                                      ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i, %if.then17.i, %land.lhs.true.i
   %40 = phi i32 [ %36, %land.lhs.true.i ], [ %.pre, %if.then17.i ], [ %36, %lor.lhs.false.i ]
-  %rl.addr.i.2 = phi ptr [ %rl.addr.i.1252, %land.lhs.true.i ], [ %incdec.ptr.i, %if.then17.i ], [ %rl.addr.i.1252, %lor.lhs.false.i ]
+  %rl.addr.i.3 = phi ptr [ %rl.addr.i.1252, %land.lhs.true.i ], [ %incdec.ptr.i, %if.then17.i ], [ %rl.addr.i.1252, %lor.lhs.false.i ]
   %call20.i = tail call i32 %8(i64 noundef 0, i64 noundef %add.i, i32 noundef %40, ptr noundef %9) #11
   %cmp21.i = icmp eq i32 %call20.i, 0
   br i1 %cmp21.i, label %processReports.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end.i, %lor.lhs.false.i
-  %rl.addr.i.3 = phi ptr [ %rl.addr.i.1252, %lor.lhs.false.i ], [ %rl.addr.i.2, %if.end.i ]
+  %rl.addr.i.2 = phi ptr [ %rl.addr.i.1252, %lor.lhs.false.i ], [ %rl.addr.i.3, %if.end.i ]
   %did_stuff.i.1 = phi i8 [ %did_stuff.i.0255, %lor.lhs.false.i ], [ 1, %if.end.i ]
   %incdec.ptr28.i = getelementptr inbounds i8, ptr %curr.i.0254, i64 -12
   %report.i = getelementptr inbounds i8, ptr %curr.i.0254, i64 -4
@@ -606,7 +606,7 @@ while.end.i:                                      ; preds = %if.end27.i
   br i1 %tobool29.i.not, label %if.then30.i, label %if.end32.i
 
 if.then30.i:                                      ; preds = %for.body.i, %while.end.i
-  %rl.addr.i.1.lcssa326 = phi ptr [ %rl.addr.i.3, %while.end.i ], [ %rl.addr.i.0281, %for.body.i ]
+  %rl.addr.i.1.lcssa326 = phi ptr [ %rl.addr.i.2, %while.end.i ], [ %rl.addr.i.0281, %for.body.i ]
   %42 = load i32, ptr %add.ptr, align 32
   %cmp.i41 = icmp ult i32 %42, 257
   br i1 %cmp.i41, label %if.then.i39, label %if.else.i37
@@ -692,7 +692,7 @@ if.end6.i.thread:                                 ; preds = %if.end.i599, %if.en
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %do.body.i, %if.else.i37, %if.end6.i.thread, %if.then.i39, %while.end.i
-  %rl.addr.i.1.lcssa325 = phi ptr [ %rl.addr.i.1.lcssa326, %if.else.i37 ], [ %rl.addr.i.1.lcssa326, %if.end6.i.thread ], [ %rl.addr.i.1.lcssa326, %if.then.i39 ], [ %rl.addr.i.3, %while.end.i ], [ %rl.addr.i.1.lcssa326, %do.body.i ]
+  %rl.addr.i.1.lcssa325 = phi ptr [ %rl.addr.i.1.lcssa326, %if.else.i37 ], [ %rl.addr.i.1.lcssa326, %if.end6.i.thread ], [ %rl.addr.i.1.lcssa326, %if.then.i39 ], [ %rl.addr.i.2, %while.end.i ], [ %rl.addr.i.1.lcssa326, %do.body.i ]
   %63 = load i32, ptr %add.ptr, align 32
   %tobool.i8.not = icmp eq i32 %63, 0
   br i1 %tobool.i8.not, label %processReports.exit, label %if.end.i10
@@ -2386,11 +2386,11 @@ if.then34.i:                                      ; preds = %if.then.i1522
   br label %shuf_restart.i
 
 shuf_restart.i:                                   ; preds = %if.then54.i, %if.then34.i
-  %curr.addr.i.1 = phi i64 [ %progress.i.04320, %if.then34.i ], [ %test37.i.14138, %if.then54.i ]
-  %add39.i = add i64 %curr.addr.i.1, %conv38.i
+  %curr.addr.i.2 = phi i64 [ %progress.i.04320, %if.then34.i ], [ %test37.i.14138, %if.then54.i ]
+  %add39.i = add i64 %curr.addr.i.2, %conv38.i
   %cmp40.i1764 = icmp ult i64 %add39.i, %2
   %add39.i.sub.i1483 = select i1 %cmp40.i1764, i64 %add39.i, i64 %sub.i1483
-  %cmp49.i4137 = icmp ugt i64 %add39.i.sub.i1483, %curr.addr.i.1
+  %cmp49.i4137 = icmp ugt i64 %add39.i.sub.i1483, %curr.addr.i.2
   br i1 %cmp49.i4137, label %while.body51.i, label %find_last_bad.exit
 
 while.body51.i:                                   ; preds = %shuf_restart.i, %if.end62.i1768
@@ -2418,7 +2418,7 @@ if.then54.i:                                      ; preds = %while.body51.i
 
 if.end62.i1768:                                   ; preds = %while.body51.i
   %dec63.i = add i64 %test37.i.14138, -1
-  %cmp49.i = icmp ugt i64 %dec63.i, %curr.addr.i.1
+  %cmp49.i = icmp ugt i64 %dec63.i, %curr.addr.i.2
   br i1 %cmp49.i, label %while.body51.i, label %find_last_bad.exit, !llvm.loop !21
 
 if.then70.i:                                      ; preds = %if.then.i1522
@@ -2430,11 +2430,11 @@ if.then70.i:                                      ; preds = %if.then.i1522
   br label %truffle_restart.i
 
 truffle_restart.i:                                ; preds = %if.then97.i, %if.then70.i
-  %curr.addr.i.2 = phi i64 [ %progress.i.04320, %if.then70.i ], [ %test75.i.14134, %if.then97.i ]
-  %add77.i = add i64 %curr.addr.i.2, %conv76.i
+  %curr.addr.i.3 = phi i64 [ %progress.i.04320, %if.then70.i ], [ %test75.i.14134, %if.then97.i ]
+  %add77.i = add i64 %curr.addr.i.3, %conv76.i
   %cmp78.i = icmp ult i64 %add77.i, %2
   %add77.i.sub.i1483 = select i1 %cmp78.i, i64 %add77.i, i64 %sub.i1483
-  %cmp87.i4133 = icmp ugt i64 %add77.i.sub.i1483, %curr.addr.i.2
+  %cmp87.i4133 = icmp ugt i64 %add77.i.sub.i1483, %curr.addr.i.3
   br i1 %cmp87.i4133, label %while.body89.i, label %find_last_bad.exit
 
 while.body89.i:                                   ; preds = %truffle_restart.i, %if.end103.i
@@ -2451,7 +2451,7 @@ if.then97.i:                                      ; preds = %while.body89.i
 
 if.end103.i:                                      ; preds = %while.body89.i
   %dec104.i = add i64 %test75.i.14134, -1
-  %cmp87.i = icmp ugt i64 %dec104.i, %curr.addr.i.2
+  %cmp87.i = icmp ugt i64 %dec104.i, %curr.addr.i.3
   br i1 %cmp87.i, label %while.body89.i, label %find_last_bad.exit, !llvm.loop !22
 
 if.then111.i:                                     ; preds = %if.then.i1522
@@ -2960,11 +2960,11 @@ find_xverm_run.exit:                              ; preds = %cond.end44.i, %if.e
   br label %find_last_bad.exit
 
 nverm_restart.i:                                  ; preds = %nverm_restart.i.preheader, %if.then147.i
-  %curr.addr.i.3 = phi i64 [ %test125.i.14088, %if.then147.i ], [ %progress.i.04320, %nverm_restart.i.preheader ]
-  %add127.i = add i64 %curr.addr.i.3, %conv126.i
+  %curr.addr.i.4 = phi i64 [ %test125.i.14088, %if.then147.i ], [ %progress.i.04320, %nverm_restart.i.preheader ]
+  %add127.i = add i64 %curr.addr.i.4, %conv126.i
   %cmp128.i = icmp ult i64 %add127.i, %2
   %add127.i.sub.i1483 = select i1 %cmp128.i, i64 %add127.i, i64 %sub.i1483
-  %cmp137.i4087 = icmp ugt i64 %add127.i.sub.i1483, %curr.addr.i.3
+  %cmp137.i4087 = icmp ugt i64 %add127.i.sub.i1483, %curr.addr.i.4
   br i1 %cmp137.i4087, label %while.body139.i.lr.ph, label %find_last_bad.exit
 
 while.body139.i.lr.ph:                            ; preds = %nverm_restart.i
@@ -2986,11 +2986,11 @@ if.then147.i:                                     ; preds = %while.body139.i
 
 if.end153.i:                                      ; preds = %while.body139.i
   %dec154.i = add i64 %test125.i.14088, -1
-  %cmp137.i = icmp ugt i64 %dec154.i, %curr.addr.i.3
+  %cmp137.i = icmp ugt i64 %dec154.i, %curr.addr.i.4
   br i1 %cmp137.i, label %while.body139.i, label %find_last_bad.exit, !llvm.loop !24
 
 find_last_bad.exit:                               ; preds = %if.then147.i, %nverm_restart.i, %if.then97.i, %truffle_restart.i, %if.then54.i, %shuf_restart.i, %if.then22.i1789, %verm_restart.i, %if.end153.i, %if.end103.i, %if.end62.i1768, %if.end28.i, %find_xverm_run.exit, %find_xverm_run.exit5802
-  %retval.i1754.0 = phi i64 [ %sub.i1797, %find_xverm_run.exit5802 ], [ %sub123.i, %find_xverm_run.exit ], [ %curr.addr.i.0, %if.end28.i ], [ %curr.addr.i.1, %if.end62.i1768 ], [ %curr.addr.i.2, %if.end103.i ], [ %curr.addr.i.3, %if.end153.i ], [ %curr.addr.i.0, %verm_restart.i ], [ %sub.i1483, %if.then22.i1789 ], [ %curr.addr.i.1, %shuf_restart.i ], [ %sub.i1483, %if.then54.i ], [ %curr.addr.i.2, %truffle_restart.i ], [ %sub.i1483, %if.then97.i ], [ %curr.addr.i.3, %nverm_restart.i ], [ %sub.i1483, %if.then147.i ]
+  %retval.i1754.0 = phi i64 [ %sub.i1797, %find_xverm_run.exit5802 ], [ %sub123.i, %find_xverm_run.exit ], [ %curr.addr.i.0, %if.end28.i ], [ %curr.addr.i.2, %if.end62.i1768 ], [ %curr.addr.i.3, %if.end103.i ], [ %curr.addr.i.4, %if.end153.i ], [ %curr.addr.i.0, %verm_restart.i ], [ %sub.i1483, %if.then22.i1789 ], [ %curr.addr.i.2, %shuf_restart.i ], [ %sub.i1483, %if.then54.i ], [ %curr.addr.i.3, %truffle_restart.i ], [ %sub.i1483, %if.then97.i ], [ %curr.addr.i.4, %nverm_restart.i ], [ %sub.i1483, %if.then147.i ]
   %cmp19.i.not = icmp eq i64 %retval.i1754.0, %progress.i.04320
   br i1 %cmp19.i.not, label %if.end24.i, label %if.then20.i
 
@@ -4006,8 +4006,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 while.body.i.i:                                   ; preds = %for.body.i.i, %if.end27.i.i
   %377 = phi i32 [ %382, %if.end27.i.i ], [ %376, %for.body.i.i ]
   %report.i.i4278 = phi ptr [ %report.i.i, %if.end27.i.i ], [ %report.i.i4272, %for.body.i.i ]
-  %rl.addr.i.i.14277 = phi ptr [ %rl.addr.i.i.3, %if.end27.i.i ], [ %rl.addr.i.i.04307, %for.body.i.i ]
-  %rl_count.i.i.14276 = phi i32 [ %rl_count.i.i.3, %if.end27.i.i ], [ %rl_count.i.i.04306, %for.body.i.i ]
+  %rl.addr.i.i.14277 = phi ptr [ %rl.addr.i.i.2, %if.end27.i.i ], [ %rl.addr.i.i.04307, %for.body.i.i ]
+  %rl_count.i.i.14276 = phi i32 [ %rl_count.i.i.2, %if.end27.i.i ], [ %rl_count.i.i.04306, %for.body.i.i ]
   %curr.i.i.04275 = phi ptr [ %incdec.ptr28.i.i, %if.end27.i.i ], [ %373, %for.body.i.i ]
   %did_stuff.i.i.04274 = phi i8 [ %did_stuff.i.i.1, %if.end27.i.i ], [ 0, %for.body.i.i ]
   %unbounded.i.i = getelementptr inbounds i8, ptr %curr.i.i.04275, i64 4
@@ -4036,16 +4036,16 @@ if.then17.i.i:                                    ; preds = %land.lhs.true.i.i
 
 if.end.i.i1319:                                   ; preds = %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true.i.i
   %381 = phi i32 [ %377, %land.lhs.true.i.i ], [ %.pre4584, %if.then17.i.i ], [ %377, %lor.lhs.false.i.i ]
-  %rl_count.i.i.2 = phi i32 [ %rl_count.i.i.14276, %land.lhs.true.i.i ], [ %inc.i.i, %if.then17.i.i ], [ %rl_count.i.i.14276, %lor.lhs.false.i.i ]
-  %rl.addr.i.i.2 = phi ptr [ %rl.addr.i.i.14277, %land.lhs.true.i.i ], [ %incdec.ptr.i.i, %if.then17.i.i ], [ %rl.addr.i.i.14277, %lor.lhs.false.i.i ]
+  %rl_count.i.i.3 = phi i32 [ %rl_count.i.i.14276, %land.lhs.true.i.i ], [ %inc.i.i, %if.then17.i.i ], [ %rl_count.i.i.14276, %lor.lhs.false.i.i ]
+  %rl.addr.i.i.3 = phi ptr [ %rl.addr.i.i.14277, %land.lhs.true.i.i ], [ %incdec.ptr.i.i, %if.then17.i.i ], [ %rl.addr.i.i.14277, %lor.lhs.false.i.i ]
   %call20.i.i = tail call i32 %3(i64 noundef 0, i64 noundef %add2.i.reass, i32 noundef %381, ptr noundef %4) #11
   %cmp21.i.i = icmp eq i32 %call20.i.i, 0
   br i1 %cmp21.i.i, label %if.then52.i, label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.end.i.i1319, %lor.lhs.false.i.i
   %did_stuff.i.i.1 = phi i8 [ %did_stuff.i.i.04274, %lor.lhs.false.i.i ], [ 1, %if.end.i.i1319 ]
-  %rl_count.i.i.3 = phi i32 [ %rl_count.i.i.14276, %lor.lhs.false.i.i ], [ %rl_count.i.i.2, %if.end.i.i1319 ]
-  %rl.addr.i.i.3 = phi ptr [ %rl.addr.i.i.14277, %lor.lhs.false.i.i ], [ %rl.addr.i.i.2, %if.end.i.i1319 ]
+  %rl_count.i.i.2 = phi i32 [ %rl_count.i.i.14276, %lor.lhs.false.i.i ], [ %rl_count.i.i.3, %if.end.i.i1319 ]
+  %rl.addr.i.i.2 = phi ptr [ %rl.addr.i.i.14277, %lor.lhs.false.i.i ], [ %rl.addr.i.i.3, %if.end.i.i1319 ]
   %incdec.ptr28.i.i = getelementptr inbounds i8, ptr %curr.i.i.04275, i64 -12
   %report.i.i = getelementptr inbounds i8, ptr %curr.i.i.04275, i64 -4
   %382 = load i32, ptr %report.i.i, align 4
@@ -4057,8 +4057,8 @@ while.end.i.i:                                    ; preds = %if.end27.i.i
   br i1 %tobool29.i.i.not, label %if.then30.i.i, label %if.end32.i.i
 
 if.then30.i.i:                                    ; preds = %for.body.i.i, %while.end.i.i
-  %rl.addr.i.i.1.lcssa4609 = phi ptr [ %rl.addr.i.i.3, %while.end.i.i ], [ %rl.addr.i.i.04307, %for.body.i.i ]
-  %rl_count.i.i.1.lcssa4607 = phi i32 [ %rl_count.i.i.3, %while.end.i.i ], [ %rl_count.i.i.04306, %for.body.i.i ]
+  %rl.addr.i.i.1.lcssa4609 = phi ptr [ %rl.addr.i.i.2, %while.end.i.i ], [ %rl.addr.i.i.04307, %for.body.i.i ]
+  %rl_count.i.i.1.lcssa4607 = phi i32 [ %rl_count.i.i.2, %while.end.i.i ], [ %rl_count.i.i.04306, %for.body.i.i ]
   %383 = load i32, ptr %add.ptr.i, align 32
   %cmp.i63.i = icmp ult i32 %383, 257
   br i1 %cmp.i63.i, label %if.then.i61.i, label %if.else.i59.i
@@ -4144,8 +4144,8 @@ if.end6.i.i.thread:                               ; preds = %if.end.i621.i, %if.
   br label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %do.body.i.i, %if.else.i59.i, %if.end6.i.i.thread, %if.then.i61.i, %while.end.i.i
-  %rl.addr.i.i.1.lcssa4608 = phi ptr [ %rl.addr.i.i.1.lcssa4609, %if.else.i59.i ], [ %rl.addr.i.i.1.lcssa4609, %if.end6.i.i.thread ], [ %rl.addr.i.i.1.lcssa4609, %if.then.i61.i ], [ %rl.addr.i.i.3, %while.end.i.i ], [ %rl.addr.i.i.1.lcssa4609, %do.body.i.i ]
-  %rl_count.i.i.1.lcssa4606 = phi i32 [ %rl_count.i.i.1.lcssa4607, %if.else.i59.i ], [ %rl_count.i.i.1.lcssa4607, %if.end6.i.i.thread ], [ %rl_count.i.i.1.lcssa4607, %if.then.i61.i ], [ %rl_count.i.i.3, %while.end.i.i ], [ %rl_count.i.i.1.lcssa4607, %do.body.i.i ]
+  %rl.addr.i.i.1.lcssa4608 = phi ptr [ %rl.addr.i.i.1.lcssa4609, %if.else.i59.i ], [ %rl.addr.i.i.1.lcssa4609, %if.end6.i.i.thread ], [ %rl.addr.i.i.1.lcssa4609, %if.then.i61.i ], [ %rl.addr.i.i.2, %while.end.i.i ], [ %rl.addr.i.i.1.lcssa4609, %do.body.i.i ]
+  %rl_count.i.i.1.lcssa4606 = phi i32 [ %rl_count.i.i.1.lcssa4607, %if.else.i59.i ], [ %rl_count.i.i.1.lcssa4607, %if.end6.i.i.thread ], [ %rl_count.i.i.1.lcssa4607, %if.then.i61.i ], [ %rl_count.i.i.2, %while.end.i.i ], [ %rl_count.i.i.1.lcssa4607, %do.body.i.i ]
   %404 = load i32, ptr %add.ptr.i, align 32
   %tobool.i30.i.not = icmp eq i32 %404, 0
   br i1 %tobool.i30.i.not, label %if.end6.i1288, label %if.end.i32.i
@@ -6760,11 +6760,11 @@ if.then34.i:                                      ; preds = %if.then.i1656
   br label %shuf_restart.i
 
 shuf_restart.i:                                   ; preds = %if.then54.i, %if.then34.i
-  %curr.addr.i.1 = phi i64 [ %progress.i.04384, %if.then34.i ], [ %test37.i.14202, %if.then54.i ]
-  %add39.i = add i64 %curr.addr.i.1, %conv38.i
+  %curr.addr.i.2 = phi i64 [ %progress.i.04384, %if.then34.i ], [ %test37.i.14202, %if.then54.i ]
+  %add39.i = add i64 %curr.addr.i.2, %conv38.i
   %cmp40.i1900 = icmp ult i64 %add39.i, %2
   %add39.i.sub.i1617 = select i1 %cmp40.i1900, i64 %add39.i, i64 %sub.i1617
-  %cmp49.i4201 = icmp ugt i64 %add39.i.sub.i1617, %curr.addr.i.1
+  %cmp49.i4201 = icmp ugt i64 %add39.i.sub.i1617, %curr.addr.i.2
   br i1 %cmp49.i4201, label %while.body51.i, label %find_last_bad.exit
 
 while.body51.i:                                   ; preds = %shuf_restart.i, %if.end62.i1904
@@ -6792,7 +6792,7 @@ if.then54.i:                                      ; preds = %while.body51.i
 
 if.end62.i1904:                                   ; preds = %while.body51.i
   %dec63.i = add i64 %test37.i.14202, -1
-  %cmp49.i = icmp ugt i64 %dec63.i, %curr.addr.i.1
+  %cmp49.i = icmp ugt i64 %dec63.i, %curr.addr.i.2
   br i1 %cmp49.i, label %while.body51.i, label %find_last_bad.exit, !llvm.loop !21
 
 if.then70.i:                                      ; preds = %if.then.i1656
@@ -6804,11 +6804,11 @@ if.then70.i:                                      ; preds = %if.then.i1656
   br label %truffle_restart.i
 
 truffle_restart.i:                                ; preds = %if.then97.i, %if.then70.i
-  %curr.addr.i.2 = phi i64 [ %progress.i.04384, %if.then70.i ], [ %test75.i.14198, %if.then97.i ]
-  %add77.i = add i64 %curr.addr.i.2, %conv76.i
+  %curr.addr.i.3 = phi i64 [ %progress.i.04384, %if.then70.i ], [ %test75.i.14198, %if.then97.i ]
+  %add77.i = add i64 %curr.addr.i.3, %conv76.i
   %cmp78.i = icmp ult i64 %add77.i, %2
   %add77.i.sub.i1617 = select i1 %cmp78.i, i64 %add77.i, i64 %sub.i1617
-  %cmp87.i4197 = icmp ugt i64 %add77.i.sub.i1617, %curr.addr.i.2
+  %cmp87.i4197 = icmp ugt i64 %add77.i.sub.i1617, %curr.addr.i.3
   br i1 %cmp87.i4197, label %while.body89.i, label %find_last_bad.exit
 
 while.body89.i:                                   ; preds = %truffle_restart.i, %if.end103.i
@@ -6825,7 +6825,7 @@ if.then97.i:                                      ; preds = %while.body89.i
 
 if.end103.i:                                      ; preds = %while.body89.i
   %dec104.i = add i64 %test75.i.14198, -1
-  %cmp87.i = icmp ugt i64 %dec104.i, %curr.addr.i.2
+  %cmp87.i = icmp ugt i64 %dec104.i, %curr.addr.i.3
   br i1 %cmp87.i, label %while.body89.i, label %find_last_bad.exit, !llvm.loop !22
 
 if.then111.i:                                     ; preds = %if.then.i1656
@@ -7334,11 +7334,11 @@ find_xverm_run.exit:                              ; preds = %cond.end44.i, %if.e
   br label %find_last_bad.exit
 
 nverm_restart.i:                                  ; preds = %nverm_restart.i.preheader, %if.then147.i
-  %curr.addr.i.3 = phi i64 [ %test125.i.14152, %if.then147.i ], [ %progress.i.04384, %nverm_restart.i.preheader ]
-  %add127.i = add i64 %curr.addr.i.3, %conv126.i
+  %curr.addr.i.4 = phi i64 [ %test125.i.14152, %if.then147.i ], [ %progress.i.04384, %nverm_restart.i.preheader ]
+  %add127.i = add i64 %curr.addr.i.4, %conv126.i
   %cmp128.i = icmp ult i64 %add127.i, %2
   %add127.i.sub.i1617 = select i1 %cmp128.i, i64 %add127.i, i64 %sub.i1617
-  %cmp137.i4151 = icmp ugt i64 %add127.i.sub.i1617, %curr.addr.i.3
+  %cmp137.i4151 = icmp ugt i64 %add127.i.sub.i1617, %curr.addr.i.4
   br i1 %cmp137.i4151, label %while.body139.i.lr.ph, label %find_last_bad.exit
 
 while.body139.i.lr.ph:                            ; preds = %nverm_restart.i
@@ -7360,11 +7360,11 @@ if.then147.i:                                     ; preds = %while.body139.i
 
 if.end153.i:                                      ; preds = %while.body139.i
   %dec154.i = add i64 %test125.i.14152, -1
-  %cmp137.i = icmp ugt i64 %dec154.i, %curr.addr.i.3
+  %cmp137.i = icmp ugt i64 %dec154.i, %curr.addr.i.4
   br i1 %cmp137.i, label %while.body139.i, label %find_last_bad.exit, !llvm.loop !24
 
 find_last_bad.exit:                               ; preds = %if.then147.i, %nverm_restart.i, %if.then97.i, %truffle_restart.i, %if.then54.i, %shuf_restart.i, %if.then22.i1925, %verm_restart.i, %if.end153.i, %if.end103.i, %if.end62.i1904, %if.end28.i, %find_xverm_run.exit, %find_xverm_run.exit5938
-  %retval.i1890.0 = phi i64 [ %sub.i1933, %find_xverm_run.exit5938 ], [ %sub123.i, %find_xverm_run.exit ], [ %curr.addr.i.0, %if.end28.i ], [ %curr.addr.i.1, %if.end62.i1904 ], [ %curr.addr.i.2, %if.end103.i ], [ %curr.addr.i.3, %if.end153.i ], [ %curr.addr.i.0, %verm_restart.i ], [ %sub.i1617, %if.then22.i1925 ], [ %curr.addr.i.1, %shuf_restart.i ], [ %sub.i1617, %if.then54.i ], [ %curr.addr.i.2, %truffle_restart.i ], [ %sub.i1617, %if.then97.i ], [ %curr.addr.i.3, %nverm_restart.i ], [ %sub.i1617, %if.then147.i ]
+  %retval.i1890.0 = phi i64 [ %sub.i1933, %find_xverm_run.exit5938 ], [ %sub123.i, %find_xverm_run.exit ], [ %curr.addr.i.0, %if.end28.i ], [ %curr.addr.i.2, %if.end62.i1904 ], [ %curr.addr.i.3, %if.end103.i ], [ %curr.addr.i.4, %if.end153.i ], [ %curr.addr.i.0, %verm_restart.i ], [ %sub.i1617, %if.then22.i1925 ], [ %curr.addr.i.2, %shuf_restart.i ], [ %sub.i1617, %if.then54.i ], [ %curr.addr.i.3, %truffle_restart.i ], [ %sub.i1617, %if.then97.i ], [ %curr.addr.i.4, %nverm_restart.i ], [ %sub.i1617, %if.then147.i ]
   %cmp19.i.not = icmp eq i64 %retval.i1890.0, %progress.i.04384
   br i1 %cmp19.i.not, label %if.end24.i, label %if.then20.i
 
@@ -8380,8 +8380,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 while.body.i.i:                                   ; preds = %for.body.i.i, %if.end27.i.i
   %379 = phi i32 [ %384, %if.end27.i.i ], [ %378, %for.body.i.i ]
   %report.i.i4342 = phi ptr [ %report.i.i, %if.end27.i.i ], [ %report.i.i4336, %for.body.i.i ]
-  %rl.addr.i.i.14341 = phi ptr [ %rl.addr.i.i.3, %if.end27.i.i ], [ %rl.addr.i.i.04371, %for.body.i.i ]
-  %rl_count.i.i.14340 = phi i32 [ %rl_count.i.i.3, %if.end27.i.i ], [ %rl_count.i.i.04370, %for.body.i.i ]
+  %rl.addr.i.i.14341 = phi ptr [ %rl.addr.i.i.2, %if.end27.i.i ], [ %rl.addr.i.i.04371, %for.body.i.i ]
+  %rl_count.i.i.14340 = phi i32 [ %rl_count.i.i.2, %if.end27.i.i ], [ %rl_count.i.i.04370, %for.body.i.i ]
   %curr.i.i.04339 = phi ptr [ %incdec.ptr28.i.i, %if.end27.i.i ], [ %375, %for.body.i.i ]
   %did_stuff.i.i.04338 = phi i8 [ %did_stuff.i.i.1, %if.end27.i.i ], [ 0, %for.body.i.i ]
   %unbounded.i.i = getelementptr inbounds i8, ptr %curr.i.i.04339, i64 4
@@ -8410,16 +8410,16 @@ if.then17.i.i:                                    ; preds = %land.lhs.true.i.i
 
 if.end.i.i1453:                                   ; preds = %lor.lhs.false.i.i, %if.then17.i.i, %land.lhs.true.i.i
   %383 = phi i32 [ %379, %land.lhs.true.i.i ], [ %.pre4651, %if.then17.i.i ], [ %379, %lor.lhs.false.i.i ]
-  %rl_count.i.i.2 = phi i32 [ %rl_count.i.i.14340, %land.lhs.true.i.i ], [ %inc.i.i, %if.then17.i.i ], [ %rl_count.i.i.14340, %lor.lhs.false.i.i ]
-  %rl.addr.i.i.2 = phi ptr [ %rl.addr.i.i.14341, %land.lhs.true.i.i ], [ %incdec.ptr.i.i, %if.then17.i.i ], [ %rl.addr.i.i.14341, %lor.lhs.false.i.i ]
+  %rl_count.i.i.3 = phi i32 [ %rl_count.i.i.14340, %land.lhs.true.i.i ], [ %inc.i.i, %if.then17.i.i ], [ %rl_count.i.i.14340, %lor.lhs.false.i.i ]
+  %rl.addr.i.i.3 = phi ptr [ %rl.addr.i.i.14341, %land.lhs.true.i.i ], [ %incdec.ptr.i.i, %if.then17.i.i ], [ %rl.addr.i.i.14341, %lor.lhs.false.i.i ]
   %call20.i.i = tail call i32 %5(i64 noundef 0, i64 noundef %add2.i.reass, i32 noundef %383, ptr noundef %6) #11
   %cmp21.i.i = icmp eq i32 %call20.i.i, 0
   br i1 %cmp21.i.i, label %nfaExecMpv_Q_i.exit.thread, label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.end.i.i1453, %lor.lhs.false.i.i
   %did_stuff.i.i.1 = phi i8 [ %did_stuff.i.i.04338, %lor.lhs.false.i.i ], [ 1, %if.end.i.i1453 ]
-  %rl_count.i.i.3 = phi i32 [ %rl_count.i.i.14340, %lor.lhs.false.i.i ], [ %rl_count.i.i.2, %if.end.i.i1453 ]
-  %rl.addr.i.i.3 = phi ptr [ %rl.addr.i.i.14341, %lor.lhs.false.i.i ], [ %rl.addr.i.i.2, %if.end.i.i1453 ]
+  %rl_count.i.i.2 = phi i32 [ %rl_count.i.i.14340, %lor.lhs.false.i.i ], [ %rl_count.i.i.3, %if.end.i.i1453 ]
+  %rl.addr.i.i.2 = phi ptr [ %rl.addr.i.i.14341, %lor.lhs.false.i.i ], [ %rl.addr.i.i.3, %if.end.i.i1453 ]
   %incdec.ptr28.i.i = getelementptr inbounds i8, ptr %curr.i.i.04339, i64 -12
   %report.i.i = getelementptr inbounds i8, ptr %curr.i.i.04339, i64 -4
   %384 = load i32, ptr %report.i.i, align 4
@@ -8431,8 +8431,8 @@ while.end.i.i:                                    ; preds = %if.end27.i.i
   br i1 %tobool29.i.i.not, label %if.then30.i.i, label %if.end32.i.i
 
 if.then30.i.i:                                    ; preds = %for.body.i.i, %while.end.i.i
-  %rl.addr.i.i.1.lcssa4676 = phi ptr [ %rl.addr.i.i.3, %while.end.i.i ], [ %rl.addr.i.i.04371, %for.body.i.i ]
-  %rl_count.i.i.1.lcssa4674 = phi i32 [ %rl_count.i.i.3, %while.end.i.i ], [ %rl_count.i.i.04370, %for.body.i.i ]
+  %rl.addr.i.i.1.lcssa4676 = phi ptr [ %rl.addr.i.i.2, %while.end.i.i ], [ %rl.addr.i.i.04371, %for.body.i.i ]
+  %rl_count.i.i.1.lcssa4674 = phi i32 [ %rl_count.i.i.2, %while.end.i.i ], [ %rl_count.i.i.04370, %for.body.i.i ]
   %385 = load i32, ptr %add.ptr.i, align 32
   %cmp.i63.i = icmp ult i32 %385, 257
   br i1 %cmp.i63.i, label %if.then.i61.i, label %if.else.i59.i
@@ -8518,8 +8518,8 @@ if.end6.i.i.thread:                               ; preds = %if.end.i621.i, %if.
   br label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %do.body.i.i, %if.else.i59.i, %if.end6.i.i.thread, %if.then.i61.i, %while.end.i.i
-  %rl.addr.i.i.1.lcssa4675 = phi ptr [ %rl.addr.i.i.1.lcssa4676, %if.else.i59.i ], [ %rl.addr.i.i.1.lcssa4676, %if.end6.i.i.thread ], [ %rl.addr.i.i.1.lcssa4676, %if.then.i61.i ], [ %rl.addr.i.i.3, %while.end.i.i ], [ %rl.addr.i.i.1.lcssa4676, %do.body.i.i ]
-  %rl_count.i.i.1.lcssa4673 = phi i32 [ %rl_count.i.i.1.lcssa4674, %if.else.i59.i ], [ %rl_count.i.i.1.lcssa4674, %if.end6.i.i.thread ], [ %rl_count.i.i.1.lcssa4674, %if.then.i61.i ], [ %rl_count.i.i.3, %while.end.i.i ], [ %rl_count.i.i.1.lcssa4674, %do.body.i.i ]
+  %rl.addr.i.i.1.lcssa4675 = phi ptr [ %rl.addr.i.i.1.lcssa4676, %if.else.i59.i ], [ %rl.addr.i.i.1.lcssa4676, %if.end6.i.i.thread ], [ %rl.addr.i.i.1.lcssa4676, %if.then.i61.i ], [ %rl.addr.i.i.2, %while.end.i.i ], [ %rl.addr.i.i.1.lcssa4676, %do.body.i.i ]
+  %rl_count.i.i.1.lcssa4673 = phi i32 [ %rl_count.i.i.1.lcssa4674, %if.else.i59.i ], [ %rl_count.i.i.1.lcssa4674, %if.end6.i.i.thread ], [ %rl_count.i.i.1.lcssa4674, %if.then.i61.i ], [ %rl_count.i.i.2, %while.end.i.i ], [ %rl_count.i.i.1.lcssa4674, %do.body.i.i ]
   %406 = load i32, ptr %add.ptr.i, align 32
   %tobool.i30.i.not = icmp eq i32 %406, 0
   br i1 %tobool.i30.i.not, label %if.end6.i1422, label %if.end.i32.i

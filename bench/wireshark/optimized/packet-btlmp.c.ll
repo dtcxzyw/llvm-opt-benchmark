@@ -1456,12 +1456,12 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 279:                                              ; preds = %272, %279
   %indvars.iv841 = phi i64 [ 0, %272 ], [ %indvars.iv.next842, %279 ]
-  %.1774 = phi i32 [ %278, %272 ], [ %283, %279 ]
+  %.2774 = phi i32 [ %278, %272 ], [ %283, %279 ]
   %280 = getelementptr [10 x i32], ptr @hf_param_afh_channelmap, i64 0, i64 %indvars.iv841
   %281 = load i32, ptr %280, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %281, ptr noundef %0, i32 noundef %.1774, i32 noundef 1, i32 noundef -2147483648) #4
+  %282 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %281, ptr noundef %0, i32 noundef %.2774, i32 noundef 1, i32 noundef -2147483648) #4
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
-  %283 = add nuw nsw i32 %.1774, 1
+  %283 = add nuw nsw i32 %.2774, 1
   %exitcond844.not = icmp eq i64 %indvars.iv.next842, 10
   br i1 %exitcond844.not, label %.loopexit, label %279, !llvm.loop !18
 
@@ -1933,20 +1933,20 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %279, %.preheader754, %31, %388, %393, %404, %335, %32, %576, %555, %548, %546, %539, %535, %525, %515, %514, %497, %489, %462, %439, %429, %425, %406, %321, %310, %306, %302, %298, %294, %284, %268, %243, %239, %232, %225, %218, %214, %207, %193, %178, %176, %120, %113, %99, %89, %85, %81, %77, %73, %69, %65, %61, %57, %50, %46, %41
-  %.2 = phi i32 [ %.0720, %31 ], [ %488, %462 ], [ %442, %439 ], [ %438, %429 ], [ %428, %425 ], [ %424, %406 ], [ %341, %335 ], [ %405, %404 ], [ %394, %393 ], [ %389, %388 ], [ %334, %321 ], [ %320, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %294 ], [ %293, %284 ], [ %271, %268 ], [ %496, %489 ], [ %267, %243 ], [ %506, %497 ], [ %242, %239 ], [ %238, %232 ], [ %231, %225 ], [ %narrow752, %514 ], [ %524, %515 ], [ %224, %218 ], [ %217, %214 ], [ %213, %207 ], [ %206, %193 ], [ %184, %178 ], [ %177, %176 ], [ %129, %120 ], [ %534, %525 ], [ %538, %535 ], [ %542, %539 ], [ %116, %113 ], [ %547, %546 ], [ %112, %99 ], [ %95, %89 ], [ %88, %85 ], [ %554, %548 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %567, %555 ], [ %56, %50 ], [ %49, %46 ], [ %38, %32 ], [ %45, %41 ], [ %583, %576 ], [ %.0720, %.preheader754 ], [ %283, %279 ]
-  %584 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #4
+  %.1 = phi i32 [ %.0720, %31 ], [ %488, %462 ], [ %442, %439 ], [ %438, %429 ], [ %428, %425 ], [ %424, %406 ], [ %341, %335 ], [ %405, %404 ], [ %394, %393 ], [ %389, %388 ], [ %334, %321 ], [ %320, %310 ], [ %309, %306 ], [ %305, %302 ], [ %301, %298 ], [ %297, %294 ], [ %293, %284 ], [ %271, %268 ], [ %496, %489 ], [ %267, %243 ], [ %506, %497 ], [ %242, %239 ], [ %238, %232 ], [ %231, %225 ], [ %narrow752, %514 ], [ %524, %515 ], [ %224, %218 ], [ %217, %214 ], [ %213, %207 ], [ %206, %193 ], [ %184, %178 ], [ %177, %176 ], [ %129, %120 ], [ %534, %525 ], [ %538, %535 ], [ %542, %539 ], [ %116, %113 ], [ %547, %546 ], [ %112, %99 ], [ %95, %89 ], [ %88, %85 ], [ %554, %548 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %61 ], [ %60, %57 ], [ %567, %555 ], [ %56, %50 ], [ %49, %46 ], [ %38, %32 ], [ %45, %41 ], [ %583, %576 ], [ %.0720, %.preheader754 ], [ %283, %279 ]
+  %584 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #4
   %585 = icmp sgt i32 %584, 0
   br i1 %585, label %586, label %591
 
 586:                                              ; preds = %.loopexit
   %587 = load i32, ptr @hf_params, align 4
-  %588 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #4
-  %589 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %587, ptr noundef %0, i32 noundef %.2, i32 noundef %588, i32 noundef 0) #4
+  %588 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #4
+  %589 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %587, ptr noundef %0, i32 noundef %.1, i32 noundef %588, i32 noundef 0) #4
   %590 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   br label %591
 
 591:                                              ; preds = %586, %.loopexit
-  %.3 = phi i32 [ %590, %586 ], [ %.2, %.loopexit ]
+  %.3 = phi i32 [ %590, %586 ], [ %.1, %.loopexit ]
   ret i32 %.3
 }
 

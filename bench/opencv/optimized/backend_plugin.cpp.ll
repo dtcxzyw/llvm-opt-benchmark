@@ -2198,8 +2198,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 659:                                              ; preds = %658, %388
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %658 ], [ %389, %388 ]
-  %.6 = extractvalue { ptr, i32 } %.pn68.pn.pn, 0
-  %660 = call ptr @__cxa_begin_catch(ptr %.6) #19
+  %.4 = extractvalue { ptr, i32 } %.pn68.pn.pn, 0
+  %660 = call ptr @__cxa_begin_catch(ptr %.4) #19
   %661 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %664 unwind label %662
 
@@ -2288,13 +2288,13 @@ _ZN2cv6plugin4implL15toPrintablePathERKNSt7__cxx1112basic_stringIcSt11char_trait
           to label %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit unwind label %382
 
 _ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit:    ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i88, %653, %640, %_ZN2cv3PtrINS_4impl13PluginBackendEEaSERKS3_.exit, %691
-  %.152.ph = phi i32 [ 1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i88 ], [ 1, %653 ], [ 1, %640 ], [ 1, %_ZN2cv3PtrINS_4impl13PluginBackendEEaSERKS3_.exit ], [ 0, %691 ]
+  %.051.ph = phi i32 [ 1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i88 ], [ 1, %653 ], [ 1, %640 ], [ 1, %_ZN2cv3PtrINS_4impl13PluginBackendEEaSERKS3_.exit ], [ 0, %691 ]
   %.pr101 = load ptr, ptr %356, align 8
   %.not.i.i.i.i90 = icmp eq ptr %.pr101, null
   br i1 %.not.i.i.i.i90, label %_ZN2cv3PtrINS_6plugin4impl10DynamicLibEED2Ev.exit, label %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit.thread
 
 _ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit.thread: ; preds = %378, %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit
-  %.152104 = phi i32 [ %.152.ph, %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit ], [ 3, %378 ]
+  %.051104 = phi i32 [ %.051.ph, %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit ], [ 3, %378 ]
   %692 = phi ptr [ %.pr101, %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit ], [ %373, %378 ]
   %693 = getelementptr inbounds i8, ptr %692, i64 8
   %694 = load atomic i64, ptr %693 acquire, align 8
@@ -2364,8 +2364,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_6plugin4impl10DynamicLibEED2Ev.exit
 
 _ZN2cv3PtrINS_6plugin4impl10DynamicLibEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit, %708, %721, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i95
-  %.152105 = phi i32 [ %.152.ph, %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit ], [ %.152104, %708 ], [ %.152104, %721 ], [ %.152104, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i95 ]
-  switch i32 %.152105, label %._crit_edge [
+  %.051105 = phi i32 [ %.051.ph, %_ZN2cv3PtrINS_4impl13PluginBackendEED2Ev.exit ], [ %.051104, %708 ], [ %.051104, %721 ], [ %.051104, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i95 ]
+  switch i32 %.051105, label %._crit_edge [
     i32 0, label %726
     i32 3, label %726
   ]

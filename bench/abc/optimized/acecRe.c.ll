@@ -438,8 +438,8 @@ Vec_IntPush.exit138:                              ; preds = %.Vec_IntGrow.exit10
   br label %82
 
 82:                                               ; preds = %.lr.ph199, %Ree_ManCutMergeOne.exit
-  %.1197 = phi i32 [ %.0205, %.lr.ph199 ], [ %.3, %Ree_ManCutMergeOne.exit ]
-  %.1103196 = phi i32 [ %.0102204, %.lr.ph199 ], [ %.3105, %Ree_ManCutMergeOne.exit ]
+  %.1197 = phi i32 [ %.0205, %.lr.ph199 ], [ %.2, %Ree_ManCutMergeOne.exit ]
+  %.1103196 = phi i32 [ %.0102204, %.lr.ph199 ], [ %.2104, %Ree_ManCutMergeOne.exit ]
   %.0109193 = phi ptr [ %69, %.lr.ph199 ], [ %319, %Ree_ManCutMergeOne.exit ]
   %.0116192 = phi i32 [ 0, %.lr.ph199 ], [ %315, %Ree_ManCutMergeOne.exit ]
   %83 = load i32, ptr %.0109193, align 4
@@ -810,8 +810,8 @@ Ree_ManCutTruth.exit:                             ; preds = %Gia_ObjIsXor.exit.t
   br label %235
 
 235:                                              ; preds = %231, %234, %230
-  %.2104 = phi i32 [ %.val125, %230 ], [ %.1103196, %234 ], [ %.1103196, %231 ]
-  %.2 = phi i32 [ %.1197, %230 ], [ %.val126, %234 ], [ %.1197, %231 ]
+  %.3105 = phi i32 [ %.val125, %230 ], [ %.1103196, %234 ], [ %.1103196, %231 ]
+  %.3 = phi i32 [ %.1197, %230 ], [ %.val126, %234 ], [ %.1197, %231 ]
   %236 = add nsw i32 %125, 1
   store i32 %236, ptr %.val, align 4
   %237 = load i32, ptr %9, align 16
@@ -993,8 +993,8 @@ Ree_ManCutMergeOne.exit.sink.split:               ; preds = %310, %305
   br label %Ree_ManCutMergeOne.exit
 
 Ree_ManCutMergeOne.exit:                          ; preds = %._crit_edge.i, %.preheader.i143, %130, %Ree_ManCutMergeOne.exit.sink.split, %309
-  %.3105 = phi i32 [ %.2104, %309 ], [ %.2104, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1103196, %130 ], [ %.1103196, %.preheader.i143 ], [ %.1103196, %._crit_edge.i ]
-  %.3 = phi i32 [ %.2, %309 ], [ %.2, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1197, %130 ], [ %.1197, %.preheader.i143 ], [ %.1197, %._crit_edge.i ]
+  %.2104 = phi i32 [ %.3105, %309 ], [ %.3105, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1103196, %130 ], [ %.1103196, %.preheader.i143 ], [ %.1103196, %._crit_edge.i ]
+  %.2 = phi i32 [ %.3, %309 ], [ %.3, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1197, %130 ], [ %.1197, %.preheader.i143 ], [ %.1197, %._crit_edge.i ]
   %315 = add nuw nsw i32 %.0116192, 1
   %316 = load i32, ptr %.0109193, align 4
   %317 = add nsw i32 %316, 2
@@ -1011,8 +1011,8 @@ Ree_ManCutMergeOne.exit:                          ; preds = %._crit_edge.i, %.pr
 ._crit_edge200:                                   ; preds = %._crit_edge200.loopexit, %.lr.ph206.split
   %322 = phi i32 [ %78, %.lr.ph206.split ], [ %.pre224, %._crit_edge200.loopexit ]
   %323 = phi i32 [ %79, %.lr.ph206.split ], [ %320, %._crit_edge200.loopexit ]
-  %.1103.lcssa = phi i32 [ %.0102204, %.lr.ph206.split ], [ %.3105, %._crit_edge200.loopexit ]
-  %.1.lcssa = phi i32 [ %.0205, %.lr.ph206.split ], [ %.3, %._crit_edge200.loopexit ]
+  %.1103.lcssa = phi i32 [ %.0102204, %.lr.ph206.split ], [ %.2104, %._crit_edge200.loopexit ]
+  %.1.lcssa = phi i32 [ %.0205, %.lr.ph206.split ], [ %.2, %._crit_edge200.loopexit ]
   %324 = add nuw nsw i32 %.0112202, 1
   %325 = load i32, ptr %.0110203, align 4
   %326 = add nsw i32 %325, 2
@@ -2451,12 +2451,12 @@ Hash_IntObj.exit:                                 ; preds = %154, %159
   br label %.thread
 
 .thread:                                          ; preds = %199, %.thread.loopexit.split.loop.exit, %.thread.loopexit235
-  %.2137 = phi i32 [ %200, %.thread.loopexit235 ], [ %201, %.thread.loopexit.split.loop.exit ], [ 8, %199 ]
+  %.1136 = phi i32 [ %200, %.thread.loopexit235 ], [ %201, %.thread.loopexit.split.loop.exit ], [ 8, %199 ]
   %202 = load i32, ptr %165, align 4
   %203 = load i32, ptr %171, align 4
   %204 = load i32, ptr %172, align 4
   tail call fastcc void @Vec_IntPushThree(ptr noundef nonnull %8, i32 noundef %202, i32 noundef %203, i32 noundef %204)
-  %205 = or i32 %.2137, %184
+  %205 = or i32 %.1136, %184
   tail call fastcc void @Vec_IntPushThree(ptr noundef nonnull %8, i32 noundef %176, i32 noundef %188, i32 noundef %205)
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 2
   %.val = load i32, ptr %169, align 4

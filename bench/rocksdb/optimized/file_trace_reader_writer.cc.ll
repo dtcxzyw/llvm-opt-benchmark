@@ -421,7 +421,7 @@ lpad3.loopexit:                                   ; preds = %if.end59
   br label %ehcleanup
 
 lpad3.loopexit.split-lp:                          ; preds = %if.end22, %if.then16, %if.then53
-  %s.sroa.49.0 = phi ptr [ %9, %if.then16 ], [ %28, %if.then53 ], [ %9, %if.end22 ]
+  %s.sroa.49.4 = phi ptr [ %9, %if.then16 ], [ %28, %if.then53 ], [ %9, %if.end22 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -494,7 +494,7 @@ invoke.cont37.lr.ph:                              ; preds = %invoke.cont25
 
 invoke.cont37:                                    ; preds = %invoke.cont37.lr.ph, %invoke.cont66
   %19 = phi i64 [ %add, %invoke.cont37.lr.ph ], [ %add70, %invoke.cont66 ]
-  %s.sroa.49.1 = phi ptr [ %9, %invoke.cont37.lr.ph ], [ %28, %invoke.cont66 ]
+  %s.sroa.49.3 = phi ptr [ %9, %invoke.cont37.lr.ph ], [ %28, %invoke.cont66 ]
   %to_read.0125 = phi i32 [ %cond, %invoke.cont37.lr.ph ], [ %cond75, %invoke.cont66 ]
   %bytes_to_read.0124 = phi i32 [ %result.0.copyload.i, %invoke.cont37.lr.ph ], [ %sub, %invoke.cont66 ]
   %20 = load ptr, ptr %file_reader_, align 8
@@ -525,11 +525,11 @@ invoke.cont42:                                    ; preds = %invoke.cont37
   store i8 0, ptr %scope_.i, align 1
   %28 = load ptr, ptr %state_.i, align 8
   store ptr null, ptr %state_.i, align 8
-  %tobool.not.i.i.i.i.i47 = icmp eq ptr %s.sroa.49.1, null
+  %tobool.not.i.i.i.i.i47 = icmp eq ptr %s.sroa.49.3, null
   br i1 %tobool.not.i.i.i.i.i47, label %_ZN7rocksdb8IOStatusD2Ev.exit51, label %_ZN7rocksdb6StatusaSEOS0_.exit
 
 _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont42
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.49.1) #14
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.49.3) #14
   %.pr = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i.i49 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i49, label %_ZN7rocksdb8IOStatusD2Ev.exit51, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i50
@@ -654,25 +654,25 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 cleanup:                                          ; preds = %if.then53, %if.then16, %if.then9
-  %s.sroa.49.3 = phi ptr [ %9, %if.then9 ], [ %9, %if.then16 ], [ %28, %if.then53 ]
-  %cmp.not.i.i113 = icmp eq ptr %s.sroa.49.3, null
+  %s.sroa.49.0 = phi ptr [ %9, %if.then9 ], [ %9, %if.then16 ], [ %28, %if.then53 ]
+  %cmp.not.i.i113 = icmp eq ptr %s.sroa.49.0, null
   br i1 %cmp.not.i.i113, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.49.3) #14
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.49.0) #14
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.then, %if.then46, %while.end, %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad3.loopexit, %lpad3.loopexit.split-lp, %lpad41
-  %s.sroa.49.4 = phi ptr [ %s.sroa.49.0, %lpad3.loopexit.split-lp ], [ %28, %lpad3.loopexit ], [ %s.sroa.49.1, %lpad41 ]
+  %s.sroa.49.1 = phi ptr [ %s.sroa.49.4, %lpad3.loopexit.split-lp ], [ %28, %lpad3.loopexit ], [ %s.sroa.49.3, %lpad41 ]
   %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad3.loopexit.split-lp ], [ %lpad.loopexit, %lpad3.loopexit ], [ %34, %lpad41 ]
-  %cmp.not.i.i115 = icmp eq ptr %s.sroa.49.4, null
+  %cmp.not.i.i115 = icmp eq ptr %s.sroa.49.1, null
   br i1 %cmp.not.i.i115, label %eh.resume, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i116
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i116: ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.49.4) #14
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.49.1) #14
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i116, %ehcleanup, %lpad

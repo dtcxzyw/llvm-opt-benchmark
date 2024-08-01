@@ -748,12 +748,12 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   br label %28
 
 28:                                               ; preds = %20, %24, %23, %22, %27, %25
-  %.268 = phi i32 [ 1957, %27 ], [ %., %25 ], [ 2314, %23 ], [ 664, %24 ], [ 2314, %22 ], [ 255, %20 ]
-  %.265 = phi i32 [ 1960, %27 ], [ %.76, %25 ], [ 2317, %23 ], [ 667, %24 ], [ 2317, %22 ], [ 257, %20 ]
+  %.167 = phi i32 [ 1957, %27 ], [ %., %25 ], [ 2314, %23 ], [ 664, %24 ], [ 2314, %22 ], [ 255, %20 ]
+  %.164 = phi i32 [ 1960, %27 ], [ %.76, %25 ], [ 2317, %23 ], [ 667, %24 ], [ 2317, %22 ], [ 257, %20 ]
   %.not74 = phi i1 [ true, %27 ], [ true, %25 ], [ false, %23 ], [ true, %24 ], [ true, %22 ], [ true, %20 ]
   %.162 = phi i32 [ 0, %27 ], [ 0, %25 ], [ 3877, %23 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ]
-  %.260 = phi i1 [ false, %27 ], [ %26, %25 ], [ false, %23 ], [ true, %24 ], [ false, %22 ], [ true, %20 ]
-  %.2 = phi i32 [ 1955, %27 ], [ 1054, %25 ], [ 98, %23 ], [ 98, %24 ], [ 98, %22 ], [ 254, %20 ]
+  %.159 = phi i1 [ false, %27 ], [ %26, %25 ], [ false, %23 ], [ true, %24 ], [ false, %22 ], [ true, %20 ]
+  %.1 = phi i32 [ 1955, %27 ], [ 1054, %25 ], [ 98, %23 ], [ 98, %24 ], [ 98, %22 ], [ 254, %20 ]
   %.056 = phi i32 [ 17, %27 ], [ 1042, %25 ], [ 25, %23 ], [ 25, %24 ], [ 25, %22 ], [ 25, %20 ]
   %29 = load ptr, ptr %7, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 4
@@ -770,11 +770,11 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %33
-  %36 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.2, i32 noundef %4) #11
+  %36 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.1, i32 noundef %4) #11
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %35
-  %38 = tail call ptr @make_opclause(i32 noundef %.2, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %29, i32 noundef 0, i32 noundef %5) #11
+  %38 = tail call ptr @make_opclause(i32 noundef %.1, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %29, i32 noundef 0, i32 noundef %5) #11
   %39 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %38) #11
   br label %61
 
@@ -791,31 +791,31 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   br label %61
 
 46:                                               ; preds = %41, %40
-  br i1 %.260, label %47, label %49
+  br i1 %.159, label %47, label %49
 
 47:                                               ; preds = %46
   %48 = tail call zeroext i1 @lc_collate_is_c(i32 noundef %5) #11
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %47, %46
-  %50 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.265, i32 noundef %4) #11
+  %50 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.164, i32 noundef %4) #11
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %49
-  %52 = tail call ptr @make_opclause(i32 noundef %.265, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %29, i32 noundef 0, i32 noundef %5) #11
+  %52 = tail call ptr @make_opclause(i32 noundef %.164, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %29, i32 noundef 0, i32 noundef %5) #11
   %53 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %52) #11
-  %54 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.268, i32 noundef %4) #11
+  %54 = tail call zeroext i1 @op_in_opfamily(i32 noundef %.167, i32 noundef %4) #11
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = tail call i32 @get_opcode(i32 noundef %.268) #11
+  %56 = tail call i32 @get_opcode(i32 noundef %.167) #11
   call void @fmgr_info(i32 noundef %56, ptr noundef nonnull %8) #11
   %57 = call fastcc ptr @make_greater_string(ptr noundef nonnull %29, ptr noundef nonnull %8, i32 noundef %5)
   %.not75 = icmp eq ptr %57, null
   br i1 %.not75, label %61, label %58
 
 58:                                               ; preds = %55
-  %59 = call ptr @make_opclause(i32 noundef %.268, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %57, i32 noundef 0, i32 noundef %5) #11
+  %59 = call ptr @make_opclause(i32 noundef %.167, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %57, i32 noundef 0, i32 noundef %5) #11
   %60 = call ptr @lappend(ptr noundef %53, ptr noundef %59) #11
   br label %61
 
@@ -1098,7 +1098,7 @@ define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noun
 
 pattern_char_isalpha.exit.us.us:                  ; preds = %.pattern_char_isalpha.exit.us.us_crit_edge, %.lr.ph.split.us.split.us
   %77 = phi i8 [ %.pre192, %.pattern_char_isalpha.exit.us.us_crit_edge ], [ %74, %.lr.ph.split.us.split.us ]
-  %.1.us.us = phi i32 [ %76, %.pattern_char_isalpha.exit.us.us_crit_edge ], [ %.071101.us.us, %.lr.ph.split.us.split.us ]
+  %.2.us.us = phi i32 [ %76, %.pattern_char_isalpha.exit.us.us_crit_edge ], [ %.071101.us.us, %.lr.ph.split.us.split.us ]
   %78 = and i8 %77, -33
   %79 = add i8 %78, -91
   %narrow30.i.us.us = icmp ult i8 %79, -26
@@ -1109,7 +1109,7 @@ pattern_char_isalpha.exit.us.us:                  ; preds = %.pattern_char_isalp
   %82 = sext i32 %.070102.us.us to i64
   %83 = getelementptr i8, ptr %69, i64 %82
   store i8 %77, ptr %83, align 1
-  %84 = add nsw i32 %.1.us.us, 1
+  %84 = add nsw i32 %.2.us.us, 1
   %85 = icmp slt i32 %84, %.072
   br i1 %85, label %.lr.ph.split.us.split.us, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
@@ -1141,7 +1141,7 @@ pattern_char_isalpha.exit.us.us:                  ; preds = %.pattern_char_isalp
 
 91:                                               ; preds = %._crit_edge179, %.lr.ph.split.us.split.split.us
   %92 = phi i8 [ %.pre182, %._crit_edge179 ], [ %88, %.lr.ph.split.us.split.split.us ]
-  %.1.us.us142 = phi i32 [ %90, %._crit_edge179 ], [ %.071101.us.us140, %.lr.ph.split.us.split.split.us ]
+  %.2.us.us142 = phi i32 [ %90, %._crit_edge179 ], [ %.071101.us.us140, %.lr.ph.split.us.split.split.us ]
   %.not.i.us.us = icmp slt i8 %92, 0
   br i1 %.not25.i, label %.critedge.i.us.us, label %93
 
@@ -1193,7 +1193,7 @@ pattern_char_isalpha.exit.us.us143:               ; preds = %.critedge.i.us.us, 
   %118 = sext i32 %.070102.us.us139 to i64
   %119 = getelementptr i8, ptr %69, i64 %118
   store i8 %92, ptr %119, align 1
-  %120 = add nsw i32 %.1.us.us142, 1
+  %120 = add nsw i32 %.2.us.us142, 1
   %121 = icmp slt i32 %120, %.072
   br i1 %121, label %.lr.ph.split.us.split.split.us, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
@@ -1222,7 +1222,7 @@ pattern_char_isalpha.exit.us.us143:               ; preds = %.critedge.i.us.us, 
 
 127:                                              ; preds = %._crit_edge184, %.lr.ph.split.us.split.split
   %128 = phi i8 [ %.pre187, %._crit_edge184 ], [ %124, %.lr.ph.split.us.split.split ]
-  %.1.us = phi i32 [ %126, %._crit_edge184 ], [ %.071101.us, %.lr.ph.split.us.split.split ]
+  %.2.us = phi i32 [ %126, %._crit_edge184 ], [ %.071101.us, %.lr.ph.split.us.split.split ]
   %.not.i.us = icmp slt i8 %128, 0
   br i1 %.not.i.us, label %pattern_char_isalpha.exit.thread, label %129
 
@@ -1274,7 +1274,7 @@ pattern_char_isalpha.exit.us:                     ; preds = %.critedge.i.us, %14
   %154 = sext i32 %.070102.us to i64
   %155 = getelementptr i8, ptr %69, i64 %154
   store i8 %128, ptr %155, align 1
-  %156 = add nsw i32 %.1.us, 1
+  %156 = add nsw i32 %.2.us, 1
   %157 = icmp slt i32 %156, %.072
   br i1 %157, label %.lr.ph.split.us.split.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
@@ -1303,18 +1303,18 @@ pattern_char_isalpha.exit.us:                     ; preds = %.critedge.i.us, %14
 
 163:                                              ; preds = %._crit_edge, %.lr.ph.split
   %164 = phi i8 [ %.pre, %._crit_edge ], [ %160, %.lr.ph.split ]
-  %.1 = phi i32 [ %162, %._crit_edge ], [ %.071101, %.lr.ph.split ]
+  %.2 = phi i32 [ %162, %._crit_edge ], [ %.071101, %.lr.ph.split ]
   %165 = add i32 %.070102, 1
   %166 = sext i32 %.070102 to i64
   %167 = getelementptr i8, ptr %69, i64 %166
   store i8 %164, ptr %167, align 1
-  %168 = add nsw i32 %.1, 1
+  %168 = add nsw i32 %.2, 1
   %169 = icmp slt i32 %168, %.072
   br i1 %169, label %.lr.ph.split, label %pattern_char_isalpha.exit.thread, !llvm.loop !5
 
 pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.split, %.lr.ph.split, %116, %89, %pattern_char_isalpha.exit.us.us143, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split.us, %152, %125, %pattern_char_isalpha.exit.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split, %127, %80, %75, %pattern_char_isalpha.exit.us.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %66
   %.070.lcssa = phi i32 [ 0, %66 ], [ %.070102.us.us, %.lr.ph.split.us.split.us ], [ %.070102.us.us, %.lr.ph.split.us.split.us ], [ %.070102.us.us, %pattern_char_isalpha.exit.us.us ], [ %.070102.us.us, %75 ], [ %81, %80 ], [ %.070102.us, %127 ], [ %.070102.us, %.lr.ph.split.us.split.split ], [ %.070102.us, %.lr.ph.split.us.split.split ], [ %.070102.us, %pattern_char_isalpha.exit.us ], [ %.070102.us, %125 ], [ %153, %152 ], [ %.070102.us.us139, %.lr.ph.split.us.split.split.us ], [ %.070102.us.us139, %.lr.ph.split.us.split.split.us ], [ %.070102.us.us139, %pattern_char_isalpha.exit.us.us143 ], [ %.070102.us.us139, %89 ], [ %117, %116 ], [ %.070102, %.lr.ph.split ], [ %.070102, %.lr.ph.split ], [ %.070102, %161 ], [ %165, %163 ]
-  %.2 = phi i32 [ 0, %66 ], [ %.071101.us.us, %.lr.ph.split.us.split.us ], [ %.071101.us.us, %.lr.ph.split.us.split.us ], [ %.1.us.us, %pattern_char_isalpha.exit.us.us ], [ %76, %75 ], [ %84, %80 ], [ %.1.us, %127 ], [ %.071101.us, %.lr.ph.split.us.split.split ], [ %.071101.us, %.lr.ph.split.us.split.split ], [ %.1.us, %pattern_char_isalpha.exit.us ], [ %126, %125 ], [ %156, %152 ], [ %.071101.us.us140, %.lr.ph.split.us.split.split.us ], [ %.071101.us.us140, %.lr.ph.split.us.split.split.us ], [ %.1.us.us142, %pattern_char_isalpha.exit.us.us143 ], [ %90, %89 ], [ %120, %116 ], [ %.071101, %.lr.ph.split ], [ %.071101, %.lr.ph.split ], [ %162, %161 ], [ %168, %163 ]
+  %.1 = phi i32 [ 0, %66 ], [ %.071101.us.us, %.lr.ph.split.us.split.us ], [ %.071101.us.us, %.lr.ph.split.us.split.us ], [ %.2.us.us, %pattern_char_isalpha.exit.us.us ], [ %76, %75 ], [ %84, %80 ], [ %.2.us, %127 ], [ %.071101.us, %.lr.ph.split.us.split.split ], [ %.071101.us, %.lr.ph.split.us.split.split ], [ %.2.us, %pattern_char_isalpha.exit.us ], [ %126, %125 ], [ %156, %152 ], [ %.071101.us.us140, %.lr.ph.split.us.split.split.us ], [ %.071101.us.us140, %.lr.ph.split.us.split.split.us ], [ %.2.us.us142, %pattern_char_isalpha.exit.us.us143 ], [ %90, %89 ], [ %120, %116 ], [ %.071101, %.lr.ph.split ], [ %.071101, %.lr.ph.split ], [ %162, %161 ], [ %168, %163 ]
   %170 = sext i32 %.070.lcssa to i64
   %171 = getelementptr i8, ptr %69, i64 %170
   store i8 0, ptr %171, align 1
@@ -1343,9 +1343,9 @@ pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.
   br i1 %.not86, label %205, label %183
 
 183:                                              ; preds = %182
-  %184 = sext i32 %.2 to i64
+  %184 = sext i32 %.1 to i64
   %185 = getelementptr i8, ptr %.069, i64 %184
-  %186 = sub i32 %.072, %.2
+  %186 = sub i32 %.072, %.1
   %187 = icmp sgt i32 %186, 0
   br i1 %187, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -1417,7 +1417,7 @@ like_selectivity.exit:                            ; preds = %190, %197, %200, %.
 205:                                              ; preds = %like_selectivity.exit, %182
   tail call void @pfree(ptr noundef %.069) #11
   tail call void @pfree(ptr noundef %69) #11
-  %206 = icmp eq i32 %.2, %.072
+  %206 = icmp eq i32 %.1, %.072
   %207 = icmp sgt i32 %.070.lcssa, 0
   %. = zext i1 %207 to i32
   %.0 = select i1 %206, i32 2, i32 %.
@@ -1704,7 +1704,7 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   %.080111 = phi i32 [ %79, %78 ], [ 0, %.lr.ph112.preheader ]
   %.081110 = phi i32 [ %.283, %78 ], [ 0, %.lr.ph112.preheader ]
   %.084109 = phi i32 [ %.185, %78 ], [ 0, %.lr.ph112.preheader ]
-  %.086108 = phi double [ %.187, %78 ], [ 1.000000e+00, %.lr.ph112.preheader ]
+  %.086108 = phi double [ %.288, %78 ], [ 1.000000e+00, %.lr.ph112.preheader ]
   %5 = sext i32 %.080111 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
@@ -1871,7 +1871,7 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   br label %78
 
 78:                                               ; preds = %9, %59, %58, %68, %.critedge5, %75, %76, %72, %73, %61, %62, %.critedge, %55, %15, %18
-  %.187 = phi double [ %.086108, %9 ], [ %24, %18 ], [ %.086108, %15 ], [ %57, %55 ], [ %.086108, %.critedge ], [ %60, %59 ], [ %.086108, %58 ], [ %63, %62 ], [ %.086108, %61 ], [ %69, %68 ], [ %.086108, %.critedge5 ], [ %74, %73 ], [ %.086108, %72 ], [ %77, %76 ], [ %.086108, %75 ]
+  %.288 = phi double [ %.086108, %9 ], [ %24, %18 ], [ %.086108, %15 ], [ %57, %55 ], [ %.086108, %.critedge ], [ %60, %59 ], [ %.086108, %58 ], [ %63, %62 ], [ %.086108, %61 ], [ %69, %68 ], [ %.086108, %.critedge5 ], [ %74, %73 ], [ %.086108, %72 ], [ %77, %76 ], [ %.086108, %75 ]
   %.185 = phi i32 [ %11, %9 ], [ 0, %18 ], [ %16, %15 ], [ 0, %55 ], [ %.084109, %.critedge ], [ 0, %59 ], [ %.084109, %58 ], [ 0, %62 ], [ %.084109, %61 ], [ 0, %68 ], [ %.084109, %.critedge5 ], [ 0, %73 ], [ %.084109, %72 ], [ 0, %76 ], [ %.084109, %75 ]
   %.283 = phi i32 [ %spec.select, %9 ], [ %.081110, %18 ], [ %.081110, %15 ], [ %.081110, %55 ], [ %.081110, %.critedge ], [ %.081110, %59 ], [ %.081110, %58 ], [ %.081110, %62 ], [ %.081110, %61 ], [ %.081110, %68 ], [ %.081110, %.critedge5 ], [ %.081110, %73 ], [ %.081110, %72 ], [ %.081110, %76 ], [ %.081110, %75 ]
   %.5 = phi i32 [ %.080111, %9 ], [ %.080111, %18 ], [ %.080111, %15 ], [ %.3.lcssa, %55 ], [ %.3.lcssa, %.critedge ], [ %.080111, %59 ], [ %.080111, %58 ], [ %.080111, %62 ], [ %.080111, %61 ], [ %.4.lcssa, %68 ], [ %.4.lcssa, %.critedge5 ], [ %71, %73 ], [ %71, %72 ], [ %.080111, %76 ], [ %.080111, %75 ]
@@ -1880,9 +1880,9 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   br i1 %80, label %.lr.ph112, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %78, %70, %2, %28
-  %.288 = phi double [ %34, %28 ], [ 1.000000e+00, %2 ], [ %.187, %78 ], [ %.086108, %70 ]
-  %81 = fcmp ogt double %.288, 1.000000e+00
-  %.389 = select i1 %81, double 1.000000e+00, double %.288
+  %.187 = phi double [ %34, %28 ], [ 1.000000e+00, %2 ], [ %.288, %78 ], [ %.086108, %70 ]
+  %81 = fcmp ogt double %.187, 1.000000e+00
+  %.389 = select i1 %81, double 1.000000e+00, double %.187
   ret double %.389
 }
 
@@ -1953,8 +1953,8 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
   br label %39
 
 39:                                               ; preds = %36, %33
-  %.091 = phi ptr [ %35, %33 ], [ %38, %36 ]
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.091) #13
+  %.192 = phi ptr [ %35, %33 ], [ %38, %36 ]
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.192) #13
   %41 = trunc i64 %40 to i32
   %42 = tail call zeroext i1 @lc_collate_is_c(i32 noundef %2) #11
   %43 = icmp eq i32 %41, 0
@@ -1998,7 +1998,7 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
   %61 = ashr exact i64 %sext104, 32
   %62 = tail call ptr @palloc(i64 noundef %61) #11
   %63 = ashr exact i64 %60, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %.091, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %.192, i64 %63, i1 false)
   %64 = load i8, ptr @make_greater_string.suffixchar, align 1
   %65 = getelementptr i8, ptr %62, i64 %63
   store i8 %64, ptr %65, align 1
@@ -2018,7 +2018,7 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
   %74 = getelementptr inbounds i8, ptr %72, i64 4
   %sext = shl i64 %40, 32
   %75 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %74, ptr align 1 %.091, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %74, ptr align 1 %.192, i64 %75, i1 false)
   %76 = load i8, ptr @make_greater_string.suffixchar, align 1
   %77 = getelementptr i8, ptr %74, i64 %75
   store i8 %76, ptr %77, align 1
@@ -2094,10 +2094,10 @@ select.unfold:                                    ; preds = %15, %22, %25
 .lr.ph129.split:                                  ; preds = %.thread, %._crit_edge.split
   %.197127 = phi i32 [ %110, %._crit_edge.split ], [ %41, %.thread ]
   %109 = add nsw i32 %.197127, -1
-  %110 = tail call i32 @pg_mbcliplen(ptr noundef %.091, i32 noundef %.197127, i32 noundef %109) #11
+  %110 = tail call i32 @pg_mbcliplen(ptr noundef %.192, i32 noundef %.197127, i32 noundef %109) #11
   %111 = sub i32 %.197127, %110
   %112 = zext nneg i32 %.197127 to i64
-  %113 = getelementptr i8, ptr %.091, i64 %112
+  %113 = getelementptr i8, ptr %.192, i64 %112
   %114 = sext i32 %111 to i64
   %115 = sub nsw i64 0, %114
   %116 = getelementptr i8, ptr %113, i64 %115
@@ -2105,7 +2105,7 @@ select.unfold:                                    ; preds = %15, %22, %25
   br i1 %117, label %.lr.ph, label %._crit_edge.split
 
 .lr.ph:                                           ; preds = %.lr.ph129.split, %122
-  %118 = tail call fastcc ptr @string_to_const(ptr noundef %.091, i32 noundef %5)
+  %118 = tail call fastcc ptr @string_to_const(ptr noundef %.192, i32 noundef %5)
   %119 = getelementptr inbounds i8, ptr %118, i64 24
   %120 = load i64, ptr %119, align 8
   %121 = tail call i64 @FunctionCall2Coll(ptr noundef %1, i32 noundef %2, i64 noundef %.095.ph, i64 noundef %120) #11
@@ -2126,7 +2126,7 @@ select.unfold:                                    ; preds = %15, %22, %25
 
 ._crit_edge.split:                                ; preds = %122, %.lr.ph129.split
   %126 = sext i32 %110 to i64
-  %127 = getelementptr i8, ptr %.091, i64 %126
+  %127 = getelementptr i8, ptr %.192, i64 %126
   store i8 0, ptr %127, align 1
   %128 = icmp sgt i32 %110, 0
   br i1 %128, label %.lr.ph129.split, label %._crit_edge130, !llvm.loop !12
@@ -2141,9 +2141,9 @@ select.unfold:                                    ; preds = %15, %22, %25
   br label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %._crit_edge.split.us.us, %97, %.split.us.thread.sink.split, %._crit_edge130, %select.unfold, %.split.us
-  %.192125144171.sink = phi ptr [ %.091, %.split.us ], [ %.091, %._crit_edge130 ], [ %81, %select.unfold ], [ %.091, %.split.us.thread.sink.split ], [ %81, %97 ], [ %81, %._crit_edge.split.us.us ]
+  %.091125144171.sink = phi ptr [ %.192, %.split.us ], [ %.192, %._crit_edge130 ], [ %81, %select.unfold ], [ %.192, %.split.us.thread.sink.split ], [ %81, %97 ], [ %81, %._crit_edge.split.us.us ]
   %.088 = phi ptr [ %118, %.split.us ], [ null, %._crit_edge130 ], [ null, %select.unfold ], [ %.088.ph, %.split.us.thread.sink.split ], [ %101, %97 ], [ null, %._crit_edge.split.us.us ]
-  tail call void @pfree(ptr noundef %.192125144171.sink) #11
+  tail call void @pfree(ptr noundef %.091125144171.sink) #11
   ret ptr %.088
 }
 

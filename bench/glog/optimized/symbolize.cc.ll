@@ -763,7 +763,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit.i.i: ; preds = %switc
   br label %.lr.ph.i64.i.i
 
 .lr.ph.i64.i.i:                                   ; preds = %160, %.lr.ph.preheader.i62.i.i
-  %.0117.i.i = phi i64 [ 0, %.lr.ph.preheader.i62.i.i ], [ %169, %160 ]
+  %.1118.i.i = phi i64 [ 0, %.lr.ph.preheader.i62.i.i ], [ %169, %160 ]
   %.028.i65.i.i = phi ptr [ %153, %.lr.ph.preheader.i62.i.i ], [ %170, %160 ]
   %157 = load i8, ptr %.028.i65.i.i, align 1, !noalias !8
   %.fr27.i66.i.i = freeze i8 %157
@@ -789,7 +789,7 @@ switch.early.test.i68.i.i:                        ; preds = %.lr.ph.i64.i.i
   ]
 
 160:                                              ; preds = %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %.lr.ph.i64.i.i
-  %161 = shl i64 %.0117.i.i, 4
+  %161 = shl i64 %.1118.i.i, 4
   %162 = icmp ult i8 %.fr27.i66.i.i, 65
   %163 = add nsw i32 %158, -48
   %164 = sext i32 %163 to i64
@@ -803,7 +803,7 @@ switch.early.test.i68.i.i:                        ; preds = %.lr.ph.i64.i.i
   br i1 %exitcond.not.i69.i.i, label %switch.early.test._crit_edge.i59.i.i, label %.lr.ph.i64.i.i, !llvm.loop !13
 
 switch.early.test._crit_edge.i59.i.i:             ; preds = %160, %switch.early.test.i68.i.i, %152
-  %.1118.i.i = phi i64 [ 0, %152 ], [ %.0117.i.i, %switch.early.test.i68.i.i ], [ %169, %160 ]
+  %.0117.i.i = phi i64 [ 0, %152 ], [ %.1118.i.i, %switch.early.test.i68.i.i ], [ %169, %160 ]
   %.0.lcssa.i60.i.i = phi ptr [ %153, %152 ], [ %.028.i65.i.i, %switch.early.test.i68.i.i ], [ %scevgep.i63.i.i, %160 ]
   %.0.lcssa.i60240.i.i = ptrtoint ptr %.0.lcssa.i60.i.i to i64
   %.not.i61.i.i = icmp ugt ptr %.0.lcssa.i60.i.i, %126
@@ -1015,7 +1015,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
 .thread.i.i:                                      ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i.i74.i.i", %213, %196, %.thread.sink.split.i.i, %208, %206, %204, %182
   %244 = load i64, ptr %19, align 8, !noalias !8
   %245 = icmp ule i64 %244, %22
-  %.not45.i.i = icmp ugt i64 %.1118.i.i, %22
+  %.not45.i.i = icmp ugt i64 %.0117.i.i, %22
   %or.cond55.i.i = select i1 %245, i1 %.not45.i.i, i1 false
   br i1 %or.cond55.i.i, label %246, label %.backedge.i.i.backedge
 

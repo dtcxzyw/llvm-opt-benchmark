@@ -104,7 +104,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
 
 .backedge.i:                                      ; preds = %99, %26
   %.071.be.i = phi i32 [ %102, %99 ], [ %29, %26 ]
-  %.069.be.i = phi ptr [ %.2.i, %99 ], [ %27, %26 ]
+  %.069.be.i = phi ptr [ %.1.i, %99 ], [ %27, %26 ]
   %.0.be.i = phi ptr [ %101, %99 ], [ %28, %26 ]
   %30 = icmp sgt i32 %.071.be.i, 0
   br i1 %30, label %.lr.ph.i, label %euc_jp2sjis.exit, !llvm.loop !4
@@ -225,7 +225,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
 94:                                               ; preds = %88, %83
   %storemerge.in.i = phi i32 [ %93, %88 ], [ %87, %83 ]
   %.070.i = phi i32 [ %21, %88 ], [ %84, %83 ]
-  %.1.i = getelementptr i8, ptr %.06992.i, i64 1
+  %.2.i = getelementptr i8, ptr %.06992.i, i64 1
   %storemerge.i = trunc i32 %storemerge.in.i to i8
   store i8 %storemerge.i, ptr %.06992.i, align 1
   %95 = and i32 %.070.i, 1
@@ -235,11 +235,11 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
   %.neg77.i = select i1 %.not76.i, i8 -2, i8 %.neg.i
   %97 = add i8 %.neg77.i, %38
   %98 = getelementptr i8, ptr %.06992.i, i64 2
-  store i8 %97, ptr %.1.i, align 1
+  store i8 %97, ptr %.2.i, align 1
   br label %99
 
 99:                                               ; preds = %94, %.preheader.i._crit_edge, %67, %50, %39
-  %.2.i = phi ptr [ %40, %39 ], [ %59, %50 ], [ %69, %67 ], [ %77, %.preheader.i._crit_edge ], [ %98, %94 ]
+  %.1.i = phi ptr [ %40, %39 ], [ %59, %50 ], [ %69, %67 ], [ %77, %.preheader.i._crit_edge ], [ %98, %94 ]
   %100 = zext nneg i32 %32 to i64
   %101 = getelementptr i8, ptr %.093.i, i64 %100
   %102 = sub nsw i32 %.07191.i, %32
@@ -311,7 +311,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
 
 .backedge.i:                                      ; preds = %.loopexit.i, %26
   %.0118.be.i = phi i32 [ %155, %.loopexit.i ], [ %29, %26 ]
-  %.0114.be.i = phi ptr [ %.3117.i, %.loopexit.i ], [ %27, %26 ]
+  %.0114.be.i = phi ptr [ %.1115.i, %.loopexit.i ], [ %27, %26 ]
   %.0.be.i = phi ptr [ %154, %.loopexit.i ], [ %28, %26 ]
   %30 = icmp sgt i32 %.0118.be.i, 0
   br i1 %30, label %.lr.ph.i, label %sjis2euc_jp.exit, !llvm.loop !6
@@ -353,12 +353,12 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
 .preheader126.i:                                  ; preds = %41, %58
   %48 = phi i16 [ %62, %58 ], [ -4369, %41 ]
   %49 = phi ptr [ %61, %58 ], [ @ibmkanji, %41 ]
-  %.0105140.i = phi i32 [ %.1.i, %58 ], [ %46, %41 ]
+  %.1140.i = phi i32 [ %.2.i, %58 ], [ %46, %41 ]
   %.0106139.i = phi i32 [ %59, %58 ], [ 0, %41 ]
-  %.0108138.i = phi i32 [ %.1109.i, %58 ], [ %44, %41 ]
-  %.0111137.i = phi i32 [ %.1112.i, %58 ], [ %21, %41 ]
+  %.1109138.i = phi i32 [ %.2110.i, %58 ], [ %44, %41 ]
+  %.1112137.i = phi i32 [ %.2113.i, %58 ], [ %21, %41 ]
   %50 = zext i16 %48 to i32
-  %51 = icmp eq i32 %.0105140.i, %50
+  %51 = icmp eq i32 %.1140.i, %50
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %.preheader126.i
@@ -370,9 +370,9 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br label %58
 
 58:                                               ; preds = %52, %.preheader126.i
-  %.1112.i = phi i32 [ %56, %52 ], [ %.0111137.i, %.preheader126.i ]
-  %.1109.i = phi i32 [ %57, %52 ], [ %.0108138.i, %.preheader126.i ]
-  %.1.i = phi i32 [ %55, %52 ], [ %.0105140.i, %.preheader126.i ]
+  %.2113.i = phi i32 [ %56, %52 ], [ %.1112137.i, %.preheader126.i ]
+  %.2110.i = phi i32 [ %57, %52 ], [ %.1109138.i, %.preheader126.i ]
+  %.2.i = phi i32 [ %55, %52 ], [ %.1140.i, %.preheader126.i ]
   %59 = add i32 %.0106139.i, 1
   %60 = sext i32 %59 to i64
   %61 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %60
@@ -381,25 +381,25 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br i1 %63, label %.loopexit127.i, label %.preheader126.i
 
 .loopexit127.i:                                   ; preds = %58, %41
-  %.2113.i = phi i32 [ %21, %41 ], [ %.1112.i, %58 ]
-  %.2110.i = phi i32 [ %44, %41 ], [ %.1109.i, %58 ]
-  %.2.i = phi i32 [ %46, %41 ], [ %.1.i, %58 ]
-  %64 = icmp slt i32 %.2.i, 60223
+  %.0111.i = phi i32 [ %21, %41 ], [ %.2113.i, %58 ]
+  %.0108.i = phi i32 [ %44, %41 ], [ %.2110.i, %58 ]
+  %.0105.i = phi i32 [ %46, %41 ], [ %.2.i, %58 ]
+  %64 = icmp slt i32 %.0105.i, 60223
   br i1 %64, label %65, label %81
 
 65:                                               ; preds = %.loopexit127.i
-  %66 = shl nuw nsw i32 %.2113.i, 1
+  %66 = shl nuw nsw i32 %.0111.i, 1
   %67 = and i32 %66, 126
   %68 = add nuw nsw i32 %67, 159
-  %69 = icmp sgt i32 %.2110.i, 158
+  %69 = icmp sgt i32 %.0108.i, 158
   %70 = zext i1 %69 to i32
   %71 = add nuw nsw i32 %68, %70
   %72 = trunc i32 %71 to i8
   %73 = getelementptr i8, ptr %.0114145.i, i64 1
   store i8 %72, ptr %.0114145.i, align 1
   %74 = select i1 %69, i32 2, i32 96
-  %75 = add nuw nsw i32 %74, %.2110.i
-  %76 = icmp slt i32 %.2110.i, 128
+  %75 = add nuw nsw i32 %74, %.0108.i
+  %76 = icmp slt i32 %.0108.i, 128
   %77 = zext i1 %76 to i32
   %78 = add nuw nsw i32 %75, %77
   %79 = trunc i32 %78 to i8
@@ -408,10 +408,10 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br label %.loopexit.i
 
 81:                                               ; preds = %.loopexit127.i
-  %82 = icmp ne i32 %.2.i, 60223
-  %83 = icmp ult i32 %.2.i, 61504
+  %82 = icmp ne i32 %.0105.i, 60223
+  %83 = icmp ult i32 %.0105.i, 61504
   %or.cond5.i = and i1 %82, %83
-  %84 = add nsw i32 %.2.i, -64588
+  %84 = add nsw i32 %.0105.i, -64588
   %or.cond7.i = icmp ult i32 %84, 177
   %or.cond125.i = select i1 %or.cond5.i, i1 true, i1 %or.cond7.i
   br i1 %or.cond125.i, label %85, label %88
@@ -424,24 +424,24 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br label %.loopexit.i
 
 88:                                               ; preds = %81
-  %89 = add nsw i32 %.2.i, -61504
+  %89 = add nsw i32 %.0105.i, -61504
   %or.cond9.i = icmp ult i32 %89, 1280
   br i1 %or.cond9.i, label %90, label %107
 
 90:                                               ; preds = %88
-  %91 = shl nuw nsw i32 %.2113.i, 1
+  %91 = shl nuw nsw i32 %.0111.i, 1
   %92 = add nuw nsw i32 %91, 34
   %93 = and i32 %92, 126
   %94 = add nuw nsw i32 %93, 243
-  %95 = icmp sgt i32 %.2110.i, 158
+  %95 = icmp sgt i32 %.0108.i, 158
   %96 = zext i1 %95 to i32
   %97 = add nuw nsw i32 %94, %96
   %98 = trunc i32 %97 to i8
   %99 = getelementptr i8, ptr %.0114145.i, i64 1
   store i8 %98, ptr %.0114145.i, align 1
   %100 = select i1 %95, i32 2, i32 96
-  %101 = add nuw nsw i32 %100, %.2110.i
-  %102 = icmp slt i32 %.2110.i, 128
+  %101 = add nuw nsw i32 %100, %.0108.i
+  %102 = icmp slt i32 %.0108.i, 128
   %103 = zext i1 %102 to i32
   %104 = add nuw nsw i32 %101, %103
   %105 = trunc i32 %104 to i8
@@ -450,26 +450,26 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br label %.loopexit.i
 
 107:                                              ; preds = %88
-  %108 = add nsw i32 %.2.i, -62784
+  %108 = add nsw i32 %.0105.i, -62784
   %or.cond11.i = icmp ult i32 %108, 1280
   br i1 %or.cond11.i, label %109, label %127
 
 109:                                              ; preds = %107
   %110 = getelementptr i8, ptr %.0114145.i, i64 1
   store i8 -113, ptr %.0114145.i, align 1
-  %111 = shl nuw nsw i32 %.2113.i, 1
+  %111 = shl nuw nsw i32 %.0111.i, 1
   %112 = add nuw nsw i32 %111, 24
   %113 = and i32 %112, 126
   %114 = add nuw nsw i32 %113, 243
-  %115 = icmp sgt i32 %.2110.i, 158
+  %115 = icmp sgt i32 %.0108.i, 158
   %116 = zext i1 %115 to i32
   %117 = add nuw nsw i32 %114, %116
   %118 = trunc i32 %117 to i8
   %119 = getelementptr i8, ptr %.0114145.i, i64 2
   store i8 %118, ptr %110, align 1
   %120 = select i1 %115, i32 2, i32 96
-  %121 = add nuw nsw i32 %120, %.2110.i
-  %122 = icmp slt i32 %.2110.i, 128
+  %121 = add nuw nsw i32 %120, %.0108.i
+  %122 = icmp slt i32 %.0108.i, 128
   %123 = zext i1 %122 to i32
   %124 = add nuw nsw i32 %121, %123
   %125 = trunc i32 %124 to i8
@@ -478,15 +478,15 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br label %.loopexit.i
 
 127:                                              ; preds = %107
-  %128 = icmp ugt i32 %.2.i, 64063
+  %128 = icmp ugt i32 %.0105.i, 64063
   br i1 %128, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %127, %146
   %129 = phi i16 [ %151, %146 ], [ -1472, %127 ]
   %130 = phi ptr [ %149, %146 ], [ @ibmkanji, %127 ]
-  %.3143.i = phi i32 [ %.4.i, %146 ], [ %.2.i, %127 ]
+  %.3143.i = phi i32 [ %.4.i, %146 ], [ %.0105.i, %127 ]
   %.1107142.i = phi i32 [ %147, %146 ], [ 0, %127 ]
-  %.1115141.i = phi ptr [ %.2116.i, %146 ], [ %.0114145.i, %127 ]
+  %.2116141.i = phi ptr [ %.3117.i, %146 ], [ %.0114145.i, %127 ]
   %131 = zext i16 %129 to i32
   %132 = icmp eq i32 %.3143.i, %131
   br i1 %132, label %133, label %146
@@ -498,27 +498,27 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br i1 %136, label %137, label %.sink.split.i
 
 137:                                              ; preds = %133
-  %138 = getelementptr i8, ptr %.1115141.i, i64 1
-  store i8 -113, ptr %.1115141.i, align 1
+  %138 = getelementptr i8, ptr %.2116141.i, i64 1
+  store i8 -113, ptr %.2116141.i, align 1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %137, %133
   %.sink163.i = phi i64 [ 2, %137 ], [ 1, %133 ]
-  %.1115141.sink.i = phi ptr [ %138, %137 ], [ %.1115141.i, %133 ]
+  %.2116141.sink.i = phi ptr [ %138, %137 ], [ %.2116141.i, %133 ]
   %.sink161.i = phi i64 [ 3, %137 ], [ 2, %133 ]
   %139 = lshr i32 %135, 8
   %140 = trunc i32 %139 to i8
   %141 = or i8 %140, -128
-  %142 = getelementptr i8, ptr %.1115141.i, i64 %.sink163.i
-  store i8 %141, ptr %.1115141.sink.i, align 1
+  %142 = getelementptr i8, ptr %.2116141.i, i64 %.sink163.i
+  store i8 %141, ptr %.2116141.sink.i, align 1
   %143 = trunc i32 %135 to i8
   %144 = or i8 %143, -128
-  %145 = getelementptr i8, ptr %.1115141.i, i64 %.sink161.i
+  %145 = getelementptr i8, ptr %.2116141.i, i64 %.sink161.i
   store i8 %144, ptr %142, align 1
   br label %146
 
 146:                                              ; preds = %.sink.split.i, %.preheader.i
-  %.2116.i = phi ptr [ %.1115141.i, %.preheader.i ], [ %145, %.sink.split.i ]
+  %.3117.i = phi ptr [ %.2116141.i, %.preheader.i ], [ %145, %.sink.split.i ]
   %.4.i = phi i32 [ %.3143.i, %.preheader.i ], [ %135, %.sink.split.i ]
   %147 = add i32 %.1107142.i, 1
   %148 = sext i32 %147 to i64
@@ -529,7 +529,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br i1 %152, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %146, %127, %109, %90, %85, %65, %38
-  %.3117.i = phi ptr [ %40, %38 ], [ %80, %65 ], [ %87, %85 ], [ %106, %90 ], [ %126, %109 ], [ %.0114145.i, %127 ], [ %.2116.i, %146 ]
+  %.1115.i = phi ptr [ %40, %38 ], [ %80, %65 ], [ %87, %85 ], [ %106, %90 ], [ %126, %109 ], [ %.0114145.i, %127 ], [ %.3117.i, %146 ]
   %153 = zext nneg i32 %32 to i64
   %154 = getelementptr i8, ptr %.0146.i, i64 %153
   %155 = sub nsw i32 %.0118144.i, %32
@@ -818,7 +818,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
 
 .lr.ph.i:                                         ; preds = %1, %.loopexit.i
   %.0127168.i = phi ptr [ %156, %.loopexit.i ], [ %5, %1 ]
-  %.0129167.i = phi ptr [ %.4133.i, %.loopexit.i ], [ %8, %1 ]
+  %.0129167.i = phi ptr [ %.1130.i, %.loopexit.i ], [ %8, %1 ]
   %.0134166.i = phi i32 [ %157, %.loopexit.i ], [ %11, %1 ]
   %20 = load i8, ptr %.0127168.i, align 1
   %21 = zext i8 %20 to i32
@@ -877,12 +877,12 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
 .preheader148.i:                                  ; preds = %39, %54
   %44 = phi i16 [ %58, %54 ], [ -4369, %39 ]
   %45 = phi ptr [ %57, %54 ], [ @ibmkanji, %39 ]
-  %.0162.i = phi i32 [ %.1.i, %54 ], [ %42, %39 ]
+  %.1162.i = phi i32 [ %.2.i, %54 ], [ %42, %39 ]
   %.0119161.i = phi i32 [ %55, %54 ], [ 0, %39 ]
-  %.0121160.i = phi i32 [ %.1122.i, %54 ], [ %40, %39 ]
-  %.0124159.i = phi i32 [ %.1125.i, %54 ], [ %21, %39 ]
+  %.1122160.i = phi i32 [ %.2123.i, %54 ], [ %40, %39 ]
+  %.1125159.i = phi i32 [ %.2126.i, %54 ], [ %21, %39 ]
   %46 = zext i16 %44 to i32
-  %47 = icmp eq i32 %.0162.i, %46
+  %47 = icmp eq i32 %.1162.i, %46
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %.preheader148.i
@@ -894,9 +894,9 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br label %54
 
 54:                                               ; preds = %48, %.preheader148.i
-  %.1125.i = phi i32 [ %52, %48 ], [ %.0124159.i, %.preheader148.i ]
-  %.1122.i = phi i32 [ %53, %48 ], [ %.0121160.i, %.preheader148.i ]
-  %.1.i = phi i32 [ %51, %48 ], [ %.0162.i, %.preheader148.i ]
+  %.2126.i = phi i32 [ %52, %48 ], [ %.1125159.i, %.preheader148.i ]
+  %.2123.i = phi i32 [ %53, %48 ], [ %.1122160.i, %.preheader148.i ]
+  %.2.i = phi i32 [ %51, %48 ], [ %.1162.i, %.preheader148.i ]
   %55 = add i32 %.0119161.i, 1
   %56 = sext i32 %55 to i64
   %57 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %56
@@ -905,27 +905,27 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br i1 %59, label %.loopexit149.i, label %.preheader148.i
 
 .loopexit149.i:                                   ; preds = %54, %39
-  %.2126.i = phi i32 [ %21, %39 ], [ %.1125.i, %54 ]
-  %.2123.i = phi i32 [ %40, %39 ], [ %.1122.i, %54 ]
-  %.2.i = phi i32 [ %42, %39 ], [ %.1.i, %54 ]
-  %60 = icmp slt i32 %.2.i, 60223
+  %.0124.i = phi i32 [ %21, %39 ], [ %.2126.i, %54 ]
+  %.0121.i = phi i32 [ %40, %39 ], [ %.2123.i, %54 ]
+  %.0.i = phi i32 [ %42, %39 ], [ %.2.i, %54 ]
+  %60 = icmp slt i32 %.0.i, 60223
   br i1 %60, label %61, label %78
 
 61:                                               ; preds = %.loopexit149.i
   %62 = getelementptr i8, ptr %.0129167.i, i64 1
   store i8 -110, ptr %.0129167.i, align 1
-  %63 = shl nuw nsw i32 %.2126.i, 1
+  %63 = shl nuw nsw i32 %.0124.i, 1
   %64 = and i32 %63, 126
   %65 = add nuw nsw i32 %64, 159
-  %66 = icmp sgt i32 %.2123.i, 158
+  %66 = icmp sgt i32 %.0121.i, 158
   %67 = zext i1 %66 to i32
   %68 = add nuw nsw i32 %65, %67
   %69 = trunc i32 %68 to i8
   %70 = getelementptr i8, ptr %.0129167.i, i64 2
   store i8 %69, ptr %62, align 1
   %71 = select i1 %66, i32 2, i32 96
-  %72 = add nuw nsw i32 %71, %.2123.i
-  %73 = icmp slt i32 %.2123.i, 128
+  %72 = add nuw nsw i32 %71, %.0121.i
+  %73 = icmp slt i32 %.0121.i, 128
   %74 = zext i1 %73 to i32
   %75 = add nuw nsw i32 %72, %74
   %76 = trunc i32 %75 to i8
@@ -934,10 +934,10 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br label %.loopexit.i
 
 78:                                               ; preds = %.loopexit149.i
-  %79 = icmp ne i32 %.2.i, 60223
-  %80 = icmp ult i32 %.2.i, 61504
+  %79 = icmp ne i32 %.0.i, 60223
+  %80 = icmp ult i32 %.0.i, 61504
   %or.cond9.i = and i1 %79, %80
-  %81 = add nsw i32 %.2.i, -64588
+  %81 = add nsw i32 %.0.i, -64588
   %or.cond11.i = icmp ult i32 %81, 177
   %or.cond146.i = select i1 %or.cond9.i, i1 true, i1 %or.cond11.i
   br i1 %or.cond146.i, label %82, label %86
@@ -952,26 +952,26 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br label %.loopexit.i
 
 86:                                               ; preds = %78
-  %87 = add nsw i32 %.2.i, -61504
+  %87 = add nsw i32 %.0.i, -61504
   %or.cond13.i = icmp ult i32 %87, 1280
   br i1 %or.cond13.i, label %88, label %106
 
 88:                                               ; preds = %86
   %89 = getelementptr i8, ptr %.0129167.i, i64 1
   store i8 -110, ptr %.0129167.i, align 1
-  %90 = shl nuw nsw i32 %.2126.i, 1
+  %90 = shl nuw nsw i32 %.0124.i, 1
   %91 = add nuw nsw i32 %90, 34
   %92 = and i32 %91, 126
   %93 = add nuw nsw i32 %92, 243
-  %94 = icmp sgt i32 %.2123.i, 158
+  %94 = icmp sgt i32 %.0121.i, 158
   %95 = zext i1 %94 to i32
   %96 = add nuw nsw i32 %93, %95
   %97 = trunc i32 %96 to i8
   %98 = getelementptr i8, ptr %.0129167.i, i64 2
   store i8 %97, ptr %89, align 1
   %99 = select i1 %94, i32 2, i32 96
-  %100 = add nuw nsw i32 %99, %.2123.i
-  %101 = icmp slt i32 %.2123.i, 128
+  %100 = add nuw nsw i32 %99, %.0121.i
+  %101 = icmp slt i32 %.0121.i, 128
   %102 = zext i1 %101 to i32
   %103 = add nuw nsw i32 %100, %102
   %104 = trunc i32 %103 to i8
@@ -980,26 +980,26 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br label %.loopexit.i
 
 106:                                              ; preds = %86
-  %107 = add nsw i32 %.2.i, -62784
+  %107 = add nsw i32 %.0.i, -62784
   %or.cond15.i = icmp ult i32 %107, 1280
   br i1 %or.cond15.i, label %108, label %126
 
 108:                                              ; preds = %106
   %109 = getelementptr i8, ptr %.0129167.i, i64 1
   store i8 -108, ptr %.0129167.i, align 1
-  %110 = shl nuw nsw i32 %.2126.i, 1
+  %110 = shl nuw nsw i32 %.0124.i, 1
   %111 = add nuw nsw i32 %110, 24
   %112 = and i32 %111, 126
   %113 = add nuw nsw i32 %112, 243
-  %114 = icmp sgt i32 %.2123.i, 158
+  %114 = icmp sgt i32 %.0121.i, 158
   %115 = zext i1 %114 to i32
   %116 = add nuw nsw i32 %113, %115
   %117 = trunc i32 %116 to i8
   %118 = getelementptr i8, ptr %.0129167.i, i64 2
   store i8 %117, ptr %109, align 1
   %119 = select i1 %114, i32 2, i32 96
-  %120 = add nuw nsw i32 %119, %.2123.i
-  %121 = icmp slt i32 %.2123.i, 128
+  %120 = add nuw nsw i32 %119, %.0121.i
+  %121 = icmp slt i32 %.0121.i, 128
   %122 = zext i1 %121 to i32
   %123 = add nuw nsw i32 %120, %122
   %124 = trunc i32 %123 to i8
@@ -1008,15 +1008,15 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br label %.loopexit.i
 
 126:                                              ; preds = %106
-  %127 = icmp ugt i32 %.2.i, 64063
+  %127 = icmp ugt i32 %.0.i, 64063
   br i1 %127, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %126, %143
   %128 = phi i16 [ %148, %143 ], [ -1472, %126 ]
   %129 = phi ptr [ %146, %143 ], [ @ibmkanji, %126 ]
-  %.3165.i = phi i32 [ %.4.i, %143 ], [ %.2.i, %126 ]
+  %.3165.i = phi i32 [ %.4.i, %143 ], [ %.0.i, %126 ]
   %.1120164.i = phi i32 [ %144, %143 ], [ 0, %126 ]
-  %.1130163.i = phi ptr [ %.2131.i, %143 ], [ %.0129167.i, %126 ]
+  %.3132163.i = phi ptr [ %.4133.i, %143 ], [ %.0129167.i, %126 ]
   %130 = zext i16 %128 to i32
   %131 = icmp eq i32 %.3165.i, %130
   br i1 %131, label %.sink.split.i, label %143
@@ -1025,22 +1025,22 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   %132 = getelementptr inbounds i8, ptr %129, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = icmp sgt i32 %133, 9371647
-  %135 = getelementptr i8, ptr %.1130163.i, i64 1
+  %135 = getelementptr i8, ptr %.3132163.i, i64 1
   %136 = lshr i32 %133, 8
   %137 = trunc i32 %136 to i8
   %138 = or i8 %137, -128
-  %139 = getelementptr i8, ptr %.1130163.i, i64 2
+  %139 = getelementptr i8, ptr %.3132163.i, i64 2
   %140 = trunc i32 %133 to i8
   %141 = or i8 %140, -128
-  %142 = getelementptr i8, ptr %.1130163.i, i64 3
+  %142 = getelementptr i8, ptr %.3132163.i, i64 3
   %..i = select i1 %134, i8 -108, i8 -110
-  store i8 %..i, ptr %.1130163.i, align 1
+  store i8 %..i, ptr %.3132163.i, align 1
   store i8 %138, ptr %135, align 1
   store i8 %141, ptr %139, align 1
   br label %143
 
 143:                                              ; preds = %.sink.split.i, %.preheader.i
-  %.2131.i = phi ptr [ %.1130163.i, %.preheader.i ], [ %142, %.sink.split.i ]
+  %.4133.i = phi ptr [ %.3132163.i, %.preheader.i ], [ %142, %.sink.split.i ]
   %.4.i = phi i32 [ %.3165.i, %.preheader.i ], [ %133, %.sink.split.i ]
   %144 = add i32 %.1120164.i, 1
   %145 = sext i32 %144 to i64
@@ -1069,14 +1069,14 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
 .loopexit.i:                                      ; preds = %143, %154, %126, %108, %88, %82, %61, %23
   %.sink183.i = phi i64 [ 1, %154 ], [ 1, %23 ], [ 2, %82 ], [ 2, %108 ], [ 2, %126 ], [ 2, %88 ], [ 2, %61 ], [ 2, %143 ]
   %.sink182.i = phi i32 [ -1, %154 ], [ -1, %23 ], [ -2, %82 ], [ -2, %108 ], [ -2, %126 ], [ -2, %88 ], [ -2, %61 ], [ -2, %143 ]
-  %.4133.i = phi ptr [ %155, %154 ], [ %25, %23 ], [ %85, %82 ], [ %125, %108 ], [ %.0129167.i, %126 ], [ %105, %88 ], [ %77, %61 ], [ %.2131.i, %143 ]
+  %.1130.i = phi ptr [ %155, %154 ], [ %25, %23 ], [ %85, %82 ], [ %125, %108 ], [ %.0129167.i, %126 ], [ %105, %88 ], [ %77, %61 ], [ %.4133.i, %143 ]
   %156 = getelementptr i8, ptr %.0127168.i, i64 %.sink183.i
   %157 = add nsw i32 %.sink182.i, %.0134166.i
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph.i, label %sjis2mic.exit, !llvm.loop !9
 
 sjis2mic.exit:                                    ; preds = %.loopexit.i, %1, %37, %152
-  %.0129156.i = phi ptr [ %.0129167.i, %152 ], [ %.0129167.i, %37 ], [ %8, %1 ], [ %.4133.i, %.loopexit.i ]
+  %.0129156.i = phi ptr [ %.0129167.i, %152 ], [ %.0129167.i, %37 ], [ %8, %1 ], [ %.1130.i, %.loopexit.i ]
   %.0127153.i = phi ptr [ %.0127168.i, %152 ], [ %.0127168.i, %37 ], [ %5, %1 ], [ %156, %.loopexit.i ]
   store i8 0, ptr %.0129156.i, align 1
   %159 = ptrtoint ptr %.0127153.i to i64
@@ -1138,7 +1138,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
 
 .backedge.i:                                      ; preds = %107, %25
   %.076.be.i = phi i32 [ %110, %107 ], [ %28, %25 ]
-  %.074.be.i = phi ptr [ %.2.i, %107 ], [ %26, %25 ]
+  %.074.be.i = phi ptr [ %.1.i, %107 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %109, %107 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.076.be.i, 0
   br i1 %29, label %.lr.ph.i, label %mic2sjis.exit, !llvm.loop !10
@@ -1199,7 +1199,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
 61:                                               ; preds = %55, %50
   %storemerge.in.i = phi i32 [ %60, %55 ], [ %54, %50 ]
   %.075.i = phi i32 [ %43, %55 ], [ %51, %50 ]
-  %.1.i = getelementptr i8, ptr %.074100.i, i64 1
+  %.2.i = getelementptr i8, ptr %.074100.i, i64 1
   %storemerge.i = trunc i32 %storemerge.in.i to i8
   store i8 %storemerge.i, ptr %.074100.i, align 1
   %62 = and i32 %.075.i, 1
@@ -1209,7 +1209,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
   %.neg85.i = select i1 %.not83.i, i8 -2, i8 %.neg84.i
   %64 = add i8 %.neg85.i, %45
   %65 = getelementptr i8, ptr %.074100.i, i64 2
-  store i8 %64, ptr %.1.i, align 1
+  store i8 %64, ptr %.2.i, align 1
   br label %107
 
 66:                                               ; preds = %35
@@ -1288,7 +1288,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
   unreachable
 
 107:                                              ; preds = %.preheader.i._crit_edge, %94, %77, %61, %36
-  %.2.i = phi ptr [ %39, %36 ], [ %65, %61 ], [ %86, %77 ], [ %96, %94 ], [ %104, %.preheader.i._crit_edge ]
+  %.1.i = phi ptr [ %39, %36 ], [ %65, %61 ], [ %86, %77 ], [ %96, %94 ], [ %104, %.preheader.i._crit_edge ]
   %108 = zext nneg i32 %31 to i64
   %109 = getelementptr i8, ptr %.0101.i, i64 %108
   %110 = sub nsw i32 %.07699.i, %31

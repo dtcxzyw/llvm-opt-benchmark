@@ -23714,79 +23714,79 @@ arraydestroy.body48:                              ; preds = %arraydestroy.body48
   br i1 %arraydestroy.done51, label %ehcleanup, label %arraydestroy.body48
 
 ehcleanup:                                        ; preds = %arraydestroy.body48, %lpad38
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %lpad38 ], [ %arrayinit.element40, %arraydestroy.body48 ]
+  %arrayinit.endOfInit.11 = phi ptr [ %arrayinit.endOfInit.0, %lpad38 ], [ %arrayinit.element40, %arraydestroy.body48 ]
   %.pn = phi { ptr, i32 } [ %41, %lpad38 ], [ %42, %arraydestroy.body48 ]
   %44 = phi i1 [ false, %lpad38 ], [ true, %arraydestroy.body48 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE9EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34) #35
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %ehcleanup, %lpad35
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup ], [ %arrayinit.element33, %lpad35 ]
+  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.endOfInit.11, %ehcleanup ], [ %arrayinit.element33, %lpad35 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %40, %lpad35 ]
-  %cleanup.isactive.1 = phi i1 [ %44, %ehcleanup ], [ false, %lpad35 ]
+  %cleanup.isactive.9 = phi i1 [ %44, %ehcleanup ], [ false, %lpad35 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE8EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30) #35
   br label %ehcleanup54
 
 ehcleanup54:                                      ; preds = %ehcleanup53, %lpad31
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup53 ], [ %arrayinit.element29, %lpad31 ]
+  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.endOfInit.10, %ehcleanup53 ], [ %arrayinit.element29, %lpad31 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup53 ], [ %39, %lpad31 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup53 ], [ false, %lpad31 ]
+  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.9, %ehcleanup53 ], [ false, %lpad31 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26) #35
   br label %ehcleanup55
 
 ehcleanup55:                                      ; preds = %ehcleanup54, %lpad27
-  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup54 ], [ %arrayinit.element25, %lpad27 ]
+  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.9, %ehcleanup54 ], [ %arrayinit.element25, %lpad27 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup54 ], [ %38, %lpad27 ]
-  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.2, %ehcleanup54 ], [ false, %lpad27 ]
+  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.8, %ehcleanup54 ], [ false, %lpad27 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE6EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22) #35
   br label %ehcleanup56
 
 ehcleanup56:                                      ; preds = %ehcleanup55, %lpad23
-  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup55 ], [ %arrayinit.element21, %lpad23 ]
+  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.endOfInit.8, %ehcleanup55 ], [ %arrayinit.element21, %lpad23 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup55 ], [ %37, %lpad23 ]
-  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.3, %ehcleanup55 ], [ false, %lpad23 ]
+  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.7, %ehcleanup55 ], [ false, %lpad23 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE5EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18) #35
   br label %ehcleanup57
 
 ehcleanup57:                                      ; preds = %ehcleanup56, %lpad19
-  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.endOfInit.5, %ehcleanup56 ], [ %arrayinit.element17, %lpad19 ]
+  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.endOfInit.7, %ehcleanup56 ], [ %arrayinit.element17, %lpad19 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup56 ], [ %36, %lpad19 ]
-  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.4, %ehcleanup56 ], [ false, %lpad19 ]
+  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.6, %ehcleanup56 ], [ false, %lpad19 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14) #35
   br label %ehcleanup58
 
 ehcleanup58:                                      ; preds = %ehcleanup57, %lpad15
-  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup57 ], [ %arrayinit.element13, %lpad15 ]
+  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup57 ], [ %arrayinit.element13, %lpad15 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup57 ], [ %35, %lpad15 ]
-  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.5, %ehcleanup57 ], [ false, %lpad15 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.5, %ehcleanup57 ], [ false, %lpad15 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10) #35
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup58, %lpad11
-  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.7, %ehcleanup58 ], [ %arrayinit.element9, %lpad11 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.5, %ehcleanup58 ], [ %arrayinit.element9, %lpad11 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup58 ], [ %34, %lpad11 ]
-  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.6, %ehcleanup58 ], [ false, %lpad11 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup58 ], [ false, %lpad11 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6) #35
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad7
-  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.endOfInit.8, %ehcleanup59 ], [ %arrayinit.element5, %lpad7 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup59 ], [ %arrayinit.element5, %lpad7 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup59 ], [ %33, %lpad7 ]
-  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.7, %ehcleanup59 ], [ false, %lpad7 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.3, %ehcleanup59 ], [ false, %lpad7 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #35
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %lpad3, %ehcleanup60
-  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.endOfInit.9, %ehcleanup60 ], [ %arrayinit.element, %lpad3 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup60 ], [ %arrayinit.element, %lpad3 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup60 ], [ %32, %lpad3 ]
-  %cleanup.isactive.9 = phi i1 [ %cleanup.isactive.8, %ehcleanup60 ], [ false, %lpad3 ]
+  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.2, %ehcleanup60 ], [ false, %lpad3 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #35
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.10
-  %or.cond = select i1 %cleanup.isactive.9, i1 true, i1 %arraydestroy.isempty
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.2
+  %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %cleanup.done, label %arraydestroy.body63
 
 arraydestroy.body63:                              ; preds = %ehcleanup62, %arraydestroy.body63
-  %arraydestroy.elementPast64 = phi ptr [ %arraydestroy.element65, %arraydestroy.body63 ], [ %arrayinit.endOfInit.10, %ehcleanup62 ]
+  %arraydestroy.elementPast64 = phi ptr [ %arraydestroy.element65, %arraydestroy.body63 ], [ %arrayinit.endOfInit.2, %ehcleanup62 ]
   %arraydestroy.element65 = getelementptr inbounds i8, ptr %arraydestroy.elementPast64, i64 -16
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element65) #35
   %arraydestroy.done66 = icmp eq ptr %arraydestroy.element65, %ref.tmp
@@ -75124,11 +75124,11 @@ _ZNSt6vectorISt4pairIDsDsESaIS1_EED2Ev.exit61.i:  ; preds = %if.then.i.i.i59.i, 
 
 ehcleanup114.i:                                   ; preds = %lpad.i42.i, %lpad.i27.i, %lpad.i8.i
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %1, %lpad.i8.i ], [ %2, %lpad.i27.i ], [ %3, %lpad.i42.i ]
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.element.i, %lpad.i8.i ], [ %arrayinit.element25.i, %lpad.i27.i ], [ %arrayinit.element70.i, %lpad.i42.i ]
+  %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.element.i, %lpad.i8.i ], [ %arrayinit.element25.i, %lpad.i27.i ], [ %arrayinit.element70.i, %lpad.i42.i ]
   br label %arraydestroy.body116.i
 
 arraydestroy.body116.i:                           ; preds = %_ZNSt6vectorISt4pairIDsDsESaIS1_EED2Ev.exit65.i, %ehcleanup114.i
-  %arraydestroy.elementPast117.i = phi ptr [ %arraydestroy.element118.i, %_ZNSt6vectorISt4pairIDsDsESaIS1_EED2Ev.exit65.i ], [ %arrayinit.endOfInit.2.i, %ehcleanup114.i ]
+  %arraydestroy.elementPast117.i = phi ptr [ %arraydestroy.element118.i, %_ZNSt6vectorISt4pairIDsDsESaIS1_EED2Ev.exit65.i ], [ %arrayinit.endOfInit.0.i, %ehcleanup114.i ]
   %arraydestroy.element118.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast117.i, i64 -24
   %8 = load ptr, ptr %arraydestroy.element118.i, align 8
   %tobool.not.i.i.i62.i = icmp eq ptr %8, null

@@ -2083,7 +2083,7 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl21setActivationFunctionEi
   store <2 x double> <double 2.000000e-02, double 1.000000e+00>, ptr %27, align 8
   %28 = tail call double @llvm.fabs.f64(double %2)
   %29 = fcmp olt double %28, 0x3E80000000000000
-  %.1 = select i1 %29, double 1.000000e+00, double %2
+  %.2 = select i1 %29, double 1.000000e+00, double %2
   %30 = tail call double @llvm.fabs.f64(double %3)
   %31 = fcmp olt double %30, 0x3E80000000000000
   br i1 %31, label %32, label %43
@@ -2094,7 +2094,7 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl21setActivationFunctionEi
 33:                                               ; preds = %15
   %34 = tail call double @llvm.fabs.f64(double %2)
   %35 = fcmp olt double %34, 0x3E80000000000000
-  %.2 = select i1 %35, double 1.000000e+00, double %2
+  %.3 = select i1 %35, double 1.000000e+00, double %2
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
   br label %43
@@ -2102,7 +2102,7 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl21setActivationFunctionEi
 37:                                               ; preds = %15
   %38 = tail call double @llvm.fabs.f64(double %2)
   %39 = fcmp olt double %38, 0x3E80000000000000
-  %.3 = select i1 %39, double 1.000000e-02, double %2
+  %.4 = select i1 %39, double 1.000000e-02, double %2
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   br label %43
@@ -2113,10 +2113,10 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl21setActivationFunctionEi
   br label %43
 
 43:                                               ; preds = %25, %32, %17, %24, %41, %37, %33
-  %.4 = phi double [ 1.000000e+00, %41 ], [ %.3, %37 ], [ %.2, %33 ], [ %.1, %32 ], [ %.1, %25 ], [ %.016, %24 ], [ %.016, %17 ]
+  %.1 = phi double [ 1.000000e+00, %41 ], [ %.4, %37 ], [ %.3, %33 ], [ %.2, %32 ], [ %.2, %25 ], [ %.016, %24 ], [ %.016, %17 ]
   %.015 = phi double [ 0.000000e+00, %41 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %33 ], [ 1.000000e+00, %32 ], [ %3, %25 ], [ 1.715900e+00, %24 ], [ %3, %17 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %.4, ptr %44, align 8
+  store double %.1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 64
   store double %.015, ptr %45, align 8
   ret void

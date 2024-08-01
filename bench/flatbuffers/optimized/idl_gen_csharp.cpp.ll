@@ -1551,9 +1551,9 @@ cleanup94.sink.split:                             ; preds = %invoke.cont24, %inv
   br label %cleanup94
 
 cleanup94:                                        ; preds = %cleanup94.sink.split, %for.end80, %if.then85
-  %retval.4 = phi i1 [ %call92, %if.then85 ], [ true, %for.end80 ], [ false, %cleanup94.sink.split ]
+  %retval.2 = phi i1 [ %call92, %if.then85 ], [ true, %for.end80 ], [ false, %cleanup94.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %one_file_code) #20
-  ret i1 %retval.4
+  ret i1 %retval.2
 
 ehcleanup:                                        ; preds = %lpad90, %lpad55, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %25, %lpad55 ], [ %32, %lpad90 ]
@@ -9850,7 +9850,7 @@ lpad2136:                                         ; preds = %invoke.cont2135
   br label %ehcleanup2916
 
 if.end2142:                                       ; preds = %if.else1834, %invoke.cont2137, %land.lhs.true1866, %lor.lhs.false1864
-  %struct_has_create.0 = phi i1 [ true, %invoke.cont2137 ], [ false, %land.lhs.true1866 ], [ false, %lor.lhs.false1864 ], [ false, %if.else1834 ]
+  %struct_has_create.1 = phi i1 [ true, %invoke.cont2137 ], [ false, %land.lhs.true1866 ], [ false, %lor.lhs.false1864 ], [ false, %if.else1834 ]
   %call2144 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %code_ptr, ptr noundef nonnull @.str.370)
           to label %invoke.cont2143 unwind label %lpad1792.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9930,7 +9930,7 @@ for.body2177.lr.ph:                               ; preds = %invoke.cont2161
 
 for.body2177:                                     ; preds = %for.body2177.lr.ph, %for.inc2544
   %531 = phi ptr [ %530, %for.body2177.lr.ph ], [ %626, %for.inc2544 ]
-  %key_field1785.02950 = phi ptr [ null, %for.body2177.lr.ph ], [ %key_field1785.2, %for.inc2544 ]
+  %key_field1785.12950 = phi ptr [ null, %for.body2177.lr.ph ], [ %key_field1785.2, %for.inc2544 ]
   %it2165.sroa.0.02949 = phi ptr [ %529, %for.body2177.lr.ph ], [ %incdec.ptr.i2329, %for.inc2544 ]
   %532 = load ptr, ptr %it2165.sroa.0.02949, align 8
   %deprecated2180 = getelementptr inbounds i8, ptr %532, i64 272
@@ -9958,7 +9958,7 @@ if.end2183:                                       ; preds = %for.body2177
   %key2184 = getelementptr inbounds i8, ptr %532, i64 273
   %536 = load i8, ptr %key2184, align 1
   %tobool2185 = trunc i8 %536 to i1
-  %spec.select = select i1 %tobool2185, ptr %532, ptr %key_field1785.02950
+  %spec.select = select i1 %tobool2185, ptr %532, ptr %key_field1785.12950
   %call2189 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %code_ptr, ptr noundef nonnull @.str.372)
           to label %invoke.cont2188 unwind label %lpad1792.loopexit.split-lp.loopexit
 
@@ -11285,7 +11285,7 @@ if.end2542:                                       ; preds = %invoke.cont2310, %i
 
 for.inc2544:                                      ; preds = %for.body2177, %if.end2542
   %626 = phi ptr [ %531, %for.body2177 ], [ %.pre2989, %if.end2542 ]
-  %key_field1785.2 = phi ptr [ %key_field1785.02950, %for.body2177 ], [ %spec.select, %if.end2542 ]
+  %key_field1785.2 = phi ptr [ %key_field1785.12950, %for.body2177 ], [ %spec.select, %if.end2542 ]
   %incdec.ptr.i2329 = getelementptr inbounds i8, ptr %it2165.sroa.0.02949, i64 8
   %cmp.i2072.not = icmp eq ptr %incdec.ptr.i2329, %626
   br i1 %cmp.i2072.not, label %for.end2546, label %for.body2177, !llvm.loop !236
@@ -11296,7 +11296,7 @@ ehcleanup2543:                                    ; preds = %lpad.i2116, %lpad.i
   br label %ehcleanup2916
 
 for.end2546:                                      ; preds = %for.inc2544, %invoke.cont2161
-  %key_field1785.0.lcssa = phi ptr [ null, %invoke.cont2161 ], [ %key_field1785.2, %for.inc2544 ]
+  %key_field1785.1.lcssa = phi ptr [ null, %invoke.cont2161 ], [ %key_field1785.2, %for.inc2544 ]
   invoke void @_ZNK11flatbuffers6csharp15CSharpGenerator13GenOffsetTypeB5cxx11ERKNS_9StructDefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2549, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont2550 unwind label %lpad1792.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -11818,8 +11818,8 @@ arraydestroy.body2729:                            ; preds = %arraydestroy.body27
   br i1 %arraydestroy.done2732, label %ehcleanup2916, label %arraydestroy.body2729
 
 if.end2735:                                       ; preds = %arraydestroy.body2722, %invoke.cont2632, %invoke.cont1827
-  %struct_has_create.1 = phi i1 [ true, %invoke.cont1827 ], [ %struct_has_create.0, %invoke.cont2632 ], [ %struct_has_create.0, %arraydestroy.body2722 ]
-  %key_field1785.3 = phi ptr [ null, %invoke.cont1827 ], [ %key_field1785.0.lcssa, %invoke.cont2632 ], [ %key_field1785.0.lcssa, %arraydestroy.body2722 ]
+  %struct_has_create.0 = phi i1 [ true, %invoke.cont1827 ], [ %struct_has_create.1, %invoke.cont2632 ], [ %struct_has_create.1, %arraydestroy.body2722 ]
+  %key_field1785.0 = phi ptr [ null, %invoke.cont1827 ], [ %key_field1785.1.lcssa, %invoke.cont2632 ], [ %key_field1785.1.lcssa, %arraydestroy.body2722 ]
   %has_key = getelementptr inbounds i8, ptr %struct_def, i64 275
   %668 = load i8, ptr %has_key, align 1
   %tobool2736 = trunc i8 %668 to i1
@@ -11832,7 +11832,7 @@ land.lhs.true2737:                                ; preds = %if.end2735
 
 if.then2740:                                      ; preds = %land.lhs.true2737
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i2397)
-  invoke void @_ZN11flatbuffers11ConvertCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4CaseES8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name.i2397, ptr noundef nonnull align 8 dereferenceable(32) %key_field1785.3, i32 noundef 1, i32 noundef 3)
+  invoke void @_ZN11flatbuffers11ConvertCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4CaseES8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name.i2397, ptr noundef nonnull align 8 dereferenceable(32) %key_field1785.0, i32 noundef 1, i32 noundef 3)
           to label %.noexc2406 unwind label %lpad1792.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc2406:                                       ; preds = %if.then2740
@@ -11955,7 +11955,7 @@ invoke.cont2790:                                  ; preds = %invoke.cont2788
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2777) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2778) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2779) #20
-  invoke void @_ZNK11flatbuffers6csharp15CSharpGenerator12GenKeyGetterB5cxx11ERNS_9StructDefEPNS_8FieldDefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2797, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %key_field1785.3)
+  invoke void @_ZNK11flatbuffers6csharp15CSharpGenerator12GenKeyGetterB5cxx11ERNS_9StructDefEPNS_8FieldDefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2797, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %key_field1785.0)
           to label %invoke.cont2798 unwind label %lpad2746
 
 invoke.cont2798:                                  ; preds = %invoke.cont2790
@@ -12001,7 +12001,7 @@ invoke.cont2821:                                  ; preds = %invoke.cont2817
           to label %invoke.cont2823 unwind label %lpad2746
 
 invoke.cont2823:                                  ; preds = %invoke.cont2821
-  %value2826 = getelementptr inbounds i8, ptr %key_field1785.3, i64 200
+  %value2826 = getelementptr inbounds i8, ptr %key_field1785.0, i64 200
   invoke void @_ZNK11flatbuffers6csharp15CSharpGenerator10GenTypeGetB5cxx11ERKNS_4TypeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2825, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(26) %value2826)
           to label %invoke.cont2828 unwind label %lpad2746
 
@@ -12292,7 +12292,7 @@ if.end2902:                                       ; preds = %invoke.cont2899, %l
   br i1 %tobool2904, label %if.then2905, label %if.end2908
 
 if.then2905:                                      ; preds = %if.end2902
-  invoke void @_ZNK11flatbuffers6csharp15CSharpGenerator23GenPackUnPack_ObjectAPIERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsEbRKSt3setIPNS_8FieldDefESt4lessISG_ESaISG_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %code_ptr, ptr noundef nonnull align 8 dereferenceable(642) %opts, i1 noundef zeroext %struct_has_create.1, ptr noundef nonnull align 8 dereferenceable(48) %field_has_create_set)
+  invoke void @_ZNK11flatbuffers6csharp15CSharpGenerator23GenPackUnPack_ObjectAPIERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsEbRKSt3setIPNS_8FieldDefESt4lessISG_ESaISG_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %code_ptr, ptr noundef nonnull align 8 dereferenceable(642) %opts, i1 noundef zeroext %struct_has_create.0, ptr noundef nonnull align 8 dereferenceable(48) %field_has_create_set)
           to label %if.end2908 unwind label %lpad1792.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end2908:                                       ; preds = %if.then2905, %if.end2902

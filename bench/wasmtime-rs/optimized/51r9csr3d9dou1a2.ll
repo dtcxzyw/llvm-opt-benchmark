@@ -22365,17 +22365,17 @@ _ZN11wasi_common9snapshots9preview_15types5Error8downcast17h948bc4b9ae28ad2aE.ex
   br label %725
 
 725:                                              ; preds = %772, %740, %721
-  %.267 = phi i8 [ 1, %772 ], [ 0, %740 ], [ 1, %721 ]
-  %.259 = phi i8 [ 1, %772 ], [ 1, %740 ], [ 0, %721 ]
-  %.2 = phi i8 [ 0, %772 ], [ 1, %740 ], [ 1, %721 ]
+  %.368 = phi i8 [ 1, %772 ], [ 0, %740 ], [ 1, %721 ]
+  %.360 = phi i8 [ 1, %772 ], [ 1, %740 ], [ 0, %721 ]
+  %.3 = phi i8 [ 0, %772 ], [ 1, %740 ], [ 1, %721 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48)
   br label %776
 
 726:                                              ; preds = %751, %745, %737, %731, %717, %711, %754
-  %.368 = phi i8 [ %.166, %754 ], [ 1, %711 ], [ 1, %717 ], [ 0, %731 ], [ 0, %737 ], [ 1, %745 ], [ 1, %751 ]
-  %.360 = phi i8 [ %.158, %754 ], [ 0, %711 ], [ 0, %717 ], [ 1, %731 ], [ 1, %737 ], [ 1, %745 ], [ 1, %751 ]
-  %.3 = phi i8 [ %.156, %754 ], [ 1, %711 ], [ 1, %717 ], [ 1, %731 ], [ 1, %737 ], [ 0, %745 ], [ 0, %751 ]
+  %.267 = phi i8 [ %.166, %754 ], [ 1, %711 ], [ 1, %717 ], [ 0, %731 ], [ 0, %737 ], [ 1, %745 ], [ 1, %751 ]
+  %.259 = phi i8 [ %.158, %754 ], [ 0, %711 ], [ 0, %717 ], [ 1, %731 ], [ 1, %737 ], [ 1, %745 ], [ 1, %751 ]
+  %.2 = phi i8 [ %.156, %754 ], [ 1, %711 ], [ 1, %717 ], [ 1, %731 ], [ 1, %737 ], [ 0, %745 ], [ 0, %751 ]
   %.pn153 = phi { ptr, i32 } [ %755, %754 ], [ %712, %711 ], [ %718, %717 ], [ %732, %731 ], [ %738, %737 ], [ %746, %745 ], [ %752, %751 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48)
@@ -22505,13 +22505,13 @@ _ZN11wasi_common9snapshots9preview_15types5Error8downcast17h948bc4b9ae28ad2aE.ex
           to label %776 unwind label %770
 
 763:                                              ; preds = %770, %726
-  %.570 = phi i8 [ %.166, %770 ], [ %.368, %726 ]
-  %.562 = phi i8 [ %.158, %770 ], [ %.360, %726 ]
-  %.5 = phi i8 [ %.156, %770 ], [ %.3, %726 ]
+  %.671 = phi i8 [ %.166, %770 ], [ %.267, %726 ]
+  %.663 = phi i8 [ %.158, %770 ], [ %.259, %726 ]
+  %.6 = phi i8 [ %.156, %770 ], [ %.2, %726 ]
   %.pn157 = phi { ptr, i32 } [ %771, %770 ], [ %.pn153, %726 ]
-  %764 = trunc nuw i8 %.570 to i1
-  %765 = trunc nuw i8 %.562 to i1
-  %766 = trunc nuw i8 %.5 to i1
+  %764 = trunc nuw i8 %.671 to i1
+  %765 = trunc nuw i8 %.663 to i1
+  %766 = trunc nuw i8 %.6 to i1
   %767 = xor i1 %764, true
   %768 = xor i1 %765, true
   %769 = xor i1 %766, true
@@ -22532,9 +22532,9 @@ _ZN11wasi_common9snapshots9preview_15types5Error8downcast17h948bc4b9ae28ad2aE.ex
   br label %725
 
 776:                                              ; preds = %698, %725, %762
-  %.772 = phi i8 [ %.166, %762 ], [ %.267, %725 ], [ 1, %698 ]
-  %.764 = phi i8 [ %.158, %762 ], [ %.259, %725 ], [ 1, %698 ]
-  %.7 = phi i8 [ %.156, %762 ], [ %.2, %725 ], [ 1, %698 ]
+  %.772 = phi i8 [ %.166, %762 ], [ %.368, %725 ], [ 1, %698 ]
+  %.764 = phi i8 [ %.158, %762 ], [ %.360, %725 ], [ 1, %698 ]
+  %.7 = phi i8 [ %.156, %762 ], [ %.3, %725 ], [ 1, %698 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
   %777 = load i64, ptr %51, align 8, !range !10, !noundef !5
   switch i64 %777, label %778 [
@@ -37266,7 +37266,7 @@ common.ret:                                       ; preds = %141, %"_ZN118_$LT$w
 
 202:                                              ; preds = %.body65, %151
   %203 = phi i64 [ %.pre126, %151 ], [ %154, %.body65 ]
-  %.111 = phi i1 [ true, %151 ], [ false, %.body65 ]
+  %.010 = phi i1 [ true, %151 ], [ false, %.body65 ]
   %.pn24.pn = phi { ptr, i32 } [ %152, %151 ], [ %.pn21, %.body65 ]
   %204 = icmp eq i64 %203, 0
   br i1 %204, label %249, label %248
@@ -37396,7 +37396,7 @@ common.ret:                                       ; preds = %141, %"_ZN118_$LT$w
   br label %183
 
 248:                                              ; preds = %202
-  br i1 %.111, label %.thread138, label %.body
+  br i1 %.010, label %.thread138, label %.body
 
 .body:                                            ; preds = %.thread, %142, %137, %129, %91, %101, %.thread138, %249, %248
   %.pn34.pn = phi { ptr, i32 } [ %.pn24.pn, %249 ], [ %.pn24.pn134141, %.thread138 ], [ %.pn24.pn, %248 ], [ %130, %129 ], [ %102, %101 ], [ %92, %91 ], [ %143, %142 ], [ %138, %137 ], [ %.pn28, %.thread ]
@@ -42798,17 +42798,17 @@ _ZN11wasi_common9snapshots9preview_15types5Error8downcast17h948bc4b9ae28ad2aE.ex
 
 777:                                              ; preds = %817, %788, %774
   %.sroa.25.4 = phi ptr [ %819, %817 ], [ %790, %788 ], [ %776, %774 ]
-  %.278 = phi i8 [ 1, %817 ], [ 0, %788 ], [ 1, %774 ]
-  %.270 = phi i8 [ 1, %817 ], [ 1, %788 ], [ 0, %774 ]
-  %.2 = phi i8 [ 0, %817 ], [ 1, %788 ], [ 1, %774 ]
+  %.379 = phi i8 [ 1, %817 ], [ 0, %788 ], [ 1, %774 ]
+  %.371 = phi i8 [ 1, %817 ], [ 1, %788 ], [ 0, %774 ]
+  %.3 = phi i8 [ 0, %817 ], [ 1, %788 ], [ 1, %774 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45)
   br label %820
 
 778:                                              ; preds = %792, %783, %768, %798
-  %.379 = phi i8 [ %.177, %798 ], [ 1, %768 ], [ 0, %783 ], [ 1, %792 ]
-  %.371 = phi i8 [ %.169, %798 ], [ 0, %768 ], [ 1, %783 ], [ 1, %792 ]
-  %.3 = phi i8 [ %.167, %798 ], [ 1, %768 ], [ 1, %783 ], [ 0, %792 ]
+  %.278 = phi i8 [ %.177, %798 ], [ 1, %768 ], [ 0, %783 ], [ 1, %792 ]
+  %.270 = phi i8 [ %.169, %798 ], [ 0, %768 ], [ 1, %783 ], [ 1, %792 ]
+  %.2 = phi i8 [ %.167, %798 ], [ 1, %768 ], [ 1, %783 ], [ 0, %792 ]
   %.pn177 = phi { ptr, i32 } [ %799, %798 ], [ %769, %768 ], [ %784, %783 ], [ %793, %792 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45)
@@ -42925,13 +42925,13 @@ _ZN11wasi_common9snapshots9preview_15types5Error8downcast17h948bc4b9ae28ad2aE.ex
   br label %820
 
 808:                                              ; preds = %815, %778
-  %.581 = phi i8 [ %.177, %815 ], [ %.379, %778 ]
-  %.573 = phi i8 [ %.169, %815 ], [ %.371, %778 ]
-  %.5 = phi i8 [ %.167, %815 ], [ %.3, %778 ]
+  %.682 = phi i8 [ %.177, %815 ], [ %.278, %778 ]
+  %.674 = phi i8 [ %.169, %815 ], [ %.270, %778 ]
+  %.6 = phi i8 [ %.167, %815 ], [ %.2, %778 ]
   %.pn181 = phi { ptr, i32 } [ %816, %815 ], [ %.pn177, %778 ]
-  %809 = trunc nuw i8 %.581 to i1
-  %810 = trunc nuw i8 %.573 to i1
-  %811 = trunc nuw i8 %.5 to i1
+  %809 = trunc nuw i8 %.682 to i1
+  %810 = trunc nuw i8 %.674 to i1
+  %811 = trunc nuw i8 %.6 to i1
   %812 = xor i1 %809, true
   %813 = xor i1 %810, true
   %814 = xor i1 %811, true
@@ -42950,9 +42950,9 @@ _ZN11wasi_common9snapshots9preview_15types5Error8downcast17h948bc4b9ae28ad2aE.ex
 
 820:                                              ; preds = %777, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420", %822
   %.sroa.25.6 = phi ptr [ %755, %822 ], [ %807, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.sroa.25.4, %777 ]
-  %.783 = phi i8 [ 1, %822 ], [ %.177, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.278, %777 ]
-  %.775 = phi i8 [ 1, %822 ], [ %.169, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.270, %777 ]
-  %.7 = phi i8 [ 1, %822 ], [ %.167, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.2, %777 ]
+  %.783 = phi i8 [ 1, %822 ], [ %.177, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.379, %777 ]
+  %.775 = phi i8 [ 1, %822 ], [ %.169, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.371, %777 ]
+  %.7 = phi i8 [ 1, %822 ], [ %.167, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hc32ac2d4b24aa9cbE.exit420" ], [ %.3, %777 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   %821 = load i64, ptr %47, align 8, !range !10, !noundef !5
   switch i64 %821, label %823 [

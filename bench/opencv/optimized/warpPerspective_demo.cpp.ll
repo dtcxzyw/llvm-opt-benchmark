@@ -1723,13 +1723,13 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.07.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 96), %18 ], [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 64), %16 ]
+  %.29.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 96), %18 ], [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 64), %16 ]
   %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   br label %21
 
 21:                                               ; preds = %20, %14
-  %.18.i = phi ptr [ %.07.i, %20 ], [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 32), %14 ]
+  %.18.i = phi ptr [ %.29.i, %20 ], [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 32), %14 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %20 ], [ %15, %14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #18

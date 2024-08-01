@@ -265,7 +265,7 @@ if.end.loopexit:                                  ; preds = %for.body45
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.end
-  %numSampleDirections.1 = phi i32 [ 42, %for.end ], [ %109, %if.end.loopexit ]
+  %numSampleDirections.0 = phi i32 [ 42, %for.end ], [ %109, %if.end.loopexit ]
   %vtable75 = load ptr, ptr %convexB, align 8
   %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 168
   %110 = load ptr, ptr %vfn76, align 8
@@ -276,7 +276,7 @@ if.end:                                           ; preds = %if.end.loopexit, %f
 for.body83.lr.ph:                                 ; preds = %if.end
   %arrayidx7.i.i137 = getelementptr inbounds i8, ptr %norm84, i64 4
   %arrayidx12.i.i140 = getelementptr inbounds i8, ptr %norm84, i64 8
-  %111 = zext i32 %numSampleDirections.1 to i64
+  %111 = zext i32 %numSampleDirections.0 to i64
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
@@ -384,16 +384,16 @@ if.end113.loopexit:                               ; preds = %for.body83
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end113.loopexit, %if.end
-  %numSampleDirections.3 = phi i32 [ %numSampleDirections.1, %if.end ], [ %179, %if.end113.loopexit ]
+  %numSampleDirections.2 = phi i32 [ %numSampleDirections.0, %if.end ], [ %179, %if.end113.loopexit ]
   %vtable115 = load ptr, ptr %convexA, align 8
   %vfn116 = getelementptr inbounds i8, ptr %vtable115, i64 152
   %180 = load ptr, ptr %vfn116, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(32) %convexA, ptr noundef nonnull %separatingAxisInABatch, ptr noundef nonnull %supportVerticesABatch, i32 noundef %numSampleDirections.3)
+  call void %180(ptr noundef nonnull align 8 dereferenceable(32) %convexA, ptr noundef nonnull %separatingAxisInABatch, ptr noundef nonnull %supportVerticesABatch, i32 noundef %numSampleDirections.2)
   %vtable119 = load ptr, ptr %convexB, align 8
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 152
   %181 = load ptr, ptr %vfn120, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(32) %convexB, ptr noundef nonnull %separatingAxisInBBatch, ptr noundef nonnull %supportVerticesBBatch, i32 noundef %numSampleDirections.3)
-  %cmp122383 = icmp sgt i32 %numSampleDirections.3, 0
+  call void %181(ptr noundef nonnull align 8 dereferenceable(32) %convexB, ptr noundef nonnull %separatingAxisInBBatch, ptr noundef nonnull %supportVerticesBBatch, i32 noundef %numSampleDirections.2)
+  %cmp122383 = icmp sgt i32 %numSampleDirections.2, 0
   br i1 %cmp122383, label %for.body123.lr.ph, label %for.end167
 
 for.body123.lr.ph:                                ; preds = %if.end113
@@ -403,7 +403,7 @@ for.body123.lr.ph:                                ; preds = %if.end113
   %m_origin.i218 = getelementptr inbounds i8, ptr %transB, i64 48
   %arrayidx7.i.i220 = getelementptr inbounds i8, ptr %transB, i64 52
   %arrayidx13.i.i222 = getelementptr inbounds i8, ptr %transB, i64 56
-  %wide.trip.count = zext nneg i32 %numSampleDirections.3 to i64
+  %wide.trip.count = zext nneg i32 %numSampleDirections.2 to i64
   br label %for.body123
 
 for.body123:                                      ; preds = %for.body123.lr.ph, %for.inc165

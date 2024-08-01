@@ -2617,9 +2617,9 @@ while.body.lr.ph:                                 ; preds = %cond.end35
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %6 = phi ptr [ %4, %while.body.lr.ph ], [ %16, %if.end ]
-  %fixed.sroa.0.0653 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.0.2, %if.end ]
-  %fixed.sroa.6.0652 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.6.2, %if.end ]
-  %fixed.sroa.11.0651 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.11.2, %if.end ]
+  %fixed.sroa.0.0653 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.0.1, %if.end ]
+  %fixed.sroa.6.0652 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.6.1, %if.end ]
+  %fixed.sroa.11.0651 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.11.1, %if.end ]
   %add.ptr.i.i196 = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load i64, ptr %add.ptr.i.i196, align 8
   %8 = load ptr, ptr %d_var_info, align 8
@@ -2751,9 +2751,9 @@ invoke.cont68:                                    ; preds = %invoke.cont64
           to label %if.end unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end:                                           ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i202, %invoke.cont68
-  %fixed.sroa.11.2 = phi ptr [ %fixed.sroa.11.0651, %invoke.cont68 ], [ %add.ptr19.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %fixed.sroa.11.0651, %if.then.i202 ]
-  %fixed.sroa.6.2 = phi ptr [ %fixed.sroa.6.0652, %invoke.cont68 ], [ %incdec.ptr.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %incdec.ptr.i203, %if.then.i202 ]
-  %fixed.sroa.0.2 = phi ptr [ %fixed.sroa.0.0653, %invoke.cont68 ], [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %fixed.sroa.0.0653, %if.then.i202 ]
+  %fixed.sroa.11.1 = phi ptr [ %fixed.sroa.11.0651, %invoke.cont68 ], [ %add.ptr19.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %fixed.sroa.11.0651, %if.then.i202 ]
+  %fixed.sroa.6.1 = phi ptr [ %fixed.sroa.6.0652, %invoke.cont68 ], [ %incdec.ptr.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %incdec.ptr.i203, %if.then.i202 ]
+  %fixed.sroa.0.1 = phi ptr [ %fixed.sroa.0.0653, %invoke.cont68 ], [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %fixed.sroa.0.0653, %if.then.i202 ]
   %16 = load ptr, ptr %_M_finish.i190, align 8
   %17 = load ptr, ptr %d_active_vars, align 8
   %sub.ptr.lhs.cast.i191 = ptrtoint ptr %16 to i64
@@ -2764,12 +2764,12 @@ if.end:                                           ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !40
 
 while.end.loopexit:                               ; preds = %if.end
-  %18 = ptrtoint ptr %fixed.sroa.6.2 to i64
+  %18 = ptrtoint ptr %fixed.sroa.6.1 to i64
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %cond.end35
   %fixed.sroa.6.0.lcssa = phi i64 [ 0, %cond.end35 ], [ %18, %while.end.loopexit ]
-  %fixed.sroa.0.0.lcssa = phi ptr [ null, %cond.end35 ], [ %fixed.sroa.0.2, %while.end.loopexit ]
+  %fixed.sroa.0.0.lcssa = phi ptr [ null, %cond.end35 ], [ %fixed.sroa.0.1, %while.end.loopexit ]
   %.lcssa = phi ptr [ %5, %cond.end35 ], [ %17, %while.end.loopexit ]
   %sub.ptr.sub.i193.lcssa = phi i64 [ %sub.ptr.sub.i193648, %cond.end35 ], [ %sub.ptr.sub.i193, %while.end.loopexit ]
   %add.ptr.i.i297 = getelementptr inbounds i8, ptr %.lcssa, i64 %sub.ptr.sub.i193.lcssa
@@ -7304,9 +7304,9 @@ while.body.lr.ph:                                 ; preds = %_ZNSt6vectorImSaImE
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end40
   %9 = phi ptr [ %7, %while.body.lr.ph ], [ %16, %if.end40 ]
-  %fixed.sroa.0.0368 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.0.2, %if.end40 ]
-  %fixed.sroa.6.0367 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.6.2, %if.end40 ]
-  %fixed.sroa.11.0366 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.11.2, %if.end40 ]
+  %fixed.sroa.0.0368 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.0.1, %if.end40 ]
+  %fixed.sroa.6.0367 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.6.1, %if.end40 ]
+  %fixed.sroa.11.0366 = phi ptr [ null, %while.body.lr.ph ], [ %fixed.sroa.11.1, %if.end40 ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load i64, ptr %add.ptr.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i50, align 8
@@ -7430,9 +7430,9 @@ cond.true26:                                      ; preds = %while.body
   br label %if.end40
 
 if.end40:                                         ; preds = %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i61, %if.then20, %cond.true26
-  %fixed.sroa.11.2 = phi ptr [ %fixed.sroa.11.0366, %if.then20 ], [ %fixed.sroa.11.0366, %cond.true26 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %fixed.sroa.11.0366, %if.then.i61 ]
-  %fixed.sroa.6.2 = phi ptr [ %fixed.sroa.6.0367, %if.then20 ], [ %fixed.sroa.6.0367, %cond.true26 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i62, %if.then.i61 ]
-  %fixed.sroa.0.2 = phi ptr [ %fixed.sroa.0.0368, %if.then20 ], [ %fixed.sroa.0.0368, %cond.true26 ], [ %cond.i10.i.i, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %fixed.sroa.0.0368, %if.then.i61 ]
+  %fixed.sroa.11.1 = phi ptr [ %fixed.sroa.11.0366, %if.then20 ], [ %fixed.sroa.11.0366, %cond.true26 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %fixed.sroa.11.0366, %if.then.i61 ]
+  %fixed.sroa.6.1 = phi ptr [ %fixed.sroa.6.0367, %if.then20 ], [ %fixed.sroa.6.0367, %cond.true26 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i62, %if.then.i61 ]
+  %fixed.sroa.0.1 = phi ptr [ %fixed.sroa.0.0368, %if.then20 ], [ %fixed.sroa.0.0368, %cond.true26 ], [ %cond.i10.i.i, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %fixed.sroa.0.0368, %if.then.i61 ]
   %16 = load ptr, ptr %_M_finish.i50, align 8
   %17 = load ptr, ptr %d_assignments, align 8
   %sub.ptr.lhs.cast.i51 = ptrtoint ptr %16 to i64
@@ -7443,8 +7443,8 @@ if.end40:                                         ; preds = %_ZNSt6vectorIN4cvc5
   br i1 %cmp14, label %while.body, label %while.end, !llvm.loop !330
 
 while.end:                                        ; preds = %if.end40, %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %fixed.sroa.6.0.lcssa = phi ptr [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %fixed.sroa.6.2, %if.end40 ]
-  %fixed.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %fixed.sroa.0.2, %if.end40 ]
+  %fixed.sroa.6.0.lcssa = phi ptr [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %fixed.sroa.6.1, %if.end40 ]
+  %fixed.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %fixed.sroa.0.1, %if.end40 ]
   %d_proxy = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %d_proxy, align 8
   invoke void @_ZN4cvc58internal4prop11TheoryProxy15notifyBacktrackEv(ptr noundef nonnull align 8 dereferenceable(521) %18)

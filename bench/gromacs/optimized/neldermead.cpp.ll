@@ -1592,11 +1592,11 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %78
   br label %84
 
 84:                                               ; preds = %82, %.noexc5.thread.i.i
-  %.sroa.0.2.i = phi ptr [ null, %.noexc5.thread.i.i ], [ %80, %82 ]
+  %.sroa.0.1.i = phi ptr [ null, %.noexc5.thread.i.i ], [ %80, %82 ]
   %.sroa.10.1.i = phi ptr [ %81, %.noexc5.thread.i.i ], [ %83, %82 ]
   %.sroa.05.01521.i.i = phi ptr [ %.sroa.05.015.ph.i.i, %.noexc5.thread.i.i ], [ %62, %82 ]
   %85 = phi i64 [ %.ph18.i.i, %.noexc5.thread.i.i ], [ %76, %82 ]
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.2.i, i64 %85
+  %86 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %85
   %87 = getelementptr inbounds i8, ptr %.sroa.05.01521.i.i, i64 %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !37
   store ptr %.sroa.05.01521.i.i, ptr %5, align 8, !noalias !37
@@ -1648,11 +1648,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit10.thread.i.loopexit.split-lp.i: ; preds = %.noexc.
 
 95:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi18.i = phi { ptr, i32 } [ %lpad.loopexit16.i, %.loopexit.i ], [ %lpad.loopexit.split-lp17.i, %.loopexit.split-lp.i ]
-  %.not.i.i.i9.i.i = icmp eq ptr %.sroa.0.2.i, null
+  %.not.i.i.i9.i.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not.i.i.i9.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit10.i.i, label %96
 
 96:                                               ; preds = %95
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.i) #18, !noalias !37
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1.i) #18, !noalias !37
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit10.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit10.i.i:              ; preds = %96, %95
@@ -1670,7 +1670,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit10.thread.i.i:       ; preds = %_ZNSt6vectorIfSaIfE
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %.sroa.010.030.i, i64 24
   %100 = getelementptr inbounds i8, ptr %.sroa.010.030.i, i64 32
-  store ptr %.sroa.0.2.i, ptr %97, align 8
+  store ptr %.sroa.0.1.i, ptr %97, align 8
   store ptr %86, ptr %99, align 8
   store ptr %.sroa.10.1.i, ptr %100, align 8
   %.not.i.i.i.i.i.i2.i = icmp eq ptr %98, null

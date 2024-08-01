@@ -50,16 +50,16 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %storemerge, ptr %3, align 8
   %30 = fdiv double %.0151, %17
   %31 = fdiv double %.0153, %17
-  %.1146..1144182 = select i1 %14, double %31, double %30
-  %.1144..1146183 = select i1 %14, double %30, double %31
+  %.0145..0143182 = select i1 %14, double %31, double %30
+  %.0143..0145183 = select i1 %14, double %30, double %31
   store double 1.000000e+00, ptr %8, align 8
-  store double %.1146..1144182, ptr %7, align 8
-  store double %.1144..1146183, ptr %6, align 8
+  store double %.0145..0143182, ptr %7, align 8
+  store double %.0143..0145183, ptr %6, align 8
   store double 1.000000e+00, ptr %5, align 8
   br label %.thread172
 
 32:                                               ; preds = %23, %21
-  %.1139.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
+  %.2140.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
   %33 = fsub double %.0150, %.0152
   %34 = fsub double %.0150, %33
   %35 = tail call noundef double @llvm.fabs.f64(double %34)
@@ -151,20 +151,20 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %101
 
 101:                                              ; preds = %87, %20
-  %.1148 = phi double [ 1.000000e+00, %20 ], [ %97, %87 ]
-  %.1146 = phi double [ 1.000000e+00, %20 ], [ %89, %87 ]
-  %.1144 = phi double [ 0.000000e+00, %20 ], [ %100, %87 ]
-  %.1142 = phi double [ 0.000000e+00, %20 ], [ %95, %87 ]
-  %.2140 = phi i32 [ %.0138, %20 ], [ %.1139.ph, %87 ]
-  %.1142..1148 = select i1 %14, double %.1142, double %.1148
-  %.1146..1144 = select i1 %14, double %.1146, double %.1144
-  %.1144..1146 = select i1 %14, double %.1144, double %.1146
-  %.1148..1142 = select i1 %14, double %.1148, double %.1142
-  store double %.1142..1148, ptr %8, align 8
-  store double %.1146..1144, ptr %7, align 8
-  store double %.1144..1146, ptr %6, align 8
-  store double %.1148..1142, ptr %5, align 8
-  switch i32 %.2140, label %103 [
+  %.0147 = phi double [ 1.000000e+00, %20 ], [ %97, %87 ]
+  %.0145 = phi double [ 1.000000e+00, %20 ], [ %89, %87 ]
+  %.0143 = phi double [ 0.000000e+00, %20 ], [ %100, %87 ]
+  %.0141 = phi double [ 0.000000e+00, %20 ], [ %95, %87 ]
+  %.1139 = phi i32 [ %.0138, %20 ], [ %.2140.ph, %87 ]
+  %.0141..0147 = select i1 %14, double %.0141, double %.0147
+  %.0145..0143 = select i1 %14, double %.0145, double %.0143
+  %.0143..0145 = select i1 %14, double %.0143, double %.0145
+  %.0147..0141 = select i1 %14, double %.0147, double %.0141
+  store double %.0141..0147, ptr %8, align 8
+  store double %.0145..0143, ptr %7, align 8
+  store double %.0143..0145, ptr %6, align 8
+  store double %.0147..0141, ptr %5, align 8
+  switch i32 %.1139, label %103 [
     i32 1, label %.thread169
     i32 2, label %.thread172
   ]
@@ -177,10 +177,10 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.thread172
 
 .thread172:                                       ; preds = %101, %.thread, %.thread169, %103
-  %.1148..1142185.sink = phi double [ %102, %.thread169 ], [ %.1148..1142, %103 ], [ 1.000000e+00, %.thread ], [ %.1148..1142, %101 ]
+  %.0147..0141185.sink = phi double [ %102, %.thread169 ], [ %.0147..0141, %103 ], [ 1.000000e+00, %.thread ], [ %.0147..0141, %101 ]
   %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %103 ], [ %8, %.thread ], [ %8, %101 ]
   %.sink = phi ptr [ %0, %.thread169 ], [ %2, %103 ], [ %1, %.thread ], [ %1, %101 ]
-  %104 = fcmp ogt double %.1148..1142185.sink, 0.000000e+00
+  %104 = fcmp ogt double %.0147..0141185.sink, 0.000000e+00
   %105 = load double, ptr %.sink196, align 8
   %106 = fcmp ogt double %105, 0.000000e+00
   %107 = select i1 %106, double 1.000000e+00, double -1.000000e+00

@@ -164,16 +164,16 @@ _ZNK11ast_manager6is_notEPK4expr.exit:            ; preds = %land.rhs.i.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit, %land.rhs.i.i, %if.then
-  %arg1.1 = phi ptr [ %8, %if.then ], [ %8, %land.rhs.i.i ], [ %spec.select213, %_ZNK11ast_manager6is_notEPK4expr.exit ]
-  %arg2.1 = phi ptr [ %9, %if.then ], [ %9, %land.rhs.i.i ], [ %spec.select214, %_ZNK11ast_manager6is_notEPK4expr.exit ]
-  %m_kind.i.i.i.i53 = getelementptr inbounds i8, ptr %arg1.1, i64 4
+  %arg1.0 = phi ptr [ %8, %if.then ], [ %8, %land.rhs.i.i ], [ %spec.select213, %_ZNK11ast_manager6is_notEPK4expr.exit ]
+  %arg2.0 = phi ptr [ %9, %if.then ], [ %9, %land.rhs.i.i ], [ %spec.select214, %_ZNK11ast_manager6is_notEPK4expr.exit ]
+  %m_kind.i.i.i.i53 = getelementptr inbounds i8, ptr %arg1.0, i64 4
   %bf.load.i.i.i.i54 = load i32, ptr %m_kind.i.i.i.i53, align 4
   %bf.clear.i.i.i.i55 = and i32 %bf.load.i.i.i.i54, 65535
   %cmp.i.i.i56 = icmp eq i32 %bf.clear.i.i.i.i55, 0
   br i1 %cmp.i.i.i56, label %land.rhs.i.i.i58, label %return
 
 land.rhs.i.i.i58:                                 ; preds = %if.end
-  %m_decl.i.i.i.i59 = getelementptr inbounds i8, ptr %arg1.1, i64 16
+  %m_decl.i.i.i.i59 = getelementptr inbounds i8, ptr %arg1.0, i64 16
   %15 = load ptr, ptr %m_decl.i.i.i.i59, align 8
   %m_info.i.i.i.i.i60 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %m_info.i.i.i.i.i60, align 8
@@ -190,13 +190,13 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %land.rhs.i.i.i58
   br i1 %19, label %land.lhs.true.i65, label %return
 
 land.lhs.true.i65:                                ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i
-  %m_num_args.i.i66 = getelementptr inbounds i8, ptr %arg1.1, i64 24
+  %m_num_args.i.i66 = getelementptr inbounds i8, ptr %arg1.0, i64 24
   %20 = load i32, ptr %m_num_args.i.i66, align 8
   %cmp.i67 = icmp eq i32 %20, 1
   br i1 %cmp.i67, label %land.lhs.true6, label %return
 
 land.lhs.true6:                                   ; preds = %land.lhs.true.i65
-  %m_args.i.i69 = getelementptr inbounds i8, ptr %arg1.1, i64 32
+  %m_args.i.i69 = getelementptr inbounds i8, ptr %arg1.0, i64 32
   %21 = load ptr, ptr %m_args.i.i69, align 8
   %m_kind.i.i.i.i70 = getelementptr inbounds i8, ptr %21, i64 4
   %bf.load.i.i.i.i71 = load i32, ptr %m_kind.i.i.i.i70, align 4
@@ -232,14 +232,14 @@ land.lhs.true8:                                   ; preds = %land.lhs.true.i82
   %28 = load ptr, ptr %m_args.i.i86, align 8
   %arrayidx.i.i87 = getelementptr inbounds i8, ptr %21, i64 40
   %29 = load ptr, ptr %arrayidx.i.i87, align 8
-  %m_kind.i.i.i.i88 = getelementptr inbounds i8, ptr %arg2.1, i64 4
+  %m_kind.i.i.i.i88 = getelementptr inbounds i8, ptr %arg2.0, i64 4
   %bf.load.i.i.i.i89 = load i32, ptr %m_kind.i.i.i.i88, align 4
   %bf.clear.i.i.i.i90 = and i32 %bf.load.i.i.i.i89, 65535
   %cmp.i.i.i91 = icmp eq i32 %bf.clear.i.i.i.i90, 0
   br i1 %cmp.i.i.i91, label %land.rhs.i.i.i93, label %return
 
 land.rhs.i.i.i93:                                 ; preds = %land.lhs.true8
-  %m_decl.i.i.i.i94 = getelementptr inbounds i8, ptr %arg2.1, i64 16
+  %m_decl.i.i.i.i94 = getelementptr inbounds i8, ptr %arg2.0, i64 16
   %30 = load ptr, ptr %m_decl.i.i.i.i94, align 8
   %m_info.i.i.i.i.i95 = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %m_info.i.i.i.i.i95, align 8
@@ -256,15 +256,15 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i97:         ; preds = %land.rhs.i.i.i93
   br i1 %34, label %land.lhs.true.i101, label %return
 
 land.lhs.true.i101:                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i97
-  %m_num_args.i.i102 = getelementptr inbounds i8, ptr %arg2.1, i64 24
+  %m_num_args.i.i102 = getelementptr inbounds i8, ptr %arg2.0, i64 24
   %35 = load i32, ptr %m_num_args.i.i102, align 8
   %cmp.i103 = icmp eq i32 %35, 2
   br i1 %cmp.i103, label %if.then10, label %return
 
 if.then10:                                        ; preds = %land.lhs.true.i101
-  %m_args.i.i105 = getelementptr inbounds i8, ptr %arg2.1, i64 32
+  %m_args.i.i105 = getelementptr inbounds i8, ptr %arg2.0, i64 32
   %36 = load ptr, ptr %m_args.i.i105, align 8
-  %arrayidx.i.i106 = getelementptr inbounds i8, ptr %arg2.1, i64 40
+  %arrayidx.i.i106 = getelementptr inbounds i8, ptr %arg2.0, i64 40
   %37 = load ptr, ptr %arrayidx.i.i106, align 8
   %m_kind.i.i108 = getelementptr inbounds i8, ptr %28, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i108, align 4

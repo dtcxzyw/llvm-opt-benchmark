@@ -678,9 +678,9 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not50.i.i, label %tarRead.exit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %76, %68
-  %.1.i35.i = phi i64 [ %..i.i, %76 ], [ 0, %68 ]
+  %.039.i35.i = phi i64 [ %..i.i, %76 ], [ 0, %68 ]
   %.040.i34.i = phi i64 [ %83, %76 ], [ %spec.select.i41.i, %68 ]
-  %84 = getelementptr i8, ptr %4, i64 %.1.i35.i
+  %84 = getelementptr i8, ptr %4, i64 %.039.i35.i
   %85 = load ptr, ptr %.02543.i, align 8
   %86 = call i64 @fread(ptr noundef %84, i64 noundef 1, i64 noundef %.040.i34.i, ptr noundef %85)
   %.not53.i.i = icmp eq i64 %86, %.040.i34.i
@@ -709,9 +709,9 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   unreachable
 
 tarRead.exit.i:                                   ; preds = %87, %.thread.i, %76
-  %.1.i36.i = phi i64 [ %.1.i35.i, %87 ], [ %.1.i35.i, %.thread.i ], [ %..i.i, %76 ]
+  %.039.i36.i = phi i64 [ %.039.i35.i, %87 ], [ %.039.i35.i, %.thread.i ], [ %..i.i, %76 ]
   %.0.i30.i = phi i64 [ %86, %87 ], [ %.040.i34.i, %.thread.i ], [ 0, %76 ]
-  %95 = add i64 %.0.i30.i, %.1.i36.i
+  %95 = add i64 %.0.i30.i, %.039.i36.i
   %96 = getelementptr inbounds i8, ptr %71, i64 32
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %95
@@ -1107,13 +1107,13 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   br i1 %.not50.i.i, label %_tarReadRaw.exit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %67, %.lr.ph62.i
-  %.1.i56.i = phi i64 [ %..i.i, %67 ], [ 0, %.lr.ph62.i ]
+  %.039.i56.i = phi i64 [ %..i.i, %67 ], [ 0, %.lr.ph62.i ]
   %.040.i55.i = phi i64 [ %72, %67 ], [ 512, %.lr.ph62.i ]
   %.not51.i.i = icmp eq ptr %63, null
   br i1 %.not51.i.i, label %_tarReadRaw.exit.i, label %73
 
 73:                                               ; preds = %.thread.i
-  %74 = getelementptr i8, ptr %5, i64 %.1.i56.i
+  %74 = getelementptr i8, ptr %5, i64 %.039.i56.i
   %75 = call i64 @fread(ptr noundef %74, i64 noundef 1, i64 noundef %.040.i55.i, ptr noundef nonnull %63)
   %.not56.i.i = icmp eq i64 %75, %.040.i55.i
   br i1 %.not56.i.i, label %_tarReadRaw.exit.i, label %76
@@ -1139,9 +1139,9 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   unreachable
 
 _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i, %67
-  %.1.i57.i = phi i64 [ %.1.i56.i, %76 ], [ %.1.i56.i, %73 ], [ %..i.i, %67 ], [ %.1.i56.i, %.thread.i ]
+  %.039.i57.i = phi i64 [ %.039.i56.i, %76 ], [ %.039.i56.i, %73 ], [ %..i.i, %67 ], [ %.039.i56.i, %.thread.i ]
   %.0.i.i = phi i64 [ %75, %76 ], [ %.040.i55.i, %73 ], [ 0, %67 ], [ 0, %.thread.i ]
-  %82 = add i64 %.0.i.i, %.1.i57.i
+  %82 = add i64 %.0.i.i, %.039.i57.i
   %83 = getelementptr inbounds i8, ptr %64, i64 32
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %82, %84
@@ -1511,7 +1511,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
 
 20:                                               ; preds = %12, %5
   %.040 = phi i64 [ %19, %12 ], [ %2, %5 ]
-  %.1 = phi i64 [ %., %12 ], [ 0, %5 ]
+  %.039 = phi i64 [ %., %12 ], [ 0, %5 ]
   %.not50 = icmp eq i64 %.040, 0
   br i1 %.not50, label %44, label %21
 
@@ -1520,7 +1520,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not51, label %31, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr i8, ptr %1, i64 %.1
+  %23 = getelementptr i8, ptr %1, i64 %.039
   %24 = tail call i64 @fread(ptr noundef %23, i64 noundef 1, i64 noundef %.040, ptr noundef nonnull %4)
   %.not56 = icmp eq i64 %24, %.040
   br i1 %.not56, label %44, label %25
@@ -1550,7 +1550,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not52, label %44, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr i8, ptr %1, i64 %.1
+  %33 = getelementptr i8, ptr %1, i64 %.039
   %34 = load ptr, ptr %3, align 8
   %35 = tail call i64 @fread(ptr noundef %33, i64 noundef 1, i64 noundef %.040, ptr noundef %34)
   %.not53 = icmp eq i64 %35, %.040
@@ -1580,7 +1580,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
 
 44:                                               ; preds = %25, %22, %32, %36, %31, %20
   %.0 = phi i64 [ %24, %25 ], [ %.040, %22 ], [ %35, %36 ], [ %.040, %32 ], [ 0, %31 ], [ 0, %20 ]
-  %45 = add i64 %.0, %.1
+  %45 = add i64 %.0, %.039
   %46 = getelementptr inbounds i8, ptr %7, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %45

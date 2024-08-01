@@ -561,7 +561,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit90:                  ; preds = %182, %179, %149, %1
   br label %184
 
 183:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %75
-  %.0 = phi i32 [ -1, %75 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.2 = phi i32 [ -1, %75 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
@@ -583,7 +583,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit90:                  ; preds = %182, %179, %149, %1
   br label %188
 
 187:                                              ; preds = %59, %183
-  %.1 = phi i32 [ %.0, %183 ], [ -1, %59 ]
+  %.1 = phi i32 [ %.2, %183 ], [ -1, %59 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
   br label %189
 
@@ -593,8 +593,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit90:                  ; preds = %182, %179, %149, %1
   br label %190
 
 189:                                              ; preds = %187, %.thread95.thread
-  %.2 = phi i32 [ 0, %.thread95.thread ], [ %.1, %187 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %.thread95.thread ], [ %.1, %187 ]
+  ret i32 %.0
 
 190:                                              ; preds = %52, %50, %188, %64
   %.pn76.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn76.pn.pn.pn.pn, %188 ], [ %.pn, %64 ], [ %53, %52 ], [ %51, %50 ]

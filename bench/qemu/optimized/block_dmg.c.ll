@@ -411,13 +411,13 @@ fail:                                             ; preds = %read_uint64.exit104
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end12, %if.end7, %fail, %if.end126
-  %retval.0 = phi i32 [ %ret.0, %fail ], [ 0, %if.end126 ], [ -22, %if.end7 ], [ -22, %if.end12 ]
+  %retval.1 = phi i32 [ %ret.0, %fail ], [ 0, %if.end126 ], [ -22, %if.end7 ], [ -22, %if.end12 ]
   call void @bdrv_graph_rdunlock_main_loop() #11
   br label %return
 
 return:                                           ; preds = %if.end3, %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ], [ %call4, %if.end3 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ], [ %call4, %if.end3 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -657,7 +657,7 @@ while.cond:                                       ; preds = %if.end47
 
 while.body:                                       ; preds = %if.end18, %while.cond
   %offset.055 = phi i64 [ %add54, %while.cond ], [ %add20, %if.end18 ]
-  %buffer.054 = phi ptr [ %call41, %while.cond ], [ null, %if.end18 ]
+  %buffer.154 = phi ptr [ %call41, %while.cond ], [ null, %if.end18 ]
   %bs.val25 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i32)
   %call.i33 = call i32 @bdrv_pread(ptr noundef %bs.val25, i64 noundef %offset.055, i64 noundef 4, ptr noundef nonnull %buffer.i32, i32 noundef 0) #11
@@ -683,7 +683,7 @@ lor.lhs.false32:                                  ; preds = %if.else29
 
 if.end38:                                         ; preds = %lor.lhs.false32
   %add39 = add i64 %offset.055, 4
-  %call41 = call ptr @g_realloc(ptr noundef %buffer.054, i64 noundef %conv33) #11
+  %call41 = call ptr @g_realloc(ptr noundef %buffer.154, i64 noundef %conv33) #11
   %8 = load ptr, ptr %1, align 8
   %call43 = call i32 @bdrv_pread(ptr noundef %8, i64 noundef %add39, i64 noundef %conv33, ptr noundef %call41, i32 noundef 0) #11
   %cmp44 = icmp slt i32 %call43, 0
@@ -695,9 +695,9 @@ if.end47:                                         ; preds = %if.end38
   br i1 %cmp49, label %fail, label %while.cond
 
 fail:                                             ; preds = %if.end38, %if.end47, %lor.lhs.false32, %if.else29, %while.cond, %if.end18, %read_uint32.exit37.thread, %read_uint32.exit31.thread, %read_uint32.exit.thread, %if.else9, %if.else
-  %buffer.1 = phi ptr [ null, %if.else ], [ null, %if.else9 ], [ null, %read_uint32.exit.thread ], [ null, %read_uint32.exit31.thread ], [ %buffer.054, %read_uint32.exit37.thread ], [ null, %if.end18 ], [ %call41, %if.end38 ], [ %call41, %if.end47 ], [ %buffer.054, %lor.lhs.false32 ], [ %buffer.054, %if.else29 ], [ %call41, %while.cond ]
+  %buffer.0 = phi ptr [ null, %if.else ], [ null, %if.else9 ], [ null, %read_uint32.exit.thread ], [ null, %read_uint32.exit31.thread ], [ %buffer.154, %read_uint32.exit37.thread ], [ null, %if.end18 ], [ %call41, %if.end38 ], [ %call41, %if.end47 ], [ %buffer.154, %lor.lhs.false32 ], [ %buffer.154, %if.else29 ], [ %call41, %while.cond ]
   %ret.0 = phi i32 [ -22, %if.else ], [ -22, %if.else9 ], [ %call.i, %read_uint32.exit.thread ], [ %call.i27, %read_uint32.exit31.thread ], [ %call.i33, %read_uint32.exit37.thread ], [ 0, %if.end18 ], [ %call43, %if.end38 ], [ %call48, %if.end47 ], [ -22, %lor.lhs.false32 ], [ -22, %if.else29 ], [ 0, %while.cond ]
-  call void @g_free(ptr noundef %buffer.1) #11
+  call void @g_free(ptr noundef %buffer.0) #11
   ret i32 %ret.0
 }
 

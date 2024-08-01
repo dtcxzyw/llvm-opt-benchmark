@@ -1072,16 +1072,16 @@ ceil_of_log2.exit.i:                              ; preds = %113
   br i1 %.not368.i, label %.thread13.split.i, label %.loopexit.i208, !llvm.loop !11
 
 .loopexit.i208:                                   ; preds = %459, %.thread13.split.i, %429, %.thread13.split.us.i, %328
-  %.6.i = phi i32 [ -2, %328 ], [ %438, %429 ], [ 0, %.thread13.split.us.i ], [ %468, %459 ], [ 0, %.thread13.split.i ]
+  %.1.i = phi i32 [ -2, %328 ], [ %438, %429 ], [ 0, %.thread13.split.us.i ], [ %468, %459 ], [ 0, %.thread13.split.i ]
   br i1 %335, label %469, label %.thread32.i
 
 .thread32.i:                                      ; preds = %374, %368, %357, %.loopexit.i208, %.split.us.i209, %416, %406, %._crit_edge.i
-  %.643.i = phi i32 [ %.6.i, %.loopexit.i208 ], [ 0, %416 ], [ %458, %.split.us.i209 ], [ %403, %._crit_edge.i ], [ %411, %406 ], [ %376, %374 ], [ %373, %368 ], [ %367, %357 ]
+  %.143.i = phi i32 [ %.1.i, %.loopexit.i208 ], [ 0, %416 ], [ %458, %.split.us.i209 ], [ %403, %._crit_edge.i ], [ %411, %406 ], [ %376, %374 ], [ %373, %368 ], [ %367, %357 ]
   tail call void @free(ptr noundef nonnull %331) #9
   br label %469
 
 469:                                              ; preds = %.thread32.i, %.loopexit.i208
-  %.629.i = phi i32 [ %.643.i, %.thread32.i ], [ %.6.i, %.loopexit.i208 ]
+  %.129.i = phi i32 [ %.143.i, %.thread32.i ], [ %.1.i, %.loopexit.i208 ]
   br i1 %336, label %471, label %470
 
 470:                                              ; preds = %469
@@ -1106,7 +1106,7 @@ default.unreachable330:                           ; preds = %103
   unreachable
 
 red_sched_binomial.exit:                          ; preds = %474, %473, %101
-  %.0151 = phi i32 [ %102, %101 ], [ %.629.i, %474 ], [ %.629.i, %473 ]
+  %.0151 = phi i32 [ %102, %101 ], [ %.129.i, %474 ], [ %.129.i, %473 ]
   %.not170 = icmp eq i32 %.0151, 0
   br i1 %.not170, label %red_sched_binomial.exit.thread250, label %red_sched_binomial.exit.thread
 

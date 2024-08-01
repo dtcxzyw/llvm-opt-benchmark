@@ -2458,15 +2458,15 @@ entry:
   br i1 %cmp.not3.i.i.i, label %for.end, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.i
-  %it.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %0, %entry ]
-  %2 = load ptr, ptr %it.sroa.0.0, align 8, !noalias !26
+  %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %0, %entry ]
+  %2 = load ptr, ptr %it.sroa.0.1, align 8, !noalias !26
   %3 = ptrtoint ptr %2 to i64
   %and.i.i.i.i = and i64 %3, 7
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !29
 
@@ -2475,11 +2475,11 @@ for.body.lr.ph:                                   ; preds = %while.body.i.i.i
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
-  %it.sroa.0.211.ph = phi ptr [ %it.sroa.0.0, %for.body.lr.ph ], [ %it.sroa.0.3, %while.body.i.i ]
+  %it.sroa.0.011.ph = phi ptr [ %it.sroa.0.1, %for.body.lr.ph ], [ %it.sroa.0.3, %while.body.i.i ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
-  %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit ], [ %it.sroa.0.211.ph, %for.body.outer ]
+  %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit ], [ %it.sroa.0.011.ph, %for.body.outer ]
   %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.012, i64 8
   %4 = load ptr, ptr %m_data.i, align 8
   %m_result_sz.i = getelementptr inbounds i8, ptr %4, i64 24
@@ -2504,7 +2504,7 @@ _ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit: ; pr
   br i1 %cmp.i3, label %if.then.i4, label %for.body, !llvm.loop !30
 
 if.then.i4:                                       ; preds = %_ZN10polynomial5cache3imp19del_psc_chain_entryEPNS_15psc_chain_entryE.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.211.ph, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 
@@ -2590,15 +2590,15 @@ entry:
   br i1 %cmp.not3.i.i.i, label %for.end, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.i
-  %it.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %0, %entry ]
-  %2 = load ptr, ptr %it.sroa.0.0, align 8, !noalias !31
+  %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %0, %entry ]
+  %2 = load ptr, ptr %it.sroa.0.1, align 8, !noalias !31
   %3 = ptrtoint ptr %2 to i64
   %and.i.i.i.i = and i64 %3, 7
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i, label %for.body.lr.ph
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i, label %for.end, label %while.body.i.i.i, !llvm.loop !34
 
@@ -2607,11 +2607,11 @@ for.body.lr.ph:                                   ; preds = %while.body.i.i.i
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %while.body.i.i, %for.body.lr.ph
-  %it.sroa.0.211.ph = phi ptr [ %it.sroa.0.0, %for.body.lr.ph ], [ %it.sroa.0.3, %while.body.i.i ]
+  %it.sroa.0.011.ph = phi ptr [ %it.sroa.0.1, %for.body.lr.ph ], [ %it.sroa.0.3, %while.body.i.i ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
-  %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit ], [ %it.sroa.0.211.ph, %for.body.outer ]
+  %it.sroa.7.012 = phi ptr [ %9, %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit ], [ %it.sroa.0.011.ph, %for.body.outer ]
   %m_data.i = getelementptr inbounds i8, ptr %it.sroa.7.012, i64 8
   %4 = load ptr, ptr %m_data.i, align 8
   %m_result_sz.i = getelementptr inbounds i8, ptr %4, i64 12
@@ -2636,7 +2636,7 @@ _ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit: ; preds = 
   br i1 %cmp.i3, label %if.then.i4, label %for.body, !llvm.loop !35
 
 if.then.i4:                                       ; preds = %_ZN10polynomial5cache3imp16del_factor_entryEPNS_12factor_entryE.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.211.ph, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011.ph, i64 16
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 

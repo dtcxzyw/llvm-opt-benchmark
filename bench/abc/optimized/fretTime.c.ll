@@ -4240,7 +4240,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
 .lr.ph113:                                        ; preds = %.preheader, %170
   %144 = phi ptr [ %171, %170 ], [ %110, %.preheader ]
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %170 ], [ 0, %.preheader ]
-  %.3112 = phi i32 [ %.5, %170 ], [ 0, %.preheader ]
+  %.4112 = phi i32 [ %.6, %170 ], [ 0, %.preheader ]
   %145 = getelementptr i8, ptr %144, i64 8
   %.val92.val = load ptr, ptr %145, align 8
   %146 = getelementptr inbounds ptr, ptr %.val92.val, i64 %indvars.iv124
@@ -4271,19 +4271,19 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
 162:                                              ; preds = %153
   %163 = and i16 %160, 128
   %.not75 = icmp ne i16 %163, 0
-  %164 = icmp slt i32 %.3112, 99999
+  %164 = icmp slt i32 %.4112, 99999
   %or.cond82 = select i1 %.not75, i1 %164, i1 false
   br i1 %or.cond82, label %165, label %167
 
 165:                                              ; preds = %162
-  %166 = add nsw i32 %.3112, 1
+  %166 = add nsw i32 %.4112, 1
   tail call void @Abc_FlowRetime_ConstrainExact(ptr noundef nonnull %147)
   %.pre133 = load i32, ptr %150, align 4
   br label %167
 
 167:                                              ; preds = %165, %162, %153, %149
   %168 = phi i32 [ %.pre133, %165 ], [ %151, %162 ], [ %151, %153 ], [ %151, %149 ]
-  %.4 = phi i32 [ %166, %165 ], [ %.3112, %162 ], [ %.3112, %153 ], [ %.3112, %149 ]
+  %.5 = phi i32 [ %166, %165 ], [ %.4112, %162 ], [ %.4112, %153 ], [ %.4112, %149 ]
   %169 = and i32 %168, -65
   store i32 %169, ptr %150, align 4
   %.pre134 = load ptr, ptr %109, align 8
@@ -4291,7 +4291,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
 
 170:                                              ; preds = %167, %.lr.ph113
   %171 = phi ptr [ %144, %.lr.ph113 ], [ %.pre134, %167 ]
-  %.5 = phi i32 [ %.3112, %.lr.ph113 ], [ %.4, %167 ]
+  %.6 = phi i32 [ %.4112, %.lr.ph113 ], [ %.5, %167 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %172 = getelementptr i8, ptr %171, i64 4
   %.val = load i32, ptr %172, align 4
@@ -4300,7 +4300,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
   br i1 %174, label %.lr.ph113, label %.critedge4, !llvm.loop !55
 
 .critedge4:                                       ; preds = %139, %170, %.preheader96, %.preheader
-  %.6 = phi i32 [ 0, %.preheader ], [ 0, %.preheader96 ], [ %.5, %170 ], [ %.2, %139 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ 0, %.preheader96 ], [ %.6, %170 ], [ %.2, %139 ]
   %175 = load ptr, ptr @pManMR, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 40
   %177 = load i32, ptr %176, align 8
@@ -4308,11 +4308,11 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
   br i1 %.not76, label %180, label %178
 
 178:                                              ; preds = %.critedge4
-  %179 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.6)
+  %179 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.3)
   br label %180
 
 180:                                              ; preds = %178, %.critedge4
-  %181 = icmp sgt i32 %.6, 0
+  %181 = icmp sgt i32 %.3, 0
   %182 = zext i1 %181 to i32
   br label %183
 

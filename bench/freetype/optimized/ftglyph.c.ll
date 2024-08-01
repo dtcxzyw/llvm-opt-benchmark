@@ -605,8 +605,8 @@ FT_Done_Glyph.exit:                               ; preds = %30, %36
   br label %37
 
 37:                                               ; preds = %ft_new_glyph.exit, %9, %2, %6, %FT_Done_Glyph.exit, %.thread
-  %.1 = phi i32 [ %16, %ft_new_glyph.exit ], [ %29, %FT_Done_Glyph.exit ], [ 0, %.thread ], [ 6, %6 ], [ 6, %2 ], [ 6, %9 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %16, %ft_new_glyph.exit ], [ %29, %FT_Done_Glyph.exit ], [ 0, %.thread ], [ 6, %6 ], [ 6, %2 ], [ 6, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -793,7 +793,7 @@ FT_New_Glyph.exit:                                ; preds = %15
 .thread:                                          ; preds = %..thread_crit_edge, %29, %21
   %42 = phi ptr [ %.pre42, %..thread_crit_edge ], [ %16, %21 ], [ %16, %29 ]
   %43 = phi ptr [ %.pre, %..thread_crit_edge ], [ %6, %21 ], [ %6, %29 ]
-  %.040 = phi i32 [ %41, %..thread_crit_edge ], [ 6, %21 ], [ 6, %29 ]
+  %.140 = phi i32 [ %41, %..thread_crit_edge ], [ 6, %21 ], [ 6, %29 ]
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 24
   %46 = load ptr, ptr %45, align 8
@@ -814,7 +814,7 @@ FT_Done_Glyph.exit:                               ; preds = %.thread, %47
   br label %FT_New_Glyph.exit.thread
 
 FT_New_Glyph.exit.thread:                         ; preds = %12, %5, %FT_New_Glyph.exit, %48, %FT_Done_Glyph.exit, %4, %2
-  %.016 = phi i32 [ 37, %2 ], [ 6, %4 ], [ %20, %FT_New_Glyph.exit ], [ %.040, %FT_Done_Glyph.exit ], [ 0, %48 ], [ 18, %12 ], [ 6, %5 ]
+  %.016 = phi i32 [ 37, %2 ], [ 6, %4 ], [ %20, %FT_New_Glyph.exit ], [ %.140, %FT_Done_Glyph.exit ], [ 0, %48 ], [ 18, %12 ], [ 6, %5 ]
   ret i32 %.016
 }
 
@@ -1001,7 +1001,7 @@ FT_Glyph_Transform.exit:                          ; preds = %40, %37, %35, %31
   br label %46
 
 46:                                               ; preds = %43, %FT_Glyph_Transform.exit
-  %.0 = phi i32 [ %42, %FT_Glyph_Transform.exit ], [ %45, %43 ]
+  %.1 = phi i32 [ %42, %FT_Glyph_Transform.exit ], [ %45, %43 ]
   %47 = icmp eq ptr %13, @ft_svg_glyph_class
   br i1 %47, label %48, label %52
 
@@ -1037,7 +1037,7 @@ FT_Glyph_Transform.exit:                          ; preds = %40, %37, %35, %31
   br label %FT_Glyph_Transform.exit69
 
 FT_Glyph_Transform.exit69:                        ; preds = %61, %58, %54, %52
-  %.not61 = icmp eq i32 %.0, 0
+  %.not61 = icmp eq i32 %.1, 0
   br i1 %.not61, label %62, label %69
 
 62:                                               ; preds = %FT_Glyph_Transform.exit69
@@ -1060,7 +1060,7 @@ FT_Glyph_Transform.exit69:                        ; preds = %61, %58, %54, %52
   br label %.thread
 
 69:                                               ; preds = %FT_Glyph_Transform.exit69, %62
-  %.1 = phi i32 [ %.0, %FT_Glyph_Transform.exit69 ], [ %63, %62 ]
+  %.0 = phi i32 [ %.1, %FT_Glyph_Transform.exit69 ], [ %63, %62 ]
   %70 = load ptr, ptr %29, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %32, align 8
@@ -1078,8 +1078,8 @@ FT_Done_Glyph.exit:                               ; preds = %69, %75
   br label %.thread
 
 .thread:                                          ; preds = %4, %9, %11, %19, %ft_new_glyph.exit, %68, %17, %FT_Done_Glyph.exit
-  %.177 = phi i32 [ %.1, %FT_Done_Glyph.exit ], [ 6, %4 ], [ 6, %9 ], [ 6, %11 ], [ 6, %19 ], [ 0, %68 ], [ %30, %ft_new_glyph.exit ], [ 0, %17 ]
-  ret i32 %.177
+  %.077 = phi i32 [ %.0, %FT_Done_Glyph.exit ], [ 6, %4 ], [ 6, %9 ], [ 6, %11 ], [ 6, %19 ], [ 0, %68 ], [ %30, %ft_new_glyph.exit ], [ 0, %17 ]
+  ret i32 %.077
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -1007,7 +1007,7 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %49
 
 80:                                               ; preds = %._crit_edge39.i, %69
   %.pre-phi46.i = phi i32 [ %.pre45.i, %._crit_edge39.i ], [ %72, %69 ]
-  %.129.i = phi ptr [ %77, %._crit_edge39.i ], [ %.02835.i, %69 ]
+  %.230.i = phi ptr [ %77, %._crit_edge39.i ], [ %.02835.i, %69 ]
   %.1.i = phi ptr [ %78, %._crit_edge39.i ], [ %.036.i, %69 ]
   %81 = call i32 @isvalidcharntorune(ptr noundef %.1.i, i32 noundef %.pre-phi46.i, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not34.i = icmp eq i32 %81, 0
@@ -1015,14 +1015,14 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %49
   %narrow.i = select i1 %.not34.i, i32 1, i32 %82
   %.2.v.i = sext i32 %narrow.i to i64
   %.2.i = getelementptr inbounds i8, ptr %.1.i, i64 %.2.v.i
-  %83 = getelementptr inbounds i8, ptr %.129.i, i64 1
-  store i8 32, ptr %.129.i, align 1
+  %83 = getelementptr inbounds i8, ptr %.230.i, i64 1
+  store i8 32, ptr %.230.i, align 1
   %84 = icmp ult ptr %.2.i, %66
   br i1 %84, label %69, label %_ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit, !llvm.loop !10
 
 _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_edge40.i, %80, %64
-  %.230.i = phi ptr [ %65, %64 ], [ %83, %80 ], [ %77, %._crit_edge40.i ]
-  %85 = ptrtoint ptr %.230.i to i64
+  %.129.i = phi ptr [ %65, %64 ], [ %83, %80 ], [ %77, %._crit_edge40.i ]
+  %85 = ptrtoint ptr %.129.i to i64
   %86 = ptrtoint ptr %65 to i64
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
@@ -1318,7 +1318,7 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %23
 
 55:                                               ; preds = %._crit_edge39.i, %44
   %.pre-phi46.i = phi i32 [ %.pre45.i, %._crit_edge39.i ], [ %47, %44 ]
-  %.129.i = phi ptr [ %52, %._crit_edge39.i ], [ %.02835.i, %44 ]
+  %.230.i = phi ptr [ %52, %._crit_edge39.i ], [ %.02835.i, %44 ]
   %.1.i = phi ptr [ %53, %._crit_edge39.i ], [ %.036.i, %44 ]
   %56 = call i32 @isvalidcharntorune(ptr noundef %.1.i, i32 noundef %.pre-phi46.i, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not34.i = icmp eq i32 %56, 0
@@ -1326,14 +1326,14 @@ _ZN4i18n12phonenumbers3LOGEi.exit.thread:         ; preds = %23
   %narrow.i = select i1 %.not34.i, i32 1, i32 %57
   %.2.v.i = sext i32 %narrow.i to i64
   %.2.i = getelementptr inbounds i8, ptr %.1.i, i64 %.2.v.i
-  %58 = getelementptr inbounds i8, ptr %.129.i, i64 1
-  store i8 32, ptr %.129.i, align 1
+  %58 = getelementptr inbounds i8, ptr %.230.i, i64 1
+  store i8 32, ptr %.230.i, align 1
   %59 = icmp ult ptr %.2.i, %41
   br i1 %59, label %44, label %_ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit, !llvm.loop !10
 
 _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_edge40.i, %55, %38
-  %.230.i = phi ptr [ %39, %38 ], [ %58, %55 ], [ %52, %._crit_edge40.i ]
-  %60 = ptrtoint ptr %.230.i to i64
+  %.129.i = phi ptr [ %39, %38 ], [ %58, %55 ], [ %52, %._crit_edge40.i ]
+  %60 = ptrtoint ptr %.129.i to i64
   %61 = ptrtoint ptr %39 to i64
   %62 = sub i64 %60, %61
   %63 = trunc i64 %62 to i32
@@ -1597,7 +1597,7 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
 
 87:                                               ; preds = %._crit_edge39.i, %76
   %.pre-phi46.i = phi i32 [ %.pre45.i, %._crit_edge39.i ], [ %79, %76 ]
-  %.129.i = phi ptr [ %84, %._crit_edge39.i ], [ %.02835.i, %76 ]
+  %.230.i = phi ptr [ %84, %._crit_edge39.i ], [ %.02835.i, %76 ]
   %.1.i = phi ptr [ %85, %._crit_edge39.i ], [ %.036.i, %76 ]
   %88 = call i32 @isvalidcharntorune(ptr noundef %.1.i, i32 noundef %.pre-phi46.i, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not34.i = icmp eq i32 %88, 0
@@ -1605,15 +1605,15 @@ _ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit: ; preds = %_ZN4i18n12ph
   %narrow.i = select i1 %.not34.i, i32 1, i32 %89
   %.2.v.i = sext i32 %narrow.i to i64
   %.2.i = getelementptr inbounds i8, ptr %.1.i, i64 %.2.v.i
-  %90 = getelementptr inbounds i8, ptr %.129.i, i64 1
-  store i8 32, ptr %.129.i, align 1
+  %90 = getelementptr inbounds i8, ptr %.230.i, i64 1
+  store i8 32, ptr %.230.i, align 1
   %91 = icmp ult ptr %.2.i, %73
   br i1 %91, label %76, label %_ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit, !llvm.loop !10
 
 _ZN4i18n12phonenumbersL25ConvertToInterchangeValidEPci.exit: ; preds = %._crit_edge40.i, %87, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit
   %92 = phi ptr [ %72, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit ], [ null, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread ], [ %72, %87 ], [ %72, %._crit_edge40.i ]
-  %.230.i = phi ptr [ %72, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit ], [ null, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread ], [ %84, %._crit_edge40.i ], [ %90, %87 ]
-  %93 = ptrtoint ptr %.230.i to i64
+  %.129.i = phi ptr [ %72, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit ], [ null, %_ZN4i18n12phonenumbers11UnicodeText4Repr4CopyEPKci.exit.thread ], [ %84, %._crit_edge40.i ], [ %90, %87 ]
+  %93 = ptrtoint ptr %.129.i to i64
   %94 = ptrtoint ptr %92 to i64
   %95 = sub i64 %93, %94
   %96 = trunc i64 %95 to i32

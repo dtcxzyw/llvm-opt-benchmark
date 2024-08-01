@@ -3123,7 +3123,7 @@ lpad230:                                          ; preds = %invoke.cont227
   br label %ehcleanup241
 
 cleanup240:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1008, %invoke.cont212, %if.then13.i.i911, %if.then.i.i904, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit901, %if.else113
-  %retval.3 = phi i1 [ false, %if.else113 ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit901 ], [ true, %if.then.i.i904 ], [ true, %if.then13.i.i911 ], [ true, %invoke.cont212 ], [ %call232, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1008 ]
+  %retval.1 = phi i1 [ false, %if.else113 ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit901 ], [ true, %if.then.i.i904 ], [ true, %if.then13.i.i911 ], [ true, %invoke.cont212 ], [ %call232, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1008 ]
   %239 = load ptr, ptr %n_output, align 8
   %bf.load.i.i1009 = load i64, ptr %239, align 8
   %240 = and i64 %bf.load.i.i1009, 1152920405095219200
@@ -3188,8 +3188,8 @@ ehcleanup243:                                     ; preds = %lpad.i.i113, %ehcle
   br label %common.resume
 
 return:                                           ; preds = %if.then13.i.i1030, %if.then.i.i1023, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1020, %_ZNSt3mapISt4pairIbbESt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS6_ESt8equal_toIS6_ESaIS6_EESt4lessIS1_ESaIS0_IKS1_SC_EEEixERSF_.exit67
-  %retval.4 = phi i1 [ true, %_ZNSt3mapISt4pairIbbESt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS6_ESt8equal_toIS6_ESaIS6_EESt4lessIS1_ESaIS0_IKS1_SC_EEEixERSF_.exit67 ], [ %retval.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1020 ], [ %retval.3, %if.then.i.i1023 ], [ %retval.3, %if.then13.i.i1030 ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ true, %_ZNSt3mapISt4pairIbbESt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS6_ESt8equal_toIS6_ESaIS6_EESt4lessIS1_ESaIS0_IKS1_SC_EEEixERSF_.exit67 ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1020 ], [ %retval.1, %if.then.i.i1023 ], [ %retval.1, %if.then13.i.i1030 ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)

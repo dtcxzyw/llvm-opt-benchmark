@@ -292,7 +292,7 @@ if.end68:                                         ; preds = %if.end53, %if.end62
   %14 = phi ptr [ %.pre, %if.end62 ], [ %6, %if.end53 ]
   %initial_length_byte.050 = phi i8 [ %initial_length_byte.0.ph, %if.end62 ], [ %conv48, %if.end53 ]
   %len_len.048 = phi i8 [ %11, %if.end62 ], [ 0, %if.end53 ]
-  %len.046 = phi i64 [ %sub, %if.end62 ], [ 0, %if.end53 ]
+  %len.146 = phi i64 [ %sub, %if.end62 ], [ 0, %if.end53 ]
   %15 = load ptr, ptr %14, align 8
   %offset72 = getelementptr inbounds i8, ptr %13, i64 16
   %inc = add i64 %12, 1
@@ -307,7 +307,7 @@ if.end68:                                         ; preds = %if.end53, %if.end62
 
 if.end77:                                         ; preds = %if.end68, %if.end23
   %17 = phi ptr [ %.pre61, %if.end68 ], [ %4, %if.end23 ]
-  %len.1 = phi i64 [ %len.046, %if.end68 ], [ %sub, %if.end23 ]
+  %len.0 = phi i64 [ %len.146, %if.end68 ], [ %sub, %if.end23 ]
   %pending_len_len79 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load i8, ptr %pending_len_len79, align 8
   %cmp8654.not = icmp eq i8 %18, 0
@@ -321,7 +321,7 @@ for.body.preheader:                               ; preds = %if.end77
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %19 = phi ptr [ %24, %for.body ], [ %17, %for.body.preheader ]
   %i.056 = phi i64 [ %i.0, %for.body ], [ %i.051, %for.body.preheader ]
-  %len.255 = phi i64 [ %shr, %for.body ], [ %len.1, %for.body.preheader ]
+  %len.255 = phi i64 [ %shr, %for.body ], [ %len.0, %for.body.preheader ]
   %conv88 = trunc i64 %len.255 to i8
   %20 = load ptr, ptr %cbb, align 8
   %21 = load ptr, ptr %20, align 8
@@ -340,7 +340,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp86, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end77
-  %len.2.lcssa = phi i64 [ %len.1, %if.end77 ], [ %shr, %for.body ]
+  %len.2.lcssa = phi i64 [ %len.0, %if.end77 ], [ %shr, %for.body ]
   %.lcssa = phi ptr [ %17, %if.end77 ], [ %24, %for.body ]
   %cmp95.not = icmp eq i64 %len.2.lcssa, 0
   br i1 %cmp95.not, label %if.end98, label %return

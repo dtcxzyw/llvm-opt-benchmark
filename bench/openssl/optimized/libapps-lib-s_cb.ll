@@ -393,12 +393,12 @@ if.then13:                                        ; preds = %if.end11
   %tobool22.not = icmp eq i32 %6, 0
   %call1.sink = select i1 %or.cond23.not, i32 %call1, i32 22
   %narrow = select i1 %or.cond23.not, i1 %tobool22.not, i1 false
-  %ok.addr.1.ph = zext i1 %narrow to i32
+  %ok.addr.0.ph = zext i1 %narrow to i32
   store i32 %call1.sink, ptr getelementptr inbounds (i8, ptr @verify_args, i64 8), align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then13, %entry, %if.end11
-  %ok.addr.1 = phi i32 [ %ok, %if.end11 ], [ %ok, %entry ], [ %ok.addr.1.ph, %if.then13 ]
+  %ok.addr.0 = phi i32 [ %ok, %if.end11 ], [ %ok, %entry ], [ %ok.addr.0.ph, %if.then13 ]
   switch i32 %call1, label %sw.epilog [
     i32 2, label %sw.bb
     i32 9, label %sw.bb37
@@ -462,7 +462,7 @@ if.then57:                                        ; preds = %sw.bb55
 
 sw.epilog:                                        ; preds = %if.end27
   %cmp59 = icmp eq i32 %call1, 0
-  %cmp61 = icmp eq i32 %ok.addr.1, 2
+  %cmp61 = icmp eq i32 %ok.addr.0, 2
   %or.cond1 = and i1 %cmp59, %cmp61
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
   %tobool64.not = icmp eq i32 %17, 0
@@ -474,7 +474,7 @@ if.then65:                                        ; preds = %sw.epilog
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then30, %sw.bb, %if.then40, %sw.bb37, %if.then49, %sw.bb46, %if.then57, %sw.bb55, %if.then65, %sw.epilog
-  %tobool67.not = icmp ne i32 %ok.addr.1, 0
+  %tobool67.not = icmp ne i32 %ok.addr.0, 0
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
   %tobool69.not = icmp eq i32 %18, 0
   %or.cond25 = select i1 %tobool67.not, i1 %tobool69.not, i1 false
@@ -482,11 +482,11 @@ if.end66:                                         ; preds = %if.then30, %sw.bb, 
 
 if.then70:                                        ; preds = %if.end66
   %19 = load ptr, ptr @bio_err, align 8
-  %call71 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %19, ptr noundef nonnull @.str.7, i32 noundef %ok.addr.1) #6
+  %call71 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %19, ptr noundef nonnull @.str.7, i32 noundef %ok.addr.0) #6
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %if.end66
-  ret i32 %ok.addr.1
+  ret i32 %ok.addr.0
 }
 
 declare ptr @X509_STORE_CTX_get_current_cert(ptr noundef) local_unnamed_addr #1
@@ -2937,10 +2937,10 @@ if.end55:                                         ; preds = %land.lhs.true51, %i
 
 err:                                              ; preds = %if.end55, %if.end27, %land.lhs.true51, %land.lhs.true45, %land.lhs.true39, %if.then33, %land.lhs.true17, %land.lhs.true11, %land.lhs.true, %if.then
   %vfy.1 = phi ptr [ null, %if.then ], [ %vfy.0, %if.then33 ], [ %vfy.0, %land.lhs.true51 ], [ %vfy.0, %land.lhs.true45 ], [ %vfy.0, %land.lhs.true39 ], [ %call, %land.lhs.true17 ], [ %call, %land.lhs.true11 ], [ %call, %land.lhs.true ], [ %vfy.0, %if.end27 ], [ %vfy.0, %if.end55 ]
-  %ch.1 = phi ptr [ null, %if.then ], [ null, %if.then33 ], [ %call34, %land.lhs.true51 ], [ %call34, %land.lhs.true45 ], [ %call34, %land.lhs.true39 ], [ null, %land.lhs.true17 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %if.end27 ], [ %call34, %if.end55 ]
+  %ch.0 = phi ptr [ null, %if.then ], [ null, %if.then33 ], [ %call34, %land.lhs.true51 ], [ %call34, %land.lhs.true45 ], [ %call34, %land.lhs.true39 ], [ null, %land.lhs.true17 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %if.end27 ], [ %call34, %if.end55 ]
   %rv.0 = phi i32 [ 0, %if.then ], [ 0, %if.then33 ], [ 0, %land.lhs.true51 ], [ 0, %land.lhs.true45 ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true17 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true ], [ 1, %if.end27 ], [ 1, %if.end55 ]
   tail call void @X509_STORE_free(ptr noundef %vfy.1) #6
-  tail call void @X509_STORE_free(ptr noundef %ch.1) #6
+  tail call void @X509_STORE_free(ptr noundef %ch.0) #6
   ret i32 %rv.0
 }
 

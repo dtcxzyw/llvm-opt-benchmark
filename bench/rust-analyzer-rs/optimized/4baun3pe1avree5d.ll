@@ -11444,8 +11444,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %20 = load ptr, ptr %19, align 8, !nonnull !7, !align !293
   %21 = getelementptr inbounds i8, ptr %4, i64 1
   %22 = load i8, ptr %21, align 1, !range !298
-  %.sroa.123.0 = select i1 %trunc.i.i.i.i.i, ptr %20, ptr undef
-  %.sroa.7.0 = select i1 %trunc.i.i.i.i.i, i8 undef, i8 %22
+  %.sroa.123.1 = select i1 %trunc.i.i.i.i.i, ptr %20, ptr undef
+  %.sroa.7.1 = select i1 %trunc.i.i.i.i.i, i8 undef, i8 %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2779
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd48a03bc43978bc9E.llvm.4213059994663518309.exit"
 
@@ -11460,14 +11460,14 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %27 = load ptr, ptr %26, align 8, !nonnull !7, !align !293
   %28 = getelementptr inbounds i8, ptr %3, i64 1
   %29 = load i8, ptr %28, align 1, !range !298
-  %.sroa.123.1 = select i1 %trunc.i.i1.i.i.i, ptr %27, ptr undef
-  %.sroa.7.1 = select i1 %trunc.i.i1.i.i.i, i8 undef, i8 %29
+  %.sroa.123.0 = select i1 %trunc.i.i1.i.i.i, ptr %27, ptr undef
+  %.sroa.7.0 = select i1 %trunc.i.i1.i.i.i, i8 undef, i8 %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2789
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd48a03bc43978bc9E.llvm.4213059994663518309.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd48a03bc43978bc9E.llvm.4213059994663518309.exit": ; preds = %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit.i.i.i", %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit3.i.i.i"
-  %.sroa.123.2 = phi ptr [ %.sroa.123.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.123.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit3.i.i.i" ]
-  %.sroa.7.2 = phi i8 [ %.sroa.7.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.7.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit3.i.i.i" ]
+  %.sroa.123.2 = phi ptr [ %.sroa.123.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.123.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit3.i.i.i" ]
+  %.sroa.7.2 = phi i8 [ %.sroa.7.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.7.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit3.i.i.i" ]
   %.sroa.0.0 = phi i8 [ %18, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit.i.i.i" ], [ %25, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51982e488be09b0bE.llvm.13621867877897344372.exit3.i.i.i" ]
   %trunc.i = trunc nuw i8 %.sroa.0.0 to i1
   br i1 %trunc.i, label %31, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd48a03bc43978bc9E.llvm.4213059994663518309.exit.thread"
@@ -12241,8 +12241,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %20 = load ptr, ptr %19, align 8
   %.sroa.13.0..sroa_idx10 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.13.0.copyload11 = load i64, ptr %.sroa.13.0..sroa_idx10, align 8
-  %.sroa.13.0 = select i1 %18, i64 undef, i64 %.sroa.13.0.copyload11
-  %.sroa.0.0 = tail call i64 @llvm.smax.i64(i64 %17, i64 -9223372036854775807)
+  %.sroa.13.1 = select i1 %18, i64 undef, i64 %.sroa.13.0.copyload11
+  %.sroa.0.1 = tail call i64 @llvm.smax.i64(i64 %17, i64 -9223372036854775807)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3105
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8b6ab948a0581c42E.llvm.4213059994663518309.exit"
 
@@ -12257,15 +12257,15 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %26 = load ptr, ptr %25, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.13.1 = select i1 %24, i64 undef, i64 %.sroa.13.0.copyload
-  %.sroa.0.1 = tail call i64 @llvm.smax.i64(i64 %23, i64 -9223372036854775807)
+  %.sroa.13.0 = select i1 %24, i64 undef, i64 %.sroa.13.0.copyload
+  %.sroa.0.0 = tail call i64 @llvm.smax.i64(i64 %23, i64 -9223372036854775807)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3115
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8b6ab948a0581c42E.llvm.4213059994663518309.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8b6ab948a0581c42E.llvm.4213059994663518309.exit": ; preds = %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit.i.i.i", %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit1.i.i.i"
-  %.sroa.13.2 = phi i64 [ %.sroa.13.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.13.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit1.i.i.i" ]
+  %.sroa.13.2 = phi i64 [ %.sroa.13.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.13.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit1.i.i.i" ]
   %.sroa.10.2 = phi ptr [ %20, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit.i.i.i" ], [ %26, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit1.i.i.i" ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.0.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit1.i.i.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.0.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h387a4df53e26dd63E.llvm.13621867877897344372.exit1.i.i.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3125)
   %27 = icmp eq i64 %.sroa.0.2, -9223372036854775807
   br i1 %27, label %28, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h8b6ab948a0581c42E.llvm.4213059994663518309.exit.thread"
@@ -13014,7 +13014,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit.i.i.i"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit.i.i.i": ; preds = %17, %22
-  %.sroa.0.0 = phi i64 [ %18, %22 ], [ -9223372036854775807, %17 ]
+  %.sroa.0.1 = phi i64 [ %18, %22 ], [ -9223372036854775807, %17 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4), !noalias !3402
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15a9ec7166a7a95cE.llvm.4213059994663518309.exit"
 
@@ -13035,13 +13035,13 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit1.i.i.i"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit1.i.i.i": ; preds = %23, %30
-  %.sroa.0.1 = phi i64 [ %26, %30 ], [ -9223372036854775807, %23 ]
+  %.sroa.0.0 = phi i64 [ %26, %30 ], [ -9223372036854775807, %23 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3), !noalias !3413
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15a9ec7166a7a95cE.llvm.4213059994663518309.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15a9ec7166a7a95cE.llvm.4213059994663518309.exit": ; preds = %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit.i.i.i", %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit1.i.i.i"
   %.sroa.10.2 = phi ptr [ %21, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit.i.i.i" ], [ %29, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit1.i.i.i" ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.0.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit1.i.i.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.0.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h51eeacf513a0045eE.llvm.13621867877897344372.exit1.i.i.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3424)
   %31 = icmp eq i64 %.sroa.0.2, -9223372036854775807
   br i1 %31, label %32, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h15a9ec7166a7a95cE.llvm.4213059994663518309.exit.thread"
@@ -13172,7 +13172,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit.i.i.i"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit.i.i.i": ; preds = %17, %22
-  %.sroa.0.0 = phi i64 [ %18, %22 ], [ -9223372036854775807, %17 ]
+  %.sroa.0.1 = phi i64 [ %18, %22 ], [ -9223372036854775807, %17 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !3466
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h67424e4101d1ba39E.llvm.4213059994663518309.exit"
 
@@ -13193,13 +13193,13 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit1.i.i.i"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit1.i.i.i": ; preds = %23, %30
-  %.sroa.0.1 = phi i64 [ %26, %30 ], [ -9223372036854775807, %23 ]
+  %.sroa.0.0 = phi i64 [ %26, %30 ], [ -9223372036854775807, %23 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3477
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h67424e4101d1ba39E.llvm.4213059994663518309.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h67424e4101d1ba39E.llvm.4213059994663518309.exit": ; preds = %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit.i.i.i", %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit1.i.i.i"
   %.sroa.10.2 = phi ptr [ %21, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit.i.i.i" ], [ %29, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit1.i.i.i" ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.0.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit1.i.i.i" ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit.i.i.i" ], [ %.sroa.0.0, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h7f53edf4c416e087E.llvm.13621867877897344372.exit1.i.i.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3488)
   %31 = icmp eq i64 %.sroa.0.2, -9223372036854775807
   br i1 %31, label %32, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h67424e4101d1ba39E.llvm.4213059994663518309.exit.thread"

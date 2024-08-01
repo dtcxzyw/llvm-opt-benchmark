@@ -81,8 +81,8 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 42:                                               ; preds = %35, %.loopexit133
   %.084149 = phi ptr [ %.084148, %35 ], [ %.084, %.loopexit133 ]
-  %.086 = phi ptr [ %33, %35 ], [ %5, %.loopexit133 ]
-  %.080 = phi i32 [ 1, %35 ], [ 0, %.loopexit133 ]
+  %.187 = phi ptr [ %33, %35 ], [ %5, %.loopexit133 ]
+  %.181 = phi i32 [ 1, %35 ], [ 0, %.loopexit133 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
@@ -101,11 +101,11 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %57
   %indvars.iv144 = phi i64 [ %52, %.lr.ph140.preheader ], [ %indvars.iv.next145, %57 ]
-  %.088138 = phi ptr [ %44, %.lr.ph140.preheader ], [ %55, %57 ]
+  %.189138 = phi ptr [ %44, %.lr.ph140.preheader ], [ %55, %57 ]
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, -1
   %53 = getelementptr inbounds ptr, ptr %.084149, i64 %indvars.iv.next145
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %54, ptr noundef %.088138) #6
+  %55 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %54, ptr noundef %.189138) #6
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %57
 
@@ -117,12 +117,12 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.088138) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.189138) #6
   %64 = icmp ugt i64 %indvars.iv144, 1
   br i1 %64, label %.lr.ph140, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %42
-  %.088.lcssa = phi ptr [ %44, %42 ], [ %55, %57 ]
+  %.189.lcssa = phi ptr [ %44, %42 ], [ %55, %57 ]
   %65 = tail call ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %.084149, i32 noundef %6) #6
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.loopexit, label %67
@@ -135,7 +135,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
-  %74 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %.086, ptr noundef %.088.lcssa) #6
+  %74 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef nonnull %65, ptr noundef nonnull %.187, ptr noundef %.189.lcssa) #6
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.loopexit.sink.split, label %76
 
@@ -171,39 +171,39 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph140, %.loopexit.sink.split, %._crit_edge
-  %.088135 = phi ptr [ %.088.lcssa, %._crit_edge ], [ %.088.lcssa, %.loopexit.sink.split ], [ %.088138, %.lr.ph140 ]
+  %.189135 = phi ptr [ %.189.lcssa, %._crit_edge ], [ %.189.lcssa, %.loopexit.sink.split ], [ %.189138, %.lr.ph140 ]
   %.090 = phi ptr [ null, %._crit_edge ], [ %.090.ph, %.loopexit.sink.split ], [ null, %.lr.ph140 ]
-  %.not103 = icmp eq ptr %.088135, null
+  %.not103 = icmp eq ptr %.189135, null
   br i1 %.not103, label %.thread, label %94
 
 94:                                               ; preds = %.loopexit
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.088135) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.189135) #6
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit133.thread, %94, %.loopexit
   %.084150 = phi ptr [ %.084149, %94 ], [ %.084149, %.loopexit ], [ %.084148, %.loopexit133.thread ]
-  %.181118 = phi i32 [ %.080, %94 ], [ %.080, %.loopexit ], [ 0, %.loopexit133.thread ]
-  %.187115 = phi ptr [ %.086, %94 ], [ %.086, %.loopexit ], [ null, %.loopexit133.thread ]
+  %.080118 = phi i32 [ %.181, %94 ], [ %.181, %.loopexit ], [ 0, %.loopexit133.thread ]
+  %.086115 = phi ptr [ %.187, %94 ], [ %.187, %.loopexit ], [ null, %.loopexit133.thread ]
   %.090114 = phi ptr [ %.090, %94 ], [ %.090, %.loopexit ], [ null, %.loopexit133.thread ]
   br i1 %.not132, label %.thread.thread, label %95
 
 .thread.thread:                                   ; preds = %21, %24, %.thread
   %.090114130 = phi ptr [ %.090114, %.thread ], [ null, %24 ], [ null, %21 ]
-  %.187115128 = phi ptr [ %.187115, %.thread ], [ null, %24 ], [ null, %21 ]
+  %.086115128 = phi ptr [ %.086115, %.thread ], [ null, %24 ], [ null, %21 ]
   %.185116127 = phi ptr [ %.084150, %.thread ], [ %13, %24 ], [ %13, %21 ]
-  %.181118125 = phi i32 [ %.181118, %.thread ], [ 0, %24 ], [ 0, %21 ]
+  %.080118125 = phi i32 [ %.080118, %.thread ], [ 0, %24 ], [ 0, %21 ]
   tail call void @free(ptr noundef %.185116127) #6
   br label %95
 
 95:                                               ; preds = %.thread.thread, %.thread
   %.090114131 = phi ptr [ %.090114130, %.thread.thread ], [ %.090114, %.thread ]
-  %.187115129 = phi ptr [ %.187115128, %.thread.thread ], [ %.187115, %.thread ]
-  %.181118126 = phi i32 [ %.181118125, %.thread.thread ], [ %.181118, %.thread ]
-  %.not105 = icmp eq i32 %.181118126, 0
+  %.086115129 = phi ptr [ %.086115128, %.thread.thread ], [ %.086115, %.thread ]
+  %.080118126 = phi i32 [ %.080118125, %.thread.thread ], [ %.080118, %.thread ]
+  %.not105 = icmp eq i32 %.080118126, 0
   br i1 %.not105, label %97, label %96
 
 96:                                               ; preds = %95
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.187115129) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.086115129) #6
   br label %97
 
 97:                                               ; preds = %96, %95

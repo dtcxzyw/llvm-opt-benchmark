@@ -20,18 +20,18 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %err, label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.then
-  %rnd.0 = phi ptr [ %call, %if.then ], [ %ret, %entry ]
-  %call4 = call i32 @BN_generate_prime_ex(ptr noundef nonnull %rnd.0, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef nonnull %cb) #2
+  %rnd.1 = phi ptr [ %call, %if.then ], [ %ret, %entry ]
+  %call4 = call i32 @BN_generate_prime_ex(ptr noundef nonnull %rnd.1, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef nonnull %cb) #2
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %return
 
 err:                                              ; preds = %if.end3, %if.then
-  %rnd.1 = phi ptr [ null, %if.then ], [ %rnd.0, %if.end3 ]
-  call void @BN_free(ptr noundef %rnd.1) #2
+  %rnd.0 = phi ptr [ null, %if.then ], [ %rnd.1, %if.end3 ]
+  call void @BN_free(ptr noundef %rnd.0) #2
   br label %return
 
 return:                                           ; preds = %if.end3, %err
-  %retval.0 = phi ptr [ null, %err ], [ %rnd.0, %if.end3 ]
+  %retval.0 = phi ptr [ null, %err ], [ %rnd.1, %if.end3 ]
   ret ptr %retval.0
 }
 

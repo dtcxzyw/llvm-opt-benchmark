@@ -1690,7 +1690,7 @@ if.end39thread-pre-split:                         ; preds = %if.then25
 
 if.end39:                                         ; preds = %if.end39thread-pre-split, %if.else, %if.then21
   %11 = phi i64 [ %.pr, %if.end39thread-pre-split ], [ %call11, %if.else ], [ %9, %if.then21 ]
-  %ret.0 = phi i32 [ %call28, %if.end39thread-pre-split ], [ 0, %if.else ], [ 0, %if.then21 ]
+  %ret.1 = phi i32 [ %call28, %if.end39thread-pre-split ], [ 0, %if.else ], [ 0, %if.then21 ]
   %cmp41 = icmp eq i64 %11, 0
   br i1 %cmp41, label %if.then43, label %if.end56
 
@@ -1847,7 +1847,7 @@ lor.lhs.false:                                    ; preds = %if.then107
   br i1 %call113, label %immediate_exit, label %if.end117
 
 if.end117:                                        ; preds = %lor.lhs.false, %mirror_free_init.exit
-  %ret.1 = phi i32 [ %ret.0, %mirror_free_init.exit ], [ 0, %lor.lhs.false ]
+  %ret.2 = phi i32 [ %ret.1, %mirror_free_init.exit ], [ 0, %lor.lhs.false ]
   store ptr %job, ptr %1, align 8
   %dbi = getelementptr inbounds i8, ptr %job, i64 648
   %30 = load ptr, ptr %dbi, align 8
@@ -2254,7 +2254,7 @@ if.end280:                                        ; preds = %if.then263, %trace_
   br label %for.cond.backedge
 
 immediate_exit:                                   ; preds = %for.cond.backedge, %if.end131, %while.body52, %land.rhs, %for.cond.backedge.thread, %if.end122, %if.then43, %if.end250, %if.end87, %if.then107, %lor.lhs.false, %if.then25, %bdrv_filter_bs.exit, %if.then37, %if.then14, %if.then7
-  %ret.2 = phi i32 [ 0, %bdrv_filter_bs.exit ], [ %conv, %if.then7 ], [ %conv15, %if.then14 ], [ %call28, %if.then25 ], [ %call108, %if.then107 ], [ 0, %lor.lhs.false ], [ -22, %if.then37 ], [ -12, %if.end87 ], [ %ret.1, %if.end250 ], [ %ret.0, %if.then43 ], [ %32, %if.end122 ], [ %call.i157, %for.cond.backedge.thread ], [ %ret.0, %land.rhs ], [ %ret.0, %while.body52 ], [ 0, %if.end131 ], [ %.pr240, %for.cond.backedge ]
+  %ret.0 = phi i32 [ 0, %bdrv_filter_bs.exit ], [ %conv, %if.then7 ], [ %conv15, %if.then14 ], [ %call28, %if.then25 ], [ %call108, %if.then107 ], [ 0, %lor.lhs.false ], [ -22, %if.then37 ], [ -12, %if.end87 ], [ %ret.2, %if.end250 ], [ %ret.1, %if.then43 ], [ %32, %if.end122 ], [ %call.i157, %for.cond.backedge.thread ], [ %ret.1, %land.rhs ], [ %ret.1, %while.body52 ], [ 0, %if.end131 ], [ %.pr240, %for.cond.backedge ]
   %need_drain.0 = phi i1 [ true, %bdrv_filter_bs.exit ], [ true, %if.then7 ], [ true, %if.then14 ], [ true, %if.then25 ], [ true, %if.then107 ], [ true, %lor.lhs.false ], [ true, %if.then37 ], [ true, %if.end87 ], [ false, %if.end250 ], [ true, %if.then43 ], [ true, %if.end122 ], [ true, %for.cond.backedge.thread ], [ true, %land.rhs ], [ true, %while.body52 ], [ true, %if.end131 ], [ true, %for.cond.backedge ]
   %in_flight284 = getelementptr inbounds i8, ptr %job, i64 704
   %80 = load i32, ptr %in_flight284, align 8
@@ -2262,7 +2262,7 @@ immediate_exit:                                   ; preds = %for.cond.backedge, 
   br i1 %cmp285.not, label %if.end308, label %if.then287
 
 if.then287:                                       ; preds = %immediate_exit
-  %cmp288 = icmp slt i32 %ret.2, 0
+  %cmp288 = icmp slt i32 %ret.0, 0
   br i1 %cmp288, label %if.end297, label %lor.lhs.false290
 
 lor.lhs.false290:                                 ; preds = %if.then287
@@ -2352,7 +2352,7 @@ if.then314:                                       ; preds = %if.end308
   br label %if.end316
 
 if.end316:                                        ; preds = %if.then314, %if.end308
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

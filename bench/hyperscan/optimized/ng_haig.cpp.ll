@@ -3138,7 +3138,7 @@ _ZNSt12_Vector_baseIN3ue28bitfieldILm256EEESaIS2_EE13_M_deallocateEPS2_m.exit29.
   br label %invoke.cont199.i.i
 
 invoke.cont199.i.i:                               ; preds = %_ZNSt12_Vector_baseIN3ue28bitfieldILm256EEESaIS2_EE13_M_deallocateEPS2_m.exit29.i.i.i, %invoke.cont195.i.i
-  %nfa_state_map.sroa.0.0.i = phi ptr [ %call5.i.i.i.i.i203.i, %_ZNSt12_Vector_baseIN3ue28bitfieldILm256EEESaIS2_EE13_M_deallocateEPS2_m.exit29.i.i.i ], [ null, %invoke.cont195.i.i ]
+  %nfa_state_map.sroa.0.7.i = phi ptr [ %call5.i.i.i.i.i203.i, %_ZNSt12_Vector_baseIN3ue28bitfieldILm256EEESaIS2_EE13_M_deallocateEPS2_m.exit29.i.i.i ], [ null, %invoke.cont195.i.i ]
   %300 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %cmp.i346.not446.i.i = icmp eq ptr %300, null
   br i1 %cmp.i346.not446.i.i, label %cleanup.i.i, label %for.body208.i.i
@@ -3149,14 +3149,14 @@ for.body208.i.i:                                  ; preds = %invoke.cont199.i.i,
   %second212.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0447.i.i, i64 40
   %301 = load i16, ptr %second212.i.i, align 8
   %conv213.i.i = zext i16 %301 to i64
-  %add.ptr.i348.i.i = getelementptr inbounds %"class.ue2::bitfield", ptr %nfa_state_map.sroa.0.0.i, i64 %conv213.i.i
+  %add.ptr.i348.i.i = getelementptr inbounds %"class.ue2::bitfield", ptr %nfa_state_map.sroa.0.7.i, i64 %conv213.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i348.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i347.i.i, i64 32, i1 false)
   %302 = load ptr, ptr %__begin0.sroa.0.0447.i.i, align 8
   %cmp.i346.not.i.i = icmp eq ptr %302, null
   br i1 %cmp.i346.not.i.i, label %cleanup.i.i, label %for.body208.i.i
 
 cleanup.i.i:                                      ; preds = %for.body208.i.i, %invoke.cont199.i.i, %invoke.cont.i.i337.i.i, %do.end185.i.i
-  %nfa_state_map.sroa.0.1.i = phi ptr [ %nfa_state_map.sroa.0.0.i, %invoke.cont199.i.i ], [ null, %do.end185.i.i ], [ null, %invoke.cont.i.i337.i.i ], [ %nfa_state_map.sroa.0.0.i, %for.body208.i.i ]
+  %nfa_state_map.sroa.0.4.i = phi ptr [ %nfa_state_map.sroa.0.7.i, %invoke.cont199.i.i ], [ null, %do.end185.i.i ], [ null, %invoke.cont.i.i337.i.i ], [ %nfa_state_map.sroa.0.7.i, %for.body208.i.i ]
   %cmp.i.i.i436.i.i = phi i1 [ true, %invoke.cont199.i.i ], [ false, %do.end185.i.i ], [ false, %invoke.cont.i.i337.i.i ], [ true, %for.body208.i.i ]
   %tobool.not.i.i.i349.i.i = icmp eq ptr %succs.sroa.0.0.i.i, null
   br i1 %tobool.not.i.i.i349.i.i, label %_ZNSt6vectorIN3ue28bitfieldILm256EEESaIS2_EED2Ev.exit352.i.i, label %if.then.i.i.i.i71.i
@@ -3294,7 +3294,7 @@ lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont35.i
   br label %ehcleanup48.i
 
 lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %for.end.i, %if.then4.i.i, %if.then.i.invoke.i, %catch.i
-  %nfa_state_map.sroa.0.2.ph.ph.ph.i = phi ptr [ %nfa_state_map.sroa.0.1.i, %if.then4.i.i ], [ %nfa_state_map.sroa.0.1.i, %for.end.i ], [ null, %catch.i ], [ %nfa_state_map.sroa.0.1.i, %if.then.i.invoke.i ]
+  %nfa_state_map.sroa.0.3.ph.ph.ph.i = phi ptr [ %nfa_state_map.sroa.0.4.i, %if.then4.i.i ], [ %nfa_state_map.sroa.0.4.i, %for.end.i ], [ null, %catch.i ], [ %nfa_state_map.sroa.0.4.i, %if.then.i.invoke.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48.i
@@ -3455,7 +3455,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont17.i
 
 invoke.cont22.i:                                  ; preds = %if.else.i.i.i, %.noexc133.i
   call void @_ZN3ue210dstate_somD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i) #21
-  %add.ptr.i135.i = getelementptr inbounds %"class.ue2::bitfield", ptr %nfa_state_map.sroa.0.1.i, i64 %conv13311.i
+  %add.ptr.i135.i = getelementptr inbounds %"class.ue2::bitfield", ptr %nfa_state_map.sroa.0.4.i, i64 %conv13311.i
   %336 = load <4 x i64>, ptr %add.ptr.i135.i, align 8
   %337 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %336)
   %338 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %337)
@@ -3464,7 +3464,7 @@ invoke.cont22.i:                                  ; preds = %if.else.i.i.i, %.no
 
 if.then.i.i.i178.i.thread:                        ; preds = %invoke.cont22.i
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.1.i) #23
+  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.4.i) #23
   call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
   br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
@@ -3718,16 +3718,16 @@ for.end.i:                                        ; preds = %for.inc.i, %_ZNSt6v
 
 cleanup.i:                                        ; preds = %for.end.i
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #21
-  %tobool.not.i.i.i177.i = icmp eq ptr %nfa_state_map.sroa.0.1.i, null
+  %tobool.not.i.i.i177.i = icmp eq ptr %nfa_state_map.sroa.0.4.i, null
   br i1 %tobool.not.i.i.i177.i, label %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit, label %if.then.i.i.i178.i
 
 cleanup.i.thread:                                 ; preds = %invoke.cont2.i
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #21
-  %tobool.not.i.i.i177.i150 = icmp eq ptr %nfa_state_map.sroa.0.1.i, null
+  %tobool.not.i.i.i177.i150 = icmp eq ptr %nfa_state_map.sroa.0.4.i, null
   br i1 %tobool.not.i.i.i177.i150, label %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread151, label %if.then.i.i.i178.i.thread152
 
 if.then.i.i.i178.i.thread152:                     ; preds = %cleanup.i.thread
-  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.1.i) #23
+  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.4.i) #23
   call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
   br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
@@ -3738,7 +3738,7 @@ _ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typ
   br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
 
 if.then.i.i.i178.i:                               ; preds = %cleanup.i
-  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.1.i) #23
+  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.4.i) #23
   call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
   br i1 %cmp.i.i.i436.i.i, label %cleanup.thread, label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
@@ -3748,16 +3748,16 @@ ehcleanup48.thread.i:                             ; preds = %if.then.i.i.i.i4.i.
   br label %if.then.i.i.i181.i
 
 ehcleanup48.i:                                    ; preds = %lpad18.i, %lpad.i125.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad6.loopexit.split-lp.loopexit.i, %lpad6.loopexit.i
-  %nfa_state_map.sroa.0.6.i = phi ptr [ %nfa_state_map.sroa.0.1.i, %lpad18.i ], [ %nfa_state_map.sroa.0.1.i, %lpad.i125.i ], [ %nfa_state_map.sroa.0.1.i, %lpad6.loopexit.i ], [ %nfa_state_map.sroa.0.1.i, %lpad6.loopexit.split-lp.loopexit.i ], [ %nfa_state_map.sroa.0.1.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %nfa_state_map.sroa.0.2.ph.ph.ph.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %nfa_state_map.sroa.0.2.i = phi ptr [ %nfa_state_map.sroa.0.4.i, %lpad18.i ], [ %nfa_state_map.sroa.0.4.i, %lpad.i125.i ], [ %nfa_state_map.sroa.0.4.i, %lpad6.loopexit.i ], [ %nfa_state_map.sroa.0.4.i, %lpad6.loopexit.split-lp.loopexit.i ], [ %nfa_state_map.sroa.0.4.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %nfa_state_map.sroa.0.3.ph.ph.ph.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   %eh.lpad-body128.pn.i = phi { ptr, i32 } [ %339, %lpad18.i ], [ %332, %lpad.i125.i ], [ %lpad.loopexit.i, %lpad6.loopexit.i ], [ %lpad.loopexit230.i, %lpad6.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit235.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #21
-  %tobool.not.i.i.i180.i = icmp eq ptr %nfa_state_map.sroa.0.6.i, null
+  %tobool.not.i.i.i180.i = icmp eq ptr %nfa_state_map.sroa.0.2.i, null
   br i1 %tobool.not.i.i.i180.i, label %_ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit, label %if.then.i.i.i181.i
 
 if.then.i.i.i181.i:                               ; preds = %ehcleanup48.i, %ehcleanup48.thread.i
   %eh.lpad-body128.pn378.i = phi { ptr, i32 } [ %346, %ehcleanup48.thread.i ], [ %eh.lpad-body128.pn.i, %ehcleanup48.i ]
-  %nfa_state_map.sroa.0.6377.i = phi ptr [ %nfa_state_map.sroa.0.1.i, %ehcleanup48.thread.i ], [ %nfa_state_map.sroa.0.6.i, %ehcleanup48.i ]
-  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.6377.i) #23
+  %nfa_state_map.sroa.0.2377.i = phi ptr [ %nfa_state_map.sroa.0.4.i, %ehcleanup48.thread.i ], [ %nfa_state_map.sroa.0.2.i, %ehcleanup48.i ]
+  call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.2377.i) #23
   br label %_ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit
 
 _ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit: ; preds = %cleanup.i
@@ -9453,17 +9453,17 @@ _ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EED2Ev.exit: ; preds = %invok
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad18, %lpad6.body, %ehcleanup231.i
-  %ehselector.slot.0 = phi i32 [ %534, %lpad6.body ], [ %568, %lpad18 ], [ %527, %ehcleanup231.i ]
-  %exn.slot.0 = phi ptr [ %533, %lpad6.body ], [ %567, %lpad18 ], [ %526, %ehcleanup231.i ]
+  %ehselector.slot.1 = phi i32 [ %534, %lpad6.body ], [ %568, %lpad18 ], [ %527, %ehcleanup231.i ]
+  %exn.slot.1 = phi ptr [ %533, %lpad6.body ], [ %567, %lpad18 ], [ %526, %ehcleanup231.i ]
   call fastcc void @_ZN3ue212_GLOBAL__N_113Automaton_BigD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n) #21
   br label %ehcleanup47
 
 ehcleanup47:                                      ; preds = %ehcleanup, %lpad.body
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %531, %lpad.body ]
-  %exn.slot.1 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %530, %lpad.body ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup ], [ %531, %lpad.body ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup ], [ %530, %lpad.body ]
   call void @_ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nfa_state_map) #21
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val50 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val50 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val50
 }
 
@@ -13250,14 +13250,14 @@ for.inc24.i:                                      ; preds = %for.inc24.loopexit.
 
 cleanupthread-pre-split:                          ; preds = %invoke.cont82, %for.inc24.i, %for.end104
   %storemerge = phi ptr [ %call.i23, %for.end104 ], [ %call.i23, %for.inc24.i ], [ null, %invoke.cont82 ]
-  %rdfa.sroa.0.0.ph = phi ptr [ null, %for.end104 ], [ null, %for.inc24.i ], [ %call.i23, %invoke.cont82 ]
+  %rdfa.sroa.0.1.ph = phi ptr [ null, %for.end104 ], [ null, %for.inc24.i ], [ %call.i23, %invoke.cont82 ]
   store ptr %storemerge, ptr %agg.result, align 8
   %.pr = load ptr, ptr %per_dfa_adj, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %if.then51
   %461 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %cond.i10.i.i548, %if.then51 ]
-  %rdfa.sroa.0.0 = phi ptr [ %rdfa.sroa.0.0.ph, %cleanupthread-pre-split ], [ %call.i23, %if.then51 ]
+  %rdfa.sroa.0.1 = phi ptr [ %rdfa.sroa.0.1.ph, %cleanupthread-pre-split ], [ %call.i23, %if.then51 ]
   %tobool.not.i.i.i289 = icmp eq ptr %461, null
   br i1 %tobool.not.i.i.i289, label %cleanup110, label %if.then.i.i.i290
 
@@ -13281,15 +13281,15 @@ if.then.i.i.i293:                                 ; preds = %ehcleanup
   br label %_ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit312
 
 cleanup110:                                       ; preds = %if.then.i.i.i290, %cleanup
-  %cmp.not.i295 = icmp eq ptr %rdfa.sroa.0.0, null
+  %cmp.not.i295 = icmp eq ptr %rdfa.sroa.0.1, null
   br i1 %cmp.not.i295, label %_ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i: ; preds = %cleanup110.thread, %cleanup110
-  %rdfa.sroa.0.1477 = phi ptr [ %call.i23, %cleanup110.thread ], [ %rdfa.sroa.0.0, %cleanup110 ]
-  %vtable.i.i = load ptr, ptr %rdfa.sroa.0.1477, align 8
+  %rdfa.sroa.0.0477 = phi ptr [ %call.i23, %cleanup110.thread ], [ %rdfa.sroa.0.1, %cleanup110 ]
+  %vtable.i.i = load ptr, ptr %rdfa.sroa.0.0477, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %463 = load ptr, ptr %vfn.i.i, align 8
-  call void %463(ptr noundef nonnull align 8 dereferenceable(644) %rdfa.sroa.0.1477) #21
+  call void %463(ptr noundef nonnull align 8 dereferenceable(644) %rdfa.sroa.0.0477) #21
   br label %_ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3ue211raw_som_dfaESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup110, %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i

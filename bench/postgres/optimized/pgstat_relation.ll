@@ -360,44 +360,44 @@ define dso_local void @pgstat_report_analyze(ptr noundef %0, i64 noundef %1, i64
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.047 = phi ptr [ %.0, %.lr.ph ], [ %.043, %34 ]
-  %.03446 = phi i64 [ %40, %.lr.ph ], [ %1, %34 ]
-  %.03545 = phi i64 [ %44, %.lr.ph ], [ %2, %34 ]
+  %.146 = phi i64 [ %40, %.lr.ph ], [ %1, %34 ]
+  %.13645 = phi i64 [ %44, %.lr.ph ], [ %2, %34 ]
   %37 = load i64, ptr %.047, align 8
   %38 = getelementptr inbounds i8, ptr %.047, i64 16
   %39 = load i64, ptr %38, align 8
-  %.neg = sub i64 %.03446, %37
+  %.neg = sub i64 %.146, %37
   %40 = add i64 %.neg, %39
   %41 = getelementptr inbounds i8, ptr %.047, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %39, %42
-  %44 = sub i64 %.03545, %43
+  %44 = sub i64 %.13645, %43
   %45 = getelementptr inbounds i8, ptr %.047, i64 64
   %.0 = load ptr, ptr %45, align 8
   %.not38 = icmp eq ptr %.0, null
   br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
-  %.035.lcssa = phi i64 [ %2, %34 ], [ %44, %.lr.ph ]
-  %.034.lcssa = phi i64 [ %1, %34 ], [ %40, %.lr.ph ]
+  %.136.lcssa = phi i64 [ %2, %34 ], [ %44, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %1, %34 ], [ %40, %.lr.ph ]
   %46 = getelementptr inbounds i8, ptr %35, i64 96
   %47 = load i64, ptr %46, align 8
-  %48 = sub i64 %.035.lcssa, %47
-  %49 = tail call i64 @llvm.smax.i64(i64 %.034.lcssa, i64 0)
+  %48 = sub i64 %.136.lcssa, %47
+  %49 = tail call i64 @llvm.smax.i64(i64 %.1.lcssa, i64 0)
   %50 = tail call i64 @llvm.smax.i64(i64 %48, i64 0)
   br label %51
 
 51:                                               ; preds = %17, %._crit_edge, %30
-  %.136 = phi i64 [ %50, %._crit_edge ], [ %2, %30 ], [ %2, %17 ]
-  %.1 = phi i64 [ %49, %._crit_edge ], [ %1, %30 ], [ %1, %17 ]
+  %.035 = phi i64 [ %50, %._crit_edge ], [ %2, %30 ], [ %2, %17 ]
+  %.034 = phi i64 [ %49, %._crit_edge ], [ %1, %30 ], [ %1, %17 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 72
   %53 = load i32, ptr %52, align 8
   %54 = tail call ptr @pgstat_get_entry_ref_locked(i32 noundef 2, i32 noundef %11, i32 noundef %53, i1 noundef zeroext false) #9
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 96
-  store i64 %.1, ptr %57, align 8
+  store i64 %.034, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 104
-  store i64 %.136, ptr %58, align 8
+  store i64 %.035, ptr %58, align 8
   br i1 %3, label %59, label %61
 
 59:                                               ; preds = %51

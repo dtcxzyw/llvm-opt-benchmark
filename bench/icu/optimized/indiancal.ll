@@ -254,12 +254,12 @@ if.else5.i:                                       ; preds = %if.end.i
   %mul17.i = add i32 %4, -210
   %conv18.i = uitofp nneg i32 %mul17.i to double
   %add19.i = fadd double %add13.i, %conv18.i
-  %jd.0.i = select i1 %cmp14.i, double %add19.i, double %add13.i
+  %jd.1.i = select i1 %cmp14.i, double %add19.i, double %add13.i
   br label %_ZN6icu_75L10IndianToJDEiii.exit
 
 _ZN6icu_75L10IndianToJDEiii.exit:                 ; preds = %if.end.i, %if.else5.i
-  %jd.1.i = phi double [ %jd.0.i, %if.else5.i ], [ %start.0.i, %if.end.i ]
-  %conv = fptosi double %jd.1.i to i32
+  %jd.0.i = phi double [ %jd.1.i, %if.else5.i ], [ %start.0.i, %if.end.i ]
+  %conv = fptosi double %jd.0.i to i32
   ret i32 %conv
 }
 

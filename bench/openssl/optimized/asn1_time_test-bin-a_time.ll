@@ -400,15 +400,15 @@ while.end:                                        ; preds = %land.rhs
   br i1 %or.cond111, label %return, label %if.end158
 
 if.end158:                                        ; preds = %while.end, %land.lhs.true127, %for.end
-  %o.2 = phi i32 [ %o.0.lcssa, %land.lhs.true127 ], [ %o.0.lcssa, %for.end ], [ %30, %while.end ]
-  %idxprom159 = sext i32 %o.2 to i64
+  %o.1 = phi i32 [ %o.0.lcssa, %land.lhs.true127 ], [ %o.0.lcssa, %for.end ], [ %30, %while.end ]
+  %idxprom159 = sext i32 %o.1 to i64
   %arrayidx160 = getelementptr inbounds i8, ptr %4, i64 %idxprom159
   %31 = load i8, ptr %arrayidx160, align 1
   %cmp162 = icmp eq i8 %31, 90
   br i1 %cmp162, label %if.then164, label %if.else166
 
 if.then164:                                       ; preds = %if.end158
-  %inc165 = add nsw i32 %o.2, 1
+  %inc165 = add nsw i32 %o.1, 1
   br label %if.end273
 
 if.else166:                                       ; preds = %if.end158
@@ -422,22 +422,22 @@ land.lhs.true168:                                 ; preds = %if.else166
 
 if.then180:                                       ; preds = %land.lhs.true168, %land.lhs.true168
   %cmp184 = icmp eq i8 %31, 45
-  %add188 = add nsw i32 %o.2, 5
+  %add188 = add nsw i32 %o.1, 5
   %cmp189.not = icmp eq i32 %add188, %3
   br i1 %cmp189.not, label %for.cond193.preheader, label %return
 
 for.cond193.preheader:                            ; preds = %if.then180
   %add194 = add nuw nsw i32 %end.0, 2
-  %o.3123 = add nsw i32 %o.2, 1
+  %o.4123 = add nsw i32 %o.1, 1
   %cmp242.not = icmp eq ptr %tm, null
   %add250 = add nuw nsw i32 %end.0, 1
   br i1 %cmp242.not, label %for.body197.us, label %for.body197
 
 for.body197.us:                                   ; preds = %for.cond193.preheader, %if.end241.us
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %if.end241.us ], [ %idxprom159, %for.cond193.preheader ]
-  %o.3127.us = phi i32 [ %o.3.reass.us, %if.end241.us ], [ %o.3123, %for.cond193.preheader ]
+  %o.4127.us = phi i32 [ %o.4.reass.us, %if.end241.us ], [ %o.4123, %for.cond193.preheader ]
   %i.1125.us = phi i32 [ %add227.us, %if.end241.us ], [ %end.0, %for.cond193.preheader ]
-  %idxprom198.us = sext i32 %o.3127.us to i64
+  %idxprom198.us = sext i32 %o.4127.us to i64
   %arrayidx199.us = getelementptr inbounds i8, ptr %4, i64 %idxprom198.us
   %32 = load i8, ptr %arrayidx199.us, align 1
   %conv200.us = sext i8 %32 to i32
@@ -480,16 +480,16 @@ lor.lhs.false235.us:                              ; preds = %if.end216.us
 
 if.end241.us:                                     ; preds = %lor.lhs.false235.us
   %40 = trunc nsw i64 %indvars.iv142 to i32
-  %o.3.reass.us = add i32 %40, 3
+  %o.4.reass.us = add i32 %40, 3
   %exitcond145.not = icmp eq i32 %add227.us, %add194
   br i1 %exitcond145.not, label %if.end273, label %for.body197.us, !llvm.loop !8
 
 for.body197:                                      ; preds = %for.cond193.preheader, %if.end258
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %if.end258 ], [ %idxprom159, %for.cond193.preheader ]
-  %o.3127 = phi i32 [ %o.3.reass, %if.end258 ], [ %o.3123, %for.cond193.preheader ]
+  %o.4127 = phi i32 [ %o.4.reass, %if.end258 ], [ %o.4123, %for.cond193.preheader ]
   %offset.0126 = phi i32 [ %offset.1, %if.end258 ], [ 0, %for.cond193.preheader ]
   %i.1125 = phi i32 [ %add227, %if.end258 ], [ %end.0, %for.cond193.preheader ]
-  %idxprom198 = sext i32 %o.3127 to i64
+  %idxprom198 = sext i32 %o.4127 to i64
   %arrayidx199 = getelementptr inbounds i8, ptr %4, i64 %idxprom198
   %41 = load i8, ptr %arrayidx199, align 1
   %conv200 = sext i8 %41 to i32
@@ -550,7 +550,7 @@ if.then253:                                       ; preds = %if.else249
 if.end258:                                        ; preds = %if.then247, %if.then253, %if.else249
   %offset.1 = phi i32 [ %mul248, %if.then247 ], [ %add255, %if.then253 ], [ %offset.0126, %if.else249 ]
   %49 = trunc nsw i64 %indvars.iv138 to i32
-  %o.3.reass = add i32 %49, 3
+  %o.4.reass = add i32 %49, 3
   %exitcond141.not = icmp eq i32 %add227, %add194
   br i1 %exitcond141.not, label %for.end262, label %for.body197, !llvm.loop !8
 
@@ -567,8 +567,8 @@ land.lhs.true264:                                 ; preds = %for.end262
   br i1 %tobool268.not, label %return, label %if.end273
 
 if.end273:                                        ; preds = %if.end241.us, %land.lhs.true264, %for.end262, %if.then164
-  %o.4 = phi i32 [ %inc165, %if.then164 ], [ %o.3.reass, %land.lhs.true264 ], [ %o.3.reass, %for.end262 ], [ %o.3.reass.us, %if.end241.us ]
-  %cmp274 = icmp eq i32 %o.4, %3
+  %o.3 = phi i32 [ %inc165, %if.then164 ], [ %o.4.reass, %land.lhs.true264 ], [ %o.4.reass, %for.end262 ], [ %o.4.reass.us, %if.end241.us ]
+  %cmp274 = icmp eq i32 %o.3, %3
   br i1 %cmp274, label %if.then276, label %return
 
 if.then276:                                       ; preds = %if.end273
@@ -630,15 +630,15 @@ if.end20:                                         ; preds = %if.end15
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end15, %if.end20
-  %tmps.034 = phi ptr [ %call18, %if.end20 ], [ %s, %if.end15 ]
-  %call24 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %tmps.034, ptr noundef null, i32 noundef 20) #9
+  %tmps.134 = phi ptr [ %call18, %if.end20 ], [ %s, %if.end15 ]
+  %call24 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %tmps.134, ptr noundef null, i32 noundef 20) #9
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end23
-  %type28 = getelementptr inbounds i8, ptr %tmps.034, i64 4
+  %type28 = getelementptr inbounds i8, ptr %tmps.134, i64 4
   store i32 %type.addr.0, ptr %type28, align 4
-  %data = getelementptr inbounds i8, ptr %tmps.034, i64 8
+  %data = getelementptr inbounds i8, ptr %tmps.134, i64 8
   %4 = load ptr, ptr %data, align 8
   %tm_year31 = getelementptr inbounds i8, ptr %ts, i64 20
   %5 = load i32, ptr %tm_year31, align 4
@@ -666,20 +666,20 @@ if.else34:                                        ; preds = %if.end27
 
 if.end44:                                         ; preds = %if.else34, %if.then30
   %storemerge = phi i32 [ %call42, %if.else34 ], [ %call33, %if.then30 ]
-  store i32 %storemerge, ptr %tmps.034, align 8
+  store i32 %storemerge, ptr %tmps.134, align 8
   br label %return
 
 err:                                              ; preds = %entry, %if.end23, %if.then4
-  %tmps.1 = phi ptr [ %tmps.034, %if.end23 ], [ null, %if.then4 ], [ null, %entry ]
-  %cmp45.not = icmp eq ptr %tmps.1, %s
+  %tmps.0 = phi ptr [ %tmps.134, %if.end23 ], [ null, %if.then4 ], [ null, %entry ]
+  %cmp45.not = icmp eq ptr %tmps.0, %s
   br i1 %cmp45.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %err
-  tail call void @ASN1_STRING_free(ptr noundef %tmps.1) #9
+  tail call void @ASN1_STRING_free(ptr noundef %tmps.0) #9
   br label %return
 
 return:                                           ; preds = %err, %if.then46, %if.end20, %if.end44
-  %retval.0 = phi ptr [ %tmps.034, %if.end44 ], [ null, %if.end20 ], [ null, %if.then46 ], [ null, %err ]
+  %retval.0 = phi ptr [ %tmps.134, %if.end44 ], [ null, %if.end20 ], [ null, %if.then46 ], [ null, %err ]
   ret ptr %retval.0
 }
 
@@ -834,23 +834,23 @@ if.end20.i:                                       ; preds = %if.end, %if.end2
 
 if.end23.i:                                       ; preds = %if.end20.i, %if.end2
   %ret.010 = phi ptr [ null, %if.end20.i ], [ %0, %if.end2 ]
-  %tmps.034.i = phi ptr [ %call18.i, %if.end20.i ], [ %0, %if.end2 ]
-  %call24.i = call i32 @ASN1_STRING_set(ptr noundef nonnull %tmps.034.i, ptr noundef null, i32 noundef 20) #9
+  %tmps.134.i = phi ptr [ %call18.i, %if.end20.i ], [ %0, %if.end2 ]
+  %call24.i = call i32 @ASN1_STRING_set(ptr noundef nonnull %tmps.134.i, ptr noundef null, i32 noundef 20) #9
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %err.i, label %ossl_asn1_time_from_tm.exit
 
 err.i:                                            ; preds = %if.end23.i
-  %cmp45.not.i = icmp eq ptr %tmps.034.i, %ret.010
+  %cmp45.not.i = icmp eq ptr %tmps.134.i, %ret.010
   br i1 %cmp45.not.i, label %return, label %if.then46.i
 
 if.then46.i:                                      ; preds = %err.i
-  call void @ASN1_STRING_free(ptr noundef nonnull %tmps.034.i) #9
+  call void @ASN1_STRING_free(ptr noundef nonnull %tmps.134.i) #9
   br label %return
 
 ossl_asn1_time_from_tm.exit:                      ; preds = %if.end23.i
-  %type28.i = getelementptr inbounds i8, ptr %tmps.034.i, i64 4
+  %type28.i = getelementptr inbounds i8, ptr %tmps.134.i, i64 4
   store i32 24, ptr %type28.i, align 4
-  %data.i = getelementptr inbounds i8, ptr %tmps.034.i, i64 8
+  %data.i = getelementptr inbounds i8, ptr %tmps.134.i, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %tm_year31.i = getelementptr inbounds i8, ptr %tm, i64 20
   %2 = load i32, ptr %tm_year31.i, align 4
@@ -866,15 +866,15 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %if.end23.i
   %7 = load i32, ptr %tm, align 8
   %add.i = add nsw i32 %2, 1900
   %call33.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %1, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %add.i, i32 noundef %add32.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #9
-  store i32 %call33.i, ptr %tmps.034.i, align 8
+  store i32 %call33.i, ptr %tmps.134.i, align 8
   br i1 %cmp.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %ossl_asn1_time_from_tm.exit
-  store ptr %tmps.034.i, ptr %out, align 8
+  store ptr %tmps.134.i, ptr %out, align 8
   br label %return
 
 return:                                           ; preds = %err.i, %if.then46.i, %if.end20.i, %ossl_asn1_time_from_tm.exit, %if.then6, %ASN1_TIME_to_tm.exit
-  %retval.0 = phi ptr [ null, %ASN1_TIME_to_tm.exit ], [ %tmps.034.i, %if.then6 ], [ %tmps.034.i, %ossl_asn1_time_from_tm.exit ], [ null, %if.end20.i ], [ null, %if.then46.i ], [ null, %err.i ]
+  %retval.0 = phi ptr [ null, %ASN1_TIME_to_tm.exit ], [ %tmps.134.i, %if.then6 ], [ %tmps.134.i, %ossl_asn1_time_from_tm.exit ], [ null, %if.end20.i ], [ null, %if.then46.i ], [ null, %err.i ]
   ret ptr %retval.0
 }
 
@@ -997,7 +997,7 @@ if.then39:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %lor.lhs.false
-  %rv.0 = phi i32 [ 1, %if.then39 ], [ 0, %lor.lhs.false ]
+  %rv.1 = phi i32 [ 1, %if.then39 ], [ 0, %lor.lhs.false ]
   %5 = load ptr, ptr %data, align 8
   %cmp42.not = icmp eq ptr %5, %str
   br i1 %cmp42.not, label %out, label %if.then44
@@ -1007,8 +1007,8 @@ if.then44:                                        ; preds = %if.end40
   br label %out
 
 out:                                              ; preds = %if.end40, %if.then44, %if.then18, %if.then11, %ASN1_TIME_check.exit12
-  %rv.1 = phi i32 [ 0, %if.then18 ], [ %rv.0, %if.then44 ], [ %rv.0, %if.end40 ], [ 0, %if.then11 ], [ 0, %ASN1_TIME_check.exit12 ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ 0, %if.then18 ], [ %rv.1, %if.then44 ], [ %rv.1, %if.end40 ], [ 0, %if.then11 ], [ 0, %ASN1_TIME_check.exit12 ]
+  ret i32 %rv.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1167,7 +1167,7 @@ if.end25.loopexit.split.loop.exit:                ; preds = %land.rhs
 
 if.end25:                                         ; preds = %while.body, %if.end25.loopexit.split.loop.exit, %land.lhs.true, %if.then8
   %f.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.then8 ], [ %arrayidx12, %if.end25.loopexit.split.loop.exit ], [ %arrayidx12, %while.body ]
-  %f_len.1 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then8 ], [ %9, %if.end25.loopexit.split.loop.exit ], [ %7, %while.body ]
+  %f_len.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then8 ], [ %9, %if.end25.loopexit.split.loop.exit ], [ %7, %while.body ]
   %and = and i64 %flags, 15
   %cmp26 = icmp eq i64 %and, 1
   br i1 %cmp26, label %if.then28, label %if.else
@@ -1187,7 +1187,7 @@ if.then28:                                        ; preds = %if.end25
   %14 = load i32, ptr %tm_min, align 4
   %15 = load i32, ptr %stm, align 8
   %cond32 = select i1 %cmp.not.not.not.not, ptr @.str.6, ptr @.str.7
-  %call33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.5, i32 noundef %add29, i32 noundef %add30, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %f_len.1, ptr noundef %f.0, ptr noundef nonnull %cond32) #9
+  %call33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.5, i32 noundef %add29, i32 noundef %add30, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %f_len.0, ptr noundef %f.0, ptr noundef nonnull %cond32) #9
   %cmp34 = icmp sgt i32 %call33, 0
   %conv35 = zext i1 %cmp34 to i32
   br label %return
@@ -1208,7 +1208,7 @@ if.else:                                          ; preds = %if.end25
   %21 = load i32, ptr %tm_year43, align 4
   %add44 = add nsw i32 %21, 1900
   %cond46 = select i1 %cmp.not.not.not.not, ptr @.str.9, ptr @.str.7
-  %call47 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, ptr noundef nonnull %arrayidx38, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %f_len.1, ptr noundef %f.0, i32 noundef %add44, ptr noundef nonnull %cond46) #9
+  %call47 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.8, ptr noundef nonnull %arrayidx38, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %f_len.0, ptr noundef %f.0, i32 noundef %add44, ptr noundef nonnull %cond46) #9
   %cmp48 = icmp sgt i32 %call47, 0
   %conv49 = zext i1 %cmp48 to i32
   br label %return

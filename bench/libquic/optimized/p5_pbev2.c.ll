@@ -227,16 +227,16 @@ if.end71:                                         ; preds = %if.end64
   br label %return
 
 merr:                                             ; preds = %if.end64, %if.end59, %if.end55, %if.end49, %if.end4, %if.end
-  %ret.0 = phi ptr [ %call56, %if.end64 ], [ %call56, %if.end59 ], [ null, %if.end55 ], [ null, %if.end49 ], [ null, %if.end4 ], [ null, %if.end ]
+  %ret.1 = phi ptr [ %call56, %if.end64 ], [ %call56, %if.end59 ], [ null, %if.end55 ], [ null, %if.end49 ], [ null, %if.end4 ], [ null, %if.end ]
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.2, i32 noundef 208) #4
   br label %err
 
 err:                                              ; preds = %if.end23, %if.else, %merr, %if.then
-  %ret.1 = phi ptr [ null, %if.then ], [ %ret.0, %merr ], [ null, %if.end23 ], [ null, %if.else ]
+  %ret.0 = phi ptr [ null, %if.then ], [ %ret.1, %merr ], [ null, %if.end23 ], [ null, %if.else ]
   %pbe2.0 = phi ptr [ null, %if.then ], [ %call.i, %merr ], [ %call.i, %if.end23 ], [ %call.i, %if.else ]
   call void @ASN1_item_free(ptr noundef %pbe2.0, ptr noundef nonnull @PBE2PARAM_it) #4
   call void @X509_ALGOR_free(ptr noundef null) #4
-  call void @X509_ALGOR_free(ptr noundef %ret.1) #4
+  call void @X509_ALGOR_free(ptr noundef %ret.0) #4
   br label %return
 
 return:                                           ; preds = %err, %if.end71

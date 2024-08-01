@@ -530,7 +530,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %79 = icmp ult i16 %72, 5
   %80 = add nuw nsw i32 %75, 4
   %spec.select.i.i = select i1 %79, i32 %80, i32 %75
-  %.029.i.i = select i1 %77, i32 %78, i32 %spec.select.i.i
+  %.1.i.i = select i1 %77, i32 %78, i32 %spec.select.i.i
   %81 = load i32, ptr @msg_class, align 4
   %or.cond.i.i = icmp ult i32 %81, 2
   %82 = icmp eq i32 %81, 9
@@ -539,14 +539,14 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %84 = icmp slt i32 %83, 11
   %or.cond5.i.i = select i1 %or.cond3.i.i, i1 %84, i1 false
   %85 = load i32, ptr @msg_length, align 4
-  %spec.select34.i.i = select i1 %or.cond5.i.i, i32 %85, i32 %.029.i.i
+  %spec.select34.i.i = select i1 %or.cond5.i.i, i32 %85, i32 %.1.i.i
   br label %86
 
 86:                                               ; preds = %76, %70
-  %.1.i.i = phi i32 [ %75, %70 ], [ %spec.select34.i.i, %76 ]
-  %87 = add i32 %.1.i.i, 3
+  %.029.i.i = phi i32 [ %75, %70 ], [ %spec.select34.i.i, %76 ]
+  %87 = add i32 %.029.i.i, 3
   %88 = and i32 %87, -4
-  %.not33.i.i = icmp slt i32 %71, %.1.i.i
+  %.not33.i.i = icmp slt i32 %71, %.029.i.i
   %89 = call i32 @llvm.smin.i32(i32 %88, i32 %71)
   %.030.i.i = select i1 %.not33.i.i, i32 %88, i32 %89
   %90 = call ptr @tvb_new_subset_length(ptr noundef %67, i32 noundef %.02.i.i, i32 noundef %.030.i.i) #4
@@ -561,8 +561,8 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
 
 95:                                               ; preds = %86
   %96 = icmp eq i16 %91, 1
-  %.0.v.i.i.i = select i1 %96, i16 8, i16 4
-  %.0.i.i.i = add i16 %.0.v.i.i.i, %92
+  %.1.v.i.i.i = select i1 %96, i16 8, i16 4
+  %.1.i.i.i = add i16 %.1.v.i.i.i, %92
   %97 = load i32, ptr @msg_class, align 4
   %or.cond4.i.i.i = icmp ult i32 %97, 2
   %98 = icmp eq i32 %97, 9
@@ -578,11 +578,11 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   br label %104
 
 104:                                              ; preds = %101, %95, %86
-  %.1.i.i.i = phi i16 [ %103, %101 ], [ %.0.i.i.i, %95 ], [ %92, %86 ]
+  %.0.i.i.i = phi i16 [ %103, %101 ], [ %.1.i.i.i, %95 ], [ %92, %86 ]
   %105 = call i32 @tvb_reported_length(ptr noundef %90) #4
-  %106 = zext i16 %.1.i.i.i to i32
+  %106 = zext i16 %.0.i.i.i to i32
   %107 = trunc i32 %105 to i16
-  %108 = sub i16 %107, %.1.i.i.i
+  %108 = sub i16 %107, %.0.i.i.i
   %109 = zext i16 %108 to i32
   %.b123.i.i.i = load i1, ptr @iua_version, align 4
   %110 = load i32, ptr @ett_v5ua_parameter, align 4
@@ -1056,7 +1056,7 @@ dissect_unknown_parameter.exit.i.i.i:             ; preds = %371, %366
   br label %dissect_release_reason_parameter.exit.i.i.i
 
 dissect_release_reason_parameter.exit.i.i.i:      ; preds = %dissect_unknown_parameter.exit.i.i.i, %360, %346, %339, %334, %328, %325, %322, %304, %290, %284, %278, %272, %263, %dissect_integer_range_interface_identifier_parameter.exit.i.i.i, %239, %237, %dissect_info_string_parameter.exit.i.i.i, %.thread130.i.i.i, %209, %200, %197, %194, %186, %173, %170, %162, %156, %118
-  %.not125.i.i.i = icmp eq i16 %.1.i.i.i, %107
+  %.not125.i.i.i = icmp eq i16 %.0.i.i.i, %107
   br i1 %.not125.i.i.i, label %dissect_parameter.exit.i.i, label %378
 
 378:                                              ; preds = %dissect_release_reason_parameter.exit.i.i.i

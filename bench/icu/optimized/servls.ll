@@ -452,9 +452,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -661,12 +661,12 @@ delete.notnull.i:                                 ; preds = %if.then9.i
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %delete.notnull.i, %invoke.cont6.i, %if.then5.i
-  %result.1.i = phi ptr [ null, %if.then5.i ], [ %call12.i, %delete.notnull.i ], [ null, %invoke.cont6.i ]
+  %result.0.i = phi ptr [ null, %if.then5.i ], [ %call12.i, %delete.notnull.i ], [ null, %invoke.cont6.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %locName.i) #12
   br label %_ZNK6icu_7516ICULocaleService3getERKNS_6LocaleEiPS1_R10UErrorCode.exit
 
 _ZNK6icu_7516ICULocaleService3getERKNS_6LocaleEiPS1_R10UErrorCode.exit: ; preds = %entry, %if.end31.i
-  %retval.0.i = phi ptr [ %result.1.i, %if.end31.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %result.0.i, %if.end31.i ], [ null, %entry ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %locName.i)
   ret ptr %retval.0.i
 }
@@ -751,7 +751,7 @@ if.end26:                                         ; preds = %invoke.cont22, %inv
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end26, %if.then10
-  %result.0 = phi ptr [ %call19, %if.end26 ], [ %call12, %if.then10 ]
+  %result.1 = phi ptr [ %call19, %if.end26 ], [ %call12, %if.then10 ]
   %vtable28 = load ptr, ptr %call7, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 8
   %7 = load ptr, ptr %vfn29, align 8
@@ -759,7 +759,7 @@ delete.notnull:                                   ; preds = %if.end26, %if.then1
   br label %if.end31
 
 if.end31:                                         ; preds = %invoke.cont6, %delete.notnull, %if.then5
-  %result.1 = phi ptr [ null, %if.then5 ], [ %result.0, %delete.notnull ], [ null, %invoke.cont6 ]
+  %result.0 = phi ptr [ null, %if.then5 ], [ %result.1, %delete.notnull ], [ null, %invoke.cont6 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %locName) #12
   br label %return
 
@@ -769,7 +769,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %if.end31
-  %retval.0 = phi ptr [ %result.1, %if.end31 ], [ null, %entry ]
+  %retval.0 = phi ptr [ %result.0, %if.end31 ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -825,12 +825,12 @@ delete.notnull.i:                                 ; preds = %if.then9.i
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %delete.notnull.i, %invoke.cont6.i, %if.then5.i
-  %result.1.i = phi ptr [ null, %if.then5.i ], [ %call12.i, %delete.notnull.i ], [ null, %invoke.cont6.i ]
+  %result.0.i = phi ptr [ null, %if.then5.i ], [ %call12.i, %delete.notnull.i ], [ null, %invoke.cont6.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %locName.i) #12
   br label %_ZNK6icu_7516ICULocaleService3getERKNS_6LocaleEiPS1_R10UErrorCode.exit
 
 _ZNK6icu_7516ICULocaleService3getERKNS_6LocaleEiPS1_R10UErrorCode.exit: ; preds = %entry, %if.end31.i
-  %retval.0.i = phi ptr [ %result.1.i, %if.end31.i ], [ null, %entry ]
+  %retval.0.i = phi ptr [ %result.0.i, %if.end31.i ], [ null, %entry ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %locName.i)
   ret ptr %retval.0.i
 }

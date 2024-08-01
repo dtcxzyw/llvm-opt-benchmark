@@ -4375,13 +4375,13 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN6uucore6parser21shortcut_
   %66 = and i32 %.val10.i, 134217728
   %67 = icmp ne i32 %66, 0
   %.04.i.i = select i1 %65, i1 true, i1 %67
-  %.0.i14.i = zext i1 %.04.i.i to i8
+  %.1.i.i = zext i1 %.04.i.i to i8
   br label %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit.i
 
 _ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit.i: ; preds = %63, %42
-  %.1.i.i = phi i8 [ %.0.i14.i, %63 ], [ 2, %42 ]
+  %.0.i14.i = phi i8 [ %.1.i.i, %63 ], [ 2, %42 ]
   %68 = getelementptr inbounds i8, ptr %.val16, i64 211
-  store i8 %.1.i.i, ptr %68, align 1
+  store i8 %.0.i14.i, ptr %68, align 1
   store ptr %.val16, ptr %11, align 8, !noalias !631
   %69 = invoke noundef i8 @_ZN12clap_builder7builder7command7Command10color_help17h172a463d3b4aae3bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %0)
           to label %72 unwind label %70, !range !27

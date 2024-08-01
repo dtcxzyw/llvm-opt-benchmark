@@ -957,17 +957,17 @@ define dso_local void @SerializeUncommittedEnums(ptr nocapture noundef writeonly
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %7 = phi ptr [ %10, %.lr.ph ], [ %6, %5 ]
-  %.08 = phi ptr [ %9, %.lr.ph ], [ %0, %5 ]
+  %.18 = phi ptr [ %9, %.lr.ph ], [ %0, %5 ]
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr i8, ptr %.08, i64 4
-  store i32 %8, ptr %.08, align 4
+  %9 = getelementptr i8, ptr %.18, i64 4
+  store i32 %8, ptr %.18, align 4
   %10 = call ptr @hash_seq_search(ptr noundef nonnull %3) #10
   %.not6 = icmp eq ptr %10, null
   br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %2
-  %.1 = phi ptr [ %0, %2 ], [ %0, %5 ], [ %9, %.lr.ph ]
-  store i32 0, ptr %.1, align 4
+  %.0 = phi ptr [ %0, %2 ], [ %0, %5 ], [ %9, %.lr.ph ]
+  store i32 0, ptr %.0, align 4
   ret void
 }
 

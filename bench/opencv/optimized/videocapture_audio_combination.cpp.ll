@@ -491,7 +491,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc47, %136, 
 
 .loopexit70:                                      ; preds = %150, %118
   %.218 = phi i32 [ %.016, %118 ], [ %.117.lcssa, %150 ]
-  %.2 = phi i32 [ %.015.ph, %118 ], [ %146, %150 ]
+  %.1 = phi i32 [ %.015.ph, %118 ], [ %146, %150 ]
   %157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.8)
           to label %158 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -508,7 +508,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc47, %136, 
           to label %164 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 164:                                              ; preds = %162
-  %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %163, i32 noundef %.2)
+  %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %163, i32 noundef %.1)
           to label %166 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 166:                                              ; preds = %164
@@ -517,7 +517,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc47, %136, 
 
 168:                                              ; preds = %166, %51
   %.pr.i = phi ptr [ null, %51 ], [ %107, %166 ]
-  %.019 = phi i32 [ -1, %51 ], [ 0, %166 ]
+  %.120 = phi i32 [ -1, %51 ], [ 0, %166 ]
   %169 = load ptr, ptr %13, align 8
   %.not.i.i.i = icmp eq ptr %169, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %170
@@ -603,10 +603,10 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt
   br label %185
 
 184:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit, %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev.exit
-  %.120 = phi i32 [ %.019, %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev.exit ], [ 1, %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit ]
+  %.019 = phi i32 [ %.120, %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EED2Ev.exit ], [ 1, %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  ret i32 %.120
+  ret i32 %.019
 
 185:                                              ; preds = %183, %32
   %.pn39.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %183 ], [ %.pn34, %32 ]

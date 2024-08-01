@@ -484,9 +484,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2018,7 +2018,7 @@ if.end115:                                        ; preds = %invoke.cont84, %inv
   br i1 %cmp75, label %if.then76, label %if.else80, !llvm.loop !4
 
 cleanup:                                          ; preds = %if.then76, %invoke.cont53, %invoke.cont25, %invoke.cont18
-  %retval.0 = phi ptr [ %appendTo, %invoke.cont18 ], [ %appendTo, %invoke.cont25 ], [ %appendTo, %invoke.cont53 ], [ %call.i62, %if.then76 ]
+  %retval.1 = phi ptr [ %appendTo, %invoke.cont18 ], [ %appendTo, %invoke.cont25 ], [ %appendTo, %invoke.cont53 ], [ %call.i62, %if.then76 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %numberString) #15
   call void @_ZN6icu_756number4impl20UFormattedNumberDataD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %data) #15
   br label %return
@@ -2034,8 +2034,8 @@ ehcleanup117:                                     ; preds = %ehcleanup, %lpad
   br label %common.resume
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi ptr [ %call4, %if.then3 ], [ %retval.0, %cleanup ], [ %appendTo, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call4, %if.then3 ], [ %retval.1, %cleanup ], [ %appendTo, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2270,8 +2270,8 @@ invoke.cont10:                                    ; preds = %if.end8
 do.body:                                          ; preds = %if.end72, %invoke.cont10
   %6 = phi ptr [ %.pre, %invoke.cont10 ], [ %54, %if.end72 ]
   %partIndex.addr.1 = phi i32 [ %partIndex.addr.0, %invoke.cont10 ], [ %inc75, %if.end72 ]
-  %haveKeywordMatch.0 = phi i8 [ 0, %invoke.cont10 ], [ %haveKeywordMatch.2, %if.end72 ]
-  %msgStart.0 = phi i32 [ 0, %invoke.cont10 ], [ %msgStart.1, %if.end72 ]
+  %haveKeywordMatch.0 = phi i8 [ 0, %invoke.cont10 ], [ %haveKeywordMatch.1, %if.end72 ]
+  %msgStart.0 = phi i32 [ 0, %invoke.cont10 ], [ %msgStart.2, %if.end72 ]
   %inc11 = add nsw i32 %partIndex.addr.1, 1
   %idxprom.i35 = sext i32 %partIndex.addr.1 to i64
   %arrayidx.i36 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %6, i64 %idxprom.i35
@@ -2513,8 +2513,8 @@ invoke.cont65:                                    ; preds = %if.then.i.i.i79, %i
 if.end72:                                         ; preds = %invoke.cont28.if.end72_crit_edge, %invoke.cont65, %invoke.cont42, %if.else33, %invoke.cont56, %if.then39
   %idxprom.i.i107.pre-phi = phi i64 [ %.pre111, %invoke.cont28.if.end72_crit_edge ], [ %idxprom.i.i, %invoke.cont65 ], [ %idxprom.i.i, %invoke.cont42 ], [ %idxprom.i.i, %if.else33 ], [ %idxprom.i.i, %invoke.cont56 ], [ %idxprom.i.i, %if.then39 ]
   %partIndex.addr.2 = phi i32 [ %inc25, %invoke.cont28.if.end72_crit_edge ], [ %inc11, %invoke.cont65 ], [ %inc11, %invoke.cont42 ], [ %inc11, %if.else33 ], [ %inc11, %invoke.cont56 ], [ %inc11, %if.then39 ]
-  %haveKeywordMatch.2 = phi i8 [ %haveKeywordMatch.0, %invoke.cont28.if.end72_crit_edge ], [ %spec.select31, %invoke.cont65 ], [ %spec.select, %invoke.cont42 ], [ 1, %if.else33 ], [ 1, %invoke.cont56 ], [ 0, %if.then39 ]
-  %msgStart.1 = phi i32 [ %msgStart.0, %invoke.cont28.if.end72_crit_edge ], [ %spec.select32, %invoke.cont65 ], [ %inc11, %invoke.cont42 ], [ %msgStart.0, %if.else33 ], [ %msgStart.0, %invoke.cont56 ], [ %msgStart.0, %if.then39 ]
+  %haveKeywordMatch.1 = phi i8 [ %haveKeywordMatch.0, %invoke.cont28.if.end72_crit_edge ], [ %spec.select31, %invoke.cont65 ], [ %spec.select, %invoke.cont42 ], [ 1, %if.else33 ], [ 1, %invoke.cont56 ], [ 0, %if.then39 ]
+  %msgStart.2 = phi i32 [ %msgStart.0, %invoke.cont28.if.end72_crit_edge ], [ %spec.select32, %invoke.cont65 ], [ %inc11, %invoke.cont42 ], [ %msgStart.0, %if.else33 ], [ %msgStart.0, %invoke.cont56 ], [ %msgStart.0, %if.then39 ]
   %54 = load ptr, ptr %parts.i, align 8
   %limitPartIndex.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %54, i64 %idxprom.i.i107.pre-phi, i32 4
   %55 = load i32, ptr %limitPartIndex.i, align 4
@@ -2524,7 +2524,7 @@ if.end72:                                         ; preds = %invoke.cont28.if.en
   br i1 %cmp76, label %do.body, label %cleanup, !llvm.loop !7
 
 cleanup:                                          ; preds = %if.end72, %do.body, %invoke.cont28
-  %retval.0 = phi i32 [ %inc25, %invoke.cont28 ], [ %msgStart.0, %do.body ], [ %msgStart.1, %if.end72 ]
+  %retval.1 = phi i32 [ %inc25, %invoke.cont28 ], [ %msgStart.0, %do.body ], [ %msgStart.2, %if.end72 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %other) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyword) #15
   br label %return
@@ -2535,8 +2535,8 @@ ehcleanup:                                        ; preds = %lpad12, %lpad9
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7511MessageImpl24appendReducedApostrophesERKNS_13UnicodeStringEiiRS1_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5

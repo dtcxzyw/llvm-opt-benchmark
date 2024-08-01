@@ -1406,15 +1406,15 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
   br label %.sink.split
 
 42:                                               ; preds = %16, %13, %20, %17, %24, %21, %28, %25, %25, %32, %29, %36, %33, %40, %37
-  %.7.ph = phi i64 [ 17, %37 ], [ 33, %40 ], [ 17, %33 ], [ 33, %36 ], [ 17, %29 ], [ 33, %32 ], [ 17, %25 ], [ 17, %25 ], [ 33, %28 ], [ 50, %21 ], [ 66, %24 ], [ 50, %17 ], [ 66, %20 ], [ 50, %13 ], [ 66, %16 ]
+  %.1.ph = phi i64 [ 17, %37 ], [ 33, %40 ], [ 17, %33 ], [ 33, %36 ], [ 17, %29 ], [ 33, %32 ], [ 17, %25 ], [ 17, %25 ], [ 33, %28 ], [ 50, %21 ], [ 66, %24 ], [ 50, %17 ], [ 66, %20 ], [ 50, %13 ], [ 66, %16 ]
   %.0.ph = phi ptr [ @.str.1139, %37 ], [ @.str.1139, %40 ], [ @.str.1136, %33 ], [ @.str.1136, %36 ], [ @.str.1133, %29 ], [ @.str.1133, %32 ], [ @.str.1130, %25 ], [ @.str.1130, %25 ], [ @.str.1130, %28 ], [ @.str.1127, %21 ], [ @.str.1127, %24 ], [ @.str.1124, %17 ], [ @.str.1124, %20 ], [ @.str.1121, %13 ], [ @.str.1121, %16 ]
-  %43 = or disjoint i64 %.7.ph, 8
+  %43 = or disjoint i64 %.1.ph, 8
   %44 = icmp ugt i64 %43, %2
   br i1 %44, label %.sink.split, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %1, i64 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 %.7.ph
+  %47 = getelementptr inbounds i8, ptr %46, i64 %.1.ph
   %48 = getelementptr inbounds i8, ptr %0, i64 6
   %49 = load i32, ptr %48, align 1
   %50 = zext i32 %49 to i64
@@ -1532,7 +1532,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %13
 
 13:                                               ; preds = %.lr.ph, %select.unfold
-  %.03976 = phi i32 [ 3, %.lr.ph ], [ %.1, %select.unfold ]
+  %.03976 = phi i32 [ 3, %.lr.ph ], [ %.2, %select.unfold ]
   %.04075 = phi ptr [ %0, %.lr.ph ], [ %spec.select70, %select.unfold ]
   %.04274 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %select.unfold ]
   %14 = icmp eq ptr %.04075, null
@@ -1688,7 +1688,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 select.unfold:                                    ; preds = %.select.unfold_crit_edge, %77, %75, %35, %42
   %78 = phi i32 [ %23, %35 ], [ %23, %42 ], [ %.pre82, %.select.unfold_crit_edge ], [ %23, %75 ], [ %23, %77 ]
-  %.1 = phi i32 [ %.03976, %35 ], [ %.03976, %42 ], [ 0, %.select.unfold_crit_edge ], [ 0, %75 ], [ %.03976, %77 ]
+  %.2 = phi i32 [ %.03976, %35 ], [ %.03976, %42 ], [ 0, %.select.unfold_crit_edge ], [ 0, %75 ], [ %.03976, %77 ]
   %79 = zext i32 %78 to i64
   %80 = add nuw nsw i64 %79, 8
   %81 = icmp ult i64 %.04274, %80
@@ -1703,8 +1703,8 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %75, %select.unfold, %.loopexit.sink.split, %3
-  %.2 = phi i32 [ 0, %3 ], [ %.03976, %.loopexit.sink.split ], [ %72, %61 ], [ %76, %75 ], [ 0, %select.unfold ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %3 ], [ %.03976, %.loopexit.sink.split ], [ %72, %61 ], [ %76, %75 ], [ 0, %select.unfold ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1766,7 +1766,7 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold86
-  %.039103 = phi i32 [ %.1, %select.unfold86 ], [ 3, %.lr.ph.preheader ]
+  %.1103 = phi i32 [ %.2, %select.unfold86 ], [ 3, %.lr.ph.preheader ]
   %.141102 = phi i64 [ %spec.select98, %select.unfold86 ], [ %25, %.lr.ph.preheader ]
   %.144101 = phi ptr [ %spec.select, %select.unfold86 ], [ %26, %.lr.ph.preheader ]
   %27 = icmp ult i64 %.141102, 8
@@ -1819,7 +1819,7 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
 
 select.unfold86:                                  ; preds = %.select.unfold86_crit_edge, %47
   %.pre-phi = phi i64 [ %.pre, %.select.unfold86_crit_edge ], [ %44, %47 ]
-  %.1 = phi i32 [ %.039103, %.select.unfold86_crit_edge ], [ 0, %47 ]
+  %.2 = phi i32 [ %.1103, %.select.unfold86_crit_edge ], [ 0, %47 ]
   %49 = add nuw nsw i64 %.pre-phi, 8
   %50 = icmp ult i64 %.141102, %49
   %spec.select.idx = select i1 %50, i64 0, i64 %49
@@ -1830,13 +1830,13 @@ select.unfold86:                                  ; preds = %.select.unfold86_cr
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %8, %6, %3
   %.str.1162.sink = phi ptr [ @.str.1156, %3 ], [ @.str.1157, %6 ], [ @.str.1158, %8 ], [ @.str.1162, %.lr.ph ]
-  %.2.ph = phi i32 [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %.039103, %.lr.ph ]
+  %.039.ph = phi i32 [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %.1103, %.lr.ph ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1162.sink) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %select.unfold86, %.loopexit.sink.split, %24
-  %.2 = phi i32 [ 0, %24 ], [ %.2.ph, %.loopexit.sink.split ], [ %48, %47 ], [ 0, %select.unfold86 ]
-  ret i32 %.2
+  %.039 = phi i32 [ 0, %24 ], [ %.039.ph, %.loopexit.sink.split ], [ %48, %47 ], [ 0, %select.unfold86 ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable

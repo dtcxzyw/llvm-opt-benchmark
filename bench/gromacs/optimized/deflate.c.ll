@@ -1718,7 +1718,7 @@ define range(i32 -5, 2) i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnam
 328:                                              ; preds = %.lr.ph, %375
   %329 = phi i32 [ %319, %.lr.ph ], [ %388, %375 ]
   %330 = phi ptr [ %312, %.lr.ph ], [ %389, %375 ]
-  %.0339418 = phi i32 [ %317, %.lr.ph ], [ %.1340, %375 ]
+  %.0339418 = phi i32 [ %317, %.lr.ph ], [ %.2341, %375 ]
   %331 = load i32, ptr %316, align 8
   %332 = zext i32 %331 to i64
   %333 = load i64, ptr %324, align 8
@@ -1800,7 +1800,7 @@ flush_pending.exit._crit_edge423:                 ; preds = %flush_pending.exit
   %376 = phi i32 [ %371, %flush_pending.exit._crit_edge423 ], [ %331, %328 ]
   %377 = phi i32 [ %.pre425, %flush_pending.exit._crit_edge423 ], [ %329, %328 ]
   %378 = phi ptr [ %.pre426.pre, %flush_pending.exit._crit_edge423 ], [ %330, %328 ]
-  %.1340 = phi i32 [ %371, %flush_pending.exit._crit_edge423 ], [ %.0339418, %328 ]
+  %.2341 = phi i32 [ %371, %flush_pending.exit._crit_edge423 ], [ %.0339418, %328 ]
   %379 = getelementptr inbounds i8, ptr %378, i64 24
   %380 = load ptr, ptr %379, align 8
   %381 = zext i32 %377 to i64
@@ -1823,7 +1823,7 @@ flush_pending.exit._crit_edge423:                 ; preds = %flush_pending.exit
 
 flush_pending.exit._crit_edge:                    ; preds = %375, %flush_pending.exit, %315
   %394 = phi ptr [ %312, %315 ], [ %.pre426.pre, %flush_pending.exit ], [ %389, %375 ]
-  %.2341 = phi i32 [ %317, %315 ], [ %371, %flush_pending.exit ], [ %.1340, %375 ]
+  %.1340 = phi i32 [ %317, %315 ], [ %371, %flush_pending.exit ], [ %.2341, %375 ]
   %395 = getelementptr inbounds i8, ptr %394, i64 68
   %396 = load i32, ptr %395, align 4
   %.not371 = icmp eq i32 %396, 0
@@ -1831,7 +1831,7 @@ flush_pending.exit._crit_edge:                    ; preds = %375, %flush_pending
 
 397:                                              ; preds = %flush_pending.exit._crit_edge
   %398 = load i32, ptr %316, align 8
-  %399 = icmp ugt i32 %398, %.2341
+  %399 = icmp ugt i32 %398, %.1340
   br i1 %399, label %400, label %409
 
 400:                                              ; preds = %397
@@ -1839,9 +1839,9 @@ flush_pending.exit._crit_edge:                    ; preds = %375, %flush_pending
   %402 = load i64, ptr %401, align 8
   %403 = getelementptr inbounds i8, ptr %6, i64 16
   %404 = load ptr, ptr %403, align 8
-  %405 = zext i32 %.2341 to i64
+  %405 = zext i32 %.1340 to i64
   %406 = getelementptr inbounds i8, ptr %404, i64 %405
-  %407 = sub nuw i32 %398, %.2341
+  %407 = sub nuw i32 %398, %.1340
   %408 = tail call i64 @crc32(i64 noundef %402, ptr noundef %406, i32 noundef %407) #10
   store i64 %408, ptr %401, align 8
   %.pre427 = load ptr, ptr %311, align 8
@@ -2722,32 +2722,32 @@ define i64 @deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_
   br label %36
 
 36:                                               ; preds = %30, %27
-  %.032 = phi i64 [ %35, %30 ], [ 18, %27 ]
+  %.133 = phi i64 [ %35, %30 ], [ 18, %27 ]
   %37 = getelementptr inbounds i8, ptr %26, i64 40
   %38 = load ptr, ptr %37, align 8
   %.not41 = icmp eq ptr %38, null
   br i1 %.not41, label %.loopexit50, label %.preheader49
 
 .preheader49:                                     ; preds = %36, %.preheader49
-  %.133 = phi i64 [ %39, %.preheader49 ], [ %.032, %36 ]
+  %.3 = phi i64 [ %39, %.preheader49 ], [ %.133, %36 ]
   %.0 = phi ptr [ %40, %.preheader49 ], [ %38, %36 ]
-  %39 = add i64 %.133, 1
+  %39 = add i64 %.3, 1
   %40 = getelementptr inbounds i8, ptr %.0, i64 1
   %41 = load i8, ptr %.0, align 1
   %.not42 = icmp eq i8 %41, 0
   br i1 %.not42, label %.loopexit50, label %.preheader49, !llvm.loop !15
 
 .loopexit50:                                      ; preds = %.preheader49, %36
-  %.2 = phi i64 [ %.032, %36 ], [ %39, %.preheader49 ]
+  %.2 = phi i64 [ %.133, %36 ], [ %39, %.preheader49 ]
   %42 = getelementptr inbounds i8, ptr %26, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not43 = icmp eq ptr %43, null
   br i1 %.not43, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit50, %.preheader
-  %.3 = phi i64 [ %44, %.preheader ], [ %.2, %.loopexit50 ]
+  %.5 = phi i64 [ %44, %.preheader ], [ %.2, %.loopexit50 ]
   %.1 = phi ptr [ %45, %.preheader ], [ %43, %.loopexit50 ]
-  %44 = add i64 %.3, 1
+  %44 = add i64 %.5, 1
   %45 = getelementptr inbounds i8, ptr %.1, i64 1
   %46 = load i8, ptr %.1, align 1
   %.not44 = icmp eq i8 %46, 0
@@ -2766,7 +2766,7 @@ define i64 @deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_
   br label %51
 
 51:                                               ; preds = %.loopexit, %17, %24, %50, %20
-  %.5 = phi i64 [ 6, %50 ], [ 18, %24 ], [ %23, %20 ], [ 0, %17 ], [ %spec.select, %.loopexit ]
+  %.032 = phi i64 [ 6, %50 ], [ 18, %24 ], [ %23, %20 ], [ 0, %17 ], [ %spec.select, %.loopexit ]
   %52 = getelementptr inbounds i8, ptr %13, i64 72
   %53 = load i32, ptr %52, align 8
   %.not47 = icmp eq i32 %53, 15
@@ -2779,7 +2779,7 @@ define i64 @deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_
   br i1 %.not48, label %59, label %57
 
 57:                                               ; preds = %54, %51
-  %58 = add i64 %9, %.5
+  %58 = add i64 %9, %.032
   br label %67
 
 59:                                               ; preds = %54
@@ -2789,7 +2789,7 @@ define i64 @deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_
   %63 = add i64 %3, %60
   %64 = add i64 %63, %61
   %65 = add i64 %64, %62
-  %66 = add i64 %65, %.5
+  %66 = add i64 %65, %.032
   br label %67
 
 67:                                               ; preds = %59, %57, %15
@@ -5388,9 +5388,9 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
 
 54:                                               ; preds = %96, %52
   %.092 = phi ptr [ %53, %52 ], [ %98, %96 ]
-  %.187.idx = phi i64 [ 2, %52 ], [ %.187.add, %96 ]
-  %.187.ptr = getelementptr inbounds i8, ptr %10, i64 %.187.idx
-  %55 = getelementptr inbounds i8, ptr %.187.ptr, i64 1
+  %.2.idx = phi i64 [ 2, %52 ], [ %.2.add, %96 ]
+  %.2.ptr = getelementptr inbounds i8, ptr %10, i64 %.2.idx
+  %55 = getelementptr inbounds i8, ptr %.2.ptr, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = getelementptr inbounds i8, ptr %.092, i64 1
   %58 = load i8, ptr %57, align 1
@@ -5398,7 +5398,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %59, label %60, label %.critedge.split.loop.exit
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %.187.ptr, i64 2
+  %61 = getelementptr inbounds i8, ptr %.2.ptr, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds i8, ptr %.092, i64 2
   %64 = load i8, ptr %63, align 1
@@ -5406,7 +5406,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %65, label %66, label %.critedge.split.loop.exit140
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %.187.ptr, i64 3
+  %67 = getelementptr inbounds i8, ptr %.2.ptr, i64 3
   %68 = load i8, ptr %67, align 1
   %69 = getelementptr inbounds i8, ptr %.092, i64 3
   %70 = load i8, ptr %69, align 1
@@ -5414,7 +5414,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %71, label %72, label %.critedge.split.loop.exit142
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %.187.ptr, i64 4
+  %73 = getelementptr inbounds i8, ptr %.2.ptr, i64 4
   %74 = load i8, ptr %73, align 1
   %75 = getelementptr inbounds i8, ptr %.092, i64 4
   %76 = load i8, ptr %75, align 1
@@ -5422,7 +5422,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %77, label %78, label %.critedge.split.loop.exit144
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %.187.ptr, i64 5
+  %79 = getelementptr inbounds i8, ptr %.2.ptr, i64 5
   %80 = load i8, ptr %79, align 1
   %81 = getelementptr inbounds i8, ptr %.092, i64 5
   %82 = load i8, ptr %81, align 1
@@ -5430,7 +5430,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %83, label %84, label %.critedge.split.loop.exit146
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %.187.ptr, i64 6
+  %85 = getelementptr inbounds i8, ptr %.2.ptr, i64 6
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr inbounds i8, ptr %.092, i64 6
   %88 = load i8, ptr %87, align 1
@@ -5438,7 +5438,7 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %89, label %90, label %.critedge.split.loop.exit148
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %.187.ptr, i64 7
+  %91 = getelementptr inbounds i8, ptr %.2.ptr, i64 7
   %92 = load i8, ptr %91, align 1
   %93 = getelementptr inbounds i8, ptr %.092, i64 7
   %94 = load i8, ptr %93, align 1
@@ -5446,51 +5446,51 @@ define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef 
   br i1 %95, label %96, label %.critedge.split.loop.exit150
 
 96:                                               ; preds = %90
-  %.187.add = add nuw nsw i64 %.187.idx, 8
-  %.ptr = getelementptr inbounds i8, ptr %10, i64 %.187.add
+  %.2.add = add nuw nsw i64 %.2.idx, 8
+  %.ptr = getelementptr inbounds i8, ptr %10, i64 %.2.add
   %97 = load i8, ptr %.ptr, align 1
   %98 = getelementptr inbounds i8, ptr %.092, i64 8
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %97, %99
-  %101 = icmp ult i64 %.187.idx, 250
+  %101 = icmp ult i64 %.2.idx, 250
   %or.cond = and i1 %101, %100
   br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !20
 
 .critedge.split.loop.exit:                        ; preds = %54
-  %102 = getelementptr inbounds i8, ptr %.187.ptr, i64 1
+  %102 = getelementptr inbounds i8, ptr %.2.ptr, i64 1
   br label %.critedge
 
 .critedge.split.loop.exit140:                     ; preds = %60
-  %103 = getelementptr inbounds i8, ptr %.187.ptr, i64 2
+  %103 = getelementptr inbounds i8, ptr %.2.ptr, i64 2
   br label %.critedge
 
 .critedge.split.loop.exit142:                     ; preds = %66
-  %104 = getelementptr inbounds i8, ptr %.187.ptr, i64 3
+  %104 = getelementptr inbounds i8, ptr %.2.ptr, i64 3
   br label %.critedge
 
 .critedge.split.loop.exit144:                     ; preds = %72
-  %105 = getelementptr inbounds i8, ptr %.187.ptr, i64 4
+  %105 = getelementptr inbounds i8, ptr %.2.ptr, i64 4
   br label %.critedge
 
 .critedge.split.loop.exit146:                     ; preds = %78
-  %106 = getelementptr inbounds i8, ptr %.187.ptr, i64 5
+  %106 = getelementptr inbounds i8, ptr %.2.ptr, i64 5
   br label %.critedge
 
 .critedge.split.loop.exit148:                     ; preds = %84
-  %107 = getelementptr inbounds i8, ptr %.187.ptr, i64 6
+  %107 = getelementptr inbounds i8, ptr %.2.ptr, i64 6
   br label %.critedge
 
 .critedge.split.loop.exit150:                     ; preds = %90
-  %108 = getelementptr inbounds i8, ptr %.187.ptr, i64 7
+  %108 = getelementptr inbounds i8, ptr %.2.ptr, i64 7
   br label %.critedge
 
 .critedge.split.loop.exit152:                     ; preds = %96
-  %.ptr.le = getelementptr inbounds i8, ptr %10, i64 %.187.add
+  %.ptr.le = getelementptr inbounds i8, ptr %10, i64 %.2.add
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.split.loop.exit152, %.critedge.split.loop.exit150, %.critedge.split.loop.exit148, %.critedge.split.loop.exit146, %.critedge.split.loop.exit144, %.critedge.split.loop.exit142, %.critedge.split.loop.exit140, %.critedge.split.loop.exit
-  %.2 = phi ptr [ %102, %.critedge.split.loop.exit ], [ %103, %.critedge.split.loop.exit140 ], [ %104, %.critedge.split.loop.exit142 ], [ %105, %.critedge.split.loop.exit144 ], [ %106, %.critedge.split.loop.exit146 ], [ %107, %.critedge.split.loop.exit148 ], [ %108, %.critedge.split.loop.exit150 ], [ %.ptr.le, %.critedge.split.loop.exit152 ]
-  %109 = ptrtoint ptr %.2 to i64
+  %.3 = phi ptr [ %102, %.critedge.split.loop.exit ], [ %103, %.critedge.split.loop.exit140 ], [ %104, %.critedge.split.loop.exit142 ], [ %105, %.critedge.split.loop.exit144 ], [ %106, %.critedge.split.loop.exit146 ], [ %107, %.critedge.split.loop.exit148 ], [ %108, %.critedge.split.loop.exit150 ], [ %.ptr.le, %.critedge.split.loop.exit152 ]
+  %109 = ptrtoint ptr %.3 to i64
   %.neg = sub i64 %109, %35
   %.neg107 = trunc i64 %.neg to i32
   %110 = add i32 %.neg107, 258

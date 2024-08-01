@@ -1285,18 +1285,18 @@ for.body.lr.ph:                                   ; preds = %if.then58
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storekey.1313 = phi ptr [ %storekey.0, %for.body.lr.ph ], [ %storekey.2, %for.inc ]
-  %storedist.0312 = phi i32 [ 0, %for.body.lr.ph ], [ %storedist.1, %for.inc ]
-  %withdist.0311 = phi i32 [ 0, %for.body.lr.ph ], [ %withdist.1, %for.inc ]
-  %withhash.0310 = phi i32 [ 0, %for.body.lr.ph ], [ %withhash.1, %for.inc ]
-  %withcoords.0309 = phi i32 [ 0, %for.body.lr.ph ], [ %withcoords.1, %for.inc ]
-  %frommember.0308 = phi i32 [ 0, %for.body.lr.ph ], [ %frommember.1, %for.inc ]
-  %fromloc.0307 = phi i32 [ 0, %for.body.lr.ph ], [ %fromloc.1, %for.inc ]
-  %byradius.0306 = phi i32 [ 0, %for.body.lr.ph ], [ %byradius.1, %for.inc ]
+  %storekey.2313 = phi ptr [ %storekey.0, %for.body.lr.ph ], [ %storekey.3, %for.inc ]
+  %storedist.1312 = phi i32 [ 0, %for.body.lr.ph ], [ %storedist.2, %for.inc ]
+  %withdist.1311 = phi i32 [ 0, %for.body.lr.ph ], [ %withdist.2, %for.inc ]
+  %withhash.1310 = phi i32 [ 0, %for.body.lr.ph ], [ %withhash.2, %for.inc ]
+  %withcoords.1309 = phi i32 [ 0, %for.body.lr.ph ], [ %withcoords.2, %for.inc ]
+  %frommember.1308 = phi i32 [ 0, %for.body.lr.ph ], [ %frommember.2, %for.inc ]
+  %fromloc.1307 = phi i32 [ 0, %for.body.lr.ph ], [ %fromloc.2, %for.inc ]
+  %byradius.1306 = phi i32 [ 0, %for.body.lr.ph ], [ %byradius.2, %for.inc ]
   %i.0305 = phi i32 [ 0, %for.body.lr.ph ], [ %inc275, %for.inc ]
-  %bybox.0304 = phi i32 [ 0, %for.body.lr.ph ], [ %bybox.1, %for.inc ]
-  %any.0303 = phi i32 [ 0, %for.body.lr.ph ], [ %any.1, %for.inc ]
-  %sort.0302 = phi i32 [ 0, %for.body.lr.ph ], [ %sort.1, %for.inc ]
+  %bybox.1304 = phi i32 [ 0, %for.body.lr.ph ], [ %bybox.2, %for.inc ]
+  %any.1303 = phi i32 [ 0, %for.body.lr.ph ], [ %any.2, %for.inc ]
+  %sort.1302 = phi i32 [ 0, %for.body.lr.ph ], [ %sort.2, %for.inc ]
   %20 = load ptr, ptr %argv, align 8
   %add = add nsw i32 %i.0305, %base_args.0
   %idxprom62 = sext i32 %add to i64
@@ -1402,7 +1402,7 @@ if.else154:                                       ; preds = %if.else125, %if.els
 land.lhs.true157:                                 ; preds = %if.else154
   %add158 = add nsw i32 %i.0305, 1
   %cmp159 = icmp sge i32 %add158, %sub
-  %tobool164 = icmp ne i32 %fromloc.0307, 0
+  %tobool164 = icmp ne i32 %fromloc.1307, 0
   %27 = or i1 %tobool149.not, %cmp159
   %or.cond250 = select i1 %27, i1 true, i1 %tobool164
   br i1 %or.cond250, label %if.else182, label %if.then165
@@ -1429,7 +1429,7 @@ if.else182:                                       ; preds = %land.lhs.true157, %
 land.lhs.true185:                                 ; preds = %if.else182
   %add186 = add nsw i32 %i.0305, 2
   %cmp187 = icmp sge i32 %add186, %sub
-  %tobool192 = icmp ne i32 %frommember.0308, 0
+  %tobool192 = icmp ne i32 %frommember.1308, 0
   %29 = or i1 %tobool149.not, %cmp187
   %or.cond251 = select i1 %29, i1 true, i1 %tobool192
   br i1 %or.cond251, label %if.else207, label %if.then193
@@ -1451,7 +1451,7 @@ if.else207:                                       ; preds = %land.lhs.true185, %
 land.lhs.true210:                                 ; preds = %if.else207
   %add211 = add nsw i32 %i.0305, 2
   %cmp212 = icmp sge i32 %add211, %sub
-  %tobool217 = icmp ne i32 %bybox.0304, 0
+  %tobool217 = icmp ne i32 %bybox.1304, 0
   %30 = or i1 %tobool149.not, %cmp212
   %or.cond252 = select i1 %30, i1 true, i1 %tobool217
   br i1 %or.cond252, label %if.else233, label %if.then218
@@ -1477,7 +1477,7 @@ if.else233:                                       ; preds = %land.lhs.true210, %
 land.lhs.true236:                                 ; preds = %if.else233
   %add237 = add nsw i32 %i.0305, 3
   %cmp238 = icmp sge i32 %add237, %sub
-  %tobool243 = icmp ne i32 %byradius.0306, 0
+  %tobool243 = icmp ne i32 %byradius.1306, 0
   %31 = or i1 %tobool149.not, %cmp238
   %or.cond253 = select i1 %31, i1 true, i1 %tobool243
   br i1 %or.cond253, label %if.else260, label %if.then244
@@ -1501,42 +1501,42 @@ if.else260:                                       ; preds = %land.lhs.true236, %
   br label %return
 
 for.inc:                                          ; preds = %if.then193, %if.end169, %if.then165, %if.else144, %if.end102, %if.else83, %if.else79, %if.else75, %if.else71, %if.else67, %for.body, %if.then137, %if.end230, %if.end257, %if.then118
-  %sort.1 = phi i32 [ %sort.0302, %if.end257 ], [ %sort.0302, %if.end230 ], [ %sort.0302, %if.then137 ], [ %sort.0302, %if.then118 ], [ %sort.0302, %for.body ], [ %sort.0302, %if.else67 ], [ %sort.0302, %if.else71 ], [ %sort.0302, %if.else75 ], [ 1, %if.else79 ], [ 2, %if.else83 ], [ %sort.0302, %if.end102 ], [ %sort.0302, %if.else144 ], [ %sort.0302, %if.then165 ], [ %sort.0302, %if.end169 ], [ %sort.0302, %if.then193 ]
-  %any.1 = phi i32 [ %any.0303, %if.end257 ], [ %any.0303, %if.end230 ], [ %any.0303, %if.then137 ], [ %any.0303, %if.then118 ], [ %any.0303, %for.body ], [ %any.0303, %if.else67 ], [ %any.0303, %if.else71 ], [ 1, %if.else75 ], [ %any.0303, %if.else79 ], [ %any.0303, %if.else83 ], [ %any.0303, %if.end102 ], [ %any.0303, %if.else144 ], [ %any.0303, %if.then165 ], [ %any.0303, %if.end169 ], [ %any.0303, %if.then193 ]
-  %bybox.1 = phi i32 [ 1, %if.end257 ], [ 0, %if.end230 ], [ %bybox.0304, %if.then137 ], [ %bybox.0304, %if.then118 ], [ %bybox.0304, %for.body ], [ %bybox.0304, %if.else67 ], [ %bybox.0304, %if.else71 ], [ %bybox.0304, %if.else75 ], [ %bybox.0304, %if.else79 ], [ %bybox.0304, %if.else83 ], [ %bybox.0304, %if.end102 ], [ %bybox.0304, %if.else144 ], [ %bybox.0304, %if.then165 ], [ %bybox.0304, %if.end169 ], [ %bybox.0304, %if.then193 ]
+  %sort.2 = phi i32 [ %sort.1302, %if.end257 ], [ %sort.1302, %if.end230 ], [ %sort.1302, %if.then137 ], [ %sort.1302, %if.then118 ], [ %sort.1302, %for.body ], [ %sort.1302, %if.else67 ], [ %sort.1302, %if.else71 ], [ %sort.1302, %if.else75 ], [ 1, %if.else79 ], [ 2, %if.else83 ], [ %sort.1302, %if.end102 ], [ %sort.1302, %if.else144 ], [ %sort.1302, %if.then165 ], [ %sort.1302, %if.end169 ], [ %sort.1302, %if.then193 ]
+  %any.2 = phi i32 [ %any.1303, %if.end257 ], [ %any.1303, %if.end230 ], [ %any.1303, %if.then137 ], [ %any.1303, %if.then118 ], [ %any.1303, %for.body ], [ %any.1303, %if.else67 ], [ %any.1303, %if.else71 ], [ 1, %if.else75 ], [ %any.1303, %if.else79 ], [ %any.1303, %if.else83 ], [ %any.1303, %if.end102 ], [ %any.1303, %if.else144 ], [ %any.1303, %if.then165 ], [ %any.1303, %if.end169 ], [ %any.1303, %if.then193 ]
+  %bybox.2 = phi i32 [ 1, %if.end257 ], [ 0, %if.end230 ], [ %bybox.1304, %if.then137 ], [ %bybox.1304, %if.then118 ], [ %bybox.1304, %for.body ], [ %bybox.1304, %if.else67 ], [ %bybox.1304, %if.else71 ], [ %bybox.1304, %if.else75 ], [ %bybox.1304, %if.else79 ], [ %bybox.1304, %if.else83 ], [ %bybox.1304, %if.end102 ], [ %bybox.1304, %if.else144 ], [ %bybox.1304, %if.then165 ], [ %bybox.1304, %if.end169 ], [ %bybox.1304, %if.then193 ]
   %i.1 = phi i32 [ %add237, %if.end257 ], [ %add211, %if.end230 ], [ %add129, %if.then137 ], [ %add110, %if.then118 ], [ %i.0305, %for.body ], [ %i.0305, %if.else67 ], [ %i.0305, %if.else71 ], [ %i.0305, %if.else75 ], [ %i.0305, %if.else79 ], [ %i.0305, %if.else83 ], [ %add91, %if.end102 ], [ %i.0305, %if.else144 ], [ %add158, %if.then165 ], [ %add158, %if.end169 ], [ %add186, %if.then193 ]
-  %byradius.1 = phi i32 [ 0, %if.end257 ], [ 1, %if.end230 ], [ %byradius.0306, %if.then137 ], [ %byradius.0306, %if.then118 ], [ %byradius.0306, %for.body ], [ %byradius.0306, %if.else67 ], [ %byradius.0306, %if.else71 ], [ %byradius.0306, %if.else75 ], [ %byradius.0306, %if.else79 ], [ %byradius.0306, %if.else83 ], [ %byradius.0306, %if.end102 ], [ %byradius.0306, %if.else144 ], [ %byradius.0306, %if.then165 ], [ %byradius.0306, %if.end169 ], [ %byradius.0306, %if.then193 ]
-  %fromloc.1 = phi i32 [ %fromloc.0307, %if.end257 ], [ %fromloc.0307, %if.end230 ], [ %fromloc.0307, %if.then137 ], [ %fromloc.0307, %if.then118 ], [ %fromloc.0307, %for.body ], [ %fromloc.0307, %if.else67 ], [ %fromloc.0307, %if.else71 ], [ %fromloc.0307, %if.else75 ], [ %fromloc.0307, %if.else79 ], [ %fromloc.0307, %if.else83 ], [ %fromloc.0307, %if.end102 ], [ %fromloc.0307, %if.else144 ], [ 0, %if.then165 ], [ 0, %if.end169 ], [ 1, %if.then193 ]
-  %frommember.1 = phi i32 [ %frommember.0308, %if.end257 ], [ %frommember.0308, %if.end230 ], [ %frommember.0308, %if.then137 ], [ %frommember.0308, %if.then118 ], [ %frommember.0308, %for.body ], [ %frommember.0308, %if.else67 ], [ %frommember.0308, %if.else71 ], [ %frommember.0308, %if.else75 ], [ %frommember.0308, %if.else79 ], [ %frommember.0308, %if.else83 ], [ %frommember.0308, %if.end102 ], [ %frommember.0308, %if.else144 ], [ 1, %if.then165 ], [ 1, %if.end169 ], [ 0, %if.then193 ]
-  %withcoords.1 = phi i32 [ %withcoords.0309, %if.end257 ], [ %withcoords.0309, %if.end230 ], [ %withcoords.0309, %if.then137 ], [ %withcoords.0309, %if.then118 ], [ %withcoords.0309, %for.body ], [ %withcoords.0309, %if.else67 ], [ 1, %if.else71 ], [ %withcoords.0309, %if.else75 ], [ %withcoords.0309, %if.else79 ], [ %withcoords.0309, %if.else83 ], [ %withcoords.0309, %if.end102 ], [ %withcoords.0309, %if.else144 ], [ %withcoords.0309, %if.then165 ], [ %withcoords.0309, %if.end169 ], [ %withcoords.0309, %if.then193 ]
-  %withhash.1 = phi i32 [ %withhash.0310, %if.end257 ], [ %withhash.0310, %if.end230 ], [ %withhash.0310, %if.then137 ], [ %withhash.0310, %if.then118 ], [ %withhash.0310, %for.body ], [ 1, %if.else67 ], [ %withhash.0310, %if.else71 ], [ %withhash.0310, %if.else75 ], [ %withhash.0310, %if.else79 ], [ %withhash.0310, %if.else83 ], [ %withhash.0310, %if.end102 ], [ %withhash.0310, %if.else144 ], [ %withhash.0310, %if.then165 ], [ %withhash.0310, %if.end169 ], [ %withhash.0310, %if.then193 ]
-  %withdist.1 = phi i32 [ %withdist.0311, %if.end257 ], [ %withdist.0311, %if.end230 ], [ %withdist.0311, %if.then137 ], [ %withdist.0311, %if.then118 ], [ 1, %for.body ], [ %withdist.0311, %if.else67 ], [ %withdist.0311, %if.else71 ], [ %withdist.0311, %if.else75 ], [ %withdist.0311, %if.else79 ], [ %withdist.0311, %if.else83 ], [ %withdist.0311, %if.end102 ], [ %withdist.0311, %if.else144 ], [ %withdist.0311, %if.then165 ], [ %withdist.0311, %if.end169 ], [ %withdist.0311, %if.then193 ]
-  %storedist.1 = phi i32 [ %storedist.0312, %if.end257 ], [ %storedist.0312, %if.end230 ], [ 1, %if.then137 ], [ 0, %if.then118 ], [ %storedist.0312, %for.body ], [ %storedist.0312, %if.else67 ], [ %storedist.0312, %if.else71 ], [ %storedist.0312, %if.else75 ], [ %storedist.0312, %if.else79 ], [ %storedist.0312, %if.else83 ], [ %storedist.0312, %if.end102 ], [ 1, %if.else144 ], [ %storedist.0312, %if.then165 ], [ %storedist.0312, %if.end169 ], [ %storedist.0312, %if.then193 ]
-  %storekey.2 = phi ptr [ %storekey.1313, %if.end257 ], [ %storekey.1313, %if.end230 ], [ %26, %if.then137 ], [ %25, %if.then118 ], [ %storekey.1313, %for.body ], [ %storekey.1313, %if.else67 ], [ %storekey.1313, %if.else71 ], [ %storekey.1313, %if.else75 ], [ %storekey.1313, %if.else79 ], [ %storekey.1313, %if.else83 ], [ %storekey.1313, %if.end102 ], [ %storekey.1313, %if.else144 ], [ %storekey.1313, %if.then165 ], [ %storekey.1313, %if.end169 ], [ %storekey.1313, %if.then193 ]
+  %byradius.2 = phi i32 [ 0, %if.end257 ], [ 1, %if.end230 ], [ %byradius.1306, %if.then137 ], [ %byradius.1306, %if.then118 ], [ %byradius.1306, %for.body ], [ %byradius.1306, %if.else67 ], [ %byradius.1306, %if.else71 ], [ %byradius.1306, %if.else75 ], [ %byradius.1306, %if.else79 ], [ %byradius.1306, %if.else83 ], [ %byradius.1306, %if.end102 ], [ %byradius.1306, %if.else144 ], [ %byradius.1306, %if.then165 ], [ %byradius.1306, %if.end169 ], [ %byradius.1306, %if.then193 ]
+  %fromloc.2 = phi i32 [ %fromloc.1307, %if.end257 ], [ %fromloc.1307, %if.end230 ], [ %fromloc.1307, %if.then137 ], [ %fromloc.1307, %if.then118 ], [ %fromloc.1307, %for.body ], [ %fromloc.1307, %if.else67 ], [ %fromloc.1307, %if.else71 ], [ %fromloc.1307, %if.else75 ], [ %fromloc.1307, %if.else79 ], [ %fromloc.1307, %if.else83 ], [ %fromloc.1307, %if.end102 ], [ %fromloc.1307, %if.else144 ], [ 0, %if.then165 ], [ 0, %if.end169 ], [ 1, %if.then193 ]
+  %frommember.2 = phi i32 [ %frommember.1308, %if.end257 ], [ %frommember.1308, %if.end230 ], [ %frommember.1308, %if.then137 ], [ %frommember.1308, %if.then118 ], [ %frommember.1308, %for.body ], [ %frommember.1308, %if.else67 ], [ %frommember.1308, %if.else71 ], [ %frommember.1308, %if.else75 ], [ %frommember.1308, %if.else79 ], [ %frommember.1308, %if.else83 ], [ %frommember.1308, %if.end102 ], [ %frommember.1308, %if.else144 ], [ 1, %if.then165 ], [ 1, %if.end169 ], [ 0, %if.then193 ]
+  %withcoords.2 = phi i32 [ %withcoords.1309, %if.end257 ], [ %withcoords.1309, %if.end230 ], [ %withcoords.1309, %if.then137 ], [ %withcoords.1309, %if.then118 ], [ %withcoords.1309, %for.body ], [ %withcoords.1309, %if.else67 ], [ 1, %if.else71 ], [ %withcoords.1309, %if.else75 ], [ %withcoords.1309, %if.else79 ], [ %withcoords.1309, %if.else83 ], [ %withcoords.1309, %if.end102 ], [ %withcoords.1309, %if.else144 ], [ %withcoords.1309, %if.then165 ], [ %withcoords.1309, %if.end169 ], [ %withcoords.1309, %if.then193 ]
+  %withhash.2 = phi i32 [ %withhash.1310, %if.end257 ], [ %withhash.1310, %if.end230 ], [ %withhash.1310, %if.then137 ], [ %withhash.1310, %if.then118 ], [ %withhash.1310, %for.body ], [ 1, %if.else67 ], [ %withhash.1310, %if.else71 ], [ %withhash.1310, %if.else75 ], [ %withhash.1310, %if.else79 ], [ %withhash.1310, %if.else83 ], [ %withhash.1310, %if.end102 ], [ %withhash.1310, %if.else144 ], [ %withhash.1310, %if.then165 ], [ %withhash.1310, %if.end169 ], [ %withhash.1310, %if.then193 ]
+  %withdist.2 = phi i32 [ %withdist.1311, %if.end257 ], [ %withdist.1311, %if.end230 ], [ %withdist.1311, %if.then137 ], [ %withdist.1311, %if.then118 ], [ 1, %for.body ], [ %withdist.1311, %if.else67 ], [ %withdist.1311, %if.else71 ], [ %withdist.1311, %if.else75 ], [ %withdist.1311, %if.else79 ], [ %withdist.1311, %if.else83 ], [ %withdist.1311, %if.end102 ], [ %withdist.1311, %if.else144 ], [ %withdist.1311, %if.then165 ], [ %withdist.1311, %if.end169 ], [ %withdist.1311, %if.then193 ]
+  %storedist.2 = phi i32 [ %storedist.1312, %if.end257 ], [ %storedist.1312, %if.end230 ], [ 1, %if.then137 ], [ 0, %if.then118 ], [ %storedist.1312, %for.body ], [ %storedist.1312, %if.else67 ], [ %storedist.1312, %if.else71 ], [ %storedist.1312, %if.else75 ], [ %storedist.1312, %if.else79 ], [ %storedist.1312, %if.else83 ], [ %storedist.1312, %if.end102 ], [ 1, %if.else144 ], [ %storedist.1312, %if.then165 ], [ %storedist.1312, %if.end169 ], [ %storedist.1312, %if.then193 ]
+  %storekey.3 = phi ptr [ %storekey.2313, %if.end257 ], [ %storekey.2313, %if.end230 ], [ %26, %if.then137 ], [ %25, %if.then118 ], [ %storekey.2313, %for.body ], [ %storekey.2313, %if.else67 ], [ %storekey.2313, %if.else71 ], [ %storekey.2313, %if.else75 ], [ %storekey.2313, %if.else79 ], [ %storekey.2313, %if.else83 ], [ %storekey.2313, %if.end102 ], [ %storekey.2313, %if.else144 ], [ %storekey.2313, %if.then165 ], [ %storekey.2313, %if.end169 ], [ %storekey.2313, %if.then193 ]
   %inc275 = add nsw i32 %i.1, 1
   %cmp60 = icmp slt i32 %inc275, %sub
   br i1 %cmp60, label %for.body, label %if.end276, !llvm.loop !15
 
 if.end276:                                        ; preds = %for.inc, %if.then58, %if.end56
-  %sort.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %sort.1, %for.inc ]
-  %any.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %any.1, %for.inc ]
-  %bybox.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %bybox.1, %for.inc ]
-  %byradius.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %byradius.1, %for.inc ]
-  %fromloc.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %fromloc.1, %for.inc ]
-  %frommember.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %frommember.1, %for.inc ]
-  %withcoords.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %withcoords.1, %for.inc ]
-  %withhash.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %withhash.1, %for.inc ]
-  %withdist.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %withdist.1, %for.inc ]
-  %storedist.2 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %storedist.1, %for.inc ]
-  %storekey.3 = phi ptr [ %storekey.0, %if.end56 ], [ %storekey.0, %if.then58 ], [ %storekey.2, %for.inc ]
-  %tobool277.not = icmp eq ptr %storekey.3, null
+  %sort.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %sort.2, %for.inc ]
+  %any.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %any.2, %for.inc ]
+  %bybox.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %bybox.2, %for.inc ]
+  %byradius.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %byradius.2, %for.inc ]
+  %fromloc.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %fromloc.2, %for.inc ]
+  %frommember.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %frommember.2, %for.inc ]
+  %withcoords.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %withcoords.2, %for.inc ]
+  %withhash.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %withhash.2, %for.inc ]
+  %withdist.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %withdist.2, %for.inc ]
+  %storedist.0 = phi i32 [ 0, %if.end56 ], [ 0, %if.then58 ], [ %storedist.2, %for.inc ]
+  %storekey.1 = phi ptr [ %storekey.0, %if.end56 ], [ %storekey.0, %if.then58 ], [ %storekey.3, %for.inc ]
+  %tobool277.not = icmp eq ptr %storekey.1, null
   br i1 %tobool277.not, label %if.end286, label %land.lhs.true278
 
 land.lhs.true278:                                 ; preds = %if.end276
-  %tobool279 = icmp ne i32 %withdist.2, 0
-  %tobool280 = icmp ne i32 %withhash.2, 0
+  %tobool279 = icmp ne i32 %withdist.0, 0
+  %tobool280 = icmp ne i32 %withhash.0, 0
   %or.cond5 = select i1 %tobool279, i1 true, i1 %tobool280
-  %tobool282 = icmp ne i32 %withcoords.2, 0
+  %tobool282 = icmp ne i32 %withcoords.0, 0
   %or.cond6 = select i1 %or.cond5, i1 true, i1 %tobool282
   br i1 %or.cond6, label %if.then283, label %if.end286
 
@@ -1550,9 +1550,9 @@ if.then283:                                       ; preds = %land.lhs.true278
 if.end286:                                        ; preds = %land.lhs.true278, %if.end276
   %and287 = and i32 %flags, 8
   %tobool288 = icmp eq i32 %and287, 0
-  %tobool290 = icmp ne i32 %frommember.2, 0
+  %tobool290 = icmp ne i32 %frommember.0, 0
   %or.cond7 = select i1 %tobool288, i1 true, i1 %tobool290
-  %tobool292 = icmp ne i32 %fromloc.2, 0
+  %tobool292 = icmp ne i32 %fromloc.0, 0
   %or.cond8 = select i1 %or.cond7, i1 true, i1 %tobool292
   br i1 %or.cond8, label %if.end297, label %if.then293
 
@@ -1565,9 +1565,9 @@ if.then293:                                       ; preds = %if.end286
   br label %return
 
 if.end297:                                        ; preds = %if.end286
-  %tobool301 = icmp ne i32 %byradius.2, 0
+  %tobool301 = icmp ne i32 %byradius.0, 0
   %or.cond9 = select i1 %tobool288, i1 true, i1 %tobool301
-  %tobool303 = icmp ne i32 %bybox.2, 0
+  %tobool303 = icmp ne i32 %bybox.0, 0
   %or.cond10 = select i1 %or.cond9, i1 true, i1 %tobool303
   br i1 %or.cond10, label %if.end308, label %if.then304
 
@@ -1580,7 +1580,7 @@ if.then304:                                       ; preds = %if.end297
   br label %return
 
 if.end308:                                        ; preds = %if.end297
-  %tobool309 = icmp eq i32 %any.2, 0
+  %tobool309 = icmp eq i32 %any.0, 0
   %39 = load i64, ptr %count, align 8
   %tobool311 = icmp ne i64 %39, 0
   %or.cond11 = select i1 %tobool309, i1 true, i1 %tobool311
@@ -1599,17 +1599,17 @@ if.then315:                                       ; preds = %if.end313
 
 if.then317:                                       ; preds = %if.then315
   %40 = load ptr, ptr %db, align 8
-  %call319 = call i32 @dbDelete(ptr noundef %40, ptr noundef nonnull %storekey.3) #14
+  %call319 = call i32 @dbDelete(ptr noundef %40, ptr noundef nonnull %storekey.1) #14
   %tobool320.not = icmp eq i32 %call319, 0
   br i1 %tobool320.not, label %if.end325, label %if.then321
 
 if.then321:                                       ; preds = %if.then317
   %41 = load ptr, ptr %db, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %41, ptr noundef nonnull %storekey.3) #14
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %41, ptr noundef nonnull %storekey.1) #14
   %42 = load ptr, ptr %db, align 8
   %id = getelementptr inbounds i8, ptr %42, i64 48
   %43 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.3, i32 noundef %43) #14
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.1, i32 noundef %43) #14
   %44 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc324 = add nsw i64 %44, 1
   store i64 %inc324, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1626,7 +1626,7 @@ if.else326:                                       ; preds = %if.then315
   br label %return
 
 if.end328:                                        ; preds = %if.end313
-  %tobool333 = icmp ne i32 %any.2, 0
+  %tobool333 = icmp ne i32 %any.0, 0
   call void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind nonnull writable sret(%struct.GeoHashRadius) align 8 %georadius, ptr noundef nonnull %shape) #14
   %call.i240 = call noalias noundef dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i240, i8 0, i64 24, i1 false)
@@ -1647,10 +1647,10 @@ if.then343:                                       ; preds = %if.end328
 
 if.end344:                                        ; preds = %if.end328
   %not.tobool311 = xor i1 %tobool311, true
-  %cmp331 = icmp ne i32 %sort.2, 0
+  %cmp331 = icmp ne i32 %sort.0, 0
   %or.cond12 = select i1 %not.tobool311, i1 true, i1 %cmp331
   %or.cond13 = select i1 %or.cond12, i1 true, i1 %tobool333
-  %spec.store.select = select i1 %or.cond13, i32 %sort.2, i32 1
+  %spec.store.select = select i1 %or.cond13, i32 %sort.0, i32 1
   %50 = load i64, ptr %count, align 8
   %cmp346 = icmp eq i64 %50, 0
   %51 = call i64 @llvm.smin.i64(i64 %48, i64 %50)
@@ -1682,9 +1682,9 @@ if.end368:                                        ; preds = %if.end344, %if.then
   br i1 %tobool277.not, label %if.then370, label %if.else414
 
 if.then370:                                       ; preds = %if.end368
-  %tobool371.not = icmp ne i32 %withdist.2, 0
-  %tobool375.not = icmp eq i32 %withcoords.2, 0
-  %tobool379.not = icmp ne i32 %withhash.2, 0
+  %tobool371.not = icmp ne i32 %withdist.0, 0
+  %tobool375.not = icmp eq i32 %withcoords.0, 0
+  %tobool379.not = icmp ne i32 %withhash.0, 0
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %cond352) #14
   %cmp385331 = icmp sgt i64 %cond352, 0
   br i1 %cmp385331, label %for.body387.lr.ph, label %if.end486
@@ -1773,7 +1773,7 @@ if.end421:                                        ; preds = %if.else414
 
 for.body426.lr.ph:                                ; preds = %if.end421
   %conversion431 = getelementptr inbounds i8, ptr %shape, i64 24
-  %tobool435.not = icmp eq i32 %storedist.2, 0
+  %tobool435.not = icmp eq i32 %storedist.0, 0
   %zsl = getelementptr inbounds i8, ptr %61, i64 8
   br label %for.body426
 
@@ -1868,28 +1868,28 @@ if.then467:                                       ; preds = %cond.end461, %if.en
   %totelelen.0.lcssa.ph = phi i64 [ 0, %if.end421 ], [ %add448, %cond.end461 ]
   call void @zsetConvertToListpackIfNeeded(ptr noundef %call419, i64 noundef %maxelelen.0.lcssa.ph, i64 noundef %totelelen.0.lcssa.ph) #14
   %75 = load ptr, ptr %db, align 8
-  call void @setKey(ptr noundef %c, ptr noundef %75, ptr noundef nonnull %storekey.3, ptr noundef %call419, i32 noundef 0) #14
+  call void @setKey(ptr noundef %c, ptr noundef %75, ptr noundef nonnull %storekey.1, ptr noundef %call419, i32 noundef 0) #14
   call void @decrRefCount(ptr noundef %call419) #14
   %cond471 = select i1 %tobool288, ptr @.str.52, ptr @.str.51
   %76 = load ptr, ptr %db, align 8
   %id473 = getelementptr inbounds i8, ptr %76, i64 48
   %77 = load i32, ptr %id473, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.3, i32 noundef %77) #14
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %cond471, ptr noundef nonnull %storekey.1, i32 noundef %77) #14
   br label %if.end485.sink.split
 
 if.else475:                                       ; preds = %if.else414
   %78 = load ptr, ptr %db, align 8
-  %call477 = call i32 @dbDelete(ptr noundef %78, ptr noundef nonnull %storekey.3) #14
+  %call477 = call i32 @dbDelete(ptr noundef %78, ptr noundef nonnull %storekey.1) #14
   %tobool478.not = icmp eq i32 %call477, 0
   br i1 %tobool478.not, label %if.end485, label %if.then479
 
 if.then479:                                       ; preds = %if.else475
   %79 = load ptr, ptr %db, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %79, ptr noundef nonnull %storekey.3) #14
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %79, ptr noundef nonnull %storekey.1) #14
   %80 = load ptr, ptr %db, align 8
   %id482 = getelementptr inbounds i8, ptr %80, i64 48
   %81 = load i32, ptr %id482, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.3, i32 noundef %81) #14
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %storekey.1, i32 noundef %81) #14
   br label %if.end485.sink.split
 
 if.end485.sink.split:                             ; preds = %if.then467, %if.then479

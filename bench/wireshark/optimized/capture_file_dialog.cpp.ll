@@ -1234,7 +1234,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i74:    ; preds = %101
   br label %117
 
 117:                                              ; preds = %115, %111
-  %.020 = phi i32 [ 2, %111 ], [ %., %115 ]
+  %.121 = phi i32 [ 2, %111 ], [ %., %115 ]
   call void @_ZN11QMessageBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #18
   br label %118
 
@@ -1244,8 +1244,8 @@ _ZN7QStringD2Ev.exit46:                           ; preds = %105, %_ZN17QArrayDa
   resume { ptr, i32 } %.pn
 
 118:                                              ; preds = %23, %26, %117
-  %.121 = phi i32 [ %.020, %117 ], [ 0, %26 ], [ 0, %23 ]
-  ret i32 %.121
+  %.020 = phi i32 [ %.121, %117 ], [ 0, %26 ], [ 0, %23 ]
+  ret i32 %.020
 }
 
 declare i32 @cf_comment_types(ptr noundef) local_unnamed_addr #1

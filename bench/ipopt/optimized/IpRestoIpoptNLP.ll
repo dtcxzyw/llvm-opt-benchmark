@@ -7048,11 +7048,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; 
 
 .body:                                            ; preds = %19, %12, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %13, %12 ]
-  %.1 = phi i1 [ %.0, %19 ], [ true, %17 ], [ true, %12 ]
+  %.2 = phi i1 [ %.0, %19 ], [ true, %17 ], [ true, %12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  br i1 %.1, label %21, label %22
+  br i1 %.2, label %21, label %22
 
 21:                                               ; preds = %.body.thread, %.body
   %.pn.pn17 = phi { ptr, i32 } [ %.pn.pn.ph, %.body.thread ], [ %.pn, %.body ]
@@ -8207,11 +8207,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; 
 
 .body:                                            ; preds = %20, %13, %18
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %14, %13 ]
-  %.1 = phi i1 [ %.0, %20 ], [ true, %18 ], [ true, %13 ]
+  %.2 = phi i1 [ %.0, %20 ], [ true, %18 ], [ true, %13 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  br i1 %.1, label %22, label %23
+  br i1 %.2, label %22, label %23
 
 22:                                               ; preds = %.body.thread, %.body
   %.pn.pn17 = phi { ptr, i32 } [ %.pn.pn.ph, %.body.thread ], [ %.pn, %.body ]
@@ -9620,7 +9620,7 @@ _ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit:         ; preds = %_ZN5Ipopt8SmartPtrI
   br label %98
 
 67:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEEaSEPS1_.exit11, %15
-  %.sroa.041.0 = phi ptr [ %23, %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEEaSEPS1_.exit11 ], [ null, %15 ]
+  %.sroa.041.2 = phi ptr [ %23, %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEEaSEPS1_.exit11 ], [ null, %15 ]
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit21
@@ -9661,7 +9661,7 @@ _ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit:         ; preds = %_ZN5Ipopt8SmartPtrI
   br label %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit21
 
 _ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit21:       ; preds = %69, %84, %80, %67
-  %.sroa.041.1 = phi ptr [ %.sroa.041.0, %67 ], [ %23, %80 ], [ %23, %84 ], [ %23, %69 ]
+  %.sroa.041.3 = phi ptr [ %.sroa.041.2, %67 ], [ %23, %80 ], [ %23, %84 ], [ %23, %69 ]
   %.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %70, %80 ], [ %70, %84 ], [ %70, %69 ]
   %88 = load ptr, ptr %3, align 8
   %.not.i.i22 = icmp eq ptr %88, null
@@ -9687,30 +9687,30 @@ _ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit21:       ; preds = %69, %84, %80, %67
   br label %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit
 
 98:                                               ; preds = %11, %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit, %58, %63
-  %.sroa.041.2.ph = phi ptr [ %23, %63 ], [ %23, %58 ], [ %23, %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit ], [ %10, %11 ]
-  %99 = getelementptr inbounds i8, ptr %.sroa.041.2.ph, i64 8
+  %.sroa.041.0.ph = phi ptr [ %23, %63 ], [ %23, %58 ], [ %23, %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit ], [ %10, %11 ]
+  %99 = getelementptr inbounds i8, ptr %.sroa.041.0.ph, i64 8
   %100 = load i32, ptr %99, align 8
-  store ptr %.sroa.041.2.ph, ptr %0, align 8
+  store ptr %.sroa.041.0.ph, ptr %0, align 8
   store i32 %100, ptr %99, align 8
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit
 
 102:                                              ; preds = %98
-  %103 = load ptr, ptr %.sroa.041.2.ph, align 8
+  %103 = load ptr, ptr %.sroa.041.0.ph, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(137) %.sroa.041.2.ph) #17
+  call void %105(ptr noundef nonnull align 8 dereferenceable(137) %.sroa.041.0.ph) #17
   br label %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit: ; preds = %.thread, %98, %102
   ret void
 
 _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit23:   ; preds = %94, %89, %_ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit21
-  %.not.i.i28 = icmp eq ptr %.sroa.041.1, null
+  %.not.i.i28 = icmp eq ptr %.sroa.041.3, null
   br i1 %.not.i.i28, label %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit29, label %106
 
 106:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit23
-  %107 = getelementptr inbounds i8, ptr %.sroa.041.1, i64 8
+  %107 = getelementptr inbounds i8, ptr %.sroa.041.3, i64 8
   %108 = load i32, ptr %107, align 8
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %107, align 8
@@ -9718,10 +9718,10 @@ _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit23:   ; preds = %94, %89, %_ZN5Ipopt
   br i1 %110, label %111, label %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit29
 
 111:                                              ; preds = %106
-  %112 = load ptr, ptr %.sroa.041.1, align 8
+  %112 = load ptr, ptr %.sroa.041.3, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  call void %114(ptr noundef nonnull align 8 dereferenceable(137) %.sroa.041.1) #17
+  call void %114(ptr noundef nonnull align 8 dereferenceable(137) %.sroa.041.3) #17
   br label %_ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit29
 
 _ZN5Ipopt8SmartPtrINS_17CompoundSymMatrixEED2Ev.exit29: ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit23, %106, %111

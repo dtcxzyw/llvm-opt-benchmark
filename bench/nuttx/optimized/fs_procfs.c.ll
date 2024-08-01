@@ -40,7 +40,7 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 5:                                                ; preds = %4, %19
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %19 ]
-  %.017 = phi i32 [ -2, %4 ], [ %.1, %19 ]
+  %.017 = phi i32 [ -2, %4 ], [ %.2, %19 ]
   %6 = getelementptr inbounds [13 x %struct.procfs_entry_s], ptr @g_procfs_entries, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fnmatch(ptr noundef %7, ptr noundef %1, i32 noundef 0) #12
@@ -62,14 +62,14 @@ define internal i32 @procfs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.loopexit
 
 19:                                               ; preds = %5, %10
-  %.1 = phi i32 [ %14, %10 ], [ %.017, %5 ]
+  %.2 = phi i32 [ %14, %10 ], [ %.017, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %16
-  %.2 = phi i32 [ 0, %16 ], [ %.1, %19 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %16 ], [ %.2, %19 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -371,8 +371,8 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br label %20
 
 20:                                               ; preds = %22, %17
-  %.183 = phi ptr [ %19, %17 ], [ %23, %22 ]
-  %21 = load i8, ptr %.183, align 1
+  %.2 = phi ptr [ %19, %17 ], [ %23, %22 ]
+  %21 = load i8, ptr %.2, align 1
   switch i8 %21, label %22 [
     i8 47, label %.critedge
     i8 0, label %.critedge
@@ -382,7 +382,7 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   ]
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.183, i64 1
+  %23 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %20, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %20

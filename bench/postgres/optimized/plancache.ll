@@ -2109,7 +2109,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
 .lr.ph70:                                         ; preds = %.lr.ph, %80
   %65 = phi i32 [ %81, %80 ], [ %63, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
-  %.0526369 = phi i1 [ %.2, %80 ], [ false, %.lr.ph ]
+  %.0526369 = phi i1 [ %.153, %80 ], [ false, %.lr.ph ]
   %66 = load ptr, ptr %62, align 8
   %67 = getelementptr %union.ListCell, ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
@@ -2135,7 +2135,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
 
 80:                                               ; preds = %72, %79, %.lr.ph70
   %81 = phi i32 [ %65, %.lr.ph70 ], [ %.pre, %79 ], [ %65, %72 ]
-  %.2 = phi i1 [ %.0526369, %.lr.ph70 ], [ %spec.select, %79 ], [ %spec.select, %72 ]
+  %.153 = phi i1 [ %.0526369, %.lr.ph70 ], [ %spec.select, %79 ], [ %spec.select, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
@@ -2143,7 +2143,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %80
   %84 = load i32, ptr @TransactionXmin, align 4
-  %spec.select73 = select i1 %.2, i32 %84, i32 0
+  %spec.select73 = select i1 %.153, i32 %84, i32 0
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.lr.ph, %52

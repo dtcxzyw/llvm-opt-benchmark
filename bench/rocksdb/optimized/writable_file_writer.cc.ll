@@ -4830,7 +4830,7 @@ invoke.cont14:                                    ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread354, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit, %if.else.i, %invoke.cont14
-  %interim.sroa.16.0388 = phi ptr [ %14, %invoke.cont14 ], [ null, %if.else.i ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread354 ]
+  %interim.sroa.16.1388 = phi ptr [ %14, %invoke.cont14 ], [ null, %if.else.i ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit ], [ null, %_ZNK7rocksdb17FSWritableFilePtr3getEv.exit.thread354 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   store i8 5, ptr %agg.result, align 8, !alias.scope !52
   %subcode_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -4847,7 +4847,7 @@ _ZN7rocksdb8IOStatus7IOErrorERKNS_5SliceES3_.exit: ; preds = %if.then16
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 65
   store i8 0, ptr %arrayidx12.i.i.i, align 1, !noalias !52
   store ptr %call5.i.i.i, ptr %state_.i.i.i.i, align 8, !alias.scope !52
-  %cmp.not.i.i.i32 = icmp eq ptr %interim.sroa.16.0388, null
+  %cmp.not.i.i.i32 = icmp eq ptr %interim.sroa.16.1388, null
   br i1 %cmp.not.i.i.i32, label %return, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i33
 
 if.else:                                          ; preds = %invoke.cont14
@@ -4869,18 +4869,18 @@ if.else:                                          ; preds = %invoke.cont14
   br label %return
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i33: ; preds = %_ZN7rocksdb8IOStatus7IOErrorERKNS_5SliceES3_.exit
-  call void @_ZdaPv(ptr noundef nonnull %interim.sroa.16.0388) #18
+  call void @_ZdaPv(ptr noundef nonnull %interim.sroa.16.1388) #18
   br label %return
 
 ehcleanup:                                        ; preds = %if.then16
   %33 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %state_.i.i.i.i, align 8, !alias.scope !52
-  %cmp.not.i.i.i36 = icmp eq ptr %interim.sroa.16.0388, null
+  %cmp.not.i.i.i36 = icmp eq ptr %interim.sroa.16.1388, null
   br i1 %cmp.not.i.i.i36, label %eh.resume, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i37
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i37: ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %interim.sroa.16.0388) #18
+  call void @_ZdaPv(ptr noundef nonnull %interim.sroa.16.1388) #18
   br label %eh.resume
 
 if.end22:                                         ; preds = %entry

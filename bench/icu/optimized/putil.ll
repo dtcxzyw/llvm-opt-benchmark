@@ -615,9 +615,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1656,7 +1656,7 @@ if.end79:                                         ; preds = %invoke.cont74
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %invoke.cont30, %invoke.cont44, %invoke.cont52, %if.end79, %invoke.cont74
-  %result.2.ph = phi ptr [ null, %invoke.cont74 ], [ %47, %if.end79 ], [ null, %invoke.cont30 ], [ null, %invoke.cont44 ], [ %call53, %invoke.cont52 ]
+  %result.3.ph = phi ptr [ null, %invoke.cont74 ], [ %47, %if.end79 ], [ null, %invoke.cont30 ], [ null, %invoke.cont44 ], [ %call53, %invoke.cont52 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #29
   br label %if.then86
 
@@ -1668,14 +1668,14 @@ while.cond.backedge:                              ; preds = %cleanup, %land.lhs.
   br label %while.cond, !llvm.loop !9
 
 if.then86:                                        ; preds = %invoke.cont14, %cleanup.thread, %cleanupAndReturn.thread48
-  %result.452 = phi ptr [ null, %cleanupAndReturn.thread48 ], [ %result.2.ph, %cleanup.thread ], [ null, %invoke.cont14 ]
+  %result.052 = phi ptr [ null, %cleanupAndReturn.thread48 ], [ %result.3.ph, %cleanup.thread ], [ null, %invoke.cont14 ]
   %call88 = call i32 @closedir(ptr noundef nonnull %call1)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.end, %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit, %if.then86
-  %result.447 = phi ptr [ %result.452, %if.then86 ], [ null, %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit ], [ null, %if.end ]
+  %result.047 = phi ptr [ %result.052, %if.then86 ], [ null, %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit ], [ null, %if.end ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %curpath) #29
-  ret ptr %result.447
+  ret ptr %result.047
 }
 
 ; Function Attrs: nofree nounwind
@@ -2318,10 +2318,10 @@ if.end11:                                         ; preds = %for.cond, %lor.lhs.
   br i1 %cmp1314, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %for.cond.preheader, %if.end, %if.end11
-  %part.122 = phi i16 [ %4, %if.end11 ], [ 0, %if.end ], [ 0, %for.cond.preheader ]
-  %5 = zext nneg i16 %part.122 to i64
+  %part.022 = phi i16 [ %4, %if.end11 ], [ 0, %if.end ], [ 0, %for.cond.preheader ]
+  %5 = zext nneg i16 %part.022 to i64
   %scevgep = getelementptr i8, ptr %versionArray, i64 %5
-  %narrow = sub nuw nsw i16 4, %part.122
+  %narrow = sub nuw nsw i16 4, %part.022
   %6 = zext nneg i16 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %6, i1 false)
   br label %while.end
@@ -2386,10 +2386,10 @@ if.end11.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
 while.body.preheader.i:                           ; preds = %if.end11.i, %if.end.i
-  %part.122.i = phi i16 [ %4, %if.end11.i ], [ 0, %if.end.i ]
-  %5 = zext nneg i16 %part.122.i to i64
+  %part.022.i = phi i16 [ %4, %if.end11.i ], [ 0, %if.end.i ]
+  %5 = zext nneg i16 %part.022.i to i64
   %scevgep.i = getelementptr i8, ptr %versionArray, i64 %5
-  %narrow.i = sub nuw nsw i16 4, %part.122.i
+  %narrow.i = sub nuw nsw i16 4, %part.022.i
   %6 = zext nneg i16 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %u_versionFromString_75.exit
@@ -2567,10 +2567,10 @@ if.end11.i:                                       ; preds = %lor.lhs.false6.i, %
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
 while.body.preheader.i:                           ; preds = %if.end11.i, %if.end.i
-  %part.122.i = phi i16 [ %4, %if.end11.i ], [ 0, %if.end.i ]
-  %5 = zext nneg i16 %part.122.i to i64
+  %part.022.i = phi i16 [ %4, %if.end11.i ], [ 0, %if.end.i ]
+  %5 = zext nneg i16 %part.022.i to i64
   %scevgep.i = getelementptr i8, ptr %versionArray, i64 %5
-  %narrow.i = sub nuw nsw i16 4, %part.122.i
+  %narrow.i = sub nuw nsw i16 4, %part.022.i
   %6 = zext nneg i16 %narrow.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %u_versionFromString_75.exit

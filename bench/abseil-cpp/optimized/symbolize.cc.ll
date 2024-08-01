@@ -119,13 +119,13 @@ entry:
   br label %while.body.us.preheader.i.i
 
 while.body.us.preheader.i.i:                      ; preds = %if.then.i.i, %entry
-  %file.sroa.35.0 = phi i64 [ 0, %entry ], [ %file.sroa.35.3, %if.then.i.i ]
-  %file.sroa.19.0 = phi i64 [ 0, %entry ], [ %file.sroa.19.3, %if.then.i.i ]
+  %file.sroa.35.1 = phi i64 [ 0, %entry ], [ %file.sroa.35.4, %if.then.i.i ]
+  %file.sroa.19.1 = phi i64 [ 0, %entry ], [ %file.sroa.19.4, %if.then.i.i ]
   %offset.addr.0.ph48.i.i = phi i64 [ 0, %entry ], [ %add9.i.i, %if.then.i.i ]
   %dst.0.ph47.i.i = phi ptr [ %elf_header, %entry ], [ %add.ptr.i.i, %if.then.i.i ]
   %read.0.ph46.i.i = phi i64 [ 0, %entry ], [ %add.i.i, %if.then.i.i ]
-  %cmp2.not.us.i12.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.0
-  %cmp3.us.i13.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.0
+  %cmp2.not.us.i12.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.1
+  %cmp3.us.i13.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.1
   %or.cond.i14.i = and i1 %cmp2.not.us.i12.i, %cmp3.us.i13.i
   br i1 %or.cond.i14.i, label %if.then.i.i, label %if.end.us.i.i
 
@@ -149,20 +149,20 @@ if.then16.us.i.i:                                 ; preds = %if.end.us.i.i
   br i1 %cmp18.us.i.i, label %while.cond.backedge.us.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
 while.cond.backedge.us.i.i:                       ; preds = %if.then16.us.i.i, %if.end25.us.i.i
-  %file.sroa.35.2 = phi i64 [ %add27.us.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
-  %file.sroa.19.2 = phi i64 [ %offset.addr.0.ph48.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
-  %cmp2.not.us.i.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.2
-  %cmp3.us.i.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.2
+  %file.sroa.35.3 = phi i64 [ %add27.us.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
+  %file.sroa.19.3 = phi i64 [ %offset.addr.0.ph48.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
+  %cmp2.not.us.i.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.3
+  %cmp3.us.i.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.3
   %or.cond.i.i = select i1 %cmp2.not.us.i.i, i1 %cmp3.us.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.us.i.i
 
 if.then.i.i:                                      ; preds = %while.cond.backedge.us.i.i, %while.body.us.preheader.i.i
-  %file.sroa.35.3 = phi i64 [ %file.sroa.35.0, %while.body.us.preheader.i.i ], [ %file.sroa.35.2, %while.cond.backedge.us.i.i ]
-  %file.sroa.19.3 = phi i64 [ %file.sroa.19.0, %while.body.us.preheader.i.i ], [ %file.sroa.19.2, %while.cond.backedge.us.i.i ]
-  %sub.i.i = sub nsw i64 %offset.addr.0.ph48.i.i, %file.sroa.19.3
+  %file.sroa.35.4 = phi i64 [ %file.sroa.35.1, %while.body.us.preheader.i.i ], [ %file.sroa.35.3, %while.cond.backedge.us.i.i ]
+  %file.sroa.19.4 = phi i64 [ %file.sroa.19.1, %while.body.us.preheader.i.i ], [ %file.sroa.19.3, %while.cond.backedge.us.i.i ]
+  %sub.i.i = sub nsw i64 %offset.addr.0.ph48.i.i, %file.sroa.19.4
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buf, i64 %sub.i.i
   %sub5.i.i = sub i64 64, %read.0.ph46.i.i
-  %sub8.i.i = sub nsw i64 %file.sroa.35.3, %offset.addr.0.ph48.i.i
+  %sub8.i.i = sub nsw i64 %file.sroa.35.4, %offset.addr.0.ph48.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i, i64 %sub5.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i, ptr nonnull align 1 %arrayidx.i.i, i64 %.sroa.speculated.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i, i64 %.sroa.speculated.i.i
@@ -176,8 +176,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit: ; preds = %if.then.i.i, %if.end22.us.i.i
-  %file.sroa.35.4 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.35.3, %if.then.i.i ]
-  %file.sroa.19.4 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.19.3, %if.then.i.i ]
+  %file.sroa.35.5 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.35.4, %if.then.i.i ]
+  %file.sroa.19.5 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.19.4, %if.then.i.i ]
   %retval.0.i.i = phi i64 [ %read.0.ph46.i.i, %if.end22.us.i.i ], [ %add.i.i, %if.then.i.i ]
   %cmp2.i = icmp eq i64 %retval.0.i.i, 64
   %e_shentsize = getelementptr inbounds i8, ptr %elf_header, i64 58
@@ -197,13 +197,13 @@ if.end2:                                          ; preds = %_ZN4absl18debugging
   br label %while.body.us.preheader.i.i9
 
 while.body.us.preheader.i.i9:                     ; preds = %if.then.i.i27, %if.end2
-  %file.sroa.35.5 = phi i64 [ %file.sroa.35.4, %if.end2 ], [ %file.sroa.35.8, %if.then.i.i27 ]
-  %file.sroa.19.5 = phi i64 [ %file.sroa.19.4, %if.end2 ], [ %file.sroa.19.8, %if.then.i.i27 ]
+  %file.sroa.35.6 = phi i64 [ %file.sroa.35.5, %if.end2 ], [ %file.sroa.35.9, %if.then.i.i27 ]
+  %file.sroa.19.6 = phi i64 [ %file.sroa.19.5, %if.end2 ], [ %file.sroa.19.9, %if.then.i.i27 ]
   %offset.addr.0.ph48.i.i10 = phi i64 [ %add, %if.end2 ], [ %add9.i.i37, %if.then.i.i27 ]
   %dst.0.ph47.i.i11 = phi ptr [ %shstrtab, %if.end2 ], [ %add.ptr.i.i35, %if.then.i.i27 ]
   %read.0.ph46.i.i12 = phi i64 [ 0, %if.end2 ], [ %add.i.i36, %if.then.i.i27 ]
-  %cmp2.not.us.i12.i13 = icmp sge i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.5
-  %cmp3.us.i13.i14 = icmp slt i64 %offset.addr.0.ph48.i.i10, %file.sroa.35.5
+  %cmp2.not.us.i12.i13 = icmp sge i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.6
+  %cmp3.us.i13.i14 = icmp slt i64 %offset.addr.0.ph48.i.i10, %file.sroa.35.6
   %or.cond.i14.i15 = and i1 %cmp2.not.us.i12.i13, %cmp3.us.i13.i14
   br i1 %or.cond.i14.i15, label %if.then.i.i27, label %if.end.us.i.i16
 
@@ -227,20 +227,20 @@ if.then16.us.i.i42:                               ; preds = %if.end.us.i.i16
   br i1 %cmp18.us.i.i44, label %while.cond.backedge.us.i.i23, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit49.thread
 
 while.cond.backedge.us.i.i23:                     ; preds = %if.then16.us.i.i42, %if.end25.us.i.i21
-  %file.sroa.35.7 = phi i64 [ %add27.us.i.i22, %if.end25.us.i.i21 ], [ 0, %if.then16.us.i.i42 ]
-  %file.sroa.19.7 = phi i64 [ %offset.addr.0.ph48.i.i10, %if.end25.us.i.i21 ], [ 0, %if.then16.us.i.i42 ]
-  %cmp2.not.us.i.i24 = icmp sge i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.7
-  %cmp3.us.i.i25 = icmp slt i64 %offset.addr.0.ph48.i.i10, %file.sroa.35.7
+  %file.sroa.35.8 = phi i64 [ %add27.us.i.i22, %if.end25.us.i.i21 ], [ 0, %if.then16.us.i.i42 ]
+  %file.sroa.19.8 = phi i64 [ %offset.addr.0.ph48.i.i10, %if.end25.us.i.i21 ], [ 0, %if.then16.us.i.i42 ]
+  %cmp2.not.us.i.i24 = icmp sge i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.8
+  %cmp3.us.i.i25 = icmp slt i64 %offset.addr.0.ph48.i.i10, %file.sroa.35.8
   %or.cond.i.i26 = select i1 %cmp2.not.us.i.i24, i1 %cmp3.us.i.i25, i1 false
   br i1 %or.cond.i.i26, label %if.then.i.i27, label %if.end.us.i.i16
 
 if.then.i.i27:                                    ; preds = %while.cond.backedge.us.i.i23, %while.body.us.preheader.i.i9
-  %file.sroa.35.8 = phi i64 [ %file.sroa.35.5, %while.body.us.preheader.i.i9 ], [ %file.sroa.35.7, %while.cond.backedge.us.i.i23 ]
-  %file.sroa.19.8 = phi i64 [ %file.sroa.19.5, %while.body.us.preheader.i.i9 ], [ %file.sroa.19.7, %while.cond.backedge.us.i.i23 ]
-  %sub.i.i30 = sub nsw i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.8
+  %file.sroa.35.9 = phi i64 [ %file.sroa.35.6, %while.body.us.preheader.i.i9 ], [ %file.sroa.35.8, %while.cond.backedge.us.i.i23 ]
+  %file.sroa.19.9 = phi i64 [ %file.sroa.19.6, %while.body.us.preheader.i.i9 ], [ %file.sroa.19.8, %while.cond.backedge.us.i.i23 ]
+  %sub.i.i30 = sub nsw i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.9
   %arrayidx.i.i31 = getelementptr inbounds i8, ptr %buf, i64 %sub.i.i30
   %sub5.i.i32 = sub i64 64, %read.0.ph46.i.i12
-  %sub8.i.i33 = sub nsw i64 %file.sroa.35.8, %offset.addr.0.ph48.i.i10
+  %sub8.i.i33 = sub nsw i64 %file.sroa.35.9, %offset.addr.0.ph48.i.i10
   %.sroa.speculated.i.i34 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i33, i64 %sub5.i.i32)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i11, ptr nonnull align 1 %arrayidx.i.i31, i64 %.sroa.speculated.i.i34, i1 false)
   %add.ptr.i.i35 = getelementptr inbounds i8, ptr %dst.0.ph47.i.i11, i64 %.sroa.speculated.i.i34
@@ -254,8 +254,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit49: ; preds = %if.then.i.i27, %if.end22.us.i.i19
-  %file.sroa.35.9 = phi i64 [ 0, %if.end22.us.i.i19 ], [ %file.sroa.35.8, %if.then.i.i27 ]
-  %file.sroa.19.9 = phi i64 [ 0, %if.end22.us.i.i19 ], [ %file.sroa.19.8, %if.then.i.i27 ]
+  %file.sroa.35.10 = phi i64 [ 0, %if.end22.us.i.i19 ], [ %file.sroa.35.9, %if.then.i.i27 ]
+  %file.sroa.19.10 = phi i64 [ 0, %if.end22.us.i.i19 ], [ %file.sroa.19.9, %if.then.i.i27 ]
   %retval.0.i.i39 = phi i64 [ %read.0.ph46.i.i12, %if.end22.us.i.i19 ], [ %add.i.i36, %if.then.i.i27 ]
   %cmp2.i41 = icmp eq i64 %retval.0.i.i39, 64
   br i1 %cmp2.i41, label %for.cond.preheader, label %return
@@ -277,15 +277,15 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit ]
-  %file.sroa.19.10178 = phi i64 [ %file.sroa.19.9, %for.body.lr.ph ], [ %file.sroa.19.19, %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit ]
-  %file.sroa.35.10177 = phi i64 [ %file.sroa.35.9, %for.body.lr.ph ], [ %file.sroa.35.19, %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit ]
+  %file.sroa.19.0178 = phi i64 [ %file.sroa.19.10, %for.body.lr.ph ], [ %file.sroa.19.19, %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit ]
+  %file.sroa.35.0177 = phi i64 [ %file.sroa.35.10, %for.body.lr.ph ], [ %file.sroa.35.19, %_ZNKSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEERK10Elf64_ShdrEEclES3_S6_.exit ]
   %8 = shl nuw nsw i64 %indvars.iv, 6
   %add17 = add nsw i64 %2, %8
   br label %while.body.us.preheader.i.i54
 
 while.body.us.preheader.i.i54:                    ; preds = %if.then.i.i72, %for.body
-  %file.sroa.35.11 = phi i64 [ %file.sroa.35.10177, %for.body ], [ %file.sroa.35.14, %if.then.i.i72 ]
-  %file.sroa.19.11 = phi i64 [ %file.sroa.19.10178, %for.body ], [ %file.sroa.19.14, %if.then.i.i72 ]
+  %file.sroa.35.11 = phi i64 [ %file.sroa.35.0177, %for.body ], [ %file.sroa.35.14, %if.then.i.i72 ]
+  %file.sroa.19.11 = phi i64 [ %file.sroa.19.0178, %for.body ], [ %file.sroa.19.14, %if.then.i.i72 ]
   %offset.addr.0.ph48.i.i55 = phi i64 [ %add17, %for.body ], [ %add9.i.i82, %if.then.i.i72 ]
   %dst.0.ph47.i.i56 = phi ptr [ %out, %for.body ], [ %add.ptr.i.i80, %if.then.i.i72 ]
   %read.0.ph46.i.i57 = phi i64 [ 0, %for.body ], [ %add.i.i81, %if.then.i.i72 ]
@@ -465,13 +465,13 @@ do.body:                                          ; preds = %entry
   br label %return
 
 while.body.us.preheader.i.i:                      ; preds = %entry, %if.then.i.i
-  %file.sroa.35.0 = phi i64 [ %file.sroa.35.3, %if.then.i.i ], [ 0, %entry ]
-  %file.sroa.19.0 = phi i64 [ %file.sroa.19.3, %if.then.i.i ], [ 0, %entry ]
+  %file.sroa.35.1 = phi i64 [ %file.sroa.35.4, %if.then.i.i ], [ 0, %entry ]
+  %file.sroa.19.1 = phi i64 [ %file.sroa.19.4, %if.then.i.i ], [ 0, %entry ]
   %offset.addr.0.ph48.i.i = phi i64 [ %add9.i.i, %if.then.i.i ], [ 0, %entry ]
   %dst.0.ph47.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %elf_header, %entry ]
   %read.0.ph46.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ 0, %entry ]
-  %cmp2.not.us.i12.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.0
-  %cmp3.us.i13.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.0
+  %cmp2.not.us.i12.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.1
+  %cmp3.us.i13.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.1
   %or.cond.i14.i = and i1 %cmp2.not.us.i12.i, %cmp3.us.i13.i
   br i1 %or.cond.i14.i, label %if.then.i.i, label %if.end.us.i.i
 
@@ -495,20 +495,20 @@ if.then16.us.i.i:                                 ; preds = %if.end.us.i.i
   br i1 %cmp18.us.i.i, label %while.cond.backedge.us.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
 while.cond.backedge.us.i.i:                       ; preds = %if.then16.us.i.i, %if.end25.us.i.i
-  %file.sroa.35.2 = phi i64 [ %add27.us.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
-  %file.sroa.19.2 = phi i64 [ %offset.addr.0.ph48.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
-  %cmp2.not.us.i.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.2
-  %cmp3.us.i.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.2
+  %file.sroa.35.3 = phi i64 [ %add27.us.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
+  %file.sroa.19.3 = phi i64 [ %offset.addr.0.ph48.i.i, %if.end25.us.i.i ], [ 0, %if.then16.us.i.i ]
+  %cmp2.not.us.i.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.3
+  %cmp3.us.i.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.3
   %or.cond.i.i = select i1 %cmp2.not.us.i.i, i1 %cmp3.us.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.us.i.i
 
 if.then.i.i:                                      ; preds = %while.cond.backedge.us.i.i, %while.body.us.preheader.i.i
-  %file.sroa.35.3 = phi i64 [ %file.sroa.35.0, %while.body.us.preheader.i.i ], [ %file.sroa.35.2, %while.cond.backedge.us.i.i ]
-  %file.sroa.19.3 = phi i64 [ %file.sroa.19.0, %while.body.us.preheader.i.i ], [ %file.sroa.19.2, %while.cond.backedge.us.i.i ]
-  %sub.i.i = sub nsw i64 %offset.addr.0.ph48.i.i, %file.sroa.19.3
+  %file.sroa.35.4 = phi i64 [ %file.sroa.35.1, %while.body.us.preheader.i.i ], [ %file.sroa.35.3, %while.cond.backedge.us.i.i ]
+  %file.sroa.19.4 = phi i64 [ %file.sroa.19.1, %while.body.us.preheader.i.i ], [ %file.sroa.19.3, %while.cond.backedge.us.i.i ]
+  %sub.i.i = sub nsw i64 %offset.addr.0.ph48.i.i, %file.sroa.19.4
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buf, i64 %sub.i.i
   %sub5.i.i = sub i64 64, %read.0.ph46.i.i
-  %sub8.i.i = sub nsw i64 %file.sroa.35.3, %offset.addr.0.ph48.i.i
+  %sub8.i.i = sub nsw i64 %file.sroa.35.4, %offset.addr.0.ph48.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i, i64 %sub5.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i, ptr nonnull align 1 %arrayidx.i.i, i64 %.sroa.speculated.i.i, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i, i64 %.sroa.speculated.i.i
@@ -522,8 +522,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit: ; preds = %if.then.i.i, %if.end22.us.i.i
-  %file.sroa.35.4 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.35.3, %if.then.i.i ]
-  %file.sroa.19.4 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.19.3, %if.then.i.i ]
+  %file.sroa.35.5 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.35.4, %if.then.i.i ]
+  %file.sroa.19.5 = phi i64 [ 0, %if.end22.us.i.i ], [ %file.sroa.19.4, %if.then.i.i ]
   %retval.0.i.i = phi i64 [ %read.0.ph46.i.i, %if.end22.us.i.i ], [ %add.i.i, %if.then.i.i ]
   %cmp2.i = icmp eq i64 %retval.0.i.i, 64
   %e_shentsize = getelementptr inbounds i8, ptr %elf_header, i64 58
@@ -543,13 +543,13 @@ if.end5:                                          ; preds = %_ZN4absl18debugging
   br label %while.body.us.preheader.i.i14
 
 while.body.us.preheader.i.i14:                    ; preds = %if.then.i.i32, %if.end5
-  %file.sroa.35.5 = phi i64 [ %file.sroa.35.4, %if.end5 ], [ %file.sroa.35.8, %if.then.i.i32 ]
-  %file.sroa.19.5 = phi i64 [ %file.sroa.19.4, %if.end5 ], [ %file.sroa.19.8, %if.then.i.i32 ]
+  %file.sroa.35.6 = phi i64 [ %file.sroa.35.5, %if.end5 ], [ %file.sroa.35.9, %if.then.i.i32 ]
+  %file.sroa.19.6 = phi i64 [ %file.sroa.19.5, %if.end5 ], [ %file.sroa.19.9, %if.then.i.i32 ]
   %offset.addr.0.ph48.i.i15 = phi i64 [ %add, %if.end5 ], [ %add9.i.i42, %if.then.i.i32 ]
   %dst.0.ph47.i.i16 = phi ptr [ %shstrtab, %if.end5 ], [ %add.ptr.i.i40, %if.then.i.i32 ]
   %read.0.ph46.i.i17 = phi i64 [ 0, %if.end5 ], [ %add.i.i41, %if.then.i.i32 ]
-  %cmp2.not.us.i12.i18 = icmp sge i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.5
-  %cmp3.us.i13.i19 = icmp slt i64 %offset.addr.0.ph48.i.i15, %file.sroa.35.5
+  %cmp2.not.us.i12.i18 = icmp sge i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.6
+  %cmp3.us.i13.i19 = icmp slt i64 %offset.addr.0.ph48.i.i15, %file.sroa.35.6
   %or.cond.i14.i20 = and i1 %cmp2.not.us.i12.i18, %cmp3.us.i13.i19
   br i1 %or.cond.i14.i20, label %if.then.i.i32, label %if.end.us.i.i21
 
@@ -573,20 +573,20 @@ if.then16.us.i.i47:                               ; preds = %if.end.us.i.i21
   br i1 %cmp18.us.i.i49, label %while.cond.backedge.us.i.i28, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit54.thread
 
 while.cond.backedge.us.i.i28:                     ; preds = %if.then16.us.i.i47, %if.end25.us.i.i26
-  %file.sroa.35.7 = phi i64 [ %add27.us.i.i27, %if.end25.us.i.i26 ], [ 0, %if.then16.us.i.i47 ]
-  %file.sroa.19.7 = phi i64 [ %offset.addr.0.ph48.i.i15, %if.end25.us.i.i26 ], [ 0, %if.then16.us.i.i47 ]
-  %cmp2.not.us.i.i29 = icmp sge i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.7
-  %cmp3.us.i.i30 = icmp slt i64 %offset.addr.0.ph48.i.i15, %file.sroa.35.7
+  %file.sroa.35.8 = phi i64 [ %add27.us.i.i27, %if.end25.us.i.i26 ], [ 0, %if.then16.us.i.i47 ]
+  %file.sroa.19.8 = phi i64 [ %offset.addr.0.ph48.i.i15, %if.end25.us.i.i26 ], [ 0, %if.then16.us.i.i47 ]
+  %cmp2.not.us.i.i29 = icmp sge i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.8
+  %cmp3.us.i.i30 = icmp slt i64 %offset.addr.0.ph48.i.i15, %file.sroa.35.8
   %or.cond.i.i31 = select i1 %cmp2.not.us.i.i29, i1 %cmp3.us.i.i30, i1 false
   br i1 %or.cond.i.i31, label %if.then.i.i32, label %if.end.us.i.i21
 
 if.then.i.i32:                                    ; preds = %while.cond.backedge.us.i.i28, %while.body.us.preheader.i.i14
-  %file.sroa.35.8 = phi i64 [ %file.sroa.35.5, %while.body.us.preheader.i.i14 ], [ %file.sroa.35.7, %while.cond.backedge.us.i.i28 ]
-  %file.sroa.19.8 = phi i64 [ %file.sroa.19.5, %while.body.us.preheader.i.i14 ], [ %file.sroa.19.7, %while.cond.backedge.us.i.i28 ]
-  %sub.i.i35 = sub nsw i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.8
+  %file.sroa.35.9 = phi i64 [ %file.sroa.35.6, %while.body.us.preheader.i.i14 ], [ %file.sroa.35.8, %while.cond.backedge.us.i.i28 ]
+  %file.sroa.19.9 = phi i64 [ %file.sroa.19.6, %while.body.us.preheader.i.i14 ], [ %file.sroa.19.8, %while.cond.backedge.us.i.i28 ]
+  %sub.i.i35 = sub nsw i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.9
   %arrayidx.i.i36 = getelementptr inbounds i8, ptr %buf, i64 %sub.i.i35
   %sub5.i.i37 = sub i64 64, %read.0.ph46.i.i17
-  %sub8.i.i38 = sub nsw i64 %file.sroa.35.8, %offset.addr.0.ph48.i.i15
+  %sub8.i.i38 = sub nsw i64 %file.sroa.35.9, %offset.addr.0.ph48.i.i15
   %.sroa.speculated.i.i39 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i38, i64 %sub5.i.i37)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i16, ptr nonnull align 1 %arrayidx.i.i36, i64 %.sroa.speculated.i.i39, i1 false)
   %add.ptr.i.i40 = getelementptr inbounds i8, ptr %dst.0.ph47.i.i16, i64 %.sroa.speculated.i.i39
@@ -600,8 +600,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %return
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit54: ; preds = %if.then.i.i32, %if.end22.us.i.i24
-  %file.sroa.35.9 = phi i64 [ 0, %if.end22.us.i.i24 ], [ %file.sroa.35.8, %if.then.i.i32 ]
-  %file.sroa.19.9 = phi i64 [ 0, %if.end22.us.i.i24 ], [ %file.sroa.19.8, %if.then.i.i32 ]
+  %file.sroa.35.10 = phi i64 [ 0, %if.end22.us.i.i24 ], [ %file.sroa.35.9, %if.then.i.i32 ]
+  %file.sroa.19.10 = phi i64 [ 0, %if.end22.us.i.i24 ], [ %file.sroa.19.9, %if.then.i.i32 ]
   %retval.0.i.i44 = phi i64 [ %read.0.ph46.i.i17, %if.end22.us.i.i24 ], [ %add.i.i41, %if.then.i.i32 ]
   %cmp2.i46 = icmp eq i64 %retval.0.i.i44, 64
   br i1 %cmp2.i46, label %for.cond.preheader, label %return
@@ -621,15 +621,15 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %file.sroa.19.10188 = phi i64 [ %file.sroa.19.9, %for.body.lr.ph ], [ %file.sroa.19.19161, %for.inc ]
-  %file.sroa.35.10187 = phi i64 [ %file.sroa.35.9, %for.body.lr.ph ], [ %file.sroa.35.19160, %for.inc ]
+  %file.sroa.19.0188 = phi i64 [ %file.sroa.19.10, %for.body.lr.ph ], [ %file.sroa.19.19161, %for.inc ]
+  %file.sroa.35.0187 = phi i64 [ %file.sroa.35.10, %for.body.lr.ph ], [ %file.sroa.35.19160, %for.inc ]
   %7 = shl nuw nsw i64 %indvars.iv, 6
   %add20 = add nsw i64 %2, %7
   br label %while.body.us.preheader.i.i59
 
 while.body.us.preheader.i.i59:                    ; preds = %if.then.i.i77, %for.body
-  %file.sroa.35.11 = phi i64 [ %file.sroa.35.10187, %for.body ], [ %file.sroa.35.14, %if.then.i.i77 ]
-  %file.sroa.19.11 = phi i64 [ %file.sroa.19.10188, %for.body ], [ %file.sroa.19.14, %if.then.i.i77 ]
+  %file.sroa.35.11 = phi i64 [ %file.sroa.35.0187, %for.body ], [ %file.sroa.35.14, %if.then.i.i77 ]
+  %file.sroa.19.11 = phi i64 [ %file.sroa.19.0188, %for.body ], [ %file.sroa.19.14, %if.then.i.i77 ]
   %offset.addr.0.ph48.i.i60 = phi i64 [ %add20, %for.body ], [ %add9.i.i87, %if.then.i.i77 ]
   %dst.0.ph47.i.i61 = phi ptr [ %out, %for.body ], [ %add.ptr.i.i85, %if.then.i.i77 ]
   %read.0.ph46.i.i62 = phi i64 [ 0, %for.body ], [ %add.i.i86, %if.then.i.i77 ]
@@ -2245,13 +2245,13 @@ if.end20.i.i.i:                                   ; preds = %if.end14.i.i.i, %if
   br label %while.body.us.preheader.i.i83.i.i.i
 
 while.body.us.preheader.i.i83.i.i.i:              ; preds = %if.then.i.i101.i.i.i, %if.end20.i.i.i
-  %file.sroa.28.0.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %file.sroa.28.3.i.i.i, %if.then.i.i101.i.i.i ]
-  %file.sroa.15.0.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %file.sroa.15.3.i.i.i, %if.then.i.i101.i.i.i ]
+  %file.sroa.28.11.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %file.sroa.28.14.i.i.i, %if.then.i.i101.i.i.i ]
+  %file.sroa.15.11.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %file.sroa.15.14.i.i.i, %if.then.i.i101.i.i.i ]
   %offset.addr.0.ph48.i.i84.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %add9.i.i111.i.i.i, %if.then.i.i101.i.i.i ]
   %dst.0.ph47.i.i85.i.i.i = phi ptr [ %elf_header.i.i.i.i, %if.end20.i.i.i ], [ %add.ptr.i.i109.i.i.i, %if.then.i.i101.i.i.i ]
   %read.0.ph46.i.i86.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %add.i.i110.i.i.i, %if.then.i.i101.i.i.i ]
-  %cmp2.not.us.i12.i87.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.0.i.i.i
-  %cmp3.us.i13.i88.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.28.0.i.i.i
+  %cmp2.not.us.i12.i87.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.11.i.i.i
+  %cmp3.us.i13.i88.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.28.11.i.i.i
   %or.cond.i14.i89.i.i.i = and i1 %cmp2.not.us.i12.i87.i.i.i, %cmp3.us.i13.i88.i.i.i
   br i1 %or.cond.i14.i89.i.i.i, label %if.then.i.i101.i.i.i, label %if.end.us.i.i90.i.i.i
 
@@ -2275,20 +2275,20 @@ if.then16.us.i.i116.i.i.i:                        ; preds = %if.end.us.i.i90.i.i
   br i1 %cmp18.us.i.i118.i.i.i, label %while.cond.backedge.us.i.i97.i.i.i, label %do.body.i.i119.i.i.i
 
 while.cond.backedge.us.i.i97.i.i.i:               ; preds = %if.then16.us.i.i116.i.i.i, %if.end25.us.i.i95.i.i.i
-  %file.sroa.28.2.i.i.i = phi i64 [ %add27.us.i.i96.i.i.i, %if.end25.us.i.i95.i.i.i ], [ 0, %if.then16.us.i.i116.i.i.i ]
-  %file.sroa.15.2.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i84.i.i.i, %if.end25.us.i.i95.i.i.i ], [ 0, %if.then16.us.i.i116.i.i.i ]
-  %cmp2.not.us.i.i98.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.2.i.i.i
-  %cmp3.us.i.i99.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.28.2.i.i.i
+  %file.sroa.28.13.i.i.i = phi i64 [ %add27.us.i.i96.i.i.i, %if.end25.us.i.i95.i.i.i ], [ 0, %if.then16.us.i.i116.i.i.i ]
+  %file.sroa.15.13.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i84.i.i.i, %if.end25.us.i.i95.i.i.i ], [ 0, %if.then16.us.i.i116.i.i.i ]
+  %cmp2.not.us.i.i98.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.13.i.i.i
+  %cmp3.us.i.i99.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.28.13.i.i.i
   %or.cond.i.i100.i.i.i = select i1 %cmp2.not.us.i.i98.i.i.i, i1 %cmp3.us.i.i99.i.i.i, i1 false
   br i1 %or.cond.i.i100.i.i.i, label %if.then.i.i101.i.i.i, label %if.end.us.i.i90.i.i.i
 
 if.then.i.i101.i.i.i:                             ; preds = %while.cond.backedge.us.i.i97.i.i.i, %while.body.us.preheader.i.i83.i.i.i
-  %file.sroa.28.3.i.i.i = phi i64 [ %file.sroa.28.0.i.i.i, %while.body.us.preheader.i.i83.i.i.i ], [ %file.sroa.28.2.i.i.i, %while.cond.backedge.us.i.i97.i.i.i ]
-  %file.sroa.15.3.i.i.i = phi i64 [ %file.sroa.15.0.i.i.i, %while.body.us.preheader.i.i83.i.i.i ], [ %file.sroa.15.2.i.i.i, %while.cond.backedge.us.i.i97.i.i.i ]
-  %sub.i.i104.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.3.i.i.i
+  %file.sroa.28.14.i.i.i = phi i64 [ %file.sroa.28.11.i.i.i, %while.body.us.preheader.i.i83.i.i.i ], [ %file.sroa.28.13.i.i.i, %while.cond.backedge.us.i.i97.i.i.i ]
+  %file.sroa.15.14.i.i.i = phi i64 [ %file.sroa.15.11.i.i.i, %while.body.us.preheader.i.i83.i.i.i ], [ %file.sroa.15.13.i.i.i, %while.cond.backedge.us.i.i97.i.i.i ]
+  %sub.i.i104.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.14.i.i.i
   %arrayidx.i.i105.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 %sub.i.i104.i.i.i
   %sub5.i.i106.i.i.i = sub i64 64, %read.0.ph46.i.i86.i.i.i
-  %sub8.i.i107.i.i.i = sub nsw i64 %file.sroa.28.3.i.i.i, %offset.addr.0.ph48.i.i84.i.i.i
+  %sub8.i.i107.i.i.i = sub nsw i64 %file.sroa.28.14.i.i.i, %offset.addr.0.ph48.i.i84.i.i.i
   %.sroa.speculated.i.i108.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i107.i.i.i, i64 %sub5.i.i106.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i85.i.i.i, ptr nonnull align 1 %arrayidx.i.i105.i.i.i, i64 %.sroa.speculated.i.i108.i.i.i, i1 false)
   %add.ptr.i.i109.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i85.i.i.i, i64 %.sroa.speculated.i.i108.i.i.i
@@ -2302,8 +2302,8 @@ do.body.i.i119.i.i.i:                             ; preds = %if.then16.us.i.i116
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit123.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit123.i.i.i: ; preds = %if.then.i.i101.i.i.i, %if.end22.us.i.i93.i.i.i, %do.body.i.i119.i.i.i
-  %file.sroa.28.4.i.i.i = phi i64 [ 0, %do.body.i.i119.i.i.i ], [ 0, %if.end22.us.i.i93.i.i.i ], [ %file.sroa.28.3.i.i.i, %if.then.i.i101.i.i.i ]
-  %file.sroa.15.4.i.i.i = phi i64 [ 0, %do.body.i.i119.i.i.i ], [ 0, %if.end22.us.i.i93.i.i.i ], [ %file.sroa.15.3.i.i.i, %if.then.i.i101.i.i.i ]
+  %file.sroa.28.15.i.i.i = phi i64 [ 0, %do.body.i.i119.i.i.i ], [ 0, %if.end22.us.i.i93.i.i.i ], [ %file.sroa.28.14.i.i.i, %if.then.i.i101.i.i.i ]
+  %file.sroa.15.15.i.i.i = phi i64 [ 0, %do.body.i.i119.i.i.i ], [ 0, %if.end22.us.i.i93.i.i.i ], [ %file.sroa.15.14.i.i.i, %if.then.i.i101.i.i.i ]
   %retval.0.i.i113.i.i.i = phi i64 [ -1, %do.body.i.i119.i.i.i ], [ %read.0.ph46.i.i86.i.i.i, %if.end22.us.i.i93.i.i.i ], [ %add.i.i110.i.i.i, %if.then.i.i101.i.i.i ]
   %cmp2.i115.i.i.i = icmp ne i64 %retval.0.i.i113.i.i.i, 64
   %lhsv.i.i.i.i = load i32, ptr %elf_header.i.i.i.i, align 8
@@ -2328,13 +2328,13 @@ if.end31.i.i.i:                                   ; preds = %_ZN4absl18debugging
   br label %while.body.us.preheader.i.i.i.i.i
 
 while.body.us.preheader.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i, %if.end31.i.i.i
-  %file.sroa.28.5.i.i.i = phi i64 [ %file.sroa.28.4.i.i.i, %if.end31.i.i.i ], [ %file.sroa.28.8.i.i.i, %if.then.i.i.i.i.i ]
-  %file.sroa.15.5.i.i.i = phi i64 [ %file.sroa.15.4.i.i.i, %if.end31.i.i.i ], [ %file.sroa.15.8.i.i.i, %if.then.i.i.i.i.i ]
+  %file.sroa.28.1.i.i.i = phi i64 [ %file.sroa.28.15.i.i.i, %if.end31.i.i.i ], [ %file.sroa.28.4.i.i.i, %if.then.i.i.i.i.i ]
+  %file.sroa.15.1.i.i.i = phi i64 [ %file.sroa.15.15.i.i.i, %if.end31.i.i.i ], [ %file.sroa.15.4.i.i.i, %if.then.i.i.i.i.i ]
   %offset.addr.0.ph48.i.i.i.i.i = phi i64 [ 0, %if.end31.i.i.i ], [ %add9.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %dst.0.ph47.i.i.i.i.i = phi ptr [ %elf_header.i.i.i, %if.end31.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %read.0.ph46.i.i.i.i.i = phi i64 [ 0, %if.end31.i.i.i ], [ %add.i.i.i42.i.i, %if.then.i.i.i.i.i ]
-  %cmp2.not.us.i12.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.5.i.i.i
-  %cmp3.us.i13.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.28.5.i.i.i
+  %cmp2.not.us.i12.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.1.i.i.i
+  %cmp3.us.i13.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.28.1.i.i.i
   %or.cond.i14.i.i.i.i = and i1 %cmp2.not.us.i12.i.i.i.i, %cmp3.us.i13.i.i.i.i
   br i1 %or.cond.i14.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.us.i.i.i.i.i
 
@@ -2358,20 +2358,20 @@ if.then16.us.i.i.i.i.i:                           ; preds = %if.end.us.i.i.i.i.i
   br i1 %cmp18.us.i.i.i.i.i, label %while.cond.backedge.us.i.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i.i.i
 
 while.cond.backedge.us.i.i.i.i.i:                 ; preds = %if.then16.us.i.i.i.i.i, %if.end25.us.i.i.i.i.i
-  %file.sroa.28.7.i.i.i = phi i64 [ %add27.us.i.i.i.i.i, %if.end25.us.i.i.i.i.i ], [ 0, %if.then16.us.i.i.i.i.i ]
-  %file.sroa.15.7.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i.i.i.i, %if.end25.us.i.i.i.i.i ], [ 0, %if.then16.us.i.i.i.i.i ]
-  %cmp2.not.us.i.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.7.i.i.i
-  %cmp3.us.i.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.28.7.i.i.i
+  %file.sroa.28.3.i.i.i = phi i64 [ %add27.us.i.i.i.i.i, %if.end25.us.i.i.i.i.i ], [ 0, %if.then16.us.i.i.i.i.i ]
+  %file.sroa.15.3.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i.i.i.i, %if.end25.us.i.i.i.i.i ], [ 0, %if.then16.us.i.i.i.i.i ]
+  %cmp2.not.us.i.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.3.i.i.i
+  %cmp3.us.i.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.28.3.i.i.i
   %or.cond.i.i.i39.i.i = select i1 %cmp2.not.us.i.i.i.i.i, i1 %cmp3.us.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i39.i.i, label %if.then.i.i.i.i.i, label %if.end.us.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.cond.backedge.us.i.i.i.i.i, %while.body.us.preheader.i.i.i.i.i
-  %file.sroa.28.8.i.i.i = phi i64 [ %file.sroa.28.5.i.i.i, %while.body.us.preheader.i.i.i.i.i ], [ %file.sroa.28.7.i.i.i, %while.cond.backedge.us.i.i.i.i.i ]
-  %file.sroa.15.8.i.i.i = phi i64 [ %file.sroa.15.5.i.i.i, %while.body.us.preheader.i.i.i.i.i ], [ %file.sroa.15.7.i.i.i, %while.cond.backedge.us.i.i.i.i.i ]
-  %sub.i.i.i40.i.i = sub nsw i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.8.i.i.i
+  %file.sroa.28.4.i.i.i = phi i64 [ %file.sroa.28.1.i.i.i, %while.body.us.preheader.i.i.i.i.i ], [ %file.sroa.28.3.i.i.i, %while.cond.backedge.us.i.i.i.i.i ]
+  %file.sroa.15.4.i.i.i = phi i64 [ %file.sroa.15.1.i.i.i, %while.body.us.preheader.i.i.i.i.i ], [ %file.sroa.15.3.i.i.i, %while.cond.backedge.us.i.i.i.i.i ]
+  %sub.i.i.i40.i.i = sub nsw i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.4.i.i.i
   %arrayidx.i.i.i41.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 %sub.i.i.i40.i.i
   %sub5.i.i.i.i.i = sub i64 64, %read.0.ph46.i.i.i.i.i
-  %sub8.i.i.i.i.i = sub nsw i64 %file.sroa.28.8.i.i.i, %offset.addr.0.ph48.i.i.i.i.i
+  %sub8.i.i.i.i.i = sub nsw i64 %file.sroa.28.4.i.i.i, %offset.addr.0.ph48.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i.i.i.i, i64 %sub5.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i.i.i.i, ptr nonnull align 1 %arrayidx.i.i.i41.i.i, i64 %.sroa.speculated.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i.i.i.i, i64 %.sroa.speculated.i.i.i.i.i
@@ -2385,8 +2385,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %do.body34.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.end22.us.i.i.i.i.i
-  %file.sroa.28.9.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i.i.i ], [ %file.sroa.28.8.i.i.i, %if.then.i.i.i.i.i ]
-  %file.sroa.15.9.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i.i.i ], [ %file.sroa.15.8.i.i.i, %if.then.i.i.i.i.i ]
+  %file.sroa.28.5.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i.i.i ], [ %file.sroa.28.4.i.i.i, %if.then.i.i.i.i.i ]
+  %file.sroa.15.5.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i.i.i ], [ %file.sroa.15.4.i.i.i, %if.then.i.i.i.i.i ]
   %retval.0.i.i.i.i.i = phi i64 [ %read.0.ph46.i.i.i.i.i, %if.end22.us.i.i.i.i.i ], [ %add.i.i.i42.i.i, %if.then.i.i.i.i.i ]
   %cmp2.i32.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i, 64
   br i1 %cmp2.i32.i.i.i, label %if.end38.i.i.i, label %do.body34.i.i.i
@@ -2417,18 +2417,18 @@ while.body.us.preheader.i.i37.preheader.i.i.i:    ; preds = %for.inc.i.i.i, %whi
   %phoff.0184.i.i.i = phi i64 [ %99, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %add.i44.i.i, %for.inc.i.i.i ]
   %num_interesting_load_segments.0183.i.i.i = phi i64 [ 0, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %num_interesting_load_segments.1.i.i.i, %for.inc.i.i.i ]
   %j.0182.i.i.i = phi i32 [ 0, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %inc70.i.i.i, %for.inc.i.i.i ]
-  %file.sroa.15.10181.i.i.i = phi i64 [ %file.sroa.15.9.i.i.i, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %file.sroa.15.15.i.i.i, %for.inc.i.i.i ]
-  %file.sroa.28.10180.i.i.i = phi i64 [ %file.sroa.28.9.i.i.i, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %file.sroa.28.15.i.i.i, %for.inc.i.i.i ]
+  %file.sroa.15.0181.i.i.i = phi i64 [ %file.sroa.15.5.i.i.i, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %file.sroa.15.10.i.i.i, %for.inc.i.i.i ]
+  %file.sroa.28.0180.i.i.i = phi i64 [ %file.sroa.28.5.i.i.i, %while.body.us.preheader.i.i37.preheader.lr.ph.i.i.i ], [ %file.sroa.28.10.i.i.i, %for.inc.i.i.i ]
   br label %while.body.us.preheader.i.i37.i.i.i
 
 while.body.us.preheader.i.i37.i.i.i:              ; preds = %if.then.i.i55.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i
-  %file.sroa.28.11.i.i.i = phi i64 [ %file.sroa.28.14.i.i.i, %if.then.i.i55.i.i.i ], [ %file.sroa.28.10180.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i ]
-  %file.sroa.15.11.i.i.i = phi i64 [ %file.sroa.15.14.i.i.i, %if.then.i.i55.i.i.i ], [ %file.sroa.15.10181.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i ]
+  %file.sroa.28.6.i.i.i = phi i64 [ %file.sroa.28.9.i.i.i, %if.then.i.i55.i.i.i ], [ %file.sroa.28.0180.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i ]
+  %file.sroa.15.6.i.i.i = phi i64 [ %file.sroa.15.9.i.i.i, %if.then.i.i55.i.i.i ], [ %file.sroa.15.0181.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i ]
   %offset.addr.0.ph48.i.i38.i.i.i = phi i64 [ %add9.i.i65.i.i.i, %if.then.i.i55.i.i.i ], [ %phoff.0184.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i ]
   %dst.0.ph47.i.i39.i.i.i = phi ptr [ %add.ptr.i.i63.i.i.i, %if.then.i.i55.i.i.i ], [ %phdr.i.i.i, %while.body.us.preheader.i.i37.preheader.i.i.i ]
   %read.0.ph46.i.i40.i.i.i = phi i64 [ %add.i.i64.i.i.i, %if.then.i.i55.i.i.i ], [ 0, %while.body.us.preheader.i.i37.preheader.i.i.i ]
-  %cmp2.not.us.i12.i41.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.11.i.i.i
-  %cmp3.us.i13.i42.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.28.11.i.i.i
+  %cmp2.not.us.i12.i41.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.6.i.i.i
+  %cmp3.us.i13.i42.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.28.6.i.i.i
   %or.cond.i14.i43.i.i.i = and i1 %cmp2.not.us.i12.i41.i.i.i, %cmp3.us.i13.i42.i.i.i
   br i1 %or.cond.i14.i43.i.i.i, label %if.then.i.i55.i.i.i, label %if.end.us.i.i44.i.i.i
 
@@ -2452,20 +2452,20 @@ if.then16.us.i.i70.i.i.i:                         ; preds = %if.end.us.i.i44.i.i
   br i1 %cmp18.us.i.i72.i.i.i, label %while.cond.backedge.us.i.i51.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit77.thread.i.i.i
 
 while.cond.backedge.us.i.i51.i.i.i:               ; preds = %if.then16.us.i.i70.i.i.i, %if.end25.us.i.i49.i.i.i
-  %file.sroa.28.13.i.i.i = phi i64 [ %add27.us.i.i50.i.i.i, %if.end25.us.i.i49.i.i.i ], [ 0, %if.then16.us.i.i70.i.i.i ]
-  %file.sroa.15.13.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i38.i.i.i, %if.end25.us.i.i49.i.i.i ], [ 0, %if.then16.us.i.i70.i.i.i ]
-  %cmp2.not.us.i.i52.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.13.i.i.i
-  %cmp3.us.i.i53.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.28.13.i.i.i
+  %file.sroa.28.8.i.i.i = phi i64 [ %add27.us.i.i50.i.i.i, %if.end25.us.i.i49.i.i.i ], [ 0, %if.then16.us.i.i70.i.i.i ]
+  %file.sroa.15.8.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i38.i.i.i, %if.end25.us.i.i49.i.i.i ], [ 0, %if.then16.us.i.i70.i.i.i ]
+  %cmp2.not.us.i.i52.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.8.i.i.i
+  %cmp3.us.i.i53.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.28.8.i.i.i
   %or.cond.i.i54.i.i.i = select i1 %cmp2.not.us.i.i52.i.i.i, i1 %cmp3.us.i.i53.i.i.i, i1 false
   br i1 %or.cond.i.i54.i.i.i, label %if.then.i.i55.i.i.i, label %if.end.us.i.i44.i.i.i
 
 if.then.i.i55.i.i.i:                              ; preds = %while.cond.backedge.us.i.i51.i.i.i, %while.body.us.preheader.i.i37.i.i.i
-  %file.sroa.28.14.i.i.i = phi i64 [ %file.sroa.28.11.i.i.i, %while.body.us.preheader.i.i37.i.i.i ], [ %file.sroa.28.13.i.i.i, %while.cond.backedge.us.i.i51.i.i.i ]
-  %file.sroa.15.14.i.i.i = phi i64 [ %file.sroa.15.11.i.i.i, %while.body.us.preheader.i.i37.i.i.i ], [ %file.sroa.15.13.i.i.i, %while.cond.backedge.us.i.i51.i.i.i ]
-  %sub.i.i58.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.14.i.i.i
+  %file.sroa.28.9.i.i.i = phi i64 [ %file.sroa.28.6.i.i.i, %while.body.us.preheader.i.i37.i.i.i ], [ %file.sroa.28.8.i.i.i, %while.cond.backedge.us.i.i51.i.i.i ]
+  %file.sroa.15.9.i.i.i = phi i64 [ %file.sroa.15.6.i.i.i, %while.body.us.preheader.i.i37.i.i.i ], [ %file.sroa.15.8.i.i.i, %while.cond.backedge.us.i.i51.i.i.i ]
+  %sub.i.i58.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.9.i.i.i
   %arrayidx.i.i59.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 %sub.i.i58.i.i.i
   %sub5.i.i60.i.i.i = sub i64 56, %read.0.ph46.i.i40.i.i.i
-  %sub8.i.i61.i.i.i = sub nsw i64 %file.sroa.28.14.i.i.i, %offset.addr.0.ph48.i.i38.i.i.i
+  %sub8.i.i61.i.i.i = sub nsw i64 %file.sroa.28.9.i.i.i, %offset.addr.0.ph48.i.i38.i.i.i
   %.sroa.speculated.i.i62.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i61.i.i.i, i64 %sub5.i.i60.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i39.i.i.i, ptr nonnull align 1 %arrayidx.i.i59.i.i.i, i64 %.sroa.speculated.i.i62.i.i.i, i1 false)
   %add.ptr.i.i63.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i39.i.i.i, i64 %.sroa.speculated.i.i62.i.i.i
@@ -2479,8 +2479,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %do.body46.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit77.i.i.i: ; preds = %if.then.i.i55.i.i.i, %if.end22.us.i.i47.i.i.i
-  %file.sroa.28.15.i.i.i = phi i64 [ 0, %if.end22.us.i.i47.i.i.i ], [ %file.sroa.28.14.i.i.i, %if.then.i.i55.i.i.i ]
-  %file.sroa.15.15.i.i.i = phi i64 [ 0, %if.end22.us.i.i47.i.i.i ], [ %file.sroa.15.14.i.i.i, %if.then.i.i55.i.i.i ]
+  %file.sroa.28.10.i.i.i = phi i64 [ 0, %if.end22.us.i.i47.i.i.i ], [ %file.sroa.28.9.i.i.i, %if.then.i.i55.i.i.i ]
+  %file.sroa.15.10.i.i.i = phi i64 [ 0, %if.end22.us.i.i47.i.i.i ], [ %file.sroa.15.9.i.i.i, %if.then.i.i55.i.i.i ]
   %retval.0.i.i67.i.i.i = phi i64 [ %read.0.ph46.i.i40.i.i.i, %if.end22.us.i.i47.i.i.i ], [ %add.i.i64.i.i.i, %if.then.i.i55.i.i.i ]
   %cmp2.i69.i.i.i = icmp eq i64 %retval.0.i.i67.i.i.i, 56
   br i1 %cmp2.i69.i.i.i, label %if.end50.i.i.i, label %do.body46.i.i.i
@@ -2625,8 +2625,8 @@ for.body.i55.i.i:                                 ; preds = %if.end37.i.i, %for.
   %121 = phi i32 [ %.pre.i.i, %for.bodythread-pre-split.i.i.i ], [ 2, %if.end37.i.i ]
   %122 = phi i16 [ %.pr.i.i.i, %for.bodythread-pre-split.i.i.i ], [ %119, %if.end37.i.i ]
   %__begin2.0.idx209.i.i.i = phi i64 [ %__begin2.0.add.i.i7.i, %for.bodythread-pre-split.i.i.i ], [ 0, %if.end37.i.i ]
-  %file.sroa.20.0204.i.i.i = phi i64 [ %file.sroa.20.28.i.i.i, %for.bodythread-pre-split.i.i.i ], [ 0, %if.end37.i.i ]
-  %file.sroa.37.0203.i.i.i = phi i64 [ %file.sroa.37.28.i.i.i, %for.bodythread-pre-split.i.i.i ], [ 0, %if.end37.i.i ]
+  %file.sroa.20.0204.i.i.i = phi i64 [ %file.sroa.20.1.i.i.i, %for.bodythread-pre-split.i.i.i ], [ 0, %if.end37.i.i ]
+  %file.sroa.37.0203.i.i.i = phi i64 [ %file.sroa.37.1.i.i.i, %for.bodythread-pre-split.i.i.i ], [ 0, %if.end37.i.i ]
   %123 = load i64, ptr %e_shoff.i.i.i, align 8
   %conv1.i.i.i.i = zext i16 %122 to i32
   %cmp61.not.i.i.i.i = icmp eq i16 %122, 0
@@ -2637,8 +2637,8 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %for.body.i55.i.i
   br label %for.body.i.i56.i.i
 
 for.body.i.i56.i.i:                               ; preds = %for.end.i.i93.i.i, %for.body.lr.ph.i.i.i.i
-  %file.sroa.37.1.i.i.i = phi i64 [ %file.sroa.37.0203.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %file.sroa.37.8.i.i.i, %for.end.i.i93.i.i ]
-  %file.sroa.20.1.i.i.i = phi i64 [ %file.sroa.20.0204.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %file.sroa.20.8.i.i.i, %for.end.i.i93.i.i ]
+  %file.sroa.37.2.i.i.i = phi i64 [ %file.sroa.37.0203.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %file.sroa.37.8.i.i.i, %for.end.i.i93.i.i ]
+  %file.sroa.20.2.i.i.i = phi i64 [ %file.sroa.20.0204.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %file.sroa.20.8.i.i.i, %for.end.i.i93.i.i ]
   %i.062.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %add25.i.i.i.i, %for.end.i.i93.i.i ]
   %sub.i.i57.i.i = sub i64 %conv2.i.i.i.i, %i.062.i.i.i.i
   %mul3.i.i.i.i = shl i64 %sub.i.i57.i.i, 6
@@ -2649,13 +2649,13 @@ for.body.i.i56.i.i:                               ; preds = %for.end.i.i93.i.i, 
   br i1 %cmp45.not.i.i.i.i.i, label %for.end.i.i93.i.i, label %while.body.us.preheader.i.i.i59.i.i
 
 while.body.us.preheader.i.i.i59.i.i:              ; preds = %for.body.i.i56.i.i, %if.then.i.i.i74.i.i
-  %file.sroa.37.2.i.i.i = phi i64 [ %file.sroa.37.5.i.i.i, %if.then.i.i.i74.i.i ], [ %file.sroa.37.1.i.i.i, %for.body.i.i56.i.i ]
-  %file.sroa.20.2.i.i.i = phi i64 [ %file.sroa.20.5.i.i.i, %if.then.i.i.i74.i.i ], [ %file.sroa.20.1.i.i.i, %for.body.i.i56.i.i ]
+  %file.sroa.37.3.i.i.i = phi i64 [ %file.sroa.37.6.i.i.i, %if.then.i.i.i74.i.i ], [ %file.sroa.37.2.i.i.i, %for.body.i.i56.i.i ]
+  %file.sroa.20.3.i.i.i = phi i64 [ %file.sroa.20.6.i.i.i, %if.then.i.i.i74.i.i ], [ %file.sroa.20.2.i.i.i, %for.body.i.i56.i.i ]
   %offset.addr.0.ph48.i.i.i60.i.i = phi i64 [ %add9.i.i.i82.i.i, %if.then.i.i.i74.i.i ], [ %add.i.i58.i.i, %for.body.i.i56.i.i ]
   %dst.0.ph47.i.i.i61.i.i = phi ptr [ %add.ptr.i.i.i80.i.i, %if.then.i.i.i74.i.i ], [ %tmp_buf_.ptr.i.i.i, %for.body.i.i56.i.i ]
   %read.0.ph46.i.i.i62.i.i = phi i64 [ %add.i.i.i81.i.i, %if.then.i.i.i74.i.i ], [ 0, %for.body.i.i56.i.i ]
-  %cmp2.not.us.i55.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.20.2.i.i.i
-  %cmp3.us.i56.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.37.2.i.i.i
+  %cmp2.not.us.i55.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.20.3.i.i.i
+  %cmp3.us.i56.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.37.3.i.i.i
   %or.cond.i57.i.i.i.i = select i1 %cmp2.not.us.i55.i.i.i.i, i1 %cmp3.us.i56.i.i.i.i, i1 false
   br i1 %or.cond.i57.i.i.i.i, label %if.then.i.i.i74.i.i, label %if.end.us.i.i.i63.i.i
 
@@ -2679,20 +2679,20 @@ if.then16.us.i.i.i114.i.i:                        ; preds = %if.end.us.i.i.i63.i
   br i1 %cmp18.us.i.i.i116.i.i, label %while.cond.backedge.us.i.i.i70.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i
 
 while.cond.backedge.us.i.i.i70.i.i:               ; preds = %if.then16.us.i.i.i114.i.i, %if.end25.us.i.i.i68.i.i
-  %file.sroa.37.4.i.i.i = phi i64 [ %add27.us.i.i.i69.i.i, %if.end25.us.i.i.i68.i.i ], [ 0, %if.then16.us.i.i.i114.i.i ]
-  %file.sroa.20.4.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i.i60.i.i, %if.end25.us.i.i.i68.i.i ], [ 0, %if.then16.us.i.i.i114.i.i ]
-  %cmp2.not.us.i.i.i71.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.20.4.i.i.i
-  %cmp3.us.i.i.i72.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.37.4.i.i.i
+  %file.sroa.37.5.i.i.i = phi i64 [ %add27.us.i.i.i69.i.i, %if.end25.us.i.i.i68.i.i ], [ 0, %if.then16.us.i.i.i114.i.i ]
+  %file.sroa.20.5.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i.i60.i.i, %if.end25.us.i.i.i68.i.i ], [ 0, %if.then16.us.i.i.i114.i.i ]
+  %cmp2.not.us.i.i.i71.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.20.5.i.i.i
+  %cmp3.us.i.i.i72.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.37.5.i.i.i
   %or.cond.i.i.i73.i.i = select i1 %cmp2.not.us.i.i.i71.i.i, i1 %cmp3.us.i.i.i72.i.i, i1 false
   br i1 %or.cond.i.i.i73.i.i, label %if.then.i.i.i74.i.i, label %if.end.us.i.i.i63.i.i
 
 if.then.i.i.i74.i.i:                              ; preds = %while.cond.backedge.us.i.i.i70.i.i, %while.body.us.preheader.i.i.i59.i.i
-  %file.sroa.37.5.i.i.i = phi i64 [ %file.sroa.37.2.i.i.i, %while.body.us.preheader.i.i.i59.i.i ], [ %file.sroa.37.4.i.i.i, %while.cond.backedge.us.i.i.i70.i.i ]
-  %file.sroa.20.5.i.i.i = phi i64 [ %file.sroa.20.2.i.i.i, %while.body.us.preheader.i.i.i59.i.i ], [ %file.sroa.20.4.i.i.i, %while.cond.backedge.us.i.i.i70.i.i ]
-  %sub.i.i.i75.i.i = sub nsw i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.20.5.i.i.i
+  %file.sroa.37.6.i.i.i = phi i64 [ %file.sroa.37.3.i.i.i, %while.body.us.preheader.i.i.i59.i.i ], [ %file.sroa.37.5.i.i.i, %while.cond.backedge.us.i.i.i70.i.i ]
+  %file.sroa.20.6.i.i.i = phi i64 [ %file.sroa.20.3.i.i.i, %while.body.us.preheader.i.i.i59.i.i ], [ %file.sroa.20.5.i.i.i, %while.cond.backedge.us.i.i.i70.i.i ]
+  %sub.i.i.i75.i.i = sub nsw i64 %offset.addr.0.ph48.i.i.i60.i.i, %file.sroa.20.6.i.i.i
   %arrayidx.i.i.i76.i.i = getelementptr inbounds i8, ptr %file_cache_.i.i.i, i64 %sub.i.i.i75.i.i
   %sub5.i.i.i77.i.i = sub i64 %cond.i.i.i.i, %read.0.ph46.i.i.i62.i.i
-  %sub8.i.i.i78.i.i = sub nsw i64 %file.sroa.37.5.i.i.i, %offset.addr.0.ph48.i.i.i60.i.i
+  %sub8.i.i.i78.i.i = sub nsw i64 %file.sroa.37.6.i.i.i, %offset.addr.0.ph48.i.i.i60.i.i
   %.sroa.speculated.i.i.i79.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i.i78.i.i, i64 %sub5.i.i.i77.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i.i61.i.i, ptr nonnull align 1 %arrayidx.i.i.i76.i.i, i64 %.sroa.speculated.i.i.i79.i.i, i1 false)
   %add.ptr.i.i.i80.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i.i61.i.i, i64 %.sroa.speculated.i.i.i79.i.i
@@ -2706,15 +2706,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br label %do.body.i.i113.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i: ; preds = %if.then.i.i.i74.i.i, %if.end22.us.i.i.i66.i.i
-  %file.sroa.37.6.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i66.i.i ], [ %file.sroa.37.5.i.i.i, %if.then.i.i.i74.i.i ]
-  %file.sroa.20.6.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i66.i.i ], [ %file.sroa.20.5.i.i.i, %if.then.i.i.i74.i.i ]
+  %file.sroa.37.7.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i66.i.i ], [ %file.sroa.37.6.i.i.i, %if.then.i.i.i74.i.i ]
+  %file.sroa.20.7.i.i.i = phi i64 [ 0, %if.end22.us.i.i.i66.i.i ], [ %file.sroa.20.6.i.i.i, %if.then.i.i.i74.i.i ]
   %retval.0.i.i.i84.i.i = phi i64 [ %read.0.ph46.i.i.i62.i.i, %if.end22.us.i.i.i66.i.i ], [ %add.i.i.i81.i.i, %if.then.i.i.i74.i.i ]
   %cmp6.i.i85.i.i = icmp slt i64 %retval.0.i.i.i84.i.i, 0
   br i1 %cmp6.i.i85.i.i, label %do.body.i.i113.i.i, label %if.end.i.i86.i.i
 
 do.body.i.i113.i.i:                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i
-  %file.sroa.37.7.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %file.sroa.37.6.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
-  %file.sroa.20.7.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %file.sroa.20.6.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
+  %file.sroa.37.9.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %file.sroa.37.7.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
+  %file.sroa.20.9.i.i.i = phi i64 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %file.sroa.20.7.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
   %retval.0.i26.i.i.i.i = phi i64 [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread.i.i.i.i ], [ %retval.0.i.i.i84.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i.i.i.i ]
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 548, ptr noundef nonnull @.str.27, i64 noundef %cond.i.i.i.i, i64 noundef %add.i.i58.i.i, i64 noundef %retval.0.i26.i.i.i.i)
   br label %for.inc.i87.i.i
@@ -2759,8 +2759,8 @@ for.body20.i.i.i.i:                               ; preds = %for.cond18.i.i.i.i,
   br i1 %cmp21.i.i.i.i, label %if.end.i96.i.i, label %for.cond18.i.i.i.i
 
 for.end.i.i93.i.i:                                ; preds = %for.cond18.i.i.i.i, %for.cond18.preheader.i.i.i.i, %for.body.i.i56.i.i
-  %file.sroa.37.8.i.i.i = phi i64 [ %file.sroa.37.1.i.i.i, %for.body.i.i56.i.i ], [ %file.sroa.37.6.i.i.i, %for.cond18.preheader.i.i.i.i ], [ %file.sroa.37.6.i.i.i, %for.cond18.i.i.i.i ]
-  %file.sroa.20.8.i.i.i = phi i64 [ %file.sroa.20.1.i.i.i, %for.body.i.i56.i.i ], [ %file.sroa.20.6.i.i.i, %for.cond18.preheader.i.i.i.i ], [ %file.sroa.20.6.i.i.i, %for.cond18.i.i.i.i ]
+  %file.sroa.37.8.i.i.i = phi i64 [ %file.sroa.37.2.i.i.i, %for.body.i.i56.i.i ], [ %file.sroa.37.7.i.i.i, %for.cond18.preheader.i.i.i.i ], [ %file.sroa.37.7.i.i.i, %for.cond18.i.i.i.i ]
+  %file.sroa.20.8.i.i.i = phi i64 [ %file.sroa.20.2.i.i.i, %for.body.i.i56.i.i ], [ %file.sroa.20.7.i.i.i, %for.cond18.preheader.i.i.i.i ], [ %file.sroa.20.7.i.i.i, %for.cond18.i.i.i.i ]
   %div13238892.i.i.i.i = phi i64 [ 0, %for.body.i.i56.i.i ], [ 0, %for.cond18.preheader.i.i.i.i ], [ %div1323.i.i.i.i, %for.cond18.i.i.i.i ]
   %add25.i.i.i.i = add i64 %div13238892.i.i.i.i, %i.062.i.i.i.i
   %conv.i.i94.i.i = trunc i64 %add25.i.i.i.i to i32
@@ -2783,13 +2783,13 @@ if.end.i96.i.i:                                   ; preds = %for.body20.i.i.i.i
   br label %while.body.us.preheader.i.i14.i.i.i
 
 while.body.us.preheader.i.i14.i.i.i:              ; preds = %if.then.i.i29.i.i.i, %if.end.i96.i.i
-  %file.sroa.37.10.i.i.i = phi i64 [ %file.sroa.37.6.i.i.i, %if.end.i96.i.i ], [ %file.sroa.37.13.i.i.i, %if.then.i.i29.i.i.i ]
-  %file.sroa.20.10.i.i.i = phi i64 [ %file.sroa.20.6.i.i.i, %if.end.i96.i.i ], [ %file.sroa.20.13.i.i.i, %if.then.i.i29.i.i.i ]
+  %file.sroa.37.11.i.i.i = phi i64 [ %file.sroa.37.7.i.i.i, %if.end.i96.i.i ], [ %file.sroa.37.14.i.i.i, %if.then.i.i29.i.i.i ]
+  %file.sroa.20.11.i.i.i = phi i64 [ %file.sroa.20.7.i.i.i, %if.end.i96.i.i ], [ %file.sroa.20.14.i.i.i, %if.then.i.i29.i.i.i ]
   %offset.addr.0.ph48.i.i15.i.i.i = phi i64 [ %add.i98.i.i, %if.end.i96.i.i ], [ %add9.i.i38.i.i.i, %if.then.i.i29.i.i.i ]
   %dst.0.ph47.i.i16.i.i.i = phi ptr [ %strtab.i.i.i, %if.end.i96.i.i ], [ %add.ptr.i.i36.i.i.i, %if.then.i.i29.i.i.i ]
   %read.0.ph46.i.i17.i.i.i = phi i64 [ 0, %if.end.i96.i.i ], [ %add.i.i37.i.i.i, %if.then.i.i29.i.i.i ]
-  %cmp2.not.us.i12.i.i99.i.i = icmp sge i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.10.i.i.i
-  %cmp3.us.i13.i.i100.i.i = icmp slt i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.37.10.i.i.i
+  %cmp2.not.us.i12.i.i99.i.i = icmp sge i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.11.i.i.i
+  %cmp3.us.i13.i.i100.i.i = icmp slt i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.37.11.i.i.i
   %or.cond.i14.i.i101.i.i = and i1 %cmp2.not.us.i12.i.i99.i.i, %cmp3.us.i13.i.i100.i.i
   br i1 %or.cond.i14.i.i101.i.i, label %if.then.i.i29.i.i.i, label %if.end.us.i.i18.i.i.i
 
@@ -2813,20 +2813,20 @@ if.then16.us.i.i43.i.i.i:                         ; preds = %if.end.us.i.i18.i.i
   br i1 %cmp18.us.i.i45.i.i.i, label %while.cond.backedge.us.i.i25.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i
 
 while.cond.backedge.us.i.i25.i.i.i:               ; preds = %if.then16.us.i.i43.i.i.i, %if.end25.us.i.i23.i.i.i
-  %file.sroa.37.12.i.i.i = phi i64 [ %add27.us.i.i24.i.i.i, %if.end25.us.i.i23.i.i.i ], [ 0, %if.then16.us.i.i43.i.i.i ]
-  %file.sroa.20.12.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i15.i.i.i, %if.end25.us.i.i23.i.i.i ], [ 0, %if.then16.us.i.i43.i.i.i ]
-  %cmp2.not.us.i.i26.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.12.i.i.i
-  %cmp3.us.i.i27.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.37.12.i.i.i
+  %file.sroa.37.13.i.i.i = phi i64 [ %add27.us.i.i24.i.i.i, %if.end25.us.i.i23.i.i.i ], [ 0, %if.then16.us.i.i43.i.i.i ]
+  %file.sroa.20.13.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i15.i.i.i, %if.end25.us.i.i23.i.i.i ], [ 0, %if.then16.us.i.i43.i.i.i ]
+  %cmp2.not.us.i.i26.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.13.i.i.i
+  %cmp3.us.i.i27.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.37.13.i.i.i
   %or.cond.i.i28.i.i.i = select i1 %cmp2.not.us.i.i26.i.i.i, i1 %cmp3.us.i.i27.i.i.i, i1 false
   br i1 %or.cond.i.i28.i.i.i, label %if.then.i.i29.i.i.i, label %if.end.us.i.i18.i.i.i
 
 if.then.i.i29.i.i.i:                              ; preds = %while.cond.backedge.us.i.i25.i.i.i, %while.body.us.preheader.i.i14.i.i.i
-  %file.sroa.37.13.i.i.i = phi i64 [ %file.sroa.37.10.i.i.i, %while.body.us.preheader.i.i14.i.i.i ], [ %file.sroa.37.12.i.i.i, %while.cond.backedge.us.i.i25.i.i.i ]
-  %file.sroa.20.13.i.i.i = phi i64 [ %file.sroa.20.10.i.i.i, %while.body.us.preheader.i.i14.i.i.i ], [ %file.sroa.20.12.i.i.i, %while.cond.backedge.us.i.i25.i.i.i ]
-  %sub.i.i31.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.13.i.i.i
+  %file.sroa.37.14.i.i.i = phi i64 [ %file.sroa.37.11.i.i.i, %while.body.us.preheader.i.i14.i.i.i ], [ %file.sroa.37.13.i.i.i, %while.cond.backedge.us.i.i25.i.i.i ]
+  %file.sroa.20.14.i.i.i = phi i64 [ %file.sroa.20.11.i.i.i, %while.body.us.preheader.i.i14.i.i.i ], [ %file.sroa.20.13.i.i.i, %while.cond.backedge.us.i.i25.i.i.i ]
+  %sub.i.i31.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.14.i.i.i
   %arrayidx.i.i32.i.i.i = getelementptr inbounds i8, ptr %file_cache_.i.i.i, i64 %sub.i.i31.i.i.i
   %sub5.i.i33.i.i.i = sub i64 64, %read.0.ph46.i.i17.i.i.i
-  %sub8.i.i34.i.i.i = sub nsw i64 %file.sroa.37.13.i.i.i, %offset.addr.0.ph48.i.i15.i.i.i
+  %sub8.i.i34.i.i.i = sub nsw i64 %file.sroa.37.14.i.i.i, %offset.addr.0.ph48.i.i15.i.i.i
   %.sroa.speculated.i.i35.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i34.i.i.i, i64 %sub5.i.i33.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i16.i.i.i, ptr nonnull align 1 %arrayidx.i.i32.i.i.i, i64 %.sroa.speculated.i.i35.i.i.i, i1 false)
   %add.ptr.i.i36.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i16.i.i.i, i64 %.sroa.speculated.i.i35.i.i.i
@@ -2840,8 +2840,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %for.inc.i87.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i102.i.i: ; preds = %if.then.i.i29.i.i.i, %if.end22.us.i.i21.i.i.i
-  %file.sroa.37.14.i.i.i = phi i64 [ 0, %if.end22.us.i.i21.i.i.i ], [ %file.sroa.37.13.i.i.i, %if.then.i.i29.i.i.i ]
-  %file.sroa.20.14.i.i.i = phi i64 [ 0, %if.end22.us.i.i21.i.i.i ], [ %file.sroa.20.13.i.i.i, %if.then.i.i29.i.i.i ]
+  %file.sroa.37.15.i.i.i = phi i64 [ 0, %if.end22.us.i.i21.i.i.i ], [ %file.sroa.37.14.i.i.i, %if.then.i.i29.i.i.i ]
+  %file.sroa.20.15.i.i.i = phi i64 [ 0, %if.end22.us.i.i21.i.i.i ], [ %file.sroa.20.14.i.i.i, %if.then.i.i29.i.i.i ]
   %retval.0.i.i41.i.i.i = phi i64 [ %read.0.ph46.i.i17.i.i.i, %if.end22.us.i.i21.i.i.i ], [ %add.i.i37.i.i.i, %if.then.i.i29.i.i.i ]
   %cmp2.i.i103.i.i = icmp eq i64 %retval.0.i.i41.i.i.i, 64
   br i1 %cmp2.i.i103.i.i, label %if.end10.i.i.i, label %for.inc.i87.i.i
@@ -2852,8 +2852,8 @@ if.end10.i.i.i:                                   ; preds = %_ZN4absl18debugging
   br i1 %cmp256.not.i.i.i.i, label %for.inc.i87.i.i, label %for.body.i55.i.i.i
 
 for.body.i55.i.i.i:                               ; preds = %if.end10.i.i.i, %for.end.i89.i.i.i
-  %file.sroa.37.15.i.i.i = phi i64 [ %file.sroa.37.20.i.i.i, %for.end.i89.i.i.i ], [ %file.sroa.37.14.i.i.i, %if.end10.i.i.i ]
-  %file.sroa.20.15.i.i.i = phi i64 [ %file.sroa.20.20.i.i.i, %for.end.i89.i.i.i ], [ %file.sroa.20.14.i.i.i, %if.end10.i.i.i ]
+  %file.sroa.37.16.i.i.i = phi i64 [ %file.sroa.37.21.i.i.i, %for.end.i89.i.i.i ], [ %file.sroa.37.15.i.i.i, %if.end10.i.i.i ]
+  %file.sroa.20.16.i.i.i = phi i64 [ %file.sroa.20.21.i.i.i, %for.end.i89.i.i.i ], [ %file.sroa.20.15.i.i.i, %if.end10.i.i.i ]
   %found_match.060.i.i.i.i = phi i8 [ %found_match.1.lcssa.i.i.i.i, %for.end.i89.i.i.i ], [ 0, %if.end10.i.i.i ]
   %i.059.i.i.i.i = phi i64 [ %add40.i.i.i.i, %for.end.i89.i.i.i ], [ 0, %if.end10.i.i.i ]
   %best_match.sroa.0.058.i.i.i.i = phi i32 [ %best_match.sroa.0.1.lcssa.i.i.i.i, %for.end.i89.i.i.i ], [ 0, %if.end10.i.i.i ]
@@ -2866,13 +2866,13 @@ for.body.i55.i.i.i:                               ; preds = %if.end10.i.i.i, %fo
   br label %while.body.us.preheader.i.i58.i.i.i
 
 while.body.us.preheader.i.i58.i.i.i:              ; preds = %if.then.i.i73.i.i.i, %for.body.i55.i.i.i
-  %file.sroa.37.16.i.i.i = phi i64 [ %file.sroa.37.15.i.i.i, %for.body.i55.i.i.i ], [ %file.sroa.37.19.i.i.i, %if.then.i.i73.i.i.i ]
-  %file.sroa.20.16.i.i.i = phi i64 [ %file.sroa.20.15.i.i.i, %for.body.i55.i.i.i ], [ %file.sroa.20.19.i.i.i, %if.then.i.i73.i.i.i ]
+  %file.sroa.37.17.i.i.i = phi i64 [ %file.sroa.37.16.i.i.i, %for.body.i55.i.i.i ], [ %file.sroa.37.20.i.i.i, %if.then.i.i73.i.i.i ]
+  %file.sroa.20.17.i.i.i = phi i64 [ %file.sroa.20.16.i.i.i, %for.body.i55.i.i.i ], [ %file.sroa.20.20.i.i.i, %if.then.i.i73.i.i.i ]
   %offset.addr.0.ph48.i.i59.i.i.i = phi i64 [ %add.i57.i.i.i, %for.body.i55.i.i.i ], [ %add9.i.i81.i.i.i, %if.then.i.i73.i.i.i ]
   %dst.0.ph47.i.i60.i.i.i = phi ptr [ %tmp_buf_.ptr.i.i.i, %for.body.i55.i.i.i ], [ %add.ptr.i.i79.i.i.i, %if.then.i.i73.i.i.i ]
   %read.0.ph46.i.i61.i.i.i = phi i64 [ 0, %for.body.i55.i.i.i ], [ %add.i.i80.i.i.i, %if.then.i.i73.i.i.i ]
-  %cmp2.not.us.i44.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.20.16.i.i.i
-  %cmp3.us.i45.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.37.16.i.i.i
+  %cmp2.not.us.i44.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.20.17.i.i.i
+  %cmp3.us.i45.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.37.17.i.i.i
   %or.cond.i46.i.i.i.i = and i1 %cmp2.not.us.i44.i.i.i.i, %cmp3.us.i45.i.i.i.i
   br i1 %or.cond.i46.i.i.i.i, label %if.then.i.i73.i.i.i, label %if.end.us.i.i62.i.i.i
 
@@ -2896,20 +2896,20 @@ if.then16.us.i.i94.i.i.i:                         ; preds = %if.end.us.i.i62.i.i
   br i1 %cmp18.us.i.i96.i.i.i, label %while.cond.backedge.us.i.i69.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.thread7.i.i.i.i
 
 while.cond.backedge.us.i.i69.i.i.i:               ; preds = %if.then16.us.i.i94.i.i.i, %if.end25.us.i.i67.i.i.i
-  %file.sroa.37.18.i.i.i = phi i64 [ %add27.us.i.i68.i.i.i, %if.end25.us.i.i67.i.i.i ], [ 0, %if.then16.us.i.i94.i.i.i ]
-  %file.sroa.20.18.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i59.i.i.i, %if.end25.us.i.i67.i.i.i ], [ 0, %if.then16.us.i.i94.i.i.i ]
-  %cmp2.not.us.i.i70.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.20.18.i.i.i
-  %cmp3.us.i.i71.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.37.18.i.i.i
+  %file.sroa.37.19.i.i.i = phi i64 [ %add27.us.i.i68.i.i.i, %if.end25.us.i.i67.i.i.i ], [ 0, %if.then16.us.i.i94.i.i.i ]
+  %file.sroa.20.19.i.i.i = phi i64 [ %offset.addr.0.ph48.i.i59.i.i.i, %if.end25.us.i.i67.i.i.i ], [ 0, %if.then16.us.i.i94.i.i.i ]
+  %cmp2.not.us.i.i70.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.20.19.i.i.i
+  %cmp3.us.i.i71.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.37.19.i.i.i
   %or.cond.i.i72.i.i.i = select i1 %cmp2.not.us.i.i70.i.i.i, i1 %cmp3.us.i.i71.i.i.i, i1 false
   br i1 %or.cond.i.i72.i.i.i, label %if.then.i.i73.i.i.i, label %if.end.us.i.i62.i.i.i
 
 if.then.i.i73.i.i.i:                              ; preds = %while.cond.backedge.us.i.i69.i.i.i, %while.body.us.preheader.i.i58.i.i.i
-  %file.sroa.37.19.i.i.i = phi i64 [ %file.sroa.37.16.i.i.i, %while.body.us.preheader.i.i58.i.i.i ], [ %file.sroa.37.18.i.i.i, %while.cond.backedge.us.i.i69.i.i.i ]
-  %file.sroa.20.19.i.i.i = phi i64 [ %file.sroa.20.16.i.i.i, %while.body.us.preheader.i.i58.i.i.i ], [ %file.sroa.20.18.i.i.i, %while.cond.backedge.us.i.i69.i.i.i ]
-  %sub.i.i74.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.20.19.i.i.i
+  %file.sroa.37.20.i.i.i = phi i64 [ %file.sroa.37.17.i.i.i, %while.body.us.preheader.i.i58.i.i.i ], [ %file.sroa.37.19.i.i.i, %while.cond.backedge.us.i.i69.i.i.i ]
+  %file.sroa.20.20.i.i.i = phi i64 [ %file.sroa.20.17.i.i.i, %while.body.us.preheader.i.i58.i.i.i ], [ %file.sroa.20.19.i.i.i, %while.cond.backedge.us.i.i69.i.i.i ]
+  %sub.i.i74.i.i.i = sub nsw i64 %offset.addr.0.ph48.i.i59.i.i.i, %file.sroa.20.20.i.i.i
   %arrayidx.i.i75.i.i.i = getelementptr inbounds i8, ptr %file_cache_.i.i.i, i64 %sub.i.i74.i.i.i
   %sub5.i.i76.i.i.i = sub i64 %mul4.i.i.i.i, %read.0.ph46.i.i61.i.i.i
-  %sub8.i.i77.i.i.i = sub nsw i64 %file.sroa.37.19.i.i.i, %offset.addr.0.ph48.i.i59.i.i.i
+  %sub8.i.i77.i.i.i = sub nsw i64 %file.sroa.37.20.i.i.i, %offset.addr.0.ph48.i.i59.i.i.i
   %.sroa.speculated.i.i78.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i77.i.i.i, i64 %sub5.i.i76.i.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i.i60.i.i.i, ptr nonnull align 1 %arrayidx.i.i75.i.i.i, i64 %.sroa.speculated.i.i78.i.i.i, i1 false)
   %add.ptr.i.i79.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i.i60.i.i.i, i64 %.sroa.speculated.i.i78.i.i.i
@@ -2923,8 +2923,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br label %cond.false.i.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit.i82.i.i.i: ; preds = %if.then.i.i73.i.i.i, %if.end22.us.i.i65.i.i.i
-  %file.sroa.37.20.i.i.i = phi i64 [ 0, %if.end22.us.i.i65.i.i.i ], [ %file.sroa.37.19.i.i.i, %if.then.i.i73.i.i.i ]
-  %file.sroa.20.20.i.i.i = phi i64 [ 0, %if.end22.us.i.i65.i.i.i ], [ %file.sroa.20.19.i.i.i, %if.then.i.i73.i.i.i ]
+  %file.sroa.37.21.i.i.i = phi i64 [ 0, %if.end22.us.i.i65.i.i.i ], [ %file.sroa.37.20.i.i.i, %if.then.i.i73.i.i.i ]
+  %file.sroa.20.21.i.i.i = phi i64 [ 0, %if.end22.us.i.i65.i.i.i ], [ %file.sroa.20.20.i.i.i, %if.then.i.i73.i.i.i ]
   %retval.0.i.i83.i.i.i = phi i64 [ %read.0.ph46.i.i61.i.i.i, %if.end22.us.i.i65.i.i.i ], [ %add.i.i80.i.i.i, %if.then.i.i73.i.i.i ]
   %cmp6.i84.i.i.i = icmp sgt i64 %retval.0.i.i83.i.i.i, -1
   br i1 %cmp6.i84.i.i.i, label %cond.end.i.i.i.i, label %cond.false.i.i.i.i
@@ -3038,13 +3038,13 @@ if.then43.i.i.i.i:                                ; preds = %for.end41.i.i.i.i
   br label %while.body.us.preheader.i49.i.i.i.i
 
 while.body.us.preheader.i49.i.i.i.i:              ; preds = %if.then.i70.i.i.i.i, %if.then43.i.i.i.i
-  %file.sroa.37.21.i.i.i = phi i64 [ %file.sroa.37.20.i.i.i, %if.then43.i.i.i.i ], [ %file.sroa.37.24.i.i.i, %if.then.i70.i.i.i.i ]
-  %file.sroa.20.21.i.i.i = phi i64 [ %file.sroa.20.20.i.i.i, %if.then43.i.i.i.i ], [ %file.sroa.20.24.i.i.i, %if.then.i70.i.i.i.i ]
+  %file.sroa.37.22.i.i.i = phi i64 [ %file.sroa.37.21.i.i.i, %if.then43.i.i.i.i ], [ %file.sroa.37.25.i.i.i, %if.then.i70.i.i.i.i ]
+  %file.sroa.20.22.i.i.i = phi i64 [ %file.sroa.20.21.i.i.i, %if.then43.i.i.i.i ], [ %file.sroa.20.25.i.i.i, %if.then.i70.i.i.i.i ]
   %offset.addr.0.ph48.i50.i.i.i.i = phi i64 [ %add46.i.i.i.i, %if.then43.i.i.i.i ], [ %add9.i78.i.i.i.i, %if.then.i70.i.i.i.i ]
   %dst.0.ph47.i51.i.i.i.i = phi ptr [ %symbol_buf_.i, %if.then43.i.i.i.i ], [ %add.ptr.i76.i.i.i.i, %if.then.i70.i.i.i.i ]
   %read.0.ph46.i52.i.i.i.i = phi i64 [ 0, %if.then43.i.i.i.i ], [ %add.i77.i.i.i.i, %if.then.i70.i.i.i.i ]
-  %cmp2.not.us.i5463.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.21.i.i.i
-  %cmp3.us.i5564.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.37.21.i.i.i
+  %cmp2.not.us.i5463.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.22.i.i.i
+  %cmp3.us.i5564.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.37.22.i.i.i
   %or.cond.i5665.i.i.i.i = and i1 %cmp2.not.us.i5463.i.i.i.i, %cmp3.us.i5564.i.i.i.i
   br i1 %or.cond.i5665.i.i.i.i, label %if.then.i70.i.i.i.i, label %if.end.us.i57.i.i.i.i
 
@@ -3068,20 +3068,20 @@ if.then16.us.i66.i.i.i.i:                         ; preds = %if.end.us.i57.i.i.i
   br i1 %cmp18.us.i68.i.i.i.i, label %while.cond.backedge.us.i64.i.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i
 
 while.cond.backedge.us.i64.i.i.i.i:               ; preds = %if.then16.us.i66.i.i.i.i, %if.end25.us.i62.i.i.i.i
-  %file.sroa.37.23.i.i.i = phi i64 [ %add27.us.i63.i.i.i.i, %if.end25.us.i62.i.i.i.i ], [ 0, %if.then16.us.i66.i.i.i.i ]
-  %file.sroa.20.23.i.i.i = phi i64 [ %offset.addr.0.ph48.i50.i.i.i.i, %if.end25.us.i62.i.i.i.i ], [ 0, %if.then16.us.i66.i.i.i.i ]
-  %cmp2.not.us.i54.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.23.i.i.i
-  %cmp3.us.i55.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.37.23.i.i.i
+  %file.sroa.37.24.i.i.i = phi i64 [ %add27.us.i63.i.i.i.i, %if.end25.us.i62.i.i.i.i ], [ 0, %if.then16.us.i66.i.i.i.i ]
+  %file.sroa.20.24.i.i.i = phi i64 [ %offset.addr.0.ph48.i50.i.i.i.i, %if.end25.us.i62.i.i.i.i ], [ 0, %if.then16.us.i66.i.i.i.i ]
+  %cmp2.not.us.i54.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.24.i.i.i
+  %cmp3.us.i55.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.37.24.i.i.i
   %or.cond.i56.i.i.i.i = select i1 %cmp2.not.us.i54.i.i.i.i, i1 %cmp3.us.i55.i.i.i.i, i1 false
   br i1 %or.cond.i56.i.i.i.i, label %if.then.i70.i.i.i.i, label %if.end.us.i57.i.i.i.i
 
 if.then.i70.i.i.i.i:                              ; preds = %while.cond.backedge.us.i64.i.i.i.i, %while.body.us.preheader.i49.i.i.i.i
-  %file.sroa.37.24.i.i.i = phi i64 [ %file.sroa.37.21.i.i.i, %while.body.us.preheader.i49.i.i.i.i ], [ %file.sroa.37.23.i.i.i, %while.cond.backedge.us.i64.i.i.i.i ]
-  %file.sroa.20.24.i.i.i = phi i64 [ %file.sroa.20.21.i.i.i, %while.body.us.preheader.i49.i.i.i.i ], [ %file.sroa.20.23.i.i.i, %while.cond.backedge.us.i64.i.i.i.i ]
-  %sub.i71.i.i.i.i = sub nsw i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.24.i.i.i
+  %file.sroa.37.25.i.i.i = phi i64 [ %file.sroa.37.22.i.i.i, %while.body.us.preheader.i49.i.i.i.i ], [ %file.sroa.37.24.i.i.i, %while.cond.backedge.us.i64.i.i.i.i ]
+  %file.sroa.20.25.i.i.i = phi i64 [ %file.sroa.20.22.i.i.i, %while.body.us.preheader.i49.i.i.i.i ], [ %file.sroa.20.24.i.i.i, %while.cond.backedge.us.i64.i.i.i.i ]
+  %sub.i71.i.i.i.i = sub nsw i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.25.i.i.i
   %arrayidx.i72.i.i.i.i = getelementptr inbounds i8, ptr %file_cache_.i.i.i, i64 %sub.i71.i.i.i.i
   %sub5.i73.i.i.i.i = sub i64 3072, %read.0.ph46.i52.i.i.i.i
-  %sub8.i74.i.i.i.i = sub nsw i64 %file.sroa.37.24.i.i.i, %offset.addr.0.ph48.i50.i.i.i.i
+  %sub8.i74.i.i.i.i = sub nsw i64 %file.sroa.37.25.i.i.i, %offset.addr.0.ph48.i50.i.i.i.i
   %.sroa.speculated.i75.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i74.i.i.i.i, i64 %sub5.i73.i.i.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.0.ph47.i51.i.i.i.i, ptr nonnull align 1 %arrayidx.i72.i.i.i.i, i64 %.sroa.speculated.i75.i.i.i.i, i1 false)
   %add.ptr.i76.i.i.i.i = getelementptr inbounds i8, ptr %dst.0.ph47.i51.i.i.i.i, i64 %.sroa.speculated.i75.i.i.i.i
@@ -3095,15 +3095,15 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br label %do.body.i93.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i: ; preds = %if.then.i70.i.i.i.i, %if.end22.us.i60.i.i.i.i
-  %file.sroa.37.25.i.i.i = phi i64 [ 0, %if.end22.us.i60.i.i.i.i ], [ %file.sroa.37.24.i.i.i, %if.then.i70.i.i.i.i ]
-  %file.sroa.20.25.i.i.i = phi i64 [ 0, %if.end22.us.i60.i.i.i.i ], [ %file.sroa.20.24.i.i.i, %if.then.i70.i.i.i.i ]
+  %file.sroa.37.26.i.i.i = phi i64 [ 0, %if.end22.us.i60.i.i.i.i ], [ %file.sroa.37.25.i.i.i, %if.then.i70.i.i.i.i ]
+  %file.sroa.20.26.i.i.i = phi i64 [ 0, %if.end22.us.i60.i.i.i.i ], [ %file.sroa.20.25.i.i.i, %if.then.i70.i.i.i.i ]
   %retval.0.i65.i.i.i.i = phi i64 [ %read.0.ph46.i52.i.i.i.i, %if.end22.us.i60.i.i.i.i ], [ %add.i77.i.i.i.i, %if.then.i70.i.i.i.i ]
   %cmp48.i.i.i.i = icmp slt i64 %retval.0.i65.i.i.i.i, 1
   br i1 %cmp48.i.i.i.i, label %do.body.i93.i.i.i, label %do.body52.i.i.i.i
 
 do.body.i93.i.i.i:                                ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i
-  %file.sroa.37.26.i.i.i = phi i64 [ %file.sroa.37.25.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
-  %file.sroa.20.26.i.i.i = phi i64 [ %file.sroa.20.25.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
+  %file.sroa.37.27.i.i.i = phi i64 [ %file.sroa.37.26.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
+  %file.sroa.20.27.i.i.i = phi i64 [ %file.sroa.20.26.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
   %retval.0.i6516.i.i.i.i = phi i64 [ %retval.0.i65.i.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.thread.i.i.i.i ]
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 114), i32 noundef 838, ptr noundef nonnull @.str.29, i32 noundef %118, i64 noundef %add46.i.i.i.i, i64 noundef %retval.0.i6516.i.i.i.i)
   br label %for.inc.i87.i.i
@@ -3128,8 +3128,8 @@ if.then65.i.i.i.i:                                ; preds = %do.end62.i.i.i.i
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i
 
 for.inc.i87.i.i:                                  ; preds = %for.end.i.i93.i.i, %do.body.i93.i.i.i, %for.end41.i.i.i.i, %if.end10.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i102.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i, %do.body9.i.i.i.i, %do.body.i.i113.i.i, %for.body.i55.i.i
-  %file.sroa.37.28.i.i.i = phi i64 [ %file.sroa.37.14.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i102.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i ], [ %file.sroa.37.7.i.i.i, %do.body.i.i113.i.i ], [ %file.sroa.37.6.i.i.i, %do.body9.i.i.i.i ], [ %file.sroa.37.0203.i.i.i, %for.body.i55.i.i ], [ %file.sroa.37.26.i.i.i, %do.body.i93.i.i.i ], [ %file.sroa.37.20.i.i.i, %for.end41.i.i.i.i ], [ %file.sroa.37.14.i.i.i, %if.end10.i.i.i ], [ %file.sroa.37.8.i.i.i, %for.end.i.i93.i.i ]
-  %file.sroa.20.28.i.i.i = phi i64 [ %file.sroa.20.14.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i102.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i ], [ %file.sroa.20.7.i.i.i, %do.body.i.i113.i.i ], [ %file.sroa.20.6.i.i.i, %do.body9.i.i.i.i ], [ %file.sroa.20.0204.i.i.i, %for.body.i55.i.i ], [ %file.sroa.20.26.i.i.i, %do.body.i93.i.i.i ], [ %file.sroa.20.20.i.i.i, %for.end41.i.i.i.i ], [ %file.sroa.20.14.i.i.i, %if.end10.i.i.i ], [ %file.sroa.20.8.i.i.i, %for.end.i.i93.i.i ]
+  %file.sroa.37.1.i.i.i = phi i64 [ %file.sroa.37.15.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i102.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i ], [ %file.sroa.37.9.i.i.i, %do.body.i.i113.i.i ], [ %file.sroa.37.7.i.i.i, %do.body9.i.i.i.i ], [ %file.sroa.37.0203.i.i.i, %for.body.i55.i.i ], [ %file.sroa.37.27.i.i.i, %do.body.i93.i.i.i ], [ %file.sroa.37.21.i.i.i, %for.end41.i.i.i.i ], [ %file.sroa.37.15.i.i.i, %if.end10.i.i.i ], [ %file.sroa.37.8.i.i.i, %for.end.i.i93.i.i ]
+  %file.sroa.20.1.i.i.i = phi i64 [ %file.sroa.20.15.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.i102.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread.i112.i.i ], [ %file.sroa.20.9.i.i.i, %do.body.i.i113.i.i ], [ %file.sroa.20.7.i.i.i, %do.body9.i.i.i.i ], [ %file.sroa.20.0204.i.i.i, %for.body.i55.i.i ], [ %file.sroa.20.27.i.i.i, %do.body.i93.i.i.i ], [ %file.sroa.20.21.i.i.i, %for.end41.i.i.i.i ], [ %file.sroa.20.15.i.i.i, %if.end10.i.i.i ], [ %file.sroa.20.8.i.i.i, %for.end.i.i93.i.i ]
   %__begin2.0.add.i.i7.i = add nuw nsw i64 %__begin2.0.idx209.i.i.i, 4
   %cmp.not.i.i8.i = icmp eq i64 %__begin2.0.add.i.i7.i, 8
   br i1 %cmp.not.i.i8.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m.exit.thread.i.i, label %for.bodythread-pre-split.i.i.i, !llvm.loop !31

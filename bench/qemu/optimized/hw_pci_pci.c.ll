@@ -1729,18 +1729,18 @@ if.else41.i:                                      ; preds = %if.else10.i
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.else41.i, %if.then36.i
-  %new_addr.0.i = phi i64 [ %add.ptr39.val.i, %if.then36.i ], [ %conv46.i, %if.else41.i ]
+  %new_addr.1.i = phi i64 [ %add.ptr39.val.i, %if.then36.i ], [ %conv46.i, %if.else41.i ]
   %conv48.i = zext i32 %div.i to i64
   %mul49.i = mul i64 %conv48.i, %size
-  %add50.i = add i64 %new_addr.0.i, %mul49.i
+  %add50.i = add i64 %new_addr.1.i, %mul49.i
   br label %pci_config_get_bar_addr.exit
 
 pci_config_get_bar_addr.exit:                     ; preds = %if.then3.i, %if.else.i, %if.end47.i
-  %new_addr.1.i = phi i64 [ %add50.i, %if.end47.i ], [ %add.ptr.val.i, %if.then3.i ], [ %conv9.i, %if.else.i ]
+  %new_addr.0.i = phi i64 [ %add50.i, %if.end47.i ], [ %add.ptr.val.i, %if.then3.i ], [ %conv9.i, %if.else.i ]
   %cmp.not.i = icmp eq i32 %reg, 6
   %not.i = sub i64 0, %size
   %and55.i = select i1 %cmp.not.i, i64 -1, i64 %not.i
-  %new_addr.2.i = and i64 %new_addr.1.i, %and55.i
+  %new_addr.2.i = and i64 %new_addr.0.i, %and55.i
   %add = add i64 %size, -1
   %sub = add i64 %add, %new_addr.2.i
   %cmp = icmp ule i64 %sub, %new_addr.2.i
@@ -1840,25 +1840,25 @@ if.else41.i72:                                    ; preds = %if.else10.i38
   br label %if.end47.i62
 
 if.end47.i62:                                     ; preds = %if.else41.i72, %if.then36.i60
-  %new_addr.0.i63 = phi i64 [ %add.ptr39.val.i61, %if.then36.i60 ], [ %conv46.i74, %if.else41.i72 ]
+  %new_addr.1.i63 = phi i64 [ %add.ptr39.val.i61, %if.then36.i60 ], [ %conv46.i74, %if.else41.i72 ]
   %conv48.i64 = zext i32 %div.i56 to i64
   %mul49.i65 = mul i64 %conv48.i64, %size
-  %add50.i66 = add i64 %new_addr.0.i63, %mul49.i65
+  %add50.i66 = add i64 %new_addr.1.i63, %mul49.i65
   br label %pci_config_get_bar_addr.exit96
 
 pci_config_get_bar_addr.exit96:                   ; preds = %if.then3.i86, %if.else.i88, %if.end47.i62
-  %new_addr.1.i67 = phi i64 [ %add50.i66, %if.end47.i62 ], [ %add.ptr.val.i87, %if.then3.i86 ], [ %conv9.i90, %if.else.i88 ]
+  %new_addr.0.i67 = phi i64 [ %add50.i66, %if.end47.i62 ], [ %add.ptr.val.i87, %if.then3.i86 ], [ %conv9.i90, %if.else.i88 ]
   %cmp.not.i68 = icmp eq i32 %reg, 6
   %not.i69 = sub i64 0, %size
   %28 = and i64 %not.i69, 1
   %new_addr.2.i71 = select i1 %cmp.not.i68, i64 1, i64 %28
-  %and28 = and i64 %new_addr.2.i71, %new_addr.1.i67
+  %and28 = and i64 %new_addr.2.i71, %new_addr.0.i67
   %tobool29.not = icmp eq i64 %and28, 0
   %or.cond33 = select i1 %cmp.not.i68, i1 %tobool29.not, i1 false
   br i1 %or.cond33, label %return, label %if.end31
 
 if.end31:                                         ; preds = %pci_config_get_bar_addr.exit96
-  %and33 = and i64 %new_addr.1.i67, %not.i69
+  %and33 = and i64 %new_addr.0.i67, %not.i69
   %add34 = add i64 %and33, %size
   %sub35 = add i64 %add34, -1
   %cmp36 = icmp ule i64 %sub35, %and33
@@ -3068,9 +3068,9 @@ if.end35:                                         ; preds = %if.end32
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end24, %if.end35
-  %busnr.1 = phi i32 [ %conv53.i, %if.end35 ], [ 0, %if.end24 ]
+  %busnr.0 = phi i32 [ %conv53.i, %if.end35 ], [ 0, %if.end24 ]
   %devfn.0 = phi i32 [ %and, %if.end35 ], [ -1, %if.end24 ]
-  %call37 = tail call ptr @pci_find_bus_nr(ptr noundef nonnull %rootbus, i32 noundef %busnr.1)
+  %call37 = tail call ptr @pci_find_bus_nr(ptr noundef nonnull %rootbus, i32 noundef %busnr.0)
   %tobool38.not = icmp eq ptr %call37, null
   %14 = load ptr, ptr %model, align 8
   br i1 %tobool38.not, label %if.then39, label %if.end41
@@ -3572,7 +3572,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %host_bridge.013 = phi ptr [ %host_bridge.0, %for.inc ], [ %host_bridge.010, %entry ]
-  %rc.012 = phi i32 [ %rc.1, %for.inc ], [ -19, %entry ]
+  %rc.012 = phi i32 [ %rc.2, %for.inc ], [ -19, %entry ]
   %bus = getelementptr inbounds i8, ptr %host_bridge.013, i64 1640
   %0 = load ptr, ptr %bus, align 8
   %call.i = tail call ptr @qdev_find_recursive(ptr noundef %0, ptr noundef %id) #25
@@ -3590,15 +3590,15 @@ pci_qdev_find_recursive.exit.thread7:             ; preds = %if.end.i
   br label %for.end
 
 for.inc:                                          ; preds = %if.end.i, %for.body
-  %rc.1 = phi i32 [ %rc.012, %for.body ], [ -22, %if.end.i ]
+  %rc.2 = phi i32 [ %rc.012, %for.body ], [ -22, %if.end.i ]
   %next = getelementptr inbounds i8, ptr %host_bridge.013, i64 1656
   %host_bridge.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %host_bridge.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !26
 
 for.end:                                          ; preds = %for.inc, %entry, %pci_qdev_find_recursive.exit.thread7
-  %rc.2 = phi i32 [ 0, %pci_qdev_find_recursive.exit.thread7 ], [ -19, %entry ], [ %rc.1, %for.inc ]
-  ret i32 %rc.2
+  %rc.1 = phi i32 [ 0, %pci_qdev_find_recursive.exit.thread7 ], [ -19, %entry ], [ %rc.2, %for.inc ]
+  ret i32 %rc.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5713,8 +5713,8 @@ if.then30.i:                                      ; preds = %if.then25.i
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then30.i, %if.then25.i
-  %path.0.i = phi ptr [ %call32.i, %if.then30.i ], [ %call27.i, %if.then25.i ]
-  %call34.i = call i64 @get_image_size(ptr noundef %path.0.i) #25
+  %path.2.i = phi ptr [ %call32.i, %if.then30.i ], [ %call27.i, %if.then25.i ]
+  %call34.i = call i64 @get_image_size(ptr noundef %path.2.i) #25
   %cmp35.i = icmp slt i64 %call34.i, 0
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
 
@@ -5768,7 +5768,7 @@ if.else65.i:                                      ; preds = %if.end51.i
   br label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.else65.i, %if.then55.i, %lor.lhs.false22.i
-  %path.1.i = phi ptr [ %path.0.i, %if.else65.i ], [ %path.0.i, %if.then55.i ], [ null, %lor.lhs.false22.i ]
+  %path.1.i = phi ptr [ %path.2.i, %if.else65.i ], [ %path.2.i, %if.then55.i ], [ null, %lor.lhs.false22.i ]
   %size.0.i = phi i64 [ %call34.i, %if.else65.i ], [ %call34.i, %if.then55.i ], [ 0, %lor.lhs.false22.i ]
   %call.i45.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %call72.i = call ptr @qdev_get_vmsd(ptr noundef %call.i45.i) #25
@@ -5818,8 +5818,8 @@ if.end94.i74:                                     ; preds = %if.then91.i, %if.en
   br label %pci_add_option_rom.exit
 
 pci_add_option_rom.exit:                          ; preds = %if.end99, %lor.lhs.false.i72, %if.then10.i, %if.then13.i, %if.else.i80, %if.then37.i, %if.then42.i, %if.then47.i, %if.then60.i, %if.then87.i, %if.end94.i74
-  %path.2.i = phi ptr [ null, %if.end99 ], [ null, %lor.lhs.false.i72 ], [ null, %if.then13.i ], [ null, %if.else.i80 ], [ null, %if.then10.i ], [ %path.0.i, %if.then37.i ], [ %path.0.i, %if.then42.i ], [ %path.0.i, %if.then47.i ], [ %path.1.i, %if.end94.i74 ], [ %path.1.i, %if.then87.i ], [ %path.0.i, %if.then60.i ]
-  call void @g_free(ptr noundef %path.2.i) #25
+  %path.0.i = phi ptr [ null, %if.end99 ], [ null, %lor.lhs.false.i72 ], [ null, %if.then13.i ], [ null, %if.else.i80 ], [ null, %if.then10.i ], [ %path.2.i, %if.then37.i ], [ %path.2.i, %if.then42.i ], [ %path.2.i, %if.then47.i ], [ %path.1.i, %if.end94.i74 ], [ %path.1.i, %if.then87.i ], [ %path.2.i, %if.then60.i ]
+  call void @g_free(ptr noundef %path.0.i) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
   %127 = load ptr, ptr %local_err, align 8
   %tobool101.not = icmp eq ptr %127, null

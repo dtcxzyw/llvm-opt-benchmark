@@ -3250,8 +3250,8 @@ for.inc.i82:                                      ; preds = %land.lhs.true33.i, 
   br i1 %cmp26.not.i, label %if.end67.i, label %for.body.i81, !llvm.loop !29
 
 if.end67.i:                                       ; preds = %for.inc.i82, %push_mark.exit.i, %upstream_mark.exit.i, %if.then46.i, %if.then24.i
-  %nth_prior.0166.i = phi i32 [ 0, %upstream_mark.exit.i ], [ 0, %push_mark.exit.i ], [ 0, %if.then24.i ], [ 1, %if.then46.i ], [ 0, %for.inc.i82 ]
-  %at.0163.i = phi i32 [ %36, %upstream_mark.exit.i ], [ %36, %push_mark.exit.i ], [ %sub25.i, %if.then24.i ], [ -1, %if.then46.i ], [ -1, %for.inc.i82 ]
+  %nth_prior.1166.i = phi i32 [ 0, %upstream_mark.exit.i ], [ 0, %push_mark.exit.i ], [ 0, %if.then24.i ], [ 1, %if.then46.i ], [ 0, %for.inc.i82 ]
+  %at.1163.i = phi i32 [ %36, %upstream_mark.exit.i ], [ %36, %push_mark.exit.i ], [ %sub25.i, %if.then24.i ], [ -1, %if.then46.i ], [ -1, %for.inc.i82 ]
   %reflog_len.0.i = phi i32 [ 0, %upstream_mark.exit.i ], [ %spec.select.i83, %push_mark.exit.i ], [ 0, %if.then24.i ], [ 0, %if.then46.i ], [ 0, %for.inc.i82 ]
   %len.addr.0.i = phi i32 [ %len, %upstream_mark.exit.i ], [ %spec.select70.i, %push_mark.exit.i ], [ %len, %if.then24.i ], [ %len, %if.then46.i ], [ %len, %for.inc.i82 ]
   %tobool68.not.i = icmp eq i32 %len.addr.0.i, 0
@@ -3259,8 +3259,8 @@ if.end67.i:                                       ; preds = %for.inc.i82, %push_
 
 land.lhs.true69.i:                                ; preds = %if.end67.i, %land.lhs.true20.i
   %len.addr.0118.i = phi i32 [ %len.addr.0.i, %if.end67.i ], [ %len, %land.lhs.true20.i ]
-  %at.1117.i = phi i32 [ %at.0163.i, %if.end67.i ], [ 0, %land.lhs.true20.i ]
-  %nth_prior.2116.i = phi i32 [ %nth_prior.0166.i, %if.end67.i ], [ 0, %land.lhs.true20.i ]
+  %at.0117.i = phi i32 [ %at.1163.i, %if.end67.i ], [ 0, %land.lhs.true20.i ]
+  %nth_prior.0116.i = phi i32 [ %nth_prior.1166.i, %if.end67.i ], [ 0, %land.lhs.true20.i ]
   %reflog_len.0115.i = phi i32 [ %reflog_len.0.i, %if.end67.i ], [ 0, %land.lhs.true20.i ]
   %cmp3.i.i = icmp sgt i32 %len.addr.0118.i, 0
   br i1 %cmp3.i.i, label %for.body.i.i, label %get_oid_basic.exit.thread
@@ -3298,10 +3298,10 @@ ambiguous_path.exit.i:                            ; preds = %for.inc.i.i, %for.b
 if.end73.i:                                       ; preds = %ambiguous_path.exit.i, %if.end67.i
   %tobool68.not108.i = phi i1 [ false, %ambiguous_path.exit.i ], [ true, %if.end67.i ]
   %len.addr.0107.i = phi i32 [ %len.addr.0118.i, %ambiguous_path.exit.i ], [ 0, %if.end67.i ]
-  %at.1106.i = phi i32 [ %at.1117.i, %ambiguous_path.exit.i ], [ %at.0163.i, %if.end67.i ]
-  %nth_prior.2105.i = phi i32 [ %nth_prior.2116.i, %ambiguous_path.exit.i ], [ %nth_prior.0166.i, %if.end67.i ]
+  %at.0106.i = phi i32 [ %at.0117.i, %ambiguous_path.exit.i ], [ %at.1163.i, %if.end67.i ]
+  %nth_prior.0105.i = phi i32 [ %nth_prior.0116.i, %ambiguous_path.exit.i ], [ %nth_prior.1166.i, %if.end67.i ]
   %reflog_len.0104.i = phi i32 [ %reflog_len.0115.i, %ambiguous_path.exit.i ], [ %reflog_len.0.i, %if.end67.i ]
-  %tobool74.not.i = icmp eq i32 %nth_prior.2105.i, 0
+  %tobool74.not.i = icmp eq i32 %nth_prior.0105.i, 0
   br i1 %tobool74.not.i, label %if.end94.i, label %if.then75.i
 
 if.then75.i:                                      ; preds = %if.end73.i
@@ -3348,7 +3348,7 @@ if.then104.i:                                     ; preds = %if.else.i76
   br label %if.end112.i
 
 if.else106.i:                                     ; preds = %if.else.i76, %if.end18.i
-  %at.1106130141156.i = phi i32 [ %at.1106.i, %if.else.i76 ], [ 0, %if.end18.i ]
+  %at.0106130141156.i = phi i32 [ %at.0106.i, %if.else.i76 ], [ 0, %if.end18.i ]
   %len.addr.0107129143155.i = phi i32 [ %len.addr.0107.i, %if.else.i76 ], [ 0, %if.end18.i ]
   %tobool68.not108128145154.i = phi i1 [ %tobool68.not108.i, %if.else.i76 ], [ true, %if.end18.i ]
   %call110.i = call i32 @repo_dwim_ref(ptr noundef %r, ptr noundef %name, i32 noundef %len.addr.0107129143155.i, ptr noundef %oid, ptr noundef nonnull %real_ref.i, i32 noundef %and.i71) #20
@@ -3358,7 +3358,7 @@ if.end112.i:                                      ; preds = %if.else106.i, %if.t
   %tobool97146.i = phi i1 [ true, %if.then98.i ], [ true, %if.then104.i ], [ false, %if.else106.i ]
   %tobool68.not108128144.i = phi i1 [ true, %if.then98.i ], [ %tobool68.not108.i, %if.then104.i ], [ %tobool68.not108128145154.i, %if.else106.i ]
   %len.addr.0107129142.i = phi i32 [ %len.addr.0107.i, %if.then98.i ], [ %len.addr.0107.i, %if.then104.i ], [ %len.addr.0107129143155.i, %if.else106.i ]
-  %at.1106130140.i = phi i32 [ %at.1106.i, %if.then98.i ], [ %at.1106.i, %if.then104.i ], [ %at.1106130141156.i, %if.else106.i ]
+  %at.0106130140.i = phi i32 [ %at.0106.i, %if.then98.i ], [ %at.0106.i, %if.then104.i ], [ %at.0106130141156.i, %if.else106.i ]
   %reflog_len.0104131138.i = phi i32 [ %reflog_len.0104.i, %if.then98.i ], [ %reflog_len.0104.i, %if.then104.i ], [ 0, %if.else106.i ]
   %refs_found.0.i = phi i32 [ %call102.i, %if.then98.i ], [ %call105.i, %if.then104.i ], [ %call110.i, %if.else106.i ]
   %tobool113.not.i = icmp eq i32 %refs_found.0.i, 0
@@ -3392,7 +3392,7 @@ for.cond129.preheader.i:                          ; preds = %if.end126.i
 
 for.body137.lr.ph.i:                              ; preds = %for.cond129.preheader.i
   %45 = zext nneg i32 %reflog_len.0104131138.i to i64
-  %46 = sext i32 %at.1106130140.i to i64
+  %46 = sext i32 %at.0106130140.i to i64
   %invariant.gep.i = getelementptr i8, ptr %name, i64 %46
   %invariant.gep208.i = getelementptr i8, ptr %invariant.gep.i, i64 2
   br label %for.body137.i
@@ -3474,7 +3474,7 @@ if.end185.i:                                      ; preds = %do.cond.i.i, %do.bo
   br label %if.end188.i
 
 if.end188.i:                                      ; preds = %if.end185.i, %if.then180.i
-  %str.addr.2.i = phi ptr [ %str.addr.1.i, %if.end185.i ], [ %name, %if.then180.i ]
+  %str.addr.0.i = phi ptr [ %str.addr.1.i, %if.end185.i ], [ %name, %if.then180.i ]
   %len.addr.1.i = phi i32 [ %conv187.i, %if.end185.i ], [ %len.addr.0107129142.i, %if.then180.i ]
   %tobool189.not.i = icmp eq i64 %at_time.0.i, 0
   br i1 %tobool189.not.i, label %if.else198.i, label %if.then190.i
@@ -3497,7 +3497,7 @@ _.exit80.i:                                       ; preds = %if.end3.i77.i, %if.
   %57 = load i32, ptr %co_tz.i, align 4
   %call195.i = call ptr @date_mode_from_type(i32 noundef 6) #20
   %call196.i = call ptr @show_date(i64 noundef %56, i32 noundef %57, ptr noundef %call195.i) #20
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i79.i, i32 noundef %len.addr.1.i, ptr noundef %str.addr.2.i, ptr noundef %call196.i) #20
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i79.i, i32 noundef %len.addr.1.i, ptr noundef %str.addr.0.i, ptr noundef %call196.i) #20
   br label %get_oid_basic.exit.thread147
 
 if.else198.i:                                     ; preds = %if.end188.i
@@ -3511,7 +3511,7 @@ if.then201.i:                                     ; preds = %if.else198.i
 if.end203.i:                                      ; preds = %if.else198.i
   %call204.i = call fastcc ptr @_(ptr noundef nonnull @.str.34)
   %58 = load i32, ptr %co_cnt.i, align 4
-  call void (ptr, ...) @die(ptr noundef %call204.i, i32 noundef %len.addr.1.i, ptr noundef %str.addr.2.i, i32 noundef %58) #22
+  call void (ptr, ...) @die(ptr noundef %call204.i, i32 noundef %len.addr.1.i, ptr noundef %str.addr.0.i, i32 noundef %58) #22
   unreachable
 
 get_oid_basic.exit.thread:                        ; preds = %sw.bb1.i.i, %ambiguous_path.exit.i, %if.end112.i, %land.lhs.true69.i, %if.then46.i

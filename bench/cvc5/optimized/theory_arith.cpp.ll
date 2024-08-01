@@ -3538,7 +3538,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont66, %if.
   %tobool.i.i.not = icmp eq i16 %16, 0
   %tobool = trunc i16 %call67 to i1
   %cond = select i1 %tobool, i32 4, i32 5
-  %retval.0 = select i1 %tobool.i.i.not, i32 6, i32 %cond
+  %retval.1 = select i1 %tobool.i.i.not, i32 6, i32 %cond
   %17 = load ptr, ptr %diff, align 8
   %bf.load.i.i453 = load i64, ptr %17, align 8
   %18 = and i64 %bf.load.i.i453, 1152920405095219200
@@ -3582,8 +3582,8 @@ ehcleanup108:                                     ; preds = %lpad65, %lpad62
   br label %eh.resume
 
 return:                                           ; preds = %cond.end, %if.then13.i.i461, %if.then.i.i455, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then21
-  %retval.1 = phi i32 [ %call25, %if.then21 ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %retval.0, %if.then.i.i455 ], [ %retval.0, %if.then13.i.i461 ], [ 4, %cond.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call25, %if.then21 ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %retval.1, %if.then.i.i455 ], [ %retval.1, %if.then13.i.i461 ], [ 4, %cond.end ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup10.i, %ehcleanup108
   %.pn2 = phi { ptr, i32 } [ %.pn, %ehcleanup108 ], [ %.pn2.i, %ehcleanup10.i ]

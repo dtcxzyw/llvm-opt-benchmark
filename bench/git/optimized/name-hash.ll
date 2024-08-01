@@ -557,7 +557,7 @@ while.cond1.preheader.lr.ph:                      ; preds = %entry
 
 while.cond1.preheader:                            ; preds = %while.cond1.preheader.lr.ph, %if.end22
   %1 = phi i8 [ %0, %while.cond1.preheader.lr.ph ], [ %.pre, %if.end22 ]
-  %startPtr.023 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %startPtr.1, %if.end22 ]
+  %startPtr.023 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %startPtr.2, %if.end22 ]
   %ptr.022 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %incdec.ptr21, %if.end22 ]
   br label %while.cond1
 
@@ -600,7 +600,7 @@ if.then12:                                        ; preds = %if.then
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then, %if.then12
-  %startPtr.1 = phi ptr [ %add.ptr20, %if.then12 ], [ %startPtr.023, %if.then ]
+  %startPtr.2 = phi ptr [ %add.ptr20, %if.then12 ], [ %startPtr.023, %if.then ]
   %incdec.ptr21 = getelementptr inbounds i8, ptr %ptr.1, i64 1
   %.pre = load i8, ptr %incdec.ptr21, align 1
   %tobool.not = icmp eq i8 %.pre, 0

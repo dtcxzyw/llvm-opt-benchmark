@@ -550,7 +550,7 @@ for.inc232:                                       ; preds = %for.body169, %if.en
 
 for.body240:                                      ; preds = %for.body240.lr.ph, %for.inc279
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %for.inc279 ], [ 0, %for.body240.lr.ph ]
-  %leastSquaredResidual.7230 = phi float [ %leastSquaredResidual.8, %for.inc279 ], [ %leastSquaredResidual.0.lcssa, %for.body240.lr.ph ]
+  %leastSquaredResidual.8230 = phi float [ %leastSquaredResidual.9, %for.inc279 ], [ %leastSquaredResidual.0.lcssa, %for.body240.lr.ph ]
   %100 = load i32, ptr %m_numIterations241, align 4
   %cmp242 = icmp sgt i32 %100, %iteration
   br i1 %cmp242, label %if.then243, label %for.inc279
@@ -580,8 +580,8 @@ if.then254:                                       ; preds = %if.then243
   store <2 x float> %111, ptr %m_lowerLimit258, align 8
   %call263 = tail call noundef float @_ZN27btMultiBodyConstraintSolver33resolveSingleConstraintRowGenericERK27btMultiBodySolverConstraint(ptr noundef nonnull align 8 dereferenceable(788) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i190)
   %mul265 = fmul float %call263, %call263
-  %cmp.i194 = fcmp ogt float %leastSquaredResidual.7230, %mul265
-  %.sroa.speculated = select i1 %cmp.i194, float %leastSquaredResidual.7230, float %mul265
+  %cmp.i194 = fcmp ogt float %leastSquaredResidual.8230, %mul265
+  %.sroa.speculated = select i1 %cmp.i194, float %leastSquaredResidual.8230, float %mul265
   %m_multiBodyA267 = getelementptr inbounds i8, ptr %arrayidx.i190, i64 176
   %112 = load ptr, ptr %m_multiBodyA267, align 8
   %tobool268.not = icmp eq ptr %112, null
@@ -604,7 +604,7 @@ if.then274:                                       ; preds = %if.end271
   br label %for.inc279
 
 for.inc279:                                       ; preds = %for.body240, %if.end271, %if.then274, %if.then243
-  %leastSquaredResidual.8 = phi float [ %.sroa.speculated, %if.end271 ], [ %.sroa.speculated, %if.then274 ], [ %leastSquaredResidual.7230, %if.then243 ], [ %leastSquaredResidual.7230, %for.body240 ]
+  %leastSquaredResidual.9 = phi float [ %.sroa.speculated, %if.end271 ], [ %.sroa.speculated, %if.then274 ], [ %leastSquaredResidual.8230, %if.then243 ], [ %leastSquaredResidual.8230, %for.body240 ]
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %114 = load i32, ptr %m_size.i187, align 4
   %115 = sext i32 %114 to i64
@@ -612,8 +612,8 @@ for.inc279:                                       ; preds = %for.body240, %if.en
   br i1 %cmp239, label %for.body240, label %if.end282, !llvm.loop !13
 
 if.end282:                                        ; preds = %for.inc279, %for.inc232, %for.body169.lr.ph, %for.body240.lr.ph, %for.cond236.preheader, %for.cond166.preheader
-  %leastSquaredResidual.9 = phi float [ %leastSquaredResidual.3.lcssa, %for.cond166.preheader ], [ %leastSquaredResidual.0.lcssa, %for.cond236.preheader ], [ %leastSquaredResidual.0.lcssa, %for.body240.lr.ph ], [ %leastSquaredResidual.3.lcssa, %for.body169.lr.ph ], [ %leastSquaredResidual.6, %for.inc232 ], [ %leastSquaredResidual.8, %for.inc279 ]
-  ret float %leastSquaredResidual.9
+  %leastSquaredResidual.7 = phi float [ %leastSquaredResidual.3.lcssa, %for.cond166.preheader ], [ %leastSquaredResidual.0.lcssa, %for.cond236.preheader ], [ %leastSquaredResidual.0.lcssa, %for.body240.lr.ph ], [ %leastSquaredResidual.3.lcssa, %for.body169.lr.ph ], [ %leastSquaredResidual.6, %for.inc232 ], [ %leastSquaredResidual.9, %for.inc279 ]
+  ret float %leastSquaredResidual.7
 }
 
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver20solveSingleIterationEiPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
@@ -2864,9 +2864,9 @@ if.then51:                                        ; preds = %if.else
   %tobool47.not = icmp eq i32 %and, 0
   %25 = getelementptr inbounds i8, ptr %cp, i64 156
   %26 = load float, ptr %25, align 4
-  %cfm.0 = select i1 %tobool47.not, float %21, float %26
+  %cfm.1 = select i1 %tobool47.not, float %21, float %26
   %27 = insertelement <2 x float> poison, float %22, i64 0
-  %28 = insertelement <2 x float> %27, float %cfm.0, i64 1
+  %28 = insertelement <2 x float> %27, float %cfm.1, i64 1
   br i1 %tobool50.not, label %if.end75, label %if.then60
 
 if.then60:                                        ; preds = %if.then51

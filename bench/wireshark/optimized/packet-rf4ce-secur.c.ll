@@ -1006,8 +1006,8 @@ calc_key_cmac.exit:                               ; preds = %rf4ce_aes_cmac.exit
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !17
 
 .loopexit:                                        ; preds = %82, %calc_key_cmac.exit
-  %.2 = phi i32 [ 1, %calc_key_cmac.exit ], [ 0, %82 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 1, %calc_key_cmac.exit ], [ 0, %82 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable

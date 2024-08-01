@@ -167,14 +167,14 @@ if.end94.i.us:                                    ; preds = %if.end89.i.us
   br i1 %cmp95.i.us, label %if.then121.i, label %if.end128.i.us
 
 if.end128.i.us:                                   ; preds = %if.end94.i.us, %if.end89.i.us
-  %tp.171.i.us = phi ptr [ %incdec.ptr93.i.us, %if.end94.i.us ], [ %tp.082.i.us, %if.end89.i.us ]
-  %sub.ptr.lhs.cast130.i.us = ptrtoint ptr %tp.171.i.us to i64
+  %tp.371.i.us = phi ptr [ %incdec.ptr93.i.us, %if.end94.i.us ], [ %tp.082.i.us, %if.end89.i.us ]
+  %sub.ptr.lhs.cast130.i.us = ptrtoint ptr %tp.371.i.us to i64
   %sub133.i.us = sub i64 %sub.ptr.sub132.neg.i, %sub.ptr.lhs.cast130.i.us
   %arrayidx135.i.us = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 %indvars.iv101.i.us
   %10 = load i32, ptr %arrayidx135.i.us, align 4
-  %call136.i.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.171.i.us, i64 noundef %sub133.i.us, ptr noundef nonnull @.str, i32 noundef %10) #9
+  %call136.i.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.371.i.us, i64 noundef %sub133.i.us, ptr noundef nonnull @.str, i32 noundef %10) #9
   %idx.ext.i.us = sext i32 %call136.i.us to i64
-  %add.ptr137.i.us = getelementptr inbounds i8, ptr %tp.171.i.us, i64 %idx.ext.i.us
+  %add.ptr137.i.us = getelementptr inbounds i8, ptr %tp.371.i.us, i64 %idx.ext.i.us
   br label %for.inc138.i.us
 
 if.then83.i.us:                                   ; preds = %for.body70.i.us
@@ -212,14 +212,14 @@ if.end94.us.us.i:                                 ; preds = %for.body70.us.us.i
   br label %if.end128.us.us.i
 
 if.end128.us.us.i:                                ; preds = %if.end94.us.us.i, %for.body70.us.us.i
-  %tp.171.us.us.i = phi ptr [ %incdec.ptr93.us.us.i, %if.end94.us.us.i ], [ %tp.082.us.us.i, %for.body70.us.us.i ]
-  %sub.ptr.lhs.cast130.us.us.i = ptrtoint ptr %tp.171.us.us.i to i64
+  %tp.371.us.us.i = phi ptr [ %incdec.ptr93.us.us.i, %if.end94.us.us.i ], [ %tp.082.us.us.i, %for.body70.us.us.i ]
+  %sub.ptr.lhs.cast130.us.us.i = ptrtoint ptr %tp.371.us.us.i to i64
   %sub133.us.us.i = sub i64 %sub.ptr.sub132.neg.i, %sub.ptr.lhs.cast130.us.us.i
   %arrayidx135.us.us.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 %indvars.iv93.i
   %14 = load i32, ptr %arrayidx135.us.us.i, align 4
-  %call136.us.us.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.171.us.us.i, i64 noundef %sub133.us.us.i, ptr noundef nonnull @.str, i32 noundef %14) #9
+  %call136.us.us.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.371.us.us.i, i64 noundef %sub133.us.us.i, ptr noundef nonnull @.str, i32 noundef %14) #9
   %idx.ext.us.us.i = sext i32 %call136.us.us.i to i64
-  %add.ptr137.us.us.i = getelementptr inbounds i8, ptr %tp.171.us.us.i, i64 %idx.ext.us.us.i
+  %add.ptr137.us.us.i = getelementptr inbounds i8, ptr %tp.371.us.us.i, i64 %idx.ext.us.us.i
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 8
   br i1 %exitcond96.not.i, label %for.end140.i, label %for.body70.us.us.i
@@ -242,14 +242,14 @@ if.end94.us.i:                                    ; preds = %if.end89.us.i
   br label %if.end128.us.i
 
 if.end128.us.i:                                   ; preds = %if.end94.us.i, %if.end89.us.i
-  %tp.171.us.i = phi ptr [ %incdec.ptr93.us.i, %if.end94.us.i ], [ %tp.082.us.i, %if.end89.us.i ]
-  %sub.ptr.lhs.cast130.us.i = ptrtoint ptr %tp.171.us.i to i64
+  %tp.371.us.i = phi ptr [ %incdec.ptr93.us.i, %if.end94.us.i ], [ %tp.082.us.i, %if.end89.us.i ]
+  %sub.ptr.lhs.cast130.us.i = ptrtoint ptr %tp.371.us.i to i64
   %sub133.us.i = sub i64 %sub.ptr.sub132.neg.i, %sub.ptr.lhs.cast130.us.i
   %arrayidx135.us.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 %indvars.iv97.i
   %15 = load i32, ptr %arrayidx135.us.i, align 4
-  %call136.us.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.171.us.i, i64 noundef %sub133.us.i, ptr noundef nonnull @.str, i32 noundef %15) #9
+  %call136.us.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.371.us.i, i64 noundef %sub133.us.i, ptr noundef nonnull @.str, i32 noundef %15) #9
   %idx.ext.us.i = sext i32 %call136.us.i to i64
-  %add.ptr137.us.i = getelementptr inbounds i8, ptr %tp.171.us.i, i64 %idx.ext.us.i
+  %add.ptr137.us.i = getelementptr inbounds i8, ptr %tp.371.us.i, i64 %idx.ext.us.i
   br label %for.inc138.us.i
 
 if.then83.us.i:                                   ; preds = %for.body70.us.i
@@ -340,14 +340,14 @@ if.end125.i:                                      ; preds = %if.then121.i
   br label %for.end140.i
 
 if.end128.i:                                      ; preds = %lor.lhs.false113.i, %if.end94.i, %if.end89.i
-  %tp.171.i = phi ptr [ %incdec.ptr93.i, %lor.lhs.false113.i ], [ %incdec.ptr93.i, %if.end94.i ], [ %tp.082.i, %if.end89.i ]
-  %sub.ptr.lhs.cast130.i = ptrtoint ptr %tp.171.i to i64
+  %tp.371.i = phi ptr [ %incdec.ptr93.i, %lor.lhs.false113.i ], [ %incdec.ptr93.i, %if.end94.i ], [ %tp.082.i, %if.end89.i ]
+  %sub.ptr.lhs.cast130.i = ptrtoint ptr %tp.371.i to i64
   %sub133.i = sub i64 %sub.ptr.sub132.neg.i, %sub.ptr.lhs.cast130.i
   %arrayidx135.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 %indvars.iv101.i
   %22 = load i32, ptr %arrayidx135.i, align 4
-  %call136.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.171.i, i64 noundef %sub133.i, ptr noundef nonnull @.str, i32 noundef %22) #9
+  %call136.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %tp.371.i, i64 noundef %sub133.i, ptr noundef nonnull @.str, i32 noundef %22) #9
   %idx.ext.i = sext i32 %call136.i to i64
-  %add.ptr137.i = getelementptr inbounds i8, ptr %tp.171.i, i64 %idx.ext.i
+  %add.ptr137.i = getelementptr inbounds i8, ptr %tp.371.i, i64 %idx.ext.i
   br label %for.inc138.i
 
 for.inc138.i:                                     ; preds = %if.end128.i, %if.then87.i, %if.then83.i
@@ -357,18 +357,18 @@ for.inc138.i:                                     ; preds = %if.end128.i, %if.th
   br i1 %exitcond104.not.i, label %for.end140.i, label %for.body70.i
 
 for.end140.i:                                     ; preds = %if.end128.us.us.i, %for.inc138.us.i, %for.inc138.i, %for.inc138.i.us, %if.end125.i
-  %tp.3.i = phi ptr [ %add.ptr127.i, %if.end125.i ], [ %tp.2.i.us, %for.inc138.i.us ], [ %tp.2.i, %for.inc138.i ], [ %tp.2.us.i, %for.inc138.us.i ], [ %add.ptr137.us.us.i, %if.end128.us.us.i ]
+  %tp.1.i = phi ptr [ %add.ptr127.i, %if.end125.i ], [ %tp.2.i.us, %for.inc138.i.us ], [ %tp.2.i, %for.inc138.i ], [ %tp.2.us.i, %for.inc138.us.i ], [ %add.ptr137.us.us.i, %if.end128.us.us.i ]
   %cmp149.i = icmp eq i32 %add.i, 8
   %or.cond62.i = select i1 %cmp72.not.i, i1 %cmp149.i, i1 false
   br i1 %or.cond62.i, label %if.then151.i, label %if.end153.i
 
 if.then151.i:                                     ; preds = %for.end140.i
-  %incdec.ptr152.i = getelementptr inbounds i8, ptr %tp.3.i, i64 1
-  store i8 58, ptr %tp.3.i, align 1
+  %incdec.ptr152.i = getelementptr inbounds i8, ptr %tp.1.i, i64 1
+  store i8 58, ptr %tp.1.i, align 1
   br label %if.end153.i
 
 if.end153.i:                                      ; preds = %if.then151.i, %for.end140.i
-  %tp.4.i = phi ptr [ %incdec.ptr152.i, %if.then151.i ], [ %tp.3.i, %for.end140.i ]
+  %tp.4.i = phi ptr [ %incdec.ptr152.i, %if.then151.i ], [ %tp.1.i, %for.end140.i ]
   %incdec.ptr154.i = getelementptr inbounds i8, ptr %tp.4.i, i64 1
   store i8 0, ptr %tp.4.i, align 1
   %sub.ptr.lhs.cast156.i = ptrtoint ptr %incdec.ptr154.i to i64

@@ -955,8 +955,8 @@ lpad30:                                           ; preds = %if.end23
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont18, %if.else, %invoke.cont31
-  %retval.1 = phi i32 [ 0, %invoke.cont31 ], [ -1, %invoke.cont18 ], [ -1, %if.else ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %invoke.cont31 ], [ -1, %invoke.cont18 ], [ -1, %if.else ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad, %lpad13, %lpad30
   %ref.tmp27.sink = phi ptr [ %ref.tmp27, %lpad30 ], [ %host_address, %lpad13 ], [ %host_address, %lpad ]

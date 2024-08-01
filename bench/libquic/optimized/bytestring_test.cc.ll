@@ -868,7 +868,7 @@ lor.lhs.false37:                                  ; preds = %if.end36
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false37, %if.end36
-  %retval.0 = phi i1 [ false, %if.end36 ], [ %cmp39.not, %lor.lhs.false37 ]
+  %retval.1 = phi i1 [ false, %if.end36 ], [ %cmp39.not, %lor.lhs.false37 ]
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
@@ -877,8 +877,8 @@ if.then.i:                                        ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i, %cleanup, %entry, %if.then35, %if.then30, %if.then8
-  %retval.1 = phi i1 [ false, %if.then30 ], [ false, %if.then35 ], [ false, %if.then8 ], [ false, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then30 ], [ false, %if.then35 ], [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -1266,7 +1266,7 @@ lpad:                                             ; preds = %if.end14
   br label %ehcleanup
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then99, %lor.lhs.false95, %lor.lhs.false90, %lor.lhs.false86, %if.end82, %if.end77, %if.then64, %lor.lhs.false60, %lor.lhs.false55, %if.end51, %if.end46, %if.then34, %lor.lhs.false30, %lor.lhs.false25, %if.end21, %invoke.cont
-  %scoper.sroa.0.0 = phi ptr [ %0, %if.then34 ], [ %4, %if.then64 ], [ %7, %if.then99 ], [ %7, %lor.lhs.false95 ], [ %7, %lor.lhs.false90 ], [ %7, %lor.lhs.false86 ], [ %7, %if.end82 ], [ %7, %if.end77 ], [ %4, %lor.lhs.false60 ], [ %4, %lor.lhs.false55 ], [ %4, %if.end51 ], [ %4, %if.end46 ], [ %0, %lor.lhs.false30 ], [ %0, %lor.lhs.false25 ], [ %0, %if.end21 ], [ %0, %invoke.cont ]
+  %scoper.sroa.0.1 = phi ptr [ %0, %if.then34 ], [ %4, %if.then64 ], [ %7, %if.then99 ], [ %7, %lor.lhs.false95 ], [ %7, %lor.lhs.false90 ], [ %7, %lor.lhs.false86 ], [ %7, %if.end82 ], [ %7, %if.end77 ], [ %4, %lor.lhs.false60 ], [ %4, %lor.lhs.false55 ], [ %4, %if.end51 ], [ %4, %if.end46 ], [ %0, %lor.lhs.false30 ], [ %0, %lor.lhs.false25 ], [ %0, %if.end21 ], [ %0, %invoke.cont ]
   %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #15
@@ -1459,23 +1459,23 @@ lor.lhs.false106:                                 ; preds = %lor.lhs.false103
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 _ZNSt6vectorIhSaIhEED2Ev.exit17:                  ; preds = %lor.lhs.false106, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14, %lor.lhs.false103, %if.then99, %invoke.cont78, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11, %lor.lhs.false68, %lor.lhs.false71, %if.then64, %invoke.cont47, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %lor.lhs.false38, %lor.lhs.false41, %if.then34, %invoke.cont17
-  %scoper.sroa.0.1 = phi ptr [ %0, %invoke.cont17 ], [ %0, %if.then34 ], [ %4, %invoke.cont47 ], [ %4, %if.then64 ], [ %7, %invoke.cont78 ], [ %7, %if.then99 ], [ %10, %lor.lhs.false106 ], [ %10, %lor.lhs.false103 ], [ %10, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ %7, %lor.lhs.false71 ], [ %7, %lor.lhs.false68 ], [ %7, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ %4, %lor.lhs.false41 ], [ %4, %lor.lhs.false38 ], [ %4, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
-  %retval.0 = phi i1 [ false, %invoke.cont17 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ false, %if.then64 ], [ false, %invoke.cont78 ], [ false, %if.then99 ], [ %tobool110.not, %lor.lhs.false106 ], [ false, %lor.lhs.false103 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false68 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false38 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
+  %scoper.sroa.0.2 = phi ptr [ %0, %invoke.cont17 ], [ %0, %if.then34 ], [ %4, %invoke.cont47 ], [ %4, %if.then64 ], [ %7, %invoke.cont78 ], [ %7, %if.then99 ], [ %10, %lor.lhs.false106 ], [ %10, %lor.lhs.false103 ], [ %10, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ %7, %lor.lhs.false71 ], [ %7, %lor.lhs.false68 ], [ %7, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ %4, %lor.lhs.false41 ], [ %4, %lor.lhs.false38 ], [ %4, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
+  %retval.2 = phi i1 [ false, %invoke.cont17 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ false, %if.then64 ], [ false, %invoke.cont78 ], [ false, %if.then99 ], [ %tobool110.not, %lor.lhs.false106 ], [ false, %lor.lhs.false103 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit14 ], [ false, %lor.lhs.false71 ], [ false, %lor.lhs.false68 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit11 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false38 ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i8) #15
   br label %cleanup113
 
 cleanup113:                                       ; preds = %if.end9, %lor.lhs.false10, %_ZNSt6vectorIhSaIhEED2Ev.exit17
-  %scoper.sroa.0.2 = phi ptr [ %scoper.sroa.0.1, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ %0, %lor.lhs.false10 ], [ %0, %if.end9 ]
-  %retval.1 = phi i1 [ %retval.0, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %lor.lhs.false10 ], [ false, %if.end9 ]
-  %cmp.not.i = icmp eq ptr %scoper.sroa.0.2, null
+  %scoper.sroa.0.0 = phi ptr [ %scoper.sroa.0.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ %0, %lor.lhs.false10 ], [ %0, %if.end9 ]
+  %retval.1 = phi i1 [ %retval.2, %_ZNSt6vectorIhSaIhEED2Ev.exit17 ], [ false, %lor.lhs.false10 ], [ false, %if.end9 ]
+  %cmp.not.i = icmp eq ptr %scoper.sroa.0.0, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup113
-  call void @free(ptr noundef nonnull %scoper.sroa.0.2) #11
+  call void @free(ptr noundef nonnull %scoper.sroa.0.0) #11
   br label %return
 
 ehcleanup:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %lpad
-  %scoper.sroa.0.3 = phi ptr [ %scoper.sroa.0.0, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %0, %lpad ]
+  %scoper.sroa.0.3 = phi ptr [ %scoper.sroa.0.1, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %0, %lpad ]
   %.pn = phi { ptr, i32 } [ %3, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %2, %lpad ]
   %cmp.not.i18 = icmp eq ptr %scoper.sroa.0.3, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20, label %if.then.i19
@@ -1488,8 +1488,8 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit20:  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i, %cleanup113, %entry, %if.then8
-  %retval.2 = phi i1 [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup113 ], [ %retval.1, %if.then.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %if.then8 ], [ false, %entry ], [ %retval.1, %cleanup113 ], [ %retval.1, %if.then.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -1708,8 +1708,8 @@ for.body29:                                       ; preds = %for.cond, %for.body
   br i1 %or.cond.not, label %for.body29, label %return, !llvm.loop !9
 
 return:                                           ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %if.end, %for.body, %lor.lhs.false, %lor.lhs.false3, %for.body29, %if.then16
-  %retval.2 = phi i1 [ false, %if.then16 ], [ %tobool37.not, %for.body29 ], [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %for.body ], [ false, %if.end ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
-  ret i1 %retval.2
+  %retval.1 = phi i1 [ false, %if.then16 ], [ %tobool37.not, %for.body29 ], [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %for.body ], [ false, %if.end ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
+  ret i1 %retval.1
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -1994,13 +1994,13 @@ if.then14:                                        ; preds = %lor.lhs.false11, %i
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.then14, %lor.lhs.false11
-  %retval.0 = phi i1 [ false, %if.then14 ], [ true, %lor.lhs.false11 ]
+  %retval.1 = phi i1 [ false, %if.then14 ], [ true, %lor.lhs.false11 ]
   call void @free(ptr noundef nonnull %1) #11
   br label %return
 
 return:                                           ; preds = %if.then6, %lor.lhs.false, %if.then.i, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ %retval.0, %if.then.i ], [ true, %lor.lhs.false ], [ false, %if.then6 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ %retval.1, %if.then.i ], [ true, %lor.lhs.false ], [ false, %if.then6 ]
+  ret i1 %retval.0
 }
 
 declare i32 @CBS_asn1_ber_to_der(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

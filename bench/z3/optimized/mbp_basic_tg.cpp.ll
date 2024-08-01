@@ -241,7 +241,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK15ref_vector_co
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc258
   %8 = phi ptr [ null, %for.body.lr.ph ], [ %137, %for.inc258 ]
-  %progress.0523 = phi i1 [ false, %for.body.lr.ph ], [ %progress.4, %for.inc258 ]
+  %progress.0523 = phi i1 [ false, %for.body.lr.ph ], [ %progress.1, %for.inc258 ]
   %__begin1.0522 = phi ptr [ %5, %for.body.lr.ph ], [ %incdec.ptr259, %for.inc258 ]
   %9 = load ptr, ptr %__begin1.0522, align 8
   %10 = load ptr, ptr %m_seen.i, align 8
@@ -470,7 +470,7 @@ invoke.cont46:                                    ; preds = %invoke.cont41
 
 if.end50:                                         ; preds = %land.rhs.i.i.i, %if.end22, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %invoke.cont46, %invoke.cont34, %invoke.cont26
   %38 = phi ptr [ %8, %invoke.cont26 ], [ %8, %invoke.cont34 ], [ %call40, %invoke.cont46 ], [ %8, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %8, %if.end22 ], [ %8, %land.rhs.i.i.i ]
-  %progress.1 = phi i1 [ %progress.0523, %invoke.cont26 ], [ true, %invoke.cont34 ], [ true, %invoke.cont46 ], [ %progress.0523, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %progress.0523, %if.end22 ], [ %progress.0523, %land.rhs.i.i.i ]
+  %progress.2 = phi i1 [ %progress.0523, %invoke.cont26 ], [ true, %invoke.cont34 ], [ true, %invoke.cont46 ], [ %progress.0523, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %progress.0523, %if.end22 ], [ %progress.0523, %land.rhs.i.i.i ]
   %bf.load.i.i.i.i120 = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i121 = and i32 %bf.load.i.i.i.i120, 65535
   %cmp.i.i.i122 = icmp eq i32 %bf.clear.i.i.i.i121, 0
@@ -634,7 +634,7 @@ invoke.cont86.invoke:                             ; preds = %invoke.cont67, %if.
           to label %if.end94 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end94:                                         ; preds = %invoke.cont86.invoke, %land.rhs.i.i.i123, %if.end50, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i, %land.lhs.true.i, %invoke.cont83, %invoke.cont80
-  %progress.2 = phi i1 [ %progress.1, %invoke.cont83 ], [ %progress.1, %invoke.cont80 ], [ %progress.1, %land.lhs.true.i ], [ %progress.1, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ %progress.1, %if.end50 ], [ %progress.1, %land.rhs.i.i.i123 ], [ true, %invoke.cont86.invoke ]
+  %progress.3 = phi i1 [ %progress.2, %invoke.cont83 ], [ %progress.2, %invoke.cont80 ], [ %progress.2, %land.lhs.true.i ], [ %progress.2, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ %progress.2, %if.end50 ], [ %progress.2, %land.rhs.i.i.i123 ], [ true, %invoke.cont86.invoke ]
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
@@ -953,7 +953,7 @@ for.body174.backedge:                             ; preds = %for.inc185, %invoke
   br i1 %tobool.not.i.i322, label %if.then.i325.invoke, label %if.end.i323
 
 if.end190:                                        ; preds = %invoke.cont180, %for.inc185, %invoke.cont159, %for.inc, %land.rhs.i.i, %if.else164, %if.then144, %if.end94, %cond.end122, %invoke.cont100
-  %progress.3 = phi i1 [ %progress.2, %invoke.cont100 ], [ %progress.2, %cond.end122 ], [ %progress.2, %if.end94 ], [ true, %if.then144 ], [ true, %if.else164 ], [ %progress.2, %land.rhs.i.i ], [ true, %for.inc ], [ true, %invoke.cont159 ], [ true, %for.inc185 ], [ true, %invoke.cont180 ]
+  %progress.4 = phi i1 [ %progress.3, %invoke.cont100 ], [ %progress.3, %cond.end122 ], [ %progress.3, %if.end94 ], [ true, %if.then144 ], [ true, %if.else164 ], [ %progress.3, %land.rhs.i.i ], [ true, %for.inc ], [ true, %invoke.cont159 ], [ true, %for.inc185 ], [ true, %invoke.cont180 ]
   %113 = load i8, ptr %m_use_mdl, align 8
   %tobool192 = trunc i8 %113 to i1
   br i1 %tobool192, label %land.lhs.true193, label %for.inc258
@@ -1017,7 +1017,7 @@ for.body208:                                      ; preds = %for.body208.prehead
 
 for.body215:                                      ; preds = %for.body208, %for.inc237
   %__begin4.0509 = phi ptr [ %incdec.ptr238, %for.inc237 ], [ %m_args.i345.ptr.ptr, %for.body208 ]
-  %eq.1508 = phi i1 [ %eq.3, %for.inc237 ], [ %eq.0512, %for.body208 ]
+  %eq.1508 = phi i1 [ %eq.2, %for.inc237 ], [ %eq.0512, %for.body208 ]
   %124 = load ptr, ptr %__begin4.0509, align 8
   %cmp216 = icmp eq ptr %122, %124
   br i1 %cmp216, label %for.inc237, label %if.end218
@@ -1065,7 +1065,7 @@ if.else233:                                       ; preds = %invoke.cont228
           to label %cleanup unwind label %lpad225
 
 cleanup:                                          ; preds = %if.else233, %if.then230
-  %eq.2 = phi i1 [ true, %if.then230 ], [ %eq.1508, %if.else233 ]
+  %eq.3 = phi i1 [ true, %if.then230 ], [ %eq.1508, %if.else233 ]
   br i1 %tobool.not.i.i357, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i363
 
 if.then.i.i.i363:                                 ; preds = %cleanup
@@ -1091,13 +1091,13 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup, %if.then.i
   br i1 %call229, label %for.inc240, label %for.inc237
 
 for.inc237:                                       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %for.body215
-  %eq.3 = phi i1 [ %eq.1508, %for.body215 ], [ %eq.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %eq.2 = phi i1 [ %eq.1508, %for.body215 ], [ %eq.3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
   %incdec.ptr238 = getelementptr inbounds i8, ptr %__begin4.0509, i64 8
   %cmp214.not = icmp eq ptr %incdec.ptr238, %gep
   br i1 %cmp214.not, label %for.inc240, label %for.body215
 
 for.inc240:                                       ; preds = %for.inc237, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %for.body208
-  %eq.4 = phi i1 [ %eq.0512, %for.body208 ], [ %eq.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %eq.3, %for.inc237 ]
+  %eq.4 = phi i1 [ %eq.0512, %for.body208 ], [ %eq.3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %eq.2, %for.inc237 ]
   %incdec.ptr241 = getelementptr inbounds i8, ptr %__begin3.0513, i64 8
   %cmp207.not = icmp eq ptr %incdec.ptr241, %add.ptr.i349.ptr
   br i1 %cmp207.not, label %for.end242, label %for.body208
@@ -1119,7 +1119,7 @@ if.else250.invoke:                                ; preds = %for.end242, %if.els
 
 for.inc258:                                       ; preds = %if.then.i.i.i.i, %if.then22.i.i.i.i, %if.else250.invoke, %land.rhs.i.i333, %land.lhs.true193, %if.end190, %invoke.cont195
   %137 = phi ptr [ %38, %invoke.cont195 ], [ %38, %if.end190 ], [ %38, %land.lhs.true193 ], [ %38, %land.rhs.i.i333 ], [ %38, %if.else250.invoke ], [ %8, %if.then22.i.i.i.i ], [ %8, %if.then.i.i.i.i ]
-  %progress.4 = phi i1 [ %progress.3, %invoke.cont195 ], [ %progress.3, %if.end190 ], [ %progress.3, %land.lhs.true193 ], [ %progress.3, %land.rhs.i.i333 ], [ true, %if.else250.invoke ], [ %progress.0523, %if.then22.i.i.i.i ], [ %progress.0523, %if.then.i.i.i.i ]
+  %progress.1 = phi i1 [ %progress.4, %invoke.cont195 ], [ %progress.4, %if.end190 ], [ %progress.4, %land.lhs.true193 ], [ %progress.4, %land.rhs.i.i333 ], [ true, %if.else250.invoke ], [ %progress.0523, %if.then22.i.i.i.i ], [ %progress.0523, %if.then.i.i.i.i ]
   %incdec.ptr259 = getelementptr inbounds i8, ptr %__begin1.0522, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr259, %add.ptr.i
   br i1 %cmp.not, label %for.end260, label %for.body
@@ -1149,7 +1149,7 @@ terminate.lpad.i382:                              ; preds = %if.then2.i.i.i381
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit383:      ; preds = %invoke.cont15, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end260, %if.then.i.i.i376, %if.then2.i.i.i381
-  %progress.0.lcssa553 = phi i1 [ %progress.4, %for.end260 ], [ %progress.4, %if.then.i.i.i376 ], [ %progress.4, %if.then2.i.i.i381 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ false, %invoke.cont15 ]
+  %progress.0.lcssa553 = phi i1 [ %progress.1, %for.end260 ], [ %progress.1, %if.then.i.i.i376 ], [ %progress.1, %if.then2.i.i.i381 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ false, %invoke.cont15 ]
   %_M_manager.i.i384 = getelementptr inbounds i8, ptr %is_false, i64 16
   %142 = load ptr, ptr %_M_manager.i.i384, align 8
   %tobool.not.i.i385 = icmp eq ptr %142, null

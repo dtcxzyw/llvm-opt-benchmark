@@ -347,8 +347,8 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %or.cond350 = select i1 %226, i1 true, i1 %237
   %238 = fsub double %171, %178
   %239 = fmul double %238, 5.000000e-01
-  %.3 = select i1 %or.cond350, double %.1300, double %239
-  %240 = fcmp uge double %.3, 0.000000e+00
+  %.4 = select i1 %or.cond350, double %.1300, double %239
+  %240 = fcmp uge double %.4, 0.000000e+00
   %241 = fcmp ugt double %225, %174
   %or.cond351 = select i1 %240, i1 true, i1 %241
   br i1 %or.cond351, label %245, label %242
@@ -359,8 +359,8 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %245
 
 245:                                              ; preds = %236, %242, %227, %233
-  %.4 = phi double [ %235, %233 ], [ %.2, %227 ], [ %244, %242 ], [ %.3, %236 ]
-  %246 = fadd double %178, %.4
+  %.3 = phi double [ %235, %233 ], [ %.2, %227 ], [ %244, %242 ], [ %.4, %236 ]
+  %246 = fadd double %178, %.3
   store double %246, ptr %6, align 8
   br label %247
 

@@ -396,9 +396,9 @@ if.then54:                                        ; preds = %if.end45, %if.end51
   br label %out
 
 out:                                              ; preds = %if.end51, %if.then54, %if.then21, %if.then43
-  %err.1 = phi i32 [ %call22, %if.then21 ], [ %sub, %if.then43 ], [ 0, %if.then54 ], [ %call50, %if.end51 ]
+  %err.0 = phi i32 [ %call22, %if.then21 ], [ %sub, %if.then43 ], [ 0, %if.then54 ], [ %call50, %if.end51 ]
   %delayed_error = getelementptr inbounds i8, ptr %handle, i64 232
-  store i32 %err.1, ptr %delayed_error, align 8
+  store i32 %err.0, ptr %delayed_error, align 8
   %connect_req = getelementptr inbounds i8, ptr %handle, i64 120
   store ptr %req, ptr %connect_req, align 8
   %type = getelementptr inbounds i8, ptr %req, i64 8
@@ -417,7 +417,7 @@ out:                                              ; preds = %if.end51, %if.then5
   store ptr %queue, ptr %queue, align 8
   %prev.i = getelementptr inbounds i8, ptr %req, i64 88
   store ptr %queue, ptr %prev.i, align 8
-  %tobool69.not = icmp eq i32 %err.1, 0
+  %tobool69.not = icmp eq i32 %err.0, 0
   br i1 %tobool69.not, label %return, label %if.then70
 
 if.then70:                                        ; preds = %out

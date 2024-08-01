@@ -1957,8 +1957,8 @@ _ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i: ; preds =
   br label %_ZN5QListI11ExtcapValueED2Ev.exit
 
 _ZN5QListI11ExtcapValueED2Ev.exit:                ; preds = %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i, %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i, %_ZN5QListI11ExtcapValueElsERKS1_.exit, %1
-  %.17 = phi i1 [ false, %1 ], [ %43, %_ZN5QListI11ExtcapValueElsERKS1_.exit ], [ %43, %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i ], [ %43, %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i ]
-  ret i1 %.17
+  %.06 = phi i1 [ false, %1 ], [ %43, %_ZN5QListI11ExtcapValueElsERKS1_.exit ], [ %43, %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i ], [ %43, %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i ]
+  ret i1 %.06
 
 _ZN7QStringD2Ev.exit26:                           ; preds = %61, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24, %_ZN7QStringD2Ev.exit22, %63
   %.pn9 = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %_ZN7QStringD2Ev.exit22 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24 ], [ %.pn, %61 ]
@@ -3908,9 +3908,9 @@ _ZN7QStringD2Ev.exit77:                           ; preds = %92, %_ZN17QArrayDat
   br label %_ZN7QStringD2Ev.exit61
 
 .thread:                                          ; preds = %57, %_ZN7QStringD2Ev.exit45, %78
-  %.1 = phi i1 [ %spec.select28, %78 ], [ %.0.i, %_ZN7QStringD2Ev.exit45 ], [ %.0.i, %57 ]
+  %.0 = phi i1 [ %spec.select28, %78 ], [ %.0.i, %_ZN7QStringD2Ev.exit45 ], [ %.0.i, %57 ]
   %96 = load ptr, ptr %25, align 8
-  %97 = select i1 %.1, i32 2, i32 0
+  %97 = select i1 %.0, i32 2, i32 0
   call void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef nonnull align 8 dereferenceable(40) %96, i32 noundef %97)
   %98 = load ptr, ptr %25, align 8
   call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %98, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 0)
@@ -4808,7 +4808,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63:    ; preds = %95
   br i1 %.not.i.i64, label %_ZN7QStringD2Ev.exit65.sink.split, label %_ZN7QStringD2Ev.exit65
 
 _ZN7QStringD2Ev.exit61:                           ; preds = %36, %_ZN7QStringD2Ev.exit.thread, %93, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i59, %90, %49, %_ZN7QStringD2Ev.exit40
-  %.4 = phi i8 [ %.1, %_ZN7QStringD2Ev.exit40 ], [ %.1, %49 ], [ %.3, %90 ], [ %.3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i59 ], [ %.3, %93 ], [ %.1, %_ZN7QStringD2Ev.exit.thread ], [ %.1, %36 ]
+  %.2 = phi i8 [ %.1, %_ZN7QStringD2Ev.exit40 ], [ %.1, %49 ], [ %.3, %90 ], [ %.3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i59 ], [ %.3, %93 ], [ %.1, %_ZN7QStringD2Ev.exit.thread ], [ %.1, %36 ]
   %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 42), align 2
   %98 = call { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.0.0.copyload)
   %99 = extractvalue { i64, i64 } %98, 0
@@ -4830,7 +4830,7 @@ _ZN7QStringD2Ev.exit61:                           ; preds = %36, %_ZN7QStringD2E
   store i64 %106, ptr %104, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %107 = load ptr, ptr %32, align 8
-  %108 = trunc nuw i8 %.4 to i1
+  %108 = trunc nuw i8 %.2 to i1
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %102

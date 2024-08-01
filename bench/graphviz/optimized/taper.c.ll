@@ -57,9 +57,9 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   br i1 %17, label %18, label %pathtolines.exit
 
 18:                                               ; preds = %.loopexit.i, %.lr.ph.i
-  %.sroa.0.1 = phi ptr [ %calloc, %.lr.ph.i ], [ %.sroa.0.3, %.loopexit.i ]
+  %.sroa.0.0 = phi ptr [ %calloc, %.lr.ph.i ], [ %.sroa.0.2, %.loopexit.i ]
   %.sroa.9.0 = phi i64 [ 1, %.lr.ph.i ], [ %49, %.loopexit.i ]
-  %.sroa.16.1 = phi i64 [ 1, %.lr.ph.i ], [ %.sroa.16.3, %.loopexit.i ]
+  %.sroa.16.0 = phi i64 [ 1, %.lr.ph.i ], [ %.sroa.16.2, %.loopexit.i ]
   %indvar.i = phi i64 [ 0, %.lr.ph.i ], [ %indvar.next.i, %.loopexit.i ]
   %19 = phi i64 [ 3, %.lr.ph.i ], [ %16, %.loopexit.i ]
   %.0228.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %30, %.loopexit.i ]
@@ -72,9 +72,9 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   br label %21
 
 21:                                               ; preds = %insertArr.exit.i, %18
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %18 ], [ %.sroa.0.3, %insertArr.exit.i ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %18 ], [ %.sroa.0.2, %insertArr.exit.i ]
   %.sroa.9.1 = phi i64 [ %.sroa.9.0, %18 ], [ %49, %insertArr.exit.i ]
-  %.sroa.16.2 = phi i64 [ %.sroa.16.1, %18 ], [ %.sroa.16.3, %insertArr.exit.i ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.0, %18 ], [ %.sroa.16.2, %insertArr.exit.i ]
   %.06.i = phi i32 [ 1, %18 ], [ %50, %insertArr.exit.i ]
   %.15.i = phi double [ %.0228.i, %18 ], [ %30, %insertArr.exit.i ]
   %.sroa.3.04.i = phi double [ %.sroa.3.0.copyload.i, %18 ], [ %26, %insertArr.exit.i ]
@@ -88,7 +88,7 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   %28 = fsub double %.sroa.3.04.i, %26
   %29 = call double @hypot(double noundef %27, double noundef %28) #14, !noalias !4
   %30 = fadd double %.15.i, %29
-  %31 = icmp eq i64 %.sroa.9.1, %.sroa.16.2
+  %31 = icmp eq i64 %.sroa.9.1, %.sroa.16.1
   br i1 %31, label %32, label %insertArr.exit.i
 
 32:                                               ; preds = %21
@@ -100,7 +100,7 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
 
 35:                                               ; preds = %32
   %36 = shl nuw i64 %spec.select.i.i.i.i, 6
-  %37 = call ptr @realloc(ptr noundef %.sroa.0.2, i64 noundef %36) #17, !noalias !4
+  %37 = call ptr @realloc(ptr noundef %.sroa.0.1, i64 noundef %36) #17, !noalias !4
   %38 = icmp eq ptr %37, null
   br i1 %38, label %44, label %39
 
@@ -121,9 +121,9 @@ pathtolines.exit.thread:                          ; preds = %insertArr.exit
   unreachable
 
 insertArr.exit.i:                                 ; preds = %21, %39
-  %.sroa.0.3 = phi ptr [ %37, %39 ], [ %.sroa.0.2, %21 ]
-  %.sroa.16.3 = phi i64 [ %spec.select.i.i.i.i, %39 ], [ %.sroa.16.2, %21 ]
-  %48 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3, i64 %.sroa.9.1
+  %.sroa.0.2 = phi ptr [ %37, %39 ], [ %.sroa.0.1, %21 ]
+  %.sroa.16.2 = phi i64 [ %spec.select.i.i.i.i, %39 ], [ %.sroa.16.1, %21 ]
+  %48 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.9.1
   store double %25, ptr %48, align 8, !noalias !4
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 8
   store double %26, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !noalias !4
@@ -142,7 +142,7 @@ insertArr.exit.i:                                 ; preds = %21, %39
 
 pathtolines.exit:                                 ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %51 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3, i64 %.sroa.9.1, i32 2
+  %51 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.9.1, i32 2
   %.not235 = icmp eq i64 %49, 0
   br i1 %.not235, label %._crit_edge.thread, label %.lr.ph
 
@@ -154,7 +154,7 @@ pathtolines.exit:                                 ; preds = %.loopexit.i
   %.in = phi ptr [ %15, %pathtolines.exit.thread ], [ %51, %pathtolines.exit ]
   %52 = phi i64 [ 0, %pathtolines.exit.thread ], [ %.sroa.9.1, %pathtolines.exit ]
   %.sroa.9.2245 = phi i64 [ 1, %pathtolines.exit.thread ], [ %49, %pathtolines.exit ]
-  %.sroa.0.4243 = phi ptr [ %calloc, %pathtolines.exit.thread ], [ %.sroa.0.3, %pathtolines.exit ]
+  %.sroa.0.3243 = phi ptr [ %calloc, %pathtolines.exit.thread ], [ %.sroa.0.2, %pathtolines.exit ]
   %53 = load double, ptr %.in, align 8
   %54 = trunc i64 %.sroa.9.2245 to i32
   %55 = sitofp i32 %54 to double
@@ -197,7 +197,7 @@ mymod.exit:                                       ; preds = %56, %62
 mymod.exit191:                                    ; preds = %mymod.exit, %72
   %.0.i190 = phi double [ %76, %72 ], [ %69, %mymod.exit ]
   %77 = fptosi double %.0.i190 to i32
-  %78 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.4243, i64 %.0173218
+  %78 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %.0173218
   %79 = load <2 x double>, ptr %78, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 16
   %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
@@ -207,7 +207,7 @@ mymod.exit191:                                    ; preds = %mymod.exit, %72
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 48
   %.sroa.16141.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 56
   %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.4243, i64 %80
+  %81 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %80
   %82 = load <2 x double>, ptr %81, align 8
   %83 = fsub <2 x double> %82, %79
   %84 = fcmp oeq <2 x double> %83, zeroinitializer
@@ -230,7 +230,7 @@ mymod.exit191:                                    ; preds = %mymod.exit, %72
 myatan.exit:                                      ; preds = %mymod.exit191, %86, %91
   %.0.i193 = phi double [ %92, %91 ], [ 0.000000e+00, %mymod.exit191 ], [ %89, %86 ]
   %93 = sext i32 %67 to i64
-  %94 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.4243, i64 %93
+  %94 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %93
   %95 = load <2 x double>, ptr %94, align 8
   %96 = fsub <2 x double> %95, %79
   %97 = fcmp oeq <2 x double> %96, zeroinitializer
@@ -281,10 +281,10 @@ myatan.exit196:                                   ; preds = %myatan.exit, %99, %
   br label %123
 
 123:                                              ; preds = %112, %120
-  %.1176 = phi double [ %122, %120 ], [ 0.000000e+00, %112 ]
+  %.2177 = phi double [ %122, %120 ], [ 0.000000e+00, %112 ]
   %124 = fadd double %.0.i193, 0x3FF921FB54442D18
   %125 = fmul double %106, 1.000000e+01
-  %126 = fcmp ogt double %.1176, %125
+  %126 = fcmp ogt double %.2177, %125
   br i1 %126, label %127, label %143
 
 127:                                              ; preds = %123
@@ -320,7 +320,7 @@ mymod.exit199:                                    ; preds = %127, %131
   br label %mymod.exit202
 
 mymod.exit202:                                    ; preds = %138, %mymod.exit199, %143, %109
-  %.2177 = phi double [ %106, %109 ], [ %.1176, %143 ], [ %106, %mymod.exit199 ], [ %106, %138 ]
+  %.1176 = phi double [ %106, %109 ], [ %.2177, %143 ], [ %106, %mymod.exit199 ], [ %106, %138 ]
   %.0172 = phi i8 [ 0, %109 ], [ 0, %143 ], [ 1, %mymod.exit199 ], [ 1, %138 ]
   %.0170 = phi double [ %.1, %109 ], [ %144, %143 ], [ %124, %mymod.exit199 ], [ %142, %138 ]
   %.2 = phi double [ %.1, %109 ], [ %144, %143 ], [ %.0.i198, %mymod.exit199 ], [ %.0.i198, %138 ]
@@ -328,7 +328,7 @@ mymod.exit202:                                    ; preds = %138, %mymod.exit199
   store double %.sroa.9.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8
   store i8 108, ptr %.sroa.10.0..sroa_idx, align 8
   store double %.2, ptr %.sroa.10123.0..sroa_idx, align 8
-  store double %.2177, ptr %.sroa.12.0..sroa_idx, align 8
+  store double %.1176, ptr %.sroa.12.0..sroa_idx, align 8
   store i8 %.0172, ptr %.sroa.14.0..sroa_idx, align 8
   store double %.0170, ptr %.sroa.16141.0..sroa_idx, align 8
   %145 = add nuw i64 %.0173218, 1
@@ -341,7 +341,7 @@ mymod.exit202:                                    ; preds = %138, %mymod.exit199
 
 .lr.ph224:                                        ; preds = %._crit_edge, %157
   %.0171222 = phi i64 [ %158, %157 ], [ 0, %._crit_edge ]
-  %146 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.4243, i64 %.0171222
+  %146 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %.0171222
   %.sroa.0104.0.copyload107 = load double, ptr %146, align 8
   %.sroa.6.0..sroa_idx109 = getelementptr inbounds i8, ptr %146, i64 8
   %.sroa.6.0.copyload110 = load double, ptr %.sroa.6.0..sroa_idx109, align 8
@@ -380,7 +380,7 @@ mymod.exit202:                                    ; preds = %138, %mymod.exit199
   br label %._crit_edge225
 
 ._crit_edge225:                                   ; preds = %._crit_edge225.loopexit, %._crit_edge.thread
-  %.sroa.0.4244257 = phi ptr [ %.sroa.0.3, %._crit_edge.thread ], [ %.sroa.0.4243, %._crit_edge225.loopexit ]
+  %.sroa.0.3244257 = phi ptr [ %.sroa.0.2, %._crit_edge.thread ], [ %.sroa.0.3243, %._crit_edge225.loopexit ]
   %.sroa.9.2246256 = phi i64 [ -2, %._crit_edge.thread ], [ %160, %._crit_edge225.loopexit ]
   %.1182.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.6.0.copyload110, %._crit_edge225.loopexit ]
   %.1180.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.sroa.0104.0.copyload107, %._crit_edge225.loopexit ]
@@ -396,7 +396,7 @@ mymod.exit202:                                    ; preds = %138, %mymod.exit199
 
 .lr.ph233:                                        ; preds = %._crit_edge225, %178
   %.0169231 = phi i64 [ %179, %178 ], [ %.sroa.9.2246256, %._crit_edge225 ]
-  %165 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.4244257, i64 %.0169231
+  %165 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3244257, i64 %.0169231
   %.sroa.0104.0.copyload108 = load double, ptr %165, align 8
   %.sroa.6.0..sroa_idx111 = getelementptr inbounds i8, ptr %165, i64 8
   %.sroa.6.0.copyload112 = load double, ptr %.sroa.6.0..sroa_idx111, align 8
@@ -432,7 +432,7 @@ mymod.exit202:                                    ; preds = %138, %mymod.exit199
   br i1 %.not, label %._crit_edge234, label %.lr.ph233
 
 ._crit_edge234:                                   ; preds = %178, %._crit_edge225
-  call void @free(ptr noundef nonnull %.sroa.0.4244257) #14
+  call void @free(ptr noundef nonnull %.sroa.0.3244257) #14
   %.fca.0.load = load i64, ptr %5, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds i8, ptr %5, i64 8

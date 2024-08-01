@@ -44,30 +44,30 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %10
 
 8:                                                ; preds = %765, %769, %74
-  %.0355 = phi ptr [ %75, %74 ], [ %748, %769 ], [ %748, %765 ]
-  %.0346 = phi ptr [ %.2348, %74 ], [ %747, %769 ], [ %747, %765 ]
-  %.0334 = phi i32 [ %70, %74 ], [ %772, %769 ], [ %768, %765 ]
-  %.0329 = phi i32 [ -2, %74 ], [ %.5, %769 ], [ %.5, %765 ]
-  %9 = getelementptr i8, ptr %.0346, i64 1
+  %.1356 = phi ptr [ %75, %74 ], [ %748, %769 ], [ %748, %765 ]
+  %.1347 = phi ptr [ %.2348, %74 ], [ %747, %769 ], [ %747, %765 ]
+  %.1335 = phi i32 [ %70, %74 ], [ %772, %769 ], [ %768, %765 ]
+  %.1 = phi i32 [ -2, %74 ], [ %.7, %769 ], [ %.7, %765 ]
+  %9 = getelementptr i8, ptr %.1347, i64 1
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.1356 = phi ptr [ %5, %2 ], [ %.0355, %8 ]
+  %.0355 = phi ptr [ %5, %2 ], [ %.1356, %8 ]
   %.0353 = phi ptr [ %5, %2 ], [ %.1354, %8 ]
-  %.1347 = phi ptr [ %4, %2 ], [ %9, %8 ]
+  %.0346 = phi ptr [ %4, %2 ], [ %9, %8 ]
   %.0342 = phi ptr [ %4, %2 ], [ %.1343, %8 ]
   %.0340 = phi i64 [ 200, %2 ], [ %.1341, %8 ]
-  %.1335 = phi i32 [ 0, %2 ], [ %.0334, %8 ]
-  %.1 = phi i32 [ -2, %2 ], [ %.0329, %8 ]
-  %11 = trunc i32 %.1335 to i8
-  store i8 %11, ptr %.1347, align 1
+  %.0334 = phi i32 [ 0, %2 ], [ %.1335, %8 ]
+  %.0329 = phi i32 [ -2, %2 ], [ %.1, %8 ]
+  %11 = trunc i32 %.0334 to i8
+  store i8 %11, ptr %.0346, align 1
   %12 = getelementptr i8, ptr %.0342, i64 %.0340
   %13 = getelementptr i8, ptr %12, i64 -1
-  %.not = icmp ugt ptr %13, %.1347
+  %.not = icmp ugt ptr %13, %.0346
   br i1 %.not, label %37, label %14
 
 14:                                               ; preds = %10
-  %15 = ptrtoint ptr %.1347 to i64
+  %15 = ptrtoint ptr %.0346 to i64
   %16 = ptrtoint ptr %.0342 to i64
   %17 = sub i64 %15, %16
   %18 = add i64 %17, 1
@@ -107,16 +107,16 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br i1 %.not383, label %37, label %.loopexit539
 
 37:                                               ; preds = %31, %10
-  %.2357 = phi ptr [ %35, %31 ], [ %.1356, %10 ]
+  %.2357 = phi ptr [ %35, %31 ], [ %.0355, %10 ]
   %.1354 = phi ptr [ %28, %31 ], [ %.0353, %10 ]
-  %.2348 = phi ptr [ %33, %31 ], [ %.1347, %10 ]
+  %.2348 = phi ptr [ %33, %31 ], [ %.0346, %10 ]
   %.1343 = phi ptr [ %24, %31 ], [ %.0342, %10 ]
   %.1341 = phi i64 [ %spec.store.select, %31 ], [ %.0340, %10 ]
-  %38 = icmp eq i32 %.1335, 5
+  %38 = icmp eq i32 %.0334, 5
   br i1 %38, label %.loopexit539, label %39
 
 39:                                               ; preds = %37
-  %40 = sext i32 %.1335 to i64
+  %40 = sext i32 %.0334 to i64
   %41 = getelementptr [180 x i16], ptr @yypact, i64 0, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = sext i16 %42 to i32
@@ -124,7 +124,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br i1 %44, label %76, label %45
 
 45:                                               ; preds = %39
-  %46 = icmp eq i32 %.1, -2
+  %46 = icmp eq i32 %.0329, -2
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
@@ -132,20 +132,20 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %49
 
 49:                                               ; preds = %47, %45
-  %.2 = phi i32 [ %48, %47 ], [ %.1, %45 ]
-  %50 = icmp slt i32 %.2, 1
+  %.4 = phi i32 [ %48, %47 ], [ %.0329, %45 ]
+  %50 = icmp slt i32 %.4, 1
   br i1 %50, label %60, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp eq i32 %.2, 256
+  %52 = icmp eq i32 %.4, 256
   br i1 %52, label %.loopexit539, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ult i32 %.2, 307
+  %54 = icmp ult i32 %.4, 307
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %53
-  %56 = zext nneg i32 %.2 to i64
+  %56 = zext nneg i32 %.4 to i64
   %57 = getelementptr [307 x i8], ptr @yytranslate, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = sext i8 %58 to i32
@@ -153,7 +153,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
 
 60:                                               ; preds = %55, %53, %49
   %.0364 = phi i32 [ 0, %49 ], [ %59, %55 ], [ 2, %53 ]
-  %.3 = phi i32 [ 0, %49 ], [ %.2, %55 ], [ %.2, %53 ]
+  %.5 = phi i32 [ 0, %49 ], [ %.4, %55 ], [ %.4, %53 ]
   %61 = add nsw i32 %.0364, %43
   %or.cond3 = icmp ugt i32 %61, 239
   br i1 %or.cond3, label %76, label %62
@@ -183,7 +183,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %8
 
 76:                                               ; preds = %60, %62, %39
-  %.4 = phi i32 [ %.1, %39 ], [ %.3, %60 ], [ %.3, %62 ]
+  %.3 = phi i32 [ %.0329, %39 ], [ %.5, %60 ], [ %.5, %62 ]
   %77 = getelementptr [180 x i8], ptr @yydefact, i64 0, i64 %40
   %78 = load i8, ptr %77, align 1
   %79 = sext i8 %78 to i32
@@ -192,7 +192,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
 
 81:                                               ; preds = %76, %72
   %.0362 = phi i32 [ %79, %76 ], [ %73, %72 ]
-  %.5 = phi i32 [ %.4, %76 ], [ %.3, %72 ]
+  %.7 = phi i32 [ %.3, %76 ], [ %.5, %72 ]
   %82 = sext i32 %.0362 to i64
   %83 = getelementptr [137 x i8], ptr @yyr2, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
@@ -2053,7 +2053,7 @@ makeItemType.exit:                                ; preds = %5, %10
   %51 = shl nuw nsw i32 %41, 5
   %52 = and i32 %51, 192
   %53 = or disjoint i32 %spec.select.i, %52
-  %.2.i = xor i32 %53, 64
+  %.3.i = xor i32 %53, 64
   %54 = and i32 %41, 8
   %.not19.i = icmp eq i32 %54, 0
   br i1 %.not19.i, label %.thread, label %55
@@ -2069,7 +2069,7 @@ makeItemType.exit:                                ; preds = %5, %10
   br label %jspConvertRegexFlags.exit
 
 .thread:                                          ; preds = %.lr.ph, %makeItemType.exit, %50, %47
-  %.044.ph = phi i32 [ %.2.i, %50 ], [ %49, %47 ], [ 67, %makeItemType.exit ], [ 67, %.lr.ph ]
+  %.044.ph = phi i32 [ %.3.i, %50 ], [ %49, %47 ], [ 67, %makeItemType.exit ], [ 67, %.lr.ph ]
   %60 = load i32, ptr %15, align 8
   %61 = add i32 %60, 1
   %62 = sext i32 %61 to i64
@@ -2142,7 +2142,7 @@ define dso_local noundef zeroext i1 @jspConvertRegexFlags(i32 noundef %0, ptr no
   %10 = shl i32 %0, 5
   %11 = and i32 %10, 192
   %12 = or disjoint i32 %11, %spec.select
-  %.2 = xor i32 %12, 64
+  %.3 = xor i32 %12, 64
   %13 = and i32 %0, 8
   %.not19 = icmp eq i32 %13, 0
   br i1 %.not19, label %19, label %14
@@ -2158,8 +2158,8 @@ define dso_local noundef zeroext i1 @jspConvertRegexFlags(i32 noundef %0, ptr no
   br label %20
 
 19:                                               ; preds = %9, %6
-  %.3 = phi i32 [ %8, %6 ], [ %.2, %9 ]
-  store i32 %.3, ptr %1, align 4
+  %.1 = phi i32 [ %8, %6 ], [ %.3, %9 ]
+  store i32 %.1, ptr %1, align 4
   br label %20
 
 20:                                               ; preds = %16, %14, %19

@@ -526,7 +526,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %16, label %.critedge.thread, label %.thread
 
 .thread:                                          ; preds = %8, %11
-  %.049 = phi ptr [ %15, %11 ], [ %9, %8 ]
+  %.149 = phi ptr [ %15, %11 ], [ %9, %8 ]
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 272
   %19 = load i32, ptr %18, align 8
@@ -535,7 +535,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %switch, label %67, label %20
 
 20:                                               ; preds = %.thread
-  %21 = getelementptr inbounds i8, ptr %.049, i64 92
+  %21 = getelementptr inbounds i8, ptr %.149, i64 92
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %67 [
     i32 1, label %.critedge
@@ -557,13 +557,13 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not4052, label %.critedge._crit_edge, label %.thread56
 
 .critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge
-  %.05055 = phi ptr [ null, %.critedge.thread ], [ %.049, %.critedge ]
+  %.15055 = phi ptr [ null, %.critedge.thread ], [ %.149, %.critedge ]
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %50
 
 27:                                               ; preds = %.critedge
-  %28 = getelementptr inbounds i8, ptr %.049, i64 92
+  %28 = getelementptr inbounds i8, ptr %.149, i64 92
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 6
   br i1 %30, label %31, label %.thread56
@@ -575,7 +575,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not42, label %.thread56, label %50
 
 .thread56:                                        ; preds = %.critedge.thread, %31, %27
-  %.0505458 = phi ptr [ %.049, %31 ], [ %.049, %27 ], [ null, %.critedge.thread ]
+  %.1505458 = phi ptr [ %.149, %31 ], [ %.149, %27 ], [ null, %.critedge.thread ]
   %34 = phi ptr [ %23, %31 ], [ %23, %27 ], [ %25, %.critedge.thread ]
   %35 = tail call i32 @xmlStrlen(ptr noundef %1) #9
   %36 = sext i32 %35 to i64
@@ -601,35 +601,35 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br label %67
 
 50:                                               ; preds = %.critedge._crit_edge, %31
-  %.05053 = phi ptr [ %.05055, %.critedge._crit_edge ], [ %.049, %31 ]
+  %.15053 = phi ptr [ %.15055, %.critedge._crit_edge ], [ %.149, %31 ]
   %51 = phi ptr [ %.pre, %.critedge._crit_edge ], [ %33, %31 ]
   %52 = icmp ne ptr %51, null
-  %53 = icmp ne ptr %.05053, null
+  %53 = icmp ne ptr %.15053, null
   %or.cond = and i1 %53, %52
   br i1 %or.cond, label %54, label %67
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.05053, i64 80
+  %57 = getelementptr inbounds i8, ptr %.15053, i64 80
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @xmlStrlen(ptr noundef %58) #9
   tail call void %51(ptr noundef %56, ptr noundef %58, i32 noundef %59) #9
   br label %67
 
 60:                                               ; preds = %20
-  %61 = getelementptr inbounds i8, ptr %.049, i64 16
+  %61 = getelementptr inbounds i8, ptr %.149, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.049, i64 104
+  %63 = getelementptr inbounds i8, ptr %.149, i64 104
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.049, i64 96
+  %65 = getelementptr inbounds i8, ptr %.149, i64 96
   %66 = load ptr, ptr %65, align 8
   tail call fastcc void @_external_entity_ref_handler(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %64, ptr noundef %66)
   br label %67
 
 67:                                               ; preds = %.thread, %20, %60, %.thread56, %54, %50, %2
-  %.1 = phi ptr [ %.05053, %54 ], [ %.05053, %50 ], [ %.0505458, %.thread56 ], [ %.049, %60 ], [ null, %2 ], [ %.049, %.thread ], [ %.049, %20 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.15053, %54 ], [ %.15053, %50 ], [ %.1505458, %.thread56 ], [ %.149, %60 ], [ null, %2 ], [ %.149, %.thread ], [ %.149, %20 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -694,7 +694,7 @@ define internal void @_start_element_handler(ptr nocapture noundef readonly %0, 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = phi ptr [ %25, %.lr.ph ], [ %14, %.preheader ]
-  %.033 = phi ptr [ %22, %.lr.ph ], [ %13, %.preheader ]
+  %.133 = phi ptr [ %22, %.lr.ph ], [ %13, %.preheader ]
   %16 = or disjoint i64 %indvars.iv, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = getelementptr inbounds ptr, ptr %2, i64 %16
@@ -702,7 +702,7 @@ define internal void @_start_element_handler(ptr nocapture noundef readonly %0, 
   %19 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %15, ptr noundef %18) #9
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %4, align 8
-  %22 = call ptr @xmlStrncat(ptr noundef %.033, ptr noundef %21, i32 noundef %20) #9
+  %22 = call ptr @xmlStrncat(ptr noundef %.133, ptr noundef %21, i32 noundef %20) #9
   %23 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %23) #9
   %24 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
@@ -711,8 +711,8 @@ define internal void @_start_element_handler(ptr nocapture noundef readonly %0, 
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
-  %.1 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %22, %.lr.ph ]
-  %26 = call ptr @xmlStrncat(ptr noundef %.1, ptr noundef nonnull @.str.5, i32 noundef 1) #9
+  %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %22, %.lr.ph ]
+  %26 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.5, i32 noundef 1) #9
   %27 = load ptr, ptr %9, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -943,7 +943,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
 .lr.ph156:                                        ; preds = %42, %52
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %52 ], [ 0, %42 ]
   %.0107154 = phi i32 [ %56, %52 ], [ 0, %42 ]
-  %.0135153 = phi ptr [ %54, %52 ], [ %storemerge, %42 ]
+  %.1136153 = phi ptr [ %54, %52 ], [ %storemerge, %42 ]
   %43 = or disjoint i64 %indvars.iv179, 1
   %44 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv179
   %45 = load ptr, ptr %44, align 8
@@ -965,7 +965,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   %.0108.in = phi i64 [ %49, %48 ], [ %51, %50 ]
   %.0108 = trunc i64 %.0108.in to i32
   %53 = load ptr, ptr %10, align 8
-  %54 = call ptr @xmlStrncat(ptr noundef %.0135153, ptr noundef %53, i32 noundef %.0108) #9
+  %54 = call ptr @xmlStrncat(ptr noundef %.1136153, ptr noundef %53, i32 noundef %.0108) #9
   %55 = load ptr, ptr %10, align 8
   call void @_efree(ptr noundef %55) #9
   %56 = add nuw nsw i32 %.0107154, 1
@@ -973,7 +973,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   br i1 %exitcond182.not, label %.loopexit140, label %.lr.ph156
 
 .loopexit140:                                     ; preds = %52, %42
-  %.1136 = phi ptr [ %storemerge, %42 ], [ %54, %52 ]
+  %.0135 = phi ptr [ %storemerge, %42 ], [ %54, %52 ]
   %.not122 = icmp eq ptr %8, null
   br i1 %.not122, label %.loopexit, label %.preheader
 
@@ -985,7 +985,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
 .lr.ph161:                                        ; preds = %.preheader, %69
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %69 ], [ 0, %.preheader ]
   %.1160 = phi i32 [ %79, %69 ], [ 0, %.preheader ]
-  %.2137158 = phi ptr [ %77, %69 ], [ %.1136, %.preheader ]
+  %.3138158 = phi ptr [ %77, %69 ], [ %.0135, %.preheader ]
   %58 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv183
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %58, i64 8
@@ -1010,7 +1010,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   %.0105.in = phi i64 [ %66, %65 ], [ %68, %67 ]
   %.0105 = trunc i64 %.0105.in to i32
   %70 = load ptr, ptr %11, align 8
-  %71 = call ptr @xmlStrncat(ptr noundef %.2137158, ptr noundef %70, i32 noundef %.0105) #9
+  %71 = call ptr @xmlStrncat(ptr noundef %.3138158, ptr noundef %70, i32 noundef %.0105) #9
   %72 = ptrtoint ptr %64 to i64
   %73 = ptrtoint ptr %63 to i64
   %74 = sub i64 %72, %73
@@ -1024,8 +1024,8 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   br i1 %exitcond186.not, label %.loopexit, label %.lr.ph161
 
 .loopexit:                                        ; preds = %69, %.preheader, %.loopexit140
-  %.3138 = phi ptr [ %.1136, %.loopexit140 ], [ %.1136, %.preheader ], [ %77, %69 ]
-  %80 = call ptr @xmlStrncat(ptr noundef %.3138, ptr noundef nonnull @.str.5, i32 noundef 1) #9
+  %.2137 = phi ptr [ %.0135, %.loopexit140 ], [ %.0135, %.preheader ], [ %77, %69 ]
+  %80 = call ptr @xmlStrncat(ptr noundef %.2137, ptr noundef nonnull @.str.5, i32 noundef 1) #9
   %81 = load ptr, ptr %30, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8
@@ -1129,14 +1129,14 @@ _qualify_namespace.exit127:                       ; preds = %117, %111, %119
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %96
-  %.099.lcssa = phi i32 [ 0, %96 ], [ %134, %._crit_edge.loopexit ]
-  %135 = zext nneg i32 %.099.lcssa to i64
+  %.1100.lcssa = phi i32 [ 0, %96 ], [ %134, %._crit_edge.loopexit ]
+  %135 = zext nneg i32 %.1100.lcssa to i64
   %136 = getelementptr inbounds ptr, ptr %100, i64 %135
   store ptr null, ptr %136, align 8
   br label %137
 
 137:                                              ; preds = %._crit_edge, %_qualify_namespace.exit
-  %.1100 = phi i32 [ %.099.lcssa, %._crit_edge ], [ 0, %_qualify_namespace.exit ]
+  %.099 = phi i32 [ %.1100.lcssa, %._crit_edge ], [ 0, %_qualify_namespace.exit ]
   %.0 = phi ptr [ %100, %._crit_edge ], [ null, %_qualify_namespace.exit ]
   %138 = load ptr, ptr %26, align 8
   %139 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1146,11 +1146,11 @@ _qualify_namespace.exit127:                       ; preds = %117, %111, %119
   br i1 %.not117, label %144, label %.preheader141
 
 .preheader141:                                    ; preds = %137
-  %.not = icmp eq i32 %.1100, 0
+  %.not = icmp eq i32 %.099, 0
   br i1 %.not, label %._crit_edge152, label %.lr.ph151.preheader
 
 .lr.ph151.preheader:                              ; preds = %.preheader141
-  %wide.trip.count = zext i32 %.1100 to i64
+  %wide.trip.count = zext i32 %.099 to i64
   br label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %.lr.ph151.preheader, %.lr.ph151

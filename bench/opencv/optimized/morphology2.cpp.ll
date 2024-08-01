@@ -710,7 +710,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %129, !llvm.loop !5
 
 .loopexit80:                                      ; preds = %133, %76
-  %.0 = phi i32 [ -1, %76 ], [ 0, %133 ]
+  %.1 = phi i32 [ -1, %76 ], [ 0, %133 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   br label %215
 
@@ -720,9 +720,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %216
 
 215:                                              ; preds = %54, %.loopexit80
-  %.1 = phi i32 [ %.0, %.loopexit80 ], [ 0, %54 ]
+  %.0 = phi i32 [ %.1, %.loopexit80 ], [ 0, %54 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
-  ret i32 %.1
+  ret i32 %.0
 
 216:                                              ; preds = %214, %82, %65
   %.pn75 = phi { ptr, i32 } [ %.pn73, %214 ], [ %.pn42.pn, %82 ], [ %.pn40, %65 ]

@@ -608,13 +608,13 @@ define noundef zeroext i1 @_ZN6opencc7Lexicon8IsSortedEv(ptr nocapture noundef n
   br i1 %7, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEPFbRKS7_SE_EEbT_SH_T0_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %1, %_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_.exit
-  %.sroa.04.0.i.i.i = phi ptr [ %.sroa.05.0.i.i.i, %_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_.exit ], [ %4, %1 ]
-  %.sroa.05.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.04.0.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %.sroa.05.0.i.i.i, %6
+  %.sroa.04.0.i.i.i = phi ptr [ %.sroa.05.1.i.i.i, %_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_.exit ], [ %4, %1 ]
+  %.sroa.05.1.i.i.i = getelementptr inbounds i8, ptr %.sroa.04.0.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %.sroa.05.1.i.i.i, %6
   br i1 %.not.i.i.i, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEPFbRKS7_SE_EEbT_SH_T0_.exit, label %8
 
 8:                                                ; preds = %.preheader.i.i.i
-  %9 = load ptr, ptr %.sroa.05.0.i.i.i, align 8
+  %9 = load ptr, ptr %.sroa.05.1.i.i.i, align 8
   %10 = load ptr, ptr %.sroa.04.0.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -654,8 +654,8 @@ _ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES
   br i1 %24, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEPFbRKS7_SE_EEbT_SH_T0_.exit, label %.preheader.i.i.i, !llvm.loop !9
 
 _ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEPFbRKS7_SE_EEbT_SH_T0_.exit: ; preds = %.preheader.i.i.i, %_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_.exit, %1
-  %.sroa.05.1.i.i.i = phi ptr [ %4, %1 ], [ %.sroa.05.0.i.i.i, %_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_.exit ], [ %6, %.preheader.i.i.i ]
-  %25 = icmp eq ptr %.sroa.05.1.i.i.i, %6
+  %.sroa.05.0.i.i.i = phi ptr [ %4, %1 ], [ %.sroa.05.1.i.i.i, %_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_.exit ], [ %6, %.preheader.i.i.i ]
+  %25 = icmp eq ptr %.sroa.05.0.i.i.i, %6
   ret i1 %25
 }
 

@@ -1953,8 +1953,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .body:                                            ; preds = %15, %12, %36
   %.pn.pn = phi { ptr, i32 } [ %.pn, %36 ], [ %13, %15 ], [ %13, %12 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %37 = call ptr @__cxa_begin_catch(ptr %.1) #15
+  %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %37 = call ptr @__cxa_begin_catch(ptr %.0) #15
   %38 = load i32, ptr @_ZN5Yosys15log_force_debugE, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr @_ZN5Yosys15log_force_debugE, align 4

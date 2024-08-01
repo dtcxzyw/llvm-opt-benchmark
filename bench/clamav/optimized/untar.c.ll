@@ -69,7 +69,7 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %.0118.ph = phi i32 [ %.0118.ph.ph, %.outer.outer ], [ 0, %.outer.backedge ]
   %.0115.ph = phi i32 [ %.0115.ph.ph, %.outer.outer ], [ %.0115, %.outer.backedge ]
   %.0108.ph = phi i64 [ %.0108.ph.ph, %.outer.outer ], [ %40, %.outer.backedge ]
-  %.0105.ph = phi i64 [ %.0105.ph.ph, %.outer.outer ], [ %.1106185, %.outer.backedge ]
+  %.0105.ph = phi i64 [ %.0105.ph.ph, %.outer.outer ], [ %.2107185, %.outer.backedge ]
   %.0102.ph = phi i64 [ %.0102.ph.ph, %.outer.outer ], [ 0, %.outer.backedge ]
   br label %.backedge
 
@@ -338,14 +338,14 @@ testchecksum.exit.thread:                         ; preds = %60, %testchecksum.e
   br label %.outer.outer.backedge
 
 .outer.outer.backedge:                            ; preds = %108, %.loopexit507
-  %.0121.ph.ph.be = phi i32 [ %.2123, %.loopexit507 ], [ -1, %108 ]
+  %.0121.ph.ph.be = phi i32 [ %.3124, %.loopexit507 ], [ -1, %108 ]
   %.0118.ph.ph.be = phi i32 [ %spec.select213, %.loopexit507 ], [ 0, %108 ]
   %.0115.ph.ph.be = phi i32 [ %.2117, %.loopexit507 ], [ 0, %108 ]
   %.0112.ph.ph.be = phi i32 [ %.2114, %.loopexit507 ], [ %.1113181, %108 ]
   %.0109.ph.ph.be = phi i32 [ %.2111, %.loopexit507 ], [ %.1110.ph, %108 ]
   %.0108.ph.ph.be = phi i64 [ %40, %.loopexit507 ], [ %110, %108 ]
-  %.0105.ph.ph.be = phi i64 [ %.2107, %.loopexit507 ], [ 0, %108 ]
-  %.0102.ph.ph.be = phi i64 [ %.3.fr, %.loopexit507 ], [ %.1103182, %108 ]
+  %.0105.ph.ph.be = phi i64 [ %.1106, %.loopexit507 ], [ 0, %108 ]
+  %.0102.ph.ph.be = phi i64 [ %.2.fr, %.loopexit507 ], [ %.1103182, %108 ]
   br label %.outer.outer
 
 111:                                              ; preds = %99
@@ -387,7 +387,7 @@ testchecksum.exit.thread:                         ; preds = %60, %testchecksum.e
   br i1 %.not148, label %.thread183, label %136
 
 .thread183:                                       ; preds = %124, %127
-  %.1106186 = phi i64 [ %128, %127 ], [ %.0105, %124 ]
+  %.2107186 = phi i64 [ %128, %127 ], [ %.0105, %124 ]
   %130 = call i64 @cli_writen(i32 noundef %.0121, ptr noundef nonnull %spec.select, i64 noundef %.099) #11
   %.not149 = icmp eq i64 %130, %.099
   br i1 %.not149, label %136, label %131
@@ -401,7 +401,7 @@ testchecksum.exit.thread:                         ; preds = %60, %testchecksum.e
   br label %.loopexit
 
 136:                                              ; preds = %.thread183, %127
-  %.1106185 = phi i64 [ %.1106186, %.thread183 ], [ %128, %127 ]
+  %.2107185 = phi i64 [ %.2107186, %.thread183 ], [ %128, %127 ]
   %137 = icmp ugt i64 %.099, %.0102.ph
   br i1 %137, label %.thread187, label %138
 
@@ -424,14 +424,14 @@ testchecksum.exit.thread:                         ; preds = %60, %testchecksum.e
   br label %.outer
 
 .loopexit507:                                     ; preds = %138, %123
-  %.2123 = phi i32 [ %117, %123 ], [ %.0121, %138 ]
+  %.3124 = phi i32 [ %117, %123 ], [ %.0121, %138 ]
   %.2117 = phi i32 [ 0, %123 ], [ %.0115, %138 ]
   %.2114 = phi i32 [ %.1113, %123 ], [ %.0112.ph.ph, %138 ]
   %.2111 = phi i32 [ %.1110.ph, %123 ], [ %.0109.ph.ph, %138 ]
-  %.2107 = phi i64 [ 0, %123 ], [ %.1106185, %138 ]
-  %.3 = phi i64 [ %96, %123 ], [ %139, %138 ]
-  %.3.fr = freeze i64 %.3
-  %143 = icmp ne i64 %.3.fr, 0
+  %.1106 = phi i64 [ 0, %123 ], [ %.2107185, %138 ]
+  %.2 = phi i64 [ %96, %123 ], [ %139, %138 ]
+  %.2.fr = freeze i64 %.2
+  %143 = icmp ne i64 %.2.fr, 0
   %spec.select213 = zext i1 %143 to i32
   br label %.outer.outer.backedge
 

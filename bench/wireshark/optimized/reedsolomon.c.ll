@@ -524,7 +524,7 @@ modnn.exit257:                                    ; preds = %.lr.ph.i255, %80
 
 .preheader309:                                    ; preds = %.preheader309.lr.ph, %.loopexit306
   %indvars.iv459 = phi i64 [ %98, %.preheader309.lr.ph ], [ %indvars.iv.next460, %.loopexit306 ]
-  %.0197348 = phi i32 [ %2, %.preheader309.lr.ph ], [ %.2199, %.loopexit306 ]
+  %.0197348 = phi i32 [ %2, %.preheader309.lr.ph ], [ %.1198, %.loopexit306 ]
   %.0201347 = phi i32 [ %2, %.preheader309.lr.ph ], [ %177, %.loopexit306 ]
   %105 = icmp sgt i64 %indvars.iv459, 0
   br i1 %105, label %.lr.ph341.preheader, label %._crit_edge
@@ -689,12 +689,12 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %162, 
   br label %.loopexit308
 
 .loopexit308:                                     ; preds = %.loopexit308.loopexit, %.preheader307.preheader
-  %.1198 = phi i32 [ %.0197348, %.preheader307.preheader ], [ %176, %.loopexit308.loopexit ]
+  %.2199 = phi i32 [ %.0197348, %.preheader307.preheader ], [ %176, %.loopexit308.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(196) %4, ptr noundef nonnull align 16 dereferenceable(196) %7, i64 196, i1 false)
   br label %.loopexit306
 
 .loopexit306:                                     ; preds = %.loopexit308, %.preheader305.preheader
-  %.2199 = phi i32 [ %.0197348, %.preheader305.preheader ], [ %.1198, %.loopexit308 ]
+  %.1198 = phi i32 [ %.0197348, %.preheader305.preheader ], [ %.2199, %.loopexit308 ]
   %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
   %177 = trunc nsw i64 %indvars.iv459 to i32
   %178 = and i64 %indvars.iv.next460, 4294967295
@@ -725,7 +725,7 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %162, 
   br i1 %exitcond468.not, label %.preheader303, label %.preheader304, !llvm.loop !24
 
 .preheader301:                                    ; preds = %.preheader303, %modnn.exit277
-  %.0183359 = phi i32 [ 0, %.preheader303 ], [ %.1, %modnn.exit277 ]
+  %.1359 = phi i32 [ 0, %.preheader303 ], [ %.3, %modnn.exit277 ]
   %.0200358 = phi i32 [ 254, %.preheader303 ], [ %.0.lcssa.i274, %modnn.exit277 ]
   %.9357 = phi i32 [ 1, %.preheader303 ], [ %211, %modnn.exit277 ]
   br i1 %180, label %.lr.ph354, label %._crit_edge355.thread
@@ -773,17 +773,17 @@ modnn.exit273:                                    ; preds = %.lr.ph.i271, %190
   br i1 %.not229, label %205, label %._crit_edge355.thread
 
 205:                                              ; preds = %._crit_edge355
-  %206 = sext i32 %.0183359 to i64
+  %206 = sext i32 %.1359 to i64
   %207 = getelementptr [48 x i32], ptr %9, i64 0, i64 %206
   store i32 %.9357, ptr %207, align 4
   %208 = getelementptr [48 x i32], ptr %11, i64 0, i64 %206
   store i32 %.0200358, ptr %208, align 4
-  %209 = add i32 %.0183359, 1
+  %209 = add i32 %.1359, 1
   %210 = icmp eq i32 %209, %spec.select
   br i1 %210, label %.preheader300.preheader, label %._crit_edge355.thread
 
 ._crit_edge355.thread:                            ; preds = %.preheader301, %205, %._crit_edge355
-  %.1 = phi i32 [ %.0183359, %._crit_edge355 ], [ %209, %205 ], [ %.0183359, %.preheader301 ]
+  %.3 = phi i32 [ %.1359, %._crit_edge355 ], [ %209, %205 ], [ %.1359, %.preheader301 ]
   %211 = add nuw nsw i32 %.9357, 1
   %212 = add nsw i32 %.0200358, 254
   %213 = icmp sgt i32 %.0200358, 0
@@ -804,7 +804,7 @@ modnn.exit277:                                    ; preds = %.lr.ph.i275, %._cri
   br i1 %exitcond477.not, label %219, label %.preheader301, !llvm.loop !26
 
 219:                                              ; preds = %modnn.exit277
-  %.not230 = icmp eq i32 %spec.select, %.1
+  %.not230 = icmp eq i32 %spec.select, %.3
   br i1 %.not230, label %.preheader300.preheader, label %.loopexit
 
 .preheader300.preheader:                          ; preds = %205, %219
@@ -1082,8 +1082,8 @@ modnn.exit297:                                    ; preds = %.lr.ph.i295, %310
   br i1 %exitcond500.not, label %.loopexit, label %.lr.ph384, !llvm.loop !32
 
 .loopexit:                                        ; preds = %._crit_edge371, %._crit_edge376, %.lr.ph384, %253, %219, %49, %.loopexit299
-  %.3518 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %253 ], [ -1, %219 ], [ 0, %49 ], [ %spec.select, %.lr.ph384 ], [ -1, %._crit_edge376 ], [ -1, %._crit_edge371 ]
-  ret i32 %.3518
+  %.0183518 = phi i32 [ %spec.select, %.loopexit299 ], [ %spec.select, %253 ], [ -1, %219 ], [ 0, %49 ], [ %spec.select, %.lr.ph384 ], [ -1, %._crit_edge376 ], [ -1, %._crit_edge371 ]
+  ret i32 %.0183518
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

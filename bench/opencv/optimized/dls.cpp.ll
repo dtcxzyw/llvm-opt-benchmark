@@ -4794,9 +4794,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit150:              ; preds = %112
 166:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit150, %306
   %indvars.iv = phi i64 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %indvars.iv.next, %306 ]
   %.034371 = phi i32 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.1, %306 ]
-  %.sroa.0.0370 = phi ptr [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.sroa.0.2, %306 ]
-  %.sroa.10.0369 = phi ptr [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.sroa.10.2, %306 ]
-  %.sroa.6.0368 = phi ptr [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.sroa.6.2, %306 ]
+  %.sroa.0.0370 = phi ptr [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.sroa.0.1, %306 ]
+  %.sroa.10.0369 = phi ptr [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.sroa.10.1, %306 ]
+  %.sroa.6.0368 = phi ptr [ null, %_ZNK2cv7MatExprcvNS_3MatEEv.exit150 ], [ %.sroa.6.1, %306 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store i64 9223372034707292160, ptr %19, align 8, !noalias !39
@@ -5096,9 +5096,9 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %233
   %.pn248 = phi ptr [ %254, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.sroa.6.0368, %233 ]
-  %.sroa.10.1 = phi ptr [ %256, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.sroa.10.0369, %233 ]
-  %.sroa.0.1 = phi ptr [ %249, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.sroa.0.0370, %233 ]
-  %.sroa.6.1 = getelementptr inbounds i8, ptr %.pn248, i64 8
+  %.sroa.10.2 = phi ptr [ %256, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.sroa.10.0369, %233 ]
+  %.sroa.0.2 = phi ptr [ %249, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.sroa.0.0370, %233 ]
+  %.sroa.6.2 = getelementptr inbounds i8, ptr %.pn248, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %54) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #19
@@ -5279,9 +5279,9 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br label %307
 
 306:                                              ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %210
-  %.sroa.6.2 = phi ptr [ %.sroa.6.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.6.0368, %210 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.10.0369, %210 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0.0370, %210 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.2, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.6.0368, %210 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.10.0369, %210 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0.0370, %210 ]
   %.1 = phi i32 [ %213, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.034371, %210 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #19
@@ -6027,7 +6027,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit209:              ; preds = %539
           to label %554 unwind label %607
 
 554:                                              ; preds = %551
-  %555 = getelementptr inbounds double, ptr %.sroa.0.2, i64 %indvars.iv418
+  %555 = getelementptr inbounds double, ptr %.sroa.0.1, i64 %indvars.iv418
   %556 = load double, ptr %555, align 8
   %557 = load ptr, ptr %384, align 8
   %558 = load ptr, ptr %385, align 8
@@ -6273,11 +6273,11 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i237: ; preds = %_ZSt8_DestroyIP
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit239
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit239:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i237, %628
-  %.not.i.i.i240 = icmp eq ptr %.sroa.0.2, null
+  %.not.i.i.i240 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i240, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %629
 
 629:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit239
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit239, %629
@@ -6297,7 +6297,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN2cv3M
   br label %631
 
 631:                                              ; preds = %.loopexit254, %.loopexit.split-lp255, %630, %469, %309
-  %.sroa.0.0335 = phi ptr [ %.sroa.0.0370, %309 ], [ %.sroa.0.2, %630 ], [ %.sroa.0.2, %469 ], [ %.sroa.0.0370, %.loopexit254 ], [ %.sroa.0.2, %.loopexit.split-lp255 ]
+  %.sroa.0.0335 = phi ptr [ %.sroa.0.0370, %309 ], [ %.sroa.0.1, %630 ], [ %.sroa.0.1, %469 ], [ %.sroa.0.0370, %.loopexit254 ], [ %.sroa.0.1, %.loopexit.split-lp255 ]
   %.pn137.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn137.pn.pn.pn.pn.pn, %309 ], [ %.pn107.pn.pn.pn.pn.pn.pn.pn.pn.pn, %630 ], [ %.pn, %469 ], [ %lpad.loopexit256, %.loopexit254 ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp255 ]
   %.not.i.i.i241 = icmp eq ptr %.sroa.0.0335, null
   br i1 %.not.i.i.i241, label %_ZNSt6vectorIdSaIdEED2Ev.exit242, label %632
@@ -33053,8 +33053,8 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %exitcond1036.not, label %.preheader841, label %12, !llvm.loop !319
 
 .preheader840:                                    ; preds = %.preheader840.lr.ph, %.loopexit839
-  %.0572949 = phi double [ 0.000000e+00, %.preheader840.lr.ph ], [ %.3, %.loopexit839 ]
-  %.0588948 = phi double [ 0.000000e+00, %.preheader840.lr.ph ], [ %.13, %.loopexit839 ]
+  %.0572949 = phi double [ 0.000000e+00, %.preheader840.lr.ph ], [ %.1, %.loopexit839 ]
+  %.0588948 = phi double [ 0.000000e+00, %.preheader840.lr.ph ], [ %.1589, %.loopexit839 ]
   %.0601947 = phi i32 [ 0, %.preheader840.lr.ph ], [ %.1602, %.loopexit839 ]
   %.0817941 = phi i32 [ %3, %.preheader840.lr.ph ], [ %.1818, %.loopexit839 ]
   %23 = phi <2 x double> [ zeroinitializer, %.preheader840.lr.ph ], [ %565, %.loopexit839 ]
@@ -33089,11 +33089,11 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %38 = tail call noundef double @llvm.fabs.f64(double %31)
   %39 = fadd double %37, %38
   %40 = fcmp oeq double %39, 0.000000e+00
-  %.2634 = select i1 %40, double %.1606.lcssa, double %39
+  %.3635 = select i1 %40, double %.1606.lcssa, double %39
   %41 = getelementptr inbounds double, ptr %32, i64 %indvars.iv.next1038
   %42 = load double, ptr %41, align 8
   %43 = tail call noundef double @llvm.fabs.f64(double %42)
-  %44 = fmul double %.2634, 0x3CB0000000000000
+  %44 = fmul double %.3635, 0x3CB0000000000000
   %45 = fcmp olt double %43, %44
   br i1 %45, label %._crit_edge851.split.loop.exit1221, label %28, !llvm.loop !320
 
@@ -33107,7 +33107,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %47, label %._crit_edge851.thread, label %66
 
 ._crit_edge851.thread:                            ; preds = %.preheader840, %._crit_edge851
-  %.36351186 = phi double [ %.2634, %._crit_edge851 ], [ %25, %.preheader840 ]
+  %.26341186 = phi double [ %.3635, %._crit_edge851 ], [ %25, %.preheader840 ]
   %48 = load ptr, ptr %7, align 8
   %49 = zext nneg i32 %.0817941 to i64
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
@@ -33128,7 +33128,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %63 = getelementptr inbounds double, ptr %62, i64 %49
   store double 0.000000e+00, ptr %63, align 8
   %64 = add nsw i32 %.0817941, -1
-  %65 = insertelement <2 x double> %24, double %.36351186, i64 1
+  %65 = insertelement <2 x double> %24, double %.26341186, i64 1
   br label %.loopexit839
 
 66:                                               ; preds = %._crit_edge851
@@ -33179,9 +33179,9 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 104:                                              ; preds = %73
   %105 = fcmp ult double %87, 0.000000e+00
   %106 = fneg double %sqrt
-  %.1619.p = select i1 %105, double %106, double %sqrt
-  %.1619 = fadd double %87, %.1619.p
-  %107 = fadd double %.1619, %102
+  %.2620.p = select i1 %105, double %106, double %sqrt
+  %.2620 = fadd double %87, %.2620.p
+  %107 = fadd double %.2620, %102
   %108 = load ptr, ptr %9, align 8
   %109 = getelementptr double, ptr %108, i64 %70
   %110 = getelementptr i8, ptr %109, i64 -8
@@ -33191,11 +33191,11 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %113 = getelementptr i8, ptr %112, i64 -8
   %114 = load double, ptr %113, align 8
   store double %114, ptr %112, align 8
-  %115 = fcmp une double %.1619, 0.000000e+00
+  %115 = fcmp une double %.2620, 0.000000e+00
   br i1 %115, label %116, label %121
 
 116:                                              ; preds = %104
-  %117 = fdiv double %81, %.1619
+  %117 = fdiv double %81, %.2620
   %118 = fsub double %102, %117
   %119 = load ptr, ptr %9, align 8
   %120 = getelementptr inbounds double, ptr %119, i64 %70
@@ -33217,10 +33217,10 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %131 = getelementptr i8, ptr %130, i64 -8
   %132 = load double, ptr %131, align 8
   %133 = tail call noundef double @llvm.fabs.f64(double %132)
-  %134 = tail call noundef double @llvm.fabs.f64(double %.1619)
+  %134 = tail call noundef double @llvm.fabs.f64(double %.2620)
   %135 = fadd double %134, %133
   %136 = fdiv double %132, %135
-  %137 = fdiv double %.1619, %135
+  %137 = fdiv double %.2620, %135
   %138 = fmul double %137, %137
   %139 = tail call double @llvm.fmuladd.f64(double %136, double %136, double %138)
   %sqrt819 = tail call double @llvm.sqrt.f64(double %139)
@@ -33341,7 +33341,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %212 = load ptr, ptr %10, align 8
   %213 = getelementptr inbounds double, ptr %212, i64 %70
   store double %211, ptr %213, align 8
-  %214 = insertelement <2 x double> %24, double %.2634, i64 1
+  %214 = insertelement <2 x double> %24, double %.3635, i64 1
   %215 = insertelement <2 x double> poison, double %sqrt, i64 0
   %216 = insertelement <2 x double> %215, double %88, i64 1
   br label %.loopexit836
@@ -33352,7 +33352,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br label %.loopexit836
 
 .loopexit836:                                     ; preds = %.loopexit836.loopexit, %201
-  %.1589 = phi double [ %87, %201 ], [ %140, %.loopexit836.loopexit ]
+  %.2590 = phi double [ %87, %201 ], [ %140, %.loopexit836.loopexit ]
   %219 = phi <2 x double> [ %214, %201 ], [ %166, %.loopexit836.loopexit ]
   %220 = phi <2 x double> [ %216, %201 ], [ %218, %.loopexit836.loopexit ]
   %221 = add nsw i32 %.0817941, -2
@@ -33433,11 +33433,11 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br label %265
 
 265:                                              ; preds = %._crit_edge861, %237
-  %.5637 = phi double [ %261, %._crit_edge861 ], [ %.2634, %237 ]
+  %.6638 = phi double [ %261, %._crit_edge861 ], [ %.3635, %237 ]
   %.1616 = phi double [ %264, %._crit_edge861 ], [ %.0615, %237 ]
   %.0610 = phi double [ %262, %._crit_edge861 ], [ %224, %237 ]
   %.1608 = phi double [ %262, %._crit_edge861 ], [ %.0607, %237 ]
-  %.1 = phi double [ %240, %._crit_edge861 ], [ %.0572949, %237 ]
+  %.2 = phi double [ %240, %._crit_edge861 ], [ %.0572949, %237 ]
   %266 = icmp eq i32 %.0601947, 30
   br i1 %266, label %267, label %287
 
@@ -33452,8 +33452,8 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %273 = tail call double @sqrt(double noundef %270) #19
   %274 = fcmp olt double %.1608, %.0610
   %275 = fneg double %273
-  %.6638 = select i1 %274, double %275, double %273
-  %276 = fadd double %269, %.6638
+  %.8640 = select i1 %274, double %275, double %273
+  %276 = fadd double %269, %.8640
   %277 = fdiv double %.1616, %276
   %278 = fsub double %.0610, %277
   %.not707862 = icmp slt i32 %.0817941, 0
@@ -33478,15 +33478,15 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %exitcond1049.not, label %._crit_edge866, label %.lr.ph865, !llvm.loop !325
 
 ._crit_edge866:                                   ; preds = %.lr.ph865, %272
-  %286 = fadd double %.1, %278
+  %286 = fadd double %.2, %278
   br label %287
 
 287:                                              ; preds = %267, %._crit_edge866, %265
-  %.7639 = phi double [ %278, %._crit_edge866 ], [ %270, %267 ], [ %.5637, %265 ]
+  %.7639 = phi double [ %278, %._crit_edge866 ], [ %270, %267 ], [ %.6638, %265 ]
   %.2617 = phi double [ 0x3FEED916872B020C, %._crit_edge866 ], [ %.1616, %267 ], [ %.1616, %265 ]
   %.1611 = phi double [ 0x3FEED916872B020C, %._crit_edge866 ], [ %.0610, %267 ], [ %.0610, %265 ]
   %.2609 = phi double [ 0x3FEED916872B020C, %._crit_edge866 ], [ %.1608, %267 ], [ %.1608, %265 ]
-  %.2 = phi double [ %286, %._crit_edge866 ], [ %.1, %267 ], [ %.1, %265 ]
+  %.3 = phi double [ %286, %._crit_edge866 ], [ %.2, %267 ], [ %.2, %265 ]
   %288 = add nsw i32 %.0601947, 1
   %289 = add nsw i32 %.0817941, -2
   %.not708867 = icmp slt i32 %289, %.0600.lcssa
@@ -33588,7 +33588,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 
 ._crit_edge871:                                   ; preds = %._crit_edge871.loopexit, %._crit_edge871.loopexit.split.loop.exit, %287
   %.0594.lcssa = phi i32 [ %289, %287 ], [ %357, %._crit_edge871.loopexit.split.loop.exit ], [ %.0600.lcssa, %._crit_edge871.loopexit ]
-  %.3591 = phi double [ %.0588948, %287 ], [ %322, %._crit_edge871.loopexit.split.loop.exit ], [ %322, %._crit_edge871.loopexit ]
+  %.4 = phi double [ %.0588948, %287 ], [ %322, %._crit_edge871.loopexit.split.loop.exit ], [ %322, %._crit_edge871.loopexit ]
   %362 = phi <2 x double> [ %290, %287 ], [ %354, %._crit_edge871.loopexit.split.loop.exit ], [ %359, %._crit_edge871.loopexit ]
   %363 = phi <2 x double> [ %23, %287 ], [ %356, %._crit_edge871.loopexit.split.loop.exit ], [ %361, %._crit_edge871.loopexit ]
   %364 = add nsw i32 %.0594.lcssa, 2
@@ -33643,10 +33643,10 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 
 386:                                              ; preds = %.lr.ph917, %.loopexit833
   %indvars.iv1057 = phi i64 [ %369, %.lr.ph917 ], [ %indvars.iv.next1058, %.loopexit833 ]
-  %.4916 = phi double [ %.3591, %.lr.ph917 ], [ %.12, %.loopexit833 ]
+  %.5916 = phi double [ %.4, %.lr.ph917 ], [ %.13, %.loopexit833 ]
   %.2612913 = phi double [ %.1611, %.lr.ph917 ], [ %.4614, %.loopexit833 ]
-  %.8626912 = phi double [ %372, %.lr.ph917 ], [ %560, %.loopexit833 ]
-  %.10642911 = phi double [ %370, %.lr.ph917 ], [ %.11643, %.loopexit833 ]
+  %.9627912 = phi double [ %372, %.lr.ph917 ], [ %560, %.loopexit833 ]
+  %.11643911 = phi double [ %370, %.lr.ph917 ], [ %.12644, %.loopexit833 ]
   %387 = phi <2 x double> [ %371, %.lr.ph917 ], [ %559, %.loopexit833 ]
   %388 = icmp eq i64 %indvars.iv1057, %sext1070
   %389 = icmp eq i64 %indvars.iv1057, %369
@@ -33693,22 +33693,22 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
 
 421:                                              ; preds = %406, %416, %386
   %.3613 = phi double [ %412, %416 ], [ %412, %406 ], [ %.2612913, %386 ]
-  %.5 = phi double [ %417, %416 ], [ %396, %406 ], [ %.4916, %386 ]
+  %.6 = phi double [ %417, %416 ], [ %396, %406 ], [ %.5916, %386 ]
   %422 = phi <2 x double> [ %420, %416 ], [ %415, %406 ], [ %387, %386 ]
   %423 = fcmp oeq double %.3613, 0.000000e+00
-  %424 = insertelement <2 x double> %422, double %.8626912, i64 0
+  %424 = insertelement <2 x double> %422, double %.9627912, i64 0
   br i1 %423, label %.loopexit839.loopexit.split.loop.exit, label %425
 
 425:                                              ; preds = %421
   %426 = extractelement <2 x double> %422, i64 1
   %427 = fmul double %426, %426
-  %428 = tail call double @llvm.fmuladd.f64(double %.5, double %.5, double %427)
+  %428 = tail call double @llvm.fmuladd.f64(double %.6, double %.6, double %427)
   %429 = extractelement <2 x double> %422, i64 0
   %430 = tail call double @llvm.fmuladd.f64(double %429, double %429, double %428)
   %sqrt820 = tail call double @llvm.sqrt.f64(double %430)
-  %431 = fcmp olt double %.5, 0.000000e+00
+  %431 = fcmp olt double %.6, 0.000000e+00
   %432 = fneg double %sqrt820
-  %.11643 = select i1 %431, double %432, double %sqrt820
+  %.12644 = select i1 %431, double %432, double %sqrt820
   %433 = fcmp une double %sqrt820, 0.000000e+00
   br i1 %433, label %434, label %.loopexit833
 
@@ -33716,7 +33716,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %389, label %443, label %435
 
 435:                                              ; preds = %434
-  %436 = fneg double %.11643
+  %436 = fneg double %.12644
   %437 = fmul double %.3613, %436
   %438 = load ptr, ptr %7, align 8
   %439 = getelementptr inbounds ptr, ptr %438, i64 %indvars.iv1057
@@ -33741,10 +33741,10 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br label %452
 
 452:                                              ; preds = %443, %444, %435
-  %453 = fadd double %.5, %.11643
-  %454 = fdiv double %453, %.11643
-  %455 = fdiv double %426, %.11643
-  %456 = insertelement <2 x double> poison, double %.11643, i64 0
+  %453 = fadd double %.6, %.12644
+  %454 = fdiv double %453, %.12644
+  %455 = fdiv double %426, %.12644
+  %456 = insertelement <2 x double> poison, double %.12644, i64 0
   %457 = insertelement <2 x double> %456, double %453, i64 1
   %458 = fdiv <2 x double> %422, %457
   %459 = fdiv double %429, %453
@@ -33864,9 +33864,9 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %.pre-phi1176 = phi double [ %.pre1175, %._crit_edge1167 ], [ %518, %514 ]
   %521 = phi double [ %509, %._crit_edge1167 ], [ %.pre1158, %514 ]
   %522 = phi ptr [ %507, %._crit_edge1167 ], [ %.pre1156, %514 ]
-  %.9 = phi double [ %513, %._crit_edge1167 ], [ %517, %514 ]
+  %.10 = phi double [ %513, %._crit_edge1167 ], [ %517, %514 ]
   %523 = getelementptr inbounds double, ptr %522, i64 %indvars.iv1057
-  %524 = fsub double %521, %.9
+  %524 = fsub double %521, %.10
   store double %524, ptr %523, align 8
   %525 = load ptr, ptr %7, align 8
   %526 = getelementptr inbounds ptr, ptr %525, i64 %indvars.iv1062
@@ -33914,9 +33914,9 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   %.pre-phi1174 = phi double [ %.pre1173, %._crit_edge1168 ], [ %545, %541 ]
   %548 = phi double [ %536, %._crit_edge1168 ], [ %.pre1163, %541 ]
   %549 = phi ptr [ %534, %._crit_edge1168 ], [ %.pre1161, %541 ]
-  %.11 = phi double [ %540, %._crit_edge1168 ], [ %544, %541 ]
+  %.12 = phi double [ %540, %._crit_edge1168 ], [ %544, %541 ]
   %550 = getelementptr inbounds double, ptr %549, i64 %indvars.iv1057
-  %551 = fsub double %548, %.11
+  %551 = fsub double %548, %.12
   store double %551, ptr %550, align 8
   %552 = load ptr, ptr %8, align 8
   %553 = getelementptr inbounds ptr, ptr %552, i64 %indvars.iv1065
@@ -33930,31 +33930,31 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br i1 %exitcond1069.not, label %.loopexit833, label %531, !llvm.loop !330
 
 .loopexit833:                                     ; preds = %547, %425
-  %.6656 = phi double [ %429, %425 ], [ %459, %547 ]
+  %.7657 = phi double [ %429, %425 ], [ %459, %547 ]
   %.4614 = phi double [ %.3613, %425 ], [ %454, %547 ]
-  %.12 = phi double [ %.5, %425 ], [ %.11, %547 ]
+  %.13 = phi double [ %.6, %425 ], [ %.12, %547 ]
   %558 = phi <2 x double> [ %424, %425 ], [ %458, %547 ]
   %indvars.iv.next1058 = add nsw i64 %indvars.iv1057, 1
   %lftr.wideiv1073 = trunc i64 %indvars.iv.next1058 to i32
   %exitcond1074.not = icmp eq i32 %.0817941, %lftr.wideiv1073
-  %559 = insertelement <2 x double> %558, double %.6656, i64 0
+  %559 = insertelement <2 x double> %558, double %.7657, i64 0
   %560 = extractelement <2 x double> %558, i64 0
   br i1 %exitcond1074.not, label %.loopexit839.loopexit.split.loop.exit1311, label %386, !llvm.loop !331
 
 .loopexit839.loopexit.split.loop.exit:            ; preds = %421
-  %561 = insertelement <2 x double> %422, double %.10642911, i64 1
+  %561 = insertelement <2 x double> %422, double %.11643911, i64 1
   br label %.loopexit839
 
 .loopexit839.loopexit.split.loop.exit1311:        ; preds = %.loopexit833
-  %562 = insertelement <2 x double> poison, double %.6656, i64 0
-  %563 = insertelement <2 x double> %562, double %.11643, i64 1
+  %562 = insertelement <2 x double> poison, double %.7657, i64 0
+  %563 = insertelement <2 x double> %562, double %.12644, i64 1
   br label %.loopexit839
 
 .loopexit839:                                     ; preds = %.loopexit839.loopexit.split.loop.exit, %.loopexit839.loopexit.split.loop.exit1311, %.preheader838, %.loopexit836, %._crit_edge851.thread
   %.1818 = phi i32 [ %64, %._crit_edge851.thread ], [ %221, %.loopexit836 ], [ %.0817941, %.preheader838 ], [ %.0817941, %.loopexit839.loopexit.split.loop.exit1311 ], [ %.0817941, %.loopexit839.loopexit.split.loop.exit ]
   %.1602 = phi i32 [ 0, %._crit_edge851.thread ], [ 0, %.loopexit836 ], [ %288, %.preheader838 ], [ %288, %.loopexit839.loopexit.split.loop.exit1311 ], [ %288, %.loopexit839.loopexit.split.loop.exit ]
-  %.13 = phi double [ %.0588948, %._crit_edge851.thread ], [ %.1589, %.loopexit836 ], [ %.3591, %.preheader838 ], [ %.5, %.loopexit839.loopexit.split.loop.exit ], [ %.12, %.loopexit839.loopexit.split.loop.exit1311 ]
-  %.3 = phi double [ %.0572949, %._crit_edge851.thread ], [ %.0572949, %.loopexit836 ], [ %.2, %.preheader838 ], [ %.2, %.loopexit839.loopexit.split.loop.exit1311 ], [ %.2, %.loopexit839.loopexit.split.loop.exit ]
+  %.1589 = phi double [ %.0588948, %._crit_edge851.thread ], [ %.2590, %.loopexit836 ], [ %.4, %.preheader838 ], [ %.6, %.loopexit839.loopexit.split.loop.exit ], [ %.13, %.loopexit839.loopexit.split.loop.exit1311 ]
+  %.1 = phi double [ %.0572949, %._crit_edge851.thread ], [ %.0572949, %.loopexit836 ], [ %.3, %.preheader838 ], [ %.3, %.loopexit839.loopexit.split.loop.exit1311 ], [ %.3, %.loopexit839.loopexit.split.loop.exit ]
   %564 = phi <2 x double> [ %65, %._crit_edge851.thread ], [ %219, %.loopexit836 ], [ %362, %.preheader838 ], [ %561, %.loopexit839.loopexit.split.loop.exit ], [ %563, %.loopexit839.loopexit.split.loop.exit1311 ]
   %565 = phi <2 x double> [ %23, %._crit_edge851.thread ], [ %220, %.loopexit836 ], [ %363, %.preheader838 ], [ %424, %.loopexit839.loopexit.split.loop.exit ], [ %558, %.loopexit839.loopexit.split.loop.exit1311 ]
   %566 = icmp sgt i32 %.1818, -1

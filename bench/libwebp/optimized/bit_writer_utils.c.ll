@@ -150,10 +150,10 @@ BitWriterResize.exit:                             ; preds = %22
   br label %51
 
 51:                                               ; preds = %.preheader, %51
-  %.033 = phi i64 [ %14, %.preheader ], [ %53, %51 ]
+  %.133 = phi i64 [ %14, %.preheader ], [ %53, %51 ]
   %52 = load ptr, ptr %50, align 8
-  %53 = add i64 %.033, 1
-  %54 = getelementptr inbounds i8, ptr %52, i64 %.033
+  %53 = add i64 %.133, 1
+  %54 = getelementptr inbounds i8, ptr %52, i64 %.133
   store i8 %49, ptr %54, align 1
   %55 = load i32, ptr %15, align 8
   %56 = add nsw i32 %55, -1
@@ -162,12 +162,12 @@ BitWriterResize.exit:                             ; preds = %22
   br i1 %57, label %51, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %51, %46
-  %.1 = phi i64 [ %14, %46 ], [ %53, %51 ]
+  %.0 = phi i64 [ %14, %46 ], [ %53, %51 ]
   %58 = trunc i32 %7 to i8
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = add i64 %.1, 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 %.1
+  %61 = add i64 %.0, 1
+  %62 = getelementptr inbounds i8, ptr %60, i64 %.0
   store i8 %58, ptr %62, align 1
   store i64 %61, ptr %13, align 8
   br label %67

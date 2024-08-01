@@ -806,15 +806,15 @@ Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.
 
 .lr.ph.i.us.i:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.i.us.i
   %.019.i.us.i = phi i32 [ %333, %.lr.ph.i.us.i ], [ 0, %.lr.ph.split.split.us.i ]
-  %.01618.i.us.i = phi i32 [ %332, %.lr.ph.i.us.i ], [ %330, %.lr.ph.split.split.us.i ]
+  %.118.i.us.i = phi i32 [ %332, %.lr.ph.i.us.i ], [ %330, %.lr.ph.split.split.us.i ]
   %331 = call i32 @Gia_ManRandom(i32 noundef 0) #16
-  %332 = and i32 %331, %.01618.i.us.i
+  %332 = and i32 %331, %.118.i.us.i
   %333 = add nuw nsw i32 %.019.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i32 %333, %299
   br i1 %exitcond.not.i.us.i, label %.loopexit.i.us40.i, label %.lr.ph.i.us.i, !llvm.loop !21
 
 .loopexit.i.us40.i:                               ; preds = %.lr.ph.i.us.i, %.lr.ph.split.split.us.i
-  %.1.i.us41.i = phi i32 [ %330, %.lr.ph.split.split.us.i ], [ %332, %.lr.ph.i.us.i ]
+  %.016.i.us41.i = phi i32 [ %330, %.lr.ph.split.split.us.i ], [ %332, %.lr.ph.i.us.i ]
   br i1 %127, label %Gia_ManSwiSimInfoRandomShift.exit.us46.i, label %.lr.ph21.i.us43.i
 
 .lr.ph21.i.us43.i:                                ; preds = %.loopexit.i.us40.i, %.lr.ph21.i.us43.i
@@ -823,7 +823,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.
   %334 = getelementptr inbounds i32, ptr %329, i64 %indvars.iv.next.i.us45.i
   %335 = load i32, ptr %334, align 4
   %336 = shl i32 %335, 16
-  %337 = xor i32 %335, %.1.i.us41.i
+  %337 = xor i32 %335, %.016.i.us41.i
   %338 = and i32 %337, 65535
   %339 = or disjoint i32 %338, %336
   store i32 %339, ptr %334, align 4
@@ -1755,7 +1755,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
 
 .lr.ph68.split:                                   ; preds = %.lr.ph68.split.preheader, %58
   %indvars.iv79 = phi i64 [ 0, %.lr.ph68.split.preheader ], [ %indvars.iv.next80, %58 ]
-  %.367 = phi float [ 0.000000e+00, %.lr.ph68.split.preheader ], [ %.4, %58 ]
+  %.467 = phi float [ 0.000000e+00, %.lr.ph68.split.preheader ], [ %.5, %58 ]
   %40 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val44, i64 %indvars.iv79
   %.val50 = load i64, ptr %40, align 4
   %41 = and i64 %.val50, 2147483648
@@ -1780,17 +1780,17 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   %54 = getelementptr inbounds i8, ptr %.val45, i64 %53
   %55 = load float, ptr %54, align 4
   %56 = fadd float %49, %55
-  %57 = fadd float %.367, %56
+  %57 = fadd float %.467, %56
   br label %58
 
 58:                                               ; preds = %44, %.lr.ph68.split
-  %.4 = phi float [ %57, %44 ], [ %.367, %.lr.ph68.split ]
+  %.5 = phi float [ %57, %44 ], [ %.467, %.lr.ph68.split ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %.critedge2, label %.lr.ph68.split, !llvm.loop !41
 
 .critedge2:                                       ; preds = %.critedge, %58, %.preheader58, %.preheader, %.lr.ph68
-  %.5 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader58 ], [ %.4, %58 ], [ %.2, %.critedge ]
+  %.3 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader58 ], [ %.5, %58 ], [ %.2, %.critedge ]
   %.not.i54 = icmp eq ptr %.val45, null
   br i1 %.not.i54, label %Vec_IntFree.exit, label %59
 
@@ -1800,7 +1800,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
 
 Vec_IntFree.exit:                                 ; preds = %.critedge2, %59
   call void @free(ptr noundef nonnull %16) #16
-  ret float %.5
+  ret float %.3
 }
 
 ; Function Attrs: nounwind uwtable

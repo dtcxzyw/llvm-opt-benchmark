@@ -187,7 +187,7 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 if.end12:                                         ; preds = %if.end6, %if.end9
-  %allocated_pkey.039 = phi ptr [ %call, %if.end9 ], [ null, %if.end6 ]
+  %allocated_pkey.139 = phi ptr [ %call, %if.end9 ], [ null, %if.end6 ]
   %2 = phi ptr [ %call, %if.end9 ], [ %1, %if.end6 ]
   %op = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load ptr, ptr %op, align 8
@@ -296,9 +296,9 @@ end:                                              ; preds = %sw.bb, %sw.bb52, %i
   br i1 %cmp55, label %if.then57, label %return
 
 if.then57:                                        ; preds = %not_accessible, %not_supported, %end
-  %allocated_pkey.149 = phi ptr [ %allocated_pkey.039, %end ], [ %allocated_pkey.039, %not_accessible ], [ %allocated_pkey.2, %not_supported ]
+  %allocated_pkey.249 = phi ptr [ %allocated_pkey.139, %end ], [ %allocated_pkey.139, %not_accessible ], [ %allocated_pkey.0, %not_supported ]
   %ret.148 = phi i32 [ %ret.1, %end ], [ -1, %not_accessible ], [ -2, %not_supported ]
-  %cmp58.not = icmp eq ptr %allocated_pkey.149, null
+  %cmp58.not = icmp eq ptr %allocated_pkey.249, null
   br i1 %cmp58.not, label %if.end61, label %if.then60
 
 if.then60:                                        ; preds = %if.then57
@@ -307,12 +307,12 @@ if.then60:                                        ; preds = %if.then57
 
 if.end61:                                         ; preds = %if.then57.thread, %if.then60, %if.then57
   %ret.14854 = phi i32 [ -1, %if.then57.thread ], [ %ret.148, %if.then60 ], [ %ret.148, %if.then57 ]
-  %allocated_pkey.14953 = phi ptr [ null, %if.then57.thread ], [ %allocated_pkey.149, %if.then60 ], [ null, %if.then57 ]
-  call void @EVP_PKEY_free(ptr noundef %allocated_pkey.14953) #6
+  %allocated_pkey.24953 = phi ptr [ null, %if.then57.thread ], [ %allocated_pkey.249, %if.then60 ], [ null, %if.then57 ]
+  call void @EVP_PKEY_free(ptr noundef %allocated_pkey.24953) #6
   br label %return
 
 not_supported:                                    ; preds = %if.end49, %if.then17, %if.end
-  %allocated_pkey.2 = phi ptr [ null, %if.end ], [ %allocated_pkey.039, %if.end49 ], [ %allocated_pkey.039, %if.then17 ]
+  %allocated_pkey.0 = phi ptr [ null, %if.end ], [ %allocated_pkey.139, %if.end49 ], [ %allocated_pkey.139, %if.then17 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.EVP_PKEY_generate) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6

@@ -322,7 +322,7 @@ if.then50:                                        ; preds = %for.end48
 
 if.end60:                                         ; preds = %for.end48, %if.then50, %if.else
   %host_start.0 = phi i64 [ %add58, %if.then50 ], [ %and12, %for.end48 ], [ %start, %if.else ]
-  %nranges.0 = phi i32 [ 1, %if.then50 ], [ 0, %for.end48 ], [ 0, %if.else ]
+  %nranges.1 = phi i32 [ 1, %if.then50 ], [ 0, %for.end48 ], [ 0, %if.else ]
   %cmp61 = icmp ult i64 %sub11, %sub17
   br i1 %cmp61, label %for.body66, label %if.end85
 
@@ -344,24 +344,24 @@ if.then74:                                        ; preds = %for.end72
   %15 = load i64, ptr @qemu_host_page_size, align 8
   %sub75 = sub i64 %sub17, %15
   %add76 = add i64 %sub75, 1
-  %idxprom77 = zext nneg i32 %nranges.0 to i64
+  %idxprom77 = zext nneg i32 %nranges.1 to i64
   %arrayidx78 = getelementptr [3 x i64], ptr %starts, i64 0, i64 %idxprom77
   store i64 %add76, ptr %arrayidx78, align 8
   %arrayidx80 = getelementptr [3 x i64], ptr %lens, i64 0, i64 %idxprom77
   store i64 %15, ptr %arrayidx80, align 8
   %arrayidx82 = getelementptr [3 x i32], ptr %prots, i64 0, i64 %idxprom77
   store i32 %or69, ptr %arrayidx82, align 4
-  %inc83 = add nuw nsw i32 %nranges.0, 1
+  %inc83 = add nuw nsw i32 %nranges.1, 1
   br label %if.end85
 
 if.end85:                                         ; preds = %for.end72, %if.then74, %if.end60
   %host_last.0 = phi i64 [ %sub75, %if.then74 ], [ %sub17, %for.end72 ], [ %sub17, %if.end60 ]
-  %nranges.1 = phi i32 [ %inc83, %if.then74 ], [ %nranges.0, %for.end72 ], [ %nranges.0, %if.end60 ]
+  %nranges.2 = phi i32 [ %inc83, %if.then74 ], [ %nranges.1, %for.end72 ], [ %nranges.1, %if.end60 ]
   %cmp86 = icmp ult i64 %host_start.0, %host_last.0
   br i1 %cmp86, label %if.then87, label %if.end98
 
 if.then87:                                        ; preds = %if.end85
-  %idxprom88 = zext nneg i32 %nranges.1 to i64
+  %idxprom88 = zext nneg i32 %nranges.2 to i64
   %arrayidx89 = getelementptr [3 x i64], ptr %starts, i64 0, i64 %idxprom88
   store i64 %host_start.0, ptr %arrayidx89, align 8
   %reass.sub99 = sub nuw i64 %host_last.0, %host_start.0
@@ -370,17 +370,17 @@ if.then87:                                        ; preds = %if.end85
   store i64 %add91, ptr %arrayidx93, align 8
   %arrayidx95 = getelementptr [3 x i32], ptr %prots, i64 0, i64 %idxprom88
   store i32 %target_prot, ptr %arrayidx95, align 4
-  %inc96 = add nuw nsw i32 %nranges.1, 1
+  %inc96 = add nuw nsw i32 %nranges.2, 1
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end85, %if.then87
-  %nranges.2 = phi i32 [ %inc96, %if.then87 ], [ %nranges.1, %if.end85 ]
-  %cmp10097 = icmp sgt i32 %nranges.2, 0
+  %nranges.0 = phi i32 [ %inc96, %if.then87 ], [ %nranges.2, %if.end85 ]
+  %cmp10097 = icmp sgt i32 %nranges.0, 0
   br i1 %cmp10097, label %for.body101.preheader, label %for.end116
 
 for.body101.preheader:                            ; preds = %if.end98.thread, %if.end98
-  %nranges.2104 = phi i32 [ 1, %if.end98.thread ], [ %nranges.2, %if.end98 ]
-  %wide.trip.count = zext nneg i32 %nranges.2104 to i64
+  %nranges.0104 = phi i32 [ 1, %if.end98.thread ], [ %nranges.0, %if.end98 ]
+  %wide.trip.count = zext nneg i32 %nranges.0104 to i64
   br label %for.body101
 
 for.cond99:                                       ; preds = %for.body101
@@ -1053,7 +1053,7 @@ the_end1:                                         ; preds = %if.then206, %if.end
   %passthrough_start.0 = phi i64 [ %sub93, %if.end97 ], [ %real_start.0, %if.then206 ]
   %last.0 = phi i64 [ %sub101, %if.end97 ], [ %sub109, %if.then206 ]
   %flags.addr.1 = phi i32 [ %flags, %if.end97 ], [ %flags.addr.0, %if.then206 ]
-  %start.addr.1 = phi i64 [ %sub93, %if.end97 ], [ %start.addr.0, %if.then206 ]
+  %start.addr.2 = phi i64 [ %sub93, %if.end97 ], [ %start.addr.0, %if.then206 ]
   %and232 = shl i32 %flags.addr.1, 2
   %42 = and i32 %and232, 128
   %spec.select = or disjoint i32 %42, %or.i
@@ -1063,18 +1063,18 @@ the_end1:                                         ; preds = %if.then206, %if.end
 
 if.then240:                                       ; preds = %the_end1.thread, %the_end1
   %or237189 = phi i32 [ %or237183, %the_end1.thread ], [ %or237, %the_end1 ]
-  %start.addr.1187 = phi i64 [ %start.addr.0, %the_end1.thread ], [ %start.addr.1, %the_end1 ]
+  %start.addr.2187 = phi i64 [ %start.addr.0, %the_end1.thread ], [ %start.addr.2, %the_end1 ]
   %last.0185 = phi i64 [ %sub109, %the_end1.thread ], [ %last.0, %the_end1 ]
-  tail call void @page_set_flags(i64 noundef %start.addr.1187, i64 noundef %last.0185, i32 noundef %or237189) #14
+  tail call void @page_set_flags(i64 noundef %start.addr.2187, i64 noundef %last.0185, i32 noundef %or237189) #14
   br label %if.end253
 
 if.else241:                                       ; preds = %the_end1
-  %cmp242 = icmp ult i64 %start.addr.1, %passthrough_start.0
+  %cmp242 = icmp ult i64 %start.addr.2, %passthrough_start.0
   br i1 %cmp242, label %if.then244, label %if.end246
 
 if.then244:                                       ; preds = %if.else241
   %sub245 = add i64 %passthrough_start.0, -1
-  tail call void @page_set_flags(i64 noundef %start.addr.1, i64 noundef %sub245, i32 noundef %or237) #14
+  tail call void @page_set_flags(i64 noundef %start.addr.2, i64 noundef %sub245, i32 noundef %or237) #14
   br label %if.end246
 
 if.end246:                                        ; preds = %if.then244, %if.else241
@@ -1089,14 +1089,14 @@ if.then250:                                       ; preds = %if.end246
   br label %if.end253
 
 if.end253:                                        ; preds = %if.end246, %if.then250, %if.then240
-  %start.addr.1188 = phi i64 [ %start.addr.1, %if.end246 ], [ %start.addr.1, %if.then250 ], [ %start.addr.1187, %if.then240 ]
+  %start.addr.2188 = phi i64 [ %start.addr.2, %if.end246 ], [ %start.addr.2, %if.then250 ], [ %start.addr.2187, %if.then240 ]
   %last.0186 = phi i64 [ %last.0, %if.end246 ], [ %last.0, %if.then250 ], [ %last.0185, %if.then240 ]
-  tail call fastcc void @shm_region_rm_complete(i64 noundef %start.addr.1188, i64 noundef %last.0186)
+  tail call fastcc void @shm_region_rm_complete(i64 noundef %start.addr.2188, i64 noundef %last.0186)
   br label %the_end
 
 the_end:                                          ; preds = %if.end161, %if.then164, %if.end253
-  %start.addr.2 = phi i64 [ %start.addr.1188, %if.end253 ], [ %start.addr.0, %if.end161 ], [ %start.addr.0, %if.then164 ]
-  tail call fastcc void @trace_target_mmap_complete(i64 noundef %start.addr.2)
+  %start.addr.1 = phi i64 [ %start.addr.2188, %if.end253 ], [ %start.addr.0, %if.end161 ], [ %start.addr.0, %if.then164 ]
+  tail call fastcc void @trace_target_mmap_complete(i64 noundef %start.addr.1)
   %43 = load i32, ptr @qemu_loglevel, align 4
   %and.i170 = and i32 %43, 16384
   %cmp.i171.not = icmp eq i32 %and.i170, 0
@@ -1137,7 +1137,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.end261
-  %retval.0 = phi i64 [ %start.addr.2, %if.end261 ], [ -1, %if.end.i ], [ -1, %if.then2.i ]
+  %retval.0 = phi i64 [ %start.addr.1, %if.end261 ], [ -1, %if.end.i ], [ -1, %if.then2.i ]
   ret i64 %retval.0
 }
 
@@ -1580,7 +1580,7 @@ for.end27.loopexit:                               ; preds = %for.body22
 
 for.end27:                                        ; preds = %for.end27.loopexit, %for.cond20.preheader
   %prot.2.lcssa = phi i64 [ 0, %for.cond20.preheader ], [ %3, %for.end27.loopexit ]
-  %real_start.0 = add i64 %prot.2.lcssa, %and
+  %real_start.1 = add i64 %prot.2.lcssa, %and
   %cmp3340 = icmp ult i64 %sub, %sub5
   br i1 %cmp3340, label %for.body34, label %for.end40
 
@@ -1602,20 +1602,20 @@ for.end40.loopexit:                               ; preds = %for.body34
 
 for.end40:                                        ; preds = %for.end40.loopexit, %for.end27
   %prot.3.lcssa = phi i64 [ 0, %for.end27 ], [ %5, %for.end40.loopexit ]
-  %real_last.0 = sub i64 %sub5, %prot.3.lcssa
-  %cmp45 = icmp ult i64 %real_last.0, %real_start.0
+  %real_last.1 = sub i64 %sub5, %prot.3.lcssa
+  %cmp45 = icmp ult i64 %real_last.1, %real_start.1
   br i1 %cmp45, label %return, label %for.end40.if.end48_crit_edge
 
 for.end40.if.end48_crit_edge:                     ; preds = %for.end40
-  %.pre53 = sub nuw i64 %real_last.0, %real_start.0
+  %.pre53 = sub nuw i64 %real_last.1, %real_start.1
   br label %if.end48
 
 if.end48:                                         ; preds = %for.end40.if.end48_crit_edge, %for.end17
   %sub49.pre-phi = phi i64 [ %.pre53, %for.end40.if.end48_crit_edge ], [ %sub6, %for.end17 ]
-  %real_start.1 = phi i64 [ %real_start.0, %for.end40.if.end48_crit_edge ], [ %and, %for.end17 ]
+  %real_start.0 = phi i64 [ %real_start.1, %for.end40.if.end48_crit_edge ], [ %and, %for.end17 ]
   %add50 = add i64 %sub49.pre-phi, 1
   %6 = load i64, ptr @guest_base, align 8
-  %add.i = add i64 %6, %real_start.1
+  %add.i = add i64 %6, %real_start.0
   %7 = inttoptr i64 %add.i to ptr
   %8 = load i64, ptr @reserved_va, align 8
   %tobool.not = icmp eq i64 %8, 0
@@ -1755,10 +1755,10 @@ if.then43:                                        ; preds = %if.else38
   br i1 %cmp45127, label %for.body, label %if.then52
 
 for.body:                                         ; preds = %if.then43, %for.body
-  %page_flags.0129 = phi i32 [ %or48, %for.body ], [ 0, %if.then43 ]
+  %page_flags.1129 = phi i32 [ %or48, %for.body ], [ 0, %if.then43 ]
   %addr.0128 = phi i64 [ %inc, %for.body ], [ %add, %if.then43 ]
   %call47 = tail call i32 @page_get_flags(i64 noundef %addr.0128) #14
-  %or48 = or i32 %call47, %page_flags.0129
+  %or48 = or i32 %call47, %page_flags.1129
   %inc = add i64 %addr.0128, 1
   %exitcond.not = icmp eq i64 %inc, %add44
   br i1 %exitcond.not, label %if.end49, label %for.body, !llvm.loop !18
@@ -1987,7 +1987,7 @@ sw.bb9:                                           ; preds = %mmap_lock.exit, %mm
   br label %sw.bb10
 
 sw.bb10:                                          ; preds = %sw.bb9, %mmap_lock.exit
-  %ret.0 = phi i64 [ 0, %mmap_lock.exit ], [ -22, %sw.bb9 ]
+  %ret.1 = phi i64 [ 0, %mmap_lock.exit ], [ -22, %sw.bb9 ]
   %call11 = tail call zeroext i1 @page_check_range(i64 noundef %start, i64 noundef %and3, i32 noundef 2048) #14
   br i1 %call11, label %if.then12, label %sw.epilog26
 
@@ -2011,7 +2011,7 @@ if.then21:                                        ; preds = %if.then12
   br label %sw.epilog26
 
 sw.epilog26:                                      ; preds = %sw.bb10, %if.then21, %if.then12, %mmap_lock.exit
-  %ret.1 = phi i64 [ 0, %mmap_lock.exit ], [ 0, %if.then21 ], [ %call15, %if.then12 ], [ %ret.0, %sw.bb10 ]
+  %ret.0 = phi i64 [ 0, %mmap_lock.exit ], [ 0, %if.then21 ], [ %call15, %if.then12 ], [ %ret.1, %sw.bb10 ]
   %7 = load i32, ptr %2, align 4
   %cmp.i16 = icmp sgt i32 %7, 0
   br i1 %cmp.i16, label %if.end.i, label %if.else.i
@@ -2031,7 +2031,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %mmap_unlock.exit
 
 mmap_unlock.exit:                                 ; preds = %if.end.i, %if.then2.i
-  %sext = shl i64 %ret.1, 32
+  %sext = shl i64 %ret.0, 32
   %conv27 = ashr exact i64 %sext, 32
   br label %return
 
@@ -2192,7 +2192,7 @@ shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end5
 cleanup:                                          ; preds = %if.else25, %shm_region_rm_complete.exit, %if.then41
   %cmp41 = phi i1 [ true, %if.then41 ], [ false, %shm_region_rm_complete.exit ], [ true, %if.else25 ]
   %raddr.038 = phi i64 [ undef, %if.then41 ], [ %sub44, %shm_region_rm_complete.exit ], [ undef, %if.else25 ]
-  %retval.0 = phi i64 [ %call42, %if.then41 ], [ undef, %shm_region_rm_complete.exit ], [ -12, %if.else25 ]
+  %retval.1 = phi i64 [ %call42, %if.then41 ], [ undef, %shm_region_rm_complete.exit ], [ -12, %if.else25 ]
   %16 = load i32, ptr %3, align 4
   %cmp.i.i = icmp sgt i32 %16, 0
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -2228,8 +2228,8 @@ if.then66:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %for.end, %if.then66, %mmap_unlock_guard.exit, %if.end16, %if.then9, %entry
-  %retval.1 = phi i64 [ %retval.0, %mmap_unlock_guard.exit ], [ %conv4, %entry ], [ -22, %if.then9 ], [ -22, %if.end16 ], [ %raddr.038, %if.then66 ], [ %raddr.038, %for.end ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ %retval.1, %mmap_unlock_guard.exit ], [ %conv4, %entry ], [ -22, %if.then9 ], [ -22, %if.end16 ], [ %raddr.038, %if.then66 ], [ %raddr.038, %for.end ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: nounwind

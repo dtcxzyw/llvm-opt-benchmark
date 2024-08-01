@@ -46,7 +46,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %return, label %if.end12
 
 if.end12:                                         ; preds = %_Py_atomic_compare_exchange_uint8.exit.thread, %if.else
-  %v.1 = phi i8 [ %0, %if.else ], [ %4, %_Py_atomic_compare_exchange_uint8.exit.thread ]
+  %v.0 = phi i8 [ %0, %if.else ], [ %4, %_Py_atomic_compare_exchange_uint8.exit.thread ]
   %call13 = tail call i64 @_PyTime_GetMonotonicClock() #5
   %cmp14 = icmp sgt i64 %timeout, 0
   br i1 %cmp14, label %if.end18.thread, label %if.end18
@@ -77,19 +77,19 @@ for.cond.outer.split.lr.ph:                       ; preds = %if.end18.thread, %i
 
 for.cond.outer.split.us43:                        ; preds = %for.cond.outer.split.lr.ph, %if.end97.us
   %timeout.addr.0.ph42.us = phi i64 [ %timeout.addr.1.us.fr, %if.end97.us ], [ %timeout, %for.cond.outer.split.lr.ph ]
-  %v.2.ph41.us = phi i8 [ %9, %if.end97.us ], [ %v.1, %for.cond.outer.split.lr.ph ]
+  %v.1.ph41.us = phi i8 [ %9, %if.end97.us ], [ %v.0, %for.cond.outer.split.lr.ph ]
   br label %for.cond.us48
 
 if.end40.us44:                                    ; preds = %for.cond.us48
-  store i8 %v.2.us49, ptr %newv, align 1
-  %5 = and i8 %v.2.us49, 2
+  store i8 %v.1.us49, ptr %newv, align 1
+  %5 = and i8 %v.1.us49, 2
   %tobool47.not.us = icmp eq i8 %5, 0
   br i1 %tobool47.not.us, label %if.then48.us, label %if.end57.us
 
 if.then48.us:                                     ; preds = %if.end40.us44
-  %or50.us = or disjoint i8 %v.2.us49, 2
+  %or50.us = or disjoint i8 %v.1.us49, 2
   store i8 %or50.us, ptr %newv, align 1
-  %6 = cmpxchg ptr %m, i8 %v.2.us49, i8 %or50.us seq_cst seq_cst, align 1
+  %6 = cmpxchg ptr %m, i8 %v.1.us49, i8 %or50.us seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %if.end57.us, label %for.cond.backedge.us51
 
@@ -122,32 +122,32 @@ if.end97.us:                                      ; preds = %if.then91.us, %if.e
   br i1 %cmp41.us, label %for.cond.outer.split.us, label %for.cond.outer.split.us43
 
 if.then24.us45:                                   ; preds = %for.cond.us48
-  %or27.us46 = or disjoint i8 %v.2.us49, 1
-  %10 = cmpxchg ptr %m, i8 %v.2.us49, i8 %or27.us46 seq_cst seq_cst, align 1
+  %or27.us46 = or disjoint i8 %v.1.us49, 1
+  %10 = cmpxchg ptr %m, i8 %v.1.us49, i8 %or27.us46 seq_cst seq_cst, align 1
   %11 = extractvalue { i8, i1 } %10, 1
   br i1 %11, label %return, label %for.cond.backedge.us51
 
 for.cond.us48:                                    ; preds = %for.cond.backedge.us51, %for.cond.outer.split.us43
-  %v.2.us49 = phi i8 [ %v.2.ph41.us, %for.cond.outer.split.us43 ], [ %v.2.be.us52, %for.cond.backedge.us51 ]
-  %12 = and i8 %v.2.us49, 1
+  %v.1.us49 = phi i8 [ %v.1.ph41.us, %for.cond.outer.split.us43 ], [ %v.1.be.us52, %for.cond.backedge.us51 ]
+  %12 = and i8 %v.1.us49, 1
   %cmp22.us50 = icmp eq i8 %12, 0
   br i1 %cmp22.us50, label %if.then24.us45, label %if.end40.us44
 
 for.cond.backedge.us51:                           ; preds = %if.then24.us45, %if.then48.us
   %.pn57 = phi { i8, i1 } [ %6, %if.then48.us ], [ %10, %if.then24.us45 ]
-  %v.2.be.us52 = extractvalue { i8, i1 } %.pn57, 0
+  %v.1.be.us52 = extractvalue { i8, i1 } %.pn57, 0
   br label %for.cond.us48
 
 for.cond.outer.split.us:                          ; preds = %if.end97, %if.end97.us, %if.end18
-  %v.2.ph.lcssa = phi i8 [ %v.1, %if.end18 ], [ %9, %if.end97.us ], [ %25, %if.end97 ]
-  %13 = and i8 %v.2.ph.lcssa, 1
+  %v.1.ph.lcssa = phi i8 [ %v.0, %if.end18 ], [ %9, %if.end97.us ], [ %25, %if.end97 ]
+  %13 = and i8 %v.1.ph.lcssa, 1
   %cmp22.us88 = icmp eq i8 %13, 0
   br i1 %cmp22.us88, label %if.then24.us, label %return
 
 if.then24.us:                                     ; preds = %for.cond.outer.split.us, %_Py_atomic_compare_exchange_uint8.exit19.us
-  %v.2.us89 = phi i8 [ %16, %_Py_atomic_compare_exchange_uint8.exit19.us ], [ %v.2.ph.lcssa, %for.cond.outer.split.us ]
-  %or27.us = or disjoint i8 %v.2.us89, 1
-  %14 = cmpxchg ptr %m, i8 %v.2.us89, i8 %or27.us seq_cst seq_cst, align 1
+  %v.1.us89 = phi i8 [ %16, %_Py_atomic_compare_exchange_uint8.exit19.us ], [ %v.1.ph.lcssa, %for.cond.outer.split.us ]
+  %or27.us = or disjoint i8 %v.1.us89, 1
+  %14 = cmpxchg ptr %m, i8 %v.1.us89, i8 %or27.us seq_cst seq_cst, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %return, label %_Py_atomic_compare_exchange_uint8.exit19.us
 
@@ -159,36 +159,36 @@ _Py_atomic_compare_exchange_uint8.exit19.us:      ; preds = %if.then24.us
 
 for.cond.outer.split:                             ; preds = %for.cond.outer.split.lr.ph, %if.end97
   %timeout.addr.0.ph42 = phi i64 [ %timeout.addr.1.fr, %if.end97 ], [ %timeout, %for.cond.outer.split.lr.ph ]
-  %v.2.ph41 = phi i8 [ %25, %if.end97 ], [ %v.1, %for.cond.outer.split.lr.ph ]
+  %v.1.ph41 = phi i8 [ %25, %if.end97 ], [ %v.0, %for.cond.outer.split.lr.ph ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer.split
-  %v.2 = phi i8 [ %v.2.ph41, %for.cond.outer.split ], [ %v.2.be, %for.cond.backedge ]
-  %18 = and i8 %v.2, 1
+  %v.1 = phi i8 [ %v.1.ph41, %for.cond.outer.split ], [ %v.1.be, %for.cond.backedge ]
+  %18 = and i8 %v.1, 1
   %cmp22 = icmp eq i8 %18, 0
   br i1 %cmp22, label %if.then24, label %if.end40
 
 if.then24:                                        ; preds = %for.cond
-  %or27 = or disjoint i8 %v.2, 1
-  %19 = cmpxchg ptr %m, i8 %v.2, i8 %or27 seq_cst seq_cst, align 1
+  %or27 = or disjoint i8 %v.1, 1
+  %19 = cmpxchg ptr %m, i8 %v.1, i8 %or27 seq_cst seq_cst, align 1
   %20 = extractvalue { i8, i1 } %19, 1
   br i1 %20, label %return, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then48, %if.then24
   %.pn = phi { i8, i1 } [ %19, %if.then24 ], [ %22, %if.then48 ]
-  %v.2.be = extractvalue { i8, i1 } %.pn, 0
+  %v.1.be = extractvalue { i8, i1 } %.pn, 0
   br label %for.cond
 
 if.end40:                                         ; preds = %for.cond
-  store i8 %v.2, ptr %newv, align 1
-  %21 = and i8 %v.2, 2
+  store i8 %v.1, ptr %newv, align 1
+  %21 = and i8 %v.1, 2
   %tobool47.not = icmp eq i8 %21, 0
   br i1 %tobool47.not, label %if.then48, label %if.end57
 
 if.then48:                                        ; preds = %if.end40
-  %or50 = or disjoint i8 %v.2, 2
+  %or50 = or disjoint i8 %v.1, 2
   store i8 %or50, ptr %newv, align 1
-  %22 = cmpxchg ptr %m, i8 %v.2, i8 %or50 seq_cst seq_cst, align 1
+  %22 = cmpxchg ptr %m, i8 %v.1, i8 %or50 seq_cst seq_cst, align 1
   %23 = extractvalue { i8, i1 } %22, 1
   br i1 %23, label %if.end57, label %for.cond.backedge
 
@@ -300,8 +300,8 @@ if.then:                                          ; preds = %entry
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then, %entry
-  %v.1 = phi i8 [ 0, %entry ], [ %spec.select6, %if.then ]
-  store atomic i8 %v.1, ptr %m seq_cst, align 1
+  %v.0 = phi i8 [ 0, %entry ], [ %spec.select6, %if.then ]
+  store atomic i8 %v.0, ptr %m seq_cst, align 1
   ret void
 }
 
@@ -415,7 +415,7 @@ if.then:                                          ; preds = %if.end14, %entry
   unreachable
 
 if.end:                                           ; preds = %entry, %if.end14
-  %v.019 = phi i64 [ %v.3, %if.end14 ], [ %0, %entry ]
+  %v.019 = phi i64 [ %v.1, %if.end14 ], [ %0, %entry ]
   %and2 = and i64 %v.019, -2
   %tobool.not = icmp eq i64 %and2, 0
   br i1 %tobool.not, label %if.else, label %if.then3
@@ -440,8 +440,8 @@ if.else:                                          ; preds = %if.end
 
 if.end14:                                         ; preds = %if.else, %if.then3
   %.pn = phi { i64, i1 } [ %4, %if.then3 ], [ %6, %if.else ]
-  %v.3 = extractvalue { i64, i1 } %.pn, 0
-  %and = and i64 %v.3, 1
+  %v.1 = extractvalue { i64, i1 } %.pn, 0
+  %and = and i64 %v.1, 1
   %cmp = icmp eq i64 %and, 0
   br i1 %cmp, label %if.then, label %if.end
 

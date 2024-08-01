@@ -1966,7 +1966,7 @@ cond.true:                                        ; preds = %if.end54
 cond.end:                                         ; preds = %if.end54.thread, %if.end54, %cond.true
   %cond80 = phi i32 [ 1, %cond.true ], [ 0, %if.end54 ], [ 0, %if.end54.thread ]
   %cmp.not79 = phi i1 [ true, %cond.true ], [ false, %if.end54 ], [ false, %if.end54.thread ]
-  %cached_data.sroa.6.178 = phi ptr [ %4, %cond.true ], [ %4, %if.end54 ], [ null, %if.end54.thread ]
+  %cached_data.sroa.6.078 = phi ptr [ %4, %cond.true ], [ %4, %if.end54 ], [ null, %if.end54.thread ]
   %cond59 = phi ptr [ %call.i.i30, %cond.true ], [ null, %if.end54 ], [ null, %if.end54.thread ]
   store ptr %call5, ptr %script_source, align 8
   %resource_name.i149 = getelementptr inbounds i8, ptr %script_source, i64 8
@@ -2077,7 +2077,7 @@ if.end112:                                        ; preds = %if.then107, %land.l
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node5DebugIJRPKcS2_EEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit, %if.end112
-  %retval.sroa.0.0 = phi ptr [ %call4.i, %if.end112 ], [ null, %_ZN4node5DebugIJRPKcS2_EEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit ]
+  %retval.sroa.0.1 = phi ptr [ %call4.i, %if.end112 ], [ null, %_ZN4node5DebugIJRPKcS2_EEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit ]
   %28 = load ptr, ptr %consume_cache_task19.i, align 8
   %cmp.not.i32 = icmp eq ptr %28, null
   br i1 %cmp.not.i32, label %_ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v814ScriptCompiler20ConsumeCodeCacheTaskEEclEPS2_.exit.i
@@ -2100,11 +2100,11 @@ _ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i35: ; pre
 
 _ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EED2Ev.exit37: ; preds = %_ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i35
   store ptr null, ptr %cached_data.i, align 8
-  %cmp.not.i.i.i.i39 = icmp eq ptr %cached_data.sroa.6.178, null
+  %cmp.not.i.i.i.i39 = icmp eq ptr %cached_data.sroa.6.078, null
   br i1 %cmp.not.i.i.i.i39, label %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EED2Ev.exit37
-  %_M_use_count.i.i.i.i.i41 = getelementptr inbounds i8, ptr %cached_data.sroa.6.178, i64 8
+  %_M_use_count.i.i.i.i.i41 = getelementptr inbounds i8, ptr %cached_data.sroa.6.078, i64 8
   %30 = load atomic i64, ptr %_M_use_count.i.i.i.i.i41 acquire, align 8
   %cmp.i.i.i.i.i42 = icmp eq i64 %30, 4294967297
   %31 = trunc i64 %30 to i32
@@ -2112,12 +2112,12 @@ if.then.i.i.i.i40:                                ; preds = %_ZNSt10unique_ptrIN
 
 if.then.i.i.i.i.i65:                              ; preds = %if.then.i.i.i.i40
   store i32 0, ptr %_M_use_count.i.i.i.i.i41, align 8
-  %_M_weak_count.i.i.i.i.i66 = getelementptr inbounds i8, ptr %cached_data.sroa.6.178, i64 12
+  %_M_weak_count.i.i.i.i.i66 = getelementptr inbounds i8, ptr %cached_data.sroa.6.078, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i66, align 4
-  %vtable.i.i.i.i.i67 = load ptr, ptr %cached_data.sroa.6.178, align 8
+  %vtable.i.i.i.i.i67 = load ptr, ptr %cached_data.sroa.6.078, align 8
   %vfn.i.i.i.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i67, i64 16
   %32 = load ptr, ptr %vfn.i.i.i.i.i68, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %cached_data.sroa.6.178) #23
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %cached_data.sroa.6.078) #23
   br label %if.end8.sink.split.i.i.i.i.i60
 
 if.end.i.i.i.i.i43:                               ; preds = %if.then.i.i.i.i40
@@ -2140,11 +2140,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i47: ; preds = %if.e
   br i1 %cmp6.i.i.i.i.i49, label %if.then7.i.i.i.i.i50, label %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit
 
 if.then7.i.i.i.i.i50:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i47
-  %vtable.i.i.i.i.i.i.i51 = load ptr, ptr %cached_data.sroa.6.178, align 8
+  %vtable.i.i.i.i.i.i.i51 = load ptr, ptr %cached_data.sroa.6.078, align 8
   %vfn.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i51, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i.i.i.i52, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %cached_data.sroa.6.178) #23
-  %_M_weak_count.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %cached_data.sroa.6.178, i64 12
+  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %cached_data.sroa.6.078) #23
+  %_M_weak_count.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %cached_data.sroa.6.078, i64 12
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i54 = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i54, label %if.else.i.i.i.i.i.i.i.i63, label %if.then.i.i.i.i.i.i.i.i55
@@ -2165,10 +2165,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i57: ; preds = %
   br i1 %cmp.i.i.i.i.i.i.i59, label %if.end8.sink.split.i.i.i.i.i60, label %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i60:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i57, %if.then.i.i.i.i.i65
-  %vtable2.i.i.i.i.i.i.i61 = load ptr, ptr %cached_data.sroa.6.178, align 8
+  %vtable2.i.i.i.i.i.i.i61 = load ptr, ptr %cached_data.sroa.6.078, align 8
   %vfn3.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i61, i64 24
   %39 = load ptr, ptr %vfn3.i.i.i.i.i.i.i62, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %cached_data.sroa.6.178) #23
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %cached_data.sroa.6.078) #23
   br label %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit
 
 _ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN2v814ScriptCompiler10CachedDataESt14default_deleteIS2_EED2Ev.exit37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i47, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i57, %if.end8.sink.split.i.i.i.i.i60
@@ -2176,9 +2176,9 @@ _ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup127
 
 cleanup127:                                       ; preds = %entry, %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit ], [ null, %entry ]
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %_ZN4node8builtins20BuiltinCodeCacheDataD2Ev.exit ], [ null, %entry ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #23
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 declare noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -2933,7 +2933,7 @@ entry:
   br i1 %cmp.i.not14, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %all_succeeded.016 = phi i1 [ %all_succeeded.2, %for.inc ], [ true, %entry ]
+  %all_succeeded.016 = phi i1 [ %all_succeeded.1, %for.inc ], [ true, %entry ]
   %__begin2.sroa.0.015 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %v8_tools_prefix) #23
   %call10 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %v8_tools_prefix) #23
@@ -2998,18 +2998,18 @@ if.then.i:                                        ; preds = %if.else
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then.i, %if.else.split, %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
-  %all_succeeded.1 = phi i1 [ false, %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit ], [ %all_succeeded.016, %if.else.split ], [ %all_succeeded.016, %if.then.i ]
+  %all_succeeded.2 = phi i1 [ false, %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit ], [ %all_succeeded.016, %if.else.split ], [ %all_succeeded.016, %if.then.i ]
   call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #23
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit, %if.end43
-  %all_succeeded.2 = phi i1 [ %all_succeeded.016, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit ], [ %all_succeeded.1, %if.end43 ], [ %all_succeeded.016, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %all_succeeded.1 = phi i1 [ %all_succeeded.016, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit ], [ %all_succeeded.2, %if.end43 ], [ %all_succeeded.016, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
-  %all_succeeded.0.lcssa = phi i1 [ true, %entry ], [ %all_succeeded.2, %for.inc ]
+  %all_succeeded.0.lcssa = phi i1 [ true, %entry ], [ %all_succeeded.1, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v8_tools_prefix) #23
   %10 = load ptr, ptr %ids, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null

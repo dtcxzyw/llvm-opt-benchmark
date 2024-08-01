@@ -883,21 +883,21 @@ define i32 @Gia_Sim2HashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %.lr.ph24
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next30, %.lr.ph24 ]
-  %.11722 = phi i32 [ 0, %.lr.ph24.preheader ], [ %21, %.lr.ph24 ]
+  %.222 = phi i32 [ 0, %.lr.ph24.preheader ], [ %21, %.lr.ph24 ]
   %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv29
   %16 = load i32, ptr %15, align 4
   %17 = and i64 %indvars.iv29, 15
   %18 = getelementptr inbounds [16 x i32], ptr @Gia_Sim2HashKey.s_Primes, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = mul i32 %19, %16
-  %21 = xor i32 %20, %.11722
+  %21 = xor i32 %20, %.222
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %21, %.lr.ph24 ], [ %14, %.lr.ph ]
-  %22 = urem i32 %.2, %2
+  %.117 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %21, %.lr.ph24 ], [ %14, %.lr.ph ]
+  %22 = urem i32 %.117, %2
   ret i32 %22
 }
 
@@ -998,21 +998,21 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
 
 .lr.ph24.i:                                       ; preds = %.lr.ph24.i, %.lr.ph24.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph24.i ]
-  %.11722.i = phi i32 [ 0, %.lr.ph24.preheader.i ], [ %44, %.lr.ph24.i ]
+  %.222.i = phi i32 [ 0, %.lr.ph24.preheader.i ], [ %44, %.lr.ph24.i ]
   %38 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv29.i
   %39 = load i32, ptr %38, align 4
   %40 = and i64 %indvars.iv29.i, 15
   %41 = getelementptr inbounds [16 x i32], ptr @Gia_Sim2HashKey.s_Primes, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = mul i32 %42, %39
-  %44 = xor i32 %43, %.11722.i
+  %44 = xor i32 %43, %.222.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
   br i1 %exitcond33.not.i, label %Gia_Sim2HashKey.exit, label %.lr.ph24.i, !llvm.loop !13
 
 Gia_Sim2HashKey.exit:                             ; preds = %.lr.ph.i51, %.lr.ph24.i, %.preheader18.i, %.preheader.i52
-  %.2.i = phi i32 [ 0, %.preheader.i52 ], [ 0, %.preheader18.i ], [ %44, %.lr.ph24.i ], [ %37, %.lr.ph.i51 ]
-  %45 = urem i32 %.2.i, %8
+  %.117.i = phi i32 [ 0, %.preheader.i52 ], [ 0, %.preheader18.i ], [ %44, %.lr.ph24.i ], [ %37, %.lr.ph.i51 ]
+  %45 = urem i32 %.117.i, %8
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %16, i64 %46
   %48 = load i32, ptr %47, align 4

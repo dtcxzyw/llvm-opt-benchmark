@@ -504,11 +504,11 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %68
   br label %106
 
 106:                                              ; preds = %102, %104
-  %.149 = phi i1 [ %.048, %104 ], [ true, %102 ]
+  %.351 = phi i1 [ %.048, %104 ], [ true, %102 ]
   %.pn61 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %33) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #20
-  br i1 %.149, label %107, label %.body
+  br i1 %.351, label %107, label %.body
 
 107:                                              ; preds = %.thread187, %.thread, %106
   %.pn61.pn.pn186 = phi { ptr, i32 } [ %100, %.thread ], [ %.pn61, %106 ], [ %101, %.thread187 ]
@@ -682,11 +682,11 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZNSt12_Vector_base
   br label %164
 
 164:                                              ; preds = %160, %162
-  %.153 = phi i1 [ %.052, %162 ], [ true, %160 ]
+  %.355 = phi i1 [ %.052, %162 ], [ true, %160 ]
   %.pn = phi { ptr, i32 } [ %163, %162 ], [ %161, %160 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %38) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #20
-  br i1 %.153, label %165, label %_ZNSt6vectorIiSaIiEED2Ev.exit102
+  br i1 %.355, label %165, label %_ZNSt6vectorIiSaIiEED2Ev.exit102
 
 165:                                              ; preds = %.thread194, %.thread190, %164
   %.pn.pn.pn193 = phi { ptr, i32 } [ %158, %.thread190 ], [ %.pn, %164 ], [ %159, %.thread194 ]
@@ -1162,19 +1162,19 @@ _ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit100
 
 .body:                                            ; preds = %82, %.loopexit.split-lp.i, %106, %107
-  %.sroa.0171.3 = phi ptr [ %84, %107 ], [ %84, %106 ], [ %.sroa.0171.0, %82 ], [ %.sroa.0171.2, %.loopexit.split-lp.i ]
+  %.sroa.0171.1 = phi ptr [ %84, %107 ], [ %84, %106 ], [ %.sroa.0171.0, %82 ], [ %.sroa.0171.2, %.loopexit.split-lp.i ]
   %.pn61.pn.pn.pn = phi { ptr, i32 } [ %.pn61.pn.pn186, %107 ], [ %.pn61, %106 ], [ %83, %82 ], [ %.pn.pn.pn.i, %.loopexit.split-lp.i ]
-  %.not.i.i.i101 = icmp eq ptr %.sroa.0171.3, null
+  %.not.i.i.i101 = icmp eq ptr %.sroa.0171.1, null
   br i1 %.not.i.i.i101, label %_ZNSt6vectorIiSaIiEED2Ev.exit102, label %317
 
 317:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0171.3) #23
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0171.1) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit102
 
 _ZNSt6vectorIiSaIiEED2Ev.exit102:                 ; preds = %164, %165, %.body, %317
   %.pn61.pn.pn.pn.ph.pn = phi { ptr, i32 } [ %.pn61.pn.pn.pn, %.body ], [ %.pn61.pn.pn.pn, %317 ], [ %.pn, %164 ], [ %.pn.pn.pn193, %165 ]
-  %.6201 = extractvalue { ptr, i32 } %.pn61.pn.pn.pn.ph.pn, 0
-  %318 = call ptr @__cxa_begin_catch(ptr %.6201) #20
+  %.1201 = extractvalue { ptr, i32 } %.pn61.pn.pn.pn.ph.pn, 0
+  %318 = call ptr @__cxa_begin_catch(ptr %.1201) #20
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %42) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %319 = load ptr, ptr %42, align 8
@@ -1533,8 +1533,8 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit:     ; preds = %_ZNSt6vectorIS_IN3g
   ret void
 
 437:                                              ; preds = %354, %412, %369, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit110, %339
-  %.046 = phi i32 [ %357, %354 ], [ %346, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit110 ], [ %372, %369 ], [ %342, %339 ], [ %415, %412 ]
-  %.7 = phi ptr [ %356, %354 ], [ %345, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit110 ], [ %371, %369 ], [ %341, %339 ], [ %414, %412 ]
+  %.147 = phi i32 [ %357, %354 ], [ %346, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit110 ], [ %372, %369 ], [ %342, %339 ], [ %415, %412 ]
+  %.8 = phi ptr [ %356, %354 ], [ %345, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit110 ], [ %371, %369 ], [ %341, %339 ], [ %414, %412 ]
   %438 = load ptr, ptr %29, align 8
   %.not.i.i.i142 = icmp eq ptr %438, null
   br i1 %.not.i.i.i142, label %_ZNSt6vectorIiSaIiEED2Ev.exit143, label %439
@@ -1558,8 +1558,8 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit145: ; preds = %_ZNSt6vectorIiSaIi
   br label %442
 
 442:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit145, %78
-  %.147 = phi i32 [ %.046, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit145 ], [ %81, %78 ]
-  %.8 = phi ptr [ %.7, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit145 ], [ %80, %78 ]
+  %.046 = phi i32 [ %.147, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit145 ], [ %81, %78 ]
+  %.0 = phi ptr [ %.8, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit145 ], [ %80, %78 ]
   %443 = load ptr, ptr %25, align 8
   %.not.i.i.i146 = icmp eq ptr %443, null
   br i1 %.not.i.i.i146, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit147, label %444
@@ -1569,8 +1569,8 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit145: ; preds = %_ZNSt6vectorIiSaIi
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit147
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit147:  ; preds = %442, %444
-  %445 = insertvalue { ptr, i32 } poison, ptr %.8, 0
-  %446 = insertvalue { ptr, i32 } %445, i32 %.147, 1
+  %445 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %446 = insertvalue { ptr, i32 } %445, i32 %.046, 1
   resume { ptr, i32 } %446
 
 447:                                              ; preds = %354

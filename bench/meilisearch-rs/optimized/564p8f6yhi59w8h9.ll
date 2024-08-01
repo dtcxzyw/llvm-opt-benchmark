@@ -2682,7 +2682,7 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit.thread: ; preds = %46, %50, 
   unreachable
 
 common.resume:                                    ; preds = %.noexc6, %.body.thread, %61, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %62, %61 ], [ %.pn40, %.body.thread ], [ %eh.lpad-body13, %.noexc6 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %62, %61 ], [ %.pn39, %.body.thread ], [ %eh.lpad-body13, %.noexc6 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
@@ -2696,11 +2696,11 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %_ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit.thread, %_ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit
-  %.sroa.6.038 = phi ptr [ %39, %_ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit.thread ], [ %.sroa.6.0.copyload25, %_ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit ]
+  %.sroa.6.037 = phi ptr [ %39, %_ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit.thread ], [ %.sroa.6.0.copyload25, %_ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !494
-  %60 = icmp ne ptr %.sroa.6.038, null
+  %60 = icmp ne ptr %.sroa.6.037, null
   call void @llvm.assume(i1 %60)
-  store ptr %.sroa.6.038, ptr %25, align 8, !noalias !494
+  store ptr %.sroa.6.037, ptr %25, align 8, !noalias !494
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.8861b0972a2e61a2953436062a0e7b57.31, i64 noundef 43, ptr noundef nonnull align 1 %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8861b0972a2e61a2953436062a0e7b57.32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8861b0972a2e61a2953436062a0e7b57.68) #31
           to label %63 unwind label %61, !noalias !494
 
@@ -3377,7 +3377,7 @@ _ZN9actix_web8response8response12HttpResponse10from_error17h04f6feaf0e800975E.ex
   unreachable
 
 .body.thread:                                     ; preds = %70, %.noexc6
-  %.pn40 = phi { ptr, i32 } [ %eh.lpad-body13, %.noexc6 ], [ %71, %70 ]
+  %.pn39 = phi { ptr, i32 } [ %eh.lpad-body13, %.noexc6 ], [ %71, %70 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfded336e8903bf60E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #33
           to label %common.resume unwind label %255
 }

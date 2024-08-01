@@ -1725,7 +1725,7 @@ add_command_info.exit:                            ; preds = %ipmi_get_completion
   br label %299
 
 299:                                              ; preds = %294, %297, %281
-  %.0244 = phi ptr [ %296, %294 ], [ %298, %297 ], [ %283, %281 ]
+  %.1 = phi ptr [ %296, %294 ], [ %298, %297 ], [ %283, %281 ]
   %300 = load i8, ptr %42, align 8
   %301 = icmp ult i8 %300, 3
   br i1 %301, label %302, label %proto_item_set_generated.exit305
@@ -1748,7 +1748,7 @@ add_command_info.exit:                            ; preds = %ipmi_get_completion
 
 312:                                              ; preds = %311
   %313 = load i32, ptr @hf_ipmi_response_to, align 4
-  %314 = call ptr @proto_tree_add_uint(ptr noundef %.0244, i32 noundef %313, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %310) #13
+  %314 = call ptr @proto_tree_add_uint(ptr noundef %.1, i32 noundef %313, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %310) #13
   %.not.i302 = icmp eq ptr %314, null
   br i1 %.not.i302, label %proto_item_set_generated.exit, label %315
 
@@ -1772,7 +1772,7 @@ proto_item_set_generated.exit:                    ; preds = %312, %315, %318
   %325 = getelementptr inbounds i8, ptr %324, i64 24
   call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %322, ptr noundef nonnull %325) #13
   %326 = load i32, ptr @hf_ipmi_response_time, align 4
-  %327 = call ptr @proto_tree_add_time(ptr noundef %.0244, i32 noundef %326, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10) #13
+  %327 = call ptr @proto_tree_add_time(ptr noundef %.1, i32 noundef %326, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10) #13
   %.not.i303 = icmp eq ptr %327, null
   br i1 %.not.i303, label %proto_item_set_generated.exit305, label %328
 
@@ -1787,7 +1787,7 @@ proto_item_set_generated.exit:                    ; preds = %312, %315, %318
 
 332:                                              ; preds = %331
   %333 = load i32, ptr @hf_ipmi_response_in, align 4
-  %334 = call ptr @proto_tree_add_uint(ptr noundef %.0244, i32 noundef %333, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %310) #13
+  %334 = call ptr @proto_tree_add_uint(ptr noundef %.1, i32 noundef %333, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %310) #13
   %.not.i306 = icmp eq ptr %334, null
   br i1 %.not.i306, label %proto_item_set_generated.exit305, label %335
 
@@ -1816,7 +1816,7 @@ proto_item_set_generated.exit305:                 ; preds = %proto_item_set_gene
 344:                                              ; preds = %proto_item_set_generated.exit305
   %345 = load i32, ptr @hf_ipmi_session_handle, align 4
   %346 = add nuw nsw i32 %.lobit321, 1
-  %347 = call ptr @proto_tree_add_item(ptr noundef %.0244, i32 noundef %345, ptr noundef %0, i32 noundef %.lobit321, i32 noundef 1, i32 noundef -2147483648) #13
+  %347 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %345, ptr noundef %0, i32 noundef %.lobit321, i32 noundef 1, i32 noundef -2147483648) #13
   %.pre = load i32, ptr %31, align 4
   br label %348
 
@@ -1830,7 +1830,7 @@ proto_item_set_generated.exit305:                 ; preds = %proto_item_set_gene
 351:                                              ; preds = %348
   %352 = load i32, ptr @hf_ipmi_header_trg, align 4
   %353 = add nuw nsw i32 %.1247, 1
-  %354 = call ptr @proto_tree_add_item(ptr noundef %.0244, i32 noundef %352, ptr noundef %0, i32 noundef %.1247, i32 noundef 1, i32 noundef -2147483648) #13
+  %354 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %352, ptr noundef %0, i32 noundef %.1247, i32 noundef 1, i32 noundef -2147483648) #13
   br label %355
 
 355:                                              ; preds = %351, %348
@@ -1866,7 +1866,7 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
   %372 = zext i8 %371 to i32
   %373 = select i1 %.not261.not, ptr @.str.151, ptr @.str.150
   %374 = zext i8 %368 to i32
-  %375 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0244, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %369, ptr noundef null, ptr noundef nonnull @.str.149, i32 noundef %372, ptr noundef %.0.i311, ptr noundef nonnull %373, i32 noundef %374) #13
+  %375 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.1, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %369, ptr noundef null, ptr noundef nonnull @.str.149, i32 noundef %372, ptr noundef %.0.i311, ptr noundef nonnull %373, i32 noundef %374) #13
   %376 = load i32, ptr @hf_ipmi_header_netfn, align 4
   %377 = load i8, ptr %20, align 2
   %378 = zext i8 %377 to i32
@@ -1893,14 +1893,14 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
   %393 = load i32, ptr @hf_ipmi_header_crc, align 4
   %394 = add nuw nsw i32 %.2, 2
   %395 = zext i8 %392 to i32
-  %396 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0244, i32 noundef %393, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef %391, ptr noundef nonnull @.str.153, i32 noundef %391, i32 noundef %395) #13
+  %396 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1, i32 noundef %393, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef %391, ptr noundef nonnull @.str.153, i32 noundef %391, i32 noundef %395) #13
   br label %402
 
 397:                                              ; preds = %386
   %398 = load i32, ptr @hf_ipmi_header_crc, align 4
   %399 = add nuw nsw i32 %.2, 2
   %400 = zext i8 %387 to i32
-  %401 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0244, i32 noundef %398, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef %400, ptr noundef nonnull @.str.154, i32 noundef %400) #13
+  %401 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1, i32 noundef %398, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef %400, ptr noundef nonnull @.str.154, i32 noundef %400) #13
   br label %402
 
 402:                                              ; preds = %390, %397, %ipmi_getnetfnname.exit
@@ -1913,7 +1913,7 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
 405:                                              ; preds = %402
   %406 = load i32, ptr @hf_ipmi_header_src, align 4
   %407 = add nuw nsw i32 %.3, 1
-  %408 = call ptr @proto_tree_add_item(ptr noundef %.0244, i32 noundef %406, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef -2147483648) #13
+  %408 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %406, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef -2147483648) #13
   %.pre338 = load i32, ptr %31, align 4
   br label %409
 
@@ -1935,7 +1935,7 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
   %419 = getelementptr inbounds i8, ptr %5, i64 9
   %420 = load i8, ptr %419, align 1
   %421 = zext i8 %420 to i32
-  %422 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0244, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef %413, ptr noundef null, ptr noundef nonnull @.str.155, ptr noundef nonnull %415, i32 noundef %418, i32 noundef %421) #13
+  %422 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.1, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef %413, ptr noundef null, ptr noundef nonnull @.str.155, ptr noundef nonnull %415, i32 noundef %418, i32 noundef %421) #13
   %423 = load i32, ptr %31, align 4
   %424 = and i32 %423, 16
   %.not278 = icmp eq i32 %424, 0
@@ -1956,14 +1956,14 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
   %434 = zext i8 %433 to i32
   %435 = getelementptr inbounds i8, ptr %.0.i297, i64 40
   %436 = load ptr, ptr %435, align 8
-  %437 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0244, i32 noundef %431, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef %434, ptr noundef nonnull @.str.3, ptr noundef %436, i32 noundef %434) #13
+  %437 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1, i32 noundef %431, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef %434, ptr noundef nonnull @.str.3, ptr noundef %436, i32 noundef %434) #13
   br i1 %.not261.not, label %443, label %438
 
 438:                                              ; preds = %430
   %439 = load i32, ptr @hf_ipmi_header_completion, align 4
   %440 = add nuw nsw i32 %.5, 2
   %441 = zext i8 %.0245345 to i32
-  %442 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0244, i32 noundef %439, ptr noundef %0, i32 noundef %432, i32 noundef 1, i32 noundef %441, ptr noundef nonnull @.str.3, ptr noundef %.0248342, i32 noundef %441) #13
+  %442 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1, i32 noundef %439, ptr noundef %0, i32 noundef %432, i32 noundef 1, i32 noundef %441, ptr noundef nonnull @.str.3, ptr noundef %.0248342, i32 noundef %441) #13
   br label %443
 
 443:                                              ; preds = %438, %430
@@ -1973,7 +1973,7 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
 
 444:                                              ; preds = %443
   %445 = load i32, ptr @hf_ipmi_header_sig, align 4
-  %446 = call ptr @proto_tree_add_item(ptr noundef %.0244, i32 noundef %445, ptr noundef %0, i32 noundef %.6, i32 noundef %25, i32 noundef 0) #13
+  %446 = call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %445, ptr noundef %0, i32 noundef %.6, i32 noundef %25, i32 noundef 0) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %446, ptr noundef nonnull @.str.156, ptr noundef %.0.i311) #13
   br label %.thread
 
@@ -1985,7 +1985,7 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
   br i1 %.not280, label %.thread319, label %.thread
 
 .thread:                                          ; preds = %444, %443, %447
-  %.1317 = phi ptr [ null, %447 ], [ %.0244, %443 ], [ %.0244, %444 ]
+  %.0244317 = phi ptr [ null, %447 ], [ %.1, %443 ], [ %.1, %444 ]
   %451 = call i32 @tvb_captured_length(ptr noundef %0) #13
   %452 = load i32, ptr %29, align 4
   %453 = add i32 %35, %452
@@ -2009,7 +2009,7 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
 
 462:                                              ; preds = %460
   %463 = load i32, ptr @ett_data, align 4
-  %464 = call ptr @proto_tree_add_subtree(ptr noundef %.1317, ptr noundef %458, i32 noundef 0, i32 noundef -1, i32 noundef %463, ptr noundef null, ptr noundef nonnull @.str.157) #13
+  %464 = call ptr @proto_tree_add_subtree(ptr noundef %.0244317, ptr noundef %458, i32 noundef 0, i32 noundef -1, i32 noundef %463, ptr noundef null, ptr noundef nonnull @.str.157) #13
   %465 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %5, ptr %465, align 8
   %466 = getelementptr inbounds i8, ptr %18, i64 48
@@ -2040,13 +2040,13 @@ ipmi_getnetfnname.exit:                           ; preds = %355, %363, %366
   %479 = sub i8 %474, %476
   %480 = load i32, ptr @hf_ipmi_data_crc, align 4
   %481 = zext i8 %479 to i32
-  %482 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1317, i32 noundef %480, ptr noundef %0, i32 noundef %473, i32 noundef 1, i32 noundef %478, ptr noundef nonnull @.str.153, i32 noundef %478, i32 noundef %481) #13
+  %482 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0244317, i32 noundef %480, ptr noundef %0, i32 noundef %473, i32 noundef 1, i32 noundef %478, ptr noundef nonnull @.str.153, i32 noundef %478, i32 noundef %481) #13
   br label %.thread319
 
 483:                                              ; preds = %471
   %484 = load i32, ptr @hf_ipmi_data_crc, align 4
   %485 = zext i8 %474 to i32
-  %486 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1317, i32 noundef %484, ptr noundef %0, i32 noundef %473, i32 noundef 1, i32 noundef %485, ptr noundef nonnull @.str.154, i32 noundef %485) #13
+  %486 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0244317, i32 noundef %484, ptr noundef %0, i32 noundef %473, i32 noundef 1, i32 noundef %485, ptr noundef nonnull @.str.154, i32 noundef %485) #13
   br label %.thread319
 
 .thread319:                                       ; preds = %447, %477, %483, %468, %467

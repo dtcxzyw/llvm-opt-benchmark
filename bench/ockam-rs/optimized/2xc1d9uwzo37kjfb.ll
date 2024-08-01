@@ -6116,7 +6116,7 @@ default.unreachable163:                           ; preds = %2
   br label %210
 
 25:                                               ; preds = %198, %200
-  %.1161 = phi ptr [ %.1.ph, %200 ], [ %70, %198 ]
+  %.2161 = phi ptr [ %.2.ph, %200 ], [ %70, %198 ]
   %26 = load i8, ptr %29, align 8, !range !18, !noundef !4
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %203, label %201
@@ -6623,7 +6623,7 @@ default.unreachable163:                           ; preds = %2
   br label %200
 
 200:                                              ; preds = %199, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit"
-  %.1.ph = phi ptr [ %91, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit" ], [ %81, %199 ]
+  %.2.ph = phi ptr [ %91, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit" ], [ %81, %199 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17heb5bf5a24dd21dd9E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %33)
           to label %25 unwind label %61
 
@@ -6632,9 +6632,9 @@ common.ret:                                       ; preds = %223, %201
   ret { i64, ptr } %common.ret.op
 
 201:                                              ; preds = %237, %203, %25
-  %.2 = phi ptr [ %.fca.1.extract43, %237 ], [ %.1161, %203 ], [ %.1161, %25 ]
+  %.1 = phi ptr [ %.fca.1.extract43, %237 ], [ %.2161, %203 ], [ %.2161, %25 ]
   store i8 1, ptr %22, align 1
-  %202 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.2, 1
+  %202 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 203:                                              ; preds = %25

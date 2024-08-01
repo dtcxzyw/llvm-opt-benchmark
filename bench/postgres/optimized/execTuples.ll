@@ -4214,8 +4214,8 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
 
 36:                                               ; preds = %.lr.ph, %175
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %175 ]
-  %.19 = phi i8 [ %.0, %.lr.ph ], [ %.3, %175 ]
-  %.11026 = phi i32 [ %.0101, %.lr.ph ], [ %.3104, %175 ]
+  %.19 = phi i8 [ %.0, %.lr.ph ], [ %.2, %175 ]
+  %.11026 = phi i32 [ %.0101, %.lr.ph ], [ %.2103, %175 ]
   %37 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %34, i64 0, i64 %indvars.iv
   br i1 %.not, label %51, label %38
 
@@ -4360,9 +4360,9 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br label %106
 
 106:                                              ; preds = %87, %84, %81, %75, %78, %54, %.thread2, %104, %102
-  %.2103 = phi i32 [ %.11026, %.thread2 ], [ %103, %102 ], [ %103, %104 ], [ %56, %54 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %.11026, %75 ], [ %.11026, %78 ]
-  %.2 = phi i8 [ %.19, %.thread2 ], [ %.19, %102 ], [ %.19, %104 ], [ %.19, %54 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 1, %75 ], [ 1, %78 ]
-  %107 = zext i32 %.2103 to i64
+  %.3104 = phi i32 [ %.11026, %.thread2 ], [ %103, %102 ], [ %103, %104 ], [ %56, %54 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %.11026, %75 ], [ %.11026, %78 ]
+  %.3 = phi i8 [ %.19, %.thread2 ], [ %.19, %102 ], [ %.19, %104 ], [ %.19, %54 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 1, %75 ], [ 1, %78 ]
+  %107 = zext i32 %.3104 to i64
   %108 = getelementptr i8, ptr %32, i64 %107
   %109 = getelementptr inbounds i8, ptr %37, i64 86
   %110 = load i8, ptr %109, align 2
@@ -4420,7 +4420,7 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
 
 135:                                              ; preds = %fetch_att.exit
   %136 = zext nneg i16 %133 to i32
-  %137 = add i32 %.2103, %136
+  %137 = add i32 %.3104, %136
   %138 = zext i32 %137 to i64
   br label %171
 
@@ -4480,12 +4480,12 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   %172 = phi i64 [ %138, %135 ], [ %166, %164 ], [ %170, %167 ]
   %173 = trunc i64 %172 to i32
   %174 = icmp slt i16 %133, 1
-  %spec.select = select i1 %174, i8 1, i8 %.2
+  %spec.select = select i1 %174, i8 1, i8 %.3
   br label %175
 
 175:                                              ; preds = %171, %48
-  %.3104 = phi i32 [ %.11026, %48 ], [ %173, %171 ]
-  %.3 = phi i8 [ 1, %48 ], [ %spec.select, %171 ]
+  %.2103 = phi i32 [ %.11026, %48 ], [ %173, %171 ]
+  %.2 = phi i8 [ 1, %48 ], [ %spec.select, %171 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %36, !llvm.loop !13
@@ -4495,9 +4495,9 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
-  %.1102.lcssa = phi i32 [ %.0101, %28 ], [ %.3104, %._crit_edge.loopexit ]
+  %.1102.lcssa = phi i32 [ %.0101, %28 ], [ %.2103, %._crit_edge.loopexit ]
   %.0100.lcssa = phi i16 [ %19, %28 ], [ %176, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i8 [ %.0, %28 ], [ %.3, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i8 [ %.0, %28 ], [ %.2, %._crit_edge.loopexit ]
   store i16 %.0100.lcssa, ptr %18, align 2
   store i32 %.1102.lcssa, ptr %1, align 4
   %177 = trunc i8 %.1.lcssa to i1

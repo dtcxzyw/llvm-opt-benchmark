@@ -1226,7 +1226,7 @@ _spawn_threads.exit:                              ; preds = %207
   br label %231
 
 231:                                              ; preds = %226, %223
-  %.053 = phi ptr [ %230, %226 ], [ null, %223 ]
+  %.154 = phi ptr [ %230, %226 ], [ null, %223 ]
   call void @slurmdb_init_federation_cond(ptr noundef nonnull %9, i1 noundef zeroext false) #17
   %232 = call ptr @list_create(ptr noundef null) #17
   store ptr %232, ptr %9, align 8
@@ -1266,7 +1266,7 @@ _spawn_threads.exit:                              ; preds = %207
   br label %.thread104
 
 .thread104:                                       ; preds = %247, %244
-  %.049.ph = phi i32 [ 0, %244 ], [ -1, %247 ]
+  %.2.ph = phi i32 [ 0, %244 ], [ -1, %247 ]
   call void @list_destroy(ptr noundef nonnull %235) #17
   br label %283
 
@@ -1277,10 +1277,10 @@ _spawn_threads.exit:                              ; preds = %207
   br i1 %.not84, label %283, label %.thread
 
 .thread:                                          ; preds = %216, %249
-  %.151102 = phi ptr [ %250, %249 ], [ %218, %216 ]
+  %.050102 = phi ptr [ %250, %249 ], [ %218, %216 ]
   %.052100 = phi ptr [ %225, %249 ], [ null, %216 ]
-  %.15499 = phi ptr [ %.053, %249 ], [ null, %216 ]
-  %251 = getelementptr inbounds i8, ptr %.151102, i64 16
+  %.05399 = phi ptr [ %.154, %249 ], [ null, %216 ]
+  %251 = getelementptr inbounds i8, ptr %.050102, i64 16
   %252 = load ptr, ptr %251, align 8
   %253 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %254 = call ptr @list_find_first(ptr noundef %252, ptr noundef nonnull @slurmdb_find_cluster_in_list, ptr noundef %253) #17
@@ -1288,10 +1288,10 @@ _spawn_threads.exit:                              ; preds = %207
   br i1 %.not85, label %281, label %255
 
 255:                                              ; preds = %.thread
-  call fastcc void @_join_federation(ptr noundef nonnull %.151102, ptr noundef nonnull %254, ptr noundef nonnull %8)
+  call fastcc void @_join_federation(ptr noundef nonnull %.050102, ptr noundef nonnull %254, ptr noundef nonnull %8)
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._job_watch_thread.job_write_fed_write_lock) #17
   %256 = icmp ne ptr %.052100, null
-  %257 = icmp ne ptr %.15499, null
+  %257 = icmp ne ptr %.05399, null
   %or.cond = select i1 %256, i1 %257, i1 false
   %258 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %259 = icmp ne ptr %258, null
@@ -1349,14 +1349,14 @@ _spawn_threads.exit:                              ; preds = %207
   br label %291
 
 281:                                              ; preds = %.thread
-  call void @slurmdb_destroy_federation_rec(ptr noundef nonnull %.151102) #17
+  call void @slurmdb_destroy_federation_rec(ptr noundef nonnull %.050102) #17
   %282 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #17
   br label %291
 
 283:                                              ; preds = %.thread104, %249
-  %.049108 = phi i32 [ %.049.ph, %.thread104 ], [ 0, %249 ]
+  %.2108 = phi i32 [ %.2.ph, %.thread104 ], [ 0, %249 ]
   %284 = icmp ne ptr %225, null
-  %285 = icmp ne ptr %.053, null
+  %285 = icmp ne ptr %.154, null
   %or.cond5 = select i1 %284, i1 %285, i1 false
   br i1 %or.cond5, label %286, label %291
 
@@ -1371,7 +1371,7 @@ _spawn_threads.exit:                              ; preds = %207
 
 290:                                              ; preds = %289, %286
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._job_watch_thread.job_write_fed_write_lock) #17
-  store ptr %.053, ptr @fed_mgr_cluster_rec, align 8
+  store ptr %.154, ptr @fed_mgr_cluster_rec, align 8
   call fastcc void @_cleanup_removed_origin_jobs()
   store ptr null, ptr @fed_mgr_cluster_rec, align 8
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._job_watch_thread.job_write_fed_write_lock) #17
@@ -1379,12 +1379,12 @@ _spawn_threads.exit:                              ; preds = %207
 
 291:                                              ; preds = %283, %290, %._crit_edge, %281
   %.052101 = phi ptr [ %.052100, %._crit_edge ], [ %.052100, %281 ], [ %225, %290 ], [ %225, %283 ]
-  %.2 = phi i32 [ 0, %._crit_edge ], [ -1, %281 ], [ %.049108, %290 ], [ %.049108, %283 ]
+  %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %281 ], [ %.2108, %290 ], [ %.2108, %283 ]
   call void @slurmdb_destroy_federation_rec(ptr noundef %.052101) #17
   br label %292
 
 292:                                              ; preds = %219, %222, %18, %291, %239
-  %.3 = phi i32 [ %.2, %291 ], [ -1, %239 ], [ 0, %18 ], [ 0, %222 ], [ 0, %219 ]
+  %.049 = phi i32 [ %.3, %291 ], [ -1, %239 ], [ 0, %18 ], [ 0, %222 ], [ 0, %219 ]
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._state_load.job_read_lock) #17
   %293 = load ptr, ptr @job_list, align 8
   %294 = call ptr @list_iterator_create(ptr noundef %293) #17
@@ -1469,7 +1469,7 @@ _add_missing_fed_job_info.exit:                   ; preds = %.backedge.i, %292
   unreachable
 
 320:                                              ; preds = %_add_missing_fed_job_info.exit, %14
-  %.0 = phi i32 [ 0, %14 ], [ %.3, %_add_missing_fed_job_info.exit ]
+  %.0 = phi i32 [ 0, %14 ], [ %.049, %_add_missing_fed_job_info.exit ]
   ret i32 %.0
 }
 
@@ -3817,14 +3817,14 @@ _dump_remote_dep_job_list.exit:                   ; preds = %87
   br i1 %121, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %118, %100, %115
-  %.0 = phi i32 [ %117, %115 ], [ 0, %100 ], [ 0, %118 ]
+  %.1 = phi i32 [ %117, %115 ], [ 0, %100 ], [ 0, %118 ]
   %122 = tail call i32 @fsync(i32 noundef %94) #17
   %123 = tail call i32 @close(i32 noundef %94) #17
   br label %124
 
 124:                                              ; preds = %.loopexit, %96
-  %.1 = phi i32 [ %99, %96 ], [ %.0, %.loopexit ]
-  %.not28 = icmp eq i32 %.1, 0
+  %.0 = phi i32 [ %99, %96 ], [ %.1, %.loopexit ]
+  %.not28 = icmp eq i32 %.0, 0
   br i1 %.not28, label %125, label %139
 
 125:                                              ; preds = %124
@@ -3872,7 +3872,7 @@ _dump_remote_dep_job_list.exit:                   ; preds = %87
 142:                                              ; preds = %141, %139
   %143 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #17
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef nonnull @__func__.fed_mgr_state_save, i64 noundef 0, ptr noundef nonnull %8) #17
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
@@ -4416,26 +4416,26 @@ define internal range(i32 -1, 1) i32 @_add_to_send_list(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %17 = phi ptr [ %24, %.lr.ph.i ], [ %16, %14 ]
-  %.010.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %14 ]
+  %.110.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %14 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 184
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   %21 = zext nneg i32 %20 to i64
   %22 = shl nuw i64 1, %21
-  %23 = or i64 %22, %.010.i
+  %23 = or i64 %22, %.110.i
   %24 = tail call ptr @list_next(ptr noundef %15) #17
   %.not8.i = icmp eq ptr %24, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
-  %.0.lcssa.i = phi i64 [ 0, %14 ], [ %23, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ 0, %14 ], [ %23, %.lr.ph.i ]
   tail call void @list_iterator_destroy(ptr noundef %15) #17
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %9, %11, %._crit_edge.i
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %11 ], [ 0, %9 ]
+  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %11 ], [ 0, %9 ]
   %25 = load i64, ptr %1, align 8
-  %26 = or i64 %25, %.1.i
+  %26 = or i64 %25, %.0.i
   br label %.sink.split
 
 27:                                               ; preds = %6, %2
@@ -4854,19 +4854,19 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noun
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %17 = phi ptr [ %24, %.lr.ph.i ], [ %16, %14 ]
-  %.010.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %14 ]
+  %.110.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %14 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 184
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   %21 = zext nneg i32 %20 to i64
   %22 = shl nuw i64 1, %21
-  %23 = or i64 %22, %.010.i
+  %23 = or i64 %22, %.110.i
   %24 = tail call ptr @list_next(ptr noundef %15) #17
   %.not8.i = icmp eq ptr %24, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
-  %.0.lcssa.i = phi i64 [ 0, %14 ], [ %23, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ 0, %14 ], [ %23, %.lr.ph.i ]
   tail call void @list_iterator_destroy(ptr noundef %15) #17
   br label %.sink.split
 
@@ -4906,24 +4906,24 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noun
 
 .lr.ph.i72:                                       ; preds = %42, %.lr.ph.i72
   %45 = phi ptr [ %52, %.lr.ph.i72 ], [ %44, %42 ]
-  %.010.i73 = phi i64 [ %51, %.lr.ph.i72 ], [ 0, %42 ]
+  %.110.i73 = phi i64 [ %51, %.lr.ph.i72 ], [ 0, %42 ]
   %46 = getelementptr inbounds i8, ptr %45, i64 184
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -1
   %49 = zext nneg i32 %48 to i64
   %50 = shl nuw i64 1, %49
-  %51 = or i64 %50, %.010.i73
+  %51 = or i64 %50, %.110.i73
   %52 = tail call ptr @list_next(ptr noundef %43) #17
   %.not8.i74 = icmp eq ptr %52, null
   br i1 %.not8.i74, label %._crit_edge.i75, label %.lr.ph.i72, !llvm.loop !29
 
 ._crit_edge.i75:                                  ; preds = %.lr.ph.i72, %42
-  %.0.lcssa.i76 = phi i64 [ 0, %42 ], [ %51, %.lr.ph.i72 ]
+  %.1.lcssa.i76 = phi i64 [ 0, %42 ], [ %51, %.lr.ph.i72 ]
   tail call void @list_iterator_destroy(ptr noundef %43) #17
   br label %_get_all_sibling_bits.exit78
 
 _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %39, %37, %34, %25
-  %.049 = phi i64 [ 0, %34 ], [ 0, %25 ], [ %.0.lcssa.i76, %._crit_edge.i75 ], [ 0, %39 ], [ 0, %37 ]
+  %.049 = phi i64 [ 0, %34 ], [ 0, %25 ], [ %.1.lcssa.i76, %._crit_edge.i75 ], [ 0, %39 ], [ 0, %37 ]
   %.047 = phi i1 [ false, %34 ], [ false, %25 ], [ true, %._crit_edge.i75 ], [ true, %39 ], [ true, %37 ]
   %53 = tail call ptr @list_next(ptr noundef %28) #17
   %.not6289 = icmp eq ptr %53, null
@@ -4934,7 +4934,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
 
 .lr.ph91.split.us:                                ; preds = %.lr.ph91, %60
   %54 = phi ptr [ %61, %60 ], [ %53, %.lr.ph91 ]
-  %.15090.us = phi i64 [ %.4.us.us, %60 ], [ %.049, %.lr.ph91 ]
+  %.15090.us = phi i64 [ %.3.us.us, %60 ], [ %.049, %.lr.ph91 ]
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 33
   %spec.select.idx.us = zext i1 %56 to i64
@@ -4947,7 +4947,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   br i1 %.1.us.us, label %58, label %.split.us
 
 58:                                               ; preds = %._crit_edge.split.us.us
-  %59 = icmp eq i64 %.4.us.us, 0
+  %59 = icmp eq i64 %.3.us.us, 0
   br i1 %59, label %.split96.us, label %60
 
 60:                                               ; preds = %58
@@ -4959,7 +4959,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
 .lr.ph.us:                                        ; preds = %.lr.ph91.split.us, %75
   %62 = phi ptr [ %76, %75 ], [ %57, %.lr.ph91.split.us ]
   %.086.us.us = phi i1 [ %.1.us.us, %75 ], [ false, %.lr.ph91.split.us ]
-  %.285.us.us = phi i64 [ %.4.us.us, %75 ], [ %.15090.us, %.lr.ph91.split.us ]
+  %.285.us.us = phi i64 [ %.3.us.us, %75 ], [ %.15090.us, %.lr.ph91.split.us ]
   %63 = getelementptr inbounds i8, ptr %62, i64 176
   %64 = load ptr, ptr %63, align 8
   %.not66.us.us = icmp eq ptr %64, null
@@ -4981,7 +4981,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   br label %75
 
 75:                                               ; preds = %67, %65, %.lr.ph.us
-  %.4.us.us = phi i64 [ %.285.us.us, %65 ], [ %.285.us.us, %.lr.ph.us ], [ %74, %67 ]
+  %.3.us.us = phi i64 [ %.285.us.us, %65 ], [ %.285.us.us, %.lr.ph.us ], [ %74, %67 ]
   %.1.us.us = phi i1 [ %.086.us.us, %65 ], [ %.086.us.us, %.lr.ph.us ], [ true, %67 ]
   %76 = tail call ptr @list_next(ptr noundef %32) #17
   %.not63.us.us = icmp eq ptr %76, null
@@ -4989,7 +4989,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
 
 .lr.ph91.split.split:                             ; preds = %.lr.ph91, %94
   %77 = phi ptr [ %95, %94 ], [ %53, %.lr.ph91 ]
-  %.15090 = phi i64 [ %.4, %94 ], [ %.049, %.lr.ph91 ]
+  %.15090 = phi i64 [ %.3, %94 ], [ %.049, %.lr.ph91 ]
   %78 = tail call ptr @list_next(ptr noundef %32) #17
   %.not6384 = icmp eq ptr %78, null
   br i1 %.not6384, label %.split.us, label %.lr.ph
@@ -4997,7 +4997,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
 .lr.ph:                                           ; preds = %.lr.ph91.split.split, %91
   %79 = phi ptr [ %92, %91 ], [ %78, %.lr.ph91.split.split ]
   %.086 = phi i1 [ %.1, %91 ], [ false, %.lr.ph91.split.split ]
-  %.285 = phi i64 [ %.4, %91 ], [ %.15090, %.lr.ph91.split.split ]
+  %.285 = phi i64 [ %.3, %91 ], [ %.15090, %.lr.ph91.split.split ]
   %80 = getelementptr inbounds i8, ptr %79, i64 176
   %81 = load ptr, ptr %80, align 8
   %.not66 = icmp eq ptr %81, null
@@ -5018,7 +5018,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   br label %91
 
 91:                                               ; preds = %84, %82, %.lr.ph
-  %.4 = phi i64 [ %.285, %82 ], [ %.285, %.lr.ph ], [ %90, %84 ]
+  %.3 = phi i64 [ %.285, %82 ], [ %.285, %.lr.ph ], [ %90, %84 ]
   %.1 = phi i1 [ %.086, %82 ], [ %.086, %.lr.ph ], [ true, %84 ]
   %92 = tail call ptr @list_next(ptr noundef %32) #17
   %.not63 = icmp eq ptr %92, null
@@ -5029,7 +5029,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
 
 .split.us:                                        ; preds = %.lr.ph91.split.split, %._crit_edge.split, %.lr.ph91.split.us, %._crit_edge.split.us.us
   %.us-phi93 = phi ptr [ %spec.select.us, %._crit_edge.split.us.us ], [ %spec.select.us, %.lr.ph91.split.us ], [ %77, %._crit_edge.split ], [ %77, %.lr.ph91.split.split ]
-  %.us-phi94 = phi i64 [ %.15090.us, %.lr.ph91.split.us ], [ %.4.us.us, %._crit_edge.split.us.us ], [ %.15090, %.lr.ph91.split.split ], [ %.4, %._crit_edge.split ]
+  %.us-phi94 = phi i64 [ %.15090.us, %.lr.ph91.split.us ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.15090, %.lr.ph91.split.split ], [ %.3, %._crit_edge.split ]
   %93 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.188, ptr noundef nonnull %.us-phi93) #17
   br label %.loopexit
 
@@ -5044,7 +5044,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %60, %_get_all_sibling_bits.exit78, %.split96.us, %.split.us
-  %.5 = phi i64 [ 0, %.split96.us ], [ %.us-phi94, %.split.us ], [ %.049, %_get_all_sibling_bits.exit78 ], [ %.4.us.us, %60 ], [ %.4, %94 ]
+  %.5 = phi i64 [ 0, %.split96.us ], [ %.us-phi94, %.split.us ], [ %.049, %_get_all_sibling_bits.exit78 ], [ %.3.us.us, %60 ], [ %.3, %94 ]
   %.046 = phi i32 [ -1, %.split96.us ], [ -1, %.split.us ], [ 0, %_get_all_sibling_bits.exit78 ], [ 0, %60 ], [ 0, %94 ]
   tail call void @list_iterator_destroy(ptr noundef %32) #17
   tail call void @list_iterator_destroy(ptr noundef %28) #17
@@ -5060,7 +5060,7 @@ _get_all_sibling_bits.exit78:                     ; preds = %._crit_edge.i75, %3
   br i1 %.not65, label %99, label %.sink.split
 
 .sink.split:                                      ; preds = %98, %._crit_edge.i, %11, %6
-  %.5.sink = phi i64 [ 0, %6 ], [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %11 ], [ %.5, %98 ]
+  %.5.sink = phi i64 [ 0, %6 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %11 ], [ %.5, %98 ]
   %.045.ph = phi i32 [ 0, %6 ], [ 0, %._crit_edge.i ], [ 0, %11 ], [ %.046, %98 ]
   store i64 %.5.sink, ptr %1, align 8
   br label %99
@@ -5093,25 +5093,25 @@ define internal fastcc i64 @_get_viable_sibs(ptr noundef %0, i64 noundef %1, i1 
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %13 = phi ptr [ %20, %.lr.ph.i ], [ %12, %10 ]
-  %.010.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %10 ]
+  %.110.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %10 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
-  %19 = or i64 %18, %.010.i
+  %19 = or i64 %18, %.110.i
   %20 = tail call ptr @list_next(ptr noundef %11) #17
   %.not8.i = icmp eq ptr %20, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
-  %.0.lcssa.i = phi i64 [ 0, %10 ], [ %19, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ 0, %10 ], [ %19, %.lr.ph.i ]
   tail call void @list_iterator_destroy(ptr noundef %11) #17
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %4, %7, %._crit_edge.i
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %7 ], [ 0, %4 ]
-  store i64 %.1.i, ptr %5, align 8
+  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %7 ], [ 0, %4 ]
+  store i64 %.0.i, ptr %5, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %21
 
@@ -8051,25 +8051,25 @@ define dso_local zeroext i1 @fed_mgr_is_job_id_in_fed(i32 noundef %0) local_unna
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %15 = phi ptr [ %22, %.lr.ph.i ], [ %14, %12 ]
-  %.010.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %12 ]
+  %.110.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %12 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 184
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw i64 1, %19
-  %21 = or i64 %20, %.010.i
+  %21 = or i64 %20, %.110.i
   %22 = tail call ptr @list_next(ptr noundef %13) #17
   %.not8.i = icmp eq ptr %22, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
-  %.0.lcssa.i = phi i64 [ 0, %12 ], [ %21, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ 0, %12 ], [ %21, %.lr.ph.i ]
   tail call void @list_iterator_destroy(ptr noundef %13) #17
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %3, %9, %._crit_edge.i
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %9 ], [ 0, %3 ]
-  %23 = and i64 %.1.i, %7
+  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %9 ], [ 0, %3 ]
+  %23 = and i64 %.0.i, %7
   %24 = icmp ne i64 %23, 0
   br label %25
 
@@ -8191,28 +8191,28 @@ _is_fed_job.exit:                                 ; preds = %8
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %45 = phi ptr [ %52, %.lr.ph.i ], [ %44, %42 ]
-  %.010.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %42 ]
+  %.110.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %42 ]
   %46 = getelementptr inbounds i8, ptr %45, i64 184
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -1
   %49 = zext nneg i32 %48 to i64
   %50 = shl nuw i64 1, %49
-  %51 = or i64 %50, %.010.i
+  %51 = or i64 %50, %.110.i
   %52 = tail call ptr @list_next(ptr noundef %43) #17
   %.not8.i = icmp eq ptr %52, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %42
-  %.0.lcssa.i = phi i64 [ 0, %42 ], [ %51, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ 0, %42 ], [ %51, %.lr.ph.i ]
   tail call void @list_iterator_destroy(ptr noundef %43) #17
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %37, %39, %._crit_edge.i
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %39 ], [ 0, %37 ]
+  %.0.i13 = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %39 ], [ 0, %37 ]
   %53 = getelementptr inbounds i8, ptr %1, i64 32
   %54 = load i64, ptr %53, align 8
-  %55 = and i64 %54, %.1.i
-  %56 = icmp eq i64 %55, %.1.i
+  %55 = and i64 %54, %.0.i13
+  %56 = icmp eq i64 %55, %.0.i13
   br label %_is_fed_job.exit.thread
 
 _is_fed_job.exit.thread:                          ; preds = %12, %15, %3, %34, %_is_fed_job.exit, %_get_all_sibling_bits.exit, %21
@@ -8373,19 +8373,19 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_names(ptr noundef
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %16 = phi ptr [ %23, %.lr.ph.i ], [ %15, %13 ]
-  %.010.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %13 ]
+  %.110.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %13 ]
   %17 = getelementptr inbounds i8, ptr %16, i64 184
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -1
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw i64 1, %20
-  %22 = or i64 %21, %.010.i
+  %22 = or i64 %21, %.110.i
   %23 = tail call ptr @list_next(ptr noundef %14) #17
   %.not8.i = icmp eq ptr %23, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
-  %.0.lcssa.i = phi i64 [ 0, %13 ], [ %22, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ 0, %13 ], [ %22, %.lr.ph.i ]
   tail call void @list_iterator_destroy(ptr noundef %14) #17
   br label %_get_all_sibling_bits.exit
 
@@ -8398,12 +8398,12 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_names(ptr noundef
 27:                                               ; preds = %24
   %28 = tail call ptr @list_iterator_create(ptr noundef %25) #17
   %29 = tail call ptr @list_next(ptr noundef %28) #17
-  %.not2738 = icmp eq ptr %29, null
-  br i1 %.not2738, label %.loopexit, label %.lr.ph
+  %.not2739 = icmp eq ptr %29, null
+  br i1 %.not2739, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %36
   %30 = phi ptr [ %43, %36 ], [ %29, %27 ]
-  %.01739 = phi i64 [ %42, %36 ], [ 0, %27 ]
+  %.11840 = phi i64 [ %42, %36 ], [ 0, %27 ]
   %31 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %.not.i31 = icmp eq ptr %31, null
   br i1 %.not.i31, label %fed_mgr_get_cluster_by_name.exit.thread, label %fed_mgr_get_cluster_by_name.exit
@@ -8425,20 +8425,20 @@ fed_mgr_get_cluster_by_name.exit.thread:          ; preds = %.lr.ph, %fed_mgr_ge
   %39 = add i32 %38, -1
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw i64 1, %40
-  %42 = or i64 %41, %.01739
+  %42 = or i64 %41, %.11840
   %43 = tail call ptr @list_next(ptr noundef %28) #17
   %.not27 = icmp eq ptr %43, null
   br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %36, %27, %fed_mgr_get_cluster_by_name.exit.thread
-  %.01737 = phi i64 [ %.01739, %fed_mgr_get_cluster_by_name.exit.thread ], [ 0, %27 ], [ %42, %36 ]
-  %.0 = phi i32 [ -1, %fed_mgr_get_cluster_by_name.exit.thread ], [ 0, %27 ], [ 0, %36 ]
+  %.11838 = phi i64 [ %.11840, %fed_mgr_get_cluster_by_name.exit.thread ], [ 0, %27 ], [ %42, %36 ]
+  %.1 = phi i32 [ -1, %fed_mgr_get_cluster_by_name.exit.thread ], [ 0, %27 ], [ 0, %36 ]
   tail call void @list_iterator_destroy(ptr noundef %28) #17
   br label %44
 
 44:                                               ; preds = %24, %.loopexit
-  %.118 = phi i64 [ %.01737, %.loopexit ], [ 0, %24 ]
-  %.1 = phi i32 [ %.0, %.loopexit ], [ 0, %24 ]
+  %.219 = phi i64 [ %.11838, %.loopexit ], [ 0, %24 ]
+  %.2 = phi i32 [ %.1, %.loopexit ], [ 0, %24 ]
   %.not29 = icmp eq ptr %25, null
   br i1 %.not29, label %_get_all_sibling_bits.exit, label %45
 
@@ -8447,17 +8447,17 @@ fed_mgr_get_cluster_by_name.exit.thread:          ; preds = %.lr.ph, %fed_mgr_ge
   br label %_get_all_sibling_bits.exit
 
 _get_all_sibling_bits.exit:                       ; preds = %._crit_edge.i, %10, %8, %44, %45
-  %.219 = phi i64 [ %.118, %45 ], [ %.118, %44 ], [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
-  %.2 = phi i32 [ %.1, %45 ], [ %.1, %44 ], [ 0, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
+  %.017 = phi i64 [ %.219, %45 ], [ %.219, %44 ], [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
+  %.0 = phi i32 [ %.2, %45 ], [ %.2, %44 ], [ 0, %._crit_edge.i ], [ 0, %10 ], [ 0, %8 ]
   %.not30 = icmp eq ptr %1, null
   br i1 %.not30, label %47, label %46
 
 46:                                               ; preds = %_get_all_sibling_bits.exit
-  store i64 %.219, ptr %1, align 8
+  store i64 %.017, ptr %1, align 8
   br label %47
 
 47:                                               ; preds = %46, %_get_all_sibling_bits.exit
-  ret i32 %.2
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

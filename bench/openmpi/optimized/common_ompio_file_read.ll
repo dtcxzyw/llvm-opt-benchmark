@@ -306,14 +306,14 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %87, %opal_obj_run_c
   br label %149
 
 149:                                              ; preds = %146, %142
-  %.287.i = phi i64 [ %148, %146 ], [ %.085141.i, %142 ]
+  %.489.i = phi i64 [ %148, %146 ], [ %.085141.i, %142 ]
   %150 = load ptr, ptr %17, align 8
   store ptr %150, ptr %18, align 8
   br label %151
 
 151:                                              ; preds = %149, %141, %.thread125.i
   %.193122.i = phi i64 [ %.193123.i, %149 ], [ %.091139.i, %141 ], [ %122, %.thread125.i ]
-  %.388.i = phi i64 [ %.287.i, %149 ], [ %.085141.i, %141 ], [ %140, %.thread125.i ]
+  %.388.i = phi i64 [ %.489.i, %149 ], [ %.085141.i, %141 ], [ %140, %.thread125.i ]
   %152 = icmp eq i64 %indvars.iv.i, 0
   %or.cond108.i = select i1 %.not128.i, i1 %117, i1 %152
   br i1 %or.cond108.i, label %156, label %153
@@ -339,13 +339,13 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %87, %opal_obj_run_c
 
 .split.loop.exit.loopexit.i:                      ; preds = %156, %134, %118
   %.085.lcssa.ph.i = phi i64 [ %.085141.i, %134 ], [ %.388.i, %156 ], [ %.085141.i, %118 ]
-  %.4.ph.i = phi i64 [ %138, %134 ], [ 0, %156 ], [ 0, %118 ]
-  %158 = trunc i64 %.4.ph.i to i32
+  %.284.ph.i = phi i64 [ %138, %134 ], [ 0, %156 ], [ 0, %118 ]
+  %158 = trunc i64 %.284.ph.i to i32
   br label %.split.loop.exit.i
 
 .split.loop.exit.i:                               ; preds = %143, %.split.loop.exit.loopexit.i, %107
   %.085.lcssa.i = phi i64 [ 0, %107 ], [ %.085.lcssa.ph.i, %.split.loop.exit.loopexit.i ], [ %.085141.i, %143 ]
-  %.4.i = phi i32 [ 0, %107 ], [ %158, %.split.loop.exit.loopexit.i ], [ %145, %143 ]
+  %.284.i = phi i32 [ 0, %107 ], [ %158, %.split.loop.exit.loopexit.i ], [ %145, %143 ]
   %159 = getelementptr inbounds i8, ptr %19, i64 64
   %160 = load i32, ptr %159, align 8
   %161 = icmp ugt i32 %160, 5
@@ -383,7 +383,7 @@ opal_convertor_cleanup.exit.i:                    ; preds = %162, %.split.loop.e
   br label %mca_common_ompio_file_read_pipelined.exit
 
 mca_common_ompio_file_read_pipelined.exit:        ; preds = %94, %105, %169, %170
-  %.0.i = phi i32 [ -2, %94 ], [ -2, %105 ], [ %.4.i, %170 ], [ %.4.i, %169 ]
+  %.0.i = phi i32 [ -2, %94 ], [ -2, %105 ], [ %.284.i, %170 ], [ %.284.i, %169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)

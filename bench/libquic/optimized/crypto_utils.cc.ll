@@ -808,10 +808,10 @@ if.then255:                                       ; preds = %invoke.cont106, %in
           to label %cleanup261 unwind label %lpad25
 
 cleanup261:                                       ; preds = %invoke.cont106, %invoke.cont65, %invoke.cont171, %sw.epilog, %if.then255, %cleanup, %cleanup.action195, %invoke.cont178, %invoke.cont141, %invoke.cont151, %invoke.cont161, %cleanup.action, %invoke.cont114, %invoke.cont76, %invoke.cont86, %invoke.cont96, %invoke.cont36, %invoke.cont45, %invoke.cont55
-  %retval.1 = phi i1 [ false, %cleanup ], [ %call66, %invoke.cont65 ], [ false, %invoke.cont55 ], [ false, %invoke.cont45 ], [ false, %invoke.cont36 ], [ %call107, %invoke.cont106 ], [ false, %invoke.cont96 ], [ false, %invoke.cont86 ], [ false, %invoke.cont76 ], [ false, %invoke.cont114 ], [ false, %cleanup.action ], [ %call172, %invoke.cont171 ], [ false, %invoke.cont161 ], [ false, %invoke.cont151 ], [ false, %invoke.cont141 ], [ false, %invoke.cont178 ], [ false, %cleanup.action195 ], [ true, %if.then255 ], [ true, %sw.epilog ]
+  %retval.0 = phi i1 [ false, %cleanup ], [ %call66, %invoke.cont65 ], [ false, %invoke.cont55 ], [ false, %invoke.cont45 ], [ false, %invoke.cont36 ], [ %call107, %invoke.cont106 ], [ false, %invoke.cont96 ], [ false, %invoke.cont86 ], [ false, %invoke.cont76 ], [ false, %invoke.cont114 ], [ false, %cleanup.action ], [ %call172, %invoke.cont171 ], [ false, %invoke.cont161 ], [ false, %invoke.cont151 ], [ false, %invoke.cont141 ], [ false, %invoke.cont178 ], [ false, %cleanup.action195 ], [ true, %if.then255 ], [ true, %sw.epilog ]
   call void @_ZN6crypto4HKDFD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %hkdf) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce_storage) #6
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup262:                                     ; preds = %lpad187, %lpad122, %lpad203, %lpad25
   %.pn29 = phi { ptr, i32 } [ %14, %lpad25 ], [ %38, %lpad187 ], [ %54, %lpad203 ], [ %29, %lpad122 ]

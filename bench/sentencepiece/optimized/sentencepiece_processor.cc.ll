@@ -12633,8 +12633,8 @@ _ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i
   br label %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i
 
 _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i.i, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i, %238
-  %.sroa.034.0.i = phi i64 [ %241, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i.i ], [ %191, %238 ], [ %191, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i ]
-  %.sroa.6.0.i = phi ptr [ %240, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i.i ], [ %190, %238 ], [ %190, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i ]
+  %.sroa.034.1.i = phi i64 [ %241, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i.i ], [ %191, %238 ], [ %191, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i ]
+  %.sroa.6.1.i = phi ptr [ %240, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i.i ], [ %190, %238 ], [ %190, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i ]
   %242 = phi i8 [ 1, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i.i ], [ 0, %238 ], [ 0, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i.i ]
   br i1 %.not.i, label %250, label %243
 
@@ -12651,8 +12651,8 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ;
 
 250:                                              ; preds = %243, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, %234, %224
   %.0.i60 = phi i8 [ %242, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ 0, %234 ], [ 0, %224 ], [ %spec.select.i, %243 ]
-  %.sroa.034.1.i = phi i64 [ %.sroa.034.0.i, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ %191, %234 ], [ %191, %224 ], [ %.sroa.034.0.i, %243 ]
-  %.sroa.6.1.i = phi ptr [ %.sroa.6.0.i, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ %190, %234 ], [ %190, %224 ], [ %.sroa.6.0.i, %243 ]
+  %.sroa.034.0.i = phi i64 [ %.sroa.034.1.i, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ %191, %234 ], [ %191, %224 ], [ %.sroa.034.1.i, %243 ]
+  %.sroa.6.0.i = phi ptr [ %.sroa.6.1.i, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ %190, %234 ], [ %190, %224 ], [ %.sroa.6.1.i, %243 ]
   %251 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
           to label %.noexc68 unwind label %.loopexit
 
@@ -12668,7 +12668,7 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ;
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %251, i64 24
   store ptr @.str.7, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !201
   store ptr %252, ptr %152, align 8, !noalias !201
-  invoke void @_ZN4absl13StrReplaceAllB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorISt4pairIS3_S3_ESaIS6_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i64 %.sroa.034.1.i, ptr %.sroa.6.1.i, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4absl13StrReplaceAllB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorISt4pairIS3_S3_ESaIS6_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i64 %.sroa.034.0.i, ptr %.sroa.6.0.i, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %253 unwind label %260, !noalias !201
 
 253:                                              ; preds = %.noexc68

@@ -448,7 +448,7 @@ _ZN6V3File12new_ofstreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb
 54:                                               ; preds = %.thread, %45
   %.sroa.050.0 = phi ptr [ %52, %45 ], [ %90, %.thread ]
   %.0 = phi i32 [ 0, %45 ], [ %89, %.thread ]
-  %.sroa.058.0 = phi i32 [ 0, %45 ], [ %.sroa.058.274, %.thread ]
+  %.sroa.058.0 = phi i32 [ 0, %45 ], [ %.sroa.058.174, %.thread ]
   %55 = icmp eq ptr %.sroa.050.0, %53
   br i1 %55, label %.critedge.thread, label %56
 
@@ -484,7 +484,7 @@ _ZN6V3File12new_ofstreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb
   br label %.body
 
 .critedge.thread:                                 ; preds = %54, %.critedge
-  %.sroa.058.1 = phi i32 [ %60, %.critedge ], [ %.sroa.058.0, %54 ]
+  %.sroa.058.2 = phi i32 [ %60, %.critedge ], [ %.sroa.058.0, %54 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %88, label %61
 
@@ -554,7 +554,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %55, label %91, label %.thread
 
 .thread:                                          ; preds = %56, %88
-  %.sroa.058.274 = phi i32 [ %.sroa.058.1, %88 ], [ %.sroa.058.0, %56 ]
+  %.sroa.058.174 = phi i32 [ %.sroa.058.2, %88 ], [ %.sroa.058.0, %56 ]
   %.173 = phi i32 [ 0, %88 ], [ %.0, %56 ]
   %89 = add nsw i32 %.173, 1
   %90 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.050.0) #16
@@ -622,7 +622,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 
 .lr.ph98:                                         ; preds = %117, %150
   %.sroa.040.096 = phi ptr [ %151, %150 ], [ %118, %117 ]
-  %.sroa.058.395 = phi i32 [ %.sroa.058.4, %150 ], [ %.sroa.058.1, %117 ]
+  %.sroa.058.395 = phi i32 [ %.sroa.058.4, %150 ], [ %.sroa.058.2, %117 ]
   %119 = getelementptr inbounds i8, ptr %.sroa.040.096, i64 32
   %120 = load i32, ptr %119, align 4
   %.not79 = icmp eq i32 %.sroa.058.395, %120

@@ -204,12 +204,12 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture nou
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %81, %80
-  %.182103.us.i = phi ptr [ %82, %81 ], [ %.081116.us.i, %80 ]
+  %.3103.us.i = phi ptr [ %82, %81 ], [ %.081116.us.i, %80 ]
   %83 = getelementptr [8 x i32], ptr %7, i64 0, i64 %indvars.iv149.i
   %84 = load i32, ptr %83, align 4
-  %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.182103.us.i, ptr noundef nonnull @.str.2, i32 noundef %84) #8
+  %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3103.us.i, ptr noundef nonnull @.str.2, i32 noundef %84) #8
   %86 = sext i32 %85 to i64
-  %87 = getelementptr i8, ptr %.182103.us.i, i64 %86
+  %87 = getelementptr i8, ptr %.3103.us.i, i64 %86
   br label %92
 
 88:                                               ; preds = %.split.us.i
@@ -256,12 +256,12 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture nou
   br i1 %101, label %.split128.us.i, label %.thread.us124.i
 
 .thread.us124.i:                                  ; preds = %99, %98
-  %.182103.us125.i = phi ptr [ %100, %99 ], [ %.081116.us119.i, %98 ]
+  %.3103.us125.i = phi ptr [ %100, %99 ], [ %.081116.us119.i, %98 ]
   %102 = getelementptr [8 x i32], ptr %7, i64 0, i64 %indvars.iv157.i
   %103 = load i32, ptr %102, align 4
-  %104 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.182103.us125.i, ptr noundef nonnull @.str.2, i32 noundef %103) #8
+  %104 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3103.us125.i, ptr noundef nonnull @.str.2, i32 noundef %103) #8
   %105 = sext i32 %104 to i64
-  %106 = getelementptr i8, ptr %.182103.us125.i, i64 %105
+  %106 = getelementptr i8, ptr %.3103.us125.i, i64 %105
   br label %110
 
 107:                                              ; preds = %.split.split.us.i
@@ -371,12 +371,12 @@ decoct.exit.thread.i:                             ; preds = %136, %decoct.exit.i
   br label %.loopexit.i12
 
 .thread.i:                                        ; preds = %123, %117, %116
-  %.182103.i = phi ptr [ %118, %123 ], [ %118, %117 ], [ %.081116.i, %116 ]
+  %.3103.i = phi ptr [ %118, %123 ], [ %118, %117 ], [ %.081116.i, %116 ]
   %152 = getelementptr [8 x i32], ptr %7, i64 0, i64 %indvars.iv153.i
   %153 = load i32, ptr %152, align 4
-  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.182103.i, ptr noundef nonnull @.str.2, i32 noundef %153) #8
+  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3103.i, ptr noundef nonnull @.str.2, i32 noundef %153) #8
   %155 = sext i32 %154 to i64
-  %156 = getelementptr i8, ptr %.182103.i, i64 %155
+  %156 = getelementptr i8, ptr %.3103.i, i64 %155
   br label %157
 
 157:                                              ; preds = %.thread.i, %114, %113
@@ -386,18 +386,18 @@ decoct.exit.thread.i:                             ; preds = %136, %decoct.exit.i
   br i1 %exitcond156.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !9
 
 .loopexit.i12:                                    ; preds = %92, %157, %110, %149
-  %.3.i = phi ptr [ %151, %149 ], [ %.283.us126.i, %110 ], [ %.283.i, %157 ], [ %.283.us.i, %92 ]
+  %.182.i = phi ptr [ %151, %149 ], [ %.283.us126.i, %110 ], [ %.283.i, %157 ], [ %.283.us.i, %92 ]
   %158 = icmp eq i32 %69, 8
   %or.cond96.i = and i1 %.not85.i, %158
   br i1 %or.cond96.i, label %159, label %161
 
 159:                                              ; preds = %.loopexit.i12
-  %160 = getelementptr i8, ptr %.3.i, i64 1
-  store i8 58, ptr %.3.i, align 1
+  %160 = getelementptr i8, ptr %.182.i, i64 1
+  store i8 58, ptr %.182.i, align 1
   br label %161
 
 161:                                              ; preds = %159, %.loopexit.i12
-  %.4.i = phi ptr [ %160, %159 ], [ %.3.i, %.loopexit.i12 ]
+  %.4.i = phi ptr [ %160, %159 ], [ %.182.i, %.loopexit.i12 ]
   store i8 0, ptr %.4.i, align 1
   switch i32 %2, label %162 [
     i32 -1, label %166

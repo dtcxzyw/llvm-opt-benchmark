@@ -2079,7 +2079,7 @@ ehcleanup79:                                      ; preds = %ehcleanup77, %lpad9
   br label %ehcleanup81
 
 cleanup80:                                        ; preds = %.noexc.i614, %call4.i.i.i.i.noexc, %if.then.i.i.i.i, %invoke.cont6
-  %retval.3 = phi i1 [ false, %invoke.cont6 ], [ false, %if.then.i.i.i.i ], [ false, %call4.i.i.i.i.noexc ], [ %cmp.i.i.i.i139.not, %.noexc.i614 ]
+  %retval.0 = phi i1 [ false, %invoke.cont6 ], [ false, %if.then.i.i.i.i ], [ false, %call4.i.i.i.i.noexc ], [ %cmp.i.i.i.i139.not, %.noexc.i614 ]
   %196 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %196, ptr noundef nonnull align 8 dereferenceable(16) %d)
           to label %.noexc.i618 unwind label %terminate.lpad.i617
@@ -2112,7 +2112,7 @@ terminate.lpad.i621:                              ; preds = %.noexc.i622, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit624:                         ; preds = %.noexc.i622
-  ret i1 %retval.3
+  ret i1 %retval.0
 
 ehcleanup81:                                      ; preds = %lpad.i, %lpad.i41, %lpad1, %ehcleanup79
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup79 ], [ %2, %lpad.i ], [ %41, %lpad1 ], [ %19, %lpad.i41 ]

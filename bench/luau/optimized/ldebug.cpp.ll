@@ -1236,7 +1236,7 @@ define internal fastcc noundef i32 @_ZL11getnextlineP5Protoi(ptr nocapture nound
 
 12:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.03448 = phi i32 [ -1, %.lr.ph ], [ %.1, %34 ]
+  %.148 = phi i32 [ -1, %.lr.ph ], [ %.2, %34 ]
   %13 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 255
@@ -1263,19 +1263,19 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %12
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = icmp eq i32 %.03448, -1
-  %33 = tail call i32 @llvm.smin.i32(i32 %27, i32 %.03448)
+  %32 = icmp eq i32 %.148, -1
+  %33 = tail call i32 @llvm.smin.i32(i32 %27, i32 %.148)
   %spec.select = select i1 %32, i32 %27, i32 %33
   br label %34
 
 34:                                               ; preds = %31, %29, %12
-  %.1 = phi i32 [ %.03448, %12 ], [ %.03448, %29 ], [ %spec.select, %31 ]
+  %.2 = phi i32 [ %.148, %12 ], [ %.148, %29 ], [ %spec.select, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit44, label %12, !llvm.loop !10
 
 .loopexit44:                                      ; preds = %34, %.preheader, %2
-  %.2 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ %.1, %34 ]
+  %.034 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ %.2, %34 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 140
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
@@ -1289,7 +1289,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %12
 
 40:                                               ; preds = %.lr.ph51, %45
   %indvars.iv57 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next58, %45 ]
-  %.349 = phi i32 [ %.2, %.lr.ph51 ], [ %.4, %45 ]
+  %.349 = phi i32 [ %.034, %.lr.ph51 ], [ %.4, %45 ]
   %41 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv57
   %42 = load ptr, ptr %41, align 8
   %43 = tail call fastcc noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %42, i32 noundef %1)
@@ -1307,7 +1307,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %12
   br i1 %exitcond61.not, label %.loopexit, label %40, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_Z12luaG_getlineP5Protoi.exit, %40, %45, %.loopexit44
-  %.0 = phi i32 [ %.2, %.loopexit44 ], [ %1, %40 ], [ %.4, %45 ], [ %1, %_Z12luaG_getlineP5Protoi.exit ]
+  %.0 = phi i32 [ %.034, %.loopexit44 ], [ %1, %40 ], [ %.4, %45 ], [ %1, %_Z12luaG_getlineP5Protoi.exit ]
   ret i32 %.0
 }
 

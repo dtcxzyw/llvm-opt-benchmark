@@ -103201,7 +103201,7 @@ for.cond:                                         ; preds = %cleanup43
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %total.0168 = phi i64 [ 0, %for.body.lr.ph ], [ %total.1, %for.cond ]
+  %total.0168 = phi i64 [ 0, %for.body.lr.ph ], [ %total.2, %for.cond ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2261)
   %3 = load ptr, ptr %footer_.i, align 8, !noalias !2261
   %4 = load i32, ptr %3, align 4, !noalias !2261
@@ -103612,7 +103612,7 @@ invoke.cont39:                                    ; preds = %cond.true.i.i, %_ZN
   br label %cleanup41
 
 cleanup41:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i118, %invoke.cont37, %_ZN5arrow6Status11DeleteStateEv.exit.i34, %if.then26, %invoke.cont39
-  %total.1 = phi i64 [ %add, %invoke.cont39 ], [ %total.0168, %if.then26 ], [ %total.0168, %_ZN5arrow6Status11DeleteStateEv.exit.i34 ], [ %total.0168, %invoke.cont37 ], [ %total.0168, %_ZN5arrow6Status11DeleteStateEv.exit.i118 ]
+  %total.2 = phi i64 [ %add, %invoke.cont39 ], [ %total.0168, %if.then26 ], [ %total.0168, %_ZN5arrow6Status11DeleteStateEv.exit.i34 ], [ %total.0168, %invoke.cont37 ], [ %total.0168, %_ZN5arrow6Status11DeleteStateEv.exit.i118 ]
   %switch = phi i1 [ true, %invoke.cont39 ], [ false, %if.then26 ], [ false, %_ZN5arrow6Status11DeleteStateEv.exit.i34 ], [ false, %invoke.cont37 ], [ false, %_ZN5arrow6Status11DeleteStateEv.exit.i118 ]
   %62 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %62, null
@@ -103708,7 +103708,7 @@ ehcleanup:                                        ; preds = %lpad19, %lpad11
   br label %eh.resume
 
 for.end:                                          ; preds = %for.cond, %entry
-  %total.0.lcssa = phi i64 [ 0, %entry ], [ %total.1, %for.cond ]
+  %total.0.lcssa = phi i64 [ 0, %entry ], [ %total.2, %for.cond ]
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i148 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %total.0.lcssa, ptr %storage_.i.i148, align 8

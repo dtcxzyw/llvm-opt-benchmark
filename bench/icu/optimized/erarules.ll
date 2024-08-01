@@ -235,7 +235,7 @@ if.end36:                                         ; preds = %invoke.cont30
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76, %if.end36
-  %firstTentativeIdx.0 = phi i32 [ 2147483647, %if.end36 ], [ %firstTentativeIdx.2, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76 ]
+  %firstTentativeIdx.0 = phi i32 [ 2147483647, %if.end36 ], [ %firstTentativeIdx.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76 ]
   %call44 = invoke signext i8 @ures_hasNext_75(ptr noundef %call1)
           to label %invoke.cont43 unwind label %lpad31
 
@@ -308,7 +308,7 @@ if.then76:                                        ; preds = %if.end69
   br label %cleanup180
 
 while.cond78:                                     ; preds = %while.cond78.preheader, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
-  %hasName.0 = phi i8 [ %hasName.2, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ 1, %while.cond78.preheader ]
+  %hasName.0 = phi i8 [ %hasName.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ 1, %while.cond78.preheader ]
   %call82 = invoke signext i8 @ures_hasNext_75(ptr noundef %call49)
           to label %invoke.cont81 unwind label %lpad51.loopexit
 
@@ -404,7 +404,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 
 cleanup:                                          ; preds = %if.else, %invoke.cont136, %if.end120, %invoke.cont105, %if.then119, %invoke.cont89
   %19 = phi ptr [ %call88, %invoke.cont89 ], [ %call88, %if.else ], [ %call88, %invoke.cont136 ], [ %.pr.pre, %if.end120 ], [ %call88, %invoke.cont105 ], [ %call88, %if.then119 ]
-  %hasName.2 = phi i8 [ %hasName.0, %invoke.cont89 ], [ %hasName.0, %if.else ], [ %spec.select, %invoke.cont136 ], [ %hasName.0, %if.end120 ], [ %hasName.0, %invoke.cont105 ], [ %hasName.0, %if.then119 ]
+  %hasName.1 = phi i8 [ %hasName.0, %invoke.cont89 ], [ %hasName.0, %if.else ], [ %spec.select, %invoke.cont136 ], [ %hasName.0, %if.end120 ], [ %hasName.0, %invoke.cont105 ], [ %hasName.0, %if.then119 ]
   %cond1 = phi i1 [ false, %invoke.cont89 ], [ true, %if.else ], [ true, %invoke.cont136 ], [ true, %if.end120 ], [ false, %invoke.cont105 ], [ false, %if.then119 ]
   %cmp.not.i = icmp eq ptr %19, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
@@ -458,7 +458,7 @@ if.else175:                                       ; preds = %if.end169
   br label %cleanup180
 
 cleanup180:                                       ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %if.else175, %if.then171, %if.then173, %if.then162, %if.then76, %if.then68, %if.then64, %invoke.cont50
-  %firstTentativeIdx.2 = phi i32 [ %firstTentativeIdx.0, %invoke.cont50 ], [ %spec.select54, %if.else175 ], [ %firstTentativeIdx.0, %if.then171 ], [ %firstTentativeIdx.0, %if.then162 ], [ %firstTentativeIdx.0, %if.then173 ], [ %firstTentativeIdx.0, %if.then76 ], [ %firstTentativeIdx.0, %if.then68 ], [ %firstTentativeIdx.0, %if.then64 ], [ %firstTentativeIdx.0, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ]
+  %firstTentativeIdx.1 = phi i32 [ %firstTentativeIdx.0, %invoke.cont50 ], [ %spec.select54, %if.else175 ], [ %firstTentativeIdx.0, %if.then171 ], [ %firstTentativeIdx.0, %if.then162 ], [ %firstTentativeIdx.0, %if.then173 ], [ %firstTentativeIdx.0, %if.then76 ], [ %firstTentativeIdx.0, %if.then68 ], [ %firstTentativeIdx.0, %if.then64 ], [ %firstTentativeIdx.0, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ]
   %cond = phi i1 [ false, %invoke.cont50 ], [ true, %if.else175 ], [ true, %if.then171 ], [ false, %if.then162 ], [ false, %if.then173 ], [ false, %if.then76 ], [ false, %if.then68 ], [ false, %if.then64 ], [ false, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ]
   %cmp.not.i73 = icmp eq ptr %call49, null
   br i1 %cmp.not.i73, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76, label %if.then.i74
@@ -521,7 +521,7 @@ cleanup208.sink.split:                            ; preds = %if.else191, %if.the
   br label %cleanup208
 
 cleanup208:                                       ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76, %cleanup208.sink.split, %new.notnull, %new.notnull194
-  %retval.4 = phi ptr [ %call192, %new.notnull ], [ %call192, %new.notnull194 ], [ null, %cleanup208.sink.split ], [ null, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76 ]
+  %retval.2 = phi ptr [ %call192, %new.notnull ], [ %call192, %new.notnull194 ], [ null, %cleanup208.sink.split ], [ null, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit76 ]
   %27 = load ptr, ptr %startDates, align 8
   invoke void @uprv_free_75(ptr noundef %27)
           to label %cleanup210 unwind label %terminate.lpad.i77
@@ -547,7 +547,7 @@ terminate.lpad.i78:                               ; preds = %ehcleanup209
   unreachable
 
 cleanup210:                                       ; preds = %cleanup208, %invoke.cont17
-  %retval.5 = phi ptr [ null, %invoke.cont17 ], [ %retval.4, %cleanup208 ]
+  %retval.1 = phi ptr [ null, %invoke.cont17 ], [ %retval.2, %cleanup208 ]
   %cmp.not.i80 = icmp eq ptr %call1, null
   br i1 %cmp.not.i80, label %return, label %if.then.i81
 
@@ -568,8 +568,8 @@ ehcleanup211:                                     ; preds = %ehcleanup209, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %if.then.i81, %cleanup210, %entry
-  %retval.6 = phi ptr [ null, %entry ], [ %retval.5, %cleanup210 ], [ %retval.5, %if.then.i81 ]
-  ret ptr %retval.6
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup210 ], [ %retval.1, %if.then.i81 ]
+  ret ptr %retval.0
 }
 
 declare ptr @ures_openDirect_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

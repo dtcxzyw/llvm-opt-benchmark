@@ -295,7 +295,7 @@ define dso_local range(i32 2, 4) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread
 
 .thread:                                          ; preds = %84, %77, %59, %50, %57, %115, %92, %86, %66
-  %.1.i.ph.ph = phi i32 [ 2, %66 ], [ 2, %86 ], [ 2, %92 ], [ 2, %115 ], [ 2, %57 ], [ 2, %50 ], [ 2, %59 ], [ %switch.select.i, %77 ], [ 21, %84 ]
+  %.0.i.ph.ph = phi i32 [ 2, %66 ], [ 2, %86 ], [ 2, %92 ], [ 2, %115 ], [ 2, %57 ], [ 2, %50 ], [ 2, %59 ], [ %switch.select.i, %77 ], [ 21, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -413,7 +413,7 @@ define dso_local range(i32 2, 4) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %166
 
 166:                                              ; preds = %117, %.thread, %159, %152, %162, %161, %154, %150, %137, %135, %133
-  %.0 = phi i32 [ 2, %137 ], [ 2, %135 ], [ 0, %133 ], [ 2, %154 ], [ 2, %161 ], [ %165, %162 ], [ 2, %150 ], [ 0, %152 ], [ 0, %159 ], [ 0, %117 ], [ %.1.i.ph.ph, %.thread ]
+  %.0 = phi i32 [ 2, %137 ], [ 2, %135 ], [ 0, %133 ], [ 2, %154 ], [ 2, %161 ], [ %165, %162 ], [ 2, %150 ], [ 0, %152 ], [ 0, %159 ], [ 0, %117 ], [ %.0.i.ph.ph, %.thread ]
   %167 = load ptr, ptr %6, align 8
   call void @onas_cleanup(ptr noundef %167)
   call void @exit(i32 noundef %.0) #14

@@ -167,7 +167,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
 
 97:                                               ; preds = %.loopexit1091
   %98 = icmp sgt i32 %5, 1
-  %.0799 = select i1 %98, double -5.000000e-01, double 0.000000e+00
+  %.1800 = select i1 %98, double -5.000000e-01, double 0.000000e+00
   %99 = insertelement <2 x i32> poison, i32 %7, i64 0
   %100 = insertelement <2 x i32> %99, i32 %8, i64 1
   %101 = sitofp <2 x i32> %100 to <2 x double>
@@ -175,7 +175,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %103 = insertelement <2 x i32> poison, i32 %5, i64 0
   %104 = insertelement <2 x i32> %103, i32 %6, i64 1
   %105 = add nsw <2 x i32> %104, <i32 -1, i32 -1>
-  %106 = insertelement <2 x double> poison, double %.0799, i64 0
+  %106 = insertelement <2 x double> poison, double %.1800, i64 0
   %107 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> zeroinitializer
   %108 = fsub <2 x double> %101, %107
   %109 = sitofp <2 x i32> %105 to <2 x double>
@@ -198,17 +198,17 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %124 = extractelement <2 x i1> %123, i64 0
   %125 = extractelement <2 x double> %111, i64 0
   %126 = extractelement <2 x double> %122, i64 0
-  %.0807 = select i1 %124, double %126, double %125
-  %127 = insertelement <2 x double> %111, double %.0807, i64 0
+  %.1808 = select i1 %124, double %126, double %125
+  %127 = insertelement <2 x double> %111, double %.1808, i64 0
   %128 = extractelement <2 x i1> %123, i64 1
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %113
-  %130 = insertelement <2 x double> %122, double %.0807, i64 0
+  %130 = insertelement <2 x double> %122, double %.1808, i64 0
   br label %131
 
 131:                                              ; preds = %97, %129, %113, %95
-  %.1800 = phi double [ 0.000000e+00, %95 ], [ %.0799, %129 ], [ %.0799, %113 ], [ %.0799, %97 ]
+  %.0799 = phi double [ 0.000000e+00, %95 ], [ %.1800, %129 ], [ %.1800, %113 ], [ %.1800, %97 ]
   %132 = phi <2 x double> [ %96, %95 ], [ %130, %129 ], [ %127, %113 ], [ %111, %97 ]
   %133 = phi <2 x double> [ zeroinitializer, %95 ], [ %117, %129 ], [ %117, %113 ], [ %108, %97 ]
   store ptr %2, ptr %0, align 8
@@ -573,11 +573,11 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %332 = shufflevector <2 x double> %331, <2 x double> poison, <2 x i32> zeroinitializer
   %333 = fmul <2 x double> %332, %133
   %334 = fmul <2 x double> %332, %132
-  %335 = fadd double %147, %.1800
+  %335 = fadd double %147, %.0799
   %336 = fptosi double %335 to i32
-  %337 = fadd double %150, %.1800
+  %337 = fadd double %150, %.0799
   %338 = fptosi double %337 to i32
-  %339 = insertelement <2 x double> poison, double %.1800, i64 0
+  %339 = insertelement <2 x double> poison, double %.0799, i64 0
   %340 = shufflevector <2 x double> %339, <2 x double> poison, <2 x i32> zeroinitializer
   %341 = fadd <2 x double> %132, %340
   %342 = fptosi <2 x double> %341 to <2 x i32>
@@ -665,7 +665,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
 
 404:                                              ; preds = %.lr.ph1131, %._crit_edge1186
   %indvars.iv1171 = phi i64 [ %394, %.lr.ph1131 ], [ %indvars.iv.next1172, %._crit_edge1186 ]
-  %.08211130 = phi i32 [ %359, %.lr.ph1131 ], [ %.2823, %._crit_edge1186 ]
+  %.08211130 = phi i32 [ %359, %.lr.ph1131 ], [ %.1822, %._crit_edge1186 ]
   %.08241129 = phi i32 [ %364, %.lr.ph1131 ], [ %.1825, %._crit_edge1186 ]
   %.08471128 = phi i32 [ 0, %.lr.ph1131 ], [ %spec.select972, %._crit_edge1186 ]
   %405 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1171
@@ -718,7 +718,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br label %440
 
 440:                                              ; preds = %432, %404
-  %.1816 = phi i32 [ %409, %404 ], [ %spec.select, %432 ]
+  %.0815 = phi i32 [ %409, %404 ], [ %spec.select, %432 ]
   %.0812 = phi i32 [ %410, %404 ], [ %spec.select990, %432 ]
   %.0806 = phi double [ %425, %404 ], [ %433, %432 ]
   %.0805 = phi double [ %429, %404 ], [ %434, %432 ]
@@ -756,12 +756,12 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br label %461
 
 461:                                              ; preds = %451, %440
-  %.2814 = phi i32 [ %.0812, %440 ], [ %spec.select991, %451 ]
-  %462 = tail call double @llvm.fmuladd.f64(double %.0806, double %354, double %.1800)
+  %.1813 = phi i32 [ %.0812, %440 ], [ %spec.select991, %451 ]
+  %462 = tail call double @llvm.fmuladd.f64(double %.0806, double %354, double %.0799)
   %463 = fmul double %462, %357
   %464 = fptosi double %463 to i32
   %465 = ashr i32 %464, %11
-  %466 = tail call double @llvm.fmuladd.f64(double %.0805, double %354, double %.1800)
+  %466 = tail call double @llvm.fmuladd.f64(double %.0805, double %354, double %.0799)
   %467 = fmul double %466, %362
   %468 = fptosi double %467 to i32
   %469 = ashr i32 %468, %12
@@ -773,8 +773,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %.not946 = icmp slt i32 %469, %390
   %spec.select1136 = select i1 %.not946, i32 %468, i32 %392
   %.0810 = select i1 %471, i32 %393, i32 %spec.select1136
-  %.not947 = icmp slt i32 %.2814, %.1816
-  %.pre = sub nsw i32 %.2814, %.1816
+  %.not947 = icmp slt i32 %.1813, %.0815
+  %.pre = sub nsw i32 %.1813, %.0815
   br i1 %.not947, label %._crit_edge1186, label %472
 
 472:                                              ; preds = %461
@@ -802,7 +802,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br label %486
 
 486:                                              ; preds = %472, %482, %484
-  %.1822 = phi i32 [ %483, %482 ], [ %485, %484 ], [ %.08211130, %472 ]
+  %.2823 = phi i32 [ %483, %482 ], [ %485, %484 ], [ %.08211130, %472 ]
   %487 = icmp sge i32 %478, %.0819
   %.not949 = icmp slt i32 %478, %390
   %or.cond971 = select i1 %487, i1 %.not949, i1 false
@@ -822,9 +822,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
 
 ._crit_edge1186:                                  ; preds = %461, %486, %492, %490
   %.1825 = phi i32 [ %.08241129, %486 ], [ %493, %492 ], [ %491, %490 ], [ %.08241129, %461 ]
-  %.2823 = phi i32 [ %.1822, %486 ], [ %.1822, %492 ], [ %.1822, %490 ], [ %.08211130, %461 ]
-  store i32 %.1816, ptr %405, align 4
-  store i32 %.2814, ptr %407, align 4
+  %.1822 = phi i32 [ %.2823, %486 ], [ %.2823, %492 ], [ %.2823, %490 ], [ %.08211130, %461 ]
+  store i32 %.0815, ptr %405, align 4
+  store i32 %.1813, ptr %407, align 4
   %494 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1171
   store i32 %.0811, ptr %494, align 4
   %495 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv1171
@@ -839,9 +839,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
 
 497:                                              ; preds = %.lr.ph1122, %._crit_edge1185
   %indvars.iv1166 = phi i64 [ %375, %.lr.ph1122 ], [ %indvars.iv.next1167, %._crit_edge1185 ]
-  %.31121 = phi i32 [ %359, %.lr.ph1122 ], [ %.5, %._crit_edge1185 ]
-  %.28261120 = phi i32 [ %364, %.lr.ph1122 ], [ %.3827, %._crit_edge1185 ]
-  %.28491119 = phi i32 [ 0, %.lr.ph1122 ], [ %spec.select989, %._crit_edge1185 ]
+  %.41121 = phi i32 [ %359, %.lr.ph1122 ], [ %.5, %._crit_edge1185 ]
+  %.38271120 = phi i32 [ %364, %.lr.ph1122 ], [ %.4828, %._crit_edge1185 ]
+  %.38501119 = phi i32 [ 0, %.lr.ph1122 ], [ %spec.select989, %._crit_edge1185 ]
   %498 = getelementptr inbounds i32, ptr %.0789, i64 %indvars.iv1166
   %499 = load i32, ptr %498, align 4
   %500 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv1166
@@ -892,7 +892,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br label %533
 
 533:                                              ; preds = %525, %497
-  %.1798 = phi i32 [ %502, %497 ], [ %spec.select976, %525 ]
+  %.0797 = phi i32 [ %502, %497 ], [ %spec.select976, %525 ]
   %.0796 = phi i32 [ %503, %497 ], [ %spec.select992, %525 ]
   %.0792 = phi double [ %518, %497 ], [ %526, %525 ]
   %.0791 = phi double [ %522, %497 ], [ %527, %525 ]
@@ -929,8 +929,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br label %553
 
 553:                                              ; preds = %545, %533
-  %.2 = phi i32 [ %.0796, %533 ], [ %spec.select993, %545 ]
-  %554 = tail call double @llvm.fmuladd.f64(double %.0792, double %354, double %.1800)
+  %.1 = phi i32 [ %.0796, %533 ], [ %spec.select993, %545 ]
+  %554 = tail call double @llvm.fmuladd.f64(double %.0792, double %354, double %.0799)
   %555 = fmul double %554, %357
   %556 = fptosi double %555 to i32
   %557 = ashr i32 %556, %11
@@ -938,7 +938,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %.not935 = icmp slt i32 %557, %367
   %spec.select1137 = select i1 %.not935, i32 %556, i32 %369
   %.0795 = select i1 %558, i32 %370, i32 %spec.select1137
-  %559 = tail call double @llvm.fmuladd.f64(double %.0791, double %354, double %.1800)
+  %559 = tail call double @llvm.fmuladd.f64(double %.0791, double %354, double %.0799)
   %560 = fmul double %559, %362
   %561 = fptosi double %560 to i32
   %562 = ashr i32 %561, %12
@@ -946,15 +946,15 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %.not936 = icmp slt i32 %562, %371
   %spec.select1138 = select i1 %.not936, i32 %561, i32 %373
   %.0794 = select i1 %563, i32 %374, i32 %spec.select1138
-  %.not937 = icmp slt i32 %.2, %.1798
-  %.pre1187 = sub nsw i32 %.2, %.1798
+  %.not937 = icmp slt i32 %.1, %.0797
+  %.pre1187 = sub nsw i32 %.1, %.0797
   br i1 %.not937, label %._crit_edge1185, label %564
 
 564:                                              ; preds = %553
-  %565 = mul nsw i32 %.pre1187, %.31121
+  %565 = mul nsw i32 %.pre1187, %.41121
   %566 = add nsw i32 %.0795, %565
   %567 = ashr i32 %566, %11
-  %568 = mul nsw i32 %.pre1187, %.28261120
+  %568 = mul nsw i32 %.pre1187, %.38271120
   %569 = add nsw i32 %.0794, %568
   %570 = ashr i32 %569, %12
   %571 = icmp sge i32 %567, %.0820
@@ -963,57 +963,57 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br i1 %or.cond987, label %578, label %572
 
 572:                                              ; preds = %564
-  %573 = icmp sgt i32 %.31121, 0
+  %573 = icmp sgt i32 %.41121, 0
   br i1 %573, label %574, label %576
 
 574:                                              ; preds = %572
-  %575 = add nsw i32 %.31121, -1
+  %575 = add nsw i32 %.41121, -1
   br label %578
 
 576:                                              ; preds = %572
-  %577 = add nsw i32 %.31121, 1
+  %577 = add nsw i32 %.41121, 1
   br label %578
 
 578:                                              ; preds = %564, %574, %576
-  %.4 = phi i32 [ %575, %574 ], [ %577, %576 ], [ %.31121, %564 ]
+  %.6 = phi i32 [ %575, %574 ], [ %577, %576 ], [ %.41121, %564 ]
   %579 = icmp sge i32 %570, %.0819
   %.not939 = icmp slt i32 %570, %371
   %or.cond988 = select i1 %579, i1 %.not939, i1 false
   br i1 %or.cond988, label %._crit_edge1185, label %580
 
 580:                                              ; preds = %578
-  %581 = icmp sgt i32 %.28261120, 0
+  %581 = icmp sgt i32 %.38271120, 0
   br i1 %581, label %582, label %584
 
 582:                                              ; preds = %580
-  %583 = add nsw i32 %.28261120, -1
+  %583 = add nsw i32 %.38271120, -1
   br label %._crit_edge1185
 
 584:                                              ; preds = %580
-  %585 = add nsw i32 %.28261120, 1
+  %585 = add nsw i32 %.38271120, 1
   br label %._crit_edge1185
 
 ._crit_edge1185:                                  ; preds = %553, %578, %584, %582
-  %.3827 = phi i32 [ %.28261120, %578 ], [ %585, %584 ], [ %583, %582 ], [ %.28261120, %553 ]
-  %.5 = phi i32 [ %.4, %578 ], [ %.4, %584 ], [ %.4, %582 ], [ %.31121, %553 ]
-  store i32 %.1798, ptr %498, align 4
-  store i32 %.2, ptr %500, align 4
+  %.4828 = phi i32 [ %.38271120, %578 ], [ %585, %584 ], [ %583, %582 ], [ %.38271120, %553 ]
+  %.5 = phi i32 [ %.6, %578 ], [ %.6, %584 ], [ %.6, %582 ], [ %.41121, %553 ]
+  store i32 %.0797, ptr %498, align 4
+  store i32 %.1, ptr %500, align 4
   %586 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv1166
   store i32 %.0795, ptr %586, align 4
   %587 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv1166
   store i32 %.0794, ptr %587, align 4
-  %.not940 = icmp slt i32 %.pre1187, %.28491119
+  %.not940 = icmp slt i32 %.pre1187, %.38501119
   %588 = add nsw i32 %.pre1187, 1
-  %spec.select989 = select i1 %.not940, i32 %.28491119, i32 %588
+  %spec.select989 = select i1 %.not940, i32 %.38501119, i32 %588
   %indvars.iv.next1167 = add nsw i64 %indvars.iv1166, 1
   %lftr.wideiv1169 = trunc i64 %indvars.iv.next1167 to i32
   %exitcond1170.not = icmp eq i32 %376, %lftr.wideiv1169
   br i1 %exitcond1170.not, label %.loopexit1084, label %497, !llvm.loop !16
 
 .loopexit1084:                                    ; preds = %._crit_edge1185, %._crit_edge1186, %.preheader1085, %.preheader1083
-  %.4851 = phi i32 [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select972, %._crit_edge1186 ], [ %spec.select989, %._crit_edge1185 ]
-  %.4828 = phi i32 [ %364, %.preheader1083 ], [ %364, %.preheader1085 ], [ %.1825, %._crit_edge1186 ], [ %.3827, %._crit_edge1185 ]
-  %.6 = phi i32 [ %359, %.preheader1083 ], [ %359, %.preheader1085 ], [ %.2823, %._crit_edge1186 ], [ %.5, %._crit_edge1185 ]
+  %.2849 = phi i32 [ 0, %.preheader1083 ], [ 0, %.preheader1085 ], [ %spec.select972, %._crit_edge1186 ], [ %spec.select989, %._crit_edge1185 ]
+  %.2826 = phi i32 [ %364, %.preheader1083 ], [ %364, %.preheader1085 ], [ %.1825, %._crit_edge1186 ], [ %.4828, %._crit_edge1185 ]
+  %.3 = phi i32 [ %359, %.preheader1083 ], [ %359, %.preheader1085 ], [ %.1822, %._crit_edge1186 ], [ %.5, %._crit_edge1185 ]
   %589 = sext i32 %.0838 to i64
   %590 = sext i32 %.1842 to i64
   br label %591
@@ -1050,19 +1050,19 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %599
-  %.3844 = phi i32 [ %.1842, %599 ], [ %607, %.loopexit.loopexit ]
+  %.2843 = phi i32 [ %.1842, %599 ], [ %607, %.loopexit.loopexit ]
   %608 = add nsw i32 %600, -1
   %609 = mul nsw i32 %608, %.val1000
   %610 = sext i32 %609 to i64
   %611 = getelementptr inbounds i8, ptr %.val994, i64 %610
   store ptr %611, ptr %135, align 8
   store i32 %600, ptr %143, align 8
-  store i32 %.3844, ptr %144, align 4
-  store i32 %.4851, ptr %142, align 8
+  store i32 %.2843, ptr %144, align 4
+  store i32 %.2849, ptr %142, align 8
   %612 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %.6, ptr %612, align 8
+  store i32 %.3, ptr %612, align 8
   %613 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %.4828, ptr %613, align 4
+  store i32 %.2826, ptr %613, align 4
   br label %614
 
 614:                                              ; preds = %198, %131, %69, %48, %44, %13, %.loopexit

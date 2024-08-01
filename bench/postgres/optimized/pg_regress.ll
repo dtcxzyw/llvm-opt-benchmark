@@ -3803,7 +3803,7 @@ file_line_count.exit:                             ; preds = %45, %52
   br label %55
 
 55:                                               ; preds = %file_line_count.exit, %99
-  %.035103 = phi i32 [ %.0.i48, %file_line_count.exit ], [ %.2, %99 ]
+  %.035103 = phi i32 [ %.0.i48, %file_line_count.exit ], [ %.1, %99 ]
   %.036102 = phi i32 [ 0, %file_line_count.exit ], [ %100, %99 ]
   %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #27
   %57 = shl i64 %56, 32
@@ -3918,12 +3918,12 @@ file_line_count.exit61:                           ; preds = %86, %93
   br label %98
 
 98:                                               ; preds = %96, %file_line_count.exit61
-  %.1 = phi i32 [ %.0.i60, %96 ], [ %.035103, %file_line_count.exit61 ]
+  %.2 = phi i32 [ %.0.i60, %96 ], [ %.035103, %file_line_count.exit61 ]
   call void @free(ptr noundef %61) #23
   br label %99
 
 99:                                               ; preds = %98, %file_exists.exit
-  %.2 = phi i32 [ %.1, %98 ], [ %.035103, %file_exists.exit ]
+  %.1 = phi i32 [ %.2, %98 ], [ %.035103, %file_exists.exit ]
   %100 = add nuw nsw i32 %.036102, 1
   %exitcond.not = icmp eq i32 %100, 10
   br i1 %exitcond.not, label %101, label %55, !llvm.loop !37
@@ -3986,7 +3986,7 @@ run_diff.exit63:                                  ; preds = %102
 
 file_line_count.exit69:                           ; preds = %115, %122
   %.0.i68 = phi i32 [ %.08.i66.ph, %122 ], [ -1, %115 ]
-  %124 = icmp slt i32 %.0.i68, %.2
+  %124 = icmp slt i32 %.0.i68, %.1
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %file_line_count.exit69

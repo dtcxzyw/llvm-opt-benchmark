@@ -1574,7 +1574,7 @@ while.body.i33:                                   ; preds = %if.then18, %while.b
 
 if.end20:                                         ; preds = %while.body.i33, %while.body.i23, %if.then18, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27, %if.then15
   %60 = phi i8 [ %44, %if.then15 ], [ %53, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ %54, %if.then18 ], [ %47, %while.body.i23 ], [ %57, %while.body.i33 ]
-  %is_float.0 = phi i8 [ 1, %if.then15 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ 1, %if.then18 ], [ 1, %while.body.i23 ], [ 1, %while.body.i33 ]
+  %is_float.1 = phi i8 [ 1, %if.then15 ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_15DigitEEEvv.exit27 ], [ 1, %if.then18 ], [ 1, %while.body.i23 ], [ 1, %while.body.i33 ]
   %current_char_.i35 = getelementptr inbounds i8, ptr %this, i64 128
   switch i8 %60, label %if.end27 [
     i8 101, label %if.then24
@@ -1665,7 +1665,7 @@ _ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvP
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end20, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit
-  %is_float.1 = phi i8 [ 1, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit ], [ %is_float.0, %if.end20 ]
+  %is_float.2 = phi i8 [ 1, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit ], [ %is_float.1, %if.end20 ]
   %allow_f_after_float_ = getelementptr inbounds i8, ptr %this, i64 180
   %77 = load i8, ptr %allow_f_after_float_, align 4
   %tobool28 = trunc i8 %77 to i1
@@ -1687,7 +1687,7 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread: ; preds = %land.lh
   br label %if.end36
 
 if.end36:                                         ; preds = %while.body.i21, %land.lhs.true29, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread, %invoke.cont12, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit, %if.end27, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit
-  %is_float.2 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %is_float.1, %if.end27 ], [ 0, %invoke.cont12 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread ], [ %is_float.1, %land.lhs.true29 ], [ 0, %while.body.i21 ]
+  %is_float.0 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %is_float.2, %if.end27 ], [ 0, %invoke.cont12 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread ], [ %is_float.2, %land.lhs.true29 ], [ 0, %while.body.i21 ]
   %79 = getelementptr inbounds i8, ptr %this, i64 128
   %this.val12 = load i8, ptr %79, align 8
   %80 = and i8 %this.val12, -33
@@ -1754,7 +1754,7 @@ if.else49:                                        ; preds = %land.lhs.true38, %i
   br i1 %cmp, label %if.then50, label %if.end72
 
 if.then50:                                        ; preds = %if.else49
-  %tobool51 = trunc nuw i8 %is_float.2 to i1
+  %tobool51 = trunc nuw i8 %is_float.0 to i1
   br i1 %tobool51, label %if.then52, label %if.else61
 
 if.then52:                                        ; preds = %if.then50
@@ -1857,7 +1857,7 @@ if.end72.sink.split:                              ; preds = %invoke.cont65, %inv
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end72.sink.split, %if.else49
-  %tobool73 = trunc nuw i8 %is_float.2 to i1
+  %tobool73 = trunc nuw i8 %is_float.0 to i1
   %cond = select i1 %tobool73, i32 4, i32 3
   ret i32 %cond
 }

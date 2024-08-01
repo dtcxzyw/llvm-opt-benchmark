@@ -2748,7 +2748,7 @@ entry:
   br label %restart
 
 restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55, %entry
-  %m.0 = phi i64 [ %1, %entry ], [ %m.2, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55 ]
+  %m.0 = phi i64 [ %1, %entry ], [ %m.1, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit55 ]
   %and = and i64 %m.0, %conv.i.i
   store ptr null, ptr %b, align 8
   store i8 0, ptr %m_is_writer.i.i, align 8
@@ -2991,7 +2991,7 @@ invoke.cont27:                                    ; preds = %if.else.i, %if.then
 cleanup:                                          ; preds = %for.end.i.i, %if.then.i, %if.then, %invoke.cont20, %invoke.cont14, %if.end9, %invoke.cont27
   %tobool.not63 = phi i1 [ true, %if.end9 ], [ true, %invoke.cont14 ], [ true, %invoke.cont20 ], [ true, %invoke.cont27 ], [ false, %if.then ], [ false, %if.then.i ], [ false, %for.end.i.i ]
   %n.0.lcssa.i62 = phi ptr [ %n.0.lcssa.i61, %if.end9 ], [ %n.0.lcssa.i61, %invoke.cont14 ], [ %n.0.lcssa.i61, %invoke.cont20 ], [ %n.0.lcssa.i61, %invoke.cont27 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %for.end.i.i ]
-  %m.2 = phi i64 [ %m.0, %if.end9 ], [ %m.0, %invoke.cont14 ], [ %m.0, %invoke.cont20 ], [ %34, %invoke.cont27 ], [ %m.0, %if.then ], [ %13, %if.then.i ], [ %13, %for.end.i.i ]
+  %m.1 = phi i64 [ %m.0, %if.end9 ], [ %m.0, %invoke.cont14 ], [ %m.0, %invoke.cont20 ], [ %34, %invoke.cont27 ], [ %m.0, %if.then ], [ %13, %if.then.i ], [ %13, %for.end.i.i ]
   %cleanup.dest.slot.0 = phi i32 [ 4, %if.end9 ], [ 0, %invoke.cont14 ], [ 0, %invoke.cont20 ], [ 2, %invoke.cont27 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %for.end.i.i ]
   %35 = load ptr, ptr %b, align 8
   %tobool.not.i.i48 = icmp eq ptr %35, null
@@ -3309,7 +3309,7 @@ common.resume:                                    ; preds = %if.then.i.i.i23, %i
   resume { ptr, i32 } %common.resume.op
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit: ; preds = %seqcst.i14.i.i.i, %if.then.i, %if.then11.i
-  %b_old.sroa.10.0 = phi i8 [ 1, %if.then.i ], [ 1, %if.then11.i ], [ 0, %seqcst.i14.i.i.i ]
+  %b_old.sroa.10.5 = phi i8 [ 1, %if.then.i ], [ 1, %if.then11.i ], [ 0, %seqcst.i14.i.i.i ]
   %shl2 = shl nuw i64 %sub, 1
   %or = or disjoint i64 %shl2, 1
   %13 = load atomic i64, ptr %node_list.i acquire, align 8
@@ -3324,7 +3324,7 @@ restart.loopexit:                                 ; preds = %invoke.cont15
   br i1 %cmp.i33, label %invoke.cont8.backedge, label %if.then.i.i.i31
 
 invoke.cont8:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit, %invoke.cont8.backedge
-  %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.2.be, %invoke.cont8.backedge ], [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
+  %b_old.sroa.10.1 = phi i8 [ %b_old.sroa.10.1.be, %invoke.cont8.backedge ], [ %b_old.sroa.10.5, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
   %prev.035 = phi ptr [ %prev.035.be, %invoke.cont8.backedge ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
   %curr.034 = phi ptr [ %curr.034.be, %invoke.cont8.backedge ], [ %atomic-temp.i.0.i37, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
   %15 = getelementptr inbounds i8, ptr %curr.034, i64 16
@@ -3335,7 +3335,7 @@ invoke.cont8:                                     ; preds = %_ZN3tbb6detail2d219
   br i1 %cmp, label %if.then, label %if.else30
 
 if.then:                                          ; preds = %invoke.cont8
-  %tobool.i = trunc nuw i8 %b_old.sroa.10.2 to i1
+  %tobool.i = trunc nuw i8 %b_old.sroa.10.1 to i1
   br i1 %tobool.i, label %if.end18, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
@@ -3351,7 +3351,7 @@ if.then.i.i.i23:                                  ; preds = %if.end.i
   br label %common.resume
 
 if.end18:                                         ; preds = %invoke.cont15, %if.then
-  %b_old.sroa.10.3 = phi i8 [ %b_old.sroa.10.2, %if.then ], [ 1, %invoke.cont15 ]
+  %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.1, %if.then ], [ 1, %invoke.cont15 ]
   %18 = load ptr, ptr %curr.034, align 8
   %cmp20 = icmp eq ptr %prev.035, null
   br i1 %cmp20, label %if.then21, label %if.else
@@ -3378,21 +3378,21 @@ if.else30:                                        ; preds = %invoke.cont8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else30, %if.end28
-  %b_old.sroa.10.4 = phi i8 [ %b_old.sroa.10.3, %if.end28 ], [ %b_old.sroa.10.2, %if.else30 ]
+  %b_old.sroa.10.3 = phi i8 [ %b_old.sroa.10.2, %if.end28 ], [ %b_old.sroa.10.1, %if.else30 ]
   %curr.1 = phi ptr [ %18, %if.end28 ], [ %22, %if.else30 ]
   %prev.1 = phi ptr [ %prev.035, %if.end28 ], [ %curr.034, %if.else30 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)
   br i1 %cmp.i, label %invoke.cont8.backedge, label %if.then.i.i26
 
 invoke.cont8.backedge:                            ; preds = %if.end32, %restart.loopexit
-  %b_old.sroa.10.2.be = phi i8 [ %b_old.sroa.10.4, %if.end32 ], [ 1, %restart.loopexit ]
+  %b_old.sroa.10.1.be = phi i8 [ %b_old.sroa.10.3, %if.end32 ], [ 1, %restart.loopexit ]
   %prev.035.be = phi ptr [ %prev.1, %if.end32 ], [ null, %restart.loopexit ]
   %curr.034.be = phi ptr [ %curr.1, %if.end32 ], [ %atomic-temp.i.0.i, %restart.loopexit ]
   br label %invoke.cont8, !llvm.loop !21
 
 if.then.i.i26:                                    ; preds = %if.end32, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
-  %b_old.sroa.10.5 = phi i8 [ %b_old.sroa.10.0, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ], [ %b_old.sroa.10.4, %if.end32 ]
-  %tobool.i.i.i28 = trunc nuw i8 %b_old.sroa.10.5 to i1
+  %b_old.sroa.10.0 = phi i8 [ %b_old.sroa.10.5, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ], [ %b_old.sroa.10.3, %if.end32 ]
+  %tobool.i.i.i28 = trunc nuw i8 %b_old.sroa.10.0 to i1
   br i1 %tobool.i.i.i28, label %if.then.i.i.i31, label %if.else.i.i.i29
 
 if.then.i.i.i31:                                  ; preds = %restart.loopexit, %if.then.i.i26
@@ -3561,7 +3561,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35, %entry
-  %mask.0 = phi i64 [ %2, %entry ], [ %mask.2, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35 ]
+  %mask.0 = phi i64 [ %2, %entry ], [ %mask.1, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35 ]
   %and = and i64 %mask.0, %1
   store ptr null, ptr %b, align 8
   store i8 0, ptr %m_is_writer.i.i, align 8
@@ -3659,7 +3659,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %if.then.i, %for.end.i.i, %if.then
-  %mask.1.ph = phi i64 [ %mask.0, %if.then ], [ %13, %for.end.i.i ], [ %13, %if.then.i ]
+  %mask.2.ph = phi i64 [ %mask.0, %if.then ], [ %13, %for.end.i.i ], [ %13, %if.then.i ]
   %19 = load ptr, ptr %my_node, align 8
   %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %cleanup, label %if.then.i24
@@ -3699,7 +3699,7 @@ if.end16:                                         ; preds = %if.else, %if.then10
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i, %if.end, %for.end.i.i, %if.end16
-  %mask.2 = phi i64 [ %mask.0, %if.end16 ], [ %13, %for.end.i.i ], [ %mask.1.ph, %if.end ], [ %mask.1.ph, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
+  %mask.1 = phi i64 [ %mask.0, %if.end16 ], [ %13, %for.end.i.i ], [ %mask.2.ph, %if.end ], [ %mask.2.ph, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
   %cleanup.dest.slot.0 = phi i32 [ 2, %if.end16 ], [ 3, %for.end.i.i ], [ 1, %if.end ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i ]
   %28 = load ptr, ptr %b, align 8
   %tobool.not.i.i28 = icmp eq ptr %28, null
@@ -3863,7 +3863,7 @@ entry:
   br label %restart
 
 restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109, %entry
-  %m.0 = phi i64 [ %1, %entry ], [ %m.3, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
+  %m.0 = phi i64 [ %1, %entry ], [ %m.2, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
   %tmp_n.addr.0 = phi ptr [ %tmp_n, %entry ], [ %tmp_n.addr.3, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
   %grow_segment.0 = phi i64 [ 0, %entry ], [ %grow_segment.2, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit109 ]
   %and = and i64 %m.0, %conv.i.i
@@ -4065,7 +4065,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i65, label %if.end31, label %cleanup
 
 if.end31:                                         ; preds = %if.then.i62, %for.end.i.i, %while.end
-  %m.1.ph = phi i64 [ %m.0, %while.end ], [ %28, %for.end.i.i ], [ %28, %if.then.i62 ]
+  %m.3.ph = phi i64 [ %m.0, %while.end ], [ %28, %for.end.i.i ], [ %28, %if.then.i62 ]
   %34 = load ptr, ptr %my_b.i, align 8
   %35 = atomicrmw add ptr %my_size.i, i64 1 seq_cst, align 8
   %36 = add i64 %35, 1
@@ -4075,11 +4075,11 @@ if.end31:                                         ; preds = %if.then.i62, %for.e
   store ptr %atomic-temp.i.0.i.i.i69, ptr %tmp_n.addr.1, align 8
   %38 = ptrtoint ptr %tmp_n.addr.1 to i64
   store atomic i64 %38, ptr %node_list.i.i68 monotonic, align 8
-  %cmp.not.i70 = icmp ult i64 %36, %m.1.ph
+  %cmp.not.i70 = icmp ult i64 %36, %m.3.ph
   br i1 %cmp.not.i70, label %exists, label %if.then.i71
 
 if.then.i71:                                      ; preds = %if.end31
-  %add.i = add i64 %m.1.ph, 1
+  %add.i = add i64 %m.3.ph, 1
   %39 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i, i1 true)
   %xor.i.i.i = xor i64 %39, 63
   %arrayidx.i = getelementptr inbounds [64 x %"struct.std::atomic.8"], ptr %my_table.i.i.i, i64 0, i64 %xor.i.i.i
@@ -4094,7 +4094,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i71
   br label %exists
 
 exists:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.then.i71, %if.end31, %if.then16, %if.then.i, %invoke.cont
-  %m.2 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.1.ph, %if.end31 ], [ %m.1.ph, %if.then.i71 ], [ %m.1.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
+  %m.1 = phi i64 [ %m.0, %invoke.cont ], [ %m.0, %if.then.i ], [ %m.0, %if.then16 ], [ %m.3.ph, %if.end31 ], [ %m.3.ph, %if.then.i71 ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.i ]
   %return_value.0 = phi i1 [ false, %invoke.cont ], [ false, %if.then.i ], [ false, %if.then16 ], [ true, %if.end31 ], [ true, %if.then.i71 ], [ true, %land.lhs.true.i ], [ false, %land.rhs.i ]
   %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.0, %invoke.cont ], [ %tmp_n.addr.1, %if.then.i ], [ %tmp_n.addr.1, %if.then16 ], [ null, %if.end31 ], [ null, %if.then.i71 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.i ]
   %grow_segment.1 = phi i64 [ %grow_segment.0, %invoke.cont ], [ %grow_segment.0, %if.then.i ], [ %grow_segment.0, %if.then16 ], [ 0, %if.end31 ], [ 0, %if.then.i71 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.i ]
@@ -4215,7 +4215,7 @@ invoke.cont52:                                    ; preds = %if.else.i, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont46, %invoke.cont40, %for.end.i.i, %exists, %invoke.cont52
-  %m.3 = phi i64 [ %m.2, %exists ], [ %m.2, %invoke.cont40 ], [ %m.2, %invoke.cont46 ], [ %57, %invoke.cont52 ], [ %28, %for.end.i.i ]
+  %m.2 = phi i64 [ %m.1, %exists ], [ %m.1, %invoke.cont40 ], [ %m.1, %invoke.cont46 ], [ %57, %invoke.cont52 ], [ %28, %for.end.i.i ]
   %return_value.1 = phi i1 [ %return_value.0, %exists ], [ %return_value.0, %invoke.cont40 ], [ %return_value.0, %invoke.cont46 ], [ %return_value.0, %invoke.cont52 ], [ false, %for.end.i.i ]
   %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.2, %invoke.cont40 ], [ %tmp_n.addr.2, %invoke.cont46 ], [ %tmp_n.addr.2, %invoke.cont52 ], [ %tmp_n.addr.1, %for.end.i.i ]
   %grow_segment.2 = phi i64 [ %grow_segment.1, %exists ], [ %grow_segment.1, %invoke.cont40 ], [ %grow_segment.1, %invoke.cont46 ], [ %grow_segment.1, %invoke.cont52 ], [ %grow_segment.0, %for.end.i.i ]

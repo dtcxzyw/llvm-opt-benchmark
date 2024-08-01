@@ -1761,7 +1761,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup5Table22try_deduplicate_shared
   br label %69
 
 69:                                               ; preds = %._crit_edge, %67, %52
-  %.0 = phi i1 [ true, %52 ], [ %68, %67 ], [ false, %._crit_edge ]
+  %.1 = phi i1 [ true, %52 ], [ %68, %67 ], [ false, %._crit_edge ]
   %70 = load ptr, ptr %39, align 8
   %.not.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i, label %72, label %71
@@ -1783,8 +1783,8 @@ define hidden noundef zeroext i1 @_ZN11StringDedup5Table22try_deduplicate_shared
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %74, %72, %30, %28
-  %.1 = phi i1 [ true, %28 ], [ false, %30 ], [ %.0, %72 ], [ %.0, %74 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %28 ], [ false, %30 ], [ %.1, %72 ], [ %.1, %74 ]
+  ret i1 %.0
 }
 
 declare noundef ptr @_ZN11StringTable13lookup_sharedEPKti(ptr noundef, i32 noundef) local_unnamed_addr #3

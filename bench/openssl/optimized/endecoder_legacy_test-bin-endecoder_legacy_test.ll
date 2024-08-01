@@ -383,7 +383,7 @@ for.cond.preheader:                               ; preds = %if.end23
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %test_protected_PEM.exit
-  %ok.0105 = phi i32 [ 1, %for.cond.preheader ], [ %tobool36.not, %test_protected_PEM.exit ]
+  %ok.2105 = phi i32 [ 1, %for.cond.preheader ], [ %tobool36.not, %test_protected_PEM.exit ]
   %cmp27 = phi i1 [ true, %for.cond.preheader ], [ false, %test_protected_PEM.exit ]
   %i.0104 = phi i64 [ 0, %for.cond.preheader ], [ 1, %test_protected_PEM.exit ]
   %arrayidx30 = getelementptr inbounds [2 x ptr], ptr %structure29, i64 0, i64 %i.0104
@@ -492,23 +492,23 @@ if.then56.i:                                      ; preds = %if.end52.i
   br label %test_protected_PEM.exit
 
 test_protected_PEM.exit:                          ; preds = %for.body, %lor.lhs.false.i, %if.end.i, %lor.lhs.false10.i, %lor.lhs.false14.i, %lor.lhs.false20.i, %if.end24.i, %if.then27.i, %lor.lhs.false31.i, %lor.lhs.false35.i, %lor.lhs.false41.i, %lor.lhs.false45.i, %if.end52.i, %if.then56.i
-  %tobool36.not = phi i32 [ 0, %lor.lhs.false45.i ], [ 0, %lor.lhs.false41.i ], [ 0, %lor.lhs.false35.i ], [ 0, %lor.lhs.false31.i ], [ 0, %if.then27.i ], [ 0, %lor.lhs.false20.i ], [ 0, %lor.lhs.false14.i ], [ 0, %lor.lhs.false10.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %for.body ], [ %ok.0105, %if.end52.i ], [ %ok.0105, %if.then56.i ], [ %ok.0105, %if.end24.i ]
+  %tobool36.not = phi i32 [ 0, %lor.lhs.false45.i ], [ 0, %lor.lhs.false41.i ], [ 0, %lor.lhs.false35.i ], [ 0, %lor.lhs.false31.i ], [ 0, %if.then27.i ], [ 0, %lor.lhs.false20.i ], [ 0, %lor.lhs.false14.i ], [ 0, %lor.lhs.false10.i ], [ 0, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %for.body ], [ %ok.2105, %if.end52.i ], [ %ok.2105, %if.then56.i ], [ %ok.2105, %if.end24.i ]
   %membio_provided.0.i = phi ptr [ %call4.i, %lor.lhs.false45.i ], [ %call4.i, %lor.lhs.false41.i ], [ %call4.i, %lor.lhs.false35.i ], [ %call4.i, %lor.lhs.false31.i ], [ %call4.i, %if.then27.i ], [ %call4.i, %lor.lhs.false20.i ], [ %call4.i, %lor.lhs.false14.i ], [ %call4.i, %lor.lhs.false10.i ], [ %call4.i, %if.end.i ], [ %call4.i, %lor.lhs.false.i ], [ null, %for.body ], [ %call4.i, %if.end52.i ], [ %call4.i, %if.then56.i ], [ %call4.i, %if.end24.i ]
   %ectx.0.i = phi ptr [ %call7.i, %lor.lhs.false45.i ], [ %call7.i, %lor.lhs.false41.i ], [ %call7.i, %lor.lhs.false35.i ], [ %call7.i, %lor.lhs.false31.i ], [ %call7.i, %if.then27.i ], [ %call7.i, %lor.lhs.false20.i ], [ %call7.i, %lor.lhs.false14.i ], [ %call7.i, %lor.lhs.false10.i ], [ %call7.i, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call7.i, %if.end52.i ], [ %call7.i, %if.then56.i ], [ %call7.i, %if.end24.i ]
-  %dctx.1.i = phi ptr [ %call32.i, %lor.lhs.false45.i ], [ %call32.i, %lor.lhs.false41.i ], [ %call32.i, %lor.lhs.false35.i ], [ %call32.i, %lor.lhs.false31.i ], [ null, %if.then27.i ], [ null, %lor.lhs.false20.i ], [ null, %lor.lhs.false14.i ], [ null, %lor.lhs.false10.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call32.i, %if.end52.i ], [ %call32.i, %if.then56.i ], [ null, %if.end24.i ]
-  %decoded_legacy_pkey.1.i = phi ptr [ %call28.i, %lor.lhs.false45.i ], [ %call28.i, %lor.lhs.false41.i ], [ %call28.i, %lor.lhs.false35.i ], [ %call28.i, %lor.lhs.false31.i ], [ %call28.i, %if.then27.i ], [ null, %lor.lhs.false20.i ], [ null, %lor.lhs.false14.i ], [ null, %lor.lhs.false10.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call28.i, %if.end52.i ], [ %call28.i, %if.then56.i ], [ null, %if.end24.i ]
-  call void @EVP_PKEY_free(ptr noundef %decoded_legacy_pkey.1.i) #5
+  %dctx.0.i = phi ptr [ %call32.i, %lor.lhs.false45.i ], [ %call32.i, %lor.lhs.false41.i ], [ %call32.i, %lor.lhs.false35.i ], [ %call32.i, %lor.lhs.false31.i ], [ null, %if.then27.i ], [ null, %lor.lhs.false20.i ], [ null, %lor.lhs.false14.i ], [ null, %lor.lhs.false10.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call32.i, %if.end52.i ], [ %call32.i, %if.then56.i ], [ null, %if.end24.i ]
+  %decoded_legacy_pkey.0.i = phi ptr [ %call28.i, %lor.lhs.false45.i ], [ %call28.i, %lor.lhs.false41.i ], [ %call28.i, %lor.lhs.false35.i ], [ %call28.i, %lor.lhs.false31.i ], [ %call28.i, %if.then27.i ], [ null, %lor.lhs.false20.i ], [ null, %lor.lhs.false14.i ], [ null, %lor.lhs.false10.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call28.i, %if.end52.i ], [ %call28.i, %if.then56.i ], [ null, %if.end24.i ]
+  call void @EVP_PKEY_free(ptr noundef %decoded_legacy_pkey.0.i) #5
   %18 = load ptr, ptr %decoded_provided_pkey.i, align 8
   call void @EVP_PKEY_free(ptr noundef %18) #5
   call void @OSSL_ENCODER_CTX_free(ptr noundef %ectx.0.i) #5
-  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.1.i) #5
+  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.0.i) #5
   %call61.i = call i32 @BIO_free(ptr noundef %membio_provided.0.i) #5
   %call62.i = call i32 @BIO_free(ptr noundef %call1.i) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %decoded_provided_pkey.i)
   br i1 %cmp27, label %for.body, label %if.end39, !llvm.loop !8
 
 if.end39:                                         ; preds = %test_protected_PEM.exit, %if.end23
-  %ok.2 = phi i32 [ 1, %if.end23 ], [ %tobool36.not, %test_protected_PEM.exit ]
+  %ok.1 = phi i32 [ 1, %if.end23 ], [ %tobool36.not, %test_protected_PEM.exit ]
   %pem_write_bio_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %19 = load ptr, ptr %pem_write_bio_PublicKey, align 8
   %cmp40.not = icmp eq ptr %19, null
@@ -520,7 +520,7 @@ for.cond44.preheader:                             ; preds = %if.end39
   br label %for.body47
 
 for.body47:                                       ; preds = %for.cond44.preheader, %for.body47
-  %ok.3107 = phi i32 [ %ok.2, %for.cond44.preheader ], [ %spec.select96, %for.body47 ]
+  %ok.5107 = phi i32 [ %ok.1, %for.cond44.preheader ], [ %spec.select96, %for.body47 ]
   %cmp45 = phi i1 [ true, %for.cond44.preheader ], [ false, %for.body47 ]
   %i.1106 = phi i64 [ 0, %for.cond44.preheader ], [ 1, %for.body47 ]
   %arrayidx50 = getelementptr inbounds [2 x ptr], ptr %structure49, i64 0, i64 %i.1106
@@ -533,11 +533,11 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %25 = load ptr, ptr %pem_read_bio_PublicKey, align 8
   %call55 = call fastcc i32 @test_unprotected_PEM(ptr noundef %22, i32 noundef %23, ptr noundef %call19, ptr noundef %24, ptr noundef %25, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef %20)
   %tobool56.not = icmp eq i32 %call55, 0
-  %spec.select96 = select i1 %tobool56.not, i32 0, i32 %ok.3107
+  %spec.select96 = select i1 %tobool56.not, i32 0, i32 %ok.5107
   br i1 %cmp45, label %for.body47, label %if.end62, !llvm.loop !9
 
 if.end62:                                         ; preds = %for.body47, %if.end39
-  %ok.5 = phi i32 [ %ok.2, %if.end39 ], [ %spec.select96, %for.body47 ]
+  %ok.4 = phi i32 [ %ok.1, %if.end39 ], [ %spec.select96, %for.body47 ]
   %pem_write_bio_params = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %26 = load ptr, ptr %pem_write_bio_params, align 16
   %cmp63.not = icmp eq ptr %26, null
@@ -549,7 +549,7 @@ for.cond67.preheader:                             ; preds = %if.end62
   br label %for.body70
 
 for.body70:                                       ; preds = %for.cond67.preheader, %for.body70
-  %ok.6109 = phi i32 [ %ok.5, %for.cond67.preheader ], [ %spec.select97, %for.body70 ]
+  %ok.8109 = phi i32 [ %ok.4, %for.cond67.preheader ], [ %spec.select97, %for.body70 ]
   %cmp68 = phi i1 [ true, %for.cond67.preheader ], [ false, %for.body70 ]
   %i.2108 = phi i64 [ 0, %for.cond67.preheader ], [ 1, %for.body70 ]
   %arrayidx73 = getelementptr inbounds [2 x ptr], ptr %structure72, i64 0, i64 %i.2108
@@ -562,11 +562,11 @@ for.body70:                                       ; preds = %for.cond67.preheade
   %32 = load ptr, ptr %pem_read_bio_params, align 16
   %call78 = call fastcc i32 @test_unprotected_PEM(ptr noundef %29, i32 noundef %30, ptr noundef %call19, ptr noundef %31, ptr noundef %32, ptr noundef nonnull @EVP_PKEY_parameters_eq, ptr noundef nonnull @EVP_PKEY_print_params, ptr noundef %2, i32 noundef 132, ptr noundef %27)
   %tobool79.not = icmp eq i32 %call78, 0
-  %spec.select97 = select i1 %tobool79.not, i32 0, i32 %ok.6109
+  %spec.select97 = select i1 %tobool79.not, i32 0, i32 %ok.8109
   br i1 %cmp68, label %for.body70, label %if.end85, !llvm.loop !10
 
 if.end85:                                         ; preds = %for.body70, %if.end62
-  %ok.8 = phi i32 [ %ok.5, %if.end62 ], [ %spec.select97, %for.body70 ]
+  %ok.7 = phi i32 [ %ok.4, %if.end62 ], [ %spec.select97, %for.body70 ]
   %pem_write_bio_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %33 = load ptr, ptr %pem_write_bio_PUBKEY, align 8
   %cmp86.not = icmp eq ptr %33, null
@@ -582,11 +582,11 @@ if.then88:                                        ; preds = %if.end85
   %38 = load ptr, ptr %pem_read_bio_PUBKEY, align 8
   %call95 = call fastcc i32 @test_unprotected_PEM(ptr noundef %35, i32 noundef %36, ptr noundef %call19, ptr noundef %37, ptr noundef %38, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44)
   %tobool96.not = icmp eq i32 %call95, 0
-  %spec.select98 = select i1 %tobool96.not, i32 0, i32 %ok.8
+  %spec.select98 = select i1 %tobool96.not, i32 0, i32 %ok.7
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then88, %if.end85
-  %ok.9 = phi i32 [ %ok.8, %if.end85 ], [ %spec.select98, %if.then88 ]
+  %ok.10 = phi i32 [ %ok.7, %if.end85 ], [ %spec.select98, %if.then88 ]
   %i2d_PrivateKey = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %39 = load ptr, ptr %i2d_PrivateKey, align 16
   %cmp100.not = icmp eq ptr %39, null
@@ -598,7 +598,7 @@ for.cond104.preheader:                            ; preds = %if.end99
   br label %for.body107
 
 for.body107:                                      ; preds = %for.cond104.preheader, %for.body107
-  %ok.10111 = phi i32 [ %ok.9, %for.cond104.preheader ], [ %spec.select99, %for.body107 ]
+  %ok.12111 = phi i32 [ %ok.10, %for.cond104.preheader ], [ %spec.select99, %for.body107 ]
   %cmp105 = phi i1 [ true, %for.cond104.preheader ], [ false, %for.body107 ]
   %i.3110 = phi i64 [ 0, %for.cond104.preheader ], [ 1, %for.body107 ]
   %arrayidx110 = getelementptr inbounds [2 x ptr], ptr %structure109, i64 0, i64 %i.3110
@@ -611,11 +611,11 @@ for.body107:                                      ; preds = %for.cond104.prehead
   %45 = load ptr, ptr %d2i_PrivateKey, align 16
   %call115 = call fastcc i32 @test_DER(ptr noundef %42, i32 noundef %43, ptr noundef %call19, ptr noundef %44, ptr noundef %45, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_private, ptr noundef %2, i32 noundef 135, ptr noundef %40)
   %tobool116.not = icmp eq i32 %call115, 0
-  %spec.select99 = select i1 %tobool116.not, i32 0, i32 %ok.10111
+  %spec.select99 = select i1 %tobool116.not, i32 0, i32 %ok.12111
   br i1 %cmp105, label %for.body107, label %if.end122, !llvm.loop !11
 
 if.end122:                                        ; preds = %for.body107, %if.end99
-  %ok.12 = phi i32 [ %ok.9, %if.end99 ], [ %spec.select99, %for.body107 ]
+  %ok.11 = phi i32 [ %ok.10, %if.end99 ], [ %spec.select99, %for.body107 ]
   %i2d_PublicKey = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %46 = load ptr, ptr %i2d_PublicKey, align 8
   %cmp123.not = icmp eq ptr %46, null
@@ -627,7 +627,7 @@ for.cond127.preheader:                            ; preds = %if.end122
   br label %for.body130
 
 for.body130:                                      ; preds = %for.cond127.preheader, %for.body130
-  %ok.13113 = phi i32 [ %ok.12, %for.cond127.preheader ], [ %spec.select100, %for.body130 ]
+  %ok.15113 = phi i32 [ %ok.11, %for.cond127.preheader ], [ %spec.select100, %for.body130 ]
   %cmp128 = phi i1 [ true, %for.cond127.preheader ], [ false, %for.body130 ]
   %i.4112 = phi i64 [ 0, %for.cond127.preheader ], [ 1, %for.body130 ]
   %arrayidx133 = getelementptr inbounds [2 x ptr], ptr %structure132, i64 0, i64 %i.4112
@@ -640,11 +640,11 @@ for.body130:                                      ; preds = %for.cond127.prehead
   %52 = load ptr, ptr %d2i_PublicKey, align 8
   %call138 = call fastcc i32 @test_DER(ptr noundef %49, i32 noundef %50, ptr noundef %call19, ptr noundef %51, ptr noundef %52, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef %47)
   %tobool139.not = icmp eq i32 %call138, 0
-  %spec.select100 = select i1 %tobool139.not, i32 0, i32 %ok.13113
+  %spec.select100 = select i1 %tobool139.not, i32 0, i32 %ok.15113
   br i1 %cmp128, label %for.body130, label %if.end145, !llvm.loop !12
 
 if.end145:                                        ; preds = %for.body130, %if.end122
-  %ok.15 = phi i32 [ %ok.12, %if.end122 ], [ %spec.select100, %for.body130 ]
+  %ok.14 = phi i32 [ %ok.11, %if.end122 ], [ %spec.select100, %for.body130 ]
   %i2d_params = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %53 = load ptr, ptr %i2d_params, align 16
   %cmp146.not = icmp eq ptr %53, null
@@ -656,7 +656,7 @@ for.cond150.preheader:                            ; preds = %if.end145
   br label %for.body153
 
 for.body153:                                      ; preds = %for.cond150.preheader, %for.body153
-  %ok.16115 = phi i32 [ %ok.15, %for.cond150.preheader ], [ %spec.select101, %for.body153 ]
+  %ok.18115 = phi i32 [ %ok.14, %for.cond150.preheader ], [ %spec.select101, %for.body153 ]
   %cmp151 = phi i1 [ true, %for.cond150.preheader ], [ false, %for.body153 ]
   %i.5114 = phi i64 [ 0, %for.cond150.preheader ], [ 1, %for.body153 ]
   %arrayidx156 = getelementptr inbounds [2 x ptr], ptr %structure155, i64 0, i64 %i.5114
@@ -669,11 +669,11 @@ for.body153:                                      ; preds = %for.cond150.prehead
   %59 = load ptr, ptr %d2i_params, align 16
   %call161 = call fastcc i32 @test_DER(ptr noundef %56, i32 noundef %57, ptr noundef %call19, ptr noundef %58, ptr noundef %59, ptr noundef nonnull @EVP_PKEY_parameters_eq, ptr noundef nonnull @EVP_PKEY_print_params, ptr noundef %2, i32 noundef 132, ptr noundef %54)
   %tobool162.not = icmp eq i32 %call161, 0
-  %spec.select101 = select i1 %tobool162.not, i32 0, i32 %ok.16115
+  %spec.select101 = select i1 %tobool162.not, i32 0, i32 %ok.18115
   br i1 %cmp151, label %for.body153, label %if.end168, !llvm.loop !13
 
 if.end168:                                        ; preds = %for.body153, %if.end145
-  %ok.18 = phi i32 [ %ok.15, %if.end145 ], [ %spec.select101, %for.body153 ]
+  %ok.17 = phi i32 [ %ok.14, %if.end145 ], [ %spec.select101, %for.body153 ]
   %i2d_PUBKEY = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %60 = load ptr, ptr %i2d_PUBKEY, align 8
   %cmp169.not = icmp eq ptr %60, null
@@ -689,14 +689,14 @@ if.then171:                                       ; preds = %if.end168
   %65 = load ptr, ptr %d2i_PUBKEY, align 8
   %call178 = call fastcc i32 @test_DER(ptr noundef %62, i32 noundef %63, ptr noundef %call19, ptr noundef %64, ptr noundef %65, ptr noundef nonnull @EVP_PKEY_eq, ptr noundef nonnull @EVP_PKEY_print_public, ptr noundef %2, i32 noundef 134, ptr noundef nonnull @.str.44)
   %tobool179.not = icmp eq i32 %call178, 0
-  %spec.select102 = select i1 %tobool179.not, i32 0, i32 %ok.18
+  %spec.select102 = select i1 %tobool179.not, i32 0, i32 %ok.17
   br label %end
 
 end:                                              ; preds = %if.then171, %if.end168, %if.end, %lor.lhs.false7, %lor.lhs.false11, %lor.lhs.false14, %lor.lhs.false18, %entry, %lookup_key.exit
-  %ok.19 = phi i32 [ %ok.18, %if.end168 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false7 ], [ 0, %if.end ], [ 0, %lookup_key.exit ], [ 0, %entry ], [ %spec.select102, %if.then171 ]
+  %ok.0 = phi i32 [ %ok.17, %if.end168 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false7 ], [ 0, %if.end ], [ 0, %lookup_key.exit ], [ 0, %entry ], [ %spec.select102, %if.then171 ]
   %66 = load ptr, ptr %downgraded_pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %66) #5
-  ret i32 %ok.19
+  ret i32 %ok.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -853,13 +853,13 @@ end:                                              ; preds = %if.end24, %if.then5
   %ok.0 = phi i32 [ 0, %lor.lhs.false45 ], [ 0, %lor.lhs.false41 ], [ 0, %lor.lhs.false35 ], [ 0, %lor.lhs.false31 ], [ 0, %if.then27 ], [ 0, %lor.lhs.false20 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end52 ], [ 1, %if.then56 ], [ 1, %if.end24 ]
   %membio_provided.0 = phi ptr [ %call4, %lor.lhs.false45 ], [ %call4, %lor.lhs.false41 ], [ %call4, %lor.lhs.false35 ], [ %call4, %lor.lhs.false31 ], [ %call4, %if.then27 ], [ %call4, %lor.lhs.false20 ], [ %call4, %lor.lhs.false14 ], [ %call4, %lor.lhs.false10 ], [ %call4, %if.end ], [ %call4, %lor.lhs.false ], [ null, %entry ], [ %call4, %if.end52 ], [ %call4, %if.then56 ], [ %call4, %if.end24 ]
   %ectx.0 = phi ptr [ %call7, %lor.lhs.false45 ], [ %call7, %lor.lhs.false41 ], [ %call7, %lor.lhs.false35 ], [ %call7, %lor.lhs.false31 ], [ %call7, %if.then27 ], [ %call7, %lor.lhs.false20 ], [ %call7, %lor.lhs.false14 ], [ %call7, %lor.lhs.false10 ], [ %call7, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call7, %if.end52 ], [ %call7, %if.then56 ], [ %call7, %if.end24 ]
-  %dctx.1 = phi ptr [ %call32, %lor.lhs.false45 ], [ %call32, %lor.lhs.false41 ], [ %call32, %lor.lhs.false35 ], [ %call32, %lor.lhs.false31 ], [ null, %if.then27 ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call32, %if.end52 ], [ %call32, %if.then56 ], [ null, %if.end24 ]
-  %decoded_legacy_pkey.1 = phi ptr [ %call28, %lor.lhs.false45 ], [ %call28, %lor.lhs.false41 ], [ %call28, %lor.lhs.false35 ], [ %call28, %lor.lhs.false31 ], [ %call28, %if.then27 ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call28, %if.end52 ], [ %call28, %if.then56 ], [ null, %if.end24 ]
-  call void @EVP_PKEY_free(ptr noundef %decoded_legacy_pkey.1) #5
+  %dctx.0 = phi ptr [ %call32, %lor.lhs.false45 ], [ %call32, %lor.lhs.false41 ], [ %call32, %lor.lhs.false35 ], [ %call32, %lor.lhs.false31 ], [ null, %if.then27 ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call32, %if.end52 ], [ %call32, %if.then56 ], [ null, %if.end24 ]
+  %decoded_legacy_pkey.0 = phi ptr [ %call28, %lor.lhs.false45 ], [ %call28, %lor.lhs.false41 ], [ %call28, %lor.lhs.false35 ], [ %call28, %lor.lhs.false31 ], [ %call28, %if.then27 ], [ null, %lor.lhs.false20 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call28, %if.end52 ], [ %call28, %if.then56 ], [ null, %if.end24 ]
+  call void @EVP_PKEY_free(ptr noundef %decoded_legacy_pkey.0) #5
   %4 = load ptr, ptr %decoded_provided_pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %4) #5
   call void @OSSL_ENCODER_CTX_free(ptr noundef %ectx.0) #5
-  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.1) #5
+  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.0) #5
   %call61 = call i32 @BIO_free(ptr noundef %membio_provided.0) #5
   %call62 = call i32 @BIO_free(ptr noundef %call1) #5
   ret i32 %ok.0
@@ -978,13 +978,13 @@ if.then44:                                        ; preds = %if.end40
 
 end:                                              ; preds = %if.end, %if.then44, %if.end40, %if.then15, %lor.lhs.false19, %lor.lhs.false23, %lor.lhs.false29, %lor.lhs.false33, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10
   %ok.0 = phi i32 [ 0, %lor.lhs.false33 ], [ 0, %lor.lhs.false29 ], [ 0, %lor.lhs.false23 ], [ 0, %lor.lhs.false19 ], [ 0, %if.then15 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end40 ], [ 1, %if.then44 ], [ 1, %if.end ]
-  %dctx.1 = phi ptr [ %call20, %lor.lhs.false33 ], [ %call20, %lor.lhs.false29 ], [ %call20, %lor.lhs.false23 ], [ %call20, %lor.lhs.false19 ], [ null, %if.then15 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call20, %if.end40 ], [ %call20, %if.then44 ], [ null, %if.end ]
-  %decoded_legacy_pkey.1 = phi ptr [ %call16, %lor.lhs.false33 ], [ %call16, %lor.lhs.false29 ], [ %call16, %lor.lhs.false23 ], [ %call16, %lor.lhs.false19 ], [ %call16, %if.then15 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call16, %if.end40 ], [ %call16, %if.then44 ], [ null, %if.end ]
-  call void @EVP_PKEY_free(ptr noundef %decoded_legacy_pkey.1) #5
+  %dctx.0 = phi ptr [ %call20, %lor.lhs.false33 ], [ %call20, %lor.lhs.false29 ], [ %call20, %lor.lhs.false23 ], [ %call20, %lor.lhs.false19 ], [ null, %if.then15 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call20, %if.end40 ], [ %call20, %if.then44 ], [ null, %if.end ]
+  %decoded_legacy_pkey.0 = phi ptr [ %call16, %lor.lhs.false33 ], [ %call16, %lor.lhs.false29 ], [ %call16, %lor.lhs.false23 ], [ %call16, %lor.lhs.false19 ], [ %call16, %if.then15 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call16, %if.end40 ], [ %call16, %if.then44 ], [ null, %if.end ]
+  call void @EVP_PKEY_free(ptr noundef %decoded_legacy_pkey.0) #5
   %10 = load ptr, ptr %decoded_provided_pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %10) #5
   call void @OSSL_ENCODER_CTX_free(ptr noundef %call) #5
-  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.1) #5
+  call void @OSSL_DECODER_CTX_free(ptr noundef %dctx.0) #5
   %11 = load ptr, ptr %der_provided, align 8
   call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.14, i32 noundef 499) #5
   %12 = load ptr, ptr %der_legacy, align 8

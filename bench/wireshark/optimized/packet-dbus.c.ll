@@ -1040,8 +1040,8 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %171, %347
-  %.1.i = phi ptr [ %346, %347 ], [ %170, %171 ]
-  %346 = call fastcc ptr @reader_next(ptr noundef nonnull %.1.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
+  %.2.i = phi ptr [ %346, %347 ], [ %170, %171 ]
+  %346 = call fastcc ptr @reader_next(ptr noundef nonnull %.2.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
   %.not163.i = icmp eq ptr %346, null
   br i1 %.not163.i, label %dissect_dbus_header_fields.exit.thread, label %347
 
@@ -1052,8 +1052,8 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
   br i1 %350, label %.preheader.i, label %.loopexit.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %347, %344, %336, %331, %317, %298, %is_dbus_interface_valid.exit196.i, %is_dbus_member_name_valid.exit.i, %is_dbus_interface_valid.exit.i, %190
-  %.2.i = phi ptr [ %343, %344 ], [ %335, %336 ], [ %330, %331 ], [ %311, %317 ], [ %292, %298 ], [ %260, %is_dbus_interface_valid.exit196.i ], [ %226, %is_dbus_member_name_valid.exit.i ], [ %194, %is_dbus_interface_valid.exit.i ], [ %189, %190 ], [ %346, %347 ]
-  %351 = call fastcc ptr @reader_next(ptr noundef nonnull %.2.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
+  %.1.i = phi ptr [ %343, %344 ], [ %335, %336 ], [ %330, %331 ], [ %311, %317 ], [ %292, %298 ], [ %260, %is_dbus_interface_valid.exit196.i ], [ %226, %is_dbus_member_name_valid.exit.i ], [ %194, %is_dbus_interface_valid.exit.i ], [ %189, %190 ], [ %346, %347 ]
+  %351 = call fastcc ptr @reader_next(ptr noundef nonnull %.1.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
   %.not164.i = icmp eq ptr %351, null
   br i1 %.not164.i, label %dissect_dbus_header_fields.exit.thread, label %144, !llvm.loop !9
 
@@ -1879,7 +1879,7 @@ define internal fastcc ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noun
   br label %121
 
 121:                                              ; preds = %117, %115
-  %.0290 = phi i32 [ 0, %115 ], [ 1, %117 ]
+  %.1291 = phi i32 [ 0, %115 ], [ 1, %117 ]
   store ptr %114, ptr %3, align 8
   br label %318
 
@@ -1957,7 +1957,7 @@ is_dbus_object_path_valid.exit.thread:            ; preds = %.lr.ph.i.loopexit, 
   br label %is_dbus_object_path_valid.exit.thread363
 
 is_dbus_object_path_valid.exit.thread363:         ; preds = %129, %is_dbus_object_path_valid.exit.thread, %is_dbus_object_path_valid.exit
-  %.1291 = phi i32 [ 0, %is_dbus_object_path_valid.exit ], [ 1, %is_dbus_object_path_valid.exit.thread ], [ 0, %129 ]
+  %.2292 = phi i32 [ 0, %is_dbus_object_path_valid.exit ], [ 1, %is_dbus_object_path_valid.exit.thread ], [ 0, %129 ]
   store ptr %125, ptr %3, align 8
   br label %318
 
@@ -1987,7 +1987,7 @@ is_dbus_object_path_valid.exit.thread363:         ; preds = %129, %is_dbus_objec
   br label %163
 
 163:                                              ; preds = %159, %155
-  %.2292 = phi i32 [ 0, %155 ], [ 1, %159 ]
+  %.3293 = phi i32 [ 0, %155 ], [ 1, %159 ]
   store ptr %154, ptr %3, align 8
   br label %318
 
@@ -2342,7 +2342,7 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
 
 318:                                              ; preds = %is_basic_type.exit.thread, %269, %273, %271, %196, %214, %200, %20, %34, %309, %302, %is_basic_type.exit359, %218, %163, %is_dbus_object_path_valid.exit.thread363, %121, %97, %83, %69, %61, %53, %45, %37, %12
   %.not335 = phi i1 [ false, %309 ], [ false, %302 ], [ true, %is_basic_type.exit359 ], [ true, %271 ], [ true, %273 ], [ true, %218 ], [ false, %196 ], [ true, %200 ], [ true, %214 ], [ false, %163 ], [ false, %is_dbus_object_path_valid.exit.thread363 ], [ false, %121 ], [ false, %97 ], [ false, %83 ], [ false, %69 ], [ false, %61 ], [ false, %53 ], [ false, %45 ], [ false, %37 ], [ false, %34 ], [ false, %20 ], [ false, %12 ], [ true, %269 ], [ true, %is_basic_type.exit.thread ]
-  %.3293 = phi i32 [ 0, %309 ], [ 0, %302 ], [ 0, %is_basic_type.exit359 ], [ 0, %271 ], [ 1, %273 ], [ 0, %218 ], [ 0, %196 ], [ 0, %200 ], [ 1, %214 ], [ %.2292, %163 ], [ %.1291, %is_dbus_object_path_valid.exit.thread363 ], [ %.0290, %121 ], [ 0, %97 ], [ 0, %83 ], [ 0, %69 ], [ 0, %61 ], [ 0, %53 ], [ 0, %45 ], [ 0, %37 ], [ 1, %34 ], [ 0, %20 ], [ 0, %12 ], [ 0, %269 ], [ 0, %is_basic_type.exit.thread ]
+  %.0290 = phi i32 [ 0, %309 ], [ 0, %302 ], [ 0, %is_basic_type.exit359 ], [ 0, %271 ], [ 1, %273 ], [ 0, %218 ], [ 0, %196 ], [ 0, %200 ], [ 1, %214 ], [ %.3293, %163 ], [ %.2292, %is_dbus_object_path_valid.exit.thread363 ], [ %.1291, %121 ], [ 0, %97 ], [ 0, %83 ], [ 0, %69 ], [ 0, %61 ], [ 0, %53 ], [ 0, %45 ], [ 0, %37 ], [ 1, %34 ], [ 0, %20 ], [ 0, %12 ], [ 0, %269 ], [ 0, %is_basic_type.exit.thread ]
   %.0289 = phi ptr [ %0, %309 ], [ %308, %302 ], [ %289, %is_basic_type.exit359 ], [ %0, %271 ], [ %0, %273 ], [ %229, %218 ], [ %0, %196 ], [ %208, %200 ], [ %0, %214 ], [ %0, %163 ], [ %0, %is_dbus_object_path_valid.exit.thread363 ], [ %0, %121 ], [ %0, %97 ], [ %0, %83 ], [ %0, %69 ], [ %0, %61 ], [ %0, %53 ], [ %0, %45 ], [ %0, %37 ], [ %0, %34 ], [ %0, %20 ], [ %0, %12 ], [ %256, %269 ], [ %256, %is_basic_type.exit.thread ]
   %319 = getelementptr inbounds i8, ptr %.0289, i64 16
   %320 = load i32, ptr %319, align 8
@@ -2384,8 +2384,8 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
   br label %340
 
 340:                                              ; preds = %.preheader, %384
-  %.1 = phi ptr [ %.2, %384 ], [ %.0289, %.preheader ]
-  %341 = getelementptr inbounds i8, ptr %.1, i64 32
+  %.2 = phi ptr [ %.3, %384 ], [ %.0289, %.preheader ]
+  %341 = getelementptr inbounds i8, ptr %.2, i64 32
   %342 = load ptr, ptr %341, align 8
   %.not336 = icmp eq ptr %342, null
   br i1 %.not336, label %367, label %343
@@ -2393,15 +2393,15 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
 343:                                              ; preds = %340
   %344 = load ptr, ptr %10, align 8
   %345 = call i32 @ptvcursor_current_offset(ptr noundef %344) #9
-  %346 = getelementptr inbounds i8, ptr %.1, i64 40
+  %346 = getelementptr inbounds i8, ptr %.2, i64 40
   %347 = load i32, ptr %346, align 8
   %348 = icmp slt i32 %345, %347
   br i1 %348, label %349, label %353
 
 349:                                              ; preds = %343
-  %350 = getelementptr inbounds i8, ptr %.1, i64 32
+  %350 = getelementptr inbounds i8, ptr %.2, i64 32
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %.1, i64 8
+  %352 = getelementptr inbounds i8, ptr %.2, i64 8
   store ptr %351, ptr %352, align 8
   br label %.loopexit
 
@@ -2412,9 +2412,9 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
 355:                                              ; preds = %353
   %356 = load ptr, ptr %10, align 8
   call void @ptvcursor_pop_subtree(ptr noundef %356) #9
-  %357 = getelementptr inbounds i8, ptr %.1, i64 8
+  %357 = getelementptr inbounds i8, ptr %.2, i64 8
   %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds i8, ptr %.1, i64 72
+  %359 = getelementptr inbounds i8, ptr %.2, i64 72
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 8
   store ptr %358, ptr %361, align 8
@@ -2422,25 +2422,25 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
 
 362:                                              ; preds = %353
   %363 = load ptr, ptr %338, align 8
-  %364 = getelementptr inbounds i8, ptr %.1, i64 64
+  %364 = getelementptr inbounds i8, ptr %.2, i64 64
   %365 = load ptr, ptr %364, align 8
   %366 = call ptr @expert_add_info(ptr noundef %363, ptr noundef %365, ptr noundef nonnull @ei_dbus_type_array_content_out_of_bounds) #9
   br label %.loopexit
 
 367:                                              ; preds = %340
-  %368 = getelementptr inbounds i8, ptr %.1, i64 44
+  %368 = getelementptr inbounds i8, ptr %.2, i64 44
   %369 = load i32, ptr %368, align 4
   %.not337 = icmp eq i32 %369, 0
   br i1 %.not337, label %.loopexit, label %370
 
 370:                                              ; preds = %367
-  %371 = getelementptr inbounds i8, ptr %.1, i64 48
+  %371 = getelementptr inbounds i8, ptr %.2, i64 48
   %372 = load i32, ptr %371, align 8
   %.not338 = icmp eq i32 %372, 0
   br i1 %.not338, label %381, label %373
 
 373:                                              ; preds = %370
-  %374 = getelementptr inbounds i8, ptr %.1, i64 64
+  %374 = getelementptr inbounds i8, ptr %.2, i64 64
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %338, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 408
@@ -2453,23 +2453,23 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
 381:                                              ; preds = %373, %370
   %382 = load ptr, ptr %10, align 8
   call void @ptvcursor_pop_subtree(ptr noundef %382) #9
-  %383 = getelementptr inbounds i8, ptr %.1, i64 72
+  %383 = getelementptr inbounds i8, ptr %.2, i64 72
   br label %384
 
 384:                                              ; preds = %381, %355
-  %.2.in = phi ptr [ %359, %355 ], [ %383, %381 ]
-  %.2 = load ptr, ptr %.2.in, align 8
+  %.3.in = phi ptr [ %359, %355 ], [ %383, %381 ]
+  %.3 = load ptr, ptr %.3.in, align 8
   br label %340
 
 .loopexit:                                        ; preds = %367, %362, %349
-  %.4 = phi i32 [ %.3293, %349 ], [ 1, %362 ], [ %.3293, %367 ]
-  %385 = getelementptr inbounds i8, ptr %.1, i64 52
+  %.5 = phi i32 [ %.0290, %349 ], [ 1, %362 ], [ %.0290, %367 ]
+  %385 = getelementptr inbounds i8, ptr %.2, i64 52
   %386 = load i32, ptr %385, align 4
   %.not339 = icmp eq i32 %386, 0
   br i1 %.not339, label %403, label %387
 
 387:                                              ; preds = %.loopexit
-  %388 = getelementptr inbounds i8, ptr %.1, i64 8
+  %388 = getelementptr inbounds i8, ptr %.2, i64 8
   %389 = load ptr, ptr %388, align 8
   %390 = getelementptr i8, ptr %389, i64 -2
   %391 = load i8, ptr %390, align 1
@@ -2477,14 +2477,14 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
   br i1 %392, label %.sink.split, label %393
 
 393:                                              ; preds = %387
-  %394 = getelementptr inbounds i8, ptr %.1, i64 56
+  %394 = getelementptr inbounds i8, ptr %.2, i64 56
   %395 = load i32, ptr %394, align 8
   %.not340 = icmp eq i32 %395, 0
   br i1 %.not340, label %403, label %.sink.split
 
 .sink.split:                                      ; preds = %393, %387
   %.str.160.sink = phi ptr [ @.str.160, %387 ], [ @.str.175, %393 ]
-  %396 = getelementptr inbounds i8, ptr %.1, i64 64
+  %396 = getelementptr inbounds i8, ptr %.2, i64 64
   %397 = load ptr, ptr %396, align 8
   %398 = load ptr, ptr %338, align 8
   %399 = getelementptr inbounds i8, ptr %398, i64 408
@@ -2495,21 +2495,21 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
   br label %403
 
 403:                                              ; preds = %.sink.split, %337, %393, %.loopexit
-  %.5 = phi i32 [ %.4, %393 ], [ %.4, %.loopexit ], [ %.3293, %337 ], [ %.4, %.sink.split ]
-  %.3 = phi ptr [ %.1, %393 ], [ %.1, %.loopexit ], [ %.0289, %337 ], [ %.1, %.sink.split ]
-  %.not341 = icmp eq i32 %.5, 0
+  %.4 = phi i32 [ %.5, %393 ], [ %.5, %.loopexit ], [ %.0290, %337 ], [ %.5, %.sink.split ]
+  %.1 = phi ptr [ %.2, %393 ], [ %.2, %.loopexit ], [ %.0289, %337 ], [ %.2, %.sink.split ]
+  %.not341 = icmp eq i32 %.4, 0
   br i1 %.not341, label %reader_cleanup.exit, label %404
 
 404:                                              ; preds = %.thread, %403
-  %.3371 = phi ptr [ %.0289, %.thread ], [ %.3, %403 ]
-  %405 = getelementptr inbounds i8, ptr %.3371, i64 72
+  %.1371 = phi ptr [ %.0289, %.thread ], [ %.1, %403 ]
+  %405 = getelementptr inbounds i8, ptr %.1371, i64 72
   %406 = load ptr, ptr %405, align 8
   %.not4.i = icmp eq ptr %406, null
   br i1 %.not4.i, label %reader_cleanup.exit, label %.lr.ph.i360
 
 .lr.ph.i360:                                      ; preds = %404, %.lr.ph.i360
   %407 = phi ptr [ %411, %.lr.ph.i360 ], [ %405, %404 ]
-  %.05.i = phi ptr [ %410, %.lr.ph.i360 ], [ %.3371, %404 ]
+  %.05.i = phi ptr [ %410, %.lr.ph.i360 ], [ %.1371, %404 ]
   %408 = load ptr, ptr %.05.i, align 8
   %409 = load ptr, ptr %408, align 8
   call void @ptvcursor_pop_subtree(ptr noundef %409) #9
@@ -2520,7 +2520,7 @@ is_basic_type.exit359:                            ; preds = %278, %switch.lookup
   br i1 %.not.i, label %reader_cleanup.exit, label %.lr.ph.i360, !llvm.loop !4
 
 reader_cleanup.exit:                              ; preds = %.lr.ph.i360, %404, %403
-  %.0 = phi ptr [ %.3, %403 ], [ null, %404 ], [ null, %.lr.ph.i360 ]
+  %.0 = phi ptr [ %.1, %403 ], [ null, %404 ], [ null, %.lr.ph.i360 ]
   ret ptr %.0
 }
 

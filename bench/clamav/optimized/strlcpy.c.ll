@@ -9,39 +9,39 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @cli_strlcpy(ptr
   br i1 %.not, label %.thread26.preheader, label %.preheader
 
 .preheader:                                       ; preds = %3, %5
-  %.014 = phi ptr [ %8, %5 ], [ %0, %3 ]
-  %.012 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %.0 = phi i64 [ %4, %5 ], [ %2, %3 ]
-  %4 = add i64 %.0, -1
+  %.115 = phi ptr [ %8, %5 ], [ %0, %3 ]
+  %.113 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.1 = phi i64 [ %4, %5 ], [ %2, %3 ]
+  %4 = add i64 %.1, -1
   %.not20 = icmp eq i64 %4, 0
   br i1 %.not20, label %10, label %5
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %.012, i64 1
-  %7 = load i8, ptr %.012, align 1
-  %8 = getelementptr inbounds i8, ptr %.014, i64 1
-  store i8 %7, ptr %.014, align 1
+  %6 = getelementptr inbounds i8, ptr %.113, i64 1
+  %7 = load i8, ptr %.113, align 1
+  %8 = getelementptr inbounds i8, ptr %.115, i64 1
+  store i8 %7, ptr %.115, align 1
   %9 = icmp eq i8 %7, 0
   br i1 %9, label %.loopexit, label %.preheader
 
 10:                                               ; preds = %.preheader
-  store i8 0, ptr %.014, align 1
+  store i8 0, ptr %.115, align 1
   br label %.thread26.preheader
 
 .thread26.preheader:                              ; preds = %3, %10
-  %.2.ph = phi ptr [ %1, %3 ], [ %.012, %10 ]
+  %.3.ph = phi ptr [ %1, %3 ], [ %.113, %10 ]
   br label %.thread26
 
 .thread26:                                        ; preds = %.thread26.preheader, %.thread26
-  %.2 = phi ptr [ %11, %.thread26 ], [ %.2.ph, %.thread26.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.2, i64 1
-  %12 = load i8, ptr %.2, align 1
+  %.3 = phi ptr [ %11, %.thread26 ], [ %.3.ph, %.thread26.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.3, i64 1
+  %12 = load i8, ptr %.3, align 1
   %.not21 = icmp eq i8 %12, 0
   br i1 %.not21, label %.loopexit, label %.thread26
 
 .loopexit:                                        ; preds = %5, %.thread26
-  %.3 = phi ptr [ %11, %.thread26 ], [ %6, %5 ]
-  %13 = ptrtoint ptr %.3 to i64
+  %.2 = phi ptr [ %11, %.thread26 ], [ %6, %5 ]
+  %13 = ptrtoint ptr %.2 to i64
   %14 = ptrtoint ptr %1 to i64
   %15 = xor i64 %14, -1
   %16 = add i64 %13, %15

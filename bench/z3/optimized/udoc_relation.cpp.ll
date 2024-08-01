@@ -965,8 +965,8 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK9table2mapI17default_map_entryIjP11doc_managerE6u_hash4u_eqE4findERKjRS2_.exit, %if.then
-  %r.1 = phi ptr [ %8, %_ZNK9table2mapI17default_map_entryIjP11doc_managerE6u_hash4u_eqE4findERKjRS2_.exit ], [ %call2, %if.then ]
-  ret ptr %r.1
+  %r.0 = phi ptr [ %8, %_ZNK9table2mapI17default_map_entryIjP11doc_managerE6u_hash4u_eqE4findERKjRS2_.exit ], [ %call2, %if.then ]
+  ret ptr %r.0
 }
 
 ; Function Attrs: mustprogress uwtable

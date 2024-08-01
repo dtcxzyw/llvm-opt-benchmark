@@ -116,7 +116,7 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
 for.body:                                         ; preds = %lor.lhs.false, %for.end
   %cur.047 = phi ptr [ %incdec.ptr, %for.end ], [ %call11, %lor.lhs.false ]
   %bloblen.046 = phi i64 [ %bloblen.1.lcssa, %for.end ], [ 0, %lor.lhs.false ]
-  %blob.045 = phi ptr [ %blob.1.lcssa, %for.end ], [ null, %lor.lhs.false ]
+  %blob.145 = phi ptr [ %blob.2.lcssa, %for.end ], [ null, %lor.lhs.false ]
   %5 = phi ptr [ %.pr, %for.end ], [ %4, %lor.lhs.false ]
   %call17 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %5, i32 noundef 0) #21
   %cmp18 = icmp slt i32 %call17, 0
@@ -138,13 +138,13 @@ if.then19:                                        ; preds = %for.body
 if.else:                                          ; preds = %for.cond23.preheader, %if.end42
   %call2543 = phi i64 [ %call25, %if.end42 ], [ %call2539, %for.cond23.preheader ]
   %bloblen.142 = phi i64 [ %bloblen.2, %if.end42 ], [ %bloblen.046, %for.cond23.preheader ]
-  %blob.141 = phi ptr [ %blob.2, %if.end42 ], [ %blob.045, %for.cond23.preheader ]
+  %blob.241 = phi ptr [ %blob.3, %if.end42 ], [ %blob.145, %for.cond23.preheader ]
   %cmp28 = icmp sgt i64 %call2543, 0
   br i1 %cmp28, label %if.then29, label %if.else33
 
 if.then29:                                        ; preds = %if.else
   %add = add i64 %call2543, %bloblen.142
-  %call30 = call ptr @g_realloc(ptr noundef %blob.141, i64 noundef %add) #21
+  %call30 = call ptr @g_realloc(ptr noundef %blob.241, i64 noundef %add) #21
   %add.ptr = getelementptr i8, ptr %call30, i64 %bloblen.142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 16 dereferenceable(1) %data24, i64 %call2543, i1 false)
   br label %if.end42
@@ -163,14 +163,14 @@ if.then36:                                        ; preds = %if.else33
   br label %out
 
 if.end42:                                         ; preds = %if.then29, %if.else33
-  %blob.2 = phi ptr [ %call30, %if.then29 ], [ %blob.141, %if.else33 ]
+  %blob.3 = phi ptr [ %call30, %if.then29 ], [ %blob.241, %if.else33 ]
   %bloblen.2 = phi i64 [ %add, %if.then29 ], [ %bloblen.142, %if.else33 ]
   %call25 = call i64 @read(i32 noundef %call17, ptr noundef nonnull %data24, i64 noundef 8192) #21
   %cmp26 = icmp eq i64 %call25, 0
   br i1 %cmp26, label %for.end, label %if.else
 
 for.end:                                          ; preds = %if.end42, %for.cond23.preheader
-  %blob.1.lcssa = phi ptr [ %blob.045, %for.cond23.preheader ], [ %blob.2, %if.end42 ]
+  %blob.2.lcssa = phi ptr [ %blob.145, %for.cond23.preheader ], [ %blob.3, %if.end42 ]
   %bloblen.1.lcssa = phi i64 [ %bloblen.046, %for.cond23.preheader ], [ %bloblen.2, %if.end42 ]
   %call43 = call i32 @close(i32 noundef %call17) #21
   %incdec.ptr = getelementptr i8, ptr %cur.047, i64 8
@@ -183,13 +183,13 @@ for.end44:                                        ; preds = %for.end
   %file45 = getelementptr inbounds i8, ptr %10, i64 56
   %11 = load ptr, ptr %file45, align 8
   %tobool46 = icmp ne ptr %11, null
-  call fastcc void @acpi_table_install(ptr noundef %blob.1.lcssa, i64 noundef %bloblen.1.lcssa, i1 noundef zeroext %tobool46, ptr noundef %10, ptr noundef %errp)
+  call fastcc void @acpi_table_install(ptr noundef %blob.2.lcssa, i64 noundef %bloblen.1.lcssa, i1 noundef zeroext %tobool46, ptr noundef %10, ptr noundef %errp)
   br label %out
 
 out:                                              ; preds = %entry, %for.end44, %if.then36, %if.then19, %if.then14, %if.then6
-  %blob.3 = phi ptr [ null, %if.then6 ], [ null, %if.then14 ], [ %blob.045, %if.then19 ], [ %blob.141, %if.then36 ], [ %blob.1.lcssa, %for.end44 ], [ null, %entry ]
+  %blob.0 = phi ptr [ null, %if.then6 ], [ null, %if.then14 ], [ %blob.145, %if.then19 ], [ %blob.241, %if.then36 ], [ %blob.2.lcssa, %for.end44 ], [ null, %entry ]
   %pathnames.0 = phi ptr [ null, %if.then6 ], [ %call11, %if.then14 ], [ %call11, %if.then19 ], [ %call11, %if.then36 ], [ %call11, %for.end44 ], [ null, %entry ]
-  call void @g_free(ptr noundef %blob.3) #21
+  call void @g_free(ptr noundef %blob.0) #21
   call void @g_strfreev(ptr noundef %pathnames.0) #21
   %12 = load ptr, ptr %hdrs, align 8
   call void @qapi_free_AcpiTableOptions(ptr noundef %12) #21

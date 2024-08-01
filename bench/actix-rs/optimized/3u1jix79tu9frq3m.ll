@@ -1127,7 +1127,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   br label %154
 
 151:                                              ; preds = %.body, %338, %160, %152
-  %.290 = phi i1 [ true, %338 ], [ true, %160 ], [ true, %152 ], [ %.4, %.body ]
+  %.290 = phi i1 [ true, %338 ], [ true, %160 ], [ true, %152 ], [ %.5, %.body ]
   %.pn98.pn.pn = phi { ptr, i32 } [ %.pn98.pn.ph, %338 ], [ %.pn.pn, %160 ], [ %153, %152 ], [ %.pn98, %.body ]
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$actix_web..http..header..content_disposition..DispositionType$GT$17h1f63e02039a67860E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #21
           to label %99 unwind label %281
@@ -1307,7 +1307,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   unreachable
 
 .body:                                            ; preds = %272, %217, %283
-  %.4 = phi i1 [ false, %283 ], [ true, %217 ], [ false, %272 ]
+  %.5 = phi i1 [ false, %283 ], [ true, %217 ], [ false, %272 ]
   %.pn98 = phi { ptr, i32 } [ %266, %283 ], [ %218, %217 ], [ %273, %272 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$actix_web..http..header..content_disposition..DispositionParam$GT$$GT$17ha66c504e5e363efeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #21
           to label %151 unwind label %281
@@ -1355,23 +1355,23 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %239, %.lr.ph.preheader.i
-  %.01423.i = phi ptr [ %241, %239 ], [ %235, %.lr.ph.preheader.i ]
-  %.01522.i = phi i64 [ %240, %239 ], [ %..i, %.lr.ph.preheader.i ]
-  %236 = load i64, ptr %.01423.i, align 8, !alias.scope !286, !noundef !4
+  %.01422.i = phi ptr [ %241, %239 ], [ %235, %.lr.ph.preheader.i ]
+  %.01521.i = phi i64 [ %240, %239 ], [ %..i, %.lr.ph.preheader.i ]
+  %236 = load i64, ptr %.01422.i, align 8, !alias.scope !286, !noundef !4
   %237 = and i64 %236, -9187201950435737472
   %238 = icmp eq i64 %237, 0
   br i1 %238, label %239, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread
 
 239:                                              ; preds = %.lr.ph.i
-  %240 = add nuw i64 %.01522.i, 8
-  %241 = getelementptr inbounds i8, ptr %.01423.i, i64 8
+  %240 = add nuw i64 %.01521.i, 8
+  %241 = getelementptr inbounds i8, ptr %.01422.i, i64 8
   %242 = icmp ult i64 %240, %233
   br i1 %242, label %.lr.ph.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit
 
 .preheader.i:                                     ; preds = %219, %243
   %.sroa.6.0.i = phi i64 [ %244, %243 ], [ %.sroa.5.0.i168, %219 ]
-  %.not19.i = icmp eq i64 %.sroa.6.0.i, 0
-  br i1 %.not19.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread271, label %243
+  %.not18.i = icmp eq i64 %.sroa.6.0.i, 0
+  br i1 %.not18.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread271, label %243
 
 243:                                              ; preds = %.preheader.i
   %244 = add i64 %.sroa.6.0.i, -1
@@ -2142,7 +2142,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   br label %158
 
 155:                                              ; preds = %.body, %359, %164, %156
-  %.290 = phi i1 [ true, %359 ], [ true, %164 ], [ true, %156 ], [ %.492, %.body ]
+  %.290 = phi i1 [ true, %359 ], [ true, %164 ], [ true, %156 ], [ %.593, %.body ]
   %.pn100.pn.pn = phi { ptr, i32 } [ %.pn100.pn.ph, %359 ], [ %.pn.pn, %164 ], [ %157, %156 ], [ %.pn100, %.body ]
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$actix_web..http..header..content_disposition..DispositionType$GT$17h1f63e02039a67860E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #21
           to label %103 unwind label %285
@@ -2322,7 +2322,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   unreachable
 
 .body:                                            ; preds = %276, %221, %287
-  %.492 = phi i1 [ false, %287 ], [ true, %221 ], [ false, %276 ]
+  %.593 = phi i1 [ false, %287 ], [ true, %221 ], [ false, %276 ]
   %.pn100 = phi { ptr, i32 } [ %270, %287 ], [ %222, %221 ], [ %277, %276 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$actix_web..http..header..content_disposition..DispositionParam$GT$$GT$17ha66c504e5e363efeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #21
           to label %155 unwind label %285
@@ -2370,23 +2370,23 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %243, %.lr.ph.preheader.i
-  %.01423.i = phi ptr [ %245, %243 ], [ %239, %.lr.ph.preheader.i ]
-  %.01522.i = phi i64 [ %244, %243 ], [ %..i, %.lr.ph.preheader.i ]
-  %240 = load i64, ptr %.01423.i, align 8, !alias.scope !479, !noundef !4
+  %.01422.i = phi ptr [ %245, %243 ], [ %239, %.lr.ph.preheader.i ]
+  %.01521.i = phi i64 [ %244, %243 ], [ %..i, %.lr.ph.preheader.i ]
+  %240 = load i64, ptr %.01422.i, align 8, !alias.scope !479, !noundef !4
   %241 = and i64 %240, -9187201950435737472
   %242 = icmp eq i64 %241, 0
   br i1 %242, label %243, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread
 
 243:                                              ; preds = %.lr.ph.i
-  %244 = add nuw i64 %.01522.i, 8
-  %245 = getelementptr inbounds i8, ptr %.01423.i, i64 8
+  %244 = add nuw i64 %.01521.i, 8
+  %245 = getelementptr inbounds i8, ptr %.01422.i, i64 8
   %246 = icmp ult i64 %244, %237
   br i1 %246, label %.lr.ph.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit
 
 .preheader.i:                                     ; preds = %223, %247
   %.sroa.6.0.i = phi i64 [ %248, %247 ], [ %.sroa.5.0.i173, %223 ]
-  %.not19.i = icmp eq i64 %.sroa.6.0.i, 0
-  br i1 %.not19.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread282, label %247
+  %.not18.i = icmp eq i64 %.sroa.6.0.i, 0
+  br i1 %.not18.i, label %_ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread282, label %247
 
 247:                                              ; preds = %.preheader.i
   %248 = add i64 %.sroa.6.0.i, -1

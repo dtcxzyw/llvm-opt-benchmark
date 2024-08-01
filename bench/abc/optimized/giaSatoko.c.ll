@@ -259,7 +259,7 @@ define ptr @Gia_ManSatokoFromDimacs(ptr noundef %0, ptr nocapture readnone %1) l
 
 9:                                                ; preds = %.critedge2, %2
   %.046 = phi ptr [ %4, %2 ], [ %67, %.critedge2 ]
-  %.0 = phi i32 [ 0, %2 ], [ %.2, %.critedge2 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1, %.critedge2 ]
   %10 = load i8, ptr %.046, align 1
   switch i8 %10, label %.preheader [
     i8 0, label %68
@@ -279,7 +279,7 @@ define ptr @Gia_ManSatokoFromDimacs(ptr noundef %0, ptr nocapture readnone %1) l
 
 .preheader:                                       ; preds = %9, %.critedge
   %14 = phi i8 [ %.pr, %.critedge ], [ %10, %9 ]
-  %.248 = phi ptr [ %15, %.critedge ], [ %.046, %9 ]
+  %.3 = phi ptr [ %15, %.critedge ], [ %.046, %9 ]
   switch i8 %14, label %.loopexit [
     i8 32, label %.critedge
     i8 9, label %.critedge
@@ -289,22 +289,22 @@ define ptr @Gia_ManSatokoFromDimacs(ptr noundef %0, ptr nocapture readnone %1) l
   ]
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.248, i64 1
+  %15 = getelementptr inbounds i8, ptr %.3, i64 1
   %.pr = load i8, ptr %15, align 1
   br label %.preheader, !llvm.loop !7
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %.248, i64 1
+  %17 = getelementptr inbounds i8, ptr %.3, i64 1
   %.pre = load i8, ptr %17, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %16
   %18 = phi i8 [ %.pre, %16 ], [ %14, %.preheader ]
-  %.3 = phi ptr [ %17, %16 ], [ %.248, %.preheader ]
+  %.4 = phi ptr [ %17, %16 ], [ %.3, %.preheader ]
   %.045 = phi i32 [ 1, %16 ], [ 0, %.preheader ]
   %19 = icmp eq i8 %18, 43
   %spec.select.idx = zext i1 %19 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.3, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.4, i64 %spec.select.idx
   %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %spec.select) #16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
@@ -409,21 +409,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %62
 
 62:                                               ; preds = %22, %29, %Vec_IntPush.exit
-  %.1 = phi i32 [ %.0, %29 ], [ %.0, %22 ], [ %32, %Vec_IntPush.exit ]
+  %.2 = phi i32 [ %.0, %29 ], [ %.0, %22 ], [ %32, %Vec_IntPush.exit ]
   br label %63
 
 63:                                               ; preds = %63, %62
-  %.5 = phi ptr [ %spec.select, %62 ], [ %66, %63 ]
-  %64 = load i8, ptr %.5, align 1
+  %.6 = phi ptr [ %spec.select, %62 ], [ %66, %63 ]
+  %64 = load i8, ptr %.6, align 1
   %65 = add i8 %64, -48
   %or.cond = icmp ult i8 %65, 10
-  %66 = getelementptr inbounds i8, ptr %.5, i64 1
+  %66 = getelementptr inbounds i8, ptr %.6, i64 1
   br i1 %or.cond, label %63, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %11, %63
-  %.6 = phi ptr [ %.5, %63 ], [ %.147, %11 ]
-  %.2 = phi i32 [ %.1, %63 ], [ %.0, %11 ]
-  %67 = getelementptr inbounds i8, ptr %.6, i64 1
+  %.248 = phi ptr [ %.6, %63 ], [ %.147, %11 ]
+  %.1 = phi i32 [ %.2, %63 ], [ %.0, %11 ]
+  %67 = getelementptr inbounds i8, ptr %.248, i64 1
   br label %9, !llvm.loop !9
 
 68:                                               ; preds = %9

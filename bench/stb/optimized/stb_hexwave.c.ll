@@ -485,7 +485,7 @@ if.end44:                                         ; preds = %if.else, %if.then37
 
 for.body48:                                       ; preds = %if.end44, %for.inc195
   %cmp49 = phi i1 [ true, %if.end44 ], [ false, %for.inc195 ]
-  %t.0233 = phi float [ %0, %if.end44 ], [ %t.4, %for.inc195 ]
+  %t.0233 = phi float [ %0, %if.end44 ], [ %t.1, %for.inc195 ]
   %16 = load i32, ptr @hexblep, align 8
   br i1 %cmp49, label %if.then51, label %if.else57
 
@@ -528,14 +528,14 @@ for.end78:                                        ; preds = %for.cond65, %for.en
   br label %for.cond79
 
 for.cond79:                                       ; preds = %for.cond79.backedge, %for.end78
-  %t.1 = phi float [ %t.0233, %for.end78 ], [ %t.1.be, %for.cond79.backedge ]
+  %t.2 = phi float [ %t.0233, %for.end78 ], [ %t.2.be, %for.cond79.backedge ]
   %j.2 = phi i32 [ %j.1.lcssa, %for.end78 ], [ %j.2.be, %for.cond79.backedge ]
   %i.0 = phi i32 [ 0, %for.end78 ], [ %i.1.lcssa, %for.cond79.backedge ]
   %add80 = add nsw i32 %j.2, 1
   %idxprom81 = sext i32 %add80 to i64
   %arrayidx82 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom81
   %19 = load float, ptr %arrayidx82, align 4
-  %cmp84226 = fcmp olt float %t.1, %19
+  %cmp84226 = fcmp olt float %t.2, %19
   %idxprom90 = sext i32 %j.2 to i64
   %arrayidx91 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
   br i1 %cmp84226, label %while.body.lr.ph, label %for.cond79.while.end_crit_edge
@@ -552,7 +552,7 @@ while.body.lr.ph:                                 ; preds = %for.cond79
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end89
   %indvars.iv247 = phi i64 [ %20, %while.body.lr.ph ], [ %indvars.iv.next248, %if.end89 ]
-  %t.2227 = phi float [ %t.1, %while.body.lr.ph ], [ %add104, %if.end89 ]
+  %t.3227 = phi float [ %t.2, %while.body.lr.ph ], [ %add104, %if.end89 ]
   %21 = icmp eq i64 %indvars.iv247, %sext
   br i1 %21, label %for.inc195, label %if.end89
 
@@ -560,14 +560,14 @@ if.end89:                                         ; preds = %while.body
   %22 = load float, ptr %v, align 4
   %23 = load float, ptr %s94, align 4
   %24 = load float, ptr %arrayidx91, align 4
-  %sub98 = fsub float %t.2227, %24
+  %sub98 = fsub float %t.3227, %24
   %25 = tail call float @llvm.fmuladd.f32(float %23, float %sub98, float %22)
   %26 = add nsw i64 %indvars.iv247, %15
   %arrayidx102 = getelementptr inbounds float, ptr %out.0, i64 %26
   %27 = load float, ptr %arrayidx102, align 4
   %add103 = fadd float %27, %25
   store float %add103, ptr %arrayidx102, align 4
-  %add104 = fadd float %2, %t.2227
+  %add104 = fadd float %2, %t.3227
   %indvars.iv.next248 = add nsw i64 %indvars.iv247, 1
   %cmp84 = fcmp olt float %add104, %19
   br i1 %cmp84, label %while.body, label %while.end.loopexit, !llvm.loop !13
@@ -578,7 +578,7 @@ while.end.loopexit:                               ; preds = %if.end89
 
 while.end:                                        ; preds = %for.cond79.while.end_crit_edge, %while.end.loopexit
   %29 = phi float [ %.pre, %for.cond79.while.end_crit_edge ], [ %24, %while.end.loopexit ]
-  %t.2.lcssa = phi float [ %t.1, %for.cond79.while.end_crit_edge ], [ %add104, %while.end.loopexit ]
+  %t.3.lcssa = phi float [ %t.2, %for.cond79.while.end_crit_edge ], [ %add104, %while.end.loopexit ]
   %i.1.lcssa = phi i32 [ %i.0, %for.cond79.while.end_crit_edge ], [ %28, %while.end.loopexit ]
   %arrayidx107 = getelementptr inbounds [9 x %struct.hexvert], ptr %vert, i64 0, i64 %idxprom90
   %cmp113 = fcmp oeq float %29, %19
@@ -588,13 +588,13 @@ while.end:                                        ; preds = %for.cond79.while.en
   br i1 %cmp113, label %if.then115, label %while.end.if.end130_crit_edge
 
 while.end.if.end130_crit_edge:                    ; preds = %while.end
-  %.pre264 = fsub float %t.2.lcssa, %19
+  %.pre264 = fsub float %t.3.lcssa, %19
   %.pre265 = fmul float %cond, %.pre264
   br label %if.end130
 
 if.then115:                                       ; preds = %while.end
   %add.ptr = getelementptr inbounds float, ptr %out.0, i64 %idx.ext
-  %sub120 = fsub float %t.2.lcssa, %19
+  %sub120 = fsub float %t.3.lcssa, %19
   %mul121 = fmul float %cond, %sub120
   %v125 = getelementptr inbounds i8, ptr %arrayidx82, i64 4
   %30 = load float, ptr %v125, align 4
@@ -702,7 +702,7 @@ hex_blamp.exit164:                                ; preds = %for.body.i.i156, %i
   br i1 %cmp149, label %if.then151, label %for.cond79.backedge
 
 if.then151:                                       ; preds = %hex_blamp.exit164
-  %conv154 = fadd float %t.2.lcssa, -1.000000e+00
+  %conv154 = fadd float %t.3.lcssa, -1.000000e+00
   %50 = load i32, ptr %have_pending, align 4
   %tobool.not = icmp eq i32 %50, 0
   br i1 %tobool.not, label %for.cond79.backedge, label %if.then155
@@ -794,7 +794,7 @@ if.then183:                                       ; preds = %if.end177
   br i1 %cmp1014.i.i207, label %for.body.preheader.i.i208, label %for.cond79.backedge
 
 for.cond79.backedge:                              ; preds = %for.body.i.i210, %if.then183, %if.then151, %if.end177, %hex_blamp.exit164
-  %t.1.be = phi float [ %conv154, %if.end177 ], [ %conv154, %if.then151 ], [ %t.2.lcssa, %hex_blamp.exit164 ], [ %conv154, %if.then183 ], [ %conv154, %for.body.i.i210 ]
+  %t.2.be = phi float [ %conv154, %if.end177 ], [ %conv154, %if.then151 ], [ %t.3.lcssa, %hex_blamp.exit164 ], [ %conv154, %if.then183 ], [ %conv154, %for.body.i.i210 ]
   %j.2.be = phi i32 [ 0, %if.end177 ], [ 0, %if.then151 ], [ %add80, %hex_blamp.exit164 ], [ 0, %if.then183 ], [ 0, %for.body.i.i210 ]
   br label %for.cond79
 
@@ -819,7 +819,7 @@ for.body.i.i210:                                  ; preds = %for.body.i.i210, %f
   br i1 %exitcond.not.i.i217, label %for.cond79.backedge, label %for.body.i.i210, !llvm.loop !4
 
 for.inc195:                                       ; preds = %while.body, %if.then51
-  %t.4 = phi float [ %t.0233, %if.then51 ], [ %t.2227, %while.body ]
+  %t.1 = phi float [ %t.0233, %if.then51 ], [ %t.3227, %while.body ]
   br i1 %cmp49, label %for.body48, label %for.end197, !llvm.loop !14
 
 for.end197:                                       ; preds = %for.inc195
@@ -867,7 +867,7 @@ if.end239:                                        ; preds = %for.body204, %for.c
   %add.ptr237 = getelementptr inbounds float, ptr %temp_output, i64 %conv29.sink
   %conv238 = sext i32 %mul to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer233, ptr nonnull align 4 %add.ptr237, i64 %conv238, i1 false)
-  store float %t.4, ptr %hex, align 4
+  store float %t.1, ptr %hex, align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end239

@@ -176,9 +176,9 @@ if.else72.thread:                                 ; preds = %if.then20
   br label %if.else84
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end46
-  %trailing_separator.064 = phi i32 [ %trailing_separator.1, %if.end46 ], [ 0, %while.cond.preheader ]
-  %next.063 = phi ptr [ %next.1, %if.end46 ], [ %txt.addr.0, %while.cond.preheader ]
-  %call34 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %next.063, ptr noundef nonnull dereferenceable(1) %spec.store.select) #5
+  %trailing_separator.164 = phi i32 [ %trailing_separator.2, %if.end46 ], [ 0, %while.cond.preheader ]
+  %next.163 = phi ptr [ %next.2, %if.end46 ], [ %txt.addr.0, %while.cond.preheader ]
+  %call34 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %next.163, ptr noundef nonnull dereferenceable(1) %spec.store.select) #5
   %cmp35.not = icmp eq ptr %call34, null
   br i1 %cmp35.not, label %if.else43, label %if.then37
 
@@ -191,17 +191,17 @@ if.then37:                                        ; preds = %while.body
   br label %if.end46
 
 if.else43:                                        ; preds = %while.body
-  %call44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %next.063) #5
-  %add.ptr45 = getelementptr inbounds i8, ptr %next.063, i64 %call44
+  %call44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %next.163) #5
+  %add.ptr45 = getelementptr inbounds i8, ptr %next.163, i64 %call44
   %.pre69 = load i8, ptr %add.ptr45, align 1
   br label %if.end46
 
 if.end46:                                         ; preds = %if.else43, %if.then37
   %8 = phi i8 [ %7, %if.then37 ], [ %.pre69, %if.else43 ]
-  %next.1 = phi ptr [ %add.ptr39, %if.then37 ], [ %add.ptr45, %if.else43 ]
-  %trailing_separator.1 = phi i32 [ %conv42, %if.then37 ], [ %trailing_separator.064, %if.else43 ]
+  %next.2 = phi ptr [ %add.ptr39, %if.then37 ], [ %add.ptr45, %if.else43 ]
+  %trailing_separator.2 = phi i32 [ %conv42, %if.then37 ], [ %trailing_separator.164, %if.else43 ]
   %cmp30.not = icmp eq i8 %8, 0
-  %sub.ptr.lhs.cast = ptrtoint ptr %next.1 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %next.2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp32.not = icmp ugt i64 %sub.ptr.sub, %available_len.0
   %or.cond = or i1 %cmp30.not, %cmp32.not
@@ -216,12 +216,12 @@ if.end54:                                         ; preds = %if.then20
   br i1 %cmp55.not, label %if.else84, label %if.then57
 
 if.then57:                                        ; preds = %while.end, %if.end54
-  %curr.178 = phi ptr [ %add.ptr26, %if.end54 ], [ %next.063, %while.end ]
-  %cmp58.not = icmp eq ptr %curr.178, %txt.addr.0
+  %curr.078 = phi ptr [ %add.ptr26, %if.end54 ], [ %next.163, %while.end ]
+  %cmp58.not = icmp eq ptr %curr.078, %txt.addr.0
   br i1 %cmp58.not, label %if.end69, label %if.then60
 
 if.then60:                                        ; preds = %if.then57
-  %sub.ptr.lhs.cast61 = ptrtoint ptr %curr.178 to i64
+  %sub.ptr.lhs.cast61 = ptrtoint ptr %curr.078 to i64
   %sub.ptr.rhs.cast62 = ptrtoint ptr %txt.addr.0 to i64
   %sub.ptr.sub63 = sub i64 %sub.ptr.lhs.cast61, %sub.ptr.rhs.cast62
   %call64 = call noalias ptr @CRYPTO_strndup(ptr noundef %txt.addr.0, i64 noundef %sub.ptr.sub63, ptr noundef nonnull @.str.4, i32 noundef 123) #4
@@ -243,13 +243,13 @@ if.end69:                                         ; preds = %if.end68, %if.then5
   br label %do.cond
 
 if.else72:                                        ; preds = %while.end
-  %tobool.not = icmp eq i32 %trailing_separator.1, 0
+  %tobool.not = icmp eq i32 %trailing_separator.2, 0
   br i1 %tobool.not, label %if.else84, label %if.then73
 
 if.then73:                                        ; preds = %if.else72
   %call74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #5
   %idx.neg = sub i64 0, %call74
-  %add.ptr75 = getelementptr inbounds i8, ptr %next.1, i64 %idx.neg
+  %add.ptr75 = getelementptr inbounds i8, ptr %next.2, i64 %idx.neg
   %sub.ptr.lhs.cast76 = ptrtoint ptr %add.ptr75 to i64
   %sub.ptr.rhs.cast77 = ptrtoint ptr %txt.addr.0 to i64
   %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast77
@@ -263,12 +263,12 @@ if.end83:                                         ; preds = %if.then73
   br label %do.cond
 
 if.else84:                                        ; preds = %while.cond.preheader, %if.end54, %if.else72.thread, %if.else72
-  %next.25560 = phi ptr [ %add.ptr, %if.else72.thread ], [ %next.1, %if.else72 ], [ null, %if.end54 ], [ %txt.addr.0, %while.cond.preheader ]
+  %next.05560 = phi ptr [ %add.ptr, %if.else72.thread ], [ %next.2, %if.else72 ], [ null, %if.end54 ], [ %txt.addr.0, %while.cond.preheader ]
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull %leading_separator.0, ptr noundef %txt.addr.0) #4
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end83, %if.else84, %if.end69
-  %txt.addr.1 = phi ptr [ %curr.178, %if.end69 ], [ %next.25560, %if.else84 ], [ %next.1, %if.end83 ]
+  %txt.addr.1 = phi ptr [ %curr.078, %if.end69 ], [ %next.05560, %if.else84 ], [ %next.2, %if.end83 ]
   %12 = load i8, ptr %txt.addr.1, align 1
   %cmp88.not = icmp eq i8 %12, 0
   br i1 %cmp88.not, label %do.end, label %do.body, !llvm.loop !7

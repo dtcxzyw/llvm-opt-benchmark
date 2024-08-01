@@ -7390,8 +7390,8 @@ _ZN11ast_manager7inc_refEP3ast.exit9:             ; preds = %_ZN11ast_manager7in
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit, %_ZN11ast_manager7inc_refEP3ast.exit9
-  %res.1 = phi ptr [ %7, %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit ], [ %call.i, %_ZN11ast_manager7inc_refEP3ast.exit9 ]
-  ret ptr %res.1
+  %res.0 = phi ptr [ %7, %_ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit ], [ %call.i, %_ZN11ast_manager7inc_refEP3ast.exit9 ]
+  ret ptr %res.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8518,23 +8518,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.not2.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
-  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 4
+  %retval.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
+  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 4
   %8 = load i32, ptr %m_state.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %8, 2
   br i1 %cmp.i.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr5.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i, !llvm.loop !25
 
 _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit: ; preds = %land.rhs.i.i.i.i
-  %cmp.i.not = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr5.i.i.i
+  %cmp.i.not = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr5.i.i.i
   br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit
-  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
+  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   %retval.0.in.sroa.speculate.load.if.then = load ptr, ptr %m_value, align 8
   br label %return
 
@@ -35825,23 +35825,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.not2.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
-  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 4
+  %retval.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.0.i.i.i, %if.then.i.i ]
+  %m_state.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 4
   %8 = load i32, ptr %m_state.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %8, 2
   br i1 %cmp.i.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr5.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.else, label %land.rhs.i.i.i.i, !llvm.loop !25
 
 _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit: ; preds = %land.rhs.i.i.i.i
-  %cmp.i.not = icmp eq ptr %retval.sroa.0.0.i.i, %add.ptr5.i.i.i
+  %cmp.i.not = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr5.i.i.i
   br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit
-  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
+  %m_value = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 16
   %retval.0.in.sroa.speculate.load.if.then = load ptr, ptr %m_value, align 8
   br label %return
 
@@ -38010,8 +38010,8 @@ lpad:                                             ; preds = %invoke.cont18, %cal
   br label %ehcleanup87
 
 if.end:                                           ; preds = %if.then.i26, %invoke.cont26, %invoke.cont7
-  %decls.sroa.0.1 = phi ptr [ %10, %invoke.cont7 ], [ %call.i1.i11, %invoke.cont26 ], [ %call.i1.i11, %if.then.i26 ]
-  %decls.sroa.6.1 = phi ptr [ %11, %invoke.cont7 ], [ null, %invoke.cont26 ], [ %call.i1.i16, %if.then.i26 ]
+  %decls.sroa.0.0 = phi ptr [ %10, %invoke.cont7 ], [ %call.i1.i11, %invoke.cont26 ], [ %call.i1.i11, %if.then.i26 ]
+  %decls.sroa.6.0 = phi ptr [ %11, %invoke.cont7 ], [ null, %invoke.cont26 ], [ %call.i1.i16, %if.then.i26 ]
   %17 = load ptr, ptr %m, align 8
   store ptr null, ptr %pn, align 8
   %m_manager.i30 = getelementptr inbounds i8, ptr %pn, i64 8
@@ -38032,7 +38032,7 @@ invoke.cont42:                                    ; preds = %invoke.cont39
   %18 = load ptr, ptr %m_util, align 8
   %m_fid.i = getelementptr inbounds i8, ptr %this, i64 568
   %19 = load i32, ptr %m_fid.i, align 8
-  %call2.i32 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %18, i32 noundef %19, i32 noundef 37, ptr noundef %decls.sroa.0.1, ptr noundef %call40, ptr noundef %call43)
+  %call2.i32 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %18, i32 noundef %19, i32 noundef 37, ptr noundef %decls.sroa.0.0, ptr noundef %call40, ptr noundef %call43)
           to label %invoke.cont44 unwind label %lpad38
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -38058,7 +38058,7 @@ invoke.cont51:                                    ; preds = %invoke.cont46
 invoke.cont55:                                    ; preds = %invoke.cont51
   %21 = load ptr, ptr %m_util, align 8
   %22 = load i32, ptr %m_fid.i, align 8
-  %call2.i37 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %21, i32 noundef %22, i32 noundef 37, ptr noundef %decls.sroa.6.1, ptr noundef %call52, ptr noundef %call56)
+  %call2.i37 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %21, i32 noundef %22, i32 noundef 37, ptr noundef %decls.sroa.6.0, ptr noundef %call52, ptr noundef %call56)
           to label %invoke.cont57 unwind label %lpad38
 
 invoke.cont57:                                    ; preds = %invoke.cont55

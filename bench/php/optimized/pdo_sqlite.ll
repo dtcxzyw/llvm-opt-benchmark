@@ -866,18 +866,18 @@ define internal i32 @php_sqlite_collation_callback(ptr noundef %0, i32 noundef %
   %65 = icmp sgt i64 %64, 0
   %.lobit = ashr i64 %64, 63
   %spec.select = trunc nsw i64 %.lobit to i32
-  %.0148 = select i1 %65, i32 1, i32 %spec.select
+  %.1 = select i1 %65, i32 1, i32 %spec.select
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   br label %66
 
 66:                                               ; preds = %44, %63, %43
-  %.1 = phi i32 [ -1, %43 ], [ %41, %44 ], [ %.0148, %63 ]
+  %.0148 = phi i32 [ -1, %43 ], [ %41, %44 ], [ %.1, %63 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %27) #11
   br label %67
 
 67:                                               ; preds = %47, %61, %62, %54, %66
-  %.0 = phi i32 [ %.1, %66 ], [ -1, %54 ], [ -1, %62 ], [ -1, %61 ], [ -1, %47 ]
+  %.0 = phi i32 [ %.0148, %66 ], [ -1, %54 ], [ -1, %62 ], [ -1, %61 ], [ -1, %47 ]
   ret i32 %.0
 }
 

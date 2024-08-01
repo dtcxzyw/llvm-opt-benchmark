@@ -119,7 +119,7 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   br label %59
 
 59:                                               ; preds = %.backedge.i, %.lr.ph61.i
-  %.057 = phi i64 [ 0, %.lr.ph61.i ], [ %.158, %.backedge.i ]
+  %.2 = phi i64 [ 0, %.lr.ph61.i ], [ %.3, %.backedge.i ]
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
@@ -769,22 +769,22 @@ collectMatchesForHeapRow.exit.i:                  ; preds = %383, %378
   %407 = load ptr, ptr %16, align 8
   call void @MemoryContextReset(ptr noundef %407) #9
   call void @tbm_add_tuples(ptr noundef %1, ptr noundef nonnull %55, i32 noundef 1, i1 noundef zeroext %.0.lcssa.i) #9
-  %408 = add i64 %.057, 1
+  %408 = add i64 %.2, 1
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %._crit_edge.i, %405, %collectMatchesForHeapRow.exit.i
-  %.158 = phi i64 [ %408, %._crit_edge.i ], [ %.057, %405 ], [ %.057, %collectMatchesForHeapRow.exit.i ]
+  %.3 = phi i64 [ %408, %._crit_edge.i ], [ %.2, %405 ], [ %.2, %collectMatchesForHeapRow.exit.i ]
   %409 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef readonly %0, ptr noundef nonnull %12)
   br i1 %409, label %59, label %._crit_edge62.i, !llvm.loop !14
 
 ._crit_edge62.i:                                  ; preds = %.backedge.i, %44
-  %.2 = phi i64 [ 0, %44 ], [ %.158, %.backedge.i ]
+  %.158 = phi i64 [ 0, %44 ], [ %.3, %.backedge.i ]
   %410 = load ptr, ptr %52, align 8
   call void @pfree(ptr noundef %410) #9
   br label %scanPendingInsert.exit
 
 scanPendingInsert.exit:                           ; preds = %43, %._crit_edge62.i
-  %.3 = phi i64 [ 0, %43 ], [ %.2, %._crit_edge62.i ]
+  %.4 = phi i64 [ 0, %43 ], [ %.158, %._crit_edge62.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %411 = load ptr, ptr %14, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 8
@@ -1829,7 +1829,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   br label %997
 
 997:                                              ; preds = %1339, %startScan.exit
-  %.4 = phi i64 [ %.3, %startScan.exit ], [ %1340, %1339 ]
+  %.057 = phi i64 [ %.4, %startScan.exit ], [ %1340, %1339 ]
   %998 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %998, 0
   br i1 %.not, label %1000, label %999
@@ -2609,11 +2609,11 @@ keyGetItem.exit.i:                                ; preds = %1260, %1200, %1079,
   br label %1339
 
 1339:                                             ; preds = %.thread, %1338
-  %1340 = add i64 %.4, 1
+  %1340 = add i64 %.057, 1
   br label %997
 
 scanGetItem.exit:                                 ; preds = %keyGetItem.exit.i, %2
-  %.0 = phi i64 [ 0, %2 ], [ %.4, %keyGetItem.exit.i ]
+  %.0 = phi i64 [ 0, %2 ], [ %.057, %keyGetItem.exit.i ]
   ret i64 %.0
 }
 

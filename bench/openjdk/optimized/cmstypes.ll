@@ -6391,8 +6391,8 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
 
 141:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %.071106 = phi ptr [ null, %.lr.ph ], [ %.2, %137 ]
-  %.072105 = phi ptr [ null, %.lr.ph ], [ %.27485, %137 ]
+  %.071106 = phi ptr [ null, %.lr.ph ], [ %.1, %137 ]
+  %.072105 = phi ptr [ null, %.lr.ph ], [ %.17385, %137 ]
   %142 = trunc nuw i64 %indvars.iv to i32
   %143 = call fastcc i32 @ReadOneWChar(ptr noundef %1, ptr noundef nonnull %9, i32 noundef %142, ptr noundef nonnull %10)
   %.not52 = icmp eq i32 %143, 0
@@ -6450,7 +6450,7 @@ ReadOneMLUC.exit._crit_edge:                      ; preds = %ReadOneMLUC.exit
 
 164:                                              ; preds = %ReadOneMLUC.exit._crit_edge, %ReadOneMLUC.exit.thread
   %.pr = phi i32 [ %147, %ReadOneMLUC.exit.thread ], [ %.pr.pre, %ReadOneMLUC.exit._crit_edge ]
-  %.274.ph = phi ptr [ null, %ReadOneMLUC.exit.thread ], [ %163, %ReadOneMLUC.exit._crit_edge ]
+  %.173.ph = phi ptr [ null, %ReadOneMLUC.exit.thread ], [ %163, %ReadOneMLUC.exit._crit_edge ]
   %165 = icmp ugt i32 %.pr, 24
   br i1 %165, label %166, label %.thread
 
@@ -6491,8 +6491,8 @@ ReadOneMLUC.exit65:                               ; preds = %176
   br i1 %.not101, label %.thread96, label %.thread
 
 .thread:                                          ; preds = %146, %ReadOneMLUC.exit65.thread, %ReadOneMLUC.exit65, %164
-  %.27485 = phi ptr [ %.274.ph, %ReadOneMLUC.exit65 ], [ %.274.ph, %164 ], [ %.274.ph, %ReadOneMLUC.exit65.thread ], [ %.072105, %146 ]
-  %.2 = phi ptr [ %180, %ReadOneMLUC.exit65 ], [ %.071106, %164 ], [ null, %ReadOneMLUC.exit65.thread ], [ %.071106, %146 ]
+  %.17385 = phi ptr [ %.173.ph, %ReadOneMLUC.exit65 ], [ %.173.ph, %164 ], [ %.173.ph, %ReadOneMLUC.exit65.thread ], [ %.072105, %146 ]
+  %.1 = phi ptr [ %180, %ReadOneMLUC.exit65 ], [ %.071106, %164 ], [ null, %ReadOneMLUC.exit65.thread ], [ %.071106, %146 ]
   %181 = load ptr, ptr %10, align 8
   %182 = icmp eq ptr %181, null
   %183 = load ptr, ptr %11, align 8
@@ -6506,7 +6506,7 @@ ReadOneMLUC.exit65:                               ; preds = %176
   br label %189
 
 187:                                              ; preds = %.thread
-  %188 = call i32 @cmsDictAddEntry(ptr noundef nonnull %33, ptr noundef nonnull %181, ptr noundef nonnull %183, ptr noundef %.27485, ptr noundef %.2) #13
+  %188 = call i32 @cmsDictAddEntry(ptr noundef nonnull %33, ptr noundef nonnull %181, ptr noundef nonnull %183, ptr noundef %.17385, ptr noundef %.1) #13
   %.pre = load ptr, ptr %10, align 8
   br label %189
 
@@ -6532,19 +6532,19 @@ ReadOneMLUC.exit65:                               ; preds = %176
   br label %197
 
 197:                                              ; preds = %195, %193
-  %.not58 = icmp eq ptr %.27485, null
+  %.not58 = icmp eq ptr %.17385, null
   br i1 %.not58, label %199, label %198
 
 198:                                              ; preds = %197
-  call void @cmsMLUfree(ptr noundef nonnull %.27485) #13
+  call void @cmsMLUfree(ptr noundef nonnull %.17385) #13
   br label %199
 
 199:                                              ; preds = %198, %197
-  %.not59 = icmp eq ptr %.2, null
+  %.not59 = icmp eq ptr %.1, null
   br i1 %.not59, label %201, label %200
 
 200:                                              ; preds = %199
-  call void @cmsMLUfree(ptr noundef nonnull %.2) #13
+  call void @cmsMLUfree(ptr noundef nonnull %.1) #13
   br label %201
 
 201:                                              ; preds = %200, %199

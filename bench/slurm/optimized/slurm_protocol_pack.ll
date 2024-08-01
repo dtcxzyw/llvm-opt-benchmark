@@ -778,12 +778,12 @@ define range(i32 0, 7007) i32 @slurm_pack_list(ptr noundef %0, ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %18
-  %.020 = phi i32 [ 7006, %18 ], [ 0, %13 ]
+  %.1 = phi i32 [ 7006, %18 ], [ 0, %13 ]
   tail call void @list_iterator_destroy(ptr noundef %11) #8
   br label %20
 
 20:                                               ; preds = %6, %.loopexit, %5
-  %.0 = phi i32 [ 0, %5 ], [ %.020, %.loopexit ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.1, %.loopexit ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -849,12 +849,12 @@ define range(i32 0, 7007) i32 @slurm_pack_list_until(ptr noundef %0, ptr nocaptu
   br i1 %.not33, label %.loopexit, label %17, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph47, %11, %._crit_edge
-  %.027 = phi i32 [ 7006, %._crit_edge ], [ 0, %11 ], [ 0, %.lr.ph47 ]
+  %.1 = phi i32 [ 7006, %._crit_edge ], [ 0, %11 ], [ 0, %.lr.ph47 ]
   tail call void @list_iterator_destroy(ptr noundef %12) #8
   br label %22
 
 22:                                               ; preds = %7, %.loopexit, %6
-  %.0 = phi i32 [ 0, %6 ], [ %.027, %.loopexit ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %6 ], [ %.1, %.loopexit ], [ 0, %7 ]
   ret i32 %.0
 }
 

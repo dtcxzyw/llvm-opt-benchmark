@@ -223,7 +223,7 @@ if.end:                                           ; preds = %entry
 
 while.body.outer:                                 ; preds = %if.then8, %if.end
   %tobool13.not = phi i1 [ false, %if.then8 ], [ true, %if.end ]
-  %command.054.ph = phi ptr [ %command.128, %if.then8 ], [ null, %if.end ]
+  %command.054.ph = phi ptr [ %command.228, %if.then8 ], [ null, %if.end ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.outer, %while.body
@@ -404,7 +404,7 @@ if.then6.i:                                       ; preds = %if.end.i21
   br label %if.then8
 
 if.then8:                                         ; preds = %if.then6.i, %if.end.i21, %lor.lhs.false6.i
-  %command.128 = phi ptr [ %retval.0.i.i, %lor.lhs.false6.i ], [ %command.054.ph, %if.end.i21 ], [ %command.054.ph, %if.then6.i ]
+  %command.228 = phi ptr [ %retval.0.i.i, %lor.lhs.false6.i ], [ %command.054.ph, %if.end.i21 ], [ %command.054.ph, %if.then6.i ]
   %call11 = call i32 @packet_reader_read(ptr noundef nonnull %reader) #6
   br label %while.body.outer, !llvm.loop !7
 

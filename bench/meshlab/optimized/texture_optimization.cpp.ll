@@ -3146,8 +3146,8 @@ define void @_Z11TrimTextureR4MeshRSt6vectorI11TextureSizeSaIS2_EEb(ptr noundef 
 
 .preheader156:                                    ; preds = %.preheader156.preheader, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ 0, %.preheader156.preheader ]
-  %.sroa.39.1162 = phi double [ %.sroa.39.2, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %22, %.preheader156.preheader ]
-  %.sroa.25.1161 = phi double [ %.sroa.25.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %21, %.preheader156.preheader ]
+  %.sroa.39.1162 = phi double [ %.sroa.39.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %22, %.preheader156.preheader ]
+  %.sroa.25.1161 = phi double [ %.sroa.25.5, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %21, %.preheader156.preheader ]
   %39 = phi <2 x double> [ %59, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit ], [ %11, %.preheader156.preheader ]
   %40 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %14, i64 0, i64 %indvars.iv
   %41 = extractelement <2 x double> %39, i64 0
@@ -3173,7 +3173,7 @@ define void @_Z11TrimTextureR4MeshRSt6vectorI11TextureSizeSaIS2_EEb(ptr noundef 
   %54 = fcmp ogt <2 x double> %39, %53
   %55 = select <2 x i1> %54, <2 x double> %53, <2 x double> %39
   %56 = fcmp olt double %.sroa.25.1161, %.sroa.25.16.copyload
-  %.sroa.25.2 = select i1 %56, double %.sroa.25.16.copyload, double %.sroa.25.1161
+  %.sroa.25.4 = select i1 %56, double %.sroa.25.16.copyload, double %.sroa.25.1161
   %57 = fcmp olt double %.sroa.39.1162, %51
   br i1 %57, label %58, label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
 
@@ -3181,8 +3181,8 @@ define void @_Z11TrimTextureR4MeshRSt6vectorI11TextureSizeSaIS2_EEb(ptr noundef 
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %58, %49, %46
-  %.sroa.25.3 = phi double [ %.sroa.25.16.copyload, %46 ], [ %.sroa.25.2, %58 ], [ %.sroa.25.2, %49 ]
-  %.sroa.39.2 = phi double [ %.sroa.39.16.copyload, %46 ], [ %51, %58 ], [ %.sroa.39.1162, %49 ]
+  %.sroa.25.5 = phi double [ %.sroa.25.16.copyload, %46 ], [ %.sroa.25.4, %58 ], [ %.sroa.25.4, %49 ]
+  %.sroa.39.4 = phi double [ %.sroa.39.16.copyload, %46 ], [ %51, %58 ], [ %.sroa.39.1162, %49 ]
   %59 = phi <2 x double> [ %48, %46 ], [ %55, %58 ], [ %55, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3229,8 +3229,8 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   resume { ptr, i32 } %61
 
 .loopexit157.loopexit:                            ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
-  %70 = insertelement <2 x double> poison, double %.sroa.25.3, i64 0
-  %71 = insertelement <2 x double> %70, double %.sroa.39.2, i64 1
+  %70 = insertelement <2 x double> poison, double %.sroa.25.5, i64 0
+  %71 = insertelement <2 x double> %70, double %.sroa.39.4, i64 1
   br label %.loopexit157
 
 .loopexit157:                                     ; preds = %.loopexit157.loopexit, %31
@@ -3351,10 +3351,10 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
 
 .lr.ph191:                                        ; preds = %._crit_edge178, %.loopexit
   %.sroa.087.0189 = phi ptr [ %180, %.loopexit ], [ %.pre213, %._crit_edge178 ]
-  %.sroa.090.0188 = phi double [ %.sroa.090.4, %.loopexit ], [ 1.000000e+00, %._crit_edge178 ]
-  %.sroa.5.0187 = phi double [ %.sroa.5.4, %.loopexit ], [ 1.000000e+00, %._crit_edge178 ]
-  %.sroa.9.0186 = phi double [ %.sroa.9.4, %.loopexit ], [ -1.000000e+00, %._crit_edge178 ]
-  %.sroa.15.0185 = phi double [ %.sroa.15.3, %.loopexit ], [ -1.000000e+00, %._crit_edge178 ]
+  %.sroa.090.0188 = phi double [ %.sroa.090.2, %.loopexit ], [ 1.000000e+00, %._crit_edge178 ]
+  %.sroa.5.0187 = phi double [ %.sroa.5.2, %.loopexit ], [ 1.000000e+00, %._crit_edge178 ]
+  %.sroa.9.0186 = phi double [ %.sroa.9.2, %.loopexit ], [ -1.000000e+00, %._crit_edge178 ]
+  %.sroa.15.0185 = phi double [ %.sroa.15.2, %.loopexit ], [ -1.000000e+00, %._crit_edge178 ]
   %143 = load ptr, ptr %.sroa.087.0189, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 96
   %145 = load double, ptr %144, align 8
@@ -3390,10 +3390,10 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ 0, %.preheader.preheader ]
-  %.sroa.090.1182 = phi double [ %.sroa.090.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.090.0188, %.preheader.preheader ]
-  %.sroa.5.1181 = phi double [ %.sroa.5.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.5.0187, %.preheader.preheader ]
-  %.sroa.9.1180 = phi double [ %.sroa.9.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.9.0186, %.preheader.preheader ]
-  %.sroa.15.1179 = phi double [ %.sroa.15.2, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.15.0185, %.preheader.preheader ]
+  %.sroa.090.1182 = phi double [ %.sroa.090.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.090.0188, %.preheader.preheader ]
+  %.sroa.5.1181 = phi double [ %.sroa.5.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.5.0187, %.preheader.preheader ]
+  %.sroa.9.1180 = phi double [ %.sroa.9.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.9.0186, %.preheader.preheader ]
+  %.sroa.15.1179 = phi double [ %.sroa.15.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ], [ %.sroa.15.0185, %.preheader.preheader ]
   %167 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %144, i64 0, i64 %indvars.iv205
   %168 = fcmp ogt double %.sroa.090.1182, %.sroa.9.1180
   %169 = fcmp ogt double %.sroa.5.1181, %.sroa.15.1179
@@ -3408,13 +3408,13 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
 
 172:                                              ; preds = %.preheader
   %173 = fcmp ogt double %.sroa.090.1182, %.sroa.9.16.copyload
-  %.sroa.090.2 = select i1 %173, double %.sroa.9.16.copyload, double %.sroa.090.1182
+  %.sroa.090.3 = select i1 %173, double %.sroa.9.16.copyload, double %.sroa.090.1182
   %174 = getelementptr inbounds i8, ptr %167, i64 8
   %175 = load double, ptr %174, align 8
   %176 = fcmp ogt double %.sroa.5.1181, %175
-  %.sroa.5.2 = select i1 %176, double %175, double %.sroa.5.1181
+  %.sroa.5.3 = select i1 %176, double %175, double %.sroa.5.1181
   %177 = fcmp olt double %.sroa.9.1180, %.sroa.9.16.copyload
-  %.sroa.9.2 = select i1 %177, double %.sroa.9.16.copyload, double %.sroa.9.1180
+  %.sroa.9.3 = select i1 %177, double %.sroa.9.16.copyload, double %.sroa.9.1180
   %178 = fcmp olt double %.sroa.15.1179, %175
   br i1 %178, label %179, label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75
 
@@ -3422,33 +3422,33 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75
 
 _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75:      ; preds = %179, %172, %171
-  %.sroa.15.2 = phi double [ %.sroa.15.16.copyload, %171 ], [ %175, %179 ], [ %.sroa.15.1179, %172 ]
-  %.sroa.9.3 = phi double [ %.sroa.9.16.copyload, %171 ], [ %.sroa.9.2, %179 ], [ %.sroa.9.2, %172 ]
-  %.sroa.5.3 = phi double [ %.sroa.15.16.copyload, %171 ], [ %.sroa.5.2, %179 ], [ %.sroa.5.2, %172 ]
-  %.sroa.090.3 = phi double [ %.sroa.9.16.copyload, %171 ], [ %.sroa.090.2, %179 ], [ %.sroa.090.2, %172 ]
+  %.sroa.15.3 = phi double [ %.sroa.15.16.copyload, %171 ], [ %175, %179 ], [ %.sroa.15.1179, %172 ]
+  %.sroa.9.4 = phi double [ %.sroa.9.16.copyload, %171 ], [ %.sroa.9.3, %179 ], [ %.sroa.9.3, %172 ]
+  %.sroa.5.4 = phi double [ %.sroa.15.16.copyload, %171 ], [ %.sroa.5.3, %179 ], [ %.sroa.5.3, %172 ]
+  %.sroa.090.4 = phi double [ %.sroa.9.16.copyload, %171 ], [ %.sroa.090.3, %179 ], [ %.sroa.090.3, %172 ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next206, 3
   br i1 %exitcond208.not, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75, %159
-  %.sroa.15.3 = phi double [ %.sroa.15.0185, %159 ], [ %.sroa.15.2, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
-  %.sroa.9.4 = phi double [ %.sroa.9.0186, %159 ], [ %.sroa.9.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
-  %.sroa.5.4 = phi double [ %.sroa.5.0187, %159 ], [ %.sroa.5.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
-  %.sroa.090.4 = phi double [ %.sroa.090.0188, %159 ], [ %.sroa.090.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
+  %.sroa.15.2 = phi double [ %.sroa.15.0185, %159 ], [ %.sroa.15.3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
+  %.sroa.9.2 = phi double [ %.sroa.9.0186, %159 ], [ %.sroa.9.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
+  %.sroa.5.2 = phi double [ %.sroa.5.0187, %159 ], [ %.sroa.5.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
+  %.sroa.090.2 = phi double [ %.sroa.090.0188, %159 ], [ %.sroa.090.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75 ]
   %180 = getelementptr inbounds i8, ptr %.sroa.087.0189, i64 8
   %.not153 = icmp eq ptr %180, %.pre215
   br i1 %.not153, label %._crit_edge192, label %.lr.ph191
 
 ._crit_edge192:                                   ; preds = %.loopexit
-  %181 = fcmp ogt double %.sroa.090.4, 0.000000e+00
+  %181 = fcmp ogt double %.sroa.090.2, 0.000000e+00
   br i1 %181, label %182, label %.invoke
 
 182:                                              ; preds = %._crit_edge192
-  %183 = fcmp ogt double %.sroa.5.4, 0.000000e+00
+  %183 = fcmp ogt double %.sroa.5.2, 0.000000e+00
   br i1 %183, label %184, label %.invoke
 
 184:                                              ; preds = %182
-  %185 = fcmp olt double %.sroa.9.4, 1.000000e+00
+  %185 = fcmp olt double %.sroa.9.2, 1.000000e+00
   br i1 %185, label %.thread225, label %.invoke
 
 .invoke:                                          ; preds = %184, %182, %._crit_edge192

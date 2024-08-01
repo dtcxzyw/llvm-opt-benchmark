@@ -73,8 +73,8 @@ define void @ADIOI_NFS_Get_shared_fp(ptr nocapture noundef %0, i64 noundef %1, p
   br label %48
 
 48:                                               ; preds = %43, %32
-  %.0 = phi i64 [ %47, %43 ], [ %41, %32 ]
-  %49 = icmp eq i64 %.0, -1
+  %.1 = phi i64 [ %47, %43 ], [ %41, %32 ]
+  %49 = icmp eq i64 %.1, -1
   br i1 %49, label %50, label %61
 
 50:                                               ; preds = %48
@@ -91,7 +91,7 @@ define void @ADIOI_NFS_Get_shared_fp(ptr nocapture noundef %0, i64 noundef %1, p
   br label %.sink.split
 
 61:                                               ; preds = %48, %21
-  %.1 = phi i64 [ %31, %21 ], [ %.0, %48 ]
+  %.0 = phi i64 [ %31, %21 ], [ %.1, %48 ]
   %62 = icmp eq i64 %1, 0
   br i1 %62, label %76, label %63
 
@@ -114,7 +114,7 @@ define void @ADIOI_NFS_Get_shared_fp(ptr nocapture noundef %0, i64 noundef %1, p
   br label %76
 
 76:                                               ; preds = %63, %71, %61
-  %.2 = phi i64 [ %.1, %61 ], [ %75, %71 ], [ %69, %63 ]
+  %.2 = phi i64 [ %.0, %61 ], [ %75, %71 ], [ %69, %63 ]
   %77 = load ptr, ptr %7, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 56
   %79 = load ptr, ptr %78, align 8

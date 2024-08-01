@@ -187,8 +187,8 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
   br label %115
 
 115:                                              ; preds = %111, %113
-  %.1 = phi ptr [ %112, %111 ], [ %114, %113 ]
-  %116 = ptrtoint ptr %.1 to i64
+  %.2 = phi ptr [ %112, %111 ], [ %114, %113 ]
+  %116 = ptrtoint ptr %.2 to i64
   %117 = load ptr, ptr %11, align 8
   %118 = getelementptr i64, ptr %117, i64 %indvars.iv
   store i64 %116, ptr %118, align 8
@@ -200,12 +200,12 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
   %123 = load i8, ptr %6, align 8
   %124 = or i8 %123, 10
   store i8 %124, ptr %6, align 8
-  %.pr = load i8, ptr %.1, align 1
+  %.pr = load i8, ptr %.2, align 1
   %125 = icmp eq i8 %.pr, 1
   br i1 %125, label %126, label %.thread
 
 126:                                              ; preds = %115
-  %127 = getelementptr inbounds i8, ptr %.1, i64 1
+  %127 = getelementptr inbounds i8, ptr %.2, i64 1
   %128 = load i8, ptr %127, align 1
   %129 = icmp eq i8 %128, 1
   %130 = and i8 %128, -2
@@ -218,7 +218,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
 
 .thread:                                          ; preds = %103, %115
   %.in = phi i8 [ %.pr, %115 ], [ %104, %103 ]
-  %.282 = phi ptr [ %.1, %115 ], [ %.0, %103 ]
+  %.182 = phi ptr [ %.2, %115 ], [ %.0, %103 ]
   %135 = zext i8 %.in to i32
   %136 = and i32 %135, 1
   %.not79 = icmp eq i32 %136, 0
@@ -229,7 +229,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_
   br label %142
 
 139:                                              ; preds = %.thread
-  %140 = load i32, ptr %.282, align 4
+  %140 = load i32, ptr %.182, align 4
   %141 = lshr i32 %140, 2
   br label %142
 

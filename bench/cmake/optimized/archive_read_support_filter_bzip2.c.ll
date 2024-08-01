@@ -357,17 +357,17 @@ define internal range(i32 -30, 1) i32 @bzip2_filter_close(ptr nocapture noundef 
   br label %11
 
 11:                                               ; preds = %6, %8
-  %.0 = phi i32 [ 0, %6 ], [ -30, %8 ]
+  %.1 = phi i32 [ 0, %6 ], [ -30, %8 ]
   store i8 0, ptr %4, align 8
   br label %12
 
 12:                                               ; preds = %11, %1
-  %.1 = phi i32 [ %.0, %11 ], [ 0, %1 ]
+  %.0 = phi i32 [ %.1, %11 ], [ 0, %1 ]
   %13 = getelementptr inbounds i8, ptr %3, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #7
   tail call void @free(ptr noundef nonnull %3) #7
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare i32 @BZ2_bzDecompressInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

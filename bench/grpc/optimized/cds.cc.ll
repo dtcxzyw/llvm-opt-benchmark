@@ -6194,10 +6194,10 @@ lpad55.i.i.i.i.i:                                 ; preds = %invoke.cont53.i.i.i
   br label %ehcleanup178.i.i.i.i.i
 
 if.end58.i.i.i.i.i:                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit.i.i.i.i.i, %if.end24.i.i.i.i.i
-  %new_root_provider.sroa.0.1.i.i.i.i.i = phi ptr [ null, %if.end24.i.i.i.i.i ], [ %45, %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit.i.i.i.i.i ]
+  %new_root_provider.sroa.0.0.i.i.i.i.i = phi ptr [ null, %if.end24.i.i.i.i.i ], [ %45, %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit.i.i.i.i.i ]
   %root_certificate_provider_.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_.val.i.i.i, i64 128
   %52 = load ptr, ptr %root_certificate_provider_.i.i.i.i.i, align 8, !noalias !71
-  store ptr %new_root_provider.sroa.0.1.i.i.i.i.i, ptr %root_certificate_provider_.i.i.i.i.i, align 8, !noalias !71
+  store ptr %new_root_provider.sroa.0.0.i.i.i.i.i, ptr %root_certificate_provider_.i.i.i.i.i, align 8, !noalias !71
   %cmp.not.i.i.i46.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i46.i.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit.i.i.i.i.i, label %if.then.i.i.i47.i.i.i.i.i
 
@@ -6219,7 +6219,7 @@ _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertific
   br label %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit.i.i.i.i.i
 
 _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit.i.i.i.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exitthread-pre-split.i.i.i.i.i, %if.end58.i.i.i.i.i
-  %55 = phi ptr [ %.pr.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exitthread-pre-split.i.i.i.i.i ], [ %new_root_provider.sroa.0.1.i.i.i.i.i, %if.end58.i.i.i.i.i ]
+  %55 = phi ptr [ %.pr.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exitthread-pre-split.i.i.i.i.i ], [ %new_root_provider.sroa.0.0.i.i.i.i.i, %if.end58.i.i.i.i.i ]
   %56 = load ptr, ptr %xds_certificate_provider_16.i.i.i.i.i, align 8, !noalias !71
   %cmp.i53.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %cmp.i53.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
@@ -6375,10 +6375,10 @@ lpad121.i.i.i.i.i:                                ; preds = %invoke.cont119.i.i.
   br label %ehcleanup178.i.i.i.i.i
 
 if.end125.i.i.i.i.i:                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit78.i.i.i.i.i, %cleanup.done83.i.i.i.i.i
-  %new_identity_provider.sroa.0.1.i.i.i.i.i = phi ptr [ null, %cleanup.done83.i.i.i.i.i ], [ %68, %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit78.i.i.i.i.i ]
+  %new_identity_provider.sroa.0.0.i.i.i.i.i = phi ptr [ null, %cleanup.done83.i.i.i.i.i ], [ %68, %_ZN9grpc_core13RefCountedPtrINS_22XdsCertificateProviderEEaSI29grpc_tls_certificate_providerEERS2_ONS0_IT_EE.exit78.i.i.i.i.i ]
   %identity_certificate_provider_.i.i.i.i.i = getelementptr inbounds i8, ptr %parent_.val.i.i.i, i64 136
   %82 = load ptr, ptr %identity_certificate_provider_.i.i.i.i.i, align 8, !noalias !71
-  store ptr %new_identity_provider.sroa.0.1.i.i.i.i.i, ptr %identity_certificate_provider_.i.i.i.i.i, align 8, !noalias !71
+  store ptr %new_identity_provider.sroa.0.0.i.i.i.i.i, ptr %identity_certificate_provider_.i.i.i.i.i, align 8, !noalias !71
   %cmp.not.i.i.i107.i.i.i.i.i = icmp eq ptr %82, null
   br i1 %cmp.not.i.i.i107.i.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit114.i.i.i.i.i, label %if.then.i.i.i108.i.i.i.i.i
 
@@ -6400,7 +6400,7 @@ _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertific
   br label %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit114.i.i.i.i.i
 
 _ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit114.i.i.i.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit114thread-pre-split.i.i.i.i.i, %if.end125.i.i.i.i.i
-  %85 = phi ptr [ %.pr212.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit114thread-pre-split.i.i.i.i.i ], [ %new_identity_provider.sroa.0.1.i.i.i.i.i, %if.end125.i.i.i.i.i ]
+  %85 = phi ptr [ %.pr212.i.i.i.i.i, %_ZN9grpc_core13RefCountedPtrI29grpc_tls_certificate_providerEaSINS_22XdsCertificateProviderEEERS2_ONS0_IT_EE.exit114thread-pre-split.i.i.i.i.i ], [ %new_identity_provider.sroa.0.0.i.i.i.i.i, %if.end125.i.i.i.i.i ]
   %86 = load ptr, ptr %xds_certificate_provider_16.i.i.i.i.i, align 8, !noalias !71
   %cmp.i115.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %cmp.i115.i.i.i.i.i, label %cond.true134.i.i.i.i.i, label %cond.false137.i.i.i.i.i
@@ -9173,15 +9173,15 @@ ehcleanup87:                                      ; preds = %arraydestroy.body82
 
 ehcleanup89:                                      ; preds = %lpad66, %ehcleanup87
   %cleanup.isactive.1 = phi i1 [ %71, %ehcleanup87 ], [ false, %lpad66 ]
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element, %ehcleanup87 ], [ %arrayinit.endOfInit.0, %lpad66 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element, %ehcleanup87 ], [ %arrayinit.endOfInit.0, %lpad66 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup87 ], [ %69, %lpad66 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp63) #22
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp62, %arrayinit.endOfInit.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp62, %arrayinit.endOfInit.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %eh.resume, label %arraydestroy.body90
 
 arraydestroy.body90:                              ; preds = %ehcleanup89, %arraydestroy.body90
-  %arraydestroy.elementPast91 = phi ptr [ %arraydestroy.element92, %arraydestroy.body90 ], [ %arrayinit.endOfInit.1, %ehcleanup89 ]
+  %arraydestroy.elementPast91 = phi ptr [ %arraydestroy.element92, %arraydestroy.body90 ], [ %arrayinit.endOfInit.2, %ehcleanup89 ]
   %arraydestroy.element92 = getelementptr inbounds i8, ptr %arraydestroy.elementPast91, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element92) #22
   %arraydestroy.done93 = icmp eq ptr %arraydestroy.element92, %ref.tmp62
@@ -9338,30 +9338,30 @@ ehcleanup243:                                     ; preds = %arraydestroy.body23
   br label %ehcleanup244
 
 ehcleanup244:                                     ; preds = %ehcleanup243, %lpad198
-  %arrayinit.endOfInit178.3 = phi ptr [ %arrayinit.element200, %ehcleanup243 ], [ %arrayinit.endOfInit178.2, %lpad198 ]
-  %cleanup.isactive207.1 = phi i1 [ %91, %ehcleanup243 ], [ false, %lpad198 ]
+  %arrayinit.endOfInit178.6 = phi ptr [ %arrayinit.element200, %ehcleanup243 ], [ %arrayinit.endOfInit178.2, %lpad198 ]
+  %cleanup.isactive207.3 = phi i1 [ %91, %ehcleanup243 ], [ false, %lpad198 ]
   %.pn49.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn, %ehcleanup243 ], [ %85, %lpad198 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp194) #22
   br label %ehcleanup245
 
 ehcleanup245:                                     ; preds = %ehcleanup244, %lpad191
-  %arrayinit.endOfInit178.4 = phi ptr [ %arrayinit.endOfInit178.3, %ehcleanup244 ], [ %arrayinit.endOfInit178.1, %lpad191 ]
-  %cleanup.isactive207.2 = phi i1 [ %cleanup.isactive207.1, %ehcleanup244 ], [ false, %lpad191 ]
+  %arrayinit.endOfInit178.5 = phi ptr [ %arrayinit.endOfInit178.6, %ehcleanup244 ], [ %arrayinit.endOfInit178.1, %lpad191 ]
+  %cleanup.isactive207.2 = phi i1 [ %cleanup.isactive207.3, %ehcleanup244 ], [ false, %lpad191 ]
   %.pn49.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn, %ehcleanup244 ], [ %84, %lpad191 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp187) #22
   br label %ehcleanup247
 
 ehcleanup247:                                     ; preds = %lpad184, %ehcleanup245
-  %arrayinit.endOfInit178.5 = phi ptr [ %arrayinit.endOfInit178.4, %ehcleanup245 ], [ %arrayinit.endOfInit178.0, %lpad184 ]
-  %cleanup.isactive207.3 = phi i1 [ %cleanup.isactive207.2, %ehcleanup245 ], [ false, %lpad184 ]
+  %arrayinit.endOfInit178.4 = phi ptr [ %arrayinit.endOfInit178.5, %ehcleanup245 ], [ %arrayinit.endOfInit178.0, %lpad184 ]
+  %cleanup.isactive207.1 = phi i1 [ %cleanup.isactive207.2, %ehcleanup245 ], [ false, %lpad184 ]
   %.pn49.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn, %ehcleanup245 ], [ %83, %lpad184 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp179) #22
-  %arraydestroy.isempty250 = icmp eq ptr %ref.tmp176, %arrayinit.endOfInit178.5
-  %or.cond1 = select i1 %cleanup.isactive207.3, i1 true, i1 %arraydestroy.isempty250
+  %arraydestroy.isempty250 = icmp eq ptr %ref.tmp176, %arrayinit.endOfInit178.4
+  %or.cond1 = select i1 %cleanup.isactive207.1, i1 true, i1 %arraydestroy.isempty250
   br i1 %or.cond1, label %ehcleanup361, label %arraydestroy.body251
 
 arraydestroy.body251:                             ; preds = %ehcleanup247, %arraydestroy.body251
-  %arraydestroy.elementPast252 = phi ptr [ %arraydestroy.element253, %arraydestroy.body251 ], [ %arrayinit.endOfInit178.5, %ehcleanup247 ]
+  %arraydestroy.elementPast252 = phi ptr [ %arraydestroy.element253, %arraydestroy.body251 ], [ %arrayinit.endOfInit178.4, %ehcleanup247 ]
   %arraydestroy.element253 = getelementptr inbounds i8, ptr %arraydestroy.elementPast252, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element253) #22
   %arraydestroy.done254 = icmp eq ptr %arraydestroy.element253, %ref.tmp176
@@ -9549,30 +9549,30 @@ ehcleanup333:                                     ; preds = %arraydestroy.body32
   br label %ehcleanup334
 
 ehcleanup334:                                     ; preds = %ehcleanup333, %lpad287
-  %arrayinit.endOfInit265.3 = phi ptr [ %arrayinit.element289, %ehcleanup333 ], [ %arrayinit.endOfInit265.2, %lpad287 ]
-  %cleanup.isactive297.1 = phi i1 [ %110, %ehcleanup333 ], [ false, %lpad287 ]
+  %arrayinit.endOfInit265.6 = phi ptr [ %arrayinit.element289, %ehcleanup333 ], [ %arrayinit.endOfInit265.2, %lpad287 ]
+  %cleanup.isactive297.3 = phi i1 [ %110, %ehcleanup333 ], [ false, %lpad287 ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn, %ehcleanup333 ], [ %104, %lpad287 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp282) #22
   br label %ehcleanup335
 
 ehcleanup335:                                     ; preds = %ehcleanup334, %lpad279
-  %arrayinit.endOfInit265.4 = phi ptr [ %arrayinit.endOfInit265.3, %ehcleanup334 ], [ %arrayinit.endOfInit265.1, %lpad279 ]
-  %cleanup.isactive297.2 = phi i1 [ %cleanup.isactive297.1, %ehcleanup334 ], [ false, %lpad279 ]
+  %arrayinit.endOfInit265.5 = phi ptr [ %arrayinit.endOfInit265.6, %ehcleanup334 ], [ %arrayinit.endOfInit265.1, %lpad279 ]
+  %cleanup.isactive297.2 = phi i1 [ %cleanup.isactive297.3, %ehcleanup334 ], [ false, %lpad279 ]
   %.pn57.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn, %ehcleanup334 ], [ %103, %lpad279 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp274) #22
   br label %ehcleanup337
 
 ehcleanup337:                                     ; preds = %lpad271, %ehcleanup335
-  %arrayinit.endOfInit265.5 = phi ptr [ %arrayinit.endOfInit265.4, %ehcleanup335 ], [ %arrayinit.endOfInit265.0, %lpad271 ]
-  %cleanup.isactive297.3 = phi i1 [ %cleanup.isactive297.2, %ehcleanup335 ], [ false, %lpad271 ]
+  %arrayinit.endOfInit265.4 = phi ptr [ %arrayinit.endOfInit265.5, %ehcleanup335 ], [ %arrayinit.endOfInit265.0, %lpad271 ]
+  %cleanup.isactive297.1 = phi i1 [ %cleanup.isactive297.2, %ehcleanup335 ], [ false, %lpad271 ]
   %.pn57.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn, %ehcleanup335 ], [ %102, %lpad271 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp266) #22
-  %arraydestroy.isempty340 = icmp eq ptr %ref.tmp263, %arrayinit.endOfInit265.5
-  %or.cond2 = select i1 %cleanup.isactive297.3, i1 true, i1 %arraydestroy.isempty340
+  %arraydestroy.isempty340 = icmp eq ptr %ref.tmp263, %arrayinit.endOfInit265.4
+  %or.cond2 = select i1 %cleanup.isactive297.1, i1 true, i1 %arraydestroy.isempty340
   br i1 %or.cond2, label %ehcleanup361, label %arraydestroy.body341
 
 arraydestroy.body341:                             ; preds = %ehcleanup337, %arraydestroy.body341
-  %arraydestroy.elementPast342 = phi ptr [ %arraydestroy.element343, %arraydestroy.body341 ], [ %arrayinit.endOfInit265.5, %ehcleanup337 ]
+  %arraydestroy.elementPast342 = phi ptr [ %arraydestroy.element343, %arraydestroy.body341 ], [ %arrayinit.endOfInit265.4, %ehcleanup337 ]
   %arraydestroy.element343 = getelementptr inbounds i8, ptr %arraydestroy.elementPast342, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element343) #22
   %arraydestroy.done344 = icmp eq ptr %arraydestroy.element343, %ref.tmp263

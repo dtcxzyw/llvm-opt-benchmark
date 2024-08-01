@@ -483,9 +483,9 @@ define internal i32 @dissect_starteam(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not108, label %116, label %.thread121
 
 .thread:                                          ; preds = %29, %32
-  %.0104 = phi i32 [ %33, %32 ], [ 0, %29 ]
+  %.1105 = phi i32 [ %33, %32 ], [ 0, %29 ]
   %35 = load ptr, ptr %5, align 8
-  %36 = tail call ptr @val_to_str_ext(i32 noundef %.0104, ptr noundef nonnull @starteam_opcode_vals_ext, ptr noundef nonnull @.str.249) #3
+  %36 = tail call ptr @val_to_str_ext(i32 noundef %.1105, ptr noundef nonnull @starteam_opcode_vals_ext, ptr noundef nonnull @.str.249) #3
   tail call void @col_append_str(ptr noundef %35, i32 noundef 25, ptr noundef %36) #3
   %.not108112 = icmp eq ptr %2, null
   br i1 %.not108112, label %116, label %41
@@ -500,7 +500,7 @@ define internal i32 @dissect_starteam(ptr noundef %0, ptr nocapture noundef read
 41:                                               ; preds = %.thread
   %42 = load i32, ptr @proto_starteam, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  %44 = tail call ptr @val_to_str_ext(i32 noundef %.0104, ptr noundef nonnull @starteam_opcode_vals_ext, ptr noundef nonnull @.str.249) #3
+  %44 = tail call ptr @val_to_str_ext(i32 noundef %.1105, ptr noundef nonnull @starteam_opcode_vals_ext, ptr noundef nonnull @.str.249) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.250, ptr noundef %44) #3
   %45 = load i32, ptr @ett_starteam, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %45) #3

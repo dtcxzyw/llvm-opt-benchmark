@@ -875,7 +875,7 @@ _ZN3ozz3log6LoggerlsIA49_cEERSoRKT_.exit54.i:     ; preds = %252
   br label %305
 
 305:                                              ; preds = %.preheader137, %1293
-  %.066 = phi i1 [ %.3, %1293 ], [ true, %.preheader137 ]
+  %.066 = phi i1 [ %.167, %1293 ], [ true, %.preheader137 ]
   %.065 = phi i32 [ %1294, %1293 ], [ 0, %.preheader137 ]
   %306 = invoke noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %70)
           to label %307 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -944,9 +944,9 @@ _ZN3ozz3log6LoggerlsIA57_cEERSoRKT_.exit:         ; preds = %321
 .lr.ph:                                           ; preds = %.preheader131, %1258
   %327 = phi ptr [ %1261, %1258 ], [ %319, %.preheader131 ]
   %.056402 = phi i64 [ %1259, %1258 ], [ 0, %.preheader131 ]
-  %.057401 = phi i64 [ %.259, %1258 ], [ 0, %.preheader131 ]
+  %.057401 = phi i64 [ %.158, %1258 ], [ 0, %.preheader131 ]
   %.060400 = phi i64 [ %.161, %1258 ], [ 0, %.preheader131 ]
-  %.167399 = phi i1 [ %.268, %1258 ], [ %.066, %.preheader131 ]
+  %.268399 = phi i1 [ %.3, %1258 ], [ %.066, %.preheader131 ]
   %328 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %327, i64 %.056402
   %329 = load ptr, ptr %328, align 8
   %330 = invoke noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %329, ptr noundef nonnull %314)
@@ -2764,7 +2764,7 @@ _ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i:
   br label %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit
 
 1062:                                             ; preds = %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit108.i.i, %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit.i.i
-  %.6.i.i = phi i1 [ %.5208.i.i, %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i ], [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit108.i.i ], [ false, %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit.i.i ]
+  %.1.i.i = phi i1 [ %.5208.i.i, %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i ], [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit108.i.i ], [ false, %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit.i.i ]
   %1063 = load ptr, ptr %276, align 8
   %1064 = icmp eq ptr %1063, %301
   br i1 %1064, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i144.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i134.i.i
@@ -3005,7 +3005,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_16ExportERNS1_11OzzImporterERKNS1_12RawAni
   br label %1145
 
 1145:                                             ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportERNS1_11OzzImporterERKNS1_12RawAnimationERKNS0_8SkeletonERKN4Json5ValueENS_10EndiannessE.exit.i, %362
-  %.014.i = phi i1 [ false, %362 ], [ %.6.i.i, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportERNS1_11OzzImporterERKNS1_12RawAnimationERKNS0_8SkeletonERKN4Json5ValueENS_10EndiannessE.exit.i ]
+  %.014.i = phi i1 [ false, %362 ], [ %.1.i.i, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportERNS1_11OzzImporterERKNS1_12RawAnimationERKNS0_8SkeletonERKN4Json5ValueENS_10EndiannessE.exit.i ]
   %1146 = load ptr, ptr %265, align 8
   %1147 = icmp eq ptr %1146, %303
   br i1 %1147, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i21.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i16.i
@@ -3289,9 +3289,9 @@ _ZN3ozz3log6LoggerlsIA35_cEERSoRKT_.exit:         ; preds = %1247
   br label %.body83
 
 1258:                                             ; preds = %1244, %1255, %331
-  %.268 = phi i1 [ false, %1255 ], [ %.167399, %1244 ], [ %.167399, %331 ]
+  %.3 = phi i1 [ false, %1255 ], [ %.268399, %1244 ], [ %.268399, %331 ]
   %.161 = phi i64 [ %333, %1255 ], [ %333, %1244 ], [ %.060400, %331 ]
-  %.259 = phi i64 [ %spec.select, %1255 ], [ %spec.select, %1244 ], [ %.057401, %331 ]
+  %.158 = phi i64 [ %spec.select, %1255 ], [ %spec.select, %1244 ], [ %.057401, %331 ]
   %1259 = add nuw i64 %.056402, 1
   %1260 = load ptr, ptr %85, align 8
   %1261 = load ptr, ptr %62, align 8
@@ -3307,8 +3307,8 @@ _ZN3ozz3log6LoggerlsIA35_cEERSoRKT_.exit:         ; preds = %1247
   br i1 %1267, label %._crit_edge.thread, label %1281
 
 ._crit_edge.thread:                               ; preds = %.preheader131, %._crit_edge
-  %.057.lcssa493 = phi i64 [ %.259, %._crit_edge ], [ 0, %.preheader131 ]
-  %.167.lcssa489 = phi i1 [ %.268, %._crit_edge ], [ %.066, %.preheader131 ]
+  %.057.lcssa493 = phi i64 [ %.158, %._crit_edge ], [ 0, %.preheader131 ]
+  %.268.lcssa489 = phi i1 [ %.3, %._crit_edge ], [ %.066, %.preheader131 ]
   %1268 = load i8, ptr %314, align 1
   %.not = icmp eq i8 %1268, 0
   br i1 %.not, label %1281, label %1269
@@ -3345,9 +3345,9 @@ _ZN3ozz3log6LoggerlsIA34_cEERSoRKT_.exit:         ; preds = %1270
   br label %.body83
 
 1281:                                             ; preds = %1278, %._crit_edge.thread, %._crit_edge
-  %.057.lcssa492 = phi i64 [ %.057.lcssa493, %1278 ], [ %.057.lcssa493, %._crit_edge.thread ], [ %.259, %._crit_edge ]
+  %.057.lcssa492 = phi i64 [ %.057.lcssa493, %1278 ], [ %.057.lcssa493, %._crit_edge.thread ], [ %.158, %._crit_edge ]
   %.060.lcssa490 = phi i64 [ 0, %1278 ], [ 0, %._crit_edge.thread ], [ %.161, %._crit_edge ]
-  %.167.lcssa488 = phi i1 [ %.167.lcssa489, %1278 ], [ %.167.lcssa489, %._crit_edge.thread ], [ %.268, %._crit_edge ]
+  %.268.lcssa488 = phi i1 [ %.268.lcssa489, %1278 ], [ %.268.lcssa489, %._crit_edge.thread ], [ %.3, %._crit_edge ]
   %.not69 = icmp eq i64 %.057.lcssa492, %.060.lcssa490
   br i1 %.not69, label %1293, label %1282
 
@@ -3380,12 +3380,12 @@ _ZN3ozz3log6LoggerlsIA56_cEERSoRKT_.exit:         ; preds = %1283
 
 .sink.split:                                      ; preds = %1289, %_ZN3ozz3log6LoggerlsIA57_cEERSoRKT_.exit
   %.sink = phi ptr [ %65, %_ZN3ozz3log6LoggerlsIA57_cEERSoRKT_.exit ], [ %68, %1289 ]
-  %.3.ph = phi i1 [ %.066, %_ZN3ozz3log6LoggerlsIA57_cEERSoRKT_.exit ], [ false, %1289 ]
+  %.167.ph = phi i1 [ %.066, %_ZN3ozz3log6LoggerlsIA57_cEERSoRKT_.exit ], [ false, %1289 ]
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %.sink) #18
   br label %1293
 
 1293:                                             ; preds = %.sink.split, %1281
-  %.3 = phi i1 [ %.167.lcssa488, %1281 ], [ %.3.ph, %.sink.split ]
+  %.167 = phi i1 [ %.268.lcssa488, %1281 ], [ %.167.ph, %.sink.split ]
   %1294 = add i32 %.065, 1
   br label %305, !llvm.loop !28
 
@@ -3414,7 +3414,7 @@ _ZN3ozz3log6LoggerlsIA56_cEERSoRKT_.exit:         ; preds = %1283
   unreachable
 
 _ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit: ; preds = %.thread, %1295, %.noexc.i89
-  %.050129 = phi i1 [ %.066, %1295 ], [ %.066, %.noexc.i89 ], [ false, %.thread ]
+  %.2129 = phi i1 [ %.066, %1295 ], [ %.066, %.noexc.i89 ], [ false, %.thread ]
   store ptr null, ptr %64, align 8
   br label %1304
 
@@ -3424,7 +3424,7 @@ _ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit: ; preds
   br label %.body
 
 1304:                                             ; preds = %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit, %93
-  %.1 = phi i1 [ true, %93 ], [ %.050129, %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit ]
+  %.1 = phi i1 [ true, %93 ], [ %.2129, %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit ]
   %1305 = load ptr, ptr %62, align 8
   %1306 = load ptr, ptr %85, align 8
   %.not5.i.i = icmp eq ptr %1305, %1306
@@ -3500,8 +3500,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorI
   br label %1332
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEENS5_IS7_EEED2Ev.exit: ; preds = %1325, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEENS5_IS7_EEEvT_SA_RT0_.exit.i, %77
-  %.2 = phi i1 [ true, %77 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEENS5_IS7_EEEvT_SA_RT0_.exit.i ], [ %.1, %1325 ]
-  ret i1 %.2
+  %.050 = phi i1 [ true, %77 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEENS5_IS7_EEEvT_SA_RT0_.exit.i ], [ %.1, %1325 ]
+  ret i1 %.050
 
 1332:                                             ; preds = %.body, %78
   %.pn74 = phi { ptr, i32 } [ %79, %78 ], [ %.pn72, %.body ]

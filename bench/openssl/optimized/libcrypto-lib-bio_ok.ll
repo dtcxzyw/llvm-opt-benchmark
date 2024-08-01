@@ -286,7 +286,7 @@ while.body.preheader:                             ; preds = %while.cond
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end78
-  %ret.0 = phi i32 [ %ret.176, %if.end78 ], [ 0, %while.body.preheader ]
+  %ret.0 = phi i32 [ %ret.276, %if.end78 ], [ 0, %while.body.preheader ]
   %outl.addr.0 = phi i32 [ %outl.addr.177, %if.end78 ], [ %outl, %while.body.preheader ]
   %out.addr.0 = phi ptr [ %out.addr.178, %if.end78 ], [ %out, %while.body.preheader ]
   %0 = load i32, ptr %blockout, align 8
@@ -344,7 +344,7 @@ if.end47:                                         ; preds = %while.body, %if.end
   %8 = phi i64 [ %7, %if.end43 ], [ %.pre, %while.body ]
   %out.addr.178 = phi ptr [ %add.ptr, %if.end43 ], [ %out.addr.0, %while.body ]
   %outl.addr.177 = phi i32 [ %sub17, %if.end43 ], [ %outl.addr.0, %while.body ]
-  %ret.176 = phi i32 [ %add, %if.end43 ], [ %ret.0, %while.body ]
+  %ret.276 = phi i32 [ %add, %if.end43 ], [ %ret.0, %while.body ]
   %9 = trunc i64 %8 to i32
   %conv50 = sub i32 4292, %9
   %arrayidx53 = getelementptr inbounds [4292 x i8], ptr %buf, i64 0, i64 %8
@@ -578,13 +578,13 @@ if.end78:                                         ; preds = %block_in.exit.threa
   br i1 %or.cond1, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end78, %if.end47, %if.end43, %while.cond
-  %ret.2 = phi i32 [ 0, %while.cond ], [ %ret.176, %if.end78 ], [ %ret.176, %if.end47 ], [ %add, %if.end43 ]
+  %ret.1 = phi i32 [ 0, %while.cond ], [ %ret.276, %if.end78 ], [ %ret.276, %if.end47 ], [ %add, %if.end43 ]
   call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #8
   call void @BIO_copy_next_retry(ptr noundef %b) #8
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false4, %entry, %while.end, %if.then76, %if.then67
-  %retval.0 = phi i32 [ %ret.2, %while.end ], [ 0, %if.then76 ], [ 0, %if.then67 ], [ 0, %entry ], [ 0, %lor.lhs.false4 ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %ret.1, %while.end ], [ 0, %if.then76 ], [ 0, %if.then67 ], [ 0, %entry ], [ 0, %lor.lhs.false4 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

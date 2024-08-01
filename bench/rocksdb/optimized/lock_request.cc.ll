@@ -1128,17 +1128,17 @@ if.end28:                                         ; preds = %if.end21, %if.then2
   br i1 %call19, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end, %if.end28
-  %r.210 = phi i32 [ -30995, %if.end28 ], [ %r.0, %if.end ]
+  %r.110 = phi i32 [ -30995, %if.end28 ], [ %r.0, %if.end ]
   %m_complete_r.i = getelementptr inbounds i8, ptr %this, i64 120
-  store i32 %r.210, ptr %m_complete_r.i, align 8
+  store i32 %r.110, ptr %m_complete_r.i, align 8
   %m_state.i = getelementptr inbounds i8, ptr %this, i64 124
   store i32 3, ptr %m_state.i, align 4
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.end28
-  %r.211 = phi i32 [ %r.210, %if.then30 ], [ -30994, %if.end28 ]
+  %r.111 = phi i32 [ %r.110, %if.then30 ], [ -30994, %if.end28 ]
   call void @_ZN4toku9txnid_set7destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %conflicts)
-  ret i32 %r.211
+  ret i32 %r.111
 }
 
 declare noundef i32 @_ZN4toku8locktree18acquire_write_lockEmPK10__toku_dbtS3_PNS_9txnid_setEb(ptr noundef nonnull align 8 dereferenceable(400), i64 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

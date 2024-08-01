@@ -625,9 +625,9 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader371, %38
   %.0374 = phi i32 [ %25, %38 ], [ 1, %.preheader371 ]
-  %.2337373 = phi i32 [ %.3338, %38 ], [ %.1336, %.preheader371 ]
-  %.0344372 = phi i32 [ %.1345, %38 ], [ undef, %.preheader371 ]
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2337373) #3
+  %.3338373 = phi i32 [ %.4339, %38 ], [ %.1336, %.preheader371 ]
+  %.1345372 = phi i32 [ %.2346, %38 ], [ undef, %.preheader371 ]
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3338373) #3
   %21 = icmp ne i8 %20, 0
   %22 = icmp ne i32 %.0374, 0
   %or.cond = and i1 %22, %21
@@ -637,16 +637,16 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %24 = zext i8 %20 to i32
   %25 = and i32 %24, 128
   %26 = and i32 %24, 32
-  %27 = add i32 %.2337373, 1
+  %27 = add i32 %.3338373, 1
   %.not366 = icmp eq i32 %26, 0
   br i1 %.not366, label %38, label %28
 
 28:                                               ; preds = %23
-  %29 = add i32 %.2337373, 2
+  %29 = add i32 %.3338373, 2
   %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #3
   %31 = zext i8 %30 to i32
   %32 = shl nuw nsw i32 %31, 8
-  %33 = add i32 %.2337373, 3
+  %33 = add i32 %.3338373, 3
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #3
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %32, %35
@@ -654,29 +654,29 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %38
 
 38:                                               ; preds = %28, %23
-  %.1345 = phi i32 [ %36, %28 ], [ %.0344372, %23 ]
-  %.3338 = phi i32 [ %37, %28 ], [ %27, %23 ]
-  %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3338) #3
+  %.2346 = phi i32 [ %36, %28 ], [ %.1345372, %23 ]
+  %.4339 = phi i32 [ %37, %28 ], [ %27, %23 ]
+  %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4339) #3
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %38, %.preheader371, %8
-  %.2346 = phi i32 [ undef, %8 ], [ undef, %.preheader371 ], [ %.0344372, %.lr.ph ], [ %.1345, %38 ]
-  %.4339 = phi i32 [ %.1336, %8 ], [ %.1336, %.preheader371 ], [ %.2337373, %.lr.ph ], [ %.3338, %38 ]
+  %.0344 = phi i32 [ undef, %8 ], [ undef, %.preheader371 ], [ %.1345372, %.lr.ph ], [ %.2346, %38 ]
+  %.2337 = phi i32 [ %.1336, %8 ], [ %.1336, %.preheader371 ], [ %.3338373, %.lr.ph ], [ %.4339, %38 ]
   %41 = and i32 %13, 1
   %.not360 = icmp eq i32 %41, 0
   br i1 %.not360, label %.critedge2, label %.preheader370
 
 .preheader370:                                    ; preds = %.critedge
-  %42 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4339) #3
+  %42 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2337) #3
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph382, label %.critedge2
 
 .lr.ph382:                                        ; preds = %.preheader370, %62
   %.1381 = phi i32 [ %49, %62 ], [ 1, %.preheader370 ]
-  %.5340380 = phi i32 [ %.6341, %62 ], [ %.4339, %.preheader370 ]
-  %.3347379 = phi i32 [ %.4348, %62 ], [ %.2346, %.preheader370 ]
-  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5340380) #3
+  %.6341380 = phi i32 [ %.7342, %62 ], [ %.2337, %.preheader370 ]
+  %.4348379 = phi i32 [ %.5349, %62 ], [ %.0344, %.preheader370 ]
+  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6341380) #3
   %45 = icmp ne i8 %44, 0
   %46 = icmp ne i32 %.1381, 0
   %or.cond9 = and i1 %46, %45
@@ -686,16 +686,16 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %48 = zext i8 %44 to i32
   %49 = and i32 %48, 128
   %50 = and i32 %48, 32
-  %51 = add i32 %.5340380, 1
+  %51 = add i32 %.6341380, 1
   %.not365 = icmp eq i32 %50, 0
   br i1 %.not365, label %62, label %52
 
 52:                                               ; preds = %47
-  %53 = add i32 %.5340380, 2
+  %53 = add i32 %.6341380, 2
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %51) #3
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = add i32 %.5340380, 3
+  %57 = add i32 %.6341380, 3
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #3
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -703,15 +703,15 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %62
 
 62:                                               ; preds = %52, %47
-  %.4348 = phi i32 [ %60, %52 ], [ %.3347379, %47 ]
-  %.6341 = phi i32 [ %61, %52 ], [ %51, %47 ]
-  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6341) #3
+  %.5349 = phi i32 [ %60, %52 ], [ %.4348379, %47 ]
+  %.7342 = phi i32 [ %61, %52 ], [ %51, %47 ]
+  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7342) #3
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph382, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %.lr.ph382, %62, %.preheader370, %.critedge
-  %.5349 = phi i32 [ %.2346, %.critedge ], [ %.2346, %.preheader370 ], [ %.3347379, %.lr.ph382 ], [ %.4348, %62 ]
-  %.7342 = phi i32 [ %.4339, %.critedge ], [ %.4339, %.preheader370 ], [ %.5340380, %.lr.ph382 ], [ %.6341, %62 ]
+  %.3347 = phi i32 [ %.0344, %.critedge ], [ %.0344, %.preheader370 ], [ %.4348379, %.lr.ph382 ], [ %.5349, %62 ]
+  %.5340 = phi i32 [ %.2337, %.critedge ], [ %.2337, %.preheader370 ], [ %.6341380, %.lr.ph382 ], [ %.7342, %62 ]
   %65 = zext i8 %9 to i32
   switch i8 %9, label %71 [
     i8 0, label %66
@@ -726,15 +726,15 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %71
 
 67:                                               ; preds = %.critedge2
-  %68 = add i32 %.7342, 6
+  %68 = add i32 %.5340, 6
   br label %71
 
 69:                                               ; preds = %.critedge2, %.critedge2
-  %70 = add i32 %.7342, 26
+  %70 = add i32 %.5340, 26
   br label %71
 
 71:                                               ; preds = %.critedge2, %69, %67, %66
-  %.8343 = phi i32 [ %.7342, %.critedge2 ], [ %68, %67 ], [ %70, %69 ], [ %6, %66 ]
+  %.8343 = phi i32 [ %.5340, %.critedge2 ], [ %68, %67 ], [ %70, %69 ], [ %6, %66 ]
   %72 = getelementptr inbounds i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
   tail call void @col_set_str(ptr noundef %73, i32 noundef 34, ptr noundef nonnull @.str.132) #3
@@ -814,9 +814,9 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph393:                                        ; preds = %.preheader367, %149
   %.2392 = phi i32 [ %122, %149 ], [ 1, %.preheader367 ]
-  %.2333391 = phi i32 [ %.3334, %149 ], [ %.1332, %.preheader367 ]
-  %.6350390 = phi i32 [ %.7351, %149 ], [ %.5349, %.preheader367 ]
-  %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2333391) #3
+  %.3334391 = phi i32 [ %.4, %149 ], [ %.1332, %.preheader367 ]
+  %.7351390 = phi i32 [ %.8352, %149 ], [ %.3347, %.preheader367 ]
+  %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3334391) #3
   %118 = icmp ne i8 %117, 0
   %119 = icmp ne i32 %.2392, 0
   %or.cond11 = and i1 %119, %118
@@ -826,16 +826,16 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %121 = zext i8 %117 to i32
   %122 = and i32 %121, 128
   %123 = and i32 %121, 32
-  %124 = add i32 %.2333391, 1
+  %124 = add i32 %.3334391, 1
   %.not364 = icmp eq i32 %123, 0
   br i1 %.not364, label %135, label %125
 
 125:                                              ; preds = %120
-  %126 = add i32 %.2333391, 2
+  %126 = add i32 %.3334391, 2
   %127 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %124) #3
   %128 = zext i8 %127 to i32
   %129 = shl nuw nsw i32 %128, 8
-  %130 = add i32 %.2333391, 3
+  %130 = add i32 %.3334391, 3
   %131 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %126) #3
   %132 = zext i8 %131 to i32
   %133 = or disjoint i32 %129, %132
@@ -843,45 +843,45 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %135
 
 135:                                              ; preds = %125, %120
-  %.7351 = phi i32 [ %133, %125 ], [ %.6350390, %120 ]
-  %.3334 = phi i32 [ %134, %125 ], [ %124, %120 ]
-  %136 = sub i32 %.3334, %.2333391
+  %.8352 = phi i32 [ %133, %125 ], [ %.7351390, %120 ]
+  %.4 = phi i32 [ %134, %125 ], [ %124, %120 ]
+  %136 = sub i32 %.4, %.3334391
   %137 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %138 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.2333391, i32 noundef %136, i32 noundef %137, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.419) #3
+  %138 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.3334391, i32 noundef %136, i32 noundef %137, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.419) #3
   %139 = load i32, ptr @hf_bscvlc_header, align 4
   %140 = load i32, ptr @ett_bscvlc_hdr, align 4
   %141 = zext i8 %117 to i64
-  %142 = call ptr @proto_tree_add_bitmask_value(ptr noundef %138, ptr noundef %0, i32 noundef %.2333391, i32 noundef %139, i32 noundef %140, ptr noundef nonnull @bscvlc_header_flags, i64 noundef %141) #3
+  %142 = call ptr @proto_tree_add_bitmask_value(ptr noundef %138, ptr noundef %0, i32 noundef %.3334391, i32 noundef %139, i32 noundef %140, ptr noundef nonnull @bscvlc_header_flags, i64 noundef %141) #3
   br i1 %.not364, label %149, label %143
 
 143:                                              ; preds = %135
   %144 = load i32, ptr @hf_bscvlc_header_length, align 4
   %145 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %144, ptr noundef %0, i32 noundef %124, i32 noundef 2, i32 noundef 0) #3
   %146 = load i32, ptr @hf_bscvlc_header_data, align 4
-  %147 = add i32 %.2333391, 3
-  %148 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef %.7351, i32 noundef 0) #3
+  %147 = add i32 %.3334391, 3
+  %148 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef %.8352, i32 noundef 0) #3
   br label %149
 
 149:                                              ; preds = %143, %135
-  %150 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3334) #3
+  %150 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #3
   %151 = icmp sgt i32 %150, 0
   br i1 %151, label %.lr.ph393, label %.critedge4, !llvm.loop !9
 
 .critedge4:                                       ; preds = %.lr.ph393, %149, %.preheader367, %114
-  %.8352 = phi i32 [ %.5349, %114 ], [ %.5349, %.preheader367 ], [ %.6350390, %.lr.ph393 ], [ %.7351, %149 ]
-  %.4 = phi i32 [ %.1332, %114 ], [ %.1332, %.preheader367 ], [ %.2333391, %.lr.ph393 ], [ %.3334, %149 ]
+  %.6350 = phi i32 [ %.3347, %114 ], [ %.3347, %.preheader367 ], [ %.7351390, %.lr.ph393 ], [ %.8352, %149 ]
+  %.2333 = phi i32 [ %.1332, %114 ], [ %.1332, %.preheader367 ], [ %.3334391, %.lr.ph393 ], [ %.4, %149 ]
   br i1 %.not360, label %.critedge6, label %.preheader
 
 .preheader:                                       ; preds = %.critedge4
-  %152 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #3
+  %152 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2333) #3
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %.lr.ph402, label %.critedge6
 
 .lr.ph402:                                        ; preds = %.preheader, %186
   %.3401 = phi i32 [ %159, %186 ], [ 1, %.preheader ]
-  %.5400 = phi i32 [ %.6, %186 ], [ %.4, %.preheader ]
-  %.9399 = phi i32 [ %.10, %186 ], [ %.8352, %.preheader ]
-  %154 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5400) #3
+  %.6400 = phi i32 [ %.7, %186 ], [ %.2333, %.preheader ]
+  %.9399 = phi i32 [ %.10, %186 ], [ %.6350, %.preheader ]
+  %154 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6400) #3
   %155 = icmp ne i8 %154, 0
   %156 = icmp ne i32 %.3401, 0
   %or.cond13 = and i1 %156, %155
@@ -891,16 +891,16 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %158 = zext i8 %154 to i32
   %159 = and i32 %158, 128
   %160 = and i32 %158, 32
-  %161 = add i32 %.5400, 1
+  %161 = add i32 %.6400, 1
   %.not363 = icmp eq i32 %160, 0
   br i1 %.not363, label %172, label %162
 
 162:                                              ; preds = %157
-  %163 = add i32 %.5400, 2
+  %163 = add i32 %.6400, 2
   %164 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %161) #3
   %165 = zext i8 %164 to i32
   %166 = shl nuw nsw i32 %165, 8
-  %167 = add i32 %.5400, 3
+  %167 = add i32 %.6400, 3
   %168 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %163) #3
   %169 = zext i8 %168 to i32
   %170 = or disjoint i32 %166, %169
@@ -909,31 +909,31 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 172:                                              ; preds = %162, %157
   %.10 = phi i32 [ %170, %162 ], [ %.9399, %157 ]
-  %.6 = phi i32 [ %171, %162 ], [ %161, %157 ]
-  %173 = sub i32 %.6, %.5400
+  %.7 = phi i32 [ %171, %162 ], [ %161, %157 ]
+  %173 = sub i32 %.7, %.6400
   %174 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %175 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5400, i32 noundef %173, i32 noundef %174, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.420) #3
+  %175 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.6400, i32 noundef %173, i32 noundef %174, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.420) #3
   %176 = load i32, ptr @hf_bscvlc_header, align 4
   %177 = load i32, ptr @ett_bscvlc_hdr, align 4
   %178 = zext i8 %154 to i64
-  %179 = call ptr @proto_tree_add_bitmask_value(ptr noundef %175, ptr noundef %0, i32 noundef %.5400, i32 noundef %176, i32 noundef %177, ptr noundef nonnull @bscvlc_header_flags, i64 noundef %178) #3
+  %179 = call ptr @proto_tree_add_bitmask_value(ptr noundef %175, ptr noundef %0, i32 noundef %.6400, i32 noundef %176, i32 noundef %177, ptr noundef nonnull @bscvlc_header_flags, i64 noundef %178) #3
   br i1 %.not363, label %186, label %180
 
 180:                                              ; preds = %172
   %181 = load i32, ptr @hf_bscvlc_header_length, align 4
   %182 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %181, ptr noundef %0, i32 noundef %161, i32 noundef 2, i32 noundef 0) #3
   %183 = load i32, ptr @hf_bscvlc_header_data, align 4
-  %184 = add i32 %.5400, 3
+  %184 = add i32 %.6400, 3
   %185 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %183, ptr noundef %0, i32 noundef %184, i32 noundef %.10, i32 noundef 0) #3
   br label %186
 
 186:                                              ; preds = %180, %172
-  %187 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6) #3
+  %187 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7) #3
   %188 = icmp sgt i32 %187, 0
   br i1 %188, label %.lr.ph402, label %.critedge6, !llvm.loop !10
 
 .critedge6:                                       ; preds = %.lr.ph402, %186, %.preheader, %.critedge4
-  %.7 = phi i32 [ %.4, %.critedge4 ], [ %.4, %.preheader ], [ %.5400, %.lr.ph402 ], [ %.6, %186 ]
+  %.5 = phi i32 [ %.2333, %.critedge4 ], [ %.2333, %.preheader ], [ %.6400, %.lr.ph402 ], [ %.7, %186 ]
   switch i8 %9, label %283 [
     i8 12, label %270
     i8 7, label %254
@@ -944,12 +944,12 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 189:                                              ; preds = %.critedge6
-  %190 = sub i32 %6, %.7
+  %190 = sub i32 %6, %.5
   %191 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %192 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.7, i32 noundef %190, i32 noundef %191, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.140) #3
+  %192 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5, i32 noundef %190, i32 noundef %191, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.140) #3
   %193 = load i32, ptr @hf_bscvlc_function, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %0, i32 noundef %.7, i32 noundef 1, i32 noundef 0) #3
-  %195 = add i32 %.7, 1
+  %194 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #3
+  %195 = add i32 %.5, 1
   %196 = load i32, ptr @hf_bscvlc_result, align 4
   %197 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 1, i32 noundef 0) #3
   %198 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %195) #3
@@ -961,100 +961,100 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not361, label %283, label %202
 
 202:                                              ; preds = %189
-  %203 = add i32 %.7, 2
+  %203 = add i32 %.5, 2
   %204 = load i32, ptr @hf_bscvlc_header_marker, align 4
   %205 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #3
-  %206 = add i32 %.7, 3
+  %206 = add i32 %.5, 3
   %207 = load i32, ptr @hf_bscvlc_error_class, align 4
   %208 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %207, ptr noundef %0, i32 noundef %206, i32 noundef 2, i32 noundef 0) #3
-  %209 = add i32 %.7, 5
+  %209 = add i32 %.5, 5
   %210 = load i32, ptr @hf_bscvlc_error_code, align 4
   %211 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 2, i32 noundef 0) #3
-  %212 = add i32 %.7, 7
+  %212 = add i32 %.5, 7
   %213 = load i32, ptr @hf_bscvlc_result_data, align 4
   %214 = sub i32 %6, %212
   %215 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %213, ptr noundef %0, i32 noundef %212, i32 noundef %214, i32 noundef 0) #3
   br label %283
 
 216:                                              ; preds = %.critedge6
-  %217 = sub i32 %6, %.7
+  %217 = sub i32 %6, %.5
   %218 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %219 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.7, i32 noundef %217, i32 noundef %218, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.155) #3
+  %219 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5, i32 noundef %217, i32 noundef %218, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.155) #3
   %220 = load i32, ptr @hf_bscvlc_uris, align 4
-  %221 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %0, i32 noundef %.7, i32 noundef %217, i32 noundef 0) #3
+  %221 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %0, i32 noundef %.5, i32 noundef %217, i32 noundef 0) #3
   br label %283
 
 222:                                              ; preds = %.critedge6
-  %223 = sub i32 %6, %.7
+  %223 = sub i32 %6, %.5
   %224 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %225 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.7, i32 noundef %223, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.192) #3
+  %225 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5, i32 noundef %223, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.192) #3
   %226 = load i32, ptr @hf_bscvlc_hub_conn_state, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %226, ptr noundef %0, i32 noundef %.7, i32 noundef 1, i32 noundef 0) #3
-  %228 = add i32 %.7, 1
+  %227 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %226, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #3
+  %228 = add i32 %.5, 1
   %229 = load i32, ptr @hf_bscvlc_accept_conns, align 4
   %230 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %229, ptr noundef %0, i32 noundef %228, i32 noundef 1, i32 noundef 0) #3
-  %231 = add i32 %.7, 2
+  %231 = add i32 %.5, 2
   %232 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
   %233 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %232, ptr noundef %0, i32 noundef %231, i32 noundef 2, i32 noundef 0) #3
-  %234 = add i32 %.7, 4
+  %234 = add i32 %.5, 4
   %235 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
   %236 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 2, i32 noundef 0) #3
-  %237 = add i32 %.7, 6
+  %237 = add i32 %.5, 6
   br label %283
 
 238:                                              ; preds = %.critedge6
-  %239 = sub i32 %6, %.7
+  %239 = sub i32 %6, %.5
   %240 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %241 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.7, i32 noundef %239, i32 noundef %240, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.194) #3
+  %241 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5, i32 noundef %239, i32 noundef %240, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.194) #3
   %242 = load i32, ptr @hf_bscvlc_connect_vmac, align 4
-  %243 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %242, ptr noundef %0, i32 noundef %.7, i32 noundef 6, i32 noundef 0) #3
-  %244 = add i32 %.7, 6
+  %243 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %242, ptr noundef %0, i32 noundef %.5, i32 noundef 6, i32 noundef 0) #3
+  %244 = add i32 %.5, 6
   %245 = load i32, ptr @hf_bscvlc_connect_uuid, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 16, i32 noundef 0) #3
-  %247 = add i32 %.7, 22
+  %247 = add i32 %.5, 22
   %248 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
   %249 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %248, ptr noundef %0, i32 noundef %247, i32 noundef 2, i32 noundef 0) #3
-  %250 = add i32 %.7, 24
+  %250 = add i32 %.5, 24
   %251 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %251, ptr noundef %0, i32 noundef %250, i32 noundef 2, i32 noundef 0) #3
-  %253 = add i32 %.7, 26
+  %253 = add i32 %.5, 26
   br label %283
 
 254:                                              ; preds = %.critedge6
-  %255 = sub i32 %6, %.7
+  %255 = sub i32 %6, %.5
   %256 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %257 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.7, i32 noundef %255, i32 noundef %256, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.195) #3
+  %257 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5, i32 noundef %255, i32 noundef %256, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.195) #3
   %258 = load i32, ptr @hf_bscvlc_connect_vmac, align 4
-  %259 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %258, ptr noundef %0, i32 noundef %.7, i32 noundef 6, i32 noundef 0) #3
-  %260 = add i32 %.7, 6
+  %259 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %258, ptr noundef %0, i32 noundef %.5, i32 noundef 6, i32 noundef 0) #3
+  %260 = add i32 %.5, 6
   %261 = load i32, ptr @hf_bscvlc_connect_uuid, align 4
   %262 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %261, ptr noundef %0, i32 noundef %260, i32 noundef 16, i32 noundef 0) #3
-  %263 = add i32 %.7, 22
+  %263 = add i32 %.5, 22
   %264 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
   %265 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 2, i32 noundef 0) #3
-  %266 = add i32 %.7, 24
+  %266 = add i32 %.5, 24
   %267 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
   %268 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %267, ptr noundef %0, i32 noundef %266, i32 noundef 2, i32 noundef 0) #3
-  %269 = add i32 %.7, 26
+  %269 = add i32 %.5, 26
   br label %283
 
 270:                                              ; preds = %.critedge6
-  %271 = sub i32 %6, %.7
+  %271 = sub i32 %6, %.5
   %272 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %273 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.7, i32 noundef %271, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.200) #3
+  %273 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.5, i32 noundef %271, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.418, ptr noundef nonnull @.str.200) #3
   %274 = load i32, ptr @hf_bscvlc_vendor_id, align 4
-  %275 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %0, i32 noundef %.7, i32 noundef 2, i32 noundef 0) #3
-  %276 = add i32 %.7, 2
+  %275 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef 0) #3
+  %276 = add i32 %.5, 2
   %277 = load i32, ptr @hf_bscvlc_proprietary_opt_type, align 4
   %278 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %277, ptr noundef %0, i32 noundef %276, i32 noundef 1, i32 noundef 0) #3
-  %279 = add i32 %.7, 3
+  %279 = add i32 %.5, 3
   %280 = load i32, ptr @hf_bscvlc_proprietary_data, align 4
   %281 = sub i32 %6, %279
   %282 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %280, ptr noundef %0, i32 noundef %279, i32 noundef %281, i32 noundef 0) #3
   br label %283
 
 283:                                              ; preds = %189, %202, %.critedge6, %270, %254, %238, %222, %216
-  %.8 = phi i32 [ %.7, %.critedge6 ], [ %6, %216 ], [ %237, %222 ], [ %253, %238 ], [ %269, %254 ], [ %6, %270 ], [ %6, %202 ], [ %6, %189 ]
+  %.8 = phi i32 [ %.5, %.critedge6 ], [ %6, %216 ], [ %237, %222 ], [ %253, %238 ], [ %269, %254 ], [ %6, %270 ], [ %6, %202 ], [ %6, %189 ]
   %284 = sub i32 %6, %.8
   %285 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.8, i32 noundef %284) #3
   %286 = load ptr, ptr @bscvlc_dissector_table, align 8

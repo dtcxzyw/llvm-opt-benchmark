@@ -691,12 +691,12 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %.not26, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %11
-  %.021 = phi ptr [ %12, %11 ], [ %1, %5 ]
-  %10 = icmp ugt ptr %.021, %0
+  %.1 = phi ptr [ %12, %11 ], [ %1, %5 ]
+  %10 = icmp ugt ptr %.1, %0
   br i1 %10, label %11, label %.loopexit.loopexit
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %.021, i64 -1
+  %12 = getelementptr inbounds i8, ptr %.1, i64 -1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %14
@@ -705,14 +705,14 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %17, label %.preheader, label %.loopexit.loopexit, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %.preheader, %11
-  %.pre = load i8, ptr %.021, align 1
+  %.pre = load i8, ptr %.1, align 1
   %.pre27 = zext i8 %.pre to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5
   %.pre-phi = phi i64 [ %.pre27, %.loopexit.loopexit ], [ %7, %5 ]
-  %.1 = phi ptr [ %.021, %.loopexit.loopexit ], [ %1, %5 ]
-  %18 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.021 = phi ptr [ %.1, %.loopexit.loopexit ], [ %1, %5 ]
+  %18 = getelementptr inbounds i8, ptr %.021, i64 1
   %19 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %.pre-phi
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i64
@@ -746,7 +746,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 mbc_enc_len.exit:                                 ; preds = %23, %28, %32
   %.0.i = phi i32 [ %25, %23 ], [ %31, %28 ], [ %38, %32 ]
   %39 = sext i32 %.0.i to i64
-  %40 = getelementptr inbounds i8, ptr %.1, i64 %39
+  %40 = getelementptr inbounds i8, ptr %.021, i64 %39
   %41 = icmp ugt ptr %40, %1
   br i1 %41, label %48, label %42
 
@@ -759,7 +759,7 @@ mbc_enc_len.exit:                                 ; preds = %23, %28, %32
   br label %48
 
 48:                                               ; preds = %mbc_enc_len.exit, %4, %42
-  %.0 = phi ptr [ %47, %42 ], [ %1, %4 ], [ %.1, %mbc_enc_len.exit ]
+  %.0 = phi ptr [ %47, %42 ], [ %1, %4 ], [ %.021, %mbc_enc_len.exit ]
   ret ptr %.0
 }
 

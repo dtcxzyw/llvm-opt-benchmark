@@ -1226,7 +1226,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont8, %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit
-  %token.0 = phi i32 [ %token.3, %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit ], [ %call12, %invoke.cont8 ]
+  %token.0 = phi i32 [ %token.1, %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit ], [ %call12, %invoke.cont8 ]
   switch i32 %token.0, label %if.then15 [
     i32 1, label %cleanup63
     i32 4, label %invoke.cont18
@@ -1447,7 +1447,7 @@ cleanup.sink.split:                               ; preds = %if.then53, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %land.lhs.true, %if.then48, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  %cleanup.dest.slot.0.ph = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then48 ], [ 0, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ 1, %cleanup.sink.split ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then48 ], [ 0, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ 1, %cleanup.sink.split ]
   %token.2.ph = phi i32 [ 1, %land.lhs.true ], [ %call51, %if.then48 ], [ %call46, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %token.2.ph.ph, %cleanup.sink.split ]
   %.pr = load ptr, ptr %value, align 8
   %cmp.not.i77 = icmp eq ptr %.pr, null
@@ -1462,13 +1462,13 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78: ; preds = %cleanup
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81: ; preds = %cleanup.thread, %cleanup, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78
   %token.2104 = phi i32 [ 10, %cleanup.thread ], [ %token.2.ph, %cleanup ], [ %token.2.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
-  %cleanup.dest.slot.0103 = phi i32 [ 1, %cleanup.thread ], [ %cleanup.dest.slot.0.ph, %cleanup ], [ %cleanup.dest.slot.0.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
+  %cleanup.dest.slot.1103 = phi i32 [ 1, %cleanup.thread ], [ %cleanup.dest.slot.1.ph, %cleanup ], [ %cleanup.dest.slot.1.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
   store ptr null, ptr %value, align 8
   br label %cleanup61
 
 cleanup61:                                        ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81, %if.then28, %if.then22
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then28 ], [ %cleanup.dest.slot.0103, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81 ], [ 1, %if.then22 ]
-  %token.3 = phi i32 [ %call26, %if.then28 ], [ %token.2104, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81 ], [ 4, %if.then22 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then28 ], [ %cleanup.dest.slot.1103, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81 ], [ 1, %if.then22 ]
+  %token.1 = phi i32 [ %call26, %if.then28 ], [ %token.2104, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81 ], [ 4, %if.then22 ]
   %52 = load ptr, ptr %string_.i, align 8
   %isnull.i = icmp eq ptr %52, null
   br i1 %isnull.i, label %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit, label %delete.notnull.i
@@ -1479,7 +1479,7 @@ delete.notnull.i:                                 ; preds = %cleanup61
   br label %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit
 
 _ZN4base8internal10JSONParser13StringBuilderD2Ev.exit: ; preds = %cleanup61, %delete.notnull.i
-  %cond = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond, label %while.cond, label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i, !llvm.loop !26
 
 ehcleanup:                                        ; preds = %lpad37, %lpad.i.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit68
@@ -1625,7 +1625,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %token.086 = phi i32 [ %call12, %while.body.lr.ph ], [ %token.2.ph, %while.cond.backedge ]
+  %token.086 = phi i32 [ %call12, %while.body.lr.ph ], [ %token.1.ph, %while.cond.backedge ]
   invoke void @_ZN4base8internal10JSONParser10ParseTokenENS1_5TokenE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %item, ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %token.086)
           to label %invoke.cont14 unwind label %lpad10
 
@@ -1721,7 +1721,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit41: ; preds = %l
 
 cleanup.sink.split:                               ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit, %land.lhs.true
   %.sink = phi i32 [ 4, %land.lhs.true ], [ 2, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
-  %token.2.ph.ph = phi i32 [ 3, %land.lhs.true ], [ %call24, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
+  %token.1.ph.ph = phi i32 [ 3, %land.lhs.true ], [ %call24, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
   store i32 %.sink, ptr %error_code_.i29, align 8
   %27 = load i32, ptr %line_number_.i30, align 8
   store i32 %27, ptr %error_line_.i31, align 4
@@ -1735,7 +1735,7 @@ cleanup.sink.split:                               ; preds = %_ZNSt10unique_ptrIN
 
 cleanup:                                          ; preds = %cleanup.sink.split, %land.lhs.true, %if.then26, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
   %cond.ph = phi i1 [ true, %land.lhs.true ], [ true, %if.then26 ], [ true, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ false, %cleanup.sink.split ]
-  %token.2.ph = phi i32 [ 3, %land.lhs.true ], [ %call29, %if.then26 ], [ %call24, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %token.2.ph.ph, %cleanup.sink.split ]
+  %token.1.ph = phi i32 [ 3, %land.lhs.true ], [ %call29, %if.then26 ], [ %call24, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %token.1.ph.ph, %cleanup.sink.split ]
   %.pr = load ptr, ptr %item, align 8
   %cmp.not.i50 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i50, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i51
@@ -1752,7 +1752,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54: ; preds = %c
   br i1 %cond.ph, label %while.cond.backedge, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i
 
 while.cond.backedge:                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i51
-  %cmp13.not = icmp eq i32 %token.2.ph, 3
+  %cmp13.not = icmp eq i32 %token.1.ph, 3
   br i1 %cmp13.not, label %cleanup39, label %while.body, !llvm.loop !27
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i56: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit41
@@ -2896,7 +2896,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %cleanup119
 
 cleanup119:                                       ; preds = %cleanup, %while.end, %sw.default, %if.then78, %if.then63, %if.then53, %if.then46, %if.then30, %if.then26
-  %retval.3 = phi i1 [ false, %if.then26 ], [ true, %if.then30 ], [ false, %sw.default ], [ false, %cleanup ], [ false, %if.then78 ], [ false, %if.then63 ], [ false, %if.then53 ], [ false, %if.then46 ], [ false, %while.end ]
+  %retval.2 = phi i1 [ false, %if.then26 ], [ true, %if.then30 ], [ false, %sw.default ], [ false, %cleanup ], [ false, %if.then78 ], [ false, %if.then63 ], [ false, %if.then53 ], [ false, %if.then46 ], [ false, %while.end ]
   %string_.i199 = getelementptr inbounds i8, ptr %string, i64 16
   %67 = load ptr, ptr %string_.i199, align 8
   %isnull.i = icmp eq ptr %67, null
@@ -2913,8 +2913,8 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %delete.notnull.i, %cleanup119, %if.then
-  %retval.4 = phi i1 [ false, %if.then ], [ %retval.3, %cleanup119 ], [ %retval.3, %delete.notnull.i ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ false, %if.then ], [ %retval.2, %cleanup119 ], [ %retval.2, %delete.notnull.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN4base15DictionaryValue23SetWithoutPathExpansionENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64, ptr noundef) local_unnamed_addr #3
@@ -2992,14 +2992,14 @@ if.else21:                                        ; preds = %if.else12
 
 if.end:                                           ; preds = %if.else21, %if.then14
   %conv24.sink = phi i8 [ %conv17, %if.then14 ], [ %conv24, %if.else21 ]
-  %offset.0 = phi i32 [ 1, %if.then14 ], [ 2, %if.else21 ]
+  %offset.2 = phi i32 [ 1, %if.then14 ], [ 2, %if.else21 ]
   store i8 %conv24.sink, ptr %utf8_units, align 4
   %shr34 = lshr i32 %0, 6
   %8 = trunc i32 %shr34 to i8
   %9 = and i8 %8, 63
   %conv37 = or disjoint i8 %9, -128
-  %inc38 = add nuw nsw i32 %offset.0, 1
-  %idxprom39 = zext nneg i32 %offset.0 to i64
+  %inc38 = add nuw nsw i32 %offset.2, 1
+  %idxprom39 = zext nneg i32 %offset.2 to i64
   %arrayidx40 = getelementptr inbounds [4 x i8], ptr %utf8_units, i64 0, i64 %idxprom39
   store i8 %conv37, ptr %arrayidx40, align 1
   br label %if.end48
@@ -3100,8 +3100,8 @@ entry:
   %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %end_pos_.i, align 8
   %cmp.i.not = icmp ugt ptr %add.ptr.i, %1
-  %offset.0.sroa.gep = getelementptr inbounds i8, ptr %code_unit8, i64 1
-  %offset.0.sroa.gep54 = getelementptr inbounds i8, ptr %code_unit8, i64 2
+  %offset.1.sroa.gep = getelementptr inbounds i8, ptr %code_unit8, i64 1
+  %offset.1.sroa.gep54 = getelementptr inbounds i8, ptr %code_unit8, i64 2
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -3232,25 +3232,25 @@ if.else50:                                        ; preds = %if.else42
   %17 = trunc i32 %shr56 to i8
   %18 = and i8 %17, 63
   %conv59 = or disjoint i8 %18, -128
-  store i8 %conv59, ptr %offset.0.sroa.gep, align 1
+  store i8 %conv59, ptr %offset.1.sroa.gep, align 1
   br label %if.end62
 
 if.end62:                                         ; preds = %if.else50, %if.then44
-  %offset.0.sroa.phi = phi ptr [ %offset.0.sroa.gep, %if.then44 ], [ %offset.0.sroa.gep54, %if.else50 ]
-  %offset.0 = phi i64 [ 2, %if.then44 ], [ 3, %if.else50 ]
+  %offset.1.sroa.phi = phi ptr [ %offset.1.sroa.gep, %if.then44 ], [ %offset.1.sroa.gep54, %if.else50 ]
+  %offset.1 = phi i64 [ 2, %if.then44 ], [ 3, %if.else50 ]
   %shr63 = lshr i32 %sub, 6
   %19 = trunc i32 %shr63 to i8
   %20 = and i8 %19, 63
   %conv66 = or disjoint i8 %20, -128
-  store i8 %conv66, ptr %offset.0.sroa.phi, align 1
+  store i8 %conv66, ptr %offset.1.sroa.phi, align 1
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end62, %if.then38
-  %offset.1 = phi i64 [ 1, %if.then38 ], [ %offset.0, %if.end62 ]
+  %offset.0 = phi i64 [ 1, %if.then38 ], [ %offset.1, %if.end62 ]
   %21 = trunc i32 %10 to i8
   %22 = and i8 %21, 63
   %conv72 = or disjoint i8 %22, -128
-  %arrayidx74 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.1
+  %arrayidx74 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.0
   store i8 %conv72, ptr %arrayidx74, align 1
   br label %if.end127
 
@@ -3309,25 +3309,25 @@ if.else101:                                       ; preds = %if.else93
   %28 = trunc i32 %shr107 to i8
   %29 = and i8 %28, 63
   %conv110 = or disjoint i8 %29, -128
-  store i8 %conv110, ptr %offset.0.sroa.gep, align 1
+  store i8 %conv110, ptr %offset.1.sroa.gep, align 1
   br label %if.end113
 
 if.end113:                                        ; preds = %if.else101, %if.then95
-  %offset.2.sroa.phi = phi ptr [ %offset.0.sroa.gep, %if.then95 ], [ %offset.0.sroa.gep54, %if.else101 ]
-  %offset.2 = phi i64 [ 2, %if.then95 ], [ 3, %if.else101 ]
+  %offset.3.sroa.phi = phi ptr [ %offset.1.sroa.gep, %if.then95 ], [ %offset.1.sroa.gep54, %if.else101 ]
+  %offset.3 = phi i64 [ 2, %if.then95 ], [ 3, %if.else101 ]
   %shr114 = lshr i32 %4, 6
   %30 = trunc i32 %shr114 to i8
   %31 = and i8 %30, 63
   %conv117 = or disjoint i8 %31, -128
-  store i8 %conv117, ptr %offset.2.sroa.phi, align 1
+  store i8 %conv117, ptr %offset.3.sroa.phi, align 1
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end113, %if.then87
-  %offset.3 = phi i64 [ 1, %if.then87 ], [ %offset.2, %if.end113 ]
+  %offset.2 = phi i64 [ 1, %if.then87 ], [ %offset.3, %if.end113 ]
   %32 = trunc i32 %4 to i8
   %33 = and i8 %32, 63
   %conv123 = or disjoint i8 %33, -128
-  %arrayidx125 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.3
+  %arrayidx125 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.2
   store i8 %conv123, ptr %arrayidx125, align 1
   br label %if.end127
 
@@ -3579,8 +3579,8 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10: ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10, %cleanup, %if.then
-  %retval.1 = phi i1 [ %call, %if.then ], [ %call3, %cleanup ], [ %call3, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %call, %if.then ], [ %call3, %cleanup ], [ %call3, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4base15DictionaryValue10RemovePathENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPSt10unique_ptrINS_5ValueESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64, ptr noundef) unnamed_addr #3
@@ -3800,8 +3800,8 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10: ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10, %cleanup, %if.then
-  %retval.1 = phi i1 [ %call, %if.then ], [ %call2, %cleanup ], [ %call2, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %call, %if.then ], [ %call2, %cleanup ], [ %call2, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

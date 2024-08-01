@@ -664,7 +664,7 @@ tailrecurse:                                      ; preds = %60
   br label %.loopexit
 
 183:                                              ; preds = %179, %175
-  %.0168 = phi ptr [ %178, %175 ], [ %180, %179 ]
+  %.1 = phi ptr [ %178, %175 ], [ %180, %179 ]
   %184 = load i32, ptr %142, align 4
   %185 = add i32 %184, -1
   store i32 %185, ptr %142, align 4
@@ -672,15 +672,15 @@ tailrecurse:                                      ; preds = %60
 
 186:                                              ; preds = %164, %183, %153
   %.sink = phi ptr [ %142, %164 ], [ %132, %183 ], [ %159, %153 ]
-  %.1 = phi ptr [ %123, %164 ], [ %.0168, %183 ], [ %156, %153 ]
+  %.0168 = phi ptr [ %123, %164 ], [ %.1, %183 ], [ %156, %153 ]
   %187 = load i32, ptr %.sink, align 4
   %188 = add i32 %187, -1
   store i32 %188, ptr %.sink, align 4
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 10, ptr noundef %spec.select188, ptr noundef %spec.select, ptr noundef nonnull %.tr193236, ptr noundef %.1) #4
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 10, ptr noundef %spec.select188, ptr noundef %spec.select, ptr noundef nonnull %.tr193236, ptr noundef %.0168) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %12, %42, %4, %122, %186, %182, %174, %152, %137, %127, %40, %36, %29, %25, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %33, %29 ], [ %37, %36 ], [ %41, %40 ], [ %14, %127 ], [ null, %137 ], [ null, %152 ], [ %.1, %186 ], [ null, %174 ], [ null, %182 ], [ null, %122 ], [ %9, %4 ], [ %87, %tailrecurse ], [ %14, %12 ], [ %59, %42 ]
+  %.0 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %33, %29 ], [ %37, %36 ], [ %41, %40 ], [ %14, %127 ], [ null, %137 ], [ null, %152 ], [ %.0168, %186 ], [ null, %174 ], [ null, %182 ], [ null, %122 ], [ %9, %4 ], [ %87, %tailrecurse ], [ %14, %12 ], [ %59, %42 ]
   ret ptr %.0
 }
 

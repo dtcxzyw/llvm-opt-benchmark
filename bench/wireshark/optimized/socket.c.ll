@@ -83,7 +83,7 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, 
   br label %32
 
 32:                                               ; preds = %30, %28
-  %.1 = phi ptr [ %31, %30 ], [ null, %28 ]
+  %.2 = phi ptr [ %31, %30 ], [ null, %28 ]
   %33 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull %6, ptr noundef nonnull %4) #10
   br i1 %33, label %36, label %34
 
@@ -93,21 +93,21 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, 
   br label %70
 
 36:                                               ; preds = %32, %24, %22
-  %.2 = phi ptr [ %.045, %22 ], [ %.045, %24 ], [ %.1, %32 ]
+  %.1 = phi ptr [ %.045, %22 ], [ %.045, %24 ], [ %.2, %32 ]
   %37 = phi i1 [ true, %22 ], [ false, %24 ], [ false, %32 ]
   %38 = phi i1 [ false, %22 ], [ true, %24 ], [ true, %32 ]
-  %.not52 = icmp eq ptr %.2, null
+  %.not52 = icmp eq ptr %.1, null
   br i1 %.not52, label %57, label %39
 
 39:                                               ; preds = %36
-  %40 = load i8, ptr %.2, align 1
+  %40 = load i8, ptr %.1, align 1
   %.not53 = icmp eq i8 %40, 0
   br i1 %.not53, label %57, label %41
 
 41:                                               ; preds = %39
-  %42 = call i64 @strtol(ptr noundef nonnull %.2, ptr noundef nonnull %5, i32 noundef 10) #10
+  %42 = call i64 @strtol(ptr noundef nonnull %.1, ptr noundef nonnull %5, i32 noundef 10) #10
   %43 = load ptr, ptr %5, align 8
-  %44 = icmp eq ptr %43, %.2
+  %44 = icmp eq ptr %43, %.1
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %41

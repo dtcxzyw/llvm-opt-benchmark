@@ -175,7 +175,7 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   br i1 %79, label %.thread64.i, label %.thread65.i
 
 .thread64.i:                                      ; preds = %85, %81
-  %.063.i = phi i64 [ 0, %85 ], [ %spec.select68.i, %81 ]
+  %.163.i = phi i64 [ 0, %85 ], [ %spec.select68.i, %81 ]
   %86 = getelementptr inbounds i8, ptr %71, i64 128
   %87 = load ptr, ptr %86, align 8
   %.not52.i = icmp eq ptr %87, null
@@ -185,17 +185,17 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   %89 = getelementptr inbounds i8, ptr %71, i64 136
   %90 = load i64, ptr %89, align 8
   %.not53.i = icmp eq i64 %90, 0
-  %spec.select.i = select i1 %.not53.i, i64 %.063.i, i64 32
+  %spec.select.i = select i1 %.not53.i, i64 %.163.i, i64 32
   br label %.thread65.i
 
 .thread65.i:                                      ; preds = %88, %.thread64.i, %85, %80
-  %.1.i = phi i64 [ %.063.i, %.thread64.i ], [ 0, %85 ], [ %spec.select.i, %88 ], [ 0, %80 ]
-  %.not54.i = icmp eq i64 %.1.i, %73
+  %.0.i = phi i64 [ %.163.i, %.thread64.i ], [ 0, %85 ], [ %spec.select.i, %88 ], [ 0, %80 ]
+  %.not54.i = icmp eq i64 %.0.i, %73
   br i1 %.not54.i, label %102, label %91
 
 91:                                               ; preds = %.thread65.i
-  store i64 %.1.i, ptr %72, align 8
-  %.not55.i = icmp eq i64 %.1.i, 0
+  store i64 %.0.i, ptr %72, align 8
+  %.not55.i = icmp eq i64 %.0.i, 0
   br i1 %.not55.i, label %102, label %92
 
 92:                                               ; preds = %91
@@ -206,7 +206,7 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %70, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 32
-  %100 = tail call i32 %95(ptr noundef %97, ptr noundef nonnull %99, i64 noundef %.1.i) #6
+  %100 = tail call i32 %95(ptr noundef %97, ptr noundef nonnull %99, i64 noundef %.0.i) #6
   %.not56.i = icmp eq i32 %100, 0
   br i1 %.not56.i, label %102, label %101
 
@@ -301,8 +301,8 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   br label %158
 
 158:                                              ; preds = %153, %150
-  %.0.i = phi i8 [ %157, %153 ], [ 0, %150 ]
-  %159 = zext i8 %.0.i to i64
+  %.0.i39 = phi i8 [ %157, %153 ], [ 0, %150 ]
+  %159 = zext i8 %.0.i39 to i64
   %160 = icmp ule ptr %144, %107
   %161 = ptrtoint ptr %144 to i64
   %162 = sub i64 %117, %161
@@ -312,8 +312,8 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds i8, ptr %144, i64 1
-  store i8 %.0.i, ptr %144, align 1
-  %.not126.i = icmp eq i8 %.0.i, 0
+  store i8 %.0.i39, ptr %144, align 1
+  %.not126.i = icmp eq i8 %.0.i39, 0
   br i1 %.not126.i, label %169, label %166
 
 166:                                              ; preds = %164
@@ -474,17 +474,17 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   br label %253
 
 253:                                              ; preds = %250, %244
-  %.1.i39 = phi ptr [ %252, %250 ], [ %246, %244 ]
+  %.1.i = phi ptr [ %252, %250 ], [ %246, %244 ]
   br i1 %116, label %254, label %263
 
 254:                                              ; preds = %253
-  %255 = call i32 @mbedtls_ssl_write_sig_alg_ext(ptr noundef nonnull %0, ptr noundef nonnull %.1.i39, ptr noundef nonnull %107, ptr noundef nonnull %2) #6
+  %255 = call i32 @mbedtls_ssl_write_sig_alg_ext(ptr noundef nonnull %0, ptr noundef nonnull %.1.i, ptr noundef nonnull %107, ptr noundef nonnull %2) #6
   %.not133.i = icmp eq i32 %255, 0
   br i1 %.not133.i, label %256, label %ssl_write_client_hello_body.exit.thread
 
 256:                                              ; preds = %254
   %257 = load i64, ptr %2, align 8
-  %258 = getelementptr inbounds i8, ptr %.1.i39, i64 %257
+  %258 = getelementptr inbounds i8, ptr %.1.i, i64 %257
   %259 = call i32 @mbedtls_ssl_tls12_write_client_hello_exts(ptr noundef nonnull %0, ptr noundef %258, ptr noundef nonnull %107, i32 noundef %.2144.i, ptr noundef nonnull %2) #6
   %.not134.i = icmp eq i32 %259, 0
   br i1 %.not134.i, label %260, label %ssl_write_client_hello_body.exit.thread
@@ -495,7 +495,7 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   br label %263
 
 263:                                              ; preds = %260, %253
-  %.3.i = phi ptr [ %262, %260 ], [ %.1.i39, %253 ]
+  %.3.i = phi ptr [ %262, %260 ], [ %.1.i, %253 ]
   %264 = ptrtoint ptr %.3.i to i64
   %265 = sub i64 %264, %234
   %266 = add nsw i64 %265, -2

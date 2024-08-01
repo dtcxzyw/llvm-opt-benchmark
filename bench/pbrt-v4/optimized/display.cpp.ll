@@ -2098,8 +2098,8 @@ if.then.i.i.i65:                                  ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i65, %cleanup, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ %cmp2188, %cleanup ], [ %cmp2188, %if.then.i.i.i65 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ %cmp2188, %cleanup ], [ %cmp2188, %if.then.i.i.i65 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad31
   resume { ptr, i32 } %lpad.phi
@@ -2121,21 +2121,21 @@ entry:
   br i1 %cmp8.not.i, label %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %ptr.0 = phi ptr [ %add.ptr.i6, %for.body.i ], [ %add.ptr.i5, %entry ]
+  %ptr.1 = phi ptr [ %add.ptr.i6, %for.body.i ], [ %add.ptr.i5, %entry ]
   %i.09.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %entry ]
   %call1.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %title, i64 noundef %i.09.i) #20
   %0 = load i8, ptr %call1.i, align 1
-  store i8 %0, ptr %ptr.0, align 1
+  store i8 %0, ptr %ptr.1, align 1
   %inc.i = add nuw i64 %i.09.i, 1
-  %add.ptr.i6 = getelementptr inbounds i8, ptr %ptr.0, i64 1
+  %add.ptr.i6 = getelementptr inbounds i8, ptr %ptr.1, i64 1
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %title) #20
   %cmp.i = icmp ult i64 %inc.i, %call.i
   br i1 %cmp.i, label %for.body.i, label %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, !llvm.loop !10
 
 _ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %for.body.i, %entry
-  %ptr.1 = phi ptr [ %add.ptr.i5, %entry ], [ %add.ptr.i6, %for.body.i ]
-  store i8 0, ptr %ptr.1, align 1
-  %add.ptr2.i = getelementptr inbounds i8, ptr %ptr.1, i64 1
+  %ptr.2 = phi ptr [ %add.ptr.i5, %entry ], [ %add.ptr.i6, %for.body.i ]
+  store i8 0, ptr %ptr.2, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %ptr.2, i64 1
   %channelNames = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -2148,13 +2148,13 @@ _ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traits
   %resolution = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %resolution, align 8
   store i32 %3, ptr %add.ptr2.i, align 1
-  %add.ptr.i7 = getelementptr inbounds i8, ptr %ptr.1, i64 5
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %ptr.2, i64 5
   %y = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %y, align 4
   store i32 %4, ptr %add.ptr.i7, align 1
-  %add.ptr.i8 = getelementptr inbounds i8, ptr %ptr.1, i64 9
+  %add.ptr.i8 = getelementptr inbounds i8, ptr %ptr.2, i64 9
   store i32 %conv, ptr %add.ptr.i8, align 1
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %ptr.1, i64 13
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %ptr.2, i64 13
   %cmp42 = icmp sgt i32 %conv, 0
   br i1 %cmp42, label %for.body.preheader, label %for.end
 
@@ -2164,7 +2164,7 @@ for.body.preheader:                               ; preds = %_ZN4pbrt12_GLOBAL__
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21 ]
-  %ptr.243 = phi ptr [ %add.ptr.i9, %for.body.preheader ], [ %add.ptr2.i20, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21 ]
+  %ptr.043 = phi ptr [ %add.ptr.i9, %for.body.preheader ], [ %add.ptr2.i20, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21 ]
   %5 = load ptr, ptr %channelNames, align 8
   %add.ptr.i10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %indvars.iv
   %call7.i11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i10) #20
@@ -2172,7 +2172,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp8.not.i12, label %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21, label %for.body.i13
 
 for.body.i13:                                     ; preds = %for.body, %for.body.i13
-  %ptr.3 = phi ptr [ %add.ptr.i17, %for.body.i13 ], [ %ptr.243, %for.body ]
+  %ptr.3 = phi ptr [ %add.ptr.i17, %for.body.i13 ], [ %ptr.043, %for.body ]
   %i.09.i14 = phi i64 [ %inc.i16, %for.body.i13 ], [ 0, %for.body ]
   %call1.i15 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i10, i64 noundef %i.09.i14) #20
   %6 = load i8, ptr %call1.i15, align 1
@@ -2184,7 +2184,7 @@ for.body.i13:                                     ; preds = %for.body, %for.body
   br i1 %cmp.i19, label %for.body.i13, label %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21, !llvm.loop !10
 
 _ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21: ; preds = %for.body.i13, %for.body
-  %ptr.4 = phi ptr [ %ptr.243, %for.body ], [ %add.ptr.i17, %for.body.i13 ]
+  %ptr.4 = phi ptr [ %ptr.043, %for.body ], [ %add.ptr.i17, %for.body.i13 ]
   store i8 0, ptr %ptr.4, align 1
   %add.ptr2.i20 = getelementptr inbounds i8, ptr %ptr.4, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2192,8 +2192,8 @@ _ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %ptr.2.lcssa = phi ptr [ %add.ptr.i9, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %add.ptr2.i20, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21 ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %ptr.2.lcssa to i64
+  %ptr.0.lcssa = phi ptr [ %add.ptr.i9, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %add.ptr2.i20, %_ZN4pbrt12_GLOBAL__N_19SerializeEPPhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21 ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %ptr.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buffer to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call9 = call noundef zeroext i1 @_ZN4pbrt10IPCChannel4SendEN4pstd4spanIKhEE(ptr noundef nonnull align 8 dereferenceable(76) %ipcChannel, ptr nonnull %buffer, i64 %sub.ptr.sub)
@@ -2950,14 +2950,14 @@ ehcleanup32.thread:                               ; preds = %lpad.i, %lpad12
 
 ehcleanup32:                                      ; preds = %ehcleanup, %lpad.i18, %lpad15
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %18, %lpad15 ], [ %15, %lpad.i18 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element17, %ehcleanup ], [ %arrayinit.element, %lpad15 ], [ %arrayinit.element, %lpad.i18 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element17, %ehcleanup ], [ %arrayinit.element, %lpad15 ], [ %arrayinit.element, %lpad.i18 ]
   %cleanup.isactive.1 = phi i1 [ %21, %ehcleanup ], [ false, %lpad15 ], [ false, %lpad.i18 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #20
   br i1 %cleanup.isactive.1, label %ehcleanup62, label %arraydestroy.body34
 
 arraydestroy.body34:                              ; preds = %ehcleanup32, %arraydestroy.body34
-  %arraydestroy.elementPast35 = phi ptr [ %arraydestroy.element36, %arraydestroy.body34 ], [ %arrayinit.endOfInit.0, %ehcleanup32 ]
+  %arraydestroy.elementPast35 = phi ptr [ %arraydestroy.element36, %arraydestroy.body34 ], [ %arrayinit.endOfInit.1, %ehcleanup32 ]
   %arraydestroy.element36 = getelementptr inbounds i8, ptr %arraydestroy.elementPast35, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element36) #20
   %arraydestroy.done37 = icmp eq ptr %arraydestroy.element36, %ref.tmp10

@@ -2095,8 +2095,8 @@ if.then12:                                        ; preds = %land.lhs.true
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then12, %land.lhs.true, %if.then7
-  %parentScopeOffset.sroa.0.0 = phi i64 [ 0, %if.then7 ], [ %11, %if.then12 ], [ 0, %land.lhs.true ]
-  %parentScopeOffset.sroa.3.0 = phi i64 [ 0, %if.then7 ], [ 4294967296, %if.then12 ], [ 0, %land.lhs.true ]
+  %parentScopeOffset.sroa.0.1 = phi i64 [ 0, %if.then7 ], [ %11, %if.then12 ], [ 0, %land.lhs.true ]
+  %parentScopeOffset.sroa.3.1 = phi i64 [ 0, %if.then7 ], [ 4294967296, %if.then12 ], [ 0, %land.lhs.true ]
   %function_.i22 = getelementptr inbounds i8, ptr %S, i64 144
   %12 = load ptr, ptr %function_.i22, align 8
   %tobool.i23.not = icmp eq ptr %12, null
@@ -2298,7 +2298,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes10IdentifierELb1EE9push_backERKS2_.exi
 
 for.end:                                          ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes10IdentifierELb1EE9push_backERKS2_.exit, %land.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nameUTF8Buffer) #20
-  %41 = or disjoint i64 %parentScopeOffset.sroa.3.0, %parentScopeOffset.sroa.0.0
+  %41 = or disjoint i64 %parentScopeOffset.sroa.3.1, %parentScopeOffset.sroa.0.1
   %.pre = load ptr, ptr %names, align 8
   %.pre56 = load i32, ptr %Size.i.i.i.i.i, align 8
   %42 = zext i32 %.pre56 to i64

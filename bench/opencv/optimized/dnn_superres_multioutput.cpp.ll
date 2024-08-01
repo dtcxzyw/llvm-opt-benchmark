@@ -647,18 +647,18 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .lr.ph.i.i57:                                     ; preds = %.lr.ph.i.i57, %.lr.ph.preheader.i.i
   %241 = phi i32 [ %245, %.lr.ph.i.i57 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %242 = phi ptr [ %246, %.lr.ph.i.i57 ], [ %240, %.lr.ph.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i57 ], [ %237, %.lr.ph.preheader.i.i ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i57 ], [ %237, %.lr.ph.preheader.i.i ]
   %243 = load i32, ptr %242, align 4
   %244 = icmp slt i32 %241, %243
   %245 = call i32 @llvm.smax.i32(i32 %241, i32 %243)
-  %spec.select.i.i = select i1 %244, ptr %242, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %244, ptr %242, ptr %.sroa.02.110.i.i
   %246 = getelementptr inbounds i8, ptr %242, i64 4
   %.not.i.i58 = icmp eq ptr %246, %238
   br i1 %.not.i.i58, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit, label %.lr.ph.i.i57, !llvm.loop !7
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit: ; preds = %.lr.ph.i.i57, %236
-  %.sroa.02.2.i.i = phi ptr [ %237, %236 ], [ %spec.select.i.i, %.lr.ph.i.i57 ]
-  %247 = load i32, ptr %.sroa.02.2.i.i, align 4
+  %.sroa.02.0.i.i = phi ptr [ %237, %236 ], [ %spec.select.i.i, %.lr.ph.i.i57 ]
+  %247 = load i32, ptr %.sroa.02.0.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv12dnn_superres15DnnSuperResImpl9readModelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(52) %21, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %248 unwind label %.loopexit.split-lp
@@ -848,7 +848,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 302:                                              ; preds = %229, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %.014 = phi i32 [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ -2, %229 ]
+  %.1 = phi i32 [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ -2, %229 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #16
   %303 = load ptr, ptr %16, align 8
@@ -937,8 +937,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit68:                  ; preds = %312, %314
   br label %319
 
 318:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %32
-  %.1 = phi i32 [ -1, %32 ], [ %.014, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  ret i32 %.1
+  %.014 = phi i32 [ -1, %32 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  ret i32 %.014
 
 319:                                              ; preds = %317, %93
   %.pn46.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn46.pn.pn.pn, %317 ], [ %94, %93 ]

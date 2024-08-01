@@ -2267,13 +2267,13 @@ _ZN7RegMask6InsertEi.exit58:                      ; preds = %393, %396
   br label %410
 
 410:                                              ; preds = %411, %404
-  %.sroa.7.0 = phi i32 [ %407, %404 ], [ %412, %411 ]
-  %.not10.i.i = icmp ugt i32 %.sroa.7.0, %409
+  %.sroa.7.1 = phi i32 [ %407, %404 ], [ %412, %411 ]
+  %.not10.i.i = icmp ugt i32 %.sroa.7.1, %409
   br i1 %.not10.i.i, label %._crit_edge, label %411
 
 411:                                              ; preds = %410
-  %412 = add i32 %.sroa.7.0, 1
-  %413 = zext i32 %.sroa.7.0 to i64
+  %412 = add i32 %.sroa.7.1, 1
+  %413 = zext i32 %.sroa.7.1 to i64
   %414 = getelementptr inbounds [11 x i64], ptr %405, i64 0, i64 %413
   %415 = load i64, ptr %414, align 8
   %.not11.i.i = icmp eq i64 %415, 0
@@ -2307,9 +2307,9 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   %.028113 = phi i32 [ 0, %.lr.ph ], [ %.129, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
   %.030112 = phi i32 [ 0, %.lr.ph ], [ %.131, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
   %.sroa.11.0111 = phi i32 [ %420, %.lr.ph ], [ %.sink.i, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.sroa.7.2110 = phi i32 [ %412, %.lr.ph ], [ %.sroa.7.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.sroa.093.2109 = phi i64 [ %422, %.lr.ph ], [ %.sroa.093.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
-  %.not.i = icmp eq i64 %.sroa.093.2109, 0
+  %.sroa.7.0110 = phi i32 [ %412, %.lr.ph ], [ %.sroa.7.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.sroa.093.0109 = phi i64 [ %422, %.lr.ph ], [ %.sroa.093.4, %_ZNK17GrowableArrayViewI9KRegisterE4findERKS0_.exit ]
+  %.not.i = icmp eq i64 %.sroa.093.0109, 0
   br i1 %.not.i, label %.preheader.i.preheader, label %434
 
 .preheader.i.preheader:                           ; preds = %432
@@ -2317,15 +2317,15 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
   br label %.preheader.i
 
 434:                                              ; preds = %432
-  %435 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.093.2109, i1 true)
+  %435 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.093.0109, i1 true)
   %436 = trunc nuw nsw i64 %435 to i32
-  %437 = lshr i64 %.sroa.093.2109, %435
+  %437 = lshr i64 %.sroa.093.0109, %435
   %438 = add i64 %437, -1
   %439 = add nsw i32 %.sroa.11.0111, %436
   br label %_ZN15RegMaskIterator4nextEv.exit
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %440
-  %.sroa.7.3 = phi i32 [ %441, %440 ], [ %.sroa.7.2110, %.preheader.i.preheader ]
+  %.sroa.7.3 = phi i32 [ %441, %440 ], [ %.sroa.7.0110, %.preheader.i.preheader ]
   %.not10.i = icmp ugt i32 %.sroa.7.3, %433
   br i1 %.not10.i, label %_ZN15RegMaskIterator4nextEv.exit, label %440
 
@@ -2349,7 +2349,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %411
 
 _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %434, %445
   %.sroa.093.4 = phi i64 [ %449, %445 ], [ %438, %434 ], [ 0, %.preheader.i ]
-  %.sroa.7.4 = phi i32 [ %441, %445 ], [ %.sroa.7.2110, %434 ], [ %.sroa.7.3, %.preheader.i ]
+  %.sroa.7.4 = phi i32 [ %441, %445 ], [ %.sroa.7.0110, %434 ], [ %.sroa.7.3, %.preheader.i ]
   %.sink.i = phi i32 [ %452, %445 ], [ %439, %434 ], [ -1, %.preheader.i ]
   %453 = icmp slt i32 %.sroa.11.0111, 616
   br i1 %453, label %454, label %_ZN7OptoReg8as_VMRegEi.exit

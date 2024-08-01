@@ -1253,7 +1253,7 @@ define ptr @acct_storage_p_modify_users(ptr noundef %0, i32 noundef %1, ptr noun
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1271,8 +1271,8 @@ define ptr @acct_storage_p_modify_users(ptr noundef %0, i32 noundef %1, ptr noun
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 declare i32 @dbd_conn_send_recv(i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1338,7 +1338,7 @@ define ptr @acct_storage_p_modify_accts(ptr noundef %0, i32 noundef %1, ptr noun
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1356,8 +1356,8 @@ define ptr @acct_storage_p_modify_accts(ptr noundef %0, i32 noundef %1, ptr noun
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1413,7 +1413,7 @@ define ptr @acct_storage_p_modify_clusters(ptr noundef %0, i32 noundef %1, ptr n
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1431,8 +1431,8 @@ define ptr @acct_storage_p_modify_clusters(ptr noundef %0, i32 noundef %1, ptr n
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1488,7 +1488,7 @@ define ptr @acct_storage_p_modify_assocs(ptr noundef %0, i32 noundef %1, ptr nou
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1506,8 +1506,8 @@ define ptr @acct_storage_p_modify_assocs(ptr noundef %0, i32 noundef %1, ptr nou
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1563,7 +1563,7 @@ define ptr @acct_storage_p_modify_federations(ptr noundef %0, i32 noundef %1, pt
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1581,8 +1581,8 @@ define ptr @acct_storage_p_modify_federations(ptr noundef %0, i32 noundef %1, pt
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1653,7 +1653,7 @@ define ptr @acct_storage_p_modify_job(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %37
 
 37:                                               ; preds = %34, %31
-  %.0 = phi ptr [ %33, %31 ], [ null, %34 ]
+  %.1 = phi ptr [ %33, %31 ], [ null, %34 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %27) #14
   br label %45
 
@@ -1671,8 +1671,8 @@ define ptr @acct_storage_p_modify_job(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %45
 
 45:                                               ; preds = %20, %38, %41, %37, %16
-  %.1 = phi ptr [ null, %16 ], [ null, %20 ], [ %.0, %37 ], [ null, %38 ], [ %44, %41 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %16 ], [ null, %20 ], [ %.1, %37 ], [ null, %38 ], [ %44, %41 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1728,7 +1728,7 @@ define ptr @acct_storage_p_modify_qos(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1746,8 +1746,8 @@ define ptr @acct_storage_p_modify_qos(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1803,7 +1803,7 @@ define ptr @acct_storage_p_modify_res(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1821,8 +1821,8 @@ define ptr @acct_storage_p_modify_res(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1878,7 +1878,7 @@ define ptr @acct_storage_p_modify_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %27 ]
+  %.1 = phi ptr [ %26, %24 ], [ null, %27 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %38
 
@@ -1896,8 +1896,8 @@ define ptr @acct_storage_p_modify_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
   br label %38
 
 38:                                               ; preds = %30, %34, %31, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %30 ], [ null, %31 ], [ %37, %34 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2024,7 +2024,7 @@ define ptr @acct_storage_p_remove_users(ptr noundef %0, i32 noundef %1, ptr noun
   br label %28
 
 28:                                               ; preds = %25, %22
-  %.0 = phi ptr [ %24, %22 ], [ null, %25 ]
+  %.1 = phi ptr [ %24, %22 ], [ null, %25 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %39
 
@@ -2046,8 +2046,8 @@ define ptr @acct_storage_p_remove_users(ptr noundef %0, i32 noundef %1, ptr noun
   br label %39
 
 39:                                               ; preds = %28, %32, %29, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %28 ], [ null, %29 ], [ %35, %32 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %28 ], [ null, %29 ], [ %35, %32 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2111,7 +2111,7 @@ define ptr @acct_storage_p_remove_coord(ptr noundef %0, i32 noundef %1, ptr noun
   br label %34
 
 34:                                               ; preds = %31, %29
-  %.0 = phi ptr [ %30, %29 ], [ null, %31 ]
+  %.1 = phi ptr [ %30, %29 ], [ null, %31 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %20) #14
   br label %42
 
@@ -2129,8 +2129,8 @@ define ptr @acct_storage_p_remove_coord(ptr noundef %0, i32 noundef %1, ptr noun
   br label %42
 
 42:                                               ; preds = %34, %38, %35, %13
-  %.1 = phi ptr [ null, %13 ], [ %.0, %34 ], [ null, %35 ], [ %41, %38 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %13 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2192,7 +2192,7 @@ define ptr @acct_storage_p_remove_accts(ptr noundef %0, i32 noundef %1, ptr noun
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -2214,8 +2214,8 @@ define ptr @acct_storage_p_remove_accts(ptr noundef %0, i32 noundef %1, ptr noun
   br label %43
 
 43:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2277,7 +2277,7 @@ define ptr @acct_storage_p_remove_clusters(ptr noundef %0, i32 noundef %1, ptr n
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -2299,8 +2299,8 @@ define ptr @acct_storage_p_remove_clusters(ptr noundef %0, i32 noundef %1, ptr n
   br label %43
 
 43:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2362,7 +2362,7 @@ define ptr @acct_storage_p_remove_assocs(ptr noundef %0, i32 noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -2384,8 +2384,8 @@ define ptr @acct_storage_p_remove_assocs(ptr noundef %0, i32 noundef %1, ptr nou
   br label %43
 
 43:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2447,7 +2447,7 @@ define ptr @acct_storage_p_remove_federations(ptr noundef %0, i32 noundef %1, pt
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -2469,8 +2469,8 @@ define ptr @acct_storage_p_remove_federations(ptr noundef %0, i32 noundef %1, pt
   br label %43
 
 43:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2532,7 +2532,7 @@ define ptr @acct_storage_p_remove_qos(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -2550,8 +2550,8 @@ define ptr @acct_storage_p_remove_qos(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2613,7 +2613,7 @@ define ptr @acct_storage_p_remove_res(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -2631,8 +2631,8 @@ define ptr @acct_storage_p_remove_res(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2694,7 +2694,7 @@ define ptr @acct_storage_p_remove_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -2712,8 +2712,8 @@ define ptr @acct_storage_p_remove_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2838,7 +2838,7 @@ define ptr @acct_storage_p_get_users(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -2856,8 +2856,8 @@ define ptr @acct_storage_p_get_users(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2920,7 +2920,7 @@ define ptr @acct_storage_p_get_accts(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %33
 
 33:                                               ; preds = %30, %28
-  %.0 = phi ptr [ %29, %28 ], [ null, %30 ]
+  %.1 = phi ptr [ %29, %28 ], [ null, %30 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %19) #14
   br label %41
 
@@ -2938,8 +2938,8 @@ define ptr @acct_storage_p_get_accts(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %41
 
 41:                                               ; preds = %33, %37, %34, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %33 ], [ null, %34 ], [ %40, %37 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
+  ret ptr %.0
 }
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #2
@@ -3003,7 +3003,7 @@ define ptr @acct_storage_p_get_clusters(ptr noundef %0, i32 noundef %1, ptr noun
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3021,8 +3021,8 @@ define ptr @acct_storage_p_get_clusters(ptr noundef %0, i32 noundef %1, ptr noun
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3084,7 +3084,7 @@ define ptr @acct_storage_p_get_federations(ptr noundef %0, i32 noundef %1, ptr n
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3102,8 +3102,8 @@ define ptr @acct_storage_p_get_federations(ptr noundef %0, i32 noundef %1, ptr n
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3171,7 +3171,7 @@ define ptr @acct_storage_p_get_config(ptr noundef %0, ptr noundef %1) local_unna
   br label %33
 
 33:                                               ; preds = %30, %28
-  %.0 = phi ptr [ %29, %28 ], [ null, %30 ]
+  %.1 = phi ptr [ %29, %28 ], [ null, %30 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %19) #14
   br label %41
 
@@ -3189,8 +3189,8 @@ define ptr @acct_storage_p_get_config(ptr noundef %0, ptr noundef %1) local_unna
   br label %41
 
 41:                                               ; preds = %33, %37, %34, %12
-  %.1 = phi ptr [ null, %12 ], [ %.0, %33 ], [ null, %34 ], [ %40, %37 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %12 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3252,7 +3252,7 @@ define ptr @acct_storage_p_get_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3270,8 +3270,8 @@ define ptr @acct_storage_p_get_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3333,7 +3333,7 @@ define ptr @acct_storage_p_get_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3351,8 +3351,8 @@ define ptr @acct_storage_p_get_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3414,7 +3414,7 @@ define ptr @acct_storage_p_get_events(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3432,8 +3432,8 @@ define ptr @acct_storage_p_get_events(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3495,7 +3495,7 @@ define ptr @acct_storage_p_get_instances(ptr noundef %0, i32 noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3513,8 +3513,8 @@ define ptr @acct_storage_p_get_instances(ptr noundef %0, i32 noundef %1, ptr nou
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3576,7 +3576,7 @@ define ptr @acct_storage_p_get_problems(ptr noundef %0, i32 noundef %1, ptr noun
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -3594,8 +3594,8 @@ define ptr @acct_storage_p_get_problems(ptr noundef %0, i32 noundef %1, ptr noun
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3657,7 +3657,7 @@ define ptr @acct_storage_p_get_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -3678,14 +3678,14 @@ define ptr @acct_storage_p_get_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %42
 
 42:                                               ; preds = %36, %40
-  %.1 = phi ptr [ %41, %40 ], [ %39, %36 ]
+  %.2 = phi ptr [ %41, %40 ], [ %39, %36 ]
   store ptr null, ptr %38, align 8
   call void @slurm_slurmdbd_free_list_msg(ptr noundef nonnull %38) #14
   br label %43
 
 43:                                               ; preds = %32, %42, %33, %11
-  %.2 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %.1, %42 ]
-  ret ptr %.2
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %.2, %42 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3747,7 +3747,7 @@ define ptr @acct_storage_p_get_res(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -3768,14 +3768,14 @@ define ptr @acct_storage_p_get_res(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %42
 
 42:                                               ; preds = %36, %40
-  %.1 = phi ptr [ %41, %40 ], [ %39, %36 ]
+  %.2 = phi ptr [ %41, %40 ], [ %39, %36 ]
   store ptr null, ptr %38, align 8
   call void @slurm_slurmdbd_free_list_msg(ptr noundef nonnull %38) #14
   br label %43
 
 43:                                               ; preds = %32, %42, %33, %11
-  %.2 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %.1, %42 ]
-  ret ptr %.2
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %.2, %42 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3837,7 +3837,7 @@ define ptr @acct_storage_p_get_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -3858,14 +3858,14 @@ define ptr @acct_storage_p_get_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %42
 
 42:                                               ; preds = %36, %40
-  %.1 = phi ptr [ %41, %40 ], [ %39, %36 ]
+  %.2 = phi ptr [ %41, %40 ], [ %39, %36 ]
   store ptr null, ptr %38, align 8
   call void @slurm_slurmdbd_free_list_msg(ptr noundef nonnull %38) #14
   br label %43
 
 43:                                               ; preds = %32, %42, %33, %11
-  %.2 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %.1, %42 ]
-  ret ptr %.2
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %.2, %42 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3927,7 +3927,7 @@ define ptr @acct_storage_p_get_reservations(ptr noundef %0, i32 noundef %1, ptr 
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %43
 
@@ -3948,14 +3948,14 @@ define ptr @acct_storage_p_get_reservations(ptr noundef %0, i32 noundef %1, ptr 
   br label %42
 
 42:                                               ; preds = %36, %40
-  %.1 = phi ptr [ %41, %40 ], [ %39, %36 ]
+  %.2 = phi ptr [ %41, %40 ], [ %39, %36 ]
   store ptr null, ptr %38, align 8
   call void @slurm_slurmdbd_free_list_msg(ptr noundef nonnull %38) #14
   br label %43
 
 43:                                               ; preds = %32, %42, %33, %11
-  %.2 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %.1, %42 ]
-  ret ptr %.2
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %.2, %42 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4017,7 +4017,7 @@ define ptr @acct_storage_p_get_txn(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %29 ]
+  %.1 = phi ptr [ %28, %27 ], [ null, %29 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %18) #14
   br label %40
 
@@ -4035,8 +4035,8 @@ define ptr @acct_storage_p_get_txn(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %40
 
 40:                                               ; preds = %32, %36, %33, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %32 ], [ null, %33 ], [ %39, %36 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4164,14 +4164,14 @@ define i32 @acct_storage_p_get_usage(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %63
 
 63:                                               ; preds = %61, %57, %53, %49
-  %.044 = phi i32 [ -1, %61 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ]
+  %.1 = phi i32 [ -1, %61 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ]
   %64 = load i16, ptr %24, align 8
   %65 = zext i16 %64 to i32
   call void @slurm_slurmdbd_free_usage_msg(ptr noundef %48, i32 noundef %65) #14
   br label %66
 
 66:                                               ; preds = %20, %43, %63, %42, %15
-  %.0 = phi i32 [ -1, %15 ], [ %19, %20 ], [ 0, %42 ], [ 0, %43 ], [ %.044, %63 ]
+  %.0 = phi i32 [ -1, %15 ], [ %19, %20 ], [ 0, %42 ], [ 0, %43 ], [ %.1, %63 ]
   ret i32 %.0
 }
 
@@ -6037,7 +6037,7 @@ define ptr @jobacct_storage_p_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
   br label %33
 
 33:                                               ; preds = %30, %28
-  %.0 = phi ptr [ %29, %28 ], [ null, %30 ]
+  %.1 = phi ptr [ %29, %28 ], [ null, %30 ]
   call void @slurm_persist_free_rc_msg(ptr noundef nonnull %19) #14
   br label %48
 
@@ -6068,8 +6068,8 @@ define ptr @jobacct_storage_p_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
   br label %48
 
 48:                                               ; preds = %33, %47, %34, %11
-  %.1 = phi ptr [ null, %11 ], [ %.0, %33 ], [ null, %34 ], [ %40, %47 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %47 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

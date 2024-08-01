@@ -1767,7 +1767,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 .loopexit89:                                      ; preds = %12, %thread-pre-split
   %3 = phi i8 [ %.pr, %thread-pre-split ], [ %14, %12 ]
   %.070 = phi i1 [ %.070.ph, %thread-pre-split ], [ %.272.ph, %12 ]
-  %.068 = phi ptr [ %.068.ph, %thread-pre-split ], [ %.1, %12 ]
+  %.068 = phi ptr [ %.068.ph, %thread-pre-split ], [ %.2, %12 ]
   %4 = getelementptr inbounds i8, ptr %.068, i64 1
   switch i8 %3, label %90 [
     i8 46, label %thread-pre-split.backedge.loopexit
@@ -1908,9 +1908,9 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br label %119
 
 12:                                               ; preds = %.backedge, %.outer
-  %.1 = phi ptr [ %.1.ph, %.outer ], [ %13, %.backedge ]
-  %13 = getelementptr inbounds i8, ptr %.1, i64 1
-  %14 = load i8, ptr %.1, align 1
+  %.2 = phi ptr [ %.2.ph, %.outer ], [ %13, %.backedge ]
+  %13 = getelementptr inbounds i8, ptr %.2, i64 1
+  %14 = load i8, ptr %.2, align 1
   switch i8 %14, label %19 [
     i8 64, label %.backedge
     i8 65, label %.backedge
@@ -1939,7 +1939,7 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br label %12
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.1, i64 2
+  %16 = getelementptr inbounds i8, ptr %.2, i64 2
   %17 = load i8, ptr %13, align 1
   %18 = and i8 %17, 8
   %.not = icmp ne i8 %18, 0
@@ -1948,7 +1948,7 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
 
 .outer:                                           ; preds = %.loopexit89, %15
   %.272.ph = phi i1 [ %spec.select83, %15 ], [ %.070, %.loopexit89 ]
-  %.1.ph = phi ptr [ %16, %15 ], [ %4, %.loopexit89 ]
+  %.2.ph = phi ptr [ %16, %15 ], [ %4, %.loopexit89 ]
   br label %12
 
 19:                                               ; preds = %12
@@ -2061,7 +2061,7 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br label %30
 
 30:                                               ; preds = %29, %26
-  %.075 = phi i64 [ 0, %26 ], [ 1, %29 ]
+  %.176 = phi i64 [ 0, %26 ], [ 1, %29 ]
   %31 = getelementptr inbounds i8, ptr %.068, i64 3
   br label %.loopexit
 
@@ -2155,7 +2155,7 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
 
 71:                                               ; preds = %.thread, %69, %70, %62
   %72 = phi ptr [ %65, %62 ], [ %65, %70 ], [ %66, %.thread ], [ %66, %69 ]
-  %.176 = phi i64 [ 0, %62 ], [ 1, %70 ], [ 0, %.thread ], [ 1, %69 ]
+  %.277 = phi i64 [ 0, %62 ], [ 1, %70 ], [ 0, %.thread ], [ 1, %69 ]
   %73 = getelementptr inbounds i8, ptr %72, i64 2
   br label %.loopexit
 
@@ -2175,7 +2175,7 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br label %78
 
 78:                                               ; preds = %74, %77
-  %.277 = phi i64 [ 0, %74 ], [ 1, %77 ]
+  %.378 = phi i64 [ 0, %74 ], [ 1, %77 ]
   %79 = getelementptr inbounds i8, ptr %.068, i64 5
   br label %.loopexit
 
@@ -2232,10 +2232,10 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit89, %.loopexit.loopexit390, %.loopexit.loopexit, %.loopexit.loopexit318, %46, %30, %32, %33, %34, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %86, %78, %71
-  %.378 = phi i64 [ 0, %86 ], [ %.277, %78 ], [ %.176, %71 ], [ 0, %46 ], [ 1, %34 ], [ 1, %33 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 1, %32 ], [ %.075, %30 ], [ 0, %.loopexit.loopexit318 ], [ 0, %.loopexit.loopexit ], [ 4, %.loopexit.loopexit390 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 2, %12 ]
-  %.4 = phi ptr [ %89, %86 ], [ %79, %78 ], [ %73, %71 ], [ %47, %46 ], [ %27, %34 ], [ %27, %33 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %32 ], [ %31, %30 ], [ %4, %.loopexit.loopexit318 ], [ %13, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit390 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %13, %12 ]
-  %92 = getelementptr inbounds i8, ptr %.4, i64 1
-  %93 = load i8, ptr %.4, align 1
+  %.075 = phi i64 [ 0, %86 ], [ %.378, %78 ], [ %.277, %71 ], [ 0, %46 ], [ 1, %34 ], [ 1, %33 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 1, %32 ], [ %.176, %30 ], [ 0, %.loopexit.loopexit318 ], [ 0, %.loopexit.loopexit ], [ 4, %.loopexit.loopexit390 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 1, %.loopexit89 ], [ 2, %12 ]
+  %.1 = phi ptr [ %89, %86 ], [ %79, %78 ], [ %73, %71 ], [ %47, %46 ], [ %27, %34 ], [ %27, %33 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %26 ], [ %27, %32 ], [ %31, %30 ], [ %4, %.loopexit.loopexit318 ], [ %13, %.loopexit.loopexit ], [ %4, %.loopexit.loopexit390 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %4, %.loopexit89 ], [ %13, %12 ]
+  %92 = getelementptr inbounds i8, ptr %.1, i64 1
+  %93 = load i8, ptr %.1, align 1
   %94 = zext i8 %93 to i32
   %95 = and i32 %94, 7
   %96 = icmp eq i32 %95, 4
@@ -2247,7 +2247,7 @@ thread-pre-split.backedge:                        ; preds = %.loopexit89, %.loop
   br i1 %.not81, label %103, label %98
 
 98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %.4, i64 2
+  %99 = getelementptr inbounds i8, ptr %.1, i64 2
   %100 = load i8, ptr %92, align 1
   %101 = and i8 %100, 7
   %102 = zext nneg i8 %101 to i32
@@ -2294,7 +2294,7 @@ default.unreachable:                              ; preds = %103
 117:                                              ; preds = %103, %105, %109, %115, %111
   %.6 = phi ptr [ %.5, %103 ], [ %116, %115 ], [ %112, %111 ], [ %110, %109 ], [ %.5, %105 ]
   %118 = icmp eq i32 %1, 4
-  %spec.select88.idx = select i1 %118, i64 %.378, i64 0
+  %spec.select88.idx = select i1 %118, i64 %.075, i64 0
   %spec.select88 = getelementptr inbounds i8, ptr %.6, i64 %spec.select88.idx
   br label %119
 
@@ -6797,10 +6797,10 @@ define hidden void @_ZN9Assembler4bsflE8RegisterS0_(ptr nocapture noundef nonnul
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -6930,10 +6930,10 @@ define hidden void @_ZN9Assembler4bsrlE8RegisterS0_(ptr nocapture noundef nonnul
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -7938,10 +7938,10 @@ define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8RegisterS1_(ptr nocapture
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.1.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
   %.025.i.i = phi i32 [ %9, %43 ], [ %58, %50 ], [ %9, %41 ]
   %60 = shl i32 %.025.i.i, 3
-  %61 = or i32 %.1.i.i, %60
+  %61 = or i32 %.026.i.i, %60
   %62 = or i32 %61, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -13918,10 +13918,10 @@ define hidden void @_ZN9Assembler5imullE8RegisterS0_(ptr nocapture noundef nonnu
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -14161,10 +14161,10 @@ define hidden void @_ZN9Assembler5imullE8RegisterS0_i(ptr nocapture noundef nonn
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %14, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %14, %40 ]
   %.025.i.i = phi i32 [ %9, %42 ], [ %57, %49 ], [ %9, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %59, %.1.i.i
+  %60 = or i32 %59, %.026.i.i
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
 _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %17, %58
@@ -15110,10 +15110,10 @@ define hidden void @_ZN9Assembler6lzcntlE8RegisterS0_(ptr nocapture noundef nonn
   br label %60
 
 60:                                               ; preds = %52, %46, %44
-  %.1.i.i = phi i32 [ %51, %46 ], [ %spec.select3.i, %52 ], [ %18, %44 ]
+  %.026.i.i = phi i32 [ %51, %46 ], [ %spec.select3.i, %52 ], [ %18, %44 ]
   %.025.i.i = phi i32 [ %13, %46 ], [ %59, %52 ], [ %13, %44 ]
   %61 = shl i32 %.025.i.i, 3
-  %62 = or i32 %.1.i.i, %61
+  %62 = or i32 %.026.i.i, %61
   %63 = or i32 %62, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -15337,10 +15337,10 @@ define hidden void @_ZN9Assembler3movE8RegisterS0_(ptr nocapture noundef nonnull
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2.i, %50 ]
+  %.018.i.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2.i, %50 ]
   %.017.i.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i.i, 3
-  %55 = or i32 %54, %.1.i.i
+  %55 = or i32 %54, %.018.i.i
   br label %_ZN9Assembler4movqE8RegisterS0_.exit
 
 _ZN9Assembler4movqE8RegisterS0_.exit:             ; preds = %16, %53
@@ -15442,10 +15442,10 @@ define hidden void @_ZN9Assembler4movqE8RegisterS0_(ptr nocapture noundef nonnul
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %54, %.1.i
+  %55 = or i32 %54, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %53
@@ -22406,10 +22406,10 @@ define hidden void @_ZN9Assembler4movlE8RegisterS0_(ptr nocapture noundef nonnul
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i, %48 ], [ %13, %39 ]
+  %.026.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i, %48 ], [ %13, %39 ]
   %.025.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i, 3
-  %59 = or i32 %58, %.1.i.i
+  %59 = or i32 %58, %.026.i.i
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
 _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %16, %57
@@ -23341,10 +23341,10 @@ define hidden void @_ZN9Assembler6movsblE8RegisterS0_(ptr nocapture noundef nonn
   br label %66
 
 66:                                               ; preds = %57, %51, %49, %42
-  %.1.i = phi i32 [ %48, %42 ], [ %13, %51 ], [ %spec.select2, %57 ], [ %13, %49 ]
+  %.026.i = phi i32 [ %48, %42 ], [ %13, %51 ], [ %spec.select2, %57 ], [ %13, %49 ]
   %.025.i = phi i32 [ %8, %42 ], [ %8, %51 ], [ %65, %57 ], [ %8, %49 ]
   %67 = shl i32 %.025.i, 3
-  %68 = or i32 %.1.i, %67
+  %68 = or i32 %.026.i, %67
   %69 = or i32 %68, 3840
   br label %_ZN9Assembler17prefix_and_encodeEibibb.exit
 
@@ -23488,16 +23488,16 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr nocapture 
   br label %62
 
 62:                                               ; preds = %60, %59
-  %.026 = phi i32 [ %3, %59 ], [ %61, %60 ]
+  %.1 = phi i32 [ %3, %59 ], [ %61, %60 ]
   %63 = add nsw i32 %1, -8
   br label %64
 
 64:                                               ; preds = %43, %36, %46, %62
-  %.1 = phi i32 [ %42, %36 ], [ %3, %46 ], [ %.026, %62 ], [ %3, %43 ]
+  %.026 = phi i32 [ %42, %36 ], [ %3, %46 ], [ %.1, %62 ], [ %3, %43 ]
   %.025 = phi i32 [ %1, %36 ], [ %1, %46 ], [ %63, %62 ], [ %1, %43 ]
   %65 = select i1 %5, i32 3840, i32 0
   %66 = shl i32 %.025, 3
-  %67 = or i32 %.1, %65
+  %67 = or i32 %.026, %65
   %68 = or i32 %67, %66
   br label %69
 
@@ -24319,10 +24319,10 @@ define hidden void @_ZN9Assembler6movswlE8RegisterS0_(ptr nocapture noundef nonn
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -25153,10 +25153,10 @@ define hidden void @_ZN9Assembler6movzblE8RegisterS0_(ptr nocapture noundef nonn
   br label %66
 
 66:                                               ; preds = %57, %51, %49, %42
-  %.1.i = phi i32 [ %48, %42 ], [ %13, %51 ], [ %spec.select2, %57 ], [ %13, %49 ]
+  %.026.i = phi i32 [ %48, %42 ], [ %13, %51 ], [ %spec.select2, %57 ], [ %13, %49 ]
   %.025.i = phi i32 [ %8, %42 ], [ %8, %51 ], [ %65, %57 ], [ %8, %49 ]
   %67 = shl i32 %.025.i, 3
-  %68 = or i32 %.1.i, %67
+  %68 = or i32 %.026.i, %67
   %69 = or i32 %68, 3840
   br label %_ZN9Assembler17prefix_and_encodeEibibb.exit
 
@@ -25345,10 +25345,10 @@ define hidden void @_ZN9Assembler6movzwlE8RegisterS0_(ptr nocapture noundef nonn
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -26833,7 +26833,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br label %.thread30
 
 .thread30:                                        ; preds = %._crit_edge43.thread, %441
-  %.8 = phi i32 [ %447, %441 ], [ 6, %._crit_edge43.thread ]
+  %.9 = phi i32 [ %447, %441 ], [ 6, %._crit_edge43.thread ]
   %448 = getelementptr inbounds i8, ptr %0, i64 8
   %449 = load ptr, ptr %448, align 8
   %450 = getelementptr inbounds i8, ptr %449, i64 16
@@ -26852,12 +26852,12 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br i1 %456, label %457, label %475
 
 457:                                              ; preds = %.thread30, %455
-  %.932 = phi i32 [ %.8, %.thread30 ], [ %1, %455 ]
-  %458 = icmp ugt i32 %.932, 6
+  %.832 = phi i32 [ %.9, %.thread30 ], [ %1, %455 ]
+  %458 = icmp ugt i32 %.832, 6
   br i1 %458, label %459, label %466
 
 459:                                              ; preds = %457
-  %460 = add nsw i32 %.932, -1
+  %460 = add nsw i32 %.832, -1
   %461 = getelementptr inbounds i8, ptr %0, i64 8
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 16
@@ -26868,8 +26868,8 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br label %466
 
 466:                                              ; preds = %459, %457
-  %.10 = phi i32 [ %460, %459 ], [ %.932, %457 ]
-  %467 = add nsw i32 %.10, -3
+  %.11 = phi i32 [ %460, %459 ], [ %.832, %457 ]
+  %467 = add nsw i32 %.11, -3
   %468 = getelementptr inbounds i8, ptr %0, i64 8
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds i8, ptr %469, i64 16
@@ -26884,8 +26884,8 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
   br label %475
 
 475:                                              ; preds = %466, %455
-  %.11 = phi i32 [ %467, %466 ], [ %1, %455 ]
-  switch i32 %.11, label %500 [
+  %.10 = phi i32 [ %467, %466 ], [ %1, %455 ]
+  switch i32 %.10, label %500 [
     i32 4, label %476
     i32 3, label %482
     i32 2, label %488
@@ -37390,10 +37390,10 @@ define hidden void @_ZN9Assembler7popcntlE8RegisterS0_(ptr nocapture noundef non
   br label %60
 
 60:                                               ; preds = %52, %46, %44
-  %.1.i.i = phi i32 [ %51, %46 ], [ %spec.select3.i, %52 ], [ %18, %44 ]
+  %.026.i.i = phi i32 [ %51, %46 ], [ %spec.select3.i, %52 ], [ %18, %44 ]
   %.025.i.i = phi i32 [ %13, %46 ], [ %59, %52 ], [ %13, %44 ]
   %61 = shl i32 %.025.i.i, 3
-  %62 = or i32 %.1.i.i, %61
+  %62 = or i32 %.026.i.i, %61
   %63 = or i32 %62, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -44272,10 +44272,10 @@ define hidden void @_ZN9Assembler9sha1rnds4E11XMMRegisterS0_i(ptr nocapture noun
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %14, %40 ]
+  %.026.i.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i.i, %49 ], [ %14, %40 ]
   %.025.i.i.i = phi i32 [ %9, %42 ], [ %57, %49 ], [ %9, %40 ]
   %59 = shl i32 %.025.i.i.i, 3
-  %60 = or i32 %59, %.1.i.i.i
+  %60 = or i32 %59, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %17, %58
@@ -44403,10 +44403,10 @@ define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPr
   br label %58
 
 58:                                               ; preds = %55, %53, %52
-  %.1.i = phi i32 [ %2, %52 ], [ %54, %53 ], [ %spec.select20, %55 ]
+  %.018.i = phi i32 [ %2, %52 ], [ %54, %53 ], [ %spec.select20, %55 ]
   %.017.i = phi i32 [ %1, %52 ], [ %1, %53 ], [ %57, %55 ]
   %59 = shl i32 %.017.i, 3
-  %60 = or i32 %59, %.1.i
+  %60 = or i32 %59, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 61:                                               ; preds = %17
@@ -44481,10 +44481,10 @@ define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPr
   br label %105
 
 105:                                              ; preds = %96, %89, %87
-  %.1.i.i = phi i32 [ %95, %89 ], [ %spec.select3.i, %96 ], [ %2, %87 ]
+  %.026.i.i = phi i32 [ %95, %89 ], [ %spec.select3.i, %96 ], [ %2, %87 ]
   %.025.i.i = phi i32 [ %1, %89 ], [ %104, %96 ], [ %1, %87 ]
   %106 = shl i32 %.025.i.i, 3
-  %107 = or i32 %106, %.1.i.i
+  %107 = or i32 %106, %.026.i.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %105, %64, %58, %21
@@ -44604,10 +44604,10 @@ define hidden void @_ZN9Assembler9sha1nexteE11XMMRegisterS0_(ptr nocapture nound
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
+  %.026.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
   %.025.i.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i.i, 3
-  %59 = or i32 %58, %.1.i.i.i
+  %59 = or i32 %58, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %16, %57
@@ -44721,10 +44721,10 @@ define hidden void @_ZN9Assembler8sha1msg1E11XMMRegisterS0_(ptr nocapture nounde
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
+  %.026.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
   %.025.i.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i.i, 3
-  %59 = or i32 %58, %.1.i.i.i
+  %59 = or i32 %58, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %16, %57
@@ -44838,10 +44838,10 @@ define hidden void @_ZN9Assembler8sha1msg2E11XMMRegisterS0_(ptr nocapture nounde
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
+  %.026.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
   %.025.i.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i.i, 3
-  %59 = or i32 %58, %.1.i.i.i
+  %59 = or i32 %58, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %16, %57
@@ -44955,10 +44955,10 @@ define hidden void @_ZN9Assembler11sha256rnds2E11XMMRegisterS0_(ptr nocapture no
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
+  %.026.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
   %.025.i.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i.i, 3
-  %59 = or i32 %58, %.1.i.i.i
+  %59 = or i32 %58, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %16, %57
@@ -45072,10 +45072,10 @@ define hidden void @_ZN9Assembler10sha256msg1E11XMMRegisterS0_(ptr nocapture nou
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
+  %.026.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
   %.025.i.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i.i, 3
-  %59 = or i32 %58, %.1.i.i.i
+  %59 = or i32 %58, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %16, %57
@@ -45189,10 +45189,10 @@ define hidden void @_ZN9Assembler10sha256msg2E11XMMRegisterS0_(ptr nocapture nou
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
+  %.026.i.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i.i, %48 ], [ %13, %39 ]
   %.025.i.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i.i, 3
-  %59 = or i32 %58, %.1.i.i.i
+  %59 = or i32 %58, %.026.i.i.i
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
 _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %16, %57
@@ -45751,10 +45751,10 @@ define hidden void @_ZN9Assembler5shldlE8RegisterS0_(ptr nocapture noundef nonnu
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -45884,10 +45884,10 @@ define hidden void @_ZN9Assembler5shldlE8RegisterS0_a(ptr nocapture noundef nonn
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.1.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
   %.025.i.i = phi i32 [ %9, %43 ], [ %58, %50 ], [ %9, %41 ]
   %60 = shl i32 %.025.i.i, 3
-  %61 = or i32 %.1.i.i, %60
+  %61 = or i32 %.026.i.i, %60
   %62 = or i32 %61, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -46021,10 +46021,10 @@ define hidden void @_ZN9Assembler5shrdlE8RegisterS0_(ptr nocapture noundef nonnu
   br label %58
 
 58:                                               ; preds = %49, %42, %40
-  %.1.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
+  %.026.i.i = phi i32 [ %48, %42 ], [ %spec.select3.i, %49 ], [ %13, %40 ]
   %.025.i.i = phi i32 [ %8, %42 ], [ %57, %49 ], [ %8, %40 ]
   %59 = shl i32 %.025.i.i, 3
-  %60 = or i32 %.1.i.i, %59
+  %60 = or i32 %.026.i.i, %59
   %61 = or i32 %60, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -46154,10 +46154,10 @@ define hidden void @_ZN9Assembler5shrdlE8RegisterS0_a(ptr nocapture noundef nonn
   br label %59
 
 59:                                               ; preds = %50, %43, %41
-  %.1.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
+  %.026.i.i = phi i32 [ %49, %43 ], [ %spec.select3.i, %50 ], [ %14, %41 ]
   %.025.i.i = phi i32 [ %9, %43 ], [ %58, %50 ], [ %9, %41 ]
   %60 = shl i32 %.025.i.i, 3
-  %61 = or i32 %.1.i.i, %60
+  %61 = or i32 %.026.i.i, %60
   %62 = or i32 %61, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -46290,10 +46290,10 @@ define hidden void @_ZN9Assembler5shldqE8RegisterS0_a(ptr nocapture noundef nonn
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.1.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
+  %.018.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %9, %48 ], [ %9, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
-  %56 = or i32 %.1.i, %55
+  %56 = or i32 %.018.i, %55
   %57 = or i32 %56, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -46422,16 +46422,16 @@ define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEiib(ptr nocapture n
   br label %46
 
 46:                                               ; preds = %44, %43
-  %.018 = phi i32 [ %2, %43 ], [ %45, %44 ]
+  %.1 = phi i32 [ %2, %43 ], [ %45, %44 ]
   %47 = add nsw i32 %1, -8
   br label %48
 
 48:                                               ; preds = %39, %40, %46
-  %.1 = phi i32 [ %2, %39 ], [ %41, %40 ], [ %.018, %46 ]
+  %.018 = phi i32 [ %2, %39 ], [ %41, %40 ], [ %.1, %46 ]
   %.017 = phi i32 [ %1, %39 ], [ %1, %40 ], [ %47, %46 ]
   %49 = select i1 %3, i32 3840, i32 0
   %50 = shl i32 %.017, 3
-  %51 = or i32 %.1, %49
+  %51 = or i32 %.018, %49
   %52 = or i32 %51, %50
   br label %53
 
@@ -46523,10 +46523,10 @@ define hidden void @_ZN9Assembler5shrdqE8RegisterS0_a(ptr nocapture noundef nonn
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.1.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
+  %.018.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %9, %48 ], [ %9, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
-  %56 = or i32 %.1.i, %55
+  %56 = or i32 %.018.i, %55
   %57 = or i32 %56, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -48620,10 +48620,10 @@ define hidden void @_ZN9Assembler6tzcntlE8RegisterS0_(ptr nocapture noundef nonn
   br label %60
 
 60:                                               ; preds = %52, %46, %44
-  %.1.i.i = phi i32 [ %51, %46 ], [ %spec.select3.i, %52 ], [ %18, %44 ]
+  %.026.i.i = phi i32 [ %51, %46 ], [ %spec.select3.i, %52 ], [ %18, %44 ]
   %.025.i.i = phi i32 [ %13, %46 ], [ %59, %52 ], [ %13, %44 ]
   %61 = shl i32 %.025.i.i, 3
-  %62 = or i32 %.1.i.i, %61
+  %62 = or i32 %.026.i.i, %61
   %63 = or i32 %62, 3840
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
@@ -48820,10 +48820,10 @@ define hidden void @_ZN9Assembler6tzcntqE8RegisterS0_(ptr nocapture noundef nonn
   br label %56
 
 56:                                               ; preds = %53, %51, %50
-  %.1.i = phi i32 [ %18, %50 ], [ %52, %51 ], [ %spec.select2, %53 ]
+  %.018.i = phi i32 [ %18, %50 ], [ %52, %51 ], [ %spec.select2, %53 ]
   %.017.i = phi i32 [ %13, %50 ], [ %13, %51 ], [ %55, %53 ]
   %57 = shl i32 %.017.i, 3
-  %58 = or i32 %.1.i, %57
+  %58 = or i32 %.018.i, %57
   %59 = or i32 %58, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -49976,10 +49976,10 @@ define hidden void @_ZN9Assembler5xchglE8RegisterS0_(ptr nocapture noundef nonnu
   br label %57
 
 57:                                               ; preds = %48, %41, %39
-  %.1.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i, %48 ], [ %13, %39 ]
+  %.026.i.i = phi i32 [ %47, %41 ], [ %spec.select3.i, %48 ], [ %13, %39 ]
   %.025.i.i = phi i32 [ %8, %41 ], [ %56, %48 ], [ %8, %39 ]
   %58 = shl i32 %.025.i.i, 3
-  %59 = or i32 %58, %.1.i.i
+  %59 = or i32 %58, %.026.i.i
   br label %_ZN9Assembler17prefix_and_encodeEiib.exit
 
 _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %16, %57
@@ -96207,10 +96207,10 @@ _ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit:   ; preds = %11
   br label %84
 
 84:                                               ; preds = %81, %79, %78
-  %.1.i = phi i32 [ %15, %78 ], [ %80, %79 ], [ %spec.select8, %81 ]
+  %.018.i = phi i32 [ %15, %78 ], [ %80, %79 ], [ %spec.select8, %81 ]
   %.017.i = phi i32 [ %9, %78 ], [ %9, %79 ], [ %83, %81 ]
   %85 = shl i32 %.017.i, 3
-  %86 = or i32 %85, %.1.i
+  %86 = or i32 %85, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %49, %84
@@ -96378,10 +96378,10 @@ _ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit:   ; preds = %11
   br label %84
 
 84:                                               ; preds = %81, %79, %78
-  %.1.i = phi i32 [ %15, %78 ], [ %80, %79 ], [ %spec.select8, %81 ]
+  %.018.i = phi i32 [ %15, %78 ], [ %80, %79 ], [ %spec.select8, %81 ]
   %.017.i = phi i32 [ %9, %78 ], [ %9, %79 ], [ %83, %81 ]
   %85 = shl i32 %.017.i, 3
-  %86 = or i32 %85, %.1.i
+  %86 = or i32 %85, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %49, %84
@@ -97070,10 +97070,10 @@ define hidden void @_ZN9Assembler4bsfqE8RegisterS0_(ptr nocapture noundef nonnul
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -97202,10 +97202,10 @@ define hidden void @_ZN9Assembler4bsrqE8RegisterS0_(ptr nocapture noundef nonnul
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -98069,10 +98069,10 @@ define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8RegisterS1_(ptr nocapture
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.1.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
+  %.018.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select3, %51 ]
   %.017.i = phi i32 [ %9, %48 ], [ %9, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
-  %56 = or i32 %.1.i, %55
+  %56 = or i32 %.018.i, %55
   %57 = or i32 %56, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -99964,10 +99964,10 @@ define hidden void @_ZN9Assembler5imulqE8RegisterS0_(ptr nocapture noundef nonnu
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -100276,10 +100276,10 @@ define hidden void @_ZN9Assembler5imulqE8RegisterS0_i(ptr nocapture noundef nonn
   br label %54
 
 54:                                               ; preds = %51, %49, %48
-  %.1.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select6, %51 ]
+  %.018.i = phi i32 [ %14, %48 ], [ %50, %49 ], [ %spec.select6, %51 ]
   %.017.i = phi i32 [ %9, %48 ], [ %9, %49 ], [ %53, %51 ]
   %55 = shl i32 %.017.i, 3
-  %56 = or i32 %55, %.1.i
+  %56 = or i32 %55, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %17, %54
@@ -101395,10 +101395,10 @@ define hidden void @_ZN9Assembler6lzcntqE8RegisterS0_(ptr nocapture noundef nonn
   br label %56
 
 56:                                               ; preds = %53, %51, %50
-  %.1.i = phi i32 [ %18, %50 ], [ %52, %51 ], [ %spec.select2, %53 ]
+  %.018.i = phi i32 [ %18, %50 ], [ %52, %51 ], [ %spec.select2, %53 ]
   %.017.i = phi i32 [ %13, %50 ], [ %13, %51 ], [ %55, %53 ]
   %57 = shl i32 %.017.i, 3
-  %58 = or i32 %.1.i, %57
+  %58 = or i32 %.018.i, %57
   %59 = or i32 %58, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -102162,10 +102162,10 @@ define hidden void @_ZN9Assembler6movsbqE8RegisterS0_(ptr nocapture noundef nonn
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -102468,10 +102468,10 @@ define hidden void @_ZN9Assembler6movslqE8RegisterS0_(ptr nocapture noundef nonn
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %54, %.1.i
+  %55 = or i32 %54, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %53
@@ -102659,10 +102659,10 @@ define hidden void @_ZN9Assembler6movswqE8RegisterS0_(ptr nocapture noundef nonn
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -102877,10 +102877,10 @@ define hidden void @_ZN9Assembler6movzbqE8RegisterS0_(ptr nocapture noundef nonn
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -103095,10 +103095,10 @@ define hidden void @_ZN9Assembler6movzwqE8RegisterS0_(ptr nocapture noundef nonn
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -103657,10 +103657,10 @@ define hidden void @_ZN9Assembler3btqE8RegisterS0_(ptr nocapture noundef nonnull
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %.1.i, %54
+  %55 = or i32 %.018.i, %54
   %56 = or i32 %55, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -104648,10 +104648,10 @@ define hidden void @_ZN9Assembler7popcntqE8RegisterS0_(ptr nocapture noundef non
   br label %56
 
 56:                                               ; preds = %53, %51, %50
-  %.1.i = phi i32 [ %18, %50 ], [ %52, %51 ], [ %spec.select2, %53 ]
+  %.018.i = phi i32 [ %18, %50 ], [ %52, %51 ], [ %spec.select2, %53 ]
   %.017.i = phi i32 [ %13, %50 ], [ %13, %51 ], [ %55, %53 ]
   %57 = shl i32 %.017.i, 3
-  %58 = or i32 %.1.i, %57
+  %58 = or i32 %.018.i, %57
   %59 = or i32 %58, 3840
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
@@ -110240,10 +110240,10 @@ define hidden void @_ZN9Assembler5xchgqE8RegisterS0_(ptr nocapture noundef nonnu
   br label %53
 
 53:                                               ; preds = %50, %48, %47
-  %.1.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
+  %.018.i = phi i32 [ %13, %47 ], [ %49, %48 ], [ %spec.select2, %50 ]
   %.017.i = phi i32 [ %8, %47 ], [ %8, %48 ], [ %52, %50 ]
   %54 = shl i32 %.017.i, 3
-  %55 = or i32 %54, %.1.i
+  %55 = or i32 %54, %.018.i
   br label %_ZN9Assembler18prefixq_and_encodeEiib.exit
 
 _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %53

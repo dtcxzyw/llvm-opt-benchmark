@@ -12444,7 +12444,7 @@ lpad22:                                           ; preds = %invoke.cont59, %inv
 
 if.end41:                                         ; preds = %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit, %invoke.cont27, %invoke.cont23
   %this.val17.pre120 = phi ptr [ %this.val13, %invoke.cont27 ], [ %this.val17.pre120.pre, %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit ], [ %this.val13, %invoke.cont23 ]
-  %client_stats.sroa.0.1 = phi ptr [ null, %invoke.cont27 ], [ %call30.val, %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit ], [ null, %invoke.cont23 ]
+  %client_stats.sroa.0.0 = phi ptr [ null, %invoke.cont27 ], [ %call30.val, %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit ], [ null, %invoke.cont23 ]
   %13 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core17grpc_lb_glb_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i, label %invoke.cont44, label %invoke.cont59
@@ -12460,7 +12460,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
 invoke.cont49:                                    ; preds = %invoke.cont46
   %call50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #32
   %14 = load ptr, ptr %picker, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 854, i32 noundef 1, ptr noundef nonnull @.str.68, ptr noundef %this.val17.pre120, ptr noundef nonnull %this, ptr noundef %call47, ptr noundef %call50, ptr noundef %14, ptr noundef %serverlist.sroa.0.0, ptr noundef %client_stats.sroa.0.1)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 854, i32 noundef 1, ptr noundef nonnull @.str.68, ptr noundef %this.val17.pre120, ptr noundef nonnull %this, ptr noundef %call47, ptr noundef %call50, ptr noundef %14, ptr noundef %serverlist.sroa.0.0, ptr noundef %client_stats.sroa.0.0)
           to label %invoke.cont57 unwind label %lpad51
 
 invoke.cont57:                                    ; preds = %invoke.cont49
@@ -12492,20 +12492,20 @@ call.i.noexc:                                     ; preds = %invoke.cont59
 lpad.i:                                           ; preds = %call.i.noexc
   %18 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i15.i = icmp eq ptr %client_stats.sroa.0.1, null
+  %cmp.not.i15.i = icmp eq ptr %client_stats.sroa.0.0, null
   br i1 %cmp.not.i15.i, label %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit22.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %lpad.i
-  %refs_.i.i17.i = getelementptr inbounds i8, ptr %client_stats.sroa.0.1, i64 8
+  %refs_.i.i17.i = getelementptr inbounds i8, ptr %client_stats.sroa.0.0, i64 8
   %19 = atomicrmw sub ptr %refs_.i.i17.i, i64 1 acq_rel, align 8, !noalias !172
   %cmp.i.i.i18.i = icmp eq i64 %19, 1
   br i1 %cmp.i.i.i18.i, label %if.then.i.i19.i, label %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit22.i
 
 if.then.i.i19.i:                                  ; preds = %if.then.i16.i
-  %vtable.i.i.i20.i = load ptr, ptr %client_stats.sroa.0.1, align 8, !noalias !172
+  %vtable.i.i.i20.i = load ptr, ptr %client_stats.sroa.0.0, align 8, !noalias !172
   %vfn.i.i.i21.i = getelementptr inbounds i8, ptr %vtable.i.i.i20.i, i64 8
   %20 = load ptr, ptr %vfn.i.i.i21.i, align 8, !noalias !172
-  call void %20(ptr noundef nonnull align 8 dereferenceable(64) %client_stats.sroa.0.1) #32, !noalias !172
+  call void %20(ptr noundef nonnull align 8 dereferenceable(64) %client_stats.sroa.0.0) #32, !noalias !172
   br label %_ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit22.i
 
 _ZN9grpc_core13RefCountedPtrINS_17GrpcLbClientStatsEED2Ev.exit22.i: ; preds = %if.then.i.i19.i, %if.then.i16.i, %lpad.i
@@ -12537,7 +12537,7 @@ invoke.cont63:                                    ; preds = %call.i.noexc
   %child_picker_.i.i = getelementptr inbounds i8, ptr %call.i37, i64 24
   store ptr %17, ptr %child_picker_.i.i, align 8, !noalias !172
   %client_stats_.i.i = getelementptr inbounds i8, ptr %call.i37, i64 32
-  store ptr %client_stats.sroa.0.1, ptr %client_stats_.i.i, align 8, !noalias !172
+  store ptr %client_stats.sroa.0.0, ptr %client_stats_.i.i, align 8, !noalias !172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp5.i)
   store ptr %call.i37, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %16, align 8
@@ -12595,20 +12595,20 @@ lpad64:                                           ; preds = %invoke.cont63
 
 ehcleanup:                                        ; preds = %lpad22, %lpad51
   %.pn = phi { ptr, i32 } [ %15, %lpad51 ], [ %12, %lpad22 ]
-  %cmp.not.i77 = icmp eq ptr %client_stats.sroa.0.1, null
+  %cmp.not.i77 = icmp eq ptr %client_stats.sroa.0.0, null
   br i1 %cmp.not.i77, label %ehcleanup66, label %if.then.i78
 
 if.then.i78:                                      ; preds = %ehcleanup
-  %refs_.i.i79 = getelementptr inbounds i8, ptr %client_stats.sroa.0.1, i64 8
+  %refs_.i.i79 = getelementptr inbounds i8, ptr %client_stats.sroa.0.0, i64 8
   %32 = atomicrmw sub ptr %refs_.i.i79, i64 1 acq_rel, align 8
   %cmp.i.i.i80 = icmp eq i64 %32, 1
   br i1 %cmp.i.i.i80, label %if.then.i.i82, label %ehcleanup66
 
 if.then.i.i82:                                    ; preds = %if.then.i78
-  %vtable.i.i.i83 = load ptr, ptr %client_stats.sroa.0.1, align 8
+  %vtable.i.i.i83 = load ptr, ptr %client_stats.sroa.0.0, align 8
   %vfn.i.i.i84 = getelementptr inbounds i8, ptr %vtable.i.i.i83, i64 8
   %33 = load ptr, ptr %vfn.i.i.i84, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(64) %client_stats.sroa.0.1) #32
+  call void %33(ptr noundef nonnull align 8 dereferenceable(64) %client_stats.sroa.0.0) #32
   br label %ehcleanup66
 
 ehcleanup66:                                      ; preds = %if.then.i.i82, %if.then.i78, %ehcleanup

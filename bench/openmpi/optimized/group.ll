@@ -623,7 +623,7 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %26
   %.02536.us = phi i32 [ %27, %26 ], [ 0, %.preheader.us.preheader ]
-  %.02635.us = phi i32 [ %.1.us, %26 ], [ 0, %.preheader.us.preheader ]
+  %.135.us = phi i32 [ %.2.us, %26 ], [ 0, %.preheader.us.preheader ]
   br label %16
 
 16:                                               ; preds = %.preheader.us, %20
@@ -644,14 +644,14 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
   br i1 %22, label %._crit_edge.us.thread, label %26
 
 ._crit_edge.us.thread:                            ; preds = %20, %._crit_edge.us
-  %23 = sext i32 %.02635.us to i64
+  %23 = sext i32 %.135.us to i64
   %24 = getelementptr inbounds i32, ptr %13, i64 %23
   store i32 %.02536.us, ptr %24, align 4
-  %25 = add nsw i32 %.02635.us, 1
+  %25 = add nsw i32 %.135.us, 1
   br label %26
 
 26:                                               ; preds = %._crit_edge.us.thread, %._crit_edge.us
-  %.1.us = phi i32 [ %25, %._crit_edge.us.thread ], [ %.02635.us, %._crit_edge.us ]
+  %.2.us = phi i32 [ %25, %._crit_edge.us.thread ], [ %.135.us, %._crit_edge.us ]
   %27 = add nuw nsw i32 %.02536.us, 1
   %exitcond55.not = icmp eq i32 %27, %6
   br i1 %exitcond55.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !13
@@ -678,8 +678,8 @@ define i32 @ompi_group_excl(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
   br label %32
 
 ._crit_edge37:                                    ; preds = %26, %.preheader.lr.ph.split, %10
-  %.026.lcssa = phi i32 [ 0, %10 ], [ 0, %.preheader.lr.ph.split ], [ %.1.us, %26 ]
-  %31 = tail call i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %.026.lcssa, ptr noundef %13, ptr noundef %3) #11
+  %.1.lcssa = phi i32 [ 0, %10 ], [ 0, %.preheader.lr.ph.split ], [ %.2.us, %26 ]
+  %31 = tail call i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef %13, ptr noundef %3) #11
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %34, label %32
 

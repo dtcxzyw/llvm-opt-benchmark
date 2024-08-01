@@ -5734,27 +5734,27 @@ if.then.i:                                        ; preds = %entry
   %5 = and i8 %bf.load.i, 12
   %or.cond.i = icmp eq i8 %5, 4
   %or13.i = or disjoint i32 %spec.select.i, 32
-  %flags.1.i = select i1 %or.cond.i, i32 %or13.i, i32 %spec.select.i
+  %flags.2.i = select i1 %or.cond.i, i32 %or13.i, i32 %spec.select.i
   %or.cond24.not.i = icmp eq i8 %5, 8
-  %or29.i = or disjoint i32 %flags.1.i, 128
-  %flags.2.i = select i1 %or.cond24.not.i, i32 %or29.i, i32 %flags.1.i
+  %or29.i = or disjoint i32 %flags.2.i, 128
+  %flags.3.i = select i1 %or.cond24.not.i, i32 %or29.i, i32 %flags.2.i
   %or.cond25.not.i = icmp eq i8 %5, 12
-  %or45.i = or disjoint i32 %flags.2.i, 512
-  %flags.3.i = select i1 %or.cond25.not.i, i32 %or45.i, i32 %flags.2.i
+  %or45.i = or disjoint i32 %flags.3.i, 512
+  %flags.4.i = select i1 %or.cond25.not.i, i32 %or45.i, i32 %flags.3.i
   %ste_varargs.i = getelementptr inbounds i8, ptr %3, i64 80
   %bf.load47.i = load i8, ptr %ste_varargs.i, align 8
   %bf.clear48.i = shl i8 %bf.load47.i, 2
-  %flags.429.i = and i8 %bf.clear48.i, 12
-  %flags.4.i = zext nneg i8 %flags.429.i to i32
-  %spec.select28.i = or i32 %flags.3.i, %flags.4.i
+  %flags.529.i = and i8 %bf.clear48.i, 12
+  %flags.5.i = zext nneg i8 %flags.529.i to i32
+  %spec.select28.i = or i32 %flags.4.i, %flags.5.i
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then.i, %entry
-  %flags.5.i = phi i32 [ 0, %entry ], [ %spec.select28.i, %if.then.i ]
+  %flags.0.i = phi i32 [ 0, %entry ], [ %spec.select28.i, %if.then.i ]
   %c_flags.i = getelementptr inbounds i8, ptr %c, i64 36
   %6 = load i32, ptr %c_flags.i, align 4
   %and.i = and i32 %6, 33423360
-  %or63.i = or i32 %and.i, %flags.5.i
+  %or63.i = or i32 %and.i, %flags.0.i
   %and66.i = and i32 %6, 8192
   %tobool67.not.i = icmp eq i32 %and66.i, 0
   %.pre17.pre = load ptr, ptr %u1, align 8
@@ -8099,24 +8099,24 @@ if.then.i.i:                                      ; preds = %if.end9.i
   %sub.i.i = sub i32 %162, %conv.i.i
   %loc.sroa.11.8.insert.ext.i.i = zext i32 %sub.i.i to i64
   %loc.sroa.11.8.insert.insert.i.i = or disjoint i64 %loc.sroa.59.8.insert.shift.i, %loc.sroa.11.8.insert.ext.i.i
-  %loc.sroa.11.0.i.i = select i1 %cmp4.not.i.i, i64 -1, i64 %loc.sroa.11.8.insert.insert.i.i
+  %loc.sroa.11.1.i.i = select i1 %cmp4.not.i.i, i64 -1, i64 %loc.sroa.11.8.insert.insert.i.i
   %cond.i.i = tail call i32 @llvm.smax.i32(i32 %160, i32 %151)
   %cmp19.not.i.i = icmp slt i32 %160, %151
   br i1 %cmp19.not.i.i, label %update_start_location_to_match_attr.exit.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %if.then.i.i
-  %loc.sroa.11.8.extract.trunc.i.i = trunc i64 %loc.sroa.11.0.i.i to i32
-  %loc.sroa.11.12.extract.shift.i.i = lshr i64 %loc.sroa.11.0.i.i, 32
+  %loc.sroa.11.8.extract.trunc.i.i = trunc i64 %loc.sroa.11.1.i.i to i32
+  %loc.sroa.11.12.extract.shift.i.i = lshr i64 %loc.sroa.11.1.i.i, 32
   %loc.sroa.11.12.extract.trunc.i.i = trunc nuw i64 %loc.sroa.11.12.extract.shift.i.i to i32
   %cond31.i.i = tail call i32 @llvm.smax.i32(i32 %loc.sroa.11.8.extract.trunc.i.i, i32 %loc.sroa.11.12.extract.trunc.i.i)
   %loc.sroa.11.12.insert.ext.i.i = zext i32 %cond31.i.i to i64
   %loc.sroa.11.12.insert.shift.i.i = shl nuw i64 %loc.sroa.11.12.insert.ext.i.i, 32
-  %loc.sroa.11.12.insert.mask20.i.i = and i64 %loc.sroa.11.0.i.i, 4294967295
+  %loc.sroa.11.12.insert.mask20.i.i = and i64 %loc.sroa.11.1.i.i, 4294967295
   %loc.sroa.11.12.insert.insert21.i.i = or disjoint i64 %loc.sroa.11.12.insert.shift.i.i, %loc.sroa.11.12.insert.mask20.i.i
   br label %update_start_location_to_match_attr.exit.i
 
 update_start_location_to_match_attr.exit.i:       ; preds = %if.then21.i.i, %if.then.i.i, %if.end9.i
-  %loc.sroa.11.1.i.i = phi i64 [ %loc.sroa.11.12.insert.insert21.i.i, %if.then21.i.i ], [ %loc.sroa.11.0.i.i, %if.then.i.i ], [ %loc.sroa.31.8.insert.insert.i, %if.end9.i ]
+  %loc.sroa.11.0.i.i = phi i64 [ %loc.sroa.11.12.insert.insert21.i.i, %if.then21.i.i ], [ %loc.sroa.11.1.i.i, %if.then.i.i ], [ %loc.sroa.31.8.insert.insert.i, %if.end9.i ]
   %loc.sroa.0.sroa.0.0.i.i = phi i32 [ %160, %if.then21.i.i ], [ %160, %if.then.i.i ], [ %150, %if.end9.i ]
   %loc.sroa.0.sroa.7.0.i.i = phi i32 [ %cond.i.i, %if.then21.i.i ], [ %cond.i.i, %if.then.i.i ], [ %151, %if.end9.i ]
   %loc.sroa.0.sroa.7.0.insert.ext.i.i = zext i32 %loc.sroa.0.sroa.7.0.i.i to i64
@@ -8126,7 +8126,7 @@ update_start_location_to_match_attr.exit.i:       ; preds = %if.then21.i.i, %if.
   %163 = load ptr, ptr %u.i173, align 8
   %u_names.i = getelementptr inbounds i8, ptr %163, i64 568
   %164 = load ptr, ptr %u_names.i, align 8
-  %call14.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %163, i64 %loc.sroa.0.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.11.1.i.i, i32 noundef 82, ptr noundef %164, ptr noundef %.pre.i190)
+  %call14.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %163, i64 %loc.sroa.0.sroa.0.0.insert.insert.i.i, i64 %loc.sroa.11.0.i.i, i32 noundef 82, ptr noundef %164, ptr noundef %.pre.i190)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %return, label %sw.epilog.i
 
@@ -8428,19 +8428,19 @@ if.then21.i540.i:                                 ; preds = %sw.bb120.i
   %sub.i534.i = sub i32 %206, %conv.i531.i
   %loc.sroa.11.8.insert.ext.i535.i = zext i32 %sub.i534.i to i64
   %loc.sroa.11.8.insert.insert.i536.i = or disjoint i64 %loc.sroa.59.8.insert.shift348.i, %loc.sroa.11.8.insert.ext.i535.i
-  %loc.sroa.11.0.i537.i = select i1 %cmp4.not.i533.i, i64 -1, i64 %loc.sroa.11.8.insert.insert.i536.i
-  %loc.sroa.11.8.extract.trunc.i541.i = trunc i64 %loc.sroa.11.0.i537.i to i32
-  %loc.sroa.11.12.extract.shift.i542.i = lshr i64 %loc.sroa.11.0.i537.i, 32
+  %loc.sroa.11.1.i537.i = select i1 %cmp4.not.i533.i, i64 -1, i64 %loc.sroa.11.8.insert.insert.i536.i
+  %loc.sroa.11.8.extract.trunc.i541.i = trunc i64 %loc.sroa.11.1.i537.i to i32
+  %loc.sroa.11.12.extract.shift.i542.i = lshr i64 %loc.sroa.11.1.i537.i, 32
   %loc.sroa.11.12.extract.trunc.i543.i = trunc nuw i64 %loc.sroa.11.12.extract.shift.i542.i to i32
   %cond31.i544.i = tail call i32 @llvm.smax.i32(i32 %loc.sroa.11.8.extract.trunc.i541.i, i32 %loc.sroa.11.12.extract.trunc.i543.i)
   %loc.sroa.11.12.insert.ext.i545.i = zext i32 %cond31.i544.i to i64
   %loc.sroa.11.12.insert.shift.i546.i = shl nuw i64 %loc.sroa.11.12.insert.ext.i545.i, 32
-  %loc.sroa.11.12.insert.mask20.i547.i = and i64 %loc.sroa.11.0.i537.i, 4294967295
+  %loc.sroa.11.12.insert.mask20.i547.i = and i64 %loc.sroa.11.1.i537.i, 4294967295
   %loc.sroa.11.12.insert.insert21.i548.i = or disjoint i64 %loc.sroa.11.12.insert.shift.i546.i, %loc.sroa.11.12.insert.mask20.i547.i
   br label %update_start_location_to_match_attr.exit558.i
 
 update_start_location_to_match_attr.exit558.i:    ; preds = %if.then21.i540.i, %sw.bb120.i
-  %loc.sroa.11.1.i549.i = phi i64 [ %loc.sroa.11.12.insert.insert21.i548.i, %if.then21.i540.i ], [ %loc.sroa.31.8.insert.insert249.i, %sw.bb120.i ]
+  %loc.sroa.11.0.i549.i = phi i64 [ %loc.sroa.11.12.insert.insert21.i548.i, %if.then21.i540.i ], [ %loc.sroa.31.8.insert.insert249.i, %sw.bb120.i ]
   %loc.sroa.0.sroa.0.0.i550.i = phi i32 [ %204, %if.then21.i540.i ], [ %203, %sw.bb120.i ]
   %loc.sroa.0.sroa.7.0.insert.ext.i552.i = zext i32 %204 to i64
   %loc.sroa.0.sroa.7.0.insert.shift.i553.i = shl nuw i64 %loc.sroa.0.sroa.7.0.insert.ext.i552.i, 32
@@ -8473,13 +8473,13 @@ if.end128.i:                                      ; preds = %instr_sequence_next
   %i_loc.i.i571.i = getelementptr inbounds i8, ptr %arrayidx.i.i569.i, i64 8
   store i64 %loc.sroa.0.sroa.0.0.insert.insert.i555.i, ptr %i_loc.i.i571.i, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i572.i = getelementptr inbounds i8, ptr %arrayidx.i.i569.i, i64 16
-  store i64 %loc.sroa.11.1.i549.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i572.i, align 4
+  store i64 %loc.sroa.11.0.i549.i, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i572.i, align 4
   %214 = load ptr, ptr %u.i.i147, align 8
   %u_names132.i = getelementptr inbounds i8, ptr %214, i64 568
   %215 = load ptr, ptr %u_names132.i, align 8
   %attr134.i = getelementptr inbounds i8, ptr %149, i64 16
   %216 = load ptr, ptr %attr134.i, align 8
-  %call135.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %214, i64 %loc.sroa.0.sroa.0.0.insert.insert.i555.i, i64 %loc.sroa.11.1.i549.i, i32 noundef 108, ptr noundef %215, ptr noundef %216)
+  %call135.i = tail call fastcc i32 @compiler_addop_name(ptr noundef %214, i64 %loc.sroa.0.sroa.0.0.insert.insert.i555.i, i64 %loc.sroa.11.0.i549.i, i32 noundef 108, ptr noundef %215, ptr noundef %216)
   %cmp136.i = icmp eq i32 %call135.i, -1
   br i1 %cmp136.i, label %return, label %sw.epilog193.i
 
@@ -16290,7 +16290,7 @@ switch.lookup:                                    ; preds = %sw.bb67
   br label %sw.epilog71
 
 sw.epilog71:                                      ; preds = %switch.lookup, %sw.bb67
-  %op.0 = phi i32 [ 0, %sw.bb67 ], [ %switch.load, %switch.lookup ]
+  %op.1 = phi i32 [ 0, %sw.bb67 ], [ %switch.load, %switch.lookup ]
   %20 = load ptr, ptr %u, align 8
   %u_varnames = getelementptr inbounds i8, ptr %20, i64 576
   %21 = load ptr, ptr %u_varnames, align 8
@@ -16336,7 +16336,7 @@ if.end78:                                         ; preds = %instr_sequence_next
   %26 = load ptr, ptr %u_instr_sequence.i, align 8
   %idxprom.i.i.i = sext i32 %23 to i64
   %arrayidx.i.i.i = getelementptr %struct._PyCompile_Instruction, ptr %26, i64 %idxprom.i.i.i
-  store i32 %op.0, ptr %arrayidx.i.i.i, align 4
+  store i32 %op.1, ptr %arrayidx.i.i.i, align 4
   %i_oparg.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
   store i32 %conv.i.i, ptr %i_oparg.i.i.i, align 4
   %i_loc.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
@@ -16418,7 +16418,7 @@ sw.bb114:                                         ; preds = %sw.bb104
 
 sw.epilog116:                                     ; preds = %sw.bb105, %land.rhs, %sw.bb80, %if.else48, %sw.bb104, %sw.bb113, %sw.bb114, %sw.bb79, %sw.bb101, %sw.bb102, %if.then90, %sw.bb35, %sw.bb64, %sw.bb65, %if.then52, %if.then42
   %dict.090 = phi ptr [ %1, %sw.bb104 ], [ %1, %sw.bb114 ], [ %1, %sw.bb113 ], [ %1, %sw.bb79 ], [ %1, %sw.bb102 ], [ %1, %sw.bb101 ], [ %1, %if.then90 ], [ %dict.0.ph, %sw.bb35 ], [ %dict.0.ph, %sw.bb65 ], [ %dict.0.ph, %sw.bb64 ], [ %dict.0.ph, %if.then52 ], [ %dict.0.ph, %if.then42 ], [ %dict.0.ph, %if.else48 ], [ %1, %sw.bb80 ], [ %1, %sw.bb105 ], [ %1, %land.rhs ]
-  %op.1 = phi i32 [ 0, %sw.bb104 ], [ 67, %sw.bb114 ], [ 114, %sw.bb113 ], [ 0, %sw.bb79 ], [ 66, %sw.bb102 ], [ 113, %sw.bb101 ], [ 90, %if.then90 ], [ 0, %sw.bb35 ], [ 64, %sw.bb65 ], [ 109, %sw.bb64 ], [ 89, %if.then52 ], [ 89, %if.then42 ], [ 84, %if.else48 ], [ 91, %sw.bb80 ], [ 92, %sw.bb105 ], [ %36, %land.rhs ]
+  %op.0 = phi i32 [ 0, %sw.bb104 ], [ 67, %sw.bb114 ], [ 114, %sw.bb113 ], [ 0, %sw.bb79 ], [ 66, %sw.bb102 ], [ 113, %sw.bb101 ], [ 90, %if.then90 ], [ 0, %sw.bb35 ], [ 64, %sw.bb65 ], [ 109, %sw.bb64 ], [ 89, %if.then52 ], [ 89, %if.then42 ], [ 84, %if.else48 ], [ 91, %sw.bb80 ], [ 92, %sw.bb105 ], [ %36, %land.rhs ]
   %call117 = call fastcc i64 @dict_add_o(ptr noundef %dict.090, ptr noundef nonnull %call2)
   %37 = load i64, ptr %call2, align 8
   %38 = and i64 %37, 2147483648
@@ -16440,7 +16440,7 @@ Py_DECREF.exit135:                                ; preds = %sw.epilog116, %if.t
   br i1 %cmp118, label %return, label %if.end120
 
 if.end120:                                        ; preds = %Py_DECREF.exit135
-  %cmp121 = icmp eq i32 %op.1, 91
+  %cmp121 = icmp eq i32 %op.0, 91
   %39 = load ptr, ptr %u, align 8
   %u_instr_sequence12561 = getelementptr inbounds i8, ptr %39, i64 24
   %call117.tr = trunc i64 %call117 to i32
@@ -16466,7 +16466,7 @@ if.end.i.i:                                       ; preds = %instr_sequence_next
   %42 = load ptr, ptr %u_instr_sequence12561, align 8
   %idxprom.i.i = sext i32 %41 to i64
   %arrayidx.i.i = getelementptr %struct._PyCompile_Instruction, ptr %42, i64 %idxprom.i.i
-  store i32 %op.1, ptr %arrayidx.i.i, align 4
+  store i32 %op.0, ptr %arrayidx.i.i, align 4
   %i_oparg.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   store i32 %call117.tr, ptr %i_oparg.i.i, align 4
   %i_loc.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
@@ -17232,8 +17232,8 @@ if.then48:                                        ; preds = %if.end46
   %25 = trunc nuw nsw i64 %retval.0.i285 to i32
   %spec.select = and i32 %25, 1
   %26 = lshr i32 %25, 1
-  %num_typeparam_args.1 = add nuw nsw i32 %26, %spec.select
-  %cmp57 = icmp eq i32 %num_typeparam_args.1, 2
+  %num_typeparam_args.2 = add nuw nsw i32 %26, %spec.select
+  %cmp57 = icmp eq i32 %num_typeparam_args.2, 2
   br i1 %cmp57, label %if.then59, label %if.end65
 
 if.then59:                                        ; preds = %if.then48
@@ -17313,7 +17313,7 @@ Py_DECREF.exit199:                                ; preds = %if.end74, %if.then1
   br i1 %cmp76, label %if.then78, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %Py_DECREF.exit199
-  %cmp80396.not = icmp eq i32 %num_typeparam_args.1, 0
+  %cmp80396.not = icmp eq i32 %num_typeparam_args.2, 0
   br i1 %cmp80396.not, label %if.end90, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -17359,11 +17359,11 @@ for.inc:                                          ; preds = %instr_sequence_next
   %loc.sroa.2.0.i_loc.sroa_idx.i.i300 = getelementptr inbounds i8, ptr %arrayidx.i.i297, i64 16
   store i64 %loc.sroa.14.8.insert.insert, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i300, align 4
   %inc = add nuw nsw i32 %i.0397, 1
-  %exitcond.not = icmp eq i32 %inc, %num_typeparam_args.1
+  %exitcond.not = icmp eq i32 %inc, %num_typeparam_args.2
   br i1 %exitcond.not, label %if.end90, label %for.body, !llvm.loop !66
 
 if.end90:                                         ; preds = %for.inc, %for.cond.preheader, %if.end46
-  %num_typeparam_args.2 = phi i32 [ 0, %if.end46 ], [ 0, %for.cond.preheader ], [ %num_typeparam_args.1, %for.inc ]
+  %num_typeparam_args.0 = phi i32 [ 0, %if.end46 ], [ 0, %for.cond.preheader ], [ %num_typeparam_args.2, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %annotations_len.i)
   store i64 0, ptr %annotations_len.i, align 8
   %args1.i = getelementptr inbounds i8, ptr %args.0, i64 8
@@ -17815,7 +17815,7 @@ if.then125:                                       ; preds = %if.end119
   br label %return
 
 if.end126:                                        ; preds = %if.end119
-  %conv127 = zext nneg i32 %num_typeparam_args.2 to i64
+  %conv127 = zext nneg i32 %num_typeparam_args.0 to i64
   %101 = load ptr, ptr %u.i325, align 8
   %u_argcount = getelementptr inbounds i8, ptr %101, i64 608
   store i64 %conv127, ptr %u_argcount, align 8
@@ -17859,13 +17859,13 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end138, %if.then1.i, %if.end.i
-  %cmp139 = icmp sgt i32 %num_typeparam_args.2, 0
+  %cmp139 = icmp sgt i32 %num_typeparam_args.0, 0
   %104 = load ptr, ptr %u.i325, align 8
   %u_instr_sequence143 = getelementptr inbounds i8, ptr %104, i64 24
   br i1 %cmp139, label %if.then141, label %if.else159
 
 if.then141:                                       ; preds = %Py_DECREF.exit
-  %add144 = add nuw nsw i32 %num_typeparam_args.2, 1
+  %add144 = add nuw nsw i32 %num_typeparam_args.0, 1
   %conv145 = zext nneg i32 %add144 to i64
   %call146 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence143, i32 noundef 115, i64 noundef %conv145, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp147 = icmp eq i32 %call146, -1
@@ -17874,7 +17874,7 @@ if.then141:                                       ; preds = %Py_DECREF.exit
 if.end150:                                        ; preds = %if.then141
   %105 = load ptr, ptr %u.i325, align 8
   %u_instr_sequence152 = getelementptr inbounds i8, ptr %105, i64 24
-  %sub = add nsw i32 %num_typeparam_args.2, -1
+  %sub = add nsw i32 %num_typeparam_args.0, -1
   %conv153 = zext nneg i32 %sub to i64
   %call154 = tail call fastcc i32 @codegen_addop_i(ptr noundef nonnull %u_instr_sequence152, i32 noundef 53, i64 noundef %conv153, i64 %loc.sroa.0.0.insert.insert, i64 %loc.sroa.14.8.insert.insert)
   %cmp155 = icmp eq i32 %call154, -1
@@ -19757,7 +19757,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = phi i64 [ %0, %for.body.lr.ph ], [ %12, %for.inc ]
   %conv54 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
   %i.053 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %keys.052 = phi ptr [ null, %for.body.lr.ph ], [ %keys.2, %for.inc ]
+  %keys.052 = phi ptr [ null, %for.body.lr.ph ], [ %keys.3, %for.inc ]
   %arrayidx6 = getelementptr [1 x ptr], ptr %typed_elements4, i64 0, i64 %conv54
   %2 = load ptr, ptr %arrayidx6, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -19827,7 +19827,7 @@ Py_DECREF.exit78:                                 ; preds = %if.else, %if.then1.
   br i1 %cmp19, label %if.then.i, label %if.end23
 
 if.end23:                                         ; preds = %Py_DECREF.exit78, %if.end17
-  %keys.1 = phi ptr [ %call13, %if.end17 ], [ %keys.052, %Py_DECREF.exit78 ]
+  %keys.2 = phi ptr [ %call13, %if.end17 ], [ %keys.052, %Py_DECREF.exit78 ]
   %call24 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef nonnull %2)
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then.i, label %if.end23.for.inc_crit_edge
@@ -19838,33 +19838,33 @@ if.end23.for.inc_crit_edge:                       ; preds = %if.end23
 
 for.inc:                                          ; preds = %if.end23.for.inc_crit_edge, %for.body
   %12 = phi i64 [ %.pre, %if.end23.for.inc_crit_edge ], [ %1, %for.body ]
-  %keys.2 = phi ptr [ %keys.1, %if.end23.for.inc_crit_edge ], [ %keys.052, %for.body ]
+  %keys.3 = phi ptr [ %keys.2, %if.end23.for.inc_crit_edge ], [ %keys.052, %for.body ]
   %inc = add i32 %i.053, 1
   %conv = sext i32 %inc to i64
   %cmp2 = icmp sgt i64 %12, %conv
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !75
 
 for.end:                                          ; preds = %for.inc
-  %cmp30.not = icmp eq ptr %keys.2, null
+  %cmp30.not = icmp eq ptr %keys.3, null
   br i1 %cmp30.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %for.end
-  %13 = getelementptr i8, ptr %keys.2, i64 16
+  %13 = getelementptr i8, ptr %keys.3, i64 16
   %keys.0.val = load i64, ptr %13, align 8
-  %call34 = tail call ptr @PyList_AsTuple(ptr noundef nonnull %keys.2) #11
-  %14 = load i64, ptr %keys.2, align 8
+  %call34 = tail call ptr @PyList_AsTuple(ptr noundef nonnull %keys.3) #11
+  %14 = load i64, ptr %keys.3, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i96.not = icmp eq i64 %15, 0
   br i1 %cmp.i96.not, label %if.end.i64, label %Py_DECREF.exit69
 
 if.end.i64:                                       ; preds = %if.then32
   %dec.i65 = add i64 %14, -1
-  store i64 %dec.i65, ptr %keys.2, align 8
+  store i64 %dec.i65, ptr %keys.3, align 8
   %cmp.i66 = icmp eq i64 %dec.i65, 0
   br i1 %cmp.i66, label %if.then1.i67, label %Py_DECREF.exit69
 
 if.then1.i67:                                     ; preds = %if.end.i64
-  tail call void @_Py_Dealloc(ptr noundef nonnull %keys.2) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %keys.3) #11
   br label %Py_DECREF.exit69
 
 Py_DECREF.exit69:                                 ; preds = %if.then32, %if.then1.i67, %if.end.i64
@@ -19945,20 +19945,20 @@ error:                                            ; preds = %if.then
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit78, %if.end23, %error
-  %keys.345 = phi ptr [ %keys.052, %error ], [ %keys.1, %if.end23 ], [ %keys.052, %Py_DECREF.exit78 ]
-  %24 = load i64, ptr %keys.345, align 8
+  %keys.145 = phi ptr [ %keys.052, %error ], [ %keys.2, %if.end23 ], [ %keys.052, %Py_DECREF.exit78 ]
+  %24 = load i64, ptr %keys.145, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i2.not.i = icmp eq i64 %25, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i39, label %return
 
 if.end.i.i39:                                     ; preds = %if.then.i
   %dec.i.i = add i64 %24, -1
-  store i64 %dec.i.i, ptr %keys.345, align 8
+  store i64 %dec.i.i, ptr %keys.145, align 8
   %cmp.i.i40 = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i40, label %if.then1.i.i, label %return
 
 if.then1.i.i:                                     ; preds = %if.end.i.i39
-  tail call void @_Py_Dealloc(ptr noundef nonnull %keys.345) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %keys.145) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.then1.i.i, %if.end.i.i39, %if.then.i, %error, %codegen_addop_i.exit, %instr_sequence_next_inst.exit.i.i, %Py_DECREF.exit, %for.end, %if.end.i55, %if.then1.i58, %if.then43, %Py_DECREF.exit69, %if.end.i82, %if.then1.i85, %if.then16
@@ -23634,24 +23634,24 @@ if.then:                                          ; preds = %entry
   %loc.sroa.11.8.insert.ext = zext i32 %sub to i64
   %loc.sroa.11.8.insert.mask = and i64 %loc.coerce1, -4294967296
   %loc.sroa.11.8.insert.insert = or disjoint i64 %loc.sroa.11.8.insert.mask, %loc.sroa.11.8.insert.ext
-  %loc.sroa.11.0 = select i1 %cmp4.not, i64 -1, i64 %loc.sroa.11.8.insert.insert
+  %loc.sroa.11.1 = select i1 %cmp4.not, i64 -1, i64 %loc.sroa.11.8.insert.insert
   %cond = tail call i32 @llvm.smax.i32(i32 %0, i32 %loc.sroa.0.sroa.7.0.extract.trunc)
   %cmp19.not = icmp slt i32 %0, %loc.sroa.0.sroa.7.0.extract.trunc
   br i1 %cmp19.not, label %if.end34, label %if.then21
 
 if.then21:                                        ; preds = %if.then
-  %loc.sroa.11.8.extract.trunc = trunc i64 %loc.sroa.11.0 to i32
-  %loc.sroa.11.12.extract.shift = lshr i64 %loc.sroa.11.0, 32
+  %loc.sroa.11.8.extract.trunc = trunc i64 %loc.sroa.11.1 to i32
+  %loc.sroa.11.12.extract.shift = lshr i64 %loc.sroa.11.1, 32
   %loc.sroa.11.12.extract.trunc = trunc nuw i64 %loc.sroa.11.12.extract.shift to i32
   %cond31 = tail call i32 @llvm.smax.i32(i32 %loc.sroa.11.8.extract.trunc, i32 %loc.sroa.11.12.extract.trunc)
   %loc.sroa.11.12.insert.ext = zext i32 %cond31 to i64
   %loc.sroa.11.12.insert.shift = shl nuw i64 %loc.sroa.11.12.insert.ext, 32
-  %loc.sroa.11.12.insert.mask20 = and i64 %loc.sroa.11.0, 4294967295
+  %loc.sroa.11.12.insert.mask20 = and i64 %loc.sroa.11.1, 4294967295
   %loc.sroa.11.12.insert.insert21 = or disjoint i64 %loc.sroa.11.12.insert.shift, %loc.sroa.11.12.insert.mask20
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then, %if.then21, %entry
-  %loc.sroa.11.1 = phi i64 [ %loc.sroa.11.12.insert.insert21, %if.then21 ], [ %loc.sroa.11.0, %if.then ], [ %loc.coerce1, %entry ]
+  %loc.sroa.11.0 = phi i64 [ %loc.sroa.11.12.insert.insert21, %if.then21 ], [ %loc.sroa.11.1, %if.then ], [ %loc.coerce1, %entry ]
   %loc.sroa.0.sroa.0.0 = phi i32 [ %0, %if.then21 ], [ %0, %if.then ], [ %loc.sroa.0.sroa.0.0.extract.trunc, %entry ]
   %loc.sroa.0.sroa.7.0 = phi i32 [ %cond, %if.then21 ], [ %cond, %if.then ], [ %loc.sroa.0.sroa.7.0.extract.trunc, %entry ]
   %loc.sroa.0.sroa.7.0.insert.ext = zext i32 %loc.sroa.0.sroa.7.0 to i64
@@ -23659,7 +23659,7 @@ if.end34:                                         ; preds = %if.then, %if.then21
   %loc.sroa.0.sroa.0.0.insert.ext = zext i32 %loc.sroa.0.sroa.0.0 to i64
   %loc.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %loc.sroa.0.sroa.7.0.insert.shift, %loc.sroa.0.sroa.0.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %loc.sroa.0.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %loc.sroa.11.1, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %loc.sroa.11.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -27311,7 +27311,7 @@ for.cond.i228:                                    ; preds = %lor.lhs.false100.i
   br i1 %exitcond.not, label %for.end.i231, label %for.body.i271, !llvm.loop !105
 
 for.body.i271:                                    ; preds = %for.body.i271.lr.ph, %for.cond.i228
-  %control.0.i459 = phi ptr [ null, %for.body.i271.lr.ph ], [ %control.1.i, %for.cond.i228 ]
+  %control.0.i459 = phi ptr [ null, %for.body.i271.lr.ph ], [ %control.2.i, %for.cond.i228 ]
   %i.0.i229458 = phi i64 [ 0, %for.body.i271.lr.ph ], [ %inc.i301, %for.cond.i228 ]
   %388 = load ptr, ptr %v.i224, align 8
   %typed_elements.i272 = getelementptr inbounds i8, ptr %388, i64 16
@@ -27548,7 +27548,7 @@ if.end81.i:                                       ; preds = %pattern_helper_rota
   br i1 %tobool39.not.i, label %if.end85.i, label %while.body.i295, !llvm.loop !108
 
 if.end85.i:                                       ; preds = %if.end81.i, %if.end.i.i395, %if.then30.i, %if.else36.i
-  %control.1.i = phi ptr [ %control.0.i459, %if.else36.i ], [ %402, %if.then30.i ], [ %402, %if.end.i.i395 ], [ %control.0.i459, %if.end81.i ]
+  %control.2.i = phi ptr [ %control.0.i459, %if.else36.i ], [ %402, %if.then30.i ], [ %402, %if.end.i.i395 ], [ %control.0.i459, %if.end81.i ]
   %422 = load ptr, ptr %u.i219, align 8
   %u_instr_sequence87.i = getelementptr inbounds i8, ptr %422, i64 24
   %423 = load i32, ptr %lineno17.i, align 8
@@ -27606,7 +27606,7 @@ lor.lhs.false100.i:                               ; preds = %instr_sequence_next
   br i1 %cmp111.i, label %error.i265, label %for.cond.i228
 
 for.end.i231:                                     ; preds = %for.cond.i228, %Py_INCREF.exit311.i
-  %control.0.i.lcssa = phi ptr [ null, %Py_INCREF.exit311.i ], [ %control.1.i, %for.cond.i228 ]
+  %control.0.i.lcssa = phi ptr [ null, %Py_INCREF.exit311.i ], [ %control.2.i, %for.cond.i228 ]
   %434 = load ptr, ptr %pc, align 8
   %435 = load i64, ptr %434, align 8
   %436 = and i64 %435, 2147483648
@@ -27888,7 +27888,7 @@ diff.i:                                           ; preds = %if.else.i292, %if.t
   br label %error.i265
 
 error.i265:                                       ; preds = %if.end85.i, %instr_sequence_next_inst.exit.i.i364, %do.end.i, %instr_sequence_next_inst.exit.i.i403, %lor.lhs.false100.i, %lor.lhs.false.i290, %for.body.i271, %instr_sequence_next_inst.exit.i.i.i384.us, %while.body.i376.us, %if.end196.i, %if.end175.i, %instr_sequence_next_inst.exit.i.i.i560, %while.body.i552, %Py_INCREF.exit.i, %instr_sequence_next_inst.exit.i.i541, %diff.i, %if.then185.i, %lor.lhs.false130.i, %if.then61.i
-  %control.2.i = phi ptr [ %control.0.i459, %diff.i ], [ %control.0.i459, %if.then61.i ], [ %control.0.i.lcssa, %lor.lhs.false130.i ], [ %control.0.i.lcssa, %if.then185.i ], [ %control.0.i.lcssa, %instr_sequence_next_inst.exit.i.i541 ], [ %control.0.i.lcssa, %Py_INCREF.exit.i ], [ %control.0.i.lcssa, %while.body.i552 ], [ %control.0.i.lcssa, %instr_sequence_next_inst.exit.i.i.i560 ], [ %control.0.i.lcssa, %if.end175.i ], [ %control.0.i.lcssa, %if.end196.i ], [ %control.0.i459, %while.body.i376.us ], [ %control.0.i459, %instr_sequence_next_inst.exit.i.i.i384.us ], [ %control.0.i459, %for.body.i271 ], [ %control.0.i459, %lor.lhs.false.i290 ], [ %control.1.i, %lor.lhs.false100.i ], [ %control.0.i459, %instr_sequence_next_inst.exit.i.i403 ], [ %control.0.i459, %do.end.i ], [ %control.1.i, %instr_sequence_next_inst.exit.i.i364 ], [ %control.1.i, %if.end85.i ]
+  %control.1.i = phi ptr [ %control.0.i459, %diff.i ], [ %control.0.i459, %if.then61.i ], [ %control.0.i.lcssa, %lor.lhs.false130.i ], [ %control.0.i.lcssa, %if.then185.i ], [ %control.0.i.lcssa, %instr_sequence_next_inst.exit.i.i541 ], [ %control.0.i.lcssa, %Py_INCREF.exit.i ], [ %control.0.i.lcssa, %while.body.i552 ], [ %control.0.i.lcssa, %instr_sequence_next_inst.exit.i.i.i560 ], [ %control.0.i.lcssa, %if.end175.i ], [ %control.0.i.lcssa, %if.end196.i ], [ %control.0.i459, %while.body.i376.us ], [ %control.0.i459, %instr_sequence_next_inst.exit.i.i.i384.us ], [ %control.0.i459, %for.body.i271 ], [ %control.0.i459, %lor.lhs.false.i290 ], [ %control.2.i, %lor.lhs.false100.i ], [ %control.0.i459, %instr_sequence_next_inst.exit.i.i403 ], [ %control.0.i459, %do.end.i ], [ %control.2.i, %instr_sequence_next_inst.exit.i.i364 ], [ %control.2.i, %if.end85.i ]
   %old_pc.sroa.556.0.i = phi ptr [ %old_pc.sroa.556.0.copyload.i, %diff.i ], [ %old_pc.sroa.556.0.copyload.i, %if.then61.i ], [ null, %lor.lhs.false130.i ], [ null, %if.then185.i ], [ null, %instr_sequence_next_inst.exit.i.i541 ], [ null, %Py_INCREF.exit.i ], [ null, %while.body.i552 ], [ null, %instr_sequence_next_inst.exit.i.i.i560 ], [ null, %if.end175.i ], [ null, %if.end196.i ], [ %old_pc.sroa.556.0.copyload.i, %while.body.i376.us ], [ %old_pc.sroa.556.0.copyload.i, %instr_sequence_next_inst.exit.i.i.i384.us ], [ %old_pc.sroa.556.0.copyload.i, %for.body.i271 ], [ %old_pc.sroa.556.0.copyload.i, %lor.lhs.false.i290 ], [ %old_pc.sroa.556.0.copyload.i, %lor.lhs.false100.i ], [ %old_pc.sroa.556.0.copyload.i, %instr_sequence_next_inst.exit.i.i403 ], [ %old_pc.sroa.556.0.copyload.i, %do.end.i ], [ %old_pc.sroa.556.0.copyload.i, %instr_sequence_next_inst.exit.i.i364 ], [ %old_pc.sroa.556.0.copyload.i, %if.end85.i ]
   tail call void @PyObject_Free(ptr noundef %old_pc.sroa.556.0.i) #11
   %484 = load i64, ptr %old_pc.sroa.0.0.copyload.i, align 8
@@ -27907,23 +27907,23 @@ if.then1.i.i270:                                  ; preds = %if.end.i.i267
   br label %Py_DECREF.exit.i266
 
 Py_DECREF.exit.i266:                              ; preds = %if.then1.i.i270, %if.end.i.i267, %error.i265
-  %cmp.not.i = icmp eq ptr %control.2.i, null
+  %cmp.not.i = icmp eq ptr %control.1.i, null
   br i1 %cmp.not.i, label %compiler_pattern_or.exit, label %if.then.i352
 
 if.then.i352:                                     ; preds = %Py_DECREF.exit.i266
-  %486 = load i64, ptr %control.2.i, align 8
+  %486 = load i64, ptr %control.1.i, align 8
   %487 = and i64 %486, 2147483648
   %cmp.i2.not.i = icmp eq i64 %487, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i354, label %compiler_pattern_or.exit
 
 if.end.i.i354:                                    ; preds = %if.then.i352
   %dec.i.i355 = add i64 %486, -1
-  store i64 %dec.i.i355, ptr %control.2.i, align 8
+  store i64 %dec.i.i355, ptr %control.1.i, align 8
   %cmp.i.i356 = icmp eq i64 %dec.i.i355, 0
   br i1 %cmp.i.i356, label %if.then1.i.i357, label %compiler_pattern_or.exit
 
 if.then1.i.i357:                                  ; preds = %if.end.i.i354
-  tail call void @_Py_Dealloc(ptr noundef nonnull %control.2.i) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %control.1.i) #11
   br label %compiler_pattern_or.exit
 
 compiler_pattern_or.exit:                         ; preds = %if.then1.i.i357, %if.end.i.i354, %if.then.i352, %Py_DECREF.exit.i266, %sw.bb13, %if.end143.i, %Py_DECREF.exit241.i
@@ -32305,9 +32305,9 @@ if.end17:                                         ; preds = %instr_sequence_next
   br i1 %tobool5.not91.i, label %push_inlined_comprehension_state.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end17, %if.end147.i
-  %inline_state.sroa.0.0 = phi ptr [ %inline_state.sroa.0.2, %if.end147.i ], [ null, %if.end17 ]
-  %inline_state.sroa.7.0 = phi ptr [ %inline_state.sroa.7.3, %if.end147.i ], [ null, %if.end17 ]
-  %inline_state.sroa.11.0 = phi ptr [ %inline_state.sroa.11.3, %if.end147.i ], [ null, %if.end17 ]
+  %inline_state.sroa.0.2 = phi ptr [ %inline_state.sroa.0.3, %if.end147.i ], [ null, %if.end17 ]
+  %inline_state.sroa.7.2 = phi ptr [ %inline_state.sroa.7.3, %if.end147.i ], [ null, %if.end17 ]
+  %inline_state.sroa.11.2 = phi ptr [ %inline_state.sroa.11.3, %if.end147.i ], [ null, %if.end17 ]
   %25 = load ptr, ptr %v.i, align 8
   %call6.i = call i64 @PyLong_AsLong(ptr noundef %25) #11
   %and.i = and i64 %call6.i, 2
@@ -32374,7 +32374,7 @@ if.then22.i:                                      ; preds = %Py_XDECREF.exit.i, 
   br i1 %cmp27.i, label %push_inlined_comprehension_state.exit.thread, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then22.i
-  %cmp31.i = icmp eq ptr %inline_state.sroa.11.0, null
+  %cmp31.i = icmp eq ptr %inline_state.sroa.11.2, null
   br i1 %cmp31.i, label %if.then33.i, label %if.end41.i
 
 if.then33.i:                                      ; preds = %if.end30.i
@@ -32383,14 +32383,14 @@ if.then33.i:                                      ; preds = %if.end30.i
   br i1 %cmp37.i, label %push_inlined_comprehension_state.exit.thread, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then33.i, %if.end30.i
-  %inline_state.sroa.11.1 = phi ptr [ %call34.i, %if.then33.i ], [ %inline_state.sroa.11.0, %if.end30.i ]
+  %inline_state.sroa.11.6 = phi ptr [ %call34.i, %if.then33.i ], [ %inline_state.sroa.11.2, %if.end30.i ]
   %37 = load ptr, ptr %k.i, align 8
-  %call43.i = call i32 @PySet_Add(ptr noundef nonnull %inline_state.sroa.11.1, ptr noundef %37) #11
+  %call43.i = call i32 @PySet_Add(ptr noundef nonnull %inline_state.sroa.11.6, ptr noundef %37) #11
   %cmp44.i = icmp slt i32 %call43.i, 0
   br i1 %cmp44.i, label %push_inlined_comprehension_state.exit.thread, label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.end41.i, %Py_XDECREF.exit.i, %if.then.i
-  %inline_state.sroa.11.2 = phi ptr [ %inline_state.sroa.11.1, %if.end41.i ], [ %inline_state.sroa.11.0, %Py_XDECREF.exit.i ], [ %inline_state.sroa.11.0, %if.then.i ]
+  %inline_state.sroa.11.5 = phi ptr [ %inline_state.sroa.11.6, %if.end41.i ], [ %inline_state.sroa.11.2, %Py_XDECREF.exit.i ], [ %inline_state.sroa.11.2, %if.then.i ]
   %shr.i = lshr i64 %call6.i, 12
   %and50.i = and i64 %shr.i, 15
   %38 = load ptr, ptr %u, align 8
@@ -32414,7 +32414,7 @@ land.lhs.true65.i:                                ; preds = %if.end49.i
   br i1 %or.cond2.i, label %if.end97.i, label %if.then71.i
 
 if.then71.i:                                      ; preds = %land.lhs.true65.i
-  %cmp72.i = icmp eq ptr %inline_state.sroa.7.0, null
+  %cmp72.i = icmp eq ptr %inline_state.sroa.7.2, null
   br i1 %cmp72.i, label %if.then74.i, label %if.end82.i
 
 if.then74.i:                                      ; preds = %if.then71.i
@@ -32423,7 +32423,7 @@ if.then74.i:                                      ; preds = %if.then71.i
   br i1 %cmp78.i, label %push_inlined_comprehension_state.exit.thread, label %if.end82.i
 
 if.end82.i:                                       ; preds = %if.then74.i, %if.then71.i
-  %inline_state.sroa.7.1 = phi ptr [ %call75.i, %if.then74.i ], [ %inline_state.sroa.7.0, %if.then71.i ]
+  %inline_state.sroa.7.5 = phi ptr [ %call75.i, %if.then74.i ], [ %inline_state.sroa.7.2, %if.then71.i ]
   %42 = load i32, ptr %spec.select.i, align 8
   %add.i.i = add i32 %42, 1
   %cmp.i215.i = icmp eq i32 %add.i.i, 0
@@ -32458,7 +32458,7 @@ if.end.i198.i:                                    ; preds = %if.then89.i
 
 if.end90.i:                                       ; preds = %Py_INCREF.exit.i
   %50 = load ptr, ptr %k.i, align 8
-  %call92.i = call i32 @PyDict_SetItem(ptr noundef nonnull %inline_state.sroa.7.1, ptr noundef %50, ptr noundef nonnull %spec.select.i) #11
+  %call92.i = call i32 @PyDict_SetItem(ptr noundef nonnull %inline_state.sroa.7.5, ptr noundef %50, ptr noundef nonnull %spec.select.i) #11
   %cmp93.i = icmp slt i32 %call92.i, 0
   %51 = load i64, ptr %spec.select.i, align 8
   %52 = and i64 %51, 2147483648
@@ -32488,8 +32488,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.end96.i, %land.lhs.true65.i, %if.end49.i
-  %inline_state.sroa.7.2 = phi ptr [ %inline_state.sroa.7.0, %if.end49.i ], [ %inline_state.sroa.7.0, %land.lhs.true65.i ], [ %inline_state.sroa.7.1, %if.then1.i.i ], [ %inline_state.sroa.7.1, %if.end.i.i ], [ %inline_state.sroa.7.1, %if.end96.i ]
-  %cmp98.i = icmp eq ptr %inline_state.sroa.0.0, null
+  %inline_state.sroa.7.6 = phi ptr [ %inline_state.sroa.7.2, %if.end49.i ], [ %inline_state.sroa.7.2, %land.lhs.true65.i ], [ %inline_state.sroa.7.5, %if.then1.i.i ], [ %inline_state.sroa.7.5, %if.end.i.i ], [ %inline_state.sroa.7.5, %if.end96.i ]
+  %cmp98.i = icmp eq ptr %inline_state.sroa.0.2, null
   br i1 %cmp98.i, label %if.then100.i, label %if.end108.i
 
 if.then100.i:                                     ; preds = %if.end97.i
@@ -32498,7 +32498,7 @@ if.then100.i:                                     ; preds = %if.end97.i
   br i1 %cmp104.i, label %push_inlined_comprehension_state.exit.thread, label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.then100.i, %if.end97.i
-  %inline_state.sroa.0.1 = phi ptr [ %call101.i, %if.then100.i ], [ %inline_state.sroa.0.0, %if.end97.i ]
+  %inline_state.sroa.0.5 = phi ptr [ %call101.i, %if.then100.i ], [ %inline_state.sroa.0.2, %if.end97.i ]
   %53 = load ptr, ptr %u, align 8
   %u_varnames.i = getelementptr inbounds i8, ptr %53, i64 576
   %54 = load ptr, ptr %u_varnames.i, align 8
@@ -32533,27 +32533,27 @@ if.else.i302:                                     ; preds = %if.then119.i
 
 if.end140.i:                                      ; preds = %if.else.i302, %if.then122.i, %if.end116.i
   %60 = load ptr, ptr %k.i, align 8
-  %call142.i = call i32 @PyList_Append(ptr noundef nonnull %inline_state.sroa.0.1, ptr noundef %60) #11
+  %call142.i = call i32 @PyList_Append(ptr noundef nonnull %inline_state.sroa.0.5, ptr noundef %60) #11
   %cmp143.i = icmp slt i32 %call142.i, 0
   br i1 %cmp143.i, label %push_inlined_comprehension_state.exit.thread, label %if.end147.i
 
 if.end147.i:                                      ; preds = %if.end140.i, %lor.lhs.false.i, %land.lhs.true.i
-  %inline_state.sroa.0.2 = phi ptr [ %inline_state.sroa.0.1, %if.end140.i ], [ %inline_state.sroa.0.0, %lor.lhs.false.i ], [ %inline_state.sroa.0.0, %land.lhs.true.i ]
-  %inline_state.sroa.7.3 = phi ptr [ %inline_state.sroa.7.2, %if.end140.i ], [ %inline_state.sroa.7.0, %lor.lhs.false.i ], [ %inline_state.sroa.7.0, %land.lhs.true.i ]
-  %inline_state.sroa.11.3 = phi ptr [ %inline_state.sroa.11.2, %if.end140.i ], [ %inline_state.sroa.11.0, %lor.lhs.false.i ], [ %inline_state.sroa.11.0, %land.lhs.true.i ]
+  %inline_state.sroa.0.3 = phi ptr [ %inline_state.sroa.0.5, %if.end140.i ], [ %inline_state.sroa.0.2, %lor.lhs.false.i ], [ %inline_state.sroa.0.2, %land.lhs.true.i ]
+  %inline_state.sroa.7.3 = phi ptr [ %inline_state.sroa.7.6, %if.end140.i ], [ %inline_state.sroa.7.2, %lor.lhs.false.i ], [ %inline_state.sroa.7.2, %land.lhs.true.i ]
+  %inline_state.sroa.11.3 = phi ptr [ %inline_state.sroa.11.5, %if.end140.i ], [ %inline_state.sroa.11.2, %lor.lhs.false.i ], [ %inline_state.sroa.11.2, %land.lhs.true.i ]
   %61 = load ptr, ptr %ste_symbols.i, align 8
   %call.i299 = call i32 @PyDict_Next(ptr noundef %61, ptr noundef nonnull %pos.i, ptr noundef nonnull %k.i, ptr noundef nonnull %v.i) #11
   %tobool5.not.i = icmp eq i32 %call.i299, 0
   br i1 %tobool5.not.i, label %while.end.i, label %while.body.i, !llvm.loop !134
 
 while.end.i:                                      ; preds = %if.end147.i
-  %tobool149.not.i = icmp eq ptr %inline_state.sroa.0.2, null
+  %tobool149.not.i = icmp eq ptr %inline_state.sroa.0.3, null
   br i1 %tobool149.not.i, label %push_inlined_comprehension_state.exit, label %if.then150.i
 
 if.then150.i:                                     ; preds = %while.end.i
   %62 = load ptr, ptr %u, align 8
   %u_instr_sequence.i300 = getelementptr inbounds i8, ptr %62, i64 24
-  %63 = getelementptr i8, ptr %inline_state.sroa.0.2, i64 16
+  %63 = getelementptr i8, ptr %inline_state.sroa.0.3, i64 16
   %.val.i = load i64, ptr %63, align 8
   %64 = trunc i64 %.val.i to i32
   %conv.i.i = add i32 %64, 1
@@ -32636,9 +32636,9 @@ push_inlined_comprehension_state.exit.thread.sink.split: ; preds = %if.end.i189.
   br label %push_inlined_comprehension_state.exit.thread
 
 push_inlined_comprehension_state.exit.thread:     ; preds = %if.then15.i, %if.then22.i, %if.then33.i, %if.end41.i, %if.then74.i, %if.then100.i, %if.end108.i, %if.then122.i, %if.else.i302, %if.end140.i, %push_inlined_comprehension_state.exit.thread.sink.split, %if.then89.i, %if.end.i198.i, %if.then95.i, %if.end.i189.i, %if.end158.i, %if.end165.i, %instr_sequence_next_inst.exit.i.i.i, %if.then150.i, %instr_sequence_next_inst.exit.i.i75.i, %if.end175.i
-  %inline_state.sroa.0.4.ph = phi ptr [ %inline_state.sroa.0.0, %if.then95.i ], [ %inline_state.sroa.0.0, %if.end.i189.i ], [ %inline_state.sroa.0.0, %if.then89.i ], [ %inline_state.sroa.0.0, %if.end.i198.i ], [ %inline_state.sroa.0.2, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.0.2, %if.end175.i ], [ %inline_state.sroa.0.2, %if.end165.i ], [ %inline_state.sroa.0.2, %if.end158.i ], [ %inline_state.sroa.0.2, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.0.2, %if.then150.i ], [ %inline_state.sroa.0.0, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.0.0, %if.then15.i ], [ %inline_state.sroa.0.0, %if.then22.i ], [ %inline_state.sroa.0.0, %if.then33.i ], [ %inline_state.sroa.0.0, %if.end41.i ], [ null, %if.then100.i ], [ %inline_state.sroa.0.1, %if.end108.i ], [ %inline_state.sroa.0.1, %if.then122.i ], [ %inline_state.sroa.0.1, %if.end140.i ], [ %inline_state.sroa.0.1, %if.else.i302 ], [ %inline_state.sroa.0.0, %if.then74.i ]
-  %inline_state.sroa.7.5.ph = phi ptr [ %inline_state.sroa.7.1, %if.then95.i ], [ %inline_state.sroa.7.1, %if.end.i189.i ], [ %inline_state.sroa.7.1, %if.then89.i ], [ %inline_state.sroa.7.1, %if.end.i198.i ], [ %inline_state.sroa.7.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.7.3, %if.end175.i ], [ %inline_state.sroa.7.3, %if.end165.i ], [ %inline_state.sroa.7.3, %if.end158.i ], [ %inline_state.sroa.7.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.7.3, %if.then150.i ], [ %inline_state.sroa.7.1, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.7.0, %if.then15.i ], [ %inline_state.sroa.7.0, %if.then22.i ], [ %inline_state.sroa.7.0, %if.then33.i ], [ %inline_state.sroa.7.0, %if.end41.i ], [ %inline_state.sroa.7.2, %if.then100.i ], [ %inline_state.sroa.7.2, %if.end108.i ], [ %inline_state.sroa.7.2, %if.then122.i ], [ %inline_state.sroa.7.2, %if.end140.i ], [ %inline_state.sroa.7.2, %if.else.i302 ], [ null, %if.then74.i ]
-  %inline_state.sroa.11.5.ph = phi ptr [ %inline_state.sroa.11.2, %if.then95.i ], [ %inline_state.sroa.11.2, %if.end.i189.i ], [ %inline_state.sroa.11.2, %if.then89.i ], [ %inline_state.sroa.11.2, %if.end.i198.i ], [ %inline_state.sroa.11.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.11.3, %if.end175.i ], [ %inline_state.sroa.11.3, %if.end165.i ], [ %inline_state.sroa.11.3, %if.end158.i ], [ %inline_state.sroa.11.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.11.3, %if.then150.i ], [ %inline_state.sroa.11.2, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.11.0, %if.then15.i ], [ %inline_state.sroa.11.0, %if.then22.i ], [ null, %if.then33.i ], [ %inline_state.sroa.11.1, %if.end41.i ], [ %inline_state.sroa.11.2, %if.then100.i ], [ %inline_state.sroa.11.2, %if.end108.i ], [ %inline_state.sroa.11.2, %if.then122.i ], [ %inline_state.sroa.11.2, %if.end140.i ], [ %inline_state.sroa.11.2, %if.else.i302 ], [ %inline_state.sroa.11.2, %if.then74.i ]
+  %inline_state.sroa.0.6.ph = phi ptr [ %inline_state.sroa.0.2, %if.then95.i ], [ %inline_state.sroa.0.2, %if.end.i189.i ], [ %inline_state.sroa.0.2, %if.then89.i ], [ %inline_state.sroa.0.2, %if.end.i198.i ], [ %inline_state.sroa.0.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.0.3, %if.end175.i ], [ %inline_state.sroa.0.3, %if.end165.i ], [ %inline_state.sroa.0.3, %if.end158.i ], [ %inline_state.sroa.0.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.0.3, %if.then150.i ], [ %inline_state.sroa.0.2, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.0.2, %if.then15.i ], [ %inline_state.sroa.0.2, %if.then22.i ], [ %inline_state.sroa.0.2, %if.then33.i ], [ %inline_state.sroa.0.2, %if.end41.i ], [ null, %if.then100.i ], [ %inline_state.sroa.0.5, %if.end108.i ], [ %inline_state.sroa.0.5, %if.then122.i ], [ %inline_state.sroa.0.5, %if.end140.i ], [ %inline_state.sroa.0.5, %if.else.i302 ], [ %inline_state.sroa.0.2, %if.then74.i ]
+  %inline_state.sroa.7.7.ph = phi ptr [ %inline_state.sroa.7.5, %if.then95.i ], [ %inline_state.sroa.7.5, %if.end.i189.i ], [ %inline_state.sroa.7.5, %if.then89.i ], [ %inline_state.sroa.7.5, %if.end.i198.i ], [ %inline_state.sroa.7.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.7.3, %if.end175.i ], [ %inline_state.sroa.7.3, %if.end165.i ], [ %inline_state.sroa.7.3, %if.end158.i ], [ %inline_state.sroa.7.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.7.3, %if.then150.i ], [ %inline_state.sroa.7.5, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.7.2, %if.then15.i ], [ %inline_state.sroa.7.2, %if.then22.i ], [ %inline_state.sroa.7.2, %if.then33.i ], [ %inline_state.sroa.7.2, %if.end41.i ], [ %inline_state.sroa.7.6, %if.then100.i ], [ %inline_state.sroa.7.6, %if.end108.i ], [ %inline_state.sroa.7.6, %if.then122.i ], [ %inline_state.sroa.7.6, %if.end140.i ], [ %inline_state.sroa.7.6, %if.else.i302 ], [ null, %if.then74.i ]
+  %inline_state.sroa.11.7.ph = phi ptr [ %inline_state.sroa.11.5, %if.then95.i ], [ %inline_state.sroa.11.5, %if.end.i189.i ], [ %inline_state.sroa.11.5, %if.then89.i ], [ %inline_state.sroa.11.5, %if.end.i198.i ], [ %inline_state.sroa.11.3, %instr_sequence_next_inst.exit.i.i75.i ], [ %inline_state.sroa.11.3, %if.end175.i ], [ %inline_state.sroa.11.3, %if.end165.i ], [ %inline_state.sroa.11.3, %if.end158.i ], [ %inline_state.sroa.11.3, %instr_sequence_next_inst.exit.i.i.i ], [ %inline_state.sroa.11.3, %if.then150.i ], [ %inline_state.sroa.11.5, %push_inlined_comprehension_state.exit.thread.sink.split ], [ %inline_state.sroa.11.2, %if.then15.i ], [ %inline_state.sroa.11.2, %if.then22.i ], [ null, %if.then33.i ], [ %inline_state.sroa.11.6, %if.end41.i ], [ %inline_state.sroa.11.5, %if.then100.i ], [ %inline_state.sroa.11.5, %if.end108.i ], [ %inline_state.sroa.11.5, %if.then122.i ], [ %inline_state.sroa.11.5, %if.end140.i ], [ %inline_state.sroa.11.5, %if.else.i302 ], [ %inline_state.sroa.11.5, %if.then74.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos.i)
@@ -32646,11 +32646,11 @@ push_inlined_comprehension_state.exit.thread:     ; preds = %if.then15.i, %if.th
   br label %if.then.i374
 
 push_inlined_comprehension_state.exit:            ; preds = %if.end17, %while.end.i, %codegen_addop_j.exit.i
-  %inline_state.sroa.0.4 = phi ptr [ null, %while.end.i ], [ %inline_state.sroa.0.2, %codegen_addop_j.exit.i ], [ null, %if.end17 ]
-  %inline_state.sroa.7.5 = phi ptr [ %inline_state.sroa.7.3, %while.end.i ], [ %inline_state.sroa.7.3, %codegen_addop_j.exit.i ], [ null, %if.end17 ]
-  %inline_state.sroa.11.5 = phi ptr [ %inline_state.sroa.11.3, %while.end.i ], [ %inline_state.sroa.11.3, %codegen_addop_j.exit.i ], [ null, %if.end17 ]
-  %inline_state.sroa.14.0 = phi i32 [ -1, %while.end.i ], [ %inc.i.i, %codegen_addop_j.exit.i ], [ -1, %if.end17 ]
-  %inline_state.sroa.16.0 = phi i32 [ -1, %while.end.i ], [ %inc.i69.i, %codegen_addop_j.exit.i ], [ -1, %if.end17 ]
+  %inline_state.sroa.0.6 = phi ptr [ null, %while.end.i ], [ %inline_state.sroa.0.3, %codegen_addop_j.exit.i ], [ null, %if.end17 ]
+  %inline_state.sroa.7.7 = phi ptr [ %inline_state.sroa.7.3, %while.end.i ], [ %inline_state.sroa.7.3, %codegen_addop_j.exit.i ], [ null, %if.end17 ]
+  %inline_state.sroa.11.7 = phi ptr [ %inline_state.sroa.11.3, %while.end.i ], [ %inline_state.sroa.11.3, %codegen_addop_j.exit.i ], [ null, %if.end17 ]
+  %inline_state.sroa.14.1 = phi i32 [ -1, %while.end.i ], [ %inc.i.i, %codegen_addop_j.exit.i ], [ -1, %if.end17 ]
+  %inline_state.sroa.16.1 = phi i32 [ -1, %while.end.i ], [ %inc.i69.i, %codegen_addop_j.exit.i ], [ -1, %if.end17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos.i)
@@ -32663,11 +32663,11 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp24, label %if.then.i374, label %if.then29
 
 if.then29:                                        ; preds = %push_inlined_comprehension_state.exit, %if.else
-  %inline_state.sroa.0.5 = phi ptr [ null, %if.else ], [ %inline_state.sroa.0.4, %push_inlined_comprehension_state.exit ]
-  %inline_state.sroa.7.6 = phi ptr [ null, %if.else ], [ %inline_state.sroa.7.5, %push_inlined_comprehension_state.exit ]
-  %inline_state.sroa.11.6 = phi ptr [ null, %if.else ], [ %inline_state.sroa.11.5, %push_inlined_comprehension_state.exit ]
-  %inline_state.sroa.14.1 = phi i32 [ -1, %if.else ], [ %inline_state.sroa.14.0, %push_inlined_comprehension_state.exit ]
-  %inline_state.sroa.16.1 = phi i32 [ -1, %if.else ], [ %inline_state.sroa.16.0, %push_inlined_comprehension_state.exit ]
+  %inline_state.sroa.0.1 = phi ptr [ null, %if.else ], [ %inline_state.sroa.0.6, %push_inlined_comprehension_state.exit ]
+  %inline_state.sroa.7.1 = phi ptr [ null, %if.else ], [ %inline_state.sroa.7.7, %push_inlined_comprehension_state.exit ]
+  %inline_state.sroa.11.1 = phi ptr [ null, %if.else ], [ %inline_state.sroa.11.7, %push_inlined_comprehension_state.exit ]
+  %inline_state.sroa.14.0 = phi i32 [ -1, %if.else ], [ %inline_state.sroa.14.1, %push_inlined_comprehension_state.exit ]
+  %inline_state.sroa.16.0 = phi i32 [ -1, %if.else ], [ %inline_state.sroa.16.1, %push_inlined_comprehension_state.exit ]
   %76 = load i64, ptr %call, align 8
   %77 = and i64 %76, 2147483648
   %cmp.i174.not = icmp eq i64 %77, 0
@@ -32831,11 +32831,11 @@ if.then67:                                        ; preds = %if.end65
   %dec.i335 = add i32 %92, -1
   store i32 %dec.i335, ptr %u_in_inlined_comp.i334, align 4
   store i64 0, ptr %pos.i332, align 8
-  %tobool.not.i337 = icmp eq ptr %inline_state.sroa.7.6, null
+  %tobool.not.i337 = icmp eq ptr %inline_state.sroa.7.1, null
   br i1 %tobool.not.i337, label %if.end10.i, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.then67, %while.body.i339
-  %call.i338 = call i32 @PyDict_Next(ptr noundef nonnull %inline_state.sroa.7.6, ptr noundef nonnull %pos.i332, ptr noundef nonnull %k.i330, ptr noundef nonnull %v.i331) #11
+  %call.i338 = call i32 @PyDict_Next(ptr noundef nonnull %inline_state.sroa.7.1, ptr noundef nonnull %pos.i332, ptr noundef nonnull %k.i330, ptr noundef nonnull %v.i331) #11
   %tobool2.not.i = icmp eq i32 %call.i338, 0
   br i1 %tobool2.not.i, label %if.then8.i, label %while.body.i339
 
@@ -32851,23 +32851,23 @@ while.body.i339:                                  ; preds = %while.cond.i
   br i1 %tobool5.not.i341, label %while.cond.i, label %pop_inlined_comprehension_state.exit.thread, !llvm.loop !135
 
 if.then8.i:                                       ; preds = %while.cond.i
-  %98 = load i64, ptr %inline_state.sroa.7.6, align 8
+  %98 = load i64, ptr %inline_state.sroa.7.1, align 8
   %99 = and i64 %98, 2147483648
   %cmp.i138.not.i = icmp eq i64 %99, 0
   br i1 %cmp.i138.not.i, label %if.end.i131.i, label %if.end10.i
 
 if.end.i131.i:                                    ; preds = %if.then8.i
   %dec.i132.i = add i64 %98, -1
-  store i64 %dec.i132.i, ptr %inline_state.sroa.7.6, align 8
+  store i64 %dec.i132.i, ptr %inline_state.sroa.7.1, align 8
   %cmp.i133.i = icmp eq i64 %dec.i132.i, 0
   br i1 %cmp.i133.i, label %if.then1.i134.i, label %if.end10.i
 
 if.then1.i134.i:                                  ; preds = %if.end.i131.i
-  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.7.6) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.7.1) #11
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then1.i134.i, %if.end.i131.i, %if.then8.i, %if.then67
-  %tobool11.not.i = icmp eq ptr %inline_state.sroa.0.5, null
+  %tobool11.not.i = icmp eq ptr %inline_state.sroa.0.1, null
   br i1 %tobool11.not.i, label %if.end72.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -32920,14 +32920,14 @@ if.end23.i:                                       ; preds = %instr_sequence_next
   %arrayidx.i.i46.i = getelementptr %struct._PyCompile_Instruction, ptr %107, i64 %idxprom.i.i45.i
   store i32 256, ptr %arrayidx.i.i46.i, align 4
   %i_oparg.i.i47.i = getelementptr inbounds i8, ptr %arrayidx.i.i46.i, i64 4
-  store i32 %inline_state.sroa.16.1, ptr %i_oparg.i.i47.i, align 4
+  store i32 %inline_state.sroa.16.0, ptr %i_oparg.i.i47.i, align 4
   %i_loc.i.i48.i = getelementptr inbounds i8, ptr %arrayidx.i.i46.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i48.i, i8 -1, i64 16, i1 false)
   %108 = load ptr, ptr %u, align 8
   %s_labelmap_size.i.i = getelementptr inbounds i8, ptr %108, i64 48
   %109 = load i32, ptr %s_labelmap_size.i.i, align 8
   %s_labelmap.i.i = getelementptr inbounds i8, ptr %108, i64 40
-  %call.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inline_state.sroa.14.1, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4)
+  %call.i.i = call i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef %inline_state.sroa.14.0, ptr noundef nonnull %s_labelmap.i.i, ptr noundef nonnull %s_labelmap_size.i.i, i32 noundef 10, i64 noundef 4)
   %cmp.i51.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i51.i, label %pop_inlined_comprehension_state.exit.thread, label %for.cond.preheader.i.i
 
@@ -32955,7 +32955,7 @@ if.end29.i:                                       ; preds = %for.body.i.i, %for.
   %s_used.i.i = getelementptr inbounds i8, ptr %108, i64 36
   %115 = load i32, ptr %s_used.i.i, align 4
   %116 = load ptr, ptr %s_labelmap.i.i, align 8
-  %idxprom6.i.i = sext i32 %inline_state.sroa.14.1 to i64
+  %idxprom6.i.i = sext i32 %inline_state.sroa.14.0 to i64
   %arrayidx7.i.i = getelementptr i32, ptr %116, i64 %idxprom6.i.i
   store i32 %115, ptr %arrayidx7.i.i, align 4
   %117 = load ptr, ptr %u, align 8
@@ -33009,7 +33009,7 @@ if.end41.i356:                                    ; preds = %instr_sequence_next
   %i_oparg.i.i78.i = getelementptr inbounds i8, ptr %arrayidx.i.i77.i, i64 4
   store i32 0, ptr %i_oparg.i.i78.i, align 4
   %i_loc.i.i79.i = getelementptr inbounds i8, ptr %arrayidx.i.i77.i, i64 8
-  %125 = getelementptr i8, ptr %inline_state.sroa.0.5, i64 16
+  %125 = getelementptr i8, ptr %inline_state.sroa.0.1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i79.i, i8 -1, i64 16, i1 false)
   %.val.i.i = load i64, ptr %125, align 8
   %126 = load ptr, ptr %u, align 8
@@ -33051,7 +33051,7 @@ for.cond.i.i:                                     ; preds = %if.end7.i.i, %codeg
   br i1 %cmp2.i.i, label %for.body.i85.i, label %if.end45.i
 
 for.body.i85.i:                                   ; preds = %for.cond.i.i
-  %call4.i.i = call ptr @PyList_GetItem(ptr noundef nonnull %inline_state.sroa.0.5, i64 noundef %i.0.i.i) #11
+  %call4.i.i = call ptr @PyList_GetItem(ptr noundef nonnull %inline_state.sroa.0.1, i64 noundef %i.0.i.i) #11
   %cmp5.i.i = icmp eq ptr %call4.i.i, null
   br i1 %cmp5.i.i, label %pop_inlined_comprehension_state.exit.thread, label %if.end7.i.i
 
@@ -33092,42 +33092,42 @@ if.end51.i:                                       ; preds = %instr_sequence_next
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %i_loc.i.i98.i, i8 -1, i64 16, i1 false)
   %137 = load ptr, ptr %u, align 8
   %u_instr_sequence53.i = getelementptr inbounds i8, ptr %137, i64 24
-  %call56.i = call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence53.i, i32 noundef %inline_state.sroa.16.1)
+  %call56.i = call i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef nonnull %u_instr_sequence53.i, i32 noundef %inline_state.sroa.16.0)
   %cmp57.i = icmp eq i32 %call56.i, -1
   br i1 %cmp57.i, label %pop_inlined_comprehension_state.exit.thread, label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end51.i
-  %call60.i357 = call fastcc i32 @restore_inlined_comprehension_locals(ptr noundef nonnull readonly %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr nonnull %inline_state.sroa.0.5)
+  %call60.i357 = call fastcc i32 @restore_inlined_comprehension_locals(ptr noundef nonnull readonly %c, i64 %loc.sroa.0.0.insert.insert29.pre-phi, i64 %loc.sroa.17.8.insert.insert137.pre-phi, ptr nonnull %inline_state.sroa.0.1)
   %cmp61.i = icmp slt i32 %call60.i357, 0
   br i1 %cmp61.i, label %pop_inlined_comprehension_state.exit.thread, label %if.then69.i
 
 if.then69.i:                                      ; preds = %if.end59.i
-  %138 = load i64, ptr %inline_state.sroa.0.5, align 8
+  %138 = load i64, ptr %inline_state.sroa.0.1, align 8
   %139 = and i64 %138, 2147483648
   %cmp.i141.not.i = icmp eq i64 %139, 0
   br i1 %cmp.i141.not.i, label %if.end.i122.i, label %if.end72.i
 
 if.end.i122.i:                                    ; preds = %if.then69.i
   %dec.i123.i = add i64 %138, -1
-  store i64 %dec.i123.i, ptr %inline_state.sroa.0.5, align 8
+  store i64 %dec.i123.i, ptr %inline_state.sroa.0.1, align 8
   %cmp.i124.i = icmp eq i64 %dec.i123.i, 0
   br i1 %cmp.i124.i, label %if.then1.i125.i, label %if.end72.i
 
 if.then1.i125.i:                                  ; preds = %if.end.i122.i
-  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.0.5) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.0.1) #11
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.then1.i125.i, %if.end.i122.i, %if.then69.i, %if.end10.i
-  %tobool73.not.i = icmp eq ptr %inline_state.sroa.11.6, null
+  %tobool73.not.i = icmp eq ptr %inline_state.sroa.11.1, null
   br i1 %tobool73.not.i, label %pop_inlined_comprehension_state.exit.thread470, label %while.cond75.preheader.i
 
 while.cond75.preheader.i:                         ; preds = %if.end72.i
-  %call77119.i = call i64 @PySet_Size(ptr noundef nonnull %inline_state.sroa.11.6) #11
+  %call77119.i = call i64 @PySet_Size(ptr noundef nonnull %inline_state.sroa.11.1) #11
   %cmp78120.i = icmp sgt i64 %call77119.i, 0
   br i1 %cmp78120.i, label %while.body79.i, label %if.then97.i
 
 while.body79.i:                                   ; preds = %while.cond75.preheader.i, %Py_DECREF.exit109.i
-  %call82.i = call ptr @PySet_Pop(ptr noundef nonnull %inline_state.sroa.11.6) #11
+  %call82.i = call ptr @PySet_Pop(ptr noundef nonnull %inline_state.sroa.11.1) #11
   %cmp83.i = icmp eq ptr %call82.i, null
   br i1 %cmp83.i, label %pop_inlined_comprehension_state.exit.thread, label %if.end85.i
 
@@ -33165,24 +33165,24 @@ if.then1.i107.i:                                  ; preds = %if.end.i104.i
   br label %Py_DECREF.exit109.i
 
 Py_DECREF.exit109.i:                              ; preds = %if.then1.i107.i, %if.end.i104.i, %if.end90.i364
-  %call77.i = call i64 @PySet_Size(ptr noundef nonnull %inline_state.sroa.11.6) #11
+  %call77.i = call i64 @PySet_Size(ptr noundef nonnull %inline_state.sroa.11.1) #11
   %cmp78.i365 = icmp sgt i64 %call77.i, 0
   br i1 %cmp78.i365, label %while.body79.i, label %if.then97.i, !llvm.loop !137
 
 if.then97.i:                                      ; preds = %Py_DECREF.exit109.i, %while.cond75.preheader.i
-  %144 = load i64, ptr %inline_state.sroa.11.6, align 8
+  %144 = load i64, ptr %inline_state.sroa.11.1, align 8
   %145 = and i64 %144, 2147483648
   %cmp.i153.not.i = icmp eq i64 %145, 0
   br i1 %cmp.i153.not.i, label %if.end.i.i359, label %pop_inlined_comprehension_state.exit.thread470
 
 if.end.i.i359:                                    ; preds = %if.then97.i
   %dec.i.i360 = add i64 %144, -1
-  store i64 %dec.i.i360, ptr %inline_state.sroa.11.6, align 8
+  store i64 %dec.i.i360, ptr %inline_state.sroa.11.1, align 8
   %cmp.i.i361 = icmp eq i64 %dec.i.i360, 0
   br i1 %cmp.i.i361, label %pop_inlined_comprehension_state.exit.thread473, label %pop_inlined_comprehension_state.exit.thread470
 
 pop_inlined_comprehension_state.exit.thread473:   ; preds = %if.end.i.i359
-  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.11.6) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.11.1) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i330)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i331)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos.i332)
@@ -33345,9 +33345,9 @@ if.then1.i.i372:                                  ; preds = %if.end.i.i369
   br label %Py_XDECREF.exit381
 
 if.then.i374:                                     ; preds = %if.else.i, %instr_sequence_next_inst.exit.i.i414, %if.then1.i295, %instr_sequence_next_inst.exit.i.i429, %if.then13, %push_inlined_comprehension_state.exit.thread, %if.else
-  %inline_state.sroa.0.6.ph = phi ptr [ %inline_state.sroa.0.4.ph, %push_inlined_comprehension_state.exit.thread ], [ null, %if.else ], [ null, %if.then13 ], [ null, %instr_sequence_next_inst.exit.i.i429 ], [ null, %if.then1.i295 ], [ null, %instr_sequence_next_inst.exit.i.i414 ], [ null, %if.else.i ]
-  %inline_state.sroa.7.7.ph = phi ptr [ %inline_state.sroa.7.5.ph, %push_inlined_comprehension_state.exit.thread ], [ null, %if.else ], [ null, %if.then13 ], [ null, %instr_sequence_next_inst.exit.i.i429 ], [ null, %if.then1.i295 ], [ null, %instr_sequence_next_inst.exit.i.i414 ], [ null, %if.else.i ]
-  %inline_state.sroa.11.7.ph = phi ptr [ %inline_state.sroa.11.5.ph, %push_inlined_comprehension_state.exit.thread ], [ null, %if.else ], [ null, %if.then13 ], [ null, %instr_sequence_next_inst.exit.i.i429 ], [ null, %if.then1.i295 ], [ null, %instr_sequence_next_inst.exit.i.i414 ], [ null, %if.else.i ]
+  %inline_state.sroa.0.0.ph = phi ptr [ %inline_state.sroa.0.6.ph, %push_inlined_comprehension_state.exit.thread ], [ null, %if.else ], [ null, %if.then13 ], [ null, %instr_sequence_next_inst.exit.i.i429 ], [ null, %if.then1.i295 ], [ null, %instr_sequence_next_inst.exit.i.i414 ], [ null, %if.else.i ]
+  %inline_state.sroa.7.0.ph = phi ptr [ %inline_state.sroa.7.7.ph, %push_inlined_comprehension_state.exit.thread ], [ null, %if.else ], [ null, %if.then13 ], [ null, %instr_sequence_next_inst.exit.i.i429 ], [ null, %if.then1.i295 ], [ null, %instr_sequence_next_inst.exit.i.i414 ], [ null, %if.else.i ]
+  %inline_state.sroa.11.0.ph = phi ptr [ %inline_state.sroa.11.7.ph, %push_inlined_comprehension_state.exit.thread ], [ null, %if.else ], [ null, %if.then13 ], [ null, %instr_sequence_next_inst.exit.i.i429 ], [ null, %if.then1.i295 ], [ null, %instr_sequence_next_inst.exit.i.i414 ], [ null, %if.else.i ]
   %163 = load i64, ptr %call, align 8
   %164 = and i64 %163, 2147483648
   %cmp.i2.not.i375 = icmp eq i64 %164, 0
@@ -33364,66 +33364,66 @@ if.then1.i.i380:                                  ; preds = %if.end.i.i377
   br label %Py_XDECREF.exit381
 
 Py_XDECREF.exit381:                               ; preds = %error_in_scope, %if.then162, %pop_inlined_comprehension_state.exit, %if.end107, %do.end130, %pop_inlined_comprehension_state.exit.thread, %if.then1.i.i372, %if.end.i.i369, %if.then.i367, %if.then.i374, %if.end.i.i377, %if.then1.i.i380
-  %inline_state.sroa.0.6484495 = phi ptr [ %inline_state.sroa.0.6.ph, %if.then.i374 ], [ %inline_state.sroa.0.6.ph, %if.end.i.i377 ], [ %inline_state.sroa.0.6.ph, %if.then1.i.i380 ], [ %inline_state.sroa.0.5, %if.then.i367 ], [ %inline_state.sroa.0.5, %if.end.i.i369 ], [ %inline_state.sroa.0.5, %if.then1.i.i372 ], [ %inline_state.sroa.0.5, %if.then162 ], [ %inline_state.sroa.0.5, %error_in_scope ], [ %inline_state.sroa.0.5, %if.end107 ], [ %inline_state.sroa.0.5, %do.end130 ], [ %inline_state.sroa.0.5, %pop_inlined_comprehension_state.exit ], [ %inline_state.sroa.0.5, %pop_inlined_comprehension_state.exit.thread ]
-  %inline_state.sroa.7.7485494 = phi ptr [ %inline_state.sroa.7.7.ph, %if.then.i374 ], [ %inline_state.sroa.7.7.ph, %if.end.i.i377 ], [ %inline_state.sroa.7.7.ph, %if.then1.i.i380 ], [ %inline_state.sroa.7.6, %if.then.i367 ], [ %inline_state.sroa.7.6, %if.end.i.i369 ], [ %inline_state.sroa.7.6, %if.then1.i.i372 ], [ %inline_state.sroa.7.6, %if.then162 ], [ %inline_state.sroa.7.6, %error_in_scope ], [ %inline_state.sroa.7.6, %if.end107 ], [ %inline_state.sroa.7.6, %do.end130 ], [ %inline_state.sroa.7.6, %pop_inlined_comprehension_state.exit ], [ %inline_state.sroa.7.6, %pop_inlined_comprehension_state.exit.thread ]
-  %inline_state.sroa.11.7486493 = phi ptr [ %inline_state.sroa.11.7.ph, %if.then.i374 ], [ %inline_state.sroa.11.7.ph, %if.end.i.i377 ], [ %inline_state.sroa.11.7.ph, %if.then1.i.i380 ], [ %inline_state.sroa.11.6, %if.then.i367 ], [ %inline_state.sroa.11.6, %if.end.i.i369 ], [ %inline_state.sroa.11.6, %if.then1.i.i372 ], [ %inline_state.sroa.11.6, %if.then162 ], [ %inline_state.sroa.11.6, %error_in_scope ], [ %inline_state.sroa.11.6, %if.end107 ], [ %inline_state.sroa.11.6, %do.end130 ], [ %inline_state.sroa.11.6, %pop_inlined_comprehension_state.exit ], [ %inline_state.sroa.11.6, %pop_inlined_comprehension_state.exit.thread ]
-  %cmp.not.i382 = icmp eq ptr %inline_state.sroa.0.6484495, null
+  %inline_state.sroa.0.0484495 = phi ptr [ %inline_state.sroa.0.0.ph, %if.then.i374 ], [ %inline_state.sroa.0.0.ph, %if.end.i.i377 ], [ %inline_state.sroa.0.0.ph, %if.then1.i.i380 ], [ %inline_state.sroa.0.1, %if.then.i367 ], [ %inline_state.sroa.0.1, %if.end.i.i369 ], [ %inline_state.sroa.0.1, %if.then1.i.i372 ], [ %inline_state.sroa.0.1, %if.then162 ], [ %inline_state.sroa.0.1, %error_in_scope ], [ %inline_state.sroa.0.1, %if.end107 ], [ %inline_state.sroa.0.1, %do.end130 ], [ %inline_state.sroa.0.1, %pop_inlined_comprehension_state.exit ], [ %inline_state.sroa.0.1, %pop_inlined_comprehension_state.exit.thread ]
+  %inline_state.sroa.7.0485494 = phi ptr [ %inline_state.sroa.7.0.ph, %if.then.i374 ], [ %inline_state.sroa.7.0.ph, %if.end.i.i377 ], [ %inline_state.sroa.7.0.ph, %if.then1.i.i380 ], [ %inline_state.sroa.7.1, %if.then.i367 ], [ %inline_state.sroa.7.1, %if.end.i.i369 ], [ %inline_state.sroa.7.1, %if.then1.i.i372 ], [ %inline_state.sroa.7.1, %if.then162 ], [ %inline_state.sroa.7.1, %error_in_scope ], [ %inline_state.sroa.7.1, %if.end107 ], [ %inline_state.sroa.7.1, %do.end130 ], [ %inline_state.sroa.7.1, %pop_inlined_comprehension_state.exit ], [ %inline_state.sroa.7.1, %pop_inlined_comprehension_state.exit.thread ]
+  %inline_state.sroa.11.0486493 = phi ptr [ %inline_state.sroa.11.0.ph, %if.then.i374 ], [ %inline_state.sroa.11.0.ph, %if.end.i.i377 ], [ %inline_state.sroa.11.0.ph, %if.then1.i.i380 ], [ %inline_state.sroa.11.1, %if.then.i367 ], [ %inline_state.sroa.11.1, %if.end.i.i369 ], [ %inline_state.sroa.11.1, %if.then1.i.i372 ], [ %inline_state.sroa.11.1, %if.then162 ], [ %inline_state.sroa.11.1, %error_in_scope ], [ %inline_state.sroa.11.1, %if.end107 ], [ %inline_state.sroa.11.1, %do.end130 ], [ %inline_state.sroa.11.1, %pop_inlined_comprehension_state.exit ], [ %inline_state.sroa.11.1, %pop_inlined_comprehension_state.exit.thread ]
+  %cmp.not.i382 = icmp eq ptr %inline_state.sroa.0.0484495, null
   br i1 %cmp.not.i382, label %Py_XDECREF.exit390, label %if.then.i383
 
 if.then.i383:                                     ; preds = %Py_XDECREF.exit381
-  %165 = load i64, ptr %inline_state.sroa.0.6484495, align 8
+  %165 = load i64, ptr %inline_state.sroa.0.0484495, align 8
   %166 = and i64 %165, 2147483648
   %cmp.i2.not.i384 = icmp eq i64 %166, 0
   br i1 %cmp.i2.not.i384, label %if.end.i.i386, label %Py_XDECREF.exit390
 
 if.end.i.i386:                                    ; preds = %if.then.i383
   %dec.i.i387 = add i64 %165, -1
-  store i64 %dec.i.i387, ptr %inline_state.sroa.0.6484495, align 8
+  store i64 %dec.i.i387, ptr %inline_state.sroa.0.0484495, align 8
   %cmp.i.i388 = icmp eq i64 %dec.i.i387, 0
   br i1 %cmp.i.i388, label %if.then1.i.i389, label %Py_XDECREF.exit390
 
 if.then1.i.i389:                                  ; preds = %if.end.i.i386
-  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.0.6484495) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.0.0484495) #11
   br label %Py_XDECREF.exit390
 
 Py_XDECREF.exit390:                               ; preds = %Py_XDECREF.exit381, %if.then.i383, %if.end.i.i386, %if.then1.i.i389
-  %cmp.not.i391 = icmp eq ptr %inline_state.sroa.7.7485494, null
+  %cmp.not.i391 = icmp eq ptr %inline_state.sroa.7.0485494, null
   br i1 %cmp.not.i391, label %Py_XDECREF.exit399, label %if.then.i392
 
 if.then.i392:                                     ; preds = %Py_XDECREF.exit390
-  %167 = load i64, ptr %inline_state.sroa.7.7485494, align 8
+  %167 = load i64, ptr %inline_state.sroa.7.0485494, align 8
   %168 = and i64 %167, 2147483648
   %cmp.i2.not.i393 = icmp eq i64 %168, 0
   br i1 %cmp.i2.not.i393, label %if.end.i.i395, label %Py_XDECREF.exit399
 
 if.end.i.i395:                                    ; preds = %if.then.i392
   %dec.i.i396 = add i64 %167, -1
-  store i64 %dec.i.i396, ptr %inline_state.sroa.7.7485494, align 8
+  store i64 %dec.i.i396, ptr %inline_state.sroa.7.0485494, align 8
   %cmp.i.i397 = icmp eq i64 %dec.i.i396, 0
   br i1 %cmp.i.i397, label %if.then1.i.i398, label %Py_XDECREF.exit399
 
 if.then1.i.i398:                                  ; preds = %if.end.i.i395
-  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.7.7485494) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.7.0485494) #11
   br label %Py_XDECREF.exit399
 
 Py_XDECREF.exit399:                               ; preds = %Py_XDECREF.exit390, %if.then.i392, %if.end.i.i395, %if.then1.i.i398
-  %cmp.not.i400 = icmp eq ptr %inline_state.sroa.11.7486493, null
+  %cmp.not.i400 = icmp eq ptr %inline_state.sroa.11.0486493, null
   br i1 %cmp.not.i400, label %return, label %if.then.i401
 
 if.then.i401:                                     ; preds = %Py_XDECREF.exit399
-  %169 = load i64, ptr %inline_state.sroa.11.7486493, align 8
+  %169 = load i64, ptr %inline_state.sroa.11.0486493, align 8
   %170 = and i64 %169, 2147483648
   %cmp.i2.not.i402 = icmp eq i64 %170, 0
   br i1 %cmp.i2.not.i402, label %if.end.i.i404, label %return
 
 if.end.i.i404:                                    ; preds = %if.then.i401
   %dec.i.i405 = add i64 %169, -1
-  store i64 %dec.i.i405, ptr %inline_state.sroa.11.7486493, align 8
+  store i64 %dec.i.i405, ptr %inline_state.sroa.11.0486493, align 8
   %cmp.i.i406 = icmp eq i64 %dec.i.i405, 0
   br i1 %cmp.i.i406, label %if.then1.i.i407, label %return
 
 if.then1.i.i407:                                  ; preds = %if.end.i.i404
-  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.11.7486493) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %inline_state.sroa.11.0486493) #11
   br label %return
 
 return:                                           ; preds = %land.end, %if.then53, %instr_sequence_next_inst.exit.i.i312, %if.then43, %instr_sequence_next_inst.exit.i.i, %if.then1.i.i407, %if.end.i.i404, %if.then.i401, %Py_XDECREF.exit399, %pop_inlined_comprehension_state.exit.thread473, %pop_inlined_comprehension_state.exit.thread470, %if.end155, %if.end150, %if.then144, %if.end134, %if.then74, %if.end160
@@ -34193,7 +34193,7 @@ codegen_addop_j.exit:                             ; preds = %instr_sequence_next
 
 if.end82:                                         ; preds = %codegen_addop_j.exit, %if.then41
   %cmp66246 = phi i1 [ false, %codegen_addop_j.exit ], [ true, %if.then41 ]
-  %start.sroa.0.1244 = phi i32 [ %inc.i, %codegen_addop_j.exit ], [ -1, %if.then41 ]
+  %start.sroa.0.0244 = phi i32 [ %inc.i, %codegen_addop_j.exit ], [ -1, %if.then41 ]
   %depth.addr.0 = phi i32 [ %inc, %codegen_addop_j.exit ], [ %depth, %if.then41 ]
   %33 = load ptr, ptr %6, align 8
   %call83 = tail call fastcc i32 @compiler_visit_expr(ptr noundef nonnull %c, ptr noundef %33)
@@ -34439,7 +34439,7 @@ if.then225:                                       ; preds = %if.end221
   %elt_loc.sroa.18.8.insert.shift88 = shl nuw i64 %elt_loc.sroa.18.8.insert.ext87, 32
   %elt_loc.sroa.10.8.insert.ext63 = zext i32 %elt_loc.sroa.10.0 to i64
   %elt_loc.sroa.10.8.insert.insert65 = or disjoint i64 %elt_loc.sroa.18.8.insert.shift88, %elt_loc.sroa.10.8.insert.ext63
-  %call229 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence227, i64 %elt_loc.sroa.0.0.insert.insert20, i64 %elt_loc.sroa.10.8.insert.insert65, i32 noundef 256, i32 %start.sroa.0.1244)
+  %call229 = tail call fastcc i32 @codegen_addop_j(ptr noundef nonnull %u_instr_sequence227, i64 %elt_loc.sroa.0.0.insert.insert20, i64 %elt_loc.sroa.10.8.insert.insert65, i32 noundef 256, i32 %start.sroa.0.0244)
   %cmp230 = icmp eq i32 %call229, -1
   br i1 %cmp230, label %return, label %if.end233
 

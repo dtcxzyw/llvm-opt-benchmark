@@ -145,8 +145,8 @@ if.then.i.i:                                      ; preds = %if.else.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.else.i
-  %retval.sroa.0.1.i.i = phi i32 [ %conv.i.i, %if.else.i ], [ %spec.select.i.i, %if.then.i.i ]
-  %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %retval.sroa.0.1.i.i to i64
+  %retval.sroa.0.0.i.i = phi i32 [ %conv.i.i, %if.else.i ], [ %spec.select.i.i, %if.then.i.i ]
+  %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %retval.sroa.0.0.i.i to i64
   %add.i = add i64 %litSize.0.i, %retval.sroa.0.0.insert.ext.i.i
   %inc.i = add i64 %seqCount.0.i, 1
   %spec.select253.i = select i1 %cond.fr.i, i64 %sub.ptr.sub.i, i64 %add.i
@@ -844,7 +844,7 @@ if.then.i145.i:                                   ; preds = %for.body.i
   br label %ZSTD_getSequenceLength.exit153.i
 
 ZSTD_getSequenceLength.exit153.i:                 ; preds = %if.then.i145.i, %for.body.i
-  %retval.sroa.0.1.i139.i = phi i32 [ %conv.i128.i, %for.body.i ], [ %spec.select.i149.i, %if.then.i145.i ]
+  %retval.sroa.0.0.i139.i = phi i32 [ %conv.i128.i, %for.body.i ], [ %spec.select.i149.i, %if.then.i145.i ]
   %cmp.i154.i = icmp ugt i32 %64, 3
   br i1 %cmp.i154.i, label %if.then.i156.i, label %if.else.i.i
 
@@ -855,7 +855,7 @@ if.then.i156.i:                                   ; preds = %ZSTD_getSequenceLen
   br label %if.end24.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %ZSTD_getSequenceLength.exit153.i
-  %cmp128.i = icmp eq i32 %retval.sroa.0.1.i139.i, 0
+  %cmp128.i = icmp eq i32 %retval.sroa.0.0.i139.i, 0
   %conv129.i = zext i1 %cmp128.i to i32
   %sub5.i.i = add nsw i32 %64, -1
   %add.i155.i = add nsw i32 %sub5.i.i, %conv129.i

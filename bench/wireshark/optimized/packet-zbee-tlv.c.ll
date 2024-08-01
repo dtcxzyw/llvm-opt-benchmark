@@ -1954,20 +1954,20 @@ define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr nounde
   br i1 %.not40.i, label %40, label %.preheader.i
 
 .preheader.i:                                     ; preds = %33, %.preheader.i
-  %.3.i = phi i32 [ %38, %.preheader.i ], [ %.244.i, %33 ]
-  %36 = shl i32 2, %.3.i
+  %.4.i = phi i32 [ %38, %.preheader.i ], [ %.244.i, %33 ]
+  %36 = shl i32 2, %.4.i
   %37 = and i32 %36, %14
   %.not41.i = icmp eq i32 %37, 0
-  %38 = add i32 %.3.i, 1
+  %38 = add i32 %.4.i, 1
   br i1 %.not41.i, label %39, label %.preheader.i, !llvm.loop !12
 
 39:                                               ; preds = %.preheader.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.207, i32 noundef %.3.i) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.207, i32 noundef %.4.i) #4
   br label %40
 
 40:                                               ; preds = %39, %33, %.lr.ph.i
-  %.4.i = phi i32 [ %.3.i, %39 ], [ %.244.i, %33 ], [ %.244.i, %.lr.ph.i ]
-  %41 = add i32 %.4.i, 1
+  %.3.i = phi i32 [ %.4.i, %39 ], [ %.244.i, %33 ], [ %.244.i, %.lr.ph.i ]
+  %41 = add i32 %.3.i, 1
   %42 = icmp slt i32 %41, 32
   br i1 %42, label %.lr.ph.i, label %dissect_zbee_tlv_chanmask.exit, !llvm.loop !13
 

@@ -5775,10 +5775,10 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -5804,7 +5804,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -5819,7 +5819,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823
@@ -13428,7 +13428,7 @@ lpad15:                                           ; preds = %invoke.cont16, %if.
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont16, %land.lhs.true, %invoke.cont11
-  %curr_failed.0 = phi i1 [ false, %invoke.cont11 ], [ false, %land.lhs.true ], [ true, %invoke.cont16 ]
+  %curr_failed.3 = phi i1 [ false, %invoke.cont11 ], [ false, %land.lhs.true ], [ true, %invoke.cont16 ]
   %call1.i.i.i44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #17
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -13470,7 +13470,7 @@ lpad34:                                           ; preds = %if.then31
   br label %ehcleanup40
 
 if.end37:                                         ; preds = %invoke.cont35, %land.lhs.true29, %invoke.cont27
-  %curr_failed.1 = phi i1 [ false, %invoke.cont27 ], [ false, %land.lhs.true29 ], [ true, %invoke.cont35 ]
+  %curr_failed.2 = phi i1 [ false, %invoke.cont27 ], [ false, %land.lhs.true29 ], [ true, %invoke.cont35 ]
   %call1.i.i.i46 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #17
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -13492,14 +13492,14 @@ lpad53:                                           ; preds = %invoke.cont54, %if.
   br label %ehcleanup61
 
 if.end58:                                         ; preds = %invoke.cont54, %land.lhs.true48, %invoke.cont46
-  %curr_failed.2 = phi i1 [ false, %invoke.cont46 ], [ false, %land.lhs.true48 ], [ true, %invoke.cont54 ]
+  %curr_failed.1 = phi i1 [ false, %invoke.cont46 ], [ false, %land.lhs.true48 ], [ true, %invoke.cont54 ]
   %call1.i.i.i48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #17
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 try.cont:                                         ; preds = %if.end58, %if.end37, %if.end
-  %curr_failed.3 = phi i1 [ %curr_failed.2, %if.end58 ], [ %curr_failed.1, %if.end37 ], [ %curr_failed.0, %if.end ]
-  br i1 %curr_failed.3, label %for.cond.preheader, label %if.else
+  %curr_failed.0 = phi i1 [ %curr_failed.1, %if.end58 ], [ %curr_failed.2, %if.end37 ], [ %curr_failed.3, %if.end ]
+  br i1 %curr_failed.0, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %try.cont
   %67 = getelementptr inbounds i8, ptr %this, i64 72
@@ -14557,10 +14557,10 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -14586,7 +14586,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -14601,7 +14601,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823

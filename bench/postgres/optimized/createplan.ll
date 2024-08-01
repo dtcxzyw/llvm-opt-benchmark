@@ -648,7 +648,7 @@ list_head.exit184.i:                              ; preds = %247, %list_head.exi
   br i1 %or.cond426, label %.thread154, label %.lr.ph404
 
 .thread154:                                       ; preds = %.lr.ph404, %.lr.ph252, %.lr.ph229, %294
-  %.2138.i = phi ptr [ %.0136.i, %294 ], [ %.0136.i, %.lr.ph229 ], [ %.0136.i, %.lr.ph252 ], [ %301, %.lr.ph404 ]
+  %.3.i = phi ptr [ %.0136.i, %294 ], [ %.0136.i, %.lr.ph229 ], [ %.0136.i, %.lr.ph252 ], [ %301, %.lr.ph404 ]
   %.2.i = phi ptr [ %.0135.i, %294 ], [ %.0135.i, %.lr.ph229 ], [ %.0135.i, %.lr.ph252 ], [ %303, %.lr.ph404 ]
   %.not175.i = icmp eq ptr %.0139.i, %.2.i
   br i1 %.not175.i, label %311, label %308
@@ -663,10 +663,10 @@ list_head.exit184.i:                              ; preds = %247, %list_head.exi
 311:                                              ; preds = %.thread146, %.thread154
   %.0134.i152 = phi i1 [ false, %.thread154 ], [ true, %.thread146 ]
   %.1154.i151 = phi ptr [ %.0153.i255413, %.thread154 ], [ %..i185.i, %.thread146 ]
-  %.3.i = phi ptr [ %.2138.i, %.thread154 ], [ %286, %.thread146 ]
+  %.1137.i = phi ptr [ %.3.i, %.thread154 ], [ %286, %.thread146 ]
   %312 = getelementptr inbounds i8, ptr %.1146.i, i64 16
   %313 = load i32, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %.3.i, i64 16
+  %314 = getelementptr inbounds i8, ptr %.1137.i, i64 16
   %315 = load i32, ptr %314, align 8
   %.not176.i = icmp eq i32 %313, %315
   br i1 %.not176.i, label %316, label %325
@@ -676,7 +676,7 @@ list_head.exit184.i:                              ; preds = %247, %list_head.exi
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 16
   %320 = load i32, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %.3.i, i64 8
+  %321 = getelementptr inbounds i8, ptr %.1137.i, i64 8
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr inbounds i8, ptr %322, i64 16
   %324 = load i32, ptr %323, align 8
@@ -696,7 +696,7 @@ list_head.exit184.i:                              ; preds = %247, %list_head.exi
 329:                                              ; preds = %328
   %330 = getelementptr inbounds i8, ptr %.1146.i, i64 20
   %331 = load i32, ptr %330, align 4
-  %332 = getelementptr inbounds i8, ptr %.3.i, i64 20
+  %332 = getelementptr inbounds i8, ptr %.1137.i, i64 20
   %333 = load i32, ptr %332, align 4
   %.not178.i = icmp eq i32 %331, %333
   br i1 %.not178.i, label %334, label %341
@@ -704,7 +704,7 @@ list_head.exit184.i:                              ; preds = %247, %list_head.exi
 334:                                              ; preds = %329
   %335 = getelementptr inbounds i8, ptr %.1146.i, i64 24
   %336 = load i8, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %.3.i, i64 24
+  %337 = getelementptr inbounds i8, ptr %.1137.i, i64 24
   %338 = load i8, ptr %337, align 8
   %339 = xor i8 %338, %336
   %340 = and i8 %339, 1
@@ -3484,7 +3484,7 @@ create_limit_plan.exit:                           ; preds = %create_limit_plan.e
   %.040.i = phi ptr [ null, %2021 ], [ %2042, %.lr.ph317 ], [ %2042, %list_length.exit143 ], [ %2042, %create_limit_plan.exit.loopexit ]
   %.038.i = phi ptr [ null, %2021 ], [ %2041, %.lr.ph317 ], [ %2041, %list_length.exit143 ], [ %2041, %create_limit_plan.exit.loopexit ]
   %.037.i = phi ptr [ null, %2021 ], [ %2039, %.lr.ph317 ], [ %2039, %list_length.exit143 ], [ %2039, %create_limit_plan.exit.loopexit ]
-  %.1.i88 = phi i32 [ 0, %2021 ], [ 0, %.lr.ph317 ], [ 0, %list_length.exit143 ], [ %2067, %create_limit_plan.exit.loopexit ]
+  %.0.i88 = phi i32 [ 0, %2021 ], [ 0, %.lr.ph317 ], [ 0, %list_length.exit143 ], [ %2067, %create_limit_plan.exit.loopexit ]
   %2068 = getelementptr inbounds i8, ptr %1, i64 80
   %2069 = load i32, ptr %2025, align 8
   %2070 = getelementptr inbounds i8, ptr %2024, i64 48
@@ -3505,7 +3505,7 @@ create_limit_plan.exit:                           ; preds = %create_limit_plan.e
   %2079 = getelementptr inbounds i8, ptr %2072, i64 120
   store i32 %2069, ptr %2079, align 8
   %2080 = getelementptr inbounds i8, ptr %2072, i64 124
-  store i32 %.1.i88, ptr %2080, align 4
+  store i32 %.0.i88, ptr %2080, align 4
   %2081 = getelementptr inbounds i8, ptr %2072, i64 128
   store ptr %.037.i, ptr %2081, align 8
   %2082 = getelementptr inbounds i8, ptr %2072, i64 136
@@ -6505,7 +6505,7 @@ define internal fastcc noundef ptr @create_upper_unique_plan(ptr noundef %0, ptr
 
 .thread88.i:                                      ; preds = %.lr.ph102.i, %61
   %.pn.i = phi ptr [ %67, %61 ], [ %60, %.lr.ph102.i ]
-  %.192.i = phi ptr [ %63, %61 ], [ %57, %.lr.ph102.i ]
+  %.06592.i = phi ptr [ %63, %61 ], [ %57, %.lr.ph102.i ]
   %.06493.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 28
   %.06493.i = load i32, ptr %.06493.in.i, align 4
   %70 = getelementptr inbounds i8, ptr %31, i64 16
@@ -6524,7 +6524,7 @@ define internal fastcc noundef ptr @create_upper_unique_plan(ptr noundef %0, ptr
   unreachable
 
 78:                                               ; preds = %.thread88.i
-  %79 = getelementptr inbounds i8, ptr %.192.i, i64 16
+  %79 = getelementptr inbounds i8, ptr %.06592.i, i64 16
   %80 = load i16, ptr %79, align 8
   %81 = getelementptr i16, ptr %21, i64 %indvars.iv118.i14
   store i16 %80, ptr %81, align 2
@@ -7198,7 +7198,7 @@ list_length.exit:                                 ; preds = %._crit_edge146
 
 54:                                               ; preds = %.lr.ph154, %179
   %indvars.iv160 = phi i64 [ 1, %.lr.ph154 ], [ %indvars.iv.next161, %179 ]
-  %.083152 = phi ptr [ null, %.lr.ph154 ], [ %180, %179 ]
+  %.184152 = phi ptr [ null, %.lr.ph154 ], [ %180, %179 ]
   %.089151 = phi i8 [ %51, %.lr.ph154 ], [ %spec.select101, %179 ]
   %55 = load ptr, ptr %48, align 8
   %56 = getelementptr %union.ListCell, ptr %55, i64 %indvars.iv160
@@ -7430,7 +7430,7 @@ list_length.exit113:                              ; preds = %._crit_edge162, %14
   br label %179
 
 179:                                              ; preds = %176, %list_length.exit113
-  %180 = tail call ptr @lappend(ptr noundef %.083152, ptr noundef nonnull %160) #12
+  %180 = tail call ptr @lappend(ptr noundef %.184152, ptr noundef nonnull %160) #12
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %181 = load i32, ptr %45, align 4
   %182 = sext i32 %181 to i64
@@ -7443,7 +7443,7 @@ list_length.exit.thread.loopexit:                 ; preds = %179
 
 list_length.exit.thread:                          ; preds = %list_length.exit.thread.loopexit, %._crit_edge146, %list_length.exit
   %.val107 = phi ptr [ %23, %list_length.exit ], [ %23, %._crit_edge146 ], [ %.val107.pre, %list_length.exit.thread.loopexit ]
-  %.184 = phi ptr [ null, %list_length.exit ], [ null, %._crit_edge146 ], [ %180, %list_length.exit.thread.loopexit ]
+  %.083 = phi ptr [ null, %list_length.exit ], [ null, %._crit_edge146 ], [ %180, %list_length.exit.thread.loopexit ]
   %184 = getelementptr i8, ptr %4, i64 16
   %.val104 = load ptr, ptr %184, align 8
   %185 = load ptr, ptr %.val104, align 8
@@ -7542,7 +7542,7 @@ list_length.exit122:                              ; preds = %remap_groupColIdx.e
   %245 = getelementptr inbounds i8, ptr %234, i64 168
   store ptr %229, ptr %245, align 8
   %246 = getelementptr inbounds i8, ptr %234, i64 176
-  store ptr %.184, ptr %246, align 8
+  store ptr %.083, ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %234, i64 56
   store ptr %220, ptr %247, align 8
   %248 = getelementptr inbounds i8, ptr %234, i64 48
@@ -8213,7 +8213,7 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
 
 123:                                              ; preds = %159, %116
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %159 ], [ 0, %116 ]
-  %.095 = phi ptr [ %160, %159 ], [ null, %116 ]
+  %.196 = phi ptr [ %160, %159 ], [ null, %116 ]
   br i1 %.not108, label %131, label %124
 
 124:                                              ; preds = %123
@@ -8267,12 +8267,12 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
   unreachable
 
 159:                                              ; preds = %142
-  %160 = tail call ptr @lappend_oid(ptr noundef %.095, i32 noundef %151) #12
+  %160 = tail call ptr @lappend_oid(ptr noundef %.196, i32 noundef %151) #12
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   br label %123, !llvm.loop !14
 
 .thread124:                                       ; preds = %131, %136, %115
-  %.196 = phi ptr [ null, %115 ], [ %.095, %136 ], [ %.095, %131 ]
+  %.095 = phi ptr [ null, %115 ], [ %.196, %136 ], [ %.196, %131 ]
   br i1 %4, label %161, label %.critedge
 
 161:                                              ; preds = %.thread124
@@ -8359,7 +8359,7 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
   %206 = getelementptr inbounds i8, ptr %197, i64 144
   store ptr %.092, ptr %206, align 8
   %207 = getelementptr inbounds i8, ptr %197, i64 152
-  store ptr %.196, ptr %207, align 8
+  store ptr %.095, ptr %207, align 8
   %208 = getelementptr inbounds i8, ptr %197, i64 160
   store i32 %196, ptr %208, align 8
   br label %209
@@ -9137,7 +9137,7 @@ list_length.exit:                                 ; preds = %._crit_edge246
   br i1 %.0155.lcssa339, label %128, label %121
 
 121:                                              ; preds = %94, %._crit_edge246.thread
-  %.0353 = phi ptr [ %96, %94 ], [ %97, %._crit_edge246.thread ]
+  %.1353 = phi ptr [ %96, %94 ], [ %97, %._crit_edge246.thread ]
   %.0157.lcssa336350 = phi i1 [ %90, %94 ], [ %.0157.lcssa337, %._crit_edge246.thread ]
   %.0153.lcssa340347 = phi ptr [ %.1154, %94 ], [ %.0153.lcssa341, %._crit_edge246.thread ]
   %.0151.lcssa342345 = phi ptr [ %.1152, %94 ], [ %.0151.lcssa343, %._crit_edge246.thread ]
@@ -9161,7 +9161,7 @@ list_length.exit177.thread:                       ; preds = %121, %list_length.e
   br i1 %.0157.lcssa336350, label %list_length.exit179.thread, label %129
 
 128:                                              ; preds = %._crit_edge246.thread, %94
-  %.0354 = phi ptr [ %96, %94 ], [ %97, %._crit_edge246.thread ]
+  %.1354 = phi ptr [ %96, %94 ], [ %97, %._crit_edge246.thread ]
   %.0157.lcssa336351 = phi i1 [ %90, %94 ], [ %.0157.lcssa337, %._crit_edge246.thread ]
   %.0153.lcssa340348 = phi ptr [ %.1154, %94 ], [ %.0153.lcssa341, %._crit_edge246.thread ]
   store ptr null, ptr %2, align 8
@@ -9169,7 +9169,7 @@ list_length.exit177.thread:                       ; preds = %121, %list_length.e
 
 129:                                              ; preds = %125, %list_length.exit177.thread, %128
   %.0153.lcssa340346358 = phi ptr [ %.0153.lcssa340347, %list_length.exit177.thread ], [ %.0153.lcssa340348, %128 ], [ %.0153.lcssa340347, %125 ]
-  %.0352356 = phi ptr [ %.0353, %list_length.exit177.thread ], [ %.0354, %128 ], [ %.0353, %125 ]
+  %.1352356 = phi ptr [ %.1353, %list_length.exit177.thread ], [ %.1354, %128 ], [ %.1353, %125 ]
   %.not.i178 = icmp eq ptr %.0153.lcssa340346358, null
   br i1 %.not.i178, label %list_length.exit179.thread, label %list_length.exit179
 
@@ -9333,10 +9333,10 @@ list_length.exit179:                              ; preds = %129
 list_length.exit179.thread:                       ; preds = %133, %125, %list_length.exit177.thread, %128, %129, %list_length.exit179, %._crit_edge222, %._crit_edge287
   %.0153.lcssa340346358.sink.sink = phi ptr [ %.1146.lcssa, %._crit_edge222 ], [ %.0138.lcssa, %._crit_edge287 ], [ %135, %133 ], [ null, %125 ], [ null, %list_length.exit177.thread ], [ null, %128 ], [ %.0153.lcssa340346358, %129 ], [ %.0153.lcssa340346358, %list_length.exit179 ]
   %.sink = phi ptr [ %.0143.lcssa, %._crit_edge222 ], [ %.0139.lcssa, %._crit_edge287 ], [ null, %133 ], [ null, %125 ], [ null, %list_length.exit177.thread ], [ null, %128 ], [ null, %129 ], [ null, %list_length.exit179 ]
-  %.1 = phi ptr [ %144, %._crit_edge222 ], [ %34, %._crit_edge287 ], [ %.0352356, %133 ], [ %.0353, %125 ], [ %.0353, %list_length.exit177.thread ], [ %.0354, %128 ], [ %.0352356, %129 ], [ %.0352356, %list_length.exit179 ]
+  %.0 = phi ptr [ %144, %._crit_edge222 ], [ %34, %._crit_edge287 ], [ %.1352356, %133 ], [ %.1353, %125 ], [ %.1353, %list_length.exit177.thread ], [ %.1354, %128 ], [ %.1352356, %129 ], [ %.1352356, %list_length.exit179 ]
   store ptr %.0153.lcssa340346358.sink.sink, ptr %3, align 8
   store ptr %.sink, ptr %4, align 8
-  ret ptr %.1
+  ret ptr %.0
 }
 
 declare zeroext i1 @list_member(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -9497,9 +9497,9 @@ list_length.exit:                                 ; preds = %10, %13
   br i1 %27, label %.lr.ph211, label %._crit_edge
 
 .lr.ph211:                                        ; preds = %.lr.ph167, %140
-  %.099164210 = phi ptr [ %.2101, %140 ], [ %12, %.lr.ph167 ]
+  %.099164210 = phi ptr [ %.1100, %140 ], [ %12, %.lr.ph167 ]
   %.092165209 = phi i1 [ %.193, %140 ], [ %4, %.lr.ph167 ]
-  %.0166208 = phi ptr [ %.2, %140 ], [ %0, %.lr.ph167 ]
+  %.0166208 = phi ptr [ %.1, %140 ], [ %0, %.lr.ph167 ]
   %indvars.iv179207 = phi i64 [ %indvars.iv.next180, %140 ], [ 0, %.lr.ph167 ]
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr %union.ListCell, ptr %28, i64 %indvars.iv179207
@@ -9675,16 +9675,16 @@ is_projection_capable_plan.exit.thread143:        ; preds = %86, %86, %86, %86, 
   br label %is_projection_capable_plan.exit.thread
 
 is_projection_capable_plan.exit.thread:           ; preds = %86, %is_projection_capable_plan.exit.thread143, %is_projection_capable_plan.exit, %83
-  %.1100 = phi ptr [ %.099164210, %83 ], [ %.099164210, %is_projection_capable_plan.exit ], [ %91, %is_projection_capable_plan.exit.thread143 ], [ %.099164210, %86 ]
-  %.1 = phi ptr [ %.0166208, %83 ], [ %.0166208, %is_projection_capable_plan.exit ], [ %95, %is_projection_capable_plan.exit.thread143 ], [ %.0166208, %86 ]
+  %.2101 = phi ptr [ %.099164210, %83 ], [ %.099164210, %is_projection_capable_plan.exit ], [ %91, %is_projection_capable_plan.exit.thread143 ], [ %.099164210, %86 ]
+  %.2 = phi ptr [ %.0166208, %83 ], [ %.0166208, %is_projection_capable_plan.exit ], [ %95, %is_projection_capable_plan.exit.thread143 ], [ %.0166208, %86 ]
   %115 = getelementptr inbounds i8, ptr %79, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = tail call ptr @copyObjectImpl(ptr noundef %116) #12
-  %.not.i124 = icmp eq ptr %.1100, null
+  %.not.i124 = icmp eq ptr %.2101, null
   br i1 %.not.i124, label %list_length.exit125, label %118
 
 118:                                              ; preds = %is_projection_capable_plan.exit.thread
-  %119 = getelementptr inbounds i8, ptr %.1100, i64 4
+  %119 = getelementptr inbounds i8, ptr %.2101, i64 4
   %120 = load i32, ptr %119, align 4
   br label %list_length.exit125
 
@@ -9693,17 +9693,17 @@ list_length.exit125:                              ; preds = %is_projection_capab
   %122 = trunc i32 %121 to i16
   %123 = add i16 %122, 1
   %124 = tail call ptr @makeTargetEntry(ptr noundef %117, i16 noundef signext %123, ptr noundef null, i1 noundef zeroext true) #12
-  %125 = tail call ptr @lappend(ptr noundef %.1100, ptr noundef %124) #12
-  %126 = getelementptr inbounds i8, ptr %.1, i64 48
+  %125 = tail call ptr @lappend(ptr noundef %.2101, ptr noundef %124) #12
+  %126 = getelementptr inbounds i8, ptr %.2, i64 48
   store ptr %125, ptr %126, align 8
   br label %.thread138
 
 .thread138:                                       ; preds = %.split, %56, %list_length.exit125, %71
-  %.2101 = phi ptr [ %.099164210, %71 ], [ %125, %list_length.exit125 ], [ %.099164210, %56 ], [ %.099164210, %.split ]
+  %.1100 = phi ptr [ %.099164210, %71 ], [ %125, %list_length.exit125 ], [ %.099164210, %56 ], [ %.099164210, %.split ]
   %.298 = phi ptr [ %72, %71 ], [ %124, %list_length.exit125 ], [ %51, %56 ], [ %65, %.split ]
   %.195 = phi i32 [ %78, %71 ], [ %85, %list_length.exit125 ], [ %58, %56 ], [ %70, %.split ]
   %.193 = phi i1 [ %.092165209, %71 ], [ true, %list_length.exit125 ], [ %.092165209, %56 ], [ %.092165209, %.split ]
-  %.2 = phi ptr [ %.0166208, %71 ], [ %.1, %list_length.exit125 ], [ %.0166208, %56 ], [ %.0166208, %.split ]
+  %.1 = phi ptr [ %.0166208, %71 ], [ %.2, %list_length.exit125 ], [ %.0166208, %56 ], [ %.0166208, %.split ]
   %127 = getelementptr inbounds i8, ptr %30, i64 16
   %128 = load i32, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %30, i64 20
@@ -9752,7 +9752,7 @@ list_length.exit125:                              ; preds = %is_projection_capab
 
 ._crit_edge:                                      ; preds = %.lr.ph167, %.._crit_edge.loopexit_crit_edge, %list_length.exit
   %.0103.lcssa = phi i32 [ 0, %list_length.exit ], [ %155, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph167 ]
-  %.0.lcssa = phi ptr [ %0, %list_length.exit ], [ %.2, %.._crit_edge.loopexit_crit_edge ], [ %0, %.lr.ph167 ]
+  %.0.lcssa = phi ptr [ %0, %list_length.exit ], [ %.1, %.._crit_edge.loopexit_crit_edge ], [ %0, %.lr.ph167 ]
   store i32 %.0103.lcssa, ptr %5, align 4
   store ptr %19, ptr %6, align 8
   store ptr %21, ptr %7, align 8

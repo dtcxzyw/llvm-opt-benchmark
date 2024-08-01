@@ -3791,10 +3791,10 @@ Cba_ManRoot.exit65:                               ; preds = %301, %Cba_ManNtkIsO
   br label %Cba_ManPrintStats.exit
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.2 = phi i32 [ %.035.ph, %9 ], [ %.035.ph, %5 ], [ %14, %10 ]
+  %.136 = phi i32 [ %.035.ph, %9 ], [ %.035.ph, %5 ], [ %14, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.51)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.52)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.53, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.53, i32 noundef %.136)
   %.not46 = icmp eq i32 %.033.ph138, 0
   %311 = select i1 %.not46, ptr @.str.28, ptr @.str.27
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.54, ptr noundef nonnull %311)

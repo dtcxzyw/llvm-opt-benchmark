@@ -742,9 +742,9 @@ glib_autoptr_cleanup_GVariant.exit.thread:        ; preds = %if.then62, %if.then
 
 glib_autoptr_cleanup_GVariant.exit:               ; preds = %if.then42, %if.then54, %if.then49
   %proxy.0 = phi ptr [ %call8, %if.then49 ], [ %call8, %if.then54 ], [ null, %if.then42 ]
-  %id.1 = phi ptr [ %call22, %if.then49 ], [ %call22, %if.then54 ], [ null, %if.then42 ]
+  %id.0 = phi ptr [ %call22, %if.then49 ], [ %call22, %if.then54 ], [ null, %if.then42 ]
   %cleanup.dest.slot.0 = phi i32 [ 1, %if.then49 ], [ 1, %if.then54 ], [ 4, %if.then42 ]
-  call void @g_free(ptr noundef %id.1) #6
+  call void @g_free(ptr noundef %id.0) #6
   call void @g_variant_unref(ptr noundef nonnull %call15) #6
   %tobool.not.i.i29 = icmp eq ptr %proxy.0, null
   br i1 %tobool.not.i.i29, label %glib_autoptr_cleanup_GDBusProxy.exit, label %if.then.i.i30
@@ -785,19 +785,19 @@ if.then72:                                        ; preds = %if.then69
   br label %if.then.i.sink.split
 
 if.then.i.sink.split:                             ; preds = %if.then69, %if.then72
-  %retval.361.ph = phi ptr [ null, %if.then72 ], [ %call1, %if.then69 ]
+  %retval.061.ph = phi ptr [ null, %if.then72 ], [ %call1, %if.then69 ]
   %proxies.059.ph = phi ptr [ %call1, %if.then72 ], [ null, %if.then69 ]
   call void @g_free(ptr noundef nonnull %call70) #6
   br label %if.then.i
 
 if.then.i:                                        ; preds = %glib_autoptr_cleanup_GDBusProxy.exit, %if.then.i.sink.split, %for.end
-  %retval.361 = phi ptr [ %call1, %for.end ], [ %retval.361.ph, %if.then.i.sink.split ], [ null, %glib_autoptr_cleanup_GDBusProxy.exit ]
+  %retval.061 = phi ptr [ %call1, %for.end ], [ %retval.061.ph, %if.then.i.sink.split ], [ null, %glib_autoptr_cleanup_GDBusProxy.exit ]
   %proxies.059 = phi ptr [ null, %for.end ], [ %proxies.059.ph, %if.then.i.sink.split ], [ %call1, %glib_autoptr_cleanup_GDBusProxy.exit ]
   call void @g_strfreev(ptr noundef nonnull %call2) #6
   br label %glib_auto_cleanup_GStrv.exit
 
 glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup82.thread63, %if.then.i
-  %retval.362 = phi ptr [ %retval.361, %if.then.i ], [ null, %cleanup82.thread63 ]
+  %retval.062 = phi ptr [ %retval.061, %if.then.i ], [ null, %cleanup82.thread63 ]
   %proxies.060 = phi ptr [ %proxies.059, %if.then.i ], [ %call1, %cleanup82.thread63 ]
   %tobool.not.i.i32 = icmp eq ptr %retval.06.i, null
   br i1 %tobool.not.i.i32, label %glib_autoptr_cleanup_GHashTable.exit, label %if.then.i.i33
@@ -815,7 +815,7 @@ if.then.i.i35:                                    ; preds = %glib_autoptr_cleanu
   br label %glib_autoptr_cleanup_GHashTable.exit36
 
 glib_autoptr_cleanup_GHashTable.exit36:           ; preds = %glib_autoptr_cleanup_GHashTable.exit, %if.then.i.i35
-  ret ptr %retval.362
+  ret ptr %retval.062
 }
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1

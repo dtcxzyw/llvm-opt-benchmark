@@ -395,8 +395,8 @@ if.end.i20:                                       ; preds = %lor.lhs.false.i
 PACKET_get_length_prefixed_1.exit:                ; preds = %lor.lhs.false.i, %if.end.i20
   %pkt.sroa.0.4 = phi ptr [ %pkt.sroa.0.3, %lor.lhs.false.i ], [ %add.ptr.i.i5.i, %if.end.i20 ]
   %pkt.sroa.16.4 = phi i64 [ %pkt.sroa.16.3, %lor.lhs.false.i ], [ %sub.i.i6.i, %if.end.i20 ]
-  %pkt2.sroa.0.0 = phi ptr [ null, %lor.lhs.false.i ], [ %add.ptr.i.i.i, %if.end.i20 ]
-  %pkt2.sroa.11.0 = phi i64 [ 0, %lor.lhs.false.i ], [ %conv.i, %if.end.i20 ]
+  %pkt2.sroa.0.1 = phi ptr [ null, %lor.lhs.false.i ], [ %add.ptr.i.i.i, %if.end.i20 ]
+  %pkt2.sroa.11.1 = phi i64 [ 0, %lor.lhs.false.i ], [ %conv.i, %if.end.i20 ]
   %retval.0.i22 = phi i32 [ 0, %lor.lhs.false.i ], [ 1, %if.end.i20 ]
   %call24 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef %retval.0.i22) #4
   %tobool25.not = icmp eq i32 %call24, 0
@@ -432,8 +432,8 @@ if.end.i28:                                       ; preds = %lor.lhs.false.i24
 PACKET_get_length_prefixed_2.exit:                ; preds = %lor.lhs.false26, %lor.lhs.false.i24, %if.end.i28
   %pkt.sroa.0.5 = phi ptr [ %pkt.sroa.0.4, %lor.lhs.false26 ], [ %pkt.sroa.0.4, %lor.lhs.false.i24 ], [ %add.ptr.i.i6.i, %if.end.i28 ]
   %pkt.sroa.16.5 = phi i64 [ %pkt.sroa.16.4, %lor.lhs.false26 ], [ %pkt.sroa.16.4, %lor.lhs.false.i24 ], [ %sub.i.i7.i, %if.end.i28 ]
-  %pkt2.sroa.0.1 = phi ptr [ %pkt2.sroa.0.0, %lor.lhs.false26 ], [ %pkt2.sroa.0.0, %lor.lhs.false.i24 ], [ %add.ptr.i2.i.i, %if.end.i28 ]
-  %pkt2.sroa.11.1 = phi i64 [ %pkt2.sroa.11.0, %lor.lhs.false26 ], [ %pkt2.sroa.11.0, %lor.lhs.false.i24 ], [ %or.i.i.i, %if.end.i28 ]
+  %pkt2.sroa.0.2 = phi ptr [ %pkt2.sroa.0.1, %lor.lhs.false26 ], [ %pkt2.sroa.0.1, %lor.lhs.false.i24 ], [ %add.ptr.i2.i.i, %if.end.i28 ]
+  %pkt2.sroa.11.2 = phi i64 [ %pkt2.sroa.11.1, %lor.lhs.false26 ], [ %pkt2.sroa.11.1, %lor.lhs.false.i24 ], [ %or.i.i.i, %if.end.i28 ]
   %retval.0.i30 = phi i32 [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false.i24 ], [ 1, %if.end.i28 ]
   %call30 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef %retval.0.i30) #4
   %tobool31.not = icmp eq i32 %call30, 0
@@ -464,8 +464,8 @@ if.end.i39:                                       ; preds = %lor.lhs.false.i34
 PACKET_get_length_prefixed_1.exit45:              ; preds = %PACKET_get_length_prefixed_2.exit.thread, %lor.lhs.false32, %lor.lhs.false.i34, %if.end.i39
   %pkt.sroa.0.6 = phi ptr [ %pkt.sroa.0.5, %lor.lhs.false32 ], [ %pkt.sroa.0.5, %lor.lhs.false.i34 ], [ %add.ptr.i.i5.i41, %if.end.i39 ], [ %pkt.sroa.0.3, %PACKET_get_length_prefixed_2.exit.thread ]
   %pkt.sroa.16.6 = phi i64 [ 0, %lor.lhs.false32 ], [ %pkt.sroa.16.5, %lor.lhs.false.i34 ], [ %sub.i.i6.i42, %if.end.i39 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
-  %pkt2.sroa.0.2 = phi ptr [ %pkt2.sroa.0.1, %lor.lhs.false32 ], [ %pkt2.sroa.0.1, %lor.lhs.false.i34 ], [ %add.ptr.i.i.i40, %if.end.i39 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
-  %pkt2.sroa.11.2 = phi i64 [ %pkt2.sroa.11.1, %lor.lhs.false32 ], [ %pkt2.sroa.11.1, %lor.lhs.false.i34 ], [ %conv.i37, %if.end.i39 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %pkt2.sroa.0.3 = phi ptr [ %pkt2.sroa.0.2, %lor.lhs.false32 ], [ %pkt2.sroa.0.2, %lor.lhs.false.i34 ], [ %add.ptr.i.i.i40, %if.end.i39 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
+  %pkt2.sroa.11.3 = phi i64 [ %pkt2.sroa.11.2, %lor.lhs.false32 ], [ %pkt2.sroa.11.2, %lor.lhs.false.i34 ], [ %conv.i37, %if.end.i39 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
   %retval.0.i44 = phi i32 [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false.i34 ], [ 1, %if.end.i39 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
   %call36 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.20, i32 noundef %retval.0.i44) #4
   %tobool37.not = icmp eq i32 %call36, 0
@@ -492,34 +492,34 @@ if.end.i58:                                       ; preds = %lor.lhs.false.i49
   br label %PACKET_as_length_prefixed_2.exit
 
 PACKET_as_length_prefixed_2.exit:                 ; preds = %lor.lhs.false38, %lor.lhs.false.i49, %if.end.i58
-  %pkt2.sroa.0.3 = phi ptr [ %pkt2.sroa.0.2, %lor.lhs.false38 ], [ %add.ptr.i2.i.i59, %if.end.i58 ], [ %pkt2.sroa.0.2, %lor.lhs.false.i49 ]
-  %pkt2.sroa.11.3 = phi i64 [ %pkt2.sroa.11.2, %lor.lhs.false38 ], [ %or.i.i.i55, %if.end.i58 ], [ %pkt2.sroa.11.2, %lor.lhs.false.i49 ]
+  %pkt2.sroa.0.4 = phi ptr [ %pkt2.sroa.0.3, %lor.lhs.false38 ], [ %add.ptr.i2.i.i59, %if.end.i58 ], [ %pkt2.sroa.0.3, %lor.lhs.false.i49 ]
+  %pkt2.sroa.11.4 = phi i64 [ %pkt2.sroa.11.3, %lor.lhs.false38 ], [ %or.i.i.i55, %if.end.i58 ], [ %pkt2.sroa.11.3, %lor.lhs.false.i49 ]
   %retval.0.i57 = phi i32 [ 0, %lor.lhs.false38 ], [ 1, %if.end.i58 ], [ 0, %lor.lhs.false.i49 ]
   %call42 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.22, i32 noundef %retval.0.i57) #4
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %end, label %while.cond
 
 while.cond:                                       ; preds = %PACKET_as_length_prefixed_2.exit, %if.end58
-  %pkt2.sroa.0.4 = phi ptr [ %pkt2.sroa.0.6, %if.end58 ], [ %pkt2.sroa.0.3, %PACKET_as_length_prefixed_2.exit ]
-  %pkt2.sroa.11.4 = phi i64 [ %pkt2.sroa.11.6, %if.end58 ], [ %pkt2.sroa.11.3, %PACKET_as_length_prefixed_2.exit ]
+  %pkt2.sroa.0.0 = phi ptr [ %pkt2.sroa.0.6, %if.end58 ], [ %pkt2.sroa.0.4, %PACKET_as_length_prefixed_2.exit ]
+  %pkt2.sroa.11.0 = phi i64 [ %pkt2.sroa.11.6, %if.end58 ], [ %pkt2.sroa.11.4, %PACKET_as_length_prefixed_2.exit ]
   %pkt3.sroa.0.0 = phi ptr [ %pkt3.sroa.0.1, %if.end58 ], [ null, %PACKET_as_length_prefixed_2.exit ]
   %pkt3.sroa.4.0 = phi i64 [ %pkt3.sroa.4.1, %if.end58 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
   %type.0 = phi i32 [ %type.1204209, %if.end58 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
-  switch i64 %pkt2.sroa.11.4, label %PACKET_get_net_2.exit [
+  switch i64 %pkt2.sroa.11.0, label %PACKET_get_net_2.exit [
     i64 0, label %end
     i64 1, label %PACKET_get_net_2.exit.thread
   ]
 
 PACKET_get_net_2.exit:                            ; preds = %while.cond
-  %7 = load i8, ptr %pkt2.sroa.0.4, align 1
+  %7 = load i8, ptr %pkt2.sroa.0.0, align 1
   %conv.i.i = zext i8 %7 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 1
+  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 1
   %8 = load i8, ptr %add.ptr.i.i63, align 1
   %conv2.i.i = zext i8 %8 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 2
-  %sub.i.i64 = add i64 %pkt2.sroa.11.4, -2
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 2
+  %sub.i.i64 = add i64 %pkt2.sroa.11.0, -2
   %call49 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 1) #4
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %end, label %lor.lhs.false51
@@ -537,23 +537,23 @@ lor.lhs.false.i69:                                ; preds = %lor.lhs.false51
   %9 = load i8, ptr %add.ptr.i2.i, align 1
   %conv.i.i.i71 = zext i8 %9 to i64
   %shl.i.i.i72 = shl nuw nsw i64 %conv.i.i.i71, 8
-  %add.ptr.i.i.i73 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 3
+  %add.ptr.i.i.i73 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 3
   %10 = load i8, ptr %add.ptr.i.i.i73, align 1
   %conv2.i.i.i74 = zext i8 %10 to i64
   %or.i.i.i75 = or disjoint i64 %shl.i.i.i72, %conv2.i.i.i74
-  %sub.i.i.i76.reass = add i64 %pkt2.sroa.11.4, -4
+  %sub.i.i.i76.reass = add i64 %pkt2.sroa.11.0, -4
   %cmp.i.i4.i77 = icmp ult i64 %sub.i.i.i76.reass, %or.i.i.i75
   br i1 %cmp.i.i4.i77, label %PACKET_get_length_prefixed_2.exit84, label %if.end.i78
 
 if.end.i78:                                       ; preds = %lor.lhs.false.i69
-  %add.ptr.i2.i.i79 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 4
+  %add.ptr.i2.i.i79 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 4
   %add.ptr.i.i6.i80 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i79, i64 %or.i.i.i75
   %sub.i.i7.i81 = sub nuw i64 %sub.i.i.i76.reass, %or.i.i.i75
   br label %PACKET_get_length_prefixed_2.exit84
 
 PACKET_get_length_prefixed_2.exit84:              ; preds = %PACKET_get_net_2.exit.thread, %lor.lhs.false51, %lor.lhs.false.i69, %if.end.i78
   %type.1204209 = phi i32 [ %or.i.i, %lor.lhs.false51 ], [ %or.i.i, %lor.lhs.false.i69 ], [ %or.i.i, %if.end.i78 ], [ %type.0, %PACKET_get_net_2.exit.thread ]
-  %pkt2.sroa.0.6 = phi ptr [ %add.ptr.i2.i, %lor.lhs.false51 ], [ %add.ptr.i2.i, %lor.lhs.false.i69 ], [ %add.ptr.i.i6.i80, %if.end.i78 ], [ %pkt2.sroa.0.4, %PACKET_get_net_2.exit.thread ]
+  %pkt2.sroa.0.6 = phi ptr [ %add.ptr.i2.i, %lor.lhs.false51 ], [ %add.ptr.i2.i, %lor.lhs.false.i69 ], [ %add.ptr.i.i6.i80, %if.end.i78 ], [ %pkt2.sroa.0.0, %PACKET_get_net_2.exit.thread ]
   %pkt2.sroa.11.6 = phi i64 [ %sub.i.i64, %lor.lhs.false51 ], [ %sub.i.i64, %lor.lhs.false.i69 ], [ %sub.i.i7.i81, %if.end.i78 ], [ 1, %PACKET_get_net_2.exit.thread ]
   %pkt3.sroa.0.1 = phi ptr [ %pkt3.sroa.0.0, %lor.lhs.false51 ], [ %pkt3.sroa.0.0, %lor.lhs.false.i69 ], [ %add.ptr.i2.i.i79, %if.end.i78 ], [ %pkt3.sroa.0.0, %PACKET_get_net_2.exit.thread ]
   %pkt3.sroa.4.1 = phi i64 [ %pkt3.sroa.4.0, %lor.lhs.false51 ], [ %pkt3.sroa.4.0, %lor.lhs.false.i69 ], [ %or.i.i.i75, %if.end.i78 ], [ %pkt3.sroa.4.0, %PACKET_get_net_2.exit.thread ]

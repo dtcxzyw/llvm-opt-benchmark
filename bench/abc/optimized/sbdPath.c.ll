@@ -693,7 +693,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %.critedge2
   %indvars.iv131 = phi i64 [ %48, %.lr.ph113.preheader ], [ %indvars.iv.next132, %.critedge2 ]
-  %.061111 = phi i32 [ 0, %.lr.ph113.preheader ], [ %.3, %.critedge2 ]
+  %.061111 = phi i32 [ 0, %.lr.ph113.preheader ], [ %.162, %.critedge2 ]
   %.064110 = phi i32 [ 0, %.lr.ph113.preheader ], [ %.165, %.critedge2 ]
   %.066109 = phi i32 [ 0, %.lr.ph113.preheader ], [ %.167, %.critedge2 ]
   %indvars.iv.next132 = add nsw i64 %indvars.iv131, -1
@@ -734,7 +734,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
 74:                                               ; preds = %.lr.ph107, %94
   %indvars.iv128 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next129, %94 ]
   %75 = phi ptr [ %70, %.lr.ph107 ], [ %98, %94 ]
-  %.162106 = phi i32 [ %.061111, %.lr.ph107 ], [ %.263, %94 ]
+  %.263106 = phi i32 [ %.061111, %.lr.ph107 ], [ %.3, %94 ]
   %76 = getelementptr inbounds i8, ptr %75, i64 4
   %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv128
   %78 = load i32, ptr %77, align 4
@@ -755,11 +755,11 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %91 = load i32, ptr %90, align 4
   %92 = or i32 %91, %87
   store i32 %92, ptr %90, align 4
-  %93 = add nsw i32 %.162106, 1
+  %93 = add nsw i32 %.263106, 1
   br label %94
 
 94:                                               ; preds = %74, %85
-  %.263 = phi i32 [ %.162106, %74 ], [ %93, %85 ]
+  %.3 = phi i32 [ %.263106, %74 ], [ %93, %85 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %.val82.val = load ptr, ptr %51, align 8
   %95 = getelementptr inbounds i32, ptr %.val82.val, i64 %indvars.iv.next132
@@ -774,7 +774,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
 .critedge2:                                       ; preds = %94, %65, %.lr.ph113, %55
   %.167 = phi i32 [ %56, %55 ], [ %.066109, %.lr.ph113 ], [ %56, %65 ], [ %56, %94 ]
   %.165 = phi i32 [ %.064110, %55 ], [ %.064110, %.lr.ph113 ], [ %66, %65 ], [ %66, %94 ]
-  %.3 = phi i32 [ %.061111, %55 ], [ %.061111, %.lr.ph113 ], [ %.061111, %65 ], [ %.263, %94 ]
+  %.162 = phi i32 [ %.061111, %55 ], [ %.061111, %.lr.ph113 ], [ %.061111, %65 ], [ %.3, %94 ]
   %102 = icmp sgt i64 %indvars.iv131, 2
   br i1 %102, label %.lr.ph113, label %.preheader100, !llvm.loop !13
 
@@ -834,7 +834,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br i1 %exitcond141.not, label %._crit_edge, label %103, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge4, %.critedge, %.preheader100
-  %.061.lcssa154 = phi i32 [ %.3, %.preheader100 ], [ 0, %.critedge ], [ %.3, %.critedge4 ]
+  %.061.lcssa154 = phi i32 [ %.162, %.preheader100 ], [ 0, %.critedge ], [ %.162, %.critedge4 ]
   %.064.lcssa153 = phi i32 [ %.165, %.preheader100 ], [ 0, %.critedge ], [ %.165, %.critedge4 ]
   %.066.lcssa152 = phi i32 [ %.167, %.preheader100 ], [ 0, %.critedge ], [ %.167, %.critedge4 ]
   %.0.lcssa = phi i32 [ 0, %.preheader100 ], [ 0, %.critedge ], [ %.2, %.critedge4 ]

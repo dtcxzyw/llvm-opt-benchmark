@@ -308,20 +308,20 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   %136 = phi i32 [ %133, %.lr.ph399.preheader ], [ %141, %.lr.ph399 ]
   %137 = phi i32 [ 0, %.lr.ph399.preheader ], [ %138, %.lr.ph399 ]
   %indvars.iv470 = phi i64 [ 1, %.lr.ph399.preheader ], [ %indvars.iv.next471, %.lr.ph399 ]
-  %.0326396 = phi i32 [ %133, %.lr.ph399.preheader ], [ %142, %.lr.ph399 ]
+  %.1327396 = phi i32 [ %133, %.lr.ph399.preheader ], [ %142, %.lr.ph399 ]
   %138 = add nsw i32 %136, %137
   %139 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv470
   store i32 %138, ptr %139, align 4
   %140 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv470
   %141 = load i32, ptr %140, align 4
-  %142 = add nsw i32 %141, %.0326396
+  %142 = add nsw i32 %141, %.1327396
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next471, %wide.trip.count473
   br i1 %exitcond474.not, label %._crit_edge400, label %.lr.ph399, !llvm.loop !8
 
 ._crit_edge400:                                   ; preds = %.lr.ph399, %132
-  %.0326.lcssa = phi i32 [ %133, %132 ], [ %142, %.lr.ph399 ]
-  %143 = sext i32 %.0326.lcssa to i64
+  %.1327.lcssa = phi i32 [ %133, %132 ], [ %142, %.lr.ph399 ]
+  %143 = sext i32 %.1327.lcssa to i64
   %144 = mul nsw i64 %143, 24
   %145 = call noalias ptr @malloc(i64 noundef %144) #15
   %146 = icmp eq ptr %145, null
@@ -450,7 +450,7 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br i1 %177, label %.preheader370, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge407, %.preheader372, %.preheader371, %126
-  %.1327 = phi i32 [ 0, %126 ], [ %.0326.lcssa, %.preheader371 ], [ %.0326.lcssa, %.preheader372 ], [ %.0326.lcssa, %._crit_edge407 ]
+  %.0326 = phi i32 [ 0, %126 ], [ %.1327.lcssa, %.preheader371 ], [ %.1327.lcssa, %.preheader372 ], [ %.1327.lcssa, %._crit_edge407 ]
   %.0325 = phi ptr [ null, %126 ], [ %145, %.preheader371 ], [ %145, %.preheader372 ], [ %145, %._crit_edge407 ]
   %.0324 = phi ptr [ null, %126 ], [ %150, %.preheader371 ], [ %150, %.preheader372 ], [ %150, %._crit_edge407 ]
   %.0311 = phi ptr [ null, %126 ], [ %156, %.preheader371 ], [ %156, %.preheader372 ], [ %156, %._crit_edge407 ]
@@ -470,12 +470,12 @@ define range(i32 -2, 17) i32 @ompi_io_ompio_generate_current_file_view(ptr nocap
   br i1 %190, label %191, label %317
 
 191:                                              ; preds = %.loopexit
-  %192 = call i32 @ompi_io_ompio_sort_offlen(ptr noundef %.0325, i32 noundef %.1327, ptr noundef %.0324)
-  %193 = icmp sgt i32 %.1327, 1
+  %192 = call i32 @ompi_io_ompio_sort_offlen(ptr noundef %.0325, i32 noundef %.0326, ptr noundef %.0324)
+  %193 = icmp sgt i32 %.0326, 1
   br i1 %193, label %.lr.ph411.preheader, label %.preheader369
 
 .lr.ph411.preheader:                              ; preds = %191
-  %194 = add nsw i32 %.1327, -1
+  %194 = add nsw i32 %.0326, -1
   %wide.trip.count489 = zext nneg i32 %194 to i64
   %.pre538 = load i32, ptr %.0324, align 4
   br label %.lr.ph411

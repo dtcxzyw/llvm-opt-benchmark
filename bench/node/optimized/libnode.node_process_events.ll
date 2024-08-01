@@ -172,14 +172,14 @@ if.end94:                                         ; preds = %land.rhs, %if.end77
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end94, %land.rhs, %if.then62, %arrayctor.loop.preheader, %if.end43, %if.end
-  %retval.sroa.0.0 = phi i16 [ 0, %if.end ], [ 1, %if.end43 ], [ 0, %arrayctor.loop.preheader ], [ 0, %if.then62 ], [ 0, %land.rhs ], [ %spec.select, %if.end94 ]
+  %retval.sroa.0.1 = phi i16 [ 0, %if.end ], [ 1, %if.end43 ], [ 0, %arrayctor.loop.preheader ], [ 0, %if.then62 ], [ 0, %land.rhs ], [ %spec.select, %if.end94 ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #11
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #11
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK4node11Environment16can_call_into_jsEv.exit, %cleanup
-  %retval.sroa.0.1 = phi i16 [ %retval.sroa.0.0, %cleanup ], [ 1, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 1, %entry ]
-  ret i16 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i16 [ %retval.sroa.0.1, %cleanup ], [ 1, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 1, %entry ]
+  ret i16 %retval.sroa.0.0
 }
 
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0

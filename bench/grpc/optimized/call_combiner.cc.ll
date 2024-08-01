@@ -475,7 +475,7 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit19, %entry
-  %closure.addr.0 = phi ptr [ %closure, %entry ], [ %closure.addr.2, %_ZN4absl12lts_202308026StatusD2Ev.exit19 ]
+  %closure.addr.0 = phi ptr [ %closure, %entry ], [ %closure.addr.1, %_ZN4absl12lts_202308026StatusD2Ev.exit19 ]
   %0 = load atomic i64, ptr %cancel_state_ acquire, align 8
   %and.i = and i64 %0, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -569,7 +569,7 @@ lpad15:                                           ; preds = %invoke.cont14
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.then.i.i12, %invoke.cont16, %if.then.i.i9, %invoke.cont5, %if.else, %if.then9
-  %closure.addr.2 = phi ptr [ %closure.addr.0, %if.then9 ], [ %closure.addr.0, %if.else ], [ %closure.addr.0, %invoke.cont5 ], [ %closure.addr.0, %if.then.i.i9 ], [ %10, %invoke.cont16 ], [ %10, %if.then.i.i12 ]
+  %closure.addr.1 = phi ptr [ %closure.addr.0, %if.then9 ], [ %closure.addr.0, %if.else ], [ %closure.addr.0, %invoke.cont5 ], [ %closure.addr.0, %if.then.i.i9 ], [ %10, %invoke.cont16 ], [ %10, %if.then.i.i12 ]
   %switch = phi i1 [ false, %if.then9 ], [ true, %if.else ], [ false, %invoke.cont5 ], [ false, %if.then.i.i9 ], [ false, %invoke.cont16 ], [ false, %if.then.i.i12 ]
   %15 = load i64, ptr %original_error, align 8
   %and.i.i.i15 = and i64 %15, 1

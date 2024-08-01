@@ -6231,14 +6231,14 @@ _ZNK25HotSpotCompiledCodeStream9availableEv.exit: ; preds = %.lr.ph.i, %287
   unreachable
 
 394:                                              ; preds = %374, %376, %306, %284, %280, %_ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit, %371, %333, %328, %311, %304
-  %.0 = phi i32 [ 0, %304 ], [ 0, %333 ], [ 0, %371 ], [ 0, %328 ], [ %312, %311 ], [ 0, %_ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit ], [ 0, %280 ], [ 0, %284 ], [ %285, %306 ], [ %354, %376 ], [ %354, %374 ]
+  %.1 = phi i32 [ 0, %304 ], [ 0, %333 ], [ 0, %371 ], [ 0, %328 ], [ %312, %311 ], [ 0, %_ZN25HotSpotCompiledCodeStream13set_code_descEPKcR12methodHandle.exit ], [ 0, %280 ], [ 0, %284 ], [ %285, %306 ], [ %354, %376 ], [ %354, %374 ]
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %17) #10
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #10
   br label %395
 
 395:                                              ; preds = %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit, %394
-  %.1 = phi i32 [ %.0, %394 ], [ 0, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %394 ], [ 0, %_ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit ]
+  ret i32 %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
@@ -9418,7 +9418,7 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %163, %187
   %194 = icmp sgt i32 %150, -1
   %195 = and i8 %190, 8
   %.not62 = icmp eq i8 %195, 0
-  %.048 = and i1 %194, %.not62
+  %.1 = and i1 %194, %.not62
   %196 = call noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %190, i1 noundef zeroext true, ptr noundef %7)
   %197 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #10
   %.not54 = icmp eq i8 %197, 0
@@ -9454,9 +9454,9 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %163, %187
   %.052 = phi ptr [ %208, %204 ], [ null, %158 ]
   %.051 = phi ptr [ %206, %204 ], [ null, %158 ]
   %.049 = phi i1 [ %193, %204 ], [ false, %158 ]
-  %.1 = phi i1 [ %.048, %204 ], [ false, %158 ]
+  %.048 = phi i1 [ %.1, %204 ], [ false, %158 ]
   %212 = load ptr, ptr %53, align 8
-  call void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %212, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, i32 noundef %150, i1 noundef zeroext %.1, i1 noundef zeroext %.049, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %.051, ptr noundef %.052, ptr noundef %.053) #10
+  call void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %212, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, i32 noundef %150, i1 noundef zeroext %.048, i1 noundef zeroext %.049, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %.051, ptr noundef %.052, ptr noundef %.053) #10
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #10
   %213 = add nuw nsw i32 %.063, 1
   %exitcond.not = icmp eq i32 %213, %50

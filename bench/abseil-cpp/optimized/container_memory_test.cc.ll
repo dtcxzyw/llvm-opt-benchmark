@@ -4630,8 +4630,8 @@ ehcleanup46:                                      ; preds = %lpad, %lpad.i, %ehc
   br label %common.resume
 
 return:                                           ; preds = %_ZNK7testing8internal11MatcherBaseIRKSt10type_indexE7MatchesES4_.exit, %_ZNK7testing8internal11MatcherBaseIRKiE7MatchesES3_.exit, %cleanup45
-  %retval.2 = phi i1 [ %retval.1, %cleanup45 ], [ false, %_ZNK7testing8internal11MatcherBaseIRKSt10type_indexE7MatchesES4_.exit ], [ %call5.i2.i22, %_ZNK7testing8internal11MatcherBaseIRKiE7MatchesES3_.exit ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %retval.1, %cleanup45 ], [ false, %_ZNK7testing8internal11MatcherBaseIRKSt10type_indexE7MatchesES4_.exit ], [ %call5.i2.i22, %_ZNK7testing8internal11MatcherBaseIRKiE7MatchesES3_.exit ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9696,8 +9696,8 @@ ehcleanup46:                                      ; preds = %lpad, %lpad.i, %ehc
   br label %common.resume
 
 return:                                           ; preds = %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJEEE7MatchesES5_.exit, %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJEEE7MatchesES5_.exit23, %cleanup45
-  %retval.2 = phi i1 [ %retval.1, %cleanup45 ], [ false, %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJEEE7MatchesES5_.exit ], [ %call5.i2.i22, %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJEEE7MatchesES5_.exit23 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %retval.1, %cleanup45 ], [ false, %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJEEE7MatchesES5_.exit ], [ %call5.i2.i22, %_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJEEE7MatchesES5_.exit23 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

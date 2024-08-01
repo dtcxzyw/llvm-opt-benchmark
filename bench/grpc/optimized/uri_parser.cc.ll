@@ -1091,20 +1091,20 @@ if.else:                                          ; preds = %invoke.cont43
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end32, %if.else
-  %remaining.sroa.0.1 = phi i64 [ %sub.i106, %if.else ], [ %sub.i, %if.end32 ]
-  %remaining.sroa.29.1 = phi ptr [ %add.ptr.i105, %if.else ], [ %add.ptr.i, %if.end32 ]
+  %remaining.sroa.0.0 = phi i64 [ %sub.i106, %if.else ], [ %sub.i, %if.end32 ]
+  %remaining.sroa.29.0 = phi ptr [ %add.ptr.i105, %if.else ], [ %add.ptr.i, %if.end32 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #20
-  %cmp.i107 = icmp eq i64 %remaining.sroa.0.1, 0
+  %cmp.i107 = icmp eq i64 %remaining.sroa.0.0, 0
   br i1 %cmp.i107, label %if.end65.thread, label %if.then51
 
 if.then51:                                        ; preds = %if.end49.thread, %if.end49
-  %remaining.sroa.29.1325 = phi ptr [ %add.ptr.i, %if.end49.thread ], [ %remaining.sroa.29.1, %if.end49 ]
-  %remaining.sroa.0.1324 = phi i64 [ %sub.i, %if.end49.thread ], [ %remaining.sroa.0.1, %if.end49 ]
+  %remaining.sroa.29.0325 = phi ptr [ %add.ptr.i, %if.end49.thread ], [ %remaining.sroa.29.0, %if.end49 ]
+  %remaining.sroa.0.0324 = phi i64 [ %sub.i, %if.end49.thread ], [ %remaining.sroa.0.0, %if.end49 ]
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115:  ; preds = %if.then51, %for.inc.i.i121
   %__pos.addr.07.i.i116 = phi i64 [ %inc.i.i122, %for.inc.i.i121 ], [ 0, %if.then51 ]
-  %arrayidx.i.i117 = getelementptr inbounds i8, ptr %remaining.sroa.29.1325, i64 %__pos.addr.07.i.i116
+  %arrayidx.i.i117 = getelementptr inbounds i8, ptr %remaining.sroa.29.0325, i64 %__pos.addr.07.i.i116
   %40 = load i8, ptr %arrayidx.i.i117, align 1
   switch i8 %40, label %for.inc.i.i121 [
     i8 63, label %invoke.cont56
@@ -1113,13 +1113,13 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115:  ; preds = %if.then51, %for.inc
 
 for.inc.i.i121:                                   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115
   %inc.i.i122 = add i64 %__pos.addr.07.i.i116, 1
-  %exitcond.not.i.i123 = icmp eq i64 %inc.i.i122, %remaining.sroa.0.1324
+  %exitcond.not.i.i123 = icmp eq i64 %inc.i.i122, %remaining.sroa.0.0324
   br i1 %exitcond.not.i.i123, label %invoke.cont56, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115, !llvm.loop !25
 
 invoke.cont56:                                    ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115, %for.inc.i.i121
   %retval.0.i.i112 = phi i64 [ %__pos.addr.07.i.i116, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115 ], [ -1, %for.inc.i.i121 ], [ %__pos.addr.07.i.i116, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i115 ]
-  %.sroa.speculated.i126 = call i64 @llvm.umin.i64(i64 %remaining.sroa.0.1324, i64 %retval.0.i.i112)
-  invoke void @_ZN9grpc_core3URI13PercentDecodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp53, i64 %.sroa.speculated.i126, ptr nonnull %remaining.sroa.29.1325)
+  %.sroa.speculated.i126 = call i64 @llvm.umin.i64(i64 %remaining.sroa.0.0324, i64 %retval.0.i.i112)
+  invoke void @_ZN9grpc_core3URI13PercentDecodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp53, i64 %.sroa.speculated.i126, ptr nonnull %remaining.sroa.29.0325)
           to label %invoke.cont58 unwind label %lpad55
 
 invoke.cont58:                                    ; preds = %invoke.cont56
@@ -1138,8 +1138,8 @@ if.end65.thread:                                  ; preds = %if.end49, %invoke.c
   br label %if.end135.thread
 
 if.end65:                                         ; preds = %invoke.cont58
-  %add.ptr.i135 = getelementptr inbounds i8, ptr %remaining.sroa.29.1325, i64 %retval.0.i.i112
-  %sub.i136 = sub i64 %remaining.sroa.0.1324, %retval.0.i.i112
+  %add.ptr.i135 = getelementptr inbounds i8, ptr %remaining.sroa.29.0325, i64 %retval.0.i.i112
+  %sub.i136 = sub i64 %remaining.sroa.0.0324, %retval.0.i.i112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %query_param_pairs, i8 0, i64 24, i1 false)
   %cmp.not.i.i144 = icmp eq i64 %sub.i136, 0
   br i1 %cmp.not.i.i144, label %if.end135.thread, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i145
@@ -1491,16 +1491,16 @@ if.end135:                                        ; preds = %for.end
   br i1 %cmp.not.i.i244, label %if.end157, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i245
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i245: ; preds = %if.end135.thread355, %if.end135
-  %remaining.sroa.29.4360 = phi ptr [ %add.ptr.i135, %if.end135.thread355 ], [ %add.ptr.i235, %if.end135 ]
-  %remaining.sroa.0.4359 = phi i64 [ %sub.i136, %if.end135.thread355 ], [ %sub.i236, %if.end135 ]
-  %lhsc327 = load i8, ptr %remaining.sroa.29.4360, align 1
+  %remaining.sroa.29.2360 = phi ptr [ %add.ptr.i135, %if.end135.thread355 ], [ %add.ptr.i235, %if.end135 ]
+  %remaining.sroa.0.2359 = phi i64 [ %sub.i136, %if.end135.thread355 ], [ %sub.i236, %if.end135 ]
+  %lhsc327 = load i8, ptr %remaining.sroa.29.2360, align 1
   %cmp7.i.i247 = icmp eq i8 %lhsc327, 35
   br i1 %cmp7.i.i247, label %if.then140, label %if.end157
 
 if.then140:                                       ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i245
-  %add.ptr.i.i249 = getelementptr inbounds i8, ptr %remaining.sroa.29.4360, i64 1
-  %sub.i.i250 = add i64 %remaining.sroa.0.4359, -1
-  %add.ptr.i.i252 = getelementptr i8, ptr %remaining.sroa.29.4360, i64 %remaining.sroa.0.4359
+  %add.ptr.i.i249 = getelementptr inbounds i8, ptr %remaining.sroa.29.2360, i64 1
+  %sub.i.i250 = add i64 %remaining.sroa.0.2359, -1
+  %add.ptr.i.i252 = getelementptr i8, ptr %remaining.sroa.29.2360, i64 %remaining.sroa.0.2359
   %cmp.not7.i253 = icmp eq i64 %sub.i.i250, 0
   br i1 %cmp.not7.i253, label %if.end152, label %for.body.i254
 
@@ -2934,7 +2934,7 @@ ehcleanup:                                        ; preds = %arraydestroy.body12
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %ehcleanup, %lpad
-  %cleanup.isactive.1 = phi i1 [ %28, %ehcleanup ], [ false, %lpad ]
+  %cleanup.isactive.0 = phi i1 [ %28, %ehcleanup ], [ false, %lpad ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %26, %lpad ]
   %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element, %ehcleanup ], [ %ref.tmp, %lpad ]
   %29 = load ptr, ptr %_M_manager.i.i, align 8
@@ -2954,7 +2954,7 @@ terminate.lpad.i.i45:                             ; preds = %if.then.i.i43
 
 _ZNSt8functionIFbcEED2Ev.exit46:                  ; preds = %ehcleanup17, %if.then.i.i43
   %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.0
-  %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
+  %or.cond = select i1 %cleanup.isactive.0, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %eh.resume, label %arraydestroy.body19
 
 arraydestroy.body19:                              ; preds = %_ZNSt8functionIFbcEED2Ev.exit46, %arraydestroy.body19

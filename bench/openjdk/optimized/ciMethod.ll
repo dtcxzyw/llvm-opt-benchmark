@@ -1403,8 +1403,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %86, %92
   br label %106
 
 106:                                              ; preds = %1, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.2 = phi i1 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ true, %1 ]
-  ret i1 %.2
+  %.09 = phi i1 [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ true, %1 ]
+  ret i1 %.09
 }
 
 declare void @_ZN13ExceptionMarkC1EP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
@@ -2011,8 +2011,8 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %120, %.critedge.i, 
   br label %132
 
 132:                                              ; preds = %._crit_edge70.thread, %58
-  %.1 = phi i32 [ %131, %._crit_edge70.thread ], [ %53, %58 ]
-  store i32 %.1, ptr %17, align 8
+  %.0 = phi i32 [ %131, %._crit_edge70.thread ], [ %53, %58 ]
+  store i32 %.0, ptr %17, align 8
   br label %133
 
 133:                                              ; preds = %26, %29, %132, %21, %3
@@ -2752,7 +2752,7 @@ _ZN5ciEnv10get_methodEP6Method.exit:              ; preds = %89
   br label %97
 
 97:                                               ; preds = %89, %86, %_ZN11MutexLockerD2Ev.exit, %_ZN5ciEnv10get_methodEP6Method.exit
-  %.0 = phi ptr [ %96, %_ZN5ciEnv10get_methodEP6Method.exit ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ %13, %86 ], [ null, %89 ]
+  %.1 = phi ptr [ %96, %_ZN5ciEnv10get_methodEP6Method.exit ], [ null, %_ZN11MutexLockerD2Ev.exit ], [ %13, %86 ], [ null, %89 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   %98 = getelementptr inbounds i8, ptr %33, i64 408
   %99 = load ptr, ptr %98, align 8
@@ -2790,8 +2790,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %97, %103
   br label %117
 
 117:                                              ; preds = %28, %15, %12, %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %5 ], [ null, %12 ], [ %13, %15 ], [ %., %28 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %5 ], [ null, %12 ], [ %13, %15 ], [ %., %28 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

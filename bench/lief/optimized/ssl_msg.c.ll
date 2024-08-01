@@ -830,9 +830,9 @@ ssl_build_record_nonce.exit:                      ; preds = %53
 177:                                              ; preds = %173, %171
   %.sink = phi i64 [ %176, %173 ], [ %172, %171 ]
   %178 = call i64 @mbedtls_ct_size_mask_ge(i64 noundef %163, i64 noundef %.sink) #17
-  %.0219 = and i64 %178, %170
-  %.0222 = and i64 %178, 1
-  %179 = add nuw nsw i64 %.0219, 1
+  %.1220 = and i64 %178, %170
+  %.1223 = and i64 %178, 1
+  %179 = add nuw nsw i64 %.1220, 1
   %180 = load i64, ptr %23, align 8
   %181 = sub i64 %180, %179
   %182 = call i64 @llvm.usub.sat.i64(i64 %180, i64 256)
@@ -846,7 +846,7 @@ ssl_build_record_nonce.exit:                      ; preds = %53
   %185 = getelementptr inbounds i8, ptr %152, i64 %.0221295
   %186 = load volatile i8, ptr %185, align 1
   %187 = zext i8 %186 to i64
-  %188 = call i32 @mbedtls_ct_size_bool_eq(i64 noundef %187, i64 noundef %.0219) #17
+  %188 = call i32 @mbedtls_ct_size_bool_eq(i64 noundef %187, i64 noundef %.1220) #17
   %189 = zext i32 %188 to i64
   %190 = and i64 %184, %189
   %191 = add i64 %190, %.0230294
@@ -863,7 +863,7 @@ ssl_build_record_nonce.exit:                      ; preds = %53
   %.0230.lcssa = phi i64 [ 0, %177 ], [ %191, %.lr.ph ]
   %196 = call i32 @mbedtls_ct_size_bool_eq(i64 noundef %.0230.lcssa, i64 noundef %179) #17
   %197 = zext i32 %196 to i64
-  %198 = and i64 %.0222, %197
+  %198 = and i64 %.1223, %197
   %199 = call i64 @mbedtls_ct_size_mask(i64 noundef %198) #17
   %200 = and i64 %199, %179
   %201 = load i64, ptr %23, align 8
@@ -1198,7 +1198,7 @@ ssl_build_record_nonce.exit:                      ; preds = %97
   br label %238
 
 144:                                              ; preds = %.thread268, %85
-  %.1217271 = phi i64 [ %82, %.thread268 ], [ %44, %85 ]
+  %.0216271 = phi i64 [ %82, %.thread268 ], [ %44, %85 ]
   %145 = add i32 %32, -1
   %or.cond3 = icmp ult i32 %145, 2
   br i1 %or.cond3, label %146, label %237
@@ -1213,7 +1213,7 @@ ssl_build_record_nonce.exit:                      ; preds = %97
   %153 = icmp eq i64 %151, 0
   %spec.store.select = select i1 %153, i64 0, i64 %152
   %154 = add i64 %spec.store.select, 1
-  %155 = icmp ult i64 %.1217271, %154
+  %155 = icmp ult i64 %.0216271, %154
   br i1 %155, label %157, label %.preheader
 
 .preheader:                                       ; preds = %146
@@ -1239,7 +1239,7 @@ ssl_build_record_nonce.exit:                      ; preds = %97
   %164 = load i64, ptr %27, align 8
   %165 = add i64 %164, %154
   store i64 %165, ptr %27, align 8
-  %166 = sub i64 %.1217271, %154
+  %166 = sub i64 %.0216271, %154
   %167 = icmp eq ptr %3, null
   br i1 %167, label %168, label %169
 
@@ -1573,9 +1573,9 @@ define hidden i32 @mbedtls_ssl_fetch_input(ptr noundef %0, i64 noundef %1) local
   br label %81
 
 81:                                               ; preds = %75, %70
-  %.0112 = phi i32 [ %74, %70 ], [ %80, %75 ]
-  tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1904, ptr noundef nonnull @.str.53, i32 noundef %.0112) #17
-  switch i32 %.0112, label %102 [
+  %.1 = phi i32 [ %74, %70 ], [ %80, %75 ]
+  tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1904, ptr noundef nonnull @.str.53, i32 noundef %.1) #17
+  switch i32 %.1, label %102 [
     i32 0, label %.thread143
     i32 -26624, label %82
   ]
@@ -1629,11 +1629,11 @@ define hidden i32 @mbedtls_ssl_fetch_input(ptr noundef %0, i64 noundef %1) local
   br label %.thread143
 
 102:                                              ; preds = %81
-  %103 = icmp slt i32 %.0112, 0
+  %103 = icmp slt i32 %.1, 0
   br i1 %103, label %.thread143, label %104
 
 104:                                              ; preds = %102
-  %105 = zext nneg i32 %.0112 to i64
+  %105 = zext nneg i32 %.1 to i64
   store i64 %105, ptr %43, align 8
   br label %.loopexit
 
@@ -1727,7 +1727,7 @@ mbedtls_ssl_check_timer.exit137:                  ; preds = %120
   br label %.thread143
 
 .thread143:                                       ; preds = %145, %142, %81, %90, %95, %102, %99, %87, %.loopexit, %150, %101, %89, %86, %48, %46, %33, %20, %10
-  %.0111 = phi i32 [ -28928, %10 ], [ -28928, %20 ], [ -27648, %33 ], [ 0, %46 ], [ -27648, %48 ], [ -26624, %86 ], [ %88, %89 ], [ %100, %101 ], [ 0, %.loopexit ], [ -27648, %150 ], [ -29312, %81 ], [ -26880, %87 ], [ -26880, %99 ], [ %.0112, %102 ], [ -26624, %95 ], [ -26624, %90 ], [ %.2, %145 ], [ -29312, %142 ]
+  %.0111 = phi i32 [ -28928, %10 ], [ -28928, %20 ], [ -27648, %33 ], [ 0, %46 ], [ -27648, %48 ], [ -26624, %86 ], [ %88, %89 ], [ %100, %101 ], [ 0, %.loopexit ], [ -27648, %150 ], [ -29312, %81 ], [ -26880, %87 ], [ -26880, %99 ], [ %.1, %102 ], [ -26624, %95 ], [ -26624, %90 ], [ %.2, %145 ], [ -29312, %142 ]
   ret i32 %.0111
 }
 
@@ -6524,13 +6524,13 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
 
 11:                                               ; preds = %.lr.ph, %11
   %12 = phi i8 [ %.promoted, %.lr.ph ], [ %17, %11 ]
-  %.03349 = phi i64 [ %2, %.lr.ph ], [ %18, %11 ]
-  %13 = trunc i64 %.03349 to i32
+  %.149 = phi i64 [ %2, %.lr.ph ], [ %18, %11 ]
+  %13 = trunc i64 %.149 to i32
   %14 = sub i32 %6, %13
   %15 = shl nuw nsw i32 1, %14
   %16 = trunc i32 %15 to i8
   %17 = or i8 %12, %16
-  %18 = add nsw i64 %.03349, -1
+  %18 = add nsw i64 %.149, -1
   %.not45 = icmp eq i64 %18, 0
   br i1 %.not45, label %..loopexit47_crit_edge, label %11, !llvm.loop !19
 
@@ -6556,15 +6556,15 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
   br label %29
 
 29:                                               ; preds = %.loopexit46, %3
-  %.1 = phi i64 [ %2, %3 ], [ %28, %.loopexit46 ]
+  %.033 = phi i64 [ %2, %3 ], [ %28, %.loopexit46 ]
   %.0 = phi i64 [ %1, %3 ], [ %20, %.loopexit46 ]
-  %30 = trunc i64 %.1 to i32
+  %30 = trunc i64 %.033 to i32
   %31 = and i32 %30, 7
   %.not43 = icmp eq i32 %31, 0
   br i1 %.not43, label %43, label %32
 
 32:                                               ; preds = %29
-  %33 = add nsw i64 %.0, %.1
+  %33 = add nsw i64 %.0, %.033
   %34 = lshr i64 %33, 3
   %35 = getelementptr inbounds i8, ptr %0, i64 %34
   %.promoted53 = load i8, ptr %35, align 1
@@ -6588,7 +6588,7 @@ define internal fastcc void @ssl_bitmask_set(ptr nocapture noundef %0, i64 nound
 43:                                               ; preds = %.loopexit, %29
   %44 = lshr i64 %.0, 3
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = lshr i64 %.1, 3
+  %46 = lshr i64 %.033, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %45, i8 -1, i64 %46, i1 false)
   br label %.loopexit47
 

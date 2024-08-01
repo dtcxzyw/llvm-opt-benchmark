@@ -903,9 +903,9 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 192:                                              ; preds = %192, %187
   %indvars.iv.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i, %192 ]
-  %.1144180.i = phi i32 [ %186, %187 ], [ %199, %192 ]
-  %193 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1144180.i) #6
-  %194 = add i32 %.1144180.i, 1
+  %.2145180.i = phi i32 [ %186, %187 ], [ %199, %192 ]
+  %193 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2145180.i) #6
+  %194 = add i32 %.2145180.i, 1
   %195 = getelementptr %struct.phasor_info, ptr %191, i64 %indvars.iv.i
   %196 = zext i8 %193 to i64
   %197 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %195, i32 noundef %194, i64 noundef %196) #6
@@ -919,7 +919,7 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 .loopexit179.i:                                   ; preds = %192, %159
   %.1150.i = phi ptr [ %.0149193.i, %159 ], [ %191, %192 ]
-  %.2145.i = phi i32 [ %186, %159 ], [ %199, %192 ]
+  %.1144.i = phi i32 [ %186, %159 ], [ %199, %192 ]
   %.not162.i = icmp eq i16 %182, 0
   br i1 %.not162.i, label %.loopexit178.i, label %201
 
@@ -932,9 +932,9 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 206:                                              ; preds = %206, %201
   %indvars.iv202.i = phi i64 [ 0, %201 ], [ %indvars.iv.next203.i, %206 ]
-  %.3146182.i = phi i32 [ %.2145.i, %201 ], [ %213, %206 ]
-  %207 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3146182.i) #6
-  %208 = add i32 %.3146182.i, 1
+  %.4147182.i = phi i32 [ %.1144.i, %201 ], [ %213, %206 ]
+  %207 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4147182.i) #6
+  %208 = add i32 %.4147182.i, 1
   %209 = getelementptr %struct.analog_info, ptr %205, i64 %indvars.iv202.i
   %210 = zext i8 %207 to i64
   %211 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %209, i32 noundef %208, i64 noundef %210) #6
@@ -948,7 +948,7 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 .loopexit178.i:                                   ; preds = %206, %.loopexit179.i
   %.1152.i = phi ptr [ %.0151192.i, %.loopexit179.i ], [ %205, %206 ]
-  %.4147.i = phi i32 [ %.2145.i, %.loopexit179.i ], [ %213, %206 ]
+  %.3146.i = phi i32 [ %.1144.i, %.loopexit179.i ], [ %213, %206 ]
   %.not164.i = icmp eq i16 %184, 0
   br i1 %.not164.i, label %.loopexit177.i, label %.preheader176.i
 
@@ -958,17 +958,17 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 216:                                              ; preds = %216, %.preheader176.i
   %.2185.i = phi i32 [ 0, %.preheader176.i ], [ %221, %216 ]
-  %.5148184.i = phi i32 [ %.4147.i, %.preheader176.i ], [ %220, %216 ]
-  %217 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5148184.i) #6
+  %.6184.i = phi i32 [ %.3146.i, %.preheader176.i ], [ %220, %216 ]
+  %217 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6184.i) #6
   %218 = zext i8 %217 to i32
-  %219 = add i32 %.5148184.i, 1
+  %219 = add i32 %.6184.i, 1
   %220 = add i32 %219, %218
   %221 = add nuw nsw i32 %.2185.i, 1
   %.not165.i = icmp eq i32 %221, %215
   br i1 %.not165.i, label %.loopexit177.i, label %216, !llvm.loop !10
 
 .loopexit177.i:                                   ; preds = %216, %.loopexit178.i
-  %.6.i = phi i32 [ %.4147.i, %.loopexit178.i ], [ %220, %216 ]
+  %.5148.i = phi i32 [ %.3146.i, %.loopexit178.i ], [ %220, %216 ]
   br i1 %.not.i90, label %.loopexit175.i, label %.preheader174.preheader.i
 
 .preheader174.preheader.i:                        ; preds = %.loopexit177.i
@@ -977,8 +977,8 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 .preheader174.i:                                  ; preds = %.preheader174.i, %.preheader174.preheader.i
   %indvars.iv205.i = phi i64 [ 0, %.preheader174.preheader.i ], [ %indvars.iv.next206.i, %.preheader174.i ]
-  %.7186.i = phi i32 [ %.6.i, %.preheader174.preheader.i ], [ %235, %.preheader174.i ]
-  %223 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.7186.i) #6
+  %.8186.i = phi i32 [ %.5148.i, %.preheader174.preheader.i ], [ %235, %.preheader174.i ]
+  %223 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.8186.i) #6
   %224 = lshr i32 %223, 11
   %.lobit171.i = and i32 %224, 1
   %225 = getelementptr %struct.phasor_info, ptr %.1150.i, i64 %indvars.iv205.i
@@ -986,23 +986,23 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
   store i32 %.lobit171.i, ptr %226, align 4
   %227 = getelementptr inbounds i8, ptr %225, i64 260
   store i32 1, ptr %227, align 4
-  %228 = add i32 %.7186.i, 4
+  %228 = add i32 %.8186.i, 4
   %229 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %228) #6
   %230 = getelementptr inbounds i8, ptr %225, i64 264
   store float %229, ptr %230, align 4
-  %231 = add i32 %.7186.i, 8
+  %231 = add i32 %.8186.i, 8
   %232 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %231) #6
   %233 = getelementptr inbounds i8, ptr %225, i64 268
   store float %232, ptr %233, align 4
   %234 = load ptr, ptr %149, align 8
   call void @wmem_array_append(ptr noundef %234, ptr noundef %225, i32 noundef 1) #6
-  %235 = add i32 %.7186.i, 12
+  %235 = add i32 %.8186.i, 12
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
   %.not166.i = icmp eq i64 %indvars.iv.next206.i, %222
   br i1 %.not166.i, label %.loopexit175.i, label %.preheader174.i, !llvm.loop !11
 
 .loopexit175.i:                                   ; preds = %.preheader174.i, %.loopexit177.i
-  %.8.i = phi i32 [ %.6.i, %.loopexit177.i ], [ %235, %.preheader174.i ]
+  %.7.i = phi i32 [ %.5148.i, %.loopexit177.i ], [ %235, %.preheader174.i ]
   br i1 %.not162.i, label %.loopexit173.i, label %.preheader172.preheader.i
 
 .preheader172.preheader.i:                        ; preds = %.loopexit175.i
@@ -1011,28 +1011,28 @@ config_frame_fast.exit:                           ; preds = %._crit_edge.i, %34
 
 .preheader172.i:                                  ; preds = %.preheader172.i, %.preheader172.preheader.i
   %indvars.iv208.i = phi i64 [ 0, %.preheader172.preheader.i ], [ %indvars.iv.next209.i, %.preheader172.i ]
-  %.9188.i = phi i32 [ %.8.i, %.preheader172.preheader.i ], [ %245, %.preheader172.i ]
+  %.10188.i = phi i32 [ %.7.i, %.preheader172.preheader.i ], [ %245, %.preheader172.i ]
   %237 = getelementptr %struct.analog_info, ptr %.1152.i, i64 %indvars.iv208.i
   %238 = getelementptr inbounds i8, ptr %237, i64 256
   store i32 1, ptr %238, align 4
-  %239 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.9188.i) #6
+  %239 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %.10188.i) #6
   %240 = getelementptr inbounds i8, ptr %237, i64 260
   store float %239, ptr %240, align 4
-  %241 = add i32 %.9188.i, 4
+  %241 = add i32 %.10188.i, 4
   %242 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %241) #6
   %243 = getelementptr inbounds i8, ptr %237, i64 264
   store float %242, ptr %243, align 4
   %244 = load ptr, ptr %150, align 8
   call void @wmem_array_append(ptr noundef %244, ptr noundef %237, i32 noundef 1) #6
-  %245 = add i32 %.9188.i, 8
+  %245 = add i32 %.10188.i, 8
   %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, 1
   %.not167.i = icmp eq i64 %indvars.iv.next209.i, %236
   br i1 %.not167.i, label %.loopexit173.i, label %.preheader172.i, !llvm.loop !12
 
 .loopexit173.i:                                   ; preds = %.preheader172.i, %.loopexit175.i
-  %.10.i = phi i32 [ %.8.i, %.loopexit175.i ], [ %245, %.preheader172.i ]
+  %.9.i = phi i32 [ %.7.i, %.loopexit175.i ], [ %245, %.preheader172.i ]
   %246 = shl nuw nsw i32 %185, 2
-  %247 = add i32 %.10.i, %246
+  %247 = add i32 %.9.i, %246
   %248 = add i32 %247, 21
   %249 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %248) #6
   %250 = and i16 %249, 1
@@ -1449,12 +1449,12 @@ proto_item_set_generated.exit.i:                  ; preds = %392, %389, %.crited
   br label %540
 
 540:                                              ; preds = %533, %523
-  %.071.i.i = phi double [ %528, %523 ], [ %539, %533 ]
-  %.068.i.i = phi double [ %532, %523 ], [ %520, %533 ]
-  %541 = call double @cos(double noundef %.068.i.i) #6
-  %542 = fmul double %.071.i.i, %541
-  %543 = call double @sin(double noundef %.068.i.i) #6
-  %544 = fmul double %.071.i.i, %543
+  %.172.i.i = phi double [ %528, %523 ], [ %539, %533 ]
+  %.169.i.i = phi double [ %532, %523 ], [ %520, %533 ]
+  %541 = call double @cos(double noundef %.169.i.i) #6
+  %542 = fmul double %.172.i.i, %541
+  %543 = call double @sin(double noundef %.169.i.i) #6
+  %544 = fmul double %.172.i.i, %543
   br label %dissect_single_phasor.exit.i.i
 
 545:                                              ; preds = %506
@@ -1497,17 +1497,17 @@ proto_item_set_generated.exit.i:                  ; preds = %392, %389, %.crited
   br label %575
 
 575:                                              ; preds = %569, %560
-  %.172.i.i = phi double [ %564, %560 ], [ %574, %569 ]
-  %.169.i.i = phi double [ %568, %560 ], [ %557, %569 ]
-  %576 = call double @cos(double noundef %.169.i.i) #6
-  %577 = fmul double %.172.i.i, %576
-  %578 = call double @sin(double noundef %.169.i.i) #6
-  %579 = fmul double %.172.i.i, %578
+  %.071.i.i = phi double [ %564, %560 ], [ %574, %569 ]
+  %.068.i.i = phi double [ %568, %560 ], [ %557, %569 ]
+  %576 = call double @cos(double noundef %.068.i.i) #6
+  %577 = fmul double %.071.i.i, %576
+  %578 = call double @sin(double noundef %.068.i.i) #6
+  %579 = fmul double %.071.i.i, %578
   br label %dissect_single_phasor.exit.i.i
 
 dissect_single_phasor.exit.i.i:                   ; preds = %575, %540, %503, %498
-  %.273.i.i = phi double [ %494, %498 ], [ %sqrt.i.i.i, %503 ], [ %.071.i.i, %540 ], [ %.172.i.i, %575 ]
-  %.270.i.i = phi double [ %497, %498 ], [ %505, %503 ], [ %.068.i.i, %540 ], [ %.169.i.i, %575 ]
+  %.273.i.i = phi double [ %494, %498 ], [ %sqrt.i.i.i, %503 ], [ %.172.i.i, %540 ], [ %.071.i.i, %575 ]
+  %.270.i.i = phi double [ %497, %498 ], [ %505, %503 ], [ %.169.i.i, %540 ], [ %.068.i.i, %575 ]
   %.067.i.i = phi double [ %500, %498 ], [ %494, %503 ], [ %542, %540 ], [ %577, %575 ]
   %.066.i.i = phi double [ %502, %498 ], [ %497, %503 ], [ %544, %540 ], [ %579, %575 ]
   %580 = phi <2 x double> [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %498 ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %503 ], [ %518, %540 ], [ %552, %575 ]

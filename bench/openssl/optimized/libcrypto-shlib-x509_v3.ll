@@ -189,8 +189,8 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true, label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.then2
-  %sk.0 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
-  %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk.0) #6
+  %sk.1 = phi ptr [ %call, %if.then2 ], [ %0, %if.end ]
+  %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk.1) #6
   %call16 = tail call ptr @X509_EXTENSION_dup(ptr noundef %ex) #6
   %cmp17 = icmp eq ptr %call16, null
   br i1 %cmp17, label %land.lhs.true, label %if.end19
@@ -199,7 +199,7 @@ if.end19:                                         ; preds = %if.end6
   %cmp12 = icmp slt i32 %loc, 0
   %1 = tail call i32 @llvm.smin.i32(i32 %call8, i32 %loc)
   %loc.addr.0 = select i1 %cmp12, i32 %call8, i32 %1
-  %call22 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %sk.0, ptr noundef nonnull %call16, i32 noundef %loc.addr.0) #6
+  %call22 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %sk.1, ptr noundef nonnull %call16, i32 noundef %loc.addr.0) #6
   %tobool.not = icmp eq i32 %call22, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end24
 
@@ -209,7 +209,7 @@ if.end24:                                         ; preds = %if.end19
   br i1 %cmp25, label %if.then26, label %return
 
 if.then26:                                        ; preds = %if.end24
-  store ptr %sk.0, ptr %x, align 8
+  store ptr %sk.1, ptr %x, align 8
   br label %return
 
 err:                                              ; preds = %entry
@@ -223,7 +223,7 @@ land.lhs.true:                                    ; preds = %if.end19, %if.end6,
   %.sink19 = phi i32 [ 113, %if.then2 ], [ 126, %if.end6 ], [ 130, %if.end19 ]
   %.sink = phi i32 [ 524303, %if.then2 ], [ 524301, %if.end6 ], [ 524303, %if.end19 ]
   %new_ex.0.ph = phi ptr [ null, %if.then2 ], [ null, %if.end6 ], [ %call16, %if.end19 ]
-  %sk.1.ph = phi ptr [ null, %if.then2 ], [ %sk.0, %if.end6 ], [ %sk.0, %if.end19 ]
+  %sk.0.ph = phi ptr [ null, %if.then2 ], [ %sk.1, %if.end6 ], [ %sk.1, %if.end19 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink19, ptr noundef nonnull @__func__.X509v3_add_ext) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
@@ -233,11 +233,11 @@ land.lhs.true:                                    ; preds = %if.end19, %if.end6,
   br i1 %cmp29, label %if.then30, label %return
 
 if.then30:                                        ; preds = %land.lhs.true
-  tail call void @OPENSSL_sk_free(ptr noundef %sk.1.ph) #6
+  tail call void @OPENSSL_sk_free(ptr noundef %sk.0.ph) #6
   br label %return
 
 return:                                           ; preds = %err, %land.lhs.true, %if.then30, %if.end24, %if.then26
-  %retval.0 = phi ptr [ %sk.0, %if.then26 ], [ %sk.0, %if.end24 ], [ null, %if.then30 ], [ null, %land.lhs.true ], [ null, %err ]
+  %retval.0 = phi ptr [ %sk.1, %if.then26 ], [ %sk.1, %if.end24 ], [ null, %if.then30 ], [ null, %land.lhs.true ], [ null, %err ]
   ret ptr %retval.0
 }
 

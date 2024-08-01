@@ -224,7 +224,7 @@ if.end86:                                         ; preds = %for.end, %for.end, 
   %cmp103 = icmp eq ptr %query.0, %path_end.0
   %spec.select88 = select i1 %cmp103, ptr %call99, ptr %path_end.0
   %add.ptr107 = getelementptr inbounds i8, ptr %call99, i64 1
-  %path_end.2 = select i1 %cmp100.not, ptr %path_end.0, ptr %spec.select88
+  %path_end.1 = select i1 %cmp100.not, ptr %path_end.0, ptr %spec.select88
   %query_end.0 = select i1 %cmp100.not, ptr %add.ptr88, ptr %call99
   %frag.0 = select i1 %cmp100.not, ptr %add.ptr88, ptr %add.ptr107
   br i1 %cmp.not.i, label %lor.lhs.false110, label %copy_substring.exit
@@ -312,7 +312,7 @@ if.then134:                                       ; preds = %if.end130
   br i1 %cmp.not.i100, label %return, label %copy_substring.exit162
 
 copy_substring.exit162:                           ; preds = %if.then134
-  %sub.ptr.lhs.cast.i156 = ptrtoint ptr %path_end.2 to i64
+  %sub.ptr.lhs.cast.i156 = ptrtoint ptr %path_end.1 to i64
   %sub.ptr.rhs.cast.i157 = ptrtoint ptr %p.3 to i64
   %sub.ptr.sub.i158 = sub i64 %sub.ptr.lhs.cast.i156, %sub.ptr.rhs.cast.i157
   %call.i159 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %p.3, i64 noundef %sub.ptr.sub.i158, ptr noundef nonnull @.str, i32 noundef 35) #4
@@ -324,7 +324,7 @@ if.else139:                                       ; preds = %if.end130
   br i1 %cmp.not.i100, label %return, label %if.then142
 
 if.then142:                                       ; preds = %if.else139
-  %add.ptr143 = getelementptr inbounds i8, ptr %path_end.2, i64 1
+  %add.ptr143 = getelementptr inbounds i8, ptr %path_end.1, i64 1
   %sub.ptr.lhs.cast144 = ptrtoint ptr %add.ptr143 to i64
   %sub.ptr.rhs.cast145 = ptrtoint ptr %p.3 to i64
   %sub.ptr.sub146 = sub i64 %sub.ptr.lhs.cast144, %sub.ptr.rhs.cast145

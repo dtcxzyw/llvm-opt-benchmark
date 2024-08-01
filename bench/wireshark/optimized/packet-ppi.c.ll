@@ -1587,12 +1587,12 @@ thread-pre-split:                                 ; preds = %._crit_edge
 
 .lr.ph370:                                        ; preds = %.preheader, %.lr.ph370
   %.0320369 = phi ptr [ %.0320, %.lr.ph370 ], [ %.0320366, %.preheader ]
-  %.0368 = phi i32 [ %599, %.lr.ph370 ], [ 0, %.preheader ]
+  %.1368 = phi i32 [ %599, %.lr.ph370 ], [ 0, %.preheader ]
   %594 = getelementptr inbounds i8, ptr %.0320369, i64 16
   %595 = load i32, ptr %594, align 8
   %596 = add i32 %595, 3
   %597 = and i32 %596, -4
-  %598 = add i32 %.0368, 4
+  %598 = add i32 %.1368, 4
   %599 = add i32 %598, %597
   %.0320 = load ptr, ptr %.0320369, align 8
   %.not338 = icmp eq ptr %.0320, null
@@ -1607,7 +1607,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
   br label %685
 
 .thread358:                                       ; preds = %.preheader, %589, %._crit_edge371
-  %.1360 = phi i32 [ %599, %._crit_edge371 ], [ 0, %589 ], [ 0, %.preheader ]
+  %.0360 = phi i32 [ %599, %._crit_edge371 ], [ 0, %589 ], [ 0, %.preheader ]
   %603 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %0, i32 noundef %.0325.lcssa404, ptr noundef %1, i32 noundef %592, ptr noundef null, i32 noundef %590, i32 noundef 1) #3
   store i32 1, ptr %591, align 8
   %604 = tail call ptr @fragment_get(ptr noundef nonnull @ampdu_reassembly_table, ptr noundef %1, i32 noundef %592, ptr noundef null) #3
@@ -1618,7 +1618,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 606:                                              ; preds = %.thread358
   %607 = load ptr, ptr %604, align 8
   %608 = load i32, ptr @ett_ampdu_segments, align 4
-  %609 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325.lcssa404, i32 noundef -1, i32 noundef %608, ptr noundef nonnull %5, ptr noundef nonnull @.str.302, i32 noundef %.1360) #3
+  %609 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0317, ptr noundef %0, i32 noundef %.0325.lcssa404, i32 noundef -1, i32 noundef %608, ptr noundef nonnull %5, ptr noundef nonnull @.str.302, i32 noundef %.0360) #3
   %610 = load ptr, ptr %5, align 8
   %.not.i355 = icmp eq ptr %610, null
   br i1 %.not.i355, label %proto_item_set_generated.exit, label %611

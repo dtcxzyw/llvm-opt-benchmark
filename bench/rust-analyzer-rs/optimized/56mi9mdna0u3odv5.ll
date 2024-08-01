@@ -6654,13 +6654,13 @@ define hidden void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run17h4028cd482f2
           to label %30 unwind label %28
 
 .thread52:                                        ; preds = %.thread46, %111, %110, %109, %28
-  %.021 = phi i1 [ %.1, %28 ], [ false, %111 ], [ false, %109 ], [ false, %110 ], [ false, %.thread46 ]
+  %.1 = phi i1 [ %.021, %28 ], [ false, %111 ], [ false, %109 ], [ false, %110 ], [ false, %.thread46 ]
   %.pn29 = phi { ptr, i32 } [ %29, %28 ], [ %.pn, %111 ], [ %.pn, %109 ], [ %.pn2751, %110 ], [ %86, %.thread46 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h196949350c717279E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #20
           to label %99 unwind label %107
 
 28:                                               ; preds = %98, %2
-  %.1 = phi i1 [ false, %98 ], [ true, %2 ]
+  %.021 = phi i1 [ false, %98 ], [ true, %2 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.thread52
@@ -6699,13 +6699,13 @@ define hidden void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run17h4028cd482f2
   br label %48
 
 45:                                               ; preds = %63, %46
-  %.022 = phi i1 [ %.123, %46 ], [ false, %63 ]
+  %.123 = phi i1 [ %.022, %46 ], [ false, %63 ]
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %64, %63 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h196949350c717279E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
           to label %83 unwind label %107
 
 46:                                               ; preds = %70, %66, %.noexc, %41
-  %.123 = phi i1 [ true, %41 ], [ true, %.noexc ], [ false, %66 ], [ false, %70 ]
+  %.022 = phi i1 [ true, %41 ], [ true, %.noexc ], [ false, %66 ], [ false, %70 ]
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %45
@@ -6869,7 +6869,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit: ; preds 
           to label %89 unwind label %28
 
 99:                                               ; preds = %.thread52
-  br i1 %.021, label %114, label %113
+  br i1 %.1, label %114, label %113
 
 .thread42:                                        ; preds = %89
   %100 = landingpad { ptr, i32 }
@@ -6913,7 +6913,7 @@ default.unreachable:                              ; preds = %101
   unreachable
 
 109:                                              ; preds = %83
-  br i1 %.022, label %111, label %.thread52
+  br i1 %.123, label %111, label %.thread52
 
 110:                                              ; preds = %.thread46, %83
   %.pn2751 = phi { ptr, i32 } [ %86, %.thread46 ], [ %.pn, %83 ]
@@ -6999,13 +6999,13 @@ define hidden void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run17h4d939711e3f
           to label %30 unwind label %28
 
 .thread52:                                        ; preds = %.thread46, %111, %110, %109, %28
-  %.021 = phi i1 [ %.1, %28 ], [ false, %111 ], [ false, %109 ], [ false, %110 ], [ false, %.thread46 ]
+  %.1 = phi i1 [ %.021, %28 ], [ false, %111 ], [ false, %109 ], [ false, %110 ], [ false, %.thread46 ]
   %.pn29 = phi { ptr, i32 } [ %29, %28 ], [ %.pn, %111 ], [ %.pn, %109 ], [ %.pn2751, %110 ], [ %86, %.thread46 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h196949350c717279E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #20
           to label %99 unwind label %107
 
 28:                                               ; preds = %98, %2
-  %.1 = phi i1 [ false, %98 ], [ true, %2 ]
+  %.021 = phi i1 [ false, %98 ], [ true, %2 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.thread52
@@ -7044,13 +7044,13 @@ define hidden void @"_ZN8flycheck7command19CargoActor$LT$T$GT$3run17h4d939711e3f
   br label %48
 
 45:                                               ; preds = %63, %46
-  %.022 = phi i1 [ %.123, %46 ], [ false, %63 ]
+  %.123 = phi i1 [ %.022, %46 ], [ false, %63 ]
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %64, %63 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h196949350c717279E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
           to label %83 unwind label %107
 
 46:                                               ; preds = %70, %66, %.noexc, %41
-  %.123 = phi i1 [ true, %41 ], [ true, %.noexc ], [ false, %66 ], [ false, %70 ]
+  %.022 = phi i1 [ true, %41 ], [ true, %.noexc ], [ false, %66 ], [ false, %70 ]
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %45
@@ -7214,7 +7214,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit: ; preds 
           to label %89 unwind label %28
 
 99:                                               ; preds = %.thread52
-  br i1 %.021, label %114, label %113
+  br i1 %.1, label %114, label %113
 
 .thread42:                                        ; preds = %89
   %100 = landingpad { ptr, i32 }
@@ -7258,7 +7258,7 @@ default.unreachable:                              ; preds = %101
   unreachable
 
 109:                                              ; preds = %83
-  br i1 %.022, label %111, label %.thread52
+  br i1 %.123, label %111, label %.thread52
 
 110:                                              ; preds = %.thread46, %83
   %.pn2751 = phi { ptr, i32 } [ %86, %.thread46 ], [ %.pn, %83 ]
@@ -8158,13 +8158,13 @@ define hidden noundef ptr @"_ZN8flycheck7command22CommandHandle$LT$T$GT$4join17h
           to label %21 unwind label %19
 
 .body:                                            ; preds = %37, %19, %53
-  %.016 = phi i1 [ false, %53 ], [ %.117, %19 ], [ false, %37 ]
+  %.117 = phi i1 [ false, %53 ], [ %.016, %19 ], [ false, %37 ]
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %20, %19 ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$flycheck..command..JodGroupChild$GT$17hcebc2bac6b493fa6E"(ptr noalias noundef nonnull align 4 dereferenceable(40) %17) #20
           to label %161 unwind label %70
 
 19:                                               ; preds = %61, %40, %25, %23, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1744f558be97b7c1E.llvm.5727577660441154886.exit", %1
-  %.117 = phi i1 [ true, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1744f558be97b7c1E.llvm.5727577660441154886.exit" ], [ true, %1 ], [ true, %23 ], [ true, %25 ], [ false, %40 ], [ false, %61 ]
+  %.016 = phi i1 [ true, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h1744f558be97b7c1E.llvm.5727577660441154886.exit" ], [ true, %1 ], [ true, %23 ], [ true, %25 ], [ false, %40 ], [ false, %61 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8315,7 +8315,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit: ; preds 
           to label %61 unwind label %53
 
 61:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit, %47, %55
-  %.0 = phi ptr [ null, %55 ], [ null, %47 ], [ %60, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit ]
+  %.1 = phi ptr [ null, %55 ], [ null, %47 ], [ %60, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2094
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbbaa792aa90c7c17E.llvm.774313995428851812"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
           to label %.noexc38 unwind label %19
@@ -8459,15 +8459,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit: ; preds 
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h67e4963f96d1f7f9E.exit"
 
 "_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h67e4963f96d1f7f9E.exit": ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc5b68056cfece052E.exit.i52", %147, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc5b68056cfece052E.exit.i", %100
-  %.1 = phi ptr [ %.0, %100 ], [ %.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc5b68056cfece052E.exit.i" ], [ %.2, %147 ], [ %.2, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc5b68056cfece052E.exit.i52" ]
-  ret ptr %.1
+  %.2 = phi ptr [ %.1, %100 ], [ %.1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc5b68056cfece052E.exit.i" ], [ %.0, %147 ], [ %.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc5b68056cfece052E.exit.i52" ]
+  ret ptr %.2
 
 113:                                              ; preds = %167, %143, %96
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %143 ], [ %.pn24, %96 ], [ %.pn, %167 ]
   resume { ptr, i32 } %.pn30.pn
 
 114:                                              ; preds = %27, %50
-  %.2 = phi ptr [ %46, %50 ], [ %30, %27 ]
+  %.0 = phi ptr [ %46, %50 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   invoke void @"_ZN74_$LT$flycheck..command..JodGroupChild$u20$as$u20$core..ops..drop..Drop$GT$4drop17h911409b269ba5662E"(ptr noalias noundef nonnull align 4 dereferenceable(40) %17)
           to label %117 unwind label %115
@@ -8601,7 +8601,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5727577660441154886.exit: ; preds 
           to label %133 unwind label %70
 
 161:                                              ; preds = %.body
-  br i1 %.016, label %164, label %162
+  br i1 %.117, label %164, label %162
 
 162:                                              ; preds = %164, %161
   %163 = getelementptr inbounds i8, ptr %0, i64 40

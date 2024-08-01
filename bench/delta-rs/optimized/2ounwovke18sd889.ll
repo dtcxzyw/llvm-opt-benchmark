@@ -887,7 +887,7 @@ default.unreachable:                              ; preds = %4
 
 13:                                               ; preds = %76, %61, %46, %30, %15
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %77, %76 ], [ %62, %61 ], [ %47, %46 ], [ %31, %30 ]
-  %.0 = phi i1 [ false, %15 ], [ true, %76 ], [ true, %61 ], [ true, %46 ], [ true, %30 ]
+  %.1 = phi i1 [ false, %15 ], [ true, %76 ], [ true, %61 ], [ true, %46 ], [ true, %30 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h162a5c74d82f497aE.llvm.11953678010571242332"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #32
           to label %81 unwind label %79
@@ -1106,7 +1106,7 @@ default.unreachable:                              ; preds = %4
           to label %89 unwind label %79
 
 89:                                               ; preds = %87
-  br i1 %.0, label %98, label %90
+  br i1 %.1, label %98, label %90
 
 90:                                               ; preds = %98, %89
   %91 = getelementptr inbounds i8, ptr %1, i64 728

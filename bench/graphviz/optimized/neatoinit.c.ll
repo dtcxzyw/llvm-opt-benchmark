@@ -3055,13 +3055,13 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph247, %153
   %.1232 = phi i32 [ %.2, %153 ], [ %.0245, %.lr.ph247 ]
-  %.3231 = phi ptr [ %.5, %153 ], [ %spec.select289, %.lr.ph247 ]
+  %.3231 = phi ptr [ %.4, %153 ], [ %spec.select289, %.lr.ph247 ]
   %.0175228 = phi ptr [ %154, %153 ], [ %41, %.lr.ph247 ]
   %.0176227 = phi i64 [ %.1177, %153 ], [ 1, %.lr.ph247 ]
   %.0178226 = phi i32 [ %.1179, %153 ], [ 1, %.lr.ph247 ]
   %.1181225 = phi ptr [ %.2182, %153 ], [ %35, %.lr.ph247 ]
-  %.3187224 = phi ptr [ %.5189, %153 ], [ %.2186, %.lr.ph247 ]
-  %.3196223 = phi ptr [ %.5198, %153 ], [ %.2195, %.lr.ph247 ]
+  %.3187224 = phi ptr [ %.4188, %153 ], [ %.2186, %.lr.ph247 ]
+  %.3196223 = phi ptr [ %.4197, %153 ], [ %.2195, %.lr.ph247 ]
   %42 = load i32, ptr %.0175228, align 8
   %43 = and i32 %42, 3
   %44 = icmp eq i32 %43, 2
@@ -3178,7 +3178,7 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
   br label %127
 
 127:                                              ; preds = %120, %111
-  %.4188 = phi ptr [ %126, %120 ], [ %.3187224, %111 ]
+  %.5189 = phi ptr [ %126, %120 ], [ %.3187224, %111 ]
   br i1 %.0201, label %130, label %128
 
 128:                                              ; preds = %127
@@ -3200,7 +3200,7 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
   br i1 %16, label %137, label %.thread220
 
 137:                                              ; preds = %.thread, %130
-  %.4219 = phi ptr [ %129, %.thread ], [ %136, %130 ]
+  %.5219 = phi ptr [ %129, %.thread ], [ %136, %130 ]
   %138 = tail call ptr @agget(ptr noundef nonnull %.0175228, ptr noundef nonnull @.str.59) #20
   %.not215 = icmp eq ptr %138, null
   br i1 %.not215, label %142, label %139
@@ -3228,18 +3228,18 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
   br label %.thread220
 
 .thread220:                                       ; preds = %.thread220.sink.split, %128, %130
-  %.4218 = phi ptr [ %136, %130 ], [ %.3231, %128 ], [ %.4219, %.thread220.sink.split ]
-  %.4197 = phi ptr [ %.3196223, %130 ], [ %.3196223, %128 ], [ %151, %.thread220.sink.split ]
+  %.5218 = phi ptr [ %136, %130 ], [ %.3231, %128 ], [ %.5219, %.thread220.sink.split ]
+  %.5198 = phi ptr [ %.3196223, %130 ], [ %.3196223, %128 ], [ %151, %.thread220.sink.split ]
   %152 = add i64 %.0176227, 1
   br label %153
 
 153:                                              ; preds = %.thread220, %85, %84, %.lr.ph
-  %.5198 = phi ptr [ %.3196223, %.lr.ph ], [ %.3196223, %85 ], [ %.3196223, %84 ], [ %.4197, %.thread220 ]
-  %.5189 = phi ptr [ %.3187224, %.lr.ph ], [ %.3187224, %85 ], [ %.3187224, %84 ], [ %.4188, %.thread220 ]
+  %.4197 = phi ptr [ %.3196223, %.lr.ph ], [ %.3196223, %85 ], [ %.3196223, %84 ], [ %.5198, %.thread220 ]
+  %.4188 = phi ptr [ %.3187224, %.lr.ph ], [ %.3187224, %85 ], [ %.3187224, %84 ], [ %.5189, %.thread220 ]
   %.2182 = phi ptr [ %.1181225, %.lr.ph ], [ %.1181225, %85 ], [ %.1181225, %84 ], [ %119, %.thread220 ]
   %.1179 = phi i32 [ %.0178226, %.lr.ph ], [ %.0178226, %85 ], [ %.0178226, %84 ], [ %114, %.thread220 ]
   %.1177 = phi i64 [ %.0176227, %.lr.ph ], [ %.0176227, %85 ], [ %.0176227, %84 ], [ %152, %.thread220 ]
-  %.5 = phi ptr [ %.3231, %.lr.ph ], [ %.3231, %85 ], [ %.3231, %84 ], [ %.4218, %.thread220 ]
+  %.4 = phi ptr [ %.3231, %.lr.ph ], [ %.3231, %85 ], [ %.3231, %84 ], [ %.5218, %.thread220 ]
   %.2 = phi i32 [ %.1232, %.lr.ph ], [ %.1232, %85 ], [ %.1232, %84 ], [ %113, %.thread220 ]
   %154 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.0175228, ptr noundef nonnull %.0174243) #20
   %.not213 = icmp eq ptr %154, null
@@ -3251,11 +3251,11 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph247
   %155 = phi ptr [ %.0180242, %.lr.ph247 ], [ %.pre, %._crit_edge.loopexit ]
-  %.3196.lcssa = phi ptr [ %.2195, %.lr.ph247 ], [ %.5198, %._crit_edge.loopexit ]
-  %.3187.lcssa = phi ptr [ %.2186, %.lr.ph247 ], [ %.5189, %._crit_edge.loopexit ]
+  %.3196.lcssa = phi ptr [ %.2195, %.lr.ph247 ], [ %.4197, %._crit_edge.loopexit ]
+  %.3187.lcssa = phi ptr [ %.2186, %.lr.ph247 ], [ %.4188, %._crit_edge.loopexit ]
   %.1181.lcssa = phi ptr [ %35, %.lr.ph247 ], [ %.2182, %._crit_edge.loopexit ]
   %.0176.lcssa = phi i64 [ 1, %.lr.ph247 ], [ %.1177, %._crit_edge.loopexit ]
-  %.3.lcssa = phi ptr [ %spec.select289, %.lr.ph247 ], [ %.5, %._crit_edge.loopexit ]
+  %.3.lcssa = phi ptr [ %spec.select289, %.lr.ph247 ], [ %.4, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.0245, %.lr.ph247 ], [ %.2, %._crit_edge.loopexit ]
   store i64 %.0176.lcssa, ptr %36, align 8
   %156 = trunc nuw nsw i64 %indvars.iv to i32

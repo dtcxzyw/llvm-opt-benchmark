@@ -1078,8 +1078,8 @@ define hidden ptr @pn_find_aruuid_frame_setup(ptr nocapture noundef readonly %0)
   br i1 %.not8, label %.loopexit, label %6, !llvm.loop !4
 
 .loopexit:                                        ; preds = %6, %12, %3, %1
-  %.1 = phi ptr [ null, %1 ], [ null, %3 ], [ %7, %12 ], [ %7, %6 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %7, %12 ], [ %7, %6 ]
+  ret ptr %.0
 }
 
 declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #1
@@ -1232,8 +1232,8 @@ define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr nocaptur
   br i1 %24, label %.lr.ph, label %.thread43, !llvm.loop !6
 
 .thread43:                                        ; preds = %22, %10
-  %.145 = phi ptr [ %16, %10 ], [ %23, %22 ]
-  %25 = getelementptr i8, ptr %.145, i64 3
+  %.03645 = phi ptr [ %16, %10 ], [ %23, %22 ]
+  %25 = getelementptr i8, ptr %.03645, i64 3
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #6
   %27 = add i64 %26, 1
   %28 = icmp ult i64 %27, %15

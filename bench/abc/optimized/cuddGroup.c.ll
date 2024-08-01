@@ -1087,7 +1087,7 @@ define internal range(i32 0, 2) i32 @ddExtSymmCheck(ptr noundef %0, i32 noundef 
   %62 = phi i32 [ %.pre, %48 ], [ %55, %59 ], [ %55, %54 ]
   %.097 = phi ptr [ %53, %48 ], [ %34, %59 ], [ %34, %54 ]
   %.295 = phi i32 [ %49, %48 ], [ %.194116, %59 ], [ %.194116, %54 ]
-  %.3 = phi i32 [ %.190117, %48 ], [ %60, %59 ], [ %.190117, %54 ]
+  %.2 = phi i32 [ %.190117, %48 ], [ %60, %59 ], [ %.190117, %54 ]
   %.088 = phi ptr [ %51, %48 ], [ %34, %59 ], [ %34, %54 ]
   %63 = icmp eq i32 %62, %11
   br i1 %63, label %64, label %70
@@ -1122,15 +1122,15 @@ define internal range(i32 0, 2) i32 @ddExtSymmCheck(ptr noundef %0, i32 noundef 
   br i1 %or.cond110, label %82, label %78
 
 78:                                               ; preds = %70
-  %79 = icmp eq i32 %.3, 0
+  %79 = icmp eq i32 %.2, 0
   br i1 %79, label %.loopexit, label %80
 
 80:                                               ; preds = %78
-  %81 = add nsw i32 %.3, -1
+  %81 = add nsw i32 %.2, -1
   br label %82
 
 82:                                               ; preds = %80, %70
-  %.4 = phi i32 [ %81, %80 ], [ %.3, %70 ]
+  %.4 = phi i32 [ %81, %80 ], [ %.2, %70 ]
   %83 = getelementptr inbounds i8, ptr %.081118, i64 8
   %.081 = load ptr, ptr %83, align 8
   %.not101 = icmp eq ptr %.081, %0
@@ -1725,8 +1725,8 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 
 61:                                               ; preds = %.lr.ph249, %.loopexit
   %.0178247 = phi i32 [ %1, %.lr.ph249 ], [ %.0182, %.loopexit ]
-  %.2181246 = phi i32 [ %.0179.lcssa, %.lr.ph249 ], [ %.8, %.loopexit ]
-  %.0183245 = phi i32 [ %30, %.lr.ph249 ], [ %.3186, %.loopexit ]
+  %.2181246 = phi i32 [ %.0179.lcssa, %.lr.ph249 ], [ %.3, %.loopexit ]
+  %.0183245 = phi i32 [ %30, %.lr.ph249 ], [ %.1184, %.loopexit ]
   %.0187244 = phi i32 [ %30, %.lr.ph249 ], [ %.1188, %.loopexit ]
   %.1190243 = phi i32 [ %57, %.lr.ph249 ], [ %188, %.loopexit ]
   %62 = load ptr, ptr %6, align 8
@@ -1813,7 +1813,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br label %113
 
 113:                                              ; preds = %101, %96
-  %.3 = phi i32 [ %112, %101 ], [ %.2181246, %96 ]
+  %.4 = phi i32 [ %112, %101 ], [ %.2181246, %96 ]
   %114 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0178247, i32 noundef %.1190243) #10
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %191, label %116
@@ -1853,7 +1853,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 
 134:                                              ; preds = %153, %132
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %153 ], [ %133, %132 ]
-  %.4 = phi i32 [ %.5, %153 ], [ %.2181246, %132 ]
+  %.5 = phi i32 [ %.6, %153 ], [ %.2181246, %132 ]
   %indvars.iv.next261 = add nsw i64 %indvars.iv260, 1
   %135 = load ptr, ptr %19, align 8
   %136 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv.next261
@@ -1878,12 +1878,12 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   %149 = load ptr, ptr %6, align 8
   %150 = getelementptr inbounds %struct.DdSubtable, ptr %149, i64 %indvars.iv.next261, i32 3
   %151 = load i32, ptr %150, align 8
-  %.neg223 = add i32 %.4, %.neg.neg255
+  %.neg223 = add i32 %.5, %.neg.neg255
   %152 = sub i32 %.neg223, %151
   br label %153
 
 153:                                              ; preds = %141, %139
-  %.5 = phi i32 [ %152, %141 ], [ %.4, %139 ]
+  %.6 = phi i32 [ %152, %141 ], [ %.5, %139 ]
   %.not209.not = icmp slt i64 %indvars.iv.next261, %67
   br i1 %.not209.not, label %134, label %154, !llvm.loop !35
 
@@ -1914,7 +1914,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 
 .lr.ph239:                                        ; preds = %.lr.ph239.preheader, %187
   %indvars.iv263 = phi i64 [ %167, %.lr.ph239.preheader ], [ %indvars.iv.next264, %187 ]
-  %.6236 = phi i32 [ %.5, %.lr.ph239.preheader ], [ %.7, %187 ]
+  %.7236 = phi i32 [ %.6, %.lr.ph239.preheader ], [ %.8, %187 ]
   %indvars.iv.next264 = add nsw i64 %indvars.iv263, 1
   %168 = load ptr, ptr %19, align 8
   %169 = getelementptr inbounds i32, ptr %168, i64 %indvars.iv.next264
@@ -1939,23 +1939,23 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   %182 = load ptr, ptr %6, align 8
   %183 = getelementptr inbounds %struct.DdSubtable, ptr %182, i64 %indvars.iv.next264, i32 3
   %184 = load i32, ptr %183, align 8
-  %185 = add i32 %.6236, %.neg212
+  %185 = add i32 %.7236, %.neg212
   %186 = add i32 %185, %184
   br label %187
 
 187:                                              ; preds = %172, %174
-  %.7 = phi i32 [ %186, %174 ], [ %.6236, %172 ]
+  %.8 = phi i32 [ %186, %174 ], [ %.7236, %172 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next264, %67
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph239, !llvm.loop !36
 
 .loopexit:                                        ; preds = %187, %163, %130, %81
   %.1188 = phi i32 [ %.0187244, %81 ], [ %114, %130 ], [ %155, %163 ], [ %155, %187 ]
-  %.3186 = phi i32 [ %.0183245, %81 ], [ %spec.select, %130 ], [ %spec.select221, %163 ], [ %spec.select221, %187 ]
-  %.8 = phi i32 [ %.2181246, %81 ], [ %.3, %130 ], [ %.5, %163 ], [ %.7, %187 ]
+  %.1184 = phi i32 [ %.0183245, %81 ], [ %spec.select, %130 ], [ %spec.select221, %163 ], [ %spec.select221, %187 ]
+  %.3 = phi i32 [ %.2181246, %81 ], [ %.4, %130 ], [ %.6, %163 ], [ %.8, %187 ]
   %188 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.0182) #10
   %.not = icmp sle i32 %188, %2
-  %189 = sub nsw i32 %.1188, %.8
-  %190 = icmp slt i32 %189, %.3186
+  %189 = sub nsw i32 %.1188, %.3
+  %190 = icmp slt i32 %189, %.1184
   %or.cond = select i1 %.not, i1 %190, i1 false
   br i1 %or.cond, label %61, label %.critedge, !llvm.loop !37
 
@@ -2100,11 +2100,11 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
   br i1 %.not107, label %.loopexit, label %.split, !llvm.loop !40
 
 .lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
-  %.2134 = phi i32 [ %spec.select113, %.lr.ph135 ], [ %2, %.preheader ]
+  %.3134 = phi i32 [ %spec.select113, %.lr.ph135 ], [ %2, %.preheader ]
   %.288133 = phi ptr [ %59, %.lr.ph135 ], [ %1, %.preheader ]
   %56 = getelementptr inbounds i8, ptr %.288133, i64 12
   %57 = load i32, ptr %56, align 4
-  %spec.select113 = tail call i32 @llvm.smin.i32(i32 %57, i32 %.2134)
+  %spec.select113 = tail call i32 @llvm.smin.i32(i32 %57, i32 %.3134)
   %58 = getelementptr inbounds i8, ptr %.288133, i64 16
   %59 = load ptr, ptr %58, align 8
   %.not104 = icmp eq ptr %59, null
@@ -2112,7 +2112,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
 
 .loopexit:                                        ; preds = %53, %39, %.lr.ph135
   %.485 = phi ptr [ null, %.lr.ph135 ], [ %.384.us, %39 ], [ %.384, %53 ]
-  %.4 = phi i32 [ %spec.select113, %.lr.ph135 ], [ %.1, %39 ], [ %.1, %53 ]
+  %.2 = phi i32 [ %spec.select113, %.lr.ph135 ], [ %.1, %39 ], [ %.1, %53 ]
   %.not108137 = icmp eq ptr %1, null
   br i1 %.not108137, label %ddGroupMoveBackward.exit.thread, label %.lr.ph140
 
@@ -2131,7 +2131,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %.389138, i64 12
   %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, %.4
+  %67 = icmp eq i32 %66, %.2
   br i1 %67, label %ddGroupMoveBackward.exit.thread, label %68
 
 68:                                               ; preds = %64, %62
@@ -2391,7 +2391,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   br label %51
 
 51:                                               ; preds = %.lr.ph186, %162
-  %.2184 = phi i32 [ %.0.lcssa, %.lr.ph186 ], [ %.6, %162 ]
+  %.2184 = phi i32 [ %.0.lcssa, %.lr.ph186 ], [ %.3, %162 ]
   %.0148183 = phi i32 [ %1, %.lr.ph186 ], [ %55, %162 ]
   %.0149182 = phi i32 [ %22, %.lr.ph186 ], [ %.1150, %162 ]
   %.0153181 = phi i32 [ %45, %.lr.ph186 ], [ %163, %162 ]
@@ -2486,7 +2486,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   br label %109
 
 109:                                              ; preds = %96, %94
-  %.3 = phi i32 [ %108, %96 ], [ %.2184, %94 ]
+  %.4 = phi i32 [ %108, %96 ], [ %.2184, %94 ]
   %110 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #10
   %111 = icmp eq ptr %110, null
   br i1 %111, label %167, label %112
@@ -2527,7 +2527,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 
 131:                                              ; preds = %149, %127
   %.1146 = phi i32 [ %130, %127 ], [ %151, %149 ]
-  %.4 = phi i32 [ %.2184, %127 ], [ %.5, %149 ]
+  %.5 = phi i32 [ %.2184, %127 ], [ %.6, %149 ]
   %132 = load ptr, ptr %6, align 8
   %133 = sext i32 %.1146 to i64
   %134 = getelementptr inbounds i32, ptr %132, i64 %133
@@ -2548,12 +2548,12 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   %.neg = sext i1 %144 to i32
   %145 = getelementptr inbounds %struct.DdSubtable, ptr %.pre, i64 %133, i32 3
   %146 = load i32, ptr %145, align 8
-  %147 = add i32 %.4, %.neg
+  %147 = add i32 %.5, %.neg
   %148 = add i32 %147, %146
   br label %149
 
 149:                                              ; preds = %137, %131
-  %.5 = phi i32 [ %148, %137 ], [ %.4, %131 ]
+  %.6 = phi i32 [ %148, %137 ], [ %.5, %131 ]
   %150 = getelementptr inbounds %struct.DdSubtable, ptr %.pre, i64 %133, i32 6
   %151 = load i32, ptr %150, align 4
   %152 = load ptr, ptr %4, align 8
@@ -2576,10 +2576,10 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 
 162:                                              ; preds = %161, %123, %71
   %.1150 = phi i32 [ %.0149182, %71 ], [ %spec.select, %123 ], [ %spec.select172, %161 ]
-  %.6 = phi i32 [ %.2184, %71 ], [ %.3, %123 ], [ %.5, %161 ]
+  %.3 = phi i32 [ %.2184, %71 ], [ %.4, %123 ], [ %.6, %161 ]
   %163 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %55) #10
   %164 = icmp sge i32 %163, %2
-  %165 = icmp sle i32 %.6, %.1150
+  %165 = icmp sle i32 %.3, %.1150
   %166 = select i1 %164, i1 %165, i1 false
   br i1 %166, label %51, label %.loopexit, !llvm.loop !53
 

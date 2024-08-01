@@ -731,7 +731,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %333
   br label %463
 
 463:                                              ; preds = %.lr.ph478, %1028
-  %.0162476 = phi double [ 0.000000e+00, %.lr.ph478 ], [ %.3171, %1028 ]
+  %.0162476 = phi double [ 0.000000e+00, %.lr.ph478 ], [ %.1169, %1028 ]
   %.0163.in475 = phi i32 [ %343, %.lr.ph478 ], [ %.0163477, %1028 ]
   %.0163477 = add nsw i32 %.0163.in475, -1
   %464 = shl nuw i32 1, %.0163477
@@ -2298,7 +2298,7 @@ _ZN2cv12ppf_match_3dL10eulerToDCMERKNS_3VecIdLi3EEERNS_4MatxIdLi3ELi3EEE.exit.i:
   %1002 = fdiv double %998, %1001
   %1003 = fdiv double %1002, %.0164468
   %1004 = fcmp olt double %1002, %.0168466
-  %.1169 = select i1 %1004, double %1002, double %.0168466
+  %.3171 = select i1 %1004, double %1002, double %.0168466
   br label %1012
 
 1005:                                             ; preds = %992
@@ -2323,7 +2323,7 @@ _ZN2cv12ppf_match_3dL10eulerToDCMERKNS_3VecIdLi3EEERNS_4MatxIdLi3ELi3EEE.exit.i:
   br label %.body296
 
 1012:                                             ; preds = %907, %913, %999
-  %.2170 = phi double [ %.1169, %999 ], [ %.0168466, %913 ], [ %.0168466, %907 ]
+  %.2170 = phi double [ %.3171, %999 ], [ %.0168466, %913 ], [ %.0168466, %907 ]
   %.1167 = phi double [ %1003, %999 ], [ %.0166467, %913 ], [ %.0166467, %907 ]
   %.1165 = phi double [ %1002, %999 ], [ %.0164468, %913 ], [ %.0164468, %907 ]
   %switch = phi i1 [ true, %999 ], [ false, %913 ], [ false, %907 ]
@@ -2342,7 +2342,7 @@ _ZN2cv12ppf_match_3dL10eulerToDCMERKNS_3VecIdLi3EEERNS_4MatxIdLi3ELi3EEE.exit.i:
   br label %.loopexit.split-lp
 
 .critedge:                                        ; preds = %771, %_ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit271, %1012, %_ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit271.preheader
-  %.3171 = phi double [ 0x4202A05F1FF80000, %_ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit271.preheader ], [ %.2170, %1012 ], [ %.2170, %_ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit271 ], [ %.0168466, %771 ]
+  %.1169 = phi double [ 0x4202A05F1FF80000, %_ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit271.preheader ], [ %.2170, %1012 ], [ %.2170, %_ZN2cv4MatxIdLi4ELi4EE3eyeEv.exit271 ], [ %.0168466, %771 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   br label %.preheader19.i.i
 
@@ -2430,7 +2430,7 @@ _ZN2cvmlIdLi4ELi4ELi4EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %.body307
 
 ._crit_edge479:                                   ; preds = %1028, %_ZNK2cv7MatExprcvNS_3MatEEv.exit
-  %.0162.lcssa = phi double [ 0.000000e+00, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ], [ %.3171, %1028 ]
+  %.0162.lcssa = phi double [ 0.000000e+00, %_ZNK2cv7MatExprcvNS_3MatEEv.exit ], [ %.1169, %1028 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %144, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %31)

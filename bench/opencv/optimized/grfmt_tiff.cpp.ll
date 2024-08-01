@@ -915,8 +915,8 @@ define hidden noundef zeroext i1 @_ZN2cv11TiffDecoder10readHeaderEv(ptr noundef 
   br i1 %.not102, label %38, label %.thread126
 
 .thread126:                                       ; preds = %29, %34
-  %.077129 = phi ptr [ %37, %34 ], [ %33, %29 ]
-  tail call void @_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EE5resetI4tiffPFvPvEEENSt9enable_ifIXsr21__sp_is_constructibleIvT_EE5valueEvE4typeEPS9_T0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %.077129, ptr noundef nonnull @_ZN2cvL18cv_tiffCloseHandleEPv)
+  %.1129 = phi ptr [ %37, %34 ], [ %33, %29 ]
+  tail call void @_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EE5resetI4tiffPFvPvEEENSt9enable_ifIXsr21__sp_is_constructibleIvT_EE5valueEvE4typeEPS9_T0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %.1129, ptr noundef nonnull @_ZN2cvL18cv_tiffCloseHandleEPv)
   br label %_ZN2cv3PtrIvE7releaseEv.exit
 
 38:                                               ; preds = %.thread, %34
@@ -1000,11 +1000,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.critedge
 
 _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
-  %.1 = phi ptr [ %25, %1 ], [ %.077129, %.thread126 ]
+  %.077 = phi ptr [ %25, %1 ], [ %.1129, %.thread126 ]
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i16 0, ptr %4, align 2
-  %75 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.1, i32 noundef 256, ptr noundef nonnull %2)
+  %75 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 256, ptr noundef nonnull %2)
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %111
 
@@ -1100,7 +1100,7 @@ _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
   br label %348
 
 111:                                              ; preds = %_ZN2cv3PtrIvE7releaseEv.exit
-  %112 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.1, i32 noundef 257, ptr noundef nonnull %3)
+  %112 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 257, ptr noundef nonnull %3)
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %148
 
@@ -1196,7 +1196,7 @@ _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
   br label %348
 
 148:                                              ; preds = %111
-  %149 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.1, i32 noundef 262, ptr noundef nonnull %4)
+  %149 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 262, ptr noundef nonnull %4)
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %185
 
@@ -1297,7 +1297,7 @@ _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
   store i16 8, ptr %17, align 2
   %188 = select i1 %187, i16 1, i16 3
   store i16 %188, ptr %18, align 2
-  %189 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.1, i32 noundef 258, ptr noundef nonnull %17)
+  %189 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 258, ptr noundef nonnull %17)
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %192
 
@@ -1306,7 +1306,7 @@ _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
   br label %192
 
 192:                                              ; preds = %191, %185
-  %193 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.1, i32 noundef 277, ptr noundef nonnull %18)
+  %193 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 277, ptr noundef nonnull %18)
   %194 = load i32, ptr %2, align 4
   %195 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %194, ptr %195, align 8
@@ -1351,7 +1351,7 @@ _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
 
 213:                                              ; preds = %211, %211, %211, %212, %205
   store i16 1, ptr %19, align 2
-  %214 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.1, i32 noundef 339, ptr noundef nonnull %19)
+  %214 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 339, ptr noundef nonnull %19)
   %215 = load i16, ptr %18, align 2
   %216 = zext i16 %215 to i32
   %217 = add nsw i32 %216, -1
@@ -9634,8 +9634,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit450:         ; preds = %.loopexit500, %.loo
   br label %common.resume
 
 _ZN2cv3PtrIvED2Ev.exit:                           ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %1078, %1065, %._crit_edge590, %99
-  %.1 = phi i1 [ false, %99 ], [ %.lcssa552.ph, %._crit_edge590 ], [ %.lcssa552632, %1065 ], [ %.lcssa552632, %1078 ], [ %.lcssa552632, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
-  ret i1 %.1
+  %.0234 = phi i1 [ false, %99 ], [ %.lcssa552.ph, %._crit_edge590 ], [ %.lcssa552632, %1065 ], [ %.lcssa552632, %1078 ], [ %.lcssa552632, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  ret i1 %.0234
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -4933,8 +4933,8 @@ if.then.i.i.i.i36:                                ; preds = %ehcleanup
   br label %eh.resume
 
 return:                                           ; preds = %for.cond.i.i, %if.end, %if.end5, %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit, %land.lhs.true, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34
-  %retval.3 = phi i1 [ %.us-phi, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34 ], [ false, %land.lhs.true ], [ true, %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit ], [ false, %if.end5 ], [ true, %if.end ], [ true, %for.cond.i.i ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ %.us-phi, %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit34 ], [ false, %land.lhs.true ], [ true, %_ZNK5boost14dynamic_bitsetImSaImEE4noneEv.exit ], [ false, %if.end5 ], [ true, %if.end ], [ true, %for.cond.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i36, %ehcleanup
   resume { ptr, i32 } %.pn

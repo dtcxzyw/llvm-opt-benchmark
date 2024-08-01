@@ -412,9 +412,9 @@ while.body.preheader:                             ; preds = %if.end11
   br label %if.end20
 
 if.end20:                                         ; preds = %while.body.preheader, %if.end11
-  %p.2 = phi ptr [ %p.0, %if.end11 ], [ %scevgep, %while.body.preheader ]
-  %nr.addr.2 = phi i64 [ %nr.addr.0, %if.end11 ], [ %8, %while.body.preheader ]
-  %tobool.not = icmp eq i64 %nr.addr.2, 0
+  %p.1 = phi ptr [ %p.0, %if.end11 ], [ %scevgep, %while.body.preheader ]
+  %nr.addr.1 = phi i64 [ %nr.addr.0, %if.end11 ], [ %8, %while.body.preheader ]
+  %tobool.not = icmp eq i64 %nr.addr.1, 0
   br i1 %tobool.not, label %if.else27, label %if.then21
 
 if.then21:                                        ; preds = %if.end20
@@ -422,7 +422,7 @@ if.then21:                                        ; preds = %if.end20
   %and23 = and i64 %sub22, 63
   %shr = lshr i64 -1, %and23
   %and24 = and i64 %mask_to_set.0, %shr
-  %9 = atomicrmw or ptr %p.2, i64 %and24 seq_cst, align 8
+  %9 = atomicrmw or ptr %p.1, i64 %and24 seq_cst, align 8
   br label %if.end28
 
 if.else27:                                        ; preds = %if.end20
@@ -533,36 +533,36 @@ if.end15:                                         ; preds = %if.then8, %if.end
   %p.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %add.ptr, %if.end ]
   %nr.addr.0 = phi i64 [ %sub5, %if.then8 ], [ %nr, %if.end ]
   %bits_to_clear.0 = phi i32 [ 64, %if.then8 ], [ %conv, %if.end ]
-  %dirty.1 = phi i1 [ %tobool.not, %if.then8 ], [ false, %if.end ]
+  %dirty.0 = phi i1 [ %tobool.not, %if.then8 ], [ false, %if.end ]
   %cmp17 = icmp eq i32 %bits_to_clear.0, 64
   %cmp20 = icmp ugt i64 %nr.addr.0, 63
   %or.cond1 = and i1 %cmp20, %cmp17
   br i1 %or.cond1, label %while.body, label %if.end27
 
 while.body:                                       ; preds = %if.end15, %if.end24
-  %p.1 = phi ptr [ %incdec.ptr26, %if.end24 ], [ %p.0, %if.end15 ]
-  %nr.addr.1 = phi i64 [ %sub25, %if.end24 ], [ %nr.addr.0, %if.end15 ]
-  %dirty.2 = phi i1 [ %dirty.3, %if.end24 ], [ %dirty.1, %if.end15 ]
-  %4 = load i64, ptr %p.1, align 8
+  %p.2 = phi ptr [ %incdec.ptr26, %if.end24 ], [ %p.0, %if.end15 ]
+  %nr.addr.2 = phi i64 [ %sub25, %if.end24 ], [ %nr.addr.0, %if.end15 ]
+  %dirty.3 = phi i1 [ %dirty.4, %if.end24 ], [ %dirty.0, %if.end15 ]
+  %4 = load i64, ptr %p.2, align 8
   %tobool22.not = icmp eq i64 %4, 0
   br i1 %tobool22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %while.body
-  store i64 0, ptr %p.1, align 8
+  store i64 0, ptr %p.2, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %while.body
-  %dirty.3 = phi i1 [ true, %if.then23 ], [ %dirty.2, %while.body ]
-  %sub25 = add nsw i64 %nr.addr.1, -64
-  %incdec.ptr26 = getelementptr i8, ptr %p.1, i64 8
+  %dirty.4 = phi i1 [ true, %if.then23 ], [ %dirty.3, %while.body ]
+  %sub25 = add nsw i64 %nr.addr.2, -64
+  %incdec.ptr26 = getelementptr i8, ptr %p.2, i64 8
   %cmp20.old = icmp ugt i64 %sub25, 63
   br i1 %cmp20.old, label %while.body, label %if.end27
 
 if.end27:                                         ; preds = %if.end24, %if.end15
-  %p.2 = phi ptr [ %p.0, %if.end15 ], [ %incdec.ptr26, %if.end24 ]
-  %nr.addr.2 = phi i64 [ %nr.addr.0, %if.end15 ], [ %sub25, %if.end24 ]
-  %dirty.4 = phi i1 [ %dirty.1, %if.end15 ], [ %dirty.3, %if.end24 ]
-  %tobool28.not = icmp eq i64 %nr.addr.2, 0
+  %p.1 = phi ptr [ %p.0, %if.end15 ], [ %incdec.ptr26, %if.end24 ]
+  %nr.addr.1 = phi i64 [ %nr.addr.0, %if.end15 ], [ %sub25, %if.end24 ]
+  %dirty.2 = phi i1 [ %dirty.0, %if.end15 ], [ %dirty.4, %if.end24 ]
+  %tobool28.not = icmp eq i64 %nr.addr.1, 0
   br i1 %tobool28.not, label %if.end39, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
@@ -570,18 +570,18 @@ if.then29:                                        ; preds = %if.end27
   %and31 = and i64 %sub30, 63
   %shr = lshr i64 -1, %and31
   %and32 = and i64 %shr, %shl
-  %5 = load i64, ptr %p.2, align 8
+  %5 = load i64, ptr %p.1, align 8
   %and33 = and i64 %5, %and32
   %tobool34.not = icmp ne i64 %and33, 0
-  %spec.select27 = select i1 %tobool34.not, i1 true, i1 %dirty.4
+  %spec.select27 = select i1 %tobool34.not, i1 true, i1 %dirty.2
   %not37 = xor i64 %and32, -1
   %and38 = and i64 %5, %not37
-  store i64 %and38, ptr %p.2, align 8
+  store i64 %and38, ptr %p.1, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then29, %if.end27
-  %dirty.6 = phi i1 [ %spec.select27, %if.then29 ], [ %dirty.4, %if.end27 ]
-  ret i1 %dirty.6
+  %dirty.5 = phi i1 [ %spec.select27, %if.then29 ], [ %dirty.2, %if.end27 ]
+  ret i1 %dirty.5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -628,30 +628,30 @@ if.end12:                                         ; preds = %if.then8, %if.end
   br i1 %or.cond1, label %while.body, label %if.end30
 
 while.body:                                       ; preds = %if.end12, %if.end26
-  %dirty.1 = phi i64 [ %dirty.2, %if.end26 ], [ %dirty.0, %if.end12 ]
-  %p.1 = phi ptr [ %incdec.ptr28, %if.end26 ], [ %p.0, %if.end12 ]
-  %nr.addr.1 = phi i64 [ %sub27, %if.end26 ], [ %nr.addr.0, %if.end12 ]
-  %4 = load i64, ptr %p.1, align 8
+  %dirty.2 = phi i64 [ %dirty.3, %if.end26 ], [ %dirty.0, %if.end12 ]
+  %p.2 = phi ptr [ %incdec.ptr28, %if.end26 ], [ %p.0, %if.end12 ]
+  %nr.addr.2 = phi i64 [ %sub27, %if.end26 ], [ %nr.addr.0, %if.end12 ]
+  %4 = load i64, ptr %p.2, align 8
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %if.end26, label %while.end
 
 while.end:                                        ; preds = %while.body
-  %5 = atomicrmw xchg ptr %p.1, i64 0 seq_cst, align 8
-  %or25 = or i64 %5, %dirty.1
+  %5 = atomicrmw xchg ptr %p.2, i64 0 seq_cst, align 8
+  %or25 = or i64 %5, %dirty.2
   br label %if.end26
 
 if.end26:                                         ; preds = %while.end, %while.body
-  %dirty.2 = phi i64 [ %or25, %while.end ], [ %dirty.1, %while.body ]
-  %sub27 = add nsw i64 %nr.addr.1, -64
-  %incdec.ptr28 = getelementptr i8, ptr %p.1, i64 8
+  %dirty.3 = phi i64 [ %or25, %while.end ], [ %dirty.2, %while.body ]
+  %sub27 = add nsw i64 %nr.addr.2, -64
+  %incdec.ptr28 = getelementptr i8, ptr %p.2, i64 8
   %cmp17.old = icmp ugt i64 %sub27, 63
   br i1 %cmp17.old, label %while.body, label %if.end30
 
 if.end30:                                         ; preds = %if.end26, %if.end12
-  %dirty.3 = phi i64 [ %dirty.0, %if.end12 ], [ %dirty.2, %if.end26 ]
-  %p.2 = phi ptr [ %p.0, %if.end12 ], [ %incdec.ptr28, %if.end26 ]
-  %nr.addr.2 = phi i64 [ %nr.addr.0, %if.end12 ], [ %sub27, %if.end26 ]
-  %tobool31.not = icmp eq i64 %nr.addr.2, 0
+  %dirty.1 = phi i64 [ %dirty.0, %if.end12 ], [ %dirty.3, %if.end26 ]
+  %p.1 = phi ptr [ %p.0, %if.end12 ], [ %incdec.ptr28, %if.end26 ]
+  %nr.addr.1 = phi i64 [ %nr.addr.0, %if.end12 ], [ %sub27, %if.end26 ]
+  %tobool31.not = icmp eq i64 %nr.addr.1, 0
   br i1 %tobool31.not, label %if.else41, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
@@ -660,14 +660,14 @@ if.then32:                                        ; preds = %if.end30
   %shr = lshr i64 -1, %and34
   %and35 = and i64 %mask_to_clear.0, %shr
   %not37 = xor i64 %and35, -1
-  %6 = atomicrmw and ptr %p.2, i64 %not37 seq_cst, align 8
+  %6 = atomicrmw and ptr %p.1, i64 %not37 seq_cst, align 8
   %and39 = and i64 %6, %and35
-  %or40 = or i64 %and39, %dirty.3
+  %or40 = or i64 %and39, %dirty.1
   %7 = icmp ne i64 %or40, 0
   br label %if.end45
 
 if.else41:                                        ; preds = %if.end30
-  %tobool42.not = icmp eq i64 %dirty.3, 0
+  %tobool42.not = icmp eq i64 %dirty.1, 0
   br i1 %tobool42.not, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %if.else41

@@ -4817,7 +4817,7 @@ Abc_Clock.exit:                                   ; preds = %2, %12
   %40 = phi i32 [ %.pre, %.critedge.lr.ph ], [ %188, %.loopexit182 ]
   %.0215 = phi i32 [ 0, %.critedge.lr.ph ], [ %189, %.loopexit182 ]
   %.0120214 = phi i32 [ 0, %.critedge.lr.ph ], [ %.3, %.loopexit182 ]
-  %.0123213 = phi i32 [ -1, %.critedge.lr.ph ], [ %.4127, %.loopexit182 ]
+  %.0123213 = phi i32 [ -1, %.critedge.lr.ph ], [ %.2125, %.loopexit182 ]
   %.0128212 = phi i32 [ 0, %.critedge.lr.ph ], [ %.1129, %.loopexit182 ]
   %41 = call ptr @Bmcs_ManAddNewCnf(ptr noundef %19, i32 noundef %.0215, i32 noundef %40)
   %42 = icmp eq ptr %41, null
@@ -4843,14 +4843,14 @@ Abc_Clock.exit:                                   ; preds = %2, %12
   %46 = phi i32 [ %56, %._crit_edge207 ], [ %.pre237, %.preheader.preheader ]
   %.val154203 = phi ptr [ %.val154203234, %._crit_edge207 ], [ %.val154203.pre, %.preheader.preheader ]
   %.val153202 = phi i32 [ %.val153202232, %._crit_edge207 ], [ %.val153202.pre, %.preheader.preheader ]
-  %.1208 = phi i32 [ %57, %._crit_edge207 ], [ 0, %.preheader.preheader ]
+  %.2208 = phi i32 [ %57, %._crit_edge207 ], [ 0, %.preheader.preheader ]
   %47 = getelementptr i8, ptr %.val154203, i64 4
   %.val154.val204 = load i32, ptr %47, align 4
   %48 = icmp sgt i32 %.val154.val204, %.val153202
   br i1 %48, label %.lr.ph206, label %._crit_edge207
 
 .lr.ph206:                                        ; preds = %.preheader
-  %49 = add nsw i32 %.1208, %.0215
+  %49 = add nsw i32 %.2208, %.0215
   br label %50
 
 50:                                               ; preds = %.lr.ph206, %50
@@ -4874,7 +4874,7 @@ Abc_Clock.exit:                                   ; preds = %2, %12
   %56 = phi i32 [ %.pre236, %._crit_edge207.loopexit ], [ %46, %.preheader ]
   %.val154203234 = phi ptr [ %.val154, %._crit_edge207.loopexit ], [ %.val154203, %.preheader ]
   %.val153202232 = phi i32 [ %.val153, %._crit_edge207.loopexit ], [ %.val153202, %.preheader ]
-  %57 = add nuw nsw i32 %.1208, 1
+  %57 = add nuw nsw i32 %.2208, 1
   %58 = icmp slt i32 %57, %56
   br i1 %58, label %.preheader, label %.loopexit182, !llvm.loop !39
 
@@ -4951,13 +4951,13 @@ Bmcs_ManAddCnf.exit:                              ; preds = %Bmcs_ManAddCnf.exit
 .preheader180:                                    ; preds = %.preheader180.preheader, %183
   %.val152.val188 = phi i32 [ %.val142.val, %183 ], [ %.val152.val188.pre, %.preheader180.preheader ]
   %.val151186 = phi i32 [ %.val, %183 ], [ %.val151186.pre, %.preheader180.preheader ]
-  %.2193 = phi i32 [ %184, %183 ], [ 0, %.preheader180.preheader ]
-  %.1124192 = phi i32 [ %.2125, %183 ], [ %.0123213, %.preheader180.preheader ]
+  %.4193 = phi i32 [ %184, %183 ], [ 0, %.preheader180.preheader ]
+  %.3126192 = phi i32 [ %.5, %183 ], [ %.0123213, %.preheader180.preheader ]
   %93 = icmp sgt i32 %.val152.val188, %.val151186
   br i1 %93, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader180
-  %94 = add nsw i32 %.2193, %.0215
+  %94 = add nsw i32 %.4193, %.0215
   br label %95
 
 95:                                               ; preds = %.lr.ph, %170
@@ -5140,7 +5140,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i167, %157
 
 .loopexit:                                        ; preds = %170, %Abc_Clock.exit164, %Abc_Clock.exit166, %.preheader180, %169, %167
   %.1122184 = phi i32 [ %.1122189, %169 ], [ %.1122189, %167 ], [ 0, %.preheader180 ], [ %171, %170 ], [ %.1122189, %Abc_Clock.exit164 ], [ %.1122189, %Abc_Clock.exit166 ]
-  %.2125 = phi i32 [ 0, %169 ], [ 0, %167 ], [ %.1124192, %.preheader180 ], [ %.1124192, %Abc_Clock.exit166 ], [ %.1124192, %Abc_Clock.exit164 ], [ %.1124192, %170 ]
+  %.5 = phi i32 [ 0, %169 ], [ 0, %167 ], [ %.3126192, %.preheader180 ], [ %.3126192, %Abc_Clock.exit166 ], [ %.3126192, %Abc_Clock.exit164 ], [ %.3126192, %170 ]
   %.val = load i32, ptr %20, align 8
   %.val142 = load ptr, ptr %21, align 8
   %175 = getelementptr i8, ptr %.val142, i64 4
@@ -5154,7 +5154,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i167, %157
   br label %._crit_edge
 
 178:                                              ; preds = %.loopexit
-  %179 = add nsw i32 %.2193, %.0215
+  %179 = add nsw i32 %.4193, %.0215
   %180 = load i32, ptr %23, align 4
   %181 = add nsw i32 %180, -1
   %182 = icmp eq i32 %179, %181
@@ -5162,22 +5162,22 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i167, %157
   br i1 %182, label %._crit_edge, label %183
 
 183:                                              ; preds = %178
-  %184 = add nuw nsw i32 %.2193, 1
+  %184 = add nuw nsw i32 %.4193, 1
   %185 = icmp slt i32 %184, %.pre231.pre238
   br i1 %185, label %.preheader180, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %183, %178, %.loopexit.._crit_edge.loopexit_crit_edge, %Bmcs_ManAddCnf.exit
   %186 = phi i32 [ %91, %Bmcs_ManAddCnf.exit ], [ %.pre231.pre, %.loopexit.._crit_edge.loopexit_crit_edge ], [ %.pre231.pre238, %178 ], [ %.pre231.pre238, %183 ]
-  %.2.lcssa = phi i32 [ 0, %Bmcs_ManAddCnf.exit ], [ %.2193, %.loopexit.._crit_edge.loopexit_crit_edge ], [ %184, %183 ], [ %.2193, %178 ]
-  %.3126 = phi i32 [ %.0123213, %Bmcs_ManAddCnf.exit ], [ %.2125, %.loopexit.._crit_edge.loopexit_crit_edge ], [ %.2125, %178 ], [ %.2125, %183 ]
-  %187 = icmp slt i32 %.2.lcssa, %186
+  %.4.lcssa = phi i32 [ 0, %Bmcs_ManAddCnf.exit ], [ %.4193, %.loopexit.._crit_edge.loopexit_crit_edge ], [ %184, %183 ], [ %.4193, %178 ]
+  %.4127 = phi i32 [ %.0123213, %Bmcs_ManAddCnf.exit ], [ %.5, %.loopexit.._crit_edge.loopexit_crit_edge ], [ %.5, %178 ], [ %.5, %183 ]
+  %187 = icmp slt i32 %.4.lcssa, %186
   br i1 %187, label %._crit_edge216, label %.loopexit182
 
 .loopexit182:                                     ; preds = %._crit_edge207, %.preheader181, %._crit_edge, %43
   %188 = phi i32 [ %.pre237, %43 ], [ %186, %._crit_edge ], [ %.pre237, %.preheader181 ], [ %56, %._crit_edge207 ]
   %.1129 = phi i32 [ %.0128212, %43 ], [ %62, %._crit_edge ], [ %.0128212, %.preheader181 ], [ %.0128212, %._crit_edge207 ]
-  %.4127 = phi i32 [ %.0123213, %43 ], [ %.3126, %._crit_edge ], [ %.0123213, %.preheader181 ], [ %.0123213, %._crit_edge207 ]
-  %.3 = phi i32 [ %.0120214, %43 ], [ %.2.lcssa, %._crit_edge ], [ 0, %.preheader181 ], [ %57, %._crit_edge207 ]
+  %.2125 = phi i32 [ %.0123213, %43 ], [ %.4127, %._crit_edge ], [ %.0123213, %.preheader181 ], [ %.0123213, %._crit_edge207 ]
+  %.3 = phi i32 [ %.0120214, %43 ], [ %.4.lcssa, %._crit_edge ], [ 0, %.preheader181 ], [ %57, %._crit_edge207 ]
   %189 = add nsw i32 %188, %.0215
   %190 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %190, 0
@@ -5187,8 +5187,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i167, %157
 
 ._crit_edge216:                                   ; preds = %._crit_edge, %.loopexit182, %Abc_Clock.exit
   %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %189, %.loopexit182 ], [ %.0215, %._crit_edge ]
-  %.5 = phi i32 [ -1, %Abc_Clock.exit ], [ %.4127, %.loopexit182 ], [ %.3126, %._crit_edge ]
-  %.4 = phi i32 [ 0, %Abc_Clock.exit ], [ %.3, %.loopexit182 ], [ %.2.lcssa, %._crit_edge ]
+  %.1124 = phi i32 [ -1, %Abc_Clock.exit ], [ %.2125, %.loopexit182 ], [ %.4127, %._crit_edge ]
+  %.1 = phi i32 [ 0, %Abc_Clock.exit ], [ %.3, %.loopexit182 ], [ %.4.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %192 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #23
   %193 = icmp slt i32 %192, 0
@@ -5218,7 +5218,7 @@ Abc_Clock.exit169:                                ; preds = %._crit_edge216, %19
   %210 = sub i64 %.0.i168, %209
   %211 = getelementptr inbounds i8, ptr %19, i64 920
   store i64 %210, ptr %211, align 8
-  %212 = icmp eq i32 %.5, -1
+  %212 = icmp eq i32 %.1124, -1
   br i1 %212, label %213, label %224
 
 213:                                              ; preds = %Abc_Clock.exit169
@@ -5230,8 +5230,8 @@ Abc_Clock.exit169:                                ; preds = %._crit_edge216, %19
 216:                                              ; preds = %213
   %217 = getelementptr inbounds i8, ptr %1, i64 8
   %218 = load i32, ptr %217, align 8
-  %219 = icmp slt i32 %.4, %218
-  %220 = add nsw i32 %.4, 1
+  %219 = icmp slt i32 %.1, %218
+  %220 = add nsw i32 %.1, 1
   %221 = select i1 %219, i32 %220, i32 0
   %222 = add nsw i32 %221, %.0.lcssa
   %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %222)
@@ -5262,7 +5262,7 @@ Abc_Clock.exit171:                                ; preds = %224, %227
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.26, double noundef %236)
   call void @Bmcs_ManPrintTime(ptr noundef nonnull %19)
   call void @Bmcs_ManStop(ptr noundef nonnull %19)
-  ret i32 %.5
+  ret i32 %.1124
 }
 
 declare void @Abc_CexFreeP(ptr noundef) local_unnamed_addr #2
@@ -5500,9 +5500,9 @@ Abc_Clock.exit:                                   ; preds = %2, %13
   %61 = phi i32 [ %.pre, %.critedge.lr.ph ], [ %230, %.loopexit222 ]
   %.0278 = phi i32 [ 0, %.critedge.lr.ph ], [ %231, %.loopexit222 ]
   %.0144277 = phi i32 [ 0, %.critedge.lr.ph ], [ %.3, %.loopexit222 ]
-  %.0150276 = phi i32 [ -1, %.critedge.lr.ph ], [ %.4154, %.loopexit222 ]
+  %.0150276 = phi i32 [ -1, %.critedge.lr.ph ], [ %.2152, %.loopexit222 ]
   %.0155275 = phi i32 [ 0, %.critedge.lr.ph ], [ %.1156, %.loopexit222 ]
-  %.0206274 = phi i32 [ 0, %.critedge.lr.ph ], [ %.8, %.loopexit222 ]
+  %.0206274 = phi i32 [ 0, %.critedge.lr.ph ], [ %.1207, %.loopexit222 ]
   %62 = call ptr @Bmcs_ManAddNewCnf(ptr noundef %20, i32 noundef %.0278, i32 noundef %61)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %80
@@ -5527,14 +5527,14 @@ Abc_Clock.exit:                                   ; preds = %2, %13
   %67 = phi i32 [ %77, %._crit_edge269 ], [ %.pre314, %.preheader.preheader ]
   %.val181265 = phi ptr [ %.val181265311, %._crit_edge269 ], [ %.val181265.pre, %.preheader.preheader ]
   %.val180264 = phi i32 [ %.val180264309, %._crit_edge269 ], [ %.val180264.pre, %.preheader.preheader ]
-  %.1270 = phi i32 [ %78, %._crit_edge269 ], [ 0, %.preheader.preheader ]
+  %.2270 = phi i32 [ %78, %._crit_edge269 ], [ 0, %.preheader.preheader ]
   %68 = getelementptr i8, ptr %.val181265, i64 4
   %.val181.val266 = load i32, ptr %68, align 4
   %69 = icmp sgt i32 %.val181.val266, %.val180264
   br i1 %69, label %.lr.ph268, label %._crit_edge269
 
 .lr.ph268:                                        ; preds = %.preheader
-  %70 = add nsw i32 %.1270, %.0278
+  %70 = add nsw i32 %.2270, %.0278
   br label %71
 
 71:                                               ; preds = %.lr.ph268, %71
@@ -5558,7 +5558,7 @@ Abc_Clock.exit:                                   ; preds = %2, %13
   %77 = phi i32 [ %.pre313, %._crit_edge269.loopexit ], [ %67, %.preheader ]
   %.val181265311 = phi ptr [ %.val181, %._crit_edge269.loopexit ], [ %.val181265, %.preheader ]
   %.val180264309 = phi i32 [ %.val180, %._crit_edge269.loopexit ], [ %.val180264, %.preheader ]
-  %78 = add nuw nsw i32 %.1270, 1
+  %78 = add nuw nsw i32 %.2270, 1
   %79 = icmp slt i32 %78, %77
   br i1 %79, label %.preheader, label %.loopexit222, !llvm.loop !52
 
@@ -5646,19 +5646,19 @@ Bmcs_ManAddCnf.exit:                              ; preds = %.lr.ph16.i, %.prehe
 .preheader220:                                    ; preds = %.preheader220.preheader, %225
   %.val179.val240 = phi i32 [ %.val169.val, %225 ], [ %.val179.val240.pre, %.preheader220.preheader ]
   %.val178238 = phi i32 [ %.val, %225 ], [ %.val178238.pre, %.preheader220.preheader ]
-  %.2251 = phi i32 [ %226, %225 ], [ 0, %.preheader220.preheader ]
-  %.1151250 = phi i32 [ %.2152, %225 ], [ %.0150276, %.preheader220.preheader ]
-  %.1207249 = phi i32 [ %.6, %225 ], [ %.0206274, %.preheader220.preheader ]
+  %.4251 = phi i32 [ %226, %225 ], [ 0, %.preheader220.preheader ]
+  %.3153250 = phi i32 [ %.5, %225 ], [ %.0150276, %.preheader220.preheader ]
+  %.2208249 = phi i32 [ %.5211, %225 ], [ %.0206274, %.preheader220.preheader ]
   %121 = icmp sgt i32 %.val179.val240, %.val178238
   br i1 %121, label %.lr.ph243, label %.loopexit
 
 .lr.ph243:                                        ; preds = %.preheader220
-  %122 = add nsw i32 %.2251, %.0278
+  %122 = add nsw i32 %.4251, %.0278
   br label %123
 
 123:                                              ; preds = %.lr.ph243, %212
   %.3148242 = phi i32 [ 0, %.lr.ph243 ], [ %213, %212 ]
-  %.2208241 = phi i32 [ %.1207249, %.lr.ph243 ], [ %.5211, %212 ]
+  %.4210241 = phi i32 [ %.2208249, %.lr.ph243 ], [ %.8, %212 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %124 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #23
   %125 = icmp slt i32 %124, 0
@@ -5745,7 +5745,7 @@ Abc_Clock.exit191:                                ; preds = %144, %147
   br i1 %161, label %.preheader42.i, label %Bmcs_ManPerform_Solve.exit
 
 .preheader42.us.i:                                ; preds = %.lr.ph49.i, %..loopexit_crit_edge.us.i
-  %.3209 = phi i32 [ %.4210, %..loopexit_crit_edge.us.i ], [ %.2208241, %.lr.ph49.i ]
+  %.6 = phi i32 [ %.7, %..loopexit_crit_edge.us.i ], [ %.4210241, %.lr.ph49.i ]
   %.053.us.i = phi i32 [ %.1.us.i, %..loopexit_crit_edge.us.i ], [ -1, %.lr.ph49.i ]
   br label %162
 
@@ -5769,7 +5769,7 @@ Abc_Clock.exit191:                                ; preds = %144, %147
   br label %..loopexit_crit_edge.us.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %166, %167
-  %.4210 = phi i32 [ %168, %167 ], [ %.3209, %166 ]
+  %.7 = phi i32 [ %168, %167 ], [ %.6, %166 ]
   %.346.us.i = phi i32 [ %168, %167 ], [ %158, %166 ]
   %.1.us.i = phi i32 [ %170, %167 ], [ %.053.us.i, %166 ]
   %171 = icmp eq i32 %.346.us.i, %158
@@ -5795,7 +5795,7 @@ Abc_Clock.exit191:                                ; preds = %144, %147
   br i1 %exitcond88.not.i, label %Bmcs_ManPerform_Solve.exit, label %.lr.ph63.i, !llvm.loop !49
 
 Bmcs_ManPerform_Solve.exit:                       ; preds = %.lr.ph63.i, %.preheader43.i
-  %.5211 = phi i32 [ %.2208241, %.preheader43.i ], [ %.4210, %.lr.ph63.i ]
+  %.8 = phi i32 [ %.4210241, %.preheader43.i ], [ %.7, %.lr.ph63.i ]
   %.0.lcssa9395.i = phi i32 [ -1, %.preheader43.i ], [ %.1.us.i, %.lr.ph63.i ]
   store i32 0, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -5834,7 +5834,7 @@ Abc_Clock.exit197:                                ; preds = %Bmcs_ManPerform_Sol
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %185
-  call void @Bmcs_ManPrintFrame(ptr noundef nonnull %20, i32 noundef %122, i32 poison, i32 noundef %.5211, i64 noundef %.0.i)
+  call void @Bmcs_ManPrintFrame(ptr noundef nonnull %20, i32 noundef %122, i32 poison, i32 noundef %.8, i64 noundef %.0.i)
   br label %191
 
 191:                                              ; preds = %190, %185
@@ -5848,12 +5848,12 @@ Abc_Clock.exit197:                                ; preds = %Bmcs_ManPerform_Sol
 
 194:                                              ; preds = %Abc_Clock.exit197
   store i32 %122, ptr %44, align 8
-  %195 = call ptr @Bmcs_ManGenerateCex(ptr noundef nonnull %20, i32 noundef %.3148242, i32 noundef %122, i32 noundef %.5211)
+  %195 = call ptr @Bmcs_ManGenerateCex(ptr noundef nonnull %20, i32 noundef %.3148242, i32 noundef %122, i32 noundef %.8)
   store ptr %195, ptr %23, align 8
   %196 = load i32, ptr %45, align 4
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %45, align 4
-  call void @Bmcs_ManPrintFrame(ptr noundef nonnull %20, i32 noundef %122, i32 poison, i32 noundef %.5211, i64 noundef %.0.i)
+  call void @Bmcs_ManPrintFrame(ptr noundef nonnull %20, i32 noundef %122, i32 poison, i32 noundef %.8, i64 noundef %.0.i)
   %198 = load i32, ptr %46, align 4
   %.not164 = icmp eq i32 %198, 0
   br i1 %.not164, label %199, label %209
@@ -5908,8 +5908,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i199, %199
 
 .loopexit:                                        ; preds = %212, %Abc_Clock.exit191, %Abc_Clock.exit197, %.preheader220, %211, %209
   %.3148228 = phi i32 [ %.3148242, %209 ], [ %.3148242, %211 ], [ 0, %.preheader220 ], [ %213, %212 ], [ %.3148242, %Abc_Clock.exit191 ], [ %.3148242, %Abc_Clock.exit197 ]
-  %.6 = phi i32 [ %.5211, %209 ], [ %.5211, %211 ], [ %.1207249, %.preheader220 ], [ %.5211, %212 ], [ %.2208241, %Abc_Clock.exit191 ], [ %.5211, %Abc_Clock.exit197 ]
-  %.2152 = phi i32 [ 0, %209 ], [ 0, %211 ], [ %.1151250, %.preheader220 ], [ %.1151250, %Abc_Clock.exit197 ], [ %.1151250, %Abc_Clock.exit191 ], [ %.1151250, %212 ]
+  %.5211 = phi i32 [ %.8, %209 ], [ %.8, %211 ], [ %.2208249, %.preheader220 ], [ %.8, %212 ], [ %.4210241, %Abc_Clock.exit191 ], [ %.8, %Abc_Clock.exit197 ]
+  %.5 = phi i32 [ 0, %209 ], [ 0, %211 ], [ %.3153250, %.preheader220 ], [ %.3153250, %Abc_Clock.exit197 ], [ %.3153250, %Abc_Clock.exit191 ], [ %.3153250, %212 ]
   %.val = load i32, ptr %21, align 8
   %.val169 = load ptr, ptr %22, align 8
   %217 = getelementptr i8, ptr %.val169, i64 4
@@ -5923,7 +5923,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i199, %199
   br label %._crit_edge252
 
 220:                                              ; preds = %.loopexit
-  %221 = add nsw i32 %.2251, %.0278
+  %221 = add nsw i32 %.4251, %.0278
   %222 = load i32, ptr %29, align 4
   %223 = add nsw i32 %222, -1
   %224 = icmp eq i32 %221, %223
@@ -5931,24 +5931,24 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i199, %199
   br i1 %224, label %._crit_edge252, label %225
 
 225:                                              ; preds = %220
-  %226 = add nuw nsw i32 %.2251, 1
+  %226 = add nuw nsw i32 %.4251, 1
   %227 = icmp slt i32 %226, %.pre308.pre316
   br i1 %227, label %.preheader220, label %._crit_edge252, !llvm.loop !55
 
 ._crit_edge252:                                   ; preds = %225, %220, %.loopexit.._crit_edge252.loopexit_crit_edge, %._crit_edge
   %228 = phi i32 [ %119, %._crit_edge ], [ %.pre308.pre, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %.pre308.pre316, %220 ], [ %.pre308.pre316, %225 ]
-  %.2.lcssa = phi i32 [ 0, %._crit_edge ], [ %.2251, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %226, %225 ], [ %.2251, %220 ]
-  %.7 = phi i32 [ %.0206274, %._crit_edge ], [ %.6, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %.6, %220 ], [ %.6, %225 ]
-  %.3153 = phi i32 [ %.0150276, %._crit_edge ], [ %.2152, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %.2152, %220 ], [ %.2152, %225 ]
-  %229 = icmp slt i32 %.2.lcssa, %228
+  %.4.lcssa = phi i32 [ 0, %._crit_edge ], [ %.4251, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %226, %225 ], [ %.4251, %220 ]
+  %.3209 = phi i32 [ %.0206274, %._crit_edge ], [ %.5211, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %.5211, %220 ], [ %.5211, %225 ]
+  %.4154 = phi i32 [ %.0150276, %._crit_edge ], [ %.5, %.loopexit.._crit_edge252.loopexit_crit_edge ], [ %.5, %220 ], [ %.5, %225 ]
+  %229 = icmp slt i32 %.4.lcssa, %228
   br i1 %229, label %._crit_edge279.loopexit, label %.loopexit222
 
 .loopexit222:                                     ; preds = %._crit_edge269, %.preheader221, %._crit_edge252, %64
   %230 = phi i32 [ %.pre314, %64 ], [ %228, %._crit_edge252 ], [ %.pre314, %.preheader221 ], [ %77, %._crit_edge269 ]
-  %.8 = phi i32 [ %.0206274, %64 ], [ %.7, %._crit_edge252 ], [ %.0206274, %.preheader221 ], [ %.0206274, %._crit_edge269 ]
+  %.1207 = phi i32 [ %.0206274, %64 ], [ %.3209, %._crit_edge252 ], [ %.0206274, %.preheader221 ], [ %.0206274, %._crit_edge269 ]
   %.1156 = phi i32 [ %.0155275, %64 ], [ %83, %._crit_edge252 ], [ %.0155275, %.preheader221 ], [ %.0155275, %._crit_edge269 ]
-  %.4154 = phi i32 [ %.0150276, %64 ], [ %.3153, %._crit_edge252 ], [ %.0150276, %.preheader221 ], [ %.0150276, %._crit_edge269 ]
-  %.3 = phi i32 [ %.0144277, %64 ], [ %.2.lcssa, %._crit_edge252 ], [ 0, %.preheader221 ], [ %78, %._crit_edge269 ]
+  %.2152 = phi i32 [ %.0150276, %64 ], [ %.4154, %._crit_edge252 ], [ %.0150276, %.preheader221 ], [ %.0150276, %._crit_edge269 ]
+  %.3 = phi i32 [ %.0144277, %64 ], [ %.4.lcssa, %._crit_edge252 ], [ 0, %.preheader221 ], [ %78, %._crit_edge269 ]
   %231 = add nsw i32 %230, %.0278
   %232 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %232, 0
@@ -5958,16 +5958,16 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i199, %199
 
 ._crit_edge279.loopexit:                          ; preds = %.loopexit222, %._crit_edge252
   %.0.lcssa.ph = phi i32 [ %.0278, %._crit_edge252 ], [ %231, %.loopexit222 ]
-  %.5.ph = phi i32 [ %.3153, %._crit_edge252 ], [ %.4154, %.loopexit222 ]
-  %.4.ph = phi i32 [ %.2.lcssa, %._crit_edge252 ], [ %.3, %.loopexit222 ]
+  %.1151.ph = phi i32 [ %.4154, %._crit_edge252 ], [ %.2152, %.loopexit222 ]
+  %.1.ph = phi i32 [ %.4.lcssa, %._crit_edge252 ], [ %.3, %.loopexit222 ]
   %.pre315 = load i32, ptr %24, align 8
   br label %._crit_edge279
 
 ._crit_edge279:                                   ; preds = %._crit_edge279.loopexit, %.preheader223
   %234 = phi i32 [ %28, %.preheader223 ], [ %.pre315, %._crit_edge279.loopexit ]
   %.0.lcssa = phi i32 [ 0, %.preheader223 ], [ %.0.lcssa.ph, %._crit_edge279.loopexit ]
-  %.5 = phi i32 [ -1, %.preheader223 ], [ %.5.ph, %._crit_edge279.loopexit ]
-  %.4 = phi i32 [ 0, %.preheader223 ], [ %.4.ph, %._crit_edge279.loopexit ]
+  %.1151 = phi i32 [ -1, %.preheader223 ], [ %.1151.ph, %._crit_edge279.loopexit ]
+  %.1 = phi i32 [ 0, %.preheader223 ], [ %.1.ph, %._crit_edge279.loopexit ]
   %235 = icmp sgt i32 %234, 0
   br i1 %235, label %.lr.ph289.preheader, label %._crit_edge290
 
@@ -6015,7 +6015,7 @@ Abc_Clock.exit201:                                ; preds = %._crit_edge290, %24
   %256 = sub i64 %.0.i200, %255
   %257 = getelementptr inbounds i8, ptr %20, i64 920
   store i64 %256, ptr %257, align 8
-  %258 = icmp eq i32 %.5, -1
+  %258 = icmp eq i32 %.1151, -1
   br i1 %258, label %259, label %270
 
 259:                                              ; preds = %Abc_Clock.exit201
@@ -6027,8 +6027,8 @@ Abc_Clock.exit201:                                ; preds = %._crit_edge290, %24
 262:                                              ; preds = %259
   %263 = getelementptr inbounds i8, ptr %1, i64 8
   %264 = load i32, ptr %263, align 8
-  %265 = icmp slt i32 %.4, %264
-  %266 = add nsw i32 %.4, 1
+  %265 = icmp slt i32 %.1, %264
+  %266 = add nsw i32 %.1, 1
   %267 = select i1 %265, i32 %266, i32 0
   %268 = add nsw i32 %267, %.0.lcssa
   %269 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %268)
@@ -6059,7 +6059,7 @@ Abc_Clock.exit203:                                ; preds = %270, %273
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.26, double noundef %282)
   call void @Bmcs_ManPrintTime(ptr noundef nonnull %20)
   call void @Bmcs_ManStop(ptr noundef nonnull %20)
-  ret i32 %.5
+  ret i32 %.1151
 }
 
 ; Function Attrs: nounwind

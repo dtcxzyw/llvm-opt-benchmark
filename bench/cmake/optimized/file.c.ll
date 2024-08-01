@@ -209,7 +209,7 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
   %82 = icmp eq i32 %81, 16384
   %83 = getelementptr inbounds i8, ptr %6, i64 48
   %84 = load i64, ptr %83, align 8
-  %.096 = select i1 %82, i64 -1, i64 %84
+  %.197 = select i1 %82, i64 -1, i64 %84
   %85 = getelementptr inbounds i8, ptr %6, i64 88
   %86 = load i64, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 4968
@@ -235,11 +235,11 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
 
 96:                                               ; preds = %78, %90, %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, ptr noundef nonnull align 16 dereferenceable(24) @__const.file_do.accept_ranges, i64 24, i1 false)
-  %97 = icmp sgt i64 %.096, -1
+  %97 = icmp sgt i64 %.197, -1
   br i1 %97, label %98, label %105
 
 98:                                               ; preds = %96
-  %99 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 80, ptr noundef nonnull @.str.2, i64 noundef %.096) #9
+  %99 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 80, ptr noundef nonnull @.str.2, i64 noundef %.197) #9
   %100 = sext i32 %99 to i64
   %101 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %8, i64 noundef %100) #9
   %.not120 = icmp eq i32 %101, 0
@@ -292,14 +292,14 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
   br i1 %.not125, label %136, label %.loopexit
 
 136:                                              ; preds = %107
-  call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %0, i64 noundef %.096) #9
+  call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %0, i64 noundef %.197) #9
   %137 = load i16, ptr %129, align 1
   %138 = and i16 %137, 4096
   %.not126 = icmp eq i16 %138, 0
   br i1 %.not126, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %72, %136
-  %.197139 = phi i64 [ %.096, %136 ], [ -1, %72 ]
+  %.096139 = phi i64 [ %.197, %136 ], [ -1, %72 ]
   %139 = call i32 @Curl_range(ptr noundef nonnull %0) #9
   %.not127 = icmp eq i32 %139, 0
   br i1 %.not127, label %140, label %.loopexit
@@ -330,11 +330,11 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
   br i1 %152, label %153, label %157
 
 153:                                              ; preds = %150
-  %.not128 = icmp sgt i64 %151, %.197139
+  %.not128 = icmp sgt i64 %151, %.096139
   br i1 %.not128, label %156, label %154
 
 154:                                              ; preds = %153
-  %155 = sub nsw i64 %.197139, %151
+  %155 = sub nsw i64 %.096139, %151
   br label %157
 
 156:                                              ; preds = %153
@@ -342,7 +342,7 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
   br label %.loopexit
 
 157:                                              ; preds = %154, %150
-  %.298 = phi i64 [ %155, %154 ], [ %.197139, %150 ]
+  %.298 = phi i64 [ %155, %154 ], [ %.096139, %150 ]
   %158 = getelementptr inbounds i8, ptr %0, i64 224
   %159 = load i64, ptr %158, align 8
   %160 = icmp sgt i64 %159, 0

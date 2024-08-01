@@ -1753,7 +1753,7 @@ if.else83:                                        ; preds = %_ZN7rocksdb6StatusD
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.then11.invoke, %if.else83, %if.end48
-  %retval.0 = phi i1 [ false, %if.end48 ], [ true, %if.else83 ], [ false, %if.then11.invoke ]
+  %retval.1 = phi i1 [ false, %if.end48 ], [ true, %if.else83 ], [ false, %if.then11.invoke ]
   %42 = load ptr, ptr %operands_without_ts, align 8
   %tobool.not.i.i.i43 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i43, label %return, label %if.then.i.i.i44
@@ -1770,8 +1770,8 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit47: ; preds = %lpad, %if.then.i.i.
   resume { ptr, i32 } %lpad.phi
 
 return:                                           ; preds = %if.then.i.i.i44, %cleanup, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i44 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i44 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -3341,7 +3341,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %user_comp_filter_from_factory.sroa.0.1 = phi ptr [ %2, %if.then ], [ null, %entry ]
+  %user_comp_filter_from_factory.sroa.0.0 = phi ptr [ %2, %if.then ], [ null, %entry ]
   %call7 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
           to label %invoke.cont6 unwind label %ehcleanup
 
@@ -3350,7 +3350,7 @@ invoke.cont6:                                     ; preds = %if.end
   %3 = load i32, ptr %ttl_, align 8
   %clock_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %clock_, align 8
-  %5 = ptrtoint ptr %user_comp_filter_from_factory.sroa.0.1 to i64
+  %5 = ptrtoint ptr %user_comp_filter_from_factory.sroa.0.0 to i64
   store i64 %5, ptr %agg.tmp, align 8
   invoke void @_ZN7rocksdb19TtlCompactionFilterC1EiPNS_11SystemClockEPKNS_16CompactionFilterESt10unique_ptrIS4_St14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(64) %call7, i32 noundef %3, ptr noundef %4, ptr noundef null, ptr noundef nonnull %agg.tmp)
           to label %_ZNSt10unique_ptrIN7rocksdb19TtlCompactionFilterESt14default_deleteIS1_EED2Ev.exit unwind label %lpad8
@@ -3393,14 +3393,14 @@ ehcleanup.thread:                                 ; preds = %_ZNKSt14default_del
 ehcleanup:                                        ; preds = %if.end
   %11 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i18 = icmp eq ptr %user_comp_filter_from_factory.sroa.0.1, null
+  %cmp.not.i18 = icmp eq ptr %user_comp_filter_from_factory.sroa.0.0, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22, label %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19
 
 _ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19: ; preds = %ehcleanup
-  %vtable.i.i20 = load ptr, ptr %user_comp_filter_from_factory.sroa.0.1, align 8
+  %vtable.i.i20 = load ptr, ptr %user_comp_filter_from_factory.sroa.0.0, align 8
   %vfn.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i20, i64 8
   %12 = load ptr, ptr %vfn.i.i21, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.1) #21
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.0) #21
   br label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22
 
 _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22: ; preds = %ehcleanup.thread, %ehcleanup, %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19

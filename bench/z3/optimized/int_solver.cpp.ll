@@ -1962,7 +1962,7 @@ lor.rhs40.invoke:                                 ; preds = %invoke.cont38, %inv
           to label %cleanup unwind label %lpad20
 
 cleanup:                                          ; preds = %lor.rhs40.invoke, %invoke.cont38, %invoke.cont30, %invoke.cont21
-  %retval.0 = phi i1 [ false, %invoke.cont21 ], [ true, %invoke.cont30 ], [ true, %invoke.cont38 ], [ %18, %lor.rhs40.invoke ]
+  %retval.1 = phi i1 [ false, %invoke.cont21 ], [ true, %invoke.cont30 ], [ true, %invoke.cont38 ], [ %18, %lor.rhs40.invoke ]
   %19 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %delta_minus)
           to label %.noexc.i30 unwind label %terminate.lpad.i29
@@ -2034,8 +2034,8 @@ ehcleanup50:                                      ; preds = %lpad20, %lpad14, %l
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %.noexc.i42, %if.end5, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end5 ], [ %retval.0, %.noexc.i42 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end5 ], [ %retval.1, %.noexc.i42 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2750,8 +2750,8 @@ lpad122:                                          ; preds = %invoke.cont121
   br label %eh.resume
 
 return:                                           ; preds = %_ZN2lp12numeric_pairI8rationalED2Ev.exit150, %.noexc.i2.i172, %cleanup.done51, %cleanup.done19
-  %retval.2 = phi i1 [ false, %cleanup.done19 ], [ false, %cleanup.done51 ], [ true, %.noexc.i2.i172 ], [ false, %_ZN2lp12numeric_pairI8rationalED2Ev.exit150 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %cleanup.done19 ], [ false, %cleanup.done51 ], [ true, %.noexc.i2.i172 ], [ false, %_ZN2lp12numeric_pairI8rationalED2Ev.exit150 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad120, %lpad122, %lpad72, %ehcleanup81, %lpad83, %lpad36, %lpad32, %lpad9, %lpad
   %ref.tmp30.sink = phi ptr [ %ref.tmp6, %lpad ], [ %ref.tmp6, %lpad9 ], [ %ref.tmp30, %lpad32 ], [ %ref.tmp30, %lpad36 ], [ %old_val, %lpad83 ], [ %old_val, %ehcleanup81 ], [ %old_val, %lpad72 ], [ %ref.tmp119, %lpad122 ], [ %ref.tmp119, %lpad120 ]
@@ -4408,7 +4408,7 @@ terminate.lpad.i.i45:                             ; preds = %if.then.i.i43
   unreachable
 
 cleanup:                                          ; preds = %if.then.i.i43, %invoke.cont61, %invoke.cont9
-  %retval.0 = phi i32 [ 5, %invoke.cont9 ], [ %spec.select, %invoke.cont61 ], [ %spec.select, %if.then.i.i43 ]
+  %retval.1 = phi i32 [ 5, %invoke.cont9 ], [ %spec.select, %invoke.cont61 ], [ %spec.select, %if.then.i.i43 ]
   invoke void @_ZN2lp10lar_solver18track_touched_rowsEb(ptr noundef nonnull align 8 dereferenceable(1888) %11, i1 noundef zeroext %call.i)
           to label %return unwind label %terminate.lpad.i
 
@@ -4425,8 +4425,8 @@ ehcleanup:                                        ; preds = %if.then.i.i, %lpad4
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZNK2lp10lar_solver12column_countEv.exit.i.i, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %_ZNK2lp10lar_solver12column_countEv.exit.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %_ZNK2lp10lar_solver12column_countEv.exit.i.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10174,8 +10174,8 @@ ehcleanup182:                                     ; preds = %ehcleanup180, %ehcl
   resume { ptr, i32 } %.pn34
 
 return:                                           ; preds = %.noexc.i2.i102, %if.end, %entry, %lor.lhs.false
-  %retval.2 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end ], [ %retval.1, %.noexc.i2.i102 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end ], [ %retval.1, %.noexc.i2.i102 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11028,12 +11028,12 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIjLb1EjE
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %prev_usage.0351 = phi i32 [ 0, %for.body.lr.ph ], [ %prev_usage.1, %for.inc ]
   %__begin1.0350 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %r_small_box.0349 = phi i32 [ -1, %for.body.lr.ph ], [ %r_small_box.2, %for.inc ]
-  %r_small_value.0348 = phi i32 [ -1, %for.body.lr.ph ], [ %r_small_value.2, %for.inc ]
-  %r_any_value.0347 = phi i32 [ -1, %for.body.lr.ph ], [ %r_any_value.2.fr, %for.inc ]
-  %n_any_value.0346 = phi i32 [ 1, %for.body.lr.ph ], [ %n_any_value.3, %for.inc ]
-  %n_small_value.0345 = phi i32 [ 1, %for.body.lr.ph ], [ %n_small_value.3, %for.inc ]
-  %n_small_box.0344 = phi i32 [ 1, %for.body.lr.ph ], [ %n_small_box.3, %for.inc ]
+  %r_small_box.0349 = phi i32 [ -1, %for.body.lr.ph ], [ %r_small_box.1, %for.inc ]
+  %r_small_value.0348 = phi i32 [ -1, %for.body.lr.ph ], [ %r_small_value.1, %for.inc ]
+  %r_any_value.0347 = phi i32 [ -1, %for.body.lr.ph ], [ %r_any_value.1.fr, %for.inc ]
+  %n_any_value.0346 = phi i32 [ 1, %for.body.lr.ph ], [ %n_any_value.1, %for.inc ]
+  %n_small_value.0345 = phi i32 [ 1, %for.body.lr.ph ], [ %n_small_value.1, %for.inc ]
+  %n_small_box.0344 = phi i32 [ 1, %for.body.lr.ph ], [ %n_small_box.1, %for.inc ]
   %5 = load i32, ptr %__begin1.0350, align 4
   %6 = load ptr, ptr %this, align 8
   %call2.i.i.i43 = invoke noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %6, i32 noundef %5)
@@ -11790,26 +11790,26 @@ call.i.i.i.noexc232:                              ; preds = %land.lhs.true.i222
   br label %invoke.cont127
 
 invoke.cont127:                                   ; preds = %call.i.i.i.noexc232, %if.end125
-  %n_any_value.2 = phi i32 [ %n_any_value.0346, %if.end125 ], [ %inc.i228, %call.i.i.i.noexc232 ]
-  %r_any_value.1 = phi i32 [ %.mux, %if.end125 ], [ %spec.select294, %call.i.i.i.noexc232 ]
+  %n_any_value.3 = phi i32 [ %n_any_value.0346, %if.end125 ], [ %inc.i228, %call.i.i.i.noexc232 ]
+  %r_any_value.2 = phi i32 [ %.mux, %if.end125 ], [ %spec.select294, %call.i.i.i.noexc232 ]
   %spec.select = call i32 @llvm.umax.i32(i32 %retval.0.i, i32 %prev_usage.0351)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i, %call.i.i.i.noexc217, %call.i.i.i.noexc, %call2.i.i.i.noexc, %if.then123, %invoke.cont62, %if.end68, %invoke.cont127, %invoke.cont11
-  %n_small_box.3 = phi i32 [ %n_small_box.0344, %invoke.cont127 ], [ %n_small_box.0344, %invoke.cont11 ], [ %n_small_box.0344, %invoke.cont62 ], [ %n_small_box.0344, %if.end68 ], [ %n_small_box.0344, %if.then123 ], [ %n_small_box.0344, %call2.i.i.i.noexc ], [ %inc.i, %call.i.i.i.noexc ], [ %n_small_box.0344, %call.i.i.i.noexc217 ], [ %n_small_box.0344, %for.body.i ]
-  %n_small_value.3 = phi i32 [ %n_small_value.0345, %invoke.cont127 ], [ %n_small_value.0345, %invoke.cont11 ], [ %n_small_value.0345, %invoke.cont62 ], [ %n_small_value.0345, %if.end68 ], [ %n_small_value.0345, %if.then123 ], [ %n_small_value.0345, %call2.i.i.i.noexc ], [ %n_small_value.0345, %call.i.i.i.noexc ], [ %inc.i213, %call.i.i.i.noexc217 ], [ %n_small_value.0345, %for.body.i ]
-  %n_any_value.3 = phi i32 [ %n_any_value.2, %invoke.cont127 ], [ %n_any_value.0346, %invoke.cont11 ], [ %n_any_value.0346, %invoke.cont62 ], [ %n_any_value.0346, %if.end68 ], [ %n_any_value.0346, %if.then123 ], [ %n_any_value.0346, %call2.i.i.i.noexc ], [ %n_any_value.0346, %call.i.i.i.noexc ], [ %n_any_value.0346, %call.i.i.i.noexc217 ], [ %n_any_value.0346, %for.body.i ]
-  %r_any_value.2 = phi i32 [ %r_any_value.1, %invoke.cont127 ], [ %r_any_value.0347, %invoke.cont11 ], [ %r_any_value.0347, %invoke.cont62 ], [ %r_any_value.0347, %if.end68 ], [ %r_any_value.0347, %if.then123 ], [ %r_any_value.0347, %call2.i.i.i.noexc ], [ %r_any_value.0347, %call.i.i.i.noexc ], [ %r_any_value.0347, %call.i.i.i.noexc217 ], [ %r_any_value.0347, %for.body.i ]
-  %r_small_value.2 = phi i32 [ %r_small_value.0348, %invoke.cont127 ], [ %r_small_value.0348, %invoke.cont11 ], [ %r_small_value.0348, %invoke.cont62 ], [ %r_small_value.0348, %if.end68 ], [ %5, %if.then123 ], [ %r_small_value.0348, %call2.i.i.i.noexc ], [ %r_small_value.0348, %call.i.i.i.noexc ], [ %spec.select293, %call.i.i.i.noexc217 ], [ %r_small_value.0348, %for.body.i ]
-  %r_small_box.2 = phi i32 [ %r_small_box.0349, %invoke.cont127 ], [ %r_small_box.0349, %invoke.cont11 ], [ %r_small_box.0349, %invoke.cont62 ], [ %5, %if.end68 ], [ %r_small_box.0349, %if.then123 ], [ %r_small_box.0349, %call2.i.i.i.noexc ], [ %spec.select292, %call.i.i.i.noexc ], [ %r_small_box.0349, %call.i.i.i.noexc217 ], [ %r_small_box.0349, %for.body.i ]
+  %n_small_box.1 = phi i32 [ %n_small_box.0344, %invoke.cont127 ], [ %n_small_box.0344, %invoke.cont11 ], [ %n_small_box.0344, %invoke.cont62 ], [ %n_small_box.0344, %if.end68 ], [ %n_small_box.0344, %if.then123 ], [ %n_small_box.0344, %call2.i.i.i.noexc ], [ %inc.i, %call.i.i.i.noexc ], [ %n_small_box.0344, %call.i.i.i.noexc217 ], [ %n_small_box.0344, %for.body.i ]
+  %n_small_value.1 = phi i32 [ %n_small_value.0345, %invoke.cont127 ], [ %n_small_value.0345, %invoke.cont11 ], [ %n_small_value.0345, %invoke.cont62 ], [ %n_small_value.0345, %if.end68 ], [ %n_small_value.0345, %if.then123 ], [ %n_small_value.0345, %call2.i.i.i.noexc ], [ %n_small_value.0345, %call.i.i.i.noexc ], [ %inc.i213, %call.i.i.i.noexc217 ], [ %n_small_value.0345, %for.body.i ]
+  %n_any_value.1 = phi i32 [ %n_any_value.3, %invoke.cont127 ], [ %n_any_value.0346, %invoke.cont11 ], [ %n_any_value.0346, %invoke.cont62 ], [ %n_any_value.0346, %if.end68 ], [ %n_any_value.0346, %if.then123 ], [ %n_any_value.0346, %call2.i.i.i.noexc ], [ %n_any_value.0346, %call.i.i.i.noexc ], [ %n_any_value.0346, %call.i.i.i.noexc217 ], [ %n_any_value.0346, %for.body.i ]
+  %r_any_value.1 = phi i32 [ %r_any_value.2, %invoke.cont127 ], [ %r_any_value.0347, %invoke.cont11 ], [ %r_any_value.0347, %invoke.cont62 ], [ %r_any_value.0347, %if.end68 ], [ %r_any_value.0347, %if.then123 ], [ %r_any_value.0347, %call2.i.i.i.noexc ], [ %r_any_value.0347, %call.i.i.i.noexc ], [ %r_any_value.0347, %call.i.i.i.noexc217 ], [ %r_any_value.0347, %for.body.i ]
+  %r_small_value.1 = phi i32 [ %r_small_value.0348, %invoke.cont127 ], [ %r_small_value.0348, %invoke.cont11 ], [ %r_small_value.0348, %invoke.cont62 ], [ %r_small_value.0348, %if.end68 ], [ %5, %if.then123 ], [ %r_small_value.0348, %call2.i.i.i.noexc ], [ %r_small_value.0348, %call.i.i.i.noexc ], [ %spec.select293, %call.i.i.i.noexc217 ], [ %r_small_value.0348, %for.body.i ]
+  %r_small_box.1 = phi i32 [ %r_small_box.0349, %invoke.cont127 ], [ %r_small_box.0349, %invoke.cont11 ], [ %r_small_box.0349, %invoke.cont62 ], [ %5, %if.end68 ], [ %r_small_box.0349, %if.then123 ], [ %r_small_box.0349, %call2.i.i.i.noexc ], [ %spec.select292, %call.i.i.i.noexc ], [ %r_small_box.0349, %call.i.i.i.noexc217 ], [ %r_small_box.0349, %for.body.i ]
   %prev_usage.1 = phi i32 [ %spec.select, %invoke.cont127 ], [ %prev_usage.0351, %invoke.cont11 ], [ %prev_usage.0351, %invoke.cont62 ], [ %prev_usage.0351, %if.end68 ], [ %prev_usage.0351, %if.then123 ], [ %prev_usage.0351, %call2.i.i.i.noexc ], [ %prev_usage.0351, %call.i.i.i.noexc ], [ %prev_usage.0351, %call.i.i.i.noexc217 ], [ %prev_usage.0351, %for.body.i ]
-  %r_any_value.2.fr = freeze i32 %r_any_value.2
+  %r_any_value.1.fr = freeze i32 %r_any_value.1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0350, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc
-  %cmp131.not = icmp eq i32 %r_small_box.2, -1
+  %cmp131.not = icmp eq i32 %r_small_box.1, -1
   br i1 %cmp131.not, label %if.end137, label %land.lhs.true132
 
 land.lhs.true132:                                 ; preds = %for.end
@@ -11831,8 +11831,8 @@ invoke.cont133:                                   ; preds = %land.lhs.true132
   br i1 %cmp135.not, label %if.end137, label %cleanup
 
 if.end137:                                        ; preds = %invoke.cont133, %for.end
-  %r_small_box.0.lcssa367 = phi i32 [ %r_small_box.2, %invoke.cont133 ], [ -1, %for.end ]
-  %cmp138.not = icmp eq i32 %r_small_value.2, -1
+  %r_small_box.0.lcssa367 = phi i32 [ %r_small_box.1, %invoke.cont133 ], [ -1, %for.end ]
+  %cmp138.not = icmp eq i32 %r_small_value.1, -1
   br i1 %cmp138.not, label %if.end145, label %land.lhs.true139
 
 land.lhs.true139:                                 ; preds = %if.end137
@@ -11854,14 +11854,14 @@ invoke.cont140:                                   ; preds = %land.lhs.true139
   br i1 %cmp143.not, label %if.end145, label %cleanup
 
 if.end145:                                        ; preds = %invoke.cont140, %if.end137
-  %r_small_value.0.lcssa366376 = phi i32 [ %r_small_value.2, %invoke.cont140 ], [ -1, %if.end137 ]
-  %cmp146.not = icmp eq i32 %r_any_value.2.fr, -1
+  %r_small_value.0.lcssa366376 = phi i32 [ %r_small_value.1, %invoke.cont140 ], [ -1, %if.end137 ]
+  %cmp146.not = icmp eq i32 %r_any_value.1.fr, -1
   %r_small_value.0.lcssa366376.r_small_box.0.lcssa367 = select i1 %cmp131.not, i32 %r_small_value.0.lcssa366376, i32 %r_small_box.0.lcssa367
-  %spec.select396 = select i1 %cmp146.not, i32 %r_small_value.0.lcssa366376.r_small_box.0.lcssa367, i32 %r_any_value.2.fr
+  %spec.select396 = select i1 %cmp146.not, i32 %r_small_value.0.lcssa366376.r_small_box.0.lcssa367, i32 %r_any_value.1.fr
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end145, %invoke.cont6, %_ZNK6vectorIjLb1EjE3endEv.exit, %invoke.cont140, %invoke.cont133
-  %retval.0 = phi i32 [ %r_small_box.2, %invoke.cont133 ], [ %r_small_value.2, %invoke.cont140 ], [ -1, %invoke.cont6 ], [ -1, %_ZNK6vectorIjLb1EjE3endEv.exit ], [ %spec.select396, %if.end145 ]
+  %retval.0 = phi i32 [ %r_small_box.1, %invoke.cont133 ], [ %r_small_value.1, %invoke.cont140 ], [ -1, %invoke.cont6 ], [ -1, %_ZNK6vectorIjLb1EjE3endEv.exit ], [ %spec.select396, %if.end145 ]
   %122 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %122, ptr noundef nonnull align 8 dereferenceable(16) %small_value)
           to label %.noexc.i244 unwind label %terminate.lpad.i243

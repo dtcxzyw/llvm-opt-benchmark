@@ -1801,7 +1801,7 @@ trace_nbd_co_receive_ext_payload_compliance.exit: ; preds = %if.then30, %land.lh
   br label %if.end34
 
 if.end34:                                         ; preds = %sw.bb24, %trace_nbd_co_receive_ext_payload_compliance.exit
-  %valid_flags.1 = phi i32 [ %.mux, %sw.bb24 ], [ 33, %trace_nbd_co_receive_ext_payload_compliance.exit ]
+  %valid_flags.2 = phi i32 [ %.mux, %sw.bb24 ], [ 33, %trace_nbd_co_receive_ext_payload_compliance.exit ]
   %len35 = getelementptr inbounds i8, ptr %request, i64 16
   %24 = load i64, ptr %len35, align 8
   br label %sw.epilog
@@ -2028,7 +2028,7 @@ nbd_co_block_status_payload_read.exit.thread127:  ; preds = %for.inc.i, %trace_n
   br label %if.end110.thread
 
 skip.i:                                           ; preds = %lor.lhs.false62.i, %lor.lhs.false58.i, %if.else54.i, %lor.lhs.false46.i, %if.then43.i, %lor.lhs.false33.i, %if.then30.i, %lor.lhs.false12.i, %if.end5.i
-  %buf.0.i = phi ptr [ null, %if.end5.i ], [ null, %lor.lhs.false12.i ], [ %call18.i, %if.then30.i ], [ %call18.i, %lor.lhs.false33.i ], [ %call18.i, %if.then43.i ], [ %call18.i, %lor.lhs.false46.i ], [ %call18.i, %if.else54.i ], [ %call18.i, %lor.lhs.false58.i ], [ %call18.i, %lor.lhs.false62.i ]
+  %buf.1.i = phi ptr [ null, %if.end5.i ], [ null, %lor.lhs.false12.i ], [ %call18.i, %if.then30.i ], [ %call18.i, %lor.lhs.false33.i ], [ %call18.i, %if.then43.i ], [ %call18.i, %lor.lhs.false46.i ], [ %call18.i, %if.else54.i ], [ %call18.i, %lor.lhs.false58.i ], [ %call18.i, %lor.lhs.false62.i ]
   %payload_len.0.i = phi i64 [ %25, %if.end5.i ], [ %25, %lor.lhs.false12.i ], [ 0, %if.then30.i ], [ 0, %lor.lhs.false33.i ], [ 0, %if.then43.i ], [ 0, %lor.lhs.false46.i ], [ 0, %if.else54.i ], [ 0, %lor.lhs.false58.i ], [ 0, %lor.lhs.false62.i ]
   %from.i = getelementptr inbounds i8, ptr %request, i64 8
   %54 = load i64, ptr %from.i, align 8
@@ -2066,9 +2066,9 @@ if.else.i.i57.i:                                  ; preds = %if.then.i.i55.i
   br label %nbd_co_block_status_payload_read.exit
 
 nbd_co_block_status_payload_read.exit.thread:     ; preds = %if.then.i, %if.then5.i.i
-  %buf.1.i.ph = phi ptr [ %call18.i, %if.then5.i.i ], [ null, %if.then.i ]
+  %buf.0.i.ph = phi ptr [ %call18.i, %if.then5.i.i ], [ null, %if.then.i ]
   %retval.0.i.ph = phi i32 [ -5, %if.then5.i.i ], [ -22, %if.then.i ]
-  call void @g_free(ptr noundef %buf.1.i.ph) #20
+  call void @g_free(ptr noundef %buf.0.i.ph) #20
   br label %return
 
 nbd_co_block_status_payload_read.exit:            ; preds = %skip.i, %land.lhs.true5.i.i52.i, %if.then8.i.i58.i, %if.else.i.i57.i
@@ -2080,7 +2080,7 @@ nbd_co_block_status_payload_read.exit:            ; preds = %skip.i, %land.lhs.t
   %ioc85.i = getelementptr inbounds i8, ptr %0, i64 48
   %63 = load ptr, ptr %ioc85.i, align 8
   %call86.i = call i32 @nbd_drop(ptr noundef %63, i64 noundef %payload_len.0.i, ptr noundef %errp) #20
-  call void @g_free(ptr noundef %buf.0.i) #20
+  call void @g_free(ptr noundef %buf.1.i) #20
   %cmp45 = icmp slt i32 %call86.i, 0
   br i1 %cmp45, label %return, label %if.end110.thread
 
@@ -2091,13 +2091,13 @@ if.else50:                                        ; preds = %sw.bb41
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else50, %if.end15, %sw.bb39, %sw.bb38, %sw.bb37, %if.end34, %sw.bb18
-  %check_length.2 = phi i1 [ %14, %if.end15 ], [ %14, %sw.bb39 ], [ true, %sw.bb38 ], [ %14, %sw.bb37 ], [ true, %if.end34 ], [ true, %sw.bb18 ], [ false, %if.else50 ]
+  %check_length.1 = phi i1 [ %14, %if.end15 ], [ %14, %sw.bb39 ], [ true, %sw.bb38 ], [ %14, %sw.bb37 ], [ true, %if.end34 ], [ true, %sw.bb18 ], [ false, %if.else50 ]
   %check_rofs.0 = phi i1 [ false, %if.end15 ], [ true, %sw.bb39 ], [ false, %sw.bb38 ], [ true, %sw.bb37 ], [ true, %if.end34 ], [ false, %sw.bb18 ], [ false, %if.else50 ]
   %allocate_buffer.0 = phi i1 [ false, %if.end15 ], [ false, %sw.bb39 ], [ false, %sw.bb38 ], [ false, %sw.bb37 ], [ true, %if.end34 ], [ true, %sw.bb18 ], [ false, %if.else50 ]
   %payload_okay.0 = phi i1 [ false, %if.end15 ], [ false, %sw.bb39 ], [ false, %sw.bb38 ], [ false, %sw.bb37 ], [ true, %if.end34 ], [ false, %sw.bb18 ], [ false, %if.else50 ]
-  %payload_len.2 = phi i64 [ %payload_len.0, %if.end15 ], [ %payload_len.0, %sw.bb39 ], [ %payload_len.0, %sw.bb38 ], [ %payload_len.0, %sw.bb37 ], [ %24, %if.end34 ], [ %payload_len.0, %sw.bb18 ], [ %payload_len.0, %if.else50 ]
-  %valid_flags.3 = phi i32 [ 1, %if.end15 ], [ 19, %sw.bb39 ], [ 1, %sw.bb38 ], [ 1, %sw.bb37 ], [ %valid_flags.1, %if.end34 ], [ %spec.select, %sw.bb18 ], [ 9, %if.else50 ]
-  %tobool54.not = icmp eq i64 %payload_len.2, 0
+  %payload_len.1 = phi i64 [ %payload_len.0, %if.end15 ], [ %payload_len.0, %sw.bb39 ], [ %payload_len.0, %sw.bb38 ], [ %payload_len.0, %sw.bb37 ], [ %24, %if.end34 ], [ %payload_len.0, %sw.bb18 ], [ %payload_len.0, %if.else50 ]
+  %valid_flags.1 = phi i32 [ 1, %if.end15 ], [ 19, %sw.bb39 ], [ 1, %sw.bb38 ], [ 1, %sw.bb37 ], [ %valid_flags.2, %if.end34 ], [ %spec.select, %sw.bb18 ], [ 9, %if.else50 ]
+  %tobool54.not = icmp eq i64 %payload_len.1, 0
   br i1 %tobool54.not, label %if.then55, label %if.end57
 
 if.end110.thread:                                 ; preds = %nbd_co_block_status_payload_read.exit, %nbd_co_block_status_payload_read.exit.thread127
@@ -2110,16 +2110,16 @@ if.end110.thread:                                 ; preds = %nbd_co_block_status
 if.then55:                                        ; preds = %sw.epilog
   %complete56 = getelementptr inbounds i8, ptr %req, i64 16
   store i8 1, ptr %complete56, align 8
-  br i1 %check_length.2, label %land.lhs.true, label %if.end65.thread
+  br i1 %check_length.1, label %land.lhs.true, label %if.end65.thread
 
 if.end65.thread:                                  ; preds = %if.then55
   br i1 %allocate_buffer.0, label %if.then80, label %if.end110
 
 if.end57:                                         ; preds = %sw.epilog
-  br i1 %check_length.2, label %land.lhs.true, label %if.end65
+  br i1 %check_length.1, label %land.lhs.true, label %if.end65
 
 land.lhs.true:                                    ; preds = %if.then55, %if.end57
-  %payload_len.2146157 = phi i64 [ 0, %if.then55 ], [ %payload_len.2, %if.end57 ]
+  %payload_len.1146157 = phi i64 [ 0, %if.then55 ], [ %payload_len.1, %if.end57 ]
   %len60 = getelementptr inbounds i8, ptr %request, i64 16
   %65 = load i64, ptr %len60, align 8
   %cmp61 = icmp ugt i64 %65, 33554432
@@ -2130,7 +2130,7 @@ if.then63:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end65:                                         ; preds = %land.lhs.true, %if.end57
-  %payload_len.2146156 = phi i64 [ %payload_len.2146157, %land.lhs.true ], [ %payload_len.2, %if.end57 ]
+  %payload_len.1146156 = phi i64 [ %payload_len.1146157, %land.lhs.true ], [ %payload_len.1, %if.end57 ]
   %tobool54.not150152 = phi i1 [ %tobool54.not, %land.lhs.true ], [ false, %if.end57 ]
   %brmerge = or i1 %tobool54.not150152, %payload_okay.0
   br i1 %brmerge, label %if.end78, label %if.then69
@@ -2153,7 +2153,7 @@ if.end78:                                         ; preds = %if.end65
   br i1 %allocate_buffer.0, label %if.then80, label %if.end88
 
 if.then80:                                        ; preds = %if.end76, %if.end65.thread, %if.end78
-  %payload_len.2146156174182 = phi i64 [ 0, %if.end65.thread ], [ %payload_len.2146156, %if.end78 ], [ %payload_len.2146156, %if.end76 ]
+  %payload_len.1146156174182 = phi i64 [ 0, %if.end65.thread ], [ %payload_len.1146156, %if.end78 ], [ %payload_len.1146156, %if.end76 ]
   %tobool54.not150152176178 = phi i1 [ true, %if.end65.thread ], [ %tobool54.not150152, %if.end78 ], [ %tobool54.not150152, %if.end76 ]
   %exp = getelementptr inbounds i8, ptr %0, i64 16
   %67 = load ptr, ptr %exp, align 8
@@ -2172,7 +2172,7 @@ if.then86:                                        ; preds = %if.then80
   br label %return
 
 if.end88:                                         ; preds = %if.end76, %if.then80, %if.end78
-  %payload_len.2146156174181 = phi i64 [ %payload_len.2146156174182, %if.then80 ], [ %payload_len.2146156, %if.end78 ], [ %payload_len.2146156, %if.end76 ]
+  %payload_len.1146156174181 = phi i64 [ %payload_len.1146156174182, %if.then80 ], [ %payload_len.1146156, %if.end78 ], [ %payload_len.1146156, %if.end76 ]
   %tobool54.not150152176177 = phi i1 [ %tobool54.not150152176178, %if.then80 ], [ %tobool54.not150152, %if.end78 ], [ %tobool54.not150152, %if.end76 ]
   br i1 %tobool54.not150152176177, label %if.end110, label %if.then90
 
@@ -2200,7 +2200,7 @@ if.end97:                                         ; preds = %if.then92
   %cmp.i105 = icmp eq ptr %errp, @error_fatal
   %or.cond.i106 = or i1 %tobool.i104, %cmp.i105
   %spec.select.i = select i1 %or.cond.i106, ptr %_auto_errp_prop.i, ptr %errp
-  %call.i107 = call i32 @qio_channel_read_all(ptr noundef %71, ptr noundef nonnull %70, i64 noundef %payload_len.2146156174181, ptr noundef %spec.select.i) #20
+  %call.i107 = call i32 @qio_channel_read_all(ptr noundef %71, ptr noundef nonnull %70, i64 noundef %payload_len.1146156174181, ptr noundef %spec.select.i) #20
   %cmp3.i108 = icmp slt i32 %call.i107, 0
   br i1 %cmp3.i108, label %if.then5.i, label %nbd_read.exit
 
@@ -2219,7 +2219,7 @@ nbd_read.exit:                                    ; preds = %if.end97, %if.then5
 if.else100:                                       ; preds = %if.then90
   %ioc101 = getelementptr inbounds i8, ptr %0, i64 48
   %72 = load ptr, ptr %ioc101, align 8
-  %call102 = tail call i32 @nbd_drop(ptr noundef %72, i64 noundef %payload_len.2146156174181, ptr noundef %errp) #20
+  %call102 = tail call i32 @nbd_drop(ptr noundef %72, i64 noundef %payload_len.1146156174181, ptr noundef %errp) #20
   br label %if.end103
 
 if.end103:                                        ; preds = %if.else100, %nbd_read.exit
@@ -2256,11 +2256,11 @@ if.then8.i.i120:                                  ; preds = %if.then.i.i117
   %78 = load i64, ptr %_now.i.i110, align 8
   %tv_usec.i.i123 = getelementptr inbounds i8, ptr %_now.i.i110, i64 8
   %79 = load i64, ptr %tv_usec.i.i123, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i122, i64 noundef %78, i64 noundef %79, i64 noundef %73, i64 noundef %payload_len.2146156174181) #20
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i122, i64 noundef %78, i64 noundef %79, i64 noundef %73, i64 noundef %payload_len.1146156174181) #20
   br label %trace_nbd_co_receive_request_payload_received.exit
 
 if.else.i.i119:                                   ; preds = %if.then.i.i117
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i64 noundef %73, i64 noundef %payload_len.2146156174181) #20
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i64 noundef %73, i64 noundef %payload_len.1146156174181) #20
   br label %trace_nbd_co_receive_request_payload_received.exit
 
 trace_nbd_co_receive_request_payload_received.exit: ; preds = %if.end107, %land.lhs.true5.i.i114, %if.then8.i.i120, %if.else.i.i119
@@ -2283,7 +2283,7 @@ if.then118:                                       ; preds = %if.end110
 
 if.end119:                                        ; preds = %if.end110.thread, %if.end110
   %83 = phi ptr [ %64, %if.end110.thread ], [ %80, %if.end110 ]
-  %valid_flags.3148154175179193216 = phi i32 [ 41, %if.end110.thread ], [ %valid_flags.3, %if.end110 ]
+  %valid_flags.1148154175179193216 = phi i32 [ 41, %if.end110.thread ], [ %valid_flags.1, %if.end110 ]
   %from120 = getelementptr inbounds i8, ptr %request, i64 8
   %84 = load i64, ptr %from120, align 8
   %size = getelementptr inbounds i8, ptr %83, i64 72
@@ -2331,7 +2331,7 @@ if.end159:                                        ; preds = %if.then153, %land.l
   %flags160 = getelementptr inbounds i8, ptr %request, i64 24
   %93 = load i16, ptr %flags160, align 8
   %conv161 = zext i16 %93 to i32
-  %not = xor i32 %valid_flags.3148154175179193216, -1
+  %not = xor i32 %valid_flags.1148154175179193216, -1
   %and162 = and i32 %conv161, %not
   %tobool163.not = icmp eq i32 %and162, 0
   br i1 %tobool163.not, label %return, label %if.then164
@@ -5178,7 +5178,7 @@ while.body.preheader:                             ; preds = %if.end9
   %contexts.i = getelementptr inbounds i8, ptr %client, i64 160
   %local_meta.sroa.gep90.i = getelementptr inbounds i8, ptr %local_meta.i, i64 24
   %contexts.sroa.gep91.i = getelementptr inbounds i8, ptr %client, i64 184
-  %tv_usec.i.i.i288 = getelementptr inbounds i8, ptr %_now.i.i.i229, i64 8
+  %tv_usec.i.i.i289 = getelementptr inbounds i8, ptr %_now.i.i.i229, i64 8
   %local_meta.sroa.gep87.i = getelementptr inbounds i8, ptr %local_meta.i, i64 16
   %contexts.sroa.gep88.i = getelementptr inbounds i8, ptr %client, i64 176
   %local_meta.sroa.gep84.i = getelementptr inbounds i8, ptr %local_meta.i, i64 17
@@ -5196,7 +5196,7 @@ while.body.preheader:                             ; preds = %if.end9
   %tv_usec.i.i31.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i18.i.i.i.i, i64 8
   %tv_usec.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i3.i.i.i.i, i64 8
   %tv_usec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i.i, i64 8
-  %tv_usec.i.i.i.i261 = getelementptr inbounds i8, ptr %_now.i.i.i.i227, i64 8
+  %tv_usec.i.i.i.i262 = getelementptr inbounds i8, ptr %_now.i.i.i.i227, i64 8
   %local_meta.sroa.gep.i = getelementptr inbounds i8, ptr %local_meta.i, i64 8
   %contexts.sroa.gep.i = getelementptr inbounds i8, ptr %client, i64 168
   %tv_usec.i.i.i205 = getelementptr inbounds i8, ptr %_now.i.i.i177, i64 8
@@ -6162,9 +6162,9 @@ if.end144.i:                                      ; preds = %land.lhs.true136.i,
 if.end149.i:                                      ; preds = %if.end144.i
   %142 = load i32, ptr %opt, align 8
   %cmp151.i = icmp eq i32 %142, 7
-  br i1 %cmp151.i, label %nbd_negotiate_handle_info.exit.thread318, label %nbd_negotiate_handle_info.exit.thread
+  br i1 %cmp151.i, label %nbd_negotiate_handle_info.exit.thread319, label %nbd_negotiate_handle_info.exit.thread
 
-nbd_negotiate_handle_info.exit.thread318:         ; preds = %if.end149.i
+nbd_negotiate_handle_info.exit.thread319:         ; preds = %if.end149.i
   %exp154.i = getelementptr inbounds i8, ptr %client, i64 16
   store ptr %exp.06.i.i, ptr %exp154.i, align 8
   %check_align155.i = getelementptr inbounds i8, ptr %client, i64 152
@@ -6215,7 +6215,7 @@ nbd_negotiate_handle_info.exit:                   ; preds = %while.end.i
   %cmp79 = icmp eq i32 %call1.i.i, 1
   br i1 %cmp79, label %if.then80, label %if.end146
 
-if.then80:                                        ; preds = %nbd_negotiate_handle_info.exit, %nbd_negotiate_handle_info.exit.thread318
+if.then80:                                        ; preds = %nbd_negotiate_handle_info.exit, %nbd_negotiate_handle_info.exit.thread319
   %147 = load i32, ptr %option, align 4
   %cmp81 = icmp eq i32 %147, 7
   br i1 %cmp81, label %return, label %if.else83
@@ -6305,19 +6305,19 @@ sw.bb119:                                         ; preds = %if.then64, %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %local_meta.i, i8 0, i64 32, i1 false)
   %155 = load i32, ptr %opt, align 8
   %cmp.i231 = icmp eq i32 %155, 10
-  br i1 %cmp.i231, label %land.lhs.true.i292, label %if.end.i232
+  br i1 %cmp.i231, label %land.lhs.true.i293, label %if.end.i232
 
-land.lhs.true.i292:                               ; preds = %sw.bb119
+land.lhs.true.i293:                               ; preds = %sw.bb119
   %156 = load i32, ptr %mode, align 4
   %cmp1.i = icmp ult i32 %156, 3
   br i1 %cmp1.i, label %if.then.i, label %if.end.i232
 
-if.then.i:                                        ; preds = %land.lhs.true.i292
-  %call.i294 = call ptr @nbd_opt_lookup(i32 noundef 10) #20
-  %call3.i = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.184, ptr noundef %call.i294)
+if.then.i:                                        ; preds = %land.lhs.true.i293
+  %call.i295 = call ptr @nbd_opt_lookup(i32 noundef 10) #20
+  %call3.i = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.184, ptr noundef %call.i295)
   br label %nbd_negotiate_meta_queries.exit
 
-if.end.i232:                                      ; preds = %land.lhs.true.i292, %sw.bb119
+if.end.i232:                                      ; preds = %land.lhs.true.i293, %sw.bb119
   %cmp5.i = icmp eq i32 %155, 9
   %meta.0.i = select i1 %cmp5.i, ptr %local_meta.i, ptr %contexts.i
   %meta.0.sroa.sel92.i = select i1 %cmp5.i, ptr %local_meta.sroa.gep90.i, ptr %contexts.sroa.gep91.i
@@ -6340,7 +6340,7 @@ for.body.i.i236:                                  ; preds = %if.end12.i, %for.in
   %158 = load ptr, ptr %name1.i.i238, align 8
   %call.i.i239 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %export_name.val.pre.i, ptr noundef nonnull dereferenceable(1) %158) #21
   %cmp.i.i240 = icmp eq i32 %call.i.i239, 0
-  br i1 %cmp.i.i240, label %if.end19.i249, label %for.inc.i.i241
+  br i1 %cmp.i.i240, label %if.end19.i250, label %for.inc.i.i241
 
 for.inc.i.i241:                                   ; preds = %for.body.i.i236
   %next.i.i242 = getelementptr inbounds i8, ptr %exp.06.i.i237, i64 104
@@ -6352,23 +6352,23 @@ if.then16.i:                                      ; preds = %for.inc.i.i241, %if
   store ptr null, ptr %meta.0.i, align 8
   %call.i67.i = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %export_name.val.pre.i, i64 noundef 80) #21
   %cmp.i68.i = icmp ult i64 %call.i67.i, 80
-  br i1 %cmp.i68.i, label %if.then.i.i247, label %if.end.i.i244
+  br i1 %cmp.i68.i, label %if.then.i.i248, label %if.end.i.i244
 
-if.then.i.i247:                                   ; preds = %if.then16.i
-  %call1.i.i248 = call noalias ptr @g_strdup(ptr noundef %export_name.val.pre.i) #20
+if.then.i.i248:                                   ; preds = %if.then16.i
+  %call1.i.i249 = call noalias ptr @g_strdup(ptr noundef %export_name.val.pre.i) #20
   br label %nbd_sanitize_name.exit.i246
 
 if.end.i.i244:                                    ; preds = %if.then16.i
   %call2.i.i245 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.179, ptr noundef %export_name.val.pre.i) #20
   br label %nbd_sanitize_name.exit.i246
 
-nbd_sanitize_name.exit.i246:                      ; preds = %if.end.i.i244, %if.then.i.i247
-  %retval.0.i.i = phi ptr [ %call1.i.i248, %if.then.i.i247 ], [ %call2.i.i245, %if.end.i.i244 ]
+nbd_sanitize_name.exit.i246:                      ; preds = %if.end.i.i244, %if.then.i.i248
+  %retval.0.i.i = phi ptr [ %call1.i.i249, %if.then.i.i248 ], [ %call2.i.i245, %if.end.i.i244 ]
   %call18.i = call i32 (ptr, i32, ptr, ptr, ...) @nbd_opt_drop(ptr noundef %client, i32 noundef -2147483642, ptr noundef %errp, ptr noundef nonnull @.str.168, ptr noundef %retval.0.i.i)
   call void @g_free(ptr noundef %retval.0.i.i) #20
   br label %nbd_negotiate_meta_queries.exit
 
-if.end19.i249:                                    ; preds = %for.body.i.i236
+if.end19.i250:                                    ; preds = %for.body.i.i236
   store ptr %exp.06.i.i237, ptr %meta.0.i, align 8
   %nr_export_bitmaps.i = getelementptr inbounds i8, ptr %exp.06.i.i237, i64 168
   %159 = load i64, ptr %nr_export_bitmaps.i, align 8
@@ -6376,26 +6376,26 @@ if.end19.i249:                                    ; preds = %for.body.i.i236
   store ptr %call21.i, ptr %meta.0.sroa.sel92.i, align 8
   %160 = load i32, ptr %opt, align 8
   %cmp24.i = icmp eq i32 %160, 9
-  %spec.select.i250 = select i1 %cmp24.i, ptr %call21.i, ptr null
+  %spec.select.i251 = select i1 %cmp24.i, ptr %call21.i, ptr null
   %161 = load i32, ptr %optlen, align 4
   %cmp.i69.i = icmp ult i32 %161, 4
-  br i1 %cmp.i69.i, label %nbd_opt_read.exit.i289, label %if.end.i70.i
+  br i1 %cmp.i69.i, label %nbd_opt_read.exit.i290, label %if.end.i70.i
 
-if.end.i70.i:                                     ; preds = %if.end19.i249
-  %conv5.i.i252 = add i32 %161, -4
-  store i32 %conv5.i.i252, ptr %optlen, align 4
+if.end.i70.i:                                     ; preds = %if.end19.i250
+  %conv5.i.i253 = add i32 %161, -4
+  store i32 %conv5.i.i253, ptr %optlen, align 4
   %162 = load ptr, ptr %ioc, align 8
-  %call6.i.i254 = call i32 @qio_channel_read_all(ptr noundef %162, ptr noundef nonnull %nb_queries.i, i64 noundef 4, ptr noundef %errp) #20
-  %cmp7.i.i255 = icmp sgt i32 %call6.i.i254, -1
-  br i1 %cmp7.i.i255, label %if.end31.i, label %nbd_negotiate_meta_queries.exit
+  %call6.i.i255 = call i32 @qio_channel_read_all(ptr noundef %162, ptr noundef nonnull %nb_queries.i, i64 noundef 4, ptr noundef %errp) #20
+  %cmp7.i.i256 = icmp sgt i32 %call6.i.i255, -1
+  br i1 %cmp7.i.i256, label %if.end31.i, label %nbd_negotiate_meta_queries.exit
 
-nbd_opt_read.exit.i289:                           ; preds = %if.end19.i249
-  %call17.i.i290 = call ptr @nbd_opt_lookup(i32 noundef %160) #20
-  %call18.i.i291 = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.173, ptr noundef %call17.i.i290)
-  %cmp29.i = icmp slt i32 %call18.i.i291, 1
+nbd_opt_read.exit.i290:                           ; preds = %if.end19.i250
+  %call17.i.i291 = call ptr @nbd_opt_lookup(i32 noundef %160) #20
+  %call18.i.i292 = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.173, ptr noundef %call17.i.i291)
+  %cmp29.i = icmp slt i32 %call18.i.i292, 1
   br i1 %cmp29.i, label %nbd_negotiate_meta_queries.exit, label %if.end31.i
 
-if.end31.i:                                       ; preds = %nbd_opt_read.exit.i289, %if.end.i70.i
+if.end31.i:                                       ; preds = %nbd_opt_read.exit.i290, %if.end.i70.i
   %163 = load i32, ptr %nb_queries.i, align 4
   %164 = call noundef i32 @llvm.bswap.i32(i32 %163)
   store i32 %164, ptr %nb_queries.i, align 4
@@ -6404,56 +6404,56 @@ if.end31.i:                                       ; preds = %nbd_opt_read.exit.i
   %166 = load i32, ptr %nb_queries.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i229)
   %167 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i256 = icmp ne i32 %167, 0
+  %tobool.i.i.i257 = icmp ne i32 %167, 0
   %168 = load i16, ptr @_TRACE_NBD_NEGOTIATE_META_CONTEXT_DSTATE, align 2
-  %tobool4.i.i.i257 = icmp ne i16 %168, 0
-  %or.cond.i.i.i258 = select i1 %tobool.i.i.i256, i1 %tobool4.i.i.i257, i1 false
-  br i1 %or.cond.i.i.i258, label %land.lhs.true5.i.i.i279, label %trace_nbd_negotiate_meta_context.exit.i
+  %tobool4.i.i.i258 = icmp ne i16 %168, 0
+  %or.cond.i.i.i259 = select i1 %tobool.i.i.i257, i1 %tobool4.i.i.i258, i1 false
+  br i1 %or.cond.i.i.i259, label %land.lhs.true5.i.i.i280, label %trace_nbd_negotiate_meta_context.exit.i
 
-land.lhs.true5.i.i.i279:                          ; preds = %if.end31.i
+land.lhs.true5.i.i.i280:                          ; preds = %if.end31.i
   %169 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i280 = and i32 %169, 32768
-  %cmp.i.not.i.i.i281 = icmp eq i32 %and.i.i.i.i280, 0
-  br i1 %cmp.i.not.i.i.i281, label %trace_nbd_negotiate_meta_context.exit.i, label %if.then.i.i.i282
+  %and.i.i.i.i281 = and i32 %169, 32768
+  %cmp.i.not.i.i.i282 = icmp eq i32 %and.i.i.i.i281, 0
+  br i1 %cmp.i.not.i.i.i282, label %trace_nbd_negotiate_meta_context.exit.i, label %if.then.i.i.i283
 
-if.then.i.i.i282:                                 ; preds = %land.lhs.true5.i.i.i279
+if.then.i.i.i283:                                 ; preds = %land.lhs.true5.i.i.i280
   %170 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i283 = trunc i8 %170 to i1
-  br i1 %tobool7.i.i.i283, label %if.then8.i.i.i285, label %if.else.i.i.i284
+  %tobool7.i.i.i284 = trunc i8 %170 to i1
+  br i1 %tobool7.i.i.i284, label %if.then8.i.i.i286, label %if.else.i.i.i285
 
-if.then8.i.i.i285:                                ; preds = %if.then.i.i.i282
-  %call9.i.i.i286 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i229, ptr noundef null) #20
-  %call10.i.i.i287 = call i32 @qemu_get_thread_id() #20
+if.then8.i.i.i286:                                ; preds = %if.then.i.i.i283
+  %call9.i.i.i287 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i229, ptr noundef null) #20
+  %call10.i.i.i288 = call i32 @qemu_get_thread_id() #20
   %171 = load i64, ptr %_now.i.i.i229, align 8
-  %172 = load i64, ptr %tv_usec.i.i.i288, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i.i287, i64 noundef %171, i64 noundef %172, ptr noundef %call34.i, ptr noundef %export_name.val.pre.i, i32 noundef %166) #20
+  %172 = load i64, ptr %tv_usec.i.i.i289, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.188, i32 noundef %call10.i.i.i288, i64 noundef %171, i64 noundef %172, ptr noundef %call34.i, ptr noundef %export_name.val.pre.i, i32 noundef %166) #20
   br label %trace_nbd_negotiate_meta_context.exit.i
 
-if.else.i.i.i284:                                 ; preds = %if.then.i.i.i282
+if.else.i.i.i285:                                 ; preds = %if.then.i.i.i283
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, ptr noundef %call34.i, ptr noundef %export_name.val.pre.i, i32 noundef %166) #20
   br label %trace_nbd_negotiate_meta_context.exit.i
 
-trace_nbd_negotiate_meta_context.exit.i:          ; preds = %if.else.i.i.i284, %if.then8.i.i.i285, %land.lhs.true5.i.i.i279, %if.end31.i
+trace_nbd_negotiate_meta_context.exit.i:          ; preds = %if.else.i.i.i285, %if.then8.i.i.i286, %land.lhs.true5.i.i.i280, %if.end31.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i229)
   %173 = load i32, ptr %opt, align 8
   %cmp36.i = icmp ne i32 %173, 9
   %174 = load i32, ptr %nb_queries.i, align 4
   %tobool.i = icmp ne i32 %174, 0
   %or.cond.i = select i1 %cmp36.i, i1 true, i1 %tobool.i
-  br i1 %or.cond.i, label %for.cond.preheader.i259, label %if.then38.i
+  br i1 %or.cond.i, label %for.cond.preheader.i260, label %if.then38.i
 
-for.cond.preheader.i259:                          ; preds = %trace_nbd_negotiate_meta_context.exit.i
+for.cond.preheader.i260:                          ; preds = %trace_nbd_negotiate_meta_context.exit.i
   %cmp51138.not.i = icmp eq i32 %174, 0
-  br i1 %cmp51138.not.i, label %for.cond.preheader.i259.if.end58.i_crit_edge, label %for.body.lr.ph.i260
+  br i1 %cmp51138.not.i, label %for.cond.preheader.i260.if.end58.i_crit_edge, label %for.body.lr.ph.i261
 
-for.cond.preheader.i259.if.end58.i_crit_edge:     ; preds = %for.cond.preheader.i259
+for.cond.preheader.i260.if.end58.i_crit_edge:     ; preds = %for.cond.preheader.i260
   %.pre = select i1 %cmp5.i, ptr %local_meta.sroa.gep87.i, ptr %contexts.sroa.gep88.i
   br label %if.end58.i
 
-for.body.lr.ph.i260:                              ; preds = %for.cond.preheader.i259
+for.body.lr.ph.i261:                              ; preds = %for.cond.preheader.i260
   %meta.0.sroa.sel101.i = select i1 %cmp5.i, ptr %local_meta.sroa.gep84.i, ptr %contexts.sroa.gep85.i
   %meta.0.sroa.sel110.i = select i1 %cmp5.i, ptr %local_meta.sroa.gep87.i, ptr %contexts.sroa.gep88.i
-  br label %for.body.i262
+  br label %for.body.i263
 
 if.then38.i:                                      ; preds = %trace_nbd_negotiate_meta_context.exit.i
   %meta.0.sroa.sel89.i = select i1 %cmp5.i, ptr %local_meta.sroa.gep87.i, ptr %contexts.sroa.gep88.i
@@ -6474,14 +6474,14 @@ if.then45.i:                                      ; preds = %if.then38.i
   call void @llvm.memset.p0.i64(ptr align 1 %178, i8 1, i64 %177, i1 false)
   br label %if.end58.i
 
-for.body.i262:                                    ; preds = %for.inc.i, %for.body.lr.ph.i260
-  %i.0139.i = phi i64 [ 0, %for.body.lr.ph.i260 ], [ %inc.i, %for.inc.i ]
+for.body.i263:                                    ; preds = %for.inc.i, %for.body.lr.ph.i261
+  %i.0139.i = phi i64 [ 0, %for.body.lr.ph.i261 ], [ %inc.i, %for.inc.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i228)
   %179 = load i32, ptr %optlen, align 4
-  %cmp.i.i.i263 = icmp ult i32 %179, 4
-  br i1 %cmp.i.i.i263, label %nbd_opt_read.exit.i.i, label %if.end.i.i.i
+  %cmp.i.i.i264 = icmp ult i32 %179, 4
+  br i1 %cmp.i.i.i264, label %nbd_opt_read.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %for.body.i262
+if.end.i.i.i:                                     ; preds = %for.body.i263
   %conv5.i.i.i = add i32 %179, -4
   store i32 %conv5.i.i.i, ptr %optlen, align 4
   %180 = load ptr, ptr %ioc, align 8
@@ -6493,7 +6493,7 @@ if.end.i.if.end_crit_edge.i.i:                    ; preds = %if.end.i.i.i
   %.pre.i.i = load i32, ptr %len.i.i228, align 4
   br label %if.end.i73.i
 
-nbd_opt_read.exit.i.i:                            ; preds = %for.body.i262
+nbd_opt_read.exit.i.i:                            ; preds = %for.body.i263
   %181 = load i32, ptr %opt, align 8
   %call17.i.i.i = call ptr @nbd_opt_lookup(i32 noundef %181) #20
   %call18.i.i.i = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.173, ptr noundef %call17.i.i.i)
@@ -6510,36 +6510,36 @@ if.end.i73.i:                                     ; preds = %nbd_opt_read.exit.i
 if.then3.i.i:                                     ; preds = %if.end.i73.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i227)
   %184 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i266 = icmp ne i32 %184, 0
+  %tobool.i.i.i.i267 = icmp ne i32 %184, 0
   %185 = load i16, ptr @_TRACE_NBD_NEGOTIATE_META_QUERY_SKIP_DSTATE, align 2
-  %tobool4.i.i.i.i267 = icmp ne i16 %185, 0
-  %or.cond.i.i.i.i268 = select i1 %tobool.i.i.i.i266, i1 %tobool4.i.i.i.i267, i1 false
-  br i1 %or.cond.i.i.i.i268, label %land.lhs.true5.i.i.i.i270, label %trace_nbd_negotiate_meta_query_skip.exit.i.i
+  %tobool4.i.i.i.i268 = icmp ne i16 %185, 0
+  %or.cond.i.i.i.i269 = select i1 %tobool.i.i.i.i267, i1 %tobool4.i.i.i.i268, i1 false
+  br i1 %or.cond.i.i.i.i269, label %land.lhs.true5.i.i.i.i271, label %trace_nbd_negotiate_meta_query_skip.exit.i.i
 
-land.lhs.true5.i.i.i.i270:                        ; preds = %if.then3.i.i
+land.lhs.true5.i.i.i.i271:                        ; preds = %if.then3.i.i
   %186 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i271 = and i32 %186, 32768
-  %cmp.i.not.i.i.i.i272 = icmp eq i32 %and.i.i.i.i.i271, 0
-  br i1 %cmp.i.not.i.i.i.i272, label %trace_nbd_negotiate_meta_query_skip.exit.i.i, label %if.then.i.i.i.i273
+  %and.i.i.i.i.i272 = and i32 %186, 32768
+  %cmp.i.not.i.i.i.i273 = icmp eq i32 %and.i.i.i.i.i272, 0
+  br i1 %cmp.i.not.i.i.i.i273, label %trace_nbd_negotiate_meta_query_skip.exit.i.i, label %if.then.i.i.i.i274
 
-if.then.i.i.i.i273:                               ; preds = %land.lhs.true5.i.i.i.i270
+if.then.i.i.i.i274:                               ; preds = %land.lhs.true5.i.i.i.i271
   %187 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i.i274 = trunc i8 %187 to i1
-  br i1 %tobool7.i.i.i.i274, label %if.then8.i.i.i.i276, label %if.else.i.i.i.i275
+  %tobool7.i.i.i.i275 = trunc i8 %187 to i1
+  br i1 %tobool7.i.i.i.i275, label %if.then8.i.i.i.i277, label %if.else.i.i.i.i276
 
-if.then8.i.i.i.i276:                              ; preds = %if.then.i.i.i.i273
-  %call9.i.i.i.i277 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i227, ptr noundef null) #20
-  %call10.i.i.i.i278 = call i32 @qemu_get_thread_id() #20
+if.then8.i.i.i.i277:                              ; preds = %if.then.i.i.i.i274
+  %call9.i.i.i.i278 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i227, ptr noundef null) #20
+  %call10.i.i.i.i279 = call i32 @qemu_get_thread_id() #20
   %188 = load i64, ptr %_now.i.i.i.i227, align 8
-  %189 = load i64, ptr %tv_usec.i.i.i.i261, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %call10.i.i.i.i278, i64 noundef %188, i64 noundef %189, ptr noundef nonnull @.str.190) #20
+  %189 = load i64, ptr %tv_usec.i.i.i.i262, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %call10.i.i.i.i279, i64 noundef %188, i64 noundef %189, ptr noundef nonnull @.str.190) #20
   br label %trace_nbd_negotiate_meta_query_skip.exit.i.i
 
-if.else.i.i.i.i275:                               ; preds = %if.then.i.i.i.i273
+if.else.i.i.i.i276:                               ; preds = %if.then.i.i.i.i274
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.190) #20
   br label %trace_nbd_negotiate_meta_query_skip.exit.i.i
 
-trace_nbd_negotiate_meta_query_skip.exit.i.i:     ; preds = %if.else.i.i.i.i275, %if.then8.i.i.i.i276, %land.lhs.true5.i.i.i.i270, %if.then3.i.i
+trace_nbd_negotiate_meta_query_skip.exit.i.i:     ; preds = %if.else.i.i.i.i276, %if.then8.i.i.i.i277, %land.lhs.true5.i.i.i.i271, %if.then3.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i227)
   %190 = load i32, ptr %len.i.i228, align 4
   %191 = load i32, ptr %optlen, align 4
@@ -6556,8 +6556,8 @@ if.end.i14.i.i:                                   ; preds = %trace_nbd_negotiate
   br i1 %cmp7.i18.i.i, label %nbd_negotiate_meta_query.exit.thread124.i, label %nbd_negotiate_meta_query.exit.thread.i
 
 if.end5.i.i:                                      ; preds = %if.end.i73.i
-  %add.i.i264 = add nuw nsw i32 %183, 1
-  %conv6.i.i = zext nneg i32 %add.i.i264 to i64
+  %add.i.i265 = add nuw nsw i32 %183, 1
+  %conv6.i.i = zext nneg i32 %add.i.i265 to i64
   %call7.i.i = call noalias ptr @g_malloc(i64 noundef %conv6.i.i) #23
   %193 = load i32, ptr %len.i.i228, align 4
   %conv8.i.i = zext i32 %193 to i64
@@ -7186,8 +7186,8 @@ nbd_negotiate_meta_query.exit.thread124.i:        ; preds = %nbd_opt_read.exit34
 
 nbd_negotiate_meta_query.exit.i:                  ; preds = %trace_nbd_negotiate_meta_query_skip.exit.i.i
   %299 = load i32, ptr %opt, align 8
-  %call.i.i.i269 = call ptr @nbd_opt_lookup(i32 noundef %299) #20
-  %call2.i.i.i = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.173, ptr noundef %call.i.i.i269)
+  %call.i.i.i270 = call ptr @nbd_opt_lookup(i32 noundef %299) #20
+  %call2.i.i.i = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.173, ptr noundef %call.i.i.i270)
   call void @g_free(ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i228)
   %cmp54.i = icmp slt i32 %call2.i.i.i, 1
@@ -7196,12 +7196,12 @@ nbd_negotiate_meta_query.exit.i:                  ; preds = %trace_nbd_negotiate
 for.inc.i:                                        ; preds = %nbd_negotiate_meta_query.exit.i, %nbd_negotiate_meta_query.exit.thread.i
   %inc.i = add nuw nsw i64 %i.0139.i, 1
   %300 = load i32, ptr %nb_queries.i, align 4
-  %conv.i265 = zext i32 %300 to i64
-  %cmp51.i = icmp ult i64 %inc.i, %conv.i265
-  br i1 %cmp51.i, label %for.body.i262, label %if.end58.i, !llvm.loop !30
+  %conv.i266 = zext i32 %300 to i64
+  %cmp51.i = icmp ult i64 %inc.i, %conv.i266
+  br i1 %cmp51.i, label %for.body.i263, label %if.end58.i, !llvm.loop !30
 
-if.end58.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i259.if.end58.i_crit_edge, %if.then45.i, %if.then38.i
-  %meta.0.sroa.sel83.i.pre-phi = phi ptr [ %.pre, %for.cond.preheader.i259.if.end58.i_crit_edge ], [ %meta.0.sroa.sel89.i, %if.then45.i ], [ %meta.0.sroa.sel89.i, %if.then38.i ], [ %meta.0.sroa.sel110.i, %for.inc.i ]
+if.end58.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i260.if.end58.i_crit_edge, %if.then45.i, %if.then38.i
+  %meta.0.sroa.sel83.i.pre-phi = phi ptr [ %.pre, %for.cond.preheader.i260.if.end58.i_crit_edge ], [ %meta.0.sroa.sel89.i, %if.then45.i ], [ %meta.0.sroa.sel89.i, %if.then38.i ], [ %meta.0.sroa.sel110.i, %for.inc.i ]
   %301 = load i8, ptr %meta.0.sroa.sel83.i.pre-phi, align 8
   %tobool60.i = trunc i8 %301 to i1
   br i1 %tobool60.i, label %if.then61.i, label %if.end68.i
@@ -7288,11 +7288,11 @@ if.then106.i:                                     ; preds = %for.end102.i
   store i64 %count.2.lcssa.i, ptr %meta.0.sroa.sel.i, align 8
   br label %nbd_negotiate_meta_queries.exit
 
-nbd_negotiate_meta_queries.exit:                  ; preds = %nbd_negotiate_meta_query.exit.i, %if.then.i, %if.end.i232, %nbd_sanitize_name.exit.i246, %if.end.i70.i, %nbd_opt_read.exit.i289, %nbd_negotiate_meta_query.exit.thread124.i, %if.then61.i, %if.then71.i, %cleanup.i, %for.end102.i, %if.then106.i
-  %export_name.val.i = phi ptr [ null, %if.then.i ], [ %export_name.val.pre.i, %if.end.i232 ], [ %export_name.val.pre.i, %nbd_sanitize_name.exit.i246 ], [ %export_name.val.pre.i, %nbd_opt_read.exit.i289 ], [ %export_name.val.pre.i, %if.then61.i ], [ %export_name.val.pre.i, %if.then71.i ], [ %export_name.val.pre.i, %cleanup.i ], [ %export_name.val.pre.i, %if.then106.i ], [ %export_name.val.pre.i, %for.end102.i ], [ %export_name.val.pre.i, %nbd_negotiate_meta_query.exit.thread124.i ], [ %export_name.val.pre.i, %if.end.i70.i ], [ %export_name.val.pre.i, %nbd_negotiate_meta_query.exit.i ]
-  %bitmaps.1.i = phi ptr [ null, %if.then.i ], [ null, %if.end.i232 ], [ null, %nbd_sanitize_name.exit.i246 ], [ %spec.select.i250, %nbd_opt_read.exit.i289 ], [ %spec.select.i250, %if.then61.i ], [ %spec.select.i250, %if.then71.i ], [ %spec.select.i250, %cleanup.i ], [ %spec.select.i250, %if.then106.i ], [ %spec.select.i250, %for.end102.i ], [ %spec.select.i250, %nbd_negotiate_meta_query.exit.thread124.i ], [ %spec.select.i250, %if.end.i70.i ], [ %spec.select.i250, %nbd_negotiate_meta_query.exit.i ]
-  %retval.2.i = phi i32 [ %call3.i, %if.then.i ], [ %call9.i233, %if.end.i232 ], [ %call18.i, %nbd_sanitize_name.exit.i246 ], [ %call18.i.i291, %nbd_opt_read.exit.i289 ], [ %call62.i, %if.then61.i ], [ %call72.i, %if.then71.i ], [ %call94.i, %cleanup.i ], [ 0, %if.then106.i ], [ %call.i77.i, %for.end102.i ], [ %retval.0.i72.ph.i, %nbd_negotiate_meta_query.exit.thread124.i ], [ -5, %if.end.i70.i ], [ %call2.i.i.i, %nbd_negotiate_meta_query.exit.i ]
-  call void @g_free(ptr noundef %bitmaps.1.i) #20
+nbd_negotiate_meta_queries.exit:                  ; preds = %nbd_negotiate_meta_query.exit.i, %if.then.i, %if.end.i232, %nbd_sanitize_name.exit.i246, %if.end.i70.i, %nbd_opt_read.exit.i290, %nbd_negotiate_meta_query.exit.thread124.i, %if.then61.i, %if.then71.i, %cleanup.i, %for.end102.i, %if.then106.i
+  %export_name.val.i = phi ptr [ null, %if.then.i ], [ %export_name.val.pre.i, %if.end.i232 ], [ %export_name.val.pre.i, %nbd_sanitize_name.exit.i246 ], [ %export_name.val.pre.i, %nbd_opt_read.exit.i290 ], [ %export_name.val.pre.i, %if.then61.i ], [ %export_name.val.pre.i, %if.then71.i ], [ %export_name.val.pre.i, %cleanup.i ], [ %export_name.val.pre.i, %if.then106.i ], [ %export_name.val.pre.i, %for.end102.i ], [ %export_name.val.pre.i, %nbd_negotiate_meta_query.exit.thread124.i ], [ %export_name.val.pre.i, %if.end.i70.i ], [ %export_name.val.pre.i, %nbd_negotiate_meta_query.exit.i ]
+  %bitmaps.0.i = phi ptr [ null, %if.then.i ], [ null, %if.end.i232 ], [ null, %nbd_sanitize_name.exit.i246 ], [ %spec.select.i251, %nbd_opt_read.exit.i290 ], [ %spec.select.i251, %if.then61.i ], [ %spec.select.i251, %if.then71.i ], [ %spec.select.i251, %cleanup.i ], [ %spec.select.i251, %if.then106.i ], [ %spec.select.i251, %for.end102.i ], [ %spec.select.i251, %nbd_negotiate_meta_query.exit.thread124.i ], [ %spec.select.i251, %if.end.i70.i ], [ %spec.select.i251, %nbd_negotiate_meta_query.exit.i ]
+  %retval.0.i247 = phi i32 [ %call3.i, %if.then.i ], [ %call9.i233, %if.end.i232 ], [ %call18.i, %nbd_sanitize_name.exit.i246 ], [ %call18.i.i292, %nbd_opt_read.exit.i290 ], [ %call62.i, %if.then61.i ], [ %call72.i, %if.then71.i ], [ %call94.i, %cleanup.i ], [ 0, %if.then106.i ], [ %call.i77.i, %for.end102.i ], [ %retval.0.i72.ph.i, %nbd_negotiate_meta_query.exit.thread124.i ], [ -5, %if.end.i70.i ], [ %call2.i.i.i, %nbd_negotiate_meta_query.exit.i ]
+  call void @g_free(ptr noundef %bitmaps.0.i) #20
   call void @g_free(ptr noundef %export_name.val.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %export_name.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %local_meta.i)
@@ -7306,17 +7306,17 @@ sw.bb121:                                         ; preds = %if.then64
 
 if.then123:                                       ; preds = %sw.bb121
   %314 = load i32, ptr %optlen, align 4
-  %tobool.not.i296 = icmp eq i32 %314, 0
-  br i1 %tobool.not.i296, label %if.else.i303, label %nbd_reject_length.exit304
+  %tobool.not.i297 = icmp eq i32 %314, 0
+  br i1 %tobool.not.i297, label %if.else.i304, label %nbd_reject_length.exit305
 
-if.else.i303:                                     ; preds = %if.then123
+if.else.i304:                                     ; preds = %if.then123
   call void @__assert_fail(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_reject_length) #19
   unreachable
 
-nbd_reject_length.exit304:                        ; preds = %if.then123
+nbd_reject_length.exit305:                        ; preds = %if.then123
   %315 = load i32, ptr %opt, align 8
-  %call.i299 = call ptr @nbd_opt_lookup(i32 noundef %315) #20
-  %call1.i300 = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.137, ptr noundef %call.i299)
+  %call.i300 = call ptr @nbd_opt_lookup(i32 noundef %315) #20
+  %call1.i301 = call i32 (ptr, ptr, ptr, ...) @nbd_opt_invalid(ptr noundef nonnull %client, ptr noundef %errp, ptr noundef nonnull @.str.137, ptr noundef %call.i300)
   br label %if.end146
 
 if.else125:                                       ; preds = %sw.bb121
@@ -7329,7 +7329,7 @@ if.then128:                                       ; preds = %if.else125
   br label %if.end146
 
 if.else130:                                       ; preds = %if.else125
-  %call.i305 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
+  %call.i306 = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   store i32 4, ptr %mode, align 4
   br label %if.end146
 
@@ -7351,8 +7351,8 @@ sw.default143:                                    ; preds = %if.else139
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1334, ptr noundef nonnull @__func__.nbd_negotiate_options, ptr noundef nonnull @.str.129, i32 noundef %64, ptr noundef %call144) #20
   br label %return
 
-if.end146:                                        ; preds = %nbd_negotiate_handle_info.exit.thread, %for.end.i, %nbd_reject_length.exit304, %if.else130, %if.then128, %nbd_reject_length.exit225, %if.then111, %if.else113, %if.then106, %nbd_reject_length.exit215, %if.else95, %if.then93, %nbd_negotiate_handle_info.exit, %nbd_reject_length.exit, %sw.default135, %nbd_negotiate_meta_queries.exit, %if.end53, %sw.default
-  %ret.0 = phi i32 [ %call58, %sw.default ], [ 0, %if.end53 ], [ %call137, %sw.default135 ], [ %call1.i300, %nbd_reject_length.exit304 ], [ %call129, %if.then128 ], [ %call.i305, %if.else130 ], [ %retval.2.i, %nbd_negotiate_meta_queries.exit ], [ %call1.i221, %nbd_reject_length.exit225 ], [ %call107, %if.then106 ], [ %call112, %if.then111 ], [ %call.i226, %if.else113 ], [ %call1.i211, %nbd_reject_length.exit215 ], [ %call94, %if.then93 ], [ %call96, %if.else95 ], [ %call1.i.i, %nbd_negotiate_handle_info.exit ], [ %call1.i, %nbd_reject_length.exit ], [ %call.i7.i, %for.end.i ], [ %retval.0.i185.ph, %nbd_negotiate_handle_info.exit.thread ]
+if.end146:                                        ; preds = %nbd_negotiate_handle_info.exit.thread, %for.end.i, %nbd_reject_length.exit305, %if.else130, %if.then128, %nbd_reject_length.exit225, %if.then111, %if.else113, %if.then106, %nbd_reject_length.exit215, %if.else95, %if.then93, %nbd_negotiate_handle_info.exit, %nbd_reject_length.exit, %sw.default135, %nbd_negotiate_meta_queries.exit, %if.end53, %sw.default
+  %ret.0 = phi i32 [ %call58, %sw.default ], [ 0, %if.end53 ], [ %call137, %sw.default135 ], [ %call1.i301, %nbd_reject_length.exit305 ], [ %call129, %if.then128 ], [ %call.i306, %if.else130 ], [ %retval.0.i247, %nbd_negotiate_meta_queries.exit ], [ %call1.i221, %nbd_reject_length.exit225 ], [ %call107, %if.then106 ], [ %call112, %if.then111 ], [ %call.i226, %if.else113 ], [ %call1.i211, %nbd_reject_length.exit215 ], [ %call94, %if.then93 ], [ %call96, %if.else95 ], [ %call1.i.i, %nbd_negotiate_handle_info.exit ], [ %call1.i, %nbd_reject_length.exit ], [ %call.i7.i, %for.end.i ], [ %retval.0.i185.ph, %nbd_negotiate_handle_info.exit.thread ]
   %cmp147 = icmp slt i32 %ret.0, 0
   br i1 %cmp147, label %return, label %while.body
 

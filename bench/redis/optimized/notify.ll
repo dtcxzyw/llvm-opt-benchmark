@@ -140,117 +140,117 @@ if.then3:                                         ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.else
-  %res.0 = phi ptr [ %call4, %if.then3 ], [ %call, %if.else ]
+  %res.1 = phi ptr [ %call4, %if.then3 ], [ %call, %if.else ]
   %and5 = and i32 %flags, 8
   %tobool6.not = icmp eq i32 %and5, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call ptr @sdscatlen(ptr noundef %res.0, ptr noundef nonnull @.str.2, i64 noundef 1) #4
+  %call8 = tail call ptr @sdscatlen(ptr noundef %res.1, ptr noundef nonnull @.str.2, i64 noundef 1) #4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end
-  %res.1 = phi ptr [ %call8, %if.then7 ], [ %res.0, %if.end ]
+  %res.2 = phi ptr [ %call8, %if.then7 ], [ %res.1, %if.end ]
   %and10 = and i32 %flags, 16
   %tobool11.not = icmp eq i32 %and10, 0
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %call13 = tail call ptr @sdscatlen(ptr noundef %res.1, ptr noundef nonnull @.str.3, i64 noundef 1) #4
+  %call13 = tail call ptr @sdscatlen(ptr noundef %res.2, ptr noundef nonnull @.str.3, i64 noundef 1) #4
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end9
-  %res.2 = phi ptr [ %call13, %if.then12 ], [ %res.1, %if.end9 ]
+  %res.3 = phi ptr [ %call13, %if.then12 ], [ %res.2, %if.end9 ]
   %and15 = and i32 %flags, 32
   %tobool16.not = icmp eq i32 %and15, 0
   br i1 %tobool16.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
-  %call18 = tail call ptr @sdscatlen(ptr noundef %res.2, ptr noundef nonnull @.str.4, i64 noundef 1) #4
+  %call18 = tail call ptr @sdscatlen(ptr noundef %res.3, ptr noundef nonnull @.str.4, i64 noundef 1) #4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %if.end14
-  %res.3 = phi ptr [ %call18, %if.then17 ], [ %res.2, %if.end14 ]
+  %res.4 = phi ptr [ %call18, %if.then17 ], [ %res.3, %if.end14 ]
   %and20 = and i32 %flags, 64
   %tobool21.not = icmp eq i32 %and20, 0
   br i1 %tobool21.not, label %if.end24, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %call23 = tail call ptr @sdscatlen(ptr noundef %res.3, ptr noundef nonnull @.str.5, i64 noundef 1) #4
+  %call23 = tail call ptr @sdscatlen(ptr noundef %res.4, ptr noundef nonnull @.str.5, i64 noundef 1) #4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.end19
-  %res.4 = phi ptr [ %call23, %if.then22 ], [ %res.3, %if.end19 ]
+  %res.5 = phi ptr [ %call23, %if.then22 ], [ %res.4, %if.end19 ]
   %and25 = and i32 %flags, 128
   %tobool26.not = icmp eq i32 %and25, 0
   br i1 %tobool26.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  %call28 = tail call ptr @sdscatlen(ptr noundef %res.4, ptr noundef nonnull @.str.6, i64 noundef 1) #4
+  %call28 = tail call ptr @sdscatlen(ptr noundef %res.5, ptr noundef nonnull @.str.6, i64 noundef 1) #4
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then27, %if.end24
-  %res.5 = phi ptr [ %call28, %if.then27 ], [ %res.4, %if.end24 ]
+  %res.6 = phi ptr [ %call28, %if.then27 ], [ %res.5, %if.end24 ]
   %and30 = and i32 %flags, 256
   %tobool31.not = icmp eq i32 %and30, 0
   br i1 %tobool31.not, label %if.end34, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %call33 = tail call ptr @sdscatlen(ptr noundef %res.5, ptr noundef nonnull @.str.7, i64 noundef 1) #4
+  %call33 = tail call ptr @sdscatlen(ptr noundef %res.6, ptr noundef nonnull @.str.7, i64 noundef 1) #4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end29
-  %res.6 = phi ptr [ %call33, %if.then32 ], [ %res.5, %if.end29 ]
+  %res.7 = phi ptr [ %call33, %if.then32 ], [ %res.6, %if.end29 ]
   %and35 = and i32 %flags, 512
   %tobool36.not = icmp eq i32 %and35, 0
   br i1 %tobool36.not, label %if.end39, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  %call38 = tail call ptr @sdscatlen(ptr noundef %res.6, ptr noundef nonnull @.str.8, i64 noundef 1) #4
+  %call38 = tail call ptr @sdscatlen(ptr noundef %res.7, ptr noundef nonnull @.str.8, i64 noundef 1) #4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then37, %if.end34
-  %res.7 = phi ptr [ %call38, %if.then37 ], [ %res.6, %if.end34 ]
+  %res.8 = phi ptr [ %call38, %if.then37 ], [ %res.7, %if.end34 ]
   %and40 = and i32 %flags, 1024
   %tobool41.not = icmp eq i32 %and40, 0
   br i1 %tobool41.not, label %if.end44, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  %call43 = tail call ptr @sdscatlen(ptr noundef %res.7, ptr noundef nonnull @.str.9, i64 noundef 1) #4
+  %call43 = tail call ptr @sdscatlen(ptr noundef %res.8, ptr noundef nonnull @.str.9, i64 noundef 1) #4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end39
-  %res.8 = phi ptr [ %call43, %if.then42 ], [ %res.7, %if.end39 ]
+  %res.9 = phi ptr [ %call43, %if.then42 ], [ %res.8, %if.end39 ]
   %and45 = and i32 %flags, 8192
   %tobool46.not = icmp eq i32 %and45, 0
   br i1 %tobool46.not, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
-  %call48 = tail call ptr @sdscatlen(ptr noundef %res.8, ptr noundef nonnull @.str.10, i64 noundef 1) #4
+  %call48 = tail call ptr @sdscatlen(ptr noundef %res.9, ptr noundef nonnull @.str.10, i64 noundef 1) #4
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %if.end44
-  %res.9 = phi ptr [ %call48, %if.then47 ], [ %res.8, %if.end44 ]
+  %res.10 = phi ptr [ %call48, %if.then47 ], [ %res.9, %if.end44 ]
   %and50 = and i32 %flags, 16384
   %tobool51.not = icmp eq i32 %and50, 0
   br i1 %tobool51.not, label %if.end55, label %if.then52
 
 if.then52:                                        ; preds = %if.end49
-  %call53 = tail call ptr @sdscatlen(ptr noundef %res.9, ptr noundef nonnull @.str.11, i64 noundef 1) #4
+  %call53 = tail call ptr @sdscatlen(ptr noundef %res.10, ptr noundef nonnull @.str.11, i64 noundef 1) #4
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end49, %if.then52, %if.then
-  %res.10 = phi ptr [ %call1, %if.then ], [ %call53, %if.then52 ], [ %res.9, %if.end49 ]
+  %res.0 = phi ptr [ %call1, %if.then ], [ %call53, %if.then52 ], [ %res.10, %if.end49 ]
   %and56 = and i32 %flags, 1
   %tobool57.not = icmp eq i32 %and56, 0
   br i1 %tobool57.not, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %call59 = tail call ptr @sdscatlen(ptr noundef %res.10, ptr noundef nonnull @.str.12, i64 noundef 1) #4
+  %call59 = tail call ptr @sdscatlen(ptr noundef %res.0, ptr noundef nonnull @.str.12, i64 noundef 1) #4
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then58, %if.end55
-  %res.11 = phi ptr [ %call59, %if.then58 ], [ %res.10, %if.end55 ]
+  %res.11 = phi ptr [ %call59, %if.then58 ], [ %res.0, %if.end55 ]
   %and61 = and i32 %flags, 2
   %tobool62.not = icmp eq i32 %and61, 0
   br i1 %tobool62.not, label %if.end65, label %if.then63

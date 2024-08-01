@@ -525,20 +525,20 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %62, %_ZNSt6vectorIi
   br i1 %107, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %99, %111
-  %.02025.i.i = phi i64 [ %112, %111 ], [ %101, %99 ]
-  %108 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %91, i64 %.02025.i.i
+  %.125.i.i = phi i64 [ %112, %111 ], [ %101, %99 ]
+  %108 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %91, i64 %.125.i.i
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, -1
   br i1 %110, label %111, label %.critedge.i.i
 
 111:                                              ; preds = %.lr.ph.i.i
-  %112 = add i64 %.02025.i.i, 1
+  %112 = add i64 %.125.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %112, %106
   br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %99
-  %.020.lcssa.i.i = phi i64 [ %101, %99 ], [ %.02025.i.i, %.lr.ph.i.i ]
-  %113 = icmp eq i64 %.020.lcssa.i.i, %106
+  %.1.lcssa.i.i = phi i64 [ %101, %99 ], [ %.125.i.i, %.lr.ph.i.i ]
+  %113 = icmp eq i64 %.1.lcssa.i.i, %106
   br i1 %113, label %.critedge.thread.i.i, label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 .critedge.thread.i.i:                             ; preds = %111, %.critedge.i.i
@@ -626,9 +626,9 @@ _ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.e
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i, %.lr.ph.i.i.i.i.preheader, %140, %139, %.critedge.i.i
-  %.020.lcssa36.i.i = phi i64 [ -1, %140 ], [ -1, %139 ], [ %.020.lcssa.i.i, %.critedge.i.i ], [ %106, %.lr.ph.i.i.i.i.preheader ], [ %106, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
+  %.1.lcssa36.i.i = phi i64 [ -1, %140 ], [ -1, %139 ], [ %.1.lcssa.i.i, %.critedge.i.i ], [ %106, %.lr.ph.i.i.i.i.preheader ], [ %106, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
   %141 = phi ptr [ %91, %140 ], [ %91, %139 ], [ %91, %.critedge.i.i ], [ %.pre.i.i.pre, %.lr.ph.i.i.i.i.preheader ], [ %131, %_ZNSt12_Vector_baseIN3gmx9HashedMapIiE9hashEntryESaIS3_EE13_M_deallocateEPS3_m.exit41.i ]
-  %142 = trunc i64 %.020.lcssa36.i.i to i32
+  %142 = trunc i64 %.1.lcssa36.i.i to i32
   %143 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %141, i64 %95, i32 2
   store i32 %142, ptr %143, align 4
   %144 = add i32 %142, 1
@@ -638,11 +638,11 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = 
 
 _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
   %145 = phi ptr [ %.pre34.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %91, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.1.i.i = phi i64 [ %.020.lcssa36.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %90, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %146 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %145, i64 %.1.i.i
+  %.020.i.i = phi i64 [ %.1.lcssa36.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %90, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %146 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %145, i64 %.020.i.i
   store i32 %44, ptr %146, align 4
   %147 = load ptr, ptr %7, align 8
-  %148 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %147, i64 %.1.i.i, i32 1
+  %148 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %147, i64 %.020.i.i, i32 1
   store i32 -2, ptr %148, align 4
   %149 = load i32, ptr %17, align 8
   %150 = add nsw i32 %149, 1

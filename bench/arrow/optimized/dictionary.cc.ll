@@ -8393,7 +8393,7 @@ if.else.i:                                        ; preds = %invoke.cont47
           to label %cleanup51 unwind label %lpad34
 
 cleanup51:                                        ; preds = %if.else.i, %_ZNSt16allocator_traitsISaISt4pairIlSt10shared_ptrIN5arrow5ArrayEEEEE9constructIS5_JRlRS4_EEEvRS6_PT_DpOT0_.exit.i, %_ZN5arrow6StatusC2ERKS0_.exit
-  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 0, %_ZNSt16allocator_traitsISaISt4pairIlSt10shared_ptrIN5arrow5ArrayEEEEE9constructIS5_JRlRS4_EEEvRS6_PT_DpOT0_.exit.i ], [ 0, %if.else.i ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 0, %_ZNSt16allocator_traitsISaISt4pairIlSt10shared_ptrIN5arrow5ArrayEEEEE9constructIS5_JRlRS4_EEEvRS6_PT_DpOT0_.exit.i ], [ 0, %if.else.i ]
   %45 = load ptr, ptr %ref.tmp29, align 8
   %cmp.not.i.i = icmp eq ptr %45, null
   br i1 %cmp.not.i.i, label %cleanup52, label %delete.notnull.i.i.i
@@ -8480,7 +8480,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %cleanup52
 
 cleanup52:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i.i, %cleanup51, %_ZN5arrow6StatusD2Ev.exit
-  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ %cleanup.dest.slot.1, %cleanup51 ], [ %cleanup.dest.slot.1, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ %cleanup.dest.slot.2, %cleanup51 ], [ %cleanup.dest.slot.2, %_ZN5arrow6Status11DeleteStateEv.exit.i.i ]
   %57 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i84 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i84, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, label %if.then.i.i.i85
@@ -8554,7 +8554,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit:       ; preds = %cleanup52, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %switch = icmp eq i32 %cleanup.dest.slot.2, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %switch, label %if.end78, label %return
 
 ehcleanup:                                        ; preds = %lpad.i, %if.then.i.i.i2.i, %lpad34.body, %lpad
@@ -9299,7 +9299,7 @@ cleanup59:                                        ; preds = %_ZN5arrow6StatusD2E
   br label %cleanup60
 
 cleanup60:                                        ; preds = %_ZN5arrow6StatusC2ERKS0_.exit, %cleanup59
-  %cleanup.dest.slot.2 = phi i1 [ %cleanup.dest.slot.1, %cleanup59 ], [ false, %_ZN5arrow6StatusC2ERKS0_.exit ]
+  %cleanup.dest.slot.0 = phi i1 [ %cleanup.dest.slot.1, %cleanup59 ], [ false, %_ZN5arrow6StatusC2ERKS0_.exit ]
   %53 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %53, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultIlED2Ev.exit, label %delete.notnull.i.i.i
@@ -9386,7 +9386,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultIlED2Ev.exit
 
 _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup60, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
-  br i1 %cleanup.dest.slot.2, label %_ZN5arrow6ResultIlED2Ev.exit.if.end63_crit_edge, label %return
+  br i1 %cleanup.dest.slot.0, label %_ZN5arrow6ResultIlED2Ev.exit.if.end63_crit_edge, label %return
 
 _ZN5arrow6ResultIlED2Ev.exit.if.end63_crit_edge:  ; preds = %_ZN5arrow6ResultIlED2Ev.exit
   %agg.tmp64.sroa.0.0.copyload.pre = load ptr, ptr %field_pos, align 8

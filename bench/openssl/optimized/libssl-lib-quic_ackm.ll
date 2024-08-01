@@ -1950,7 +1950,7 @@ if.then:                                          ; preds = %ackm_ack_eliciting_
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %duration.sroa.0.032 = phi i64 [ %retval.sroa.0.0.i23, %for.cond.preheader ], [ %duration.sroa.0.2, %for.inc ]
+  %duration.sroa.0.032 = phi i64 [ %retval.sroa.0.0.i23, %for.cond.preheader ], [ %duration.sroa.0.1, %for.inc ]
   %pto_timeout.sroa.0.031 = phi i64 [ -1, %for.cond.preheader ], [ %pto_timeout.sroa.0.1, %for.inc ]
   %pto_space.030 = phi i32 [ 0, %for.cond.preheader ], [ %pto_space.1, %for.inc ]
   %arrayidx31 = getelementptr inbounds [3 x i64], ptr %ack_eliciting_bytes_in_flight.i, i64 0, i64 %indvars.iv
@@ -1981,10 +1981,10 @@ if.then45:                                        ; preds = %if.end41
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end41, %if.then45, %if.end35
-  %duration.sroa.0.1 = phi i64 [ %duration.sroa.0.032, %if.end41 ], [ %retval.sroa.0.0.i27, %if.then45 ], [ %duration.sroa.0.032, %if.end35 ]
+  %duration.sroa.0.2 = phi i64 [ %duration.sroa.0.032, %if.end41 ], [ %retval.sroa.0.0.i27, %if.then45 ], [ %duration.sroa.0.032, %if.end35 ]
   %arrayidx64 = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %time_of_last_ack_eliciting_pkt, i64 0, i64 %indvars.iv
   %20 = load i64, ptr %arrayidx64, align 8
-  %retval.sroa.0.0.i28 = call i64 @llvm.uadd.sat.i64(i64 %20, i64 %duration.sroa.0.1)
+  %retval.sroa.0.0.i28 = call i64 @llvm.uadd.sat.i64(i64 %20, i64 %duration.sroa.0.2)
   %cmp5.i = icmp ult i64 %retval.sroa.0.0.i28, %pto_timeout.sroa.0.031
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp5.i, i32 %21, i32 %pto_space.030
@@ -1994,7 +1994,7 @@ if.end61:                                         ; preds = %if.end41, %if.then4
 for.inc:                                          ; preds = %if.end61, %for.body
   %pto_space.1 = phi i32 [ %pto_space.030, %for.body ], [ %spec.select, %if.end61 ]
   %pto_timeout.sroa.0.1 = phi i64 [ %pto_timeout.sroa.0.031, %for.body ], [ %spec.select21, %if.end61 ]
-  %duration.sroa.0.2 = phi i64 [ %duration.sroa.0.032, %for.body ], [ %duration.sroa.0.1, %if.end61 ]
+  %duration.sroa.0.1 = phi i64 [ %duration.sroa.0.032, %for.body ], [ %duration.sroa.0.2, %if.end61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17

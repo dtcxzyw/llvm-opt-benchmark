@@ -1913,7 +1913,7 @@ for.body37.lr.ph:                                 ; preds = %if.end27
   br label %for.body37
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit219
-  %same_fs.0245 = phi i8 [ 1, %for.body37.lr.ph ], [ %same_fs.3, %_ZN7rocksdb6StatusD2Ev.exit219 ]
+  %same_fs.0245 = phi i8 [ 1, %for.body37.lr.ph ], [ %same_fs.1, %_ZN7rocksdb6StatusD2Ev.exit219 ]
   %__begin129.sroa.0.0244 = phi ptr [ %10, %for.body37.lr.ph ], [ %incdec.ptr.i220, %_ZN7rocksdb6StatusD2Ev.exit219 ]
   store ptr null, ptr %state_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
@@ -2402,7 +2402,7 @@ ehcleanup118:                                     ; preds = %lpad107, %lpad.i, %
   br label %ehcleanup132
 
 if.end121:                                        ; preds = %lor.lhs.false, %_ZN7rocksdb6StatusD2Ev.exit214, %_ZN7rocksdb6StatusD2Ev.exit166, %_ZN7rocksdb6StatusD2Ev.exit50, %_ZN7rocksdb6StatusD2Ev.exit76
-  %same_fs.3 = phi i8 [ %same_fs.2234, %_ZN7rocksdb6StatusD2Ev.exit166 ], [ %same_fs.2234, %_ZN7rocksdb6StatusD2Ev.exit214 ], [ %same_fs.0245, %lor.lhs.false ], [ %same_fs.0245, %_ZN7rocksdb6StatusD2Ev.exit50 ], [ %same_fs.0245, %_ZN7rocksdb6StatusD2Ev.exit76 ]
+  %same_fs.1 = phi i8 [ %same_fs.2234, %_ZN7rocksdb6StatusD2Ev.exit166 ], [ %same_fs.2234, %_ZN7rocksdb6StatusD2Ev.exit214 ], [ %same_fs.0245, %lor.lhs.false ], [ %same_fs.0245, %_ZN7rocksdb6StatusD2Ev.exit50 ], [ %same_fs.0245, %_ZN7rocksdb6StatusD2Ev.exit76 ]
   %79 = load i8, ptr %agg.result, align 8
   %cmp.i215 = icmp eq i8 %79, 0
   br i1 %cmp.i215, label %nrvo.unused128, label %cleanup137

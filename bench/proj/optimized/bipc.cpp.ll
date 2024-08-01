@@ -319,37 +319,37 @@ define internal { double, double } @_ZL14bipc_s_forward5PJ_LPP8PJconsts(double %
 
 58:                                               ; preds = %56, %40, %42
   %59 = phi i1 [ true, %42 ], [ true, %40 ], [ false, %56 ]
-  %.sroa.6.0 = phi double [ 0x3FF3503EE0CA3E90, %42 ], [ 0x3FF3503EE0CA3E90, %40 ], [ 0xBFF3503EE0CA3E90, %56 ]
+  %.sroa.6.1 = phi double [ 0x3FF3503EE0CA3E90, %42 ], [ 0x3FF3503EE0CA3E90, %40 ], [ 0xBFF3503EE0CA3E90, %56 ]
   %.271 = phi double [ %45, %42 ], [ %.06981, %40 ], [ %.06985, %56 ]
-  %.2 = phi double [ %.068, %42 ], [ %.068, %40 ], [ %57, %56 ]
+  %.1 = phi double [ %.068, %42 ], [ %.068, %40 ], [ %57, %56 ]
   %.067 = phi double [ 0x3FEA20C5861FEB7D, %42 ], [ 0x3FEA20C5861FEB7D, %40 ], [ 0x3FFD2971F3AB5B39, %56 ]
-  %60 = fcmp olt double %.2, 0.000000e+00
+  %60 = fcmp olt double %.1, 0.000000e+00
   br i1 %60, label %.thread87, label %.thread93
 
 .thread87:                                        ; preds = %54, %58
-  %.sroa.6.092 = phi double [ %.sroa.6.0, %58 ], [ 0xBFF3503EE0CA3E90, %54 ]
+  %.sroa.6.192 = phi double [ %.sroa.6.1, %58 ], [ 0xBFF3503EE0CA3E90, %54 ]
   %61 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  %62 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.6.092, i64 0
+  %62 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.6.192, i64 0
   br label %116
 
 .thread93:                                        ; preds = %54, %58
   %.067101 = phi double [ %.067, %58 ], [ 0x3FFD2971F3AB5B39, %54 ]
-  %.2100 = phi double [ %.2, %58 ], [ 1.000000e+00, %54 ]
+  %.1100 = phi double [ %.1, %58 ], [ 1.000000e+00, %54 ]
   %.27199 = phi double [ %.271, %58 ], [ %.06985, %54 ]
-  %.sroa.6.098 = phi double [ %.sroa.6.0, %58 ], [ 0xBFF3503EE0CA3E90, %54 ]
+  %.sroa.6.198 = phi double [ %.sroa.6.1, %58 ], [ 0xBFF3503EE0CA3E90, %54 ]
   %63 = phi i1 [ %59, %58 ], [ false, %54 ]
-  %64 = fmul double %.2100, 5.000000e-01
+  %64 = fmul double %.1100, 5.000000e-01
   %65 = tail call double @tan(double noundef %64) #8
   %66 = tail call double @pow(double noundef %65, double noundef 0x3FE42D88E97BC06A) #8
   %67 = fmul double %66, 0x3FFE5B201DDB1510
-  %68 = fsub double 0x3FFD0AD2C7C63F7D, %.2100
+  %68 = fsub double 0x3FFD0AD2C7C63F7D, %.1100
   %69 = fmul double %68, 5.000000e-01
   %70 = fcmp olt double %69, 0.000000e+00
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %.thread93
   %72 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  %73 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.6.098, i64 0
+  %73 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.6.198, i64 0
   br label %116
 
 74:                                               ; preds = %.thread93
@@ -366,7 +366,7 @@ define internal { double, double } @_ZL14bipc_s_forward5PJ_LPP8PJconsts(double %
 
 82:                                               ; preds = %80
   %83 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  %84 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.6.098, i64 0
+  %84 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.6.198, i64 0
   br label %116
 
 85:                                               ; preds = %80
@@ -401,7 +401,7 @@ define internal { double, double } @_ZL14bipc_s_forward5PJ_LPP8PJconsts(double %
   %104 = fneg double %.0
   %105 = select i1 %63, double %104, double %.0
   %106 = tail call double @cos(double noundef %92) #8
-  %107 = tail call double @llvm.fmuladd.f64(double %105, double %106, double %.sroa.6.098)
+  %107 = tail call double @llvm.fmuladd.f64(double %105, double %106, double %.sroa.6.198)
   %108 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %108, 0
   %109 = insertelement <2 x double> poison, double %107, i64 0

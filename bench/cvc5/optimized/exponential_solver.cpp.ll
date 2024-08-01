@@ -6788,7 +6788,7 @@ arraydestroy.body74:                              ; preds = %arraydestroy.body74
 
 ehcleanup80:                                      ; preds = %arraydestroy.body74, %lpad61, %lpad55
   %.pn7.pn.pn = phi { ptr, i32 } [ %63, %lpad55 ], [ %64, %lpad61 ], [ %.pn7, %arraydestroy.body74 ]
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %lpad55 ], [ %arrayinit.element58, %lpad61 ], [ %arrayinit.element58, %arraydestroy.body74 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.0, %lpad55 ], [ %arrayinit.element58, %lpad61 ], [ %arrayinit.element58, %arraydestroy.body74 ]
   %cleanup.isactive.1 = phi i1 [ false, %lpad55 ], [ false, %lpad61 ], [ true, %arraydestroy.body74 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp52)
           to label %ehcleanup81 unwind label %terminate.lpad.i.i205
@@ -6801,12 +6801,12 @@ terminate.lpad.i.i205:                            ; preds = %ehcleanup80
   unreachable
 
 ehcleanup81:                                      ; preds = %ehcleanup80
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp51, %arrayinit.endOfInit.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp51, %arrayinit.endOfInit.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %cleanup.done, label %arraydestroy.body82
 
 arraydestroy.body82:                              ; preds = %ehcleanup81, %arraydestroy.body82
-  %arraydestroy.elementPast83 = phi ptr [ %arraydestroy.element84, %arraydestroy.body82 ], [ %arrayinit.endOfInit.1, %ehcleanup81 ]
+  %arraydestroy.elementPast83 = phi ptr [ %arraydestroy.element84, %arraydestroy.body82 ], [ %arrayinit.endOfInit.2, %ehcleanup81 ]
   %arraydestroy.element84 = getelementptr inbounds i8, ptr %arraydestroy.elementPast83, i64 -8
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element84) #19
   %arraydestroy.done85 = icmp eq ptr %arraydestroy.element84, %ref.tmp51

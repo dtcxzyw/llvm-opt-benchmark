@@ -2378,7 +2378,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17h70b962e9751f3
           to label %18 unwind label %.thread
 
 16:                                               ; preds = %.thread35
-  br i1 %.1726, label %42, label %41
+  br i1 %.226, label %42, label %41
 
 .thread:                                          ; preds = %4
   %17 = landingpad { ptr, i32 }
@@ -2395,7 +2395,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17h70b962e9751f3
   br label %.thread35
 
 .thread19:                                        ; preds = %18, %22, %27
-  %.2 = phi i1 [ false, %27 ], [ true, %22 ], [ true, %18 ]
+  %.17 = phi i1 [ false, %27 ], [ true, %22 ], [ true, %18 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %.thread35
@@ -2464,7 +2464,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17h70b962e9751f3
   unreachable
 
 .thread35:                                        ; preds = %38, %.thread42, %.thread19
-  %.1726 = phi i1 [ %.2, %.thread19 ], [ false, %.thread42 ], [ false, %38 ]
+  %.226 = phi i1 [ %.17, %.thread19 ], [ false, %.thread42 ], [ false, %38 ]
   %.1925 = phi i1 [ true, %.thread19 ], [ false, %.thread42 ], [ false, %38 ]
   %.pn24 = phi { ptr, i32 } [ %20, %.thread19 ], [ %lpad.thr_comm40, %.thread42 ], [ %lpad.thr_comm.split-lp, %38 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %15) #11
@@ -2506,7 +2506,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17hbe4ca71f3eaf6
           to label %18 unwind label %.thread
 
 16:                                               ; preds = %.thread35
-  br i1 %.1726, label %42, label %41
+  br i1 %.226, label %42, label %41
 
 .thread:                                          ; preds = %4
   %17 = landingpad { ptr, i32 }
@@ -2523,7 +2523,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17hbe4ca71f3eaf6
   br label %.thread35
 
 .thread19:                                        ; preds = %18, %22, %27
-  %.2 = phi i1 [ false, %27 ], [ true, %22 ], [ true, %18 ]
+  %.17 = phi i1 [ false, %27 ], [ true, %22 ], [ true, %18 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %.thread35
@@ -2592,7 +2592,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match3arm17hbe4ca71f3eaf6
   unreachable
 
 .thread35:                                        ; preds = %38, %.thread42, %.thread19
-  %.1726 = phi i1 [ %.2, %.thread19 ], [ false, %.thread42 ], [ false, %38 ]
+  %.226 = phi i1 [ %.17, %.thread19 ], [ false, %.thread42 ], [ false, %38 ]
   %.1925 = phi i1 [ true, %.thread19 ], [ false, %.thread42 ], [ false, %38 ]
   %.pn24 = phi { ptr, i32 } [ %20, %.thread19 ], [ %lpad.thr_comm40, %.thread42 ], [ %lpad.thr_comm.split-lp, %38 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %15) #11

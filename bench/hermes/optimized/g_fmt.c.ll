@@ -71,19 +71,19 @@ if.then14:                                        ; preds = %if.then10
   br i1 %tobool18.not47, label %if.end22, label %while.body19
 
 while.body19:                                     ; preds = %if.then14, %while.body19
-  %b.addr.249 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr15, %if.then14 ]
+  %b.addr.349 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr15, %if.then14 ]
   %s.148 = phi ptr [ %incdec.ptr17, %while.body19 ], [ %incdec.ptr11, %if.then14 ]
   %incdec.ptr17 = getelementptr inbounds i8, ptr %s.148, i64 1
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %b.addr.249, i64 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %b.addr.349, i64 1
   %7 = load i8, ptr %incdec.ptr17, align 1
   store i8 %7, ptr %incdec.ptr20, align 1
   %tobool18.not = icmp eq i8 %7, 0
   br i1 %tobool18.not, label %if.end22, label %while.body19, !llvm.loop !6
 
 if.end22:                                         ; preds = %while.body19, %if.then14, %if.then10
-  %b.addr.3 = phi ptr [ %incdec.ptr12, %if.then10 ], [ %incdec.ptr15, %if.then14 ], [ %incdec.ptr20, %while.body19 ]
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %b.addr.3, i64 1
-  store i8 101, ptr %b.addr.3, align 1
+  %b.addr.2 = phi ptr [ %incdec.ptr12, %if.then10 ], [ %incdec.ptr15, %if.then14 ], [ %incdec.ptr20, %while.body19 ]
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %b.addr.2, i64 1
+  store i8 101, ptr %b.addr.2, align 1
   %8 = load i32, ptr %decpt, align 4
   %dec = add nsw i32 %8, -1
   store i32 %dec, ptr %decpt, align 4
@@ -115,11 +115,11 @@ for.cond:                                         ; preds = %for.cond, %if.end29
   br i1 %cmp30.not, label %for.cond33.preheader, label %for.cond, !llvm.loop !7
 
 for.cond33.preheader:                             ; preds = %for.cond
-  %b.addr.4 = getelementptr inbounds i8, ptr %b.addr.3, i64 2
+  %b.addr.4 = getelementptr inbounds i8, ptr %b.addr.2, i64 2
   %div51 = sdiv i32 %10, %k.0
   %11 = trunc i32 %div51 to i8
   %conv3552 = add i8 %11, 48
-  %incdec.ptr3653 = getelementptr inbounds i8, ptr %b.addr.3, i64 3
+  %incdec.ptr3653 = getelementptr inbounds i8, ptr %b.addr.2, i64 3
   store i8 %conv3552, ptr %b.addr.4, align 1
   %cmp3854 = icmp ult i32 %j.0, 2
   br i1 %cmp3854, label %done0.sink.split, label %if.end41

@@ -916,10 +916,10 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN3
 
 93:                                               ; preds = %89, %91
   %.pn = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  %.18 = phi i1 [ %.07, %91 ], [ true, %89 ]
+  %.310 = phi i1 [ %.07, %91 ], [ true, %89 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  br i1 %.18, label %94, label %_ZNSt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS1_EED2Ev.exit34
+  br i1 %.310, label %94, label %_ZNSt10unique_ptrIN3gmx21AbstractOptionStorageESt14default_deleteIS1_EED2Ev.exit34
 
 94:                                               ; preds = %.thread45, %.thread, %93
   %.pn.pn.pn44 = phi { ptr, i32 } [ %87, %.thread ], [ %.pn, %93 ], [ %88, %.thread45 ]

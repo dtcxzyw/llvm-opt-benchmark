@@ -1787,7 +1787,7 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   br label %515
 
 515:                                              ; preds = %ReconstructIntra4.exit.i58, %507
-  %.0.i56 = phi i32 [ 0, %507 ], [ %573, %ReconstructIntra4.exit.i58 ]
+  %.1.i56 = phi i32 [ 0, %507 ], [ %573, %ReconstructIntra4.exit.i58 ]
   %516 = load ptr, ptr %500, align 8, !alias.scope !90, !noalias !93
   %517 = load i32, ptr %509, align 8, !alias.scope !90, !noalias !93
   %518 = and i32 %517, 3
@@ -1862,14 +1862,14 @@ ReconstructIntra4.exit.i58:                       ; preds = %567, %554
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !95
   %571 = load i32, ptr %509, align 8, !alias.scope !90, !noalias !93
   %572 = shl i32 %.0.i.i59, %571
-  %573 = or i32 %572, %.0.i56
+  %573 = or i32 %572, %.1.i56
   %574 = load ptr, ptr %82, align 8, !alias.scope !90, !noalias !93
   %575 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %574) #11
   %.not.i60 = icmp eq i32 %575, 0
   br i1 %.not.i60, label %SimpleQuantize.exit, label %515, !llvm.loop !106
 
 SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.exit.i58, %501
-  %.1.i61 = phi i32 [ %506, %501 ], [ %573, %ReconstructIntra4.exit.i58 ]
+  %.0.i61 = phi i32 [ %506, %501 ], [ %573, %ReconstructIntra4.exit.i58 ]
   %576 = load ptr, ptr %82, align 8, !alias.scope !90, !noalias !93
   %577 = getelementptr inbounds i8, ptr %576, i64 16
   %578 = load ptr, ptr %53, align 8, !alias.scope !90, !noalias !93
@@ -1878,7 +1878,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %581 = and i8 %580, 3
   %582 = zext nneg i8 %581 to i32
   %583 = call fastcc i32 @ReconstructUV(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %577, i32 noundef %582)
-  %584 = or i32 %583, %.1.i61
+  %584 = or i32 %583, %.0.i61
   store i32 %584, ptr %17, align 8, !alias.scope !93, !noalias !90
   br label %814
 
@@ -1927,7 +1927,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
 
 617:                                              ; preds = %617, %611
   %indvars.iv.i63 = phi i64 [ 0, %611 ], [ %indvars.iv.next.i64, %617 ]
-  %.0106177.i = phi i64 [ 36028797018963967, %611 ], [ %.1107.i, %617 ]
+  %.1107177.i = phi i64 [ 36028797018963967, %611 ], [ %.2.i, %617 ]
   %.0122175.i = phi i32 [ -1, %611 ], [ %.1123.i, %617 ]
   %618 = getelementptr inbounds [4 x i16], ptr @VP8I16ModeOffsets, i64 0, i64 %indvars.iv.i63
   %619 = load i16, ptr %618, align 2, !noalias !112
@@ -1945,11 +1945,11 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %.not139.i = icmp eq i64 %indvars.iv.i63, 0
   %631 = icmp sge i64 %612, %628
   %or.cond141.not172.i = select i1 %.not139.i, i1 true, i1 %631
-  %632 = icmp slt i64 %630, %.0106177.i
+  %632 = icmp slt i64 %630, %.1107177.i
   %or.cond142.i = select i1 %or.cond141.not172.i, i1 %632, i1 false
   %633 = trunc nuw nsw i64 %indvars.iv.i63 to i32
   %.1123.i = select i1 %or.cond142.i, i32 %633, i32 %.0122175.i
-  %.1107.i = select i1 %or.cond142.i, i64 %630, i64 %.0106177.i
+  %.2.i = select i1 %or.cond142.i, i64 %630, i64 %.1107177.i
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 4
   br i1 %exitcond.not.i65, label %634, label %617, !llvm.loop !113
@@ -2020,7 +2020,7 @@ IsFlatSource16.exit.thread.i:                     ; preds = %649, %647, %645, %6
 .thread.i:                                        ; preds = %655, %601
   %656 = phi i64 [ %612, %655 ], [ 36028797018963967, %601 ]
   %657 = phi i64 [ %613, %655 ], [ %610, %601 ]
-  %.2154.i = phi i64 [ %.1107.i, %655 ], [ 36028797018963967, %601 ]
+  %.0106154.i = phi i64 [ %.2.i, %655 ], [ 36028797018963967, %601 ]
   tail call void @VP8IteratorStartI4(ptr noundef %0) #11, !noalias !110
   %658 = getelementptr inbounds i8, ptr %0, i64 8
   %659 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2037,8 +2037,8 @@ IsFlatSource16.exit.thread.i:                     ; preds = %649, %647, %645, %6
 
 668:                                              ; preds = %ReconstructIntra4.exit.i76, %.thread.i
   %.0121.i = phi i64 [ 0, %.thread.i ], [ %720, %ReconstructIntra4.exit.i76 ]
-  %.0119.i = phi i64 [ %657, %.thread.i ], [ %725, %ReconstructIntra4.exit.i76 ]
-  %.0108.i = phi i32 [ 0, %.thread.i ], [ %768, %ReconstructIntra4.exit.i76 ]
+  %.1120.i = phi i64 [ %657, %.thread.i ], [ %725, %ReconstructIntra4.exit.i76 ]
+  %.1109.i = phi i32 [ 0, %.thread.i ], [ %768, %ReconstructIntra4.exit.i76 ]
   %669 = load ptr, ptr %658, align 8, !alias.scope !107, !noalias !110
   %670 = load i32, ptr %659, align 8, !alias.scope !107, !noalias !110
   %671 = sext i32 %670 to i64
@@ -2130,8 +2130,8 @@ GetCostModeI4.exit.i72:                           ; preds = %693, %688
   %723 = sext i32 %722 to i64
   %724 = getelementptr inbounds [16 x i8], ptr %660, i64 0, i64 %723
   store i8 %721, ptr %724, align 1, !alias.scope !110, !noalias !107
-  %725 = add nsw i64 %spec.select143.i, %.0119.i
-  %.not135.i = icmp sge i64 %725, %.2154.i
+  %725 = add nsw i64 %spec.select143.i, %.1120.i
+  %.not135.i = icmp sge i64 %725, %.0106154.i
   %726 = icmp sgt i64 %720, %656
   %or.cond144.i = select i1 %.not135.i, i1 true, i1 %726
   br i1 %or.cond144.i, label %.thread164.i, label %727
@@ -2191,7 +2191,7 @@ ReconstructIntra4.exit.i76:                       ; preds = %762, %749
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !112
   %766 = load i32, ptr %659, align 8, !alias.scope !107, !noalias !110
   %767 = shl i32 %.0.i.i77, %766
-  %768 = or i32 %767, %.0108.i
+  %768 = or i32 %767, %.1109.i
   %769 = load ptr, ptr %663, align 8, !alias.scope !107, !noalias !110
   %770 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %769) #11
   %.not136.i = icmp eq i32 %770, 0
@@ -2206,7 +2206,7 @@ ReconstructIntra4.exit.i76:                       ; preds = %762, %749
   br label %781
 
 .thread164.i:                                     ; preds = %715, %655, %.thread199.i
-  %.2155170.i = phi i64 [ %.1107.i, %.thread199.i ], [ %.1107.i, %655 ], [ %.2154.i, %715 ]
+  %.0106155170.i = phi i64 [ %.2.i, %.thread199.i ], [ %.2.i, %655 ], [ %.0106154.i, %715 ]
   %774 = getelementptr inbounds i8, ptr %0, i64 16
   %775 = load ptr, ptr %774, align 8, !alias.scope !107, !noalias !110
   %776 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2218,7 +2218,7 @@ ReconstructIntra4.exit.i76:                       ; preds = %762, %749
 
 781:                                              ; preds = %.thread164.i, %.thread156.i
   %.2110.i = phi i32 [ %780, %.thread164.i ], [ %768, %.thread156.i ]
-  %.3.i = phi i64 [ %.2155170.i, %.thread164.i ], [ %725, %.thread156.i ]
+  %.3.i = phi i64 [ %.0106155170.i, %.thread164.i ], [ %725, %.thread156.i ]
   br i1 %587, label %RefineUsingDistortion.exit, label %782
 
 782:                                              ; preds = %781
@@ -2390,7 +2390,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
 
 64:                                               ; preds = %.preheader, %64
   %indvars.iv94 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next95, %64 ]
-  %.277 = phi i32 [ %41, %.preheader ], [ %73, %64 ]
+  %.377 = phi i32 [ %41, %.preheader ], [ %73, %64 ]
   %65 = or disjoint i64 %indvars.iv94, 1
   %66 = getelementptr inbounds [16 x [16 x i16]], ptr %5, i64 0, i64 %65
   store i16 0, ptr %66, align 16
@@ -2401,13 +2401,13 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %70 = call i32 %68(ptr noundef nonnull %67, ptr noundef nonnull %69, ptr noundef nonnull %35) #11
   %71 = trunc nuw nsw i64 %indvars.iv94 to i32
   %72 = shl i32 %70, %71
-  %73 = or i32 %72, %.277
+  %73 = or i32 %72, %.377
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 2
   %74 = icmp ult i64 %indvars.iv94, 14
   br i1 %74, label %64, label %.loopexit, !llvm.loop !134
 
 .loopexit:                                        ; preds = %63, %64
-  %.3 = phi i32 [ %73, %64 ], [ %62, %63 ]
+  %.2 = phi i32 [ %73, %64 ], [ %62, %63 ]
   %75 = load ptr, ptr @VP8TransformWHT, align 8
   call void %75(ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   br label %76
@@ -2427,7 +2427,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   br i1 %84, label %76, label %85, !llvm.loop !135
 
 85:                                               ; preds = %76
-  ret i32 %.3
+  ret i32 %.2
 }
 
 declare i32 @VP8GetCostLuma16(ptr noundef, ptr noundef) local_unnamed_addr #3

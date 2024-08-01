@@ -1349,17 +1349,17 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %103 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %92, i32 noundef %102, i8 noundef zeroext -2) #3
   %.not209 = icmp eq i32 %103, -1
   %104 = add i32 %93, %103
-  %.1189 = select i1 %.not209, i32 %102, i32 %104
+  %.2190 = select i1 %.not209, i32 %102, i32 %104
   %105 = load ptr, ptr %19, align 8
   %106 = add nuw i32 %92, 1
-  %107 = tail call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef %.1189, i32 noundef 0) #3
+  %107 = tail call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef %.2190, i32 noundef 0) #3
   %108 = load i32, ptr @hf_icq_msg_contact, align 4
-  %109 = add i32 %.1189, %94
+  %109 = add i32 %.2190, %94
   %110 = load ptr, ptr %19, align 8
   %111 = tail call ptr @tvb_get_string_enc(ptr noundef %110, ptr noundef %1, i32 noundef %.5239, i32 noundef %94, i32 noundef 0) #3
   %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %108, ptr noundef %1, i32 noundef %.5239, i32 noundef %109, ptr noundef %107, ptr noundef nonnull @.str.231, ptr noundef %111, ptr noundef %107) #3
   %113 = add i32 %.0186236, 2
-  %.neg = xor i32 %.1189, -1
+  %.neg = xor i32 %.2190, -1
   %114 = add i32 %102, %.neg
   br i1 %.not209, label %.loopexit, label %.backedge
 

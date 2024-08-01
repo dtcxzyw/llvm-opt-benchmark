@@ -1951,25 +1951,25 @@ if.else52:                                        ; preds = %while.end
   br i1 %cmp56.not, label %if.end60, label %load_errorthread-pre-split
 
 if.end60:                                         ; preds = %if.else52, %if.then51
-  %functions_lib_ctx.0 = phi ptr [ null, %if.then51 ], [ %call25, %if.else52 ]
+  %functions_lib_ctx.1 = phi ptr [ null, %if.then51 ], [ %call25, %if.else52 ]
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %15, 1
   store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   br label %load_errorthread-pre-split
 
 load_errorthread-pre-split:                       ; preds = %if.end60, %if.else52
-  %functions_lib_ctx.1.ph = phi ptr [ %call25, %if.else52 ], [ %functions_lib_ctx.0, %if.end60 ]
+  %functions_lib_ctx.0.ph = phi ptr [ %call25, %if.else52 ], [ %functions_lib_ctx.1, %if.end60 ]
   %.pr = load ptr, ptr %err, align 8
   br label %load_error
 
 load_error:                                       ; preds = %load_errorthread-pre-split, %if.then45, %if.then37, %if.then33, %if.then29
   %16 = phi ptr [ %.pr, %load_errorthread-pre-split ], [ %call46, %if.then45 ], [ %call38, %if.then37 ], [ %call34, %if.then33 ], [ %call30, %if.then29 ]
-  %functions_lib_ctx.1 = phi ptr [ %functions_lib_ctx.1.ph, %load_errorthread-pre-split ], [ %call25, %if.then45 ], [ %call25, %if.then37 ], [ %call25, %if.then33 ], [ %call25, %if.then29 ]
+  %functions_lib_ctx.0 = phi ptr [ %functions_lib_ctx.0.ph, %load_errorthread-pre-split ], [ %call25, %if.then45 ], [ %call25, %if.then37 ], [ %call25, %if.then33 ], [ %call25, %if.then29 ]
   %tobool61.not = icmp eq ptr %16, null
   br i1 %tobool61.not, label %if.else63, label %if.then62
 
 if.then62:                                        ; preds = %if.then43, %load_error
-  %functions_lib_ctx.123 = phi ptr [ %functions_lib_ctx.1, %load_error ], [ %call25, %if.then43 ]
+  %functions_lib_ctx.023 = phi ptr [ %functions_lib_ctx.0, %load_error ], [ %call25, %if.then43 ]
   %17 = phi ptr [ %16, %load_error ], [ %13, %if.then43 ]
   call void @addReplyErrorSds(ptr noundef %c, ptr noundef nonnull %17) #11
   br label %if.end64
@@ -1980,21 +1980,21 @@ if.else63:                                        ; preds = %load_error
   br label %if.end64
 
 if.end64:                                         ; preds = %if.else63, %if.then62
-  %functions_lib_ctx.122 = phi ptr [ %functions_lib_ctx.1, %if.else63 ], [ %functions_lib_ctx.123, %if.then62 ]
-  %tobool65.not = icmp eq ptr %functions_lib_ctx.122, null
+  %functions_lib_ctx.022 = phi ptr [ %functions_lib_ctx.0, %if.else63 ], [ %functions_lib_ctx.023, %if.then62 ]
+  %tobool65.not = icmp eq ptr %functions_lib_ctx.022, null
   br i1 %tobool65.not, label %if.end67, label %if.then66
 
 if.then66:                                        ; preds = %if.end64
-  call void @functionsLibCtxClear(ptr noundef nonnull %functions_lib_ctx.122)
-  %functions.i = getelementptr inbounds i8, ptr %functions_lib_ctx.122, i64 8
+  call void @functionsLibCtxClear(ptr noundef nonnull %functions_lib_ctx.022)
+  %functions.i = getelementptr inbounds i8, ptr %functions_lib_ctx.022, i64 8
   %19 = load ptr, ptr %functions.i, align 8
   call void @dictRelease(ptr noundef %19) #11
-  %20 = load ptr, ptr %functions_lib_ctx.122, align 8
+  %20 = load ptr, ptr %functions_lib_ctx.022, align 8
   call void @dictRelease(ptr noundef %20) #11
-  %engines_stats.i = getelementptr inbounds i8, ptr %functions_lib_ctx.122, i64 24
+  %engines_stats.i = getelementptr inbounds i8, ptr %functions_lib_ctx.022, i64 24
   %21 = load ptr, ptr %engines_stats.i, align 8
   call void @dictRelease(ptr noundef %21) #11
-  call void @zfree(ptr noundef nonnull %functions_lib_ctx.122) #11
+  call void @zfree(ptr noundef nonnull %functions_lib_ctx.022) #11
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then66, %if.end64, %if.then23, %if.else16, %if.then
@@ -2038,7 +2038,7 @@ if.end17.us:                                      ; preds = %while.body.us
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end17
   %call250 = phi ptr [ %call2, %if.end17 ], [ %call247, %while.body.lr.ph ]
-  %old_libraries_list.049 = phi ptr [ %old_libraries_list.2, %if.end17 ], [ null, %while.body.lr.ph ]
+  %old_libraries_list.049 = phi ptr [ %old_libraries_list.1, %if.end17 ], [ null, %while.body.lr.ph ]
   %call3 = tail call ptr @dictGetVal(ptr noundef nonnull %call250) #11
   %3 = load ptr, ptr %functions_lib_ctx_dst, align 8
   %4 = load ptr, ptr %call3, align 8
@@ -2057,19 +2057,19 @@ if.then13:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
-  %old_libraries_list.1 = phi ptr [ %old_libraries_list.049, %if.then ], [ %call14, %if.then13 ]
+  %old_libraries_list.3 = phi ptr [ %old_libraries_list.049, %if.then ], [ %call14, %if.then13 ]
   tail call fastcc void @libraryUnlink(ptr noundef nonnull %functions_lib_ctx_dst, ptr noundef nonnull %call5)
-  %call15 = tail call ptr @listAddNodeTail(ptr noundef nonnull %old_libraries_list.1, ptr noundef nonnull %call5) #11
+  %call15 = tail call ptr @listAddNodeTail(ptr noundef nonnull %old_libraries_list.3, ptr noundef nonnull %call5) #11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end, %while.body
-  %old_libraries_list.2 = phi ptr [ %old_libraries_list.1, %if.end ], [ %old_libraries_list.049, %while.body ]
+  %old_libraries_list.1 = phi ptr [ %old_libraries_list.3, %if.end ], [ %old_libraries_list.049, %while.body ]
   %call2 = tail call ptr @dictNext(ptr noundef %call) #11
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end17, %if.end17.us, %entry
-  %old_libraries_list.0.lcssa = phi ptr [ null, %entry ], [ null, %if.end17.us ], [ %old_libraries_list.2, %if.end17 ]
+  %old_libraries_list.0.lcssa = phi ptr [ null, %entry ], [ null, %if.end17.us ], [ %old_libraries_list.1, %if.end17 ]
   tail call void @dictReleaseIterator(ptr noundef %call) #11
   %functions = getelementptr inbounds i8, ptr %functions_lib_ctx_src, i64 8
   %5 = load ptr, ptr %functions, align 8

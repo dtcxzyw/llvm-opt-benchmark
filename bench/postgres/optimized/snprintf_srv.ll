@@ -1239,7 +1239,7 @@ adjust_sign.exit.i:                               ; preds = %510, %506
   br label %adjust_sign.exit.thread.i
 
 adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i, %.thread.i254
-  %.04857.i = phi i32 [ 45, %adjust_sign.exit.i ], [ %spec.select.i, %.thread.i254 ]
+  %.14957.i = phi i32 [ 45, %adjust_sign.exit.i ], [ %spec.select.i, %.thread.i254 ]
   %.050.i = phi double [ %512, %adjust_sign.exit.i ], [ %.0161, %.thread.i254 ]
   %513 = call double @llvm.fabs.f64(double %.050.i)
   %514 = fcmp oeq double %513, 0x7FF0000000000000
@@ -1270,24 +1270,24 @@ adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i,
   br label %521
 
 521:                                              ; preds = %519, %516
-  %.036.i = phi i32 [ %518, %516 ], [ %520, %519 ]
-  %.035.i = phi i32 [ %517, %516 ], [ 0, %519 ]
-  %522 = icmp slt i32 %.036.i, 0
+  %.137.i = phi i32 [ %518, %516 ], [ %520, %519 ]
+  %.1.i255 = phi i32 [ %517, %516 ], [ 0, %519 ]
+  %522 = icmp slt i32 %.137.i, 0
   br i1 %522, label %543, label %523
 
 523:                                              ; preds = %521, %.thread58.i, %505
-  %.149.i = phi i32 [ 0, %505 ], [ %.04857.i, %521 ], [ %.04857.i, %.thread58.i ]
-  %.137.i = phi i32 [ 3, %505 ], [ %.036.i, %521 ], [ 8, %.thread58.i ]
-  %.1.i255 = phi i32 [ 0, %505 ], [ %.035.i, %521 ], [ 0, %.thread58.i ]
-  %524 = add i32 %.137.i, %.1.i255
+  %.048.i = phi i32 [ 0, %505 ], [ %.14957.i, %521 ], [ %.14957.i, %.thread58.i ]
+  %.036.i = phi i32 [ 3, %505 ], [ %.137.i, %521 ], [ 8, %.thread58.i ]
+  %.035.i = phi i32 [ 0, %505 ], [ %.1.i255, %521 ], [ 0, %.thread58.i ]
+  %524 = add i32 %.036.i, %.035.i
   %525 = sub i32 %.9, %524
   %spec.store.select.i.i256 = call i32 @llvm.smax.i32(i32 %525, i32 0)
   %.not.i43.i = icmp eq i32 %.0181, 0
   %526 = sub nsw i32 0, %spec.store.select.i.i256
   %spec.select.i.i257 = select i1 %.not.i43.i, i32 %spec.store.select.i.i256, i32 %526
   store i32 %spec.select.i.i257, ptr %6, align 4
-  call fastcc void @leading_pad(i32 noundef %.0168, i32 noundef %.149.i, ptr noundef nonnull %6, ptr noundef %0)
-  %527 = icmp sgt i32 %.1.i255, 0
+  call fastcc void @leading_pad(i32 noundef %.0168, i32 noundef %.048.i, ptr noundef nonnull %6, ptr noundef %0)
+  %527 = icmp sgt i32 %.035.i, 0
   br i1 %527, label %528, label %537
 
 528:                                              ; preds = %523
@@ -1306,18 +1306,18 @@ adjust_sign.exit.thread.i:                        ; preds = %adjust_sign.exit.i,
   %533 = sub i64 %532, %25
   %534 = trunc i64 %533 to i32
   call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %534, ptr noundef %0)
-  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.1.i255, ptr noundef %0)
-  %535 = sub i32 %.137.i, %534
+  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.035.i, ptr noundef %0)
+  %535 = sub i32 %.036.i, %534
   call fastcc void @dostr(ptr noundef nonnull %.064.i, i32 noundef %535, ptr noundef %0)
   br label %538
 
 536:                                              ; preds = %530
-  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.137.i, ptr noundef %0)
-  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.1.i255, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.036.i, ptr noundef %0)
+  call fastcc void @dopr_outchmulti(i32 noundef 48, i32 noundef %.035.i, ptr noundef %0)
   br label %538
 
 537:                                              ; preds = %523
-  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.137.i, ptr noundef %0)
+  call fastcc void @dostr(ptr noundef nonnull %5, i32 noundef %.036.i, ptr noundef %0)
   br label %538
 
 538:                                              ; preds = %537, %536, %.thread61.i
@@ -1833,7 +1833,7 @@ define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2
 23:                                               ; preds = %21, %20
   %.018 = phi double [ %22, %21 ], [ %3, %20 ]
   %.not14 = phi i1 [ false, %21 ], [ true, %20 ]
-  %.09 = phi i8 [ 45, %21 ], [ 0, %20 ]
+  %.1 = phi i8 [ 45, %21 ], [ 0, %20 ]
   %24 = tail call double @llvm.fabs.f64(double %.018)
   %25 = fcmp oeq double %24, 0x7FF0000000000000
   br i1 %25, label %26, label %27
@@ -1871,7 +1871,7 @@ define dso_local i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2
 34:                                               ; preds = %32
   %35 = getelementptr i8, ptr %0, i64 1
   store ptr %35, ptr %5, align 8
-  store i8 %.09, ptr %0, align 1
+  store i8 %.1, ptr %0, align 1
   br label %36
 
 36:                                               ; preds = %31, %.thread, %33, %34
@@ -2108,7 +2108,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   %.04964 = phi ptr [ @.str.3, %12 ], [ @.str.3, %13 ], [ @.str.4, %14 ], [ @.str.3, %9 ], [ @.str.3, %16 ]
   %18 = phi i1 [ false, %12 ], [ true, %13 ], [ true, %14 ], [ false, %9 ], [ false, %16 ]
   %19 = phi i1 [ true, %12 ], [ false, %13 ], [ false, %14 ], [ false, %9 ], [ true, %16 ]
-  %.160 = phi i32 [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %9 ], [ %spec.select, %16 ]
+  %.059 = phi i32 [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %9 ], [ %spec.select, %16 ]
   %20 = icmp eq i64 %0, 0
   %21 = icmp ne i32 %7, 0
   %or.cond = and i1 %20, %21
@@ -2121,17 +2121,17 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
 
 .preheader.preheader:                             ; preds = %.thread94, %23
   %.0496490100 = phi ptr [ @.str.3, %.thread94 ], [ %.04964, %23 ]
-  %.1609199 = phi i32 [ 45, %.thread94 ], [ %.160, %23 ]
+  %.0599199 = phi i32 [ 45, %.thread94 ], [ %.059, %23 ]
   %.09398 = phi i64 [ %17, %.thread94 ], [ %0, %23 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.045 = phi i32 [ %27, %.preheader ], [ 0, %.preheader.preheader ]
+  %.146 = phi i32 [ %27, %.preheader ], [ 0, %.preheader.preheader ]
   %.1 = phi i64 [ %31, %.preheader ], [ %.09398, %.preheader.preheader ]
   %24 = urem i64 %.1, 10
   %25 = getelementptr i8, ptr %.0496490100, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = add i32 %.045, 1
+  %27 = add i32 %.146, 1
   %28 = sext i32 %27 to i64
   %29 = sub nsw i64 64, %28
   %30 = getelementptr [64 x i8], ptr %10, i64 0, i64 %29
@@ -2180,18 +2180,18 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit78, %.loopexit.loopexit77, %.thread
-  %.16092 = phi i32 [ %.160, %.thread ], [ %.160, %.loopexit.loopexit77 ], [ %.160, %.loopexit.loopexit78 ], [ %.1609199, %.preheader ]
-  %.348 = phi i32 [ 0, %.thread ], [ %45, %.loopexit.loopexit77 ], [ %46, %.loopexit.loopexit78 ], [ %27, %.preheader ]
-  %47 = sub i32 %6, %.348
+  %.05992 = phi i32 [ %.059, %.thread ], [ %.059, %.loopexit.loopexit77 ], [ %.059, %.loopexit.loopexit78 ], [ %.0599199, %.preheader ]
+  %.045 = phi i32 [ 0, %.thread ], [ %45, %.loopexit.loopexit77 ], [ %46, %.loopexit.loopexit78 ], [ %27, %.preheader ]
+  %47 = sub i32 %6, %.045
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
-  %49 = add i32 %.348, %48
+  %49 = add i32 %.045, %48
   %50 = sub i32 %4, %49
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %.not.i58 = icmp eq i32 %3, 0
   %51 = sub nsw i32 0, %spec.store.select.i
   %spec.select.i = select i1 %.not.i58, i32 %spec.store.select.i, i32 %51
   store i32 %spec.select.i, ptr %11, align 4
-  call fastcc void @leading_pad(i32 noundef %5, i32 noundef %.16092, ptr noundef nonnull %11, ptr noundef %8)
+  call fastcc void @leading_pad(i32 noundef %5, i32 noundef %.05992, ptr noundef nonnull %11, ptr noundef %8)
   %.not57 = icmp slt i32 %47, 1
   br i1 %.not57, label %53, label %52
 
@@ -2201,10 +2201,10 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
 
 53:                                               ; preds = %52, %.loopexit
   %54 = getelementptr inbounds i8, ptr %10, i64 64
-  %55 = sext i32 %.348 to i64
+  %55 = sext i32 %.045 to i64
   %56 = sub nsw i64 0, %55
   %57 = getelementptr i8, ptr %54, i64 %56
-  call fastcc void @dostr(ptr noundef %57, i32 noundef %.348, ptr noundef %8)
+  call fastcc void @dostr(ptr noundef %57, i32 noundef %.045, ptr noundef %8)
   %58 = load i32, ptr %11, align 4
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %trailing_pad.exit
@@ -2313,8 +2313,8 @@ thread-pre-split:                                 ; preds = %38, %16
 
 46:                                               ; preds = %thread-pre-split, %4
   %47 = phi i32 [ %43, %thread-pre-split ], [ %5, %4 ]
-  %.1 = phi i32 [ 0, %thread-pre-split ], [ %1, %4 ]
-  %48 = icmp ne i32 %.1, 0
+  %.0 = phi i32 [ 0, %thread-pre-split ], [ %1, %4 ]
+  %48 = icmp ne i32 %.0, 0
   %49 = zext i1 %48 to i32
   %50 = icmp sgt i32 %47, %49
   br i1 %50, label %51, label %53
@@ -2383,7 +2383,7 @@ flushbuffer.exit.i40:                             ; preds = %81, %72, %65
 
 83:                                               ; preds = %flushbuffer.exit.i40, %54
   %84 = phi ptr [ %82, %flushbuffer.exit.i40 ], [ %.pre.i35, %54 ]
-  %85 = trunc i32 %.1 to i8
+  %85 = trunc i32 %.0 to i8
   %86 = getelementptr i8, ptr %84, i64 1
   store ptr %86, ptr %3, align 8
   store i8 %85, ptr %84, align 1

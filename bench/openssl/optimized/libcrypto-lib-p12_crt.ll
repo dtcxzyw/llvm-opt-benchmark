@@ -72,7 +72,7 @@ if.then31:                                        ; preds = %if.then29
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then31, %if.then29
-  %name.addr.0 = phi ptr [ %call32, %if.then31 ], [ %name, %if.then29 ]
+  %name.addr.1 = phi ptr [ %call32, %if.then31 ], [ %name, %if.then29 ]
   %0 = load i32, ptr %keyidlen, align 4
   %cmp34.not = icmp eq i32 %0, 0
   br i1 %cmp34.not, label %if.else, label %if.then35
@@ -90,7 +90,7 @@ if.end38:                                         ; preds = %if.else, %if.then35
   %1 = phi i32 [ %0, %if.then35 ], [ %.pre, %if.else ]
   %pkeyid.0 = phi ptr [ %keyid, %if.then35 ], [ %call37, %if.else ]
   %2 = load i32, ptr %namelen, align 4
-  %call39 = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %bags, ptr noundef nonnull %cert, ptr noundef %name.addr.0, i32 noundef %2, ptr noundef %pkeyid.0, i32 noundef %1)
+  %call39 = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %bags, ptr noundef nonnull %cert, ptr noundef %name.addr.1, i32 noundef %2, ptr noundef %pkeyid.0, i32 noundef %1)
   %cmp40.not = icmp eq ptr %cb, null
   br i1 %cmp40.not, label %if.end52.thread, label %if.then41
 
@@ -122,7 +122,7 @@ if.end6.i:                                        ; preds = %if.end.i
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end6.i, %if.end.i, %if.then47, %if.then41, %if.end27
-  %name.addr.1 = phi ptr [ %name, %if.end27 ], [ %name.addr.0, %if.then41 ], [ %name.addr.0, %if.then47 ], [ %name.addr.0, %if.end.i ], [ %name.addr.0, %if.end6.i ]
+  %name.addr.0 = phi ptr [ %name, %if.end27 ], [ %name.addr.1, %if.then41 ], [ %name.addr.1, %if.then47 ], [ %name.addr.1, %if.end.i ], [ %name.addr.1, %if.end6.i ]
   %call54106 = call i32 @OPENSSL_sk_num(ptr noundef %ca) #3
   %cmp55107 = icmp sgt i32 %call54106, 0
   br i1 %cmp55107, label %for.body.lr.ph, label %for.end
@@ -137,7 +137,7 @@ for.body.lr.ph:                                   ; preds = %if.end52
   br i1 %cmp62.not, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end52.thread, %for.body.lr.ph
-  %name.addr.1119122 = phi ptr [ %name.addr.1, %for.body.lr.ph ], [ %name.addr.0, %if.end52.thread ]
+  %name.addr.0119122 = phi ptr [ %name.addr.0, %for.body.lr.ph ], [ %name.addr.1, %if.end52.thread ]
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %if.end61.us
@@ -210,7 +210,7 @@ for.inc:                                          ; preds = %if.end6.i70, %if.en
   br i1 %cmp55, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end61.us, %if.end52.thread, %if.end52
-  %name.addr.1118 = phi ptr [ %name.addr.0, %if.end52.thread ], [ %name.addr.1, %if.end52 ], [ %name.addr.1119122, %if.end61.us ], [ %name.addr.1, %for.inc ]
+  %name.addr.0118 = phi ptr [ %name.addr.1, %if.end52.thread ], [ %name.addr.0, %if.end52 ], [ %name.addr.0119122, %if.end61.us ], [ %name.addr.0, %for.inc ]
   %9 = load ptr, ptr %bags, align 8
   %tobool74.not = icmp eq ptr %9, null
   br i1 %tobool74.not, label %if.end79, label %land.lhs.true75
@@ -264,11 +264,11 @@ copy_bag_attr.exit87:                             ; preds = %if.end91
   br i1 %cmp3.i84.not, label %err, label %if.end95
 
 if.end95:                                         ; preds = %if.end91, %copy_bag_attr.exit87
-  %tobool96.not = icmp eq ptr %name.addr.1118, null
+  %tobool96.not = icmp eq ptr %name.addr.0118, null
   br i1 %tobool96.not, label %if.end101, label %land.lhs.true97
 
 land.lhs.true97:                                  ; preds = %if.end95
-  %call98 = call i32 @PKCS12_add_friendlyname_utf8(ptr noundef nonnull %call84, ptr noundef nonnull %name.addr.1118, i32 noundef -1) #3
+  %call98 = call i32 @PKCS12_add_friendlyname_utf8(ptr noundef nonnull %call84, ptr noundef nonnull %name.addr.0118, i32 noundef -1) #3
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %err, label %if.end101
 
@@ -605,8 +605,8 @@ if.else:                                          ; preds = %if.end4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then6
-  %bag.0 = phi ptr [ %call7, %if.then6 ], [ %call8, %if.else ]
-  %tobool10.not = icmp eq ptr %bag.0, null
+  %bag.1 = phi ptr [ %call7, %if.then6 ], [ %call8, %if.else ]
+  %tobool10.not = icmp eq ptr %bag.1, null
   br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
@@ -619,7 +619,7 @@ if.end.i:                                         ; preds = %if.end12
   br i1 %cmp1.not.i, label %if.end6.i.thread, label %if.then2.i
 
 if.end6.i.thread:                                 ; preds = %if.end.i
-  %call9.i14 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %bag.0) #3
+  %call9.i14 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %bag.1) #3
   %tobool.not.i15.not = icmp eq i32 %call9.i14, 0
   br i1 %tobool.not.i15.not, label %err, label %return
 
@@ -630,7 +630,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %cmp3.i, label %err, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i
-  %call9.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %bag.0) #3
+  %call9.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %bag.1) #3
   %tobool.not.i = icmp ne i32 %call9.i, 0
   %brmerge.i = or i1 %cmp1.not.i, %tobool.not.i
   br i1 %brmerge.i, label %pkcs12_add_bag.exit, label %if.then12.i
@@ -645,12 +645,12 @@ pkcs12_add_bag.exit:                              ; preds = %if.end6.i
   br i1 %tobool.not.i, label %return, label %err
 
 err:                                              ; preds = %if.end6.i.thread, %if.then12.i, %if.then2.i, %pkcs12_add_bag.exit, %if.end9, %land.lhs.true, %entry
-  %bag.1 = phi ptr [ null, %entry ], [ %bag.0, %pkcs12_add_bag.exit ], [ null, %if.end9 ], [ null, %land.lhs.true ], [ %bag.0, %if.then2.i ], [ %bag.0, %if.then12.i ], [ %bag.0, %if.end6.i.thread ]
-  tail call void @PKCS12_SAFEBAG_free(ptr noundef %bag.1) #3
+  %bag.0 = phi ptr [ null, %entry ], [ %bag.1, %pkcs12_add_bag.exit ], [ null, %if.end9 ], [ null, %land.lhs.true ], [ %bag.1, %if.then2.i ], [ %bag.1, %if.then12.i ], [ %bag.1, %if.end6.i.thread ]
+  tail call void @PKCS12_SAFEBAG_free(ptr noundef %bag.0) #3
   br label %return
 
 return:                                           ; preds = %if.end6.i.thread, %if.end12, %pkcs12_add_bag.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ %bag.0, %pkcs12_add_bag.exit ], [ %bag.0, %if.end12 ], [ %bag.0, %if.end6.i.thread ]
+  %retval.0 = phi ptr [ null, %err ], [ %bag.1, %pkcs12_add_bag.exit ], [ %bag.1, %if.end12 ], [ %bag.1, %if.end6.i.thread ]
   ret ptr %retval.0
 }
 

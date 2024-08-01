@@ -342,18 +342,18 @@ _ZN3gmx8internal14FileStreamImpl6handleEv.exit:   ; preds = %2
 
 36:                                               ; preds = %34, %32
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  %.1 = phi i1 [ %.0, %34 ], [ true, %32 ]
+  %.4 = phi i1 [ %.0, %34 ], [ true, %32 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   br label %37
 
 37:                                               ; preds = %30, %36
   %.pn.pn = phi { ptr, i32 } [ %.pn, %36 ], [ %31, %30 ]
-  %.2 = phi i1 [ %.1, %36 ], [ true, %30 ]
+  %.3 = phi i1 [ %.4, %36 ], [ true, %30 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
-  br i1 %.2, label %38, label %40
+  br i1 %.3, label %38, label %40
 
 38:                                               ; preds = %.thread20, %.thread, %37
   %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn.pn, %37 ], [ %29, %.thread20 ]
@@ -518,18 +518,18 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_112readLineImplEP
 
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  %.1 = phi i1 [ %.0, %44 ], [ true, %42 ]
+  %.4 = phi i1 [ %.0, %44 ], [ true, %42 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   br label %47
 
 47:                                               ; preds = %40, %46
   %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ]
-  %.2 = phi i1 [ %.1, %46 ], [ true, %40 ]
+  %.3 = phi i1 [ %.4, %46 ], [ true, %40 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #17
-  br i1 %.2, label %48, label %58
+  br i1 %.3, label %48, label %58
 
 48:                                               ; preds = %.thread30, %.thread, %47
   %.pn.pn.pn.pn29 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn.pn, %47 ], [ %39, %.thread30 ]
@@ -1263,30 +1263,30 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %2
 
 48:                                               ; preds = %46, %44
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
-  %.1 = phi i1 [ %.0, %46 ], [ true, %44 ]
+  %.6 = phi i1 [ %.0, %46 ], [ true, %44 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   br label %49
 
 49:                                               ; preds = %48, %42
   %.pn.pn = phi { ptr, i32 } [ %.pn, %48 ], [ %43, %42 ]
-  %.2 = phi i1 [ %.1, %48 ], [ true, %42 ]
+  %.5 = phi i1 [ %.6, %48 ], [ true, %42 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   br label %50
 
 50:                                               ; preds = %49, %40
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %49 ], [ %41, %40 ]
-  %.3 = phi i1 [ %.2, %49 ], [ true, %40 ]
+  %.4 = phi i1 [ %.5, %49 ], [ true, %40 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #17
   br label %51
 
 51:                                               ; preds = %38, %50
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %50 ], [ %39, %38 ]
-  %.4 = phi i1 [ %.3, %50 ], [ true, %38 ]
+  %.3 = phi i1 [ %.4, %50 ], [ true, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
-  br i1 %.4, label %52, label %_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit
+  br i1 %.3, label %52, label %_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit
 
 52:                                               ; preds = %.thread28, %.thread, %51
   %.pn.pn.pn.pn.pn.pn27 = phi { ptr, i32 } [ %36, %.thread ], [ %.pn.pn.pn.pn, %51 ], [ %37, %.thread28 ]
@@ -1499,30 +1499,30 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %3
 
 52:                                               ; preds = %50, %48
   %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
-  %.1 = phi i1 [ %.0, %50 ], [ true, %48 ]
+  %.6 = phi i1 [ %.0, %50 ], [ true, %48 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   br label %53
 
 53:                                               ; preds = %52, %46
   %.pn.pn = phi { ptr, i32 } [ %.pn, %52 ], [ %47, %46 ]
-  %.2 = phi i1 [ %.1, %52 ], [ true, %46 ]
+  %.5 = phi i1 [ %.6, %52 ], [ true, %46 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   br label %54
 
 54:                                               ; preds = %53, %44
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %53 ], [ %45, %44 ]
-  %.3 = phi i1 [ %.2, %53 ], [ true, %44 ]
+  %.4 = phi i1 [ %.5, %53 ], [ true, %44 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #17
   br label %55
 
 55:                                               ; preds = %42, %54
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %54 ], [ %43, %42 ]
-  %.4 = phi i1 [ %.3, %54 ], [ true, %42 ]
+  %.3 = phi i1 [ %.4, %54 ], [ true, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
-  br i1 %.4, label %56, label %common.resume
+  br i1 %.3, label %56, label %common.resume
 
 56:                                               ; preds = %.thread28, %.thread, %55
   %.pn.pn.pn.pn.pn.pn27 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn.pn.pn.pn, %55 ], [ %41, %.thread28 ]
@@ -1704,18 +1704,18 @@ define linkonce_odr void @_ZN3gmx8internal14FileStreamImpl5closeEv(ptr noundef n
 
 39:                                               ; preds = %37, %35
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  %.1 = phi i1 [ %.0, %37 ], [ true, %35 ]
+  %.4 = phi i1 [ %.0, %37 ], [ true, %35 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   br label %40
 
 40:                                               ; preds = %33, %39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %34, %33 ]
-  %.2 = phi i1 [ %.1, %39 ], [ true, %33 ]
+  %.3 = phi i1 [ %.4, %39 ], [ true, %33 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
-  br i1 %.2, label %41, label %43
+  br i1 %.3, label %41, label %43
 
 41:                                               ; preds = %.thread20, %.thread, %40
   %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn.pn, %40 ], [ %32, %.thread20 ]

@@ -417,7 +417,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %143, %141
 189:                                              ; preds = %.lr.ph133, %.critedge2
   %190 = phi ptr [ %167, %.lr.ph133 ], [ %269, %.critedge2 ]
   %indvars.iv142 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next143, %.critedge2 ]
-  %.2132 = phi i32 [ %.0.lcssa, %.lr.ph133 ], [ %.5, %.critedge2 ]
+  %.2132 = phi i32 [ %.0.lcssa, %.lr.ph133 ], [ %.3, %.critedge2 ]
   %191 = getelementptr i8, ptr %190, i64 8
   %.val88 = load ptr, ptr %191, align 8
   %192 = getelementptr inbounds i32, ptr %.val88, i64 %indvars.iv142
@@ -442,7 +442,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %143, %141
 
 203:                                              ; preds = %.lr.ph128, %232
   %indvars.iv139 = phi i64 [ 1, %.lr.ph128 ], [ %indvars.iv.next140, %232 ]
-  %.3127 = phi i32 [ %.2132, %.lr.ph128 ], [ %.4, %232 ]
+  %.4127 = phi i32 [ %.2132, %.lr.ph128 ], [ %.5, %232 ]
   %.val89 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i32, ptr %.val89, i64 %indvars.iv139
   %205 = load i32, ptr %204, align 4
@@ -486,7 +486,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %143, %141
   br label %232
 
 232:                                              ; preds = %221, %210, %230, %224
-  %.4 = phi i32 [ 0, %221 ], [ %.3127, %210 ], [ 0, %230 ], [ %.3127, %224 ]
+  %.5 = phi i32 [ 0, %221 ], [ %.4127, %210 ], [ 0, %230 ], [ %.4127, %224 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %.val82 = load i32, ptr %200, align 4
   %233 = sext i32 %.val82 to i64
@@ -494,7 +494,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %143, %141
   br i1 %234, label %203, label %.critedge6, !llvm.loop !8
 
 .critedge6:                                       ; preds = %232, %195
-  %.3.lcssa = phi i32 [ %.2132, %195 ], [ %.4, %232 ]
+  %.4.lcssa = phi i32 [ %.2132, %195 ], [ %.5, %232 ]
   %235 = load ptr, ptr %3, align 8
   %236 = load i32, ptr %172, align 4
   %237 = add nsw i32 %236, %193
@@ -569,7 +569,7 @@ Vec_IntPush.exit118:                              ; preds = %.Vec_IntGrow.exit10
 
 .critedge2:                                       ; preds = %189, %Vec_IntPush.exit118
   %269 = phi ptr [ %190, %189 ], [ %.pre146, %Vec_IntPush.exit118 ]
-  %.5 = phi i32 [ %.2132, %189 ], [ %.3.lcssa, %Vec_IntPush.exit118 ]
+  %.3 = phi i32 [ %.2132, %189 ], [ %.4.lcssa, %Vec_IntPush.exit118 ]
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %270 = getelementptr i8, ptr %269, i64 4
   %.val81 = load i32, ptr %270, align 4
@@ -578,7 +578,7 @@ Vec_IntPush.exit118:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %272, label %189, label %.critedge4, !llvm.loop !9
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge2.preheader ], [ %.5, %.critedge2 ]
+  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge2.preheader ], [ %.3, %.critedge2 ]
   ret i32 %.2.lcssa
 }
 

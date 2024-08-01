@@ -218,13 +218,13 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %122
 
 122:                                              ; preds = %101, %97, %119, %116, %66, %62, %84, %77
-  %.0 = phi i32 [ %65, %62 ], [ %75, %66 ], [ %83, %77 ], [ %87, %84 ], [ %100, %97 ], [ %110, %101 ], [ %118, %116 ], [ %121, %119 ]
-  %123 = sitofp i32 %.0 to double
+  %.1 = phi i32 [ %65, %62 ], [ %75, %66 ], [ %83, %77 ], [ %87, %84 ], [ %100, %97 ], [ %110, %101 ], [ %118, %116 ], [ %121, %119 ]
+  %123 = sitofp i32 %.1 to double
   store double %123, ptr %10, align 8
   br label %124
 
 124:                                              ; preds = %122, %14
-  %.1 = phi double [ %123, %122 ], [ 1.000000e+00, %14 ]
+  %.0 = phi double [ %123, %122 ], [ 1.000000e+00, %14 ]
   br i1 %48, label %337, label %125
 
 125:                                              ; preds = %124
@@ -607,7 +607,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %.sink.split705
 
 .sink.split705:                                   ; preds = %326, %336, %332, %131
-  %.sink706 = phi double [ 1.000000e+00, %131 ], [ %.1, %332 ], [ %.1, %336 ], [ %.1, %326 ]
+  %.sink706 = phi double [ 1.000000e+00, %131 ], [ %.0, %332 ], [ %.0, %336 ], [ %.0, %326 ]
   store double %.sink706, ptr %10, align 8
   br label %337
 

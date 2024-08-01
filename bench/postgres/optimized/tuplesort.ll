@@ -642,14 +642,14 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   %83 = sitofp i32 %63 to double
   %84 = fmul double %82, %83
   %85 = fcmp olt double %84, 0x41DFFFFFFFC00000
-  %.03546.i = select i1 %85, double %84, double 0x41DFFFFFFFC00000
-  %.035.i = fptosi double %.03546.i to i32
+  %.146.i = select i1 %85, double %84, double 0x41DFFFFFFFC00000
+  %.1.i = fptosi double %.146.i to i32
   store i8 0, ptr %71, align 8
   br label %86
 
 86:                                               ; preds = %79, %77
-  %.1.i = phi i32 [ %78, %77 ], [ %.035.i, %79 ]
-  %.not40.i = icmp sgt i32 %.1.i, %63
+  %.035.i = phi i32 [ %78, %77 ], [ %.1.i, %79 ]
+  %.not40.i = icmp sgt i32 %.035.i, %63
   br i1 %.not40.i, label %87, label %115
 
 .thread.i:                                        ; preds = %75
@@ -658,7 +658,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   br i1 %.not4042.not.i, label %115, label %.thread44.i
 
 87:                                               ; preds = %86
-  %88 = icmp slt i32 %.1.i, 0
+  %88 = icmp slt i32 %.035.i, 0
   br i1 %88, label %89, label %.thread44.i
 
 89:                                               ; preds = %87
@@ -666,7 +666,7 @@ define dso_local void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef %1,
   br label %.thread44.i
 
 .thread44.i:                                      ; preds = %89, %87, %.thread.i
-  %.2.i = phi i32 [ 1431655765, %89 ], [ %.1.i, %87 ], [ 2147483647, %.thread.i ]
+  %.2.i = phi i32 [ 1431655765, %89 ], [ %.035.i, %87 ], [ 2147483647, %.thread.i ]
   %90 = sub i32 %.2.i, %63
   %91 = sext i32 %90 to i64
   %92 = mul nsw i64 %91, 24
@@ -3865,18 +3865,18 @@ qsort_tuple_unsigned_compare.exit180.thread:      ; preds = %86, %98, %81, %qsor
 
 126:                                              ; preds = %112, %108
   %.1141 = phi ptr [ %117, %112 ], [ %.0137.ph, %108 ]
-  %.2 = phi ptr [ %121, %112 ], [ %107, %108 ]
+  %.3 = phi ptr [ %121, %112 ], [ %107, %108 ]
   %.0138 = phi ptr [ %125, %112 ], [ %110, %108 ]
-  %127 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.1141, ptr noundef %.2, ptr noundef %.0138, ptr noundef nonnull %2)
+  %127 = tail call fastcc ptr @qsort_tuple_unsigned_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
   br label %qsort_tuple_unsigned_compare.exit180.thread._crit_edge
 
 qsort_tuple_unsigned_compare.exit180.thread._crit_edge: ; preds = %qsort_tuple_unsigned_compare.exit180.thread, %126
   %.pre-phi = phi i64 [ %109, %126 ], [ 6, %qsort_tuple_unsigned_compare.exit180.thread ]
-  %.3 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_unsigned_compare.exit180.thread ]
+  %.2 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_unsigned_compare.exit180.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %128 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
   br label %129
@@ -4432,18 +4432,18 @@ qsort_tuple_signed_compare.exit180.thread:        ; preds = %86, %98, %81, %qsor
 
 126:                                              ; preds = %112, %108
   %.1141 = phi ptr [ %117, %112 ], [ %.0137.ph, %108 ]
-  %.2 = phi ptr [ %121, %112 ], [ %107, %108 ]
+  %.3 = phi ptr [ %121, %112 ], [ %107, %108 ]
   %.0138 = phi ptr [ %125, %112 ], [ %110, %108 ]
-  %127 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.1141, ptr noundef %.2, ptr noundef %.0138, ptr noundef nonnull %2)
+  %127 = tail call fastcc ptr @qsort_tuple_signed_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
   br label %qsort_tuple_signed_compare.exit180.thread._crit_edge
 
 qsort_tuple_signed_compare.exit180.thread._crit_edge: ; preds = %qsort_tuple_signed_compare.exit180.thread, %126
   %.pre-phi = phi i64 [ %109, %126 ], [ 6, %qsort_tuple_signed_compare.exit180.thread ]
-  %.3 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_signed_compare.exit180.thread ]
+  %.2 = phi ptr [ %127, %126 ], [ %107, %qsort_tuple_signed_compare.exit180.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %128 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
   br label %129
@@ -5003,18 +5003,18 @@ qsort_tuple_int32_compare.exit180.thread:         ; preds = %88, %102, %83, %qso
 
 130:                                              ; preds = %116, %112
   %.1141 = phi ptr [ %121, %116 ], [ %.0137.ph, %112 ]
-  %.2 = phi ptr [ %125, %116 ], [ %111, %112 ]
+  %.3 = phi ptr [ %125, %116 ], [ %111, %112 ]
   %.0138 = phi ptr [ %129, %116 ], [ %114, %112 ]
-  %131 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.1141, ptr noundef %.2, ptr noundef %.0138, ptr noundef nonnull %2)
+  %131 = tail call fastcc ptr @qsort_tuple_int32_med3(ptr noundef %.1141, ptr noundef %.3, ptr noundef %.0138, ptr noundef nonnull %2)
   br label %qsort_tuple_int32_compare.exit180.thread._crit_edge
 
 qsort_tuple_int32_compare.exit180.thread._crit_edge: ; preds = %qsort_tuple_int32_compare.exit180.thread, %130
   %.pre-phi = phi i64 [ %113, %130 ], [ 6, %qsort_tuple_int32_compare.exit180.thread ]
-  %.3 = phi ptr [ %131, %130 ], [ %111, %qsort_tuple_int32_compare.exit180.thread ]
+  %.2 = phi ptr [ %131, %130 ], [ %111, %qsort_tuple_int32_compare.exit180.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %132 = getelementptr %struct.SortTuple, ptr %.0137.ph, i64 %.pre-phi
   br label %133
@@ -5533,18 +5533,18 @@ ApplySortComparator.exit182.thread:               ; preds = %75, %83, %71, %Appl
 
 109:                                              ; preds = %95, %91
   %.1149 = phi ptr [ %100, %95 ], [ %.0145.ph, %91 ]
-  %.2 = phi ptr [ %104, %95 ], [ %90, %91 ]
+  %.3 = phi ptr [ %104, %95 ], [ %90, %91 ]
   %.0146 = phi ptr [ %108, %95 ], [ %93, %91 ]
-  %110 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.2, ptr noundef %.0146, ptr noundef nonnull %2)
+  %110 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.3, ptr noundef %.0146, ptr noundef nonnull %2)
   br label %ApplySortComparator.exit182.thread._crit_edge
 
 ApplySortComparator.exit182.thread._crit_edge:    ; preds = %ApplySortComparator.exit182.thread, %109
   %.pre-phi = phi i64 [ %92, %109 ], [ 6, %ApplySortComparator.exit182.thread ]
-  %.3 = phi ptr [ %110, %109 ], [ %90, %ApplySortComparator.exit182.thread ]
+  %.2 = phi ptr [ %110, %109 ], [ %90, %ApplySortComparator.exit182.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %111 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %.pre-phi
   br label %112
@@ -6007,11 +6007,11 @@ qsort_tuple_med3.exit181:                         ; preds = %72, %74, %78, %80
 
 qsort_tuple_med3.exit182:                         ; preds = %99, %97, %93, %91, %41
   %.1151 = phi ptr [ %.0147.ph, %41 ], [ %65, %91 ], [ %65, %93 ], [ %65, %97 ], [ %65, %99 ]
-  %.2 = phi ptr [ %40, %41 ], [ %84, %91 ], [ %84, %93 ], [ %84, %97 ], [ %84, %99 ]
+  %.3 = phi ptr [ %40, %41 ], [ %84, %91 ], [ %84, %93 ], [ %84, %97 ], [ %84, %99 ]
   %.0148 = phi ptr [ %43, %41 ], [ %87, %91 ], [ %96, %93 ], [ %87, %97 ], [ %102, %99 ]
-  %103 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.2, ptr noundef %3) #12
+  %103 = tail call i32 %2(ptr noundef %.1151, ptr noundef %.3, ptr noundef %3) #12
   %104 = icmp slt i32 %103, 0
-  %105 = tail call i32 %2(ptr noundef %.2, ptr noundef %.0148, ptr noundef %3) #12
+  %105 = tail call i32 %2(ptr noundef %.3, ptr noundef %.0148, ptr noundef %3) #12
   br i1 %104, label %106, label %112
 
 106:                                              ; preds = %qsort_tuple_med3.exit182
@@ -6036,11 +6036,11 @@ qsort_tuple_med3.exit182:                         ; preds = %99, %97, %93, %91, 
 
 qsort_tuple_med3.exit183:                         ; preds = %38, %114, %112, %108, %106
   %.pre-phi = phi i64 [ %42, %114 ], [ %42, %112 ], [ %42, %108 ], [ %42, %106 ], [ 6, %38 ]
-  %.3 = phi ptr [ %117, %114 ], [ %.2, %112 ], [ %111, %108 ], [ %.2, %106 ], [ %40, %38 ]
+  %.2 = phi ptr [ %117, %114 ], [ %.3, %112 ], [ %111, %108 ], [ %.3, %106 ], [ %40, %38 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, ptr noundef nonnull align 8 dereferenceable(24) %.3, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.3, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %118 = getelementptr %struct.SortTuple, ptr %.0147.ph, i64 %.pre-phi
   br label %119

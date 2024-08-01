@@ -428,9 +428,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -658,7 +658,7 @@ if.end2.i49:                                      ; preds = %if.end.i47
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end2.i49, %if.then1.i50, %if.then64, %invoke.cont48, %if.end57, %invoke.cont61
-  %retval.0 = phi i32 [ %call49, %invoke.cont48 ], [ 0, %invoke.cont61 ], [ 0, %if.end57 ], [ 1, %if.then1.i50 ], [ 1, %if.end2.i49 ], [ 0, %if.then64 ]
+  %retval.1 = phi i32 [ %call49, %invoke.cont48 ], [ 0, %invoke.cont61 ], [ 0, %if.end57 ], [ 1, %if.then1.i50 ], [ 1, %if.end2.i49 ], [ 0, %if.then64 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %likely) #10
   br label %return
 
@@ -668,8 +668,8 @@ ehcleanup:                                        ; preds = %lpad38, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end2.i, %if.then1.i, %if.then27, %if.end30, %entry, %cleanup, %if.then4
-  %retval.1 = phi i32 [ 0, %if.then4 ], [ %retval.0, %cleanup ], [ 0, %entry ], [ %call31, %if.end30 ], [ 1, %if.then1.i ], [ 1, %if.end2.i ], [ 0, %if.then27 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then4 ], [ %retval.1, %cleanup ], [ 0, %entry ], [ %call31, %if.end30 ], [ 1, %if.then1.i ], [ 1, %if.end2.i ], [ 0, %if.then27 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

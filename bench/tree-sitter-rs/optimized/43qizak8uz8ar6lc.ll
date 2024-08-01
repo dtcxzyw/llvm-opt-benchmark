@@ -27146,7 +27146,7 @@ define hidden void @_ZN15tree_sitter_cli8generate3nfa9NfaCursor17group_transitio
           to label %159 unwind label %.thread197
 
 158:                                              ; preds = %247
-  br i1 %.150.ph, label %.thread200, label %.thread190
+  br i1 %.251.ph, label %.thread200, label %.thread190
 
 .thread200.loopexit:                              ; preds = %165
   %lpad.loopexit239 = landingpad { ptr, i32 }
@@ -27417,18 +27417,18 @@ define hidden void @_ZN15tree_sitter_cli8generate3nfa9NfaCursor17group_transitio
   br label %246
 
 246:                                              ; preds = %218, %245
-  %.1 = phi i64 [ %.0343, %245 ], [ %225, %218 ]
+  %.2 = phi i64 [ %.0343, %245 ], [ %225, %218 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %248
 
 247:                                              ; preds = %198, %.loopexit242
-  %.150.ph = phi i1 [ true, %.loopexit242 ], [ false, %198 ]
+  %.251.ph = phi i1 [ true, %.loopexit242 ], [ false, %198 ]
   %.pn.pn.pn.ph = phi { ptr, i32 } [ %lpad.loopexit244, %.loopexit242 ], [ %199, %198 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h7901f58db22bfbdfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #64
           to label %158 unwind label %148
 
 248:                                              ; preds = %246, %"_ZN4core3ptr65drop_in_place$LT$tree_sitter_cli..generate..nfa..CharacterSet$GT$17h842534fb960348b2E.exit154"
-  %.in = phi i64 [ %.0343, %"_ZN4core3ptr65drop_in_place$LT$tree_sitter_cli..generate..nfa..CharacterSet$GT$17h842534fb960348b2E.exit154" ], [ %.1, %246 ]
+  %.in = phi i64 [ %.0343, %"_ZN4core3ptr65drop_in_place$LT$tree_sitter_cli..generate..nfa..CharacterSet$GT$17h842534fb960348b2E.exit154" ], [ %.2, %246 ]
   %249 = add i64 %.in, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   %250 = load i64, ptr %23, align 8, !noundef !9

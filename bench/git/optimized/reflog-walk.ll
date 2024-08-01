@@ -159,8 +159,8 @@ if.then27:                                        ; preds = %if.then24
   unreachable
 
 if.end29:                                         ; preds = %if.then24, %if.else20
-  %branch.0 = phi ptr [ %call25, %if.then24 ], [ %call1, %if.else20 ]
-  %call30 = tail call fastcc ptr @read_complete_reflog(ptr noundef nonnull %branch.0)
+  %branch.1 = phi ptr [ %call25, %if.then24 ], [ %call1, %if.else20 ]
+  %call30 = tail call fastcc ptr @read_complete_reflog(ptr noundef nonnull %branch.1)
   %tobool31.not = icmp eq ptr %call30, null
   br i1 %tobool31.not, label %if.then34, label %lor.lhs.false
 
@@ -171,9 +171,9 @@ lor.lhs.false:                                    ; preds = %if.end29
   br i1 %cmp32, label %if.then34, label %if.end55
 
 if.then34:                                        ; preds = %lor.lhs.false, %if.end29
-  %call35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %branch.0) #12
+  %call35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %branch.1) #12
   %conv36 = trunc i64 %call35 to i32
-  %call37 = call i32 @dwim_log(ptr noundef nonnull %branch.0, i32 noundef %conv36, ptr noundef null, ptr noundef nonnull %b) #11
+  %call37 = call i32 @dwim_log(ptr noundef nonnull %branch.1, i32 noundef %conv36, ptr noundef null, ptr noundef nonnull %b) #11
   %cmp38 = icmp sgt i32 %call37, 1
   br i1 %cmp38, label %if.then40, label %if.else41
 
@@ -188,51 +188,51 @@ if.else41:                                        ; preds = %if.then34
 
 if.then44:                                        ; preds = %if.else41
   call fastcc void @free_complete_reflog(ptr noundef %call30)
-  call void @free(ptr noundef nonnull %branch.0) #11
+  call void @free(ptr noundef nonnull %branch.1) #11
   %8 = load ptr, ptr %b, align 8
   %call45 = call fastcc ptr @read_complete_reflog(ptr noundef %8)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then40, %if.then44, %if.else41
-  %reflogs.0 = phi ptr [ %call30, %if.then40 ], [ %call45, %if.then44 ], [ %call30, %if.else41 ]
-  %branch.1 = phi ptr [ %branch.0, %if.then40 ], [ %8, %if.then44 ], [ %branch.0, %if.else41 ]
-  %tobool49.not = icmp eq ptr %reflogs.0, null
+  %reflogs.1 = phi ptr [ %call30, %if.then40 ], [ %call45, %if.then44 ], [ %call30, %if.else41 ]
+  %branch.2 = phi ptr [ %branch.1, %if.then40 ], [ %8, %if.then44 ], [ %branch.1, %if.else41 ]
+  %tobool49.not = icmp eq ptr %reflogs.1, null
   br i1 %tobool49.not, label %if.then54, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end48
-  %nr51.phi.trans.insert = getelementptr inbounds i8, ptr %reflogs.0, i64 24
+  %nr51.phi.trans.insert = getelementptr inbounds i8, ptr %reflogs.1, i64 24
   %.pre = load i32, ptr %nr51.phi.trans.insert, align 8
   %9 = icmp eq i32 %.pre, 0
   br i1 %9, label %lor.lhs.false50.split, label %if.end55
 
 lor.lhs.false50.split:                            ; preds = %lor.lhs.false50
-  call fastcc void @free_complete_reflog(ptr noundef nonnull %reflogs.0)
+  call fastcc void @free_complete_reflog(ptr noundef nonnull %reflogs.1)
   br label %if.then54
 
 if.then54:                                        ; preds = %if.end48, %lor.lhs.false50.split
-  call void @free(ptr noundef %branch.1) #11
+  call void @free(ptr noundef %branch.2) #11
   br label %return
 
 if.end55:                                         ; preds = %lor.lhs.false, %lor.lhs.false50
-  %reflogs.05668 = phi ptr [ %reflogs.0, %lor.lhs.false50 ], [ %call30, %lor.lhs.false ]
-  %branch.15867 = phi ptr [ %branch.1, %lor.lhs.false50 ], [ %branch.0, %lor.lhs.false ]
-  %call57 = call ptr @string_list_insert(ptr noundef nonnull %complete_reflogs, ptr noundef %branch.15867) #11
+  %reflogs.15668 = phi ptr [ %reflogs.1, %lor.lhs.false50 ], [ %call30, %lor.lhs.false ]
+  %branch.25867 = phi ptr [ %branch.2, %lor.lhs.false50 ], [ %branch.1, %lor.lhs.false ]
+  %call57 = call ptr @string_list_insert(ptr noundef nonnull %complete_reflogs, ptr noundef %branch.25867) #11
   %util58 = getelementptr inbounds i8, ptr %call57, i64 8
-  store ptr %reflogs.05668, ptr %util58, align 8
+  store ptr %reflogs.15668, ptr %util58, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end55, %if.then19
-  %reflogs.1 = phi ptr [ %4, %if.then19 ], [ %reflogs.05668, %if.end55 ]
-  %branch.2 = phi ptr [ %call1, %if.then19 ], [ %branch.15867, %if.end55 ]
-  call void @free(ptr noundef %branch.2) #11
+  %reflogs.0 = phi ptr [ %4, %if.then19 ], [ %reflogs.15668, %if.end55 ]
+  %branch.0 = phi ptr [ %call1, %if.then19 ], [ %branch.25867, %if.end55 ]
+  call void @free(ptr noundef %branch.0) #11
   %call60 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #11
   %cmp61 = icmp slt i32 %recno.0, 0
-  %nr.i = getelementptr inbounds i8, ptr %reflogs.1, i64 24
+  %nr.i = getelementptr inbounds i8, ptr %reflogs.0, i64 24
   %10 = load i32, ptr %nr.i, align 8
   br i1 %cmp61, label %if.then63, label %if.else71
 
 if.then63:                                        ; preds = %if.end59
-  %items.i = getelementptr inbounds i8, ptr %reflogs.1, i64 16
+  %items.i = getelementptr inbounds i8, ptr %reflogs.0, i64 16
   %11 = zext i32 %10 to i64
   br label %for.cond.i
 
@@ -271,7 +271,7 @@ if.end75:                                         ; preds = %get_reflog_recno_by
   %selector76 = getelementptr inbounds i8, ptr %call60, i64 4
   store i32 %selector.0, ptr %selector76, align 4
   %reflogs77 = getelementptr inbounds i8, ptr %call60, i64 8
-  store ptr %reflogs.1, ptr %reflogs77, align 8
+  store ptr %reflogs.0, ptr %reflogs77, align 8
   %nr78 = getelementptr inbounds i8, ptr %info, i64 8
   %16 = load i64, ptr %nr78, align 8
   %add = add i64 %16, 1

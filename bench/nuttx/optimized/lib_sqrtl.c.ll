@@ -52,11 +52,11 @@ define x86_fp80 @sqrtl(x86_fp80 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond40, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.03439 = phi x86_fp80 [ %35, %.lr.ph ], [ %26, %11 ]
-  %33 = fdiv x86_fp80 %0, %.03439
-  %34 = fadd x86_fp80 %.03439, %33
+  %.139 = phi x86_fp80 [ %35, %.lr.ph ], [ %26, %11 ]
+  %33 = fdiv x86_fp80 %0, %.139
+  %34 = fadd x86_fp80 %.139, %33
   %35 = fmul x86_fp80 %34, 0xK3FFE8000000000000000
-  %36 = fcmp une x86_fp80 %35, %.03439
+  %36 = fcmp une x86_fp80 %35, %.139
   br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %9, %7, %5, %3

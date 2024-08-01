@@ -249,13 +249,13 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %10, %.loopexit.sink.split, %30
-  %.2 = phi double [ %.056.ph130, %30 ], [ %.056.ph130, %.loopexit.sink.split ], [ %.056.ph130, %6 ], [ %16, %10 ]
+  %.157 = phi double [ %.056.ph130, %30 ], [ %.056.ph130, %.loopexit.sink.split ], [ %.056.ph130, %6 ], [ %16, %10 ]
   %66 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 51, i64 1, ptr %5)
   %67 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 48, i64 1, ptr %5)
   %68 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 56, i64 1, ptr %5)
   %69 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 58, i64 1, ptr %5)
   %70 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 49, i64 1, ptr %5)
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %.2) #8
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef %.157) #8
   %72 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 69, i64 1, ptr %5)
   %.not75 = icmp eq i32 %.054.ph134, 0
   %73 = select i1 %.not75, ptr @.str.34, ptr @.str.33

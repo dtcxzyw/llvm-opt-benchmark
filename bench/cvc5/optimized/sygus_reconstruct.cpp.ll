@@ -11015,17 +11015,17 @@ cond.true.i.i.i:                                  ; preds = %if.then13.i.i196, %
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %for.inc, %invoke.cont64
-  %stack.sroa.0.2.lcssa = phi ptr [ %stack.sroa.0.11217, %invoke.cont64 ], [ %stack.sroa.0.17, %for.inc ]
-  %stack.sroa.8.2.lcssa = phi ptr [ %add.ptr.i.i207, %invoke.cont64 ], [ %stack.sroa.8.5, %for.inc ]
-  %stack.sroa.20.2.lcssa = phi ptr [ %stack.sroa.20.11219, %invoke.cont64 ], [ %stack.sroa.20.5, %for.inc ]
-  %cmp.i.i205 = icmp eq ptr %stack.sroa.0.2.lcssa, %stack.sroa.8.2.lcssa
+  %stack.sroa.0.2.lcssa = phi ptr [ %stack.sroa.0.11217, %invoke.cont64 ], [ %stack.sroa.0.5, %for.inc ]
+  %stack.sroa.8.1.lcssa = phi ptr [ %add.ptr.i.i207, %invoke.cont64 ], [ %stack.sroa.8.3, %for.inc ]
+  %stack.sroa.20.1.lcssa = phi ptr [ %stack.sroa.20.01219, %invoke.cont64 ], [ %stack.sroa.20.3, %for.inc ]
+  %cmp.i.i205 = icmp eq ptr %stack.sroa.0.2.lcssa, %stack.sroa.8.1.lcssa
   br i1 %cmp.i.i205, label %while.end186, label %while.body, !llvm.loop !58
 
 while.body:                                       ; preds = %cond.true.i.i.i, %while.cond.loopexit
-  %stack.sroa.20.11219 = phi ptr [ %incdec.ptr.i.i, %cond.true.i.i.i ], [ %stack.sroa.20.2.lcssa, %while.cond.loopexit ]
-  %stack.sroa.8.11218 = phi ptr [ %incdec.ptr.i.i, %cond.true.i.i.i ], [ %stack.sroa.8.2.lcssa, %while.cond.loopexit ]
+  %stack.sroa.20.01219 = phi ptr [ %incdec.ptr.i.i, %cond.true.i.i.i ], [ %stack.sroa.20.1.lcssa, %while.cond.loopexit ]
+  %stack.sroa.8.01218 = phi ptr [ %incdec.ptr.i.i, %cond.true.i.i.i ], [ %stack.sroa.8.1.lcssa, %while.cond.loopexit ]
   %stack.sroa.0.11217 = phi ptr [ %call5.i.i.i.i.i204, %cond.true.i.i.i ], [ %stack.sroa.0.2.lcssa, %while.cond.loopexit ]
-  %add.ptr.i.i207 = getelementptr inbounds i8, ptr %stack.sroa.8.11218, i64 -8
+  %add.ptr.i.i207 = getelementptr inbounds i8, ptr %stack.sroa.8.01218, i64 -8
   %24 = load ptr, ptr %add.ptr.i.i207, align 8
   %call65 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal6theory11quantifiers15RConsObligation11getWatchSetEv(ptr noundef nonnull align 8 dereferenceable(176) %24)
           to label %invoke.cont64 unwind label %lpad59.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -11038,9 +11038,9 @@ invoke.cont64:                                    ; preds = %while.body
 
 for.body:                                         ; preds = %invoke.cont64, %for.inc
   %__begin4.sroa.0.01214 = phi ptr [ %__begin4.sroa.0.0, %for.inc ], [ %__begin4.sroa.0.01209, %invoke.cont64 ]
-  %stack.sroa.20.21213 = phi ptr [ %stack.sroa.20.5, %for.inc ], [ %stack.sroa.20.11219, %invoke.cont64 ]
-  %stack.sroa.8.21212 = phi ptr [ %stack.sroa.8.5, %for.inc ], [ %add.ptr.i.i207, %invoke.cont64 ]
-  %stack.sroa.0.21211 = phi ptr [ %stack.sroa.0.17, %for.inc ], [ %stack.sroa.0.11217, %invoke.cont64 ]
+  %stack.sroa.20.11213 = phi ptr [ %stack.sroa.20.3, %for.inc ], [ %stack.sroa.20.01219, %invoke.cont64 ]
+  %stack.sroa.8.11212 = phi ptr [ %stack.sroa.8.3, %for.inc ], [ %add.ptr.i.i207, %invoke.cont64 ]
+  %stack.sroa.0.21211 = phi ptr [ %stack.sroa.0.5, %for.inc ], [ %stack.sroa.0.11217, %invoke.cont64 ]
   %add.ptr.i211 = getelementptr inbounds i8, ptr %__begin4.sroa.0.01214, i64 8
   br label %while.cond73
 
@@ -12486,16 +12486,16 @@ invoke.cont170:                                   ; preds = %for.cond.i.i.i712, 
   %retval.0.i711 = getelementptr inbounds i8, ptr %retval.0.i.pn.i710, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node5.i686)
   store ptr %180, ptr %retval.0.i711, align 8
-  %cmp.not.i340 = icmp eq ptr %stack.sroa.8.21212, %stack.sroa.20.21213
+  %cmp.not.i340 = icmp eq ptr %stack.sroa.8.11212, %stack.sroa.20.11213
   br i1 %cmp.not.i340, label %if.else.i344, label %if.then.i341
 
 if.then.i341:                                     ; preds = %invoke.cont170
-  store ptr %180, ptr %stack.sroa.8.21212, align 8
-  %incdec.ptr.i342 = getelementptr inbounds i8, ptr %stack.sroa.8.21212, i64 8
+  store ptr %180, ptr %stack.sroa.8.11212, align 8
+  %incdec.ptr.i342 = getelementptr inbounds i8, ptr %stack.sroa.8.11212, i64 8
   br label %if.end173
 
 if.else.i344:                                     ; preds = %invoke.cont170
-  %sub.ptr.lhs.cast.i.i.i.i345 = ptrtoint ptr %stack.sroa.20.21213 to i64
+  %sub.ptr.lhs.cast.i.i.i.i345 = ptrtoint ptr %stack.sroa.20.11213 to i64
   %sub.ptr.rhs.cast.i.i.i.i346 = ptrtoint ptr %stack.sroa.0.21211 to i64
   %sub.ptr.sub.i.i.i.i347 = sub i64 %sub.ptr.lhs.cast.i.i.i.i345, %sub.ptr.rhs.cast.i.i.i.i346
   %cmp.i.i.i348 = icmp eq i64 %sub.ptr.sub.i.i.i.i347, 9223372036854775800
@@ -12585,9 +12585,9 @@ lpad162.body:                                     ; preds = %lpad162, %lpad11.i9
   br label %ehcleanup174
 
 if.end173:                                        ; preds = %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367, %if.then.i341, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288
-  %stack.sroa.0.16 = phi ptr [ %stack.sroa.0.21211, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288 ], [ %cond.i10.i.i359, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367 ], [ %stack.sroa.0.21211, %if.then.i341 ]
-  %stack.sroa.8.4 = phi ptr [ %stack.sroa.8.21212, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288 ], [ %incdec.ptr.i.i364, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367 ], [ %incdec.ptr.i342, %if.then.i341 ]
-  %stack.sroa.20.4 = phi ptr [ %stack.sroa.20.21213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288 ], [ %add.ptr19.i.i368, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367 ], [ %stack.sroa.20.21213, %if.then.i341 ]
+  %stack.sroa.0.4 = phi ptr [ %stack.sroa.0.21211, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288 ], [ %cond.i10.i.i359, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367 ], [ %stack.sroa.0.21211, %if.then.i341 ]
+  %stack.sroa.8.2 = phi ptr [ %stack.sroa.8.11212, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288 ], [ %incdec.ptr.i.i364, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367 ], [ %incdec.ptr.i342, %if.then.i341 ]
+  %stack.sroa.20.2 = phi ptr [ %stack.sroa.20.11213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit288 ], [ %add.ptr19.i.i368, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15RConsObligationESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i367 ], [ %stack.sroa.20.11213, %if.then.i341 ]
   %275 = load ptr, ptr %parentSol, align 8
   %bf.load.i.i375 = load i64, ptr %275, align 8
   %276 = and i64 %bf.load.i.i375, 1152920405095219200
@@ -12815,9 +12815,9 @@ lpad181:                                          ; preds = %invoke.cont180
   br label %ehcleanup187
 
 for.inc:                                          ; preds = %if.then13.i.i416, %if.then.i.i409, %invoke.cont182, %if.then13.i.i384, %if.then.i.i377, %if.end173
-  %stack.sroa.0.17 = phi ptr [ %stack.sroa.0.16, %if.end173 ], [ %stack.sroa.0.16, %if.then.i.i377 ], [ %stack.sroa.0.16, %if.then13.i.i384 ], [ %stack.sroa.0.21211, %invoke.cont182 ], [ %stack.sroa.0.21211, %if.then.i.i409 ], [ %stack.sroa.0.21211, %if.then13.i.i416 ]
-  %stack.sroa.8.5 = phi ptr [ %stack.sroa.8.4, %if.end173 ], [ %stack.sroa.8.4, %if.then.i.i377 ], [ %stack.sroa.8.4, %if.then13.i.i384 ], [ %stack.sroa.8.21212, %invoke.cont182 ], [ %stack.sroa.8.21212, %if.then.i.i409 ], [ %stack.sroa.8.21212, %if.then13.i.i416 ]
-  %stack.sroa.20.5 = phi ptr [ %stack.sroa.20.4, %if.end173 ], [ %stack.sroa.20.4, %if.then.i.i377 ], [ %stack.sroa.20.4, %if.then13.i.i384 ], [ %stack.sroa.20.21213, %invoke.cont182 ], [ %stack.sroa.20.21213, %if.then.i.i409 ], [ %stack.sroa.20.21213, %if.then13.i.i416 ]
+  %stack.sroa.0.5 = phi ptr [ %stack.sroa.0.4, %if.end173 ], [ %stack.sroa.0.4, %if.then.i.i377 ], [ %stack.sroa.0.4, %if.then13.i.i384 ], [ %stack.sroa.0.21211, %invoke.cont182 ], [ %stack.sroa.0.21211, %if.then.i.i409 ], [ %stack.sroa.0.21211, %if.then13.i.i416 ]
+  %stack.sroa.8.3 = phi ptr [ %stack.sroa.8.2, %if.end173 ], [ %stack.sroa.8.2, %if.then.i.i377 ], [ %stack.sroa.8.2, %if.then13.i.i384 ], [ %stack.sroa.8.11212, %invoke.cont182 ], [ %stack.sroa.8.11212, %if.then.i.i409 ], [ %stack.sroa.8.11212, %if.then13.i.i416 ]
+  %stack.sroa.20.3 = phi ptr [ %stack.sroa.20.2, %if.end173 ], [ %stack.sroa.20.2, %if.then.i.i377 ], [ %stack.sroa.20.2, %if.then13.i.i384 ], [ %stack.sroa.20.11213, %invoke.cont182 ], [ %stack.sroa.20.11213, %if.then.i.i409 ], [ %stack.sroa.20.11213, %if.then13.i.i416 ]
   %__begin4.sroa.0.0 = load ptr, ptr %__begin4.sroa.0.01214, align 8
   %cmp.i210.not = icmp eq ptr %__begin4.sroa.0.0, null
   br i1 %cmp.i210.not, label %while.cond.loopexit, label %for.body
@@ -12834,13 +12834,13 @@ return:                                           ; preds = %if.then.i.i.i421, %
   ret void
 
 ehcleanup187:                                     ; preds = %lpad59.loopexit, %lpad59.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad59.loopexit.split-lp.loopexit, %lpad11.i959, %lpad11.i840, %lpad.i, %lpad.i461, %lpad.i566, %lpad11.i, %lpad11.i814, %lpad11.i777, %lpad.i745, %lpad.i530, %lpad.i432, %lpad89.body, %lpad181, %ehcleanup174
-  %stack.sroa.0.18 = phi ptr [ %stack.sroa.0.21211, %ehcleanup174 ], [ %stack.sroa.0.21211, %lpad181 ], [ %stack.sroa.0.21211, %lpad89.body ], [ %stack.sroa.0.21211, %lpad.i ], [ %stack.sroa.0.21211, %lpad.i432 ], [ %stack.sroa.0.21211, %lpad.i461 ], [ %stack.sroa.0.21211, %lpad.i530 ], [ %stack.sroa.0.21211, %lpad.i566 ], [ %stack.sroa.0.21211, %lpad.i745 ], [ %stack.sroa.0.21211, %lpad11.i ], [ %stack.sroa.0.21211, %lpad11.i777 ], [ %stack.sroa.0.21211, %lpad11.i814 ], [ %stack.sroa.0.21211, %lpad11.i840 ], [ %stack.sroa.0.21211, %lpad11.i959 ], [ %stack.sroa.0.21211, %lpad59.loopexit ], [ %stack.sroa.0.21211, %lpad59.loopexit.split-lp.loopexit ], [ %stack.sroa.0.11217, %lpad59.loopexit.split-lp.loopexit.split-lp.loopexit ]
+  %stack.sroa.0.3 = phi ptr [ %stack.sroa.0.21211, %ehcleanup174 ], [ %stack.sroa.0.21211, %lpad181 ], [ %stack.sroa.0.21211, %lpad89.body ], [ %stack.sroa.0.21211, %lpad.i ], [ %stack.sroa.0.21211, %lpad.i432 ], [ %stack.sroa.0.21211, %lpad.i461 ], [ %stack.sroa.0.21211, %lpad.i530 ], [ %stack.sroa.0.21211, %lpad.i566 ], [ %stack.sroa.0.21211, %lpad.i745 ], [ %stack.sroa.0.21211, %lpad11.i ], [ %stack.sroa.0.21211, %lpad11.i777 ], [ %stack.sroa.0.21211, %lpad11.i814 ], [ %stack.sroa.0.21211, %lpad11.i840 ], [ %stack.sroa.0.21211, %lpad11.i959 ], [ %stack.sroa.0.21211, %lpad59.loopexit ], [ %stack.sroa.0.21211, %lpad59.loopexit.split-lp.loopexit ], [ %stack.sroa.0.11217, %lpad59.loopexit.split-lp.loopexit.split-lp.loopexit ]
   %.pn12 = phi { ptr, i32 } [ %.pn10, %ehcleanup174 ], [ %308, %lpad181 ], [ %eh.lpad-body234, %lpad89.body ], [ %158, %lpad.i ], [ %45, %lpad.i432 ], [ %68, %lpad.i461 ], [ %124, %lpad.i530 ], [ %149, %lpad.i566 ], [ %299, %lpad.i745 ], [ %42, %lpad11.i ], [ %65, %lpad11.i777 ], [ %121, %lpad11.i814 ], [ %146, %lpad11.i840 ], [ %296, %lpad11.i959 ], [ %lpad.loopexit, %lpad59.loopexit ], [ %lpad.loopexit1000, %lpad59.loopexit.split-lp.loopexit ], [ %lpad.loopexit1005, %lpad59.loopexit.split-lp.loopexit.split-lp.loopexit ]
-  %tobool.not.i.i.i423 = icmp eq ptr %stack.sroa.0.18, null
+  %tobool.not.i.i.i423 = icmp eq ptr %stack.sroa.0.3, null
   br i1 %tobool.not.i.i.i423, label %eh.resume, label %if.then.i.i.i424
 
 if.then.i.i.i424:                                 ; preds = %ehcleanup187
-  call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.18) #20
+  call void @_ZdlPv(ptr noundef nonnull %stack.sroa.0.3) #20
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i424, %ehcleanup187, %lpad51, %lpad43, %lpad3.body

@@ -109,7 +109,7 @@ if.then25:                                        ; preds = %if.end21
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %iter.0103 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.inc ]
-  %provauthkey.0102 = phi ptr [ null, %for.cond.preheader ], [ %provauthkey.2, %for.inc ]
+  %provauthkey.0102 = phi ptr [ null, %for.cond.preheader ], [ %provauthkey.1, %for.inc ]
   %kem.0101 = phi ptr [ null, %for.cond.preheader ], [ %kem.185, %for.inc ]
   %cmp.i = icmp eq ptr %kem.0101, null
   br i1 %cmp.i, label %EVP_KEM_free.exit, label %if.end.i
@@ -205,24 +205,24 @@ if.then72:                                        ; preds = %if.then66
   br label %if.then150
 
 if.end75:                                         ; preds = %if.then56, %if.then66
-  %provauthkey.1.ph = phi ptr [ %provauthkey.0102, %if.then56 ], [ %call69, %if.then66 ]
+  %provauthkey.2.ph = phi ptr [ %provauthkey.0102, %if.then56 ], [ %call69, %if.then66 ]
   %.pr = load ptr, ptr %tmp_keymgmt, align 8
   %cmp76 = icmp eq ptr %.pr, null
   br i1 %cmp76, label %if.then78, label %for.inc
 
 if.then78:                                        ; preds = %if.end49, %if.end75
-  %provauthkey.192 = phi ptr [ %provauthkey.1.ph, %if.end75 ], [ %provauthkey.0102, %if.end49 ]
-  %provkey.191 = phi ptr [ %call60, %if.end75 ], [ null, %if.end49 ]
+  %provauthkey.292 = phi ptr [ %provauthkey.2.ph, %if.end75 ], [ %provauthkey.0102, %if.end49 ]
+  %provkey.291 = phi ptr [ %call60, %if.end75 ], [ null, %if.end49 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call53) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %if.end75, %if.then78
   %kem.185 = phi ptr [ %kem.1.ph, %if.then78 ], [ %kem.1.ph, %if.end75 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ %provkey.191, %if.then78 ], [ %call60, %if.end75 ], [ null, %sw.bb ]
-  %provauthkey.2 = phi ptr [ %provauthkey.192, %if.then78 ], [ %provauthkey.1.ph, %if.end75 ], [ %provauthkey.0102, %sw.bb ]
+  %provkey.1 = phi ptr [ %provkey.291, %if.then78 ], [ %call60, %if.end75 ], [ null, %sw.bb ]
+  %provauthkey.1 = phi ptr [ %provauthkey.292, %if.then78 ], [ %provauthkey.2.ph, %if.end75 ], [ %provauthkey.0102, %sw.bb ]
   %inc = add nuw nsw i32 %iter.0103, 1
   %cmp27 = icmp ult i32 %iter.0103, 2
-  %cmp29 = icmp eq ptr %provkey.2, null
+  %cmp29 = icmp eq ptr %provkey.1, null
   %21 = and i1 %cmp29, %cmp27
   br i1 %21, label %for.body, label %for.end, !llvm.loop !4
 
@@ -263,7 +263,7 @@ if.end93:                                         ; preds = %if.end83
   ]
 
 sw.bb94:                                          ; preds = %if.end93
-  %cond = icmp eq ptr %provauthkey.2, null
+  %cond = icmp eq ptr %provauthkey.1, null
   br i1 %cond, label %land.lhs.true107, label %land.lhs.true97
 
 land.lhs.true97:                                  ; preds = %sw.bb94
@@ -273,7 +273,7 @@ land.lhs.true97:                                  ; preds = %sw.bb94
   br i1 %cmp98.not, label %if.else115, label %if.then100
 
 if.then100:                                       ; preds = %land.lhs.true97
-  %call104 = call i32 %24(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef nonnull %provauthkey.2, ptr noundef %params) #4
+  %call104 = call i32 %24(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.1, ptr noundef nonnull %provauthkey.1, ptr noundef %params) #4
   br label %sw.epilog143
 
 land.lhs.true107:                                 ; preds = %sw.bb94
@@ -283,7 +283,7 @@ land.lhs.true107:                                 ; preds = %sw.bb94
   br i1 %cmp108.not, label %if.else115, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true107
-  %call114 = call i32 %25(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
+  %call114 = call i32 %25(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.1, ptr noundef %params) #4
   br label %sw.epilog143
 
 if.else115:                                       ; preds = %land.lhs.true97, %land.lhs.true107
@@ -293,7 +293,7 @@ if.else115:                                       ; preds = %land.lhs.true97, %l
   br label %if.then150
 
 sw.bb118:                                         ; preds = %if.end93
-  %cond78 = icmp eq ptr %provauthkey.2, null
+  %cond78 = icmp eq ptr %provauthkey.1, null
   br i1 %cond78, label %land.lhs.true132, label %land.lhs.true121
 
 land.lhs.true121:                                 ; preds = %sw.bb118
@@ -303,7 +303,7 @@ land.lhs.true121:                                 ; preds = %sw.bb118
   br i1 %cmp122.not, label %if.else140, label %if.then124
 
 if.then124:                                       ; preds = %land.lhs.true121
-  %call128 = call i32 %26(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef nonnull %provauthkey.2, ptr noundef %params) #4
+  %call128 = call i32 %26(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.1, ptr noundef nonnull %provauthkey.1, ptr noundef %params) #4
   br label %sw.epilog143
 
 land.lhs.true132:                                 ; preds = %sw.bb118
@@ -315,7 +315,7 @@ land.lhs.true132:                                 ; preds = %sw.bb118
 if.then136:                                       ; preds = %land.lhs.true132
   %decapsulate_init = getelementptr inbounds i8, ptr %kem.185, i64 64
   %28 = load ptr, ptr %decapsulate_init, align 8
-  %call139 = call i32 %28(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
+  %call139 = call i32 %28(ptr noundef nonnull %call86, ptr noundef nonnull %provkey.1, ptr noundef %params) #4
   br label %sw.epilog143
 
 if.else140:                                       ; preds = %land.lhs.true121, %land.lhs.true132
@@ -331,15 +331,15 @@ sw.default:                                       ; preds = %if.end93
   br label %if.then150
 
 sw.epilog143:                                     ; preds = %if.then124, %if.then136, %if.then100, %if.then110
-  %ret.0 = phi i32 [ %call128, %if.then124 ], [ %call139, %if.then136 ], [ %call104, %if.then100 ], [ %call114, %if.then110 ]
+  %ret.1 = phi i32 [ %call128, %if.then124 ], [ %call139, %if.then136 ], [ %call104, %if.then100 ], [ %call114, %if.then110 ]
   %29 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %29) #4
   store ptr null, ptr %tmp_keymgmt, align 8
-  %cmp144 = icmp sgt i32 %ret.0, 0
+  %cmp144 = icmp sgt i32 %ret.1, 0
   br i1 %cmp144, label %return, label %if.then150
 
 if.then150:                                       ; preds = %if.then4, %if.then20, %if.then25, %if.then44, %if.then72, %if.then82, %if.then92, %if.else115, %if.else140, %sw.default, %sw.epilog143
-  %ret.1 = phi i32 [ 0, %if.then4 ], [ 0, %if.then25 ], [ 0, %if.then72 ], [ -2, %if.then44 ], [ 0, %if.then82 ], [ 0, %if.then92 ], [ 0, %sw.default ], [ %ret.0, %sw.epilog143 ], [ -2, %if.else140 ], [ -2, %if.else115 ], [ 0, %if.then20 ]
+  %ret.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then25 ], [ 0, %if.then72 ], [ -2, %if.then44 ], [ 0, %if.then82 ], [ 0, %if.then92 ], [ 0, %sw.default ], [ %ret.1, %sw.epilog143 ], [ -2, %if.else140 ], [ -2, %if.else115 ], [ 0, %if.then20 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #4
   store i32 0, ptr %ctx, align 8
   %30 = load ptr, ptr %tmp_keymgmt, align 8
@@ -347,7 +347,7 @@ if.then150:                                       ; preds = %if.then4, %if.then2
   br label %return
 
 return:                                           ; preds = %sw.epilog143, %if.then150, %if.then10, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %ret.1, %if.then150 ], [ 0, %if.then10 ], [ 1, %sw.epilog143 ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ %ret.0, %if.then150 ], [ 0, %if.then10 ], [ 1, %sw.epilog143 ]
   ret i32 %retval.0
 }
 

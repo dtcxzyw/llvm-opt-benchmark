@@ -3022,7 +3022,7 @@ dissect_comrej.exit:                              ; preds = %566, %545, %523, %4
 
 1236:                                             ; preds = %1201, %1232
   %.0504 = phi ptr [ %1231, %1201 ], [ %1235, %1232 ]
-  %.2 = phi i32 [ 6, %1201 ], [ 4, %1232 ]
+  %.3 = phi i32 [ 6, %1201 ], [ 4, %1232 ]
   %.not529 = icmp eq ptr %.0504, null
   br i1 %.not529, label %1244, label %1237
 
@@ -3035,7 +3035,7 @@ dissect_comrej.exit:                              ; preds = %566, %545, %523, %4
 1240:                                             ; preds = %1237
   %1241 = load i32, ptr @hf_btl2cap_payload, align 4
   %1242 = zext i16 %.0502 to i32
-  %1243 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %1241, ptr noundef %0, i32 noundef %.2, i32 noundef %1242, i32 noundef 0) #8
+  %1243 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %1241, ptr noundef %0, i32 noundef %.3, i32 noundef %1242, i32 noundef 0) #8
   br label %1244
 
 1244:                                             ; preds = %.thread, %1240, %1237, %1236
@@ -3284,8 +3284,8 @@ proto_item_set_generated.exit577:                 ; preds = %1347, %1344, %1340,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_comrej.exit, %.preheader, %1191, %1151, %1368, %1359, %1366, %1365, %1352, %1244
-  %.3 = phi i32 [ 6, %1151 ], [ %1192, %1191 ], [ %1245, %1244 ], [ %1354, %1352 ], [ %1361, %1359 ], [ 8, %1365 ], [ %1367, %1366 ], [ %1369, %1368 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
-  ret i32 %.3
+  %.2 = phi i32 [ 6, %1151 ], [ %1192, %1191 ], [ %1245, %1244 ], [ %1354, %1352 ], [ %1361, %1359 ], [ 8, %1365 ], [ %1367, %1366 ], [ %1369, %1368 ], [ 4, %.preheader ], [ %.1, %dissect_comrej.exit ]
+  ret i32 %.2
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -4249,27 +4249,27 @@ define internal fastcc range(i32 -2147483640, 65547) i32 @dissect_disconnrequest
 
 .thread165:                                       ; preds = %147, %163, %166, %170, %174, %186, %178
   %.not152173 = phi i1 [ false, %186 ], [ true, %178 ], [ true, %174 ], [ true, %170 ], [ true, %166 ], [ true, %163 ], [ true, %147 ]
-  %.0172.shrunk = phi i16 [ %180, %186 ], [ %180, %178 ], [ 0, %174 ], [ 0, %170 ], [ 0, %166 ], [ 0, %163 ], [ 0, %147 ]
+  %.1172.shrunk = phi i16 [ %180, %186 ], [ %180, %178 ], [ 0, %174 ], [ 0, %170 ], [ 0, %166 ], [ 0, %163 ], [ 0, %147 ]
   %.0133171 = phi i32 [ %185, %186 ], [ %185, %178 ], [ 0, %174 ], [ 0, %170 ], [ 0, %166 ], [ 0, %163 ], [ 0, %147 ]
   %.0134170 = phi i32 [ %187, %186 ], [ 0, %178 ], [ 0, %174 ], [ 0, %170 ], [ 0, %166 ], [ 0, %163 ], [ 0, %147 ]
-  %.0126 = phi ptr [ %188, %186 ], [ @.str.401, %178 ], [ @.str.401, %174 ], [ @.str.401, %170 ], [ @.str.401, %166 ], [ @.str.401, %163 ], [ @.str.401, %147 ]
-  %.0172 = zext i16 %.0172.shrunk to i32
-  %189 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0126, ptr noundef nonnull dereferenceable(8) @.str.401) #9
+  %.1127 = phi ptr [ %188, %186 ], [ @.str.401, %178 ], [ @.str.401, %174 ], [ @.str.401, %170 ], [ @.str.401, %166 ], [ @.str.401, %163 ], [ @.str.401, %147 ]
+  %.1172 = zext i16 %.1172.shrunk to i32
+  %189 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1127, ptr noundef nonnull dereferenceable(8) @.str.401) #9
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %.thread165
-  %192 = call ptr @val_to_str_const(i32 noundef %.0172, ptr noundef nonnull @psm_vals, ptr noundef nonnull @.str.401) #8
+  %192 = call ptr @val_to_str_const(i32 noundef %.1172, ptr noundef nonnull @psm_vals, ptr noundef nonnull @.str.401) #8
   br label %193
 
 193:                                              ; preds = %191, %.thread165
-  %.1127 = phi ptr [ %192, %191 ], [ %.0126, %.thread165 ]
-  %.not153 = icmp eq i16 %.0172.shrunk, 0
+  %.2 = phi ptr [ %192, %191 ], [ %.1127, %.thread165 ]
+  %.not153 = icmp eq i16 %.1172.shrunk, 0
   br i1 %.not153, label %proto_item_set_generated.exit, label %194
 
 194:                                              ; preds = %193
   %195 = load i32, ptr @hf_btl2cap_psm, align 4
-  %196 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %195, ptr noundef %0, i32 noundef %28, i32 noundef 0, i32 noundef %.0172) #8
+  %196 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %195, ptr noundef %0, i32 noundef %28, i32 noundef 0, i32 noundef %.1172) #8
   %.not.i = icmp eq ptr %196, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %197
 
@@ -4339,16 +4339,16 @@ proto_item_set_generated.exit163:                 ; preds = %220, %217, %214, %p
   %226 = load ptr, ptr %225, align 8
   %227 = zext i16 %25 to i32
   %228 = zext i16 %21 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %226, i32 noundef 25, ptr noundef nonnull @.str.405, i32 noundef %227, i32 noundef %228, i32 noundef %.0172, ptr noundef %.1127) #8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %226, i32 noundef 25, ptr noundef nonnull @.str.405, i32 noundef %227, i32 noundef %228, i32 noundef %.1172, ptr noundef %.2) #8
   br label %233
 
 proto_item_set_generated.exit163.thread:          ; preds = %122, %proto_item_set_generated.exit163
-  %.2177 = phi ptr [ %.1127, %proto_item_set_generated.exit163 ], [ @.str.401, %122 ]
+  %.0126177 = phi ptr [ %.2, %proto_item_set_generated.exit163 ], [ @.str.401, %122 ]
   %229 = getelementptr inbounds i8, ptr %2, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = zext i16 %25 to i32
   %232 = zext i16 %21 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %230, i32 noundef 25, ptr noundef nonnull @.str.406, i32 noundef %231, i32 noundef %232, ptr noundef %.2177) #8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %230, i32 noundef 25, ptr noundef nonnull @.str.406, i32 noundef %231, i32 noundef %232, ptr noundef %.0126177) #8
   br label %233
 
 233:                                              ; preds = %proto_item_set_generated.exit163.thread, %224

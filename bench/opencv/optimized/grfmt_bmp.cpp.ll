@@ -629,8 +629,8 @@ _ZN2cv10BmpDecoder8initMaskEv.exit:               ; preds = %38
 
 118:                                              ; preds = %.loopexit, %.loopexit.split-lp, %117, %62, %33
   %.pn82 = phi { ptr, i32 } [ %.pn80, %117 ], [ %.pn78, %62 ], [ %.pn, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.3 = extractvalue { ptr, i32 } %.pn82, 0
-  %119 = call ptr @__cxa_begin_catch(ptr %.3) #17
+  %.064 = extractvalue { ptr, i32 } %.pn82, 0
+  %119 = call ptr @__cxa_begin_catch(ptr %.064) #17
   invoke void @__cxa_rethrow() #19
           to label %215 unwind label %192
 
@@ -1251,7 +1251,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
   br label %161
 
 161:                                              ; preds = %.loopexit311, %155
-  %.3 = phi ptr [ %.0212, %155 ], [ %.6, %.loopexit311 ]
+  %.3 = phi ptr [ %.0212, %155 ], [ %.5, %.loopexit311 ]
   %162 = invoke noundef i32 @_ZN2cv12RLByteStream7getWordEv(ptr noundef nonnull align 8 dereferenceable(57) %60)
           to label %163 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1419,14 +1419,14 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
           to label %252 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 252:                                              ; preds = %249, %247
-  %.5 = phi ptr [ %248, %247 ], [ %251, %249 ]
+  %.6 = phi ptr [ %248, %247 ], [ %251, %249 ]
   %253 = load i32, ptr %4, align 4
   %254 = load i32, ptr %39, align 4
   %.not254 = icmp slt i32 %253, %254
   br i1 %.not254, label %.loopexit311, label %.loopexit
 
 .loopexit311:                                     ; preds = %.preheader.split, %.preheader.split.us, %231, %229, %252
-  %.6 = phi ptr [ %.5, %252 ], [ %230, %229 ], [ %232, %231 ], [ %194, %.preheader.split.us ], [ %200, %.preheader.split ]
+  %.5 = phi ptr [ %.6, %252 ], [ %230, %229 ], [ %232, %231 ], [ %194, %.preheader.split.us ], [ %200, %.preheader.split ]
   br label %161, !llvm.loop !18
 
 255:                                              ; preds = %111
@@ -1593,14 +1593,14 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
           to label %337 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 337:                                              ; preds = %335, %333
-  %.10 = phi ptr [ %334, %333 ], [ %336, %335 ]
+  %.11 = phi ptr [ %334, %333 ], [ %336, %335 ]
   %338 = load i32, ptr %4, align 4
   %339 = sub nsw i32 %338, %310
   br label %.backedge
 
 .backedge:                                        ; preds = %337, %373, %303
   %.0229.be = phi i32 [ %305, %303 ], [ %339, %337 ], [ 0, %373 ]
-  %.8.be = phi ptr [ %.9, %303 ], [ %.10, %337 ], [ %.12, %373 ]
+  %.8.be = phi ptr [ %.9, %303 ], [ %.11, %337 ], [ %.12, %373 ]
   br label %281, !llvm.loop !20
 
 340:                                              ; preds = %307
@@ -1662,7 +1662,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
           to label %370 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 370:                                              ; preds = %367, %365
-  %.11 = phi ptr [ %366, %365 ], [ %369, %367 ]
+  %.13 = phi ptr [ %366, %365 ], [ %369, %367 ]
   %371 = load i32, ptr %4, align 4
   %372 = load i32, ptr %39, align 4
   %.not249 = icmp slt i32 %371, %372
@@ -1671,7 +1671,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
 373:                                              ; preds = %340, %370
   %374 = phi i32 [ %372, %370 ], [ %.pre370, %340 ]
   %375 = phi i32 [ %371, %370 ], [ %.pre369, %340 ]
-  %.12 = phi ptr [ %.11, %370 ], [ %.8, %340 ]
+  %.12 = phi ptr [ %.13, %370 ], [ %.8, %340 ]
   %.not250 = icmp slt i32 %375, %374
   br i1 %.not250, label %.backedge, label %.loopexit
 
@@ -2083,8 +2083,8 @@ _ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit:   ; preds = %.lr.ph.i, %549, %58
 
 .loopexit.split-lp:                               ; preds = %.loopexit306, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %599, %329, %225
   %.pn258.pn = phi { ptr, i32 } [ %.pn258, %599 ], [ %.pn251, %329 ], [ %.pn255, %225 ], [ %lpad.loopexit, %.loopexit306 ], [ %lpad.loopexit308, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit312, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit316, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit319, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit324, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit328, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit331, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit337, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit337.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
-  %.4221 = extractvalue { ptr, i32 } %.pn258.pn, 0
-  %600 = call ptr @__cxa_begin_catch(ptr %.4221) #17
+  %.3220 = extractvalue { ptr, i32 } %.pn258.pn, 0
+  %600 = call ptr @__cxa_begin_catch(ptr %.3220) #17
   invoke void @__cxa_rethrow() #19
           to label %639 unwind label %601
 

@@ -9480,8 +9480,8 @@ define internal fastcc noundef zeroext i1 @_ZL19read_lambda_compvecPKcP12lambda_
   %.073.us.us = phi ptr [ %72, %.split.us.split.us.backedge ], [ %0, %.split.us ]
   %.070.us.us = phi i1 [ %.171.us.us215, %.split.us.split.us.backedge ], [ false, %.split.us ]
   %.068.us.us = phi i8 [ %.169.us.us216, %.split.us.split.us.backedge ], [ 0, %.split.us ]
-  %.065.us.us = phi i32 [ %.267.us.us217, %.split.us.split.us.backedge ], [ 0, %.split.us ]
-  %.064.us.us = phi ptr [ %.2.us.us218, %.split.us.split.us.backedge ], [ null, %.split.us ]
+  %.065.us.us = phi i32 [ %.166.us.us217, %.split.us.split.us.backedge ], [ 0, %.split.us ]
+  %.064.us.us = phi ptr [ %.1.us.us218, %.split.us.split.us.backedge ], [ null, %.split.us ]
   br i1 %.070.us.us, label %32, label %24
 
 24:                                               ; preds = %.split.us.split.us
@@ -9577,8 +9577,8 @@ _ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split
 
 thread-pre-split.us.us:                           ; preds = %switch.early.test.us.us, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split.us.us_crit_edge, %66
   %68 = phi i8 [ %33, %66 ], [ %33, %switch.early.test.us.us ], [ %.pr.us.us.pre, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split.us.us_crit_edge ]
-  %.166.us.us = phi i32 [ %.065.us.us, %66 ], [ %.065.us.us, %switch.early.test.us.us ], [ %65, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split.us.us_crit_edge ]
-  %.1.us.us = phi ptr [ %spec.select94.us.us, %66 ], [ %.064.us.us, %switch.early.test.us.us ], [ null, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split.us.us_crit_edge ]
+  %.267.us.us = phi i32 [ %.065.us.us, %66 ], [ %.065.us.us, %switch.early.test.us.us ], [ %65, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split.us.us_crit_edge ]
+  %.2.us.us = phi ptr [ %spec.select94.us.us, %66 ], [ %.064.us.us, %switch.early.test.us.us ], [ null, %_ZL21lambda_components_addP19lambda_components_tPKcm.exit.us.us.thread-pre-split.us.us_crit_edge ]
   %69 = icmp eq i8 %68, 41
   br i1 %69, label %.split111.us, label %thread-pre-split97.us.us
 
@@ -9586,14 +9586,14 @@ thread-pre-split97.us.us:                         ; preds = %30, %thread-pre-spl
   %70 = phi i8 [ %25, %24 ], [ %25, %30 ], [ %68, %thread-pre-split.us.us ]
   %.171.us.us = phi i1 [ true, %24 ], [ false, %30 ], [ true, %thread-pre-split.us.us ]
   %.169.us.us = phi i8 [ 0, %24 ], [ %.068.us.us, %30 ], [ %.068.us.us, %thread-pre-split.us.us ]
-  %.267.us.us = phi i32 [ %.065.us.us, %24 ], [ %.065.us.us, %30 ], [ %.166.us.us, %thread-pre-split.us.us ]
-  %.2.us.us = phi ptr [ %.073.us.us, %24 ], [ %.064.us.us, %30 ], [ %.1.us.us, %thread-pre-split.us.us ]
+  %.166.us.us = phi i32 [ %.065.us.us, %24 ], [ %.065.us.us, %30 ], [ %.267.us.us, %thread-pre-split.us.us ]
+  %.1.us.us = phi ptr [ %.073.us.us, %24 ], [ %.064.us.us, %30 ], [ %.2.us.us, %thread-pre-split.us.us ]
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %.split116.us, label %thread-pre-split97.us.us.thread
 
 thread-pre-split97.us.us.thread:                  ; preds = %28, %thread-pre-split97.us.us
-  %.2.us.us218 = phi ptr [ %.2.us.us, %thread-pre-split97.us.us ], [ %.064.us.us, %28 ]
-  %.267.us.us217 = phi i32 [ %.267.us.us, %thread-pre-split97.us.us ], [ %.065.us.us, %28 ]
+  %.1.us.us218 = phi ptr [ %.1.us.us, %thread-pre-split97.us.us ], [ %.064.us.us, %28 ]
+  %.166.us.us217 = phi i32 [ %.166.us.us, %thread-pre-split97.us.us ], [ %.065.us.us, %28 ]
   %.169.us.us216 = phi i8 [ %.169.us.us, %thread-pre-split97.us.us ], [ 1, %28 ]
   %.171.us.us215 = phi i1 [ %.171.us.us, %thread-pre-split97.us.us ], [ true, %28 ]
   %72 = getelementptr inbounds i8, ptr %.073.us.us, i64 1
@@ -9610,8 +9610,8 @@ thread-pre-split97.us.us.thread:                  ; preds = %28, %thread-pre-spl
   %.073.us = phi ptr [ %112, %.split.us.split.backedge ], [ %0, %.split.us ]
   %.070.us = phi i1 [ %.171.us223, %.split.us.split.backedge ], [ false, %.split.us ]
   %.068.us = phi i8 [ %.169.us224, %.split.us.split.backedge ], [ 0, %.split.us ]
-  %.065.us = phi i32 [ %.267.us225, %.split.us.split.backedge ], [ 0, %.split.us ]
-  %.064.us = phi ptr [ %.2.us226, %.split.us.split.backedge ], [ null, %.split.us ]
+  %.065.us = phi i32 [ %.166.us225, %.split.us.split.backedge ], [ 0, %.split.us ]
+  %.064.us = phi ptr [ %.1.us226, %.split.us.split.backedge ], [ null, %.split.us ]
   br i1 %.070.us, label %82, label %74
 
 74:                                               ; preds = %.split.us.split
@@ -9695,8 +9695,8 @@ _ZL23lambda_components_checkPK19lambda_components_tiPKcm.exit.us: ; preds = %.th
   br label %thread-pre-split.us
 
 thread-pre-split.us:                              ; preds = %switch.early.test.us, %104, %107
-  %.166.us = phi i32 [ %.065.us, %107 ], [ %.065.us, %switch.early.test.us ], [ %105, %104 ]
-  %.1.us = phi ptr [ %spec.select94.us, %107 ], [ %.064.us, %switch.early.test.us ], [ null, %104 ]
+  %.267.us = phi i32 [ %.065.us, %107 ], [ %.065.us, %switch.early.test.us ], [ %105, %104 ]
+  %.2.us = phi ptr [ %spec.select94.us, %107 ], [ %.064.us, %switch.early.test.us ], [ null, %104 ]
   %109 = icmp eq i8 %83, 41
   br i1 %109, label %.split111.us, label %thread-pre-split97.us
 
@@ -9704,14 +9704,14 @@ thread-pre-split97.us:                            ; preds = %80, %thread-pre-spl
   %110 = phi i8 [ %75, %74 ], [ %75, %80 ], [ %83, %thread-pre-split.us ]
   %.171.us = phi i1 [ true, %74 ], [ false, %80 ], [ true, %thread-pre-split.us ]
   %.169.us = phi i8 [ 0, %74 ], [ %.068.us, %80 ], [ %.068.us, %thread-pre-split.us ]
-  %.267.us = phi i32 [ %.065.us, %74 ], [ %.065.us, %80 ], [ %.166.us, %thread-pre-split.us ]
-  %.2.us = phi ptr [ %.073.us, %74 ], [ %.064.us, %80 ], [ %.1.us, %thread-pre-split.us ]
+  %.166.us = phi i32 [ %.065.us, %74 ], [ %.065.us, %80 ], [ %.267.us, %thread-pre-split.us ]
+  %.1.us = phi ptr [ %.073.us, %74 ], [ %.064.us, %80 ], [ %.2.us, %thread-pre-split.us ]
   %111 = icmp eq i8 %110, 0
   br i1 %111, label %.split116.us, label %thread-pre-split97.us.thread
 
 thread-pre-split97.us.thread:                     ; preds = %78, %thread-pre-split97.us
-  %.2.us226 = phi ptr [ %.2.us, %thread-pre-split97.us ], [ %.064.us, %78 ]
-  %.267.us225 = phi i32 [ %.267.us, %thread-pre-split97.us ], [ %.065.us, %78 ]
+  %.1.us226 = phi ptr [ %.1.us, %thread-pre-split97.us ], [ %.064.us, %78 ]
+  %.166.us225 = phi i32 [ %.166.us, %thread-pre-split97.us ], [ %.065.us, %78 ]
   %.169.us224 = phi i8 [ %.169.us, %thread-pre-split97.us ], [ 1, %78 ]
   %.171.us223 = phi i1 [ %.171.us, %thread-pre-split97.us ], [ true, %78 ]
   %112 = getelementptr inbounds i8, ptr %.073.us, i64 1
@@ -9731,8 +9731,8 @@ thread-pre-split97.us.thread:                     ; preds = %78, %thread-pre-spl
   %.073.us118 = phi ptr [ %143, %thread-pre-split97.us137.thread ], [ %0, %.split ]
   %.070.us119 = phi i1 [ %.171.us143231, %thread-pre-split97.us137.thread ], [ false, %.split ]
   %.068.us120 = phi i8 [ %.169.us144232, %thread-pre-split97.us137.thread ], [ 0, %.split ]
-  %.065.us121 = phi i32 [ %.267.us145233, %thread-pre-split97.us137.thread ], [ 0, %.split ]
-  %.064.us122 = phi ptr [ %.2.us146234, %thread-pre-split97.us137.thread ], [ null, %.split ]
+  %.065.us121 = phi i32 [ %.166.us145233, %thread-pre-split97.us137.thread ], [ 0, %.split ]
+  %.064.us122 = phi ptr [ %.1.us146234, %thread-pre-split97.us137.thread ], [ null, %.split ]
   br i1 %.070.us119, label %122, label %114
 
 114:                                              ; preds = %.split.split.us
@@ -9797,8 +9797,8 @@ switch.early.test.us128:                          ; preds = %125
 
 thread-pre-split.us129:                           ; preds = %switch.early.test.us128, %.thread-pre-split.us129_crit_edge, %137
   %139 = phi i8 [ %123, %137 ], [ %123, %switch.early.test.us128 ], [ %.pr.us132.pre, %.thread-pre-split.us129_crit_edge ]
-  %.166.us135 = phi i32 [ %.065.us121, %137 ], [ %.065.us121, %switch.early.test.us128 ], [ %136, %.thread-pre-split.us129_crit_edge ]
-  %.1.us136 = phi ptr [ %spec.select94.us134, %137 ], [ %.064.us122, %switch.early.test.us128 ], [ null, %.thread-pre-split.us129_crit_edge ]
+  %.267.us135 = phi i32 [ %.065.us121, %137 ], [ %.065.us121, %switch.early.test.us128 ], [ %136, %.thread-pre-split.us129_crit_edge ]
+  %.2.us136 = phi ptr [ %spec.select94.us134, %137 ], [ %.064.us122, %switch.early.test.us128 ], [ null, %.thread-pre-split.us129_crit_edge ]
   %140 = icmp eq i8 %139, 41
   br i1 %140, label %.split111.us, label %thread-pre-split97.us137
 
@@ -9806,14 +9806,14 @@ thread-pre-split97.us137:                         ; preds = %120, %thread-pre-sp
   %141 = phi i8 [ %115, %114 ], [ %115, %120 ], [ %139, %thread-pre-split.us129 ]
   %.171.us143 = phi i1 [ true, %114 ], [ false, %120 ], [ true, %thread-pre-split.us129 ]
   %.169.us144 = phi i8 [ 0, %114 ], [ %.068.us120, %120 ], [ %.068.us120, %thread-pre-split.us129 ]
-  %.267.us145 = phi i32 [ %.065.us121, %114 ], [ %.065.us121, %120 ], [ %.166.us135, %thread-pre-split.us129 ]
-  %.2.us146 = phi ptr [ %.073.us118, %114 ], [ %.064.us122, %120 ], [ %.1.us136, %thread-pre-split.us129 ]
+  %.166.us145 = phi i32 [ %.065.us121, %114 ], [ %.065.us121, %120 ], [ %.267.us135, %thread-pre-split.us129 ]
+  %.1.us146 = phi ptr [ %.073.us118, %114 ], [ %.064.us122, %120 ], [ %.2.us136, %thread-pre-split.us129 ]
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %.split116.us, label %thread-pre-split97.us137.thread
 
 thread-pre-split97.us137.thread:                  ; preds = %118, %thread-pre-split97.us137
-  %.2.us146234 = phi ptr [ %.2.us146, %thread-pre-split97.us137 ], [ %.064.us122, %118 ]
-  %.267.us145233 = phi i32 [ %.267.us145, %thread-pre-split97.us137 ], [ %.065.us121, %118 ]
+  %.1.us146234 = phi ptr [ %.1.us146, %thread-pre-split97.us137 ], [ %.064.us122, %118 ]
+  %.166.us145233 = phi i32 [ %.166.us145, %thread-pre-split97.us137 ], [ %.065.us121, %118 ]
   %.169.us144232 = phi i8 [ %.169.us144, %thread-pre-split97.us137 ], [ 1, %118 ]
   %.171.us143231 = phi i1 [ %.171.us143, %thread-pre-split97.us137 ], [ true, %118 ]
   %143 = getelementptr inbounds i8, ptr %.073.us118, i64 1
@@ -9823,8 +9823,8 @@ thread-pre-split97.us137.thread:                  ; preds = %118, %thread-pre-sp
   %.073 = phi ptr [ %196, %thread-pre-split97.thread ], [ %0, %.split ]
   %.070 = phi i1 [ %.171247, %thread-pre-split97.thread ], [ false, %.split ]
   %.068 = phi i8 [ %.169248, %thread-pre-split97.thread ], [ 0, %.split ]
-  %.065 = phi i32 [ %.267249, %thread-pre-split97.thread ], [ 0, %.split ]
-  %.064 = phi ptr [ %.2250, %thread-pre-split97.thread ], [ null, %.split ]
+  %.065 = phi i32 [ %.166249, %thread-pre-split97.thread ], [ 0, %.split ]
+  %.064 = phi ptr [ %.1250, %thread-pre-split97.thread ], [ null, %.split ]
   br i1 %.070, label %155, label %144
 
 144:                                              ; preds = %.split.split
@@ -9915,19 +9915,19 @@ switch.early.test:                                ; preds = %158
 
 thread-pre-split:                                 ; preds = %switch.early.test, %.thread-pre-split_crit_edge, %173
   %175 = phi i8 [ %156, %173 ], [ %156, %switch.early.test ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  %.166 = phi i32 [ %.065, %173 ], [ %.065, %switch.early.test ], [ %172, %.thread-pre-split_crit_edge ]
-  %.1 = phi ptr [ %spec.select94, %173 ], [ %.064, %switch.early.test ], [ null, %.thread-pre-split_crit_edge ]
+  %.267 = phi i32 [ %.065, %173 ], [ %.065, %switch.early.test ], [ %172, %.thread-pre-split_crit_edge ]
+  %.2 = phi ptr [ %spec.select94, %173 ], [ %.064, %switch.early.test ], [ null, %.thread-pre-split_crit_edge ]
   %176 = icmp eq i8 %175, 41
   br i1 %176, label %.split111.us.thread, label %thread-pre-split97
 
 .split111.us:                                     ; preds = %thread-pre-split.us129, %thread-pre-split.us, %thread-pre-split.us.us
   %.us-phi112 = phi ptr [ %.073.us.us, %thread-pre-split.us.us ], [ %.073.us, %thread-pre-split.us ], [ %.073.us118, %thread-pre-split.us129 ]
   %.us-phi113 = phi i8 [ %.068.us.us, %thread-pre-split.us.us ], [ %.068.us, %thread-pre-split.us ], [ %.068.us120, %thread-pre-split.us129 ]
-  %.us-phi114 = phi i32 [ %.166.us.us, %thread-pre-split.us.us ], [ %.166.us, %thread-pre-split.us ], [ %.166.us135, %thread-pre-split.us129 ]
+  %.us-phi114 = phi i32 [ %.267.us.us, %thread-pre-split.us.us ], [ %.267.us, %thread-pre-split.us ], [ %.267.us135, %thread-pre-split.us129 ]
   br i1 %.not, label %178, label %.split111.us.thread
 
 .split111.us.thread:                              ; preds = %thread-pre-split, %.split111.us
-  %.us-phi114241 = phi i32 [ %.us-phi114, %.split111.us ], [ %.166, %thread-pre-split ]
+  %.us-phi114241 = phi i32 [ %.us-phi114, %.split111.us ], [ %.267, %thread-pre-split ]
   %.us-phi113239 = phi i8 [ %.us-phi113, %.split111.us ], [ %.068, %thread-pre-split ]
   %.us-phi112238 = phi ptr [ %.us-phi112, %.split111.us ], [ %.073, %thread-pre-split ]
   %177 = getelementptr inbounds i8, ptr %.us-phi112238, i64 1
@@ -9985,14 +9985,14 @@ thread-pre-split97:                               ; preds = %thread-pre-split, %
   %194 = phi i8 [ %145, %144 ], [ %145, %150 ], [ %175, %thread-pre-split ]
   %.171 = phi i1 [ true, %144 ], [ false, %150 ], [ true, %thread-pre-split ]
   %.169 = phi i8 [ 0, %144 ], [ %.068, %150 ], [ %.068, %thread-pre-split ]
-  %.267 = phi i32 [ %.065, %144 ], [ %.065, %150 ], [ %.166, %thread-pre-split ]
-  %.2 = phi ptr [ %.073, %144 ], [ %.064, %150 ], [ %.1, %thread-pre-split ]
+  %.166 = phi i32 [ %.065, %144 ], [ %.065, %150 ], [ %.267, %thread-pre-split ]
+  %.1 = phi ptr [ %.073, %144 ], [ %.064, %150 ], [ %.2, %thread-pre-split ]
   %195 = icmp eq i8 %194, 0
   br i1 %195, label %.split116.us, label %thread-pre-split97.thread
 
 thread-pre-split97.thread:                        ; preds = %148, %thread-pre-split97
-  %.2250 = phi ptr [ %.2, %thread-pre-split97 ], [ %.064, %148 ]
-  %.267249 = phi i32 [ %.267, %thread-pre-split97 ], [ %.065, %148 ]
+  %.1250 = phi ptr [ %.1, %thread-pre-split97 ], [ %.064, %148 ]
+  %.166249 = phi i32 [ %.166, %thread-pre-split97 ], [ %.065, %148 ]
   %.169248 = phi i8 [ %.169, %thread-pre-split97 ], [ 1, %148 ]
   %.171247 = phi i1 [ %.171, %thread-pre-split97 ], [ true, %148 ]
   %196 = getelementptr inbounds i8, ptr %.073, i64 1
@@ -10157,10 +10157,10 @@ define internal fastcc void @_ZL18snprint_lambda_vecPciPKcP12lambda_vec_t(ptr no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %30 = phi ptr [ %43, %.lr.ph ], [ %20, %.preheader ]
-  %.135 = phi i32 [ %42, %.lr.ph ], [ %.032, %.preheader ]
-  %31 = sext i32 %.135 to i64
+  %.235 = phi i32 [ %42, %.lr.ph ], [ %.032, %.preheader ]
+  %31 = sext i32 %.235 to i64
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
-  %33 = sub nsw i32 4096, %.135
+  %33 = sub nsw i32 4096, %.235
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %30, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
@@ -10169,7 +10169,7 @@ define internal fastcc void @_ZL18snprint_lambda_vecPciPKcP12lambda_vec_t(ptr no
   %39 = getelementptr inbounds double, ptr %38, i64 %indvars.iv
   %40 = load double, ptr %39, align 8
   %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.278, ptr noundef %37, double noundef %40) #24
-  %42 = add nsw i32 %41, %.135
+  %42 = add nsw i32 %41, %.235
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load ptr, ptr %19, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8

@@ -216,7 +216,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %81 = phi ptr [ %75, %.lr.ph116 ], [ %129, %128 ]
   %82 = phi i1 [ %76, %.lr.ph116 ], [ %130, %128 ]
   %.075114 = phi i32 [ %74, %.lr.ph116 ], [ %.1, %128 ]
-  %.076113 = phi i32 [ 0, %.lr.ph116 ], [ %.177.lcssa, %128 ]
+  %.177113 = phi i32 [ 0, %.lr.ph116 ], [ %.2.lcssa, %128 ]
   br i1 %82, label %87, label %83
 
 83:                                               ; preds = %80
@@ -234,7 +234,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %.1 = phi i32 [ 0, %83 ], [ %.075114, %87 ]
   %storemerge96110 = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge96110, ptr %8, align 8
-  %.not97111 = icmp eq i32 %.076113, 0
+  %.not97111 = icmp eq i32 %.177113, 0
   %90 = icmp ne ptr %storemerge96110, null
   %91 = select i1 %.not97111, i1 %90, i1 false
   br i1 %91, label %.lr.ph, label %._crit_edge
@@ -332,13 +332,13 @@ validate_subdomain.exit.thread107:                ; preds = %94, %115, %validate
   br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %validate_subdomain.exit.thread107, %validate_subdomain.exit.thread107.thread
-  %.2105123 = phi i32 [ 1, %validate_subdomain.exit.thread107.thread ], [ 0, %validate_subdomain.exit.thread107 ]
+  %.3105123 = phi i32 [ 1, %validate_subdomain.exit.thread107.thread ], [ 0, %validate_subdomain.exit.thread107 ]
   %.pre = load ptr, ptr %10, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %89
   %124 = phi ptr [ %81, %89 ], [ %.pre, %._crit_edge.loopexit ]
-  %.177.lcssa = phi i32 [ %.076113, %89 ], [ %.2105123, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i32 [ %.177113, %89 ], [ %.3105123, %._crit_edge.loopexit ]
   %.not98 = icmp eq ptr %124, null
   br i1 %.not98, label %128, label %125
 
@@ -358,7 +358,7 @@ validate_subdomain.exit.thread107:                ; preds = %94, %115, %validate
   br i1 %132, label %80, label %._crit_edge117
 
 ._crit_edge117:                                   ; preds = %128
-  %133 = icmp eq i32 %.177.lcssa, 0
+  %133 = icmp eq i32 %.2.lcssa, 0
   call void @free(ptr noundef %46) #13
   br i1 %133, label %134, label %135
 

@@ -176,7 +176,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %66 = fmul double %65, 0x3F91DF46A2529D39
   %67 = fcmp olt double %1, 0.000000e+00
   %68 = fneg double %66
-  %.sroa.9.0 = select i1 %67, double %68, double %66
+  %.sroa.9.1 = select i1 %67, double %68, double %66
   %69 = getelementptr inbounds [19 x %"struct.(anonymous namespace)::COEFS"], ptr @_ZL1X, i64 0, i64 %.0
   %70 = load float, ptr %69, align 16
   %71 = fpext float %70 to double
@@ -206,10 +206,10 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   br label %89
 
 89:                                               ; preds = %13, %87, %.loopexit, %.thread, %11
-  %.sroa.9.1 = phi double [ %7, %11 ], [ %15, %13 ], [ %7, %.thread ], [ %.sroa.9.0.copyload, %87 ], [ %.sroa.9.0, %.loopexit ]
+  %.sroa.9.0 = phi double [ %7, %11 ], [ %15, %13 ], [ %7, %.thread ], [ %.sroa.9.0.copyload, %87 ], [ %.sroa.9.1, %.loopexit ]
   %.sroa.041.0 = phi double [ %5, %11 ], [ %16, %13 ], [ %5, %.thread ], [ %.sroa.041.0.copyload, %87 ], [ %84, %.loopexit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.9.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.9.0, 1
   ret { double, double } %.fca.1.insert
 }
 

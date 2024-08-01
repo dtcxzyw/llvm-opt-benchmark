@@ -20329,7 +20329,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
 for.body:                                         ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit417, %for.inc
   %i.0733 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit417 ]
   %v.sroa.19.0732 = phi ptr [ %v.sroa.19.1, %for.inc ], [ null, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit417 ]
-  %v.sroa.11.0731 = phi ptr [ %v.sroa.11.1, %for.inc ], [ null, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit417 ]
+  %v.sroa.11.0731 = phi ptr [ %v.sroa.11.3, %for.inc ], [ null, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit417 ]
   %v.sroa.0.0730 = phi ptr [ %v.sroa.0.1, %for.inc ], [ null, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit417 ]
   %cmp.i418 = icmp ult ptr %v.sroa.11.0731, %v.sroa.19.0732
   br i1 %cmp.i418, label %if.then.i, label %if.else.i
@@ -20401,7 +20401,7 @@ _ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2
 
 for.inc:                                          ; preds = %_ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i, %if.then.i
   %v.sroa.0.1 = phi ptr [ %retval.0.i.i.i, %_ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i ], [ %v.sroa.0.0730, %if.then.i ]
-  %v.sroa.11.1 = phi ptr [ %incdec.ptr.i.i424, %_ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %v.sroa.11.3 = phi ptr [ %incdec.ptr.i.i424, %_ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %v.sroa.19.1 = phi ptr [ %add.ptr.i.i425, %_ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i ], [ %v.sroa.19.0732, %if.then.i ]
   %inc = add nuw nsw i64 %i.0733, 1
   %exitcond.not = icmp eq i64 %inc, 1000
@@ -20470,7 +20470,7 @@ lpad155.loopexit.split-lp.loopexit:               ; preds = %for.body.i.i.i.i.i
   br label %ehcleanup234
 
 lpad155.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i, %if.then.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i
-  %v.sroa.11.2.ph.ph.ph = phi ptr [ %v.sroa.11.0731, %if.then.i.i.i ], [ %v.sroa.11.0731, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i ], [ %incdec.ptr.i, %if.then.i ]
+  %v.sroa.11.1.ph.ph.ph = phi ptr [ %v.sroa.11.0731, %if.then.i.i.i ], [ %v.sroa.11.0731, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i ], [ %incdec.ptr.i, %if.then.i ]
   %lpad.loopexit716 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup234
@@ -20530,7 +20530,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
           to label %for.cond169.preheader unwind label %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond169.preheader:                            ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit476
-  %cmp170.not734 = icmp eq ptr %v.sroa.0.1, %v.sroa.11.1
+  %cmp170.not734 = icmp eq ptr %v.sroa.0.1, %v.sroa.11.3
   br i1 %cmp170.not734, label %for.end177, label %while.cond.i.i478.preheader
 
 while.cond.i.i478.preheader:                      ; preds = %for.cond169.preheader, %for.inc176
@@ -20560,7 +20560,7 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
 
 for.inc176:                                       ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit496
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0735, i64 24
-  %cmp170.not = icmp eq ptr %incdec.ptr, %v.sroa.11.1
+  %cmp170.not = icmp eq ptr %incdec.ptr, %v.sroa.11.3
   br i1 %cmp170.not, label %for.end177, label %while.cond.i.i478.preheader
 
 for.end177:                                       ; preds = %for.inc176, %for.cond169.preheader
@@ -20813,7 +20813,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont227, %fo
   %first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i671, %for.body.i.i.i ], [ %v.sroa.0.1, %invoke.cont227 ]
   call void @_ZN5eastl15fixed_substringIcED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %first.addr.04.i.i.i) #12
   %incdec.ptr.i.i.i671 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i, i64 24
-  %cmp.not.i.i.i672 = icmp eq ptr %incdec.ptr.i.i.i671, %v.sroa.11.1
+  %cmp.not.i.i.i672 = icmp eq ptr %incdec.ptr.i.i.i671, %v.sroa.11.3
   br i1 %cmp.not.i.i.i672, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !12
 
 invoke.cont.i:                                    ; preds = %for.body.i.i.i, %invoke.cont227
@@ -20891,16 +20891,16 @@ ehcleanup233:                                     ; preds = %ehcleanup232, %lpad
 
 ehcleanup234:                                     ; preds = %lpad155.loopexit, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad155.loopexit.split-lp.loopexit, %ehcleanup233
   %v.sroa.0.0722 = phi ptr [ %v.sroa.0.1, %ehcleanup233 ], [ %v.sroa.0.1, %lpad155.loopexit ], [ %v.sroa.0.0730, %lpad155.loopexit.split-lp.loopexit ], [ %v.sroa.0.0730, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.0.1, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %v.sroa.11.3 = phi ptr [ %v.sroa.11.1, %ehcleanup233 ], [ %v.sroa.11.1, %lpad155.loopexit ], [ %v.sroa.11.0731, %lpad155.loopexit.split-lp.loopexit ], [ %v.sroa.11.2.ph.ph.ph, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.11.1, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %v.sroa.11.2 = phi ptr [ %v.sroa.11.3, %ehcleanup233 ], [ %v.sroa.11.3, %lpad155.loopexit ], [ %v.sroa.11.0731, %lpad155.loopexit.split-lp.loopexit ], [ %v.sroa.11.1.ph.ph.ph, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %v.sroa.11.3, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn22 = phi { ptr, i32 } [ %.pn17.pn.pn.pn, %ehcleanup233 ], [ %lpad.loopexit, %lpad155.loopexit ], [ %lpad.loopexit713, %lpad155.loopexit.split-lp.loopexit ], [ %lpad.loopexit716, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad155.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %cmp.not3.i.i.i682 = icmp eq ptr %v.sroa.0.0722, %v.sroa.11.3
+  %cmp.not3.i.i.i682 = icmp eq ptr %v.sroa.0.0722, %v.sroa.11.2
   br i1 %cmp.not3.i.i.i682, label %invoke.cont.i689, label %for.body.i.i.i683
 
 for.body.i.i.i683:                                ; preds = %ehcleanup234, %for.body.i.i.i683
   %first.addr.04.i.i.i684 = phi ptr [ %incdec.ptr.i.i.i685, %for.body.i.i.i683 ], [ %v.sroa.0.0722, %ehcleanup234 ]
   call void @_ZN5eastl15fixed_substringIcED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %first.addr.04.i.i.i684) #12
   %incdec.ptr.i.i.i685 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i684, i64 24
-  %cmp.not.i.i.i686 = icmp eq ptr %incdec.ptr.i.i.i685, %v.sroa.11.3
+  %cmp.not.i.i.i686 = icmp eq ptr %incdec.ptr.i.i.i685, %v.sroa.11.2
   br i1 %cmp.not.i.i.i686, label %invoke.cont.i689, label %for.body.i.i.i683, !llvm.loop !12
 
 invoke.cont.i689:                                 ; preds = %for.body.i.i.i683, %ehcleanup234
@@ -27316,21 +27316,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !44
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -27733,21 +27733,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !45
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -28148,21 +28148,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !46
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -28563,21 +28563,21 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9a
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116
   %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116 ], [ %n.0129, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80 ]
-  %nReturnValue.1 = phi i32 [ %call.i120, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116 ], [ %call.i84, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80 ]
+  %nReturnValue.2 = phi i32 [ %call.i120, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116 ], [ %call.i84, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %34 = and i1 %cmp20, %cmp21
   br i1 %34, label %for.body, label %if.end38, !llvm.loop !47
 
 if.end38:                                         ; preds = %for.inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
-  %nReturnValue.2 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.2127 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.2127 to i64
+  %nReturnValue.0127 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.0127 to i64
   %add43 = add i64 %cond.i, %conv42
   %35 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i122 = icmp slt i8 %35, 0
@@ -29068,21 +29068,21 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118
   %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118 ], [ %n.0131, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81 ]
-  %nReturnValue.1 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81 ]
+  %nReturnValue.2 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %34 = and i1 %cmp20, %cmp21
   br i1 %34, label %for.body, label %if.end38, !llvm.loop !48
 
 if.end38:                                         ; preds = %for.inc, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
-  %nReturnValue.2 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.2129 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.2129 to i64
+  %nReturnValue.0129 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.0129 to i64
   %add43 = add i64 %cond.i, %conv42
   %35 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i124 = icmp slt i8 %35, 0
@@ -29575,21 +29575,21 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118
   %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118 ], [ %n.0131, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81 ]
-  %nReturnValue.1 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81 ]
+  %nReturnValue.2 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %34 = and i1 %cmp20, %cmp21
   br i1 %34, label %for.body, label %if.end38, !llvm.loop !49
 
 if.end38:                                         ; preds = %for.inc, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit
-  %nReturnValue.2 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.2129 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.2129 to i64
+  %nReturnValue.0129 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.0129 to i64
   %add43 = add i64 %cond.i, %conv42
   %35 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i124 = icmp slt i8 %35, 0
@@ -30081,21 +30081,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !50
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -30535,21 +30535,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !51
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -30989,21 +30989,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !52
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -31433,21 +31433,21 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15Mal
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116
   %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116 ], [ %n.0129, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80 ]
-  %nReturnValue.1 = phi i32 [ %call.i120, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116 ], [ %call.i84, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80 ]
+  %nReturnValue.2 = phi i32 [ %call.i120, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116 ], [ %call.i84, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %34 = and i1 %cmp20, %cmp21
   br i1 %34, label %for.body, label %if.end38, !llvm.loop !53
 
 if.end38:                                         ; preds = %for.inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
-  %nReturnValue.2 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.2127 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.2127 to i64
+  %nReturnValue.0127 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.0127 to i64
   %add43 = add i64 %cond.i, %conv42
   %35 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i122 = icmp slt i8 %35, 0
@@ -31938,21 +31938,21 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118
   %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118 ], [ %n.0131, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81 ]
-  %nReturnValue.1 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81 ]
+  %nReturnValue.2 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %34 = and i1 %cmp20, %cmp21
   br i1 %34, label %for.body, label %if.end38, !llvm.loop !54
 
 if.end38:                                         ; preds = %for.inc, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
-  %nReturnValue.2 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.2129 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.2129 to i64
+  %nReturnValue.0129 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.0129 to i64
   %add43 = add i64 %cond.i, %conv42
   %35 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i124 = icmp slt i8 %35, 0
@@ -32445,21 +32445,21 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118
   %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118 ], [ %n.0131, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81 ]
-  %nReturnValue.1 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81 ]
+  %nReturnValue.2 = phi i32 [ %call.i122, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118 ], [ %call.i85, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %34 = and i1 %cmp20, %cmp21
   br i1 %34, label %for.body, label %if.end38, !llvm.loop !55
 
 if.end38:                                         ; preds = %for.inc, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit
-  %nReturnValue.2 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i47, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.2129 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.2129 to i64
+  %nReturnValue.0129 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.0129 to i64
   %add43 = add i64 %cond.i, %conv42
   %35 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i124 = icmp slt i8 %35, 0
@@ -32931,21 +32931,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !56
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -33624,21 +33624,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !57
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0
@@ -33761,21 +33761,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !58
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0

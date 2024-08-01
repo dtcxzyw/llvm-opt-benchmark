@@ -2346,14 +2346,14 @@ define hidden void @dissect_cdma2000_a1_elements(ptr noundef %0, ptr noundef %1,
   br i1 %25, label %.loopexit.thread, label %32
 
 .loopexit.thread:                                 ; preds = %23, %.lr.ph50, %.loopexit
-  %.260 = phi i32 [ %24, %.loopexit ], [ %.049, %.lr.ph50 ], [ %.049, %23 ]
-  %.23959 = phi i32 [ %21, %.loopexit ], [ %.03748, %.lr.ph50 ], [ %.03748, %23 ]
-  %26 = add i32 %.260, 1
+  %.160 = phi i32 [ %24, %.loopexit ], [ %.049, %.lr.ph50 ], [ %.049, %23 ]
+  %.13859 = phi i32 [ %21, %.loopexit ], [ %.03748, %.lr.ph50 ], [ %.03748, %23 ]
+  %26 = add i32 %.160, 1
   %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #5
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 2
-  %30 = add i32 %29, %.260
-  %31 = sub i32 %.23959, %29
+  %30 = add i32 %29, %.160
+  %31 = sub i32 %.13859, %29
   br label %32
 
 32:                                               ; preds = %.loopexit.thread, %.loopexit
@@ -2453,8 +2453,8 @@ define internal fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr
   br label %56
 
 56:                                               ; preds = %52, %54, %39
-  %.047.shrunk = phi i8 [ %26, %52 ], [ %55, %54 ], [ 0, %39 ]
-  %57 = zext i8 %.047.shrunk to i16
+  %.1.shrunk = phi i8 [ %26, %52 ], [ %55, %54 ], [ 0, %39 ]
+  %57 = zext i8 %.1.shrunk to i16
   %58 = add nuw nsw i16 %57, 2
   br label %59
 
@@ -3949,19 +3949,19 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
 
 109:                                              ; preds = %.preheader, %129
   %indvars.iv = phi i32 [ 0, %.preheader ], [ %111, %129 ]
-  %.0233 = phi i32 [ %96, %.preheader ], [ %144, %129 ]
+  %.1 = phi i32 [ %96, %.preheader ], [ %144, %129 ]
   %110 = load i32, ptr @ett_cm2_band_class, align 4
   %111 = add nuw nsw i32 %indvars.iv, 1
-  %112 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0233, i32 noundef %101, i32 noundef %110, ptr noundef null, ptr noundef nonnull @.str.1153, i32 noundef %111) #5
+  %112 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1, i32 noundef %101, i32 noundef %110, ptr noundef null, ptr noundef nonnull @.str.1153, i32 noundef %111) #5
   %113 = load i32, ptr @hf_ansi_a_reserved_bits_8_e0, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %0, i32 noundef %.0233, i32 noundef 1, i32 noundef 0) #5
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #5
   %115 = load i32, ptr @hf_ansi_a_scm_band_class_entry_band_class, align 4
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %115, ptr noundef %0, i32 noundef %.0233, i32 noundef 1, i32 noundef 0) #5
-  %117 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0233) #5
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %115, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #5
+  %117 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #5
   %118 = and i8 %117, 31
   %119 = zext nneg i8 %118 to i32
-  %120 = add i32 %.0233, 1
-  %121 = add i32 %.0233, 2
+  %120 = add i32 %.1, 1
+  %121 = add i32 %.1, 2
   %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %121) #5
   %123 = icmp ult i8 %122, 4
   br i1 %123, label %129, label %124
@@ -3994,9 +3994,9 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %140, ptr noundef %0, i32 noundef %120, i32 noundef 1, i32 noundef 0) #5
   %142 = load i32, ptr @hf_ansi_a_scm_band_class_entry_p_rev, align 4
   %143 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %142, ptr noundef %0, i32 noundef %121, i32 noundef 1, i32 noundef 0) #5
-  %144 = add i32 %.0233, 3
+  %144 = add i32 %.1, 3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.1154, i32 noundef %119) #5
-  %reass.sub = sub i32 %.neg, %.0233
+  %reass.sub = sub i32 %.neg, %.1
   %145 = add i32 %reass.sub, -3
   %146 = icmp uge i32 %145, %101
   %147 = icmp ult i32 %111, %105
@@ -4004,15 +4004,15 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %148, label %109, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %129, %100
-  %.1 = phi i32 [ %96, %100 ], [ %144, %129 ]
-  %149 = sub i32 %.1, %3
+  %.0233 = phi i32 [ %96, %100 ], [ %144, %129 ]
+  %149 = sub i32 %.0233, %3
   %150 = icmp ult i32 %149, %4
   br i1 %150, label %151, label %155
 
 151:                                              ; preds = %.loopexit
   %152 = sub nuw i32 %4, %149
-  %153 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %152) #5
-  %154 = add i32 %152, %.1
+  %153 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.0233, i32 noundef %152) #5
+  %154 = add i32 %152, %.0233
   %.pre = sub i32 %154, %3
   br label %155
 
@@ -5293,13 +5293,13 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
 
 30:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i32 [ 0, %.preheader ], [ %32, %54 ]
-  %.089 = phi i32 [ %18, %.preheader ], [ %55, %54 ]
+  %.1 = phi i32 [ %18, %.preheader ], [ %55, %54 ]
   %31 = load i32, ptr @ett_chan_list, align 4
   %32 = add nuw nsw i32 %indvars.iv, 1
-  %33 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.089, i32 noundef 4, i32 noundef %31, ptr noundef null, ptr noundef nonnull @.str.1198, i32 noundef %32) #5
+  %33 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef %31, ptr noundef null, ptr noundef nonnull @.str.1198, i32 noundef %32) #5
   %34 = load i32, ptr @hf_ansi_a_is95_chan_id_walsh_code_chan_idx, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.089, i32 noundef 1, i32 noundef 0) #5
-  %36 = add i32 %.089, 1
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #5
+  %36 = add i32 %.1, 1
   %37 = load i32, ptr @hf_ansi_a_is95_chan_id_pilot_pn, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 3, i32 noundef 0) #5
   %39 = load i32, ptr @hf_ansi_a_is95_chan_id_power_combined, align 4
@@ -5314,7 +5314,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %30
-  %49 = add i32 %.089, 2
+  %49 = add i32 %.1, 2
   %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %49) #5
   %51 = load ptr, ptr %25, align 8
   %52 = and i16 %50, 2047
@@ -5323,8 +5323,8 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   br label %54
 
 54:                                               ; preds = %48, %30
-  %55 = add i32 %.089, 4
-  %reass.sub = sub i32 %.neg, %.089
+  %55 = add i32 %.1, 4
+  %reass.sub = sub i32 %.neg, %.1
   %56 = and i32 %reass.sub, -4
   %57 = icmp ne i32 %56, 4
   %58 = icmp ult i32 %32, %26
@@ -5332,15 +5332,15 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   br i1 %59, label %30, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %54, %20
-  %.1 = phi i32 [ %18, %20 ], [ %55, %54 ]
-  %60 = sub i32 %.1, %3
+  %.089 = phi i32 [ %18, %20 ], [ %55, %54 ]
+  %60 = sub i32 %.089, %3
   %61 = icmp ult i32 %60, %4
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %.loopexit
   %63 = sub nuw i32 %4, %60
-  %64 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %63) #5
-  %65 = add i32 %63, %.1
+  %64 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.089, i32 noundef %63) #5
+  %65 = add i32 %63, %.089
   %.pre = sub i32 %65, %3
   br label %66
 
@@ -5638,7 +5638,7 @@ define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1
   br label %11
 
 11:                                               ; preds = %.lr.ph245, %135
-  %.0204242 = phi i32 [ %3, %.lr.ph245 ], [ %.2, %135 ]
+  %.0204242 = phi i32 [ %3, %.lr.ph245 ], [ %.1205, %135 ]
   %.0206241 = phi i8 [ 0, %.lr.ph245 ], [ %138, %135 ]
   %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0204242) #5
   %13 = zext i8 %12 to i32
@@ -5729,10 +5729,10 @@ define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1
   br label %61
 
 61:                                               ; preds = %._crit_edge236, %34
-  %.1205 = phi i32 [ %60, %._crit_edge236 ], [ %27, %34 ]
+  %.2 = phi i32 [ %60, %._crit_edge236 ], [ %27, %34 ]
   %62 = load i32, ptr @hf_ansi_a_reserved_bits_8_01, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %62, ptr noundef %0, i32 noundef %.1205, i32 noundef 1, i32 noundef 0) #5
-  %64 = add i32 %.1205, 1
+  %63 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %62, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #5
+  %64 = add i32 %.2, 1
   br label %135
 
 65:                                               ; preds = %33
@@ -5853,12 +5853,12 @@ default.unreachable:                              ; preds = %110
   br label %135
 
 135:                                              ; preds = %61, %106, %121, %125, %131, %102, %._crit_edge, %11
-  %.2 = phi i32 [ %134, %131 ], [ %130, %125 ], [ %124, %121 ], [ %109, %106 ], [ %101, %._crit_edge ], [ %105, %102 ], [ %64, %61 ], [ %27, %11 ]
+  %.1205 = phi i32 [ %134, %131 ], [ %130, %125 ], [ %124, %121 ], [ %109, %106 ], [ %101, %._crit_edge ], [ %105, %102 ], [ %64, %61 ], [ %27, %11 ]
   %136 = load ptr, ptr %8, align 8
-  %137 = sub i32 %.2, %.0204242
+  %137 = sub i32 %.1205, %.0204242
   call void @proto_item_set_len(ptr noundef %136, i32 noundef %137) #5
   %138 = add i8 %.0206241, 1
-  %139 = sub i32 %.2, %3
+  %139 = sub i32 %.1205, %3
   %140 = sub i32 %4, %139
   %141 = icmp ugt i32 %140, 1
   br i1 %141, label %11, label %._crit_edge246, !llvm.loop !28
@@ -5873,7 +5873,7 @@ default.unreachable:                              ; preds = %110
   %144 = phi i32 [ %142, %._crit_edge246 ], [ 0, %6 ]
   %.lcssa215273 = phi i32 [ %140, %._crit_edge246 ], [ %4, %6 ]
   %.lcssa218272 = phi i32 [ %139, %._crit_edge246 ], [ 0, %6 ]
-  %.0204.lcssa271 = phi i32 [ %.2, %._crit_edge246 ], [ %3, %6 ]
+  %.0204.lcssa271 = phi i32 [ %.1205, %._crit_edge246 ], [ %3, %6 ]
   %145 = phi ptr [ %spec.select, %._crit_edge246 ], [ @.str.1145, %6 ]
   %.in = getelementptr inbounds i8, ptr %5, i64 16
   %146 = load ptr, ptr %.in, align 8
@@ -6580,7 +6580,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
 
 12:                                               ; preds = %.lr.ph255, %.loopexit
   %.0209253 = phi i8 [ 0, %.lr.ph255 ], [ %144, %.loopexit ]
-  %.0214251 = phi i32 [ %3, %.lr.ph255 ], [ %.3, %.loopexit ]
+  %.0214251 = phi i32 [ %3, %.lr.ph255 ], [ %.1215, %.loopexit ]
   %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0214251) #5
   %14 = zext i8 %13 to i32
   %15 = call ptr @try_val_to_str_idx(i32 noundef %14, ptr noundef nonnull @ansi_rev_ms_info_rec_str, ptr noundef nonnull %7) #5
@@ -6685,10 +6685,10 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   br label %72
 
 72:                                               ; preds = %._crit_edge246, %45
-  %.1215 = phi i32 [ %71, %._crit_edge246 ], [ %28, %45 ]
+  %.2216 = phi i32 [ %71, %._crit_edge246 ], [ %28, %45 ]
   %73 = load i32, ptr @hf_ansi_a_reserved_bits_8_01, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %73, ptr noundef %0, i32 noundef %.1215, i32 noundef 1, i32 noundef 0) #5
-  %75 = add i32 %.1215, 1
+  %74 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %73, ptr noundef %0, i32 noundef %.2216, i32 noundef 1, i32 noundef 0) #5
+  %75 = add i32 %.2216, 1
   br label %.loopexit
 
 76:                                               ; preds = %34
@@ -6755,17 +6755,17 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.2236 = phi i32 [ %118, %.lr.ph ], [ 0, %.preheader ]
-  %.2216235 = phi i32 [ %135, %.lr.ph ], [ %28, %.preheader ]
+  %.3235 = phi i32 [ %135, %.lr.ph ], [ %28, %.preheader ]
   %117 = load i32, ptr @ett_so_list, align 4
   %118 = add i32 %.2236, 1
-  %119 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %22, ptr noundef %0, i32 noundef %.2216235, i32 noundef 3, i32 noundef %117, ptr noundef nonnull %9, ptr noundef nonnull @.str.1379, i32 noundef %118) #5
+  %119 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %22, ptr noundef %0, i32 noundef %.3235, i32 noundef 3, i32 noundef %117, ptr noundef nonnull %9, ptr noundef nonnull @.str.1379, i32 noundef %118) #5
   %120 = load i32, ptr @hf_ansi_a_reserved_bits_8_fc, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.2216235, i32 noundef 1, i32 noundef 0) #5
+  %121 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.3235, i32 noundef 1, i32 noundef 0) #5
   %122 = load i32, ptr @hf_ansi_a_rev_ms_info_rec_so_info_fwd_support, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %.2216235, i32 noundef 1, i32 noundef 0) #5
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %.3235, i32 noundef 1, i32 noundef 0) #5
   %124 = load i32, ptr @hf_ansi_a_rev_ms_info_rec_so_info_rev_support, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %124, ptr noundef %0, i32 noundef %.2216235, i32 noundef 1, i32 noundef 0) #5
-  %126 = add i32 %.2216235, 1
+  %125 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %124, ptr noundef %0, i32 noundef %.3235, i32 noundef 1, i32 noundef 0) #5
+  %126 = add i32 %.3235, 1
   %127 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %126) #5
   %128 = zext i16 %127 to i32
   %129 = call ptr @try_val_to_str_ext(i32 noundef %128, ptr noundef nonnull @ansi_a_so_str_vals_ext) #5
@@ -6778,8 +6778,8 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %133 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %119, i32 noundef %132, ptr noundef %0, i32 noundef %126, i32 noundef 2, i32 noundef %128, ptr noundef nonnull @.str.1017, ptr noundef nonnull %.0.i) #5
   %134 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %134, ptr noundef nonnull @.str.1024, i32 noundef %128, ptr noundef nonnull %.0.i) #5
-  %135 = add i32 %.2216235, 3
-  %reass.sub = sub i32 %.neg223, %.2216235
+  %135 = add i32 %.3235, 3
+  %reass.sub = sub i32 %.neg223, %.3235
   %136 = add i32 %reass.sub, -6
   %137 = icmp ult i32 %136, -3
   br i1 %137, label %.lr.ph, label %.loopexit, !llvm.loop !32
@@ -6791,12 +6791,12 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %36, %72, %138, %113, %._crit_edge, %12
-  %.3 = phi i32 [ %141, %138 ], [ %112, %._crit_edge ], [ %116, %113 ], [ %75, %72 ], [ %44, %36 ], [ %28, %12 ], [ %28, %.preheader ], [ %135, %.lr.ph ]
+  %.1215 = phi i32 [ %141, %138 ], [ %112, %._crit_edge ], [ %116, %113 ], [ %75, %72 ], [ %44, %36 ], [ %28, %12 ], [ %28, %.preheader ], [ %135, %.lr.ph ]
   %142 = load ptr, ptr %8, align 8
-  %143 = sub i32 %.3, %.0214251
+  %143 = sub i32 %.1215, %.0214251
   call void @proto_item_set_len(ptr noundef %142, i32 noundef %143) #5
   %144 = add i8 %.0209253, 1
-  %145 = sub i32 %.3, %3
+  %145 = sub i32 %.1215, %3
   %146 = sub i32 %4, %145
   %147 = icmp ugt i32 %146, 1
   br i1 %147, label %12, label %._crit_edge256, !llvm.loop !33
@@ -6811,7 +6811,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %150 = phi i32 [ %148, %._crit_edge256 ], [ 0, %6 ]
   %.lcssa226282 = phi i32 [ %146, %._crit_edge256 ], [ %4, %6 ]
   %.lcssa228281 = phi i32 [ %145, %._crit_edge256 ], [ 0, %6 ]
-  %.0214.lcssa280 = phi i32 [ %.3, %._crit_edge256 ], [ %3, %6 ]
+  %.0214.lcssa280 = phi i32 [ %.1215, %._crit_edge256 ], [ %3, %6 ]
   %151 = phi ptr [ %spec.select, %._crit_edge256 ], [ @.str.1145, %6 ]
   %.in = getelementptr inbounds i8, ptr %5, i64 16
   %152 = load ptr, ptr %.in, align 8
@@ -6993,15 +6993,15 @@ define internal zeroext i8 @elem_a2p_bearer_session(ptr noundef %0, ptr noundef 
   br label %52
 
 52:                                               ; preds = %45, %6
-  %.1 = phi i32 [ %51, %45 ], [ %16, %6 ]
-  %53 = sub i32 %.1, %3
+  %.0 = phi i32 [ %51, %45 ], [ %16, %6 ]
+  %53 = sub i32 %.0, %3
   %54 = icmp ult i32 %53, %4
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %52
   %56 = sub nuw i32 %4, %53
-  %57 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %56) #5
-  %58 = add i32 %56, %.1
+  %57 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.0, i32 noundef %56) #5
+  %58 = add i32 %56, %.0
   %.pre = sub i32 %58, %3
   br label %59
 
@@ -7166,27 +7166,27 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   br label %90
 
 90:                                               ; preds = %88, %54
-  %.2220 = phi i32 [ %89, %88 ], [ %61, %54 ]
+  %.1219 = phi i32 [ %89, %88 ], [ %61, %54 ]
   br i1 %.not230, label %114, label %91
 
 91:                                               ; preds = %90
-  %.neg238 = sub i32 %3, %.2220
+  %.neg238 = sub i32 %3, %.1219
   %92 = icmp eq i32 %.neg238, %22
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %91
-  %94 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_short_data, ptr noundef %0, i32 noundef %.2220, i32 noundef 0) #5
-  %95 = sub i32 %.2220, %3
+  %94 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_short_data, ptr noundef %0, i32 noundef %.1219, i32 noundef 0) #5
+  %95 = sub i32 %.1219, %3
   br label %.loopexit
 
 96:                                               ; preds = %91
   %97 = load i32, ptr @hf_ansi_a_a2p_bearer_form_format_ext_len, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %97, ptr noundef %0, i32 noundef %.2220, i32 noundef 1, i32 noundef 0) #5
+  %98 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %97, ptr noundef %0, i32 noundef %.1219, i32 noundef 1, i32 noundef 0) #5
   %99 = load i32, ptr @hf_ansi_a_a2p_bearer_form_format_ext_id, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %99, ptr noundef %0, i32 noundef %.2220, i32 noundef 1, i32 noundef 0) #5
-  %101 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2220) #5
+  %100 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %99, ptr noundef %0, i32 noundef %.1219, i32 noundef 1, i32 noundef 0) #5
+  %101 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1219) #5
   %102 = lshr i8 %101, 4
-  %103 = add i32 %.2220, 1
+  %103 = add i32 %.1219, 1
   %104 = zext nneg i8 %102 to i32
   %.not239 = icmp ult i8 %101, 16
   br i1 %.not239, label %114, label %105
@@ -7208,7 +7208,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   br label %114
 
 114:                                              ; preds = %96, %110, %90
-  %.3 = phi i32 [ %113, %110 ], [ %103, %96 ], [ %.2220, %90 ]
+  %.3 = phi i32 [ %113, %110 ], [ %103, %96 ], [ %.1219, %90 ]
   %115 = load ptr, ptr %7, align 8
   %116 = sub i32 %.3, %.0218267
   call void @proto_item_set_len(ptr noundef %115, i32 noundef %116) #5
@@ -9759,12 +9759,12 @@ define internal void @bsmap_ho_req(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %145, label %239, label %146
 
 146:                                              ; preds = %140, %134, %132
-  %.18405 = phi i32 [ %128, %132 ], [ %143, %140 ], [ %137, %134 ]
-  %.18 = phi i32 [ %130, %132 ], [ %144, %140 ], [ %138, %134 ]
-  %147 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 58, i32 noundef %.18405, ptr noundef nonnull @.str.282, ptr noundef %5)
+  %.16403 = phi i32 [ %128, %132 ], [ %143, %140 ], [ %137, %134 ]
+  %.16 = phi i32 [ %130, %132 ], [ %144, %140 ], [ %138, %134 ]
+  %147 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 58, i32 noundef %.16403, ptr noundef nonnull @.str.282, ptr noundef %5)
   %148 = zext i16 %147 to i32
-  %149 = add i32 %.18405, %148
-  %150 = sub i32 %.18, %148
+  %149 = add i32 %.16403, %148
+  %150 = sub i32 %.16, %148
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %239, label %152
 
@@ -10228,16 +10228,16 @@ elem_t.exit:                                      ; preds = %42, %45, %52
   br i1 %141, label %221, label %142
 
 142:                                              ; preds = %136, %130, %128
-  %.17361 = phi i32 [ %124, %128 ], [ %139, %136 ], [ %133, %130 ]
-  %.17 = phi i32 [ %126, %128 ], [ %140, %136 ], [ %134, %130 ]
-  %143 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 58, i32 noundef %.17361, ptr noundef nonnull @.str.282, ptr noundef %5)
+  %.15359 = phi i32 [ %124, %128 ], [ %139, %136 ], [ %133, %130 ]
+  %.15 = phi i32 [ %126, %128 ], [ %140, %136 ], [ %134, %130 ]
+  %143 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 58, i32 noundef %.15359, ptr noundef nonnull @.str.282, ptr noundef %5)
   %144 = zext i16 %143 to i32
-  %145 = icmp eq i32 %.17, %144
+  %145 = icmp eq i32 %.15, %144
   br i1 %145, label %221, label %146
 
 146:                                              ; preds = %142
-  %147 = sub i32 %.17, %144
-  %148 = add i32 %.17361, %144
+  %147 = sub i32 %.15, %144
+  %148 = add i32 %.15359, %144
   %149 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 76, i32 noundef %148, ptr noundef nonnull @.str.282, ptr noundef %5)
   %150 = zext i16 %149 to i32
   %151 = icmp eq i32 %147, %150
@@ -11801,14 +11801,14 @@ define internal fastcc zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr 
   br label %43
 
 43:                                               ; preds = %39, %37
-  %.038 = phi i16 [ 2, %37 ], [ %42, %39 ]
+  %.1 = phi i16 [ 2, %37 ], [ %42, %39 ]
   %44 = load ptr, ptr %26, align 8
-  %45 = zext nneg i16 %.038 to i32
+  %45 = zext nneg i16 %.1 to i32
   tail call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #5
   br label %46
 
 46:                                               ; preds = %12, %43, %9
-  %.0 = phi i16 [ %11, %9 ], [ %.038, %43 ], [ 0, %12 ]
+  %.0 = phi i16 [ %11, %9 ], [ %.1, %43 ], [ 0, %12 ]
   ret i16 %.0
 }
 
@@ -12793,16 +12793,16 @@ define internal void @dtap_flash_with_info(ptr noundef %0, ptr noundef %1, ptr n
 
 49:                                               ; preds = %44, %39
   %.pn = phi i32 [ %41, %39 ], [ %46, %44 ]
-  %.7 = phi i32 [ %42, %39 ], [ %47, %44 ]
-  %.7114 = add i32 %.pn, %32
-  %50 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 31, i32 noundef %.7114, ptr noundef nonnull @.str.282, ptr noundef nonnull %5)
+  %.6 = phi i32 [ %42, %39 ], [ %47, %44 ]
+  %.6113 = add i32 %.pn, %32
+  %50 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 31, i32 noundef %.6113, ptr noundef nonnull @.str.282, ptr noundef nonnull %5)
   %51 = zext i16 %50 to i32
-  %52 = icmp eq i32 %.7, %51
+  %52 = icmp eq i32 %.6, %51
   br i1 %52, label %62, label %53
 
 53:                                               ; preds = %49
-  %54 = sub i32 %.7, %51
-  %55 = add i32 %.7114, %51
+  %54 = sub i32 %.6, %51
+  %55 = add i32 %.6113, %51
   %56 = tail call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 68, i32 noundef %55, ptr noundef nonnull @.str.282, ptr noundef nonnull %5)
   %57 = zext i16 %56 to i32
   %.not135 = icmp eq i32 %54, %57
@@ -12888,9 +12888,9 @@ define internal void @dtap_lu_accept(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not64, label %34, label %.thread
 
 .thread:                                          ; preds = %8, %24, %32
-  %.469 = phi i32 [ %4, %32 ], [ %12, %8 ], [ %30, %24 ]
-  %.45668 = phi i32 [ %3, %32 ], [ %11, %8 ], [ %28, %24 ]
-  %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.45668, i32 noundef %.469) #5
+  %.069 = phi i32 [ %4, %32 ], [ %12, %8 ], [ %30, %24 ]
+  %.05268 = phi i32 [ %3, %32 ], [ %11, %8 ], [ %28, %24 ]
+  %33 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %.05268, i32 noundef %.069) #5
   br label %34
 
 34:                                               ; preds = %24, %18, %14, %8, %.thread, %32

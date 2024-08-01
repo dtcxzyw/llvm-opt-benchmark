@@ -7127,7 +7127,7 @@ _ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit: ; preds = %if.then55, %i
   br label %if.end66
 
 if.end66:                                         ; preds = %cleanup, %if.else27, %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit, %if.end53
-  %update_prev_key.1 = phi i1 [ false, %cleanup ], [ true, %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit ], [ false, %if.end53 ], [ false, %if.else27 ]
+  %update_prev_key.0 = phi i1 [ false, %cleanup ], [ true, %_ZN7rocksdb7IterKey14SetInternalKeyERKNS_5SliceEb.exit ], [ false, %if.end53 ], [ false, %if.else27 ]
   %current_67 = getelementptr inbounds i8, ptr %this, i64 360
   %43 = load ptr, ptr %current_67, align 8
   %vtable68 = load ptr, ptr %43, align 8
@@ -7322,7 +7322,7 @@ if.then114:                                       ; preds = %_ZNK7rocksdb15Forwa
   br label %if.end116
 
 if.end116:                                        ; preds = %_ZNK7rocksdb15ForwardIterator16IsOverUpperBoundERKNS_5SliceE.exit37.thread, %if.else101, %if.then114, %_ZNK7rocksdb15ForwardIterator16IsOverUpperBoundERKNS_5SliceE.exit37
-  br i1 %update_prev_key.1, label %if.then118, label %if.end128
+  br i1 %update_prev_key.0, label %if.then118, label %if.end128
 
 if.then118:                                       ; preds = %if.end116
   %82 = load ptr, ptr %mutable_iter_71, align 8

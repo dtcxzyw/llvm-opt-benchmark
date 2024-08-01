@@ -690,14 +690,14 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   %53 = sitofp i32 %33 to double
   %54 = fmul double %52, %53
   %55 = fcmp olt double %54, 0x41DFFFFFFFC00000
-  %.03445.i = select i1 %55, double %54, double 0x41DFFFFFFFC00000
-  %.034.i = fptosi double %.03445.i to i32
+  %.145.i = select i1 %55, double %54, double 0x41DFFFFFFFC00000
+  %.1.i = fptosi double %.145.i to i32
   store i8 0, ptr %41, align 4
   br label %56
 
 56:                                               ; preds = %49, %47
-  %.1.i = phi i32 [ %48, %47 ], [ %.034.i, %49 ]
-  %.not39.i = icmp sgt i32 %.1.i, %33
+  %.034.i = phi i32 [ %48, %47 ], [ %.1.i, %49 ]
+  %.not39.i = icmp sgt i32 %.034.i, %33
   br i1 %.not39.i, label %57, label %81
 
 .thread.i:                                        ; preds = %45
@@ -706,7 +706,7 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   br i1 %.not3941.not.i, label %81, label %.thread43.i
 
 57:                                               ; preds = %56
-  %58 = icmp slt i32 %.1.i, 0
+  %58 = icmp slt i32 %.034.i, 0
   br i1 %58, label %59, label %.thread43.i
 
 59:                                               ; preds = %57
@@ -714,7 +714,7 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   br label %.thread43.i
 
 .thread43.i:                                      ; preds = %59, %57, %.thread.i
-  %.2.i = phi i32 [ -1, %59 ], [ %.1.i, %57 ], [ 2147483647, %.thread.i ]
+  %.2.i = phi i32 [ -1, %59 ], [ %.034.i, %57 ], [ 2147483647, %.thread.i ]
   %60 = sub i32 %.2.i, %33
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 3

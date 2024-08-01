@@ -443,8 +443,8 @@ if.then55:                                        ; preds = %if.end46
 
 err:                                              ; preds = %if.then55, %if.then45, %if.then38, %if.then33, %if.then29, %if.then22, %if.then16, %if.then8, %if.then5, %if.then
   %name.0 = phi ptr [ null, %if.then ], [ null, %if.then29 ], [ null, %if.then33 ], [ %call31, %if.then38 ], [ null, %if.then55 ], [ %call31, %if.then45 ], [ null, %if.then22 ], [ null, %if.then16 ], [ null, %if.then5 ], [ null, %if.then8 ]
-  %alg.1 = phi ptr [ null, %if.then ], [ null, %if.then29 ], [ null, %if.then33 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then45 ], [ null, %if.then22 ], [ null, %if.then16 ], [ null, %if.then5 ], [ %call3, %if.then8 ]
-  call void @X509_ALGOR_free(ptr noundef %alg.1) #5
+  %alg.0 = phi ptr [ null, %if.then ], [ null, %if.then29 ], [ null, %if.then33 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then45 ], [ null, %if.then22 ], [ null, %if.then16 ], [ null, %if.then5 ], [ %call3, %if.then8 ]
+  call void @X509_ALGOR_free(ptr noundef %alg.0) #5
   call void @GENERAL_NAME_free(ptr noundef %name.0) #5
   call void @ESS_CERT_ID_V2_free(ptr noundef %call) #5
   br label %return

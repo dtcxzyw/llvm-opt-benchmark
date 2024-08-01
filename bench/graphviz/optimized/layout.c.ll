@@ -323,18 +323,18 @@ fdpLayout.exit:                                   ; preds = %fdp_init_graph.exit
   br label %170
 
 170:                                              ; preds = %168, %166, %162
-  %.0.i9 = phi i32 [ 2, %166 ], [ %159, %168 ], [ 12, %162 ]
+  %.1.i = phi i32 [ 2, %166 ], [ %159, %168 ], [ 12, %162 ]
   store i32 0, ptr @Nop, align 4
   br label %171
 
 171:                                              ; preds = %170, %158
-  %.1.i = phi i32 [ %.0.i9, %170 ], [ %159, %158 ]
+  %.0.i9 = phi i32 [ %.1.i, %170 ], [ %159, %158 ]
   %172 = load i32, ptr @State, align 4
   %173 = icmp slt i32 %172, 1
   br i1 %173, label %174, label %fdpSplines.exit
 
 174:                                              ; preds = %171
-  %175 = call i32 @spline_edges1(ptr noundef nonnull %0, i32 noundef %.1.i) #22
+  %175 = call i32 @spline_edges1(ptr noundef nonnull %0, i32 noundef %.0.i9) #22
   br label %fdpSplines.exit
 
 fdpSplines.exit:                                  ; preds = %174, %171, %.loopexit
@@ -1559,7 +1559,7 @@ deriveGraph.exit:                                 ; preds = %._crit_edge233.i
   br label %.lr.ph92.i.i
 
 .lr.ph92.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph92.preheader.i.i
-  %.191.i.i = phi i32 [ %.3.i.i, %.loopexit.i.i ], [ 0, %.lr.ph92.preheader.i.i ]
+  %.191.i.i = phi i32 [ %.2.i.i, %.loopexit.i.i ], [ 0, %.lr.ph92.preheader.i.i ]
   %545 = sext i32 %.191.i.i to i64
   %546 = getelementptr inbounds %struct.erec, ptr %505, i64 %545, i32 1
   %547 = load double, ptr %546, align 8
@@ -1629,8 +1629,8 @@ deriveGraph.exit:                                 ; preds = %._crit_edge233.i
   br i1 %exitcond100.not.i.i, label %.loopexit.i.i, label %.lr.ph89.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph89.i.i, %563, %.critedge.i.i, %.lr.ph92.i.i
-  %.3.i.i = phi i32 [ %548, %.critedge.i.i ], [ %.191.i.i, %563 ], [ %548, %.lr.ph92.i.i ], [ %.072.lcssa.i.i, %.lr.ph89.i.i ]
-  %574 = icmp slt i32 %.3.i.i, %544
+  %.2.i.i = phi i32 [ %548, %.critedge.i.i ], [ %.191.i.i, %563 ], [ %548, %.lr.ph92.i.i ], [ %.072.lcssa.i.i, %.lr.ph89.i.i ]
+  %574 = icmp slt i32 %.2.i.i, %544
   br i1 %574, label %.lr.ph92.i.i, label %getEdgeList.exit.i
 
 getEdgeList.exit.i:                               ; preds = %.loopexit.i.i, %._crit_edge.i.i

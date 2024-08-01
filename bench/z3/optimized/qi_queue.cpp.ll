@@ -4159,11 +4159,11 @@ invoke.cont19:                                    ; preds = %.noexc, %lor.lhs.fa
   br label %if.end26
 
 if.end26:                                         ; preds = %invoke.cont19, %if.then11
-  %info.sroa.0.1 = phi i32 [ %inc, %if.then11 ], [ 1, %invoke.cont19 ]
+  %info.sroa.0.0 = phi i32 [ %inc, %if.then11 ], [ 1, %invoke.cont19 ]
   %28 = phi <2 x float> [ %17, %if.then11 ], [ %27, %invoke.cont19 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store ptr %4, ptr %ref.tmp.i, align 8
-  store i32 %info.sroa.0.1, ptr %m_value.i.i, align 8
+  store i32 %info.sroa.0.0, ptr %m_value.i.i, align 8
   store <2 x float> %28, ptr %info.sroa.6.0.m_value.i.i.sroa_idx, align 4
   invoke void @_ZN14core_hashtableIN7obj_mapI10quantifierN3smt15delayed_qa_infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %qa2info, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i)
           to label %_ZN7obj_mapI10quantifierN3smt15delayed_qa_infoEE6insertEPS0_RKS2_.exit unwind label %lpad2.loopexit.split-lp
@@ -4516,7 +4516,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorIN3smt8q
   %found.0.i13 = phi i1 [ %found.1.i, %for.inc.i ], [ false, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.split ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.split ]
   %max.011 = phi float [ %max.1, %for.inc.i ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.split ]
-  %min.010 = phi float [ %min.2, %for.inc.i ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.split ]
+  %min.010 = phi float [ %min.1, %for.inc.i ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.split ]
   %arrayidx.i10.i = getelementptr inbounds %"struct.smt::qi_queue::entry", ptr %4, i64 %indvars.iv.i12
   %m_instantiated.i = getelementptr inbounds i8, ptr %arrayidx.i10.i, i64 12
   %bf.load.i = load i32, ptr %m_instantiated.i, align 4
@@ -4536,7 +4536,7 @@ if.then7.i:                                       ; preds = %if.then.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %if.then.i, %for.body.i
-  %min.2 = phi float [ %min.010, %for.body.i ], [ %.sroa.speculated20.i, %if.then7.i ], [ %7, %if.then.i ]
+  %min.1 = phi float [ %min.010, %for.body.i ], [ %.sroa.speculated20.i, %if.then7.i ], [ %7, %if.then.i ]
   %max.1 = phi float [ %max.011, %for.body.i ], [ %.sroa.speculated.i, %if.then7.i ], [ %7, %if.then.i ]
   %found.1.i = phi i1 [ %found.0.i13, %for.body.i ], [ true, %if.then7.i ], [ true, %if.then.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i12, 1
@@ -4544,7 +4544,7 @@ for.inc.i:                                        ; preds = %if.then7.i, %if.the
   br i1 %exitcond.not, label %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit, label %for.body.i, !llvm.loop !18
 
 _ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit: ; preds = %for.inc.i
-  %8 = fpext float %min.2 to double
+  %8 = fpext float %min.1 to double
   %9 = fpext float %max.1 to double
   br label %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit
 

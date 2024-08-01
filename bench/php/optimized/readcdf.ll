@@ -268,24 +268,24 @@ define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %.thread44
 
 .thread44:                                        ; preds = %73, %56, %61, %59, %84, %90, %.thread42
-  %.2 = phi i32 [ -1, %90 ], [ %88, %.thread42 ], [ %86, %84 ], [ 1, %59 ], [ 1, %61 ], [ 1, %56 ], [ %75, %73 ]
+  %.4 = phi i32 [ -1, %90 ], [ %88, %.thread42 ], [ %86, %84 ], [ 1, %59 ], [ 1, %61 ], [ 1, %56 ], [ %75, %73 ]
   %91 = call i32 @cdf_zero_stream(ptr noundef nonnull %8) #8
   %92 = call i32 @cdf_zero_stream(ptr noundef nonnull %7) #8
   br label %93
 
 93:                                               ; preds = %.thread44, %39
-  %.3 = phi i32 [ -1, %39 ], [ %.2, %.thread44 ]
+  %.3 = phi i32 [ -1, %39 ], [ %.4, %.thread44 ]
   %94 = load ptr, ptr %9, align 8
   call void @_efree(ptr noundef %94) #8
   br label %95
 
 95:                                               ; preds = %35, %93
-  %.4 = phi i32 [ -1, %35 ], [ %.3, %93 ]
+  %.2 = phi i32 [ -1, %35 ], [ %.3, %93 ]
   %96 = load ptr, ptr %6, align 8
   call void @_efree(ptr noundef %96) #8
   %97 = load ptr, ptr %5, align 8
   call void @_efree(ptr noundef %97) #8
-  %.not37 = icmp eq i32 %.4, -1
+  %.not37 = icmp eq i32 %.2, -1
   br i1 %.not37, label %98, label %117
 
 98:                                               ; preds = %.thread49, %.thread46, %95
@@ -324,7 +324,7 @@ define hidden i32 @file_trycdf(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %117
 
 117:                                              ; preds = %113, %108, %102, %95, %61, %56, %22, %2, %116
-  %.024 = phi i32 [ 1, %116 ], [ 0, %2 ], [ 0, %22 ], [ -1, %56 ], [ -1, %61 ], [ %.4, %95 ], [ -1, %102 ], [ -1, %108 ], [ -1, %113 ]
+  %.024 = phi i32 [ 1, %116 ], [ 0, %2 ], [ 0, %22 ], [ -1, %56 ], [ -1, %61 ], [ %.2, %95 ], [ -1, %102 ], [ -1, %108 ], [ -1, %113 ]
   ret i32 %.024
 }
 

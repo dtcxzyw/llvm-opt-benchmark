@@ -691,7 +691,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp7.i, label %if.then62.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then5.i, %if.end.i
-  %priv_key.0.i = phi ptr [ %call6.i, %if.then5.i ], [ %3, %if.end.i ]
+  %priv_key.1.i = phi ptr [ %call6.i, %if.then5.i ], [ %3, %if.end.i ]
   %call12.i = tail call ptr @EC_GROUP_get0_order(ptr noundef %0) #7
   %cmp13.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.i, label %if.then62.i, label %if.end15.i
@@ -716,16 +716,16 @@ if.else25.i:                                      ; preds = %if.end15.i
   br i1 %cmp27.i, label %if.then62.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.else25.i, %lor.lhs.false.i
-  %order.0.i = phi ptr [ %call18.i, %lor.lhs.false.i ], [ %call26.i, %if.else25.i ]
+  %order.1.i = phi ptr [ %call18.i, %lor.lhs.false.i ], [ %call26.i, %if.else25.i ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end30.i
-  %call31.i = tail call i32 @BN_priv_rand_range_ex(ptr noundef nonnull %priv_key.0.i, ptr noundef nonnull %order.0.i, i32 noundef 0, ptr noundef nonnull %call.i) #7
+  %call31.i = tail call i32 @BN_priv_rand_range_ex(ptr noundef nonnull %priv_key.1.i, ptr noundef nonnull %order.1.i, i32 noundef 0, ptr noundef nonnull %call.i) #7
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %if.then62.i, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %call35.i = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.0.i) #7
+  %call35.i = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.1.i) #7
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %do.end.i, label %do.body.i, !llvm.loop !4
 
@@ -741,14 +741,14 @@ if.then39.i:                                      ; preds = %do.end.i
   br i1 %cmp41.i, label %if.then62.i, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.then39.i, %do.end.i
-  %pub_key.0.i = phi ptr [ %call40.i, %if.then39.i ], [ %4, %do.end.i ]
-  %call47.i = tail call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef nonnull %pub_key.0.i, ptr noundef nonnull %priv_key.0.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %call.i) #7
+  %pub_key.1.i = phi ptr [ %call40.i, %if.then39.i ], [ %4, %do.end.i ]
+  %call47.i = tail call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef nonnull %pub_key.1.i, ptr noundef nonnull %priv_key.1.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %call.i) #7
   %tobool48.not.i = icmp eq i32 %call47.i, 0
   br i1 %tobool48.not.i, label %if.then62.i, label %err.i
 
 err.i:                                            ; preds = %if.end46.i
-  store ptr %priv_key.0.i, ptr %priv_key3.i, align 8
-  store ptr %pub_key.0.i, ptr %pub_key37.i, align 8
+  store ptr %priv_key.1.i, ptr %priv_key3.i, align 8
+  store ptr %pub_key.1.i, ptr %pub_key37.i, align 8
   %dirty_cnt.i = getelementptr inbounds i8, ptr %eckey, i64 96
   %5 = load i64, ptr %dirty_cnt.i, align 8
   %inc.i = add i64 %5, 1
@@ -756,9 +756,9 @@ err.i:                                            ; preds = %if.end46.i
   br label %ec_generate_key.exit
 
 if.then62.i:                                      ; preds = %do.body.i, %if.end46.i, %if.then39.i, %if.else25.i, %lor.lhs.false.i, %if.then17.i, %if.end11.i, %if.then5.i, %entry
-  %order.1.ph.i = phi ptr [ null, %if.else25.i ], [ %call18.i, %lor.lhs.false.i ], [ %order.0.i, %if.end46.i ], [ %order.0.i, %if.then39.i ], [ null, %if.then17.i ], [ null, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %order.0.i, %do.body.i ]
-  %pub_key.1.ph.i = phi ptr [ null, %if.else25.i ], [ null, %lor.lhs.false.i ], [ %pub_key.0.i, %if.end46.i ], [ null, %if.then39.i ], [ null, %if.then17.i ], [ null, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ null, %do.body.i ]
-  %priv_key.1.ph.i = phi ptr [ %priv_key.0.i, %if.else25.i ], [ %priv_key.0.i, %lor.lhs.false.i ], [ %priv_key.0.i, %if.end46.i ], [ %priv_key.0.i, %if.then39.i ], [ %priv_key.0.i, %if.then17.i ], [ %priv_key.0.i, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %priv_key.0.i, %do.body.i ]
+  %order.0.ph.i = phi ptr [ null, %if.else25.i ], [ %call18.i, %lor.lhs.false.i ], [ %order.1.i, %if.end46.i ], [ %order.1.i, %if.then39.i ], [ null, %if.then17.i ], [ null, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %order.1.i, %do.body.i ]
+  %pub_key.0.ph.i = phi ptr [ null, %if.else25.i ], [ null, %lor.lhs.false.i ], [ %pub_key.1.i, %if.end46.i ], [ null, %if.then39.i ], [ null, %if.then17.i ], [ null, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ null, %do.body.i ]
+  %priv_key.0.ph.i = phi ptr [ %priv_key.1.i, %if.else25.i ], [ %priv_key.1.i, %lor.lhs.false.i ], [ %priv_key.1.i, %if.end46.i ], [ %priv_key.1.i, %if.then39.i ], [ %priv_key.1.i, %if.then17.i ], [ %priv_key.1.i, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %priv_key.1.i, %do.body.i ]
   tail call void @ossl_set_error_state(ptr noundef nonnull @.str.1) #7
   %priv_key63.i = getelementptr inbounds i8, ptr %eckey, i64 40
   %6 = load ptr, ptr %priv_key63.i, align 8
@@ -774,13 +774,13 @@ if.then66.i:                                      ; preds = %if.then62.i
 
 ec_generate_key.exit:                             ; preds = %err.i, %if.then62.i, %if.then66.i
   %ok.051.i = phi i32 [ 0, %if.then62.i ], [ 0, %if.then66.i ], [ 1, %err.i ]
-  %priv_key.149.i = phi ptr [ %priv_key.1.ph.i, %if.then62.i ], [ %priv_key.1.ph.i, %if.then66.i ], [ null, %err.i ]
-  %pub_key.147.i = phi ptr [ %pub_key.1.ph.i, %if.then62.i ], [ %pub_key.1.ph.i, %if.then66.i ], [ null, %err.i ]
-  %order.145.i = phi ptr [ %order.1.ph.i, %if.then62.i ], [ %order.1.ph.i, %if.then66.i ], [ %order.0.i, %err.i ]
-  tail call void @EC_POINT_free(ptr noundef %pub_key.147.i) #7
-  tail call void @BN_clear_free(ptr noundef %priv_key.149.i) #7
+  %priv_key.049.i = phi ptr [ %priv_key.0.ph.i, %if.then62.i ], [ %priv_key.0.ph.i, %if.then66.i ], [ null, %err.i ]
+  %pub_key.047.i = phi ptr [ %pub_key.0.ph.i, %if.then62.i ], [ %pub_key.0.ph.i, %if.then66.i ], [ null, %err.i ]
+  %order.045.i = phi ptr [ %order.0.ph.i, %if.then62.i ], [ %order.0.ph.i, %if.then66.i ], [ %order.1.i, %err.i ]
+  tail call void @EC_POINT_free(ptr noundef %pub_key.047.i) #7
+  tail call void @BN_clear_free(ptr noundef %priv_key.049.i) #7
   tail call void @BN_CTX_free(ptr noundef %call.i) #7
-  tail call void @BN_free(ptr noundef %order.145.i) #7
+  tail call void @BN_free(ptr noundef %order.045.i) #7
   ret i32 %ok.051.i
 }
 

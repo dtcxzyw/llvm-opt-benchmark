@@ -84,7 +84,7 @@ int_engine_configure.exit.thread:                 ; preds = %for.body
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %soft.088.i = phi i32 [ %soft.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
-  %e.087.i = phi ptr [ %e.2.i, %for.inc.i ], [ null, %for.body.preheader.i ]
+  %e.087.i = phi ptr [ %e.3.i, %for.inc.i ], [ null, %for.body.preheader.i ]
   %name.addr.086.i = phi ptr [ %name.addr.1.i, %for.inc.i ], [ %retval.0.i.i, %for.body.preheader.i ]
   %i.085.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
   %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.085.i) #4
@@ -150,7 +150,7 @@ if.end42.i:                                       ; preds = %if.then37.i
   br i1 %tobool39.i, label %if.else99.i, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end42.i, %if.else35.i
-  %e.1.i = phi ptr [ %e.087.i, %if.else35.i ], [ %call38.i, %if.end42.i ]
+  %e.2.i = phi ptr [ %e.087.i, %if.else35.i ], [ %call38.i, %if.end42.i ]
   %call47.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.10) #5
   %cmp48.i = icmp eq i32 %call47.i, 0
   %spec.store.select.i = select i1 %cmp48.i, ptr null, ptr %3
@@ -171,7 +171,7 @@ if.end57.i:                                       ; preds = %if.then53.i
   ]
 
 if.then59.i:                                      ; preds = %if.end57.i
-  %call.i40.i = call i32 @ENGINE_init(ptr noundef nonnull %e.1.i) #4
+  %call.i40.i = call i32 @ENGINE_init(ptr noundef nonnull %e.2.i) #4
   %tobool.not.i.i = icmp eq i32 %call.i40.i, 0
   br i1 %tobool.not.i.i, label %if.else99.i, label %if.end.i.i
 
@@ -188,12 +188,12 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end4.i.i, %if.end.i.i
   %6 = phi ptr [ %call.i.i.i, %if.end4.i.i ], [ %5, %if.end.i.i ]
-  %call.i3.i.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %6, ptr noundef nonnull %e.1.i) #4
+  %call.i3.i.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %6, ptr noundef nonnull %e.2.i) #4
   %tobool7.not.i.i = icmp eq i32 %call.i3.i.i, 0
   br i1 %tobool7.not.i.i, label %if.then8.i.i, label %for.inc.i
 
 if.then8.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end4.i.i
-  %call9.i.i = call i32 @ENGINE_finish(ptr noundef nonnull %e.1.i) #4
+  %call9.i.i = call i32 @ENGINE_finish(ptr noundef nonnull %e.2.i) #4
   br label %if.else99.i
 
 if.then66.i:                                      ; preds = %if.end57.i
@@ -208,18 +208,18 @@ if.else69.i:                                      ; preds = %if.end46.i
   br i1 %cmp71.i, label %if.then72.i, label %if.else77.i
 
 if.then72.i:                                      ; preds = %if.else69.i
-  %call73.i = call i32 @ENGINE_set_default_string(ptr noundef nonnull %e.1.i, ptr noundef %spec.store.select.i) #4
+  %call73.i = call i32 @ENGINE_set_default_string(ptr noundef nonnull %e.2.i, ptr noundef %spec.store.select.i) #4
   %tobool74.not.i = icmp eq i32 %call73.i, 0
   br i1 %tobool74.not.i, label %if.else99.i, label %for.inc.i
 
 if.else77.i:                                      ; preds = %if.else69.i
-  %call78.i = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e.1.i, ptr noundef %retval.0.i39.i, ptr noundef %spec.store.select.i, i32 noundef 0) #4
+  %call78.i = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e.2.i, ptr noundef %retval.0.i39.i, ptr noundef %spec.store.select.i, i32 noundef 0) #4
   %tobool79.not.i = icmp eq i32 %call78.i, 0
   br i1 %tobool79.not.i, label %if.else99.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else77.i, %if.then72.i, %lor.lhs.false.i.i, %if.end57.i, %if.end30.i, %if.else.i, %for.body.i
   %name.addr.1.i = phi ptr [ %name.addr.086.i, %if.end30.i ], [ %name.addr.086.i, %if.then72.i ], [ %name.addr.086.i, %if.else77.i ], [ %3, %for.body.i ], [ %name.addr.086.i, %if.else.i ], [ %name.addr.086.i, %if.end57.i ], [ %name.addr.086.i, %lor.lhs.false.i.i ]
-  %e.2.i = phi ptr [ %call19.i, %if.end30.i ], [ %e.1.i, %if.then72.i ], [ %e.1.i, %if.else77.i ], [ %e.087.i, %for.body.i ], [ %e.087.i, %if.else.i ], [ %e.1.i, %if.end57.i ], [ %e.1.i, %lor.lhs.false.i.i ]
+  %e.3.i = phi ptr [ %call19.i, %if.end30.i ], [ %e.2.i, %if.then72.i ], [ %e.2.i, %if.else77.i ], [ %e.087.i, %for.body.i ], [ %e.087.i, %if.else.i ], [ %e.2.i, %if.end57.i ], [ %e.2.i, %lor.lhs.false.i.i ]
   %soft.1.i = phi i32 [ %soft.088.i, %if.end30.i ], [ %soft.088.i, %if.then72.i ], [ %soft.088.i, %if.else77.i ], [ %soft.088.i, %for.body.i ], [ 1, %if.else.i ], [ %soft.088.i, %if.end57.i ], [ %soft.088.i, %lor.lhs.false.i.i ]
   %inc.i = add nuw nsw i32 %i.085.i, 1
   %call3.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1.i) #4
@@ -227,14 +227,14 @@ for.inc.i:                                        ; preds = %if.else77.i, %if.th
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i
-  %tobool87.i = icmp ne ptr %e.2.i, null
+  %tobool87.i = icmp ne ptr %e.3.i, null
   %7 = load i64, ptr %do_init.i, align 8
   %cmp89.i = icmp eq i64 %7, -1
   %or.cond1.i = select i1 %tobool87.i, i1 %cmp89.i, i1 false
   br i1 %or.cond1.i, label %land.lhs.true90.i, label %int_engine_configure.exit.thread12
 
 land.lhs.true90.i:                                ; preds = %for.end.i
-  %call.i42.i = call i32 @ENGINE_init(ptr noundef nonnull %e.2.i) #4
+  %call.i42.i = call i32 @ENGINE_init(ptr noundef nonnull %e.3.i) #4
   %tobool.not.i43.i = icmp eq i32 %call.i42.i, 0
   br i1 %tobool.not.i43.i, label %if.then98.i, label %if.end.i44.i
 
@@ -251,12 +251,12 @@ if.end4.i52.i:                                    ; preds = %if.end.i44.i
 
 lor.lhs.false.i46.i:                              ; preds = %if.end4.i52.i, %if.end.i44.i
   %9 = phi ptr [ %call.i.i53.i, %if.end4.i52.i ], [ %8, %if.end.i44.i ]
-  %call.i3.i47.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %9, ptr noundef nonnull %e.2.i) #4
+  %call.i3.i47.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %9, ptr noundef nonnull %e.3.i) #4
   %tobool7.not.i48.i = icmp eq i32 %call.i3.i47.i, 0
   br i1 %tobool7.not.i48.i, label %if.then8.i50.i, label %int_engine_configure.exit.thread12
 
 if.then8.i50.i:                                   ; preds = %lor.lhs.false.i46.i, %if.end4.i52.i
-  %call9.i51.i = call i32 @ENGINE_finish(ptr noundef nonnull %e.2.i) #4
+  %call9.i51.i = call i32 @ENGINE_finish(ptr noundef nonnull %e.3.i) #4
   br label %if.then98.i
 
 if.then98.i:                                      ; preds = %land.lhs.true90.i, %if.then8.i50.i
@@ -266,7 +266,7 @@ if.then98.i:                                      ; preds = %land.lhs.true90.i, 
   br label %int_engine_configure.exit
 
 if.else99.i:                                      ; preds = %if.then18.i, %if.end22.i, %if.end26.i, %if.end30.i, %if.end42.i, %if.then53.i, %if.then59.i, %if.then72.i, %if.else77.i, %if.then66.i, %if.then8.i.i
-  %e.3.ph.ph.i = phi ptr [ %e.1.i, %if.then66.i ], [ %e.1.i, %if.then8.i.i ], [ %call19.i, %if.end30.i ], [ %call19.i, %if.end26.i ], [ %call19.i, %if.end22.i ], [ null, %if.then18.i ], [ %e.1.i, %if.then53.i ], [ %e.1.i, %if.then72.i ], [ %e.1.i, %if.else77.i ], [ null, %if.end42.i ], [ %e.1.i, %if.then59.i ]
+  %e.1.ph.ph.i = phi ptr [ %e.2.i, %if.then66.i ], [ %e.2.i, %if.then8.i.i ], [ %call19.i, %if.end30.i ], [ %call19.i, %if.end26.i ], [ %call19.i, %if.end22.i ], [ null, %if.then18.i ], [ %e.2.i, %if.then53.i ], [ %e.2.i, %if.then72.i ], [ %e.2.i, %if.else77.i ], [ null, %if.end42.i ], [ %e.2.i, %if.then59.i ]
   %value8.i60 = getelementptr inbounds i8, ptr %call5.i, i64 16
   %name6.i65 = getelementptr inbounds i8, ptr %call5.i, i64 8
   call void @ERR_new() #4
@@ -278,14 +278,14 @@ if.else99.i:                                      ; preds = %if.then18.i, %if.en
   br label %int_engine_configure.exit
 
 int_engine_configure.exit.thread12:               ; preds = %lor.lhs.false.i46.i, %for.end.i, %for.cond.preheader.i
-  %e.368.i.ph = phi ptr [ null, %for.cond.preheader.i ], [ %e.2.i, %for.end.i ], [ %e.2.i, %lor.lhs.false.i46.i ]
-  %call104.i15 = call i32 @ENGINE_free(ptr noundef %e.368.i.ph) #4
+  %e.168.i.ph = phi ptr [ null, %for.cond.preheader.i ], [ %e.3.i, %for.end.i ], [ %e.3.i, %lor.lhs.false.i46.i ]
+  %call104.i15 = call i32 @ENGINE_free(ptr noundef %e.168.i.ph) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %do_init.i)
   br label %for.inc
 
 int_engine_configure.exit:                        ; preds = %if.then98.i, %if.else99.i
-  %e.368.i = phi ptr [ %e.2.i, %if.then98.i ], [ %e.3.ph.ph.i, %if.else99.i ]
-  %call104.i = call i32 @ENGINE_free(ptr noundef %e.368.i) #4
+  %e.168.i = phi ptr [ %e.3.i, %if.then98.i ], [ %e.1.ph.ph.i, %if.else99.i ]
+  %call104.i = call i32 @ENGINE_free(ptr noundef %e.168.i) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %do_init.i)
   br label %return
 

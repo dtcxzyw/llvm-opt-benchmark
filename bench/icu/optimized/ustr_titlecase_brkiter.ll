@@ -349,7 +349,7 @@ sw.default:                                       ; preds = %if.then5
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %new.cont, %if.then13, %sw.default, %invoke.cont22, %invoke.cont
-  %iter.addr.0 = phi ptr [ null, %sw.default ], [ %call23, %invoke.cont22 ], [ null, %if.then13 ], [ %call9, %new.cont ], [ %call7, %invoke.cont ]
+  %iter.addr.1 = phi ptr [ null, %sw.default ], [ %call23, %invoke.cont22 ], [ null, %if.then13 ], [ %call9, %new.cont ], [ %call7, %invoke.cont ]
   %4 = load ptr, ptr %ownedIter, align 8
   %isnull.i = icmp eq ptr %4, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit, label %delete.notnull.i
@@ -362,11 +362,11 @@ delete.notnull.i:                                 ; preds = %sw.epilog
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit
 
 _ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit: ; preds = %sw.epilog, %delete.notnull.i
-  store ptr %iter.addr.0, ptr %ownedIter, align 8
+  store ptr %iter.addr.1, ptr %ownedIter, align 8
   br label %return
 
 return:                                           ; preds = %if.end3, %_ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit, %entry, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %entry ], [ %iter.addr.0, %_ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit ], [ %iter, %if.end3 ]
+  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %entry ], [ %iter.addr.1, %_ZN6icu_7512LocalPointerINS_13BreakIteratorEE12adoptInsteadEPS1_.exit ], [ %iter, %if.end3 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad10, %lpad21, %lpad
@@ -536,7 +536,7 @@ invoke.cont:                                      ; preds = %if.then5.i
 
 if.end:                                           ; preds = %invoke.cont.thread20, %invoke.cont
   %retval.0.i25 = phi ptr [ %titleIter, %invoke.cont.thread20 ], [ %call7.i, %invoke.cont ]
-  %ownedIter.sroa.0.024 = phi ptr [ null, %invoke.cont.thread20 ], [ %call7.i, %invoke.cont ]
+  %ownedIter.sroa.0.124 = phi ptr [ null, %invoke.cont.thread20 ], [ %call7.i, %invoke.cont ]
   %srcLength.lobit = lshr i32 %srcLength, 31
   %conv = trunc nuw nsw i32 %srcLength.lobit to i8
   store ptr %src, ptr %agg.tmp, align 8
@@ -575,14 +575,14 @@ lpad5:                                            ; preds = %invoke.cont7, %invo
 
 cleanup:                                          ; preds = %invoke.cont7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #10
-  %isnull.i = icmp eq ptr %ownedIter.sroa.0.024, null
+  %isnull.i = icmp eq ptr %ownedIter.sroa.0.124, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup
-  %vtable.i = load ptr, ptr %ownedIter.sroa.0.024, align 8
+  %vtable.i = load ptr, ptr %ownedIter.sroa.0.124, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(479) %ownedIter.sroa.0.024) #10
+  call void %7(ptr noundef nonnull align 8 dereferenceable(479) %ownedIter.sroa.0.124) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %invoke.cont.thread, %invoke.cont, %cleanup, %delete.notnull.i
@@ -591,14 +591,14 @@ _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit: ; preds = %invoke.cont.t
 
 ehcleanup:                                        ; preds = %lpad5, %lpad3
   %.pn = phi { ptr, i32 } [ %6, %lpad5 ], [ %4, %lpad3 ]
-  %isnull.i9 = icmp eq ptr %ownedIter.sroa.0.024, null
+  %isnull.i9 = icmp eq ptr %ownedIter.sroa.0.124, null
   br i1 %isnull.i9, label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit13, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %ehcleanup
-  %vtable.i11 = load ptr, ptr %ownedIter.sroa.0.024, align 8
+  %vtable.i11 = load ptr, ptr %ownedIter.sroa.0.124, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 8
   %8 = load ptr, ptr %vfn.i12, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(479) %ownedIter.sroa.0.024) #10
+  call void %8(ptr noundef nonnull align 8 dereferenceable(479) %ownedIter.sroa.0.124) #10
   br label %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit13
 
 _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit13: ; preds = %lpad.i, %ehcleanup, %delete.notnull.i10
@@ -709,8 +709,8 @@ lpad15:                                           ; preds = %invoke.cont16, %inv
   br label %eh.resume
 
 return:                                           ; preds = %delete.notnull.i15, %cleanup, %entry, %invoke.cont19
-  %retval.1 = phi i32 [ %call20, %invoke.cont19 ], [ 0, %entry ], [ 0, %cleanup ], [ 0, %delete.notnull.i15 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call20, %invoke.cont19 ], [ 0, %entry ], [ 0, %cleanup ], [ 0, %delete.notnull.i15 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %delete.notnull.i, %lpad, %lpad15, %lpad12
   %.pn = phi { ptr, i32 } [ %15, %lpad15 ], [ %13, %lpad12 ], [ %3, %lpad ], [ %3, %delete.notnull.i ]

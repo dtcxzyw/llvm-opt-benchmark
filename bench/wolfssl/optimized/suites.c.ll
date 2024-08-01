@@ -424,8 +424,8 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %18 = phi ptr [ %call46, %land.rhs.lr.ph ], [ %24, %if.end190 ]
   %lastChar.097 = phi i8 [ 0, %land.rhs.lr.ph ], [ %19, %if.end190 ]
   %cliMode.096 = phi i32 [ 0, %land.rhs.lr.ph ], [ %cliMode.3, %if.end190 ]
-  %cliArgsSz.095 = phi i32 [ 1, %land.rhs.lr.ph ], [ %cliArgsSz.5, %if.end190 ]
-  %svrArgsSz.094 = phi i32 [ 1, %land.rhs.lr.ph ], [ %svrArgsSz.5, %if.end190 ]
+  %cliArgsSz.095 = phi i32 [ 1, %land.rhs.lr.ph ], [ %cliArgsSz.3, %if.end190 ]
+  %svrArgsSz.094 = phi i32 [ 1, %land.rhs.lr.ph ], [ %svrArgsSz.3, %if.end190 ]
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %sw.default [
     i8 0, label %while.end
@@ -475,8 +475,8 @@ if.else92:                                        ; preds = %sw.default
 if.end97:                                         ; preds = %if.else92, %if.then89
   %svrArgsSz.094.sink = phi i32 [ %svrArgsSz.094, %if.else92 ], [ %cliArgsSz.095, %if.then89 ]
   %svrArgs.sink = phi ptr [ %svrArgs, %if.else92 ], [ %cliArgs, %if.then89 ]
-  %svrArgsSz.1 = phi i32 [ %inc94, %if.else92 ], [ %svrArgsSz.094, %if.then89 ]
-  %cliArgsSz.1 = phi i32 [ %cliArgsSz.095, %if.else92 ], [ %inc, %if.then89 ]
+  %svrArgsSz.2 = phi i32 [ %inc94, %if.else92 ], [ %svrArgsSz.094, %if.then89 ]
+  %cliArgsSz.2 = phi i32 [ %cliArgsSz.095, %if.else92 ], [ %inc, %if.then89 ]
   %idxprom95 = sext i32 %svrArgsSz.094.sink to i64
   %arrayidx96 = getelementptr inbounds [40 x ptr], ptr %svrArgs.sink, i64 0, i64 %idxprom95
   store ptr %call93, ptr %arrayidx96, align 8
@@ -490,24 +490,24 @@ lor.lhs.false100:                                 ; preds = %if.end97
   br i1 %cmp102, label %sw.epilog.thread, label %sw.epilog
 
 sw.epilog:                                        ; preds = %lor.lhs.false100, %sw.bb85, %if.end84
-  %svrArgsSz.2 = phi i32 [ %svrArgsSz.1, %lor.lhs.false100 ], [ %svrArgsSz.094, %sw.bb85 ], [ %svrArgsSz.094, %if.end84 ]
-  %cliArgsSz.2 = phi i32 [ %cliArgsSz.1, %lor.lhs.false100 ], [ %cliArgsSz.095, %sw.bb85 ], [ %cliArgsSz.095, %if.end84 ]
+  %svrArgsSz.1 = phi i32 [ %svrArgsSz.2, %lor.lhs.false100 ], [ %svrArgsSz.094, %sw.bb85 ], [ %svrArgsSz.094, %if.end84 ]
+  %cliArgsSz.1 = phi i32 [ %cliArgsSz.2, %lor.lhs.false100 ], [ %cliArgsSz.095, %sw.bb85 ], [ %cliArgsSz.095, %if.end84 ]
   %cliMode.2 = phi i32 [ %cliMode.096, %lor.lhs.false100 ], [ %cliMode.096, %sw.bb85 ], [ %cliMode.1, %if.end84 ]
   %do_it.2 = phi i32 [ 0, %lor.lhs.false100 ], [ 0, %sw.bb85 ], [ %do_it.1, %if.end84 ]
-  %cmp106 = icmp eq i32 %svrArgsSz.2, 40
-  %cmp109 = icmp eq i32 %cliArgsSz.2, 40
+  %cmp106 = icmp eq i32 %svrArgsSz.1, 40
+  %cmp109 = icmp eq i32 %cliArgsSz.1, 40
   %or.cond1 = select i1 %cmp106, i1 true, i1 %cmp109
   br i1 %or.cond1, label %if.end113.thread, label %if.end113
 
 sw.epilog.thread:                                 ; preds = %if.end97, %lor.lhs.false100
-  %cmp106108 = icmp eq i32 %svrArgsSz.1, 40
-  %cmp109109 = icmp eq i32 %cliArgsSz.1, 40
+  %cmp106108 = icmp eq i32 %svrArgsSz.2, 40
+  %cmp109109 = icmp eq i32 %cliArgsSz.2, 40
   %or.cond1110 = select i1 %cmp106108, i1 true, i1 %cmp109109
   br i1 %or.cond1110, label %if.end113.thread, label %if.then115
 
 if.end113.thread:                                 ; preds = %sw.epilog.thread, %sw.epilog
-  %cliArgsSz.2116 = phi i32 [ %cliArgsSz.1, %sw.epilog.thread ], [ %cliArgsSz.2, %sw.epilog ]
-  %svrArgsSz.2113 = phi i32 [ %svrArgsSz.1, %sw.epilog.thread ], [ %svrArgsSz.2, %sw.epilog ]
+  %cliArgsSz.1116 = phi i32 [ %cliArgsSz.2, %sw.epilog.thread ], [ %cliArgsSz.1, %sw.epilog ]
+  %svrArgsSz.1113 = phi i32 [ %svrArgsSz.2, %sw.epilog.thread ], [ %svrArgsSz.1, %sw.epilog ]
   %22 = load ptr, ptr @stderr, align 8
   %23 = call i64 @fwrite(ptr nonnull @.str.38, i64 37, i64 1, ptr %22) #17
   br label %if.then115
@@ -517,10 +517,10 @@ if.end113:                                        ; preds = %sw.epilog
   br i1 %tobool114.not, label %if.end190, label %if.then115
 
 if.then115:                                       ; preds = %sw.epilog.thread, %if.end113.thread, %if.end113
-  %cliArgsSz.2114 = phi i32 [ %cliArgsSz.2116, %if.end113.thread ], [ %cliArgsSz.2, %if.end113 ], [ %cliArgsSz.1, %sw.epilog.thread ]
-  %svrArgsSz.2111 = phi i32 [ %svrArgsSz.2113, %if.end113.thread ], [ %svrArgsSz.2, %if.end113 ], [ %svrArgsSz.1, %sw.epilog.thread ]
-  %cmp117 = icmp slt i32 %cliArgsSz.2114, 38
-  %cmp121 = icmp slt i32 %svrArgsSz.2111, 38
+  %cliArgsSz.1114 = phi i32 [ %cliArgsSz.1116, %if.end113.thread ], [ %cliArgsSz.1, %if.end113 ], [ %cliArgsSz.2, %sw.epilog.thread ]
+  %svrArgsSz.1111 = phi i32 [ %svrArgsSz.1113, %if.end113.thread ], [ %svrArgsSz.1, %if.end113 ], [ %svrArgsSz.2, %sw.epilog.thread ]
+  %cmp117 = icmp slt i32 %cliArgsSz.1114, 38
+  %cmp121 = icmp slt i32 %svrArgsSz.1111, 38
   %or.cond79 = and i1 %cmp121, %cmp117
   br i1 %or.cond79, label %if.then123, label %if.end156
 
@@ -528,11 +528,11 @@ if.then123:                                       ; preds = %if.then115
   br i1 %cmp124, label %if.end137.thread86, label %lor.lhs.false126
 
 if.end137.thread86:                               ; preds = %if.then123
-  %inc13187 = add nsw i32 %cliArgsSz.2114, 1
-  %idxprom13288 = sext i32 %cliArgsSz.2114 to i64
+  %inc13187 = add nsw i32 %cliArgsSz.1114, 1
+  %idxprom13288 = sext i32 %cliArgsSz.1114 to i64
   %arrayidx13389 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom13288
   store ptr @disableDHPrimeTest, ptr %arrayidx13389, align 8
-  %inc13490 = add nsw i32 %svrArgsSz.2111, 1
+  %inc13490 = add nsw i32 %svrArgsSz.1111, 1
   br label %if.end156.sink.split
 
 lor.lhs.false126:                                 ; preds = %if.then123
@@ -541,52 +541,52 @@ lor.lhs.false126:                                 ; preds = %if.then123
   br i1 %cmp128, label %if.end137, label %land.lhs.true139
 
 if.end137:                                        ; preds = %lor.lhs.false126
-  %inc131 = add nsw i32 %cliArgsSz.2114, 1
-  %idxprom132 = sext i32 %cliArgsSz.2114 to i64
+  %inc131 = add nsw i32 %cliArgsSz.1114, 1
+  %idxprom132 = sext i32 %cliArgsSz.1114 to i64
   %arrayidx133 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom132
   store ptr @disableDHPrimeTest, ptr %arrayidx133, align 8
-  %inc134 = add nsw i32 %svrArgsSz.2111, 1
-  %idxprom135 = sext i32 %svrArgsSz.2111 to i64
+  %inc134 = add nsw i32 %svrArgsSz.1111, 1
+  %idxprom135 = sext i32 %svrArgsSz.1111 to i64
   %arrayidx136 = getelementptr inbounds [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom135
   store ptr @disableDHPrimeTest, ptr %arrayidx136, align 8
   br label %land.lhs.true139
 
 land.lhs.true139:                                 ; preds = %lor.lhs.false126, %if.end137
-  %cliArgsSz.385 = phi i32 [ %inc131, %if.end137 ], [ %cliArgsSz.2114, %lor.lhs.false126 ]
-  %svrArgsSz.384 = phi i32 [ %inc134, %if.end137 ], [ %svrArgsSz.2111, %lor.lhs.false126 ]
+  %cliArgsSz.585 = phi i32 [ %inc131, %if.end137 ], [ %cliArgsSz.1114, %lor.lhs.false126 ]
+  %svrArgsSz.584 = phi i32 [ %inc134, %if.end137 ], [ %svrArgsSz.1111, %lor.lhs.false126 ]
   %call140 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %addArgs.0101, ptr noundef nonnull dereferenceable(1) @.str.23) #20
   %tobool141.not = icmp eq ptr %call140, null
   br i1 %tobool141.not, label %if.end156, label %if.then142
 
 if.then142:                                       ; preds = %land.lhs.true139
-  %inc143 = add nsw i32 %cliArgsSz.385, 1
-  %idxprom144 = sext i32 %cliArgsSz.385 to i64
+  %inc143 = add nsw i32 %cliArgsSz.585, 1
+  %idxprom144 = sext i32 %cliArgsSz.585 to i64
   %arrayidx145 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom144
   store ptr @intTestFlag, ptr %arrayidx145, align 8
-  %inc146 = add nsw i32 %cliArgsSz.385, 2
+  %inc146 = add nsw i32 %cliArgsSz.585, 2
   %idxprom147 = sext i32 %inc143 to i64
   %arrayidx148 = getelementptr inbounds [40 x ptr], ptr %cliArgs, i64 0, i64 %idxprom147
   store ptr @exitWithRetFlag, ptr %arrayidx148, align 8
-  %inc149 = add nsw i32 %svrArgsSz.384, 1
-  %idxprom150 = sext i32 %svrArgsSz.384 to i64
+  %inc149 = add nsw i32 %svrArgsSz.584, 1
+  %idxprom150 = sext i32 %svrArgsSz.584 to i64
   %arrayidx151 = getelementptr inbounds [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom150
   store ptr @intTestFlag, ptr %arrayidx151, align 8
-  %inc152 = add nsw i32 %svrArgsSz.384, 2
+  %inc152 = add nsw i32 %svrArgsSz.584, 2
   br label %if.end156.sink.split
 
 if.end156.sink.split:                             ; preds = %if.then142, %if.end137.thread86
-  %svrArgsSz.2111.sink = phi i32 [ %svrArgsSz.2111, %if.end137.thread86 ], [ %inc149, %if.then142 ]
+  %svrArgsSz.1111.sink = phi i32 [ %svrArgsSz.1111, %if.end137.thread86 ], [ %inc149, %if.then142 ]
   %disableDHPrimeTest.sink = phi ptr [ @disableDHPrimeTest, %if.end137.thread86 ], [ @exitWithRetFlag, %if.then142 ]
   %svrArgsSz.4.ph = phi i32 [ %inc13490, %if.end137.thread86 ], [ %inc152, %if.then142 ]
   %cliArgsSz.4.ph = phi i32 [ %inc13187, %if.end137.thread86 ], [ %inc146, %if.then142 ]
-  %idxprom13591 = sext i32 %svrArgsSz.2111.sink to i64
+  %idxprom13591 = sext i32 %svrArgsSz.1111.sink to i64
   %arrayidx13692 = getelementptr inbounds [40 x ptr], ptr %svrArgs, i64 0, i64 %idxprom13591
   store ptr %disableDHPrimeTest.sink, ptr %arrayidx13692, align 8
   br label %if.end156
 
 if.end156:                                        ; preds = %if.end156.sink.split, %land.lhs.true139, %if.then115
-  %svrArgsSz.4 = phi i32 [ %svrArgsSz.384, %land.lhs.true139 ], [ %svrArgsSz.2111, %if.then115 ], [ %svrArgsSz.4.ph, %if.end156.sink.split ]
-  %cliArgsSz.4 = phi i32 [ %cliArgsSz.385, %land.lhs.true139 ], [ %cliArgsSz.2114, %if.then115 ], [ %cliArgsSz.4.ph, %if.end156.sink.split ]
+  %svrArgsSz.4 = phi i32 [ %svrArgsSz.584, %land.lhs.true139 ], [ %svrArgsSz.1111, %if.then115 ], [ %svrArgsSz.4.ph, %if.end156.sink.split ]
+  %cliArgsSz.4 = phi i32 [ %cliArgsSz.585, %land.lhs.true139 ], [ %cliArgsSz.1114, %if.then115 ], [ %cliArgsSz.4.ph, %if.end156.sink.split ]
   %call158 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %cmp159 = icmp eq i32 %call158, 0
   br i1 %cmp159, label %if.then161, label %if.end190
@@ -604,8 +604,8 @@ if.then161:                                       ; preds = %if.end156
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end156, %if.then161, %if.end113
-  %svrArgsSz.5 = phi i32 [ %svrArgsSz.2, %if.end113 ], [ 1, %if.then161 ], [ 1, %if.end156 ]
-  %cliArgsSz.5 = phi i32 [ %cliArgsSz.2, %if.end113 ], [ 1, %if.then161 ], [ 1, %if.end156 ]
+  %svrArgsSz.3 = phi i32 [ %svrArgsSz.1, %if.end113 ], [ 1, %if.then161 ], [ 1, %if.end156 ]
+  %cliArgsSz.3 = phi i32 [ %cliArgsSz.1, %if.end113 ], [ 1, %if.then161 ], [ 1, %if.end156 ]
   %cliMode.3 = phi i32 [ %cliMode.2, %if.end113 ], [ 0, %if.then161 ], [ 0, %if.end156 ]
   %24 = load ptr, ptr %cursor, align 8
   %tobool.not = icmp eq ptr %24, null

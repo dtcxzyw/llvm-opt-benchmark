@@ -1218,7 +1218,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   br label %83
 
 24:                                               ; preds = %80, %9
-  %.sroa.015.0 = phi ptr [ %11, %9 ], [ %.sroa.015.3, %80 ]
+  %.sroa.015.0 = phi ptr [ %11, %9 ], [ %.sroa.015.1, %80 ]
   %.sroa.10.0 = phi i16 [ 0, %9 ], [ %.sroa.10.1, %80 ]
   %.sroa.15.0 = phi ptr [ %3, %9 ], [ %81, %80 ]
   %.0 = phi i64 [ 0, %9 ], [ %82, %80 ]
@@ -1283,13 +1283,13 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   br i1 %65, label %78, label %.thread8.i.i
 
 .thread8.i.i:                                     ; preds = %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i"
-  %.sroa.015.1 = phi ptr [ %56, %54 ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i" ]
+  %.sroa.015.3 = phi ptr [ %56, %54 ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i" ]
   %.sroa.4.0.i.ph10.i.i = phi i32 [ %64, %54 ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i" ]
   %66 = icmp ugt i32 %.sroa.4.0.i.ph10.i.i, 65535
   br i1 %66, label %68, label %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i
 
 _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = %.thread8.i.i, %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit13.i.i.i"
-  %.sroa.015.2 = phi ptr [ %29, %42 ], [ %.sroa.015.1, %.thread8.i.i ], [ %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit13.i.i.i" ]
+  %.sroa.015.2 = phi ptr [ %29, %42 ], [ %.sroa.015.3, %.thread8.i.i ], [ %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit13.i.i.i" ]
   %.sroa.4.0.i.ph1013.i.i = phi i32 [ %43, %42 ], [ %.sroa.4.0.i.ph10.i.i, %.thread8.i.i ], [ %40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit13.i.i.i" ]
   %67 = trunc nuw i32 %.sroa.4.0.i.ph1013.i.i to i16
   br label %76
@@ -1305,9 +1305,9 @@ _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = 
   br label %76
 
 76:                                               ; preds = %24, %68, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i
-  %.sroa.015.3 = phi ptr [ %.sroa.015.2, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %.sroa.015.1, %68 ], [ %.sroa.015.0, %24 ]
+  %.sroa.015.1 = phi ptr [ %.sroa.015.2, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %.sroa.015.3, %68 ], [ %.sroa.015.0, %24 ]
   %.sroa.10.1 = phi i16 [ 0, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %75, %68 ], [ 0, %24 ]
-  %.sroa.4.1.i.ph.i = phi i16 [ %67, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %72, %68 ], [ %.sroa.10.0, %24 ]
+  %.sroa.4.0.i.ph.i = phi i16 [ %67, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %72, %68 ], [ %.sroa.10.0, %24 ]
   %77 = icmp eq ptr %.sroa.15.0, %15
   br i1 %77, label %78, label %80
 
@@ -1319,7 +1319,7 @@ _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = 
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %.sroa.15.0, i64 2
-  store i16 %.sroa.4.1.i.ph.i, ptr %.sroa.15.0, align 2
+  store i16 %.sroa.4.0.i.ph.i, ptr %.sroa.15.0, align 2
   %82 = add nuw i64 %.0, 1
   br label %24
 

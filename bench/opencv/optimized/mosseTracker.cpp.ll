@@ -1596,8 +1596,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit64:               ; preds = %140
   resume { ptr, i32 } %.pn58.pn.pn
 
 197:                                              ; preds = %3, %195
-  %.1 = phi i1 [ %65, %195 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %65, %195 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 declare void @_ZN2cv6legacy8tracking7TrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #0

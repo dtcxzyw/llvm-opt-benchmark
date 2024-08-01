@@ -749,8 +749,8 @@ if.else:                                          ; preds = %sd_set_mode.exit
   br label %if.end52
 
 if.end52:                                         ; preds = %sw.default96.i, %if.then.i48, %if.else
-  %rtype.0 = phi i32 [ %call51, %if.else ], [ %call11.i, %if.then.i48 ], [ %call98.i, %sw.default96.i ]
-  %cmp53 = icmp eq i32 %rtype.0, -2
+  %rtype.1 = phi i32 [ %call51, %if.else ], [ %call11.i, %if.then.i48 ], [ %call98.i, %sw.default96.i ]
+  %cmp53 = icmp eq i32 %rtype.1, -2
   br i1 %cmp53, label %if.then55, label %send_response
 
 if.then55.sink.split:                             ; preds = %do.body100.i, %do.body.i
@@ -795,7 +795,7 @@ send_response:                                    ; preds = %if.end52
   %shl = shl i32 %17, 9
   %or63 = or i32 %and61, %shl
   store i32 %or63, ptr %card_status22, align 4
-  switch i32 %rtype.0, label %do.body72 [
+  switch i32 %rtype.1, label %do.body72 [
     i32 1, label %if.end.i59
     i32 -1, label %if.end.i59
     i32 2, label %sw.bb65
@@ -861,18 +861,18 @@ do.body72:                                        ; preds = %send_response
 
 if.end.i59:                                       ; preds = %send_response, %send_response, %send_response.thread85
   %70 = phi i32 [ %or6390, %send_response.thread85 ], [ %or63, %send_response ], [ %or63, %send_response ]
-  %rtype.06992 = phi i32 [ 1, %send_response.thread85 ], [ %rtype.0, %send_response ], [ %rtype.0, %send_response ]
-  %rtype.06992.fr = freeze i32 %rtype.06992
+  %rtype.16992 = phi i32 [ 1, %send_response.thread85 ], [ %rtype.1, %send_response ], [ %rtype.1, %send_response ]
+  %rtype.16992.fr = freeze i32 %rtype.16992
   %71 = tail call i32 @llvm.bswap.i32(i32 %70)
   store i32 %71, ptr %response, align 1
   %72 = load i32, ptr %card_status22, align 4
   %and.i52 = and i32 %72, 46555095
   store i32 %and.i52, ptr %card_status22, align 4
-  %cmp1.i = icmp eq i32 %rtype.06992.fr, -1
+  %cmp1.i = icmp eq i32 %rtype.16992.fr, -1
   br i1 %cmp1.i, label %if.end7.i, label %73
 
 73:                                               ; preds = %if.end.i59
-  %cmp4.i = icmp ult i32 %rtype.06992.fr, 8
+  %cmp4.i = icmp ult i32 %rtype.16992.fr, 8
   br i1 %cmp4.i, label %if.end7.i, label %if.else.i60
 
 if.else.i60:                                      ; preds = %73
@@ -880,8 +880,8 @@ if.else.i60:                                      ; preds = %73
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i59, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb66, %sw.bb65, %send_response, %73
-  %74 = phi i32 [ %rtype.06992.fr, %73 ], [ 7, %sw.bb70 ], [ 6, %sw.bb69 ], [ 4, %sw.bb68 ], [ 3, %sw.bb66 ], [ 2, %sw.bb65 ], [ %rtype.0, %send_response ], [ 1, %if.end.i59 ]
-  %rsplen.0.ph108111 = phi i32 [ 4, %73 ], [ 4, %sw.bb70 ], [ 4, %sw.bb69 ], [ 4, %sw.bb68 ], [ 16, %sw.bb66 ], [ 16, %sw.bb65 ], [ %rtype.0, %send_response ], [ 4, %if.end.i59 ]
+  %74 = phi i32 [ %rtype.16992.fr, %73 ], [ 7, %sw.bb70 ], [ 6, %sw.bb69 ], [ 4, %sw.bb68 ], [ 3, %sw.bb66 ], [ 2, %sw.bb65 ], [ %rtype.1, %send_response ], [ 1, %if.end.i59 ]
+  %rsplen.0.ph108111 = phi i32 [ 4, %73 ], [ 4, %sw.bb70 ], [ 4, %sw.bb69 ], [ 4, %sw.bb68 ], [ 16, %sw.bb66 ], [ 16, %sw.bb65 ], [ %rtype.1, %send_response ], [ 4, %if.end.i59 ]
   %conv.i61 = zext nneg i32 %74 to i64
   %arrayidx.i62 = getelementptr [8 x ptr], ptr @sd_response_name.response_name, i64 0, i64 %conv.i61
   %75 = load ptr, ptr %arrayidx.i62, align 8

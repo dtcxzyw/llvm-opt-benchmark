@@ -2550,8 +2550,8 @@ for.body75.preheader:                             ; preds = %if.end68
   br label %for.body75
 
 for.body75:                                       ; preds = %for.body75.preheader, %for.inc140
-  %uiIdxCount.0119 = phi i32 [ %uiIdxCount.3, %for.inc140 ], [ 0, %for.body75.preheader ]
-  %outIndex.0118 = phi i32 [ %outIndex.3, %for.inc140 ], [ 0, %for.body75.preheader ]
+  %uiIdxCount.1119 = phi i32 [ %uiIdxCount.3, %for.inc140 ], [ 0, %for.body75.preheader ]
+  %outIndex.0118 = phi i32 [ %outIndex.2, %for.inc140 ], [ 0, %for.body75.preheader ]
   %__begin2.sroa.0.0117 = phi ptr [ %incdec.ptr.i, %for.inc140 ], [ %30, %for.body75.preheader ]
   %32 = load ptr, ptr %__begin2.sroa.0.0117, align 8
   %33 = load i32, ptr %32, align 8
@@ -2580,7 +2580,7 @@ for.cond81.preheader:                             ; preds = %for.body75
   br i1 %cmp85110.not, label %for.inc140, label %for.body86
 
 for.body86:                                       ; preds = %for.cond81.preheader, %invoke.cont91
-  %uiIdxCount.1113 = phi i32 [ %add90, %invoke.cont91 ], [ %uiIdxCount.0119, %for.cond81.preheader ]
+  %uiIdxCount.2113 = phi i32 [ %add90, %invoke.cont91 ], [ %uiIdxCount.1119, %for.cond81.preheader ]
   %outIndex.1112 = phi i32 [ %inc89, %invoke.cont91 ], [ %outIndex.0118, %for.cond81.preheader ]
   %i.0111 = phi i64 [ %inc94, %invoke.cont91 ], [ 0, %for.cond81.preheader ]
   %38 = load ptr, ptr %mFaces88, align 8
@@ -2591,7 +2591,7 @@ for.body86:                                       ; preds = %for.cond81.preheade
           to label %invoke.cont91 unwind label %lpad.loopexit
 
 invoke.cont91:                                    ; preds = %for.body86
-  %add90 = add i32 %uiIdxCount.1113, 2
+  %add90 = add i32 %uiIdxCount.2113, 2
   %inc89 = add i32 %outIndex.1112, 1
   %mIndices = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call92, ptr %mIndices, align 8
@@ -2607,19 +2607,19 @@ invoke.cont91:                                    ; preds = %for.body86
   br i1 %cmp85, label %for.body86, label %for.inc140, !llvm.loop !17
 
 for.body105:                                      ; preds = %for.cond101.preheader, %invoke.cont114
-  %uiIdxCount.2103 = phi i32 [ %add113, %invoke.cont114 ], [ %uiIdxCount.0119, %for.cond101.preheader ]
+  %uiIdxCount.4103 = phi i32 [ %add113, %invoke.cont114 ], [ %uiIdxCount.1119, %for.cond101.preheader ]
   %i100.0102 = phi i64 [ %inc118, %invoke.cont114 ], [ 0, %for.cond101.preheader ]
-  %outIndex.2101 = phi i32 [ %inc109, %invoke.cont114 ], [ %outIndex.0118, %for.cond101.preheader ]
+  %outIndex.3101 = phi i32 [ %inc109, %invoke.cont114 ], [ %outIndex.0118, %for.cond101.preheader ]
   %41 = load ptr, ptr %mFaces108, align 8
-  %idxprom110 = zext i32 %outIndex.2101 to i64
+  %idxprom110 = zext i32 %outIndex.3101 to i64
   %arrayidx111 = getelementptr inbounds %struct.aiFace, ptr %41, i64 %idxprom110
   store i32 1, ptr %arrayidx111, align 8
   %call115 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #21
           to label %invoke.cont114 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont114:                                   ; preds = %for.body105
-  %add113 = add i32 %uiIdxCount.2103, 1
-  %inc109 = add i32 %outIndex.2101, 1
+  %add113 = add i32 %uiIdxCount.4103, 1
+  %inc109 = add i32 %outIndex.3101, 1
   %mIndices116 = getelementptr inbounds i8, ptr %arrayidx111, i64 8
   store ptr %call115, ptr %mIndices116, align 8
   %inc118 = add nuw i64 %i100.0102, 1
@@ -2647,7 +2647,7 @@ if.end121:                                        ; preds = %for.body75
   %sub.ptr.div.i70 = lshr exact i64 %sub.ptr.sub.i69, 2
   %conv129 = trunc i64 %sub.ptr.div.i70 to i32
   store i32 %conv129, ptr %arrayidx126, align 8
-  %add131 = add i32 %uiIdxCount.0119, %conv129
+  %add131 = add i32 %uiIdxCount.1119, %conv129
   %cmp133.not = icmp eq i32 %conv129, 0
   br i1 %cmp133.not, label %for.inc140, label %if.then134
 
@@ -2662,15 +2662,15 @@ invoke.cont136:                                   ; preds = %if.then134
   br label %for.inc140
 
 for.inc140:                                       ; preds = %invoke.cont114, %invoke.cont91, %for.cond101.preheader, %for.cond81.preheader, %if.end121, %invoke.cont136
-  %outIndex.3 = phi i32 [ %inc124, %invoke.cont136 ], [ %inc124, %if.end121 ], [ %outIndex.0118, %for.cond81.preheader ], [ %outIndex.0118, %for.cond101.preheader ], [ %inc89, %invoke.cont91 ], [ %inc109, %invoke.cont114 ]
-  %uiIdxCount.3 = phi i32 [ %add131, %invoke.cont136 ], [ %add131, %if.end121 ], [ %uiIdxCount.0119, %for.cond81.preheader ], [ %uiIdxCount.0119, %for.cond101.preheader ], [ %add90, %invoke.cont91 ], [ %add113, %invoke.cont114 ]
+  %outIndex.2 = phi i32 [ %inc124, %invoke.cont136 ], [ %inc124, %if.end121 ], [ %outIndex.0118, %for.cond81.preheader ], [ %outIndex.0118, %for.cond101.preheader ], [ %inc89, %invoke.cont91 ], [ %inc109, %invoke.cont114 ]
+  %uiIdxCount.3 = phi i32 [ %add131, %invoke.cont136 ], [ %add131, %if.end121 ], [ %uiIdxCount.1119, %for.cond81.preheader ], [ %uiIdxCount.1119, %for.cond101.preheader ], [ %add90, %invoke.cont91 ], [ %add113, %invoke.cont114 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0117, i64 8
   %cmp.i55.not = icmp eq ptr %incdec.ptr.i, %31
   br i1 %cmp.i55.not, label %if.end143, label %for.body75
 
 if.end143:                                        ; preds = %for.inc140, %if.end68, %for.end
-  %uiIdxCount.4 = phi i32 [ 0, %for.end ], [ 0, %if.end68 ], [ %uiIdxCount.3, %for.inc140 ]
-  invoke void @_ZN6Assimp15ObjFileImporter17createVertexArrayEPKNS_7ObjFile5ModelEPKNS1_6ObjectEjP6aiMeshj(ptr nonnull align 8 poison, ptr noundef %pModel, ptr noundef nonnull %pData, i32 noundef %meshIndex, ptr noundef nonnull %call7, i32 noundef %uiIdxCount.4)
+  %uiIdxCount.0 = phi i32 [ 0, %for.end ], [ 0, %if.end68 ], [ %uiIdxCount.3, %for.inc140 ]
+  invoke void @_ZN6Assimp15ObjFileImporter17createVertexArrayEPKNS_7ObjFile5ModelEPKNS1_6ObjectEjP6aiMeshj(ptr nonnull align 8 poison, ptr noundef %pModel, ptr noundef nonnull %pData, i32 noundef %meshIndex, ptr noundef nonnull %call7, i32 noundef %uiIdxCount.0)
           to label %return unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 return:                                           ; preds = %if.end143, %if.end3, %if.end, %entry
@@ -3180,7 +3180,7 @@ _ZNSt6vectorIjSaIjEE2atEm.exit:                   ; preds = %_ZNSt6vectorIjSaIjE
   %normalsok.1222 = phi i8 [ %normalsok.0231, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %normalsok.2, %if.end252 ]
   %uvok.1221 = phi i8 [ %uvok.0230, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %uvok.2, %if.end252 ]
   %newIndex.1220 = phi i32 [ %newIndex.0229, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %inc253, %if.end252 ]
-  %outIndex.1219 = phi i32 [ %outIndex.0228, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %outIndex.3, %if.end252 ]
+  %outIndex.1219 = phi i32 [ %outIndex.0228, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %outIndex.2, %if.end252 ]
   %vertexIndex.0218 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %inc255, %if.end252 ]
   %outVertexIndex.0217 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit.lr.ph ], [ %outVertexIndex.2, %if.end252 ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %27, i64 %vertexIndex.0218
@@ -3463,11 +3463,11 @@ for.body228:                                      ; preds = %_ZNK6aiMesh16GetNum
   br label %for.cond224, !llvm.loop !26
 
 if.end241:                                        ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit, %if.end220, %if.then190
-  %newIndex.2 = phi i32 [ %newIndex.1220, %if.then190 ], [ %add, %if.end220 ], [ %add, %_ZNK6aiMesh16GetNumUVChannelsEv.exit ]
+  %newIndex.3 = phi i32 [ %newIndex.1220, %if.then190 ], [ %add, %if.end220 ], [ %add, %_ZNK6aiMesh16GetNumUVChannelsEv.exit ]
   %mIndices243 = getelementptr inbounds i8, ptr %arrayidx167, i64 -8
   %71 = load ptr, ptr %mIndices243, align 8
   %arrayidx244 = getelementptr inbounds i8, ptr %71, i64 4
-  store i32 %newIndex.2, ptr %arrayidx244, align 4
+  store i32 %newIndex.3, ptr %arrayidx244, align 4
   br label %if.end252
 
 if.else246:                                       ; preds = %if.end176
@@ -3479,9 +3479,9 @@ if.else246:                                       ; preds = %if.end176
 
 if.end252:                                        ; preds = %if.else246, %if.end241, %if.then184, %if.then179
   %outVertexIndex.2 = phi i64 [ 0, %if.then179 ], [ 0, %if.end241 ], [ 0, %if.then184 ], [ %inc, %if.else246 ]
-  %outIndex.3 = phi i32 [ %inc180, %if.then179 ], [ %spec.select, %if.end241 ], [ %spec.select, %if.then184 ], [ %spec.select110, %if.else246 ]
-  %newIndex.3 = phi i32 [ %newIndex.1220, %if.then179 ], [ %newIndex.2, %if.end241 ], [ %newIndex.1220, %if.then184 ], [ %newIndex.1220, %if.else246 ]
-  %inc253 = add i32 %newIndex.3, 1
+  %outIndex.2 = phi i32 [ %inc180, %if.then179 ], [ %spec.select, %if.end241 ], [ %spec.select, %if.then184 ], [ %spec.select110, %if.else246 ]
+  %newIndex.2 = phi i32 [ %newIndex.1220, %if.then179 ], [ %newIndex.3, %if.end241 ], [ %newIndex.1220, %if.then184 ], [ %newIndex.1220, %if.else246 ]
+  %inc253 = add i32 %newIndex.2, 1
   %inc255 = add nuw i64 %vertexIndex.0218, 1
   %72 = load ptr, ptr %_M_finish.i121, align 8
   %73 = load ptr, ptr %m_vertices, align 8
@@ -3493,7 +3493,7 @@ if.end252:                                        ; preds = %if.else246, %if.end
   br i1 %cmp75, label %_ZNSt6vectorIjSaIjEE2atEm.exit, label %for.inc257, !llvm.loop !27
 
 for.inc257:                                       ; preds = %if.end252, %for.body
-  %outIndex.1.lcssa = phi i32 [ %outIndex.0228, %for.body ], [ %outIndex.3, %if.end252 ]
+  %outIndex.1.lcssa = phi i32 [ %outIndex.0228, %for.body ], [ %outIndex.2, %if.end252 ]
   %newIndex.1.lcssa = phi i32 [ %newIndex.0229, %for.body ], [ %inc253, %if.end252 ]
   %uvok.1.lcssa = phi i8 [ %uvok.0230, %for.body ], [ %uvok.2, %if.end252 ]
   %normalsok.1.lcssa = phi i8 [ %normalsok.0231, %for.body ], [ %normalsok.2, %if.end252 ]

@@ -494,21 +494,21 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 .body56:                                          ; preds = %90, %86, %32
   %.pn.pn = phi { ptr, i32 } [ %87, %86 ], [ %33, %32 ], [ %.pn, %90 ]
   %94 = phi i1 [ false, %86 ], [ false, %32 ], [ true, %90 ]
-  %.1 = phi ptr [ %.0, %86 ], [ %30, %32 ], [ %34, %90 ]
+  %.5 = phi ptr [ %.0, %86 ], [ %30, %32 ], [ %34, %90 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #13
   br label %.body51
 
 .body51:                                          ; preds = %84, %28, %.body56
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body56 ], [ %85, %84 ], [ %29, %28 ]
-  %.17 = phi i1 [ %94, %.body56 ], [ false, %84 ], [ false, %28 ]
-  %.2 = phi ptr [ %.1, %.body56 ], [ %26, %84 ], [ %26, %28 ]
+  %.39 = phi i1 [ %94, %.body56 ], [ false, %84 ], [ false, %28 ]
+  %.4 = phi ptr [ %.5, %.body56 ], [ %26, %84 ], [ %26, %28 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
   br label %.body46
 
 .body46:                                          ; preds = %82, %24, %.body51
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body51 ], [ %83, %82 ], [ %25, %24 ]
-  %.28 = phi i1 [ %.17, %.body51 ], [ false, %82 ], [ false, %24 ]
-  %.3 = phi ptr [ %.2, %.body51 ], [ %22, %82 ], [ %22, %24 ]
+  %.28 = phi i1 [ %.39, %.body51 ], [ false, %82 ], [ false, %24 ]
+  %.3 = phi ptr [ %.4, %.body51 ], [ %22, %82 ], [ %22, %24 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   br label %.body
 
@@ -519,16 +519,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .body:                                            ; preds = %.body46, %20, %80
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body46 ], [ %81, %80 ], [ %21, %20 ]
-  %.39 = phi i1 [ %.28, %.body46 ], [ false, %80 ], [ false, %20 ]
-  %.4 = phi ptr [ %.3, %.body46 ], [ %18, %80 ], [ %18, %20 ]
+  %.17 = phi i1 [ %.28, %.body46 ], [ false, %80 ], [ false, %20 ]
+  %.2 = phi ptr [ %.3, %.body46 ], [ %18, %80 ], [ %18, %20 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
-  %95 = icmp eq ptr %5, %.4
-  %or.cond = select i1 %.39, i1 true, i1 %95
+  %95 = icmp eq ptr %5, %.2
+  %or.cond = select i1 %.17, i1 true, i1 %95
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.body, %.preheader
-  %96 = phi ptr [ %97, %.preheader ], [ %.4, %.body ]
+  %96 = phi ptr [ %97, %.preheader ], [ %.2, %.body ]
   %97 = getelementptr inbounds i8, ptr %96, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #13
   %98 = icmp eq ptr %97, %5

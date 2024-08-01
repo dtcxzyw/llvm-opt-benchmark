@@ -166,9 +166,9 @@ define void @_ZN2cv15NAryMatIterator4initEPPKNS_3MatEPS1_PPhi(ptr nocapture noun
 
 .lr.ph149:                                        ; preds = %51, %144
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %144 ], [ 0, %51 ]
-  %.069146 = phi i32 [ %.271, %144 ], [ -1, %51 ]
-  %.072145 = phi i32 [ %.274, %144 ], [ -1, %51 ]
-  %.075144 = phi i32 [ %.378, %144 ], [ 0, %51 ]
+  %.069146 = phi i32 [ %.170, %144 ], [ -1, %51 ]
+  %.072145 = phi i32 [ %.173, %144 ], [ -1, %51 ]
+  %.075144 = phi i32 [ %.176, %144 ], [ 0, %51 ]
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv167
   %57 = load ptr, ptr %56, align 8
@@ -291,9 +291,9 @@ define void @_ZN2cv15NAryMatIterator4initEPPKNS_3MatEPS1_PPhi(ptr nocapture noun
   br label %.loopexit130
 
 .loopexit130:                                     ; preds = %83, %.loopexit130.loopexit.split.loop.exit184, %72, %84
-  %.277 = phi i32 [ %.075144, %84 ], [ 0, %72 ], [ %100, %.loopexit130.loopexit.split.loop.exit184 ], [ %74, %83 ]
-  %.173 = phi i32 [ %.072145, %84 ], [ %76, %72 ], [ %76, %.loopexit130.loopexit.split.loop.exit184 ], [ %76, %83 ]
-  %.170 = phi i32 [ %.069146, %84 ], [ %74, %72 ], [ %74, %.loopexit130.loopexit.split.loop.exit184 ], [ %74, %83 ]
+  %.378 = phi i32 [ %.075144, %84 ], [ 0, %72 ], [ %100, %.loopexit130.loopexit.split.loop.exit184 ], [ %74, %83 ]
+  %.274 = phi i32 [ %.072145, %84 ], [ %76, %72 ], [ %76, %.loopexit130.loopexit.split.loop.exit184 ], [ %76, %83 ]
+  %.271 = phi i32 [ %.069146, %84 ], [ %74, %72 ], [ %74, %.loopexit130.loopexit.split.loop.exit184 ], [ %74, %83 ]
   %101 = load i32, ptr %57, align 8
   %102 = and i32 %101, 16384
   %.not127 = icmp eq i32 %102, 0
@@ -301,7 +301,7 @@ define void @_ZN2cv15NAryMatIterator4initEPPKNS_3MatEPS1_PPhi(ptr nocapture noun
 
 103:                                              ; preds = %.loopexit130
   %104 = getelementptr inbounds i8, ptr %57, i64 72
-  %105 = add nsw i32 %.170, -1
+  %105 = add nsw i32 %.271, -1
   %106 = load ptr, ptr %104, align 8
   %107 = sext i32 %105 to i64
   %108 = getelementptr inbounds i64, ptr %106, i64 %107
@@ -325,8 +325,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %103, %113
 
 .preheader129:                                    ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
   %120 = getelementptr inbounds i8, ptr %57, i64 64
-  %121 = sext i32 %.277 to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %.277, i32 %105)
+  %121 = sext i32 %.378 to i64
+  %smin = tail call i32 @llvm.smin.i32(i32 %.378, i32 %105)
   br label %130
 
 122:                                              ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
@@ -387,9 +387,9 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %103, %113
   br label %144
 
 144:                                              ; preds = %.loopexit130, %.split.loop.exit186, %._crit_edge180
-  %.378 = phi i32 [ %.277, %.loopexit130 ], [ %.277, %.split.loop.exit186 ], [ %.075144, %._crit_edge180 ]
-  %.274 = phi i32 [ %.173, %.loopexit130 ], [ %.173, %.split.loop.exit186 ], [ %.072145, %._crit_edge180 ]
-  %.271 = phi i32 [ %.170, %.loopexit130 ], [ %.170, %.split.loop.exit186 ], [ %.069146, %._crit_edge180 ]
+  %.176 = phi i32 [ %.378, %.loopexit130 ], [ %.378, %.split.loop.exit186 ], [ %.075144, %._crit_edge180 ]
+  %.173 = phi i32 [ %.274, %.loopexit130 ], [ %.274, %.split.loop.exit186 ], [ %.072145, %._crit_edge180 ]
+  %.170 = phi i32 [ %.271, %.loopexit130 ], [ %.271, %.split.loop.exit186 ], [ %.069146, %._crit_edge180 ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %145 = load i32, ptr %34, align 8
   %146 = sext i32 %145 to i64
@@ -398,13 +398,13 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %103, %113
 
 ._crit_edge:                                      ; preds = %144
   %148 = icmp sgt i32 %145, 0
-  %149 = icmp sgt i32 %.274, -1
+  %149 = icmp sgt i32 %.173, -1
   br i1 %149, label %150, label %._crit_edge.thread
 
 150:                                              ; preds = %._crit_edge
-  %151 = add nsw i32 %.271, -1
+  %151 = add nsw i32 %.170, -1
   %152 = load ptr, ptr %0, align 8
-  %153 = zext nneg i32 %.274 to i64
+  %153 = zext nneg i32 %.173 to i64
   %154 = getelementptr inbounds ptr, ptr %152, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 64
@@ -444,7 +444,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %103, %113
 
 .split.loop.exit189:                              ; preds = %164, %.split.loop.exit188
   %storemerge.lcssa = phi i32 [ %176, %.split.loop.exit188 ], [ %smin172, %164 ]
-  %177 = icmp eq i32 %storemerge.lcssa, %.378
+  %177 = icmp eq i32 %storemerge.lcssa, %.176
   %spec.select = select i1 %177, i32 0, i32 %storemerge.lcssa
   store i32 %spec.select, ptr %53, align 8
   store i64 1, ptr %35, align 8
@@ -1317,11 +1317,11 @@ define void @_ZN2cv16MatConstIterator4seekEPKib(ptr nocapture noundef nonnull al
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.01316 = phi i64 [ 0, %.lr.ph ], [ %31, %23 ]
+  %.116 = phi i64 [ 0, %.lr.ph ], [ %31, %23 ]
   %24 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = mul nsw i64 %.01316, %26
+  %27 = mul nsw i64 %.116, %26
   %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
@@ -1331,8 +1331,8 @@ define void @_ZN2cv16MatConstIterator4seekEPKib(ptr nocapture noundef nonnull al
   br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !19
 
 .loopexit:                                        ; preds = %23, %.preheader, %12, %3
-  %.1 = phi i64 [ %22, %12 ], [ 0, %3 ], [ 0, %.preheader ], [ %31, %23 ]
-  tail call void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.1, i1 noundef zeroext %2)
+  %.013 = phi i64 [ %22, %12 ], [ 0, %3 ], [ 0, %.preheader ], [ %31, %23 ]
+  tail call void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.013, i1 noundef zeroext %2)
   ret void
 }
 

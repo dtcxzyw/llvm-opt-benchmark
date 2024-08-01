@@ -21359,8 +21359,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit
 
 _ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit: ; preds = %entry, %if.then.i.i.i
-  %u.sroa.0.1.i.i.i = phi i64 [ %0, %entry ], [ %call.i1.i.i.i, %if.then.i.i.i ]
-  %cmp2206.not = icmp eq i64 %u.sroa.0.1.i.i.i, 0
+  %u.sroa.0.0.i.i.i = phi i64 [ %0, %entry ], [ %call.i1.i.i.i, %if.then.i.i.i ]
+  %cmp2206.not = icmp eq i64 %u.sroa.0.0.i.i.i, 0
   br i1 %cmp2206.not, label %if.end125, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN4absl7GetFlagIlEET_RKNS_14flags_internal4FlagIS1_EE.exit
@@ -21391,7 +21391,7 @@ for.cond.loopexit:                                ; preds = %for.cond6.for.cond.
   br i1 %1, label %for.body, label %for.end15, !llvm.loop !112
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond.loopexit
-  %limit.0215 = phi i64 [ %limit.1.lcssa, %for.cond.loopexit ], [ %u.sroa.0.1.i.i.i, %for.body.preheader ]
+  %limit.0215 = phi i64 [ %limit.1.lcssa, %for.cond.loopexit ], [ %u.sroa.0.0.i.i.i, %for.body.preheader ]
   %x.0214 = phi i64 [ %x.1.lcssa, %for.cond.loopexit ], [ -1, %for.body.preheader ]
   %last_g.0213 = phi float [ %last_g.1.lcssa, %for.cond.loopexit ], [ 2.000000e+00, %for.body.preheader ]
   %last_f.0212 = phi float [ %last_f.1.lcssa, %for.cond.loopexit ], [ 1.000000e+00, %for.body.preheader ]

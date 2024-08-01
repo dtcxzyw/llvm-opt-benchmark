@@ -2639,8 +2639,8 @@ invoke.cont21:                                    ; preds = %invoke.cont
   %cmp.i5.not = icmp eq ptr %call.i34, null
   %default_method_config_vector_35 = getelementptr inbounds i8, ptr %this, i64 184
   %second33 = getelementptr inbounds i8, ptr %call.i34, i64 40
-  %retval.0.ph.in = select i1 %cmp.i5.not, ptr %default_method_config_vector_35, ptr %second33
-  %retval.0.ph = load ptr, ptr %retval.0.ph.in, align 8
+  %retval.1.ph.in = select i1 %cmp.i5.not, ptr %default_method_config_vector_35, ptr %second33
+  %retval.1.ph = load ptr, ptr %retval.1.ph.in, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %invoke.cont, %if.end17
@@ -2650,7 +2650,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
   resume { ptr, i32 } %1
 
 cleanup:                                          ; preds = %invoke.cont21, %if.end12
-  %retval.0 = phi ptr [ %retval.0.ph, %invoke.cont21 ], [ null, %if.end12 ]
+  %retval.1 = phi ptr [ %retval.1.ph, %invoke.cont21 ], [ null, %if.end12 ]
   %cmp.not.i = icmp eq ptr %call13, null
   br i1 %cmp.not.i, label %return, label %if.end.i.i
 
@@ -2671,8 +2671,8 @@ return.sink.split:                                ; preds = %if.then, %if.then10
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ %retval.0, %if.end.i.i ], [ %4, %return.sink.split ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %retval.1, %if.end.i.i ], [ %4, %return.sink.split ]
+  ret ptr %retval.0
 }
 
 declare ptr @grpc_slice_to_c_string(ptr noundef byval(%struct.grpc_slice) align 8) local_unnamed_addr #0

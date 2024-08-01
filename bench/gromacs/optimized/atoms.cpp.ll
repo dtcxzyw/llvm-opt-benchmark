@@ -1747,7 +1747,7 @@ define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr nocapture noundef %0, 
 
 18:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
-  %.02947 = phi i8 [ 1, %.lr.ph ], [ %.130, %77 ]
+  %.02947 = phi i8 [ 1, %.lr.ph ], [ %.2, %77 ]
   %.03146 = phi i32 [ 0, %.lr.ph ], [ %.132, %77 ]
   %19 = load ptr, ptr %15, align 8
   %20 = load ptr, ptr %16, align 8
@@ -1909,7 +1909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40: ; 
 
 77:                                               ; preds = %50, %53
   %.132 = phi i32 [ %70, %53 ], [ %.03146, %50 ]
-  %.130 = phi i8 [ 0, %53 ], [ %.02947, %50 ]
+  %.2 = phi i8 [ 0, %53 ], [ %.02947, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %0, align 8
   %79 = sext i32 %78 to i64
@@ -1917,13 +1917,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40: ; 
   br i1 %80, label %18, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %51, %77
-  %.2.ph = phi i8 [ %.130, %77 ], [ 0, %51 ]
-  %81 = and i8 %.2.ph, 1
+  %.130.ph = phi i8 [ %.2, %77 ], [ 0, %51 ]
+  %81 = and i8 %.130.ph, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %.2 = phi i8 [ 1, %11 ], [ %81, %._crit_edge.loopexit ]
-  store i8 %.2, ptr %8, align 8
+  %.130 = phi i8 [ 1, %11 ], [ %81, %._crit_edge.loopexit ]
+  store i8 %.130, ptr %8, align 8
   call void @_ZN14AtomPropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %82
 

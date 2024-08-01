@@ -555,8 +555,8 @@ if.else238:                                       ; preds = %if.else225
   br label %end
 
 if.end241:                                        ; preds = %if.then236, %if.then231
-  %p8.1 = phi ptr [ %call232, %if.then231 ], [ %call237, %if.then236 ]
-  %cmp242 = icmp eq ptr %p8.1, null
+  %p8.3 = phi ptr [ %call232, %if.then231 ], [ %call237, %if.then236 ]
+  %cmp242 = icmp eq ptr %p8.3, null
   br i1 %cmp242, label %if.then244, label %if.end246
 
 if.then244:                                       ; preds = %if.end241
@@ -585,13 +585,13 @@ if.end258:                                        ; preds = %if.end246, %if.else
   %p8pass.1 = phi ptr [ %pass, %if.else250 ], [ %35, %if.end246 ]
   %call259 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p8pass.1) #4
   %conv260 = trunc i64 %call259 to i32
-  %call261 = call ptr @PKCS8_decrypt(ptr noundef nonnull %p8.1, ptr noundef nonnull %p8pass.1, i32 noundef %conv260) #3
+  %call261 = call ptr @PKCS8_decrypt(ptr noundef nonnull %p8.3, ptr noundef nonnull %p8pass.1, i32 noundef %conv260) #3
   br label %if.end262
 
 if.end262:                                        ; preds = %if.then214, %if.then219, %if.end258
-  %p8inf.0 = phi ptr [ %call215, %if.then214 ], [ %call220, %if.then219 ], [ %call261, %if.end258 ]
-  %p8.2 = phi ptr [ null, %if.then214 ], [ null, %if.then219 ], [ %p8.1, %if.end258 ]
-  %cmp263 = icmp eq ptr %p8inf.0, null
+  %p8inf.1 = phi ptr [ %call215, %if.then214 ], [ %call220, %if.then219 ], [ %call261, %if.end258 ]
+  %p8.2 = phi ptr [ null, %if.then214 ], [ null, %if.then219 ], [ %p8.3, %if.end258 ]
+  %cmp263 = icmp eq ptr %p8inf.1, null
   br i1 %cmp263, label %if.then265, label %if.end267
 
 if.then265:                                       ; preds = %if.end262
@@ -602,7 +602,7 @@ if.then265:                                       ; preds = %if.end262
   br label %end
 
 if.end267:                                        ; preds = %if.end262
-  %call268 = call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %p8inf.0) #3
+  %call268 = call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %p8inf.1) #3
   %cmp269 = icmp eq ptr %call268, null
   br i1 %cmp269, label %if.then271, label %if.end273
 
@@ -644,13 +644,13 @@ if.else288:                                       ; preds = %if.end273
 
 end:                                              ; preds = %sw.bb27, %sw.bb21, %if.then286, %if.else280, %if.then278, %if.then150, %if.then147, %if.then199, %if.then194, %if.then134, %if.end128, %if.end123, %if.end102, %if.else288, %if.then271, %if.then265, %if.then255, %if.then244, %if.else238, %if.else221, %if.else201, %if.then189, %if.then182, %if.then173, %if.else152, %if.then141, %if.then116, %sw.bb3, %opthelp
   %pkey.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ null, %if.end128 ], [ null, %if.then134 ], [ %call135, %if.then141 ], [ %call135, %if.else152 ], [ %call135, %if.then173 ], [ %call135, %if.then189 ], [ %call135, %if.else201 ], [ %call135, %if.then182 ], [ null, %if.then265 ], [ null, %if.then271 ], [ %call268, %if.else288 ], [ null, %if.else221 ], [ null, %if.then244 ], [ null, %if.then255 ], [ null, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call135, %if.then194 ], [ %call135, %if.then199 ], [ %call135, %if.then147 ], [ %call135, %if.then150 ], [ %call268, %if.then278 ], [ %call268, %if.else280 ], [ %call268, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
-  %p8inf.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ null, %if.end128 ], [ null, %if.then134 ], [ null, %if.then141 ], [ %call139, %if.else152 ], [ %call139, %if.then173 ], [ %call139, %if.then189 ], [ %call139, %if.else201 ], [ %call139, %if.then182 ], [ null, %if.then265 ], [ %p8inf.0, %if.then271 ], [ %p8inf.0, %if.else288 ], [ null, %if.else221 ], [ null, %if.then244 ], [ null, %if.then255 ], [ null, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call139, %if.then194 ], [ %call139, %if.then199 ], [ %call139, %if.then147 ], [ %call139, %if.then150 ], [ %p8inf.0, %if.then278 ], [ %p8inf.0, %if.else280 ], [ %p8inf.0, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
-  %p8.3 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ null, %if.end128 ], [ null, %if.then134 ], [ null, %if.then141 ], [ null, %if.else152 ], [ null, %if.then173 ], [ null, %if.then189 ], [ %call186, %if.else201 ], [ null, %if.then182 ], [ %p8.2, %if.then265 ], [ %p8.2, %if.then271 ], [ %p8.2, %if.else288 ], [ null, %if.else221 ], [ null, %if.then244 ], [ %p8.1, %if.then255 ], [ null, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call186, %if.then194 ], [ %call186, %if.then199 ], [ null, %if.then147 ], [ null, %if.then150 ], [ %p8.2, %if.then278 ], [ %p8.2, %if.else280 ], [ %p8.2, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
+  %p8inf.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ null, %if.end128 ], [ null, %if.then134 ], [ null, %if.then141 ], [ %call139, %if.else152 ], [ %call139, %if.then173 ], [ %call139, %if.then189 ], [ %call139, %if.else201 ], [ %call139, %if.then182 ], [ null, %if.then265 ], [ %p8inf.1, %if.then271 ], [ %p8inf.1, %if.else288 ], [ null, %if.else221 ], [ null, %if.then244 ], [ null, %if.then255 ], [ null, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call139, %if.then194 ], [ %call139, %if.then199 ], [ %call139, %if.then147 ], [ %call139, %if.then150 ], [ %p8inf.1, %if.then278 ], [ %p8inf.1, %if.else280 ], [ %p8inf.1, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
+  %p8.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ null, %if.end128 ], [ null, %if.then134 ], [ null, %if.then141 ], [ null, %if.else152 ], [ null, %if.then173 ], [ null, %if.then189 ], [ %call186, %if.else201 ], [ null, %if.then182 ], [ %p8.2, %if.then265 ], [ %p8.2, %if.then271 ], [ %p8.2, %if.else288 ], [ null, %if.else221 ], [ null, %if.then244 ], [ %p8.3, %if.then255 ], [ null, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call186, %if.then194 ], [ %call186, %if.then199 ], [ null, %if.then147 ], [ null, %if.then150 ], [ %p8.2, %if.then278 ], [ %p8.2, %if.else280 ], [ %p8.2, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
   %out.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ null, %if.end128 ], [ %call129, %if.then134 ], [ %call129, %if.then141 ], [ %call129, %if.else152 ], [ %call129, %if.then173 ], [ %call129, %if.then189 ], [ %call129, %if.else201 ], [ %call129, %if.then182 ], [ %call129, %if.then265 ], [ %call129, %if.then271 ], [ %call129, %if.else288 ], [ %call129, %if.else221 ], [ %call129, %if.then244 ], [ %call129, %if.then255 ], [ %call129, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call129, %if.then194 ], [ %call129, %if.then199 ], [ %call129, %if.then147 ], [ %call129, %if.then150 ], [ %call129, %if.then278 ], [ %call129, %if.else280 ], [ %call129, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
   %in.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.end123 ], [ %call125, %if.end128 ], [ %call125, %if.then134 ], [ %call125, %if.then141 ], [ %call125, %if.else152 ], [ %call125, %if.then173 ], [ %call125, %if.then189 ], [ %call125, %if.else201 ], [ %call125, %if.then182 ], [ %call125, %if.then265 ], [ %call125, %if.then271 ], [ %call125, %if.else288 ], [ %call125, %if.else221 ], [ %call125, %if.then244 ], [ %call125, %if.then255 ], [ %call125, %if.else238 ], [ null, %if.then116 ], [ null, %if.end102 ], [ %call125, %if.then194 ], [ %call125, %if.then199 ], [ %call125, %if.then147 ], [ %call125, %if.then150 ], [ %call125, %if.then278 ], [ %call125, %if.else280 ], [ %call125, %if.then286 ], [ null, %sw.bb21 ], [ null, %sw.bb27 ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.end123 ], [ 1, %if.end128 ], [ 1, %if.then134 ], [ 1, %if.then141 ], [ 1, %if.else152 ], [ 1, %if.then173 ], [ 1, %if.then189 ], [ 1, %if.else201 ], [ 1, %if.then182 ], [ 1, %if.then265 ], [ 1, %if.then271 ], [ 1, %if.else288 ], [ 1, %if.else221 ], [ 1, %if.then244 ], [ 1, %if.then255 ], [ 1, %if.else238 ], [ 1, %if.then116 ], [ 1, %if.end102 ], [ 0, %if.then194 ], [ 0, %if.then199 ], [ 0, %if.then147 ], [ 0, %if.then150 ], [ 0, %if.then278 ], [ 0, %if.else280 ], [ 0, %if.then286 ], [ 1, %sw.bb21 ], [ 1, %sw.bb27 ]
-  call void @X509_SIG_free(ptr noundef %p8.3) #3
-  call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %p8inf.1) #3
+  call void @X509_SIG_free(ptr noundef %p8.0) #3
+  call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %p8inf.0) #3
   call void @EVP_PKEY_free(ptr noundef %pkey.0) #3
   %44 = load ptr, ptr %cipher, align 8
   call void @EVP_CIPHER_free(ptr noundef %44) #3

@@ -4868,17 +4868,17 @@ Kit_TruthSupport.exit51:                          ; preds = %Kit_TruthVarInSuppo
   br i1 %180, label %Kit_TruthSupport.exit51._crit_edge, label %10
 
 Kit_TruthSupport.exit51._crit_edge:               ; preds = %10, %Kit_TruthSupport.exit51, %3
-  %.233 = phi i32 [ -1, %3 ], [ %spec.select, %Kit_TruthSupport.exit51 ], [ %spec.select, %10 ]
-  %.2 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Kit_TruthSupport.exit51 ]
+  %.132 = phi i32 [ -1, %3 ], [ %spec.select, %Kit_TruthSupport.exit51 ], [ %spec.select, %10 ]
+  %.1 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Kit_TruthSupport.exit51 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %182, label %181
 
 181:                                              ; preds = %Kit_TruthSupport.exit51._crit_edge
-  store i32 %.233, ptr %2, align 4
+  store i32 %.132, ptr %2, align 4
   br label %182
 
 182:                                              ; preds = %181, %Kit_TruthSupport.exit51._crit_edge
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6424,7 +6424,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
 
 .lr.ph128.us:                                     ; preds = %.lr.ph128.us.backedge, %.lr.ph128.us.preheader
   %indvars.iv149 = phi i64 [ 0, %.lr.ph128.us.preheader ], [ %indvars.iv149.be, %.lr.ph128.us.backedge ]
-  %.4126.us = phi i32 [ %.2, %.lr.ph128.us.preheader ], [ %.6.us, %.lr.ph128.us.backedge ]
+  %.4126.us = phi i32 [ %.2, %.lr.ph128.us.preheader ], [ %.5.us, %.lr.ph128.us.backedge ]
   %.181125.us = phi ptr [ %0, %.lr.ph128.us.preheader ], [ %.282.us, %.lr.ph128.us.backedge ]
   %.184124.us = phi i32 [ 0, %.lr.ph128.us.preheader ], [ %.285.us, %.lr.ph128.us.backedge ]
   %.086123.us = phi i32 [ 0, %.lr.ph128.us.preheader ], [ %.086123.us.be, %.lr.ph128.us.backedge ]
@@ -6467,7 +6467,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %72 = shl nuw i32 1, %66
   %73 = shl i32 3, %66
   %74 = select i1 %.not99.us, i32 0, i32 %73
-  %.5.us = xor i32 %.4126.us, %74
+  %.6.us = xor i32 %.4126.us, %74
   %75 = icmp ult i64 %indvars.iv149, 4
   br i1 %75, label %126, label %76
 
@@ -6615,7 +6615,7 @@ Kit_TruthSwapAdjacentVars.exit.us:                ; preds = %._crit_edge.us.i.us
   %.187.us = phi i32 [ %.086123.us, %.lr.ph128.us ], [ 1, %126 ], [ 1, %.preheader.i.us ], [ 1, %77 ], [ 1, %.preheader87.lr.ph.i.us ], [ 1, %133 ], [ 1, %.lr.ph.i.us ], [ 1, %._crit_edge.us.i.us ]
   %.285.us = phi i32 [ %.184124.us, %.lr.ph128.us ], [ %55, %126 ], [ %55, %.preheader.i.us ], [ %55, %77 ], [ %55, %.preheader87.lr.ph.i.us ], [ %55, %133 ], [ %55, %.lr.ph.i.us ], [ %55, %._crit_edge.us.i.us ]
   %.282.us = phi ptr [ %.181125.us, %.lr.ph128.us ], [ %.192121.us, %126 ], [ %.192121.us, %.preheader.i.us ], [ %.192121.us, %77 ], [ %.192121.us, %.preheader87.lr.ph.i.us ], [ %.192121.us, %133 ], [ %.192121.us, %.lr.ph.i.us ], [ %.192121.us, %._crit_edge.us.i.us ]
-  %.6.us = phi i32 [ %.4126.us, %.lr.ph128.us ], [ %.5.us, %126 ], [ %.5.us, %.preheader.i.us ], [ %.5.us, %77 ], [ %.5.us, %.preheader87.lr.ph.i.us ], [ %.5.us, %133 ], [ %.5.us, %.lr.ph.i.us ], [ %.5.us, %._crit_edge.us.i.us ]
+  %.5.us = phi i32 [ %.4126.us, %.lr.ph128.us ], [ %.6.us, %126 ], [ %.6.us, %.preheader.i.us ], [ %.6.us, %77 ], [ %.6.us, %.preheader87.lr.ph.i.us ], [ %.6.us, %133 ], [ %.6.us, %.lr.ph.i.us ], [ %.6.us, %._crit_edge.us.i.us ]
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
   br i1 %exitcond153.not, label %._crit_edge129.us, label %.lr.ph128.us.backedge
 
@@ -6672,7 +6672,7 @@ select.unfold.i110:                               ; preds = %.split.us, %select.
   br i1 %160, label %select.unfold.i110, label %Kit_TruthCopy.exit, !llvm.loop !24
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i110, %Kit_TruthNot.exit, %.preheader, %.split.us
-  %.us-phi137160 = phi i32 [ %.6.us, %.split.us ], [ %.2, %.preheader ], [ %.0, %Kit_TruthNot.exit ], [ %.6.us, %select.unfold.i110 ]
+  %.us-phi137160 = phi i32 [ %.5.us, %.split.us ], [ %.2, %.preheader ], [ %.0, %Kit_TruthNot.exit ], [ %.5.us, %select.unfold.i110 ]
   ret i32 %.us-phi137160
 }
 

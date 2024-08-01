@@ -921,7 +921,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
 
 .preheader:                                       ; preds = %32, %80
   %.050 = phi i64 [ %.151, %80 ], [ 0, %32 ]
-  %.0 = phi ptr [ %.1, %80 ], [ null, %32 ]
+  %.1 = phi ptr [ %.2, %80 ], [ null, %32 ]
   %39 = load ptr, ptr %2, align 8
   %.not63 = icmp eq ptr %39, null
   br i1 %.not63, label %.loopexit, label %40
@@ -953,7 +953,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %53
-  %58 = call ptr @H5MM_realloc(ptr noundef %.0, i64 noundef %55) #8
+  %58 = call ptr @H5MM_realloc(ptr noundef %.1, i64 noundef %55) #8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %64
 
@@ -969,14 +969,14 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
 
 66:                                               ; preds = %64, %53
   %.151 = phi i64 [ %65, %64 ], [ %.050, %53 ]
-  %.1 = phi ptr [ %58, %64 ], [ %.0, %53 ]
+  %.2 = phi ptr [ %58, %64 ], [ %.1, %53 ]
   %67 = getelementptr inbounds i8, ptr %47, i64 64
   %68 = load ptr, ptr %67, align 8
   %.not64 = icmp eq ptr %68, null
   br i1 %.not64, label %76, label %69
 
 69:                                               ; preds = %66
-  %70 = call i32 %68(ptr noundef nonnull %2, ptr noundef %.1) #8
+  %70 = call i32 %68(ptr noundef nonnull %2, ptr noundef %.2) #8
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %80
 
@@ -993,7 +993,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
   br label %.loopexit
 
 80:                                               ; preds = %69
-  %81 = call i32 @H5P_poke(ptr noundef nonnull %33, ptr noundef nonnull %39, ptr noundef %.1) #8
+  %81 = call i32 @H5P_poke(ptr noundef nonnull %33, ptr noundef nonnull %39, ptr noundef %.2) #8
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %.preheader
 
@@ -1005,12 +1005,12 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
 
 .loopexit:                                        ; preds = %.preheader, %40, %83, %76, %72, %49
   %.048 = phi i64 [ -1, %49 ], [ -1, %72 ], [ -1, %83 ], [ -1, %76 ], [ %26, %40 ], [ %26, %.preheader ]
-  %.2 = phi ptr [ %.0, %49 ], [ %.1, %72 ], [ %.1, %83 ], [ %.1, %76 ], [ %.0, %40 ], [ %.0, %.preheader ]
-  %.not65 = icmp eq ptr %.2, null
+  %.0 = phi ptr [ %.1, %49 ], [ %.2, %72 ], [ %.2, %83 ], [ %.2, %76 ], [ %.1, %40 ], [ %.1, %.preheader ]
+  %.not65 = icmp eq ptr %.0, null
   br i1 %.not65, label %.thread, label %87
 
 87:                                               ; preds = %.loopexit
-  %88 = call ptr @H5MM_xfree(ptr noundef nonnull %.2) #8
+  %88 = call ptr @H5MM_xfree(ptr noundef nonnull %.0) #8
   br label %.thread
 
 .thread:                                          ; preds = %60, %35, %87, %.loopexit

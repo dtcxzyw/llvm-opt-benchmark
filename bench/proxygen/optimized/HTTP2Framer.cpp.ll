@@ -895,10 +895,10 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %if.end
-  %lefttoparse.0 = phi i32 [ %1, %if.end ], [ %sub.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ], [ %sub.i, %if.then.i.i.i ]
+  %lefttoparse.1 = phi i32 [ %1, %if.end ], [ %sub.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ], [ %sub.i, %if.then.i.i.i ]
   %storemerge.i = phi i8 [ 0, %if.end ], [ %9, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ], [ %8, %if.then.i.i.i ]
   %conv.i = zext i8 %storemerge.i to i32
-  %cmp20.i = icmp ult i32 %lefttoparse.0, %conv.i
+  %cmp20.i = icmp ult i32 %lefttoparse.1, %conv.i
   br i1 %cmp20.i, label %if.then20, label %if.end41
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i
@@ -951,7 +951,7 @@ cleanup.action:                                   ; preds = %invoke.cont35
   br label %return
 
 if.end41:                                         ; preds = %if.end19.i
-  %sub24.i = sub nuw i32 %lefttoparse.0, %conv.i
+  %sub24.i = sub nuw i32 %lefttoparse.1, %conv.i
   %14 = load i8, ptr %flags.i.i, align 1
   %15 = and i8 %14, 32
   %tobool42.not = icmp eq i8 %15, 0
@@ -991,8 +991,8 @@ if.else:                                          ; preds = %if.end41
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else, %invoke.cont50
-  %lefttoparse.2 = phi i32 [ %sub24.i, %if.else ], [ %sub, %invoke.cont50 ]
-  %conv54 = zext i32 %lefttoparse.2 to i64
+  %lefttoparse.0 = phi i32 [ %sub24.i, %if.else ], [ %sub, %invoke.cont50 ]
+  %conv54 = zext i32 %lefttoparse.0 to i64
   %20 = load ptr, ptr %outBuf, align 8
   %cmp.i.not.i.i = icmp eq ptr %20, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERSt10unique_ptrIS4_St14default_deleteIS4_EEm.exit.i
@@ -1193,10 +1193,10 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i, %if.then.i.i.i, %if.end
-  %lefttoparse.0 = phi i32 [ %1, %if.end ], [ %sub.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ], [ %sub.i, %if.then.i.i.i ]
+  %lefttoparse.1 = phi i32 [ %1, %if.end ], [ %sub.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ], [ %sub.i, %if.then.i.i.i ]
   %storemerge.i = phi i8 [ 0, %if.end ], [ %9, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIhEET_v.exit.i.i.i ], [ %8, %if.then.i.i.i ]
   %conv.i = zext i8 %storemerge.i to i32
-  %cmp20.i = icmp ult i32 %lefttoparse.0, %conv.i
+  %cmp20.i = icmp ult i32 %lefttoparse.1, %conv.i
   br i1 %cmp20.i, label %if.then20, label %if.end41
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i
@@ -1249,7 +1249,7 @@ cleanup.action:                                   ; preds = %invoke.cont35
   br label %return
 
 if.end41:                                         ; preds = %if.end19.i
-  %sub24.i = sub nuw i32 %lefttoparse.0, %conv.i
+  %sub24.i = sub nuw i32 %lefttoparse.1, %conv.i
   %14 = load i8, ptr %flags.i.i, align 1
   %15 = and i8 %14, 32
   %tobool42.not = icmp eq i8 %15, 0
@@ -1289,14 +1289,14 @@ if.else:                                          ; preds = %if.end41
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else, %invoke.cont50
-  %lefttoparse.2 = phi i32 [ %sub24.i, %if.else ], [ %sub, %invoke.cont50 ]
+  %lefttoparse.0 = phi i32 [ %sub24.i, %if.else ], [ %sub, %invoke.cont50 ]
   %20 = load i8, ptr %flags.i.i, align 1
   %unidirectional = getelementptr inbounds i8, ptr %outExAttributes, i64 8
   %21 = lshr i8 %20, 6
   %.lobit = and i8 %21, 1
   store i8 %.lobit, ptr %unidirectional, align 8
   %22 = load i32, ptr @_ZN8proxygen5http218kFrameStreamIDSizeE, align 4
-  %cmp59 = icmp ult i32 %lefttoparse.2, %22
+  %cmp59 = icmp ult i32 %lefttoparse.0, %22
   br i1 %cmp59, label %return, label %if.end61
 
 if.end61:                                         ; preds = %if.end53
@@ -1341,7 +1341,7 @@ invoke.cont62:                                    ; preds = %_ZN5folly2io6detail
   br i1 %tobool68.not, label %return, label %if.end70
 
 if.end70:                                         ; preds = %invoke.cont62
-  %sub65 = sub i32 %lefttoparse.2, %22
+  %sub65 = sub i32 %lefttoparse.0, %22
   %conv71 = zext i32 %sub65 to i64
   %30 = load ptr, ptr %outBuf, align 8
   %cmp.i.not.i.i = icmp eq ptr %30, null
@@ -2554,8 +2554,8 @@ invoke.cont55:                                    ; preds = %if.else.i90, %invok
   br label %return
 
 return:                                           ; preds = %invoke.cont34, %invoke.cont23, %invoke.cont55, %entry
-  %retval.1 = phi i8 [ 6, %entry ], [ 0, %invoke.cont55 ], [ 6, %invoke.cont23 ], [ 6, %invoke.cont34 ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 6, %entry ], [ 0, %invoke.cont55 ], [ 6, %invoke.cont23 ], [ 6, %invoke.cont34 ]
+  ret i8 %retval.0
 
 terminate.lpad:                                   ; preds = %if.then.i.i.i.i56.invoke, %if.else.i.i54, %if.else.i.i38, %if.else.i.i24, %if.else.i.i
   %43 = landingpad { ptr, i32 }
@@ -2956,21 +2956,21 @@ while.end45.i:                                    ; preds = %if.then.i, %if.then
 
 if.end.i:                                         ; preds = %while.end45.i, %if.then.if.end_crit_edge.i
   %5 = phi i32 [ %4, %while.end45.i ], [ %.pre.i, %if.then.if.end_crit_edge.i ]
-  %length.addr.0.i = phi i32 [ %add.i, %while.end45.i ], [ %length, %if.then.if.end_crit_edge.i ]
+  %length.addr.1.i = phi i32 [ %add.i, %while.end45.i ], [ %length, %if.then.if.end_crit_edge.i ]
   %conv71.i = zext i32 %5 to i64
   %add72.i = add nuw nsw i64 %conv71.i, %conv
   br label %if.end111.i
 
 if.end111.i:                                      ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %if.end.i
   %headerSize.0 = phi i64 [ %add72.i, %if.end.i ], [ %conv, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
-  %length.addr.1.i = phi i32 [ %length.addr.0.i, %if.end.i ], [ %length, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
+  %length.addr.0.i = phi i32 [ %length.addr.1.i, %if.end.i ], [ %length, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
   br i1 %tobool.i.i.i, label %_ZNR5folly8OptionalIhEdeEv.exit.i, label %if.else149.i
 
 _ZNR5folly8OptionalIhEdeEv.exit.i:                ; preds = %if.end111.i
   %6 = or i8 %flags, 8
   %conv145.i = zext i8 %agg.tmp.sroa.0.0 to i32
   %add146.i = add nuw nsw i32 %conv145.i, 1
-  %add147.i = add i32 %add146.i, %length.addr.1.i
+  %add147.i = add i32 %add146.i, %length.addr.0.i
   %add148.i = add nuw nsw i64 %headerSize.0, 1
   br label %invoke.cont
 
@@ -2981,7 +2981,7 @@ if.else149.i:                                     ; preds = %if.end111.i
 invoke.cont:                                      ; preds = %if.else149.i, %_ZNR5folly8OptionalIhEdeEv.exit.i
   %headerSize.1 = phi i64 [ %add148.i, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %headerSize.0, %if.else149.i ]
   %flags.addr.0 = phi i8 [ %6, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %7, %if.else149.i ]
-  %length.addr.2.i = phi i32 [ %add147.i, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %length.addr.1.i, %if.else149.i ]
+  %length.addr.2.i = phi i32 [ %add147.i, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %length.addr.0.i, %if.else149.i ]
   %and190.i = shl i32 %length.addr.2.i, 8
   %conv191.i = zext i8 %type to i32
   %or192.i = or disjoint i32 %and190.i, %conv191.i
@@ -3854,21 +3854,21 @@ while.end45.i:                                    ; preds = %if.then.i, %if.then
 
 if.end.i:                                         ; preds = %while.end45.i, %if.then.if.end_crit_edge.i
   %5 = phi i32 [ %4, %while.end45.i ], [ %.pre.i, %if.then.if.end_crit_edge.i ]
-  %length.addr.0.i = phi i32 [ %add.i, %while.end45.i ], [ %length, %if.then.if.end_crit_edge.i ]
+  %length.addr.1.i = phi i32 [ %add.i, %while.end45.i ], [ %length, %if.then.if.end_crit_edge.i ]
   %conv71.i = zext i32 %5 to i64
   %add72.i = add nuw nsw i64 %conv71.i, %conv
   br label %if.end111.i
 
 if.end111.i:                                      ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %if.end.i
   %headerSize.0 = phi i64 [ %add72.i, %if.end.i ], [ %conv, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
-  %length.addr.1.i = phi i32 [ %length.addr.0.i, %if.end.i ], [ %length, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
+  %length.addr.0.i = phi i32 [ %length.addr.1.i, %if.end.i ], [ %length, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
   br i1 %tobool.i.i.i, label %_ZNR5folly8OptionalIhEdeEv.exit.i, label %if.else149.i
 
 _ZNR5folly8OptionalIhEdeEv.exit.i:                ; preds = %if.end111.i
   %6 = or i8 %flags, 8
   %conv145.i = zext i8 %agg.tmp.sroa.0.0 to i32
   %add146.i = add nuw nsw i32 %conv145.i, 1
-  %add147.i = add i32 %add146.i, %length.addr.1.i
+  %add147.i = add i32 %add146.i, %length.addr.0.i
   %add148.i = add nuw nsw i64 %headerSize.0, 1
   br label %invoke.cont
 
@@ -3879,7 +3879,7 @@ if.else149.i:                                     ; preds = %if.end111.i
 invoke.cont:                                      ; preds = %if.else149.i, %_ZNR5folly8OptionalIhEdeEv.exit.i
   %headerSize.1 = phi i64 [ %add148.i, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %headerSize.0, %if.else149.i ]
   %flags.addr.0 = phi i8 [ %6, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %7, %if.else149.i ]
-  %length.addr.2.i = phi i32 [ %add147.i, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %length.addr.1.i, %if.else149.i ]
+  %length.addr.2.i = phi i32 [ %add147.i, %_ZNR5folly8OptionalIhEdeEv.exit.i ], [ %length.addr.0.i, %if.else149.i ]
   %and190.i = shl i32 %length.addr.2.i, 8
   %conv191.i = zext i8 %type to i32
   %or192.i = or disjoint i32 %and190.i, %conv191.i

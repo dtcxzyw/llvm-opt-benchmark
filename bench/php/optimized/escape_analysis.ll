@@ -301,7 +301,7 @@ is_local_def.exit:                                ; preds = %120, %116, %113, %1
 
 146:                                              ; preds = %.lr.ph298, %.loopexit285
   %.2229297 = phi i32 [ 0, %.lr.ph298 ], [ %390, %.loopexit285 ]
-  %.4235296 = phi i32 [ %.3234, %.lr.ph298 ], [ %.5236, %.loopexit285 ]
+  %.5236296 = phi i32 [ %.3234, %.lr.ph298 ], [ %.6, %.loopexit285 ]
   %147 = sext i32 %.2229297 to i64
   %148 = getelementptr inbounds %struct._zend_ssa_var, ptr %5, i64 %147
   %149 = getelementptr inbounds i8, ptr %148, i64 12
@@ -752,20 +752,20 @@ is_escape_use.exit:                               ; preds = %377, %381, %381, %3
   %386 = load i8, ptr %156, align 8
   %387 = or i8 %386, 48
   store i8 %387, ptr %156, align 8
-  %388 = add nsw i32 %.4235296, -1
+  %388 = add nsw i32 %.5236296, -1
   %389 = icmp eq i32 %388, 0
   %spec.select271 = select i1 %389, i32 %7, i32 %.2229297
   br label %.loopexit285
 
 .loopexit285:                                     ; preds = %is_escape_use.exit, %385, %146, %152
-  %.5236 = phi i32 [ %.4235296, %152 ], [ %.4235296, %146 ], [ %388, %385 ], [ %.4235296, %is_escape_use.exit ]
+  %.6 = phi i32 [ %.5236296, %152 ], [ %.5236296, %146 ], [ %388, %385 ], [ %.5236296, %is_escape_use.exit ]
   %.3230 = phi i32 [ %.2229297, %152 ], [ %.2229297, %146 ], [ %spec.select271, %385 ], [ %.2229297, %is_escape_use.exit ]
   %390 = add nsw i32 %.3230, 1
   %391 = icmp slt i32 %390, %7
   br i1 %391, label %146, label %._crit_edge299
 
 ._crit_edge299:                                   ; preds = %.loopexit285
-  %.not264 = icmp eq i32 %.5236, 0
+  %.not264 = icmp eq i32 %.6, 0
   br i1 %.not264, label %.thread277, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge299
@@ -780,7 +780,7 @@ is_escape_use.exit:                               ; preds = %377, %381, %381, %3
 .lr.ph311.us:                                     ; preds = %.loopexit.us, %.lr.ph311.us.preheader
   %indvars.iv324 = phi i64 [ %indvars.iv.next325.mux, %.loopexit.us ], [ 0, %.lr.ph311.us.preheader ]
   %.0225309.us = phi i1 [ %.3.us.mux, %.loopexit.us ], [ false, %.lr.ph311.us.preheader ]
-  %.8306.us = phi i32 [ %.9.us, %.loopexit.us ], [ %.5236, %.lr.ph311.us.preheader ]
+  %.8306.us = phi i32 [ %.9.us, %.loopexit.us ], [ %.6, %.lr.ph311.us.preheader ]
   %394 = getelementptr inbounds %struct._zend_ssa_var, ptr %5, i64 %indvars.iv324
   %395 = getelementptr inbounds i8, ptr %394, i64 12
   %396 = load i32, ptr %395, align 4

@@ -92,8 +92,8 @@ get_argument.exit.split.loop.exit90:              ; preds = %9
   br label %get_argument.exit
 
 get_argument.exit:                                ; preds = %.critedge.i, %.critedge.i, %get_argument.exit.split.loop.exit90
-  %.3.i = phi ptr [ %30, %get_argument.exit.split.loop.exit90 ], [ %.1.i, %.critedge.i ], [ %.1.i, %.critedge.i ]
-  %31 = ptrtoint ptr %.3.i to i64
+  %.2.i = phi ptr [ %30, %get_argument.exit.split.loop.exit90 ], [ %.1.i, %.critedge.i ], [ %.1.i, %.critedge.i ]
+  %31 = ptrtoint ptr %.2.i to i64
   %32 = ptrtoint ptr %1 to i64
   %33 = sub i64 %31, %32
   %34 = icmp slt i64 %33, 0
@@ -234,15 +234,15 @@ get_argument.exit55.split.loop.exit92:            ; preds = %75
   br label %get_argument.exit55
 
 get_argument.exit55:                              ; preds = %.critedge.i34, %.critedge.i34, %get_argument.exit55.split.loop.exit92
-  %.3.i54 = phi ptr [ %96, %get_argument.exit55.split.loop.exit92 ], [ %.1.i35, %.critedge.i34 ], [ %.1.i35, %.critedge.i34 ]
-  %97 = ptrtoint ptr %.3.i54 to i64
+  %.2.i54 = phi ptr [ %96, %get_argument.exit55.split.loop.exit92 ], [ %.1.i35, %.critedge.i34 ], [ %.1.i35, %.critedge.i34 ]
+  %97 = ptrtoint ptr %.2.i54 to i64
   %98 = ptrtoint ptr %.020 to i64
   %99 = sub i64 %97, %98
   %100 = icmp slt i64 %99, 0
   br i1 %100, label %cmdline_set_path.exit, label %101
 
 101:                                              ; preds = %get_argument.exit55
-  %102 = icmp eq ptr %.3.i54, %.020
+  %102 = icmp eq ptr %.2.i54, %.020
   br i1 %102, label %cmdline_set_path.exit, label %103
 
 103:                                              ; preds = %101

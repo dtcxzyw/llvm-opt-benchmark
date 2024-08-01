@@ -3013,22 +3013,22 @@ define internal zeroext i16 @be_pos_data(ptr noundef %0, ptr noundef %1, ptr noc
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.0.in28 = phi i32 [ %.0, %.lr.ph ], [ %9, %.preheader ]
   %.02427 = phi i8 [ %25, %.lr.ph ], [ 0, %.preheader ]
-  %.02526 = phi i32 [ %24, %.lr.ph ], [ %15, %.preheader ]
+  %.126 = phi i32 [ %24, %.lr.ph ], [ %15, %.preheader ]
   %.0 = add i32 %.0.in28, 8
   %19 = load i32, ptr @hf_gsm_a_bssmap_positioning_method, align 4
   %20 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %.0, i32 noundef 5, i32 noundef 0) #3
   %21 = or disjoint i32 %.0, 5
   %22 = load i32, ptr @hf_gsm_a_bssmap_positioning_method_usage, align 4
   %23 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 3, i32 noundef 0) #3
-  %24 = add i32 %.02526, 1
+  %24 = add i32 %.126, 1
   %25 = add i8 %.02427, 1
   %26 = zext i8 %25 to i32
   %27 = icmp ugt i32 %18, %26
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %7
-  %.1 = phi i32 [ %15, %7 ], [ %15, %.preheader ], [ %24, %.lr.ph ]
-  %28 = sub i32 %.1, %3
+  %.025 = phi i32 [ %15, %7 ], [ %15, %.preheader ], [ %24, %.lr.ph ]
+  %28 = sub i32 %.025, %3
   %29 = trunc i32 %28 to i16
   ret i16 %29
 }

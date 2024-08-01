@@ -333,7 +333,7 @@ opthelp.sink.split:                               ; preds = %sw.bb11, %if.end74
   br label %opthelp
 
 opthelp:                                          ; preds = %while.cond, %opthelp.sink.split, %if.else138, %lor.lhs.false154, %if.then128, %if.end121, %if.then118, %if.end109, %if.then106, %if.end82, %while.end
-  %conf.0 = phi ptr [ %call.i, %if.then106 ], [ %call.i, %if.end109 ], [ %call.i, %if.then118 ], [ %call.i, %if.end121 ], [ %call.i, %if.then128 ], [ %call.i, %if.else138 ], [ %call.i, %lor.lhs.false154 ], [ null, %if.end82 ], [ null, %while.end ], [ null, %opthelp.sink.split ], [ null, %while.cond ]
+  %conf.1 = phi ptr [ %call.i, %if.then106 ], [ %call.i, %if.end109 ], [ %call.i, %if.then118 ], [ %call.i, %if.end121 ], [ %call.i, %if.then128 ], [ %call.i, %if.else138 ], [ %call.i, %lor.lhs.false154 ], [ null, %if.end82 ], [ null, %while.end ], [ null, %opthelp.sink.split ], [ null, %while.cond ]
   %2 = load ptr, ptr @bio_err, align 8
   %call4 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.129, ptr noundef %call1) #7
   br label %end
@@ -638,12 +638,12 @@ if.end161:                                        ; preds = %lor.lhs.false154, %
   br label %end
 
 end:                                              ; preds = %sw.bb66, %sw.bb27, %sw.bb21, %for.body, %if.end94, %if.end114, %if.end161, %if.end133, %land.lhs.true100, %if.end78, %entry, %if.then92, %opthelp
-  %conf.1 = phi ptr [ null, %entry ], [ %conf.0, %opthelp ], [ %call.i, %if.end114 ], [ %call.i, %if.end133 ], [ %call.i, %if.end161 ], [ %call.i, %land.lhs.true100 ], [ null, %if.then92 ], [ null, %if.end78 ], [ null, %if.end94 ], [ null, %for.body ], [ null, %sw.bb21 ], [ null, %sw.bb27 ], [ null, %sw.bb66 ]
+  %conf.0 = phi ptr [ null, %entry ], [ %conf.1, %opthelp ], [ %call.i, %if.end114 ], [ %call.i, %if.end133 ], [ %call.i, %if.end161 ], [ %call.i, %land.lhs.true100 ], [ null, %if.then92 ], [ null, %if.end78 ], [ null, %if.end94 ], [ null, %for.body ], [ null, %sw.bb21 ], [ null, %sw.bb27 ], [ null, %sw.bb66 ]
   %ret.0 = phi i32 [ 1, %entry ], [ 1, %opthelp ], [ %lnot.ext, %if.end114 ], [ %lnot.ext137, %if.end133 ], [ %lnot.ext166, %if.end161 ], [ 1, %land.lhs.true100 ], [ 1, %if.then92 ], [ 1, %if.end78 ], [ 1, %if.end94 ], [ 0, %for.body ], [ 1, %sw.bb21 ], [ 1, %sw.bb27 ], [ 1, %sw.bb66 ]
   call void @X509_VERIFY_PARAM_free(ptr noundef %call) #7
   %16 = load ptr, ptr %md, align 8
   call void @EVP_MD_free(ptr noundef %16) #7
-  call void @NCONF_free(ptr noundef %conf.1) #7
+  call void @NCONF_free(ptr noundef %conf.0) #7
   %17 = load ptr, ptr %password, align 8
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.134, i32 noundef 352) #7
   ret i32 %ret.0
@@ -714,10 +714,10 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else.split, %land.lhs.true.split, %if.end
-  %query.0 = phi ptr [ %call3, %if.end ], [ %call911, %if.else.split ], [ %call912, %land.lhs.true.split ]
-  %in_bio.0 = phi ptr [ %call, %if.end ], [ null, %if.else.split ], [ null, %land.lhs.true.split ]
+  %query.1 = phi ptr [ %call3, %if.end ], [ %call911, %if.else.split ], [ %call912, %land.lhs.true.split ]
+  %in_bio.1 = phi ptr [ %call, %if.end ], [ null, %if.else.split ], [ null, %land.lhs.true.split ]
   %data_bio.1 = phi ptr [ null, %if.end ], [ null, %if.else.split ], [ %call5, %land.lhs.true.split ]
-  %cmp11 = icmp eq ptr %query.0, null
+  %cmp11 = icmp eq ptr %query.1, null
   br i1 %cmp11, label %end, label %if.end13
 
 if.end13:                                         ; preds = %if.end10
@@ -730,7 +730,7 @@ if.then14:                                        ; preds = %if.end13
   br i1 %cmp16, label %end, label %if.end18
 
 if.end18:                                         ; preds = %if.then14
-  %call19 = tail call i32 @TS_REQ_print_bio(ptr noundef nonnull %call15, ptr noundef nonnull %query.0) #7
+  %call19 = tail call i32 @TS_REQ_print_bio(ptr noundef nonnull %call15, ptr noundef nonnull %query.1) #7
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %end, label %if.end32
 
@@ -740,26 +740,26 @@ if.else23:                                        ; preds = %if.end13
   br i1 %cmp25, label %end, label %if.end27
 
 if.end27:                                         ; preds = %if.else23
-  %call28 = tail call i32 @i2d_TS_REQ_bio(ptr noundef nonnull %call24, ptr noundef nonnull %query.0) #7
+  %call28 = tail call i32 @i2d_TS_REQ_bio(ptr noundef nonnull %call24, ptr noundef nonnull %query.1) #7
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %end, label %if.end32
 
 if.end32:                                         ; preds = %if.end27, %if.end18
-  %out_bio.0 = phi ptr [ %call15, %if.end18 ], [ %call24, %if.end27 ]
+  %out_bio.1 = phi ptr [ %call15, %if.end18 ], [ %call24, %if.end27 ]
   br label %end
 
 end:                                              ; preds = %if.end27, %if.else23, %if.end18, %if.then14, %if.end10, %land.lhs.true, %if.then, %if.end32
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.end10 ], [ 0, %if.then14 ], [ 1, %if.end32 ], [ 0, %if.end18 ], [ 0, %if.else23 ], [ 0, %if.end27 ], [ 0, %land.lhs.true ]
-  %query.1 = phi ptr [ null, %if.then ], [ null, %if.end10 ], [ %query.0, %if.then14 ], [ %query.0, %if.end32 ], [ %query.0, %if.end18 ], [ %query.0, %if.else23 ], [ %query.0, %if.end27 ], [ null, %land.lhs.true ]
-  %in_bio.1 = phi ptr [ null, %if.then ], [ %in_bio.0, %if.end10 ], [ %in_bio.0, %if.then14 ], [ %in_bio.0, %if.end32 ], [ %in_bio.0, %if.end18 ], [ %in_bio.0, %if.else23 ], [ %in_bio.0, %if.end27 ], [ null, %land.lhs.true ]
-  %data_bio.2 = phi ptr [ null, %if.then ], [ %data_bio.1, %if.end10 ], [ %data_bio.1, %if.then14 ], [ %data_bio.1, %if.end32 ], [ %data_bio.1, %if.end18 ], [ %data_bio.1, %if.else23 ], [ %data_bio.1, %if.end27 ], [ null, %land.lhs.true ]
-  %out_bio.1 = phi ptr [ null, %if.then ], [ null, %if.end10 ], [ null, %if.then14 ], [ %out_bio.0, %if.end32 ], [ %call15, %if.end18 ], [ null, %if.else23 ], [ %call24, %if.end27 ], [ null, %land.lhs.true ]
+  %query.0 = phi ptr [ null, %if.then ], [ null, %if.end10 ], [ %query.1, %if.then14 ], [ %query.1, %if.end32 ], [ %query.1, %if.end18 ], [ %query.1, %if.else23 ], [ %query.1, %if.end27 ], [ null, %land.lhs.true ]
+  %in_bio.0 = phi ptr [ null, %if.then ], [ %in_bio.1, %if.end10 ], [ %in_bio.1, %if.then14 ], [ %in_bio.1, %if.end32 ], [ %in_bio.1, %if.end18 ], [ %in_bio.1, %if.else23 ], [ %in_bio.1, %if.end27 ], [ null, %land.lhs.true ]
+  %data_bio.0 = phi ptr [ null, %if.then ], [ %data_bio.1, %if.end10 ], [ %data_bio.1, %if.then14 ], [ %data_bio.1, %if.end32 ], [ %data_bio.1, %if.end18 ], [ %data_bio.1, %if.else23 ], [ %data_bio.1, %if.end27 ], [ null, %land.lhs.true ]
+  %out_bio.0 = phi ptr [ null, %if.then ], [ null, %if.end10 ], [ null, %if.then14 ], [ %out_bio.1, %if.end32 ], [ %call15, %if.end18 ], [ null, %if.else23 ], [ %call24, %if.end27 ], [ null, %land.lhs.true ]
   %0 = load ptr, ptr @bio_err, align 8
   tail call void @ERR_print_errors(ptr noundef %0) #7
-  tail call void @BIO_free_all(ptr noundef %in_bio.1) #7
-  tail call void @BIO_free_all(ptr noundef %data_bio.2) #7
-  tail call void @BIO_free_all(ptr noundef %out_bio.1) #7
-  tail call void @TS_REQ_free(ptr noundef %query.1) #7
+  tail call void @BIO_free_all(ptr noundef %in_bio.0) #7
+  tail call void @BIO_free_all(ptr noundef %data_bio.0) #7
+  tail call void @BIO_free_all(ptr noundef %out_bio.0) #7
+  tail call void @TS_REQ_free(ptr noundef %query.0) #7
   ret i32 %ret.0
 }
 
@@ -962,13 +962,13 @@ if.end15.thread:                                  ; preds = %create_response.exi
   br label %end
 
 if.end15:                                         ; preds = %read_PKCS7.exit, %if.else
-  %response.0 = phi ptr [ %resp.1.i, %read_PKCS7.exit ], [ %call5, %if.else ]
-  %cmp16 = icmp eq ptr %response.0, null
+  %response.1 = phi ptr [ %resp.1.i, %read_PKCS7.exit ], [ %call5, %if.else ]
+  %cmp16 = icmp eq ptr %response.1, null
   br i1 %cmp16, label %end, label %if.end18
 
 if.end18:                                         ; preds = %if.end15.thread35, %if.end15
-  %response.040 = phi ptr [ %response.1.i, %if.end15.thread35 ], [ %response.0, %if.end15 ]
-  %in_bio.039 = phi ptr [ null, %if.end15.thread35 ], [ %call, %if.end15 ]
+  %response.140 = phi ptr [ %response.1.i, %if.end15.thread35 ], [ %response.1, %if.end15 ]
+  %in_bio.139 = phi ptr [ null, %if.end15.thread35 ], [ %call, %if.end15 ]
   %tobool19.not = icmp eq i32 %text, 0
   br i1 %tobool19.not, label %if.else38, label %if.then20
 
@@ -982,13 +982,13 @@ if.end24:                                         ; preds = %if.then20
   br i1 %tobool25.not, label %if.else32, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %call27 = tail call ptr @TS_RESP_get_tst_info(ptr noundef nonnull %response.040) #7
+  %call27 = tail call ptr @TS_RESP_get_tst_info(ptr noundef nonnull %response.140) #7
   %call28 = tail call i32 @TS_TST_INFO_print_bio(ptr noundef nonnull %call21, ptr noundef %call27) #7
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %end, label %if.end56
 
 if.else32:                                        ; preds = %if.end24
-  %call33 = tail call i32 @TS_RESP_print_bio(ptr noundef nonnull %call21, ptr noundef nonnull %response.040) #7
+  %call33 = tail call i32 @TS_RESP_print_bio(ptr noundef nonnull %call21, ptr noundef nonnull %response.140) #7
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %end, label %if.end56
 
@@ -1002,33 +1002,33 @@ if.end42:                                         ; preds = %if.else38
   br i1 %tobool43.not, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.end42
-  %call45 = tail call ptr @TS_RESP_get_token(ptr noundef nonnull %response.040) #7
+  %call45 = tail call ptr @TS_RESP_get_token(ptr noundef nonnull %response.140) #7
   %call46 = tail call i32 @i2d_PKCS7_bio(ptr noundef nonnull %call39, ptr noundef %call45) #7
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %end, label %if.end56
 
 if.else50:                                        ; preds = %if.end42
-  %call51 = tail call i32 @i2d_TS_RESP_bio(ptr noundef nonnull %call39, ptr noundef nonnull %response.040) #7
+  %call51 = tail call i32 @i2d_TS_RESP_bio(ptr noundef nonnull %call39, ptr noundef nonnull %response.140) #7
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %end, label %if.end56
 
 if.end56:                                         ; preds = %if.then44, %if.else50, %if.then26, %if.else32
-  %out_bio.0 = phi ptr [ %call21, %if.then26 ], [ %call21, %if.else32 ], [ %call39, %if.then44 ], [ %call39, %if.else50 ]
+  %out_bio.1 = phi ptr [ %call21, %if.then26 ], [ %call21, %if.else32 ], [ %call39, %if.then44 ], [ %call39, %if.else50 ]
   br label %end
 
 end:                                              ; preds = %if.end15.thread, %if.else50, %if.then44, %if.else38, %if.else32, %if.then26, %if.then20, %if.end15, %if.then, %if.end56
-  %in_bio.1 = phi ptr [ null, %if.then ], [ %call, %if.end15 ], [ %in_bio.039, %if.then20 ], [ %in_bio.039, %if.end56 ], [ %in_bio.039, %if.then26 ], [ %in_bio.039, %if.else32 ], [ %in_bio.039, %if.else38 ], [ %in_bio.039, %if.then44 ], [ %in_bio.039, %if.else50 ], [ null, %if.end15.thread ]
-  %out_bio.1 = phi ptr [ null, %if.then ], [ null, %if.end15 ], [ null, %if.then20 ], [ %out_bio.0, %if.end56 ], [ %call21, %if.then26 ], [ %call21, %if.else32 ], [ null, %if.else38 ], [ %call39, %if.then44 ], [ %call39, %if.else50 ], [ null, %if.end15.thread ]
-  %response.1 = phi ptr [ null, %if.then ], [ null, %if.end15 ], [ %response.040, %if.then20 ], [ %response.040, %if.end56 ], [ %response.040, %if.then26 ], [ %response.040, %if.else32 ], [ %response.040, %if.else38 ], [ %response.040, %if.then44 ], [ %response.040, %if.else50 ], [ null, %if.end15.thread ]
+  %in_bio.0 = phi ptr [ null, %if.then ], [ %call, %if.end15 ], [ %in_bio.139, %if.then20 ], [ %in_bio.139, %if.end56 ], [ %in_bio.139, %if.then26 ], [ %in_bio.139, %if.else32 ], [ %in_bio.139, %if.else38 ], [ %in_bio.139, %if.then44 ], [ %in_bio.139, %if.else50 ], [ null, %if.end15.thread ]
+  %out_bio.0 = phi ptr [ null, %if.then ], [ null, %if.end15 ], [ null, %if.then20 ], [ %out_bio.1, %if.end56 ], [ %call21, %if.then26 ], [ %call21, %if.else32 ], [ null, %if.else38 ], [ %call39, %if.then44 ], [ %call39, %if.else50 ], [ null, %if.end15.thread ]
+  %response.0 = phi ptr [ null, %if.then ], [ null, %if.end15 ], [ %response.140, %if.then20 ], [ %response.140, %if.end56 ], [ %response.140, %if.then26 ], [ %response.140, %if.else32 ], [ %response.140, %if.else38 ], [ %response.140, %if.then44 ], [ %response.140, %if.else50 ], [ null, %if.end15.thread ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.end15 ], [ 0, %if.then20 ], [ 1, %if.end56 ], [ 0, %if.then26 ], [ 0, %if.else32 ], [ 0, %if.else38 ], [ 0, %if.then44 ], [ 0, %if.else50 ], [ 0, %if.end15.thread ]
   %1 = load ptr, ptr @bio_err, align 8
   tail call void @ERR_print_errors(ptr noundef %1) #7
-  tail call void @BIO_free_all(ptr noundef %in_bio.1) #7
+  tail call void @BIO_free_all(ptr noundef %in_bio.0) #7
   tail call void @BIO_free_all(ptr noundef null) #7
   tail call void @BIO_free_all(ptr noundef null) #7
   tail call void @BIO_free_all(ptr noundef null) #7
-  tail call void @BIO_free_all(ptr noundef %out_bio.1) #7
-  tail call void @TS_RESP_free(ptr noundef %response.1) #7
+  tail call void @BIO_free_all(ptr noundef %out_bio.0) #7
+  tail call void @TS_RESP_free(ptr noundef %response.0) #7
   ret i32 %ret.0
 }
 
@@ -1055,8 +1055,8 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp7, label %end.thread, label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then1
-  %token.0 = phi ptr [ %call2, %if.then1 ], [ null, %if.else ]
-  %response.0 = phi ptr [ null, %if.then1 ], [ %call6, %if.else ]
+  %token.1 = phi ptr [ %call2, %if.then1 ], [ null, %if.else ]
+  %response.1 = phi ptr [ null, %if.then1 ], [ %call6, %if.else ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %imprint_len.i)
   %cmp.i = icmp ne ptr %data, null
   %cmp1.i = icmp ne ptr %digest, null
@@ -1124,11 +1124,11 @@ if.end35.i:                                       ; preds = %if.end31.i
   br i1 %cmp37.i, label %if.then60.i, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end35.i, %if.then15.i, %if.else.i, %if.end9.i
-  %ctx.0.i = phi ptr [ %call.i, %if.end9.i ], [ %call.i, %if.then15.i ], [ %call.i, %if.else.i ], [ %call36.i, %if.end35.i ]
-  %input.0.i = phi ptr [ null, %if.end9.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ %call28.i, %if.end35.i ]
-  %request.0.i = phi ptr [ null, %if.end9.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ %call32.i, %if.end35.i ]
+  %ctx.1.i = phi ptr [ %call.i, %if.end9.i ], [ %call.i, %if.then15.i ], [ %call.i, %if.else.i ], [ %call36.i, %if.end35.i ]
+  %input.1.i = phi ptr [ null, %if.end9.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ %call28.i, %if.end35.i ]
+  %request.1.i = phi ptr [ null, %if.end9.i ], [ null, %if.then15.i ], [ null, %if.else.i ], [ %call32.i, %if.end35.i ]
   %f.0.i = phi i32 [ 83, %if.end9.i ], [ 75, %if.then15.i ], [ 67, %if.else.i ], [ 1, %if.end35.i ]
-  %call44.i = call i32 @TS_VERIFY_CTX_add_flags(ptr noundef nonnull %ctx.0.i, i32 noundef %f.0.i) #7
+  %call44.i = call i32 @TS_VERIFY_CTX_add_flags(ptr noundef nonnull %ctx.1.i, i32 noundef %f.0.i) #7
   %call.i.i = call ptr @app_get0_libctx() #7
   %call1.i.i = call ptr @app_get0_propq() #7
   %call2.i.i = call ptr @X509_STORE_new() #7
@@ -1230,7 +1230,7 @@ err.i.i:                                          ; preds = %if.then42.i.i, %if.
 
 create_cert_store.exit.i:                         ; preds = %err.i.i, %if.then47.i.i, %if.end45.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i.i ], [ null, %err.i.i ], [ %call2.i.i, %if.then47.i.i ], [ %call2.i.i, %if.end45.i.i ]
-  %call46.i = call ptr @TS_VERIFY_CTX_set_store(ptr noundef nonnull %ctx.0.i, ptr noundef %retval.0.i.i) #7
+  %call46.i = call ptr @TS_VERIFY_CTX_set_store(ptr noundef nonnull %ctx.1.i, ptr noundef %retval.0.i.i) #7
   %cmp47.i = icmp eq ptr %call46.i, null
   br i1 %cmp47.i, label %if.then60.i, label %if.end49.i
 
@@ -1244,23 +1244,23 @@ if.then51.i:                                      ; preds = %if.end49.i
   br i1 %cmp53.i, label %if.then60.i, label %lor.lhs.false54.i
 
 lor.lhs.false54.i:                                ; preds = %if.then51.i
-  %call55.i = call ptr @TS_VERIFY_CTX_set_certs(ptr noundef nonnull %ctx.0.i, ptr noundef nonnull %call52.i) #7
+  %call55.i = call ptr @TS_VERIFY_CTX_set_certs(ptr noundef nonnull %ctx.1.i, ptr noundef nonnull %call52.i) #7
   %cmp56.i = icmp eq ptr %call55.i, null
   br i1 %cmp56.i, label %if.then60.i, label %create_verify_ctx.exit
 
 if.then60.i:                                      ; preds = %lor.lhs.false54.i, %if.then51.i, %create_cert_store.exit.i, %if.end35.i, %if.end31.i, %if.then27.i, %if.then20.i, %if.then12.i, %if.then5.i, %if.then.i
-  %ctx.1.ph.i = phi ptr [ null, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ %call.i, %if.then20.i ], [ %ctx.0.i, %lor.lhs.false54.i ], [ %ctx.0.i, %if.then51.i ], [ %ctx.0.i, %create_cert_store.exit.i ], [ %call.i, %if.then12.i ], [ %call.i, %if.then5.i ], [ null, %if.then.i ]
-  %input.1.ph.i = phi ptr [ %call28.i, %if.end35.i ], [ %call28.i, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %input.0.i, %lor.lhs.false54.i ], [ %input.0.i, %if.then51.i ], [ %input.0.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
-  %request.1.ph.i = phi ptr [ %call32.i, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %request.0.i, %lor.lhs.false54.i ], [ %request.0.i, %if.then51.i ], [ %request.0.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
-  call void @TS_VERIFY_CTX_free(ptr noundef %ctx.1.ph.i) #7
+  %ctx.0.ph.i = phi ptr [ null, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ %call.i, %if.then20.i ], [ %ctx.1.i, %lor.lhs.false54.i ], [ %ctx.1.i, %if.then51.i ], [ %ctx.1.i, %create_cert_store.exit.i ], [ %call.i, %if.then12.i ], [ %call.i, %if.then5.i ], [ null, %if.then.i ]
+  %input.0.ph.i = phi ptr [ %call28.i, %if.end35.i ], [ %call28.i, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %input.1.i, %lor.lhs.false54.i ], [ %input.1.i, %if.then51.i ], [ %input.1.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
+  %request.0.ph.i = phi ptr [ %call32.i, %if.end35.i ], [ null, %if.end31.i ], [ null, %if.then27.i ], [ null, %if.then20.i ], [ %request.1.i, %lor.lhs.false54.i ], [ %request.1.i, %if.then51.i ], [ %request.1.i, %create_cert_store.exit.i ], [ null, %if.then12.i ], [ null, %if.then5.i ], [ null, %if.then.i ]
+  call void @TS_VERIFY_CTX_free(ptr noundef %ctx.0.ph.i) #7
   br label %create_verify_ctx.exit
 
 create_verify_ctx.exit:                           ; preds = %if.end49.i, %lor.lhs.false54.i, %if.then60.i
-  %request.127.i = phi ptr [ %request.1.ph.i, %if.then60.i ], [ %request.0.i, %if.end49.i ], [ %request.0.i, %lor.lhs.false54.i ]
-  %input.125.i = phi ptr [ %input.1.ph.i, %if.then60.i ], [ %input.0.i, %if.end49.i ], [ %input.0.i, %lor.lhs.false54.i ]
-  %ctx.2.i = phi ptr [ null, %if.then60.i ], [ %ctx.0.i, %if.end49.i ], [ %ctx.0.i, %lor.lhs.false54.i ]
-  call void @BIO_free_all(ptr noundef %input.125.i) #7
-  call void @TS_REQ_free(ptr noundef %request.127.i) #7
+  %request.027.i = phi ptr [ %request.0.ph.i, %if.then60.i ], [ %request.1.i, %if.end49.i ], [ %request.1.i, %lor.lhs.false54.i ]
+  %input.025.i = phi ptr [ %input.0.ph.i, %if.then60.i ], [ %input.1.i, %if.end49.i ], [ %input.1.i, %lor.lhs.false54.i ]
+  %ctx.2.i = phi ptr [ null, %if.then60.i ], [ %ctx.1.i, %if.end49.i ], [ %ctx.1.i, %lor.lhs.false54.i ]
+  call void @BIO_free_all(ptr noundef %input.025.i) #7
+  call void @TS_REQ_free(ptr noundef %request.027.i) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %imprint_len.i)
   %cmp12 = icmp eq ptr %ctx.2.i, null
   br i1 %cmp12, label %end.thread, label %if.end14
@@ -1269,16 +1269,16 @@ if.end14:                                         ; preds = %create_verify_ctx.e
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end14
-  %call16 = call i32 @TS_RESP_verify_token(ptr noundef nonnull %ctx.2.i, ptr noundef %token.0) #7
+  %call16 = call i32 @TS_RESP_verify_token(ptr noundef nonnull %ctx.2.i, ptr noundef %token.1) #7
   br label %end
 
 cond.false:                                       ; preds = %if.end14
-  %call17 = call i32 @TS_RESP_verify_response(ptr noundef nonnull %ctx.2.i, ptr noundef %response.0) #7
+  %call17 = call i32 @TS_RESP_verify_response(ptr noundef nonnull %ctx.2.i, ptr noundef %response.1) #7
   br label %end
 
 end.thread:                                       ; preds = %entry, %if.then1, %create_verify_ctx.exit, %if.else, %create_verify_ctx.exit.thread
-  %token.1.ph = phi ptr [ %token.0, %create_verify_ctx.exit.thread ], [ null, %if.else ], [ %token.0, %create_verify_ctx.exit ], [ null, %if.then1 ], [ null, %entry ]
-  %response.1.ph = phi ptr [ %response.0, %create_verify_ctx.exit.thread ], [ null, %if.else ], [ %response.0, %create_verify_ctx.exit ], [ null, %if.then1 ], [ null, %entry ]
+  %token.0.ph = phi ptr [ %token.1, %create_verify_ctx.exit.thread ], [ null, %if.else ], [ %token.1, %create_verify_ctx.exit ], [ null, %if.then1 ], [ null, %entry ]
+  %response.0.ph = phi ptr [ %response.1, %create_verify_ctx.exit.thread ], [ null, %if.else ], [ %response.1, %create_verify_ctx.exit ], [ null, %if.then1 ], [ null, %entry ]
   %call1816 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.167)
   br label %if.else22
 
@@ -1294,8 +1294,8 @@ if.then20:                                        ; preds = %end
 
 if.else22:                                        ; preds = %end.thread, %end
   %verify_ctx.023 = phi ptr [ null, %end.thread ], [ %ctx.2.i, %end ]
-  %response.121 = phi ptr [ %response.1.ph, %end.thread ], [ %response.0, %end ]
-  %token.119 = phi ptr [ %token.1.ph, %end.thread ], [ %token.0, %end ]
+  %response.021 = phi ptr [ %response.0.ph, %end.thread ], [ %response.1, %end ]
+  %token.019 = phi ptr [ %token.0.ph, %end.thread ], [ %token.1, %end ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %9 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %9) #7
@@ -1304,11 +1304,11 @@ if.else22:                                        ; preds = %end.thread, %end
 if.end24:                                         ; preds = %if.else22, %if.then20
   %ret.024 = phi i32 [ 0, %if.else22 ], [ %ret.0, %if.then20 ]
   %verify_ctx.022 = phi ptr [ %verify_ctx.023, %if.else22 ], [ %ctx.2.i, %if.then20 ]
-  %response.120 = phi ptr [ %response.121, %if.else22 ], [ %response.0, %if.then20 ]
-  %token.118 = phi ptr [ %token.119, %if.else22 ], [ %token.0, %if.then20 ]
+  %response.020 = phi ptr [ %response.021, %if.else22 ], [ %response.1, %if.then20 ]
+  %token.018 = phi ptr [ %token.019, %if.else22 ], [ %token.1, %if.then20 ]
   call void @BIO_free_all(ptr noundef %call) #7
-  call void @PKCS7_free(ptr noundef %token.118) #7
-  call void @TS_RESP_free(ptr noundef %response.120) #7
+  call void @PKCS7_free(ptr noundef %token.018) #7
+  call void @TS_RESP_free(ptr noundef %response.020) #7
   call void @TS_VERIFY_CTX_free(ptr noundef %verify_ctx.022) #7
   ret i32 %ret.024
 }
@@ -1463,17 +1463,17 @@ create_digest.exit.thread27:                      ; preds = %while.body.i, %whil
   br label %if.then72
 
 create_digest.exit:                               ; preds = %if.end23.i, %if.else.i
-  %data.0 = phi ptr [ %call25.i, %if.else.i ], [ %call7.i, %if.end23.i ]
+  %data.1 = phi ptr [ %call25.i, %if.else.i ], [ %call7.i, %if.end23.i ]
   %rv.0.i = phi i32 [ %call.i, %if.else.i ], [ %call24.i, %if.end23.i ]
-  %md_ctx.1.i = phi ptr [ null, %if.else.i ], [ %call3.i, %if.end23.i ]
-  call void @EVP_MD_CTX_free(ptr noundef %md_ctx.1.i) #7
+  %md_ctx.0.i = phi ptr [ null, %if.else.i ], [ %call3.i, %if.end23.i ]
+  call void @EVP_MD_CTX_free(ptr noundef %md_ctx.0.i) #7
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %digest_len.i)
   %cmp32 = icmp eq i32 %rv.0.i, 0
   br i1 %cmp32, label %if.then72, label %if.end34
 
 if.end34:                                         ; preds = %create_digest.exit
-  %call35 = call i32 @TS_MSG_IMPRINT_set_msg(ptr noundef nonnull %call9, ptr noundef %data.0, i32 noundef %rv.0.i) #7
+  %call35 = call i32 @TS_MSG_IMPRINT_set_msg(ptr noundef nonnull %call9, ptr noundef %data.1, i32 noundef %rv.0.i) #7
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then72, label %if.end38
 
@@ -1497,7 +1497,7 @@ land.lhs.true50:                                  ; preds = %land.lhs.true44
   br i1 %tobool52.not, label %if.then72, label %if.end54
 
 if.end54:                                         ; preds = %if.end42, %land.lhs.true50
-  %policy_obj.034 = phi ptr [ %call45, %land.lhs.true50 ], [ null, %if.end42 ]
+  %policy_obj.134 = phi ptr [ %call45, %land.lhs.true50 ], [ null, %if.end42 ]
   %tobool55.not = icmp eq i32 %no_nonce, 0
   br i1 %tobool55.not, label %land.lhs.true56, label %err
 
@@ -1512,18 +1512,18 @@ land.lhs.true62:                                  ; preds = %land.lhs.true56
   br i1 %tobool64.not, label %if.then72, label %err
 
 err:                                              ; preds = %if.end54, %land.lhs.true62
-  %nonce_asn1.037 = phi ptr [ %call57, %land.lhs.true62 ], [ null, %if.end54 ]
+  %nonce_asn1.137 = phi ptr [ %call57, %land.lhs.true62 ], [ null, %if.end54 ]
   %call67 = call i32 @TS_REQ_set_cert_req(ptr noundef %call2, i32 noundef %cert) #7
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %create_digest.exit.thread27, %create_digest.exit.thread, %if.end5, %if.end25, %if.end34, %if.end38, %land.lhs.true50, %land.lhs.true56, %land.lhs.true62, %land.lhs.true44, %create_digest.exit, %if.end21, %if.end16, %if.end12, %if.end8, %if.end, %land.lhs.true, %err
-  %nonce_asn1.155 = phi ptr [ %nonce_asn1.037, %err ], [ null, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ null, %land.lhs.true50 ], [ null, %land.lhs.true56 ], [ %call57, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %policy_obj.153 = phi ptr [ %policy_obj.034, %err ], [ null, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ %call45, %land.lhs.true50 ], [ %policy_obj.034, %land.lhs.true56 ], [ %policy_obj.034, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
+  %nonce_asn1.055 = phi ptr [ %nonce_asn1.137, %err ], [ null, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ null, %land.lhs.true50 ], [ null, %land.lhs.true56 ], [ %call57, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
+  %policy_obj.053 = phi ptr [ %policy_obj.134, %err ], [ null, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ null, %if.end34 ], [ null, %if.end38 ], [ %call45, %land.lhs.true50 ], [ %policy_obj.134, %land.lhs.true56 ], [ %policy_obj.134, %land.lhs.true62 ], [ null, %land.lhs.true44 ], [ null, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
   %algo.051 = phi ptr [ %call13, %err ], [ %call13, %create_digest.exit.thread27 ], [ %call13, %create_digest.exit.thread ], [ null, %if.end5 ], [ %call13, %if.end25 ], [ %call13, %if.end34 ], [ %call13, %if.end38 ], [ %call13, %land.lhs.true50 ], [ %call13, %land.lhs.true56 ], [ %call13, %land.lhs.true62 ], [ %call13, %land.lhs.true44 ], [ %call13, %create_digest.exit ], [ %call13, %if.end21 ], [ %call13, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
   %msg_imprint.049 = phi ptr [ %call9, %err ], [ %call9, %create_digest.exit.thread27 ], [ %call9, %create_digest.exit.thread ], [ null, %if.end5 ], [ %call9, %if.end25 ], [ %call9, %if.end34 ], [ %call9, %if.end38 ], [ %call9, %land.lhs.true50 ], [ %call9, %land.lhs.true56 ], [ %call9, %land.lhs.true62 ], [ %call9, %land.lhs.true44 ], [ %call9, %create_digest.exit ], [ %call9, %if.end21 ], [ %call9, %if.end16 ], [ %call9, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
   %ts_req.047 = phi ptr [ %call2, %err ], [ %call2, %create_digest.exit.thread27 ], [ %call2, %create_digest.exit.thread ], [ %call2, %if.end5 ], [ %call2, %if.end25 ], [ %call2, %if.end34 ], [ %call2, %if.end38 ], [ %call2, %land.lhs.true50 ], [ %call2, %land.lhs.true56 ], [ %call2, %land.lhs.true62 ], [ %call2, %land.lhs.true44 ], [ %call2, %create_digest.exit ], [ %call2, %if.end21 ], [ %call2, %if.end16 ], [ %call2, %if.end12 ], [ %call2, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
-  %data.246 = phi ptr [ %data.0, %err ], [ %call7.i, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ %data.0, %if.end34 ], [ %data.0, %if.end38 ], [ %data.0, %land.lhs.true50 ], [ %data.0, %land.lhs.true56 ], [ %data.0, %land.lhs.true62 ], [ %data.0, %land.lhs.true44 ], [ %data.0, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
+  %data.046 = phi ptr [ %data.1, %err ], [ %call7.i, %create_digest.exit.thread27 ], [ null, %create_digest.exit.thread ], [ null, %if.end5 ], [ null, %if.end25 ], [ %data.1, %if.end34 ], [ %data.1, %if.end38 ], [ %data.1, %land.lhs.true50 ], [ %data.1, %land.lhs.true56 ], [ %data.1, %land.lhs.true62 ], [ %data.1, %land.lhs.true44 ], [ %data.1, %create_digest.exit ], [ null, %if.end21 ], [ null, %if.end16 ], [ null, %if.end12 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %land.lhs.true ]
   call void @TS_REQ_free(ptr noundef %ts_req.047) #7
   %2 = load ptr, ptr @bio_err, align 8
   %call73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.152) #7
@@ -1532,17 +1532,17 @@ if.then72:                                        ; preds = %create_digest.exit.
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then72, %err
-  %nonce_asn1.154 = phi ptr [ %nonce_asn1.037, %err ], [ %nonce_asn1.155, %if.then72 ]
-  %policy_obj.152 = phi ptr [ %policy_obj.034, %err ], [ %policy_obj.153, %if.then72 ]
+  %nonce_asn1.054 = phi ptr [ %nonce_asn1.137, %err ], [ %nonce_asn1.055, %if.then72 ]
+  %policy_obj.052 = phi ptr [ %policy_obj.134, %err ], [ %policy_obj.053, %if.then72 ]
   %algo.050 = phi ptr [ %call13, %err ], [ %algo.051, %if.then72 ]
   %msg_imprint.048 = phi ptr [ %call9, %err ], [ %msg_imprint.049, %if.then72 ]
-  %data.245 = phi ptr [ %data.0, %err ], [ %data.246, %if.then72 ]
+  %data.045 = phi ptr [ %data.1, %err ], [ %data.046, %if.then72 ]
   %ts_req.1 = phi ptr [ %call2, %err ], [ null, %if.then72 ]
   call void @TS_MSG_IMPRINT_free(ptr noundef %msg_imprint.048) #7
   call void @X509_ALGOR_free(ptr noundef %algo.050) #7
-  call void @CRYPTO_free(ptr noundef %data.245, ptr noundef nonnull @.str.134, i32 noundef 502) #7
-  call void @ASN1_OBJECT_free(ptr noundef %policy_obj.152) #7
-  call void @ASN1_INTEGER_free(ptr noundef %nonce_asn1.154) #7
+  call void @CRYPTO_free(ptr noundef %data.045, ptr noundef nonnull @.str.134, i32 noundef 502) #7
+  call void @ASN1_OBJECT_free(ptr noundef %policy_obj.052) #7
+  call void @ASN1_INTEGER_free(ptr noundef %nonce_asn1.054) #7
   ret ptr %ts_req.1
 }
 
@@ -1781,17 +1781,17 @@ if.end20.i:                                       ; preds = %if.end16.i
 
 if.then27.i:                                      ; preds = %if.end20.i, %if.end16.i, %if.end12.i, %if.then10.i, %if.then3.i, %entry
   %in.0.ph.i = phi ptr [ %call1.i, %if.then10.i ], [ %call1.i, %if.end16.i ], [ %call1.i, %if.end20.i ], [ %call1.i, %if.end12.i ], [ null, %if.then3.i ], [ null, %entry ]
-  %serial.1.ph.i = phi ptr [ %call.i, %if.then10.i ], [ null, %if.end16.i ], [ null, %if.end20.i ], [ %call.i, %if.end12.i ], [ %call.i, %if.then3.i ], [ null, %entry ]
-  %bn.1.ph.i = phi ptr [ null, %if.then10.i ], [ %call13.i, %if.end16.i ], [ %call13.i, %if.end20.i ], [ null, %if.end12.i ], [ null, %if.then3.i ], [ null, %entry ]
-  call void @ASN1_INTEGER_free(ptr noundef %serial.1.ph.i) #7
+  %serial.0.ph.i = phi ptr [ %call.i, %if.then10.i ], [ null, %if.end16.i ], [ null, %if.end20.i ], [ %call.i, %if.end12.i ], [ %call.i, %if.then3.i ], [ null, %entry ]
+  %bn.0.ph.i = phi ptr [ null, %if.then10.i ], [ %call13.i, %if.end16.i ], [ %call13.i, %if.end20.i ], [ null, %if.end12.i ], [ null, %if.then3.i ], [ null, %entry ]
+  call void @ASN1_INTEGER_free(ptr noundef %serial.0.ph.i) #7
   br label %next_serial.exit
 
 next_serial.exit:                                 ; preds = %if.then3.i, %if.end20.i, %if.then27.i
-  %bn.118.i = phi ptr [ %bn.1.ph.i, %if.then27.i ], [ null, %if.then3.i ], [ %call13.i, %if.end20.i ]
+  %bn.018.i = phi ptr [ %bn.0.ph.i, %if.then27.i ], [ null, %if.then3.i ], [ %call13.i, %if.end20.i ]
   %in.015.i = phi ptr [ %in.0.ph.i, %if.then27.i ], [ null, %if.then3.i ], [ %call1.i, %if.end20.i ]
   %serial.2.i = phi ptr [ null, %if.then27.i ], [ %call.i, %if.then3.i ], [ %call21.i, %if.end20.i ]
   call void @BIO_free_all(ptr noundef %in.015.i) #7
-  call void @BN_free(ptr noundef %bn.118.i) #7
+  call void @BN_free(ptr noundef %bn.018.i) #7
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
   %cmp = icmp eq ptr %serial.2.i, null
   br i1 %cmp, label %if.then, label %if.else

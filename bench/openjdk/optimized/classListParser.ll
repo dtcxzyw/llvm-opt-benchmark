@@ -4223,7 +4223,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 98:                                               ; preds = %94, %90, %96
   %cond = phi i1 [ true, %96 ], [ false, %90 ], [ false, %94 ]
-  %.044 = phi i32 [ 0, %96 ], [ 1, %90 ], [ %., %94 ]
+  %.145 = phi i32 [ 0, %96 ], [ 1, %90 ], [ %., %94 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #19
   br i1 %cond, label %.thread, label %99
@@ -4236,12 +4236,12 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %100
 
 99:                                               ; preds = %98, %86
-  %.145 = phi i32 [ %.mux, %86 ], [ %.044, %98 ]
+  %.044 = phi i32 [ %.mux, %86 ], [ %.145, %98 ]
   %.2 = phi i1 [ %.066, %86 ], [ true, %98 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  switch i32 %.145, label %default.unreachable [
+  switch i32 %.044, label %default.unreachable [
     i32 0, label %100
     i32 1, label %_ZN12ResourceMarkD2Ev.exit
     i32 2, label %._crit_edge
@@ -4257,8 +4257,8 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br i1 %104, label %51, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %100, %99
-  %.3 = phi i1 [ %.2, %99 ], [ %.255, %100 ]
-  br i1 %.3, label %_ZN12ResourceMarkD2Ev.exit, label %.critedge
+  %.1 = phi i1 [ %.2, %99 ], [ %.255, %100 ]
+  br i1 %.1, label %_ZN12ResourceMarkD2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %35, %._crit_edge
   %105 = getelementptr inbounds i8, ptr %2, i64 800

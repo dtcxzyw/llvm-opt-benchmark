@@ -3496,13 +3496,13 @@ _ZN15MetadataFactory13free_metadataI14MethodCountersEEvP15ClassLoaderDataPT_.exi
   br label %73
 
 73:                                               ; preds = %69, %44
-  %.0 = phi ptr [ null, %44 ], [ %72, %69 ]
+  %.1 = phi ptr [ null, %44 ], [ %72, %69 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   br label %74
 
 74:                                               ; preds = %2, %73
-  %.1 = phi ptr [ %.0, %73 ], [ null, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %73 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN14MethodCounters23allocate_with_exceptionERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
@@ -5107,13 +5107,13 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN12ResourceMarkD2
   br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZNK5Klass11java_mirrorEv.exit, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %.sroa.032.0 = phi ptr [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %storemerge.i.i26, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ]
+  %.sroa.032.1 = phi ptr [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %storemerge.i.i26, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   br label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
 
 _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i, %11, %.loopexit
-  %.sroa.032.1 = phi ptr [ %.sroa.032.0, %.loopexit ], [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %11 ]
-  ret ptr %.sroa.032.1
+  %.sroa.032.0 = phi ptr [ %.sroa.032.1, %.loopexit ], [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %11 ]
+  ret ptr %.sroa.032.0
 }
 
 declare noundef ptr @_ZN8Universe21the_empty_class_arrayEv() local_unnamed_addr #1
@@ -5171,7 +5171,7 @@ define hidden noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr nocapture nou
   %25 = phi i32 [ 0, %17 ], [ %.pre14, %46 ]
   %26 = phi ptr [ %18, %17 ], [ %.pre, %46 ]
   %.08 = phi i32 [ 0, %17 ], [ %.19, %46 ]
-  %.0 = phi i32 [ -1, %17 ], [ %.1, %46 ]
+  %.1 = phi i32 [ -1, %17 ], [ %.2, %46 ]
   %27 = add nsw i32 %25, 1
   store i32 %27, ptr %19, align 8
   %28 = sext i32 %25 to i64
@@ -5214,13 +5214,13 @@ define hidden noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr nocapture nou
   %.not = icmp slt i32 %42, %.08
   %or.cond = select i1 %47, i1 true, i1 %.not
   %.19 = select i1 %or.cond, i32 %.08, i32 %42
-  %.1 = select i1 %or.cond, i32 %.0, i32 %44
+  %.2 = select i1 %or.cond, i32 %.1, i32 %44
   %.pre = load ptr, ptr %3, align 8
   %.pre14 = load i32, ptr %19, align 8
   br label %22, !llvm.loop !20
 
 _ZN30CompressedLineNumberReadStream9read_pairEv.exit: ; preds = %22, %41, %2, %6, %13
-  %.010 = phi i32 [ -1, %13 ], [ -1, %6 ], [ -1, %2 ], [ %.0, %22 ], [ %44, %41 ]
+  %.010 = phi i32 [ -1, %13 ], [ -1, %6 ], [ -1, %2 ], [ %.1, %22 ], [ %44, %41 ]
   ret i32 %.010
 }
 
@@ -7934,8 +7934,8 @@ _ZNK7oopDesc4is_aEP5Klass.exit19.thread27:        ; preds = %89, %_ZNK7oopDesc4i
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %96, %94, %2
-  %.2 = phi i1 [ false, %2 ], [ %.lcssa, %94 ], [ %.lcssa, %96 ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %2 ], [ %.lcssa, %94 ], [ %.lcssa, %96 ]
+  ret i1 %.0
 }
 
 declare void @_ZN24ResolvingSignatureStreamC1EPK6Method(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) unnamed_addr #1

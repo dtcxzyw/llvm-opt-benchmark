@@ -967,8 +967,8 @@ for.body.lr.ph.i53:                               ; preds = %for.body
 
 for.body.i55:                                     ; preds = %for.body.i55, %for.body.lr.ph.i53
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i55 ], [ 0, %for.body.lr.ph.i53 ]
-  %Max0.i.0 = phi float [ %Max0.i.1, %for.body.i55 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i53 ]
-  %Min0.i.0 = phi float [ %Min0.i.1, %for.body.i55 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i53 ]
+  %Max0.i.1 = phi float [ %Max0.i.2, %for.body.i55 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i53 ]
+  %Min0.i.1 = phi float [ %Min0.i.2, %for.body.i55 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i53 ]
   %75 = phi float [ %82, %for.body.i55 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i53 ]
   %gep = getelementptr %class.b3Vector3, ptr %invariant.gep, i64 %indvars.iv
   %76 = load float, ptr %gep, align 16
@@ -979,26 +979,26 @@ for.body.i55:                                     ; preds = %for.body.i55, %for.
   %arrayidx6.i.i27.i62 = getelementptr inbounds i8, ptr %gep, i64 8
   %79 = load float, ptr %arrayidx6.i.i27.i62, align 8
   %80 = tail call noundef float @llvm.fmuladd.f32(float %79, float %71, float %78)
-  %cmp11.i63 = fcmp olt float %80, %Min0.i.0
-  %Min0.i.1 = select i1 %cmp11.i63, float %80, float %Min0.i.0
-  %81 = select i1 %cmp11.i63, float %Max0.i.0, float %75
+  %cmp11.i63 = fcmp olt float %80, %Min0.i.1
+  %Min0.i.2 = select i1 %cmp11.i63, float %80, float %Min0.i.1
+  %81 = select i1 %cmp11.i63, float %Max0.i.1, float %75
   %cmp14.i65 = fcmp ogt float %80, %81
-  %Max0.i.1 = select i1 %cmp14.i65, float %80, float %Max0.i.0
+  %Max0.i.2 = select i1 %cmp14.i65, float %80, float %Max0.i.1
   %82 = select i1 %cmp14.i65, float %80, float %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next, %74
   br i1 %exitcond.not.i68, label %for.end.i46, label %for.body.i55, !llvm.loop !9
 
 for.end.i46:                                      ; preds = %for.body.i55
-  %cmp20.i47 = fcmp ogt float %Min0.i.1, %82
+  %cmp20.i47 = fcmp ogt float %Min0.i.2, %82
   br i1 %cmp20.i47, label %if.then21.i51, label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72
 
 if.then21.i51:                                    ; preds = %for.end.i46
   br label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72
 
 _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72: ; preds = %for.body, %for.end.i46, %if.then21.i51
-  %Max0.i.3 = phi float [ %Max0.i.1, %for.end.i46 ], [ %Min0.i.1, %if.then21.i51 ], [ 0x47EFFFFFE0000000, %for.body ]
-  %83 = phi float [ %Min0.i.1, %for.end.i46 ], [ %82, %if.then21.i51 ], [ 0xC7EFFFFFE0000000, %for.body ]
+  %Max0.i.3 = phi float [ %Max0.i.2, %for.end.i46 ], [ %Min0.i.2, %if.then21.i51 ], [ 0x47EFFFFFE0000000, %for.body ]
+  %83 = phi float [ %Min0.i.2, %for.end.i46 ], [ %82, %if.then21.i51 ], [ 0xC7EFFFFFE0000000, %for.body ]
   %mul5.i.i.i48 = fmul float %posA.sroa.2.0.copyload, %faceANormalWS.sroa.0.4.vec.extract88
   %84 = tail call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %faceANormalWS.sroa.0.0.vec.extract81, float %mul5.i.i.i48)
   %85 = tail call noundef float @llvm.fmuladd.f32(float %posA.sroa.3.0.copyload, float %faceANormalWS.sroa.12.8.vec.extract95, float %84)
@@ -1048,8 +1048,8 @@ for.body.lr.ph.i:                                 ; preds = %_Z9b3ProjectPK22b3C
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %Max1.i.0 = phi float [ %Max1.i.1, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
-  %Min1.i.0 = phi float [ %Min1.i.1, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Max1.i.1 = phi float [ %Max1.i.2, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Min1.i.1 = phi float [ %Min1.i.2, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
   %111 = phi float [ %118, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
   %gep131 = getelementptr %class.b3Vector3, ptr %invariant.gep130, i64 %indvars.iv123
   %112 = load float, ptr %gep131, align 16
@@ -1060,26 +1060,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx6.i.i27.i = getelementptr inbounds i8, ptr %gep131, i64 8
   %115 = load float, ptr %arrayidx6.i.i27.i, align 8
   %116 = tail call noundef float @llvm.fmuladd.f32(float %115, float %107, float %114)
-  %cmp11.i = fcmp olt float %116, %Min1.i.0
-  %Min1.i.1 = select i1 %cmp11.i, float %116, float %Min1.i.0
-  %117 = select i1 %cmp11.i, float %Max1.i.0, float %111
+  %cmp11.i = fcmp olt float %116, %Min1.i.1
+  %Min1.i.2 = select i1 %cmp11.i, float %116, float %Min1.i.1
+  %117 = select i1 %cmp11.i, float %Max1.i.1, float %111
   %cmp14.i = fcmp ogt float %116, %117
-  %Max1.i.1 = select i1 %cmp14.i, float %116, float %Max1.i.0
+  %Max1.i.2 = select i1 %cmp14.i, float %116, float %Max1.i.1
   %118 = select i1 %cmp14.i, float %116, float %117
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next124, %110
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp20.i = fcmp ogt float %Min1.i.1, %118
+  %cmp20.i = fcmp ogt float %Min1.i.2, %118
   br i1 %cmp20.i, label %if.then21.i, label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit
 
 if.then21.i:                                      ; preds = %for.end.i
   br label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit
 
 _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit: ; preds = %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72, %for.end.i, %if.then21.i
-  %Max1.i.3 = phi float [ %Max1.i.1, %for.end.i ], [ %Min1.i.1, %if.then21.i ], [ 0x47EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72 ]
-  %119 = phi float [ %Min1.i.1, %for.end.i ], [ %118, %if.then21.i ], [ 0xC7EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72 ]
+  %Max1.i.3 = phi float [ %Max1.i.2, %for.end.i ], [ %Min1.i.2, %if.then21.i ], [ 0x47EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72 ]
+  %119 = phi float [ %Min1.i.2, %for.end.i ], [ %118, %if.then21.i ], [ 0xC7EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit72 ]
   %mul5.i.i.i = fmul float %posB.sroa.2.0.copyload, %faceANormalWS.sroa.0.4.vec.extract88
   %120 = tail call float @llvm.fmuladd.f32(float %posB.sroa.0.0.copyload, float %faceANormalWS.sroa.0.0.vec.extract81, float %mul5.i.i.i)
   %121 = tail call noundef float @llvm.fmuladd.f32(float %posB.sroa.3.0.copyload, float %faceANormalWS.sroa.12.8.vec.extract95, float %120)
@@ -1437,8 +1437,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then27
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv328 = phi i64 [ %indvars.iv.next329, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %Max0.0 = phi float [ %Max0.1, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
-  %Min0.0 = phi float [ %Min0.1, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Max0.1 = phi float [ %Max0.2, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Min0.1 = phi float [ %Min0.2, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
   %151 = phi float [ %158, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
   %gep347 = getelementptr %class.b3Vector3, ptr %invariant.gep346, i64 %indvars.iv328
   %152 = load float, ptr %gep347, align 16
@@ -1449,26 +1449,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx6.i.i27.i = getelementptr inbounds i8, ptr %gep347, i64 8
   %155 = load float, ptr %arrayidx6.i.i27.i, align 8
   %156 = tail call noundef float @llvm.fmuladd.f32(float %155, float %147, float %154)
-  %cmp11.i = fcmp olt float %156, %Min0.0
-  %Min0.1 = select i1 %cmp11.i, float %156, float %Min0.0
-  %157 = select i1 %cmp11.i, float %Max0.0, float %151
+  %cmp11.i = fcmp olt float %156, %Min0.1
+  %Min0.2 = select i1 %cmp11.i, float %156, float %Min0.1
+  %157 = select i1 %cmp11.i, float %Max0.1, float %151
   %cmp14.i = fcmp ogt float %156, %157
-  %Max0.1 = select i1 %cmp14.i, float %156, float %Max0.0
+  %Max0.2 = select i1 %cmp14.i, float %156, float %Max0.1
   %158 = select i1 %cmp14.i, float %156, float %157
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next329, %150
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp20.i = fcmp ogt float %Min0.1, %158
+  %cmp20.i = fcmp ogt float %Min0.2, %158
   br i1 %cmp20.i, label %if.then21.i, label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit
 
 if.then21.i:                                      ; preds = %for.end.i
   br label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit
 
 _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit: ; preds = %if.then27, %for.end.i, %if.then21.i
-  %Max0.3 = phi float [ %Max0.1, %for.end.i ], [ %Min0.1, %if.then21.i ], [ 0x47EFFFFFE0000000, %if.then27 ]
-  %159 = phi float [ %Min0.1, %for.end.i ], [ %158, %if.then21.i ], [ 0xC7EFFFFFE0000000, %if.then27 ]
+  %Max0.3 = phi float [ %Max0.2, %for.end.i ], [ %Min0.2, %if.then21.i ], [ 0x47EFFFFFE0000000, %if.then27 ]
+  %159 = phi float [ %Min0.2, %for.end.i ], [ %158, %if.then21.i ], [ 0xC7EFFFFFE0000000, %if.then27 ]
   %mul5.i.i.i = fmul float %posA.sroa.3.0.copyload, %crossje.sroa.0.4.vec.extract262
   %160 = tail call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %crossje.sroa.0.0.vec.extract251, float %mul5.i.i.i)
   %161 = tail call noundef float @llvm.fmuladd.f32(float %posA.sroa.5.0.copyload, float %crossje.sroa.17.8.vec.extract273, float %160)
@@ -1512,8 +1512,8 @@ for.body.lr.ph.i95:                               ; preds = %_Z9b3ProjectPK22b3C
 
 for.body.i97:                                     ; preds = %for.body.i97, %for.body.lr.ph.i95
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %for.body.i97 ], [ 0, %for.body.lr.ph.i95 ]
-  %Max1.0 = phi float [ %Max1.1, %for.body.i97 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i95 ]
-  %Min1.0 = phi float [ %Min1.1, %for.body.i97 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i95 ]
+  %Max1.1 = phi float [ %Max1.2, %for.body.i97 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i95 ]
+  %Min1.1 = phi float [ %Min1.2, %for.body.i97 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i95 ]
   %184 = phi float [ %191, %for.body.i97 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i95 ]
   %gep349 = getelementptr %class.b3Vector3, ptr %invariant.gep348, i64 %indvars.iv332
   %185 = load float, ptr %gep349, align 16
@@ -1524,26 +1524,26 @@ for.body.i97:                                     ; preds = %for.body.i97, %for.
   %arrayidx6.i.i27.i104 = getelementptr inbounds i8, ptr %gep349, i64 8
   %188 = load float, ptr %arrayidx6.i.i27.i104, align 8
   %189 = tail call noundef float @llvm.fmuladd.f32(float %188, float %180, float %187)
-  %cmp11.i105 = fcmp olt float %189, %Min1.0
-  %Min1.1 = select i1 %cmp11.i105, float %189, float %Min1.0
-  %190 = select i1 %cmp11.i105, float %Max1.0, float %184
+  %cmp11.i105 = fcmp olt float %189, %Min1.1
+  %Min1.2 = select i1 %cmp11.i105, float %189, float %Min1.1
+  %190 = select i1 %cmp11.i105, float %Max1.1, float %184
   %cmp14.i107 = fcmp ogt float %189, %190
-  %Max1.1 = select i1 %cmp14.i107, float %189, float %Max1.0
+  %Max1.2 = select i1 %cmp14.i107, float %189, float %Max1.1
   %191 = select i1 %cmp14.i107, float %189, float %190
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next333, %183
   br i1 %exitcond.not.i110, label %for.end.i88, label %for.body.i97, !llvm.loop !9
 
 for.end.i88:                                      ; preds = %for.body.i97
-  %cmp20.i89 = fcmp ogt float %Min1.1, %191
+  %cmp20.i89 = fcmp ogt float %Min1.2, %191
   br i1 %cmp20.i89, label %if.then21.i93, label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit114
 
 if.then21.i93:                                    ; preds = %for.end.i88
   br label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit114
 
 _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit114: ; preds = %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit, %for.end.i88, %if.then21.i93
-  %Max1.3 = phi float [ %Max1.1, %for.end.i88 ], [ %Min1.1, %if.then21.i93 ], [ 0x47EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit ]
-  %192 = phi float [ %Min1.1, %for.end.i88 ], [ %191, %if.then21.i93 ], [ 0xC7EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit ]
+  %Max1.3 = phi float [ %Max1.2, %for.end.i88 ], [ %Min1.2, %if.then21.i93 ], [ 0x47EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit ]
+  %192 = phi float [ %Min1.2, %for.end.i88 ], [ %191, %if.then21.i93 ], [ 0xC7EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit ]
   %mul5.i.i.i90 = fmul float %posB.sroa.3.0.copyload, %crossje.sroa.0.4.vec.extract262
   %193 = tail call float @llvm.fmuladd.f32(float %posB.sroa.0.0.copyload, float %crossje.sroa.0.0.vec.extract251, float %mul5.i.i.i90)
   %194 = tail call noundef float @llvm.fmuladd.f32(float %posB.sroa.5.0.copyload, float %crossje.sroa.17.8.vec.extract273, float %193)
@@ -1639,8 +1639,8 @@ for.body.lr.ph.i141:                              ; preds = %for.body53
 
 for.body.i143:                                    ; preds = %for.body.i143, %for.body.lr.ph.i141
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i143 ], [ 0, %for.body.lr.ph.i141 ]
-  %Min059.0 = phi float [ %Min059.1, %for.body.i143 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i141 ]
-  %Max060.0 = phi float [ %Max060.1, %for.body.i143 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i141 ]
+  %Min059.1 = phi float [ %Min059.2, %for.body.i143 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i141 ]
+  %Max060.1 = phi float [ %Max060.2, %for.body.i143 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i141 ]
   %229 = phi float [ %236, %for.body.i143 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i141 ]
   %gep = getelementptr %class.b3Vector3, ptr %invariant.gep, i64 %indvars.iv
   %230 = load float, ptr %gep, align 16
@@ -1651,26 +1651,26 @@ for.body.i143:                                    ; preds = %for.body.i143, %for
   %arrayidx6.i.i27.i150 = getelementptr inbounds i8, ptr %gep, i64 8
   %233 = load float, ptr %arrayidx6.i.i27.i150, align 8
   %234 = tail call noundef float @llvm.fmuladd.f32(float %233, float %225, float %232)
-  %cmp11.i151 = fcmp olt float %234, %Min059.0
-  %Min059.1 = select i1 %cmp11.i151, float %234, float %Min059.0
-  %235 = select i1 %cmp11.i151, float %Max060.0, float %229
+  %cmp11.i151 = fcmp olt float %234, %Min059.1
+  %Min059.2 = select i1 %cmp11.i151, float %234, float %Min059.1
+  %235 = select i1 %cmp11.i151, float %Max060.1, float %229
   %cmp14.i153 = fcmp ogt float %234, %235
-  %Max060.1 = select i1 %cmp14.i153, float %234, float %Max060.0
+  %Max060.2 = select i1 %cmp14.i153, float %234, float %Max060.1
   %236 = select i1 %cmp14.i153, float %234, float %235
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next, %228
   br i1 %exitcond.not.i156, label %for.end.i134, label %for.body.i143, !llvm.loop !9
 
 for.end.i134:                                     ; preds = %for.body.i143
-  %cmp20.i135 = fcmp ogt float %Min059.1, %236
+  %cmp20.i135 = fcmp ogt float %Min059.2, %236
   br i1 %cmp20.i135, label %if.then21.i139, label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160
 
 if.then21.i139:                                   ; preds = %for.end.i134
   br label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160
 
 _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160: ; preds = %for.body53, %for.end.i134, %if.then21.i139
-  %Max060.3 = phi float [ %Max060.1, %for.end.i134 ], [ %Min059.1, %if.then21.i139 ], [ 0x47EFFFFFE0000000, %for.body53 ]
-  %237 = phi float [ %Min059.1, %for.end.i134 ], [ %236, %if.then21.i139 ], [ 0xC7EFFFFFE0000000, %for.body53 ]
+  %Max060.3 = phi float [ %Max060.2, %for.end.i134 ], [ %Min059.2, %if.then21.i139 ], [ 0x47EFFFFFE0000000, %for.body53 ]
+  %237 = phi float [ %Min059.2, %for.end.i134 ], [ %236, %if.then21.i139 ], [ 0xC7EFFFFFE0000000, %for.body53 ]
   %mul5.i.i.i136 = fmul float %posA.sroa.3.0.copyload, %209
   %238 = tail call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %207, float %mul5.i.i.i136)
   %239 = tail call noundef float @llvm.fmuladd.f32(float %posA.sroa.5.0.copyload, float %206, float %238)
@@ -1720,8 +1720,8 @@ for.body.lr.ph.i187:                              ; preds = %_Z9b3ProjectPK22b3C
 
 for.body.i189:                                    ; preds = %for.body.i189, %for.body.lr.ph.i187
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %for.body.i189 ], [ 0, %for.body.lr.ph.i187 ]
-  %Min161.0 = phi float [ %Min161.1, %for.body.i189 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i187 ]
-  %Max162.0 = phi float [ %Max162.1, %for.body.i189 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i187 ]
+  %Min161.1 = phi float [ %Min161.2, %for.body.i189 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i187 ]
+  %Max162.1 = phi float [ %Max162.2, %for.body.i189 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i187 ]
   %265 = phi float [ %272, %for.body.i189 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i187 ]
   %gep345 = getelementptr %class.b3Vector3, ptr %invariant.gep344, i64 %indvars.iv321
   %266 = load float, ptr %gep345, align 16
@@ -1732,26 +1732,26 @@ for.body.i189:                                    ; preds = %for.body.i189, %for
   %arrayidx6.i.i27.i196 = getelementptr inbounds i8, ptr %gep345, i64 8
   %269 = load float, ptr %arrayidx6.i.i27.i196, align 8
   %270 = tail call noundef float @llvm.fmuladd.f32(float %269, float %261, float %268)
-  %cmp11.i197 = fcmp olt float %270, %Min161.0
-  %Min161.1 = select i1 %cmp11.i197, float %270, float %Min161.0
-  %271 = select i1 %cmp11.i197, float %Max162.0, float %265
+  %cmp11.i197 = fcmp olt float %270, %Min161.1
+  %Min161.2 = select i1 %cmp11.i197, float %270, float %Min161.1
+  %271 = select i1 %cmp11.i197, float %Max162.1, float %265
   %cmp14.i199 = fcmp ogt float %270, %271
-  %Max162.1 = select i1 %cmp14.i199, float %270, float %Max162.0
+  %Max162.2 = select i1 %cmp14.i199, float %270, float %Max162.1
   %272 = select i1 %cmp14.i199, float %270, float %271
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond.not.i202 = icmp eq i64 %indvars.iv.next322, %264
   br i1 %exitcond.not.i202, label %for.end.i180, label %for.body.i189, !llvm.loop !9
 
 for.end.i180:                                     ; preds = %for.body.i189
-  %cmp20.i181 = fcmp ogt float %Min161.1, %272
+  %cmp20.i181 = fcmp ogt float %Min161.2, %272
   br i1 %cmp20.i181, label %if.then21.i185, label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit206
 
 if.then21.i185:                                   ; preds = %for.end.i180
   br label %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit206
 
 _Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit206: ; preds = %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160, %for.end.i180, %if.then21.i185
-  %Max162.3 = phi float [ %Max162.1, %for.end.i180 ], [ %Min161.1, %if.then21.i185 ], [ 0x47EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160 ]
-  %273 = phi float [ %Min161.1, %for.end.i180 ], [ %272, %if.then21.i185 ], [ 0xC7EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160 ]
+  %Max162.3 = phi float [ %Max162.2, %for.end.i180 ], [ %Min161.2, %if.then21.i185 ], [ 0x47EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160 ]
+  %273 = phi float [ %Min161.2, %for.end.i180 ], [ %272, %if.then21.i185 ], [ 0xC7EFFFFFE0000000, %_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_.exit160 ]
   %mul5.i.i.i182 = fmul float %posB.sroa.3.0.copyload, %209
   %274 = tail call float @llvm.fmuladd.f32(float %posB.sroa.0.0.copyload, float %207, float %mul5.i.i.i182)
   %275 = tail call noundef float @llvm.fmuladd.f32(float %posB.sroa.5.0.copyload, float %206, float %274)
@@ -3107,8 +3107,8 @@ for.body.lr.ph:                                   ; preds = %if.then12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %pVtxIn.070 = phi ptr [ %arrayidx2, %for.body.lr.ph ], [ %pVtxOut.069, %for.body ]
-  %pVtxOut.069 = phi ptr [ %arrayidx5, %for.body.lr.ph ], [ %pVtxIn.070, %for.body ]
+  %pVtxIn.170 = phi ptr [ %arrayidx2, %for.body.lr.ph ], [ %pVtxOut.169, %for.body ]
+  %pVtxOut.169 = phi ptr [ %arrayidx5, %for.body.lr.ph ], [ %pVtxIn.170, %for.body ]
   %numVertsInB.068 = phi i32 [ %3, %for.body.lr.ph ], [ %call32, %for.body ]
   %gep = getelementptr %class.b3Vector3, ptr %invariant.gep, i64 %indvars.iv
   %aw.sroa.0.0.copyload = load float, ptr %gep, align 16
@@ -3153,14 +3153,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %fneg = fneg float %27
   store <2 x float> %22, ptr %planeNormalWS, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i48, ptr %planeNormalWS1.sroa.4.0.planeNormalWS.sroa_idx, align 8
-  %call32 = call noundef i32 @_Z14clipFaceGlobalPK9b3Vector3iRS0_fPS_(ptr noundef %pVtxIn.070, i32 noundef %numVertsInB.068, ptr noundef nonnull align 16 dereferenceable(16) %planeNormalWS, float noundef %fneg, ptr noundef %pVtxOut.069)
+  %call32 = call noundef i32 @_Z14clipFaceGlobalPK9b3Vector3iRS0_fPS_(ptr noundef %pVtxIn.170, i32 noundef %numVertsInB.068, ptr noundef nonnull align 16 dereferenceable(16) %planeNormalWS, float noundef %fneg, ptr noundef %pVtxOut.169)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %if.then12
   %numVertsInB.0.lcssa = phi i32 [ %3, %if.then12 ], [ %call32, %for.body ]
-  %pVtxOut.0.lcssa = phi ptr [ %arrayidx5, %if.then12 ], [ %pVtxIn.070, %for.body ]
-  %pVtxIn.0.lcssa = phi ptr [ %arrayidx2, %if.then12 ], [ %pVtxOut.069, %for.body ]
+  %pVtxOut.1.lcssa = phi ptr [ %arrayidx5, %if.then12 ], [ %pVtxIn.170, %for.body ]
+  %pVtxIn.1.lcssa = phi ptr [ %arrayidx2, %if.then12 ], [ %pVtxOut.169, %for.body ]
   %arrayidx35 = getelementptr inbounds %class.b3Vector3, ptr %worldNormalsA1, i64 %idxprom
   %planeNormalWS33.sroa.0.0.copyload = load float, ptr %arrayidx35, align 16
   %planeNormalWS33.sroa.3.0.arrayidx35.sroa_idx = getelementptr inbounds i8, ptr %arrayidx35, i64 4
@@ -3185,8 +3185,8 @@ for.body45.preheader:                             ; preds = %for.end
 
 for.body45:                                       ; preds = %for.body45.preheader, %for.inc66
   %indvars.iv81 = phi i64 [ 0, %for.body45.preheader ], [ %indvars.iv.next82, %for.inc66 ]
-  %numLocalContactsOut.075 = phi i32 [ 0, %for.body45.preheader ], [ %numLocalContactsOut.1, %for.inc66 ]
-  %arrayidx47 = getelementptr inbounds %class.b3Vector3, ptr %pVtxIn.0.lcssa, i64 %indvars.iv81
+  %numLocalContactsOut.175 = phi i32 [ 0, %for.body45.preheader ], [ %numLocalContactsOut.2, %for.inc66 ]
+  %arrayidx47 = getelementptr inbounds %class.b3Vector3, ptr %pVtxIn.1.lcssa, i64 %indvars.iv81
   %33 = load <2 x float>, ptr %arrayidx47, align 16
   %34 = extractelement <2 x float> %33, i64 1
   %mul5.i.i60 = fmul float %planeNormalWS33.sroa.3.0.copyload, %34
@@ -3204,16 +3204,16 @@ for.body45:                                       ; preds = %for.body45.preheade
 if.then53:                                        ; preds = %for.body45
   %retval.sroa.3.12.vec.insert4.i = insertelement <2 x float> poison, float %37, i64 0
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.12.vec.insert4.i, float %depth.0, i64 1
-  %inc62 = add nsw i32 %numLocalContactsOut.075, 1
-  %idxprom63 = sext i32 %numLocalContactsOut.075 to i64
-  %arrayidx64 = getelementptr inbounds %class.b3Vector3, ptr %pVtxOut.0.lcssa, i64 %idxprom63
+  %inc62 = add nsw i32 %numLocalContactsOut.175, 1
+  %idxprom63 = sext i32 %numLocalContactsOut.175 to i64
+  %arrayidx64 = getelementptr inbounds %class.b3Vector3, ptr %pVtxOut.1.lcssa, i64 %idxprom63
   store <2 x float> %33, ptr %arrayidx64, align 16
   %ref.tmp56.sroa.2.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %arrayidx64, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp56.sroa.2.0.arrayidx64.sroa_idx, align 8
   br label %for.inc66
 
 for.inc66:                                        ; preds = %for.body45, %if.then53
-  %numLocalContactsOut.1 = phi i32 [ %inc62, %if.then53 ], [ %numLocalContactsOut.075, %for.body45 ]
+  %numLocalContactsOut.2 = phi i32 [ %inc62, %if.then53 ], [ %numLocalContactsOut.175, %for.body45 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %if.end69, label %for.body45, !llvm.loop !22
@@ -3223,18 +3223,18 @@ if.end69.thread:                                  ; preds = %if.then, %for.end
   br label %if.end84
 
 if.end69:                                         ; preds = %for.inc66
-  store i32 %numLocalContactsOut.1, ptr %w, align 4
-  %cmp7577 = icmp sgt i32 %numLocalContactsOut.1, 0
+  store i32 %numLocalContactsOut.2, ptr %w, align 4
+  %cmp7577 = icmp sgt i32 %numLocalContactsOut.2, 0
   br i1 %cmp7577, label %for.body76.preheader, label %if.end84
 
 for.body76.preheader:                             ; preds = %if.end69
-  %wide.trip.count89 = zext nneg i32 %numLocalContactsOut.1 to i64
+  %wide.trip.count89 = zext nneg i32 %numLocalContactsOut.2 to i64
   br label %for.body76
 
 for.body76:                                       ; preds = %for.body76.preheader, %for.body76
   %indvars.iv86 = phi i64 [ 0, %for.body76.preheader ], [ %indvars.iv.next87, %for.body76 ]
-  %arrayidx78 = getelementptr inbounds %class.b3Vector3, ptr %pVtxOut.0.lcssa, i64 %indvars.iv86
-  %arrayidx80 = getelementptr inbounds %class.b3Vector3, ptr %pVtxIn.0.lcssa, i64 %indvars.iv86
+  %arrayidx78 = getelementptr inbounds %class.b3Vector3, ptr %pVtxOut.1.lcssa, i64 %indvars.iv86
+  %arrayidx80 = getelementptr inbounds %class.b3Vector3, ptr %pVtxIn.1.lcssa, i64 %indvars.iv86
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx80, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx78, i64 16, i1 false)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
@@ -5331,8 +5331,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %Min0.0 = phi float [ %Min0.1, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
-  %Max0.0 = phi float [ %Max0.1, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Min0.1 = phi float [ %Min0.2, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Max0.1 = phi float [ %Max0.2, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
   %149 = phi float [ %156, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
   %gep = getelementptr %class.b3Vector3, ptr %invariant.gep, i64 %indvars.iv
   %150 = load float, ptr %gep, align 16
@@ -5343,26 +5343,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx6.i.i25.i = getelementptr inbounds i8, ptr %gep, i64 8
   %153 = load float, ptr %arrayidx6.i.i25.i, align 8
   %154 = tail call noundef float @llvm.fmuladd.f32(float %153, float %144, float %152)
-  %cmp9.i = fcmp olt float %154, %Min0.0
-  %Min0.1 = select i1 %cmp9.i, float %154, float %Min0.0
-  %155 = select i1 %cmp9.i, float %Max0.0, float %149
+  %cmp9.i = fcmp olt float %154, %Min0.1
+  %Min0.2 = select i1 %cmp9.i, float %154, float %Min0.1
+  %155 = select i1 %cmp9.i, float %Max0.1, float %149
   %cmp10.i = fcmp ogt float %154, %155
-  %Max0.1 = select i1 %cmp10.i, float %154, float %Max0.0
+  %Max0.2 = select i1 %cmp10.i, float %154, float %Max0.1
   %156 = select i1 %cmp10.i, float %154, float %155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %148
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !28
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp13.i = fcmp ogt float %Min0.1, %156
+  %cmp13.i = fcmp ogt float %Min0.2, %156
   br i1 %cmp13.i, label %if.then14.i, label %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit
 
 if.then14.i:                                      ; preds = %for.end.i
   br label %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit
 
 _Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit: ; preds = %if.then, %for.end.i, %if.then14.i
-  %Max0.3 = phi float [ %Max0.1, %for.end.i ], [ %Min0.1, %if.then14.i ], [ 0x47EFFFFFE0000000, %if.then ]
-  %157 = phi float [ %Min0.1, %for.end.i ], [ %156, %if.then14.i ], [ 0xC7EFFFFFE0000000, %if.then ]
+  %Max0.3 = phi float [ %Max0.2, %for.end.i ], [ %Min0.2, %if.then14.i ], [ 0x47EFFFFFE0000000, %if.then ]
+  %157 = phi float [ %Min0.2, %for.end.i ], [ %156, %if.then14.i ], [ 0xC7EFFFFFE0000000, %if.then ]
   %mul5.i.i.i49 = fmul float %posA.sroa.2.0.copyload, %crossje.sroa.0.4.vec.extract152
   %158 = tail call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %crossje.sroa.0.0.vec.extract139, float %mul5.i.i.i49)
   %159 = tail call noundef float @llvm.fmuladd.f32(float %posA.sroa.3.0.copyload, float %crossje.sroa.18.8.vec.extract165, float %158)
@@ -5407,8 +5407,8 @@ for.body.lr.ph.i77:                               ; preds = %_Z7projectRK22b3Con
 
 for.body.i80:                                     ; preds = %for.body.i80, %for.body.lr.ph.i77
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %for.body.i80 ], [ 0, %for.body.lr.ph.i77 ]
-  %Min1.0 = phi float [ %Min1.1, %for.body.i80 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i77 ]
-  %Max1.0 = phi float [ %Max1.1, %for.body.i80 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i77 ]
+  %Min1.1 = phi float [ %Min1.2, %for.body.i80 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i77 ]
+  %Max1.1 = phi float [ %Max1.2, %for.body.i80 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i77 ]
   %183 = phi float [ %190, %for.body.i80 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i77 ]
   %gep196 = getelementptr %class.b3Vector3, ptr %invariant.gep195, i64 %indvars.iv187
   %184 = load float, ptr %gep196, align 16
@@ -5419,26 +5419,26 @@ for.body.i80:                                     ; preds = %for.body.i80, %for.
   %arrayidx6.i.i25.i87 = getelementptr inbounds i8, ptr %gep196, i64 8
   %187 = load float, ptr %arrayidx6.i.i25.i87, align 8
   %188 = tail call noundef float @llvm.fmuladd.f32(float %187, float %178, float %186)
-  %cmp9.i88 = fcmp olt float %188, %Min1.0
-  %Min1.1 = select i1 %cmp9.i88, float %188, float %Min1.0
-  %189 = select i1 %cmp9.i88, float %Max1.0, float %183
+  %cmp9.i88 = fcmp olt float %188, %Min1.1
+  %Min1.2 = select i1 %cmp9.i88, float %188, float %Min1.1
+  %189 = select i1 %cmp9.i88, float %Max1.1, float %183
   %cmp10.i90 = fcmp ogt float %188, %189
-  %Max1.1 = select i1 %cmp10.i90, float %188, float %Max1.0
+  %Max1.2 = select i1 %cmp10.i90, float %188, float %Max1.1
   %190 = select i1 %cmp10.i90, float %188, float %189
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next188, %182
   br i1 %exitcond.not.i93, label %for.end.i70, label %for.body.i80, !llvm.loop !28
 
 for.end.i70:                                      ; preds = %for.body.i80
-  %cmp13.i71 = fcmp ogt float %Min1.1, %190
+  %cmp13.i71 = fcmp ogt float %Min1.2, %190
   br i1 %cmp13.i71, label %if.then14.i75, label %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit97
 
 if.then14.i75:                                    ; preds = %for.end.i70
   br label %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit97
 
 _Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit97: ; preds = %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit, %for.end.i70, %if.then14.i75
-  %Max1.3 = phi float [ %Max1.1, %for.end.i70 ], [ %Min1.1, %if.then14.i75 ], [ 0x47EFFFFFE0000000, %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
-  %191 = phi float [ %Min1.1, %for.end.i70 ], [ %190, %if.then14.i75 ], [ 0xC7EFFFFFE0000000, %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
+  %Max1.3 = phi float [ %Max1.2, %for.end.i70 ], [ %Min1.2, %if.then14.i75 ], [ 0x47EFFFFFE0000000, %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
+  %191 = phi float [ %Min1.2, %for.end.i70 ], [ %190, %if.then14.i75 ], [ 0xC7EFFFFFE0000000, %_Z7projectRK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionS4_RK20b3AlignedObjectArrayIS2_ERfSC_.exit ]
   %mul5.i.i.i72 = fmul float %posB.sroa.2.0.copyload, %crossje.sroa.0.4.vec.extract152
   %192 = tail call float @llvm.fmuladd.f32(float %posB.sroa.0.0.copyload, float %crossje.sroa.0.0.vec.extract139, float %mul5.i.i.i72)
   %193 = tail call noundef float @llvm.fmuladd.f32(float %posB.sroa.3.0.copyload, float %crossje.sroa.18.8.vec.extract165, float %192)
@@ -6671,7 +6671,7 @@ invoke.cont78:                                    ; preds = %do.body
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %invoke.cont78, %for.end
-  %contactIndex.0 = phi i32 [ %27, %for.end ], [ -1, %invoke.cont78 ]
+  %contactIndex.1 = phi i32 [ %27, %for.end ], [ -1, %invoke.cont78 ]
   invoke void @b3LeaveProfileZone()
           to label %if.end80 unwind label %terminate.lpad.i140
 
@@ -6683,8 +6683,8 @@ terminate.lpad.i140:                              ; preds = %if.end
   unreachable
 
 if.end80:                                         ; preds = %if.end, %entry
-  %contactIndex.1 = phi i32 [ -1, %entry ], [ %contactIndex.0, %if.end ]
-  ret i32 %contactIndex.1
+  %contactIndex.0 = phi i32 [ -1, %entry ], [ %contactIndex.1, %if.end ]
+  ret i32 %contactIndex.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15856,8 +15856,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then667
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %Max0.i.0 = phi float [ %Max0.i.1, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
-  %Min0.i.0 = phi float [ %Min0.i.1, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Max0.i.1 = phi float [ %Max0.i.2, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Min0.i.1 = phi float [ %Min0.i.2, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
   %545 = phi float [ %552, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
   %gep = getelementptr %class.b3Vector3, ptr %invariant.gep, i64 %indvars.iv
   %546 = load float, ptr %gep, align 16
@@ -15868,26 +15868,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx6.i.i27.i = getelementptr inbounds i8, ptr %gep, i64 8
   %549 = load float, ptr %arrayidx6.i.i27.i, align 8
   %550 = call noundef float @llvm.fmuladd.f32(float %549, float %538, float %548)
-  %cmp11.i = fcmp olt float %550, %Min0.i.0
-  %Min0.i.1 = select i1 %cmp11.i, float %550, float %Min0.i.0
-  %551 = select i1 %cmp11.i, float %Max0.i.0, float %545
+  %cmp11.i = fcmp olt float %550, %Min0.i.1
+  %Min0.i.2 = select i1 %cmp11.i, float %550, float %Min0.i.1
+  %551 = select i1 %cmp11.i, float %Max0.i.1, float %545
   %cmp14.i = fcmp ogt float %550, %551
-  %Max0.i.1 = select i1 %cmp14.i, float %550, float %Max0.i.0
+  %Max0.i.2 = select i1 %cmp14.i, float %550, float %Max0.i.1
   %552 = select i1 %cmp14.i, float %550, float %551
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i4656 = icmp eq i64 %indvars.iv.next, %544
   br i1 %exitcond.not.i4656, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp20.i = fcmp ogt float %Min0.i.1, %552
+  %cmp20.i = fcmp ogt float %Min0.i.2, %552
   br i1 %cmp20.i, label %if.then21.i, label %.noexc1514
 
 if.then21.i:                                      ; preds = %for.end.i
   br label %.noexc1514
 
 .noexc1514:                                       ; preds = %if.then667, %if.then21.i, %for.end.i
-  %Max0.i.3 = phi float [ %Max0.i.1, %for.end.i ], [ %Min0.i.1, %if.then21.i ], [ 0x47EFFFFFE0000000, %if.then667 ]
-  %553 = phi float [ %Min0.i.1, %for.end.i ], [ %552, %if.then21.i ], [ 0xC7EFFFFFE0000000, %if.then667 ]
+  %Max0.i.3 = phi float [ %Max0.i.2, %for.end.i ], [ %Min0.i.2, %if.then21.i ], [ 0x47EFFFFFE0000000, %if.then667 ]
+  %553 = phi float [ %Min0.i.2, %for.end.i ], [ %552, %if.then21.i ], [ 0xC7EFFFFFE0000000, %if.then667 ]
   %mul5.i.i.i = fmul float %540, %520
   %554 = call float @llvm.fmuladd.f32(float %539, float %518, float %mul5.i.i.i)
   %555 = call noundef float @llvm.fmuladd.f32(float %541, float %fneg661, float %554)
@@ -15990,8 +15990,8 @@ for.body.lr.ph.i4685:                             ; preds = %if.end703
 
 for.body.i4687:                                   ; preds = %for.body.i4687, %for.body.lr.ph.i4685
   %indvars.iv5990 = phi i64 [ %indvars.iv.next5991, %for.body.i4687 ], [ 0, %for.body.lr.ph.i4685 ]
-  %Max0.i1524.0 = phi float [ %Max0.i1524.1, %for.body.i4687 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i4685 ]
-  %Min0.i1523.0 = phi float [ %Min0.i1523.1, %for.body.i4687 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i4685 ]
+  %Max0.i1524.1 = phi float [ %Max0.i1524.2, %for.body.i4687 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i4685 ]
+  %Min0.i1523.1 = phi float [ %Min0.i1523.2, %for.body.i4687 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i4685 ]
   %586 = phi float [ %593, %for.body.i4687 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i4685 ]
   %gep6052 = getelementptr %class.b3Vector3, ptr %invariant.gep6051, i64 %indvars.iv5990
   %587 = load float, ptr %gep6052, align 16
@@ -16002,26 +16002,26 @@ for.body.i4687:                                   ; preds = %for.body.i4687, %fo
   %arrayidx6.i.i27.i4694 = getelementptr inbounds i8, ptr %gep6052, i64 8
   %590 = load float, ptr %arrayidx6.i.i27.i4694, align 8
   %591 = call noundef float @llvm.fmuladd.f32(float %590, float %582, float %589)
-  %cmp11.i4695 = fcmp olt float %591, %Min0.i1523.0
-  %Min0.i1523.1 = select i1 %cmp11.i4695, float %591, float %Min0.i1523.0
-  %592 = select i1 %cmp11.i4695, float %Max0.i1524.0, float %586
+  %cmp11.i4695 = fcmp olt float %591, %Min0.i1523.1
+  %Min0.i1523.2 = select i1 %cmp11.i4695, float %591, float %Min0.i1523.1
+  %592 = select i1 %cmp11.i4695, float %Max0.i1524.1, float %586
   %cmp14.i4697 = fcmp ogt float %591, %592
-  %Max0.i1524.1 = select i1 %cmp14.i4697, float %591, float %Max0.i1524.0
+  %Max0.i1524.2 = select i1 %cmp14.i4697, float %591, float %Max0.i1524.1
   %593 = select i1 %cmp14.i4697, float %591, float %592
   %indvars.iv.next5991 = add nuw nsw i64 %indvars.iv5990, 1
   %exitcond.not.i4700 = icmp eq i64 %indvars.iv.next5991, %585
   br i1 %exitcond.not.i4700, label %for.end.i4678, label %for.body.i4687, !llvm.loop !9
 
 for.end.i4678:                                    ; preds = %for.body.i4687
-  %cmp20.i4679 = fcmp ogt float %Min0.i1523.1, %593
+  %cmp20.i4679 = fcmp ogt float %Min0.i1523.2, %593
   br i1 %cmp20.i4679, label %if.then21.i4683, label %.noexc1536
 
 if.then21.i4683:                                  ; preds = %for.end.i4678
   br label %.noexc1536
 
 .noexc1536:                                       ; preds = %if.end703, %if.then21.i4683, %for.end.i4678
-  %Max0.i1524.3 = phi float [ %Max0.i1524.1, %for.end.i4678 ], [ %Min0.i1523.1, %if.then21.i4683 ], [ 0x47EFFFFFE0000000, %if.end703 ]
-  %594 = phi float [ %Min0.i1523.1, %for.end.i4678 ], [ %593, %if.then21.i4683 ], [ 0xC7EFFFFFE0000000, %if.end703 ]
+  %Max0.i1524.3 = phi float [ %Max0.i1524.2, %for.end.i4678 ], [ %Min0.i1523.2, %if.then21.i4683 ], [ 0x47EFFFFFE0000000, %if.end703 ]
+  %594 = phi float [ %Min0.i1523.2, %for.end.i4678 ], [ %593, %if.then21.i4683 ], [ 0xC7EFFFFFE0000000, %if.end703 ]
   %mul5.i.i.i4680 = fmul float %566, %540
   %595 = call float @llvm.fmuladd.f32(float %539, float %563, float %mul5.i.i.i4680)
   %596 = call noundef float @llvm.fmuladd.f32(float %541, float %564, float %595)
@@ -27777,8 +27777,8 @@ _ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18: ; preds = %if.else, %land
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -28270,9 +28270,9 @@ if.then52:                                        ; preds = %if.then50
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then52, %if.else46
-  %dist.0 = phi float [ %call48, %if.then52 ], [ %call47, %if.else46 ]
+  %dist.1 = phi float [ %call48, %if.then52 ], [ %call47, %if.else46 ]
   %call55 = call noundef float @_Z27_b3MprVec3PointSegmentDist2PK9b3Vector3S1_S1_PS_(ptr noundef nonnull %P, ptr noundef nonnull %B, ptr noundef nonnull %C, ptr noundef nonnull %witness2)
-  %cmp56 = fcmp olt float %call55, %dist.0
+  %cmp56 = fcmp olt float %call55, %dist.1
   br i1 %cmp56, label %if.then57, label %if.end62
 
 if.end54.thread:                                  ; preds = %if.then50
@@ -28292,8 +28292,8 @@ if.then59:                                        ; preds = %if.then57
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then57.thread, %if.end54.thread, %if.end54, %if.then59, %if.then57, %if.then33, %if.else
-  %dist.1 = phi float [ %78, %if.then33 ], [ %add45, %if.else ], [ %call55, %if.then59 ], [ %call55, %if.then57 ], [ %dist.0, %if.end54 ], [ %call48, %if.end54.thread ], [ %call55255, %if.then57.thread ]
-  ret float %dist.1
+  %dist.0 = phi float [ %78, %if.then33 ], [ %add45, %if.else ], [ %call55, %if.then59 ], [ %call55, %if.then57 ], [ %dist.1, %if.end54 ], [ %call48, %if.end54.thread ], [ %call55255, %if.then57.thread ]
+  ret float %dist.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28528,8 +28528,8 @@ _ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18: ; preds = %if.else, %land.l
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28658,8 +28658,8 @@ _ZN13b3OpenCLArrayIiE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIiE10deallocateEv.exit, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28788,8 +28788,8 @@ _ZN13b3OpenCLArrayIfE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIfE10deallocateEv.exit, %_ZN13b3OpenCLArrayIfE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIfE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIfE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIfE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIfE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28918,8 +28918,8 @@ _ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit18: ; preds = 
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit, %_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30041,8 +30041,8 @@ _ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable

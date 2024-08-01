@@ -1211,12 +1211,12 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
 
 45:                                               ; preds = %38, %45
   %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %45 ]
-  %.066137 = phi i16 [ 0, %38 ], [ %spec.select, %45 ]
+  %.1137 = phi i16 [ 0, %38 ], [ %spec.select, %45 ]
   %46 = getelementptr inbounds %class.LocalVariableTableElement, ptr %44, i64 %indvars.iv, i32 4
   %47 = load i16, ptr %46, align 2
   %.not85 = icmp ne i16 %47, 0
   %48 = zext i1 %.not85 to i16
-  %spec.select = add i16 %.066137, %48
+  %spec.select = add i16 %.1137, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %49, label %45, !llvm.loop !11
@@ -1238,7 +1238,7 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
 58:                                               ; preds = %35, %52, %49, %31
   %.272 = phi i16 [ %54, %52 ], [ %39, %49 ], [ %.171, %35 ], [ %.171, %31 ]
   %.269 = phi i32 [ %57, %52 ], [ %51, %49 ], [ %.168, %35 ], [ %.168, %31 ]
-  %.2 = phi i16 [ %spec.select, %52 ], [ 0, %49 ], [ 0, %35 ], [ 0, %31 ]
+  %.066 = phi i16 [ %spec.select, %52 ], [ 0, %49 ], [ 0, %35 ], [ 0, %31 ]
   %.064 = phi i16 [ %36, %52 ], [ %36, %49 ], [ 0, %35 ], [ 0, %31 ]
   %59 = load ptr, ptr %1, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
@@ -1753,11 +1753,11 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit130: ; preds = %313, %314
   br label %320
 
 320:                                              ; preds = %319, %318
-  %.not84 = icmp eq i16 %.2, 0
+  %.not84 = icmp eq i16 %.066, 0
   br i1 %.not84, label %322, label %321
 
 321:                                              ; preds = %320
-  call void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i16 noundef zeroext %.2)
+  call void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i16 noundef zeroext %.066)
   br label %322
 
 322:                                              ; preds = %321, %320

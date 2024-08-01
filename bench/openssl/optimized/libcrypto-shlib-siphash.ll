@@ -209,17 +209,17 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp54120.not, label %for.end, label %do.body
 
 do.body:                                          ; preds = %if.end, %do.body
-  %v3.0125 = phi i64 [ %xor72, %do.body ], [ %xor, %if.end ]
-  %v2.0124 = phi i64 [ %or80, %do.body ], [ %2, %if.end ]
-  %v1.0123 = phi i64 [ %xor77, %do.body ], [ %1, %if.end ]
-  %v0.0122 = phi i64 [ %add68, %do.body ], [ %0, %if.end ]
+  %v3.1125 = phi i64 [ %xor72, %do.body ], [ %xor, %if.end ]
+  %v2.1124 = phi i64 [ %or80, %do.body ], [ %2, %if.end ]
+  %v1.1123 = phi i64 [ %xor77, %do.body ], [ %1, %if.end ]
+  %v0.1122 = phi i64 [ %add68, %do.body ], [ %0, %if.end ]
   %i.0121 = phi i32 [ %inc, %do.body ], [ 0, %if.end ]
-  %add56 = add i64 %v1.0123, %v0.0122
-  %or58 = tail call i64 @llvm.fshl.i64(i64 %v1.0123, i64 %v1.0123, i64 13)
+  %add56 = add i64 %v1.1123, %v0.1122
+  %or58 = tail call i64 @llvm.fshl.i64(i64 %v1.1123, i64 %v1.1123, i64 13)
   %xor59 = xor i64 %or58, %add56
   %or62 = tail call i64 @llvm.fshl.i64(i64 %add56, i64 %add56, i64 32)
-  %add63 = add i64 %v3.0125, %v2.0124
-  %or66 = tail call i64 @llvm.fshl.i64(i64 %v3.0125, i64 %v3.0125, i64 16)
+  %add63 = add i64 %v3.1125, %v2.1124
+  %or66 = tail call i64 @llvm.fshl.i64(i64 %v3.1125, i64 %v3.1125, i64 16)
   %xor67 = xor i64 %or66, %add63
   %add68 = add i64 %xor67, %or62
   %or71 = tail call i64 @llvm.fshl.i64(i64 %xor67, i64 %xor67, i64 21)
@@ -233,19 +233,19 @@ do.body:                                          ; preds = %if.end, %do.body
   br i1 %exitcond.not, label %for.end, label %do.body, !llvm.loop !4
 
 for.end:                                          ; preds = %do.body, %if.end
-  %v0.0.lcssa = phi i64 [ %0, %if.end ], [ %add68, %do.body ]
-  %v1.0.lcssa = phi i64 [ %1, %if.end ], [ %xor77, %do.body ]
-  %v2.0.lcssa = phi i64 [ %2, %if.end ], [ %or80, %do.body ]
-  %v3.0.lcssa = phi i64 [ %xor, %if.end ], [ %xor72, %do.body ]
-  %xor81 = xor i64 %v0.0.lcssa, %or53
+  %v0.1.lcssa = phi i64 [ %0, %if.end ], [ %add68, %do.body ]
+  %v1.1.lcssa = phi i64 [ %1, %if.end ], [ %xor77, %do.body ]
+  %v2.1.lcssa = phi i64 [ %2, %if.end ], [ %or80, %do.body ]
+  %v3.1.lcssa = phi i64 [ %xor, %if.end ], [ %xor72, %do.body ]
+  %xor81 = xor i64 %v0.1.lcssa, %or53
   br label %if.end82
 
 if.end82:                                         ; preds = %for.end, %entry
   %inlen.addr.0 = phi i64 [ %sub17, %for.end ], [ %inlen, %entry ]
-  %v0.1 = phi i64 [ %xor81, %for.end ], [ %0, %entry ]
-  %v1.1 = phi i64 [ %v1.0.lcssa, %for.end ], [ %1, %entry ]
-  %v2.1 = phi i64 [ %v2.0.lcssa, %for.end ], [ %2, %entry ]
-  %v3.1 = phi i64 [ %v3.0.lcssa, %for.end ], [ %3, %entry ]
+  %v0.0 = phi i64 [ %xor81, %for.end ], [ %0, %entry ]
+  %v1.0 = phi i64 [ %v1.1.lcssa, %for.end ], [ %1, %entry ]
+  %v2.0 = phi i64 [ %v2.1.lcssa, %for.end ], [ %2, %entry ]
+  %v3.0 = phi i64 [ %v3.1.lcssa, %for.end ], [ %3, %entry ]
   %in.addr.0 = phi ptr [ %add.ptr, %for.end ], [ %in, %entry ]
   %15 = trunc i64 %inlen.addr.0 to i32
   %conv83 = and i32 %15, 7
@@ -264,10 +264,10 @@ for.body89.lr.ph:                                 ; preds = %if.end82
 
 for.body89.us:                                    ; preds = %for.body89.lr.ph, %for.cond121.for.end156_crit_edge.us
   %in.addr.1144.us = phi ptr [ %add.ptr159.us, %for.cond121.for.end156_crit_edge.us ], [ %in.addr.0, %for.body89.lr.ph ]
-  %v3.2143.us = phi i64 [ %xor144.us, %for.cond121.for.end156_crit_edge.us ], [ %v3.1, %for.body89.lr.ph ]
-  %v2.2142.us = phi i64 [ %or152.us, %for.cond121.for.end156_crit_edge.us ], [ %v2.1, %for.body89.lr.ph ]
-  %v1.2141.us = phi i64 [ %xor149.us, %for.cond121.for.end156_crit_edge.us ], [ %v1.1, %for.body89.lr.ph ]
-  %v0.2140.us = phi i64 [ %xor157.us, %for.cond121.for.end156_crit_edge.us ], [ %v0.1, %for.body89.lr.ph ]
+  %v3.2143.us = phi i64 [ %xor144.us, %for.cond121.for.end156_crit_edge.us ], [ %v3.0, %for.body89.lr.ph ]
+  %v2.2142.us = phi i64 [ %or152.us, %for.cond121.for.end156_crit_edge.us ], [ %v2.0, %for.body89.lr.ph ]
+  %v1.2141.us = phi i64 [ %xor149.us, %for.cond121.for.end156_crit_edge.us ], [ %v1.0, %for.body89.lr.ph ]
+  %v0.2140.us = phi i64 [ %xor157.us, %for.cond121.for.end156_crit_edge.us ], [ %v0.0, %for.body89.lr.ph ]
   %17 = load i32, ptr %in.addr.1144.us, align 1
   %18 = zext i32 %17 to i64
   %arrayidx104.us = getelementptr inbounds i8, ptr %in.addr.1144.us, i64 4
@@ -325,8 +325,8 @@ for.cond121.for.end156_crit_edge.us:              ; preds = %do.body126.us
 
 for.body89:                                       ; preds = %for.body89.lr.ph, %for.body89
   %in.addr.1144 = phi ptr [ %add.ptr159, %for.body89 ], [ %in.addr.0, %for.body89.lr.ph ]
-  %v3.2143 = phi i64 [ %xor120, %for.body89 ], [ %v3.1, %for.body89.lr.ph ]
-  %v0.2140 = phi i64 [ %xor157, %for.body89 ], [ %v0.1, %for.body89.lr.ph ]
+  %v3.2143 = phi i64 [ %xor120, %for.body89 ], [ %v3.0, %for.body89.lr.ph ]
+  %v0.2140 = phi i64 [ %xor157, %for.body89 ], [ %v0.0, %for.body89.lr.ph ]
   %23 = load i32, ptr %in.addr.1144, align 1
   %24 = zext i32 %23 to i64
   %arrayidx104 = getelementptr inbounds i8, ptr %in.addr.1144, i64 4
@@ -356,10 +356,10 @@ for.body89:                                       ; preds = %for.body89.lr.ph, %
   br i1 %cmp87.not, label %for.end160, label %for.body89, !llvm.loop !7
 
 for.end160:                                       ; preds = %for.cond121.for.end156_crit_edge.us, %for.body89, %if.end82
-  %v0.2.lcssa = phi i64 [ %v0.1, %if.end82 ], [ %xor157, %for.body89 ], [ %xor157.us, %for.cond121.for.end156_crit_edge.us ]
-  %v1.2.lcssa = phi i64 [ %v1.1, %if.end82 ], [ %v1.1, %for.body89 ], [ %xor149.us, %for.cond121.for.end156_crit_edge.us ]
-  %v2.2.lcssa = phi i64 [ %v2.1, %if.end82 ], [ %v2.1, %for.body89 ], [ %or152.us, %for.cond121.for.end156_crit_edge.us ]
-  %v3.2.lcssa = phi i64 [ %v3.1, %if.end82 ], [ %xor120, %for.body89 ], [ %xor144.us, %for.cond121.for.end156_crit_edge.us ]
+  %v0.2.lcssa = phi i64 [ %v0.0, %if.end82 ], [ %xor157, %for.body89 ], [ %xor157.us, %for.cond121.for.end156_crit_edge.us ]
+  %v1.2.lcssa = phi i64 [ %v1.0, %if.end82 ], [ %v1.0, %for.body89 ], [ %xor149.us, %for.cond121.for.end156_crit_edge.us ]
+  %v2.2.lcssa = phi i64 [ %v2.0, %if.end82 ], [ %v2.0, %for.body89 ], [ %or152.us, %for.cond121.for.end156_crit_edge.us ]
+  %v3.2.lcssa = phi i64 [ %v3.0, %if.end82 ], [ %xor120, %for.body89 ], [ %xor144.us, %for.cond121.for.end156_crit_edge.us ]
   %tobool161.not = icmp eq i32 %conv83, 0
   br i1 %tobool161.not, label %if.end165, label %if.then162
 
@@ -432,61 +432,61 @@ sw.bb:                                            ; preds = %if.end
   br label %sw.bb11
 
 sw.bb11:                                          ; preds = %sw.bb, %if.end
-  %b.0 = phi i64 [ %shl, %if.end ], [ %or, %sw.bb ]
+  %b.1 = phi i64 [ %shl, %if.end ], [ %or, %sw.bb ]
   %arrayidx13 = getelementptr inbounds i8, ptr %ctx, i64 61
   %9 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %9 to i64
   %shl15 = shl nuw nsw i64 %conv14, 40
-  %or16 = or i64 %shl15, %b.0
+  %or16 = or i64 %shl15, %b.1
   br label %sw.bb17
 
 sw.bb17:                                          ; preds = %sw.bb11, %if.end
-  %b.1 = phi i64 [ %shl, %if.end ], [ %or16, %sw.bb11 ]
+  %b.2 = phi i64 [ %shl, %if.end ], [ %or16, %sw.bb11 ]
   %arrayidx19 = getelementptr inbounds i8, ptr %ctx, i64 60
   %10 = load i8, ptr %arrayidx19, align 4
   %conv20 = zext i8 %10 to i64
   %shl21 = shl nuw nsw i64 %conv20, 32
-  %or22 = or i64 %shl21, %b.1
+  %or22 = or i64 %shl21, %b.2
   br label %sw.bb23
 
 sw.bb23:                                          ; preds = %sw.bb17, %if.end
-  %b.2 = phi i64 [ %shl, %if.end ], [ %or22, %sw.bb17 ]
+  %b.3 = phi i64 [ %shl, %if.end ], [ %or22, %sw.bb17 ]
   %arrayidx25 = getelementptr inbounds i8, ptr %ctx, i64 59
   %11 = load i8, ptr %arrayidx25, align 1
   %conv26 = zext i8 %11 to i64
   %shl27 = shl nuw nsw i64 %conv26, 24
-  %or28 = or i64 %shl27, %b.2
+  %or28 = or i64 %shl27, %b.3
   br label %sw.bb29
 
 sw.bb29:                                          ; preds = %sw.bb23, %if.end
-  %b.3 = phi i64 [ %shl, %if.end ], [ %or28, %sw.bb23 ]
+  %b.4 = phi i64 [ %shl, %if.end ], [ %or28, %sw.bb23 ]
   %arrayidx31 = getelementptr inbounds i8, ptr %ctx, i64 58
   %12 = load i8, ptr %arrayidx31, align 2
   %conv32 = zext i8 %12 to i64
   %shl33 = shl nuw nsw i64 %conv32, 16
-  %or34 = or i64 %shl33, %b.3
+  %or34 = or i64 %shl33, %b.4
   br label %sw.bb35
 
 sw.bb35:                                          ; preds = %sw.bb29, %if.end
-  %b.4 = phi i64 [ %shl, %if.end ], [ %or34, %sw.bb29 ]
+  %b.5 = phi i64 [ %shl, %if.end ], [ %or34, %sw.bb29 ]
   %arrayidx37 = getelementptr inbounds i8, ptr %ctx, i64 57
   %13 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %13 to i64
   %shl39 = shl nuw nsw i64 %conv38, 8
-  %or40 = or i64 %shl39, %b.4
+  %or40 = or i64 %shl39, %b.5
   br label %sw.bb41
 
 sw.bb41:                                          ; preds = %sw.bb35, %if.end
-  %b.5 = phi i64 [ %shl, %if.end ], [ %or40, %sw.bb35 ]
+  %b.6 = phi i64 [ %shl, %if.end ], [ %or40, %sw.bb35 ]
   %leavings42 = getelementptr inbounds i8, ptr %ctx, i64 56
   %14 = load i8, ptr %leavings42, align 8
   %conv44 = zext i8 %14 to i64
-  %or45 = or i64 %b.5, %conv44
+  %or45 = or i64 %b.6, %conv44
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end, %sw.bb41
-  %b.6 = phi i64 [ %shl, %if.end ], [ %or45, %sw.bb41 ]
-  %xor = xor i64 %b.6, %4
+  %b.0 = phi i64 [ %shl, %if.end ], [ %or45, %sw.bb41 ]
+  %xor = xor i64 %b.0, %4
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
@@ -514,7 +514,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %exitcond.not, label %for.end, label %do.body, !llvm.loop !8
 
 for.end:                                          ; preds = %do.body
-  %xor74 = xor i64 %add61, %b.6
+  %xor74 = xor i64 %add61, %b.0
   %cmp76 = icmp eq i32 %6, 16
   %v2.1.v = select i1 %cmp76, i64 238, i64 255
   %v2.1 = xor i64 %or73, %v2.1.v

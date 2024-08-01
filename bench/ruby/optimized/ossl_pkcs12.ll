@@ -422,21 +422,21 @@ define internal noundef i64 @ossl_pkcs12_initialize(i32 noundef %0, ptr noundef 
 
 49:                                               ; preds = %41, %48
   %50 = phi ptr [ %46, %41 ], [ %.old, %48 ]
-  %.017 = phi i64 [ %43, %41 ], [ 4, %48 ]
+  %.1 = phi i64 [ %43, %41 ], [ 4, %48 ]
   %51 = ptrtoint ptr %50 to i64
   %52 = call i64 @rb_protect(ptr noundef nonnull @ossl_x509_sk2ary_i, i64 noundef %51, ptr noundef nonnull %9) #3
   br label %53
 
 53:                                               ; preds = %49, %48, %41, %35
   %.119 = phi i64 [ %37, %35 ], [ %.018, %49 ], [ %.018, %41 ], [ %.018, %48 ]
-  %.1 = phi i64 [ 4, %35 ], [ %.017, %49 ], [ %43, %41 ], [ 4, %48 ]
+  %.017 = phi i64 [ 4, %35 ], [ %.1, %49 ], [ %43, %41 ], [ 4, %48 ]
   %.016 = phi i64 [ 4, %35 ], [ %52, %49 ], [ 4, %41 ], [ 4, %48 ]
   %54 = load ptr, ptr %7, align 8
   call void @X509_free(ptr noundef %54) #3
   %55 = load ptr, ptr %8, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %55, ptr noundef nonnull @X509_free) #3
   %56 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.12, i64 noundef %.119) #3
-  %57 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.13, i64 noundef %.1) #3
+  %57 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.13, i64 noundef %.017) #3
   %58 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.14, i64 noundef %.016) #3
   %59 = load i32, ptr %9, align 4
   %.not25 = icmp eq i32 %59, 0

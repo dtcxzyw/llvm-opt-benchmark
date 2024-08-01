@@ -92,8 +92,8 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %21 = add i32 %5, -1
   %.not = icmp eq i32 %21, 0
   %22 = getelementptr inbounds i8, ptr %0, i64 96
-  %.0547 = select i1 %.not, i32 1, i32 %5
-  %.0498 = select i1 %.not, ptr null, ptr %22
+  %.1548 = select i1 %.not, i32 1, i32 %5
+  %.1 = select i1 %.not, ptr null, ptr %22
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 134217728
@@ -101,11 +101,11 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %.not603, label %27, label %26
 
 26:                                               ; preds = %7, %16, %14
-  %.1556.ph = phi i32 [ 9, %14 ], [ 11, %16 ], [ 1, %7 ]
+  %.0555.ph = phi i32 [ 9, %14 ], [ 11, %16 ], [ 1, %7 ]
   %.0554.ph = phi i32 [ 4, %14 ], [ 0, %16 ], [ 0, %7 ]
   %.0549.ph = phi ptr [ %9, %14 ], [ %9, %16 ], [ null, %7 ]
-  %.1548.ph = phi i32 [ 1, %14 ], [ %.0547, %16 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.1556.ph, i32 noundef %.1548.ph, ptr noundef null, i32 noundef %.0554.ph, ptr noundef %.0549.ph) #12
+  %.0547.ph = phi i32 [ 1, %14 ], [ %.1548, %16 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0555.ph, i32 noundef %.0547.ph, ptr noundef null, i32 noundef %.0554.ph, ptr noundef %.0549.ph) #12
   br label %545
 
 27:                                               ; preds = %16
@@ -115,7 +115,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %.not811, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %92
-  %.0501714 = phi i64 [ %.2, %92 ], [ 0, %27 ]
+  %.0501714 = phi i64 [ %.1502, %92 ], [ 0, %27 ]
   %.0508713 = phi i32 [ %.1509, %92 ], [ 0, %27 ]
   %.0516712 = phi i64 [ %95, %92 ], [ 0, %27 ]
   %30 = add nuw i64 %.0501714, 1
@@ -144,19 +144,19 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %44
 
 44:                                               ; preds = %44, %42
-  %.1502 = phi i64 [ %30, %42 ], [ %49, %44 ]
-  %45 = getelementptr inbounds i8, ptr %20, i64 %.1502
+  %.2 = phi i64 [ %30, %42 ], [ %49, %44 ]
+  %45 = getelementptr inbounds i8, ptr %20, i64 %.2
   %46 = load i8, ptr %45, align 1
   %47 = add i8 %46, -48
   %or.cond612 = icmp ult i8 %47, 10
-  %48 = icmp ult i64 %.1502, %19
+  %48 = icmp ult i64 %.2, %19
   %or.cond613 = select i1 %or.cond612, i1 %48, i1 false
-  %49 = add nuw i64 %.1502, 1
+  %49 = add nuw i64 %.2, 1
   br i1 %or.cond613, label %44, label %.critedge
 
 .critedge:                                        ; preds = %44, %38, %40, %.lr.ph
   %.0550 = phi i32 [ -1, %38 ], [ 1, %40 ], [ 1, %.lr.ph ], [ %43, %44 ]
-  %.2 = phi i64 [ %39, %38 ], [ %30, %40 ], [ %30, %.lr.ph ], [ %.1502, %44 ]
+  %.1502 = phi i64 [ %39, %38 ], [ %30, %40 ], [ %30, %.lr.ph ], [ %.2, %44 ]
   %50 = sext i8 %32 to i32
   switch i8 %32, label %89 [
     i8 120, label %51
@@ -218,7 +218,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 
 60:                                               ; preds = %58
   %61 = sext i32 %.0508713 to i64
-  %62 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %61
+  %62 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 6
@@ -247,7 +247,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %77
 
 77:                                               ; preds = %.critedge615, %58
-  %.1551 = phi i32 [ %.0550, %58 ], [ %spec.select, %.critedge615 ]
+  %.2552 = phi i32 [ %.0550, %58 ], [ %spec.select, %.critedge615 ]
   %78 = add nsw i32 %.0508713, 1
   br label %92
 
@@ -281,14 +281,14 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %545
 
 92:                                               ; preds = %79, %51, %53, %77
-  %.3553 = phi i32 [ %.1551, %77 ], [ 1, %53 ], [ %.0550, %51 ], [ %spec.select616, %79 ]
+  %.1551 = phi i32 [ %.2552, %77 ], [ 1, %53 ], [ %.0550, %51 ], [ %spec.select616, %79 ]
   %.1509 = phi i32 [ %78, %77 ], [ %.0508713, %53 ], [ %.0508713, %51 ], [ %84, %79 ]
   %93 = getelementptr inbounds i8, ptr %28, i64 %.0516712
   store i8 %32, ptr %93, align 1
   %94 = getelementptr inbounds i32, ptr %29, i64 %.0516712
-  store i32 %.3553, ptr %94, align 4
+  store i32 %.1551, ptr %94, align 4
   %95 = add i64 %.0516712, 1
-  %96 = icmp ult i64 %.2, %19
+  %96 = icmp ult i64 %.1502, %19
   br i1 %96, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92, %27
@@ -683,7 +683,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %244 = sext i32 %243 to i64
   %245 = add nsw i32 %.2510805, 1
   %246 = sext i32 %.2510805 to i64
-  %247 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %246
+  %247 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %246
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   %249 = load i8, ptr %248, align 8
   %250 = icmp eq i8 %249, 6
@@ -742,7 +742,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %279 = select i1 %278, i32 0, i32 4
   %280 = add nsw i32 %.2510805, 1
   %281 = sext i32 %.2510805 to i64
-  %282 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %281
+  %282 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %281
   %283 = getelementptr inbounds i8, ptr %282, i64 8
   %284 = load i8, ptr %283, align 8
   %285 = icmp eq i8 %284, 6
@@ -888,7 +888,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %indvars.iv906 = phi i64 [ %344, %.lr.ph793.preheader ], [ %indvars.iv.next907, %.lr.ph793 ]
   %.2534789 = phi i32 [ %226, %.lr.ph793.preheader ], [ %346, %.lr.ph793 ]
   %346 = add nsw i32 %.2534789, -1
-  %347 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv906
+  %347 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv906
   %348 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %indvars.iv908
   call void @convert_to_long(ptr noundef %347) #12
   %349 = load i8, ptr %347, align 1
@@ -919,7 +919,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %indvars.iv893 = phi i64 [ %354, %.lr.ph774.preheader ], [ %indvars.iv.next894, %php_pack.exit630 ]
   %.3535770 = phi i32 [ %226, %.lr.ph774.preheader ], [ %356, %php_pack.exit630 ]
   %356 = add nsw i32 %.3535770, -1
-  %357 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv893
+  %357 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv893
   %358 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %indvars.iv895
   call void @convert_to_long(ptr noundef %357) #12
   br label %.lr.ph.i626
@@ -957,7 +957,7 @@ php_pack.exit630:                                 ; preds = %.lr.ph.i626
   %.7524778 = phi i32 [ %.2519804, %.lr.ph781.preheader ], [ %381, %php_pack.exit635 ]
   %.4536777 = phi i32 [ %226, %.lr.ph781.preheader ], [ %370, %php_pack.exit635 ]
   %370 = add nsw i32 %.4536777, -1
-  %371 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv900
+  %371 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv900
   %372 = sext i32 %.7524778 to i64
   %373 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %372
   call void @convert_to_long(ptr noundef %371) #12
@@ -1004,7 +1004,7 @@ php_pack.exit635:                                 ; preds = %.lr.ph.i631
   %indvars.iv886 = phi i64 [ %386, %.lr.ph767.preheader ], [ %indvars.iv.next887, %php_pack.exit640 ]
   %.5537763 = phi i32 [ %226, %.lr.ph767.preheader ], [ %388, %php_pack.exit640 ]
   %388 = add nsw i32 %.5537763, -1
-  %389 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv886
+  %389 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv886
   %390 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %indvars.iv888
   call void @convert_to_long(ptr noundef %389) #12
   br label %.lr.ph.i636
@@ -1050,7 +1050,7 @@ php_pack.exit640:                                 ; preds = %.lr.ph.i636
   %indvars.iv = phi i64 [ %402, %.lr.ph735.preheader ], [ %indvars.iv.next, %php_pack.exit645 ]
   %.6538731 = phi i32 [ %226, %.lr.ph735.preheader ], [ %404, %php_pack.exit645 ]
   %404 = add nsw i32 %.6538731, -1
-  %405 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv
+  %405 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv
   %406 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %indvars.iv866
   call void @convert_to_long(ptr noundef %405) #12
   br label %.lr.ph.i641
@@ -1081,7 +1081,7 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   %.10527758 = phi i32 [ %.2519804, %.lr.ph760.preheader ], [ %429, %424 ]
   %415 = add nsw i32 %.in817, -1
   %indvars.iv.next884 = add nsw i64 %indvars.iv883, 1
-  %416 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv883
+  %416 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv883
   %417 = getelementptr inbounds i8, ptr %416, i64 8
   %418 = load i8, ptr %417, align 8
   %419 = icmp eq i8 %418, 5
@@ -1111,7 +1111,7 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   %.11528753 = phi i32 [ %.2519804, %.lr.ph755.preheader ], [ %445, %440 ]
   %431 = add nsw i32 %.in816, -1
   %indvars.iv.next881 = add nsw i64 %indvars.iv880, 1
-  %432 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv880
+  %432 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv880
   %433 = getelementptr inbounds i8, ptr %432, i64 8
   %434 = load i8, ptr %433, align 8
   %435 = icmp eq i8 %434, 5
@@ -1141,7 +1141,7 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   %.12529748 = phi i32 [ %.2519804, %.lr.ph750.preheader ], [ %463, %456 ]
   %447 = add nsw i32 %.in815, -1
   %indvars.iv.next878 = add nsw i64 %indvars.iv877, 1
-  %448 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv877
+  %448 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv877
   %449 = getelementptr inbounds i8, ptr %448, i64 8
   %450 = load i8, ptr %449, align 8
   %451 = icmp eq i8 %450, 5
@@ -1173,7 +1173,7 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   %.13530743 = phi i32 [ %.2519804, %.lr.ph745.preheader ], [ %478, %474 ]
   %465 = add nsw i32 %.in814, -1
   %indvars.iv.next875 = add nsw i64 %indvars.iv874, 1
-  %466 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv874
+  %466 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv874
   %467 = getelementptr inbounds i8, ptr %466, i64 8
   %468 = load i8, ptr %467, align 8
   %469 = icmp eq i8 %468, 5
@@ -1202,7 +1202,7 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   %.14531738 = phi i32 [ %.2519804, %.lr.ph740.preheader ], [ %493, %489 ]
   %480 = add nsw i32 %.in, -1
   %indvars.iv.next872 = add nsw i64 %indvars.iv871, 1
-  %481 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv871
+  %481 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv871
   %482 = getelementptr inbounds i8, ptr %481, i64 8
   %483 = load i8, ptr %482, align 8
   %484 = icmp eq i8 %483, 5
@@ -1231,7 +1231,7 @@ php_pack.exit645:                                 ; preds = %.lr.ph.i641
   %.15784 = phi i32 [ %.2519804, %.lr.ph786.preheader ], [ %509, %504 ]
   %495 = add nsw i32 %.in818, -1
   %indvars.iv.next904 = add nsw i64 %indvars.iv903, 1
-  %496 = getelementptr inbounds %struct._zval_struct, ptr %.0498, i64 %indvars.iv903
+  %496 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv903
   %497 = getelementptr inbounds i8, ptr %496, i64 8
   %498 = load i8, ptr %497, align 8
   %499 = icmp eq i8 %498, 5
@@ -1549,39 +1549,39 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %92
-  %.19601150 = phi ptr [ %93, %92 ], [ %74, %.lr.ph.preheader ]
-  %.19631149 = phi i64 [ %94, %92 ], [ %73, %.lr.ph.preheader ]
-  %90 = load i8, ptr %.19601150, align 1
+  %.29611150 = phi ptr [ %93, %92 ], [ %74, %.lr.ph.preheader ]
+  %.29641149 = phi i64 [ %94, %92 ], [ %73, %.lr.ph.preheader ]
+  %90 = load i8, ptr %.29611150, align 1
   %91 = add i8 %90, -48
   %or.cond1066 = icmp ult i8 %91, 10
   br i1 %or.cond1066, label %92, label %.lr.ph1157.preheader
 
 92:                                               ; preds = %.lr.ph
-  %93 = getelementptr inbounds i8, ptr %.19601150, i64 1
-  %94 = add nsw i64 %.19631149, -1
-  %95 = icmp sgt i64 %.19631149, 1
+  %93 = getelementptr inbounds i8, ptr %.29611150, i64 1
+  %94 = add nsw i64 %.29641149, -1
+  %95 = icmp sgt i64 %.29641149, 1
   br i1 %95, label %.lr.ph, label %.critedge8
 
 .critedge:                                        ; preds = %76
   %96 = icmp eq i8 %77, 42
   %97 = getelementptr inbounds i8, ptr %.09591193, i64 2
   %98 = add nsw i64 %.09621192, -2
-  %.2964 = select i1 %96, i64 %98, i64 %73
-  %.2961 = select i1 %96, ptr %97, ptr %74
+  %.1963 = select i1 %96, i64 %98, i64 %73
+  %.1960 = select i1 %96, ptr %97, ptr %74
   %.0950 = select i1 %96, i32 -1, i32 1
-  %99 = icmp sgt i64 %.2964, 0
+  %99 = icmp sgt i64 %.1963, 0
   br i1 %99, label %.lr.ph1157.preheader, label %.critedge8
 
 .lr.ph1157.preheader:                             ; preds = %.lr.ph, %.critedge
   %.09501223 = phi i32 [ %.0950, %.critedge ], [ %89, %.lr.ph ]
-  %.29611222 = phi ptr [ %.2961, %.critedge ], [ %.19601150, %.lr.ph ]
-  %.29641221 = phi i64 [ %.2964, %.critedge ], [ %.19631149, %.lr.ph ]
-  %scevgep1210 = getelementptr i8, ptr %.29611222, i64 %.29641221
+  %.19601222 = phi ptr [ %.1960, %.critedge ], [ %.29611150, %.lr.ph ]
+  %.19631221 = phi i64 [ %.1963, %.critedge ], [ %.29641149, %.lr.ph ]
+  %scevgep1210 = getelementptr i8, ptr %.19601222, i64 %.19631221
   br label %.lr.ph1157
 
 .lr.ph1157:                                       ; preds = %.lr.ph1157.preheader, %101
-  %.31156 = phi ptr [ %103, %101 ], [ %.29611222, %.lr.ph1157.preheader ]
-  %.39651155 = phi i64 [ %102, %101 ], [ %.29641221, %.lr.ph1157.preheader ]
+  %.31156 = phi ptr [ %103, %101 ], [ %.19601222, %.lr.ph1157.preheader ]
+  %.39651155 = phi i64 [ %102, %101 ], [ %.19631221, %.lr.ph1157.preheader ]
   %100 = load i8, ptr %.31156, align 1
   %.not1034 = icmp eq i8 %100, 47
   br i1 %.not1034, label %.critedge8, label %101
@@ -1594,12 +1594,12 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 .critedge8:                                       ; preds = %92, %.lr.ph1157, %101, %72, %.critedge
   %.09501216 = phi i32 [ %.0950, %.critedge ], [ 1, %72 ], [ %.09501223, %101 ], [ %.09501223, %.lr.ph1157 ], [ %89, %92 ]
-  %.29611215 = phi ptr [ %.2961, %.critedge ], [ %74, %72 ], [ %.29611222, %101 ], [ %.29611222, %.lr.ph1157 ], [ %scevgep, %92 ]
-  %.3965.lcssa = phi i64 [ %.2964, %.critedge ], [ 0, %72 ], [ %.39651155, %.lr.ph1157 ], [ 0, %101 ], [ 0, %92 ]
-  %.3.lcssa = phi ptr [ %.2961, %.critedge ], [ %74, %72 ], [ %.31156, %.lr.ph1157 ], [ %scevgep1210, %101 ], [ %scevgep, %92 ]
+  %.19601215 = phi ptr [ %.1960, %.critedge ], [ %74, %72 ], [ %.19601222, %101 ], [ %.19601222, %.lr.ph1157 ], [ %scevgep, %92 ]
+  %.3965.lcssa = phi i64 [ %.1963, %.critedge ], [ 0, %72 ], [ %.39651155, %.lr.ph1157 ], [ 0, %101 ], [ 0, %92 ]
+  %.3.lcssa = phi ptr [ %.1960, %.critedge ], [ %74, %72 ], [ %.31156, %.lr.ph1157 ], [ %scevgep1210, %101 ], [ %scevgep, %92 ]
   %.lcssa = phi i1 [ false, %.critedge ], [ false, %72 ], [ %.not1034, %101 ], [ %.not1034, %.lr.ph1157 ], [ false, %92 ]
   %105 = ptrtoint ptr %.3.lcssa to i64
-  %106 = ptrtoint ptr %.29611215 to i64
+  %106 = ptrtoint ptr %.19601215 to i64
   %107 = sub i64 %105, %106
   %108 = trunc i64 %107 to i32
   %spec.store.select = call i32 @llvm.smin.i32(i32 %108, i32 200)
@@ -1750,13 +1750,13 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %161 = getelementptr inbounds i8, ptr %158, i64 16
   store i64 %132, ptr %161, align 8
   %162 = getelementptr inbounds i8, ptr %158, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr nonnull align 1 %.29611215, i64 %132, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr nonnull align 1 %.19601215, i64 %132, i1 false)
   %163 = getelementptr inbounds [1 x i8], ptr %162, i64 0, i64 %132
   store i8 0, ptr %163, align 1
   br label %182
 
 164:                                              ; preds = %156
-  %165 = load i8, ptr %.29611215, align 1
+  %165 = load i8, ptr %.19601215, align 1
   %166 = zext i8 %165 to i64
   %167 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %166
   %168 = load ptr, ptr %167, align 8
@@ -1783,7 +1783,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 178:                                              ; preds = %172
   %179 = ptrtoint ptr %176 to i64
   %180 = sub i64 %70, %179
-  %181 = call ptr @zend_string_concat2(ptr noundef nonnull %.29611215, i64 noundef %131, ptr noundef nonnull %176, i64 noundef %180) #12
+  %181 = call ptr @zend_string_concat2(ptr noundef nonnull %.19601215, i64 noundef %131, ptr noundef nonnull %176, i64 noundef %180) #12
   br label %182
 
 182:                                              ; preds = %157, %164, %178
@@ -2541,7 +2541,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 551:                                              ; preds = %550, %549, %182, %543, %548, %545, %539, %.critedge1105, %512, %.critedge1102, %483, %.critedge1099, %461, %.critedge1096, %431, %.critedge1093, %403, %.critedge1090, %374, %.critedge1087, %349, %.critedge1084, %292, %.critedge1081, %253, %.critedge1077, %212, %.critedge1073
   %.1973 = phi i32 [ %.09721185, %182 ], [ %137, %548 ], [ %137, %545 ], [ %.09721185, %543 ], [ %.09721185, %539 ], [ %.09721185, %.critedge1105 ], [ %.09721185, %512 ], [ %.09721185, %.critedge1102 ], [ %.09721185, %483 ], [ %.09721185, %.critedge1099 ], [ %.09721185, %461 ], [ %.09721185, %.critedge1096 ], [ %.09721185, %431 ], [ %.09721185, %.critedge1093 ], [ %.09721185, %403 ], [ %.09721185, %.critedge1090 ], [ %.09721185, %374 ], [ %.09721185, %.critedge1087 ], [ %.09721185, %349 ], [ %.09721185, %.critedge1084 ], [ %.09721185, %292 ], [ %.09721185, %.critedge1081 ], [ %.09721185, %253 ], [ %.09721185, %.critedge1077 ], [ %.09721185, %212 ], [ %.09721185, %.critedge1073 ], [ %137, %549 ], [ %137, %550 ]
-  %.3970 = phi i64 [ %.19681186, %182 ], [ %547, %548 ], [ %547, %545 ], [ %.19681186, %543 ], [ %.19681186, %539 ], [ %.19681186, %.critedge1105 ], [ %.19681186, %512 ], [ %.19681186, %.critedge1102 ], [ %.19681186, %483 ], [ %.19681186, %.critedge1099 ], [ %.19681186, %461 ], [ %.19681186, %.critedge1096 ], [ %.19681186, %431 ], [ %.19681186, %.critedge1093 ], [ %.19681186, %403 ], [ %.19681186, %.critedge1090 ], [ %.19681186, %374 ], [ %.19681186, %.critedge1087 ], [ %.19681186, %349 ], [ %.19681186, %.critedge1084 ], [ %.19681186, %292 ], [ %.19681186, %.critedge1081 ], [ %.19681186, %253 ], [ %.19681186, %.critedge1077 ], [ %.19681186, %212 ], [ %.19681186, %.critedge1073 ], [ %136, %549 ], [ %.19681186, %550 ]
+  %.2969 = phi i64 [ %.19681186, %182 ], [ %547, %548 ], [ %547, %545 ], [ %.19681186, %543 ], [ %.19681186, %539 ], [ %.19681186, %.critedge1105 ], [ %.19681186, %512 ], [ %.19681186, %.critedge1102 ], [ %.19681186, %483 ], [ %.19681186, %.critedge1099 ], [ %.19681186, %461 ], [ %.19681186, %.critedge1096 ], [ %.19681186, %431 ], [ %.19681186, %.critedge1093 ], [ %.19681186, %403 ], [ %.19681186, %.critedge1090 ], [ %.19681186, %374 ], [ %.19681186, %.critedge1087 ], [ %.19681186, %349 ], [ %.19681186, %.critedge1084 ], [ %.19681186, %292 ], [ %.19681186, %.critedge1081 ], [ %.19681186, %253 ], [ %.19681186, %.critedge1077 ], [ %.19681186, %212 ], [ %.19681186, %.critedge1073 ], [ %136, %549 ], [ %.19681186, %550 ]
   %.2 = phi i32 [ %.19491187, %182 ], [ %.19491187, %548 ], [ %.19491187, %545 ], [ %.19491187, %543 ], [ %.19491187, %539 ], [ %.19491187, %.critedge1105 ], [ %.19491187, %512 ], [ %.19491187, %.critedge1102 ], [ %.19491187, %483 ], [ %.19491187, %.critedge1099 ], [ %.19491187, %461 ], [ %.19491187, %.critedge1096 ], [ %.19491187, %431 ], [ %.19491187, %.critedge1093 ], [ %.19491187, %403 ], [ %.19491187, %.critedge1090 ], [ %.19491187, %374 ], [ %.19491187, %.critedge1087 ], [ %.19491187, %349 ], [ %.19491187, %.critedge1084 ], [ %261, %292 ], [ %261, %.critedge1081 ], [ %220, %253 ], [ %220, %.critedge1077 ], [ %187, %212 ], [ %187, %.critedge1073 ], [ %.19491187, %549 ], [ %.19491187, %550 ]
   %552 = getelementptr inbounds i8, ptr %.0947, i64 4
   %553 = load i32, ptr %552, align 4
@@ -2573,7 +2573,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 564:                                              ; preds = %555, %563, %562, %551
   %565 = sext i32 %.2 to i64
-  %566 = add nsw i64 %.3970, %565
+  %566 = add nsw i64 %.2969, %565
   %567 = icmp slt i64 %566, 0
   br i1 %567, label %568, label %577
 

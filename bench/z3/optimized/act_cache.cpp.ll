@@ -145,24 +145,24 @@ entry:
   br i1 %cmp.not3.i.i.i.i, label %for.end, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
-  %__begin1.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i.i, %if.end.i.i.i.i ], [ %0, %entry ]
-  %2 = load ptr, ptr %__begin1.sroa.0.0, align 8, !noalias !6
+  %__begin1.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i.i, %if.end.i.i.i.i ], [ %0, %entry ]
+  %2 = load ptr, ptr %__begin1.sroa.0.1, align 8, !noalias !6
   %3 = ptrtoint ptr %2 to i64
   %and.i.i.i.i.i = and i64 %3, 7
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i, label %for.body.outer
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 32
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.1, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i.i.i, label %for.end, label %while.body.i.i.i.i, !llvm.loop !11
 
 for.body.outer:                                   ; preds = %while.body.i.i, %while.body.i.i.i.i
-  %__begin1.sroa.0.218.ph = phi ptr [ %__begin1.sroa.0.0, %while.body.i.i.i.i ], [ %__begin1.sroa.0.3, %while.body.i.i ]
+  %__begin1.sroa.0.018.ph = phi ptr [ %__begin1.sroa.0.1, %while.body.i.i.i.i ], [ %__begin1.sroa.0.3, %while.body.i.i ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %_ZN11ast_manager7dec_refEP3ast.exit11
-  %__begin1.sroa.7.019 = phi ptr [ %12, %_ZN11ast_manager7dec_refEP3ast.exit11 ], [ %__begin1.sroa.0.218.ph, %for.body.outer ]
+  %__begin1.sroa.7.019 = phi ptr [ %12, %_ZN11ast_manager7dec_refEP3ast.exit11 ], [ %__begin1.sroa.0.018.ph, %for.body.outer ]
   %m_data.i = getelementptr inbounds i8, ptr %__begin1.sroa.7.019, i64 8
   %4 = load ptr, ptr %this, align 8
   %5 = load ptr, ptr %m_data.i, align 8
@@ -209,7 +209,7 @@ _ZN11ast_manager7dec_refEP3ast.exit11:            ; preds = %_ZN11ast_manager7de
   br i1 %cmp.i13, label %if.then.i14, label %for.body
 
 if.then.i14:                                      ; preds = %_ZN11ast_manager7dec_refEP3ast.exit11
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.218.ph, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018.ph, i64 32
   %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 

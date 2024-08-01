@@ -9,39 +9,39 @@ define dso_local i64 @strlcpy(ptr nocapture noundef writeonly %0, ptr noundef %1
   br i1 %.not, label %.thread25.preheader, label %.preheader
 
 .preheader:                                       ; preds = %3, %5
-  %.013 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %.011 = phi ptr [ %8, %5 ], [ %0, %3 ]
-  %.0 = phi i64 [ %4, %5 ], [ %2, %3 ]
-  %4 = add i64 %.0, -1
+  %.114 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.112 = phi ptr [ %8, %5 ], [ %0, %3 ]
+  %.1 = phi i64 [ %4, %5 ], [ %2, %3 ]
+  %4 = add i64 %.1, -1
   %.not19 = icmp eq i64 %4, 0
   br i1 %.not19, label %10, label %5
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr i8, ptr %.013, i64 1
-  %7 = load i8, ptr %.013, align 1
-  %8 = getelementptr i8, ptr %.011, i64 1
-  store i8 %7, ptr %.011, align 1
+  %6 = getelementptr i8, ptr %.114, i64 1
+  %7 = load i8, ptr %.114, align 1
+  %8 = getelementptr i8, ptr %.112, i64 1
+  store i8 %7, ptr %.112, align 1
   %9 = icmp eq i8 %7, 0
   br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !7
 
 10:                                               ; preds = %.preheader
-  store i8 0, ptr %.011, align 1
+  store i8 0, ptr %.112, align 1
   br label %.thread25.preheader
 
 .thread25.preheader:                              ; preds = %3, %10
-  %.2.ph = phi ptr [ %1, %3 ], [ %.013, %10 ]
+  %.3.ph = phi ptr [ %1, %3 ], [ %.114, %10 ]
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread25.preheader, %.thread25
-  %.2 = phi ptr [ %11, %.thread25 ], [ %.2.ph, %.thread25.preheader ]
-  %11 = getelementptr i8, ptr %.2, i64 1
-  %12 = load i8, ptr %.2, align 1
+  %.3 = phi ptr [ %11, %.thread25 ], [ %.3.ph, %.thread25.preheader ]
+  %11 = getelementptr i8, ptr %.3, i64 1
+  %12 = load i8, ptr %.3, align 1
   %.not20 = icmp eq i8 %12, 0
   br i1 %.not20, label %.loopexit, label %.thread25, !llvm.loop !9
 
 .loopexit:                                        ; preds = %5, %.thread25
-  %.3 = phi ptr [ %11, %.thread25 ], [ %6, %5 ]
-  %13 = ptrtoint ptr %.3 to i64
+  %.2 = phi ptr [ %11, %.thread25 ], [ %6, %5 ]
+  %13 = ptrtoint ptr %.2 to i64
   %14 = ptrtoint ptr %1 to i64
   %15 = xor i64 %14, -1
   %16 = add i64 %13, %15

@@ -750,7 +750,7 @@ for.cond:                                         ; preds = %_ZN4cvc58internal12
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %5 = phi ptr [ %4, %for.cond ], [ %2, %for.cond.preheader ]
   %conv658 = phi i64 [ %conv, %for.cond ], [ 0, %for.cond.preheader ]
-  %finished.1657 = phi i1 [ %finished.2.lcssa, %for.cond ], [ true, %for.cond.preheader ]
+  %finished.1657 = phi i1 [ %finished.3.lcssa, %for.cond ], [ true, %for.cond.preheader ]
   %i.0656 = phi i32 [ %inc131, %for.cond ], [ 0, %for.cond.preheader ]
   %add.ptr.i75 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %5, i64 %conv658
   %6 = load ptr, ptr %add.ptr.i75, align 8
@@ -789,7 +789,7 @@ cond.true36:                                      ; preds = %if.then.i.i, %if.el
 cond.true61:                                      ; preds = %cond.true36, %if.else
   %10 = phi ptr [ %23, %if.else ], [ %9, %cond.true36 ]
   %conv51647 = phi i64 [ %conv51, %if.else ], [ 0, %cond.true36 ]
-  %finished.2646 = phi i1 [ %spec.select, %if.else ], [ %finished.1657, %cond.true36 ]
+  %finished.3646 = phi i1 [ %spec.select, %if.else ], [ %finished.1657, %cond.true36 ]
   %j.0645 = phi i32 [ %inc, %if.else ], [ 0, %cond.true36 ]
   %add.ptr.i271 = getelementptr inbounds ptr, ptr %10, i64 %conv51647
   %11 = load ptr, ptr %add.ptr.i271, align 8
@@ -877,7 +877,7 @@ lpad88:                                           ; preds = %invoke.cont85
 
 if.else:                                          ; preds = %invoke.cont123
   %cmp126 = icmp ne i32 %call90, 0
-  %spec.select = select i1 %cmp126, i1 %finished.2646, i1 false
+  %spec.select = select i1 %cmp126, i1 %finished.3646, i1 false
   %inc = add i32 %j.0645, 1
   %conv51 = zext i32 %inc to i64
   %22 = load ptr, ptr %_M_finish.i266, align 8
@@ -890,12 +890,12 @@ if.else:                                          ; preds = %invoke.cont123
   br i1 %cmp53, label %cond.true61, label %cleanup.loopexit, !llvm.loop !8
 
 cleanup.loopexit:                                 ; preds = %if.else, %invoke.cont123
-  %finished.2.lcssa.ph = phi i1 [ %finished.2646, %invoke.cont123 ], [ %spec.select, %if.else ]
+  %finished.3.lcssa.ph = phi i1 [ %finished.3646, %invoke.cont123 ], [ %spec.select, %if.else ]
   %switch.ph = xor i1 %call124, true
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.loopexit, %cond.true36
-  %finished.2.lcssa = phi i1 [ %finished.1657, %cond.true36 ], [ %finished.2.lcssa.ph, %cleanup.loopexit ]
+  %finished.3.lcssa = phi i1 [ %finished.1657, %cond.true36 ], [ %finished.3.lcssa.ph, %cleanup.loopexit ]
   %switch = phi i1 [ true, %cond.true36 ], [ %switch.ph, %cleanup.loopexit ]
   %bf.load.i.i589 = load i64, ptr %6, align 8
   %24 = and i64 %bf.load.i.i589, 1152920405095219200
@@ -931,7 +931,7 @@ ehcleanup:                                        ; preds = %lpad88, %lpad
   resume { ptr, i32 } %.pn
 
 for.end132:                                       ; preds = %for.cond, %for.cond.preheader
-  %finished.1.lcssa = phi i1 [ true, %for.cond.preheader ], [ %finished.2.lcssa, %for.cond ]
+  %finished.1.lcssa = phi i1 [ true, %for.cond.preheader ], [ %finished.3.lcssa, %for.cond ]
   %27 = load ptr, ptr %d_qim, align 8
   %call134 = call noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr noundef nonnull align 8 dereferenceable(353) %27)
   %cmp135 = icmp ugt i64 %call134, %call

@@ -146,7 +146,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
 
 42:                                               ; preds = %.lr.ph123, %is_icap_message.exit80.thread
   %.070121 = phi i32 [ 0, %.lr.ph123 ], [ %85, %is_icap_message.exit80.thread ]
-  %.099120 = phi i32 [ 4, %.lr.ph123 ], [ %.1100106, %is_icap_message.exit80.thread ]
+  %.099120 = phi i32 [ 4, %.lr.ph123 ], [ %.2106, %is_icap_message.exit80.thread ]
   %43 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.070121, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %44 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.070121, i32 noundef %43) #3
   %45 = sext i32 %43 to i64
@@ -247,7 +247,7 @@ is_icap_message.exit80:                           ; preds = %42
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 is_icap_message.exit80.thread:                    ; preds = %79, %.thread15.sink.split.i78, %69, %64, %58, %51, %is_icap_message.exit80
-  %.1100106 = phi i32 [ %.099120, %is_icap_message.exit80 ], [ %.099120, %69 ], [ %.099120, %64 ], [ %.099120, %58 ], [ %.099120, %51 ], [ %.sink.i79, %.thread15.sink.split.i78 ], [ %.099120, %79 ]
+  %.2106 = phi i32 [ %.099120, %is_icap_message.exit80 ], [ %.099120, %69 ], [ %.099120, %64 ], [ %.099120, %58 ], [ %.099120, %51 ], [ %.sink.i79, %.thread15.sink.split.i78 ], [ %.099120, %79 ]
   %82 = load i32, ptr %5, align 4
   %83 = sub i32 %82, %.070121
   %84 = call ptr @proto_tree_add_format_text(ptr noundef %.068, ptr noundef %0, i32 noundef %.070121, i32 noundef %83) #3
@@ -257,7 +257,7 @@ is_icap_message.exit80.thread:                    ; preds = %79, %.thread15.sink
   br i1 %.not73, label %.loopexit, label %42, !llvm.loop !6
 
 .loopexit:                                        ; preds = %is_icap_message.exit80.thread, %.preheader, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %79, %.lr.ph, %80, %39
-  %.099111 = phi i32 [ 4, %39 ], [ %.099120, %80 ], [ %.099120, %.lr.ph ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %.preheader ], [ %.1100106, %is_icap_message.exit80.thread ]
+  %.099111 = phi i32 [ 4, %39 ], [ %.099120, %80 ], [ %.099120, %.lr.ph ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %79 ], [ %.099120, %.preheader ], [ %.2106, %is_icap_message.exit80.thread ]
   %.070109 = phi i32 [ 0, %39 ], [ %.070121, %80 ], [ %.070121, %.lr.ph ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %79 ], [ %.070121, %.preheader ], [ %85, %is_icap_message.exit80.thread ]
   br i1 %.not72, label %proto_item_set_hidden.exit, label %87
 

@@ -438,11 +438,11 @@ select.unfold.i:                                  ; preds = %75, %42
 
 93:                                               ; preds = %87, %85, %83, %select.unfold.i, %80
   %.03146.i = phi i64 [ 8, %87 ], [ 8, %85 ], [ 4, %83 ], [ 2, %select.unfold.i ], [ 1, %80 ]
-  %.5.in.i = phi ptr [ %H5T_NATIVE_LLONG_g.H5T_NATIVE_ULLONG_g.i, %87 ], [ %H5T_NATIVE_LONG_g.H5T_NATIVE_ULONG_g.i, %85 ], [ %H5T_NATIVE_INT_g.H5T_NATIVE_UINT_g.i, %83 ], [ %H5T_NATIVE_SHORT_g.H5T_NATIVE_USHORT_g.i, %select.unfold.i ], [ %H5T_NATIVE_SCHAR_g.H5T_NATIVE_UCHAR_g.i, %80 ]
+  %.1.in.i = phi ptr [ %H5T_NATIVE_LLONG_g.H5T_NATIVE_ULLONG_g.i, %87 ], [ %H5T_NATIVE_LONG_g.H5T_NATIVE_ULONG_g.i, %85 ], [ %H5T_NATIVE_INT_g.H5T_NATIVE_UINT_g.i, %83 ], [ %H5T_NATIVE_SHORT_g.H5T_NATIVE_USHORT_g.i, %select.unfold.i ], [ %H5T_NATIVE_SCHAR_g.H5T_NATIVE_UCHAR_g.i, %80 ]
   %.032.in.i = phi ptr [ @H5T_NATIVE_LLONG_ALIGN_g, %87 ], [ @H5T_NATIVE_LONG_ALIGN_g, %85 ], [ @H5T_NATIVE_INT_ALIGN_g, %83 ], [ @H5T_NATIVE_SHORT_ALIGN_g, %select.unfold.i ], [ @H5T_NATIVE_SCHAR_ALIGN_g, %80 ]
   %.032.i = load i64, ptr %.032.in.i, align 8
-  %.5.i = load i64, ptr %.5.in.i, align 8
-  %94 = tail call ptr @H5I_object(i64 noundef %.5.i) #7
+  %.1.i = load i64, ptr %.1.in.i, align 8
+  %94 = tail call ptr @H5I_object(i64 noundef %.1.i) #7
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %100
 
@@ -1490,7 +1490,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %282, %275
 
 H5T__get_native_integer.exit.thread349.thread404: ; preds = %528, %535, %543, %550, %562, %569, %451, %463, %669, %627, %515, %522
   %.0271360423 = phi ptr [ null, %522 ], [ null, %515 ], [ null, %627 ], [ null, %669 ], [ %393, %463 ], [ %393, %451 ], [ null, %569 ], [ null, %562 ], [ null, %550 ], [ null, %543 ], [ null, %535 ], [ null, %528 ]
-  %.1270361422 = phi ptr [ null, %522 ], [ null, %515 ], [ null, %627 ], [ null, %669 ], [ null, %463 ], [ null, %451 ], [ %555, %569 ], [ %555, %562 ], [ %526, %550 ], [ %526, %543 ], [ %526, %535 ], [ null, %528 ]
+  %.0269361422 = phi ptr [ null, %522 ], [ null, %515 ], [ null, %627 ], [ null, %669 ], [ null, %463 ], [ null, %451 ], [ %555, %569 ], [ %555, %562 ], [ %526, %550 ], [ %526, %543 ], [ %526, %535 ], [ null, %528 ]
   %.0268362421 = phi ptr [ %499, %522 ], [ %499, %515 ], [ null, %627 ], [ null, %669 ], [ null, %463 ], [ null, %451 ], [ %558, %569 ], [ %558, %562 ], [ %499, %550 ], [ %499, %543 ], [ %499, %535 ], [ %499, %528 ]
   %.0267363420 = phi ptr [ %491, %522 ], [ %491, %515 ], [ null, %627 ], [ null, %669 ], [ null, %463 ], [ null, %451 ], [ %559, %569 ], [ %559, %562 ], [ %491, %550 ], [ %491, %543 ], [ %491, %535 ], [ %491, %528 ]
   %.0266364419 = phi ptr [ null, %522 ], [ null, %515 ], [ %583, %627 ], [ null, %669 ], [ null, %463 ], [ null, %451 ], [ null, %569 ], [ null, %562 ], [ null, %550 ], [ null, %543 ], [ null, %535 ], [ null, %528 ]
@@ -1517,7 +1517,7 @@ H5T__get_native_integer.exit.thread349.thread404: ; preds = %528, %535, %543, %5
 
 H5T__get_native_integer.exit.thread349.thread:    ; preds = %399, %407, %H5T__get_native_integer.exit.thread349.thread404, %681
   %.0271360399 = phi ptr [ %.0271360423, %H5T__get_native_integer.exit.thread349.thread404 ], [ %.0271360423, %681 ], [ %393, %399 ], [ %393, %407 ]
-  %.1270361398 = phi ptr [ %.1270361422, %H5T__get_native_integer.exit.thread349.thread404 ], [ %.1270361422, %681 ], [ null, %399 ], [ null, %407 ]
+  %.0269361398 = phi ptr [ %.0269361422, %H5T__get_native_integer.exit.thread349.thread404 ], [ %.0269361422, %681 ], [ null, %399 ], [ null, %407 ]
   %.0268362397 = phi ptr [ %.0268362421, %H5T__get_native_integer.exit.thread349.thread404 ], [ %.0268362421, %681 ], [ null, %399 ], [ null, %407 ]
   %.0267363396 = phi ptr [ %.0267363420, %H5T__get_native_integer.exit.thread349.thread404 ], [ %.0267363420, %681 ], [ null, %399 ], [ null, %407 ]
   %.0266364395 = phi ptr [ %.0266364419, %H5T__get_native_integer.exit.thread349.thread404 ], [ %.0266364419, %681 ], [ null, %399 ], [ null, %407 ]
@@ -1534,7 +1534,7 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %399, %407, %H5T__ge
   %.0266364395533 = phi ptr [ %.0266364395, %H5T__get_native_integer.exit.thread349.thread ], [ null, %416 ], [ null, %423 ], [ null, %438 ]
   %.0267363396531 = phi ptr [ %.0267363396, %H5T__get_native_integer.exit.thread349.thread ], [ null, %416 ], [ null, %423 ], [ null, %438 ]
   %.0268362397529 = phi ptr [ %.0268362397, %H5T__get_native_integer.exit.thread349.thread ], [ null, %416 ], [ null, %423 ], [ null, %438 ]
-  %.1270361398527 = phi ptr [ %.1270361398, %H5T__get_native_integer.exit.thread349.thread ], [ null, %416 ], [ null, %423 ], [ null, %438 ]
+  %.0269361398527 = phi ptr [ %.0269361398, %H5T__get_native_integer.exit.thread349.thread ], [ null, %416 ], [ null, %423 ], [ null, %438 ]
   %.0271360399525 = phi ptr [ %.0271360399, %H5T__get_native_integer.exit.thread349.thread ], [ %393, %416 ], [ %393, %423 ], [ %393, %438 ]
   %.not482 = icmp eq i32 %.0263367392538, 0
   br i1 %.not482, label %._crit_edge, label %.lr.ph.preheader
@@ -1549,7 +1549,7 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %399, %407, %H5T__ge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %.preheader460
   %.0271360399525563 = phi ptr [ %.0271360399525, %.preheader460 ], [ null, %.lr.ph.preheader.sink.split ]
-  %.1270361398527561 = phi ptr [ %.1270361398527, %.preheader460 ], [ null, %.lr.ph.preheader.sink.split ]
+  %.0269361398527561 = phi ptr [ %.0269361398527, %.preheader460 ], [ null, %.lr.ph.preheader.sink.split ]
   %.0268362397529559 = phi ptr [ %.0268362397529, %.preheader460 ], [ null, %.lr.ph.preheader.sink.split ]
   %.0267363396531557 = phi ptr [ %.0267363396531, %.preheader460 ], [ null, %.lr.ph.preheader.sink.split ]
   %.0266364395533555 = phi ptr [ %.0266364395533, %.preheader460 ], [ null, %.lr.ph.preheader.sink.split ]
@@ -1584,7 +1584,7 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %399, %407, %H5T__ge
 
 ._crit_edge:                                      ; preds = %698, %.preheader460
   %.0271360399525564 = phi ptr [ %.0271360399525, %.preheader460 ], [ %.0271360399525563, %698 ]
-  %.1270361398527562 = phi ptr [ %.1270361398527, %.preheader460 ], [ %.1270361398527561, %698 ]
+  %.0269361398527562 = phi ptr [ %.0269361398527, %.preheader460 ], [ %.0269361398527561, %698 ]
   %.0268362397529560 = phi ptr [ %.0268362397529, %.preheader460 ], [ %.0268362397529559, %698 ]
   %.0267363396531558 = phi ptr [ %.0267363396531, %.preheader460 ], [ %.0267363396531557, %698 ]
   %.0266364395533556 = phi ptr [ %.0266364395533, %.preheader460 ], [ %.0266364395533555, %698 ]
@@ -1600,7 +1600,7 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %399, %407, %H5T__ge
   %.0266364395534 = phi ptr [ %.0266364395533556, %._crit_edge ], [ %.0266364395, %H5T__get_native_integer.exit.thread349.thread ]
   %.0267363396532 = phi ptr [ %.0267363396531558, %._crit_edge ], [ %.0267363396, %H5T__get_native_integer.exit.thread349.thread ]
   %.0268362397530 = phi ptr [ %.0268362397529560, %._crit_edge ], [ %.0268362397, %H5T__get_native_integer.exit.thread349.thread ]
-  %.1270361398528 = phi ptr [ %.1270361398527562, %._crit_edge ], [ %.1270361398, %H5T__get_native_integer.exit.thread349.thread ]
+  %.0269361398528 = phi ptr [ %.0269361398527562, %._crit_edge ], [ %.0269361398, %H5T__get_native_integer.exit.thread349.thread ]
   %.0271360399526 = phi ptr [ %.0271360399525564, %._crit_edge ], [ %.0271360399, %H5T__get_native_integer.exit.thread349.thread ]
   %701 = call ptr @H5MM_xfree(ptr noundef %.0265365394536) #7
   %.not323 = icmp eq ptr %.0271360399526, null
@@ -1635,19 +1635,19 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %399, %407, %H5T__ge
   br label %708
 
 708:                                              ; preds = %.thread, %._crit_edge481, %700
-  %.1270361398434451 = phi ptr [ null, %.thread ], [ %.1270361398528, %._crit_edge481 ], [ %.1270361398528, %700 ]
+  %.0269361398434451 = phi ptr [ null, %.thread ], [ %.0269361398528, %._crit_edge481 ], [ %.0269361398528, %700 ]
   %.0268362397435450 = phi ptr [ %.0268362397.ph, %.thread ], [ %.0268362397530, %._crit_edge481 ], [ %.0268362397530, %700 ]
   %.0267363396436449 = phi ptr [ %.0267363396.ph, %.thread ], [ %.0267363396532, %._crit_edge481 ], [ %.0267363396532, %700 ]
   %.0266364395437448 = phi ptr [ %.0266364395.ph, %.thread ], [ %.0266364395534, %._crit_edge481 ], [ %.0266364395534, %700 ]
-  %709 = call ptr @H5MM_xfree(ptr noundef %.1270361398434451) #7
+  %709 = call ptr @H5MM_xfree(ptr noundef %.0269361398434451) #7
   %710 = call ptr @H5MM_xfree(ptr noundef %.0268362397435450) #7
   %711 = call ptr @H5MM_xfree(ptr noundef %.0267363396436449) #7
   %712 = call ptr @H5MM_xfree(ptr noundef %.0266364395437448) #7
   br label %H5T__get_native_integer.exit.thread371
 
 H5T__get_native_integer.exit.thread371:           ; preds = %634, %471, %566, %308, %305, %304, %182, %179, %178, %342, %339, %338, %129, %126, %125, %205, %203, %372, %673, %708
-  %.5 = phi ptr [ null, %708 ], [ %313, %342 ], [ %313, %339 ], [ %313, %338 ], [ %101, %129 ], [ %101, %126 ], [ %101, %125 ], [ %187, %205 ], [ %187, %203 ], [ %344, %372 ], [ %660, %673 ], [ %154, %178 ], [ %154, %179 ], [ %154, %182 ], [ %280, %304 ], [ %280, %305 ], [ %280, %308 ], [ %618, %634 ], [ %436, %471 ], [ %506, %566 ]
-  ret ptr %.5
+  %.1 = phi ptr [ null, %708 ], [ %313, %342 ], [ %313, %339 ], [ %313, %338 ], [ %101, %129 ], [ %101, %126 ], [ %101, %125 ], [ %187, %205 ], [ %187, %203 ], [ %344, %372 ], [ %660, %673 ], [ %154, %178 ], [ %154, %179 ], [ %154, %182 ], [ %280, %304 ], [ %280, %305 ], [ %280, %308 ], [ %618, %634 ], [ %436, %471 ], [ %506, %566 ]
+  ret ptr %.1
 }
 
 declare i64 @H5I_register(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

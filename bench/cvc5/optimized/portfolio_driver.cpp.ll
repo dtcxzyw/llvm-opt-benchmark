@@ -2126,7 +2126,7 @@ lpad57.i.i:                                       ; preds = %lor.lhs.false.i.i, 
   br label %lpad58.body
 
 if.end63.i.i:                                     ; preds = %if.then62.i.i, %invoke.cont60.i.i
-  %rc.0.i.i = phi i32 [ 0, %if.then62.i.i ], [ 1, %invoke.cont60.i.i ]
+  %rc.1.i.i = phi i32 [ 0, %if.then62.i.i ], [ 1, %invoke.cont60.i.i ]
   call void @_ZN4cvc56ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %res.i.i) #21
   br label %.noexc54.invoke
 
@@ -2176,7 +2176,7 @@ if.then79.i.i:                                    ; preds = %if.then74.i.i
   br label %.noexc54.invoke
 
 .noexc54.invoke:                                  ; preds = %call54.i.i.noexc, %if.end63.i.i, %.noexc54
-  %107 = phi i32 [ 0, %.noexc54 ], [ %rc.0.i.i, %if.end63.i.i ], [ 1, %call54.i.i.noexc ]
+  %107 = phi i32 [ 0, %.noexc54 ], [ %rc.1.i.i, %if.end63.i.i ], [ 1, %call54.i.i.noexc ]
   invoke void @_exit(i32 noundef %107) #24
           to label %.noexc54.cont unwind label %lpad58.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2348,7 +2348,7 @@ lpad58.body:                                      ; preds = %lpad58.loopexit, %l
   br label %ehcleanup62
 
 cleanup:                                          ; preds = %if.then.i.i.i.i63, %invoke.cont.i.i61, %invoke.cont33
-  %retval.0 = phi i1 [ %call36, %invoke.cont33 ], [ %retval.0.i, %invoke.cont.i.i61 ], [ %retval.0.i, %if.then.i.i.i.i63 ]
+  %retval.1 = phi i1 [ %call36, %invoke.cont33 ], [ %retval.0.i, %invoke.cont.i.i61 ], [ %retval.0.i, %if.then.i.i.i.i63 ]
   %121 = load ptr, ptr %strategy, align 8
   %122 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i.i65 = icmp eq ptr %121, %122
@@ -2408,7 +2408,7 @@ ehcleanup62:                                      ; preds = %lpad32.loopexit, %l
   br label %ehcleanup64
 
 cleanup63:                                        ; preds = %if.then20.invoke, %if.then.i.i.i.i73, %invoke.cont.i.i71
-  %retval.1 = phi i1 [ %retval.0, %invoke.cont.i.i71 ], [ %retval.0, %if.then.i.i.i.i73 ], [ %11, %if.then20.invoke ]
+  %retval.0 = phi i1 [ %retval.1, %invoke.cont.i.i71 ], [ %retval.1, %if.then.i.i.i.i73 ], [ %11, %if.then20.invoke ]
   %127 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i = trunc i8 %127 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i75, label %_ZN4cvc54main16ExecutionContextD2Ev.exit
@@ -2419,7 +2419,7 @@ if.then.i.i.i.i.i75:                              ; preds = %cleanup63
   br label %_ZN4cvc54main16ExecutionContextD2Ev.exit
 
 _ZN4cvc54main16ExecutionContextD2Ev.exit:         ; preds = %cleanup63, %if.then.i.i.i.i.i75
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup64:                                      ; preds = %ehcleanup62, %ehcleanup12, %lpad
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %ehcleanup62 ], [ %5, %lpad ], [ %.pn, %ehcleanup12 ]

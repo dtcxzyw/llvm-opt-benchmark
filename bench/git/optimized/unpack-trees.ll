@@ -1084,7 +1084,7 @@ if.then218:                                       ; preds = %if.end215
 
 for.body:                                         ; preds = %if.then218, %if.end236
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end236 ], [ 0, %if.then218 ]
-  %ret.0247 = phi i32 [ %spec.select126, %if.end236 ], [ 0, %if.then218 ]
+  %ret.1247 = phi i32 [ %spec.select126, %if.end236 ], [ 0, %if.then218 ]
   %105 = load ptr, ptr %result, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
   %106 = load ptr, ptr %arrayidx, align 8
@@ -1112,10 +1112,10 @@ verify_absent.exit.thread:                        ; preds = %land.lhs.true232, %
   br label %if.end236
 
 if.end236:                                        ; preds = %verify_absent.exit.thread, %verify_absent.exit, %for.body
-  %ret.1 = phi i32 [ %ret.0247, %for.body ], [ %ret.0247, %verify_absent.exit.thread ], [ 1, %verify_absent.exit ]
+  %ret.2 = phi i32 [ %ret.1247, %for.body ], [ %ret.1247, %verify_absent.exit.thread ], [ 1, %verify_absent.exit ]
   %call239 = call fastcc i32 @apply_sparse_checkout(ptr noundef nonnull %result, ptr noundef nonnull %106, ptr noundef nonnull %o)
   %tobool240.not = icmp eq i32 %call239, 0
-  %spec.select126 = select i1 %tobool240.not, i32 %ret.1, i32 1
+  %spec.select126 = select i1 %tobool240.not, i32 %ret.2, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %cache_nr, align 4
   %110 = zext i32 %109 to i64
@@ -1196,7 +1196,7 @@ if.end296:                                        ; preds = %if.else293, %if.end
   br label %done
 
 done:                                             ; preds = %if.then3.i, %land.lhs.true.i179, %if.then213, %mark_all_ce_unused.exit213, %if.end296
-  %ret.3 = phi i32 [ %spec.store.select, %mark_all_ce_unused.exit213 ], [ %cond257, %if.end296 ], [ -1, %if.then213 ], [ -1, %land.lhs.true.i179 ], [ -1, %if.then3.i ]
+  %ret.0 = phi i32 [ %spec.store.select, %mark_all_ce_unused.exit213 ], [ %cond257, %if.end296 ], [ -1, %if.then213 ], [ -1, %land.lhs.true.i179 ], [ -1, %if.then3.i ]
   br i1 %tobool47.not.not268, label %if.then299, label %if.end300
 
 if.then299:                                       ; preds = %done
@@ -1230,7 +1230,7 @@ if.then313:                                       ; preds = %if.end309
   br label %do.end316
 
 do.end316:                                        ; preds = %if.end309, %if.then313
-  ret i32 %ret.3
+  ret i32 %ret.0
 
 return_failed:                                    ; preds = %if.end176, %if.end201, %do.end
   %show_all_errors318 = getelementptr inbounds i8, ptr %o, i64 228
@@ -4296,8 +4296,8 @@ for.body24.lr.ph:                                 ; preds = %same.exit, %for.con
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %same.exit230.thread427
   %indvars.iv479 = phi i64 [ 1, %for.body24.lr.ph ], [ %indvars.iv.next480, %same.exit230.thread427 ]
-  %remote_match.0465 = phi i32 [ 0, %for.body24.lr.ph ], [ %42, %same.exit230.thread427 ]
-  %head_match.0464 = phi i32 [ 0, %for.body24.lr.ph ], [ %41, %same.exit230.thread427 ]
+  %remote_match.1465 = phi i32 [ 0, %for.body24.lr.ph ], [ %42, %same.exit230.thread427 ]
+  %head_match.1464 = phi i32 [ 0, %for.body24.lr.ph ], [ %41, %same.exit230.thread427 ]
   %arrayidx26 = getelementptr inbounds ptr, ptr %stages, i64 %indvars.iv479
   %19 = load ptr, ptr %arrayidx26, align 8
   %tobool.i155 = icmp ne ptr %19, null
@@ -4379,7 +4379,7 @@ same.exit192.thread.if.end.i195_crit_edge:        ; preds = %same.exit192.thread
 
 if.end.i195:                                      ; preds = %same.exit192.thread.if.end.i195_crit_edge, %same.exit192.thread418
   %.pre-phi = phi i32 [ %.pre494, %same.exit192.thread.if.end.i195_crit_edge ], [ %21, %same.exit192.thread418 ]
-  %31 = phi i32 [ %head_match.0464, %same.exit192.thread.if.end.i195_crit_edge ], [ %21, %same.exit192.thread418 ]
+  %31 = phi i32 [ %head_match.1464, %same.exit192.thread.if.end.i195_crit_edge ], [ %21, %same.exit192.thread418 ]
   %or.cond.i196 = or i1 %tobool.i, %tobool.i155
   br i1 %or.cond.i196, label %if.end.i195.if.end10.i198_crit_edge, label %same.exit230.thread427
 
@@ -4440,12 +4440,12 @@ same.exit230:                                     ; preds = %if.then.i.i.i226, %
   %retval.0.in.in.i.i.i223.fr = freeze i32 %retval.0.in.in.i.i.i223
   %retval.0.in.i.i.i224.not = icmp eq i32 %retval.0.in.in.i.i.i223.fr, 0
   %40 = trunc nuw nsw i64 %indvars.iv479 to i32
-  %spec.select456 = select i1 %retval.0.in.i.i.i224.not, i32 %40, i32 %remote_match.0465
+  %spec.select456 = select i1 %retval.0.in.i.i.i224.not, i32 %40, i32 %remote_match.1465
   br label %same.exit230.thread427
 
 same.exit230.thread427:                           ; preds = %same.exit230, %same.exit192._crit_edge, %same.exit192.thread418, %if.end14.i204, %if.end10.i198, %same.exit192.thread, %if.end.i195
-  %41 = phi i32 [ %31, %if.end.i195 ], [ %21, %same.exit192._crit_edge ], [ %21, %same.exit192.thread418 ], [ %33, %if.end14.i204 ], [ %33, %if.end10.i198 ], [ %head_match.0464, %same.exit192.thread ], [ %33, %same.exit230 ]
-  %42 = phi i32 [ %.pre-phi, %if.end.i195 ], [ %remote_match.0465, %same.exit192._crit_edge ], [ %remote_match.0465, %same.exit192.thread418 ], [ %remote_match.0465, %if.end14.i204 ], [ %remote_match.0465, %if.end10.i198 ], [ %remote_match.0465, %same.exit192.thread ], [ %spec.select456, %same.exit230 ]
+  %41 = phi i32 [ %31, %if.end.i195 ], [ %21, %same.exit192._crit_edge ], [ %21, %same.exit192.thread418 ], [ %33, %if.end14.i204 ], [ %33, %if.end10.i198 ], [ %head_match.1464, %same.exit192.thread ], [ %33, %same.exit230 ]
+  %42 = phi i32 [ %.pre-phi, %if.end.i195 ], [ %remote_match.1465, %same.exit192._crit_edge ], [ %remote_match.1465, %same.exit192.thread418 ], [ %remote_match.1465, %if.end14.i204 ], [ %remote_match.1465, %if.end10.i198 ], [ %remote_match.1465, %same.exit192.thread ], [ %spec.select456, %same.exit230 ]
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %exitcond483.not = icmp eq i64 %indvars.iv.next480, %wide.trip.count482
   br i1 %exitcond483.not, label %if.end40, label %for.body24, !llvm.loop !38
@@ -5391,7 +5391,7 @@ invalidate_ce_path.exit59:                        ; preds = %verify_uptodate.exi
   br label %if.end30
 
 if.end30:                                         ; preds = %invalidate_ce_path.exit59, %if.then21
-  %update.0 = phi i32 [ 0, %if.then21 ], [ %and28.pre-phi, %invalidate_ce_path.exit59 ]
+  %update.1 = phi i32 [ 0, %if.then21 ], [ %and28.pre-phi, %invalidate_ce_path.exit59 ]
   %call31 = tail call ptr @submodule_from_ce(ptr noundef %ce) #17
   %tobool32.not = icmp eq ptr %call31, null
   br i1 %tobool32.not, label %if.end55, label %land.lhs.true33
@@ -5443,14 +5443,14 @@ invalidate_ce_path.exit73:                        ; preds = %land.lhs.true.i65, 
   br label %if.end55
 
 if.end55:                                         ; preds = %invalidate_ce_path.exit73, %if.then38, %land.lhs.true33, %if.end30, %invalidate_ce_path.exit, %land.lhs.true, %if.then9
-  %update.1 = phi i32 [ 65536, %invalidate_ce_path.exit73 ], [ %update.0, %if.then38 ], [ %update.0, %land.lhs.true33 ], [ %update.0, %if.end30 ], [ 589824, %if.then9 ], [ 589824, %land.lhs.true ], [ 589824, %invalidate_ce_path.exit ]
-  %and.i74 = shl i32 %update.1, 5
+  %update.0 = phi i32 [ 65536, %invalidate_ce_path.exit73 ], [ %update.1, %if.then38 ], [ %update.1, %land.lhs.true33 ], [ %update.1, %if.end30 ], [ 589824, %if.then9 ], [ 589824, %land.lhs.true ], [ 589824, %invalidate_ce_path.exit ]
+  %and.i74 = shl i32 %update.0, 5
   %23 = and i32 %and.i74, 4194304
   %ce_flags.i75 = getelementptr inbounds i8, ptr %call, i64 56
   %24 = load i32, ptr %ce_flags.i75, align 8
   %and2.i = and i32 %24, -1060865
   %25 = or i32 %and2.i, %23
-  %or3.i = or i32 %25, %update.1
+  %or3.i = or i32 %25, %update.0
   store i32 %or3.i, ptr %ce_flags.i75, align 8
   %call.i76 = tail call i32 @add_index_entry(ptr noundef nonnull %result, ptr noundef %call, i32 noundef 3) #17
   %cmp.inv = icmp sgt i32 %call.i76, -1

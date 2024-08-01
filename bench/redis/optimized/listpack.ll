@@ -1046,7 +1046,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %if.end87
-  %vll.0 = phi i64 [ %vll.4, %if.end87 ], [ undef, %while.body.preheader ]
+  %vll.0 = phi i64 [ %vll.3, %if.end87 ], [ undef, %while.body.preheader ]
   %skipcnt.0 = phi i32 [ %skipcnt.1, %if.end87 ], [ 0, %while.body.preheader ]
   %vencoding.0 = phi i8 [ %vencoding.3, %if.end87 ], [ 0, %while.body.preheader ]
   %p.addr.0 = phi ptr [ %p.addr.1, %if.end87 ], [ %p, %while.body.preheader ]
@@ -1175,15 +1175,15 @@ if.else81.i:                                      ; preds = %if.end70.i
   br i1 %cmp82.i, label %if.end56, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.else, %if.else81.thread.i, %if.else81.i, %land.lhs.true.i, %if.end75.i
-  %vencoding.141 = phi i8 [ 1, %if.end75.i ], [ 1, %land.lhs.true.i ], [ 1, %if.else81.i ], [ 1, %if.else81.thread.i ], [ %vencoding.0, %if.else ]
+  %vencoding.241 = phi i8 [ 1, %if.end75.i ], [ 1, %land.lhs.true.i ], [ 1, %if.else81.i ], [ 1, %if.else81.thread.i ], [ %vencoding.0, %if.else ]
   %vll.240 = phi i64 [ %sub79.i, %if.end75.i ], [ 0, %land.lhs.true.i ], [ %v.0.lcssa.i, %if.else81.i ], [ %sub60.i, %if.else81.thread.i ], [ %vll.0, %if.else ]
   %13 = load i64, ptr %ll, align 8
   %cmp52 = icmp eq i64 %13, %vll.240
   br i1 %cmp52, label %return, label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true39.i, %if.end51.i, %if.then35, %if.else, %if.end20.thread.i, %land.lhs.true.i, %if.else81.i, %if.then71.i, %if.end20.i, %land.lhs.true51, %cond.end23, %land.lhs.true
-  %vll.3 = phi i64 [ %vll.240, %land.lhs.true51 ], [ %vll.0, %land.lhs.true ], [ %vll.0, %cond.end23 ], [ %vll.0, %if.then35 ], [ %vll.0, %if.end20.i ], [ %vll.0, %if.then71.i ], [ %vll.0, %if.else81.i ], [ %vll.0, %land.lhs.true.i ], [ %vll.0, %if.end20.thread.i ], [ %vll.0, %if.else ], [ %vll.0, %if.end51.i ], [ %vll.0, %land.lhs.true39.i ]
-  %vencoding.2 = phi i8 [ %vencoding.141, %land.lhs.true51 ], [ %vencoding.0, %land.lhs.true ], [ %vencoding.0, %cond.end23 ], [ -1, %if.then35 ], [ -1, %if.end20.i ], [ -1, %if.then71.i ], [ -1, %if.else81.i ], [ -1, %land.lhs.true.i ], [ -1, %if.end20.thread.i ], [ %vencoding.0, %if.else ], [ -1, %if.end51.i ], [ -1, %land.lhs.true39.i ]
+  %vll.1 = phi i64 [ %vll.240, %land.lhs.true51 ], [ %vll.0, %land.lhs.true ], [ %vll.0, %cond.end23 ], [ %vll.0, %if.then35 ], [ %vll.0, %if.end20.i ], [ %vll.0, %if.then71.i ], [ %vll.0, %if.else81.i ], [ %vll.0, %land.lhs.true.i ], [ %vll.0, %if.end20.thread.i ], [ %vll.0, %if.else ], [ %vll.0, %if.end51.i ], [ %vll.0, %land.lhs.true39.i ]
+  %vencoding.1 = phi i8 [ %vencoding.241, %land.lhs.true51 ], [ %vencoding.0, %land.lhs.true ], [ %vencoding.0, %cond.end23 ], [ -1, %if.then35 ], [ -1, %if.end20.i ], [ -1, %if.then71.i ], [ -1, %if.else81.i ], [ -1, %land.lhs.true.i ], [ -1, %if.end20.thread.i ], [ %vencoding.0, %if.else ], [ -1, %if.end51.i ], [ -1, %land.lhs.true39.i ]
   %14 = load i64, ptr %entry_size, align 8
   %add.ptr57 = getelementptr inbounds i8, ptr %p.addr.0, i64 %14
   br label %if.end60
@@ -1278,9 +1278,9 @@ lpSkip.exit:                                      ; preds = %switch.lookup, %if.
   br label %if.end60
 
 if.end60:                                         ; preds = %lpSkip.exit, %if.end56
-  %vll.4 = phi i64 [ %vll.3, %if.end56 ], [ %vll.0, %lpSkip.exit ]
+  %vll.3 = phi i64 [ %vll.1, %if.end56 ], [ %vll.0, %lpSkip.exit ]
   %skipcnt.1 = phi i32 [ %skip, %if.end56 ], [ %dec, %lpSkip.exit ]
-  %vencoding.3 = phi i8 [ %vencoding.2, %if.end56 ], [ %vencoding.0, %lpSkip.exit ]
+  %vencoding.3 = phi i8 [ %vencoding.1, %if.end56 ], [ %vencoding.0, %lpSkip.exit ]
   %p.addr.1 = phi ptr [ %add.ptr57, %if.end56 ], [ %add.ptr.i, %lpSkip.exit ]
   %add.ptr61 = getelementptr inbounds i8, ptr %p.addr.1, i64 8
   %cmp64.not = icmp ult ptr %add.ptr61, %add.ptr12

@@ -122,8 +122,8 @@ define hidden i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not48, label %WebPFlipBuffer.exit, label %26
 
 26:                                               ; preds = %14, %11
-  %.037 = phi i32 [ %1, %11 ], [ %18, %14 ]
-  %.036 = phi i32 [ %0, %11 ], [ %16, %14 ]
+  %.138 = phi i32 [ %1, %11 ], [ %18, %14 ]
+  %.1 = phi i32 [ %0, %11 ], [ %16, %14 ]
   %27 = getelementptr inbounds i8, ptr %2, i64 28
   %28 = load i32, ptr %27, align 4
   %.not49 = icmp eq i32 %28, 0
@@ -136,7 +136,7 @@ define hidden i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr nou
   %32 = getelementptr inbounds i8, ptr %2, i64 36
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
-  %34 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %.036, i32 noundef %.037, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %34 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %.1, i32 noundef %.138, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not50 = icmp eq i32 %34, 0
   br i1 %.not50, label %WebPFlipBuffer.exit, label %35
 
@@ -146,15 +146,15 @@ define hidden i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr nou
   br label %38
 
 38:                                               ; preds = %26, %35, %10
-  %.138 = phi i32 [ %37, %35 ], [ %.037, %26 ], [ %1, %10 ]
-  %.1 = phi i32 [ %36, %35 ], [ %.036, %26 ], [ %0, %10 ]
+  %.037 = phi i32 [ %37, %35 ], [ %.138, %26 ], [ %1, %10 ]
+  %.036 = phi i32 [ %36, %35 ], [ %.1, %26 ], [ %0, %10 ]
   %39 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 %.1, ptr %39, align 4
+  store i32 %.036, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %.138, ptr %40, align 8
+  store i32 %.037, ptr %40, align 8
   %41 = load i32, ptr %3, align 8
-  %42 = icmp slt i32 %.1, 1
-  %43 = icmp slt i32 %.138, 1
+  %42 = icmp slt i32 %.036, 1
+  %43 = icmp slt i32 %.037, 1
   %or.cond.i = select i1 %42, i1 true, i1 %43
   %44 = icmp ugt i32 %41, 12
   %or.cond80.i = select i1 %or.cond.i, i1 true, i1 %44
@@ -173,7 +173,7 @@ define hidden i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %52, label %53, label %AllocateBuffer.exit
 
 53:                                               ; preds = %49
-  %54 = zext nneg i32 %.1 to i64
+  %54 = zext nneg i32 %.036 to i64
   %55 = zext nneg i32 %41 to i64
   %56 = getelementptr inbounds [13 x i8], ptr @kModeBpp, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
@@ -184,25 +184,25 @@ define hidden i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr nou
 
 61:                                               ; preds = %53
   %62 = zext i8 %57 to i32
-  %63 = mul nuw nsw i32 %.1, %62
+  %63 = mul nuw nsw i32 %.036, %62
   %64 = zext nneg i32 %63 to i64
-  %65 = zext nneg i32 %.138 to i64
+  %65 = zext nneg i32 %.037 to i64
   %66 = mul nuw nsw i64 %64, %65
   %67 = icmp ugt i32 %41, 10
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %61
-  %69 = add nuw nsw i32 %.1, 1
+  %69 = add nuw nsw i32 %.036, 1
   %70 = lshr i32 %69, 1
   %71 = zext nneg i32 %70 to i64
-  %72 = add nuw nsw i32 %.138, 1
+  %72 = add nuw nsw i32 %.037, 1
   %73 = lshr i32 %72, 1
   %74 = zext nneg i32 %73 to i64
   %75 = mul nuw nsw i64 %71, %74
   %76 = icmp eq i32 %41, 12
   %77 = mul nuw nsw i64 %54, %65
   %spec.select.i = select i1 %76, i64 %77, i64 0
-  %spec.select79.i = select i1 %76, i32 %.1, i32 0
+  %spec.select79.i = select i1 %76, i32 %.036, i32 0
   br label %78
 
 78:                                               ; preds = %68, %61

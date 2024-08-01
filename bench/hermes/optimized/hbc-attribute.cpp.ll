@@ -1391,7 +1391,7 @@ if.then.i99:                                      ; preds = %if.end35
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i99, %if.end35, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
-  %retval.0 = phi i32 [ 3, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ 0, %if.end35 ], [ 0, %if.then.i99 ]
+  %retval.2 = phi i32 [ 3, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ], [ 0, %if.end35 ], [ 0, %if.then.i99 ]
   %131 = load ptr, ptr %emitter, align 8
   %cmp.i.i.i.i = icmp eq ptr %131, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %cleanup36, label %if.then.i.i.i101
@@ -1401,7 +1401,7 @@ if.then.i.i.i101:                                 ; preds = %cleanup
   br label %cleanup36
 
 cleanup36:                                        ; preds = %if.then.i.i.i101, %cleanup, %_ZN4llvh11raw_ostreamlsEc.exit
-  %retval.1 = phi i32 [ 1, %_ZN4llvh11raw_ostreamlsEc.exit ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i101 ]
+  %retval.1 = phi i32 [ 1, %_ZN4llvh11raw_ostreamlsEc.exit ], [ %retval.2, %cleanup ], [ %retval.2, %if.then.i.i.i101 ]
   %132 = load i8, ptr %hasVal.i.i, align 8
   %tobool.i.i.i103 = trunc i8 %132 to i1
   br i1 %tobool.i.i.i103, label %if.then.i.i.i104, label %cleanup37
@@ -1414,7 +1414,7 @@ if.then.i.i.i104:                                 ; preds = %cleanup36
   br label %cleanup37
 
 cleanup37:                                        ; preds = %if.then.i.i.i104, %cleanup36, %_ZN4llvh11raw_ostreamlsEPKc.exit42
-  %retval.2 = phi i32 [ 1, %_ZN4llvh11raw_ostreamlsEPKc.exit42 ], [ %retval.1, %cleanup36 ], [ %retval.1, %if.then.i.i.i104 ]
+  %retval.0 = phi i32 [ 1, %_ZN4llvh11raw_ostreamlsEPKc.exit42 ], [ %retval.1, %cleanup36 ], [ %retval.1, %if.then.i.i.i104 ]
   %bf.load.i107 = load i8, ptr %HasError.i, align 8
   %bf.cast.i108 = trunc i8 %bf.load.i107 to i1
   br i1 %bf.cast.i108, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %if.then.i109
@@ -1439,7 +1439,7 @@ _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   call void @_ZN4llvh13llvm_shutdownEv() #22
   call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %X) #22
   call void @_ZN4llvh8InitLLVMD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %initLLVM) #22
-  ret i32 %retval.2
+  ret i32 %retval.0
 }
 
 declare void @_ZN4llvh3sys28PrintStackTraceOnErrorSignalENS_9StringRefEb(ptr, i64, i1 noundef zeroext) local_unnamed_addr #0

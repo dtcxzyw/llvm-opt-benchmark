@@ -121,7 +121,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %for.end.i
 
 if.then22.i:                                      ; preds = %parallels_load_bitmap.exit.i, %while.cond.preheader.i
-  %bitmaps.0.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
+  %bitmaps.1.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
   %remaining.0.lcssa.i = phi i32 [ %sub.i, %while.cond.preheader.i ], [ %sub26.i, %parallels_load_bitmap.exit.i ]
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.parallels_parse_format_extension, ptr noundef nonnull @.str.5, i32 noundef %remaining.0.lcssa.i, i64 noundef 24) #8
   br label %fail.i
@@ -129,7 +129,7 @@ if.then22.i:                                      ; preds = %parallels_load_bitm
 if.end23.i:                                       ; preds = %parallels_load_bitmap.exit.i, %if.end23.lr.ph.i
   %remaining.0104.i = phi i32 [ %sub.i, %if.end23.lr.ph.i ], [ %sub26.i, %parallels_load_bitmap.exit.i ]
   %pos.0103.i = phi ptr [ %add.ptr.i, %if.end23.lr.ph.i ], [ %add.ptr56.i, %parallels_load_bitmap.exit.i ]
-  %bitmaps.0102.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
+  %bitmaps.1102.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
   %fh.sroa.0.0.copyload.i = load i64, ptr %pos.0103.i, align 1
   %fh.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0103.i, i64 8
   %fh.sroa.5.0.copyload.i = load i64, ptr %fh.sroa.5.0..sroa_idx.i, align 1
@@ -318,7 +318,7 @@ parallels_load_bitmap.exit.i:                     ; preds = %if.end36.i.i
   call void @g_free(ptr noundef %call25.i.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i)
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %uuidstr.i.i)
-  %call51.i = call ptr @g_slist_append(ptr noundef %bitmaps.0102.i, ptr noundef nonnull %call20.i.i) #8
+  %call51.i = call ptr @g_slist_append(ptr noundef %bitmaps.1102.i, ptr noundef nonnull %call20.i.i) #8
   %add.ptr54.i = getelementptr i8, ptr %add.ptr24.i, i64 %conv46.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr54.i to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -334,12 +334,12 @@ sw.default.i:                                     ; preds = %if.end42.i
   br label %fail.i
 
 fail.i:                                           ; preds = %sw.default.i, %parallels_load_bitmap.exit.thread.i, %if.then41.i, %if.then36.i, %if.then22.i
-  %bitmaps.1.i = phi ptr [ %bitmaps.0.lcssa.i, %if.then22.i ], [ %bitmaps.0102.i, %if.then36.i ], [ %bitmaps.0102.i, %if.then41.i ], [ %bitmaps.0102.i, %sw.default.i ], [ %bitmaps.0102.i, %parallels_load_bitmap.exit.thread.i ]
-  %tobool57.not106.i = icmp eq ptr %bitmaps.1.i, null
+  %bitmaps.0.i = phi ptr [ %bitmaps.1.lcssa.i, %if.then22.i ], [ %bitmaps.1102.i, %if.then36.i ], [ %bitmaps.1102.i, %if.then41.i ], [ %bitmaps.1102.i, %sw.default.i ], [ %bitmaps.1102.i, %parallels_load_bitmap.exit.thread.i ]
+  %tobool57.not106.i = icmp eq ptr %bitmaps.0.i, null
   br i1 %tobool57.not106.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %fail.i, %for.body.i
-  %el.0107.i = phi ptr [ %18, %for.body.i ], [ %bitmaps.1.i, %fail.i ]
+  %el.0107.i = phi ptr [ %18, %for.body.i ], [ %bitmaps.0.i, %fail.i ]
   %17 = load ptr, ptr %el.0107.i, align 8
   call void @bdrv_release_dirty_bitmap(ptr noundef %17) #8
   %next.i = getelementptr inbounds i8, ptr %el.0107.i, i64 8
@@ -348,8 +348,8 @@ for.body.i:                                       ; preds = %fail.i, %for.body.i
   br i1 %tobool57.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %fail.i, %if.then17.i, %if.end.i, %if.then.i
-  %bitmaps.1184.i = phi ptr [ null, %fail.i ], [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.then17.i ], [ %bitmaps.1.i, %for.body.i ]
-  call void @g_slist_free(ptr noundef %bitmaps.1184.i) #8
+  %bitmaps.0184.i = phi ptr [ null, %fail.i ], [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.then17.i ], [ %bitmaps.0.i, %for.body.i ]
+  call void @g_slist_free(ptr noundef %bitmaps.0184.i) #8
   br label %parallels_parse_format_extension.exit
 
 parallels_parse_format_extension.exit:            ; preds = %if.end42.i, %for.end.i

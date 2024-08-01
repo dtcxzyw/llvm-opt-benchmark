@@ -2893,13 +2893,13 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %38 = lshr i32 %37, 8
   %39 = and i32 %38, 255
   %.inv = icmp sgt i32 %37, -1
-  %.0 = select i1 %.inv, i32 %39, i32 -1
+  %.1 = select i1 %.inv, i32 %39, i32 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   br label %40
 
 40:                                               ; preds = %10, %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit16, %8
-  %.1 = phi i32 [ %.0, %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit16 ], [ %9, %8 ], [ -1, %10 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %_ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_.exit16 ], [ %9, %8 ], [ -1, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree
@@ -5261,11 +5261,11 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 125:                                              ; preds = %123, %112, %110
   %.pn44 = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ], [ %124, %123 ]
-  %.4 = extractvalue { ptr, i32 } %.pn44, 0
-  %.436 = extractvalue { ptr, i32 } %.pn44, 1
+  %.5 = extractvalue { ptr, i32 } %.pn44, 0
+  %.537 = extractvalue { ptr, i32 } %.pn44, 1
   %126 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Yosys23log_cmd_error_exceptionE) #34
-  %127 = icmp eq i32 %.436, %126
-  %128 = call ptr @__cxa_begin_catch(ptr %.4) #34
+  %127 = icmp eq i32 %.537, %126
+  %128 = call ptr @__cxa_begin_catch(ptr %.5) #34
   br i1 %127, label %129, label %150
 
 129:                                              ; preds = %125
@@ -6340,9 +6340,9 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %209, %199, %184
   %.pn49 = phi { ptr, i32 } [ %200, %199 ], [ %185, %184 ], [ %210, %209 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit85, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp.loopexit.split-lp ]
-  %.034 = extractvalue { ptr, i32 } %.pn49, 0
+  %.2 = extractvalue { ptr, i32 } %.pn49, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #34
-  %213 = call ptr @__cxa_begin_catch(ptr %.034) #34
+  %213 = call ptr @__cxa_begin_catch(ptr %.2) #34
   store ptr %170, ptr @_ZN5Yosys8Frontend19current_script_fileE, align 8
   invoke void @__cxa_rethrow() #39
           to label %315 unwind label %214

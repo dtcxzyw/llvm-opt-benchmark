@@ -284,7 +284,7 @@ define internal i32 @dissect_rpkirtr_pdu(ptr noundef %0, ptr noundef %1, ptr nou
   br label %10
 
 10:                                               ; preds = %.lr.ph268, %.loopexit
-  %.0263267 = phi i32 [ 0, %.lr.ph268 ], [ %.2, %.loopexit ]
+  %.0263267 = phi i32 [ 0, %.lr.ph268 ], [ %.1, %.loopexit ]
   %11 = load i32, ptr @proto_rpkirtr, align 4
   %12 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %13 = load i32, ptr @ett_rpkirtr, align 4
@@ -534,10 +534,10 @@ define internal i32 @dissect_rpkirtr_pdu(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %181, %.lr.ph
   %.0266 = phi i32 [ %214, %.lr.ph ], [ 0, %181 ]
-  %.1265 = phi i32 [ %213, %.lr.ph ], [ %207, %181 ]
+  %.2265 = phi i32 [ %213, %.lr.ph ], [ %207, %181 ]
   %211 = load i32, ptr @hf_rpkirtr_aspa_provider_asn, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %211, ptr noundef %0, i32 noundef %.1265, i32 noundef 4, i32 noundef 0) #2
-  %213 = add i32 %.1265, 4
+  %212 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %211, ptr noundef %0, i32 noundef %.2265, i32 noundef 4, i32 noundef 0) #2
+  %213 = add i32 %.2265, 4
   %214 = add nuw i32 %.0266, 1
   %215 = load i32, ptr %6, align 4
   %216 = icmp ult i32 %214, %215
@@ -557,8 +557,8 @@ define internal i32 @dissect_rpkirtr_pdu(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %181, %179, %132, %134, %110, %120, %222, %156, %81, %52, %45, %38, %28
-  %.2 = phi i32 [ %223, %222 ], [ %26, %179 ], [ %176, %156 ], [ %26, %132 ], [ %155, %134 ], [ %129, %120 ], [ %119, %110 ], [ %109, %81 ], [ %80, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %28 ], [ %207, %181 ], [ %213, %.lr.ph ]
-  %224 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
+  %.1 = phi i32 [ %223, %222 ], [ %26, %179 ], [ %176, %156 ], [ %26, %132 ], [ %155, %134 ], [ %129, %120 ], [ %119, %110 ], [ %109, %81 ], [ %80, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %28 ], [ %207, %181 ], [ %213, %.lr.ph ]
+  %224 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
   %225 = icmp sgt i32 %224, 0
   br i1 %225, label %10, label %._crit_edge, !llvm.loop !6
 

@@ -2548,7 +2548,7 @@ for.cond148.preheader.i:                          ; preds = %lor.lhs.false.i
 for.body150.i:                                    ; preds = %for.cond148.preheader.i, %for.inc180.i
   %i147.0188.i = phi i64 [ %inc181.i, %for.inc180.i ], [ 0, %for.cond148.preheader.i ]
   %j.0187.i = phi i64 [ %j.1.i, %for.inc180.i ], [ 0, %for.cond148.preheader.i ]
-  %remaining.0186.i = phi i64 [ %remaining.2.i, %for.inc180.i ], [ %call56.i57, %for.cond148.preheader.i ]
+  %remaining.0186.i = phi i64 [ %remaining.1.i, %for.inc180.i ], [ %call56.i57, %for.cond148.preheader.i ]
   %arrayidx151.i = getelementptr inbounds [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %i147.0188.i
   %iov_len152.i = getelementptr inbounds i8, ptr %arrayidx151.i, i64 8
   %123 = load i64, ptr %iov_len152.i, align 8
@@ -2571,7 +2571,7 @@ if.end157.i:                                      ; preds = %for.body150.i
   br label %for.inc180.i
 
 for.inc180.i:                                     ; preds = %if.end157.i, %if.then154.i
-  %remaining.2.i = phi i64 [ %sub.i38, %if.then154.i ], [ 0, %if.end157.i ]
+  %remaining.1.i = phi i64 [ %sub.i38, %if.then154.i ], [ 0, %if.end157.i ]
   %j.1.i = phi i64 [ %j.0187.i, %if.then154.i ], [ %inc179.i, %if.end157.i ]
   %inc181.i = add nuw i64 %i147.0188.i, 1
   %exitcond196.not.i = icmp eq i64 %inc181.i, %iov_len.0.i
@@ -4927,14 +4927,14 @@ if.end.i56:                                       ; preds = %_ZN9grpc_core18TcpZ
   br i1 %cmp10.not.i, label %if.then67, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i56, %_ZN9grpc_core18TcpZerocopySendCtx13GetSendRecordEv.exit.i
-  %zerocopy_send_record.028.i = phi ptr [ %retval.0.i.i23.i, %if.end.i56 ], [ %retval.0.i.i.i, %_ZN9grpc_core18TcpZerocopySendCtx13GetSendRecordEv.exit.i ]
-  %out_offset_.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.028.i, i64 272
+  %zerocopy_send_record.128.i = phi ptr [ %retval.0.i.i23.i, %if.end.i56 ], [ %retval.0.i.i.i, %_ZN9grpc_core18TcpZerocopySendCtx13GetSendRecordEv.exit.i ]
+  %out_offset_.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.128.i, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out_offset_.i.i, i8 0, i64 16, i1 false)
-  invoke void @grpc_slice_buffer_swap(ptr noundef nonnull %buf, ptr noundef nonnull %zerocopy_send_record.028.i)
+  invoke void @grpc_slice_buffer_swap(ptr noundef nonnull %buf, ptr noundef nonnull %zerocopy_send_record.128.i)
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %if.then11.i
-  %ref_.i.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.028.i, i64 264
+  %ref_.i.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.128.i, i64 264
   %51 = atomicrmw add ptr %ref_.i.i.i, i64 1 monotonic, align 8
   %outgoing_buffer.i = getelementptr inbounds i8, ptr %ep, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outgoing_buffer.i, i8 0, i64 16, i1 false)
@@ -4949,7 +4949,7 @@ if.then67:                                        ; preds = %if.end.i56, %land.r
 
 if.end68:                                         ; preds = %invoke.cont64, %if.then67
   %cmp66109 = phi i1 [ true, %if.then67 ], [ false, %invoke.cont64 ]
-  %zerocopy_send_record.1.i107 = phi ptr [ null, %if.then67 ], [ %zerocopy_send_record.028.i, %invoke.cont64 ]
+  %zerocopy_send_record.0.i107 = phi ptr [ null, %if.then67 ], [ %zerocopy_send_record.128.i, %invoke.cont64 ]
   %outgoing_buffer_arg = getelementptr inbounds i8, ptr %ep, i64 616
   store ptr %arg, ptr %outgoing_buffer_arg, align 8
   %tobool69.not = icmp eq ptr %arg, null
@@ -4966,7 +4966,7 @@ if.end80:                                         ; preds = %invoke.cont72, %if.
   br i1 %cmp66109, label %cond.false85, label %cond.true82
 
 cond.true82:                                      ; preds = %if.end80
-  %call84 = invoke fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef nonnull %ep, ptr noundef nonnull %zerocopy_send_record.1.i107, ptr noundef nonnull %error)
+  %call84 = invoke fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef nonnull %ep, ptr noundef nonnull %zerocopy_send_record.0.i107, ptr noundef nonnull %error)
           to label %cond.end88 unwind label %lpad.loopexit.split-lp
 
 cond.false85:                                     ; preds = %if.end80
@@ -4982,7 +4982,7 @@ if.then90:                                        ; preds = %cond.end88
   %52 = atomicrmw add ptr %refcount.i, i64 1 monotonic, align 8
   store ptr %cb, ptr %write_cb, align 8
   %current_zerocopy_send = getelementptr inbounds i8, ptr %ep, i64 752
-  store ptr %zerocopy_send_record.1.i107, ptr %current_zerocopy_send, align 8
+  store ptr %zerocopy_send_record.0.i107, ptr %current_zerocopy_send, align 8
   %53 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_tcp_trace, i64 16) monotonic, align 8
   %tobool.i.i.i61 = trunc i8 %53 to i1
   br i1 %tobool.i.i.i61, label %if.then95, label %if.end97

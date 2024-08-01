@@ -2860,7 +2860,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %104 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %98, i64 noundef %103) #14
   %105 = bitcast i64 %104 to double
   %106 = fcmp ogt double %102, %105
-  %.0 = select i1 %106, double %105, double %102
+  %.1 = select i1 %106, double %105, double %102
   %107 = getelementptr inbounds i8, ptr %4, i64 8
   %108 = load <2 x double>, ptr %63, align 8
   %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 0>
@@ -2868,8 +2868,8 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %110 = ptrtoint ptr %4 to i64
   %111 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %98, i64 noundef %110) #14
   %112 = bitcast i64 %111 to double
-  %113 = fcmp ogt double %.0, %112
-  %.1 = select i1 %113, double %112, double %.0
+  %113 = fcmp ogt double %.1, %112
+  %.2 = select i1 %113, double %112, double %.1
   %114 = load double, ptr %1, align 8
   store double %114, ptr %4, align 16
   %115 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2877,15 +2877,15 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   store double %116, ptr %107, align 8
   %117 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %98, i64 noundef %110) #14
   %118 = bitcast i64 %117 to double
-  %119 = fcmp ogt double %.1, %118
+  %119 = fcmp ogt double %.2, %118
   br i1 %119, label %120, label %float8_mi.exit
 
 120:                                              ; preds = %97
   br label %float8_mi.exit
 
 float8_mi.exit:                                   ; preds = %85, %73, %48, %35, %25, %120, %97, %5
-  %.2 = phi double [ %10, %5 ], [ %118, %120 ], [ %.1, %97 ], [ 0.000000e+00, %25 ], [ %36, %35 ], [ %49, %48 ], [ %74, %73 ], [ %86, %85 ]
-  ret double %.2
+  %.0 = phi double [ %10, %5 ], [ %118, %120 ], [ %.2, %97 ], [ 0.000000e+00, %25 ], [ %36, %35 ], [ %49, %48 ], [ %74, %73 ], [ %86, %85 ]
+  ret double %.0
 }
 
 ; Function Attrs: nounwind uwtable

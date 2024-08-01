@@ -441,9 +441,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -791,16 +791,16 @@ invoke.cont16:                                    ; preds = %if.end
 for.cond.outer:                                   ; preds = %invoke.cont16, %if.end457
   %secSegmentStart.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %secSegmentStart.1, %if.end457 ]
   %prevSecondary.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %prevSecondary.1, %if.end457 ]
-  %commonQuaternaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonQuaternaries.6, %if.end457 ]
-  %commonTertiaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonTertiaries.7, %if.end457 ]
-  %commonSecondaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonSecondaries.5, %if.end457 ]
-  %commonCases.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonCases.6, %if.end457 ]
-  %prevReorderedPrimary.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %prevReorderedPrimary.2, %if.end457 ]
+  %commonQuaternaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonQuaternaries.4, %if.end457 ]
+  %commonTertiaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonTertiaries.1, %if.end457 ]
+  %commonSecondaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonSecondaries.1, %if.end457 ]
+  %commonCases.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonCases.1, %if.end457 ]
+  %prevReorderedPrimary.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %prevReorderedPrimary.1, %if.end457 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end134
-  %commonQuaternaries.0 = phi i32 [ %commonQuaternaries.3, %if.end134 ], [ %commonQuaternaries.0.ph, %for.cond.outer ]
-  %prevReorderedPrimary.0 = phi i32 [ %prevReorderedPrimary.2, %if.end134 ], [ %prevReorderedPrimary.0.ph, %for.cond.outer ]
+  %commonQuaternaries.0 = phi i32 [ %commonQuaternaries.1, %if.end134 ], [ %commonQuaternaries.0.ph, %for.cond.outer ]
+  %prevReorderedPrimary.0 = phi i32 [ %prevReorderedPrimary.1, %if.end134 ], [ %prevReorderedPrimary.0.ph, %for.cond.outer ]
   %5 = load i32, ptr %cesIndex.i, align 8
   %6 = load i32, ptr %ceBuffer.i, align 8
   %cmp.i253 = icmp eq i32 %5, %6
@@ -833,7 +833,7 @@ if.then27:                                        ; preds = %if.then25
   br i1 %cmp281594, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.then27, %invoke.cont29
-  %commonQuaternaries.11595 = phi i32 [ %sub30, %invoke.cont29 ], [ %dec, %if.then27 ]
+  %commonQuaternaries.31595 = phi i32 [ %sub30, %invoke.cont29 ], [ %dec, %if.then27 ]
   %7 = load i32, ptr %len.i251, align 8
   %8 = load i32, ptr %capacity.i.i249, align 8
   %cmp.i256 = icmp slt i32 %7, %8
@@ -906,8 +906,8 @@ if.then.i257:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %if.then.i257, %if.then12.i.i, %lor.lhs.false.i
-  %sub30 = add nsw i32 %commonQuaternaries.11595, -113
-  %cmp28 = icmp sgt i32 %commonQuaternaries.11595, 225
+  %sub30 = add nsw i32 %commonQuaternaries.31595, -113
+  %cmp28 = icmp sgt i32 %commonQuaternaries.31595, 225
   br i1 %cmp28, label %while.body, label %while.end, !llvm.loop !4
 
 lpad19.loopexit:                                  ; preds = %lor.lhs.false.i1478
@@ -1002,7 +1002,7 @@ lpad19:                                           ; preds = %lpad19.loopexit.spl
   resume { ptr, i32 } %lpad.phi
 
 while.end:                                        ; preds = %invoke.cont29, %if.then27
-  %commonQuaternaries.1.lcssa = phi i32 [ %dec, %if.then27 ], [ %sub30, %invoke.cont29 ]
+  %commonQuaternaries.3.lcssa = phi i32 [ %dec, %if.then27 ], [ %sub30, %invoke.cont29 ]
   %16 = load i32, ptr %len.i251, align 8
   %17 = load i32, ptr %capacity.i.i249, align 8
   %cmp.i261 = icmp slt i32 %16, %17
@@ -1067,7 +1067,7 @@ _ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i278: ; preds = %i
 if.then.i280:                                     ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i278, %entry.if.then_crit_edge.i290
   %23 = phi ptr [ %call.i.i.i293, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i278 ], [ %.pre3.i291, %entry.if.then_crit_edge.i290 ]
   %24 = phi i32 [ %.pre.i279, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i278 ], [ %16, %entry.if.then_crit_edge.i290 ]
-  %25 = trunc i32 %commonQuaternaries.1.lcssa to i8
+  %25 = trunc i32 %commonQuaternaries.3.lcssa to i8
   %conv.i281 = add i8 %25, 28
   %inc.i282 = add nsw i32 %24, 1
   store i32 %inc.i282, ptr %len.i251, align 8
@@ -1104,35 +1104,35 @@ lpad19.loopexit.split-lp.loopexit.split.us:       ; preds = %do.body51.us
   br label %lpad19
 
 do.body:                                          ; preds = %if.end33, %do.cond57
-  %p.0 = phi i32 [ %conv55, %do.cond57 ], [ %conv, %if.end33 ]
+  %p.1 = phi i32 [ %conv55, %do.cond57 ], [ %conv, %if.end33 ]
   %27 = load ptr, ptr %reorderTable.i, align 8
   %cmp.i296.not = icmp eq ptr %27, null
   br i1 %cmp.i296.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %do.body
-  %shr.i299 = lshr i32 %p.0, 24
+  %shr.i299 = lshr i32 %p.1, 24
   %idxprom.i = zext nneg i32 %shr.i299 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %27, i64 %idxprom.i
   %28 = load i8, ptr %arrayidx.i, align 1
   %cmp.i300 = icmp ne i8 %28, 0
-  %cmp2.i = icmp ult i32 %p.0, 2
+  %cmp2.i = icmp ult i32 %p.1, 2
   %or.cond.i = or i1 %cmp2.i, %cmp.i300
   br i1 %or.cond.i, label %if.then.i301, label %if.else.i
 
 if.then.i301:                                     ; preds = %if.then40
   %conv.i302 = zext i8 %28 to i32
   %shl.i = shl nuw i32 %conv.i302, 24
-  %and.i = and i32 %p.0, 16777215
+  %and.i = and i32 %p.1, 16777215
   %or.i = or disjoint i32 %shl.i, %and.i
   br label %if.end43
 
 if.else.i:                                        ; preds = %if.then40
-  %call.i303 = invoke noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %settings, i32 noundef %p.0)
+  %call.i303 = invoke noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %settings, i32 noundef %p.1)
           to label %if.end43 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end43:                                         ; preds = %if.then.i301, %if.else.i, %do.body
-  %p.1 = phi i32 [ %p.0, %do.body ], [ %or.i, %if.then.i301 ], [ %call.i303, %if.else.i ]
-  %cmp45 = icmp ugt i32 %p.1, 452984831
+  %p.2 = phi i32 [ %p.1, %do.body ], [ %or.i, %if.then.i301 ], [ %call.i303, %if.else.i ]
+  %cmp45 = icmp ugt i32 %p.2, 452984831
   br i1 %cmp45, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %if.end43
@@ -1208,21 +1208,21 @@ if.then.i325:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then.i325, %if.then12.i.i333, %lor.lhs.false.i307, %if.end43
-  %shr.i340 = lshr i32 %p.1, 24
+  %shr.i340 = lshr i32 %p.2, 24
   %conv.i341 = trunc nuw i32 %shr.i340 to i8
-  %shr2.i = lshr i32 %p.1, 16
+  %shr2.i = lshr i32 %p.2, 16
   %conv3.i = trunc i32 %shr2.i to i8
-  %shr5.i = lshr i32 %p.1, 8
+  %shr5.i = lshr i32 %p.2, 8
   %conv6.i = trunc i32 %shr5.i to i8
-  %conv8.i = trunc i32 %p.1 to i8
-  %38 = and i32 %p.1, 16711680
+  %conv8.i = trunc i32 %p.2 to i8
+  %38 = and i32 %p.2, 16711680
   %cmp.i342 = icmp eq i32 %38, 0
   br i1 %cmp.i342, label %cond.end19.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end48
-  %39 = and i32 %p.1, 65280
+  %39 = and i32 %p.2, 65280
   %cmp12.i = icmp eq i32 %39, 0
-  %conv16.i = and i32 %p.1, 255
+  %conv16.i = and i32 %p.2, 255
   %cmp17.i = icmp eq i32 %conv16.i, 0
   %cond.i343 = select i1 %cmp17.i, i32 3, i32 4
   %cond18.i = select i1 %cmp12.i, i32 2, i32 %cond.i343
@@ -1311,7 +1311,7 @@ if.then31.i:                                      ; preds = %if.then.i346
   %50 = load ptr, ptr %quaternaries, align 8
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %50, i64 %conv36.i
   store i8 %conv3.i, ptr %arrayidx.i11.i, align 1
-  %51 = and i32 %p.1, 65280
+  %51 = and i32 %p.2, 65280
   %cmp40.not.i = icmp eq i32 %51, 0
   br i1 %cmp40.not.i, label %do.body51.preheader, label %if.then41.i
 
@@ -1323,7 +1323,7 @@ if.then41.i:                                      ; preds = %if.then31.i
   %53 = load ptr, ptr %quaternaries, align 8
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %53, i64 %conv46.i
   store i8 %conv6.i, ptr %arrayidx.i12.i, align 1
-  %conv49.i = and i32 %p.1, 255
+  %conv49.i = and i32 %p.2, 255
   %cmp50.not.i = icmp eq i32 %conv49.i, 0
   br i1 %cmp50.not.i, label %do.body51.preheader, label %if.then51.i
 
@@ -1358,14 +1358,14 @@ do.cond57:                                        ; preds = %invoke.cont52
 
 if.end61:                                         ; preds = %do.cond57, %do.cond57.us, %invoke.cont21
   %ce.0 = phi i64 [ %call22, %invoke.cont21 ], [ %call53.us, %do.cond57.us ], [ %call53, %do.cond57 ]
-  %p.2 = phi i32 [ %conv, %invoke.cont21 ], [ %conv55.us, %do.cond57.us ], [ %conv55, %do.cond57 ]
-  %commonQuaternaries.3 = phi i32 [ %commonQuaternaries.0, %invoke.cont21 ], [ 0, %do.cond57.us ], [ 0, %do.cond57 ]
-  %cmp62 = icmp ult i32 %p.2, 2
+  %p.0 = phi i32 [ %conv, %invoke.cont21 ], [ %conv55.us, %do.cond57.us ], [ %conv55, %do.cond57 ]
+  %commonQuaternaries.1 = phi i32 [ %commonQuaternaries.0, %invoke.cont21 ], [ 0, %do.cond57.us ], [ 0, %do.cond57 ]
+  %cmp62 = icmp ult i32 %p.0, 2
   %or.cond204 = or i1 %cmp65.not, %cmp62
   br i1 %or.cond204, label %if.end134, label %if.then66
 
 if.then66:                                        ; preds = %if.end61
-  %shr67 = lshr i32 %p.2, 24
+  %shr67 = lshr i32 %p.0, 24
   %idxprom68 = zext nneg i32 %shr67 to i64
   %arrayidx69 = getelementptr inbounds i8, ptr %compressibleBytes, i64 %idxprom68
   %57 = load i8, ptr %arrayidx69, align 1
@@ -1382,17 +1382,17 @@ if.then73:                                        ; preds = %if.then66
 if.then.i387:                                     ; preds = %if.then73
   %conv.i388 = zext i8 %59 to i32
   %shl.i389 = shl nuw i32 %conv.i388, 24
-  %and.i390 = and i32 %p.2, 16777215
+  %and.i390 = and i32 %p.0, 16777215
   %or.i391 = or disjoint i32 %shl.i389, %and.i390
   br label %if.end76
 
 if.else.i385:                                     ; preds = %if.then73
-  %call.i393 = invoke noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %settings, i32 noundef %p.2)
+  %call.i393 = invoke noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %settings, i32 noundef %p.0)
           to label %if.end76 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end76:                                         ; preds = %if.then.i387, %if.else.i385, %if.then66
-  %p.3 = phi i32 [ %p.2, %if.then66 ], [ %or.i391, %if.then.i387 ], [ %call.i393, %if.else.i385 ]
-  %shr77 = lshr i32 %p.3, 24
+  %p.4 = phi i32 [ %p.0, %if.then66 ], [ %or.i391, %if.then.i387 ], [ %call.i393, %if.else.i385 ]
+  %shr77 = lshr i32 %p.4, 24
   %tobool78.not = icmp ne i8 %57, 0
   %shr79 = lshr i32 %prevReorderedPrimary.0, 24
   %cmp80.not = icmp eq i32 %shr77, %shr79
@@ -1404,11 +1404,11 @@ if.then81:                                        ; preds = %if.end76
   br i1 %cmp82.not, label %if.end93thread-pre-split, label %if.then83
 
 if.then83:                                        ; preds = %if.then81
-  %cmp84 = icmp ult i32 %p.3, %prevReorderedPrimary.0
+  %cmp84 = icmp ult i32 %p.4, %prevReorderedPrimary.0
   br i1 %cmp84, label %if.then85, label %if.else90
 
 if.then85:                                        ; preds = %if.then83
-  %cmp86 = icmp ugt i32 %p.3, 50331647
+  %cmp86 = icmp ugt i32 %p.4, 50331647
   br i1 %cmp86, label %if.then87, label %if.end93thread-pre-split
 
 if.then87:                                        ; preds = %if.then85
@@ -1539,27 +1539,27 @@ if.end.i445:                                      ; preds = %if.then5.i440, %cal
   br label %invoke.cont94
 
 invoke.cont94:                                    ; preds = %if.end.i445, %if.then.i447
-  %.p.3 = select i1 %tobool78.not, i32 %p.3, i32 0
+  %.p.4 = select i1 %tobool78.not, i32 %p.4, i32 0
   br label %if.end99
 
 if.end99:                                         ; preds = %invoke.cont94, %if.end76
-  %prevReorderedPrimary.1 = phi i32 [ %prevReorderedPrimary.0, %if.end76 ], [ %.p.3, %invoke.cont94 ]
-  %77 = and i32 %p.3, 16711680
+  %prevReorderedPrimary.2 = phi i32 [ %prevReorderedPrimary.0, %if.end76 ], [ %.p.4, %invoke.cont94 ]
+  %77 = and i32 %p.4, 16711680
   %cmp103.not = icmp eq i32 %77, 0
   br i1 %cmp103.not, label %if.end117, label %if.then104
 
 if.then104:                                       ; preds = %if.end99
-  %shr100 = lshr i32 %p.3, 16
+  %shr100 = lshr i32 %p.4, 16
   %conv101 = trunc i32 %shr100 to i8
   store i8 %conv101, ptr %buffer, align 1
-  %shr105 = lshr i32 %p.3, 8
+  %shr105 = lshr i32 %p.4, 8
   %conv106 = trunc i32 %shr105 to i8
   store i8 %conv106, ptr %arrayinit.element, align 1
-  %conv108 = trunc i32 %p.3 to i8
+  %conv108 = trunc i32 %p.4 to i8
   store i8 %conv108, ptr %arrayinit.element107, align 1
-  %78 = and i32 %p.3, 65280
+  %78 = and i32 %p.4, 65280
   %cmp111 = icmp eq i32 %78, 0
-  %sext.mask = and i32 %p.3, 255
+  %sext.mask = and i32 %p.4, 255
   %cmp114 = icmp eq i32 %sext.mask, 0
   %cond = select i1 %cmp114, i32 2, i32 3
   %cond115 = select i1 %cmp111, i32 1, i32 %cond
@@ -1587,8 +1587,8 @@ if.then123:                                       ; preds = %land.lhs.true119
   br i1 %or.cond1526, label %cleanup.sink.split, label %cleanup
 
 if.end134:                                        ; preds = %if.end117, %land.lhs.true119, %if.end61
-  %p.4 = phi i32 [ %p.3, %if.end117 ], [ %p.3, %land.lhs.true119 ], [ %p.2, %if.end61 ]
-  %prevReorderedPrimary.2 = phi i32 [ %prevReorderedPrimary.1, %if.end117 ], [ %prevReorderedPrimary.1, %land.lhs.true119 ], [ %prevReorderedPrimary.0, %if.end61 ]
+  %p.3 = phi i32 [ %p.4, %if.end117 ], [ %p.4, %land.lhs.true119 ], [ %p.0, %if.end61 ]
+  %prevReorderedPrimary.1 = phi i32 [ %prevReorderedPrimary.2, %if.end117 ], [ %prevReorderedPrimary.2, %land.lhs.true119 ], [ %prevReorderedPrimary.0, %if.end61 ]
   %conv135 = trunc i64 %ce.0 to i32
   %cmp136 = icmp eq i32 %conv135, 0
   br i1 %cmp136, label %for.cond, label %if.end138, !llvm.loop !8
@@ -1603,7 +1603,7 @@ if.then141:                                       ; preds = %if.end138
 
 if.else145:                                       ; preds = %if.then141
   %cmp146 = icmp eq i32 %shr142, 1280
-  %cmp151 = icmp ne i32 %p.4, 33554432
+  %cmp151 = icmp ne i32 %p.3, 33554432
   %or.cond1 = or i1 %cmp149, %cmp151
   %or.cond1626 = select i1 %cmp146, i1 %or.cond1, i1 false
   br i1 %or.cond1626, label %if.then152, label %if.else153
@@ -1625,7 +1625,7 @@ if.then158:                                       ; preds = %if.then156
   br i1 %cmp1611601, label %while.body162, label %while.end165
 
 while.body162:                                    ; preds = %if.then158, %invoke.cont163
-  %commonSecondaries.11602 = phi i32 [ %sub164, %invoke.cont163 ], [ %dec159, %if.then158 ]
+  %commonSecondaries.31602 = phi i32 [ %sub164, %invoke.cont163 ], [ %dec159, %if.then158 ]
   %84 = load i32, ptr %len.i241, align 8
   %85 = load i32, ptr %capacity.i.i239, align 8
   %cmp.i463 = icmp slt i32 %84, %85
@@ -1698,15 +1698,15 @@ if.then.i482:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont163
 
 invoke.cont163:                                   ; preds = %if.then.i482, %if.then12.i.i491, %lor.lhs.false.i464
-  %sub164 = add nsw i32 %commonSecondaries.11602, -33
-  %cmp161 = icmp sgt i32 %commonSecondaries.11602, 65
+  %sub164 = add nsw i32 %commonSecondaries.31602, -33
+  %cmp161 = icmp sgt i32 %commonSecondaries.31602, 65
   br i1 %cmp161, label %while.body162, label %while.end165, !llvm.loop !9
 
 while.end165:                                     ; preds = %invoke.cont163, %if.then158
-  %commonSecondaries.1.lcssa = phi i32 [ %dec159, %if.then158 ], [ %sub164, %invoke.cont163 ]
+  %commonSecondaries.3.lcssa = phi i32 [ %dec159, %if.then158 ], [ %sub164, %invoke.cont163 ]
   %cmp166 = icmp ult i32 %conv135, 83886080
-  %add168 = add nsw i32 %commonSecondaries.1.lcssa, 5
-  %sub170 = sub i32 69, %commonSecondaries.1.lcssa
+  %add168 = add nsw i32 %commonSecondaries.3.lcssa, 5
+  %sub170 = sub i32 69, %commonSecondaries.3.lcssa
   %b.0 = select i1 %cmp166, i32 %add168, i32 %sub170
   %93 = load i32, ptr %len.i241, align 8
   %94 = load i32, ptr %capacity.i.i239, align 8
@@ -1958,7 +1958,7 @@ invoke.cont186:                                   ; preds = %if.then.i598, %if.t
   br i1 %cmp1891598, label %while.body190, label %if.end194
 
 while.body190:                                    ; preds = %invoke.cont186, %invoke.cont191
-  %commonSecondaries.31599 = phi i32 [ %sub192, %invoke.cont191 ], [ %sub187, %invoke.cont186 ]
+  %commonSecondaries.51599 = phi i32 [ %sub192, %invoke.cont191 ], [ %sub187, %invoke.cont186 ]
   %123 = load i32, ptr %len.i241, align 8
   %124 = load i32, ptr %capacity.i.i239, align 8
   %cmp.i617 = icmp slt i32 %123, %124
@@ -2031,13 +2031,13 @@ if.then.i636:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont191
 
 invoke.cont191:                                   ; preds = %if.then.i636, %if.then12.i.i645, %lor.lhs.false.i618
-  %sub192 = add nsw i32 %commonSecondaries.31599, -33
-  %cmp189 = icmp sgt i32 %commonSecondaries.31599, 33
+  %sub192 = add nsw i32 %commonSecondaries.51599, -33
+  %cmp189 = icmp sgt i32 %commonSecondaries.51599, 33
   br i1 %cmp189, label %while.body190, label %if.end194, !llvm.loop !10
 
 if.end194:                                        ; preds = %invoke.cont191, %invoke.cont186, %if.else175
   %commonSecondaries.4 = phi i32 [ 0, %if.else175 ], [ %sub187, %invoke.cont186 ], [ %sub192, %invoke.cont191 ]
-  %132 = add i32 %p.4, -1
+  %132 = add i32 %p.3, -1
   %or.cond2 = icmp ult i32 %132, 33554432
   br i1 %or.cond2, label %invoke.cont199, label %if.else221
 
@@ -2073,7 +2073,7 @@ if.end214thread-pre-split:                        ; preds = %do.body208
 
 if.end214:                                        ; preds = %if.end214thread-pre-split, %invoke.cont199
   %135 = phi i32 [ %.pr, %if.end214thread-pre-split ], [ %secondaries.val223, %invoke.cont199 ]
-  %cmp215 = icmp eq i32 %p.4, 1
+  %cmp215 = icmp eq i32 %p.3, 1
   %136 = load i32, ptr %capacity.i.i239, align 8
   %cmp.i654 = icmp slt i32 %135, %136
   br i1 %cmp.i654, label %entry.if.then_crit_edge.i684, label %lor.lhs.false.i655
@@ -2247,14 +2247,14 @@ if.else.i701:                                     ; preds = %if.then.i700
 if.end227:                                        ; preds = %if.else.i701, %if.then8.i, %if.then12.i.i726, %lor.lhs.false.i704, %if.then12.i, %if.then.i545, %if.then12.i.i573, %lor.lhs.false.i550, %if.then141, %invoke.cont218, %if.then152, %if.end138
   %secSegmentStart.1 = phi i32 [ %secSegmentStart.0.ph, %if.then141 ], [ %secSegmentStart.0.ph, %if.then152 ], [ %secondaries.val222, %invoke.cont218 ], [ %secSegmentStart.0.ph, %if.end138 ], [ %secSegmentStart.0.ph, %lor.lhs.false.i550 ], [ %secSegmentStart.0.ph, %if.then12.i.i573 ], [ %secSegmentStart.0.ph, %if.then.i545 ], [ %secSegmentStart.0.ph, %if.then12.i ], [ %secSegmentStart.0.ph, %lor.lhs.false.i704 ], [ %secSegmentStart.0.ph, %if.then12.i.i726 ], [ %secSegmentStart.0.ph, %if.then8.i ], [ %secSegmentStart.0.ph, %if.else.i701 ]
   %prevSecondary.1 = phi i32 [ %prevSecondary.0.ph, %if.then141 ], [ %prevSecondary.0.ph, %if.then152 ], [ 0, %invoke.cont218 ], [ %prevSecondary.0.ph, %if.end138 ], [ %prevSecondary.0.ph, %lor.lhs.false.i550 ], [ %prevSecondary.0.ph, %if.then12.i.i573 ], [ %prevSecondary.0.ph, %if.then.i545 ], [ %prevSecondary.0.ph, %if.then12.i ], [ %shr142, %lor.lhs.false.i704 ], [ %shr142, %if.then12.i.i726 ], [ %shr142, %if.then8.i ], [ %shr142, %if.else.i701 ]
-  %commonSecondaries.5 = phi i32 [ %commonSecondaries.0.ph, %if.then141 ], [ %inc, %if.then152 ], [ %commonSecondaries.4, %invoke.cont218 ], [ %commonSecondaries.0.ph, %if.end138 ], [ 0, %lor.lhs.false.i550 ], [ 0, %if.then12.i.i573 ], [ 0, %if.then.i545 ], [ 0, %if.then12.i ], [ %commonSecondaries.4, %lor.lhs.false.i704 ], [ %commonSecondaries.4, %if.then12.i.i726 ], [ %commonSecondaries.4, %if.then8.i ], [ %commonSecondaries.4, %if.else.i701 ]
+  %commonSecondaries.1 = phi i32 [ %commonSecondaries.0.ph, %if.then141 ], [ %inc, %if.then152 ], [ %commonSecondaries.4, %invoke.cont218 ], [ %commonSecondaries.0.ph, %if.end138 ], [ 0, %lor.lhs.false.i550 ], [ 0, %if.then12.i.i573 ], [ 0, %if.then.i545 ], [ 0, %if.then12.i ], [ %commonSecondaries.4, %lor.lhs.false.i704 ], [ %commonSecondaries.4, %if.then12.i.i726 ], [ %commonSecondaries.4, %if.then8.i ], [ %commonSecondaries.4, %if.else.i701 ]
   br i1 %cmp229.not, label %if.end307, label %if.then230
 
 if.then230:                                       ; preds = %if.end227
   br i1 %cmp233, label %cond.true234, label %cond.false236
 
 cond.true234:                                     ; preds = %if.then230
-  %cmp235 = icmp eq i32 %p.4, 0
+  %cmp235 = icmp eq i32 %p.3, 0
   br i1 %cmp235, label %if.end307, label %if.else239
 
 cond.false236:                                    ; preds = %if.then230
@@ -2293,7 +2293,7 @@ if.then259:                                       ; preds = %land.lhs.true253
   br i1 %cmp2621607, label %while.body263, label %while.end266
 
 while.body263:                                    ; preds = %if.then259, %invoke.cont264
-  %commonCases.11608 = phi i32 [ %sub265, %invoke.cont264 ], [ %dec260, %if.then259 ]
+  %commonCases.31608 = phi i32 [ %sub265, %invoke.cont264 ], [ %dec260, %if.then259 ]
   %161 = load i32, ptr %len.i, align 8
   %162 = load i32, ptr %capacity.i.i, align 8
   %cmp.i735 = icmp slt i32 %161, %162
@@ -2366,8 +2366,8 @@ if.then.i754:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont264
 
 invoke.cont264:                                   ; preds = %if.then.i754, %if.then12.i.i763, %lor.lhs.false.i736
-  %sub265 = add nsw i32 %commonCases.11608, -7
-  %cmp262 = icmp sgt i32 %commonCases.11608, 13
+  %sub265 = add nsw i32 %commonCases.31608, -7
+  %cmp262 = icmp sgt i32 %commonCases.31608, 13
   br i1 %cmp262, label %while.body263, label %while.end266.loopexit, !llvm.loop !12
 
 while.end266.loopexit:                            ; preds = %invoke.cont264
@@ -2376,10 +2376,10 @@ while.end266.loopexit:                            ; preds = %invoke.cont264
 
 while.end266:                                     ; preds = %while.end266.loopexit, %if.then259
   %170 = phi i32 [ %cases.val225, %if.then259 ], [ %.pre1630, %while.end266.loopexit ]
-  %commonCases.1.lcssa = phi i32 [ %dec260, %if.then259 ], [ %sub265, %while.end266.loopexit ]
+  %commonCases.3.lcssa = phi i32 [ %dec260, %if.then259 ], [ %sub265, %while.end266.loopexit ]
   %cmp268 = icmp ult i32 %and241, 2
-  %add270 = add nuw nsw i32 %commonCases.1.lcssa, 1
-  %sub272 = sub i32 13, %commonCases.1.lcssa
+  %add270 = add nuw nsw i32 %commonCases.3.lcssa, 1
+  %sub272 = sub i32 13, %commonCases.3.lcssa
   %b267.0 = select i1 %cmp268, i32 %add270, i32 %sub272
   %171 = load i32, ptr %capacity.i.i, align 8
   %cmp.i772 = icmp slt i32 %170, %171
@@ -2471,7 +2471,7 @@ if.then285:                                       ; preds = %if.else283
   br i1 %cmp2881604, label %while.body289, label %while.end292
 
 while.body289:                                    ; preds = %if.then285, %invoke.cont290
-  %commonCases.31605 = phi i32 [ %sub291, %invoke.cont290 ], [ %dec286, %if.then285 ]
+  %commonCases.61605 = phi i32 [ %sub291, %invoke.cont290 ], [ %dec286, %if.then285 ]
   %180 = load i32, ptr %len.i, align 8
   %181 = load i32, ptr %capacity.i.i, align 8
   %cmp.i810 = icmp slt i32 %180, %181
@@ -2544,12 +2544,12 @@ if.then.i829:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont290
 
 invoke.cont290:                                   ; preds = %if.then.i829, %if.then12.i.i838, %lor.lhs.false.i811
-  %sub291 = add nsw i32 %commonCases.31605, -13
-  %cmp288 = icmp sgt i32 %commonCases.31605, 25
+  %sub291 = add nsw i32 %commonCases.61605, -13
+  %cmp288 = icmp sgt i32 %commonCases.61605, 25
   br i1 %cmp288, label %while.body289, label %while.end292, !llvm.loop !13
 
 while.end292:                                     ; preds = %invoke.cont290, %if.then285
-  %commonCases.3.lcssa = phi i32 [ %dec286, %if.then285 ], [ %sub291, %invoke.cont290 ]
+  %commonCases.6.lcssa = phi i32 [ %dec286, %if.then285 ], [ %sub291, %invoke.cont290 ]
   %189 = load i32, ptr %len.i, align 8
   %190 = load i32, ptr %capacity.i.i, align 8
   %cmp.i847 = icmp slt i32 %189, %190
@@ -2614,8 +2614,8 @@ _ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i864: ; preds = %i
 if.then.i866:                                     ; preds = %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i864, %entry.if.then_crit_edge.i877
   %196 = phi ptr [ %call.i.i.i880, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i864 ], [ %.pre3.i878, %entry.if.then_crit_edge.i877 ]
   %197 = phi i32 [ %.pre.i865, %_ZN6icu_7512_GLOBAL__N_112SortKeyLevel14ensureCapacityEi.exit.i864 ], [ %189, %entry.if.then_crit_edge.i877 ]
-  %commonCases.3.tr = trunc i32 %commonCases.3.lcssa to i8
-  %198 = shl i8 %commonCases.3.tr, 4
+  %commonCases.6.tr = trunc i32 %commonCases.6.lcssa to i8
+  %198 = shl i8 %commonCases.6.tr, 4
   %conv.i867 = add i8 %198, 48
   %inc.i868 = add nsw i32 %197, 1
   store i32 %inc.i868, ptr %len.i, align 8
@@ -2640,7 +2640,7 @@ if.end303thread-pre-split:                        ; preds = %if.then278, %if.end
 
 if.end303:                                        ; preds = %land.lhs.true253, %if.end303thread-pre-split
   %200 = phi i32 [ %.pr1522, %if.end303thread-pre-split ], [ 0, %land.lhs.true253 ]
-  %commonCases.5 = phi i32 [ 0, %if.end303thread-pre-split ], [ %commonCases.0.ph, %land.lhs.true253 ]
+  %commonCases.4 = phi i32 [ 0, %if.end303thread-pre-split ], [ %commonCases.0.ph, %land.lhs.true253 ]
   %c.0 = phi i32 [ %c.0.ph, %if.end303thread-pre-split ], [ %and241, %land.lhs.true253 ]
   %201 = load i32, ptr %capacity.i.i, align 8
   %cmp.i885 = icmp slt i32 %200, %201
@@ -2714,7 +2714,7 @@ if.then.i904:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end307
 
 if.end307:                                        ; preds = %if.then.i904, %if.then12.i.i914, %lor.lhs.false.i886, %cond.false236, %cond.true234, %if.then246, %if.end227
-  %commonCases.6 = phi i32 [ %commonCases.0.ph, %cond.true234 ], [ %inc247, %if.then246 ], [ %commonCases.0.ph, %cond.false236 ], [ %commonCases.0.ph, %if.end227 ], [ %commonCases.5, %lor.lhs.false.i886 ], [ %commonCases.5, %if.then12.i.i914 ], [ %commonCases.5, %if.then.i904 ]
+  %commonCases.1 = phi i32 [ %commonCases.0.ph, %cond.true234 ], [ %inc247, %if.then246 ], [ %commonCases.0.ph, %cond.false236 ], [ %commonCases.0.ph, %if.end227 ], [ %commonCases.4, %lor.lhs.false.i886 ], [ %commonCases.4, %if.then12.i.i914 ], [ %commonCases.4, %if.then.i904 ]
   br i1 %cmp309.not, label %if.end405, label %if.then310
 
 if.then310:                                       ; preds = %if.end307
@@ -2739,7 +2739,7 @@ if.then320:                                       ; preds = %if.then318
   br i1 %cmp3231610, label %while.body324, label %while.end327
 
 while.body324:                                    ; preds = %if.then320, %invoke.cont325
-  %commonTertiaries.11611 = phi i32 [ %sub326, %invoke.cont325 ], [ %dec321, %if.then320 ]
+  %commonTertiaries.31611 = phi i32 [ %sub326, %invoke.cont325 ], [ %dec321, %if.then320 ]
   %209 = load i32, ptr %len.i246, align 8
   %210 = load i32, ptr %capacity.i.i244, align 8
   %cmp.i923 = icmp slt i32 %209, %210
@@ -2812,15 +2812,15 @@ if.then.i942:                                     ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont325
 
 invoke.cont325:                                   ; preds = %if.then.i942, %if.then12.i.i951, %lor.lhs.false.i924
-  %sub326 = add nsw i32 %commonTertiaries.11611, -97
-  %cmp323 = icmp sgt i32 %commonTertiaries.11611, 193
+  %sub326 = add nsw i32 %commonTertiaries.31611, -97
+  %cmp323 = icmp sgt i32 %commonTertiaries.31611, 193
   br i1 %cmp323, label %while.body324, label %while.end327, !llvm.loop !14
 
 while.end327:                                     ; preds = %invoke.cont325, %if.then320
-  %commonTertiaries.1.lcssa = phi i32 [ %dec321, %if.then320 ], [ %sub326, %invoke.cont325 ]
+  %commonTertiaries.3.lcssa = phi i32 [ %dec321, %if.then320 ], [ %sub326, %invoke.cont325 ]
   %cmp329 = icmp ult i32 %and311, 1280
-  %add331 = add nsw i32 %commonTertiaries.1.lcssa, 5
-  %sub333 = sub i32 197, %commonTertiaries.1.lcssa
+  %add331 = add nsw i32 %commonTertiaries.3.lcssa, 5
+  %sub333 = sub i32 197, %commonTertiaries.3.lcssa
   %b328.0 = select i1 %cmp329, i32 %add331, i32 %sub333
   %218 = load i32, ptr %len.i246, align 8
   %219 = load i32, ptr %capacity.i.i244, align 8
@@ -3000,7 +3000,7 @@ if.then347:                                       ; preds = %if.then345
   br i1 %cmp3501616, label %while.body351, label %while.end354
 
 while.body351:                                    ; preds = %if.then347, %invoke.cont352
-  %commonTertiaries.31617 = phi i32 [ %sub353, %invoke.cont352 ], [ %dec348, %if.then347 ]
+  %commonTertiaries.51617 = phi i32 [ %sub353, %invoke.cont352 ], [ %dec348, %if.then347 ]
   %238 = load i32, ptr %len.i246, align 8
   %239 = load i32, ptr %capacity.i.i244, align 8
   %cmp.i1046 = icmp slt i32 %238, %239
@@ -3073,15 +3073,15 @@ if.then.i1065:                                    ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont352
 
 invoke.cont352:                                   ; preds = %if.then.i1065, %if.then12.i.i1074, %lor.lhs.false.i1047
-  %sub353 = add nsw i32 %commonTertiaries.31617, -33
-  %cmp350 = icmp sgt i32 %commonTertiaries.31617, 65
+  %sub353 = add nsw i32 %commonTertiaries.51617, -33
+  %cmp350 = icmp sgt i32 %commonTertiaries.51617, 65
   br i1 %cmp350, label %while.body351, label %while.end354, !llvm.loop !15
 
 while.end354:                                     ; preds = %invoke.cont352, %if.then347
-  %commonTertiaries.3.lcssa = phi i32 [ %dec348, %if.then347 ], [ %sub353, %invoke.cont352 ]
+  %commonTertiaries.5.lcssa = phi i32 [ %dec348, %if.then347 ], [ %sub353, %invoke.cont352 ]
   %cmp356 = icmp ult i32 %and311, 1280
-  %add358 = add nsw i32 %commonTertiaries.3.lcssa, 5
-  %sub360 = sub i32 69, %commonTertiaries.3.lcssa
+  %add358 = add nsw i32 %commonTertiaries.5.lcssa, 5
+  %sub360 = sub i32 69, %commonTertiaries.5.lcssa
   %b355.0 = select i1 %cmp356, i32 %add358, i32 %sub360
   %247 = load i32, ptr %len.i246, align 8
   %248 = load i32, ptr %capacity.i.i244, align 8
@@ -3278,7 +3278,7 @@ if.then384:                                       ; preds = %if.end382
   br i1 %cmp3871613, label %while.body388, label %while.end391
 
 while.body388:                                    ; preds = %if.then384, %invoke.cont389
-  %commonTertiaries.51614 = phi i32 [ %sub390, %invoke.cont389 ], [ %dec385, %if.then384 ]
+  %commonTertiaries.71614 = phi i32 [ %sub390, %invoke.cont389 ], [ %dec385, %if.then384 ]
   %267 = load i32, ptr %len.i246, align 8
   %268 = load i32, ptr %capacity.i.i244, align 8
   %cmp.i1169 = icmp slt i32 %267, %268
@@ -3351,15 +3351,15 @@ if.then.i1188:                                    ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont389
 
 invoke.cont389:                                   ; preds = %if.then.i1188, %if.then12.i.i1197, %lor.lhs.false.i1170
-  %sub390 = add nsw i32 %commonTertiaries.51614, -33
-  %cmp387 = icmp sgt i32 %commonTertiaries.51614, 65
+  %sub390 = add nsw i32 %commonTertiaries.71614, -33
+  %cmp387 = icmp sgt i32 %commonTertiaries.71614, 65
   br i1 %cmp387, label %while.body388, label %while.end391, !llvm.loop !16
 
 while.end391:                                     ; preds = %invoke.cont389, %if.then384
-  %commonTertiaries.5.lcssa = phi i32 [ %dec385, %if.then384 ], [ %sub390, %invoke.cont389 ]
+  %commonTertiaries.7.lcssa = phi i32 [ %dec385, %if.then384 ], [ %sub390, %invoke.cont389 ]
   %cmp393 = icmp ult i32 %t.2, 34048
-  %add395 = add nsw i32 %commonTertiaries.5.lcssa, 133
-  %sub397 = sub i32 197, %commonTertiaries.5.lcssa
+  %add395 = add nsw i32 %commonTertiaries.7.lcssa, 133
+  %sub397 = sub i32 197, %commonTertiaries.7.lcssa
   %b392.0 = select i1 %cmp393, i32 %add395, i32 %sub397
   %276 = load i32, ptr %len.i246, align 8
   %277 = load i32, ptr %capacity.i.i244, align 8
@@ -3524,7 +3524,7 @@ if.then12.i1258:                                  ; preds = %if.then.i1254
   br label %if.end405
 
 if.end405:                                        ; preds = %if.then12.i1258, %if.then.i1254, %if.then12.i.i1285, %lor.lhs.false.i1262, %if.then12.i1135, %if.then.i1131, %if.then12.i.i1162, %lor.lhs.false.i1139, %if.then12.i1012, %if.then.i1008, %if.then12.i.i1039, %lor.lhs.false.i1016, %if.then313, %if.end307
-  %commonTertiaries.7 = phi i32 [ %inc314, %if.then313 ], [ %commonTertiaries.0.ph, %if.end307 ], [ 0, %lor.lhs.false.i1016 ], [ 0, %if.then12.i.i1039 ], [ 0, %if.then.i1008 ], [ 0, %if.then12.i1012 ], [ 0, %lor.lhs.false.i1139 ], [ 0, %if.then12.i.i1162 ], [ 0, %if.then.i1131 ], [ 0, %if.then12.i1135 ], [ 0, %lor.lhs.false.i1262 ], [ 0, %if.then12.i.i1285 ], [ 0, %if.then.i1254 ], [ 0, %if.then12.i1258 ]
+  %commonTertiaries.1 = phi i32 [ %inc314, %if.then313 ], [ %commonTertiaries.0.ph, %if.end307 ], [ 0, %lor.lhs.false.i1016 ], [ 0, %if.then12.i.i1039 ], [ 0, %if.then.i1008 ], [ 0, %if.then12.i1012 ], [ 0, %lor.lhs.false.i1139 ], [ 0, %if.then12.i.i1162 ], [ 0, %if.then.i1131 ], [ 0, %if.then12.i1135 ], [ 0, %lor.lhs.false.i1262 ], [ 0, %if.then12.i.i1285 ], [ 0, %if.then.i1254 ], [ 0, %if.then12.i1258 ]
   br i1 %cmp35.not, label %if.end457, label %if.then408
 
 if.then408:                                       ; preds = %if.end405
@@ -3536,7 +3536,7 @@ if.then408:                                       ; preds = %if.end405
   br i1 %or.cond4, label %if.then415, label %if.else417
 
 if.then415:                                       ; preds = %if.then408
-  %inc416 = add nsw i32 %commonQuaternaries.3, 1
+  %inc416 = add nsw i32 %commonQuaternaries.1, 1
   br label %if.end457
 
 if.else417:                                       ; preds = %if.then408
@@ -3607,16 +3607,16 @@ if.else428:                                       ; preds = %if.else417
   %302 = trunc i64 %ce.0 to i8
   %303 = lshr i8 %302, 6
   %304 = or disjoint i8 %303, -4
-  %cmp436.not = icmp eq i32 %commonQuaternaries.3, 0
+  %cmp436.not = icmp eq i32 %commonQuaternaries.1, 0
   br i1 %cmp436.not, label %if.end453, label %if.then437
 
 if.then437:                                       ; preds = %if.else428
-  %dec438 = add nsw i32 %commonQuaternaries.3, -1
-  %cmp4401619 = icmp sgt i32 %commonQuaternaries.3, 113
+  %dec438 = add nsw i32 %commonQuaternaries.1, -1
+  %cmp4401619 = icmp sgt i32 %commonQuaternaries.1, 113
   br i1 %cmp4401619, label %while.body441, label %while.end444
 
 while.body441:                                    ; preds = %if.then437, %invoke.cont442
-  %commonQuaternaries.41620 = phi i32 [ %sub443, %invoke.cont442 ], [ %dec438, %if.then437 ]
+  %commonQuaternaries.61620 = phi i32 [ %sub443, %invoke.cont442 ], [ %dec438, %if.then437 ]
   %305 = load i32, ptr %len.i251, align 8
   %306 = load i32, ptr %capacity.i.i249, align 8
   %cmp.i1331 = icmp slt i32 %305, %306
@@ -3689,14 +3689,14 @@ if.then.i1350:                                    ; preds = %_ZN6icu_7512_GLOBAL
   br label %invoke.cont442
 
 invoke.cont442:                                   ; preds = %if.then.i1350, %if.then12.i.i1359, %lor.lhs.false.i1332
-  %sub443 = add nsw i32 %commonQuaternaries.41620, -113
-  %cmp440 = icmp sgt i32 %commonQuaternaries.41620, 225
+  %sub443 = add nsw i32 %commonQuaternaries.61620, -113
+  %cmp440 = icmp sgt i32 %commonQuaternaries.61620, 225
   br i1 %cmp440, label %while.body441, label %while.end444, !llvm.loop !17
 
 while.end444:                                     ; preds = %invoke.cont442, %if.then437
-  %commonQuaternaries.4.lcssa = phi i32 [ %dec438, %if.then437 ], [ %sub443, %invoke.cont442 ]
-  %add448 = add nsw i32 %commonQuaternaries.4.lcssa, 28
-  %sub450 = sub i32 252, %commonQuaternaries.4.lcssa
+  %commonQuaternaries.6.lcssa = phi i32 [ %dec438, %if.then437 ], [ %sub443, %invoke.cont442 ]
+  %add448 = add nsw i32 %commonQuaternaries.6.lcssa, 28
+  %sub450 = sub i32 252, %commonQuaternaries.6.lcssa
   %b445.0 = select i1 %cmp418, i32 %add448, i32 %sub450
   %314 = load i32, ptr %len.i251, align 8
   %315 = load i32, ptr %capacity.i.i249, align 8
@@ -3844,7 +3844,7 @@ if.then.i1425:                                    ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end457
 
 if.end457:                                        ; preds = %if.then.i1425, %if.then12.i.i1435, %lor.lhs.false.i1407, %if.then.i1313, %if.then12.i.i1322, %lor.lhs.false.i1295, %if.then415, %if.end405
-  %commonQuaternaries.6 = phi i32 [ %inc416, %if.then415 ], [ %commonQuaternaries.3, %if.end405 ], [ %commonQuaternaries.3, %lor.lhs.false.i1295 ], [ %commonQuaternaries.3, %if.then12.i.i1322 ], [ %commonQuaternaries.3, %if.then.i1313 ], [ 0, %lor.lhs.false.i1407 ], [ 0, %if.then12.i.i1435 ], [ 0, %if.then.i1425 ]
+  %commonQuaternaries.4 = phi i32 [ %inc416, %if.then415 ], [ %commonQuaternaries.1, %if.end405 ], [ %commonQuaternaries.1, %lor.lhs.false.i1295 ], [ %commonQuaternaries.1, %if.then12.i.i1322 ], [ %commonQuaternaries.1, %if.then.i1313 ], [ 0, %lor.lhs.false.i1407 ], [ 0, %if.then12.i.i1435 ], [ 0, %if.then.i1425 ]
   %shr458.mask = and i32 %conv135, -16777216
   %cmp459 = icmp eq i32 %shr458.mask, 16777216
   br i1 %cmp459, label %for.end, label %for.cond.outer, !llvm.loop !8

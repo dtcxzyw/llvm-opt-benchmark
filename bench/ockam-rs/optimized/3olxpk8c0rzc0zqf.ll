@@ -10114,7 +10114,7 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$10make_error17h2f6cdb3bb
 
 26:                                               ; preds = %19, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit", %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit", %15
   %.sroa.9.sroa.6.0 = phi i64 [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %.sroa.9.sroa.6.140, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ %.sroa.529.0.copyload, %15 ], [ undef, %19 ]
-  %.sroa.04.0 = phi i64 [ 0, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %.sroa.04.242, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ 1, %15 ], [ %spec.select, %19 ]
+  %.sroa.04.0 = phi i64 [ 0, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %.sroa.04.142, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ 1, %15 ], [ %spec.select, %19 ]
   %27 = phi <2 x ptr> [ undef, %"_ZN7openssl3ssl18SslStream$LT$S$GT$11check_panic17h20578501788a2876E.exit" ], [ %46, %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit" ], [ %16, %15 ], [ %spec.select44, %19 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %14, ptr %28, align 8
@@ -10164,10 +10164,10 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$10make_error17h2f6cdb3bb
   br label %"_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$openssl..error..ErrorStack$GT$17h025f9bb0fa2d2806E.exit": ; preds = %53, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf400c493603926d9E.llvm.12836552674783018658.exit.i.i", %44
-  %.sroa.04.242.shrunk = phi i1 [ true, %44 ], [ %40, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf400c493603926d9E.llvm.12836552674783018658.exit.i.i" ], [ %40, %53 ]
+  %.sroa.04.142.shrunk = phi i1 [ true, %44 ], [ %40, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf400c493603926d9E.llvm.12836552674783018658.exit.i.i" ], [ %40, %53 ]
   %.sroa.9.sroa.6.140 = phi i64 [ %.sroa.0.sroa.5.0.copyload, %44 ], [ undef, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf400c493603926d9E.llvm.12836552674783018658.exit.i.i" ], [ undef, %53 ]
   %46 = phi <2 x ptr> [ %45, %44 ], [ %52, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf400c493603926d9E.llvm.12836552674783018658.exit.i.i" ], [ %52, %53 ]
-  %.sroa.04.242 = zext i1 %.sroa.04.242.shrunk to i64
+  %.sroa.04.142 = zext i1 %.sroa.04.142.shrunk to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %26
 

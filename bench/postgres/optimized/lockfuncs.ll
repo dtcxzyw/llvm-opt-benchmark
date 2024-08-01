@@ -136,14 +136,14 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not137, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %39, %48
-  %.0127160 = phi i32 [ %49, %48 ], [ 0, %39 ]
-  %46 = shl nuw nsw i32 1, %.0127160
+  %.1160 = phi i32 [ %49, %48 ], [ 0, %39 ]
+  %46 = shl nuw nsw i32 1, %.1160
   %47 = and i32 %46, %45
   %.not138 = icmp eq i32 %47, 0
   br i1 %.not138, label %48, label %50
 
 48:                                               ; preds = %.preheader
-  %49 = add nuw nsw i32 %.0127160, 1
+  %49 = add nuw nsw i32 %.1160, 1
   %exitcond.not = icmp eq i32 %49, 10
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !5
 
@@ -169,7 +169,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit202:                                     ; preds = %.loopexit, %50
   %.0126146 = phi i1 [ true, %50 ], [ false, %.loopexit ]
-  %.2 = phi i32 [ %.0127160, %50 ], [ %55, %.loopexit ]
+  %.2 = phi i32 [ %.1160, %50 ], [ %55, %.loopexit ]
   %60 = getelementptr inbounds i8, ptr %43, i64 14
   %61 = load i8, ptr %60, align 2
   %62 = icmp ult i8 %61, 12

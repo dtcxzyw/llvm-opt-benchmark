@@ -270,8 +270,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 74:                                               ; preds = %72, %70
   %.pn50.i = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
-  %.121.i = extractvalue { ptr, i32 } %.pn50.i, 0
-  %.125.i = extractvalue { ptr, i32 } %.pn50.i, 1
+  %.222.i = extractvalue { ptr, i32 } %.pn50.i, 0
+  %.226.i = extractvalue { ptr, i32 } %.pn50.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #10
   br label %546
 
@@ -583,8 +583,8 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_
 
 181:                                              ; preds = %179, %.body.i
   %.pn52.i = phi { ptr, i32 } [ %81, %.body.i ], [ %180, %179 ]
-  %.222.i = extractvalue { ptr, i32 } %.pn52.i, 0
-  %.226.i = extractvalue { ptr, i32 } %.pn52.i, 1
+  %.4.i = extractvalue { ptr, i32 } %.pn52.i, 0
+  %.428.i = extractvalue { ptr, i32 } %.pn52.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #10
   br label %546
 
@@ -596,8 +596,8 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_
 
 184:                                              ; preds = %182, %.body79.i
   %.pn54.i = phi { ptr, i32 } [ %83, %.body79.i ], [ %183, %182 ]
-  %.323.i = extractvalue { ptr, i32 } %.pn54.i, 0
-  %.327.i = extractvalue { ptr, i32 } %.pn54.i, 1
+  %.5.i = extractvalue { ptr, i32 } %.pn54.i, 0
+  %.529.i = extractvalue { ptr, i32 } %.pn54.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #10
   br label %545
 
@@ -609,8 +609,8 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_
 
 187:                                              ; preds = %185, %.body82.i
   %.pn56.i = phi { ptr, i32 } [ %85, %.body82.i ], [ %186, %185 ]
-  %.4.i = extractvalue { ptr, i32 } %.pn56.i, 0
-  %.428.i = extractvalue { ptr, i32 } %.pn56.i, 1
+  %.7.i = extractvalue { ptr, i32 } %.pn56.i, 0
+  %.731.i = extractvalue { ptr, i32 } %.pn56.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #10
   br label %544
 
@@ -629,8 +629,8 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_
 
 192:                                              ; preds = %190, %188
   %.pn58.i = phi { ptr, i32 } [ %191, %190 ], [ %189, %188 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn58.i, 0
-  %.529.i = extractvalue { ptr, i32 } %.pn58.i, 1
+  %.9.i = extractvalue { ptr, i32 } %.pn58.i, 0
+  %.933.i = extractvalue { ptr, i32 } %.pn58.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #10
   br label %543
 
@@ -649,8 +649,8 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_
 
 197:                                              ; preds = %195, %193
   %.pn60.i = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ]
-  %.6.i = extractvalue { ptr, i32 } %.pn60.i, 0
-  %.630.i = extractvalue { ptr, i32 } %.pn60.i, 1
+  %.11.i = extractvalue { ptr, i32 } %.pn60.i, 0
+  %.1135.i = extractvalue { ptr, i32 } %.pn60.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #10
   br label %543
 
@@ -673,14 +673,14 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_
 
 203:                                              ; preds = %200, %198
   %.pn62.i = phi { ptr, i32 } [ %201, %200 ], [ %199, %198 ]
-  %.7.i = extractvalue { ptr, i32 } %.pn62.i, 0
-  %.731.i = extractvalue { ptr, i32 } %.pn62.i, 1
+  %.12.i = extractvalue { ptr, i32 } %.pn62.i, 0
+  %.1236.i = extractvalue { ptr, i32 } %.pn62.i, 1
   %204 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #10
-  %205 = icmp eq i32 %.731.i, %204
+  %205 = icmp eq i32 %.1236.i, %204
   br i1 %205, label %206, label %542
 
 206:                                              ; preds = %203
-  %207 = call ptr @__cxa_begin_catch(ptr %.7.i) #10
+  %207 = call ptr @__cxa_begin_catch(ptr %.12.i) #10
   %208 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8)
           to label %209 unwind label %234
 
@@ -1425,7 +1425,7 @@ _ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit114.i:     ; preds = %.noexc112.i
   br label %502
 
 501:                                              ; preds = %499, %313
-  %.0.i = phi i32 [ 0, %499 ], [ 2, %313 ]
+  %.3.i = phi i32 [ 0, %499 ], [ 2, %313 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #10
   br label %503
 
@@ -1435,7 +1435,7 @@ _ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit114.i:     ; preds = %.noexc112.i
   br label %.body92.i
 
 503:                                              ; preds = %501, %.invoke.i
-  %.1.i = phi i32 [ %.0.i, %501 ], [ 2, %.invoke.i ]
+  %.2.i = phi i32 [ %.3.i, %501 ], [ 2, %.invoke.i ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %31) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #10
   br label %505
@@ -1447,13 +1447,13 @@ _ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit114.i:     ; preds = %.noexc112.i
 
 504:                                              ; preds = %.body92.i, %284
   %.pn75.pn.pn.i = phi { ptr, i32 } [ %.pn75.pn.i, %.body92.i ], [ %285, %284 ]
-  %.16.i = extractvalue { ptr, i32 } %.pn75.pn.pn.i, 0
-  %.1640.i = extractvalue { ptr, i32 } %.pn75.pn.pn.i, 1
+  %.14.i = extractvalue { ptr, i32 } %.pn75.pn.pn.i, 0
+  %.1438.i = extractvalue { ptr, i32 } %.pn75.pn.pn.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #10
   br label %542
 
 505:                                              ; preds = %503, %233
-  %.2.i = phi i32 [ %.1.i, %503 ], [ 2, %233 ]
+  %.1.i = phi i32 [ %.2.i, %503 ], [ 2, %233 ]
   %506 = getelementptr inbounds i8, ptr %24, i64 8
   %507 = load ptr, ptr %506, align 8
   %.not.i.i.i.i118.i = icmp eq ptr %507, null
@@ -1534,42 +1534,42 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit124.i:      ; preds = %_ZNSt16_Sp_counted_
   br label %_ZL3runiPPc.exit
 
 542:                                              ; preds = %504, %280, %238, %234, %203
-  %.1741.i = phi i32 [ %.1640.i, %504 ], [ %283, %280 ], [ %241, %238 ], [ %237, %234 ], [ %.731.i, %203 ]
-  %.17.i = phi ptr [ %.16.i, %504 ], [ %282, %280 ], [ %240, %238 ], [ %236, %234 ], [ %.7.i, %203 ]
+  %.1337.i = phi i32 [ %.1438.i, %504 ], [ %283, %280 ], [ %241, %238 ], [ %237, %234 ], [ %.1236.i, %203 ]
+  %.13.i = phi ptr [ %.14.i, %504 ], [ %282, %280 ], [ %240, %238 ], [ %236, %234 ], [ %.12.i, %203 ]
   call void @_ZN2cv3PtrINS_11TrackerNanoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #10
   br label %543
 
 543:                                              ; preds = %542, %197, %192
-  %.1842.i = phi i32 [ %.1741.i, %542 ], [ %.630.i, %197 ], [ %.529.i, %192 ]
-  %.18.i = phi ptr [ %.17.i, %542 ], [ %.6.i, %197 ], [ %.5.i, %192 ]
+  %.1034.i = phi i32 [ %.1337.i, %542 ], [ %.1135.i, %197 ], [ %.933.i, %192 ]
+  %.10.i = phi ptr [ %.13.i, %542 ], [ %.11.i, %197 ], [ %.9.i, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #10
   br label %544
 
 544:                                              ; preds = %543, %187
-  %.1943.i = phi i32 [ %.1842.i, %543 ], [ %.428.i, %187 ]
-  %.19.i = phi ptr [ %.18.i, %543 ], [ %.4.i, %187 ]
+  %.832.i = phi i32 [ %.1034.i, %543 ], [ %.731.i, %187 ]
+  %.8.i = phi ptr [ %.10.i, %543 ], [ %.7.i, %187 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #10
   br label %545
 
 545:                                              ; preds = %544, %184
-  %.2044.i = phi i32 [ %.1943.i, %544 ], [ %.327.i, %184 ]
-  %.20.i = phi ptr [ %.19.i, %544 ], [ %.323.i, %184 ]
+  %.630.i = phi i32 [ %.832.i, %544 ], [ %.529.i, %184 ]
+  %.6.i = phi ptr [ %.8.i, %544 ], [ %.5.i, %184 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #10
   br label %546
 
 546:                                              ; preds = %545, %181, %75, %74
-  %.2145.i = phi i32 [ %78, %75 ], [ %.2044.i, %545 ], [ %.226.i, %181 ], [ %.125.i, %74 ]
-  %.21.i = phi ptr [ %77, %75 ], [ %.20.i, %545 ], [ %.222.i, %181 ], [ %.121.i, %74 ]
+  %.327.i = phi i32 [ %78, %75 ], [ %.630.i, %545 ], [ %.428.i, %181 ], [ %.226.i, %74 ]
+  %.323.i = phi ptr [ %77, %75 ], [ %.6.i, %545 ], [ %.4.i, %181 ], [ %.222.i, %74 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
   br label %.body
 
 .body:                                            ; preds = %546, %69
-  %.2246.i = phi i32 [ %.2145.i, %546 ], [ %.024.i, %69 ]
-  %.22.i = phi ptr [ %.21.i, %546 ], [ %.020.i, %69 ]
-  %547 = insertvalue { ptr, i32 } poison, ptr %.22.i, 0
-  %548 = insertvalue { ptr, i32 } %547, i32 %.2246.i, 1
+  %.125.i = phi i32 [ %.327.i, %546 ], [ %.024.i, %69 ]
+  %.121.i = phi ptr [ %.323.i, %546 ], [ %.020.i, %69 ]
+  %547 = insertvalue { ptr, i32 } poison, ptr %.121.i, 0
+  %548 = insertvalue { ptr, i32 } %547, i32 %.125.i, 1
   %549 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
-  %550 = icmp eq i32 %.2246.i, %549
+  %550 = icmp eq i32 %.125.i, %549
   br i1 %550, label %554, label %569
 
 551:                                              ; preds = %234
@@ -1580,7 +1580,7 @@ _ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit124.i:      ; preds = %_ZNSt16_Sp_counted_
   unreachable
 
 _ZL3runiPPc.exit:                                 ; preds = %64, %_ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit124.i
-  %.3.i = phi i32 [ %.2.i, %_ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit124.i ], [ 0, %64 ]
+  %.0.i = phi i32 [ %.1.i, %_ZN2cv3PtrINS_11TrackerNanoEED2Ev.exit124.i ], [ 0, %64 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -1637,7 +1637,7 @@ _ZL3runiPPc.exit:                                 ; preds = %64, %_ZN2cv3PtrINS_
   br label %568
 
 554:                                              ; preds = %.body
-  %555 = call ptr @__cxa_begin_catch(ptr %.22.i) #10
+  %555 = call ptr @__cxa_begin_catch(ptr %.121.i) #10
   %556 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.1)
           to label %557 unwind label %566
 
@@ -1664,7 +1664,7 @@ _ZL3runiPPc.exit:                                 ; preds = %64, %_ZN2cv3PtrINS_
           to label %569 unwind label %570
 
 568:                                              ; preds = %_ZL3runiPPc.exit, %565
-  %.0 = phi i32 [ 1, %565 ], [ %.3.i, %_ZL3runiPPc.exit ]
+  %.0 = phi i32 [ 1, %565 ], [ %.0.i, %_ZL3runiPPc.exit ]
   ret i32 %.0
 
 569:                                              ; preds = %566, %.body

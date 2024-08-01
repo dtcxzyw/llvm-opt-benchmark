@@ -79,7 +79,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 .preheader:                                       ; preds = %100, %24
   %.0106.lcssa = phi i64 [ 0, %24 ], [ %.1107, %100 ]
-  %.0.lcssa = phi i1 [ true, %24 ], [ %.2, %100 ]
+  %.0.lcssa = phi i1 [ true, %24 ], [ %.1, %100 ]
   %38 = getelementptr inbounds i8, ptr %32, i64 64
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
@@ -91,7 +91,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 42:                                               ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %.0139 = phi i1 [ true, %.lr.ph ], [ %.2, %100 ]
+  %.0139 = phi i1 [ true, %.lr.ph ], [ %.1, %100 ]
   %.0106138 = phi i64 [ 0, %.lr.ph ], [ %.1107, %100 ]
   %43 = getelementptr [0 x ptr], ptr %37, i64 0, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
@@ -177,7 +177,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %57, %61, %65, %69, %87, %85, %81
-  %.1 = phi i1 [ %.0139, %81 ], [ false, %85 ], [ false, %87 ], [ %.0139, %69 ], [ %.0139, %65 ], [ %.0139, %61 ], [ %.0139, %57 ], [ %.0139, %53 ]
+  %.2 = phi i1 [ %.0139, %81 ], [ false, %85 ], [ false, %87 ], [ %.0139, %69 ], [ %.0139, %65 ], [ %.0139, %61 ], [ %.0139, %57 ], [ %.0139, %53 ]
   %95 = load i16, ptr %51, align 4
   %96 = sext i16 %95 to i64
   %97 = and i64 %96, 4294967295
@@ -187,7 +187,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 100:                                              ; preds = %73, %71, %.critedge
   %.1107 = phi i64 [ %99, %.critedge ], [ %.0106138, %71 ], [ %.0106138, %73 ]
-  %.2 = phi i1 [ %.1, %.critedge ], [ false, %71 ], [ false, %73 ]
+  %.1 = phi i1 [ %.2, %.critedge ], [ false, %71 ], [ false, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = load i32, ptr %34, align 8
   %102 = sext i32 %101 to i64
@@ -315,7 +315,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 .lr.ph187:                                        ; preds = %.lr.ph151, %215
   %.0110147186 = phi ptr [ %.1111, %215 ], [ null, %.lr.ph151 ]
-  %.7149185 = phi i1 [ %.9, %215 ], [ %.3.lcssa, %.lr.ph151 ]
+  %.7149185 = phi i1 [ %.8, %215 ], [ %.3.lcssa, %.lr.ph151 ]
   %indvars.iv166184 = phi i64 [ %indvars.iv.next167, %215 ], [ 0, %.lr.ph151 ]
   %174 = load ptr, ptr %171, align 8
   %175 = getelementptr %union.ListCell, ptr %174, i64 %indvars.iv166184
@@ -366,7 +366,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %203
 
 203:                                              ; preds = %195, %193, %190
-  %.8 = phi i1 [ %.7149185, %190 ], [ false, %193 ], [ false, %195 ]
+  %.9 = phi i1 [ %.7149185, %190 ], [ false, %193 ], [ false, %195 ]
   %204 = load i64, ptr %184, align 8
   %.not131 = icmp eq i64 %204, %.0106.lcssa
   br i1 %.not131, label %215, label %205
@@ -387,7 +387,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %215
 
 215:                                              ; preds = %207, %205, %203, %187
-  %.9 = phi i1 [ %.7149185, %187 ], [ %.8, %203 ], [ false, %205 ], [ false, %207 ]
+  %.8 = phi i1 [ %.7149185, %187 ], [ %.9, %203 ], [ false, %205 ], [ false, %207 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166184, 1
   %216 = load i32, ptr %170, align 4
   %217 = sext i32 %216 to i64
@@ -395,7 +395,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %218, label %.lr.ph187, label %._crit_edge152
 
 ._crit_edge152:                                   ; preds = %215, %.lr.ph151
-  %.7149.lcssa = phi i1 [ %.3.lcssa, %.lr.ph151 ], [ %.9, %215 ]
+  %.7149.lcssa = phi i1 [ %.3.lcssa, %.lr.ph151 ], [ %.8, %215 ]
   %.0110147.lcssa = phi ptr [ null, %.lr.ph151 ], [ %.1111, %215 ]
   %.not126 = icmp eq ptr %.0110147.lcssa, null
   br i1 %.not126, label %._crit_edge152.thread, label %219

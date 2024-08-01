@@ -1070,11 +1070,11 @@ ehcleanup37:                                      ; preds = %lpad, %lpad.i16, %e
   br label %common.resume
 
 if.end38:                                         ; preds = %if.then.i.i.i.i.i, %invoke.cont8.i.i, %invoke.cont35, %_ZN10array_util14mk_const_arrayEP4sortP4expr.exit
-  %e.1 = phi ptr [ %call.i, %_ZN10array_util14mk_const_arrayEP4sortP4expr.exit ], [ %call.i6970, %invoke.cont35 ], [ %call.i6970, %invoke.cont8.i.i ], [ %call.i6970, %if.then.i.i.i.i.i ]
+  %e.0 = phi ptr [ %call.i, %_ZN10array_util14mk_const_arrayEP4sortP4expr.exit ], [ %call.i6970, %invoke.cont35 ], [ %call.i6970, %invoke.cont8.i.i ], [ %call.i6970, %if.then.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %1, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store ptr %e.1, ptr %m_value.i.i, align 8
+  store ptr %e.0, ptr %m_value.i.i, align 8
   call void @_ZN14core_hashtableIN7obj_mapI3appP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %array_interpretations, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %return
@@ -1176,7 +1176,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit, %if.then
-  %fi.1 = phi ptr [ %9, %_ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit ], [ %call4, %if.then ]
+  %fi.0 = phi ptr [ %9, %_ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit ], [ %call4, %if.then ]
   %m5 = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %m5, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -1315,7 +1315,7 @@ for.end.loopexit:                                 ; preds = %_ZN7obj_refI4expr11
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %37 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %if.end ]
-  %call23 = invoke noundef ptr @_ZNK11func_interp9get_entryEPKP4expr(ptr noundef nonnull align 8 dereferenceable(56) %fi.1, ptr noundef %37)
+  %call23 = invoke noundef ptr @_ZNK11func_interp9get_entryEPKP4expr(ptr noundef nonnull align 8 dereferenceable(56) %fi.0, ptr noundef %37)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %for.end
@@ -1324,7 +1324,7 @@ invoke.cont22:                                    ; preds = %for.end
 
 if.then25:                                        ; preds = %invoke.cont22
   %38 = load ptr, ptr %m_nodes.i.i, align 8
-  invoke void @_ZN11func_interp16insert_new_entryEPKP4exprS1_(ptr noundef nonnull align 8 dereferenceable(56) %fi.1, ptr noundef %38, ptr noundef %value)
+  invoke void @_ZN11func_interp16insert_new_entryEPKP4exprS1_(ptr noundef nonnull align 8 dereferenceable(56) %fi.0, ptr noundef %38, ptr noundef %value)
           to label %if.end29 unwind label %lpad
 
 if.end29:                                         ; preds = %invoke.cont22, %if.then25

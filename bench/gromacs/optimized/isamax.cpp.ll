@@ -49,14 +49,14 @@ define i32 @isamax_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.147 = phi i32 [ 1, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %.246 = phi float [ %12, %.lr.ph.preheader ], [ %.3, %.lr.ph ]
-  %.23545 = phi i32 [ 1, %.lr.ph.preheader ], [ %.336, %.lr.ph ]
+  %.33645 = phi i32 [ 1, %.lr.ph.preheader ], [ %.4, %.lr.ph ]
   %20 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %23 = fcmp ogt float %22, %.246
   %24 = trunc i64 %indvars.iv to i32
   %25 = add i32 %24, 1
-  %.336 = select i1 %23, i32 %25, i32 %.23545
+  %.4 = select i1 %23, i32 %25, i32 %.33645
   %.3 = select i1 %23, float %22, float %.246
   %26 = add nuw nsw i32 %.147, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %14
@@ -64,7 +64,7 @@ define i32 @isamax_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph51, %8, %3
-  %.0 = phi i32 [ -1, %3 ], [ 1, %8 ], [ %.134, %.lr.ph51 ], [ %.336, %.lr.ph ]
+  %.0 = phi i32 [ -1, %3 ], [ 1, %8 ], [ %.134, %.lr.ph51 ], [ %.4, %.lr.ph ]
   ret i32 %.0
 }
 

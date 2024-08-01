@@ -2514,7 +2514,7 @@ _ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %82, %80, %77, %.preheader
-  %.033 = phi i8 [ 2, %.preheader ], [ 1, %77 ], [ 1, %80 ], [ 2, %82 ]
+  %.1 = phi i8 [ 2, %.preheader ], [ 1, %77 ], [ 1, %80 ], [ 2, %82 ]
   %84 = load i64, ptr %24, align 8
   %85 = urem i64 %23, %84
   %86 = load ptr, ptr %27, align 8
@@ -2577,12 +2577,12 @@ _ZNSt10_HashtableISt4pairIPK9DfgVertexS3_ES0_IKS4_hESaIS6_ENSt8__detail10_Select
 _ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPK9DfgVertexS4_ES1_IKS5_hENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i54, %.loopexit.i.i50
   %.pn27.i.i52 = phi ptr [ %110, %.loopexit.i.i50 ], [ %93, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPK9DfgVertexS4_ES1_IKS5_hENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i54 ]
   %.0.i.i53 = getelementptr inbounds i8, ptr %.pn27.i.i52, i64 24
-  store i8 %.033, ptr %.0.i.i53, align 1
+  store i8 %.1, ptr %.0.i.i53, align 1
   br label %112
 
 112:                                              ; preds = %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit
-  %.1 = phi i8 [ %54, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit ], [ %.033, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55 ]
-  %113 = icmp ugt i8 %.1, 1
+  %.033 = phi i8 [ %54, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit ], [ %.1, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55 ]
+  %113 = icmp ugt i8 %.033, 1
   br label %114
 
 114:                                              ; preds = %13, %8, %5, %3, %112
@@ -2662,27 +2662,27 @@ _ZN9DfgVertex4userI6V3HashEERT_v.exit:            ; preds = %1
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.016 = phi i64 [ %49, %.lr.ph ], [ 0, %16 ]
-  %.sroa.0.015 = phi i32 [ %48, %.lr.ph ], [ %33, %16 ]
+  %.sroa.0.115 = phi i32 [ %48, %.lr.ph ], [ %33, %16 ]
   %40 = getelementptr inbounds %class.DfgEdge, ptr %38, i64 %.016, i32 2
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @_ZN9DfgVertex4hashEv(ptr noundef nonnull align 8 dereferenceable(72) %41)
-  %43 = shl i32 %.sroa.0.015, 6
-  %44 = lshr i32 %.sroa.0.015, 2
+  %43 = shl i32 %.sroa.0.115, 6
+  %44 = lshr i32 %.sroa.0.115, 2
   %45 = add i32 %43, -1640531527
   %46 = add i32 %45, %44
   %47 = add i32 %46, %42
-  %48 = xor i32 %47, %.sroa.0.015
+  %48 = xor i32 %47, %.sroa.0.115
   %49 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %49, %39
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %9
-  %.sroa.0.1 = phi i32 [ %13, %9 ], [ %33, %16 ], [ %48, %.lr.ph ]
-  store i32 %.sroa.0.1, ptr %2, align 8
+  %.sroa.0.0 = phi i32 [ %13, %9 ], [ %33, %16 ], [ %48, %.lr.ph ]
+  store i32 %.sroa.0.0, ptr %2, align 8
   br label %50
 
 50:                                               ; preds = %.loopexit, %_ZN9DfgVertex4userI6V3HashEERT_v.exit
-  %.sroa.010.0.copyload = phi i32 [ %.sroa.0.1, %.loopexit ], [ %.pr, %_ZN9DfgVertex4userI6V3HashEERT_v.exit ]
+  %.sroa.010.0.copyload = phi i32 [ %.sroa.0.0, %.loopexit ], [ %.pr, %_ZN9DfgVertex4userI6V3HashEERT_v.exit ]
   ret i32 %.sroa.010.0.copyload
 }
 

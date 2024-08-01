@@ -3140,11 +3140,11 @@ if.then25:                                        ; preds = %if.end23
 
 if.end31:                                         ; preds = %if.then25, %if.end31
   %conv2896 = phi i64 [ %conv28, %if.end31 ], [ %conv2891, %if.then25 ]
-  %d.addr.195 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
-  %ey.294 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
+  %d.addr.295 = phi i64 [ %sub33, %if.end31 ], [ %d.addr.0, %if.then25 ]
+  %ey.394 = phi i64 [ %add34, %if.end31 ], [ %ey.1, %if.then25 ]
   %yi.093 = phi i32 [ %spec.select, %if.end31 ], [ %cond.i, %if.then25 ]
-  %sub33 = sub nuw nsw i64 %d.addr.195, %conv2896
-  %add34 = add nsw i64 %ey.294, 100
+  %sub33 = sub nuw nsw i64 %d.addr.295, %conv2896
+  %add34 = add nsw i64 %ey.394, 100
   %cmp36 = icmp sgt i32 %yi.093, 299
   %spec.select.v = select i1 %cmp36, i32 -300, i32 100
   %spec.select = add nsw i32 %spec.select.v, %yi.093
@@ -3157,14 +3157,14 @@ if.end31:                                         ; preds = %if.then25, %if.end3
 
 for.cond40.preheader:                             ; preds = %if.end31, %if.then25
   %yi.2.ph = phi i32 [ %cond.i, %if.then25 ], [ %spec.select, %if.end31 ]
-  %ey.3.ph = phi i64 [ %ey.1, %if.then25 ], [ %add34, %if.end31 ]
-  %d.addr.2.ph = phi i64 [ %d.addr.0, %if.then25 ], [ %sub33, %if.end31 ]
+  %ey.4.ph = phi i64 [ %ey.1, %if.then25 ], [ %add34, %if.end31 ]
+  %d.addr.3.ph = phi i64 [ %d.addr.0, %if.then25 ], [ %sub33, %if.end31 ]
   br label %for.cond40
 
 for.cond40:                                       ; preds = %for.cond40.preheader, %if.end46
   %yi.2 = phi i32 [ %spec.select55, %if.end46 ], [ %yi.2.ph, %for.cond40.preheader ]
-  %ey.3 = phi i64 [ %add49, %if.end46 ], [ %ey.3.ph, %for.cond40.preheader ]
-  %d.addr.2 = phi i64 [ %sub48, %if.end46 ], [ %d.addr.2.ph, %for.cond40.preheader ]
+  %ey.4 = phi i64 [ %add49, %if.end46 ], [ %ey.4.ph, %for.cond40.preheader ]
+  %d.addr.3 = phi i64 [ %sub48, %if.end46 ], [ %d.addr.3.ph, %for.cond40.preheader ]
   %cmp.i63 = icmp eq i32 %yi.2, 0
   %cmp1.i64 = icmp sgt i32 %yi.2, 300
   %or.cond.i65 = or i1 %cmp.i63, %cmp1.i64
@@ -3179,21 +3179,21 @@ lor.rhs.i:                                        ; preds = %for.cond40
 
 _ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %for.cond40, %lor.rhs.i
   %conv.i = phi i64 [ 1461, %for.cond40 ], [ %4, %lor.rhs.i ]
-  %cmp44.not = icmp ugt i64 %d.addr.2, %conv.i
+  %cmp44.not = icmp ugt i64 %d.addr.3, %conv.i
   br i1 %cmp44.not, label %if.end46, label %for.cond56
 
 if.end46:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
-  %sub48 = sub nuw nsw i64 %d.addr.2, %conv.i
-  %add49 = add nsw i64 %ey.3, 4
+  %sub48 = sub nuw nsw i64 %d.addr.3, %conv.i
+  %add49 = add nsw i64 %ey.4, 4
   %cmp51 = icmp sgt i32 %yi.2, 395
   %spec.select55.v = select i1 %cmp51, i32 -396, i32 4
   %spec.select55 = add nsw i32 %spec.select55.v, %yi.2
   br label %for.cond40, !llvm.loop !68
 
 for.cond56:                                       ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %if.end62
-  %ey.4 = phi i64 [ %inc, %if.end62 ], [ %ey.3, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
-  %d.addr.3 = phi i64 [ %sub64, %if.end62 ], [ %d.addr.2, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
-  %add.i69 = add i64 %ey.4, %conv1.i59
+  %ey.5 = phi i64 [ %inc, %if.end62 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
+  %d.addr.4 = phi i64 [ %sub64, %if.end62 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
+  %add.i69 = add i64 %ey.5, %conv1.i59
   %5 = and i64 %add.i69, 3
   %cmp.i.i70 = icmp eq i64 %5, 0
   br i1 %cmp.i.i70, label %land.rhs.i.i71, label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
@@ -3209,40 +3209,40 @@ land.rhs.i.i71:                                   ; preds = %for.cond56
 
 _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
   %conv59 = phi i64 [ 365, %for.cond56 ], [ %spec.select.i77, %land.rhs.i.i71 ]
-  %cmp60.not = icmp ugt i64 %d.addr.3, %conv59
+  %cmp60.not = icmp ugt i64 %d.addr.4, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
 if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
-  %sub64 = sub nuw nsw i64 %d.addr.3, %conv59
-  %inc = add nsw i64 %ey.4, 1
+  %sub64 = sub nuw nsw i64 %d.addr.4, %conv59
+  %inc = add nsw i64 %ey.5, 1
   br label %for.cond56, !llvm.loop !69
 
 if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
-  %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
-  %d.addr.4 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.3, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
-  %cmp67 = icmp ugt i64 %d.addr.4, 28
+  %ey.2 = phi i64 [ %ey.1, %if.end23 ], [ %ey.5, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
+  %d.addr.1 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
+  %cmp67 = icmp ugt i64 %d.addr.1, 28
   br i1 %cmp67, label %for.cond69, label %if.end85
 
 for.cond69:                                       ; preds = %if.end66, %if.end75
-  %ey.6 = phi i64 [ %spec.select56, %if.end75 ], [ %ey.5, %if.end66 ]
-  %d.addr.5 = phi i64 [ %sub77, %if.end75 ], [ %d.addr.4, %if.end66 ]
-  %m.addr.0 = phi i8 [ %spec.select57, %if.end75 ], [ %m, %if.end66 ]
-  %idxprom.i = sext i8 %m.addr.0 to i64
+  %ey.7 = phi i64 [ %spec.select56, %if.end75 ], [ %ey.2, %if.end66 ]
+  %d.addr.6 = phi i64 [ %sub77, %if.end75 ], [ %d.addr.1, %if.end66 ]
+  %m.addr.1 = phi i8 [ %spec.select57, %if.end75 ], [ %m, %if.end66 ]
+  %idxprom.i = sext i8 %m.addr.1 to i64
   %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i79 = icmp eq i8 %m.addr.0, 2
-  %7 = and i64 %ey.6, 3
+  %cmp.i79 = icmp eq i8 %m.addr.1, 2
+  %7 = and i64 %ey.7, 3
   %cmp.i.i80 = icmp eq i64 %7, 0
   %or.cond.i81 = and i1 %cmp.i.i80, %cmp.i79
   br i1 %or.cond.i81, label %land.rhs.i.i84, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
 land.rhs.i.i84:                                   ; preds = %for.cond69
-  %rem1.i.i85 = srem i64 %ey.6, 100
+  %rem1.i.i85 = srem i64 %ey.7, 100
   %cmp2.not.i.i86 = icmp eq i64 %rem1.i.i85, 0
   br i1 %cmp2.not.i.i86, label %lor.rhs.i.i, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
 lor.rhs.i.i:                                      ; preds = %land.rhs.i.i84
-  %rem3.i.i87 = srem i64 %ey.6, 400
+  %rem3.i.i87 = srem i64 %ey.7, 400
   %cmp4.i.i88 = icmp eq i64 %rem3.i.i87, 0
   %8 = zext i1 %cmp4.i.i88 to i32
   br label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
@@ -3251,24 +3251,24 @@ _ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for
   %conv1.i82 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i84 ], [ %8, %lor.rhs.i.i ]
   %add.i83 = add nsw i32 %conv1.i82, %6
   %conv72 = sext i32 %add.i83 to i64
-  %cmp73.not = icmp sgt i64 %d.addr.5, %conv72
+  %cmp73.not = icmp sgt i64 %d.addr.6, %conv72
   br i1 %cmp73.not, label %if.end75, label %if.end85
 
 if.end75:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
-  %sub77 = sub nsw i64 %d.addr.5, %conv72
-  %inc78 = add i8 %m.addr.0, 1
+  %sub77 = sub nsw i64 %d.addr.6, %conv72
+  %inc78 = add i8 %m.addr.1, 1
   %cmp80 = icmp sgt i8 %inc78, 12
   %inc82 = zext i1 %cmp80 to i64
-  %spec.select56 = add nsw i64 %ey.6, %inc82
+  %spec.select56 = add nsw i64 %ey.7, %inc82
   %spec.select57 = select i1 %cmp80, i8 1, i8 %inc78
   br label %for.cond69, !llvm.loop !70
 
 if.end85:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit, %if.end66
-  %ey.8 = phi i64 [ %ey.5, %if.end66 ], [ %ey.6, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
-  %d.addr.6 = phi i64 [ %d.addr.4, %if.end66 ], [ %d.addr.5, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
-  %m.addr.2 = phi i8 [ %m, %if.end66 ], [ %m.addr.0, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
+  %ey.6 = phi i64 [ %ey.2, %if.end66 ], [ %ey.7, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
+  %d.addr.5 = phi i64 [ %d.addr.1, %if.end66 ], [ %d.addr.6, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
+  %m.addr.0 = phi i8 [ %m, %if.end66 ], [ %m.addr.1, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
   %sub86 = sub nsw i64 %y, %rem
-  %add87 = add i64 %sub86, %ey.8
+  %add87 = add i64 %sub86, %ey.6
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %add87, 0
   %retval.sroa.7.8.insert.ext = zext i8 %ss to i64
   %retval.sroa.7.8.insert.shift = shl nuw nsw i64 %retval.sroa.7.8.insert.ext, 32
@@ -3278,10 +3278,10 @@ if.end85:                                         ; preds = %_ZN4absl13time_inte
   %retval.sroa.5.8.insert.ext = zext i8 %hh to i64
   %retval.sroa.5.8.insert.shift = shl nuw nsw i64 %retval.sroa.5.8.insert.ext, 16
   %retval.sroa.5.8.insert.insert = or disjoint i64 %retval.sroa.6.8.insert.insert, %retval.sroa.5.8.insert.shift
-  %retval.sroa.4.8.insert.ext = shl i64 %d.addr.6, 8
+  %retval.sroa.4.8.insert.ext = shl i64 %d.addr.5, 8
   %retval.sroa.4.8.insert.shift = and i64 %retval.sroa.4.8.insert.ext, 65280
   %retval.sroa.4.8.insert.insert = or disjoint i64 %retval.sroa.4.8.insert.shift, %retval.sroa.5.8.insert.insert
-  %retval.sroa.2.8.insert.ext = zext i8 %m.addr.2 to i64
+  %retval.sroa.2.8.insert.ext = zext i8 %m.addr.0 to i64
   %retval.sroa.2.8.insert.insert = or disjoint i64 %retval.sroa.4.8.insert.insert, %retval.sroa.2.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.2.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert

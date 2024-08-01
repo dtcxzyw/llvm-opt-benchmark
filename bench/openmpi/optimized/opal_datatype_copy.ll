@@ -419,13 +419,13 @@ non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accel
 
 189:                                              ; preds = %179, %184, %171
   %190 = phi i64 [ %.pre208, %171 ], [ %183, %179 ], [ %188, %184 ]
-  %.1152 = phi i32 [ %172, %171 ], [ %.0151.ph, %179 ], [ %.0151.ph, %184 ]
-  %.3148.in = phi i32 [ %.2147.lcssa, %171 ], [ -1, %179 ], [ %175, %184 ]
-  %.1128 = phi ptr [ %173, %171 ], [ %.0127.ph, %179 ], [ %.0127.ph, %184 ]
-  %.3148 = add i32 %.3148.in, 1
+  %.2153 = phi i32 [ %172, %171 ], [ %.0151.ph, %179 ], [ %.0151.ph, %184 ]
+  %.4149.in = phi i32 [ %.2147.lcssa, %171 ], [ -1, %179 ], [ %175, %184 ]
+  %.2 = phi ptr [ %173, %171 ], [ %.0127.ph, %179 ], [ %.0127.ph, %184 ]
+  %.4149 = add i32 %.4149.in, 1
   %191 = getelementptr inbounds i8, ptr %3, i64 %190
   %192 = getelementptr inbounds i8, ptr %2, i64 %190
-  %193 = zext i32 %.3148 to i64
+  %193 = zext i32 %.4149 to i64
   %194 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %193
   %195 = getelementptr inbounds i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 2
@@ -447,13 +447,13 @@ non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accel
   br label %.backedge.outer.backedge
 
 .loopexit239:                                     ; preds = %._crit_edge, %.thread
-  %.2222 = phi ptr [ %.1128, %.thread ], [ %.0127.ph, %._crit_edge ]
+  %.1128222 = phi ptr [ %.2, %.thread ], [ %.0127.ph, %._crit_edge ]
   %.3132221 = phi ptr [ %192, %.thread ], [ %.2131.ph, %._crit_edge ]
   %.3136220 = phi ptr [ %191, %.thread ], [ %.2135.ph, %._crit_edge ]
   %.2139219 = phi ptr [ %194, %.thread ], [ %.1138.lcssa, %._crit_edge ]
   %.4218 = phi i32 [ %199, %.thread ], [ %.2143.lcssa, %._crit_edge ]
-  %.4149217 = phi i32 [ %.3148, %.thread ], [ %.2147.lcssa, %._crit_edge ]
-  %.2153216 = phi i32 [ %.1152, %.thread ], [ %.0151.ph, %._crit_edge ]
+  %.3148217 = phi i32 [ %.4149, %.thread ], [ %.2147.lcssa, %._crit_edge ]
+  %.1152216 = phi i32 [ %.2153, %.thread ], [ %.0151.ph, %._crit_edge ]
   %206 = load i16, ptr %.2139219, align 8
   %207 = and i16 %206, 16
   %.not158 = icmp eq i16 %207, 0
@@ -574,25 +574,25 @@ non_overlap_accelerator_contiguous_loop.exit:     ; preds = %opal_datatype_accel
   br label %269
 
 260:                                              ; preds = %.loopexit239
-  %261 = getelementptr inbounds i8, ptr %.2222, i64 24
-  store i32 %.4149217, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %.2222, i64 28
+  %261 = getelementptr inbounds i8, ptr %.1128222, i64 24
+  store i32 %.3148217, ptr %261, align 8
+  %262 = getelementptr inbounds i8, ptr %.1128222, i64 28
   store i16 0, ptr %262, align 4
   %263 = zext i32 %.4218 to i64
-  %264 = getelementptr inbounds i8, ptr %.2222, i64 32
+  %264 = getelementptr inbounds i8, ptr %.1128222, i64 32
   store i64 %263, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %.2222, i64 16
+  %265 = getelementptr inbounds i8, ptr %.1128222, i64 16
   %266 = load i64, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %.2222, i64 40
+  %267 = getelementptr inbounds i8, ptr %.1128222, i64 40
   store i64 %266, ptr %267, align 8
-  %268 = add nsw i32 %.2153216, 1
+  %268 = add nsw i32 %.1152216, 1
   br label %269
 
 269:                                              ; preds = %260, %non_overlap_accelerator_contiguous_loop.exit
-  %.3154 = phi i32 [ %268, %260 ], [ %.2153216, %non_overlap_accelerator_contiguous_loop.exit ]
+  %.3154 = phi i32 [ %268, %260 ], [ %.1152216, %non_overlap_accelerator_contiguous_loop.exit ]
   %.pn = phi i32 [ 1, %260 ], [ %259, %non_overlap_accelerator_contiguous_loop.exit ]
-  %.3 = phi ptr [ %261, %260 ], [ %.2222, %non_overlap_accelerator_contiguous_loop.exit ]
-  %.5150 = add i32 %.pn, %.4149217
+  %.3 = phi ptr [ %261, %260 ], [ %.1128222, %non_overlap_accelerator_contiguous_loop.exit ]
+  %.5150 = add i32 %.pn, %.3148217
   %270 = getelementptr inbounds i8, ptr %.3, i64 16
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds i8, ptr %3, i64 %271
@@ -610,13 +610,13 @@ non_overlap_accelerator_contiguous_loop.exit:     ; preds = %opal_datatype_accel
   br label %.backedge.outer.backedge
 
 .backedge.outer.backedge:                         ; preds = %279, %282, %.thread223
-  %.0151.ph.be = phi i32 [ %.1152, %.thread223 ], [ %.3154, %282 ], [ %.3154, %279 ]
-  %.1146.ph.be = phi i32 [ %.3148, %.thread223 ], [ %.5150, %282 ], [ %.5150, %279 ]
+  %.0151.ph.be = phi i32 [ %.2153, %.thread223 ], [ %.3154, %282 ], [ %.3154, %279 ]
+  %.1146.ph.be = phi i32 [ %.4149, %.thread223 ], [ %.5150, %282 ], [ %.5150, %279 ]
   %.1142.ph.be = phi i32 [ %205, %.thread223 ], [ %288, %282 ], [ %281, %279 ]
   %.0137.ph.be = phi ptr [ %194, %.thread223 ], [ %275, %282 ], [ %275, %279 ]
   %.2135.ph.be = phi ptr [ %191, %.thread223 ], [ %272, %282 ], [ %272, %279 ]
   %.2131.ph.be = phi ptr [ %192, %.thread223 ], [ %273, %282 ], [ %273, %279 ]
-  %.0127.ph.be = phi ptr [ %.1128, %.thread223 ], [ %.3, %282 ], [ %.3, %279 ]
+  %.0127.ph.be = phi ptr [ %.2, %.thread223 ], [ %.3, %282 ], [ %.3, %279 ]
   br label %.backedge.outer
 
 282:                                              ; preds = %269
@@ -1002,13 +1002,13 @@ overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accel
 
 189:                                              ; preds = %179, %184, %171
   %190 = phi i64 [ %.pre208, %171 ], [ %183, %179 ], [ %188, %184 ]
-  %.1152 = phi i32 [ %172, %171 ], [ %.0151.ph, %179 ], [ %.0151.ph, %184 ]
-  %.3148.in = phi i32 [ %.2147.lcssa, %171 ], [ -1, %179 ], [ %175, %184 ]
-  %.1128 = phi ptr [ %173, %171 ], [ %.0127.ph, %179 ], [ %.0127.ph, %184 ]
-  %.3148 = add i32 %.3148.in, 1
+  %.2153 = phi i32 [ %172, %171 ], [ %.0151.ph, %179 ], [ %.0151.ph, %184 ]
+  %.4149.in = phi i32 [ %.2147.lcssa, %171 ], [ -1, %179 ], [ %175, %184 ]
+  %.2 = phi ptr [ %173, %171 ], [ %.0127.ph, %179 ], [ %.0127.ph, %184 ]
+  %.4149 = add i32 %.4149.in, 1
   %191 = getelementptr inbounds i8, ptr %3, i64 %190
   %192 = getelementptr inbounds i8, ptr %2, i64 %190
-  %193 = zext i32 %.3148 to i64
+  %193 = zext i32 %.4149 to i64
   %194 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %193
   %195 = getelementptr inbounds i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 2
@@ -1030,13 +1030,13 @@ overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accel
   br label %.backedge.outer.backedge
 
 .loopexit239:                                     ; preds = %._crit_edge, %.thread
-  %.2222 = phi ptr [ %.1128, %.thread ], [ %.0127.ph, %._crit_edge ]
+  %.1128222 = phi ptr [ %.2, %.thread ], [ %.0127.ph, %._crit_edge ]
   %.3132221 = phi ptr [ %192, %.thread ], [ %.2131.ph, %._crit_edge ]
   %.3136220 = phi ptr [ %191, %.thread ], [ %.2135.ph, %._crit_edge ]
   %.2139219 = phi ptr [ %194, %.thread ], [ %.1138.lcssa, %._crit_edge ]
   %.4218 = phi i32 [ %199, %.thread ], [ %.2143.lcssa, %._crit_edge ]
-  %.4149217 = phi i32 [ %.3148, %.thread ], [ %.2147.lcssa, %._crit_edge ]
-  %.2153216 = phi i32 [ %.1152, %.thread ], [ %.0151.ph, %._crit_edge ]
+  %.3148217 = phi i32 [ %.4149, %.thread ], [ %.2147.lcssa, %._crit_edge ]
+  %.1152216 = phi i32 [ %.2153, %.thread ], [ %.0151.ph, %._crit_edge ]
   %206 = load i16, ptr %.2139219, align 8
   %207 = and i16 %206, 16
   %.not158 = icmp eq i16 %207, 0
@@ -1157,25 +1157,25 @@ overlap_accelerator_contiguous_loop.exit:         ; preds = %opal_datatype_accel
   br label %269
 
 260:                                              ; preds = %.loopexit239
-  %261 = getelementptr inbounds i8, ptr %.2222, i64 24
-  store i32 %.4149217, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %.2222, i64 28
+  %261 = getelementptr inbounds i8, ptr %.1128222, i64 24
+  store i32 %.3148217, ptr %261, align 8
+  %262 = getelementptr inbounds i8, ptr %.1128222, i64 28
   store i16 0, ptr %262, align 4
   %263 = zext i32 %.4218 to i64
-  %264 = getelementptr inbounds i8, ptr %.2222, i64 32
+  %264 = getelementptr inbounds i8, ptr %.1128222, i64 32
   store i64 %263, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %.2222, i64 16
+  %265 = getelementptr inbounds i8, ptr %.1128222, i64 16
   %266 = load i64, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %.2222, i64 40
+  %267 = getelementptr inbounds i8, ptr %.1128222, i64 40
   store i64 %266, ptr %267, align 8
-  %268 = add nsw i32 %.2153216, 1
+  %268 = add nsw i32 %.1152216, 1
   br label %269
 
 269:                                              ; preds = %260, %overlap_accelerator_contiguous_loop.exit
-  %.3154 = phi i32 [ %268, %260 ], [ %.2153216, %overlap_accelerator_contiguous_loop.exit ]
+  %.3154 = phi i32 [ %268, %260 ], [ %.1152216, %overlap_accelerator_contiguous_loop.exit ]
   %.pn = phi i32 [ 1, %260 ], [ %259, %overlap_accelerator_contiguous_loop.exit ]
-  %.3 = phi ptr [ %261, %260 ], [ %.2222, %overlap_accelerator_contiguous_loop.exit ]
-  %.5150 = add i32 %.pn, %.4149217
+  %.3 = phi ptr [ %261, %260 ], [ %.1128222, %overlap_accelerator_contiguous_loop.exit ]
+  %.5150 = add i32 %.pn, %.3148217
   %270 = getelementptr inbounds i8, ptr %.3, i64 16
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds i8, ptr %3, i64 %271
@@ -1193,13 +1193,13 @@ overlap_accelerator_contiguous_loop.exit:         ; preds = %opal_datatype_accel
   br label %.backedge.outer.backedge
 
 .backedge.outer.backedge:                         ; preds = %279, %282, %.thread223
-  %.0151.ph.be = phi i32 [ %.1152, %.thread223 ], [ %.3154, %282 ], [ %.3154, %279 ]
-  %.1146.ph.be = phi i32 [ %.3148, %.thread223 ], [ %.5150, %282 ], [ %.5150, %279 ]
+  %.0151.ph.be = phi i32 [ %.2153, %.thread223 ], [ %.3154, %282 ], [ %.3154, %279 ]
+  %.1146.ph.be = phi i32 [ %.4149, %.thread223 ], [ %.5150, %282 ], [ %.5150, %279 ]
   %.1142.ph.be = phi i32 [ %205, %.thread223 ], [ %288, %282 ], [ %281, %279 ]
   %.0137.ph.be = phi ptr [ %194, %.thread223 ], [ %275, %282 ], [ %275, %279 ]
   %.2135.ph.be = phi ptr [ %191, %.thread223 ], [ %272, %282 ], [ %272, %279 ]
   %.2131.ph.be = phi ptr [ %192, %.thread223 ], [ %273, %282 ], [ %273, %279 ]
-  %.0127.ph.be = phi ptr [ %.1128, %.thread223 ], [ %.3, %282 ], [ %.3, %279 ]
+  %.0127.ph.be = phi ptr [ %.2, %.thread223 ], [ %.3, %282 ], [ %.3, %279 ]
   br label %.backedge.outer
 
 282:                                              ; preds = %269

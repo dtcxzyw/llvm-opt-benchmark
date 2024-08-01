@@ -27,8 +27,8 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 13:                                               ; preds = %1, %8
   %.sroa.5.1 = phi i64 [ %11, %8 ], [ undef, %1 ]
-  %.sroa.0.1 = phi i64 [ %.11, %8 ], [ 0, %1 ]
-  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %.sroa.0.2 = phi i64 [ %.11, %8 ], [ 0, %1 ]
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %15 = insertvalue { i64, i64 } %14, i64 %.sroa.5.1, 1
   ret { i64, i64 } %15
 }
@@ -169,8 +169,8 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 
 11:                                               ; preds = %1, %6
   %.sroa.5.1 = phi i64 [ %9, %6 ], [ undef, %1 ]
-  %.sroa.0.1 = phi i64 [ %.11, %6 ], [ 0, %1 ]
-  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %.sroa.0.2 = phi i64 [ %.11, %6 ], [ 0, %1 ]
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %13 = insertvalue { i64, i64 } %12, i64 %.sroa.5.1, 1
   ret { i64, i64 } %13
 }

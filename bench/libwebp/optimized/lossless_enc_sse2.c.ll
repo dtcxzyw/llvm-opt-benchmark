@@ -893,17 +893,17 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.lr.ph254
   %indvars.iv286 = phi i64 [ 0, %.lr.ph254.preheader ], [ %indvars.iv.next287, %.lr.ph254 ]
   %indvars.iv284 = phi i64 [ 16, %.lr.ph254.preheader ], [ %indvars.iv.next285, %.lr.ph254 ]
-  %.1253 = phi ptr [ %3, %.lr.ph254.preheader ], [ %30, %.lr.ph254 ]
+  %.2253 = phi ptr [ %3, %.lr.ph254.preheader ], [ %30, %.lr.ph254 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv286
   %24 = load <8 x i16>, ptr %23, align 1
   %25 = mul <8 x i16> %24, <i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272>
   %26 = and <8 x i16> %25, <i16 -256, i16 -256, i16 -256, i16 -256, i16 -256, i16 -256, i16 -256, i16 -256>
   %27 = shufflevector <8 x i16> %26, <8 x i16> <i16 -256, i16 -256, i16 -256, i16 -256, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %28 = shufflevector <8 x i16> %26, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 -256, i16 -256, i16 -256, i16 -256>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %27, ptr %.1253, align 1
-  %29 = getelementptr inbounds i8, ptr %.1253, i64 16
+  store <8 x i16> %27, ptr %.2253, align 1
+  %29 = getelementptr inbounds i8, ptr %.2253, i64 16
   store <8 x i16> %28, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %.1253, i64 32
+  %30 = getelementptr inbounds i8, ptr %.2253, i64 32
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 16
   %.not237 = icmp ugt i64 %indvars.iv.next285, %6
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 16
@@ -912,7 +912,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv279 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next280, %.lr.ph ]
   %indvars.iv = phi i64 [ 16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.2249 = phi ptr [ %3, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.3249 = phi ptr [ %3, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %31 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv279
   %32 = load <8 x i16>, ptr %31, align 1
   %33 = mul <8 x i16> %32, <i16 260, i16 260, i16 260, i16 260, i16 260, i16 260, i16 260, i16 260>
@@ -923,8 +923,8 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   %38 = bitcast <4 x i32> %37 to <2 x i64>
   %39 = or <2 x i64> %35, <i64 -72057589759737856, i64 -72057589759737856>
   %40 = or <2 x i64> %39, %38
-  store <2 x i64> %40, ptr %.2249, align 1
-  %41 = getelementptr inbounds i8, ptr %.2249, i64 16
+  store <2 x i64> %40, ptr %.3249, align 1
+  %41 = getelementptr inbounds i8, ptr %.3249, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %.not = icmp ugt i64 %indvars.iv.next, %5
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 16
@@ -933,7 +933,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %.lr.ph266
   %indvars.iv300 = phi i64 [ 0, %.lr.ph266.preheader ], [ %indvars.iv.next301, %.lr.ph266 ]
   %indvars.iv298 = phi i64 [ 16, %.lr.ph266.preheader ], [ %indvars.iv.next299, %.lr.ph266 ]
-  %.3265 = phi ptr [ %3, %.lr.ph266.preheader ], [ %55, %.lr.ph266 ]
+  %.4265 = phi ptr [ %3, %.lr.ph266.preheader ], [ %55, %.lr.ph266 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv300
   %43 = load <2 x i64>, ptr %42, align 1
   %44 = shl <2 x i64> %43, <i64 7, i64 7>
@@ -944,12 +944,12 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   %49 = shl nuw nsw i32 %48, 8
   %50 = and i32 %49, 65280
   %51 = or disjoint i32 %50, -16777216
-  store i32 %51, ptr %.3265, align 4
+  store i32 %51, ptr %.4265, align 4
   %52 = and i32 %48, 65280
   %53 = or disjoint i32 %52, -16777216
-  %54 = getelementptr inbounds i8, ptr %.3265, i64 4
+  %54 = getelementptr inbounds i8, ptr %.4265, i64 4
   store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %.3265, i64 8
+  %55 = getelementptr inbounds i8, ptr %.4265, i64 8
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 16
   %.not239 = icmp ugt i64 %indvars.iv.next299, %8
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 16
@@ -972,16 +972,16 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit271, %.loopexit.loopexit270, %.loopexit.loopexit269, %.loopexit.loopexit, %.preheader245, %.preheader243, %.preheader241, %.preheader
-  %.4231 = phi i32 [ 0, %.preheader ], [ 0, %.preheader241 ], [ 0, %.preheader243 ], [ 0, %.preheader245 ], [ %56, %.loopexit.loopexit ], [ %57, %.loopexit.loopexit269 ], [ %58, %.loopexit.loopexit270 ], [ %59, %.loopexit.loopexit271 ]
-  %.4 = phi ptr [ %3, %.preheader ], [ %3, %.preheader241 ], [ %3, %.preheader243 ], [ %3, %.preheader245 ], [ %55, %.loopexit.loopexit ], [ %22, %.loopexit.loopexit269 ], [ %30, %.loopexit.loopexit270 ], [ %41, %.loopexit.loopexit271 ]
-  %.not240 = icmp eq i32 %.4231, %1
+  %.1228 = phi i32 [ 0, %.preheader ], [ 0, %.preheader241 ], [ 0, %.preheader243 ], [ 0, %.preheader245 ], [ %56, %.loopexit.loopexit ], [ %57, %.loopexit.loopexit269 ], [ %58, %.loopexit.loopexit270 ], [ %59, %.loopexit.loopexit271 ]
+  %.1 = phi ptr [ %3, %.preheader ], [ %3, %.preheader241 ], [ %3, %.preheader243 ], [ %3, %.preheader245 ], [ %55, %.loopexit.loopexit ], [ %22, %.loopexit.loopexit269 ], [ %30, %.loopexit.loopexit270 ], [ %41, %.loopexit.loopexit271 ]
+  %.not240 = icmp eq i32 %.1228, %1
   br i1 %.not240, label %64, label %60
 
 60:                                               ; preds = %.loopexit
-  %61 = zext nneg i32 %.4231 to i64
+  %61 = zext nneg i32 %.1228 to i64
   %62 = getelementptr inbounds i8, ptr %0, i64 %61
-  %63 = sub nsw i32 %1, %.4231
-  tail call void @VP8LBundleColorMap_C(ptr noundef %62, i32 noundef %63, i32 noundef %2, ptr noundef %.4) #7
+  %63 = sub nsw i32 %1, %.1228
+  tail call void @VP8LBundleColorMap_C(ptr noundef %62, i32 noundef %63, i32 noundef %2, ptr noundef %.1) #7
   br label %64
 
 64:                                               ; preds = %60, %.loopexit

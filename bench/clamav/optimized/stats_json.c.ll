@@ -170,9 +170,9 @@ define ptr @export_stats_to_json(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph537:                                        ; preds = %23, %283
   %.0174535 = phi ptr [ %.0174, %283 ], [ %.0174530, %23 ]
-  %.0172534 = phi i64 [ %.4, %283 ], [ %26, %23 ]
-  %.0176533 = phi ptr [ %.4180, %283 ], [ %14, %23 ]
-  %.0306532 = phi i64 [ %.17, %283 ], [ 512, %23 ]
+  %.0172534 = phi i64 [ %.1173, %283 ], [ %26, %23 ]
+  %.0176533 = phi ptr [ %.1177, %283 ], [ %14, %23 ]
+  %.0306532 = phi i64 [ %.1307, %283 ], [ 512, %23 ]
   %28 = getelementptr inbounds i8, ptr %.0174535, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
@@ -228,19 +228,19 @@ ensure_bufsize.exit:                              ; preds = %hex_encode.exit
 ensure_bufsize.exit.thread314:                    ; preds = %.ensure_bufsize.exit.thread314_crit_edge, %ensure_bufsize.exit
   %.pre-phi637 = phi i64 [ %.pre636, %.ensure_bufsize.exit.thread314_crit_edge ], [ %42, %ensure_bufsize.exit ]
   %.010.i319 = phi ptr [ %46, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0176533, %ensure_bufsize.exit ]
-  %.1307318 = phi i64 [ %45, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0306532, %ensure_bufsize.exit ]
+  %.5318 = phi i64 [ %45, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0306532, %ensure_bufsize.exit ]
   %51 = getelementptr inbounds i8, ptr %.010.i319, i64 %.0172534
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %.pre-phi637, ptr noundef nonnull @.str.6) #13
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #16
   %54 = add i64 %53, %.0172534
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %56 = add i64 %55, 17
-  %57 = sub i64 %.1307318, %54
+  %57 = sub i64 %.5318, %54
   %58 = icmp ult i64 %57, %56
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %ensure_bufsize.exit.thread314
-  %60 = add i64 %.1307318, 512
+  %60 = add i64 %.5318, 512
   %61 = call ptr @realloc(ptr noundef nonnull %.010.i319, i64 noundef %60) #14
   %.not.i227 = icmp eq ptr %61, null
   br i1 %.not.i227, label %ensure_bufsize.exit228, label %._crit_edge633
@@ -260,7 +260,7 @@ ensure_bufsize.exit228:                           ; preds = %59
 
 66:                                               ; preds = %._crit_edge633, %ensure_bufsize.exit.thread314
   %.pre-phi639 = phi i64 [ %.pre638, %._crit_edge633 ], [ %57, %ensure_bufsize.exit.thread314 ]
-  %.2308.ph = phi i64 [ %60, %._crit_edge633 ], [ %.1307318, %ensure_bufsize.exit.thread314 ]
+  %.6.ph = phi i64 [ %60, %._crit_edge633 ], [ %.5318, %ensure_bufsize.exit.thread314 ]
   %.010.i226.ph = phi ptr [ %61, %._crit_edge633 ], [ %.010.i319, %ensure_bufsize.exit.thread314 ]
   %67 = getelementptr inbounds i8, ptr %.010.i226.ph, i64 %54
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %67, i64 noundef %.pre-phi639, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #13
@@ -270,12 +270,12 @@ ensure_bufsize.exit228:                           ; preds = %59
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 33, ptr noundef nonnull @.str.8, i32 noundef %71) #13
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %74 = add i64 %73, 20
-  %75 = sub i64 %.2308.ph, %70
+  %75 = sub i64 %.6.ph, %70
   %76 = icmp ult i64 %75, %74
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %66
-  %78 = add i64 %.2308.ph, 512
+  %78 = add i64 %.6.ph, 512
   %79 = call ptr @realloc(ptr noundef nonnull %.010.i226.ph, i64 noundef %78) #14
   %.not.i230 = icmp eq ptr %79, null
   br i1 %.not.i230, label %ensure_bufsize.exit231, label %._crit_edge632
@@ -295,7 +295,7 @@ ensure_bufsize.exit231:                           ; preds = %77
 
 84:                                               ; preds = %._crit_edge632, %66
   %.pre-phi641 = phi i64 [ %.pre640, %._crit_edge632 ], [ %75, %66 ]
-  %.3309.ph = phi i64 [ %78, %._crit_edge632 ], [ %.2308.ph, %66 ]
+  %.7.ph = phi i64 [ %78, %._crit_edge632 ], [ %.6.ph, %66 ]
   %.010.i229.ph = phi ptr [ %79, %._crit_edge632 ], [ %.010.i226.ph, %66 ]
   %85 = getelementptr inbounds i8, ptr %.010.i229.ph, i64 %70
   %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %85, i64 noundef %.pre-phi641, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #13
@@ -306,12 +306,12 @@ ensure_bufsize.exit231:                           ; preds = %77
   %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 33, ptr noundef nonnull @.str.8, i32 noundef %90) #13
   %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %93 = add i64 %92, 20
-  %94 = sub i64 %.3309.ph, %88
+  %94 = sub i64 %.7.ph, %88
   %95 = icmp ult i64 %94, %93
   br i1 %95, label %96, label %103
 
 96:                                               ; preds = %84
-  %97 = add i64 %.3309.ph, 512
+  %97 = add i64 %.7.ph, 512
   %98 = call ptr @realloc(ptr noundef nonnull %.010.i229.ph, i64 noundef %97) #14
   %.not.i233 = icmp eq ptr %98, null
   br i1 %.not.i233, label %ensure_bufsize.exit234, label %._crit_edge631
@@ -331,18 +331,18 @@ ensure_bufsize.exit234:                           ; preds = %96
 
 103:                                              ; preds = %._crit_edge631, %84
   %.pre-phi643 = phi i64 [ %.pre642, %._crit_edge631 ], [ %94, %84 ]
-  %.4310.ph = phi i64 [ %97, %._crit_edge631 ], [ %.3309.ph, %84 ]
+  %.8.ph = phi i64 [ %97, %._crit_edge631 ], [ %.7.ph, %84 ]
   %.010.i232.ph = phi ptr [ %98, %._crit_edge631 ], [ %.010.i229.ph, %84 ]
   %104 = getelementptr inbounds i8, ptr %.010.i232.ph, i64 %88
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %104, i64 noundef %.pre-phi643, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #13
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #16
   %107 = add i64 %106, %88
-  %108 = sub i64 %.4310.ph, %107
+  %108 = sub i64 %.8.ph, %107
   %109 = icmp ult i64 %108, 30
   br i1 %109, label %110, label %117
 
 110:                                              ; preds = %103
-  %111 = add i64 %.4310.ph, 512
+  %111 = add i64 %.8.ph, 512
   %112 = call ptr @realloc(ptr noundef nonnull %.010.i232.ph, i64 noundef %111) #14
   %.not.i236 = icmp eq ptr %112, null
   br i1 %.not.i236, label %ensure_bufsize.exit237, label %117
@@ -357,7 +357,7 @@ ensure_bufsize.exit237:                           ; preds = %110
   br label %.loopexit
 
 117:                                              ; preds = %103, %110
-  %.5.ph = phi i64 [ %111, %110 ], [ %.4310.ph, %103 ]
+  %.9.ph = phi i64 [ %111, %110 ], [ %.8.ph, %103 ]
   %.010.i235.ph = phi ptr [ %112, %110 ], [ %.010.i232.ph, %103 ]
   %118 = getelementptr inbounds i8, ptr %.0174535, i64 32
   %119 = load ptr, ptr %118, align 8
@@ -370,12 +370,12 @@ ensure_bufsize.exit237:                           ; preds = %110
   br i1 %.not213, label %232, label %122
 
 122:                                              ; preds = %120
-  %123 = sub i64 %.5.ph, %107
+  %123 = sub i64 %.9.ph, %107
   %124 = icmp ult i64 %123, 30
   br i1 %124, label %125, label %132
 
 125:                                              ; preds = %122
-  %126 = add i64 %.5.ph, 512
+  %126 = add i64 %.9.ph, 512
   %127 = call ptr @realloc(ptr noundef nonnull %.010.i235.ph, i64 noundef %126) #14
   %.not.i239 = icmp eq ptr %127, null
   br i1 %.not.i239, label %ensure_bufsize.exit240, label %._crit_edge629
@@ -395,7 +395,7 @@ ensure_bufsize.exit240:                           ; preds = %125
 
 132:                                              ; preds = %._crit_edge629, %122
   %.pre-phi647 = phi i64 [ %.pre646, %._crit_edge629 ], [ %123, %122 ]
-  %.6.ph = phi i64 [ %126, %._crit_edge629 ], [ %.5.ph, %122 ]
+  %.10.ph = phi i64 [ %126, %._crit_edge629 ], [ %.9.ph, %122 ]
   %.010.i238.ph = phi ptr [ %127, %._crit_edge629 ], [ %.010.i235.ph, %122 ]
   %133 = getelementptr inbounds i8, ptr %.010.i238.ph, i64 %107
   %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %133, i64 noundef %.pre-phi647, ptr noundef nonnull @.str.11) #13
@@ -408,21 +408,21 @@ ensure_bufsize.exit240:                           ; preds = %125
 
 .lr.ph:                                           ; preds = %132, %209
   %.0171516 = phi i64 [ %214, %209 ], [ 0, %132 ]
-  %.1173515 = phi i64 [ %213, %209 ], [ %136, %132 ]
-  %.1177514 = phi ptr [ %.010.i250.ph, %209 ], [ %.010.i238.ph, %132 ]
-  %.7513 = phi i64 [ %.11.ph, %209 ], [ %.6.ph, %132 ]
-  %139 = sub i64 %.7513, %.1173515
+  %.3515 = phi i64 [ %213, %209 ], [ %136, %132 ]
+  %.3179514 = phi ptr [ %.010.i250.ph, %209 ], [ %.010.i238.ph, %132 ]
+  %.3309513 = phi i64 [ %.14.ph, %209 ], [ %.10.ph, %132 ]
+  %139 = sub i64 %.3309513, %.3515
   %140 = icmp ult i64 %139, 30
   br i1 %140, label %141, label %148
 
 141:                                              ; preds = %.lr.ph
-  %142 = add i64 %.7513, 512
-  %143 = call ptr @realloc(ptr noundef nonnull %.1177514, i64 noundef %142) #14
+  %142 = add i64 %.3309513, 512
+  %143 = call ptr @realloc(ptr noundef nonnull %.3179514, i64 noundef %142) #14
   %.not.i242 = icmp eq ptr %143, null
   br i1 %.not.i242, label %ensure_bufsize.exit243, label %._crit_edge627
 
 ._crit_edge627:                                   ; preds = %141
-  %.pre650 = sub i64 %142, %.1173515
+  %.pre650 = sub i64 %142, %.3515
   br label %148
 
 ensure_bufsize.exit243:                           ; preds = %141
@@ -431,25 +431,25 @@ ensure_bufsize.exit243:                           ; preds = %141
   %146 = call ptr @strerror(i32 noundef %145) #13
   %147 = load i32, ptr %144, align 4
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %146, i32 noundef %147) #13
-  call void @free(ptr noundef nonnull %.1177514) #13
+  call void @free(ptr noundef nonnull %.3179514) #13
   br label %.loopexit
 
 148:                                              ; preds = %._crit_edge627, %.lr.ph
   %.pre-phi651 = phi i64 [ %.pre650, %._crit_edge627 ], [ %139, %.lr.ph ]
-  %.8.ph = phi i64 [ %142, %._crit_edge627 ], [ %.7513, %.lr.ph ]
-  %.010.i241.ph = phi ptr [ %143, %._crit_edge627 ], [ %.1177514, %.lr.ph ]
-  %149 = getelementptr inbounds i8, ptr %.010.i241.ph, i64 %.1173515
+  %.11.ph = phi i64 [ %142, %._crit_edge627 ], [ %.3309513, %.lr.ph ]
+  %.010.i241.ph = phi ptr [ %143, %._crit_edge627 ], [ %.3179514, %.lr.ph ]
+  %149 = getelementptr inbounds i8, ptr %.010.i241.ph, i64 %.3515
   %.not222 = icmp eq i64 %.0171516, 0
   %150 = select i1 %.not222, ptr @.str.14, ptr @.str.13
   %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %149, i64 noundef %.pre-phi651, ptr noundef nonnull @.str.12, ptr noundef nonnull %150) #13
   %152 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #16
-  %153 = add i64 %152, %.1173515
-  %154 = sub i64 %.8.ph, %153
+  %153 = add i64 %152, %.3515
+  %154 = sub i64 %.11.ph, %153
   %155 = icmp ult i64 %154, 65
   br i1 %155, label %156, label %163
 
 156:                                              ; preds = %148
-  %157 = add i64 %.8.ph, 512
+  %157 = add i64 %.11.ph, 512
   %158 = call ptr @realloc(ptr noundef nonnull %.010.i241.ph, i64 noundef %157) #14
   %.not.i245 = icmp eq ptr %158, null
   br i1 %.not.i245, label %ensure_bufsize.exit246, label %163
@@ -464,7 +464,7 @@ ensure_bufsize.exit246:                           ; preds = %156
   br label %.loopexit
 
 163:                                              ; preds = %148, %156
-  %.9.ph = phi i64 [ %157, %156 ], [ %.8.ph, %148 ]
+  %.12.ph = phi i64 [ %157, %156 ], [ %.11.ph, %148 ]
   %.010.i244.ph = phi ptr [ %158, %156 ], [ %.010.i241.ph, %148 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %3, i8 0, i64 33, i1 false)
   br label %164
@@ -487,16 +487,16 @@ ensure_bufsize.exit246:                           ; preds = %156
 
 176:                                              ; preds = %164
   %177 = getelementptr inbounds i8, ptr %.010.i244.ph, i64 %153
-  %178 = sub i64 %.9.ph, %153
+  %178 = sub i64 %.12.ph, %153
   %179 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %177, i64 noundef %178, ptr noundef nonnull @.str.15, ptr noundef nonnull %3) #13
   %180 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #16
   %181 = add i64 %180, %153
-  %182 = sub i64 %.9.ph, %181
+  %182 = sub i64 %.12.ph, %181
   %183 = icmp ult i64 %182, 65
   br i1 %183, label %184, label %ensure_bufsize.exit249
 
 184:                                              ; preds = %176
-  %185 = add i64 %.9.ph, 512
+  %185 = add i64 %.12.ph, 512
   %186 = call ptr @realloc(ptr noundef %.010.i244.ph, i64 noundef %185) #14
   %.not.i248 = icmp eq ptr %186, null
   br i1 %.not.i248, label %ensure_bufsize.exit249.thread, label %.ensure_bufsize.exit249.thread358_crit_edge
@@ -521,7 +521,7 @@ ensure_bufsize.exit249:                           ; preds = %176
 ensure_bufsize.exit249.thread358:                 ; preds = %.ensure_bufsize.exit249.thread358_crit_edge, %ensure_bufsize.exit249
   %.pre-phi653 = phi i64 [ %.pre652, %.ensure_bufsize.exit249.thread358_crit_edge ], [ %182, %ensure_bufsize.exit249 ]
   %.010.i247363 = phi ptr [ %186, %.ensure_bufsize.exit249.thread358_crit_edge ], [ %.010.i244.ph, %ensure_bufsize.exit249 ]
-  %.10362 = phi i64 [ %185, %.ensure_bufsize.exit249.thread358_crit_edge ], [ %.9.ph, %ensure_bufsize.exit249 ]
+  %.13362 = phi i64 [ %185, %.ensure_bufsize.exit249.thread358_crit_edge ], [ %.12.ph, %ensure_bufsize.exit249 ]
   %191 = getelementptr inbounds i8, ptr %.010.i247363, i64 %181
   %192 = load ptr, ptr %118, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 8
@@ -531,12 +531,12 @@ ensure_bufsize.exit249.thread358:                 ; preds = %.ensure_bufsize.exi
   %197 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %191, i64 noundef %.pre-phi653, ptr noundef nonnull @.str.16, i64 noundef %196) #13
   %198 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %191) #16
   %199 = add i64 %198, %181
-  %200 = sub i64 %.10362, %199
+  %200 = sub i64 %.13362, %199
   %201 = icmp ult i64 %200, 30
   br i1 %201, label %202, label %209
 
 202:                                              ; preds = %ensure_bufsize.exit249.thread358
-  %203 = add i64 %.10362, 512
+  %203 = add i64 %.13362, 512
   %204 = call ptr @realloc(ptr noundef nonnull %.010.i247363, i64 noundef %203) #14
   %.not.i251 = icmp eq ptr %204, null
   br i1 %.not.i251, label %ensure_bufsize.exit252, label %._crit_edge626
@@ -556,7 +556,7 @@ ensure_bufsize.exit252:                           ; preds = %202
 
 209:                                              ; preds = %._crit_edge626, %ensure_bufsize.exit249.thread358
   %.pre-phi655 = phi i64 [ %.pre654, %._crit_edge626 ], [ %200, %ensure_bufsize.exit249.thread358 ]
-  %.11.ph = phi i64 [ %203, %._crit_edge626 ], [ %.10362, %ensure_bufsize.exit249.thread358 ]
+  %.14.ph = phi i64 [ %203, %._crit_edge626 ], [ %.13362, %ensure_bufsize.exit249.thread358 ]
   %.010.i250.ph = phi ptr [ %204, %._crit_edge626 ], [ %.010.i247363, %ensure_bufsize.exit249.thread358 ]
   %210 = getelementptr inbounds i8, ptr %.010.i250.ph, i64 %199
   %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %210, i64 noundef %.pre-phi655, ptr noundef nonnull @.str.17) #13
@@ -569,21 +569,21 @@ ensure_bufsize.exit252:                           ; preds = %202
   br i1 %217, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %209, %132
-  %.7.lcssa = phi i64 [ %.6.ph, %132 ], [ %.11.ph, %209 ]
-  %.1177.lcssa = phi ptr [ %.010.i238.ph, %132 ], [ %.010.i250.ph, %209 ]
-  %.1173.lcssa = phi i64 [ %136, %132 ], [ %213, %209 ]
-  %218 = sub i64 %.7.lcssa, %.1173.lcssa
+  %.3309.lcssa = phi i64 [ %.10.ph, %132 ], [ %.14.ph, %209 ]
+  %.3179.lcssa = phi ptr [ %.010.i238.ph, %132 ], [ %.010.i250.ph, %209 ]
+  %.3.lcssa = phi i64 [ %136, %132 ], [ %213, %209 ]
+  %218 = sub i64 %.3309.lcssa, %.3.lcssa
   %219 = icmp ult i64 %218, 20
   br i1 %219, label %220, label %227
 
 220:                                              ; preds = %._crit_edge
-  %221 = add i64 %.7.lcssa, 512
-  %222 = call ptr @realloc(ptr noundef nonnull %.1177.lcssa, i64 noundef %221) #14
+  %221 = add i64 %.3309.lcssa, 512
+  %222 = call ptr @realloc(ptr noundef nonnull %.3179.lcssa, i64 noundef %221) #14
   %.not.i254 = icmp eq ptr %222, null
   br i1 %.not.i254, label %ensure_bufsize.exit255, label %._crit_edge628
 
 ._crit_edge628:                                   ; preds = %220
-  %.pre648 = sub i64 %221, %.1173.lcssa
+  %.pre648 = sub i64 %221, %.3.lcssa
   br label %227
 
 ensure_bufsize.exit255:                           ; preds = %220
@@ -592,25 +592,25 @@ ensure_bufsize.exit255:                           ; preds = %220
   %225 = call ptr @strerror(i32 noundef %224) #13
   %226 = load i32, ptr %223, align 4
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %225, i32 noundef %226) #13
-  call void @free(ptr noundef nonnull %.1177.lcssa) #13
+  call void @free(ptr noundef nonnull %.3179.lcssa) #13
   br label %.loopexit
 
 227:                                              ; preds = %._crit_edge628, %._crit_edge
   %.pre-phi649 = phi i64 [ %.pre648, %._crit_edge628 ], [ %218, %._crit_edge ]
-  %.12.ph = phi i64 [ %221, %._crit_edge628 ], [ %.7.lcssa, %._crit_edge ]
-  %.010.i253.ph = phi ptr [ %222, %._crit_edge628 ], [ %.1177.lcssa, %._crit_edge ]
-  %228 = getelementptr inbounds i8, ptr %.010.i253.ph, i64 %.1173.lcssa
+  %.15.ph = phi i64 [ %221, %._crit_edge628 ], [ %.3309.lcssa, %._crit_edge ]
+  %.010.i253.ph = phi ptr [ %222, %._crit_edge628 ], [ %.3179.lcssa, %._crit_edge ]
+  %228 = getelementptr inbounds i8, ptr %.010.i253.ph, i64 %.3.lcssa
   %229 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %228, i64 noundef %.pre-phi649, ptr noundef nonnull @.str.18) #13
   %230 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #16
-  %231 = add i64 %230, %.1173.lcssa
+  %231 = add i64 %230, %.3.lcssa
   br label %232
 
 232:                                              ; preds = %227, %120, %117
-  %.13 = phi i64 [ %.5.ph, %117 ], [ %.5.ph, %120 ], [ %.12.ph, %227 ]
+  %.2308 = phi i64 [ %.9.ph, %117 ], [ %.9.ph, %120 ], [ %.15.ph, %227 ]
   %.2178 = phi ptr [ %.010.i235.ph, %117 ], [ %.010.i235.ph, %120 ], [ %.010.i253.ph, %227 ]
   %.2 = phi i64 [ %107, %117 ], [ %107, %120 ], [ %231, %227 ]
   %233 = getelementptr inbounds i8, ptr %.2178, i64 %.2
-  %234 = sub i64 %.13, %.2
+  %234 = sub i64 %.2308, %.2
   %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %233, i64 noundef %234, ptr noundef nonnull @.str.19) #13
   %236 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #16
   %237 = add i64 %236, %.2
@@ -623,24 +623,24 @@ ensure_bufsize.exit255:                           ; preds = %220
   %240 = phi ptr [ %263, %253 ], [ %238, %232 ]
   %241 = phi ptr [ %265, %253 ], [ %239, %232 ]
   %.1523 = phi i64 [ %262, %253 ], [ 0, %232 ]
-  %.3522 = phi i64 [ %261, %253 ], [ %237, %232 ]
-  %.3179521 = phi ptr [ %.010.i256.ph, %253 ], [ %.2178, %232 ]
-  %.14520 = phi i64 [ %.15.ph, %253 ], [ %.13, %232 ]
+  %.4522 = phi i64 [ %261, %253 ], [ %237, %232 ]
+  %.4180521 = phi ptr [ %.010.i256.ph, %253 ], [ %.2178, %232 ]
+  %.4310520 = phi i64 [ %.16.ph, %253 ], [ %.2308, %232 ]
   %242 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %241) #16
   %243 = add i64 %242, 5
-  %244 = sub i64 %.14520, %.3522
+  %244 = sub i64 %.4310520, %.4522
   %245 = icmp ult i64 %244, %243
   br i1 %245, label %246, label %253
 
 246:                                              ; preds = %.lr.ph525
-  %247 = add i64 %.14520, 512
-  %248 = call ptr @realloc(ptr noundef nonnull %.3179521, i64 noundef %247) #14
+  %247 = add i64 %.4310520, 512
+  %248 = call ptr @realloc(ptr noundef nonnull %.4180521, i64 noundef %247) #14
   %.not.i257 = icmp eq ptr %248, null
   br i1 %.not.i257, label %ensure_bufsize.exit258, label %._crit_edge624
 
 ._crit_edge624:                                   ; preds = %246
   %.pre = load ptr, ptr %.0174535, align 8
-  %.pre625 = sub i64 %247, %.3522
+  %.pre625 = sub i64 %247, %.4522
   br label %253
 
 ensure_bufsize.exit258:                           ; preds = %246
@@ -649,22 +649,22 @@ ensure_bufsize.exit258:                           ; preds = %246
   %251 = call ptr @strerror(i32 noundef %250) #13
   %252 = load i32, ptr %249, align 4
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %251, i32 noundef %252) #13
-  call void @free(ptr noundef nonnull %.3179521) #13
+  call void @free(ptr noundef nonnull %.4180521) #13
   br label %.loopexit
 
 253:                                              ; preds = %._crit_edge624, %.lr.ph525
   %.pre-phi = phi i64 [ %.pre625, %._crit_edge624 ], [ %244, %.lr.ph525 ]
   %254 = phi ptr [ %.pre, %._crit_edge624 ], [ %240, %.lr.ph525 ]
-  %.15.ph = phi i64 [ %247, %._crit_edge624 ], [ %.14520, %.lr.ph525 ]
-  %.010.i256.ph = phi ptr [ %248, %._crit_edge624 ], [ %.3179521, %.lr.ph525 ]
-  %255 = getelementptr inbounds i8, ptr %.010.i256.ph, i64 %.3522
+  %.16.ph = phi i64 [ %247, %._crit_edge624 ], [ %.4310520, %.lr.ph525 ]
+  %.010.i256.ph = phi ptr [ %248, %._crit_edge624 ], [ %.4180521, %.lr.ph525 ]
+  %255 = getelementptr inbounds i8, ptr %.010.i256.ph, i64 %.4522
   %.not220 = icmp eq i64 %.1523, 0
   %256 = select i1 %.not220, ptr @.str.14, ptr @.str.21
   %257 = getelementptr inbounds ptr, ptr %254, i64 %.1523
   %258 = load ptr, ptr %257, align 8
   %259 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %255, i64 noundef %.pre-phi, ptr noundef nonnull @.str.20, ptr noundef nonnull %256, ptr noundef %258) #13
   %260 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %255) #16
-  %261 = add i64 %260, %.3522
+  %261 = add i64 %260, %.4522
   %262 = add i64 %.1523, 1
   %263 = load ptr, ptr %.0174535, align 8
   %264 = getelementptr inbounds ptr, ptr %263, i64 %262
@@ -673,21 +673,21 @@ ensure_bufsize.exit258:                           ; preds = %246
   br i1 %.not216, label %._crit_edge526, label %.lr.ph525
 
 ._crit_edge526:                                   ; preds = %253, %232
-  %.14.lcssa = phi i64 [ %.13, %232 ], [ %.15.ph, %253 ]
-  %.3179.lcssa = phi ptr [ %.2178, %232 ], [ %.010.i256.ph, %253 ]
-  %.3.lcssa = phi i64 [ %237, %232 ], [ %261, %253 ]
-  %266 = sub i64 %.14.lcssa, %.3.lcssa
+  %.4310.lcssa = phi i64 [ %.2308, %232 ], [ %.16.ph, %253 ]
+  %.4180.lcssa = phi ptr [ %.2178, %232 ], [ %.010.i256.ph, %253 ]
+  %.4.lcssa = phi i64 [ %237, %232 ], [ %261, %253 ]
+  %266 = sub i64 %.4310.lcssa, %.4.lcssa
   %267 = icmp ult i64 %266, 10
   br i1 %267, label %268, label %275
 
 268:                                              ; preds = %._crit_edge526
-  %269 = add i64 %.14.lcssa, 512
-  %270 = call ptr @realloc(ptr noundef nonnull %.3179.lcssa, i64 noundef %269) #14
+  %269 = add i64 %.4310.lcssa, 512
+  %270 = call ptr @realloc(ptr noundef nonnull %.4180.lcssa, i64 noundef %269) #14
   %.not.i260 = icmp eq ptr %270, null
   br i1 %.not.i260, label %ensure_bufsize.exit261, label %._crit_edge630
 
 ._crit_edge630:                                   ; preds = %268
-  %.pre644 = sub i64 %269, %.3.lcssa
+  %.pre644 = sub i64 %269, %.4.lcssa
   br label %275
 
 ensure_bufsize.exit261:                           ; preds = %268
@@ -696,36 +696,36 @@ ensure_bufsize.exit261:                           ; preds = %268
   %273 = call ptr @strerror(i32 noundef %272) #13
   %274 = load i32, ptr %271, align 4
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %273, i32 noundef %274) #13
-  call void @free(ptr noundef nonnull %.3179.lcssa) #13
+  call void @free(ptr noundef nonnull %.4180.lcssa) #13
   br label %.loopexit
 
 275:                                              ; preds = %._crit_edge630, %._crit_edge526
   %.pre-phi645 = phi i64 [ %.pre644, %._crit_edge630 ], [ %266, %._crit_edge526 ]
-  %.16.ph = phi i64 [ %269, %._crit_edge630 ], [ %.14.lcssa, %._crit_edge526 ]
-  %.010.i259.ph = phi ptr [ %270, %._crit_edge630 ], [ %.3179.lcssa, %._crit_edge526 ]
-  %276 = getelementptr inbounds i8, ptr %.010.i259.ph, i64 %.3.lcssa
+  %.17.ph = phi i64 [ %269, %._crit_edge630 ], [ %.4310.lcssa, %._crit_edge526 ]
+  %.010.i259.ph = phi ptr [ %270, %._crit_edge630 ], [ %.4180.lcssa, %._crit_edge526 ]
+  %276 = getelementptr inbounds i8, ptr %.010.i259.ph, i64 %.4.lcssa
   %277 = getelementptr inbounds i8, ptr %.0174535, i64 48
   %278 = load ptr, ptr %277, align 8
   %.not218 = icmp eq ptr %278, null
   %279 = select i1 %.not218, ptr @.str.14, ptr @.str.13
   %280 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %276, i64 noundef %.pre-phi645, ptr noundef nonnull @.str.22, ptr noundef nonnull %279) #13
   %281 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %276) #16
-  %282 = add i64 %281, %.3.lcssa
+  %282 = add i64 %281, %.4.lcssa
   br label %283
 
 283:                                              ; preds = %.lr.ph537, %275
-  %.17 = phi i64 [ %.0306532, %.lr.ph537 ], [ %.16.ph, %275 ]
-  %.4180 = phi ptr [ %.0176533, %.lr.ph537 ], [ %.010.i259.ph, %275 ]
-  %.4 = phi i64 [ %.0172534, %.lr.ph537 ], [ %282, %275 ]
+  %.1307 = phi i64 [ %.0306532, %.lr.ph537 ], [ %.17.ph, %275 ]
+  %.1177 = phi ptr [ %.0176533, %.lr.ph537 ], [ %.010.i259.ph, %275 ]
+  %.1173 = phi i64 [ %.0172534, %.lr.ph537 ], [ %282, %275 ]
   %284 = getelementptr inbounds i8, ptr %.0174535, i64 48
   %.0174 = load ptr, ptr %284, align 8
   %.not205 = icmp eq ptr %.0174, null
   br i1 %.not205, label %._crit_edge538, label %.lr.ph537
 
 ._crit_edge538:                                   ; preds = %283, %23
-  %.0306.lcssa = phi i64 [ 512, %23 ], [ %.17, %283 ]
-  %.0176.lcssa = phi ptr [ %14, %23 ], [ %.4180, %283 ]
-  %.0172.lcssa = phi i64 [ %26, %23 ], [ %.4, %283 ]
+  %.0306.lcssa = phi i64 [ 512, %23 ], [ %.1307, %283 ]
+  %.0176.lcssa = phi ptr [ %14, %23 ], [ %.1177, %283 ]
+  %.0172.lcssa = phi i64 [ %26, %23 ], [ %.1173, %283 ]
   %285 = sub i64 %.0306.lcssa, %.0172.lcssa
   %286 = icmp ult i64 %285, 15
   br i1 %286, label %287, label %ensure_bufsize.exit264

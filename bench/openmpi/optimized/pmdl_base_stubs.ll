@@ -376,7 +376,7 @@ pmix_obj_run_destructors.exit127:                 ; preds = %.lr.ph.i124, %93
   br label %143
 
 143:                                              ; preds = %130, %134, %._crit_edge
-  %.195 = phi ptr [ %132, %134 ], [ %.093153, %130 ], [ null, %._crit_edge ]
+  %.094 = phi ptr [ %132, %134 ], [ %.093153, %130 ], [ null, %._crit_edge ]
   %.096155 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pmdl_globals, i64 464), align 8
   %.not116156 = icmp eq ptr %.096155, getelementptr inbounds (i8, ptr @pmix_pmdl_globals, i64 344)
   br i1 %.not116156, label %._crit_edge160, label %.lr.ph159
@@ -391,7 +391,7 @@ pmix_obj_run_destructors.exit127:                 ; preds = %.lr.ph.i124, %93
   br i1 %.not118, label %152, label %148
 
 148:                                              ; preds = %.lr.ph159
-  %149 = call i32 %147(ptr noundef %.195, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %6) #14
+  %149 = call i32 %147(ptr noundef %.094, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %6) #14
   switch i32 %149, label %150 [
     i32 -1366, label %152
     i32 0, label %152

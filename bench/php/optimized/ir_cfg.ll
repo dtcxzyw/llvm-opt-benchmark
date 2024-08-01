@@ -688,19 +688,19 @@ _ir_merge_blocks.exit:                            ; preds = %144, %109
   br label %ir_try_split_if.exit
 
 ir_try_split_if.exit:                             ; preds = %372, %378, %384, %387, %390
-  %.2145.i = phi i32 [ %.1.i, %390 ], [ %.1144.i, %387 ], [ %.1144.i, %372 ], [ %.1144.i, %378 ], [ %.1144.i, %384 ]
-  %.2.i = phi i32 [ %.1144.i, %390 ], [ %.1.i, %387 ], [ %.1.i, %372 ], [ %.1.i, %378 ], [ %.1.i, %384 ]
+  %.0143.i = phi i32 [ %.1.i, %390 ], [ %.1144.i, %387 ], [ %.1144.i, %372 ], [ %.1144.i, %378 ], [ %.1144.i, %384 ]
+  %.0142.i = phi i32 [ %.1144.i, %390 ], [ %.1.i, %387 ], [ %.1.i, %372 ], [ %.1.i, %378 ], [ %.1.i, %384 ]
   %.0119.i = phi i32 [ 65628, %390 ], [ 65629, %387 ], [ 65629, %372 ], [ 65629, %378 ], [ 65629, %384 ]
-  %391 = sext i32 %.2145.i to i64
-  %392 = sext i32 %.2.i to i64
+  %391 = sext i32 %.0143.i to i64
+  %392 = sext i32 %.0142.i to i64
   %393 = getelementptr inbounds %struct._ir_insn, ptr %367, i64 %392
   tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %.1705, i32 noundef %285) #13
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %289, i32 noundef %.2145.i) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %289, i32 noundef %.0143.i) #13
   %394 = getelementptr inbounds i8, ptr %287, i64 12
   %395 = load i32, ptr %394, align 4
   tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %395, i32 noundef %285, i32 noundef %.0117.i) #13
-  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0116.i, i32 noundef %.1705, i32 noundef %.2.i) #13
-  %396 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0117.i, i32 noundef %.2145.i) #13
+  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0116.i, i32 noundef %.1705, i32 noundef %.0142.i) #13
+  %396 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0117.i, i32 noundef %.0143.i) #13
   store i32 131172, ptr %.0118.i, align 8
   %397 = load i32, ptr %394, align 4
   %398 = getelementptr inbounds i8, ptr %.0118.i, i64 8
@@ -1464,7 +1464,7 @@ ir_optimize_merge.exit.thread:                    ; preds = %629, %477, %485, %4
 
 .preheader778:                                    ; preds = %.preheader778.preheader, %thread-pre-split
   %.lcssa854862 = phi i32 [ %989, %thread-pre-split ], [ %.lcssa821, %.preheader778.preheader ]
-  %.2691 = phi i32 [ %.3, %thread-pre-split ], [ %.1690.ph.ph, %.preheader778.preheader ]
+  %.3 = phi i32 [ %.4, %thread-pre-split ], [ %.1690.ph.ph, %.preheader778.preheader ]
   %796 = add i32 %.lcssa854862, -1
   store i32 %796, ptr %20, align 8
   %797 = zext i32 %796 to i64
@@ -1657,7 +1657,7 @@ _ir_merge_blocks.exit768:                         ; preds = %890, %856
 
 split:                                            ; preds = %837, %852, %840, %.lr.ph850._crit_edge
   %901 = phi ptr [ %.pre984, %.lr.ph850._crit_edge ], [ %.pre985, %840 ], [ %.pre985, %852 ], [ %.pre985, %837 ]
-  %902 = add i32 %.2691, 1
+  %902 = add i32 %.3, 1
   %903 = getelementptr inbounds i32, ptr %14, i64 %801
   store i32 %.3707848, ptr %903, align 4
   %904 = and i32 %799, 63
@@ -1795,13 +1795,13 @@ thread-pre-split.loopexit:                        ; preds = %984
 
 thread-pre-split:                                 ; preds = %953, %919, %917, %.preheader778, %thread-pre-split.loopexit, %933, %964
   %989 = phi i32 [ %.lcssa854862, %933 ], [ %966, %964 ], [ %.lcssa854861, %953 ], [ %796, %919 ], [ %796, %917 ], [ %796, %.preheader778 ], [ %985, %thread-pre-split.loopexit ]
-  %.3 = phi i32 [ %902, %933 ], [ %902, %964 ], [ %902, %953 ], [ %902, %919 ], [ %902, %917 ], [ %.2691, %.preheader778 ], [ %902, %thread-pre-split.loopexit ]
+  %.4 = phi i32 [ %902, %933 ], [ %902, %964 ], [ %902, %953 ], [ %902, %919 ], [ %902, %917 ], [ %.3, %.preheader778 ], [ %902, %thread-pre-split.loopexit ]
   %.not742 = icmp eq i32 %989, 0
   br i1 %.not742, label %.loopexit779, label %.preheader778
 
 .loopexit779:                                     ; preds = %thread-pre-split, %._crit_edge832, %._crit_edge832.thread
-  %.4 = phi i32 [ %.1690.ph.ph, %._crit_edge832 ], [ %.1690.ph.ph, %._crit_edge832.thread ], [ %.3, %thread-pre-split ]
-  %990 = add i32 %.4, 1
+  %.2691 = phi i32 [ %.1690.ph.ph, %._crit_edge832 ], [ %.1690.ph.ph, %._crit_edge832.thread ], [ %.4, %thread-pre-split ]
+  %990 = add i32 %.2691, 1
   %991 = zext i32 %990 to i64
   %992 = mul nuw nsw i64 %991, 52
   %993 = tail call noalias ptr @_emalloc(i64 noundef %992) #12
@@ -2874,26 +2874,26 @@ define hidden noundef i32 @ir_build_dominators_tree(ptr nocapture noundef %0) lo
   br label %25
 
 25:                                               ; preds = %25, %22
-  %.073 = phi i32 [ %15, %22 ], [ %26, %25 ]
-  %.070 = phi ptr [ %19, %22 ], [ %27, %25 ]
-  %26 = add i32 %.073, -1
-  %27 = getelementptr inbounds i8, ptr %.070, i64 4
+  %.174 = phi i32 [ %15, %22 ], [ %26, %25 ]
+  %.171 = phi ptr [ %19, %22 ], [ %27, %25 ]
+  %26 = add i32 %.174, -1
+  %27 = getelementptr inbounds i8, ptr %.171, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %28, %.067110
   br i1 %29, label %.loopexit90, label %25
 
 .loopexit90:                                      ; preds = %25, %.lr.ph112
-  %.174 = phi i32 [ %15, %.lr.ph112 ], [ %26, %25 ]
-  %.171 = phi ptr [ %19, %.lr.ph112 ], [ %27, %25 ]
+  %.073 = phi i32 [ %15, %.lr.ph112 ], [ %26, %25 ]
+  %.070 = phi ptr [ %19, %.lr.ph112 ], [ %27, %25 ]
   %.068 = phi i32 [ %20, %.lr.ph112 ], [ %28, %25 ]
-  %30 = add i32 %.174, -1
+  %30 = add i32 %.073, -1
   %.not83103 = icmp eq i32 %30, 0
   br i1 %.not83103, label %._crit_edge, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %.loopexit90, %.loopexit88
   %31 = phi i32 [ %48, %.loopexit88 ], [ %30, %.loopexit90 ]
   %.169105 = phi i32 [ %.4, %.loopexit88 ], [ %.068, %.loopexit90 ]
-  %.272104 = phi ptr [ %32, %.loopexit88 ], [ %.171, %.loopexit90 ]
+  %.272104 = phi ptr [ %32, %.loopexit88 ], [ %.070, %.loopexit90 ]
   %32 = getelementptr inbounds i8, ptr %.272104, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, %.067110
@@ -3252,7 +3252,7 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
   br label %131
 
 131:                                              ; preds = %172, %122
-  %.sroa.13.10 = phi i32 [ 0, %122 ], [ %.sroa.13.11, %172 ]
+  %.sroa.13.11 = phi i32 [ 0, %122 ], [ %.sroa.13.12, %172 ]
   %.2 = phi i32 [ %120, %122 ], [ %174, %172 ]
   %.0345 = phi i1 [ false, %122 ], [ %.1, %172 ]
   %.0344 = phi ptr [ %126, %122 ], [ %173, %172 ]
@@ -3284,7 +3284,7 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br i1 %144, label %145, label %162
 
 145:                                              ; preds = %ir_dominates.exit
-  %.not410 = icmp eq i32 %.sroa.13.10, 0
+  %.not410 = icmp eq i32 %.sroa.13.11, 0
   br i1 %.not410, label %146, label %147
 
 146:                                              ; preds = %145
@@ -3308,8 +3308,8 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
 157:                                              ; preds = %147
   %158 = or i64 %152, %155
   store i64 %158, ptr %151, align 8
-  %159 = add i32 %.sroa.13.10, 1
-  %160 = zext i32 %.sroa.13.10 to i64
+  %159 = add i32 %.sroa.13.11, 1
+  %160 = zext i32 %.sroa.13.11 to i64
   %161 = getelementptr inbounds i32, ptr %15, i64 %160
   store i32 %132, ptr %161, align 4
   br label %172
@@ -3330,7 +3330,7 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br label %172
 
 172:                                              ; preds = %167, %147, %157, %162, %131
-  %.sroa.13.11 = phi i32 [ %159, %157 ], [ %.sroa.13.10, %162 ], [ %.sroa.13.10, %131 ], [ %.sroa.13.10, %147 ], [ %.sroa.13.10, %167 ]
+  %.sroa.13.12 = phi i32 [ %159, %157 ], [ %.sroa.13.11, %162 ], [ %.sroa.13.11, %131 ], [ %.sroa.13.11, %147 ], [ %.sroa.13.11, %167 ]
   %.1 = phi i1 [ %.0345, %157 ], [ %.0345, %162 ], [ %.0345, %131 ], [ %.0345, %147 ], [ %spec.select, %167 ]
   %173 = getelementptr inbounds i8, ptr %.0344, i64 4
   %174 = add i32 %.2, -1
@@ -3350,7 +3350,7 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br label %.loopexit431
 
 180:                                              ; preds = %175
-  %.not413 = icmp eq i32 %.sroa.13.11, 0
+  %.not413 = icmp eq i32 %.sroa.13.12, 0
   br i1 %.not413, label %.loopexit431, label %181
 
 181:                                              ; preds = %180
@@ -3365,8 +3365,8 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br label %187
 
 187:                                              ; preds = %181, %.backedge
-  %.sroa.13.13488 = phi i32 [ %.sroa.13.11, %181 ], [ %.sroa.13.13.be, %.backedge ]
-  %188 = add i32 %.sroa.13.13488, -1
+  %.sroa.13.14488 = phi i32 [ %.sroa.13.12, %181 ], [ %.sroa.13.14.be, %.backedge ]
+  %188 = add i32 %.sroa.13.14488, -1
   %189 = zext i32 %188 to i64
   %190 = getelementptr inbounds i32, ptr %15, i64 %189
   %191 = load i32, ptr %190, align 4
@@ -3409,7 +3409,7 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
   br label %212
 
 212:                                              ; preds = %227, %207
-  %.sroa.13.14 = phi i32 [ %188, %207 ], [ %.sroa.13.15, %227 ]
+  %.sroa.13.16 = phi i32 [ %188, %207 ], [ %.sroa.13.17, %227 ]
   %.4 = phi i32 [ %206, %207 ], [ %229, %227 ]
   %.0342 = phi ptr [ %211, %207 ], [ %228, %227 ]
   %213 = load i32, ptr %.0342, align 4
@@ -3427,22 +3427,22 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
 222:                                              ; preds = %212
   %223 = or i64 %220, %217
   store i64 %223, ptr %216, align 8
-  %224 = add i32 %.sroa.13.14, 1
-  %225 = zext i32 %.sroa.13.14 to i64
+  %224 = add i32 %.sroa.13.16, 1
+  %225 = zext i32 %.sroa.13.16 to i64
   %226 = getelementptr inbounds i32, ptr %15, i64 %225
   store i32 %213, ptr %226, align 4
   br label %227
 
 227:                                              ; preds = %212, %222
-  %.sroa.13.15 = phi i32 [ %224, %222 ], [ %.sroa.13.14, %212 ]
+  %.sroa.13.17 = phi i32 [ %224, %222 ], [ %.sroa.13.16, %212 ]
   %228 = getelementptr inbounds i8, ptr %.0342, i64 4
   %229 = add i32 %.4, -1
   %.not419 = icmp eq i32 %229, 0
   br i1 %.not419, label %.backedge, label %212
 
 .backedge:                                        ; preds = %227, %197, %204, %199
-  %.sroa.13.13.be = phi i32 [ %188, %199 ], [ %188, %204 ], [ %188, %197 ], [ %.sroa.13.15, %227 ]
-  %.not414 = icmp eq i32 %.sroa.13.13.be, 0
+  %.sroa.13.14.be = phi i32 [ %188, %199 ], [ %188, %204 ], [ %188, %197 ], [ %.sroa.13.17, %227 ]
+  %.not414 = icmp eq i32 %.sroa.13.14.be, 0
   br i1 %.not414, label %.loopexit431, label %187
 
 .loopexit431:                                     ; preds = %.backedge, %.loopexit431.loopexit, %180, %113
@@ -3558,8 +3558,8 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   %.sroa.4.0 = phi i32 [ 0, %.preheader433 ], [ %.0323, %.loopexit507 ]
   %.0343 = phi i32 [ 0, %.preheader433 ], [ %71, %.loopexit507 ]
   %.0339 = phi i1 [ false, %.preheader433 ], [ %spec.select414, %.loopexit507 ]
-  %.0332 = phi i32 [ undef, %.preheader433 ], [ %.4336426, %.loopexit507 ]
-  %.0326 = phi i32 [ undef, %.preheader433 ], [ %.4330428, %.loopexit507 ]
+  %.0332 = phi i32 [ undef, %.preheader433 ], [ %.2334426, %.loopexit507 ]
+  %.0326 = phi i32 [ undef, %.preheader433 ], [ %.2328428, %.loopexit507 ]
   %30 = zext i32 %.sroa.4.0 to i64
   %31 = getelementptr inbounds i64, ptr %7, i64 %30
   br label %32
@@ -3691,10 +3691,10 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
 
 .lr.ph450:                                        ; preds = %.lr.ph450.preheader, %158
   %.2449 = phi i32 [ %159, %158 ], [ 0, %.lr.ph450.preheader ]
-  %.2328448 = phi i32 [ %.3329, %158 ], [ %.1327, %.lr.ph450.preheader ]
+  %.3329448 = phi i32 [ %.4330, %158 ], [ %.1327, %.lr.ph450.preheader ]
   %.0331447 = phi ptr [ %160, %158 ], [ %102, %.lr.ph450.preheader ]
-  %.2334446 = phi i32 [ %.3335, %158 ], [ %.1333, %.lr.ph450.preheader ]
-  %.0351445 = phi ptr [ %.1352, %158 ], [ null, %.lr.ph450.preheader ]
+  %.3335446 = phi i32 [ %.4336, %158 ], [ %.1333, %.lr.ph450.preheader ]
+  %.1352445 = phi ptr [ %.2353, %158 ], [ null, %.lr.ph450.preheader ]
   %103 = load i32, ptr %.0331447, align 4
   %104 = lshr i32 %103, 6
   %105 = zext nneg i32 %104 to i64
@@ -3780,16 +3780,16 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
 
 149:                                              ; preds = %124, %143, %133, %130, %147, %146, %135, %138, %121
   %.0337 = phi i32 [ %123, %121 ], [ %132, %130 ], [ %134, %133 ], [ %137, %135 ], [ %139, %138 ], [ 1, %146 ], [ %148, %147 ], [ %spec.select415, %124 ], [ 99, %143 ]
-  %.not409 = icmp eq ptr %.0351445, null
+  %.not409 = icmp eq ptr %.1352445, null
   br i1 %.not409, label %157, label %150
 
 150:                                              ; preds = %149
   %151 = getelementptr inbounds i8, ptr %114, i64 48
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %.0351445, i64 48
+  %153 = getelementptr inbounds i8, ptr %.1352445, i64 48
   %154 = load i32, ptr %153, align 4
   %155 = icmp ugt i32 %152, %154
-  %156 = icmp ugt i32 %.0337, %.2334446
+  %156 = icmp ugt i32 %.0337, %.3335446
   %or.cond416 = select i1 %155, i1 true, i1 %156
   br i1 %or.cond416, label %157, label %158
 
@@ -3797,24 +3797,24 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   br label %158
 
 158:                                              ; preds = %150, %.lr.ph450, %157
-  %.1352 = phi ptr [ %114, %157 ], [ %.0351445, %.lr.ph450 ], [ %.0351445, %150 ]
-  %.3335 = phi i32 [ %.0337, %157 ], [ %.2334446, %.lr.ph450 ], [ %.2334446, %150 ]
-  %.3329 = phi i32 [ %103, %157 ], [ %.2328448, %.lr.ph450 ], [ %.2328448, %150 ]
+  %.2353 = phi ptr [ %114, %157 ], [ %.1352445, %.lr.ph450 ], [ %.1352445, %150 ]
+  %.4336 = phi i32 [ %.0337, %157 ], [ %.3335446, %.lr.ph450 ], [ %.3335446, %150 ]
+  %.4330 = phi i32 [ %103, %157 ], [ %.3329448, %.lr.ph450 ], [ %.3329448, %150 ]
   %159 = add nuw i32 %.2449, 1
   %160 = getelementptr inbounds i8, ptr %.0331447, i64 4
   %exitcond.not = icmp eq i32 %159, %79
   br i1 %exitcond.not, label %.loopexit432, label %.lr.ph450
 
 .loopexit432:                                     ; preds = %158, %95
-  %.2353 = phi ptr [ %97, %95 ], [ %.1352, %158 ]
-  %.4336 = phi i32 [ %.1333, %95 ], [ %.3335, %158 ]
-  %.4330 = phi i32 [ %86, %95 ], [ %.3329, %158 ]
-  %.not411 = icmp eq ptr %.2353, null
+  %.0351 = phi ptr [ %97, %95 ], [ %.2353, %158 ]
+  %.2334 = phi i32 [ %.1333, %95 ], [ %.4336, %158 ]
+  %.2328 = phi i32 [ %86, %95 ], [ %.4330, %158 ]
+  %.not411 = icmp eq ptr %.0351, null
   br i1 %.not411, label %.thread420, label %206
 
 .thread420:                                       ; preds = %70, %80, %.loopexit432
-  %.4330428 = phi i32 [ %.4330, %.loopexit432 ], [ %.1327, %70 ], [ %86, %80 ]
-  %.4336426 = phi i32 [ %.4336, %.loopexit432 ], [ %.1333, %70 ], [ %.1333, %80 ]
+  %.2328428 = phi i32 [ %.2328, %.loopexit432 ], [ %.1327, %70 ], [ %86, %80 ]
+  %.2334426 = phi i32 [ %.2334, %.loopexit432 ], [ %.1333, %70 ], [ %.1333, %80 ]
   %161 = icmp ne i32 %77, 0
   %162 = icmp ne i32 %.1347, 0
   %or.cond = select i1 %161, i1 %162, i1 false
@@ -3887,11 +3887,11 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   br label %.backedge
 
 206:                                              ; preds = %.loopexit432
-  %207 = and i32 %.4330, 63
+  %207 = and i32 %.2328, 63
   %208 = zext nneg i32 %207 to i64
   %209 = shl nuw i64 1, %208
   %210 = xor i64 %209, -1
-  %211 = lshr i32 %.4330, 6
+  %211 = lshr i32 %.2328, 6
   %212 = zext nneg i32 %211 to i64
   %213 = getelementptr inbounds i64, ptr %7, i64 %212
   %214 = load i64, ptr %213, align 8
@@ -3900,10 +3900,10 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
   br label %.backedge
 
 .backedge:                                        ; preds = %206, %201
-  %.0348.be = phi ptr [ %.2353, %206 ], [ %203, %201 ]
-  %.1333.be = phi i32 [ %.4336, %206 ], [ %.4336426, %201 ]
-  %.1327.be = phi i32 [ %.4330, %206 ], [ %.4330428, %201 ]
-  %.1.be = phi i32 [ %.4330, %206 ], [ %.3, %201 ]
+  %.0348.be = phi ptr [ %.0351, %206 ], [ %203, %201 ]
+  %.1333.be = phi i32 [ %.2334, %206 ], [ %.2334426, %201 ]
+  %.1327.be = phi i32 [ %.2328, %206 ], [ %.2328428, %201 ]
+  %.1.be = phi i32 [ %.2328, %206 ], [ %.3, %201 ]
   br label %49
 
 .thread:                                          ; preds = %38, %34
@@ -4497,12 +4497,12 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %109 = getelementptr inbounds %struct._ir_insn, ptr %107, i64 %.pre-phi
   %110 = getelementptr inbounds %struct._ir_insn, ptr %107, i64 %.pre-phi401
   %111 = tail call fastcc zeroext i1 @ir_cmp_is_true(i32 noundef %108, ptr noundef %109, ptr noundef %110)
-  %.2393 = select i1 %111, i32 %.1, i32 %.1392
-  %.2 = select i1 %111, i32 %.1392, i32 %.1
+  %.0391 = select i1 %111, i32 %.1, i32 %.1392
+  %.0390 = select i1 %111, i32 %.1392, i32 %.1
   %.0347 = select i1 %111, i32 65628, i32 65629
-  %112 = sext i32 %.2393 to i64
+  %112 = sext i32 %.0391 to i64
   %113 = getelementptr inbounds %struct._ir_insn, ptr %107, i64 %112
-  %114 = sext i32 %.2 to i64
+  %114 = sext i32 %.0390 to i64
   %115 = getelementptr inbounds %struct._ir_insn, ptr %107, i64 %114
   %116 = getelementptr inbounds i8, ptr %30, i64 12
   %117 = icmp slt i32 %106, 0
@@ -4519,11 +4519,11 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
 122:                                              ; preds = %118
   %123 = tail call fastcc zeroext i1 @ir_cmp_is_true(i32 noundef %108, ptr noundef nonnull %120, ptr noundef nonnull %110)
   %124 = xor i1 %111, %123
-  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0344, i32 noundef %39, i32 noundef %.2) #13
+  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0344, i32 noundef %39, i32 noundef %.0390) #13
   br i1 %124, label %125, label %170
 
 125:                                              ; preds = %122
-  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0345, i32 noundef %39, i32 noundef %.2393) #13
+  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0345, i32 noundef %39, i32 noundef %.0391) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %126 = load ptr, ptr %21, align 8
   %127 = getelementptr inbounds %struct._ir_use_list, ptr %126, i64 %64
@@ -4600,7 +4600,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   br label %.sink.split
 
 170:                                              ; preds = %122
-  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0345, i32 noundef %39, i32 noundef %.2) #13
+  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0345, i32 noundef %39, i32 noundef %.0390) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %171 = load ptr, ptr %21, align 8
   %172 = getelementptr inbounds %struct._ir_use_list, ptr %171, i64 %64
@@ -4684,7 +4684,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
 
 219:                                              ; preds = %118, %105
   tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %39, i32 noundef %28) #13
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %.2393) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %.0391) #13
   %220 = load i32, ptr %116, align 4
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %224, label %222
@@ -4695,9 +4695,9 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   br label %224
 
 224:                                              ; preds = %222, %219
-  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0344, i32 noundef %39, i32 noundef %.2) #13
+  tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %.0344, i32 noundef %39, i32 noundef %.0390) #13
   tail call void @ir_use_list_replace(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %2, i32 noundef %.0345) #13
-  %225 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0345, i32 noundef %.2393) #13
+  %225 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0345, i32 noundef %.0391) #13
   store i32 131172, ptr %.0346, align 8
   %226 = load i32, ptr %5, align 8
   %227 = getelementptr inbounds i8, ptr %.0346, i64 8

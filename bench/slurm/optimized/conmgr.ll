@@ -6291,7 +6291,7 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
   br label %106
 
 106:                                              ; preds = %101, %100
-  %.1 = phi ptr [ %103, %101 ], [ %.0.ph, %100 ]
+  %.2 = phi ptr [ %103, %101 ], [ %.0.ph, %100 ]
   %107 = getelementptr inbounds i8, ptr %56, i64 88
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 @list_is_empty(ptr noundef %108) #17
@@ -6300,21 +6300,21 @@ define internal void @_poll_connections(ptr noundef %0) #0 {
 
 110:                                              ; preds = %106
   %111 = load i32, ptr %88, align 4
-  store i32 %111, ptr %.1, align 4
-  %112 = getelementptr inbounds i8, ptr %.1, i64 4
+  store i32 %111, ptr %.2, align 4
+  %112 = getelementptr inbounds i8, ptr %.2, i64 4
   store i16 4, ptr %112, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %91, %97, %110
-  %.1.sink = phi ptr [ %.1, %110 ], [ %.0.ph, %97 ], [ %.0.ph, %91 ]
-  %113 = getelementptr inbounds i8, ptr %.1.sink, i64 8
+  %.2.sink = phi ptr [ %.2, %110 ], [ %.0.ph, %97 ], [ %.0.ph, %91 ]
+  %113 = getelementptr inbounds i8, ptr %.2.sink, i64 8
   %114 = load i32, ptr %41, align 8
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %41, align 8
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.sink.split, %106
-  %.0.ph.be = phi ptr [ %.1, %106 ], [ %113, %.sink.split ]
+  %.0.ph.be = phi ptr [ %.2, %106 ], [ %113, %.sink.split ]
   br label %.outer, !llvm.loop !21
 
 116:                                              ; preds = %55

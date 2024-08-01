@@ -1089,11 +1089,11 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit222:     ; preds = %259, %254, %_ZN5Ipo
 
 304:                                              ; preds = %300, %302
   %.pn = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ]
-  %.1 = phi i1 [ %.0, %302 ], [ true, %300 ]
+  %.2 = phi i1 [ %.0, %302 ], [ true, %300 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #16
-  br i1 %.1, label %305, label %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit224
+  br i1 %.2, label %305, label %_ZN5Ipopt8SmartPtrIKNS_9SymMatrixEED2Ev.exit224
 
 305:                                              ; preds = %.thread, %304
   %.pn.pn227 = phi { ptr, i32 } [ %299, %.thread ], [ %.pn, %304 ]

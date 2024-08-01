@@ -2219,15 +2219,15 @@ dissect_CPMConnect.exit:                          ; preds = %75, %100
 
 .lr.ph.i:                                         ; preds = %146, %.lr.ph.i
   %.02.i = phi i32 [ %153, %.lr.ph.i ], [ 0, %146 ]
-  %.31.i = phi i32 [ %152, %.lr.ph.i ], [ %151, %146 ]
-  %152 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_CCategorizationSpec(ptr noundef %0, ptr noundef %1, i32 noundef %.31.i, ptr noundef %110, ptr noundef %115, ptr nonnull poison, i32 noundef %.02.i)
+  %.41.i = phi i32 [ %152, %.lr.ph.i ], [ %151, %146 ]
+  %152 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_CCategorizationSpec(ptr noundef %0, ptr noundef %1, i32 noundef %.41.i, ptr noundef %110, ptr noundef %115, ptr nonnull poison, i32 noundef %.02.i)
   %153 = add nuw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %153, %148
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %146, %141
-  %.4.i = phi i32 [ %145, %141 ], [ %151, %146 ], [ %152, %.lr.ph.i ]
-  %154 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %.4.i, i32 noundef 4, ptr noundef %110, ptr noundef nonnull @.str.1037)
+  %.3.i = phi i32 [ %145, %141 ], [ %151, %146 ], [ %152, %.lr.ph.i ]
+  %154 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %.3.i, i32 noundef 4, ptr noundef %110, ptr noundef nonnull @.str.1037)
   %155 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CRowsetProperties(ptr noundef %0, i32 noundef %154, ptr noundef %110, ptr poison, ptr nonnull poison)
   %156 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CPidMapper(ptr noundef %0, i32 noundef %155, ptr noundef %110, ptr noundef %115, ptr nonnull poison)
   call void (ptr, i32, ptr, ptr, ptr, ...) @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %156, ptr noundef %110, ptr noundef %115, ptr nonnull poison)
@@ -3889,26 +3889,26 @@ vType_get_type.exit:                              ; preds = %18
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
   %.05 = phi i32 [ %90, %.lr.ph ], [ 1, %67 ]
-  %.01174 = phi i32 [ %89, %.lr.ph ], [ %83, %67 ]
+  %.14 = phi i32 [ %89, %.lr.ph ], [ %83, %67 ]
   %.01183 = phi i32 [ %91, %.lr.ph ], [ 0, %67 ]
-  %84 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.01174) #10
-  %85 = add i32 %.01174, 4
+  %84 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.14) #10
+  %85 = add i32 %.14, 4
   %86 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %85) #10
   %87 = load i32, ptr @hf_mswsp_cbasestorvariant_rgsabound, align 4
-  %88 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %69, i32 noundef %87, ptr noundef %0, i32 noundef %.01174, i32 noundef 8, ptr noundef nonnull @.str.961, ptr noundef nonnull @.str.981, i32 noundef %.01183, i32 noundef %84, i32 noundef %86) #10
-  %89 = add i32 %.01174, 8
+  %88 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %69, i32 noundef %87, ptr noundef %0, i32 noundef %.14, i32 noundef 8, ptr noundef nonnull @.str.961, ptr noundef nonnull @.str.981, i32 noundef %.01183, i32 noundef %84, i32 noundef %86) #10
+  %89 = add i32 %.14, 8
   %90 = mul i32 %84, %.05
   %91 = add nuw nsw i32 %.01183, 1
   %exitcond.not = icmp eq i32 %91, %72
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
-  %.0117.lcssa = phi i32 [ %83, %67 ], [ %89, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %83, %67 ], [ %89, %.lr.ph ]
   %.0.lcssa = phi i32 [ 1, %67 ], [ %90, %.lr.ph ]
   %92 = getelementptr inbounds i8, ptr %4, i64 8
   %93 = load ptr, ptr %22, align 8
-  %94 = call fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 noundef %.0117.lcssa, ptr noundef nonnull %92, ptr noundef %93, i32 noundef %.0.lcssa)
-  %95 = add i32 %94, %.0117.lcssa
+  %94 = call fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 noundef %.1.lcssa, ptr noundef nonnull %92, ptr noundef %93, i32 noundef %.0.lcssa)
+  %95 = add i32 %94, %.1.lcssa
   br label %98
 
 96:                                               ; preds = %vType_get_type.exit
@@ -3917,16 +3917,16 @@ vType_get_type.exit:                              ; preds = %18
   br label %98
 
 98:                                               ; preds = %96, %._crit_edge, %55, %51
-  %.1 = phi i32 [ %41, %96 ], [ %95, %._crit_edge ], [ %66, %55 ], [ %54, %51 ]
+  %.0117 = phi i32 [ %41, %96 ], [ %95, %._crit_edge ], [ %66, %55 ], [ %54, %51 ]
   %99 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %99, ptr noundef %0, i32 noundef %.1) #10
-  call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %.1) #10
+  call void @proto_item_set_end(ptr noundef %99, ptr noundef %0, i32 noundef %.0117) #10
+  call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %.0117) #10
   %100 = call fastcc ptr @str_CBaseStorageVariant(ptr noundef nonnull %4, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.935, ptr noundef %100) #10
   %101 = load ptr, ptr %7, align 8
   %102 = call fastcc ptr @str_CBaseStorageVariant(ptr noundef nonnull %4, i32 noundef 1)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %101, ptr noundef nonnull @.str.935, ptr noundef %102) #10
-  ret i32 %.1
+  ret i32 %.0117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4480,17 +4480,17 @@ define internal noundef i32 @parse_CRestrictionArray(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.037 = phi i32 [ %27, %.lr.ph ], [ 0, %24 ]
-  %.03536 = phi i32 [ %26, %.lr.ph ], [ %25, %24 ]
-  %26 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %.03536, ptr noundef %13, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1045, i32 noundef %.037)
+  %.136 = phi i32 [ %26, %.lr.ph ], [ %25, %24 ]
+  %26 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ptr, ...) @parse_CRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %.136, ptr noundef %13, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1045, i32 noundef %.037)
   %27 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %27, %16
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %6
-  %.1 = phi i32 [ %23, %6 ], [ %25, %24 ], [ %26, %.lr.ph ]
+  %.035 = phi i32 [ %23, %6 ], [ %25, %24 ], [ %26, %.lr.ph ]
   %28 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %.1) #10
-  ret i32 %.1
+  call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %.035) #10
+  ret i32 %.035
 }
 
 ; Function Attrs: nounwind uwtable

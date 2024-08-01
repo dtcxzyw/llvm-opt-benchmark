@@ -474,7 +474,7 @@ if.then35:                                        ; preds = %if.else
   br label %err
 
 if.end37:                                         ; preds = %if.end27, %if.else
-  %buf.0 = phi ptr [ %call32, %if.else ], [ %out, %if.end27 ]
+  %buf.1 = phi ptr [ %call32, %if.else ], [ %out, %if.end27 ]
   %call38 = tail call ptr @BN_bin2bn(ptr noundef %in, i64 noundef %in_len, ptr noundef nonnull %call19) #7
   %cmp39 = icmp eq ptr %call38, null
   br i1 %cmp39, label %err, label %if.end42
@@ -506,7 +506,7 @@ lor.lhs.false52:                                  ; preds = %if.end48
   br i1 %tobool57.not, label %err, label %if.end59
 
 if.end59:                                         ; preds = %lor.lhs.false52
-  %call61 = tail call i32 @BN_bn2bin_padded(ptr noundef %buf.0, i64 noundef %in_len, ptr noundef nonnull %call20) #7
+  %call61 = tail call i32 @BN_bn2bin_padded(ptr noundef %buf.1, i64 noundef %in_len, ptr noundef nonnull %call20) #7
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.then63, label %if.end64
 
@@ -521,7 +521,7 @@ if.end64:                                         ; preds = %if.end59
   ]
 
 sw.bb:                                            ; preds = %if.end64
-  %call65 = tail call i32 @RSA_padding_check_PKCS1_type_1(ptr noundef %out, i32 noundef %call, ptr noundef %buf.0, i32 noundef %call) #7
+  %call65 = tail call i32 @RSA_padding_check_PKCS1_type_1(ptr noundef %out, i32 noundef %call, ptr noundef %buf.1, i32 noundef %call) #7
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end64
@@ -544,14 +544,14 @@ if.else70:                                        ; preds = %sw.epilog
 
 err:                                              ; preds = %if.then69, %if.else70, %if.end48, %lor.lhs.false52, %if.end37, %sw.default, %if.then63, %if.then47, %if.then35, %if.then26
   %ret.0 = phi i32 [ 0, %if.then26 ], [ 0, %if.end37 ], [ 0, %if.then47 ], [ 0, %sw.default ], [ 0, %if.then69 ], [ 1, %if.else70 ], [ 0, %if.then63 ], [ 0, %lor.lhs.false52 ], [ 0, %if.end48 ], [ 0, %if.then35 ]
-  %buf.1 = phi ptr [ null, %if.then26 ], [ %buf.0, %if.end37 ], [ %buf.0, %if.then47 ], [ %buf.0, %sw.default ], [ %buf.0, %if.then69 ], [ %buf.0, %if.else70 ], [ %buf.0, %if.then63 ], [ %buf.0, %lor.lhs.false52 ], [ %buf.0, %if.end48 ], [ null, %if.then35 ]
+  %buf.0 = phi ptr [ null, %if.then26 ], [ %buf.1, %if.end37 ], [ %buf.1, %if.then47 ], [ %buf.1, %sw.default ], [ %buf.1, %if.then69 ], [ %buf.1, %if.else70 ], [ %buf.1, %if.then63 ], [ %buf.1, %lor.lhs.false52 ], [ %buf.1, %if.end48 ], [ null, %if.then35 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %call14) #7
   tail call void @BN_CTX_free(ptr noundef nonnull %call14) #7
-  %cmp73.not = icmp eq ptr %buf.1, %out
+  %cmp73.not = icmp eq ptr %buf.0, %out
   br i1 %cmp73.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %err
-  tail call void @free(ptr noundef %buf.1) #7
+  tail call void @free(ptr noundef %buf.0) #7
   br label %return
 
 return:                                           ; preds = %if.then6.i, %if.then3.i, %if.then.i, %err, %if.then75, %if.end13, %if.then9, %if.then4, %if.then
@@ -646,7 +646,7 @@ if.end27:                                         ; preds = %if.end23
   br i1 %tobool31.not, label %if.end79, label %if.end34
 
 if.end34:                                         ; preds = %if.end27, %if.end14
-  %blinding.0 = phi ptr [ null, %if.end14 ], [ %call24, %if.end27 ]
+  %blinding.1 = phi ptr [ null, %if.end14 ], [ %call24, %if.end27 ]
   %p = getelementptr inbounds i8, ptr %rsa, i64 32
   %6 = load ptr, ptr %p, align 8
   %cmp35.not = icmp eq ptr %6, null
@@ -707,13 +707,13 @@ lor.lhs.false57:                                  ; preds = %if.else
   br i1 %tobool61.not, label %if.end79, label %if.end64
 
 if.end64:                                         ; preds = %lor.lhs.false57, %if.then46
-  %tobool65.not = icmp eq ptr %blinding.0, null
+  %tobool65.not = icmp eq ptr %blinding.1, null
   br i1 %tobool65.not, label %if.end72, label %if.then66
 
 if.then66:                                        ; preds = %if.end64
   %mont_n67 = getelementptr inbounds i8, ptr %rsa, i64 152
   %16 = load ptr, ptr %mont_n67, align 8
-  %call68 = call i32 @BN_BLINDING_invert(ptr noundef nonnull %call2, ptr noundef nonnull %blinding.0, ptr noundef %16, ptr noundef nonnull %call) #7
+  %call68 = call i32 @BN_BLINDING_invert(ptr noundef nonnull %call2, ptr noundef nonnull %blinding.1, ptr noundef %16, ptr noundef nonnull %call) #7
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.end79, label %if.end72
 
@@ -727,11 +727,11 @@ if.then75:                                        ; preds = %if.end72
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then5, %if.then13, %if.then17, %if.then22, %if.then26, %if.then75, %if.end6, %if.end27, %if.then46, %lor.lhs.false57, %if.else, %if.then66, %if.end72
-  %blinding.1.ph = phi ptr [ %blinding.0, %if.end72 ], [ null, %if.then22 ], [ %call24, %if.end27 ], [ null, %if.then26 ], [ null, %if.then17 ], [ %blinding.0, %if.else ], [ %blinding.0, %lor.lhs.false57 ], [ %blinding.0, %if.then46 ], [ %blinding.0, %if.then66 ], [ %blinding.0, %if.then75 ], [ null, %if.then13 ], [ null, %if.end6 ], [ null, %if.then5 ]
+  %blinding.0.ph = phi ptr [ %blinding.1, %if.end72 ], [ null, %if.then22 ], [ %call24, %if.end27 ], [ null, %if.then26 ], [ null, %if.then17 ], [ %blinding.1, %if.else ], [ %blinding.1, %lor.lhs.false57 ], [ %blinding.1, %if.then46 ], [ %blinding.1, %if.then66 ], [ %blinding.1, %if.then75 ], [ null, %if.then13 ], [ null, %if.end6 ], [ null, %if.then5 ]
   %ret.0.ph = phi i32 [ 1, %if.end72 ], [ 0, %if.then22 ], [ 0, %if.end27 ], [ 0, %if.then26 ], [ 0, %if.then17 ], [ 0, %if.else ], [ 0, %lor.lhs.false57 ], [ 0, %if.then46 ], [ 0, %if.then66 ], [ 0, %if.then75 ], [ 0, %if.then13 ], [ 0, %if.end6 ], [ 0, %if.then5 ]
   call void @BN_CTX_end(ptr noundef nonnull %call) #7
   call void @BN_CTX_free(ptr noundef nonnull %call) #7
-  %cmp80.not = icmp eq ptr %blinding.1.ph, null
+  %cmp80.not = icmp eq ptr %blinding.0.ph, null
   br i1 %cmp80.not, label %if.end82, label %if.then81
 
 if.then81:                                        ; preds = %if.end79
@@ -740,7 +740,7 @@ if.then81:                                        ; preds = %if.end79
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then81
-  call void @BN_BLINDING_free(ptr noundef nonnull %blinding.1.ph) #7
+  call void @BN_BLINDING_free(ptr noundef nonnull %blinding.0.ph) #7
   br label %if.end82
 
 if.end.i:                                         ; preds = %if.then81
@@ -1257,7 +1257,7 @@ if.then45:                                        ; preds = %lor.lhs.false43, %l
   br label %if.then414
 
 for.end:                                          ; preds = %for.cond, %if.end15
-  %additional_primes.0289 = phi ptr [ null, %if.end15 ], [ %call18, %for.cond ]
+  %additional_primes.1289 = phi ptr [ null, %if.end15 ], [ %call18, %for.cond ]
   %n47 = getelementptr inbounds i8, ptr %rsa, i64 8
   %9 = load ptr, ptr %n47, align 8
   %tobool48.not = icmp eq ptr %9, null
@@ -1489,7 +1489,7 @@ for.cond189:                                      ; preds = %for.cond189.prehead
 
 for.body191:                                      ; preds = %for.cond189
   %31 = add nsw i64 %indvars.iv264, -2
-  %call194 = tail call ptr @sk_value(ptr noundef %additional_primes.0289, i64 noundef %31) #7
+  %call194 = tail call ptr @sk_value(ptr noundef %additional_primes.1289, i64 noundef %31) #7
   %32 = load ptr, ptr %n47, align 8
   %call196 = tail call i32 @BN_num_bits(ptr noundef %32) #7
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
@@ -1546,7 +1546,7 @@ lor.lhs.false214.us.us:                           ; preds = %if.end208.us.us
 
 for.body226.us.us:                                ; preds = %lor.lhs.false214.us.us, %for.inc236.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc236.us.us ], [ 0, %lor.lhs.false214.us.us ]
-  %call228.us.us = tail call ptr @sk_value(ptr noundef %additional_primes.0289, i64 noundef %indvars.iv) #7
+  %call228.us.us = tail call ptr @sk_value(ptr noundef %additional_primes.1289, i64 noundef %indvars.iv) #7
   %44 = load ptr, ptr %call228.us.us, align 8
   %45 = load ptr, ptr %call194, align 8
   %call231.us.us = tail call i32 @BN_cmp(ptr noundef %44, ptr noundef %45) #7
@@ -1737,7 +1737,7 @@ for.cond337:                                      ; preds = %lor.lhs.false349
 for.body340:                                      ; preds = %for.body340.preheader, %for.cond337
   %indvars.iv275 = phi i64 [ 2, %for.body340.preheader ], [ %indvars.iv.next276, %for.cond337 ]
   %69 = add nsw i64 %indvars.iv275, -2
-  %call344 = tail call ptr @sk_value(ptr noundef %additional_primes.0289, i64 noundef %69) #7
+  %call344 = tail call ptr @sk_value(ptr noundef %additional_primes.1289, i64 noundef %69) #7
   %70 = load ptr, ptr %call344, align 8
   %call346 = tail call ptr @BN_value_one() #7
   %call347 = tail call i32 @BN_sub(ptr noundef %call7, ptr noundef %70, ptr noundef %call346) #7
@@ -1796,7 +1796,7 @@ for.cond381:                                      ; preds = %lor.lhs.false400
 for.body384:                                      ; preds = %for.body384.preheader, %for.cond381
   %indvars.iv281 = phi i64 [ 2, %for.body384.preheader ], [ %indvars.iv.next282, %for.cond381 ]
   %79 = add nsw i64 %indvars.iv281, -2
-  %call388 = call ptr @sk_value(ptr noundef %additional_primes.0289, i64 noundef %79) #7
+  %call388 = call ptr @sk_value(ptr noundef %additional_primes.1289, i64 noundef %79) #7
   %exp389 = getelementptr inbounds i8, ptr %call388, i64 8
   %80 = load ptr, ptr %exp389, align 8
   %81 = load ptr, ptr %call388, align 8
@@ -1824,16 +1824,16 @@ lor.lhs.false400:                                 ; preds = %lor.lhs.false394
 
 for.end410:                                       ; preds = %for.cond381, %for.cond381.preheader
   %additional_primes411 = getelementptr inbounds i8, ptr %rsa, i64 72
-  store ptr %additional_primes.0289, ptr %additional_primes411, align 8
+  store ptr %additional_primes.1289, ptr %additional_primes411, align 8
   br label %if.end415
 
 if.then414:                                       ; preds = %for.body, %if.end128, %lor.lhs.false119, %lor.lhs.false114, %for.cond110, %if.end172, %lor.lhs.false163, %if.end158, %do.body, %if.end302, %if.then289, %if.else, %for.end279, %for.cond203.outer, %if.end262, %if.end273, %for.cond203.outer.us, %if.end262.us, %if.end273.us, %for.cond203.backedge, %if.end243, %lor.lhs.false248, %for.cond203.backedge.us.us, %if.end243.us.us, %lor.lhs.false248.us.us, %lor.lhs.false349, %for.body340, %lor.lhs.false400, %lor.lhs.false394, %for.body384, %if.end, %if.end3, %if.then17, %if.then45, %if.end373, %if.end368, %if.end362, %for.end356, %if.end332, %if.end326, %if.end320, %lor.lhs.false181, %for.end178, %for.end134, %if.end104, %land.lhs.true99, %land.lhs.true92, %land.lhs.true85, %land.lhs.true78, %land.lhs.true71, %land.lhs.true63, %land.lhs.true56, %land.lhs.true
-  %additional_primes.1.ph = phi ptr [ %additional_primes.0289, %land.lhs.true ], [ %additional_primes.0289, %land.lhs.true56 ], [ %additional_primes.0289, %land.lhs.true63 ], [ %additional_primes.0289, %land.lhs.true71 ], [ %additional_primes.0289, %land.lhs.true78 ], [ %additional_primes.0289, %land.lhs.true85 ], [ %additional_primes.0289, %land.lhs.true92 ], [ %additional_primes.0289, %land.lhs.true99 ], [ %additional_primes.0289, %if.end104 ], [ %additional_primes.0289, %for.end134 ], [ %additional_primes.0289, %for.end178 ], [ %additional_primes.0289, %lor.lhs.false181 ], [ %additional_primes.0289, %if.end320 ], [ %additional_primes.0289, %if.end326 ], [ %additional_primes.0289, %if.end332 ], [ %additional_primes.0289, %for.end356 ], [ %additional_primes.0289, %if.end362 ], [ %additional_primes.0289, %if.end368 ], [ %additional_primes.0289, %if.end373 ], [ %call18, %if.then45 ], [ null, %if.then17 ], [ null, %if.end3 ], [ null, %if.end ], [ %additional_primes.0289, %for.body384 ], [ %additional_primes.0289, %lor.lhs.false394 ], [ %additional_primes.0289, %lor.lhs.false400 ], [ %additional_primes.0289, %for.body340 ], [ %additional_primes.0289, %lor.lhs.false349 ], [ %additional_primes.0289, %lor.lhs.false248.us.us ], [ %additional_primes.0289, %if.end243.us.us ], [ %additional_primes.0289, %for.cond203.backedge.us.us ], [ %additional_primes.0289, %lor.lhs.false248 ], [ %additional_primes.0289, %if.end243 ], [ %additional_primes.0289, %for.cond203.backedge ], [ %additional_primes.0289, %if.end273.us ], [ %additional_primes.0289, %if.end262.us ], [ %additional_primes.0289, %for.cond203.outer.us ], [ %additional_primes.0289, %if.end273 ], [ %additional_primes.0289, %if.end262 ], [ %additional_primes.0289, %for.cond203.outer ], [ %additional_primes.0289, %for.end279 ], [ %additional_primes.0289, %if.else ], [ %additional_primes.0289, %if.then289 ], [ %additional_primes.0289, %if.end302 ], [ %additional_primes.0289, %do.body ], [ %additional_primes.0289, %if.end158 ], [ %additional_primes.0289, %lor.lhs.false163 ], [ %additional_primes.0289, %if.end172 ], [ %additional_primes.0289, %for.cond110 ], [ %additional_primes.0289, %lor.lhs.false114 ], [ %additional_primes.0289, %lor.lhs.false119 ], [ %additional_primes.0289, %if.end128 ], [ %call18, %for.body ]
+  %additional_primes.0.ph = phi ptr [ %additional_primes.1289, %land.lhs.true ], [ %additional_primes.1289, %land.lhs.true56 ], [ %additional_primes.1289, %land.lhs.true63 ], [ %additional_primes.1289, %land.lhs.true71 ], [ %additional_primes.1289, %land.lhs.true78 ], [ %additional_primes.1289, %land.lhs.true85 ], [ %additional_primes.1289, %land.lhs.true92 ], [ %additional_primes.1289, %land.lhs.true99 ], [ %additional_primes.1289, %if.end104 ], [ %additional_primes.1289, %for.end134 ], [ %additional_primes.1289, %for.end178 ], [ %additional_primes.1289, %lor.lhs.false181 ], [ %additional_primes.1289, %if.end320 ], [ %additional_primes.1289, %if.end326 ], [ %additional_primes.1289, %if.end332 ], [ %additional_primes.1289, %for.end356 ], [ %additional_primes.1289, %if.end362 ], [ %additional_primes.1289, %if.end368 ], [ %additional_primes.1289, %if.end373 ], [ %call18, %if.then45 ], [ null, %if.then17 ], [ null, %if.end3 ], [ null, %if.end ], [ %additional_primes.1289, %for.body384 ], [ %additional_primes.1289, %lor.lhs.false394 ], [ %additional_primes.1289, %lor.lhs.false400 ], [ %additional_primes.1289, %for.body340 ], [ %additional_primes.1289, %lor.lhs.false349 ], [ %additional_primes.1289, %lor.lhs.false248.us.us ], [ %additional_primes.1289, %if.end243.us.us ], [ %additional_primes.1289, %for.cond203.backedge.us.us ], [ %additional_primes.1289, %lor.lhs.false248 ], [ %additional_primes.1289, %if.end243 ], [ %additional_primes.1289, %for.cond203.backedge ], [ %additional_primes.1289, %if.end273.us ], [ %additional_primes.1289, %if.end262.us ], [ %additional_primes.1289, %for.cond203.outer.us ], [ %additional_primes.1289, %if.end273 ], [ %additional_primes.1289, %if.end262 ], [ %additional_primes.1289, %for.cond203.outer ], [ %additional_primes.1289, %for.end279 ], [ %additional_primes.1289, %if.else ], [ %additional_primes.1289, %if.then289 ], [ %additional_primes.1289, %if.end302 ], [ %additional_primes.1289, %do.body ], [ %additional_primes.1289, %if.end158 ], [ %additional_primes.1289, %lor.lhs.false163 ], [ %additional_primes.1289, %if.end172 ], [ %additional_primes.1289, %for.cond110 ], [ %additional_primes.1289, %lor.lhs.false114 ], [ %additional_primes.1289, %lor.lhs.false119 ], [ %additional_primes.1289, %if.end128 ], [ %call18, %for.body ]
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1098) #7
   br label %if.end415
 
 if.end415:                                        ; preds = %if.then157, %for.end410, %if.then414
-  %additional_primes.1200 = phi ptr [ %additional_primes.1.ph, %if.then414 ], [ %additional_primes.0289, %if.then157 ], [ null, %for.end410 ]
+  %additional_primes.0200 = phi ptr [ %additional_primes.0.ph, %if.then414 ], [ %additional_primes.1289, %if.then157 ], [ null, %for.end410 ]
   %ok.1 = phi i32 [ 0, %if.then414 ], [ 0, %if.then157 ], [ 1, %for.end410 ]
   br i1 %cmp1, label %if.end419, label %if.then418
 
@@ -1844,8 +1844,8 @@ if.then418:                                       ; preds = %if.end415
 
 if.end419:                                        ; preds = %if.end415.thread, %if.then418, %if.end415
   %ok.1207 = phi i32 [ 0, %if.end415.thread ], [ %ok.1, %if.then418 ], [ %ok.1, %if.end415 ]
-  %additional_primes.1200206 = phi ptr [ null, %if.end415.thread ], [ %additional_primes.1200, %if.then418 ], [ %additional_primes.1200, %if.end415 ]
-  call void @sk_pop_free(ptr noundef %additional_primes.1200206, ptr noundef nonnull @RSA_additional_prime_free) #7
+  %additional_primes.0200206 = phi ptr [ null, %if.end415.thread ], [ %additional_primes.0200, %if.then418 ], [ %additional_primes.0200, %if.end415 ]
+  call void @sk_pop_free(ptr noundef %additional_primes.0200206, ptr noundef nonnull @RSA_additional_prime_free) #7
   ret i32 %ok.1207
 }
 

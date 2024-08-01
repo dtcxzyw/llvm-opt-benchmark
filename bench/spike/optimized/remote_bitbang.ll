@@ -281,18 +281,18 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
 
 11:                                               ; preds = %81, %1
   %12 = phi i64 [ %.pre, %1 ], [ %83, %81 ]
-  %.028 = phi i1 [ %5, %1 ], [ %.23038, %81 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.341, %81 ]
+  %.028 = phi i1 [ %5, %1 ], [ %.12938, %81 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.141, %81 ]
   %13 = load i64, ptr %6, align 8
   %14 = icmp slt i64 %13, %12
   br i1 %14, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %11, %59
   %15 = phi i64 [ %52, %59 ], [ %13, %11 ]
-  %.146 = phi i32 [ %53, %59 ], [ %.0, %11 ]
-  %.11945 = phi i1 [ %.220, %59 ], [ false, %11 ]
-  %.02244 = phi i32 [ %.123, %59 ], [ 0, %11 ]
-  %.12943 = phi i1 [ false, %59 ], [ %.028, %11 ]
+  %.246 = phi i32 [ %53, %59 ], [ %.0, %11 ]
+  %.22045 = phi i1 [ %.4, %59 ], [ false, %11 ]
+  %.02244 = phi i32 [ %.224, %59 ], [ 0, %11 ]
+  %.23043 = phi i1 [ false, %59 ], [ %.028, %11 ]
   %16 = getelementptr inbounds [65536 x i8], ptr %8, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %46 [
@@ -378,13 +378,13 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
   br label %50
 
 50:                                               ; preds = %.lr.ph, %.lr.ph, %46, %45, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18
-  %.123 = phi i32 [ %.02244, %46 ], [ %.02244, %45 ], [ %42, %36 ], [ %.02244, %34 ], [ %.02244, %32 ], [ %.02244, %30 ], [ %.02244, %28 ], [ %.02244, %26 ], [ %.02244, %24 ], [ %.02244, %22 ], [ %.02244, %20 ], [ %.02244, %18 ], [ %.02244, %.lr.ph ], [ %.02244, %.lr.ph ]
-  %.220 = phi i1 [ %.11945, %46 ], [ true, %45 ], [ %.11945, %36 ], [ %.11945, %34 ], [ %.11945, %32 ], [ %.11945, %30 ], [ %.11945, %28 ], [ %.11945, %26 ], [ %.11945, %24 ], [ %.11945, %22 ], [ %.11945, %20 ], [ %.11945, %18 ], [ %.11945, %.lr.ph ], [ %.11945, %.lr.ph ]
+  %.224 = phi i32 [ %.02244, %46 ], [ %.02244, %45 ], [ %42, %36 ], [ %.02244, %34 ], [ %.02244, %32 ], [ %.02244, %30 ], [ %.02244, %28 ], [ %.02244, %26 ], [ %.02244, %24 ], [ %.02244, %22 ], [ %.02244, %20 ], [ %.02244, %18 ], [ %.02244, %.lr.ph ], [ %.02244, %.lr.ph ]
+  %.4 = phi i1 [ %.22045, %46 ], [ true, %45 ], [ %.22045, %36 ], [ %.22045, %34 ], [ %.22045, %32 ], [ %.22045, %30 ], [ %.22045, %28 ], [ %.22045, %26 ], [ %.22045, %24 ], [ %.22045, %22 ], [ %.22045, %20 ], [ %.22045, %18 ], [ %.22045, %.lr.ph ], [ %.22045, %.lr.ph ]
   %51 = load i64, ptr %6, align 8
   %52 = add nsw i64 %51, 1
   store i64 %52, ptr %6, align 8
-  %53 = add i32 %.146, 1
-  br i1 %.12943, label %59, label %54
+  %53 = add i32 %.246, 1
+  br i1 %.23043, label %59, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %0, align 8
@@ -399,18 +399,18 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %54
-  %.126.ph = phi i1 [ false, %59 ], [ true, %54 ]
-  %.not = icmp eq i32 %.123, 0
+  %.227.ph = phi i1 [ false, %59 ], [ true, %54 ]
+  %.not = icmp eq i32 %.224, 0
   br i1 %.not, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %._crit_edge
-  %62 = zext i32 %.123 to i64
+  %62 = zext i32 %.224 to i64
   br label %67
 
 63:                                               ; preds = %67
   %64 = trunc i64 %71 to i32
   %65 = add i32 %.01757, %64
-  %66 = icmp ult i32 %65, %.123
+  %66 = icmp ult i32 %65, %.224
   br i1 %66, label %67, label %._crit_edge60, !llvm.loop !6
 
 67:                                               ; preds = %.lr.ph59, %63
@@ -437,11 +437,11 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
   br i1 %80, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %11, %._crit_edge60
-  %.341 = phi i32 [ %53, %._crit_edge60 ], [ %.0, %11 ]
-  %.440 = phi i1 [ %.220, %._crit_edge60 ], [ false, %11 ]
-  %.22739 = phi i1 [ %.126.ph, %._crit_edge60 ], [ false, %11 ]
-  %.23038 = phi i1 [ false, %._crit_edge60 ], [ %.028, %11 ]
-  %brmerge = or i1 %.440, %.22739
+  %.141 = phi i32 [ %53, %._crit_edge60 ], [ %.0, %11 ]
+  %.11940 = phi i1 [ %.4, %._crit_edge60 ], [ false, %11 ]
+  %.12639 = phi i1 [ %.227.ph, %._crit_edge60 ], [ false, %11 ]
+  %.12938 = phi i1 [ false, %._crit_edge60 ], [ %.028, %11 ]
+  %brmerge = or i1 %.11940, %.12639
   br i1 %brmerge, label %.loopexit, label %81
 
 81:                                               ; preds = %.thread

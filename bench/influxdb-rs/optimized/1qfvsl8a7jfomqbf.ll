@@ -6525,7 +6525,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   unreachable
 
 "_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87": ; preds = %.thread118, %169, %.noexc73
-  %.1 = phi i8 [ %.3, %.noexc73 ], [ %.2121, %169 ], [ %.2121, %.thread118 ]
+  %.2 = phi i8 [ %.4, %.noexc73 ], [ %.3121, %169 ], [ %.3121, %.thread118 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.noexc73 ], [ %.pn.pn.pn.pn122, %169 ], [ %.pn.pn.pn.pn122, %.thread118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !858)
   call void @llvm.experimental.noalias.scope.decl(metadata !861)
@@ -6578,7 +6578,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   unreachable
 
 .noexc73:                                         ; preds = %88, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
-  %80 = trunc nuw i8 %.3 to i1
+  %80 = trunc nuw i8 %.4 to i1
   br i1 %80, label %.noexc73..thread118_crit_edge, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87"
 
 .noexc73..thread118_crit_edge:                    ; preds = %.noexc73
@@ -6599,7 +6599,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85": ; preds = %120, %.body, %152, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread", %165
-  %.3 = phi i8 [ 1, %165 ], [ 1, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread" ], [ 0, %152 ], [ 0, %.body ], [ 0, %120 ]
+  %.4 = phi i8 [ 1, %165 ], [ 1, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread" ], [ 0, %152 ], [ 0, %.body ], [ 0, %120 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn127, %165 ], [ %.pn.pn127, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread" ], [ %153, %152 ], [ %124, %.body ], [ %121, %120 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !886)
   call void @llvm.experimental.noalias.scope.decl(metadata !889)
@@ -6855,7 +6855,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
 .thread118:                                       ; preds = %.noexc73..thread118_crit_edge, %76
   %166 = phi ptr [ %.pre156, %.noexc73..thread118_crit_edge ], [ %50, %76 ]
   %.pn.pn.pn.pn122 = phi { ptr, i32 } [ %.pn.pn.pn, %.noexc73..thread118_crit_edge ], [ %77, %76 ]
-  %.2121 = phi i8 [ %.3, %.noexc73..thread118_crit_edge ], [ 1, %76 ]
+  %.3121 = phi i8 [ %.4, %.noexc73..thread118_crit_edge ], [ 1, %76 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !951)
   call void @llvm.experimental.noalias.scope.decl(metadata !952)
   call void @llvm.experimental.noalias.scope.decl(metadata !953)
@@ -6876,7 +6876,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
           to label %.thread102.thread unwind label %150
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87", %68
-  %171 = trunc nuw i8 %.1 to i1
+  %171 = trunc nuw i8 %.2 to i1
   br i1 %171, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", label %.thread150
 
 .thread102.thread:                                ; preds = %52, %45, %.thread108, %170
@@ -7249,10 +7249,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %10 unwind label %.thread.i
 
 8:                                                ; preds = %68
-  br i1 %.2.ph.i, label %71, label %"_ZN4core3ptr174drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he4540d4fa2f59fc0E.exit.i"
+  br i1 %.119.ph.i, label %71, label %"_ZN4core3ptr174drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he4540d4fa2f59fc0E.exit.i"
 
 .thread.i:                                        ; preds = %21, %12, %11, %1
-  %.1.i = phi i1 [ false, %12 ], [ true, %11 ], [ true, %1 ], [ false, %21 ]
+  %.0.i = phi i1 [ false, %12 ], [ true, %11 ], [ true, %1 ], [ false, %21 ]
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %71
@@ -7403,7 +7403,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h902a0cbe31c71866E.exit"
 
 68:                                               ; preds = %23, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit.i"
-  %.2.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit.i" ], [ false, %23 ]
+  %.119.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit.i" ], [ false, %23 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7c4ccf31c8b2eb31E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #29
@@ -7416,11 +7416,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   unreachable
 
 .noexc28.i:                                       ; preds = %75, %71
-  br i1 %.044.i, label %77, label %76
+  br i1 %.144.i, label %77, label %76
 
 71:                                               ; preds = %.thread.i, %8
   %.pn.pn46.i = phi { ptr, i32 } [ %9, %.thread.i ], [ %lpad.thr_comm.i, %8 ]
-  %.044.i = phi i1 [ %.1.i, %.thread.i ], [ false, %8 ]
+  %.144.i = phi i1 [ %.0.i, %.thread.i ], [ false, %8 ]
   %.01742.i = phi i1 [ true, %.thread.i ], [ false, %8 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1062)
   call void @llvm.experimental.noalias.scope.decl(metadata !1065)
@@ -14181,7 +14181,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %156
 
 156:                                              ; preds = %148, %142
-  %.0.in = phi i1 [ %155, %148 ], [ %147, %142 ]
+  %.1.in = phi i1 [ %155, %148 ], [ %147, %142 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   br label %220
 
@@ -14271,7 +14271,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %177
 
 177:                                              ; preds = %195, %176
-  %.1.in = phi i1 [ %174, %176 ], [ %186, %195 ]
+  %.2.in = phi i1 [ %174, %176 ], [ %186, %195 ]
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %.sroa.6)
   br label %196
 
@@ -14325,7 +14325,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %177
 
 196:                                              ; preds = %208, %177
-  %.2.in = phi i1 [ %.1.in, %177 ], [ %.3.in, %208 ]
+  %.3.in = phi i1 [ %.2.in, %177 ], [ %.4.in, %208 ]
   call fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$arrow_array..timezone..private..Tz$C$arrow_schema..error..ArrowError$GT$$GT$17h1c1010218585963aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %41)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -14361,7 +14361,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %208
 
 208:                                              ; preds = %219, %207
-  %.3.in = phi i1 [ %218, %219 ], [ %206, %207 ]
+  %.4.in = phi i1 [ %218, %219 ], [ %206, %207 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
   br label %196
 
@@ -14397,8 +14397,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %208
 
 220:                                              ; preds = %222, %228, %156, %196, %250, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h5bb411eafeaf5290E.exit"
-  %.4.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h5bb411eafeaf5290E.exit" ], [ %.6.in, %250 ], [ %.0.in, %156 ], [ %.2.in, %196 ], [ %234, %228 ], [ %227, %222 ]
-  ret i1 %.4.in
+  %.0.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h5bb411eafeaf5290E.exit" ], [ %.6.in, %250 ], [ %.1.in, %156 ], [ %.3.in, %196 ], [ %234, %228 ], [ %227, %222 ]
+  ret i1 %.0.in
 
 221:                                              ; preds = %164
   resume { ptr, i32 } %.pn
@@ -14788,7 +14788,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %132
 
 132:                                              ; preds = %141, %131
-  %.2.in = phi i1 [ %130, %131 ], [ %140, %141 ]
+  %.3.in = phi i1 [ %130, %131 ], [ %140, %141 ]
   call fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$arrow_array..timezone..private..Tz$C$arrow_schema..error..ArrowError$GT$$GT$17h1c1010218585963aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   br label %142
@@ -14819,8 +14819,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %132
 
 142:                                              ; preds = %144, %115, %132, %165, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h5bb411eafeaf5290E.exit"
-  %.4.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h5bb411eafeaf5290E.exit" ], [ %.6.in, %165 ], [ %120, %115 ], [ %.2.in, %132 ], [ %149, %144 ]
-  ret i1 %.4.in
+  %.0.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h5bb411eafeaf5290E.exit" ], [ %.6.in, %165 ], [ %120, %115 ], [ %.3.in, %132 ], [ %149, %144 ]
+  ret i1 %.0.in
 
 143:                                              ; preds = %123
   resume { ptr, i32 } %124
@@ -15210,7 +15210,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %142
 
 142:                                              ; preds = %151, %141
-  %.2.in = phi i1 [ %140, %141 ], [ %150, %151 ]
+  %.3.in = phi i1 [ %140, %141 ], [ %150, %151 ]
   call fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$arrow_array..timezone..private..Tz$C$arrow_schema..error..ArrowError$GT$$GT$17h1c1010218585963aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   br label %152
@@ -15241,8 +15241,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %142
 
 152:                                              ; preds = %155, %125, %142, %179, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h996372938d3658fdE.exit"
-  %.4.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h996372938d3658fdE.exit" ], [ %.6.in, %179 ], [ %130, %125 ], [ %.2.in, %142 ], [ %160, %155 ]
-  ret i1 %.4.in
+  %.0.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h996372938d3658fdE.exit" ], [ %.6.in, %179 ], [ %130, %125 ], [ %.3.in, %142 ], [ %160, %155 ]
+  ret i1 %.0.in
 
 153:                                              ; preds = %133
   resume { ptr, i32 } %134
@@ -15629,7 +15629,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %133
 
 133:                                              ; preds = %142, %132
-  %.2.in = phi i1 [ %131, %132 ], [ %141, %142 ]
+  %.3.in = phi i1 [ %131, %132 ], [ %141, %142 ]
   call fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$arrow_array..timezone..private..Tz$C$arrow_schema..error..ArrowError$GT$$GT$17h1c1010218585963aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %27)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   br label %143
@@ -15660,8 +15660,8 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   br label %133
 
 143:                                              ; preds = %145, %116, %133, %166, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hfc1f353ae42ba058E.exit"
-  %.4.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hfc1f353ae42ba058E.exit" ], [ %.6.in, %166 ], [ %121, %116 ], [ %.2.in, %133 ], [ %150, %145 ]
-  ret i1 %.4.in
+  %.0.in = phi i1 [ %.0.in.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hfc1f353ae42ba058E.exit" ], [ %.6.in, %166 ], [ %121, %116 ], [ %.3.in, %133 ], [ %150, %145 ]
+  ret i1 %.0.in
 
 144:                                              ; preds = %124
   resume { ptr, i32 } %125

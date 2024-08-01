@@ -1333,19 +1333,19 @@ ehcleanup:                                        ; preds = %arraydestroy.body27
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup, %lpad10
-  %cleanup.isactive.1 = phi i1 [ %62, %ehcleanup ], [ false, %lpad10 ]
+  %cleanup.isactive.2 = phi i1 [ %62, %ehcleanup ], [ false, %lpad10 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %60, %lpad10 ]
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element12, %ehcleanup ], [ %arrayinit.endOfInit.1, %lpad10 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.element12, %ehcleanup ], [ %arrayinit.endOfInit.1, %lpad10 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp6) #19
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %lpad4, %ehcleanup33
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup33 ], [ false, %lpad4 ]
+  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.2, %ehcleanup33 ], [ false, %lpad4 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup33 ], [ %59, %lpad4 ]
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup33 ], [ %arrayinit.endOfInit.0, %lpad4 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup33 ], [ %arrayinit.endOfInit.0, %lpad4 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp3) #19
   %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.3
-  %or.cond = select i1 %cleanup.isactive.2, i1 true, i1 %arraydestroy.isempty
+  %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %eh.resume, label %arraydestroy.body36
 
 arraydestroy.body36:                              ; preds = %ehcleanup35, %arraydestroy.body36

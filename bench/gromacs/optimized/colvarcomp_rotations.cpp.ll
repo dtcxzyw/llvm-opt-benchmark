@@ -5053,8 +5053,8 @@ _ZNSt10unique_ptrIN6colvar11orientation25rotation_derivative_impl_ESt14default_d
   br label %229
 
 229:                                              ; preds = %147, %_ZNSt10unique_ptrIN6colvar11orientation25rotation_derivative_impl_ESt14default_deleteIS2_EED2Ev.exit, %161, %85
-  %.3 = phi i32 [ %84, %85 ], [ %115, %147 ], [ %24, %_ZNSt10unique_ptrIN6colvar11orientation25rotation_derivative_impl_ESt14default_deleteIS2_EED2Ev.exit ], [ %160, %161 ]
-  ret i32 %.3
+  %.023 = phi i32 [ %84, %85 ], [ %115, %147 ], [ %24, %_ZNSt10unique_ptrIN6colvar11orientation25rotation_derivative_impl_ESt14default_deleteIS2_EED2Ev.exit ], [ %160, %161 ]
+  ret i32 %.023
 
 230:                                              ; preds = %212, %.body81, %162, %.body61, %.body
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %.body61 ], [ %.pn52.pn, %212 ], [ %.pn50, %.body81 ], [ %.pn45.pn.pn, %162 ], [ %.pn, %.body ]

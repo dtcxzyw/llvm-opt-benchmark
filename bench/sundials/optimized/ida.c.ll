@@ -1933,7 +1933,7 @@ IDAWrmsNorm.exit:                                 ; preds = %313, %316
 
 337:                                              ; preds = %.backedge, %.preheader433
   %.096.i = phi double [ 0.000000e+00, %.preheader433 ], [ %.197.ph.i, %.backedge ]
-  %.094.i = phi double [ 0.000000e+00, %.preheader433 ], [ %.2.ph.i, %.backedge ]
+  %.094.i = phi double [ 0.000000e+00, %.preheader433 ], [ %.195.ph.i, %.backedge ]
   %.092.i = phi i32 [ 0, %.preheader433 ], [ %.193.i, %.backedge ]
   %.091.i = phi i32 [ 0, %.preheader433 ], [ %.1.i, %.backedge ]
   %338 = load double, ptr %226, align 8
@@ -2169,7 +2169,7 @@ IDAPredict.exit.i:                                ; preds = %418, %416
   %shift = shufflevector <2 x i1> %445, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
   %446 = or <2 x i1> %445, %shift
   %or.cond.i.i = extractelement <2 x i1> %446, i64 0
-  %.1.i.i = select i1 %or.cond.i.i, i32 1, i32 %.096.i.i
+  %.2.i.i = select i1 %or.cond.i.i, i32 1, i32 %.096.i.i
   %447 = load double, ptr %231, align 8
   %448 = fcmp une double %433, %447
   br i1 %448, label %449, label %450
@@ -2179,7 +2179,7 @@ IDAPredict.exit.i:                                ; preds = %418, %416
   br label %450
 
 450:                                              ; preds = %449, %432, %430
-  %.2.i.i = phi i32 [ %.1.i.i, %449 ], [ %.1.i.i, %432 ], [ %.096.i.i, %430 ]
+  %.1.i.i = phi i32 [ %.2.i.i, %449 ], [ %.2.i.i, %432 ], [ %.096.i.i, %430 ]
   %451 = load ptr, ptr %247, align 8
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %451) #13
   %452 = load ptr, ptr %248, align 8
@@ -2210,7 +2210,7 @@ IDAPredict.exit.i:                                ; preds = %418, %416
   %465 = load ptr, ptr %247, align 8
   %466 = load ptr, ptr %216, align 8
   %467 = load double, ptr %249, align 8
-  %468 = call i32 @SUNNonlinSolSolve(ptr noundef %463, ptr noundef %464, ptr noundef %465, ptr noundef %466, double noundef %467, i32 noundef %.2.i.i, ptr noundef nonnull %0) #13
+  %468 = call i32 @SUNNonlinSolSolve(ptr noundef %463, ptr noundef %464, ptr noundef %465, ptr noundef %466, double noundef %467, i32 noundef %.1.i.i, ptr noundef nonnull %0) #13
   %469 = load ptr, ptr %248, align 8
   %470 = call i32 @SUNNonlinSolGetNumIters(ptr noundef %469, ptr noundef nonnull %7) #13
   %471 = load i64, ptr %7, align 8
@@ -2421,7 +2421,7 @@ IDAWrmsNorm.exit61.i.i:                           ; preds = %577, %574
 
 IDATestError.exit.i:                              ; preds = %.sink.split.i.i, %591, %IDAWrmsNorm.exit61.i.i, %IDAWrmsNorm.exit.i.i
   %595 = phi i32 [ %579, %IDAWrmsNorm.exit61.i.i ], [ %594, %.sink.split.i.i ], [ %557, %591 ], [ %534, %IDAWrmsNorm.exit.i.i ]
-  %.195.i = phi double [ %562, %IDAWrmsNorm.exit61.i.i ], [ %562, %.sink.split.i.i ], [ %562, %591 ], [ %.094.i, %IDAWrmsNorm.exit.i.i ]
+  %.2.i = phi double [ %562, %IDAWrmsNorm.exit61.i.i ], [ %562, %.sink.split.i.i ], [ %562, %591 ], [ %.094.i, %IDAWrmsNorm.exit.i.i ]
   %596 = fmul double %.102.i.i, %.0.i.i.i
   %597 = fcmp ogt double %596, 1.000000e+00
   br i1 %597, label %select.unfold.i, label %701
@@ -2429,7 +2429,7 @@ IDATestError.exit.i:                              ; preds = %.sink.split.i.i, %5
 select.unfold.i:                                  ; preds = %IDATestError.exit.i, %IDANls.exit.thread.i
   %598 = phi i32 [ %.pre156.i, %IDANls.exit.thread.i ], [ %595, %IDATestError.exit.i ]
   %.197.ph.i = phi double [ %.096.i, %IDANls.exit.thread.i ], [ %538, %IDATestError.exit.i ]
-  %.2.ph.i = phi double [ %.094.i, %IDANls.exit.thread.i ], [ %.195.i, %IDATestError.exit.i ]
+  %.195.ph.i = phi double [ %.094.i, %IDANls.exit.thread.i ], [ %.2.i, %IDATestError.exit.i ]
   %.0.ph.i = phi i32 [ %.0.i.ph.i, %IDANls.exit.thread.i ], [ 7, %IDATestError.exit.i ]
   store double %331, ptr %222, align 8
   %.not34.i.i = icmp slt i32 %598, 1
@@ -2558,7 +2558,7 @@ IDARestore.exit.i:                                ; preds = %._crit_edge39.i.i, 
   %655 = load i32, ptr %223, align 8
   %656 = load i32, ptr %258, align 8
   %657 = icmp eq i32 %655, %656
-  %658 = select i1 %657, double %.197.ph.i, double %.2.ph.i
+  %658 = select i1 %657, double %.197.ph.i, double %.195.ph.i
   store i32 %656, ptr %223, align 8
   %659 = call double @llvm.fmuladd.f64(double %658, double 2.000000e+00, double 1.000000e-04)
   %660 = add nsw i32 %656, 1
@@ -2732,7 +2732,7 @@ IDAWrmsNorm.exit.i71.i:                           ; preds = %742, %739
 
 756:                                              ; preds = %IDAWrmsNorm.exit.i71.i
   %757 = sitofp i32 %744 to double
-  %758 = fmul double %.195.i, %757
+  %758 = fmul double %.2.i, %757
   %759 = fcmp olt double %750, %751
   %760 = select i1 %759, double %750, double %751
   %761 = fcmp ugt double %758, %760
@@ -2757,7 +2757,7 @@ IDAWrmsNorm.exit.i71.i:                           ; preds = %742, %739
 
 .thread153.i.i:                                   ; preds = %765, %764, %762, %753, %.thread148.i.i, %.thread148.thread.i.i
   %766 = phi i32 [ %748, %764 ], [ %.pre-phi.i73.i, %765 ], [ %595, %.thread148.i.i ], [ %744, %762 ], [ 1, %753 ], [ %595, %.thread148.thread.i.i ]
-  %.0129.i.i = phi double [ %747, %764 ], [ %.195.i, %765 ], [ %538, %.thread148.i.i ], [ %538, %762 ], [ %538, %753 ], [ %538, %.thread148.thread.i.i ]
+  %.0129.i.i = phi double [ %747, %764 ], [ %.2.i, %765 ], [ %538, %.thread148.i.i ], [ %538, %762 ], [ %538, %753 ], [ %538, %.thread148.thread.i.i ]
   store double 1.000000e+00, ptr %257, align 8
   %767 = call double @llvm.fmuladd.f64(double %.0129.i.i, double 2.000000e+00, double 1.000000e-04)
   %768 = add nsw i32 %766, 1

@@ -754,7 +754,7 @@ for.inc:                                          ; preds = %do.body.i.i.i, %lan
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.inc, %if.then, %invoke.cont3, %invoke.cont5
-  %node_after_pagination_limit.sroa.0.2 = phi ptr [ null, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %2, %if.then ], [ null, %for.inc ]
+  %node_after_pagination_limit.sroa.0.1 = phi ptr [ null, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %2, %if.then ], [ null, %for.inc ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1016,7 +1016,7 @@ ehcleanup64:                                      ; preds = %ehcleanup62, %lpad4
   br label %ehcleanup92
 
 if.end65:                                         ; preds = %if.then.i.i.i72, %invoke.cont.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %cmp.i73 = icmp eq ptr %node_after_pagination_limit.sroa.0.2, null
+  %cmp.i73 = icmp eq ptr %node_after_pagination_limit.sroa.0.1, null
   br i1 %cmp.i73, label %if.then69, label %if.end83
 
 if.then69:                                        ; preds = %if.end65
@@ -1190,16 +1190,16 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
   br i1 %cmp.i73, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122, label %if.then.i116
 
 if.then.i116:                                     ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
-  %refs_.i.i117 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.2, i64 8
+  %refs_.i.i117 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.1, i64 8
   %66 = atomicrmw sub ptr %refs_.i.i117, i64 1 acq_rel, align 8
   %cmp.i.i.i118 = icmp eq i64 %66, 1
   br i1 %cmp.i.i.i118, label %if.then.i.i119, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122
 
 if.then.i.i119:                                   ; preds = %if.then.i116
-  %vtable.i.i.i120 = load ptr, ptr %node_after_pagination_limit.sroa.0.2, align 8
+  %vtable.i.i.i120 = load ptr, ptr %node_after_pagination_limit.sroa.0.1, align 8
   %vfn.i.i.i121 = getelementptr inbounds i8, ptr %vtable.i.i.i120, i64 8
   %67 = load ptr, ptr %vfn.i.i.i121, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.2) #20
+  call void %67(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.1) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122
 
 _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %if.then.i116, %if.then.i.i119
@@ -1257,20 +1257,20 @@ lpad86:                                           ; preds = %if.end83
 ehcleanup92:                                      ; preds = %ehcleanup64, %lpad86
   %.pn11 = phi { ptr, i32 } [ %74, %lpad86 ], [ %.pn7, %ehcleanup64 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %object) #20
-  %cmp.not.i129 = icmp eq ptr %node_after_pagination_limit.sroa.0.2, null
+  %cmp.not.i129 = icmp eq ptr %node_after_pagination_limit.sroa.0.1, null
   br i1 %cmp.not.i129, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136, label %if.then.i130
 
 if.then.i130:                                     ; preds = %ehcleanup92
-  %refs_.i.i131 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.2, i64 8
+  %refs_.i.i131 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.1, i64 8
   %75 = atomicrmw sub ptr %refs_.i.i131, i64 1 acq_rel, align 8
   %cmp.i.i.i132 = icmp eq i64 %75, 1
   br i1 %cmp.i.i.i132, label %if.then.i.i133, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136
 
 if.then.i.i133:                                   ; preds = %if.then.i130
-  %vtable.i.i.i134 = load ptr, ptr %node_after_pagination_limit.sroa.0.2, align 8
+  %vtable.i.i.i134 = load ptr, ptr %node_after_pagination_limit.sroa.0.1, align 8
   %vfn.i.i.i135 = getelementptr inbounds i8, ptr %vtable.i.i.i134, i64 8
   %76 = load ptr, ptr %vfn.i.i.i135, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.2) #20
+  call void %76(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.1) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136
 
 _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136: ; preds = %ehcleanup32, %ehcleanup92.thread213, %ehcleanup92.thread, %ehcleanup92, %if.then.i130, %if.then.i.i133
@@ -1789,7 +1789,7 @@ for.inc:                                          ; preds = %do.body.i.i.i, %lan
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !45
 
 for.end:                                          ; preds = %for.inc, %if.then, %invoke.cont3, %invoke.cont5
-  %node_after_pagination_limit.sroa.0.2 = phi ptr [ null, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %2, %if.then ], [ null, %for.inc ]
+  %node_after_pagination_limit.sroa.0.1 = phi ptr [ null, %invoke.cont5 ], [ null, %invoke.cont3 ], [ %2, %if.then ], [ null, %for.inc ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2051,7 +2051,7 @@ ehcleanup64:                                      ; preds = %ehcleanup62, %lpad4
   br label %ehcleanup92
 
 if.end65:                                         ; preds = %if.then.i.i.i72, %invoke.cont.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %cmp.i73 = icmp eq ptr %node_after_pagination_limit.sroa.0.2, null
+  %cmp.i73 = icmp eq ptr %node_after_pagination_limit.sroa.0.1, null
   br i1 %cmp.i73, label %if.then69, label %if.end83
 
 if.then69:                                        ; preds = %if.end65
@@ -2225,16 +2225,16 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
   br i1 %cmp.i73, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122, label %if.then.i116
 
 if.then.i116:                                     ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
-  %refs_.i.i117 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.2, i64 8
+  %refs_.i.i117 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.1, i64 8
   %66 = atomicrmw sub ptr %refs_.i.i117, i64 1 acq_rel, align 8
   %cmp.i.i.i118 = icmp eq i64 %66, 1
   br i1 %cmp.i.i.i118, label %if.then.i.i119, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122
 
 if.then.i.i119:                                   ; preds = %if.then.i116
-  %vtable.i.i.i120 = load ptr, ptr %node_after_pagination_limit.sroa.0.2, align 8
+  %vtable.i.i.i120 = load ptr, ptr %node_after_pagination_limit.sroa.0.1, align 8
   %vfn.i.i.i121 = getelementptr inbounds i8, ptr %vtable.i.i.i120, i64 8
   %67 = load ptr, ptr %vfn.i.i.i121, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.2) #20
+  call void %67(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.1) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122
 
 _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit122: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %if.then.i116, %if.then.i.i119
@@ -2292,20 +2292,20 @@ lpad86:                                           ; preds = %if.end83
 ehcleanup92:                                      ; preds = %ehcleanup64, %lpad86
   %.pn11 = phi { ptr, i32 } [ %74, %lpad86 ], [ %.pn7, %ehcleanup64 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %object) #20
-  %cmp.not.i129 = icmp eq ptr %node_after_pagination_limit.sroa.0.2, null
+  %cmp.not.i129 = icmp eq ptr %node_after_pagination_limit.sroa.0.1, null
   br i1 %cmp.not.i129, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136, label %if.then.i130
 
 if.then.i130:                                     ; preds = %ehcleanup92
-  %refs_.i.i131 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.2, i64 8
+  %refs_.i.i131 = getelementptr inbounds i8, ptr %node_after_pagination_limit.sroa.0.1, i64 8
   %75 = atomicrmw sub ptr %refs_.i.i131, i64 1 acq_rel, align 8
   %cmp.i.i.i132 = icmp eq i64 %75, 1
   br i1 %cmp.i.i.i132, label %if.then.i.i133, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136
 
 if.then.i.i133:                                   ; preds = %if.then.i130
-  %vtable.i.i.i134 = load ptr, ptr %node_after_pagination_limit.sroa.0.2, align 8
+  %vtable.i.i.i134 = load ptr, ptr %node_after_pagination_limit.sroa.0.1, align 8
   %vfn.i.i.i135 = getelementptr inbounds i8, ptr %vtable.i.i.i134, i64 8
   %76 = load ptr, ptr %vfn.i.i.i135, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.2) #20
+  call void %76(ptr noundef nonnull align 8 dereferenceable(64) %node_after_pagination_limit.sroa.0.1) #20
   br label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136
 
 _ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit136: ; preds = %ehcleanup32, %ehcleanup92.thread213, %ehcleanup92.thread, %ehcleanup92, %if.then.i130, %if.then.i.i133

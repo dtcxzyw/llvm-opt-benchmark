@@ -1082,9 +1082,9 @@ merge_block.exit.thread144:                       ; preds = %226
   br i1 %.not204, label %do_unpack.exit.thread195, label %285
 
 285:                                              ; preds = %merge_block.exit.thread144, %280
-  %.197 = phi ptr [ %284, %280 ], [ %279, %merge_block.exit.thread144 ]
+  %.096 = phi ptr [ %284, %280 ], [ %279, %merge_block.exit.thread144 ]
   %286 = getelementptr inbounds i8, ptr %.val.val.i47, i64 96
-  store ptr %.197, ptr %286, align 8
+  store ptr %.096, ptr %286, align 8
   %287 = getelementptr inbounds i8, ptr %.val.val.i47, i64 144
   store i64 %.sink.i.i, ptr %287, align 8
   %288 = load i8, ptr %150, align 8
@@ -1118,7 +1118,7 @@ merge_block.exit.thread144:                       ; preds = %226
   br label %parse_tables.exit.thread
 
 296:                                              ; preds = %293
-  %297 = getelementptr inbounds i8, ptr %.197, i64 %294
+  %297 = getelementptr inbounds i8, ptr %.096, i64 %294
   %298 = load i8, ptr %297, align 1
   %299 = zext i8 %298 to i32
   %300 = and i32 %.085145.i, 255
@@ -1135,7 +1135,7 @@ merge_block.exit.thread144:                       ; preds = %226
 
 309:                                              ; preds = %296
   %310 = sext i32 %spec.select.i to i64
-  %311 = getelementptr inbounds i8, ptr %.197, i64 %310
+  %311 = getelementptr inbounds i8, ptr %.096, i64 %310
   %312 = load i8, ptr %311, align 1
   %313 = zext i8 %312 to i32
   %314 = and i32 %306, %313
@@ -1195,8 +1195,8 @@ merge_block.exit.thread144:                       ; preds = %226
   br label %341
 
 341:                                              ; preds = %.loopexit.i, %338
-  %.4157.i = phi i32 [ 0, %338 ], [ %.7.i, %.loopexit.i ]
-  %342 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %340, ptr noundef readonly %.197, ptr noundef nonnull %9)
+  %.4157.i = phi i32 [ 0, %338 ], [ %.5.i, %.loopexit.i ]
+  %342 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %340, ptr noundef readonly %.096, ptr noundef nonnull %9)
   %.not.i62 = icmp eq i32 %342, 0
   br i1 %.not.i62, label %344, label %343
 
@@ -1233,7 +1233,7 @@ read_bits_16.exit.i:                              ; preds = %357
   br label %parse_tables.exit.thread
 
 358:                                              ; preds = %357
-  %359 = getelementptr inbounds i8, ptr %.197, i64 %355
+  %359 = getelementptr inbounds i8, ptr %.096, i64 %355
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i32
   %362 = shl nuw nsw i32 %361, 16
@@ -1304,7 +1304,7 @@ read_bits_16.exit108.i:                           ; preds = %394
   br label %parse_tables.exit.thread
 
 .lr.ph148.preheader.i:                            ; preds = %394
-  %395 = getelementptr inbounds i8, ptr %.197, i64 %355
+  %395 = getelementptr inbounds i8, ptr %.096, i64 %355
   %396 = load i8, ptr %395, align 1
   %397 = getelementptr i8, ptr %395, i64 1
   %398 = load i8, ptr %397, align 1
@@ -1355,8 +1355,8 @@ read_bits_16.exit108.i:                           ; preds = %394
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph148.preheader.i, %.loopexit.loopexit.i, %347
-  %.7.i = phi i32 [ %351, %347 ], [ %426, %.loopexit.loopexit.i ], [ %425, %.lr.ph148.preheader.i ]
-  %427 = icmp slt i32 %.7.i, 430
+  %.5.i = phi i32 [ %351, %347 ], [ %426, %.loopexit.loopexit.i ], [ %425, %.lr.ph148.preheader.i ]
+  %427 = icmp slt i32 %.5.i, 430
   br i1 %427, label %341, label %parse_tables.exit, !llvm.loop !16
 
 parse_tables.exit.thread:                         ; preds = %295, %343, %393, %read_bits_16.exit.i, %read_bits_16.exit108.i
@@ -1385,7 +1385,7 @@ parse_tables.exit:                                ; preds = %.preheader.i, %.loo
   br label %435
 
 435:                                              ; preds = %parse_tables.exit, %432, %285
-  %.298 = phi ptr [ %434, %432 ], [ %.197, %285 ], [ %.197, %parse_tables.exit ]
+  %.197 = phi ptr [ %434, %432 ], [ %.096, %285 ], [ %.096, %parse_tables.exit ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
@@ -1450,7 +1450,7 @@ parse_tables.exit:                                ; preds = %.preheader.i, %.loo
   br label %.loopexit
 
 475:                                              ; preds = %470, %467
-  %476 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %453, ptr noundef readonly %.298, ptr noundef nonnull %12)
+  %476 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %453, ptr noundef readonly %.197, ptr noundef nonnull %12)
   %.not108.i.i = icmp eq i32 %476, 0
   br i1 %.not108.i.i, label %477, label %do_uncompress_block.exit.i.thread
 
@@ -1521,7 +1521,7 @@ read_bits_16.exit.i.i.i.i:                        ; preds = %509
   br label %decode_code_length.exit.thread.i.i
 
 decode_code_length.exit.i.i:                      ; preds = %509
-  %513 = getelementptr inbounds i8, ptr %.298, i64 %511
+  %513 = getelementptr inbounds i8, ptr %.197, i64 %511
   %514 = load i8, ptr %513, align 1
   %515 = getelementptr i8, ptr %513, i64 1
   %516 = load i8, ptr %515, align 1
@@ -1558,7 +1558,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
 
 540:                                              ; preds = %decode_code_length.exit.i.i, %decode_code_length.exit.thread171.i.i
   %.015.i173.i.i = phi i32 [ %.021.i.i.i, %decode_code_length.exit.thread171.i.i ], [ %538, %decode_code_length.exit.i.i ]
-  %541 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %459, ptr noundef readonly %.298, ptr noundef nonnull %13)
+  %541 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %459, ptr noundef readonly %.197, ptr noundef nonnull %13)
   %.not114.i.i = icmp eq i32 %541, 0
   br i1 %.not114.i.i, label %543, label %542
 
@@ -1602,7 +1602,7 @@ read_bits_32.exit.i.i:                            ; preds = %555
   br label %do_uncompress_block.exit.i.thread
 
 559:                                              ; preds = %555
-  %560 = getelementptr inbounds i8, ptr %.298, i64 %557
+  %560 = getelementptr inbounds i8, ptr %.197, i64 %557
   %561 = load i8, ptr %560, align 1
   %562 = zext i8 %561 to i32
   %563 = shl nuw i32 %562, 24
@@ -1644,8 +1644,8 @@ read_bits_32.exit.i.i:                            ; preds = %555
   br label %597
 
 597:                                              ; preds = %559, %554
-  %.1.i87.i = phi i32 [ %596, %559 ], [ %.094.i.i, %554 ]
-  %598 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %460, ptr noundef readonly %.298, ptr noundef nonnull %14)
+  %.2.i.i = phi i32 [ %596, %559 ], [ %.094.i.i, %554 ]
+  %598 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %460, ptr noundef readonly %.197, ptr noundef nonnull %14)
   %.not118.i.i = icmp eq i32 %598, 0
   br i1 %.not118.i.i, label %600, label %599
 
@@ -1657,7 +1657,7 @@ read_bits_32.exit.i.i:                            ; preds = %555
   %601 = load i16, ptr %14, align 2
   %602 = zext i16 %601 to i32
   %603 = sub nuw nsw i32 2147483646, %602
-  %.not119.i.i = icmp slt i32 %.1.i87.i, %603
+  %.not119.i.i = icmp slt i32 %.2.i.i, %603
   br i1 %.not119.i.i, label %605, label %604
 
 604:                                              ; preds = %600
@@ -1665,7 +1665,7 @@ read_bits_32.exit.i.i:                            ; preds = %555
   br label %do_uncompress_block.exit.i.thread
 
 605:                                              ; preds = %600
-  %606 = add nsw i32 %.1.i87.i, %602
+  %606 = add nsw i32 %.2.i.i, %602
   br label %638
 
 607:                                              ; preds = %547
@@ -1680,7 +1680,7 @@ read_consume_bits.exit.i.i:                       ; preds = %607
   br label %do_uncompress_block.exit.i.thread
 
 611:                                              ; preds = %607
-  %612 = getelementptr inbounds i8, ptr %.298, i64 %609
+  %612 = getelementptr inbounds i8, ptr %.197, i64 %609
   %613 = load i8, ptr %612, align 1
   %614 = getelementptr i8, ptr %612, i64 1
   %615 = load i8, ptr %614, align 1
@@ -1711,17 +1711,17 @@ read_consume_bits.exit.i.i:                       ; preds = %607
   br label %638
 
 638:                                              ; preds = %611, %605, %.thread.i.i
-  %.2.i.i = phi i32 [ %606, %605 ], [ %637, %611 ], [ %.094176.i.i, %.thread.i.i ]
-  %639 = icmp sgt i32 %.2.i.i, 256
+  %.1.i87.i = phi i32 [ %606, %605 ], [ %637, %611 ], [ %.094176.i.i, %.thread.i.i ]
+  %639 = icmp sgt i32 %.1.i87.i, 256
   br i1 %639, label %640, label %645
 
 640:                                              ; preds = %638
   %641 = add nuw nsw i32 %.015.i173.i.i, 1
-  %642 = icmp ugt i32 %.2.i.i, 8192
+  %642 = icmp ugt i32 %.1.i87.i, 8192
   br i1 %642, label %643, label %645
 
 643:                                              ; preds = %640
-  %644 = icmp ugt i32 %.2.i.i, 262144
+  %644 = icmp ugt i32 %.1.i87.i, 262144
   %spec.select.v.i.i = select i1 %644, i32 3, i32 2
   %spec.select.i.i = add nsw i32 %spec.select.v.i.i, %.015.i173.i.i
   br label %645
@@ -1732,7 +1732,7 @@ read_consume_bits.exit.i.i:                       ; preds = %607
   store i32 %646, ptr %462, align 4
   %647 = load <2 x i32>, ptr %455, align 4
   store <2 x i32> %647, ptr %463, align 4
-  store i32 %.2.i.i, ptr %455, align 4
+  store i32 %.1.i87.i, ptr %455, align 4
   store i32 %.093.i.i, ptr %454, align 8
   %.val122.i.i = load ptr, ptr %20, align 8
   %.val122.val.i.i = load ptr, ptr %.val122.i.i, align 8
@@ -1753,7 +1753,7 @@ read_consume_bits.exit.i.i:                       ; preds = %607
   br i1 %658, label %.lr.ph.i.i.i52, label %copy_string.exit.i.i
 
 .lr.ph.i.i.i52:                                   ; preds = %.preheader.i.i.i
-  %659 = sext i32 %.2.i.i to i64
+  %659 = sext i32 %.1.i87.i to i64
   %wide.trip.count.i.i.i = zext nneg i32 %.093.i.i to i64
   br label %660
 
@@ -1800,12 +1800,12 @@ copy_string.exit.i.i:                             ; preds = %._crit_edge.loopexi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %.val.i.i.i = load ptr, ptr %20, align 8
   %.val.val.i.i.i = load ptr, ptr %.val.i.i.i, align 8
-  %680 = call fastcc i32 @parse_filter_data(ptr noundef %0, ptr noundef %.val.val.i.i.i, ptr noundef readonly %.298, ptr noundef nonnull %10)
+  %680 = call fastcc i32 @parse_filter_data(ptr noundef %0, ptr noundef %.val.val.i.i.i, ptr noundef readonly %.197, ptr noundef nonnull %10)
   %.not.i128.i.i = icmp eq i32 %680, 0
   br i1 %.not.i128.i.i, label %681, label %parse_filter.exit.thread.i.i
 
 681:                                              ; preds = %679
-  %682 = call fastcc i32 @parse_filter_data(ptr noundef nonnull %0, ptr noundef %.val.val.i.i.i, ptr noundef readonly %.298, ptr noundef nonnull %11)
+  %682 = call fastcc i32 @parse_filter_data(ptr noundef nonnull %0, ptr noundef %.val.val.i.i.i, ptr noundef readonly %.197, ptr noundef nonnull %11)
   %.not41.i.i.i = icmp eq i32 %682, 0
   br i1 %.not41.i.i.i, label %683, label %parse_filter.exit.thread.i.i
 
@@ -1824,7 +1824,7 @@ read_bits_16.exit.i131.i.i:                       ; preds = %683
 
 689:                                              ; preds = %683
   %690 = getelementptr inbounds i8, ptr %.val.val.i.i.i, i64 21264
-  %691 = getelementptr inbounds i8, ptr %.298, i64 %686
+  %691 = getelementptr inbounds i8, ptr %.197, i64 %686
   %692 = load i8, ptr %691, align 1
   %693 = zext i8 %692 to i32
   %694 = shl nuw nsw i32 %693, 16
@@ -1950,7 +1950,7 @@ read_consume_bits.exit.i:                         ; preds = %767
   br label %parse_filter.exit.thread.i.i
 
 771:                                              ; preds = %767
-  %772 = getelementptr inbounds i8, ptr %.298, i64 %769
+  %772 = getelementptr inbounds i8, ptr %.197, i64 %769
   %773 = load i8, ptr %772, align 1
   %774 = getelementptr i8, ptr %772, i64 1
   %775 = load i8, ptr %774, align 1
@@ -2068,7 +2068,7 @@ copy_string.exit142.thread.i.i:                   ; preds = %._crit_edge.loopexi
 
 dist_cache_touch.exit.i.i:                        ; preds = %.lr.ph.i144.i.i, %826
   store i32 %830, ptr %455, align 4
-  %836 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %456, ptr noundef readonly %.298, ptr noundef nonnull %15)
+  %836 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %456, ptr noundef readonly %.197, ptr noundef nonnull %15)
   %.not109.i.i = icmp eq i32 %836, 0
   br i1 %.not109.i.i, label %837, label %do_uncompress_block.exit.i.thread
 
@@ -2104,7 +2104,7 @@ read_bits_16.exit.i.i149.i.i:                     ; preds = %848
   br label %do_uncompress_block.exit.i.thread
 
 decode_code_length.exit153.i.i:                   ; preds = %848
-  %852 = getelementptr inbounds i8, ptr %.298, i64 %850
+  %852 = getelementptr inbounds i8, ptr %.197, i64 %850
   %853 = load i8, ptr %852, align 1
   %854 = getelementptr i8, ptr %852, i64 1
   %855 = load i8, ptr %854, align 1
@@ -3230,8 +3230,8 @@ define internal fastcc i32 @process_base_block(ptr noundef %0, ptr noundef %1) u
   %18 = getelementptr inbounds i8, ptr %.val.val, i64 44
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 1
-  %.not.i67 = icmp eq i8 %20, 0
-  br i1 %.not.i67, label %33, label %.preheader
+  %.not.i68 = icmp eq i8 %20, 0
+  br i1 %.not.i68, label %33, label %.preheader
 
 .preheader:                                       ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.val.val, i64 8
@@ -3310,8 +3310,8 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %exitcond.not.i.i, label %.loopexit, label %.preheader.i.i, !llvm.loop !25
 
 .loopexit:                                        ; preds = %49, %.preheader.i.i
-  %.12428.i.ph = phi i64 [ %48, %.preheader.i.i ], [ 9, %49 ]
-  %51 = add i64 %.12428.i.ph, %46
+  %.02428.i.ph = phi i64 [ %48, %.preheader.i.i ], [ 9, %49 ]
+  %51 = add i64 %.02428.i.ph, %46
   %52 = icmp ugt i64 %51, 2097152
   br i1 %52, label %53, label %54
 
@@ -3333,9 +3333,9 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 -1, ptr %3, align 8
   %59 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %51, ptr noundef nonnull %3) #13
-  %.not92 = icmp eq ptr %59, null
+  %.not93 = icmp eq ptr %59, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %.not92, label %read_var_sized.exit, label %60
+  br i1 %.not93, label %read_var_sized.exit, label %60
 
 60:                                               ; preds = %58
   %61 = trunc nuw nsw i64 %51 to i32
@@ -3349,8 +3349,8 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br label %read_var_sized.exit
 
 65:                                               ; preds = %60
-  %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i.ph) #13
-  %67 = icmp eq i64 %66, %.12428.i.ph
+  %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph) #13
+  %67 = icmp eq i64 %66, %.02428.i.ph
   br i1 %67, label %68, label %read_var_sized.exit
 
 68:                                               ; preds = %65
@@ -3549,24 +3549,24 @@ define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr n
   br i1 %35, label %read_var.exit, label %read_var.exit.thread
 
 read_var.exit:                                    ; preds = %16, %.preheader.i, %33, %28
-  %.2 = phi i64 [ %25, %28 ], [ %25, %33 ], [ %13, %.preheader.i ], [ %13, %16 ]
-  %.1 = phi i64 [ 0, %28 ], [ 0, %33 ], [ 9, %16 ], [ %15, %.preheader.i ]
+  %.019 = phi i64 [ %25, %28 ], [ %25, %33 ], [ %13, %.preheader.i ], [ %13, %16 ]
+  %.0 = phi i64 [ 0, %28 ], [ 0, %33 ], [ 9, %16 ], [ %15, %.preheader.i ]
   %.not29 = icmp eq ptr %1, null
   br i1 %.not29, label %read_var.exit.thread, label %36
 
 36:                                               ; preds = %read_var.exit
-  store i64 %.2, ptr %1, align 8
+  store i64 %.019, ptr %1, align 8
   br label %read_var.exit.thread
 
 read_var.exit.thread:                             ; preds = %33, %28, %36, %read_var.exit
   %37 = phi i32 [ 1, %36 ], [ 1, %read_var.exit ], [ 0, %28 ], [ 0, %33 ]
-  %.124 = phi i64 [ %.1, %36 ], [ %.1, %read_var.exit ], [ 0, %28 ], [ 0, %33 ]
+  %.024 = phi i64 [ %.0, %36 ], [ %.0, %read_var.exit ], [ 0, %28 ], [ 0, %33 ]
   br i1 %.not, label %read_var.exit.thread.thread, label %read_var.exit.thread.thread26
 
 read_var.exit.thread.thread26:                    ; preds = %6, %read_var.exit.thread
-  %.12428 = phi i64 [ %.124, %read_var.exit.thread ], [ 0, %6 ]
+  %.02428 = phi i64 [ %.024, %read_var.exit.thread ], [ 0, %6 ]
   %38 = phi i32 [ %37, %read_var.exit.thread ], [ 0, %6 ]
-  store i64 %.12428, ptr %2, align 8
+  store i64 %.02428, ptr %2, align 8
   br label %read_var.exit.thread.thread
 
 read_var.exit.thread.thread:                      ; preds = %18, %read_var.exit.thread.thread26, %read_var.exit.thread
@@ -4211,7 +4211,7 @@ read_var.exit:                                    ; preds = %128, %123
 150:                                              ; preds = %.preheader.i11.i165
   %151 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %149) #13
   %152 = icmp eq i64 %151, %149
-  br i1 %152, label %read_var_sized.exit172, label %read_var_sized.exit.thread
+  br i1 %152, label %read_var_sized.exit173, label %read_var_sized.exit.thread
 
 153:                                              ; preds = %.preheader.i11.i165
   %154 = add nuw nsw i64 %.02439.i13.i167, 7
@@ -4221,19 +4221,19 @@ read_var.exit:                                    ; preds = %128, %123
 155:                                              ; preds = %153
   %156 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #13
   %157 = icmp eq i64 %156, 9
-  br i1 %157, label %read_var_sized.exit172, label %read_var_sized.exit.thread
+  br i1 %157, label %read_var_sized.exit173, label %read_var_sized.exit.thread
 
-read_var_sized.exit172:                           ; preds = %155, %150
+read_var_sized.exit173:                           ; preds = %155, %150
   %158 = and i64 %101, 2
   %.not115 = icmp eq i64 %158, 0
   br i1 %.not115, label %161, label %159
 
-159:                                              ; preds = %read_var_sized.exit172
+159:                                              ; preds = %read_var_sized.exit173
   %160 = call fastcc i32 @read_u32(ptr noundef %0, ptr noundef nonnull %14)
   %.not116 = icmp eq i32 %160, 0
   br i1 %.not116, label %read_var_sized.exit.thread, label %161
 
-161:                                              ; preds = %159, %read_var_sized.exit172
+161:                                              ; preds = %159, %read_var_sized.exit173
   %162 = and i64 %101, 4
   %.not117 = icmp eq i64 %162, 0
   br i1 %.not117, label %165, label %163
@@ -4247,51 +4247,51 @@ read_var_sized.exit172:                           ; preds = %155, %150
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 -1, ptr %6, align 8
   %166 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %6) #13
-  %.not35.i10.i173 = icmp eq ptr %166, null
+  %.not35.i10.i174 = icmp eq ptr %166, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br i1 %.not35.i10.i173, label %read_var_sized.exit.thread, label %.preheader.i11.i174
+  br i1 %.not35.i10.i174, label %read_var_sized.exit.thread, label %.preheader.i11.i175
 
-.preheader.i11.i174:                              ; preds = %165, %178
-  %.02340.i12.i175 = phi i64 [ %174, %178 ], [ 0, %165 ]
-  %.02439.i13.i176 = phi i64 [ %179, %178 ], [ 0, %165 ]
-  %.02538.i14.i177 = phi i64 [ %172, %178 ], [ 0, %165 ]
-  %167 = getelementptr inbounds i8, ptr %166, i64 %.02340.i12.i175
+.preheader.i11.i175:                              ; preds = %165, %178
+  %.02340.i12.i176 = phi i64 [ %174, %178 ], [ 0, %165 ]
+  %.02439.i13.i177 = phi i64 [ %179, %178 ], [ 0, %165 ]
+  %.02538.i14.i178 = phi i64 [ %172, %178 ], [ 0, %165 ]
+  %167 = getelementptr inbounds i8, ptr %166, i64 %.02340.i12.i176
   %168 = load i8, ptr %167, align 1
   %169 = and i8 %168, 127
   %170 = zext nneg i8 %169 to i64
-  %171 = shl i64 %170, %.02439.i13.i176
-  %172 = add i64 %171, %.02538.i14.i177
+  %171 = shl i64 %170, %.02439.i13.i177
+  %172 = add i64 %171, %.02538.i14.i178
   %173 = icmp sgt i8 %168, -1
-  %174 = add nuw nsw i64 %.02340.i12.i175, 1
+  %174 = add nuw nsw i64 %.02340.i12.i176, 1
   br i1 %173, label %175, label %178
 
-175:                                              ; preds = %.preheader.i11.i174
+175:                                              ; preds = %.preheader.i11.i175
   %176 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %174) #13
   %177 = icmp eq i64 %176, %174
-  br i1 %177, label %read_var_sized.exit181, label %read_var_sized.exit.thread
+  br i1 %177, label %read_var_sized.exit183, label %read_var_sized.exit.thread
 
-178:                                              ; preds = %.preheader.i11.i174
-  %179 = add nuw nsw i64 %.02439.i13.i176, 7
-  %exitcond.not.i15.i178 = icmp eq i64 %174, 8
-  br i1 %exitcond.not.i15.i178, label %180, label %.preheader.i11.i174, !llvm.loop !25
+178:                                              ; preds = %.preheader.i11.i175
+  %179 = add nuw nsw i64 %.02439.i13.i177, 7
+  %exitcond.not.i15.i179 = icmp eq i64 %174, 8
+  br i1 %exitcond.not.i15.i179, label %180, label %.preheader.i11.i175, !llvm.loop !25
 
 180:                                              ; preds = %178
   %181 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #13
   %182 = icmp eq i64 %181, 9
-  br i1 %182, label %read_var_sized.exit181, label %read_var_sized.exit.thread
+  br i1 %182, label %read_var_sized.exit183, label %read_var_sized.exit.thread
 
-read_var_sized.exit181:                           ; preds = %180, %175
+read_var_sized.exit183:                           ; preds = %180, %175
   %183 = trunc i64 %172 to i32
   %184 = lshr i32 %183, 7
   %185 = and i32 %184, 7
   %186 = and i32 %183, 63
   %187 = load i8, ptr %135, align 8
   %188 = and i8 %187, 8
-  %.not225 = icmp eq i8 %188, 0
+  %.not227 = icmp eq i8 %188, 0
   %189 = lshr i64 %172, 10
   %190 = and i64 %189, 15
   %191 = shl nuw nsw i64 131072, %190
-  %192 = select i1 %.not225, i64 %191, i64 0
+  %192 = select i1 %.not227, i64 %191, i64 0
   %193 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 %185, ptr %193, align 8
   %194 = add nuw nsw i32 %186, 50
@@ -4306,7 +4306,7 @@ read_var_sized.exit181:                           ; preds = %180, %175
   %.not120 = icmp eq i8 %198, 0
   br i1 %.not120, label %206, label %201
 
-201:                                              ; preds = %read_var_sized.exit181
+201:                                              ; preds = %read_var_sized.exit183
   %202 = getelementptr inbounds i8, ptr %1, i64 80
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, null
@@ -4316,7 +4316,7 @@ read_var_sized.exit181:                           ; preds = %180, %175
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.18) #13
   br label %read_var_sized.exit.thread
 
-206:                                              ; preds = %read_var_sized.exit181
+206:                                              ; preds = %read_var_sized.exit183
   %207 = icmp ugt i64 %192, 67108864
   br i1 %207, label %209, label %215
 
@@ -4485,9 +4485,9 @@ read_var_sized.exit181:                           ; preds = %180, %175
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -1, ptr %5, align 8
   %272 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %271, ptr noundef nonnull %5) #13
-  %.not226 = icmp eq ptr %272, null
+  %.not228 = icmp eq ptr %272, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not226, label %read_var_sized.exit.thread, label %273
+  br i1 %.not228, label %read_var_sized.exit.thread, label %273
 
 273:                                              ; preds = %270
   %274 = load i64, ptr %13, align 8
@@ -4839,7 +4839,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   br label %43
 
 43:                                               ; preds = %.lr.ph, %parse_file_extra_hash.exit
-  %.0131183 = phi i64 [ %3, %.lr.ph ], [ %.15, %parse_file_extra_hash.exit ]
+  %.0132184 = phi i64 [ %3, %.lr.ph ], [ %.1133, %parse_file_extra_hash.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   store i64 -1, ptr %33, align 8
   %44 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %33) #13
@@ -4853,19 +4853,19 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %46 = load i8, ptr %45, align 1
   %47 = icmp sgt i8 %46, -1
   %48 = add nuw nsw i64 %.02340.i.i, 1
-  br i1 %47, label %.loopexit144, label %49
+  br i1 %47, label %.loopexit145, label %49
 
 49:                                               ; preds = %.preheader.i.i
   %exitcond.not.i.i = icmp eq i64 %48, 8
-  br i1 %exitcond.not.i.i, label %.loopexit144, label %.preheader.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %.loopexit145, label %.preheader.i.i, !llvm.loop !25
 
-.loopexit144:                                     ; preds = %49, %.preheader.i.i
-  %.12428.i.ph = phi i64 [ %48, %.preheader.i.i ], [ 9, %49 ]
-  %50 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i.ph) #13
-  %51 = icmp eq i64 %50, %.12428.i.ph
+.loopexit145:                                     ; preds = %49, %.preheader.i.i
+  %.02428.i.ph = phi i64 [ %48, %.preheader.i.i ], [ 9, %49 ]
+  %50 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph) #13
+  %51 = icmp eq i64 %50, %.02428.i.ph
   br i1 %51, label %52, label %read_var_sized.exit
 
-52:                                               ; preds = %.loopexit144
+52:                                               ; preds = %.loopexit145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   store i64 -1, ptr %32, align 8
   %53 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %32) #13
@@ -4893,11 +4893,11 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   br i1 %exitcond.not.i.i29, label %.loopexit, label %.preheader.i.i25, !llvm.loop !25
 
 .loopexit:                                        ; preds = %62, %.preheader.i.i25
-  %.12428.i32.ph = phi i64 [ %61, %.preheader.i.i25 ], [ 9, %62 ]
-  %64 = add i64 %.12428.i.ph, %.12428.i32.ph
-  %65 = sub i64 %.0131183, %64
-  %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i32.ph) #13
-  %67 = icmp eq i64 %66, %.12428.i32.ph
+  %.02428.i32.ph = phi i64 [ %61, %.preheader.i.i25 ], [ 9, %62 ]
+  %64 = add i64 %.02428.i.ph, %.02428.i32.ph
+  %65 = sub i64 %.0132184, %64
+  %66 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i32.ph) #13
+  %67 = icmp eq i64 %66, %.02428.i32.ph
   br i1 %67, label %68, label %read_var_sized.exit
 
 68:                                               ; preds = %.loopexit
@@ -4937,10 +4937,10 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %.preheader.i.i.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %79, %.preheader.i.i.i
-  %.12428.i.ph.i = phi i64 [ %78, %.preheader.i.i.i ], [ 9, %79 ]
-  %81 = sub i64 %65, %.12428.i.ph.i
-  %82 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i.ph.i) #13
-  %83 = icmp eq i64 %82, %.12428.i.ph.i
+  %.02428.i.ph.i = phi i64 [ %78, %.preheader.i.i.i ], [ 9, %79 ]
+  %81 = sub i64 %65, %.02428.i.ph.i
+  %82 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph.i) #13
+  %83 = icmp eq i64 %82, %.02428.i.ph.i
   br i1 %83, label %84, label %parse_file_extra_hash.exit
 
 84:                                               ; preds = %.loopexit.i
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   %90 = icmp ne i64 %89, 32
   %91 = add nsw i64 %81, -32
   %spec.select = select i1 %90, i64 %81, i64 %91
-  %spec.select141 = zext i1 %90 to i32
+  %spec.select142 = zext i1 %90 to i32
   br label %parse_file_extra_hash.exit
 
 92:                                               ; preds = %84
@@ -4974,37 +4974,37 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   store i64 -1, ptr %29, align 8
   %95 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %29) #13
-  %.not35.i.i.i34 = icmp eq ptr %95, null
+  %.not35.i.i.i35 = icmp eq ptr %95, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  br i1 %.not35.i.i.i34, label %parse_file_extra_hash.exit, label %.preheader.i.i.i35
+  br i1 %.not35.i.i.i35, label %parse_file_extra_hash.exit, label %.preheader.i.i.i36
 
-.preheader.i.i.i35:                               ; preds = %94, %104
-  %.02340.i.i.i36 = phi i64 [ %103, %104 ], [ 0, %94 ]
-  %.02439.i.i.i37 = phi i64 [ %105, %104 ], [ 0, %94 ]
-  %.02538.i.i.i38 = phi i64 [ %101, %104 ], [ 0, %94 ]
-  %96 = getelementptr inbounds i8, ptr %95, i64 %.02340.i.i.i36
+.preheader.i.i.i36:                               ; preds = %94, %104
+  %.02340.i.i.i37 = phi i64 [ %103, %104 ], [ 0, %94 ]
+  %.02439.i.i.i38 = phi i64 [ %105, %104 ], [ 0, %94 ]
+  %.02538.i.i.i39 = phi i64 [ %101, %104 ], [ 0, %94 ]
+  %96 = getelementptr inbounds i8, ptr %95, i64 %.02340.i.i.i37
   %97 = load i8, ptr %96, align 1
   %98 = and i8 %97, 127
   %99 = zext nneg i8 %98 to i64
-  %100 = shl i64 %99, %.02439.i.i.i37
-  %101 = add i64 %100, %.02538.i.i.i38
+  %100 = shl i64 %99, %.02439.i.i.i38
+  %101 = add i64 %100, %.02538.i.i.i39
   %102 = icmp sgt i8 %97, -1
-  %103 = add nuw nsw i64 %.02340.i.i.i36, 1
-  br i1 %102, label %.loopexit.i40, label %104
+  %103 = add nuw nsw i64 %.02340.i.i.i37, 1
+  br i1 %102, label %.loopexit.i41, label %104
 
-104:                                              ; preds = %.preheader.i.i.i35
-  %105 = add nuw nsw i64 %.02439.i.i.i37, 7
-  %exitcond.not.i.i.i39 = icmp eq i64 %103, 8
-  br i1 %exitcond.not.i.i.i39, label %.loopexit.i40, label %.preheader.i.i.i35, !llvm.loop !25
+104:                                              ; preds = %.preheader.i.i.i36
+  %105 = add nuw nsw i64 %.02439.i.i.i38, 7
+  %exitcond.not.i.i.i40 = icmp eq i64 %103, 8
+  br i1 %exitcond.not.i.i.i40, label %.loopexit.i41, label %.preheader.i.i.i36, !llvm.loop !25
 
-.loopexit.i40:                                    ; preds = %104, %.preheader.i.i.i35
-  %.12428.i.ph.i41 = phi i64 [ %103, %.preheader.i.i.i35 ], [ 9, %104 ]
-  %106 = sub i64 %65, %.12428.i.ph.i41
-  %107 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i.ph.i41) #13
-  %108 = icmp eq i64 %107, %.12428.i.ph.i41
+.loopexit.i41:                                    ; preds = %104, %.preheader.i.i.i36
+  %.02428.i.ph.i42 = phi i64 [ %103, %.preheader.i.i.i36 ], [ 9, %104 ]
+  %106 = sub i64 %65, %.02428.i.ph.i42
+  %107 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph.i42) #13
+  %108 = icmp eq i64 %107, %.02428.i.ph.i42
   br i1 %108, label %109, label %parse_file_extra_hash.exit
 
-109:                                              ; preds = %.loopexit.i40
+109:                                              ; preds = %.loopexit.i41
   %110 = trunc i64 %101 to i8
   %111 = and i8 %110, 1
   %112 = and i64 %101, 2
@@ -5012,139 +5012,139 @@ define internal fastcc range(i32 -30, 2) i32 @process_head_file_extra(ptr nounde
   br i1 %.not25.i, label %129, label %113
 
 113:                                              ; preds = %109
-  %.not.i93 = icmp eq i8 %111, 0
-  br i1 %.not.i93, label %121, label %114
+  %.not.i94 = icmp eq i8 %111, 0
+  br i1 %.not.i94, label %121, label %114
 
 114:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 -1, ptr %6, align 8
   %115 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %6) #13
-  %.not3.i.i94 = icmp eq ptr %115, null
+  %.not3.i.i95 = icmp eq ptr %115, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br i1 %.not3.i.i94, label %parse_htime_item.exit102, label %read_u32.exit.i95
+  br i1 %.not3.i.i95, label %parse_htime_item.exit103, label %read_u32.exit.i96
 
-read_u32.exit.i95:                                ; preds = %114
+read_u32.exit.i96:                                ; preds = %114
   %116 = load i32, ptr %115, align 1
   %117 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #13
-  %.not19.i96 = icmp eq i64 %117, 4
-  br i1 %.not19.i96, label %118, label %parse_htime_item.exit102
+  %.not19.i97 = icmp eq i64 %117, 4
+  br i1 %.not19.i97, label %118, label %parse_htime_item.exit103
 
-118:                                              ; preds = %read_u32.exit.i95
+118:                                              ; preds = %read_u32.exit.i96
   %119 = add nsw i64 %106, -4
   %120 = zext i32 %116 to i64
   store i64 %120, ptr %37, align 8
-  br label %parse_htime_item.exit102
+  br label %parse_htime_item.exit103
 
 121:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -1, ptr %5, align 8
   %122 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %5) #13
-  %.not4.i.i98 = icmp eq ptr %122, null
+  %.not4.i.i99 = icmp eq ptr %122, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not4.i.i98, label %parse_htime_item.exit102, label %read_u64.exit.i99
+  br i1 %.not4.i.i99, label %parse_htime_item.exit103, label %read_u64.exit.i100
 
-read_u64.exit.i99:                                ; preds = %121
-  %.val.i.i100 = load i64, ptr %122, align 1
+read_u64.exit.i100:                               ; preds = %121
+  %.val.i.i101 = load i64, ptr %122, align 1
   %123 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #13
-  %.not20.i101 = icmp eq i64 %123, 8
-  br i1 %.not20.i101, label %124, label %parse_htime_item.exit102
+  %.not20.i102 = icmp eq i64 %123, 8
+  br i1 %.not20.i102, label %124, label %parse_htime_item.exit103
 
-124:                                              ; preds = %read_u64.exit.i99
-  %125 = udiv i64 %.val.i.i100, 10000000
+124:                                              ; preds = %read_u64.exit.i100
+  %125 = udiv i64 %.val.i.i101, 10000000
   %126 = add nsw i64 %125, -11644473600
   store i64 %126, ptr %37, align 8
   %127 = add nsw i64 %106, -8
-  br label %parse_htime_item.exit102
+  br label %parse_htime_item.exit103
 
-parse_htime_item.exit102:                         ; preds = %114, %read_u32.exit.i95, %118, %121, %read_u64.exit.i99, %124
-  %.2 = phi i64 [ %106, %121 ], [ %127, %124 ], [ %106, %read_u64.exit.i99 ], [ %106, %114 ], [ %119, %118 ], [ %106, %read_u32.exit.i95 ]
+parse_htime_item.exit103:                         ; preds = %114, %read_u32.exit.i96, %118, %121, %read_u64.exit.i100, %124
+  %.15 = phi i64 [ %106, %121 ], [ %127, %124 ], [ %106, %read_u64.exit.i100 ], [ %106, %114 ], [ %119, %118 ], [ %106, %read_u32.exit.i96 ]
   %128 = load i64, ptr %37, align 8
   call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %128, i64 noundef 0) #13
   br label %129
 
-129:                                              ; preds = %parse_htime_item.exit102, %109
-  %.3 = phi i64 [ %106, %109 ], [ %.2, %parse_htime_item.exit102 ]
+129:                                              ; preds = %parse_htime_item.exit103, %109
+  %.3 = phi i64 [ %106, %109 ], [ %.15, %parse_htime_item.exit103 ]
   %130 = and i64 %101, 4
   %.not26.i = icmp eq i64 %130, 0
   br i1 %.not26.i, label %147, label %131
 
 131:                                              ; preds = %129
-  %.not.i83 = icmp eq i8 %111, 0
-  br i1 %.not.i83, label %139, label %132
+  %.not.i84 = icmp eq i8 %111, 0
+  br i1 %.not.i84, label %139, label %132
 
 132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 -1, ptr %8, align 8
   %133 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %8) #13
-  %.not3.i.i84 = icmp eq ptr %133, null
+  %.not3.i.i85 = icmp eq ptr %133, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br i1 %.not3.i.i84, label %parse_htime_item.exit92, label %read_u32.exit.i85
+  br i1 %.not3.i.i85, label %parse_htime_item.exit93, label %read_u32.exit.i86
 
-read_u32.exit.i85:                                ; preds = %132
+read_u32.exit.i86:                                ; preds = %132
   %134 = load i32, ptr %133, align 1
   %135 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #13
-  %.not19.i86 = icmp eq i64 %135, 4
-  br i1 %.not19.i86, label %136, label %parse_htime_item.exit92
+  %.not19.i87 = icmp eq i64 %135, 4
+  br i1 %.not19.i87, label %136, label %parse_htime_item.exit93
 
-136:                                              ; preds = %read_u32.exit.i85
+136:                                              ; preds = %read_u32.exit.i86
   %137 = add nsw i64 %.3, -4
   %138 = zext i32 %134 to i64
   store i64 %138, ptr %38, align 8
-  br label %parse_htime_item.exit92
+  br label %parse_htime_item.exit93
 
 139:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 -1, ptr %7, align 8
   %140 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %7) #13
-  %.not4.i.i88 = icmp eq ptr %140, null
+  %.not4.i.i89 = icmp eq ptr %140, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br i1 %.not4.i.i88, label %parse_htime_item.exit92, label %read_u64.exit.i89
+  br i1 %.not4.i.i89, label %parse_htime_item.exit93, label %read_u64.exit.i90
 
-read_u64.exit.i89:                                ; preds = %139
-  %.val.i.i90 = load i64, ptr %140, align 1
+read_u64.exit.i90:                                ; preds = %139
+  %.val.i.i91 = load i64, ptr %140, align 1
   %141 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #13
-  %.not20.i91 = icmp eq i64 %141, 8
-  br i1 %.not20.i91, label %142, label %parse_htime_item.exit92
+  %.not20.i92 = icmp eq i64 %141, 8
+  br i1 %.not20.i92, label %142, label %parse_htime_item.exit93
 
-142:                                              ; preds = %read_u64.exit.i89
-  %143 = udiv i64 %.val.i.i90, 10000000
+142:                                              ; preds = %read_u64.exit.i90
+  %143 = udiv i64 %.val.i.i91, 10000000
   %144 = add nsw i64 %143, -11644473600
   store i64 %144, ptr %38, align 8
   %145 = add nsw i64 %.3, -8
-  br label %parse_htime_item.exit92
+  br label %parse_htime_item.exit93
 
-parse_htime_item.exit92:                          ; preds = %132, %read_u32.exit.i85, %136, %139, %read_u64.exit.i89, %142
-  %.4 = phi i64 [ %.3, %139 ], [ %145, %142 ], [ %.3, %read_u64.exit.i89 ], [ %.3, %132 ], [ %137, %136 ], [ %.3, %read_u32.exit.i85 ]
+parse_htime_item.exit93:                          ; preds = %132, %read_u32.exit.i86, %136, %139, %read_u64.exit.i90, %142
+  %.14 = phi i64 [ %.3, %139 ], [ %145, %142 ], [ %.3, %read_u64.exit.i90 ], [ %.3, %132 ], [ %137, %136 ], [ %.3, %read_u32.exit.i86 ]
   %146 = load i64, ptr %38, align 8
   call void @archive_entry_set_ctime(ptr noundef %1, i64 noundef %146, i64 noundef 0) #13
   br label %147
 
-147:                                              ; preds = %parse_htime_item.exit92, %129
-  %.5 = phi i64 [ %.3, %129 ], [ %.4, %parse_htime_item.exit92 ]
+147:                                              ; preds = %parse_htime_item.exit93, %129
+  %.4 = phi i64 [ %.3, %129 ], [ %.14, %parse_htime_item.exit93 ]
   %148 = and i64 %101, 8
   %.not27.i = icmp eq i64 %148, 0
   br i1 %.not27.i, label %165, label %149
 
 149:                                              ; preds = %147
-  %.not.i79 = icmp eq i8 %111, 0
-  br i1 %.not.i79, label %157, label %150
+  %.not.i80 = icmp eq i8 %111, 0
+  br i1 %.not.i80, label %157, label %150
 
 150:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 -1, ptr %10, align 8
   %151 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef nonnull %10) #13
-  %.not3.i.i80 = icmp eq ptr %151, null
+  %.not3.i.i81 = icmp eq ptr %151, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br i1 %.not3.i.i80, label %parse_htime_item.exit, label %read_u32.exit.i81
+  br i1 %.not3.i.i81, label %parse_htime_item.exit, label %read_u32.exit.i82
 
-read_u32.exit.i81:                                ; preds = %150
+read_u32.exit.i82:                                ; preds = %150
   %152 = load i32, ptr %151, align 1
   %153 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #13
   %.not19.i = icmp eq i64 %153, 4
   br i1 %.not19.i, label %154, label %parse_htime_item.exit
 
-154:                                              ; preds = %read_u32.exit.i81
-  %155 = add nsw i64 %.5, -4
+154:                                              ; preds = %read_u32.exit.i82
+  %155 = add nsw i64 %.4, -4
   %156 = zext i32 %152 to i64
   store i64 %156, ptr %39, align 8
   br label %parse_htime_item.exit
@@ -5167,17 +5167,17 @@ read_u64.exit.i:                                  ; preds = %157
   %161 = udiv i64 %.val.i.i, 10000000
   %162 = add nsw i64 %161, -11644473600
   store i64 %162, ptr %39, align 8
-  %163 = add nsw i64 %.5, -8
+  %163 = add nsw i64 %.4, -8
   br label %parse_htime_item.exit
 
-parse_htime_item.exit:                            ; preds = %150, %read_u32.exit.i81, %154, %157, %read_u64.exit.i, %160
-  %.6 = phi i64 [ %.5, %157 ], [ %163, %160 ], [ %.5, %read_u64.exit.i ], [ %.5, %150 ], [ %155, %154 ], [ %.5, %read_u32.exit.i81 ]
+parse_htime_item.exit:                            ; preds = %150, %read_u32.exit.i82, %154, %157, %read_u64.exit.i, %160
+  %.13 = phi i64 [ %.4, %157 ], [ %163, %160 ], [ %.4, %read_u64.exit.i ], [ %.4, %150 ], [ %155, %154 ], [ %.4, %read_u32.exit.i82 ]
   %164 = load i64, ptr %39, align 8
   call void @archive_entry_set_atime(ptr noundef %1, i64 noundef %164, i64 noundef 0) #13
   br label %165
 
 165:                                              ; preds = %parse_htime_item.exit, %147
-  %.7 = phi i64 [ %.5, %147 ], [ %.6, %parse_htime_item.exit ]
+  %.5 = phi i64 [ %.4, %147 ], [ %.13, %parse_htime_item.exit ]
   %166 = and i64 %101, 16
   %.not28.i = icmp eq i64 %166, 0
   br i1 %.not28.i, label %parse_file_extra_hash.exit, label %167
@@ -5194,10 +5194,10 @@ read_u32.exit.i:                                  ; preds = %167
   %169 = load i32, ptr %168, align 1
   store i32 %169, ptr %40, align 4
   %170 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 4) #13
-  %.not.i43 = icmp ne i64 %170, 4
-  %171 = add nsw i64 %.7, -4
-  %spec.select142 = select i1 %.not.i43, i64 %.7, i64 %171
-  %spec.select143 = zext i1 %.not.i43 to i32
+  %.not.i44 = icmp ne i64 %170, 4
+  %171 = add nsw i64 %.5, -4
+  %spec.select143 = select i1 %.not.i44, i64 %.5, i64 %171
+  %spec.select144 = zext i1 %.not.i44 to i32
   br label %parse_file_extra_hash.exit
 
 172:                                              ; preds = %68
@@ -5205,46 +5205,46 @@ read_u32.exit.i:                                  ; preds = %167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store i64 -1, ptr %26, align 8
   %173 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %26) #13
-  %.not35.i.i44 = icmp eq ptr %173, null
+  %.not35.i.i45 = icmp eq ptr %173, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  br i1 %.not35.i.i44, label %parse_file_extra_redir.exit, label %.preheader.i.i45
+  br i1 %.not35.i.i45, label %parse_file_extra_redir.exit, label %.preheader.i.i46
 
-.preheader.i.i45:                                 ; preds = %172, %183
-  %.02340.i.i46 = phi i64 [ %184, %183 ], [ 0, %172 ]
-  %.02439.i.i47 = phi i64 [ %185, %183 ], [ 0, %172 ]
-  %.02538.i.i48 = phi i64 [ %179, %183 ], [ 0, %172 ]
-  %174 = getelementptr inbounds i8, ptr %173, i64 %.02340.i.i46
+.preheader.i.i46:                                 ; preds = %172, %183
+  %.02340.i.i47 = phi i64 [ %184, %183 ], [ 0, %172 ]
+  %.02439.i.i48 = phi i64 [ %185, %183 ], [ 0, %172 ]
+  %.02538.i.i49 = phi i64 [ %179, %183 ], [ 0, %172 ]
+  %174 = getelementptr inbounds i8, ptr %173, i64 %.02340.i.i47
   %175 = load i8, ptr %174, align 1
   %176 = and i8 %175, 127
   %177 = zext nneg i8 %176 to i64
-  %178 = shl i64 %177, %.02439.i.i47
-  %179 = add i64 %178, %.02538.i.i48
+  %178 = shl i64 %177, %.02439.i.i48
+  %179 = add i64 %178, %.02538.i.i49
   %180 = icmp sgt i8 %175, -1
   br i1 %180, label %181, label %183
 
-181:                                              ; preds = %.preheader.i.i45
+181:                                              ; preds = %.preheader.i.i46
   store i64 %179, ptr %35, align 8
-  %182 = add nuw nsw i64 %.02340.i.i46, 1
+  %182 = add nuw nsw i64 %.02340.i.i47, 1
   br label %187
 
-183:                                              ; preds = %.preheader.i.i45
-  %184 = add nuw nsw i64 %.02340.i.i46, 1
-  %185 = add nuw nsw i64 %.02439.i.i47, 7
-  %exitcond.not.i.i49 = icmp eq i64 %184, 8
-  br i1 %exitcond.not.i.i49, label %186, label %.preheader.i.i45, !llvm.loop !25
+183:                                              ; preds = %.preheader.i.i46
+  %184 = add nuw nsw i64 %.02340.i.i47, 1
+  %185 = add nuw nsw i64 %.02439.i.i48, 7
+  %exitcond.not.i.i50 = icmp eq i64 %184, 8
+  br i1 %exitcond.not.i.i50, label %186, label %.preheader.i.i46, !llvm.loop !25
 
 186:                                              ; preds = %183
   store i64 %179, ptr %35, align 8
   br label %187
 
 187:                                              ; preds = %186, %181
-  %.045.ph.i = phi i64 [ 9, %186 ], [ %182, %181 ]
-  %188 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.045.ph.i) #13
-  %189 = icmp eq i64 %188, %.045.ph.i
+  %.046.ph.i = phi i64 [ 9, %186 ], [ %182, %181 ]
+  %188 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.046.ph.i) #13
+  %189 = icmp eq i64 %188, %.046.ph.i
   br i1 %189, label %190, label %parse_file_extra_redir.exit
 
 190:                                              ; preds = %187
-  %191 = sub i64 %65, %.045.ph.i
+  %191 = sub i64 %65, %.046.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store i64 -1, ptr %25, align 8
   %192 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %25) #13
@@ -5330,9 +5330,9 @@ read_var_sized.exit.i:                            ; preds = %225, %220
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 -1, ptr %23, align 8
   %229 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %217, ptr noundef nonnull %23) #13
-  %.not.i52 = icmp eq ptr %229, null
+  %.not.i53 = icmp eq ptr %229, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  br i1 %.not.i52, label %parse_file_extra_redir.exit, label %230
+  br i1 %.not.i53, label %parse_file_extra_redir.exit, label %230
 
 230:                                              ; preds = %read_var_sized.exit.i
   %231 = icmp ugt i64 %217, 2047
@@ -5388,8 +5388,8 @@ read_var_sized.exit.i:                            ; preds = %225, %220
   br label %parse_file_extra_redir.exit
 
 parse_file_extra_redir.exit:                      ; preds = %172, %187, %190, %206, %209, %220, %225, %read_var_sized.exit.i, %232, %235, %236, %240, %246, %247, %248
-  %.9 = phi i64 [ %65, %172 ], [ %191, %190 ], [ %210, %209 ], [ %228, %read_var_sized.exit.i ], [ %228, %232 ], [ %228, %235 ], [ %228, %240 ], [ %228, %248 ], [ %228, %247 ], [ %228, %246 ], [ %228, %236 ], [ %210, %220 ], [ %210, %225 ], [ %191, %206 ], [ %65, %187 ]
-  %.0.i51 = phi i32 [ 1, %172 ], [ 1, %190 ], [ 1, %209 ], [ 1, %read_var_sized.exit.i ], [ -30, %232 ], [ -30, %235 ], [ 0, %240 ], [ 0, %248 ], [ 0, %247 ], [ 0, %246 ], [ 1, %236 ], [ 1, %220 ], [ 1, %225 ], [ 1, %206 ], [ 1, %187 ]
+  %.7 = phi i64 [ %65, %172 ], [ %191, %190 ], [ %210, %209 ], [ %228, %read_var_sized.exit.i ], [ %228, %232 ], [ %228, %235 ], [ %228, %240 ], [ %228, %248 ], [ %228, %247 ], [ %228, %246 ], [ %228, %236 ], [ %210, %220 ], [ %210, %225 ], [ %191, %206 ], [ %65, %187 ]
+  %.0.i52 = phi i32 [ 1, %172 ], [ 1, %190 ], [ 1, %209 ], [ 1, %read_var_sized.exit.i ], [ -30, %232 ], [ -30, %235 ], [ 0, %240 ], [ 0, %248 ], [ 0, %247 ], [ 0, %246 ], [ 1, %236 ], [ 1, %220 ], [ 1, %225 ], [ 1, %206 ], [ 1, %187 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %27)
   br label %parse_file_extra_hash.exit
 
@@ -5398,89 +5398,89 @@ parse_file_extra_redir.exit:                      ; preds = %172, %187, %190, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store i64 -1, ptr %21, align 8
   %251 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %21) #13
-  %.not35.i.i53 = icmp eq ptr %251, null
+  %.not35.i.i54 = icmp eq ptr %251, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  br i1 %.not35.i.i53, label %parse_file_extra_owner.exit, label %.preheader.i.i54
+  br i1 %.not35.i.i54, label %parse_file_extra_owner.exit, label %.preheader.i.i55
 
-.preheader.i.i54:                                 ; preds = %250, %260
-  %.02340.i.i55 = phi i64 [ %259, %260 ], [ 0, %250 ]
-  %.02439.i.i56 = phi i64 [ %261, %260 ], [ 0, %250 ]
-  %.02538.i.i57 = phi i64 [ %257, %260 ], [ 0, %250 ]
-  %252 = getelementptr inbounds i8, ptr %251, i64 %.02340.i.i55
+.preheader.i.i55:                                 ; preds = %250, %260
+  %.02340.i.i56 = phi i64 [ %259, %260 ], [ 0, %250 ]
+  %.02439.i.i57 = phi i64 [ %261, %260 ], [ 0, %250 ]
+  %.02538.i.i58 = phi i64 [ %257, %260 ], [ 0, %250 ]
+  %252 = getelementptr inbounds i8, ptr %251, i64 %.02340.i.i56
   %253 = load i8, ptr %252, align 1
   %254 = and i8 %253, 127
   %255 = zext nneg i8 %254 to i64
-  %256 = shl i64 %255, %.02439.i.i56
-  %257 = add i64 %256, %.02538.i.i57
+  %256 = shl i64 %255, %.02439.i.i57
+  %257 = add i64 %256, %.02538.i.i58
   %258 = icmp sgt i8 %253, -1
-  %259 = add nuw nsw i64 %.02340.i.i55, 1
-  br i1 %258, label %.loopexit123.i, label %260
+  %259 = add nuw nsw i64 %.02340.i.i56, 1
+  br i1 %258, label %.loopexit125.i, label %260
 
-260:                                              ; preds = %.preheader.i.i54
-  %261 = add nuw nsw i64 %.02439.i.i56, 7
-  %exitcond.not.i.i58 = icmp eq i64 %259, 8
-  br i1 %exitcond.not.i.i58, label %.loopexit123.i, label %.preheader.i.i54, !llvm.loop !25
+260:                                              ; preds = %.preheader.i.i55
+  %261 = add nuw nsw i64 %.02439.i.i57, 7
+  %exitcond.not.i.i59 = icmp eq i64 %259, 8
+  br i1 %exitcond.not.i.i59, label %.loopexit125.i, label %.preheader.i.i55, !llvm.loop !25
 
-.loopexit123.i:                                   ; preds = %260, %.preheader.i.i54
-  %.094.ph.i = phi i64 [ %259, %.preheader.i.i54 ], [ 9, %260 ]
-  %262 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.094.ph.i) #13
-  %263 = icmp eq i64 %262, %.094.ph.i
+.loopexit125.i:                                   ; preds = %260, %.preheader.i.i55
+  %.197.ph.i = phi i64 [ %259, %.preheader.i.i55 ], [ 9, %260 ]
+  %262 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.197.ph.i) #13
+  %263 = icmp eq i64 %262, %.197.ph.i
   br i1 %263, label %264, label %parse_file_extra_owner.exit
 
-264:                                              ; preds = %.loopexit123.i
-  %265 = sub i64 %65, %.094.ph.i
+264:                                              ; preds = %.loopexit125.i
+  %265 = sub i64 %65, %.197.ph.i
   %266 = and i64 %257, 1
-  %.not29.i60 = icmp eq i64 %266, 0
-  br i1 %.not29.i60, label %292, label %267
+  %.not29.i61 = icmp eq i64 %266, 0
+  br i1 %.not29.i61, label %292, label %267
 
 267:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store i64 -1, ptr %20, align 8
   %268 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %20) #13
-  %.not35.i10.i.i61 = icmp eq ptr %268, null
+  %.not35.i10.i.i62 = icmp eq ptr %268, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  br i1 %.not35.i10.i.i61, label %parse_file_extra_owner.exit, label %.preheader.i11.i.i62
+  br i1 %.not35.i10.i.i62, label %parse_file_extra_owner.exit, label %.preheader.i11.i.i63
 
-.preheader.i11.i.i62:                             ; preds = %267, %280
-  %.02340.i12.i.i63 = phi i64 [ %276, %280 ], [ 0, %267 ]
-  %.02439.i13.i.i64 = phi i64 [ %281, %280 ], [ 0, %267 ]
-  %.02538.i14.i.i65 = phi i64 [ %274, %280 ], [ 0, %267 ]
-  %269 = getelementptr inbounds i8, ptr %268, i64 %.02340.i12.i.i63
+.preheader.i11.i.i63:                             ; preds = %267, %280
+  %.02340.i12.i.i64 = phi i64 [ %276, %280 ], [ 0, %267 ]
+  %.02439.i13.i.i65 = phi i64 [ %281, %280 ], [ 0, %267 ]
+  %.02538.i14.i.i66 = phi i64 [ %274, %280 ], [ 0, %267 ]
+  %269 = getelementptr inbounds i8, ptr %268, i64 %.02340.i12.i.i64
   %270 = load i8, ptr %269, align 1
   %271 = and i8 %270, 127
   %272 = zext nneg i8 %271 to i64
-  %273 = shl i64 %272, %.02439.i13.i.i64
-  %274 = add i64 %273, %.02538.i14.i.i65
+  %273 = shl i64 %272, %.02439.i13.i.i65
+  %274 = add i64 %273, %.02538.i14.i.i66
   %275 = icmp sgt i8 %270, -1
-  %276 = add nuw nsw i64 %.02340.i12.i.i63, 1
+  %276 = add nuw nsw i64 %.02340.i12.i.i64, 1
   br i1 %275, label %277, label %280
 
-277:                                              ; preds = %.preheader.i11.i.i62
+277:                                              ; preds = %.preheader.i11.i.i63
   %278 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %276) #13
   %279 = icmp eq i64 %278, %276
-  br i1 %279, label %read_var_sized.exit.i67, label %parse_file_extra_owner.exit
+  br i1 %279, label %read_var_sized.exit.i68, label %parse_file_extra_owner.exit
 
-280:                                              ; preds = %.preheader.i11.i.i62
-  %281 = add nuw nsw i64 %.02439.i13.i.i64, 7
-  %exitcond.not.i15.i.i66 = icmp eq i64 %276, 8
-  br i1 %exitcond.not.i15.i.i66, label %282, label %.preheader.i11.i.i62, !llvm.loop !25
+280:                                              ; preds = %.preheader.i11.i.i63
+  %281 = add nuw nsw i64 %.02439.i13.i.i65, 7
+  %exitcond.not.i15.i.i67 = icmp eq i64 %276, 8
+  br i1 %exitcond.not.i15.i.i67, label %282, label %.preheader.i11.i.i63, !llvm.loop !25
 
 282:                                              ; preds = %280
   %283 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #13
   %284 = icmp eq i64 %283, 9
-  br i1 %284, label %read_var_sized.exit.i67, label %parse_file_extra_owner.exit
+  br i1 %284, label %read_var_sized.exit.i68, label %parse_file_extra_owner.exit
 
-read_var_sized.exit.i67:                          ; preds = %282, %277
-  %.neg.i68 = xor i64 %274, -1
-  %285 = add i64 %265, %.neg.i68
+read_var_sized.exit.i68:                          ; preds = %282, %277
+  %.neg.i69 = xor i64 %274, -1
+  %285 = add i64 %265, %.neg.i69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 -1, ptr %19, align 8
   %286 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %274, ptr noundef nonnull %19) #13
-  %.not.i69 = icmp eq ptr %286, null
+  %.not.i70 = icmp eq ptr %286, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br i1 %.not.i69, label %parse_file_extra_owner.exit, label %287
+  br i1 %.not.i70, label %parse_file_extra_owner.exit, label %287
 
-287:                                              ; preds = %read_var_sized.exit.i67
+287:                                              ; preds = %read_var_sized.exit.i68
   %..i = call i64 @llvm.umin.i64(i64 %274, i64 255)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %22, ptr nonnull align 1 %286, i64 %..i, i1 false)
   %288 = getelementptr inbounds [256 x i8], ptr %22, i64 0, i64 %..i
@@ -5494,7 +5494,7 @@ read_var_sized.exit.i67:                          ; preds = %282, %277
   br label %292
 
 292:                                              ; preds = %291, %264
-  %.10 = phi i64 [ %265, %264 ], [ %285, %291 ]
+  %.8 = phi i64 [ %265, %264 ], [ %285, %291 ]
   %293 = and i64 %257, 2
   %.not33.i = icmp eq i64 %293, 0
   br i1 %.not33.i, label %319, label %294
@@ -5503,50 +5503,50 @@ read_var_sized.exit.i67:                          ; preds = %282, %277
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store i64 -1, ptr %18, align 8
   %295 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %18) #13
-  %.not35.i10.i46.i = icmp eq ptr %295, null
+  %.not35.i10.i47.i = icmp eq ptr %295, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br i1 %.not35.i10.i46.i, label %parse_file_extra_owner.exit, label %.preheader.i11.i47.i
+  br i1 %.not35.i10.i47.i, label %parse_file_extra_owner.exit, label %.preheader.i11.i48.i
 
-.preheader.i11.i47.i:                             ; preds = %294, %307
-  %.02340.i12.i48.i = phi i64 [ %303, %307 ], [ 0, %294 ]
-  %.02439.i13.i49.i = phi i64 [ %308, %307 ], [ 0, %294 ]
-  %.02538.i14.i50.i = phi i64 [ %301, %307 ], [ 0, %294 ]
-  %296 = getelementptr inbounds i8, ptr %295, i64 %.02340.i12.i48.i
+.preheader.i11.i48.i:                             ; preds = %294, %307
+  %.02340.i12.i49.i = phi i64 [ %303, %307 ], [ 0, %294 ]
+  %.02439.i13.i50.i = phi i64 [ %308, %307 ], [ 0, %294 ]
+  %.02538.i14.i51.i = phi i64 [ %301, %307 ], [ 0, %294 ]
+  %296 = getelementptr inbounds i8, ptr %295, i64 %.02340.i12.i49.i
   %297 = load i8, ptr %296, align 1
   %298 = and i8 %297, 127
   %299 = zext nneg i8 %298 to i64
-  %300 = shl i64 %299, %.02439.i13.i49.i
-  %301 = add i64 %300, %.02538.i14.i50.i
+  %300 = shl i64 %299, %.02439.i13.i50.i
+  %301 = add i64 %300, %.02538.i14.i51.i
   %302 = icmp sgt i8 %297, -1
-  %303 = add nuw nsw i64 %.02340.i12.i48.i, 1
+  %303 = add nuw nsw i64 %.02340.i12.i49.i, 1
   br i1 %302, label %304, label %307
 
-304:                                              ; preds = %.preheader.i11.i47.i
+304:                                              ; preds = %.preheader.i11.i48.i
   %305 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %303) #13
   %306 = icmp eq i64 %305, %303
-  br i1 %306, label %read_var_sized.exit54.i, label %parse_file_extra_owner.exit
+  br i1 %306, label %read_var_sized.exit56.i, label %parse_file_extra_owner.exit
 
-307:                                              ; preds = %.preheader.i11.i47.i
-  %308 = add nuw nsw i64 %.02439.i13.i49.i, 7
-  %exitcond.not.i15.i51.i = icmp eq i64 %303, 8
-  br i1 %exitcond.not.i15.i51.i, label %309, label %.preheader.i11.i47.i, !llvm.loop !25
+307:                                              ; preds = %.preheader.i11.i48.i
+  %308 = add nuw nsw i64 %.02439.i13.i50.i, 7
+  %exitcond.not.i15.i52.i = icmp eq i64 %303, 8
+  br i1 %exitcond.not.i15.i52.i, label %309, label %.preheader.i11.i48.i, !llvm.loop !25
 
 309:                                              ; preds = %307
   %310 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 9) #13
   %311 = icmp eq i64 %310, 9
-  br i1 %311, label %read_var_sized.exit54.i, label %parse_file_extra_owner.exit
+  br i1 %311, label %read_var_sized.exit56.i, label %parse_file_extra_owner.exit
 
-read_var_sized.exit54.i:                          ; preds = %309, %304
+read_var_sized.exit56.i:                          ; preds = %309, %304
   %.neg35.i = xor i64 %301, -1
-  %312 = add i64 %.10, %.neg35.i
+  %312 = add i64 %.8, %.neg35.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 -1, ptr %17, align 8
   %313 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef %301, ptr noundef nonnull %17) #13
-  %.not121.i = icmp eq ptr %313, null
+  %.not123.i = icmp eq ptr %313, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  br i1 %.not121.i, label %parse_file_extra_owner.exit, label %314
+  br i1 %.not123.i, label %parse_file_extra_owner.exit, label %314
 
-314:                                              ; preds = %read_var_sized.exit54.i
+314:                                              ; preds = %read_var_sized.exit56.i
   %.44.i = call i64 @llvm.umin.i64(i64 %301, i64 255)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %22, ptr nonnull align 1 %313, i64 %.44.i, i1 false)
   %315 = getelementptr inbounds [256 x i8], ptr %22, i64 0, i64 %.44.i
@@ -5560,7 +5560,7 @@ read_var_sized.exit54.i:                          ; preds = %309, %304
   br label %319
 
 319:                                              ; preds = %318, %292
-  %.11 = phi i64 [ %.10, %292 ], [ %312, %318 ]
+  %.9 = phi i64 [ %.8, %292 ], [ %312, %318 ]
   %320 = and i64 %257, 4
   %.not38.i = icmp eq i64 %320, 0
   br i1 %.not38.i, label %337, label %321
@@ -5569,42 +5569,42 @@ read_var_sized.exit54.i:                          ; preds = %309, %304
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store i64 -1, ptr %16, align 8
   %322 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %16) #13
-  %.not35.i57.i = icmp eq ptr %322, null
+  %.not35.i59.i = icmp eq ptr %322, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br i1 %.not35.i57.i, label %parse_file_extra_owner.exit, label %.preheader.i58.i
+  br i1 %.not35.i59.i, label %parse_file_extra_owner.exit, label %.preheader.i60.i
 
-.preheader.i58.i:                                 ; preds = %321, %331
-  %.02340.i59.i = phi i64 [ %330, %331 ], [ 0, %321 ]
-  %.02439.i60.i = phi i64 [ %332, %331 ], [ 0, %321 ]
-  %.02538.i61.i = phi i64 [ %328, %331 ], [ 0, %321 ]
-  %323 = getelementptr inbounds i8, ptr %322, i64 %.02340.i59.i
+.preheader.i60.i:                                 ; preds = %321, %331
+  %.02340.i61.i = phi i64 [ %330, %331 ], [ 0, %321 ]
+  %.02439.i62.i = phi i64 [ %332, %331 ], [ 0, %321 ]
+  %.02538.i63.i = phi i64 [ %328, %331 ], [ 0, %321 ]
+  %323 = getelementptr inbounds i8, ptr %322, i64 %.02340.i61.i
   %324 = load i8, ptr %323, align 1
   %325 = and i8 %324, 127
   %326 = zext nneg i8 %325 to i64
-  %327 = shl i64 %326, %.02439.i60.i
-  %328 = add i64 %327, %.02538.i61.i
+  %327 = shl i64 %326, %.02439.i62.i
+  %328 = add i64 %327, %.02538.i63.i
   %329 = icmp sgt i8 %324, -1
-  %330 = add nuw nsw i64 %.02340.i59.i, 1
-  br i1 %329, label %.loopexit122.i, label %331
+  %330 = add nuw nsw i64 %.02340.i61.i, 1
+  br i1 %329, label %.loopexit124.i, label %331
 
-331:                                              ; preds = %.preheader.i58.i
-  %332 = add nuw nsw i64 %.02439.i60.i, 7
-  %exitcond.not.i62.i = icmp eq i64 %330, 8
-  br i1 %exitcond.not.i62.i, label %.loopexit122.i, label %.preheader.i58.i, !llvm.loop !25
+331:                                              ; preds = %.preheader.i60.i
+  %332 = add nuw nsw i64 %.02439.i62.i, 7
+  %exitcond.not.i64.i = icmp eq i64 %330, 8
+  br i1 %exitcond.not.i64.i, label %.loopexit124.i, label %.preheader.i60.i, !llvm.loop !25
 
-.loopexit122.i:                                   ; preds = %331, %.preheader.i58.i
-  %.195.ph.i = phi i64 [ %330, %.preheader.i58.i ], [ 9, %331 ]
-  %333 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.195.ph.i) #13
-  %334 = icmp eq i64 %333, %.195.ph.i
+.loopexit124.i:                                   ; preds = %331, %.preheader.i60.i
+  %.298.ph.i = phi i64 [ %330, %.preheader.i60.i ], [ 9, %331 ]
+  %333 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.298.ph.i) #13
+  %334 = icmp eq i64 %333, %.298.ph.i
   br i1 %334, label %335, label %parse_file_extra_owner.exit
 
-335:                                              ; preds = %.loopexit122.i
-  %336 = sub i64 %.11, %.195.ph.i
+335:                                              ; preds = %.loopexit124.i
+  %336 = sub i64 %.9, %.298.ph.i
   call void @archive_entry_set_uid(ptr noundef %1, i64 noundef %328) #13
   br label %337
 
 337:                                              ; preds = %335, %319
-  %.12 = phi i64 [ %.11, %319 ], [ %336, %335 ]
+  %.10 = phi i64 [ %.9, %319 ], [ %336, %335 ]
   %338 = and i64 %257, 8
   %.not41.i = icmp eq i64 %338, 0
   br i1 %.not41.i, label %parse_file_extra_owner.exit, label %339
@@ -5613,43 +5613,43 @@ read_var_sized.exit54.i:                          ; preds = %309, %304
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 -1, ptr %15, align 8
   %340 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %15) #13
-  %.not35.i65.i = icmp eq ptr %340, null
+  %.not35.i67.i = icmp eq ptr %340, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br i1 %.not35.i65.i, label %parse_file_extra_owner.exit, label %.preheader.i66.i
+  br i1 %.not35.i67.i, label %parse_file_extra_owner.exit, label %.preheader.i68.i
 
-.preheader.i66.i:                                 ; preds = %339, %349
-  %.02340.i67.i = phi i64 [ %348, %349 ], [ 0, %339 ]
-  %.02439.i68.i = phi i64 [ %350, %349 ], [ 0, %339 ]
-  %.02538.i69.i = phi i64 [ %346, %349 ], [ 0, %339 ]
-  %341 = getelementptr inbounds i8, ptr %340, i64 %.02340.i67.i
+.preheader.i68.i:                                 ; preds = %339, %349
+  %.02340.i69.i = phi i64 [ %348, %349 ], [ 0, %339 ]
+  %.02439.i70.i = phi i64 [ %350, %349 ], [ 0, %339 ]
+  %.02538.i71.i = phi i64 [ %346, %349 ], [ 0, %339 ]
+  %341 = getelementptr inbounds i8, ptr %340, i64 %.02340.i69.i
   %342 = load i8, ptr %341, align 1
   %343 = and i8 %342, 127
   %344 = zext nneg i8 %343 to i64
-  %345 = shl i64 %344, %.02439.i68.i
-  %346 = add i64 %345, %.02538.i69.i
+  %345 = shl i64 %344, %.02439.i70.i
+  %346 = add i64 %345, %.02538.i71.i
   %347 = icmp sgt i8 %342, -1
-  %348 = add nuw nsw i64 %.02340.i67.i, 1
-  br i1 %347, label %.loopexit.i70, label %349
+  %348 = add nuw nsw i64 %.02340.i69.i, 1
+  br i1 %347, label %.loopexit.i71, label %349
 
-349:                                              ; preds = %.preheader.i66.i
-  %350 = add nuw nsw i64 %.02439.i68.i, 7
-  %exitcond.not.i70.i = icmp eq i64 %348, 8
-  br i1 %exitcond.not.i70.i, label %.loopexit.i70, label %.preheader.i66.i, !llvm.loop !25
+349:                                              ; preds = %.preheader.i68.i
+  %350 = add nuw nsw i64 %.02439.i70.i, 7
+  %exitcond.not.i72.i = icmp eq i64 %348, 8
+  br i1 %exitcond.not.i72.i, label %.loopexit.i71, label %.preheader.i68.i, !llvm.loop !25
 
-.loopexit.i70:                                    ; preds = %349, %.preheader.i66.i
-  %.397.ph.i = phi i64 [ %348, %.preheader.i66.i ], [ 9, %349 ]
-  %351 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.397.ph.i) #13
-  %352 = icmp eq i64 %351, %.397.ph.i
+.loopexit.i71:                                    ; preds = %349, %.preheader.i68.i
+  %.399.ph.i = phi i64 [ %348, %.preheader.i68.i ], [ 9, %349 ]
+  %351 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.399.ph.i) #13
+  %352 = icmp eq i64 %351, %.399.ph.i
   br i1 %352, label %353, label %parse_file_extra_owner.exit
 
-353:                                              ; preds = %.loopexit.i70
-  %354 = sub i64 %.12, %.397.ph.i
+353:                                              ; preds = %.loopexit.i71
+  %354 = sub i64 %.10, %.399.ph.i
   call void @archive_entry_set_gid(ptr noundef %1, i64 noundef %346) #13
   br label %parse_file_extra_owner.exit
 
-parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit123.i, %267, %277, %282, %read_var_sized.exit.i67, %287, %294, %304, %309, %read_var_sized.exit54.i, %314, %321, %.loopexit122.i, %337, %339, %.loopexit.i70, %353
-  %.13 = phi i64 [ %65, %250 ], [ %.12, %337 ], [ %.12, %339 ], [ %354, %353 ], [ %.12, %.loopexit.i70 ], [ %.11, %321 ], [ %.11, %.loopexit122.i ], [ %.10, %294 ], [ %312, %read_var_sized.exit54.i ], [ %312, %314 ], [ %.10, %304 ], [ %.10, %309 ], [ %265, %267 ], [ %285, %read_var_sized.exit.i67 ], [ %285, %287 ], [ %265, %277 ], [ %265, %282 ], [ %65, %.loopexit123.i ]
-  %.025.i = phi i32 [ 1, %250 ], [ 0, %337 ], [ 1, %339 ], [ 0, %353 ], [ 1, %.loopexit.i70 ], [ 1, %321 ], [ 1, %.loopexit122.i ], [ 1, %294 ], [ 1, %read_var_sized.exit54.i ], [ 1, %314 ], [ 1, %304 ], [ 1, %309 ], [ 1, %267 ], [ 1, %read_var_sized.exit.i67 ], [ 1, %287 ], [ 1, %277 ], [ 1, %282 ], [ 1, %.loopexit123.i ]
+parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit125.i, %267, %277, %282, %read_var_sized.exit.i68, %287, %294, %304, %309, %read_var_sized.exit56.i, %314, %321, %.loopexit124.i, %337, %339, %.loopexit.i71, %353
+  %.11 = phi i64 [ %65, %250 ], [ %.10, %337 ], [ %.10, %339 ], [ %354, %353 ], [ %.10, %.loopexit.i71 ], [ %.9, %321 ], [ %.9, %.loopexit124.i ], [ %.8, %294 ], [ %312, %read_var_sized.exit56.i ], [ %312, %314 ], [ %.8, %304 ], [ %.8, %309 ], [ %265, %267 ], [ %285, %read_var_sized.exit.i68 ], [ %285, %287 ], [ %265, %277 ], [ %265, %282 ], [ %65, %.loopexit125.i ]
+  %.025.i = phi i32 [ 1, %250 ], [ 0, %337 ], [ 1, %339 ], [ 0, %353 ], [ 1, %.loopexit.i71 ], [ 1, %321 ], [ 1, %.loopexit124.i ], [ 1, %294 ], [ 1, %read_var_sized.exit56.i ], [ 1, %314 ], [ 1, %304 ], [ 1, %309 ], [ 1, %267 ], [ 1, %read_var_sized.exit.i68 ], [ 1, %287 ], [ 1, %277 ], [ 1, %282 ], [ 1, %.loopexit125.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %22)
   br label %parse_file_extra_hash.exit
 
@@ -5659,27 +5659,27 @@ parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit123.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 -1, ptr %12, align 8
   %356 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %12) #13
-  %.not35.i.i.i71 = icmp eq ptr %356, null
+  %.not35.i.i.i72 = icmp eq ptr %356, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br i1 %.not35.i.i.i71, label %parse_file_extra_version.exit, label %.preheader.i.i.i72
+  br i1 %.not35.i.i.i72, label %parse_file_extra_version.exit, label %.preheader.i.i.i73
 
-.preheader.i.i.i72:                               ; preds = %355, %361
-  %.02340.i.i.i73 = phi i64 [ %360, %361 ], [ 0, %355 ]
-  %357 = getelementptr inbounds i8, ptr %356, i64 %.02340.i.i.i73
+.preheader.i.i.i73:                               ; preds = %355, %361
+  %.02340.i.i.i74 = phi i64 [ %360, %361 ], [ 0, %355 ]
+  %357 = getelementptr inbounds i8, ptr %356, i64 %.02340.i.i.i74
   %358 = load i8, ptr %357, align 1
   %359 = icmp sgt i8 %358, -1
-  %360 = add nuw nsw i64 %.02340.i.i.i73, 1
+  %360 = add nuw nsw i64 %.02340.i.i.i74, 1
   br i1 %359, label %.loopexit36.i, label %361
 
-361:                                              ; preds = %.preheader.i.i.i72
-  %exitcond.not.i.i.i74 = icmp eq i64 %360, 8
-  br i1 %exitcond.not.i.i.i74, label %.loopexit36.i, label %.preheader.i.i.i72, !llvm.loop !25
+361:                                              ; preds = %.preheader.i.i.i73
+  %exitcond.not.i.i.i75 = icmp eq i64 %360, 8
+  br i1 %exitcond.not.i.i.i75, label %.loopexit36.i, label %.preheader.i.i.i73, !llvm.loop !25
 
-.loopexit36.i:                                    ; preds = %361, %.preheader.i.i.i72
-  %.12428.i.ph.i75 = phi i64 [ %360, %.preheader.i.i.i72 ], [ 9, %361 ]
-  %362 = sub i64 %65, %.12428.i.ph.i75
-  %363 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i.ph.i75) #13
-  %364 = icmp eq i64 %363, %.12428.i.ph.i75
+.loopexit36.i:                                    ; preds = %361, %.preheader.i.i.i73
+  %.02428.i.ph.i76 = phi i64 [ %360, %.preheader.i.i.i73 ], [ 9, %361 ]
+  %362 = sub i64 %65, %.02428.i.ph.i76
+  %363 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i.ph.i76) #13
+  %364 = icmp eq i64 %363, %.02428.i.ph.i76
   br i1 %364, label %365, label %parse_file_extra_version.exit
 
 365:                                              ; preds = %.loopexit36.i
@@ -5702,21 +5702,21 @@ parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit123.
   %372 = add i64 %371, %.02538.i.i19.i
   %373 = icmp sgt i8 %368, -1
   %374 = add nuw nsw i64 %.02340.i.i17.i, 1
-  br i1 %373, label %.loopexit.i78, label %375
+  br i1 %373, label %.loopexit.i79, label %375
 
 375:                                              ; preds = %.preheader.i.i16.i
   %376 = add nuw nsw i64 %.02439.i.i18.i, 7
   %exitcond.not.i.i20.i = icmp eq i64 %374, 8
-  br i1 %exitcond.not.i.i20.i, label %.loopexit.i78, label %.preheader.i.i16.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i20.i, label %.loopexit.i79, label %.preheader.i.i16.i, !llvm.loop !25
 
-.loopexit.i78:                                    ; preds = %375, %.preheader.i.i16.i
-  %.12428.i23.ph.i = phi i64 [ %374, %.preheader.i.i16.i ], [ 9, %375 ]
-  %377 = sub i64 %362, %.12428.i23.ph.i
-  %378 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.12428.i23.ph.i) #13
-  %379 = icmp eq i64 %378, %.12428.i23.ph.i
+.loopexit.i79:                                    ; preds = %375, %.preheader.i.i16.i
+  %.02428.i23.ph.i = phi i64 [ %374, %.preheader.i.i16.i ], [ 9, %375 ]
+  %377 = sub i64 %362, %.02428.i23.ph.i
+  %378 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.02428.i23.ph.i) #13
+  %379 = icmp eq i64 %378, %.02428.i23.ph.i
   br i1 %379, label %380, label %parse_file_extra_version.exit
 
-380:                                              ; preds = %.loopexit.i78
+380:                                              ; preds = %.loopexit.i79
   %381 = call ptr @archive_entry_pathname_utf8(ptr noundef %1) #13
   %382 = icmp eq ptr %381, null
   br i1 %382, label %383, label %384
@@ -5738,9 +5738,9 @@ parse_file_extra_owner.exit:                      ; preds = %250, %.loopexit123.
   call void @archive_string_free(ptr noundef nonnull %14) #13
   br label %parse_file_extra_version.exit
 
-parse_file_extra_version.exit:                    ; preds = %355, %.loopexit36.i, %365, %.loopexit.i78, %383, %384
-  %.14 = phi i64 [ %65, %355 ], [ %362, %365 ], [ %377, %383 ], [ %377, %384 ], [ %377, %.loopexit.i78 ], [ %362, %.loopexit36.i ]
-  %.0.i77 = phi i32 [ 1, %355 ], [ 1, %365 ], [ -30, %383 ], [ 0, %384 ], [ 1, %.loopexit.i78 ], [ 1, %.loopexit36.i ]
+parse_file_extra_version.exit:                    ; preds = %355, %.loopexit36.i, %365, %.loopexit.i79, %383, %384
+  %.12 = phi i64 [ %65, %355 ], [ %362, %365 ], [ %377, %383 ], [ %377, %384 ], [ %377, %.loopexit.i79 ], [ %362, %.loopexit36.i ]
+  %.0.i78 = phi i32 [ 1, %355 ], [ 1, %365 ], [ -30, %383 ], [ 0, %384 ], [ 1, %.loopexit.i79 ], [ 1, %.loopexit36.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %parse_file_extra_hash.exit
@@ -5751,14 +5751,14 @@ parse_file_extra_version.exit:                    ; preds = %355, %.loopexit36.i
   %393 = select i1 %392, i32 0, i32 -30
   br label %read_var_sized.exit
 
-parse_file_extra_hash.exit:                       ; preds = %read_u32.exit.i, %88, %167, %165, %.loopexit.i40, %94, %92, %86, %.loopexit.i, %69, %parse_file_extra_version.exit, %parse_file_extra_owner.exit, %parse_file_extra_redir.exit
-  %.15 = phi i64 [ %.14, %parse_file_extra_version.exit ], [ %.13, %parse_file_extra_owner.exit ], [ %.9, %parse_file_extra_redir.exit ], [ %65, %69 ], [ %81, %86 ], [ %81, %92 ], [ %81, %.loopexit.i ], [ %65, %94 ], [ %.7, %165 ], [ %.7, %167 ], [ %106, %.loopexit.i40 ], [ %spec.select, %88 ], [ %spec.select142, %read_u32.exit.i ]
-  %.1 = phi i32 [ %.0.i77, %parse_file_extra_version.exit ], [ %.025.i, %parse_file_extra_owner.exit ], [ %.0.i51, %parse_file_extra_redir.exit ], [ 1, %69 ], [ 1, %86 ], [ -30, %92 ], [ 1, %.loopexit.i ], [ 1, %94 ], [ 0, %165 ], [ 1, %167 ], [ 1, %.loopexit.i40 ], [ %spec.select141, %88 ], [ %spec.select143, %read_u32.exit.i ]
-  %394 = icmp sgt i64 %.15, 0
+parse_file_extra_hash.exit:                       ; preds = %read_u32.exit.i, %88, %167, %165, %.loopexit.i41, %94, %92, %86, %.loopexit.i, %69, %parse_file_extra_version.exit, %parse_file_extra_owner.exit, %parse_file_extra_redir.exit
+  %.1133 = phi i64 [ %.12, %parse_file_extra_version.exit ], [ %.11, %parse_file_extra_owner.exit ], [ %.7, %parse_file_extra_redir.exit ], [ %65, %69 ], [ %81, %86 ], [ %81, %92 ], [ %81, %.loopexit.i ], [ %65, %94 ], [ %.5, %165 ], [ %.5, %167 ], [ %106, %.loopexit.i41 ], [ %spec.select, %88 ], [ %spec.select143, %read_u32.exit.i ]
+  %.1 = phi i32 [ %.0.i78, %parse_file_extra_version.exit ], [ %.025.i, %parse_file_extra_owner.exit ], [ %.0.i52, %parse_file_extra_redir.exit ], [ 1, %69 ], [ 1, %86 ], [ -30, %92 ], [ 1, %.loopexit.i ], [ 1, %94 ], [ 0, %165 ], [ 1, %167 ], [ 1, %.loopexit.i41 ], [ %spec.select142, %88 ], [ %spec.select144, %read_u32.exit.i ]
+  %394 = icmp sgt i64 %.1133, 0
   br i1 %394, label %43, label %read_var_sized.exit, !llvm.loop !27
 
-read_var_sized.exit:                              ; preds = %.loopexit144, %.loopexit, %43, %52, %parse_file_extra_hash.exit, %4, %390
-  %.019 = phi i32 [ %393, %390 ], [ -30, %4 ], [ 1, %.loopexit144 ], [ 1, %.loopexit ], [ 1, %43 ], [ 1, %52 ], [ %.1, %parse_file_extra_hash.exit ]
+read_var_sized.exit:                              ; preds = %.loopexit145, %.loopexit, %43, %52, %parse_file_extra_hash.exit, %4, %390
+  %.019 = phi i32 [ %393, %390 ], [ -30, %4 ], [ 1, %.loopexit145 ], [ 1, %.loopexit ], [ 1, %43 ], [ 1, %52 ], [ %.1, %parse_file_extra_hash.exit ]
   ret i32 %.019
 }
 

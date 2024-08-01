@@ -1054,10 +1054,10 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %26 ]
   %27 = phi ptr [ @.str.116, %.preheader.i ], [ %33, %26 ]
   %28 = phi ptr [ @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, %.preheader.i ], [ %31, %26 ]
-  %.12539.i = phi ptr [ null, %.preheader.i ], [ %spec.select51, %26 ]
+  %.22639.i = phi ptr [ null, %.preheader.i ], [ %spec.select51, %26 ]
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, %25
-  %spec.select51 = select i1 %30, ptr %27, ptr %.12539.i
+  %spec.select51 = select i1 %30, ptr %27, ptr %.22639.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %31 = getelementptr inbounds [10 x %struct.anon.23], ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 0, i64 %indvars.iv.next45.i
   %32 = getelementptr inbounds i8, ptr %31, i64 8
@@ -1072,8 +1072,8 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
 
 _ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit: ; preds = %34, %.loopexit.i
   %35 = phi i32 [ %16, %.loopexit.i ], [ %25, %34 ]
-  %.32734.sink.i = phi ptr [ %23, %.loopexit.i ], [ %spec.select, %34 ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %35, ptr noundef nonnull %.32734.sink.i) #20
+  %.12534.sink.i = phi ptr [ %23, %.loopexit.i ], [ %spec.select, %34 ]
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %35, ptr noundef nonnull %.12534.sink.i) #20
   %36 = getelementptr inbounds i8, ptr %1, i64 4
   %37 = load i32, ptr %36, align 4
   %.not50 = icmp eq i32 %37, 0
@@ -1971,33 +1971,33 @@ _Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i:      ; preds = %47
   br label %50
 
 50:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i, %45, %45
-  %.2.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %49, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i ]
-  %51 = add i32 %.2.i.i.i, 2097152
+  %.026.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %49, %_Z14multiply_by_1kIiEbRT_.exit.thread.i.i.i ]
+  %51 = add i32 %.026.i.i.i, 2097152
   %or.cond.i16.i.i.i = icmp ult i32 %51, 4194304
   br i1 %or.cond.i16.i.i.i, label %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread.i
 
 _Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i:    ; preds = %50
-  %52 = shl nsw i32 %.2.i.i.i, 10
+  %52 = shl nsw i32 %.026.i.i.i, 10
   br label %53
 
 53:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i, %45, %45
-  %.4.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %52, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i ]
-  %54 = add i32 %.4.i.i.i, 2097152
+  %.1.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %52, %_Z14multiply_by_1kIiEbRT_.exit17.thread.i.i.i ]
+  %54 = add i32 %.1.i.i.i, 2097152
   %or.cond.i18.i.i.i = icmp ult i32 %54, 4194304
   br i1 %or.cond.i18.i.i.i, label %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i, label %_ZL13parse_integerIiEbPKcPT_.exit.thread.i
 
 _Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i:    ; preds = %53
-  %55 = shl nsw i32 %.4.i.i.i, 10
+  %55 = shl nsw i32 %.1.i.i.i, 10
   br label %56
 
 56:                                               ; preds = %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i, %45, %45
-  %.6.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %55, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i ]
-  %57 = add i32 %.6.i.i.i, 2097152
+  %.2.i.i.i = phi i32 [ %42, %45 ], [ %42, %45 ], [ %55, %_Z14multiply_by_1kIiEbRT_.exit19.thread.i.i.i ]
+  %57 = add i32 %.2.i.i.i, 2097152
   %or.cond.i20.i.i.i = icmp ult i32 %57, 4194304
   br i1 %or.cond.i20.i.i.i, label %58, label %_ZL13parse_integerIiEbPKcPT_.exit.thread.i
 
 58:                                               ; preds = %56
-  %59 = shl nsw i32 %.6.i.i.i, 10
+  %59 = shl nsw i32 %.2.i.i.i, 10
   %60 = getelementptr inbounds i8, ptr %43, i64 1
   %.pr.i = load i8, ptr %60, align 1
   br label %_ZL13parse_integerIiEbPKcPT_.exit.i
@@ -2008,16 +2008,16 @@ _ZL13parse_integerIiEbPKcPT_.exit.thread.i:       ; preds = %56, %53, %50, %47, 
 
 _ZL13parse_integerIiEbPKcPT_.exit.i:              ; preds = %58, %45
   %61 = phi i8 [ %46, %45 ], [ %.pr.i, %58 ]
-  %.8.i.i.i = phi i32 [ %42, %45 ], [ %59, %58 ]
+  %.3.i.i.i = phi i32 [ %42, %45 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %62 = icmp eq i8 %61, 0
-  %63 = add i32 %.8.i.i.i, -12
+  %63 = add i32 %.3.i.i.i, -12
   %or.cond.i = icmp ult i32 %63, 53
   %or.cond9.i = select i1 %62, i1 %or.cond.i, i1 false
   br i1 %or.cond9.i, label %64, label %65
 
 64:                                               ; preds = %_ZL13parse_integerIiEbPKcPT_.exit.i
-  store i32 %.8.i.i.i, ptr @_ZN12PosixSignals9SR_signumE, align 4
+  store i32 %.3.i.i.i, ptr @_ZN12PosixSignals9SR_signumE, align 4
   br label %67
 
 65:                                               ; preds = %_ZL13parse_integerIiEbPKcPT_.exit.i, %_ZL13parse_integerIiEbPKcPT_.exit.thread.i

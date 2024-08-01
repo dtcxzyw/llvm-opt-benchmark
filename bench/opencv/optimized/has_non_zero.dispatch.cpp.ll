@@ -54,8 +54,8 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL12hasNonZero8uEPKhm(ptr
   br i1 %.not11.i, label %_ZN2cv12cpu_baseline11hasNonZero_IhEEbPKT_m.exit, label %.preheader.i, !llvm.loop !4
 
 _ZN2cv12cpu_baseline11hasNonZero_IhEEbPKT_m.exit: ; preds = %.preheader.i, %2
-  %.1.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
-  ret i1 %.1.i
+  %.08.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
+  ret i1 %.08.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -74,8 +74,8 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero16uEPKtm(pt
   br i1 %.not11.i, label %_ZN2cv12cpu_baseline11hasNonZero_ItEEbPKT_m.exit, label %.preheader.i, !llvm.loop !6
 
 _ZN2cv12cpu_baseline11hasNonZero_ItEEbPKT_m.exit: ; preds = %.preheader.i, %2
-  %.1.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
-  ret i1 %.1.i
+  %.08.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
+  ret i1 %.08.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -94,8 +94,8 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero32sEPKim(pt
   br i1 %.not11.i, label %_ZN2cv12cpu_baseline11hasNonZero_IiEEbPKT_m.exit, label %.preheader.i, !llvm.loop !7
 
 _ZN2cv12cpu_baseline11hasNonZero_IiEEbPKT_m.exit: ; preds = %.preheader.i, %2
-  %.1.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
-  ret i1 %.1.i
+  %.08.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
+  ret i1 %.08.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -114,8 +114,8 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero32fEPKfm(pt
   br i1 %.not11.i, label %_ZN2cv12cpu_baseline11hasNonZero_IfEEbPKT_m.exit, label %.preheader.i, !llvm.loop !8
 
 _ZN2cv12cpu_baseline11hasNonZero_IfEEbPKT_m.exit: ; preds = %.preheader.i, %2
-  %.1.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
-  ret i1 %.1.i
+  %.08.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
+  ret i1 %.08.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -134,8 +134,8 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero64fEPKdm(pt
   br i1 %.not11.i, label %_ZN2cv12cpu_baseline11hasNonZero_IdEEbPKT_m.exit, label %.preheader.i, !llvm.loop !9
 
 _ZN2cv12cpu_baseline11hasNonZero_IdEEbPKT_m.exit: ; preds = %.preheader.i, %2
-  %.1.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
-  ret i1 %.1.i
+  %.08.i = phi i1 [ false, %2 ], [ %5, %.preheader.i ]
+  ret i1 %.08.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -355,9 +355,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br label %94
 
 94:                                               ; preds = %.preheader75, %.loopexit69
-  %.141 = phi i8 [ %.343, %.loopexit69 ], [ 0, %.preheader75 ]
+  %.242 = phi i8 [ %.4, %.loopexit69 ], [ 0, %.preheader75 ]
   %.039 = phi i64 [ %133, %.loopexit69 ], [ 0, %.preheader75 ]
-  %95 = trunc i8 %.141 to i1
+  %95 = trunc i8 %.242 to i1
   %96 = load i64, ptr %92, align 8
   %97 = icmp uge i64 %.039, %96
   %.not51 = select i1 %95, i1 true, i1 %97
@@ -386,7 +386,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
 
 108:                                              ; preds = %106
   %109 = zext i1 %107 to i8
-  %110 = or i8 %.141, %109
+  %110 = or i8 %.242, %109
   br label %.loopexit69
 
 .loopexit70:                                      ; preds = %119
@@ -424,7 +424,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
 
 119:                                              ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
-  %.24284 = phi i8 [ %.141, %.lr.ph ], [ %130, %128 ]
+  %.34384 = phi i8 [ %.242, %.lr.ph ], [ %130, %128 ]
   %120 = load ptr, ptr %115, align 8
   %121 = load ptr, ptr %116, align 8
   %122 = load i64, ptr %121, align 8
@@ -437,7 +437,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
 
 128:                                              ; preds = %119
   %129 = zext i1 %127 to i8
-  %130 = or i8 %.24284, %129
+  %130 = or i8 %.34384, %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = trunc i8 %130 to i1
   %132 = icmp uge i64 %indvars.iv.next, %118
@@ -445,13 +445,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   br i1 %.not53, label %.loopexit69, label %119, !llvm.loop !14
 
 .loopexit69:                                      ; preds = %128, %111, %108
-  %.343 = phi i8 [ %110, %108 ], [ %.141, %111 ], [ %130, %128 ]
+  %.4 = phi i8 [ %110, %108 ], [ %.242, %111 ], [ %130, %128 ]
   %133 = add i64 %.039, 1
   %134 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %94 unwind label %.loopexit.split-lp71.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %85, %.preheader, %68, %66
-  %.4 = phi i8 [ %67, %66 ], [ 0, %68 ], [ %.141, %.preheader ], [ %87, %85 ]
+  %.141 = phi i8 [ %67, %66 ], [ 0, %68 ], [ %.242, %.preheader ], [ %87, %85 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #9
   %135 = getelementptr inbounds i8, ptr %3, i64 8
   %136 = load i32, ptr %135, align 8
@@ -470,7 +470,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %29, %32
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %137
-  %141 = trunc i8 %.4 to i1
+  %141 = trunc i8 %.141 to i1
   ret i1 %141
 
 .loopexit68:                                      ; preds = %.loopexit.split-lp71, %.loopexit66, %.loopexit.split-lp, %52

@@ -764,7 +764,7 @@ printopts.exit:                                   ; preds = %.backedge.i
 
 .lr.ph.i65:                                       ; preds = %.preheader.i, %402
   %276 = phi ptr [ %403, %402 ], [ %273, %.preheader.i ]
-  %.0128.i = phi i32 [ %.2.i, %402 ], [ 0, %.preheader.i ]
+  %.0128.i = phi i32 [ %.1.i, %402 ], [ 0, %.preheader.i ]
   %277 = load i64, ptr %276, align 8
   %.not82.i = icmp eq i64 %277, 0
   br i1 %.not82.i, label %402, label %278
@@ -1039,18 +1039,18 @@ printopts.exit:                                   ; preds = %.backedge.i
   br label %401
 
 401:                                              ; preds = %395, %392, %389, %370
-  %.1.i = phi i32 [ %383, %389 ], [ %.0128.i, %370 ], [ %394, %392 ], [ %400, %395 ]
+  %.2.i = phi i32 [ %383, %389 ], [ %.0128.i, %370 ], [ %394, %392 ], [ %400, %395 ]
   call void @free(ptr noundef nonnull %360) #11
   br label %402
 
 402:                                              ; preds = %401, %353, %.lr.ph.i65
-  %.2.i = phi i32 [ %.1.i, %401 ], [ %.0128.i, %353 ], [ %.0128.i, %.lr.ph.i65 ]
+  %.1.i = phi i32 [ %.2.i, %401 ], [ %.0128.i, %353 ], [ %.0128.i, %.lr.ph.i65 ]
   %403 = call ptr @readdir(ptr noundef nonnull %271) #11
   %.not.i66 = icmp eq ptr %403, null
   br i1 %.not.i66, label %._crit_edge.i67, label %.lr.ph.i65
 
 ._crit_edge.i67:                                  ; preds = %402, %.preheader.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %402 ]
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %402 ]
   %404 = call i32 @closedir(ptr noundef nonnull %271)
   %405 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.104, i32 noundef %.0.lcssa.i)
   br label %print_dbs.exit

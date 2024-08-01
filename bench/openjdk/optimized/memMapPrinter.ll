@@ -238,7 +238,7 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit:    ; preds = %47, %46
 
 59:                                               ; preds = %.preheader, %204
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %204 ]
-  %.023 = phi i32 [ 0, %.preheader ], [ %.1, %204 ]
+  %.123 = phi i32 [ 0, %.preheader ], [ %.2, %204 ]
   %60 = trunc i64 %indvars.iv29 to i8
   %61 = shl nuw nsw i64 1, %indvars.iv29
   %62 = and i64 %61, %50
@@ -246,7 +246,7 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit:    ; preds = %47, %46
   br i1 %.not17, label %204, label %63
 
 63:                                               ; preds = %59
-  %64 = icmp sgt i32 %.023, 0
+  %64 = icmp sgt i32 %.123, 0
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %63
@@ -500,22 +500,22 @@ _ZL47print_thread_details_for_supposed_stack_addressPKvS0_P12outputStream.exit: 
   br label %202
 
 202:                                              ; preds = %_ZL47print_thread_details_for_supposed_stack_addressPKvS0_P12outputStream.exit, %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
-  %203 = add nsw i32 %.023, 1
+  %203 = add nsw i32 %.123, 1
   br label %204
 
 204:                                              ; preds = %59, %202
-  %.1 = phi i32 [ %203, %202 ], [ %.023, %59 ]
+  %.2 = phi i32 [ %203, %202 ], [ %.123, %59 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, 28
   br i1 %exitcond.not, label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit, label %59, !llvm.loop !12
 
 _ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit: ; preds = %204
-  %205 = icmp sgt i32 %.1, 0
+  %205 = icmp sgt i32 %.2, 0
   br label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread
 
 _ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread: ; preds = %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit, %18, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit, %3
-  %.2 = phi i1 [ false, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit ], [ false, %3 ], [ false, %18 ], [ %205, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit ], [ false, %3 ], [ false, %18 ], [ %205, %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit ]
+  ret i1 %.0
 }
 
 declare void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56), i8 noundef signext) local_unnamed_addr #2

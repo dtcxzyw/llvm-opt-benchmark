@@ -172,53 +172,53 @@ define range(i32 0, 2) i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1,
   br i1 %.not.i, label %100, label %89
 
 89:                                               ; preds = %87, %78, %58
-  %.094.i = phi ptr [ null, %58 ], [ %76, %78 ], [ %81, %87 ]
-  %.093.i = phi ptr [ %56, %58 ], [ %72, %78 ], [ %85, %87 ]
-  %.not117124.i = icmp eq ptr %.093.i, null
+  %.195.i = phi ptr [ null, %58 ], [ %76, %78 ], [ %81, %87 ]
+  %.1.i = phi ptr [ %56, %58 ], [ %72, %78 ], [ %85, %87 ]
+  %.not117124.i = icmp eq ptr %.1.i, null
   br i1 %.not117124.i, label %.preheader122.i, label %.lr.ph.i
 
 .preheader122.i:                                  ; preds = %.lr.ph.i, %89, %65
-  %.094133.i = phi ptr [ %.094.i, %89 ], [ %63, %65 ], [ %.094.i, %.lr.ph.i ]
-  %.not118126.i = icmp eq ptr %.094133.i, null
+  %.195133.i = phi ptr [ %.195.i, %89 ], [ %63, %65 ], [ %.195.i, %.lr.ph.i ]
+  %.not118126.i = icmp eq ptr %.195133.i, null
   br i1 %.not118126.i, label %cuddZddLinearAux.exit, label %.lr.ph128.i
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.i
-  %.1125.i = phi ptr [ %91, %.lr.ph.i ], [ %.093.i, %89 ]
-  %90 = getelementptr inbounds i8, ptr %.1125.i, i64 16
+  %.2125.i = phi ptr [ %91, %.lr.ph.i ], [ %.1.i, %89 ]
+  %90 = getelementptr inbounds i8, ptr %.2125.i, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.1125.i, i64 4
+  %92 = getelementptr inbounds i8, ptr %.2125.i, i64 4
   store i32 0, ptr %92, align 4
   %93 = load ptr, ptr %39, align 8
-  %94 = getelementptr inbounds i8, ptr %.1125.i, i64 8
+  %94 = getelementptr inbounds i8, ptr %.2125.i, i64 8
   store ptr %93, ptr %94, align 8
-  store ptr %.1125.i, ptr %39, align 8
+  store ptr %.2125.i, ptr %39, align 8
   %.not117.i = icmp eq ptr %91, null
   br i1 %.not117.i, label %.preheader122.i, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph128.i:                                      ; preds = %.preheader122.i, %.lr.ph128.i
-  %.195127.i = phi ptr [ %96, %.lr.ph128.i ], [ %.094133.i, %.preheader122.i ]
-  %95 = getelementptr inbounds i8, ptr %.195127.i, i64 16
+  %.296127.i = phi ptr [ %96, %.lr.ph128.i ], [ %.195133.i, %.preheader122.i ]
+  %95 = getelementptr inbounds i8, ptr %.296127.i, i64 16
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %.195127.i, i64 4
+  %97 = getelementptr inbounds i8, ptr %.296127.i, i64 4
   store i32 0, ptr %97, align 4
   %98 = load ptr, ptr %39, align 8
-  %99 = getelementptr inbounds i8, ptr %.195127.i, i64 8
+  %99 = getelementptr inbounds i8, ptr %.296127.i, i64 8
   store ptr %98, ptr %99, align 8
-  store ptr %.195127.i, ptr %39, align 8
+  store ptr %.296127.i, ptr %39, align 8
   %.not118.i = icmp eq ptr %96, null
   br i1 %.not118.i, label %cuddZddLinearAux.exit, label %.lr.ph128.i, !llvm.loop !7
 
 100:                                              ; preds = %87, %83, %80, %78, %74, %71, %65, %62, %58, %55
-  %.296.i = phi ptr [ null, %55 ], [ null, %58 ], [ inttoptr (i64 -1 to ptr), %62 ], [ %63, %65 ], [ null, %71 ], [ inttoptr (i64 -1 to ptr), %74 ], [ %76, %78 ], [ inttoptr (i64 -1 to ptr), %80 ], [ %81, %83 ], [ %81, %87 ]
-  %.2.i = phi ptr [ inttoptr (i64 -1 to ptr), %55 ], [ %56, %58 ], [ null, %62 ], [ null, %65 ], [ inttoptr (i64 -1 to ptr), %71 ], [ %72, %74 ], [ %72, %78 ], [ null, %80 ], [ inttoptr (i64 -1 to ptr), %83 ], [ %85, %87 ]
-  %magicptr.i = ptrtoint ptr %.2.i to i64
+  %.094.i = phi ptr [ null, %55 ], [ null, %58 ], [ inttoptr (i64 -1 to ptr), %62 ], [ %63, %65 ], [ null, %71 ], [ inttoptr (i64 -1 to ptr), %74 ], [ %76, %78 ], [ inttoptr (i64 -1 to ptr), %80 ], [ %81, %83 ], [ %81, %87 ]
+  %.093.i = phi ptr [ inttoptr (i64 -1 to ptr), %55 ], [ %56, %58 ], [ null, %62 ], [ null, %65 ], [ inttoptr (i64 -1 to ptr), %71 ], [ %72, %74 ], [ %72, %78 ], [ null, %80 ], [ inttoptr (i64 -1 to ptr), %83 ], [ %85, %87 ]
+  %magicptr.i = ptrtoint ptr %.093.i to i64
   switch i64 %magicptr.i, label %.preheader120.i [
     i64 -1, label %.loopexit121.i
     i64 0, label %.loopexit121.i
   ]
 
 .preheader120.i:                                  ; preds = %100, %.preheader120.i
-  %.3.i = phi ptr [ %102, %.preheader120.i ], [ %.2.i, %100 ]
+  %.3.i = phi ptr [ %102, %.preheader120.i ], [ %.093.i, %100 ]
   %101 = getelementptr inbounds i8, ptr %.3.i, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %.3.i, i64 4
@@ -231,14 +231,14 @@ define range(i32 0, 2) i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1,
   br i1 %.old1.not.i, label %.loopexit121.i, label %.preheader120.i
 
 .loopexit121.i:                                   ; preds = %.preheader120.i, %100, %100
-  %magicptr119.i = ptrtoint ptr %.296.i to i64
+  %magicptr119.i = ptrtoint ptr %.094.i to i64
   switch i64 %magicptr119.i, label %.preheader.i [
     i64 -1, label %cuddZddLinearAux.exit.thread
     i64 0, label %cuddZddLinearAux.exit.thread
   ]
 
 .preheader.i:                                     ; preds = %.loopexit121.i, %.preheader.i
-  %.397.i = phi ptr [ %107, %.preheader.i ], [ %.296.i, %.loopexit121.i ]
+  %.397.i = phi ptr [ %107, %.preheader.i ], [ %.094.i, %.loopexit121.i ]
   %106 = getelementptr inbounds i8, ptr %.397.i, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %.397.i, i64 4
@@ -719,8 +719,8 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   br label %.lr.ph
 
 .preheader358:                                    ; preds = %.loopexit359, %3
-  %.0299.lcssa = phi ptr [ null, %3 ], [ %.3302, %.loopexit359 ]
-  %.0.lcssa = phi ptr [ null, %3 ], [ %.3, %.loopexit359 ]
+  %.0299.lcssa = phi ptr [ null, %3 ], [ %.1300, %.loopexit359 ]
+  %.0.lcssa = phi ptr [ null, %3 ], [ %.1, %.loopexit359 ]
   %33 = icmp sgt i32 %29, 0
   br i1 %33, label %.lr.ph381.preheader, label %.preheader357
 
@@ -730,8 +730,8 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit359
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.loopexit359 ]
-  %.0374 = phi ptr [ null, %.lr.ph.preheader ], [ %.3, %.loopexit359 ]
-  %.0299373 = phi ptr [ null, %.lr.ph.preheader ], [ %.3302, %.loopexit359 ]
+  %.0374 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %.loopexit359 ]
+  %.0299373 = phi ptr [ null, %.lr.ph.preheader ], [ %.1300, %.loopexit359 ]
   %34 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
@@ -742,8 +742,8 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   br label %38
 
 38:                                               ; preds = %37, %61
-  %.1371 = phi ptr [ %.0374, %37 ], [ %.2, %61 ]
-  %.1300370 = phi ptr [ %.0299373, %37 ], [ %.2301, %61 ]
+  %.2371 = phi ptr [ %.0374, %37 ], [ %.3, %61 ]
+  %.2301370 = phi ptr [ %.0299373, %37 ], [ %.3302, %61 ]
   %.0313369 = phi ptr [ %35, %37 ], [ %40, %61 ]
   %39 = getelementptr inbounds i8, ptr %.0313369, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -779,16 +779,16 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   br label %61
 
 61:                                               ; preds = %58, %60
-  %storemerge = phi ptr [ %.1300370, %60 ], [ %.1371, %58 ]
-  %.2301 = phi ptr [ %.0313369, %60 ], [ %.1300370, %58 ]
-  %.2 = phi ptr [ %.1371, %60 ], [ %.0313369, %58 ]
+  %storemerge = phi ptr [ %.2301370, %60 ], [ %.2371, %58 ]
+  %.3302 = phi ptr [ %.0313369, %60 ], [ %.2301370, %58 ]
+  %.3 = phi ptr [ %.2371, %60 ], [ %.0313369, %58 ]
   store ptr %storemerge, ptr %39, align 8
   %.not345 = icmp eq ptr %40, null
   br i1 %.not345, label %.loopexit359, label %38, !llvm.loop !17
 
 .loopexit359:                                     ; preds = %61, %.lr.ph
-  %.3302 = phi ptr [ %.0299373, %.lr.ph ], [ %.2301, %61 ]
-  %.3 = phi ptr [ %.0374, %.lr.ph ], [ %.2, %61 ]
+  %.1300 = phi ptr [ %.0299373, %.lr.ph ], [ %.3302, %61 ]
+  %.1 = phi ptr [ %.0374, %.lr.ph ], [ %.3, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader358, label %.lr.ph, !llvm.loop !18
@@ -964,32 +964,32 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %155 = lshr i32 %154, %31
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds ptr, ptr %25, i64 %156
-  %.0305387 = load ptr, ptr %157, align 8
-  %cond388 = icmp eq ptr %.0305387, null
+  %.1306387 = load ptr, ptr %157, align 8
+  %cond388 = icmp eq ptr %.1306387, null
   br i1 %cond388, label %._crit_edge392, label %.lr.ph391
 
 .lr.ph391:                                        ; preds = %133, %168
-  %.0305389 = phi ptr [ %.0305, %168 ], [ %.0305387, %133 ]
-  %158 = getelementptr inbounds i8, ptr %.0305389, i64 16
+  %.1306389 = phi ptr [ %.1306, %168 ], [ %.1306387, %133 ]
+  %158 = getelementptr inbounds i8, ptr %.1306389, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, %.0310
   br i1 %160, label %161, label %168
 
 161:                                              ; preds = %.lr.ph391
-  %162 = getelementptr inbounds i8, ptr %.0305389, i64 24
+  %162 = getelementptr inbounds i8, ptr %.1306389, i64 24
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, %.0311
   br i1 %164, label %165, label %168
 
 165:                                              ; preds = %161
-  %166 = load i32, ptr %.0305389, align 8
+  %166 = load i32, ptr %.1306389, align 8
   %167 = icmp eq i32 %166, %23
   br i1 %167, label %.loopexit460, label %168
 
 168:                                              ; preds = %165, %161, %.lr.ph391
-  %169 = getelementptr inbounds i8, ptr %.0305389, i64 8
-  %.0305 = load ptr, ptr %169, align 8
-  %cond = icmp eq ptr %.0305, null
+  %169 = getelementptr inbounds i8, ptr %.1306389, i64 8
+  %.1306 = load ptr, ptr %169, align 8
+  %cond = icmp eq ptr %.1306, null
   br i1 %cond, label %._crit_edge392, label %.lr.ph391, !llvm.loop !22
 
 ._crit_edge392:                                   ; preds = %168, %133
@@ -1017,14 +1017,14 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   br label %.loopexit460
 
 .loopexit460:                                     ; preds = %165, %130, %172
-  %.0305389.lcssa.sink = phi ptr [ %.0311, %172 ], [ %.0311, %130 ], [ %.0305389, %165 ]
+  %.1306389.lcssa.sink = phi ptr [ %.0311, %172 ], [ %.0311, %130 ], [ %.1306389, %165 ]
   %.2322 = phi i32 [ %176, %172 ], [ %.1321401, %130 ], [ %.1321401, %165 ]
-  %.1306 = phi ptr [ %170, %172 ], [ %.0311, %130 ], [ %.0305389, %165 ]
-  %182 = getelementptr inbounds i8, ptr %.0305389.lcssa.sink, i64 4
+  %.0305 = phi ptr [ %170, %172 ], [ %.0311, %130 ], [ %.1306389, %165 ]
+  %182 = getelementptr inbounds i8, ptr %.1306389.lcssa.sink, i64 4
   %183 = load i32, ptr %182, align 4
   %184 = add i32 %183, 1
   store i32 %184, ptr %182, align 4
-  store ptr %.1306, ptr %111, align 8
+  store ptr %.0305, ptr %111, align 8
   %185 = load ptr, ptr @empty, align 8
   %186 = icmp eq ptr %.0312, %185
   br i1 %186, label %.loopexit459, label %187
@@ -1054,32 +1054,32 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %209 = lshr i32 %208, %31
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds ptr, ptr %25, i64 %210
-  %.0303393 = load ptr, ptr %211, align 8
-  %cond351394 = icmp eq ptr %.0303393, null
+  %.1304393 = load ptr, ptr %211, align 8
+  %cond351394 = icmp eq ptr %.1304393, null
   br i1 %cond351394, label %._crit_edge398, label %.lr.ph397
 
 .lr.ph397:                                        ; preds = %187, %222
-  %.0303395 = phi ptr [ %.0303, %222 ], [ %.0303393, %187 ]
-  %212 = getelementptr inbounds i8, ptr %.0303395, i64 16
+  %.1304395 = phi ptr [ %.1304, %222 ], [ %.1304393, %187 ]
+  %212 = getelementptr inbounds i8, ptr %.1304395, i64 16
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, %.0312
   br i1 %214, label %215, label %222
 
 215:                                              ; preds = %.lr.ph397
-  %216 = getelementptr inbounds i8, ptr %.0303395, i64 24
+  %216 = getelementptr inbounds i8, ptr %.1304395, i64 24
   %217 = load ptr, ptr %216, align 8
   %218 = icmp eq ptr %217, %.0309
   br i1 %218, label %219, label %222
 
 219:                                              ; preds = %215
-  %220 = load i32, ptr %.0303395, align 8
+  %220 = load i32, ptr %.1304395, align 8
   %221 = icmp eq i32 %220, %23
   br i1 %221, label %.loopexit459, label %222
 
 222:                                              ; preds = %219, %215, %.lr.ph397
-  %223 = getelementptr inbounds i8, ptr %.0303395, i64 8
-  %.0303 = load ptr, ptr %223, align 8
-  %cond351 = icmp eq ptr %.0303, null
+  %223 = getelementptr inbounds i8, ptr %.1304395, i64 8
+  %.1304 = load ptr, ptr %223, align 8
+  %cond351 = icmp eq ptr %.1304, null
   br i1 %cond351, label %._crit_edge398, label %.lr.ph397, !llvm.loop !23
 
 ._crit_edge398:                                   ; preds = %222, %187
@@ -1107,15 +1107,15 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   br label %.loopexit459
 
 .loopexit459:                                     ; preds = %219, %.loopexit460, %226
-  %.0303395.lcssa.sink = phi ptr [ %.0309, %226 ], [ %.0309, %.loopexit460 ], [ %.0303395, %219 ]
+  %.1304395.lcssa.sink = phi ptr [ %.0309, %226 ], [ %.0309, %.loopexit460 ], [ %.1304395, %219 ]
   %.3323 = phi i32 [ %230, %226 ], [ %.2322, %.loopexit460 ], [ %.2322, %219 ]
-  %.1304 = phi ptr [ %224, %226 ], [ %.0309, %.loopexit460 ], [ %.0303395, %219 ]
-  %236 = getelementptr inbounds i8, ptr %.0303395.lcssa.sink, i64 4
+  %.0303 = phi ptr [ %224, %226 ], [ %.0309, %.loopexit460 ], [ %.1304395, %219 ]
+  %236 = getelementptr inbounds i8, ptr %.1304395.lcssa.sink, i64 4
   %237 = load i32, ptr %236, align 4
   %238 = add i32 %237, 1
   store i32 %238, ptr %236, align 4
-  store ptr %.1304, ptr %121, align 8
-  %239 = ptrtoint ptr %.1306 to i64
+  store ptr %.0303, ptr %121, align 8
+  %239 = ptrtoint ptr %.0305 to i64
   %240 = and i64 %239, -2
   %241 = inttoptr i64 %240 to ptr
   %242 = getelementptr inbounds i8, ptr %241, i64 32
@@ -1125,7 +1125,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %246 = or disjoint i64 %244, %245
   %247 = trunc i64 %246 to i32
   %248 = mul i32 %247, 12582917
-  %249 = ptrtoint ptr %.1304 to i64
+  %249 = ptrtoint ptr %.0303 to i64
   %250 = and i64 %249, -2
   %251 = inttoptr i64 %250 to ptr
   %252 = getelementptr inbounds i8, ptr %251, i64 32
@@ -1156,9 +1156,9 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   br i1 %.not339412, label %._crit_edge419, label %.lr.ph418
 
 .lr.ph418:                                        ; preds = %265, %385
-  %.0295416 = phi ptr [ %.3298, %385 ], [ null, %265 ]
+  %.0295416 = phi ptr [ %.1296, %385 ], [ null, %265 ]
   %.4415 = phi ptr [ %269, %385 ], [ %267, %265 ]
-  %.5414 = phi i32 [ %.7, %385 ], [ %.4324423, %265 ]
+  %.5414 = phi i32 [ %.6, %385 ], [ %.4324423, %265 ]
   %.2327413 = phi i32 [ %.3328, %385 ], [ %.1326422, %265 ]
   %268 = getelementptr inbounds i8, ptr %.4415, i64 8
   %269 = load ptr, ptr %268, align 8
@@ -1296,7 +1296,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 
 .loopexit458:                                     ; preds = %333, %340
   %.2307408.lcssa.sink = phi ptr [ %352, %340 ], [ %.2307408, %333 ]
-  %.6 = phi i32 [ %345, %340 ], [ %.5414, %333 ]
+  %.7 = phi i32 [ %345, %340 ], [ %.5414, %333 ]
   %.3308 = phi ptr [ %338, %340 ], [ %.2307408, %333 ]
   %.2297 = phi ptr [ %spec.select, %340 ], [ %.0295416, %333 ]
   %353 = getelementptr inbounds i8, ptr %.2307408.lcssa.sink, i64 4
@@ -1329,7 +1329,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %378 = mul i32 %377, 4256249
   %379 = lshr i32 %378, %20
   %380 = add nsw i32 %.2327413, 1
-  %381 = add nsw i32 %.6, -1
+  %381 = add nsw i32 %.7, -1
   %382 = sext i32 %379 to i64
   %383 = getelementptr inbounds ptr, ptr %14, i64 %382
   %384 = load ptr, ptr %383, align 8
@@ -1339,14 +1339,14 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 
 385:                                              ; preds = %290, %.loopexit458, %287, %288
   %.3328 = phi i32 [ %.2327413, %287 ], [ %.2327413, %288 ], [ %380, %.loopexit458 ], [ %.2327413, %290 ]
-  %.7 = phi i32 [ %285, %287 ], [ %285, %288 ], [ %381, %.loopexit458 ], [ %.5414, %290 ]
-  %.3298 = phi ptr [ null, %287 ], [ %.0295416, %288 ], [ %.2297, %.loopexit458 ], [ %.4415, %290 ]
+  %.6 = phi i32 [ %285, %287 ], [ %285, %288 ], [ %381, %.loopexit458 ], [ %.5414, %290 ]
+  %.1296 = phi ptr [ null, %287 ], [ %.0295416, %288 ], [ %.2297, %.loopexit458 ], [ %.4415, %290 ]
   %.not339 = icmp eq ptr %269, null
   br i1 %.not339, label %._crit_edge419, label %.lr.ph418, !llvm.loop !26
 
 ._crit_edge419:                                   ; preds = %385, %265
   %.2327.lcssa = phi i32 [ %.1326422, %265 ], [ %.3328, %385 ]
-  %.5.lcssa = phi i32 [ %.4324423, %265 ], [ %.7, %385 ]
+  %.5.lcssa = phi i32 [ %.4324423, %265 ], [ %.6, %385 ]
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond444.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count443
   br i1 %exitcond444.not, label %._crit_edge426, label %265, !llvm.loop !27

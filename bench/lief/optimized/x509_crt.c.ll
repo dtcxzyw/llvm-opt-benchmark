@@ -605,8 +605,8 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   br label %.loopexit
 
 18:                                               ; preds = %.lr.ph, %.backedge
-  %.03665 = phi i32 [ %.036.ph79, %.lr.ph ], [ %.036.be, %.backedge ]
-  %.03764 = phi i32 [ %.037.ph78, %.lr.ph ], [ %spec.select54, %.backedge ]
+  %.165 = phi i32 [ %.1.ph79, %.lr.ph ], [ %.1.be, %.backedge ]
+  %.13864 = phi i32 [ %.138.ph78, %.lr.ph ], [ %spec.select54, %.backedge ]
   %.04163 = phi i64 [ %.041.ph76, %.lr.ph ], [ %.041.be, %.backedge ]
   %.04262 = phi ptr [ %.042.ph75, %.lr.ph ], [ %.042.be, %.backedge ]
   call void @mbedtls_pem_init(ptr noundef nonnull %4) #16
@@ -635,8 +635,8 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.loopexit
-  %.036.ph79 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.03665, %.outer.loopexit ]
-  %.037.ph78 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.03764, %.outer.loopexit ]
+  %.1.ph79 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.165, %.outer.loopexit ]
+  %.138.ph78 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.13864, %.outer.loopexit ]
   %28 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer.loopexit ]
   %.041.ph76 = phi i64 [ %2, %.lr.ph.lr.ph ], [ %22, %.outer.loopexit ]
   %.042.ph75 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %23, %.outer.loopexit ]
@@ -653,27 +653,27 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   %.sink112 = phi i32 [ %19, %29 ], [ %26, %20 ]
   %.042.be = phi ptr [ %32, %29 ], [ %23, %20 ]
   %.041.be = phi i64 [ %31, %29 ], [ %22, %20 ]
-  %33 = icmp eq i32 %.03764, 0
-  %spec.select54 = select i1 %33, i32 %.sink112, i32 %.03764
-  %.036.be = add nsw i32 %.03665, 1
+  %33 = icmp eq i32 %.13864, 0
+  %spec.select54 = select i1 %33, i32 %.sink112, i32 %.13864
+  %.1.be = add nsw i32 %.165, 1
   %34 = icmp ugt i64 %.041.be, 1
   br i1 %34, label %18, label %.outer._crit_edge, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.backedge, %18
-  %.037.lcssa = phi i32 [ %spec.select54, %.backedge ], [ %.03764, %18 ]
-  %.036.lcssa = phi i32 [ %.036.be, %.backedge ], [ %.03665, %18 ]
+  %.138.lcssa = phi i32 [ %spec.select54, %.backedge ], [ %.13864, %18 ]
+  %.1.lcssa = phi i32 [ %.1.be, %.backedge ], [ %.165, %18 ]
   br i1 %28, label %35, label %.loopexit
 
 35:                                               ; preds = %.outer._crit_edge
-  %.037.lcssa.fr = freeze i32 %.037.lcssa
-  %.not52 = icmp eq i32 %.037.lcssa.fr, 0
+  %.138.lcssa.fr = freeze i32 %.138.lcssa
+  %.not52 = icmp eq i32 %.138.lcssa.fr, 0
   br i1 %.not52, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %.preheader, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.loopexit, %20, %18, %.thread, %35, %.outer._crit_edge, %3, %.critedge
-  %.043 = phi i32 [ %17, %.critedge ], [ -10240, %3 ], [ %.036.lcssa, %.outer._crit_edge ], [ -10112, %.thread ], [ %.037.lcssa.fr, %35 ], [ %26, %20 ], [ %19, %18 ], [ %.03665, %.outer.loopexit ]
+  %.043 = phi i32 [ %17, %.critedge ], [ -10240, %3 ], [ %.1.lcssa, %.outer._crit_edge ], [ -10112, %.thread ], [ %.138.lcssa.fr, %35 ], [ %26, %20 ], [ %19, %18 ], [ %.165, %.outer.loopexit ]
   ret i32 %.043
 }
 
@@ -733,7 +733,7 @@ define hidden range(i32 -10624, -2147483648) i32 @mbedtls_x509_crt_parse_path(pt
   br label %.outer
 
 .outer:                                           ; preds = %mbedtls_x509_crt_parse_file.exit, %9
-  %.016.ph = phi i32 [ %.1, %mbedtls_x509_crt_parse_file.exit ], [ 0, %9 ]
+  %.016.ph = phi i32 [ %.2, %mbedtls_x509_crt_parse_file.exit ], [ 0, %9 ]
   br label %11
 
 11:                                               ; preds = %.outer, %20
@@ -781,17 +781,17 @@ mbedtls_x509_crt_parse_file.exit:                 ; preds = %24, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %33 = icmp slt i32 %.0.i, 0
-  %.1.v = select i1 %33, i32 1, i32 %.0.i
-  %.1 = add nuw nsw i32 %.1.v, %.016.ph
+  %.2.v = select i1 %33, i32 1, i32 %.0.i
+  %.2 = add nuw nsw i32 %.2.v, %.016.ph
   br label %.outer, !llvm.loop !7
 
 34:                                               ; preds = %17, %13, %11
-  %.2 = phi i32 [ %.016.ph, %11 ], [ -10624, %13 ], [ -10496, %17 ]
+  %.1 = phi i32 [ %.016.ph, %11 ], [ -10624, %13 ], [ -10496, %17 ]
   %35 = call i32 @closedir(ptr noundef nonnull %7)
   br label %36
 
 36:                                               ; preds = %2, %34
-  %.0 = phi i32 [ %.2, %34 ], [ -10496, %2 ]
+  %.0 = phi i32 [ %.1, %34 ], [ -10496, %2 ]
   ret i32 %.0
 }
 
@@ -2987,7 +2987,7 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
 
 .lr.ph.i59.i:                                     ; preds = %.outer.i.i, %.lr.ph.lr.ph.i.i
   %.041.ph97.i.i = phi ptr [ %2, %.lr.ph.lr.ph.i.i ], [ %499, %.outer.i.i ]
-  %.042.ph96.i.i = phi i32 [ 0, %.lr.ph.lr.ph.i.i ], [ %.5.i.i, %.outer.i.i ]
+  %.042.ph96.i.i = phi i32 [ 0, %.lr.ph.lr.ph.i.i ], [ %.6.i.i, %.outer.i.i ]
   br label %323
 
 323:                                              ; preds = %x509_name_cmp.exit.thread.i, %.lr.ph.i59.i
@@ -3287,7 +3287,7 @@ x509_profile_check_key.exit.i.i:                  ; preds = %455, %443
   %480 = call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %479) #16
   %.not51.i.i = icmp eq i32 %480, 0
   %481 = or i32 %spec.select54.i.i, 1024
-  %.5.i.i = select i1 %.not51.i.i, i32 %spec.select54.i.i, i32 %481
+  %.6.i.i = select i1 %.not51.i.i, i32 %spec.select54.i.i, i32 %481
   %482 = getelementptr inbounds i8, ptr %.04193.i.i, i64 216
   br label %483
 
@@ -3318,7 +3318,7 @@ x509_profile_check_key.exit.i.i:                  ; preds = %455, %443
   br i1 %.not.i64.i.i, label %.outer.i.i, label %483, !llvm.loop !13
 
 mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %489
-  %497 = or i32 %.5.i.i, 2
+  %497 = or i32 %.6.i.i, 2
   br label %x509_crt_verifycrl.exit.i
 
 .outer.i.i:                                       ; preds = %494, %483
@@ -3328,7 +3328,7 @@ mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %489
   br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !21
 
 x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_name_cmp.exit.thread.i, %mbedtls_x509_crt_is_revoked.exit.i.i, %473, %439, %mbedtls_x509_crt_check_key_usage.exit.i.i, %317
-  %.0.i61.i = phi i32 [ 0, %317 ], [ %408, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %440, %439 ], [ %474, %473 ], [ %497, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.042.ph96.i.i, %x509_name_cmp.exit.thread.i ], [ %.5.i.i, %.outer.i.i ]
+  %.0.i61.i = phi i32 [ 0, %317 ], [ %408, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %440, %439 ], [ %474, %473 ], [ %497, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.042.ph96.i.i, %x509_name_cmp.exit.thread.i ], [ %.6.i.i, %.outer.i.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %500 = load i32, ptr %93, align 8
   %501 = or i32 %500, %.0.i61.i

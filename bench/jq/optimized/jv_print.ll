@@ -685,7 +685,7 @@ put_char.exit394:                                 ; preds = %234, %241
 250:                                              ; preds = %390, %put_char.exit394
   %.sroa.025.0 = phi i64 [ %243, %put_char.exit394 ], [ %.sroa.025.2, %390 ]
   %.sroa.528.0 = phi ptr [ %244, %put_char.exit394 ], [ %.sroa.528.2, %390 ]
-  %.0320 = phi i32 [ 0, %put_char.exit394 ], [ %.3, %390 ]
+  %.0320 = phi i32 [ 0, %put_char.exit394 ], [ %.2, %390 ]
   %.not339 = phi i1 [ false, %put_char.exit394 ], [ true, %390 ]
   br i1 %.not338, label %281, label %251
 
@@ -748,16 +748,16 @@ put_char.exit394:                                 ; preds = %234, %241
   br label %286
 
 286:                                              ; preds = %284, %282
-  %.2 = phi i32 [ %283, %282 ], [ %285, %284 ]
-  %287 = call i32 @jv_object_iter_valid(i64 %1, ptr %2, i32 noundef %.2) #11
+  %.3 = phi i32 [ %283, %282 ], [ %285, %284 ]
+  %287 = call i32 @jv_object_iter_valid(i64 %1, ptr %2, i32 noundef %.3) #11
   %.not340 = icmp eq i32 %287, 0
   br i1 %.not340, label %.loopexit, label %288
 
 288:                                              ; preds = %286
-  %289 = call { i64, ptr } @jv_object_iter_key(i64 %1, ptr %2, i32 noundef %.2) #11
+  %289 = call { i64, ptr } @jv_object_iter_key(i64 %1, ptr %2, i32 noundef %.3) #11
   %290 = extractvalue { i64, ptr } %289, 0
   %291 = extractvalue { i64, ptr } %289, 1
-  %292 = call { i64, ptr } @jv_object_iter_value(i64 %1, ptr %2, i32 noundef %.2) #11
+  %292 = call { i64, ptr } @jv_object_iter_value(i64 %1, ptr %2, i32 noundef %.3) #11
   br label %293
 
 293:                                              ; preds = %288, %267
@@ -766,7 +766,7 @@ put_char.exit394:                                 ; preds = %234, %241
   %.sroa.5.0 = phi ptr [ %273, %267 ], [ %291, %288 ]
   %.sroa.025.2 = phi i64 [ %.sroa.025.1, %267 ], [ %.sroa.025.0, %288 ]
   %.sroa.528.2 = phi ptr [ %.sroa.528.1, %267 ], [ %.sroa.528.0, %288 ]
-  %.3 = phi i32 [ %.1321, %267 ], [ %.2, %288 ]
+  %.2 = phi i32 [ %.1321, %267 ], [ %.3, %288 ]
   %.sroa.3.0 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.019.0 = extractvalue { i64, ptr } %.pn, 0
   br i1 %.not339, label %294, label %312

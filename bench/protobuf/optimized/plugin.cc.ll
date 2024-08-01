@@ -719,7 +719,7 @@ ehcleanup110:                                     ; preds = %lpad18.loopexit, %l
   br label %ehcleanup112
 
 cleanup111:                                       ; preds = %if.then.i.i82, %cleanup109, %invoke.cont11
-  %retval.2 = phi i1 [ false, %invoke.cont11 ], [ %retval.1, %cleanup109 ], [ %retval.1, %if.then.i.i82 ]
+  %retval.0 = phi i1 [ false, %invoke.cont11 ], [ %retval.1, %cleanup109 ], [ %retval.1, %if.then.i.i82 ]
   %83 = load i64, ptr %defaults, align 8
   %cmp.i.i.i.i84 = icmp eq i64 %83, 0
   br i1 %cmp.i.i.i.i84, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i85
@@ -747,7 +747,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
 
 _ZN4absl12lts_202308028StatusOrIN6google8protobuf18FeatureSetDefaultsEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.else.i.i85, %if.then.i.i3.i.i
   call void @_ZN6google8protobuf14DescriptorPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %pool) #16
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup112:                                     ; preds = %lpad1, %ehcleanup110, %lpad16
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %ehcleanup110 ], [ %28, %lpad16 ], [ %7, %lpad1 ]
@@ -977,7 +977,7 @@ invoke.cont39.invoke:                             ; preds = %invoke.cont25, %inv
           to label %cleanup unwind label %lpad17
 
 cleanup:                                          ; preds = %invoke.cont39.invoke, %invoke.cont21, %if.else
-  %retval.0 = phi i32 [ 1, %if.else ], [ 0, %invoke.cont21 ], [ 1, %invoke.cont39.invoke ]
+  %retval.2 = phi i32 [ 1, %if.else ], [ 0, %invoke.cont21 ], [ 1, %invoke.cont39.invoke ]
   call void @_ZN6google8protobuf8compiler21CodeGeneratorResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %response) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_msg) #16
   br label %cleanup46
@@ -988,7 +988,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad15
   br label %ehcleanup47
 
 cleanup46:                                        ; preds = %invoke.cont10, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 1, %invoke.cont10 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 1, %invoke.cont10 ]
   call void @_ZN6google8protobuf8compiler20CodeGeneratorRequestD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %request) #16
   br label %return
 
@@ -998,8 +998,8 @@ ehcleanup47:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %cleanup46, %if.then
-  %retval.2 = phi i32 [ 1, %if.then ], [ %retval.1, %cleanup46 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 1, %if.then ], [ %retval.1, %cleanup46 ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

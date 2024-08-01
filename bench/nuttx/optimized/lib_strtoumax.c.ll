@@ -29,21 +29,21 @@ define i64 @strtoumax(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) 
 
 12:                                               ; preds = %.preheader, %17
   %13 = phi ptr [ %23, %17 ], [ %.pre, %.preheader ]
-  %.011 = phi i64 [ %21, %17 ], [ 0, %.preheader ]
+  %.1 = phi i64 [ %21, %17 ], [ 0, %.preheader ]
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = call zeroext i1 @lib_isbasedigit(i32 noundef %15, i32 noundef %7, ptr noundef nonnull %5) #2
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %12
-  %18 = mul i64 %.011, %9
+  %18 = mul i64 %.1, %9
   %19 = load i32, ptr %5, align 4
   %20 = sext i32 %19 to i64
   %21 = add i64 %18, %20
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %23, ptr %4, align 8
-  %24 = icmp ult i64 %21, %.011
+  %24 = icmp ult i64 %21, %.1
   br i1 %24, label %25, label %12, !llvm.loop !6
 
 25:                                               ; preds = %17
@@ -52,7 +52,7 @@ define i64 @strtoumax(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %25
-  %.1 = phi i64 [ -1, %25 ], [ %.011, %12 ]
+  %.2 = phi i64 [ -1, %25 ], [ %.1, %12 ]
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %29, label %27
 
@@ -62,7 +62,7 @@ define i64 @strtoumax(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) 
   br label %29
 
 29:                                               ; preds = %3, %27, %.loopexit, %10
-  %.0 = phi i64 [ 0, %10 ], [ %.1, %27 ], [ %.1, %.loopexit ], [ 0, %3 ]
+  %.0 = phi i64 [ 0, %10 ], [ %.2, %27 ], [ %.2, %.loopexit ], [ 0, %3 ]
   ret i64 %.0
 }
 

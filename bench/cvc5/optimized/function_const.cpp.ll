@@ -4424,7 +4424,7 @@ invoke.cont60:                                    ; preds = %if.else.i.i333, %if
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3187, %invoke.cont60
-  %ck.0 = phi i32 [ %bf.cast.i, %invoke.cont60 ], [ %ck.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3187 ]
+  %ck.0 = phi i32 [ %bf.cast.i, %invoke.cont60 ], [ %ck.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3187 ]
   %cmp68 = icmp eq i32 %ck.0, 19
   switch i32 %ck.0, label %while.end [
     i32 23, label %while.body
@@ -7785,8 +7785,8 @@ cond.true666:                                     ; preds = %if.then13.i4.i3021,
   br label %cleanup680
 
 cleanup680:                                       ; preds = %if.then13.i.i.i2832.invoke, %invoke.cont496, %if.else.i.i.i2961, %if.then.i.i.i2965, %if.else.i.i.i2830, %if.then.i.i.i2834, %cond.true666
-  %ck.1 = phi i32 [ %bf.cast.i3035, %cond.true666 ], [ %ck.0, %if.then.i.i.i2834 ], [ %ck.0, %if.else.i.i.i2830 ], [ %ck.0, %if.then.i.i.i2965 ], [ %ck.0, %if.else.i.i.i2961 ], [ %ck.0, %invoke.cont496 ], [ %ck.0, %if.then13.i.i.i2832.invoke ]
-  %cleanup.dest.slot.3 = phi i32 [ 0, %cond.true666 ], [ 1, %if.then.i.i.i2834 ], [ 1, %if.else.i.i.i2830 ], [ 1, %if.then.i.i.i2965 ], [ 1, %if.else.i.i.i2961 ], [ 6, %invoke.cont496 ], [ 1, %if.then13.i.i.i2832.invoke ]
+  %ck.2 = phi i32 [ %bf.cast.i3035, %cond.true666 ], [ %ck.0, %if.then.i.i.i2834 ], [ %ck.0, %if.else.i.i.i2830 ], [ %ck.0, %if.then.i.i.i2965 ], [ %ck.0, %if.else.i.i.i2961 ], [ %ck.0, %invoke.cont496 ], [ %ck.0, %if.then13.i.i.i2832.invoke ]
+  %cleanup.dest.slot.4 = phi i32 [ 0, %cond.true666 ], [ 1, %if.then.i.i.i2834 ], [ 1, %if.else.i.i.i2830 ], [ 1, %if.then.i.i.i2965 ], [ 1, %if.else.i.i.i2961 ], [ 6, %invoke.cont496 ], [ 1, %if.then13.i.i.i2832.invoke ]
   %360 = load ptr, ptr %curr_index, align 8
   %bf.load.i.i3116 = load i64, ptr %360, align 8
   %361 = and i64 %bf.load.i.i3116, 1152920405095219200
@@ -7868,8 +7868,8 @@ terminate.lpad.i3150:                             ; preds = %if.then13.i.i3149
   unreachable
 
 cleanup682:                                       ; preds = %if.then13.i.i3149, %if.then.i.i3142, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3139, %if.then13.i.i3125, %if.then.i.i3118, %cleanup680, %if.then13.i.i2284, %if.then.i.i2277, %cleanup446
-  %ck.2 = phi i32 [ %ck.0, %cleanup446 ], [ %ck.0, %if.then.i.i2277 ], [ %ck.0, %if.then13.i.i2284 ], [ %ck.1, %cleanup680 ], [ %ck.1, %if.then.i.i3118 ], [ %ck.1, %if.then13.i.i3125 ], [ %ck.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3139 ], [ %ck.0, %if.then.i.i3142 ], [ %ck.0, %if.then13.i.i3149 ]
-  %cleanup.dest.slot.4 = phi i32 [ 1, %cleanup446 ], [ 1, %if.then.i.i2277 ], [ 1, %if.then13.i.i2284 ], [ %cleanup.dest.slot.3, %cleanup680 ], [ %cleanup.dest.slot.3, %if.then.i.i3118 ], [ %cleanup.dest.slot.3, %if.then13.i.i3125 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3139 ], [ 1, %if.then.i.i3142 ], [ 1, %if.then13.i.i3149 ]
+  %ck.1 = phi i32 [ %ck.0, %cleanup446 ], [ %ck.0, %if.then.i.i2277 ], [ %ck.0, %if.then13.i.i2284 ], [ %ck.2, %cleanup680 ], [ %ck.2, %if.then.i.i3118 ], [ %ck.2, %if.then13.i.i3125 ], [ %ck.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3139 ], [ %ck.0, %if.then.i.i3142 ], [ %ck.0, %if.then13.i.i3149 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %cleanup446 ], [ 1, %if.then.i.i2277 ], [ 1, %if.then13.i.i2284 ], [ %cleanup.dest.slot.4, %cleanup680 ], [ %cleanup.dest.slot.4, %if.then.i.i3118 ], [ %cleanup.dest.slot.4, %if.then13.i.i3125 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3139 ], [ 1, %if.then.i.i3142 ], [ 1, %if.then13.i.i3149 ]
   %372 = load ptr, ptr %next, align 8
   %bf.load.i.i3152 = load i64, ptr %372, align 8
   %373 = and i64 %bf.load.i.i3152, 1152920405095219200
@@ -7951,7 +7951,7 @@ terminate.lpad.i3186:                             ; preds = %if.then13.i.i3185
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3187: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3175, %if.then.i.i3178, %if.then13.i.i3185
-  switch i32 %cleanup.dest.slot.4, label %cleanup1007 [
+  switch i32 %cleanup.dest.slot.1, label %cleanup1007 [
     i32 0, label %while.cond
     i32 6, label %while.end
   ], !llvm.loop !157

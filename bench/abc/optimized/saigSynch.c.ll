@@ -760,8 +760,8 @@ define i32 @Saig_SynchCountX(ptr nocapture noundef readonly %0, ptr nocapture no
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %46
   %indvars.iv80 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next81, %46 ]
-  %.064 = phi i32 [ %38, %.lr.ph65.preheader ], [ %.1, %46 ]
-  %.03563 = phi i32 [ -1, %.lr.ph65.preheader ], [ %.136, %46 ]
+  %.064 = phi i32 [ %38, %.lr.ph65.preheader ], [ %.2, %46 ]
+  %.03563 = phi i32 [ -1, %.lr.ph65.preheader ], [ %.237, %46 ]
   %40 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv80
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %.064, %41
@@ -773,8 +773,8 @@ define i32 @Saig_SynchCountX(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %44, label %.thread, label %46
 
 46:                                               ; preds = %.lr.ph65, %43
-  %.136 = phi i32 [ %45, %43 ], [ %.03563, %.lr.ph65 ]
-  %.1 = phi i32 [ %41, %43 ], [ %.064, %.lr.ph65 ]
+  %.237 = phi i32 [ %45, %43 ], [ %.03563, %.lr.ph65 ]
+  %.2 = phi i32 [ %41, %43 ], [ %.064, %.lr.ph65 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.thread, label %.lr.ph65, !llvm.loop !25
@@ -785,16 +785,16 @@ define i32 @Saig_SynchCountX(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not, label %47, label %.thread
 
 .thread:                                          ; preds = %46, %43, %._crit_edge
-  %.253 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.1, %46 ], [ 0, %43 ]
-  %.23751 = phi i32 [ -1, %._crit_edge ], [ %.136, %46 ], [ %45, %43 ]
+  %.153 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.2, %46 ], [ 0, %43 ]
+  %.13651 = phi i32 [ -1, %._crit_edge ], [ %.237, %46 ], [ %45, %43 ]
   tail call void @free(ptr noundef nonnull %7) #17
   br label %47
 
 47:                                               ; preds = %._crit_edge, %.thread
-  %.254 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.253, %.thread ]
-  %.23752 = phi i32 [ -1, %._crit_edge ], [ %.23751, %.thread ]
-  store i32 %.23752, ptr %3, align 4
-  ret i32 %.254
+  %.154 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.153, %.thread ]
+  %.13652 = phi i32 [ -1, %._crit_edge ], [ %.13651, %.thread ]
+  store i32 %.13652, ptr %3, align 4
+  ret i32 %.154
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -1377,7 +1377,7 @@ Saig_SynchInitRegsTernary.exit:                   ; preds = %.lr.ph.us.i, %Vec_P
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %118
   %.04684 = phi i32 [ 0, %.preheader.lr.ph ], [ %120, %118 ]
-  %.04883 = phi i32 [ %.val79, %.preheader.lr.ph ], [ %.254.i, %118 ]
+  %.04883 = phi i32 [ %.val79, %.preheader.lr.ph ], [ %.154.i, %118 ]
   br label %62
 
 62:                                               ; preds = %.preheader, %114
@@ -1499,8 +1499,8 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph65.i:                                       ; preds = %.critedge.i, %112
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %112 ], [ 0, %.critedge.i ]
-  %.064.i = phi i32 [ %.1.i, %112 ], [ %105, %.critedge.i ]
-  %.03563.i = phi i32 [ %.136.i, %112 ], [ -1, %.critedge.i ]
+  %.064.i = phi i32 [ %.2.i, %112 ], [ %105, %.critedge.i ]
+  %.03563.i = phi i32 [ %.237.i, %112 ], [ -1, %.critedge.i ]
   %106 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv80.i
   %107 = load i32, ptr %106, align 4
   %108 = icmp sgt i32 %.064.i, %107
@@ -1512,8 +1512,8 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
   br i1 %110, label %.thread.i, label %112
 
 112:                                              ; preds = %109, %.lr.ph65.i
-  %.136.i = phi i32 [ %111, %109 ], [ %.03563.i, %.lr.ph65.i ]
-  %.1.i = phi i32 [ %107, %109 ], [ %.064.i, %.lr.ph65.i ]
+  %.237.i = phi i32 [ %111, %109 ], [ %.03563.i, %.lr.ph65.i ]
+  %.2.i = phi i32 [ %107, %109 ], [ %.064.i, %.lr.ph65.i ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
   br i1 %exitcond84.not.i, label %.thread.i, label %.lr.ph65.i, !llvm.loop !25
@@ -1524,15 +1524,15 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
   br i1 %.not.i63, label %Saig_SynchCountX.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %112, %109, %._crit_edge.i
-  %.253.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %109 ], [ %.1.i, %112 ]
-  %.23751.i = phi i32 [ -1, %._crit_edge.i ], [ %111, %109 ], [ %.136.i, %112 ]
+  %.153.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %109 ], [ %.2.i, %112 ]
+  %.13651.i = phi i32 [ -1, %._crit_edge.i ], [ %111, %109 ], [ %.237.i, %112 ]
   tail call void @free(ptr noundef nonnull %79) #17
   br label %Saig_SynchCountX.exit
 
 Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.thread.i
-  %.254.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.253.i, %.thread.i ]
-  %.23752.i = phi i32 [ -1, %._crit_edge.i ], [ %.23751.i, %.thread.i ]
-  %113 = icmp slt i32 %.254.i, %.04883
+  %.154.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.153.i, %.thread.i ]
+  %.13652.i = phi i32 [ -1, %._crit_edge.i ], [ %.13651.i, %.thread.i ]
+  %113 = icmp slt i32 %.154.i, %.04883
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %Saig_SynchCountX.exit
@@ -1545,10 +1545,10 @@ Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.th
   br i1 %117, label %._crit_edge.thread, label %118
 
 118:                                              ; preds = %116
-  %119 = tail call i32 @Saig_SynchSavePattern(ptr noundef %0, ptr noundef nonnull %27, i32 noundef %1, i32 noundef %.23752.i, ptr noundef nonnull %6)
+  %119 = tail call i32 @Saig_SynchSavePattern(ptr noundef %0, ptr noundef nonnull %27, i32 noundef %1, i32 noundef %.13652.i, ptr noundef nonnull %6)
   %120 = add nuw nsw i32 %.04684, 1
   %121 = icmp ult i32 %.04684, 99
-  %122 = icmp sgt i32 %.254.i, 0
+  %122 = icmp sgt i32 %.154.i, 0
   %123 = and i1 %121, %122
   br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !33
 
@@ -1556,7 +1556,7 @@ Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.th
   br i1 %122, label %._crit_edge.thread, label %._crit_edge.thread96
 
 ._crit_edge.thread:                               ; preds = %116, %114, %._crit_edge
-  %.048.lcssa94 = phi i32 [ %.254.i, %._crit_edge ], [ %.04883, %114 ], [ %.04883, %116 ]
+  %.048.lcssa94 = phi i32 [ %.154.i, %._crit_edge ], [ %.04883, %114 ], [ %.04883, %116 ]
   %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.048.lcssa94)
   %.not.i71 = icmp eq ptr %21, null
   br i1 %.not.i71, label %Vec_PtrFree.exit, label %125

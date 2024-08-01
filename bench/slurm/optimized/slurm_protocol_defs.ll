@@ -846,8 +846,8 @@ define zeroext i16 @preempt_mode_num(ptr noundef %0) #1 {
 
 .lr.ph:                                           ; preds = %5, %45
   %.047 = phi ptr [ %46, %45 ], [ %7, %5 ]
-  %.02646 = phi i32 [ %.1, %45 ], [ 0, %5 ]
-  %.02745 = phi i16 [ %.128, %45 ], [ 0, %5 ]
+  %.02646 = phi i32 [ %.2, %45 ], [ 0, %5 ]
+  %.02745 = phi i16 [ %.229, %45 ], [ 0, %5 ]
   %8 = call i32 @xstrcasecmp(ptr noundef nonnull %.047, ptr noundef nonnull @.str.42) #22
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
@@ -919,30 +919,30 @@ define zeroext i16 @preempt_mode_num(ptr noundef %0) #1 {
   br label %45
 
 45:                                               ; preds = %14, %27, %42, %33, %22, %10
-  %.128 = phi i16 [ %11, %10 ], [ %.02745, %22 ], [ %28, %27 ], [ %34, %33 ], [ %43, %42 ], [ %15, %14 ]
-  %.1 = phi i32 [ %.02646, %10 ], [ %23, %22 ], [ %29, %27 ], [ %35, %33 ], [ %44, %42 ], [ %.02646, %14 ]
+  %.229 = phi i16 [ %11, %10 ], [ %.02745, %22 ], [ %28, %27 ], [ %34, %33 ], [ %43, %42 ], [ %15, %14 ]
+  %.2 = phi i32 [ %.02646, %10 ], [ %23, %22 ], [ %29, %27 ], [ %35, %33 ], [ %44, %42 ], [ %.02646, %14 ]
   %46 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull %3) #22
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %45
-  %47 = icmp sgt i32 %.1, 1
+  %47 = icmp sgt i32 %.2, 1
   call void @slurm_xfree(ptr noundef nonnull %2) #22
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %._crit_edge
-  %.not33 = icmp sgt i16 %.128, -1
+  %.not33 = icmp sgt i16 %.229, -1
   br i1 %.not33, label %51, label %49
 
 49:                                               ; preds = %.thread38, %48
-  %.2293741 = phi i16 [ -2, %.thread38 ], [ %.128, %48 ]
-  %50 = and i16 %.2293741, 16384
+  %.1283741 = phi i16 [ -2, %.thread38 ], [ %.229, %48 ]
+  %50 = and i16 %.1283741, 16384
   %.not34 = icmp eq i16 %50, 0
-  %spec.store.select = select i1 %.not34, i16 %.2293741, i16 -2
+  %spec.store.select = select i1 %.not34, i16 %.1283741, i16 -2
   br label %51
 
 51:                                               ; preds = %.thread, %48, %49, %._crit_edge, %1
-  %.030 = phi i16 [ 0, %1 ], [ %spec.store.select, %49 ], [ %.128, %48 ], [ -2, %._crit_edge ], [ 0, %.thread ]
+  %.030 = phi i16 [ 0, %1 ], [ %spec.store.select, %49 ], [ %.229, %48 ], [ -2, %._crit_edge ], [ 0, %.thread ]
   ret i16 %.030
 }
 
@@ -3750,7 +3750,7 @@ _add_to_list.exit92:                              ; preds = %.lr.ph, %_add_to_li
   br i1 %.not88, label %.loopexit, label %_add_to_list.exit92, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_add_to_list.exit92, %_add_to_list.exit92.us, %.preheader, %43
-  %.2 = phi i32 [ %.068102, %43 ], [ %.068102, %.preheader ], [ %47, %_add_to_list.exit92.us ], [ %47, %_add_to_list.exit92 ]
+  %.169 = phi i32 [ %.068102, %43 ], [ %.068102, %.preheader ], [ %47, %_add_to_list.exit92.us ], [ %47, %_add_to_list.exit92 ]
   call void @hostlist_destroy(ptr noundef %51) #22
   call void @slurm_xfree(ptr noundef nonnull %4) #22
   br label %.thread
@@ -3761,7 +3761,7 @@ _add_to_list.exit92:                              ; preds = %.lr.ph, %_add_to_li
 .thread:                                          ; preds = %.lr.ph104, %.thread.fold.split, %22, %29, %_add_to_list.exit, %21, %41, %.loopexit
   %.173 = phi i1 [ %.072100, %21 ], [ true, %.loopexit ], [ false, %41 ], [ %.072100, %.lr.ph104 ], [ false, %_add_to_list.exit ], [ false, %29 ], [ %.072100, %22 ], [ %.072100, %.thread.fold.split ]
   %.171 = phi i1 [ %.070101, %21 ], [ false, %.loopexit ], [ false, %41 ], [ true, %.lr.ph104 ], [ false, %_add_to_list.exit ], [ false, %29 ], [ true, %22 ], [ %.070101, %.thread.fold.split ]
-  %.3 = phi i32 [ %.068102, %21 ], [ %.2, %.loopexit ], [ %42, %41 ], [ %.068102, %.lr.ph104 ], [ %31, %_add_to_list.exit ], [ %31, %29 ], [ %.068102, %22 ], [ %.068102, %.thread.fold.split ]
+  %.3 = phi i32 [ %.068102, %21 ], [ %.169, %.loopexit ], [ %42, %41 ], [ %.068102, %.lr.ph104 ], [ %31, %_add_to_list.exit ], [ %31, %29 ], [ %.068102, %22 ], [ %.068102, %.thread.fold.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = add nuw nsw i32 %.1103, 1
   %63 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
@@ -12714,7 +12714,7 @@ define void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr noundef wr
 
 50:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.05083 = phi i32 [ 0, %.lr.ph ], [ %.2, %56 ]
+  %.05083 = phi i32 [ 0, %.lr.ph ], [ %.151, %56 ]
   %.05282 = phi i32 [ %35, %.lr.ph ], [ %.153, %56 ]
   %indvars86 = trunc i64 %indvars.iv to i32
   %51 = tail call i32 @bit_test(ptr noundef %24, i64 noundef %indvars.iv) #22
@@ -12732,14 +12732,14 @@ define void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr noundef wr
 
 56:                                               ; preds = %52, %55, %50
   %.153 = phi i32 [ %.05282, %50 ], [ %indvars86, %55 ], [ %indvars86, %52 ]
-  %.2 = phi i32 [ %.05083, %50 ], [ %.05083, %55 ], [ %54, %52 ]
+  %.151 = phi i32 [ %.05083, %50 ], [ %.05083, %55 ], [ %54, %52 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %49, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %50, !llvm.loop !65
 
 .critedge:                                        ; preds = %56, %.preheader78
-  %.050.lcssa = phi i32 [ 0, %.preheader78 ], [ %.2, %56 ]
+  %.050.lcssa = phi i32 [ 0, %.preheader78 ], [ %.151, %56 ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.649, i32 noundef %35, i32 noundef %37, i32 noundef %.050.lcssa) #22
   br label %.loopexit
 
@@ -13391,7 +13391,7 @@ _is_valid_number.exit:                            ; preds = %117
   br label %143
 
 143:                                              ; preds = %_is_valid_number.exit, %123, %142
-  %.3 = phi i64 [ 1, %142 ], [ %121, %_is_valid_number.exit ], [ 1, %123 ]
+  %.2127 = phi i64 [ 1, %142 ], [ %121, %_is_valid_number.exit ], [ 1, %123 ]
   %144 = load ptr, ptr %9, align 8
   %145 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %144, i32 noundef 58) #23
   %.not114 = icmp eq ptr %145, null
@@ -13426,7 +13426,7 @@ _is_valid_number.exit:                            ; preds = %117
   br label %.loopexit.sink.split
 
 157:                                              ; preds = %151
-  %158 = icmp eq i64 %.3, 0
+  %158 = icmp eq i64 %.2127, 0
   br i1 %158, label %.backedge.sink.split, label %.loopexit140
 
 .loopexit.sink.split:                             ; preds = %146, %153
@@ -13461,8 +13461,8 @@ _is_valid_number.exit:                            ; preds = %117
   br label %173
 
 .loopexit140:                                     ; preds = %157, %._crit_edge, %140, %65, %37
-  %.4.ph = phi i64 [ 0, %37 ], [ %141, %140 ], [ 0, %65 ], [ 0, %._crit_edge ], [ %.3, %157 ]
-  store i64 %.4.ph, ptr %4, align 8
+  %.1126.ph = phi i64 [ 0, %37 ], [ %141, %140 ], [ 0, %65 ], [ 0, %._crit_edge ], [ %.2127, %157 ]
+  store i64 %.1126.ph, ptr %4, align 8
   %167 = load ptr, ptr %10, align 8
   store ptr %167, ptr %3, align 8
   %168 = load ptr, ptr %9, align 8

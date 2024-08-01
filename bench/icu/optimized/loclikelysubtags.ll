@@ -529,9 +529,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -970,15 +970,15 @@ delete.notnull.i19.i:                             ; preds = %lpad2.i, %lpad4.bod
   br label %ehcleanup
 
 invoke.cont5:                                     ; preds = %for.cond.i, %delete.notnull.i.i, %if.then.i.i, %new.cont.i
-  %retval.232.i = phi ptr [ null, %delete.notnull.i.i ], [ null, %if.then.i.i ], [ null, %new.cont.i ], [ %call.i, %for.cond.i ]
+  %retval.032.i = phi ptr [ null, %delete.notnull.i.i ], [ null, %if.then.i.i ], [ null, %new.cont.i ], [ %call.i, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %regionName.i)
-  store ptr %retval.232.i, ptr @_ZN6icu_7512_GLOBAL__N_113gMacroregionsE, align 8
+  store ptr %retval.032.i, ptr @_ZN6icu_7512_GLOBAL__N_113gMacroregionsE, align 8
   %30 = load i32, ptr %errorCode, align 4
   %cmp.i9 = icmp sgt i32 %30, 0
   %31 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_114gLikelySubtagsE, align 8
   %cmp = icmp eq ptr %31, null
   %or.cond = select i1 %cmp.i9, i1 true, i1 %cmp
-  %cmp11 = icmp eq ptr %retval.232.i, null
+  %cmp11 = icmp eq ptr %retval.032.i, null
   %or.cond1 = or i1 %cmp11, %or.cond
   br i1 %or.cond1, label %if.then12, label %if.end16
 
@@ -992,7 +992,7 @@ delete.notnull:                                   ; preds = %if.then12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then12
-  %32 = phi ptr [ %.pre, %delete.notnull ], [ %retval.232.i, %if.then12 ]
+  %32 = phi ptr [ %.pre, %delete.notnull ], [ %retval.032.i, %if.then12 ]
   %isnull13 = icmp eq ptr %32, null
   br i1 %isnull13, label %delete.end15, label %delete.notnull14
 

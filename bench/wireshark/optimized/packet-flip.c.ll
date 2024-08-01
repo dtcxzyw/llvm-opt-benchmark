@@ -193,18 +193,18 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not39.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_flip_chksum_hdr.exit.us
-  %.099118.us = phi i32 [ %57, %dissect_flip_chksum_hdr.exit.us ], [ 8, %.lr.ph ]
-  %.0102116.us = phi i32 [ %65, %dissect_flip_chksum_hdr.exit.us ], [ %46, %.lr.ph ]
-  %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %.099118.us) #5
+  %.1119.us = phi i32 [ %57, %dissect_flip_chksum_hdr.exit.us ], [ 8, %.lr.ph ]
+  %.0102117.us = phi i32 [ %65, %dissect_flip_chksum_hdr.exit.us ], [ %46, %.lr.ph ]
+  %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %.1119.us) #5
   %cond.us = icmp eq i8 %54, 1
   br i1 %cond.us, label %._crit_edge.i.us, label %.split.us
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.split.us
-  %55 = or disjoint i32 %.099118.us, 2
+  %55 = or disjoint i32 %.1119.us, 2
   store i32 %55, ptr %51, align 8
   %56 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %55) #5
   store ptr %56, ptr %5, align 16
-  %57 = add i32 %.099118.us, 4
+  %57 = add i32 %.1119.us, 4
   %58 = sub i32 %14, %57
   store i32 %58, ptr %53, align 8
   %59 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef %57, i32 noundef %58) #5
@@ -212,7 +212,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %60 = call i32 @in_cksum(ptr noundef nonnull %5, i32 noundef 2) #5
   %trunc.us = trunc i32 %60 to i16
   %rev.us = call i16 @llvm.bswap.i16(i16 %trunc.us)
-  %61 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.099118.us, i32 noundef 4) #5
+  %61 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.1119.us, i32 noundef 4) #5
   %62 = call i32 @tvb_get_ntohl(ptr noundef %61, i32 noundef 0) #5
   %.pre.i.us = zext i16 %rev.us to i32
   %.pre41.i.us = and i32 %62, 65535
@@ -225,7 +225,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_flip_chksum_hdr.exit.us
 
 dissect_flip_chksum_hdr.exit.us:                  ; preds = %63, %._crit_edge.i.us
-  %65 = add nsw i32 %.0102116.us, -4
+  %65 = add nsw i32 %.0102117.us, -4
   %66 = and i32 %62, 65536
   %67 = icmp ne i32 %66, 0
   %68 = icmp ugt i32 %65, 3
@@ -238,18 +238,18 @@ dissect_flip_chksum_hdr.exit.us:                  ; preds = %63, %._crit_edge.i.
   br label %116
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_flip_chksum_hdr.exit
-  %.099118 = phi i32 [ %76, %dissect_flip_chksum_hdr.exit ], [ 8, %.lr.ph ]
-  %.0102116 = phi i32 [ %100, %dissect_flip_chksum_hdr.exit ], [ %46, %.lr.ph ]
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %.099118) #5
+  %.1119 = phi i32 [ %76, %dissect_flip_chksum_hdr.exit ], [ 8, %.lr.ph ]
+  %.0102117 = phi i32 [ %100, %dissect_flip_chksum_hdr.exit ], [ %46, %.lr.ph ]
+  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %.1119) #5
   %cond = icmp eq i8 %72, 1
   br i1 %cond, label %73, label %.split.us
 
 73:                                               ; preds = %.lr.ph.split
-  %74 = or disjoint i32 %.099118, 2
+  %74 = or disjoint i32 %.1119, 2
   store i32 %74, ptr %51, align 8
   %75 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %74) #5
   store ptr %75, ptr %5, align 16
-  %76 = add i32 %.099118, 4
+  %76 = add i32 %.1119, 4
   %77 = sub i32 %14, %76
   store i32 %77, ptr %53, align 8
   %78 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef %76, i32 noundef %77) #5
@@ -257,7 +257,7 @@ dissect_flip_chksum_hdr.exit.us:                  ; preds = %63, %._crit_edge.i.
   %79 = call i32 @in_cksum(ptr noundef nonnull %5, i32 noundef 2) #5
   %trunc = trunc i32 %79 to i16
   %rev = call i16 @llvm.bswap.i16(i16 %trunc)
-  %80 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.099118, i32 noundef 4) #5
+  %80 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.1119, i32 noundef 4) #5
   %81 = call i32 @tvb_get_ntohl(ptr noundef %80, i32 noundef 0) #5
   %82 = lshr i32 %81, 24
   %83 = load i32, ptr @ett_flip_chksum, align 4
@@ -283,7 +283,7 @@ dissect_flip_chksum_hdr.exit.us:                  ; preds = %63, %._crit_edge.i.
   br label %dissect_flip_chksum_hdr.exit
 
 dissect_flip_chksum_hdr.exit:                     ; preds = %73, %98
-  %100 = add nsw i32 %.0102116, -4
+  %100 = add nsw i32 %.0102117, -4
   %101 = and i32 %81, 65536
   %102 = icmp ne i32 %101, 0
   %103 = icmp ugt i32 %100, 3
@@ -292,7 +292,7 @@ dissect_flip_chksum_hdr.exit:                     ; preds = %73, %98
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i8 [ %54, %.lr.ph.split.us ], [ %72, %.lr.ph.split ]
-  %.us-phi121 = phi i32 [ %.099118.us, %.lr.ph.split.us ], [ %.099118, %.lr.ph.split ]
+  %.us-phi122 = phi i32 [ %.1119.us, %.lr.ph.split.us ], [ %.1119, %.lr.ph.split ]
   %105 = zext i8 %.us-phi to i32
   %106 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %105) #5
@@ -321,7 +321,7 @@ dissect_flip_chksum_hdr.exit:                     ; preds = %73, %98
   br label %116
 
 116:                                              ; preds = %70, %.split.us, %42, %43, %40, %114, %._crit_edge, %4
-  %.097 = phi i32 [ 0, %4 ], [ 8, %40 ], [ 8, %43 ], [ 8, %42 ], [ 8, %70 ], [ %.us-phi121, %.split.us ], [ %115, %114 ], [ %.0101.lcssa, %._crit_edge ]
+  %.097 = phi i32 [ 0, %4 ], [ 8, %40 ], [ 8, %43 ], [ 8, %42 ], [ 8, %70 ], [ %.us-phi122, %.split.us ], [ %115, %114 ], [ %.0101.lcssa, %._crit_edge ]
   ret i32 %.097
 }
 

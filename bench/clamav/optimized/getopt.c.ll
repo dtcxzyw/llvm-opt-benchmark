@@ -49,7 +49,7 @@ define i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unna
 
 16:                                               ; preds = %12, %5, %3, %11
   %.079 = phi i8 [ 58, %11 ], [ %6, %5 ], [ 43, %3 ], [ %14, %12 ]
-  %.178 = phi i64 [ 2, %11 ], [ %spec.select, %5 ], [ 0, %3 ], [ %spec.select104, %12 ]
+  %.077 = phi i64 [ 2, %11 ], [ %spec.select, %5 ], [ 0, %3 ], [ %spec.select104, %12 ]
   %.073 = phi i8 [ %10, %11 ], [ %10, %5 ], [ 43, %3 ], [ %10, %12 ]
   store ptr null, ptr @optarg, align 8
   %17 = load i32, ptr @my_getopt.charind, align 4
@@ -66,7 +66,7 @@ define i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unna
   %25 = load i8, ptr %24, align 1
   %26 = sext i8 %25 to i32
   store i32 %26, ptr @optopt, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 %.178
+  %27 = getelementptr inbounds i8, ptr %2, i64 %.077
   %28 = load i8, ptr %27, align 1
   %.not96115 = icmp eq i8 %28, 0
   br i1 %.not96115, label %._crit_edge, label %.lr.ph
@@ -323,10 +323,10 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
 
 .loopexit:                                        ; preds = %133, %118, %..loopexit_crit_edge
   %136 = phi i32 [ %134, %..loopexit_crit_edge ], [ %optind.promoted, %118 ], [ %18, %133 ]
-  %.175 = phi i32 [ %120, %..loopexit_crit_edge ], [ %120, %118 ], [ -1, %133 ]
-  %.2 = phi i32 [ %135, %..loopexit_crit_edge ], [ %119, %118 ], [ %0, %133 ]
-  %137 = icmp eq i32 %.2, %0
-  %spec.select106 = select i1 %137, i32 -1, i32 %.175
+  %.276 = phi i32 [ %120, %..loopexit_crit_edge ], [ %120, %118 ], [ -1, %133 ]
+  %.1 = phi i32 [ %135, %..loopexit_crit_edge ], [ %119, %118 ], [ %0, %133 ]
+  %137 = icmp eq i32 %.1, %0
+  %spec.select106 = select i1 %137, i32 -1, i32 %.276
   br label %.thread
 
 .thread159:                                       ; preds = %99, %102
@@ -337,7 +337,7 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
 
 .thread:                                          ; preds = %thread-pre-split.thread, %80, %43, %.loopexit, %108, %106, %109, %.thread159, %thread-pre-split, %83, %90
   %139 = phi i32 [ %.pre151, %83 ], [ %91, %90 ], [ %.pre151, %thread-pre-split ], [ %107, %106 ], [ %110, %109 ], [ %.pre150, %.thread159 ], [ %18, %108 ], [ %136, %.loopexit ], [ %44, %43 ], [ %81, %80 ], [ %59, %thread-pre-split.thread ]
-  %.276 = phi i32 [ %.074, %83 ], [ %.074, %90 ], [ %.074, %thread-pre-split ], [ -1, %106 ], [ 1, %109 ], [ %138, %.thread159 ], [ -1, %108 ], [ %spec.select106, %.loopexit ], [ %26, %43 ], [ 63, %80 ], [ %26, %thread-pre-split.thread ]
+  %.175 = phi i32 [ %.074, %83 ], [ %.074, %90 ], [ %.074, %thread-pre-split ], [ -1, %106 ], [ 1, %109 ], [ %138, %.thread159 ], [ -1, %108 ], [ %spec.select106, %.loopexit ], [ %26, %43 ], [ 63, %80 ], [ %26, %thread-pre-split.thread ]
   %140 = icmp sgt i32 %139, %0
   br i1 %140, label %141, label %142
 
@@ -346,7 +346,7 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
   br label %142
 
 142:                                              ; preds = %141, %.thread
-  ret i32 %.276
+  ret i32 %.175
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -390,7 +390,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %19
 
 19:                                               ; preds = %15, %8, %6, %14
-  %.1164 = phi i32 [ 2, %14 ], [ %spec.select, %8 ], [ 0, %6 ], [ %spec.select207, %15 ]
+  %.0163 = phi i32 [ 2, %14 ], [ %spec.select, %8 ], [ 0, %6 ], [ %spec.select207, %15 ]
   %.0160 = phi i8 [ 58, %14 ], [ %9, %8 ], [ 43, %6 ], [ %17, %15 ]
   %.0157 = phi i8 [ %13, %14 ], [ %13, %8 ], [ 43, %6 ], [ %13, %15 ]
   store ptr null, ptr @optarg, align 8
@@ -523,7 +523,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br i1 %.not190, label %.preheader225, label %.loopexit226
 
 .preheader225:                                    ; preds = %69, %92
-  %.0148 = phi i32 [ %.1149, %92 ], [ %.1164, %69 ]
+  %.0148 = phi i32 [ %.1149, %92 ], [ %.0163, %69 ]
   %73 = add nsw i32 %.0148, 1
   %74 = sext i32 %.0148 to i64
   %75 = getelementptr inbounds i8, ptr %2, i64 %74
@@ -638,14 +638,14 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
 125:                                              ; preds = %.lr.ph239, %125
   %indvars.iv262 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next263, %125 ]
   %126 = phi ptr [ %105, %.lr.ph239 ], [ %132, %125 ]
-  %.2238 = phi i32 [ 0, %.lr.ph239 ], [ %spec.select214, %125 ]
-  %.2154236 = phi i32 [ %.1153, %.lr.ph239 ], [ %spec.select213, %125 ]
+  %.3238 = phi i32 [ 0, %.lr.ph239 ], [ %spec.select214, %125 ]
+  %.3155236 = phi i32 [ %.1153, %.lr.ph239 ], [ %spec.select213, %125 ]
   %127 = tail call i32 @strncmp(ptr noundef nonnull %126, ptr noundef nonnull %122, i64 noundef %124) #6
   %128 = icmp eq i32 %127, 0
   %129 = trunc nuw nsw i64 %indvars.iv262 to i32
-  %spec.select213 = select i1 %128, i32 %129, i32 %.2154236
+  %spec.select213 = select i1 %128, i32 %129, i32 %.3155236
   %130 = zext i1 %128 to i32
-  %spec.select214 = add nuw nsw i32 %.2238, %130
+  %spec.select214 = add nuw nsw i32 %.3238, %130
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %131 = getelementptr inbounds %struct.option, ptr %3, i64 %indvars.iv.next263
   %132 = load ptr, ptr %131, align 8
@@ -659,9 +659,9 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   ]
 
 .thread215:                                       ; preds = %._crit_edge, %._crit_edge240
-  %.4156218 = phi i32 [ %spec.select213, %._crit_edge240 ], [ %.1153, %._crit_edge ]
+  %.2154218 = phi i32 [ %spec.select213, %._crit_edge240 ], [ %.1153, %._crit_edge ]
   %133 = icmp eq i8 %101, 61
-  %134 = sext i32 %.4156218 to i64
+  %134 = sext i32 %.2154218 to i64
   %135 = getelementptr inbounds %struct.option, ptr %3, i64 %134
   %136 = getelementptr inbounds i8, ptr %135, i64 8
   %137 = load i32, ptr %136, align 8
@@ -727,11 +727,11 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br i1 %.not204, label %168, label %167
 
 167:                                              ; preds = %166
-  store i32 %.4156218, ptr %4, align 4
+  store i32 %.2154218, ptr %4, align 4
   br label %168
 
 168:                                              ; preds = %167, %166
-  %169 = sext i32 %.4156218 to i64
+  %169 = sext i32 %.2154218 to i64
   %170 = getelementptr inbounds %struct.option, ptr %3, i64 %169
   %171 = getelementptr inbounds i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
@@ -745,7 +745,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %.thread220
 
 .thread220:                                       ; preds = %168, %153, %157, %140, %142, %175
-  %.1166 = phi i32 [ 0, %175 ], [ %155, %153 ], [ %155, %157 ], [ 63, %140 ], [ 63, %142 ], [ %174, %168 ]
+  %.2167 = phi i32 [ 0, %175 ], [ %155, %153 ], [ %155, %157 ], [ 63, %140 ], [ 63, %142 ], [ %174, %168 ]
   %176 = load i32, ptr @optind, align 4
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr @optind, align 4
@@ -790,7 +790,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %50, %..loopexit_crit_edge, %.thread220, %187, %189, %178, %182, %180, %67, %36
-  %.2167 = phi i32 [ -1, %36 ], [ %.1166, %.thread220 ], [ 63, %189 ], [ 63, %187 ], [ %179, %178 ], [ 63, %182 ], [ 63, %180 ], [ %68, %67 ], [ %52, %..loopexit_crit_edge ], [ %52, %50 ], [ -1, %65 ]
+  %.0165 = phi i32 [ -1, %36 ], [ %.2167, %.thread220 ], [ 63, %189 ], [ 63, %187 ], [ %179, %178 ], [ 63, %182 ], [ 63, %180 ], [ %68, %67 ], [ %52, %..loopexit_crit_edge ], [ %52, %50 ], [ -1, %65 ]
   %195 = load i32, ptr @optind, align 4
   %196 = icmp sgt i32 %195, %0
   br i1 %196, label %197, label %198
@@ -800,7 +800,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %198
 
 198:                                              ; preds = %.loopexit, %197, %40, %94, %41
-  %.0 = phi i32 [ 1, %41 ], [ %95, %94 ], [ -1, %40 ], [ %.2167, %197 ], [ %.2167, %.loopexit ]
+  %.0 = phi i32 [ 1, %41 ], [ %95, %94 ], [ -1, %40 ], [ %.0165, %197 ], [ %.0165, %.loopexit ]
   ret i32 %.0
 }
 

@@ -2730,7 +2730,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit9.thread: ; preds = %10
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %14, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit9.thread, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %.0 = phi ptr [ %8, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %11, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit9.thread ], [ %11, %14 ]
+  %.1 = phi ptr [ %8, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %11, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit9.thread ], [ %11, %14 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit12, label %15
 
 15:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -2738,8 +2738,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %14, %_ZN11MutexLock
   br label %_ZN11MutexLockerD2Ev.exit12
 
 _ZN11MutexLockerD2Ev.exit12:                      ; preds = %15, %_ZN11MutexLockerD2Ev.exit, %1
-  %.1 = phi ptr [ %3, %1 ], [ %.0, %_ZN11MutexLockerD2Ev.exit ], [ %.0, %15 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %3, %1 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.1, %15 ]
+  ret ptr %.0
 }
 
 declare void @_ZN16ModuleEntryTableC1Ev(ptr noundef nonnull align 8 dereferenceable(880)) unnamed_addr #1
@@ -3205,8 +3205,8 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc4is_aEP
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %52, %1
-  %.2 = phi ptr [ %3, %1 ], [ %.1, %52 ], [ %.1, %53 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %3, %1 ], [ %.1, %52 ], [ %.1, %53 ]
+  ret ptr %.0
 }
 
 declare void @_ZN20ClassLoaderMetaspaceC1EP5MutexN9Metaspace13MetaspaceTypeE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) unnamed_addr #1
@@ -9199,9 +9199,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop16VerifyOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -9400,9 +9400,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc16VerifyOopClosureEEvP17stackChunkOopDescPT0_PlS8_.exit

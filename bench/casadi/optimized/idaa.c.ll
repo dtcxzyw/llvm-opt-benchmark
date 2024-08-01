@@ -1038,7 +1038,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
   br label %44
 
 44:                                               ; preds = %.lr.ph, %92
-  %.0132 = phi i32 [ 1, %.lr.ph ], [ %.2, %92 ]
+  %.0132 = phi i32 [ 1, %.lr.ph ], [ %.3, %92 ]
   %.098131 = phi i64 [ 0, %.lr.ph ], [ %96, %92 ]
   %45 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
   %46 = icmp eq ptr %45, null
@@ -1076,7 +1076,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
 
 62:                                               ; preds = %53, %58, %60
   %.0100 = phi ptr [ null, %58 ], [ %45, %53 ], [ %45, %60 ]
-  %.1 = phi i32 [ 0, %58 ], [ %.0132, %53 ], [ %.0132, %60 ]
+  %.2 = phi i32 [ 0, %58 ], [ %.0132, %53 ], [ %.0132, %60 ]
   %63 = load i32, ptr %15, align 8
   %.not109 = icmp eq i32 %63, 0
   br i1 %.not109, label %92, label %64
@@ -1140,7 +1140,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
 
 92:                                               ; preds = %90, %87, %76, %62
   %.1101 = phi ptr [ null, %87 ], [ %.0100, %76 ], [ %.0100, %90 ], [ %.0100, %62 ]
-  %.2 = phi i32 [ 0, %87 ], [ %.1, %76 ], [ %.1, %90 ], [ %.1, %62 ]
+  %.3 = phi i32 [ 0, %87 ], [ %.2, %76 ], [ %.2, %90 ], [ %.2, %62 ]
   %93 = getelementptr inbounds ptr, ptr %40, i64 %.098131
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
@@ -1151,7 +1151,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
   br i1 %.not108.not, label %44, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %92
-  %.not112 = icmp eq i32 %.2, 0
+  %.not112 = icmp eq i32 %.3, 0
   br i1 %.not112, label %.thread, label %.loopexit
 
 .thread.sink.split:                               ; preds = %47, %70, %74
@@ -1160,7 +1160,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
   br label %.thread
 
 .thread:                                          ; preds = %44, %.thread.sink.split, %._crit_edge
-  %.397120 = phi i64 [ 0, %._crit_edge ], [ %.098131, %.thread.sink.split ], [ %.098131, %44 ]
+  %.195120 = phi i64 [ 0, %._crit_edge ], [ %.098131, %.thread.sink.split ], [ %.098131, %44 ]
   %98 = load ptr, ptr %7, align 8
   tail call void @N_VDestroy(ptr noundef %98) #9
   %99 = load ptr, ptr %12, align 8
@@ -1182,7 +1182,7 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
   br label %109
 
 109:                                              ; preds = %101, %.thread
-  %.not136 = icmp eq i64 %.397120, 0
+  %.not136 = icmp eq i64 %.195120, 0
   br i1 %.not136, label %.loopexit, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %109
@@ -1235,11 +1235,11 @@ define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef 
   %135 = getelementptr inbounds i8, ptr %134, i64 8
   store ptr null, ptr %135, align 8
   %136 = add nuw nsw i64 %.199133, 1
-  %exitcond.not = icmp eq i64 %136, %.397120
+  %exitcond.not = icmp eq i64 %136, %.195120
   br i1 %exitcond.not, label %.loopexit, label %111, !llvm.loop !17
 
 .loopexit:                                        ; preds = %130, %38, %109, %._crit_edge, %9, %1, %33, %24
-  %.0102 = phi i32 [ 0, %24 ], [ 0, %33 ], [ 0, %1 ], [ 0, %9 ], [ %.2, %._crit_edge ], [ 0, %109 ], [ 1, %38 ], [ 0, %130 ]
+  %.0102 = phi i32 [ 0, %24 ], [ 0, %33 ], [ 0, %1 ], [ 0, %9 ], [ %.3, %._crit_edge ], [ 0, %109 ], [ 1, %38 ], [ 0, %130 ]
   ret i32 %.0102
 }
 
@@ -4277,7 +4277,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %194
 
 194:                                              ; preds = %180, %.thread263
-  %.3 = phi i32 [ %189, %180 ], [ 0, %.thread263 ]
+  %.5 = phi i32 [ %189, %180 ], [ 0, %.thread263 ]
   %195 = getelementptr inbounds i8, ptr %.2136212, i64 128
   %196 = load ptr, ptr %195, align 8
   %.not156 = icmp eq ptr %196, null
@@ -4312,7 +4312,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %.split222
 
 .critedge164:                                     ; preds = %._crit_edge215, %163, %203, %161, %158, %159, %156, %.thread, %101, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0129 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %189, %.thread ], [ -22, %101 ], [ -22, %70 ], [ 0, %161 ], [ %157, %156 ], [ 0, %158 ], [ %160, %159 ], [ %.3, %203 ], [ %.3, %._crit_edge215 ], [ %164, %163 ]
+  %.0129 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %189, %.thread ], [ -22, %101 ], [ -22, %70 ], [ 0, %161 ], [ %157, %156 ], [ 0, %158 ], [ %160, %159 ], [ %.5, %203 ], [ %.5, %._crit_edge215 ], [ %164, %163 ]
   ret i32 %.0129
 }
 

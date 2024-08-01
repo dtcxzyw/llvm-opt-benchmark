@@ -3001,7 +3001,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr nocapture noundef %1) #0 
   br i1 %121, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.loopexit6.i, %43, %73
-  %.1.ph = phi i32 [ 1, %73 ], [ 0, %43 ], [ %119, %.loopexit6.i ]
+  %.5.ph = phi i32 [ 1, %73 ], [ 0, %43 ], [ %119, %.loopexit6.i ]
   %122 = getelementptr i8, ptr %39, i64 624
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
@@ -3016,7 +3016,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr nocapture noundef %1) #0 
   br i1 %130, label %tc_dump_qdisc_root.exit, label %131
 
 131:                                              ; preds = %125
-  %132 = icmp slt i32 %.1.ph, %45
+  %132 = icmp slt i32 %.5.ph, %45
   br i1 %132, label %153, label %133
 
 133:                                              ; preds = %131
@@ -3044,11 +3044,11 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr nocapture noundef %1) #0 
   br i1 %152, label %tc_dump_qdisc_root.exit.thread17, label %153
 
 153:                                              ; preds = %142, %133, %131
-  %154 = add i32 %.1.ph, 1
+  %154 = add i32 %.5.ph, 1
   br label %tc_dump_qdisc_root.exit
 
 tc_dump_qdisc_root.exit:                          ; preds = %153, %125, %.lr.ph, %.loopexit
-  %.3 = phi i32 [ %.025, %.lr.ph ], [ %.1.ph, %.loopexit ], [ %154, %153 ], [ %.1.ph, %125 ]
+  %.3 = phi i32 [ %.025, %.lr.ph ], [ %.5.ph, %.loopexit ], [ %154, %153 ], [ %.5.ph, %125 ]
   %155 = phi i32 [ %41, %.lr.ph ], [ %45, %.loopexit ], [ %45, %153 ], [ %45, %125 ]
   %156 = add i32 %40, 1
   %157 = load ptr, ptr %39, align 8
@@ -3057,10 +3057,10 @@ tc_dump_qdisc_root.exit:                          ; preds = %153, %125, %.lr.ph,
 
 tc_dump_qdisc_root.exit.thread17:                 ; preds = %tc_dump_qdisc_root.exit, %62, %142, %100, %34
   %159 = phi i32 [ 0, %34 ], [ %40, %100 ], [ %156, %tc_dump_qdisc_root.exit ], [ %40, %62 ], [ %40, %142 ]
-  %.5 = phi i32 [ %15, %34 ], [ %88, %100 ], [ %.3, %tc_dump_qdisc_root.exit ], [ 0, %62 ], [ %.1.ph, %142 ]
+  %.2 = phi i32 [ %15, %34 ], [ %88, %100 ], [ %.3, %tc_dump_qdisc_root.exit ], [ 0, %62 ], [ %.5.ph, %142 ]
   %160 = sext i32 %159 to i64
   store i64 %160, ptr %10, align 8
-  %161 = sext i32 %.5 to i64
+  %161 = sext i32 %.2 to i64
   store i64 %161, ptr %13, align 8
   %162 = getelementptr inbounds i8, ptr %0, i64 112
   %163 = load i32, ptr %162, align 8
@@ -3598,7 +3598,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %.loopexit
 
 150:                                              ; preds = %.loopexit.i, %78
-  %.0 = phi i32 [ 1, %78 ], [ %.2, %.loopexit.i ]
+  %.1 = phi i32 [ 1, %78 ], [ %.3, %.loopexit.i ]
   %151 = phi i32 [ 1, %78 ], [ %207, %.loopexit.i ]
   %152 = phi i64 [ 0, %78 ], [ %208, %.loopexit.i ]
   %153 = load ptr, ptr %71, align 64
@@ -3613,7 +3613,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %161, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %150, %._crit_edge35.i
-  %.1 = phi i32 [ %200, %._crit_edge35.i ], [ %.0, %150 ]
+  %.2 = phi i32 [ %200, %._crit_edge35.i ], [ %.1, %150 ]
   %162 = phi i32 [ %200, %._crit_edge35.i ], [ %151, %150 ]
   %163 = phi ptr [ %204, %._crit_edge35.i ], [ %159, %150 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
@@ -3685,7 +3685,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %tc_dump_tclass_root.exit
 
 ._crit_edge35.i:                                  ; preds = %186, %178, %169, %.preheader.i
-  %199 = phi i32 [ %162, %178 ], [ %162, %169 ], [ %162, %.preheader.i ], [ %.1, %186 ]
+  %199 = phi i32 [ %162, %178 ], [ %162, %169 ], [ %162, %.preheader.i ], [ %.2, %186 ]
   %200 = add i32 %199, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
   %201 = getelementptr inbounds i8, ptr %163, i64 40
@@ -3697,14 +3697,14 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %206, label %.loopexit.i, label %.preheader.i, !llvm.loop !58
 
 .loopexit.i:                                      ; preds = %._crit_edge35.i, %150
-  %.2 = phi i32 [ %.0, %150 ], [ %200, %._crit_edge35.i ]
+  %.3 = phi i32 [ %.1, %150 ], [ %200, %._crit_edge35.i ]
   %207 = phi i32 [ %151, %150 ], [ %200, %._crit_edge35.i ]
   %208 = add nuw nsw i64 %152, 1
   %209 = icmp eq i64 %208, 16
   br i1 %209, label %.loopexit, label %150, !llvm.loop !59
 
 .loopexit:                                        ; preds = %109, %.loopexit.i, %21, %._crit_edge21.i, %._crit_edge31.i, %116, %94, %90
-  %.3.ph = phi i32 [ 2, %._crit_edge31.i ], [ 1, %116 ], [ 1, %94 ], [ 1, %90 ], [ 1, %._crit_edge21.i ], [ 0, %21 ], [ %.2, %.loopexit.i ], [ 1, %109 ]
+  %.4.ph = phi i32 [ 2, %._crit_edge31.i ], [ 1, %116 ], [ 1, %94 ], [ 1, %90 ], [ 1, %._crit_edge21.i ], [ 0, %21 ], [ %.3, %.loopexit.i ], [ 1, %109 ]
   %210 = getelementptr inbounds i8, ptr %19, i64 984
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, null
@@ -3724,7 +3724,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %220 = load i32, ptr %219, align 16
   %221 = and i32 %220, 129
   %222 = icmp ne i32 %221, 0
-  %223 = icmp slt i32 %.3.ph, %24
+  %223 = icmp slt i32 %.4.ph, %24
   %or.cond = select i1 %222, i1 true, i1 %223
   br i1 %or.cond, label %260, label %224
 
@@ -3750,7 +3750,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %238, label %239, label %260
 
 239:                                              ; preds = %234, %230
-  %240 = icmp sgt i32 %.3.ph, %24
+  %240 = icmp sgt i32 %.4.ph, %24
   %241 = getelementptr i8, ptr %1, i64 88
   br i1 %240, label %243, label %._crit_edge
 
@@ -3796,13 +3796,13 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %tc_dump_tclass_root.exit
 
 260:                                              ; preds = %244, %234, %224, %217
-  %261 = add i32 %.3.ph, 1
+  %261 = add i32 %.4.ph, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #19
   br label %tc_dump_tclass_root.exit
 
 tc_dump_tclass_root.exit:                         ; preds = %198, %149, %70, %260, %259, %213, %.loopexit
-  %.4 = phi i32 [ %.3.ph, %.loopexit ], [ %.3.ph, %213 ], [ %261, %260 ], [ %.3.ph, %259 ], [ %.1, %198 ], [ 1, %149 ], [ 0, %70 ]
-  %262 = sext i32 %.4 to i64
+  %.0 = phi i32 [ %.4.ph, %.loopexit ], [ %.4.ph, %213 ], [ %261, %260 ], [ %.4.ph, %259 ], [ %.2, %198 ], [ 1, %149 ], [ 0, %70 ]
+  %262 = sext i32 %.0 to i64
   store i64 %262, ptr %22, align 8
   %263 = getelementptr inbounds i8, ptr %19, i64 1280
   %264 = load ptr, ptr %263, align 8

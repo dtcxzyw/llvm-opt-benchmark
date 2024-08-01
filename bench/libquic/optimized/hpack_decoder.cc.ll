@@ -261,13 +261,13 @@ invoke.cont43:                                    ; preds = %if.end41
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont23, %invoke.cont43
-  %retval.0 = phi i1 [ true, %invoke.cont43 ], [ false, %invoke.cont23 ]
+  %retval.1 = phi i1 [ true, %invoke.cont43 ], [ false, %invoke.cont23 ]
   call void @_ZN3net16HpackInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %input_stream) #11
   br label %return
 
 return:                                           ; preds = %if.end5, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %if.end5 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %if.end5 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN3net15SpdyHeaderBlock5clearEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1

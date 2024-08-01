@@ -2181,7 +2181,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
 
 20:                                               ; preds = %184, %4
   %21 = phi ptr [ %8, %4 ], [ %185, %184 ]
-  %.059 = phi i32 [ 0, %4 ], [ %.4, %184 ]
+  %.059 = phi i32 [ 0, %4 ], [ %.2, %184 ]
   %.057 = phi i32 [ 0, %4 ], [ %.158, %184 ]
   %.056 = phi i32 [ 0, %4 ], [ %.1, %184 ]
   %.0 = phi i32 [ %17, %4 ], [ %190, %184 ]
@@ -2311,7 +2311,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %86 = phi i8 [ %.pre101, %76 ], [ %110, %128 ]
   %.063 = phi i64 [ %83, %76 ], [ %.164, %128 ]
   %.061 = phi ptr [ %81, %76 ], [ %.162, %128 ]
-  %.2 = phi i32 [ %.160, %76 ], [ %.3, %128 ]
+  %.3 = phi i32 [ %.160, %76 ], [ %.4, %128 ]
   store i32 0, ptr %84, align 4
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %92
@@ -2331,7 +2331,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %93 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772236, ptr %93, align 4
   %94 = load i32, ptr @openLogFile, align 4
-  %95 = zext i32 %.2 to i64
+  %95 = zext i32 %.3 to i64
   %96 = call i64 @pwrite(i32 noundef %94, ptr noundef %.061, i64 noundef %.063, i64 noundef %95) #26
   %97 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %97, align 4
@@ -2375,7 +2375,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %120 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #25
   call void @llvm.assume(i1 %120)
   %121 = call i32 @errcode_for_file_access() #26
-  %122 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.108, ptr noundef nonnull %7, i32 noundef %.2, i64 noundef %.063) #26
+  %122 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.108, ptr noundef nonnull %7, i32 noundef %.3, i64 noundef %.063) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2441, ptr noundef nonnull @__func__.XLogWrite) #26
   unreachable
 
@@ -2383,13 +2383,13 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %124 = sub i64 %.063, %96
   %125 = getelementptr i8, ptr %.061, i64 %96
   %126 = trunc i64 %96 to i32
-  %127 = add i32 %.2, %126
+  %127 = add i32 %.3, %126
   br label %128
 
 128:                                              ; preds = %114, %123
   %.164 = phi i64 [ %.063, %114 ], [ %124, %123 ]
   %.162 = phi ptr [ %.061, %114 ], [ %125, %123 ]
-  %.3 = phi i32 [ %.2, %114 ], [ %127, %123 ]
+  %.4 = phi i32 [ %.3, %114 ], [ %127, %123 ]
   %.not75 = icmp eq i64 %.164, 0
   br i1 %.not75, label %129, label %85, !llvm.loop !26
 
@@ -2483,7 +2483,7 @@ GetRedoRecPtr.exit:                               ; preds = %163, %171
   br label %182
 
 182:                                              ; preds = %72, %129, %GetRedoRecPtr.exit, %181, %146, %138
-  %.4 = phi i32 [ %.3, %181 ], [ %.3, %GetRedoRecPtr.exit ], [ %.3, %146 ], [ %.3, %138 ], [ %.3, %129 ], [ %.160, %72 ]
+  %.2 = phi i32 [ %.4, %181 ], [ %.4, %GetRedoRecPtr.exit ], [ %.4, %146 ], [ %.4, %138 ], [ %.4, %129 ], [ %.160, %72 ]
   %.1 = phi i32 [ 0, %181 ], [ 0, %GetRedoRecPtr.exit ], [ 0, %146 ], [ 0, %138 ], [ 0, %129 ], [ %67, %72 ]
   br i1 %41, label %184, label %183
 

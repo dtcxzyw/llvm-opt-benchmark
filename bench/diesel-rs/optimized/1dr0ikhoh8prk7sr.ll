@@ -3228,10 +3228,10 @@ _ZN9byteorder2io12ReadBytesExt8read_u1617hbadb9ce034e76b39E.exit95: ; preds = %4
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit"
   %74 = phi i64 [ %97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit" ], [ 0, %.lr.ph.preheader ]
   %.sroa.018.0183 = phi i16 [ %75, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit" ], [ 0, %.lr.ph.preheader ]
-  %.sroa.0.4182 = phi ptr [ %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit" ], [ %64, %.lr.ph.preheader ]
-  %.sroa.14.4181 = phi i64 [ %88, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit" ], [ %63, %.lr.ph.preheader ]
+  %.sroa.0.0182 = phi ptr [ %87, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit" ], [ %64, %.lr.ph.preheader ]
+  %.sroa.14.0181 = phi i64 [ %88, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hccd4647b910ba609E.exit" ], [ %63, %.lr.ph.preheader ]
   %75 = add nuw i16 %.sroa.018.0183, 1
-  %76 = icmp ult i64 %.sroa.14.4181, 2
+  %76 = icmp ult i64 %.sroa.14.0181, 2
   br i1 %76, label %98, label %86
 
 77:                                               ; preds = %._crit_edge
@@ -3288,9 +3288,9 @@ _ZN9byteorder2io12ReadBytesExt8read_u1617hbadb9ce034e76b39E.exit95: ; preds = %4
   ret void
 
 86:                                               ; preds = %.lr.ph
-  %87 = getelementptr inbounds i8, ptr %.sroa.0.4182, i64 2
-  %88 = add i64 %.sroa.14.4181, -2
-  %.sroa.0.0.copyload.i100 = load i16, ptr %.sroa.0.4182, align 1, !alias.scope !491, !noalias !495
+  %87 = getelementptr inbounds i8, ptr %.sroa.0.0182, i64 2
+  %88 = add i64 %.sroa.14.0181, -2
+  %.sroa.0.0.copyload.i100 = load i16, ptr %.sroa.0.0182, align 1, !alias.scope !491, !noalias !495
   %89 = call noundef i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i100)
   %90 = load i64, ptr %9, align 8, !alias.scope !502, !noundef !7
   %91 = icmp eq i64 %74, %90

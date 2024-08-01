@@ -638,7 +638,7 @@ while.cond:                                       ; preds = %for.end43, %do.end
   %parent_edge_index.0 = phi i64 [ 0, %do.end ], [ %edge_index.0, %for.end43 ]
   %edge_index.0 = phi i64 [ 0, %do.end ], [ %i.076, %for.end43 ]
   %prefix_byte_index.0 = phi i64 [ 0, %do.end ], [ %conv109, %for.end43 ]
-  %key_byte_index.0 = phi i64 [ 0, %do.end ], [ %key_byte_index.1.lcssa, %for.end43 ]
+  %key_byte_index.0 = phi i64 [ 0, %do.end ], [ %key_byte_index.2.lcssa, %for.end43 ]
   %grandparent_node.sroa.0.0 = phi ptr [ %3, %do.end ], [ %parent_node.sroa.0.0, %for.end43 ]
   %parent_node.sroa.0.0 = phi ptr [ %3, %do.end ], [ %current_node.sroa.0.0, %for.end43 ]
   %add.ptr.i = getelementptr inbounds i8, ptr %current_node.sroa.0.0, i64 4
@@ -659,18 +659,18 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp969, label %for.body, label %for.end
 
 for.body:                                         ; preds = %while.body, %for.inc
-  %key_byte_index.171 = phi i64 [ %inc16, %for.inc ], [ %key_byte_index.0, %while.body ]
-  %prefix_byte_index.170 = phi i64 [ %inc, %for.inc ], [ 0, %while.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i27, i64 %prefix_byte_index.170
+  %key_byte_index.271 = phi i64 [ %inc16, %for.inc ], [ %key_byte_index.0, %while.body ]
+  %prefix_byte_index.270 = phi i64 [ %inc, %for.inc ], [ 0, %while.body ]
+  %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i27, i64 %prefix_byte_index.270
   %4 = load i8, ptr %arrayidx, align 1
-  %arrayidx11 = getelementptr inbounds i8, ptr %key_, i64 %key_byte_index.171
+  %arrayidx11 = getelementptr inbounds i8, ptr %key_, i64 %key_byte_index.271
   %5 = load i8, ptr %arrayidx11, align 1
   %cmp13.not = icmp eq i8 %4, %5
   br i1 %cmp13.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %prefix_byte_index.170, 1
-  %inc16 = add nuw i64 %key_byte_index.171, 1
+  %inc = add nuw nsw i64 %prefix_byte_index.270, 1
+  %inc16 = add nuw i64 %key_byte_index.271, 1
   %cmp8 = icmp ult i64 %inc, %conv
   %cmp9 = icmp ult i64 %inc16, %key_size_
   %6 = select i1 %cmp8, i1 %cmp9, i1 false
@@ -678,9 +678,9 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.body, %lor.rhs, %while.body
   %conv109 = phi i64 [ %conv, %while.body ], [ 0, %lor.rhs ], [ %conv, %for.body ], [ %conv, %for.inc ]
-  %prefix_byte_index.1.lcssa = phi i64 [ 0, %while.body ], [ 0, %lor.rhs ], [ %inc, %for.inc ], [ %prefix_byte_index.170, %for.body ]
-  %key_byte_index.1.lcssa = phi i64 [ %key_byte_index.0, %while.body ], [ %key_byte_index.0, %lor.rhs ], [ %inc16, %for.inc ], [ %key_byte_index.171, %for.body ]
-  %cmp18 = icmp eq i64 %prefix_byte_index.1.lcssa, %conv109
+  %prefix_byte_index.2.lcssa = phi i64 [ 0, %while.body ], [ 0, %lor.rhs ], [ %inc, %for.inc ], [ %prefix_byte_index.270, %for.body ]
+  %key_byte_index.2.lcssa = phi i64 [ %key_byte_index.0, %while.body ], [ %key_byte_index.0, %lor.rhs ], [ %inc16, %for.inc ], [ %key_byte_index.271, %for.body ]
+  %cmp18 = icmp eq i64 %prefix_byte_index.2.lcssa, %conv109
   %or.cond = and i1 %cmp18, %is_lookup_
   br i1 %or.cond, label %land.lhs.true19, label %if.end23
 
@@ -690,8 +690,8 @@ land.lhs.true19:                                  ; preds = %for.end
   br i1 %cmp21.not, label %if.end23, label %while.end
 
 if.end23:                                         ; preds = %land.lhs.true19, %for.end
-  %cmp24.not = icmp ne i64 %prefix_byte_index.1.lcssa, %conv109
-  %cmp25 = icmp eq i64 %key_byte_index.1.lcssa, %key_size_
+  %cmp24.not = icmp ne i64 %prefix_byte_index.2.lcssa, %conv109
+  %cmp25 = icmp eq i64 %key_byte_index.2.lcssa, %key_size_
   %or.cond24 = select i1 %cmp24.not, i1 true, i1 %cmp25
   br i1 %or.cond24, label %while.end, label %if.end27
 
@@ -703,7 +703,7 @@ if.end27:                                         ; preds = %if.end23
   br i1 %cmp3175.not, label %while.end, label %for.body32.lr.ph
 
 for.body32.lr.ph:                                 ; preds = %if.end27
-  %arrayidx35 = getelementptr inbounds i8, ptr %key_, i64 %key_byte_index.1.lcssa
+  %arrayidx35 = getelementptr inbounds i8, ptr %key_, i64 %key_byte_index.2.lcssa
   %7 = getelementptr inbounds i8, ptr %current_node.sroa.0.0, i64 12
   br label %for.body32
 
@@ -774,13 +774,13 @@ for.end43:                                        ; preds = %if.then.i37, %if.th
   br i1 %cmp.i, label %while.end, label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %land.lhs.true19, %for.end43, %if.end23, %lor.rhs, %if.end27, %for.inc41
-  %parent_edge_index.2 = phi i64 [ %parent_edge_index.0, %for.inc41 ], [ %parent_edge_index.0, %if.end27 ], [ %parent_edge_index.0, %land.lhs.true19 ], [ %parent_edge_index.0, %lor.rhs ], [ %edge_index.0, %for.end43 ], [ %parent_edge_index.0, %if.end23 ]
-  %edge_index.2 = phi i64 [ %edge_index.0, %for.inc41 ], [ %edge_index.0, %if.end27 ], [ %edge_index.0, %land.lhs.true19 ], [ %edge_index.0, %lor.rhs ], [ %i.076, %for.end43 ], [ %edge_index.0, %if.end23 ]
-  %prefix_byte_index.2 = phi i64 [ %conv109, %for.inc41 ], [ %conv109, %if.end27 ], [ %conv109, %land.lhs.true19 ], [ %prefix_byte_index.0, %lor.rhs ], [ %conv109, %for.end43 ], [ %prefix_byte_index.1.lcssa, %if.end23 ]
-  %key_byte_index.2 = phi i64 [ %key_byte_index.1.lcssa, %for.inc41 ], [ %key_byte_index.1.lcssa, %if.end27 ], [ %key_size_, %land.lhs.true19 ], [ %key_byte_index.0, %lor.rhs ], [ %key_byte_index.1.lcssa, %for.end43 ], [ %key_byte_index.1.lcssa, %if.end23 ]
+  %parent_edge_index.1 = phi i64 [ %parent_edge_index.0, %for.inc41 ], [ %parent_edge_index.0, %if.end27 ], [ %parent_edge_index.0, %land.lhs.true19 ], [ %parent_edge_index.0, %lor.rhs ], [ %edge_index.0, %for.end43 ], [ %parent_edge_index.0, %if.end23 ]
+  %edge_index.1 = phi i64 [ %edge_index.0, %for.inc41 ], [ %edge_index.0, %if.end27 ], [ %edge_index.0, %land.lhs.true19 ], [ %edge_index.0, %lor.rhs ], [ %i.076, %for.end43 ], [ %edge_index.0, %if.end23 ]
+  %prefix_byte_index.1 = phi i64 [ %conv109, %for.inc41 ], [ %conv109, %if.end27 ], [ %conv109, %land.lhs.true19 ], [ %prefix_byte_index.0, %lor.rhs ], [ %conv109, %for.end43 ], [ %prefix_byte_index.2.lcssa, %if.end23 ]
+  %key_byte_index.1 = phi i64 [ %key_byte_index.2.lcssa, %for.inc41 ], [ %key_byte_index.2.lcssa, %if.end27 ], [ %key_size_, %land.lhs.true19 ], [ %key_byte_index.0, %lor.rhs ], [ %key_byte_index.2.lcssa, %for.end43 ], [ %key_byte_index.2.lcssa, %if.end23 ]
   %coerce.val.pi = ptrtoint ptr %parent_node.sroa.0.0 to i64
   %coerce.val.pi54 = ptrtoint ptr %grandparent_node.sroa.0.0 to i64
-  call void @_ZN14match_result_tC1Emmmm6node_tS0_S0_(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i64 noundef %key_byte_index.2, i64 noundef %prefix_byte_index.2, i64 noundef %edge_index.2, i64 noundef %parent_edge_index.2, ptr %current_node.sroa.0.0, i64 %coerce.val.pi, i64 %coerce.val.pi54)
+  call void @_ZN14match_result_tC1Emmmm6node_tS0_S0_(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i64 noundef %key_byte_index.1, i64 noundef %prefix_byte_index.1, i64 noundef %edge_index.1, i64 noundef %parent_edge_index.1, ptr %current_node.sroa.0.0, i64 %coerce.val.pi, i64 %coerce.val.pi54)
   ret void
 }
 

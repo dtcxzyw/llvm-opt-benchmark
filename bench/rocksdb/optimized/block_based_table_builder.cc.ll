@@ -13246,7 +13246,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %cond.false.i61
   br label %ehcleanup
 
 invoke.cont33:                                    ; preds = %cond.end.i65, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i
-  %ios.sroa.15.0 = phi ptr [ %.pre.i66, %cond.end.i65 ], [ null, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i ]
+  %ios.sroa.15.1 = phi ptr [ %.pre.i66, %cond.end.i65 ], [ null, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i52)
   %call1.i.i.i1.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %io_status_mutex.i.i) #24
   %cmp.i37 = icmp ne i8 %23, 0
@@ -13270,11 +13270,11 @@ if.then40:                                        ; preds = %invoke.cont33
   store i8 %31, ptr %data_loss_7.i, align 4
   %scope_9.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %27, ptr %scope_9.i, align 1
-  %cmp.i.not.i.i = icmp eq ptr %ios.sroa.15.0, null
+  %cmp.i.not.i.i = icmp eq ptr %ios.sroa.15.1, null
   br i1 %cmp.i.not.i.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then40
-  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.165") align 8 %ref.tmp.i39, ptr noundef nonnull %ios.sroa.15.0)
+  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.165") align 8 %ref.tmp.i39, ptr noundef nonnull %ios.sroa.15.1)
           to label %.noexc41 unwind label %_ZN7rocksdb8IOStatusD2Ev.exit
 
 .noexc41:                                         ; preds = %cond.false.i
@@ -13312,15 +13312,15 @@ lpad32:                                           ; preds = %if.then.i.i.i.i
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %cond.false.i
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdaPv(ptr noundef nonnull %ios.sroa.15.0) #23
+  call void @_ZdaPv(ptr noundef nonnull %ios.sroa.15.1) #23
   br label %ehcleanup
 
 if.end43:                                         ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %invoke.cont33
-  %cmp.not.i.i.i46 = icmp eq ptr %ios.sroa.15.0, null
+  %cmp.not.i.i.i46 = icmp eq ptr %ios.sroa.15.1, null
   br i1 %cmp.not.i.i.i46, label %_ZN7rocksdb8IOStatusD2Ev.exit48, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i47
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i47: ; preds = %if.end43
-  call void @_ZdaPv(ptr noundef nonnull %ios.sroa.15.0) #23
+  call void @_ZdaPv(ptr noundef nonnull %ios.sroa.15.1) #23
   br label %_ZN7rocksdb8IOStatusD2Ev.exit48
 
 _ZN7rocksdb8IOStatusD2Ev.exit48:                  ; preds = %invoke.cont31, %if.end43, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i47
@@ -19508,16 +19508,16 @@ ehcleanup:                                        ; preds = %arraydestroy.body19
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %lpad5, %ehcleanup
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element, %ehcleanup ], [ %arrayinit.endOfInit.0, %lpad5 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element, %ehcleanup ], [ %arrayinit.endOfInit.0, %lpad5 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
   %cleanup.isactive.1 = phi i1 [ %4, %ehcleanup ], [ false, %lpad5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %eh.resume, label %arraydestroy.body26
 
 arraydestroy.body26:                              ; preds = %ehcleanup25, %arraydestroy.body26
-  %arraydestroy.elementPast27 = phi ptr [ %arraydestroy.element28, %arraydestroy.body26 ], [ %arrayinit.endOfInit.1, %ehcleanup25 ]
+  %arraydestroy.elementPast27 = phi ptr [ %arraydestroy.element28, %arraydestroy.body26 ], [ %arrayinit.endOfInit.2, %ehcleanup25 ]
   %arraydestroy.element28 = getelementptr inbounds i8, ptr %arraydestroy.elementPast27, i64 -64
   %second.i8 = getelementptr inbounds i8, ptr %arraydestroy.elementPast27, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i8) #24

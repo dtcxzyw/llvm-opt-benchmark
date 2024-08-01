@@ -4336,8 +4336,8 @@ if.then215:                                       ; preds = %for.inc.i404, %if.e
   br label %if.end232
 
 if.else217:                                       ; preds = %for.body.i401, %if.end212
-  %o.1620 = phi ptr [ %447, %if.end212 ], [ %o.06.i402, %for.body.i401 ]
-  %format218 = getelementptr inbounds i8, ptr %o.1620, i64 4
+  %o.2620 = phi ptr [ %447, %if.end212 ], [ %o.06.i402, %for.body.i401 ]
+  %format218 = getelementptr inbounds i8, ptr %o.2620, i64 4
   %449 = load i16, ptr %format218, align 4
   %cmp220.not = icmp eq i16 %449, 12289
   br i1 %cmp220.not, label %if.then230, label %if.then222
@@ -4349,7 +4349,7 @@ if.then222:                                       ; preds = %if.else217
   br label %if.then230
 
 if.then230:                                       ; preds = %if.else217, %if.then222
-  %451 = load i32, ptr %o.1620, align 8
+  %451 = load i32, ptr %o.2620, align 8
   %dataset = getelementptr inbounds i8, ptr %s, i64 5976
   store i32 %451, ptr %dataset, align 8
   br label %if.end232
@@ -8578,7 +8578,7 @@ usb_mtp_queue_result.exit63:                      ; preds = %if.then72
   br label %close
 
 if.then77:                                        ; preds = %if.then15, %if.end23, %write_retry.exit
-  %path.1 = phi ptr [ %call10, %if.then15 ], [ %call10, %if.end23 ], [ %path.0, %write_retry.exit ]
+  %path.2 = phi ptr [ %call10, %if.then15 ], [ %call10, %if.end23 ], [ %path.0, %write_retry.exit ]
   %trans78 = getelementptr inbounds i8, ptr %0, i64 4
   %28 = load i32, ptr %trans78, align 4
   %call.i64 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
@@ -8601,7 +8601,7 @@ usb_mtp_queue_result.exit70:                      ; preds = %if.then77
   br label %close
 
 if.else79:                                        ; preds = %for.inc.i.i, %lor.lhs.false67, %if.end, %usb_mtp_update_object.exit, %if.end29
-  %path.1.ph = phi ptr [ %call10, %if.end29 ], [ %path.0, %usb_mtp_update_object.exit ], [ null, %if.end ], [ %path.0, %lor.lhs.false67 ], [ %path.0, %for.inc.i.i ]
+  %path.2.ph = phi ptr [ %call10, %if.end29 ], [ %path.0, %usb_mtp_update_object.exit ], [ null, %if.end ], [ %path.0, %lor.lhs.false67 ], [ %path.0, %for.inc.i.i ]
   %trans80 = getelementptr inbounds i8, ptr %0, i64 4
   %30 = load i32, ptr %trans80, align 4
   %call.i71 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
@@ -8624,7 +8624,7 @@ usb_mtp_queue_result.exit77:                      ; preds = %if.else79
   br label %close
 
 close:                                            ; preds = %usb_mtp_queue_result.exit70, %usb_mtp_queue_result.exit77, %usb_mtp_queue_result.exit63, %if.then18
-  %path.2 = phi ptr [ %path.1, %usb_mtp_queue_result.exit70 ], [ %path.1.ph, %usb_mtp_queue_result.exit77 ], [ %path.0, %usb_mtp_queue_result.exit63 ], [ %call10, %if.then18 ]
+  %path.1 = phi ptr [ %path.2, %usb_mtp_queue_result.exit70 ], [ %path.2.ph, %usb_mtp_queue_result.exit77 ], [ %path.0, %usb_mtp_queue_result.exit63 ], [ %call10, %if.then18 ]
   %fd82 = getelementptr inbounds i8, ptr %0, i64 44
   %32 = load i32, ptr %fd82, align 4
   %cmp83.not = icmp eq i32 %32, -1
@@ -8641,7 +8641,7 @@ if.end89:                                         ; preds = %if.then85, %close
   tail call void @g_free(ptr noundef %33) #15
   %size93 = getelementptr inbounds i8, ptr %s, i64 5984
   store i32 0, ptr %size93, align 8
-  tail call void @g_free(ptr noundef %path.2) #15
+  tail call void @g_free(ptr noundef %path.1) #15
   %write_pending94 = getelementptr inbounds i8, ptr %s, i64 5968
   store i8 0, ptr %write_pending94, align 8
   br label %return

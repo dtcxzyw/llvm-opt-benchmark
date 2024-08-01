@@ -224,8 +224,8 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 156:                                              ; preds = %219, %.lr.ph.i
   %.0279384.i = phi i32 [ %134, %.lr.ph.i ], [ %.1280.i, %219 ]
   %.0281383.i = phi i32 [ %127, %.lr.ph.i ], [ %.1282.i, %219 ]
-  %.0292382.i = phi i32 [ %.0286.i, %.lr.ph.i ], [ %.3295.i, %219 ]
-  %.0296381.i = phi i32 [ %.0285.i, %.lr.ph.i ], [ %.3299.i, %219 ]
+  %.0292382.i = phi i32 [ %.0286.i, %.lr.ph.i ], [ %.1293.i, %219 ]
+  %.0296381.i = phi i32 [ %.0285.i, %.lr.ph.i ], [ %.1297.i, %219 ]
   %.0300380.i = phi i32 [ %.0284.i, %.lr.ph.i ], [ %.3303.i, %219 ]
   %.0304379.i = phi i32 [ %.0283.i, %.lr.ph.i ], [ %.3307.i, %219 ]
   %157 = and i32 %.0281383.i, %.0279384.i
@@ -279,14 +279,14 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   br label %181
 
 181:                                              ; preds = %172, %170, %161
-  %.2306.i = phi i32 [ %169, %161 ], [ %.365.i, %172 ], [ %.0304379.i, %170 ]
+  %.1305.i = phi i32 [ %169, %161 ], [ %.365.i, %172 ], [ %.0304379.i, %170 ]
   %.2302.i = phi i32 [ %..i, %161 ], [ %180, %172 ], [ %.0300380.i, %170 ]
   %182 = icmp slt i32 %.2302.i, %114
   %.not361.i = icmp slt i32 %.2302.i, %119
   %183 = select i1 %.not361.i, i32 0, i32 2
   %184 = select i1 %182, i32 1, i32 %183
-  %185 = icmp slt i32 %.2306.i, %112
-  %.not362.i = icmp slt i32 %.2306.i, %116
+  %185 = icmp slt i32 %.1305.i, %112
+  %.not362.i = icmp slt i32 %.1305.i, %116
   %186 = select i1 %.not362.i, i32 0, i32 8
   %187 = select i1 %185, i32 4, i32 %186
   %188 = or disjoint i32 %184, %187
@@ -336,9 +336,9 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 
 211:                                              ; preds = %202, %200, %191
   %.2298.i = phi i32 [ %199, %191 ], [ %.367.i, %202 ], [ %.0296381.i, %200 ]
-  %.2294.i = phi i32 [ %.366.i, %191 ], [ %210, %202 ], [ %.0292382.i, %200 ]
-  %212 = icmp slt i32 %.2294.i, %114
-  %.not354.i = icmp slt i32 %.2294.i, %119
+  %.3295.i = phi i32 [ %.366.i, %191 ], [ %210, %202 ], [ %.0292382.i, %200 ]
+  %212 = icmp slt i32 %.3295.i, %114
+  %.not354.i = icmp slt i32 %.3295.i, %119
   %213 = select i1 %.not354.i, i32 0, i32 2
   %214 = select i1 %212, i32 1, i32 %213
   %215 = icmp slt i32 %.2298.i, %112
@@ -349,10 +349,10 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   br label %219
 
 219:                                              ; preds = %211, %181
-  %.3307.i = phi i32 [ %.2306.i, %181 ], [ %.0304379.i, %211 ]
+  %.3307.i = phi i32 [ %.1305.i, %181 ], [ %.0304379.i, %211 ]
   %.3303.i = phi i32 [ %.2302.i, %181 ], [ %.0300380.i, %211 ]
-  %.3299.i = phi i32 [ %.0296381.i, %181 ], [ %.2298.i, %211 ]
-  %.3295.i = phi i32 [ %.0292382.i, %181 ], [ %.2294.i, %211 ]
+  %.1297.i = phi i32 [ %.0296381.i, %181 ], [ %.2298.i, %211 ]
+  %.1293.i = phi i32 [ %.0292382.i, %181 ], [ %.3295.i, %211 ]
   %.1282.i = phi i32 [ %188, %181 ], [ 0, %211 ]
   %.1280.i = phi i32 [ %.0279384.i, %181 ], [ %218, %211 ]
   %220 = or i32 %.1280.i, %.1282.i
@@ -362,8 +362,8 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 ._crit_edge.i:                                    ; preds = %219, %105
   %.0304.lcssa.i = phi i32 [ %.0283.i, %105 ], [ %.3307.i, %219 ]
   %.0300.lcssa.i = phi i32 [ %.0284.i, %105 ], [ %.3303.i, %219 ]
-  %.0296.lcssa.i = phi i32 [ %.0285.i, %105 ], [ %.3299.i, %219 ]
-  %.0292.lcssa.i = phi i32 [ %.0286.i, %105 ], [ %.3295.i, %219 ]
+  %.0296.lcssa.i = phi i32 [ %.0285.i, %105 ], [ %.1297.i, %219 ]
+  %.0292.lcssa.i = phi i32 [ %.0286.i, %105 ], [ %.1293.i, %219 ]
   store i32 %.0304.lcssa.i, ptr %6, align 4
   store i32 %.0300.lcssa.i, ptr %7, align 4
   br i1 %.not360.i, label %226, label %221
@@ -499,8 +499,8 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %.0243327 = phi i32 [ %272, %.lr.ph ], [ %.1244, %352 ]
   %.0246326 = phi i32 [ %0, %.lr.ph ], [ %.3249, %352 ]
   %.0250325 = phi i32 [ %1, %.lr.ph ], [ %.3253, %352 ]
-  %.0254324 = phi i32 [ %2, %.lr.ph ], [ %.3257, %352 ]
-  %.0260323 = phi i32 [ %3, %.lr.ph ], [ %.3263, %352 ]
+  %.0254324 = phi i32 [ %2, %.lr.ph ], [ %.1255, %352 ]
+  %.0260323 = phi i32 [ %3, %.lr.ph ], [ %.1261, %352 ]
   %298 = and i32 %.0241328, %.0243327
   %.not293 = icmp eq i32 %298, 0
   br i1 %.not293, label %299, label %LineUtils_SetupBresenhamBig.exit
@@ -549,13 +549,13 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 
 318:                                              ; preds = %309, %311, %302
   %.2252 = phi i32 [ %., %302 ], [ %317, %311 ], [ %.0250325, %309 ]
-  %.2248 = phi i32 [ %308, %302 ], [ %.311, %311 ], [ %.0246326, %309 ]
+  %.1247 = phi i32 [ %308, %302 ], [ %.311, %311 ], [ %.0246326, %309 ]
   %319 = icmp slt i32 %.2252, %259
   %.not307 = icmp slt i32 %.2252, %264
   %320 = select i1 %.not307, i32 0, i32 2
   %321 = select i1 %319, i32 1, i32 %320
-  %322 = icmp slt i32 %.2248, %257
-  %.not308 = icmp slt i32 %.2248, %261
+  %322 = icmp slt i32 %.1247, %257
+  %.not308 = icmp slt i32 %.1247, %261
   %323 = select i1 %.not308, i32 0, i32 8
   %324 = select i1 %322, i32 4, i32 %323
   %325 = or disjoint i32 %324, %321
@@ -600,10 +600,10 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   br label %344
 
 344:                                              ; preds = %335, %337, %328
-  %.2262 = phi i32 [ %.312, %328 ], [ %343, %337 ], [ %.0260323, %335 ]
+  %.3263 = phi i32 [ %.312, %328 ], [ %343, %337 ], [ %.0260323, %335 ]
   %.2256 = phi i32 [ %334, %328 ], [ %.313, %337 ], [ %.0254324, %335 ]
-  %345 = icmp slt i32 %.2262, %259
-  %.not300 = icmp slt i32 %.2262, %264
+  %345 = icmp slt i32 %.3263, %259
+  %.not300 = icmp slt i32 %.3263, %264
   %346 = select i1 %.not300, i32 0, i32 2
   %347 = select i1 %345, i32 1, i32 %346
   %348 = icmp slt i32 %.2256, %257
@@ -614,10 +614,10 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   br label %352
 
 352:                                              ; preds = %344, %318
-  %.3263 = phi i32 [ %.0260323, %318 ], [ %.2262, %344 ]
-  %.3257 = phi i32 [ %.0254324, %318 ], [ %.2256, %344 ]
+  %.1261 = phi i32 [ %.0260323, %318 ], [ %.3263, %344 ]
+  %.1255 = phi i32 [ %.0254324, %318 ], [ %.2256, %344 ]
   %.3253 = phi i32 [ %.2252, %318 ], [ %.0250325, %344 ]
-  %.3249 = phi i32 [ %.2248, %318 ], [ %.0246326, %344 ]
+  %.3249 = phi i32 [ %.1247, %318 ], [ %.0246326, %344 ]
   %.1244 = phi i32 [ %325, %318 ], [ 0, %344 ]
   %.1242 = phi i32 [ %.0241328, %318 ], [ %351, %344 ]
   %353 = or i32 %.1242, %.1244
@@ -625,8 +625,8 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   br i1 %.not288, label %._crit_edge, label %297, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %352, %250
-  %.0260.lcssa = phi i32 [ %3, %250 ], [ %.3263, %352 ]
-  %.0254.lcssa = phi i32 [ %2, %250 ], [ %.3257, %352 ]
+  %.0260.lcssa = phi i32 [ %3, %250 ], [ %.1261, %352 ]
+  %.0254.lcssa = phi i32 [ %2, %250 ], [ %.1255, %352 ]
   %.0250.lcssa = phi i32 [ %1, %250 ], [ %.3253, %352 ]
   %.0246.lcssa = phi i32 [ %0, %250 ], [ %.3249, %352 ]
   store i32 %.0246.lcssa, ptr %6, align 4

@@ -247,8 +247,8 @@ define internal i64 @php_stream_memory_read(ptr nocapture noundef %0, ptr nounde
   br label %25
 
 25:                                               ; preds = %15, %19, %11
-  %.1 = phi i64 [ 0, %11 ], [ %spec.select, %19 ], [ 0, %15 ]
-  ret i64 %.1
+  %.0 = phi i64 [ 0, %11 ], [ %spec.select, %19 ], [ 0, %15 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

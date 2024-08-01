@@ -813,8 +813,8 @@ _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; pre
   br label %286
 
 286:                                              ; preds = %234, %278, %133, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit, %32
-  %.1 = phi i32 [ 1, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit ], [ 1, %32 ], [ %135, %133 ], [ %.3, %278 ], [ %.1.i, %234 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit ], [ 1, %32 ], [ %135, %133 ], [ %.3, %278 ], [ %.1.i, %234 ]
+  ret i32 %.0
 }
 
 declare noundef zeroext i1 @_Z22pme_gpu_supports_buildPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef) local_unnamed_addr #1

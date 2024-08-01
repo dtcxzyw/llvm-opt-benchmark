@@ -91,19 +91,19 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br label %42
 
 42:                                               ; preds = %30, %34, %26
-  %.137 = phi ptr [ %spec.select, %34 ], [ null, %30 ], [ null, %26 ]
+  %.036 = phi ptr [ %spec.select, %34 ], [ null, %30 ], [ null, %26 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %43
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr %9, align 8
-  %45 = call i32 %1(i32 noundef 0, ptr noundef %44, ptr noundef %.137, ptr noundef %2) #12, !callees !6
+  %45 = call i32 %1(i32 noundef 0, ptr noundef %44, ptr noundef %.036, ptr noundef %2) #12, !callees !6
   %46 = freeze i32 %45
   br label %.thread
 
 .thread:                                          ; preds = %3, %42, %43, %19, %17
   %.028 = phi i32 [ 0, %17 ], [ 0, %19 ], [ 1, %43 ], [ 1, %42 ], [ 0, %3 ]
-  %.1 = phi i32 [ 1, %17 ], [ 1, %19 ], [ %46, %43 ], [ 1, %42 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %17 ], [ 1, %19 ], [ %46, %43 ], [ 1, %42 ], [ 1, %3 ]
   store i32 -1, ptr %4, align 4
   %47 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
   %48 = icmp sgt i32 %47, -1
@@ -114,11 +114,11 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %.not50, label %.preheader54.split.us, label %.preheader54.split
 
 .preheader54.split.us:                            ; preds = %.preheader54
-  %.not70 = icmp eq i32 %.1, 0
+  %.not70 = icmp eq i32 %.0, 0
   br i1 %.not70, label %.loopexit55, label %.preheader54.split.us.split
 
 .preheader54.split.us.split:                      ; preds = %.preheader54.split.us, %66
-  %.129.us = phi i32 [ %.634.us, %66 ], [ %.028, %.preheader54.split.us ]
+  %.129.us = phi i32 [ %.230.us, %66 ], [ %.028, %.preheader54.split.us ]
   %49 = load i32, ptr %4, align 4
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %51, label %.loopexit55
@@ -145,20 +145,20 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %63, label %.loopexit53.split.us.us, label %.lr.ph66.us
 
 .loopexit53.split.us.us:                          ; preds = %85, %.split.us.us, %55
-  %.533.us = phi i32 [ %.129.us, %55 ], [ %.129.us, %.split.us.us ], [ %.432.us.us, %85 ]
+  %.331.us = phi i32 [ %.129.us, %55 ], [ %.129.us, %.split.us.us ], [ %.533.us.us, %85 ]
   %64 = load ptr, ptr %7, align 8
   %65 = call i32 @snd_ctl_close(ptr noundef %64) #12
   br label %66
 
 66:                                               ; preds = %.loopexit53.split.us.us, %51
-  %.634.us = phi i32 [ %.129.us, %51 ], [ %.533.us, %.loopexit53.split.us.us ]
+  %.230.us = phi i32 [ %.129.us, %51 ], [ %.331.us, %.loopexit53.split.us.us ]
   %67 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %.loopexit55, label %.preheader54.split.us.split, !llvm.loop !7
 
 .lr.ph66.us:                                      ; preds = %.split.us.us, %85
   %69 = phi i32 [ %88, %85 ], [ %62, %.split.us.us ]
-  %.23062.us65.us = phi i32 [ %.432.us.us, %85 ], [ %.129.us, %.split.us.us ]
+  %.43262.us65.us = phi i32 [ %.533.us.us, %85 ], [ %.129.us, %.split.us.us ]
   %70 = load ptr, ptr %9, align 8
   call void @snd_rawmidi_info_set_device(ptr noundef %70, i32 noundef %69) #12
   %71 = load ptr, ptr %9, align 8
@@ -183,11 +183,11 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 
 82:                                               ; preds = %79, %77
   %83 = phi i32 [ %81, %79 ], [ 1, %77 ]
-  %84 = add nsw i32 %83, %.23062.us65.us
+  %84 = add nsw i32 %83, %.43262.us65.us
   br label %85
 
 85:                                               ; preds = %82, %.lr.ph66.us
-  %.432.us.us = phi i32 [ %84, %82 ], [ %.23062.us65.us, %.lr.ph66.us ]
+  %.533.us.us = phi i32 [ %84, %82 ], [ %.43262.us65.us, %.lr.ph66.us ]
   %86 = load ptr, ptr %7, align 8
   %87 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %86, ptr noundef nonnull %5) #12
   %88 = load i32, ptr %5, align 4
@@ -195,8 +195,8 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %89, label %.loopexit53.split.us.us, label %.lr.ph66.us
 
 .preheader54.split:                               ; preds = %.preheader54, %137
-  %.129 = phi i32 [ %.634, %137 ], [ %.028, %.preheader54 ]
-  %.2 = phi i32 [ %.7, %137 ], [ %.1, %.preheader54 ]
+  %.129 = phi i32 [ %.230, %137 ], [ %.028, %.preheader54 ]
+  %.2 = phi i32 [ %.3, %137 ], [ %.0, %.preheader54 ]
   %90 = icmp ne i32 %.2, 0
   %91 = load i32, ptr %4, align 4
   %92 = icmp sgt i32 %91, -1
@@ -226,8 +226,8 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 
 .lr.ph94:                                         ; preds = %.split, %.loopexit
   %107 = phi i32 [ %133, %.loopexit ], [ %105, %.split ]
-  %.2306293 = phi i32 [ %.432, %.loopexit ], [ %.129, %.split ]
-  %.36392 = phi i32 [ %.5, %.loopexit ], [ %.2, %.split ]
+  %.4326293 = phi i32 [ %.533, %.loopexit ], [ %.129, %.split ]
+  %.56392 = phi i32 [ %.6, %.loopexit ], [ %.2, %.split ]
   %108 = load ptr, ptr %9, align 8
   call void @snd_rawmidi_info_set_device(ptr noundef %108, i32 noundef %107) #12
   %109 = load ptr, ptr %9, align 8
@@ -253,7 +253,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 
 .lr.ph.preheader:                                 ; preds = %115, %.preheader
   %120 = phi i32 [ %118, %.preheader ], [ 1, %115 ]
-  %121 = add i32 %120, %.2306293
+  %121 = add i32 %120, %.4326293
   br label %.lr.ph
 
 122:                                              ; preds = %.lr.ph
@@ -262,7 +262,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %122
-  %.33157 = phi i32 [ %130, %122 ], [ %.2306293, %.lr.ph.preheader ]
+  %.63457 = phi i32 [ %130, %122 ], [ %.4326293, %.lr.ph.preheader ]
   %.03956 = phi i32 [ %123, %122 ], [ 0, %.lr.ph.preheader ]
   %124 = load i32, ptr %4, align 4
   %125 = load i32, ptr %5, align 4
@@ -270,13 +270,13 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   %127 = load ptr, ptr %9, align 8
   %128 = load ptr, ptr %10, align 8
   %129 = call i32 %1(i32 noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %2) #12, !callees !6
-  %130 = add nsw i32 %.33157, 1
+  %130 = add nsw i32 %.63457, 1
   %.not51 = icmp eq i32 %129, 0
   br i1 %.not51, label %.loopexit53.split, label %122
 
 .loopexit:                                        ; preds = %122, %.preheader, %.lr.ph94
-  %.432 = phi i32 [ %.2306293, %.lr.ph94 ], [ %.2306293, %.preheader ], [ %121, %122 ]
-  %.5 = phi i32 [ %.36392, %.lr.ph94 ], [ %.36392, %.preheader ], [ %129, %122 ]
+  %.533 = phi i32 [ %.4326293, %.lr.ph94 ], [ %.4326293, %.preheader ], [ %121, %122 ]
+  %.6 = phi i32 [ %.56392, %.lr.ph94 ], [ %.56392, %.preheader ], [ %129, %122 ]
   %131 = load ptr, ptr %7, align 8
   %132 = call i32 @snd_ctl_rawmidi_next_device(ptr noundef %131, ptr noundef nonnull %5) #12
   %133 = load i32, ptr %5, align 4
@@ -284,21 +284,21 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %134, label %.loopexit53.split, label %.lr.ph94, !llvm.loop !10
 
 .loopexit53.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %98
-  %.533 = phi i32 [ %.129, %98 ], [ %.129, %.split ], [ %130, %.lr.ph ], [ %.432, %.loopexit ]
-  %.6 = phi i32 [ %.2, %98 ], [ %.2, %.split ], [ 0, %.lr.ph ], [ %.5, %.loopexit ]
+  %.331 = phi i32 [ %.129, %98 ], [ %.129, %.split ], [ %130, %.lr.ph ], [ %.533, %.loopexit ]
+  %.4 = phi i32 [ %.2, %98 ], [ %.2, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
   %135 = load ptr, ptr %7, align 8
   %136 = call i32 @snd_ctl_close(ptr noundef %135) #12
   br label %137
 
 137:                                              ; preds = %94, %.loopexit53.split
-  %.634 = phi i32 [ %.129, %94 ], [ %.533, %.loopexit53.split ]
-  %.7 = phi i32 [ %.2, %94 ], [ %.6, %.loopexit53.split ]
+  %.230 = phi i32 [ %.129, %94 ], [ %.331, %.loopexit53.split ]
+  %.3 = phi i32 [ %.2, %94 ], [ %.4, %.loopexit53.split ]
   %138 = call i32 @snd_card_next(ptr noundef nonnull %4) #12
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %.loopexit55, label %.preheader54.split, !llvm.loop !7
 
 .loopexit55:                                      ; preds = %137, %.preheader54.split, %.preheader54.split.us.split, %66, %.preheader54.split.us, %.thread
-  %.735 = phi i32 [ %.028, %.thread ], [ %.028, %.preheader54.split.us ], [ %.129.us, %.preheader54.split.us.split ], [ %.634.us, %66 ], [ %.129, %.preheader54.split ], [ %.634, %137 ]
+  %.735 = phi i32 [ %.028, %.thread ], [ %.028, %.preheader54.split.us ], [ %.129.us, %.preheader54.split.us.split ], [ %.230.us, %66 ], [ %.129, %.preheader54.split ], [ %.230, %137 ]
   %140 = load ptr, ptr %10, align 8
   call void @snd_ctl_card_info_free(ptr noundef %140) #12
   %141 = load ptr, ptr %9, align 8

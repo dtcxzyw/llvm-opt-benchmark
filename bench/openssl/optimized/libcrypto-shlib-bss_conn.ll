@@ -1226,33 +1226,33 @@ sw.bb105:                                         ; preds = %for.cond
   br label %exit_loop
 
 sw.epilog108:                                     ; preds = %conn_create_dgram_bio.exit77, %conn_create_dgram_bio.exit, %sw.bb76, %if.end102, %if.then91, %if.end73, %if.else61, %if.then56, %if.end37, %if.end21, %if.end7
-  %ret.1 = phi i32 [ %ret.0, %sw.bb76 ], [ %ret.0, %if.then91 ], [ %ret.0, %if.end102 ], [ %ret.0, %conn_create_dgram_bio.exit77 ], [ 0, %if.then56 ], [ 0, %if.else61 ], [ %call44, %if.end73 ], [ %call44, %conn_create_dgram_bio.exit ], [ %call31, %if.end37 ], [ %ret.0, %if.end21 ], [ %ret.0, %if.end7 ]
+  %ret.2 = phi i32 [ %ret.0, %sw.bb76 ], [ %ret.0, %if.then91 ], [ %ret.0, %if.end102 ], [ %ret.0, %conn_create_dgram_bio.exit77 ], [ 0, %if.then56 ], [ 0, %if.else61 ], [ %call44, %if.end73 ], [ %call44, %conn_create_dgram_bio.exit ], [ %call31, %if.end37 ], [ %ret.0, %if.end21 ], [ %ret.0, %if.end7 ]
   br i1 %cmp.not, label %for.cond.backedge, label %if.then110
 
 if.then110:                                       ; preds = %sw.epilog108
   %35 = load i32, ptr %c, align 8
-  %call112 = tail call i32 %0(ptr noundef %b, i32 noundef %35, i32 noundef %ret.1) #11
+  %call112 = tail call i32 %0(ptr noundef %b, i32 noundef %35, i32 noundef %ret.2) #11
   %cmp113 = icmp eq i32 %call112, 0
   br i1 %cmp113, label %end, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then110, %sw.epilog108
-  %ret.0.be = phi i32 [ %call112, %if.then110 ], [ %ret.1, %sw.epilog108 ]
+  %ret.0.be = phi i32 [ %call112, %if.then110 ], [ %ret.2, %sw.epilog108 ]
   br label %for.cond
 
 exit_loop.loopexit:                               ; preds = %for.cond, %sw.epilog
   br label %exit_loop
 
 exit_loop:                                        ; preds = %for.cond, %exit_loop.loopexit, %sw.bb105, %if.end95, %if.then48, %if.then33, %if.then20, %sw.default, %if.then4
-  %ret.3 = phi i32 [ 0, %sw.bb105 ], [ 0, %if.end95 ], [ 0, %if.then48 ], [ -1, %if.then33 ], [ %ret.0, %sw.default ], [ %ret.0, %if.then20 ], [ %ret.0, %if.then4 ], [ %ret.0, %exit_loop.loopexit ], [ 1, %for.cond ]
+  %ret.1 = phi i32 [ 0, %sw.bb105 ], [ 0, %if.end95 ], [ 0, %if.then48 ], [ -1, %if.then33 ], [ %ret.0, %sw.default ], [ %ret.0, %if.then20 ], [ %ret.0, %if.then4 ], [ %ret.0, %exit_loop.loopexit ], [ 1, %for.cond ]
   br i1 %cmp.not, label %end, label %if.then118
 
 if.then118:                                       ; preds = %exit_loop
   %36 = load i32, ptr %c, align 8
-  %call120 = tail call i32 %0(ptr noundef %b, i32 noundef %36, i32 noundef %ret.3) #11
+  %call120 = tail call i32 %0(ptr noundef %b, i32 noundef %36, i32 noundef %ret.1) #11
   br label %end
 
 end:                                              ; preds = %if.then110, %exit_loop, %if.then118
-  %ret.4 = phi i32 [ %call120, %if.then118 ], [ %ret.3, %exit_loop ], [ 0, %if.then110 ]
+  %ret.4 = phi i32 [ %call120, %if.then118 ], [ %ret.1, %exit_loop ], [ 0, %if.then110 ]
   ret i32 %ret.4
 }
 

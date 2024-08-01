@@ -89,7 +89,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %iface.028.us = phi ptr [ %iface.0.us, %for.inc.us ], [ %iface.025, %for.body.lr.ph ]
-  %res.027.us = phi i32 [ %res.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %res.127.us = phi i32 [ %res.3.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %ifa_addr.us = getelementptr inbounds i8, ptr %iface.028.us, i64 24
   %0 = load ptr, ptr %ifa_addr.us, align 8
   %tobool.not.us = icmp eq ptr %0, null
@@ -101,7 +101,7 @@ if.then2.us:                                      ; preds = %for.body.us
   br i1 %cmp4.us, label %if.then6.us, label %if.else45.us
 
 if.else45.us:                                     ; preds = %if.then2.us
-  %cmp46.us = icmp eq i32 %res.027.us, 0
+  %cmp46.us = icmp eq i32 %res.127.us, 0
   br i1 %cmp46.us, label %land.lhs.true48.us, label %for.inc.us
 
 land.lhs.true48.us:                               ; preds = %if.else45.us
@@ -188,14 +188,14 @@ if.end21.us:                                      ; preds = %Curl_ipv6_scope.exi
   br i1 %or.cond.us, label %if.end32, label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end21.us, %Curl_ipv6_scope.exit.us, %if.then6.us, %land.lhs.true48.us, %if.else45.us, %for.body.us
-  %res.1.us = phi i32 [ %res.027.us, %if.then6.us ], [ 1, %if.else45.us ], [ %res.027.us, %for.body.us ], [ %spec.select.us, %land.lhs.true48.us ], [ 1, %Curl_ipv6_scope.exit.us ], [ 1, %if.end21.us ]
+  %res.3.us = phi i32 [ %res.127.us, %if.then6.us ], [ 1, %if.else45.us ], [ %res.127.us, %for.body.us ], [ %spec.select.us, %land.lhs.true48.us ], [ 1, %Curl_ipv6_scope.exit.us ], [ 1, %if.end21.us ]
   %iface.0.us = load ptr, ptr %iface.028.us, align 8
   %cmp1.not.us = icmp eq ptr %iface.0.us, null
   br i1 %cmp1.not.us, label %for.end, label %for.body.us, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %iface.028 = phi ptr [ %iface.0, %for.inc ], [ %iface.025, %for.body.lr.ph ]
-  %res.027 = phi i32 [ %res.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %res.127 = phi i32 [ %res.3, %for.inc ], [ 0, %for.body.lr.ph ]
   %ifa_addr = getelementptr inbounds i8, ptr %iface.028, i64 24
   %17 = load ptr, ptr %ifa_addr, align 8
   %tobool.not = icmp eq ptr %17, null
@@ -238,7 +238,7 @@ if.end38:                                         ; preds = %if.end32, %if.then3
   br label %for.end
 
 if.else45:                                        ; preds = %if.then2
-  %cmp46 = icmp eq i32 %res.027, 0
+  %cmp46 = icmp eq i32 %res.127, 0
   br i1 %cmp46, label %land.lhs.true48, label %for.inc
 
 land.lhs.true48:                                  ; preds = %if.else45
@@ -250,20 +250,20 @@ land.lhs.true48:                                  ; preds = %if.else45
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true48, %for.body, %if.else45, %if.then6
-  %res.1 = phi i32 [ %res.027, %if.then6 ], [ 1, %if.else45 ], [ %res.027, %for.body ], [ %spec.select, %land.lhs.true48 ]
+  %res.3 = phi i32 [ %res.127, %if.then6 ], [ 1, %if.else45 ], [ %res.127, %for.body ], [ %spec.select, %land.lhs.true48 ]
   %iface.0 = load ptr, ptr %iface.028, align 8
   %cmp1.not = icmp eq ptr %iface.0, null
   br i1 %cmp1.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader, %if.end38
-  %res.2 = phi i32 [ 2, %if.end38 ], [ 0, %for.cond.preheader ], [ %res.1.us, %for.inc.us ], [ %res.1, %for.inc ]
+  %res.2 = phi i32 [ 2, %if.end38 ], [ 0, %for.cond.preheader ], [ %res.3.us, %for.inc.us ], [ %res.3, %for.inc ]
   %22 = load ptr, ptr %head, align 8
   call void @freeifaddrs(ptr noundef %22) #6
   br label %if.end56
 
 if.end56:                                         ; preds = %for.end, %entry
-  %res.3 = phi i32 [ %res.2, %for.end ], [ 0, %entry ]
-  ret i32 %res.3
+  %res.0 = phi i32 [ %res.2, %for.end ], [ 0, %entry ]
+  ret i32 %res.0
 }
 
 ; Function Attrs: nounwind

@@ -145,12 +145,12 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp15.not, label %if.else, label %while.body19
 
 while.body19:                                     ; preds = %while.end, %while.body19
-  %errs.017 = phi i32 [ %add, %while.body19 ], [ 0, %while.end ]
+  %errs.117 = phi i32 [ %add, %while.body19 ], [ 0, %while.end ]
   %argv.addr.016 = phi ptr [ %incdec.ptr, %while.body19 ], [ %call12, %while.end ]
   %2 = phi ptr [ %.pr, %while.body19 ], [ %1, %while.end ]
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.016, i64 8
   %call20 = tail call fastcc i32 @do_dir(ptr noundef nonnull %2, i32 noundef %h.0.ph)
-  %add = add nsw i32 %call20, %errs.017
+  %add = add nsw i32 %call20, %errs.117
   %.pr = load ptr, ptr %incdec.ptr, align 8
   %cmp18.not = icmp eq ptr %.pr, null
   br i1 %cmp18.not, label %end, label %while.body19, !llvm.loop !7
@@ -168,16 +168,16 @@ if.then25:                                        ; preds = %if.else
   br i1 %cmp28.not18, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.then25, %for.body
-  %errs.120 = phi i32 [ %add30, %for.body ], [ 0, %if.then25 ]
+  %errs.220 = phi i32 [ %add30, %for.body ], [ 0, %if.then25 ]
   %e.019 = phi ptr [ %call32, %for.body ], [ %call27, %if.then25 ]
   %call29 = tail call fastcc i32 @do_dir(ptr noundef nonnull %e.019, i32 noundef %h.0.ph)
-  %add30 = add nsw i32 %call29, %errs.120
+  %add30 = add nsw i32 %call29, %errs.220
   %call32 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.rehash_main.lsc) #14
   %cmp28.not = icmp eq ptr %call32, null
   br i1 %cmp28.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.then25
-  %errs.1.lcssa = phi i32 [ 0, %if.then25 ], [ %add30, %for.body ]
+  %errs.2.lcssa = phi i32 [ 0, %if.then25 ], [ %add30, %for.body ]
   tail call void @CRYPTO_free(ptr noundef %call26, ptr noundef nonnull @.str.25, i32 noundef 564) #14
   br label %end
 
@@ -187,8 +187,8 @@ if.else33:                                        ; preds = %if.else
   br label %end
 
 end:                                              ; preds = %sw.bb9, %while.body19, %if.else33, %for.end, %sw.bb3, %sw.bb
-  %errs.2 = phi i32 [ 0, %sw.bb3 ], [ 0, %sw.bb ], [ %errs.1.lcssa, %for.end ], [ %call35, %if.else33 ], [ %add, %while.body19 ], [ 0, %sw.bb9 ]
-  ret i32 %errs.2
+  %errs.0 = phi i32 [ 0, %sw.bb3 ], [ 0, %sw.bb ], [ %errs.2.lcssa, %for.end ], [ %call35, %if.else33 ], [ %add, %while.body19 ], [ 0, %sw.bb9 ]
+  ret i32 %errs.0
 }
 
 declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -332,12 +332,12 @@ for.body.lr.ph:                                   ; preds = %while.end
   br label %for.body
 
 for.cond74.preheader:                             ; preds = %for.inc, %while.end
-  %errs.0.lcssa = phi i32 [ 0, %while.end ], [ %errs.1, %for.inc ]
+  %errs.1.lcssa = phi i32 [ 0, %while.end ], [ %errs.2, %for.inc ]
   %arrayidx141 = getelementptr inbounds i8, ptr %call45, i64 %conv41
   br label %for.body77
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %errs.0128 = phi i32 [ 0, %for.body.lr.ph ], [ %errs.1, %for.inc ]
+  %errs.1128 = phi i32 [ 0, %for.body.lr.ph ], [ %errs.2, %for.inc ]
   %n.0127 = phi i32 [ 0, %for.body.lr.ph ], [ %inc73, %for.inc ]
   %call51 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call13, i32 noundef %n.0127) #14
   %call53 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.33, ptr noundef %dirname, ptr noundef nonnull %pathsep.0, ptr noundef %call51) #14
@@ -546,41 +546,41 @@ if.else68.i:                                      ; preds = %if.then60.i
   br label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.else68.i, %if.then65.i, %if.then57.i
-  %errs.0.i = phi i32 [ %call67.i, %if.then65.i ], [ 1, %if.else68.i ], [ 0, %if.then57.i ]
+  %errs.1.i = phi i32 [ %call67.i, %if.then65.i ], [ 1, %if.else68.i ], [ 0, %if.then57.i ]
   br i1 %or.cond1.i, label %if.then79.i, label %do_file.exit
 
 if.then79.i:                                      ; preds = %if.end73.i
   %call80.i = call i64 @X509_NAME_hash_old(ptr noundef nonnull %name.0.i) #14
   %conv81.i = trunc i64 %call80.i to i32
   %call83.i = call fastcc i32 @add_entry(i32 noundef %type.0.i, i32 noundef %conv81.i, ptr noundef %call51, ptr noundef nonnull %digest.i, i32 noundef 1, i16 noundef zeroext -1)
-  %add84.i = add nuw nsw i32 %call83.i, %errs.0.i
+  %add84.i = add nuw nsw i32 %call83.i, %errs.1.i
   br label %do_file.exit
 
 do_file.exit:                                     ; preds = %for.cond.i, %if.end70, %if.then11.i, %if.end15.i, %if.then24.i, %if.then36.i, %if.else.i, %if.then48.i, %if.end55.i, %if.end73.i, %if.then79.i
-  %errs.1.i = phi i32 [ 0, %if.end70 ], [ 1, %if.then11.i ], [ 0, %if.end15.i ], [ 0, %if.then24.i ], [ %add84.i, %if.then79.i ], [ %errs.0.i, %if.end73.i ], [ 0, %if.end55.i ], [ 1, %if.then36.i ], [ 1, %if.then48.i ], [ 1, %if.else.i ], [ 0, %for.cond.i ]
+  %errs.0.i = phi i32 [ 0, %if.end70 ], [ 1, %if.then11.i ], [ 0, %if.end15.i ], [ 0, %if.then24.i ], [ %add84.i, %if.then79.i ], [ %errs.1.i, %if.end73.i ], [ 0, %if.end55.i ], [ 1, %if.then36.i ], [ 1, %if.then48.i ], [ 1, %if.else.i ], [ 0, %for.cond.i ]
   %inf.0.i = phi ptr [ null, %if.end70 ], [ null, %if.then11.i ], [ null, %if.end15.i ], [ %call16.i, %if.then24.i ], [ %call16.i, %if.then79.i ], [ %call16.i, %if.end73.i ], [ %call16.i, %if.end55.i ], [ %call16.i, %if.then36.i ], [ %call16.i, %if.then48.i ], [ %call16.i, %if.else.i ], [ null, %for.cond.i ]
   call void @OPENSSL_sk_pop_free(ptr noundef %inf.0.i, ptr noundef nonnull @X509_INFO_free) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ok.i)
-  %add72 = add nsw i32 %errs.1.i, %errs.0128
+  %add72 = add nsw i32 %errs.0.i, %errs.1128
   br label %for.inc
 
 for.inc:                                          ; preds = %handle_symlink.exit, %if.end57, %for.body, %do_file.exit
-  %errs.1 = phi i32 [ %errs.0128, %for.body ], [ %errs.0128, %if.end57 ], [ %errs.0128, %handle_symlink.exit ], [ %add72, %do_file.exit ]
+  %errs.2 = phi i32 [ %errs.1128, %for.body ], [ %errs.1128, %if.end57 ], [ %errs.1128, %handle_symlink.exit ], [ %add72, %do_file.exit ]
   %inc73 = add nuw nsw i32 %n.0127, 1
   %exitcond.not = icmp eq i32 %inc73, %call47
   br i1 %exitcond.not, label %for.cond74.preheader, label %for.body, !llvm.loop !12
 
 for.body77:                                       ; preds = %for.cond74.preheader, %for.end209
   %i.0143 = phi i64 [ 0, %for.cond74.preheader ], [ %inc212, %for.end209 ]
-  %errs.2142 = phi i32 [ %errs.0.lcssa, %for.cond74.preheader ], [ %errs.3.lcssa, %for.end209 ]
+  %errs.3142 = phi i32 [ %errs.1.lcssa, %for.cond74.preheader ], [ %errs.4.lcssa, %for.end209 ]
   %arrayidx = getelementptr inbounds [257 x ptr], ptr @hash_table, i64 0, i64 %i.0143
   %33 = load ptr, ptr %arrayidx, align 8
   %tobool79.not138 = icmp eq ptr %33, null
   br i1 %tobool79.not138, label %for.end209, label %for.body80
 
 for.body80:                                       ; preds = %for.body77, %for.end207
-  %errs.3140 = phi i32 [ %errs.4.lcssa, %for.end207 ], [ %errs.2142, %for.body77 ]
+  %errs.4140 = phi i32 [ %errs.5.lcssa, %for.end207 ], [ %errs.3142, %for.body77 ]
   %bp.0139 = phi ptr [ %34, %for.end207 ], [ %33, %for.body77 ]
   %34 = load ptr, ptr %bp.0139, align 8
   %num_needed = getelementptr inbounds i8, ptr %bp.0139, i64 30
@@ -627,8 +627,8 @@ for.body103.lr.ph:                                ; preds = %for.end99
   br label %for.body103
 
 for.body103:                                      ; preds = %for.body103.lr.ph, %if.end204
-  %errs.4136 = phi i32 [ %errs.3140, %for.body103.lr.ph ], [ %errs.7, %if.end204 ]
-  %nextid.0135 = phi i32 [ 0, %for.body103.lr.ph ], [ %nextid.2, %if.end204 ]
+  %errs.5136 = phi i32 [ %errs.4140, %for.body103.lr.ph ], [ %errs.6, %if.end204 ]
+  %nextid.0135 = phi i32 [ 0, %for.body103.lr.ph ], [ %nextid.1, %if.end204 ]
   %ep.1134 = phi ptr [ %ep.0130, %for.body103.lr.ph ], [ %40, %if.end204 ]
   %40 = load ptr, ptr %ep.1134, align 8
   %old_id105 = getelementptr inbounds i8, ptr %ep.1134, i64 16
@@ -662,17 +662,17 @@ if.else:                                          ; preds = %for.body103
   br i1 %tobool122.not, label %if.else171, label %while.cond124
 
 while.cond124:                                    ; preds = %if.else, %while.cond124
-  %nextid.1 = phi i32 [ %inc129, %while.cond124 ], [ %nextid.0135, %if.else ]
-  %shr.i107 = lshr i32 %nextid.1, 3
+  %nextid.2 = phi i32 [ %inc129, %while.cond124 ], [ %nextid.0135, %if.else ]
+  %shr.i107 = lshr i32 %nextid.2, 3
   %idxprom.i108 = zext nneg i32 %shr.i107 to i64
   %arrayidx.i109 = getelementptr inbounds i8, ptr %idmask, i64 %idxprom.i108
   %49 = load i8, ptr %arrayidx.i109, align 1
   %conv.i110 = zext i8 %49 to i32
-  %and.i111 = and i32 %nextid.1, 7
+  %and.i111 = and i32 %nextid.2, 7
   %shl.i112 = shl nuw nsw i32 1, %and.i111
   %and1.i = and i32 %shl.i112, %conv.i110
   %tobool127.not = icmp eq i32 %and1.i, 0
-  %inc129 = add nsw i32 %nextid.1, 1
+  %inc129 = add nsw i32 %nextid.2, 1
   br i1 %tobool127.not, label %while.end130, label %while.cond124, !llvm.loop !14
 
 while.end130:                                     ; preds = %while.cond124
@@ -682,7 +682,7 @@ while.end130:                                     ; preds = %while.cond124
   %idxprom134 = zext i16 %51 to i64
   %arrayidx135 = getelementptr inbounds [2 x ptr], ptr @suffixes, i64 0, i64 %idxprom134
   %52 = load ptr, ptr %arrayidx135, align 8
-  %call136 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.36, ptr noundef %dirname, ptr noundef nonnull %pathsep.0, i32 noundef %50, ptr noundef %52, i32 noundef %nextid.1) #14
+  %call136 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call45, i64 noundef %conv44, ptr noundef nonnull @.str.36, ptr noundef %dirname, ptr noundef nonnull %pathsep.0, i32 noundef %50, ptr noundef %52, i32 noundef %nextid.2) #14
   %.b88 = load i1, ptr @verbose, align 4
   br i1 %.b88, label %if.then138, label %if.end143
 
@@ -710,11 +710,11 @@ if.then151:                                       ; preds = %land.lhs.true147
   %57 = load i32, ptr %call148, align 4
   %call154 = call ptr @strerror(i32 noundef %57) #14
   %call155 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %56, ptr noundef nonnull @.str.37, ptr noundef %call152, ptr noundef %call45, ptr noundef %call154) #14
-  %inc156 = add nsw i32 %errs.4136, 1
+  %inc156 = add nsw i32 %errs.5136, 1
   br label %if.end157
 
 if.end157:                                        ; preds = %if.then151, %land.lhs.true147, %if.end143
-  %errs.5 = phi i32 [ %inc156, %if.then151 ], [ %errs.4136, %land.lhs.true147 ], [ %errs.4136, %if.end143 ]
+  %errs.7 = phi i32 [ %inc156, %if.then151 ], [ %errs.5136, %land.lhs.true147 ], [ %errs.5136, %if.end143 ]
   %filename158 = getelementptr inbounds i8, ptr %ep.1134, i64 8
   %58 = load ptr, ptr %filename158, align 8
   %call159 = call i32 @symlink(ptr noundef %58, ptr noundef %call45) #14
@@ -729,11 +729,11 @@ if.then162:                                       ; preds = %if.end157
   %61 = load i32, ptr %call165, align 4
   %call166 = call ptr @strerror(i32 noundef %61) #14
   %call167 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %59, ptr noundef nonnull @.str.38, ptr noundef %call163, ptr noundef %60, ptr noundef %call166) #14
-  %inc168 = add nsw i32 %errs.5, 1
+  %inc168 = add nsw i32 %errs.7, 1
   br label %if.end169
 
 if.end169:                                        ; preds = %if.then162, %if.end157
-  %errs.6 = phi i32 [ %inc168, %if.then162 ], [ %errs.5, %if.end157 ]
+  %errs.8 = phi i32 [ %inc168, %if.then162 ], [ %errs.7, %if.end157 ]
   %62 = trunc nuw i32 %shl.i112 to i8
   %conv1.i118 = or i8 %49, %62
   store i8 %conv1.i118, ptr %arrayidx.i109.le, align 1
@@ -775,12 +775,12 @@ if.then195:                                       ; preds = %land.lhs.true191
   %69 = load i32, ptr %call192, align 4
   %call198 = call ptr @strerror(i32 noundef %69) #14
   %call199 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.37, ptr noundef %call196, ptr noundef %call45, ptr noundef %call198) #14
-  %inc200 = add nsw i32 %errs.4136, 1
+  %inc200 = add nsw i32 %errs.5136, 1
   br label %if.end204
 
 if.end204:                                        ; preds = %if.end169, %if.end187, %land.lhs.true191, %if.then195, %if.else171, %if.then111, %if.then118
-  %nextid.2 = phi i32 [ %nextid.0135, %if.then118 ], [ %nextid.0135, %if.then111 ], [ %nextid.1, %if.end169 ], [ %nextid.0135, %if.then195 ], [ %nextid.0135, %land.lhs.true191 ], [ %nextid.0135, %if.end187 ], [ %nextid.0135, %if.else171 ]
-  %errs.7 = phi i32 [ %errs.4136, %if.then118 ], [ %errs.4136, %if.then111 ], [ %errs.6, %if.end169 ], [ %inc200, %if.then195 ], [ %errs.4136, %land.lhs.true191 ], [ %errs.4136, %if.end187 ], [ %errs.4136, %if.else171 ]
+  %nextid.1 = phi i32 [ %nextid.0135, %if.then118 ], [ %nextid.0135, %if.then111 ], [ %nextid.2, %if.end169 ], [ %nextid.0135, %if.then195 ], [ %nextid.0135, %land.lhs.true191 ], [ %nextid.0135, %if.end187 ], [ %nextid.0135, %if.else171 ]
+  %errs.6 = phi i32 [ %errs.5136, %if.then118 ], [ %errs.5136, %if.then111 ], [ %errs.8, %if.end169 ], [ %inc200, %if.then195 ], [ %errs.5136, %land.lhs.true191 ], [ %errs.5136, %if.end187 ], [ %errs.5136, %if.else171 ]
   %filename205 = getelementptr inbounds i8, ptr %ep.1134, i64 8
   %70 = load ptr, ptr %filename205, align 8
   call void @CRYPTO_free(ptr noundef %70, ptr noundef nonnull @.str.25, i32 noundef 471) #14
@@ -789,27 +789,27 @@ if.end204:                                        ; preds = %if.end169, %if.end1
   br i1 %tobool102.not, label %for.end207, label %for.body103, !llvm.loop !15
 
 for.end207:                                       ; preds = %if.end204, %for.body80, %for.end99
-  %errs.4.lcssa = phi i32 [ %errs.3140, %for.end99 ], [ %errs.3140, %for.body80 ], [ %errs.7, %if.end204 ]
+  %errs.5.lcssa = phi i32 [ %errs.4140, %for.end99 ], [ %errs.4140, %for.body80 ], [ %errs.6, %if.end204 ]
   call void @CRYPTO_free(ptr noundef nonnull %bp.0139, ptr noundef nonnull @.str.25, i32 noundef 474) #14
   %tobool79.not = icmp eq ptr %34, null
   br i1 %tobool79.not, label %for.end209, label %for.body80, !llvm.loop !16
 
 for.end209:                                       ; preds = %for.end207, %for.body77
-  %errs.3.lcssa = phi i32 [ %errs.2142, %for.body77 ], [ %errs.4.lcssa, %for.end207 ]
+  %errs.4.lcssa = phi i32 [ %errs.3142, %for.body77 ], [ %errs.5.lcssa, %for.end207 ]
   store ptr null, ptr %arrayidx, align 8
   %inc212 = add nuw nsw i64 %i.0143, 1
   %exitcond145.not = icmp eq i64 %inc212, 257
   br i1 %exitcond145.not, label %err, label %for.body77, !llvm.loop !17
 
 err:                                              ; preds = %for.end209, %if.then31, %if.then16
-  %errs.8 = phi i32 [ 1, %if.then16 ], [ 1, %if.then31 ], [ %errs.3.lcssa, %for.end209 ]
+  %errs.0 = phi i32 [ 1, %if.then16 ], [ 1, %if.then31 ], [ %errs.4.lcssa, %for.end209 ]
   %buf.0 = phi ptr [ null, %if.then16 ], [ null, %if.then31 ], [ %call45, %for.end209 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %call13, ptr noundef nonnull @str_free) #14
   call void @CRYPTO_free(ptr noundef %buf.0, ptr noundef nonnull @.str.25, i32 noundef 481) #14
   br label %return
 
 return:                                           ; preds = %err, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ %errs.8, %err ]
+  %retval.0 = phi i32 [ 1, %if.then ], [ %errs.0, %err ]
   ret i32 %retval.0
 }
 

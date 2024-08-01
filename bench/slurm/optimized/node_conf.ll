@@ -873,9 +873,9 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0102184 = phi i32 [ %.1103, %122 ], [ %65, %.preheader ]
   %.0104183 = phi i32 [ %.1105, %122 ], [ %63, %.preheader ]
   %.0106182 = phi i32 [ %.1107, %122 ], [ %62, %.preheader ]
-  %.0111181 = phi ptr [ %.1112, %122 ], [ null, %.preheader ]
-  %.0113180 = phi ptr [ %.1114, %122 ], [ null, %.preheader ]
-  %.0116179 = phi ptr [ %.1117, %122 ], [ null, %.preheader ]
+  %.0111181 = phi ptr [ %.2, %122 ], [ null, %.preheader ]
+  %.0113180 = phi ptr [ %.2115, %122 ], [ null, %.preheader ]
+  %.0116179 = phi ptr [ %.2118, %122 ], [ null, %.preheader ]
   %81 = icmp sgt i32 %.0106182, 0
   br i1 %81, label %82, label %87
 
@@ -893,7 +893,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %87
 
 87:                                               ; preds = %85, %.lr.ph
-  %.1117 = phi ptr [ %86, %85 ], [ %.0116179, %.lr.ph ]
+  %.2118 = phi ptr [ %86, %85 ], [ %.0116179, %.lr.ph ]
   %.1107 = phi i32 [ %83, %85 ], [ %.0106182, %.lr.ph ]
   %88 = icmp sgt i32 %.0104183, 0
   br i1 %88, label %89, label %94
@@ -912,7 +912,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %94
 
 94:                                               ; preds = %92, %87
-  %.1114 = phi ptr [ %93, %92 ], [ %.0113180, %87 ]
+  %.2115 = phi ptr [ %93, %92 ], [ %.0113180, %87 ]
   %.1105 = phi i32 [ %90, %92 ], [ %.0104183, %87 ]
   %95 = icmp sgt i32 %.0102184, 0
   br i1 %95, label %96, label %101
@@ -931,7 +931,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %101
 
 101:                                              ; preds = %99, %94
-  %.1112 = phi ptr [ %100, %99 ], [ %.0111181, %94 ]
+  %.2 = phi ptr [ %100, %99 ], [ %.0111181, %94 ]
   %.1103 = phi i32 [ %97, %99 ], [ %.0102184, %94 ]
   %102 = icmp sgt i32 %.0100185, 0
   br i1 %102, label %103, label %115
@@ -966,7 +966,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 115:                                              ; preds = %113, %101
   %.1101 = phi i32 [ %104, %113 ], [ %.0100185, %101 ]
   %.1 = phi i16 [ %114, %113 ], [ %.0186, %101 ]
-  %116 = call i32 %3(ptr noundef nonnull %80, ptr noundef %.1112, ptr noundef %.1117, ptr noundef %.1114, i16 noundef zeroext %.1, i32 noundef %.0110, ptr noundef nonnull %0, ptr noundef %1) #15
+  %116 = call i32 %3(ptr noundef nonnull %80, ptr noundef %.2, ptr noundef %.2118, ptr noundef %.2115, i16 noundef zeroext %.1, i32 noundef %.0110, ptr noundef nonnull %0, ptr noundef %1) #15
   %.not159 = icmp eq i32 %116, 0
   br i1 %.not159, label %122, label %117
 
@@ -992,27 +992,27 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not154, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %122, %121
-  %.not161 = icmp eq ptr %.1117, null
+  %.not161 = icmp eq ptr %.2118, null
   br i1 %.not161, label %125, label %124
 
 124:                                              ; preds = %.loopexit
-  call void @free(ptr noundef nonnull %.1117) #15
+  call void @free(ptr noundef nonnull %.2118) #15
   br label %125
 
 125:                                              ; preds = %124, %.loopexit
-  %.not162 = icmp eq ptr %.1114, null
+  %.not162 = icmp eq ptr %.2115, null
   br i1 %.not162, label %127, label %126
 
 126:                                              ; preds = %125
-  call void @free(ptr noundef nonnull %.1114) #15
+  call void @free(ptr noundef nonnull %.2115) #15
   br label %127
 
 127:                                              ; preds = %126, %125
-  %.not163 = icmp eq ptr %.1112, null
+  %.not163 = icmp eq ptr %.2, null
   br i1 %.not163, label %.thread213, label %128
 
 128:                                              ; preds = %127
-  call void @free(ptr noundef nonnull %.1112) #15
+  call void @free(ptr noundef nonnull %.2) #15
   br label %.thread213
 
 .thread213:                                       ; preds = %.preheader, %128, %127

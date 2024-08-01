@@ -2684,7 +2684,7 @@ list_length.exit171.thread.i:                     ; preds = %93
   br i1 %103, label %.lr.ph, label %._crit_edge206.i
 
 .lr.ph:                                           ; preds = %.lr.ph205.i, %stat_covers_expressions.exit.i
-  %.0146201.i27 = phi ptr [ %.2148.i, %stat_covers_expressions.exit.i ], [ null, %.lr.ph205.i ]
+  %.0146201.i27 = phi ptr [ %.1147.i, %stat_covers_expressions.exit.i ], [ null, %.lr.ph205.i ]
   %.0144202.i23 = phi ptr [ %.1145.i, %stat_covers_expressions.exit.i ], [ null, %.lr.ph205.i ]
   %indvars.iv226.i22 = phi i64 [ %indvars.iv.next227.i, %stat_covers_expressions.exit.i ], [ -1, %.lr.ph205.i ]
   %indvars.iv228.i21 = phi i64 [ %indvars.iv.next229.i, %stat_covers_expressions.exit.i ], [ 0, %.lr.ph205.i ]
@@ -2806,7 +2806,7 @@ list_length.exit177.i:                            ; preds = %152, %151
   br label %.thread247.i
 
 .thread247.i:                                     ; preds = %list_length.exit177.i, %.thread186.i, %147, %list_length.exit175.i
-  %.1147.i = phi ptr [ %156, %list_length.exit177.i ], [ %.0146201.i27, %.thread186.i ], [ %.0146201.i27, %147 ], [ %.0146201.i27, %list_length.exit175.i ]
+  %.2148.i = phi ptr [ %156, %list_length.exit177.i ], [ %.0146201.i27, %.thread186.i ], [ %.0146201.i27, %147 ], [ %.0146201.i27, %list_length.exit175.i ]
   %157 = load ptr, ptr %105, align 8
   %158 = call ptr @lappend(ptr noundef %.0144202.i23, ptr noundef %157) #10
   %159 = load ptr, ptr %6, align 8
@@ -2822,7 +2822,7 @@ list_length.exit177.i:                            ; preds = %152, %151
   br label %stat_covers_expressions.exit.i
 
 stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.lr.ph66.i.i, %136, %.thread247.i, %111, %108
-  %.2148.i = phi ptr [ %.1147.i, %.thread247.i ], [ %.0146201.i27, %111 ], [ %.0146201.i27, %108 ], [ %.0146201.i27, %136 ], [ %.0146201.i27, %.lr.ph66.i.i ], [ %.0146201.i27, %.lr.ph.i.us.i.i ]
+  %.1147.i = phi ptr [ %.2148.i, %.thread247.i ], [ %.0146201.i27, %111 ], [ %.0146201.i27, %108 ], [ %.0146201.i27, %136 ], [ %.0146201.i27, %.lr.ph66.i.i ], [ %.0146201.i27, %.lr.ph.i.us.i.i ]
   %.1145.i = phi ptr [ %158, %.thread247.i ], [ %.0144202.i23, %111 ], [ %.0144202.i23, %108 ], [ %.0144202.i23, %136 ], [ %.0144202.i23, %.lr.ph66.i.i ], [ %.0144202.i23, %.lr.ph.i.us.i.i ]
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i21, 1
   %164 = load i32, ptr %68, align 4
@@ -2832,7 +2832,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
 
 ._crit_edge206.i:                                 ; preds = %stat_covers_expressions.exit.i, %.lr.ph205.i, %list_length.exit171.i
   %167 = phi ptr [ %97, %list_length.exit171.i ], [ %99, %.lr.ph205.i ], [ %99, %stat_covers_expressions.exit.i ]
-  %.0146.lcssa.i = phi ptr [ null, %list_length.exit171.i ], [ null, %.lr.ph205.i ], [ %.2148.i, %stat_covers_expressions.exit.i ]
+  %.0146.lcssa.i = phi ptr [ null, %list_length.exit171.i ], [ null, %.lr.ph205.i ], [ %.1147.i, %stat_covers_expressions.exit.i ]
   %.0144.lcssa.i = phi ptr [ null, %list_length.exit171.i ], [ null, %.lr.ph205.i ], [ %.1145.i, %stat_covers_expressions.exit.i ]
   br i1 %7, label %168, label %214
 

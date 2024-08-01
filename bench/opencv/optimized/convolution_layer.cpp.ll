@@ -3129,30 +3129,30 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit, %64
   %.sroa.07.029.i.i.idx.i = phi i64 [ %.sroa.07.029.i.i.add.i, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.ptr.add.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit ]
-  %.sroa.013.028.i.i.i.idx = phi i64 [ %.sroa.013.1.i.i.i.idx, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit ]
+  %.sroa.013.128.i.i.i.idx = phi i64 [ %.sroa.013.2.i.i.i.idx, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit ]
   %.sroa.07.029.i.i.ptr.i = getelementptr inbounds i8, ptr %56, i64 %.sroa.07.029.i.i.idx.i
   %61 = load i32, ptr %.sroa.07.029.i.i.ptr.i, align 4, !noalias !32
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %.lr.ph.i.i.i
-  %.sroa.013.028.i.i.i.ptr = getelementptr inbounds i8, ptr %56, i64 %.sroa.013.028.i.i.i.idx
-  store i32 %61, ptr %.sroa.013.028.i.i.i.ptr, align 4, !noalias !32
-  %.sroa.013.028.i.i.i.add = add nsw i64 %.sroa.013.028.i.i.i.idx, 4
+  %.sroa.013.128.i.i.i.ptr = getelementptr inbounds i8, ptr %56, i64 %.sroa.013.128.i.i.i.idx
+  store i32 %61, ptr %.sroa.013.128.i.i.i.ptr, align 4, !noalias !32
+  %.sroa.013.128.i.i.i.add = add nsw i64 %.sroa.013.128.i.i.i.idx, 4
   br label %64
 
 64:                                               ; preds = %63, %.lr.ph.i.i.i
-  %.sroa.013.1.i.i.i.idx = phi i64 [ %.sroa.013.028.i.i.i.idx, %.lr.ph.i.i.i ], [ %.sroa.013.028.i.i.i.add, %63 ]
+  %.sroa.013.2.i.i.i.idx = phi i64 [ %.sroa.013.128.i.i.i.idx, %.lr.ph.i.i.i ], [ %.sroa.013.128.i.i.i.add, %63 ]
   %.sroa.07.029.i.i.add.i = add nuw nsw i64 %.sroa.07.029.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.sroa.07.029.i.i.add.i, 16
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !35
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i: ; preds = %64
-  %.not.i.i8.i = icmp eq i64 %.sroa.013.1.i.i.i.idx, 16
+  %.not.i.i8.i = icmp eq i64 %.sroa.013.2.i.i.i.idx, 16
   br i1 %.not.i.i8.i, label %_ZN2cv3dnn14dnn4_v20240521L5shapeEiiii.exit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i
-  %65 = getelementptr inbounds i8, ptr %56, i64 %.sroa.013.1.i.i.i.idx
+  %65 = getelementptr inbounds i8, ptr %56, i64 %.sroa.013.2.i.i.i.idx
   store ptr %65, ptr %57, align 8, !alias.scope !32
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeEiiii.exit
 

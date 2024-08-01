@@ -458,15 +458,15 @@ _ZN2cv3PtrINS_15line_descriptor11LSDDetectorEED2Ev.exit: ; preds = %_ZNSt6vector
   br label %172
 
 172:                                              ; preds = %45, %_ZN2cv3PtrINS_15line_descriptor11LSDDetectorEED2Ev.exit
-  %.0 = phi i32 [ 0, %_ZN2cv3PtrINS_15line_descriptor11LSDDetectorEED2Ev.exit ], [ -1, %45 ]
+  %.1 = phi i32 [ 0, %_ZN2cv3PtrINS_15line_descriptor11LSDDetectorEED2Ev.exit ], [ -1, %45 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #9
   br label %_ZL4helpv.exit
 
 _ZL4helpv.exit:                                   ; preds = %.noexc48, %172
-  %.1 = phi i32 [ %.0, %172 ], [ -1, %.noexc48 ]
+  %.0 = phi i32 [ %.1, %172 ], [ -1, %.noexc48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
-  ret i32 %.1
+  ret i32 %.0
 
 173:                                              ; preds = %._crit_edge
   %174 = landingpad { ptr, i32 }

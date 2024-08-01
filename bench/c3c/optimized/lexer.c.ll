@@ -2617,39 +2617,39 @@ return_token.exit:                                ; preds = %52, %62
 define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  br label %.backedge89
+  br label %.backedge88
 
-.backedge89:                                      ; preds = %.backedge89.backedge, %1
-  %.060 = phi ptr [ %3, %1 ], [ %.060.be, %.backedge89.backedge ]
+.backedge88:                                      ; preds = %.backedge88.backedge, %1
+  %.060 = phi ptr [ %3, %1 ], [ %.060.be, %.backedge88.backedge ]
   %4 = getelementptr inbounds i8, ptr %.060, i64 1
   %5 = load i8, ptr %.060, align 1
-  switch i8 %5, label %.backedge89.backedge [
-    i8 34, label %.fold.split.loopexit168
+  switch i8 %5, label %.backedge88.backedge [
+    i8 34, label %.fold.split.loopexit167
     i8 10, label %.fold.split
     i8 0, label %.fold.split
     i8 92, label %6
   ]
 
-6:                                                ; preds = %.backedge89
+6:                                                ; preds = %.backedge88
   %7 = load i8, ptr %4, align 1
   switch i8 %7, label %8 [
-    i8 10, label %.backedge89.backedge
-    i8 0, label %.backedge89.backedge
+    i8 10, label %.backedge88.backedge
+    i8 0, label %.backedge88.backedge
   ]
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %.060, i64 2
-  br label %.backedge89.backedge
+  br label %.backedge88.backedge
 
-.backedge89.backedge:                             ; preds = %8, %6, %6, %.backedge89
-  %.060.be = phi ptr [ %4, %.backedge89 ], [ %9, %8 ], [ %4, %6 ], [ %4, %6 ]
-  br label %.backedge89, !llvm.loop !21
+.backedge88.backedge:                             ; preds = %8, %6, %6, %.backedge88
+  %.060.be = phi ptr [ %4, %.backedge88 ], [ %9, %8 ], [ %4, %6 ], [ %4, %6 ]
+  br label %.backedge88, !llvm.loop !21
 
-.fold.split.loopexit168:                          ; preds = %.backedge89
+.fold.split.loopexit167:                          ; preds = %.backedge88
   br label %.fold.split
 
-.fold.split:                                      ; preds = %.backedge89, %.backedge89, %.fold.split.loopexit168
-  %10 = phi i64 [ 1, %.fold.split.loopexit168 ], [ 2, %.backedge89 ], [ 2, %.backedge89 ]
+.fold.split:                                      ; preds = %.backedge88, %.backedge88, %.fold.split.loopexit167
+  %10 = phi i64 [ 1, %.fold.split.loopexit167 ], [ 2, %.backedge88 ], [ 2, %.backedge88 ]
   %11 = getelementptr inbounds i8, ptr %.060, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -1
   %13 = ptrtoint ptr %12 to i64
@@ -2668,7 +2668,7 @@ define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0)
 
 20:                                               ; preds = %.lr.ph, %.backedge
   %21 = phi ptr [ %17, %.lr.ph ], [ %293, %.backedge ]
-  %.0108 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.0107 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 10
   %24 = getelementptr inbounds i8, ptr %21, i64 1
@@ -2976,8 +2976,8 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br label %220
 
 217:                                              ; preds = %62
-  %218 = add i64 %.0108, 1
-  %219 = getelementptr inbounds i8, ptr %16, i64 %.0108
+  %218 = add i64 %.0107, 1
+  %219 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %60, ptr %219, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
@@ -2989,8 +2989,8 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 222:                                              ; preds = %220
   %223 = trunc nuw i32 %.083.in.i to i8
-  %224 = add i64 %.0108, 1
-  %225 = getelementptr inbounds i8, ptr %16, i64 %.0108
+  %224 = add i64 %.0107, 1
+  %225 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %223, ptr %225, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
@@ -3002,19 +3002,19 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %229 = lshr i32 %.083.in.i, 6
   %230 = trunc nuw i32 %229 to i8
   %231 = or disjoint i8 %230, -64
-  %232 = getelementptr inbounds i8, ptr %16, i64 %.0108
+  %232 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %231, ptr %232, align 1, !alias.scope !23, !noalias !26
   %233 = trunc i32 %.083.in.i to i8
   %234 = and i8 %233, 63
   %235 = or disjoint i8 %234, -128
-  %236 = add i64 %.0108, 2
+  %236 = add i64 %.0107, 2
   %237 = getelementptr i8, ptr %232, i64 1
   store i8 %235, ptr %237, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
 238:                                              ; preds = %226
   %239 = icmp ult i32 %.083.in.i, 65536
-  %240 = getelementptr i8, ptr %16, i64 %.0108
+  %240 = getelementptr i8, ptr %16, i64 %.0107
   %241 = getelementptr i8, ptr %240, i64 1
   %242 = getelementptr i8, ptr %240, i64 2
   br i1 %239, label %243, label %255
@@ -3032,7 +3032,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %251 = trunc i32 %.083.in.i to i8
   %252 = and i8 %251, 63
   %253 = or disjoint i8 %252, -128
-  %254 = add i64 %.0108, 3
+  %254 = add i64 %.0107, 3
   store i8 %253, ptr %242, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
@@ -3054,7 +3054,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %267 = trunc i32 %.083.in.i to i8
   %268 = and i8 %267, 63
   %269 = or disjoint i8 %268, -128
-  %270 = add i64 %.0108, 4
+  %270 = add i64 %.0107, 4
   %271 = getelementptr i8, ptr %240, i64 3
   store i8 %269, ptr %271, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
@@ -3087,7 +3087,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br label %273, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %217, %222, %228, %243, %255
-  %.180 = phi i64 [ %218, %217 ], [ %224, %222 ], [ %236, %228 ], [ %254, %243 ], [ %270, %255 ]
+  %.1 = phi i64 [ %218, %217 ], [ %224, %222 ], [ %236, %228 ], [ %254, %243 ], [ %270, %255 ]
   %.0.i = phi i32 [ 1, %217 ], [ %.082.i, %222 ], [ %.082.i, %228 ], [ %.082.i, %243 ], [ %.082.i, %255 ]
   %.promoted.i73 = load ptr, ptr %2, align 8
   br label %282
@@ -3116,26 +3116,26 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 .backedge:                                        ; preds = %290, %.critedge67
   %293 = phi ptr [ %.pre, %.critedge67 ], [ %291, %290 ]
-  %.0.be = phi i64 [ %294, %.critedge67 ], [ %.180, %290 ]
-  %.not129 = icmp ult ptr %293, %12
-  br i1 %.not129, label %20, label %._crit_edge, !llvm.loop !29
+  %.0.be = phi i64 [ %294, %.critedge67 ], [ %.1, %290 ]
+  %.not128 = icmp ult ptr %293, %12
+  br i1 %.not128, label %20, label %._crit_edge, !llvm.loop !29
 
 .critedge67:                                      ; preds = %25
-  %294 = add i64 %.0108, 1
-  %295 = getelementptr inbounds i8, ptr %16, i64 %.0108
+  %294 = add i64 %.0107, 1
+  %295 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %22, ptr %295, align 1
   %.pre = load ptr, ptr %2, align 8
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.fold.split
   %.0.lcssa = phi i64 [ 0, %.fold.split ], [ %.0.be, %.backedge ]
-  %.lcssa95 = phi ptr [ %17, %.fold.split ], [ %293, %.backedge ]
-  %296 = load i8, ptr %.lcssa95, align 1
+  %.lcssa94 = phi ptr [ %17, %.fold.split ], [ %293, %.backedge ]
+  %296 = load i8, ptr %.lcssa94, align 1
   %297 = icmp eq i8 %296, 10
   br i1 %297, label %298, label %304
 
 298:                                              ; preds = %._crit_edge
-  %299 = getelementptr inbounds i8, ptr %.lcssa95, i64 1
+  %299 = getelementptr inbounds i8, ptr %.lcssa94, i64 1
   %300 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %299, ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3145,7 +3145,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br label %304
 
 304:                                              ; preds = %298, %._crit_edge
-  %305 = getelementptr inbounds i8, ptr %.lcssa95, i64 1
+  %305 = getelementptr inbounds i8, ptr %.lcssa94, i64 1
   store ptr %305, ptr %2, align 8
   %306 = getelementptr inbounds i8, ptr %16, i64 %.0.lcssa
   store i8 0, ptr %306, align 1
@@ -3770,14 +3770,14 @@ default.unreachable138:                           ; preds = %69
   unreachable
 
 73:                                               ; preds = %69, %72, %71
-  %.1 = phi i32 [ 1, %72 ], [ 2, %71 ], [ 0, %69 ]
+  %.2 = phi i32 [ 1, %72 ], [ 2, %71 ], [ 0, %69 ]
   %74 = icmp eq i64 %70, 3
-  %spec.select = select i1 %74, i32 1, i32 %.1
+  %spec.select = select i1 %74, i32 1, i32 %.2
   br label %75
 
 75:                                               ; preds = %73, %69, %68
-  %.2 = phi i32 [ %.064.ph, %68 ], [ 0, %69 ], [ %spec.select, %73 ]
-  %76 = zext nneg i32 %.2 to i64
+  %.1 = phi i32 [ %.064.ph, %68 ], [ 0, %69 ], [ %spec.select, %73 ]
+  %76 = zext nneg i32 %.1 to i64
   %77 = add i64 %.063.ph.ph, %76
   %78 = and i64 %77, 3
   %.not69 = icmp eq i64 %78, 0

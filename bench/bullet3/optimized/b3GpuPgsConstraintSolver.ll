@@ -2563,7 +2563,7 @@ for.body152.lr.ph:                                ; preds = %for.cond150.prehead
 
 for.body152:                                      ; preds = %for.body152.lr.ph, %if.end174
   %indvars.iv1188 = phi i64 [ 0, %for.body152.lr.ph ], [ %indvars.iv.next1189, %if.end174 ]
-  %totalNumRows.11180 = phi i32 [ 0, %for.body152.lr.ph ], [ %add175, %if.end174 ]
+  %totalNumRows.21180 = phi i32 [ 0, %for.body152.lr.ph ], [ %add175, %if.end174 ]
   %185 = load ptr, ptr %m_data.i374, align 8
   %arrayidx.i376 = getelementptr inbounds i32, ptr %185, i64 %indvars.iv1188
   %186 = load ptr, ptr %m_gpuData, align 8
@@ -2592,7 +2592,7 @@ if.else173:                                       ; preds = %for.body152
 
 if.end174:                                        ; preds = %if.then163.if.end174_crit_edge, %if.else173
   %190 = phi i32 [ %.pre1204, %if.then163.if.end174_crit_edge ], [ 0, %if.else173 ]
-  %add175 = add i32 %190, %totalNumRows.11180
+  %add175 = add i32 %190, %totalNumRows.21180
   %indvars.iv.next1189 = add nuw nsw i64 %indvars.iv1188, 1
   %191 = load i32, ptr %numConstraints.addr, align 4
   %192 = sext i32 %191 to i64
@@ -2600,7 +2600,7 @@ if.end174:                                        ; preds = %if.then163.if.end17
   br i1 %cmp151, label %for.body152, label %for.end178, !llvm.loop !10
 
 for.end178:                                       ; preds = %if.end174, %for.cond150.preheader
-  %totalNumRows.1.lcssa = phi i32 [ 0, %for.cond150.preheader ], [ %add175, %if.end174 ]
+  %totalNumRows.2.lcssa = phi i32 [ 0, %for.cond150.preheader ], [ %add175, %if.end174 ]
   %193 = load ptr, ptr %m_gpuData, align 8
   %m_gpuBatchConstraints180 = getelementptr inbounds i8, ptr %193, i64 104
   %194 = load ptr, ptr %m_gpuBatchConstraints180, align 8
@@ -2615,23 +2615,23 @@ invoke.cont181:                                   ; preds = %for.end178
           to label %if.end186 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end186:                                        ; preds = %if.end144, %invoke.cont181
-  %totalNumRows.2 = phi i32 [ %totalNumRows.1.lcssa, %invoke.cont181 ], [ %totalNumRows.0, %if.end144 ]
+  %totalNumRows.1 = phi i32 [ %totalNumRows.2.lcssa, %invoke.cont181 ], [ %totalNumRows.0, %if.end144 ]
   %m_tmpSolverNonContactConstraintPool = getelementptr inbounds i8, ptr %this, i64 88
   %m_size.i.i385 = getelementptr inbounds i8, ptr %this, i64 92
   %197 = load i32, ptr %m_size.i.i385, align 4
-  %cmp3.i386 = icmp slt i32 %197, %totalNumRows.2
+  %cmp3.i386 = icmp slt i32 %197, %totalNumRows.1
   br i1 %cmp3.i386, label %if.then4.i387, label %invoke.cont187
 
 if.then4.i387:                                    ; preds = %if.end186
-  invoke void @_ZN20b3AlignedObjectArrayI21b3GpuSolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool, i32 noundef %totalNumRows.2)
+  invoke void @_ZN20b3AlignedObjectArrayI21b3GpuSolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverNonContactConstraintPool, i32 noundef %totalNumRows.1)
           to label %invoke.cont187 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont187:                                   ; preds = %if.end186, %if.then4.i387
-  store i32 %totalNumRows.2, ptr %m_size.i.i385, align 4
+  store i32 %totalNumRows.1, ptr %m_size.i.i385, align 4
   %198 = load ptr, ptr %m_gpuData, align 8
   %m_gpuConstraintRows = getelementptr inbounds i8, ptr %198, i64 112
   %199 = load ptr, ptr %m_gpuConstraintRows, align 8
-  %conv189 = sext i32 %totalNumRows.2 to i64
+  %conv189 = sext i32 %totalNumRows.1 to i64
   %m_size.i.i389 = getelementptr inbounds i8, ptr %199, i64 8
   %200 = load i64, ptr %m_size.i.i389, align 8
   %cmp3.i390 = icmp ult i64 %200, %conv189
@@ -8071,8 +8071,8 @@ _ZN13b3OpenCLArrayIjE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIjE10deallocateEv.exit, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8234,8 +8234,8 @@ _ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit18: ; preds = %if.else, 
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit, %_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI15b3GpuSolverBodyE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8397,8 +8397,8 @@ _ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit18: ; preds = %if.else
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit, %_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI17b3BatchConstraintE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8560,8 +8560,8 @@ _ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit18: ; preds = %if.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit, %_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI21b3GpuSolverConstraintE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1212,7 +1212,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit.i: ; preds = %262
   br label %307
 
 .noexc45.i:                                       ; preds = %297, %292
-  %.sroa.018.1.i.ph = phi i64 [ -9223372036854775808, %292 ], [ %.sroa.018.0.copyload.i, %297 ]
+  %.sroa.018.0.i.ph = phi i64 [ -9223372036854775808, %292 ], [ %.sroa.018.0.copyload.i, %297 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10268, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.421.i, i64 16, i1 false), !noalias !230
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67), !noalias !231
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf31e025db49f886fE.llvm.9508512976823631026"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72)
@@ -1247,7 +1247,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit.i: ; preds = %262
           to label %.body unwind label %305, !noalias !201
 
 307:                                              ; preds = %298, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3c5dca1c1d201352E.exit.i167"
-  %.sroa.018.1.i333 = phi i64 [ %.sroa.018.1.i.ph, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3c5dca1c1d201352E.exit.i167" ], [ %.sroa.012.sroa.0.0.copyload.i, %298 ]
+  %.sroa.018.0.i333 = phi i64 [ %.sroa.018.0.i.ph, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3c5dca1c1d201352E.exit.i167" ], [ %.sroa.012.sroa.0.0.copyload.i, %298 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72), !noalias !191
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74), !noalias !191
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.421.i)
@@ -1259,7 +1259,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit.i: ; preds = %262
   %.sroa.5273.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 16
   store i64 %.sroa.525.0.copyload.i, ptr %.sroa.5273.0..sroa_idx, align 8
   %.sroa.6274.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 24
-  store i64 %.sroa.018.1.i333, ptr %.sroa.6274.0..sroa_idx, align 8
+  store i64 %.sroa.018.0.i333, ptr %.sroa.6274.0..sroa_idx, align 8
   %.sroa.8276.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 48
   store ptr %253, ptr %.sroa.8276.0..sroa_idx, align 8
   %.sroa.9277.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 56

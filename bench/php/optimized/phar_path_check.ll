@@ -53,8 +53,8 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
-  %.not145 = icmp eq i8 %16, 0
-  br i1 %.not145, label %49, label %.loopexit
+  %.not144 = icmp eq i8 %16, 0
+  br i1 %.not144, label %49, label %.loopexit
 
 23:                                               ; preds = %20
   %24 = icmp ult i8 %16, 26
@@ -138,9 +138,9 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   %61 = ptrtoint ptr %59 to i64
   %62 = xor i64 %61, -1
   %63 = add i64 %62, %60
-  %.not146 = icmp eq i64 %63, %58
-  %..str.2 = select i1 %.not146, ptr null, ptr @.str.2
-  %. = select i1 %.not146, i32 1, i32 7
+  %.not145 = icmp eq i64 %63, %58
+  %..str.2 = select i1 %.not145, ptr null, ptr @.str.2
+  %. = select i1 %.not145, i32 1, i32 7
   br label %.loopexit
 
 64:                                               ; preds = %23, %27, %119, %86, %36, %28

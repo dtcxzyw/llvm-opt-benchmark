@@ -79266,7 +79266,7 @@ invoke.cont3:                                     ; preds = %_ZNSt12__shared_ptr
   br i1 %cmp113, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit, %invoke.cont3
-  %expr.sroa.0.0 = phi ptr [ %10, %invoke.cont3 ], [ %call.i38, %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit ]
+  %expr.sroa.0.1 = phi ptr [ %10, %invoke.cont3 ], [ %call.i38, %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp15) #38
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1634)
@@ -79316,7 +79316,7 @@ lpad2:                                            ; preds = %_ZNSt12__shared_ptr
   br label %ehcleanup22
 
 for.body:                                         ; preds = %invoke.cont3, %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit
-  %expr.sroa.0.1 = phi ptr [ %call.i38, %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit ], [ %10, %invoke.cont3 ]
+  %expr.sroa.0.0 = phi ptr [ %call.i38, %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit ], [ %10, %invoke.cont3 ]
   %i.0114 = phi i64 [ %inc, %_ZNSt10unique_ptrIN6duckdb21ConjunctionExpressionESt14default_deleteIS1_EED2Ev.exit ], [ 1, %invoke.cont3 ]
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %expression_list, i64 noundef %i.0114)
           to label %invoke.cont10 unwind label %lpad9
@@ -79328,7 +79328,7 @@ invoke.cont10:                                    ; preds = %for.body
           to label %call.i.noexc unwind label %lpad9
 
 call.i.noexc:                                     ; preds = %invoke.cont10
-  %20 = ptrtoint ptr %expr.sroa.0.1 to i64
+  %20 = ptrtoint ptr %expr.sroa.0.0 to i64
   store i64 %20, ptr %agg.tmp.i, align 8, !tbaa !6, !noalias !1637
   %21 = load i64, ptr %call11, align 8, !tbaa !6, !noalias !1637
   store i64 %21, ptr %agg.tmp5.i, align 8, !tbaa !6, !noalias !1637
@@ -79431,7 +79431,7 @@ call5.i.i.i19.i.i.noexc:                          ; preds = %invoke.cont17
   store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !49
   store <2 x ptr> %35, ptr %agg.tmp.i15, align 16, !tbaa !6
   store ptr null, ptr %ref.tmp15, align 16, !tbaa !919
-  %36 = ptrtoint ptr %expr.sroa.0.0 to i64
+  %36 = ptrtoint ptr %expr.sroa.0.1 to i64
   store i64 %36, ptr %agg.tmp3.i, align 8, !tbaa !6
   invoke void @_ZN6duckdb14FilterRelationC1ESt10shared_ptrINS_8RelationEENS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS5_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i, ptr noundef nonnull %agg.tmp.i15, ptr noundef nonnull %agg.tmp3.i)
           to label %invoke.cont.i18 unwind label %lpad.i17
@@ -79693,28 +79693,28 @@ lpad18:                                           ; preds = %invoke.cont17
   br label %lpad18.body
 
 lpad18.body:                                      ; preds = %lpad18, %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit9.i
-  %expr.sroa.0.2 = phi ptr [ null, %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit9.i ], [ %expr.sroa.0.0, %lpad18 ]
+  %expr.sroa.0.3 = phi ptr [ null, %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit9.i ], [ %expr.sroa.0.1, %lpad18 ]
   %eh.lpad-body103 = phi { ptr, i32 } [ %46, %_ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit9.i ], [ %72, %lpad18 ]
   call void @_ZNSt12__shared_ptrIN6duckdb8RelationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #38
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad18.body, %lpad16
-  %expr.sroa.0.3 = phi ptr [ %expr.sroa.0.0, %lpad16 ], [ %expr.sroa.0.2, %lpad18.body ]
+  %expr.sroa.0.4 = phi ptr [ %expr.sroa.0.1, %lpad16 ], [ %expr.sroa.0.3, %lpad18.body ]
   %.pn = phi { ptr, i32 } [ %71, %lpad16 ], [ %eh.lpad-body103, %lpad18.body ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp15) #38
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad9
-  %expr.sroa.0.4 = phi ptr [ %expr.sroa.0.3, %ehcleanup ], [ %expr.sroa.0.1, %lpad9 ]
+  %expr.sroa.0.2 = phi ptr [ %expr.sroa.0.4, %ehcleanup ], [ %expr.sroa.0.0, %lpad9 ]
   %.pn29 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %33, %lpad9 ]
-  %cmp.not.i91 = icmp eq ptr %expr.sroa.0.4, null
+  %cmp.not.i91 = icmp eq ptr %expr.sroa.0.2, null
   br i1 %cmp.not.i91, label %ehcleanup22, label %_ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i92
 
 _ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i92: ; preds = %ehcleanup21
-  %vtable.i.i93 = load ptr, ptr %expr.sroa.0.4, align 8, !tbaa !3
+  %vtable.i.i93 = load ptr, ptr %expr.sroa.0.2, align 8, !tbaa !3
   %vfn.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i93, i64 8
   %73 = load ptr, ptr %vfn.i.i94, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(56) %expr.sroa.0.4) #38
+  call void %73(ptr noundef nonnull align 8 dereferenceable(56) %expr.sroa.0.2) #38
   br label %ehcleanup22
 
 ehcleanup22:                                      ; preds = %ehcleanup21.thread, %_ZNKSt14default_deleteIN6duckdb16ParsedExpressionEEclEPS1_.exit.i92, %ehcleanup21, %lpad2

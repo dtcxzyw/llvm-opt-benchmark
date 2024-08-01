@@ -439,7 +439,7 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
   %50 = phi ptr [ %169, %166 ], [ %47, %btree_insert.exit ]
   %51 = phi ptr [ %168, %166 ], [ %46, %btree_insert.exit ]
   %52 = phi ptr [ %167, %166 ], [ %15, %btree_insert.exit ]
-  %.04360 = phi ptr [ %.3, %166 ], [ %5, %btree_insert.exit ]
+  %.04360 = phi ptr [ %.2, %166 ], [ %5, %btree_insert.exit ]
   %53 = getelementptr inbounds i8, ptr %51, i64 64
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 72
@@ -607,8 +607,8 @@ right_rotate.exit56:                              ; preds = %129, %132
   br label %140
 
 140:                                              ; preds = %right_rotate.exit56, %125
-  %.2 = phi ptr [ %51, %right_rotate.exit56 ], [ %.04360, %125 ]
-  %141 = getelementptr inbounds i8, ptr %.2, i64 64
+  %.3 = phi ptr [ %51, %right_rotate.exit56 ], [ %.04360, %125 ]
+  %141 = getelementptr inbounds i8, ptr %.3, i64 64
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 56
   store i32 1, ptr %143, align 8
@@ -652,8 +652,8 @@ left_rotate.exit59:                               ; preds = %140, %155
   br label %166
 
 166:                                              ; preds = %117, %left_rotate.exit59, %64, %right_rotate.exit
-  %.3 = phi ptr [ %71, %64 ], [ %.1, %right_rotate.exit ], [ %124, %117 ], [ %.2, %left_rotate.exit59 ]
-  %167 = getelementptr inbounds i8, ptr %.3, i64 64
+  %.2 = phi ptr [ %71, %64 ], [ %.1, %right_rotate.exit ], [ %124, %117 ], [ %.3, %left_rotate.exit59 ]
+  %167 = getelementptr inbounds i8, ptr %.2, i64 64
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 56
   %170 = load i32, ptr %169, align 8

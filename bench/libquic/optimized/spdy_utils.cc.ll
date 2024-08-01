@@ -485,9 +485,9 @@ if.then.i.i.i21:                                  ; preds = %invoke.cont.i19
   br label %cleanup35
 
 cleanup35:                                        ; preds = %invoke.cont3, %invoke.cont3.thread, %invoke.cont.i19, %if.then.i.i.i21, %if.then.i.i.i10, %invoke.cont.i, %invoke.cont, %invoke.cont1
-  %retval.1 = phi i1 [ false, %invoke.cont1 ], [ false, %invoke.cont ], [ false, %invoke.cont.i ], [ false, %if.then.i.i.i10 ], [ true, %if.then.i.i.i21 ], [ true, %invoke.cont.i19 ], [ true, %invoke.cont3.thread ], [ true, %invoke.cont3 ]
+  %retval.0 = phi i1 [ false, %invoke.cont1 ], [ false, %invoke.cont ], [ false, %invoke.cont.i ], [ false, %if.then.i.i.i10 ], [ true, %if.then.i.i.i21 ], [ true, %invoke.cont.i19 ], [ true, %invoke.cont3.thread ], [ true, %invoke.cont3 ]
   call void @_ZN3net10SpdyFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(259) %framer) #9
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad21, %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %19, %lpad21 ], [ %1, %lpad ], [ %18, %lpad8 ]
@@ -1110,8 +1110,8 @@ if.end90:                                         ; preds = %_ZN4base11ContainsK
   br label %return
 
 return:                                           ; preds = %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit, %for.body, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.end90
-  %retval.1 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %if.end90 ], [ false, %for.body ], [ false, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ true, %if.end90 ], [ false, %for.body ], [ false, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbcEEbT_SD_T0_.exit ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad75, %lpad61, %lpad35, %lpad33, %lpad
   %.pn = phi { ptr, i32 } [ %45, %lpad ], [ %47, %lpad35 ], [ %46, %lpad33 ], [ %70, %lpad75 ], [ %69, %lpad61 ]

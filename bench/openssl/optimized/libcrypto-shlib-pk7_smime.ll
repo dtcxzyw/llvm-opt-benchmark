@@ -333,8 +333,8 @@ err.sink.split:                                   ; preds = %if.then24, %pkcs7_c
   br label %err
 
 err:                                              ; preds = %err.sink.split, %land.lhs.true, %pkcs7_copy_existing_digest.exit, %add_cipher_smcap.exit, %lor.lhs.false, %lor.lhs.false30, %lor.lhs.false33, %lor.lhs.false36, %lor.lhs.false39, %lor.lhs.false42, %lor.lhs.false45, %lor.lhs.false48, %lor.lhs.false51, %lor.lhs.false54, %lor.lhs.false57, %lor.lhs.false60, %if.then14, %if.then6
-  %smcap.1 = phi ptr [ null, %land.lhs.true ], [ null, %pkcs7_copy_existing_digest.exit ], [ %call22, %lor.lhs.false60 ], [ %call22, %lor.lhs.false57 ], [ %call22, %lor.lhs.false54 ], [ %call22, %lor.lhs.false51 ], [ %call22, %lor.lhs.false48 ], [ %call22, %lor.lhs.false45 ], [ %call22, %lor.lhs.false42 ], [ %call22, %lor.lhs.false39 ], [ %call22, %lor.lhs.false36 ], [ %call22, %lor.lhs.false33 ], [ %call22, %lor.lhs.false30 ], [ %call22, %lor.lhs.false ], [ %call22, %add_cipher_smcap.exit ], [ null, %if.then14 ], [ null, %if.then6 ], [ null, %err.sink.split ]
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %smcap.1, ptr noundef nonnull @X509_ALGOR_free) #2
+  %smcap.0 = phi ptr [ null, %land.lhs.true ], [ null, %pkcs7_copy_existing_digest.exit ], [ %call22, %lor.lhs.false60 ], [ %call22, %lor.lhs.false57 ], [ %call22, %lor.lhs.false54 ], [ %call22, %lor.lhs.false51 ], [ %call22, %lor.lhs.false48 ], [ %call22, %lor.lhs.false45 ], [ %call22, %lor.lhs.false42 ], [ %call22, %lor.lhs.false39 ], [ %call22, %lor.lhs.false36 ], [ %call22, %lor.lhs.false33 ], [ %call22, %lor.lhs.false30 ], [ %call22, %lor.lhs.false ], [ %call22, %add_cipher_smcap.exit ], [ null, %if.then14 ], [ null, %if.then6 ], [ null, %err.sink.split ]
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %smcap.0, ptr noundef nonnull @X509_ALGOR_free) #2
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end74, %land.lhs.true, %if.end67, %err, %if.then2, %if.then

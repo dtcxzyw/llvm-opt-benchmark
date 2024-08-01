@@ -314,8 +314,8 @@ invoke.cont63:                                    ; preds = %while.end62
   br i1 %cmp65, label %while.cond68.preheader, label %if.end113
 
 while.cond68.preheader:                           ; preds = %invoke.cont63
-  %p.2308 = add nuw nsw i32 %p.1.lcssa, 1
-  %cmp69309 = icmp slt i32 %p.2308, %cond.i89
+  %p.3308 = add nuw nsw i32 %p.1.lcssa, 1
+  %cmp69309 = icmp slt i32 %p.3308, %cond.i89
   br i1 %cmp69309, label %while.body70.lr.ph, label %while.end105.thread
 
 while.end105.thread:                              ; preds = %while.cond68.preheader
@@ -326,7 +326,7 @@ while.end105.thread:                              ; preds = %while.cond68.prehea
 while.body70.lr.ph:                               ; preds = %while.cond68.preheader
   %fBuffer.i.i.i143 = getelementptr inbounds i8, ptr %descriptor, i64 10
   %fArray.i.i.i144 = getelementptr inbounds i8, ptr %descriptor, i64 24
-  %38 = zext i32 %p.2308 to i64
+  %38 = zext i32 %p.3308 to i64
   br label %while.body70
 
 while.body70:                                     ; preds = %while.body70.lr.ph, %if.end103
@@ -391,8 +391,8 @@ while.end105.split.loop.exit360:                  ; preds = %if.else84
 
 while.end105:                                     ; preds = %if.end103, %while.end105.split.loop.exit360
   %val.2.lcssa = phi i32 [ %val.2310, %while.end105.split.loop.exit360 ], [ %val.3, %if.end103 ]
-  %p.2.lcssa = phi i32 [ %50, %while.end105.split.loop.exit360 ], [ %cond.i89, %if.end103 ]
-  %c.3 = phi i16 [ 62, %while.end105.split.loop.exit360 ], [ %retval.0.i.i140265, %if.end103 ]
+  %p.3.lcssa = phi i32 [ %50, %while.end105.split.loop.exit360 ], [ %cond.i89, %if.end103 ]
+  %c.4 = phi i16 [ 62, %while.end105.split.loop.exit360 ], [ %retval.0.i.i140265, %if.end103 ]
   %radix = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %val.2.lcssa, ptr %radix, align 8
   %cmp108 = icmp eq i32 %val.2.lcssa, 0
@@ -400,8 +400,8 @@ while.end105:                                     ; preds = %if.end103, %while.e
 
 if.end110:                                        ; preds = %while.end105.thread, %while.end105
   %radix354 = phi ptr [ %radix345, %while.end105.thread ], [ %radix, %while.end105 ]
-  %c.3352 = phi i16 [ 47, %while.end105.thread ], [ %c.3, %while.end105 ]
-  %p.2.lcssa349 = phi i32 [ %p.2308, %while.end105.thread ], [ %p.2.lcssa, %while.end105 ]
+  %c.4352 = phi i16 [ 47, %while.end105.thread ], [ %c.4, %while.end105 ]
+  %p.3.lcssa349 = phi i32 [ %p.3308, %while.end105.thread ], [ %p.3.lcssa, %while.end105 ]
   store i32 9, ptr %status, align 4
   %.pr = load i32, ptr %radix354, align 8
   %cmp.i = icmp eq i32 %.pr, 0
@@ -409,8 +409,8 @@ if.end110:                                        ; preds = %while.end105.thread
 
 lor.lhs.false.i:                                  ; preds = %while.end105, %if.end110
   %radix353 = phi ptr [ %radix, %while.end105 ], [ %radix354, %if.end110 ]
-  %c.3350 = phi i16 [ %c.3, %while.end105 ], [ %c.3352, %if.end110 ]
-  %p.2.lcssa347 = phi i32 [ %p.2.lcssa, %while.end105 ], [ %p.2.lcssa349, %if.end110 ]
+  %c.4350 = phi i16 [ %c.4, %while.end105 ], [ %c.4352, %if.end110 ]
+  %p.3.lcssa347 = phi i32 [ %p.3.lcssa, %while.end105 ], [ %p.3.lcssa349, %if.end110 ]
   %51 = load i64, ptr %this, align 8
   %cmp2.i = icmp slt i64 %51, 1
   br i1 %cmp2.i, label %invoke.cont111, label %if.end.i
@@ -441,17 +441,17 @@ call11.i.noexc:                                   ; preds = %call6.i.noexc
   br label %invoke.cont111
 
 invoke.cont111:                                   ; preds = %call11.i.noexc, %lor.lhs.false.i, %if.end110
-  %c.3351 = phi i16 [ %c.3350, %call11.i.noexc ], [ %c.3350, %lor.lhs.false.i ], [ %c.3352, %if.end110 ]
-  %p.2.lcssa348 = phi i32 [ %p.2.lcssa347, %call11.i.noexc ], [ %p.2.lcssa347, %lor.lhs.false.i ], [ %p.2.lcssa349, %if.end110 ]
+  %c.4351 = phi i16 [ %c.4350, %call11.i.noexc ], [ %c.4350, %lor.lhs.false.i ], [ %c.4352, %if.end110 ]
+  %p.3.lcssa348 = phi i32 [ %p.3.lcssa347, %call11.i.noexc ], [ %p.3.lcssa347, %lor.lhs.false.i ], [ %p.3.lcssa349, %if.end110 ]
   %retval.0.i = phi i16 [ %spec.select.i, %call11.i.noexc ], [ 0, %lor.lhs.false.i ], [ 0, %if.end110 ]
   %exponent = getelementptr inbounds i8, ptr %this, i64 12
   store i16 %retval.0.i, ptr %exponent, align 4
   br label %if.end113
 
 if.end113:                                        ; preds = %invoke.cont111, %invoke.cont63
-  %p.3 = phi i32 [ %p.2.lcssa348, %invoke.cont111 ], [ %p.1.lcssa, %invoke.cont63 ]
-  %c.4 = phi i16 [ %c.3351, %invoke.cont111 ], [ %c.1, %invoke.cont63 ]
-  %cmp115 = icmp eq i16 %c.4, 62
+  %p.2 = phi i32 [ %p.3.lcssa348, %invoke.cont111 ], [ %p.1.lcssa, %invoke.cont63 ]
+  %c.2 = phi i16 [ %c.4351, %invoke.cont111 ], [ %c.1, %invoke.cont63 ]
+  %cmp115 = icmp eq i16 %c.2, 62
   br i1 %cmp115, label %invoke.cont118.preheader, label %cleanup.thread
 
 invoke.cont118.preheader:                         ; preds = %if.end113
@@ -461,7 +461,7 @@ invoke.cont118.preheader:                         ; preds = %if.end113
   %shr.i.i154 = sext i16 %56 to i32
   %57 = load i32, ptr %fLength.i.i79, align 4
   %cond.i156 = select i1 %cmp.i.i153, i32 %57, i32 %shr.i.i154
-  %cmp120319 = icmp slt i32 %p.3, %cond.i156
+  %cmp120319 = icmp slt i32 %p.2, %cond.i156
   br i1 %cmp120319, label %while.body121.lr.ph, label %cleanup.thread
 
 while.body121.lr.ph:                              ; preds = %invoke.cont118.preheader
@@ -473,7 +473,7 @@ while.body121.lr.ph:                              ; preds = %invoke.cont118.preh
   %cond.i2.i.i168 = select i1 %tobool.not.i.i.i165, ptr %59, ptr %fBuffer.i.i.i166
   %exponent127 = getelementptr inbounds i8, ptr %this, i64 12
   %exponent127.promoted = load i16, ptr %exponent127, align 4
-  %60 = sext i32 %p.3 to i64
+  %60 = sext i32 %p.2 to i64
   br label %while.body121
 
 while.body121:                                    ; preds = %while.body121.lr.ph, %if.then130
@@ -3519,14 +3519,14 @@ if.else82:                                        ; preds = %land.lhs.true72, %i
 return.sink.split:                                ; preds = %if.then76, %if.else82, %while.end, %cleanup.thread
   %result57.sink = phi ptr [ %result, %cleanup.thread ], [ %result, %while.end ], [ %result57, %if.else82 ], [ %result57, %if.then76 ]
   %tempPP56.sink = phi ptr [ %tempPP, %cleanup.thread ], [ %tempPP, %while.end ], [ %tempPP56, %if.else82 ], [ %tempPP56, %if.then76 ]
-  %retval.4.ph = phi double [ %12, %cleanup.thread ], [ 0.000000e+00, %while.end ], [ 0.000000e+00, %if.else82 ], [ %22, %if.then76 ]
+  %retval.0.ph = phi double [ %12, %cleanup.thread ], [ 0.000000e+00, %while.end ], [ 0.000000e+00, %if.else82 ], [ %22, %if.then76 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %result57.sink) #8
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %tempPP56.sink) #8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else52, %if.then
-  %retval.4 = phi double [ 0.000000e+00, %if.then ], [ %_baseValue, %if.else52 ], [ %retval.4.ph, %return.sink.split ]
-  ret double %retval.4
+  %retval.0 = phi double [ 0.000000e+00, %if.then ], [ %_baseValue, %if.else52 ], [ %retval.0.ph, %return.sink.split ]
+  ret double %retval.0
 
 eh.resume:                                        ; preds = %lpad58, %lpad64, %lpad, %ehcleanup
   %tempPP56.sink55 = phi ptr [ %tempPP, %ehcleanup ], [ %tempPP, %lpad ], [ %tempPP56, %lpad64 ], [ %tempPP56, %lpad58 ]
@@ -3693,8 +3693,8 @@ while.cond:                                       ; preds = %invoke.cont28, %inv
   br i1 %cmp34.not, label %while.end79, label %while.cond35
 
 while.cond35:                                     ; preds = %while.cond, %while.body40
-  %oStr.1 = phi i32 [ %call44, %while.body40 ], [ %oStr.0, %while.cond ]
-  %cmp38 = icmp ult i32 %oStr.1, 65536
+  %oStr.2 = phi i32 [ %call44, %while.body40 ], [ %oStr.0, %while.cond ]
+  %cmp38 = icmp ult i32 %oStr.2, 65536
   br i1 %cmp38, label %while.body40, label %while.cond45
 
 while.body40:                                     ; preds = %while.cond35
@@ -3715,8 +3715,8 @@ while.end57:                                      ; preds = %while.cond45
   br i1 %cmp58, label %while.end79, label %if.end60
 
 if.end60:                                         ; preds = %while.end57
-  %cmp61 = icmp ne i32 %oStr.1, -1
-  %cmp68.not.unshifted = xor i32 %oPrefix.1, %oStr.1
+  %cmp61 = icmp ne i32 %oStr.2, -1
+  %cmp68.not.unshifted = xor i32 %oPrefix.1, %oStr.2
   %cmp68.not = icmp ult i32 %cmp68.not.unshifted, 65536
   %or.cond = and i1 %cmp61, %cmp68.not
   br i1 %or.cond, label %if.else, label %cleanup
@@ -3731,19 +3731,19 @@ invoke.cont72:                                    ; preds = %if.else
           to label %while.cond unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !16
 
 while.end79:                                      ; preds = %while.end57, %while.cond
-  %oStr.2 = phi i32 [ %oStr.1, %while.end57 ], [ %oStr.0, %while.cond ]
+  %oStr.1 = phi i32 [ %oStr.2, %while.end57 ], [ %oStr.0, %while.cond ]
   %call83 = invoke noundef i32 @_ZNK6icu_7524CollationElementIterator9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(104) %call14)
           to label %invoke.cont82 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont82:                                    ; preds = %while.end79
-  %cmp84.not = icmp ne i32 %oStr.2, -1
+  %cmp84.not = icmp ne i32 %oStr.1, -1
   %dec = sext i1 %cmp84.not to i32
   %spec.select = add nsw i32 %call83, %dec
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end60, %invoke.cont82, %if.then24
   %20 = phi ptr [ %call15, %if.then24 ], [ %18, %invoke.cont82 ], [ %18, %if.end60 ]
-  %retval.0 = phi i32 [ 0, %if.then24 ], [ %spec.select, %invoke.cont82 ], [ 0, %if.end60 ]
+  %retval.1 = phi i32 [ 0, %if.then24 ], [ %spec.select, %invoke.cont82 ], [ 0, %if.end60 ]
   %isnull.i = icmp eq ptr %20, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerINS_24CollationElementIteratorEED2Ev.exit, label %delete.notnull.i
 
@@ -3813,8 +3813,8 @@ if.then91:                                        ; preds = %_ZNK6icu_7513Unicod
   br label %return
 
 return:                                           ; preds = %if.else.i.i45, %delete.notnull.i32, %_ZN6icu_7512LocalPointerINS_24CollationElementIteratorEED2Ev.exit, %_ZNK6icu_7513UnicodeString10startsWithERKS0_.exit60, %entry, %if.then91, %if.then12, %if.then6
-  %retval.1 = phi i32 [ %cond.i25, %if.then6 ], [ 0, %if.then12 ], [ %cond.i65, %if.then91 ], [ 0, %entry ], [ 0, %_ZNK6icu_7513UnicodeString10startsWithERKS0_.exit60 ], [ %retval.0, %_ZN6icu_7512LocalPointerINS_24CollationElementIteratorEED2Ev.exit ], [ %retval.0, %delete.notnull.i32 ], [ 0, %if.else.i.i45 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %cond.i25, %if.then6 ], [ 0, %if.then12 ], [ %cond.i65, %if.then91 ], [ 0, %entry ], [ 0, %_ZNK6icu_7513UnicodeString10startsWithERKS0_.exit60 ], [ %retval.1, %_ZN6icu_7512LocalPointerINS_24CollationElementIteratorEED2Ev.exit ], [ %retval.1, %delete.notnull.i32 ], [ 0, %if.else.i.i45 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3902,9 +3902,9 @@ delete.notnull.i:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %cleanup.thread, %delete.notnull.i, %cleanup, %if.end, %entry, %if.then7
-  %retval.1.shrunk = phi i1 [ false, %if.then7 ], [ true, %entry ], [ false, %if.end ], [ %cmp18.not, %cleanup ], [ %cmp18.not, %delete.notnull.i ], [ false, %cleanup.thread ]
-  %retval.1 = zext i1 %retval.1.shrunk to i8
-  ret i8 %retval.1
+  %retval.0.shrunk = phi i1 [ false, %if.then7 ], [ true, %entry ], [ false, %if.end ], [ %cmp18.not, %cleanup ], [ %cmp18.not, %delete.notnull.i ], [ false, %cleanup.thread ]
+  %retval.0 = zext i1 %retval.0.shrunk to i8
+  ret i8 %retval.0
 }
 
 declare void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1

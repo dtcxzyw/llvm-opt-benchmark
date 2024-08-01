@@ -1020,7 +1020,7 @@ for.body:                                         ; preds = %for.cond141.prehead
   %i32Ptr.0810 = phi ptr [ %i32Ptr.1702, %for.cond141 ], [ %82, %for.cond141.preheader ]
   %i16Ptr.0809 = phi ptr [ %i16Ptr.1700, %for.cond141 ], [ %82, %for.cond141.preheader ]
   %i8Ptr.0808 = phi ptr [ %i8Ptr.1698, %for.cond141 ], [ %82, %for.cond141.preheader ]
-  %longArg.1807 = phi i64 [ %longArg.2696, %for.cond141 ], [ %longArg.0.ph, %for.cond141.preheader ]
+  %longArg.3807 = phi i64 [ %longArg.4696, %for.cond141 ], [ %longArg.0.ph, %for.cond141.preheader ]
   switch i8 %73, label %sw.epilog [
     i8 98, label %sw.bb145
     i8 104, label %sw.bb147
@@ -1410,7 +1410,7 @@ sw.epilog:                                        ; preds = %for.body
   br i1 %cmp172, label %for.body.preheader.i485, label %if.end174
 
 for.body.preheader.i485:                          ; preds = %sw.epilog, %sw.bb153, %sw.bb150, %sw.bb147, %sw.bb145
-  %longArg.2697744 = phi i64 [ %93, %sw.bb153 ], [ %conv152, %sw.bb150 ], [ %conv149, %sw.bb147 ], [ %conv146, %sw.bb145 ], [ %longArg.1807, %sw.epilog ]
+  %longArg.4697744 = phi i64 [ %93, %sw.bb153 ], [ %conv152, %sw.bb150 ], [ %conv149, %sw.bb147 ], [ %conv146, %sw.bb145 ], [ %longArg.3807, %sw.epilog ]
   %i8Ptr.1699743 = phi ptr [ %i8Ptr.0808, %sw.bb153 ], [ %i8Ptr.0808, %sw.bb150 ], [ %i8Ptr.0808, %sw.bb147 ], [ %incdec.ptr, %sw.bb145 ], [ %i8Ptr.0808, %sw.epilog ]
   %i16Ptr.1701741 = phi ptr [ %i16Ptr.0809, %sw.bb153 ], [ %i16Ptr.0809, %sw.bb150 ], [ %incdec.ptr148, %sw.bb147 ], [ %i16Ptr.0809, %sw.bb145 ], [ %i16Ptr.0809, %sw.epilog ]
   %i32Ptr.1703739 = phi ptr [ %i32Ptr.0810, %sw.bb153 ], [ %incdec.ptr151, %sw.bb150 ], [ %i32Ptr.0810, %sw.bb147 ], [ %i32Ptr.0810, %sw.bb145 ], [ %i32Ptr.0810, %sw.epilog ]
@@ -1429,7 +1429,7 @@ for.body.i487:                                    ; preds = %if.then28.i.i490, %
   br i1 %cmp21.i.i489, label %if.then22.i.i494, label %if.then28.i.i490
 
 if.then22.i.i494:                                 ; preds = %for.body.i487
-  %shr.i495 = ashr i64 %longArg.2697744, %indvars.iv.i488
+  %shr.i495 = ashr i64 %longArg.4697744, %indvars.iv.i488
   %and.i496 = and i64 %shr.i495, 15
   %arrayidx.i497 = getelementptr inbounds [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %and.i496
   %119 = load i8, ptr %arrayidx.i497, align 1
@@ -1510,14 +1510,14 @@ if.end174:                                        ; preds = %_ZL14outputPtrBytes
   %i32Ptr.1702 = phi ptr [ %i32Ptr.1703739, %_ZL10outputCharcPcPiii.exit536 ], [ %i32Ptr.0810, %sw.epilog ], [ %i32Ptr.0810, %_ZL10outputCharcPcPiii.exit484 ], [ %i32Ptr.0810, %_ZL10outputCharcPcPiii.exit455 ], [ %i32Ptr.0810, %_ZL10outputCharcPcPiii.exit370 ], [ %i32Ptr.0810, %_ZL14outputPtrBytesPvPcPii.exit329 ]
   %i16Ptr.1700 = phi ptr [ %i16Ptr.1701741, %_ZL10outputCharcPcPiii.exit536 ], [ %i16Ptr.0809, %sw.epilog ], [ %i16Ptr.0809, %_ZL10outputCharcPcPiii.exit484 ], [ %i16Ptr.0809, %_ZL10outputCharcPcPiii.exit455 ], [ %i16Ptr.0809, %_ZL10outputCharcPcPiii.exit370 ], [ %i16Ptr.0809, %_ZL14outputPtrBytesPvPcPii.exit329 ]
   %i8Ptr.1698 = phi ptr [ %i8Ptr.1699743, %_ZL10outputCharcPcPiii.exit536 ], [ %i8Ptr.0808, %sw.epilog ], [ %i8Ptr.0808, %_ZL10outputCharcPcPiii.exit484 ], [ %i8Ptr.0808, %_ZL10outputCharcPcPiii.exit455 ], [ %incdec.ptr161, %_ZL10outputCharcPcPiii.exit370 ], [ %i8Ptr.0808, %_ZL14outputPtrBytesPvPcPii.exit329 ]
-  %longArg.2696 = phi i64 [ %longArg.2697744, %_ZL10outputCharcPcPiii.exit536 ], [ %longArg.1807, %sw.epilog ], [ %conv170, %_ZL10outputCharcPcPiii.exit484 ], [ %conv165, %_ZL10outputCharcPcPiii.exit455 ], [ %conv160, %_ZL10outputCharcPcPiii.exit370 ], [ %conv157, %_ZL14outputPtrBytesPvPcPii.exit329 ]
-  %cmp176 = icmp eq i64 %longArg.2696, 0
+  %longArg.4696 = phi i64 [ %longArg.4697744, %_ZL10outputCharcPcPiii.exit536 ], [ %longArg.3807, %sw.epilog ], [ %conv170, %_ZL10outputCharcPcPiii.exit484 ], [ %conv165, %_ZL10outputCharcPcPiii.exit455 ], [ %conv160, %_ZL10outputCharcPcPiii.exit370 ], [ %conv157, %_ZL14outputPtrBytesPvPcPii.exit329 ]
+  %cmp176 = icmp eq i64 %longArg.4696, 0
   %or.cond = select i1 %cmp143, i1 %cmp176, i1 false
   br i1 %or.cond, label %if.end180, label %for.cond141
 
 if.end180:                                        ; preds = %if.end174, %for.cond141, %if.end25.i.us.i257, %if.end25.i.us81.i272, %for.cond141.preheader
   %outIx.promoted825 = phi i32 [ %outIx.promoted861, %for.cond141.preheader ], [ %inc.i.us73.i286.lcssa821824, %if.end25.i.us81.i272 ], [ %inc29.i.us.i260818, %if.end25.i.us.i257 ], [ %124, %for.cond141 ], [ %124, %if.end174 ]
-  %longArg.3 = phi i64 [ %longArg.0.ph, %for.cond141.preheader ], [ %longArg.0.ph, %if.end25.i.us81.i272 ], [ %longArg.0.ph, %if.end25.i.us.i257 ], [ 0, %if.end174 ], [ %longArg.2696, %for.cond141 ]
+  %longArg.2 = phi i64 [ %longArg.0.ph, %for.cond141.preheader ], [ %longArg.0.ph, %if.end25.i.us81.i272 ], [ %longArg.0.ph, %if.end25.i.us.i257 ], [ 0, %if.end174 ], [ %longArg.4696, %for.cond141 ]
   %cmp.i537 = icmp eq i32 %outIx.promoted825, 0
   br i1 %cmp.i537, label %if.then.i569, label %lor.lhs.false.i538
 
@@ -1768,7 +1768,7 @@ sw.epilog182.loopexit756:                         ; preds = %if.then28.i.i199
 
 for.cond.outer.backedge:                          ; preds = %sw.epilog182.loopexit756, %sw.epilog182.loopexit755, %sw.epilog182.loopexit754, %sw.epilog182.loopexit753, %sw.epilog182.loopexit752, %sw.epilog182.loopexit, %if.then28.i630, %if.end25.i628, %if.then28.i117, %if.end25.i115, %_ZL10outputCharcPcPiii.exit623, %_ZL10outputCharcPcPiii.exit248, %_ZL14outputPtrBytesPvPcPii.exit, %vaarg.end43
   %outIx.promoted763.be = phi i32 [ %inc29.i602, %_ZL10outputCharcPcPiii.exit623 ], [ %inc29.i227, %_ZL10outputCharcPcPiii.exit248 ], [ %69, %_ZL14outputPtrBytesPvPcPii.exit ], [ %outIx.promoted763.pre.pre, %vaarg.end43 ], [ %19, %if.end25.i115 ], [ %inc29.i118, %if.then28.i117 ], [ %136, %if.end25.i628 ], [ %inc29.i631, %if.then28.i630 ], [ %inc.i.us73.i.lcssa854857, %sw.epilog182.loopexit ], [ %inc29.i.us.i851, %sw.epilog182.loopexit752 ], [ %137, %sw.epilog182.loopexit753 ], [ %138, %sw.epilog182.loopexit754 ], [ %139, %sw.epilog182.loopexit755 ], [ %140, %sw.epilog182.loopexit756 ]
-  %longArg.0.ph.be = phi i64 [ %longArg.3, %_ZL10outputCharcPcPiii.exit623 ], [ %longArg.0.ph, %_ZL10outputCharcPcPiii.exit248 ], [ %longArg.0.ph, %_ZL14outputPtrBytesPvPcPii.exit ], [ %longArg.0.ph, %vaarg.end43 ], [ %longArg.0.ph, %if.end25.i115 ], [ %longArg.0.ph, %if.then28.i117 ], [ %longArg.0.ph, %if.end25.i628 ], [ %longArg.0.ph, %if.then28.i630 ], [ %longArg.0.ph, %sw.epilog182.loopexit ], [ %longArg.0.ph, %sw.epilog182.loopexit752 ], [ %longArg.0.ph, %sw.epilog182.loopexit753 ], [ %longArg.0.ph, %sw.epilog182.loopexit754 ], [ %longArg.0.ph, %sw.epilog182.loopexit755 ], [ %59, %sw.epilog182.loopexit756 ]
+  %longArg.0.ph.be = phi i64 [ %longArg.2, %_ZL10outputCharcPcPiii.exit623 ], [ %longArg.0.ph, %_ZL10outputCharcPcPiii.exit248 ], [ %longArg.0.ph, %_ZL14outputPtrBytesPvPcPii.exit ], [ %longArg.0.ph, %vaarg.end43 ], [ %longArg.0.ph, %if.end25.i115 ], [ %longArg.0.ph, %if.then28.i117 ], [ %longArg.0.ph, %if.end25.i628 ], [ %longArg.0.ph, %if.then28.i630 ], [ %longArg.0.ph, %sw.epilog182.loopexit ], [ %longArg.0.ph, %sw.epilog182.loopexit752 ], [ %longArg.0.ph, %sw.epilog182.loopexit753 ], [ %longArg.0.ph, %sw.epilog182.loopexit754 ], [ %longArg.0.ph, %sw.epilog182.loopexit755 ], [ %59, %sw.epilog182.loopexit756 ]
   %fmtIx.0.ph.be = phi i32 [ %spec.select, %_ZL10outputCharcPcPiii.exit623 ], [ %inc.lcssa, %_ZL10outputCharcPcPiii.exit248 ], [ %inc5, %_ZL14outputPtrBytesPvPcPii.exit ], [ %inc5, %vaarg.end43 ], [ %inc5, %if.end25.i115 ], [ %inc5, %if.then28.i117 ], [ %inc5, %if.end25.i628 ], [ %inc5, %if.then28.i630 ], [ %inc5, %sw.epilog182.loopexit ], [ %inc5, %sw.epilog182.loopexit752 ], [ %inc5, %sw.epilog182.loopexit753 ], [ %inc5, %sw.epilog182.loopexit754 ], [ %inc5, %sw.epilog182.loopexit755 ], [ %inc5, %sw.epilog182.loopexit756 ]
   br label %for.cond.outer, !llvm.loop !6
 

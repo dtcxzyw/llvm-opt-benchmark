@@ -1857,11 +1857,11 @@ define noundef double @_ZNK5Ipopt11DenseVector7MaxImplEv(ptr nocapture noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.068 = phi double [ %17, %.lr.ph.preheader ], [ %.sroa.speculated.i, %.lr.ph ]
+  %.18 = phi double [ %17, %.lr.ph.preheader ], [ %.sroa.speculated.i, %.lr.ph ]
   %19 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
-  %21 = fcmp olt double %20, %.068
-  %.sroa.speculated.i = select i1 %21, double %.068, double %20
+  %21 = fcmp olt double %20, %.18
+  %.sroa.speculated.i = select i1 %21, double %.18, double %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
@@ -1904,11 +1904,11 @@ define noundef double @_ZNK5Ipopt11DenseVector7MinImplEv(ptr nocapture noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.068 = phi double [ %17, %.lr.ph.preheader ], [ %.sroa.speculated.i, %.lr.ph ]
+  %.18 = phi double [ %17, %.lr.ph.preheader ], [ %.sroa.speculated.i, %.lr.ph ]
   %19 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
-  %21 = fcmp olt double %.068, %20
-  %.sroa.speculated.i = select i1 %21, double %.068, double %20
+  %21 = fcmp olt double %.18, %20
+  %.sroa.speculated.i = select i1 %21, double %.18, double %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
@@ -1948,17 +1948,17 @@ define noundef double @_ZNK5Ipopt11DenseVector7SumImplEv(ptr nocapture noundef n
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %.056 = phi double [ 0.000000e+00, %.lr.ph ], [ %20, %17 ]
+  %.16 = phi double [ 0.000000e+00, %.lr.ph ], [ %20, %17 ]
   %18 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   %19 = load double, ptr %18, align 8
-  %20 = fadd double %.056, %19
+  %20 = fadd double %.16, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !28
 
 .loopexit:                                        ; preds = %17, %.preheader, %12
-  %.1 = phi double [ %16, %12 ], [ 0.000000e+00, %.preheader ], [ %20, %17 ]
-  ret double %.1
+  %.05 = phi double [ %16, %12 ], [ 0.000000e+00, %.preheader ], [ %20, %17 ]
+  ret double %.05
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
@@ -1994,12 +1994,12 @@ define noundef double @_ZNK5Ipopt11DenseVector11SumLogsImplEv(ptr nocapture noun
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.056 = phi double [ 0.000000e+00, %.lr.ph ], [ %24, %19 ]
+  %.16 = phi double [ 0.000000e+00, %.lr.ph ], [ %24, %19 ]
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
   %22 = load double, ptr %21, align 8
   %23 = tail call double @log(double noundef %22) #15
-  %24 = fadd double %.056, %23
+  %24 = fadd double %.16, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load ptr, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 12
@@ -2009,8 +2009,8 @@ define noundef double @_ZNK5Ipopt11DenseVector11SumLogsImplEv(ptr nocapture noun
   br i1 %29, label %19, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %19, %.preheader, %1, %13
-  %.1 = phi double [ %18, %13 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.preheader ], [ %24, %19 ]
-  ret double %.1
+  %.05 = phi double [ %18, %13 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %.preheader ], [ %24, %19 ]
+  ret double %.05
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -4098,19 +4098,19 @@ define noundef double @_ZNK5Ipopt11DenseVector15FracToBoundImplERKNS_6VectorEd(p
 
 55:                                               ; preds = %.lr.ph54, %55
   %indvars.iv63 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next64, %55 ]
-  %.252 = phi double [ 1.000000e+00, %.lr.ph54 ], [ %.sroa.speculated.i44, %55 ]
+  %.352 = phi double [ 1.000000e+00, %.lr.ph54 ], [ %.sroa.speculated.i44, %55 ]
   %56 = getelementptr inbounds double, ptr %11, i64 %indvars.iv63
   %57 = load double, ptr %56, align 8
   %58 = fmul double %54, %57
-  %59 = fcmp olt double %58, %.252
-  %.sroa.speculated.i44 = select i1 %59, double %58, double %.252
+  %59 = fcmp olt double %58, %.352
+  %.sroa.speculated.i44 = select i1 %59, double %58, double %.352
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %.loopexit, label %55, !llvm.loop !86
 
 60:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.350 = phi double [ 1.000000e+00, %.lr.ph ], [ %.4, %70 ]
+  %.450 = phi double [ 1.000000e+00, %.lr.ph ], [ %.5, %70 ]
   %61 = getelementptr inbounds double, ptr %13, i64 %indvars.iv
   %62 = load double, ptr %61, align 8
   %63 = fcmp olt double %62, 0.000000e+00
@@ -4121,18 +4121,18 @@ define noundef double @_ZNK5Ipopt11DenseVector15FracToBoundImplERKNS_6VectorEd(p
   %66 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   %67 = load double, ptr %66, align 8
   %68 = fmul double %65, %67
-  %69 = fcmp olt double %68, %.350
-  %.sroa.speculated.i45 = select i1 %69, double %68, double %.350
+  %69 = fcmp olt double %68, %.450
+  %.sroa.speculated.i45 = select i1 %69, double %68, double %.450
   br label %70
 
 70:                                               ; preds = %60, %64
-  %.4 = phi double [ %.sroa.speculated.i45, %64 ], [ %.350, %60 ]
+  %.5 = phi double [ %.sroa.speculated.i45, %64 ], [ %.450, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !87
 
 .loopexit:                                        ; preds = %70, %55, %44, %.preheader48, %.preheader, %25, %29, %48, %3
-  %.038 = phi double [ 1.000000e+00, %3 ], [ %.sroa.speculated.i, %29 ], [ 1.000000e+00, %25 ], [ 1.000000e+00, %48 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.preheader48 ], [ %.1, %44 ], [ %.sroa.speculated.i44, %55 ], [ %.4, %70 ]
+  %.038 = phi double [ 1.000000e+00, %3 ], [ %.sroa.speculated.i, %29 ], [ 1.000000e+00, %25 ], [ 1.000000e+00, %48 ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %.preheader48 ], [ %.1, %44 ], [ %.sroa.speculated.i44, %55 ], [ %.5, %70 ]
   ret double %.038
 }
 

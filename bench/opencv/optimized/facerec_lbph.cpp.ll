@@ -877,14 +877,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit37:        ; preds = %_ZSt8_DestroyIPN2cv
 
 347:                                              ; preds = %346, %328
   %.pn20.pn.pn.pn = phi { ptr, i32 } [ %.pn20.pn.pn, %346 ], [ %329, %328 ]
-  %.4 = extractvalue { ptr, i32 } %.pn20.pn.pn.pn, 0
-  %.415 = extractvalue { ptr, i32 } %.pn20.pn.pn.pn, 1
+  %.2 = extractvalue { ptr, i32 } %.pn20.pn.pn.pn, 0
+  %.213 = extractvalue { ptr, i32 } %.pn20.pn.pn.pn, 1
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #19
   br label %348
 
 348:                                              ; preds = %143, %347, %324, %162, %158, %.body
-  %.516 = phi i32 [ %165, %162 ], [ %161, %158 ], [ %.415, %347 ], [ %327, %324 ], [ %146, %143 ], [ %127, %.body ]
-  %.5 = phi ptr [ %164, %162 ], [ %160, %158 ], [ %.4, %347 ], [ %326, %324 ], [ %145, %143 ], [ %126, %.body ]
+  %.112 = phi i32 [ %165, %162 ], [ %161, %158 ], [ %.213, %347 ], [ %327, %324 ], [ %146, %143 ], [ %127, %.body ]
+  %.1 = phi ptr [ %164, %162 ], [ %160, %158 ], [ %.2, %347 ], [ %326, %324 ], [ %145, %143 ], [ %126, %.body ]
   %349 = load ptr, ptr %14, align 8
   %.not.i.i.i38 = icmp eq ptr %349, null
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIiSaIiEED2Ev.exit39, label %350
@@ -899,10 +899,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit39:                  ; preds = %348, %350
   br label %351
 
 351:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit39, %120
-  %.617 = phi i32 [ %.516, %_ZNSt6vectorIiSaIiEED2Ev.exit39 ], [ %123, %120 ]
-  %.6 = phi ptr [ %.5, %_ZNSt6vectorIiSaIiEED2Ev.exit39 ], [ %122, %120 ]
-  %352 = insertvalue { ptr, i32 } poison, ptr %.6, 0
-  %353 = insertvalue { ptr, i32 } %352, i32 %.617, 1
+  %.011 = phi i32 [ %.112, %_ZNSt6vectorIiSaIiEED2Ev.exit39 ], [ %123, %120 ]
+  %.0 = phi ptr [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit39 ], [ %122, %120 ]
+  %352 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %353 = insertvalue { ptr, i32 } %352, i32 %.011, 1
   resume { ptr, i32 } %353
 
 354:                                              ; preds = %143

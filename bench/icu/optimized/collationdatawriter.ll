@@ -122,9 +122,9 @@ if.end21:                                         ; preds = %invoke.cont19, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end21, %if.then15, %if.then5
-  %buffer.sroa.0.3 = phi ptr [ %call2, %if.then15 ], [ null, %if.then5 ], [ %spec.select, %if.end21 ]
-  %retval.0 = phi ptr [ null, %if.then15 ], [ null, %if.then5 ], [ %spec.select37, %if.end21 ]
-  invoke void @uprv_free_75(ptr noundef %buffer.sroa.0.3)
+  %buffer.sroa.0.1 = phi ptr [ %call2, %if.then15 ], [ null, %if.then5 ], [ %spec.select, %if.end21 ]
+  %retval.1 = phi ptr [ null, %if.then15 ], [ null, %if.then5 ], [ %spec.select37, %if.end21 ]
+  invoke void @uprv_free_75(ptr noundef %buffer.sroa.0.1)
           to label %return unwind label %terminate.lpad.i26
 
 terminate.lpad.i26:                               ; preds = %cleanup
@@ -135,8 +135,8 @@ terminate.lpad.i26:                               ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: allocsize(0)
@@ -278,7 +278,7 @@ if.then38:                                        ; preds = %invoke.cont30
 if.end42:                                         ; preds = %if.then15, %if.then38, %invoke.cont30, %invoke.cont
   %fastLatinTableLength.0 = phi i32 [ %4, %invoke.cont ], [ %12, %if.then38 ], [ 0, %invoke.cont30 ], [ 0, %if.then15 ]
   %tobool78.not = phi i1 [ false, %invoke.cont ], [ false, %if.then38 ], [ false, %invoke.cont30 ], [ true, %if.then15 ]
-  %indexesLength.1 = phi i32 [ 20, %invoke.cont ], [ 17, %if.then38 ], [ %spec.select, %invoke.cont30 ], [ %.174, %if.then15 ]
+  %indexesLength.0 = phi i32 [ 20, %invoke.cont ], [ 17, %if.then38 ], [ %spec.select, %invoke.cont30 ], [ %.174, %if.then15 ]
   invoke void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %codesAndRanges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont43 unwind label %lpad
 
@@ -357,17 +357,17 @@ if.else71:                                        ; preds = %if.end68
   %21 = load i32, ptr %cesLength, align 8
   %cmp80.not = icmp eq i32 %21, 0
   %or.cond175 = select i1 %tobool78.not, i1 true, i1 %cmp80.not
-  %add = add nsw i32 %reorderCodesLength45.0, %indexesLength.1
+  %add = add nsw i32 %reorderCodesLength45.0, %indexesLength.0
   %22 = and i32 %add, 1
   %cmp83.not = icmp eq i32 %22, 0
   %23 = select i1 %or.cond175, i1 true, i1 %cmp83.not
-  %headerSize.0 = select i1 %23, i32 24, i32 28
-  %cmp90.not = icmp sgt i32 %headerSize.0, %capacity
+  %headerSize.1 = select i1 %23, i32 24, i32 28
+  %cmp90.not = icmp sgt i32 %headerSize.1, %capacity
   br i1 %cmp90.not, label %if.end100, label %do.body92
 
 do.body92:                                        ; preds = %if.else71
   %24 = load i32, ptr %dataVersion, align 1
-  %conv = trunc nuw nsw i32 %headerSize.0 to i16
+  %conv = trunc nuw nsw i32 %headerSize.1 to i16
   store i16 %conv, ptr %dest, align 1
   %header.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %dest, i64 2
   store i8 -38, ptr %header.sroa.2.0..sroa_idx, align 1
@@ -378,19 +378,19 @@ do.body92:                                        ; preds = %if.else71
   %header.sroa.4.sroa.2.0.header.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %dest, i64 20
   store i32 %24, ptr %header.sroa.4.sroa.2.0.header.sroa.4.0..sroa_idx.sroa_idx, align 1
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 24
-  %sub = add nsw i32 %headerSize.0, -24
+  %sub = add nsw i32 %headerSize.1, -24
   %conv95 = zext nneg i32 %sub to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv95, i1 false)
-  %idx.ext = zext nneg i32 %headerSize.0 to i64
+  %idx.ext = zext nneg i32 %headerSize.1 to i64
   %add.ptr96 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext
-  %sub97 = sub nsw i32 %capacity, %headerSize.0
+  %sub97 = sub nsw i32 %capacity, %headerSize.1
   br label %if.end100
 
 if.end100:                                        ; preds = %if.else71, %if.end68, %do.body92
-  %headerSize.1 = phi i32 [ %headerSize.0, %do.body92 ], [ 0, %if.end68 ], [ %headerSize.0, %if.else71 ]
+  %headerSize.0 = phi i32 [ %headerSize.1, %do.body92 ], [ 0, %if.end68 ], [ %headerSize.1, %if.else71 ]
   %capacity.addr.0 = phi i32 [ %sub97, %do.body92 ], [ %capacity, %if.end68 ], [ 0, %if.else71 ]
   %dest.addr.0 = phi ptr [ %add.ptr96, %do.body92 ], [ %dest, %if.end68 ], [ null, %if.else71 ]
-  store i32 %indexesLength.1, ptr %indexes, align 4
+  store i32 %indexesLength.0, ptr %indexes, align 4
   %numericPrimary = getelementptr inbounds i8, ptr %data, i64 56
   %25 = load i32, ptr %numericPrimary, align 8
   %or = or i32 %25, %.
@@ -403,7 +403,7 @@ if.end100:                                        ; preds = %if.else71, %if.end6
   store i32 0, ptr %arrayidx104, align 4
   %arrayidx105 = getelementptr inbounds i8, ptr %indexes, i64 12
   store i32 0, ptr %arrayidx105, align 4
-  %mul106 = shl nuw nsw i32 %indexesLength.1, 2
+  %mul106 = shl nuw nsw i32 %indexesLength.0, 2
   br i1 %tobool78.not, label %if.end119, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %if.end100
@@ -433,7 +433,7 @@ if.end119:                                        ; preds = %if.end100, %lor.lhs
   store i32 %.sink, ptr %arrayidx118, align 4
   %arrayidx120 = getelementptr inbounds i8, ptr %indexes, i64 20
   store i32 %mul106, ptr %arrayidx120, align 4
-  %mul106169 = add i32 %reorderCodesLength45.0, %indexesLength.1
+  %mul106169 = add i32 %reorderCodesLength45.0, %indexesLength.0
   %add122 = shl i32 %mul106169, 2
   %arrayidx123 = getelementptr i8, ptr %indexes, i64 24
   store i32 %add122, ptr %arrayidx123, align 4
@@ -812,7 +812,7 @@ do.body.i259:                                     ; preds = %_ZN6icu_7519Collati
   br label %cleanup
 
 cleanup:                                          ; preds = %do.body.i259, %_ZN6icu_7519CollationDataWriter8copyDataEPKiiPKvPh.exit255, %if.then246
-  %retval.0 = add nsw i32 %spec.select178, %headerSize.1
+  %retval.2 = add nsw i32 %spec.select178, %headerSize.0
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %scripts) #11
   br label %cleanup269
 
@@ -822,7 +822,7 @@ ehcleanup:                                        ; preds = %lpad230, %lpad225, 
   br label %ehcleanup270
 
 cleanup269:                                       ; preds = %for.end, %cleanup, %if.then206, %if.then149
-  %retval.1 = phi i32 [ 0, %if.then149 ], [ %retval.0, %cleanup ], [ 0, %if.then206 ], [ 0, %for.end ]
+  %retval.1 = phi i32 [ 0, %if.then149 ], [ %retval.2, %cleanup ], [ 0, %if.then206 ], [ 0, %for.end ]
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %codesAndRanges) #11
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %unsafeBackwardSet) #11
   br label %return
@@ -838,8 +838,8 @@ ehcleanup272:                                     ; preds = %ehcleanup270, %lpad
   resume { ptr, i32 } %.pn171.pn
 
 return:                                           ; preds = %entry, %cleanup269, %if.then3
-  %retval.2 = phi i32 [ 0, %if.then3 ], [ %retval.1, %cleanup269 ], [ 0, %entry ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ %retval.1, %cleanup269 ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2

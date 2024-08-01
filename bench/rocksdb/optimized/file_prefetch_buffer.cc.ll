@@ -3760,14 +3760,14 @@ if.end101:                                        ; preds = %invoke.cont92, %if.
 
 if.then103:                                       ; preds = %if.end101.thread, %if.end101
   %85 = phi i32 [ %.pre, %if.end101.thread ], [ %.pre524.pre, %if.end101 ]
-  %length.addr.3518 = phi i64 [ %sub32.i, %if.end101.thread ], [ %length.addr.1, %if.end101 ]
-  %offset.addr.3517 = phi i64 [ %add31.i.pre-phi, %if.end101.thread ], [ %offset.addr.1, %if.end101 ]
-  invoke void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext true, i1 noundef zeroext false, i64 noundef %offset.addr.3517, i32 noundef %85, i64 noundef %call2, i64 noundef %length.addr.3518, i64 noundef %readahead_size, ptr noundef nonnull align 8 dereferenceable(8) %start_offset1, ptr noundef nonnull align 8 dereferenceable(8) %end_offset1, ptr noundef nonnull align 8 dereferenceable(8) %read_len1, ptr noundef nonnull align 8 dereferenceable(8) %chunk_len1)
+  %length.addr.2518 = phi i64 [ %sub32.i, %if.end101.thread ], [ %length.addr.1, %if.end101 ]
+  %offset.addr.2517 = phi i64 [ %add31.i.pre-phi, %if.end101.thread ], [ %offset.addr.1, %if.end101 ]
+  invoke void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext true, i1 noundef zeroext false, i64 noundef %offset.addr.2517, i32 noundef %85, i64 noundef %call2, i64 noundef %length.addr.2518, i64 noundef %readahead_size, ptr noundef nonnull align 8 dereferenceable(8) %start_offset1, ptr noundef nonnull align 8 dereferenceable(8) %end_offset1, ptr noundef nonnull align 8 dereferenceable(8) %read_len1, ptr noundef nonnull align 8 dereferenceable(8) %chunk_len1)
           to label %invoke.cont105 unwind label %lpad
 
 invoke.cont105:                                   ; preds = %if.then103
-  %sub = sub i64 %length, %length.addr.3518
-  %cmp.not.i139 = icmp eq i64 %length.addr.3518, %length
+  %sub = sub i64 %length, %length.addr.2518
+  %cmp.not.i139 = icmp eq i64 %length.addr.2518, %length
   br i1 %cmp.not.i139, label %if.end120, label %if.then2.i
 
 if.then2.i:                                       ; preds = %invoke.cont105
@@ -3822,8 +3822,8 @@ if.then.i3.i151:                                  ; preds = %if.then2.i148
           to label %if.end120 unwind label %lpad
 
 if.end120:                                        ; preds = %if.then2.i148, %if.end.i146, %if.then.i3.i151, %if.then2.i, %invoke.cont105, %if.then.i3.i
-  %length.addr.3519 = phi i64 [ %length.addr.3518, %if.then.i3.i ], [ %length, %invoke.cont105 ], [ %length.addr.3518, %if.then2.i ], [ 0, %if.then.i3.i151 ], [ 0, %if.end.i146 ], [ 0, %if.then2.i148 ]
-  %offset.addr.3516 = phi i64 [ %offset.addr.3517, %if.then.i3.i ], [ %offset.addr.3517, %invoke.cont105 ], [ %offset.addr.3517, %if.then2.i ], [ %offset.addr.1, %if.then.i3.i151 ], [ %offset.addr.1, %if.end.i146 ], [ %offset.addr.1, %if.then2.i148 ]
+  %length.addr.2519 = phi i64 [ %length.addr.2518, %if.then.i3.i ], [ %length, %invoke.cont105 ], [ %length.addr.2518, %if.then2.i ], [ 0, %if.then.i3.i151 ], [ 0, %if.end.i146 ], [ 0, %if.then2.i148 ]
+  %offset.addr.2516 = phi i64 [ %offset.addr.2517, %if.then.i3.i ], [ %offset.addr.2517, %invoke.cont105 ], [ %offset.addr.2517, %if.then2.i ], [ %offset.addr.1, %if.then.i3.i151 ], [ %offset.addr.1, %if.end.i146 ], [ %offset.addr.1, %if.then2.i148 ]
   %cmp121.not = icmp eq i64 %readahead_size, 0
   br i1 %cmp121.not, label %if.end143, label %if.then122
 
@@ -4302,7 +4302,7 @@ invoke.cont185:                                   ; preds = %if.end180, %land.lh
 if.end192:                                        ; preds = %invoke.cont150, %if.end143
   %172 = load i8, ptr %copy_to_third_buffer, align 1
   %tobool193 = trunc i8 %172 to i1
-  %cmp195 = icmp ne i64 %length.addr.3519, 0
+  %cmp195 = icmp ne i64 %length.addr.2519, 0
   %or.cond = and i1 %cmp195, %tobool193
   br i1 %or.cond, label %if.end.i439, label %return
 
@@ -4313,8 +4313,8 @@ if.end.i439:                                      ; preds = %if.end192
   %add.ptr.i.i441 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %174, i64 %conv.i440
   %offset_.i442 = getelementptr inbounds i8, ptr %add.ptr.i.i441, i64 40
   %175 = load i64, ptr %offset_.i442, align 8
-  %sub.i443 = sub i64 %offset.addr.3516, %175
-  %cmp.not.i.i444 = icmp ugt i64 %175, %offset.addr.3516
+  %sub.i443 = sub i64 %offset.addr.2516, %175
+  %cmp.not.i.i444 = icmp ugt i64 %175, %offset.addr.2516
   br i1 %cmp.not.i.i444, label %if.end.if.else_crit_edge.i469, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i445
 
 if.end.if.else_crit_edge.i469:                    ; preds = %if.end.i439
@@ -4323,7 +4323,7 @@ if.end.if.else_crit_edge.i469:                    ; preds = %if.end.i439
   br label %if.else.i467
 
 _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i445: ; preds = %if.end.i439
-  %add.i.i446 = add i64 %offset.addr.3516, %length.addr.3519
+  %add.i.i446 = add i64 %offset.addr.2516, %length.addr.2519
   %cursize_.i.i.i447 = getelementptr inbounds i8, ptr %add.ptr.i.i441, i64 24
   %176 = load i64, ptr %cursize_.i.i.i447, align 8
   %add10.i.i448 = add i64 %176, %175
@@ -4336,7 +4336,7 @@ if.else.i467:                                     ; preds = %_ZN7rocksdb18FilePr
   br label %if.end9.i450
 
 if.end9.i450:                                     ; preds = %if.else.i467, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i445
-  %copy_len.0.i451 = phi i64 [ %sub8.i468, %if.else.i467 ], [ %length.addr.3519, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i445 ]
+  %copy_len.0.i451 = phi i64 [ %sub8.i468, %if.else.i467 ], [ %length.addr.2519, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i445 ]
   %bufstart_.i.i452 = getelementptr inbounds i8, ptr %174, i64 272
   %178 = load ptr, ptr %bufstart_.i.i452, align 8
   %cursize_.i18.i453 = getelementptr inbounds i8, ptr %174, i64 264
@@ -4351,7 +4351,7 @@ if.end9.i450:                                     ; preds = %if.else.i467, %_ZN7
   %182 = load i64, ptr %cursize_.i23.i457, align 8
   %add.i458 = add i64 %182, %copy_len.0.i451
   store i64 %add.i458, ptr %cursize_.i23.i457, align 8
-  %cmp33.not.i461 = icmp eq i64 %length.addr.3519, %copy_len.0.i451
+  %cmp33.not.i461 = icmp eq i64 %length.addr.2519, %copy_len.0.i451
   br i1 %cmp33.not.i461, label %return, label %if.then34.i462
 
 if.then34.i462:                                   ; preds = %if.end9.i450
@@ -4771,8 +4771,8 @@ if.end83:                                         ; preds = %cleanup.thread116, 
   br label %return
 
 return:                                           ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i57, %if.then48, %if.then19, %if.end, %lor.lhs.false, %if.end83
-  %retval.1 = phi i1 [ true, %if.end83 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ false, %if.then19 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i57 ], [ false, %if.then48 ], [ false, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.end83 ], [ false, %lor.lhs.false ], [ false, %if.end ], [ false, %if.then19 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i57 ], [ false, %if.then48 ], [ false, %cleanup ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5186,8 +5186,8 @@ if.then93:                                        ; preds = %42
   br label %return
 
 return:                                           ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i35, %if.then5.i, %if.then.i, %if.then47, %42, %if.then93, %land.lhs.true19, %if.end, %if.then9
-  %retval.1 = phi i1 [ false, %if.then9 ], [ false, %if.end ], [ false, %land.lhs.true19 ], [ true, %if.then93 ], [ true, %42 ], [ false, %if.then47 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i35 ], [ false, %if.then.i ], [ false, %if.then5.i ], [ false, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then9 ], [ false, %if.end ], [ false, %land.lhs.true19 ], [ true, %if.then93 ], [ true, %42 ], [ false, %if.then47 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i35 ], [ false, %if.then.i ], [ false, %if.then5.i ], [ false, %cleanup ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

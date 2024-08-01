@@ -641,14 +641,14 @@ if.else:                                          ; preds = %if.then
   br label %if.end25
 
 if.end25:                                         ; preds = %for.body, %if.then9, %if.else, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit
-  %blu.1 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then9 ], [ %19, %if.else ], [ %2, %for.body ]
-  %grn.1 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %18, %if.then9 ], [ %1, %if.else ], [ %1, %for.body ]
+  %blu.0 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then9 ], [ %19, %if.else ], [ %2, %for.body ]
+  %grn.0 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %18, %if.then9 ], [ %1, %if.else ], [ %1, %for.body ]
   %red.0 = phi float [ %0, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %17, %if.then9 ], [ %17, %if.else ], [ %0, %for.body ]
   store float %red.0, ptr %out.045, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %out.045, i64 4
-  store float %grn.1, ptr %arrayidx27, align 4
+  store float %grn.0, ptr %arrayidx27, align 4
   %arrayidx28 = getelementptr inbounds i8, ptr %out.045, i64 8
-  store float %blu.1, ptr %arrayidx28, align 4
+  store float %blu.0, ptr %arrayidx28, align 4
   %arrayidx29 = getelementptr inbounds i8, ptr %in.046, i64 12
   %20 = load float, ptr %arrayidx29, align 4
   %arrayidx30 = getelementptr inbounds i8, ptr %out.045, i64 12
@@ -772,14 +772,14 @@ if.else:                                          ; preds = %if.then
   br label %if.end37
 
 if.end37:                                         ; preds = %for.body, %if.then20, %if.else, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit
-  %blu.1 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then20 ], [ %21, %if.else ], [ %2, %for.body ]
-  %grn.1 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %20, %if.then20 ], [ %1, %if.else ], [ %1, %for.body ]
+  %blu.0 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then20 ], [ %21, %if.else ], [ %2, %for.body ]
+  %grn.0 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %20, %if.then20 ], [ %1, %if.else ], [ %1, %for.body ]
   %red.0 = phi float [ %0, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %div, %if.then20 ], [ %div, %if.else ], [ %0, %for.body ]
   store float %red.0, ptr %out.050, align 4
   %arrayidx39 = getelementptr inbounds i8, ptr %out.050, i64 4
-  store float %grn.1, ptr %arrayidx39, align 4
+  store float %grn.0, ptr %arrayidx39, align 4
   %arrayidx40 = getelementptr inbounds i8, ptr %out.050, i64 8
-  store float %blu.1, ptr %arrayidx40, align 4
+  store float %blu.0, ptr %arrayidx40, align 4
   %arrayidx41 = getelementptr inbounds i8, ptr %in.051, i64 12
   %22 = load float, ptr %arrayidx41, align 4
   %arrayidx42 = getelementptr inbounds i8, ptr %out.050, i64 12
@@ -1935,7 +1935,7 @@ for.body:                                         ; preds = %entry, %if.end28
 if.then:                                          ; preds = %for.body
   %cmp8 = fcmp une float %.sroa.speculated, 0.000000e+00
   %div = fdiv float %sub, %.sroa.speculated
-  %sat.0 = select i1 %cmp8, float %div, float 0.000000e+00
+  %sat.1 = select i1 %cmp8, float %div, float 0.000000e+00
   %cmp10 = fcmp oeq float %0, %.sroa.speculated
   br i1 %cmp10, label %if.then11, label %if.else
 
@@ -1961,24 +1961,24 @@ if.else18:                                        ; preds = %if.else
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then15, %if.else18, %if.then11
-  %hue.0 = phi float [ %div13, %if.then11 ], [ %add, %if.then15 ], [ %add21, %if.else18 ]
-  %cmp24 = fcmp olt float %hue.0, 0.000000e+00
-  %add26 = fadd float %hue.0, 6.000000e+00
-  %hue.1 = select i1 %cmp24, float %add26, float %hue.0
-  %mul = fmul float %hue.1, 0x3FC5555560000000
+  %hue.1 = phi float [ %div13, %if.then11 ], [ %add, %if.then15 ], [ %add21, %if.else18 ]
+  %cmp24 = fcmp olt float %hue.1, 0.000000e+00
+  %add26 = fadd float %hue.1, 6.000000e+00
+  %hue.2 = select i1 %cmp24, float %add26, float %hue.1
+  %mul = fmul float %hue.2, 0x3FC5555560000000
   br label %if.end28
 
 if.end28:                                         ; preds = %for.body, %if.end23
-  %sat.1 = phi float [ %sat.0, %if.end23 ], [ 0.000000e+00, %for.body ]
-  %hue.2 = phi float [ %mul, %if.end23 ], [ 0.000000e+00, %for.body ]
+  %sat.0 = phi float [ %sat.1, %if.end23 ], [ 0.000000e+00, %for.body ]
+  %hue.0 = phi float [ %mul, %if.end23 ], [ 0.000000e+00, %for.body ]
   %cmp29 = fcmp olt float %.sroa.speculated45, 0.000000e+00
   %add31 = fadd float %.sroa.speculated, %.sroa.speculated45
   %val.0 = select i1 %cmp29, float %add31, float %.sroa.speculated
   %fneg = fneg float %.sroa.speculated45
   %cmp33 = fcmp olt float %.sroa.speculated, %fneg
   %div37 = fdiv float %sub, %fneg
-  %sat.2 = select i1 %cmp33, float %div37, float %sat.1
-  store float %hue.2, ptr %out.057, align 4
+  %sat.2 = select i1 %cmp33, float %div37, float %sat.0
+  store float %hue.0, ptr %out.057, align 4
   %arrayidx40 = getelementptr inbounds i8, ptr %out.057, i64 4
   store float %sat.2, ptr %arrayidx40, align 4
   %arrayidx41 = getelementptr inbounds i8, ptr %out.057, i64 8

@@ -334,7 +334,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
 
 78:                                               ; preds = %.loopexit.i, %.lr.ph54.i
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next64.i, %.loopexit.i ]
-  %.053.i = phi i1 [ false, %.lr.ph54.i ], [ %.3.i, %.loopexit.i ]
+  %.153.i = phi i1 [ false, %.lr.ph54.i ], [ %.2.i, %.loopexit.i ]
   %79 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv63.i
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
@@ -625,7 +625,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
 207:                                              ; preds = %217, %.lr.ph51.i
   %208 = phi i32 [ %205, %.lr.ph51.i ], [ %218, %217 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph51.i ], [ %indvars.iv.next.i, %217 ]
-  %.150.i = phi i1 [ %.053.i, %.lr.ph51.i ], [ %.2.i, %217 ]
+  %.350.i = phi i1 [ %.153.i, %.lr.ph51.i ], [ %.4.i, %217 ]
   %209 = load ptr, ptr %206, align 8
   %210 = getelementptr %struct.extcap_iface_info, ptr %209, i64 %indvars.iv.i
   %211 = getelementptr inbounds i8, ptr %210, i64 8
@@ -646,14 +646,14 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
 
 217:                                              ; preds = %213, %207
   %218 = phi i32 [ %.pre.i, %213 ], [ %208, %207 ]
-  %.2.i = phi i1 [ %216, %213 ], [ %.150.i, %207 ]
+  %.4.i = phi i1 [ %216, %213 ], [ %.350.i, %207 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %219 = zext i32 %218 to i64
   %220 = icmp ult i64 %indvars.iv.next.i, %219
   br i1 %220, label %207, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %217, %process_new_extcap.exit.i, %78
-  %.3.i = phi i1 [ %.053.i, %78 ], [ %.053.i, %process_new_extcap.exit.i ], [ %.2.i, %217 ]
+  %.2.i = phi i1 [ %.153.i, %78 ], [ %.153.i, %process_new_extcap.exit.i ], [ %.4.i, %217 ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next64.i, %47
   br i1 %exitcond.not.i, label %.lr.ph22.i.i, label %78, !llvm.loop !14
@@ -701,7 +701,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
 extcap_free_extcaps_info_array.exit.i:            ; preds = %._crit_edge.i.i
   call void @g_free(ptr noundef nonnull %48) #11
   call void @g_free(ptr noundef %36) #11
-  br i1 %.3.i, label %239, label %extcap_load_interface_list.exit
+  br i1 %.2.i, label %239, label %extcap_load_interface_list.exit
 
 239:                                              ; preds = %extcap_free_extcaps_info_array.exit.i
   call void @prefs_read_module(ptr noundef nonnull @.str) #11
@@ -1453,7 +1453,7 @@ define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonl
 
 18:                                               ; preds = %.preheader, %75
   %.053 = phi ptr [ %77, %75 ], [ %8, %.preheader ]
-  %.0 = phi i32 [ %.2, %75 ], [ 0, %.preheader ]
+  %.2 = phi i32 [ %.3, %75 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %.053, align 8
   %20 = call noalias ptr @g_strdup(ptr noundef %17) #11
   %21 = getelementptr inbounds i8, ptr %19, i64 120
@@ -1552,7 +1552,7 @@ extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
   br label %74
 
 74:                                               ; preds = %67, %71, %65, %66
-  %.1 = phi i32 [ 1, %65 ], [ 1, %66 ], [ %.0, %71 ], [ %.0, %67 ]
+  %.4 = phi i32 [ 1, %65 ], [ 1, %66 ], [ %.2, %71 ], [ %.2, %67 ]
   call void @g_free(ptr noundef %28) #11
   call void @g_free(ptr noundef %30) #11
   call void @g_free(ptr noundef %31) #11
@@ -1560,14 +1560,14 @@ extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
   br label %75
 
 75:                                               ; preds = %74, %18
-  %.2 = phi i32 [ %.1, %74 ], [ %.0, %18 ]
+  %.3 = phi i32 [ %.4, %74 ], [ %.2, %18 ]
   %76 = getelementptr inbounds i8, ptr %.053, i64 8
   %77 = load ptr, ptr %76, align 8
   %.old2.not = icmp eq ptr %77, null
   br i1 %.old2.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %75, %10
-  %.3 = phi i32 [ 0, %10 ], [ %.2, %75 ]
+  %.1 = phi i32 [ 0, %10 ], [ %.3, %75 ]
   br i1 %13, label %78, label %79
 
 78:                                               ; preds = %.loopexit
@@ -1582,7 +1582,7 @@ extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
   br label %81
 
 81:                                               ; preds = %79, %80, %1
-  %.4 = phi i32 [ %.3, %80 ], [ %.3, %79 ], [ 0, %1 ]
+  %.0 = phi i32 [ %.1, %80 ], [ %.1, %79 ], [ 0, %1 ]
   %.not63 = icmp eq ptr %5, null
   br i1 %.not63, label %85, label %82
 
@@ -1597,7 +1597,7 @@ extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
   br label %86
 
 86:                                               ; preds = %85, %82
-  ret i32 %.4
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1670,11 +1670,11 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   br i1 %.not2933, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
-  %.035 = phi ptr [ %42, %.lr.ph ], [ %33, %34 ]
+  %.135 = phi ptr [ %42, %.lr.ph ], [ %33, %34 ]
   %.02534 = phi ptr [ %44, %.lr.ph ], [ %36, %34 ]
   %37 = load ptr, ptr %.02534, align 8
   %38 = tail call noalias ptr @g_strdup(ptr noundef %37) #11
-  %39 = tail call ptr @g_list_append(ptr noundef %.035, ptr noundef %38) #11
+  %39 = tail call ptr @g_list_append(ptr noundef %.135, ptr noundef %38) #11
   %40 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %2, ptr noundef %37) #11
   %41 = tail call noalias ptr @g_strdup(ptr noundef %40) #11
   %42 = tail call ptr @g_list_append(ptr noundef %39, ptr noundef %41) #11
@@ -1684,14 +1684,14 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
-  %.0.lcssa = phi ptr [ %33, %34 ], [ %42, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %33, %34 ], [ %42, %.lr.ph ]
   tail call void @g_list_free(ptr noundef %35) #11
   br label %45
 
 45:                                               ; preds = %._crit_edge, %extcap_find_interface_for_ifname.exit
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %33, %extcap_find_interface_for_ifname.exit ]
-  call fastcc void @extcap_run_one(ptr noundef nonnull %19, ptr noundef %.1, ptr noundef nonnull @cb_reload_preference, ptr noundef nonnull %4, ptr noundef null)
-  call void @g_list_free_full(ptr noundef %.1, ptr noundef nonnull @g_free) #11
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %33, %extcap_find_interface_for_ifname.exit ]
+  call fastcc void @extcap_run_one(ptr noundef nonnull %19, ptr noundef %.0, ptr noundef nonnull @cb_reload_preference, ptr noundef nonnull %4, ptr noundef null)
+  call void @g_list_free_full(ptr noundef %.0, ptr noundef nonnull @g_free) #11
   %.pre = load ptr, ptr %4, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
 
@@ -1829,7 +1829,7 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 
 35:                                               ; preds = %32, %34, %29
   %.049 = phi ptr [ %31, %29 ], [ null, %32 ], [ null, %34 ]
-  %.2 = phi i32 [ 0, %29 ], [ 0, %32 ], [ 1, %34 ]
+  %.3 = phi i32 [ 0, %29 ], [ 0, %32 ], [ 1, %34 ]
   %36 = getelementptr inbounds i8, ptr %17, i64 80
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 13
@@ -1847,20 +1847,20 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 
 44:                                               ; preds = %42
   %45 = tail call zeroext i1 @file_exists(ptr noundef %.028) #11
-  %spec.select46 = select i1 %45, i32 %.2, i32 1
+  %spec.select46 = select i1 %45, i32 %.3, i32 1
   br label %46
 
 46:                                               ; preds = %44, %35, %42, %39, %18, %.lr.ph
-  %.3 = phi i32 [ %.2, %42 ], [ %.2, %39 ], [ %.2, %35 ], [ 0, %18 ], [ 0, %.lr.ph ], [ %spec.select46, %44 ]
+  %.2 = phi i32 [ %.3, %42 ], [ %.3, %39 ], [ %.3, %35 ], [ 0, %18 ], [ 0, %.lr.ph ], [ %spec.select46, %44 ]
   %47 = getelementptr inbounds i8, ptr %.03051, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp ne ptr %48, null
-  %.not36 = icmp eq i32 %.3, 0
+  %.not36 = icmp eq i32 %.2, 0
   %50 = select i1 %49, i1 %.not36, i1 false
   br i1 %50, label %.lr.ph, label %._crit_edge.split, !llvm.loop !28
 
 ._crit_edge.split:                                ; preds = %46, %.lr.ph54.split
-  %.1.lcssa = phi i32 [ 0, %.lr.ph54.split ], [ %.3, %46 ]
+  %.1.lcssa = phi i32 [ 0, %.lr.ph54.split ], [ %.2, %46 ]
   %51 = getelementptr inbounds i8, ptr %.03152, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp ne ptr %52, null
@@ -2386,7 +2386,7 @@ define internal fastcc ptr @extcap_get_extcap_paths_from_dir(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.preheader, %13
   %5 = phi ptr [ %14, %13 ], [ %4, %.preheader ]
-  %.017 = phi ptr [ %.1, %13 ], [ %0, %.preheader ]
+  %.117 = phi ptr [ %.2, %13 ], [ %0, %.preheader ]
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %1, ptr noundef nonnull %5) #11
   %7 = tail call i32 @g_file_test(ptr noundef %6, i32 noundef 1) #11
   %.not14 = icmp eq i32 %7, 0
@@ -2398,7 +2398,7 @@ define internal fastcc ptr @extcap_get_extcap_paths_from_dir(ptr noundef %0, ptr
   br i1 %.not15, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @g_slist_append(ptr noundef %.017, ptr noundef %6) #11
+  %11 = tail call ptr @g_slist_append(ptr noundef %.117, ptr noundef %6) #11
   br label %13
 
 12:                                               ; preds = %8, %.lr.ph
@@ -2406,19 +2406,19 @@ define internal fastcc ptr @extcap_get_extcap_paths_from_dir(ptr noundef %0, ptr
   br label %13
 
 13:                                               ; preds = %12, %10
-  %.1 = phi ptr [ %11, %10 ], [ %.017, %12 ]
+  %.2 = phi ptr [ %11, %10 ], [ %.117, %12 ]
   %14 = tail call ptr @g_dir_read_name(ptr noundef nonnull %3) #11
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %.1, %13 ]
+  %.1.lcssa = phi ptr [ %0, %.preheader ], [ %.2, %13 ]
   tail call void @g_dir_close(ptr noundef nonnull %3) #11
   br label %15
 
 15:                                               ; preds = %._crit_edge, %2
-  %.2 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %2 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %2 ]
+  ret ptr %.0
 }
 
 declare ptr @get_extcap_pers_dir() local_unnamed_addr #1

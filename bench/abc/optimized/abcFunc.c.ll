@@ -60,7 +60,7 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not70, label %.split.us.us.us, label %.split
 
 .split.us.us.us:                                  ; preds = %.lr.ph89, %.critedge.split.us.us.split.us.us
-  %.15888.us.us = phi ptr [ %30, %.critedge.split.us.us.split.us.us ], [ %5, %.lr.ph89 ]
+  %.288.us.us = phi ptr [ %30, %.critedge.split.us.us.split.us.us ], [ %5, %.lr.ph89 ]
   %.06186.us.us = phi ptr [ %31, %.critedge.split.us.us.split.us.us ], [ %1, %.lr.ph89 ]
   %14 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #15
   tail call void @Cudd_Ref(ptr noundef %14) #15
@@ -104,9 +104,9 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br label %15, !llvm.loop !6
 
 .critedge.split.us.us.split.us.us:                ; preds = %15, %15
-  %30 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.15888.us.us, ptr noundef %.059.us.us.us.us) #15
+  %30 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.288.us.us, ptr noundef %.059.us.us.us.us) #15
   tail call void @Cudd_Ref(ptr noundef %30) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.15888.us.us) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.288.us.us) #15
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.059.us.us.us.us) #15
   %31 = getelementptr inbounds i8, ptr %.06186.us.us, i64 %13
   %32 = load i8, ptr %31, align 1
@@ -126,7 +126,7 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .split:                                           ; preds = %.lr.ph89, %.critedge.split.split
-  %.15888 = phi ptr [ %52, %.critedge.split.split ], [ %5, %.lr.ph89 ]
+  %.288 = phi ptr [ %52, %.critedge.split.split ], [ %5, %.lr.ph89 ]
   %.06186 = phi ptr [ %53, %.critedge.split.split ], [ %1, %.lr.ph89 ]
   %36 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #15
   tail call void @Cudd_Ref(ptr noundef %36) #15
@@ -170,9 +170,9 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br label %37, !llvm.loop !6
 
 .critedge.split.split:                            ; preds = %37, %37
-  %52 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.15888, ptr noundef %.059) #15
+  %52 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.288, ptr noundef %.059) #15
   tail call void @Cudd_Ref(ptr noundef %52) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.15888) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.288) #15
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.059) #15
   %53 = getelementptr inbounds i8, ptr %.06186, i64 %13
   %54 = load i8, ptr %53, align 1
@@ -180,8 +180,8 @@ define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not67, label %.loopexit, label %.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.critedge.split.split, %.critedge.split.us.us.split.us.us, %.preheader74, %.preheader
-  %.2 = phi ptr [ %5, %.preheader ], [ %5, %.preheader74 ], [ %30, %.critedge.split.us.us.split.us.us ], [ %52, %.critedge.split.split ], [ %9, %.lr.ph.split.us ], [ %35, %.lr.ph.split ]
-  %55 = ptrtoint ptr %.2 to i64
+  %.158 = phi ptr [ %5, %.preheader ], [ %5, %.preheader74 ], [ %30, %.critedge.split.us.us.split.us.us ], [ %52, %.critedge.split.split ], [ %9, %.lr.ph.split.us ], [ %35, %.lr.ph.split ]
+  %55 = ptrtoint ptr %.158 to i64
   %56 = tail call i32 @Abc_SopGetPhase(ptr noundef %1) #15
   %.not72 = icmp eq i32 %56, 0
   %57 = zext i1 %.not72 to i64
@@ -2350,7 +2350,7 @@ define ptr @Abc_ConvertSopToAigInternal(ptr noundef %0, ptr noundef %1) local_un
 18:                                               ; preds = %.lr.ph54, %.critedge
   %19 = phi i8 [ %15, %.lr.ph54 ], [ %35, %.critedge ]
   %.053 = phi ptr [ %1, %.lr.ph54 ], [ %34, %.critedge ]
-  %.13852 = phi ptr [ %8, %.lr.ph54 ], [ %33, %.critedge ]
+  %.252 = phi ptr [ %8, %.lr.ph54 ], [ %33, %.critedge ]
   %.val = load ptr, ptr %5, align 8
   br label %20
 
@@ -2391,20 +2391,20 @@ define ptr @Abc_ConvertSopToAigInternal(ptr noundef %0, ptr noundef %1) local_un
   br label %20, !llvm.loop !26
 
 .critedge:                                        ; preds = %20, %20
-  %33 = tail call ptr @Hop_Or(ptr noundef %0, ptr noundef %.13852, ptr noundef %.036) #15
+  %33 = tail call ptr @Hop_Or(ptr noundef %0, ptr noundef %.252, ptr noundef %.036) #15
   %34 = getelementptr inbounds i8, ptr %.053, i64 %17
   %35 = load i8, ptr %34, align 1
   %.not42 = icmp eq i8 %35, 0
   br i1 %.not42, label %.loopexit, label %18, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %9, %14
-  %.2 = phi ptr [ %8, %14 ], [ %8, %9 ], [ %33, %.critedge ], [ %12, %.lr.ph ]
+  %.138 = phi ptr [ %8, %14 ], [ %8, %9 ], [ %33, %.critedge ], [ %12, %.lr.ph ]
   %36 = tail call i32 @Abc_SopIsComplement(ptr noundef %1) #15
   %.not45 = icmp eq i32 %36, 0
-  %37 = ptrtoint ptr %.2 to i64
+  %37 = ptrtoint ptr %.138 to i64
   %38 = xor i64 %37, 1
   %39 = inttoptr i64 %38 to ptr
-  %.3 = select i1 %.not45, ptr %.2, ptr %39
+  %.3 = select i1 %.not45, ptr %.138, ptr %39
   ret ptr %.3
 }
 

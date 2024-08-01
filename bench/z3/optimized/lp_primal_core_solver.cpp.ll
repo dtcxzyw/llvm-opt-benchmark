@@ -6817,12 +6817,12 @@ if.then:                                          ; preds = %_ZNKSt7__cxx114list
   br label %if.end
 
 if.else:                                          ; preds = %while.body.i.i.i, %while.body3.i.i15.i, %while.body.i.i22.i, %if.then3.i
-  %retval.sroa.0.2.i.ph = phi ptr [ %1, %if.then3.i ], [ %5, %while.body.i.i22.i ], [ %7, %while.body3.i.i15.i ], [ %3, %while.body.i.i.i ]
-  %cmp.i.not2.i = icmp eq ptr %retval.sroa.0.2.i.ph, %this
+  %retval.sroa.0.0.i.ph = phi ptr [ %1, %if.then3.i ], [ %5, %while.body.i.i22.i ], [ %7, %while.body3.i.i15.i ], [ %3, %while.body.i.i.i ]
+  %cmp.i.not2.i = icmp eq ptr %retval.sroa.0.0.i.ph, %this
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else, %while.body.i
-  %__first.sroa.0.03.i = phi ptr [ %8, %while.body.i ], [ %retval.sroa.0.2.i.ph, %if.else ]
+  %__first.sroa.0.03.i = phi ptr [ %8, %while.body.i ], [ %retval.sroa.0.0.i.ph, %if.else ]
   %8 = load ptr, ptr %__first.sroa.0.03.i, align 8
   %9 = load i64, ptr %_M_size.i.i.i.i, align 8
   %sub.i.i.i.i = add i64 %9, -1
@@ -8561,7 +8561,7 @@ cleanup.sink.split:                               ; preds = %_ZNK6vectorIjLb1EjE
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont94
-  %retval.0 = phi i32 [ %entering, %invoke.cont94 ], [ %118, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ %entering, %invoke.cont94 ], [ %118, %cleanup.sink.split ]
   %119 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %119, ptr noundef nonnull align 8 dereferenceable(16) %ratio)
           to label %.noexc.i223 unwind label %terminate.lpad.i222
@@ -8578,8 +8578,8 @@ terminate.lpad.i222:                              ; preds = %.noexc.i223, %clean
   unreachable
 
 return:                                           ; preds = %.noexc.i223, %if.then18
-  %retval.1 = phi i32 [ %entering., %if.then18 ], [ %retval.0, %.noexc.i223 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %entering., %if.then18 ], [ %retval.1, %.noexc.i223 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup48, %lpad27.loopexit.split-lp, %lpad27.loopexit, %lpad, %lpad9
   %ratio.sink = phi ptr [ %ref.tmp, %lpad9 ], [ %ref.tmp, %lpad ], [ %ratio, %lpad27.loopexit ], [ %ratio, %lpad27.loopexit.split-lp ], [ %ratio, %ehcleanup48 ]
@@ -9478,8 +9478,8 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   unreachable
 
 return:                                           ; preds = %.noexc.i, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %lnot.i16, %.noexc.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %lnot.i16, %.noexc.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16666,7 +16666,7 @@ cleanup.sink.split:                               ; preds = %_ZNK6vectorIjLb1EjE
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont92
-  %retval.0 = phi i32 [ %entering, %invoke.cont92 ], [ %96, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ %entering, %invoke.cont92 ], [ %96, %cleanup.sink.split ]
   %97 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(16) %y.i)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -16704,8 +16704,8 @@ ehcleanup108:                                     ; preds = %lpad38.loopexit, %l
   br label %eh.resume
 
 return:                                           ; preds = %.noexc.i2.i, %if.then18
-  %retval.1 = phi i32 [ %entering., %if.then18 ], [ %retval.0, %.noexc.i2.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %entering., %if.then18 ], [ %retval.1, %.noexc.i2.i ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup108, %ehcleanup
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %ehcleanup ], [ %.pn29, %ehcleanup108 ]
@@ -17636,8 +17636,8 @@ terminate.lpad.i1.i:                              ; preds = %.noexc.i2.i, %_ZN8r
   unreachable
 
 return:                                           ; preds = %.noexc.i2.i, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %8, %.noexc.i2.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %8, %.noexc.i2.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

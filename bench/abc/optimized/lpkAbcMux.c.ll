@@ -245,7 +245,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br label %181
 
 181:                                              ; preds = %70, %113, %154, %142, %91, %52
-  %.1 = phi i32 [ 2, %52 ], [ %89, %70 ], [ %110, %91 ], [ %132, %113 ], [ %153, %142 ], [ %179, %154 ]
+  %.0149 = phi i32 [ 2, %52 ], [ %89, %70 ], [ %110, %91 ], [ %132, %113 ], [ %153, %142 ], [ %179, %154 ]
   %.0148.shrunk = phi i1 [ %68, %52 ], [ false, %70 ], [ true, %91 ], [ true, %113 ], [ false, %142 ], [ %180, %154 ]
   %.0 = phi i32 [ %67, %52 ], [ %77, %70 ], [ %98, %91 ], [ %120, %113 ], [ %141, %142 ], [ %162, %154 ]
   %.0148 = zext i1 %.0148.shrunk to i32
@@ -257,7 +257,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %185 = load i32, ptr %5, align 8
   %186 = lshr i32 %185, 16
   %187 = and i32 %186, 16383
-  %188 = icmp sgt i32 %.1, %187
+  %188 = icmp sgt i32 %.0149, %187
   br i1 %188, label %220, label %189
 
 189:                                              ; preds = %184
@@ -281,11 +281,11 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
 
 204:                                              ; preds = %201
   %205 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
-  %206 = icmp sgt i32 %205, %.1
+  %206 = icmp sgt i32 %205, %.0149
   br i1 %206, label %219, label %207
 
 207:                                              ; preds = %204
-  %208 = icmp eq i32 %205, %.1
+  %208 = icmp eq i32 %205, %.0149
   br i1 %208, label %209, label %220
 
 209:                                              ; preds = %207
@@ -306,7 +306,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
 219:                                              ; preds = %215, %209, %204, %201
   store i32 %10, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
   store i32 %.0148, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4
-  store i32 %.1, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
+  store i32 %.0149, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
   store i32 %.0, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
   store i32 %196, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
   store i32 %197, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4

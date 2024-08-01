@@ -364,7 +364,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %40
 
 40:                                               ; preds = %39, %27
-  %.1 = phi i32 [ -20, %39 ], [ %.058, %27 ]
+  %.2 = phi i32 [ -20, %39 ], [ %.058, %27 ]
   %41 = and i64 %37, 4294967295
   %42 = getelementptr inbounds i8, ptr %5, i64 6
   %43 = call fastcc i64 @format_hex_recursive(i64 noundef %41, ptr noundef nonnull %42, i32 noundef 8)
@@ -455,7 +455,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %98
 
 98:                                               ; preds = %95, %88
-  %.2 = phi i32 [ -20, %95 ], [ %.1, %88 ]
+  %.3 = phi i32 [ -20, %95 ], [ %.2, %88 ]
   %99 = load i64, ptr %6, align 8
   %100 = icmp ne i64 %99, 0
   %101 = load ptr, ptr %3, align 8
@@ -541,13 +541,13 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %140 = and i64 %139, 3
   %141 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i64 noundef %140) #10
   %.not73 = icmp eq i32 %141, 0
-  %spec.select = select i1 %.not73, i32 %.2, i32 -30
+  %spec.select = select i1 %.not73, i32 %.3, i32 -30
   br label %142
 
 142:                                              ; preds = %136, %133, %121, %115, %113, %124, %131, %112, %94, %23
-  %.3 = phi i32 [ -30, %23 ], [ -30, %94 ], [ -25, %112 ], [ %.2, %131 ], [ %.2, %124 ], [ -30, %113 ], [ -30, %115 ], [ -30, %121 ], [ -30, %133 ], [ %spec.select, %136 ]
+  %.1 = phi i32 [ -30, %23 ], [ -30, %94 ], [ -25, %112 ], [ %.3, %131 ], [ %.3, %124 ], [ -30, %113 ], [ -30, %115 ], [ -30, %121 ], [ -30, %133 ], [ %spec.select, %136 ]
   call void @archive_entry_free(ptr noundef null) #10
-  ret i32 %.3
+  ret i32 %.1
 }
 
 declare ptr @archive_string_default_conversion_for_write(ptr noundef) local_unnamed_addr #1

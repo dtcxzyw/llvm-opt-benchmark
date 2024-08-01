@@ -86,7 +86,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %._crit_edge, %23
   %31 = phi i32 [ %.pre, %._crit_edge ], [ %25, %23 ]
-  %.073 = phi i32 [ 1, %._crit_edge ], [ 0, %23 ]
+  %.1 = phi i32 [ 1, %._crit_edge ], [ 0, %23 ]
   %32 = and i32 %31, 1024
   %.not80 = icmp eq i32 %32, 0
   br i1 %.not80, label %38, label %33
@@ -98,27 +98,27 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %36, label %handle_mime.exit.thread, label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %33
-  %37 = add nuw nsw i32 %.073, 1
+  %37 = add nuw nsw i32 %.1, 1
   %.pre103 = load i32, ptr %24, align 8
   br label %38
 
 38:                                               ; preds = %._crit_edge102, %30
   %39 = phi i32 [ %.pre103, %._crit_edge102 ], [ %31, %30 ]
-  %.1 = phi i32 [ %37, %._crit_edge102 ], [ %.073, %30 ]
+  %.2 = phi i32 [ %37, %._crit_edge102 ], [ %.1, %30 ]
   %40 = and i32 %39, 512
   %.not82 = icmp eq i32 %40, 0
   br i1 %.not82, label %46, label %41
 
 41:                                               ; preds = %38
-  %42 = add nuw nsw i32 %.1, 1
-  %.not83 = icmp eq i32 %.1, 0
+  %42 = add nuw nsw i32 %.2, 1
+  %.not83 = icmp eq i32 %.2, 0
   %43 = select i1 %.not83, ptr @.str.4, ptr @.str.3
   %44 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %43) #5
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %handle_mime.exit.thread, label %46
 
 46:                                               ; preds = %38, %41, %21
-  %.2 = phi i32 [ 0, %21 ], [ %42, %41 ], [ %.1, %38 ]
+  %.073 = phi i32 [ 0, %21 ], [ %42, %41 ], [ %.2, %38 ]
   %47 = getelementptr inbounds i8, ptr %2, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 61440
@@ -147,7 +147,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %58, label %handle_mime.exit.thread, label %63
 
 59:                                               ; preds = %55
-  %.not90 = icmp eq i32 %.2, 0
+  %.not90 = icmp eq i32 %.073, 0
   %60 = select i1 %.not90, ptr @.str.4, ptr @.str.3
   %61 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %60) #5
   %62 = icmp eq i32 %61, -1
@@ -176,7 +176,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %.not113, label %72, label %handle_mime.exit.thread96.thread108
 
 72:                                               ; preds = %71
-  %.not88 = icmp eq i32 %.2, 0
+  %.not88 = icmp eq i32 %.073, 0
   %73 = select i1 %.not88, ptr @.str.4, ptr @.str.3
   %74 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %73) #5
   %75 = icmp eq i32 %74, -1
@@ -233,7 +233,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %.not113, label %98, label %handle_mime.exit.thread96.thread108
 
 98:                                               ; preds = %97
-  %.not85 = icmp eq i32 %.2, 0
+  %.not85 = icmp eq i32 %.073, 0
   %99 = select i1 %.not85, ptr @.str.4, ptr @.str.3
   %100 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %99) #5
   %101 = icmp eq i32 %100, -1
@@ -265,7 +265,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %.not113, label %115, label %handle_mime.exit.thread96.thread108
 
 115:                                              ; preds = %114
-  %.not84 = icmp eq i32 %.2, 0
+  %.not84 = icmp eq i32 %.073, 0
   %116 = select i1 %.not84, ptr @.str.4, ptr @.str.3
   %117 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %116) #5
   %118 = icmp eq i32 %117, -1
@@ -276,7 +276,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br label %handle_mime.exit.thread
 
 handle_mime.exit:                                 ; preds = %102, %106, %52
-  %120 = icmp ne i32 %.2, 0
+  %120 = icmp ne i32 %.073, 0
   %or.cond5 = select i1 %or.cond.not, i1 %120, i1 false
   br i1 %or.cond5, label %121, label %handle_mime.exit.thread96.thread
 

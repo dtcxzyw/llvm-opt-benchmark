@@ -200,7 +200,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 .lr.ph144:                                        ; preds = %.lr.ph135, %103
   %81 = phi i32 [ %104, %103 ], [ %79, %.lr.ph135 ]
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %103 ], [ 0, %.lr.ph135 ]
-  %.065133142 = phi ptr [ %.166, %103 ], [ %.val, %.lr.ph135 ]
+  %.065133142 = phi ptr [ %.2, %103 ], [ %.val, %.lr.ph135 ]
   %82 = load ptr, ptr %78, align 8
   %83 = getelementptr %union.ListCell, ptr %82, i64 %indvars.iv167
   %84 = load ptr, ptr %83, align 8
@@ -235,14 +235,14 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 
 103:                                              ; preds = %._crit_edge171, %.lr.ph144
   %104 = phi i32 [ %81, %.lr.ph144 ], [ %.pre172, %._crit_edge171 ]
-  %.166 = phi ptr [ %.065133142, %.lr.ph144 ], [ %97, %._crit_edge171 ]
+  %.2 = phi ptr [ %.065133142, %.lr.ph144 ], [ %97, %._crit_edge171 ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next168, %105
   br i1 %106, label %.lr.ph144, label %._crit_edge136
 
 ._crit_edge136:                                   ; preds = %103, %.lr.ph135, %73
-  %.065.lcssa = phi ptr [ %.val, %73 ], [ %.val, %.lr.ph135 ], [ %.166, %103 ]
+  %.065.lcssa = phi ptr [ %.val, %73 ], [ %.val, %.lr.ph135 ], [ %.2, %103 ]
   %.not83 = icmp eq ptr %.065.lcssa, null
   br i1 %.not83, label %.thread92, label %107
 

@@ -5835,13 +5835,13 @@ if.end.i.i:                                       ; preds = %if.end.i, %if.end.i
 
 lor.lhs.false:                                    ; preds = %if.end.i.i, %if.end.i
   %7 = phi i8 [ %2, %if.end.i ], [ %5, %if.end.i.i ]
-  %szCurrent.addr.0.ph = phi ptr [ %in.addr.0.i.i.i, %if.end.i ], [ %incdec.ptr.i.i14, %if.end.i.i ]
-  %iBone.0.ph = phi i32 [ 0, %if.end.i ], [ %add.i.i, %if.end.i.i ]
+  %szCurrent.addr.1.ph = phi ptr [ %in.addr.0.i.i.i, %if.end.i ], [ %incdec.ptr.i.i14, %if.end.i.i ]
+  %iBone.1.ph = phi i32 [ 0, %if.end.i ], [ %add.i.i, %if.end.i.i ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %lor.lhs.false
   %8 = phi i8 [ %7, %lor.lhs.false ], [ %.pre, %while.body.i ]
-  %in.addr.0.i = phi ptr [ %szCurrent.addr.0.ph, %lor.lhs.false ], [ %incdec.ptr.i, %while.body.i ]
+  %in.addr.0.i = phi ptr [ %szCurrent.addr.1.ph, %lor.lhs.false ], [ %incdec.ptr.i, %while.body.i ]
   switch i8 %8, label %if.end [
     i8 32, label %while.body.i
     i8 9, label %while.body.i
@@ -5872,7 +5872,7 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %while.cond.i
-  %cmp = icmp eq i32 %iBone.0.ph, -1
+  %cmp = icmp eq i32 %iBone.1.ph, -1
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
@@ -5913,7 +5913,7 @@ while.body10.i.i:                                 ; preds = %while.cond5.i.i, %w
   br label %while.cond5.i.i, !llvm.loop !46
 
 if.end6:                                          ; preds = %if.end
-  %conv = zext i32 %iBone.0.ph to i64
+  %conv = zext i32 %iBone.1.ph to i64
   %asBones = getelementptr inbounds i8, ptr %this, i64 168
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
   %12 = load ptr, ptr %_M_finish.i, align 8
@@ -5926,7 +5926,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %add = add nuw i32 %iBone.0.ph, 1
+  %add = add nuw i32 %iBone.1.ph, 1
   %conv11 = zext i32 %add to i64
   %sub.i = sub nuw nsw i64 %conv11, %sub.ptr.div.i
   tail call void @_ZNSt6vectorIN6Assimp3SMD4BoneESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %asBones, i64 noundef %sub.i)
@@ -6037,12 +6037,12 @@ if.end40:                                         ; preds = %for.cond
   br label %for.cond, !llvm.loop !65
 
 for.end:                                          ; preds = %if.then29, %if.then22
-  %szCurrent.addr.1152 = phi ptr [ %incdec.ptr, %if.then22 ], [ %in.addr.0.i, %if.then29 ]
-  %iBone.1.in = phi i64 [ %sub.ptr.sub, %if.then22 ], [ %sub.ptr.sub32, %if.then29 ]
+  %szCurrent.addr.0152 = phi ptr [ %incdec.ptr, %if.then22 ], [ %in.addr.0.i, %if.then29 ]
+  %iBone.0.in = phi i64 [ %sub.ptr.sub, %if.then22 ], [ %sub.ptr.sub32, %if.then29 ]
   %szEnd.1 = phi ptr [ %incdec.ptr24, %if.then22 ], [ %szEnd.0, %if.then29 ]
-  %conv42 = and i64 %iBone.1.in, 4294967295
+  %conv42 = and i64 %iBone.0.in, 4294967295
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43) #24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %szCurrent.addr.1152, i64 noundef %conv42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %szCurrent.addr.0152, i64 noundef %conv42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %for.end
@@ -7210,7 +7210,7 @@ if.end57.loopexit:                                ; preds = %if.end.i.i244
 
 if.end57:                                         ; preds = %if.end57.loopexit, %if.end.i243
   %iSize.0.ph = phi i64 [ 0, %if.end.i243 ], [ %48, %if.end57.loopexit ]
-  %szCurrent.addr.9.ph = phi ptr [ %in.addr.0.i.i.i239, %if.end.i243 ], [ %incdec.ptr.i.i246, %if.end57.loopexit ]
+  %szCurrent.addr.10.ph = phi ptr [ %in.addr.0.i.i.i239, %if.end.i243 ], [ %incdec.ptr.i.i246, %if.end57.loopexit ]
   %aiBoneLinks = getelementptr inbounds i8, ptr %vertex, i64 40
   store i32 0, ptr %ref.tmp, align 4
   %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
@@ -7223,12 +7223,12 @@ if.end57:                                         ; preds = %if.end57.loopexit, 
   br i1 %cmp.i.not456, label %while.cond.i.i316.preheader, label %while.cond.i.i.i261.preheader
 
 while.cond.i.i.i261.preheader:                    ; preds = %if.end57, %for.inc
-  %szCurrent.addr.10458 = phi ptr [ %call2.i301, %for.inc ], [ %szCurrent.addr.9.ph, %if.end57 ]
+  %szCurrent.addr.0458 = phi ptr [ %call2.i301, %for.inc ], [ %szCurrent.addr.10.ph, %if.end57 ]
   %__begin1.sroa.0.0457 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %49, %if.end57 ]
   br label %while.cond.i.i.i261
 
 while.cond.i.i.i261:                              ; preds = %while.cond.i.i.i261.preheader, %while.body.i.i.i264
-  %in.addr.0.i.i.i262 = phi ptr [ %incdec.ptr.i.i.i265, %while.body.i.i.i264 ], [ %szCurrent.addr.10458, %while.cond.i.i.i261.preheader ]
+  %in.addr.0.i.i.i262 = phi ptr [ %incdec.ptr.i.i.i265, %while.body.i.i.i264 ], [ %szCurrent.addr.0458, %while.cond.i.i.i261.preheader ]
   %51 = load i8, ptr %in.addr.0.i.i.i262, align 1
   switch i8 %51, label %if.end.i266 [
     i8 32, label %while.body.i.i.i264
@@ -7266,7 +7266,7 @@ if.end.i.i268:                                    ; preds = %if.end.i266, %if.en
   br i1 %or.cond.i.i276, label %if.end69, label %if.end.i.i268, !llvm.loop !41
 
 while.cond.i.i282:                                ; preds = %while.cond.i.i282.preheader, %while.body.i.i292
-  %in.addr.0.i.i283 = phi ptr [ %incdec.ptr.i.i293, %while.body.i.i292 ], [ %szCurrent.addr.10458, %while.cond.i.i282.preheader ]
+  %in.addr.0.i.i283 = phi ptr [ %incdec.ptr.i.i293, %while.body.i.i292 ], [ %szCurrent.addr.0458, %while.cond.i.i282.preheader ]
   %56 = load i8, ptr %in.addr.0.i.i283, align 1
   switch i8 %56, label %while.body.i.i292 [
     i8 13, label %while.cond5.i.i285.preheader
@@ -7364,7 +7364,7 @@ for.inc:                                          ; preds = %while.cond.i.i.i295
   br i1 %cmp.i.not, label %while.cond.i.i316.preheader, label %while.cond.i.i.i261.preheader
 
 while.cond.i.i316.preheader:                      ; preds = %for.inc, %if.end57
-  %in.addr.0.i.i317.ph = phi ptr [ %szCurrent.addr.9.ph, %if.end57 ], [ %call2.i301, %for.inc ]
+  %in.addr.0.i.i317.ph = phi ptr [ %szCurrent.addr.10.ph, %if.end57 ], [ %call2.i301, %for.inc ]
   br label %while.cond.i.i316
 
 while.cond.i.i316:                                ; preds = %while.cond.i.i316.preheader, %while.body.i.i326

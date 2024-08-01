@@ -244,7 +244,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 16:                                               ; preds = %14, %13
   %17 = phi ptr [ %.pre45, %14 ], [ %4, %13 ]
-  %.0 = phi i32 [ %15, %14 ], [ 0, %13 ]
+  %.1 = phi i32 [ %15, %14 ], [ 0, %13 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @_ZL6pstack, align 8
@@ -275,7 +275,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 27:                                               ; preds = %25, %.critedge
   %28 = phi ptr [ %.pre, %25 ], [ %21, %.critedge ]
-  %.1 = phi i32 [ %26, %25 ], [ 0, %.critedge ]
+  %.2 = phi i32 [ %26, %25 ], [ 0, %.critedge ]
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %24, align 8
@@ -291,9 +291,9 @@ _ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split: ; preds = %.critedge.
   br label %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit
 
 _ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit:   ; preds = %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split, %27, %16, %.critedge.thread, %6
-  %.2 = phi i32 [ 0, %6 ], [ 0, %.critedge.thread ], [ %.0, %16 ], [ %.1, %27 ], [ %31, %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %.critedge.thread ], [ %.1, %16 ], [ %.2, %27 ], [ %31, %_ZL14gmx_sfree_implI8t_pstackEvPKcS2_iPT_.exit.sink.split ]
   %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL12pstack_mutex) #24
-  ret i32 %.2
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -1898,7 +1898,7 @@ _ZL6gunzipRKNSt10filesystem7__cxx114pathEPKc.exit: ; preds = %_ZNSt10lock_guardI
   br label %.body
 
 195:                                              ; preds = %_ZL6gunzipRKNSt10filesystem7__cxx114pathEPKc.exit, %_ZL10uncompressRKNSt10filesystem7__cxx114pathEPKc.exit
-  %.032 = phi ptr [ %104, %_ZL10uncompressRKNSt10filesystem7__cxx114pathEPKc.exit ], [ %159, %_ZL6gunzipRKNSt10filesystem7__cxx114pathEPKc.exit ]
+  %.133 = phi ptr [ %104, %_ZL10uncompressRKNSt10filesystem7__cxx114pathEPKc.exit ], [ %159, %_ZL6gunzipRKNSt10filesystem7__cxx114pathEPKc.exit ]
   %196 = load ptr, ptr %85, align 8
   %.not.i.i.i = icmp eq ptr %196, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %197
@@ -1918,7 +1918,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %195, %197
   br label %common.resume
 
 198:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %.thread70, %66, %60, %2
-  %.0 = phi ptr [ null, %2 ], [ %49, %.thread70 ], [ %49, %66 ], [ %49, %60 ], [ %.032, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  %.0 = phi ptr [ null, %2 ], [ %49, %.thread70 ], [ %49, %66 ], [ %49, %60 ], [ %.133, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
   ret ptr %.0
 }
 

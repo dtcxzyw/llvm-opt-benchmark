@@ -886,7 +886,7 @@ define dso_local void @vacuum(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %82
 
 82:                                               ; preds = %75, %67
-  %.046.i = phi ptr [ %81, %75 ], [ null, %67 ]
+  %.1.i = phi ptr [ %81, %75 ], [ null, %67 ]
   %83 = getelementptr inbounds i8, ptr %73, i64 115
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 112
@@ -909,7 +909,7 @@ define dso_local void @vacuum(ptr noundef readonly %0, ptr noundef %1, ptr nound
 .lr.ph67.i:                                       ; preds = %.lr.ph.i, %103
   %93 = phi i32 [ %104, %103 ], [ %91, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %103 ], [ 0, %.lr.ph.i ]
-  %.16165.i = phi ptr [ %.2.i, %103 ], [ %.046.i, %.lr.ph.i ]
+  %.36165.i = phi ptr [ %.4.i, %103 ], [ %.1.i, %.lr.ph.i ]
   %94 = load ptr, ptr %89, align 8
   %95 = getelementptr %union.ListCell, ptr %94, i64 %indvars.iv.i
   %96 = load i32, ptr %95, align 8
@@ -921,26 +921,26 @@ define dso_local void @vacuum(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %3, ptr @CurrentMemoryContext, align 8
   %100 = load ptr, ptr %90, align 8
   %101 = call ptr @makeVacuumRelation(ptr noundef null, i32 noundef %96, ptr noundef %100) #16
-  %102 = call ptr @lappend(ptr noundef %.16165.i, ptr noundef %101) #16
+  %102 = call ptr @lappend(ptr noundef %.36165.i, ptr noundef %101) #16
   store ptr %99, ptr @CurrentMemoryContext, align 8
   %.pre.i = load i32, ptr %88, align 4
   br label %103
 
 103:                                              ; preds = %98, %.lr.ph67.i
   %104 = phi i32 [ %93, %.lr.ph67.i ], [ %.pre.i, %98 ]
-  %.2.i = phi ptr [ %.16165.i, %.lr.ph67.i ], [ %102, %98 ]
+  %.4.i = phi ptr [ %.36165.i, %.lr.ph67.i ], [ %102, %98 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i, %105
   br i1 %106, label %.lr.ph67.i, label %.thread.i
 
 .thread.i:                                        ; preds = %103, %.lr.ph.i, %86, %82
-  %.3.i = phi ptr [ %.046.i, %82 ], [ %.046.i, %86 ], [ %.046.i, %.lr.ph.i ], [ %.2.i, %103 ]
+  %.2.i = phi ptr [ %.1.i, %82 ], [ %.1.i, %86 ], [ %.1.i, %.lr.ph.i ], [ %.4.i, %103 ]
   call void @UnlockRelationOid(i32 noundef %43, i32 noundef 1) #16
   br label %expand_vacuum_rel.exit
 
 expand_vacuum_rel.exit:                           ; preds = %35, %47, %48, %54, %55, %.thread.i
-  %.0.i = phi ptr [ null, %55 ], [ null, %54 ], [ null, %48 ], [ null, %47 ], [ %37, %35 ], [ %.3.i, %.thread.i ]
+  %.0.i = phi ptr [ null, %55 ], [ null, %54 ], [ null, %48 ], [ null, %47 ], [ %37, %35 ], [ %.2.i, %.thread.i ]
   %107 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
   %108 = call ptr @list_concat(ptr noundef %.05790, ptr noundef %.0.i) #16
@@ -1558,12 +1558,12 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %38, %0
-  %.059.ph.ph = phi i32 [ %.160, %38 ], [ %2, %0 ]
+  %.059.ph.ph = phi i32 [ %.261, %38 ], [ %2, %0 ]
   %.057.ph.ph = phi i32 [ %39, %38 ], [ %3, %0 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %.059.ph = phi i32 [ %.059.ph.ph, %.outer.outer ], [ %.160, %.outer.backedge ]
+  %.059.ph = phi i32 [ %.059.ph.ph, %.outer.outer ], [ %.261, %.outer.backedge ]
   br label %9
 
 9:                                                ; preds = %.outer, %11
@@ -1606,7 +1606,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %25, %28, %20
-  %.160 = phi i32 [ %29, %28 ], [ %.059.ph, %25 ], [ %.059.ph, %20 ]
+  %.261 = phi i32 [ %29, %28 ], [ %.059.ph, %25 ], [ %.059.ph, %20 ]
   %31 = getelementptr inbounds i8, ptr %17, i64 136
   %32 = load i32, ptr %31, align 4
   %.not73 = icmp eq i32 %32, 0
@@ -1629,7 +1629,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %.outer.outer, !llvm.loop !8
 
 .loopexit:                                        ; preds = %33, %23, %9
-  %.261 = phi i32 [ %.059.ph, %9 ], [ %.160, %33 ], [ %.059.ph, %23 ]
+  %.160 = phi i32 [ %.059.ph, %9 ], [ %.261, %33 ], [ %.059.ph, %23 ]
   tail call void @systable_endscan(ptr noundef %8) #16
   tail call void @table_close(ptr noundef %7, i32 noundef 1) #16
   br i1 %.not.not, label %40, label %139
@@ -1663,11 +1663,11 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   %57 = getelementptr i8, ptr %53, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 84
   %59 = load i32, ptr %58, align 4
-  %.not74 = icmp eq i32 %59, %.261
+  %.not74 = icmp eq i32 %59, %.160
   br i1 %.not74, label %66, label %60
 
 60:                                               ; preds = %51
-  %61 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %59, i32 noundef %.261) #16
+  %61 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %59, i32 noundef %.160) #16
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %60
@@ -1680,11 +1680,11 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %66
 
 65:                                               ; preds = %62, %60
-  store i32 %.261, ptr %58, align 4
+  store i32 %.160, ptr %58, align 4
   br label %66
 
 66:                                               ; preds = %51, %._crit_edge, %65
-  %.3 = phi i32 [ %.261, %65 ], [ %.pre, %._crit_edge ], [ %.261, %51 ]
+  %.3 = phi i32 [ %.160, %65 ], [ %.pre, %._crit_edge ], [ %.160, %51 ]
   %.0 = phi i1 [ true, %65 ], [ false, %._crit_edge ], [ false, %51 ]
   %67 = getelementptr inbounds i8, ptr %57, i64 88
   %68 = load i32, ptr %67, align 4
@@ -2335,7 +2335,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br label %45
 
 45:                                               ; preds = %40, %44
-  %.3 = phi i1 [ true, %44 ], [ %.2, %40 ]
+  %.4 = phi i1 [ true, %44 ], [ %.2, %40 ]
   %46 = getelementptr inbounds i8, ptr %25, i64 120
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
@@ -2352,7 +2352,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br label %54
 
 54:                                               ; preds = %53, %49, %45
-  %.4 = phi i1 [ true, %53 ], [ %.3, %49 ], [ %.3, %45 ]
+  %.5 = phi i1 [ true, %53 ], [ %.4, %49 ], [ %.4, %45 ]
   %55 = getelementptr inbounds i8, ptr %25, i64 121
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
@@ -2369,7 +2369,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br label %63
 
 63:                                               ; preds = %54, %58, %62, %39
-  %.5 = phi i1 [ %.2, %39 ], [ true, %62 ], [ %.4, %58 ], [ %.4, %54 ]
+  %.3 = phi i1 [ %.2, %39 ], [ true, %62 ], [ %.5, %58 ], [ %.5, %54 ]
   %64 = getelementptr inbounds i8, ptr %25, i64 132
   %65 = load i32, ptr %64, align 4
   %.not87 = icmp eq ptr %7, null
@@ -2396,7 +2396,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br i1 %74, label %.thread, label %76
 
 .thread:                                          ; preds = %69, %71
-  %.06999 = xor i1 %70, true
+  %.17099 = xor i1 %70, true
   store i32 %5, ptr %64, align 4
   br i1 %.not87, label %76, label %75
 
@@ -2405,8 +2405,8 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br label %76
 
 76:                                               ; preds = %71, %75, %.thread, %67
-  %.170 = phi i1 [ %.06999, %75 ], [ %.06999, %.thread ], [ false, %71 ], [ false, %67 ]
-  %.6 = phi i1 [ true, %75 ], [ true, %.thread ], [ %.5, %71 ], [ %.5, %67 ]
+  %.069 = phi i1 [ %.17099, %75 ], [ %.17099, %.thread ], [ false, %71 ], [ false, %67 ]
+  %.6 = phi i1 [ true, %75 ], [ true, %.thread ], [ %.3, %71 ], [ %.3, %67 ]
   %77 = getelementptr inbounds i8, ptr %25, i64 136
   %78 = load i32, ptr %77, align 4
   %.not89 = icmp eq ptr %8, null
@@ -2432,7 +2432,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br i1 %85, label %.thread100, label %87
 
 .thread100:                                       ; preds = %81, %83
-  %.071103 = xor i1 %82, true
+  %.172103 = xor i1 %82, true
   store i32 %6, ptr %77, align 4
   br i1 %.not89, label %.thread104, label %86
 
@@ -2444,14 +2444,14 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br i1 %.6, label %.thread104, label %88
 
 .thread104:                                       ; preds = %.thread100, %86, %87
-  %.172108 = phi i1 [ false, %87 ], [ %.071103, %86 ], [ %.071103, %.thread100 ]
+  %.071108 = phi i1 [ false, %87 ], [ %.172103, %86 ], [ %.172103, %.thread100 ]
   tail call void @heap_inplace_update(ptr noundef %13, ptr noundef nonnull %15) #16
   br label %88
 
 88:                                               ; preds = %.thread104, %87
-  %.172107 = phi i1 [ %.172108, %.thread104 ], [ false, %87 ]
+  %.071107 = phi i1 [ %.071108, %.thread104 ], [ false, %87 ]
   tail call void @table_close(ptr noundef %13, i32 noundef 3) #16
-  br i1 %.170, label %89, label %97
+  br i1 %.069, label %89, label %97
 
 89:                                               ; preds = %88
   %90 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
@@ -2467,7 +2467,7 @@ define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i3
   br label %97
 
 97:                                               ; preds = %91, %89, %88
-  br i1 %.172107, label %98, label %106
+  br i1 %.071107, label %98, label %106
 
 98:                                               ; preds = %97
   %99 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16

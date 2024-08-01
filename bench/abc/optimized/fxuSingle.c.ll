@@ -454,7 +454,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %154, %13, %._crit_e
 
 181:                                              ; preds = %.lr.ph109, %196
   %indvars.iv129 = phi i64 [ 2, %.lr.ph109 ], [ %indvars.iv.next130, %196 ]
-  %.068106 = phi i32 [ 0, %.lr.ph109 ], [ %.169, %196 ]
+  %.068106 = phi i32 [ 0, %.lr.ph109 ], [ %.2, %196 ]
   %182 = getelementptr inbounds ptr, ptr %.val83, i64 %indvars.iv129
   %183 = load ptr, ptr %182, align 8
   %184 = ptrtoint ptr %183 to i64
@@ -481,19 +481,19 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %154, %13, %._crit_e
   br i1 %195, label %._crit_edge110, label %196
 
 196:                                              ; preds = %187, %181
-  %.169 = phi i32 [ %.068106, %181 ], [ %192, %187 ]
+  %.2 = phi i32 [ %.068106, %181 ], [ %192, %187 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 3
   %197 = trunc nuw i64 %indvars.iv.next130 to i32
   %198 = icmp sgt i32 %.val, %197
   br i1 %198, label %181, label %._crit_edge110, !llvm.loop !11
 
 ._crit_edge110:                                   ; preds = %196, %187, %180
-  %.2 = phi i32 [ 0, %180 ], [ %192, %187 ], [ %.169, %196 ]
+  %.169 = phi i32 [ 0, %180 ], [ %192, %187 ], [ %.2, %196 ]
   store i32 %.096, ptr %5, align 8
   br label %199
 
 199:                                              ; preds = %._crit_edge110, %._crit_edge
-  %.val81 = phi i32 [ %.2, %._crit_edge110 ], [ %.val, %._crit_edge ]
+  %.val81 = phi i32 [ %.169, %._crit_edge110 ], [ %.val, %._crit_edge ]
   %200 = icmp sgt i32 %.val81, 0
   %.pre = load ptr, ptr %9, align 8
   br i1 %200, label %.lr.ph121, label %._crit_edge122

@@ -178,8 +178,8 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br label %161
 
 .critedge:                                        ; preds = %44, %.critedge.backedge
-  %.1102 = phi i64 [ %55, %.critedge.backedge ], [ %.0101177, %44 ]
-  %55 = add i64 %.1102, -1
+  %.2 = phi i64 [ %55, %.critedge.backedge ], [ %.0101177, %44 ]
+  %55 = add i64 %.2, -1
   %56 = getelementptr inbounds i8, ptr %.0178, i64 %55
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
@@ -209,7 +209,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   ]
 
 64:                                               ; preds = %62, %62
-  %65 = add i64 %.1102, -2
+  %65 = add i64 %.2, -2
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %67, label %74
 
@@ -255,7 +255,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 81:                                               ; preds = %79, %79
   %82 = getelementptr inbounds i8, ptr %.0178, i64 2
-  %83 = add i64 %.1102, -2
+  %83 = add i64 %.2, -2
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %85, label %92
 
@@ -310,7 +310,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br i1 %.not127.not, label %php_filter_parse_octal.exit, label %.thread164
 
 105:                                              ; preds = %58
-  %106 = getelementptr inbounds i8, ptr %.0178, i64 %.1102
+  %106 = getelementptr inbounds i8, ptr %.0178, i64 %.2
   switch i8 %45, label %.thread157 [
     i8 45, label %108
     i8 43, label %109
@@ -329,7 +329,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   %.pre.i = load i8, ptr %111, align 1
   %112 = icmp eq i8 %.pre.i, 48
   %113 = getelementptr inbounds i8, ptr %.0178, i64 2
-  %114 = icmp eq i64 %.1102, 2
+  %114 = icmp eq i64 %.2, 2
   %or.cond.i146 = and i1 %114, %112
   br i1 %or.cond.i146, label %php_filter_parse_octal.exit, label %115
 
@@ -539,8 +539,8 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nocap
   br i1 %.not, label %.thread, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.backedge
-  %.1 = phi i64 [ %12, %.critedge.backedge ], [ %.04473, %.lr.ph ]
-  %12 = add i64 %.1, -1
+  %.2 = phi i64 [ %12, %.critedge.backedge ], [ %.04473, %.lr.ph ]
+  %12 = add i64 %.2, -1
   %13 = getelementptr inbounds i8, ptr %.04572, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %.critedge52 [
@@ -555,7 +555,7 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nocap
   br label %.critedge
 
 .critedge52:                                      ; preds = %.critedge
-  switch i64 %.1, label %.thread63 [
+  switch i64 %.2, label %.thread63 [
     i64 0, label %.thread
     i64 1, label %15
     i64 2, label %17
@@ -690,8 +690,8 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %213
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.backedge
-  %.1254 = phi i64 [ %20, %.critedge.backedge ], [ %.0253391, %.lr.ph ]
-  %20 = add i64 %.1254, -1
+  %.2255 = phi i64 [ %20, %.critedge.backedge ], [ %.0253391, %.lr.ph ]
+  %20 = add i64 %.2255, -1
   %21 = getelementptr inbounds i8, ptr %.0256390, i64 %20
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %23 [
@@ -706,7 +706,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %.critedge
 
 23:                                               ; preds = %.critedge
-  %24 = getelementptr inbounds i8, ptr %.0256390, i64 %.1254
+  %24 = getelementptr inbounds i8, ptr %.0256390, i64 %.2255
   %.not286 = icmp eq ptr %2, null
   br i1 %.not286, label %99, label %25
 
@@ -874,9 +874,9 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   %.0243355366 = phi ptr [ %.0243354, %88 ], [ %.0243354, %95 ], [ %.0243354, %97 ], [ @.str.12, %23 ]
   %.0241 = phi double [ 0.000000e+00, %88 ], [ %96, %95 ], [ %98, %97 ], [ 0.000000e+00, %23 ]
   %.not303 = phi i1 [ true, %88 ], [ false, %95 ], [ false, %97 ], [ true, %23 ]
-  %100 = add i64 %.1254, 1
+  %100 = add i64 %.2255, 1
   %101 = tail call noalias ptr @_emalloc(i64 noundef %100) #16
-  %102 = icmp sgt i64 %.1254, 0
+  %102 = icmp sgt i64 %.2255, 0
   br i1 %102, label %.thread374, label %107
 
 .thread374:                                       ; preds = %99
@@ -995,45 +995,45 @@ switch.early.test:                                ; preds = %130
 
 138:                                              ; preds = %.split404.us.thread
   store i8 46, ptr %.us-phi406444, align 1
-  %.3408 = getelementptr inbounds i8, ptr %.us-phi406444, i64 1
-  %.4260409 = getelementptr inbounds i8, ptr %.us-phi405443, i64 1
-  %139 = icmp ult ptr %.4260409, %24
+  %.4408 = getelementptr inbounds i8, ptr %.us-phi406444, i64 1
+  %.5261409 = getelementptr inbounds i8, ptr %.us-phi405443, i64 1
+  %139 = icmp ult ptr %.5261409, %24
   br i1 %139, label %.lr.ph413, label %.critedge9thread-pre-split
 
 .lr.ph413:                                        ; preds = %138, %142
-  %.4260411 = phi ptr [ %.4260, %142 ], [ %.4260409, %138 ]
-  %.3410 = phi ptr [ %.3, %142 ], [ %.3408, %138 ]
-  %140 = load i8, ptr %.4260411, align 1
+  %.5261411 = phi ptr [ %.5261, %142 ], [ %.5261409, %138 ]
+  %.4410 = phi ptr [ %.4, %142 ], [ %.4408, %138 ]
+  %140 = load i8, ptr %.5261411, align 1
   %141 = add i8 %140, -48
   %or.cond317 = icmp ult i8 %141, 10
   br i1 %or.cond317, label %142, label %.critedge9
 
 142:                                              ; preds = %.lr.ph413
-  store i8 %140, ptr %.3410, align 1
-  %.3 = getelementptr inbounds i8, ptr %.3410, i64 1
-  %.4260 = getelementptr inbounds i8, ptr %.4260411, i64 1
-  %143 = icmp ult ptr %.4260, %24
+  store i8 %140, ptr %.4410, align 1
+  %.4 = getelementptr inbounds i8, ptr %.4410, i64 1
+  %.5261 = getelementptr inbounds i8, ptr %.5261411, i64 1
+  %143 = icmp ult ptr %.5261, %24
   br i1 %143, label %.lr.ph413, label %.critedge9thread-pre-split
 
 .critedge9thread-pre-split:                       ; preds = %142, %138
-  %.3.lcssa = phi ptr [ %.3408, %138 ], [ %.3, %142 ]
-  %.4260.lcssa = phi ptr [ %.4260409, %138 ], [ %.4260, %142 ]
-  %.pr = load i8, ptr %.4260.lcssa, align 1
+  %.4.lcssa = phi ptr [ %.4408, %138 ], [ %.4, %142 ]
+  %.5261.lcssa = phi ptr [ %.5261409, %138 ], [ %.5261, %142 ]
+  %.pr = load i8, ptr %.5261.lcssa, align 1
   br label %.critedge9
 
 .critedge9:                                       ; preds = %.lr.ph413, %.critedge9thread-pre-split, %.split404.us.thread
   %144 = phi i8 [ %.pr, %.critedge9thread-pre-split ], [ %136, %.split404.us.thread ], [ %140, %.lr.ph413 ]
-  %.5261 = phi ptr [ %.4260.lcssa, %.critedge9thread-pre-split ], [ %.us-phi405443, %.split404.us.thread ], [ %.4260411, %.lr.ph413 ]
-  %.4 = phi ptr [ %.3.lcssa, %.critedge9thread-pre-split ], [ %.us-phi406444, %.split404.us.thread ], [ %.3410, %.lr.ph413 ]
+  %.4260 = phi ptr [ %.5261.lcssa, %.critedge9thread-pre-split ], [ %.us-phi405443, %.split404.us.thread ], [ %.5261411, %.lr.ph413 ]
+  %.3 = phi ptr [ %.4.lcssa, %.critedge9thread-pre-split ], [ %.us-phi406444, %.split404.us.thread ], [ %.4410, %.lr.ph413 ]
   switch i8 %144, label %.critedge11 [
     i8 101, label %145
     i8 69, label %145
   ]
 
 145:                                              ; preds = %.critedge9, %.critedge9
-  %146 = getelementptr inbounds i8, ptr %.5261, i64 1
-  %147 = getelementptr inbounds i8, ptr %.4, i64 1
-  store i8 %144, ptr %.4, align 1
+  %146 = getelementptr inbounds i8, ptr %.4260, i64 1
+  %147 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %144, ptr %.3, align 1
   %148 = icmp ult ptr %146, %24
   br i1 %148, label %149, label %154
 
@@ -1045,8 +1045,8 @@ switch.early.test:                                ; preds = %130
   ]
 
 151:                                              ; preds = %149, %149
-  %152 = getelementptr inbounds i8, ptr %.5261, i64 2
-  %153 = getelementptr inbounds i8, ptr %.4, i64 2
+  %152 = getelementptr inbounds i8, ptr %.4260, i64 2
+  %153 = getelementptr inbounds i8, ptr %.3, i64 2
   store i8 %150, ptr %147, align 1
   br label %154
 
@@ -1093,8 +1093,8 @@ switch.early.test:                                ; preds = %130
   br label %.split
 
 .critedge11:                                      ; preds = %158, %.lr.ph419, %154, %.critedge9
-  %.8 = phi ptr [ %.5261, %.critedge9 ], [ %.6262, %154 ], [ %159, %158 ], [ %.7263416, %.lr.ph419 ]
-  %.7 = phi ptr [ %.4, %.critedge9 ], [ %.5, %154 ], [ %160, %158 ], [ %.6417, %.lr.ph419 ]
+  %.8 = phi ptr [ %.4260, %.critedge9 ], [ %.6262, %154 ], [ %159, %158 ], [ %.7263416, %.lr.ph419 ]
+  %.7 = phi ptr [ %.3, %.critedge9 ], [ %.5, %154 ], [ %160, %158 ], [ %.6417, %.lr.ph419 ]
   %.not300 = icmp eq ptr %.8, %24
   br i1 %.not300, label %170, label %.thread375
 
@@ -1959,27 +1959,27 @@ define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr nounde
   br i1 %.not143, label %.preheader165, label %53
 
 .preheader165:                                    ; preds = %6, %9
-  %.0113 = phi ptr [ %10, %9 ], [ %7, %6 ]
-  %8 = icmp ugt ptr %.0113, %0
+  %.1114 = phi ptr [ %10, %9 ], [ %7, %6 ]
+  %8 = icmp ugt ptr %.1114, %0
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %.preheader165
-  %10 = getelementptr inbounds i8, ptr %.0113, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.1114, i64 -1
   %11 = load i8, ptr %10, align 1
   %.not144 = icmp eq i8 %11, 58
   br i1 %.not144, label %.critedge, label %.preheader165
 
 .critedge:                                        ; preds = %.preheader165, %9
-  %12 = ptrtoint ptr %.0113 to i64
+  %12 = ptrtoint ptr %.1114 to i64
   %13 = ptrtoint ptr %0 to i64
   %14 = sub i64 %12, %13
   %15 = sub i64 %1, %14
-  %16 = getelementptr inbounds i8, ptr %.0113, i64 %15
+  %16 = getelementptr inbounds i8, ptr %.1114, i64 %15
   br label %17
 
 17:                                               ; preds = %44, %.critedge
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %.critedge ]
-  %.032.i = phi ptr [ %45, %44 ], [ %.0113, %.critedge ]
+  %.032.i = phi ptr [ %45, %44 ], [ %.1114, %.critedge ]
   %18 = icmp ult ptr %.032.i, %16
   br i1 %18, label %19, label %_php_filter_validate_ipv4.exit.thread
 
@@ -2051,7 +2051,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   br i1 %or.cond154, label %_php_filter_validate_ipv4.exit.thread, label %49
 
 49:                                               ; preds = %_php_filter_validate_ipv4.exit
-  %50 = getelementptr inbounds i8, ptr %.0113, i64 -2
+  %50 = getelementptr inbounds i8, ptr %.1114, i64 -2
   %51 = load i8, ptr %50, align 1
   %.not146 = icmp ne i8 %51, 58
   %52 = sext i1 %.not146 to i64
@@ -2060,8 +2060,8 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
 
 53:                                               ; preds = %49, %6
   %.0121 = phi i32 [ 2, %49 ], [ 0, %6 ]
-  %.1112 = phi i64 [ %spec.select, %49 ], [ %1, %6 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 %.1112
+  %.0111 = phi i64 [ %spec.select, %49 ], [ %1, %6 ]
+  %54 = getelementptr inbounds i8, ptr %0, i64 %.0111
   %55 = icmp ne ptr %2, null
   br label %56
 

@@ -1594,7 +1594,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %.sroa.12.1 = phi i64 [ %.sroa.12.40.copyload, %260 ], [ %.sroa.12.0, %343 ], [ %210, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.12.0, %232 ], [ %.sroa.12.0, %242 ], [ %.sroa.12.0, %250 ]
   %.sroa.11.1 = phi i64 [ %210, %260 ], [ %.sroa.11.0, %343 ], [ %.sroa.11.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.11.0, %232 ], [ %.sroa.11.0, %242 ], [ %.sroa.11.0, %250 ]
   %.sroa.10.1 = phi i64 [ %216, %260 ], [ %.sroa.10.0, %343 ], [ %.sroa.10.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.10.0, %232 ], [ %.sroa.10.0, %242 ], [ %.sroa.10.0, %250 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload152, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload152, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
@@ -1624,7 +1624,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  %.not43.not = icmp eq i64 %.sroa.0.1, -9223372036854775807
+  %.not43.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
   br i1 %.not43.not, label %.backedge93.backedge, label %344
 
 .backedge93.backedge:                             ; preds = %.noexc57, %344, %153
@@ -1637,7 +1637,7 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   br label %.backedge93
 
 344:                                              ; preds = %.noexc57
-  store i64 %.sroa.0.1, ptr %51, align 8
+  store i64 %.sroa.0.0, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, i64 16, i1 false)
   store i64 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx, align 8
   store i64 %.sroa.11.1, ptr %.sroa.11.0..sroa_idx, align 8

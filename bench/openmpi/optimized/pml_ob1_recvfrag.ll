@@ -118,14 +118,14 @@ define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr nocapture noundef %0, 
   br i1 %or.cond136, label %.lr.ph, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %.lr.ph, %20, %.preheader
-  %.2 = phi ptr [ %7, %.preheader ], [ %22, %20 ], [ %28, %.lr.ph ]
-  %33 = getelementptr inbounds i8, ptr %.2, i64 144
+  %.1 = phi ptr [ %7, %.preheader ], [ %22, %20 ], [ %28, %.lr.ph ]
+  %33 = getelementptr inbounds i8, ptr %.1, i64 144
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %.critedge2
-  %37 = getelementptr inbounds i8, ptr %.2, i64 68
+  %37 = getelementptr inbounds i8, ptr %.1, i64 68
   %38 = load i16, ptr %37, align 4
   %39 = zext i16 %38 to i32
   %40 = add nuw nsw i32 %39, 1
@@ -162,8 +162,8 @@ define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr nocapture noundef %0, 
   br label %79
 
 60:                                               ; preds = %44, %36
-  store volatile ptr %.2, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %.2, i64 16
+  store volatile ptr %.1, ptr %5, align 8
+  %61 = getelementptr inbounds i8, ptr %.1, i64 16
   %62 = load volatile ptr, ptr %61, align 8
   store volatile ptr %62, ptr %4, align 8
   %63 = load volatile ptr, ptr %5, align 8
@@ -194,7 +194,7 @@ define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr nocapture noundef %0, 
   br label %79
 
 79:                                               ; preds = %60, %78, %68, %53, %43
-  %.0110 = phi ptr [ %.2, %43 ], [ %1, %78 ], [ %1, %68 ], [ %1, %60 ], [ %.2, %53 ]
+  %.0110 = phi ptr [ %.1, %43 ], [ %1, %78 ], [ %1, %68 ], [ %1, %60 ], [ %.1, %53 ]
   %80 = getelementptr inbounds i8, ptr %.0110, i64 16
   %81 = load volatile ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %.0110, i64 144

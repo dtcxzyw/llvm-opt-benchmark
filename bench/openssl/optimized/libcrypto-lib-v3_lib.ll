@@ -470,7 +470,7 @@ for.body.lr.ph:                                   ; preds = %if.end9
   br i1 %tobool1.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %found_ex.037.us = phi ptr [ %found_ex.1.us, %for.inc.us ], [ null, %for.body.lr.ph ]
+  %found_ex.037.us = phi ptr [ %found_ex.2.us, %for.inc.us ], [ null, %for.body.lr.ph ]
   %i.036.us = phi i32 [ %inc.us, %for.inc.us ], [ %spec.store.select, %for.body.lr.ph ]
   %call15.us = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %x, i32 noundef %i.036.us) #7
   %call16.us = tail call ptr @X509_EXTENSION_get_object(ptr noundef %call15.us) #7
@@ -483,7 +483,7 @@ if.then19.us:                                     ; preds = %for.body.us
   br i1 %tobool23.not.us, label %for.inc.us, label %if.then24
 
 for.inc.us:                                       ; preds = %if.then19.us, %for.body.us
-  %found_ex.1.us = phi ptr [ %found_ex.037.us, %for.body.us ], [ %call15.us, %if.then19.us ]
+  %found_ex.2.us = phi ptr [ %found_ex.037.us, %for.body.us ], [ %call15.us, %if.then19.us ]
   %inc.us = add nuw nsw i32 %i.036.us, 1
   %call12.us = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %x) #7
   %cmp13.us = icmp slt i32 %inc.us, %call12.us
@@ -512,7 +512,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp13, label %for.body, label %if.end38, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc.us
-  %tobool31.not = icmp eq ptr %found_ex.1.us, null
+  %tobool31.not = icmp eq ptr %found_ex.2.us, null
   br i1 %tobool31.not, label %if.end38, label %if.then32
 
 for.end.thread:                                   ; preds = %for.body
@@ -521,23 +521,23 @@ for.end.thread:                                   ; preds = %for.body
   br i1 %tobool31.not27, label %if.then40, label %if.then32
 
 if.then32:                                        ; preds = %for.end.thread, %for.end
-  %found_ex.228 = phi ptr [ %call15, %for.end.thread ], [ %found_ex.1.us, %for.end ]
+  %found_ex.128 = phi ptr [ %call15, %for.end.thread ], [ %found_ex.2.us, %for.end ]
   %tobool33.not = icmp eq ptr %crit, null
   br i1 %tobool33.not, label %if.end36, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
-  %call35 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %found_ex.228) #7
+  %call35 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %found_ex.128) #7
   store i32 %call35, ptr %crit, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.then32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %call.i = tail call ptr @X509V3_EXT_get(ptr noundef nonnull %found_ex.228)
+  %call.i = tail call ptr @X509V3_EXT_get(ptr noundef nonnull %found_ex.128)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %X509V3_EXT_d2i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end36
-  %call1.i = tail call ptr @X509_EXTENSION_get_data(ptr noundef nonnull %found_ex.228) #7
+  %call1.i = tail call ptr @X509_EXTENSION_get_data(ptr noundef nonnull %found_ex.128) #7
   %call2.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %call1.i) #7
   store ptr %call2.i, ptr %p.i, align 8
   %call3.i = tail call i32 @ASN1_STRING_length(ptr noundef %call1.i) #7

@@ -75,30 +75,30 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %7
 
 5:                                                ; preds = %578, %73
-  %.0275 = phi ptr [ %556, %578 ], [ %.2277, %73 ]
-  %.0266 = phi ptr [ %557, %578 ], [ %74, %73 ]
-  %.0249 = phi i32 [ %579, %578 ], [ %67, %73 ]
-  %.0 = phi i32 [ %.5, %578 ], [ -2, %73 ]
-  %6 = getelementptr i8, ptr %.0275, i64 1
+  %.1276 = phi ptr [ %556, %578 ], [ %.2277, %73 ]
+  %.1267 = phi ptr [ %557, %578 ], [ %74, %73 ]
+  %.1250 = phi i32 [ %579, %578 ], [ %67, %73 ]
+  %.1 = phi i32 [ %.8, %578 ], [ -2, %73 ]
+  %6 = getelementptr i8, ptr %.1276, i64 1
   br label %7
 
 7:                                                ; preds = %5, %1
-  %.1276 = phi ptr [ %3, %1 ], [ %6, %5 ]
+  %.0275 = phi ptr [ %3, %1 ], [ %6, %5 ]
   %.0273 = phi ptr [ %4, %1 ], [ %.1274, %5 ]
-  %.1267 = phi ptr [ %4, %1 ], [ %.0266, %5 ]
+  %.0266 = phi ptr [ %4, %1 ], [ %.1267, %5 ]
   %.0257 = phi ptr [ %3, %1 ], [ %.1258, %5 ]
   %.0255 = phi i64 [ 200, %1 ], [ %.1256, %5 ]
-  %.1250 = phi i32 [ 0, %1 ], [ %.0249, %5 ]
-  %.1 = phi i32 [ -2, %1 ], [ %.0, %5 ]
-  %8 = trunc nsw i32 %.1250 to i8
-  store i8 %8, ptr %.1276, align 1
+  %.0249 = phi i32 [ 0, %1 ], [ %.1250, %5 ]
+  %.0 = phi i32 [ -2, %1 ], [ %.1, %5 ]
+  %8 = trunc nsw i32 %.0249 to i8
+  store i8 %8, ptr %.0275, align 1
   %9 = getelementptr i8, ptr %.0257, i64 %.0255
   %10 = getelementptr i8, ptr %9, i64 -1
-  %.not = icmp ugt ptr %10, %.1276
+  %.not = icmp ugt ptr %10, %.0275
   br i1 %.not, label %34, label %11
 
 11:                                               ; preds = %7
-  %12 = ptrtoint ptr %.1276 to i64
+  %12 = ptrtoint ptr %.0275 to i64
   %13 = ptrtoint ptr %.0257 to i64
   %14 = sub i64 %12, %13
   %15 = add i64 %14, 1
@@ -138,16 +138,16 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br i1 %.not296, label %34, label %.thread366.thread
 
 34:                                               ; preds = %28, %7
-  %.2277 = phi ptr [ %30, %28 ], [ %.1276, %7 ]
+  %.2277 = phi ptr [ %30, %28 ], [ %.0275, %7 ]
   %.1274 = phi ptr [ %25, %28 ], [ %.0273, %7 ]
-  %.2268 = phi ptr [ %32, %28 ], [ %.1267, %7 ]
+  %.2268 = phi ptr [ %32, %28 ], [ %.0266, %7 ]
   %.1258 = phi ptr [ %21, %28 ], [ %.0257, %7 ]
   %.1256 = phi i64 [ %spec.store.select, %28 ], [ %.0255, %7 ]
-  %35 = icmp eq i32 %.1250, 25
+  %35 = icmp eq i32 %.0249, 25
   br i1 %35, label %.thread366, label %36
 
 36:                                               ; preds = %34
-  %37 = sext i32 %.1250 to i64
+  %37 = sext i32 %.0249 to i64
   %38 = getelementptr [88 x i16], ptr @yypact, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i32
@@ -155,7 +155,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br i1 %41, label %76, label %42
 
 42:                                               ; preds = %36
-  %43 = icmp eq i32 %.1, -2
+  %43 = icmp eq i32 %.0, -2
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -163,20 +163,20 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %46
 
 46:                                               ; preds = %44, %42
-  %.2 = phi i32 [ %45, %44 ], [ %.1, %42 ]
-  %47 = icmp slt i32 %.2, 1
+  %.4 = phi i32 [ %45, %44 ], [ %.0, %42 ]
+  %47 = icmp slt i32 %.4, 1
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp eq i32 %.2, 256
+  %49 = icmp eq i32 %.4, 256
   br i1 %49, label %.thread366, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %.2, 282
+  %51 = icmp ult i32 %.4, 282
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50
-  %53 = zext nneg i32 %.2 to i64
+  %53 = zext nneg i32 %.4 to i64
   %54 = getelementptr [282 x i8], ptr @yytranslate, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
@@ -184,7 +184,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
 
 57:                                               ; preds = %52, %50, %46
   %.0263 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
-  %.3 = phi i32 [ 0, %46 ], [ %.2, %52 ], [ %.2, %50 ]
+  %.5 = phi i32 [ 0, %46 ], [ %.4, %52 ], [ %.4, %50 ]
   %58 = add nsw i32 %.0263, %40
   %or.cond3 = icmp ugt i32 %58, 320
   br i1 %or.cond3, label %76, label %59
@@ -219,7 +219,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %5
 
 76:                                               ; preds = %57, %59, %36
-  %.4 = phi i32 [ %.1, %36 ], [ %.3, %57 ], [ %.3, %59 ]
+  %.3 = phi i32 [ %.0, %36 ], [ %.5, %57 ], [ %.5, %59 ]
   %77 = getelementptr [88 x i8], ptr @yydefact, i64 0, i64 %37
   %78 = load i8, ptr %77, align 1
   %79 = sext i8 %78 to i32
@@ -228,7 +228,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
 
 81:                                               ; preds = %76, %71
   %.0265 = phi i32 [ %79, %76 ], [ %72, %71 ]
-  %.5 = phi i32 [ %.4, %76 ], [ %.3, %71 ]
+  %.8 = phi i32 [ %.3, %76 ], [ %.5, %71 ]
   %82 = sext i32 %.0265 to i64
   %83 = getelementptr [48 x i8], ptr @yyr2, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1

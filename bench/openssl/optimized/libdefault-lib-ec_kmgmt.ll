@@ -972,19 +972,19 @@ land.rhs50:                                       ; preds = %if.then48
 
 if.end56:                                         ; preds = %land.rhs29, %if.then27, %if.then48, %land.rhs50, %if.then40, %land.lhs.true37
   %tobool59 = phi i1 [ false, %if.then40 ], [ false, %land.lhs.true37 ], [ true, %land.rhs50 ], [ true, %if.then48 ], [ true, %if.then27 ], [ true, %land.rhs29 ]
-  %ok.2 = phi i32 [ %ok.0, %if.then40 ], [ %ok.0, %land.lhs.true37 ], [ %2, %land.rhs50 ], [ 0, %if.then48 ], [ 0, %if.then27 ], [ %1, %land.rhs29 ]
-  %tobool57 = icmp ne i32 %ok.2, 0
+  %ok.3 = phi i32 [ %ok.0, %if.then40 ], [ %ok.0, %land.lhs.true37 ], [ %2, %land.rhs50 ], [ 0, %if.then48 ], [ 0, %if.then27 ], [ %1, %land.rhs29 ]
+  %tobool57 = icmp ne i32 %ok.3, 0
   %3 = and i1 %tobool59, %tobool57
   %land.ext61 = zext i1 %3 to i32
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end56, %if.end15
-  %ok.3 = phi i32 [ %land.ext61, %if.end56 ], [ %ok.0, %if.end15 ]
+  %ok.1 = phi i32 [ %land.ext61, %if.end56 ], [ %ok.0, %if.end15 ]
   tail call void @BN_CTX_free(ptr noundef nonnull %call4) #4
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end62
-  %retval.0 = phi i32 [ %ok.3, %if.end62 ], [ 0, %entry ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %ok.1, %if.end62 ], [ 0, %entry ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1167,13 +1167,13 @@ land.rhs35:                                       ; preds = %if.end21
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end21, %land.rhs35
-  %ok.1 = phi i32 [ %land.ext.mux, %if.end21 ], [ %call36, %land.rhs35 ]
+  %ok.2 = phi i32 [ %land.ext.mux, %if.end21 ], [ %call36, %land.rhs35 ]
   %and41 = and i32 %selection, 128
   %cmp42.not = icmp eq i32 %and41, 0
   br i1 %cmp42.not, label %if.end50, label %if.then43
 
 if.then43:                                        ; preds = %if.end40
-  %tobool44.not = icmp eq i32 %ok.1, 0
+  %tobool44.not = icmp eq i32 %ok.2, 0
   br i1 %tobool44.not, label %end, label %land.rhs45
 
 land.rhs45:                                       ; preds = %if.then43
@@ -1183,8 +1183,8 @@ land.rhs45:                                       ; preds = %if.then43
   br label %if.end50
 
 if.end50:                                         ; preds = %land.rhs45, %if.end40
-  %ok.2 = phi i32 [ %ok.1, %if.end40 ], [ %1, %land.rhs45 ]
-  %tobool51.not = icmp eq i32 %ok.2, 0
+  %ok.3 = phi i32 [ %ok.2, %if.end40 ], [ %1, %land.rhs45 ]
+  %tobool51.not = icmp eq i32 %ok.3, 0
   br i1 %tobool51.not, label %end, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %if.end50
@@ -1198,7 +1198,7 @@ if.end56:                                         ; preds = %lor.lhs.false52
   br label %end
 
 end:                                              ; preds = %if.then43, %if.end50, %lor.lhs.false52, %if.then16, %if.end56
-  %ok.3 = phi i32 [ %call57, %if.end56 ], [ 0, %if.then16 ], [ 0, %lor.lhs.false52 ], [ 0, %if.end50 ], [ 0, %if.then43 ]
+  %ok.1 = phi i32 [ %call57, %if.end56 ], [ 0, %if.then16 ], [ 0, %lor.lhs.false52 ], [ 0, %if.end50 ], [ 0, %if.then43 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %call10) #4
   %2 = load ptr, ptr %pub_key, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 516) #4
@@ -1209,7 +1209,7 @@ end:                                              ; preds = %if.then43, %if.end5
   br label %return
 
 return:                                           ; preds = %if.end9, %if.end3, %entry, %end
-  %retval.0 = phi i32 [ %ok.3, %end ], [ 0, %entry ], [ 0, %if.end3 ], [ 0, %if.end9 ]
+  %retval.0 = phi i32 [ %ok.1, %end ], [ 0, %entry ], [ 0, %if.end3 ], [ 0, %if.end9 ]
   ret i32 %retval.0
 }
 

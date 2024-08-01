@@ -780,22 +780,22 @@ define void @_ZN3gmx15OptionsAssigner11startOptionEPKc(ptr nocapture noundef non
 
 29:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %.1 = phi i1 [ %.0, %27 ], [ true, %25 ]
+  %.4 = phi i1 [ %.0, %27 ], [ true, %25 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   br label %30
 
 30:                                               ; preds = %29, %23
   %.pn.pn = phi { ptr, i32 } [ %.pn, %29 ], [ %24, %23 ]
-  %.2 = phi i1 [ %.1, %29 ], [ true, %23 ]
+  %.3 = phi i1 [ %.4, %29 ], [ true, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %31
 
 31:                                               ; preds = %21, %30
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %30 ], [ %22, %21 ]
-  %.3 = phi i1 [ %.2, %30 ], [ true, %21 ]
+  %.2 = phi i1 [ %.3, %30 ], [ true, %21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  br i1 %.3, label %32, label %34
+  br i1 %.2, label %32, label %34
 
 32:                                               ; preds = %.thread, %31
   %.pn.pn.pn.pn20 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn.pn.pn, %31 ]

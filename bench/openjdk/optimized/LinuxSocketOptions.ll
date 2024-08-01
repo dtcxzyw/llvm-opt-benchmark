@@ -115,8 +115,8 @@ define internal fastcc range(i32 0, 2) i32 @socketOptionSupported(i32 noundef %0
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %11, %2
-  %.1 = phi i32 [ %12, %11 ], [ %5, %2 ]
-  %15 = call i32 @getsockopt(i32 noundef %.1, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
+  %.0 = phi i32 [ %12, %11 ], [ %5, %2 ]
+  %15 = call i32 @getsockopt(i32 noundef %.0, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %20, label %16
 
@@ -131,7 +131,7 @@ define internal fastcc range(i32 0, 2) i32 @socketOptionSupported(i32 noundef %0
 
 21:                                               ; preds = %16, %20
   %.09 = phi i32 [ 1, %20 ], [ 0, %16 ]
-  %22 = call i32 @close(i32 noundef %.1) #4
+  %22 = call i32 @close(i32 noundef %.0) #4
   br label %.thread
 
 .thread:                                          ; preds = %7, %11, %21

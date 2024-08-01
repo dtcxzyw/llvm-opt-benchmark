@@ -10723,37 +10723,37 @@ dissect_amqp_0_10_struct_delivery_properties.exit: ; preds = %100, %102
   br label %185
 
 185:                                              ; preds = %178, %175
-  %.3.i107 = phi i32 [ %184, %178 ], [ %176, %175 ]
+  %.4.i107 = phi i32 [ %184, %178 ], [ %176, %175 ]
   %186 = and i32 %170, 2
   %.not121.i = icmp eq i32 %186, 0
   br i1 %.not121.i, label %194, label %187
 
 187:                                              ; preds = %185
   %188 = load i32, ptr @hf_amqp_0_10_struct_reply_to_routing_key, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %188, ptr noundef %0, i32 noundef %.3.i107, i32 noundef 1, i32 noundef 0) #12
-  %190 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i107) #12
+  %189 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %188, ptr noundef %0, i32 noundef %.4.i107, i32 noundef 1, i32 noundef 0) #12
+  %190 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4.i107) #12
   %191 = zext i8 %190 to i32
-  %192 = add nuw nsw i32 %.3.i107, 1
+  %192 = add nuw nsw i32 %.4.i107, 1
   %193 = add nuw nsw i32 %192, %191
   br label %194
 
 194:                                              ; preds = %187, %185, %155
-  %.4.i108 = phi i32 [ %193, %187 ], [ %.3.i107, %185 ], [ %.2.i105, %155 ]
+  %.3.i108 = phi i32 [ %193, %187 ], [ %.4.i107, %185 ], [ %.2.i105, %155 ]
   %195 = and i32 %135, 16
   %.not122.i = icmp eq i32 %195, 0
   br i1 %.not122.i, label %203, label %196
 
 196:                                              ; preds = %194
   %197 = load i32, ptr @hf_amqp_0_10_struct_message_properties_content_type, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %197, ptr noundef %0, i32 noundef %.4.i108, i32 noundef 1, i32 noundef 0) #12
-  %199 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4.i108) #12
+  %198 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %197, ptr noundef %0, i32 noundef %.3.i108, i32 noundef 1, i32 noundef 0) #12
+  %199 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i108) #12
   %200 = zext i8 %199 to i32
-  %201 = add nuw nsw i32 %.4.i108, 1
+  %201 = add nuw nsw i32 %.3.i108, 1
   %202 = add nuw nsw i32 %201, %200
   br label %203
 
 203:                                              ; preds = %196, %194
-  %.5.i109 = phi i32 [ %202, %196 ], [ %.4.i108, %194 ]
+  %.5.i109 = phi i32 [ %202, %196 ], [ %.3.i108, %194 ]
   %204 = and i32 %135, 32
   %.not123.i = icmp eq i32 %204, 0
   br i1 %.not123.i, label %212, label %205
@@ -11547,19 +11547,19 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
 
 67:                                               ; preds = %57, %54, %50, %58, %61, %64
   %.2 = phi ptr [ @.str.1442, %50 ], [ @.str.1442, %54 ], [ @.str.1442, %64 ], [ @.str.1442, %61 ], [ @.str.1442, %58 ], [ @.str.1443, %57 ]
-  %.075 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ 1, %57 ]
-  %.072 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 4, %64 ], [ 2, %61 ], [ 1, %58 ], [ %53, %57 ]
+  %.176 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ 1, %57 ]
+  %.1 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 4, %64 ], [ 2, %61 ], [ 1, %58 ], [ %53, %57 ]
   %68 = load i32, ptr @hf_amqp_field, align 4
   %69 = add nuw nsw i32 %13, 2
-  %70 = add nuw nsw i32 %69, %.075
-  %71 = add nuw nsw i32 %70, %.072
-  %72 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %68, ptr noundef %0, i32 noundef %.073100, i32 noundef %71, ptr noundef nonnull @.str.1446, ptr noundef %16, ptr noundef nonnull %.2, i32 noundef %.075) #12
+  %70 = add nuw nsw i32 %69, %.176
+  %71 = add nuw nsw i32 %70, %.1
+  %72 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %68, ptr noundef %0, i32 noundef %.073100, i32 noundef %71, ptr noundef nonnull @.str.1446, ptr noundef %16, ptr noundef nonnull %.2, i32 noundef %.176) #12
   br label %73
 
 73:                                               ; preds = %67, %43
-  %.176 = phi i32 [ %.075, %67 ], [ %45, %43 ]
-  %.1 = phi i32 [ %.072, %67 ], [ 4, %43 ]
-  %74 = add nuw nsw i32 %.1, %.176
+  %.075 = phi i32 [ %.176, %67 ], [ %45, %43 ]
+  %.072 = phi i32 [ %.1, %67 ], [ 4, %43 ]
+  %74 = add nuw nsw i32 %.072, %.075
   br label %75
 
 75:                                               ; preds = %.lr.ph.i._crit_edge, %73
@@ -12574,10 +12574,10 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br label %42
 
 42:                                               ; preds = %36, %29, %28, %25, %23, %20, %17, %11
-  %.045 = phi i32 [ 0, %36 ], [ 0, %29 ], [ 0, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ 0, %11 ]
+  %.146 = phi i32 [ 0, %36 ], [ 0, %29 ], [ 0, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ 0, %11 ]
   %.043 = phi i32 [ %41, %36 ], [ %35, %29 ], [ 16, %28 ], [ 8, %25 ], [ 4, %23 ], [ 2, %20 ], [ 1, %17 ], [ 0, %11 ]
   %43 = add i32 %.043, %spec.select
-  %44 = icmp eq i32 %.045, 29
+  %44 = icmp eq i32 %.146, 29
   br i1 %44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %45
@@ -12589,7 +12589,7 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr [27 x %struct.amqp_defined_types_t], ptr @amqp_1_0_defined_types, i64 0, i64 %indvars.iv.next
   %47 = load i32, ptr %46, align 16
-  %48 = icmp eq i32 %47, %.045
+  %48 = icmp eq i32 %47, %.146
   br i1 %48, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %45, %42
@@ -12612,12 +12612,12 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br label %58
 
 58:                                               ; preds = %.loopexit, %7
-  %.146.in = phi i8 [ %56, %.loopexit ], [ %8, %7 ]
-  %.1 = phi i32 [ %57, %.loopexit ], [ %9, %7 ]
-  %.146 = zext i8 %.146.in to i32
-  %59 = sub i32 %.1, %1
+  %.045.in = phi i8 [ %56, %.loopexit ], [ %8, %7 ]
+  %.0 = phi i32 [ %57, %.loopexit ], [ %9, %7 ]
+  %.045 = zext i8 %.045.in to i32
+  %59 = sub i32 %.0, %1
   store i32 %59, ptr %6, align 4
-  ret i32 %.146
+  ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable

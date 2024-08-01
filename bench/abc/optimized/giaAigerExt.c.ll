@@ -149,7 +149,7 @@ define noalias noundef ptr @Gia_WriteEquivClassesInt(ptr nocapture noundef reado
 
 9:                                                ; preds = %.lr.ph, %Gia_ObjIsHead.exit.thread
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsHead.exit.thread ]
-  %.055114 = phi i32 [ 0, %.lr.ph ], [ %.257, %Gia_ObjIsHead.exit.thread ]
+  %.055114 = phi i32 [ 0, %.lr.ph ], [ %.156, %Gia_ObjIsHead.exit.thread ]
   %10 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val72, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435455
@@ -171,9 +171,9 @@ Gia_ObjIsHead.exit:                               ; preds = %9
   br label %21
 
 21:                                               ; preds = %.preheader108, %21
-  %.156112 = phi i32 [ %15, %.preheader108 ], [ %22, %21 ]
+  %.257112 = phi i32 [ %15, %.preheader108 ], [ %22, %21 ]
   %.063111 = phi i32 [ %20, %.preheader108 ], [ %25, %21 ]
-  %22 = add nsw i32 %.156112, 1
+  %22 = add nsw i32 %.257112, 1
   %23 = zext nneg i32 %.063111 to i64
   %24 = getelementptr inbounds i32, ptr %.val3.i, i64 %23
   %25 = load i32, ptr %24, align 4
@@ -181,13 +181,13 @@ Gia_ObjIsHead.exit:                               ; preds = %9
   br i1 %26, label %21, label %Gia_ObjIsHead.exit.thread, !llvm.loop !9
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %21, %9, %Gia_ObjIsHead.exit
-  %.257 = phi i32 [ %15, %Gia_ObjIsHead.exit ], [ %15, %9 ], [ %22, %21 ]
+  %.156 = phi i32 [ %15, %Gia_ObjIsHead.exit ], [ %15, %9 ], [ %22, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %Gia_ObjIsHead.exit.thread
-  %27 = add nsw i32 %.257, 10
+  %27 = add nsw i32 %.156, 10
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 2
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #10

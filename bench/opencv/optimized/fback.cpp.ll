@@ -517,7 +517,7 @@ _ZSt4swapIN2cv4UMatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EE
   br label %177
 
 176:                                              ; preds = %63, %175
-  %.019 = phi i32 [ 0, %175 ], [ -1, %63 ]
+  %.120 = phi i32 [ 0, %175 ], [ -1, %63 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %11) #8
   br label %_ZL4helpPPc.exit
 
@@ -527,9 +527,9 @@ _ZSt4swapIN2cv4UMatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EE
   br label %178
 
 _ZL4helpPPc.exit:                                 ; preds = %.noexc43, %176
-  %.120 = phi i32 [ %.019, %176 ], [ 0, %.noexc43 ]
+  %.019 = phi i32 [ %.120, %176 ], [ 0, %.noexc43 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
-  ret i32 %.120
+  ret i32 %.019
 
 178:                                              ; preds = %177, %53, %52
   %.pn39 = phi { ptr, i32 } [ %54, %53 ], [ %.pn36.pn, %177 ], [ %.pn22, %52 ]

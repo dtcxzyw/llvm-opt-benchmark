@@ -1761,23 +1761,23 @@ while.body.preheader:                             ; preds = %sw.bb
 
 if.else:                                          ; preds = %while.body.preheader, %if.end14
   %call866 = phi i32 [ %call8, %if.end14 ], [ %call862, %while.body.preheader ]
-  %array.065 = phi ptr [ %call15, %if.end14 ], [ null, %while.body.preheader ]
-  %count.064 = phi i32 [ %inc, %if.end14 ], [ 0, %while.body.preheader ]
+  %array.165 = phi ptr [ %call15, %if.end14 ], [ null, %while.body.preheader ]
+  %count.164 = phi i32 [ %inc, %if.end14 ], [ 0, %while.body.preheader ]
   %cmp11 = icmp eq i32 %call866, 0
   br i1 %cmp11, label %for.cond.preheader, label %if.end14
 
 for.cond.preheader:                               ; preds = %if.else
-  %cmp2668 = icmp sgt i32 %count.064, 0
+  %cmp2668 = icmp sgt i32 %count.164, 0
   br i1 %cmp2668, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp42 = icmp sgt i32 %call, 2
-  %wide.trip.count = zext nneg i32 %count.064 to i64
+  %wide.trip.count = zext nneg i32 %count.164 to i64
   br i1 %cmp42, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx29.us = getelementptr %struct.NBDExportInfo, ptr %array.065, i64 %indvars.iv82
+  %arrayidx29.us = getelementptr %struct.NBDExportInfo, ptr %array.165, i64 %indvars.iv82
   store i8 1, ptr %arrayidx29.us, align 8
   %call32.us = call fastcc i32 @nbd_opt_info_or_go(ptr noundef %spec.select, i32 noundef 6, ptr noundef nonnull %arrayidx29.us, ptr noundef %errp)
   %cmp33.us = icmp slt i32 %call32.us, 0
@@ -1859,10 +1859,10 @@ for.inc.us:                                       ; preds = %nbd_list_meta_conte
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !8
 
 if.end14:                                         ; preds = %if.else
-  %inc = add i32 %count.064, 1
+  %inc = add i32 %count.164, 1
   %conv = sext i32 %inc to i64
-  %call15 = call ptr @g_realloc_n(ptr noundef %array.065, i64 noundef %conv, i64 noundef 88) #16
-  %idxprom = sext i32 %count.064 to i64
+  %call15 = call ptr @g_realloc_n(ptr noundef %array.165, i64 noundef %conv, i64 noundef 88) #16
+  %idxprom = sext i32 %count.164 to i64
   %arrayidx = getelementptr %struct.NBDExportInfo, ptr %call15, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, i8 0, i64 88, i1 false)
   %8 = load ptr, ptr %name, align 8
@@ -1879,7 +1879,7 @@ if.end14:                                         ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.else36
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.else36 ], [ 0, %for.body.lr.ph ]
-  %arrayidx29 = getelementptr %struct.NBDExportInfo, ptr %array.065, i64 %indvars.iv
+  %arrayidx29 = getelementptr %struct.NBDExportInfo, ptr %array.165, i64 %indvars.iv
   store i8 1, ptr %arrayidx29, align 8
   %call32 = call fastcc i32 @nbd_opt_info_or_go(ptr noundef %spec.select, i32 noundef 6, ptr noundef nonnull %arrayidx29, ptr noundef %errp)
   %cmp33 = icmp slt i32 %call32, 0
@@ -1931,33 +1931,33 @@ default.unreachable:                              ; preds = %if.end3
   unreachable
 
 sw.epilog:                                        ; preds = %if.end63, %if.then67, %for.end
-  %count.1 = phi i32 [ 1, %if.then67 ], [ 1, %if.end63 ], [ %count.064, %for.end ]
-  %array.1 = phi ptr [ %call55, %if.then67 ], [ %call55, %if.end63 ], [ %array.065, %for.end ]
-  store ptr %array.1, ptr %info, align 8
+  %count.2 = phi i32 [ 1, %if.then67 ], [ 1, %if.end63 ], [ %count.164, %for.end ]
+  %array.2 = phi ptr [ %call55, %if.then67 ], [ %call55, %if.end63 ], [ %array.165, %for.end ]
+  store ptr %array.2, ptr %info, align 8
   br label %out
 
 out:                                              ; preds = %if.end14, %for.body, %nbd_list_meta_contexts.exit.us, %for.body.us, %while.body.preheader, %nbd_list_meta_contexts.exit.thread, %sw.bb54, %sw.bb, %entry, %sw.epilog, %sw.bb53
-  %count.2 = phi i32 [ 0, %entry ], [ 1, %sw.bb54 ], [ %count.1, %sw.epilog ], [ 0, %sw.bb53 ], [ 0, %sw.bb ], [ %count.064, %nbd_list_meta_contexts.exit.thread ], [ 0, %while.body.preheader ], [ %count.064, %for.body.us ], [ %count.064, %nbd_list_meta_contexts.exit.us ], [ %count.064, %for.body ], [ %inc, %if.end14 ]
-  %ret.0 = phi i32 [ -1, %entry ], [ -1, %sw.bb54 ], [ %count.1, %sw.epilog ], [ -1, %sw.bb53 ], [ -1, %sw.bb ], [ -1, %nbd_list_meta_contexts.exit.thread ], [ -1, %while.body.preheader ], [ -1, %for.body.us ], [ -1, %nbd_list_meta_contexts.exit.us ], [ -1, %for.body ], [ -1, %if.end14 ]
-  %array.2 = phi ptr [ null, %entry ], [ %call55, %sw.bb54 ], [ null, %sw.epilog ], [ null, %sw.bb53 ], [ null, %sw.bb ], [ %array.065, %nbd_list_meta_contexts.exit.thread ], [ null, %while.body.preheader ], [ %array.065, %for.body.us ], [ %array.065, %nbd_list_meta_contexts.exit.us ], [ %array.065, %for.body ], [ %call15, %if.end14 ]
+  %count.0 = phi i32 [ 0, %entry ], [ 1, %sw.bb54 ], [ %count.2, %sw.epilog ], [ 0, %sw.bb53 ], [ 0, %sw.bb ], [ %count.164, %nbd_list_meta_contexts.exit.thread ], [ 0, %while.body.preheader ], [ %count.164, %for.body.us ], [ %count.164, %nbd_list_meta_contexts.exit.us ], [ %count.164, %for.body ], [ %inc, %if.end14 ]
+  %ret.0 = phi i32 [ -1, %entry ], [ -1, %sw.bb54 ], [ %count.2, %sw.epilog ], [ -1, %sw.bb53 ], [ -1, %sw.bb ], [ -1, %nbd_list_meta_contexts.exit.thread ], [ -1, %while.body.preheader ], [ -1, %for.body.us ], [ -1, %nbd_list_meta_contexts.exit.us ], [ -1, %for.body ], [ -1, %if.end14 ]
+  %array.0 = phi ptr [ null, %entry ], [ %call55, %sw.bb54 ], [ null, %sw.epilog ], [ null, %sw.bb53 ], [ null, %sw.bb ], [ %array.165, %nbd_list_meta_contexts.exit.thread ], [ null, %while.body.preheader ], [ %array.165, %for.body.us ], [ %array.165, %nbd_list_meta_contexts.exit.us ], [ %array.165, %for.body ], [ %call15, %if.end14 ]
   %call71 = call i32 @qio_channel_shutdown(ptr noundef %spec.select, i32 noundef 3, ptr noundef null) #16
   %call72 = call i32 @qio_channel_close(ptr noundef %spec.select, ptr noundef null) #16
   %10 = load ptr, ptr %sioc, align 8
   call void @object_unref(ptr noundef %10) #16
-  %tobool.not.i = icmp eq ptr %array.2, null
+  %tobool.not.i = icmp eq ptr %array.0, null
   br i1 %tobool.not.i, label %nbd_free_export_list.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %out
-  %cmp17.i = icmp sgt i32 %count.2, 0
+  %cmp17.i = icmp sgt i32 %count.0, 0
   br i1 %cmp17.i, label %for.body.preheader.i, label %for.end17.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %wide.trip.count.i = zext nneg i32 %count.2 to i64
+  %wide.trip.count.i = zext nneg i32 %count.0 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.end.i, %for.body.preheader.i
   %indvars.iv20.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next21.i, %for.end.i ]
-  %arrayidx.i50 = getelementptr %struct.NBDExportInfo, ptr %array.2, i64 %indvars.iv20.i
+  %arrayidx.i50 = getelementptr %struct.NBDExportInfo, ptr %array.0, i64 %indvars.iv20.i
   %name.i51 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 16
   %11 = load ptr, ptr %name.i51, align 8
   call void @g_free(ptr noundef %11) #16
@@ -1994,7 +1994,7 @@ for.end.i:                                        ; preds = %for.body7.i, %for.b
   br i1 %exitcond.not.i, label %for.end17.i, label %for.body.i, !llvm.loop !7
 
 for.end17.i:                                      ; preds = %for.end.i, %for.cond.preheader.i
-  call void @g_free(ptr noundef nonnull %array.2) #16
+  call void @g_free(ptr noundef nonnull %array.0) #16
   br label %nbd_free_export_list.exit
 
 nbd_free_export_list.exit:                        ; preds = %out, %for.end17.i
@@ -2159,23 +2159,23 @@ if.end61:                                         ; preds = %if.end52
   br label %if.end64
 
 if.end64:                                         ; preds = %if.end61, %if.end46.critedge
-  %local_desc.0 = phi ptr [ null, %if.end46.critedge ], [ %call55, %if.end61 ]
-  %tobool65.not = icmp eq ptr %local_desc.0, null
-  %..str.7 = select i1 %tobool65.not, ptr @.str.7, ptr %local_desc.0
+  %local_desc.1 = phi ptr [ null, %if.end46.critedge ], [ %call55, %if.end61 ]
+  %tobool65.not = icmp eq ptr %local_desc.1, null
+  %..str.7 = select i1 %tobool65.not, ptr @.str.7, ptr %local_desc.1
   call fastcc void @trace_nbd_receive_list(ptr noundef nonnull %call40, ptr noundef nonnull %..str.7)
   store ptr %call40, ptr %name, align 8
   %tobool67.not = icmp eq ptr %description, null
   br i1 %tobool67.not, label %cleanup, label %if.then68
 
 if.then68:                                        ; preds = %if.end64
-  store ptr %local_desc.0, ptr %description, align 8
+  store ptr %local_desc.1, ptr %description, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end64, %if.then68, %if.then6, %if.end, %entry, %if.then60, %if.then51, %if.then5.i, %if.then37, %if.then28, %if.then23, %if.then12, %if.then8
   %local_name.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then12 ], [ null, %if.then23 ], [ null, %if.then28 ], [ null, %if.then37 ], [ %call40, %if.then5.i ], [ null, %if.end64 ], [ null, %if.then68 ], [ %call40, %if.then51 ], [ %call40, %if.then60 ], [ null, %if.then6 ], [ null, %if.then8 ]
-  %local_desc.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then12 ], [ null, %if.then23 ], [ null, %if.then28 ], [ null, %if.then37 ], [ null, %if.then5.i ], [ %local_desc.0, %if.end64 ], [ null, %if.then68 ], [ null, %if.then51 ], [ %call55, %if.then60 ], [ null, %if.then6 ], [ null, %if.then8 ]
+  %local_desc.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.then12 ], [ null, %if.then23 ], [ null, %if.then28 ], [ null, %if.then37 ], [ null, %if.then5.i ], [ %local_desc.1, %if.end64 ], [ null, %if.then68 ], [ null, %if.then51 ], [ %call55, %if.then60 ], [ null, %if.then6 ], [ null, %if.then8 ]
   %retval.0 = phi i32 [ -1, %entry ], [ %call1, %if.end ], [ -1, %if.then12 ], [ -1, %if.then23 ], [ -1, %if.then28 ], [ -1, %if.then37 ], [ -1, %if.then5.i ], [ 1, %if.end64 ], [ 1, %if.then68 ], [ -1, %if.then51 ], [ -1, %if.then60 ], [ 0, %if.then6 ], [ -1, %if.then8 ]
-  call void @g_free(ptr noundef %local_desc.1) #16
+  call void @g_free(ptr noundef %local_desc.0) #16
   call void @g_free(ptr noundef %local_name.0) #16
   ret i32 %retval.0
 }
@@ -3710,7 +3710,7 @@ trace_nbd_server_error_msg.exit:                  ; preds = %if.end25, %land.lhs
 
 if.end31:                                         ; preds = %trace_nbd_server_error_msg.exit, %if.end5
   %12 = phi i32 [ %0, %if.end5 ], [ %.pre, %trace_nbd_server_error_msg.exit ]
-  %msg.0 = phi ptr [ null, %if.end5 ], [ %call15, %trace_nbd_server_error_msg.exit ]
+  %msg.1 = phi ptr [ null, %if.end5 ], [ %call15, %trace_nbd_server_error_msg.exit ]
   %cmp33 = icmp ne i32 %12, -2147483647
   %brmerge.not = and i1 %cmp33, %strict
   br i1 %brmerge.not, label %if.end43, label %if.then37
@@ -3823,22 +3823,22 @@ sw.default:                                       ; preds = %if.end43
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb65, %sw.bb61, %sw.bb60, %sw.bb56, %sw.bb52, %sw.bb48, %sw.bb
-  %tobool72.not = icmp eq ptr %msg.0, null
+  %tobool72.not = icmp eq ptr %msg.1, null
   br i1 %tobool72.not, label %err, label %if.then73
 
 if.then73:                                        ; preds = %sw.epilog
-  call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.61, ptr noundef nonnull %msg.0) #16
+  call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.61, ptr noundef nonnull %msg.1) #16
   br label %err
 
 err:                                              ; preds = %sw.epilog, %if.then73, %if.then21, %if.then10
-  %msg.1 = phi ptr [ null, %sw.epilog ], [ %msg.0, %if.then73 ], [ null, %if.then10 ], [ %call15, %if.then21 ]
+  %msg.2 = phi ptr [ null, %sw.epilog ], [ %msg.1, %if.then73 ], [ null, %if.then10 ], [ %call15, %if.then21 ]
   %call.i65 = call fastcc i32 @nbd_send_option_request(ptr noundef %ioc, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %err, %trace_nbd_reply_err_ignored.exit
-  %msg.2 = phi ptr [ null, %entry ], [ %msg.0, %trace_nbd_reply_err_ignored.exit ], [ %msg.1, %err ]
+  %msg.0 = phi ptr [ null, %entry ], [ %msg.1, %trace_nbd_reply_err_ignored.exit ], [ %msg.2, %err ]
   %retval.0 = phi i32 [ 1, %entry ], [ 0, %trace_nbd_reply_err_ignored.exit ], [ -1, %err ]
-  call void @g_free(ptr noundef %msg.2) #16
+  call void @g_free(ptr noundef %msg.0) #16
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val50 = load ptr, ptr %errp1, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val50, ptr noundef %_auto_errp_prop.val) #16

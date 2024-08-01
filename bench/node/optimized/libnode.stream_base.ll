@@ -536,7 +536,7 @@ if.end94:                                         ; preds = %_ZN4node13OneByteSt
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end50, %if.end94, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
-  %retval.0 = phi i32 [ -16, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ %call46, %if.end94 ], [ %call46, %if.end50 ]
+  %retval.1 = phi i32 [ -16, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ %call46, %if.end94 ], [ %call46, %if.end50 ]
   call void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %trigger_scope) #20
   %cmp.not.i = icmp eq ptr %req_wrap_ptr.sroa.0.0, null
   br i1 %cmp.not.i, label %cleanup99, label %if.then.i
@@ -546,9 +546,9 @@ if.then.i:                                        ; preds = %cleanup
   br label %cleanup99
 
 cleanup99:                                        ; preds = %if.then.i, %cleanup, %if.then
-  %retval.1 = phi i32 [ -16, %if.then ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ]
+  %retval.0 = phi i32 [ -16, %if.then ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #20
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
@@ -1564,7 +1564,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111: ; pre
   br label %if.end340
 
 if.end340:                                        ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111, %if.end328
-  %bs.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111 ], [ %bs.sroa.0.0183, %if.end328 ]
+  %bs.sroa.0.2 = phi ptr [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit111 ], [ %bs.sroa.0.0183, %if.end328 ]
   %err = getelementptr inbounds i8, ptr %res, i64 4
   %63 = load i32, ptr %err, align 4
   %wrap_obj.i = getelementptr inbounds i8, ptr %res, i64 24
@@ -1577,18 +1577,18 @@ if.then.i.i:                                      ; preds = %if.end340
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end285, %cond.end268, %for.body208, %if.then.i.i, %if.end340
-  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.1, %if.end340 ], [ %bs.sroa.0.1, %if.then.i.i ], [ %bs.sroa.0.0, %for.body208 ], [ %bs.sroa.0.0, %cond.end268 ], [ %bs.sroa.0.0, %if.end285 ]
-  %retval.0 = phi i32 [ %63, %if.end340 ], [ %63, %if.then.i.i ], [ -1, %for.body208 ], [ -1, %cond.end268 ], [ -1, %if.end285 ]
-  %cmp.not.i112 = icmp eq ptr %bs.sroa.0.2, null
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.2, %if.end340 ], [ %bs.sroa.0.2, %if.then.i.i ], [ %bs.sroa.0.0, %for.body208 ], [ %bs.sroa.0.0, %cond.end268 ], [ %bs.sroa.0.0, %if.end285 ]
+  %retval.1 = phi i32 [ %63, %if.end340 ], [ %63, %if.then.i.i ], [ -1, %for.body208 ], [ -1, %cond.end268 ], [ -1, %if.end285 ]
+  %cmp.not.i112 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i112, label %cleanup341, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113: ; preds = %cleanup
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.2) #20
-  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.2) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1) #20
   br label %cleanup341
 
 cleanup341:                                       ; preds = %lor.rhs, %land.lhs.true129, %if.end102, %if.end87, %for.body, %for.body163, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113, %cleanup, %for.end
-  %retval.1 = phi i32 [ -105, %for.end ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113 ], [ -1, %for.body163 ], [ -1, %for.body ], [ -1, %if.end87 ], [ -1, %if.end102 ], [ -1, %land.lhs.true129 ], [ -1, %lor.rhs ]
+  %retval.0 = phi i32 [ -105, %for.end ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i113 ], [ -1, %for.body163 ], [ -1, %for.body ], [ -1, %if.end87 ], [ -1, %if.end102 ], [ -1, %land.lhs.true129 ], [ -1, %lor.rhs ]
   %65 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i.i116 = icmp ne ptr %65, null
   %cmp.i.i118 = icmp ne ptr %65, %buf_st_.i.i
@@ -1600,7 +1600,7 @@ if.then.i120:                                     ; preds = %cleanup341
   br label %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EED2Ev.exit
 
 _ZN4node16MaybeStackBufferI8uv_buf_tLm16EED2Ev.exit: ; preds = %cleanup341, %if.then.i120
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -6673,7 +6673,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99: ; pred
   br label %if.end230
 
 if.end230:                                        ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99, %if.end217
-  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %if.end217 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99 ]
+  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %if.end217 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99 ]
   %err231 = getelementptr inbounds i8, ptr %res, i64 4
   %91 = load i32, ptr %err231, align 4
   %wrap_obj.i100 = getelementptr inbounds i8, ptr %res, i64 24
@@ -6686,19 +6686,19 @@ if.then.i.i102:                                   ; preds = %if.end230
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i102, %if.end230, %do.end181, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.1, %if.end230 ], [ %bs.sroa.0.1, %if.then.i.i102 ]
-  %retval.0 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ], [ %91, %if.end230 ], [ %91, %if.then.i.i102 ]
-  %cmp.not.i104 = icmp eq ptr %bs.sroa.0.2, null
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.2, %if.end230 ], [ %bs.sroa.0.2, %if.then.i.i102 ]
+  %retval.1 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ], [ %91, %if.end230 ], [ %91, %if.then.i.i102 ]
+  %cmp.not.i104 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i104, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105: ; preds = %cleanup
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.2) #20
-  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.2) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1) #20
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105, %cleanup, %if.end77, %if.end64, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.1 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7155,7 +7155,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit101: ; pre
   br label %if.end247
 
 if.end247:                                        ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit101, %if.end234
-  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %if.end234 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit101 ]
+  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %if.end234 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit101 ]
   %err248 = getelementptr inbounds i8, ptr %res, i64 4
   %92 = load i32, ptr %err248, align 4
   %wrap_obj.i102 = getelementptr inbounds i8, ptr %res, i64 24
@@ -7168,19 +7168,19 @@ if.then.i.i104:                                   ; preds = %if.end247
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i104, %if.end247, %do.end198, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end198 ], [ %bs.sroa.0.1, %if.end247 ], [ %bs.sroa.0.1, %if.then.i.i104 ]
-  %retval.0 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end198 ], [ %92, %if.end247 ], [ %92, %if.then.i.i104 ]
-  %cmp.not.i106 = icmp eq ptr %bs.sroa.0.2, null
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end198 ], [ %bs.sroa.0.2, %if.end247 ], [ %bs.sroa.0.2, %if.then.i.i104 ]
+  %retval.1 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end198 ], [ %92, %if.end247 ], [ %92, %if.then.i.i104 ]
+  %cmp.not.i106 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i106, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107: ; preds = %cleanup
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.2) #20
-  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.2) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1) #20
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107, %cleanup, %if.end90, %lor.rhs, %land.lhs.true, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.1 = phi i32 [ %call114, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %land.lhs.true ], [ -1, %lor.rhs ], [ -105, %if.end90 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call114, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %land.lhs.true ], [ -1, %lor.rhs ], [ -105, %if.end90 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i107 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7626,7 +7626,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99: ; pred
   br label %if.end230
 
 if.end230:                                        ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99, %if.end217
-  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %if.end217 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99 ]
+  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %if.end217 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99 ]
   %err231 = getelementptr inbounds i8, ptr %res, i64 4
   %91 = load i32, ptr %err231, align 4
   %wrap_obj.i100 = getelementptr inbounds i8, ptr %res, i64 24
@@ -7639,19 +7639,19 @@ if.then.i.i102:                                   ; preds = %if.end230
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i102, %if.end230, %do.end181, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.1, %if.end230 ], [ %bs.sroa.0.1, %if.then.i.i102 ]
-  %retval.0 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ], [ %91, %if.end230 ], [ %91, %if.then.i.i102 ]
-  %cmp.not.i104 = icmp eq ptr %bs.sroa.0.2, null
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.2, %if.end230 ], [ %bs.sroa.0.2, %if.then.i.i102 ]
+  %retval.1 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ], [ %91, %if.end230 ], [ %91, %if.then.i.i102 ]
+  %cmp.not.i104 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i104, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105: ; preds = %cleanup
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.2) #20
-  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.2) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1) #20
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105, %cleanup, %if.end77, %if.end64, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.1 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8097,7 +8097,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99: ; pred
   br label %if.end230
 
 if.end230:                                        ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99, %if.end217
-  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %if.end217 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99 ]
+  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %if.end217 ], [ null, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit99 ]
   %err231 = getelementptr inbounds i8, ptr %res, i64 4
   %91 = load i32, ptr %err231, align 4
   %wrap_obj.i100 = getelementptr inbounds i8, ptr %res, i64 24
@@ -8110,19 +8110,19 @@ if.then.i.i102:                                   ; preds = %if.end230
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i102, %if.end230, %do.end181, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  %bs.sroa.0.2 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.1, %if.end230 ], [ %bs.sroa.0.1, %if.then.i.i102 ]
-  %retval.0 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ], [ %91, %if.end230 ], [ %91, %if.then.i.i102 ]
-  %cmp.not.i104 = icmp eq ptr %bs.sroa.0.2, null
+  %bs.sroa.0.1 = phi ptr [ %bs.sroa.0.0, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %bs.sroa.0.0, %do.end181 ], [ %bs.sroa.0.2, %if.end230 ], [ %bs.sroa.0.2, %if.then.i.i102 ]
+  %retval.1 = phi i32 [ -22, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ -1, %do.end181 ], [ %91, %if.end230 ], [ %91, %if.then.i.i102 ]
+  %cmp.not.i104 = icmp eq ptr %bs.sroa.0.1, null
   br i1 %cmp.not.i104, label %return, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105
 
 _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105: ; preds = %cleanup
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.2) #20
-  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.2) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %bs.sroa.0.1) #20
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105, %cleanup, %if.end77, %if.end64, %_ZN4node17StreamWriteResultD2Ev.exit
-  %retval.1 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call98, %_ZN4node17StreamWriteResultD2Ev.exit ], [ -1, %if.end64 ], [ -105, %if.end77 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i105 ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, ptr noundef) local_unnamed_addr #0

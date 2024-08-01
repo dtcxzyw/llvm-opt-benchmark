@@ -2720,7 +2720,7 @@ _ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17b
   br i1 %cmp.not.i.i, label %_ZN9grpc_core12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImpl17LockAndGetClusterESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i
-  %cluster.sroa.0.0 = phi ptr [ null, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ], [ %storemerge.i.i, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
+  %cluster.sroa.0.1 = phi ptr [ null, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ], [ %storemerge.i.i, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %7 = phi ptr [ %route_config_data_.val1.i, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ], [ %6, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %refs_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8, !noalias !24
@@ -2735,12 +2735,12 @@ if.then.i.i3.i:                                   ; preds = %if.then.i.i
   br label %_ZN9grpc_core12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImpl17LockAndGetClusterESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN9grpc_core12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImpl17LockAndGetClusterESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %if.then.i.i, %if.then.i.i3.i
-  %cluster.sroa.0.1 = phi ptr [ %cluster.sroa.0.0, %if.then.i.i3.i ], [ %cluster.sroa.0.0, %if.then.i.i ], [ %storemerge.i.i, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
-  %cmp.i.not = icmp eq ptr %cluster.sroa.0.1, null
+  %cluster.sroa.0.2 = phi ptr [ %cluster.sroa.0.1, %if.then.i.i3.i ], [ %cluster.sroa.0.1, %if.then.i.i ], [ %storemerge.i.i, %_ZNK9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData14FindClusterRefESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
+  %cmp.i.not = icmp eq ptr %cluster.sroa.0.2, null
   br i1 %cmp.i.not, label %if.end17, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %_ZN9grpc_core12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImpl17LockAndGetClusterESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  store ptr %cluster.sroa.0.1, ptr %agg.tmp10, align 16
+  store ptr %cluster.sroa.0.2, ptr %agg.tmp10, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 24
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilter15MakeCallPromiseENS3_8CallArgsESt8functionIFNS3_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS3_5Arena13PooledDeleterEEEES7_EEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 16
@@ -2762,7 +2762,7 @@ if.then.i13:                                      ; preds = %invoke.cont12
   %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
   %11 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   tail call void %11(i1 noundef zeroext true, ptr noundef nonnull %on_commit_.i, ptr noundef nonnull %on_commit_.i) #29
-  store ptr %cluster.sroa.0.1, ptr %on_commit_.i, align 8
+  store ptr %cluster.sroa.0.2, ptr %on_commit_.i, align 8
   store ptr null, ptr %agg.tmp10, align 16
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable22LocalManagerNontrivialIZN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilter15MakeCallPromiseENS3_8CallArgsESt8functionIFNS3_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS3_5Arena13PooledDeleterEEEES7_EEE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESL_", ptr %manager_.i.i.i.i.i, align 16
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core12_GLOBAL__N_111XdsResolver22ClusterSelectionFilter15MakeCallPromiseENS3_8CallArgsESt8functionIFNS3_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS3_5Arena13PooledDeleterEEEES7_EEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i, align 8
@@ -10172,7 +10172,7 @@ for.cond.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i", label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.cond.i.i.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i.i.i
-  %status.sroa.0.2.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %status.sroa.0.3.ph.i, %for.cond.i.i.i.i.i.i.i.i.i ]
+  %status.sroa.0.3.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %status.sroa.0.4.ph.i, %for.cond.i.i.i.i.i.i.i.i.i ]
   %end.026.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %end.1.i.i.i.i.i.i.i.i.ph.i, %for.cond.i.i.i.i.i.i.i.i.i ]
   %__begin4.sroa.0.025.i.i.i.i.i.i.i.i.i = phi ptr [ %call.val.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i.i ]
   %89 = load ptr, ptr %resolver.addr.i.i, align 8, !noalias !139
@@ -10323,7 +10323,7 @@ _ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWe
   br label %cleanup.i.i.i.i14.i.i.i.i.i
 
 cleanup.i.i.i.i14.i.i.i.i.i:                      ; preds = %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i12.i.i.i.i.i
-  %status.sroa.0.3.ph.i = phi i64 [ %90, %if.then.i.i.i.i.i.i12.i.i.i.i.i ], [ %status.sroa.0.2.i, %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i ]
+  %status.sroa.0.4.ph.i = phi i64 [ %90, %if.then.i.i.i.i.i.i12.i.i.i.i.i ], [ %status.sroa.0.3.i, %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i ]
   %end.1.i.i.i.i.i.i.i.i.ph.i = phi i32 [ %end.026.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i12.i.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111XdsResolver15RouteConfigData10RouteEntry18ClusterWeightStateD2Ev.exit.i.i.i.i.i.i.i.i.i ]
   %.pr104.i = load i64, ptr %result.i.i.i.i7.i.i.i.i.i, align 8, !noalias !139
   %cmp.i.i.i.i25.i.i.i.i.i.i.i.i.i = icmp eq i64 %.pr104.i, 0
@@ -10401,7 +10401,7 @@ if.then.i.i.i32.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i29.i.i.i
   br label %common.resume.i.i.i.i.i
 
 "_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i": ; preds = %if.then.i.i.i.i9.i.i.i.i.i, %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i.i
-  %status.sroa.0.4.i = phi i64 [ 0, %sw.bb2.i.i.i.i.i ], [ %90, %if.then.i.i.i.i9.i.i.i.i.i ], [ 0, %for.cond.i.i.i.i.i.i.i.i.i ], [ %status.sroa.0.3.ph.i, %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i ]
+  %status.sroa.0.5.i = phi i64 [ 0, %sw.bb2.i.i.i.i.i ], [ %90, %if.then.i.i.i.i9.i.i.i.i.i ], [ 0, %for.cond.i.i.i.i.i.i.i.i.i ], [ %status.sroa.0.4.ph.i, %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_13ServiceConfigEEEED2Ev.exit.i.i.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i.i.i7.i.i.i.i.i), !noalias !132
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16.i.i.i.i.i.i.i.i.i), !noalias !132
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp17.i.i.i.i.i.i.i.i.i), !noalias !132
@@ -10538,8 +10538,8 @@ sw.default.i.i.i.i.i:                             ; preds = %if.end13.i.i
   unreachable
 
 "_ZN9grpc_core5MatchIJZNS_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS_22XdsRouteConfigResource5RouteERKNS_8DurationEPS2_E3$_0ZNS3_13AddRouteEntryES7_SA_SB_E3$_1ZNS3_13AddRouteEntryES7_SA_SB_E3$_2ENS5_11RouteAction11ClusterNameEJSt6vectorINSF_13ClusterWeightESaISI_EENSF_26ClusterSpecifierPluginNameEEEEDTclclsr3stdE7declvalINS_12OverloadTypeIJDpT_EEEEEclsr3stdE7declvalIT0_EEEERKSt7variantIJSQ_DpT1_EESO_.exit.i.i": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i"
-  %status.sroa.0.6.i = phi i64 [ %116, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %status.sroa.0.4.i, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %70, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ]
-  %cmp.i.i.i = icmp eq i64 %status.sroa.0.6.i, 0
+  %status.sroa.0.2.i = phi i64 [ %116, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %status.sroa.0.5.i, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ], [ %70, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN4absl12lts_202308026StatusEEEON9grpc_core12OverloadTypeIJZNS8_12_GLOBAL__N_111XdsResolver15RouteConfigData13AddRouteEntryERKNS8_22XdsRouteConfigResource5RouteERKNS8_8DurationEPSB_E3$_0ZNSC_13AddRouteEntryESG_SJ_SK_E3$_1ZNSC_13AddRouteEntryESG_SJ_SK_E3$_2EEERKSt7variantIJNSE_11RouteAction11ClusterNameESt6vectorINSR_13ClusterWeightESaISU_EENSR_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESP_S10_.exit.i.i.i.i.i" ]
+  %cmp.i.i.i = icmp eq i64 %status.sroa.0.2.i, 0
   br i1 %cmp.i.i.i, label %for.inc.i, label %cleanup.i
 
 lpad.loopexit.i:                                  ; preds = %for.body.i.i.i.i.i.i.i.i.i
@@ -10596,12 +10596,12 @@ common.resume:                                    ; preds = %if.then.i42.i, %if.
   resume { ptr, i32 } %common.resume.op
 
 if.then5:                                         ; preds = %if.then.i.i40.i, %cleanup.i
-  %and.i.i = and i64 %status.sroa.0.6.i, 1
+  %and.i.i = and i64 %status.sroa.0.2.i, 1
   %cmp.i.i20 = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i20, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then5
-  %sub.i.i = add nsw i64 %status.sroa.0.6.i, -1
+  %sub.i.i = add nsw i64 %status.sroa.0.2.i, -1
   %138 = inttoptr i64 %sub.i.i to ptr
   %message.i = getelementptr inbounds i8, ptr %138, i64 8
   %call4.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #29
@@ -10610,7 +10610,7 @@ cond.true.i:                                      ; preds = %if.then5
   br label %invoke.cont10
 
 cond.false.i:                                     ; preds = %if.then5
-  %141 = and i64 %status.sroa.0.6.i, 2
+  %141 = and i64 %status.sroa.0.2.i, 2
   %.not.i = icmp eq i64 %141, 0
   %spec.select.i = select i1 %.not.i, i64 0, i64 27
   %spec.select1.i = select i1 %.not.i, ptr null, ptr @_ZN4absl12lts_202308026Status16kMovedFromStringE
@@ -11928,12 +11928,12 @@ if.then.i.i176:                                   ; preds = %if.then.i173
   br label %cleanup.cont
 
 if.else.i.i181:                                   ; preds = %invoke.cont14, %if.then.i.i22
-  %and.i.i.i3.i.i182 = and i64 %status.sroa.0.6.i, 1
+  %and.i.i.i3.i.i182 = and i64 %status.sroa.0.2.i, 1
   %cmp.i.i.i4.i.i183 = icmp eq i64 %and.i.i.i3.i.i182, 0
   br i1 %cmp.i.i.i4.i.i183, label %cleanup.cont, label %if.then.i.i5.i.i184
 
 if.then.i.i5.i.i184:                              ; preds = %if.else.i.i181
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %status.sroa.0.6.i)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %status.sroa.0.2.i)
           to label %cleanup.cont unwind label %terminate.lpad.i6.i.i185
 
 terminate.lpad.i6.i.i185:                         ; preds = %if.then.i.i5.i.i184
@@ -11996,10 +11996,10 @@ if.then.i.i206:                                   ; preds = %if.then.i203
   br label %ehcleanup105
 
 ehcleanup105:                                     ; preds = %if.then.i.i206, %if.then.i203, %if.then.i.i106, %if.then.i103, %lpad17.body.thread, %lpad13, %lpad
-  %route_config_data.sroa.5.2 = phi ptr [ null, %lpad17.body.thread ], [ null, %if.then.i.i206 ], [ null, %if.then.i203 ], [ %call.i.i, %if.then.i.i106 ], [ %call.i.i, %if.then.i103 ], [ undef, %lpad13 ], [ undef, %lpad ]
-  %route_config_data.sroa.0.2 = phi i64 [ 0, %lpad17.body.thread ], [ 0, %if.then.i.i206 ], [ 0, %if.then.i203 ], [ 0, %if.then.i.i106 ], [ 0, %if.then.i103 ], [ %status.sroa.0.6.i, %lpad13 ], [ %status.sroa.0.6.i, %lpad ]
+  %route_config_data.sroa.5.1 = phi ptr [ null, %lpad17.body.thread ], [ null, %if.then.i.i206 ], [ null, %if.then.i203 ], [ %call.i.i, %if.then.i.i106 ], [ %call.i.i, %if.then.i103 ], [ undef, %lpad13 ], [ undef, %lpad ]
+  %route_config_data.sroa.0.1 = phi i64 [ 0, %lpad17.body.thread ], [ 0, %if.then.i.i206 ], [ 0, %if.then.i203 ], [ 0, %if.then.i.i106 ], [ 0, %if.then.i103 ], [ %status.sroa.0.2.i, %lpad13 ], [ %status.sroa.0.2.i, %lpad ]
   %.pn6.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi.i.i, %lpad17.body.thread ], [ %.pn6.pn.pn, %if.then.i.i206 ], [ %.pn6.pn.pn, %if.then.i203 ], [ %249, %if.then.i.i106 ], [ %249, %if.then.i103 ], [ %146, %lpad13 ], [ %145, %lpad ]
-  call fastcc void @_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_111XdsResolver15RouteConfigDataEEEED2Ev(i64 %route_config_data.sroa.0.2, ptr %route_config_data.sroa.5.2) #29
+  call fastcc void @_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_12_GLOBAL__N_111XdsResolver15RouteConfigDataEEEED2Ev(i64 %route_config_data.sroa.0.1, ptr %route_config_data.sroa.5.1) #29
   br label %common.resume
 }
 
@@ -19735,7 +19735,7 @@ sw.default.i.i.i:                                 ; preds = %if.end16
   unreachable
 
 invoke.cont22:                                    ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_ST_.exit.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_ST_.exit.i.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_ST_.exit.i.i.i"
-  %method_config.sroa.0.0 = phi ptr [ %33, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_ST_.exit.i.i.i" ], [ %26, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_ST_.exit.i.i.i" ], [ %15, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_ST_.exit.i.i.i" ]
+  %method_config.sroa.0.3 = phi ptr [ %33, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESG_ST_.exit.i.i.i" ], [ %26, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_ST_.exit.i.i.i" ], [ %15, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEON9grpc_core12OverloadTypeIJZNS5_12_GLOBAL__N_111XdsResolver17XdsConfigSelector13GetCallConfigENS5_14ConfigSelector17GetCallConfigArgsEE3$_0ZNS9_13GetCallConfigESB_E3$_1ZNS9_13GetCallConfigESB_E3$_2EEERKSt7variantIJNS5_22XdsRouteConfigResource5Route11RouteAction11ClusterNameESt6vectorINSK_13ClusterWeightESaISN_EENSK_26ClusterSpecifierPluginNameEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESG_ST_.exit.i.i.i" ]
   %route_config_data_.val = load ptr, ptr %route_config_data_, align 8
   %call26 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %cluster_name) #29
   %34 = extractvalue { i64, ptr } %call26, 0
@@ -19851,7 +19851,7 @@ lpad32.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i, %.no
 
 lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then31, %if.then72, %invoke.cont76, %if.then.i.i36, %if.then62, %.noexc47, %if.then.i.i.i.i.i.i.i.i51, %if.else.i.i.i.i.i.i.i.i, %if.else.i.i, %for.end.i, %if.else.i.i81, %for.end.i118, %if.else.i.i.i, %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImplEEEJRNS_13RefCountedPtrINS4_15RouteConfigDataEEERPNS8_10RouteEntryEEEEPT_DpOT0_.exit.i, %for.end.i167
   %storemerge.i228.ph.ph.ph = phi ptr [ null, %if.then31 ], [ %.pre.i.i, %if.then.i.i36 ], [ %.pre.i.i, %if.then62 ], [ %.pre.i.i, %.noexc47 ], [ %.pre.i.i, %if.else.i.i.i.i.i.i.i.i ], [ %.pre.i.i, %if.then.i.i.i.i.i.i.i.i51 ], [ %.pre.i.i, %if.then72 ], [ %.pre.i.i, %invoke.cont76 ], [ %.pre.i.i, %if.else.i.i ], [ %.pre.i.i, %for.end.i ], [ %.pre.i.i, %if.else.i.i81 ], [ %.pre.i.i, %for.end.i118 ], [ %.pre.i.i, %if.else.i.i.i ], [ %.pre.i.i, %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImplEEEJRNS_13RefCountedPtrINS4_15RouteConfigDataEEERPNS8_10RouteEntryEEEEPT_DpOT0_.exit.i ], [ %.pre.i.i, %for.end.i167 ]
-  %method_config.sroa.0.1.ph.ph.ph = phi ptr [ %method_config.sroa.0.0, %if.then31 ], [ %method_config.sroa.0.0, %if.then.i.i36 ], [ %method_config.sroa.0.0, %if.then62 ], [ %method_config.sroa.0.0, %.noexc47 ], [ %method_config.sroa.0.0, %if.else.i.i.i.i.i.i.i.i ], [ %method_config.sroa.0.0, %if.then.i.i.i.i.i.i.i.i51 ], [ %method_config.sroa.0.0, %if.then72 ], [ %method_config.sroa.0.0, %invoke.cont76 ], [ null, %if.else.i.i ], [ null, %for.end.i ], [ null, %if.else.i.i81 ], [ null, %for.end.i118 ], [ null, %if.else.i.i.i ], [ null, %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImplEEEJRNS_13RefCountedPtrINS4_15RouteConfigDataEEERPNS8_10RouteEntryEEEEPT_DpOT0_.exit.i ], [ null, %for.end.i167 ]
+  %method_config.sroa.0.0.ph.ph.ph = phi ptr [ %method_config.sroa.0.3, %if.then31 ], [ %method_config.sroa.0.3, %if.then.i.i36 ], [ %method_config.sroa.0.3, %if.then62 ], [ %method_config.sroa.0.3, %.noexc47 ], [ %method_config.sroa.0.3, %if.else.i.i.i.i.i.i.i.i ], [ %method_config.sroa.0.3, %if.then.i.i.i.i.i.i.i.i51 ], [ %method_config.sroa.0.3, %if.then72 ], [ %method_config.sroa.0.3, %invoke.cont76 ], [ null, %if.else.i.i ], [ null, %for.end.i ], [ null, %if.else.i.i81 ], [ null, %for.end.i118 ], [ null, %if.else.i.i.i ], [ null, %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_12_GLOBAL__N_111XdsResolver26XdsRouteStateAttributeImplEEEJRNS_13RefCountedPtrINS4_15RouteConfigDataEEERPNS8_10RouteEntryEEEEPT_DpOT0_.exit.i ], [ null, %for.end.i167 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup102
@@ -19872,8 +19872,8 @@ for.body.lr.ph:                                   ; preds = %do.end35
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
-  %hash.sroa.5.0265 = phi i8 [ 0, %for.body.lr.ph ], [ %hash.sroa.5.1, %for.body.backedge ]
-  %hash.sroa.0.0264 = phi i64 [ undef, %for.body.lr.ph ], [ %hash.sroa.0.1, %for.body.backedge ]
+  %hash.sroa.5.0265 = phi i8 [ 0, %for.body.lr.ph ], [ %hash.sroa.5.2, %for.body.backedge ]
+  %hash.sroa.0.0264 = phi i64 [ undef, %for.body.lr.ph ], [ %hash.sroa.0.2, %for.body.backedge ]
   %__begin2.sroa.0.0263 = phi ptr [ %40, %for.body.lr.ph ], [ %__begin2.sroa.0.0263.be, %for.body.backedge ]
   %_M_index.i.i.i.i30 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0263, i64 72
   %44 = load i8, ptr %_M_index.i.i.i.i30, align 8
@@ -20179,15 +20179,15 @@ if.then50:                                        ; preds = %invoke.cont45.threa
   br label %if.end56
 
 if.end56:                                         ; preds = %invoke.cont45, %if.then50
-  %hash.sroa.0.1 = phi i64 [ %xor, %if.then50 ], [ %hash.sroa.0.0264, %invoke.cont45 ]
-  %hash.sroa.5.1 = phi i8 [ 1, %if.then50 ], [ %hash.sroa.5.0265, %invoke.cont45 ]
+  %hash.sroa.0.2 = phi i64 [ %xor, %if.then50 ], [ %hash.sroa.0.0264, %invoke.cont45 ]
+  %hash.sroa.5.2 = phi i8 [ 1, %if.then50 ], [ %hash.sroa.5.0265, %invoke.cont45 ]
   %terminal = getelementptr inbounds i8, ptr %__begin2.sroa.0.0263, i64 80
   %78 = load i8, ptr %terminal, align 8
   %tobool = trunc i8 %78 to i1
   br i1 %tobool, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %if.end56
-  %tobool.i.i44 = trunc nuw i8 %hash.sroa.5.1 to i1
+  %tobool.i.i44 = trunc nuw i8 %hash.sroa.5.2 to i1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0263, i64 88
   %cmp.i29.not = icmp eq ptr %incdec.ptr.i, %41
   %or.cond = select i1 %tobool.i.i44, i1 true, i1 %cmp.i29.not
@@ -20203,7 +20203,7 @@ for.body.backedge:                                ; preds = %for.inc, %land.lhs.
   br label %for.body
 
 for.end:                                          ; preds = %for.inc, %land.lhs.true
-  %tobool.i.i46 = trunc nuw i8 %hash.sroa.5.1 to i1
+  %tobool.i.i46 = trunc nuw i8 %hash.sroa.5.2 to i1
   br i1 %tobool.i.i46, label %if.end69, label %if.then62
 
 if.then62:                                        ; preds = %do.end35, %for.end
@@ -20256,8 +20256,8 @@ invoke.cont67:                                    ; preds = %invoke.cont66, %if.
   br label %if.end69
 
 if.end69:                                         ; preds = %invoke.cont67, %for.end
-  %hash.sroa.0.3 = phi i64 [ %hash.sroa.0.1, %for.end ], [ %85, %invoke.cont67 ]
-  %cmp.i55.not = icmp eq ptr %method_config.sroa.0.0, null
+  %hash.sroa.0.3 = phi i64 [ %hash.sroa.0.2, %for.end ], [ %85, %invoke.cont67 ]
+  %cmp.i55.not = icmp eq ptr %method_config.sroa.0.3, null
   br i1 %cmp.i55.not, label %if.end82, label %if.then72
 
 if.then72:                                        ; preds = %if.end69
@@ -20265,10 +20265,10 @@ if.then72:                                        ; preds = %if.end69
           to label %invoke.cont76 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont76:                                    ; preds = %if.then72
-  %vtable = load ptr, ptr %method_config.sroa.0.0, align 8
+  %vtable = load ptr, ptr %method_config.sroa.0.3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %86 = load ptr, ptr %vfn, align 8
-  %call78 = invoke noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(16) %method_config.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75)
+  %call78 = invoke noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(16) %method_config.sroa.0.3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75)
           to label %invoke.cont77 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %invoke.cont76
@@ -20276,7 +20276,7 @@ invoke.cont77:                                    ; preds = %invoke.cont76
   %87 = load ptr, ptr %service_config_call_data, align 8
   %service_config_.i = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load ptr, ptr %service_config_.i, align 8
-  store ptr %method_config.sroa.0.0, ptr %service_config_.i, align 8
+  store ptr %method_config.sroa.0.3, ptr %service_config_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %88, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit, label %if.then.i.i.i
 
@@ -20676,23 +20676,23 @@ ehcleanup102.thread282:                           ; preds = %lpad32.loopexit, %l
 
 ehcleanup102:                                     ; preds = %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %ehcleanup.i.i.i.i.i.i.i.i
   %storemerge.i226 = phi ptr [ %.pre.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %storemerge.i228.ph.ph.ph, %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %method_config.sroa.0.2 = phi ptr [ %method_config.sroa.0.0, %ehcleanup.i.i.i.i.i.i.i.i ], [ %method_config.sroa.0.1.ph.ph.ph, %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %method_config.sroa.0.4 = phi ptr [ %method_config.sroa.0.3, %ehcleanup.i.i.i.i.i.i.i.i ], [ %method_config.sroa.0.0.ph.ph.ph, %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.i.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_111XdsResolver10ClusterRefEED2Ev(ptr %storemerge.i226) #29
-  %cmp.not.i196 = icmp eq ptr %method_config.sroa.0.2, null
+  %cmp.not.i196 = icmp eq ptr %method_config.sroa.0.4, null
   br i1 %cmp.not.i196, label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit204, label %if.then.i197
 
 if.then.i197:                                     ; preds = %ehcleanup102
-  %refs_.i.i198 = getelementptr inbounds i8, ptr %method_config.sroa.0.2, i64 8
+  %refs_.i.i198 = getelementptr inbounds i8, ptr %method_config.sroa.0.4, i64 8
   %141 = atomicrmw sub ptr %refs_.i.i198, i64 1 acq_rel, align 8
   %cmp.i.i.i199 = icmp eq i64 %141, 1
   br i1 %cmp.i.i.i199, label %if.then.i.i201, label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit204
 
 if.then.i.i201:                                   ; preds = %if.then.i197
-  %vtable.i.i.i202 = load ptr, ptr %method_config.sroa.0.2, align 8
+  %vtable.i.i.i202 = load ptr, ptr %method_config.sroa.0.4, align 8
   %vfn.i.i.i203 = getelementptr inbounds i8, ptr %vtable.i.i.i202, i64 8
   %142 = load ptr, ptr %vfn.i.i.i203, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %method_config.sroa.0.2) #29
+  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %method_config.sroa.0.4) #29
   br label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit204
 
 _ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit204: ; preds = %ehcleanup102.thread282, %ehcleanup102.thread, %ehcleanup102, %if.then.i197, %if.then.i.i201
@@ -21195,8 +21195,8 @@ _ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !306
 
 if.end13:                                         ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 

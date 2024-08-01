@@ -2105,7 +2105,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
 
 .lr.ph60.split.us:                                ; preds = %.lr.ph60, %46
   %.14257.us = phi i32 [ %47, %46 ], [ 0, %.lr.ph60 ]
-  %.14656.us = phi ptr [ %.3.us, %46 ], [ %31, %.lr.ph60 ]
+  %.14656.us = phi ptr [ %.2.us, %46 ], [ %31, %.lr.ph60 ]
   %33 = lshr i32 %.14257.us, 5
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %0, i64 %34
@@ -2118,35 +2118,35 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
 
 .preheader.us:                                    ; preds = %.lr.ph60.split.us, %.preheader.us
   %.152.us = phi i32 [ %45, %.preheader.us ], [ 0, %.lr.ph60.split.us ]
-  %.251.us = phi ptr [ %44, %.preheader.us ], [ %.14656.us, %.lr.ph60.split.us ]
+  %.351.us = phi ptr [ %44, %.preheader.us ], [ %.14656.us, %.lr.ph60.split.us ]
   %41 = shl nuw i32 1, %.152.us
   %42 = and i32 %41, %.14257.us
   %.not.us = icmp eq i32 %42, 0
   %43 = select i1 %.not.us, i8 48, i8 49
-  %44 = getelementptr inbounds i8, ptr %.251.us, i64 1
-  store i8 %43, ptr %.251.us, align 1
+  %44 = getelementptr inbounds i8, ptr %.351.us, i64 1
+  store i8 %43, ptr %.351.us, align 1
   %45 = add nuw nsw i32 %.152.us, 1
   %exitcond75.not = icmp eq i32 %45, %1
   br i1 %exitcond75.not, label %._crit_edge54.us, label %.preheader.us, !llvm.loop !20
 
 46:                                               ; preds = %._crit_edge54.us, %.lr.ph60.split.us
-  %.3.us = phi ptr [ %.14656.us, %.lr.ph60.split.us ], [ %50, %._crit_edge54.us ]
+  %.2.us = phi ptr [ %.14656.us, %.lr.ph60.split.us ], [ %50, %._crit_edge54.us ]
   %47 = add nuw nsw i32 %.14257.us, 1
   %exitcond77.not = icmp eq i32 %47, %smax76
   br i1 %exitcond77.not, label %._crit_edge61, label %.lr.ph60.split.us, !llvm.loop !21
 
 ._crit_edge54.us:                                 ; preds = %.preheader.us
-  %48 = getelementptr inbounds i8, ptr %.251.us, i64 2
+  %48 = getelementptr inbounds i8, ptr %.351.us, i64 2
   store i8 32, ptr %44, align 1
-  %49 = getelementptr inbounds i8, ptr %.251.us, i64 3
+  %49 = getelementptr inbounds i8, ptr %.351.us, i64 3
   store i8 49, ptr %48, align 1
-  %50 = getelementptr inbounds i8, ptr %.251.us, i64 4
+  %50 = getelementptr inbounds i8, ptr %.351.us, i64 4
   store i8 10, ptr %49, align 1
   br label %46
 
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %62
   %.14257 = phi i32 [ %63, %62 ], [ 0, %.lr.ph60 ]
-  %.14656 = phi ptr [ %.3, %62 ], [ %31, %.lr.ph60 ]
+  %.14656 = phi ptr [ %.2, %62 ], [ %31, %.lr.ph60 ]
   %51 = lshr i32 %.14257, 5
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %0, i64 %52
@@ -2167,13 +2167,13 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
   br label %62
 
 62:                                               ; preds = %.lr.ph60.split, %.preheader
-  %.3 = phi ptr [ %.14656, %.lr.ph60.split ], [ %61, %.preheader ]
+  %.2 = phi ptr [ %.14656, %.lr.ph60.split ], [ %61, %.preheader ]
   %63 = add nuw nsw i32 %.14257, 1
   %exitcond74.not = icmp eq i32 %63, %smax76
   br i1 %exitcond74.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !21
 
 ._crit_edge61:                                    ; preds = %62, %46, %26, %._crit_edge67
-  %.146.lcssa.sink = phi ptr [ %25, %._crit_edge67 ], [ %31, %26 ], [ %.3.us, %46 ], [ %.3, %62 ]
+  %.146.lcssa.sink = phi ptr [ %25, %._crit_edge67 ], [ %31, %26 ], [ %.2.us, %46 ], [ %.2, %62 ]
   %.044 = phi ptr [ %18, %._crit_edge67 ], [ %31, %26 ], [ %31, %46 ], [ %31, %62 ]
   store i8 0, ptr %.146.lcssa.sink, align 1
   ret ptr %.044

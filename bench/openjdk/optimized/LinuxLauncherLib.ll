@@ -504,12 +504,12 @@ _ZN11AppLauncher21setDefaultRuntimePathERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 159:                                              ; preds = %157, %155
   %.pn38 = phi { ptr, i32 } [ %158, %157 ], [ %156, %155 ]
-  %.10 = extractvalue { ptr, i32 } %.pn38, 0
-  %.1019 = extractvalue { ptr, i32 } %.pn38, 1
+  %.13 = extractvalue { ptr, i32 } %.pn38, 0
+  %.1322 = extractvalue { ptr, i32 } %.pn38, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #14
   %160 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #14
-  %161 = icmp eq i32 %.1019, %160
-  %162 = call ptr @__cxa_begin_catch(ptr %.10) #14
+  %161 = icmp eq i32 %.1322, %160
+  %162 = call ptr @__cxa_begin_catch(ptr %.13) #14
   br i1 %161, label %163, label %198
 
 163:                                              ; preds = %159

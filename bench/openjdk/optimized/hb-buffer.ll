@@ -183,16 +183,16 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr nocapture nound
   br i1 %.not2148, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.01949 = phi i32 [ %21, %.lr.ph ], [ %13, %.preheader ]
-  %19 = lshr i32 %.01949, 1
-  %20 = add i32 %.01949, 32
+  %.149 = phi i32 [ %21, %.lr.ph ], [ %13, %.preheader ]
+  %19 = lshr i32 %.149, 1
+  %20 = add i32 %.149, 32
   %21 = add i32 %20, %19
   %.not21 = icmp ugt i32 %21, %1
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.019.lcssa = phi i32 [ %13, %.preheader ], [ %21, %.lr.ph ]
-  %22 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.019.lcssa, i32 20)
+  %.1.lcssa = phi i32 [ %13, %.preheader ], [ %21, %.lr.ph ]
+  %22 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.1.lcssa, i32 20)
   %23 = extractvalue { i32, i1 } %22, 1
   br i1 %23, label %.thread44, label %24
 
@@ -214,7 +214,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr nocapture nound
   br label %36
 
 .thread44:                                        ; preds = %._crit_edge, %11
-  %.127.ph = phi i32 [ %13, %11 ], [ %.019.lcssa, %._crit_edge ]
+  %.01927.ph = phi i32 [ %13, %11 ], [ %.1.lcssa, %._crit_edge ]
   store i8 0, ptr %3, align 8
   br label %37
 
@@ -234,7 +234,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr nocapture nound
   br label %37
 
 37:                                               ; preds = %.thread44, %34, %36, %35
-  %.1283638 = phi i32 [ %.019.lcssa, %34 ], [ %.019.lcssa, %36 ], [ %.019.lcssa, %35 ], [ %.127.ph, %.thread44 ]
+  %.019283638 = phi i32 [ %.1.lcssa, %34 ], [ %.1.lcssa, %36 ], [ %.1.lcssa, %35 ], [ %.01927.ph, %.thread44 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 120
   %.val = load ptr, ptr %16, align 8
   %.val47 = load ptr, ptr %38, align 8
@@ -245,7 +245,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr nocapture nound
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %37
-  store i32 %.1283638, ptr %12, align 8
+  store i32 %.019283638, ptr %12, align 8
   br label %43
 
 43:                                               ; preds = %37, %42, %2, %10
@@ -1149,7 +1149,7 @@ define hidden void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.critedge.loopexit.split.loop.exit, %.preheader51, %._crit_edge
-  %.1 = phi i32 [ %2, %._crit_edge ], [ %2, %.preheader51 ], [ %33, %.critedge.loopexit.split.loop.exit ], [ %22, %32 ]
+  %.036 = phi i32 [ %2, %._crit_edge ], [ %2, %.preheader51 ], [ %33, %.critedge.loopexit.split.loop.exit ], [ %22, %32 ]
   %.not40 = icmp eq i32 %storemerge.lcssa, %storemerge52
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 84
   %.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -1160,12 +1160,12 @@ define hidden void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull
   br label %34
 
 34:                                               ; preds = %.preheader, %36
-  %.037 = phi i32 [ %37, %36 ], [ %1, %.preheader ]
-  %35 = icmp ult i32 %.pre, %.037
+  %.138 = phi i32 [ %37, %36 ], [ %1, %.preheader ]
+  %35 = icmp ult i32 %.pre, %.138
   br i1 %35, label %36, label %.critedge2
 
 36:                                               ; preds = %34
-  %37 = add i32 %.037, -1
+  %37 = add i32 %.138, -1
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %10, i64 %38, i32 2
   %40 = load i32, ptr %39, align 4
@@ -1173,8 +1173,8 @@ define hidden void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull
   br i1 %41, label %34, label %.critedge2, !llvm.loop !23
 
 .critedge2:                                       ; preds = %36, %34, %.critedge
-  %.138 = phi i32 [ %1, %.critedge ], [ %.037, %36 ], [ %umin, %34 ]
-  %42 = icmp eq i32 %.pre, %.138
+  %.037 = phi i32 [ %1, %.critedge ], [ %.138, %36 ], [ %umin, %34 ]
+  %42 = icmp eq i32 %.pre, %.037
   br i1 %42, label %43, label %.critedge4
 
 43:                                               ; preds = %.critedge2
@@ -1225,12 +1225,12 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %61, %62
   br i1 %.not42.wide, label %.critedge4, label %.lr.ph64, !llvm.loop !24
 
 .critedge4:                                       ; preds = %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit, %.lr.ph64, %47, %43, %.critedge2
-  %66 = icmp ult i32 %.138, %.1
+  %66 = icmp ult i32 %.037, %.036
   br i1 %66, label %.lr.ph67.preheader, label %.loopexit
 
 .lr.ph67.preheader:                               ; preds = %.critedge4
-  %67 = zext i32 %.138 to i64
-  %wide.trip.count = zext i32 %.1 to i64
+  %67 = zext i32 %.037 to i64
+  %wide.trip.count = zext i32 %.036 to i64
   br label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit45
@@ -6199,9 +6199,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %27, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %30, %.preheader.i.i ], [ %23, %27 ]
-  %28 = lshr i32 %.01542.i.i, 1
-  %29 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %30, %.preheader.i.i ], [ %23, %27 ]
+  %28 = lshr i32 %.142.i.i, 1
+  %29 = add i32 %.142.i.i, 8
   %30 = add i32 %29, %28
   %31 = icmp ult i32 %30, %25
   br i1 %31, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !98
@@ -6227,9 +6227,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vec
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread9.i: ; preds = %36, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %37, %36 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %0, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %37, %36 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %0, align 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i

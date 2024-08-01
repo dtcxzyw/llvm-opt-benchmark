@@ -52,8 +52,8 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core7routing7address1_89_$LT$impl
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.0 = phi ptr [ %6, %2 ], [ %9, %8 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %6, %2 ], [ %9, %8 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

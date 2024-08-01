@@ -493,7 +493,7 @@ if.else:                                          ; preds = %if.end21
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then24, %if.else
-  %ret.0 = phi ptr [ %call25, %if.then24 ], [ %3, %if.else ]
+  %ret.1 = phi ptr [ %call25, %if.then24 ], [ %3, %if.else ]
   %cmp.i = icmp ugt i64 %indvars.iv, 536870896
   br i1 %cmp.i, label %err, label %if.end.i
 
@@ -501,13 +501,13 @@ if.end.i:                                         ; preds = %if.end30
   %mul = shl nuw nsw i32 %2, 2
   %sub.i = add nuw nsw i32 %mul, 63
   %div.i3839 = lshr i32 %sub.i, 6
-  %dmax.i = getelementptr inbounds i8, ptr %ret.0, i64 12
+  %dmax.i = getelementptr inbounds i8, ptr %ret.1, i64 12
   %4 = load i32, ptr %dmax.i, align 4
   %cmp1.not.i = icmp sgt i32 %div.i3839, %4
   br i1 %cmp1.not.i, label %bn_expand.exit, label %if.end35
 
 bn_expand.exit:                                   ; preds = %if.end.i
-  %call.i = tail call ptr @bn_expand2(ptr noundef nonnull %ret.0, i32 noundef %div.i3839) #3
+  %call.i = tail call ptr @bn_expand2(ptr noundef nonnull %ret.1, i32 noundef %div.i3839) #3
   %cmp32 = icmp eq ptr %call.i, null
   br i1 %cmp32, label %err, label %if.end35
 
@@ -535,12 +535,12 @@ while.body:                                       ; preds = %if.end35, %if.end59
   br i1 %cmp49, label %if.then51, label %if.end59
 
 if.then51:                                        ; preds = %while.body
-  %call52 = tail call i32 @BN_mul_word(ptr noundef nonnull %ret.0, i64 noundef -8446744073709551616) #3
+  %call52 = tail call i32 @BN_mul_word(ptr noundef nonnull %ret.1, i64 noundef -8446744073709551616) #3
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %err, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %if.then51
-  %call55 = tail call i32 @BN_add_word(ptr noundef nonnull %ret.0, i64 noundef %add46) #3
+  %call55 = tail call i32 @BN_add_word(ptr noundef nonnull %ret.1, i64 noundef %add46) #3
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %err, label %if.end59
 
@@ -551,26 +551,26 @@ if.end59:                                         ; preds = %lor.lhs.false54, %w
   br i1 %cmp40, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end59
-  tail call void @bn_correct_top(ptr noundef nonnull %ret.0) #3
-  store ptr %ret.0, ptr %bn, align 8
-  %top = getelementptr inbounds i8, ptr %ret.0, i64 8
+  tail call void @bn_correct_top(ptr noundef nonnull %ret.1) #3
+  store ptr %ret.1, ptr %bn, align 8
+  %top = getelementptr inbounds i8, ptr %ret.1, i64 8
   %6 = load i32, ptr %top, align 8
   %cmp60.not = icmp eq i32 %6, 0
   br i1 %cmp60.not, label %return, label %if.then62
 
 if.then62:                                        ; preds = %while.end
-  %neg63 = getelementptr inbounds i8, ptr %ret.0, i64 16
+  %neg63 = getelementptr inbounds i8, ptr %ret.1, i64 16
   store i32 %neg.0, ptr %neg63, align 8
   br label %return
 
 err:                                              ; preds = %for.inc, %if.then51, %lor.lhs.false54, %if.end30, %bn_expand.exit, %for.end
-  %ret.1 = phi ptr [ null, %for.end ], [ %ret.0, %bn_expand.exit ], [ %ret.0, %if.end30 ], [ %ret.0, %lor.lhs.false54 ], [ %ret.0, %if.then51 ], [ null, %for.inc ]
+  %ret.0 = phi ptr [ null, %for.end ], [ %ret.1, %bn_expand.exit ], [ %ret.1, %if.end30 ], [ %ret.1, %lor.lhs.false54 ], [ %ret.1, %if.then51 ], [ null, %for.inc ]
   %7 = load ptr, ptr %bn, align 8
   %cmp65 = icmp eq ptr %7, null
   br i1 %cmp65, label %if.then67, label %return
 
 if.then67:                                        ; preds = %err
-  tail call void @BN_free(ptr noundef %ret.1) #3
+  tail call void @BN_free(ptr noundef %ret.0) #3
   br label %return
 
 return:                                           ; preds = %err, %if.then67, %while.end, %if.then62, %if.then24, %if.end17, %lor.lhs.false, %entry

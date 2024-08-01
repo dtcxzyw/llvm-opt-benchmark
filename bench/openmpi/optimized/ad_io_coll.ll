@@ -65,9 +65,9 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph._crit_edge ]
-  %.0387519 = phi i64 [ %40, %.lr.ph.preheader ], [ %..0387, %.lr.ph._crit_edge ]
-  %.0389518 = phi i64 [ %42, %.lr.ph.preheader ], [ %58, %.lr.ph._crit_edge ]
-  %.0392517 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1393, %.lr.ph._crit_edge ]
+  %.1388519 = phi i64 [ %40, %.lr.ph.preheader ], [ %..1388, %.lr.ph._crit_edge ]
+  %.1390518 = phi i64 [ %42, %.lr.ph.preheader ], [ %58, %.lr.ph._crit_edge ]
+  %.1393517 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2394, %.lr.ph._crit_edge ]
   %45 = shl nuw nsw i64 %indvars.iv, 1
   %46 = getelementptr inbounds i64, ptr %37, i64 %45
   %47 = load i64, ptr %46, align 8
@@ -82,29 +82,29 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %54 = load i64, ptr %53, align 8
   %.not439 = icmp sle i64 %47, %54
   %55 = zext i1 %.not439 to i32
-  %spec.select = add nsw i32 %.0392517, %55
+  %spec.select = add nsw i32 %.1393517, %55
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %52
-  %.1393 = phi i32 [ %spec.select, %52 ], [ %.0392517, %.lr.ph ]
-  %..0387 = call i64 @llvm.smin.i64(i64 %47, i64 %.0387519)
+  %.2394 = phi i32 [ %spec.select, %52 ], [ %.1393517, %.lr.ph ]
+  %..1388 = call i64 @llvm.smin.i64(i64 %47, i64 %.1388519)
   %56 = getelementptr inbounds i64, ptr %37, i64 %51
   %57 = load i64, ptr %56, align 8
-  %58 = call i64 @llvm.smax.i64(i64 %57, i64 %.0389518)
+  %58 = call i64 @llvm.smax.i64(i64 %57, i64 %.1390518)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit514, label %.lr.ph, !llvm.loop !4
 
 .loopexit514:                                     ; preds = %.lr.ph._crit_edge, %31, %9
-  %.2394 = phi i32 [ 0, %9 ], [ 0, %31 ], [ %.1393, %.lr.ph._crit_edge ]
+  %.0392 = phi i32 [ 0, %9 ], [ 0, %31 ], [ %.2394, %.lr.ph._crit_edge ]
   %.0391 = phi ptr [ null, %9 ], [ %37, %31 ], [ %37, %.lr.ph._crit_edge ]
-  %.1390 = phi i64 [ 0, %9 ], [ %42, %31 ], [ %58, %.lr.ph._crit_edge ]
-  %.1388 = phi i64 [ 0, %9 ], [ %40, %31 ], [ %..0387, %.lr.ph._crit_edge ]
+  %.0389 = phi i64 [ 0, %9 ], [ %42, %31 ], [ %58, %.lr.ph._crit_edge ]
+  %.0387 = phi i64 [ 0, %9 ], [ %40, %31 ], [ %..1388, %.lr.ph._crit_edge ]
   call void @ADIOI_Datatype_iscontig(ptr noundef %4, ptr noundef nonnull %12) #3
   %59 = getelementptr inbounds i8, ptr %0, i64 120
   %60 = load ptr, ptr %59, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %60, ptr noundef nonnull %11) #3
-  %61 = or i32 %.2394, %.0400
+  %61 = or i32 %.0392, %.0400
   %or.cond = icmp eq i32 %61, 0
   %or.cond440 = select i1 %.not, i1 true, i1 %or.cond
   br i1 %or.cond440, label %62, label %108
@@ -211,7 +211,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %117, %108
-  call void @ADIOI_Calc_file_realms(ptr noundef nonnull %0, i64 noundef %.1388, i64 noundef %.1390) #3
+  call void @ADIOI_Calc_file_realms(ptr noundef nonnull %0, i64 noundef %.0387, i64 noundef %.0389) #3
   br label %122
 
 122:                                              ; preds = %121, %117
@@ -431,8 +431,8 @@ post_aggregator_comm.exit.loopexit:               ; preds = %238
 
 post_aggregator_comm.exit:                        ; preds = %post_aggregator_comm.exit.loopexit, %._crit_edge.i, %217, %213, %198
   %239 = phi i32 [ %206, %213 ], [ %206, %198 ], [ %206, %._crit_edge.i ], [ %206, %217 ], [ %.pre597, %post_aggregator_comm.exit.loopexit ]
-  %.1493 = phi ptr [ null, %213 ], [ null, %198 ], [ null, %._crit_edge.i ], [ null, %217 ], [ %226, %post_aggregator_comm.exit.loopexit ]
-  %.1485 = phi i32 [ 0, %213 ], [ 0, %198 ], [ 0, %._crit_edge.i ], [ 0, %217 ], [ %spec.select.i, %post_aggregator_comm.exit.loopexit ]
+  %.0492 = phi ptr [ null, %213 ], [ null, %198 ], [ null, %._crit_edge.i ], [ null, %217 ], [ %226, %post_aggregator_comm.exit.loopexit ]
+  %.0484 = phi i32 [ 0, %213 ], [ 0, %198 ], [ 0, %._crit_edge.i ], [ 0, %217 ], [ %spec.select.i, %post_aggregator_comm.exit.loopexit ]
   call fastcc void @Exch_data_amounts(ptr noundef %0, i32 noundef %239, ptr noundef %134, ptr noundef %154, ptr noundef %205, ptr noundef %208, ptr noundef nonnull %20)
   %240 = load i32, ptr %20, align 4
   %.not428547 = icmp eq i32 %240, %29
@@ -445,8 +445,8 @@ post_aggregator_comm.exit:                        ; preds = %post_aggregator_com
 242:                                              ; preds = %.lr.ph552, %post_aggregator_comm.exit479
   %.0551 = phi i32 [ 0, %.lr.ph552 ], [ %.3, %post_aggregator_comm.exit479 ]
   %.3404550 = phi i64 [ %.2403, %.lr.ph552 ], [ %.6407, %post_aggregator_comm.exit479 ]
-  %.2486549 = phi i32 [ %.1485, %.lr.ph552 ], [ %.7491, %post_aggregator_comm.exit479 ]
-  %.2494548 = phi ptr [ %.1493, %.lr.ph552 ], [ %.7499, %post_aggregator_comm.exit479 ]
+  %.1485549 = phi i32 [ %.0484, %.lr.ph552 ], [ %.4488, %post_aggregator_comm.exit479 ]
+  %.1493548 = phi ptr [ %.0492, %.lr.ph552 ], [ %.4496, %post_aggregator_comm.exit479 ]
   %243 = load ptr, ptr %26, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 44
   %245 = load i32, ptr %244, align 4
@@ -611,8 +611,8 @@ post_aggregator_comm.exit458:                     ; preds = %324
   br label %post_aggregator_comm.exit458.thread
 
 post_aggregator_comm.exit458.thread:              ; preds = %300, %302, %._crit_edge.i453, %325, %post_aggregator_comm.exit458
-  %.4488504 = phi i32 [ %spec.select.i450, %325 ], [ %spec.select.i450, %post_aggregator_comm.exit458 ], [ 0, %302 ], [ 0, %._crit_edge.i453 ], [ %.2486549, %300 ]
-  %.4496503 = phi ptr [ %312, %325 ], [ %312, %post_aggregator_comm.exit458 ], [ %.2494548, %302 ], [ %.2494548, %._crit_edge.i453 ], [ %.2494548, %300 ]
+  %.2486504 = phi i32 [ %spec.select.i450, %325 ], [ %spec.select.i450, %post_aggregator_comm.exit458 ], [ 0, %302 ], [ 0, %._crit_edge.i453 ], [ %.1485549, %300 ]
+  %.2494503 = phi ptr [ %312, %325 ], [ %312, %post_aggregator_comm.exit458 ], [ %.1493548, %302 ], [ %.1493548, %._crit_edge.i453 ], [ %.1493548, %300 ]
   %.not437 = icmp eq i32 %.1.lcssa, 0
   br i1 %.not437, label %374, label %327
 
@@ -638,8 +638,8 @@ post_aggregator_comm.exit458.thread:              ; preds = %300, %302, %._crit_
   br i1 %or.cond11, label %336, label %374
 
 336:                                              ; preds = %332
-  %337 = call i32 @PMPI_Waitall(i32 noundef %.2486549, ptr noundef %.2494548, ptr noundef null) #3
-  call void @ADIOI_Free_fn(ptr noundef %.2494548, i32 noundef 478, ptr noundef nonnull @.str) #3
+  %337 = call i32 @PMPI_Waitall(i32 noundef %.1485549, ptr noundef %.1493548, ptr noundef null) #3
+  call void @ADIOI_Free_fn(ptr noundef %.1493548, i32 noundef 478, ptr noundef nonnull @.str) #3
   %338 = trunc i64 %.3404550 to i32
   %339 = load i64, ptr %18, align 8
   %340 = load ptr, ptr %19, align 8
@@ -705,8 +705,8 @@ post_aggregator_comm.exit458.thread:              ; preds = %300, %302, %._crit_
   br label %374
 
 374:                                              ; preds = %358, %372, %361, %327, %post_aggregator_comm.exit458.thread, %342, %332
-  %.5497 = phi ptr [ %.4496503, %post_aggregator_comm.exit458.thread ], [ %.4496503, %327 ], [ %.2494548, %342 ], [ %.2494548, %332 ], [ %.2494548, %358 ], [ %.2494548, %372 ], [ %.2494548, %361 ]
-  %.5489 = phi i32 [ %.4488504, %post_aggregator_comm.exit458.thread ], [ %.4488504, %327 ], [ %.2486549, %342 ], [ %.2486549, %332 ], [ %.2486549, %358 ], [ %.2486549, %372 ], [ %.2486549, %361 ]
+  %.3495 = phi ptr [ %.2494503, %post_aggregator_comm.exit458.thread ], [ %.2494503, %327 ], [ %.1493548, %342 ], [ %.1493548, %332 ], [ %.1493548, %358 ], [ %.1493548, %372 ], [ %.1493548, %361 ]
+  %.3487 = phi i32 [ %.2486504, %post_aggregator_comm.exit458.thread ], [ %.2486504, %327 ], [ %.1485549, %342 ], [ %.1485549, %332 ], [ %.1485549, %358 ], [ %.1485549, %372 ], [ %.1485549, %361 ]
   %.3 = phi i32 [ 0, %post_aggregator_comm.exit458.thread ], [ 1, %327 ], [ %.1.lcssa, %342 ], [ %.1.lcssa, %332 ], [ %.0551, %358 ], [ %.0551, %372 ], [ %.0551, %361 ]
   %375 = load i32, ptr %135, align 4
   %376 = icmp ne i32 %375, 0
@@ -892,8 +892,8 @@ post_aggregator_comm.exit458.thread:              ; preds = %300, %302, %._crit_
   br i1 %exitcond54.not.i478, label %post_aggregator_comm.exit479, label %.lr.ph41.split.us.i473, !llvm.loop !10
 
 post_aggregator_comm.exit479:                     ; preds = %464, %._crit_edge.i468, %442, %439, %.loopexit
-  %.7499 = phi ptr [ %.5497, %439 ], [ %.5497, %.loopexit ], [ %.5497, %._crit_edge.i468 ], [ %.5497, %442 ], [ %452, %464 ]
-  %.7491 = phi i32 [ %.5489, %439 ], [ %.5489, %.loopexit ], [ 0, %._crit_edge.i468 ], [ 0, %442 ], [ %spec.select.i465, %464 ]
+  %.4496 = phi ptr [ %.3495, %439 ], [ %.3495, %.loopexit ], [ %.3495, %._crit_edge.i468 ], [ %.3495, %442 ], [ %452, %464 ]
+  %.4488 = phi i32 [ %.3487, %439 ], [ %.3487, %.loopexit ], [ 0, %._crit_edge.i468 ], [ 0, %442 ], [ %spec.select.i465, %464 ]
   %465 = load i32, ptr %13, align 4
   call fastcc void @Exch_data_amounts(ptr noundef %0, i32 noundef %465, ptr noundef %134, ptr noundef %154, ptr noundef %205, ptr noundef %208, ptr noundef nonnull %20)
   %466 = load i32, ptr %20, align 4
@@ -1218,8 +1218,8 @@ split239:                                         ; preds = %99, %._crit_edge238
   br i1 %exitcond234.not, label %.loopexit, label %109, !llvm.loop !21
 
 .loopexit:                                        ; preds = %123, %.preheader, %115
-  %.0 = phi i64 [ %122, %115 ], [ %87, %.preheader ], [ %87, %123 ]
-  %125 = sub nsw i64 %.0, %54
+  %.1 = phi i64 [ %122, %115 ], [ %87, %.preheader ], [ %87, %123 ]
+  %125 = sub nsw i64 %.1, %54
   br label %.loopexit186
 
 126:                                              ; preds = %43
@@ -1283,7 +1283,7 @@ split239:                                         ; preds = %99, %._crit_edge238
   br i1 %exitcond.not, label %.loopexit187, label %142, !llvm.loop !22
 
 .loopexit187:                                     ; preds = %163, %153, %157
-  %.1139 = phi i64 [ %156, %153 ], [ %162, %157 ], [ %135, %163 ]
+  %.2 = phi i64 [ %156, %153 ], [ %162, %157 ], [ %135, %163 ]
   %165 = add nsw i64 %130, %27
   %166 = sdiv i64 %165, %131
   %167 = mul nsw i64 %166, %133
@@ -1311,7 +1311,7 @@ split239:                                         ; preds = %99, %._crit_edge238
 
 .preheader184:                                    ; preds = %.loopexit187.thread, %.loopexit187
   %177 = phi i64 [ %173, %.loopexit187.thread ], [ %168, %.loopexit187 ]
-  %.1139245 = phi i64 [ %135, %.loopexit187.thread ], [ %.1139, %.loopexit187 ]
+  %.2245 = phi i64 [ %135, %.loopexit187.thread ], [ %.2, %.loopexit187 ]
   %178 = getelementptr inbounds i8, ptr %45, i64 16
   %smin = call i64 @llvm.smin.i64(i64 %138, i64 0)
   %179 = add i64 %smin, -1
@@ -1379,7 +1379,7 @@ split:                                            ; preds = %182, %._crit_edge
   br i1 %exitcond232.not, label %.loopexit186, label %193, !llvm.loop !24
 
 .loopexit186:                                     ; preds = %209, %.loopexit187.thread, %.preheader185, %40, %split, %199, %split239, %.loopexit, %7
-  %storemerge157 = phi i64 [ 289360691352306692, %7 ], [ %.0138, %40 ], [ %49, %.loopexit ], [ %49, %split239 ], [ %.1139, %199 ], [ %.1139245, %split ], [ %.1139, %.preheader185 ], [ %135, %.loopexit187.thread ], [ %.1139, %209 ]
+  %storemerge157 = phi i64 [ 289360691352306692, %7 ], [ %.0138, %40 ], [ %49, %.loopexit ], [ %49, %split239 ], [ %.2, %199 ], [ %.2245, %split ], [ %.2, %.preheader185 ], [ %135, %.loopexit187.thread ], [ %.2, %209 ]
   %storemerge = phi i64 [ -1, %7 ], [ %42, %40 ], [ %125, %.loopexit ], [ %108, %split239 ], [ %208, %199 ], [ %192, %split ], [ %168, %.preheader185 ], [ %173, %.loopexit187.thread ], [ %168, %209 ]
   store i64 %storemerge157, ptr %5, align 8
   store i64 %storemerge, ptr %6, align 8

@@ -1601,7 +1601,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br label %25
 
 25:                                               ; preds = %22, %20
-  %.089 = phi ptr [ %24, %22 ], [ null, %20 ]
+  %.2 = phi ptr [ %24, %22 ], [ null, %20 ]
   %26 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 64, ptr noundef nonnull %9)
   %.not112 = icmp eq ptr %26, null
   br i1 %.not112, label %27, label %30
@@ -1612,7 +1612,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
   br label %141
 
 30:                                               ; preds = %25, %19
-  %.1 = phi ptr [ null, %19 ], [ %.089, %25 ]
+  %.1 = phi ptr [ null, %19 ], [ %.2, %25 ]
   %31 = call i64 @strtoul(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 0) #24
   %32 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 64, ptr noundef nonnull %9)
   %.not113 = icmp eq ptr %32, null
@@ -1844,8 +1844,8 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 141:                                              ; preds = %137, %43, %.thread, %124, %89, %77, %63, %54, %40, %33, %27, %16
   %.095 = phi ptr [ null, %40 ], [ %46, %63 ], [ %46, %54 ], [ %46, %89 ], [ %46, %137 ], [ %46, %.thread ], [ %46, %124 ], [ %46, %77 ], [ %46, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ]
   %.094 = phi ptr [ null, %40 ], [ %50, %63 ], [ %50, %54 ], [ %50, %89 ], [ %50, %137 ], [ %50, %.thread ], [ %50, %124 ], [ %50, %77 ], [ %50, %43 ], [ null, %33 ], [ null, %27 ], [ null, %16 ]
-  %.2 = phi ptr [ %.1, %40 ], [ %.1, %63 ], [ %.1, %54 ], [ %.1, %89 ], [ %.1, %137 ], [ %.1, %.thread ], [ %.1, %124 ], [ %.1, %77 ], [ %.1, %43 ], [ %.1, %33 ], [ %.089, %27 ], [ null, %16 ]
-  call void @free(ptr noundef %.2) #24
+  %.089 = phi ptr [ %.1, %40 ], [ %.1, %63 ], [ %.1, %54 ], [ %.1, %89 ], [ %.1, %137 ], [ %.1, %.thread ], [ %.1, %124 ], [ %.1, %77 ], [ %.1, %43 ], [ %.1, %33 ], [ %.2, %27 ], [ null, %16 ]
+  call void @free(ptr noundef %.089) #24
   call void @free(ptr noundef %.095) #24
   call void @free(ptr noundef %.094) #24
   %142 = call i32 @fclose(ptr noundef nonnull %9)
@@ -2760,7 +2760,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_process_location(ptr nou
 
 63:                                               ; preds = %79, %.lr.ph.i
   %.03244.i = phi i32 [ 0, %.lr.ph.i ], [ %82, %79 ]
-  %.03343.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %79 ]
+  %.03343.i = phi ptr [ null, %.lr.ph.i ], [ %.134.i, %79 ]
   %64 = phi i32 [ %.promoted.pre.i, %.lr.ph.i ], [ %spec.select55.i, %79 ]
   %65 = phi i32 [ %.promoted41.pre.i, %.lr.ph.i ], [ %81, %79 ]
   %66 = phi i32 [ %.promoted42.pre.i, %.lr.ph.i ], [ %80, %79 ]
@@ -2798,7 +2798,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_process_location(ptr nou
 79:                                               ; preds = %78, %74, %72
   %80 = phi i32 [ %66, %72 ], [ %66, %74 ], [ %77, %78 ]
   %81 = phi i32 [ %65, %72 ], [ %75, %74 ], [ %62, %78 ]
-  %.2.i = phi ptr [ %.03343.i, %72 ], [ %.03343.i, %74 ], [ %spec.select.i, %78 ]
+  %.134.i = phi ptr [ %.03343.i, %72 ], [ %.03343.i, %74 ], [ %spec.select.i, %78 ]
   %82 = add nsw i32 %spec.select56.i, 1
   %83 = add nsw i32 %spec.select55.i, 1
   %84 = mul nsw i32 %83, %57

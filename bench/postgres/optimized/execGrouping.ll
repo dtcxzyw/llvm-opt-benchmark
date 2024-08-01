@@ -1017,7 +1017,7 @@ define dso_local void @tuplehash_stat(ptr nocapture noundef readonly %0) local_u
 8:                                                ; preds = %.lr.ph, %24
   %9 = phi i64 [ %5, %.lr.ph ], [ %25, %24 ]
   %10 = phi i64 [ 0, %.lr.ph ], [ %27, %24 ]
-  %.071 = phi i32 [ 0, %.lr.ph ], [ %.2, %24 ]
+  %.071 = phi i32 [ 0, %.lr.ph ], [ %.1, %24 ]
   %.04870 = phi i32 [ 0, %.lr.ph ], [ %.149, %24 ]
   %.05769 = phi i32 [ 0, %.lr.ph ], [ %26, %24 ]
   %11 = load ptr, ptr %6, align 8
@@ -1050,7 +1050,7 @@ tuplehash_distance.exit:                          ; preds = %8
 24:                                               ; preds = %8, %tuplehash_distance.exit
   %25 = phi i64 [ %9, %8 ], [ %.pre, %tuplehash_distance.exit ]
   %.149 = phi i32 [ %.04870, %8 ], [ %19, %tuplehash_distance.exit ]
-  %.2 = phi i32 [ %.071, %8 ], [ %spec.select, %tuplehash_distance.exit ]
+  %.1 = phi i32 [ %.071, %8 ], [ %spec.select, %tuplehash_distance.exit ]
   %26 = add i32 %.05769, 1
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %25, %27
@@ -1080,7 +1080,7 @@ tuplehash_distance.exit:                          ; preds = %8
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1, %.preheader
   %.lcssa89 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %1 ], [ %38, %._crit_edge.loopexit ]
-  %.0.lcssa88 = phi i32 [ %.2, %.preheader ], [ 0, %1 ], [ %.2, %._crit_edge.loopexit ]
+  %.0.lcssa88 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %._crit_edge.loopexit ]
   %.048.lcssa87 = phi i32 [ %.149, %.preheader ], [ 0, %1 ], [ %.149, %._crit_edge.loopexit ]
   %.055.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.156, %._crit_edge.loopexit ]
   %.053.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.154, %._crit_edge.loopexit ]

@@ -719,13 +719,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit2
   %.05478.i.i.i.i.i = phi i64 [ %.054.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 4, %82 ]
   %.054.in77.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %82 ]
   %storemerge76.i.i.i.i.i = phi <2 x double> [ %101, %.lr.ph.i.i.i.i.i ], [ %87, %82 ]
-  %.07275.i.i.i.i.i = phi <2 x double> [ %94, %.lr.ph.i.i.i.i.i ], [ %80, %82 ]
+  %.17375.i.i.i.i.i = phi <2 x double> [ %94, %.lr.ph.i.i.i.i.i ], [ %80, %82 ]
   %89 = getelementptr inbounds double, ptr %71, i64 %.05478.i.i.i.i.i
   %90 = load <2 x double>, ptr %89, align 16
   %91 = getelementptr inbounds double, ptr %72, i64 %.05478.i.i.i.i.i
   %92 = load <2 x double>, ptr %91, align 16
   %93 = fmul <2 x double> %90, %92
-  %94 = fadd <2 x double> %.07275.i.i.i.i.i, %93
+  %94 = fadd <2 x double> %.17375.i.i.i.i.i, %93
   %95 = add nuw nsw i64 %.054.in77.i.i.i.i.i, 6
   %96 = getelementptr inbounds double, ptr %71, i64 %95
   %97 = load <2 x double>, ptr %96, align 16
@@ -738,9 +738,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit2
   br i1 %102, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !18
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %82
-  %.072.lcssa.i.i.i.i.i = phi <2 x double> [ %80, %82 ], [ %94, %.lr.ph.i.i.i.i.i ]
+  %.173.lcssa.i.i.i.i.i = phi <2 x double> [ %80, %82 ], [ %94, %.lr.ph.i.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i.i = phi <2 x double> [ %87, %82 ], [ %101, %.lr.ph.i.i.i.i.i ]
-  %103 = fadd <2 x double> %.072.lcssa.i.i.i.i.i, %storemerge.lcssa.i.i.i.i.i
+  %103 = fadd <2 x double> %.173.lcssa.i.i.i.i.i, %storemerge.lcssa.i.i.i.i.i
   %104 = icmp sgt i64 %76, %74
   br i1 %104, label %105, label %112
 
@@ -754,9 +754,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit2
   br label %112
 
 112:                                              ; preds = %105, %._crit_edge.i.i.i.i.i, %77
-  %.173.i.i.i.i.i = phi <2 x double> [ %111, %105 ], [ %103, %._crit_edge.i.i.i.i.i ], [ %80, %77 ]
-  %shift = shufflevector <2 x double> %.173.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %113 = fadd <2 x double> %.173.i.i.i.i.i, %shift
+  %.072.i.i.i.i.i = phi <2 x double> [ %111, %105 ], [ %103, %._crit_edge.i.i.i.i.i ], [ %80, %77 ]
+  %shift = shufflevector <2 x double> %.072.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %113 = fadd <2 x double> %.072.i.i.i.i.i, %shift
   %114 = extractelement <2 x double> %113, i64 0
   %115 = icmp slt i64 %76, %67
   br i1 %115, label %.lr.ph83.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
@@ -835,12 +835,12 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   %.05478.i.i.i.i.i.i = phi i64 [ %.054.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 4, %17 ]
   %.054.in77.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %17 ]
   %storemerge76.i.i.i.i.i.i = phi <2 x double> [ %31, %.lr.ph.i.i.i.i.i.i ], [ %21, %17 ]
-  %.07275.i.i.i.i.i.i = phi <2 x double> [ %27, %.lr.ph.i.i.i.i.i.i ], [ %15, %17 ]
+  %.17375.i.i.i.i.i.i = phi <2 x double> [ %27, %.lr.ph.i.i.i.i.i.i ], [ %15, %17 ]
   %23 = getelementptr inbounds double, ptr %7, i64 %.05478.i.i.i.i.i.i
   %24 = load <2 x i64>, ptr %23, align 16
   %25 = and <2 x i64> %24, <i64 9223372036854775807, i64 9223372036854775807>
   %26 = bitcast <2 x i64> %25 to <2 x double>
-  %27 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i, <2 x double> %26) #26, !srcloc !20
+  %27 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i, <2 x double> %26) #26, !srcloc !20
   %gep.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i
   %28 = load <2 x i64>, ptr %gep.i.i.i.i.i.i, align 16
   %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
@@ -851,9 +851,9 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   br i1 %32, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %17
-  %.072.lcssa.i.i.i.i.i.i = phi <2 x double> [ %15, %17 ], [ %27, %.lr.ph.i.i.i.i.i.i ]
+  %.173.lcssa.i.i.i.i.i.i = phi <2 x double> [ %15, %17 ], [ %27, %.lr.ph.i.i.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i.i.i = phi <2 x double> [ %21, %17 ], [ %31, %.lr.ph.i.i.i.i.i.i ]
-  %33 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.072.lcssa.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i) #26, !srcloc !20
+  %33 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.173.lcssa.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i) #26, !srcloc !20
   %34 = icmp sgt i64 %11, %9
   br i1 %34, label %35, label %41
 
@@ -866,9 +866,9 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i.i.i.i.i.i, %12
-  %.173.i.i.i.i.i.i = phi <2 x double> [ %40, %35 ], [ %33, %._crit_edge.i.i.i.i.i.i ], [ %15, %12 ]
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i, i64 1
+  %.072.i.i.i.i.i.i = phi <2 x double> [ %40, %35 ], [ %33, %._crit_edge.i.i.i.i.i.i ], [ %15, %12 ]
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i, i64 1
   %42 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i
   %43 = select i1 %42, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i
   %44 = icmp slt i64 %11, %3
@@ -2219,12 +2219,12 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %.05478.i.i.i.i.i.i.i = phi i64 [ %.054.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 4, %122 ]
   %.054.in77.i.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %122 ]
   %storemerge76.i.i.i.i.i.i.i = phi <2 x double> [ %136, %.lr.ph.i.i.i.i.i.i.i ], [ %126, %122 ]
-  %.07275.i.i.i.i.i.i.i = phi <2 x double> [ %132, %.lr.ph.i.i.i.i.i.i.i ], [ %120, %122 ]
+  %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %132, %.lr.ph.i.i.i.i.i.i.i ], [ %120, %122 ]
   %128 = getelementptr inbounds double, ptr %112, i64 %.05478.i.i.i.i.i.i.i
   %129 = load <2 x i64>, ptr %128, align 16
   %130 = and <2 x i64> %129, <i64 9223372036854775807, i64 9223372036854775807>
   %131 = bitcast <2 x i64> %130 to <2 x double>
-  %132 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i.i, <2 x double> %131) #26, !srcloc !20
+  %132 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i.i, <2 x double> %131) #26, !srcloc !20
   %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %133 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
   %134 = and <2 x i64> %133, <i64 9223372036854775807, i64 9223372036854775807>
@@ -2235,9 +2235,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br i1 %137, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %122
-  %.072.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %120, %122 ], [ %132, %.lr.ph.i.i.i.i.i.i.i ]
+  %.173.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %120, %122 ], [ %132, %.lr.ph.i.i.i.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %126, %122 ], [ %136, %.lr.ph.i.i.i.i.i.i.i ]
-  %138 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.072.lcssa.i.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i.i) #26, !srcloc !20
+  %138 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.173.lcssa.i.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i.i) #26, !srcloc !20
   %139 = icmp sgt i64 %116, %114
   br i1 %139, label %140, label %146
 
@@ -2250,9 +2250,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br label %146
 
 146:                                              ; preds = %140, %._crit_edge.i.i.i.i.i.i.i, %117
-  %.173.i.i.i.i.i.i.i = phi <2 x double> [ %145, %140 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ], [ %120, %117 ]
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i.i, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i.i, i64 1
+  %.072.i.i.i.i.i.i.i = phi <2 x double> [ %145, %140 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ], [ %120, %117 ]
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i.i, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i.i, i64 1
   %147 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i
   %148 = select i1 %147, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i
   %149 = icmp slt i64 %116, %108
@@ -3330,12 +3330,12 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   %.05478.i.i.i.i.i.i.i = phi i64 [ %.054.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 4, %40 ]
   %.054.in77.i.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %40 ]
   %storemerge76.i.i.i.i.i.i.i = phi <2 x double> [ %54, %.lr.ph.i.i.i.i.i.i.i ], [ %44, %40 ]
-  %.07275.i.i.i.i.i.i.i = phi <2 x double> [ %50, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %40 ]
+  %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %50, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %40 ]
   %46 = getelementptr inbounds double, ptr %30, i64 %.05478.i.i.i.i.i.i.i
   %47 = load <2 x i64>, ptr %46, align 16
   %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
   %49 = bitcast <2 x i64> %48 to <2 x double>
-  %50 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i.i, <2 x double> %49) #26, !srcloc !20
+  %50 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i.i, <2 x double> %49) #26, !srcloc !20
   %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %51 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
   %52 = and <2 x i64> %51, <i64 9223372036854775807, i64 9223372036854775807>
@@ -3346,9 +3346,9 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   br i1 %55, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %40
-  %.072.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %38, %40 ], [ %50, %.lr.ph.i.i.i.i.i.i.i ]
+  %.173.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %38, %40 ], [ %50, %.lr.ph.i.i.i.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %44, %40 ], [ %54, %.lr.ph.i.i.i.i.i.i.i ]
-  %56 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.072.lcssa.i.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i.i) #26, !srcloc !20
+  %56 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.173.lcssa.i.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i.i) #26, !srcloc !20
   %57 = icmp sgt i64 %34, %32
   br i1 %57, label %58, label %64
 
@@ -3361,9 +3361,9 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   br label %64
 
 64:                                               ; preds = %58, %._crit_edge.i.i.i.i.i.i.i, %35
-  %.173.i.i.i.i.i.i.i = phi <2 x double> [ %63, %58 ], [ %56, %._crit_edge.i.i.i.i.i.i.i ], [ %38, %35 ]
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i.i, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i.i, i64 1
+  %.072.i.i.i.i.i.i.i = phi <2 x double> [ %63, %58 ], [ %56, %._crit_edge.i.i.i.i.i.i.i ], [ %38, %35 ]
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i.i, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i.i, i64 1
   %65 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i
   %66 = select i1 %65, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i
   %67 = icmp slt i64 %34, %26
@@ -4395,12 +4395,12 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   %.05478.i.i.i.i.i.i.i = phi i64 [ %.054.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 4, %160 ]
   %.054.in77.i.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %160 ]
   %storemerge76.i.i.i.i.i.i.i = phi <2 x double> [ %174, %.lr.ph.i.i.i.i.i.i.i ], [ %164, %160 ]
-  %.07275.i.i.i.i.i.i.i = phi <2 x double> [ %170, %.lr.ph.i.i.i.i.i.i.i ], [ %158, %160 ]
+  %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %170, %.lr.ph.i.i.i.i.i.i.i ], [ %158, %160 ]
   %166 = getelementptr inbounds double, ptr %150, i64 %.05478.i.i.i.i.i.i.i
   %167 = load <2 x i64>, ptr %166, align 16
   %168 = and <2 x i64> %167, <i64 9223372036854775807, i64 9223372036854775807>
   %169 = bitcast <2 x i64> %168 to <2 x double>
-  %170 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i.i, <2 x double> %169) #26, !srcloc !20
+  %170 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i.i, <2 x double> %169) #26, !srcloc !20
   %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %171 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
   %172 = and <2 x i64> %171, <i64 9223372036854775807, i64 9223372036854775807>
@@ -4411,9 +4411,9 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   br i1 %175, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %160
-  %.072.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %158, %160 ], [ %170, %.lr.ph.i.i.i.i.i.i.i ]
+  %.173.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %158, %160 ], [ %170, %.lr.ph.i.i.i.i.i.i.i ]
   %storemerge.lcssa.i.i.i.i.i.i.i = phi <2 x double> [ %164, %160 ], [ %174, %.lr.ph.i.i.i.i.i.i.i ]
-  %176 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.072.lcssa.i.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i.i) #26, !srcloc !20
+  %176 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.173.lcssa.i.i.i.i.i.i.i, <2 x double> %storemerge.lcssa.i.i.i.i.i.i.i) #26, !srcloc !20
   %177 = icmp sgt i64 %154, %152
   br i1 %177, label %178, label %184
 
@@ -4426,9 +4426,9 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   br label %184
 
 184:                                              ; preds = %178, %._crit_edge.i.i.i.i.i.i.i, %155
-  %.173.i.i.i.i.i.i.i = phi <2 x double> [ %183, %178 ], [ %176, %._crit_edge.i.i.i.i.i.i.i ], [ %158, %155 ]
-  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i.i, i64 0
-  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.173.i.i.i.i.i.i.i, i64 1
+  %.072.i.i.i.i.i.i.i = phi <2 x double> [ %183, %178 ], [ %176, %._crit_edge.i.i.i.i.i.i.i ], [ %158, %155 ]
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i.i, i64 0
+  %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i = extractelement <2 x double> %.072.i.i.i.i.i.i.i, i64 1
   %185 = fcmp olt double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i, %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i
   %186 = select i1 %185, double %.sroa.0.8.vec.extract.i.i.i.i.i.i.i.i.i, double %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i
   %187 = icmp slt i64 %154, %146
@@ -4882,8 +4882,8 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   br label %398
 
 398:                                              ; preds = %.critedge94.thread129, %236, %246, %._crit_edge, %224, %395, %140
-  %.2 = phi i1 [ false, %140 ], [ true, %395 ], [ false, %224 ], [ false, %._crit_edge ], [ false, %246 ], [ false, %236 ], [ false, %.critedge94.thread129 ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %140 ], [ true, %395 ], [ false, %224 ], [ false, %._crit_edge ], [ false, %246 ], [ false, %236 ], [ false, %.critedge94.thread129 ]
+  ret i1 %.0
 
 399:                                              ; preds = %392, %247, %225, %138, %137
   %.pn87 = phi { ptr, i32 } [ %139, %138 ], [ %.pn84.pn, %137 ], [ %226, %225 ], [ %248, %247 ], [ %.pn, %392 ]

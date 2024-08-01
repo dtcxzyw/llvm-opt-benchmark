@@ -9638,7 +9638,7 @@ if.else64:                                        ; preds = %invoke.cont60
 
 nrvo.unused:                                      ; preds = %invoke.cont60, %if.else64
   %13 = phi i64 [ -1, %invoke.cont60 ], [ %inc, %if.else64 ]
-  %cleanup.dest.slot.0.ph = phi i32 [ 5, %invoke.cont60 ], [ 0, %if.else64 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 5, %invoke.cont60 ], [ 0, %if.else64 ]
   %14 = load ptr, ptr %state_.i20, align 8
   %cmp.not.i.i21 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i21, label %cleanup68, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i22
@@ -9651,7 +9651,7 @@ cleanup68:                                        ; preds = %_ZNKSt14default_del
   store ptr null, ptr %state_.i20, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
-  switch i32 %cleanup.dest.slot.0.ph, label %cleanup72 [
+  switch i32 %cleanup.dest.slot.1.ph, label %cleanup72 [
     i32 0, label %while.cond15
     i32 5, label %while.end70
   ], !llvm.loop !39
@@ -9759,7 +9759,7 @@ if.then9:                                         ; preds = %if.else
 
 while.body13:                                     ; preds = %if.then9, %if.end27
   %brace_pos.066 = phi i64 [ %inc28, %if.end27 ], [ %add, %if.then9 ]
-  %count.065 = phi i32 [ %count.1, %if.end27 ], [ 1, %if.then9 ]
+  %count.065 = phi i32 [ %count.2, %if.end27 ], [ 1, %if.then9 ]
   %call14 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %opts, i64 noundef %brace_pos.066) #22
   %2 = load i8, ptr %call14, align 1
   %cmp16 = icmp eq i8 %2, 123
@@ -9781,14 +9781,14 @@ if.then23:                                        ; preds = %if.else19
   br i1 %cmp24, label %if.then31, label %if.end27
 
 if.end27:                                         ; preds = %if.else19, %if.then23, %if.then17
-  %count.1 = phi i32 [ %inc18, %if.then17 ], [ %dec, %if.then23 ], [ %count.065, %if.else19 ]
+  %count.2 = phi i32 [ %inc18, %if.then17 ], [ %dec, %if.then23 ], [ %count.065, %if.else19 ]
   %inc28 = add nuw i64 %brace_pos.066, 1
   %call11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %opts) #22
   %cmp12 = icmp ult i64 %inc28, %call11
   br i1 %cmp12, label %while.body13, label %while.end29, !llvm.loop !47
 
 while.end29:                                      ; preds = %if.end27
-  %4 = icmp eq i32 %count.1, 0
+  %4 = icmp eq i32 %count.2, 0
   br i1 %4, label %if.then31, label %if.else59
 
 if.then31:                                        ; preds = %if.then23, %while.end29
@@ -14958,14 +14958,14 @@ ehcleanup75:                                      ; preds = %lpad5, %ehcleanup.i
 
 catch.dispatch:                                   ; preds = %ehcleanup75, %lpad
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %ehcleanup75 ], [ %2, %lpad ]
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn22.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn22.pn, 1
   %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
-  %matches = icmp eq i32 %ehselector.slot.2, %49
+  %matches = icmp eq i32 %ehselector.slot.0, %49
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn22.pn, 0
-  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #22
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn22.pn, 0
+  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp79, ptr noundef nonnull @.str.61, ptr noundef nonnull align 8 dereferenceable(32) %opt_name)
           to label %invoke.cont81 unwind label %lpad80
 

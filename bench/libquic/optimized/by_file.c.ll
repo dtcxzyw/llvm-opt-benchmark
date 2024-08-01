@@ -382,9 +382,9 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
-  %ok.0.in.in = phi i32 [ %call3, %if.then2 ], [ %call6, %if.else ]
-  %ok.0.in.not = icmp eq i32 %ok.0.in.in, 0
-  br i1 %ok.0.in.not, label %if.then10, label %sw.epilog
+  %ok.1.in.in = phi i32 [ %call3, %if.then2 ], [ %call6, %if.else ]
+  %ok.1.in.not = icmp eq i32 %ok.1.in.in, 0
+  br i1 %ok.1.in.not, label %if.then10, label %sw.epilog
 
 if.then10:                                        ; preds = %if.end
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 118, ptr noundef nonnull @.str, i32 noundef 108) #4
@@ -402,9 +402,9 @@ if.else19:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then10, %if.end, %if.else19, %if.then15, %entry
-  %ok.1.shrunk = phi i1 [ true, %if.end ], [ false, %if.then10 ], [ %cmp17, %if.then15 ], [ %cmp22, %if.else19 ], [ false, %entry ]
-  %ok.1 = zext i1 %ok.1.shrunk to i32
-  ret i32 %ok.1
+  %ok.0.shrunk = phi i1 [ true, %if.end ], [ false, %if.then10 ], [ %cmp17, %if.then15 ], [ %cmp22, %if.else19 ], [ false, %entry ]
+  %ok.0 = zext i1 %ok.0.shrunk to i32
+  ret i32 %ok.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)

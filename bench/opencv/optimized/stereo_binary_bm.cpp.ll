@@ -4253,8 +4253,8 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
 
 .lr.ph198.split.split.us223:                      ; preds = %.lr.ph198.split.split.us223.preheader, %.loopexit.us
   %indvars.iv236 = phi i64 [ 0, %.lr.ph198.split.split.us223.preheader ], [ %indvars.iv.next237, %.loopexit.us ]
-  %.1136196.us = phi i32 [ %.0135216.us, %.lr.ph198.split.split.us223.preheader ], [ %.3138.us, %.loopexit.us ]
-  %.1140195.us = phi i32 [ %.0139215.us, %.lr.ph198.split.split.us223.preheader ], [ %.5144.us, %.loopexit.us ]
+  %.1136196.us = phi i32 [ %.0135216.us, %.lr.ph198.split.split.us223.preheader ], [ %.2137.us, %.loopexit.us ]
+  %.1140195.us = phi i32 [ %.0139215.us, %.lr.ph198.split.split.us223.preheader ], [ %.2141.us, %.loopexit.us ]
   %98 = icmp ne i64 %indvars.iv236, 0
   %.not168.us = icmp ult i64 %indvars.iv236, %93
   %or.cond174.us = select i1 %98, i1 %.not168.us, i1 false
@@ -4302,19 +4302,19 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %105
   %.0151.lcssa.us = phi i8 [ 1, %105 ], [ %.2153.us, %._crit_edge.us.loopexit ]
   %.0148.lcssa.us = phi i8 [ 0, %105 ], [ %.2150.us, %._crit_edge.us.loopexit ]
-  %.2141.lcssa.us = phi i32 [ %116, %105 ], [ %.4143.us, %._crit_edge.us.loopexit ]
-  %.2137.lcssa.us = phi i32 [ %.1136196.us, %105 ], [ %118, %._crit_edge.us.loopexit ]
-  %119 = sub nsw i32 %.2137.lcssa.us, %.1140195.us
+  %.3142.lcssa.us = phi i32 [ %116, %105 ], [ %.5144.us, %._crit_edge.us.loopexit ]
+  %.3138.lcssa.us = phi i32 [ %.1136196.us, %105 ], [ %118, %._crit_edge.us.loopexit ]
+  %119 = sub nsw i32 %.3138.lcssa.us, %.1140195.us
   %.not170.us = icmp sgt i32 %119, %2
   br i1 %.not170.us, label %.loopexit.us, label %120
 
 120:                                              ; preds = %._crit_edge.us
   %121 = udiv i8 %.0148.lcssa.us, %.0151.lcssa.us
-  %122 = icmp slt i32 %.1140195.us, %.2137.lcssa.us
+  %122 = icmp slt i32 %.1140195.us, %.3138.lcssa.us
   br i1 %122, label %.lr.ph193.us.preheader, label %.loopexit.us
 
 .lr.ph193.us.preheader:                           ; preds = %120
-  %wide.trip.count = sext i32 %.2137.lcssa.us to i64
+  %wide.trip.count = sext i32 %.3138.lcssa.us to i64
   br label %.lr.ph193.us
 
 .lr.ph193.us:                                     ; preds = %.lr.ph193.us.preheader, %.lr.ph193.us
@@ -4334,7 +4334,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %135
   %indvars.iv230 = phi i64 [ %117, %.lr.ph.us.preheader ], [ %indvars.iv.next231, %135 ]
-  %.2141186.us = phi i32 [ %116, %.lr.ph.us.preheader ], [ %.4143.us, %135 ]
+  %.3142186.us = phi i32 [ %116, %.lr.ph.us.preheader ], [ %.5144.us, %135 ]
   %.0148185.us = phi i8 [ 0, %.lr.ph.us.preheader ], [ %.2150.us, %135 ]
   %.0151184.us = phi i8 [ 1, %.lr.ph.us.preheader ], [ %.2153.us, %135 ]
   %131 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv230
@@ -4345,13 +4345,13 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
 
 135:                                              ; preds = %183
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, 1
-  %136 = sext i32 %.4143.us to i64
+  %136 = sext i32 %.5144.us to i64
   %137 = icmp slt i64 %indvars.iv.next231, %136
   br i1 %137, label %.lr.ph.us, label %._crit_edge.us.loopexit, !llvm.loop !28
 
 138:                                              ; preds = %183, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %.lr.ph.us ]
-  %.3142183.us = phi i32 [ %.4143.us, %183 ], [ %.2141186.us, %.lr.ph.us ]
+  %.4143183.us = phi i32 [ %.5144.us, %183 ], [ %.3142186.us, %.lr.ph.us ]
   %.1149181.us = phi i8 [ %.2150.us, %183 ], [ %.0148185.us, %.lr.ph.us ]
   %.1152180.us = phi i8 [ %.2153.us, %183 ], [ %.0151184.us, %.lr.ph.us ]
   %139 = getelementptr inbounds [8 x i32], ptr @__const._ZN2cv6stereo8Matching18smallRegionRemovalIhEEvRKNS_3MatEiRS3_.di, i64 0, i64 %indvars.iv
@@ -4403,12 +4403,12 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
 
 172:                                              ; preds = %159
   store i8 1, ptr %164, align 1
-  %173 = sext i32 %.3142183.us to i64
+  %173 = sext i32 %.4143183.us to i64
   %174 = getelementptr inbounds i32, ptr %75, i64 %173
   store i32 %141, ptr %174, align 4
   %175 = getelementptr inbounds i32, ptr %77, i64 %173
   store i32 %145, ptr %175, align 4
-  %176 = add nsw i32 %.3142183.us, 1
+  %176 = add nsw i32 %.4143183.us, 1
   %177 = load ptr, ptr %88, align 8
   %178 = load ptr, ptr %89, align 8
   %179 = load i64, ptr %178, align 8
@@ -4421,7 +4421,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
 183:                                              ; preds = %172, %169, %167, %148, %142, %138
   %.2153.us = phi i8 [ %.1152180.us, %172 ], [ %171, %169 ], [ %.1152180.us, %167 ], [ %.1152180.us, %148 ], [ %.1152180.us, %142 ], [ %.1152180.us, %138 ]
   %.2150.us = phi i8 [ %.1149181.us, %172 ], [ %170, %169 ], [ %.1149181.us, %167 ], [ %.1149181.us, %148 ], [ %.1149181.us, %142 ], [ %.1149181.us, %138 ]
-  %.4143.us = phi i32 [ %176, %172 ], [ %.3142183.us, %169 ], [ %.3142183.us, %167 ], [ %.3142183.us, %148 ], [ %.3142183.us, %142 ], [ %.3142183.us, %138 ]
+  %.5144.us = phi i32 [ %176, %172 ], [ %.4143183.us, %169 ], [ %.4143183.us, %167 ], [ %.4143183.us, %148 ], [ %.4143183.us, %142 ], [ %.4143183.us, %138 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %135, label %138, !llvm.loop !29
@@ -4432,8 +4432,8 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph193.us, %120, %184, %._crit_edge.us, %103
-  %.5144.us = phi i32 [ %.1140195.us, %184 ], [ %.1140195.us, %103 ], [ %.2141.lcssa.us, %._crit_edge.us ], [ %.2141.lcssa.us, %120 ], [ %.2141.lcssa.us, %.lr.ph193.us ]
-  %.3138.us = phi i32 [ %.1136196.us, %184 ], [ %.1136196.us, %103 ], [ %.2137.lcssa.us, %._crit_edge.us ], [ %.2137.lcssa.us, %120 ], [ %.2137.lcssa.us, %.lr.ph193.us ]
+  %.2141.us = phi i32 [ %.1140195.us, %184 ], [ %.1140195.us, %103 ], [ %.3142.lcssa.us, %._crit_edge.us ], [ %.3142.lcssa.us, %120 ], [ %.3142.lcssa.us, %.lr.ph193.us ]
+  %.2137.us = phi i32 [ %.1136196.us, %184 ], [ %.1136196.us, %103 ], [ %.3138.lcssa.us, %._crit_edge.us ], [ %.3138.lcssa.us, %120 ], [ %.3138.lcssa.us, %.lr.ph193.us ]
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %92
   br i1 %exitcond240.not, label %._crit_edge199.us, label %.lr.ph198.split.split.us223, !llvm.loop !30
@@ -4456,8 +4456,8 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching18smallRegionRemovalIhEEv
   br label %._crit_edge199.us
 
 ._crit_edge199.us:                                ; preds = %.loopexit.us, %._crit_edge199.us.sink.split
-  %.us-phi.us = phi i32 [ %.0139215.us, %._crit_edge199.us.sink.split ], [ %.5144.us, %.loopexit.us ]
-  %.us-phi202.us = phi i32 [ %.0135216.us, %._crit_edge199.us.sink.split ], [ %.3138.us, %.loopexit.us ]
+  %.us-phi.us = phi i32 [ %.0139215.us, %._crit_edge199.us.sink.split ], [ %.2141.us, %.loopexit.us ]
+  %.us-phi202.us = phi i32 [ %.0135216.us, %._crit_edge199.us.sink.split ], [ %.2137.us, %.loopexit.us ]
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count247
   br i1 %exitcond248.not, label %._crit_edge219, label %.lr.ph198.us, !llvm.loop !31

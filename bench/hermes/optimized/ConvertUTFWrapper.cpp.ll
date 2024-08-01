@@ -270,8 +270,8 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.end ], [ %cmp33.not, %cleanup ], [ %cmp33.not, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %cmp33.not, %cleanup ], [ %cmp33.not, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1

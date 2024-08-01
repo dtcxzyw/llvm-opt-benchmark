@@ -373,7 +373,7 @@ Vec_PtrPush.exit:                                 ; preds = %9, %Abc_Clock.exit
   %72 = phi i32 [ 0, %55 ], [ %.lcssa513516.lcssa539.lcssa549, %.thread427 ]
   %.0403 = phi ptr [ null, %55 ], [ %.1404, %.thread427 ]
   %.0252 = phi i32 [ 0, %55 ], [ %517, %.thread427 ]
-  %.0236 = phi i32 [ 0, %55 ], [ %.10431, %.thread427 ]
+  %.0236 = phi i32 [ 0, %55 ], [ %.6431, %.thread427 ]
   %.0235 = phi ptr [ null, %55 ], [ %83, %.thread427 ]
   %.0 = phi ptr [ null, %55 ], [ %81, %.thread427 ]
   %73 = icmp ne i32 %.0252, 0
@@ -962,9 +962,9 @@ Saig_ObjIsLo.exit356.thread:                      ; preds = %244, %Saig_ObjIsLo.
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph504, !llvm.loop !14
 
 .lr.ph504:                                        ; preds = %.lr.ph504.preheader, %337
-  %.1503 = phi i32 [ %339, %337 ], [ %.0236, %.lr.ph504.preheader ]
+  %.3503 = phi i32 [ %339, %337 ], [ %.0236, %.lr.ph504.preheader ]
   %.4247502 = phi i32 [ %338, %337 ], [ 1, %.lr.ph504.preheader ]
-  %339 = add nsw i32 %.1503, 1
+  %339 = add nsw i32 %.3503, 1
   br i1 %.not271, label %342, label %340
 
 340:                                              ; preds = %.lr.ph504
@@ -978,7 +978,7 @@ Saig_ObjIsLo.exit356.thread:                      ; preds = %244, %Saig_ObjIsLo.
   br i1 %.not272, label %337, label %.thread408
 
 .loopexit:                                        ; preds = %337, %.preheader441, %.critedge5
-  %.3 = phi i32 [ %.0236, %.critedge5 ], [ %.0236, %.preheader441 ], [ %336, %337 ]
+  %.2 = phi i32 [ %.0236, %.critedge5 ], [ %.0236, %.preheader441 ], [ %336, %337 ]
   %.promoted544 = load i32, ptr %15, align 4
   %.promoted550 = load i32, ptr %16, align 4
   %344 = getelementptr i8, ptr %81, i64 136
@@ -995,7 +995,7 @@ Saig_ObjIsLo.exit356.thread:                      ; preds = %244, %Saig_ObjIsLo.
 349:                                              ; preds = %.thread424, %.loopexit
   %.lcssa524543.lcssa551 = phi i32 [ %.promoted550, %.loopexit ], [ %.lcssa524541.lcssa, %.thread424 ]
   %.lcssa513516.lcssa539.lcssa545 = phi i32 [ %.promoted544, %.loopexit ], [ %.lcssa513516.lcssa537.lcssa, %.thread424 ]
-  %.4 = phi i32 [ %.3, %.loopexit ], [ %.5.lcssa, %.thread424 ]
+  %.5 = phi i32 [ %.2, %.loopexit ], [ %.7.lcssa, %.thread424 ]
   %350 = load i64, ptr %65, align 8
   %351 = call i32 @sat_solver_solve(ptr noundef %49, ptr noundef null, ptr noundef null, i64 noundef %66, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   br i1 %.not268, label %370, label %352
@@ -1189,8 +1189,8 @@ Abc_Clock.exit370:                                ; preds = %352, %361
   br i1 %exitcond638.not825, label %.thread424, label %.lr.ph831
 
 .lr.ph831:                                        ; preds = %.preheader.preheader, %.preheader.backedge
-  %.5830 = phi i32 [ %.5.be, %.preheader.backedge ], [ %.4, %.preheader.preheader ]
-  %.0237829 = phi i32 [ %.0237.be, %.preheader.backedge ], [ 0, %.preheader.preheader ]
+  %.7830 = phi i32 [ %.7.be, %.preheader.backedge ], [ %.5, %.preheader.preheader ]
+  %.1238829 = phi i32 [ %.1238.be, %.preheader.backedge ], [ 0, %.preheader.preheader ]
   %.7250828 = phi i32 [ %430, %.preheader.backedge ], [ 1, %.preheader.preheader ]
   %.lcssa513516.lcssa537827 = phi i32 [ %.lcssa513516.lcssa537.be, %.preheader.backedge ], [ %.lcssa513516.lcssa539.lcssa545, %.preheader.preheader ]
   %.lcssa524541826 = phi i32 [ %.lcssa524541.be, %.preheader.backedge ], [ %.lcssa524543.lcssa551, %.preheader.preheader ]
@@ -1204,8 +1204,8 @@ Abc_Clock.exit370:                                ; preds = %352, %361
 
 432:                                              ; preds = %.lr.ph530, %Saig_ManStatesAreEqual.exit.thread
   %433 = phi i1 [ true, %.lr.ph530 ], [ %515, %Saig_ManStatesAreEqual.exit.thread ]
-  %.6529 = phi i32 [ %.5830, %.lr.ph530 ], [ %.7, %Saig_ManStatesAreEqual.exit.thread ]
-  %.1238528 = phi i32 [ %.0237829, %.lr.ph530 ], [ %.2239, %Saig_ManStatesAreEqual.exit.thread ]
+  %.9529 = phi i32 [ %.7830, %.lr.ph530 ], [ %.11, %Saig_ManStatesAreEqual.exit.thread ]
+  %.3240528 = phi i32 [ %.1238829, %.lr.ph530 ], [ %.5242, %Saig_ManStatesAreEqual.exit.thread ]
   %.0251527 = phi i32 [ %430, %.lr.ph530 ], [ %514, %Saig_ManStatesAreEqual.exit.thread ]
   %.lcssa513517526 = phi i32 [ %.lcssa513516.lcssa537827, %.lr.ph530 ], [ %.lcssa513515, %Saig_ManStatesAreEqual.exit.thread ]
   %.lcssa510521525 = phi i32 [ %.lcssa524541826, %.lr.ph530 ], [ %.lcssa510520, %Saig_ManStatesAreEqual.exit.thread ]
@@ -1269,7 +1269,7 @@ Abc_Clock.exit370:                                ; preds = %352, %361
   br i1 %exitcond42.not.i, label %Saig_ManStatesAreEqual.exit, label %.lr.ph33.i, !llvm.loop !6
 
 Saig_ManStatesAreEqual.exit:                      ; preds = %463, %432
-  %464 = add nsw i32 %.6529, 1
+  %464 = add nsw i32 %.9529, 1
   br i1 %.not271, label %467, label %465
 
 465:                                              ; preds = %Saig_ManStatesAreEqual.exit
@@ -1406,8 +1406,8 @@ Saig_ManAddUniqueness.exit:                       ; preds = %478
 Saig_ManStatesAreEqual.exit.thread:               ; preds = %444, %452, %510, %478, %Saig_ManAddUniqueness.exit
   %.lcssa510520 = phi i32 [ %.lcssa510521525, %Saig_ManAddUniqueness.exit ], [ %.lcssa510521525, %478 ], [ %496, %510 ], [ %.lcssa510521525, %452 ], [ %.lcssa510521525, %444 ]
   %.lcssa513515 = phi i32 [ %.lcssa513517526, %Saig_ManAddUniqueness.exit ], [ %.lcssa513517526, %478 ], [ %.lcssa513516, %510 ], [ %.lcssa513517526, %452 ], [ %.lcssa513517526, %444 ]
-  %.2239 = phi i32 [ 1, %Saig_ManAddUniqueness.exit ], [ 1, %478 ], [ 1, %510 ], [ %.1238528, %452 ], [ %.1238528, %444 ]
-  %.7 = phi i32 [ %464, %Saig_ManAddUniqueness.exit ], [ %464, %478 ], [ %464, %510 ], [ %.6529, %452 ], [ %.6529, %444 ]
+  %.5242 = phi i32 [ 1, %Saig_ManAddUniqueness.exit ], [ 1, %478 ], [ 1, %510 ], [ %.3240528, %452 ], [ %.3240528, %444 ]
+  %.11 = phi i32 [ %464, %Saig_ManAddUniqueness.exit ], [ %464, %478 ], [ %464, %510 ], [ %.9529, %452 ], [ %.9529, %444 ]
   %514 = add i32 %.0251527, 1
   %515 = icmp slt i32 %514, %332
   %exitcond637.not = icmp eq i32 %514, %332
@@ -1417,30 +1417,30 @@ Saig_ManAddUniqueness.exit.thread415:             ; preds = %Saig_ManStatesAreEq
   %.lcssa524543 = phi i32 [ %486, %492 ], [ %496, %513 ], [ %.lcssa524541826, %.lr.ph831 ], [ %.lcssa510520, %Saig_ManStatesAreEqual.exit.thread ]
   %.lcssa513516.lcssa539 = phi i32 [ %489, %492 ], [ %.lcssa513516, %513 ], [ %.lcssa513516.lcssa537827, %.lr.ph831 ], [ %.lcssa513515, %Saig_ManStatesAreEqual.exit.thread ]
   %516 = phi i1 [ %433, %492 ], [ %433, %513 ], [ false, %.lr.ph831 ], [ %515, %Saig_ManStatesAreEqual.exit.thread ]
-  %.3240 = phi i32 [ 1, %492 ], [ 1, %513 ], [ %.0237829, %.lr.ph831 ], [ %.2239, %Saig_ManStatesAreEqual.exit.thread ]
-  %.8 = phi i32 [ %464, %492 ], [ %464, %513 ], [ %.5830, %.lr.ph831 ], [ %.7, %Saig_ManStatesAreEqual.exit.thread ]
+  %.4241 = phi i32 [ 1, %492 ], [ 1, %513 ], [ %.1238829, %.lr.ph831 ], [ %.5242, %Saig_ManStatesAreEqual.exit.thread ]
+  %.10 = phi i32 [ %464, %492 ], [ %464, %513 ], [ %.7830, %.lr.ph831 ], [ %.11, %Saig_ManStatesAreEqual.exit.thread ]
   br i1 %516, label %.thread408.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %Saig_ManAddUniqueness.exit.thread415, %Saig_ManAddUniqueness.exit.thread419
   %.lcssa524541.be = phi i32 [ %.lcssa524543, %Saig_ManAddUniqueness.exit.thread415 ], [ %.lcssa524542, %Saig_ManAddUniqueness.exit.thread419 ]
   %.lcssa513516.lcssa537.be = phi i32 [ %.lcssa513516.lcssa539, %Saig_ManAddUniqueness.exit.thread415 ], [ %.lcssa513516.lcssa538, %Saig_ManAddUniqueness.exit.thread419 ]
-  %.0237.be = phi i32 [ %.3240, %Saig_ManAddUniqueness.exit.thread415 ], [ 1, %Saig_ManAddUniqueness.exit.thread419 ]
-  %.5.be = phi i32 [ %.8, %Saig_ManAddUniqueness.exit.thread415 ], [ %464, %Saig_ManAddUniqueness.exit.thread419 ]
+  %.1238.be = phi i32 [ %.4241, %Saig_ManAddUniqueness.exit.thread415 ], [ 1, %Saig_ManAddUniqueness.exit.thread419 ]
+  %.7.be = phi i32 [ %.10, %Saig_ManAddUniqueness.exit.thread415 ], [ %464, %Saig_ManAddUniqueness.exit.thread419 ]
   %exitcond638.not = icmp eq i32 %430, %smax
   br i1 %exitcond638.not, label %.thread424, label %.lr.ph831, !llvm.loop !18
 
 .thread424:                                       ; preds = %.preheader.backedge, %.preheader.preheader
   %.lcssa524541.lcssa = phi i32 [ %.lcssa524543.lcssa551, %.preheader.preheader ], [ %.lcssa524541.be, %.preheader.backedge ]
   %.lcssa513516.lcssa537.lcssa = phi i32 [ %.lcssa513516.lcssa539.lcssa545, %.preheader.preheader ], [ %.lcssa513516.lcssa537.be, %.preheader.backedge ]
-  %.0237.lcssa = phi i32 [ 0, %.preheader.preheader ], [ %.0237.be, %.preheader.backedge ]
-  %.5.lcssa = phi i32 [ %.4, %.preheader.preheader ], [ %.5.be, %.preheader.backedge ]
-  %.not278 = icmp eq i32 %.0237.lcssa, 0
+  %.1238.lcssa = phi i32 [ 0, %.preheader.preheader ], [ %.1238.be, %.preheader.backedge ]
+  %.7.lcssa = phi i32 [ %.5, %.preheader.preheader ], [ %.7.be, %.preheader.backedge ]
+  %.not278 = icmp eq i32 %.1238.lcssa, 0
   br i1 %.not278, label %.thread427, label %349
 
 .thread427:                                       ; preds = %429, %.thread424
   %.lcssa524543.lcssa555 = phi i32 [ %.lcssa524541.lcssa, %.thread424 ], [ %.promoted550, %429 ]
   %.lcssa513516.lcssa539.lcssa549 = phi i32 [ %.lcssa513516.lcssa537.lcssa, %.thread424 ], [ %.promoted544, %429 ]
-  %.10431 = phi i32 [ %.5.lcssa, %.thread424 ], [ %.3, %429 ]
+  %.6431 = phi i32 [ %.7.lcssa, %.thread424 ], [ %.2, %429 ]
   store i32 %.lcssa513516.lcssa539.lcssa549, ptr %15, align 4
   store i32 %.lcssa524543.lcssa555, ptr %16, align 4
   %517 = add nuw nsw i32 %.0252, 1
@@ -1451,7 +1451,7 @@ Saig_ManAddUniqueness.exit.thread415:             ; preds = %Saig_ManStatesAreEq
   %.lcssa513516.lcssa539.lcssa547 = phi i32 [ %.lcssa513516.lcssa539, %Saig_ManAddUniqueness.exit.thread415 ], [ %.lcssa513516.lcssa538, %Saig_ManAddUniqueness.exit.thread419 ], [ %.lcssa513516.lcssa539.lcssa545, %370 ]
   %.ph = phi i1 [ false, %Saig_ManAddUniqueness.exit.thread419 ], [ false, %Saig_ManAddUniqueness.exit.thread415 ], [ true, %370 ]
   %.0253.ph = phi i32 [ 1, %Saig_ManAddUniqueness.exit.thread419 ], [ 1, %Saig_ManAddUniqueness.exit.thread415 ], [ -1, %370 ]
-  %.11.ph = phi i32 [ %.8, %Saig_ManAddUniqueness.exit.thread415 ], [ %464, %Saig_ManAddUniqueness.exit.thread419 ], [ %.4, %370 ]
+  %.1.ph = phi i32 [ %.10, %Saig_ManAddUniqueness.exit.thread415 ], [ %464, %Saig_ManAddUniqueness.exit.thread419 ], [ %.5, %370 ]
   store i32 %.lcssa513516.lcssa539.lcssa547, ptr %15, align 4
   store i32 %.lcssa524543.lcssa553, ptr %16, align 4
   br label %.thread408
@@ -1460,7 +1460,7 @@ Saig_ManAddUniqueness.exit.thread415:             ; preds = %Saig_ManStatesAreEq
   %.0252602 = phi i32 [ %.0252, %371 ], [ %69, %.critedge9 ], [ %69, %398 ], [ %.0252, %.thread408.loopexit ], [ %.0252, %342 ], [ %.0252, %split ]
   %518 = phi i1 [ false, %371 ], [ false, %.critedge9 ], [ false, %398 ], [ %.ph, %.thread408.loopexit ], [ false, %342 ], [ false, %split ]
   %.0253 = phi i32 [ 1, %371 ], [ -1, %.critedge9 ], [ -1, %398 ], [ %.0253.ph, %.thread408.loopexit ], [ 1, %342 ], [ 1, %split ]
-  %.11 = phi i32 [ %.4, %371 ], [ %.3, %.critedge9 ], [ %.3, %398 ], [ %.11.ph, %.thread408.loopexit ], [ %339, %342 ], [ %.0236, %split ]
+  %.1 = phi i32 [ %.5, %371 ], [ %.2, %.critedge9 ], [ %.2, %398 ], [ %.1.ph, %.thread408.loopexit ], [ %339, %342 ], [ %.0236, %split ]
   br i1 %.not268, label %544, label %519
 
 519:                                              ; preds = %.thread408
@@ -1507,7 +1507,7 @@ Abc_Clock.exit388:                                ; preds = %520, %523
   br i1 %or.cond11.not, label %542, label %540
 
 540:                                              ; preds = %537
-  %541 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %539, i32 noundef %.11)
+  %541 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %539, i32 noundef %.1)
   br label %544
 
 542:                                              ; preds = %537

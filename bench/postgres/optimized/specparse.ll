@@ -32,28 +32,28 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %312, %75
-  %.0254 = phi ptr [ %292, %312 ], [ %76, %75 ]
-  %.0243 = phi ptr [ %291, %312 ], [ %.2245, %75 ]
-  %.0 = phi i32 [ %313, %312 ], [ %70, %75 ]
-  %4 = getelementptr i8, ptr %.0243, i64 1
+  %.1255 = phi ptr [ %292, %312 ], [ %76, %75 ]
+  %.1244 = phi ptr [ %291, %312 ], [ %.2245, %75 ]
+  %.1 = phi i32 [ %313, %312 ], [ %70, %75 ]
+  %4 = getelementptr i8, ptr %.1244, i64 1
   br label %5
 
 5:                                                ; preds = %3, %0
-  %.1255 = phi ptr [ %2, %0 ], [ %.0254, %3 ]
+  %.0254 = phi ptr [ %2, %0 ], [ %.1255, %3 ]
   %.0247 = phi ptr [ %2, %0 ], [ %.1248, %3 ]
-  %.1244 = phi ptr [ %1, %0 ], [ %4, %3 ]
+  %.0243 = phi ptr [ %1, %0 ], [ %4, %3 ]
   %.0240 = phi ptr [ %1, %0 ], [ %.1241, %3 ]
   %.0238 = phi i64 [ 200, %0 ], [ %.1239, %3 ]
-  %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc nsw i32 %.1 to i8
-  store i8 %6, ptr %.1244, align 1
+  %.0 = phi i32 [ 0, %0 ], [ %.1, %3 ]
+  %6 = trunc nsw i32 %.0 to i8
+  store i8 %6, ptr %.0243, align 1
   %7 = getelementptr i8, ptr %.0240, i64 %.0238
   %8 = getelementptr i8, ptr %7, i64 -1
-  %.not = icmp ugt ptr %8, %.1244
+  %.not = icmp ugt ptr %8, %.0243
   br i1 %.not, label %32, label %9
 
 9:                                                ; preds = %5
-  %10 = ptrtoint ptr %.1244 to i64
+  %10 = ptrtoint ptr %.0243 to i64
   %11 = ptrtoint ptr %.0240 to i64
   %12 = sub i64 %10, %11
   %13 = add i64 %12, 1
@@ -93,16 +93,16 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br i1 %.not279, label %32, label %.loopexit.thread
 
 32:                                               ; preds = %26, %5
-  %.2256 = phi ptr [ %30, %26 ], [ %.1255, %5 ]
+  %.2256 = phi ptr [ %30, %26 ], [ %.0254, %5 ]
   %.1248 = phi ptr [ %23, %26 ], [ %.0247, %5 ]
-  %.2245 = phi ptr [ %28, %26 ], [ %.1244, %5 ]
+  %.2245 = phi ptr [ %28, %26 ], [ %.0243, %5 ]
   %.1241 = phi ptr [ %19, %26 ], [ %.0240, %5 ]
   %.1239 = phi i64 [ %spec.store.select, %26 ], [ %.0238, %5 ]
-  %33 = icmp eq i32 %.1, 3
+  %33 = icmp eq i32 %.0, 3
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %32
-  %35 = sext i32 %.1 to i64
+  %35 = sext i32 %.0 to i64
   %36 = getelementptr [43 x i8], ptr @yypact, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32

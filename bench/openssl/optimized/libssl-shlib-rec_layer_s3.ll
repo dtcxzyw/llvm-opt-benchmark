@@ -197,18 +197,18 @@ if.then13:                                        ; preds = %if.end
 
 while.body:                                       ; preds = %if.then13, %while.body
   %call1429 = phi ptr [ %call14, %while.body ], [ %call1426, %if.then13 ]
-  %num.028 = phi i64 [ %add, %while.body ], [ 0, %if.then13 ]
+  %num.128 = phi i64 [ %add, %while.body ], [ 0, %if.then13 ]
   %data = getelementptr inbounds i8, ptr %call1429, i64 8
   %7 = load ptr, ptr %data, align 8
   %length = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load i64, ptr %length, align 8
-  %add = add i64 %8, %num.028
+  %add = add i64 %8, %num.128
   %call14 = call ptr @pqueue_next(ptr noundef nonnull %iter) #9
   %cmp15.not = icmp eq ptr %call14, null
   br i1 %cmp15.not, label %if.end16, label %while.body, !llvm.loop !4
 
 if.end16:                                         ; preds = %while.body, %if.then13, %if.end
-  %num.1 = phi i64 [ 0, %if.end ], [ 0, %if.then13 ], [ %add, %while.body ]
+  %num.0 = phi i64 [ 0, %if.end ], [ 0, %if.then13 ], [ %add, %while.body ]
   %num_recs = getelementptr inbounds i8, ptr %cond1124, i64 3176
   %9 = load i64, ptr %num_recs, align 8
   %cmp1830.not = icmp eq i64 %9, 0
@@ -220,7 +220,7 @@ for.body.lr.ph:                                   ; preds = %if.end16
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end24
   %i.032 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end24 ]
-  %num.231 = phi i64 [ %num.1, %for.body.lr.ph ], [ %add29, %if.end24 ]
+  %num.231 = phi i64 [ %num.0, %for.body.lr.ph ], [ %add29, %if.end24 ]
   %arrayidx = getelementptr inbounds [32 x %struct.tls_record_st], ptr %tlsrecs, i64 0, i64 %i.032
   %type20 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %10 = load i8, ptr %type20, align 4
@@ -236,7 +236,7 @@ if.end24:                                         ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %if.end24, %if.end16
-  %num.2.lcssa = phi i64 [ %num.1, %if.end16 ], [ %add29, %if.end24 ]
+  %num.2.lcssa = phi i64 [ %num.0, %if.end16 ], [ %add29, %if.end24 ]
   %rrlmethod = getelementptr inbounds i8, ptr %cond1124, i64 3024
   %12 = load ptr, ptr %rrlmethod, align 8
   %app_data_pending = getelementptr inbounds i8, ptr %12, i64 32
@@ -937,13 +937,13 @@ if.end20:                                         ; preds = %if.else
   br i1 %or.cond, label %if.end29, label %if.else24
 
 if.else24:                                        ; preds = %if.then14, %if.then17, %if.then6, %if.end20
-  %ret.addr.024 = phi i32 [ %ret, %if.end20 ], [ -2, %if.then6 ], [ -2, %if.then17 ], [ -2, %if.then14 ]
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %ret.addr.024, i32 -1)
+  %ret.addr.124 = phi i32 [ %ret, %if.end20 ], [ -2, %if.then6 ], [ -2, %if.then17 ], [ -2, %if.then14 ]
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %ret.addr.124, i32 -1)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else10, %if.then9, %if.end20, %if.else24, %if.then
-  %ret.addr.1 = phi i32 [ -1, %if.then ], [ %spec.store.select, %if.else24 ], [ 0, %if.end20 ], [ 0, %if.then9 ], [ 0, %if.else10 ]
-  ret i32 %ret.addr.1
+  %ret.addr.0 = phi i32 [ -1, %if.then ], [ %spec.store.select, %if.else24 ], [ 0, %if.end20 ], [ 0, %if.then9 ], [ 0, %if.else10 ]
+  ret i32 %ret.addr.0
 }
 
 declare i32 @ssl_get_max_send_fragment(ptr noundef) local_unnamed_addr #3

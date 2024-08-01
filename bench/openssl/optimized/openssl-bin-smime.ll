@@ -270,17 +270,17 @@ while.body:                                       ; preds = %if.end, %sw.epilog
   %to.0573 = phi ptr [ %to.1, %sw.epilog ], [ null, %if.end ]
   %passinarg.0572 = phi ptr [ %passinarg.1, %sw.epilog ], [ null, %if.end ]
   %recipfile.0571 = phi ptr [ %recipfile.1, %sw.epilog ], [ null, %if.end ]
-  %signerfile.0570 = phi ptr [ %signerfile.2, %sw.epilog ], [ null, %if.end ]
+  %signerfile.0570 = phi ptr [ %signerfile.1, %sw.epilog ], [ null, %if.end ]
   %outfile.0569 = phi ptr [ %outfile.1, %sw.epilog ], [ null, %if.end ]
   %infile.0568 = phi ptr [ %infile.1, %sw.epilog ], [ null, %if.end ]
   %contfile.0567 = phi ptr [ %contfile.1, %sw.epilog ], [ null, %if.end ]
-  %keyfile.0566 = phi ptr [ %keyfile.3, %sw.epilog ], [ null, %if.end ]
+  %keyfile.0566 = phi ptr [ %keyfile.1, %sw.epilog ], [ null, %if.end ]
   %certfile.0565 = phi ptr [ %certfile.1, %sw.epilog ], [ null, %if.end ]
   %CAstore.0564 = phi ptr [ %CAstore.1, %sw.epilog ], [ null, %if.end ]
   %CApath.0563 = phi ptr [ %CApath.1, %sw.epilog ], [ null, %if.end ]
   %CAfile.0562 = phi ptr [ %CAfile.1, %sw.epilog ], [ null, %if.end ]
-  %skkeys.0561 = phi ptr [ %skkeys.6, %sw.epilog ], [ null, %if.end ]
-  %sksigners.0560 = phi ptr [ %sksigners.6, %sw.epilog ], [ null, %if.end ]
+  %skkeys.0561 = phi ptr [ %skkeys.1, %sw.epilog ], [ null, %if.end ]
+  %sksigners.0560 = phi ptr [ %sksigners.1, %sw.epilog ], [ null, %if.end ]
   switch i32 %call3592, label %sw.epilog [
     i32 2023, label %sw.bb226
     i32 -1, label %opthelp
@@ -368,8 +368,8 @@ while.body:                                       ; preds = %if.end, %sw.epilog
 opthelp:                                          ; preds = %sw.bb226, %sw.bb206, %sw.bb14, %sw.bb7, %while.body, %if.end243, %if.then238, %if.then309, %if.then302, %if.then294, %if.then266, %if.then257, %if.then253, %if.then183
   %conf.0376 = phi ptr [ %conf.0578, %if.then183 ], [ %conf.0.lcssa, %if.then294 ], [ %conf.0.lcssa, %if.then266 ], [ %conf.0.lcssa, %if.then302 ], [ %conf.0.lcssa, %if.then309 ], [ %conf.0.lcssa, %if.then257 ], [ %conf.0.lcssa, %if.then253 ], [ %conf.0.lcssa, %if.end243 ], [ %conf.0.lcssa, %if.then238 ], [ %conf.0578, %while.body ], [ %conf.0578, %sw.bb7 ], [ %conf.0578, %sw.bb14 ], [ %conf.0578, %sw.bb206 ], [ %conf.0578, %sw.bb226 ]
   %e.0295 = phi ptr [ %e.0588, %if.then183 ], [ %e.0.lcssa, %if.then294 ], [ %e.0.lcssa, %if.then266 ], [ %e.0.lcssa, %if.then302 ], [ %e.0.lcssa, %if.then309 ], [ %e.0.lcssa, %if.then257 ], [ %e.0.lcssa, %if.then253 ], [ %e.0.lcssa, %if.end243 ], [ %e.0.lcssa, %if.then238 ], [ %e.0588, %while.body ], [ %e.0588, %sw.bb7 ], [ %e.0588, %sw.bb14 ], [ %e.0588, %sw.bb206 ], [ %e.0588, %sw.bb226 ]
-  %sksigners.1 = phi ptr [ %sksigners.0560, %if.then183 ], [ null, %if.then294 ], [ %sksigners.0.lcssa, %if.then266 ], [ null, %if.then302 ], [ null, %if.then309 ], [ null, %if.then257 ], [ %sksigners.0.lcssa, %if.then253 ], [ %sksigners.0.lcssa, %if.end243 ], [ %sksigners.0.lcssa, %if.then238 ], [ %sksigners.0560, %while.body ], [ %sksigners.0560, %sw.bb7 ], [ %sksigners.0560, %sw.bb14 ], [ %sksigners.0560, %sw.bb206 ], [ %sksigners.0560, %sw.bb226 ]
-  %skkeys.1 = phi ptr [ %skkeys.0561, %if.then183 ], [ %skkeys.0.lcssa, %if.then294 ], [ %skkeys.0.lcssa, %if.then266 ], [ null, %if.then302 ], [ null, %if.then309 ], [ null, %if.then257 ], [ %skkeys.0.lcssa, %if.then253 ], [ %skkeys.0.lcssa, %if.end243 ], [ %skkeys.0.lcssa, %if.then238 ], [ %skkeys.0561, %while.body ], [ %skkeys.0561, %sw.bb7 ], [ %skkeys.0561, %sw.bb14 ], [ %skkeys.0561, %sw.bb206 ], [ %skkeys.0561, %sw.bb226 ]
+  %sksigners.2 = phi ptr [ %sksigners.0560, %if.then183 ], [ null, %if.then294 ], [ %sksigners.0.lcssa, %if.then266 ], [ null, %if.then302 ], [ null, %if.then309 ], [ null, %if.then257 ], [ %sksigners.0.lcssa, %if.then253 ], [ %sksigners.0.lcssa, %if.end243 ], [ %sksigners.0.lcssa, %if.then238 ], [ %sksigners.0560, %while.body ], [ %sksigners.0560, %sw.bb7 ], [ %sksigners.0560, %sw.bb14 ], [ %sksigners.0560, %sw.bb206 ], [ %sksigners.0560, %sw.bb226 ]
+  %skkeys.2 = phi ptr [ %skkeys.0561, %if.then183 ], [ %skkeys.0.lcssa, %if.then294 ], [ %skkeys.0.lcssa, %if.then266 ], [ null, %if.then302 ], [ null, %if.then309 ], [ null, %if.then257 ], [ %skkeys.0.lcssa, %if.then253 ], [ %skkeys.0.lcssa, %if.end243 ], [ %skkeys.0.lcssa, %if.then238 ], [ %skkeys.0561, %while.body ], [ %skkeys.0561, %sw.bb7 ], [ %skkeys.0561, %sw.bb14 ], [ %skkeys.0561, %sw.bb206 ], [ %skkeys.0561, %sw.bb226 ]
   %0 = load ptr, ptr @bio_err, align 8
   %call5 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.174, ptr noundef %call2) #3
   br label %if.end619
@@ -571,8 +571,8 @@ land.lhs.true151:                                 ; preds = %if.then149
   br i1 %cmp153, label %if.end619, label %if.end155
 
 if.end155:                                        ; preds = %land.lhs.true151, %if.then149
-  %sksigners.2 = phi ptr [ %call152, %land.lhs.true151 ], [ %sksigners.0560, %if.then149 ]
-  %call158 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sksigners.2, ptr noundef nonnull %signerfile.0570) #3
+  %sksigners.5 = phi ptr [ %call152, %land.lhs.true151 ], [ %sksigners.0560, %if.then149 ]
+  %call158 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sksigners.5, ptr noundef nonnull %signerfile.0570) #3
   %cmp159 = icmp eq ptr %keyfile.0566, null
   %spec.select = select i1 %cmp159, ptr %signerfile.0570, ptr %keyfile.0566
   %cmp162 = icmp eq ptr %skkeys.0561, null
@@ -584,13 +584,13 @@ land.lhs.true163:                                 ; preds = %if.end155
   br i1 %cmp165, label %if.end619, label %if.end167
 
 if.end167:                                        ; preds = %land.lhs.true163, %if.end155
-  %skkeys.2 = phi ptr [ %call164, %land.lhs.true163 ], [ %skkeys.0561, %if.end155 ]
-  %call170 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %skkeys.2, ptr noundef nonnull %spec.select) #3
+  %skkeys.5 = phi ptr [ %call164, %land.lhs.true163 ], [ %skkeys.0561, %if.end155 ]
+  %call170 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %skkeys.5, ptr noundef nonnull %spec.select) #3
   br label %if.end171
 
 if.end171:                                        ; preds = %if.end167, %sw.bb147
-  %sksigners.3 = phi ptr [ %sksigners.2, %if.end167 ], [ %sksigners.0560, %sw.bb147 ]
-  %skkeys.3 = phi ptr [ %skkeys.2, %if.end167 ], [ %skkeys.0561, %sw.bb147 ]
+  %sksigners.4 = phi ptr [ %sksigners.5, %if.end167 ], [ %sksigners.0560, %sw.bb147 ]
+  %skkeys.4 = phi ptr [ %skkeys.5, %if.end167 ], [ %skkeys.0561, %sw.bb147 ]
   %keyfile.2 = phi ptr [ null, %if.end167 ], [ %keyfile.0566, %sw.bb147 ]
   %call172 = call ptr @opt_arg() #3
   br label %sw.epilog
@@ -630,8 +630,8 @@ land.lhs.true187:                                 ; preds = %if.end185
   br i1 %cmp189, label %if.end619, label %if.end191
 
 if.end191:                                        ; preds = %land.lhs.true187, %if.end185
-  %sksigners.4 = phi ptr [ %call188, %land.lhs.true187 ], [ %sksigners.0560, %if.end185 ]
-  %call194 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sksigners.4, ptr noundef nonnull %signerfile.0570) #3
+  %sksigners.7 = phi ptr [ %call188, %land.lhs.true187 ], [ %sksigners.0560, %if.end185 ]
+  %call194 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sksigners.7, ptr noundef nonnull %signerfile.0570) #3
   %cmp195 = icmp eq ptr %skkeys.0561, null
   br i1 %cmp195, label %land.lhs.true196, label %if.end200
 
@@ -641,14 +641,14 @@ land.lhs.true196:                                 ; preds = %if.end191
   br i1 %cmp198, label %if.end619, label %if.end200
 
 if.end200:                                        ; preds = %land.lhs.true196, %if.end191
-  %skkeys.4 = phi ptr [ %call197, %land.lhs.true196 ], [ %skkeys.0561, %if.end191 ]
-  %call203 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %skkeys.4, ptr noundef nonnull %keyfile.0566) #3
+  %skkeys.7 = phi ptr [ %call197, %land.lhs.true196 ], [ %skkeys.0561, %if.end191 ]
+  %call203 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %skkeys.7, ptr noundef nonnull %keyfile.0566) #3
   br label %if.end204
 
 if.end204:                                        ; preds = %if.end200, %sw.bb179
-  %sksigners.5 = phi ptr [ %sksigners.4, %if.end200 ], [ %sksigners.0560, %sw.bb179 ]
-  %skkeys.5 = phi ptr [ %skkeys.4, %if.end200 ], [ %skkeys.0561, %sw.bb179 ]
-  %signerfile.1 = phi ptr [ null, %if.end200 ], [ %signerfile.0570, %sw.bb179 ]
+  %sksigners.6 = phi ptr [ %sksigners.7, %if.end200 ], [ %sksigners.0560, %sw.bb179 ]
+  %skkeys.6 = phi ptr [ %skkeys.7, %if.end200 ], [ %skkeys.0561, %sw.bb179 ]
+  %signerfile.2 = phi ptr [ null, %if.end200 ], [ %signerfile.0570, %sw.bb179 ]
   %call205 = call ptr @opt_arg() #3
   br label %sw.epilog
 
@@ -697,17 +697,17 @@ if.end230:                                        ; preds = %sw.bb226
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb83, %sw.bb83, %sw.bb70, %sw.bb70, %sw.bb57, %sw.bb57, %sw.bb44, %sw.bb44, %sw.bb31, %sw.bb31, %sw.bb22, %sw.bb22, %sw.bb206, %sw.bb130, %sw.bb125, %sw.bb119, %sw.bb14, %sw.bb7, %if.end230, %sw.bb223, %sw.bb222, %sw.bb221, %sw.bb220, %sw.bb218, %sw.bb216, %sw.bb214, %sw.bb212, %if.end204, %sw.bb177, %sw.bb175, %sw.bb173, %if.end171, %sw.bb145, %sw.bb143, %sw.bb141, %sw.bb139, %sw.bb136, %sw.bb116, %sw.bb115, %sw.bb114, %sw.bb112, %sw.bb110, %sw.bb108, %sw.bb107, %sw.bb105, %sw.bb103, %sw.bb101, %sw.bb99, %sw.bb97, %sw.bb96, %sw.bb20, %sw.bb12, %while.body
-  %sksigners.6 = phi ptr [ %sksigners.0560, %while.body ], [ %sksigners.0560, %sw.bb223 ], [ %sksigners.0560, %sw.bb222 ], [ %sksigners.0560, %sw.bb221 ], [ %sksigners.0560, %sw.bb220 ], [ %sksigners.0560, %sw.bb218 ], [ %sksigners.0560, %sw.bb216 ], [ %sksigners.0560, %sw.bb214 ], [ %sksigners.0560, %sw.bb212 ], [ %sksigners.0560, %sw.bb206 ], [ %sksigners.5, %if.end204 ], [ %sksigners.0560, %sw.bb177 ], [ %sksigners.0560, %sw.bb175 ], [ %sksigners.0560, %sw.bb173 ], [ %sksigners.3, %if.end171 ], [ %sksigners.0560, %sw.bb145 ], [ %sksigners.0560, %sw.bb143 ], [ %sksigners.0560, %sw.bb141 ], [ %sksigners.0560, %sw.bb139 ], [ %sksigners.0560, %sw.bb136 ], [ %sksigners.0560, %sw.bb130 ], [ %sksigners.0560, %sw.bb125 ], [ %sksigners.0560, %sw.bb119 ], [ %sksigners.0560, %if.end230 ], [ %sksigners.0560, %sw.bb116 ], [ %sksigners.0560, %sw.bb115 ], [ %sksigners.0560, %sw.bb114 ], [ %sksigners.0560, %sw.bb112 ], [ %sksigners.0560, %sw.bb110 ], [ %sksigners.0560, %sw.bb108 ], [ %sksigners.0560, %sw.bb107 ], [ %sksigners.0560, %sw.bb105 ], [ %sksigners.0560, %sw.bb103 ], [ %sksigners.0560, %sw.bb101 ], [ %sksigners.0560, %sw.bb99 ], [ %sksigners.0560, %sw.bb97 ], [ %sksigners.0560, %sw.bb96 ], [ %sksigners.0560, %sw.bb20 ], [ %sksigners.0560, %sw.bb14 ], [ %sksigners.0560, %sw.bb12 ], [ %sksigners.0560, %sw.bb7 ], [ %sksigners.0560, %sw.bb22 ], [ %sksigners.0560, %sw.bb22 ], [ %sksigners.0560, %sw.bb31 ], [ %sksigners.0560, %sw.bb31 ], [ %sksigners.0560, %sw.bb44 ], [ %sksigners.0560, %sw.bb44 ], [ %sksigners.0560, %sw.bb57 ], [ %sksigners.0560, %sw.bb57 ], [ %sksigners.0560, %sw.bb70 ], [ %sksigners.0560, %sw.bb70 ], [ %sksigners.0560, %sw.bb83 ], [ %sksigners.0560, %sw.bb83 ]
-  %skkeys.6 = phi ptr [ %skkeys.0561, %while.body ], [ %skkeys.0561, %sw.bb223 ], [ %skkeys.0561, %sw.bb222 ], [ %skkeys.0561, %sw.bb221 ], [ %skkeys.0561, %sw.bb220 ], [ %skkeys.0561, %sw.bb218 ], [ %skkeys.0561, %sw.bb216 ], [ %skkeys.0561, %sw.bb214 ], [ %skkeys.0561, %sw.bb212 ], [ %skkeys.0561, %sw.bb206 ], [ %skkeys.5, %if.end204 ], [ %skkeys.0561, %sw.bb177 ], [ %skkeys.0561, %sw.bb175 ], [ %skkeys.0561, %sw.bb173 ], [ %skkeys.3, %if.end171 ], [ %skkeys.0561, %sw.bb145 ], [ %skkeys.0561, %sw.bb143 ], [ %skkeys.0561, %sw.bb141 ], [ %skkeys.0561, %sw.bb139 ], [ %skkeys.0561, %sw.bb136 ], [ %skkeys.0561, %sw.bb130 ], [ %skkeys.0561, %sw.bb125 ], [ %skkeys.0561, %sw.bb119 ], [ %skkeys.0561, %if.end230 ], [ %skkeys.0561, %sw.bb116 ], [ %skkeys.0561, %sw.bb115 ], [ %skkeys.0561, %sw.bb114 ], [ %skkeys.0561, %sw.bb112 ], [ %skkeys.0561, %sw.bb110 ], [ %skkeys.0561, %sw.bb108 ], [ %skkeys.0561, %sw.bb107 ], [ %skkeys.0561, %sw.bb105 ], [ %skkeys.0561, %sw.bb103 ], [ %skkeys.0561, %sw.bb101 ], [ %skkeys.0561, %sw.bb99 ], [ %skkeys.0561, %sw.bb97 ], [ %skkeys.0561, %sw.bb96 ], [ %skkeys.0561, %sw.bb20 ], [ %skkeys.0561, %sw.bb14 ], [ %skkeys.0561, %sw.bb12 ], [ %skkeys.0561, %sw.bb7 ], [ %skkeys.0561, %sw.bb22 ], [ %skkeys.0561, %sw.bb22 ], [ %skkeys.0561, %sw.bb31 ], [ %skkeys.0561, %sw.bb31 ], [ %skkeys.0561, %sw.bb44 ], [ %skkeys.0561, %sw.bb44 ], [ %skkeys.0561, %sw.bb57 ], [ %skkeys.0561, %sw.bb57 ], [ %skkeys.0561, %sw.bb70 ], [ %skkeys.0561, %sw.bb70 ], [ %skkeys.0561, %sw.bb83 ], [ %skkeys.0561, %sw.bb83 ]
+  %sksigners.1 = phi ptr [ %sksigners.0560, %while.body ], [ %sksigners.0560, %sw.bb223 ], [ %sksigners.0560, %sw.bb222 ], [ %sksigners.0560, %sw.bb221 ], [ %sksigners.0560, %sw.bb220 ], [ %sksigners.0560, %sw.bb218 ], [ %sksigners.0560, %sw.bb216 ], [ %sksigners.0560, %sw.bb214 ], [ %sksigners.0560, %sw.bb212 ], [ %sksigners.0560, %sw.bb206 ], [ %sksigners.6, %if.end204 ], [ %sksigners.0560, %sw.bb177 ], [ %sksigners.0560, %sw.bb175 ], [ %sksigners.0560, %sw.bb173 ], [ %sksigners.4, %if.end171 ], [ %sksigners.0560, %sw.bb145 ], [ %sksigners.0560, %sw.bb143 ], [ %sksigners.0560, %sw.bb141 ], [ %sksigners.0560, %sw.bb139 ], [ %sksigners.0560, %sw.bb136 ], [ %sksigners.0560, %sw.bb130 ], [ %sksigners.0560, %sw.bb125 ], [ %sksigners.0560, %sw.bb119 ], [ %sksigners.0560, %if.end230 ], [ %sksigners.0560, %sw.bb116 ], [ %sksigners.0560, %sw.bb115 ], [ %sksigners.0560, %sw.bb114 ], [ %sksigners.0560, %sw.bb112 ], [ %sksigners.0560, %sw.bb110 ], [ %sksigners.0560, %sw.bb108 ], [ %sksigners.0560, %sw.bb107 ], [ %sksigners.0560, %sw.bb105 ], [ %sksigners.0560, %sw.bb103 ], [ %sksigners.0560, %sw.bb101 ], [ %sksigners.0560, %sw.bb99 ], [ %sksigners.0560, %sw.bb97 ], [ %sksigners.0560, %sw.bb96 ], [ %sksigners.0560, %sw.bb20 ], [ %sksigners.0560, %sw.bb14 ], [ %sksigners.0560, %sw.bb12 ], [ %sksigners.0560, %sw.bb7 ], [ %sksigners.0560, %sw.bb22 ], [ %sksigners.0560, %sw.bb22 ], [ %sksigners.0560, %sw.bb31 ], [ %sksigners.0560, %sw.bb31 ], [ %sksigners.0560, %sw.bb44 ], [ %sksigners.0560, %sw.bb44 ], [ %sksigners.0560, %sw.bb57 ], [ %sksigners.0560, %sw.bb57 ], [ %sksigners.0560, %sw.bb70 ], [ %sksigners.0560, %sw.bb70 ], [ %sksigners.0560, %sw.bb83 ], [ %sksigners.0560, %sw.bb83 ]
+  %skkeys.1 = phi ptr [ %skkeys.0561, %while.body ], [ %skkeys.0561, %sw.bb223 ], [ %skkeys.0561, %sw.bb222 ], [ %skkeys.0561, %sw.bb221 ], [ %skkeys.0561, %sw.bb220 ], [ %skkeys.0561, %sw.bb218 ], [ %skkeys.0561, %sw.bb216 ], [ %skkeys.0561, %sw.bb214 ], [ %skkeys.0561, %sw.bb212 ], [ %skkeys.0561, %sw.bb206 ], [ %skkeys.6, %if.end204 ], [ %skkeys.0561, %sw.bb177 ], [ %skkeys.0561, %sw.bb175 ], [ %skkeys.0561, %sw.bb173 ], [ %skkeys.4, %if.end171 ], [ %skkeys.0561, %sw.bb145 ], [ %skkeys.0561, %sw.bb143 ], [ %skkeys.0561, %sw.bb141 ], [ %skkeys.0561, %sw.bb139 ], [ %skkeys.0561, %sw.bb136 ], [ %skkeys.0561, %sw.bb130 ], [ %skkeys.0561, %sw.bb125 ], [ %skkeys.0561, %sw.bb119 ], [ %skkeys.0561, %if.end230 ], [ %skkeys.0561, %sw.bb116 ], [ %skkeys.0561, %sw.bb115 ], [ %skkeys.0561, %sw.bb114 ], [ %skkeys.0561, %sw.bb112 ], [ %skkeys.0561, %sw.bb110 ], [ %skkeys.0561, %sw.bb108 ], [ %skkeys.0561, %sw.bb107 ], [ %skkeys.0561, %sw.bb105 ], [ %skkeys.0561, %sw.bb103 ], [ %skkeys.0561, %sw.bb101 ], [ %skkeys.0561, %sw.bb99 ], [ %skkeys.0561, %sw.bb97 ], [ %skkeys.0561, %sw.bb96 ], [ %skkeys.0561, %sw.bb20 ], [ %skkeys.0561, %sw.bb14 ], [ %skkeys.0561, %sw.bb12 ], [ %skkeys.0561, %sw.bb7 ], [ %skkeys.0561, %sw.bb22 ], [ %skkeys.0561, %sw.bb22 ], [ %skkeys.0561, %sw.bb31 ], [ %skkeys.0561, %sw.bb31 ], [ %skkeys.0561, %sw.bb44 ], [ %skkeys.0561, %sw.bb44 ], [ %skkeys.0561, %sw.bb57 ], [ %skkeys.0561, %sw.bb57 ], [ %skkeys.0561, %sw.bb70 ], [ %skkeys.0561, %sw.bb70 ], [ %skkeys.0561, %sw.bb83 ], [ %skkeys.0561, %sw.bb83 ]
   %CAfile.1 = phi ptr [ %CAfile.0562, %while.body ], [ %CAfile.0562, %sw.bb223 ], [ %CAfile.0562, %sw.bb222 ], [ %CAfile.0562, %sw.bb221 ], [ %CAfile.0562, %sw.bb220 ], [ %CAfile.0562, %sw.bb218 ], [ %CAfile.0562, %sw.bb216 ], [ %call215, %sw.bb214 ], [ %CAfile.0562, %sw.bb212 ], [ %CAfile.0562, %sw.bb206 ], [ %CAfile.0562, %if.end204 ], [ %CAfile.0562, %sw.bb177 ], [ %CAfile.0562, %sw.bb175 ], [ %CAfile.0562, %sw.bb173 ], [ %CAfile.0562, %if.end171 ], [ %CAfile.0562, %sw.bb145 ], [ %CAfile.0562, %sw.bb143 ], [ %CAfile.0562, %sw.bb141 ], [ %CAfile.0562, %sw.bb139 ], [ %CAfile.0562, %sw.bb136 ], [ %CAfile.0562, %sw.bb130 ], [ %CAfile.0562, %sw.bb125 ], [ %CAfile.0562, %sw.bb119 ], [ %CAfile.0562, %if.end230 ], [ %CAfile.0562, %sw.bb116 ], [ %CAfile.0562, %sw.bb115 ], [ %CAfile.0562, %sw.bb114 ], [ %CAfile.0562, %sw.bb112 ], [ %CAfile.0562, %sw.bb110 ], [ %CAfile.0562, %sw.bb108 ], [ %CAfile.0562, %sw.bb107 ], [ %CAfile.0562, %sw.bb105 ], [ %CAfile.0562, %sw.bb103 ], [ %CAfile.0562, %sw.bb101 ], [ %CAfile.0562, %sw.bb99 ], [ %CAfile.0562, %sw.bb97 ], [ %CAfile.0562, %sw.bb96 ], [ %CAfile.0562, %sw.bb20 ], [ %CAfile.0562, %sw.bb14 ], [ %CAfile.0562, %sw.bb12 ], [ %CAfile.0562, %sw.bb7 ], [ %CAfile.0562, %sw.bb22 ], [ %CAfile.0562, %sw.bb22 ], [ %CAfile.0562, %sw.bb31 ], [ %CAfile.0562, %sw.bb31 ], [ %CAfile.0562, %sw.bb44 ], [ %CAfile.0562, %sw.bb44 ], [ %CAfile.0562, %sw.bb57 ], [ %CAfile.0562, %sw.bb57 ], [ %CAfile.0562, %sw.bb70 ], [ %CAfile.0562, %sw.bb70 ], [ %CAfile.0562, %sw.bb83 ], [ %CAfile.0562, %sw.bb83 ]
   %CApath.1 = phi ptr [ %CApath.0563, %while.body ], [ %CApath.0563, %sw.bb223 ], [ %CApath.0563, %sw.bb222 ], [ %CApath.0563, %sw.bb221 ], [ %CApath.0563, %sw.bb220 ], [ %CApath.0563, %sw.bb218 ], [ %call217, %sw.bb216 ], [ %CApath.0563, %sw.bb214 ], [ %CApath.0563, %sw.bb212 ], [ %CApath.0563, %sw.bb206 ], [ %CApath.0563, %if.end204 ], [ %CApath.0563, %sw.bb177 ], [ %CApath.0563, %sw.bb175 ], [ %CApath.0563, %sw.bb173 ], [ %CApath.0563, %if.end171 ], [ %CApath.0563, %sw.bb145 ], [ %CApath.0563, %sw.bb143 ], [ %CApath.0563, %sw.bb141 ], [ %CApath.0563, %sw.bb139 ], [ %CApath.0563, %sw.bb136 ], [ %CApath.0563, %sw.bb130 ], [ %CApath.0563, %sw.bb125 ], [ %CApath.0563, %sw.bb119 ], [ %CApath.0563, %if.end230 ], [ %CApath.0563, %sw.bb116 ], [ %CApath.0563, %sw.bb115 ], [ %CApath.0563, %sw.bb114 ], [ %CApath.0563, %sw.bb112 ], [ %CApath.0563, %sw.bb110 ], [ %CApath.0563, %sw.bb108 ], [ %CApath.0563, %sw.bb107 ], [ %CApath.0563, %sw.bb105 ], [ %CApath.0563, %sw.bb103 ], [ %CApath.0563, %sw.bb101 ], [ %CApath.0563, %sw.bb99 ], [ %CApath.0563, %sw.bb97 ], [ %CApath.0563, %sw.bb96 ], [ %CApath.0563, %sw.bb20 ], [ %CApath.0563, %sw.bb14 ], [ %CApath.0563, %sw.bb12 ], [ %CApath.0563, %sw.bb7 ], [ %CApath.0563, %sw.bb22 ], [ %CApath.0563, %sw.bb22 ], [ %CApath.0563, %sw.bb31 ], [ %CApath.0563, %sw.bb31 ], [ %CApath.0563, %sw.bb44 ], [ %CApath.0563, %sw.bb44 ], [ %CApath.0563, %sw.bb57 ], [ %CApath.0563, %sw.bb57 ], [ %CApath.0563, %sw.bb70 ], [ %CApath.0563, %sw.bb70 ], [ %CApath.0563, %sw.bb83 ], [ %CApath.0563, %sw.bb83 ]
   %CAstore.1 = phi ptr [ %CAstore.0564, %while.body ], [ %CAstore.0564, %sw.bb223 ], [ %CAstore.0564, %sw.bb222 ], [ %CAstore.0564, %sw.bb221 ], [ %CAstore.0564, %sw.bb220 ], [ %call219, %sw.bb218 ], [ %CAstore.0564, %sw.bb216 ], [ %CAstore.0564, %sw.bb214 ], [ %CAstore.0564, %sw.bb212 ], [ %CAstore.0564, %sw.bb206 ], [ %CAstore.0564, %if.end204 ], [ %CAstore.0564, %sw.bb177 ], [ %CAstore.0564, %sw.bb175 ], [ %CAstore.0564, %sw.bb173 ], [ %CAstore.0564, %if.end171 ], [ %CAstore.0564, %sw.bb145 ], [ %CAstore.0564, %sw.bb143 ], [ %CAstore.0564, %sw.bb141 ], [ %CAstore.0564, %sw.bb139 ], [ %CAstore.0564, %sw.bb136 ], [ %CAstore.0564, %sw.bb130 ], [ %CAstore.0564, %sw.bb125 ], [ %CAstore.0564, %sw.bb119 ], [ %CAstore.0564, %if.end230 ], [ %CAstore.0564, %sw.bb116 ], [ %CAstore.0564, %sw.bb115 ], [ %CAstore.0564, %sw.bb114 ], [ %CAstore.0564, %sw.bb112 ], [ %CAstore.0564, %sw.bb110 ], [ %CAstore.0564, %sw.bb108 ], [ %CAstore.0564, %sw.bb107 ], [ %CAstore.0564, %sw.bb105 ], [ %CAstore.0564, %sw.bb103 ], [ %CAstore.0564, %sw.bb101 ], [ %CAstore.0564, %sw.bb99 ], [ %CAstore.0564, %sw.bb97 ], [ %CAstore.0564, %sw.bb96 ], [ %CAstore.0564, %sw.bb20 ], [ %CAstore.0564, %sw.bb14 ], [ %CAstore.0564, %sw.bb12 ], [ %CAstore.0564, %sw.bb7 ], [ %CAstore.0564, %sw.bb22 ], [ %CAstore.0564, %sw.bb22 ], [ %CAstore.0564, %sw.bb31 ], [ %CAstore.0564, %sw.bb31 ], [ %CAstore.0564, %sw.bb44 ], [ %CAstore.0564, %sw.bb44 ], [ %CAstore.0564, %sw.bb57 ], [ %CAstore.0564, %sw.bb57 ], [ %CAstore.0564, %sw.bb70 ], [ %CAstore.0564, %sw.bb70 ], [ %CAstore.0564, %sw.bb83 ], [ %CAstore.0564, %sw.bb83 ]
   %certfile.1 = phi ptr [ %certfile.0565, %while.body ], [ %certfile.0565, %sw.bb223 ], [ %certfile.0565, %sw.bb222 ], [ %certfile.0565, %sw.bb221 ], [ %certfile.0565, %sw.bb220 ], [ %certfile.0565, %sw.bb218 ], [ %certfile.0565, %sw.bb216 ], [ %certfile.0565, %sw.bb214 ], [ %call213, %sw.bb212 ], [ %certfile.0565, %sw.bb206 ], [ %certfile.0565, %if.end204 ], [ %certfile.0565, %sw.bb177 ], [ %certfile.0565, %sw.bb175 ], [ %certfile.0565, %sw.bb173 ], [ %certfile.0565, %if.end171 ], [ %certfile.0565, %sw.bb145 ], [ %certfile.0565, %sw.bb143 ], [ %certfile.0565, %sw.bb141 ], [ %certfile.0565, %sw.bb139 ], [ %certfile.0565, %sw.bb136 ], [ %certfile.0565, %sw.bb130 ], [ %certfile.0565, %sw.bb125 ], [ %certfile.0565, %sw.bb119 ], [ %certfile.0565, %if.end230 ], [ %certfile.0565, %sw.bb116 ], [ %certfile.0565, %sw.bb115 ], [ %certfile.0565, %sw.bb114 ], [ %certfile.0565, %sw.bb112 ], [ %certfile.0565, %sw.bb110 ], [ %certfile.0565, %sw.bb108 ], [ %certfile.0565, %sw.bb107 ], [ %certfile.0565, %sw.bb105 ], [ %certfile.0565, %sw.bb103 ], [ %certfile.0565, %sw.bb101 ], [ %certfile.0565, %sw.bb99 ], [ %certfile.0565, %sw.bb97 ], [ %certfile.0565, %sw.bb96 ], [ %certfile.0565, %sw.bb20 ], [ %certfile.0565, %sw.bb14 ], [ %certfile.0565, %sw.bb12 ], [ %certfile.0565, %sw.bb7 ], [ %certfile.0565, %sw.bb22 ], [ %certfile.0565, %sw.bb22 ], [ %certfile.0565, %sw.bb31 ], [ %certfile.0565, %sw.bb31 ], [ %certfile.0565, %sw.bb44 ], [ %certfile.0565, %sw.bb44 ], [ %certfile.0565, %sw.bb57 ], [ %certfile.0565, %sw.bb57 ], [ %certfile.0565, %sw.bb70 ], [ %certfile.0565, %sw.bb70 ], [ %certfile.0565, %sw.bb83 ], [ %certfile.0565, %sw.bb83 ]
-  %keyfile.3 = phi ptr [ %keyfile.0566, %while.body ], [ %keyfile.0566, %sw.bb223 ], [ %keyfile.0566, %sw.bb222 ], [ %keyfile.0566, %sw.bb221 ], [ %keyfile.0566, %sw.bb220 ], [ %keyfile.0566, %sw.bb218 ], [ %keyfile.0566, %sw.bb216 ], [ %keyfile.0566, %sw.bb214 ], [ %keyfile.0566, %sw.bb212 ], [ %keyfile.0566, %sw.bb206 ], [ %call205, %if.end204 ], [ %keyfile.0566, %sw.bb177 ], [ %keyfile.0566, %sw.bb175 ], [ %keyfile.0566, %sw.bb173 ], [ %keyfile.2, %if.end171 ], [ %keyfile.0566, %sw.bb145 ], [ %keyfile.0566, %sw.bb143 ], [ %keyfile.0566, %sw.bb141 ], [ %keyfile.0566, %sw.bb139 ], [ %keyfile.0566, %sw.bb136 ], [ %keyfile.0566, %sw.bb130 ], [ %keyfile.0566, %sw.bb125 ], [ %keyfile.0566, %sw.bb119 ], [ %keyfile.0566, %if.end230 ], [ %keyfile.0566, %sw.bb116 ], [ %keyfile.0566, %sw.bb115 ], [ %keyfile.0566, %sw.bb114 ], [ %keyfile.0566, %sw.bb112 ], [ %keyfile.0566, %sw.bb110 ], [ %keyfile.0566, %sw.bb108 ], [ %keyfile.0566, %sw.bb107 ], [ %keyfile.0566, %sw.bb105 ], [ %keyfile.0566, %sw.bb103 ], [ %keyfile.0566, %sw.bb101 ], [ %keyfile.0566, %sw.bb99 ], [ %keyfile.0566, %sw.bb97 ], [ %keyfile.0566, %sw.bb96 ], [ %keyfile.0566, %sw.bb20 ], [ %keyfile.0566, %sw.bb14 ], [ %keyfile.0566, %sw.bb12 ], [ %keyfile.0566, %sw.bb7 ], [ %keyfile.0566, %sw.bb22 ], [ %keyfile.0566, %sw.bb22 ], [ %keyfile.0566, %sw.bb31 ], [ %keyfile.0566, %sw.bb31 ], [ %keyfile.0566, %sw.bb44 ], [ %keyfile.0566, %sw.bb44 ], [ %keyfile.0566, %sw.bb57 ], [ %keyfile.0566, %sw.bb57 ], [ %keyfile.0566, %sw.bb70 ], [ %keyfile.0566, %sw.bb70 ], [ %keyfile.0566, %sw.bb83 ], [ %keyfile.0566, %sw.bb83 ]
+  %keyfile.1 = phi ptr [ %keyfile.0566, %while.body ], [ %keyfile.0566, %sw.bb223 ], [ %keyfile.0566, %sw.bb222 ], [ %keyfile.0566, %sw.bb221 ], [ %keyfile.0566, %sw.bb220 ], [ %keyfile.0566, %sw.bb218 ], [ %keyfile.0566, %sw.bb216 ], [ %keyfile.0566, %sw.bb214 ], [ %keyfile.0566, %sw.bb212 ], [ %keyfile.0566, %sw.bb206 ], [ %call205, %if.end204 ], [ %keyfile.0566, %sw.bb177 ], [ %keyfile.0566, %sw.bb175 ], [ %keyfile.0566, %sw.bb173 ], [ %keyfile.2, %if.end171 ], [ %keyfile.0566, %sw.bb145 ], [ %keyfile.0566, %sw.bb143 ], [ %keyfile.0566, %sw.bb141 ], [ %keyfile.0566, %sw.bb139 ], [ %keyfile.0566, %sw.bb136 ], [ %keyfile.0566, %sw.bb130 ], [ %keyfile.0566, %sw.bb125 ], [ %keyfile.0566, %sw.bb119 ], [ %keyfile.0566, %if.end230 ], [ %keyfile.0566, %sw.bb116 ], [ %keyfile.0566, %sw.bb115 ], [ %keyfile.0566, %sw.bb114 ], [ %keyfile.0566, %sw.bb112 ], [ %keyfile.0566, %sw.bb110 ], [ %keyfile.0566, %sw.bb108 ], [ %keyfile.0566, %sw.bb107 ], [ %keyfile.0566, %sw.bb105 ], [ %keyfile.0566, %sw.bb103 ], [ %keyfile.0566, %sw.bb101 ], [ %keyfile.0566, %sw.bb99 ], [ %keyfile.0566, %sw.bb97 ], [ %keyfile.0566, %sw.bb96 ], [ %keyfile.0566, %sw.bb20 ], [ %keyfile.0566, %sw.bb14 ], [ %keyfile.0566, %sw.bb12 ], [ %keyfile.0566, %sw.bb7 ], [ %keyfile.0566, %sw.bb22 ], [ %keyfile.0566, %sw.bb22 ], [ %keyfile.0566, %sw.bb31 ], [ %keyfile.0566, %sw.bb31 ], [ %keyfile.0566, %sw.bb44 ], [ %keyfile.0566, %sw.bb44 ], [ %keyfile.0566, %sw.bb57 ], [ %keyfile.0566, %sw.bb57 ], [ %keyfile.0566, %sw.bb70 ], [ %keyfile.0566, %sw.bb70 ], [ %keyfile.0566, %sw.bb83 ], [ %keyfile.0566, %sw.bb83 ]
   %contfile.1 = phi ptr [ %contfile.0567, %while.body ], [ %call224, %sw.bb223 ], [ %contfile.0567, %sw.bb222 ], [ %contfile.0567, %sw.bb221 ], [ %contfile.0567, %sw.bb220 ], [ %contfile.0567, %sw.bb218 ], [ %contfile.0567, %sw.bb216 ], [ %contfile.0567, %sw.bb214 ], [ %contfile.0567, %sw.bb212 ], [ %contfile.0567, %sw.bb206 ], [ %contfile.0567, %if.end204 ], [ %contfile.0567, %sw.bb177 ], [ %contfile.0567, %sw.bb175 ], [ %contfile.0567, %sw.bb173 ], [ %contfile.0567, %if.end171 ], [ %contfile.0567, %sw.bb145 ], [ %contfile.0567, %sw.bb143 ], [ %contfile.0567, %sw.bb141 ], [ %contfile.0567, %sw.bb139 ], [ %contfile.0567, %sw.bb136 ], [ %contfile.0567, %sw.bb130 ], [ %contfile.0567, %sw.bb125 ], [ %contfile.0567, %sw.bb119 ], [ %contfile.0567, %if.end230 ], [ %contfile.0567, %sw.bb116 ], [ %contfile.0567, %sw.bb115 ], [ %contfile.0567, %sw.bb114 ], [ %contfile.0567, %sw.bb112 ], [ %contfile.0567, %sw.bb110 ], [ %contfile.0567, %sw.bb108 ], [ %contfile.0567, %sw.bb107 ], [ %contfile.0567, %sw.bb105 ], [ %contfile.0567, %sw.bb103 ], [ %contfile.0567, %sw.bb101 ], [ %contfile.0567, %sw.bb99 ], [ %contfile.0567, %sw.bb97 ], [ %contfile.0567, %sw.bb96 ], [ %contfile.0567, %sw.bb20 ], [ %contfile.0567, %sw.bb14 ], [ %contfile.0567, %sw.bb12 ], [ %contfile.0567, %sw.bb7 ], [ %contfile.0567, %sw.bb22 ], [ %contfile.0567, %sw.bb22 ], [ %contfile.0567, %sw.bb31 ], [ %contfile.0567, %sw.bb31 ], [ %contfile.0567, %sw.bb44 ], [ %contfile.0567, %sw.bb44 ], [ %contfile.0567, %sw.bb57 ], [ %contfile.0567, %sw.bb57 ], [ %contfile.0567, %sw.bb70 ], [ %contfile.0567, %sw.bb70 ], [ %contfile.0567, %sw.bb83 ], [ %contfile.0567, %sw.bb83 ]
   %infile.1 = phi ptr [ %infile.0568, %while.body ], [ %infile.0568, %sw.bb223 ], [ %infile.0568, %sw.bb222 ], [ %infile.0568, %sw.bb221 ], [ %infile.0568, %sw.bb220 ], [ %infile.0568, %sw.bb218 ], [ %infile.0568, %sw.bb216 ], [ %infile.0568, %sw.bb214 ], [ %infile.0568, %sw.bb212 ], [ %infile.0568, %sw.bb206 ], [ %infile.0568, %if.end204 ], [ %infile.0568, %sw.bb177 ], [ %infile.0568, %sw.bb175 ], [ %infile.0568, %sw.bb173 ], [ %infile.0568, %if.end171 ], [ %infile.0568, %sw.bb145 ], [ %infile.0568, %sw.bb143 ], [ %infile.0568, %sw.bb141 ], [ %infile.0568, %sw.bb139 ], [ %infile.0568, %sw.bb136 ], [ %infile.0568, %sw.bb130 ], [ %infile.0568, %sw.bb125 ], [ %infile.0568, %sw.bb119 ], [ %infile.0568, %if.end230 ], [ %infile.0568, %sw.bb116 ], [ %infile.0568, %sw.bb115 ], [ %infile.0568, %sw.bb114 ], [ %infile.0568, %sw.bb112 ], [ %infile.0568, %sw.bb110 ], [ %infile.0568, %sw.bb108 ], [ %infile.0568, %sw.bb107 ], [ %infile.0568, %sw.bb105 ], [ %infile.0568, %sw.bb103 ], [ %infile.0568, %sw.bb101 ], [ %infile.0568, %sw.bb99 ], [ %infile.0568, %sw.bb97 ], [ %infile.0568, %sw.bb96 ], [ %infile.0568, %sw.bb20 ], [ %infile.0568, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %infile.0568, %sw.bb7 ], [ %infile.0568, %sw.bb22 ], [ %infile.0568, %sw.bb22 ], [ %infile.0568, %sw.bb31 ], [ %infile.0568, %sw.bb31 ], [ %infile.0568, %sw.bb44 ], [ %infile.0568, %sw.bb44 ], [ %infile.0568, %sw.bb57 ], [ %infile.0568, %sw.bb57 ], [ %infile.0568, %sw.bb70 ], [ %infile.0568, %sw.bb70 ], [ %infile.0568, %sw.bb83 ], [ %infile.0568, %sw.bb83 ]
   %outfile.1 = phi ptr [ %outfile.0569, %while.body ], [ %outfile.0569, %sw.bb223 ], [ %outfile.0569, %sw.bb222 ], [ %outfile.0569, %sw.bb221 ], [ %outfile.0569, %sw.bb220 ], [ %outfile.0569, %sw.bb218 ], [ %outfile.0569, %sw.bb216 ], [ %outfile.0569, %sw.bb214 ], [ %outfile.0569, %sw.bb212 ], [ %outfile.0569, %sw.bb206 ], [ %outfile.0569, %if.end204 ], [ %outfile.0569, %sw.bb177 ], [ %outfile.0569, %sw.bb175 ], [ %outfile.0569, %sw.bb173 ], [ %outfile.0569, %if.end171 ], [ %outfile.0569, %sw.bb145 ], [ %outfile.0569, %sw.bb143 ], [ %outfile.0569, %sw.bb141 ], [ %outfile.0569, %sw.bb139 ], [ %outfile.0569, %sw.bb136 ], [ %outfile.0569, %sw.bb130 ], [ %outfile.0569, %sw.bb125 ], [ %outfile.0569, %sw.bb119 ], [ %outfile.0569, %if.end230 ], [ %outfile.0569, %sw.bb116 ], [ %outfile.0569, %sw.bb115 ], [ %outfile.0569, %sw.bb114 ], [ %outfile.0569, %sw.bb112 ], [ %outfile.0569, %sw.bb110 ], [ %outfile.0569, %sw.bb108 ], [ %outfile.0569, %sw.bb107 ], [ %outfile.0569, %sw.bb105 ], [ %outfile.0569, %sw.bb103 ], [ %outfile.0569, %sw.bb101 ], [ %outfile.0569, %sw.bb99 ], [ %outfile.0569, %sw.bb97 ], [ %outfile.0569, %sw.bb96 ], [ %call21, %sw.bb20 ], [ %outfile.0569, %sw.bb14 ], [ %outfile.0569, %sw.bb12 ], [ %outfile.0569, %sw.bb7 ], [ %outfile.0569, %sw.bb22 ], [ %outfile.0569, %sw.bb22 ], [ %outfile.0569, %sw.bb31 ], [ %outfile.0569, %sw.bb31 ], [ %outfile.0569, %sw.bb44 ], [ %outfile.0569, %sw.bb44 ], [ %outfile.0569, %sw.bb57 ], [ %outfile.0569, %sw.bb57 ], [ %outfile.0569, %sw.bb70 ], [ %outfile.0569, %sw.bb70 ], [ %outfile.0569, %sw.bb83 ], [ %outfile.0569, %sw.bb83 ]
-  %signerfile.2 = phi ptr [ %signerfile.0570, %while.body ], [ %signerfile.0570, %sw.bb223 ], [ %signerfile.0570, %sw.bb222 ], [ %signerfile.0570, %sw.bb221 ], [ %signerfile.0570, %sw.bb220 ], [ %signerfile.0570, %sw.bb218 ], [ %signerfile.0570, %sw.bb216 ], [ %signerfile.0570, %sw.bb214 ], [ %signerfile.0570, %sw.bb212 ], [ %signerfile.0570, %sw.bb206 ], [ %signerfile.1, %if.end204 ], [ %signerfile.0570, %sw.bb177 ], [ %signerfile.0570, %sw.bb175 ], [ %signerfile.0570, %sw.bb173 ], [ %call172, %if.end171 ], [ %signerfile.0570, %sw.bb145 ], [ %signerfile.0570, %sw.bb143 ], [ %signerfile.0570, %sw.bb141 ], [ %signerfile.0570, %sw.bb139 ], [ %signerfile.0570, %sw.bb136 ], [ %signerfile.0570, %sw.bb130 ], [ %signerfile.0570, %sw.bb125 ], [ %signerfile.0570, %sw.bb119 ], [ %signerfile.0570, %if.end230 ], [ %signerfile.0570, %sw.bb116 ], [ %signerfile.0570, %sw.bb115 ], [ %signerfile.0570, %sw.bb114 ], [ %signerfile.0570, %sw.bb112 ], [ %signerfile.0570, %sw.bb110 ], [ %signerfile.0570, %sw.bb108 ], [ %signerfile.0570, %sw.bb107 ], [ %signerfile.0570, %sw.bb105 ], [ %signerfile.0570, %sw.bb103 ], [ %signerfile.0570, %sw.bb101 ], [ %signerfile.0570, %sw.bb99 ], [ %signerfile.0570, %sw.bb97 ], [ %signerfile.0570, %sw.bb96 ], [ %signerfile.0570, %sw.bb20 ], [ %signerfile.0570, %sw.bb14 ], [ %signerfile.0570, %sw.bb12 ], [ %signerfile.0570, %sw.bb7 ], [ %signerfile.0570, %sw.bb22 ], [ %signerfile.0570, %sw.bb22 ], [ %signerfile.0570, %sw.bb31 ], [ %signerfile.0570, %sw.bb31 ], [ %signerfile.0570, %sw.bb44 ], [ %signerfile.0570, %sw.bb44 ], [ %signerfile.0570, %sw.bb57 ], [ %signerfile.0570, %sw.bb57 ], [ %signerfile.0570, %sw.bb70 ], [ %signerfile.0570, %sw.bb70 ], [ %signerfile.0570, %sw.bb83 ], [ %signerfile.0570, %sw.bb83 ]
+  %signerfile.1 = phi ptr [ %signerfile.0570, %while.body ], [ %signerfile.0570, %sw.bb223 ], [ %signerfile.0570, %sw.bb222 ], [ %signerfile.0570, %sw.bb221 ], [ %signerfile.0570, %sw.bb220 ], [ %signerfile.0570, %sw.bb218 ], [ %signerfile.0570, %sw.bb216 ], [ %signerfile.0570, %sw.bb214 ], [ %signerfile.0570, %sw.bb212 ], [ %signerfile.0570, %sw.bb206 ], [ %signerfile.2, %if.end204 ], [ %signerfile.0570, %sw.bb177 ], [ %signerfile.0570, %sw.bb175 ], [ %signerfile.0570, %sw.bb173 ], [ %call172, %if.end171 ], [ %signerfile.0570, %sw.bb145 ], [ %signerfile.0570, %sw.bb143 ], [ %signerfile.0570, %sw.bb141 ], [ %signerfile.0570, %sw.bb139 ], [ %signerfile.0570, %sw.bb136 ], [ %signerfile.0570, %sw.bb130 ], [ %signerfile.0570, %sw.bb125 ], [ %signerfile.0570, %sw.bb119 ], [ %signerfile.0570, %if.end230 ], [ %signerfile.0570, %sw.bb116 ], [ %signerfile.0570, %sw.bb115 ], [ %signerfile.0570, %sw.bb114 ], [ %signerfile.0570, %sw.bb112 ], [ %signerfile.0570, %sw.bb110 ], [ %signerfile.0570, %sw.bb108 ], [ %signerfile.0570, %sw.bb107 ], [ %signerfile.0570, %sw.bb105 ], [ %signerfile.0570, %sw.bb103 ], [ %signerfile.0570, %sw.bb101 ], [ %signerfile.0570, %sw.bb99 ], [ %signerfile.0570, %sw.bb97 ], [ %signerfile.0570, %sw.bb96 ], [ %signerfile.0570, %sw.bb20 ], [ %signerfile.0570, %sw.bb14 ], [ %signerfile.0570, %sw.bb12 ], [ %signerfile.0570, %sw.bb7 ], [ %signerfile.0570, %sw.bb22 ], [ %signerfile.0570, %sw.bb22 ], [ %signerfile.0570, %sw.bb31 ], [ %signerfile.0570, %sw.bb31 ], [ %signerfile.0570, %sw.bb44 ], [ %signerfile.0570, %sw.bb44 ], [ %signerfile.0570, %sw.bb57 ], [ %signerfile.0570, %sw.bb57 ], [ %signerfile.0570, %sw.bb70 ], [ %signerfile.0570, %sw.bb70 ], [ %signerfile.0570, %sw.bb83 ], [ %signerfile.0570, %sw.bb83 ]
   %recipfile.1 = phi ptr [ %recipfile.0571, %while.body ], [ %recipfile.0571, %sw.bb223 ], [ %recipfile.0571, %sw.bb222 ], [ %recipfile.0571, %sw.bb221 ], [ %recipfile.0571, %sw.bb220 ], [ %recipfile.0571, %sw.bb218 ], [ %recipfile.0571, %sw.bb216 ], [ %recipfile.0571, %sw.bb214 ], [ %recipfile.0571, %sw.bb212 ], [ %recipfile.0571, %sw.bb206 ], [ %recipfile.0571, %if.end204 ], [ %recipfile.0571, %sw.bb177 ], [ %recipfile.0571, %sw.bb175 ], [ %call174, %sw.bb173 ], [ %recipfile.0571, %if.end171 ], [ %recipfile.0571, %sw.bb145 ], [ %recipfile.0571, %sw.bb143 ], [ %recipfile.0571, %sw.bb141 ], [ %recipfile.0571, %sw.bb139 ], [ %recipfile.0571, %sw.bb136 ], [ %recipfile.0571, %sw.bb130 ], [ %recipfile.0571, %sw.bb125 ], [ %recipfile.0571, %sw.bb119 ], [ %recipfile.0571, %if.end230 ], [ %recipfile.0571, %sw.bb116 ], [ %recipfile.0571, %sw.bb115 ], [ %recipfile.0571, %sw.bb114 ], [ %recipfile.0571, %sw.bb112 ], [ %recipfile.0571, %sw.bb110 ], [ %recipfile.0571, %sw.bb108 ], [ %recipfile.0571, %sw.bb107 ], [ %recipfile.0571, %sw.bb105 ], [ %recipfile.0571, %sw.bb103 ], [ %recipfile.0571, %sw.bb101 ], [ %recipfile.0571, %sw.bb99 ], [ %recipfile.0571, %sw.bb97 ], [ %recipfile.0571, %sw.bb96 ], [ %recipfile.0571, %sw.bb20 ], [ %recipfile.0571, %sw.bb14 ], [ %recipfile.0571, %sw.bb12 ], [ %recipfile.0571, %sw.bb7 ], [ %recipfile.0571, %sw.bb22 ], [ %recipfile.0571, %sw.bb22 ], [ %recipfile.0571, %sw.bb31 ], [ %recipfile.0571, %sw.bb31 ], [ %recipfile.0571, %sw.bb44 ], [ %recipfile.0571, %sw.bb44 ], [ %recipfile.0571, %sw.bb57 ], [ %recipfile.0571, %sw.bb57 ], [ %recipfile.0571, %sw.bb70 ], [ %recipfile.0571, %sw.bb70 ], [ %recipfile.0571, %sw.bb83 ], [ %recipfile.0571, %sw.bb83 ]
   %passinarg.1 = phi ptr [ %passinarg.0572, %while.body ], [ %passinarg.0572, %sw.bb223 ], [ %passinarg.0572, %sw.bb222 ], [ %passinarg.0572, %sw.bb221 ], [ %passinarg.0572, %sw.bb220 ], [ %passinarg.0572, %sw.bb218 ], [ %passinarg.0572, %sw.bb216 ], [ %passinarg.0572, %sw.bb214 ], [ %passinarg.0572, %sw.bb212 ], [ %passinarg.0572, %sw.bb206 ], [ %passinarg.0572, %if.end204 ], [ %passinarg.0572, %sw.bb177 ], [ %passinarg.0572, %sw.bb175 ], [ %passinarg.0572, %sw.bb173 ], [ %passinarg.0572, %if.end171 ], [ %passinarg.0572, %sw.bb145 ], [ %passinarg.0572, %sw.bb143 ], [ %passinarg.0572, %sw.bb141 ], [ %call140, %sw.bb139 ], [ %passinarg.0572, %sw.bb136 ], [ %passinarg.0572, %sw.bb130 ], [ %passinarg.0572, %sw.bb125 ], [ %passinarg.0572, %sw.bb119 ], [ %passinarg.0572, %if.end230 ], [ %passinarg.0572, %sw.bb116 ], [ %passinarg.0572, %sw.bb115 ], [ %passinarg.0572, %sw.bb114 ], [ %passinarg.0572, %sw.bb112 ], [ %passinarg.0572, %sw.bb110 ], [ %passinarg.0572, %sw.bb108 ], [ %passinarg.0572, %sw.bb107 ], [ %passinarg.0572, %sw.bb105 ], [ %passinarg.0572, %sw.bb103 ], [ %passinarg.0572, %sw.bb101 ], [ %passinarg.0572, %sw.bb99 ], [ %passinarg.0572, %sw.bb97 ], [ %passinarg.0572, %sw.bb96 ], [ %passinarg.0572, %sw.bb20 ], [ %passinarg.0572, %sw.bb14 ], [ %passinarg.0572, %sw.bb12 ], [ %passinarg.0572, %sw.bb7 ], [ %passinarg.0572, %sw.bb22 ], [ %passinarg.0572, %sw.bb22 ], [ %passinarg.0572, %sw.bb31 ], [ %passinarg.0572, %sw.bb31 ], [ %passinarg.0572, %sw.bb44 ], [ %passinarg.0572, %sw.bb44 ], [ %passinarg.0572, %sw.bb57 ], [ %passinarg.0572, %sw.bb57 ], [ %passinarg.0572, %sw.bb70 ], [ %passinarg.0572, %sw.bb70 ], [ %passinarg.0572, %sw.bb83 ], [ %passinarg.0572, %sw.bb83 ]
   %to.1 = phi ptr [ %to.0573, %while.body ], [ %to.0573, %sw.bb223 ], [ %to.0573, %sw.bb222 ], [ %to.0573, %sw.bb221 ], [ %to.0573, %sw.bb220 ], [ %to.0573, %sw.bb218 ], [ %to.0573, %sw.bb216 ], [ %to.0573, %sw.bb214 ], [ %to.0573, %sw.bb212 ], [ %to.0573, %sw.bb206 ], [ %to.0573, %if.end204 ], [ %to.0573, %sw.bb177 ], [ %to.0573, %sw.bb175 ], [ %to.0573, %sw.bb173 ], [ %to.0573, %if.end171 ], [ %to.0573, %sw.bb145 ], [ %to.0573, %sw.bb143 ], [ %call142, %sw.bb141 ], [ %to.0573, %sw.bb139 ], [ %to.0573, %sw.bb136 ], [ %to.0573, %sw.bb130 ], [ %to.0573, %sw.bb125 ], [ %to.0573, %sw.bb119 ], [ %to.0573, %if.end230 ], [ %to.0573, %sw.bb116 ], [ %to.0573, %sw.bb115 ], [ %to.0573, %sw.bb114 ], [ %to.0573, %sw.bb112 ], [ %to.0573, %sw.bb110 ], [ %to.0573, %sw.bb108 ], [ %to.0573, %sw.bb107 ], [ %to.0573, %sw.bb105 ], [ %to.0573, %sw.bb103 ], [ %to.0573, %sw.bb101 ], [ %to.0573, %sw.bb99 ], [ %to.0573, %sw.bb97 ], [ %to.0573, %sw.bb96 ], [ %to.0573, %sw.bb20 ], [ %to.0573, %sw.bb14 ], [ %to.0573, %sw.bb12 ], [ %to.0573, %sw.bb7 ], [ %to.0573, %sw.bb22 ], [ %to.0573, %sw.bb22 ], [ %to.0573, %sw.bb31 ], [ %to.0573, %sw.bb31 ], [ %to.0573, %sw.bb44 ], [ %to.0573, %sw.bb44 ], [ %to.0573, %sw.bb57 ], [ %to.0573, %sw.bb57 ], [ %to.0573, %sw.bb70 ], [ %to.0573, %sw.bb70 ], [ %to.0573, %sw.bb83 ], [ %to.0573, %sw.bb83 ]
@@ -730,17 +730,17 @@ sw.epilog:                                        ; preds = %sw.bb83, %sw.bb83, 
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %sw.epilog, %if.end
-  %sksigners.0.lcssa = phi ptr [ null, %if.end ], [ %sksigners.6, %sw.epilog ]
-  %skkeys.0.lcssa = phi ptr [ null, %if.end ], [ %skkeys.6, %sw.epilog ]
+  %sksigners.0.lcssa = phi ptr [ null, %if.end ], [ %sksigners.1, %sw.epilog ]
+  %skkeys.0.lcssa = phi ptr [ null, %if.end ], [ %skkeys.1, %sw.epilog ]
   %CAfile.0.lcssa = phi ptr [ null, %if.end ], [ %CAfile.1, %sw.epilog ]
   %CApath.0.lcssa = phi ptr [ null, %if.end ], [ %CApath.1, %sw.epilog ]
   %CAstore.0.lcssa = phi ptr [ null, %if.end ], [ %CAstore.1, %sw.epilog ]
   %certfile.0.lcssa = phi ptr [ null, %if.end ], [ %certfile.1, %sw.epilog ]
-  %keyfile.0.lcssa = phi ptr [ null, %if.end ], [ %keyfile.3, %sw.epilog ]
+  %keyfile.0.lcssa = phi ptr [ null, %if.end ], [ %keyfile.1, %sw.epilog ]
   %contfile.0.lcssa = phi ptr [ null, %if.end ], [ %contfile.1, %sw.epilog ]
   %infile.0.lcssa = phi ptr [ null, %if.end ], [ %infile.1, %sw.epilog ]
   %outfile.0.lcssa = phi ptr [ null, %if.end ], [ %outfile.1, %sw.epilog ]
-  %signerfile.0.lcssa = phi ptr [ null, %if.end ], [ %signerfile.2, %sw.epilog ]
+  %signerfile.0.lcssa = phi ptr [ null, %if.end ], [ %signerfile.1, %sw.epilog ]
   %recipfile.0.lcssa = phi ptr [ null, %if.end ], [ %recipfile.1, %sw.epilog ]
   %passinarg.0.lcssa = phi ptr [ null, %if.end ], [ %passinarg.1, %sw.epilog ]
   %to.0.lcssa = phi ptr [ null, %if.end ], [ %to.1, %sw.epilog ]
@@ -829,8 +829,8 @@ land.lhs.true272:                                 ; preds = %if.then270
   br i1 %cmp274, label %if.end619, label %if.end276
 
 if.end276:                                        ; preds = %land.lhs.true272, %if.then270
-  %sksigners.7 = phi ptr [ %call273, %land.lhs.true272 ], [ %sksigners.0.lcssa, %if.then270 ]
-  %call279 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sksigners.7, ptr noundef nonnull %signerfile.0.lcssa) #3
+  %sksigners.9 = phi ptr [ %call273, %land.lhs.true272 ], [ %sksigners.0.lcssa, %if.then270 ]
+  %call279 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sksigners.9, ptr noundef nonnull %signerfile.0.lcssa) #3
   %tobool280.not = icmp eq ptr %skkeys.0.lcssa, null
   br i1 %tobool280.not, label %land.lhs.true281, label %if.end292.thread
 
@@ -840,9 +840,9 @@ land.lhs.true281:                                 ; preds = %if.end276
   br i1 %cmp283, label %if.end619, label %if.end292.thread
 
 if.end292.thread:                                 ; preds = %if.end276, %land.lhs.true281
-  %skkeys.7 = phi ptr [ %skkeys.0.lcssa, %if.end276 ], [ %call282, %land.lhs.true281 ]
+  %skkeys.9 = phi ptr [ %skkeys.0.lcssa, %if.end276 ], [ %call282, %land.lhs.true281 ]
   %spec.select208 = select i1 %tobool263, ptr %signerfile.0.lcssa, ptr %keyfile.0.lcssa
-  %call291 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %skkeys.7, ptr noundef nonnull %spec.select208) #3
+  %call291 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %skkeys.9, ptr noundef nonnull %spec.select208) #3
   br label %if.end314
 
 if.end292:                                        ; preds = %if.end268
@@ -876,8 +876,8 @@ if.then309:                                       ; preds = %if.else305
   br label %opthelp
 
 if.end314:                                        ; preds = %if.end292.thread, %if.end292, %if.then298, %if.else305
-  %sksigners.9 = phi ptr [ null, %if.then298 ], [ null, %if.else305 ], [ %sksigners.0.lcssa, %if.end292 ], [ %sksigners.7, %if.end292.thread ]
-  %skkeys.9 = phi ptr [ null, %if.then298 ], [ null, %if.else305 ], [ %skkeys.0.lcssa, %if.end292 ], [ %skkeys.7, %if.end292.thread ]
+  %sksigners.10 = phi ptr [ null, %if.then298 ], [ null, %if.else305 ], [ %sksigners.0.lcssa, %if.end292 ], [ %sksigners.9, %if.end292.thread ]
+  %skkeys.10 = phi ptr [ null, %if.then298 ], [ null, %if.else305 ], [ %skkeys.0.lcssa, %if.end292 ], [ %skkeys.9, %if.end292.thread ]
   %keyfile.5 = phi ptr [ %keyfile.0.lcssa, %if.then298 ], [ %keyfile.0.lcssa, %if.else305 ], [ null, %if.end292 ], [ null, %if.end292.thread ]
   %signerfile.3 = phi ptr [ %signerfile.0.lcssa, %if.then298 ], [ %signerfile.0.lcssa, %if.else305 ], [ null, %if.end292 ], [ null, %if.end292.thread ]
   %call315 = call i32 @app_passwd(ptr noundef %passinarg.0.lcssa, ptr noundef null, ptr noundef nonnull %passin, ptr noundef null) #3
@@ -956,7 +956,7 @@ if.end357:                                        ; preds = %while.body353
   br i1 %tobool361.not, label %if.then618, label %while.cond351
 
 if.end365:                                        ; preds = %while.cond351, %while.cond351.preheader, %if.end340
-  %encerts.0 = phi ptr [ null, %if.end340 ], [ %call347, %while.cond351.preheader ], [ %call347, %while.cond351 ]
+  %encerts.1 = phi ptr [ null, %if.end340 ], [ %call347, %while.cond351.preheader ], [ %call347, %while.cond351 ]
   %cmp366.not = icmp eq ptr %certfile.0.lcssa, null
   br i1 %cmp366.not, label %if.end372, label %if.then367
 
@@ -995,7 +995,7 @@ if.else387:                                       ; preds = %if.end381
 
 if.end395:                                        ; preds = %if.else387, %if.end381, %if.then376
   %signerfile.3.sink = phi ptr [ %recipfile.0.lcssa, %if.then376 ], [ %recipfile.0.lcssa, %if.end381 ], [ %signerfile.3, %if.else387 ]
-  %recip.0222 = phi ptr [ %call377, %if.then376 ], [ null, %if.end381 ], [ null, %if.else387 ]
+  %recip.1222 = phi ptr [ %call377, %if.then376 ], [ null, %if.end381 ], [ null, %if.else387 ]
   %cmp390 = icmp eq ptr %keyfile.5, null
   %spec.select212 = select i1 %cmp390, ptr %signerfile.3.sink, ptr %keyfile.5
   %cmp396.not = icmp eq ptr %spec.select212, null
@@ -1009,8 +1009,8 @@ if.then397:                                       ; preds = %if.end395
   br i1 %cmp399, label %if.then618, label %if.end402
 
 if.end402:                                        ; preds = %if.else387, %if.then397, %if.end395
-  %recip.0222227 = phi ptr [ %recip.0222, %if.then397 ], [ %recip.0222, %if.end395 ], [ null, %if.else387 ]
-  %key.0 = phi ptr [ %call398, %if.then397 ], [ null, %if.end395 ], [ null, %if.else387 ]
+  %recip.1222227 = phi ptr [ %recip.1222, %if.then397 ], [ %recip.1222, %if.end395 ], [ null, %if.else387 ]
+  %key.1 = phi ptr [ %call398, %if.then397 ], [ null, %if.end395 ], [ null, %if.else387 ]
   %23 = load i32, ptr %informat, align 4
   %call403 = call ptr @bio_open_default(ptr noundef %infile.0.lcssa, i8 noundef signext 114, i32 noundef %23) #3
   %cmp404 = icmp eq ptr %call403, null
@@ -1116,7 +1116,7 @@ if.then462:                                       ; preds = %if.end460
   %spec.select213 = select i1 %tobool463.not, i32 %and323, i32 %or465
   %31 = load ptr, ptr %cipher, align 8
   %call467 = call ptr @app_get0_propq() #3
-  %call468 = call ptr @PKCS7_encrypt_ex(ptr noundef %encerts.0, ptr noundef nonnull %call403, ptr noundef %31, i32 noundef %spec.select213, ptr noundef %call, ptr noundef %call467) #3
+  %call468 = call ptr @PKCS7_encrypt_ex(ptr noundef %encerts.1, ptr noundef nonnull %call403, ptr noundef %31, i32 noundef %spec.select213, ptr noundef %call, ptr noundef %call467) #3
   store ptr %call468, ptr %p7, align 8
   br label %if.end543
 
@@ -1146,8 +1146,8 @@ if.else482:                                       ; preds = %if.then474
   br label %if.end487
 
 if.end487:                                        ; preds = %if.else482, %if.then477
-  %flags.4 = phi i32 [ %spec.select214, %if.then477 ], [ %spec.select215, %if.else482 ]
-  %or488 = or i32 %flags.4, 16384
+  %flags.5 = phi i32 [ %spec.select214, %if.then477 ], [ %spec.select215, %if.else482 ]
+  %or488 = or i32 %flags.5, 16384
   %33 = load ptr, ptr %other, align 8
   %call489 = call ptr @app_get0_propq() #3
   %call490 = call ptr @PKCS7_sign_ex(ptr noundef null, ptr noundef null, ptr noundef %33, ptr noundef nonnull %call403, i32 noundef %or488, ptr noundef %call, ptr noundef %call489) #3
@@ -1156,7 +1156,7 @@ if.end487:                                        ; preds = %if.else482, %if.the
   br i1 %cmp491, label %if.then618, label %if.end493
 
 if.end493:                                        ; preds = %if.end487
-  %and494 = and i32 %flags.4, 2
+  %and494 = and i32 %flags.5, 2
   %tobool495.not = icmp eq i32 %and494, 0
   br i1 %tobool495.not, label %if.end507, label %for.cond.preheader
 
@@ -1183,21 +1183,21 @@ if.else505:                                       ; preds = %if.then472
   br label %if.end507
 
 if.end507:                                        ; preds = %for.body, %for.cond.preheader, %if.end493, %if.else505
-  %flags.5 = phi i32 [ %or488, %if.end493 ], [ %or506, %if.else505 ], [ %or488, %for.cond.preheader ], [ %or488, %for.body ]
-  %call510625 = call i32 @OPENSSL_sk_num(ptr noundef %sksigners.9) #3
+  %flags.6 = phi i32 [ %or488, %if.end493 ], [ %or506, %if.else505 ], [ %or488, %for.cond.preheader ], [ %or488, %for.body ]
+  %call510625 = call i32 @OPENSSL_sk_num(ptr noundef %sksigners.10) #3
   %cmp511626 = icmp sgt i32 %call510625, 0
   br i1 %cmp511626, label %for.body512.preheader, label %for.end531
 
 for.body512.preheader:                            ; preds = %if.end507
-  %call514787 = call ptr @OPENSSL_sk_value(ptr noundef %sksigners.9, i32 noundef 0) #3
-  %call516788 = call ptr @OPENSSL_sk_value(ptr noundef %skkeys.9, i32 noundef 0) #3
+  %call514787 = call ptr @OPENSSL_sk_value(ptr noundef %sksigners.10, i32 noundef 0) #3
+  %call516788 = call ptr @OPENSSL_sk_value(ptr noundef %skkeys.10, i32 noundef 0) #3
   %call517789 = call ptr @load_cert_pass(ptr noundef %call514787, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.193) #3
   %cmp518790 = icmp eq ptr %call517789, null
   br i1 %cmp518790, label %if.then618, label %if.end520
 
 for.body512:                                      ; preds = %if.end528
-  %call514 = call ptr @OPENSSL_sk_value(ptr noundef %sksigners.9, i32 noundef %inc530) #3
-  %call516 = call ptr @OPENSSL_sk_value(ptr noundef %skkeys.9, i32 noundef %inc530) #3
+  %call514 = call ptr @OPENSSL_sk_value(ptr noundef %sksigners.10, i32 noundef %inc530) #3
+  %call516 = call ptr @OPENSSL_sk_value(ptr noundef %skkeys.10, i32 noundef %inc530) #3
   %call517 = call ptr @load_cert_pass(ptr noundef %call514, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.193) #3
   %cmp518 = icmp eq ptr %call517, null
   br i1 %cmp518, label %if.then618, label %if.end520, !llvm.loop !9
@@ -1216,7 +1216,7 @@ if.end520:                                        ; preds = %for.body512.prehead
 if.end524:                                        ; preds = %if.end520
   %40 = load ptr, ptr %p7, align 8
   %41 = load ptr, ptr %sign_md, align 8
-  %call525 = call ptr @PKCS7_sign_add_signer(ptr noundef %40, ptr noundef nonnull %call517794, ptr noundef nonnull %call521, ptr noundef %41, i32 noundef %flags.5) #3
+  %call525 = call ptr @PKCS7_sign_add_signer(ptr noundef %40, ptr noundef nonnull %call517794, ptr noundef nonnull %call521, ptr noundef %41, i32 noundef %flags.6) #3
   %tobool526.not = icmp eq ptr %call525, null
   br i1 %tobool526.not, label %if.then618, label %if.end528
 
@@ -1224,38 +1224,38 @@ if.end528:                                        ; preds = %if.end524
   call void @X509_free(ptr noundef nonnull %call517794) #3
   call void @EVP_PKEY_free(ptr noundef nonnull %call521) #3
   %inc530 = add nuw nsw i32 %i.1628791, 1
-  %call510 = call i32 @OPENSSL_sk_num(ptr noundef %sksigners.9) #3
+  %call510 = call i32 @OPENSSL_sk_num(ptr noundef %sksigners.10) #3
   %cmp511 = icmp slt i32 %inc530, %call510
   br i1 %cmp511, label %for.body512, label %for.end531, !llvm.loop !9
 
 for.end531:                                       ; preds = %if.end528, %if.end507
-  %key.1.lcssa = phi ptr [ %key.0, %if.end507 ], [ null, %if.end528 ]
-  %signerfile.4.lcssa = phi ptr [ %signerfile.3, %if.end507 ], [ %call514792, %if.end528 ]
-  %and534 = and i32 %flags.5, 4096
+  %key.3.lcssa = phi ptr [ %key.1, %if.end507 ], [ null, %if.end528 ]
+  %signerfile.5.lcssa = phi ptr [ %signerfile.3, %if.end507 ], [ %call514792, %if.end528 ]
+  %and534 = and i32 %flags.6, 4096
   %tobool535.not = icmp eq i32 %and534, 0
   %or.cond216 = select i1 %cmp473, i1 %tobool535.not, i1 false
   br i1 %or.cond216, label %if.then536, label %if.end543thread-pre-split
 
 if.then536:                                       ; preds = %for.end531
   %42 = load ptr, ptr %p7, align 8
-  %call537 = call i32 @PKCS7_final(ptr noundef %42, ptr noundef %call403, i32 noundef %flags.5) #3
+  %call537 = call i32 @PKCS7_final(ptr noundef %42, ptr noundef %call403, i32 noundef %flags.6) #3
   %tobool538.not = icmp eq i32 %call537, 0
   br i1 %tobool538.not, label %if.then618, label %if.end543thread-pre-split
 
 if.end543thread-pre-split:                        ; preds = %if.end455, %if.then457, %for.end531, %if.then536, %if.else469
-  %store.0229.ph = phi ptr [ null, %if.else469 ], [ null, %for.end531 ], [ null, %if.then536 ], [ %call452, %if.then457 ], [ %call452, %if.end455 ]
-  %key.2.ph = phi ptr [ %key.0, %if.else469 ], [ %key.1.lcssa, %for.end531 ], [ %key.1.lcssa, %if.then536 ], [ %key.0, %if.then457 ], [ %key.0, %if.end455 ]
-  %signerfile.5.ph = phi ptr [ %signerfile.3, %if.else469 ], [ %signerfile.4.lcssa, %for.end531 ], [ %signerfile.4.lcssa, %if.then536 ], [ %signerfile.3, %if.then457 ], [ %signerfile.3, %if.end455 ]
-  %flags.6.ph = phi i32 [ %and323, %if.else469 ], [ %flags.5, %for.end531 ], [ %flags.5, %if.then536 ], [ %spec.select209, %if.then457 ], [ %spec.select209, %if.end455 ]
+  %store.1229.ph = phi ptr [ null, %if.else469 ], [ null, %for.end531 ], [ null, %if.then536 ], [ %call452, %if.then457 ], [ %call452, %if.end455 ]
+  %key.2.ph = phi ptr [ %key.1, %if.else469 ], [ %key.3.lcssa, %for.end531 ], [ %key.3.lcssa, %if.then536 ], [ %key.1, %if.then457 ], [ %key.1, %if.end455 ]
+  %signerfile.4.ph = phi ptr [ %signerfile.3, %if.else469 ], [ %signerfile.5.lcssa, %for.end531 ], [ %signerfile.5.lcssa, %if.then536 ], [ %signerfile.3, %if.then457 ], [ %signerfile.3, %if.end455 ]
+  %flags.4.ph = phi i32 [ %and323, %if.else469 ], [ %flags.6, %for.end531 ], [ %flags.6, %if.then536 ], [ %spec.select209, %if.then457 ], [ %spec.select209, %if.end455 ]
   %.pr = load ptr, ptr %p7, align 8
   br label %if.end543
 
 if.end543:                                        ; preds = %if.end543thread-pre-split, %if.then462
   %43 = phi ptr [ %.pr, %if.end543thread-pre-split ], [ %call468, %if.then462 ]
-  %store.0229 = phi ptr [ %store.0229.ph, %if.end543thread-pre-split ], [ null, %if.then462 ]
-  %key.2 = phi ptr [ %key.2.ph, %if.end543thread-pre-split ], [ %key.0, %if.then462 ]
-  %signerfile.5 = phi ptr [ %signerfile.5.ph, %if.end543thread-pre-split ], [ %signerfile.3, %if.then462 ]
-  %flags.6 = phi i32 [ %flags.6.ph, %if.end543thread-pre-split ], [ %spec.select213, %if.then462 ]
+  %store.1229 = phi ptr [ %store.1229.ph, %if.end543thread-pre-split ], [ null, %if.then462 ]
+  %key.2 = phi ptr [ %key.2.ph, %if.end543thread-pre-split ], [ %key.1, %if.then462 ]
+  %signerfile.4 = phi ptr [ %signerfile.4.ph, %if.end543thread-pre-split ], [ %signerfile.3, %if.then462 ]
+  %flags.4 = phi i32 [ %flags.4.ph, %if.end543thread-pre-split ], [ %spec.select213, %if.then462 ]
   %cmp544 = icmp eq ptr %43, null
   br i1 %cmp544, label %if.then545, label %if.end547
 
@@ -1268,7 +1268,7 @@ if.end547:                                        ; preds = %if.end543
   br i1 %cmp375, label %if.then549, label %if.else555
 
 if.then549:                                       ; preds = %if.end547
-  %call550 = call i32 @PKCS7_decrypt(ptr noundef nonnull %43, ptr noundef %key.2, ptr noundef %recip.0222227, ptr noundef %call446, i32 noundef %flags.6) #3
+  %call550 = call i32 @PKCS7_decrypt(ptr noundef nonnull %43, ptr noundef %key.2, ptr noundef %recip.1222227, ptr noundef %call446, i32 noundef %flags.4) #3
   %tobool551.not = icmp eq i32 %call550, 0
   br i1 %tobool551.not, label %if.then552, label %if.end619
 
@@ -1283,7 +1283,7 @@ if.else555:                                       ; preds = %if.end547
 if.then557:                                       ; preds = %if.else555
   %46 = load ptr, ptr %other, align 8
   %47 = load ptr, ptr %indata, align 8
-  %call558 = call i32 @PKCS7_verify(ptr noundef nonnull %43, ptr noundef %46, ptr noundef %store.0229, ptr noundef %47, ptr noundef %call446, i32 noundef %flags.6) #3
+  %call558 = call i32 @PKCS7_verify(ptr noundef nonnull %43, ptr noundef %46, ptr noundef %store.1229, ptr noundef %47, ptr noundef %call446, i32 noundef %flags.4) #3
   %tobool559.not = icmp eq i32 %call558, 0
   %48 = load ptr, ptr @bio_err, align 8
   br i1 %tobool559.not, label %if.else562, label %if.then560
@@ -1292,8 +1292,8 @@ if.then560:                                       ; preds = %if.then557
   %call561 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %48, ptr noundef nonnull @.str.196) #3
   %49 = load ptr, ptr %p7, align 8
   %50 = load ptr, ptr %other, align 8
-  %call565 = call ptr @PKCS7_get0_signers(ptr noundef %49, ptr noundef %50, i32 noundef %flags.6) #3
-  %call566 = call fastcc i32 @save_certs(ptr noundef %signerfile.5, ptr noundef %call565)
+  %call565 = call ptr @PKCS7_get0_signers(ptr noundef %49, ptr noundef %50, i32 noundef %flags.4) #3
+  %call566 = call fastcc i32 @save_certs(ptr noundef %signerfile.4, ptr noundef %call565)
   %tobool567.not = icmp eq i32 %call566, 0
   br i1 %tobool567.not, label %if.then568, label %if.end570
 
@@ -1303,7 +1303,7 @@ if.else562:                                       ; preds = %if.then557
 
 if.then568:                                       ; preds = %if.then560
   %51 = load ptr, ptr @bio_err, align 8
-  %call569 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.198, ptr noundef %signerfile.5) #3
+  %call569 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.198, ptr noundef %signerfile.4) #3
   br label %if.then618
 
 if.end570:                                        ; preds = %if.then560
@@ -1357,21 +1357,21 @@ if.then590:                                       ; preds = %if.end588
 
 if.then592:                                       ; preds = %if.then590
   %54 = load ptr, ptr %indata, align 8
-  %call593 = call i32 @SMIME_write_PKCS7(ptr noundef %call446, ptr noundef %53, ptr noundef %54, i32 noundef %flags.6) #3
+  %call593 = call i32 @SMIME_write_PKCS7(ptr noundef %call446, ptr noundef %53, ptr noundef %54, i32 noundef %flags.4) #3
   br label %if.end609
 
 if.else594:                                       ; preds = %if.then590
-  %call595 = call i32 @SMIME_write_PKCS7(ptr noundef %call446, ptr noundef %53, ptr noundef %call403, i32 noundef %flags.6) #3
+  %call595 = call i32 @SMIME_write_PKCS7(ptr noundef %call446, ptr noundef %53, ptr noundef %call403, i32 noundef %flags.4) #3
   br label %if.end609
 
 if.then599:                                       ; preds = %if.end588
   %55 = load ptr, ptr %p7, align 8
-  %call600 = call i32 @PEM_write_bio_PKCS7_stream(ptr noundef %call446, ptr noundef %55, ptr noundef %call403, i32 noundef %flags.6) #3
+  %call600 = call i32 @PEM_write_bio_PKCS7_stream(ptr noundef %call446, ptr noundef %55, ptr noundef %call403, i32 noundef %flags.4) #3
   br label %if.end609
 
 if.then603:                                       ; preds = %if.end588
   %56 = load ptr, ptr %p7, align 8
-  %call604 = call i32 @i2d_PKCS7_bio_stream(ptr noundef %call446, ptr noundef %56, ptr noundef %call403, i32 noundef %flags.6) #3
+  %call604 = call i32 @i2d_PKCS7_bio_stream(ptr noundef %call446, ptr noundef %56, ptr noundef %call403, i32 noundef %flags.4) #3
   br label %if.end609
 
 if.else605:                                       ; preds = %if.end588
@@ -1392,12 +1392,12 @@ if.then611:                                       ; preds = %if.end609
 if.then618:                                       ; preds = %while.body353, %if.end357, %if.end524, %if.end520, %for.body512, %for.body512.preheader, %if.end346, %if.then379, %if.then397, %if.end402, %if.then413, %if.then433, %if.then441, %if.end445, %if.then451, %if.then545, %if.then552, %if.then568, %if.else562, %if.then611, %if.else605, %if.end487, %if.then536, %if.else427, %if.then370
   %in.0.ph = phi ptr [ null, %if.then370 ], [ %call403, %if.else427 ], [ %call403, %if.then536 ], [ %call403, %if.end487 ], [ %call403, %if.else605 ], [ %call403, %if.then611 ], [ %call403, %if.else562 ], [ %call403, %if.then568 ], [ %call403, %if.then552 ], [ %call403, %if.then545 ], [ %call403, %if.then451 ], [ %call403, %if.end445 ], [ %call403, %if.then441 ], [ %call403, %if.then433 ], [ %call403, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ %call403, %for.body512.preheader ], [ %call403, %for.body512 ], [ %call403, %if.end520 ], [ %call403, %if.end524 ], [ null, %if.end357 ], [ null, %while.body353 ]
   %out.0.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ %call446, %if.then536 ], [ %call446, %if.end487 ], [ %call446, %if.else605 ], [ %call446, %if.then611 ], [ %call446, %if.else562 ], [ %call446, %if.then568 ], [ %call446, %if.then552 ], [ %call446, %if.then545 ], [ %call446, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ %call446, %for.body512.preheader ], [ %call446, %for.body512 ], [ %call446, %if.end520 ], [ %call446, %if.end524 ], [ null, %if.end357 ], [ null, %while.body353 ]
-  %key.3.ph = phi ptr [ null, %if.then370 ], [ %key.0, %if.else427 ], [ %key.1.lcssa, %if.then536 ], [ %key.0, %if.end487 ], [ %key.2, %if.else605 ], [ %key.2, %if.then611 ], [ %key.2, %if.else562 ], [ %key.2, %if.then568 ], [ %key.2, %if.then552 ], [ %key.2, %if.then545 ], [ %key.0, %if.then451 ], [ %key.0, %if.end445 ], [ %key.0, %if.then441 ], [ %key.0, %if.then433 ], [ %key.0, %if.then413 ], [ %key.0, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ %key.0, %for.body512.preheader ], [ %call521, %if.end524 ], [ null, %if.end520 ], [ null, %for.body512 ], [ null, %if.end357 ], [ null, %while.body353 ]
-  %encerts.1.ph = phi ptr [ %encerts.0, %if.then370 ], [ %encerts.0, %if.else427 ], [ %encerts.0, %if.then536 ], [ %encerts.0, %if.end487 ], [ %encerts.0, %if.else605 ], [ %encerts.0, %if.then611 ], [ %encerts.0, %if.else562 ], [ %encerts.0, %if.then568 ], [ %encerts.0, %if.then552 ], [ %encerts.0, %if.then545 ], [ %encerts.0, %if.then451 ], [ %encerts.0, %if.end445 ], [ %encerts.0, %if.then441 ], [ %encerts.0, %if.then433 ], [ %encerts.0, %if.then413 ], [ %encerts.0, %if.end402 ], [ %encerts.0, %if.then397 ], [ %encerts.0, %if.then379 ], [ null, %if.end346 ], [ %encerts.0, %for.body512.preheader ], [ %encerts.0, %for.body512 ], [ %encerts.0, %if.end520 ], [ %encerts.0, %if.end524 ], [ %call347, %if.end357 ], [ %call347, %while.body353 ]
-  %cert.2.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ null, %if.then536 ], [ null, %if.end487 ], [ null, %if.else605 ], [ null, %if.then611 ], [ null, %if.else562 ], [ null, %if.then568 ], [ null, %if.then552 ], [ null, %if.then545 ], [ null, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ null, %for.body512.preheader ], [ null, %for.body512 ], [ null, %if.end520 ], [ null, %if.end524 ], [ null, %while.body353 ], [ %call354, %if.end357 ]
-  %recip.1.ph = phi ptr [ null, %if.then370 ], [ %recip.0222227, %if.else427 ], [ %recip.0222227, %if.then536 ], [ %recip.0222227, %if.end487 ], [ %recip.0222227, %if.else605 ], [ %recip.0222227, %if.then611 ], [ %recip.0222227, %if.else562 ], [ %recip.0222227, %if.then568 ], [ %recip.0222227, %if.then552 ], [ %recip.0222227, %if.then545 ], [ %recip.0222227, %if.then451 ], [ %recip.0222227, %if.end445 ], [ %recip.0222227, %if.then441 ], [ %recip.0222227, %if.then433 ], [ %recip.0222227, %if.then413 ], [ %recip.0222227, %if.end402 ], [ %recip.0222, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ %recip.0222227, %for.body512.preheader ], [ %recip.0222227, %for.body512 ], [ %recip.0222227, %if.end520 ], [ %recip.0222227, %if.end524 ], [ null, %if.end357 ], [ null, %while.body353 ]
-  %signer.2.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ null, %if.then536 ], [ null, %if.end487 ], [ null, %if.else605 ], [ null, %if.then611 ], [ null, %if.else562 ], [ null, %if.then568 ], [ null, %if.then552 ], [ null, %if.then545 ], [ null, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ null, %for.body512.preheader ], [ %call517794, %if.end524 ], [ %call517794, %if.end520 ], [ null, %for.body512 ], [ null, %if.end357 ], [ null, %while.body353 ]
-  %store.1.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ null, %if.then536 ], [ null, %if.end487 ], [ %store.0229, %if.else605 ], [ %store.0229, %if.then611 ], [ %store.0229, %if.else562 ], [ %store.0229, %if.then568 ], [ %store.0229, %if.then552 ], [ %store.0229, %if.then545 ], [ null, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ null, %for.body512.preheader ], [ null, %for.body512 ], [ null, %if.end520 ], [ null, %if.end524 ], [ null, %if.end357 ], [ null, %while.body353 ]
+  %key.0.ph = phi ptr [ null, %if.then370 ], [ %key.1, %if.else427 ], [ %key.3.lcssa, %if.then536 ], [ %key.1, %if.end487 ], [ %key.2, %if.else605 ], [ %key.2, %if.then611 ], [ %key.2, %if.else562 ], [ %key.2, %if.then568 ], [ %key.2, %if.then552 ], [ %key.2, %if.then545 ], [ %key.1, %if.then451 ], [ %key.1, %if.end445 ], [ %key.1, %if.then441 ], [ %key.1, %if.then433 ], [ %key.1, %if.then413 ], [ %key.1, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ %key.1, %for.body512.preheader ], [ %call521, %if.end524 ], [ null, %if.end520 ], [ null, %for.body512 ], [ null, %if.end357 ], [ null, %while.body353 ]
+  %encerts.0.ph = phi ptr [ %encerts.1, %if.then370 ], [ %encerts.1, %if.else427 ], [ %encerts.1, %if.then536 ], [ %encerts.1, %if.end487 ], [ %encerts.1, %if.else605 ], [ %encerts.1, %if.then611 ], [ %encerts.1, %if.else562 ], [ %encerts.1, %if.then568 ], [ %encerts.1, %if.then552 ], [ %encerts.1, %if.then545 ], [ %encerts.1, %if.then451 ], [ %encerts.1, %if.end445 ], [ %encerts.1, %if.then441 ], [ %encerts.1, %if.then433 ], [ %encerts.1, %if.then413 ], [ %encerts.1, %if.end402 ], [ %encerts.1, %if.then397 ], [ %encerts.1, %if.then379 ], [ null, %if.end346 ], [ %encerts.1, %for.body512.preheader ], [ %encerts.1, %for.body512 ], [ %encerts.1, %if.end520 ], [ %encerts.1, %if.end524 ], [ %call347, %if.end357 ], [ %call347, %while.body353 ]
+  %cert.0.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ null, %if.then536 ], [ null, %if.end487 ], [ null, %if.else605 ], [ null, %if.then611 ], [ null, %if.else562 ], [ null, %if.then568 ], [ null, %if.then552 ], [ null, %if.then545 ], [ null, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ null, %for.body512.preheader ], [ null, %for.body512 ], [ null, %if.end520 ], [ null, %if.end524 ], [ null, %while.body353 ], [ %call354, %if.end357 ]
+  %recip.0.ph = phi ptr [ null, %if.then370 ], [ %recip.1222227, %if.else427 ], [ %recip.1222227, %if.then536 ], [ %recip.1222227, %if.end487 ], [ %recip.1222227, %if.else605 ], [ %recip.1222227, %if.then611 ], [ %recip.1222227, %if.else562 ], [ %recip.1222227, %if.then568 ], [ %recip.1222227, %if.then552 ], [ %recip.1222227, %if.then545 ], [ %recip.1222227, %if.then451 ], [ %recip.1222227, %if.end445 ], [ %recip.1222227, %if.then441 ], [ %recip.1222227, %if.then433 ], [ %recip.1222227, %if.then413 ], [ %recip.1222227, %if.end402 ], [ %recip.1222, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ %recip.1222227, %for.body512.preheader ], [ %recip.1222227, %for.body512 ], [ %recip.1222227, %if.end520 ], [ %recip.1222227, %if.end524 ], [ null, %if.end357 ], [ null, %while.body353 ]
+  %signer.0.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ null, %if.then536 ], [ null, %if.end487 ], [ null, %if.else605 ], [ null, %if.then611 ], [ null, %if.else562 ], [ null, %if.then568 ], [ null, %if.then552 ], [ null, %if.then545 ], [ null, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ null, %for.body512.preheader ], [ %call517794, %if.end524 ], [ %call517794, %if.end520 ], [ null, %for.body512 ], [ null, %if.end357 ], [ null, %while.body353 ]
+  %store.0.ph = phi ptr [ null, %if.then370 ], [ null, %if.else427 ], [ null, %if.then536 ], [ null, %if.end487 ], [ %store.1229, %if.else605 ], [ %store.1229, %if.then611 ], [ %store.1229, %if.else562 ], [ %store.1229, %if.then568 ], [ %store.1229, %if.then552 ], [ %store.1229, %if.then545 ], [ null, %if.then451 ], [ null, %if.end445 ], [ null, %if.then441 ], [ null, %if.then433 ], [ null, %if.then413 ], [ null, %if.end402 ], [ null, %if.then397 ], [ null, %if.then379 ], [ null, %if.end346 ], [ null, %for.body512.preheader ], [ null, %for.body512 ], [ null, %if.end520 ], [ null, %if.end524 ], [ null, %if.end357 ], [ null, %while.body353 ]
   %ret.0.ph = phi i32 [ 2, %if.then370 ], [ 2, %if.else427 ], [ 3, %if.then536 ], [ 3, %if.end487 ], [ 4, %if.else605 ], [ 3, %if.then611 ], [ 4, %if.else562 ], [ 5, %if.then568 ], [ 4, %if.then552 ], [ 3, %if.then545 ], [ 2, %if.then451 ], [ 2, %if.end445 ], [ 2, %if.then441 ], [ 2, %if.then433 ], [ 2, %if.then413 ], [ 2, %if.end402 ], [ 2, %if.then397 ], [ 2, %if.then379 ], [ 2, %if.end346 ], [ 3, %for.body512.preheader ], [ 3, %for.body512 ], [ 3, %if.end520 ], [ 3, %if.end524 ], [ 2, %if.end357 ], [ 2, %while.body353 ]
   %59 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %59) #3
@@ -1407,27 +1407,27 @@ if.end619:                                        ; preds = %sw.bb119, %sw.bb125
   %e.0292 = phi ptr [ %e.0.lcssa, %if.then618 ], [ %e.0295, %opthelp ], [ %e.0588, %cond.true87 ], [ %e.0588, %cond.true74 ], [ %e.0588, %cond.true61 ], [ %e.0588, %cond.true48 ], [ %e.0588, %cond.true35 ], [ %e.0588, %cond.true ], [ %e.0588, %sw.bb6 ], [ %e.0.lcssa, %land.lhs.true272 ], [ %e.0.lcssa, %if.then317 ], [ %e.0.lcssa, %land.lhs.true281 ], [ %e.0.lcssa, %while.end ], [ %e.0.lcssa, %if.end570 ], [ %e.0.lcssa, %if.end609 ], [ %e.0.lcssa, %if.then574 ], [ %e.0.lcssa, %if.then549 ], [ %e.0588, %land.lhs.true196 ], [ %e.0588, %land.lhs.true187 ], [ %e.0588, %land.lhs.true163 ], [ %e.0588, %land.lhs.true151 ], [ %e.0588, %sw.bb130 ], [ %e.0588, %sw.bb125 ], [ %e.0588, %sw.bb119 ]
   %ret.0268 = phi i32 [ %ret.0.ph, %if.then618 ], [ 0, %opthelp ], [ 0, %cond.true87 ], [ 0, %cond.true74 ], [ 0, %cond.true61 ], [ 0, %cond.true48 ], [ 0, %cond.true35 ], [ 0, %cond.true ], [ 0, %sw.bb6 ], [ 0, %land.lhs.true272 ], [ 0, %if.then317 ], [ 0, %land.lhs.true281 ], [ 0, %while.end ], [ 0, %if.end570 ], [ 0, %if.end609 ], [ 0, %if.then574 ], [ 0, %if.then549 ], [ 0, %land.lhs.true196 ], [ 0, %land.lhs.true187 ], [ 0, %land.lhs.true163 ], [ 0, %land.lhs.true151 ], [ 0, %sw.bb130 ], [ 0, %sw.bb125 ], [ 0, %sw.bb119 ]
   %conf.2266 = phi ptr [ %conf.0.lcssa, %if.then618 ], [ %conf.0376, %opthelp ], [ %conf.0578, %cond.true87 ], [ %conf.0578, %cond.true74 ], [ %conf.0578, %cond.true61 ], [ %conf.0578, %cond.true48 ], [ %conf.0578, %cond.true35 ], [ %conf.0578, %cond.true ], [ %conf.0578, %sw.bb6 ], [ %conf.0.lcssa, %land.lhs.true272 ], [ %conf.0.lcssa, %if.then317 ], [ %conf.0.lcssa, %land.lhs.true281 ], [ %conf.0.lcssa, %while.end ], [ %conf.0.lcssa, %if.end570 ], [ %conf.0.lcssa, %if.end609 ], [ %conf.0.lcssa, %if.then574 ], [ %conf.0.lcssa, %if.then549 ], [ %conf.0578, %sw.bb119 ], [ %conf.0578, %sw.bb125 ], [ null, %sw.bb130 ], [ %conf.0578, %land.lhs.true151 ], [ %conf.0578, %land.lhs.true163 ], [ %conf.0578, %land.lhs.true187 ], [ %conf.0578, %land.lhs.true196 ]
-  %store.1264 = phi ptr [ %store.1.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %store.0229, %if.end570 ], [ %store.0229, %if.end609 ], [ %store.0229, %if.then574 ], [ %store.0229, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
-  %signer.2262 = phi ptr [ %signer.2.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ null, %if.end570 ], [ null, %if.end609 ], [ null, %if.then574 ], [ null, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
-  %recip.1260 = phi ptr [ %recip.1.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %recip.0222227, %if.end570 ], [ %recip.0222227, %if.end609 ], [ %recip.0222227, %if.then574 ], [ %recip.0222227, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
-  %cert.2258 = phi ptr [ %cert.2.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ null, %if.end570 ], [ null, %if.end609 ], [ null, %if.then574 ], [ null, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
-  %encerts.1256 = phi ptr [ %encerts.1.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %encerts.0, %if.end570 ], [ %encerts.0, %if.end609 ], [ %encerts.0, %if.then574 ], [ %encerts.0, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
-  %skkeys.10254 = phi ptr [ %skkeys.9, %if.then618 ], [ %skkeys.1, %opthelp ], [ %skkeys.0561, %cond.true87 ], [ %skkeys.0561, %cond.true74 ], [ %skkeys.0561, %cond.true61 ], [ %skkeys.0561, %cond.true48 ], [ %skkeys.0561, %cond.true35 ], [ %skkeys.0561, %cond.true ], [ %skkeys.0561, %sw.bb6 ], [ %skkeys.0.lcssa, %land.lhs.true272 ], [ %skkeys.9, %if.then317 ], [ null, %land.lhs.true281 ], [ %skkeys.0.lcssa, %while.end ], [ %skkeys.9, %if.end570 ], [ %skkeys.9, %if.end609 ], [ %skkeys.9, %if.then574 ], [ %skkeys.9, %if.then549 ], [ %skkeys.0561, %sw.bb119 ], [ %skkeys.0561, %sw.bb125 ], [ %skkeys.0561, %sw.bb130 ], [ %skkeys.0561, %land.lhs.true151 ], [ null, %land.lhs.true163 ], [ %skkeys.0561, %land.lhs.true187 ], [ null, %land.lhs.true196 ]
-  %sksigners.10252 = phi ptr [ %sksigners.9, %if.then618 ], [ %sksigners.1, %opthelp ], [ %sksigners.0560, %cond.true87 ], [ %sksigners.0560, %cond.true74 ], [ %sksigners.0560, %cond.true61 ], [ %sksigners.0560, %cond.true48 ], [ %sksigners.0560, %cond.true35 ], [ %sksigners.0560, %cond.true ], [ %sksigners.0560, %sw.bb6 ], [ null, %land.lhs.true272 ], [ %sksigners.9, %if.then317 ], [ %sksigners.7, %land.lhs.true281 ], [ %sksigners.0.lcssa, %while.end ], [ %sksigners.9, %if.end570 ], [ %sksigners.9, %if.end609 ], [ %sksigners.9, %if.then574 ], [ %sksigners.9, %if.then549 ], [ %sksigners.0560, %sw.bb119 ], [ %sksigners.0560, %sw.bb125 ], [ %sksigners.0560, %sw.bb130 ], [ null, %land.lhs.true151 ], [ %sksigners.2, %land.lhs.true163 ], [ null, %land.lhs.true187 ], [ %sksigners.4, %land.lhs.true196 ]
-  %key.3250 = phi ptr [ %key.3.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %key.2, %if.end570 ], [ %key.2, %if.end609 ], [ %key.2, %if.then574 ], [ %key.2, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
+  %store.0264 = phi ptr [ %store.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %store.1229, %if.end570 ], [ %store.1229, %if.end609 ], [ %store.1229, %if.then574 ], [ %store.1229, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
+  %signer.0262 = phi ptr [ %signer.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ null, %if.end570 ], [ null, %if.end609 ], [ null, %if.then574 ], [ null, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
+  %recip.0260 = phi ptr [ %recip.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %recip.1222227, %if.end570 ], [ %recip.1222227, %if.end609 ], [ %recip.1222227, %if.then574 ], [ %recip.1222227, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
+  %cert.0258 = phi ptr [ %cert.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ null, %if.end570 ], [ null, %if.end609 ], [ null, %if.then574 ], [ null, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
+  %encerts.0256 = phi ptr [ %encerts.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %encerts.1, %if.end570 ], [ %encerts.1, %if.end609 ], [ %encerts.1, %if.then574 ], [ %encerts.1, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
+  %skkeys.3254 = phi ptr [ %skkeys.10, %if.then618 ], [ %skkeys.2, %opthelp ], [ %skkeys.0561, %cond.true87 ], [ %skkeys.0561, %cond.true74 ], [ %skkeys.0561, %cond.true61 ], [ %skkeys.0561, %cond.true48 ], [ %skkeys.0561, %cond.true35 ], [ %skkeys.0561, %cond.true ], [ %skkeys.0561, %sw.bb6 ], [ %skkeys.0.lcssa, %land.lhs.true272 ], [ %skkeys.10, %if.then317 ], [ null, %land.lhs.true281 ], [ %skkeys.0.lcssa, %while.end ], [ %skkeys.10, %if.end570 ], [ %skkeys.10, %if.end609 ], [ %skkeys.10, %if.then574 ], [ %skkeys.10, %if.then549 ], [ %skkeys.0561, %sw.bb119 ], [ %skkeys.0561, %sw.bb125 ], [ %skkeys.0561, %sw.bb130 ], [ %skkeys.0561, %land.lhs.true151 ], [ null, %land.lhs.true163 ], [ %skkeys.0561, %land.lhs.true187 ], [ null, %land.lhs.true196 ]
+  %sksigners.3252 = phi ptr [ %sksigners.10, %if.then618 ], [ %sksigners.2, %opthelp ], [ %sksigners.0560, %cond.true87 ], [ %sksigners.0560, %cond.true74 ], [ %sksigners.0560, %cond.true61 ], [ %sksigners.0560, %cond.true48 ], [ %sksigners.0560, %cond.true35 ], [ %sksigners.0560, %cond.true ], [ %sksigners.0560, %sw.bb6 ], [ null, %land.lhs.true272 ], [ %sksigners.10, %if.then317 ], [ %sksigners.9, %land.lhs.true281 ], [ %sksigners.0.lcssa, %while.end ], [ %sksigners.10, %if.end570 ], [ %sksigners.10, %if.end609 ], [ %sksigners.10, %if.then574 ], [ %sksigners.10, %if.then549 ], [ %sksigners.0560, %sw.bb119 ], [ %sksigners.0560, %sw.bb125 ], [ %sksigners.0560, %sw.bb130 ], [ null, %land.lhs.true151 ], [ %sksigners.5, %land.lhs.true163 ], [ null, %land.lhs.true187 ], [ %sksigners.7, %land.lhs.true196 ]
+  %key.0250 = phi ptr [ %key.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %key.2, %if.end570 ], [ %key.2, %if.end609 ], [ %key.2, %if.then574 ], [ %key.2, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
   %out.0248 = phi ptr [ %out.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %call446, %if.end570 ], [ %call446, %if.end609 ], [ %call446, %if.then574 ], [ %call446, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
   %in.0246 = phi ptr [ %in.0.ph, %if.then618 ], [ null, %opthelp ], [ null, %cond.true87 ], [ null, %cond.true74 ], [ null, %cond.true61 ], [ null, %cond.true48 ], [ null, %cond.true35 ], [ null, %cond.true ], [ null, %sw.bb6 ], [ null, %land.lhs.true272 ], [ null, %if.then317 ], [ null, %land.lhs.true281 ], [ null, %while.end ], [ %call403, %if.end570 ], [ %call403, %if.end609 ], [ %call403, %if.then574 ], [ %call403, %if.then549 ], [ null, %land.lhs.true196 ], [ null, %land.lhs.true187 ], [ null, %land.lhs.true163 ], [ null, %land.lhs.true151 ], [ null, %sw.bb130 ], [ null, %sw.bb125 ], [ null, %sw.bb119 ]
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %encerts.1256) #3
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %encerts.0256) #3
   %60 = load ptr, ptr %other, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %60) #3
   call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %call1) #3
-  call void @OPENSSL_sk_free(ptr noundef %sksigners.10252) #3
-  call void @OPENSSL_sk_free(ptr noundef %skkeys.10254) #3
-  call void @X509_STORE_free(ptr noundef %store.1264) #3
-  call void @X509_free(ptr noundef %cert.2258) #3
-  call void @X509_free(ptr noundef %recip.1260) #3
-  call void @X509_free(ptr noundef %signer.2262) #3
-  call void @EVP_PKEY_free(ptr noundef %key.3250) #3
+  call void @OPENSSL_sk_free(ptr noundef %sksigners.3252) #3
+  call void @OPENSSL_sk_free(ptr noundef %skkeys.3254) #3
+  call void @X509_STORE_free(ptr noundef %store.0264) #3
+  call void @X509_free(ptr noundef %cert.0258) #3
+  call void @X509_free(ptr noundef %recip.0260) #3
+  call void @X509_free(ptr noundef %signer.0262) #3
+  call void @EVP_PKEY_free(ptr noundef %key.0250) #3
   %61 = load ptr, ptr %sign_md, align 8
   call void @EVP_MD_free(ptr noundef %61) #3
   %62 = load ptr, ptr %cipher, align 8

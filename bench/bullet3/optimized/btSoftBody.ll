@@ -13129,7 +13129,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %vol.043.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
+  %vol.143.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
   %arrayidx.i.i = getelementptr inbounds %"struct.btSoftBody::Face", ptr %3, i64 %indvars.iv.i
   %m_n.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %4 = load ptr, ptr %m_n.i, align 8
@@ -13176,19 +13176,19 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul8.i.i.i = fmul float %sub8.i.i, %19
   %22 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %17, float %mul8.i.i.i)
   %23 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %21, float %22)
-  %add.i = fadd float %vol.043.i, %23
+  %add.i = fadd float %vol.143.i, %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !141
 
 for.end.i:                                        ; preds = %for.body.i, %if.then.i
-  %vol.0.lcssa.i = phi float [ 0.000000e+00, %if.then.i ], [ %add.i, %for.body.i ]
-  %div.i = fdiv float %vol.0.lcssa.i, 6.000000e+00
+  %vol.1.lcssa.i = phi float [ 0.000000e+00, %if.then.i ], [ %add.i, %for.body.i ]
+  %div.i = fdiv float %vol.1.lcssa.i, 6.000000e+00
   br label %_ZNK10btSoftBody9getVolumeEv.exit
 
 _ZNK10btSoftBody9getVolumeEv.exit:                ; preds = %entry, %for.end.i
-  %vol.1.i = phi float [ %div.i, %for.end.i ], [ 0.000000e+00, %entry ]
-  %mul = fmul float %vol.1.i, %density
+  %vol.0.i = phi float [ %div.i, %for.end.i ], [ 0.000000e+00, %entry ]
+  %mul = fmul float %vol.0.i, %density
   tail call void @_ZN10btSoftBody12setTotalMassEfb(ptr noundef nonnull align 8 dereferenceable(2064) %this, float noundef %mul, i1 noundef zeroext true)
   ret void
 }
@@ -13223,7 +13223,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %vol.043 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %add, %for.body ]
+  %vol.143 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %add, %for.body ]
   %arrayidx.i = getelementptr inbounds %"struct.btSoftBody::Face", ptr %3, i64 %indvars.iv
   %m_n = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %4 = load ptr, ptr %m_n, align 8
@@ -13270,19 +13270,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul8.i.i = fmul float %sub8.i, %19
   %22 = tail call float @llvm.fmuladd.f32(float %sub.i, float %17, float %mul8.i.i)
   %23 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %21, float %22)
-  %add = fadd float %vol.043, %23
+  %add = fadd float %vol.143, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !141
 
 for.end:                                          ; preds = %for.body, %if.then
-  %vol.0.lcssa = phi float [ 0.000000e+00, %if.then ], [ %add, %for.body ]
-  %div = fdiv float %vol.0.lcssa, 6.000000e+00
+  %vol.1.lcssa = phi float [ 0.000000e+00, %if.then ], [ %add, %for.body ]
+  %div = fdiv float %vol.1.lcssa, 6.000000e+00
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %vol.1 = phi float [ %div, %for.end ], [ 0.000000e+00, %entry ]
-  ret float %vol.1
+  %vol.0 = phi float [ %div, %for.end ], [ 0.000000e+00, %entry ]
+  ret float %vol.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16274,8 +16274,8 @@ for.body.lr.ph.i48:                               ; preds = %for.end36
 
 for.body.i50:                                     ; preds = %for.body.i50, %for.body.lr.ph.i48
   %indvars.iv.i51 = phi i64 [ 0, %for.body.lr.ph.i48 ], [ %indvars.iv.next.i52, %for.body.i50 ]
-  %retval.sroa.7.024.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i48 ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i50 ]
-  %retval.sroa.0.023.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i48 ], [ %27, %for.body.i50 ]
+  %retval.sroa.7.124.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i48 ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i50 ]
+  %retval.sroa.0.123.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i48 ], [ %27, %for.body.i50 ]
   %m_x.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %19, i64 %indvars.iv.i51, i32 1
   %arrayidx.i6.i = getelementptr inbounds float, ptr %20, i64 %indvars.iv.i51
   %21 = load float, ptr %arrayidx.i6.i, align 4
@@ -16286,17 +16286,17 @@ for.body.i50:                                     ; preds = %for.body.i50, %for.
   %24 = insertelement <2 x float> poison, float %21, i64 0
   %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
   %26 = fmul <2 x float> %25, %23
-  %27 = fadd <2 x float> %retval.sroa.0.023.i, %26
-  %retval.sroa.7.8.vec.extract.i = extractelement <2 x float> %retval.sroa.7.024.i, i64 0
+  %27 = fadd <2 x float> %retval.sroa.0.123.i, %26
+  %retval.sroa.7.8.vec.extract.i = extractelement <2 x float> %retval.sroa.7.124.i, i64 0
   %add13.i.i = fadd float %retval.sroa.7.8.vec.extract.i, %mul8.i.i
-  %retval.sroa.7.8.vec.insert21.i = insertelement <2 x float> %retval.sroa.7.024.i, float %add13.i.i, i64 0
+  %retval.sroa.7.8.vec.insert21.i = insertelement <2 x float> %retval.sroa.7.124.i, float %add13.i.i, i64 0
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i49
   br i1 %exitcond.not.i53, label %_ZNK10btSoftBody11evaluateComEv.exit, label %for.body.i50, !llvm.loop !185
 
 _ZNK10btSoftBody11evaluateComEv.exit:             ; preds = %for.body.i50, %for.end36
-  %retval.sroa.0.1.i = phi <2 x float> [ zeroinitializer, %for.end36 ], [ %27, %for.body.i50 ]
-  %retval.sroa.7.1.i = phi <2 x float> [ zeroinitializer, %for.end36 ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i50 ]
+  %retval.sroa.0.0.i = phi <2 x float> [ zeroinitializer, %for.end36 ], [ %27, %for.body.i50 ]
+  %retval.sroa.7.0.i = phi <2 x float> [ zeroinitializer, %for.end36 ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i50 ]
   %m_size.i.i55 = getelementptr inbounds i8, ptr %this, i64 660
   %28 = load i32, ptr %m_size.i.i55, align 4
   %cmp3.i58 = icmp slt i32 %28, %.pre242
@@ -16372,7 +16372,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i5
 
 for.body46.lr.ph:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
   %m_data.i97 = getelementptr inbounds i8, ptr %this, i64 944
-  %com.sroa.4.8.vec.extract = extractelement <2 x float> %retval.sroa.7.1.i, i64 0
+  %com.sroa.4.8.vec.extract = extractelement <2 x float> %retval.sroa.7.0.i, i64 0
   %m_data.i103 = getelementptr inbounds i8, ptr %this, i64 672
   %wide.trip.count235 = zext nneg i32 %34 to i64
   br label %for.body46
@@ -16382,7 +16382,7 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   %35 = load ptr, ptr %m_data.i97, align 8
   %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %35, i64 %indvars.iv232, i32 1
   %36 = load <2 x float>, ptr %m_x, align 4
-  %37 = fsub <2 x float> %36, %retval.sroa.0.1.i
+  %37 = fsub <2 x float> %36, %retval.sroa.0.0.i
   %arrayidx11.i100 = getelementptr inbounds i8, ptr %m_x, i64 8
   %38 = load float, ptr %arrayidx11.i100, align 4
   %sub14.i = fsub float %38, %com.sroa.4.8.vec.extract
@@ -16424,7 +16424,7 @@ for.body.lr.ph.i112:                              ; preds = %if.then.i109
 
 for.body.i114:                                    ; preds = %for.body.i114, %for.body.lr.ph.i112
   %indvars.iv.i115 = phi i64 [ 0, %for.body.lr.ph.i112 ], [ %indvars.iv.next.i118, %for.body.i114 ]
-  %vol.043.i = phi float [ 0.000000e+00, %for.body.lr.ph.i112 ], [ %add.i117, %for.body.i114 ]
+  %vol.143.i = phi float [ 0.000000e+00, %for.body.lr.ph.i112 ], [ %add.i117, %for.body.i114 ]
   %arrayidx.i.i = getelementptr inbounds %"struct.btSoftBody::Face", ptr %42, i64 %indvars.iv.i115
   %m_n.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %43 = load ptr, ptr %m_n.i, align 8
@@ -16471,14 +16471,14 @@ for.body.i114:                                    ; preds = %for.body.i114, %for
   %mul8.i.i.i = fmul float %sub8.i.i, %58
   %61 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %56, float %mul8.i.i.i)
   %62 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %60, float %61)
-  %add.i117 = fadd float %vol.043.i, %62
+  %add.i117 = fadd float %vol.143.i, %62
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i113
   br i1 %exitcond.not.i119, label %for.end.i, label %for.body.i114, !llvm.loop !141
 
 for.end.i:                                        ; preds = %for.body.i114, %if.then.i109
-  %vol.0.lcssa.i = phi float [ 0.000000e+00, %if.then.i109 ], [ %add.i117, %for.body.i114 ]
-  %div.i = fdiv float %vol.0.lcssa.i, 6.000000e+00
+  %vol.1.lcssa.i = phi float [ 0.000000e+00, %if.then.i109 ], [ %add.i117, %for.body.i114 ]
+  %div.i = fdiv float %vol.1.lcssa.i, 6.000000e+00
   br label %cond.end62
 
 cond.end62:                                       ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit, %for.end.i, %for.end57
@@ -16488,9 +16488,9 @@ cond.end62:                                       ; preds = %_ZN20btAlignedObjec
   %m_volume = getelementptr inbounds i8, ptr %this, i64 652
   store float %cond63, ptr %m_volume, align 4
   %m_com = getelementptr inbounds i8, ptr %this, i64 720
-  store <2 x float> %retval.sroa.0.1.i, ptr %m_com, align 8
+  store <2 x float> %retval.sroa.0.0.i, ptr %m_com, align 8
   %com.sroa.4.0.m_com.sroa_idx = getelementptr inbounds i8, ptr %this, i64 728
-  store <2 x float> %retval.sroa.7.1.i, ptr %com.sroa.4.0.m_com.sroa_idx, align 8
+  store <2 x float> %retval.sroa.7.0.i, ptr %com.sroa.4.0.m_com.sroa_idx, align 8
   %m_rot = getelementptr inbounds i8, ptr %this, i64 736
   store float 1.000000e+00, ptr %m_rot, align 8
   %arrayidx3.i.i.i120 = getelementptr inbounds i8, ptr %this, i64 740
@@ -16788,8 +16788,8 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %retval.sroa.7.024 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %retval.sroa.7.8.vec.insert21, %for.body ]
-  %retval.sroa.0.023 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %10, %for.body ]
+  %retval.sroa.7.124 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %retval.sroa.7.8.vec.insert21, %for.body ]
+  %retval.sroa.0.123 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %10, %for.body ]
   %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 %indvars.iv, i32 1
   %arrayidx.i6 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   %4 = load float, ptr %arrayidx.i6, align 4
@@ -16800,19 +16800,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = insertelement <2 x float> poison, float %4, i64 0
   %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %9 = fmul <2 x float> %8, %6
-  %10 = fadd <2 x float> %retval.sroa.0.023, %9
-  %retval.sroa.7.8.vec.extract = extractelement <2 x float> %retval.sroa.7.024, i64 0
+  %10 = fadd <2 x float> %retval.sroa.0.123, %9
+  %retval.sroa.7.8.vec.extract = extractelement <2 x float> %retval.sroa.7.124, i64 0
   %add13.i = fadd float %retval.sroa.7.8.vec.extract, %mul8.i
-  %retval.sroa.7.8.vec.insert21 = insertelement <2 x float> %retval.sroa.7.024, float %add13.i, i64 0
+  %retval.sroa.7.8.vec.insert21 = insertelement <2 x float> %retval.sroa.7.124, float %add13.i, i64 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !185
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
-  %retval.sroa.0.1 = phi <2 x float> [ zeroinitializer, %entry ], [ zeroinitializer, %if.then ], [ %10, %for.body ]
-  %retval.sroa.7.1 = phi <2 x float> [ zeroinitializer, %entry ], [ zeroinitializer, %if.then ], [ %retval.sroa.7.8.vec.insert21, %for.body ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.7.1, 1
+  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %entry ], [ zeroinitializer, %if.then ], [ %10, %for.body ]
+  %retval.sroa.7.0 = phi <2 x float> [ zeroinitializer, %entry ], [ zeroinitializer, %if.then ], [ %retval.sroa.7.8.vec.insert21, %for.body ]
+  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.7.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
@@ -25489,7 +25489,7 @@ if.then21:                                        ; preds = %if.else
   br label %if.end27
 
 if.end27:                                         ; preds = %for.inc, %for.body.us, %if.then.thread, %if.then, %if.else, %if.then21
-  %cnt.3 = phi i32 [ 1, %if.then21 ], [ 0, %if.else ], [ 0, %if.then ], [ 0, %if.then.thread ], [ %cnt.1.us, %for.body.us ], [ %cnt.1, %for.inc ]
+  %cnt.2 = phi i32 [ 1, %if.then21 ], [ 0, %if.else ], [ 0, %if.then ], [ 0, %if.then.thread ], [ %cnt.1.us, %for.body.us ], [ %cnt.1, %for.inc ]
   %m_size.i40 = getelementptr inbounds i8, ptr %this, i64 1092
   %26 = load i32, ptr %m_size.i40, align 4
   %cmp3160 = icmp sgt i32 %26, 0
@@ -25503,7 +25503,7 @@ for.body32.lr.ph:                                 ; preds = %if.end27
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc71
   %indvars.iv75 = phi i64 [ 0, %for.body32.lr.ph ], [ %indvars.iv.next76, %for.inc71 ]
-  %cnt.462 = phi i32 [ %cnt.3, %for.body32.lr.ph ], [ %cnt.6, %for.inc71 ]
+  %cnt.462 = phi i32 [ %cnt.2, %for.body32.lr.ph ], [ %cnt.6, %for.inc71 ]
   %29 = load ptr, ptr %m_data.i41, align 8
   %30 = trunc nuw nsw i64 %indvars.iv75 to i32
   br label %for.body38
@@ -25685,7 +25685,7 @@ for.inc71:                                        ; preds = %for.inc68
   br i1 %cmp31, label %for.body32, label %for.end73, !llvm.loop !295
 
 for.end73:                                        ; preds = %for.inc71, %if.end27
-  %cnt.4.lcssa = phi i32 [ %cnt.3, %if.end27 ], [ %cnt.6, %for.inc71 ]
+  %cnt.4.lcssa = phi i32 [ %cnt.2, %if.end27 ], [ %cnt.6, %for.inc71 ]
   ret i32 %cnt.4.lcssa
 }
 
@@ -26602,7 +26602,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %vol.043.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
+  %vol.143.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
   %arrayidx.i.i = getelementptr inbounds %"struct.btSoftBody::Face", ptr %9, i64 %indvars.iv.i
   %m_n.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %10 = load ptr, ptr %m_n.i, align 8
@@ -26649,24 +26649,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul8.i.i.i = fmul float %sub8.i.i, %25
   %28 = call float @llvm.fmuladd.f32(float %sub.i.i, float %23, float %mul8.i.i.i)
   %29 = call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %27, float %28)
-  %add.i = fadd float %vol.043.i, %29
+  %add.i = fadd float %vol.143.i, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !141
 
 for.end.i:                                        ; preds = %for.body.i, %if.then.i
-  %vol.0.lcssa.i = phi float [ 0.000000e+00, %if.then.i ], [ %add.i, %for.body.i ]
-  %div.i = fdiv float %vol.0.lcssa.i, 6.000000e+00
+  %vol.1.lcssa.i = phi float [ 0.000000e+00, %if.then.i ], [ %add.i, %for.body.i ]
+  %div.i = fdiv float %vol.1.lcssa.i, 6.000000e+00
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %for.end.i, %if.then
-  %vol.1.i = phi float [ %div.i, %for.end.i ], [ 0.000000e+00, %if.then ]
-  %30 = call noundef float @llvm.fabs.f32(float %vol.1.i)
+  %vol.0.i = phi float [ %div.i, %for.end.i ], [ 0.000000e+00, %if.then ]
+  %30 = call noundef float @llvm.fabs.f32(float %vol.0.i)
   %div = fdiv float 1.000000e+00, %30
   %mul = fmul float %.fr83, %div
   %m_volume = getelementptr inbounds i8, ptr %this, i64 652
   %31 = load float, ptr %m_volume, align 4
-  %sub = fsub float %31, %vol.1.i
+  %sub = fsub float %31, %vol.0.i
   %mul28 = fmul float %.fr84, %sub
   br label %if.end
 
@@ -26869,8 +26869,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %retval.sroa.7.024.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i ]
-  %retval.sroa.0.023.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %10, %for.body.i ]
+  %retval.sroa.7.124.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i ]
+  %retval.sroa.0.123.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %10, %for.body.i ]
   %m_x.i = getelementptr inbounds %"struct.btSoftBody::Node", ptr %2, i64 %indvars.iv.i, i32 1
   %arrayidx.i6.i = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i
   %4 = load float, ptr %arrayidx.i6.i, align 4
@@ -26881,21 +26881,21 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %7 = insertelement <2 x float> poison, float %4, i64 0
   %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %9 = fmul <2 x float> %8, %6
-  %10 = fadd <2 x float> %retval.sroa.0.023.i, %9
-  %retval.sroa.7.8.vec.extract.i = extractelement <2 x float> %retval.sroa.7.024.i, i64 0
+  %10 = fadd <2 x float> %retval.sroa.0.123.i, %9
+  %retval.sroa.7.8.vec.extract.i = extractelement <2 x float> %retval.sroa.7.124.i, i64 0
   %add13.i.i = fadd float %retval.sroa.7.8.vec.extract.i, %mul8.i.i
-  %retval.sroa.7.8.vec.insert21.i = insertelement <2 x float> %retval.sroa.7.024.i, float %add13.i.i, i64 0
+  %retval.sroa.7.8.vec.insert21.i = insertelement <2 x float> %retval.sroa.7.124.i, float %add13.i.i, i64 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK10btSoftBody11evaluateComEv.exit, label %for.body.i, !llvm.loop !185
 
 _ZNK10btSoftBody11evaluateComEv.exit:             ; preds = %for.body.i, %if.then.i
-  %retval.sroa.0.1.i = phi <2 x float> [ zeroinitializer, %if.then.i ], [ %10, %for.body.i ]
-  %retval.sroa.7.1.i = phi <2 x float> [ zeroinitializer, %if.then.i ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i ]
+  %retval.sroa.0.0.i = phi <2 x float> [ zeroinitializer, %if.then.i ], [ %10, %for.body.i ]
+  %retval.sroa.7.0.i = phi <2 x float> [ zeroinitializer, %if.then.i ], [ %retval.sroa.7.8.vec.insert21.i, %for.body.i ]
   %m_com = getelementptr inbounds i8, ptr %this, i64 720
-  store <2 x float> %retval.sroa.0.1.i, ptr %m_com, align 8
+  store <2 x float> %retval.sroa.0.0.i, ptr %m_com, align 8
   %com.sroa.4.0.m_com.sroa_idx = getelementptr inbounds i8, ptr %this, i64 728
-  store <2 x float> %retval.sroa.7.1.i, ptr %com.sroa.4.0.m_com.sroa_idx, align 8
+  store <2 x float> %retval.sroa.7.0.i, ptr %com.sroa.4.0.m_com.sroa_idx, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %Apq, i64 32
   %ref.tmp.sroa.3.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %Apq, i64 40
   %arrayidx.i15 = getelementptr inbounds i8, ptr %Apq, i64 16
@@ -26913,7 +26913,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK10btSoftBody11e
   %12 = load ptr, ptr %m_data.i, align 8
   %m_data.i23 = getelementptr inbounds i8, ptr %this, i64 944
   %13 = load ptr, ptr %m_data.i23, align 8
-  %com.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.1.i, i64 1
+  %com.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %m_data.i33 = getelementptr inbounds i8, ptr %this, i64 672
   %14 = load ptr, ptr %m_data.i33, align 8
   %arrayidx7.i48 = getelementptr inbounds i8, ptr %Apq, i64 4
@@ -26926,7 +26926,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK10btSoftBody11e
   %15 = insertelement <2 x float> <float 0x3E80000000000000, float poison>, float %arrayidx7.i48.promoted, i64 1
   %16 = insertelement <2 x float> <float poison, float 0x3E90000000000000>, float %arrayidx.i15.promoted, i64 0
   %17 = insertelement <2 x float> <float poison, float 0x3E98000000000000>, float %arrayidx12.i.promoted, i64 0
-  %18 = shufflevector <2 x float> %retval.sroa.0.1.i, <2 x float> %retval.sroa.7.1.i, <2 x i32> <i32 0, i32 2>
+  %18 = shufflevector <2 x float> %retval.sroa.0.0.i, <2 x float> %retval.sroa.7.0.i, <2 x i32> <i32 0, i32 2>
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -29493,27 +29493,27 @@ lpad6.loopexit.split-lp.loopexit:                 ; preds = %if.then3.i.i.i408, 
   br label %ehcleanup
 
 lpad6.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then37, %if.then.i.i.i107, %if.then3.i.i.i118, %if.then.i.i.i146, %if.then3.i.i.i159, %if.then.i.i.i193, %if.then3.i.i.i209, %if.then.i.i.i242, %if.then3.i.i.i258
-  %newLeafNodes.sroa.24.0.ph.ph.ph = phi ptr [ %newLeafNodes.sroa.24.1865, %if.then37 ], [ %newLeafNodes.sroa.24.1865, %if.then.i.i.i107 ], [ %newLeafNodes.sroa.24.1865, %if.then3.i.i.i118 ], [ %newLeafNodes.sroa.24.2, %if.then.i.i.i146 ], [ %newLeafNodes.sroa.24.2, %if.then3.i.i.i159 ], [ %newLeafNodes.sroa.24.1865, %if.then.i.i.i193 ], [ %newLeafNodes.sroa.24.1865, %if.then3.i.i.i209 ], [ %newLeafNodes.sroa.24.4, %if.then.i.i.i242 ], [ %newLeafNodes.sroa.24.4, %if.then3.i.i.i258 ]
+  %newLeafNodes.sroa.24.0.ph.ph.ph = phi ptr [ %newLeafNodes.sroa.24.2865, %if.then37 ], [ %newLeafNodes.sroa.24.2865, %if.then.i.i.i107 ], [ %newLeafNodes.sroa.24.2865, %if.then3.i.i.i118 ], [ %newLeafNodes.sroa.24.6, %if.then.i.i.i146 ], [ %newLeafNodes.sroa.24.6, %if.then3.i.i.i159 ], [ %newLeafNodes.sroa.24.2865, %if.then.i.i.i193 ], [ %newLeafNodes.sroa.24.2865, %if.then3.i.i.i209 ], [ %newLeafNodes.sroa.24.7, %if.then.i.i.i242 ], [ %newLeafNodes.sroa.24.7, %if.then3.i.i.i258 ]
   %lpad.loopexit745 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.then.i.i.i.i.i, %if.then3.i.i.i.i.i, %if.then3.i.i
-  %childIds.sroa.20.0.ph.ph.ph = phi ptr [ null, %if.then.i.i.i ], [ %childIds.sroa.20.6, %if.then.i.i.i.i.i ], [ %childIds.sroa.20.6, %if.then3.i.i.i.i.i ], [ %childIds.sroa.20.6, %if.then3.i.i ]
-  %newLeafNodes.sroa.24.0.ph.ph.ph744 = phi ptr [ null, %if.then.i.i.i ], [ %newLeafNodes.sroa.24.6, %if.then.i.i.i.i.i ], [ %newLeafNodes.sroa.24.6, %if.then3.i.i.i.i.i ], [ %newLeafNodes.sroa.24.6, %if.then3.i.i ]
-  %marked.sroa.11.2.ph.ph.ph = phi ptr [ null, %if.then.i.i.i ], [ %call.i.i.i.i62, %if.then.i.i.i.i.i ], [ %call.i.i.i.i62, %if.then3.i.i.i.i.i ], [ %call.i.i.i.i62, %if.then3.i.i ]
+  %childIds.sroa.20.0.ph.ph.ph = phi ptr [ null, %if.then.i.i.i ], [ %childIds.sroa.20.3, %if.then.i.i.i.i.i ], [ %childIds.sroa.20.3, %if.then3.i.i.i.i.i ], [ %childIds.sroa.20.3, %if.then3.i.i ]
+  %newLeafNodes.sroa.24.0.ph.ph.ph744 = phi ptr [ null, %if.then.i.i.i ], [ %newLeafNodes.sroa.24.3, %if.then.i.i.i.i.i ], [ %newLeafNodes.sroa.24.3, %if.then3.i.i.i.i.i ], [ %newLeafNodes.sroa.24.3, %if.then3.i.i ]
+  %marked.sroa.11.0.ph.ph.ph = phi ptr [ null, %if.then.i.i.i ], [ %call.i.i.i.i62, %if.then.i.i.i.i.i ], [ %call.i.i.i.i62, %if.then3.i.i.i.i.i ], [ %call.i.i.i.i62, %if.then3.i.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 for.body14:                                       ; preds = %for.body14.preheader, %for.inc76
   %indvars.iv933 = phi i64 [ 0, %for.body14.preheader ], [ %indvars.iv.next934, %for.inc76 ]
-  %newLeafNodes.sroa.24.1865 = phi ptr [ null, %for.body14.preheader ], [ %newLeafNodes.sroa.24.6, %for.inc76 ]
-  %newLeafNodes.sroa.17.0864 = phi i32 [ 0, %for.body14.preheader ], [ %newLeafNodes.sroa.17.5, %for.inc76 ]
-  %newLeafNodes.sroa.0.0863 = phi i32 [ 0, %for.body14.preheader ], [ %newLeafNodes.sroa.0.3, %for.inc76 ]
-  %childIds.sroa.0.0862 = phi i32 [ 0, %for.body14.preheader ], [ %childIds.sroa.0.3, %for.inc76 ]
-  %childIds.sroa.13.0861 = phi i32 [ 0, %for.body14.preheader ], [ %childIds.sroa.13.5, %for.inc76 ]
-  %childIds.sroa.20.1860 = phi ptr [ null, %for.body14.preheader ], [ %childIds.sroa.20.6, %for.inc76 ]
+  %newLeafNodes.sroa.24.2865 = phi ptr [ null, %for.body14.preheader ], [ %newLeafNodes.sroa.24.3, %for.inc76 ]
+  %newLeafNodes.sroa.17.0864 = phi i32 [ 0, %for.body14.preheader ], [ %newLeafNodes.sroa.17.1, %for.inc76 ]
+  %newLeafNodes.sroa.0.0863 = phi i32 [ 0, %for.body14.preheader ], [ %newLeafNodes.sroa.0.1, %for.inc76 ]
+  %childIds.sroa.0.0862 = phi i32 [ 0, %for.body14.preheader ], [ %childIds.sroa.0.1, %for.inc76 ]
+  %childIds.sroa.13.0861 = phi i32 [ 0, %for.body14.preheader ], [ %childIds.sroa.13.1, %for.inc76 ]
+  %childIds.sroa.20.2860 = phi ptr [ null, %for.body14.preheader ], [ %childIds.sroa.20.3, %for.inc76 ]
   %arrayidx.i65 = getelementptr inbounds i8, ptr %call.i.i.i.i62, i64 %indvars.iv933
   %2 = load i8, ptr %arrayidx.i65, align 1
   %tobool = trunc i8 %2 to i1
@@ -29607,7 +29607,7 @@ for.body.lr.ph.i.i.i119:                          ; preds = %_ZN20btAlignedObjec
 for.body.i.i.i122:                                ; preds = %for.body.i.i.i122, %for.body.lr.ph.i.i.i119
   %indvars.iv.i.i.i123 = phi i64 [ 0, %for.body.lr.ph.i.i.i119 ], [ %indvars.iv.next.i.i.i126, %for.body.i.i.i122 ]
   %arrayidx.i.i.i124 = getelementptr inbounds ptr, ptr %retval.0.i.i.i110, i64 %indvars.iv.i.i.i123
-  %arrayidx3.i.i.i125 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.1865, i64 %indvars.iv.i.i.i123
+  %arrayidx3.i.i.i125 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.2865, i64 %indvars.iv.i.i.i123
   %17 = load ptr, ptr %arrayidx3.i.i.i125, align 8
   store ptr %17, ptr %arrayidx.i.i.i124, align 8
   %indvars.iv.next.i.i.i126 = add nuw nsw i64 %indvars.iv.i.i.i123, 1
@@ -29615,18 +29615,18 @@ for.body.i.i.i122:                                ; preds = %for.body.i.i.i122, 
   br i1 %exitcond.not.i.i.i127, label %if.then3.i.i.i118, label %for.body.i.i.i122, !llvm.loop !369
 
 _ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP10btDbvtNodeE8allocateEi.exit.i.i
-  %tobool.not.i6.i.i113 = icmp eq ptr %newLeafNodes.sroa.24.1865, null
+  %tobool.not.i6.i.i113 = icmp eq ptr %newLeafNodes.sroa.24.2865, null
   br i1 %tobool.not.i6.i.i113, label %invoke.cont54, label %if.then3.i.i.i118
 
 if.then3.i.i.i118:                                ; preds = %for.body.i.i.i122, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.1865)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.2865)
           to label %invoke.cont54 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i, %if.then3.i.i.i118, %invoke.cont40, %if.then.i
-  %newLeafNodes.sroa.17.1 = phi i32 [ %newLeafNodes.sroa.17.0864, %if.then.i ], [ %newLeafNodes.sroa.17.0864, %invoke.cont40 ], [ %cond.i.i, %if.then3.i.i.i118 ], [ %cond.i.i, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
-  %newLeafNodes.sroa.24.2 = phi ptr [ %newLeafNodes.sroa.24.1865, %if.then.i ], [ %newLeafNodes.sroa.24.1865, %invoke.cont40 ], [ %retval.0.i.i.i110, %if.then3.i.i.i118 ], [ %retval.0.i.i.i110, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
+  %newLeafNodes.sroa.17.4 = phi i32 [ %newLeafNodes.sroa.17.0864, %if.then.i ], [ %newLeafNodes.sroa.17.0864, %invoke.cont40 ], [ %cond.i.i, %if.then3.i.i.i118 ], [ %cond.i.i, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
+  %newLeafNodes.sroa.24.6 = phi ptr [ %newLeafNodes.sroa.24.2865, %if.then.i ], [ %newLeafNodes.sroa.24.2865, %invoke.cont40 ], [ %retval.0.i.i.i110, %if.then3.i.i.i118 ], [ %retval.0.i.i.i110, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
   %idxprom.i102 = sext i32 %newLeafNodes.sroa.0.0863 to i64
-  %arrayidx.i103 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.2, i64 %idxprom.i102
+  %arrayidx.i103 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.6, i64 %idxprom.i102
   store ptr %call39, ptr %arrayidx.i103, align 8
   %retval.sroa.2.0.insert.ext.i = zext i32 %6 to i64
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
@@ -29663,7 +29663,7 @@ for.body.lr.ph.i.i.i160:                          ; preds = %_ZN20btAlignedObjec
 for.body.i.i.i163:                                ; preds = %for.body.i.i.i163, %for.body.lr.ph.i.i.i160
   %indvars.iv.i.i.i164 = phi i64 [ 0, %for.body.lr.ph.i.i.i160 ], [ %indvars.iv.next.i.i.i167, %for.body.i.i.i163 ]
   %arrayidx.i.i.i165 = getelementptr inbounds %"struct.std::pair", ptr %retval.0.i.i.i150, i64 %indvars.iv.i.i.i164
-  %arrayidx3.i.i.i166 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.1860, i64 %indvars.iv.i.i.i164
+  %arrayidx3.i.i.i166 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.2860, i64 %indvars.iv.i.i.i164
   %18 = load i64, ptr %arrayidx3.i.i.i166, align 4
   store i64 %18, ptr %arrayidx.i.i.i165, align 4
   %indvars.iv.next.i.i.i167 = add nuw nsw i64 %indvars.iv.i.i.i164, 1
@@ -29671,18 +29671,18 @@ for.body.i.i.i163:                                ; preds = %for.body.i.i.i163, 
   br i1 %exitcond.not.i.i.i168, label %if.then3.i.i.i159, label %for.body.i.i.i163, !llvm.loop !370
 
 _ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayISt4pairIiiEE8allocateEi.exit.i.i
-  %tobool.not.i6.i.i153 = icmp eq ptr %childIds.sroa.20.1860, null
+  %tobool.not.i6.i.i153 = icmp eq ptr %childIds.sroa.20.2860, null
   br i1 %tobool.not.i6.i.i153, label %invoke.cont56, label %if.then3.i.i.i159
 
 if.then3.i.i.i159:                                ; preds = %for.body.i.i.i163, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.1860)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.2860)
           to label %invoke.cont56 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont56:                                    ; preds = %if.then.i139, %invoke.cont54, %if.then3.i.i.i159, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i
-  %childIds.sroa.20.2 = phi ptr [ %childIds.sroa.20.1860, %if.then.i139 ], [ %childIds.sroa.20.1860, %invoke.cont54 ], [ %retval.0.i.i.i150, %if.then3.i.i.i159 ], [ %retval.0.i.i.i150, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
-  %childIds.sroa.13.1 = phi i32 [ %childIds.sroa.0.0862, %if.then.i139 ], [ %childIds.sroa.13.0861, %invoke.cont54 ], [ %cond.i.i142, %if.then3.i.i.i159 ], [ %cond.i.i142, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
+  %childIds.sroa.20.6 = phi ptr [ %childIds.sroa.20.2860, %if.then.i139 ], [ %childIds.sroa.20.2860, %invoke.cont54 ], [ %retval.0.i.i.i150, %if.then3.i.i.i159 ], [ %retval.0.i.i.i150, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
+  %childIds.sroa.13.4 = phi i32 [ %childIds.sroa.0.0862, %if.then.i139 ], [ %childIds.sroa.13.0861, %invoke.cont54 ], [ %cond.i.i142, %if.then3.i.i.i159 ], [ %cond.i.i142, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
   %idxprom.i136 = sext i32 %childIds.sroa.0.0862 to i64
-  %arrayidx.i137 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.2, i64 %idxprom.i136
+  %arrayidx.i137 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.6, i64 %idxprom.i136
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %arrayidx.i137, align 4
   store i8 1, ptr %arrayidx.i84.le, align 1
   br label %if.end73
@@ -29722,7 +29722,7 @@ for.body.lr.ph.i.i.i210:                          ; preds = %_ZN20btAlignedObjec
 for.body.i.i.i213:                                ; preds = %for.body.i.i.i213, %for.body.lr.ph.i.i.i210
   %indvars.iv.i.i.i214 = phi i64 [ 0, %for.body.lr.ph.i.i.i210 ], [ %indvars.iv.next.i.i.i217, %for.body.i.i.i213 ]
   %arrayidx.i.i.i215 = getelementptr inbounds ptr, ptr %retval.0.i.i.i198, i64 %indvars.iv.i.i.i214
-  %arrayidx3.i.i.i216 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.1865, i64 %indvars.iv.i.i.i214
+  %arrayidx3.i.i.i216 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.2865, i64 %indvars.iv.i.i.i214
   %20 = load ptr, ptr %arrayidx3.i.i.i216, align 8
   store ptr %20, ptr %arrayidx.i.i.i215, align 8
   %indvars.iv.next.i.i.i217 = add nuw nsw i64 %indvars.iv.i.i.i214, 1
@@ -29730,18 +29730,18 @@ for.body.i.i.i213:                                ; preds = %for.body.i.i.i213, 
   br i1 %exitcond.not.i.i.i218, label %if.then3.i.i.i209, label %for.body.i.i.i213, !llvm.loop !369
 
 _ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200: ; preds = %_ZN20btAlignedObjectArrayIP10btDbvtNodeE8allocateEi.exit.i.i197
-  %tobool.not.i6.i.i202 = icmp eq ptr %newLeafNodes.sroa.24.1865, null
+  %tobool.not.i6.i.i202 = icmp eq ptr %newLeafNodes.sroa.24.2865, null
   br i1 %tobool.not.i6.i.i202, label %invoke.cont70, label %if.then3.i.i.i209
 
 if.then3.i.i.i209:                                ; preds = %for.body.i.i.i213, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.1865)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.2865)
           to label %invoke.cont70 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont70:                                    ; preds = %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200, %if.then3.i.i.i209, %if.then64, %if.then.i186
-  %newLeafNodes.sroa.17.3 = phi i32 [ %newLeafNodes.sroa.17.0864, %if.then.i186 ], [ %newLeafNodes.sroa.17.0864, %if.then64 ], [ %cond.i.i189, %if.then3.i.i.i209 ], [ %cond.i.i189, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200 ]
-  %newLeafNodes.sroa.24.4 = phi ptr [ %newLeafNodes.sroa.24.1865, %if.then.i186 ], [ %newLeafNodes.sroa.24.1865, %if.then64 ], [ %retval.0.i.i.i198, %if.then3.i.i.i209 ], [ %retval.0.i.i.i198, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200 ]
+  %newLeafNodes.sroa.17.5 = phi i32 [ %newLeafNodes.sroa.17.0864, %if.then.i186 ], [ %newLeafNodes.sroa.17.0864, %if.then64 ], [ %cond.i.i189, %if.then3.i.i.i209 ], [ %cond.i.i189, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200 ]
+  %newLeafNodes.sroa.24.7 = phi ptr [ %newLeafNodes.sroa.24.2865, %if.then.i186 ], [ %newLeafNodes.sroa.24.2865, %if.then64 ], [ %retval.0.i.i.i198, %if.then3.i.i.i209 ], [ %retval.0.i.i.i198, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i200 ]
   %idxprom.i183 = sext i32 %newLeafNodes.sroa.0.0863 to i64
-  %arrayidx.i184 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.4, i64 %idxprom.i183
+  %arrayidx.i184 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.7, i64 %idxprom.i183
   %21 = load ptr, ptr %arrayidx.i177, align 8
   store ptr %21, ptr %arrayidx.i184, align 8
   %retval.sroa.0.0.insert.insert.i226 = or disjoint i64 %indvars.iv933, -4294967296
@@ -29777,7 +29777,7 @@ for.body.lr.ph.i.i.i259:                          ; preds = %_ZN20btAlignedObjec
 for.body.i.i.i262:                                ; preds = %for.body.i.i.i262, %for.body.lr.ph.i.i.i259
   %indvars.iv.i.i.i263 = phi i64 [ 0, %for.body.lr.ph.i.i.i259 ], [ %indvars.iv.next.i.i.i266, %for.body.i.i.i262 ]
   %arrayidx.i.i.i264 = getelementptr inbounds %"struct.std::pair", ptr %retval.0.i.i.i247, i64 %indvars.iv.i.i.i263
-  %arrayidx3.i.i.i265 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.1860, i64 %indvars.iv.i.i.i263
+  %arrayidx3.i.i.i265 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.2860, i64 %indvars.iv.i.i.i263
   %22 = load i64, ptr %arrayidx3.i.i.i265, align 4
   store i64 %22, ptr %arrayidx.i.i.i264, align 4
   %indvars.iv.next.i.i.i266 = add nuw nsw i64 %indvars.iv.i.i.i263, 1
@@ -29785,38 +29785,38 @@ for.body.i.i.i262:                                ; preds = %for.body.i.i.i262, 
   br i1 %exitcond.not.i.i.i267, label %if.then3.i.i.i258, label %for.body.i.i.i262, !llvm.loop !370
 
 _ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249: ; preds = %_ZN20btAlignedObjectArrayISt4pairIiiEE8allocateEi.exit.i.i246
-  %tobool.not.i6.i.i251 = icmp eq ptr %childIds.sroa.20.1860, null
+  %tobool.not.i6.i.i251 = icmp eq ptr %childIds.sroa.20.2860, null
   br i1 %tobool.not.i6.i.i251, label %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271, label %if.then3.i.i.i258
 
 if.then3.i.i.i258:                                ; preds = %for.body.i.i.i262, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.1860)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.2860)
           to label %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271: ; preds = %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249, %if.then3.i.i.i258, %invoke.cont70, %if.then.i235
-  %childIds.sroa.20.4 = phi ptr [ %childIds.sroa.20.1860, %if.then.i235 ], [ %childIds.sroa.20.1860, %invoke.cont70 ], [ %retval.0.i.i.i247, %if.then3.i.i.i258 ], [ %retval.0.i.i.i247, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249 ]
-  %childIds.sroa.13.3 = phi i32 [ %childIds.sroa.0.0862, %if.then.i235 ], [ %childIds.sroa.13.0861, %invoke.cont70 ], [ %cond.i.i238, %if.then3.i.i.i258 ], [ %cond.i.i238, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249 ]
+  %childIds.sroa.20.7 = phi ptr [ %childIds.sroa.20.2860, %if.then.i235 ], [ %childIds.sroa.20.2860, %invoke.cont70 ], [ %retval.0.i.i.i247, %if.then3.i.i.i258 ], [ %retval.0.i.i.i247, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249 ]
+  %childIds.sroa.13.5 = phi i32 [ %childIds.sroa.0.0862, %if.then.i235 ], [ %childIds.sroa.13.0861, %invoke.cont70 ], [ %cond.i.i238, %if.then3.i.i.i258 ], [ %cond.i.i238, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i249 ]
   %idxprom.i232 = sext i32 %childIds.sroa.0.0862 to i64
-  %arrayidx.i233 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.4, i64 %idxprom.i232
+  %arrayidx.i233 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.7, i64 %idxprom.i232
   store i64 %retval.sroa.0.0.insert.insert.i226, ptr %arrayidx.i233, align 4
   br label %if.end73
 
 if.end73:                                         ; preds = %invoke.cont56, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271
-  %childIds.sroa.20.5 = phi ptr [ %childIds.sroa.20.2, %invoke.cont56 ], [ %childIds.sroa.20.4, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
-  %childIds.sroa.13.4 = phi i32 [ %childIds.sroa.13.1, %invoke.cont56 ], [ %childIds.sroa.13.3, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
-  %newLeafNodes.sroa.17.4 = phi i32 [ %newLeafNodes.sroa.17.1, %invoke.cont56 ], [ %newLeafNodes.sroa.17.3, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
-  %newLeafNodes.sroa.24.5 = phi ptr [ %newLeafNodes.sroa.24.2, %invoke.cont56 ], [ %newLeafNodes.sroa.24.4, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
+  %childIds.sroa.20.4 = phi ptr [ %childIds.sroa.20.6, %invoke.cont56 ], [ %childIds.sroa.20.7, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
+  %childIds.sroa.13.2 = phi i32 [ %childIds.sroa.13.4, %invoke.cont56 ], [ %childIds.sroa.13.5, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
+  %newLeafNodes.sroa.17.2 = phi i32 [ %newLeafNodes.sroa.17.4, %invoke.cont56 ], [ %newLeafNodes.sroa.17.5, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
+  %newLeafNodes.sroa.24.4 = phi ptr [ %newLeafNodes.sroa.24.6, %invoke.cont56 ], [ %newLeafNodes.sroa.24.7, %_ZN20btAlignedObjectArrayISt4pairIiiEE9push_backERKS1_.exit271 ]
   %newLeafNodes.sroa.0.2 = add nsw i32 %newLeafNodes.sroa.0.0863, 1
   %childIds.sroa.0.2 = add nsw i32 %childIds.sroa.0.0862, 1
   store i8 1, ptr %arrayidx.i65, align 1
   br label %for.inc76
 
 for.inc76:                                        ; preds = %for.body14, %if.end73
-  %childIds.sroa.20.6 = phi ptr [ %childIds.sroa.20.1860, %for.body14 ], [ %childIds.sroa.20.5, %if.end73 ]
-  %childIds.sroa.13.5 = phi i32 [ %childIds.sroa.13.0861, %for.body14 ], [ %childIds.sroa.13.4, %if.end73 ]
-  %childIds.sroa.0.3 = phi i32 [ %childIds.sroa.0.0862, %for.body14 ], [ %childIds.sroa.0.2, %if.end73 ]
-  %newLeafNodes.sroa.0.3 = phi i32 [ %newLeafNodes.sroa.0.0863, %for.body14 ], [ %newLeafNodes.sroa.0.2, %if.end73 ]
-  %newLeafNodes.sroa.17.5 = phi i32 [ %newLeafNodes.sroa.17.0864, %for.body14 ], [ %newLeafNodes.sroa.17.4, %if.end73 ]
-  %newLeafNodes.sroa.24.6 = phi ptr [ %newLeafNodes.sroa.24.1865, %for.body14 ], [ %newLeafNodes.sroa.24.5, %if.end73 ]
+  %childIds.sroa.20.3 = phi ptr [ %childIds.sroa.20.2860, %for.body14 ], [ %childIds.sroa.20.4, %if.end73 ]
+  %childIds.sroa.13.1 = phi i32 [ %childIds.sroa.13.0861, %for.body14 ], [ %childIds.sroa.13.2, %if.end73 ]
+  %childIds.sroa.0.1 = phi i32 [ %childIds.sroa.0.0862, %for.body14 ], [ %childIds.sroa.0.2, %if.end73 ]
+  %newLeafNodes.sroa.0.1 = phi i32 [ %newLeafNodes.sroa.0.0863, %for.body14 ], [ %newLeafNodes.sroa.0.2, %if.end73 ]
+  %newLeafNodes.sroa.17.1 = phi i32 [ %newLeafNodes.sroa.17.0864, %for.body14 ], [ %newLeafNodes.sroa.17.2, %if.end73 ]
+  %newLeafNodes.sroa.24.3 = phi ptr [ %newLeafNodes.sroa.24.2865, %for.body14 ], [ %newLeafNodes.sroa.24.4, %if.end73 ]
   %indvars.iv.next934 = add nuw nsw i64 %indvars.iv933, 1
   %exitcond938.not = icmp eq i64 %indvars.iv.next934, %wide.trip.count937
   br i1 %exitcond938.not, label %invoke.cont82, label %for.body14, !llvm.loop !371
@@ -29826,7 +29826,7 @@ invoke.cont82:                                    ; preds = %for.inc76
   store ptr null, ptr %m_data.i.i277, align 8
   store i32 0, ptr %m_size.i.i278, align 4
   store i32 0, ptr %m_capacity.i.i279, align 8
-  invoke void @_ZN20btAlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %newAdj, i32 noundef %newLeafNodes.sroa.0.3, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp81)
+  invoke void @_ZN20btAlignedObjectArrayIS_IiEE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %newAdj, i32 noundef %newLeafNodes.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp81)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -29855,12 +29855,12 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %invoke.cont84, %if.
   store ptr null, ptr %m_data.i.i277, align 8
   store i32 0, ptr %m_size.i.i278, align 4
   store i32 0, ptr %m_capacity.i.i279, align 8
-  %cmp89877 = icmp sgt i32 %newLeafNodes.sroa.0.3, 0
+  %cmp89877 = icmp sgt i32 %newLeafNodes.sroa.0.1, 0
   br i1 %cmp89877, label %for.cond92.preheader.preheader, label %for.end172
 
 for.cond92.preheader.preheader:                   ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit
-  %27 = zext nneg i32 %newLeafNodes.sroa.0.3 to i64
-  %wide.trip.count959 = zext nneg i32 %newLeafNodes.sroa.0.3 to i64
+  %27 = zext nneg i32 %newLeafNodes.sroa.0.1 to i64
+  %wide.trip.count959 = zext nneg i32 %newLeafNodes.sroa.0.1 to i64
   br label %for.cond92.preheader
 
 for.cond92.preheader:                             ; preds = %for.cond92.preheader.preheader, %for.inc170
@@ -29871,7 +29871,7 @@ for.cond92.preheader:                             ; preds = %for.cond92.preheade
   br i1 %cmp95874, label %for.body96.lr.ph, label %for.inc170
 
 for.body96.lr.ph:                                 ; preds = %for.cond92.preheader
-  %arrayidx.i291 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.6, i64 %indvars.iv956
+  %arrayidx.i291 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.3, i64 %indvars.iv956
   %second125 = getelementptr inbounds i8, ptr %arrayidx.i291, i64 4
   %28 = trunc nuw nsw i64 %indvars.iv956 to i32
   br label %for.body96
@@ -29890,7 +29890,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
 for.body105.lr.ph:                                ; preds = %for.body96
   %m_data.i296 = getelementptr inbounds i8, ptr %arrayidx.i294, i64 16
   %32 = load ptr, ptr %m_data.i296, align 8
-  %arrayidx.i301 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.6, i64 %indvars.iv951
+  %arrayidx.i301 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.3, i64 %indvars.iv951
   %33 = load i32, ptr %arrayidx.i301, align 4
   %second = getelementptr inbounds i8, ptr %arrayidx.i301, i64 4
   %wide.trip.count942 = zext nneg i32 %31 to i64
@@ -29935,7 +29935,7 @@ if.then127:                                       ; preds = %land.lhs.true
 for.body138.lr.ph:                                ; preds = %if.then127
   %m_data.i318 = getelementptr inbounds i8, ptr %arrayidx.i316, i64 16
   %39 = load ptr, ptr %m_data.i318, align 8
-  %arrayidx.i323 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.6, i64 %indvars.iv951
+  %arrayidx.i323 = getelementptr inbounds %"struct.std::pair", ptr %childIds.sroa.20.3, i64 %indvars.iv951
   %40 = load i32, ptr %arrayidx.i323, align 4
   %second150 = getelementptr inbounds i8, ptr %arrayidx.i323, i64 4
   %wide.trip.count947 = zext nneg i32 %38 to i64
@@ -30146,20 +30146,20 @@ for.inc170:                                       ; preds = %for.inc167, %for.co
 
 for.end172:                                       ; preds = %for.inc170, %_ZN20btAlignedObjectArrayIiED2Ev.exit
   %66 = load i32, ptr %m_size.i, align 4
-  %cmp3.i.i.i = icmp slt i32 %66, %newLeafNodes.sroa.0.3
+  %cmp3.i.i.i = icmp slt i32 %66, %newLeafNodes.sroa.0.1
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_ZN20btAlignedObjectArrayIP10btDbvtNodeE6resizeEiRKS1_.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %for.end172
   %67 = load i32, ptr %m_capacity.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i32 %67, %newLeafNodes.sroa.0.3
+  %cmp.i.i.i.i = icmp slt i32 %67, %newLeafNodes.sroa.0.1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %for.body8.lr.ph.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i.i
-  %tobool.not.i.i.i.i.i = icmp eq i32 %newLeafNodes.sroa.0.3, 0
+  %tobool.not.i.i.i.i.i = icmp eq i32 %newLeafNodes.sroa.0.1, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN20btAlignedObjectArrayIP10btDbvtNodeE8allocateEi.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %conv.i.i.i.i.i.i = sext i32 %newLeafNodes.sroa.0.3 to i64
+  %conv.i.i.i.i.i.i = sext i32 %newLeafNodes.sroa.0.1 to i64
   %mul.i.i.i.i.i.i = shl nsw i64 %conv.i.i.i.i.i.i, 3
   %call.i.i.i.i.i.i434 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i.i.i, i32 noundef 16)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -30206,12 +30206,12 @@ if.then3.i.i.i.i.i:                               ; preds = %if.then.i7.i.i.i.i
 if.end.i.i.i:                                     ; preds = %if.then3.i.i.i.i.i, %if.then.i7.i.i.i.i, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i.i.i
   store i8 1, ptr %m_ownsMemory.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i.i, ptr %m_data.i85, align 8
-  store i32 %newLeafNodes.sroa.0.3, ptr %m_capacity.i.i.i.i.i, align 8
+  store i32 %newLeafNodes.sroa.0.1, ptr %m_capacity.i.i.i.i.i, align 8
   br label %for.body8.lr.ph.i.i.i
 
 for.body8.lr.ph.i.i.i:                            ; preds = %if.end.i.i.i, %if.then4.i.i.i
   %73 = sext i32 %66 to i64
-  %wide.trip.count.i.i.i430 = sext i32 %newLeafNodes.sroa.0.3 to i64
+  %wide.trip.count.i.i.i430 = sext i32 %newLeafNodes.sroa.0.1 to i64
   br label %for.body8.i.i.i
 
 for.body8.i.i.i:                                  ; preds = %for.body8.i.i.i, %for.body8.lr.ph.i.i.i
@@ -30224,18 +30224,18 @@ for.body8.i.i.i:                                  ; preds = %for.body8.i.i.i, %f
   br i1 %exitcond.not.i.i.i433, label %_ZN20btAlignedObjectArrayIP10btDbvtNodeE6resizeEiRKS1_.exit.i.i, label %for.body8.i.i.i, !llvm.loop !376
 
 _ZN20btAlignedObjectArrayIP10btDbvtNodeE6resizeEiRKS1_.exit.i.i: ; preds = %for.body8.i.i.i, %for.end172
-  store i32 %newLeafNodes.sroa.0.3, ptr %m_size.i, align 4
+  store i32 %newLeafNodes.sroa.0.1, ptr %m_size.i, align 4
   %75 = load ptr, ptr %m_data.i85, align 8
   br i1 %cmp89877, label %for.body.lr.ph.i.i.i425, label %invoke.cont173
 
 for.body.lr.ph.i.i.i425:                          ; preds = %_ZN20btAlignedObjectArrayIP10btDbvtNodeE6resizeEiRKS1_.exit.i.i
-  %wide.trip.count.i3.i.i = zext nneg i32 %newLeafNodes.sroa.0.3 to i64
+  %wide.trip.count.i3.i.i = zext nneg i32 %newLeafNodes.sroa.0.1 to i64
   br label %for.body.i.i.i427
 
 for.body.i.i.i427:                                ; preds = %for.body.i.i.i427, %for.body.lr.ph.i.i.i425
   %indvars.iv.i4.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i425 ], [ %indvars.iv.next.i5.i.i, %for.body.i.i.i427 ]
   %arrayidx.i.i.i428 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv.i4.i.i
-  %arrayidx3.i.i.i429 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.6, i64 %indvars.iv.i4.i.i
+  %arrayidx3.i.i.i429 = getelementptr inbounds ptr, ptr %newLeafNodes.sroa.24.3, i64 %indvars.iv.i4.i.i
   %76 = load ptr, ptr %arrayidx3.i.i.i429, align 8
   store ptr %76, ptr %arrayidx.i.i.i428, align 8
   %indvars.iv.next.i5.i.i = add nuw nsw i64 %indvars.iv.i4.i.i, 1
@@ -30556,11 +30556,11 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit:        ; preds = %_ZN20btAlignedObjec
   store ptr null, ptr %m_data.i.i57, align 8
   store i32 0, ptr %m_size.i.i58, align 4
   store i32 0, ptr %m_capacity.i.i59, align 8
-  %tobool.not.i.i.i542 = icmp eq ptr %childIds.sroa.20.6, null
+  %tobool.not.i.i.i542 = icmp eq ptr %childIds.sroa.20.3, null
   br i1 %tobool.not.i.i.i542, label %_ZN20btAlignedObjectArrayISt4pairIiiEED2Ev.exit, label %if.then3.i.i.i549
 
 if.then3.i.i.i549:                                ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.6)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.3)
           to label %_ZN20btAlignedObjectArrayISt4pairIiiEED2Ev.exit unwind label %terminate.lpad.i550
 
 terminate.lpad.i550:                              ; preds = %if.then3.i.i.i549
@@ -30571,11 +30571,11 @@ terminate.lpad.i550:                              ; preds = %if.then3.i.i.i549
   unreachable
 
 _ZN20btAlignedObjectArrayISt4pairIiiEED2Ev.exit:  ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit, %if.then3.i.i.i549
-  %tobool.not.i.i.i552 = icmp eq ptr %newLeafNodes.sroa.24.6, null
+  %tobool.not.i.i.i552 = icmp eq ptr %newLeafNodes.sroa.24.3, null
   br i1 %tobool.not.i.i.i552, label %_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit, label %if.then3.i.i.i559
 
 if.then3.i.i.i559:                                ; preds = %_ZN20btAlignedObjectArrayISt4pairIiiEED2Ev.exit
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.6)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.3)
           to label %_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit unwind label %terminate.lpad.i560
 
 terminate.lpad.i560:                              ; preds = %if.then3.i.i.i559
@@ -30605,9 +30605,9 @@ _ZN20btAlignedObjectArrayIbED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   br i1 %cmp1, label %if.then.i.i.i, label %while.end, !llvm.loop !379
 
 ehcleanup:                                        ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad6.loopexit.split-lp.loopexit, %lpad180, %lpad83
-  %childIds.sroa.20.7 = phi ptr [ %childIds.sroa.20.6, %lpad180 ], [ %childIds.sroa.20.6, %lpad83 ], [ %childIds.sroa.20.6, %lpad6.loopexit ], [ %childIds.sroa.20.6, %lpad6.loopexit.split-lp.loopexit ], [ %childIds.sroa.20.1860, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %childIds.sroa.20.0.ph.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %newLeafNodes.sroa.24.7 = phi ptr [ %newLeafNodes.sroa.24.6, %lpad180 ], [ %newLeafNodes.sroa.24.6, %lpad83 ], [ %newLeafNodes.sroa.24.6, %lpad6.loopexit ], [ %newLeafNodes.sroa.24.6, %lpad6.loopexit.split-lp.loopexit ], [ %newLeafNodes.sroa.24.0.ph.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %newLeafNodes.sroa.24.0.ph.ph.ph744, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %marked.sroa.11.3 = phi ptr [ %call.i.i.i.i62, %lpad180 ], [ %call.i.i.i.i62, %lpad83 ], [ %call.i.i.i.i62, %lpad6.loopexit ], [ %call.i.i.i.i62, %lpad6.loopexit.split-lp.loopexit ], [ %call.i.i.i.i62, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %marked.sroa.11.2.ph.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %childIds.sroa.20.1 = phi ptr [ %childIds.sroa.20.3, %lpad180 ], [ %childIds.sroa.20.3, %lpad83 ], [ %childIds.sroa.20.3, %lpad6.loopexit ], [ %childIds.sroa.20.3, %lpad6.loopexit.split-lp.loopexit ], [ %childIds.sroa.20.2860, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %childIds.sroa.20.0.ph.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %newLeafNodes.sroa.24.1 = phi ptr [ %newLeafNodes.sroa.24.3, %lpad180 ], [ %newLeafNodes.sroa.24.3, %lpad83 ], [ %newLeafNodes.sroa.24.3, %lpad6.loopexit ], [ %newLeafNodes.sroa.24.3, %lpad6.loopexit.split-lp.loopexit ], [ %newLeafNodes.sroa.24.0.ph.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %newLeafNodes.sroa.24.0.ph.ph.ph744, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %marked.sroa.11.1 = phi ptr [ %call.i.i.i.i62, %lpad180 ], [ %call.i.i.i.i62, %lpad83 ], [ %call.i.i.i.i62, %lpad6.loopexit ], [ %call.i.i.i.i62, %lpad6.loopexit.split-lp.loopexit ], [ %call.i.i.i.i62, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %marked.sroa.11.0.ph.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %113, %lpad180 ], [ %36, %lpad83 ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit741, %lpad6.loopexit.split-lp.loopexit ], [ %lpad.loopexit745, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %135 = load i32, ptr %m_size.i.i58, align 4
   %cmp3.i.i.i572 = icmp sgt i32 %135, 0
@@ -30681,11 +30681,11 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit601:     ; preds = %_ZN20btAlignedObjec
   store ptr null, ptr %m_data.i.i57, align 8
   store i32 0, ptr %m_size.i.i58, align 4
   store i32 0, ptr %m_capacity.i.i59, align 8
-  %tobool.not.i.i.i603 = icmp eq ptr %childIds.sroa.20.7, null
+  %tobool.not.i.i.i603 = icmp eq ptr %childIds.sroa.20.1, null
   br i1 %tobool.not.i.i.i603, label %ehcleanup212, label %if.then3.i.i.i610
 
 if.then3.i.i.i610:                                ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit601
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.7)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %childIds.sroa.20.1)
           to label %ehcleanup212 unwind label %terminate.lpad.i611
 
 terminate.lpad.i611:                              ; preds = %if.then3.i.i.i610
@@ -30696,11 +30696,11 @@ terminate.lpad.i611:                              ; preds = %if.then3.i.i.i610
   unreachable
 
 ehcleanup212:                                     ; preds = %if.then3.i.i.i610, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit601
-  %tobool.not.i.i.i614 = icmp eq ptr %newLeafNodes.sroa.24.7, null
+  %tobool.not.i.i.i614 = icmp eq ptr %newLeafNodes.sroa.24.1, null
   br i1 %tobool.not.i.i.i614, label %ehcleanup213, label %if.then3.i.i.i621
 
 if.then3.i.i.i621:                                ; preds = %ehcleanup212
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.7)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %newLeafNodes.sroa.24.1)
           to label %ehcleanup213 unwind label %terminate.lpad.i622
 
 terminate.lpad.i622:                              ; preds = %if.then3.i.i.i621
@@ -30711,11 +30711,11 @@ terminate.lpad.i622:                              ; preds = %if.then3.i.i.i621
   unreachable
 
 ehcleanup213:                                     ; preds = %if.then3.i.i.i621, %ehcleanup212
-  %tobool.not.i.i.i625 = icmp eq ptr %marked.sroa.11.3, null
+  %tobool.not.i.i.i625 = icmp eq ptr %marked.sroa.11.1, null
   br i1 %tobool.not.i.i.i625, label %_ZN20btAlignedObjectArrayIbED2Ev.exit634, label %if.then3.i.i.i632
 
 if.then3.i.i.i632:                                ; preds = %ehcleanup213
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %marked.sroa.11.3)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %marked.sroa.11.1)
           to label %_ZN20btAlignedObjectArrayIbED2Ev.exit634 unwind label %terminate.lpad.i633
 
 terminate.lpad.i633:                              ; preds = %if.then3.i.i.i632

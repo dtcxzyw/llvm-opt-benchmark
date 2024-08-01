@@ -39,7 +39,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.preheader253
 
 .preheader253:                                    ; preds = %.preheader253.backedge, %.preheader253.lr.ph
-  %.0171326 = phi ptr [ %5, %.preheader253.lr.ph ], [ %.11, %.preheader253.backedge ]
+  %.0171326 = phi ptr [ %5, %.preheader253.lr.ph ], [ %.4, %.preheader253.backedge ]
   %.0172325 = phi i1 [ false, %.preheader253.lr.ph ], [ %.0172325.be, %.preheader253.backedge ]
   %.0174324 = phi i1 [ true, %.preheader253.lr.ph ], [ %.0174324.be, %.preheader253.backedge ]
   %.0177323 = phi i1 [ false, %.preheader253.lr.ph ], [ %.0177323.be, %.preheader253.backedge ]
@@ -95,8 +95,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.loopexit255
 
 33:                                               ; preds = %24, %35
-  %.2 = phi ptr [ %.1, %24 ], [ %36, %35 ]
-  %34 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.3 = phi ptr [ %.1, %24 ], [ %36, %35 ]
+  %34 = getelementptr inbounds i8, ptr %.3, i64 1
   br label %.loopexit255
 
 35:                                               ; preds = %24
@@ -106,8 +106,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %38, label %33, label %.loopexit255
 
 .preheader251:                                    ; preds = %.backedge, %.preheader251
-  %.3 = phi ptr [ %39, %.preheader251 ], [ %.1, %.backedge ]
-  %39 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.2 = phi ptr [ %39, %.preheader251 ], [ %.1, %.backedge ]
+  %39 = getelementptr inbounds i8, ptr %.2, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds [256 x i8], ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 0, i64 %41
@@ -116,8 +116,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %.not210, label %.loopexit252, label %.preheader251
 
 .loopexit252:                                     ; preds = %.preheader251, %173, %172, %172, %137, %136, %136, %.loopexit
-  %.4 = phi ptr [ %72, %.loopexit ], [ %134, %136 ], [ %134, %137 ], [ %167, %172 ], [ %167, %173 ], [ %134, %136 ], [ %167, %172 ], [ %39, %.preheader251 ]
-  %44 = ptrtoint ptr %.4 to i64
+  %.5 = phi ptr [ %72, %.loopexit ], [ %134, %136 ], [ %134, %137 ], [ %167, %172 ], [ %167, %173 ], [ %134, %136 ], [ %167, %172 ], [ %39, %.preheader251 ]
+  %44 = ptrtoint ptr %.5 to i64
   %45 = ptrtoint ptr %.1 to i64
   %46 = sub i64 %44, %45
   %47 = icmp ult ptr %.0182, %.1
@@ -135,7 +135,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 .backedge.backedge:                               ; preds = %.loopexit252._crit_edge, %68, %._crit_edge386, %104, %125
   %.0182.be = phi ptr [ %50, %.loopexit252._crit_edge ], [ %70, %68 ], [ %92, %._crit_edge386 ], [ %108, %104 ], [ %129, %125 ]
-  %.1.be = phi ptr [ %.4, %.loopexit252._crit_edge ], [ %69, %68 ], [ %81, %._crit_edge386 ], [ %94, %104 ], [ %110, %125 ]
+  %.1.be = phi ptr [ %.5, %.loopexit252._crit_edge ], [ %69, %68 ], [ %81, %._crit_edge386 ], [ %94, %104 ], [ %110, %125 ]
   br label %.backedge, !llvm.loop !5
 
 51:                                               ; preds = %27
@@ -187,12 +187,12 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.backedge.backedge
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %143
-  %71 = getelementptr inbounds i8, ptr %.10, i64 1
+  %71 = getelementptr inbounds i8, ptr %.11, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %178, %.loopexit.loopexit.split.loop.exit, %173, %172, %137, %136, %67, %62, %61, %176, %140, %65
-  %.5 = phi ptr [ %56, %65 ], [ %134, %136 ], [ %141, %140 ], [ %167, %172 ], [ %167, %176 ], [ %56, %61 ], [ %56, %62 ], [ %56, %67 ], [ %134, %137 ], [ %167, %173 ], [ %71, %.loopexit.loopexit.split.loop.exit ], [ %167, %178 ]
-  %72 = getelementptr inbounds i8, ptr %.5, i64 1
+  %.6 = phi ptr [ %56, %65 ], [ %134, %136 ], [ %141, %140 ], [ %167, %172 ], [ %167, %176 ], [ %56, %61 ], [ %56, %62 ], [ %56, %67 ], [ %134, %137 ], [ %167, %173 ], [ %71, %.loopexit.loopexit.split.loop.exit ], [ %167, %178 ]
+  %72 = getelementptr inbounds i8, ptr %.6, i64 1
   br label %.loopexit252
 
 .loopexit256:                                     ; preds = %61, %76
@@ -208,8 +208,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %79, label %.loopexit256, label %.loopexit255
 
 80:                                               ; preds = %173, %62
-  %.7 = phi ptr [ %56, %62 ], [ %167, %173 ]
-  %81 = getelementptr inbounds i8, ptr %.7, i64 1
+  %.8 = phi ptr [ %56, %62 ], [ %167, %173 ]
+  %81 = getelementptr inbounds i8, ptr %.8, i64 1
   %82 = ptrtoint ptr %81 to i64
   %83 = ptrtoint ptr %.1 to i64
   %84 = sub i64 %82, %83
@@ -231,8 +231,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.backedge.backedge
 
 93:                                               ; preds = %176, %140, %65
-  %.8 = phi ptr [ %56, %65 ], [ %141, %140 ], [ %167, %176 ]
-  %94 = getelementptr inbounds i8, ptr %.8, i64 1
+  %.9 = phi ptr [ %56, %65 ], [ %141, %140 ], [ %167, %176 ]
+  %94 = getelementptr inbounds i8, ptr %.9, i64 1
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %.1 to i64
   %97 = sub i64 %95, %96
@@ -258,12 +258,12 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.backedge.backedge
 
 .loopexit250.loopexit.split.loop.exit:            ; preds = %143
-  %109 = getelementptr inbounds i8, ptr %.10, i64 1
+  %109 = getelementptr inbounds i8, ptr %.11, i64 1
   br label %.loopexit250
 
 .loopexit250:                                     ; preds = %178, %.loopexit250.loopexit.split.loop.exit, %67
-  %.9 = phi ptr [ %56, %67 ], [ %109, %.loopexit250.loopexit.split.loop.exit ], [ %167, %178 ]
-  %110 = getelementptr inbounds i8, ptr %.9, i64 1
+  %.10 = phi ptr [ %56, %67 ], [ %109, %.loopexit250.loopexit.split.loop.exit ], [ %167, %178 ]
+  %110 = getelementptr inbounds i8, ptr %.10, i64 1
   %111 = load i8, ptr %110, align 1
   %112 = icmp ult i8 %111, 13
   br i1 %112, label %113, label %114
@@ -307,14 +307,14 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.backedge.backedge
 
 .preheader:                                       ; preds = %67, %178
-  %.10 = phi ptr [ %167, %178 ], [ %56, %67 ]
-  %130 = getelementptr inbounds i8, ptr %.10, i64 1
+  %.11 = phi ptr [ %167, %178 ], [ %56, %67 ]
+  %130 = getelementptr inbounds i8, ptr %.11, i64 1
   %131 = load i8, ptr %130, align 1
   %132 = icmp ult i8 %131, 33
   br i1 %132, label %133, label %138
 
 133:                                              ; preds = %.preheader
-  %134 = getelementptr inbounds i8, ptr %.10, i64 1
+  %134 = getelementptr inbounds i8, ptr %.11, i64 1
   %135 = icmp ult i8 %131, 11
   br i1 %135, label %136, label %137
 
@@ -335,7 +335,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %.10, i64 1
+  %141 = getelementptr inbounds i8, ptr %.11, i64 1
   %142 = icmp eq i8 %131, 35
   br i1 %142, label %93, label %.loopexit
 
@@ -346,7 +346,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   ]
 
 144:                                              ; preds = %113, %113, %113, %114, %114
-  %145 = getelementptr inbounds i8, ptr %.9, i64 2
+  %145 = getelementptr inbounds i8, ptr %.10, i64 2
   %146 = ptrtoint ptr %145 to i64
   %147 = ptrtoint ptr %.1 to i64
   %148 = xor i64 %147, -1
@@ -368,7 +368,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.loopexit255
 
 156:                                              ; preds = %137
-  %157 = getelementptr inbounds i8, ptr %.10, i64 2
+  %157 = getelementptr inbounds i8, ptr %.11, i64 2
   %158 = ptrtoint ptr %157 to i64
   %159 = ptrtoint ptr %.1 to i64
   %160 = sub i64 %158, %159
@@ -387,7 +387,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.loopexit255
 
 166:                                              ; preds = %143
-  %167 = getelementptr inbounds i8, ptr %.10, i64 2
+  %167 = getelementptr inbounds i8, ptr %.11, i64 2
   %168 = load i8, ptr %167, align 1
   %169 = icmp ult i8 %168, 33
   br i1 %169, label %170, label %174
@@ -429,7 +429,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 .loopexit255:                                     ; preds = %61, %.loopexit255.loopexit.split.loop.exit, %._crit_edge385, %76, %35, %.loopexit254, %._crit_edge384, %.loopexit256, %33, %30
   %.1183 = phi ptr [ %.0182, %.loopexit254 ], [ %.0182, %30 ], [ %.0182, %33 ], [ %.0182, %35 ], [ %.0182, %.loopexit256 ], [ %165, %._crit_edge384 ], [ %.0182, %76 ], [ %154, %._crit_edge385 ], [ %.0182, %.loopexit255.loopexit.split.loop.exit ], [ %.0182, %61 ]
   %.0181 = phi i1 [ false, %.loopexit254 ], [ false, %30 ], [ true, %33 ], [ false, %35 ], [ false, %.loopexit256 ], [ false, %._crit_edge384 ], [ false, %76 ], [ %155, %._crit_edge385 ], [ false, %.loopexit255.loopexit.split.loop.exit ], [ false, %61 ]
-  %.11 = phi ptr [ %32, %.loopexit254 ], [ %31, %30 ], [ %34, %33 ], [ %36, %35 ], [ %75, %.loopexit256 ], [ %157, %._crit_edge384 ], [ %56, %76 ], [ %145, %._crit_edge385 ], [ %179, %.loopexit255.loopexit.split.loop.exit ], [ %56, %61 ]
+  %.4 = phi ptr [ %32, %.loopexit254 ], [ %31, %30 ], [ %34, %33 ], [ %36, %35 ], [ %75, %.loopexit256 ], [ %157, %._crit_edge384 ], [ %56, %76 ], [ %145, %._crit_edge385 ], [ %179, %.loopexit255.loopexit.split.loop.exit ], [ %56, %61 ]
   %180 = ptrtoint ptr %.1183 to i64
   %181 = ptrtoint ptr %.0171326 to i64
   %182 = sub i64 %180, %181
@@ -633,7 +633,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit: ; preds = %.loopexit255
   %not..0181 = xor i1 %.0181, true
   %spec.select217 = select i1 %not..0181, i1 %.1178, i1 false
   %spec.select218 = select i1 %.0181, i1 true, i1 %.1175241
-  %262 = icmp ult ptr %.11, %7
+  %262 = icmp ult ptr %.4, %7
   br i1 %262, label %.preheader253.backedge, label %._crit_edge
 
 .preheader253.backedge:                           ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
@@ -645,7 +645,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit: ; preds = %.loopexit255
 _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread: ; preds = %191
   %not..0181402 = xor i1 %.0181, true
   %spec.select217403 = select i1 %not..0181402, i1 %.0177323, i1 false
-  %263 = icmp ult ptr %.11, %7
+  %263 = icmp ult ptr %.4, %7
   br i1 %263, label %.preheader253.backedge, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit

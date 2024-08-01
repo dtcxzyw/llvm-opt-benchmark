@@ -1843,32 +1843,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn14ReorgLayerImpl15getM
 
 .lr.ph.i.i.i:                                     ; preds = %57, %.lr.ph.i.i.preheader.i
   %.sroa.07.029.i.i.idx.i = phi i64 [ %.sroa.07.029.i.i.add.i, %57 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.add32.i, %.lr.ph.i.i.preheader.i ]
-  %.sroa.013.028.i.i.i.idx = phi i64 [ %.sroa.013.1.i.i.i.idx, %57 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.ph.i, %.lr.ph.i.i.preheader.i ]
+  %.sroa.013.128.i.i.i.idx = phi i64 [ %.sroa.013.2.i.i.i.idx, %57 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.ph.i, %.lr.ph.i.i.preheader.i ]
   %.sroa.07.029.i.i.ptr.i = getelementptr inbounds i8, ptr %44, i64 %.sroa.07.029.i.i.idx.i
   %54 = load i32, ptr %.sroa.07.029.i.i.ptr.i, align 4, !noalias !16
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %.lr.ph.i.i.i
-  %.sroa.013.028.i.i.i.ptr = getelementptr inbounds i8, ptr %44, i64 %.sroa.013.028.i.i.i.idx
-  store i32 %54, ptr %.sroa.013.028.i.i.i.ptr, align 4, !noalias !16
-  %.sroa.013.028.i.i.i.add = add nsw i64 %.sroa.013.028.i.i.i.idx, 4
+  %.sroa.013.128.i.i.i.ptr = getelementptr inbounds i8, ptr %44, i64 %.sroa.013.128.i.i.i.idx
+  store i32 %54, ptr %.sroa.013.128.i.i.i.ptr, align 4, !noalias !16
+  %.sroa.013.128.i.i.i.add = add nsw i64 %.sroa.013.128.i.i.i.idx, 4
   br label %57
 
 57:                                               ; preds = %56, %.lr.ph.i.i.i
-  %.sroa.013.1.i.i.i.idx = phi i64 [ %.sroa.013.028.i.i.i.idx, %.lr.ph.i.i.i ], [ %.sroa.013.028.i.i.i.add, %56 ]
+  %.sroa.013.2.i.i.i.idx = phi i64 [ %.sroa.013.128.i.i.i.idx, %.lr.ph.i.i.i ], [ %.sroa.013.128.i.i.i.add, %56 ]
   %.sroa.07.029.i.i.add.i = add nuw nsw i64 %.sroa.07.029.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.sroa.07.029.i.i.add.i, 16
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i: ; preds = %57
-  %.sroa.013.1.i.i.i.ptr = getelementptr inbounds i8, ptr %44, i64 %.sroa.013.1.i.i.i.idx
-  %.not.i.i8.i = icmp eq i64 %.sroa.013.1.i.i.i.idx, 16
+  %.sroa.013.2.i.i.i.ptr = getelementptr inbounds i8, ptr %44, i64 %.sroa.013.2.i.i.i.idx
+  %.not.i.i8.i = icmp eq i64 %.sroa.013.2.i.i.i.idx, 16
   br i1 %.not.i.i8.i, label %_ZN2cv3dnn14dnn4_v20240521L5shapeEiiii.exit, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %52, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i
-  %.sroa.013.2.i.i.i55 = phi ptr [ %.sroa.013.1.i.i.i.ptr, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i ], [ %.sroa.4.0..sroa_idx.ptr.i, %52 ]
-  %58 = ptrtoint ptr %.sroa.013.2.i.i.i55 to i64
+  %.sroa.013.0.i.i.i55 = phi ptr [ %.sroa.013.2.i.i.i.ptr, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i ], [ %.sroa.4.0..sroa_idx.ptr.i, %52 ]
+  %58 = ptrtoint ptr %.sroa.013.0.i.i.i55 to i64
   %59 = ptrtoint ptr %44 to i64
   %60 = sub i64 %58, %59
   %61 = getelementptr inbounds i8, ptr %44, i64 %60

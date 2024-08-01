@@ -11895,7 +11895,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %mem.043 = phi ptr [ %mem.040, %for.body.lr.ph ], [ %mem.0, %for.inc ]
-  %bits.042 = phi i32 [ 0, %for.body.lr.ph ], [ %bits.3, %for.inc ]
+  %bits.042 = phi i32 [ 0, %for.body.lr.ph ], [ %bits.1, %for.inc ]
   %is_bitfield = getelementptr inbounds i8, ptr %mem.043, i64 44
   %1 = load i8, ptr %is_bitfield, align 4
   %tobool1 = trunc i8 %1 to i1
@@ -11929,18 +11929,18 @@ if.then17:                                        ; preds = %if.then9
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.then9
-  %bits.1 = phi i32 [ %call19, %if.then17 ], [ %bits.042, %if.then9 ]
-  %div21 = sdiv i32 %bits.1, 8
+  %bits.2 = phi i32 [ %call19, %if.then17 ], [ %bits.042, %if.then9 ]
+  %div21 = sdiv i32 %bits.2, 8
   %reass.sub = sub i32 %div21, %4
   %add.i = add i32 %reass.sub, 1
   %call.i = tail call i32 @align_to(i32 noundef %add.i, i32 noundef %4) #13
   %offset = getelementptr inbounds i8, ptr %mem.043, i64 40
   store i32 %call.i, ptr %offset, align 8
-  %rem = srem i32 %bits.1, %mul
+  %rem = srem i32 %bits.2, %mul
   %bit_offset = getelementptr inbounds i8, ptr %mem.043, i64 48
   store i32 %rem, ptr %bit_offset, align 8
   %5 = load i32, ptr %bit_width, align 4
-  %add25 = add nsw i32 %5, %bits.1
+  %add25 = add nsw i32 %5, %bits.2
   br label %if.end39
 
 if.else26:                                        ; preds = %for.body
@@ -11956,8 +11956,8 @@ if.then28:                                        ; preds = %if.else26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.else26
-  %bits.2 = phi i32 [ %bits.042, %if.else26 ], [ %call30, %if.then28 ]
-  %div32 = sdiv i32 %bits.2, 8
+  %bits.3 = phi i32 [ %bits.042, %if.else26 ], [ %call30, %if.then28 ]
+  %div32 = sdiv i32 %bits.3, 8
   %offset33 = getelementptr inbounds i8, ptr %mem.043, i64 40
   store i32 %div32, ptr %offset33, align 8
   %ty34 = getelementptr inbounds i8, ptr %mem.043, i64 8
@@ -11965,11 +11965,11 @@ if.end31:                                         ; preds = %if.then28, %if.else
   %size35 = getelementptr inbounds i8, ptr %8, i64 4
   %9 = load i32, ptr %size35, align 4
   %mul36 = shl nsw i32 %9, 3
-  %add37 = add nsw i32 %mul36, %bits.2
+  %add37 = add nsw i32 %mul36, %bits.3
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end20, %if.end31, %if.then3
-  %bits.3 = phi i32 [ %call6, %if.then3 ], [ %add25, %if.end20 ], [ %add37, %if.end31 ]
+  %bits.1 = phi i32 [ %call6, %if.then3 ], [ %add25, %if.end20 ], [ %add37, %if.end31 ]
   %10 = load i8, ptr %is_packed, align 1
   %tobool41 = trunc i8 %10 to i1
   br i1 %tobool41, label %for.inc, label %land.lhs.true42
@@ -11991,7 +11991,7 @@ for.inc:                                          ; preds = %if.end39, %land.lhs
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !56
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %bits.0.lcssa = phi i32 [ 0, %if.end ], [ %bits.3, %for.inc ]
+  %bits.0.lcssa = phi i32 [ 0, %if.end ], [ %bits.1, %for.inc ]
   %align50 = getelementptr inbounds i8, ptr %call, i64 8
   %13 = load i32, ptr %align50, align 8
   %mul51 = shl nsw i32 %13, 3

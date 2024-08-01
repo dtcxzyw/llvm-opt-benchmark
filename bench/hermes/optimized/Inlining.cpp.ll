@@ -1568,7 +1568,7 @@ for.body94.i:                                     ; preds = %_ZN4llvh12DenseMapB
   %__begin287.sroa.0.0692.i = phi ptr [ %__begin287.sroa.0.0.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ], [ %__begin287.sroa.0.0687.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ]
   %returnValue.1691.i = phi ptr [ %returnValue.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ], [ %returnValue.0699.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ]
   %returnFrom.1690.i = phi ptr [ %returnFrom.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ], [ %returnFrom.0698.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ]
-  %inlineeParentScopeCreation.1689.i = phi ptr [ %inlineeParentScopeCreation.5.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ], [ %inlineeParentScopeCreation.0696.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ]
+  %inlineeParentScopeCreation.1689.i = phi ptr [ %inlineeParentScopeCreation.2.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ], [ %inlineeParentScopeCreation.0696.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ]
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin287.sroa.0.0692.i, i64 16
   %181 = load i8, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne i8 %181, 33
@@ -1702,7 +1702,7 @@ if.then.i271.i:                                   ; preds = %if.then124.i
   br i1 %cmp.not6.i.i, label %if.end137.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i271.i, %for.body.i.i
-  %inlineeParentScopeCreation.2.i = phi ptr [ %spec.select648.i, %for.body.i.i ], [ null, %if.then.i271.i ]
+  %inlineeParentScopeCreation.3.i = phi ptr [ %spec.select648.i, %for.body.i.i ], [ null, %if.then.i271.i ]
   %__begin3.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %201, %if.then.i271.i ]
   %203 = load ptr, ptr %__begin3.07.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %203, i64 16
@@ -1711,7 +1711,7 @@ for.body.i.i:                                     ; preds = %if.then.i271.i, %fo
   %206 = icmp ult i8 %205, -11
   %tobool7.not5.i.i = icmp eq ptr %203, null
   %tobool7.not.i.i = or i1 %tobool7.not5.i.i, %206
-  %spec.select648.i = select i1 %tobool7.not.i.i, ptr %inlineeParentScopeCreation.2.i, ptr %203
+  %spec.select648.i = select i1 %tobool7.not.i.i, ptr %inlineeParentScopeCreation.3.i, ptr %203
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.07.i.i, i64 8
   %cmp.not.i275.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i274.i
   br i1 %cmp.not.i275.i, label %if.end137.i, label %for.body.i.i
@@ -2195,7 +2195,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br label %if.end137.i
 
 if.end137.i:                                      ; preds = %for.body.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i, %if.else127.i, %if.then.i271.i, %if.then124.i, %if.end117.i, %if.then106.i
-  %inlineeParentScopeCreation.5.i = phi ptr [ %inlineeParentScopeCreation.1689.i, %if.then106.i ], [ %inlineeParentScopeCreation.1689.i, %if.end117.i ], [ %inlineeParentScopeCreation.1689.i, %if.else127.i ], [ %inlineeParentScopeCreation.1689.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i ], [ null, %if.then.i271.i ], [ %inlineeParentScopeCreation.1689.i, %if.then124.i ], [ %spec.select648.i, %for.body.i.i ]
+  %inlineeParentScopeCreation.2.i = phi ptr [ %inlineeParentScopeCreation.1689.i, %if.then106.i ], [ %inlineeParentScopeCreation.1689.i, %if.end117.i ], [ %inlineeParentScopeCreation.1689.i, %if.else127.i ], [ %inlineeParentScopeCreation.1689.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i ], [ null, %if.then.i271.i ], [ %inlineeParentScopeCreation.1689.i, %if.then124.i ], [ %spec.select648.i, %for.body.i.i ]
   %newInst.0.i = phi ptr [ %call104.i, %if.then106.i ], [ %call104.i, %if.end117.i ], [ %call128.i, %if.else127.i ], [ %call128.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i ], [ null, %if.then.i271.i ], [ %inlineeParentScopeCreation.1689.i, %if.then124.i ], [ %spec.select648.i, %for.body.i.i ]
   %returnFrom.3.i = phi ptr [ %180, %if.then106.i ], [ %returnFrom.2.i, %if.end117.i ], [ %returnFrom.1690.i, %if.else127.i ], [ %returnFrom.1690.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i ], [ %returnFrom.1690.i, %if.then.i271.i ], [ %returnFrom.1690.i, %if.then124.i ], [ %returnFrom.1690.i, %for.body.i.i ]
   %returnValue.3.i = phi ptr [ %195, %if.then106.i ], [ %returnValue.2.i, %if.end117.i ], [ %returnValue.1691.i, %if.else127.i ], [ %returnValue.1691.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit316.i ], [ %returnValue.1691.i, %if.then.i271.i ], [ %returnValue.1691.i, %if.then124.i ], [ %returnValue.1691.i, %for.body.i.i ]
@@ -2675,7 +2675,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS
   br i1 %cmp.i.not.i48, label %for.inc153.i, label %for.body94.i
 
 for.inc153.i:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i
-  %inlineeParentScopeCreation.1.lcssa.i = phi ptr [ %inlineeParentScopeCreation.0696.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %inlineeParentScopeCreation.5.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
+  %inlineeParentScopeCreation.1.lcssa.i = phi ptr [ %inlineeParentScopeCreation.0696.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %inlineeParentScopeCreation.2.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
   %returnFrom.1.lcssa.i = phi ptr [ %returnFrom.0698.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %returnFrom.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
   %returnValue.1.lcssa.i = phi ptr [ %returnValue.0699.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit253.i ], [ %returnValue.3.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit356.i ]
   %incdec.ptr154.i = getelementptr inbounds i8, ptr %__begin171.0697.i, i64 8

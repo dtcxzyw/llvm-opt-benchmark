@@ -3739,7 +3739,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit569:             ; preds = %1190, %1183, %_ZN5Y
 
 1278:                                             ; preds = %.lr.ph1164, %.loopexit992
   %indvars.iv1268 = phi i64 [ 0, %.lr.ph1164 ], [ %indvars.iv.next1269, %.loopexit992 ]
-  %.01611162 = phi i8 [ 1, %.lr.ph1164 ], [ %.011.i.i, %.loopexit992 ]
+  %.11621162 = phi i8 [ 1, %.lr.ph1164 ], [ %.011.i.i, %.loopexit992 ]
   %1279 = load ptr, ptr %1273, align 8
   %1280 = load ptr, ptr %1274, align 8
   %1281 = icmp eq ptr %1279, %1280
@@ -4074,7 +4074,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i590: ;
   br i1 %1452, label %.lr.ph.i.split.i588, label %.loopexit992, !llvm.loop !19
 
 .loopexit992:                                     ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i590, %1446, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i593, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i594, %._crit_edge.i.i585, %1290
-  %.011.i.i = phi i8 [ %.01611162, %._crit_edge.i.i585 ], [ %.01611162, %1290 ], [ %.01611162, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i593 ], [ 0, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i594 ], [ %.01611162, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i590 ], [ 0, %1446 ]
+  %.011.i.i = phi i8 [ %.11621162, %._crit_edge.i.i585 ], [ %.11621162, %1290 ], [ %.11621162, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i593 ], [ 0, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i594 ], [ %.11621162, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i590 ], [ 0, %1446 ]
   %indvars.iv.next1269 = add nuw nsw i64 %indvars.iv1268, 1
   %.not988 = icmp eq i64 %indvars.iv.next1269, %1277
   br i1 %.not988, label %.loopexit1002.loopexit, label %1278
@@ -4085,11 +4085,11 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i590: ;
 
 .loopexit1002:                                    ; preds = %.loopexit1002.loopexit, %1271, %1267, %1260
   %1453 = phi ptr [ %1263, %1267 ], [ %1263, %1260 ], [ %1263, %1271 ], [ %.pre1273, %.loopexit1002.loopexit ]
-  %.2163 = phi i8 [ 0, %1267 ], [ 0, %1260 ], [ 1, %1271 ], [ %.011.i.i, %.loopexit1002.loopexit ]
+  %.0161 = phi i8 [ 0, %1267 ], [ 0, %1260 ], [ 1, %1271 ], [ %.011.i.i, %.loopexit1002.loopexit ]
   %1454 = getelementptr inbounds i8, ptr %1453, i64 2
   %1455 = load i8, ptr %1454, align 1
   %1456 = trunc i8 %1455 to i1
-  %spec.select244 = select i1 %1456, i8 1, i8 %.2163
+  %spec.select244 = select i1 %1456, i8 1, i8 %.0161
   %1457 = getelementptr inbounds i8, ptr %1262, i64 64
   %1458 = getelementptr inbounds i8, ptr %1262, i64 72
   %1459 = load ptr, ptr %1458, align 8

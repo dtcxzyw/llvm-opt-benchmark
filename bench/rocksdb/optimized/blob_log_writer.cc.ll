@@ -725,7 +725,7 @@ lpad:                                             ; preds = %entry
   br label %ehcleanup69
 
 lpad3:                                            ; preds = %if.then.i56, %if.then, %if.then51, %if.then36, %if.then27, %if.then20, %if.else
-  %s.sroa.34.0 = phi ptr [ null, %if.then ], [ %s.sroa.34.1, %if.then.i56 ], [ %17, %if.then51 ], [ %17, %if.then36 ], [ %12, %if.then27 ], [ %7, %if.then20 ], [ null, %if.else ]
+  %s.sroa.34.0 = phi ptr [ null, %if.then ], [ %s.sroa.34.2, %if.then.i56 ], [ %17, %if.then51 ], [ %17, %if.then36 ], [ %12, %if.then27 ], [ %7, %if.then20 ], [ null, %if.else ]
   %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -924,7 +924,7 @@ if.end60:                                         ; preds = %if.then58, %invoke.
 if.end64:                                         ; preds = %invoke.cont25, %if.end49, %if.end60, %invoke.cont33, %invoke.cont18
   %s.sroa.0.0 = phi i8 [ 0, %if.end49 ], [ 0, %if.end60 ], [ %14, %invoke.cont33 ], [ %9, %invoke.cont25 ], [ %4, %invoke.cont18 ]
   %s.sroa.9.0 = phi i8 [ %15, %if.end49 ], [ %15, %if.end60 ], [ %15, %invoke.cont33 ], [ %10, %invoke.cont25 ], [ %5, %invoke.cont18 ]
-  %s.sroa.34.1 = phi ptr [ %17, %if.end49 ], [ %17, %if.end60 ], [ %17, %invoke.cont33 ], [ %12, %invoke.cont25 ], [ %7, %invoke.cont18 ]
+  %s.sroa.34.2 = phi ptr [ %17, %if.end49 ], [ %17, %if.end60 ], [ %17, %invoke.cont33 ], [ %12, %invoke.cont25 ], [ %7, %invoke.cont18 ]
   %22 = phi <4 x i8> [ %16, %if.end49 ], [ %16, %if.end60 ], [ %16, %invoke.cont33 ], [ %11, %invoke.cont25 ], [ %6, %invoke.cont18 ]
   %23 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
@@ -970,7 +970,7 @@ invoke.cont67:                                    ; preds = %_ZNSt10unique_ptrIN
   %scope_14.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   %29 = extractelement <4 x i8> %22, i64 3
   store i8 %29, ptr %scope_14.i.i, align 1
-  store ptr %s.sroa.34.1, ptr %state_.i.i59, align 8
+  store ptr %s.sroa.34.2, ptr %state_.i.i59, align 8
   br label %_ZN7rocksdb6StatusD2Ev.exit64
 
 _ZN7rocksdb6StatusD2Ev.exit64:                    ; preds = %if.then, %invoke.cont67
@@ -978,13 +978,13 @@ _ZN7rocksdb6StatusD2Ev.exit64:                    ; preds = %if.then, %invoke.co
   ret void
 
 ehcleanup:                                        ; preds = %lpad42.body, %lpad3
-  %s.sroa.34.2 = phi ptr [ %s.sroa.34.0, %lpad3 ], [ %17, %lpad42.body ]
+  %s.sroa.34.1 = phi ptr [ %s.sroa.34.0, %lpad3 ], [ %17, %lpad42.body ]
   %.pn = phi { ptr, i32 } [ %3, %lpad3 ], [ %eh.lpad-body, %lpad42.body ]
-  %cmp.not.i.i66 = icmp eq ptr %s.sroa.34.2, null
+  %cmp.not.i.i66 = icmp eq ptr %s.sroa.34.1, null
   br i1 %cmp.not.i.i66, label %ehcleanup69, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i67
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i67: ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %s.sroa.34.2) #14
+  call void @_ZdaPv(ptr noundef nonnull %s.sroa.34.1) #14
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i67, %ehcleanup, %lpad

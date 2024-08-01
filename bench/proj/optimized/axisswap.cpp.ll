@@ -196,7 +196,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %.loopexit150.loopexit, %.preheader149, %23
-  %.1134 = phi i32 [ 0, %23 ], [ 0, %.preheader149 ], [ %66, %.loopexit150.loopexit ]
+  %.0133 = phi i32 [ 0, %23 ], [ 0, %.preheader149 ], [ %66, %.loopexit150.loopexit ]
   %67 = load ptr, ptr %8, align 8
   %68 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %67, ptr noundef nonnull @.str.2)
   %.not143 = icmp eq ptr %68, null
@@ -252,7 +252,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %exitcond180.not, label %.loopexit, label %70, !llvm.loop !9
 
 .loopexit:                                        ; preds = %81, %.loopexit150
-  %.2135 = phi i32 [ %.1134, %.loopexit150 ], [ 3, %81 ]
+  %.2135 = phi i32 [ %.0133, %.loopexit150 ], [ 3, %81 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %95

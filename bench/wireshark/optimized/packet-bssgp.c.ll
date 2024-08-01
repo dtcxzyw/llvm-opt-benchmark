@@ -2942,17 +2942,17 @@ define internal noundef zeroext i16 @de_bssgp_sipsi_container(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %.13136 = phi i32 [ %15, %.lr.ph.preheader ], [ %24, %.lr.ph ]
+  %.236 = phi i32 [ %15, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %21 = load i32, ptr @hf_bssgp_psi, align 4
   %22 = add nuw nsw i32 %indvars.iv, 1
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %.13136, i32 noundef 22, ptr noundef null, ptr noundef nonnull @.str.463, i32 noundef %22) #4
-  %24 = add i32 %.13136, 22
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %.236, i32 noundef 22, ptr noundef null, ptr noundef nonnull @.str.463, i32 noundef %22) #4
+  %24 = add i32 %.236, 22
   %exitcond.not = icmp eq i32 %22, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %.preheader34, %.preheader
-  %.2 = phi i32 [ %15, %.preheader ], [ %15, %.preheader34 ], [ %20, %.lr.ph40 ], [ %24, %.lr.ph ]
-  %25 = sub i32 %.2, %3
+  %.131 = phi i32 [ %15, %.preheader ], [ %15, %.preheader34 ], [ %20, %.lr.ph40 ], [ %24, %.lr.ph ]
+  %25 = sub i32 %.131, %3
   %26 = trunc i32 %25 to i16
   ret i16 %26
 }

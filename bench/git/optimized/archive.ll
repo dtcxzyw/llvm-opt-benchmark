@@ -477,18 +477,18 @@ canon_mode.exit68:                                ; preds = %if.else81, %if.then
   br label %if.end90
 
 if.end90:                                         ; preds = %canon_mode.exit, %canon_mode.exit68
-  %err.1 = phi i32 [ %call89, %canon_mode.exit68 ], [ %call79, %canon_mode.exit ]
-  %tobool91.not = icmp eq i32 %err.1, 0
+  %err.2 = phi i32 [ %call89, %canon_mode.exit68 ], [ %call79, %canon_mode.exit ]
+  %tobool91.not = icmp eq i32 %err.2, 0
   br i1 %tobool91.not, label %for.cond, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond, %if.end90, %for.cond.preheader, %if.end90.thread
-  %err.2 = phi i32 [ -1, %if.end90.thread ], [ %spec.store.select, %for.cond.preheader ], [ 0, %for.cond ], [ %err.1, %if.end90 ]
+  %err.1 = phi i32 [ -1, %if.end90.thread ], [ %spec.store.select, %for.cond.preheader ], [ 0, %for.cond ], [ %err.2, %if.end90 ]
   call void @strbuf_release(ptr noundef nonnull %path_in_archive) #18
   call void @strbuf_release(ptr noundef nonnull %content) #18
   br label %return
 
 return:                                           ; preds = %if.then29, %if.end, %for.end
-  %retval.0 = phi i32 [ %err.2, %for.end ], [ %call18, %if.end ], [ -1, %if.then29 ]
+  %retval.0 = phi i32 [ %err.1, %for.end ], [ %call18, %if.end ], [ -1, %if.then29 ]
   ret i32 %retval.0
 }
 
@@ -2306,7 +2306,7 @@ if.then52:                                        ; preds = %cond.end
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %cond.end
-  %path.0 = phi ptr [ %call54, %if.then52 ], [ %cond, %cond.end ]
+  %path.1 = phi ptr [ %call54, %if.then52 ], [ %cond, %cond.end ]
   %stat56 = getelementptr inbounds i8, ptr %call, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stat56, i8 0, i64 144, i1 false)
   %st_mode58 = getelementptr inbounds i8, ptr %call, i64 32
@@ -2326,9 +2326,9 @@ if.else64:                                        ; preds = %if.else
   unreachable
 
 if.end67:                                         ; preds = %if.end55, %if.end18
-  %path.1 = phi ptr [ %path.0, %if.end55 ], [ %call9, %if.end18 ]
+  %path.0 = phi ptr [ %path.1, %if.end55 ], [ %call9, %if.end18 ]
   %extra_files68 = getelementptr inbounds i8, ptr %0, i64 112
-  %call69 = call ptr @string_list_append_nodup(ptr noundef nonnull %extra_files68, ptr noundef %path.1) #18
+  %call69 = call ptr @string_list_append_nodup(ptr noundef nonnull %extra_files68, ptr noundef %path.0) #18
   %util = getelementptr inbounds i8, ptr %call69, i64 8
   store ptr %call, ptr %util, align 8
   br label %return
@@ -2466,8 +2466,8 @@ if.then:                                          ; preds = %entry
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then, %entry
-  %ret.1 = phi i32 [ %spec.select, %if.then ], [ -1, %entry ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %spec.select, %if.then ], [ -1, %entry ]
+  ret i32 %ret.0
 }
 
 declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #1

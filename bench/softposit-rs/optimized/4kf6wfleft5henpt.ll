@@ -166,10 +166,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br label %52
 
 40:                                               ; preds = %49, %44, %26
-  %.0 = phi i64 [ %33, %26 ], [ %33, %44 ], [ %51, %49 ]
+  %.1 = phi i64 [ %33, %26 ], [ %33, %44 ], [ %51, %49 ]
   %41 = sub nuw nsw i32 62, %.2.i
   %42 = zext nneg i32 %41 to i64
-  %43 = lshr i64 %.0, %42
+  %43 = lshr i64 %.1, %42
   br label %52
 
 44:                                               ; preds = %26
@@ -185,8 +185,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br label %40
 
 52:                                               ; preds = %7, %5, %3, %1, %24, %35, %40
-  %.1 = phi i64 [ %43, %40 ], [ %39, %35 ], [ %22, %24 ], [ 0, %1 ], [ 1, %3 ], [ 2, %5 ], [ -1, %7 ]
-  ret i64 %.1
+  %.0 = phi i64 [ %43, %40 ], [ %39, %35 ], [ %22, %24 ], [ 0, %1 ], [ 1, %3 ], [ 2, %5 ], [ -1, %7 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable

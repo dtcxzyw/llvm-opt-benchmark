@@ -2117,10 +2117,10 @@ mbedtls_des_crypt_cbc.exit105.loopexit117:        ; preds = %212
   br label %.loopexit148
 
 .loopexit148:                                     ; preds = %227, %225, %226, %99, %100, %230
-  %not..11 = phi i32 [ 0, %230 ], [ 1, %100 ], [ 1, %99 ], [ 1, %226 ], [ 1, %225 ], [ 0, %227 ]
+  %not..2 = phi i32 [ 0, %230 ], [ 1, %100 ], [ 1, %99 ], [ 1, %226 ], [ 1, %225 ], [ 0, %227 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 128) #12
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 384) #12
-  ret i32 %not..11
+  ret i32 %not..2
 
 default.unreachable:                              ; preds = %22
   unreachable

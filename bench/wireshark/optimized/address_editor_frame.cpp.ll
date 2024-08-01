@@ -854,10 +854,10 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN16FieldInformati
           to label %_ZN7QStringD2Ev.exit24 unwind label %10
 
 _ZN7QStringD2Ev.exit24:                           ; preds = %68, %_ZN7QStringD2Ev.exit16, %70, %49, %_ZN7QStringD2Ev.exit11, %51, %_ZN16FieldInformation10HeaderInfoD2Ev.exit
-  %.sroa.031.1 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %41, %51 ], [ %41, %_ZN7QStringD2Ev.exit11 ], [ %41, %49 ], [ %60, %70 ], [ %60, %_ZN7QStringD2Ev.exit16 ], [ %60, %68 ]
+  %.sroa.031.2 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %41, %51 ], [ %41, %_ZN7QStringD2Ev.exit11 ], [ %41, %49 ], [ %60, %70 ], [ %60, %_ZN7QStringD2Ev.exit16 ], [ %60, %68 ]
   %.sroa.13.0 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %43, %51 ], [ %43, %_ZN7QStringD2Ev.exit11 ], [ %43, %49 ], [ %62, %70 ], [ %62, %_ZN7QStringD2Ev.exit16 ], [ %62, %68 ]
   %.sroa.21.0 = phi i64 [ 0, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %45, %51 ], [ %45, %_ZN7QStringD2Ev.exit11 ], [ %45, %49 ], [ %64, %70 ], [ %64, %_ZN7QStringD2Ev.exit16 ], [ %64, %68 ]
-  store ptr %.sroa.031.1, ptr %0, align 8
+  store ptr %.sroa.031.2, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.13.0, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16

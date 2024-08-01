@@ -252,8 +252,8 @@ if.end26:                                         ; preds = %if.else, %if.then5
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end26, %entry
-  %nErrorCount.1 = phi i32 [ 0, %entry ], [ 1, %if.end26 ]
-  ret i32 %nErrorCount.1
+  %nErrorCount.0 = phi i32 [ 0, %entry ], [ 1, %if.end26 ]
+  ret i32 %nErrorCount.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
@@ -3952,10 +3952,10 @@ while.body143.preheader:                          ; preds = %invoke.cont134, %if
   br label %while.body143
 
 while.body143:                                    ; preds = %while.body143.preheader, %if.end172
-  %nTestResult.0117 = phi i32 [ %spec.select, %if.end172 ], [ 0, %while.body143.preheader ]
-  %nTestCount.0116 = phi i64 [ %inc164, %if.end172 ], [ 0, %while.body143.preheader ]
+  %nTestResult.2117 = phi i32 [ %spec.select, %if.end172 ], [ 0, %while.body143.preheader ]
+  %nTestCount.2116 = phi i64 [ %inc164, %if.end172 ], [ 0, %while.body143.preheader ]
   %nArgIndex.1115 = phi i32 [ %nArgIndexNew.0, %if.end172 ], [ %nArgIndex.1115.ph, %while.body143.preheader ]
-  %bReport.0114 = phi i8 [ 1, %if.end172 ], [ %2, %while.body143.preheader ]
+  %bReport.2114 = phi i8 [ 1, %if.end172 ], [ %2, %while.body143.preheader ]
   %inc = add nuw nsw i32 %nArgIndex.1115, 1
   %23 = load ptr, ptr %sTestName, align 8
   %call145 = invoke noundef i64 @_ZN2EA4StdC6StrlenEPKc(ptr noundef %23)
@@ -4052,8 +4052,8 @@ if.end15.i60:                                     ; preds = %for.end.i59, %if.th
 
 invoke.cont152:                                   ; preds = %.noexc73, %.noexc74, %for.end.i59
   %retval.0.i63 = phi i32 [ %33, %.noexc74 ], [ -2147483648, %for.end.i59 ], [ -2147483648, %.noexc73 ]
-  %add151 = add i64 %sub.ptr.div.i41, %nTestCount.0116
-  %add154 = add nsw i32 %retval.0.i63, %nTestResult.0117
+  %add151 = add i64 %sub.ptr.div.i41, %nTestCount.2116
+  %add154 = add nsw i32 %retval.0.i63, %nTestResult.2117
   br label %invoke.cont175
 
 if.else155:                                       ; preds = %invoke.cont144
@@ -4067,8 +4067,8 @@ if.else155:                                       ; preds = %invoke.cont144
 invoke.cont158:                                   ; preds = %if.else155
   %cmp160.not = icmp ne i32 %call159, 0
   %inc162 = zext i1 %cmp160.not to i32
-  %spec.select = add nuw nsw i32 %nTestResult.0117, %inc162
-  %inc164 = add i64 %nTestCount.0116, 1
+  %spec.select = add nuw nsw i32 %nTestResult.2117, %inc162
+  %inc164 = add i64 %nTestCount.2116, 1
   %call167 = invoke noundef i32 @_ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic(ptr noundef nonnull align 8 dereferenceable(24) %commandLine, ptr noundef nonnull @.str.42, i1 noundef zeroext false, ptr noundef nonnull %sTestName, i32 noundef %inc, i8 noundef signext 58)
           to label %invoke.cont166 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4086,18 +4086,18 @@ if.end172:                                        ; preds = %if.then169, %invoke
   br i1 %cmp142, label %while.body143, label %invoke.cont175, !llvm.loop !22
 
 invoke.cont175:                                   ; preds = %if.end172, %.noexc35, %if.end140, %invoke.cont152, %for.end.i, %.noexc36
-  %bReport.1 = phi i8 [ %bReport.0114, %invoke.cont152 ], [ %2, %for.end.i ], [ %2, %.noexc36 ], [ %2, %if.end140 ], [ %2, %.noexc35 ], [ 1, %if.end172 ]
+  %bReport.1 = phi i8 [ %bReport.2114, %invoke.cont152 ], [ %2, %for.end.i ], [ %2, %.noexc36 ], [ %2, %if.end140 ], [ %2, %.noexc35 ], [ 1, %if.end172 ]
   %nTestCount.1 = phi i64 [ %add151, %invoke.cont152 ], [ %sub.ptr.div.i, %for.end.i ], [ %sub.ptr.div.i, %.noexc36 ], [ 0, %if.end140 ], [ %sub.ptr.div.i, %.noexc35 ], [ %inc164, %if.end172 ]
-  %nTestResult.2 = phi i32 [ %add154, %invoke.cont152 ], [ -2147483648, %for.end.i ], [ %22, %.noexc36 ], [ 0, %if.end140 ], [ -2147483648, %.noexc35 ], [ %spec.select, %if.end172 ]
+  %nTestResult.1 = phi i32 [ %add154, %invoke.cont152 ], [ -2147483648, %for.end.i ], [ %22, %.noexc36 ], [ 0, %if.end140 ], [ -2147483648, %.noexc35 ], [ %spec.select, %if.end172 ]
   %36 = load atomic i32, ptr @_ZN2EA8UnitTest17gGlobalErrorCountE seq_cst, align 4
-  %add177 = add nsw i32 %36, %nTestResult.2
+  %add177 = add nsw i32 %36, %nTestResult.1
   %37 = trunc i8 %bReport.1 to i1
   br label %Cleanup
 
 Cleanup:                                          ; preds = %invoke.cont116, %invoke.cont175
-  %bReport.2 = phi i1 [ %37, %invoke.cont175 ], [ true, %invoke.cont116 ]
-  %nTestCount.2 = phi i64 [ %nTestCount.1, %invoke.cont175 ], [ 0, %invoke.cont116 ]
-  %nTestResult.3 = phi i32 [ %add177, %invoke.cont175 ], [ 1, %invoke.cont116 ]
+  %bReport.0 = phi i1 [ %37, %invoke.cont175 ], [ true, %invoke.cont116 ]
+  %nTestCount.0 = phi i64 [ %nTestCount.1, %invoke.cont175 ], [ 0, %invoke.cont116 ]
+  %nTestResult.0 = phi i32 [ %add177, %invoke.cont175 ], [ 1, %invoke.cont116 ]
   %vtable178 = load ptr, ptr %this, align 8
   %vfn179 = getelementptr inbounds i8, ptr %vtable178, i64 24
   %38 = load ptr, ptr %vfn179, align 8
@@ -4107,8 +4107,8 @@ Cleanup:                                          ; preds = %invoke.cont116, %in
 invoke.cont180:                                   ; preds = %Cleanup
   %cmp182 = icmp slt i32 %call181, 0
   %call181.lobit = lshr i32 %call181, 31
-  %spec.select20 = add nsw i32 %call181.lobit, %nTestResult.3
-  %tobool186 = select i1 %cmp182, i1 true, i1 %bReport.2
+  %spec.select20 = add nsw i32 %call181.lobit, %nTestResult.0
+  %tobool186 = select i1 %cmp182, i1 true, i1 %bReport.0
   br i1 %tobool186, label %if.then187, label %if.else193
 
 if.then187:                                       ; preds = %invoke.cont180
@@ -4120,7 +4120,7 @@ invoke.cont188:                                   ; preds = %if.then187
           to label %invoke.cont189 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont189:                                   ; preds = %invoke.cont188
-  invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef nonnull @.str.45, i64 noundef %nTestCount.2)
+  invoke void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef nonnull @.str.45, i64 noundef %nTestCount.0)
           to label %invoke.cont190 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont190:                                   ; preds = %invoke.cont189
@@ -4130,7 +4130,7 @@ invoke.cont190:                                   ; preds = %invoke.cont189
           to label %if.end198 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else193:                                       ; preds = %invoke.cont180
-  %cmp194 = icmp eq i64 %nTestCount.2, 0
+  %cmp194 = icmp eq i64 %nTestCount.0, 0
   br i1 %cmp194, label %if.then195, label %if.end198
 
 if.then195:                                       ; preds = %if.else193

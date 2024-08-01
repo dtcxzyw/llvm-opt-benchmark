@@ -360,7 +360,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %11, %
   br i1 %24, label %25, label %_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit
 
 25:                                               ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
-  %.09093 = phi i64 [ %19, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread ], [ %22, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ]
+  %.09194 = phi i64 [ %19, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread ], [ %22, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ]
   %26 = getelementptr inbounds i8, ptr %2, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %2, align 8
@@ -430,8 +430,8 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %33, 
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i31: ; preds = %55, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %.0.i.i32 = phi ptr [ %56, %55 ], [ %.0.i1.i, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit ]
-  %57 = icmp ult i64 %.09093, 128
-  %58 = trunc i64 %.09093 to i8
+  %57 = icmp ult i64 %.09194, 128
+  %58 = trunc i64 %.09194 to i8
   br i1 %57, label %59, label %61
 
 59:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i31
@@ -442,8 +442,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i31: ; preds = 
 61:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i31
   %62 = or i8 %58, -128
   store i8 %62, ptr %.0.i.i32, align 1
-  %63 = lshr i64 %.09093, 7
-  %64 = icmp ult i64 %.09093, 16384
+  %63 = lshr i64 %.09194, 7
+  %64 = icmp ult i64 %.09194, 16384
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %61
@@ -603,7 +603,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %126, 
   br i1 %138, label %139, label %_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit
 
 139:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
-  %.097 = phi i32 [ %133, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread ], [ %137, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ]
+  %.09098 = phi i32 [ %133, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread ], [ %137, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ]
   %140 = getelementptr inbounds i8, ptr %2, i64 64
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %2, align 8
@@ -673,8 +673,8 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit54: ; preds = %14
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i56: ; preds = %169, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit54
   %.0.i.i57 = phi ptr [ %170, %169 ], [ %.0.i1.i53, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit54 ]
-  %171 = icmp ult i32 %.097, 128
-  %172 = trunc i32 %.097 to i8
+  %171 = icmp ult i32 %.09098, 128
+  %172 = trunc i32 %.09098 to i8
   br i1 %171, label %173, label %175
 
 173:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i56
@@ -685,8 +685,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i56: ; preds = 
 175:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i56
   %176 = or i8 %172, -128
   store i8 %176, ptr %.0.i.i57, align 1
-  %177 = lshr i32 %.097, 7
-  %178 = icmp ult i32 %.097, 16384
+  %177 = lshr i32 %.09098, 7
+  %178 = icmp ult i32 %.09098, 16384
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %175
@@ -721,7 +721,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit61: ; preds = %17
   %.0.i1.i60 = phi ptr [ %174, %173 ], [ %182, %179 ], [ %193, %191 ]
   store ptr %.0.i1.i60, ptr %140, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  %194 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %5, i32 noundef %.097)
+  %194 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %5, i32 noundef %.09098)
           to label %195 unwind label %196
 
 195:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit61
@@ -1052,8 +1052,8 @@ _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit: ; preds =
   br label %_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit
 
 _ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit: ; preds = %294, %9, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit68, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit, %3, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, %213, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit
-  %.1 = phi i1 [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit ], [ %194, %213 ], [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit ], [ true, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit ], [ false, %3 ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ false, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit68 ], [ %304, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit ], [ false, %9 ], [ false, %294 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit ], [ %194, %213 ], [ true, %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit ], [ true, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit ], [ false, %3 ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ], [ false, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit68 ], [ %304, %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit ], [ false, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit ], [ false, %9 ], [ false, %294 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind

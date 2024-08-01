@@ -2869,8 +2869,8 @@ _ZN6vectorIP13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEELb0
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6vectorIP13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEELb0EjE9push_backERKS8_.exit, %_ZNK7obj_mapIN3euf5enodeEP13ptr_hashtableIS1_N5array6solver8sel_hashENS4_6sel_eqEEE4findEPS1_RS8_.exit
-  %set.1 = phi ptr [ %call3, %_ZN6vectorIP13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEELb0EjE9push_backERKS8_.exit ], [ %11, %_ZNK7obj_mapIN3euf5enodeEP13ptr_hashtableIS1_N5array6solver8sel_hashENS4_6sel_eqEEE4findEPS1_RS8_.exit ]
-  ret ptr %set.1
+  %set.0 = phi ptr [ %call3, %_ZN6vectorIP13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEELb0EjE9push_backERKS8_.exit ], [ %11, %_ZNK7obj_mapIN3euf5enodeEP13ptr_hashtableIS1_N5array6solver8sel_hashENS4_6sel_eqEEE4findEPS1_RS8_.exit ]
+  ret ptr %set.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4722,7 +4722,7 @@ sw.bb202:                                         ; preds = %while.end
   br label %sw.bb205
 
 sw.bb205:                                         ; preds = %sw.bb202, %while.end
-  %b.1 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
   %arrayidx.i.i404 = getelementptr inbounds i8, ptr %app, i64 184
   %87 = load ptr, ptr %arrayidx.i.i404, align 8
   %m_root.i.i405 = getelementptr inbounds i8, ptr %87, i64 64
@@ -4733,14 +4733,14 @@ sw.bb205:                                         ; preds = %sw.bb202, %while.en
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %91 = add i32 %b.2, %c.1
+  %91 = add i32 %b.1, %c.1
   %sub209 = sub i32 %xor192, %91
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %92 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %92
+  %sub213 = sub i32 %b.1, %92
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %93 = add i32 %xor211, %xor215

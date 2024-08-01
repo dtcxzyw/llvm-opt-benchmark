@@ -299,7 +299,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
           to label %76 unwind label %80
 
 72:                                               ; preds = %.invoke, %28
-  %.0 = phi i32 [ 0, %28 ], [ 1, %.invoke ]
+  %.1 = phi i32 [ 0, %28 ], [ 1, %.invoke ]
   %73 = getelementptr inbounds i8, ptr %8, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #15
   %74 = getelementptr inbounds i8, ptr %8, i64 128
@@ -314,9 +314,9 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   br label %78
 
 77:                                               ; preds = %14, %72
-  %.1 = phi i32 [ %.0, %72 ], [ 0, %14 ]
+  %.0 = phi i32 [ %.1, %72 ], [ 0, %14 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  ret i32 %.1
+  ret i32 %.0
 
 78:                                               ; preds = %76, %25, %24
   %.pn24 = phi { ptr, i32 } [ %26, %25 ], [ %.pn22, %76 ], [ %.pn20, %24 ]

@@ -3264,9 +3264,9 @@ for.body8.lr.ph.i417:                             ; preds = %if.then.i.i.i428
   br label %invoke.cont168
 
 invoke.cont168:                                   ; preds = %for.body8.lr.ph.i417, %invoke.cont163
-  %scratch_r2.sroa.11.1 = phi ptr [ null, %invoke.cont163 ], [ %call.i.i.i.i454, %for.body8.lr.ph.i417 ]
+  %scratch_r2.sroa.11.3 = phi ptr [ null, %invoke.cont163 ], [ %call.i.i.i.i454, %for.body8.lr.ph.i417 ]
   %idx.ext = sext i32 %add162 to i64
-  %add.ptr = getelementptr float, ptr %scratch_r2.sroa.11.1, i64 %idx.ext
+  %add.ptr = getelementptr float, ptr %scratch_r2.sroa.11.3, i64 %idx.ext
   %add.ptr172 = getelementptr float, ptr %add.ptr, i64 %idx.ext
   %idx.ext173 = sext i32 %add159 to i64
   %add.ptr174 = getelementptr float, ptr %add.ptr172, i64 %idx.ext173
@@ -3278,30 +3278,30 @@ invoke.cont168:                                   ; preds = %for.body8.lr.ph.i41
   %add.ptr186 = getelementptr float, ptr %add.ptr184, i64 %idx.ext173
   %m_baseQuat.i = getelementptr inbounds i8, ptr %54, i64 56
   %91 = load float, ptr %m_baseQuat.i, align 4
-  store float %91, ptr %scratch_r2.sroa.11.1, align 4
+  store float %91, ptr %scratch_r2.sroa.11.3, align 4
   %arrayidx.i460 = getelementptr inbounds i8, ptr %54, i64 60
   %92 = load float, ptr %arrayidx.i460, align 4
-  %arrayidx197 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.1, i64 4
+  %arrayidx197 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.3, i64 4
   store float %92, ptr %arrayidx197, align 4
   %arrayidx.i462 = getelementptr inbounds i8, ptr %54, i64 64
   %93 = load float, ptr %arrayidx.i462, align 4
-  %arrayidx202 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.1, i64 8
+  %arrayidx202 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.3, i64 8
   store float %93, ptr %arrayidx202, align 4
   %arrayidx.i464 = getelementptr inbounds i8, ptr %54, i64 68
   %94 = load float, ptr %arrayidx.i464, align 4
-  %arrayidx207 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.1, i64 12
+  %arrayidx207 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.3, i64 12
   store float %94, ptr %arrayidx207, align 4
   %m_basePos.i = getelementptr inbounds i8, ptr %54, i64 24
   %95 = load float, ptr %m_basePos.i, align 4
-  %arrayidx212 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.1, i64 16
+  %arrayidx212 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.3, i64 16
   store float %95, ptr %arrayidx212, align 4
   %arrayidx.i466 = getelementptr inbounds i8, ptr %54, i64 28
   %96 = load float, ptr %arrayidx.i466, align 4
-  %arrayidx217 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.1, i64 20
+  %arrayidx217 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.3, i64 20
   store float %96, ptr %arrayidx217, align 4
   %arrayidx.i468 = getelementptr inbounds i8, ptr %54, i64 32
   %97 = load float, ptr %arrayidx.i468, align 4
-  %arrayidx222 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.1, i64 24
+  %arrayidx222 = getelementptr inbounds i8, ptr %scratch_r2.sroa.11.3, i64 24
   store float %97, ptr %arrayidx222, align 4
   %98 = load i32, ptr %m_size.i.i266, align 4
   %cmp226930 = icmp sgt i32 %98, 0
@@ -3343,7 +3343,7 @@ invoke.cont236:                                   ; preds = %invoke.cont229.preh
   %105 = add i32 %104, 7
   %add239 = add i32 %105, %103
   %idxprom240 = sext i32 %add239 to i64
-  %arrayidx241 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.1, i64 %idxprom240
+  %arrayidx241 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %idxprom240
   store float %102, ptr %arrayidx241, align 4
   %indvars.iv.next956 = add nuw nsw i64 %indvars.iv955, 1
   %106 = load ptr, ptr %m_data.i.i470, align 8
@@ -3355,7 +3355,7 @@ invoke.cont236:                                   ; preds = %invoke.cont229.preh
   br i1 %cmp231, label %invoke.cont236, label %for.inc245.loopexit, !llvm.loop !37
 
 lpad167:                                          ; preds = %if.then.i.i.i428, %invoke.cont337, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592", %invoke.cont314, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542", %invoke.cont289, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit", %for.end260
-  %scratch_r2.sroa.11.2 = phi ptr [ %scratch_r2.sroa.11.1, %invoke.cont337 ], [ %scratch_r2.sroa.11.1, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592" ], [ %scratch_r2.sroa.11.1, %invoke.cont314 ], [ %scratch_r2.sroa.11.1, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542" ], [ %scratch_r2.sroa.11.1, %invoke.cont289 ], [ %scratch_r2.sroa.11.1, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit" ], [ %scratch_r2.sroa.11.1, %for.end260 ], [ null, %if.then.i.i.i428 ]
+  %scratch_r2.sroa.11.0 = phi ptr [ %scratch_r2.sroa.11.3, %invoke.cont337 ], [ %scratch_r2.sroa.11.3, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit592" ], [ %scratch_r2.sroa.11.3, %invoke.cont314 ], [ %scratch_r2.sroa.11.3, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit542" ], [ %scratch_r2.sroa.11.3, %invoke.cont289 ], [ %scratch_r2.sroa.11.3, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_1clEv.exit" ], [ %scratch_r2.sroa.11.3, %for.end260 ], [ null, %if.then.i.i.i428 ]
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup458
@@ -3420,7 +3420,7 @@ for.body.i487:                                    ; preds = %for.body.i487, %for
 
 for.body.i493:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit", %for.body.i493
   %indvars.iv.i494 = phi i64 [ %indvars.iv.next.i497, %for.body.i493 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit" ]
-  %arrayidx.i495 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.1, i64 %indvars.iv.i494
+  %arrayidx.i495 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %indvars.iv.i494
   %122 = load float, ptr %arrayidx.i495, align 4
   %arrayidx3.i496 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i494
   store float %122, ptr %arrayidx3.i496, align 4
@@ -3512,7 +3512,7 @@ for.body.i523:                                    ; preds = %for.body.i523, %for
 
 for.body.i535:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529", %for.body.i535
   %indvars.iv.i536 = phi i64 [ %indvars.iv.next.i539, %for.body.i535 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529" ]
-  %arrayidx.i537 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.1, i64 %indvars.iv.i536
+  %arrayidx.i537 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %indvars.iv.i536
   %141 = load float, ptr %arrayidx.i537, align 4
   %arrayidx3.i538 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i536
   store float %141, ptr %arrayidx3.i538, align 4
@@ -3602,7 +3602,7 @@ for.body.i573:                                    ; preds = %for.body.i573, %for
 
 for.body.i585:                                    ; preds = %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579", %for.body.i585
   %indvars.iv.i586 = phi i64 [ %indvars.iv.next.i589, %for.body.i585 ], [ 0, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579" ]
-  %arrayidx.i587 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.1, i64 %indvars.iv.i586
+  %arrayidx.i587 = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %indvars.iv.i586
   %160 = load float, ptr %arrayidx.i587, align 4
   %arrayidx3.i588 = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i586
   store float %160, ptr %arrayidx3.i588, align 4
@@ -3964,7 +3964,7 @@ if.then3.i.i.i799:                                ; preds = %_ZN20btAlignedObjec
   store ptr null, ptr %m_data.i.i631831, align 8
   store i32 0, ptr %m_size.i.i632832, align 4
   store i32 0, ptr %m_capacity.i.i633833, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %scratch_r2.sroa.11.1)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %scratch_r2.sroa.11.3)
           to label %for.inc461 unwind label %terminate.lpad.i800
 
 terminate.lpad.i800:                              ; preds = %if.then3.i.i.i799
@@ -3980,13 +3980,13 @@ ehcleanup:                                        ; preds = %lpad363, %lpad359
   br label %ehcleanup458
 
 ehcleanup458:                                     ; preds = %ehcleanup, %lpad167
-  %scratch_r2.sroa.11.3 = phi ptr [ %scratch_r2.sroa.11.1, %ehcleanup ], [ %scratch_r2.sroa.11.2, %lpad167 ]
+  %scratch_r2.sroa.11.1 = phi ptr [ %scratch_r2.sroa.11.3, %ehcleanup ], [ %scratch_r2.sroa.11.0, %lpad167 ]
   %.pn176 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %109, %lpad167 ]
-  %tobool.not.i.i.i803 = icmp eq ptr %scratch_r2.sroa.11.3, null
+  %tobool.not.i.i.i803 = icmp eq ptr %scratch_r2.sroa.11.1, null
   br i1 %tobool.not.i.i.i803, label %ehcleanup464, label %if.then3.i.i.i810
 
 if.then3.i.i.i810:                                ; preds = %ehcleanup458
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %scratch_r2.sroa.11.3)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %scratch_r2.sroa.11.1)
           to label %ehcleanup464 unwind label %terminate.lpad.i811
 
 terminate.lpad.i811:                              ; preds = %if.then3.i.i.i810

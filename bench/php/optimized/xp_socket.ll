@@ -99,7 +99,7 @@ define internal i64 @php_sockop_write(ptr nocapture noundef readonly %0, ptr nou
   br label %php_pollfd_for.exit.us.us
 
 php_pollfd_for.exit.us.us:                        ; preds = %45, %.split.us.us
-  %.049.us.us = phi i32 [ 11, %.split.us.us ], [ 4, %45 ]
+  %.1.us.us = phi i32 [ 11, %.split.us.us ], [ 4, %45 ]
   %31 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %31, ptr %4, align 4
@@ -188,7 +188,7 @@ php_pollfd_for.exit:                              ; preds = %74
 
 .split84:                                         ; preds = %.split, %php_pollfd_for.exit, %php_pollfd_for.exit.us.us
   %.us-phi85 = phi i64 [ %26, %php_pollfd_for.exit.us.us ], [ %56, %php_pollfd_for.exit ], [ %56, %.split ]
-  %.us-phi86 = phi i32 [ %.049.us.us, %php_pollfd_for.exit.us.us ], [ 4, %php_pollfd_for.exit ], [ 11, %.split ]
+  %.us-phi86 = phi i32 [ %.1.us.us, %php_pollfd_for.exit.us.us ], [ 4, %php_pollfd_for.exit ], [ 11, %.split ]
   store i8 1, ptr %22, align 8
   br label %.loopexit68
 
@@ -204,7 +204,7 @@ php_pollfd_for.exit:                              ; preds = %74
 
 .loopexit68:                                      ; preds = %.lr.ph96.split, %74, %.lr.ph96.split.us, %45, %.split84
   %77 = phi i64 [ %.us-phi85, %.split84 ], [ %26, %45 ], [ %26, %.lr.ph96.split.us ], [ %56, %74 ], [ %56, %.lr.ph96.split ]
-  %.1 = phi i32 [ %.us-phi86, %.split84 ], [ %46, %45 ], [ %27, %.lr.ph96.split.us ], [ %75, %74 ], [ %57, %.lr.ph96.split ]
+  %.049 = phi i32 [ %.us-phi86, %.split84 ], [ %46, %45 ], [ %27, %.lr.ph96.split.us ], [ %75, %74 ], [ %57, %.lr.ph96.split ]
   %78 = getelementptr inbounds i8, ptr %0, i64 116
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 256
@@ -212,9 +212,9 @@ php_pollfd_for.exit:                              ; preds = %74
   br i1 %.not61, label %81, label %.critedge
 
 81:                                               ; preds = %.loopexit68
-  %82 = sext i32 %.1 to i64
+  %82 = sext i32 %.049 to i64
   %83 = call ptr @php_socket_strerror(i64 noundef %82, ptr noundef null, i64 noundef 0) #14
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.10, i64 noundef %2, i32 noundef %.1, ptr noundef %83) #14
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.10, i64 noundef %2, i32 noundef %.049, ptr noundef %83) #14
   call void @_efree(ptr noundef %83) #14
   br label %.critedge
 
@@ -408,8 +408,8 @@ php_sock_stream_wait_for_data.exit..thread65_crit_edge: ; preds = %php_sock_stre
 
 .thread65:                                        ; preds = %php_sock_stream_wait_for_data.exit..thread65_crit_edge, %13, %21, %10
   %62 = phi i32 [ %.pre, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ %8, %10 ], [ %8, %21 ], [ %8, %13 ]
-  %.1 = phi i32 [ %spec.select77.ph, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ 0, %10 ], [ 64, %21 ], [ 64, %13 ]
-  %63 = call i64 @recv(i32 noundef %62, ptr noundef %1, i64 noundef %2, i32 noundef %.1) #14
+  %.049 = phi i32 [ %spec.select77.ph, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ 0, %10 ], [ 64, %21 ], [ 64, %13 ]
+  %63 = call i64 @recv(i32 noundef %62, ptr noundef %1, i64 noundef %2, i32 noundef %.049) #14
   %64 = icmp slt i64 %63, 0
   br i1 %64, label %65, label %73
 

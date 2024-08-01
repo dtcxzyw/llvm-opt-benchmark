@@ -200,7 +200,7 @@ define internal fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef re
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.critedge2
-  %.047 = phi ptr [ %0, %.lr.ph ], [ %.2, %.critedge2 ]
+  %.047 = phi ptr [ %0, %.lr.ph ], [ %.1, %.critedge2 ]
   %.02246 = phi ptr [ %1, %.lr.ph ], [ %.123, %.critedge2 ]
   %10 = getelementptr inbounds i8, ptr %.02246, i64 1
   %11 = tail call i32 @cJSON_IsArray(ptr noundef nonnull %.047) #12
@@ -276,13 +276,13 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br label %40
 
 40:                                               ; preds = %compare_pointers.exit, %38
-  %.1.in = phi ptr [ %39, %38 ], [ %.1, %compare_pointers.exit ]
-  %.1 = load ptr, ptr %.1.in, align 8
-  %.not27 = icmp eq ptr %.1, null
+  %.2.in = phi ptr [ %39, %38 ], [ %.2, %compare_pointers.exit ]
+  %.2 = load ptr, ptr %.2.in, align 8
+  %.not27 = icmp eq ptr %.2, null
   br i1 %.not27, label %.critedge, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.1, i64 56
+  %42 = getelementptr inbounds i8, ptr %.2, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %compare_pointers.exit, label %.preheader.i
@@ -390,7 +390,7 @@ compare_pointers.exit:                            ; preds = %66, %.critedge43.i,
   br i1 %.not28, label %40, label %.critedge
 
 .critedge:                                        ; preds = %31, %40, %compare_pointers.exit
-  %.2 = phi ptr [ null, %40 ], [ %.1, %compare_pointers.exit ], [ %.0.i, %31 ]
+  %.1 = phi ptr [ null, %40 ], [ %.2, %compare_pointers.exit ], [ %.0.i, %31 ]
   br label %73
 
 73:                                               ; preds = %75, %.critedge
@@ -407,12 +407,12 @@ compare_pointers.exit:                            ; preds = %66, %.critedge43.i,
 
 .critedge2:                                       ; preds = %73, %73
   %77 = icmp eq i8 %74, 47
-  %78 = icmp ne ptr %.2, null
+  %78 = icmp ne ptr %.1, null
   %79 = and i1 %78, %77
   br i1 %79, label %9, label %decode_array_index_from_pointer.exit.thread
 
 decode_array_index_from_pointer.exit.thread:      ; preds = %36, %.critedge2, %15, %.critedge.i, %.preheader, %3
-  %.021 = phi ptr [ null, %3 ], [ %0, %.preheader ], [ null, %36 ], [ %.2, %.critedge2 ], [ null, %15 ], [ null, %.critedge.i ]
+  %.021 = phi ptr [ null, %3 ], [ %0, %.preheader ], [ null, %36 ], [ %.1, %.critedge2 ], [ null, %15 ], [ null, %.critedge.i ]
   ret ptr %.021
 }
 
@@ -708,7 +708,7 @@ get_object_item.exit138:                          ; preds = %107, %109
 
 .thread175:                                       ; preds = %95, %112, %.thread172
   %115 = phi ptr [ %80, %.thread172 ], [ %106, %112 ], [ %80, %95 ]
-  %.3 = phi ptr [ %104, %.thread172 ], [ %113, %112 ], [ %98, %95 ]
+  %.4 = phi ptr [ %104, %.thread172 ], [ %113, %112 ], [ %98, %95 ]
   %116 = load ptr, ptr %115, align 8
   %117 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %116) #13
   %118 = add i64 %117, 1
@@ -789,7 +789,7 @@ sub_0:                                            ; preds = %139
   br i1 %144, label %145, label %.tail.thread
 
 145:                                              ; preds = %.tail
-  %146 = tail call i32 @cJSON_AddItemToArray(ptr noundef nonnull %126, ptr noundef nonnull %.3) #12
+  %146 = tail call i32 @cJSON_AddItemToArray(ptr noundef nonnull %126, ptr noundef nonnull %.4) #12
   br label %.thread187
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
@@ -800,7 +800,7 @@ sub_0:                                            ; preds = %139
 
 148:                                              ; preds = %.tail.thread
   %149 = load i64, ptr %4, align 8
-  %150 = tail call fastcc i32 @insert_item_in_array(ptr noundef nonnull %126, i64 noundef %149, ptr noundef nonnull %.3)
+  %150 = tail call fastcc i32 @insert_item_in_array(ptr noundef nonnull %126, i64 noundef %149, ptr noundef nonnull %.4)
   %.not122 = icmp eq i32 %150, 0
   br i1 %.not122, label %select.unfold185, label %.thread187
 
@@ -821,12 +821,12 @@ sub_0:                                            ; preds = %139
   br label %156
 
 156:                                              ; preds = %155, %154
-  %157 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %126, ptr noundef nonnull %125, ptr noundef nonnull %.3) #12
+  %157 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %126, ptr noundef nonnull %125, ptr noundef nonnull %.4) #12
   br label %.thread187
 
 select.unfold185:                                 ; preds = %148, %decode_pointer_inplace.exit, %.tail.thread, %151, %decode_pointer_inplace.exit.thread
   %.098 = phi i32 [ 9, %decode_pointer_inplace.exit ], [ 11, %.tail.thread ], [ 9, %151 ], [ 9, %decode_pointer_inplace.exit.thread ], [ 10, %148 ]
-  tail call void @cJSON_Delete(ptr noundef nonnull %.3) #12
+  tail call void @cJSON_Delete(ptr noundef nonnull %.4) #12
   br label %.thread187
 
 .thread187:                                       ; preds = %148, %156, %145, %select.unfold185

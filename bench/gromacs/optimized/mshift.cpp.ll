@@ -932,7 +932,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %76
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit44
 
 _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %88, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ %., %88 ]
+  %.1 = phi i32 [ 0, %.split.us ], [ %., %88 ]
   tail call void @_ZdlPv(ptr noundef nonnull %29) #22
   br label %97
 
@@ -952,7 +952,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %88, %.split.us
 97:                                               ; preds = %_ZN14EdgesGeneratorC2Ei.exit, %_ZNSt6vectorIiSaIiEED2Ev.exit44, %94, %93
   %.pr.i.i = phi ptr [ %14, %94 ], [ %14, %93 ], [ %14, %_ZNSt6vectorIiSaIiEED2Ev.exit44 ], [ null, %_ZN14EdgesGeneratorC2Ei.exit ]
   %98 = phi ptr [ %16, %94 ], [ %16, %93 ], [ %16, %_ZNSt6vectorIiSaIiEED2Ev.exit44 ], [ %11, %_ZN14EdgesGeneratorC2Ei.exit ]
-  %.1 = phi i32 [ 0, %94 ], [ 0, %93 ], [ %.0, %_ZNSt6vectorIiSaIiEED2Ev.exit44 ], [ 0, %_ZN14EdgesGeneratorC2Ei.exit ]
+  %.0 = phi i32 [ 0, %94 ], [ 0, %93 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit44 ], [ 0, %_ZN14EdgesGeneratorC2Ei.exit ]
   %99 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %100 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21
@@ -976,7 +976,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %88, %.split.us
   %108 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %3, ptr %108, align 4
   %109 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 %.1, ptr %109, align 8
+  store i32 %.0, ptr %109, align 8
   br i1 %.not.i.i.i.i.i.not, label %_ZNSt6vectorI5egColSaIS0_EE6resizeEm.exit, label %110
 
 110:                                              ; preds = %101
@@ -1165,7 +1165,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI15InteractionListEbP14E
 .lr.ph71.split:                                   ; preds = %.lr.ph71, %.lr.ph71.splitthread-pre-split
   %23 = phi i32 [ %.pr, %.lr.ph71.splitthread-pre-split ], [ %21, %.lr.ph71 ]
   %.070 = phi i32 [ %74, %.lr.ph71.splitthread-pre-split ], [ 0, %.lr.ph71 ]
-  %.05669 = phi i1 [ %.3, %.lr.ph71.splitthread-pre-split ], [ false, %.lr.ph71 ]
+  %.05669 = phi i1 [ %.157, %.lr.ph71.splitthread-pre-split ], [ false, %.lr.ph71 ]
   %24 = icmp sgt i32 %23, 1
   %25 = add i32 %.070, 1
   br i1 %24, label %26, label %.loopexit
@@ -1237,7 +1237,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI15InteractionListEbP14E
 
 .lr.ph:                                           ; preds = %53, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 1, %53 ]
-  %.15765 = phi i1 [ %.2, %73 ], [ %.05669, %53 ]
+  %.265 = phi i1 [ %.3, %73 ], [ %.05669, %53 ]
   %60 = load ptr, ptr %2, align 8
   %61 = getelementptr i32, ptr %60, i64 %indvars.iv
   %62 = getelementptr i32, ptr %61, i64 %42
@@ -1258,19 +1258,19 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI15InteractionListEbP14E
   br label %73
 
 73:                                               ; preds = %.lr.ph, %72
-  %.2 = phi i1 [ true, %72 ], [ %.15765, %.lr.ph ]
+  %.3 = phi i1 [ true, %72 ], [ %.265, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count78
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %73, %.lr.ph68, %.lr.ph71.split, %43, %26
-  %.3 = phi i1 [ true, %43 ], [ %.05669, %26 ], [ %.05669, %.lr.ph71.split ], [ true, %.lr.ph68 ], [ %.2, %73 ]
+  %.157 = phi i1 [ true, %43 ], [ %.05669, %26 ], [ %.05669, %.lr.ph71.split ], [ true, %.lr.ph68 ], [ %.3, %73 ]
   %74 = add i32 %25, %23
   %75 = icmp slt i32 %74, %15
   br i1 %75, label %.lr.ph71.splitthread-pre-split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph71, %6
-  %.056.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph71 ], [ %.3, %.loopexit ]
+  %.056.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph71 ], [ %.157, %.loopexit ]
   ret i1 %.056.lcssa
 }
 
@@ -2513,7 +2513,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %86
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit44.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %98, %.split.us.i
-  %.0.i = phi i32 [ 0, %.split.us.i ], [ %..i, %98 ]
+  %.1.i = phi i32 [ 0, %.split.us.i ], [ %..i, %98 ]
   tail call void @_ZdlPv(ptr noundef nonnull %39) #22, !noalias !24
   br label %107
 
@@ -2533,7 +2533,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %98, %.split.us.i
 107:                                              ; preds = %104, %103, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i, %_ZN14EdgesGeneratorC2Ei.exit.i
   %.pr.i.i.i = phi ptr [ %24, %104 ], [ %24, %103 ], [ %24, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i ], [ null, %_ZN14EdgesGeneratorC2Ei.exit.i ]
   %108 = phi ptr [ %26, %104 ], [ %26, %103 ], [ %26, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i ], [ %21, %_ZN14EdgesGeneratorC2Ei.exit.i ]
-  %.1.i = phi i32 [ 0, %104 ], [ 0, %103 ], [ %.0.i, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i ], [ 0, %_ZN14EdgesGeneratorC2Ei.exit.i ]
+  %.0.i = phi i32 [ 0, %104 ], [ 0, %103 ], [ %.1.i, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i ], [ 0, %_ZN14EdgesGeneratorC2Ei.exit.i ]
   %109 = getelementptr inbounds i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !alias.scope !24
   %110 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21
@@ -2557,7 +2557,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %98, %.split.us.i
   %118 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 %2, ptr %118, align 4, !alias.scope !24
   %119 = getelementptr inbounds i8, ptr %8, i64 120
-  store i32 %.1.i, ptr %119, align 8, !alias.scope !24
+  store i32 %.0.i, ptr %119, align 8, !alias.scope !24
   br i1 %.not.i.i.i.i.i.not.i, label %_ZNSt6vectorI5egColSaIS0_EE6resizeEm.exit.i, label %120
 
 120:                                              ; preds = %111
@@ -2954,7 +2954,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGener
 .lr.ph72.split:                                   ; preds = %.lr.ph72, %.lr.ph72.splitthread-pre-split
   %17 = phi i32 [ %.pr, %.lr.ph72.splitthread-pre-split ], [ %15, %.lr.ph72 ]
   %.071 = phi i32 [ %68, %.lr.ph72.splitthread-pre-split ], [ 0, %.lr.ph72 ]
-  %.05670 = phi i1 [ %.3, %.lr.ph72.splitthread-pre-split ], [ false, %.lr.ph72 ]
+  %.05670 = phi i1 [ %.157, %.lr.ph72.splitthread-pre-split ], [ false, %.lr.ph72 ]
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %.lr.ph72.split..loopexit_crit_edge
 
@@ -3030,7 +3030,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGener
 
 .lr.ph:                                           ; preds = %47, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 1, %47 ]
-  %.15766 = phi i1 [ %.2, %67 ], [ %.05670, %47 ]
+  %.266 = phi i1 [ %.3, %67 ], [ %.05670, %47 ]
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr i32, ptr %54, i64 %indvars.iv
   %56 = getelementptr i32, ptr %55, i64 %36
@@ -3051,20 +3051,20 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGener
   br label %67
 
 67:                                               ; preds = %.lr.ph, %66
-  %.2 = phi i1 [ true, %66 ], [ %.15766, %.lr.ph ]
+  %.3 = phi i1 [ true, %66 ], [ %.266, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count79
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %67, %.lr.ph69, %.lr.ph72.split..loopexit_crit_edge, %37, %19
   %.pre-phi = phi i32 [ %.pre, %.lr.ph72.split..loopexit_crit_edge ], [ %21, %37 ], [ %21, %19 ], [ %21, %.lr.ph69 ], [ %21, %67 ]
-  %.3 = phi i1 [ %.05670, %.lr.ph72.split..loopexit_crit_edge ], [ true, %37 ], [ %.05670, %19 ], [ true, %.lr.ph69 ], [ %.2, %67 ]
+  %.157 = phi i1 [ %.05670, %.lr.ph72.split..loopexit_crit_edge ], [ true, %37 ], [ %.05670, %19 ], [ true, %.lr.ph69 ], [ %.3, %67 ]
   %68 = add i32 %.pre-phi, %17
   %69 = icmp slt i32 %68, %8
   br i1 %69, label %.lr.ph72.splitthread-pre-split, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph72, %6
-  %.056.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph72 ], [ %.3, %.loopexit ]
+  %.056.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph72 ], [ %.157, %.loopexit ]
   ret i1 %.056.lcssa
 }
 
@@ -3417,7 +3417,7 @@ _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit95.thread: ; preds = 
 
 167:                                              ; preds = %341, %.lr.ph.i97
   %.2119 = phi i32 [ %.1118150, %.lr.ph.i97 ], [ %.3120, %341 ]
-  %.1115 = phi i32 [ %122, %.lr.ph.i97 ], [ %.3, %341 ]
+  %.1115 = phi i32 [ %122, %.lr.ph.i97 ], [ %.2, %341 ]
   %.07699.i = phi i32 [ 0, %.lr.ph.i97 ], [ %.1.i, %341 ]
   %.sroa.0.098.i = phi ptr [ %158, %.lr.ph.i97 ], [ %342, %341 ]
   %168 = load i32, ptr %.sroa.0.098.i, align 4
@@ -3734,7 +3734,7 @@ _ZL9mk_1shiftiPKfS0_S0_PKiPi.exit.i:              ; preds = %290
 
 341:                                              ; preds = %339, %313, %298
   %.3120 = phi i32 [ %.2119, %298 ], [ %.2119, %313 ], [ %340, %339 ]
-  %.3 = phi i32 [ %spec.select, %298 ], [ %.1115, %313 ], [ %.1115, %339 ]
+  %.2 = phi i32 [ %spec.select, %298 ], [ %.1115, %313 ], [ %.1115, %339 ]
   %.1.i = phi i32 [ %304, %298 ], [ %.07699.i, %313 ], [ %.07699.i, %339 ]
   %342 = getelementptr inbounds i8, ptr %.sroa.0.098.i, i64 4
   %.not94.i = icmp eq ptr %342, %156
@@ -3742,7 +3742,7 @@ _ZL9mk_1shiftiPKfS0_S0_PKiPi.exit.i:              ; preds = %290
 
 _ZL7mk_greyN3gmx8ArrayRefI5egColEEP7t_graphPiiPA3_KfS8_S5_.exit: ; preds = %341, %146
   %.4121 = phi i32 [ %.1118150, %146 ], [ %.3120, %341 ]
-  %.4 = phi i32 [ %122, %146 ], [ %.3, %341 ]
+  %.4 = phi i32 [ %122, %146 ], [ %.2, %341 ]
   %.076.lcssa.i = phi i32 [ 0, %146 ], [ %.1.i, %341 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)

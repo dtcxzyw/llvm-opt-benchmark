@@ -680,7 +680,7 @@ define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr nocapture readno
   br i1 %31, label %.lr.ph.i, label %gdsdb_status_vector.exit
 
 .lr.ph.i:                                         ; preds = %27, %add_uint_string.exit.i
-  %.025.i = phi i32 [ %.1.i, %add_uint_string.exit.i ], [ %29, %27 ]
+  %.025.i = phi i32 [ %.2.i, %add_uint_string.exit.i ], [ %29, %27 ]
   %32 = load i32, ptr @hf_gdsdb_status_vector_arg, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %.025.i, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #3
   %34 = add i32 %.025.i, 4
@@ -744,18 +744,18 @@ define internal noundef i32 @gdsdb_response(ptr noundef %0, ptr nocapture readno
   br label %add_uint_string.exit.i
 
 add_uint_string.exit.i:                           ; preds = %65, %56, %53, %44, %40, %36
-  %.1.i = phi i32 [ %39, %36 ], [ %43, %40 ], [ %55, %53 ], [ %49, %44 ], [ %67, %65 ], [ %61, %56 ]
-  %68 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #3
+  %.2.i = phi i32 [ %39, %36 ], [ %43, %40 ], [ %55, %53 ], [ %49, %44 ], [ %67, %65 ], [ %61, %56 ]
+  %68 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #3
   %69 = icmp sgt i32 %68, 3
   br i1 %69, label %.lr.ph.i, label %gdsdb_status_vector.exit, !llvm.loop !6
 
 gdsdb_status_vector.exit:                         ; preds = %.lr.ph.i, %add_uint_string.exit.i, %27
-  %.2.i = phi i32 [ %29, %27 ], [ %.1.i, %add_uint_string.exit.i ], [ %34, %.lr.ph.i ]
+  %.1.i = phi i32 [ %29, %27 ], [ %.2.i, %add_uint_string.exit.i ], [ %34, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %70
 
 70:                                               ; preds = %9, %4, %gdsdb_status_vector.exit
-  %.0 = phi i32 [ %.2.i, %gdsdb_status_vector.exit ], [ -1, %4 ], [ -1, %9 ]
+  %.0 = phi i32 [ %.1.i, %gdsdb_status_vector.exit ], [ -1, %4 ], [ -1, %9 ]
   ret i32 %.0
 }
 

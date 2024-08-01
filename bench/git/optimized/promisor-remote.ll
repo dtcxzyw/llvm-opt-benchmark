@@ -283,7 +283,7 @@ for.body.lr.ph:                                   ; preds = %promisor_remote_ini
   br label %for.body
 
 for.cond11.preheader:                             ; preds = %for.inc, %promisor_remote_init.exit
-  %remaining_oids.0.lcssa = phi ptr [ %oids, %promisor_remote_init.exit ], [ %remaining_oids.2, %for.inc ]
+  %remaining_oids.0.lcssa = phi ptr [ %oids, %promisor_remote_init.exit ], [ %remaining_oids.1, %for.inc ]
   %remaining_nr.0.lcssa = phi i32 [ %oid_nr, %promisor_remote_init.exit ], [ %remaining_nr.1, %for.inc ]
   %to_free.0.lcssa = phi i32 [ 0, %promisor_remote_init.exit ], [ %to_free.1, %for.inc ]
   %cmp1272 = icmp sgt i32 %remaining_nr.0.lcssa, 0
@@ -297,7 +297,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %r.069 = phi ptr [ %r.064, %for.body.lr.ph ], [ %r.0, %for.inc ]
   %to_free.068 = phi i32 [ 0, %for.body.lr.ph ], [ %to_free.1, %for.inc ]
   %remaining_nr.067 = phi i32 [ %oid_nr, %for.body.lr.ph ], [ %remaining_nr.1, %for.inc ]
-  %remaining_oids.066 = phi ptr [ %oids, %for.body.lr.ph ], [ %remaining_oids.2, %for.inc ]
+  %remaining_oids.066 = phi ptr [ %oids, %for.body.lr.ph ], [ %remaining_oids.1, %for.inc ]
   %name = getelementptr inbounds i8, ptr %r.069, i64 16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %child.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.fetch_objects.child, i64 120, i1 false)
@@ -463,7 +463,7 @@ remove_fetched_oids.exit:                         ; preds = %for.end26.i, %if.th
   br label %for.inc
 
 for.inc:                                          ; preds = %remove_fetched_oids.exit, %if.then2
-  %remaining_oids.2 = phi ptr [ %remaining_oids.066, %if.then2 ], [ %call9.i33, %remove_fetched_oids.exit ]
+  %remaining_oids.1 = phi ptr [ %remaining_oids.066, %if.then2 ], [ %call9.i33, %remove_fetched_oids.exit ]
   %remaining_nr.1 = phi i32 [ 1, %if.then2 ], [ %remaining_nr.1.i, %remove_fetched_oids.exit ]
   %to_free.1 = phi i32 [ %to_free.068, %if.then2 ], [ 1, %remove_fetched_oids.exit ]
   %r.0 = load ptr, ptr %r.069, align 8

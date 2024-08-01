@@ -3875,7 +3875,7 @@ for.body24.lr.ph:                                 ; preds = %invoke.cont19
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit
   %19 = phi ptr [ null, %for.body24.lr.ph ], [ %87, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ]
-  %u.sroa.5.0369 = phi i32 [ -1, %for.body24.lr.ph ], [ %u.sroa.5.5, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ]
+  %u.sroa.5.0369 = phi i32 [ -1, %for.body24.lr.ph ], [ %u.sroa.5.1, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ]
   %__begin1.sroa.0.0368 = phi ptr [ %retval.sroa.0.1.i.i, %for.body24.lr.ph ], [ %__begin1.sroa.0.2, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ]
   %m_value = getelementptr inbounds i8, ptr %__begin1.sroa.0.0368, i64 8
   %m_sp_features = getelementptr inbounds i8, ptr %__begin1.sroa.0.0368, i64 16
@@ -3946,11 +3946,11 @@ call.i.i.i.noexc.i.i:                             ; preds = %.noexc.i.i
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %call.i.i.i.noexc.i.i, %sw.bb
-  %u.sroa.5.1 = phi i32 [ %call.i.i.i3.i.i, %call.i.i.i.noexc.i.i ], [ %u.sroa.5.0369, %sw.bb ]
+  %u.sroa.5.2 = phi i32 [ %call.i.i.i3.i.i, %call.i.i.i.noexc.i.i ], [ %u.sroa.5.0369, %sw.bb ]
   %m_domain.i.i.i = getelementptr inbounds i8, ptr %23, i64 48
   %m_range.i.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load ptr, ptr %m_range.i.i.i, align 8
-  %call7.i.i = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.1, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %p.i.i, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i, ptr noundef %24)
+  %call7.i.i = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.2, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %p.i.i, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i, ptr noundef %24)
           to label %invoke.cont28 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont.i.i, %.noexc.i.i, %if.then.i.i.i
@@ -4113,11 +4113,11 @@ call.i.i.i.noexc.i.i56:                           ; preds = %.noexc.i.i53
   br label %invoke.cont.i.i47
 
 invoke.cont.i.i47:                                ; preds = %call.i.i.i.noexc.i.i56, %sw.bb33
-  %u.sroa.5.2 = phi i32 [ %call.i.i.i3.i.i55, %call.i.i.i.noexc.i.i56 ], [ %u.sroa.5.0369, %sw.bb33 ]
+  %u.sroa.5.3 = phi i32 [ %call.i.i.i3.i.i55, %call.i.i.i.noexc.i.i56 ], [ %u.sroa.5.0369, %sw.bb33 ]
   %m_domain.i.i.i48 = getelementptr inbounds i8, ptr %39, i64 48
   %m_range.i.i.i49 = getelementptr inbounds i8, ptr %39, i64 40
   %40 = load ptr, ptr %m_range.i.i.i49, align 8
-  %call7.i.i50 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.2, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %p.i.i43, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i48, ptr noundef %40)
+  %call7.i.i50 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.3, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %p.i.i43, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i48, ptr noundef %40)
           to label %invoke.cont36 unwind label %lpad.i.i51
 
 lpad.i.i51:                                       ; preds = %invoke.cont.i.i47, %.noexc.i.i53, %if.then.i.i.i52
@@ -4280,11 +4280,11 @@ call.i.i.i.noexc.i.i100:                          ; preds = %.noexc.i.i97
   br label %invoke.cont.i.i91
 
 invoke.cont.i.i91:                                ; preds = %call.i.i.i.noexc.i.i100, %sw.bb42
-  %u.sroa.5.3 = phi i32 [ %call.i.i.i3.i.i99, %call.i.i.i.noexc.i.i100 ], [ %u.sroa.5.0369, %sw.bb42 ]
+  %u.sroa.5.4 = phi i32 [ %call.i.i.i3.i.i99, %call.i.i.i.noexc.i.i100 ], [ %u.sroa.5.0369, %sw.bb42 ]
   %m_domain.i.i.i92 = getelementptr inbounds i8, ptr %55, i64 48
   %m_range.i.i.i93 = getelementptr inbounds i8, ptr %55, i64 40
   %56 = load ptr, ptr %m_range.i.i.i93, align 8
-  %call7.i.i94 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.3, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %p.i.i87, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i92, ptr noundef %56)
+  %call7.i.i94 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.4, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %p.i.i87, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i92, ptr noundef %56)
           to label %invoke.cont45 unwind label %lpad.i.i95
 
 lpad.i.i95:                                       ; preds = %invoke.cont.i.i91, %.noexc.i.i97, %if.then.i.i.i96
@@ -4447,11 +4447,11 @@ call.i.i.i.noexc.i.i144:                          ; preds = %.noexc.i.i141
   br label %invoke.cont.i.i135
 
 invoke.cont.i.i135:                               ; preds = %call.i.i.i.noexc.i.i144, %sw.bb51
-  %u.sroa.5.4 = phi i32 [ %call.i.i.i3.i.i143, %call.i.i.i.noexc.i.i144 ], [ %u.sroa.5.0369, %sw.bb51 ]
+  %u.sroa.5.5 = phi i32 [ %call.i.i.i3.i.i143, %call.i.i.i.noexc.i.i144 ], [ %u.sroa.5.0369, %sw.bb51 ]
   %m_domain.i.i.i136 = getelementptr inbounds i8, ptr %71, i64 48
   %m_range.i.i.i137 = getelementptr inbounds i8, ptr %71, i64 40
   %72 = load ptr, ptr %m_range.i.i.i137, align 8
-  %call7.i.i138 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.4, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %p.i.i131, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i136, ptr noundef %72)
+  %call7.i.i138 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef %u.sroa.5.5, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %p.i.i131, i32 noundef 2, ptr noundef nonnull %m_domain.i.i.i136, ptr noundef %72)
           to label %invoke.cont54 unwind label %lpad.i.i139
 
 lpad.i.i139:                                      ; preds = %invoke.cont.i.i135, %.noexc.i.i141, %if.then.i.i.i140
@@ -4594,7 +4594,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i162:       ; preds = %.noexc172, %lor.lhs
 
 for.inc60:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i152, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i108, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i64, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %for.body24
   %87 = phi ptr [ %19, %for.body24 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %42, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i64 ], [ %58, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i108 ], [ %74, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i152 ]
-  %u.sroa.5.5 = phi i32 [ %u.sroa.5.0369, %for.body24 ], [ %u.sroa.5.1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %u.sroa.5.2, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i64 ], [ %u.sroa.5.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i108 ], [ %u.sroa.5.4, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i152 ]
+  %u.sroa.5.1 = phi i32 [ %u.sroa.5.0369, %for.body24 ], [ %u.sroa.5.2, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %u.sroa.5.3, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i64 ], [ %u.sroa.5.4, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i108 ], [ %u.sroa.5.5, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i152 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0368, i64 24
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not2.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, label %land.rhs.i.i
@@ -6235,10 +6235,10 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -6264,7 +6264,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -6279,7 +6279,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823

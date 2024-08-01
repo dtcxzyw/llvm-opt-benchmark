@@ -1121,13 +1121,13 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
 
 82:                                               ; preds = %130, %77
   %83 = phi i32 [ %75, %77 ], [ %120, %130 ]
-  %.0176 = phi i16 [ 3, %77 ], [ %.2178, %130 ]
+  %.1177 = phi i16 [ 3, %77 ], [ %.2178, %130 ]
   %.0174 = phi i16 [ 1, %77 ], [ %.1175, %130 ]
   %.0170 = phi ptr [ null, %77 ], [ %.3173, %130 ]
   %.0167 = phi ptr [ null, %77 ], [ %.2169, %130 ]
   %.0166 = phi ptr [ %79, %77 ], [ %131, %130 ]
   %.0164 = phi i32 [ 0, %77 ], [ %132, %130 ]
-  %.0163 = phi i32 [ 0, %77 ], [ %.1, %130 ]
+  %.1 = phi i32 [ 0, %77 ], [ %.2, %130 ]
   %.not189 = icmp slt i32 %.0164, %83
   br i1 %.not189, label %84, label %87
 
@@ -1157,7 +1157,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
 
 95:                                               ; preds = %94, %93
   %96 = phi i16 [ 1, %94 ], [ 5, %93 ]
-  %97 = sext i32 %.0163 to i64
+  %97 = sext i32 %.1 to i64
   %98 = getelementptr [32 x %struct.ScanKeyData], ptr %6, i64 0, i64 %97
   %99 = and i32 %91, 50331648
   %100 = or disjoint i32 %99, 129
@@ -1165,16 +1165,16 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br label %101
 
 101:                                              ; preds = %95, %87
-  %.1171 = phi ptr [ %98, %95 ], [ %.0170, %87 ]
-  %102 = icmp eq ptr %.1171, null
+  %.2172 = phi ptr [ %98, %95 ], [ %.0170, %87 ]
+  %102 = icmp eq ptr %.2172, null
   br i1 %102, label %.thread, label %103
 
 103:                                              ; preds = %101
-  %104 = add i32 %.0163, 1
-  %105 = sext i32 %.0163 to i64
+  %104 = add i32 %.1, 1
+  %105 = sext i32 %.1 to i64
   %106 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %105
-  store ptr %.1171, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %.1171, i64 6
+  store ptr %.2172, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %.2172, i64 6
   %108 = load i16, ptr %107, align 2
   %.not193 = icmp eq i16 %108, 3
   br i1 %.not193, label %111, label %109
@@ -1185,7 +1185,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br i1 %or.cond4, label %.thread, label %111
 
 111:                                              ; preds = %109, %103
-  %.1177 = phi i16 [ %108, %109 ], [ %.0176, %103 ]
+  %.3179 = phi i16 [ %108, %109 ], [ %.1177, %103 ]
   %112 = load i32, ptr %74, align 4
   %.not194 = icmp slt i32 %.0164, %112
   br i1 %.not194, label %113, label %.thread
@@ -1201,11 +1201,11 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
 
 119:                                              ; preds = %113, %84
   %120 = phi i32 [ %83, %84 ], [ %112, %113 ]
-  %.2178 = phi i16 [ %.0176, %84 ], [ %.1177, %113 ]
+  %.2178 = phi i16 [ %.1177, %84 ], [ %.3179, %113 ]
   %.1175 = phi i16 [ %.0174, %84 ], [ %115, %113 ]
-  %.2172 = phi ptr [ %.0170, %84 ], [ null, %113 ]
+  %.1171 = phi ptr [ %.0170, %84 ], [ null, %113 ]
   %.1168 = phi ptr [ %.0167, %84 ], [ null, %113 ]
-  %.1 = phi i32 [ %.0163, %84 ], [ %104, %113 ]
+  %.2 = phi i32 [ %.1, %84 ], [ %104, %113 ]
   %121 = getelementptr inbounds i8, ptr %.0166, i64 6
   %122 = load i16, ptr %121, align 2
   switch i16 %122, label %130 [
@@ -1217,7 +1217,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   ]
 
 123:                                              ; preds = %119, %119
-  %124 = icmp eq ptr %.2172, null
+  %124 = icmp eq ptr %.1171, null
   br i1 %124, label %125, label %130
 
 125:                                              ; preds = %123
@@ -1229,7 +1229,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br label %130
 
 127:                                              ; preds = %119, %119
-  %128 = icmp eq ptr %.2172, null
+  %128 = icmp eq ptr %.1171, null
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %127
@@ -1238,29 +1238,29 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br label %130
 
 130:                                              ; preds = %129, %125, %119, %126, %123, %127
-  %.3173 = phi ptr [ %.2172, %119 ], [ %.2172, %127 ], [ %.0166, %126 ], [ %.2172, %123 ], [ %.0166., %125 ], [ %.0166.203, %129 ]
+  %.3173 = phi ptr [ %.1171, %119 ], [ %.1171, %127 ], [ %.0166, %126 ], [ %.1171, %123 ], [ %.0166., %125 ], [ %.0166.203, %129 ]
   %.2169 = phi ptr [ %.1168, %119 ], [ %.1168, %127 ], [ %.1168, %126 ], [ %.1168, %123 ], [ %.1168..0166, %125 ], [ %.1168..0166204, %129 ]
   %131 = getelementptr i8, ptr %.0166, i64 72
   %132 = add nuw nsw i32 %.0164, 1
   br label %82
 
 .thread:                                          ; preds = %94, %93, %101, %109, %113, %111
-  %.3179 = phi i16 [ %.0176, %101 ], [ %108, %109 ], [ %.1177, %111 ], [ %.1177, %113 ], [ %.0176, %93 ], [ %.0176, %94 ]
-  %.2 = phi i32 [ %.0163, %101 ], [ %104, %109 ], [ %104, %111 ], [ %104, %113 ], [ %.0163, %93 ], [ %.0163, %94 ]
-  %133 = icmp eq i32 %.2, 0
+  %.0176 = phi i16 [ %.1177, %101 ], [ %108, %109 ], [ %.3179, %111 ], [ %.3179, %113 ], [ %.1177, %93 ], [ %.1177, %94 ]
+  %.0163 = phi i32 [ %.1, %101 ], [ %104, %109 ], [ %104, %111 ], [ %104, %113 ], [ %.1, %93 ], [ %.1, %94 ]
+  %133 = icmp eq i32 %.0163, 0
   br i1 %133, label %.thread214, label %.preheader232
 
 .preheader232:                                    ; preds = %.thread
-  %134 = icmp sgt i32 %.2, 0
+  %134 = icmp sgt i32 %.0163, 0
   br i1 %134, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader232
   %135 = getelementptr inbounds i8, ptr %4, i64 24
-  %136 = add nsw i32 %.2, -1
+  %136 = add nsw i32 %.0163, -1
   %137 = getelementptr inbounds i8, ptr %9, i64 360
   %138 = getelementptr inbounds i8, ptr %9, i64 352
   %139 = zext nneg i32 %136 to i64
-  %wide.trip.count = zext nneg i32 %.2 to i64
+  %wide.trip.count = zext nneg i32 %.0163 to i64
   br label %253
 
 .thread214:                                       ; preds = %73, %.thread
@@ -1489,13 +1489,13 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   br label %269
 
 269:                                              ; preds = %.preheader, %282
-  %.3 = phi i32 [ %273, %282 ], [ %.2, %.preheader ]
+  %.4 = phi i32 [ %273, %282 ], [ %.0163, %.preheader ]
   %.0162 = phi ptr [ %270, %282 ], [ %261, %.preheader ]
   %270 = getelementptr i8, ptr %.0162, i64 72
   %271 = getelementptr i8, ptr %.0162, i64 76
   %272 = load i16, ptr %271, align 4
   %273 = sext i16 %272 to i32
-  %274 = add i32 %.3, 1
+  %274 = add i32 %.4, 1
   %.not199 = icmp eq i32 %274, %273
   br i1 %.not199, label %275, label %287
 
@@ -1513,7 +1513,7 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   br i1 %.not201, label %282, label %287
 
 282:                                              ; preds = %279
-  %283 = sext i32 %.3 to i64
+  %283 = sext i32 %.4 to i64
   %284 = getelementptr %struct.ScanKeyData, ptr %135, i64 %283
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %284, ptr noundef nonnull align 8 dereferenceable(72) %270, i64 72, i1 false)
   %285 = load i32, ptr %270, align 8
@@ -1522,7 +1522,7 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   br i1 %.not202, label %269, label %.loopexit
 
 287:                                              ; preds = %269, %275, %279
-  switch i16 %.3179, label %.loopexit [
+  switch i16 %.0176, label %.loopexit [
     i16 1, label %.thread223
     i16 5, label %.thread226
   ]
@@ -1535,7 +1535,7 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   %290 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %290, align 8
   %291 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %.3, ptr %291, align 8
+  store i32 %.4, ptr %291, align 8
   br label %352
 
 .thread226:                                       ; preds = %287
@@ -1546,7 +1546,7 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   %294 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %294, align 8
   %295 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %.3, ptr %295, align 8
+  store i32 %.4, ptr %295, align 8
   br label %360
 
 296:                                              ; preds = %253
@@ -1619,7 +1619,7 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   br i1 %exitcond.not, label %.loopexit, label %253, !llvm.loop !10
 
 .loopexit:                                        ; preds = %344, %282, %.preheader232, %287
-  %.5 = phi i32 [ %.3, %287 ], [ %.2, %.preheader232 ], [ %273, %282 ], [ %.2, %344 ]
+  %.3 = phi i32 [ %.4, %287 ], [ %.0163, %.preheader232 ], [ %273, %282 ], [ %.0163, %344 ]
   %345 = getelementptr inbounds i8, ptr %4, i64 1
   call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %345) #6
   %346 = getelementptr inbounds i8, ptr %4, i64 2
@@ -1627,8 +1627,8 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   %347 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %347, align 8
   %348 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %.5, ptr %348, align 8
-  switch i16 %.3179, label %366 [
+  store i32 %.3, ptr %348, align 8
+  switch i16 %.0176, label %366 [
     i16 1, label %349
     i16 2, label %352
     i16 3, label %355
@@ -1680,7 +1680,7 @@ _bt_endpoint.exit:                                ; preds = %201, %144
   br label %370
 
 366:                                              ; preds = %.loopexit
-  %367 = zext i16 %.3179 to i32
+  %367 = zext i16 %.0176 to i32
   %368 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %368)
   %369 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %367) #6
@@ -2211,7 +2211,7 @@ _bt_saveitem.exit:                                ; preds = %BTreeTupleIsPosting
 
 _bt_setuppostingitems.exit:                       ; preds = %129, %140
   %.0.i171 = phi i16 [ %162, %140 ], [ 0, %129 ]
-  %.1144237 = add i32 %.0143.ph245, 1
+  %.3237 = add i32 %.0143.ph245, 1
   %.val165238 = load i16, ptr %107, align 2
   %163 = and i16 %.val165238, 4094
   %.not250 = icmp eq i16 %163, 0
@@ -2219,7 +2219,7 @@ _bt_setuppostingitems.exit:                       ; preds = %129, %140
 
 .lr.ph241:                                        ; preds = %_bt_setuppostingitems.exit, %_bt_savepostingitem.exit
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %_bt_savepostingitem.exit ], [ 1, %_bt_setuppostingitems.exit ]
-  %.1144240 = phi i32 [ %.1144, %_bt_savepostingitem.exit ], [ %.1144237, %_bt_setuppostingitems.exit ]
+  %.3240 = phi i32 [ %.3, %_bt_savepostingitem.exit ], [ %.3237, %_bt_setuppostingitems.exit ]
   %.val.i.i172 = load i16, ptr %98, align 2
   %.val2.i.i173 = load i16, ptr %130, align 2
   %164 = zext i16 %.val.i.i172 to i64
@@ -2228,7 +2228,7 @@ _bt_setuppostingitems.exit:                       ; preds = %129, %140
   %167 = or disjoint i64 %165, %166
   %168 = getelementptr i8, ptr %98, i64 %167
   %169 = getelementptr %struct.ItemPointerData, ptr %168, i64 %indvars.iv266
-  %170 = sext i32 %.1144240 to i64
+  %170 = sext i32 %.3240 to i64
   %171 = getelementptr [1358 x %struct.BTScanPosItem], ptr %82, i64 0, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %171, ptr noundef nonnull readonly align 2 dereferenceable(6) %169, i64 6, i1 false)
   %172 = getelementptr inbounds i8, ptr %171, i64 6
@@ -2244,7 +2244,7 @@ _bt_setuppostingitems.exit:                       ; preds = %129, %140
 
 _bt_savepostingitem.exit:                         ; preds = %.lr.ph241, %174
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %.1144 = add i32 %.1144240, 1
+  %.3 = add i32 %.3240, 1
   %.val165 = load i16, ptr %107, align 2
   %176 = and i16 %.val165, 4095
   %177 = zext nneg i16 %176 to i64
@@ -2253,7 +2253,7 @@ _bt_savepostingitem.exit:                         ; preds = %.lr.ph241, %174
 
 .loopexit:                                        ; preds = %_bt_savepostingitem.exit, %_bt_setuppostingitems.exit, %_bt_saveitem.exit, %.split.us233
   %.1147 = phi i1 [ true, %_bt_saveitem.exit ], [ %.0146.ph244, %.split.us233 ], [ true, %_bt_setuppostingitems.exit ], [ true, %_bt_savepostingitem.exit ]
-  %.2 = phi i32 [ %128, %_bt_saveitem.exit ], [ %.0143.ph245, %.split.us233 ], [ %.1144237, %_bt_setuppostingitems.exit ], [ %.1144, %_bt_savepostingitem.exit ]
+  %.2 = phi i32 [ %128, %_bt_saveitem.exit ], [ %.0143.ph245, %.split.us233 ], [ %.3237, %_bt_setuppostingitems.exit ], [ %.3, %_bt_savepostingitem.exit ]
   %179 = load i8, ptr %5, align 1
   %180 = trunc i8 %179 to i1
   %181 = add i16 %.us-phi235, 1
@@ -2262,7 +2262,7 @@ _bt_savepostingitem.exit:                         ; preds = %.lr.ph241, %174
   br i1 %or.cond.not289, label %.lr.ph230, label %.loopexit201, !llvm.loop !11
 
 .loopexit201:                                     ; preds = %.loopexit, %92, %78
-  %.3 = phi i32 [ 0, %78 ], [ %.0143.ph245, %92 ], [ %.2, %.loopexit ]
+  %.1144 = phi i32 [ 0, %78 ], [ %.0143.ph245, %92 ], [ %.2, %.loopexit ]
   %182 = load i8, ptr %5, align 1
   %183 = trunc i8 %182 to i1
   br i1 %183, label %184, label %210
@@ -2324,7 +2324,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %187, %BTreeTupleIsP
 215:                                              ; preds = %213, %210
   %216 = getelementptr inbounds i8, ptr %8, i64 128
   store i32 0, ptr %216, align 8
-  %217 = add i32 %.3, -1
+  %217 = add i32 %.1144, -1
   br label %332
 
 218:                                              ; preds = %76
@@ -2500,8 +2500,8 @@ _bt_setuppostingitems.exit190:                    ; preds = %275, %287
 
 .lr.ph220:                                        ; preds = %_bt_setuppostingitems.exit190, %_bt_savepostingitem.exit194
   %indvars.iv = phi i64 [ %indvars.iv.next, %_bt_savepostingitem.exit194 ], [ 1, %_bt_setuppostingitems.exit190 ]
-  %.5218 = phi i32 [ %311, %_bt_savepostingitem.exit194 ], [ %276, %_bt_setuppostingitems.exit190 ]
-  %311 = add i32 %.5218, -1
+  %.7218 = phi i32 [ %311, %_bt_savepostingitem.exit194 ], [ %276, %_bt_setuppostingitems.exit190 ]
+  %311 = add i32 %.7218, -1
   %.val.i.i191 = load i16, ptr %244, align 2
   %.val2.i.i192 = load i16, ptr %277, align 2
   %312 = zext i16 %.val.i.i191 to i64
@@ -2545,15 +2545,15 @@ _bt_saveitem.exit183:                             ; preds = %_bt_savepostingitem
   br label %.loopexit203
 
 .loopexit203:                                     ; preds = %.outer204, %238, %218, %329
-  %.7 = phi i32 [ %.6, %329 ], [ 1358, %218 ], [ %.4.ph224, %238 ], [ %.6, %.outer204 ]
+  %.5 = phi i32 [ %.6, %329 ], [ 1358, %218 ], [ %.4.ph224, %238 ], [ %.6, %.outer204 ]
   %331 = getelementptr inbounds i8, ptr %8, i64 128
-  store i32 %.7, ptr %331, align 8
+  store i32 %.5, ptr %331, align 8
   br label %332
 
 332:                                              ; preds = %.loopexit203, %215
   %.sink287 = phi i32 [ 1357, %.loopexit203 ], [ %217, %215 ]
   %.sink285 = phi i32 [ 1357, %.loopexit203 ], [ 0, %215 ]
-  %333 = phi i32 [ %.7, %.loopexit203 ], [ 0, %215 ]
+  %333 = phi i32 [ %.5, %.loopexit203 ], [ 0, %215 ]
   %334 = getelementptr inbounds i8, ptr %8, i64 132
   store i32 %.sink287, ptr %334, align 4
   %335 = getelementptr inbounds i8, ptr %8, i64 136

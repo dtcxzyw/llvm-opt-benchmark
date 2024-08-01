@@ -278,7 +278,7 @@ _ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit: ; preds = %if.end20, %cond.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit, %if.end9, %_ZNK4node11Environment16can_call_into_jsEv.exit
-  %retval.sroa.0.1 = phi i16 [ 0, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 0, %if.end9 ], [ %spec.select, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit ]
+  %retval.sroa.0.0 = phi i16 [ 0, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ 0, %if.end9 ], [ %spec.select, %_ZNK4node11Environment9exit_codeENS_8ExitCodeE.exit ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i20) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   %19 = load ptr, ptr %trace_event_unique_tracer34, align 8
@@ -310,7 +310,7 @@ if.then4.i:                                       ; preds = %if.then.i
   br label %_ZN4node7tracing12ScopedTracerD2Ev.exit
 
 _ZN4node7tracing12ScopedTracerD2Ev.exit:          ; preds = %cleanup, %land.lhs.true.i, %if.then.i, %if.then4.i
-  ret i16 %retval.sroa.0.1
+  ret i16 %retval.sroa.0.0
 }
 
 declare void @_ZN4node9AsyncWrap23DestroyAsyncIdsCallbackEPNS_11EnvironmentE(ptr noundef) local_unnamed_addr #0

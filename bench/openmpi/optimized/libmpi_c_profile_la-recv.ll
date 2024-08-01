@@ -97,7 +97,7 @@ define i32 @PMPI_Recv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %28, %20, %15, %18, %26, %23
-  %.1 = phi i32 [ 0, %23 ], [ 1, %26 ], [ 3, %20 ], [ 2, %18 ], [ 3, %15 ], [ %spec.select, %28 ]
+  %.2 = phi i32 [ 0, %23 ], [ 1, %26 ], [ 3, %20 ], [ 2, %18 ], [ 3, %15 ], [ %spec.select, %28 ]
   %36 = icmp eq ptr %5, null
   %37 = icmp eq ptr %5, @ompi_mpi_comm_null
   %or.cond.i = or i1 %36, %37
@@ -138,16 +138,16 @@ ompi_comm_peer_invalid.exit:                      ; preds = %46
   br i1 %.not.i.not, label %52, label %ompi_errcode_get_mpi_code.exit
 
 52:                                               ; preds = %ompi_comm_peer_invalid.exit, %45
-  %.not73 = icmp eq i32 %.1, 0
+  %.not73 = icmp eq i32 %.2, 0
   br i1 %.not73, label %58, label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %52, %42, %46, %ompi_comm_peer_invalid.exit
-  %.2126 = phi i32 [ %.1, %52 ], [ 4, %42 ], [ 6, %46 ], [ 6, %ompi_comm_peer_invalid.exit ]
+  %.3126 = phi i32 [ %.2, %52 ], [ 4, %42 ], [ 6, %46 ], [ 6, %ompi_comm_peer_invalid.exit ]
   %53 = getelementptr inbounds i8, ptr %5, i64 296
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 304
   %56 = load i32, ptr %55, align 8
-  %57 = tail call i32 @ompi_errhandler_invoke(ptr noundef %54, ptr noundef nonnull %5, i32 noundef %56, i32 noundef %.2126, ptr noundef nonnull @FUNC_NAME) #4
+  %57 = tail call i32 @ompi_errhandler_invoke(ptr noundef %54, ptr noundef nonnull %5, i32 noundef %56, i32 noundef %.3126, ptr noundef nonnull @FUNC_NAME) #4
   br label %125
 
 58:                                               ; preds = %52, %7
@@ -286,7 +286,7 @@ ompi_errcode_get_mpi_code.exit110:                ; preds = %95, %91, %.preheade
   br label %125
 
 125:                                              ; preds = %87, %78, %79, %ompi_errcode_get_mpi_code.exit110, %ompi_errcode_get_mpi_code.exit98, %ompi_errcode_get_mpi_code.exit, %ompi_comm_invalid.exit.thread
-  %.0 = phi i32 [ %41, %ompi_comm_invalid.exit.thread ], [ %.2126, %ompi_errcode_get_mpi_code.exit ], [ %.4.ph, %ompi_errcode_get_mpi_code.exit98 ], [ %.0.i100, %ompi_errcode_get_mpi_code.exit110 ], [ 0, %79 ], [ 0, %78 ], [ 0, %87 ]
+  %.0 = phi i32 [ %41, %ompi_comm_invalid.exit.thread ], [ %.3126, %ompi_errcode_get_mpi_code.exit ], [ %.4.ph, %ompi_errcode_get_mpi_code.exit98 ], [ %.0.i100, %ompi_errcode_get_mpi_code.exit110 ], [ 0, %79 ], [ 0, %78 ], [ 0, %87 ]
   ret i32 %.0
 }
 

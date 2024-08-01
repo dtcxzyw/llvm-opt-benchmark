@@ -236,8 +236,8 @@ cleanup:                                          ; preds = %_ZN4llvh11raw_ostre
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %cleanup
-  %retval.1 = phi i1 [ %cmp14, %cleanup ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp14, %cleanup ], [ false, %entry ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nofree

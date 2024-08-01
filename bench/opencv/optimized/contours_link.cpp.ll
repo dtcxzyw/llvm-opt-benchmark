@@ -1103,12 +1103,12 @@ _ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i: ; p
   br label %.lr.ph.i199.i
 
 .critedge.preheader.i.i:                          ; preds = %581, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i
-  %.1290.i = phi i32 [ %.0289331.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.5.i, %581 ]
+  %.1290.i = phi i32 [ %.0289331.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.3.i, %581 ]
   %.0194.lcssa.i.i = phi i32 [ %384, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.1195.i.i, %581 ]
   %.064.lcssa.i.i = phi i32 [ %.073334.i, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.165.i.i, %581 ]
   %.061.lcssa.i.i = phi i32 [ 0, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.162.i.i, %581 ]
   %.058.lcssa.i.i = phi i32 [ 0, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.159.i.i, %581 ]
-  %.0.lcssa.i197.i = phi i32 [ 0, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.3.i.i, %581 ]
+  %.0.lcssa.i197.i = phi i32 [ 0, %_ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i ], [ %.1.i.i, %581 ]
   %397 = icmp slt i32 %.058.lcssa.i.i, %394
   br i1 %397, label %.lr.ph235.i.i, label %.preheader.i.i
 
@@ -1120,8 +1120,8 @@ _ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i: ; p
 
 .lr.ph.i199.i:                                    ; preds = %581, %.lr.ph.i199.preheader.i
   %.val145.i.i = phi ptr [ %.val145.i387.i, %581 ], [ %.val145.i.pre.i, %.lr.ph.i199.preheader.i ]
-  %.2.i = phi i32 [ %.5.i, %581 ], [ %.0289331.i, %.lr.ph.i199.preheader.i ]
-  %.0225.i.i = phi i32 [ %.3.i.i, %581 ], [ 0, %.lr.ph.i199.preheader.i ]
+  %.2.i = phi i32 [ %.3.i, %581 ], [ %.0289331.i, %.lr.ph.i199.preheader.i ]
+  %.0225.i.i = phi i32 [ %.1.i.i, %581 ], [ 0, %.lr.ph.i199.preheader.i ]
   %.058224.i.i = phi i32 [ %.159.i.i, %581 ], [ 0, %.lr.ph.i199.preheader.i ]
   %.061223.i.i = phi i32 [ %.162.i.i, %581 ], [ 0, %.lr.ph.i199.preheader.i ]
   %.064222.i.i = phi i32 [ %.165.i.i, %581 ], [ %.073334.i, %.lr.ph.i199.preheader.i ]
@@ -1175,8 +1175,8 @@ _ZN12_GLOBAL__N_121findStartContourPointEPhN2cv5Size_IiEEi.exit157.thread.i: ; p
 425:                                              ; preds = %424, %421
   %426 = phi i32 [ %.pre390.i, %424 ], [ %423, %421 ]
   %.val134.i.i = phi ptr [ %.val134.i.pre.i, %424 ], [ %.val137.i.i, %421 ]
-  %.3.i = phi i32 [ %.2.i, %424 ], [ %423, %421 ]
-  %.1.i.i = phi i32 [ 0, %424 ], [ 1, %421 ]
+  %.5.i = phi i32 [ %.2.i, %424 ], [ %423, %421 ]
+  %.2.i.i = phi i32 [ 0, %424 ], [ 1, %421 ]
   %427 = add nsw i32 %.061223.i.i, 1
   %428 = sext i32 %426 to i64
   %429 = getelementptr inbounds %"struct.(anonymous namespace)::LinkRunPoint", ptr %.val134.i.i, i64 %428, i32 1
@@ -1264,7 +1264,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %441, %435
   %.4.i = phi i32 [ %.2.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.2.i, %441 ], [ %437, %435 ]
-  %.2.i.i = phi i32 [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ 0, %441 ], [ -1, %435 ]
+  %.3.i.i = phi i32 [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ 0, %441 ], [ -1, %435 ]
   %466 = add nsw i32 %.058224.i.i, 1
   %.val125.i.i = load ptr, ptr %66, align 8
   %467 = getelementptr inbounds %"struct.(anonymous namespace)::LinkRunPoint", ptr %.val125.i.i, i64 %409, i32 1
@@ -1454,12 +1454,12 @@ default.unreachable:                              ; preds = %.lr.ph.i199.i
 
 581:                                              ; preds = %577, %573, %526, %509, %505, %486, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i, %425
   %.val145.i387.i = phi ptr [ %.val100.i.i, %526 ], [ %.val97.i.i, %573 ], [ %.val97.i.i, %577 ], [ %.val118.i.i, %486 ], [ %.val115.i.i, %505 ], [ %.val115.i.i, %509 ], [ %.val134.i.i, %425 ], [ %.val125.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
-  %.5.i = phi i32 [ %.2.i, %526 ], [ %563, %573 ], [ %568, %577 ], [ %.2.i, %486 ], [ %495, %505 ], [ %500, %509 ], [ %.3.i, %425 ], [ %.4.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
+  %.3.i = phi i32 [ %.2.i, %526 ], [ %563, %573 ], [ %568, %577 ], [ %.2.i, %486 ], [ %495, %505 ], [ %500, %509 ], [ %.5.i, %425 ], [ %.4.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
   %.1195.i.i = phi i32 [ %.0194221.i.i, %526 ], [ %576, %573 ], [ %.0194221.i.i, %577 ], [ %492, %486 ], [ %.0194221.i.i, %505 ], [ %512, %509 ], [ %.0194221.i.i, %425 ], [ %471, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
   %.165.i.i = phi i32 [ %532, %526 ], [ %.064222.i.i, %573 ], [ %580, %577 ], [ %.064222.i.i, %486 ], [ %508, %505 ], [ %.064222.i.i, %509 ], [ %430, %425 ], [ %.064222.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
   %.162.i.i = phi i32 [ %527, %526 ], [ %.061223.i.i, %573 ], [ %578, %577 ], [ %.061223.i.i, %486 ], [ %506, %505 ], [ %.061223.i.i, %509 ], [ %427, %425 ], [ %.061223.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
   %.159.i.i = phi i32 [ %.058224.i.i, %526 ], [ %574, %573 ], [ %.058224.i.i, %577 ], [ %487, %486 ], [ %.058224.i.i, %505 ], [ %510, %509 ], [ %.058224.i.i, %425 ], [ %466, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
-  %.3.i.i = phi i32 [ 0, %526 ], [ -1, %573 ], [ 1, %577 ], [ 0, %486 ], [ 1, %505 ], [ -1, %509 ], [ %.1.i.i, %425 ], [ %.2.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
+  %.1.i.i = phi i32 [ 0, %526 ], [ -1, %573 ], [ 1, %577 ], [ 0, %486 ], [ 1, %505 ], [ -1, %509 ], [ %.2.i.i, %425 ], [ %.3.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
   %582 = icmp slt i32 %.162.i.i, %393
   %583 = icmp slt i32 %.159.i.i, %394
   %or.cond.i.i = select i1 %582, i1 %583, i1 false

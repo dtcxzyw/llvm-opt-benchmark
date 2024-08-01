@@ -2676,14 +2676,14 @@ lpad732:                                          ; preds = %_ZNSt10shared_ptrIK
 
 catch.dispatch741:                                ; preds = %lpad732, %ehcleanup710, %lpad674, %ehcleanup655, %lpad623, %lpad601, %lpad584, %ehcleanup548, %ehcleanup, %lpad178, %lpad112
   %.pn40 = phi { ptr, i32 } [ %274, %lpad732 ], [ %.pn, %ehcleanup710 ], [ %51, %lpad112 ], [ %243, %lpad674 ], [ %.pn34, %ehcleanup655 ], [ %216, %lpad623 ], [ %199, %lpad601 ], [ %194, %lpad584 ], [ %.pn36, %ehcleanup548 ], [ %.pn38, %ehcleanup ], [ %82, %lpad178 ]
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn40, 1
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn40, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn40, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn40, 0
   %275 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox4type6Parser12syntax_errorE) #25
-  %matches743 = icmp eq i32 %ehselector.slot.4, %275
+  %matches743 = icmp eq i32 %ehselector.slot.0, %275
   br i1 %matches743, label %catch744, label %ehcleanup754
 
 catch744:                                         ; preds = %catch.dispatch741
-  %276 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #25
+  %276 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #25
   invoke void @_ZN8facebook5velox4type6Parser5errorERKNS2_12syntax_errorE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %276)
           to label %invoke.cont748 unwind label %lpad747
 
@@ -2766,7 +2766,7 @@ cleanup:                                          ; preds = %_ZN8facebook5velox4
   br label %yynewstate.backedge
 
 ehcleanup754:                                     ; preds = %catch.dispatch741, %lpad747, %lpad70.body
-  %exn.slot.5 = phi ptr [ %41, %lpad70.body ], [ %278, %lpad747 ], [ %exn.slot.4, %catch.dispatch741 ]
+  %exn.slot.1 = phi ptr [ %41, %lpad70.body ], [ %278, %lpad747 ], [ %exn.slot.2, %catch.dispatch741 ]
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %yylhs) #25
   br label %catch830
 
@@ -2960,8 +2960,8 @@ lpad816.body:                                     ; preds = %lpad.i.i532, %lpad8
   br label %catch830
 
 catch830:                                         ; preds = %lpad15, %lpad19, %lpad816.body, %lpad761, %ehcleanup754, %lpad
-  %exn.slot.6 = phi ptr [ %313, %lpad816.body ], [ %6, %lpad ], [ %290, %lpad761 ], [ %exn.slot.5, %ehcleanup754 ], [ %18, %lpad19 ], [ %13, %lpad15 ]
-  %314 = call ptr @__cxa_begin_catch(ptr %exn.slot.6) #25
+  %exn.slot.0 = phi ptr [ %313, %lpad816.body ], [ %6, %lpad ], [ %290, %lpad761 ], [ %exn.slot.1, %ehcleanup754 ], [ %18, %lpad19 ], [ %13, %lpad15 ]
+  %314 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #25
   %315 = load ptr, ptr %_M_finish.i.i.i, align 8
   %316 = load ptr, ptr %yystack_, align 8
   %sub.ptr.lhs.cast.i.i576693 = ptrtoint ptr %315 to i64
@@ -5087,7 +5087,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.inc.us ], [ %6, %for.body.lr.ph ]
-  %yycount.026.us = phi i32 [ %yycount.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %yycount.126.us = phi i32 [ %yycount.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %9 = add nsw i64 %indvars.iv31, %7
   %arrayidx13.us = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %9
   %10 = load i8, ptr %arrayidx13.us, align 1
@@ -5102,18 +5102,18 @@ land.lhs.true17.us:                               ; preds = %for.body.us
   %13 = load i8, ptr %arrayidx20.us, align 1
   %cmp.i23.us = icmp ne i8 %13, -1
   %inc.us = zext i1 %cmp.i23.us to i32
-  %spec.select = add nsw i32 %yycount.026.us, %inc.us
+  %spec.select = add nsw i32 %yycount.126.us, %inc.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %land.lhs.true17.us, %for.body.us
-  %yycount.1.us = phi i32 [ %yycount.026.us, %for.body.us ], [ %spec.select, %land.lhs.true17.us ]
+  %yycount.2.us = phi i32 [ %yycount.126.us, %for.body.us ], [ %spec.select, %land.lhs.true17.us ]
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, 1
   %cmp10.us = icmp slt i64 %indvars.iv.next32, %8
   br i1 %cmp10.us, label %for.body.us, label %if.end34, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %6, %for.body.lr.ph ]
-  %yycount.026 = phi i32 [ %yycount.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %yycount.126 = phi i32 [ %yycount.2, %for.inc ], [ 0, %for.body.lr.ph ]
   %14 = add nsw i64 %indvars.iv, %7
   %arrayidx13 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %14
   %15 = load i8, ptr %arrayidx13, align 1
@@ -5131,26 +5131,26 @@ land.lhs.true17:                                  ; preds = %for.body
   br i1 %cmp.i23, label %for.inc, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true17
-  %cmp25 = icmp eq i32 %yycount.026, %yyargn
+  %cmp25 = icmp eq i32 %yycount.126, %yyargn
   br i1 %cmp25, label %return, label %if.else27
 
 if.else27:                                        ; preds = %if.then23
-  %inc28 = add nsw i32 %yycount.026, 1
-  %idxprom29 = sext i32 %yycount.026 to i64
+  %inc28 = add nsw i32 %yycount.126, 1
+  %idxprom29 = sext i32 %yycount.126 to i64
   %arrayidx30 = getelementptr inbounds i32, ptr %yyarg, i64 %idxprom29
   store i32 %conv14, ptr %arrayidx30, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true17, %if.else27
-  %yycount.1 = phi i32 [ %yycount.026, %land.lhs.true17 ], [ %inc28, %if.else27 ], [ %yycount.026, %for.body ]
+  %yycount.2 = phi i32 [ %yycount.126, %land.lhs.true17 ], [ %inc28, %if.else27 ], [ %yycount.126, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp10 = icmp slt i64 %indvars.iv.next, %8
   br i1 %cmp10, label %for.body, label %if.end34, !llvm.loop !13
 
 if.end34:                                         ; preds = %for.inc, %for.inc.us, %if.then, %entry
-  %yycount.2 = phi i32 [ 0, %entry ], [ 0, %if.then ], [ %yycount.1.us, %for.inc.us ], [ %yycount.1, %for.inc ]
+  %yycount.0 = phi i32 [ 0, %entry ], [ 0, %if.then ], [ %yycount.2.us, %for.inc.us ], [ %yycount.2, %for.inc ]
   %tobool35 = icmp ne ptr %yyarg, null
-  %cmp37 = icmp eq i32 %yycount.2, 0
+  %cmp37 = icmp eq i32 %yycount.0, 0
   %or.cond1 = select i1 %tobool35, i1 %cmp37, i1 false
   %cmp39 = icmp sgt i32 %yyargn, 0
   %or.cond2 = and i1 %cmp39, %or.cond1
@@ -5161,7 +5161,7 @@ if.then40:                                        ; preds = %if.end34
   br label %return
 
 return:                                           ; preds = %if.then23, %if.end34, %if.then40
-  %retval.0 = phi i32 [ 0, %if.then40 ], [ %yycount.2, %if.end34 ], [ 0, %if.then23 ]
+  %retval.0 = phi i32 [ 0, %if.then40 ], [ %yycount.0, %if.end34 ], [ 0, %if.then23 ]
   ret i32 %retval.0
 }
 
@@ -5244,7 +5244,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i12
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %8, %for.body.lr.ph.i ]
-  %yycount.026.i = phi i32 [ %yycount.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
+  %yycount.126.i = phi i32 [ %yycount.2.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %11 = add nsw i64 %indvars.iv.i, %9
   %arrayidx13.i = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser8yycheck_E, i64 0, i64 %11
   %12 = load i8, ptr %arrayidx13.i, align 1
@@ -5262,24 +5262,24 @@ land.lhs.true17.i:                                ; preds = %for.body.i
   br i1 %cmp.i23.i, label %for.inc.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %land.lhs.true17.i
-  %cmp25.i = icmp eq i32 %yycount.026.i, 4
+  %cmp25.i = icmp eq i32 %yycount.126.i, 4
   br i1 %cmp25.i, label %sw.epilog, label %if.else27.i
 
 if.else27.i:                                      ; preds = %if.then23.i
-  %inc28.i = add nsw i32 %yycount.026.i, 1
-  %idxprom29.i = sext i32 %yycount.026.i to i64
+  %inc28.i = add nsw i32 %yycount.126.i, 1
+  %idxprom29.i = sext i32 %yycount.126.i to i64
   %arrayidx30.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idxprom29.i
   store i32 %conv14.i, ptr %arrayidx30.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else27.i, %land.lhs.true17.i, %for.body.i
-  %yycount.1.i = phi i32 [ %yycount.026.i, %land.lhs.true17.i ], [ %inc28.i, %if.else27.i ], [ %yycount.026.i, %for.body.i ]
+  %yycount.2.i = phi i32 [ %yycount.126.i, %land.lhs.true17.i ], [ %inc28.i, %if.else27.i ], [ %yycount.126.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %10
   br i1 %exitcond.not, label %if.end34.i, label %for.body.i, !llvm.loop !13
 
 if.end34.i:                                       ; preds = %for.inc.i
-  %cmp37.i = icmp eq i32 %yycount.1.i, 0
+  %cmp37.i = icmp eq i32 %yycount.2.i, 0
   br i1 %cmp37.i, label %if.then40.i, label %_ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit
 
 if.then40.i:                                      ; preds = %if.then.i12, %if.then.i, %if.end34.i
@@ -5287,13 +5287,13 @@ if.then40.i:                                      ; preds = %if.then.i12, %if.th
   br label %sw.epilog
 
 _ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit: ; preds = %if.end34.i
-  %add.i = add nsw i32 %yycount.1.i, 1
-  %16 = icmp ult i32 %yycount.1.i, 5
+  %add.i = add nsw i32 %yycount.2.i, 1
+  %16 = icmp ult i32 %yycount.2.i, 5
   br i1 %16, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %_ZNK8facebook5velox4type6Parser26yy_syntax_error_arguments_ERKNS2_7contextEPNS2_11symbol_kind16symbol_kind_typeEi.exit
-  %switch.tableidx = add nsw i32 %yycount.1.i, -1
-  %switch.offset = add nuw nsw i32 %yycount.1.i, 1
+  %switch.tableidx = add nsw i32 %yycount.2.i, -1
+  %switch.offset = add nuw nsw i32 %yycount.2.i, 1
   %17 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK8facebook5velox4type6Parser15yysyntax_error_B5cxx11ERKNS2_7contextE, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8

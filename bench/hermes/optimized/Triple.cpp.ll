@@ -2812,12 +2812,12 @@ if.end37:                                         ; preds = %entry, %if.end, %if
 
 for.body:                                         ; preds = %if.end37, %for.inc172
   %indvars.iv401 = phi i64 [ 0, %if.end37 ], [ %indvars.iv.next402, %for.inc172 ]
-  %IsMinGW32.1384 = phi i8 [ %IsMinGW32.0260267, %if.end37 ], [ %IsMinGW32.5, %for.inc172 ]
-  %IsCygwin.1383 = phi i8 [ %IsCygwin.0259268, %if.end37 ], [ %IsCygwin.5, %for.inc172 ]
-  %Vendor.1382 = phi i32 [ %Vendor.0247257270, %if.end37 ], [ %Vendor.5, %for.inc172 ]
-  %OS.1381 = phi i32 [ %OS.0258269, %if.end37 ], [ %OS.5, %for.inc172 ]
-  %Environment.1380 = phi i32 [ %Environment.0271, %if.end37 ], [ %Environment.5, %for.inc172 ]
-  %ObjectFormat.1379 = phi i32 [ %ObjectFormat.0, %if.end37 ], [ %ObjectFormat.5, %for.inc172 ]
+  %IsMinGW32.1384 = phi i8 [ %IsMinGW32.0260267, %if.end37 ], [ %IsMinGW32.2, %for.inc172 ]
+  %IsCygwin.1383 = phi i8 [ %IsCygwin.0259268, %if.end37 ], [ %IsCygwin.2, %for.inc172 ]
+  %Vendor.1382 = phi i32 [ %Vendor.0247257270, %if.end37 ], [ %Vendor.2, %for.inc172 ]
+  %OS.1381 = phi i32 [ %OS.0258269, %if.end37 ], [ %OS.2, %for.inc172 ]
+  %Environment.1380 = phi i32 [ %Environment.0271, %if.end37 ], [ %Environment.2, %for.inc172 ]
+  %ObjectFormat.1379 = phi i32 [ %ObjectFormat.0, %if.end37 ], [ %ObjectFormat.2, %for.inc172 ]
   %arrayidx51 = getelementptr inbounds [4 x i8], ptr %Found, i64 0, i64 %indvars.iv401
   %5 = load i8, ptr %arrayidx51, align 1
   %tobool = trunc i8 %5 to i1
@@ -2833,12 +2833,12 @@ for.body58.preheader:                             ; preds = %for.body
 for.body58:                                       ; preds = %for.body58.preheader, %for.inc169
   %8 = phi i32 [ %36, %for.inc169 ], [ %6, %for.body58.preheader ]
   %conv55352 = phi i64 [ %conv55, %for.inc169 ], [ 0, %for.body58.preheader ]
-  %IsMinGW32.2351 = phi i8 [ %IsMinGW32.4, %for.inc169 ], [ %IsMinGW32.1384, %for.body58.preheader ]
-  %IsCygwin.2350 = phi i8 [ %IsCygwin.4, %for.inc169 ], [ %IsCygwin.1383, %for.body58.preheader ]
-  %Vendor.2349 = phi i32 [ %Vendor.4, %for.inc169 ], [ %Vendor.1382, %for.body58.preheader ]
-  %OS.2348 = phi i32 [ %OS.4, %for.inc169 ], [ %OS.1381, %for.body58.preheader ]
-  %Environment.2347 = phi i32 [ %Environment.4, %for.inc169 ], [ %Environment.1380, %for.body58.preheader ]
-  %ObjectFormat.2346 = phi i32 [ %ObjectFormat.4, %for.inc169 ], [ %ObjectFormat.1379, %for.body58.preheader ]
+  %IsMinGW32.3351 = phi i8 [ %IsMinGW32.4, %for.inc169 ], [ %IsMinGW32.1384, %for.body58.preheader ]
+  %IsCygwin.3350 = phi i8 [ %IsCygwin.4, %for.inc169 ], [ %IsCygwin.1383, %for.body58.preheader ]
+  %Vendor.3349 = phi i32 [ %Vendor.4, %for.inc169 ], [ %Vendor.1382, %for.body58.preheader ]
+  %OS.3348 = phi i32 [ %OS.4, %for.inc169 ], [ %OS.1381, %for.body58.preheader ]
+  %Environment.3347 = phi i32 [ %Environment.4, %for.inc169 ], [ %Environment.1380, %for.body58.preheader ]
+  %ObjectFormat.3346 = phi i32 [ %ObjectFormat.4, %for.inc169 ], [ %ObjectFormat.1379, %for.body58.preheader ]
   %Idx.0345 = phi i32 [ %inc170, %for.inc169 ], [ 0, %for.body58.preheader ]
   %cmp61 = icmp ult i32 %Idx.0345, 4
   br i1 %cmp61, label %land.lhs.true, label %if.end66
@@ -2922,12 +2922,12 @@ sw.epilog:                                        ; preds = %_ZNK4llvh9StringRef
   br i1 %spec.select112, label %if.end105, label %for.inc169
 
 if.end105:                                        ; preds = %sw.bb91, %sw.bb, %sw.bb73, %if.then97, %sw.epilog
-  %IsMinGW32.3288 = phi i8 [ %frombool86, %sw.epilog ], [ %IsMinGW32.2351, %if.then97 ], [ %IsMinGW32.2351, %sw.bb73 ], [ %IsMinGW32.2351, %sw.bb ], [ %IsMinGW32.2351, %sw.bb91 ]
-  %IsCygwin.3287 = phi i8 [ %frombool83274, %sw.epilog ], [ %IsCygwin.2350, %if.then97 ], [ %IsCygwin.2350, %sw.bb73 ], [ %IsCygwin.2350, %sw.bb ], [ %IsCygwin.2350, %sw.bb91 ]
-  %Vendor.3286 = phi i32 [ %Vendor.2349, %sw.epilog ], [ %Vendor.2349, %if.then97 ], [ %call75, %sw.bb73 ], [ %Vendor.2349, %sw.bb ], [ %Vendor.2349, %sw.bb91 ]
-  %OS.3285 = phi i32 [ %call80, %sw.epilog ], [ %OS.2348, %if.then97 ], [ %OS.2348, %sw.bb73 ], [ %OS.2348, %sw.bb ], [ %OS.2348, %sw.bb91 ]
-  %Environment.3284 = phi i32 [ %Environment.2347, %sw.epilog ], [ 0, %if.then97 ], [ %Environment.2347, %sw.bb73 ], [ %Environment.2347, %sw.bb ], [ %call93, %sw.bb91 ]
-  %ObjectFormat.3283 = phi i32 [ %ObjectFormat.2346, %sw.epilog ], [ %call99, %if.then97 ], [ %ObjectFormat.2346, %sw.bb73 ], [ %ObjectFormat.2346, %sw.bb ], [ %ObjectFormat.2346, %sw.bb91 ]
+  %IsMinGW32.5288 = phi i8 [ %frombool86, %sw.epilog ], [ %IsMinGW32.3351, %if.then97 ], [ %IsMinGW32.3351, %sw.bb73 ], [ %IsMinGW32.3351, %sw.bb ], [ %IsMinGW32.3351, %sw.bb91 ]
+  %IsCygwin.5287 = phi i8 [ %frombool83274, %sw.epilog ], [ %IsCygwin.3350, %if.then97 ], [ %IsCygwin.3350, %sw.bb73 ], [ %IsCygwin.3350, %sw.bb ], [ %IsCygwin.3350, %sw.bb91 ]
+  %Vendor.5286 = phi i32 [ %Vendor.3349, %sw.epilog ], [ %Vendor.3349, %if.then97 ], [ %call75, %sw.bb73 ], [ %Vendor.3349, %sw.bb ], [ %Vendor.3349, %sw.bb91 ]
+  %OS.5285 = phi i32 [ %call80, %sw.epilog ], [ %OS.3348, %if.then97 ], [ %OS.3348, %sw.bb73 ], [ %OS.3348, %sw.bb ], [ %OS.3348, %sw.bb91 ]
+  %Environment.5284 = phi i32 [ %Environment.3347, %sw.epilog ], [ 0, %if.then97 ], [ %Environment.3347, %sw.bb73 ], [ %Environment.3347, %sw.bb ], [ %call93, %sw.bb91 ]
+  %ObjectFormat.5283 = phi i32 [ %ObjectFormat.3346, %sw.epilog ], [ %call99, %if.then97 ], [ %ObjectFormat.3346, %sw.bb73 ], [ %ObjectFormat.3346, %sw.bb ], [ %ObjectFormat.3346, %sw.bb91 ]
   %15 = zext i32 %Idx.0345 to i64
   %cmp106 = icmp ult i64 %indvars.iv401, %15
   br i1 %cmp106, label %if.then107, label %if.else
@@ -3095,24 +3095,24 @@ if.end166:                                        ; preds = %do.cond, %while.end
 
 for.inc169:                                       ; preds = %sw.bb.for.inc169_crit_edge, %sw.bb73, %if.then97, %sw.epilog, %land.lhs.true
   %36 = phi i32 [ %8, %land.lhs.true ], [ %8, %sw.epilog ], [ %8, %if.then97 ], [ %8, %sw.bb73 ], [ %.pre410, %sw.bb.for.inc169_crit_edge ]
-  %ObjectFormat.4 = phi i32 [ %ObjectFormat.2346, %land.lhs.true ], [ %ObjectFormat.2346, %sw.epilog ], [ 0, %if.then97 ], [ %ObjectFormat.2346, %sw.bb73 ], [ %ObjectFormat.2346, %sw.bb.for.inc169_crit_edge ]
-  %Environment.4 = phi i32 [ %Environment.2347, %land.lhs.true ], [ %Environment.2347, %sw.epilog ], [ 0, %if.then97 ], [ %Environment.2347, %sw.bb73 ], [ %Environment.2347, %sw.bb.for.inc169_crit_edge ]
-  %OS.4 = phi i32 [ %OS.2348, %land.lhs.true ], [ 0, %sw.epilog ], [ %OS.2348, %if.then97 ], [ %OS.2348, %sw.bb73 ], [ %OS.2348, %sw.bb.for.inc169_crit_edge ]
-  %Vendor.4 = phi i32 [ %Vendor.2349, %land.lhs.true ], [ %Vendor.2349, %sw.epilog ], [ %Vendor.2349, %if.then97 ], [ 0, %sw.bb73 ], [ %Vendor.2349, %sw.bb.for.inc169_crit_edge ]
-  %IsCygwin.4 = phi i8 [ %IsCygwin.2350, %land.lhs.true ], [ %frombool83274, %sw.epilog ], [ %IsCygwin.2350, %if.then97 ], [ %IsCygwin.2350, %sw.bb73 ], [ %IsCygwin.2350, %sw.bb.for.inc169_crit_edge ]
-  %IsMinGW32.4 = phi i8 [ %IsMinGW32.2351, %land.lhs.true ], [ %frombool86, %sw.epilog ], [ %IsMinGW32.2351, %if.then97 ], [ %IsMinGW32.2351, %sw.bb73 ], [ %IsMinGW32.2351, %sw.bb.for.inc169_crit_edge ]
+  %ObjectFormat.4 = phi i32 [ %ObjectFormat.3346, %land.lhs.true ], [ %ObjectFormat.3346, %sw.epilog ], [ 0, %if.then97 ], [ %ObjectFormat.3346, %sw.bb73 ], [ %ObjectFormat.3346, %sw.bb.for.inc169_crit_edge ]
+  %Environment.4 = phi i32 [ %Environment.3347, %land.lhs.true ], [ %Environment.3347, %sw.epilog ], [ 0, %if.then97 ], [ %Environment.3347, %sw.bb73 ], [ %Environment.3347, %sw.bb.for.inc169_crit_edge ]
+  %OS.4 = phi i32 [ %OS.3348, %land.lhs.true ], [ 0, %sw.epilog ], [ %OS.3348, %if.then97 ], [ %OS.3348, %sw.bb73 ], [ %OS.3348, %sw.bb.for.inc169_crit_edge ]
+  %Vendor.4 = phi i32 [ %Vendor.3349, %land.lhs.true ], [ %Vendor.3349, %sw.epilog ], [ %Vendor.3349, %if.then97 ], [ 0, %sw.bb73 ], [ %Vendor.3349, %sw.bb.for.inc169_crit_edge ]
+  %IsCygwin.4 = phi i8 [ %IsCygwin.3350, %land.lhs.true ], [ %frombool83274, %sw.epilog ], [ %IsCygwin.3350, %if.then97 ], [ %IsCygwin.3350, %sw.bb73 ], [ %IsCygwin.3350, %sw.bb.for.inc169_crit_edge ]
+  %IsMinGW32.4 = phi i8 [ %IsMinGW32.3351, %land.lhs.true ], [ %frombool86, %sw.epilog ], [ %IsMinGW32.3351, %if.then97 ], [ %IsMinGW32.3351, %sw.bb73 ], [ %IsMinGW32.3351, %sw.bb.for.inc169_crit_edge ]
   %inc170 = add i32 %Idx.0345, 1
   %conv55 = zext i32 %inc170 to i64
   %cmp57.not = icmp eq i32 %36, %inc170
   br i1 %cmp57.not, label %for.inc172, label %for.body58, !llvm.loop !81
 
 for.inc172:                                       ; preds = %for.inc169, %if.end166, %for.body
-  %ObjectFormat.5 = phi i32 [ %ObjectFormat.1379, %for.body ], [ %ObjectFormat.3283, %if.end166 ], [ %ObjectFormat.4, %for.inc169 ]
-  %Environment.5 = phi i32 [ %Environment.1380, %for.body ], [ %Environment.3284, %if.end166 ], [ %Environment.4, %for.inc169 ]
-  %OS.5 = phi i32 [ %OS.1381, %for.body ], [ %OS.3285, %if.end166 ], [ %OS.4, %for.inc169 ]
-  %Vendor.5 = phi i32 [ %Vendor.1382, %for.body ], [ %Vendor.3286, %if.end166 ], [ %Vendor.4, %for.inc169 ]
-  %IsCygwin.5 = phi i8 [ %IsCygwin.1383, %for.body ], [ %IsCygwin.3287, %if.end166 ], [ %IsCygwin.4, %for.inc169 ]
-  %IsMinGW32.5 = phi i8 [ %IsMinGW32.1384, %for.body ], [ %IsMinGW32.3288, %if.end166 ], [ %IsMinGW32.4, %for.inc169 ]
+  %ObjectFormat.2 = phi i32 [ %ObjectFormat.1379, %for.body ], [ %ObjectFormat.5283, %if.end166 ], [ %ObjectFormat.4, %for.inc169 ]
+  %Environment.2 = phi i32 [ %Environment.1380, %for.body ], [ %Environment.5284, %if.end166 ], [ %Environment.4, %for.inc169 ]
+  %OS.2 = phi i32 [ %OS.1381, %for.body ], [ %OS.5285, %if.end166 ], [ %OS.4, %for.inc169 ]
+  %Vendor.2 = phi i32 [ %Vendor.1382, %for.body ], [ %Vendor.5286, %if.end166 ], [ %Vendor.4, %for.inc169 ]
+  %IsCygwin.2 = phi i8 [ %IsCygwin.1383, %for.body ], [ %IsCygwin.5287, %if.end166 ], [ %IsCygwin.4, %for.inc169 ]
+  %IsMinGW32.2 = phi i8 [ %IsMinGW32.1384, %for.body ], [ %IsMinGW32.5288, %if.end166 ], [ %IsMinGW32.4, %for.inc169 ]
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %cmp50.not = icmp eq i64 %indvars.iv.next402, 4
   br i1 %cmp50.not, label %for.end174, label %for.body, !llvm.loop !82
@@ -3148,7 +3148,7 @@ for.inc188:                                       ; preds = %for.body180, %_ZN4l
 
 for.end190:                                       ; preds = %for.inc188, %for.end174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %NormalizedEnvironment) #13
-  %cmp191 = icmp eq i32 %Environment.5, 10
+  %cmp191 = icmp eq i32 %Environment.2, 10
   br i1 %cmp191, label %land.lhs.true192, label %if.end210
 
 land.lhs.true192:                                 ; preds = %for.end190
@@ -3200,8 +3200,8 @@ if.else203:                                       ; preds = %if.then196
   br label %if.end217
 
 if.end210:                                        ; preds = %for.end190
-  %cmp211 = icmp eq i32 %Vendor.5, 15
-  %cmp213 = icmp eq i32 %Environment.5, 4
+  %cmp211 = icmp eq i32 %Vendor.2, 15
+  %cmp213 = icmp eq i32 %Environment.2, 4
   %or.cond = select i1 %cmp211, i1 %cmp213, i1 false
   br i1 %or.cond, label %_ZN4llvh9StringRefC2EPKc.exit377, label %if.end217
 
@@ -3214,7 +3214,7 @@ _ZN4llvh9StringRefC2EPKc.exit377:                 ; preds = %if.end210
   br label %if.end217
 
 if.end217:                                        ; preds = %if.end.i689, %if.else203, %_ZN4llvh9StringRefC2EPKc.exit367, %land.lhs.true192, %_ZN4llvh9StringRefC2EPKc.exit377, %if.end210
-  %cmp218 = icmp eq i32 %OS.5, 15
+  %cmp218 = icmp eq i32 %OS.2, 15
   br i1 %cmp218, label %if.then219, label %if.else236
 
 if.then219:                                       ; preds = %if.end217
@@ -3257,15 +3257,15 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit: ; preds = %if.else.i, %
   store ptr @.str.88, ptr %arrayidx.i485, align 8
   %ref.tmp220.sroa.2.0.arrayidx.i485.sroa_idx = getelementptr inbounds i8, ptr %51, i64 40
   store i64 7, ptr %ref.tmp220.sroa.2.0.arrayidx.i485.sroa_idx, align 8
-  %cmp222 = icmp eq i32 %Environment.5, 0
+  %cmp222 = icmp eq i32 %Environment.2, 0
   br i1 %cmp222, label %if.then223, label %if.end252
 
 if.then223:                                       ; preds = %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit
-  %or.cond1 = icmp ult i32 %ObjectFormat.5, 2
+  %or.cond1 = icmp ult i32 %ObjectFormat.2, 2
   br i1 %or.cond1, label %if.end252.sink.split, label %if.else230
 
 if.else230:                                       ; preds = %if.then223
-  switch i32 %ObjectFormat.5, label %sw.epilog.i [
+  switch i32 %ObjectFormat.2, label %sw.epilog.i [
     i32 4, label %_ZN4llvh9StringRefC2EPKc.exit44.i
     i32 3, label %_ZN4llvh9StringRefC2EPKc.exit34.i
     i32 2, label %if.end252.sink.split
@@ -3281,7 +3281,7 @@ sw.epilog.i:                                      ; preds = %if.else230
   unreachable
 
 if.else236:                                       ; preds = %if.end217
-  %tobool237 = trunc nuw i8 %IsMinGW32.5 to i1
+  %tobool237 = trunc nuw i8 %IsMinGW32.2 to i1
   br i1 %tobool237, label %if.then238, label %if.else243
 
 if.then238:                                       ; preds = %if.else236
@@ -3327,7 +3327,7 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit165: ; preds = %if.else.i
   br label %if.end252.sink.split
 
 if.else243:                                       ; preds = %if.else236
-  %tobool244 = trunc nuw i8 %IsCygwin.5 to i1
+  %tobool244 = trunc nuw i8 %IsCygwin.2 to i1
   br i1 %tobool244, label %if.then245, label %if.end252
 
 if.then245:                                       ; preds = %if.else243
@@ -3383,20 +3383,20 @@ if.end252.sink.split:                             ; preds = %_ZN4llvh9StringRefC
   br label %if.end252
 
 if.end252:                                        ; preds = %if.end252.sink.split, %if.else243, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit
-  %tobool253 = trunc nuw i8 %IsMinGW32.5 to i1
+  %tobool253 = trunc nuw i8 %IsMinGW32.2 to i1
   br i1 %tobool253, label %if.then260, label %lor.lhs.false254
 
 lor.lhs.false254:                                 ; preds = %if.end252
-  %tobool255 = trunc nuw i8 %IsCygwin.5 to i1
-  %cmp259 = icmp ne i32 %Environment.5, 0
+  %tobool255 = trunc nuw i8 %IsCygwin.2 to i1
+  %cmp259 = icmp ne i32 %Environment.2, 0
   %or.cond2 = select i1 %cmp218, i1 %cmp259, i1 false
   %or.cond110 = select i1 %tobool255, i1 true, i1 %or.cond2
-  %or.cond3 = icmp ugt i32 %ObjectFormat.5, 1
+  %or.cond3 = icmp ugt i32 %ObjectFormat.2, 1
   %or.cond111 = select i1 %or.cond110, i1 %or.cond3, i1 false
   br i1 %or.cond111, label %if.then264, label %if.end269
 
 if.then260:                                       ; preds = %if.end252
-  %or.cond3.old = icmp ugt i32 %ObjectFormat.5, 1
+  %or.cond3.old = icmp ugt i32 %ObjectFormat.2, 1
   br i1 %or.cond3.old, label %if.then264, label %if.end269
 
 if.then264:                                       ; preds = %lor.lhs.false254, %if.then260
@@ -3434,7 +3434,7 @@ if.end15.sink.split.i210:                         ; preds = %for.body.preheader.
   br label %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit215
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit215: ; preds = %if.else.i194, %if.end15.sink.split.i210
-  %switch.tableidx = add nsw i32 %ObjectFormat.5, -2
+  %switch.tableidx = add nsw i32 %ObjectFormat.2, -2
   %69 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE, i64 0, i64 %69
   %switch.load = load i64, ptr %switch.gep, align 8

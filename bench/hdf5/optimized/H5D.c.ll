@@ -1098,7 +1098,7 @@ define range(i32 -1, 1) i32 @H5Dclose_async(ptr noundef %0, ptr noundef %1, i32 
 
 45:                                               ; preds = %41, %40
   %.030 = phi ptr [ %6, %41 ], [ null, %40 ]
-  %.028 = phi ptr [ %43, %41 ], [ null, %40 ]
+  %.129 = phi ptr [ %43, %41 ], [ null, %40 ]
   %46 = call i32 @H5I_dec_app_ref_always_close_async(i64 noundef %3, ptr noundef %.030) #6
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52
@@ -1130,11 +1130,11 @@ define range(i32 -1, 1) i32 @H5Dclose_async(ptr noundef %0, ptr noundef %1, i32 
 63:                                               ; preds = %52, %54, %59, %48
   %.026 = phi i32 [ -1, %48 ], [ -1, %59 ], [ 0, %54 ], [ 0, %52 ]
   %.0 = phi i1 [ true, %48 ], [ true, %59 ], [ false, %54 ], [ false, %52 ]
-  %.not35 = icmp eq ptr %.028, null
+  %.not35 = icmp eq ptr %.129, null
   br i1 %.not35, label %72, label %64
 
 64:                                               ; preds = %63
-  %65 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.028) #6
+  %65 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.129) #6
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %.thread63, label %72
 
@@ -2009,7 +2009,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
   br label %104
 
 49:                                               ; preds = %42, %41
-  %.050 = phi ptr [ %44, %42 ], [ %10, %41 ]
+  %.1 = phi ptr [ %44, %42 ], [ %10, %41 ]
   %50 = load i64, ptr %1, align 8
   %51 = tail call ptr @H5I_object_verify(i64 noundef %50, i32 noundef 5) #6
   br i1 %.not, label %.cont, label %.else
@@ -2032,7 +2032,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
   %58 = getelementptr inbounds i8, ptr %51, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %51, align 8
-  store ptr %60, ptr %.050, align 8
+  store ptr %60, ptr %.1, align 8
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 61:                                               ; preds = %71
@@ -2056,7 +2056,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
 
 71:                                               ; preds = %.lr.ph
   %72 = load ptr, ptr %65, align 8
-  %73 = getelementptr inbounds ptr, ptr %.050, i64 %.04881
+  %73 = getelementptr inbounds ptr, ptr %.1, i64 %.04881
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %65, i64 8
   %75 = load ptr, ptr %74, align 8
@@ -2097,7 +2097,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
 
 96:                                               ; preds = %89, %87
   %.049 = phi i64 [ %88, %87 ], [ %5, %89 ]
-  %97 = call i32 @H5VL_dataset_read_direct(i64 noundef %0, ptr noundef nonnull %.050, ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %.049, ptr noundef nonnull %6, ptr noundef %7) #6
+  %97 = call i32 @H5VL_dataset_read_direct(i64 noundef %0, ptr noundef nonnull %.1, ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %.049, ptr noundef nonnull %6, ptr noundef %7) #6
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %103
 
@@ -2109,13 +2109,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
 
 103:                                              ; preds = %96, %99, %92, %82, %67, %53
   %.0 = phi i32 [ -1, %53 ], [ -1, %67 ], [ -1, %82 ], [ -1, %99 ], [ 0, %96 ], [ -1, %92 ]
-  %.not70 = icmp eq ptr %.050, %10
+  %.not70 = icmp eq ptr %.1, %10
   br i1 %.not70, label %.thread, label %104
 
 104:                                              ; preds = %.thread75, %103
   %.080 = phi i32 [ -1, %.thread75 ], [ %.0, %103 ]
-  %.179 = phi ptr [ null, %.thread75 ], [ %.050, %103 ]
-  call void @free(ptr noundef %.179) #6
+  %.05079 = phi ptr [ null, %.thread75 ], [ %.1, %103 ]
+  call void @free(ptr noundef %.05079) #6
   br label %.thread
 
 .thread:                                          ; preds = %17, %22, %27, %32, %37, %12, %104, %103
@@ -2649,7 +2649,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
   br label %104
 
 49:                                               ; preds = %42, %41
-  %.050 = phi ptr [ %44, %42 ], [ %10, %41 ]
+  %.1 = phi ptr [ %44, %42 ], [ %10, %41 ]
   %50 = load i64, ptr %1, align 8
   %51 = tail call ptr @H5I_object_verify(i64 noundef %50, i32 noundef 5) #6
   br i1 %.not, label %.cont, label %.else
@@ -2672,7 +2672,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
   %58 = getelementptr inbounds i8, ptr %51, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %51, align 8
-  store ptr %60, ptr %.050, align 8
+  store ptr %60, ptr %.1, align 8
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 61:                                               ; preds = %71
@@ -2696,7 +2696,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
 
 71:                                               ; preds = %.lr.ph
   %72 = load ptr, ptr %65, align 8
-  %73 = getelementptr inbounds ptr, ptr %.050, i64 %.04881
+  %73 = getelementptr inbounds ptr, ptr %.1, i64 %.04881
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %65, i64 8
   %75 = load ptr, ptr %74, align 8
@@ -2737,7 +2737,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
 
 96:                                               ; preds = %89, %87
   %.049 = phi i64 [ %88, %87 ], [ %5, %89 ]
-  %97 = call i32 @H5VL_dataset_write_direct(i64 noundef %0, ptr noundef nonnull %.050, ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %.049, ptr noundef nonnull %6, ptr noundef %7) #6
+  %97 = call i32 @H5VL_dataset_write_direct(i64 noundef %0, ptr noundef nonnull %.1, ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %.049, ptr noundef nonnull %6, ptr noundef %7) #6
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %103
 
@@ -2749,13 +2749,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
 
 103:                                              ; preds = %96, %99, %92, %82, %67, %53
   %.0 = phi i32 [ -1, %53 ], [ -1, %67 ], [ -1, %82 ], [ -1, %99 ], [ 0, %96 ], [ -1, %92 ]
-  %.not70 = icmp eq ptr %.050, %10
+  %.not70 = icmp eq ptr %.1, %10
   br i1 %.not70, label %.thread, label %104
 
 104:                                              ; preds = %.thread75, %103
   %.080 = phi i32 [ -1, %.thread75 ], [ %.0, %103 ]
-  %.179 = phi ptr [ null, %.thread75 ], [ %.050, %103 ]
-  call void @free(ptr noundef %.179) #6
+  %.05079 = phi ptr [ null, %.thread75 ], [ %.1, %103 ]
+  call void @free(ptr noundef %.05079) #6
   br label %.thread
 
 .thread:                                          ; preds = %17, %22, %27, %32, %37, %12, %104, %103

@@ -69,13 +69,13 @@ define internal void @MultARGBRow_SSE2(ptr noundef %0, i32 noundef %1, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.1 = phi i32 [ 0, %3 ], [ %20, %.loopexit.loopexit ]
-  %21 = sub nsw i32 %1, %.1
+  %.0 = phi i32 [ 0, %3 ], [ %20, %.loopexit.loopexit ]
+  %21 = sub nsw i32 %1, %.0
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %.loopexit
-  %24 = zext nneg i32 %.1 to i64
+  %24 = zext nneg i32 %.0 to i64
   %25 = getelementptr inbounds i32, ptr %0, i64 %24
   tail call void @WebPMultARGBRow_C(ptr noundef %25, i32 noundef %21, i32 noundef %2) #6
   br label %26
@@ -127,13 +127,13 @@ define internal void @MultRow_SSE2(ptr noalias noundef %0, ptr noalias noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.1 = phi i32 [ 0, %4 ], [ %24, %.loopexit.loopexit ]
-  %25 = sub nsw i32 %2, %.1
+  %.0 = phi i32 [ 0, %4 ], [ %24, %.loopexit.loopexit ]
+  %25 = sub nsw i32 %2, %.0
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.loopexit
-  %28 = zext nneg i32 %.1 to i64
+  %28 = zext nneg i32 %.0 to i64
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %1, i64 %28
   tail call void @WebPMultRow_C(ptr noundef %29, ptr noundef %30, i32 noundef %25, i32 noundef %3) #6
@@ -247,14 +247,14 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %.preheader.us
-  %.1.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %63, %.loopexit.us.loopexit ]
-  %64 = icmp slt i32 %.1.lcssa.us, %2
+  %.2.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %63, %.loopexit.us.loopexit ]
+  %64 = icmp slt i32 %.2.lcssa.us, %2
   br i1 %64, label %.lr.ph188.us, label %._crit_edge.us
 
 .lr.ph188.us:                                     ; preds = %.loopexit.us
   %65 = getelementptr inbounds i8, ptr %.0189.us, i64 %8
   %66 = getelementptr inbounds i8, ptr %.0189.us, i64 %9
-  %67 = zext nneg i32 %.1.lcssa.us to i64
+  %67 = zext nneg i32 %.2.lcssa.us to i64
   br label %35
 
 .lr.ph191.split:                                  ; preds = %.lr.ph191

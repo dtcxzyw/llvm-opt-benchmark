@@ -1564,8 +1564,8 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #5 personality
 
 46:                                               ; preds = %43, %41
   %.pn.i = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %47 = call ptr @__cxa_begin_catch(ptr %.0.i) #17
+  %.1.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %47 = call ptr @__cxa_begin_catch(ptr %.1.i) #17
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
           to label %48 unwind label %53
 
@@ -1801,8 +1801,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 
 121:                                              ; preds = %119, %117
   %.pn43.i = phi { ptr, i32 } [ %120, %119 ], [ %118, %117 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn43.i, 0
-  %122 = call ptr @__cxa_begin_catch(ptr %.2.i) #17
+  %.7.i = extractvalue { ptr, i32 } %.pn43.i, 0
+  %122 = call ptr @__cxa_begin_catch(ptr %.7.i) #17
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %11)
           to label %123 unwind label %128
 
@@ -2037,8 +2037,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 
 191:                                              ; preds = %189, %187
   %.pn49.i = phi { ptr, i32 } [ %190, %189 ], [ %188, %187 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn49.i, 0
-  %192 = call ptr @__cxa_begin_catch(ptr %.5.i) #17
+  %.13.i = extractvalue { ptr, i32 } %.pn49.i, 0
+  %192 = call ptr @__cxa_begin_catch(ptr %.13.i) #17
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %22)
           to label %193 unwind label %198
 

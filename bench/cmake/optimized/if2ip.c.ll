@@ -87,7 +87,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %62
   %.052.us = phi ptr [ %.0.us, %62 ], [ %.049, %.lr.ph ]
-  %.03051.us = phi i32 [ %.1.us, %62 ], [ 0, %.lr.ph ]
+  %.151.us = phi i32 [ %.3.us, %62 ], [ 0, %.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %.052.us, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not36.us = icmp eq ptr %14, null
@@ -99,7 +99,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %15
-  %19 = icmp eq i32 %.03051.us, 0
+  %19 = icmp eq i32 %.151.us, 0
   br i1 %19, label %20, label %62
 
 20:                                               ; preds = %18
@@ -186,14 +186,14 @@ Curl_ipv6_scope.exit.us:                          ; preds = %58, %57, %54, %40, 
   br i1 %or.cond.us, label %.split.us, label %62
 
 62:                                               ; preds = %59, %Curl_ipv6_scope.exit.us, %24, %20, %18, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.03051.us, %24 ], [ 1, %18 ], [ %.03051.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %Curl_ipv6_scope.exit.us ], [ 1, %59 ]
+  %.3.us = phi i32 [ %.151.us, %24 ], [ 1, %18 ], [ %.151.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %Curl_ipv6_scope.exit.us ], [ 1, %59 ]
   %.0.us = load ptr, ptr %.052.us, align 8
   %.not.us = icmp eq ptr %.0.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %90
   %.052 = phi ptr [ %.0, %90 ], [ %.049, %.lr.ph ]
-  %.03051 = phi i32 [ %.1, %90 ], [ 0, %.lr.ph ]
+  %.151 = phi i32 [ %.3, %90 ], [ 0, %.lr.ph ]
   %63 = getelementptr inbounds i8, ptr %.052, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not36 = icmp eq ptr %64, null
@@ -236,7 +236,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %58, %57, %54, %40, 
   br label %.loopexit
 
 84:                                               ; preds = %65
-  %85 = icmp eq i32 %.03051, 0
+  %85 = icmp eq i32 %.151, 0
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %84
@@ -248,20 +248,20 @@ Curl_ipv6_scope.exit.us:                          ; preds = %58, %57, %54, %40, 
   br label %90
 
 90:                                               ; preds = %86, %.lr.ph.split, %84, %69
-  %.1 = phi i32 [ %.03051, %69 ], [ 1, %84 ], [ %.03051, %.lr.ph.split ], [ %spec.select, %86 ]
+  %.3 = phi i32 [ %.151, %69 ], [ 1, %84 ], [ %.151, %.lr.ph.split ], [ %spec.select, %86 ]
   %.0 = load ptr, ptr %.052, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !5
 
 .loopexit:                                        ; preds = %90, %62, %.preheader, %80
-  %.2 = phi i32 [ 2, %80 ], [ 0, %.preheader ], [ %.1.us, %62 ], [ %.1, %90 ]
+  %.2 = phi i32 [ 2, %80 ], [ 0, %.preheader ], [ %.3.us, %62 ], [ %.3, %90 ]
   %91 = load ptr, ptr %7, align 8
   call void @freeifaddrs(ptr noundef %91) #6
   br label %92
 
 92:                                               ; preds = %.loopexit, %6
-  %.3 = phi i32 [ %.2, %.loopexit ], [ 0, %6 ]
-  ret i32 %.3
+  %.030 = phi i32 [ %.2, %.loopexit ], [ 0, %6 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind

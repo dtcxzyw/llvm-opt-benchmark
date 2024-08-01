@@ -140,8 +140,8 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %invoke.cont, %if.then.i.i, %cleanup, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ false, %cleanup ], [ false, %if.then.i.i ], [ true, %invoke.cont ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %cleanup ], [ false, %if.then.i.i ], [ true, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
@@ -362,8 +362,8 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %invoke.cont, %if.then.i.i, %cleanup, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ false, %cleanup ], [ false, %if.then.i.i ], [ true, %invoke.cont ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %cleanup ], [ false, %if.then.i.i ], [ true, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -604,8 +604,8 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %invoke.cont, %if.then.i.i, %cleanup, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ false, %cleanup ], [ false, %if.then.i.i ], [ true, %invoke.cont ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %cleanup ], [ false, %if.then.i.i ], [ true, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

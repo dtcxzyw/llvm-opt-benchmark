@@ -438,9 +438,9 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 
 51:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %11
   %.pn = phi { i8, i64 } [ %13, %11 ], [ %31, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.sroa.6.0 = extractvalue { i8, i64 } %.pn, 1
-  %.sroa.018.0 = extractvalue { i8, i64 } %.pn, 0
-  tail call void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i8 %.sroa.018.0, i64 %.sroa.6.0) #6
+  %.sroa.6.1 = extractvalue { i8, i64 } %.pn, 1
+  %.sroa.018.1 = extractvalue { i8, i64 } %.pn, 0
+  tail call void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i8 %.sroa.018.1, i64 %.sroa.6.1) #6
   br label %52
 
 52:                                               ; preds = %2, %51

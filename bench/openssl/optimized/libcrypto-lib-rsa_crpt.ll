@@ -232,7 +232,7 @@ if.then13:                                        ; preds = %if.then10, %rsa_get
   br label %err
 
 if.end17:                                         ; preds = %if.end7, %rsa_get_public_exp.exit
-  %e.0 = phi ptr [ %call22.i, %rsa_get_public_exp.exit ], [ %1, %if.end7 ]
+  %e.1 = phi ptr [ %call22.i, %rsa_get_public_exp.exit ], [ %1, %if.end7 ]
   %call18 = tail call ptr @BN_new() #3
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %if.then20, label %if.end21
@@ -253,7 +253,7 @@ if.end21:                                         ; preds = %if.end17
   %7 = load ptr, ptr %bn_mod_exp, align 8
   %_method_mod_n = getelementptr inbounds i8, ptr %rsa, i64 168
   %8 = load ptr, ptr %_method_mod_n, align 8
-  %call23 = tail call ptr @BN_BLINDING_create_param(ptr noundef null, ptr noundef nonnull %e.0, ptr noundef nonnull %call18, ptr noundef nonnull %ctx.0, ptr noundef %7, ptr noundef %8) #3
+  %call23 = tail call ptr @BN_BLINDING_create_param(ptr noundef null, ptr noundef nonnull %e.1, ptr noundef nonnull %call18, ptr noundef nonnull %ctx.0, ptr noundef %7, ptr noundef %8) #3
   tail call void @BN_free(ptr noundef nonnull %call18) #3
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %if.then25, label %if.end26
@@ -269,7 +269,7 @@ if.end26:                                         ; preds = %if.end21
   br label %err
 
 err:                                              ; preds = %if.end26, %if.then25, %if.then20, %if.then13, %if.then6
-  %e.1 = phi ptr [ null, %if.then6 ], [ null, %if.then13 ], [ %e.0, %if.then20 ], [ %e.0, %if.then25 ], [ %e.0, %if.end26 ]
+  %e.0 = phi ptr [ null, %if.then6 ], [ null, %if.then13 ], [ %e.1, %if.then20 ], [ %e.1, %if.then25 ], [ %e.1, %if.end26 ]
   %ret.0 = phi ptr [ null, %if.then6 ], [ null, %if.then13 ], [ null, %if.then20 ], [ null, %if.then25 ], [ %call23, %if.end26 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %ctx.0) #3
   %cmp27.not = icmp eq ptr %ctx.0, %in_ctx
@@ -282,11 +282,11 @@ if.then28:                                        ; preds = %err
 if.end29:                                         ; preds = %if.then28, %err
   %e30 = getelementptr inbounds i8, ptr %rsa, i64 48
   %9 = load ptr, ptr %e30, align 8
-  %cmp31.not = icmp eq ptr %e.1, %9
+  %cmp31.not = icmp eq ptr %e.0, %9
   br i1 %cmp31.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  tail call void @BN_free(ptr noundef %e.1) #3
+  tail call void @BN_free(ptr noundef %e.0) #3
   br label %return
 
 return:                                           ; preds = %if.end29, %if.then32, %if.then

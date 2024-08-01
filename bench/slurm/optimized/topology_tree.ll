@@ -666,7 +666,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph119:                                        ; preds = %141, %209
   %146 = phi i32 [ %211, %209 ], [ %112, %141 ]
-  %.094116 = phi i32 [ %.296, %209 ], [ %145, %141 ]
+  %.094116 = phi i32 [ %.195, %209 ], [ %145, %141 ]
   %147 = load ptr, ptr %10, align 8
   %148 = sext i32 %146 to i64
   %149 = call i32 @slurm_bit_test(ptr noundef %147, i64 noundef %148) #10
@@ -688,7 +688,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %155 = phi ptr [ %168, %200 ], [ null, %150 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %200 ], [ 0, %150 ]
   %156 = phi ptr [ %201, %200 ], [ %152, %150 ]
-  %.031.i = phi i32 [ %.1.i, %200 ], [ 0, %150 ]
+  %.031.i = phi i32 [ %.2.i, %200 ], [ 0, %150 ]
   %157 = getelementptr inbounds %struct.switch_record_t, ptr %156, i64 %148, i32 11
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i16, ptr %158, i64 %indvars.iv.i
@@ -763,7 +763,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %199, label %._crit_edge.i, label %200
 
 200:                                              ; preds = %195, %167
-  %.1.i = phi i32 [ %.031.i, %167 ], [ %198, %195 ]
+  %.2.i = phi i32 [ %.031.i, %167 ], [ %198, %195 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %201 = load ptr, ptr @switch_record_table, align 8
   %202 = getelementptr inbounds %struct.switch_record_t, ptr %201, i64 %148, i32 6
@@ -773,9 +773,9 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %205, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %200, %195
-  %.2.ph.i = phi i32 [ %.1.i, %200 ], [ %.094116, %195 ]
+  %.1.ph.i = phi i32 [ %.2.i, %200 ], [ %.094116, %195 ]
   %206 = icmp eq ptr %168, null
-  %207 = sub nsw i32 %.094116, %.2.ph.i
+  %207 = sub nsw i32 %.094116, %.1.ph.i
   br i1 %206, label %_subtree_split_hostlist.exit, label %208
 
 208:                                              ; preds = %._crit_edge.i
@@ -783,7 +783,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %_subtree_split_hostlist.exit
 
 _subtree_split_hostlist.exit:                     ; preds = %150, %._crit_edge.i, %208
-  %.195 = phi i32 [ %.094116, %150 ], [ %207, %._crit_edge.i ], [ %207, %208 ]
+  %.296 = phi i32 [ %.094116, %150 ], [ %207, %._crit_edge.i ], [ %207, %208 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.pre131 = load i32, ptr %7, align 4
@@ -791,14 +791,14 @@ _subtree_split_hostlist.exit:                     ; preds = %150, %._crit_edge.i
 
 209:                                              ; preds = %.lr.ph119, %_subtree_split_hostlist.exit
   %210 = phi i32 [ %146, %.lr.ph119 ], [ %.pre131, %_subtree_split_hostlist.exit ]
-  %.296 = phi i32 [ %.094116, %.lr.ph119 ], [ %.195, %_subtree_split_hostlist.exit ]
+  %.195 = phi i32 [ %.094116, %.lr.ph119 ], [ %.296, %_subtree_split_hostlist.exit ]
   %211 = add nsw i32 %210, 1
   store i32 %211, ptr %7, align 4
   %.not80.not = icmp slt i32 %210, %.063
   br i1 %.not80.not, label %.lr.ph119, label %._crit_edge120, !llvm.loop !18
 
 ._crit_edge120:                                   ; preds = %209, %141
-  %.094.lcssa = phi i32 [ %145, %141 ], [ %.296, %209 ]
+  %.094.lcssa = phi i32 [ %145, %141 ], [ %.195, %209 ]
   %.not81 = icmp eq i32 %.094.lcssa, 0
   br i1 %.not81, label %.loopexit, label %212
 

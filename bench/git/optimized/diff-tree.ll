@@ -298,7 +298,7 @@ if.end91:                                         ; preds = %if.end89, %if.then7
 
 while.body96:                                     ; preds = %if.end91, %if.end118
   %saved_dcctc.034 = phi i32 [ %saved_dcctc.1, %if.end118 ], [ 0, %if.end91 ]
-  %saved_nrl.033 = phi i32 [ %saved_nrl.2, %if.end118 ], [ 0, %if.end91 ]
+  %saved_nrl.033 = phi i32 [ %saved_nrl.1, %if.end118 ], [ 0, %if.end91 ]
   %call99 = call i32 @get_oid_hex(ptr noundef nonnull %line, ptr noundef nonnull %oid97) #11
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.else105, label %if.then101
@@ -489,7 +489,7 @@ diff_tree_stdin.exit:                             ; preds = %if.else105, %lor.lh
   br label %if.end118
 
 if.end118:                                        ; preds = %diff_tree_stdin.exit, %if.then101
-  %saved_nrl.2 = phi i32 [ %saved_nrl.033, %if.then101 ], [ %spec.select21, %diff_tree_stdin.exit ]
+  %saved_nrl.1 = phi i32 [ %saved_nrl.033, %if.then101 ], [ %spec.select21, %diff_tree_stdin.exit ]
   %saved_dcctc.1 = phi i32 [ %saved_dcctc.034, %if.then101 ], [ %spec.select22, %diff_tree_stdin.exit ]
   %55 = load ptr, ptr @stdin, align 8
   %call94 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %55)
@@ -497,7 +497,7 @@ if.end118:                                        ; preds = %diff_tree_stdin.exi
   br i1 %tobool95.not, label %while.end119, label %while.body96, !llvm.loop !8
 
 while.end119:                                     ; preds = %if.end118, %if.end91
-  %saved_nrl.0.lcssa = phi i32 [ 0, %if.end91 ], [ %saved_nrl.2, %if.end118 ]
+  %saved_nrl.0.lcssa = phi i32 [ 0, %if.end91 ], [ %saved_nrl.1, %if.end118 ]
   %saved_dcctc.0.lcssa = phi i32 [ 0, %if.end91 ], [ %saved_dcctc.1, %if.end118 ]
   store i32 %saved_dcctc.0.lcssa, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1772), align 4
   store i32 %saved_nrl.0.lcssa, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1768), align 8

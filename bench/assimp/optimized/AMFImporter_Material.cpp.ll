@@ -2421,12 +2421,12 @@ if.end.i342.lr.ph:                                ; preds = %invoke.cont175
   br label %if.end.i342
 
 if.end.i342:                                      ; preds = %if.end.i342.lr.ph, %if.end260
-  %read_flag.sroa.0.2501 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.0.3, %if.end260 ]
-  %read_flag.sroa.4.2500 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.4.3, %if.end260 ]
-  %read_flag.sroa.7.2499 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.7.3, %if.end260 ]
-  %read_flag.sroa.16.2498 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.16.3, %if.end260 ]
-  %read_flag.sroa.13.2497 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.13.3, %if.end260 ]
-  %read_flag.sroa.10.2496 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.10.3, %if.end260 ]
+  %read_flag.sroa.0.3501 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.0.4, %if.end260 ]
+  %read_flag.sroa.4.3500 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.4.4, %if.end260 ]
+  %read_flag.sroa.7.3499 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.7.4, %if.end260 ]
+  %read_flag.sroa.16.3498 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.16.4, %if.end260 ]
+  %read_flag.sroa.13.3497 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.13.4, %if.end260 ]
+  %read_flag.sroa.10.3496 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.10.4, %if.end260 ]
   %__begin2176.sroa.0.0495 = phi ptr [ %86, %if.end.i342.lr.ph ], [ %96, %if.end260 ]
   %name3.i343 = getelementptr inbounds i8, ptr %__begin2176.sroa.0.0495, i64 8
   %87 = load ptr, ptr %name3.i343, align 8
@@ -2590,12 +2590,12 @@ invoke.cont250:                                   ; preds = %cond.true.i416, %if
   br label %if.end260
 
 if.end260:                                        ; preds = %invoke.cont210, %invoke.cont230, %if.else245, %invoke.cont250, %invoke.cont240, %invoke.cont220, %invoke.cont200
-  %read_flag.sroa.10.3 = phi i1 [ %read_flag.sroa.10.2496, %invoke.cont200 ], [ %read_flag.sroa.10.2496, %invoke.cont210 ], [ %read_flag.sroa.10.2496, %invoke.cont220 ], [ true, %invoke.cont230 ], [ %read_flag.sroa.10.2496, %invoke.cont240 ], [ %read_flag.sroa.10.2496, %invoke.cont250 ], [ %read_flag.sroa.10.2496, %if.else245 ]
-  %read_flag.sroa.13.3 = phi i1 [ %read_flag.sroa.13.2497, %invoke.cont200 ], [ %read_flag.sroa.13.2497, %invoke.cont210 ], [ %read_flag.sroa.13.2497, %invoke.cont220 ], [ %read_flag.sroa.13.2497, %invoke.cont230 ], [ true, %invoke.cont240 ], [ %read_flag.sroa.13.2497, %invoke.cont250 ], [ %read_flag.sroa.13.2497, %if.else245 ]
-  %read_flag.sroa.16.3 = phi i1 [ %read_flag.sroa.16.2498, %invoke.cont200 ], [ %read_flag.sroa.16.2498, %invoke.cont210 ], [ %read_flag.sroa.16.2498, %invoke.cont220 ], [ %read_flag.sroa.16.2498, %invoke.cont230 ], [ %read_flag.sroa.16.2498, %invoke.cont240 ], [ true, %invoke.cont250 ], [ %read_flag.sroa.16.2498, %if.else245 ]
-  %read_flag.sroa.7.3 = phi i1 [ %read_flag.sroa.7.2499, %invoke.cont200 ], [ %read_flag.sroa.7.2499, %invoke.cont210 ], [ true, %invoke.cont220 ], [ %read_flag.sroa.7.2499, %invoke.cont230 ], [ %read_flag.sroa.7.2499, %invoke.cont240 ], [ %read_flag.sroa.7.2499, %invoke.cont250 ], [ %read_flag.sroa.7.2499, %if.else245 ]
-  %read_flag.sroa.4.3 = phi i1 [ %read_flag.sroa.4.2500, %invoke.cont200 ], [ true, %invoke.cont210 ], [ %read_flag.sroa.4.2500, %invoke.cont220 ], [ %read_flag.sroa.4.2500, %invoke.cont230 ], [ %read_flag.sroa.4.2500, %invoke.cont240 ], [ %read_flag.sroa.4.2500, %invoke.cont250 ], [ %read_flag.sroa.4.2500, %if.else245 ]
-  %read_flag.sroa.0.3 = phi i1 [ true, %invoke.cont200 ], [ %read_flag.sroa.0.2501, %invoke.cont210 ], [ %read_flag.sroa.0.2501, %invoke.cont220 ], [ %read_flag.sroa.0.2501, %invoke.cont230 ], [ %read_flag.sroa.0.2501, %invoke.cont240 ], [ %read_flag.sroa.0.2501, %invoke.cont250 ], [ %read_flag.sroa.0.2501, %if.else245 ]
+  %read_flag.sroa.10.4 = phi i1 [ %read_flag.sroa.10.3496, %invoke.cont200 ], [ %read_flag.sroa.10.3496, %invoke.cont210 ], [ %read_flag.sroa.10.3496, %invoke.cont220 ], [ true, %invoke.cont230 ], [ %read_flag.sroa.10.3496, %invoke.cont240 ], [ %read_flag.sroa.10.3496, %invoke.cont250 ], [ %read_flag.sroa.10.3496, %if.else245 ]
+  %read_flag.sroa.13.4 = phi i1 [ %read_flag.sroa.13.3497, %invoke.cont200 ], [ %read_flag.sroa.13.3497, %invoke.cont210 ], [ %read_flag.sroa.13.3497, %invoke.cont220 ], [ %read_flag.sroa.13.3497, %invoke.cont230 ], [ true, %invoke.cont240 ], [ %read_flag.sroa.13.3497, %invoke.cont250 ], [ %read_flag.sroa.13.3497, %if.else245 ]
+  %read_flag.sroa.16.4 = phi i1 [ %read_flag.sroa.16.3498, %invoke.cont200 ], [ %read_flag.sroa.16.3498, %invoke.cont210 ], [ %read_flag.sroa.16.3498, %invoke.cont220 ], [ %read_flag.sroa.16.3498, %invoke.cont230 ], [ %read_flag.sroa.16.3498, %invoke.cont240 ], [ true, %invoke.cont250 ], [ %read_flag.sroa.16.3498, %if.else245 ]
+  %read_flag.sroa.7.4 = phi i1 [ %read_flag.sroa.7.3499, %invoke.cont200 ], [ %read_flag.sroa.7.3499, %invoke.cont210 ], [ true, %invoke.cont220 ], [ %read_flag.sroa.7.3499, %invoke.cont230 ], [ %read_flag.sroa.7.3499, %invoke.cont240 ], [ %read_flag.sroa.7.3499, %invoke.cont250 ], [ %read_flag.sroa.7.3499, %if.else245 ]
+  %read_flag.sroa.4.4 = phi i1 [ %read_flag.sroa.4.3500, %invoke.cont200 ], [ true, %invoke.cont210 ], [ %read_flag.sroa.4.3500, %invoke.cont220 ], [ %read_flag.sroa.4.3500, %invoke.cont230 ], [ %read_flag.sroa.4.3500, %invoke.cont240 ], [ %read_flag.sroa.4.3500, %invoke.cont250 ], [ %read_flag.sroa.4.3500, %if.else245 ]
+  %read_flag.sroa.0.4 = phi i1 [ true, %invoke.cont200 ], [ %read_flag.sroa.0.3501, %invoke.cont210 ], [ %read_flag.sroa.0.3501, %invoke.cont220 ], [ %read_flag.sroa.0.3501, %invoke.cont230 ], [ %read_flag.sroa.0.3501, %invoke.cont240 ], [ %read_flag.sroa.0.3501, %invoke.cont250 ], [ %read_flag.sroa.0.3501, %if.else245 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name189) #17
   %next_attribute.i421 = getelementptr inbounds i8, ptr %__begin2176.sroa.0.0495, i64 32
   %96 = load ptr, ptr %next_attribute.i421, align 8
@@ -2603,17 +2603,17 @@ if.end260:                                        ; preds = %invoke.cont210, %in
   br i1 %cmp.not.i337.not, label %if.end265, label %if.end.i342
 
 if.end265:                                        ; preds = %if.end260, %for.end170
-  %read_flag.sroa.10.4 = phi i1 [ %read_flag.sroa.10.0.lcssa, %for.end170 ], [ %read_flag.sroa.10.3, %if.end260 ]
-  %read_flag.sroa.13.4 = phi i1 [ %read_flag.sroa.13.0.lcssa, %for.end170 ], [ %read_flag.sroa.13.3, %if.end260 ]
-  %read_flag.sroa.16.4 = phi i1 [ %read_flag.sroa.16.0.lcssa, %for.end170 ], [ %read_flag.sroa.16.3, %if.end260 ]
-  %read_flag.sroa.7.4 = phi i1 [ %read_flag.sroa.7.0.lcssa, %for.end170 ], [ %read_flag.sroa.7.3, %if.end260 ]
-  %read_flag.sroa.4.4 = phi i1 [ %read_flag.sroa.4.0.lcssa, %for.end170 ], [ %read_flag.sroa.4.3, %if.end260 ]
-  %read_flag.sroa.0.4 = phi i1 [ %read_flag.sroa.0.0.lcssa, %for.end170 ], [ %read_flag.sroa.0.3, %if.end260 ]
-  %97 = select i1 %read_flag.sroa.0.4, i1 %read_flag.sroa.4.4, i1 false
-  %98 = select i1 %97, i1 %read_flag.sroa.7.4, i1 false
-  %99 = select i1 %98, i1 %read_flag.sroa.10.4, i1 false
-  %100 = select i1 %99, i1 %read_flag.sroa.13.4, i1 false
-  %101 = select i1 %100, i1 %read_flag.sroa.16.4, i1 false
+  %read_flag.sroa.10.2 = phi i1 [ %read_flag.sroa.10.0.lcssa, %for.end170 ], [ %read_flag.sroa.10.4, %if.end260 ]
+  %read_flag.sroa.13.2 = phi i1 [ %read_flag.sroa.13.0.lcssa, %for.end170 ], [ %read_flag.sroa.13.4, %if.end260 ]
+  %read_flag.sroa.16.2 = phi i1 [ %read_flag.sroa.16.0.lcssa, %for.end170 ], [ %read_flag.sroa.16.4, %if.end260 ]
+  %read_flag.sroa.7.2 = phi i1 [ %read_flag.sroa.7.0.lcssa, %for.end170 ], [ %read_flag.sroa.7.4, %if.end260 ]
+  %read_flag.sroa.4.2 = phi i1 [ %read_flag.sroa.4.0.lcssa, %for.end170 ], [ %read_flag.sroa.4.4, %if.end260 ]
+  %read_flag.sroa.0.2 = phi i1 [ %read_flag.sroa.0.0.lcssa, %for.end170 ], [ %read_flag.sroa.0.4, %if.end260 ]
+  %97 = select i1 %read_flag.sroa.0.2, i1 %read_flag.sroa.4.2, i1 false
+  %98 = select i1 %97, i1 %read_flag.sroa.7.2, i1 false
+  %99 = select i1 %98, i1 %read_flag.sroa.10.2, i1 false
+  %100 = select i1 %99, i1 %read_flag.sroa.13.2, i1 false
+  %101 = select i1 %100, i1 %read_flag.sroa.16.2, i1 false
   br i1 %101, label %if.end287, label %if.then283
 
 if.then283:                                       ; preds = %invoke.cont175, %if.end265
@@ -3044,9 +3044,9 @@ for.cond49.preheader:                             ; preds = %while.cond42
 
 if.then53:                                        ; preds = %for.cond49.preheader, %if.then53
   %sub5145 = phi i32 [ %sub51, %if.then53 ], [ %sub5141, %for.cond49.preheader ]
-  %result.244 = phi i32 [ %add57, %if.then53 ], [ 0, %for.cond49.preheader ]
+  %result.344 = phi i32 [ %add57, %if.then53 ], [ 0, %for.cond49.preheader ]
   %s.443 = phi ptr [ %incdec.ptr60, %if.then53 ], [ %s.3, %for.cond49.preheader ]
-  %mul54 = mul i32 %result.244, 10
+  %mul54 = mul i32 %result.344, 10
   %add57 = add i32 %sub5145, %mul54
   %incdec.ptr60 = getelementptr inbounds i8, ptr %s.443, i64 1
   %9 = load i8, ptr %incdec.ptr60, align 1
@@ -3057,7 +3057,7 @@ if.then53:                                        ; preds = %for.cond49.preheade
 
 for.end61:                                        ; preds = %if.then53, %for.cond49.preheader
   %s.4.lcssa = phi ptr [ %s.3, %for.cond49.preheader ], [ %incdec.ptr60, %if.then53 ]
-  %result.2.lcssa = phi i32 [ 0, %for.cond49.preheader ], [ %add57, %if.then53 ]
+  %result.3.lcssa = phi i32 [ 0, %for.cond49.preheader ], [ %add57, %if.then53 ]
   %sub.ptr.lhs.cast63 = ptrtoint ptr %s.4.lcssa to i64
   %sub.ptr.rhs.cast64 = ptrtoint ptr %s.3 to i64
   %sub.ptr.sub65 = sub i64 %sub.ptr.lhs.cast63, %sub.ptr.rhs.cast64
@@ -3074,25 +3074,25 @@ land.rhs68:                                       ; preds = %land.rhs
 
 lor.rhs71:                                        ; preds = %land.rhs68
   %cmp73 = icmp ne i8 %8, 52
-  %tobool75 = icmp sgt i32 %result.2.lcssa, -1
+  %tobool75 = icmp sgt i32 %result.3.lcssa, -1
   %.not = select i1 %cmp73, i1 true, i1 %tobool75
   br label %if.end80
 
 if.end80:                                         ; preds = %for.end61, %land.rhs68, %lor.rhs71, %land.rhs, %for.end
   %overflow.0 = phi i1 [ %cmp39, %for.end ], [ false, %for.end61 ], [ true, %land.rhs ], [ false, %land.rhs68 ], [ %.not, %lor.rhs71 ]
-  %result.3 = phi i32 [ %result.0, %for.end ], [ %result.2.lcssa, %for.end61 ], [ %result.2.lcssa, %land.rhs ], [ %result.2.lcssa, %land.rhs68 ], [ %result.2.lcssa, %lor.rhs71 ]
+  %result.2 = phi i32 [ %result.0, %for.end ], [ %result.3.lcssa, %for.end61 ], [ %result.3.lcssa, %land.rhs ], [ %result.3.lcssa, %land.rhs68 ], [ %result.3.lcssa, %lor.rhs71 ]
   br i1 %cmp, label %if.then82, label %if.else87
 
 if.then82:                                        ; preds = %if.end80
   %sub84 = sub i32 0, %minv
-  %cmp85 = icmp ugt i32 %result.3, %sub84
+  %cmp85 = icmp ugt i32 %result.2, %sub84
   %or.cond = select i1 %overflow.0, i1 true, i1 %cmp85
-  %sub86 = sub i32 0, %result.3
+  %sub86 = sub i32 0, %result.2
   %cond = select i1 %or.cond, i32 %minv, i32 %sub86
   br label %return
 
 if.else87:                                        ; preds = %if.end80
-  %10 = tail call i32 @llvm.umin.i32(i32 %result.3, i32 %maxv)
+  %10 = tail call i32 @llvm.umin.i32(i32 %result.2, i32 %maxv)
   %cond94 = select i1 %overflow.0, i32 %maxv, i32 %10
   br label %return
 

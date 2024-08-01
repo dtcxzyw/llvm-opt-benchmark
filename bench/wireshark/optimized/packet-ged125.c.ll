@@ -830,16 +830,16 @@ define internal i32 @dissect_ged125_base_messages(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %trunk_funk.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
-  %.0464 = phi i32 [ %92, %.lr.ph.i ], [ 40, %74 ]
+  %.1 = phi i32 [ %92, %.lr.ph.i ], [ 40, %74 ]
   %.011.i = phi i16 [ %93, %.lr.ph.i ], [ 0, %74 ]
   %87 = load i32, ptr @hf_ged125_TrunkNumber, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %87, ptr noundef %0, i32 noundef %.0464, i32 noundef 2, i32 noundef 0) #2
-  %89 = or disjoint i32 %.0464, 2
+  %88 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %87, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #2
+  %89 = or disjoint i32 %.1, 2
   %90 = load i32, ptr @hf_ged125_TrunkStatus, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 2, i32 noundef 0) #2
-  %92 = add nuw nsw i32 %.0464, 4
+  %92 = add nuw nsw i32 %.1, 4
   %93 = add nuw nsw i16 %.011.i, 1
-  %94 = add nuw nsw i32 %.0464, 8
+  %94 = add nuw nsw i32 %.1, 8
   %95 = icmp sle i32 %94, %6
   %96 = icmp ult i16 %.011.i, 1023
   %97 = select i1 %95, i1 %96, i1 false
@@ -901,11 +901,11 @@ OperationalStatus_funk.exit:                      ; preds = %121, %130, %132, %1
   br i1 %.not5.i, label %trunk_funk.exit, label %.lr.ph.i229
 
 .lr.ph.i229:                                      ; preds = %OperationalStatus_funk.exit, %.lr.ph.i229
-  %.2 = phi i32 [ %139, %.lr.ph.i229 ], [ 20, %OperationalStatus_funk.exit ]
+  %.3 = phi i32 [ %139, %.lr.ph.i229 ], [ 20, %OperationalStatus_funk.exit ]
   %137 = load i32, ptr @hf_ged125_StatusVariable, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %137, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0) #2
-  %139 = add i32 %.2, 4
-  %140 = add i32 %.2, 8
+  %138 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %137, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
+  %139 = add i32 %.3, 4
+  %140 = add i32 %.3, 8
   %.not.i230 = icmp sgt i32 %140, %6
   br i1 %.not.i230, label %trunk_funk.exit, label %.lr.ph.i229, !llvm.loop !6
 
@@ -1002,11 +1002,11 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   br i1 %.not5.i234, label %trunk_funk.exit, label %.lr.ph.i235
 
 .lr.ph.i235:                                      ; preds = %OperationalStatus_funk.exit233, %.lr.ph.i235
-  %.4 = phi i32 [ %204, %.lr.ph.i235 ], [ 20, %OperationalStatus_funk.exit233 ]
+  %.5 = phi i32 [ %204, %.lr.ph.i235 ], [ 20, %OperationalStatus_funk.exit233 ]
   %202 = load i32, ptr @hf_ged125_StatusVariable, align 4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %202, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
-  %204 = add i32 %.4, 4
-  %205 = add i32 %.4, 8
+  %203 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %202, ptr noundef %0, i32 noundef %.5, i32 noundef 4, i32 noundef 0) #2
+  %204 = add i32 %.5, 4
+  %205 = add i32 %.5, 8
   %.not.i236 = icmp sgt i32 %205, %6
   br i1 %.not.i236, label %trunk_funk.exit, label %.lr.ph.i235, !llvm.loop !6
 
@@ -1030,13 +1030,13 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   br i1 %.not.i238, label %trunk_funk.exit, label %.lr.ph.i239
 
 .lr.ph.i239:                                      ; preds = %215, %.lr.ph.i239
-  %.6 = phi i32 [ %220, %.lr.ph.i239 ], [ 20, %215 ]
+  %.7 = phi i32 [ %220, %.lr.ph.i239 ], [ 20, %215 ]
   %.07.i = phi i32 [ %221, %.lr.ph.i239 ], [ 0, %215 ]
   %218 = load i32, ptr @hf_ged125_TrunkNumber, align 4
-  %219 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %218, ptr noundef %0, i32 noundef %.6, i32 noundef 2, i32 noundef 0) #2
-  %220 = add nuw nsw i32 %.6, 2
+  %219 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %218, ptr noundef %0, i32 noundef %.7, i32 noundef 2, i32 noundef 0) #2
+  %220 = add nuw nsw i32 %.7, 2
   %221 = add nuw nsw i32 %.07.i, 1
-  %222 = add nuw nsw i32 %.6, 4
+  %222 = add nuw nsw i32 %.7, 4
   %223 = icmp sle i32 %222, %6
   %224 = icmp ult i32 %.07.i, 1023
   %225 = select i1 %223, i1 %224, i1 false
@@ -1219,16 +1219,16 @@ OperationalStatus_funk.exit233:                   ; preds = %186, %195, %197, %1
   br i1 %.not.i.i, label %trunk_funk.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %313, %.lr.ph.i.i
-  %.8 = phi i32 [ %325, %.lr.ph.i.i ], [ 32, %313 ]
+  %.12 = phi i32 [ %325, %.lr.ph.i.i ], [ 32, %313 ]
   %.011.i.i = phi i16 [ %326, %.lr.ph.i.i ], [ 0, %313 ]
   %320 = load i32, ptr @hf_ged125_TrunkNumber, align 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %320, ptr noundef %0, i32 noundef %.8, i32 noundef 2, i32 noundef 0) #2
-  %322 = or disjoint i32 %.8, 2
+  %321 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %320, ptr noundef %0, i32 noundef %.12, i32 noundef 2, i32 noundef 0) #2
+  %322 = or disjoint i32 %.12, 2
   %323 = load i32, ptr @hf_ged125_TrunkStatus, align 4
   %324 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %323, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef 0) #2
-  %325 = add nuw nsw i32 %.8, 4
+  %325 = add nuw nsw i32 %.12, 4
   %326 = add nuw nsw i16 %.011.i.i, 1
-  %327 = add nuw nsw i32 %.8, 8
+  %327 = add nuw nsw i32 %.12, 8
   %328 = icmp sle i32 %327, %6
   %329 = icmp ult i16 %.011.i.i, 1023
   %330 = select i1 %328, i1 %329, i1 false
@@ -1280,11 +1280,11 @@ OperationalStatus_funk.exit.i:                    ; preds = %357, %355, %353, %3
   br i1 %.not5.i.i, label %trunk_funk.exit, label %.lr.ph.i361.i
 
 .lr.ph.i361.i:                                    ; preds = %OperationalStatus_funk.exit.i, %.lr.ph.i361.i
-  %.9 = phi i32 [ %362, %.lr.ph.i361.i ], [ 36, %OperationalStatus_funk.exit.i ]
+  %.11 = phi i32 [ %362, %.lr.ph.i361.i ], [ 36, %OperationalStatus_funk.exit.i ]
   %360 = load i32, ptr @hf_ged125_StatusVariable, align 4
-  %361 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %360, ptr noundef %0, i32 noundef %.9, i32 noundef 4, i32 noundef 0) #2
-  %362 = add i32 %.9, 4
-  %363 = add i32 %.9, 8
+  %361 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %360, ptr noundef %0, i32 noundef %.11, i32 noundef 4, i32 noundef 0) #2
+  %362 = add i32 %.11, 4
+  %363 = add i32 %.11, 8
   %.not.i362.i = icmp sgt i32 %363, %6
   br i1 %.not.i362.i, label %trunk_funk.exit, label %.lr.ph.i361.i, !llvm.loop !6
 
@@ -1350,11 +1350,11 @@ OperationalStatus_funk.exit369.i:                 ; preds = %398, %396, %394, %3
   br i1 %.not5.i370.i, label %trunk_funk.exit, label %.lr.ph.i371.i
 
 .lr.ph.i371.i:                                    ; preds = %OperationalStatus_funk.exit369.i, %.lr.ph.i371.i
-  %.11 = phi i32 [ %403, %.lr.ph.i371.i ], [ 32, %OperationalStatus_funk.exit369.i ]
+  %.9 = phi i32 [ %403, %.lr.ph.i371.i ], [ 32, %OperationalStatus_funk.exit369.i ]
   %401 = load i32, ptr @hf_ged125_StatusVariable, align 4
-  %402 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %401, ptr noundef %0, i32 noundef %.11, i32 noundef 4, i32 noundef 0) #2
-  %403 = add i32 %.11, 4
-  %404 = add i32 %.11, 8
+  %402 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %401, ptr noundef %0, i32 noundef %.9, i32 noundef 4, i32 noundef 0) #2
+  %403 = add i32 %.9, 4
+  %404 = add i32 %.9, 8
   %.not.i372.i = icmp sgt i32 %404, %6
   br i1 %.not.i372.i, label %trunk_funk.exit, label %.lr.ph.i371.i, !llvm.loop !6
 
@@ -1466,9 +1466,9 @@ OperationalStatus_funk.exit369.i:                 ; preds = %398, %396, %394, %3
   br label %trunk_funk.exit
 
 trunk_funk.exit:                                  ; preds = %.lr.ph.i371.i, %.lr.ph.i364.i, %.lr.ph.i361.i, %.lr.ph.i.i, %.lr.ph.i239, %.lr.ph.i235, %.lr.ph.i229, %.lr.ph.i, %472, %467, %452, %431, %426, %419, %418, %413, %410, %405, %OperationalStatus_funk.exit369.i, %380, %364, %OperationalStatus_funk.exit.i, %331, %313, %310, %305, %302, %299, %294, %291, %284, %279, %276, %271, %215, %OperationalStatus_funk.exit233, %OperationalStatus_funk.exit, %74, %477, %474, %251, %246, %241, %236, %226, %183, %176, %171, %162, %157, %148, %141, %98, %55, %52, %39, %32, %29, %24, %4
-  %.13 = phi i32 [ 8, %4 ], [ 10, %477 ], [ 8, %474 ], [ 12, %251 ], [ 16, %246 ], [ 16, %241 ], [ 16, %236 ], [ 16, %226 ], [ 12, %183 ], [ 20, %176 ], [ 16, %171 ], [ 24, %162 ], [ 16, %157 ], [ 24, %148 ], [ 20, %141 ], [ 52, %98 ], [ 16, %55 ], [ 12, %52 ], [ 32, %39 ], [ 20, %32 ], [ 12, %29 ], [ 16, %24 ], [ 40, %74 ], [ 20, %OperationalStatus_funk.exit ], [ 20, %OperationalStatus_funk.exit233 ], [ 20, %215 ], [ 20, %472 ], [ 28, %467 ], [ 48, %452 ], [ 60, %431 ], [ 28, %426 ], [ 32, %419 ], [ 20, %271 ], [ 20, %418 ], [ 28, %413 ], [ 24, %410 ], [ 28, %405 ], [ 32, %OperationalStatus_funk.exit369.i ], [ 28, %380 ], [ 28, %364 ], [ 36, %OperationalStatus_funk.exit.i ], [ 40, %331 ], [ 32, %313 ], [ 24, %310 ], [ 28, %305 ], [ 24, %302 ], [ 24, %299 ], [ 28, %294 ], [ 24, %291 ], [ 32, %284 ], [ 28, %279 ], [ 24, %276 ], [ %92, %.lr.ph.i ], [ %139, %.lr.ph.i229 ], [ %204, %.lr.ph.i235 ], [ %220, %.lr.ph.i239 ], [ %325, %.lr.ph.i.i ], [ %362, %.lr.ph.i361.i ], [ %374, %.lr.ph.i364.i ], [ %403, %.lr.ph.i371.i ]
+  %.0464 = phi i32 [ 8, %4 ], [ 10, %477 ], [ 8, %474 ], [ 12, %251 ], [ 16, %246 ], [ 16, %241 ], [ 16, %236 ], [ 16, %226 ], [ 12, %183 ], [ 20, %176 ], [ 16, %171 ], [ 24, %162 ], [ 16, %157 ], [ 24, %148 ], [ 20, %141 ], [ 52, %98 ], [ 16, %55 ], [ 12, %52 ], [ 32, %39 ], [ 20, %32 ], [ 12, %29 ], [ 16, %24 ], [ 40, %74 ], [ 20, %OperationalStatus_funk.exit ], [ 20, %OperationalStatus_funk.exit233 ], [ 20, %215 ], [ 20, %472 ], [ 28, %467 ], [ 48, %452 ], [ 60, %431 ], [ 28, %426 ], [ 32, %419 ], [ 20, %271 ], [ 20, %418 ], [ 28, %413 ], [ 24, %410 ], [ 28, %405 ], [ 32, %OperationalStatus_funk.exit369.i ], [ 28, %380 ], [ 28, %364 ], [ 36, %OperationalStatus_funk.exit.i ], [ 40, %331 ], [ 32, %313 ], [ 24, %310 ], [ 28, %305 ], [ 24, %302 ], [ 24, %299 ], [ 28, %294 ], [ 24, %291 ], [ 32, %284 ], [ 28, %279 ], [ 24, %276 ], [ %92, %.lr.ph.i ], [ %139, %.lr.ph.i229 ], [ %204, %.lr.ph.i235 ], [ %220, %.lr.ph.i239 ], [ %325, %.lr.ph.i.i ], [ %362, %.lr.ph.i361.i ], [ %374, %.lr.ph.i364.i ], [ %403, %.lr.ph.i371.i ]
   %480 = load ptr, ptr %5, align 8
-  %481 = add i32 %.13, -8
+  %481 = add i32 %.0464, -8
   call void @proto_item_set_len(ptr noundef %480, i32 noundef %481) #2
   br label %482
 
@@ -1503,7 +1503,7 @@ define internal fastcc void @floating_fields(ptr noundef %0, ptr noundef %1, ptr
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %87
-  %.087 = phi i32 [ %.4, %87 ], [ %3, %5 ]
+  %.087 = phi i32 [ %.1, %87 ], [ %3, %5 ]
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.087) #2
   %13 = zext i8 %12 to i32
   %14 = load i32, ptr @hf_ged125_floating, align 4
@@ -1631,23 +1631,23 @@ define internal fastcc void @floating_fields(ptr noundef %0, ptr noundef %1, ptr
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %61, %58
-  %.1 = phi i32 [ %64, %61 ], [ %57, %58 ]
+  %.2 = phi i32 [ %64, %61 ], [ %57, %58 ]
   %.sink36.i = phi i32 [ 4, %61 ], [ 1, %58 ]
   %.sink34.ph.i = phi i32 [ -9, %61 ], [ -2, %58 ]
-  %67 = add i32 %.sink36.i, %.1
+  %67 = add i32 %.sink36.i, %.2
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %53
-  %.2 = phi i32 [ %67, %.sink.split.sink.split.i ], [ %57, %53 ]
+  %.3 = phi i32 [ %67, %.sink.split.sink.split.i ], [ %57, %53 ]
   %.sink34.i = phi i32 [ %.sink34.ph.i, %.sink.split.sink.split.i ], [ -1, %53 ]
   %68 = load i32, ptr @hf_ged125_floating_payload_strg, align 4
   %69 = add nsw i32 %.sink34.i, %21
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef %.2, i32 noundef %69, i32 noundef 0) #2
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef %.3, i32 noundef %69, i32 noundef 0) #2
   br label %Media_Specifier_dissect.exit
 
 Media_Specifier_dissect.exit:                     ; preds = %53, %.sink.split.i
-  %.3 = phi i32 [ %57, %53 ], [ %.2, %.sink.split.i ]
-  %71 = add i32 %.3, %21
+  %.4 = phi i32 [ %57, %53 ], [ %.3, %.sink.split.i ]
+  %71 = add i32 %.4, %21
   br label %87
 
 72:                                               ; preds = %30
@@ -1676,8 +1676,8 @@ Media_Specifier_dissect.exit:                     ; preds = %53, %.sink.split.i
   br label %87
 
 87:                                               ; preds = %41, %49, %31, %36, %84, %81, %78, %75, %72, %Media_Specifier_dissect.exit, %30
-  %.4 = phi i32 [ %24, %30 ], [ %25, %84 ], [ %25, %81 ], [ %25, %78 ], [ %25, %75 ], [ %25, %72 ], [ %71, %Media_Specifier_dissect.exit ], [ %25, %49 ], [ %47, %41 ], [ %40, %36 ], [ %34, %31 ]
-  %88 = icmp slt i32 %.4, %10
+  %.1 = phi i32 [ %24, %30 ], [ %25, %84 ], [ %25, %81 ], [ %25, %78 ], [ %25, %75 ], [ %25, %72 ], [ %71, %Media_Specifier_dissect.exit ], [ %25, %49 ], [ %47, %41 ], [ %40, %36 ], [ %34, %31 ]
+  %88 = icmp slt i32 %.1, %10
   br i1 %88, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %87, %5, %28

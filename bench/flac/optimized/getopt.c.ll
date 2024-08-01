@@ -509,9 +509,9 @@ for.body144.lr.ph:                                ; preds = %for.end
 for.body144:                                      ; preds = %for.body144.lr.ph, %for.inc165
   %66 = phi ptr [ %65, %for.body144.lr.ph ], [ %67, %for.inc165 ]
   %option_index.0237 = phi i32 [ 0, %for.body144.lr.ph ], [ %inc167, %for.inc165 ]
-  %indfound.0236 = phi i32 [ -1, %for.body144.lr.ph ], [ %indfound.1, %for.inc165 ]
+  %indfound.0236 = phi i32 [ -1, %for.body144.lr.ph ], [ %indfound.2, %for.inc165 ]
   %ambig.0235 = phi i32 [ 0, %for.body144.lr.ph ], [ %ambig.1, %for.inc165 ]
-  %pfound.0234 = phi ptr [ null, %for.body144.lr.ph ], [ %pfound.1, %for.inc165 ]
+  %pfound.0234 = phi ptr [ null, %for.body144.lr.ph ], [ %pfound.2, %for.inc165 ]
   %p.0233 = phi ptr [ %longopts, %for.body144.lr.ph ], [ %incdec.ptr166, %for.inc165 ]
   %call146 = tail call i32 @strncmp(ptr noundef nonnull %66, ptr noundef %59, i64 noundef %sub.ptr.sub) #6
   %tobool147.not = icmp eq i32 %call146, 0
@@ -530,9 +530,9 @@ if.else157:                                       ; preds = %if.then148
   br label %for.inc165
 
 for.inc165:                                       ; preds = %if.else157, %for.body144
-  %pfound.1 = phi ptr [ %pfound.0234, %for.body144 ], [ %p.0.pfound.0, %if.else157 ]
+  %pfound.2 = phi ptr [ %pfound.0234, %for.body144 ], [ %p.0.pfound.0, %if.else157 ]
   %ambig.1 = phi i32 [ %ambig.0235, %for.body144 ], [ %ambig.0., %if.else157 ]
-  %indfound.1 = phi i32 [ %indfound.0236, %for.body144 ], [ %option_index.0.indfound.0, %if.else157 ]
+  %indfound.2 = phi i32 [ %indfound.0236, %for.body144 ], [ %option_index.0.indfound.0, %if.else157 ]
   %incdec.ptr166 = getelementptr inbounds i8, ptr %p.0233, i64 32
   %inc167 = add nuw nsw i32 %option_index.0237, 1
   %67 = load ptr, ptr %incdec.ptr166, align 8
@@ -573,17 +573,17 @@ if.end180:                                        ; preds = %if.then174, %if.the
   br label %return
 
 if.end184:                                        ; preds = %for.end168
-  %cmp185.not = icmp eq ptr %pfound.1, null
+  %cmp185.not = icmp eq ptr %pfound.2, null
   br i1 %cmp185.not, label %if.end266, label %if.then187
 
 if.then187:                                       ; preds = %if.then148, %if.end184
-  %pfound.2194200 = phi ptr [ %pfound.1, %if.end184 ], [ %p.0233, %if.then148 ]
-  %indfound.2195199 = phi i32 [ %indfound.1, %if.end184 ], [ %option_index.0237, %if.then148 ]
+  %pfound.1194200 = phi ptr [ %pfound.2, %if.end184 ], [ %p.0233, %if.then148 ]
+  %indfound.1195199 = phi i32 [ %indfound.2, %if.end184 ], [ %option_index.0237, %if.then148 ]
   %inc188 = add nsw i32 %60, 1
   store i32 %inc188, ptr @share__optind, align 4
   %75 = load i8, ptr %nameend.0, align 1
   %tobool189.not = icmp eq i8 %75, 0
-  %has_arg224 = getelementptr inbounds i8, ptr %pfound.2194200, i64 8
+  %has_arg224 = getelementptr inbounds i8, ptr %pfound.1194200, i64 8
   %76 = load i32, ptr %has_arg224, align 8
   br i1 %tobool189.not, label %if.else223, label %if.then190
 
@@ -609,7 +609,7 @@ if.then196:                                       ; preds = %if.else194
 if.then203:                                       ; preds = %if.then196
   %call204 = tail call ptr @gettext(ptr noundef nonnull @.str.2) #5
   %80 = load ptr, ptr %argv, align 8
-  %81 = load ptr, ptr %pfound.2194200, align 8
+  %81 = load ptr, ptr %pfound.1194200, align 8
   %call207 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef %call204, ptr noundef %80, ptr noundef %81) #7
   br label %if.end219
 
@@ -623,7 +623,7 @@ if.else208:                                       ; preds = %if.then196
   %86 = load ptr, ptr %arrayidx213, align 8
   %87 = load i8, ptr %86, align 1
   %conv215 = sext i8 %87 to i32
-  %88 = load ptr, ptr %pfound.2194200, align 8
+  %88 = load ptr, ptr %pfound.1194200, align 8
   %call217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef %call209, ptr noundef %82, i32 noundef %conv215, ptr noundef %88) #7
   br label %if.end219
 
@@ -632,7 +632,7 @@ if.end219:                                        ; preds = %if.then203, %if.els
   %call220 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #6
   %add.ptr221 = getelementptr inbounds i8, ptr %89, i64 %call220
   store ptr %add.ptr221, ptr @nextchar, align 8
-  %val = getelementptr inbounds i8, ptr %pfound.2194200, i64 24
+  %val = getelementptr inbounds i8, ptr %pfound.1194200, i64 24
   %90 = load i32, ptr %val, align 8
   store i32 %90, ptr @share__optopt, align 4
   br label %return
@@ -676,7 +676,7 @@ if.end243:                                        ; preds = %if.then236, %if.els
   %call244 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #6
   %add.ptr245 = getelementptr inbounds i8, ptr %99, i64 %call244
   store ptr %add.ptr245, ptr @nextchar, align 8
-  %val246 = getelementptr inbounds i8, ptr %pfound.2194200, i64 24
+  %val246 = getelementptr inbounds i8, ptr %pfound.1194200, i64 24
   %100 = load i32, ptr %val246, align 8
   store i32 %100, ptr @share__optopt, align 4
   %101 = load i8, ptr %optstring.addr.0270, align 1
@@ -697,14 +697,14 @@ if.end253:                                        ; preds = %if.end253.sink.spli
   br i1 %cmp256.not, label %if.end259, label %if.then258
 
 if.then258:                                       ; preds = %if.end253
-  store i32 %indfound.2195199, ptr %longind, align 4
+  store i32 %indfound.1195199, ptr %longind, align 4
   br label %if.end259
 
 if.end259:                                        ; preds = %if.then258, %if.end253
-  %flag = getelementptr inbounds i8, ptr %pfound.2194200, i64 16
+  %flag = getelementptr inbounds i8, ptr %pfound.1194200, i64 16
   %102 = load ptr, ptr %flag, align 8
   %tobool260.not = icmp eq ptr %102, null
-  %val265 = getelementptr inbounds i8, ptr %pfound.2194200, i64 24
+  %val265 = getelementptr inbounds i8, ptr %pfound.1194200, i64 24
   %103 = load i32, ptr %val265, align 8
   br i1 %tobool260.not, label %return, label %if.then261
 
@@ -899,9 +899,9 @@ for.body403.lr.ph:                                ; preds = %for.end399
 for.body403:                                      ; preds = %for.body403.lr.ph, %for.inc427
   %137 = phi ptr [ %136, %for.body403.lr.ph ], [ %138, %for.inc427 ]
   %option_index355.0246 = phi i32 [ 0, %for.body403.lr.ph ], [ %inc429, %for.inc427 ]
-  %indfound354.0245 = phi i32 [ 0, %for.body403.lr.ph ], [ %indfound354.1, %for.inc427 ]
+  %indfound354.0245 = phi i32 [ 0, %for.body403.lr.ph ], [ %indfound354.2, %for.inc427 ]
   %ambig353.0244 = phi i32 [ 0, %for.body403.lr.ph ], [ %ambig353.1, %for.inc427 ]
-  %pfound351.0243 = phi ptr [ null, %for.body403.lr.ph ], [ %pfound351.1, %for.inc427 ]
+  %pfound351.0243 = phi ptr [ null, %for.body403.lr.ph ], [ %pfound351.2, %for.inc427 ]
   %p350.0242 = phi ptr [ %longopts, %for.body403.lr.ph ], [ %incdec.ptr428, %for.inc427 ]
   %call408 = tail call i32 @strncmp(ptr noundef nonnull %137, ptr noundef %134, i64 noundef %sub.ptr.sub407) #6
   %tobool409.not = icmp eq i32 %call408, 0
@@ -920,9 +920,9 @@ if.else419:                                       ; preds = %if.then410
   br label %for.inc427
 
 for.inc427:                                       ; preds = %if.else419, %for.body403
-  %pfound351.1 = phi ptr [ %pfound351.0243, %for.body403 ], [ %p350.0.pfound351.0, %if.else419 ]
+  %pfound351.2 = phi ptr [ %pfound351.0243, %for.body403 ], [ %p350.0.pfound351.0, %if.else419 ]
   %ambig353.1 = phi i32 [ %ambig353.0244, %for.body403 ], [ %ambig353.0., %if.else419 ]
-  %indfound354.1 = phi i32 [ %indfound354.0245, %for.body403 ], [ %option_index355.0.indfound354.0, %if.else419 ]
+  %indfound354.2 = phi i32 [ %indfound354.0245, %for.body403 ], [ %option_index355.0.indfound354.0, %if.else419 ]
   %incdec.ptr428 = getelementptr inbounds i8, ptr %p350.0242, i64 32
   %inc429 = add nuw nsw i32 %option_index355.0246, 1
   %138 = load ptr, ptr %incdec.ptr428, align 8
@@ -962,14 +962,14 @@ if.end442:                                        ; preds = %if.then436, %if.the
   br label %return
 
 if.end446:                                        ; preds = %for.end430
-  %cmp447.not = icmp eq ptr %pfound351.1, null
+  %cmp447.not = icmp eq ptr %pfound351.2, null
   br i1 %cmp447.not, label %if.end511, label %if.then449
 
 if.then449:                                       ; preds = %if.then410, %if.end446
-  %pfound351.2209215 = phi ptr [ %pfound351.1, %if.end446 ], [ %p350.0242, %if.then410 ]
-  %indfound354.2210214 = phi i32 [ %indfound354.1, %if.end446 ], [ %option_index355.0246, %if.then410 ]
+  %pfound351.1209215 = phi ptr [ %pfound351.2, %if.end446 ], [ %p350.0242, %if.then410 ]
+  %indfound354.1210214 = phi i32 [ %indfound354.2, %if.end446 ], [ %option_index355.0246, %if.then410 ]
   %tobool450.not = icmp eq i8 %135, 0
-  %has_arg468 = getelementptr inbounds i8, ptr %pfound351.2209215, i64 8
+  %has_arg468 = getelementptr inbounds i8, ptr %pfound351.1209215, i64 8
   %147 = load i32, ptr %has_arg468, align 8
   br i1 %tobool450.not, label %if.else467, label %if.then451
 
@@ -990,7 +990,7 @@ if.then458:                                       ; preds = %if.else456
   %149 = load ptr, ptr @stderr, align 8
   %call459 = tail call ptr @gettext(ptr noundef nonnull @.str.12) #5
   %150 = load ptr, ptr %argv, align 8
-  %151 = load ptr, ptr %pfound351.2209215, align 8
+  %151 = load ptr, ptr %pfound351.1209215, align 8
   %call462 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef %call459, ptr noundef %150, ptr noundef %151) #7
   %.pre262 = load ptr, ptr @nextchar, align 8
   br label %if.end463
@@ -1059,14 +1059,14 @@ if.end497:                                        ; preds = %if.end497.sink.spli
   br i1 %cmp500.not, label %if.end503, label %if.then502
 
 if.then502:                                       ; preds = %if.end497
-  store i32 %indfound354.2210214, ptr %longind, align 4
+  store i32 %indfound354.1210214, ptr %longind, align 4
   br label %if.end503
 
 if.end503:                                        ; preds = %if.then502, %if.end497
-  %flag504 = getelementptr inbounds i8, ptr %pfound351.2209215, i64 16
+  %flag504 = getelementptr inbounds i8, ptr %pfound351.1209215, i64 16
   %163 = load ptr, ptr %flag504, align 8
   %tobool505.not = icmp eq ptr %163, null
-  %val510 = getelementptr inbounds i8, ptr %pfound351.2209215, i64 24
+  %val510 = getelementptr inbounds i8, ptr %pfound351.1209215, i64 24
   %164 = load i32, ptr %val510, align 8
   br i1 %tobool505.not, label %return, label %if.then506
 

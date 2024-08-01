@@ -1216,16 +1216,16 @@ MuxDeleteAllNamedData.exit.thread82.i:            ; preds = %92, %82
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %129, %155
-  %.178.ph.i = phi i32 [ %157, %155 ], [ %spec.select.i.i, %129 ]
-  %.075.ph.i = phi i32 [ %159, %155 ], [ %.124.i.i, %129 ]
-  %160 = icmp slt i32 %.178.ph.i, 1
-  %161 = icmp slt i32 %.075.ph.i, 1
+  %.279.ph.i = phi i32 [ %157, %155 ], [ %spec.select.i.i, %129 ]
+  %.176.ph.i = phi i32 [ %159, %155 ], [ %.124.i.i, %129 ]
+  %160 = icmp slt i32 %.279.ph.i, 1
+  %161 = icmp slt i32 %.176.ph.i, 1
   %or.cond3.i = select i1 %160, i1 true, i1 %161
   br i1 %or.cond3.i, label %CreateVP8XChunk.exit.thread, label %162
 
 162:                                              ; preds = %.loopexit.i
-  %163 = icmp ugt i32 %.178.ph.i, 16777216
-  %164 = icmp ugt i32 %.075.ph.i, 16777216
+  %163 = icmp ugt i32 %.279.ph.i, 16777216
+  %164 = icmp ugt i32 %.176.ph.i, 16777216
   %or.cond5.i = select i1 %163, i1 true, i1 %164
   br i1 %or.cond5.i, label %CreateVP8XChunk.exit.thread, label %165
 
@@ -1242,18 +1242,18 @@ MuxDeleteAllNamedData.exit.thread82.i:            ; preds = %92, %82
   br i1 %.not62.i, label %177, label %171
 
 171:                                              ; preds = %168, %165
-  %172 = icmp sgt i32 %.178.ph.i, %167
+  %172 = icmp sgt i32 %.279.ph.i, %167
   br i1 %172, label %CreateVP8XChunk.exit.thread, label %173
 
 173:                                              ; preds = %171
   %174 = getelementptr inbounds i8, ptr %0, i64 60
   %175 = load i32, ptr %174, align 4
-  %176 = icmp sgt i32 %.075.ph.i, %175
+  %176 = icmp sgt i32 %.176.ph.i, %175
   br i1 %176, label %CreateVP8XChunk.exit.thread, label %177
 
 177:                                              ; preds = %173, %168
-  %.279.i = phi i32 [ %.178.ph.i, %168 ], [ %167, %173 ]
-  %.176.i = phi i32 [ %.075.ph.i, %168 ], [ %175, %173 ]
+  %.077.i = phi i32 [ %.279.ph.i, %168 ], [ %167, %173 ]
+  %.075.i = phi i32 [ %.176.ph.i, %168 ], [ %175, %173 ]
   %178 = icmp eq i32 %spec.select67.i, 0
   br i1 %178, label %179, label %CreateVP8XChunk.exit
 
@@ -1286,7 +1286,7 @@ CreateVP8XChunk.exit:                             ; preds = %177, %179
   %187 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 0, ptr %187, align 1
   %188 = getelementptr inbounds i8, ptr %3, i64 4
-  %189 = add nsw i32 %.279.i, -1
+  %189 = add nsw i32 %.077.i, -1
   %190 = trunc i32 %189 to i8
   store i8 %190, ptr %188, align 1
   %191 = lshr i32 %189, 8
@@ -1298,7 +1298,7 @@ CreateVP8XChunk.exit:                             ; preds = %177, %179
   %196 = getelementptr inbounds i8, ptr %3, i64 6
   store i8 %195, ptr %196, align 1
   %197 = getelementptr inbounds i8, ptr %3, i64 7
-  %198 = add nsw i32 %.176.i, -1
+  %198 = add nsw i32 %.075.i, -1
   %199 = trunc i32 %198 to i8
   store i8 %199, ptr %197, align 1
   %200 = lshr i32 %198, 8

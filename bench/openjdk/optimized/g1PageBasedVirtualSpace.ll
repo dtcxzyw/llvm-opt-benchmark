@@ -339,9 +339,9 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace17is_area_committ
   br label %30
 
 30:                                               ; preds = %27, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %28, %27 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %28, %27 ]
   %.026.ph.i.i = phi i64 [ %1, %16 ], [ %29, %27 ]
-  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %32 = add i64 %.026.ph.i.i, %31
   %33 = icmp ult i64 %32, %4
   br i1 %33, label %_ZNK6BitMap20find_first_clear_bitEmm.exit, label %.loopexit.i.i
@@ -399,9 +399,9 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommi
   br label %28
 
 28:                                               ; preds = %26, %15
-  %.1.ph.i.i = phi i64 [ %13, %15 ], [ %25, %26 ]
+  %.027.ph.i.i = phi i64 [ %13, %15 ], [ %25, %26 ]
   %.026.ph.i.i = phi i64 [ %1, %15 ], [ %27, %26 ]
-  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %30 = add i64 %.026.ph.i.i, %29
   %31 = icmp ult i64 %30, %4
   br i1 %31, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %.loopexit.i.i
@@ -621,9 +621,9 @@ define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr nou
   br label %28
 
 28:                                               ; preds = %26, %15
-  %.1.ph.i.i.i = phi i64 [ %13, %15 ], [ %25, %26 ]
+  %.027.ph.i.i.i = phi i64 [ %13, %15 ], [ %25, %26 ]
   %.026.ph.i.i.i = phi i64 [ %1, %15 ], [ %27, %26 ]
-  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %30 = add i64 %.026.ph.i.i.i, %29
   %31 = icmp ult i64 %30, %4
   br i1 %31, label %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit, label %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread
@@ -687,9 +687,9 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread: ; pred
   br label %60
 
 60:                                               ; preds = %58, %47
-  %.1.ph.i.i = phi i64 [ %45, %47 ], [ %57, %58 ]
+  %.027.ph.i.i = phi i64 [ %45, %47 ], [ %57, %58 ]
   %.026.ph.i.i = phi i64 [ %1, %47 ], [ %59, %58 ]
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %62 = add i64 %.026.ph.i.i, %61
   %63 = icmp ult i64 %62, %4
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -792,9 +792,9 @@ define hidden void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull
   br label %30
 
 30:                                               ; preds = %27, %16
-  %.1.ph.i.i.i = phi i64 [ %14, %16 ], [ %28, %27 ]
+  %.027.ph.i.i.i = phi i64 [ %14, %16 ], [ %28, %27 ]
   %.026.ph.i.i.i = phi i64 [ %1, %16 ], [ %29, %27 ]
-  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %32 = add i64 %.026.ph.i.i.i, %31
   %33 = icmp ult i64 %32, %4
   br i1 %33, label %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit, label %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread

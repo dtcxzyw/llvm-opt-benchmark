@@ -325,7 +325,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
 
 90:                                               ; preds = %.lr.ph361, %90
   %indvars.iv404 = phi i64 [ 0, %.lr.ph361 ], [ %indvars.iv.next405, %90 ]
-  %.2197358 = phi float [ -1.000000e+09, %.lr.ph361 ], [ %.3198, %90 ]
+  %.3198358 = phi float [ -1.000000e+09, %.lr.ph361 ], [ %.4199, %90 ]
   %91 = getelementptr inbounds i32, ptr %.val242, i64 %indvars.iv404
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
@@ -341,8 +341,8 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %100 = getelementptr inbounds float, ptr %.val257.val, i64 %99
   %101 = load float, ptr %100, align 4
   %102 = fadd float %101, %89
-  %103 = fcmp olt float %.2197358, %102
-  %.3198 = select i1 %103, float %102, float %.2197358
+  %103 = fcmp olt float %.3198358, %102
+  %.4199 = select i1 %103, float %102, float %.3198358
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
   br i1 %exitcond408.not, label %.critedge2.thread, label %90, !llvm.loop !11
@@ -464,7 +464,7 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
 
 155:                                              ; preds = %.lr.ph357, %155
   %indvars.iv400 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next401, %155 ]
-  %.4199355 = phi float [ -1.000000e+09, %.lr.ph357 ], [ %.5200, %155 ]
+  %.5200355 = phi float [ -1.000000e+09, %.lr.ph357 ], [ %.6201, %155 ]
   %156 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %indvars.iv400
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
@@ -485,8 +485,8 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %170 = getelementptr inbounds float, ptr %106, i64 %indvars.iv400
   %171 = load float, ptr %170, align 4
   %172 = fadd float %169, %171
-  %173 = fcmp olt float %.4199355, %172
-  %.5200 = select i1 %173, float %172, float %.4199355
+  %173 = fcmp olt float %.5200355, %172
+  %.6201 = select i1 %173, float %172, float %.5200355
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond403.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count
   br i1 %exitcond403.not, label %.critedge2.thread, label %155, !llvm.loop !12
@@ -501,7 +501,7 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
 
 .critedge2.thread:                                ; preds = %155, %90, %.critedge2, %175
   %.val269459 = phi ptr [ %.val269, %175 ], [ %.val269, %.critedge2 ], [ %.val269.pre444, %90 ], [ %.val269.pre.pre, %155 ]
-  %176 = phi float [ 0.000000e+00, %175 ], [ -1.000000e+09, %.critedge2 ], [ %.3198, %90 ], [ %.5200, %155 ]
+  %176 = phi float [ 0.000000e+00, %175 ], [ -1.000000e+09, %.critedge2 ], [ %.4199, %90 ], [ %.6201, %155 ]
   %177 = getelementptr i8, ptr %79, i64 16
   %.val270 = load i32, ptr %177, align 8
   %178 = getelementptr i8, ptr %.val269459, i64 400
@@ -1985,7 +1985,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
 
 58:                                               ; preds = %.lr.ph79, %58
   %indvars.iv90 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next91, %58 ]
-  %.24977 = phi i32 [ 0, %.lr.ph79 ], [ %.3, %58 ]
+  %.377 = phi i32 [ 0, %.lr.ph79 ], [ %.4, %58 ]
   %59 = getelementptr inbounds i32, ptr %.val61, i64 %indvars.iv90
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
@@ -2006,7 +2006,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %73 = trunc nuw nsw i64 %indvars.iv90 to i32
   %74 = shl nuw i32 1, %73
   %75 = select i1 %72, i32 %74, i32 0
-  %.3 = or i32 %75, %.24977
+  %.4 = or i32 %75, %.377
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %.critedge, label %58, !llvm.loop !32
@@ -2130,7 +2130,7 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
 
 129:                                              ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %.475 = phi i32 [ 0, %.lr.ph ], [ %.5, %129 ]
+  %.575 = phi i32 [ 0, %.lr.ph ], [ %.6, %129 ]
   %130 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
@@ -2155,14 +2155,14 @@ Abc_NtkDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %148 = fcmp olt float %17, %147
   %149 = shl nuw i32 1, %131
   %150 = select i1 %148, i32 %149, i32 0
-  %.5 = or i32 %150, %.475
+  %.6 = or i32 %150, %.575
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond89.not, label %.critedge, label %129, !llvm.loop !33
 
 .critedge:                                        ; preds = %129, %58, %26, %76, %Abc_NtkDelayTraceSortPins.exit, %48, %.preheader
-  %.6 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ 0, %Abc_NtkDelayTraceSortPins.exit ], [ 0, %76 ], [ %.148, %26 ], [ %.3, %58 ], [ %.5, %129 ]
-  ret i32 %.6
+  %.249 = phi i32 [ 0, %.preheader ], [ 0, %48 ], [ 0, %Abc_NtkDelayTraceSortPins.exit ], [ 0, %76 ], [ %.148, %26 ], [ %.4, %58 ], [ %.6, %129 ]
+  ret i32 %.249
 }
 
 ; Function Attrs: nounwind uwtable

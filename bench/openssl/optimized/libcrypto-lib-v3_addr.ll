@@ -2014,12 +2014,12 @@ if.end50:                                         ; preds = %if.else47, %if.end4
   %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112 = phi ptr [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399121, %if.end43 ], [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399113, %if.else47 ]
   %safi.091100110 = phi ptr [ %safi_, %if.end43 ], [ null, %if.else47 ]
   %afi.089101108 = phi i32 [ %afi.089101119, %if.end43 ], [ %afi.089101109, %if.else47 ]
-  %s.1 = phi ptr [ %call46, %if.end43 ], [ %call49, %if.else47 ]
-  %cmp51 = icmp eq ptr %s.1, null
+  %s.2 = phi ptr [ %call46, %if.end43 ], [ %call49, %if.else47 ]
+  %cmp51 = icmp eq ptr %s.2, null
   br i1 %cmp51, label %err, label %if.end54
 
 if.end54:                                         ; preds = %if.end50
-  %call55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s.1, ptr noundef nonnull dereferenceable(8) @.str.22) #16
+  %call55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s.2, ptr noundef nonnull dereferenceable(8) @.str.22) #16
   %cmp56 = icmp eq i32 %call55, 0
   br i1 %cmp56, label %if.then58, label %if.end65
 
@@ -2081,20 +2081,20 @@ if.then61:                                        ; preds = %land.lhs.true.i, %l
   br label %err
 
 if.end65:                                         ; preds = %if.end54
-  %call66 = call i64 @strspn(ptr noundef nonnull %s.1, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112) #16
+  %call66 = call i64 @strspn(ptr noundef nonnull %s.2, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112) #16
   %sext = shl i64 %call66, 32
   %conv68 = ashr exact i64 %sext, 32
-  %add.ptr69 = getelementptr inbounds i8, ptr %s.1, i64 %conv68
+  %add.ptr69 = getelementptr inbounds i8, ptr %s.2, i64 %conv68
   %call70 = call i64 @strspn(ptr noundef %add.ptr69, ptr noundef nonnull @.str.19) #16
   %add = add i64 %call70, %call66
   %conv71 = trunc i64 %add to i32
   %inc = add nsw i32 %conv71, 1
   %sext77 = shl i64 %add, 32
   %idxprom = ashr exact i64 %sext77, 32
-  %arrayidx = getelementptr inbounds i8, ptr %s.1, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr %s.2, i64 %idxprom
   %21 = load i8, ptr %arrayidx, align 1
   store i8 0, ptr %add.ptr69, align 1
-  %call75 = call i32 @ossl_a2i_ipadd(ptr noundef nonnull %min, ptr noundef nonnull %s.1) #15
+  %call75 = call i32 @ossl_a2i_ipadd(ptr noundef nonnull %min, ptr noundef nonnull %s.2) #15
   %cmp76.not = icmp eq i32 %call75, %13
   br i1 %cmp76.not, label %if.end81, label %if.then78
 
@@ -2117,7 +2117,7 @@ if.end81:                                         ; preds = %if.end65
 
 sw.bb82:                                          ; preds = %if.end81
   %idx.ext83 = sext i32 %inc to i64
-  %add.ptr84 = getelementptr inbounds i8, ptr %s.1, i64 %idx.ext83
+  %add.ptr84 = getelementptr inbounds i8, ptr %s.2, i64 %idx.ext83
   %call85 = call i64 @strtoul(ptr noundef %add.ptr84, ptr noundef nonnull %t, i32 noundef 10) #15
   %conv86 = trunc i64 %call85 to i32
   %24 = load ptr, ptr %t, align 8
@@ -2155,12 +2155,12 @@ if.then108:                                       ; preds = %if.end104
 
 sw.bb110:                                         ; preds = %if.end81
   %conv111 = sext i32 %inc to i64
-  %add.ptr113 = getelementptr inbounds i8, ptr %s.1, i64 %conv111
+  %add.ptr113 = getelementptr inbounds i8, ptr %s.2, i64 %conv111
   %call114 = call i64 @strspn(ptr noundef %add.ptr113, ptr noundef nonnull @.str.19) #16
   %28 = trunc i64 %call114 to i32
   %conv116 = add i32 %inc, %28
   %conv117 = sext i32 %conv116 to i64
-  %add.ptr119 = getelementptr inbounds i8, ptr %s.1, i64 %conv117
+  %add.ptr119 = getelementptr inbounds i8, ptr %s.2, i64 %conv117
   %call120 = call i64 @strspn(ptr noundef %add.ptr119, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars9399112) #16
   %29 = trunc i64 %call120 to i32
   %cmp123 = icmp eq i32 %29, 0
@@ -2169,7 +2169,7 @@ sw.bb110:                                         ; preds = %if.end81
 lor.lhs.false125:                                 ; preds = %sw.bb110
   %conv122 = add i32 %conv116, %29
   %idxprom126 = sext i32 %conv122 to i64
-  %arrayidx127 = getelementptr inbounds i8, ptr %s.1, i64 %idxprom126
+  %arrayidx127 = getelementptr inbounds i8, ptr %s.2, i64 %idxprom126
   %30 = load i8, ptr %arrayidx127, align 1
   %cmp129.not = icmp eq i8 %30, 0
   br i1 %cmp129.not, label %if.end134, label %if.then131
@@ -2250,7 +2250,7 @@ sw.default:                                       ; preds = %if.end81
 
 for.inc:                                          ; preds = %if.end104, %if.end155, %sw.bb162, %land.lhs.true10.i, %if.end25.i
   %.sink = phi i32 [ 1012, %if.end25.i ], [ 1012, %land.lhs.true10.i ], [ 1079, %sw.bb162 ], [ 1079, %if.end155 ], [ 1079, %if.end104 ]
-  call void @CRYPTO_free(ptr noundef nonnull %s.1, ptr noundef nonnull @.str.13, i32 noundef %.sink) #15
+  call void @CRYPTO_free(ptr noundef nonnull %s.2, ptr noundef nonnull @.str.13, i32 noundef %.sink) #15
   %inc172 = add nuw nsw i32 %i.0165, 1
   %call3 = call i32 @OPENSSL_sk_num(ptr noundef %values) #15
   %cmp4 = icmp slt i32 %inc172, %call3
@@ -2262,8 +2262,8 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %tobool174.not, label %err, label %return
 
 err:                                              ; preds = %if.end50, %for.end, %sw.default, %if.then167, %if.then160, %if.then152, %if.then141, %if.then131, %if.then108, %if.then101, %if.then78, %if.then61, %if.then40, %if.else23
-  %s.3 = phi ptr [ null, %if.else23 ], [ null, %if.then40 ], [ %s.1, %if.then61 ], [ %s.1, %if.then78 ], [ %s.1, %sw.default ], [ %s.1, %if.then167 ], [ %s.1, %if.then131 ], [ %s.1, %if.then141 ], [ %s.1, %if.then152 ], [ %s.1, %if.then160 ], [ %s.1, %if.then101 ], [ %s.1, %if.then108 ], [ null, %for.end ], [ null, %if.end50 ]
-  call void @CRYPTO_free(ptr noundef %s.3, ptr noundef nonnull @.str.13, i32 noundef 1091) #15
+  %s.1 = phi ptr [ null, %if.else23 ], [ null, %if.then40 ], [ %s.2, %if.then61 ], [ %s.2, %if.then78 ], [ %s.2, %sw.default ], [ %s.2, %if.then167 ], [ %s.2, %if.then131 ], [ %s.2, %if.then141 ], [ %s.2, %if.then152 ], [ %s.2, %if.then160 ], [ %s.2, %if.then101 ], [ %s.2, %if.then108 ], [ null, %for.end ], [ null, %if.end50 ]
+  call void @CRYPTO_free(ptr noundef %s.1, ptr noundef nonnull @.str.13, i32 noundef 1091) #15
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call1, ptr noundef nonnull @IPAddressFamily_free) #15
   br label %return
 

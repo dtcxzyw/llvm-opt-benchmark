@@ -1165,7 +1165,7 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3M
   br label %209
 
 .thread127:                                       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i84, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i73, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70
-  %.sroa.0.3.ph = phi ptr [ %104, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70 ], [ %106, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i73 ], [ %109, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i84 ]
+  %.sroa.0.0.ph = phi ptr [ %104, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i70 ], [ %106, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i73 ], [ %109, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i84 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %209
@@ -1177,8 +1177,8 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3M
 
 209:                                              ; preds = %.thread127, %.thread
   %.pn38.pn.pn.pn126 = phi { ptr, i32 } [ %.pn38.pn.pn, %.thread ], [ %lpad.thr_comm, %.thread127 ]
-  %.sroa.0.4125 = phi ptr [ %109, %.thread ], [ %.sroa.0.3.ph, %.thread127 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4125) #27
+  %.sroa.0.1125 = phi ptr [ %109, %.thread ], [ %.sroa.0.0.ph, %.thread127 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1125) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit98
 
 _ZNSt6vectorIiSaIiEED2Ev.exit98:                  ; preds = %208, %209, %166

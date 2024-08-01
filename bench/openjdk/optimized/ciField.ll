@@ -1308,7 +1308,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %41, %_ZN26GrowableA
   br label %118
 
 118:                                              ; preds = %35, %31, %25, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %117
-  %.1 = phi i1 [ %.not25, %117 ], [ false, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ false, %25 ], [ true, %31 ], [ true, %35 ]
+  %.0 = phi i1 [ %.not25, %117 ], [ false, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ false, %25 ], [ true, %31 ], [ true, %35 ]
   %119 = getelementptr inbounds i8, ptr %8, i64 408
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 16
@@ -1342,7 +1342,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %118, %124
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %137) #8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
   store volatile i32 4, ptr %11, align 4
-  ret i1 %.1
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind

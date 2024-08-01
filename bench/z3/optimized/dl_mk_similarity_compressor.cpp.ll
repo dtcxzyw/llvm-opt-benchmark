@@ -2345,7 +2345,7 @@ lpad62:                                           ; preds = %invoke.cont63, %inv
   br label %ehcleanup170
 
 for.body73:                                       ; preds = %invoke.cont64, %_ZN10ptr_vectorI4exprED2Ev.exit
-  %new_head.0 = phi ptr [ %new_head.1, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ %230, %invoke.cont64 ]
+  %new_head.0 = phi ptr [ %new_head.2, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ %230, %invoke.cont64 ]
   %i70.0682 = phi i32 [ %i70.1.lcssa, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ 0, %invoke.cont64 ]
   %aux_column_index.0681 = phi i32 [ %aux_column_index.1.lcssa, %_ZN10ptr_vectorI4exprED2Ev.exit ], [ 0, %invoke.cont64 ]
   %256 = load ptr, ptr %const_infos, align 8
@@ -2895,7 +2895,7 @@ invoke.cont133.else:                              ; preds = %invoke.cont133
   br label %invoke.cont133.cont
 
 invoke.cont133.cont:                              ; preds = %invoke.cont133, %invoke.cont133.else
-  %new_head.1 = phi ptr [ %new_head.0, %invoke.cont133.else ], [ %call2.i357, %invoke.cont133 ]
+  %new_head.2 = phi ptr [ %new_head.0, %invoke.cont133.else ], [ %call2.i357, %invoke.cont133 ]
   %321 = load ptr, ptr %mod_args, align 8
   %tobool.not.i.i.i379 = icmp eq ptr %321, null
   br i1 %tobool.not.i.i.i379, label %_ZN10ptr_vectorI4exprED2Ev.exit, label %if.then.i.i.i380
@@ -2924,7 +2924,7 @@ for.end135.loopexit:                              ; preds = %_ZN10ptr_vectorI4ex
 for.end135:                                       ; preds = %for.end135.loopexit, %invoke.cont64
   %324 = phi ptr [ null, %invoke.cont64 ], [ %.pre695, %for.end135.loopexit ]
   %325 = phi ptr [ %253, %invoke.cont64 ], [ %.pre, %for.end135.loopexit ]
-  %new_head.2 = phi ptr [ %230, %invoke.cont64 ], [ %new_head.1, %for.end135.loopexit ]
+  %new_head.1 = phi ptr [ %230, %invoke.cont64 ], [ %new_head.2, %for.end135.loopexit ]
   %m_arity.i.i384 = getelementptr inbounds i8, ptr %call24, i64 32
   %326 = load i32, ptr %m_arity.i.i384, align 8
   %call2.i385 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %325, ptr noundef nonnull %call24, i32 noundef %326, ptr noundef %324)
@@ -3027,7 +3027,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %invoke.cont150, %if
   %retval.0.i424 = phi i32 [ %345, %if.end.i422 ], [ 0, %invoke.cont150 ]
   %346 = load ptr, ptr %new_negs, align 8
   %m_name.i425 = getelementptr inbounds i8, ptr %0, i64 72
-  %call164 = invoke noundef ptr @_ZN7datalog12rule_manager2mkEP3appjPKS2_PKbRK6symbolb(ptr noundef nonnull align 8 dereferenceable(1368) %m_rule_manager.i, ptr noundef %new_head.2, i32 noundef %retval.0.i424, ptr noundef %344, ptr noundef %346, ptr noundef nonnull align 8 dereferenceable(8) %m_name.i425, i1 noundef zeroext true)
+  %call164 = invoke noundef ptr @_ZN7datalog12rule_manager2mkEP3appjPKS2_PKbRK6symbolb(ptr noundef nonnull align 8 dereferenceable(1368) %m_rule_manager.i, ptr noundef %new_head.1, i32 noundef %retval.0.i424, ptr noundef %344, ptr noundef %346, ptr noundef nonnull align 8 dereferenceable(8) %m_name.i425, i1 noundef zeroext true)
           to label %invoke.cont163 unwind label %lpad144
 
 invoke.cont163:                                   ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit

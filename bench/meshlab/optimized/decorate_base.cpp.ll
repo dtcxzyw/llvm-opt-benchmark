@@ -4225,25 +4225,25 @@ _ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFac
   br i1 %.not2025.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph27.i.i
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.2.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
+  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
   %466 = phi float [ %470, %.lr.ph27.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i ]
   %.sroa.014.026.i.i = phi ptr [ %472, %.lr.ph27.i.i ], [ %459, %.preheader.i.i ]
   %467 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i, i64 36
   %468 = load float, ptr %467, align 4
   %469 = fcmp olt float %468, %466
-  %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.0.i, float %468, i64 0
-  %.sroa.0.1.i = select i1 %469, <2 x float> %.sroa.0.0.vec.insert8.i, <2 x float> %.sroa.0.0.i
+  %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.3.i, float %468, i64 0
+  %.sroa.0.4.i = select i1 %469, <2 x float> %.sroa.0.0.vec.insert8.i, <2 x float> %.sroa.0.3.i
   %470 = select i1 %469, float %468, float %466
-  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.0.1.i, i64 1
+  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.0.4.i, i64 1
   %471 = fcmp ogt float %468, %.sroa.0.4.vec.extract11.i
-  %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.1.i, float %468, i64 1
-  %.sroa.0.2.i = select i1 %471, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.1.i
+  %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.4.i, float %468, i64 1
+  %.sroa.0.5.i = select i1 %471, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.4.i
   %472 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i, i64 48
   %.not20.i.i = icmp eq ptr %472, %458
   br i1 %.not20.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i, !llvm.loop !98
 
 .lr.ph.i.i:                                       ; preds = %.preheader21.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
-  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.5.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
   %.sroa.09.024.i.i = phi ptr [ %482, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ %459, %.preheader21.i.i ]
   %473 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 20
   %474 = load i32, ptr %473, align 4
@@ -4254,26 +4254,26 @@ _ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFac
 476:                                              ; preds = %.lr.ph.i.i
   %477 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 36
   %478 = load float, ptr %477, align 4
-  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.3.i, i64 0
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %479 = fcmp olt float %478, %.sroa.0.0.vec.extract.i
-  %.sroa.0.0.vec.insert.i233 = insertelement <2 x float> %.sroa.0.3.i, float %478, i64 0
-  %.sroa.0.4.i = select i1 %479, <2 x float> %.sroa.0.0.vec.insert.i233, <2 x float> %.sroa.0.3.i
-  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.4.i, i64 1
+  %.sroa.0.0.vec.insert.i233 = insertelement <2 x float> %.sroa.0.0.i, float %478, i64 0
+  %.sroa.0.2.i = select i1 %479, <2 x float> %.sroa.0.0.vec.insert.i233, <2 x float> %.sroa.0.0.i
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.2.i, i64 1
   %480 = fcmp ogt float %478, %.sroa.0.4.vec.extract.i
   br i1 %480, label %481, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 481:                                              ; preds = %476
-  %.sroa.0.4.vec.insert.i234 = insertelement <2 x float> %.sroa.0.4.i, float %478, i64 1
+  %.sroa.0.4.vec.insert.i234 = insertelement <2 x float> %.sroa.0.2.i, float %478, i64 1
   br label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i: ; preds = %481, %476, %.lr.ph.i.i
-  %.sroa.0.5.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i234, %481 ], [ %.sroa.0.4.i, %476 ], [ %.sroa.0.3.i, %.lr.ph.i.i ]
+  %.sroa.0.1.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i234, %481 ], [ %.sroa.0.2.i, %476 ], [ %.sroa.0.0.i, %.lr.ph.i.i ]
   %482 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 48
   %.not.i.i = icmp eq ptr %482, %458
   br i1 %.not.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !99
 
 _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph27.i.i, %.preheader.i.i, %.preheader21.i.i
-  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.2.i, %.lr.ph27.i.i ], [ %.sroa.0.5.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
+  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
   store <2 x float> %.sroa.0.6.i, ptr %51, align 8
   %483 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.44, i32 noundef 15)
           to label %484 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -6491,18 +6491,18 @@ define void @_ZN18DecorateBasePlugin18DrawColorHistogramERN3vcg14ColorHistogramI
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %44 = phi float [ %48, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %.lr.ph.preheader.i.i.i ]
   %45 = phi ptr [ %49, %.lr.ph.i.i.i ], [ %43, %.lr.ph.preheader.i.i.i ]
-  %.sroa.02.010.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %39, %.lr.ph.preheader.i.i.i ]
+  %.sroa.02.110.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %39, %.lr.ph.preheader.i.i.i ]
   %46 = load float, ptr %45, align 4
   %47 = fcmp olt float %44, %46
   %48 = select i1 %47, float %46, float %44
-  %spec.select.i.i.i = select i1 %47, ptr %45, ptr %.sroa.02.010.i.i.i
+  %spec.select.i.i.i = select i1 %47, ptr %45, ptr %.sroa.02.110.i.i.i
   %49 = getelementptr inbounds i8, ptr %45, i64 4
   %.not.i.i.i = icmp eq ptr %49, %41
   br i1 %.not.i.i.i, label %_ZNK3vcg9HistogramIfE8MaxCountEv.exit, label %.lr.ph.i.i.i, !llvm.loop !140
 
 _ZNK3vcg9HistogramIfE8MaxCountEv.exit:            ; preds = %.lr.ph.i.i.i, %7
-  %.sroa.02.2.i.i.i = phi ptr [ %39, %7 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %50 = load float, ptr %.sroa.02.2.i.i.i, align 4
+  %.sroa.02.0.i.i.i = phi ptr [ %39, %7 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %50 = load float, ptr %.sroa.02.0.i.i.i, align 4
   br i1 %6, label %51, label %53
 
 51:                                               ; preds = %_ZNK3vcg9HistogramIfE8MaxCountEv.exit
@@ -6535,7 +6535,7 @@ _ZNK18DecorateBasePlugin28perVertexHistFixedWidthParamEv.exit: ; preds = %.invok
 
 60:                                               ; preds = %_ZNK18DecorateBasePlugin28perVertexHistFixedWidthParamEv.exit
   %61 = fcmp oeq float %59, 0.000000e+00
-  %.0 = select i1 %61, float %50, float %59
+  %.1 = select i1 %61, float %50, float %59
   %62 = load ptr, ptr %9, align 8
   %63 = load atomic i32, ptr %62 monotonic, align 4
   switch i32 %63, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -6574,7 +6574,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %.body
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %60, %57
-  %.1 = phi float [ %50, %57 ], [ %.0, %60 ], [ %.0, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %.0, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i ]
+  %.0 = phi float [ %50, %57 ], [ %.1, %60 ], [ %.1, %_ZN9QtPrivate8RefCount5derefEv.exit.i ], [ %.1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i ]
   %68 = getelementptr inbounds i8, ptr %1, i64 64
   %69 = load i32, ptr %68, align 8
   %70 = sitofp i32 %69 to float
@@ -6636,7 +6636,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_
   %102 = getelementptr inbounds float, ptr %101, i64 %100
   %103 = load float, ptr %102, align 4
   %104 = fmul float %103, 0x3FD3333340000000
-  %105 = fdiv float %104, %.1
+  %105 = fdiv float %104, %.0
   %106 = fcmp olt float %105, 5.000000e-01
   %.sroa.speculated = select i1 %106, float %105, float 5.000000e-01
   %107 = fmul float %78, 0x3FE6666660000000
@@ -10693,8 +10693,8 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %90, %_ZN9QtPrivate8
   br i1 %.not2732.i.i, label %_ZN7QStringD2Ev.exit501, label %.lr.ph34.i.i
 
 .lr.ph34.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph34.i.i
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert17.i, %.lr.ph34.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
-  %.sroa.020.0.i = phi <2 x float> [ %.sroa.020.4.vec.insert31.i, %.lr.ph34.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
+  %.sroa.0.2.i = phi <2 x float> [ %.sroa.0.4.vec.insert17.i, %.lr.ph34.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
+  %.sroa.020.2.i = phi <2 x float> [ %.sroa.020.4.vec.insert31.i, %.lr.ph34.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
   %.sroa.016.033.i.i = phi ptr [ %127, %.lr.ph34.i.i ], [ %102, %.preheader.i.i ]
   %109 = load ptr, ptr %.sroa.016.033.i.i, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 72
@@ -10711,19 +10711,19 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %90, %_ZN9QtPrivate8
   %120 = load float, ptr %119, align 4
   %121 = getelementptr inbounds i8, ptr %118, i64 28
   %122 = load float, ptr %121, align 4
-  %.sroa.020.0.vec.extract24.i = extractelement <2 x float> %.sroa.020.0.i, i64 0
+  %.sroa.020.0.vec.extract24.i = extractelement <2 x float> %.sroa.020.2.i, i64 0
   %123 = fcmp olt float %.sroa.020.0.vec.extract24.i, %120
   %.sroa.speculated16.i.i.i = select i1 %123, float %.sroa.020.0.vec.extract24.i, float %120
   %.sroa.020.0.vec.insert26.i = insertelement <2 x float> poison, float %.sroa.speculated16.i.i.i, i64 0
-  %.sroa.020.4.vec.extract29.i = extractelement <2 x float> %.sroa.020.0.i, i64 1
+  %.sroa.020.4.vec.extract29.i = extractelement <2 x float> %.sroa.020.2.i, i64 1
   %124 = fcmp olt float %120, %.sroa.020.4.vec.extract29.i
   %.sroa.speculated13.i.i.i = select i1 %124, float %.sroa.020.4.vec.extract29.i, float %120
   %.sroa.020.4.vec.insert31.i = insertelement <2 x float> %.sroa.020.0.vec.insert26.i, float %.sroa.speculated13.i.i.i, i64 1
-  %.sroa.0.0.vec.extract10.i = extractelement <2 x float> %.sroa.0.0.i, i64 0
+  %.sroa.0.0.vec.extract10.i = extractelement <2 x float> %.sroa.0.2.i, i64 0
   %125 = fcmp olt float %.sroa.0.0.vec.extract10.i, %122
   %.sroa.speculated10.i.i.i = select i1 %125, float %.sroa.0.0.vec.extract10.i, float %122
   %.sroa.0.0.vec.insert12.i = insertelement <2 x float> poison, float %.sroa.speculated10.i.i.i, i64 0
-  %.sroa.0.4.vec.extract15.i = extractelement <2 x float> %.sroa.0.0.i, i64 1
+  %.sroa.0.4.vec.extract15.i = extractelement <2 x float> %.sroa.0.2.i, i64 1
   %126 = fcmp olt float %122, %.sroa.0.4.vec.extract15.i
   %.sroa.speculated.i.i.i = select i1 %126, float %.sroa.0.4.vec.extract15.i, float %122
   %.sroa.0.4.vec.insert17.i = insertelement <2 x float> %.sroa.0.0.vec.insert12.i, float %.sroa.speculated.i.i.i, i64 1
@@ -10732,8 +10732,8 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %90, %_ZN9QtPrivate8
   br i1 %.not27.i.i, label %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit, label %.lr.ph34.i.i, !llvm.loop !189
 
 .lr.ph.i.i:                                       ; preds = %.preheader28.i.i, %150
-  %.sroa.0.1.i = phi <2 x float> [ %.sroa.0.2.i, %150 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i ]
-  %.sroa.020.1.i = phi <2 x float> [ %.sroa.020.2.i, %150 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.1.i, %150 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i ]
+  %.sroa.020.0.i = phi <2 x float> [ %.sroa.020.1.i, %150 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i ]
   %.sroa.011.031.i.i = phi ptr [ %151, %150 ], [ %102, %.preheader28.i.i ]
   %128 = getelementptr inbounds i8, ptr %.sroa.011.031.i.i, i64 20
   %129 = load i32, ptr %128, align 4
@@ -10757,34 +10757,34 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %90, %_ZN9QtPrivate8
   %143 = load float, ptr %142, align 4
   %144 = getelementptr inbounds i8, ptr %141, i64 28
   %145 = load float, ptr %144, align 4
-  %.sroa.020.0.vec.extract.i = extractelement <2 x float> %.sroa.020.1.i, i64 0
+  %.sroa.020.0.vec.extract.i = extractelement <2 x float> %.sroa.020.0.i, i64 0
   %146 = fcmp olt float %.sroa.020.0.vec.extract.i, %143
   %.sroa.speculated16.i7.i.i = select i1 %146, float %.sroa.020.0.vec.extract.i, float %143
   %.sroa.020.0.vec.insert.i = insertelement <2 x float> poison, float %.sroa.speculated16.i7.i.i, i64 0
-  %.sroa.020.4.vec.extract.i = extractelement <2 x float> %.sroa.020.1.i, i64 1
+  %.sroa.020.4.vec.extract.i = extractelement <2 x float> %.sroa.020.0.i, i64 1
   %147 = fcmp olt float %143, %.sroa.020.4.vec.extract.i
   %.sroa.speculated13.i8.i.i = select i1 %147, float %.sroa.020.4.vec.extract.i, float %143
   %.sroa.020.4.vec.insert.i = insertelement <2 x float> %.sroa.020.0.vec.insert.i, float %.sroa.speculated13.i8.i.i, i64 1
-  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.1.i, i64 0
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %148 = fcmp olt float %.sroa.0.0.vec.extract.i, %145
   %.sroa.speculated10.i9.i.i = select i1 %148, float %.sroa.0.0.vec.extract.i, float %145
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %.sroa.speculated10.i9.i.i, i64 0
-  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.1.i, i64 1
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i, i64 1
   %149 = fcmp olt float %145, %.sroa.0.4.vec.extract.i
   %.sroa.speculated.i10.i.i = select i1 %149, float %.sroa.0.4.vec.extract.i, float %145
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %.sroa.speculated.i10.i.i, i64 1
   br label %150
 
 150:                                              ; preds = %131, %.lr.ph.i.i
-  %.sroa.0.2.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %131 ], [ %.sroa.0.1.i, %.lr.ph.i.i ]
-  %.sroa.020.2.i = phi <2 x float> [ %.sroa.020.4.vec.insert.i, %131 ], [ %.sroa.020.1.i, %.lr.ph.i.i ]
+  %.sroa.0.1.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %131 ], [ %.sroa.0.0.i, %.lr.ph.i.i ]
+  %.sroa.020.1.i = phi <2 x float> [ %.sroa.020.4.vec.insert.i, %131 ], [ %.sroa.020.0.i, %.lr.ph.i.i ]
   %151 = getelementptr inbounds i8, ptr %.sroa.011.031.i.i, i64 48
   %.not.i.i239 = icmp eq ptr %151, %101
   br i1 %.not.i.i239, label %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !190
 
 _ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit: ; preds = %150, %.lr.ph34.i.i
-  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.4.vec.insert17.i, %.lr.ph34.i.i ], [ %.sroa.0.2.i, %150 ]
-  %.sroa.020.3.i = phi <2 x float> [ %.sroa.020.4.vec.insert31.i, %.lr.ph34.i.i ], [ %.sroa.020.2.i, %150 ]
+  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.4.vec.insert17.i, %.lr.ph34.i.i ], [ %.sroa.0.1.i, %150 ]
+  %.sroa.020.3.i = phi <2 x float> [ %.sroa.020.4.vec.insert31.i, %.lr.ph34.i.i ], [ %.sroa.020.1.i, %150 ]
   %.sroa.0137.4.vec.extract = extractelement <2 x float> %.sroa.020.3.i, i64 1
   %.sroa.2138.12.vec.extract = extractelement <2 x float> %.sroa.0.3.i, i64 1
   br i1 %.not2732.i.i, label %_ZN7QStringD2Ev.exit501, label %.lr.ph1074
@@ -12204,34 +12204,34 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i638: ; preds = %_ZN9QtPrivate8RefCo
   %753 = trunc i64 %752 to i32
   %754 = icmp eq i32 %744, %753
   %.not2025.i.i = icmp eq ptr %748, %747
-  br i1 %754, label %.preheader.i.i651, label %.preheader21.i.i
+  br i1 %754, label %.preheader.i.i653, label %.preheader21.i.i
 
 .preheader21.i.i:                                 ; preds = %737
   br i1 %.not2025.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i644
 
-.preheader.i.i651:                                ; preds = %737
+.preheader.i.i653:                                ; preds = %737
   br i1 %.not2025.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i
 
-.lr.ph27.i.i:                                     ; preds = %.preheader.i.i651, %.lr.ph27.i.i
-  %.sroa.0.0.i652 = phi <2 x float> [ %.sroa.0.2.i654, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i651 ]
-  %755 = phi float [ %759, %.lr.ph27.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i651 ]
-  %.sroa.014.026.i.i = phi ptr [ %761, %.lr.ph27.i.i ], [ %748, %.preheader.i.i651 ]
+.lr.ph27.i.i:                                     ; preds = %.preheader.i.i653, %.lr.ph27.i.i
+  %.sroa.0.3.i654 = phi <2 x float> [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i653 ]
+  %755 = phi float [ %759, %.lr.ph27.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i653 ]
+  %.sroa.014.026.i.i = phi ptr [ %761, %.lr.ph27.i.i ], [ %748, %.preheader.i.i653 ]
   %756 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i, i64 36
   %757 = load float, ptr %756, align 4
   %758 = fcmp olt float %757, %755
-  %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.0.i652, float %757, i64 0
-  %.sroa.0.1.i653 = select i1 %758, <2 x float> %.sroa.0.0.vec.insert8.i, <2 x float> %.sroa.0.0.i652
+  %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.3.i654, float %757, i64 0
+  %.sroa.0.4.i = select i1 %758, <2 x float> %.sroa.0.0.vec.insert8.i, <2 x float> %.sroa.0.3.i654
   %759 = select i1 %758, float %757, float %755
-  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.0.1.i653, i64 1
+  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.0.4.i, i64 1
   %760 = fcmp ogt float %757, %.sroa.0.4.vec.extract11.i
-  %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.1.i653, float %757, i64 1
-  %.sroa.0.2.i654 = select i1 %760, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.1.i653
+  %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.4.i, float %757, i64 1
+  %.sroa.0.5.i = select i1 %760, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.4.i
   %761 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i, i64 48
   %.not20.i.i = icmp eq ptr %761, %747
   br i1 %.not20.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i, !llvm.loop !98
 
 .lr.ph.i.i644:                                    ; preds = %.preheader21.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
-  %.sroa.0.3.i645 = phi <2 x float> [ %.sroa.0.5.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
+  %.sroa.0.0.i645 = phi <2 x float> [ %.sroa.0.1.i646, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
   %.sroa.09.024.i.i = phi ptr [ %771, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ %748, %.preheader21.i.i ]
   %762 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 20
   %763 = load i32, ptr %762, align 4
@@ -12242,26 +12242,26 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i638: ; preds = %_ZN9QtPrivate8RefCo
 765:                                              ; preds = %.lr.ph.i.i644
   %766 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 36
   %767 = load float, ptr %766, align 4
-  %.sroa.0.0.vec.extract.i647 = extractelement <2 x float> %.sroa.0.3.i645, i64 0
-  %768 = fcmp olt float %767, %.sroa.0.0.vec.extract.i647
-  %.sroa.0.0.vec.insert.i648 = insertelement <2 x float> %.sroa.0.3.i645, float %767, i64 0
-  %.sroa.0.4.i = select i1 %768, <2 x float> %.sroa.0.0.vec.insert.i648, <2 x float> %.sroa.0.3.i645
-  %.sroa.0.4.vec.extract.i649 = extractelement <2 x float> %.sroa.0.4.i, i64 1
-  %769 = fcmp ogt float %767, %.sroa.0.4.vec.extract.i649
+  %.sroa.0.0.vec.extract.i648 = extractelement <2 x float> %.sroa.0.0.i645, i64 0
+  %768 = fcmp olt float %767, %.sroa.0.0.vec.extract.i648
+  %.sroa.0.0.vec.insert.i649 = insertelement <2 x float> %.sroa.0.0.i645, float %767, i64 0
+  %.sroa.0.2.i650 = select i1 %768, <2 x float> %.sroa.0.0.vec.insert.i649, <2 x float> %.sroa.0.0.i645
+  %.sroa.0.4.vec.extract.i651 = extractelement <2 x float> %.sroa.0.2.i650, i64 1
+  %769 = fcmp ogt float %767, %.sroa.0.4.vec.extract.i651
   br i1 %769, label %770, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 770:                                              ; preds = %765
-  %.sroa.0.4.vec.insert.i650 = insertelement <2 x float> %.sroa.0.4.i, float %767, i64 1
+  %.sroa.0.4.vec.insert.i652 = insertelement <2 x float> %.sroa.0.2.i650, float %767, i64 1
   br label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i: ; preds = %770, %765, %.lr.ph.i.i644
-  %.sroa.0.5.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i650, %770 ], [ %.sroa.0.4.i, %765 ], [ %.sroa.0.3.i645, %.lr.ph.i.i644 ]
+  %.sroa.0.1.i646 = phi <2 x float> [ %.sroa.0.4.vec.insert.i652, %770 ], [ %.sroa.0.2.i650, %765 ], [ %.sroa.0.0.i645, %.lr.ph.i.i644 ]
   %771 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 48
-  %.not.i.i646 = icmp eq ptr %771, %747
-  br i1 %.not.i.i646, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i644, !llvm.loop !99
+  %.not.i.i647 = icmp eq ptr %771, %747
+  br i1 %.not.i.i647, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i644, !llvm.loop !99
 
-_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph27.i.i, %.preheader21.i.i, %.preheader.i.i651
-  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i651 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.2.i654, %.lr.ph27.i.i ], [ %.sroa.0.5.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
+_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph27.i.i, %.preheader21.i.i, %.preheader.i.i653
+  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i653 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ %.sroa.0.1.i646, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
   %.sroa.0791.0.vec.extract = extractelement <2 x float> %.sroa.0.6.i, i64 0
   %.sroa.0791.4.vec.extract = extractelement <2 x float> %.sroa.0.6.i, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !246)
@@ -12651,7 +12651,7 @@ _ZN7QStringD2Ev.exit685:                          ; preds = %823, %_ZN9QtPrivate
   br i1 %.not2733.i.i, label %_ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit, label %.lr.ph35.i.i
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i699, %.lr.ph35.i.i
-  %.sroa.0.0.i700 = phi <2 x float> [ %.sroa.0.2.i705, %.lr.ph35.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i699 ]
+  %.sroa.0.3.i700 = phi <2 x float> [ %.sroa.0.5.i705, %.lr.ph35.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i699 ]
   %932 = phi float [ %944, %.lr.ph35.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i699 ]
   %.sroa.021.034.i.i = phi ptr [ %946, %.lr.ph35.i.i ], [ %925, %.preheader.i.i699 ]
   %933 = load ptr, ptr %.sroa.021.034.i.i, align 8
@@ -12665,19 +12665,19 @@ _ZN7QStringD2Ev.exit685:                          ; preds = %823, %_ZN9QtPrivate
   %941 = getelementptr inbounds i8, ptr %939, i64 %940
   %942 = load float, ptr %941, align 4
   %943 = fcmp olt float %942, %932
-  %.sroa.0.0.vec.insert8.i701 = insertelement <2 x float> %.sroa.0.0.i700, float %942, i64 0
-  %.sroa.0.1.i702 = select i1 %943, <2 x float> %.sroa.0.0.vec.insert8.i701, <2 x float> %.sroa.0.0.i700
+  %.sroa.0.0.vec.insert8.i701 = insertelement <2 x float> %.sroa.0.3.i700, float %942, i64 0
+  %.sroa.0.4.i702 = select i1 %943, <2 x float> %.sroa.0.0.vec.insert8.i701, <2 x float> %.sroa.0.3.i700
   %944 = select i1 %943, float %942, float %932
-  %.sroa.0.4.vec.extract11.i703 = extractelement <2 x float> %.sroa.0.1.i702, i64 1
+  %.sroa.0.4.vec.extract11.i703 = extractelement <2 x float> %.sroa.0.4.i702, i64 1
   %945 = fcmp ogt float %942, %.sroa.0.4.vec.extract11.i703
-  %.sroa.0.4.vec.insert13.i704 = insertelement <2 x float> %.sroa.0.1.i702, float %942, i64 1
-  %.sroa.0.2.i705 = select i1 %945, <2 x float> %.sroa.0.4.vec.insert13.i704, <2 x float> %.sroa.0.1.i702
+  %.sroa.0.4.vec.insert13.i704 = insertelement <2 x float> %.sroa.0.4.i702, float %942, i64 1
+  %.sroa.0.5.i705 = select i1 %945, <2 x float> %.sroa.0.4.vec.insert13.i704, <2 x float> %.sroa.0.4.i702
   %946 = getelementptr inbounds i8, ptr %.sroa.021.034.i.i, i64 48
   %.not27.i.i706 = icmp eq ptr %946, %924
   br i1 %.not27.i.i706, label %_ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit, label %.lr.ph35.i.i, !llvm.loop !264
 
 .lr.ph.i.i688:                                    ; preds = %.preheader28.i.i687, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i
-  %.sroa.0.3.i689 = phi <2 x float> [ %.sroa.0.5.i691, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i687 ]
+  %.sroa.0.0.i689 = phi <2 x float> [ %.sroa.0.1.i691, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i687 ]
   %.sroa.016.031.i.i = phi ptr [ %964, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i ], [ %925, %.preheader28.i.i687 ]
   %947 = getelementptr inbounds i8, ptr %.sroa.016.031.i.i, i64 32
   %948 = load i32, ptr %947, align 8
@@ -12696,26 +12696,26 @@ _ZN7QStringD2Ev.exit685:                          ; preds = %823, %_ZN9QtPrivate
   %958 = sdiv exact i64 %956, 12
   %959 = getelementptr inbounds i8, ptr %957, i64 %958
   %960 = load float, ptr %959, align 4
-  %.sroa.0.0.vec.extract.i694 = extractelement <2 x float> %.sroa.0.3.i689, i64 0
+  %.sroa.0.0.vec.extract.i694 = extractelement <2 x float> %.sroa.0.0.i689, i64 0
   %961 = fcmp olt float %960, %.sroa.0.0.vec.extract.i694
-  %.sroa.0.0.vec.insert.i695 = insertelement <2 x float> %.sroa.0.3.i689, float %960, i64 0
-  %.sroa.0.4.i696 = select i1 %961, <2 x float> %.sroa.0.0.vec.insert.i695, <2 x float> %.sroa.0.3.i689
-  %.sroa.0.4.vec.extract.i697 = extractelement <2 x float> %.sroa.0.4.i696, i64 1
+  %.sroa.0.0.vec.insert.i695 = insertelement <2 x float> %.sroa.0.0.i689, float %960, i64 0
+  %.sroa.0.2.i696 = select i1 %961, <2 x float> %.sroa.0.0.vec.insert.i695, <2 x float> %.sroa.0.0.i689
+  %.sroa.0.4.vec.extract.i697 = extractelement <2 x float> %.sroa.0.2.i696, i64 1
   %962 = fcmp ogt float %960, %.sroa.0.4.vec.extract.i697
   br i1 %962, label %963, label %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i
 
 963:                                              ; preds = %950
-  %.sroa.0.4.vec.insert.i698 = insertelement <2 x float> %.sroa.0.4.i696, float %960, i64 1
+  %.sroa.0.4.vec.insert.i698 = insertelement <2 x float> %.sroa.0.2.i696, float %960, i64 1
   br label %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i
 
 _ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i: ; preds = %963, %950, %.lr.ph.i.i688
-  %.sroa.0.5.i691 = phi <2 x float> [ %.sroa.0.4.vec.insert.i698, %963 ], [ %.sroa.0.4.i696, %950 ], [ %.sroa.0.3.i689, %.lr.ph.i.i688 ]
+  %.sroa.0.1.i691 = phi <2 x float> [ %.sroa.0.4.vec.insert.i698, %963 ], [ %.sroa.0.2.i696, %950 ], [ %.sroa.0.0.i689, %.lr.ph.i.i688 ]
   %964 = getelementptr inbounds i8, ptr %.sroa.016.031.i.i, i64 48
   %.not.i.i692 = icmp eq ptr %964, %924
   br i1 %.not.i.i692, label %_ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit, label %.lr.ph.i.i688, !llvm.loop !265
 
 _ZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i, %.lr.ph35.i.i, %.preheader28.i.i687, %.preheader.i.i699
-  %.sroa.0.6.i693 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i699 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i687 ], [ %.sroa.0.2.i705, %.lr.ph35.i.i ], [ %.sroa.0.5.i691, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i ]
+  %.sroa.0.6.i693 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i699 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i687 ], [ %.sroa.0.5.i705, %.lr.ph35.i.i ], [ %.sroa.0.1.i691, %_ZZN3vcg3tri4StatI6CMeshOE27ComputePerFaceQualityMinMaxERKS2_ENKUlRK6CFaceOE_clES8_.exit15.i.i ]
   %.sroa.0775.0.vec.extract = extractelement <2 x float> %.sroa.0.6.i693, i64 0
   %.sroa.0775.4.vec.extract = extractelement <2 x float> %.sroa.0.6.i693, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
@@ -13199,8 +13199,8 @@ _ZN7QStringD2Ev.exit643:                          ; preds = %1111, %1089, %904, 
   br label %1156
 
 1156:                                             ; preds = %_ZN7QStringD2Ev.exit760, %907, %_ZN7QStringD2Ev.exit643
-  %.1 = phi i1 [ true, %_ZN7QStringD2Ev.exit643 ], [ false, %_ZN7QStringD2Ev.exit760 ], [ false, %907 ]
-  ret i1 %.1
+  %.0212 = phi i1 [ true, %_ZN7QStringD2Ev.exit643 ], [ false, %_ZN7QStringD2Ev.exit760 ], [ false, %907 ]
+  ret i1 %.0212
 
 1157:                                             ; preds = %1153, %1151, %1149, %1087, %1085, %996, %994, %992, %991, %889, %887, %803, %801, %799, %798, %726, %326, %324, %322, %321
   %.pn225 = phi { ptr, i32 } [ %1154, %1153 ], [ %1152, %1151 ], [ %1150, %1149 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %997, %996 ], [ %995, %994 ], [ %993, %992 ], [ %.pn, %991 ], [ %890, %889 ], [ %888, %887 ], [ %804, %803 ], [ %802, %801 ], [ %800, %799 ], [ %.pn221, %798 ], [ %727, %726 ], [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %.pn223, %321 ]
@@ -22625,36 +22625,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #26
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #26
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #26
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

@@ -5279,7 +5279,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
 
 34:                                               ; preds = %.body, %30
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %31, %30 ]
-  %.1 = phi i1 [ %.0.lpad-body, %.body ], [ true, %30 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %30 ]
   %35 = getelementptr inbounds i8, ptr %5, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 40
@@ -5317,7 +5317,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: 
 
 44:                                               ; preds = %43, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  br i1 %.1, label %45, label %46
+  br i1 %.2, label %45, label %46
 
 45:                                               ; preds = %.thread, %44
   %.pn.pn11 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn, %44 ]
@@ -7062,12 +7062,12 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preh
 .preheader:                                       ; preds = %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit
   %indvars.iv68 = phi i64 [ 0, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %indvars.iv.next69, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
   %indvars.iv66 = phi i64 [ 1, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %indvars.iv.next67, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
-  %.061 = phi float [ 0.000000e+00, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %.2, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
+  %.161 = phi float [ 0.000000e+00, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preheader ], [ %.3, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
   br label %63
 
 63:                                               ; preds = %.preheader, %79
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %79 ]
-  %.159 = phi float [ %.061, %.preheader ], [ %.2, %79 ]
+  %.259 = phi float [ %.161, %.preheader ], [ %.3, %79 ]
   %64 = getelementptr inbounds [3 x [3 x float]], ptr %9, i64 0, i64 %indvars.iv68, i64 %indvars.iv
   %65 = load float, ptr %64, align 4
   %66 = fcmp ogt float %65, 0.000000e+00
@@ -7082,13 +7082,13 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit.preh
   %73 = fpext float %65 to double
   %74 = fmul double %73, 0x40309AFAE1F7C60E
   %75 = fdiv double %72, %74
-  %76 = fpext float %.159 to double
+  %76 = fpext float %.259 to double
   %77 = fadd double %75, %76
   %78 = fptrunc double %77 to float
   br label %79
 
 79:                                               ; preds = %63, %67
-  %.2 = phi float [ %78, %67 ], [ %.159, %63 ]
+  %.3 = phi float [ %78, %67 ], [ %.259, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv66
   br i1 %exitcond.not, label %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit, label %63, !llvm.loop !116
@@ -7111,7 +7111,7 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %89 = fmul float %41, %88
   %90 = fpext float %89 to double
   %91 = fdiv double %90, 0x4048E87852F3A915
-  %92 = fpext float %.2 to double
+  %92 = fpext float %.3 to double
   %93 = fadd double %91, %92
   %94 = fptrunc double %93 to float
   br label %183
@@ -7248,7 +7248,7 @@ _ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit: ; preds = %._crit_edge.us.i
   unreachable
 
 183:                                              ; preds = %80, %177, %_ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit, %8
-  %.3 = phi float [ %181, %177 ], [ %176, %_ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit ], [ %94, %80 ], [ 0.000000e+00, %8 ]
+  %.0 = phi float [ %181, %177 ], [ %176, %_ZL18energyPressureMTTKfPK7t_statePK9t_extmass.exit ], [ %94, %80 ], [ 0.000000e+00, %8 ]
   switch i32 %1, label %275 [
     i32 0, label %276
     i32 6, label %184
@@ -7281,7 +7281,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_
 
 _ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit.i
   %.0.lcssa.i.i = phi float [ 0.000000e+00, %184 ], [ %190, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit.loopexit.i ]
-  %191 = fadd float %.3, %.0.lcssa.i.i
+  %191 = fadd float %.0, %.0.lcssa.i.i
   br label %276
 
 192:                                              ; preds = %183
@@ -7425,7 +7425,7 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %184, %_ZSt10accumul
 
 _ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit: ; preds = %273, %..loopexit_crit_edge.us.us.i, %192, %.lr.ph5.split.us.i
   %.045.lcssa.i = phi float [ 0.000000e+00, %192 ], [ 0.000000e+00, %.lr.ph5.split.us.i ], [ %.3.us.us.i, %..loopexit_crit_edge.us.us.i ], [ %.3.i, %273 ]
-  %274 = fadd float %.3, %.045.lcssa.i
+  %274 = fadd float %.0, %.045.lcssa.i
   br label %276
 
 275:                                              ; preds = %183
@@ -7433,7 +7433,7 @@ _ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmas
   unreachable
 
 276:                                              ; preds = %183, %183, %183, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit, %_ZL14energyVrescalePK7t_state.exit
-  %.4 = phi float [ %274, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit ], [ %191, %_ZL14energyVrescalePK7t_state.exit ], [ %.3, %183 ], [ %.3, %183 ], [ %.3, %183 ]
+  %.4 = phi float [ %274, %_ZL16energyNoseHooverN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass.exit ], [ %191, %_ZL14energyVrescalePK7t_state.exit ], [ %.0, %183 ], [ %.0, %183 ], [ %.0, %183 ]
   ret float %.4
 }
 

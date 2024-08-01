@@ -184,8 +184,8 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.069, ptr noundef nonnull %53) #8
   %70 = load ptr, ptr %5, align 8
   %71 = call i64 @strtoul(ptr noundef %70, ptr noundef nonnull %5, i32 noundef 10) #8
-  %.17497 = call i64 @llvm.umin.i64(i64 %71, i64 10)
-  %.174 = trunc nuw nsw i64 %.17497 to i32
+  %.27597 = call i64 @llvm.umin.i64(i64 %71, i64 10)
+  %.275 = trunc nuw nsw i64 %.27597 to i32
   %72 = load ptr, ptr %5, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 -1
   %74 = load i8, ptr %72, align 1
@@ -195,8 +195,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 76:                                               ; preds = %._crit_edge, %69
   %77 = phi i8 [ %74, %69 ], [ %.pre, %._crit_edge ]
   %78 = phi ptr [ %72, %69 ], [ %56, %._crit_edge ]
-  %.275 = phi i32 [ %.174, %69 ], [ 0, %._crit_edge ]
-  %.170 = phi ptr [ %73, %69 ], [ %.069, %._crit_edge ]
+  %.174 = phi i32 [ %.275, %69 ], [ 0, %._crit_edge ]
+  %.271 = phi ptr [ %73, %69 ], [ %.069, %._crit_edge ]
   switch i8 %77, label %.outer.backedge [
     i8 97, label %79
     i8 65, label %88
@@ -223,8 +223,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 84:                                               ; preds = %81, %79
   %.164 = phi i32 [ %83, %81 ], [ %.063.ph, %79 ]
   %85 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %85) #8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.275, i32 noundef %.164) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %85) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.174, i32 noundef %.164) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %86 = load ptr, ptr %5, align 8
@@ -234,8 +234,8 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 .outer.backedge:                                  ; preds = %84, %93, %106, %108, %121, %124, %76, %150, %141, %148
   %.be = phi ptr [ %143, %141 ], [ %149, %148 ], [ %151, %150 ], [ %78, %76 ], [ %128, %124 ], [ %123, %121 ], [ %112, %108 ], [ %107, %106 ], [ %96, %93 ], [ %87, %84 ]
-  %.069.ph.be = phi ptr [ %.069, %141 ], [ %.372, %148 ], [ %.069, %150 ], [ %.170, %76 ], [ %128, %124 ], [ %122, %121 ], [ %112, %108 ], [ %107, %106 ], [ %96, %93 ], [ %87, %84 ]
-  %.065.ph.be = phi i32 [ %.065.ph, %141 ], [ %.065.ph, %148 ], [ %.065.ph, %150 ], [ %.065.ph, %76 ], [ %.065.ph, %124 ], [ %.065.ph, %121 ], [ %.065.ph, %108 ], [ %.065.ph, %106 ], [ %.166, %93 ], [ %.065.ph, %84 ]
+  %.069.ph.be = phi ptr [ %.069, %141 ], [ %.5, %148 ], [ %.069, %150 ], [ %.271, %76 ], [ %128, %124 ], [ %122, %121 ], [ %112, %108 ], [ %107, %106 ], [ %96, %93 ], [ %87, %84 ]
+  %.065.ph.be = phi i32 [ %.065.ph, %141 ], [ %.065.ph, %148 ], [ %.065.ph, %150 ], [ %.065.ph, %76 ], [ %.065.ph, %124 ], [ %.065.ph, %121 ], [ %.065.ph, %108 ], [ %.065.ph, %106 ], [ %.267, %93 ], [ %.065.ph, %84 ]
   %.063.ph.be = phi i32 [ %.063.ph, %141 ], [ %.063.ph, %148 ], [ %.063.ph, %150 ], [ %.063.ph, %76 ], [ %.063.ph, %124 ], [ %.063.ph, %121 ], [ %.063.ph, %108 ], [ %.063.ph, %106 ], [ %.063.ph, %93 ], [ %.164, %84 ]
   %.0.ph.be = phi i8 [ 0, %141 ], [ 0, %148 ], [ %.0, %150 ], [ 0, %76 ], [ 0, %124 ], [ 0, %121 ], [ 0, %108 ], [ 0, %106 ], [ 0, %93 ], [ 0, %84 ]
   br label %.outer, !llvm.loop !9
@@ -251,10 +251,10 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %93
 
 93:                                               ; preds = %90, %88
-  %.166 = phi i32 [ %92, %90 ], [ %.065.ph, %88 ]
+  %.267 = phi i32 [ %92, %90 ], [ %.065.ph, %88 ]
   %94 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %94) #8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.275, i32 noundef %.166) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %94) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.174, i32 noundef %.267) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %95 = load ptr, ptr %5, align 8
@@ -264,9 +264,9 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 97:                                               ; preds = %76, %76
   %98 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %98) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %98) #8
   %99 = load i32, ptr %0, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.275, i32 noundef %99) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.174, i32 noundef %99) #8
   %100 = load ptr, ptr %5, align 8
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 74
@@ -290,9 +290,9 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 108:                                              ; preds = %76
   %109 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %109) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %109) #8
   %110 = load i32, ptr %50, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.275, i32 noundef %110) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.174, i32 noundef %110) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %111 = load ptr, ptr %5, align 8
@@ -311,16 +311,16 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %117
 
 117:                                              ; preds = %115, %113
-  %.not90 = icmp eq i32 %.275, 0
+  %.not90 = icmp eq i32 %.174, 0
   br i1 %.not90, label %120, label %118
 
 118:                                              ; preds = %117
-  %119 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, i32 noundef %.275) #8
+  %119 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, i32 noundef %.174) #8
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %119) #8
   br label %121
 
 120:                                              ; preds = %117
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %78) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %78) #8
   %.pre130 = load ptr, ptr %5, align 8
   br label %121
 
@@ -334,7 +334,7 @@ _remove_path_slashes.exit:                        ; preds = %48
 
 124:                                              ; preds = %76
   %125 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170, ptr noundef nonnull %125) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %125) #8
   %126 = call ptr @getenv(ptr noundef nonnull @.str.13) #8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef %126) #8
   %127 = load ptr, ptr %5, align 8
@@ -387,7 +387,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %148
 
 148:                                              ; preds = %146, %144
-  %.372 = phi ptr [ %143, %146 ], [ %.069, %144 ]
+  %.5 = phi ptr [ %143, %146 ], [ %.069, %144 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %149 = getelementptr inbounds i8, ptr %143, i64 1
@@ -404,9 +404,9 @@ _remove_path_slashes.exit:                        ; preds = %48
   br i1 %.not94, label %153, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %69, %.loopexit
-  %.5135 = phi ptr [ %.069, %.loopexit ], [ %73, %69 ]
+  %.170135 = phi ptr [ %.069, %.loopexit ], [ %73, %69 ]
   %152 = phi ptr [ %53, %.loopexit ], [ %72, %69 ]
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.5135, ptr noundef nonnull %152) #8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170135, ptr noundef nonnull %152) #8
   br label %153
 
 153:                                              ; preds = %.loopexit.thread, %.loopexit

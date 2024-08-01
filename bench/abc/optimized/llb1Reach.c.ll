@@ -2330,7 +2330,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %281
 
 281:                                              ; preds = %277, %276
-  %.2 = phi ptr [ %279, %277 ], [ %.1295431, %276 ]
+  %.3 = phi ptr [ %279, %277 ], [ %.1295431, %276 ]
   %282 = load ptr, ptr %138, align 8
   %283 = getelementptr i8, ptr %282, i64 8
   %.val = load ptr, ptr %283, align 8
@@ -2338,10 +2338,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %285 = call ptr @Llb_ManConstructQuantCubeIntern(ptr noundef nonnull %0, ptr noundef %284, i32 poison, i32 noundef 0)
   call void @Cudd_Ref(ptr noundef %285) #12
   %286 = load ptr, ptr %48, align 8
-  %287 = call ptr @Cudd_bddExistAbstract(ptr noundef %286, ptr noundef %.2, ptr noundef %285) #12
+  %287 = call ptr @Cudd_bddExistAbstract(ptr noundef %286, ptr noundef %.3, ptr noundef %285) #12
   call void @Cudd_Ref(ptr noundef %287) #12
   %288 = load ptr, ptr %48, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %288, ptr noundef %.2) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %288, ptr noundef %.3) #12
   %289 = load ptr, ptr %48, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %289, ptr noundef %285) #12
   %290 = call ptr @Llb_ManComputeImage(ptr noundef nonnull %0, ptr noundef %287, i32 noundef 0)
@@ -2589,7 +2589,7 @@ Abc_Clock.exit356:                                ; preds = %392, %414
 .loopexit:                                        ; preds = %423, %130, %383, %354, %347, %339
   %.0293382 = phi i32 [ %.0293432, %339 ], [ %.0293432, %347 ], [ %.0293432, %354 ], [ %.0293432, %383 ], [ 0, %130 ], [ %425, %423 ]
   %.2298 = phi ptr [ %.1297430, %339 ], [ %.1297430, %347 ], [ null, %354 ], [ null, %383 ], [ %.0296, %130 ], [ %381, %423 ]
-  %.3 = phi ptr [ null, %339 ], [ null, %347 ], [ null, %354 ], [ %360, %383 ], [ %.sink, %130 ], [ %360, %423 ]
+  %.2 = phi ptr [ null, %339 ], [ null, %347 ], [ null, %354 ], [ %360, %383 ], [ %.sink, %130 ], [ %360, %423 ]
   %.1 = phi i32 [ %.0292433, %339 ], [ %342, %347 ], [ %342, %354 ], [ %342, %383 ], [ 0, %130 ], [ %342, %423 ]
   %429 = load ptr, ptr %48, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %429, ptr noundef %117) #12
@@ -2606,12 +2606,12 @@ Abc_Clock.exit356:                                ; preds = %392, %414
   br label %498
 
 436:                                              ; preds = %.loopexit
-  %.not330 = icmp eq ptr %.3, null
+  %.not330 = icmp eq ptr %.2, null
   br i1 %.not330, label %439, label %437
 
 437:                                              ; preds = %436
   %438 = load ptr, ptr %48, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %438, ptr noundef nonnull %.3) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %438, ptr noundef nonnull %.2) #12
   br label %439
 
 439:                                              ; preds = %437, %436

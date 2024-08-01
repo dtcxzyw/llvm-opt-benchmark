@@ -62,7 +62,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end25
-  %out.012 = phi ptr [ undef, %while.body.lr.ph ], [ %out.2, %if.end25 ]
+  %out.012 = phi ptr [ undef, %while.body.lr.ph ], [ %out.1, %if.end25 ]
   %0 = load ptr, ptr %line, align 8
   %call1 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str, ptr noundef nonnull dereferenceable(1) %0) #10
   %tobool.not = icmp eq i32 %call1, 0
@@ -101,7 +101,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !5
 
 skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
-  %out.1 = phi ptr [ %out.012, %do.cond.i ], [ %scevgep.i, %do.body.i ]
+  %out.2 = phi ptr [ %out.012, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then7, label %if.else13
 
@@ -111,7 +111,7 @@ if.then7:                                         ; preds = %skip_prefix.exit
   br i1 %cmp9, label %if.then10, label %if.end25
 
 if.then10:                                        ; preds = %if.then7
-  %call12 = call ptr @strvec_push(ptr noundef nonnull %prefixes, ptr noundef %out.1) #9
+  %call12 = call ptr @strvec_push(ptr noundef nonnull %prefixes, ptr noundef %out.2) #9
   br label %if.end25
 
 if.else13:                                        ; preds = %skip_prefix.exit
@@ -135,7 +135,7 @@ if.else20:                                        ; preds = %if.else13
   unreachable
 
 if.end25:                                         ; preds = %if.then4, %if.then7, %if.then10, %if.then16, %if.then
-  %out.2 = phi ptr [ %out.012, %if.then ], [ %out.012, %if.then4 ], [ %out.1, %if.then10 ], [ %out.1, %if.then7 ], [ %out.1, %if.then16 ]
+  %out.1 = phi ptr [ %out.012, %if.then ], [ %out.012, %if.then4 ], [ %out.2, %if.then10 ], [ %out.2, %if.then7 ], [ %out.2, %if.then16 ]
   %call = call i32 @packet_reader_read(ptr noundef %request) #9
   %cmp = icmp eq i32 %call, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7

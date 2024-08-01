@@ -390,7 +390,7 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr nocapture nounde
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %35
   %indvars.iv65 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next66, %35 ]
-  %.23446 = phi i8 [ 1, %.lr.ph48.preheader ], [ %spec.select, %35 ]
+  %.346 = phi i8 [ 1, %.lr.ph48.preheader ], [ %spec.select, %35 ]
   %28 = getelementptr i8, ptr %4, i64 %indvars.iv65
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
@@ -404,7 +404,7 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr nocapture nounde
 
 35:                                               ; preds = %31
   %36 = icmp eq i8 %29, 2
-  %spec.select = select i1 %36, i8 2, i8 %.23446
+  %spec.select = select i1 %36, i8 2, i8 %.346
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count67
   br i1 %exitcond68.not, label %.loopexit, label %.lr.ph48, !llvm.loop !10
@@ -431,8 +431,8 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr nocapture nounde
   unreachable
 
 .loopexit:                                        ; preds = %37, %.lr.ph, %35, %31, %.lr.ph48, %27, %20, %.preheader40, %.preheader37, %.preheader, %1
-  %.4 = phi i8 [ 2, %1 ], [ 0, %.preheader ], [ 1, %.preheader37 ], [ 2, %.preheader40 ], [ %.133, %27 ], [ 1, %20 ], [ %spec.select, %35 ], [ 0, %31 ], [ 0, %.lr.ph48 ], [ 2, %37 ], [ 0, %.lr.ph ]
-  %46 = zext nneg i8 %.4 to i64
+  %.234 = phi i8 [ 2, %1 ], [ 0, %.preheader ], [ 1, %.preheader37 ], [ 2, %.preheader40 ], [ %.133, %27 ], [ 1, %20 ], [ %spec.select, %35 ], [ 0, %31 ], [ 0, %.lr.ph48 ], [ 2, %37 ], [ 0, %.lr.ph ]
+  %46 = zext nneg i8 %.234 to i64
   ret i64 %46
 }
 

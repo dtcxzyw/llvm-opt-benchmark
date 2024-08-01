@@ -510,7 +510,7 @@ if.end29:                                         ; preds = %land.lhs.true25, %i
   br i1 %tobool30.not, label %skip_optional_pos, label %if.end33
 
 if.end33:                                         ; preds = %if.end29, %if.end18
-  %level.0 = phi i32 [ %call23, %if.end29 ], [ -1, %if.end18 ]
+  %level.1 = phi i32 [ %call23, %if.end29 ], [ -1, %if.end18 ]
   %arrayidx34 = getelementptr i8, ptr %cond1021, i64 16
   %6 = load ptr, ptr %arrayidx34, align 8
   %call35 = call i32 @PyLong_AsInt(ptr noundef %6) #6
@@ -523,7 +523,7 @@ land.lhs.true37:                                  ; preds = %if.end33
   br i1 %tobool39.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end33, %land.lhs.true37, %if.end29, %if.end15
-  %level.1 = phi i32 [ %level.0, %land.lhs.true37 ], [ %level.0, %if.end33 ], [ %call23, %if.end29 ], [ -1, %if.end15 ]
+  %level.0 = phi i32 [ %level.1, %land.lhs.true37 ], [ %level.1, %if.end33 ], [ %call23, %if.end29 ], [ -1, %if.end15 ]
   %wbits.0 = phi i32 [ -1, %land.lhs.true37 ], [ %call35, %if.end33 ], [ 15, %if.end29 ], [ 15, %if.end15 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %zst.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i)
@@ -582,7 +582,7 @@ if.end.i:                                         ; preds = %if.end4.i.i.i
   %zfree.i = getelementptr inbounds i8, ptr %zst.i, i64 72
   store ptr @PyZlib_Free, ptr %zfree.i, align 8
   store ptr %7, ptr %zst.i, align 8
-  %call2.i = call i32 @deflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %level.1, i32 noundef 8, i32 noundef %wbits.0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.10, i32 noundef 112) #6
+  %call2.i = call i32 @deflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %level.0, i32 noundef 8, i32 noundef %wbits.0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.10, i32 noundef 112) #6
   switch i32 %call2.i, label %sw.default.i [
     i32 0, label %do.body.preheader.i
     i32 -4, label %sw.bb3.i
@@ -804,7 +804,7 @@ if.end24:                                         ; preds = %land.lhs.true20, %i
 
 if.end28:                                         ; preds = %if.end24, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.end24 ], [ %add, %if.end14 ]
-  %level.0 = phi i32 [ %call18, %if.end24 ], [ -1, %if.end14 ]
+  %level.1 = phi i32 [ %call18, %if.end24 ], [ -1, %if.end14 ]
   %arrayidx29 = getelementptr i8, ptr %cond1039, i64 8
   %4 = load ptr, ptr %arrayidx29, align 8
   %tobool30.not = icmp eq ptr %4, null
@@ -827,7 +827,7 @@ if.end39:                                         ; preds = %land.lhs.true35, %i
 
 if.end44:                                         ; preds = %if.end39, %if.end28
   %noptargs.1 = phi i64 [ %dec40, %if.end39 ], [ %noptargs.0, %if.end28 ]
-  %method.0 = phi i32 [ %call33, %if.end39 ], [ 8, %if.end28 ]
+  %method.1 = phi i32 [ %call33, %if.end39 ], [ 8, %if.end28 ]
   %arrayidx45 = getelementptr i8, ptr %cond1039, i64 16
   %5 = load ptr, ptr %arrayidx45, align 8
   %tobool46.not = icmp eq ptr %5, null
@@ -850,7 +850,7 @@ if.end55:                                         ; preds = %land.lhs.true51, %i
 
 if.end60:                                         ; preds = %if.end55, %if.end44
   %noptargs.2 = phi i64 [ %dec56, %if.end55 ], [ %noptargs.1, %if.end44 ]
-  %wbits.0 = phi i32 [ %call49, %if.end55 ], [ 15, %if.end44 ]
+  %wbits.1 = phi i32 [ %call49, %if.end55 ], [ 15, %if.end44 ]
   %arrayidx61 = getelementptr i8, ptr %cond1039, i64 24
   %6 = load ptr, ptr %arrayidx61, align 8
   %tobool62.not = icmp eq ptr %6, null
@@ -873,7 +873,7 @@ if.end71:                                         ; preds = %land.lhs.true67, %i
 
 if.end76:                                         ; preds = %if.end71, %if.end60
   %noptargs.3 = phi i64 [ %dec72, %if.end71 ], [ %noptargs.2, %if.end60 ]
-  %memLevel.0 = phi i32 [ %call65, %if.end71 ], [ 8, %if.end60 ]
+  %memLevel.1 = phi i32 [ %call65, %if.end71 ], [ 8, %if.end60 ]
   %arrayidx77 = getelementptr i8, ptr %cond1039, i64 32
   %7 = load ptr, ptr %arrayidx77, align 8
   %tobool78.not = icmp eq ptr %7, null
@@ -894,7 +894,7 @@ if.end87:                                         ; preds = %land.lhs.true83, %i
   br i1 %tobool89.not, label %skip_optional_pos, label %if.end92
 
 if.end92:                                         ; preds = %if.end87, %if.end76
-  %strategy.0 = phi i32 [ %call81, %if.end87 ], [ 0, %if.end76 ]
+  %strategy.1 = phi i32 [ %call81, %if.end87 ], [ 0, %if.end76 ]
   %arrayidx93 = getelementptr i8, ptr %cond1039, i64 40
   %8 = load ptr, ptr %arrayidx93, align 8
   %call94 = call i32 @PyObject_GetBuffer(ptr noundef %8, ptr noundef nonnull %zdict, i32 noundef 0) #6
@@ -902,11 +902,11 @@ if.end92:                                         ; preds = %if.end87, %if.end76
   br i1 %cmp95.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end92, %if.end87, %if.end71, %if.end55, %if.end39, %if.end24, %if.end
-  %level.1 = phi i32 [ %level.0, %if.end92 ], [ %level.0, %if.end87 ], [ %level.0, %if.end71 ], [ %level.0, %if.end55 ], [ %level.0, %if.end39 ], [ %call18, %if.end24 ], [ -1, %if.end ]
-  %method.1 = phi i32 [ %method.0, %if.end92 ], [ %method.0, %if.end87 ], [ %method.0, %if.end71 ], [ %method.0, %if.end55 ], [ %call33, %if.end39 ], [ 8, %if.end24 ], [ 8, %if.end ]
-  %wbits.1 = phi i32 [ %wbits.0, %if.end92 ], [ %wbits.0, %if.end87 ], [ %wbits.0, %if.end71 ], [ %call49, %if.end55 ], [ 15, %if.end39 ], [ 15, %if.end24 ], [ 15, %if.end ]
-  %memLevel.1 = phi i32 [ %memLevel.0, %if.end92 ], [ %memLevel.0, %if.end87 ], [ %call65, %if.end71 ], [ 8, %if.end55 ], [ 8, %if.end39 ], [ 8, %if.end24 ], [ 8, %if.end ]
-  %strategy.1 = phi i32 [ %strategy.0, %if.end92 ], [ %call81, %if.end87 ], [ 0, %if.end71 ], [ 0, %if.end55 ], [ 0, %if.end39 ], [ 0, %if.end24 ], [ 0, %if.end ]
+  %level.0 = phi i32 [ %level.1, %if.end92 ], [ %level.1, %if.end87 ], [ %level.1, %if.end71 ], [ %level.1, %if.end55 ], [ %level.1, %if.end39 ], [ %call18, %if.end24 ], [ -1, %if.end ]
+  %method.0 = phi i32 [ %method.1, %if.end92 ], [ %method.1, %if.end87 ], [ %method.1, %if.end71 ], [ %method.1, %if.end55 ], [ %call33, %if.end39 ], [ 8, %if.end24 ], [ 8, %if.end ]
+  %wbits.0 = phi i32 [ %wbits.1, %if.end92 ], [ %wbits.1, %if.end87 ], [ %wbits.1, %if.end71 ], [ %call49, %if.end55 ], [ 15, %if.end39 ], [ 15, %if.end24 ], [ 15, %if.end ]
+  %memLevel.0 = phi i32 [ %memLevel.1, %if.end92 ], [ %memLevel.1, %if.end87 ], [ %call65, %if.end71 ], [ 8, %if.end55 ], [ 8, %if.end39 ], [ 8, %if.end24 ], [ 8, %if.end ]
+  %strategy.0 = phi i32 [ %strategy.1, %if.end92 ], [ %call81, %if.end87 ], [ 0, %if.end71 ], [ 0, %if.end55 ], [ 0, %if.end39 ], [ 0, %if.end24 ], [ 0, %if.end ]
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #6
   %9 = load ptr, ptr %zdict, align 8
   %cmp.not.i = icmp ne ptr %9, null
@@ -938,7 +938,7 @@ if.end5.i:                                        ; preds = %if.end.i
   store ptr null, ptr %zst.i, align 8
   %avail_in.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store i32 0, ptr %avail_in.i, align 8
-  %call11.i = call i32 @deflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %level.1, i32 noundef %method.1, i32 noundef %wbits.1, i32 noundef %memLevel.1, i32 noundef %strategy.1, ptr noundef nonnull @.str.10, i32 noundef 112) #6
+  %call11.i = call i32 @deflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %level.0, i32 noundef %method.0, i32 noundef %wbits.0, i32 noundef %memLevel.0, i32 noundef %strategy.0, ptr noundef nonnull @.str.10, i32 noundef 112) #6
   switch i32 %call11.i, label %sw.default23.i [
     i32 0, label %sw.bb.i
     i32 -4, label %sw.bb21.i
@@ -1213,7 +1213,7 @@ if.end29:                                         ; preds = %land.lhs.true25, %i
   br i1 %tobool30.not, label %skip_optional_pos, label %if.end33
 
 if.end33:                                         ; preds = %if.end29, %if.end18
-  %wbits.0 = phi i32 [ %call23, %if.end29 ], [ 15, %if.end18 ]
+  %wbits.1 = phi i32 [ %call23, %if.end29 ], [ 15, %if.end18 ]
   %arrayidx34 = getelementptr i8, ptr %cond1026, i64 16
   %6 = load ptr, ptr %arrayidx34, align 8
   %call35 = call ptr @_PyNumber_Index(ptr noundef %6) #6
@@ -1247,7 +1247,7 @@ land.lhs.true41:                                  ; preds = %if.end33, %if.end39
   br i1 %tobool43.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end39, %land.lhs.true41, %if.end29, %if.end15
-  %wbits.1 = phi i32 [ %call23, %if.end29 ], [ 15, %if.end15 ], [ %wbits.0, %land.lhs.true41 ], [ %wbits.0, %if.end39 ]
+  %wbits.0 = phi i32 [ %call23, %if.end29 ], [ 15, %if.end15 ], [ %wbits.1, %land.lhs.true41 ], [ %wbits.1, %if.end39 ]
   %bufsize.0 = phi i64 [ 16384, %if.end29 ], [ 16384, %if.end15 ], [ -1, %land.lhs.true41 ], [ %call38, %if.end39 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %zst.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i)
@@ -1321,7 +1321,7 @@ if.end7.i:                                        ; preds = %if.end.i.i.i
   %avail_in.i = getelementptr inbounds i8, ptr %zst.i, i64 8
   store i32 0, ptr %avail_in.i, align 8
   store ptr %14, ptr %zst.i, align 8
-  %call8.i = call i32 @inflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %wbits.1, ptr noundef nonnull @.str.10, i32 noundef 112) #6
+  %call8.i = call i32 @inflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %wbits.0, ptr noundef nonnull @.str.10, i32 noundef 112) #6
   switch i32 %call8.i, label %sw.default.i [
     i32 0, label %do.body.preheader.i
     i32 -4, label %sw.bb9.i
@@ -1376,8 +1376,8 @@ if.else.i.i:                                      ; preds = %sw.bb8.i.i, %sw.bb7
 do.body.i:                                        ; preds = %do.cond34.i, %do.body.preheader.i
   %.pr.i = phi i32 [ %25, %do.cond34.i ], [ %.pr.pre.i, %do.body.preheader.i ]
   %ibuflen.0.i = phi i64 [ %sub.i20.i, %do.cond34.i ], [ %15, %do.body.preheader.i ]
-  %window.sroa.5.1.i = phi ptr [ %window.sroa.5.4.i, %do.cond34.i ], [ %add.ptr.i.i, %do.body.preheader.i ]
-  %window.sroa.0.1.i = phi i64 [ %window.sroa.0.4.i, %do.cond34.i ], [ %sub.i.i, %do.body.preheader.i ]
+  %window.sroa.5.0.i = phi ptr [ %window.sroa.5.2.i, %do.cond34.i ], [ %add.ptr.i.i, %do.body.preheader.i ]
+  %window.sroa.0.0.i = phi i64 [ %window.sroa.0.2.i, %do.cond34.i ], [ %sub.i.i, %do.body.preheader.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
   %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i, align 8
@@ -1388,22 +1388,22 @@ do.body.i:                                        ; preds = %do.cond34.i, %do.bo
 
 do.body12.i:                                      ; preds = %do.cond.i, %do.body.i
   %20 = phi i32 [ 0, %do.cond.i ], [ %.pr.i, %do.body.i ]
-  %window.sroa.5.2.i = phi ptr [ %window.sroa.5.4.i, %do.cond.i ], [ %window.sroa.5.1.i, %do.body.i ]
-  %window.sroa.0.2.i = phi i64 [ %window.sroa.0.4.i, %do.cond.i ], [ %window.sroa.0.1.i, %do.body.i ]
+  %window.sroa.5.1.i = phi ptr [ %window.sroa.5.2.i, %do.cond.i ], [ %window.sroa.5.0.i, %do.body.i ]
+  %window.sroa.0.1.i = phi i64 [ %window.sroa.0.2.i, %do.cond.i ], [ %window.sroa.0.0.i, %do.body.i ]
   %cmp14.i = icmp eq i32 %20, 0
   br i1 %cmp14.i, label %if.end.i.i, label %if.end23.i
 
 if.end.i.i:                                       ; preds = %do.body12.i
-  %cmp1.i.i = icmp sgt i64 %window.sroa.0.2.i, 0
+  %cmp1.i.i = icmp sgt i64 %window.sroa.0.1.i, 0
   br i1 %cmp1.i.i, label %OutputBuffer_WindowGrow.exit.thread.i, label %OutputBuffer_WindowGrow.exit.i
 
 OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
-  %spec.select.i24.i = call i64 @llvm.umin.i64(i64 %window.sroa.0.2.i, i64 4294967295)
-  store ptr %window.sroa.5.2.i, ptr %next_out.i, align 8
+  %spec.select.i24.i = call i64 @llvm.umin.i64(i64 %window.sroa.0.1.i, i64 4294967295)
+  store ptr %window.sroa.5.1.i, ptr %next_out.i, align 8
   %conv.i26.i = trunc nuw i64 %spec.select.i24.i to i32
   store i32 %conv.i26.i, ptr %avail_out.i, align 8
-  %sub.i27.i = sub nsw i64 %window.sroa.0.2.i, %spec.select.i24.i
-  %add.ptr.i28.i = getelementptr i8, ptr %window.sroa.5.2.i, i64 %spec.select.i24.i
+  %sub.i27.i = sub nsw i64 %window.sroa.0.1.i, %spec.select.i24.i
+  %add.ptr.i28.i = getelementptr i8, ptr %window.sroa.5.1.i, i64 %spec.select.i24.i
   br label %if.end23.i
 
 OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
@@ -1418,8 +1418,8 @@ if.then20.i:                                      ; preds = %OutputBuffer_Window
   br label %error.i
 
 if.end23.i:                                       ; preds = %OutputBuffer_WindowGrow.exit.i, %OutputBuffer_WindowGrow.exit.thread.i, %do.body12.i
-  %window.sroa.5.4.i = phi ptr [ %window.sroa.5.2.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.5.2.i, %do.body12.i ], [ %add.ptr.i28.i, %OutputBuffer_WindowGrow.exit.thread.i ]
-  %window.sroa.0.4.i = phi i64 [ %window.sroa.0.2.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.0.2.i, %do.body12.i ], [ %sub.i27.i, %OutputBuffer_WindowGrow.exit.thread.i ]
+  %window.sroa.5.2.i = phi ptr [ %window.sroa.5.1.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.5.1.i, %do.body12.i ], [ %add.ptr.i28.i, %OutputBuffer_WindowGrow.exit.thread.i ]
+  %window.sroa.0.2.i = phi i64 [ %window.sroa.0.1.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.0.1.i, %do.body12.i ], [ %sub.i27.i, %OutputBuffer_WindowGrow.exit.thread.i ]
   %call24.i = call ptr @PyEval_SaveThread() #6
   %call25.i = call i32 @inflate(ptr noundef nonnull %zst.i, i32 noundef %cond.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call24.i) #6
@@ -1505,7 +1505,7 @@ if.then44.i:                                      ; preds = %if.end41.i
 if.end45.i:                                       ; preds = %if.end41.i
   %29 = load i32, ptr %avail_out.i, align 8
   %conv.i43.i = zext i32 %29 to i64
-  %add.i.i = add i64 %window.sroa.0.4.i, %conv.i43.i
+  %add.i.i = add i64 %window.sroa.0.2.i, %conv.i43.i
   %call.i44.i = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %buffer.i, i64 noundef %add.i.i)
   %cmp48.not.i = icmp eq ptr %call.i44.i, null
   br i1 %cmp48.not.i, label %error.i, label %zlib_decompress_impl.exit
@@ -1603,12 +1603,12 @@ if.end24:                                         ; preds = %land.lhs.true20, %i
   br i1 %tobool25.not, label %skip_optional_pos.thread, label %skip_optional_pos
 
 skip_optional_pos.thread:                         ; preds = %if.end24, %if.end
-  %wbits.1.ph = phi i32 [ 15, %if.end ], [ %call18, %if.end24 ]
+  %wbits.0.ph = phi i32 [ 15, %if.end ], [ %call18, %if.end24 ]
   %call.i.i31 = call ptr @PyModule_GetState(ptr noundef %module) #6
   br label %if.end.i
 
 skip_optional_pos:                                ; preds = %if.end14, %if.end24
-  %wbits.0 = phi i32 [ %call18, %if.end24 ], [ 15, %if.end14 ]
+  %wbits.1 = phi i32 [ %call18, %if.end24 ], [ 15, %if.end14 ]
   %arrayidx29 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx29, align 8
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #6
@@ -1629,7 +1629,7 @@ if.end.i:                                         ; preds = %skip_optional_pos.t
   %cmp.not.i36 = phi i1 [ true, %skip_optional_pos.thread ], [ false, %land.lhs.true.i ], [ true, %skip_optional_pos ]
   %call.i.i35 = phi ptr [ %call.i.i31, %skip_optional_pos.thread ], [ %call.i.i, %land.lhs.true.i ], [ %call.i.i, %skip_optional_pos ]
   %zdict.034 = phi ptr [ null, %skip_optional_pos.thread ], [ %4, %land.lhs.true.i ], [ null, %skip_optional_pos ]
-  %wbits.133 = phi i32 [ %wbits.1.ph, %skip_optional_pos.thread ], [ %wbits.0, %land.lhs.true.i ], [ %wbits.0, %skip_optional_pos ]
+  %wbits.033 = phi i32 [ %wbits.0.ph, %skip_optional_pos.thread ], [ %wbits.1, %land.lhs.true.i ], [ %wbits.1, %skip_optional_pos ]
   %Decomptype.i = getelementptr inbounds i8, ptr %call.i.i35, i64 8
   %6 = load ptr, ptr %Decomptype.i, align 8
   %call2.i = call fastcc ptr @newcompobject(ptr noundef %6)
@@ -1665,7 +1665,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.t
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %_Py_NewRef.exit.i, %if.end5.i
-  %call16.i = call i32 @inflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %wbits.133, ptr noundef nonnull @.str.10, i32 noundef 112) #6
+  %call16.i = call i32 @inflateInit2_(ptr noundef nonnull %zst.i, i32 noundef %wbits.033, ptr noundef nonnull @.str.10, i32 noundef 112) #6
   switch i32 %call16.i, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 -2, label %sw.bb27.i
@@ -1678,7 +1678,7 @@ sw.bb.i:                                          ; preds = %if.end14.i
   %zdict17.i = getelementptr inbounds i8, ptr %call2.i, i64 152
   %8 = load ptr, ptr %zdict17.i, align 8
   %cmp18.i = icmp ne ptr %8, null
-  %cmp20.i = icmp slt i32 %wbits.133, 0
+  %cmp20.i = icmp slt i32 %wbits.033, 0
   %or.cond.i = and i1 %cmp20.i, %cmp18.i
   br i1 %or.cond.i, label %if.then21.i, label %exit
 
@@ -3901,8 +3901,8 @@ OutputBuffer_WindowInitWithSize.exit.i:           ; preds = %if.end.i.i.i
 
 do.body22.i:                                      ; preds = %do.cond48.i, %OutputBuffer_WindowInitWithSize.exit.i
   %ibuflen.0.i = phi i64 [ %10, %OutputBuffer_WindowInitWithSize.exit.i ], [ %sub.i29.i, %do.cond48.i ]
-  %window.sroa.5.1.i = phi ptr [ %add.ptr.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.5.4.i, %do.cond48.i ]
-  %window.sroa.0.1.i = phi i64 [ %sub.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.0.4.i, %do.cond48.i ]
+  %window.sroa.5.0.i = phi ptr [ %add.ptr.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.5.2.i, %do.cond48.i ]
+  %window.sroa.0.0.i = phi i64 [ %sub.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.0.2.i, %do.cond48.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
   %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
   store i32 %spec.select.i.i, ptr %avail_in.i.i, align 8
@@ -3913,21 +3913,21 @@ do.body22.i:                                      ; preds = %do.cond48.i, %Outpu
 
 do.body25.i:                                      ; preds = %do.cond.i, %do.body22.i
   %cmp28.i = phi i1 [ true, %do.cond.i ], [ false, %do.body22.i ]
-  %window.sroa.5.2.i = phi ptr [ %window.sroa.5.4.i, %do.cond.i ], [ %window.sroa.5.1.i, %do.body22.i ]
-  %window.sroa.0.2.i = phi i64 [ %window.sroa.0.4.i, %do.cond.i ], [ %window.sroa.0.1.i, %do.body22.i ]
+  %window.sroa.5.1.i = phi ptr [ %window.sroa.5.2.i, %do.cond.i ], [ %window.sroa.5.0.i, %do.body22.i ]
+  %window.sroa.0.1.i = phi i64 [ %window.sroa.0.2.i, %do.cond.i ], [ %window.sroa.0.0.i, %do.body22.i ]
   br i1 %cmp28.i, label %if.end.i.i, label %if.end38.i
 
 if.end.i.i:                                       ; preds = %do.body25.i
-  %cmp1.i.i = icmp sgt i64 %window.sroa.0.2.i, 0
+  %cmp1.i.i = icmp sgt i64 %window.sroa.0.1.i, 0
   br i1 %cmp1.i.i, label %OutputBuffer_WindowGrow.exit.thread.i, label %OutputBuffer_WindowGrow.exit.i
 
 OutputBuffer_WindowGrow.exit.thread.i:            ; preds = %if.end.i.i
-  %spec.select.i32.i = call i64 @llvm.umin.i64(i64 %window.sroa.0.2.i, i64 4294967295)
-  store ptr %window.sroa.5.2.i, ptr %next_out.i, align 8
+  %spec.select.i32.i = call i64 @llvm.umin.i64(i64 %window.sroa.0.1.i, i64 4294967295)
+  store ptr %window.sroa.5.1.i, ptr %next_out.i, align 8
   %conv.i34.i = trunc nuw i64 %spec.select.i32.i to i32
   store i32 %conv.i34.i, ptr %avail_out.i, align 4
-  %sub.i35.i = sub nsw i64 %window.sroa.0.2.i, %spec.select.i32.i
-  %add.ptr.i36.i = getelementptr i8, ptr %window.sroa.5.2.i, i64 %spec.select.i32.i
+  %sub.i35.i = sub nsw i64 %window.sroa.0.1.i, %spec.select.i32.i
+  %add.ptr.i36.i = getelementptr i8, ptr %window.sroa.5.1.i, i64 %spec.select.i32.i
   br label %if.end38.i
 
 OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
@@ -3938,8 +3938,8 @@ OutputBuffer_WindowGrow.exit.i:                   ; preds = %if.end.i.i
   br i1 %cmp35.i, label %abort.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %OutputBuffer_WindowGrow.exit.i, %OutputBuffer_WindowGrow.exit.thread.i, %do.body25.i
-  %window.sroa.5.4.i = phi ptr [ %window.sroa.5.2.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.5.2.i, %do.body25.i ], [ %add.ptr.i36.i, %OutputBuffer_WindowGrow.exit.thread.i ]
-  %window.sroa.0.4.i = phi i64 [ %window.sroa.0.2.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.0.2.i, %do.body25.i ], [ %sub.i35.i, %OutputBuffer_WindowGrow.exit.thread.i ]
+  %window.sroa.5.2.i = phi ptr [ %window.sroa.5.1.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.5.1.i, %do.body25.i ], [ %add.ptr.i36.i, %OutputBuffer_WindowGrow.exit.thread.i ]
+  %window.sroa.0.2.i = phi i64 [ %window.sroa.0.1.i, %OutputBuffer_WindowGrow.exit.i ], [ %window.sroa.0.1.i, %do.body25.i ], [ %sub.i35.i, %OutputBuffer_WindowGrow.exit.thread.i ]
   %call40.i = call ptr @PyEval_SaveThread() #6
   %call42.i = call i32 @inflate(ptr noundef nonnull %zst.i, i32 noundef %cond.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call40.i) #6
@@ -3987,7 +3987,7 @@ if.then61.i:                                      ; preds = %if.then57.i
 if.end64.i:                                       ; preds = %if.then57.i, %if.end55.i
   %18 = load i32, ptr %avail_out.i, align 8
   %conv.i37.i = zext i32 %18 to i64
-  %add.i.i = add i64 %window.sroa.0.4.i, %conv.i37.i
+  %add.i.i = add i64 %window.sroa.0.2.i, %conv.i37.i
   %call.i38.i = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %buffer.i, i64 noundef %add.i.i)
   %cmp68.not.i = icmp eq ptr %call.i38.i, null
   br i1 %cmp68.not.i, label %abort.i, label %success.i

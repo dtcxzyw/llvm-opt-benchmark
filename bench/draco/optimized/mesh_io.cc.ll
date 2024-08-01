@@ -408,7 +408,7 @@ _ZN5draco8StatusOrISt10unique_ptrINS_4MeshESt14default_deleteIS2_EEEC2ERKNS_6Sta
   br label %113
 
 113:                                              ; preds = %106, %108
-  %.sroa.0.1 = phi ptr [ null, %108 ], [ %25, %106 ]
+  %.sroa.0.2 = phi ptr [ null, %108 ], [ %25, %106 ]
   %114 = getelementptr inbounds i8, ptr %12, i64 24
   call void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #13
   br label %220
@@ -739,17 +739,17 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %216, %218
   br label %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i
 
 220:                                              ; preds = %113, %88
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %88 ], [ %.sroa.0.1, %113 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %88 ], [ %.sroa.0.2, %113 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  %.not.i83 = icmp eq ptr %.sroa.0.2, null
+  %.not.i83 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i83, label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i: ; preds = %.thread, %220
-  %.sroa.0.293 = phi ptr [ %25, %.thread ], [ %.sroa.0.2, %220 ]
-  %221 = load ptr, ptr %.sroa.0.293, align 8
+  %.sroa.0.193 = phi ptr [ %25, %.thread ], [ %.sroa.0.1, %220 ]
+  %221 = load ptr, ptr %.sroa.0.193, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8
-  call void %223(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.0.293) #13
+  call void %223(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.0.193) #13
   br label %_ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %220, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i

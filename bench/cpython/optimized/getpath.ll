@@ -945,12 +945,12 @@ if.else:                                          ; preds = %if.then3
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then7
-  %r.0 = phi ptr [ %call8, %if.then7 ], [ null, %if.else ]
+  %r.1 = phi ptr [ %call8, %if.then7 ], [ null, %if.else ]
   call void @PyMem_Free(ptr noundef nonnull %call1) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.end9, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %r.0, %if.end9 ], [ null, %if.end ]
+  %retval.0 = phi ptr [ null, %entry ], [ %r.1, %if.end9 ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -1078,12 +1078,12 @@ if.end.i.i8:                                      ; preds = %if.else
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end.i.i8, %if.else, %if.end.i.i, %if.then9
-  %r.0 = phi ptr [ @_Py_FalseStruct, %if.then9 ], [ @_Py_FalseStruct, %if.end.i.i ], [ @_Py_TrueStruct, %if.else ], [ @_Py_TrueStruct, %if.end.i.i8 ]
+  %r.2 = phi ptr [ @_Py_FalseStruct, %if.then9 ], [ @_Py_FalseStruct, %if.end.i.i ], [ @_Py_TrueStruct, %if.else ], [ @_Py_TrueStruct, %if.end.i.i8 ]
   call void @PyMem_Free(ptr noundef nonnull %call4) #10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end12, %if.then3
-  %r.1 = phi ptr [ %r.0, %if.end12 ], [ null, %if.then3 ]
+  %r.1 = phi ptr [ %r.2, %if.end12 ], [ null, %if.then3 ]
   call void @PyMem_Free(ptr noundef nonnull %call1) #10
   br label %return
 
@@ -1392,7 +1392,7 @@ for.end77.thread:                                 ; preds = %if.end48
 
 for.body53:                                       ; preds = %if.end48, %for.inc75
   %i50.067 = phi i64 [ %inc76, %for.inc75 ], [ 0, %if.end48 ]
-  %final.066 = phi ptr [ %final.2, %for.inc75 ], [ %call32, %if.end48 ]
+  %final.066 = phi ptr [ %final.1, %for.inc75 ], [ %call32, %if.end48 ]
   %arrayidx54 = getelementptr ptr, ptr %call6, i64 %i50.067
   %12 = load ptr, ptr %arrayidx54, align 8
   %tobool55.not = icmp eq ptr %12, null
@@ -1423,20 +1423,20 @@ if.then70:                                        ; preds = %if.else66
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then63, %if.then70, %if.else66, %if.end57
-  %final.1 = phi ptr [ null, %if.then70 ], [ %final.066, %if.else66 ], [ %final.066, %if.then63 ], [ %final.066, %if.end57 ]
+  %final.2 = phi ptr [ null, %if.then70 ], [ %final.066, %if.else66 ], [ %final.066, %if.then63 ], [ %final.066, %if.end57 ]
   %14 = load ptr, ptr %arrayidx54, align 8
   call void @PyMem_Free(ptr noundef %14) #10
   br label %for.inc75
 
 for.inc75:                                        ; preds = %for.body53, %if.end73
-  %final.2 = phi ptr [ %final.1, %if.end73 ], [ %final.066, %for.body53 ]
+  %final.1 = phi ptr [ %final.2, %if.end73 ], [ %final.066, %for.body53 ]
   %inc76 = add nuw nsw i64 %i50.067, 1
   %exitcond73.not = icmp eq i64 %inc76, %args.val48
   br i1 %exitcond73.not, label %for.end77, label %for.body53, !llvm.loop !9
 
 for.end77:                                        ; preds = %for.inc75
   call void @PyMem_Free(ptr noundef nonnull %call6) #10
-  %tobool78.not = icmp eq ptr %final.2, null
+  %tobool78.not = icmp eq ptr %final.1, null
   br i1 %tobool78.not, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %for.end77
@@ -1445,7 +1445,7 @@ if.then79:                                        ; preds = %for.end77
   br label %return
 
 if.end80:                                         ; preds = %for.end77.thread, %for.end77
-  %final.0.lcssa85 = phi ptr [ %call32, %for.end77.thread ], [ %final.2, %for.end77 ]
+  %final.0.lcssa85 = phi ptr [ %call32, %for.end77.thread ], [ %final.1, %for.end77 ]
   %call81 = call ptr @_Py_normpath(ptr noundef nonnull %final.0.lcssa85, i64 noundef -1) #10
   %call82 = call ptr @PyUnicode_FromWideChar(ptr noundef %call81, i64 noundef -1) #10
   call void @PyMem_Free(ptr noundef nonnull %final.0.lcssa85) #10
@@ -1708,17 +1708,17 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end.i, %if.then1.i, %if.then69, %lor.lhs.false61
-  %r.1 = phi ptr [ null, %if.then69 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call10, %lor.lhs.false61 ]
+  %r.2 = phi ptr [ null, %if.then69 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call10, %lor.lhs.false61 ]
   call fastcc void @Py_XDECREF(ptr noundef %call59)
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end.i86, %if.then1.i89, %if.then49, %if.end72, %land.lhs.true55, %while.end52
-  %r.2 = phi ptr [ %r.1, %if.end72 ], [ %call10, %land.lhs.true55 ], [ %call10, %while.end52 ], [ null, %if.then49 ], [ null, %if.then1.i89 ], [ null, %if.end.i86 ]
+  %r.1 = phi ptr [ %r.2, %if.end72 ], [ %call10, %land.lhs.true55 ], [ %call10, %while.end52 ], [ null, %if.then49 ], [ null, %if.then1.i89 ], [ null, %if.end.i86 ]
   call void @PyMem_RawFree(ptr noundef nonnull %call27) #10
   br label %return
 
 return:                                           ; preds = %if.end19, %if.end, %entry, %if.end73, %Py_DECREF.exit100, %Py_DECREF.exit109, %Py_DECREF.exit118, %if.then12, %if.then7
-  %retval.0 = phi ptr [ null, %Py_DECREF.exit109 ], [ %r.2, %if.end73 ], [ null, %Py_DECREF.exit100 ], [ null, %Py_DECREF.exit118 ], [ null, %if.then12 ], [ null, %if.then7 ], [ null, %entry ], [ null, %if.end ], [ %call10, %if.end19 ]
+  %retval.0 = phi ptr [ null, %Py_DECREF.exit109 ], [ %r.1, %if.end73 ], [ null, %Py_DECREF.exit100 ], [ null, %Py_DECREF.exit118 ], [ null, %if.then12 ], [ null, %if.then7 ], [ null, %entry ], [ null, %if.end ], [ %call10, %if.end19 ]
   ret ptr %retval.0
 }
 
@@ -1744,17 +1744,17 @@ if.end4:                                          ; preds = %if.end
 
 while.cond:                                       ; preds = %if.end27, %if.end4
   %nlink.0 = phi i32 [ 0, %if.end4 ], [ %inc, %if.end27 ]
-  %path.0 = phi ptr [ %call5, %if.end4 ], [ %path.1, %if.end27 ]
-  %tobool6.not = icmp eq ptr %path.0, null
+  %path.1 = phi ptr [ %call5, %if.end4 ], [ %path.3, %if.end27 ]
+  %tobool6.not = icmp eq ptr %path.1, null
   br i1 %tobool6.not, label %if.then32, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call7 = call i32 @_Py_wreadlink(ptr noundef nonnull %path.0, ptr noundef nonnull %resolved, i64 noundef 4097) #10
+  %call7 = call i32 @_Py_wreadlink(ptr noundef nonnull %path.1, ptr noundef nonnull %resolved, i64 noundef 4097) #10
   %cmp = icmp eq i32 %call7, -1
   br i1 %cmp, label %while.end.thread21, label %if.end10
 
 while.end.thread21:                               ; preds = %while.body
-  %call9 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %path.0, i64 noundef -1) #10
+  %call9 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %path.1, i64 noundef -1) #10
   br label %done
 
 if.end10:                                         ; preds = %while.body
@@ -1763,12 +1763,12 @@ if.end10:                                         ; preds = %while.body
   br i1 %tobool13.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %if.end10
-  call void @PyMem_RawFree(ptr noundef nonnull %path.0) #10
+  call void @PyMem_RawFree(ptr noundef nonnull %path.1) #10
   %call16 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %resolved) #10
   br label %if.end27
 
 if.else:                                          ; preds = %if.end10
-  %call17 = call ptr @wcsrchr(ptr noundef nonnull %path.0, i32 noundef 47) #11
+  %call17 = call ptr @wcsrchr(ptr noundef nonnull %path.1, i32 noundef 47) #11
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %if.end20, label %if.then19
 
@@ -1777,7 +1777,7 @@ if.then19:                                        ; preds = %if.else
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %if.else
-  %call22 = call ptr @_Py_join_relfile(ptr noundef nonnull %path.0, ptr noundef nonnull %resolved) #10
+  %call22 = call ptr @_Py_join_relfile(ptr noundef nonnull %path.1, ptr noundef nonnull %resolved) #10
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end26, label %if.then24
 
@@ -1787,11 +1787,11 @@ if.then24:                                        ; preds = %if.end20
 
 if.end26:                                         ; preds = %if.then24, %if.end20
   %path2.0 = phi ptr [ %call25, %if.then24 ], [ null, %if.end20 ]
-  call void @PyMem_RawFree(ptr noundef nonnull %path.0) #10
+  call void @PyMem_RawFree(ptr noundef nonnull %path.1) #10
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end26, %if.then14
-  %path.1 = phi ptr [ %call16, %if.then14 ], [ %path2.0, %if.end26 ]
+  %path.3 = phi ptr [ %call16, %if.then14 ], [ %path2.0, %if.end26 ]
   %inc = add nuw nsw i32 %nlink.0, 1
   %exitcond = icmp eq i32 %inc, 40
   br i1 %exitcond, label %while.end, label %while.cond, !llvm.loop !12
@@ -1799,7 +1799,7 @@ if.end27:                                         ; preds = %if.end26, %if.then1
 while.end:                                        ; preds = %if.end27
   %1 = load ptr, ptr @PyExc_OSError, align 8
   call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.55) #10
-  %tobool31.not = icmp eq ptr %path.1, null
+  %tobool31.not = icmp eq ptr %path.3, null
   br i1 %tobool31.not, label %if.then32, label %done
 
 if.then32:                                        ; preds = %while.cond, %while.end
@@ -1807,13 +1807,13 @@ if.then32:                                        ; preds = %while.cond, %while.
   br label %done
 
 done:                                             ; preds = %while.end.thread21, %while.end, %if.then32, %if.end
-  %path.3 = phi ptr [ %path.1, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %path.0, %while.end.thread21 ]
-  %r.1 = phi ptr [ null, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %call9, %while.end.thread21 ]
-  call void @PyMem_RawFree(ptr noundef %path.3) #10
+  %path.0 = phi ptr [ %path.3, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %path.1, %while.end.thread21 ]
+  %r.0 = phi ptr [ null, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %call9, %while.end.thread21 ]
+  call void @PyMem_RawFree(ptr noundef %path.0) #10
   br label %return
 
 return:                                           ; preds = %entry, %done
-  %retval.0 = phi ptr [ %r.1, %done ], [ null, %entry ]
+  %retval.0 = phi ptr [ %r.0, %done ], [ null, %entry ]
   ret ptr %retval.0
 }
 

@@ -1051,20 +1051,20 @@ _ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26: ; preds = %if.then23
 
 for.body30:                                       ; preds = %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26, %for.body30
   %__begin3.041 = phi ptr [ %incdec.ptr36, %for.body30 ], [ %17, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26 ]
-  %k1.040 = phi i32 [ %add, %for.body30 ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26 ]
+  %k1.140 = phi i32 [ %add, %for.body30 ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26 ]
   %second32 = getelementptr inbounds i8, ptr %__begin3.041, i64 4
   %20 = load i32, ptr %second32, align 4
   %xor.i27 = xor i32 %20, 1
   store i32 %xor.i27, ptr %second32, align 4
   %21 = load i32, ptr %__begin3.041, align 4
-  %add = add i32 %21, %k1.040
+  %add = add i32 %21, %k1.140
   %incdec.ptr36 = getelementptr inbounds i8, ptr %__begin3.041, i64 8
   %cmp29.not = icmp eq ptr %incdec.ptr36, %add.ptr.i25
   br i1 %cmp29.not, label %if.end, label %for.body30
 
 if.end:                                           ; preds = %for.body30, %if.then23, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26, %invoke.cont20
-  %k1.1 = phi i32 [ %conv.i, %invoke.cont20 ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26 ], [ %sub, %if.then23 ], [ %add, %for.body30 ]
-  invoke void @_ZN2pb6solver9add_pb_geEjbRK7svectorISt4pairIjN3sat7literalEEjEj(ptr noundef nonnull align 8 dereferenceable(1049) %this, i32 noundef 2147483647, i1 noundef zeroext %sign, ptr noundef nonnull align 8 dereferenceable(8) %wlits, i32 noundef %k1.1)
+  %k1.0 = phi i32 [ %conv.i, %invoke.cont20 ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit26 ], [ %sub, %if.then23 ], [ %add, %for.body30 ]
+  invoke void @_ZN2pb6solver9add_pb_geEjbRK7svectorISt4pairIjN3sat7literalEEjEj(ptr noundef nonnull align 8 dereferenceable(1049) %this, i32 noundef 2147483647, i1 noundef zeroext %sign, ptr noundef nonnull align 8 dereferenceable(8) %wlits, i32 noundef %k1.0)
           to label %invoke.cont39 unwind label %lpad4.loopexit.split-lp
 
 invoke.cont39:                                    ; preds = %if.end
@@ -1200,14 +1200,14 @@ _ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit: ; preds = %if.then12
   br i1 %cmp17.not18, label %if.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit, %for.body
-  %k1.020 = phi i32 [ %add, %for.body ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit ]
+  %k1.120 = phi i32 [ %add, %for.body ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit ]
   %__begin3.019 = phi ptr [ %incdec.ptr, %for.body ], [ %4, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit ]
   %second = getelementptr inbounds i8, ptr %__begin3.019, i64 4
   %7 = load i32, ptr %second, align 4
   %xor.i = xor i32 %7, 1
   store i32 %xor.i, ptr %second, align 4
   %8 = load i32, ptr %__begin3.019, align 4
-  %add = add i32 %8, %k1.020
+  %add = add i32 %8, %k1.120
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.019, i64 8
   %cmp17.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp17.not, label %if.end, label %for.body
@@ -1224,8 +1224,8 @@ lpad4:                                            ; preds = %invoke.cont25, %if.
   br label %ehcleanup
 
 if.end:                                           ; preds = %for.body, %if.then12, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit, %invoke.cont9
-  %k1.1 = phi i32 [ %conv.i, %invoke.cont9 ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit ], [ %sub, %if.then12 ], [ %add, %for.body ]
-  invoke void @_ZN2pb6solver9add_pb_geEjbRK7svectorISt4pairIjN3sat7literalEEjEj(ptr noundef nonnull align 8 dereferenceable(1049) %this, i32 noundef 2147483647, i1 noundef zeroext %sign, ptr noundef nonnull align 8 dereferenceable(8) %wlits, i32 noundef %k1.1)
+  %k1.0 = phi i32 [ %conv.i, %invoke.cont9 ], [ %sub, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE3endEv.exit ], [ %sub, %if.then12 ], [ %add, %for.body ]
+  invoke void @_ZN2pb6solver9add_pb_geEjbRK7svectorISt4pairIjN3sat7literalEEjEj(ptr noundef nonnull align 8 dereferenceable(1049) %this, i32 noundef 2147483647, i1 noundef zeroext %sign, ptr noundef nonnull align 8 dereferenceable(8) %wlits, i32 noundef %k1.0)
           to label %invoke.cont20 unwind label %lpad4
 
 invoke.cont20:                                    ; preds = %if.end

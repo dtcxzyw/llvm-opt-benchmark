@@ -174,7 +174,7 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 96:                                               ; preds = %._crit_edge641, %.lr.ph647
   %.0526645 = phi i32 [ 1, %.lr.ph647 ], [ %350, %._crit_edge641 ]
-  %.0528644 = phi i32 [ %80, %.lr.ph647 ], [ %.1529, %._crit_edge641 ]
+  %.0528644 = phi i32 [ %80, %.lr.ph647 ], [ %.2530, %._crit_edge641 ]
   %.0535643 = phi i32 [ 1, %.lr.ph647 ], [ %.0515.lcssa, %._crit_edge641 ]
   %reass.sub = sub i32 %.0528644, %.0535643
   %97 = add i32 %reass.sub, 1
@@ -578,23 +578,23 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %exitcond678.not, label %.loopexit585, label %.lr.ph603, !llvm.loop !14
 
 .loopexit585:                                     ; preds = %285, %217, %._crit_edge617.thread, %.preheader587, %.preheader584, %._crit_edge627
-  %.1529 = phi i32 [ %.0.lcssa, %._crit_edge627 ], [ %.0528644, %.preheader584 ], [ %.0528644, %.preheader587 ], [ %.0528644, %._crit_edge617.thread ], [ %.0528644, %217 ], [ %.3, %285 ]
-  %.not572631 = icmp sgt i32 %.0535643, %.1529
+  %.2530 = phi i32 [ %.0.lcssa, %._crit_edge627 ], [ %.0528644, %.preheader584 ], [ %.0528644, %.preheader587 ], [ %.0528644, %._crit_edge617.thread ], [ %.0528644, %217 ], [ %.3, %285 ]
+  %.not572631 = icmp sgt i32 %.0535643, %.2530
   br i1 %.not572631, label %.preheader582, label %.lr.ph636.preheader
 
 .lr.ph636.preheader:                              ; preds = %.loopexit585
   %286 = sext i32 %.0535643 to i64
-  %287 = add i32 %.1529, 1
+  %287 = add i32 %.2530, 1
   br label %.lr.ph636
 
 .preheader582:                                    ; preds = %344, %.loopexit585
   %.0515.lcssa = phi i32 [ %.0535643, %.loopexit585 ], [ %.1516, %344 ]
-  %.not573638 = icmp sgt i32 %.0515.lcssa, %.1529
+  %.not573638 = icmp sgt i32 %.0515.lcssa, %.2530
   br i1 %.not573638, label %._crit_edge648, label %.lr.ph640.preheader
 
 .lr.ph640.preheader:                              ; preds = %.preheader582
   %288 = sext i32 %.0515.lcssa to i64
-  %289 = add i32 %.1529, 1
+  %289 = add i32 %.2530, 1
   br label %.lr.ph640
 
 .lr.ph636:                                        ; preds = %.lr.ph636.preheader, %344
@@ -708,8 +708,8 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 ._crit_edge648:                                   ; preds = %.preheader582, %._crit_edge641, %.loopexit591
   %.1536 = phi i32 [ 1, %.loopexit591 ], [ %.0515.lcssa, %._crit_edge641 ], [ %.0515.lcssa, %.preheader582 ]
-  %.2530 = phi i32 [ %80, %.loopexit591 ], [ %.1529, %._crit_edge641 ], [ %.1529, %.preheader582 ]
-  %reass.sub666 = sub i32 %.2530, %.1536
+  %.1529 = phi i32 [ %80, %.loopexit591 ], [ %.2530, %._crit_edge641 ], [ %.2530, %.preheader582 ]
+  %reass.sub666 = sub i32 %.1529, %.1536
   %351 = icmp ult i32 %reass.sub666, 2147483647
   br i1 %351, label %352, label %354
 
@@ -719,7 +719,7 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %354
 
 354:                                              ; preds = %352, %._crit_edge648
-  store i32 %.2530, ptr %15, align 4
+  store i32 %.1529, ptr %15, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge627, %73, %35, %354, %270, %32

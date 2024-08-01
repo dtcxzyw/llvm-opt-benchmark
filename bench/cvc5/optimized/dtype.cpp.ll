@@ -4365,7 +4365,7 @@ if.end8.sink.split.i.i.i.i386:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup180
 
 cleanup180:                                       ; preds = %if.end.i.i.i.i314, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i309, %invoke.cont87, %if.end8.sink.split.i.i.i.i386, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i383, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i373, %cleanup180.critedge, %if.end.i.i.i.i290, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i285
-  %retval.5 = phi i1 [ false, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i285 ], [ false, %if.end.i.i.i.i290 ], [ false, %cleanup180.critedge ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i373 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i383 ], [ false, %if.end8.sink.split.i.i.i.i386 ], [ true, %invoke.cont87 ], [ true, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i309 ], [ true, %if.end.i.i.i.i314 ]
+  %retval.2 = phi i1 [ false, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i285 ], [ false, %if.end.i.i.i.i290 ], [ false, %cleanup180.critedge ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i373 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i383 ], [ false, %if.end8.sink.split.i.i.i.i386 ], [ true, %invoke.cont87 ], [ true, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i309 ], [ true, %if.end.i.i.i.i314 ]
   %146 = load ptr, ptr %self, align 8
   %bf.load.i.i396 = load i64, ptr %146, align 8
   %147 = and i64 %bf.load.i.i396, 1152920405095219200
@@ -4393,7 +4393,7 @@ terminate.lpad.i405:                              ; preds = %if.then13.i.i404
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit406:           ; preds = %cleanup180, %if.then.i.i398, %if.then13.i.i404
-  ret i1 %retval.5
+  ret i1 %retval.2
 
 ehcleanup181:                                     ; preds = %lpad56.loopexit, %lpad56.loopexit.split-lp, %lpad.i.i.i, %ehcleanup163, %ehcleanup
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %ehcleanup ], [ %.pn14, %ehcleanup163 ], [ %51, %lpad.i.i.i ], [ %lpad.loopexit427, %lpad56.loopexit ], [ %lpad.loopexit.split-lp, %lpad56.loopexit.split-lp ]
@@ -8147,8 +8147,8 @@ for.inc114:                                       ; preds = %if.else.i377, %_ZNS
   br i1 %exitcond.not, label %return, label %for.body90, !llvm.loop !52
 
 return:                                           ; preds = %for.inc114, %_ZN4cvc58internal8TypeNodeD2Ev.exit146, %_ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorIS2_SaIS2_EESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_.exit, %if.then13.i.i.i.i.i156, %if.then.i.i.i.i.i150, %for.end, %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_.exit190, %if.then19, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit
-  %retval.2 = phi i1 [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ false, %if.then19 ], [ false, %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_.exit190 ], [ %success.0.lcssa, %for.end ], [ %success.0.lcssa, %if.then.i.i.i.i.i150 ], [ %success.0.lcssa, %if.then13.i.i.i.i.i156 ], [ true, %_ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorIS2_SaIS2_EESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_.exit ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit146 ], [ true, %for.inc114 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8TypeNodeESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ false, %if.then19 ], [ false, %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_.exit190 ], [ %success.0.lcssa, %for.end ], [ %success.0.lcssa, %if.then.i.i.i.i.i150 ], [ %success.0.lcssa, %if.then13.i.i.i.i.i156 ], [ true, %_ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorIS2_SaIS2_EESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_.exit ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit146 ], [ true, %for.inc114 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9307,8 +9307,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %invoke.cont.i, %if.then
-  %retval.1 = phi i1 [ %cmp3, %if.then ], [ %call15, %invoke.cont.i ], [ %call15, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp3, %if.then ], [ %call15, %invoke.cont.i ], [ %call15, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9677,8 +9677,8 @@ terminate.lpad.i.i.i.i165:                        ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN4cvc58internal16DTypeConstructorEED2Ev.exit, %for.end, %if.then.i.i.i.i.i158, %if.then13.i.i.i.i.i164, %if.then
-  %retval.2 = phi i1 [ %tobool, %if.then ], [ false, %if.then13.i.i.i.i.i164 ], [ false, %if.then.i.i.i.i.i158 ], [ false, %for.end ], [ true, %_ZNSt10shared_ptrIN4cvc58internal16DTypeConstructorEED2Ev.exit ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %tobool, %if.then ], [ false, %if.then13.i.i.i.i.i164 ], [ false, %if.then.i.i.i.i.i158 ], [ false, %for.end ], [ true, %_ZNSt10shared_ptrIN4cvc58internal16DTypeConstructorEED2Ev.exit ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor18computeWellFoundedERSt6vectorINS0_8TypeNodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
@@ -12093,7 +12093,7 @@ cond.true225:                                     ; preds = %for.inc218.critedge
   br label %cleanup251
 
 cleanup251:                                       ; preds = %cleanup.done210.thread, %cond.true225, %cond.true98
-  %retval.2 = phi i1 [ true, %cond.true98 ], [ false, %cond.true225 ], [ true, %cleanup.done210.thread ]
+  %retval.1 = phi i1 [ true, %cond.true98 ], [ false, %cond.true225 ], [ true, %cleanup.done210.thread ]
   %43 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_bESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %processed, ptr noundef %43)
           to label %_ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -12166,8 +12166,8 @@ ehcleanup252:                                     ; preds = %lpad13.loopexit, %l
   resume { ptr, i32 } %.pn11
 
 return:                                           ; preds = %if.end.i.i.i.i618, %_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, %if.then
-  %retval.3 = phi i1 [ %cmp3, %if.then ], [ %retval.2, %_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i ], [ %retval.2, %if.end.i.i.i.i618 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ %cmp3, %if.then ], [ %retval.1, %_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i ], [ %retval.1, %if.end.i.i.i.i618 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN4cvc58internal11TypeMatcherC1ENS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #0

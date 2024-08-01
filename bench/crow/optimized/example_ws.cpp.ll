@@ -44345,7 +44345,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
   br label %1328
 
 .loopexit219:                                     ; preds = %.preheader218, %727
-  %.1 = phi i64 [ %728, %727 ], [ %756, %.preheader218 ]
+  %.2 = phi i64 [ %728, %727 ], [ %756, %.preheader218 ]
   %751 = add i64 %139, -1
   %752 = getelementptr inbounds i8, ptr %722, i64 %751
   %753 = load i8, ptr %752, align 1, !tbaa !14
@@ -44376,7 +44376,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
   br i1 %767, label %775, label %768
 
 768:                                              ; preds = %.loopexit217
-  %769 = trunc i64 %.1 to i32
+  %769 = trunc i64 %.2 to i32
   store i32 %769, ptr %765, align 4, !tbaa !926
   %770 = getelementptr inbounds i8, ptr %765, i64 4
   %771 = trunc i64 %.4 to i32
@@ -44422,7 +44422,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
 .noexc128:                                        ; preds = %790, %782
   %793 = phi ptr [ null, %782 ], [ %792, %790 ]
   %794 = getelementptr inbounds %"struct.crow::mustache::Action", ptr %793, i64 %783
-  %795 = trunc i64 %.1 to i32
+  %795 = trunc i64 %.2 to i32
   store i32 %795, ptr %794, align 4, !tbaa !926
   %796 = getelementptr inbounds i8, ptr %794, i64 4
   %797 = trunc i64 %.4 to i32
@@ -45483,7 +45483,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
   br label %1328
 
 .loopexit230:                                     ; preds = %.preheader229, %183
-  %.2 = phi i64 [ %136, %183 ], [ %1264, %.preheader229 ]
+  %.1 = phi i64 [ %136, %183 ], [ %1264, %.preheader229 ]
   %1259 = add i64 %139, -1
   %1260 = getelementptr inbounds i8, ptr %186, i64 %1259
   %1261 = load i8, ptr %1260, align 1, !tbaa !14
@@ -45514,7 +45514,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
   br i1 %1275, label %1283, label %1276
 
 1276:                                             ; preds = %.loopexit203
-  %1277 = trunc i64 %.2 to i32
+  %1277 = trunc i64 %.1 to i32
   store i32 %1277, ptr %1273, align 4, !tbaa !926
   %1278 = getelementptr inbounds i8, ptr %1273, i64 4
   %1279 = trunc i64 %.6 to i32
@@ -45560,7 +45560,7 @@ _ZNSt6vectorIN4crow8mustache6ActionESaIS2_EE17_M_realloc_insertIJNS1_10ActionTyp
 .noexc149:                                        ; preds = %1298, %1290
   %1301 = phi ptr [ null, %1290 ], [ %1300, %1298 ]
   %1302 = getelementptr inbounds %"struct.crow::mustache::Action", ptr %1301, i64 %1291
-  %1303 = trunc i64 %.2 to i32
+  %1303 = trunc i64 %.1 to i32
   store i32 %1303, ptr %1302, align 4, !tbaa !926
   %1304 = getelementptr inbounds i8, ptr %1302, i64 4
   %1305 = trunc i64 %.6 to i32

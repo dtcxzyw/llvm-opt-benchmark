@@ -415,12 +415,12 @@ land.rhs.lr.ph:                                   ; preds = %if.end, %if.end, %i
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end59
   %7 = phi i32 [ %4, %land.rhs.lr.ph ], [ %add, %if.end59 ]
-  %cur.0384 = phi ptr [ %cond, %land.rhs.lr.ph ], [ %incdec.ptr, %if.end59 ]
+  %cur.10384 = phi ptr [ %cond, %land.rhs.lr.ph ], [ %incdec.ptr, %if.end59 ]
   %cmp25.not = icmp eq i32 %7, 24
   br i1 %cmp25.not, label %dts_fh_0, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %8 = load i8, ptr %cur.0384, align 1
+  %8 = load i8, ptr %cur.10384, align 1
   %conv26 = zext i8 %8 to i32
   %idxprom = zext i32 %7 to i64
   %arrayidx = getelementptr inbounds [25 x i8], ptr @.str.4, i64 0, i64 %idxprom
@@ -531,7 +531,7 @@ lpad57:                                           ; preds = %invoke.cont51
   br label %ehcleanup331
 
 if.end59:                                         ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %cur.0384, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur.10384, i64 1
   %add = add nsw i32 %7, 1
   store i32 %add, ptr %deframe_state, align 8
   %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr
@@ -544,7 +544,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit142:        ; preds = %if.end59
   br label %cleanup
 
 dts_fh_0:                                         ; preds = %land.rhs, %if.end293, %if.then300, %if.end196
-  %cur.1 = phi ptr [ %incdec.ptr197, %if.end196 ], [ %add.ptr295, %if.then300 ], [ %add.ptr295, %if.end293 ], [ %scevgep, %land.rhs ]
+  %cur.11 = phi ptr [ %incdec.ptr197, %if.end196 ], [ %add.ptr295, %if.then300 ], [ %add.ptr295, %if.end293 ], [ %scevgep, %land.rhs ]
   %24 = load i64, ptr %requests_started, align 8
   %max_requests_per_read = getelementptr inbounds i8, ptr %t, i64 1936
   %25 = load i64, ptr %max_requests_per_read, align 8
@@ -553,7 +553,7 @@ dts_fh_0:                                         ; preds = %land.rhs, %if.end29
 
 if.then68:                                        ; preds = %dts_fh_0
   store i32 24, ptr %deframe_state, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %cur.1 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %cur.11 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cond to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %agg.result, align 8
@@ -562,13 +562,13 @@ if.then68:                                        ; preds = %dts_fh_0
   br label %cleanup
 
 sw.bb72:                                          ; preds = %dts_fh_0, %if.end
-  %cur.2 = phi ptr [ %cur.1, %dts_fh_0 ], [ %cond, %if.end ]
-  %26 = load i8, ptr %cur.2, align 1
+  %cur.0 = phi ptr [ %cur.11, %dts_fh_0 ], [ %cond, %if.end ]
+  %26 = load i8, ptr %cur.0, align 1
   %conv73 = zext i8 %26 to i32
   %shl = shl nuw nsw i32 %conv73, 16
   %incoming_frame_size = getelementptr inbounds i8, ptr %t, i64 2900
   store i32 %shl, ptr %incoming_frame_size, align 4
-  %incdec.ptr74 = getelementptr inbounds i8, ptr %cur.2, i64 1
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %cur.0, i64 1
   %cmp75 = icmp eq ptr %incdec.ptr74, %add.ptr
   br i1 %cmp75, label %_ZN4absl12lts_202308026StatusD2Ev.exit152, label %sw.bb81
 
@@ -581,14 +581,14 @@ _ZN4absl12lts_202308026StatusD2Ev.exit152:        ; preds = %sw.bb72
 
 sw.bb81:                                          ; preds = %if.end.sw.bb81_crit_edge, %sw.bb72
   %27 = phi i32 [ %shl, %sw.bb72 ], [ %.pre, %if.end.sw.bb81_crit_edge ]
-  %cur.3 = phi ptr [ %incdec.ptr74, %sw.bb72 ], [ %cond, %if.end.sw.bb81_crit_edge ]
-  %28 = load i8, ptr %cur.3, align 1
+  %cur.1 = phi ptr [ %incdec.ptr74, %sw.bb72 ], [ %cond, %if.end.sw.bb81_crit_edge ]
+  %28 = load i8, ptr %cur.1, align 1
   %conv82 = zext i8 %28 to i32
   %shl83 = shl nuw nsw i32 %conv82, 8
   %incoming_frame_size84 = getelementptr inbounds i8, ptr %t, i64 2900
   %or = or i32 %shl83, %27
   store i32 %or, ptr %incoming_frame_size84, align 4
-  %incdec.ptr85 = getelementptr inbounds i8, ptr %cur.3, i64 1
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %cur.1, i64 1
   %cmp86 = icmp eq ptr %incdec.ptr85, %add.ptr
   br i1 %cmp86, label %_ZN4absl12lts_202308026StatusD2Ev.exit160, label %sw.bb92
 
@@ -601,13 +601,13 @@ _ZN4absl12lts_202308026StatusD2Ev.exit160:        ; preds = %sw.bb81
 
 sw.bb92:                                          ; preds = %if.end.sw.bb92_crit_edge, %sw.bb81
   %29 = phi i32 [ %or, %sw.bb81 ], [ %.pre397, %if.end.sw.bb92_crit_edge ]
-  %cur.4 = phi ptr [ %incdec.ptr85, %sw.bb81 ], [ %cond, %if.end.sw.bb92_crit_edge ]
-  %30 = load i8, ptr %cur.4, align 1
+  %cur.2 = phi ptr [ %incdec.ptr85, %sw.bb81 ], [ %cond, %if.end.sw.bb92_crit_edge ]
+  %30 = load i8, ptr %cur.2, align 1
   %conv93 = zext i8 %30 to i32
   %incoming_frame_size94 = getelementptr inbounds i8, ptr %t, i64 2900
   %or95 = or i32 %29, %conv93
   store i32 %or95, ptr %incoming_frame_size94, align 4
-  %incdec.ptr96 = getelementptr inbounds i8, ptr %cur.4, i64 1
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %cur.2, i64 1
   %cmp97 = icmp eq ptr %incdec.ptr96, %add.ptr
   br i1 %cmp97, label %_ZN4absl12lts_202308026StatusD2Ev.exit168, label %sw.bb103
 
@@ -619,11 +619,11 @@ _ZN4absl12lts_202308026StatusD2Ev.exit168:        ; preds = %sw.bb92
   br label %cleanup
 
 sw.bb103:                                         ; preds = %sw.bb92, %if.end
-  %cur.5 = phi ptr [ %incdec.ptr96, %sw.bb92 ], [ %cond, %if.end ]
-  %31 = load i8, ptr %cur.5, align 1
+  %cur.3 = phi ptr [ %incdec.ptr96, %sw.bb92 ], [ %cond, %if.end ]
+  %31 = load i8, ptr %cur.3, align 1
   %incoming_frame_type = getelementptr inbounds i8, ptr %t, i64 2892
   store i8 %31, ptr %incoming_frame_type, align 4
-  %incdec.ptr104 = getelementptr inbounds i8, ptr %cur.5, i64 1
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %cur.3, i64 1
   %cmp105 = icmp eq ptr %incdec.ptr104, %add.ptr
   br i1 %cmp105, label %_ZN4absl12lts_202308026StatusD2Ev.exit176, label %sw.bb111
 
@@ -635,11 +635,11 @@ _ZN4absl12lts_202308026StatusD2Ev.exit176:        ; preds = %sw.bb103
   br label %cleanup
 
 sw.bb111:                                         ; preds = %sw.bb103, %if.end
-  %cur.6 = phi ptr [ %incdec.ptr104, %sw.bb103 ], [ %cond, %if.end ]
-  %32 = load i8, ptr %cur.6, align 1
+  %cur.4 = phi ptr [ %incdec.ptr104, %sw.bb103 ], [ %cond, %if.end ]
+  %32 = load i8, ptr %cur.4, align 1
   %incoming_frame_flags = getelementptr inbounds i8, ptr %t, i64 2893
   store i8 %32, ptr %incoming_frame_flags, align 1
-  %incdec.ptr112 = getelementptr inbounds i8, ptr %cur.6, i64 1
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %cur.4, i64 1
   %cmp113 = icmp eq ptr %incdec.ptr112, %add.ptr
   br i1 %cmp113, label %_ZN4absl12lts_202308026StatusD2Ev.exit184, label %sw.bb119
 
@@ -651,14 +651,14 @@ _ZN4absl12lts_202308026StatusD2Ev.exit184:        ; preds = %sw.bb111
   br label %cleanup
 
 sw.bb119:                                         ; preds = %sw.bb111, %if.end
-  %cur.7 = phi ptr [ %incdec.ptr112, %sw.bb111 ], [ %cond, %if.end ]
-  %33 = load i8, ptr %cur.7, align 1
+  %cur.5 = phi ptr [ %incdec.ptr112, %sw.bb111 ], [ %cond, %if.end ]
+  %33 = load i8, ptr %cur.5, align 1
   %34 = and i8 %33, 127
   %and = zext nneg i8 %34 to i32
   %shl121 = shl nuw nsw i32 %and, 24
   %incoming_stream_id = getelementptr inbounds i8, ptr %t, i64 3296
   store i32 %shl121, ptr %incoming_stream_id, align 8
-  %incdec.ptr122 = getelementptr inbounds i8, ptr %cur.7, i64 1
+  %incdec.ptr122 = getelementptr inbounds i8, ptr %cur.5, i64 1
   %cmp123 = icmp eq ptr %incdec.ptr122, %add.ptr
   br i1 %cmp123, label %_ZN4absl12lts_202308026StatusD2Ev.exit192, label %sw.bb129
 
@@ -671,14 +671,14 @@ _ZN4absl12lts_202308026StatusD2Ev.exit192:        ; preds = %sw.bb119
 
 sw.bb129:                                         ; preds = %if.end.sw.bb129_crit_edge, %sw.bb119
   %35 = phi i32 [ %shl121, %sw.bb119 ], [ %.pre398, %if.end.sw.bb129_crit_edge ]
-  %cur.8 = phi ptr [ %incdec.ptr122, %sw.bb119 ], [ %cond, %if.end.sw.bb129_crit_edge ]
-  %36 = load i8, ptr %cur.8, align 1
+  %cur.6 = phi ptr [ %incdec.ptr122, %sw.bb119 ], [ %cond, %if.end.sw.bb129_crit_edge ]
+  %36 = load i8, ptr %cur.6, align 1
   %conv130 = zext i8 %36 to i32
   %shl131 = shl nuw nsw i32 %conv130, 16
   %incoming_stream_id132 = getelementptr inbounds i8, ptr %t, i64 3296
   %or133 = or i32 %shl131, %35
   store i32 %or133, ptr %incoming_stream_id132, align 8
-  %incdec.ptr134 = getelementptr inbounds i8, ptr %cur.8, i64 1
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %cur.6, i64 1
   %cmp135 = icmp eq ptr %incdec.ptr134, %add.ptr
   br i1 %cmp135, label %_ZN4absl12lts_202308026StatusD2Ev.exit200, label %sw.bb141
 
@@ -691,14 +691,14 @@ _ZN4absl12lts_202308026StatusD2Ev.exit200:        ; preds = %sw.bb129
 
 sw.bb141:                                         ; preds = %if.end.sw.bb141_crit_edge, %sw.bb129
   %37 = phi i32 [ %or133, %sw.bb129 ], [ %.pre399, %if.end.sw.bb141_crit_edge ]
-  %cur.9 = phi ptr [ %incdec.ptr134, %sw.bb129 ], [ %cond, %if.end.sw.bb141_crit_edge ]
-  %38 = load i8, ptr %cur.9, align 1
+  %cur.7 = phi ptr [ %incdec.ptr134, %sw.bb129 ], [ %cond, %if.end.sw.bb141_crit_edge ]
+  %38 = load i8, ptr %cur.7, align 1
   %conv142 = zext i8 %38 to i32
   %shl143 = shl nuw nsw i32 %conv142, 8
   %incoming_stream_id144 = getelementptr inbounds i8, ptr %t, i64 3296
   %or145 = or i32 %shl143, %37
   store i32 %or145, ptr %incoming_stream_id144, align 8
-  %incdec.ptr146 = getelementptr inbounds i8, ptr %cur.9, i64 1
+  %incdec.ptr146 = getelementptr inbounds i8, ptr %cur.7, i64 1
   %cmp147 = icmp eq ptr %incdec.ptr146, %add.ptr
   br i1 %cmp147, label %_ZN4absl12lts_202308026StatusD2Ev.exit208, label %sw.bb153
 
@@ -711,8 +711,8 @@ _ZN4absl12lts_202308026StatusD2Ev.exit208:        ; preds = %sw.bb141
 
 sw.bb153:                                         ; preds = %if.end.sw.bb153_crit_edge, %sw.bb141
   %39 = phi i32 [ %or145, %sw.bb141 ], [ %.pre400, %if.end.sw.bb153_crit_edge ]
-  %cur.10 = phi ptr [ %incdec.ptr146, %sw.bb141 ], [ %cond, %if.end.sw.bb153_crit_edge ]
-  %40 = load i8, ptr %cur.10, align 1
+  %cur.8 = phi ptr [ %incdec.ptr146, %sw.bb141 ], [ %cond, %if.end.sw.bb153_crit_edge ]
+  %40 = load i8, ptr %cur.8, align 1
   %conv154 = zext i8 %40 to i32
   %incoming_stream_id155 = getelementptr inbounds i8, ptr %t, i64 3296
   %or156 = or i32 %39, %conv154
@@ -2474,7 +2474,7 @@ if.then195:                                       ; preds = %invoke.cont188
 if.end196:                                        ; preds = %invoke.cont188
   %incoming_stream = getelementptr inbounds i8, ptr %t, i64 2920
   store ptr null, ptr %incoming_stream, align 8
-  %incdec.ptr197 = getelementptr inbounds i8, ptr %cur.10, i64 1
+  %incdec.ptr197 = getelementptr inbounds i8, ptr %cur.8, i64 1
   %cmp198 = icmp eq ptr %incdec.ptr197, %add.ptr
   br i1 %cmp198, label %invoke.cont202, label %dts_fh_0
 
@@ -2537,7 +2537,7 @@ lpad224:                                          ; preds = %invoke.cont218
   br label %ehcleanup331
 
 if.end229:                                        ; preds = %if.else
-  %incdec.ptr230 = getelementptr inbounds i8, ptr %cur.10, i64 1
+  %incdec.ptr230 = getelementptr inbounds i8, ptr %cur.8, i64 1
   %cmp231 = icmp eq ptr %incdec.ptr230, %add.ptr
   br i1 %cmp231, label %invoke.cont234, label %sw.bb236
 
@@ -2551,9 +2551,9 @@ invoke.cont234:                                   ; preds = %if.end229
 
 sw.bb236:                                         ; preds = %if.end.sw.bb236_crit_edge, %if.end229
   %258 = phi i32 [ %.pre403, %if.end.sw.bb236_crit_edge ], [ %249, %if.end229 ]
-  %cur.11 = phi ptr [ %cond, %if.end.sw.bb236_crit_edge ], [ %incdec.ptr230, %if.end229 ]
+  %cur.9 = phi ptr [ %cond, %if.end.sw.bb236_crit_edge ], [ %incdec.ptr230, %if.end229 ]
   %sub.ptr.lhs.cast237 = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast238 = ptrtoint ptr %cur.11 to i64
+  %sub.ptr.rhs.cast238 = ptrtoint ptr %cur.9 to i64
   %sub.ptr.sub239 = sub i64 %sub.ptr.lhs.cast237, %sub.ptr.rhs.cast238
   %conv240 = trunc i64 %sub.ptr.sub239 to i32
   %incoming_frame_size241 = getelementptr inbounds i8, ptr %t, i64 2900
@@ -2626,7 +2626,7 @@ if.then292:                                       ; preds = %invoke.cont285
 if.end293:                                        ; preds = %invoke.cont285
   %261 = load i32, ptr %incoming_frame_size241, align 4
   %idx.ext = zext i32 %261 to i64
-  %add.ptr295 = getelementptr inbounds i8, ptr %cur.11, i64 %idx.ext
+  %add.ptr295 = getelementptr inbounds i8, ptr %cur.9, i64 %idx.ext
   %incoming_stream296 = getelementptr inbounds i8, ptr %t, i64 2920
   store ptr null, ptr %incoming_stream296, align 8
   %incoming_frame_type297 = getelementptr inbounds i8, ptr %t, i64 2892

@@ -204,16 +204,16 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   br label %57
 
 57:                                               ; preds = %52, %39
-  %.0115 = phi i32 [ 8, %52 ], [ 2, %39 ]
+  %.1 = phi i32 [ 8, %52 ], [ 2, %39 ]
   %58 = load i32, ptr @hf_ipmi_session_id, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %58, ptr noundef %0, i32 noundef %.0115, i32 noundef 4, i32 noundef -2147483648) #2
-  %60 = or disjoint i32 %.0115, 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %58, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef -2147483648) #2
+  %60 = or disjoint i32 %.1, 4
   %61 = load i32, ptr @hf_ipmi_session_sequence, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef -2147483648) #2
-  %63 = add nuw nsw i32 %.0115, 8
+  %63 = add nuw nsw i32 %.1, 8
   %64 = load i32, ptr @hf_ipmi_session_msg_len_2b, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648) #2
-  %66 = add nuw nsw i32 %.0115, 10
+  %66 = add nuw nsw i32 %.1, 10
   br label %79
 
 67:                                               ; preds = %31
@@ -230,15 +230,15 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   br label %75
 
 75:                                               ; preds = %72, %67
-  %.1 = phi i32 [ 25, %72 ], [ 9, %67 ]
+  %.2 = phi i32 [ 25, %72 ], [ 9, %67 ]
   %76 = load i32, ptr @hf_ipmi_session_msg_len_1b, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %76, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef -2147483648) #2
-  %78 = add nuw nsw i32 %.1, 1
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %76, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef -2147483648) #2
+  %78 = add nuw nsw i32 %.2, 1
   br label %79
 
 79:                                               ; preds = %57, %75, %30
   %.0119 = phi ptr [ %36, %57 ], [ %36, %75 ], [ null, %30 ]
-  %.2 = phi i32 [ %66, %57 ], [ %78, %75 ], [ 0, %30 ]
+  %.0115 = phi i32 [ %66, %57 ], [ %78, %75 ], [ 0, %30 ]
   %80 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0117139160, i32 noundef %.0116141158, i32 noundef -1) #2
   br i1 %.0145154, label %83, label %81
 
@@ -265,7 +265,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %99, label %92
 
 92:                                               ; preds = %91
-  %93 = add nuw nsw i32 %.2, %.0116141158
+  %93 = add nuw nsw i32 %.0115, %.0116141158
   %94 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %95 = icmp ult i32 %93, %94
   br i1 %95, label %96, label %99

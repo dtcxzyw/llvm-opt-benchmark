@@ -97,12 +97,12 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %9
-  %.019 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %8 = icmp ugt ptr %.019, %0
+  %.1 = phi ptr [ %10, %9 ], [ %1, %3 ]
+  %8 = icmp ugt ptr %.1, %0
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.019, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.1, i64 -1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -161
@@ -110,11 +110,11 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %9, %.preheader, %3
-  %.1 = phi ptr [ %1, %3 ], [ %.019, %.preheader ], [ %.019, %9 ]
+  %.019 = phi ptr [ %1, %3 ], [ %.1, %.preheader ], [ %.1, %9 ]
   %15 = load ptr, ptr @OnigEncodingBIG5, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %.1) #5
+  %16 = tail call i32 %15(ptr noundef nonnull %.019) #5
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %.1, i64 %17
+  %18 = getelementptr inbounds i8, ptr %.019, i64 %17
   %19 = icmp ugt ptr %18, %1
   br i1 %19, label %26, label %20
 
@@ -127,7 +127,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br label %26
 
 26:                                               ; preds = %.loopexit, %2, %20
-  %.0 = phi ptr [ %25, %20 ], [ %1, %2 ], [ %.1, %.loopexit ]
+  %.0 = phi ptr [ %25, %20 ], [ %1, %2 ], [ %.019, %.loopexit ]
   ret ptr %.0
 }
 

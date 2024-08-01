@@ -240,7 +240,7 @@ for.body105.i:                                    ; preds = %for.cond102.prehead
   %level.097.i = phi ptr [ %incdec.ptr.i, %for.inc171.i ], [ %call83.i, %for.cond102.preheader.i ]
   %i.296.i = phi i32 [ %dec172.i, %for.inc171.i ], [ %sub16.i, %for.cond102.preheader.i ]
   %map_skip.095.i = phi i32 [ %map_skip.2.i, %for.inc171.i ], [ %cond15.i, %for.cond102.preheader.i ]
-  %any_skip.094.i = phi i32 [ %any_skip.2.i, %for.inc171.i ], [ %cond8.i, %for.cond102.preheader.i ]
+  %any_skip.094.i = phi i32 [ %any_skip.1.i, %for.inc171.i ], [ %cond8.i, %for.cond102.preheader.i ]
   %call108.i = tail call ptr @OPENSSL_sk_value(ptr noundef %certs, i32 noundef %i.296.i) #2
   %call110.i = tail call i32 @X509_get_extension_flags(ptr noundef %call108.i) #2
   %call111.i = tail call ptr @ossl_policy_cache_set(ptr noundef %call108.i) #2
@@ -292,7 +292,7 @@ if.else.i:                                        ; preds = %if.end117.i
   br label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.else.i, %if.then125.i, %if.then120.i
-  %any_skip.2.i = phi i32 [ 0, %if.then125.i ], [ 0, %if.then120.i ], [ %spec.select77.i, %if.else.i ]
+  %any_skip.1.i = phi i32 [ 0, %if.then125.i ], [ 0, %if.then120.i ], [ %spec.select77.i, %if.else.i ]
   %cmp147.i = icmp eq i32 %map_skip.095.i, 0
   br i1 %cmp147.i, label %if.then149.i, label %if.else152.i
 

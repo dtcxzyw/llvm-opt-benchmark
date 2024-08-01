@@ -270,7 +270,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %89
 
 .loopexit21:                                      ; preds = %80, %71, %44
-  %.0 = phi i32 [ -1, %44 ], [ 0, %71 ], [ 0, %80 ]
+  %.1 = phi i32 [ -1, %44 ], [ 0, %71 ], [ 0, %80 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   br label %91
@@ -286,10 +286,10 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %92
 
 91:                                               ; preds = %.invoke, %.loopexit21
-  %.1 = phi i32 [ %.0, %.loopexit21 ], [ -1, %.invoke ]
+  %.0 = phi i32 [ %.1, %.loopexit21 ], [ -1, %.invoke ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #5
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #5
-  ret i32 %.1
+  ret i32 %.0
 
 92:                                               ; preds = %90, %18
   %.pn18 = phi { ptr, i32 } [ %19, %18 ], [ %.pn15.pn, %90 ]

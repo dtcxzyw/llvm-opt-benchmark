@@ -344,7 +344,7 @@ default.unreachable:                              ; preds = %26
   br label %103
 
 103:                                              ; preds = %94, %99, %101, %96, %95
-  %.277 = phi i32 [ 0, %94 ], [ %100, %99 ], [ %102, %101 ], [ 0, %96 ], [ 0, %95 ]
+  %.3 = phi i32 [ 0, %94 ], [ %100, %99 ], [ %102, %101 ], [ 0, %96 ], [ 0, %95 ]
   %104 = getelementptr inbounds i8, ptr %8, i64 16
   %105 = load ptr, ptr %104, align 16
   %.not93 = icmp eq ptr %105, null
@@ -355,7 +355,7 @@ default.unreachable:                              ; preds = %26
   br label %107
 
 107:                                              ; preds = %103, %106, %.thread
-  %.3 = phi i32 [ %.277, %106 ], [ %.277, %103 ], [ 0, %.thread ]
+  %.277 = phi i32 [ %.3, %106 ], [ %.3, %103 ], [ 0, %.thread ]
   %108 = getelementptr inbounds i8, ptr %6, i64 16
   %109 = load ptr, ptr %108, align 16
   %.not94 = icmp eq ptr %109, null
@@ -363,12 +363,12 @@ default.unreachable:                              ; preds = %26
 
 .sink.split:                                      ; preds = %107, %91, %81
   %.sink = phi ptr [ %83, %81 ], [ %93, %91 ], [ %109, %107 ]
-  %.0.ph = phi i32 [ %80, %81 ], [ %90, %91 ], [ %.3, %107 ]
+  %.0.ph = phi i32 [ %80, %81 ], [ %90, %91 ], [ %.277, %107 ]
   call void @mlib_free(ptr noundef nonnull %.sink) #2
   br label %110
 
 110:                                              ; preds = %.sink.split, %107, %91, %81, %19, %switch.lookup, %10, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ %18, %switch.lookup ], [ 1, %19 ], [ %80, %81 ], [ %90, %91 ], [ %.3, %107 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ %18, %switch.lookup ], [ 1, %19 ], [ %80, %81 ], [ %90, %91 ], [ %.277, %107 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

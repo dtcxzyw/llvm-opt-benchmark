@@ -700,21 +700,21 @@ define dso_local void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr
 
 .lr.ph.i.i:                                       ; preds = %54, %.lr.ph.i.i
   %59 = phi ptr [ %63, %.lr.ph.i.i ], [ %58, %54 ]
-  %.sroa.02.011.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %55, %54 ]
+  %.sroa.02.111.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %55, %54 ]
   %.sroa.06.010.i.i = phi ptr [ %59, %.lr.ph.i.i ], [ %55, %54 ]
   %60 = getelementptr i8, ptr %.sroa.06.010.i.i, i64 288
   %.val.i.i.i = load i64, ptr %60, align 8
-  %61 = getelementptr i8, ptr %.sroa.02.011.i.i, i64 112
+  %61 = getelementptr i8, ptr %.sroa.02.111.i.i, i64 112
   %.val1.i.i.i = load i64, ptr %61, align 8
   %62 = icmp slt i64 %.val.i.i.i, %.val1.i.i.i
-  %spec.select.i.i = select i1 %62, ptr %59, ptr %.sroa.02.011.i.i
+  %spec.select.i.i = select i1 %62, ptr %59, ptr %.sroa.02.111.i.i
   %63 = getelementptr inbounds i8, ptr %59, i64 176
   %.not.i.i = icmp eq ptr %63, %56
   br i1 %.not.i.i, label %"_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg9XunitTestESt6vectorIS3_SaIS3_EEEEZNKS2_11XunitWriter9build_xmlB5cxx11ENS2_7TripletEE3$_0ET_SD_SD_T0_.exit", label %.lr.ph.i.i, !llvm.loop !16
 
 "_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg9XunitTestESt6vectorIS3_SaIS3_EEEEZNKS2_11XunitWriter9build_xmlB5cxx11ENS2_7TripletEE3$_0ET_SD_SD_T0_.exit": ; preds = %.lr.ph.i.i, %54
-  %.sroa.02.2.i.i = phi ptr [ %55, %54 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.02.2.i.i, i64 112
+  %.sroa.02.0.i.i = phi ptr [ %55, %54 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i, i64 112
   %65 = load i64, ptr %64, align 8
   %66 = sdiv i64 %65, 1000000000
   store i64 %66, ptr %23, align 8

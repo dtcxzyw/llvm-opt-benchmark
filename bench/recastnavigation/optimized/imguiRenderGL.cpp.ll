@@ -1942,8 +1942,8 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   br label %363
 
 363:                                              ; preds = %361, %515
-  %.0271404 = phi ptr [ null, %361 ], [ %.1, %515 ]
-  %.5403 = phi i32 [ 0, %361 ], [ %.6, %515 ]
+  %.1404 = phi ptr [ null, %361 ], [ %.2, %515 ]
+  %.6403 = phi i32 [ 0, %361 ], [ %.7, %515 ]
   %.0288402 = phi ptr [ %362, %361 ], [ %.2290, %515 ]
   store ptr null, ptr %4, align 8
   %364 = getelementptr i8, ptr %.0288402, i64 1
@@ -2140,7 +2140,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   br i1 %exitcond.not, label %498, label %476, !llvm.loop !14
 
 498:                                              ; preds = %476
-  %499 = add nuw nsw i32 %471, %.5403
+  %499 = add nuw nsw i32 %471, %.6403
   %500 = zext nneg i32 %499 to i64
   %501 = mul nuw nsw i64 %500, 10
   %502 = tail call noalias noundef ptr @malloc(i64 noundef %501) #27
@@ -2148,11 +2148,11 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   br i1 %.not337, label %503, label %506
 
 503:                                              ; preds = %498
-  %.not338 = icmp eq ptr %.0271404, null
+  %.not338 = icmp eq ptr %.1404, null
   br i1 %.not338, label %505, label %504
 
 504:                                              ; preds = %503
-  tail call void @free(ptr noundef nonnull %.0271404) #28
+  tail call void @free(ptr noundef nonnull %.1404) #28
   br label %505
 
 505:                                              ; preds = %503, %504
@@ -2160,24 +2160,24 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   br label %517
 
 506:                                              ; preds = %498
-  %507 = icmp sgt i32 %.5403, 0
-  %508 = zext nneg i32 %.5403 to i64
+  %507 = icmp sgt i32 %.6403, 0
+  %508 = zext nneg i32 %.6403 to i64
   br i1 %507, label %509, label %._crit_edge
 
 509:                                              ; preds = %506
   %510 = mul nuw nsw i64 %508, 10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %502, ptr align 2 %.0271404, i64 %510, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %502, ptr align 2 %.1404, i64 %510, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %506, %509
   %511 = getelementptr inbounds %struct.stbtt_vertex, ptr %502, i64 %508
   %512 = mul nuw nsw i64 %wide.trip.count, 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %511, ptr nonnull align 2 %473, i64 %512, i1 false)
-  %.not340 = icmp eq ptr %.0271404, null
+  %.not340 = icmp eq ptr %.1404, null
   br i1 %.not340, label %514, label %513
 
 513:                                              ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %.0271404) #28
+  tail call void @free(ptr noundef nonnull %.1404) #28
   br label %514
 
 514:                                              ; preds = %513, %._crit_edge
@@ -2185,20 +2185,20 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   br label %515
 
 515:                                              ; preds = %514, %464
-  %.6 = phi i32 [ %499, %514 ], [ %.5403, %464 ]
-  %.1 = phi ptr [ %502, %514 ], [ %.0271404, %464 ]
+  %.7 = phi i32 [ %499, %514 ], [ %.6403, %464 ]
+  %.2 = phi ptr [ %502, %514 ], [ %.1404, %464 ]
   %516 = and i32 %365, 32
   %.not = icmp eq i32 %516, 0
   br i1 %.not, label %.loopexit, label %363, !llvm.loop !15
 
 .loopexit:                                        ; preds = %515, %359, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393
-  %.7 = phi i32 [ %.1.i392, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393 ], [ 0, %359 ], [ %.6, %515 ]
-  %.2 = phi ptr [ %105, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393 ], [ null, %359 ], [ %.1, %515 ]
-  store ptr %.2, ptr %2, align 8
+  %.5 = phi i32 [ %.1.i392, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393 ], [ 0, %359 ], [ %.7, %515 ]
+  %.0271 = phi ptr [ %105, %_ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393 ], [ null, %359 ], [ %.2, %515 ]
+  store ptr %.0271, ptr %2, align 8
   br label %517
 
 517:                                              ; preds = %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread, %505, %89, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit, %.loopexit
-  %.0 = phi i32 [ %.7, %.loopexit ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit ], [ 0, %89 ], [ 0, %505 ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread ]
+  %.0 = phi i32 [ %.5, %.loopexit ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit ], [ 0, %89 ], [ 0, %505 ], [ 0, %_ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit.thread ]
   ret i32 %.0
 }
 
@@ -7383,7 +7383,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
 
 .lr.ph126.i:                                      ; preds = %.preheader107.i, %.lr.ph126.i
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %.lr.ph126.i ], [ 0, %.preheader107.i ]
-  %.1125.i = phi i32 [ %407, %.lr.ph126.i ], [ 0, %.preheader107.i ]
+  %.2125.i = phi i32 [ %407, %.lr.ph126.i ], [ 0, %.preheader107.i ]
   %399 = getelementptr inbounds i8, ptr %.096144.i, i64 %indvars.iv169.i
   %400 = load i8, ptr %399, align 1
   %401 = zext i8 %400 to i32
@@ -7392,7 +7392,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %404 = load i8, ptr %403, align 1
   %405 = zext i8 %404 to i32
   %406 = sub nsw i32 %401, %405
-  %407 = add i32 %406, %.1125.i
+  %407 = add i32 %406, %.2125.i
   %408 = add nuw i64 %indvars.iv169.i, 3
   %409 = and i64 %408, 7
   %410 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %409
@@ -7406,7 +7406,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
 
 .lr.ph120.i:                                      ; preds = %.preheader109.i, %.lr.ph120.i
   %indvars.iv164.i = phi i64 [ %indvars.iv.next165.i, %.lr.ph120.i ], [ 0, %.preheader109.i ]
-  %.2119.i = phi i32 [ %421, %.lr.ph120.i ], [ 0, %.preheader109.i ]
+  %.3119.i = phi i32 [ %421, %.lr.ph120.i ], [ 0, %.preheader109.i ]
   %413 = getelementptr inbounds i8, ptr %.096144.i, i64 %indvars.iv164.i
   %414 = load i8, ptr %413, align 1
   %415 = zext i8 %414 to i32
@@ -7415,7 +7415,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %418 = load i8, ptr %417, align 1
   %419 = zext i8 %418 to i32
   %420 = sub nsw i32 %415, %419
-  %421 = add i32 %420, %.2119.i
+  %421 = add i32 %420, %.3119.i
   %422 = xor i64 %416, 4
   %423 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %422
   store i8 %414, ptr %423, align 1
@@ -7428,7 +7428,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
 
 .lr.ph.i:                                         ; preds = %.preheader111.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader111.i ]
-  %.3115.i = phi i32 [ %434, %.lr.ph.i ], [ 0, %.preheader111.i ]
+  %.4115.i = phi i32 [ %434, %.lr.ph.i ], [ 0, %.preheader111.i ]
   %426 = getelementptr inbounds i8, ptr %.096144.i, i64 %indvars.iv.i
   %427 = load i8, ptr %426, align 1
   %428 = zext i8 %427 to i32
@@ -7437,7 +7437,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %431 = load i8, ptr %430, align 1
   %432 = zext i8 %431 to i32
   %433 = sub nsw i32 %428, %432
-  %434 = add i32 %433, %.3115.i
+  %434 = add i32 %433, %.4115.i
   %435 = add nuw i64 %indvars.iv.i, 5
   %436 = and i64 %435, 7
   %437 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %436
@@ -7451,7 +7451,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
 
 .lr.ph138.i:                                      ; preds = %.preheader.i, %.lr.ph138.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.lr.ph138.i ], [ 0, %.preheader.i ]
-  %.4137.i = phi i32 [ %449, %.lr.ph138.i ], [ 0, %.preheader.i ]
+  %.5137.i = phi i32 [ %449, %.lr.ph138.i ], [ 0, %.preheader.i ]
   %440 = getelementptr inbounds i8, ptr %.096144.i, i64 %indvars.iv179.i
   %441 = load i8, ptr %440, align 1
   %442 = zext i8 %441 to i32
@@ -7461,7 +7461,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %446 = load i8, ptr %445, align 1
   %447 = zext i8 %446 to i32
   %448 = sub nsw i32 %442, %447
-  %449 = add i32 %448, %.4137.i
+  %449 = add i32 %448, %.5137.i
   %450 = add i32 %366, %443
   %451 = and i32 %450, 7
   %452 = zext nneg i32 %451 to i64
@@ -7475,18 +7475,18 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   br i1 %exitcond183.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph120.i, %.lr.ph126.i, %.lr.ph132.i, %.lr.ph138.i, %.preheader.i, %.preheader105.i, %.preheader107.i, %.preheader109.i, %.preheader111.i
-  %.593.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %383, %.lr.ph138.i ], [ %383, %.lr.ph132.i ], [ %383, %.lr.ph126.i ], [ %383, %.lr.ph120.i ], [ %383, %.lr.ph.i ]
-  %.5.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %449, %.lr.ph138.i ], [ %393, %.lr.ph132.i ], [ %407, %.lr.ph126.i ], [ %421, %.lr.ph120.i ], [ %434, %.lr.ph.i ]
-  %456 = icmp slt i32 %.593.i, %372
+  %.189.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %383, %.lr.ph138.i ], [ %383, %.lr.ph132.i ], [ %383, %.lr.ph126.i ], [ %383, %.lr.ph120.i ], [ %383, %.lr.ph.i ]
+  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader105.i ], [ 0, %.preheader107.i ], [ 0, %.preheader109.i ], [ 0, %.preheader111.i ], [ %449, %.lr.ph138.i ], [ %393, %.lr.ph132.i ], [ %407, %.lr.ph126.i ], [ %421, %.lr.ph120.i ], [ %434, %.lr.ph.i ]
+  %456 = icmp slt i32 %.189.i, %372
   br i1 %456, label %.lr.ph143.preheader.i, label %._crit_edge.i
 
 .lr.ph143.preheader.i:                            ; preds = %.loopexit.i
-  %457 = zext i32 %.593.i to i64
+  %457 = zext i32 %.189.i to i64
   br label %.lr.ph143.i
 
 .lr.ph143.i:                                      ; preds = %.lr.ph143.i, %.lr.ph143.preheader.i
   %indvars.iv184.i = phi i64 [ %457, %.lr.ph143.preheader.i ], [ %indvars.iv.next185.i, %.lr.ph143.i ]
-  %.6142.i = phi i32 [ %.5.i, %.lr.ph143.preheader.i ], [ %462, %.lr.ph143.i ]
+  %.6142.i = phi i32 [ %.1.i, %.lr.ph143.preheader.i ], [ %462, %.lr.ph143.i ]
   %458 = and i64 %indvars.iv184.i, 7
   %459 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %458
   %460 = load i8, ptr %459, align 1
@@ -7600,7 +7600,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
 
 .lr.ph141.i:                                      ; preds = %.preheader122.i, %.lr.ph141.i
   %indvars.iv184.i151 = phi i64 [ %indvars.iv.next185.i152, %.lr.ph141.i ], [ 0, %.preheader122.i ]
-  %.1140.i = phi i32 [ %514, %.lr.ph141.i ], [ 0, %.preheader122.i ]
+  %.2140.i = phi i32 [ %514, %.lr.ph141.i ], [ 0, %.preheader122.i ]
   %505 = mul nsw i64 %indvars.iv184.i151, %487
   %506 = getelementptr inbounds i8, ptr %.0111159.i, i64 %505
   %507 = load i8, ptr %506, align 1
@@ -7610,7 +7610,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %511 = load i8, ptr %510, align 1
   %512 = zext i8 %511 to i32
   %513 = sub nsw i32 %508, %512
-  %514 = add i32 %513, %.1140.i
+  %514 = add i32 %513, %.2140.i
   %515 = add nuw i64 %indvars.iv184.i151, 3
   %516 = and i64 %515, 7
   %517 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %516
@@ -7624,7 +7624,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
 
 .lr.ph135.i:                                      ; preds = %.preheader124.i, %.lr.ph135.i
   %indvars.iv179.i148 = phi i64 [ %indvars.iv.next180.i149, %.lr.ph135.i ], [ 0, %.preheader124.i ]
-  %.2134.i = phi i32 [ %529, %.lr.ph135.i ], [ 0, %.preheader124.i ]
+  %.3134.i = phi i32 [ %529, %.lr.ph135.i ], [ 0, %.preheader124.i ]
   %520 = mul nsw i64 %indvars.iv179.i148, %487
   %521 = getelementptr inbounds i8, ptr %.0111159.i, i64 %520
   %522 = load i8, ptr %521, align 1
@@ -7634,7 +7634,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %526 = load i8, ptr %525, align 1
   %527 = zext i8 %526 to i32
   %528 = sub nsw i32 %523, %527
-  %529 = add i32 %528, %.2134.i
+  %529 = add i32 %528, %.3134.i
   %530 = xor i64 %524, 4
   %531 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %530
   store i8 %522, ptr %531, align 1
@@ -7647,7 +7647,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
 
 .lr.ph.i141:                                      ; preds = %.preheader126.i, %.lr.ph.i141
   %indvars.iv.i142 = phi i64 [ %indvars.iv.next.i143, %.lr.ph.i141 ], [ 0, %.preheader126.i ]
-  %.3130.i = phi i32 [ %543, %.lr.ph.i141 ], [ 0, %.preheader126.i ]
+  %.4130.i = phi i32 [ %543, %.lr.ph.i141 ], [ 0, %.preheader126.i ]
   %534 = mul nsw i64 %indvars.iv.i142, %487
   %535 = getelementptr inbounds i8, ptr %.0111159.i, i64 %534
   %536 = load i8, ptr %535, align 1
@@ -7657,7 +7657,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %540 = load i8, ptr %539, align 1
   %541 = zext i8 %540 to i32
   %542 = sub nsw i32 %537, %541
-  %543 = add i32 %542, %.3130.i
+  %543 = add i32 %542, %.4130.i
   %544 = add nuw i64 %indvars.iv.i142, 5
   %545 = and i64 %544, 7
   %546 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %545
@@ -7671,7 +7671,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
 
 .lr.ph153.i:                                      ; preds = %.preheader.i153, %.lr.ph153.i
   %indvars.iv194.i = phi i64 [ %indvars.iv.next195.i, %.lr.ph153.i ], [ 0, %.preheader.i153 ]
-  %.4152.i = phi i32 [ %559, %.lr.ph153.i ], [ 0, %.preheader.i153 ]
+  %.5152.i = phi i32 [ %559, %.lr.ph153.i ], [ 0, %.preheader.i153 ]
   %549 = mul nsw i64 %indvars.iv194.i, %487
   %550 = getelementptr inbounds i8, ptr %.0111159.i, i64 %549
   %551 = load i8, ptr %550, align 1
@@ -7682,7 +7682,7 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   %556 = load i8, ptr %555, align 1
   %557 = zext i8 %556 to i32
   %558 = sub nsw i32 %552, %557
-  %559 = add i32 %558, %.4152.i
+  %559 = add i32 %558, %.5152.i
   %560 = add i32 %471, %553
   %561 = and i32 %560, 7
   %562 = zext nneg i32 %561 to i64
@@ -7696,18 +7696,18 @@ _ZL18stbtt__h_prefilterPhiiij.exit:               ; preds = %_ZL18stbtt__h_prefi
   br i1 %exitcond198.not.i, label %.loopexit.i145, label %.lr.ph153.i, !llvm.loop !48
 
 .loopexit.i145:                                   ; preds = %.lr.ph.i141, %.lr.ph135.i, %.lr.ph141.i, %.lr.ph147.i, %.lr.ph153.i, %.preheader.i153, %.preheader120.i, %.preheader122.i, %.preheader124.i, %.preheader126.i
-  %.5108.i = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %488, %.lr.ph153.i ], [ %488, %.lr.ph147.i ], [ %488, %.lr.ph141.i ], [ %488, %.lr.ph135.i ], [ %488, %.lr.ph.i141 ]
-  %.5.i146 = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %559, %.lr.ph153.i ], [ %499, %.lr.ph147.i ], [ %514, %.lr.ph141.i ], [ %529, %.lr.ph135.i ], [ %543, %.lr.ph.i141 ]
-  %566 = icmp slt i32 %.5108.i, %478
+  %.1104.i = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %488, %.lr.ph153.i ], [ %488, %.lr.ph147.i ], [ %488, %.lr.ph141.i ], [ %488, %.lr.ph135.i ], [ %488, %.lr.ph.i141 ]
+  %.1.i146 = phi i32 [ 0, %.preheader.i153 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader124.i ], [ 0, %.preheader126.i ], [ %559, %.lr.ph153.i ], [ %499, %.lr.ph147.i ], [ %514, %.lr.ph141.i ], [ %529, %.lr.ph135.i ], [ %543, %.lr.ph.i141 ]
+  %566 = icmp slt i32 %.1104.i, %478
   br i1 %566, label %.lr.ph158.preheader.i, label %._crit_edge.i147
 
 .lr.ph158.preheader.i:                            ; preds = %.loopexit.i145
-  %567 = sext i32 %.5108.i to i64
+  %567 = sext i32 %.1104.i to i64
   br label %.lr.ph158.i
 
 .lr.ph158.i:                                      ; preds = %.lr.ph158.i, %.lr.ph158.preheader.i
   %indvars.iv199.i = phi i64 [ %567, %.lr.ph158.preheader.i ], [ %indvars.iv.next200.i, %.lr.ph158.i ]
-  %.6157.i = phi i32 [ %.5.i146, %.lr.ph158.preheader.i ], [ %572, %.lr.ph158.i ]
+  %.6157.i = phi i32 [ %.1.i146, %.lr.ph158.preheader.i ], [ %572, %.lr.ph158.i ]
   %568 = and i64 %indvars.iv199.i, 7
   %569 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %568
   %570 = load i8, ptr %569, align 1

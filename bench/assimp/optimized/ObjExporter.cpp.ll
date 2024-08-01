@@ -276,10 +276,10 @@ lpad13:                                           ; preds = %invoke.cont14, %inv
 
 ehcleanup15:                                      ; preds = %lpad11, %lpad13
   %.pn14 = phi { ptr, i32 } [ %4, %lpad13 ], [ %3, %lpad11 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad13 ], [ true, %lpad11 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad13 ], [ true, %lpad11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #20
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %ehcleanup111
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %ehcleanup111
 
 cleanup.action:                                   ; preds = %ehcleanup15.thread, %ehcleanup15
   %.pn14.pn50 = phi { ptr, i32 } [ %2, %ehcleanup15.thread ], [ %.pn14, %ehcleanup15 ]
@@ -336,10 +336,10 @@ lpad30:                                           ; preds = %invoke.cont31, %inv
 
 ehcleanup35:                                      ; preds = %lpad28, %lpad30
   %.pn10 = phi { ptr, i32 } [ %8, %lpad30 ], [ %7, %lpad28 ]
-  %cleanup.isactive32.1 = phi i1 [ %cleanup.isactive32.0, %lpad30 ], [ true, %lpad28 ]
+  %cleanup.isactive32.2 = phi i1 [ %cleanup.isactive32.0, %lpad30 ], [ true, %lpad28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #20
-  br i1 %cleanup.isactive32.1, label %cleanup.action38, label %ehcleanup111
+  br i1 %cleanup.isactive32.2, label %cleanup.action38, label %ehcleanup111
 
 cleanup.action38:                                 ; preds = %ehcleanup35.thread, %ehcleanup35
   %.pn10.pn53 = phi { ptr, i32 } [ %6, %ehcleanup35.thread ], [ %.pn10, %ehcleanup35 ]
@@ -745,10 +745,10 @@ lpad13:                                           ; preds = %invoke.cont14, %inv
 
 ehcleanup15:                                      ; preds = %lpad11, %lpad13
   %.pn7 = phi { ptr, i32 } [ %4, %lpad13 ], [ %3, %lpad11 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad13 ], [ true, %lpad11 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad13 ], [ true, %lpad11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #20
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %ehcleanup60
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %ehcleanup60
 
 cleanup.action:                                   ; preds = %ehcleanup15.thread, %ehcleanup15
   %.pn7.pn24 = phi { ptr, i32 } [ %2, %ehcleanup15.thread ], [ %.pn7, %ehcleanup15 ]
@@ -805,10 +805,10 @@ lpad30:                                           ; preds = %invoke.cont31, %inv
 
 ehcleanup35:                                      ; preds = %lpad28, %lpad30
   %.pn = phi { ptr, i32 } [ %8, %lpad30 ], [ %7, %lpad28 ]
-  %cleanup.isactive32.1 = phi i1 [ %cleanup.isactive32.0, %lpad30 ], [ true, %lpad28 ]
+  %cleanup.isactive32.2 = phi i1 [ %cleanup.isactive32.0, %lpad30 ], [ true, %lpad28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #20
-  br i1 %cleanup.isactive32.1, label %cleanup.action38, label %ehcleanup60
+  br i1 %cleanup.isactive32.2, label %cleanup.action38, label %ehcleanup60
 
 cleanup.action38:                                 ; preds = %ehcleanup35.thread, %ehcleanup35
   %.pn.pn27 = phi { ptr, i32 } [ %6, %ehcleanup35.thread ], [ %.pn, %ehcleanup35 ]
@@ -2316,10 +2316,10 @@ while.body.i.i.preheader:                         ; preds = %if.then.i.i, %if.en
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end15.i.i
-  %out.addr.123.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.123.i.i.ph, %while.body.i.i.preheader ]
+  %out.addr.123.i.i = phi ptr [ %out.addr.3.i.i, %if.end15.i.i ], [ %out.addr.123.i.i.ph, %while.body.i.i.preheader ]
   %mustPrint.022.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
   %cur.021.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
-  %written.120.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.120.i.i.ph, %while.body.i.i.preheader ]
+  %written.120.i.i = phi i32 [ %written.3.i.i, %if.end15.i.i ], [ %written.120.i.i.ph, %while.body.i.i.preheader ]
   %number.addr.119.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.119.i.i.ph, %while.body.i.i.preheader ]
   %div.i.i = sdiv i32 %number.addr.119.i.i, %cur.021.i.i
   %sub11.i.i.recomposed = srem i32 %number.addr.119.i.i, %cur.021.i.i
@@ -2340,15 +2340,15 @@ if.then6.i.i:                                     ; preds = %while.body.i.i
 
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
   %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
-  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
-  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
+  %written.3.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
+  %out.addr.3.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
   %div16.i.i = sdiv i32 %cur.021.i.i, 10
-  %cmp2.i.i = icmp ult i32 %written.2.i.i, 13
+  %cmp2.i.i = icmp ult i32 %written.3.i.i, 13
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm13EEEjRAT__ci.exit, !llvm.loop !14
 
 _ZN6Assimp13ASSIMP_itoa10ILm13EEEjRAT__ci.exit:   ; preds = %if.then6.i.i, %if.end15.i.i
-  %out.addr.3.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.2.i.i, %if.end15.i.i ]
-  store i8 0, ptr %out.addr.3.i.i, align 1
+  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.3.i.i, %if.end15.i.i ]
+  store i8 0, ptr %out.addr.2.i.i, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #20
   %call.i67 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)
           to label %call.i6.noexc unwind label %lpad9

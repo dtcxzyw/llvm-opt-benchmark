@@ -3199,7 +3199,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit
 
 _ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %674, %661, %639, %634
-  %.088.ph = phi i32 [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ 0, %674 ], [ 0, %661 ], [ 0, %639 ], [ 1, %634 ]
+  %.189.ph = phi i32 [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ 0, %674 ], [ 0, %661 ], [ 0, %639 ], [ 1, %634 ]
   %.pr524 = load ptr, ptr %57, align 8
   %.not.i.i292 = icmp eq ptr %.pr524, null
   br i1 %.not.i.i292, label %_ZN7xgboost10collective6ResultD2Ev.exit294, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i293
@@ -3210,12 +3210,12 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
   br label %_ZN7xgboost10collective6ResultD2Ev.exit294
 
 _ZN7xgboost10collective6ResultD2Ev.exit294:       ; preds = %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit.thread, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i293
-  %.088527 = phi i32 [ 1, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit.thread ], [ %.088.ph, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit ], [ %.088.ph, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i293 ]
+  %.189527 = phi i32 [ 1, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit.thread ], [ %.189.ph, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit ], [ %.189.ph, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i293 ]
   store ptr null, ptr %57, align 8
   br label %679
 
 679:                                              ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit294, %616
-  %.189 = phi i32 [ %.088527, %_ZN7xgboost10collective6ResultD2Ev.exit294 ], [ 1, %616 ]
+  %.088 = phi i32 [ %.189527, %_ZN7xgboost10collective6ResultD2Ev.exit294 ], [ 1, %616 ]
   %680 = load ptr, ptr %579, align 8
   %.not.i.i.i295 = icmp eq ptr %680, null
   br i1 %.not.i.i.i295, label %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit, label %681
@@ -3289,7 +3289,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit
 
 _ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit: ; preds = %679, %697, %710, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %cond1 = icmp eq i32 %.189, 0
+  %cond1 = icmp eq i32 %.088, 0
   br i1 %cond1, label %581, label %.loopexit557, !llvm.loop !117
 
 715:                                              ; preds = %.body286, %620, %618
@@ -3583,7 +3583,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334
 
 _ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i333, %802, %789, %765, %760
-  %.290.ph = phi i32 [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i333 ], [ 0, %802 ], [ 0, %789 ], [ 0, %765 ], [ 1, %760 ]
+  %.391.ph = phi i32 [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i333 ], [ 0, %802 ], [ 0, %789 ], [ 0, %765 ], [ 1, %760 ]
   %.pr531 = load ptr, ptr %65, align 8
   %.not.i.i335 = icmp eq ptr %.pr531, null
   br i1 %.not.i.i335, label %_ZN7xgboost10collective6ResultD2Ev.exit337, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i336
@@ -3594,12 +3594,12 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
   br label %_ZN7xgboost10collective6ResultD2Ev.exit337
 
 _ZN7xgboost10collective6ResultD2Ev.exit337:       ; preds = %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334.thread, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i336
-  %.290534 = phi i32 [ 1, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334.thread ], [ %.290.ph, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334 ], [ %.290.ph, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i336 ]
+  %.391534 = phi i32 [ 1, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334.thread ], [ %.391.ph, %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEEaSEOS3_.exit334 ], [ %.391.ph, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i336 ]
   store ptr null, ptr %65, align 8
   br label %807
 
 807:                                              ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit337, %743
-  %.391 = phi i32 [ %.290534, %_ZN7xgboost10collective6ResultD2Ev.exit337 ], [ 1, %743 ]
+  %.290 = phi i32 [ %.391534, %_ZN7xgboost10collective6ResultD2Ev.exit337 ], [ 1, %743 ]
   %808 = load ptr, ptr %588, align 8
   %.not.i.i.i338 = icmp eq ptr %808, null
   br i1 %.not.i.i.i338, label %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit344, label %809
@@ -3673,7 +3673,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit344
 
 _ZNSt10shared_ptrIN7xgboost10collective9TCPSocketEED2Ev.exit344: ; preds = %807, %825, %838, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i343
-  %cond = icmp eq i32 %.391, 0
+  %cond = icmp eq i32 %.290, 0
   br i1 %cond, label %716, label %.loopexit557
 
 843:                                              ; preds = %.body325, %747, %745

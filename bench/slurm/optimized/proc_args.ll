@@ -2152,9 +2152,9 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
   br label %67
 
 67:                                               ; preds = %63, %12, %22, %32, %42, %51, %61, %56, %46, %37, %27, %17
-  %.1 = phi i16 [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ %28, %27 ], [ %33, %32 ], [ %38, %37 ], [ %43, %42 ], [ %52, %51 ], [ %57, %56 ], [ %62, %61 ], [ %47, %46 ], [ %spec.select, %63 ]
+  %.2 = phi i16 [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ %28, %27 ], [ %33, %32 ], [ %38, %37 ], [ %43, %42 ], [ %52, %51 ], [ %57, %56 ], [ %62, %61 ], [ %47, %46 ], [ %spec.select, %63 ]
   %68 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #20
-  %.031.fr = freeze i16 %.1
+  %.031.fr = freeze i16 %.2
   %.not35.not = icmp eq ptr %68, null
   br i1 %.not35.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
@@ -2919,8 +2919,8 @@ define range(i32 -1, 1) i32 @get_signal_opts(ptr noundef %0, ptr nocapture nound
   br label %21
 
 21:                                               ; preds = %17, %15
-  %.1 = phi ptr [ %.026, %15 ], [ %20, %17 ]
-  %22 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1, ptr noundef nonnull @.str.83, i64 noundef 1) #20
+  %.2 = phi ptr [ %.026, %15 ], [ %20, %17 ]
+  %22 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.2, ptr noundef nonnull @.str.83, i64 noundef 1) #20
   %.not33 = icmp eq i32 %22, 0
   br i1 %.not33, label %23, label %27
 
@@ -2928,15 +2928,15 @@ define range(i32 -1, 1) i32 @get_signal_opts(ptr noundef %0, ptr nocapture nound
   %24 = load i16, ptr %3, align 2
   %25 = or i16 %24, 256
   store i16 %25, ptr %3, align 2
-  %26 = getelementptr inbounds i8, ptr %.1, i64 1
+  %26 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %27
 
 27:                                               ; preds = %21, %23, %13
-  %.2 = phi ptr [ %.1, %21 ], [ %26, %23 ], [ %.026, %13 ]
-  %28 = load i8, ptr %.2, align 1
+  %.1 = phi ptr [ %.2, %21 ], [ %26, %23 ], [ %.026, %13 ]
+  %28 = load i8, ptr %.1, align 1
   %29 = icmp eq i8 %28, 58
   %spec.select.idx = zext i1 %29 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.2, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.1, i64 %spec.select.idx
   %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select, i32 noundef 64) #21
   store ptr %30, ptr %5, align 8
   %.not34 = icmp eq ptr %30, null

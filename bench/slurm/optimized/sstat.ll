@@ -162,7 +162,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
 .lr.ph:                                           ; preds = %24, %.outer
   %32 = phi ptr [ %87, %.outer ], [ %31, %24 ]
   %.050.ph80 = phi i32 [ %.1, %.outer ], [ 0, %24 ]
-  %.051.ph79 = phi ptr [ %.2, %.outer ], [ null, %24 ]
+  %.051.ph79 = phi ptr [ %.152, %.outer ], [ null, %24 ]
   br label %33
 
 33:                                               ; preds = %.lr.ph, %39
@@ -271,20 +271,20 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   br label %85
 
 85:                                               ; preds = %83, %82
-  %.152 = phi ptr [ %.051.ph79, %82 ], [ %84, %83 ]
+  %.2 = phi ptr [ %.051.ph79, %82 ], [ %84, %83 ]
   %86 = load ptr, ptr %34, align 8
-  call void @jobacctinfo_aggregate(ptr noundef %.152, ptr noundef %86) #4
+  call void @jobacctinfo_aggregate(ptr noundef %.2, ptr noundef %86) #4
   br label %.outer
 
 .outer:                                           ; preds = %64, %85, %63
-  %.2 = phi ptr [ %.051.ph79, %63 ], [ %.152, %85 ], [ %.051.ph79, %64 ]
+  %.152 = phi ptr [ %.051.ph79, %63 ], [ %.2, %85 ], [ %.051.ph79, %64 ]
   %.1 = phi i32 [ %.050.ph80, %63 ], [ %68, %85 ], [ %68, %64 ]
   %87 = call ptr @list_next(ptr noundef %30) #4
   %.not5872 = icmp eq ptr %87, null
   br i1 %.not5872, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.outer, %39
-  %.051.ph.lcssa = phi ptr [ %.051.ph79, %39 ], [ %.2, %.outer ]
+  %.051.ph.lcssa = phi ptr [ %.051.ph79, %39 ], [ %.152, %.outer ]
   %.050.ph.lcssa = phi i32 [ %.050.ph80, %39 ], [ %.1, %.outer ]
   call void @list_iterator_destroy(ptr noundef %30) #4
   %.not59 = icmp eq ptr %.051.ph.lcssa, null

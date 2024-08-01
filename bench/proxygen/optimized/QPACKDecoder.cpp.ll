@@ -1875,9 +1875,9 @@ if.then.i.i.i.i46:                                ; preds = %if.else.i.i.i43
   br label %cleanup160
 
 cleanup160:                                       ; preds = %if.then.i.i.i.i46, %if.else.i.i.i43, %if.then.i.i.i47, %cleanup160.critedge, %invoke.cont136, %invoke.cont153, %invoke.cont144, %invoke.cont99, %invoke.cont12, %invoke.cont129, %invoke.cont46, %invoke.cont31
-  %retval.1 = phi i32 [ 0, %invoke.cont31 ], [ 0, %invoke.cont129 ], [ 0, %invoke.cont46 ], [ 0, %invoke.cont12 ], [ 0, %invoke.cont99 ], [ %call137, %invoke.cont144 ], [ %call137, %invoke.cont153 ], [ %call137, %invoke.cont136 ], [ 0, %cleanup160.critedge ], [ 0, %if.then.i.i.i47 ], [ 0, %if.else.i.i.i43 ], [ 0, %if.then.i.i.i.i46 ]
+  %retval.0 = phi i32 [ 0, %invoke.cont31 ], [ 0, %invoke.cont129 ], [ 0, %invoke.cont46 ], [ 0, %invoke.cont12 ], [ 0, %invoke.cont99 ], [ %call137, %invoke.cont144 ], [ %call137, %invoke.cont153 ], [ %call137, %invoke.cont136 ], [ 0, %cleanup160.critedge ], [ 0, %if.then.i.i.i47 ], [ 0, %if.else.i.i.i43 ], [ 0, %if.then.i.i.i.i46 ]
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %header.i) #17
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup161:                                     ; preds = %lpad150, %lpad143, %lpad116, %ehcleanup, %lpad41, %lpad24, %lpad
   %.pn25 = phi { ptr, i32 } [ %4, %lpad24 ], [ %2, %lpad ], [ %30, %lpad116 ], [ %33, %lpad150 ], [ %32, %lpad143 ], [ %9, %lpad41 ], [ %.pn, %ehcleanup ]

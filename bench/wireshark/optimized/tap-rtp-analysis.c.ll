@@ -446,7 +446,7 @@ get_clock_rate.exit.thread321._crit_edge:         ; preds = %get_clock_rate.exit
 
 215:                                              ; preds = %get_clock_rate.exit.thread321._crit_edge, %202
   %216 = phi double [ %.pre339, %get_clock_rate.exit.thread321._crit_edge ], [ %212, %202 ]
-  %.0268 = phi double [ 0.000000e+00, %get_clock_rate.exit.thread321._crit_edge ], [ %211, %202 ]
+  %.1 = phi double [ 0.000000e+00, %get_clock_rate.exit.thread321._crit_edge ], [ %211, %202 ]
   %217 = getelementptr inbounds i8, ptr %0, i64 4936
   %218 = load <2 x double>, ptr %217, align 8
   %219 = insertelement <2 x double> poison, double %200, i64 0
@@ -497,7 +497,7 @@ get_clock_rate.exit.thread:                       ; preds = %184, %168, %170, %1
 
 246:                                              ; preds = %231, %241, %get_clock_rate.exit.thread
   %.not290319 = phi i1 [ false, %231 ], [ true, %get_clock_rate.exit.thread ], [ true, %241 ]
-  %.1 = phi double [ %.0268, %231 ], [ 0.000000e+00, %get_clock_rate.exit.thread ], [ 0.000000e+00, %241 ]
+  %.0268 = phi double [ %.1, %231 ], [ 0.000000e+00, %get_clock_rate.exit.thread ], [ 0.000000e+00, %241 ]
   %247 = getelementptr inbounds i8, ptr %1, i64 160
   %248 = load i32, ptr %247, align 8
   %249 = icmp eq i32 %248, 3
@@ -642,7 +642,7 @@ get_clock_rate.exit.thread:                       ; preds = %184, %168, %170, %1
 335:                                              ; preds = %334, %328
   %336 = getelementptr inbounds i8, ptr %0, i64 5000
   %337 = load double, ptr %336, align 8
-  %338 = tail call double @llvm.fmuladd.f64(double %337, double %324, double %.1)
+  %338 = tail call double @llvm.fmuladd.f64(double %337, double %324, double %.0268)
   %339 = fdiv double %338, %326
   store double %339, ptr %336, align 8
   %340 = getelementptr inbounds i8, ptr %0, i64 4976

@@ -2680,8 +2680,8 @@ ehcleanup77:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %for.body, %.noexc.i135, %for.end
-  %retval.1 = phi i1 [ false, %for.end ], [ true, %.noexc.i135 ], [ false, %for.body ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %for.end ], [ true, %.noexc.i135 ], [ false, %for.body ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5990,7 +5990,7 @@ ehcleanup218:                                     ; preds = %lpad34.loopexit.spl
   br label %ehcleanup223
 
 cleanup222:                                       ; preds = %for.cond30.while.cond_crit_edge.us, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us, %land.rhs.us, %_ZN8rationalD2Ev.exit695.us, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit, %for.end, %invoke.cont7, %if.then19, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit
-  %retval.3 = phi i1 [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit ], [ false, %if.then19 ], [ true, %invoke.cont7 ], [ true, %for.end ], [ true, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ false, %_ZN8rationalD2Ev.exit695.us ], [ true, %land.rhs.us ], [ true, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us ], [ true, %for.cond30.while.cond_crit_edge.us ]
+  %retval.0 = phi i1 [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE5emptyEv.exit ], [ false, %if.then19 ], [ true, %invoke.cont7 ], [ true, %for.end ], [ true, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ false, %_ZN8rationalD2Ev.exit695.us ], [ true, %land.rhs.us ], [ true, %_ZNK6vectorIjLb0EjE5emptyEv.exit.us ], [ true, %for.cond30.while.cond_crit_edge.us ]
   %272 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %272, ptr noundef nonnull align 8 dereferenceable(16) %v)
           to label %.noexc.i697 unwind label %terminate.lpad.i696
@@ -6127,7 +6127,7 @@ terminate.lpad.i.i713:                            ; preds = %if.then.i.i.i711
   unreachable
 
 _ZN7svectorIjjED2Ev.exit714:                      ; preds = %_ZN7svectorIjjED2Ev.exit709, %if.then.i.i.i711
-  ret i1 %retval.3
+  ret i1 %retval.0
 
 ehcleanup223:                                     ; preds = %lpad8.loopexit.split.us, %lpad8.loopexit.split-lp.loopexit.split-lp, %lpad8.loopexit.split-lp.loopexit, %ehcleanup218
   %.pn58 = phi { ptr, i32 } [ %.pn56, %ehcleanup218 ], [ %lpad.loopexit771.us, %lpad8.loopexit.split.us ], [ %lpad.loopexit774, %lpad8.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp775, %lpad8.loopexit.split-lp.loopexit.split-lp ]

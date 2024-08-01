@@ -570,10 +570,10 @@ thread-pre-split:                                 ; preds = %85, %73
   br label %135
 
 135:                                              ; preds = %.sink.split.i, %112
-  %.0.i = phi i32 [ %127, %112 ], [ %134, %.sink.split.i ]
+  %.1.i = phi i32 [ %127, %112 ], [ %134, %.sink.split.i ]
   %136 = load i32, ptr @hf_iwarp_rdma_atomic_compare_data, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %136, ptr noundef %0, i32 noundef %.0.i, i32 noundef 8, i32 noundef 0) #3
-  %138 = add i32 %.0.i, 8
+  %137 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %136, ptr noundef %0, i32 noundef %.1.i, i32 noundef 8, i32 noundef 0) #3
+  %138 = add i32 %.1.i, 8
   br label %dissect_iwarp_atomic.exit.sink.split
 
 139:                                              ; preds = %111
@@ -821,20 +821,20 @@ define internal fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr nocapture no
 86:                                               ; preds = %70, %72, %74, %82, %76, %61
   %.sink = phi i32 [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %85, %82 ], [ %81, %76 ], [ %66, %61 ]
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %.sink, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #3
-  %.1 = add nuw nsw i32 %.0, 2
+  %.2 = add nuw nsw i32 %.0, 2
   %88 = load i32, ptr @hf_iwarp_rdma_term_hdrct, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %88, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #3
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %88, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
   %90 = load i32, ptr @ett_iwarp_rdma, align 4
   %91 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90) #3
-  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
+  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
   %93 = load i32, ptr @hf_iwarp_rdma_term_hdrct_m, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %93, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #3
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %93, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
   %95 = load i32, ptr @hf_iwarp_rdma_term_hdrct_d, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %95, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #3
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %95, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
   %97 = load i32, ptr @hf_iwarp_rdma_term_hdrct_r, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %97, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #3
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %97, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
   %99 = load i32, ptr @hf_iwarp_rdma_term_rsvd, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %99, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0) #3
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %99, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0) #3
   %101 = add nuw nsw i32 %.0, 4
   %102 = zext i8 %92 to i32
   %103 = and i32 %102, 64
@@ -854,19 +854,19 @@ define internal fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr nocapture no
   br label %111
 
 111:                                              ; preds = %.sink.split, %86
-  %.2 = phi i32 [ %101, %86 ], [ %110, %.sink.split ]
+  %.3 = phi i32 [ %101, %86 ], [ %110, %.sink.split ]
   %112 = and i32 %102, 32
   %.not134 = icmp eq i32 %112, 0
   br i1 %.not134, label %116, label %113
 
 113:                                              ; preds = %111
   %114 = load i32, ptr @hf_iwarp_rdma_term_rdma_h, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %114, ptr noundef %0, i32 noundef %.2, i32 noundef 28, i32 noundef 0) #3
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %114, ptr noundef %0, i32 noundef %.3, i32 noundef 28, i32 noundef 0) #3
   br label %116
 
 116:                                              ; preds = %42, %113, %111, %41
-  %.3 = phi i32 [ %.2, %113 ], [ %.2, %111 ], [ %.0, %42 ], [ %.0, %41 ]
-  ret i32 %.3
+  %.1 = phi i32 [ %.3, %113 ], [ %.3, %111 ], [ %.0, %42 ], [ %.0, %41 ]
+  ret i32 %.1
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

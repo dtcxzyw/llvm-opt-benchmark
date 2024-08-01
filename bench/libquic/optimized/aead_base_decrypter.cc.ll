@@ -259,14 +259,14 @@ if.end18:                                         ; preds = %invoke.cont15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont10, %invoke.cont15, %if.end18
-  %retval.0 = phi i1 [ true, %if.end18 ], [ false, %invoke.cont15 ], [ false, %invoke.cont10 ]
+  %retval.1 = phi i1 [ true, %if.end18 ], [ false, %invoke.cont15 ], [ false, %invoke.cont10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce_prefix) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #7
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ true, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

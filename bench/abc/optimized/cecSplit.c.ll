@@ -1974,9 +1974,9 @@ Vec_PtrPush.exit:                                 ; preds = %70
   br label %.preheader230.split.us
 
 .preheader230.split.us:                           ; preds = %.preheader230.split.us.preheader, %._crit_edge.us
-  %.0146.us = phi i32 [ %.4150.us, %._crit_edge.us ], [ 0, %.preheader230.split.us.preheader ]
-  %.0140.us = phi i32 [ %.4144.us, %._crit_edge.us ], [ 1, %.preheader230.split.us.preheader ]
-  %.0139.us = phi double [ %.4.us, %._crit_edge.us ], [ 0.000000e+00, %.preheader230.split.us.preheader ]
+  %.0146.us = phi i32 [ %.3149.us, %._crit_edge.us ], [ 0, %.preheader230.split.us.preheader ]
+  %.0140.us = phi i32 [ %.3143.us, %._crit_edge.us ], [ 1, %.preheader230.split.us.preheader ]
+  %.0139.us = phi double [ %.2.us, %._crit_edge.us ], [ 0.000000e+00, %.preheader230.split.us.preheader ]
   %.not.us = icmp eq i32 %.0140.us, 0
   br i1 %.not.us, label %.preheader, label %.lr.ph241.us
 
@@ -1988,9 +1988,9 @@ Vec_PtrPush.exit:                                 ; preds = %70
 
 84:                                               ; preds = %.lr.ph241.us, %335
   %indvars.iv263 = phi i64 [ 0, %.lr.ph241.us ], [ %indvars.iv.next264, %335 ]
-  %.1240.us = phi double [ %.0139.us, %.lr.ph241.us ], [ %.4.us, %335 ]
-  %.1141239.us = phi i32 [ %83, %.lr.ph241.us ], [ %.4144.us, %335 ]
-  %.1147238.us = phi i32 [ %.0146.us, %.lr.ph241.us ], [ %.4150.us, %335 ]
+  %.1240.us = phi double [ %.0139.us, %.lr.ph241.us ], [ %.2.us, %335 ]
+  %.2142239.us = phi i32 [ %83, %.lr.ph241.us ], [ %.3143.us, %335 ]
+  %.2148238.us = phi i32 [ %.0146.us, %.lr.ph241.us ], [ %.3149.us, %335 ]
   %85 = getelementptr inbounds [100 x %struct.Par_ThData_t_], ptr %13, i64 0, i64 %indvars.iv263
   %86 = getelementptr inbounds i8, ptr %85, i64 24
   %87 = load i32, ptr %86, align 8
@@ -2432,7 +2432,7 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %312 = sext i32 %287 to i64
   %313 = getelementptr inbounds ptr, ptr %310, i64 %312
   store ptr %241, ptr %313, align 8
-  %314 = add nsw i32 %.1147238.us, 1
+  %314 = add nsw i32 %.2148238.us, 1
   br label %318
 
 315:                                              ; preds = %134
@@ -2442,9 +2442,9 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   br label %318
 
 318:                                              ; preds = %315, %Vec_PtrPush.exit221.us
-  %.2148.us = phi i32 [ %314, %Vec_PtrPush.exit221.us ], [ %.1147238.us, %315 ]
-  %.2142.us = phi i32 [ 1, %Vec_PtrPush.exit221.us ], [ %.1141239.us, %315 ]
-  %.2.us = phi double [ %.1240.us, %Vec_PtrPush.exit221.us ], [ %317, %315 ]
+  %.6.us = phi i32 [ %314, %Vec_PtrPush.exit221.us ], [ %.2148238.us, %315 ]
+  %.5.us = phi i32 [ 1, %Vec_PtrPush.exit221.us ], [ %.2142239.us, %315 ]
+  %.4.us = phi double [ %.1240.us, %Vec_PtrPush.exit221.us ], [ %317, %315 ]
   call void @Gia_ManStopP(ptr noundef nonnull %85) #17
   %319 = getelementptr inbounds i8, ptr %85, i64 8
   %320 = load ptr, ptr %319, align 8
@@ -2457,9 +2457,9 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   br label %323
 
 323:                                              ; preds = %322, %88
-  %.3149.us = phi i32 [ %.2148.us, %322 ], [ %.1147238.us, %88 ]
-  %.3143.us = phi i32 [ %.2142.us, %322 ], [ %.1141239.us, %88 ]
-  %.3.us = phi double [ %.2.us, %322 ], [ %.1240.us, %88 ]
+  %.4150.us = phi i32 [ %.6.us, %322 ], [ %.2148238.us, %88 ]
+  %.4144.us = phi i32 [ %.5.us, %322 ], [ %.2142239.us, %88 ]
+  %.3.us = phi double [ %.4.us, %322 ], [ %.1240.us, %88 ]
   %.val184.us = load i32, ptr %76, align 4
   %324 = icmp eq i32 %.val184.us, 0
   br i1 %324, label %335, label %325
@@ -2483,15 +2483,15 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   br label %335
 
 335:                                              ; preds = %325, %323, %318, %84
-  %.4150.us = phi i32 [ %.2148.us, %318 ], [ %.3149.us, %323 ], [ %.3149.us, %325 ], [ %.1147238.us, %84 ]
-  %.4144.us = phi i32 [ %.2142.us, %318 ], [ %.3143.us, %323 ], [ %.3143.us, %325 ], [ 1, %84 ]
-  %.4.us = phi double [ %.2.us, %318 ], [ %.3.us, %323 ], [ %.3.us, %325 ], [ %.1240.us, %84 ]
+  %.3149.us = phi i32 [ %.6.us, %318 ], [ %.4150.us, %323 ], [ %.4150.us, %325 ], [ %.2148238.us, %84 ]
+  %.3143.us = phi i32 [ %.5.us, %318 ], [ %.4144.us, %323 ], [ %.4144.us, %325 ], [ 1, %84 ]
+  %.2.us = phi double [ %.4.us, %318 ], [ %.3.us, %323 ], [ %.3.us, %325 ], [ %.1240.us, %84 ]
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count266
   br i1 %exitcond267.not, label %._crit_edge.us, label %84, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %335
-  %.not169.us = icmp slt i32 %.4150.us, %3
+  %.not169.us = icmp slt i32 %.3149.us, %3
   %or.cond181.us = select i1 %.not168, i1 true, i1 %.not169.us
   br i1 %or.cond181.us, label %.preheader230.split.us, label %.split.us, !llvm.loop !18
 
@@ -2527,14 +2527,14 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   br label %.preheader
 
 .split.us:                                        ; preds = %._crit_edge.us
-  %345 = icmp eq i32 %.4144.us, 0
+  %345 = icmp eq i32 %.3143.us, 0
   br i1 %345, label %346, label %.preheader
 
 346:                                              ; preds = %.split.us
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader230.split.us, %.split247.us, %346, %.split.us
-  %.6 = phi i32 [ %.1147238.us, %.split247.us ], [ %.4150.us, %.split.us ], [ %.4150.us, %346 ], [ %.0146.us, %.preheader230.split.us ]
+  %.5151 = phi i32 [ %.2148238.us, %.split247.us ], [ %.3149.us, %.split.us ], [ %.3149.us, %346 ], [ %.0146.us, %.preheader230.split.us ]
   %347 = phi i1 [ true, %.split247.us ], [ false, %.split.us ], [ false, %346 ], [ false, %.preheader230.split.us ]
   %348 = phi i1 [ false, %.split247.us ], [ false, %.split.us ], [ true, %346 ], [ true, %.preheader230.split.us ]
   %349 = phi i1 [ false, %.split247.us ], [ true, %.split.us ], [ false, %346 ], [ false, %.preheader230.split.us ]
@@ -2567,7 +2567,7 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   br i1 %exitcond272.not, label %._crit_edge, label %.lr.ph257, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %356, %.preheader230.split, %.preheader
-  %.6280285 = phi i32 [ %.6, %.preheader ], [ 0, %.preheader230.split ], [ %.6, %356 ]
+  %.5151280285 = phi i32 [ %.5151, %.preheader ], [ 0, %.preheader230.split ], [ %.5151, %356 ]
   %357 = phi i1 [ %347, %.preheader ], [ false, %.preheader230.split ], [ %347, %356 ]
   %358 = phi i1 [ %348, %.preheader ], [ false, %.preheader230.split ], [ %348, %356 ]
   %359 = phi i1 [ %349, %.preheader ], [ true, %.preheader230.split ], [ %349, %356 ]
@@ -2615,7 +2615,7 @@ Cec_GiaSplitClean.exit:                           ; preds = %.critedge.i, %.crit
   br label %367
 
 367:                                              ; preds = %364, %.sink.split
-  %368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.6280285)
+  %368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.5151280285)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %369 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #17
   %370 = icmp slt i32 %369, 0

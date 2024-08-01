@@ -10403,7 +10403,7 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
   br label %return
 
 while.body:                                       ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit, %if.end9
-  %lo.0101 = phi i32 [ %lo.1, %if.end9 ], [ 0, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
+  %lo.0101 = phi i32 [ %lo.2, %if.end9 ], [ 0, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
   %hi.0100 = phi i32 [ %hi.1, %if.end9 ], [ %1, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE5emptyEv.exit ]
   %sub = sub nuw i32 %hi.0100, %lo.0101
   %div13 = lshr i32 %sub, 1
@@ -10418,13 +10418,13 @@ if.end9:                                          ; preds = %while.body
   %cmp10 = icmp ult i32 %5, %var_id
   %add12 = add i32 %add, 1
   %hi.1 = select i1 %cmp10, i32 %hi.0100, i32 %add
-  %lo.1 = select i1 %cmp10, i32 %add12, i32 %lo.0101
-  %cmp = icmp ult i32 %lo.1, %hi.1
+  %lo.2 = select i1 %cmp10, i32 %add12, i32 %lo.0101
+  %cmp = icmp ult i32 %lo.2, %hi.1
   br i1 %cmp, label %while.body, label %if.end.i18, !llvm.loop !41
 
 if.end.i18:                                       ; preds = %while.body, %if.end9
-  %lo.296.ph = phi i32 [ %add, %while.body ], [ %lo.1, %if.end9 ]
-  %cmp16 = icmp eq i32 %lo.296.ph, %1
+  %lo.196.ph = phi i32 [ %add, %while.body ], [ %lo.2, %if.end9 ]
+  %cmp16 = icmp eq i32 %lo.196.ph, %1
   br i1 %cmp16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end.i18
@@ -10478,7 +10478,7 @@ if.else.i.i7.i.i39:                               ; preds = %_ZN11mpq_managerILb
   br label %return
 
 if.end19:                                         ; preds = %if.end.i18
-  %idxprom.i45 = zext i32 %lo.296.ph to i64
+  %idxprom.i45 = zext i32 %lo.196.ph to i64
   %arrayidx.i46 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %0, i64 %idxprom.i45
   %9 = load i32, ptr %arrayidx.i46, align 8
   %cmp24 = icmp eq i32 %9, %var_id
@@ -16080,13 +16080,13 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %lub_index.0631 = phi i32 [ -1, %for.body.lr.ph ], [ %lub_index.4, %for.inc ]
-  %glb_index.0630 = phi i32 [ -1, %for.body.lr.ph ], [ %glb_index.4, %for.inc ]
-  %lub_strict.0629 = phi i1 [ false, %for.body.lr.ph ], [ %lub_strict.4, %for.inc ]
-  %glb_strict.0628 = phi i1 [ false, %for.body.lr.ph ], [ %glb_strict.4, %for.inc ]
-  %lub_is_unit.0627 = phi i8 [ 1, %for.body.lr.ph ], [ %lub_is_unit.3, %for.inc ]
-  %glb_is_unit.0626 = phi i8 [ 1, %for.body.lr.ph ], [ %glb_is_unit.3, %for.inc ]
-  %eq_row.0625 = phi i32 [ -1, %for.body.lr.ph ], [ %eq_row.3, %for.inc ]
+  %lub_index.0631 = phi i32 [ -1, %for.body.lr.ph ], [ %lub_index.1, %for.inc ]
+  %glb_index.0630 = phi i32 [ -1, %for.body.lr.ph ], [ %glb_index.1, %for.inc ]
+  %lub_strict.0629 = phi i1 [ false, %for.body.lr.ph ], [ %lub_strict.1, %for.inc ]
+  %glb_strict.0628 = phi i1 [ false, %for.body.lr.ph ], [ %glb_strict.1, %for.inc ]
+  %lub_is_unit.0627 = phi i8 [ 1, %for.body.lr.ph ], [ %lub_is_unit.1, %for.inc ]
+  %glb_is_unit.0626 = phi i8 [ 1, %for.body.lr.ph ], [ %glb_is_unit.1, %for.inc ]
+  %eq_row.0625 = phi i32 [ -1, %for.body.lr.ph ], [ %eq_row.1, %for.inc ]
   %__begin1.0624 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %10 = load i32, ptr %__begin1.0624, align 4
   %shr.i = lshr i32 %10, 5
@@ -16468,8 +16468,8 @@ lpad56:                                           ; preds = %if.then.i247, %if.e
   br label %ehcleanup
 
 if.end74:                                         ; preds = %invoke.cont62, %if.then.i.i.i.i218, %call4.i.i.i.i.noexc220, %invoke.cont69
-  %lub_strict.1 = phi i1 [ %cmp72, %invoke.cont69 ], [ %lub_strict.0629, %invoke.cont62 ], [ %lub_strict.0629, %call4.i.i.i.i.noexc220 ], [ %lub_strict.0629, %if.then.i.i.i.i218 ]
-  %lub_index.1 = phi i32 [ %10, %invoke.cont69 ], [ %lub_index.0631, %invoke.cont62 ], [ %lub_index.0631, %call4.i.i.i.i.noexc220 ], [ %lub_index.0631, %if.then.i.i.i.i218 ]
+  %lub_strict.4 = phi i1 [ %cmp72, %invoke.cont69 ], [ %lub_strict.0629, %invoke.cont62 ], [ %lub_strict.0629, %call4.i.i.i.i.noexc220 ], [ %lub_strict.0629, %if.then.i.i.i.i218 ]
+  %lub_index.4 = phi i32 [ %10, %invoke.cont69 ], [ %lub_index.0631, %invoke.cont62 ], [ %lub_index.0631, %call4.i.i.i.i.noexc220 ], [ %lub_index.0631, %if.then.i.i.i.i218 ]
   %59 = load ptr, ptr %m_lub, align 8
   %cmp.i238 = icmp eq ptr %59, null
   br i1 %cmp.i238, label %if.then.i247, label %lor.lhs.false.i239
@@ -16745,8 +16745,8 @@ lpad89:                                           ; preds = %if.then.i347, %if.e
   br label %ehcleanup
 
 if.end109:                                        ; preds = %invoke.cont96, %if.then.i.i.i.i307, %call4.i.i.i.i.noexc309, %invoke.cont104
-  %glb_strict.1 = phi i1 [ %cmp107, %invoke.cont104 ], [ %glb_strict.0628, %invoke.cont96 ], [ %glb_strict.0628, %call4.i.i.i.i.noexc309 ], [ %glb_strict.0628, %if.then.i.i.i.i307 ]
-  %glb_index.1 = phi i32 [ %10, %invoke.cont104 ], [ %glb_index.0630, %invoke.cont96 ], [ %glb_index.0630, %call4.i.i.i.i.noexc309 ], [ %glb_index.0630, %if.then.i.i.i.i307 ]
+  %glb_strict.4 = phi i1 [ %cmp107, %invoke.cont104 ], [ %glb_strict.0628, %invoke.cont96 ], [ %glb_strict.0628, %call4.i.i.i.i.noexc309 ], [ %glb_strict.0628, %if.then.i.i.i.i307 ]
+  %glb_index.4 = phi i32 [ %10, %invoke.cont104 ], [ %glb_index.0630, %invoke.cont96 ], [ %glb_index.0630, %call4.i.i.i.i.noexc309 ], [ %glb_index.0630, %if.then.i.i.i.i307 ]
   %100 = load ptr, ptr %m_glb, align 8
   %cmp.i338 = icmp eq ptr %100, null
   br i1 %cmp.i338, label %if.then.i347, label %lor.lhs.false.i339
@@ -16843,10 +16843,10 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   %eq_row.2 = phi i32 [ %eq_row.0625, %invoke.cont26 ], [ %10, %if.end29 ], [ %eq_row.0625, %.noexc.i261 ], [ %eq_row.0625, %.noexc.i366 ], [ %eq_row.0625, %cleanup.sink.split ]
   %glb_is_unit.2 = phi i8 [ %glb_is_unit.0626, %invoke.cont26 ], [ %glb_is_unit.0626, %if.end29 ], [ %glb_is_unit.0626, %.noexc.i261 ], [ %frombool119, %.noexc.i366 ], [ %glb_is_unit.0626, %cleanup.sink.split ]
   %lub_is_unit.2 = phi i8 [ %lub_is_unit.0627, %invoke.cont26 ], [ %lub_is_unit.0627, %if.end29 ], [ %frombool82, %.noexc.i261 ], [ %lub_is_unit.0627, %.noexc.i366 ], [ %lub_is_unit.0627, %cleanup.sink.split ]
-  %glb_strict.3 = phi i1 [ %glb_strict.0628, %invoke.cont26 ], [ %glb_strict.0628, %if.end29 ], [ %glb_strict.0628, %.noexc.i261 ], [ %glb_strict.1, %.noexc.i366 ], [ %glb_strict.0628, %cleanup.sink.split ]
-  %lub_strict.3 = phi i1 [ %lub_strict.0629, %invoke.cont26 ], [ %lub_strict.0629, %if.end29 ], [ %lub_strict.1, %.noexc.i261 ], [ %lub_strict.0629, %.noexc.i366 ], [ %lub_strict.0629, %cleanup.sink.split ]
-  %glb_index.3 = phi i32 [ %glb_index.0630, %invoke.cont26 ], [ %glb_index.0630, %if.end29 ], [ %glb_index.0630, %.noexc.i261 ], [ %glb_index.1, %.noexc.i366 ], [ %glb_index.0630, %cleanup.sink.split ]
-  %lub_index.3 = phi i32 [ %lub_index.0631, %invoke.cont26 ], [ %lub_index.0631, %if.end29 ], [ %lub_index.1, %.noexc.i261 ], [ %lub_index.0631, %.noexc.i366 ], [ %lub_index.0631, %cleanup.sink.split ]
+  %glb_strict.2 = phi i1 [ %glb_strict.0628, %invoke.cont26 ], [ %glb_strict.0628, %if.end29 ], [ %glb_strict.0628, %.noexc.i261 ], [ %glb_strict.4, %.noexc.i366 ], [ %glb_strict.0628, %cleanup.sink.split ]
+  %lub_strict.2 = phi i1 [ %lub_strict.0629, %invoke.cont26 ], [ %lub_strict.0629, %if.end29 ], [ %lub_strict.4, %.noexc.i261 ], [ %lub_strict.0629, %.noexc.i366 ], [ %lub_strict.0629, %cleanup.sink.split ]
+  %glb_index.2 = phi i32 [ %glb_index.0630, %invoke.cont26 ], [ %glb_index.0630, %if.end29 ], [ %glb_index.0630, %.noexc.i261 ], [ %glb_index.4, %.noexc.i366 ], [ %glb_index.0630, %cleanup.sink.split ]
+  %lub_index.2 = phi i32 [ %lub_index.0631, %invoke.cont26 ], [ %lub_index.0631, %if.end29 ], [ %lub_index.4, %.noexc.i261 ], [ %lub_index.0631, %.noexc.i366 ], [ %lub_index.0631, %cleanup.sink.split ]
   %118 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %118, ptr noundef nonnull align 8 dereferenceable(16) %a)
           to label %.noexc.i370 unwind label %terminate.lpad.i369
@@ -16863,13 +16863,13 @@ terminate.lpad.i369:                              ; preds = %.noexc.i370, %clean
   unreachable
 
 for.inc:                                          ; preds = %.noexc.i370, %invoke.cont19, %invoke.cont17
-  %eq_row.3 = phi i32 [ %eq_row.0625, %invoke.cont17 ], [ %eq_row.0625, %invoke.cont19 ], [ %eq_row.2, %.noexc.i370 ]
-  %glb_is_unit.3 = phi i8 [ %glb_is_unit.0626, %invoke.cont17 ], [ %glb_is_unit.0626, %invoke.cont19 ], [ %glb_is_unit.2, %.noexc.i370 ]
-  %lub_is_unit.3 = phi i8 [ %lub_is_unit.0627, %invoke.cont17 ], [ %lub_is_unit.0627, %invoke.cont19 ], [ %lub_is_unit.2, %.noexc.i370 ]
-  %glb_strict.4 = phi i1 [ %glb_strict.0628, %invoke.cont17 ], [ %glb_strict.0628, %invoke.cont19 ], [ %glb_strict.3, %.noexc.i370 ]
-  %lub_strict.4 = phi i1 [ %lub_strict.0629, %invoke.cont17 ], [ %lub_strict.0629, %invoke.cont19 ], [ %lub_strict.3, %.noexc.i370 ]
-  %glb_index.4 = phi i32 [ %glb_index.0630, %invoke.cont17 ], [ %glb_index.0630, %invoke.cont19 ], [ %glb_index.3, %.noexc.i370 ]
-  %lub_index.4 = phi i32 [ %lub_index.0631, %invoke.cont17 ], [ %lub_index.0631, %invoke.cont19 ], [ %lub_index.3, %.noexc.i370 ]
+  %eq_row.1 = phi i32 [ %eq_row.0625, %invoke.cont17 ], [ %eq_row.0625, %invoke.cont19 ], [ %eq_row.2, %.noexc.i370 ]
+  %glb_is_unit.1 = phi i8 [ %glb_is_unit.0626, %invoke.cont17 ], [ %glb_is_unit.0626, %invoke.cont19 ], [ %glb_is_unit.2, %.noexc.i370 ]
+  %lub_is_unit.1 = phi i8 [ %lub_is_unit.0627, %invoke.cont17 ], [ %lub_is_unit.0627, %invoke.cont19 ], [ %lub_is_unit.2, %.noexc.i370 ]
+  %glb_strict.1 = phi i1 [ %glb_strict.0628, %invoke.cont17 ], [ %glb_strict.0628, %invoke.cont19 ], [ %glb_strict.2, %.noexc.i370 ]
+  %lub_strict.1 = phi i1 [ %lub_strict.0629, %invoke.cont17 ], [ %lub_strict.0629, %invoke.cont19 ], [ %lub_strict.2, %.noexc.i370 ]
+  %glb_index.1 = phi i32 [ %glb_index.0630, %invoke.cont17 ], [ %glb_index.0630, %invoke.cont19 ], [ %glb_index.2, %.noexc.i370 ]
+  %lub_index.1 = phi i32 [ %lub_index.0631, %invoke.cont17 ], [ %lub_index.0631, %invoke.cont19 ], [ %lub_index.2, %.noexc.i370 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0624, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
@@ -16880,11 +16880,11 @@ ehcleanup:                                        ; preds = %lpad89, %lpad87, %l
   br label %ehcleanup335
 
 for.end:                                          ; preds = %for.inc, %_ZN6vectorIjLb0EjE5resetEv.exit148, %_ZNK6vectorIjLb0EjE3endEv.exit
-  %eq_row.0.lcssa = phi i32 [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ -1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %eq_row.3, %for.inc ]
-  %glb_is_unit.0.lcssa = phi i8 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %glb_is_unit.3, %for.inc ]
-  %lub_is_unit.0.lcssa = phi i8 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %lub_is_unit.3, %for.inc ]
-  %glb_index.0.lcssa = phi i32 [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ -1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %glb_index.4, %for.inc ]
-  %lub_index.0.lcssa = phi i32 [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ -1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %lub_index.4, %for.inc ]
+  %eq_row.0.lcssa = phi i32 [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ -1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %eq_row.1, %for.inc ]
+  %glb_is_unit.0.lcssa = phi i8 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %glb_is_unit.1, %for.inc ]
+  %lub_is_unit.0.lcssa = phi i8 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %lub_is_unit.1, %for.inc ]
+  %glb_index.0.lcssa = phi i32 [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ -1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %glb_index.1, %for.inc ]
+  %lub_index.0.lcssa = phi i32 [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ -1, %_ZN6vectorIjLb0EjE5resetEv.exit148 ], [ %lub_index.1, %for.inc ]
   %121 = load ptr, ptr %m_divides, align 8
   %cmp.i373 = icmp eq ptr %121, null
   br i1 %cmp.i373, label %if.end130, label %_ZNK6vectorIjLb0EjE5emptyEv.exit377

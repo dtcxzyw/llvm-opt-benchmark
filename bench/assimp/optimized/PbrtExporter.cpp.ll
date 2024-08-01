@@ -4342,7 +4342,7 @@ for.cond36.preheader.us.preheader:                ; preds = %for.cond36.preheade
 
 for.cond36.preheader.us:                          ; preds = %for.cond36.preheader.us.preheader, %for.inc52.us
   %indvars.iv45 = phi i64 [ 0, %for.cond36.preheader.us.preheader ], [ %indvars.iv.next46, %for.inc52.us ]
-  %hasMask.224.us = phi i1 [ false, %for.cond36.preheader.us.preheader ], [ %hasMask.3.us, %for.inc52.us ]
+  %hasMask.324.us = phi i1 [ false, %for.cond36.preheader.us.preheader ], [ %hasMask.4.us, %for.inc52.us ]
   %4 = mul nuw nsw i64 %indvars.iv45, %3
   br label %for.body38.us
 
@@ -4363,7 +4363,7 @@ for.body38.us:                                    ; preds = %for.cond36.preheade
   br i1 %cmp46.not.us, label %for.cond36.us, label %for.inc52.us
 
 for.inc52.us:                                     ; preds = %for.cond36.us, %for.body38.us
-  %hasMask.3.us = phi i1 [ true, %for.body38.us ], [ %hasMask.224.us, %for.cond36.us ]
+  %hasMask.4.us = phi i1 [ true, %for.body38.us ], [ %hasMask.324.us, %for.cond36.us ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
   br i1 %exitcond49.not, label %sw.epilog, label %for.cond36.preheader.us, !llvm.loop !39
@@ -4385,7 +4385,7 @@ for.cond11.preheader.us.preheader:                ; preds = %for.cond11.preheade
 
 for.cond11.preheader.us:                          ; preds = %for.cond11.preheader.us.preheader, %for.inc26.us
   %indvars.iv58 = phi i64 [ 0, %for.cond11.preheader.us.preheader ], [ %indvars.iv.next59, %for.inc26.us ]
-  %hasMask.031.us = phi i1 [ false, %for.cond11.preheader.us.preheader ], [ %hasMask.1.us, %for.inc26.us ]
+  %hasMask.131.us = phi i1 [ false, %for.cond11.preheader.us.preheader ], [ %hasMask.2.us, %for.inc26.us ]
   %10 = mul nuw nsw i64 %indvars.iv58, %9
   br label %for.body13.us
 
@@ -4405,7 +4405,7 @@ for.body13.us:                                    ; preds = %for.cond11.preheade
   br i1 %cmp20.not.us, label %for.cond11.us, label %for.inc26.us
 
 for.inc26.us:                                     ; preds = %for.cond11.us, %for.body13.us
-  %hasMask.1.us = phi i1 [ true, %for.body13.us ], [ %hasMask.031.us, %for.cond11.us ]
+  %hasMask.2.us = phi i1 [ true, %for.body13.us ], [ %hasMask.131.us, %for.cond11.us ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %sw.epilog, label %for.cond11.preheader.us, !llvm.loop !41
@@ -4440,12 +4440,12 @@ sw.default:                                       ; preds = %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.inc52.us, %for.inc26.us, %for.body, %for.cond11.preheader.lr.ph, %for.cond36.preheader.lr.ph, %for.cond32.preheader, %for.cond8.preheader, %for.cond.preheader, %if.end, %sw.default
-  %hasMask.4 = phi i1 [ false, %sw.default ], [ false, %if.end ], [ false, %for.cond.preheader ], [ false, %for.cond8.preheader ], [ false, %for.cond32.preheader ], [ false, %for.cond36.preheader.lr.ph ], [ false, %for.cond11.preheader.lr.ph ], [ %cmp4.not.not, %for.body ], [ %hasMask.1.us, %for.inc26.us ], [ %hasMask.3.us, %for.inc52.us ]
+  %hasMask.0 = phi i1 [ false, %sw.default ], [ false, %if.end ], [ false, %for.cond.preheader ], [ false, %for.cond8.preheader ], [ false, %for.cond32.preheader ], [ false, %for.cond36.preheader.lr.ph ], [ false, %for.cond11.preheader.lr.ph ], [ %cmp4.not.not, %for.body ], [ %hasMask.2.us, %for.inc26.us ], [ %hasMask.4.us, %for.inc52.us ]
   call void @assimp_stbi_image_free(ptr noundef nonnull %call1)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then
-  %retval.0 = phi i1 [ %hasMask.4, %sw.epilog ], [ false, %if.then ]
+  %retval.0 = phi i1 [ %hasMask.0, %sw.epilog ], [ false, %if.then ]
   ret i1 %retval.0
 }
 

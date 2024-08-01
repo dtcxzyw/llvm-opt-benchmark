@@ -2785,22 +2785,22 @@ if.end93:                                         ; preds = %if.else, %if.then81
   br label %return
 
 out2:                                             ; preds = %land.lhs.true71, %if.then59, %if.then49, %if.then40
-  %err.0 = phi i32 [ -8, %if.then49 ], [ -7, %if.then59 ], [ 2, %if.then40 ], [ 2, %land.lhs.true71 ]
+  %err.1 = phi i32 [ -8, %if.then49 ], [ -7, %if.then59 ], [ 2, %if.then40 ], [ 2, %land.lhs.true71 ]
   %19 = load i32, ptr %call17, align 8
   %call95 = tail call i32 @evutil_closesocket(i32 noundef %19) #18
   br label %out1
 
 out1:                                             ; preds = %if.end20, %out2
-  %err.1 = phi i32 [ %err.0, %out2 ], [ 1, %if.end20 ]
+  %err.0 = phi i32 [ %err.1, %out2 ], [ 1, %if.end20 ]
   %event96 = getelementptr inbounds i8, ptr %call17, i64 160
   tail call void @event_debug_unassign(ptr noundef nonnull %event96) #18
   tail call void @event_mm_free_(ptr noundef nonnull %call17) #18
   %call98 = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address, ptr noundef nonnull %addrbuf, i64 noundef 128) #18
-  call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.69, ptr noundef %call98, i32 noundef %err.1)
+  call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.69, ptr noundef %call98, i32 noundef %err.0)
   br label %return
 
 return:                                           ; preds = %do.body7, %if.end16, %out1, %if.end93, %if.then15
-  %retval.0 = phi i32 [ 2, %if.then15 ], [ %err.1, %out1 ], [ 0, %if.end93 ], [ -1, %if.end16 ], [ 3, %do.body7 ]
+  %retval.0 = phi i32 [ 2, %if.then15 ], [ %err.0, %out1 ], [ 0, %if.end93 ], [ -1, %if.end16 ], [ 3, %do.body7 ]
   ret i32 %retval.0
 }
 
@@ -7758,21 +7758,21 @@ if.else162:                                       ; preds = %if.then155
   br label %if.end165
 
 if.end165:                                        ; preds = %if.else162, %if.then159
-  %res.1 = phi ptr [ %call161, %if.then159 ], [ %call164, %if.else162 ]
+  %res.2 = phi ptr [ %call161, %if.then159 ], [ %call164, %if.else162 ]
   store ptr null, ptr %pending_result153, align 8
   br label %if.end167
 
 if.end167:                                        ; preds = %if.end165, %if.else152
-  %res.2 = phi ptr [ %res.1, %if.end165 ], [ %res.0.lcssa, %if.else152 ]
+  %res.1 = phi ptr [ %res.2, %if.end165 ], [ %res.0.lcssa, %if.else152 ]
   %cname_result.i129 = getelementptr inbounds i8, ptr %data.0, i64 112
   %49 = load ptr, ptr %cname_result.i129, align 8
   %tobool.i130 = icmp ne ptr %49, null
-  %tobool1.i131 = icmp ne ptr %res.2, null
+  %tobool1.i131 = icmp ne ptr %res.1, null
   %or.cond.i132 = and i1 %tobool1.i131, %tobool.i130
   br i1 %or.cond.i132, label %if.then.i134, label %add_cname_to_reply.exit136
 
 if.then.i134:                                     ; preds = %if.end167
-  %ai_canonname.i135 = getelementptr inbounds i8, ptr %res.2, i64 32
+  %ai_canonname.i135 = getelementptr inbounds i8, ptr %res.1, i64 32
   store ptr %49, ptr %ai_canonname.i135, align 8
   store ptr null, ptr %cname_result.i129, align 8
   br label %add_cname_to_reply.exit136
@@ -7781,7 +7781,7 @@ add_cname_to_reply.exit136:                       ; preds = %if.end167, %if.then
   %50 = load ptr, ptr %user_cb, align 8
   %user_data169 = getelementptr inbounds i8, ptr %data.0, i64 64
   %51 = load ptr, ptr %user_data169, align 8
-  call void %50(i32 noundef 0, ptr noundef %res.2, ptr noundef %51) #18
+  call void %50(i32 noundef 0, ptr noundef %res.1, ptr noundef %51) #18
   call fastcc void @free_getaddrinfo_request(ptr noundef nonnull %data.0)
   br label %if.end170
 
@@ -9919,7 +9919,7 @@ do.body130.lr.ph:                                 ; preds = %if.end118
 do.body130:                                       ; preds = %do.body130.lr.ph, %for.inc349
   %bf.load = phi i8 [ 0, %do.body130.lr.ph ], [ %bf.load332, %for.inc349 ]
   %14 = phi i32 [ 0, %do.body130.lr.ph ], [ %24, %for.inc349 ]
-  %ttl_r.0291 = phi i32 [ -1, %do.body130.lr.ph ], [ %ttl_r.1, %for.inc349 ]
+  %ttl_r.0291 = phi i32 [ -1, %do.body130.lr.ph ], [ %ttl_r.2, %for.inc349 ]
   %i.1290 = phi i32 [ 0, %do.body130.lr.ph ], [ %inc350, %for.inc349 ]
   store i8 0, ptr %tmp_name, align 16
   %call133 = call fastcc i32 @name_parse(ptr noundef nonnull %packet, i32 noundef %length, ptr noundef nonnull %j, ptr noundef nonnull %tmp_name, i32 noundef 256)
@@ -10120,7 +10120,7 @@ if.else342:                                       ; preds = %if.else288
 for.inc349:                                       ; preds = %if.end216, %if.then283, %land.lhs.true280, %if.end278, %if.else342, %if.end325, %if.then302, %if.then240, %if.then195
   %bf.load332 = phi i8 [ %bf.load, %if.then195 ], [ %bf.set, %if.end216 ], [ %bf.load, %if.then240 ], [ %bf.load, %land.lhs.true280 ], [ %bf.load, %if.then283 ], [ %bf.load, %if.end278 ], [ %bf.load, %if.then302 ], [ %bf.set341, %if.end325 ], [ %bf.load, %if.else342 ]
   %24 = phi i32 [ %14, %if.then195 ], [ %add226, %if.end216 ], [ %14, %if.then240 ], [ %14, %land.lhs.true280 ], [ %14, %if.then283 ], [ %14, %if.end278 ], [ %14, %if.then302 ], [ %add335, %if.end325 ], [ %14, %if.else342 ]
-  %ttl_r.1 = phi i32 [ %ttl_r.0291, %if.then195 ], [ %cond211, %if.end216 ], [ %ttl_r.0291, %if.then240 ], [ %ttl_r.0291, %land.lhs.true280 ], [ %ttl_r.0291, %if.then283 ], [ %ttl_r.0291, %if.end278 ], [ %ttl_r.0291, %if.then302 ], [ %cond319, %if.end325 ], [ %ttl_r.0291, %if.else342 ]
+  %ttl_r.2 = phi i32 [ %ttl_r.0291, %if.then195 ], [ %cond211, %if.end216 ], [ %ttl_r.0291, %if.then240 ], [ %ttl_r.0291, %land.lhs.true280 ], [ %ttl_r.0291, %if.then283 ], [ %ttl_r.0291, %if.end278 ], [ %ttl_r.0291, %if.then302 ], [ %cond319, %if.end325 ], [ %ttl_r.0291, %if.else342 ]
   %inc350 = add nuw nsw i32 %i.1290, 1
   %exitcond329.not = icmp eq i32 %inc350, %conv125
   br i1 %exitcond329.not, label %for.end351, label %do.body130, !llvm.loop !49
@@ -10131,13 +10131,13 @@ for.end351:                                       ; preds = %for.inc349
   br i1 %26, label %for.cond358.preheader, label %if.end518
 
 for.cond358.preheader:                            ; preds = %if.end118, %for.end351
-  %ttl_r.2337 = phi i32 [ %ttl_r.1, %for.end351 ], [ -1, %if.end118 ]
+  %ttl_r.1337 = phi i32 [ %ttl_r.2, %for.end351 ], [ -1, %if.end118 ]
   %conv359 = zext i16 %call47 to i32
   %cmp360293.not = icmp eq i16 %call47, 0
   br i1 %cmp360293.not, label %if.end518, label %do.body365
 
 do.body365:                                       ; preds = %for.cond358.preheader, %for.inc515
-  %ttl_r.3295 = phi i32 [ %ttl_r.4, %for.inc515 ], [ %ttl_r.2337, %for.cond358.preheader ]
+  %ttl_r.4295 = phi i32 [ %ttl_r.5, %for.inc515 ], [ %ttl_r.1337, %for.cond358.preheader ]
   %i.2294 = phi i32 [ %inc516, %for.inc515 ], [ 0, %for.cond358.preheader ]
   store i8 0, ptr %tmp_name, align 16
   %call368 = call fastcc i32 @name_parse(ptr noundef nonnull %packet, i32 noundef %length, ptr noundef nonnull %j, ptr noundef nonnull %tmp_name, i32 noundef 256)
@@ -10227,7 +10227,7 @@ if.end493:                                        ; preds = %if.end482
   %t32_.0.copyload76 = load i32, ptr %add.ptr495, align 1
   store i32 %add489, ptr %j, align 4
   %call497 = call i32 @ntohl(i32 noundef %t32_.0.copyload76) #19
-  %cond504 = call i32 @llvm.umin.i32(i32 %ttl_r.3295, i32 %call405)
+  %cond504 = call i32 @llvm.umin.i32(i32 %ttl_r.4295, i32 %call405)
   %cond510 = call i32 @llvm.umin.i32(i32 %cond504, i32 %call497)
   br label %for.inc515
 
@@ -10239,15 +10239,15 @@ if.else511:                                       ; preds = %if.end412
   br label %for.inc515
 
 for.inc515:                                       ; preds = %if.end493, %if.else511
-  %ttl_r.4 = phi i32 [ %cond510, %if.end493 ], [ %ttl_r.3295, %if.else511 ]
+  %ttl_r.5 = phi i32 [ %cond510, %if.end493 ], [ %ttl_r.4295, %if.else511 ]
   %inc516 = add nuw nsw i32 %i.2294, 1
   %exitcond330.not = icmp eq i32 %inc516, %conv359
   br i1 %exitcond330.not, label %if.end518, label %do.body365, !llvm.loop !50
 
 if.end518:                                        ; preds = %for.inc515, %for.end351.thread338, %for.cond358.preheader, %for.end351
-  %ttl_r.5 = phi i32 [ %ttl_r.1, %for.end351 ], [ %ttl_r.2337, %for.cond358.preheader ], [ %cond255, %for.end351.thread338 ], [ %ttl_r.4, %for.inc515 ]
-  %cmp519 = icmp eq i32 %ttl_r.5, -1
-  %spec.store.select = select i1 %cmp519, i32 0, i32 %ttl_r.5
+  %ttl_r.3 = phi i32 [ %ttl_r.2, %for.end351 ], [ %ttl_r.1337, %for.cond358.preheader ], [ %cond255, %for.end351.thread338 ], [ %ttl_r.5, %for.inc515 ]
+  %cmp519 = icmp eq i32 %ttl_r.3, -1
+  %spec.store.select = select i1 %cmp519, i32 0, i32 %ttl_r.3
   call fastcc void @reply_handle(ptr noundef nonnull %req.0.i, i16 noundef zeroext %call17, i32 noundef %spec.store.select, ptr noundef nonnull %reply)
   %29 = load ptr, ptr %data, align 8
   %tobool524.not = icmp eq ptr %29, null

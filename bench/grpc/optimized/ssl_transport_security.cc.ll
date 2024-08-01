@@ -398,10 +398,10 @@ _ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.threa
 
 _ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit: ; preds = %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i, %if.then2.i
   %5 = phi ptr [ null, %if.then2.i ], [ %.pre.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ]
-  %common_name_size.1.i = phi i64 [ 0, %if.then2.i ], [ %conv.i.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ]
+  %common_name_size.0.i = phi i64 [ 0, %if.then2.i ], [ %conv.i.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ]
   %cmp4.i = icmp eq ptr %5, null
   %cond.i = select i1 %cmp4.i, ptr @.str, ptr %5
-  %call5.i = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.18, ptr noundef nonnull %cond.i, i64 noundef %common_name_size.1.i, ptr noundef nonnull %arrayidx46)
+  %call5.i = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.18, ptr noundef nonnull %cond.i, i64 noundef %common_name_size.0.i, ptr noundef nonnull %arrayidx46)
   %6 = load ptr, ptr %common_name.i, align 8
   call void @OPENSSL_free(ptr noundef %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %common_name.i)
@@ -1408,7 +1408,7 @@ if.end85:                                         ; preds = %do.end
   br label %if.end91
 
 if.end.i:                                         ; preds = %if.then84, %if.then69, %if.then61, %do.body
-  %result.1.ph = phi i32 [ 2, %if.then84 ], [ %call67, %if.then69 ], [ %call59, %if.then61 ], [ %call38, %do.body ]
+  %result.0.ph = phi i32 [ 2, %if.then84 ], [ %call67, %if.then69 ], [ %call59, %if.then61 ], [ %call38, %do.body ]
   %call.i = tail call i32 @gpr_unref(ptr noundef nonnull %refcount.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.then1.i
@@ -1484,7 +1484,7 @@ if.end125:                                        ; preds = %if.else106, %land.l
   br label %return
 
 return:                                           ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then1.i, %if.end.i, %sw.default7.i, %sw.default.i, %land.lhs.true3, %entry, %if.end125, %if.then8
-  %retval.0 = phi i32 [ 2, %if.then8 ], [ 0, %if.end125 ], [ 2, %entry ], [ 2, %land.lhs.true3 ], [ 5, %sw.default.i ], [ 5, %sw.default7.i ], [ %result.1.ph, %if.end.i ], [ %result.1.ph, %if.then1.i ], [ %result.1.ph, %land.lhs.true.i.i ], [ %result.1.ph, %if.then4.i.i ]
+  %retval.0 = phi i32 [ 2, %if.then8 ], [ 0, %if.end125 ], [ 2, %entry ], [ 2, %land.lhs.true3 ], [ 5, %sw.default.i ], [ 5, %sw.default7.i ], [ %result.0.ph, %if.end.i ], [ %result.0.ph, %if.then1.i ], [ %result.0.ph, %land.lhs.true.i.i ], [ %result.0.ph, %if.then4.i.i ]
   ret i32 %retval.0
 }
 
@@ -2359,7 +2359,7 @@ invoke.cont24:                                    ; preds = %_ZNSt10shared_ptrIN
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont24
-  %retval.0 = phi i32 [ 1, %invoke.cont24 ], [ 0, %invoke.cont16 ]
+  %retval.1 = phi i32 [ 1, %invoke.cont24 ], [ 0, %invoke.cont16 ]
   %_M_refcount.i.i8 = getelementptr inbounds i8, ptr %internal_crl, i64 8
   %28 = load ptr, ptr %_M_refcount.i.i8, align 8
   %cmp.not.i.i.i9 = icmp eq ptr %28, null
@@ -2445,8 +2445,8 @@ ehcleanup27:                                      ; preds = %lpad15, %lpad
   br label %common.resume
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN9grpc_core12experimental3CrlEED2Ev.exit, %if.then13, %if.then6, %if.then
-  %retval.1 = phi i32 [ 0, %if.then ], [ 0, %if.then6 ], [ 0, %if.then13 ], [ %retval.0, %_ZNSt10shared_ptrIN9grpc_core12experimental3CrlEED2Ev.exit ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then6 ], [ 0, %if.then13 ], [ %retval.1, %_ZNSt10shared_ptrIN9grpc_core12experimental3CrlEED2Ev.exit ]
+  ret i32 %retval.0
 }
 
 declare void @X509_STORE_set_check_crl(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -3876,7 +3876,7 @@ invoke.cont44:                                    ; preds = %if.end37
           to label %cleanup unwind label %lpad.loopexit
 
 cleanup.thread:                                   ; preds = %if.then29, %if.then35
-  %result.1.ph = phi i32 [ %call33, %if.then35 ], [ 7, %if.then29 ]
+  %result.2.ph = phi i32 [ %call33, %if.then35 ], [ 7, %if.then29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %property_name) #24
   br label %for.end
 
@@ -3944,13 +3944,13 @@ if.else81:                                        ; preds = %for.body
   br label %if.end88
 
 if.end88:                                         ; preds = %cleanup, %if.end75, %if.else81
-  %result.2 = phi i32 [ %call45, %cleanup ], [ %call80, %if.end75 ], [ %call86, %if.else81 ]
-  %cmp89.not = icmp eq i32 %result.2, 0
+  %result.3 = phi i32 [ %call45, %cleanup ], [ %call80, %if.end75 ], [ %call86, %if.else81 ]
+  %cmp89.not = icmp eq i32 %result.3, 0
   br i1 %cmp89.not, label %for.cond, label %for.end
 
 for.end:                                          ; preds = %for.cond, %if.end67, %if.end88, %entry, %cleanup.thread, %if.then66, %if.else59
-  %result.3 = phi i32 [ 7, %if.then66 ], [ 7, %if.else59 ], [ %result.1.ph, %cleanup.thread ], [ 0, %entry ], [ 0, %for.cond ], [ %call72, %if.end67 ], [ %result.2, %if.end88 ]
-  ret i32 %result.3
+  %result.1 = phi i32 [ 7, %if.then66 ], [ 7, %if.else59 ], [ %result.2.ph, %cleanup.thread ], [ 0, %entry ], [ 0, %for.cond ], [ %call72, %if.end67 ], [ %result.3, %if.end88 ]
+  ret i32 %result.1
 }
 
 declare void @GENERAL_NAME_free(ptr noundef) #0
@@ -4240,8 +4240,8 @@ land.lhs.true14:                                  ; preds = %while.cond.preheade
   %number_bio_write_attempts.062 = phi i64 [ 0, %while.cond.preheader ], [ %inc, %while.end ]
   %remaining_bytes_to_write_to_openssl_size.061 = phi i64 [ %received_bytes_size, %while.cond.preheader ], [ %sub, %while.end ]
   %remaining_bytes_to_write_to_openssl.060 = phi ptr [ %received_bytes, %while.cond.preheader ], [ %add.ptr, %while.end ]
-  %status.059 = phi i32 [ 0, %while.cond.preheader ], [ %status.1.lcssa, %while.end ]
-  %2 = and i32 %status.059, -5
+  %status.159 = phi i32 [ 0, %while.cond.preheader ], [ %status.2.lcssa, %while.end ]
+  %2 = and i32 %status.159, -5
   %or.cond4 = icmp eq i32 %2, 0
   %cmp18 = icmp ult i64 %number_bio_write_attempts.062, 100
   %or.cond5 = select i1 %or.cond4, i1 %cmp18, i1 false
@@ -4298,15 +4298,15 @@ if.end26:                                         ; preds = %while.body22
 
 while.end:                                        ; preds = %if.end26, %if.end16.i, %if.then5.i, %if.then.i, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %bytes_written_to_openssl.067 = phi i64 [ %conv19.i, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %remaining_bytes_to_write_to_openssl_size.061, %if.then.i ], [ %remaining_bytes_to_write_to_openssl_size.061, %if.then5.i ], [ %remaining_bytes_to_write_to_openssl_size.061, %if.end16.i ], [ %conv19.i, %if.end26 ]
-  %status.1.lcssa = phi i32 [ %call20.i, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %if.then.i ], [ 2, %if.then5.i ], [ 7, %if.end16.i ], [ %call27, %if.end26 ]
+  %status.2.lcssa = phi i32 [ %call20.i, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %if.then.i ], [ 2, %if.then5.i ], [ 7, %if.end16.i ], [ %call27, %if.end26 ]
   %sub = sub i64 %remaining_bytes_to_write_to_openssl_size.061, %bytes_written_to_openssl.067
   %add.ptr = getelementptr inbounds i8, ptr %remaining_bytes_to_write_to_openssl.060, i64 %bytes_written_to_openssl.067
   %cmp13.not = icmp eq i64 %sub, 0
   br i1 %cmp13.not, label %if.end29, label %land.lhs.true14, !llvm.loop !39
 
 if.end29:                                         ; preds = %land.lhs.true14, %while.end
-  %status.0.lcssa = phi i32 [ %status.059, %land.lhs.true14 ], [ %status.1.lcssa, %while.end ]
-  %cmp30.not = icmp eq i32 %status.0.lcssa, 0
+  %status.1.lcssa = phi i32 [ %status.159, %land.lhs.true14 ], [ %status.2.lcssa, %while.end ]
+  %cmp30.not = icmp eq i32 %status.1.lcssa, 0
   br i1 %cmp30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end10, %if.end29
@@ -4380,7 +4380,7 @@ if.then53:                                        ; preds = %if.end50
   br label %return
 
 return:                                           ; preds = %while.body22, %if.then39, %if.then53, %if.end50, %if.then45, %if.then47, %if.else, %if.end32, %if.end29, %if.then, %if.then9
-  %retval.0 = phi i32 [ 2, %if.then9 ], [ 2, %if.then ], [ %status.0.lcssa, %if.end29 ], [ %call33, %if.end32 ], [ %call40, %if.else ], [ 7, %if.then47 ], [ 7, %if.then45 ], [ 0, %if.then39 ], [ 0, %if.then53 ], [ %call51, %if.end50 ], [ %call23, %while.body22 ]
+  %retval.0 = phi i32 [ 2, %if.then9 ], [ 2, %if.then ], [ %status.1.lcssa, %if.end29 ], [ %call33, %if.end32 ], [ %call40, %if.else ], [ 7, %if.then47 ], [ 7, %if.then45 ], [ 0, %if.then39 ], [ 0, %if.then53 ], [ %call51, %if.end50 ], [ %call23, %while.body22 ]
   ret i32 %retval.0
 }
 

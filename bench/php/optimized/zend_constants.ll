@@ -1425,8 +1425,8 @@ zend_verify_const_access.exit.thread:             ; preds = %84, %91, %zend_veri
   br label %.thread118
 
 .thread118:                                       ; preds = %78, %.thread, %135, %125, %121, %110, %113, %100, %103, %132, %81, %56, %40, %36, %28
-  %.1 = phi ptr [ null, %81 ], [ null, %132 ], [ %85, %125 ], [ null, %113 ], [ null, %110 ], [ null, %121 ], [ null, %103 ], [ null, %100 ], [ null, %56 ], [ null, %36 ], [ null, %40 ], [ null, %28 ], [ %spec.select, %135 ], [ null, %.thread ], [ null, %78 ]
-  ret ptr %.1
+  %.075 = phi ptr [ null, %81 ], [ null, %132 ], [ %85, %125 ], [ null, %113 ], [ null, %110 ], [ null, %121 ], [ null, %103 ], [ null, %100 ], [ null, %56 ], [ null, %36 ], [ null, %40 ], [ null, %28 ], [ %spec.select, %135 ], [ null, %.thread ], [ null, %78 ]
+  ret ptr %.075
 }
 
 declare ptr @zend_fetch_class(ptr noundef, i32 noundef) local_unnamed_addr #1

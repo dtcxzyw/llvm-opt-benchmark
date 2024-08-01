@@ -579,8 +579,8 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde.
   br i1 %16, label %11, label %18
 
 17:                                               ; preds = %18, %12
-  %.0 = phi ptr [ %15, %18 ], [ null, %12 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %15, %18 ], [ null, %12 ]
+  ret ptr %.1
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)

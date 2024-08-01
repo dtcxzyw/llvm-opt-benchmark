@@ -4452,12 +4452,12 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   br label %96
 
 ._crit_edge.i:                                    ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i"
-  %95 = icmp eq i64 %.319.i, 0
+  %95 = icmp eq i64 %.218.i, 0
   br i1 %95, label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, label %100
 
 96:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i", %.lr.ph.i
-  %.165.i = phi i64 [ 1, %.lr.ph.i ], [ %.4.i, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i" ]
-  %.01664.i = phi i64 [ 0, %.lr.ph.i ], [ %.319.i, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i" ]
+  %.165.i = phi i64 [ 1, %.lr.ph.i ], [ %.3.i, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i" ]
+  %.01664.i = phi i64 [ 0, %.lr.ph.i ], [ %.218.i, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i" ]
   %.sroa.0.063.i = phi ptr [ %.val21.i, %.lr.ph.i ], [ %97, %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i" ]
   %97 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 24
   %98 = load i64, ptr %.sroa.0.063.i, align 8, !range !27, !noalias !1218, !noundef !16
@@ -4465,10 +4465,10 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   br i1 %99, label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i", label %119
 
 100:                                              ; preds = %._crit_edge.i
-  %101 = icmp ugt i64 %.319.i, 9999999999
-  %102 = udiv i64 %.319.i, 10000000000
+  %101 = icmp ugt i64 %.218.i, 9999999999
+  %102 = udiv i64 %.218.i, 10000000000
   %.08.i.i.i = select i1 %101, i32 10, i32 0
-  %.0.i.i.i = select i1 %101, i64 %102, i64 %.319.i
+  %.0.i.i.i = select i1 %101, i64 %102, i64 %.218.i
   %103 = icmp ugt i64 %.0.i.i.i, 99999
   br i1 %103, label %104, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i"
 
@@ -4492,7 +4492,7 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   %116 = add nuw nsw i32 %.19.i.i.i, 1
   %117 = add nuw nsw i32 %116, %115
   %118 = zext nneg i32 %117 to i64
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umax.i64(i64 %118, i64 %.4.i)
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umax.i64(i64 %118, i64 %.3.i)
   br label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit
 
 119:                                              ; preds = %96
@@ -4515,8 +4515,8 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   %123 = and i32 %.sroa.832.0.copyload.i, 61440
   %124 = icmp eq i32 %123, 32768
   %125 = select i1 %124, i64 %.sroa.933.0.copyload.i, i64 0
-  %.218.i = add i64 %125, %.01664.i
-  %.3.i = select i1 %124, i64 %.165.i, i64 7
+  %.319.i = add i64 %125, %.01664.i
+  %.4.i = select i1 %124, i64 %.165.i, i64 7
   br label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i"
 
 126:                                              ; preds = %119
@@ -4537,13 +4537,13 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   br label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i"
 
 "_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h2db79fe5ae08651bE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i", %122, %96
-  %.319.i = phi i64 [ %.01664.i, %96 ], [ %.218.i, %122 ], [ %.01664.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i" ]
-  %.4.i = phi i64 [ 7, %96 ], [ %.3.i, %122 ], [ %.165.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i" ]
+  %.218.i = phi i64 [ %.01664.i, %96 ], [ %.319.i, %122 ], [ %.01664.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i" ]
+  %.3.i = phi i64 [ 7, %96 ], [ %.4.i, %122 ], [ %.165.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i" ]
   %130 = icmp eq ptr %97, %91
   br i1 %130, label %._crit_edge.i, label %96
 
 _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit: ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i", %._crit_edge.i, %89, %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i, %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit.i, %2
-  %.066.ph = phi i64 [ 1, %89 ], [ 1, %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i ], [ %..i, %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit.i ], [ %.0.sroa.speculated.i.i, %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i" ], [ %.4.i, %._crit_edge.i ], [ 1, %2 ]
+  %.066.ph = phi i64 [ 1, %89 ], [ 1, %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i ], [ %..i, %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit.i ], [ %.0.sroa.speculated.i.i, %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i" ], [ %.3.i, %._crit_edge.i ], [ 1, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1272)
   call void @llvm.experimental.noalias.scope.decl(metadata !1275)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)

@@ -41,8 +41,8 @@ define void @PHP_FNV132Update(ptr nocapture noundef %0, ptr noundef readonly %1,
   br i1 %12, label %.lr.ph22.i, label %fnv_32_buf.exit
 
 fnv_32_buf.exit:                                  ; preds = %.lr.ph22.i, %3
-  %.2.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph22.i ]
-  store i32 %.2.i, ptr %0, align 4
+  %.1.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph22.i ]
+  store i32 %.1.i, ptr %0, align 4
   ret void
 }
 
@@ -79,19 +79,19 @@ define void @PHP_FNV1a32Update(ptr nocapture noundef %0, ptr noundef readonly %1
   br i1 %6, label %.lr.ph.i, label %fnv_32_buf.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.119.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
+  %.219.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
   %.11518.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
   %7 = getelementptr inbounds i8, ptr %.11518.i, i64 1
   %8 = load i8, ptr %.11518.i, align 1
   %9 = zext i8 %8 to i32
-  %10 = xor i32 %.119.i, %9
+  %10 = xor i32 %.219.i, %9
   %11 = mul i32 %10, 16777619
   %12 = icmp ult ptr %7, %5
   br i1 %12, label %.lr.ph.i, label %fnv_32_buf.exit
 
 fnv_32_buf.exit:                                  ; preds = %.lr.ph.i, %3
-  %.2.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph.i ]
-  store i32 %.2.i, ptr %0, align 4
+  %.1.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph.i ]
+  store i32 %.1.i, ptr %0, align 4
   ret void
 }
 
@@ -120,8 +120,8 @@ define void @PHP_FNV164Update(ptr nocapture noundef %0, ptr noundef readonly %1,
   br i1 %12, label %.lr.ph22.i, label %fnv_64_buf.exit
 
 fnv_64_buf.exit:                                  ; preds = %.lr.ph22.i, %3
-  %.2.i = phi i64 [ %4, %3 ], [ %11, %.lr.ph22.i ]
-  store i64 %.2.i, ptr %0, align 8
+  %.1.i = phi i64 [ %4, %3 ], [ %11, %.lr.ph22.i ]
+  store i64 %.1.i, ptr %0, align 8
   ret void
 }
 
@@ -152,19 +152,19 @@ define void @PHP_FNV1a64Update(ptr nocapture noundef %0, ptr noundef readonly %1
   br i1 %6, label %.lr.ph.i, label %fnv_64_buf.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.119.i = phi i64 [ %11, %.lr.ph.i ], [ %4, %3 ]
+  %.219.i = phi i64 [ %11, %.lr.ph.i ], [ %4, %3 ]
   %.11518.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
   %7 = getelementptr inbounds i8, ptr %.11518.i, i64 1
   %8 = load i8, ptr %.11518.i, align 1
   %9 = zext i8 %8 to i64
-  %10 = xor i64 %.119.i, %9
+  %10 = xor i64 %.219.i, %9
   %11 = mul i64 %10, 1099511628211
   %12 = icmp ult ptr %7, %5
   br i1 %12, label %.lr.ph.i, label %fnv_64_buf.exit
 
 fnv_64_buf.exit:                                  ; preds = %.lr.ph.i, %3
-  %.2.i = phi i64 [ %4, %3 ], [ %11, %.lr.ph.i ]
-  store i64 %.2.i, ptr %0, align 8
+  %.1.i = phi i64 [ %4, %3 ], [ %11, %.lr.ph.i ]
+  store i64 %.1.i, ptr %0, align 8
   ret void
 }
 

@@ -3557,7 +3557,7 @@ terminate.lpad.i17:                               ; preds = %land.lhs.true.i.i13
   unreachable
 
 if.end:                                           ; preds = %if.then, %if.then.i.i, %call.i.noexc.i, %invoke.cont3, %entry
-  %data.sroa.0.2 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
+  %data.sroa.0.1 = phi ptr [ null, %entry ], [ %2, %invoke.cont3 ], [ %2, %call.i.noexc.i ], [ %2, %if.then.i.i ], [ null, %if.then ]
   %throw_file_ = getelementptr inbounds i8, ptr %b, i64 24
   %12 = load ptr, ptr %throw_file_, align 8
   %throw_file_5 = getelementptr inbounds i8, ptr %a, i64 24
@@ -3587,15 +3587,15 @@ land.lhs.true.i.i.i22:                            ; preds = %if.end
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25 unwind label %ehcleanup
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25: ; preds = %land.lhs.true.i.i.i22, %if.end
-  store ptr %data.sroa.0.2, ptr %data_9, align 8
-  %tobool.not.i1.i.i26 = icmp eq ptr %data.sroa.0.2, null
+  store ptr %data.sroa.0.1, ptr %data_9, align 8
+  %tobool.not.i1.i.i26 = icmp eq ptr %data.sroa.0.1, null
   br i1 %tobool.not.i1.i.i26, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit42, label %if.then.i2.i.i27
 
 if.then.i2.i.i27:                                 ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i25
-  %vtable.i3.i.i28 = load ptr, ptr %data.sroa.0.2, align 8
+  %vtable.i3.i.i28 = load ptr, ptr %data.sroa.0.1, align 8
   %vfn.i4.i.i29 = getelementptr inbounds i8, ptr %vtable.i3.i.i28, i64 24
   %18 = load ptr, ptr %vfn.i4.i.i29, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.1)
           to label %land.lhs.true.i.i35 unwind label %ehcleanup.thread65
 
 ehcleanup.thread65:                               ; preds = %if.then.i2.i.i27
@@ -3604,10 +3604,10 @@ ehcleanup.thread65:                               ; preds = %if.then.i2.i.i27
   br label %land.lhs.true.i.i44
 
 land.lhs.true.i.i35:                              ; preds = %if.then.i2.i.i27
-  %vtable.i.i36 = load ptr, ptr %data.sroa.0.2, align 8
+  %vtable.i.i36 = load ptr, ptr %data.sroa.0.1, align 8
   %vfn.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i36, i64 32
   %20 = load ptr, ptr %vfn.i.i37, align 8
-  %call.i1.i38 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.2)
+  %call.i1.i38 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.1)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit42 unwind label %terminate.lpad.i39
 
 terminate.lpad.i39:                               ; preds = %land.lhs.true.i.i35
@@ -3623,12 +3623,12 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit4
 ehcleanup:                                        ; preds = %land.lhs.true.i.i.i22
   %23 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i43 = icmp eq ptr %data.sroa.0.2, null
+  %tobool.not.i.i43 = icmp eq ptr %data.sroa.0.1, null
   br i1 %tobool.not.i.i43, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit51, label %land.lhs.true.i.i44
 
 land.lhs.true.i.i44:                              ; preds = %if.then.i.i19, %call.i.noexc.i18, %lpad2, %ehcleanup.thread65, %ehcleanup
   %.pn60 = phi { ptr, i32 } [ %23, %ehcleanup ], [ %19, %ehcleanup.thread65 ], [ %7, %lpad2 ], [ %7, %call.i.noexc.i18 ], [ %7, %if.then.i.i19 ]
-  %data.sroa.0.359 = phi ptr [ %data.sroa.0.2, %ehcleanup ], [ %data.sroa.0.2, %ehcleanup.thread65 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
+  %data.sroa.0.359 = phi ptr [ %data.sroa.0.1, %ehcleanup ], [ %data.sroa.0.1, %ehcleanup.thread65 ], [ %2, %lpad2 ], [ %2, %call.i.noexc.i18 ], [ %2, %if.then.i.i19 ]
   %vtable.i.i45 = load ptr, ptr %data.sroa.0.359, align 8
   %vfn.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i45, i64 32
   %24 = load ptr, ptr %vfn.i.i46, align 8

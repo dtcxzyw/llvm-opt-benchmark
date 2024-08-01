@@ -96,17 +96,17 @@ define hidden ptr @mbedtls_cipher_info_from_psa(i32 noundef %0, i16 noundef zero
 
 29:                                               ; preds = %22, %28, %27, %24, %23
   %.017 = phi i64 [ %2, %28 ], [ %2, %27 ], [ %spec.store.select, %24 ], [ %2, %23 ], [ %2, %22 ]
-  %.1 = phi i32 [ 7, %28 ], [ 5, %27 ], [ %., %24 ], [ 6, %23 ], [ 2, %22 ]
+  %.0 = phi i32 [ 7, %28 ], [ 5, %27 ], [ %., %24 ], [ 6, %23 ], [ 2, %22 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %29
-  store i32 %.1, ptr %3, align 4
+  store i32 %.0, ptr %3, align 4
   br label %31
 
 31:                                               ; preds = %30, %29
   %32 = trunc i64 %.017 to i32
-  %33 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %.1, i32 noundef %32, i32 noundef %.015) #6
+  %33 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %.0, i32 noundef %32, i32 noundef %.015) #6
   br label %34
 
 34:                                               ; preds = %22, %20, %9, %31
@@ -162,8 +162,8 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
   br label %27
 
 27:                                               ; preds = %24, %20
-  %.059 = phi i32 [ %23, %20 ], [ %26, %24 ]
-  %.not63 = icmp eq i32 %.059, 0
+  %.1 = phi i32 [ %23, %20 ], [ %26, %24 ]
+  %.not63 = icmp eq i32 %.1, 0
   br i1 %.not63, label %28, label %60
 
 28:                                               ; preds = %27
@@ -235,8 +235,8 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
   br label %60
 
 60:                                               ; preds = %30, %27, %14, %56
-  %.2 = phi i32 [ %15, %14 ], [ %.059, %27 ], [ %31, %30 ], [ 0, %56 ]
-  %61 = call i32 @mbedtls_to_psa_error(i32 noundef %.2) #6
+  %.059 = phi i32 [ %15, %14 ], [ %.1, %27 ], [ %31, %30 ], [ 0, %56 ]
+  %61 = call i32 @mbedtls_to_psa_error(i32 noundef %.059) #6
   br label %62
 
 62:                                               ; preds = %5, %60

@@ -1610,7 +1610,7 @@ if.then2.i:                                       ; preds = %if.then.i33
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then2.i, %if.then.i33, %if.then57, %if.then54
-  %bReturnValue.0 = phi i1 [ true, %if.then54 ], [ %cmp.i, %if.then2.i ], [ true, %if.then.i33 ], [ false, %if.then57 ]
+  %bReturnValue.1 = phi i1 [ true, %if.then54 ], [ %cmp.i, %if.then2.i ], [ true, %if.then.i33 ], [ false, %if.then57 ]
   %mNextCallbackEventTime61 = getelementptr inbounds i8, ptr %this, i64 168
   %26 = load i64, ptr %mNextCallbackEventTime61, align 8
   %mStopwatch62 = getelementptr inbounds i8, ptr %this, i64 96
@@ -1632,9 +1632,9 @@ if.then69:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end51, %if.then69, %lor.lhs.false, %entry
-  %bReturnValue.1 = phi i1 [ %bReturnValue.0, %if.then69 ], [ %bReturnValue.0, %lor.lhs.false ], [ true, %if.end51 ], [ false, %entry ]
+  %bReturnValue.0 = phi i1 [ %bReturnValue.1, %if.then69 ], [ %bReturnValue.1, %lor.lhs.false ], [ true, %if.end51 ], [ false, %entry ]
   %call74 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
-  ret i1 %bReturnValue.1
+  ret i1 %bReturnValue.0
 }
 
 ; Function Attrs: mustprogress uwtable

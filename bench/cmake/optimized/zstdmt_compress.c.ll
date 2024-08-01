@@ -3505,12 +3505,12 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
   br label %271
 
 270:                                              ; preds = %265, %._crit_edge
-  %.0 = phi i64 [ 0, %._crit_edge ], [ %266, %265 ]
+  %.1 = phi i64 [ 0, %._crit_edge ], [ %266, %265 ]
   call void @ZSTD_CCtx_trace(ptr noundef nonnull %.0.i, i64 noundef 0) #15
   br label %271
 
 271:                                              ; preds = %270, %268, %239, %221, %137, %128, %121, %112, %96, %88, %53
-  %.1 = phi i64 [ 0, %53 ], [ 0, %88 ], [ 0, %96 ], [ 0, %112 ], [ 0, %239 ], [ 0, %268 ], [ %.0, %270 ], [ 0, %221 ], [ 0, %121 ], [ 0, %137 ], [ 0, %128 ]
+  %.0 = phi i64 [ 0, %53 ], [ 0, %88 ], [ 0, %96 ], [ 0, %112 ], [ 0, %239 ], [ 0, %268 ], [ %.1, %270 ], [ 0, %221 ], [ 0, %121 ], [ 0, %137 ], [ 0, %128 ]
   %272 = getelementptr inbounds i8, ptr %0, i64 48
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3606,7 +3606,7 @@ ZSTDMT_releaseSeq.exit:                           ; preds = %ZSTDMT_serialState_
 ZSTDMT_releaseCCtx.exit:                          ; preds = %ZSTDMT_releaseSeq.exit, %316, %321
   %323 = getelementptr inbounds i8, ptr %0, i64 8
   %324 = load i64, ptr %323, align 8
-  %325 = add i64 %324, %.1
+  %325 = add i64 %324, %.0
   store i64 %325, ptr %323, align 8
   %326 = getelementptr inbounds i8, ptr %0, i64 96
   %327 = load i64, ptr %326, align 8

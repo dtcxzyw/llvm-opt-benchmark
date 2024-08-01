@@ -2427,7 +2427,7 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
   br label %247
 
 247:                                              ; preds = %257, %256, %246
-  %.0.i = phi ptr [ %.08.i.i79.i, %257 ], [ %.08.i.i69.i, %256 ], [ %.08.i.i62.i, %246 ]
+  %.1.i = phi ptr [ %.08.i.i79.i, %257 ], [ %.08.i.i69.i, %256 ], [ %.08.i.i62.i, %246 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !410
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6fda4841f9b552aE.llvm.4233002952263615725"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32)
           to label %.noexc114 unwind label %83
@@ -2474,7 +2474,7 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
 "_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit": ; preds = %.noexc114, %250, %254
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !410
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !312
-  %260 = icmp eq ptr %.0.i, null
+  %260 = icmp eq ptr %.1.i, null
   br i1 %260, label %261, label %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit.thread"
 
 261:                                              ; preds = %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit"
@@ -2488,8 +2488,8 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
           to label %265 unwind label %83
 
 "_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit.thread": ; preds = %142, %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit"
-  %.1.i135 = phi ptr [ %.0.i, %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit" ], [ %.047.i, %142 ]
-  %264 = invoke { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %.1.i135)
+  %.0.i135 = phi ptr [ %.1.i, %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit" ], [ %.047.i, %142 ]
+  %264 = invoke { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %.0.i135)
           to label %423 unwind label %83
 
 265:                                              ; preds = %261
@@ -2857,10 +2857,10 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
   br label %410
 
 410:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122"
-  %.sroa.7.1 = phi ptr [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122" ], [ %.sroa.7.2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133" ]
-  %.sroa.0.1 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122" ], [ %.sroa.0.2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133" ]
-  %411 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %412 = insertvalue { ptr, ptr } %411, ptr %.sroa.7.1, 1
+  %.sroa.7.2 = phi ptr [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122" ], [ %.sroa.7.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133" ]
+  %.sroa.0.2 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122" ], [ %.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133" ]
+  %411 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.2, 0
+  %412 = insertvalue { ptr, ptr } %411, ptr %.sroa.7.2, 1
   ret { ptr, ptr } %412
 
 413:                                              ; preds = %378
@@ -2869,8 +2869,8 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
 
 414:                                              ; preds = %423, %309
   %.pn.pn = phi { ptr, ptr } [ %.pn, %309 ], [ %264, %423 ]
-  %.sroa.0.2 = extractvalue { ptr, ptr } %.pn.pn, 0
-  %.sroa.7.2 = extractvalue { ptr, ptr } %.pn.pn, 1
+  %.sroa.0.1 = extractvalue { ptr, ptr } %.pn.pn, 0
+  %.sroa.7.1 = extractvalue { ptr, ptr } %.pn.pn, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !481
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6fda4841f9b552aE.llvm.4233002952263615725"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48)
           to label %.noexc124 unwind label %381

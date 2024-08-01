@@ -331,7 +331,7 @@ embedded_time_to_string.exit:                     ; preds = %41, %.preheader.i.p
   br label %74
 
 74:                                               ; preds = %embedded_time_to_string.exit, %69
-  %.0193 = phi i32 [ %73, %69 ], [ %68, %embedded_time_to_string.exit ]
+  %.1194 = phi i32 [ %73, %69 ], [ %68, %embedded_time_to_string.exit ]
   %75 = and i32 %13, 4096
   %.not202 = icmp eq i32 %75, 0
   br i1 %.not202, label %85, label %76
@@ -368,24 +368,24 @@ embedded_time_to_string.exit:                     ; preds = %41, %.preheader.i.p
   br label %100
 
 100:                                              ; preds = %98, %38
-  %.1194 = phi i32 [ %.0193, %98 ], [ 0, %38 ]
+  %.0193 = phi i32 [ %.1194, %98 ], [ 0, %38 ]
   %.0191 = phi ptr [ %67, %98 ], [ null, %38 ]
-  %.1 = phi i32 [ 16, %98 ], [ 6, %38 ]
+  %.0 = phi i32 [ 16, %98 ], [ 6, %38 ]
   %or.cond = or i1 %20, %19
   br i1 %or.cond, label %101, label %111
 
 101:                                              ; preds = %100
-  %102 = icmp sgt i32 %.0195, %.1
+  %102 = icmp sgt i32 %.0195, %.0
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
   %104 = load i32, ptr @hf_ccsds_user_data, align 4
-  %105 = sub nsw i32 %.0195, %.1
-  %106 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %104, ptr noundef %0, i32 noundef %.1, i32 noundef %105, i32 noundef 0) #3
+  %105 = sub nsw i32 %.0195, %.0
+  %106 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %104, ptr noundef %0, i32 noundef %.0, i32 noundef %105, i32 noundef 0) #3
   br label %107
 
 107:                                              ; preds = %103, %101
-  %108 = icmp eq i32 %.1194, 1
+  %108 = icmp eq i32 %.0193, 1
   br i1 %108, label %109, label %177
 
 109:                                              ; preds = %107
@@ -393,28 +393,28 @@ embedded_time_to_string.exit:                     ; preds = %41, %.preheader.i.p
   br label %177
 
 111:                                              ; preds = %100
-  %112 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #3
+  %112 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #3
   %113 = load ptr, ptr @ccsds_dissector_table, align 8
   %114 = call i32 @dissector_try_uint(ptr noundef %113, i32 noundef %14, ptr noundef %112, ptr noundef nonnull %1, ptr noundef %2) #3
   %.not203 = icmp eq i32 %114, 0
   br i1 %.not203, label %115, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %111
-  %.pre = shl nuw nsw i32 %.1194, 1
+  %.pre = shl nuw nsw i32 %.0193, 1
   br label %121
 
 115:                                              ; preds = %111
   %116 = load i32, ptr @hf_ccsds_user_data, align 4
-  %117 = shl nuw nsw i32 %.1194, 1
-  %118 = add nuw nsw i32 %117, %.1
+  %117 = shl nuw nsw i32 %.0193, 1
+  %118 = add nuw nsw i32 %117, %.0
   %119 = sub i32 %.0195, %118
-  %120 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %116, ptr noundef %0, i32 noundef %.1, i32 noundef %119, i32 noundef 0) #3
+  %120 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %116, ptr noundef %0, i32 noundef %.0, i32 noundef %119, i32 noundef 0) #3
   br label %121
 
 121:                                              ; preds = %._crit_edge, %115
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %117, %115 ]
   %122 = sub i32 %.0195, %.pre-phi
-  %123 = icmp eq i32 %.1194, 1
+  %123 = icmp eq i32 %.0193, 1
   br i1 %123, label %.preheader, label %177
 
 .preheader:                                       ; preds = %121

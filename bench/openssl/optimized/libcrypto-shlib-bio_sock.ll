@@ -367,14 +367,14 @@ if.else20:                                        ; preds = %if.end16
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else20, %if.then18
-  %ret.0 = phi i32 [ -1, %if.then18 ], [ %call, %if.else20 ]
+  %ret.1 = phi i32 [ -1, %if.then18 ], [ %call, %if.else20 ]
   call void @CRYPTO_free(ptr noundef %call7, ptr noundef nonnull @.str, i32 noundef 323) #8
   call void @CRYPTO_free(ptr noundef %call8, ptr noundef nonnull @.str, i32 noundef 324) #8
   br label %end
 
 end:                                              ; preds = %if.then, %if.end4, %if.end24, %if.end
-  %ret.1 = phi i32 [ -1, %if.end ], [ %ret.0, %if.end24 ], [ %call, %if.end4 ], [ -2, %if.then ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ -1, %if.end ], [ %ret.1, %if.end24 ], [ %call, %if.end4 ], [ -2, %if.then ]
+  ret i32 %ret.0
 }
 
 declare i32 @BIO_accept_ex(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

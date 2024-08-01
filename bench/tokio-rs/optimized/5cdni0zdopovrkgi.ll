@@ -2746,9 +2746,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context8blocking19Blo
   br label %.noexc
 
 62:                                               ; preds = %43, %4
-  %.1 = phi i8 [ %31, %43 ], [ 2, %4 ]
+  %.0 = phi i8 [ %31, %43 ], [ 2, %4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  ret i8 %.1
+  ret i8 %.0
 
 63:                                               ; preds = %.body
   %64 = landingpad { ptr, i32 }

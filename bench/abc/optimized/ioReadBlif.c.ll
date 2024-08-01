@@ -1366,7 +1366,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 .critedge2:                                       ; preds = %142, %.preheader, %.critedge, %109, %139
   %.val193273 = phi ptr [ %.val192, %139 ], [ %.val193273.pre, %109 ], [ %.val193273370, %.critedge ], [ %.val193273370, %.preheader ], [ %.val192, %142 ]
   %145 = phi ptr [ %134, %139 ], [ %.pre, %109 ], [ %10, %.critedge ], [ %10, %.preheader ], [ %134, %142 ]
-  %.1154 = phi ptr [ %44, %139 ], [ %44, %109 ], [ null, %.critedge ], [ null, %.preheader ], [ %44, %142 ]
+  %.0153 = phi ptr [ %44, %139 ], [ %44, %109 ], [ null, %.critedge ], [ null, %.preheader ], [ %44, %142 ]
   %.0 = phi i32 [ %141, %139 ], [ %111, %109 ], [ 1, %.critedge ], [ -1, %.preheader ], [ -1, %142 ]
   %146 = getelementptr i8, ptr %.val193273, i64 4
   %.val193.val274 = load i32, ptr %146, align 4
@@ -1400,7 +1400,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %162 = getelementptr inbounds i8, ptr %0, i64 152
   %.val175 = load ptr, ptr %7, align 8
   %163 = load ptr, ptr %.val175, align 8
-  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %.1154, ptr noundef %163) #15
+  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %.0153, ptr noundef %163) #15
   %165 = getelementptr inbounds i8, ptr %0, i64 1152
   store i32 1, ptr %165, align 8
   %166 = load i32, ptr %161, align 8
@@ -1494,7 +1494,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 
 .critedge10.preheader:                            ; preds = %.critedge10.preheader.loopexit, %.critedge8.preheader
   %.val185295 = phi ptr [ %.val185295376, %.critedge8.preheader ], [ %.val185295.pre, %.critedge10.preheader.loopexit ]
-  %.2155.lcssa = phi ptr [ %.1154, %.critedge8.preheader ], [ %206, %.critedge10.preheader.loopexit ]
+  %.2155.lcssa = phi ptr [ %.0153, %.critedge8.preheader ], [ %206, %.critedge10.preheader.loopexit ]
   %203 = getelementptr i8, ptr %.val185295, i64 4
   %.val185.val296 = load i32, ptr %203, align 4
   %204 = icmp sgt i32 %.val185.val296, 0

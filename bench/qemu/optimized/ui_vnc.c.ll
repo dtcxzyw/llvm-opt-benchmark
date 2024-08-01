@@ -5641,8 +5641,8 @@ vnc_display_get_addresses.exit:                   ; preds = %glib_autoptr_cleanu
   br i1 %cmp, label %fail, label %if.end9
 
 if.end9:                                          ; preds = %vnc_display_get_addresses.exit.thread, %vnc_display_get_addresses.exit
-  %wsaddr_list.0134 = phi ptr [ %wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.0.wsaddr_list.0..i, %vnc_display_get_addresses.exit.thread ], [ null, %vnc_display_get_addresses.exit ]
-  %saddr_list.0132 = phi ptr [ %saddr_list.0.saddr_list.0.59.i, %vnc_display_get_addresses.exit.thread ], [ null, %vnc_display_get_addresses.exit ]
+  %wsaddr_list.1134 = phi ptr [ %wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.i.0.wsaddr_list.0.wsaddr_list.0..i, %vnc_display_get_addresses.exit.thread ], [ null, %vnc_display_get_addresses.exit ]
+  %saddr_list.1132 = phi ptr [ %saddr_list.0.saddr_list.0.59.i, %vnc_display_get_addresses.exit.thread ], [ null, %vnc_display_get_addresses.exit ]
   %call10 = call ptr @qemu_opt_get(ptr noundef %call1127, ptr noundef nonnull @.str.15) #25
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %if.end25, label %if.then12
@@ -5894,19 +5894,19 @@ if.then166:                                       ; preds = %if.end162
 if.end175:                                        ; preds = %if.end162.if.end175_crit_edge, %if.then166
   %26 = phi ptr [ %.pre, %if.end162.if.end175_crit_edge ], [ %call173, %if.then166 ]
   call void @qkbd_state_set_delay(ptr noundef %26, i32 noundef %conv34) #25
-  %cmp177 = icmp eq ptr %saddr_list.0132, null
+  %cmp177 = icmp eq ptr %saddr_list.1132, null
   br i1 %cmp177, label %cleanup, label %if.end180
 
 if.end180:                                        ; preds = %if.end175
   br i1 %call5, label %if.then182, label %if.else188
 
 if.then182:                                       ; preds = %if.end180
-  %call183 = call fastcc i32 @vnc_display_connect(ptr noundef nonnull %retval.0.i126, ptr noundef nonnull %saddr_list.0132, ptr noundef %wsaddr_list.0134, ptr noundef %errp)
+  %call183 = call fastcc i32 @vnc_display_connect(ptr noundef nonnull %retval.0.i126, ptr noundef nonnull %saddr_list.1132, ptr noundef %wsaddr_list.1134, ptr noundef %errp)
   %cmp184 = icmp slt i32 %call183, 0
   br i1 %cmp184, label %fail, label %if.end194
 
 if.else188:                                       ; preds = %if.end180
-  %call189 = call fastcc i32 @vnc_display_listen(ptr noundef nonnull %retval.0.i126, ptr noundef nonnull %saddr_list.0132, ptr noundef %wsaddr_list.0134, ptr noundef %errp)
+  %call189 = call fastcc i32 @vnc_display_listen(ptr noundef nonnull %retval.0.i126, ptr noundef nonnull %saddr_list.1132, ptr noundef %wsaddr_list.1134, ptr noundef %errp)
   %cmp190 = icmp slt i32 %call189, 0
   br i1 %cmp190, label %fail, label %if.end194
 
@@ -5922,27 +5922,27 @@ if.then197:                                       ; preds = %if.end194
   br label %cleanup
 
 fail:                                             ; preds = %if.else188, %if.then182, %if.then142, %if.end114, %if.end52, %if.end16, %vnc_display_get_addresses.exit, %if.then159, %if.else91, %if.then70, %if.then64, %if.then51, %if.then46, %if.then38, %if.then29, %if.then15
-  %wsaddr_list.0135 = phi ptr [ %wsaddr_list.0134, %if.else188 ], [ %wsaddr_list.0134, %if.then182 ], [ %wsaddr_list.0134, %if.then142 ], [ %wsaddr_list.0134, %if.end114 ], [ %wsaddr_list.0134, %if.end52 ], [ %wsaddr_list.0134, %if.end16 ], [ null, %vnc_display_get_addresses.exit ], [ %wsaddr_list.0134, %if.then159 ], [ %wsaddr_list.0134, %if.else91 ], [ %wsaddr_list.0134, %if.then70 ], [ %wsaddr_list.0134, %if.then64 ], [ %wsaddr_list.0134, %if.then51 ], [ %wsaddr_list.0134, %if.then46 ], [ %wsaddr_list.0134, %if.then38 ], [ %wsaddr_list.0134, %if.then29 ], [ %wsaddr_list.0134, %if.then15 ]
-  %saddr_list.0133 = phi ptr [ %saddr_list.0132, %if.else188 ], [ %saddr_list.0132, %if.then182 ], [ %saddr_list.0132, %if.then142 ], [ %saddr_list.0132, %if.end114 ], [ %saddr_list.0132, %if.end52 ], [ %saddr_list.0132, %if.end16 ], [ null, %vnc_display_get_addresses.exit ], [ %saddr_list.0132, %if.then159 ], [ %saddr_list.0132, %if.else91 ], [ %saddr_list.0132, %if.then70 ], [ %saddr_list.0132, %if.then64 ], [ %saddr_list.0132, %if.then51 ], [ %saddr_list.0132, %if.then46 ], [ %saddr_list.0132, %if.then38 ], [ %saddr_list.0132, %if.then29 ], [ %saddr_list.0132, %if.then15 ]
+  %wsaddr_list.1135 = phi ptr [ %wsaddr_list.1134, %if.else188 ], [ %wsaddr_list.1134, %if.then182 ], [ %wsaddr_list.1134, %if.then142 ], [ %wsaddr_list.1134, %if.end114 ], [ %wsaddr_list.1134, %if.end52 ], [ %wsaddr_list.1134, %if.end16 ], [ null, %vnc_display_get_addresses.exit ], [ %wsaddr_list.1134, %if.then159 ], [ %wsaddr_list.1134, %if.else91 ], [ %wsaddr_list.1134, %if.then70 ], [ %wsaddr_list.1134, %if.then64 ], [ %wsaddr_list.1134, %if.then51 ], [ %wsaddr_list.1134, %if.then46 ], [ %wsaddr_list.1134, %if.then38 ], [ %wsaddr_list.1134, %if.then29 ], [ %wsaddr_list.1134, %if.then15 ]
+  %saddr_list.1133 = phi ptr [ %saddr_list.1132, %if.else188 ], [ %saddr_list.1132, %if.then182 ], [ %saddr_list.1132, %if.then142 ], [ %saddr_list.1132, %if.end114 ], [ %saddr_list.1132, %if.end52 ], [ %saddr_list.1132, %if.end16 ], [ null, %vnc_display_get_addresses.exit ], [ %saddr_list.1132, %if.then159 ], [ %saddr_list.1132, %if.else91 ], [ %saddr_list.1132, %if.then70 ], [ %saddr_list.1132, %if.then64 ], [ %saddr_list.1132, %if.then51 ], [ %saddr_list.1132, %if.then46 ], [ %saddr_list.1132, %if.then38 ], [ %saddr_list.1132, %if.then29 ], [ %saddr_list.1132, %if.then15 ]
   call fastcc void @vnc_display_close(ptr noundef nonnull %retval.0.i126)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end194, %if.then197, %if.end175, %fail
-  %saddr_list.1 = phi ptr [ %saddr_list.0133, %fail ], [ null, %if.end175 ], [ %saddr_list.0132, %if.end194 ], [ %saddr_list.0132, %if.then197 ]
-  %wsaddr_list.1 = phi ptr [ %wsaddr_list.0135, %fail ], [ %wsaddr_list.0134, %if.end175 ], [ %wsaddr_list.0134, %if.end194 ], [ %wsaddr_list.0134, %if.then197 ]
-  %tobool.not.i.i = icmp eq ptr %wsaddr_list.1, null
+  %saddr_list.0 = phi ptr [ %saddr_list.1133, %fail ], [ null, %if.end175 ], [ %saddr_list.1132, %if.end194 ], [ %saddr_list.1132, %if.then197 ]
+  %wsaddr_list.0 = phi ptr [ %wsaddr_list.1135, %fail ], [ %wsaddr_list.1134, %if.end175 ], [ %wsaddr_list.1134, %if.end194 ], [ %wsaddr_list.1134, %if.then197 ]
+  %tobool.not.i.i = icmp eq ptr %wsaddr_list.0, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_SocketAddressList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @qapi_free_SocketAddressList(ptr noundef nonnull %wsaddr_list.1) #25
+  call void @qapi_free_SocketAddressList(ptr noundef nonnull %wsaddr_list.0) #25
   br label %glib_autoptr_cleanup_SocketAddressList.exit
 
 glib_autoptr_cleanup_SocketAddressList.exit:      ; preds = %cleanup, %if.then.i.i
-  %tobool.not.i.i115 = icmp eq ptr %saddr_list.1, null
+  %tobool.not.i.i115 = icmp eq ptr %saddr_list.0, null
   br i1 %tobool.not.i.i115, label %glib_autoptr_cleanup_SocketAddressList.exit117, label %if.then.i.i116
 
 if.then.i.i116:                                   ; preds = %glib_autoptr_cleanup_SocketAddressList.exit
-  call void @qapi_free_SocketAddressList(ptr noundef nonnull %saddr_list.1) #25
+  call void @qapi_free_SocketAddressList(ptr noundef nonnull %saddr_list.0) #25
   br label %glib_autoptr_cleanup_SocketAddressList.exit117
 
 glib_autoptr_cleanup_SocketAddressList.exit117:   ; preds = %if.then, %if.end, %glib_autoptr_cleanup_SocketAddressList.exit, %if.then.i.i116
@@ -11754,7 +11754,7 @@ if.end21.lr.ph.i:                                 ; preds = %if.end8.i
 
 if.end21.i:                                       ; preds = %if.end62.i, %if.end21.lr.ph.i
   %call1555.i = phi i64 [ %call1552.i, %if.end21.lr.ph.i ], [ %call15.i, %if.end62.i ]
-  %n.054.i = phi i32 [ 0, %if.end21.lr.ph.i ], [ %n.1.i, %if.end62.i ]
+  %n.054.i = phi i32 [ 0, %if.end21.lr.ph.i ], [ %n.2.i, %if.end62.i ]
   %div.i = udiv i64 %call1555.i, 192
   %conv22.i = trunc i64 %div.i to i32
   %rem.i30 = urem i64 %call1555.i, 192
@@ -11816,7 +11816,7 @@ if.then41.i:                                      ; preds = %find_and_clear_dirt
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then41.i, %find_and_clear_dirty_height.exit.i
-  %n.1.i = phi i32 [ %add48.i, %if.then41.i ], [ %n.054.i, %find_and_clear_dirty_height.exit.i ]
+  %n.2.i = phi i32 [ %add48.i, %if.then41.i ], [ %n.054.i, %find_and_clear_dirty_height.exit.i ]
   %tobool50.not.i = icmp ne i64 %rem.i30, 0
   %cmp54.not.i = icmp ult i64 %call26.i34, %conv35.i
   %or.cond.i = or i1 %tobool50.not.i, %cmp54.not.i
@@ -11836,7 +11836,7 @@ if.end62.i:                                       ; preds = %if.then56.i, %if.en
   br i1 %cmp18.i, label %for.end.i37, label %if.end21.i
 
 for.end.i37:                                      ; preds = %if.end62.i, %if.then56.i, %if.end8.i
-  %n.2.i = phi i32 [ 0, %if.end8.i ], [ %n.1.i, %if.then56.i ], [ %n.1.i, %if.end62.i ]
+  %n.1.i = phi i32 [ 0, %if.end8.i ], [ %n.2.i, %if.then56.i ], [ %n.2.i, %if.end62.i ]
   %79 = load i32, ptr %update.i.i, align 8
   %job_update.i = getelementptr inbounds i8, ptr %vs.043, i64 49204
   store i32 %79, ptr %job_update.i, align 4
@@ -11846,7 +11846,7 @@ for.end.i37:                                      ; preds = %if.end62.i, %if.the
   br label %vnc_update_client.exit
 
 vnc_update_client.exit:                           ; preds = %if.then.i22, %if.end.i24, %trace_vnc_client_throttle_incremental.exit.i.i, %trace_vnc_client_throttle_forced.exit.i.i, %if.end4.thread.i, %for.end.i37
-  %retval.0.i23 = phi i32 [ 0, %if.then.i22 ], [ %n.2.i, %for.end.i37 ], [ 0, %trace_vnc_client_throttle_forced.exit.i.i ], [ 0, %trace_vnc_client_throttle_incremental.exit.i.i ], [ 0, %if.end.i24 ], [ 0, %if.end4.thread.i ]
+  %retval.0.i23 = phi i32 [ 0, %if.then.i22 ], [ %n.1.i, %for.end.i37 ], [ 0, %trace_vnc_client_throttle_forced.exit.i.i ], [ 0, %trace_vnc_client_throttle_incremental.exit.i.i ], [ 0, %if.end.i24 ], [ 0, %if.end4.thread.i ]
   %add = add i32 %retval.0.i23, %rects.044
   %tobool8.not = icmp eq ptr %49, null
   br i1 %tobool8.not, label %for.end, label %land.rhs, !llvm.loop !43
@@ -12678,13 +12678,13 @@ cleanup:                                          ; preds = %if.end54, %if.then5
   br i1 %cmp110, label %if.then112, label %if.end113
 
 if.then112:                                       ; preds = %if.else17, %if.then82, %if.then73, %if.then53, %if.then22, %if.then10, %if.then8, %cleanup
-  %ret.166 = phi i32 [ %conv108, %cleanup ], [ -1, %if.then8 ], [ -1, %if.then10 ], [ -1, %if.then22 ], [ -1, %if.then53 ], [ -1, %if.then73 ], [ -1, %if.then82 ], [ -1, %if.else17 ]
+  %ret.066 = phi i32 [ %conv108, %cleanup ], [ -1, %if.then8 ], [ -1, %if.then10 ], [ -1, %if.then22 ], [ -1, %if.then53 ], [ -1, %if.then73 ], [ -1, %if.then82 ], [ -1, %if.else17 ]
   call void @qapi_free_SocketAddress(ptr noundef %call) #25
   br label %if.end113
 
 if.end113:                                        ; preds = %cleanup.thread67, %if.then112, %cleanup
-  %ret.165 = phi i32 [ %ret.166, %if.then112 ], [ %conv108, %cleanup ], [ 0, %cleanup.thread67 ]
-  ret i32 %ret.165
+  %ret.065 = phi i32 [ %ret.066, %if.then112 ], [ %conv108, %cleanup ], [ 0, %cleanup.thread67 ]
+  ret i32 %ret.065
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

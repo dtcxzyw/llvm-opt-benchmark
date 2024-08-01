@@ -448,7 +448,7 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr nocapture noundef 
 13:                                               ; preds = %.lr.ph, %32
   %14 = phi ptr [ %7, %.lr.ph ], [ %33, %32 ]
   %.016 = phi i32 [ %2, %.lr.ph ], [ %.1, %32 ]
-  %.01215 = phi i32 [ 0, %.lr.ph ], [ %.113, %32 ]
+  %.01215 = phi i32 [ 0, %.lr.ph ], [ %.2, %32 ]
   %15 = icmp sgt i32 %.016, 0
   br i1 %15, label %16, label %18
 
@@ -464,7 +464,7 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr nocapture noundef 
   br label %22
 
 22:                                               ; preds = %18, %16
-  %.113 = phi i32 [ %.01215, %16 ], [ %19, %18 ]
+  %.2 = phi i32 [ %.01215, %16 ], [ %19, %18 ]
   %.1 = phi i32 [ %17, %16 ], [ %.016, %18 ]
   %23 = load ptr, ptr %11, align 8
   %24 = icmp ne ptr %23, null
@@ -488,20 +488,20 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr nocapture noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   %33 = load ptr, ptr %6, align 8
   %34 = icmp ne ptr %33, null
-  %35 = icmp slt i32 %.113, %1
+  %35 = icmp slt i32 %.2, %1
   %36 = select i1 %34, i1 %35, i1 false
   br i1 %36, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %32, %30, %26, %22, %3
-  %.2 = phi i32 [ 0, %3 ], [ %.113, %22 ], [ %.113, %26 ], [ %.113, %30 ], [ %.113, %32 ]
-  %37 = icmp slt i32 %.2, %1
+  %.113 = phi i32 [ 0, %3 ], [ %.2, %22 ], [ %.2, %26 ], [ %.2, %30 ], [ %.2, %32 ]
+  %37 = icmp slt i32 %.113, %1
   br i1 %37, label %.lr.ph25.preheader, label %._crit_edge26
 
 .lr.ph25.preheader:                               ; preds = %._crit_edge
-  %38 = sext i32 %.2 to i64
+  %38 = sext i32 %.113 to i64
   %39 = shl nsw i64 %38, 3
   %scevgep = getelementptr i8, ptr %0, i64 %39
-  %40 = xor i32 %.2, -1
+  %40 = xor i32 %.113, -1
   %41 = add i32 %40, %1
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
@@ -510,7 +510,7 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr nocapture noundef 
   br label %._crit_edge26
 
 ._crit_edge26:                                    ; preds = %.lr.ph25.preheader, %._crit_edge
-  ret i32 %.2
+  ret i32 %.113
 }
 
 declare void @_ZN2os13current_frameEv(ptr dead_on_unwind writable sret(%class.frame) align 8) local_unnamed_addr #2
@@ -1778,8 +1778,8 @@ define hidden noundef ptr @_ZN2os25build_agent_function_nameEPKcS1_b(ptr nocaptu
 
 15:                                               ; preds = %4, %11, %3
   %.026 = phi i64 [ %14, %11 ], [ %5, %4 ], [ undef, %3 ]
-  %.1 = phi ptr [ %12, %11 ], [ %1, %4 ], [ null, %3 ]
-  %.not32 = icmp eq ptr %.1, null
+  %.025 = phi ptr [ %12, %11 ], [ %1, %4 ], [ null, %3 ]
+  %.not32 = icmp eq ptr %.025, null
   %16 = select i1 %.not32, i64 0, i64 %.026
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %18 = add i64 %17, 2
@@ -1796,7 +1796,7 @@ define hidden noundef ptr @_ZN2os25build_agent_function_nameEPKcS1_b(ptr nocaptu
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %20)
   %endptr = getelementptr inbounds i8, ptr %20, i64 %strlen
   store i16 95, ptr %endptr, align 1
-  %25 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull %.1, i64 noundef %.026) #27
+  %25 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull %.025, i64 noundef %.026) #27
   br label %26
 
 26:                                               ; preds = %22, %24, %15, %6

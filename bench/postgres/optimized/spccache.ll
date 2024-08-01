@@ -148,16 +148,16 @@ InitializeTableSpaceCache.exit:                   ; preds = %10, %15
   br label %37
 
 37:                                               ; preds = %23, %27
-  %.013 = phi ptr [ %33, %27 ], [ null, %23 ]
+  %.1 = phi ptr [ %33, %27 ], [ null, %23 ]
   call void @ReleaseSysCache(ptr noundef nonnull %22) #6
   br label %38
 
 38:                                               ; preds = %19, %37
-  %.1 = phi ptr [ %.013, %37 ], [ null, %19 ]
+  %.013 = phi ptr [ %.1, %37 ], [ null, %19 ]
   %39 = load ptr, ptr @TableSpaceCacheHash, align 8
   %40 = call ptr @hash_search(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null) #6
   %41 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %.1, ptr %41, align 8
+  store ptr %.013, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %16, %38

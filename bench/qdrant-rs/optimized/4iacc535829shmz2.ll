@@ -963,7 +963,7 @@ define hidden void @"_ZN6common27fixed_length_priority_queue33FixedLengthPriorit
   br label %35
 
 35:                                               ; preds = %34, %31
-  %.sroa.7.0 = phi i64 [ %32, %34 ], [ 0, %31 ]
+  %.sroa.7.1 = phi i64 [ %32, %34 ], [ 0, %31 ]
   %36 = load ptr, ptr %25, align 8, !noalias !172, !nonnull !10, !noundef !10
   %37 = load i32, ptr %36, align 4, !noundef !10
   %38 = getelementptr inbounds i8, ptr %36, i64 4
@@ -976,12 +976,12 @@ define hidden void @"_ZN6common27fixed_length_priority_queue33FixedLengthPriorit
   store float %39, ptr %41, align 4
   store i32 1, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.not.i.i13 = icmp eq i64 %.sroa.7.0, 0
+  %.not.i.i13 = icmp eq i64 %.sroa.7.1, 0
   br i1 %.not.i.i13, label %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$core..cmp..Reverse$LT$common..types..ScoredPointOffset$GT$$GT$$GT$17h7a519126d2398abbE.exit14", label %42
 
 42:                                               ; preds = %35
-  store i64 %.sroa.7.0, ptr %6, align 8, !noalias !175
-  call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17h3144b5fa05df6293E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %.sroa.7.0), !noalias !175
+  store i64 %.sroa.7.1, ptr %6, align 8, !noalias !175
+  call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17h3144b5fa05df6293E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %.sroa.7.1), !noalias !175
   br label %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$core..cmp..Reverse$LT$common..types..ScoredPointOffset$GT$$GT$$GT$17h7a519126d2398abbE.exit14"
 
 "_ZN4core3ptr127drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$core..cmp..Reverse$LT$common..types..ScoredPointOffset$GT$$GT$$GT$17h7a519126d2398abbE.exit14": ; preds = %42, %35, %.thread, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf628662fcfdb45ffE.exit"
@@ -2095,8 +2095,8 @@ define noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12postin
   unreachable
 
 27:                                               ; preds = %.loopexit, %24, %2
-  %.1 = phi ptr [ null, %2 ], [ null, %.loopexit ], [ %25, %24 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ null, %.loopexit ], [ %25, %24 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -2331,10 +2331,10 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %81 unwind label %83
 
 258:                                              ; preds = %163, %265, %283, %284, %285, %286
-  %.1 = phi i8 [ %.2, %284 ], [ %.2, %286 ], [ %.2, %285 ], [ %.2, %283 ], [ %.2, %265 ], [ 1, %163 ]
+  %.0 = phi i8 [ %.2, %284 ], [ %.2, %286 ], [ %.2, %285 ], [ %.2, %283 ], [ %.2, %265 ], [ 1, %163 ]
   %259 = landingpad { ptr, i32 }
           cleanup
-  %260 = trunc nuw i8 %.1 to i1
+  %260 = trunc nuw i8 %.0 to i1
   %261 = load i64, ptr %22, align 8, !range !7, !noundef !3
   %.not59 = icmp ne i64 %261, -9223372036854775808
   %brmerge.not = select i1 %.not59, i1 %260, i1 false

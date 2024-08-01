@@ -602,7 +602,7 @@ while.body.lr.ph.i:                               ; preds = %if.end3.i
 
 while.body.i:                                     ; preds = %if.end497.i, %while.body.lr.ph.i
   %37 = phi i32 [ 0, %while.body.lr.ph.i ], [ %204, %if.end497.i ]
-  %shift.01072.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %shift.2.i, %if.end497.i ]
+  %shift.01072.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %shift.1.i, %if.end497.i ]
   %bps.01071.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %bps.1.i, %if.end497.i ]
   %channels.01070.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %channels.1.i, %if.end497.i ]
   %sample_rate.01069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %sample_rate.1.i, %if.end497.i ]
@@ -1140,7 +1140,7 @@ if.then294.i:                                     ; preds = %if.end290.i
 if.end299.i:                                      ; preds = %if.end290.i, %if.end226.i
   %.sink.i = phi i32 [ -16, %if.end226.i ], [ -26, %if.end290.i ]
   %150 = phi i32 [ %37, %if.end226.i ], [ %140, %if.end290.i ]
-  %shift.1.i = phi i32 [ %shift.01072.i, %if.end226.i ], [ %sub268.i, %if.end290.i ]
+  %shift.2.i = phi i32 [ %shift.01072.i, %if.end226.i ], [ %sub268.i, %if.end290.i ]
   %sub298.i = add i32 %.sink.i, %data_bytes88.1.i
   %div300164.i = lshr i32 %conv189.i, 3
   %mul301.i = mul nuw nsw i32 %div300164.i, %conv163.i
@@ -1471,7 +1471,7 @@ if.end497.i:                                      ; preds = %fskip_ahead.exit348
   %sample_rate.1.i = phi i32 [ %sample_rate.01069.i, %if.end485.i ], [ %sample_rate.01069.i, %fskip_ahead.exit214.thread.i ], [ %101, %fskip_ahead.exit313.thread.i ], [ %sample_rate.01069.i, %fskip_ahead.exit348.thread.i ]
   %channels.1.i = phi i32 [ %channels.01070.i, %if.end485.i ], [ %channels.01070.i, %fskip_ahead.exit214.thread.i ], [ %conv163.i, %fskip_ahead.exit313.thread.i ], [ %channels.01070.i, %fskip_ahead.exit348.thread.i ]
   %bps.1.i = phi i32 [ %bps.01071.i, %if.end485.i ], [ %bps.01071.i, %fskip_ahead.exit214.thread.i ], [ %conv189.i, %fskip_ahead.exit313.thread.i ], [ %bps.01071.i, %fskip_ahead.exit348.thread.i ]
-  %shift.2.i = phi i32 [ %shift.01072.i, %if.end485.i ], [ %shift.01072.i, %fskip_ahead.exit214.thread.i ], [ %shift.1.i, %fskip_ahead.exit313.thread.i ], [ %shift.01072.i, %fskip_ahead.exit348.thread.i ]
+  %shift.1.i = phi i32 [ %shift.01072.i, %if.end485.i ], [ %shift.01072.i, %fskip_ahead.exit214.thread.i ], [ %shift.2.i, %fskip_ahead.exit313.thread.i ], [ %shift.01072.i, %fskip_ahead.exit348.thread.i ]
   %205 = load ptr, ptr %fin.i, align 8
   %call5.i = call i32 @feof(ptr noundef %205) #19
   %tobool6.not.i = icmp eq i32 %call5.i, 0
@@ -2937,7 +2937,7 @@ if.then262:                                       ; preds = %if.else259
 if.end271:                                        ; preds = %if.else259, %if.then262, %if.then253
   %455 = phi i64 [ %sub208, %if.then253 ], [ %.sink, %if.then262 ], [ %.sink, %if.else259 ]
   %sub249407 = phi i64 [ %sub249402, %if.then253 ], [ %sub249, %if.then262 ], [ %sub249, %if.else259 ]
-  %infilesize.addr.1 = phi i64 [ %sub258, %if.then253 ], [ %infilesize, %if.then262 ], [ %infilesize, %if.else259 ]
+  %infilesize.addr.2 = phi i64 [ %sub258, %if.then253 ], [ %infilesize, %if.then262 ], [ %infilesize, %if.else259 ]
   %sub273 = sub i64 %455, %sub249407
   store i64 %sub273, ptr %total_samples_to_encode.i, align 8
   br label %if.end274
@@ -2945,7 +2945,7 @@ if.end271:                                        ; preds = %if.else259, %if.the
 if.end274:                                        ; preds = %if.end271, %sw.epilog245
   %456 = phi i64 [ %sub273, %if.end271 ], [ %.sink, %sw.epilog245 ]
   %cmp246.not399 = phi i1 [ false, %if.end271 ], [ true, %sw.epilog245 ]
-  %infilesize.addr.2 = phi i64 [ %infilesize.addr.1, %if.end271 ], [ %infilesize, %sw.epilog245 ]
+  %infilesize.addr.1 = phi i64 [ %infilesize.addr.2, %if.end271 ], [ %infilesize, %sw.epilog245 ]
   switch i32 %439, label %default.unreachable [
     i32 0, label %if.end274.sw.bb276_crit_edge
     i32 1, label %sw.bb282
@@ -2966,7 +2966,7 @@ if.end274.sw.bb276_crit_edge:                     ; preds = %if.end274
 sw.bb276:                                         ; preds = %if.end274.sw.bb276_crit_edge, %sw.epilog245.thread
   %conv280.pre-phi = phi i64 [ %.pre1932, %if.end274.sw.bb276_crit_edge ], [ %conv191, %sw.epilog245.thread ]
   %457 = phi i64 [ %456, %if.end274.sw.bb276_crit_edge ], [ %sub208, %sw.epilog245.thread ]
-  %infilesize.addr.2412 = phi i64 [ %infilesize.addr.2, %if.end274.sw.bb276_crit_edge ], [ %sub207, %sw.epilog245.thread ]
+  %infilesize.addr.1412 = phi i64 [ %infilesize.addr.1, %if.end274.sw.bb276_crit_edge ], [ %sub207, %sw.epilog245.thread ]
   %mul281 = mul i64 %457, %conv280.pre-phi
   br label %sw.epilog341
 
@@ -3003,7 +3003,7 @@ sw.bb306:                                         ; preds = %if.end274, %if.end2
   br label %sw.epilog341
 
 sw.bb314:                                         ; preds = %if.end274, %if.end274
-  %cmp315 = icmp slt i64 %infilesize.addr.2, 0
+  %cmp315 = icmp slt i64 %infilesize.addr.1, 0
   br i1 %cmp315, label %sw.epilog341, label %if.else319
 
 if.else319:                                       ; preds = %sw.bb314
@@ -3014,7 +3014,7 @@ if.else319:                                       ; preds = %sw.bb314
   br i1 %or.cond2687, label %sw.epilog341, label %if.then329
 
 if.then329:                                       ; preds = %if.else319
-  %mul331 = mul i64 %456, %infilesize.addr.2
+  %mul331 = mul i64 %456, %infilesize.addr.1
   %div332 = udiv i64 %mul331, %total_samples_in_input.0
   br label %sw.epilog341
 
@@ -3022,9 +3022,9 @@ default.unreachable:                              ; preds = %if.end274
   unreachable
 
 sw.epilog341:                                     ; preds = %if.else319, %sw.bb314, %sw.bb306, %sw.bb298, %sw.bb290, %sw.bb282, %sw.bb276, %if.then329
-  %.sink2685 = phi i64 [ %add312, %sw.bb306 ], [ %add304, %sw.bb298 ], [ %add296, %sw.bb290 ], [ %add288, %sw.bb282 ], [ %mul281, %sw.bb276 ], [ %div332, %if.then329 ], [ 0, %sw.bb314 ], [ %infilesize.addr.2, %if.else319 ]
+  %.sink2685 = phi i64 [ %add312, %sw.bb306 ], [ %add304, %sw.bb298 ], [ %add296, %sw.bb290 ], [ %add288, %sw.bb282 ], [ %mul281, %sw.bb276 ], [ %div332, %if.then329 ], [ 0, %sw.bb314 ], [ %infilesize.addr.1, %if.else319 ]
   %462 = phi i64 [ %456, %sw.bb306 ], [ %456, %sw.bb298 ], [ %456, %sw.bb290 ], [ %456, %sw.bb282 ], [ %457, %sw.bb276 ], [ %456, %if.then329 ], [ %456, %sw.bb314 ], [ %456, %if.else319 ]
-  %infilesize.addr.2411 = phi i64 [ %infilesize.addr.2, %sw.bb306 ], [ %infilesize.addr.2, %sw.bb298 ], [ %infilesize.addr.2, %sw.bb290 ], [ %infilesize.addr.2, %sw.bb282 ], [ %infilesize.addr.2412, %sw.bb276 ], [ %infilesize.addr.2, %if.then329 ], [ %infilesize.addr.2, %sw.bb314 ], [ %infilesize.addr.2, %if.else319 ]
+  %infilesize.addr.1411 = phi i64 [ %infilesize.addr.1, %sw.bb306 ], [ %infilesize.addr.1, %sw.bb298 ], [ %infilesize.addr.1, %sw.bb290 ], [ %infilesize.addr.1, %sw.bb282 ], [ %infilesize.addr.1412, %sw.bb276 ], [ %infilesize.addr.1, %if.then329 ], [ %infilesize.addr.1, %sw.bb314 ], [ %infilesize.addr.1, %if.else319 ]
   %unencoded_size318 = getelementptr inbounds i8, ptr %encoder_session, i64 64
   store i64 %.sink2685, ptr %unencoded_size318, align 8
   %cmp343 = icmp eq i64 %462, 0
@@ -3159,11 +3159,11 @@ if.end416:                                        ; preds = %if.then376, %if.els
   ]
 
 sw.bb418:                                         ; preds = %if.end416
-  %cmp419 = icmp slt i64 %infilesize.addr.2411, 0
+  %cmp419 = icmp slt i64 %infilesize.addr.1411, 0
   br i1 %cmp419, label %while.cond.preheader, label %while.cond497.preheader
 
 while.cond497.preheader:                          ; preds = %sw.bb418
-  %cmp4981175.not = icmp eq i64 %infilesize.addr.2411, 0
+  %cmp4981175.not = icmp eq i64 %infilesize.addr.1411, 0
   br i1 %cmp4981175.not, label %sw.epilog791, label %while.body500.lr.ph
 
 while.body500.lr.ph:                              ; preds = %while.cond497.preheader
@@ -3288,7 +3288,7 @@ while.body500:                                    ; preds = %while.body500.lr.ph
   %495 = load i32, ptr %bytes_per_wide_sample502, align 8
   %mul503 = shl i32 %495, 11
   %conv504 = zext i32 %mul503 to i64
-  %sub505 = sub nuw nsw i64 %infilesize.addr.2411, %total_input_bytes_read.01176
+  %sub505 = sub nuw nsw i64 %infilesize.addr.1411, %total_input_bytes_read.01176
   %cond = call i64 @llvm.umin.i64(i64 %sub505, i64 %conv504)
   %cmp511.not = icmp eq i32 %lookahead_length.addr.31177, 0
   br i1 %cmp511.not, label %if.else538, label %if.then513
@@ -3414,7 +3414,7 @@ if.end599:                                        ; preds = %if.end594
 
 if.end602:                                        ; preds = %if.else549, %if.end599
   %total_input_bytes_read.1 = phi i64 [ %total_input_bytes_read.01176, %if.else549 ], [ %add600, %if.end599 ]
-  %cmp498 = icmp ult i64 %total_input_bytes_read.1, %infilesize.addr.2411
+  %cmp498 = icmp ult i64 %total_input_bytes_read.1, %infilesize.addr.1411
   br i1 %cmp498, label %while.body500, label %sw.epilog791, !llvm.loop !14
 
 sw.bb605:                                         ; preds = %if.end416, %if.end416, %if.end416, %if.end416, %if.end416

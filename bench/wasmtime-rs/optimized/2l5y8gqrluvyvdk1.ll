@@ -466,7 +466,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %171 unwind label %.loopexit75.i, !noalias !15
 
 170:                                              ; preds = %218, %204, %196, %.loopexit.split-lp76.i, %.loopexit75.i
-  %.0.i = phi i1 [ true, %218 ], [ true, %204 ], [ true, %196 ], [ true, %.loopexit75.i ], [ %.not.not.i.not, %.loopexit.split-lp76.i ]
+  %.1.i = phi i1 [ true, %218 ], [ true, %204 ], [ true, %196 ], [ true, %.loopexit75.i ], [ %.not.not.i.not, %.loopexit.split-lp76.i ]
   %.pn57.i = phi { ptr, i32 } [ %.pn.ph.i, %218 ], [ %lpad.thr_comm.i, %204 ], [ %lpad.thr_comm.split-lp.i, %196 ], [ %lpad.loopexit77.i, %.loopexit75.i ], [ %lpad.loopexit.split-lp78.i, %.loopexit.split-lp76.i ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..error..Error$GT$$GT$17h04433ebd8252f567E"(ptr nonnull align 8 %27) #8
           to label %224 unwind label %205, !noalias !15
@@ -673,7 +673,7 @@ _ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i: ; pre
           to label %225 unwind label %205, !noalias !15
 
 225:                                              ; preds = %224
-  br i1 %.0.i, label %226, label %250
+  br i1 %.1.i, label %226, label %250
 
 226:                                              ; preds = %225
   %227 = getelementptr inbounds i8, ptr %51, i64 48

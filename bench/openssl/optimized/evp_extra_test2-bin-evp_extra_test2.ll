@@ -1923,10 +1923,10 @@ if.end8:                                          ; preds = %if.else, %if.then5
 
 err:                                              ; preds = %if.end8, %entry, %lor.lhs.false
   %sha256.0 = phi ptr [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call9, %if.end8 ]
-  %provider.1 = phi ptr [ %call, %lor.lhs.false ], [ %call, %entry ], [ null, %if.end8 ]
+  %provider.0 = phi ptr [ %call, %lor.lhs.false ], [ %call, %entry ], [ null, %if.end8 ]
   %ok.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %if.end8 ]
   tail call void @EVP_MD_free(ptr noundef %sha256.0) #7
-  %call14 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %provider.1) #7
+  %call14 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %provider.0) #7
   ret i32 %ok.0
 }
 

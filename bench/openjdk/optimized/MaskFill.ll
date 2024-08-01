@@ -1246,8 +1246,8 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %351, label %._crit_edge645, label %.lr.ph644
 
 .lr.ph644:                                        ; preds = %349, %376
-  %.6460642 = phi i32 [ %.8462, %376 ], [ %.5459, %349 ]
-  %.4470641 = phi i32 [ %.5471, %376 ], [ %.3469, %349 ]
+  %.7461642 = phi i32 [ %.9463, %376 ], [ %.5459, %349 ]
+  %.5471641 = phi i32 [ %.6472, %376 ], [ %.3469, %349 ]
   %.0491640 = phi double [ %378, %376 ], [ %.0491.lcssa716, %349 ]
   %.0492639 = phi double [ %377, %376 ], [ %.0492.lcssa713, %349 ]
   %.0493638 = phi double [ %.0491640, %376 ], [ %.0489708, %349 ]
@@ -1274,7 +1274,7 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
 365:                                              ; preds = %355, %358
   %.0477 = phi double [ %364, %358 ], [ %356, %355 ]
   %.0476 = phi i32 [ %361, %358 ], [ 0, %355 ]
-  %spec.select576 = tail call i32 @llvm.smin.i32(i32 %.6460642, i32 %.0476)
+  %spec.select576 = tail call i32 @llvm.smin.i32(i32 %.7461642, i32 %.0476)
   %366 = sext i32 %.0476 to i64
   %367 = getelementptr inbounds float, ptr %46, i64 %366
   %368 = fsub double %356, %.0477
@@ -1286,12 +1286,12 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %374 = load <2 x float>, ptr %367, align 4
   %375 = fadd <2 x float> %374, %373
   store <2 x float> %375, ptr %367, align 4
-  %spec.select586 = tail call i32 @llvm.smax.i32(i32 %.4470641, i32 %369)
+  %spec.select586 = tail call i32 @llvm.smax.i32(i32 %.5471641, i32 %369)
   br label %376
 
 376:                                              ; preds = %365, %.lr.ph644
-  %.5471 = phi i32 [ %.4470641, %.lr.ph644 ], [ %spec.select586, %365 ]
-  %.8462 = phi i32 [ %.6460642, %.lr.ph644 ], [ %spec.select576, %365 ]
+  %.6472 = phi i32 [ %.5471641, %.lr.ph644 ], [ %spec.select586, %365 ]
+  %.9463 = phi i32 [ %.7461642, %.lr.ph644 ], [ %spec.select576, %365 ]
   %377 = fadd double %115, %.0492639
   %378 = fadd double %110, %.0491640
   %379 = fcmp ugt double %378, %.0489
@@ -1302,8 +1302,8 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %.0493.lcssa = phi double [ %.0489708, %349 ], [ %.0491640, %376 ]
   %.0492.lcssa = phi double [ %.0492.lcssa713, %349 ], [ %377, %376 ]
   %.0491.lcssa = phi double [ %.0491.lcssa716, %349 ], [ %378, %376 ]
-  %.4470.lcssa = phi i32 [ %.3469, %349 ], [ %.5471, %376 ]
-  %.6460.lcssa = phi i32 [ %.5459, %349 ], [ %.8462, %376 ]
+  %.5471.lcssa = phi i32 [ %.3469, %349 ], [ %.6472, %376 ]
+  %.7461.lcssa = phi i32 [ %.5459, %349 ], [ %.9463, %376 ]
   %380 = fadd double %.0490, %.0494.lcssa
   %381 = fmul double %380, 5.000000e-01
   %382 = fcmp ugt double %381, %68
@@ -1326,7 +1326,7 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
 393:                                              ; preds = %383, %386
   %.0443 = phi double [ %392, %386 ], [ %384, %383 ]
   %.0442 = phi i32 [ %389, %386 ], [ 0, %383 ]
-  %spec.select577 = tail call i32 @llvm.smin.i32(i32 %.6460.lcssa, i32 %.0442)
+  %spec.select577 = tail call i32 @llvm.smin.i32(i32 %.7461.lcssa, i32 %.0442)
   %394 = sext i32 %.0442 to i64
   %395 = getelementptr inbounds float, ptr %46, i64 %394
   %396 = fsub double %384, %.0443
@@ -1338,12 +1338,12 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %402 = load <2 x float>, ptr %395, align 4
   %403 = fadd <2 x float> %402, %401
   store <2 x float> %403, ptr %395, align 4
-  %spec.select587 = tail call i32 @llvm.smax.i32(i32 %.4470.lcssa, i32 %397)
+  %spec.select587 = tail call i32 @llvm.smax.i32(i32 %.5471.lcssa, i32 %397)
   br label %404
 
 404:                                              ; preds = %393, %._crit_edge645
-  %.6472 = phi i32 [ %.4470.lcssa, %._crit_edge645 ], [ %spec.select587, %393 ]
-  %.10464 = phi i32 [ %.6460.lcssa, %._crit_edge645 ], [ %spec.select577, %393 ]
+  %.7473 = phi i32 [ %.5471.lcssa, %._crit_edge645 ], [ %spec.select587, %393 ]
+  %.11465 = phi i32 [ %.7461.lcssa, %._crit_edge645 ], [ %spec.select577, %393 ]
   %405 = fadd double %.0490, %125
   br label %406
 
@@ -1353,11 +1353,11 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %407 = phi double [ %138, %341 ], [ %138, %345 ], [ %405, %404 ]
   %408 = phi double [ %139, %341 ], [ %139, %345 ], [ %.0490, %404 ]
   %.0489707 = phi double [ %.0489708, %341 ], [ %.0489708, %345 ], [ %.0489, %404 ]
-  %.7473 = phi i32 [ %.3469, %341 ], [ %.3469, %345 ], [ %.6472, %404 ]
-  %.11465 = phi i32 [ %.5459, %341 ], [ %.5459, %345 ], [ %.10464, %404 ]
+  %.4470 = phi i32 [ %.3469, %341 ], [ %.3469, %345 ], [ %.7473, %404 ]
+  %.6460 = phi i32 [ %.5459, %341 ], [ %.5459, %345 ], [ %.11465, %404 ]
   %spec.select578 = tail call i32 @llvm.smin.i32(i32 %.7451, i32 %22)
-  %.8474 = tail call i32 @llvm.smin.i32(i32 %.7473, i32 %22)
-  %.not567 = icmp sgt i32 %.11465, %spec.select578
+  %.8474 = tail call i32 @llvm.smin.i32(i32 %.4470, i32 %22)
+  %.not567 = icmp sgt i32 %.6460, %spec.select578
   %.9453 = select i1 %.not567, i32 %spec.select578, i32 %.8474
   %409 = icmp slt i32 %.11, %.9453
   br i1 %409, label %.lr.ph656.preheader, label %._crit_edge657.thread
@@ -1410,8 +1410,8 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   br label %430
 
 430:                                              ; preds = %421, %420
-  %431 = icmp slt i32 %.11465, %.8474
-  %432 = select i1 %431, i32 %.11465, i32 %22
+  %431 = icmp slt i32 %.6460, %.8474
+  %432 = select i1 %431, i32 %.6460, i32 %22
   %433 = icmp sgt i32 %432, %419
   br i1 %433, label %434, label %._crit_edge657.thread
 
@@ -1429,7 +1429,7 @@ define internal fastcc void @fillAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   br label %._crit_edge657.thread
 
 443:                                              ; preds = %._crit_edge657
-  %.not569 = icmp slt i32 %.11465, %.8474
+  %.not569 = icmp slt i32 %.6460, %.8474
   %spec.select579 = select i1 %.not569, i32 %.8474, i32 %22
   br label %._crit_edge657.thread
 
@@ -3006,8 +3006,8 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %776, label %._crit_edge1200, label %.lr.ph1199
 
 .lr.ph1199:                                       ; preds = %773, %804
-  %.188521197 = phi i32 [ %.20854, %804 ], [ %.17851, %773 ]
-  %.128701196 = phi i32 [ %.13871, %804 ], [ %.11869, %773 ]
+  %.198531197 = phi i32 [ %.21855, %804 ], [ %.17851, %773 ]
+  %.138711196 = phi i32 [ %.14872, %804 ], [ %.11869, %773 ]
   %.08951193 = phi double [ %808, %804 ], [ %.08911400, %773 ]
   %.08961192 = phi double [ %778, %804 ], [ %.08921403, %773 ]
   %777 = phi <2 x double> [ %805, %804 ], [ %258, %773 ]
@@ -3035,7 +3035,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
 793:                                              ; preds = %782, %786
   %.0881 = phi double [ %792, %786 ], [ %784, %782 ]
   %.0880 = phi i32 [ %789, %786 ], [ 0, %782 ]
-  %spec.select1060 = tail call i32 @llvm.smin.i32(i32 %.188521197, i32 %.0880)
+  %spec.select1060 = tail call i32 @llvm.smin.i32(i32 %.198531197, i32 %.0880)
   %794 = sext i32 %.0880 to i64
   %795 = getelementptr inbounds float, ptr %74, i64 %794
   %796 = fsub double %784, %.0881
@@ -3047,12 +3047,12 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %802 = load <2 x float>, ptr %795, align 4
   %803 = fadd <2 x float> %802, %801
   store <2 x float> %803, ptr %795, align 4
-  %spec.select1079 = tail call i32 @llvm.smax.i32(i32 %.128701196, i32 %797)
+  %spec.select1079 = tail call i32 @llvm.smax.i32(i32 %.138711196, i32 %797)
   br label %804
 
 804:                                              ; preds = %793, %.lr.ph1199
-  %.13871 = phi i32 [ %.128701196, %.lr.ph1199 ], [ %spec.select1079, %793 ]
-  %.20854 = phi i32 [ %.188521197, %.lr.ph1199 ], [ %spec.select1060, %793 ]
+  %.14872 = phi i32 [ %.138711196, %.lr.ph1199 ], [ %spec.select1079, %793 ]
+  %.21855 = phi i32 [ %.198531197, %.lr.ph1199 ], [ %spec.select1060, %793 ]
   %805 = fadd <2 x double> %225, %777
   %806 = extractelement <2 x double> %805, i64 0
   %807 = fcmp ugt double %806, %.0891
@@ -3062,8 +3062,8 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
 ._crit_edge1200:                                  ; preds = %804, %773
   %.0896.lcssa = phi double [ %.08921403, %773 ], [ %778, %804 ]
   %.0895.lcssa = phi double [ %.08911400, %773 ], [ %808, %804 ]
-  %.12870.lcssa = phi i32 [ %.11869, %773 ], [ %.13871, %804 ]
-  %.18852.lcssa = phi i32 [ %.17851, %773 ], [ %.20854, %804 ]
+  %.13871.lcssa = phi i32 [ %.11869, %773 ], [ %.14872, %804 ]
+  %.19853.lcssa = phi i32 [ %.17851, %773 ], [ %.21855, %804 ]
   %809 = phi <2 x double> [ %258, %773 ], [ %805, %804 ]
   store <2 x double> %809, ptr %180, align 16
   %810 = fadd double %.0892, %.0896.lcssa
@@ -3088,7 +3088,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
 823:                                              ; preds = %813, %816
   %.0833 = phi double [ %822, %816 ], [ %814, %813 ]
   %.0832 = phi i32 [ %819, %816 ], [ 0, %813 ]
-  %spec.select1061 = tail call i32 @llvm.smin.i32(i32 %.18852.lcssa, i32 %.0832)
+  %spec.select1061 = tail call i32 @llvm.smin.i32(i32 %.19853.lcssa, i32 %.0832)
   %824 = sext i32 %.0832 to i64
   %825 = getelementptr inbounds float, ptr %74, i64 %824
   %826 = fsub double %814, %.0833
@@ -3100,12 +3100,12 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %832 = load <2 x float>, ptr %825, align 4
   %833 = fadd <2 x float> %832, %831
   store <2 x float> %833, ptr %825, align 4
-  %spec.select1080 = tail call i32 @llvm.smax.i32(i32 %.12870.lcssa, i32 %827)
+  %spec.select1080 = tail call i32 @llvm.smax.i32(i32 %.13871.lcssa, i32 %827)
   br label %834
 
 834:                                              ; preds = %823, %._crit_edge1200
-  %.14872 = phi i32 [ %.12870.lcssa, %._crit_edge1200 ], [ %spec.select1080, %823 ]
-  %.22856 = phi i32 [ %.18852.lcssa, %._crit_edge1200 ], [ %spec.select1061, %823 ]
+  %.15873 = phi i32 [ %.13871.lcssa, %._crit_edge1200 ], [ %spec.select1080, %823 ]
+  %.23857 = phi i32 [ %.19853.lcssa, %._crit_edge1200 ], [ %spec.select1061, %823 ]
   store double %.0892, ptr %41, align 8
   store double %.0891, ptr %173, align 16
   %835 = fadd double %.0892, %185
@@ -3116,19 +3116,19 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   %837 = phi double [ %246, %764 ], [ %246, %769 ], [ %835, %834 ]
   %.08921402 = phi double [ %.08921403, %764 ], [ %.08921403, %769 ], [ %.0892, %834 ]
   %.08911399 = phi double [ %.08911400, %764 ], [ %.08911400, %769 ], [ %.0891, %834 ]
-  %.15873 = phi i32 [ %.11869, %764 ], [ %.11869, %769 ], [ %.14872, %834 ]
-  %.23857 = phi i32 [ %.17851, %764 ], [ %.17851, %769 ], [ %.22856, %834 ]
+  %.12870 = phi i32 [ %.11869, %764 ], [ %.11869, %769 ], [ %.15873, %834 ]
+  %.18852 = phi i32 [ %.17851, %764 ], [ %.17851, %769 ], [ %.23857, %834 ]
   %838 = phi <2 x double> [ %258, %764 ], [ %258, %769 ], [ %809, %834 ]
   %spec.select1062 = tail call i32 @llvm.smin.i32(i32 %.15829, i32 %26)
-  %.16874 = tail call i32 @llvm.smin.i32(i32 %.15873, i32 %26)
-  %.not1044 = icmp sgt i32 %.23857, %spec.select1062
+  %.16874 = tail call i32 @llvm.smin.i32(i32 %.12870, i32 %26)
+  %.not1044 = icmp sgt i32 %.18852, %spec.select1062
   %.17831 = select i1 %.not1044, i32 %spec.select1062, i32 %.16874
   %839 = icmp slt i32 %.23, %.17831
   br i1 %839, label %.lr.ph1211.preheader, label %.thread1288
 
 .thread1288:                                      ; preds = %836
-  %840 = icmp slt i32 %.23857, %.16874
-  %841 = select i1 %840, i32 %.23857, i32 %26
+  %840 = icmp slt i32 %.18852, %.16874
+  %841 = select i1 %840, i32 %.18852, i32 %26
   %.0882.mux1293 = tail call i32 @llvm.smax.i32(i32 %.23, i32 %841)
   br label %878
 
@@ -3180,8 +3180,8 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   br label %864
 
 864:                                              ; preds = %855, %854
-  %865 = icmp slt i32 %.23857, %.16874
-  %866 = select i1 %865, i32 %.23857, i32 %26
+  %865 = icmp slt i32 %.18852, %.16874
+  %866 = select i1 %865, i32 %.18852, i32 %26
   %867 = icmp sle i32 %866, %851
   %brmerge = or i1 %867, %852
   %.0882.mux = tail call i32 @llvm.smax.i32(i32 %851, i32 %866)
@@ -3201,7 +3201,7 @@ define internal fastcc void @drawAAPgram(ptr noundef %0, ptr noundef %1, ptr nou
   br label %878
 
 877:                                              ; preds = %._crit_edge1212
-  %.not1045 = icmp slt i32 %.23857, %.16874
+  %.not1045 = icmp slt i32 %.18852, %.16874
   %spec.select1063 = select i1 %.not1045, i32 %.16874, i32 %26
   br label %878
 

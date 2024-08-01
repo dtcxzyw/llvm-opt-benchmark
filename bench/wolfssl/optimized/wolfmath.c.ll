@@ -265,8 +265,8 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp17.old, label %land.rhs, label %if.end27
 
 if.end27:                                         ; preds = %land.rhs, %while.body, %if.end4, %land.lhs.true, %entry, %if.end14
-  %ret.4 = phi i32 [ %call, %if.end14 ], [ -236, %entry ], [ -173, %land.lhs.true ], [ -173, %if.end4 ], [ 0, %land.rhs ], [ %call.i, %while.body ]
-  ret i32 %ret.4
+  %ret.3 = phi i32 [ %call, %if.end14 ], [ -236, %entry ], [ -173, %land.lhs.true ], [ -173, %if.end4 ], [ 0, %land.rhs ], [ %call.i, %while.body ]
+  ret i32 %ret.3
 }
 
 ; Function Attrs: nounwind uwtable

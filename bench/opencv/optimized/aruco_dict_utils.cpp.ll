@@ -918,7 +918,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 330:                                              ; preds = %366, %.lr.ph125.i
   %.038123.i = phi i32 [ 0, %.lr.ph125.i ], [ %.1.i, %366 ]
-  %.041122.i = phi i32 [ 0, %.lr.ph125.i ], [ %.243.i, %366 ]
+  %.041122.i = phi i32 [ 0, %.lr.ph125.i ], [ %.142.i, %366 ]
   %.147121.i = phi i32 [ %.046.i, %.lr.ph125.i ], [ %.248.i, %366 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false), !noalias !5
   invoke void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %98, i32 noundef %98, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %24)
@@ -958,7 +958,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 .lr.ph117.i:                                      ; preds = %334, %337
   %.0116.i = phi i32 [ %338, %337 ], [ 0, %334 ]
-  %.093115.i = phi i32 [ %.sroa.speculated.i, %337 ], [ %333, %334 ]
+  %.194115.i = phi i32 [ %.sroa.speculated.i, %337 ], [ %333, %334 ]
   store i32 0, ptr %327, align 8, !noalias !5
   store i32 0, ptr %328, align 4, !noalias !5
   store i32 16842752, ptr %30, align 8, !noalias !5
@@ -967,7 +967,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %342 unwind label %349
 
 342:                                              ; preds = %.lr.ph117.i
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %.093115.i, i32 %341)
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %.194115.i, i32 %341)
   %.not64.i = icmp sgt i32 %.sroa.speculated.i, %.041122.i
   br i1 %.not64.i, label %337, label %.loopexit.i
 
@@ -992,8 +992,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %369
 
 .loopexit.i:                                      ; preds = %342, %337, %334
-  %.194.i = phi i32 [ %333, %334 ], [ %.sroa.speculated.i, %337 ], [ %.sroa.speculated.i, %342 ]
-  %.not65.i = icmp slt i32 %.194.i, %.147121.i
+  %.093.i = phi i32 [ %333, %334 ], [ %.sroa.speculated.i, %337 ], [ %.sroa.speculated.i, %342 ]
+  %.not65.i = icmp slt i32 %.093.i, %.147121.i
   br i1 %.not65.i, label %355, label %351
 
 351:                                              ; preds = %.loopexit.i
@@ -1012,7 +1012,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 355:                                              ; preds = %.loopexit.i
   %356 = add nsw i32 %.038123.i, 1
-  %357 = icmp sgt i32 %.194.i, %.041122.i
+  %357 = icmp sgt i32 %.093.i, %.041122.i
   br i1 %357, label %358, label %360
 
 358:                                              ; preds = %355
@@ -1020,7 +1020,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %360 unwind label %345
 
 360:                                              ; preds = %358, %355
-  %.142.i = phi i32 [ %.194.i, %358 ], [ %.041122.i, %355 ]
+  %.243.i = phi i32 [ %.093.i, %358 ], [ %.041122.i, %355 ]
   %361 = icmp eq i32 %356, 5000
   br i1 %361, label %362, label %366
 
@@ -1040,13 +1040,13 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 .sink.split.i:                                    ; preds = %363, %352
   %.sink.i = phi ptr [ %31, %352 ], [ %32, %363 ]
-  %.248.ph.i = phi i32 [ %.147121.i, %352 ], [ %.142.i, %363 ]
+  %.248.ph.i = phi i32 [ %.147121.i, %352 ], [ %.243.i, %363 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink.i) #13
   br label %366
 
 366:                                              ; preds = %.sink.split.i, %360
   %.248.i = phi i32 [ %.147121.i, %360 ], [ %.248.ph.i, %.sink.split.i ]
-  %.243.i = phi i32 [ %.142.i, %360 ], [ 0, %.sink.split.i ]
+  %.142.i = phi i32 [ %.243.i, %360 ], [ 0, %.sink.split.i ]
   %.1.i = phi i32 [ %356, %360 ], [ 0, %.sink.split.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #13
   %367 = load i32, ptr %318, align 8, !alias.scope !5
@@ -1408,9 +1408,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %.body
 
 456:                                              ; preds = %77, %454
-  %.3 = phi i32 [ %.2, %454 ], [ 0, %77 ]
+  %.0 = phi i32 [ %.2, %454 ], [ 0, %77 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #13
-  ret i32 %.3
+  ret i32 %.0
 
 .body:                                            ; preds = %88, %91, %455, %87
   %.pn83 = phi { ptr, i32 } [ %.pn80.pn, %455 ], [ %.pn55, %87 ], [ %89, %88 ], [ %92, %91 ]

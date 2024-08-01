@@ -700,8 +700,8 @@ _ZNK2cv11_InputArray6getMatEi.exit47:             ; preds = %32, %35
 
 51:                                               ; preds = %49, %47
   %.pn35 = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
-  %.124 = extractvalue { ptr, i32 } %.pn35, 0
-  %.126 = extractvalue { ptr, i32 } %.pn35, 1
+  %.2 = extractvalue { ptr, i32 } %.pn35, 0
+  %.227 = extractvalue { ptr, i32 } %.pn35, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #15
   br label %134
 
@@ -786,22 +786,22 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %55, %58
 86:                                               ; preds = %66
   %87 = landingpad { ptr, i32 }
           cleanup
-  %.2 = extractvalue { ptr, i32 } %87, 0
-  %.227 = extractvalue { ptr, i32 } %87, 1
+  %.4 = extractvalue { ptr, i32 } %87, 0
+  %.429 = extractvalue { ptr, i32 } %87, 1
   br label %132
 
 88:                                               ; preds = %72
   %89 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN2cv9ExceptionE
-  %.4 = extractvalue { ptr, i32 } %89, 0
-  %.429 = extractvalue { ptr, i32 } %89, 1
+  %.5 = extractvalue { ptr, i32 } %89, 0
+  %.530 = extractvalue { ptr, i32 } %89, 1
   %90 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #15
-  %91 = icmp eq i32 %.429, %90
+  %91 = icmp eq i32 %.530, %90
   br i1 %91, label %92, label %132
 
 92:                                               ; preds = %88
-  %93 = call ptr @__cxa_begin_catch(ptr %.4) #15
+  %93 = call ptr @__cxa_begin_catch(ptr %.5) #15
   %94 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %97 unwind label %95
 
@@ -885,8 +885,8 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %55, %58
 
 128:                                              ; preds = %126, %95
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %126 ], [ %96, %95 ]
-  %.6 = extractvalue { ptr, i32 } %.pn42.pn, 0
-  %.631 = extractvalue { ptr, i32 } %.pn42.pn, 1
+  %.7 = extractvalue { ptr, i32 } %.pn42.pn, 0
+  %.732 = extractvalue { ptr, i32 } %.pn42.pn, 1
   invoke void @__cxa_end_catch()
           to label %132 unwind label %137
 
@@ -895,27 +895,27 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %55, %58
   br label %131
 
 131:                                              ; preds = %127, %129
-  %.022 = phi i1 [ %130, %129 ], [ false, %127 ]
+  %.1 = phi i1 [ %130, %129 ], [ false, %127 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
   br label %133
 
 132:                                              ; preds = %128, %88, %86, %82
-  %.732 = phi i32 [ %85, %82 ], [ %.631, %128 ], [ %.429, %88 ], [ %.227, %86 ]
-  %.7 = phi ptr [ %84, %82 ], [ %.6, %128 ], [ %.4, %88 ], [ %.2, %86 ]
+  %.328 = phi i32 [ %85, %82 ], [ %.732, %128 ], [ %.530, %88 ], [ %.429, %86 ]
+  %.3 = phi ptr [ %84, %82 ], [ %.7, %128 ], [ %.5, %88 ], [ %.4, %86 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
   br label %134
 
 133:                                              ; preds = %60, %131
-  %.1 = phi i1 [ %.022, %131 ], [ false, %60 ]
-  ret i1 %.1
+  %.022 = phi i1 [ %.1, %131 ], [ false, %60 ]
+  ret i1 %.022
 
 134:                                              ; preds = %132, %62, %51, %43
-  %.833 = phi i32 [ %.732, %132 ], [ %65, %62 ], [ %.126, %51 ], [ %.025, %43 ]
-  %.8 = phi ptr [ %.7, %132 ], [ %64, %62 ], [ %.124, %51 ], [ %.023, %43 ]
-  %135 = insertvalue { ptr, i32 } poison, ptr %.8, 0
-  %136 = insertvalue { ptr, i32 } %135, i32 %.833, 1
+  %.126 = phi i32 [ %.328, %132 ], [ %65, %62 ], [ %.227, %51 ], [ %.025, %43 ]
+  %.124 = phi ptr [ %.3, %132 ], [ %64, %62 ], [ %.2, %51 ], [ %.023, %43 ]
+  %135 = insertvalue { ptr, i32 } poison, ptr %.124, 0
+  %136 = insertvalue { ptr, i32 } %135, i32 %.126, 1
   resume { ptr, i32 } %136
 
 137:                                              ; preds = %128

@@ -3174,12 +3174,12 @@ if.then26:                                        ; preds = %if.end24
 
 for.body:                                         ; preds = %if.then26, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ 1, %if.then26 ]
-  %info.0127 = phi ptr [ %retval.0.i, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call28, %if.then26 ]
+  %info.1127 = phi ptr [ %retval.0.i, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %call28, %if.then26 ]
   %15 = load ptr, ptr %runes_.i, align 8
   %arrayidx32 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv140
   %16 = load i32, ptr %arrayidx32, align 4
   %call33 = tail call noundef ptr @_ZN3re29Prefilter4Info13LiteralLatin1Ei(i32 noundef %16)
-  %cmp.i = icmp eq ptr %info.0127, null
+  %cmp.i = icmp eq ptr %info.1127, null
   br i1 %cmp.i, label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
@@ -3188,11 +3188,11 @@ if.end.i:                                         ; preds = %for.body
           to label %invoke.cont.i54 unwind label %lpad.i53
 
 invoke.cont.i54:                                  ; preds = %if.end.i
-  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.0127, ptr noundef nonnull align 8 dereferenceable(48) %call33, ptr noundef nonnull %call.i52)
+  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.1127, ptr noundef nonnull align 8 dereferenceable(48) %call33, ptr noundef nonnull %call.i52)
   %is_exact_.i = getelementptr inbounds i8, ptr %call.i52, i64 48
   store i8 1, ptr %is_exact_.i, align 8
-  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.0127) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %info.0127) #18
+  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.1127) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %info.1127) #18
   tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call33) #16
   tail call void @_ZdlPv(ptr noundef %call33) #18
   br label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit
@@ -3219,12 +3219,12 @@ if.else35:                                        ; preds = %if.end24
 
 for.body43:                                       ; preds = %if.else35, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ 1, %if.else35 ]
-  %info.1123 = phi ptr [ %retval.0.i63, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call38, %if.else35 ]
+  %info.2123 = phi ptr [ %retval.0.i63, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call38, %if.else35 ]
   %21 = load ptr, ptr %runes_.i, align 8
   %arrayidx46 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv137
   %22 = load i32, ptr %arrayidx46, align 4
   %call47 = tail call noundef ptr @_ZN3re29Prefilter4Info7LiteralEi(i32 noundef %22)
-  %cmp.i57 = icmp eq ptr %info.1123, null
+  %cmp.i57 = icmp eq ptr %info.2123, null
   br i1 %cmp.i57, label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64, label %if.end.i58
 
 if.end.i58:                                       ; preds = %for.body43
@@ -3233,11 +3233,11 @@ if.end.i58:                                       ; preds = %for.body43
           to label %invoke.cont.i61 unwind label %lpad.i60
 
 invoke.cont.i61:                                  ; preds = %if.end.i58
-  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.1123, ptr noundef nonnull align 8 dereferenceable(48) %call47, ptr noundef nonnull %call.i59)
+  tail call void @_ZN3re29Prefilter12CrossProductERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EESC_PSA_(ptr noundef nonnull align 8 dereferenceable(48) %info.2123, ptr noundef nonnull align 8 dereferenceable(48) %call47, ptr noundef nonnull %call.i59)
   %is_exact_.i62 = getelementptr inbounds i8, ptr %call.i59, i64 48
   store i8 1, ptr %is_exact_.i62, align 8
-  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.1123) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %info.1123) #18
+  tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info.2123) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %info.2123) #18
   tail call void @_ZN3re29Prefilter4InfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %call47) #16
   tail call void @_ZdlPv(ptr noundef %call47) #18
   br label %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64
@@ -3258,7 +3258,7 @@ _ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64:     ; preds = %for.body43, %invoke
 
 for.body57:                                       ; preds = %for.body57.preheader, %for.inc72
   %indvars.iv132 = phi i64 [ 0, %for.body57.preheader ], [ %indvars.iv.next133, %for.inc72 ]
-  %info.2118 = phi ptr [ null, %for.body57.preheader ], [ %info.3, %for.inc72 ]
+  %info.3118 = phi ptr [ null, %for.body57.preheader ], [ %info.4, %for.inc72 ]
   %exact.0116 = phi ptr [ null, %for.body57.preheader ], [ %exact.1, %for.inc72 ]
   %arrayidx59 = getelementptr inbounds ptr, ptr %child_args, i64 %indvars.iv132
   %26 = load ptr, ptr %arrayidx59, align 8
@@ -3268,7 +3268,7 @@ for.body57:                                       ; preds = %for.body57.preheade
   br i1 %tobool.i66, label %lor.lhs.false, label %for.body57.split
 
 for.body57.split:                                 ; preds = %for.body57
-  %call6740 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.2118, ptr noundef %exact.0116)
+  %call6740 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.3118, ptr noundef %exact.0116)
   br label %if.then66
 
 lor.lhs.false:                                    ; preds = %for.body57
@@ -3306,7 +3306,7 @@ _ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76:     ; preds = %if.end.i70
   br label %for.inc72
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  %call6741 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.2118, ptr noundef nonnull %exact.0116)
+  %call6741 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.3118, ptr noundef nonnull %exact.0116)
   br label %if.then66
 
 if.then66:                                        ; preds = %land.lhs.true.split, %for.body57.split
@@ -3316,15 +3316,15 @@ if.then66:                                        ; preds = %land.lhs.true.split
 
 for.inc72:                                        ; preds = %lor.lhs.false, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76, %if.then66
   %exact.1 = phi ptr [ null, %if.then66 ], [ %call.i71, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76 ], [ %26, %lor.lhs.false ]
-  %info.3 = phi ptr [ %call68, %if.then66 ], [ %info.2118, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76 ], [ %info.2118, %lor.lhs.false ]
+  %info.4 = phi ptr [ %call68, %if.then66 ], [ %info.3118, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76 ], [ %info.3118, %lor.lhs.false ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
   br i1 %exitcond136.not, label %for.end74, label %for.body57, !llvm.loop !37
 
 for.end74:                                        ; preds = %for.inc72, %for.cond55.preheader
   %exact.0.lcssa = phi ptr [ null, %for.cond55.preheader ], [ %exact.1, %for.inc72 ]
-  %info.2.lcssa = phi ptr [ null, %for.cond55.preheader ], [ %info.3, %for.inc72 ]
-  %call75 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.2.lcssa, ptr noundef %exact.0.lcssa)
+  %info.3.lcssa = phi ptr [ null, %for.cond55.preheader ], [ %info.4, %for.inc72 ]
+  %call75 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.3.lcssa, ptr noundef %exact.0.lcssa)
   br label %sw.epilog
 
 sw.bb76:                                          ; preds = %entry
@@ -3338,10 +3338,10 @@ for.body81.preheader:                             ; preds = %sw.bb76
 
 for.body81:                                       ; preds = %for.body81.preheader, %for.body81
   %indvars.iv = phi i64 [ 1, %for.body81.preheader ], [ %indvars.iv.next, %for.body81 ]
-  %info.4113 = phi ptr [ %31, %for.body81.preheader ], [ %call84, %for.body81 ]
+  %info.5113 = phi ptr [ %31, %for.body81.preheader ], [ %call84, %for.body81 ]
   %arrayidx83 = getelementptr inbounds ptr, ptr %child_args, i64 %indvars.iv
   %32 = load ptr, ptr %arrayidx83, align 8
-  %call84 = tail call noundef ptr @_ZN3re29Prefilter4Info3AltEPS1_S2_(ptr noundef %info.4113, ptr noundef %32)
+  %call84 = tail call noundef ptr @_ZN3re29Prefilter4Info3AltEPS1_S2_(ptr noundef %info.5113, ptr noundef %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sw.epilog, label %for.body81, !llvm.loop !38
@@ -3511,8 +3511,8 @@ sw.bb103:                                         ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body81, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit, %sw.bb76, %if.else35, %if.then26, %delete.notnull.i, %invoke.cont3.i, %delete.notnull.i.i, %invoke.cont3.i.i, %if.then, %if.else, %sw.bb103, %sw.bb99, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit, %_ZN3re29Prefilter4Info4PlusEPS1_.exit, %for.end74, %if.then22, %sw.bb12, %_ZN3re29Prefilter4Info7NoMatchEv.exit, %invoke.cont8
-  %info.5 = phi ptr [ %call2, %invoke.cont8 ], [ %call102, %sw.bb99 ], [ %call.i94, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit ], [ %call.i87, %_ZN3re29Prefilter4Info4PlusEPS1_.exit ], [ %call75, %for.end74 ], [ %call23, %if.then22 ], [ %call17, %if.then ], [ %call19, %if.else ], [ %call13, %sw.bb12 ], [ %call.i, %_ZN3re29Prefilter4Info7NoMatchEv.exit ], [ %48, %sw.bb103 ], [ %call.i.i, %invoke.cont3.i.i ], [ %call.i.i, %delete.notnull.i.i ], [ %call.i77, %invoke.cont3.i ], [ %call.i77, %delete.notnull.i ], [ %call28, %if.then26 ], [ %call38, %if.else35 ], [ %31, %sw.bb76 ], [ %retval.0.i, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %retval.0.i63, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call84, %for.body81 ]
-  ret ptr %info.5
+  %info.0 = phi ptr [ %call2, %invoke.cont8 ], [ %call102, %sw.bb99 ], [ %call.i94, %_ZN3re29Prefilter4Info16AnyCharOrAnyByteEv.exit ], [ %call.i87, %_ZN3re29Prefilter4Info4PlusEPS1_.exit ], [ %call75, %for.end74 ], [ %call23, %if.then22 ], [ %call17, %if.then ], [ %call19, %if.else ], [ %call13, %sw.bb12 ], [ %call.i, %_ZN3re29Prefilter4Info7NoMatchEv.exit ], [ %48, %sw.bb103 ], [ %call.i.i, %invoke.cont3.i.i ], [ %call.i.i, %delete.notnull.i.i ], [ %call.i77, %invoke.cont3.i ], [ %call.i77, %delete.notnull.i ], [ %call28, %if.then26 ], [ %call38, %if.else35 ], [ %31, %sw.bb76 ], [ %retval.0.i, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit ], [ %retval.0.i63, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit64 ], [ %call84, %for.body81 ]
+  ret ptr %info.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6

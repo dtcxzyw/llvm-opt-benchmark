@@ -1494,7 +1494,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit255.i: ; preds = %367
   br i1 %exitcond417.not.i, label %.critedge.i, label %316, !llvm.loop !44
 
 .critedge.i:                                      ; preds = %.thread328.i, %379
-  %.3143.i = phi i32 [ %.4144.i, %379 ], [ -1, %.thread328.i ]
+  %.4144.i = phi i32 [ %.5145.i, %379 ], [ -1, %.thread328.i ]
   %373 = load ptr, ptr @stdin, align 8, !noalias !5
   %374 = call ptr @fgets(ptr noundef nonnull %41, i32 noundef 4096, ptr noundef %373)
   %.not149.i = icmp ne ptr %374, null
@@ -1507,17 +1507,17 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit255.i: ; preds = %367
   br label %379
 
 379:                                              ; preds = %375, %.critedge.i
-  %.4144.i = phi i32 [ %378, %375 ], [ %.3143.i, %.critedge.i ]
-  %380 = icmp ult i32 %.4144.i, %61
+  %.5145.i = phi i32 [ %378, %375 ], [ %.4144.i, %.critedge.i ]
+  %380 = icmp ult i32 %.5145.i, %61
   %or.cond186.i = select i1 %.not149.i, i1 %380, i1 false
   br i1 %or.cond186.i, label %.preheader.i, label %.critedge.i, !llvm.loop !45
 
 .preheader.i:                                     ; preds = %379
-  %381 = icmp sgt i32 %.4144.i, 0
+  %381 = icmp sgt i32 %.5145.i, 0
   br i1 %381, label %.lr.ph386.i, label %._crit_edge387.i
 
 .lr.ph386.i:                                      ; preds = %.preheader.i
-  %382 = zext nneg i32 %.4144.i to i64
+  %382 = zext nneg i32 %.5145.i to i64
   br label %383
 
 383:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread329.i, %.lr.ph386.i
@@ -1675,8 +1675,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.body.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %424, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %165, %150, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i, %124, %._crit_edge.thread.i
-  %.5145.i = phi i32 [ %.1139.fr.i, %124 ], [ %.1139.fr.i, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %spec.select448.i, %150 ], [ 0, %165 ], [ %.4144.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.4144.i, %424 ], [ 0, %._crit_edge.thread.i ]
-  %425 = sext i32 %.5145.i to i64
+  %.3143.i = phi i32 [ %.1139.fr.i, %124 ], [ %.1139.fr.i, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %spec.select448.i, %150 ], [ 0, %165 ], [ %.5145.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.5145.i, %424 ], [ 0, %._crit_edge.thread.i ]
+  %425 = sext i32 %.3143.i to i64
   %426 = load ptr, ptr %13, align 8, !noalias !5
   %427 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %426, i64 %425
   %428 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %427) #25
@@ -3932,14 +3932,14 @@ define void @_Z17print_top_commentP8_IO_FILERKNSt10filesystem7__cxx114pathES5_b(
 
 40:                                               ; preds = %.body, %32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %33, %32 ]
-  %.114 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.013 = extractvalue { ptr, i32 } %.pn.pn, 1
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
-  %42 = icmp eq i32 %.114, %41
+  %42 = icmp eq i32 %.013, %41
   br i1 %42, label %43, label %65
 
 43:                                               ; preds = %40
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %44 = call ptr @__cxa_begin_catch(ptr %.1) #25
+  %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %44 = call ptr @__cxa_begin_catch(ptr %.0) #25
   invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %44) #23
           to label %45 unwind label %46
 
@@ -10525,11 +10525,11 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %89
 275:                                              ; preds = %367, %.lr.ph.i115
   %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.i115 ], [ %indvars.iv.next.i, %367 ]
   %.085153.i = phi i32 [ -1, %.lr.ph.i115 ], [ %.186.i, %367 ]
-  %.087152.i = phi i32 [ 0, %.lr.ph.i115 ], [ %.2.i, %367 ]
-  %.089151.i = phi double [ 0.000000e+00, %.lr.ph.i115 ], [ %.291.i, %367 ]
+  %.087152.i = phi i32 [ 0, %.lr.ph.i115 ], [ %.188.i, %367 ]
+  %.089151.i = phi double [ 0.000000e+00, %.lr.ph.i115 ], [ %.190.i, %367 ]
   %.092150.i = phi i1 [ false, %.lr.ph.i115 ], [ %.193.i, %367 ]
   %.094149.i = phi i32 [ 0, %.lr.ph.i115 ], [ %.195.i, %367 ]
-  %.096148.i = phi i32 [ 0, %.lr.ph.i115 ], [ %.298.i, %367 ]
+  %.096148.i = phi i32 [ 0, %.lr.ph.i115 ], [ %.197.i, %367 ]
   %.099147.i = phi i32 [ -1, %.lr.ph.i115 ], [ %.1100.i, %367 ]
   %276 = load ptr, ptr %272, align 8
   %277 = getelementptr inbounds %struct.t_atom, ptr %276, i64 %indvars.iv.i116, i32 7
@@ -10678,7 +10678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i:
 319:                                              ; preds = %.noexc122, %303, %275
   %.195.i = phi i32 [ %.094149.i, %275 ], [ %307, %.noexc122 ], [ %307, %303 ]
   %.193.i = phi i1 [ %.092150.i, %275 ], [ %305, %.noexc122 ], [ %305, %303 ]
-  %.2.i = phi i32 [ %.087152.i, %275 ], [ %312, %.noexc122 ], [ %.087152.i, %303 ]
+  %.188.i = phi i32 [ %.087152.i, %275 ], [ %312, %.noexc122 ], [ %.087152.i, %303 ]
   %.186.i = phi i32 [ %.085153.i, %275 ], [ %278, %.noexc122 ], [ %278, %303 ]
   %320 = load ptr, ptr %272, align 8
   %321 = getelementptr inbounds %struct.t_atom, ptr %320, i64 %indvars.iv.i116
@@ -10738,22 +10738,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i:
   %360 = fsub double %.0.i.i, %359
   %361 = call double @llvm.fabs.f64(double %360)
   %362 = fcmp olt double %361, 1.000000e-04
-  %.190.i = select i1 %362, double 0.000000e+00, double %.089151.i
+  %.291.i = select i1 %362, double 0.000000e+00, double %.089151.i
   %363 = getelementptr inbounds %struct.t_atom, ptr %320, i64 %indvars.iv.i116, i32 1
   %364 = load float, ptr %363, align 4
   %365 = fpext float %364 to double
-  %366 = fadd double %.190.i, %365
+  %366 = fadd double %.291.i, %365
   br label %367
 
 367:                                              ; preds = %354, %.noexc125
   %.1100.i = phi i32 [ -1, %354 ], [ %352, %.noexc125 ]
   %.pn122.in.i = phi i1 [ %362, %354 ], [ %or.cond107.not.i, %.noexc125 ]
-  %.291.i = phi double [ %366, %354 ], [ 0.000000e+00, %.noexc125 ]
+  %.190.i = phi double [ %366, %354 ], [ 0.000000e+00, %.noexc125 ]
   %.pn122.i = zext i1 %.pn122.in.i to i32
-  %.298.i = add nuw nsw i32 %.096148.i, %.pn122.i
+  %.197.i = add nuw nsw i32 %.096148.i, %.pn122.i
   %368 = load ptr, ptr %43, align 8
   %369 = getelementptr inbounds i32, ptr %368, i64 %indvars.iv.i116
-  store i32 %.298.i, ptr %369, align 4
+  store i32 %.197.i, ptr %369, align 4
   %370 = load ptr, ptr %272, align 8
   %371 = getelementptr inbounds %struct.t_atom, ptr %370, i64 %indvars.iv.i116
   %372 = getelementptr inbounds i8, ptr %371, i64 16
@@ -10783,7 +10783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113.i:
 
 ._crit_edge.i114:                                 ; preds = %._crit_edge.loopexit.i120, %.noexc121
   %.094.lcssa.i = phi i32 [ 0, %.noexc121 ], [ %.195.i, %._crit_edge.loopexit.i120 ]
-  %.087.lcssa.i = phi i32 [ 0, %.noexc121 ], [ %.2.i, %._crit_edge.loopexit.i120 ]
+  %.087.lcssa.i = phi i32 [ 0, %.noexc121 ], [ %.188.i, %._crit_edge.loopexit.i120 ]
   %.085.lcssa.i = phi i32 [ -1, %.noexc121 ], [ %.186.i, %._crit_edge.loopexit.i120 ]
   %.084.lcssa.i = phi i32 [ 0, %.noexc121 ], [ %387, %._crit_edge.loopexit.i120 ]
   %388 = sext i32 %.085.lcssa.i to i64

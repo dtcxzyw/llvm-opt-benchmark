@@ -2580,15 +2580,15 @@ window_geom_load.exit:                            ; preds = %18
   br label %sub_0
 
 sub_0:                                            ; preds = %window_geom_load.exit, %18
-  %.sroa.17.052 = phi i32 [ %.sroa.17.0.copyload, %window_geom_load.exit ], [ undef, %18 ]
-  %.sroa.18.050 = phi i32 [ %.sroa.18.0.copyload, %window_geom_load.exit ], [ undef, %18 ]
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0.copyload, %window_geom_load.exit ], [ null, %18 ]
-  %.sroa.15.1 = phi i32 [ %.sroa.15.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
-  %.sroa.10.1 = phi i32 [ %.sroa.10.0.copyload, %window_geom_load.exit ], [ 0, %18 ]
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
-  %.sroa.6.1 = phi i32 [ %.sroa.6.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
-  %.sroa.3.1 = phi i32 [ %.sroa.3.0.copyload, %window_geom_load.exit ], [ 0, %18 ]
+  %.sroa.17.152 = phi i32 [ %.sroa.17.0.copyload, %window_geom_load.exit ], [ undef, %18 ]
+  %.sroa.18.150 = phi i32 [ %.sroa.18.0.copyload, %window_geom_load.exit ], [ undef, %18 ]
+  %.sroa.19.0 = phi ptr [ %.sroa.19.0.copyload, %window_geom_load.exit ], [ null, %18 ]
+  %.sroa.15.0 = phi i32 [ %.sroa.15.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
+  %.sroa.13.0 = phi i32 [ %.sroa.13.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.0.copyload, %window_geom_load.exit ], [ 0, %18 ]
+  %.sroa.8.0 = phi i32 [ %.sroa.8.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
+  %.sroa.6.0 = phi i32 [ %.sroa.6.0.copyload, %window_geom_load.exit ], [ -1, %18 ]
+  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %window_geom_load.exit ], [ 0, %18 ]
   %21 = load i8, ptr %1, align 1
   switch i8 %21, label %.tail54.thread [
     i8 120, label %.tail
@@ -2658,15 +2658,15 @@ sub_0:                                            ; preds = %window_geom_load.ex
   br label %56
 
 56:                                               ; preds = %31, %42, %54, %48, %36, %25
-  %.sroa.19.2 = phi ptr [ %.sroa.19.1, %25 ], [ %.sroa.19.1, %31 ], [ %.sroa.19.1, %36 ], [ %.sroa.19.1, %42 ], [ %.sroa.19.1, %48 ], [ %55, %54 ]
-  %.sroa.18.1 = phi i32 [ %.sroa.18.050, %25 ], [ %.sroa.18.050, %31 ], [ %.sroa.18.050, %36 ], [ %.sroa.18.050, %42 ], [ %..i, %48 ], [ %.sroa.18.050, %54 ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.052, %25 ], [ %.sroa.17.052, %31 ], [ %.sroa.17.052, %36 ], [ %.sroa.17.052, %42 ], [ 1, %48 ], [ %.sroa.17.052, %54 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %25 ], [ %.sroa.15.1, %31 ], [ %.sroa.15.1, %36 ], [ %44, %42 ], [ %.sroa.15.1, %48 ], [ %.sroa.15.1, %54 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %25 ], [ %.sroa.13.1, %31 ], [ %38, %36 ], [ %.sroa.13.1, %42 ], [ %.sroa.13.1, %48 ], [ %.sroa.13.1, %54 ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.1, %25 ], [ %.sroa.10.1, %31 ], [ 1, %36 ], [ 1, %42 ], [ %.sroa.10.1, %48 ], [ %.sroa.10.1, %54 ]
-  %.sroa.8.2 = phi i32 [ %.sroa.8.1, %25 ], [ %33, %31 ], [ %.sroa.8.1, %36 ], [ %.sroa.8.1, %42 ], [ %.sroa.8.1, %48 ], [ %.sroa.8.1, %54 ]
-  %.sroa.6.2 = phi i32 [ %27, %25 ], [ %.sroa.6.1, %31 ], [ %.sroa.6.1, %36 ], [ %.sroa.6.1, %42 ], [ %.sroa.6.1, %48 ], [ %.sroa.6.1, %54 ]
-  %.sroa.3.2 = phi i32 [ 1, %25 ], [ 1, %31 ], [ %.sroa.3.1, %36 ], [ %.sroa.3.1, %42 ], [ %.sroa.3.1, %48 ], [ %.sroa.3.1, %54 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %25 ], [ %.sroa.19.0, %31 ], [ %.sroa.19.0, %36 ], [ %.sroa.19.0, %42 ], [ %.sroa.19.0, %48 ], [ %55, %54 ]
+  %.sroa.18.0 = phi i32 [ %.sroa.18.150, %25 ], [ %.sroa.18.150, %31 ], [ %.sroa.18.150, %36 ], [ %.sroa.18.150, %42 ], [ %..i, %48 ], [ %.sroa.18.150, %54 ]
+  %.sroa.17.0 = phi i32 [ %.sroa.17.152, %25 ], [ %.sroa.17.152, %31 ], [ %.sroa.17.152, %36 ], [ %.sroa.17.152, %42 ], [ 1, %48 ], [ %.sroa.17.152, %54 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %25 ], [ %.sroa.15.0, %31 ], [ %.sroa.15.0, %36 ], [ %44, %42 ], [ %.sroa.15.0, %48 ], [ %.sroa.15.0, %54 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0, %25 ], [ %.sroa.13.0, %31 ], [ %38, %36 ], [ %.sroa.13.0, %42 ], [ %.sroa.13.0, %48 ], [ %.sroa.13.0, %54 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.0, %25 ], [ %.sroa.10.0, %31 ], [ 1, %36 ], [ 1, %42 ], [ %.sroa.10.0, %48 ], [ %.sroa.10.0, %54 ]
+  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %25 ], [ %33, %31 ], [ %.sroa.8.0, %36 ], [ %.sroa.8.0, %42 ], [ %.sroa.8.0, %48 ], [ %.sroa.8.0, %54 ]
+  %.sroa.6.1 = phi i32 [ %27, %25 ], [ %.sroa.6.0, %31 ], [ %.sroa.6.0, %36 ], [ %.sroa.6.0, %42 ], [ %.sroa.6.0, %48 ], [ %.sroa.6.0, %54 ]
+  %.sroa.3.1 = phi i32 [ 1, %25 ], [ 1, %31 ], [ %.sroa.3.0, %36 ], [ %.sroa.3.0, %42 ], [ %.sroa.3.0, %48 ], [ %.sroa.3.0, %54 ]
   %57 = load ptr, ptr @window_geom_hash, align 8
   %.not.i18 = icmp eq ptr %57, null
   br i1 %.not.i18, label %58, label %window_geom_save.exit
@@ -2679,23 +2679,23 @@ sub_0:                                            ; preds = %window_geom_load.ex
 window_geom_save.exit:                            ; preds = %56, %58
   %60 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #14
   %.sroa.3.0..sroa_idx20 = getelementptr inbounds i8, ptr %60, i64 8
-  store i32 %.sroa.3.2, ptr %.sroa.3.0..sroa_idx20, align 8
+  store i32 %.sroa.3.1, ptr %.sroa.3.0..sroa_idx20, align 8
   %.sroa.6.0..sroa_idx22 = getelementptr inbounds i8, ptr %60, i64 12
-  store i32 %.sroa.6.2, ptr %.sroa.6.0..sroa_idx22, align 4
+  store i32 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx22, align 4
   %.sroa.8.0..sroa_idx24 = getelementptr inbounds i8, ptr %60, i64 16
-  store i32 %.sroa.8.2, ptr %.sroa.8.0..sroa_idx24, align 8
+  store i32 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx24, align 8
   %.sroa.10.0..sroa_idx26 = getelementptr inbounds i8, ptr %60, i64 20
-  store i32 %.sroa.10.2, ptr %.sroa.10.0..sroa_idx26, align 4
+  store i32 %.sroa.10.1, ptr %.sroa.10.0..sroa_idx26, align 4
   %.sroa.13.0..sroa_idx28 = getelementptr inbounds i8, ptr %60, i64 24
-  store i32 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx28, align 8
+  store i32 %.sroa.13.1, ptr %.sroa.13.0..sroa_idx28, align 8
   %.sroa.15.0..sroa_idx30 = getelementptr inbounds i8, ptr %60, i64 28
-  store i32 %.sroa.15.2, ptr %.sroa.15.0..sroa_idx30, align 4
+  store i32 %.sroa.15.1, ptr %.sroa.15.0..sroa_idx30, align 4
   %.sroa.17.0..sroa_idx32 = getelementptr inbounds i8, ptr %60, i64 32
-  store i32 %.sroa.17.1, ptr %.sroa.17.0..sroa_idx32, align 8
+  store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx32, align 8
   %.sroa.18.0..sroa_idx34 = getelementptr inbounds i8, ptr %60, i64 36
-  store i32 %.sroa.18.1, ptr %.sroa.18.0..sroa_idx34, align 4
+  store i32 %.sroa.18.0, ptr %.sroa.18.0..sroa_idx34, align 4
   %.sroa.19.0..sroa_idx36 = getelementptr inbounds i8, ptr %60, i64 40
-  store ptr %.sroa.19.2, ptr %.sroa.19.0..sroa_idx36, align 8
+  store ptr %.sroa.19.1, ptr %.sroa.19.0..sroa_idx36, align 8
   %61 = tail call noalias ptr @g_strdup(ptr noundef %0) #13
   store ptr %61, ptr %60, align 8
   %62 = load ptr, ptr @window_geom_hash, align 8

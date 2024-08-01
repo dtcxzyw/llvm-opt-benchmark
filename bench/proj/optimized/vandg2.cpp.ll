@@ -151,25 +151,25 @@ define internal { double, double } @_ZL16vandg2_s_forward5PJ_LPP8PJconsts(double
   br label %52
 
 52:                                               ; preds = %37, %29
-  %.sroa.7.0.in = phi double [ %31, %29 ], [ %51, %37 ]
-  %.sroa.036.0.in = phi double [ %36, %29 ], [ %46, %37 ]
-  %.sroa.036.0 = fmul double %.sroa.036.0.in, 0x400921FB54442D18
-  %.sroa.7.0 = fmul double %.sroa.7.0.in, 0x400921FB54442D18
+  %.sroa.7.1.in = phi double [ %31, %29 ], [ %51, %37 ]
+  %.sroa.036.1.in = phi double [ %36, %29 ], [ %46, %37 ]
+  %.sroa.036.1 = fmul double %.sroa.036.1.in, 0x400921FB54442D18
+  %.sroa.7.1 = fmul double %.sroa.7.1.in, 0x400921FB54442D18
   %53 = fcmp olt double %0, 0.000000e+00
-  %54 = fneg double %.sroa.036.0
-  %.sroa.036.1 = select i1 %53, double %54, double %.sroa.036.0
+  %54 = fneg double %.sroa.036.1
+  %.sroa.036.2 = select i1 %53, double %54, double %.sroa.036.1
   %55 = fcmp olt double %1, 0.000000e+00
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %52
-  %57 = fneg double %.sroa.7.0
+  %57 = fneg double %.sroa.7.1
   br label %58
 
 58:                                               ; preds = %52, %56, %16
-  %.sroa.7.1 = phi double [ %21, %16 ], [ %57, %56 ], [ %.sroa.7.0, %52 ]
-  %.sroa.036.2 = phi double [ 0.000000e+00, %16 ], [ %.sroa.036.1, %56 ], [ %.sroa.036.1, %52 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.036.2, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
+  %.sroa.7.0 = phi double [ %21, %16 ], [ %57, %56 ], [ %.sroa.7.1, %52 ]
+  %.sroa.036.0 = phi double [ 0.000000e+00, %16 ], [ %.sroa.036.2, %56 ], [ %.sroa.036.2, %52 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.036.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
   ret { double, double } %.fca.1.insert
 }
 

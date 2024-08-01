@@ -1066,7 +1066,7 @@ init_ncurses.exit:                                ; preds = %147, %155
   br label %468
 
 468:                                              ; preds = %508, %.thread
-  %.01520.i = phi i64 [ 0, %.thread ], [ %.2.i, %508 ]
+  %.01520.i = phi i64 [ 0, %.thread ], [ %.1.i36, %508 ]
   %.01619.i = phi i64 [ 0, %.thread ], [ %509, %508 ]
   %469 = getelementptr inbounds [10 x ptr], ptr @status_bar_keys, i64 0, i64 %.01619.i
   %470 = load ptr, ptr %469, align 8
@@ -1119,20 +1119,20 @@ init_ncurses.exit:                                ; preds = %147, %155
   br label %499
 
 499:                                              ; preds = %496, %484, %471
-  %.1.i36 = phi i64 [ %486, %484 ], [ %498, %496 ], [ %.01520.i, %471 ]
+  %.2.i = phi i64 [ %486, %484 ], [ %498, %496 ], [ %.01520.i, %471 ]
   %.0.i = phi ptr [ %485, %484 ], [ %497, %496 ], [ %470, %471 ]
   %500 = load ptr, ptr @status_bar_window, align 8
-  %501 = trunc i64 %.1.i36 to i32
+  %501 = trunc i64 %.2.i to i32
   %502 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %500, i32 noundef 0, i32 noundef %501, ptr noundef nonnull @.str.58, ptr noundef nonnull %.0.i) #26
   %503 = load ptr, ptr @status_bar_window, align 8
   %504 = call i32 @wattr_off(ptr noundef %503, i32 noundef 262144, ptr noundef null) #26
   %505 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #27
-  %506 = add i64 %.1.i36, 1
+  %506 = add i64 %.2.i, 1
   %507 = add i64 %506, %505
   br label %508
 
 508:                                              ; preds = %499, %468
-  %.2.i = phi i64 [ %507, %499 ], [ %.01520.i, %468 ]
+  %.1.i36 = phi i64 [ %507, %499 ], [ %.01520.i, %468 ]
   %509 = add nuw nsw i64 %.01619.i, 1
   %exitcond.not.i = icmp eq i64 %509, 10
   br i1 %exitcond.not.i, label %header.exit, label %468
@@ -3778,10 +3778,10 @@ get_port.exit:                                    ; preds = %26, %.sink.split.i
   br i1 %.not77, label %.thread, label %.lr.ph
 
 .loopexit:                                        ; preds = %52, %16
-  %.064 = phi ptr [ null, %16 ], [ %25, %52 ]
-  %.060 = phi ptr [ null, %16 ], [ %.012.i, %52 ]
-  %.2 = phi i32 [ %13, %16 ], [ %49, %52 ]
-  store i32 %.2, ptr %1, align 8
+  %.165 = phi ptr [ null, %16 ], [ %25, %52 ]
+  %.161 = phi ptr [ null, %16 ], [ %.012.i, %52 ]
+  %.0 = phi i32 [ %13, %16 ], [ %49, %52 ]
+  store i32 %.0, ptr %1, align 8
   %62 = getelementptr inbounds i8, ptr %1, i64 24
   %63 = call i32 @gettimeofday(ptr noundef nonnull %62, ptr noundef null) #26
   store i64 30, ptr %3, align 8
@@ -3804,16 +3804,16 @@ get_port.exit:                                    ; preds = %26, %.sink.split.i
   br label %71
 
 71:                                               ; preds = %70, %69
-  %.not82 = icmp eq ptr %.060, null
-  %72 = select i1 %.not82, ptr @.str.56, ptr %.060
-  %.not88 = icmp eq ptr %.064, null
+  %.not82 = icmp eq ptr %.161, null
+  %72 = select i1 %.not82, ptr @.str.56, ptr %.161
+  %.not88 = icmp eq ptr %.165, null
   br i1 %.not88, label %make_ip.exit, label %73
 
 73:                                               ; preds = %71
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.064) #27
+  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.165) #27
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #27
   %76 = add i64 %75, %74
-  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.064, i32 noundef 58) #27
+  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.165, i32 noundef 58) #27
   %.not.i86 = icmp eq ptr %77, null
   %78 = select i1 %.not.i86, i64 3, i64 4
   %79 = add i64 %76, %78
@@ -3824,7 +3824,7 @@ get_port.exit:                                    ; preds = %26, %.sink.split.i
 81:                                               ; preds = %73
   %82 = select i1 %.not.i86, ptr @.str.2, ptr @.str.1
   %83 = select i1 %.not.i86, ptr @.str.2, ptr @.str.3
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull @.str, ptr noundef nonnull %82, ptr noundef nonnull %.064, ptr noundef nonnull %83, ptr noundef nonnull %72) #26
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull @.str, ptr noundef nonnull %82, ptr noundef nonnull %.165, ptr noundef nonnull %83, ptr noundef nonnull %72) #26
   br label %make_ip.exit
 
 make_ip.exit:                                     ; preds = %71, %73, %81
@@ -3833,9 +3833,9 @@ make_ip.exit:                                     ; preds = %71, %73, %81
   br label %.thread
 
 .thread:                                          ; preds = %60, %23, %.loopexit, %make_ip.exit, %41, %21, %15
-  %.165.ph = phi ptr [ null, %23 ], [ %25, %41 ], [ %.064, %.loopexit ], [ %.064, %make_ip.exit ], [ null, %21 ], [ null, %15 ], [ %25, %60 ]
+  %.064.ph = phi ptr [ null, %23 ], [ %25, %41 ], [ %.165, %.loopexit ], [ %.165, %make_ip.exit ], [ null, %21 ], [ null, %15 ], [ %25, %60 ]
   %.062.ph = phi i32 [ -1, %23 ], [ -1, %41 ], [ 0, %.loopexit ], [ 0, %make_ip.exit ], [ -1, %21 ], [ -1, %15 ], [ -1, %60 ]
-  %.161.ph = phi ptr [ null, %23 ], [ %.012.i, %41 ], [ %.060, %.loopexit ], [ %.060, %make_ip.exit ], [ null, %21 ], [ null, %15 ], [ %.012.i, %60 ]
+  %.060.ph = phi ptr [ null, %23 ], [ %.012.i, %41 ], [ %.161, %.loopexit ], [ %.161, %make_ip.exit ], [ null, %21 ], [ null, %15 ], [ %.012.i, %60 ]
   %.pr = load ptr, ptr %5, align 8
   %.not83 = icmp eq ptr %.pr, null
   br i1 %.not83, label %86, label %85
@@ -3846,24 +3846,24 @@ make_ip.exit:                                     ; preds = %71, %73, %81
   br label %86
 
 86:                                               ; preds = %85, %.thread
-  %.not84 = icmp eq ptr %.165.ph, null
+  %.not84 = icmp eq ptr %.064.ph, null
   br i1 %.not84, label %87, label %.thread100
 
 .thread100:                                       ; preds = %.preheader, %86
-  %.16597109 = phi ptr [ %.165.ph, %86 ], [ %25, %.preheader ]
+  %.06497109 = phi ptr [ %.064.ph, %86 ], [ %25, %.preheader ]
   %.06298107 = phi i32 [ %.062.ph, %86 ], [ -1, %.preheader ]
-  %.16199105 = phi ptr [ %.161.ph, %86 ], [ %.012.i, %.preheader ]
-  call void @free(ptr noundef nonnull %.16597109) #26
+  %.06099105 = phi ptr [ %.060.ph, %86 ], [ %.012.i, %.preheader ]
+  call void @free(ptr noundef nonnull %.06497109) #26
   br label %87
 
 87:                                               ; preds = %.thread100, %86
   %.06298108 = phi i32 [ %.06298107, %.thread100 ], [ %.062.ph, %86 ]
-  %.16199106 = phi ptr [ %.16199105, %.thread100 ], [ %.161.ph, %86 ]
-  %.not85 = icmp eq ptr %.16199106, null
+  %.06099106 = phi ptr [ %.06099105, %.thread100 ], [ %.060.ph, %86 ]
+  %.not85 = icmp eq ptr %.06099106, null
   br i1 %.not85, label %89, label %88
 
 88:                                               ; preds = %87
-  call void @free(ptr noundef nonnull %.16199106) #26
+  call void @free(ptr noundef nonnull %.06099106) #26
   br label %89
 
 89:                                               ; preds = %88, %87
@@ -4069,7 +4069,7 @@ define internal fastcc range(i32 0, 2) i32 @recv_line(ptr noundef %0, ptr nounde
   unreachable
 
 .preheader:                                       ; preds = %9, %46
-  %.041 = phi ptr [ %.142, %46 ], [ %1, %9 ]
+  %.041 = phi ptr [ %.2, %46 ], [ %1, %9 ]
   %.040 = phi i64 [ %13, %46 ], [ 1023, %9 ]
   %12 = load i32, ptr %0, align 8
   %13 = tail call i64 @recv(i32 noundef %12, ptr noundef %.041, i64 noundef %.040, i32 noundef 2) #26
@@ -4146,11 +4146,11 @@ send_string_noreconn.exit:                        ; preds = %15
   br label %46
 
 46:                                               ; preds = %44, %39
-  %.142 = phi ptr [ %.041, %39 ], [ %45, %44 ]
+  %.2 = phi ptr [ %.041, %39 ], [ %45, %44 ]
   br i1 %.not52, label %.preheader, label %47
 
 47:                                               ; preds = %46
-  store i8 0, ptr %.142, align 1
+  store i8 0, ptr %.2, align 1
   br label %48
 
 48:                                               ; preds = %6, %47, %send_string_noreconn.exit

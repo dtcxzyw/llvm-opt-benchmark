@@ -939,7 +939,7 @@ lpad119:                                          ; preds = %if.else113
   br label %ehcleanup127
 
 if.end126:                                        ; preds = %if.else113, %if.then100
-  %conflict.0.in.in = phi i1 [ %call109, %if.then100 ], [ %call121, %if.else113 ]
+  %conflict.1.in.in = phi i1 [ %call109, %if.then100 ], [ %call121, %if.else113 ]
   %bf.load.i.i449 = load i64, ptr %44, align 8
   %49 = and i64 %bf.load.i.i449, 1152920405095219200
   %cmp.not.i.i450 = icmp eq i64 %49, 1152920405095219200
@@ -1002,7 +1002,7 @@ ehcleanup128:                                     ; preds = %ehcleanup127, %lpad
   br label %ehcleanup198
 
 if.end129:                                        ; preds = %if.then13.i.i468, %if.then.i.i462, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit459
-  br i1 %conflict.0.in.in, label %land.lhs.true131, label %cond.true151
+  br i1 %conflict.1.in.in, label %land.lhs.true131, label %cond.true151
 
 land.lhs.true131:                                 ; preds = %if.end129
   br i1 %cmp77, label %if.then136, label %lor.lhs.false133

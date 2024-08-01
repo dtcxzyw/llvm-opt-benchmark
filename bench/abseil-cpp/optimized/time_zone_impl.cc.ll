@@ -441,8 +441,8 @@ ehcleanup:                                        ; preds = %lpad29, %lpad.i37, 
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt14default_deleteIKN4absl13time_internal4cctz9time_zone4ImplEEclEPS5_.exit.i, %if.end46, %cleanup, %if.then
-  %retval.1 = phi i1 [ true, %if.then ], [ %cmp22, %cleanup ], [ %cmp49, %if.end46 ], [ %cmp49, %_ZNKSt14default_deleteIKN4absl13time_internal4cctz9time_zone4ImplEEclEPS5_.exit.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.then ], [ %cmp22, %cleanup ], [ %cmp49, %if.end46 ], [ %cmp49, %_ZNKSt14default_deleteIKN4absl13time_internal4cctz9time_zone4ImplEEclEPS5_.exit.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

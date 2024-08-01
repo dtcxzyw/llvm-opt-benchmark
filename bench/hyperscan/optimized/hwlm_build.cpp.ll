@@ -604,7 +604,7 @@ unreachable.i.i.i.i.i20:                          ; preds = %invoke.cont8.i.i.i.
 
 _ZN3ue212bytecode_ptrI3FDRED2Ev.exit:             ; preds = %invoke.cont16
   %cmp.i.i.i11.not = icmp eq ptr %11, null
-  %engSize.1 = select i1 %cmp.i.i.i11.not, i64 0, i64 %12
+  %engSize.2 = select i1 %cmp.i.i.i11.not, i64 0, i64 %12
   %_M_use_count.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i14, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i21, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i14, i64 12
@@ -621,7 +621,7 @@ _ZN3ue212bytecode_ptrI3FDRED2Ev.exit:             ; preds = %invoke.cont16
 if.end27:                                         ; preds = %_ZN3ue212bytecode_ptrI3FDRED2Ev.exit, %_ZN3ue212bytecode_ptrI9noodTableED2Ev.exit
   %19 = phi ptr [ %call5.i.i.i3.i.i.i.i.i, %_ZN3ue212bytecode_ptrI9noodTableED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i.i14, %_ZN3ue212bytecode_ptrI3FDRED2Ev.exit ]
   %20 = phi ptr [ %2, %_ZN3ue212bytecode_ptrI9noodTableED2Ev.exit ], [ %11, %_ZN3ue212bytecode_ptrI3FDRED2Ev.exit ]
-  %engSize.2 = phi i64 [ %engSize.0, %_ZN3ue212bytecode_ptrI9noodTableED2Ev.exit ], [ %engSize.1, %_ZN3ue212bytecode_ptrI3FDRED2Ev.exit ]
+  %engSize.1 = phi i64 [ %engSize.0, %_ZN3ue212bytecode_ptrI9noodTableED2Ev.exit ], [ %engSize.2, %_ZN3ue212bytecode_ptrI3FDRED2Ev.exit ]
   %cmp.i.not = icmp eq ptr %20, null
   br i1 %cmp.i.not, label %if.then29, label %if.end31
 
@@ -633,7 +633,7 @@ if.end31:                                         ; preds = %if.end27
   %limitLiteralMatcherSize = getelementptr inbounds i8, ptr %cc, i64 280
   %21 = load i32, ptr %limitLiteralMatcherSize, align 8
   %conv33 = zext i32 %21 to i64
-  %cmp34 = icmp ugt i64 %engSize.2, %conv33
+  %cmp34 = icmp ugt i64 %engSize.1, %conv33
   br i1 %cmp34, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %if.end31
@@ -652,7 +652,7 @@ lpad36:                                           ; preds = %if.then35
   br label %ehcleanup
 
 if.end38:                                         ; preds = %if.end31
-  %add = add nuw nsw i64 %engSize.2, 192
+  %add = add nuw nsw i64 %engSize.1, 192
   invoke void @_ZN3ue212bytecode_ptrI4HWLMEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %add, i64 noundef 64)
           to label %invoke.cont39 unwind label %lpad
 
@@ -664,7 +664,7 @@ invoke.cont39:                                    ; preds = %if.end38
   store i8 %24, ptr %25, align 16
   %26 = load ptr, ptr %agg.result, align 8
   %add.ptr = getelementptr inbounds i8, ptr %26, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %20, i64 %engSize.2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %20, i64 %engSize.1, i1 false)
   br label %if.then.i.i.i95
 
 if.then.i.i.i95:                                  ; preds = %if.then29, %invoke.cont39

@@ -7346,26 +7346,26 @@ __cxx_global_var_init.21.exit:                    ; preds = %22
   br label %44
 
 44:                                               ; preds = %42, %40
-  %.08.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 128), %42 ], [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 96), %40 ]
+  %.311.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 128), %42 ], [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 96), %40 ]
   %.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   br label %45
 
 45:                                               ; preds = %44, %38
-  %.19.i = phi ptr [ %.08.i, %44 ], [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 64), %38 ]
+  %.210.i = phi ptr [ %.311.i, %44 ], [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 64), %38 ]
   %.pn.pn.i2 = phi { ptr, i32 } [ %.pn.i, %44 ], [ %39, %38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   br label %46
 
 46:                                               ; preds = %45, %36
-  %.210.i = phi ptr [ %.19.i, %45 ], [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 32), %36 ]
+  %.19.i = phi ptr [ %.210.i, %45 ], [ getelementptr inbounds (i8, ptr @_ZN11opencv_testL11bunny_filesB5cxx11E, i64 32), %36 ]
   %.pn.pn.pn.i1 = phi { ptr, i32 } [ %.pn.pn.i2, %45 ], [ %37, %36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   br label %47
 
 47:                                               ; preds = %47, %46
-  %48 = phi ptr [ %49, %47 ], [ %.210.i, %46 ]
+  %48 = phi ptr [ %49, %47 ], [ %.19.i, %46 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #25
   %50 = icmp eq ptr %49, @_ZN11opencv_testL11bunny_filesB5cxx11E

@@ -2216,12 +2216,12 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph79:                                         ; preds = %117, %.lr.ph79
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.lr.ph79 ], [ 0, %117 ]
-  %.078 = phi i32 [ %139, %.lr.ph79 ], [ 1, %117 ]
+  %.178 = phi i32 [ %139, %.lr.ph79 ], [ 1, %117 ]
   %.val63 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i32, ptr %.val63, i64 %indvars.iv90
   %137 = load i32, ptr %136, align 4
   %138 = add nsw i32 %137, 2
-  %139 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %.078, i32 noundef %138) #23
+  %139 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %.178, i32 noundef %138) #23
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val = load i32, ptr %132, align 4
   %140 = sext i32 %.val to i64
@@ -2229,8 +2229,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %141, label %.lr.ph79, label %.critedge6, !llvm.loop !24
 
 .critedge6:                                       ; preds = %.lr.ph79, %117, %113
-  %.1 = phi i32 [ 1, %113 ], [ 1, %117 ], [ %139, %.lr.ph79 ]
-  %142 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %5, i32 noundef %.05482, i32 noundef %.1) #23
+  %.0 = phi i32 [ 1, %113 ], [ 1, %117 ], [ %139, %.lr.ph79 ]
+  %142 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %5, i32 noundef %.05482, i32 noundef %.0) #23
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %.val59 = load i32, ptr %110, align 4
   %143 = sext i32 %.val59 to i64

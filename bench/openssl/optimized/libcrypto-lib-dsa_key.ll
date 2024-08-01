@@ -36,7 +36,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp5.i, label %err.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i
-  %priv_key.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %3, %if.end.i ]
+  %priv_key.1.i = phi ptr [ %call4.i, %if.then3.i ], [ %3, %if.end.i ]
   %4 = load ptr, ptr %libctx.i, align 8
   %params.i = getelementptr inbounds i8, ptr %dsa, i64 8
   %call11.i = tail call i32 @ossl_ffc_params_simple_validate(ptr noundef %4, ptr noundef nonnull %params.i, i32 noundef 0, ptr noundef null) #2
@@ -47,7 +47,7 @@ if.end13.i:                                       ; preds = %if.end9.i
   %q.i = getelementptr inbounds i8, ptr %dsa, i64 16
   %5 = load ptr, ptr %q.i, align 8
   %call16.i = tail call i32 @BN_num_bits(ptr noundef %5) #2
-  %call17.i = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %call.i, ptr noundef nonnull %params.i, i32 noundef %call16.i, i32 noundef 80, ptr noundef nonnull %priv_key.0.i) #2
+  %call17.i = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %call.i, ptr noundef nonnull %params.i, i32 noundef %call16.i, i32 noundef 80, ptr noundef nonnull %priv_key.1.i) #2
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %err.i, label %if.end20.i
 
@@ -63,24 +63,24 @@ if.then23.i:                                      ; preds = %if.end20.i
   br i1 %cmp25.i, label %err.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then23.i, %if.end20.i
-  %pub_key.0.i = phi ptr [ %call24.i, %if.then23.i ], [ %6, %if.end20.i ]
+  %pub_key.1.i = phi ptr [ %call24.i, %if.then23.i ], [ %6, %if.end20.i ]
   %call.i.i = tail call ptr @BN_new() #2
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %err.i, label %ossl_dsa_generate_public_key.exit.i
 
 ossl_dsa_generate_public_key.exit.i:              ; preds = %if.end30.i
-  tail call void @BN_with_flags(ptr noundef nonnull %call.i.i, ptr noundef nonnull %priv_key.0.i, i32 noundef 4) #2
+  tail call void @BN_with_flags(ptr noundef nonnull %call.i.i, ptr noundef nonnull %priv_key.1.i, i32 noundef 4) #2
   %g.i.i = getelementptr inbounds i8, ptr %dsa, i64 24
   %7 = load ptr, ptr %g.i.i, align 8
   %8 = load ptr, ptr %params.i, align 8
-  %call2.i.i = tail call i32 @BN_mod_exp(ptr noundef nonnull %pub_key.0.i, ptr noundef %7, ptr noundef nonnull %call.i.i, ptr noundef %8, ptr noundef nonnull %call.i) #2
+  %call2.i.i = tail call i32 @BN_mod_exp(ptr noundef nonnull %pub_key.1.i, ptr noundef %7, ptr noundef nonnull %call.i.i, ptr noundef %8, ptr noundef nonnull %call.i) #2
   %tobool.not.i.not.i = icmp eq i32 %call2.i.i, 0
   tail call void @BN_clear_free(ptr noundef nonnull %call.i.i) #2
   br i1 %tobool.not.i.not.i, label %err.i, label %if.end34.i
 
 if.end34.i:                                       ; preds = %ossl_dsa_generate_public_key.exit.i
-  store ptr %priv_key.0.i, ptr %priv_key1.i, align 8
-  store ptr %pub_key.0.i, ptr %pub_key21.i, align 8
+  store ptr %priv_key.1.i, ptr %priv_key1.i, align 8
+  store ptr %pub_key.1.i, ptr %pub_key21.i, align 8
   %dirty_cnt.i = getelementptr inbounds i8, ptr %dsa, i64 192
   %9 = load i64, ptr %dirty_cnt.i, align 8
   %inc.i = add i64 %9, 1
@@ -89,25 +89,25 @@ if.end34.i:                                       ; preds = %ossl_dsa_generate_p
 
 err.i:                                            ; preds = %if.end34.i, %ossl_dsa_generate_public_key.exit.i, %if.end30.i, %if.then23.i, %if.end13.i, %if.end9.i, %if.then3.i, %if.end
   %ok.0.i = phi i32 [ 0, %if.end ], [ 0, %if.then3.i ], [ 0, %if.then23.i ], [ 1, %if.end34.i ], [ 0, %ossl_dsa_generate_public_key.exit.i ], [ 0, %if.end13.i ], [ 0, %if.end9.i ], [ 0, %if.end30.i ]
-  %pub_key.1.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ null, %if.then23.i ], [ %pub_key.0.i, %if.end34.i ], [ %pub_key.0.i, %ossl_dsa_generate_public_key.exit.i ], [ null, %if.end13.i ], [ null, %if.end9.i ], [ %pub_key.0.i, %if.end30.i ]
-  %priv_key.1.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ %priv_key.0.i, %if.then23.i ], [ %priv_key.0.i, %if.end34.i ], [ %priv_key.0.i, %ossl_dsa_generate_public_key.exit.i ], [ %priv_key.0.i, %if.end13.i ], [ %priv_key.0.i, %if.end9.i ], [ %priv_key.0.i, %if.end30.i ]
+  %pub_key.0.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ null, %if.then23.i ], [ %pub_key.1.i, %if.end34.i ], [ %pub_key.1.i, %ossl_dsa_generate_public_key.exit.i ], [ null, %if.end13.i ], [ null, %if.end9.i ], [ %pub_key.1.i, %if.end30.i ]
+  %priv_key.0.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ %priv_key.1.i, %if.then23.i ], [ %priv_key.1.i, %if.end34.i ], [ %priv_key.1.i, %ossl_dsa_generate_public_key.exit.i ], [ %priv_key.1.i, %if.end13.i ], [ %priv_key.1.i, %if.end9.i ], [ %priv_key.1.i, %if.end30.i ]
   %pub_key37.i = getelementptr inbounds i8, ptr %dsa, i64 104
   %10 = load ptr, ptr %pub_key37.i, align 8
-  %cmp38.not.i = icmp eq ptr %pub_key.1.i, %10
+  %cmp38.not.i = icmp eq ptr %pub_key.0.i, %10
   br i1 %cmp38.not.i, label %if.end40.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %err.i
-  tail call void @BN_free(ptr noundef %pub_key.1.i) #2
+  tail call void @BN_free(ptr noundef %pub_key.0.i) #2
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then39.i, %err.i
   %priv_key41.i = getelementptr inbounds i8, ptr %dsa, i64 112
   %11 = load ptr, ptr %priv_key41.i, align 8
-  %cmp42.not.i = icmp eq ptr %priv_key.1.i, %11
+  %cmp42.not.i = icmp eq ptr %priv_key.0.i, %11
   br i1 %cmp42.not.i, label %dsa_keygen.exit, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.i
-  tail call void @BN_free(ptr noundef %priv_key.1.i) #2
+  tail call void @BN_free(ptr noundef %priv_key.0.i) #2
   br label %dsa_keygen.exit
 
 dsa_keygen.exit:                                  ; preds = %if.end40.i, %if.then43.i

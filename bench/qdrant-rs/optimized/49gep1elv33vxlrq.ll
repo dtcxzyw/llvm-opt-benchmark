@@ -1013,7 +1013,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %186,
   br i1 %or.cond2.i, label %271, label %277
 
 270:                                              ; preds = %257, %260
-  %.sroa.818.2 = phi ptr [ %259, %257 ], [ %263, %260 ]
+  %.sroa.818.3 = phi ptr [ %259, %257 ], [ %263, %260 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !236
   br label %316
 
@@ -1116,9 +1116,9 @@ _ZN10serde_json4read12parse_escape17h850eefeab507ae52E.exit: ; preds = %"_ZN5all
   br i1 %trunc92, label %.outer._crit_edge, label %.lr.ph.backedge
 
 316:                                              ; preds = %tailrecurse._crit_edge.i, %66, %173, %309, %237, %246, %270, %271, %288, %295, %302
-  %.1.i.ph = phi ptr [ %307, %302 ], [ %300, %295 ], [ %293, %288 ], [ %276, %271 ], [ %.sroa.818.2, %270 ], [ %248, %246 ], [ %239, %237 ], [ %314, %309 ], [ %.sroa.846.0.i, %173 ], [ %71, %66 ], [ %65, %tailrecurse._crit_edge.i ]
+  %.0.i.ph = phi ptr [ %307, %302 ], [ %300, %295 ], [ %293, %288 ], [ %276, %271 ], [ %.sroa.818.3, %270 ], [ %248, %246 ], [ %239, %237 ], [ %314, %309 ], [ %.sroa.846.0.i, %173 ], [ %71, %66 ], [ %65, %tailrecurse._crit_edge.i ]
   %317 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.1.i.ph, ptr %317, align 8
+  store ptr %.0.i.ph, ptr %317, align 8
   store ptr null, ptr %0, align 8
   br label %330
 
@@ -1584,15 +1584,15 @@ _ZN10serde_json3ser9to_writer17h7f928c2e002e36b5E.exit.i: ; preds = %.noexc
   br label %111
 
 111:                                              ; preds = %131, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit"
-  %.sroa.7.0 = phi ptr [ %.sroa.7.4, %131 ], [ undef, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit" ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.4, %131 ], [ 2, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit" ]
-  %112 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %113 = insertvalue { i64, ptr } %112, ptr %.sroa.7.0, 1
+  %.sroa.7.4 = phi ptr [ %.sroa.7.0, %131 ], [ undef, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit" ]
+  %.sroa.0.4 = phi i64 [ %.sroa.0.0, %131 ], [ 2, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit" ]
+  %112 = insertvalue { i64, ptr } poison, i64 %.sroa.0.4, 0
+  %113 = insertvalue { i64, ptr } %112, ptr %.sroa.7.4, 1
   ret { i64, ptr } %113
 
 114:                                              ; preds = %97, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79"
-  %.sroa.7.1 = phi ptr [ %.sroa.7.3, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79" ], [ %94, %97 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.3, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79" ], [ 0, %97 ]
+  %.sroa.7.3 = phi ptr [ %.sroa.7.1, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79" ], [ %94, %97 ]
+  %.sroa.0.3 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79" ], [ 0, %97 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !424
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he39f46045b01645dE.llvm.4482545766329047864"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
           to label %.noexc75 unwind label %57
@@ -1618,8 +1618,8 @@ _ZN10serde_json3ser9to_writer17h7f928c2e002e36b5E.exit.i: ; preds = %.noexc
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79" unwind label %61
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h65ff4abc56e0d07cE.exit79": ; preds = %121, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h609a531f1a2255e6E.exit"
-  %.sroa.7.3 = phi ptr [ %65, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h609a531f1a2255e6E.exit" ], [ %.pn91, %121 ]
-  %.sroa.0.3 = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h609a531f1a2255e6E.exit" ], [ %.sroa.0.2, %121 ]
+  %.sroa.7.1 = phi ptr [ %65, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h609a531f1a2255e6E.exit" ], [ %.pn91, %121 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h609a531f1a2255e6E.exit" ], [ %.sroa.0.2, %121 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %114
 
@@ -1652,8 +1652,8 @@ _ZN10serde_json3ser9to_writer17h7f928c2e002e36b5E.exit.i: ; preds = %.noexc
   br label %131
 
 131:                                              ; preds = %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit.thread, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit81"
-  %.sroa.7.4 = phi ptr [ %.sroa.7.1, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit81" ], [ %26, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit.thread ], [ %.pre93, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.1, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit81" ], [ 0, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit.thread ], [ 0, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit ]
+  %.sroa.7.0 = phi ptr [ %.sroa.7.3, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit81" ], [ %26, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit.thread ], [ %.pre93, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.3, %"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17hbb51bdfba651266eE.exit81" ], [ 0, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit.thread ], [ 0, %_ZN8tempfile7Builder10tempdir_in17h50e78a20a2cf7ad7E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %111
 }
@@ -2243,7 +2243,7 @@ default.unreachable:                              ; preds = %23
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %32, %28, %26, %20
-  %.0 = phi ptr [ @anon.f995eab9e051666c7337493b56022542.21, %20 ], [ %.val, %26 ], [ %.val, %28 ], [ %.val, %32 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
+  %.1 = phi ptr [ @anon.f995eab9e051666c7337493b56022542.21, %20 ], [ %.val, %26 ], [ %.val, %28 ], [ %.val, %32 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @"_ZN111_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h374c819273cb7be9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -2263,8 +2263,8 @@ _ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit: ; preds = %23
   br i1 %switch.i, label %.thread, label %38
 
 43:                                               ; preds = %38, %._crit_edge
-  %.1 = phi ptr [ null, %._crit_edge ], [ %.0, %38 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.1, %38 ]
+  ret ptr %.0
 
 .thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit, %32, %28, %26, %39
   %44 = phi ptr [ %.val, %_ZN3std2io5error5Error14is_interrupted17h17fdd2170cde44b1E.exit ], [ %.val, %32 ], [ %.val, %28 ], [ %.val, %26 ], [ %40, %39 ]

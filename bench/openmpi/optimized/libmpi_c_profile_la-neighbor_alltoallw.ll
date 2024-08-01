@@ -236,8 +236,8 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %37, %33, %.preheade
   br i1 %or.cond197, label %91, label %103
 
 103:                                              ; preds = %.lr.ph, %96, %100
-  %.1182.ph = phi i32 [ 3, %100 ], [ 2, %96 ], [ 3, %.lr.ph ]
-  %104 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.1182.ph)
+  %.2.ph = phi i32 [ 3, %100 ], [ 2, %96 ], [ 3, %.lr.ph ]
+  %104 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.2.ph)
   %105 = getelementptr inbounds i8, ptr %8, i64 296
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %8, i64 304
@@ -273,8 +273,8 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %37, %33, %.preheade
   br i1 %or.cond199, label %110, label %122
 
 122:                                              ; preds = %.lr.ph205, %115, %119
-  %.3.ph = phi i32 [ 3, %119 ], [ 2, %115 ], [ 3, %.lr.ph205 ]
-  %123 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.3.ph)
+  %.4.ph = phi i32 [ 3, %119 ], [ 2, %115 ], [ 3, %.lr.ph205 ]
+  %123 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.4.ph)
   %124 = getelementptr inbounds i8, ptr %8, i64 296
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %8, i64 304

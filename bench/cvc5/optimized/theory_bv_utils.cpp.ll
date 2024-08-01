@@ -1340,8 +1340,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit15:           ; preds = %ehcleanup
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %cleanup13, %entry
-  %retval.2 = phi i32 [ 0, %entry ], [ %retval.1, %cleanup13 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.1, %cleanup13 ]
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZNK4cvc58internal9BitVector6isPow2Ev(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
@@ -1406,8 +1406,8 @@ for.body:                                         ; preds = %if.end, %for.body
   br i1 %or.cond.not, label %for.body, label %return
 
 return:                                           ; preds = %for.body, %if.end, %if.then
-  %retval.2 = phi i1 [ %call1, %if.then ], [ true, %if.end ], [ %call6, %for.body ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %call1, %if.then ], [ true, %if.end ], [ %call6, %for.body ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1996,12 +1996,12 @@ lpad86.body:                                      ; preds = %_ZNSt10_HashtableIN
   br label %ehcleanup108
 
 for.end:                                          ; preds = %for.cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %invoke.cont73
-  %iseqt.2 = phi i8 [ 1, %invoke.cont73 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %for.cond ]
+  %iseqt.1 = phi i8 [ 1, %invoke.cont73 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %for.cond ]
   %call.i143 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_bESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %cache, ptr noundef nonnull align 8 dereferenceable(8) %n)
           to label %invoke.cont96 unwind label %lpad4.loopexit
 
 invoke.cont96:                                    ; preds = %for.end
-  store i8 %iseqt.2, ptr %call.i143, align 1
+  store i8 %iseqt.1, ptr %call.i143, align 1
   br label %cleanup100
 
 cleanup100:                                       ; preds = %invoke.cont61, %invoke.cont5, %invoke.cont96, %invoke.cont41, %invoke.cont19

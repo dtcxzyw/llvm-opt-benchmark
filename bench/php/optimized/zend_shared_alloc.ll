@@ -232,7 +232,7 @@ zend_shared_alloc_try.exit.thread:                ; preds = %26, %._crit_edge.i
   br label %176
 
 zend_shared_alloc_try.exit.thread90:              ; preds = %18, %46, %2, %9
-  %.292 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %25, %18 ], [ 0, %46 ]
+  %.04292 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %25, %18 ], [ 0, %46 ]
   %50 = load ptr, ptr @g_shared_alloc_handler, align 8
   %.not59 = icmp eq ptr %50, null
   br i1 %.not59, label %.preheader99, label %zend_shared_alloc_try.exit82.thread95
@@ -328,9 +328,9 @@ zend_shared_alloc_try.exit82.thread:              ; preds = %79, %zend_shared_al
   unreachable
 
 zend_shared_alloc_try.exit82.thread95:            ; preds = %zend_shared_alloc_try.exit.thread90, %zend_shared_alloc_try.exit82
-  %.498 = phi i32 [ %58, %zend_shared_alloc_try.exit82 ], [ %.292, %zend_shared_alloc_try.exit.thread90 ]
+  %.398 = phi i32 [ %58, %zend_shared_alloc_try.exit82 ], [ %.04292, %zend_shared_alloc_try.exit.thread90 ]
   %88 = phi ptr [ %.pr.pre, %zend_shared_alloc_try.exit82 ], [ %50, %zend_shared_alloc_try.exit.thread90 ]
-  %89 = icmp eq i32 %.498, 4
+  %89 = icmp eq i32 %.398, 4
   br i1 %89, label %176, label %.preheader
 
 .preheader:                                       ; preds = %zend_shared_alloc_try.exit82.thread95
@@ -489,7 +489,7 @@ copy_shared_segments.exit:                        ; preds = %133, %118
   br label %176
 
 176:                                              ; preds = %zend_shared_alloc_try.exit82.thread95, %175, %49
-  %.045 = phi i32 [ 2, %49 ], [ %.498, %175 ], [ 4, %zend_shared_alloc_try.exit82.thread95 ]
+  %.045 = phi i32 [ 2, %49 ], [ %.398, %175 ], [ 4, %zend_shared_alloc_try.exit82.thread95 ]
   ret i32 %.045
 }
 

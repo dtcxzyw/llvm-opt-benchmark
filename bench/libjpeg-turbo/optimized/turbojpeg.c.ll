@@ -1749,7 +1749,7 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %56
 
 56:                                               ; preds = %.split.split, %80
-  %.03043 = phi i64 [ 0, %.split.split ], [ %85, %80 ]
+  %.143 = phi i64 [ 0, %.split.split ], [ %85, %80 ]
   %.03142 = phi i32 [ 0, %.split.split ], [ %86, %80 ]
   %57 = icmp eq i32 %.03142, 0
   br i1 %57, label %60, label %58
@@ -1759,8 +1759,8 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %60
 
 60:                                               ; preds = %58, %56
-  %.0.i = phi i64 [ %59, %58 ], [ %53, %56 ]
-  %61 = icmp ugt i64 %.0.i, 2147483647
+  %.1.i = phi i64 [ %59, %58 ], [ %53, %56 ]
+  %61 = icmp ugt i64 %.1.i, 2147483647
   br i1 %61, label %.sink.split.i, label %tj3YUVPlaneWidth.exit
 
 .sink.split.i:                                    ; preds = %60
@@ -1768,8 +1768,8 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %tj3YUVPlaneWidth.exit
 
 tj3YUVPlaneWidth.exit:                            ; preds = %60, %.sink.split.i
-  %.1.i = phi i64 [ %.0.i, %60 ], [ 0, %.sink.split.i ]
-  %63 = trunc nuw nsw i64 %.1.i to i32
+  %.0.i = phi i64 [ %.1.i, %60 ], [ 0, %.sink.split.i ]
+  %63 = trunc nuw nsw i64 %.0.i to i32
   %64 = load i32, ptr %23, align 4
   %65 = sdiv i32 %64, 8
   %66 = sext i32 %65 to i64
@@ -1786,8 +1786,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %60, %.sink.split.i
   br label %75
 
 75:                                               ; preds = %71, %tj3YUVPlaneWidth.exit
-  %.0.i39 = phi i64 [ %74, %71 ], [ %70, %tj3YUVPlaneWidth.exit ]
-  %76 = icmp ugt i64 %.0.i39, 2147483647
+  %.1.i39 = phi i64 [ %74, %71 ], [ %70, %tj3YUVPlaneWidth.exit ]
+  %76 = icmp ugt i64 %.1.i39, 2147483647
   br i1 %76, label %tj3YUVPlaneHeight.exit.thread, label %tj3YUVPlaneHeight.exit
 
 tj3YUVPlaneHeight.exit.thread:                    ; preds = %75, %27, %.sink.split.i.us, %37
@@ -1796,8 +1796,8 @@ tj3YUVPlaneHeight.exit.thread:                    ; preds = %75, %27, %.sink.spl
   br label %.loopexit
 
 tj3YUVPlaneHeight.exit:                           ; preds = %75
-  %78 = icmp eq i64 %.1.i, 0
-  %79 = icmp eq i64 %.0.i39, 0
+  %78 = icmp eq i64 %.0.i, 0
+  %79 = icmp eq i64 %.1.i39, 0
   %or.cond5 = or i1 %78, %79
   br i1 %or.cond5, label %.loopexit, label %80
 
@@ -1805,8 +1805,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %75
   %81 = add i32 %25, %63
   %82 = and i32 %81, %26
   %83 = zext nneg i32 %82 to i64
-  %84 = mul nuw nsw i64 %.0.i39, %83
-  %85 = add i64 %84, %.03043
+  %84 = mul nuw nsw i64 %.1.i39, %83
+  %85 = add i64 %84, %.143
   %86 = add nuw nsw i32 %.03142, 1
   %87 = icmp ult i32 %.03142, 2
   %88 = and i1 %14, %87
@@ -1854,8 +1854,8 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %10, %23
-  %.0 = phi i64 [ %26, %23 ], [ %21, %10 ]
-  %28 = icmp ugt i64 %.0, 2147483647
+  %.1 = phi i64 [ %26, %23 ], [ %21, %10 ]
+  %28 = icmp ugt i64 %.1, 2147483647
   br i1 %28, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %27, %7, %3
@@ -1865,8 +1865,8 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 nound
   br label %31
 
 31:                                               ; preds = %.sink.split, %27
-  %.1 = phi i64 [ %.0, %27 ], [ 0, %.sink.split ]
-  %32 = trunc nuw nsw i64 %.1 to i32
+  %.0 = phi i64 [ %.1, %27 ], [ 0, %.sink.split ]
+  %32 = trunc nuw nsw i64 %.0 to i32
   ret i32 %32
 }
 
@@ -1907,8 +1907,8 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %10, %23
-  %.0 = phi i64 [ %26, %23 ], [ %21, %10 ]
-  %28 = icmp ugt i64 %.0, 2147483647
+  %.1 = phi i64 [ %26, %23 ], [ %21, %10 ]
+  %28 = icmp ugt i64 %.1, 2147483647
   br i1 %28, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %27, %7, %3
@@ -1918,8 +1918,8 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noun
   br label %31
 
 31:                                               ; preds = %.sink.split, %27
-  %.1 = phi i64 [ %.0, %27 ], [ 0, %.sink.split ]
-  %32 = trunc nuw nsw i64 %.1 to i32
+  %.0 = phi i64 [ %.1, %27 ], [ 0, %.sink.split ]
+  %32 = trunc nuw nsw i64 %.0 to i32
   ret i32 %32
 }
 
@@ -1984,9 +1984,9 @@ define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %23, %10
-  %.0.i = phi i64 [ %26, %23 ], [ %21, %10 ]
-  %.0.i.fr = freeze i64 %.0.i
-  %28 = icmp ugt i64 %.0.i.fr, 2147483647
+  %.1.i = phi i64 [ %26, %23 ], [ %21, %10 ]
+  %.1.i.fr = freeze i64 %.1.i
+  %28 = icmp ugt i64 %.1.i.fr, 2147483647
   br i1 %28, label %tj3YUVPlaneWidth.exit.thread, label %tj3YUVPlaneWidth.exit
 
 tj3YUVPlaneWidth.exit.thread:                     ; preds = %3, %7, %27
@@ -1996,8 +1996,8 @@ tj3YUVPlaneWidth.exit.thread:                     ; preds = %3, %7, %27
   br label %33
 
 tj3YUVPlaneWidth.exit:                            ; preds = %27
-  %31 = trunc nuw nsw i64 %.0.i.fr to i32
-  %32 = icmp eq i64 %.0.i.fr, 0
+  %31 = trunc nuw nsw i64 %.1.i.fr to i32
+  %32 = icmp eq i64 %.1.i.fr, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %tj3YUVPlaneWidth.exit.thread, %tj3YUVPlaneWidth.exit
@@ -2045,9 +2045,9 @@ define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %23, %10
-  %.0.i = phi i64 [ %26, %23 ], [ %21, %10 ]
-  %.0.i.fr = freeze i64 %.0.i
-  %28 = icmp ugt i64 %.0.i.fr, 2147483647
+  %.1.i = phi i64 [ %26, %23 ], [ %21, %10 ]
+  %.1.i.fr = freeze i64 %.1.i
+  %28 = icmp ugt i64 %.1.i.fr, 2147483647
   br i1 %28, label %tj3YUVPlaneHeight.exit.thread, label %tj3YUVPlaneHeight.exit
 
 tj3YUVPlaneHeight.exit.thread:                    ; preds = %3, %7, %27
@@ -2057,8 +2057,8 @@ tj3YUVPlaneHeight.exit.thread:                    ; preds = %3, %7, %27
   br label %33
 
 tj3YUVPlaneHeight.exit:                           ; preds = %27
-  %31 = trunc nuw nsw i64 %.0.i.fr to i32
-  %32 = icmp eq i64 %.0.i.fr, 0
+  %31 = trunc nuw nsw i64 %.1.i.fr to i32
+  %32 = icmp eq i64 %.1.i.fr, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %tj3YUVPlaneHeight.exit.thread, %tj3YUVPlaneHeight.exit
@@ -2115,8 +2115,8 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
   br label %34
 
 34:                                               ; preds = %30, %17
-  %.0.i = phi i64 [ %33, %30 ], [ %28, %17 ]
-  %35 = icmp ugt i64 %.0.i, 2147483647
+  %.1.i = phi i64 [ %33, %30 ], [ %28, %17 ]
+  %35 = icmp ugt i64 %.1.i, 2147483647
   br i1 %35, label %.thread46, label %.thread
 
 .thread46:                                        ; preds = %34
@@ -2125,7 +2125,7 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
   br label %39
 
 .thread:                                          ; preds = %34
-  %38 = trunc nuw nsw i64 %.0.i to i32
+  %38 = trunc nuw nsw i64 %.1.i to i32
   br label %39
 
 39:                                               ; preds = %.thread46, %.thread
@@ -2151,8 +2151,8 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
   br label %57
 
 57:                                               ; preds = %53, %39
-  %.0.i40 = phi i64 [ %56, %53 ], [ %51, %39 ]
-  %58 = icmp ugt i64 %.0.i40, 2147483647
+  %.1.i40 = phi i64 [ %56, %53 ], [ %51, %39 ]
+  %58 = icmp ugt i64 %.1.i40, 2147483647
   br i1 %58, label %tj3YUVPlaneHeight.exit.thread, label %tj3YUVPlaneHeight.exit
 
 tj3YUVPlaneHeight.exit.thread.sink.split:         ; preds = %14, %12
@@ -2168,7 +2168,7 @@ tj3YUVPlaneHeight.exit.thread:                    ; preds = %tj3YUVPlaneHeight.e
 
 tj3YUVPlaneHeight.exit:                           ; preds = %57
   %63 = icmp eq i32 %40, 0
-  %64 = icmp eq i64 %.0.i40, 0
+  %64 = icmp eq i64 %.1.i40, 0
   %or.cond7 = or i1 %63, %64
   br i1 %or.cond7, label %74, label %65
 
@@ -2177,7 +2177,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %57
   %67 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %.027 = select i1 %66, i32 %40, i32 %67
   %68 = zext nneg i32 %.027 to i64
-  %69 = add nuw nsw i64 %.0.i40, 4294967295
+  %69 = add nuw nsw i64 %.1.i40, 4294967295
   %70 = and i64 %69, 4294967295
   %71 = mul nuw nsw i64 %70, %68
   %72 = zext nneg i32 %40 to i64
@@ -2341,8 +2341,8 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %84
-  %.0101 = phi i32 [ 0, %84 ], [ 1, %78 ]
-  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.0101) #26
+  %.1 = phi i32 [ 0, %84 ], [ 1, %78 ]
+  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.1) #26
   call void @jpeg_start_compress(ptr noundef nonnull %0, i32 noundef 1) #26
   %88 = getelementptr inbounds i8, ptr %0, i64 1744
   %89 = load i32, ptr %88, align 8
@@ -2402,12 +2402,12 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
 113:                                              ; preds = %75, %._crit_edge, %70, %53, %44, %32, %19
   %114 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ false, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
   %.0102 = phi i32 [ -1, %19 ], [ -1, %32 ], [ -1, %70 ], [ 0, %._crit_edge ], [ -1, %53 ], [ -1, %44 ], [ -1, %75 ]
-  %.1 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ %.not117, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
+  %.0101 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ %.not117, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
   %.0100 = phi ptr [ null, %19 ], [ null, %32 ], [ null, %70 ], [ %68, %._crit_edge ], [ null, %53 ], [ null, %44 ], [ %68, %75 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 36
   %116 = load i32, ptr %115, align 4
   %117 = icmp sgt i32 %116, 100
-  %or.cond15 = and i1 %.1, %117
+  %or.cond15 = and i1 %.0101, %117
   br i1 %or.cond15, label %118, label %123
 
 118:                                              ; preds = %113
@@ -4045,8 +4045,8 @@ define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %84
-  %.0101 = phi i32 [ 0, %84 ], [ 1, %78 ]
-  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.0101) #26
+  %.1 = phi i32 [ 0, %84 ], [ 1, %78 ]
+  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.1) #26
   call void @jpeg_start_compress(ptr noundef nonnull %0, i32 noundef 1) #26
   %88 = getelementptr inbounds i8, ptr %0, i64 1744
   %89 = load i32, ptr %88, align 8
@@ -4106,12 +4106,12 @@ define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 n
 113:                                              ; preds = %75, %._crit_edge, %70, %53, %44, %32, %19
   %114 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ false, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
   %.0102 = phi i32 [ -1, %19 ], [ -1, %32 ], [ -1, %70 ], [ 0, %._crit_edge ], [ -1, %53 ], [ -1, %44 ], [ -1, %75 ]
-  %.1 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ %.not117, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
+  %.0101 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ %.not117, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
   %.0100 = phi ptr [ null, %19 ], [ null, %32 ], [ null, %70 ], [ %68, %._crit_edge ], [ null, %53 ], [ null, %44 ], [ %68, %75 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 36
   %116 = load i32, ptr %115, align 4
   %117 = icmp sgt i32 %116, 100
-  %or.cond15 = and i1 %.1, %117
+  %or.cond15 = and i1 %.0101, %117
   br i1 %or.cond15, label %118, label %123
 
 118:                                              ; preds = %113
@@ -5476,8 +5476,8 @@ define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %84
-  %.0101 = phi i32 [ 0, %84 ], [ 1, %78 ]
-  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.0101) #26
+  %.1 = phi i32 [ 0, %84 ], [ 1, %78 ]
+  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.1) #26
   call void @jpeg_start_compress(ptr noundef nonnull %0, i32 noundef 1) #26
   %88 = getelementptr inbounds i8, ptr %0, i64 1744
   %89 = load i32, ptr %88, align 8
@@ -5537,12 +5537,12 @@ define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 n
 113:                                              ; preds = %75, %._crit_edge, %70, %53, %44, %32, %19
   %114 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ false, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
   %.0102 = phi i32 [ -1, %19 ], [ -1, %32 ], [ -1, %70 ], [ 0, %._crit_edge ], [ -1, %53 ], [ -1, %44 ], [ -1, %75 ]
-  %.1 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ %.not117, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
+  %.0101 = phi i1 [ true, %19 ], [ true, %32 ], [ true, %70 ], [ %.not117, %._crit_edge ], [ true, %53 ], [ true, %44 ], [ true, %75 ]
   %.0100 = phi ptr [ null, %19 ], [ null, %32 ], [ null, %70 ], [ %68, %._crit_edge ], [ null, %53 ], [ null, %44 ], [ %68, %75 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 36
   %116 = load i32, ptr %115, align 4
   %117 = icmp sgt i32 %116, 100
-  %or.cond15 = and i1 %.1, %117
+  %or.cond15 = and i1 %.0101, %117
   br i1 %or.cond15, label %118, label %123
 
 118:                                              ; preds = %113
@@ -7638,8 +7638,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %39, %41
 tj3YUVPlaneHeight.exit:                           ; preds = %58, %.sink.split.i64
   %76 = phi i32 [ %59, %58 ], [ %73, %.sink.split.i64 ]
   %77 = phi i32 [ %60, %58 ], [ %.pre79, %.sink.split.i64 ]
-  %.1.i65 = phi i64 [ %71, %58 ], [ 0, %.sink.split.i64 ]
-  %78 = trunc nuw nsw i64 %.1.i65 to i32
+  %.0.i65 = phi i64 [ %71, %58 ], [ 0, %.sink.split.i64 ]
+  %78 = trunc nuw nsw i64 %.0.i65 to i32
   store ptr %6, ptr %9, align 16
   %79 = add nsw i32 %7, -1
   %80 = add nuw i32 %79, %76
@@ -7689,8 +7689,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %58, %.sink.split.i6
 
 tj3YUVPlaneWidth.exit70:                          ; preds = %90, %.sink.split.i67
   %108 = phi i32 [ %77, %90 ], [ %.pre80, %.sink.split.i67 ]
-  %.1.i69 = phi i64 [ %104, %90 ], [ 0, %.sink.split.i67 ]
-  %109 = trunc nuw nsw i64 %.1.i69 to i32
+  %.0.i69 = phi i64 [ %104, %90 ], [ 0, %.sink.split.i67 ]
+  %109 = trunc nuw nsw i64 %.0.i69 to i32
   %110 = icmp ugt i32 %108, 6
   %.not78 = icmp eq i32 %108, 3
   %or.cond = or i1 %.not78, %110
@@ -7721,7 +7721,7 @@ tj3YUVPlaneWidth.exit70:                          ; preds = %90, %.sink.split.i6
   br label %tj3YUVPlaneHeight.exit76
 
 tj3YUVPlaneHeight.exit76:                         ; preds = %111, %.sink.split.i73
-  %.1.i75 = phi i64 [ %125, %111 ], [ 0, %.sink.split.i73 ]
+  %.0.i75 = phi i64 [ %125, %111 ], [ 0, %.sink.split.i73 ]
   %129 = add nuw i32 %79, %109
   %130 = and i32 %129, %81
   %131 = getelementptr inbounds i8, ptr %10, i64 8
@@ -7729,10 +7729,10 @@ tj3YUVPlaneHeight.exit76:                         ; preds = %111, %.sink.split.i
   %132 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %130, ptr %132, align 4
   %133 = sext i32 %82 to i64
-  %134 = mul nsw i64 %.1.i65, %133
+  %134 = mul nsw i64 %.0.i65, %133
   %135 = icmp ugt i64 %134, 2147483647
   %136 = zext nneg i32 %130 to i64
-  %137 = mul nuw nsw i64 %.1.i75, %136
+  %137 = mul nuw nsw i64 %.0.i75, %136
   %138 = icmp ugt i64 %137, 2147483647
   %or.cond62 = select i1 %135, i1 true, i1 %138
   br i1 %or.cond62, label %139, label %144
@@ -7746,7 +7746,7 @@ tj3YUVPlaneHeight.exit76:                         ; preds = %111, %.sink.split.i
   br label %156
 
 144:                                              ; preds = %tj3YUVPlaneHeight.exit76
-  %145 = trunc nuw nsw i64 %.1.i75 to i32
+  %145 = trunc nuw nsw i64 %.0.i75 to i32
   %146 = mul nsw i32 %82, %78
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %6, i64 %147
@@ -8045,8 +8045,8 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   br label %87
 
 87:                                               ; preds = %84, %78
-  %.0217 = phi i32 [ 0, %84 ], [ 1, %78 ]
-  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %.0217) #26
+  %.1218 = phi i32 [ 0, %84 ], [ 1, %78 ]
+  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %.1218) #26
   call fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef 0)
   %88 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 1, ptr %88, align 8
@@ -8264,7 +8264,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 
 .loopexit:                                        ; preds = %._crit_edge271, %87, %.preheader249, %._crit_edge266
   %.0214.lcssa361 = phi i1 [ true, %._crit_edge266 ], [ false, %.preheader249 ], [ true, %87 ], [ %162, %._crit_edge271 ]
-  %.0212 = phi ptr [ null, %._crit_edge266 ], [ %165, %.preheader249 ], [ null, %87 ], [ %165, %._crit_edge271 ]
+  %.1213 = phi ptr [ null, %._crit_edge266 ], [ %165, %.preheader249 ], [ null, %87 ], [ %165, %._crit_edge271 ]
   %191 = call i32 @_setjmp(ptr noundef nonnull %76) #27
   %.not237 = icmp eq i32 %191, 0
   br i1 %.not237, label %.preheader247, label %280
@@ -8454,14 +8454,14 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   br label %280
 
 280:                                              ; preds = %.loopexit, %.thread244, %._crit_edge295, %183, %167, %136, %71, %64, %52, %38, %25
-  %.1218 = phi i32 [ 1, %25 ], [ 1, %38 ], [ 1, %64 ], [ 1, %71 ], [ %.0217, %136 ], [ %.0217, %167 ], [ %.0217, %183 ], [ %.0217, %._crit_edge295 ], [ 1, %52 ], [ 1, %.thread244 ], [ %.0217, %.loopexit ]
-  %.1213 = phi ptr [ null, %25 ], [ null, %38 ], [ null, %64 ], [ null, %71 ], [ null, %136 ], [ null, %167 ], [ %165, %183 ], [ %.0212, %._crit_edge295 ], [ null, %52 ], [ null, %.thread244 ], [ %.0212, %.loopexit ]
+  %.0217 = phi i32 [ 1, %25 ], [ 1, %38 ], [ 1, %64 ], [ 1, %71 ], [ %.1218, %136 ], [ %.1218, %167 ], [ %.1218, %183 ], [ %.1218, %._crit_edge295 ], [ 1, %52 ], [ 1, %.thread244 ], [ %.1218, %.loopexit ]
+  %.0212 = phi ptr [ null, %25 ], [ null, %38 ], [ null, %64 ], [ null, %71 ], [ null, %136 ], [ null, %167 ], [ %165, %183 ], [ %.1213, %._crit_edge295 ], [ null, %52 ], [ null, %.thread244 ], [ %.1213, %.loopexit ]
   %281 = phi i1 [ true, %25 ], [ true, %38 ], [ true, %64 ], [ true, %71 ], [ true, %136 ], [ true, %167 ], [ true, %183 ], [ false, %._crit_edge295 ], [ true, %52 ], [ true, %.thread244 ], [ true, %.loopexit ]
   %.0207 = phi i32 [ -1, %25 ], [ -1, %38 ], [ -1, %64 ], [ -1, %71 ], [ -1, %136 ], [ -1, %167 ], [ -1, %183 ], [ 0, %._crit_edge295 ], [ -1, %52 ], [ -1, %.thread244 ], [ -1, %.loopexit ]
   %282 = getelementptr inbounds i8, ptr %0, i64 36
   %283 = load i32, ptr %282, align 4
   %284 = icmp sgt i32 %283, 100
-  %285 = icmp ne i32 %.1218, 0
+  %285 = icmp ne i32 %.0217, 0
   %or.cond9 = and i1 %285, %284
   br i1 %or.cond9, label %286, label %291
 
@@ -8500,7 +8500,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   br i1 %exitcond355.not, label %300, label %295, !llvm.loop !47
 
 300:                                              ; preds = %295
-  call void @free(ptr noundef %.1213) #26
+  call void @free(ptr noundef %.0212) #26
   %301 = load i32, ptr %19, align 8
   %.not242 = icmp eq i32 %301, 0
   %spec.select = select i1 %.not242, i32 %.0207, i32 -1
@@ -8732,8 +8732,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %37, %39
 tj3YUVPlaneHeight.exit:                           ; preds = %56, %.sink.split.i57
   %74 = phi i32 [ %57, %56 ], [ %71, %.sink.split.i57 ]
   %75 = phi i32 [ %58, %56 ], [ %.pre64, %.sink.split.i57 ]
-  %.1.i58 = phi i64 [ %69, %56 ], [ 0, %.sink.split.i57 ]
-  %76 = trunc nuw nsw i64 %.1.i58 to i32
+  %.0.i58 = phi i64 [ %69, %56 ], [ 0, %.sink.split.i57 ]
+  %76 = trunc nuw nsw i64 %.0.i58 to i32
   store ptr %1, ptr %8, align 16
   %77 = add nsw i32 %3, -1
   %78 = add nuw i32 %77, %74
@@ -8771,8 +8771,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %56, %.sink.split.i5
   %100 = shl nsw i64 %99, 3
   %101 = sext i32 %92 to i64
   %102 = udiv i64 %100, %101
-  %.0.i.fr.i = freeze i64 %102
-  %103 = icmp ugt i64 %.0.i.fr.i, 2147483647
+  %.1.i.fr.i = freeze i64 %102
+  %103 = icmp ugt i64 %.1.i.fr.i, 2147483647
   br i1 %103, label %tj3YUVPlaneWidth.exit.thread.i, label %tj3YUVPlaneWidth.exit.i
 
 tj3YUVPlaneWidth.exit.thread.i:                   ; preds = %88, %86
@@ -8783,8 +8783,8 @@ tj3YUVPlaneWidth.exit.thread.i:                   ; preds = %88, %86
   br label %tjPlaneWidth.exit
 
 tj3YUVPlaneWidth.exit.i:                          ; preds = %88
-  %106 = trunc nuw nsw i64 %.0.i.fr.i to i32
-  %107 = icmp eq i64 %.0.i.fr.i, 0
+  %106 = trunc nuw nsw i64 %.1.i.fr.i to i32
+  %107 = icmp eq i64 %.1.i.fr.i, 0
   %spec.select = select i1 %107, i32 -1, i32 %106
   br label %tjPlaneWidth.exit
 
@@ -8811,8 +8811,8 @@ tjPlaneWidth.exit:                                ; preds = %tj3YUVPlaneWidth.ex
   %123 = shl nsw i64 %122, 3
   %124 = sext i32 %115 to i64
   %125 = udiv i64 %123, %124
-  %.0.i.fr.i61 = freeze i64 %125
-  %126 = icmp ugt i64 %.0.i.fr.i61, 2147483647
+  %.1.i.fr.i61 = freeze i64 %125
+  %126 = icmp ugt i64 %.1.i.fr.i61, 2147483647
   br i1 %126, label %tj3YUVPlaneHeight.exit.thread.i, label %tj3YUVPlaneHeight.exit.i
 
 tj3YUVPlaneHeight.exit.thread.i:                  ; preds = %111, %tjPlaneWidth.exit
@@ -8822,8 +8822,8 @@ tj3YUVPlaneHeight.exit.thread.i:                  ; preds = %111, %tjPlaneWidth.
   br label %131
 
 tj3YUVPlaneHeight.exit.i:                         ; preds = %111
-  %129 = trunc nuw nsw i64 %.0.i.fr.i61 to i32
-  %130 = icmp eq i64 %.0.i.fr.i61, 0
+  %129 = trunc nuw nsw i64 %.1.i.fr.i61 to i32
+  %130 = icmp eq i64 %.1.i.fr.i61, 0
   br i1 %130, label %131, label %tjPlaneHeight.exit
 
 131:                                              ; preds = %tj3YUVPlaneHeight.exit.i, %tj3YUVPlaneHeight.exit.thread.i
@@ -8838,7 +8838,7 @@ tjPlaneHeight.exit:                               ; preds = %tj3YUVPlaneHeight.e
   %136 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %134, ptr %136, align 4
   %137 = sext i32 %80 to i64
-  %138 = mul nsw i64 %.1.i58, %137
+  %138 = mul nsw i64 %.0.i58, %137
   %139 = icmp ugt i64 %138, 2147483647
   br i1 %139, label %145, label %140
 
@@ -10659,8 +10659,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %38, %40
 tj3YUVPlaneHeight.exit:                           ; preds = %57, %.sink.split.i62
   %75 = phi i32 [ %58, %57 ], [ %72, %.sink.split.i62 ]
   %76 = phi i32 [ %59, %57 ], [ %.pre77, %.sink.split.i62 ]
-  %.1.i63 = phi i64 [ %70, %57 ], [ 0, %.sink.split.i62 ]
-  %77 = trunc nuw nsw i64 %.1.i63 to i32
+  %.0.i63 = phi i64 [ %70, %57 ], [ 0, %.sink.split.i62 ]
+  %77 = trunc nuw nsw i64 %.0.i63 to i32
   store ptr %1, ptr %9, align 16
   %78 = add nsw i32 %2, -1
   %79 = add nuw i32 %78, %75
@@ -10710,8 +10710,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %57, %.sink.split.i6
 
 tj3YUVPlaneWidth.exit68:                          ; preds = %89, %.sink.split.i65
   %107 = phi i32 [ %76, %89 ], [ %.pre78, %.sink.split.i65 ]
-  %.1.i67 = phi i64 [ %103, %89 ], [ 0, %.sink.split.i65 ]
-  %108 = trunc nuw nsw i64 %.1.i67 to i32
+  %.0.i67 = phi i64 [ %103, %89 ], [ 0, %.sink.split.i65 ]
+  %108 = trunc nuw nsw i64 %.0.i67 to i32
   %109 = icmp ugt i32 %107, 6
   %.not75 = icmp eq i32 %107, 3
   %or.cond76 = or i1 %109, %.not75
@@ -10742,7 +10742,7 @@ tj3YUVPlaneWidth.exit68:                          ; preds = %89, %.sink.split.i6
   br label %tj3YUVPlaneHeight.exit74
 
 tj3YUVPlaneHeight.exit74:                         ; preds = %110, %.sink.split.i71
-  %.1.i73 = phi i64 [ %124, %110 ], [ 0, %.sink.split.i71 ]
+  %.0.i73 = phi i64 [ %124, %110 ], [ 0, %.sink.split.i71 ]
   %128 = add nuw i32 %78, %108
   %129 = and i32 %128, %80
   %130 = getelementptr inbounds i8, ptr %10, i64 8
@@ -10750,10 +10750,10 @@ tj3YUVPlaneHeight.exit74:                         ; preds = %110, %.sink.split.i
   %131 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %129, ptr %131, align 4
   %132 = sext i32 %81 to i64
-  %133 = mul nsw i64 %.1.i63, %132
+  %133 = mul nsw i64 %.0.i63, %132
   %134 = icmp ugt i64 %133, 2147483647
   %135 = zext nneg i32 %129 to i64
-  %136 = mul nuw nsw i64 %.1.i73, %135
+  %136 = mul nuw nsw i64 %.0.i73, %135
   %137 = icmp ugt i64 %136, 2147483647
   %or.cond60 = select i1 %134, i1 true, i1 %137
   br i1 %or.cond60, label %138, label %143
@@ -10767,7 +10767,7 @@ tj3YUVPlaneHeight.exit74:                         ; preds = %110, %.sink.split.i
   br label %155
 
 143:                                              ; preds = %tj3YUVPlaneHeight.exit74
-  %144 = trunc nuw nsw i64 %.1.i73 to i32
+  %144 = trunc nuw nsw i64 %.0.i73 to i32
   %145 = mul nsw i32 %81, %77
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds i8, ptr %1, i64 %146
@@ -11186,8 +11186,8 @@ setDecompParameters.exit:                         ; preds = %65, %switch.lookup
   br label %193
 
 193:                                              ; preds = %189, %176
-  %.0.i = phi i64 [ %192, %189 ], [ %187, %176 ]
-  %194 = icmp ugt i64 %.0.i, 2147483647
+  %.1.i = phi i64 [ %192, %189 ], [ %187, %176 ]
+  %194 = icmp ugt i64 %.1.i, 2147483647
   br i1 %194, label %.sink.split.i, label %tj3YUVPlaneWidth.exit
 
 .sink.split.i:                                    ; preds = %193, %173, %160
@@ -11198,8 +11198,8 @@ setDecompParameters.exit:                         ; preds = %65, %switch.lookup
 
 tj3YUVPlaneWidth.exit:                            ; preds = %193, %.sink.split.i
   %196 = phi i32 [ %170, %193 ], [ %.pre, %.sink.split.i ]
-  %.1.i = phi i64 [ %.0.i, %193 ], [ 0, %.sink.split.i ]
-  %197 = trunc nuw nsw i64 %.1.i to i32
+  %.0.i = phi i64 [ %.1.i, %193 ], [ 0, %.sink.split.i ]
+  %197 = trunc nuw nsw i64 %.0.i to i32
   %198 = getelementptr inbounds [10 x i32], ptr %6, i64 0, i64 %indvars.iv307
   store i32 %197, ptr %198, align 4
   %199 = load i32, ptr %159, align 4
@@ -11236,8 +11236,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %193, %.sink.split.i
   br label %222
 
 222:                                              ; preds = %218, %205
-  %.0.i245 = phi i64 [ %221, %218 ], [ %216, %205 ]
-  %223 = icmp ugt i64 %.0.i245, 2147483647
+  %.1.i245 = phi i64 [ %221, %218 ], [ %216, %205 ]
+  %223 = icmp ugt i64 %.1.i245, 2147483647
   br i1 %223, label %.sink.split.i243, label %tj3YUVPlaneHeight.exit
 
 .sink.split.i243:                                 ; preds = %222, %202, %tj3YUVPlaneWidth.exit
@@ -11246,8 +11246,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %193, %.sink.split.i
   br label %tj3YUVPlaneHeight.exit
 
 tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i243
-  %.1.i244 = phi i64 [ %.0.i245, %222 ], [ 0, %.sink.split.i243 ]
-  %225 = trunc nuw i64 %.1.i244 to i32
+  %.0.i244 = phi i64 [ %.1.i245, %222 ], [ 0, %.sink.split.i243 ]
+  %225 = trunc nuw i64 %.0.i244 to i32
   %226 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %indvars.iv307
   store i32 %225, ptr %226, align 4
   %.not236 = icmp eq i32 %165, %197
@@ -11262,7 +11262,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
   store i32 %230, ptr %231, align 4
   %232 = mul nsw i32 %230, %165
   %233 = add nsw i32 %232, %.0204264
-  %234 = shl nuw nsw i64 %.1.i244, 3
+  %234 = shl nuw nsw i64 %.0.i244, 3
   %235 = call noalias ptr @malloc(i64 noundef %234) #28
   %236 = getelementptr inbounds [10 x ptr], ptr %10, i64 0, i64 %indvars.iv307
   store ptr %235, ptr %236, align 8
@@ -11279,7 +11279,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
 242:                                              ; preds = %tj3YUVPlaneHeight.exit
   %243 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv307
   %244 = load ptr, ptr %243, align 8
-  %.not289 = icmp eq i64 %.1.i244, 0
+  %.not289 = icmp eq i64 %.0.i244, 0
   br i1 %.not289, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %242
@@ -11290,9 +11290,9 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
   %.0205259.us = phi ptr [ %246, %.lr.ph.split.us ], [ %244, %.lr.ph ]
   %245 = getelementptr inbounds ptr, ptr %235, i64 %indvars.iv302
   store ptr %.0205259.us, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %.0205259.us, i64 %.1.i
+  %246 = getelementptr inbounds i8, ptr %.0205259.us, i64 %.0.i
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next303, %.1.i244
+  %exitcond306.not = icmp eq i64 %indvars.iv.next303, %.0.i244
   br i1 %exitcond306.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -11306,9 +11306,9 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
   %.0205259.us262 = phi ptr [ %250, %.lr.ph.split.split.us ], [ %244, %.lr.ph.split ]
   %249 = getelementptr inbounds ptr, ptr %235, i64 %indvars.iv297
   store ptr %.0205259.us262, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %.0205259.us262, i64 %.1.i
+  %250 = getelementptr inbounds i8, ptr %.0205259.us262, i64 %.0.i
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %.1.i244
+  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %.0.i244
   br i1 %exitcond301.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !60
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -11322,7 +11322,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
   store ptr %.0205259, ptr %253, align 8
   %254 = getelementptr inbounds i8, ptr %.0205259, i64 %251
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.1.i244
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.0.i244
   br i1 %exitcond.not, label %._crit_edge, label %252, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %252, %.lr.ph.split.split.us, %.lr.ph.split.us, %242
@@ -11408,7 +11408,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
 
 .loopexit255:                                     ; preds = %._crit_edge274, %145, %.preheader254, %._crit_edge269
   %.not232341 = phi i1 [ true, %._crit_edge269 ], [ false, %.preheader254 ], [ true, %145 ], [ %.not232, %._crit_edge274 ]
-  %.0208 = phi ptr [ null, %._crit_edge269 ], [ %260, %.preheader254 ], [ null, %145 ], [ %260, %._crit_edge274 ]
+  %.1209 = phi ptr [ null, %._crit_edge269 ], [ %260, %.preheader254 ], [ null, %145 ], [ %260, %._crit_edge274 ]
   %287 = call i32 @_setjmp(ptr noundef nonnull %57) #27
   %.not233 = icmp eq i32 %287, 0
   br i1 %.not233, label %288, label %393
@@ -11593,7 +11593,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
   br label %393
 
 393:                                              ; preds = %.loopexit255, %48, %._crit_edge287, %279, %263, %238, %140, %131, %120, %114, %37, %26
-  %.1209 = phi ptr [ null, %26 ], [ null, %114 ], [ null, %120 ], [ null, %140 ], [ null, %238 ], [ null, %263 ], [ %260, %279 ], [ %.0208, %._crit_edge287 ], [ null, %131 ], [ null, %37 ], [ null, %48 ], [ %.0208, %.loopexit255 ]
+  %.0208 = phi ptr [ null, %26 ], [ null, %114 ], [ null, %120 ], [ null, %140 ], [ null, %238 ], [ null, %263 ], [ %260, %279 ], [ %.1209, %._crit_edge287 ], [ null, %131 ], [ null, %37 ], [ null, %48 ], [ %.1209, %.loopexit255 ]
   %.0202 = phi i32 [ -1, %26 ], [ -1, %114 ], [ -1, %120 ], [ -1, %140 ], [ -1, %238 ], [ -1, %263 ], [ -1, %279 ], [ 0, %._crit_edge287 ], [ -1, %131 ], [ -1, %37 ], [ -1, %48 ], [ -1, %.loopexit255 ]
   %394 = getelementptr inbounds i8, ptr %0, i64 556
   %395 = load i32, ptr %394, align 4
@@ -11620,7 +11620,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %222, %.sink.split.i
   br i1 %exitcond334.not, label %403, label %398, !llvm.loop !68
 
 403:                                              ; preds = %398
-  call void @free(ptr noundef %.1209) #26
+  call void @free(ptr noundef %.0208) #26
   %404 = load i32, ptr %19, align 8
   %.not240 = icmp eq i32 %404, 0
   %spec.select = select i1 %.not240, i32 %.0202, i32 -1
@@ -11955,8 +11955,8 @@ setDecompParameters.exit:                         ; preds = %30, %switch.lookup
 
 tj3YUVPlaneWidth.exit:                            ; preds = %87, %.sink.split.i
   %102 = phi i32 [ %31, %87 ], [ %.pre, %.sink.split.i ]
-  %.1.i = phi i64 [ %98, %87 ], [ 0, %.sink.split.i ]
-  %103 = trunc nuw nsw i64 %.1.i to i32
+  %.0.i = phi i64 [ %98, %87 ], [ 0, %.sink.split.i ]
+  %103 = trunc nuw nsw i64 %.0.i to i32
   %104 = icmp slt i32 %84, 1
   %105 = icmp ugt i32 %102, 6
   %or.cond3.i81 = or i1 %104, %105
@@ -11986,8 +11986,8 @@ tj3YUVPlaneWidth.exit:                            ; preds = %87, %.sink.split.i
 
 tj3YUVPlaneHeight.exit:                           ; preds = %106, %.sink.split.i82
   %121 = phi i32 [ %102, %106 ], [ %.pre103, %.sink.split.i82 ]
-  %.1.i83 = phi i64 [ %117, %106 ], [ 0, %.sink.split.i82 ]
-  %122 = trunc nuw nsw i64 %.1.i83 to i32
+  %.0.i83 = phi i64 [ %117, %106 ], [ 0, %.sink.split.i82 ]
+  %122 = trunc nuw nsw i64 %.0.i83 to i32
   store ptr %3, ptr %6, align 16
   %123 = add nsw i32 %4, -1
   %124 = add nuw i32 %123, %103
@@ -12038,8 +12038,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %106, %.sink.split.i
 
 tj3YUVPlaneWidth.exit88:                          ; preds = %134, %.sink.split.i85
   %152 = phi i32 [ %121, %134 ], [ %.pre104, %.sink.split.i85 ]
-  %.1.i87 = phi i64 [ %148, %134 ], [ 0, %.sink.split.i85 ]
-  %153 = trunc nuw nsw i64 %.1.i87 to i32
+  %.0.i87 = phi i64 [ %148, %134 ], [ 0, %.sink.split.i85 ]
+  %153 = trunc nuw nsw i64 %.0.i87 to i32
   %154 = icmp ugt i32 %152, 6
   %.not102 = icmp eq i32 %152, 3
   %155 = or i1 %154, %.not102
@@ -12071,7 +12071,7 @@ tj3YUVPlaneWidth.exit88:                          ; preds = %134, %.sink.split.i
   br label %tj3YUVPlaneHeight.exit94
 
 tj3YUVPlaneHeight.exit94:                         ; preds = %156, %.sink.split.i91
-  %.1.i93 = phi i64 [ %170, %156 ], [ 0, %.sink.split.i91 ]
+  %.0.i93 = phi i64 [ %170, %156 ], [ 0, %.sink.split.i91 ]
   %174 = add nuw i32 %123, %153
   %175 = and i32 %174, %125
   %176 = getelementptr inbounds i8, ptr %7, i64 8
@@ -12079,16 +12079,16 @@ tj3YUVPlaneHeight.exit94:                         ; preds = %156, %.sink.split.i
   %177 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %175, ptr %177, align 4
   %178 = sext i32 %126 to i64
-  %179 = mul nsw i64 %.1.i83, %178
+  %179 = mul nsw i64 %.0.i83, %178
   %180 = icmp ugt i64 %179, 2147483647
   %181 = zext nneg i32 %175 to i64
-  %182 = mul nuw nsw i64 %.1.i93, %181
+  %182 = mul nuw nsw i64 %.0.i93, %181
   %183 = icmp ugt i64 %182, 2147483647
   %or.cond80 = select i1 %180, i1 true, i1 %183
   br i1 %or.cond80, label %.sink.split, label %184
 
 184:                                              ; preds = %tj3YUVPlaneHeight.exit94
-  %185 = trunc nuw nsw i64 %.1.i93 to i32
+  %185 = trunc nuw nsw i64 %.0.i93 to i32
   %186 = mul nsw i32 %126, %122
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds i8, ptr %3, i64 %187
@@ -12683,7 +12683,7 @@ split:                                            ; preds = %169, %._crit_edge40
 
 198:                                              ; preds = %.lr.ph379, %307
   %indvars.iv402 = phi i64 [ 0, %.lr.ph379 ], [ %indvars.iv.next403, %307 ]
-  %.0283372 = phi i32 [ 1, %.lr.ph379 ], [ %.1284, %307 ]
+  %.1284372 = phi i32 [ 1, %.lr.ph379 ], [ %.2285, %307 ]
   %199 = getelementptr inbounds %struct.jpeg_transform_info, ptr %calloc, i64 %indvars.iv402
   %200 = getelementptr inbounds i8, ptr %199, i64 16
   %201 = load i32, ptr %200, align 8
@@ -12727,7 +12727,7 @@ split:                                            ; preds = %169, %._crit_edge40
   br label %219
 
 219:                                              ; preds = %215, %213
-  %.1284 = phi i32 [ 0, %215 ], [ %.0283372, %213 ]
+  %.2285 = phi i32 [ 0, %215 ], [ %.1284372, %213 ]
   %220 = getelementptr inbounds %struct.tjtransform, ptr %6, i64 %indvars.iv402
   %221 = getelementptr inbounds i8, ptr %220, i64 20
   %222 = load i32, ptr %221, align 4
@@ -12738,7 +12738,7 @@ split:                                            ; preds = %169, %._crit_edge40
 224:                                              ; preds = %219
   %225 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv402
   %226 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv402
-  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef %225, ptr noundef %226, i32 noundef %.1284) #26
+  call void @jpeg_mem_dest_tj(ptr noundef nonnull %0, ptr noundef %225, ptr noundef %226, i32 noundef %.2285) #26
   br label %227
 
 227:                                              ; preds = %224, %219
@@ -12853,7 +12853,7 @@ split:                                            ; preds = %169, %._crit_edge40
 
 273:                                              ; preds = %.lr.ph364, %._crit_edge358
   %274 = phi i32 [ %.pre411, %.lr.ph364 ], [ %297, %._crit_edge358 ]
-  %.sroa.010.sroa.2.2362 = phi i32 [ 0, %.lr.ph364 ], [ %.sroa.010.sroa.2.3.lcssa, %._crit_edge358 ]
+  %.sroa.010.sroa.2.3362 = phi i32 [ 0, %.lr.ph364 ], [ %.sroa.010.sroa.2.4.lcssa, %._crit_edge358 ]
   %.0276361 = phi i32 [ 0, %.lr.ph364 ], [ %298, %._crit_edge358 ]
   %275 = load ptr, ptr %51, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 64
@@ -12866,11 +12866,11 @@ split:                                            ; preds = %169, %._crit_edge40
 
 .lr.ph357:                                        ; preds = %273, %292
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %292 ], [ 0, %273 ]
-  %.sroa.010.sroa.2.3355 = phi i32 [ %293, %292 ], [ %.sroa.010.sroa.2.2362, %273 ]
+  %.sroa.010.sroa.2.4355 = phi i32 [ %293, %292 ], [ %.sroa.010.sroa.2.3362, %273 ]
   %282 = load ptr, ptr %256, align 8
   %283 = getelementptr inbounds ptr, ptr %279, i64 %indvars.iv396
   %284 = load ptr, ptr %283, align 8
-  %.sroa.010.sroa.2.0.insert.ext = zext i32 %.sroa.010.sroa.2.3355 to i64
+  %.sroa.010.sroa.2.0.insert.ext = zext i32 %.sroa.010.sroa.2.4355 to i64
   %.sroa.010.sroa.2.0.insert.shift = shl nuw i64 %.sroa.010.sroa.2.0.insert.ext, 32
   %285 = call i32 %282(ptr noundef %284, i64 %.sroa.010.sroa.2.0.insert.shift, i64 %.sroa.4.12.insert.insert, i64 0, i64 %.sroa.2.12.insert.insert, i32 noundef %272, i32 noundef %260, ptr noundef %220) #26
   %286 = icmp eq i32 %285, -1
@@ -12885,7 +12885,7 @@ split:                                            ; preds = %169, %._crit_edge40
   br label %309
 
 292:                                              ; preds = %.lr.ph357
-  %293 = add nsw i32 %.sroa.010.sroa.2.3355, 8
+  %293 = add nsw i32 %.sroa.010.sroa.2.4355, 8
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %294 = load i32, ptr %271, align 4
   %295 = sext i32 %294 to i64
@@ -12894,7 +12894,7 @@ split:                                            ; preds = %169, %._crit_edge40
 
 ._crit_edge358:                                   ; preds = %292, %273
   %297 = phi i32 [ %280, %273 ], [ %294, %292 ]
-  %.sroa.010.sroa.2.3.lcssa = phi i32 [ %.sroa.010.sroa.2.2362, %273 ], [ %293, %292 ]
+  %.sroa.010.sroa.2.4.lcssa = phi i32 [ %.sroa.010.sroa.2.3362, %273 ], [ %293, %292 ]
   %298 = add i32 %297, %.0276361
   %299 = load i32, ptr %267, align 8
   %300 = icmp ult i32 %298, %299
@@ -12931,7 +12931,7 @@ split:                                            ; preds = %169, %._crit_edge40
   br label %309
 
 309:                                              ; preds = %62, %._crit_edge380, %287, %split, %157, %146, %137, %74, %57, %34, %19
-  %.2285 = phi i32 [ 1, %19 ], [ 1, %34 ], [ 1, %57 ], [ 1, %74 ], [ 1, %137 ], [ 1, %157 ], [ 1, %split ], [ 1, %146 ], [ %.1284, %287 ], [ %.1284, %._crit_edge380 ], [ 1, %62 ]
+  %.0283 = phi i32 [ 1, %19 ], [ 1, %34 ], [ 1, %57 ], [ 1, %74 ], [ 1, %137 ], [ 1, %157 ], [ 1, %split ], [ 1, %146 ], [ %.2285, %287 ], [ %.2285, %._crit_edge380 ], [ 1, %62 ]
   %.0273 = phi i32 [ -1, %19 ], [ -1, %34 ], [ -1, %57 ], [ -1, %74 ], [ -1, %137 ], [ -1, %157 ], [ -1, %split ], [ -1, %146 ], [ -1, %287 ], [ 0, %._crit_edge380 ], [ -1, %62 ]
   %.0272 = phi ptr [ null, %19 ], [ null, %34 ], [ null, %57 ], [ %calloc, %74 ], [ %calloc, %137 ], [ %calloc, %157 ], [ %calloc, %split ], [ %calloc, %146 ], [ %calloc, %287 ], [ %calloc, %._crit_edge380 ], [ %calloc, %62 ]
   %310 = getelementptr inbounds i8, ptr %0, i64 36
@@ -12940,7 +12940,7 @@ split:                                            ; preds = %169, %._crit_edge40
   br i1 %312, label %313, label %320
 
 313:                                              ; preds = %309
-  %.not331 = icmp eq i32 %.2285, 0
+  %.not331 = icmp eq i32 %.0283, 0
   br i1 %.not331, label %319, label %314
 
 314:                                              ; preds = %313
@@ -13008,7 +13008,7 @@ define internal fastcc i32 @getSubsamp(ptr nocapture noundef readonly %0) unname
 
 17:                                               ; preds = %9, %.loopexit
   %indvars.iv147 = phi i64 [ 0, %9 ], [ %indvars.iv.next148, %.loopexit ]
-  %.093121 = phi i32 [ -1, %9 ], [ %.194, %.loopexit ]
+  %.093121 = phi i32 [ -1, %9 ], [ %.295, %.loopexit ]
   %18 = icmp eq i64 %indvars.iv147, 3
   br i1 %18, label %.loopexit, label %19
 
@@ -13213,13 +13213,13 @@ define internal fastcc i32 @getSubsamp(ptr nocapture noundef readonly %0) unname
   br i1 %108, label %.loopexit, label %97
 
 .loopexit:                                        ; preds = %97, %107, %._crit_edge151, %20, %17
-  %.194 = phi i32 [ %.093121, %17 ], [ %.093121, %._crit_edge151 ], [ %.093121, %20 ], [ %.093121, %97 ], [ 0, %107 ]
+  %.295 = phi i32 [ %.093121, %17 ], [ %.093121, %._crit_edge151 ], [ %.093121, %20 ], [ %.093121, %97 ], [ 0, %107 ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, 7
   br i1 %exitcond150.not, label %.loopexit106, label %17, !llvm.loop !80
 
 .loopexit106:                                     ; preds = %.loopexit, %._crit_edge, %._crit_edge113, %5
-  %.096 = phi i32 [ 3, %5 ], [ %31, %._crit_edge113 ], [ %31, %._crit_edge ], [ %.194, %.loopexit ]
+  %.096 = phi i32 [ 3, %5 ], [ %31, %._crit_edge113 ], [ %31, %._crit_edge ], [ %.295, %.loopexit ]
   ret i32 %.096
 }
 

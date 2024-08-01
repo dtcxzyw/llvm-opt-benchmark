@@ -1267,7 +1267,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.0.ph184 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %162, %.outer ]
-  %.0131.ph183 = phi ptr [ %68, %.lr.ph.lr.ph ], [ %.5, %.outer ]
+  %.0131.ph183 = phi ptr [ %68, %.lr.ph.lr.ph ], [ %.4, %.outer ]
   %.0132.ph182 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2134, %.outer ]
   %.0135.ph181 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.1136, %.outer ]
   %.0137.ph180 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.2139, %.outer ]
@@ -1453,9 +1453,9 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br label %142
 
 142:                                              ; preds = %140, %138
-  %.4 = phi ptr [ %141, %140 ], [ %.us-phi170, %138 ]
-  %143 = getelementptr i8, ptr %.4, i64 1
-  store i8 %.us-phi, ptr %.4, align 1
+  %.5 = phi ptr [ %141, %140 ], [ %.us-phi170, %138 ]
+  %143 = getelementptr i8, ptr %.5, i64 1
+  store i8 %.us-phi, ptr %.5, align 1
   %144 = icmp eq i8 %.us-phi, 93
   %spec.select = select i1 %144, i8 0, i8 %.0135.ph181
   br label %.outer
@@ -1514,14 +1514,14 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %.2139 = phi i8 [ %.us-phi169, %146 ], [ %.us-phi169, %148 ], [ %.us-phi169, %151 ], [ %.us-phi169, %153 ], [ %.us-phi169, %157 ], [ %.us-phi169, %160 ], [ 0, %129 ], [ 0, %125 ], [ 1, %133 ], [ %.us-phi169, %142 ]
   %.1136 = phi i8 [ 1, %146 ], [ %.0135.ph181, %148 ], [ %.0135.ph181, %151 ], [ %.0135.ph181, %153 ], [ %.0135.ph181, %157 ], [ %.0135.ph181, %160 ], [ %.0135.ph181, %129 ], [ %.0135.ph181, %125 ], [ %.0135.ph181, %133 ], [ %spec.select, %142 ]
   %.2134 = phi i32 [ %.0132.ph182, %146 ], [ %.0132.ph182, %148 ], [ %.0132.ph182, %151 ], [ %.0132.ph182, %153 ], [ %.0132.ph182, %157 ], [ %.0132.ph182, %160 ], [ %.0132.ph182, %129 ], [ %128, %125 ], [ %.0132.ph182, %133 ], [ %.0132.ph182, %142 ]
-  %.5 = phi ptr [ %147, %146 ], [ %150, %148 ], [ %152, %151 ], [ %156, %153 ], [ %159, %157 ], [ %161, %160 ], [ %131, %129 ], [ %127, %125 ], [ %.us-phi170, %133 ], [ %143, %142 ]
+  %.4 = phi ptr [ %147, %146 ], [ %150, %148 ], [ %152, %151 ], [ %156, %153 ], [ %159, %157 ], [ %161, %160 ], [ %131, %129 ], [ %127, %125 ], [ %.us-phi170, %133 ], [ %143, %142 ]
   %162 = getelementptr i8, ptr %.us-phi171, i64 1
   %163 = add nsw i32 %.us-phi168, -1
   %164 = icmp sgt i32 %.us-phi168, 1
   br i1 %164, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.outer, %101, %79, %62
-  %.0131.lcssa = phi ptr [ %68, %62 ], [ %81, %79 ], [ %.1.us, %101 ], [ %.5, %.outer ]
+  %.0131.lcssa = phi ptr [ %68, %62 ], [ %81, %79 ], [ %.1.us, %101 ], [ %.4, %.outer ]
   %165 = getelementptr i8, ptr %.0131.lcssa, i64 1
   store i8 41, ptr %.0131.lcssa, align 1
   %166 = getelementptr i8, ptr %.0131.lcssa, i64 2
@@ -1756,11 +1756,11 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br label %71
 
 71:                                               ; preds = %156, %55
-  %.0148 = phi i32 [ 0, %55 ], [ %.3151, %156 ]
+  %.0148 = phi i32 [ 0, %55 ], [ %.2150, %156 ]
   %.0147 = phi i64 [ 0, %55 ], [ %157, %156 ]
-  %.0144 = phi i32 [ 0, %55 ], [ %.1145, %156 ]
-  %.0141 = phi i32 [ 0, %55 ], [ %.5, %156 ]
-  %.0138 = phi i32 [ %62, %55 ], [ %.2, %156 ]
+  %.0144 = phi i32 [ 0, %55 ], [ %.2146, %156 ]
+  %.0141 = phi i32 [ 0, %55 ], [ %.2143, %156 ]
+  %.0138 = phi i32 [ %62, %55 ], [ %.1139, %156 ]
   %.0134 = phi i32 [ %3, %55 ], [ %spec.select176, %156 ]
   %72 = tail call fastcc zeroext i1 @RE_wchar_execute(ptr noundef %37, i32 noundef %41, i32 noundef %.0134, i32 noundef %.0137, ptr noundef %58)
   br i1 %72, label %73, label %163
@@ -1789,8 +1789,8 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br i1 %86, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %81, %92
-  %.1139180 = phi i32 [ %93, %92 ], [ %.0138, %81 ]
-  %reass.add = shl i32 %.1139180, 1
+  %.2180 = phi i32 [ %93, %92 ], [ %.0138, %81 ]
+  %reass.add = shl i32 %.2180, 1
   %87 = icmp ugt i32 %reass.add, 268435455
   br i1 %87, label %88, label %92
 
@@ -1817,7 +1817,7 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge:                                      ; preds = %92, %81
   %102 = phi i32 [ %83, %81 ], [ %98, %92 ]
-  %.1139.lcssa = phi i32 [ %.0138, %81 ], [ %93, %92 ]
+  %.2.lcssa = phi i32 [ %.0138, %81 ], [ %93, %92 ]
   br i1 %.0135, label %.preheader, label %123
 
 .preheader:                                       ; preds = %._crit_edge
@@ -1826,8 +1826,8 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
 
 .lr.ph185:                                        ; preds = %.preheader, %.lr.ph185
   %.0140184 = phi i32 [ %121, %.lr.ph185 ], [ 1, %.preheader ]
-  %.1142183 = phi i32 [ %.2143, %.lr.ph185 ], [ %.0141, %.preheader ]
-  %.1149182 = phi i32 [ %115, %.lr.ph185 ], [ %.0148, %.preheader ]
+  %.3183 = phi i32 [ %.4, %.lr.ph185 ], [ %.0141, %.preheader ]
+  %.3151182 = phi i32 [ %115, %.lr.ph185 ], [ %.0148, %.preheader ]
   %103 = sext i32 %.0140184 to i64
   %104 = getelementptr %struct.regmatch_t, ptr %58, i64 %103
   %105 = load i64, ptr %104, align 8
@@ -1836,12 +1836,12 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %108 = load i64, ptr %107, align 8
   %109 = trunc i64 %108 to i32
   %110 = load ptr, ptr %66, align 8
-  %111 = add i32 %.1149182, 1
-  %112 = sext i32 %.1149182 to i64
+  %111 = add i32 %.3151182, 1
+  %112 = sext i32 %.3151182 to i64
   %113 = getelementptr i32, ptr %110, i64 %112
   store i32 %106, ptr %113, align 4
   %114 = load ptr, ptr %66, align 8
-  %115 = add i32 %.1149182, 2
+  %115 = add i32 %.3151182, 2
   %116 = sext i32 %111 to i64
   %117 = getelementptr i32, ptr %114, i64 %116
   store i32 %109, ptr %117, align 4
@@ -1849,8 +1849,8 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   %119 = icmp sgt i32 %109, -1
   %or.cond = select i1 %118, i1 %119, i1 false
   %120 = sub nsw i32 %109, %106
-  %spec.select173 = tail call i32 @llvm.smax.i32(i32 %120, i32 %.1142183)
-  %.2143 = select i1 %or.cond, i32 %spec.select173, i32 %.1142183
+  %spec.select173 = tail call i32 @llvm.smax.i32(i32 %120, i32 %.3183)
+  %.4 = select i1 %or.cond, i32 %spec.select173, i32 %.3183
   %121 = add i32 %.0140184, 1
   %122 = load i32, ptr %69, align 4
   %.not170 = icmp sgt i32 %121, %122
@@ -1881,8 +1881,8 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph185, %.preheader, %137, %123
-  %.2150 = phi i32 [ %132, %123 ], [ %132, %137 ], [ %.0148, %.preheader ], [ %115, %.lr.ph185 ]
-  %.3 = phi i32 [ %.0141, %123 ], [ %spec.select174, %137 ], [ %.0141, %.preheader ], [ %.2143, %.lr.ph185 ]
+  %.4152 = phi i32 [ %132, %123 ], [ %132, %137 ], [ %.0148, %.preheader ], [ %115, %.lr.ph185 ]
+  %.5 = phi i32 [ %.0141, %123 ], [ %spec.select174, %137 ], [ %.0141, %.preheader ], [ %.4, %.lr.ph185 ]
   %139 = load i32, ptr %70, align 8
   %140 = add i32 %139, 1
   store i32 %140, ptr %70, align 8
@@ -1896,23 +1896,23 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
 144:                                              ; preds = %141
   %145 = sext i32 %.0144 to i64
   %146 = sub i64 %142, %145
-  %147 = sext i32 %.3 to i64
+  %147 = sext i32 %.5 to i64
   %148 = icmp sgt i64 %146, %147
   %149 = trunc i64 %146 to i32
-  %spec.select175 = select i1 %148, i32 %149, i32 %.3
+  %spec.select175 = select i1 %148, i32 %149, i32 %.5
   br label %150
 
 150:                                              ; preds = %144, %141, %.loopexit
-  %.4 = phi i32 [ %.3, %141 ], [ %.3, %.loopexit ], [ %spec.select175, %144 ]
+  %.6 = phi i32 [ %.5, %141 ], [ %.5, %.loopexit ], [ %spec.select175, %144 ]
   %151 = load i64, ptr %68, align 8
   %152 = trunc i64 %151 to i32
   br label %153
 
 153:                                              ; preds = %150, %77, %74
-  %.3151 = phi i32 [ %.2150, %150 ], [ %.0148, %77 ], [ %.0148, %74 ]
-  %.1145 = phi i32 [ %152, %150 ], [ %.0144, %77 ], [ %.0144, %74 ]
-  %.5 = phi i32 [ %.4, %150 ], [ %.0141, %77 ], [ %.0141, %74 ]
-  %.2 = phi i32 [ %.1139.lcssa, %150 ], [ %.0138, %77 ], [ %.0138, %74 ]
+  %.2150 = phi i32 [ %.4152, %150 ], [ %.0148, %77 ], [ %.0148, %74 ]
+  %.2146 = phi i32 [ %152, %150 ], [ %.0144, %77 ], [ %.0144, %74 ]
+  %.2143 = phi i32 [ %.6, %150 ], [ %.0141, %77 ], [ %.0141, %74 ]
+  %.1139 = phi i32 [ %.2.lcssa, %150 ], [ %.0138, %77 ], [ %.0138, %74 ]
   %154 = load i8, ptr %59, align 4
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %163
@@ -1928,20 +1928,20 @@ define internal fastcc ptr @setup_regexp_matches(ptr noundef %0, ptr noundef %1,
   br i1 %162, label %163, label %71, !llvm.loop !11
 
 163:                                              ; preds = %156, %153, %71
-  %.4152 = phi i32 [ %.3151, %156 ], [ %.3151, %153 ], [ %.0148, %71 ]
-  %.2146 = phi i32 [ %.1145, %156 ], [ %.1145, %153 ], [ %.0144, %71 ]
-  %.6 = phi i32 [ %.5, %156 ], [ %.5, %153 ], [ %.0141, %71 ]
+  %.1149 = phi i32 [ %.2150, %156 ], [ %.2150, %153 ], [ %.0148, %71 ]
+  %.1145 = phi i32 [ %.2146, %156 ], [ %.2146, %153 ], [ %.0144, %71 ]
+  %.1142 = phi i32 [ %.2143, %156 ], [ %.2143, %153 ], [ %.0141, %71 ]
   %164 = load ptr, ptr %66, align 8
-  %165 = sext i32 %.4152 to i64
+  %165 = sext i32 %.1149 to i64
   %166 = getelementptr i32, ptr %164, i64 %165
   store i32 %41, ptr %166, align 4
   %167 = icmp sgt i32 %10, 1
   br i1 %167, label %168, label %179
 
 168:                                              ; preds = %163
-  %169 = sub i32 %41, %.2146
-  %spec.select177 = tail call i32 @llvm.smax.i32(i32 %169, i32 %.6)
-  %.7 = select i1 %7, i32 %spec.select177, i32 %.6
+  %169 = sub i32 %41, %.1145
+  %spec.select177 = tail call i32 @llvm.smax.i32(i32 %169, i32 %.1142)
+  %.7 = select i1 %7, i32 %spec.select177, i32 %.1142
   %170 = zext nneg i32 %10 to i64
   %171 = sext i32 %.7 to i64
   %172 = mul nsw i64 %171, %170

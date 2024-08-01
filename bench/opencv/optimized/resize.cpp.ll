@@ -10620,14 +10620,14 @@ define linkonce_odr hidden void @_ZNK2cv12HResizeCubicIhisEclEPPKhPPiiPKiPKsiiii
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader78.preheader, %.preheader
-  %.165 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
-  %.not77 = icmp slt i32 %.165, %6
-  %42 = sub nsw i32 %.165, %8
+  %.266 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
+  %.not77 = icmp slt i32 %.266, %6
+  %42 = sub nsw i32 %.266, %8
   br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !171
 
 .loopexit:                                        ; preds = %.preheader, %31
-  %.266 = phi i32 [ %34, %31 ], [ %.165, %.preheader ]
-  %43 = sext i32 %.266 to i64
+  %.064 = phi i32 [ %34, %31 ], [ %.266, %.preheader ]
+  %43 = sext i32 %.064 to i64
   %44 = getelementptr inbounds i8, ptr %20, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
@@ -11202,14 +11202,14 @@ define linkonce_odr hidden void @_ZNK2cv12HResizeCubicItffEclEPPKtPPfiPKiPKfiiii
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader78.preheader, %.preheader
-  %.165 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
-  %.not77 = icmp slt i32 %.165, %6
-  %42 = sub nsw i32 %.165, %8
+  %.266 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
+  %.not77 = icmp slt i32 %.266, %6
+  %42 = sub nsw i32 %.266, %8
   br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !182
 
 .loopexit:                                        ; preds = %.preheader, %31
-  %.266 = phi i32 [ %34, %31 ], [ %.165, %.preheader ]
-  %43 = sext i32 %.266 to i64
+  %.064 = phi i32 [ %34, %31 ], [ %.266, %.preheader ]
+  %43 = sext i32 %.064 to i64
   %44 = getelementptr inbounds i16, ptr %20, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = uitofp i16 %45 to float
@@ -11775,14 +11775,14 @@ define linkonce_odr hidden void @_ZNK2cv12HResizeCubicIsffEclEPPKsPPfiPKiPKfiiii
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader78.preheader, %.preheader
-  %.165 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
-  %.not77 = icmp slt i32 %.165, %6
-  %42 = sub nsw i32 %.165, %8
+  %.266 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
+  %.not77 = icmp slt i32 %.266, %6
+  %42 = sub nsw i32 %.266, %8
   br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !193
 
 .loopexit:                                        ; preds = %.preheader, %31
-  %.266 = phi i32 [ %34, %31 ], [ %.165, %.preheader ]
-  %43 = sext i32 %.266 to i64
+  %.064 = phi i32 [ %34, %31 ], [ %.266, %.preheader ]
+  %43 = sext i32 %.064 to i64
   %44 = getelementptr inbounds i16, ptr %20, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = sitofp i16 %45 to float
@@ -12343,14 +12343,14 @@ define linkonce_odr hidden void @_ZNK2cv12HResizeCubicIfffEclEPPKfPPfiPKiS3_iiii
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader78.preheader, %.preheader
-  %.165 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
-  %.not77 = icmp slt i32 %.165, %6
-  %42 = sub nsw i32 %.165, %8
+  %.266 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
+  %.not77 = icmp slt i32 %.266, %6
+  %42 = sub nsw i32 %.266, %8
   br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !204
 
 .loopexit:                                        ; preds = %.preheader, %31
-  %.266 = phi i32 [ %34, %31 ], [ %.165, %.preheader ]
-  %43 = sext i32 %.266 to i64
+  %.064 = phi i32 [ %34, %31 ], [ %.266, %.preheader ]
+  %43 = sext i32 %.064 to i64
   %44 = getelementptr inbounds float, ptr %20, i64 %43
   %45 = load float, ptr %44, align 4
   %46 = getelementptr inbounds float, ptr %.284, i64 %indvars.iv102
@@ -12910,14 +12910,14 @@ define linkonce_odr hidden void @_ZNK2cv12HResizeCubicIddfEclEPPKdPPdiPKiPKfiiii
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader78.preheader, %.preheader
-  %.165 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
-  %.not77 = icmp slt i32 %.165, %6
-  %42 = sub nsw i32 %.165, %8
+  %.266 = phi i32 [ %42, %.preheader ], [ %41, %.preheader78.preheader ]
+  %.not77 = icmp slt i32 %.266, %6
+  %42 = sub nsw i32 %.266, %8
   br i1 %.not77, label %.loopexit, label %.preheader, !llvm.loop !215
 
 .loopexit:                                        ; preds = %.preheader, %31
-  %.266 = phi i32 [ %34, %31 ], [ %.165, %.preheader ]
-  %43 = sext i32 %.266 to i64
+  %.064 = phi i32 [ %34, %31 ], [ %.266, %.preheader ]
+  %43 = sext i32 %.064 to i64
   %44 = getelementptr inbounds double, ptr %20, i64 %43
   %45 = load double, ptr %44, align 8
   %46 = getelementptr inbounds float, ptr %.284, i64 %indvars.iv102
@@ -13530,14 +13530,14 @@ define linkonce_odr hidden void @_ZNK2cv15HResizeLanczos4IhisEclEPPKhPPiiPKiPKsi
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader94.preheader, %.preheader
-  %.181 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
-  %.not93 = icmp slt i32 %.181, %6
-  %45 = sub nsw i32 %.181, %8
+  %.282 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
+  %.not93 = icmp slt i32 %.282, %6
+  %45 = sub nsw i32 %.282, %8
   br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !226
 
 .loopexit:                                        ; preds = %.preheader, %34
-  %.282 = phi i32 [ %37, %34 ], [ %.181, %.preheader ]
-  %46 = sext i32 %.282 to i64
+  %.080 = phi i32 [ %37, %34 ], [ %.282, %.preheader ]
+  %46 = sext i32 %.080 to i64
   %47 = getelementptr inbounds i8, ptr %23, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
@@ -14184,14 +14184,14 @@ define linkonce_odr hidden void @_ZNK2cv15HResizeLanczos4ItffEclEPPKtPPfiPKiPKfi
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader94.preheader, %.preheader
-  %.181 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
-  %.not93 = icmp slt i32 %.181, %6
-  %45 = sub nsw i32 %.181, %8
+  %.282 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
+  %.not93 = icmp slt i32 %.282, %6
+  %45 = sub nsw i32 %.282, %8
   br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !237
 
 .loopexit:                                        ; preds = %.preheader, %34
-  %.282 = phi i32 [ %37, %34 ], [ %.181, %.preheader ]
-  %46 = sext i32 %.282 to i64
+  %.080 = phi i32 [ %37, %34 ], [ %.282, %.preheader ]
+  %46 = sext i32 %.080 to i64
   %47 = getelementptr inbounds i16, ptr %23, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = uitofp i16 %48 to float
@@ -14821,14 +14821,14 @@ define linkonce_odr hidden void @_ZNK2cv15HResizeLanczos4IsffEclEPPKsPPfiPKiPKfi
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader94.preheader, %.preheader
-  %.181 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
-  %.not93 = icmp slt i32 %.181, %6
-  %45 = sub nsw i32 %.181, %8
+  %.282 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
+  %.not93 = icmp slt i32 %.282, %6
+  %45 = sub nsw i32 %.282, %8
   br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !248
 
 .loopexit:                                        ; preds = %.preheader, %34
-  %.282 = phi i32 [ %37, %34 ], [ %.181, %.preheader ]
-  %46 = sext i32 %.282 to i64
+  %.080 = phi i32 [ %37, %34 ], [ %.282, %.preheader ]
+  %46 = sext i32 %.080 to i64
   %47 = getelementptr inbounds i16, ptr %23, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = sitofp i16 %48 to float
@@ -15453,14 +15453,14 @@ define linkonce_odr hidden void @_ZNK2cv15HResizeLanczos4IfffEclEPPKfPPfiPKiS3_i
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader94.preheader, %.preheader
-  %.181 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
-  %.not93 = icmp slt i32 %.181, %6
-  %45 = sub nsw i32 %.181, %8
+  %.282 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
+  %.not93 = icmp slt i32 %.282, %6
+  %45 = sub nsw i32 %.282, %8
   br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !259
 
 .loopexit:                                        ; preds = %.preheader, %34
-  %.282 = phi i32 [ %37, %34 ], [ %.181, %.preheader ]
-  %46 = sext i32 %.282 to i64
+  %.080 = phi i32 [ %37, %34 ], [ %.282, %.preheader ]
+  %46 = sext i32 %.080 to i64
   %47 = getelementptr inbounds float, ptr %23, i64 %46
   %48 = load float, ptr %47, align 4
   %49 = getelementptr inbounds float, ptr %.2100, i64 %indvars.iv118
@@ -16084,14 +16084,14 @@ define linkonce_odr hidden void @_ZNK2cv15HResizeLanczos4IddfEclEPPKdPPdiPKiPKfi
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader94.preheader, %.preheader
-  %.181 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
-  %.not93 = icmp slt i32 %.181, %6
-  %45 = sub nsw i32 %.181, %8
+  %.282 = phi i32 [ %45, %.preheader ], [ %44, %.preheader94.preheader ]
+  %.not93 = icmp slt i32 %.282, %6
+  %45 = sub nsw i32 %.282, %8
   br i1 %.not93, label %.loopexit, label %.preheader, !llvm.loop !270
 
 .loopexit:                                        ; preds = %.preheader, %34
-  %.282 = phi i32 [ %37, %34 ], [ %.181, %.preheader ]
-  %46 = sext i32 %.282 to i64
+  %.080 = phi i32 [ %37, %34 ], [ %.282, %.preheader ]
+  %46 = sext i32 %.080 to i64
   %47 = getelementptr inbounds double, ptr %23, i64 %46
   %48 = load double, ptr %47, align 8
   %49 = getelementptr inbounds float, ptr %.2100, i64 %indvars.iv118

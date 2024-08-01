@@ -208,8 +208,8 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not344, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %85, %.preheader
-  %.2286 = phi ptr [ %87, %.preheader ], [ %.1285.lcssa, %85 ]
-  %87 = load ptr, ptr %.2286, align 8
+  %.3287 = phi ptr [ %87, %.preheader ], [ %.1285.lcssa, %85 ]
+  %87 = load ptr, ptr %.3287, align 8
   %.not345 = icmp eq ptr %87, null
   br i1 %.not345, label %.loopexit, label %.preheader
 
@@ -224,26 +224,26 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %dthtab.exit
 
 .loopexit:                                        ; preds = %.preheader, %85
-  %.3287.ph = phi ptr [ %.1285.lcssa, %85 ], [ %.2286, %.preheader ]
+  %.2286.ph = phi ptr [ %.1285.lcssa, %85 ], [ %.3287, %.preheader ]
   %93 = getelementptr inbounds i8, ptr %23, i64 32
   %94 = load i32, ptr %93, align 8
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %93, align 8
   %96 = load ptr, ptr %4, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 8
-  store ptr %.3287.ph, ptr %97, align 8
+  store ptr %.2286.ph, ptr %97, align 8
   %98 = icmp slt i32 %.fr514, 0
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %.loopexit
-  %100 = getelementptr inbounds i8, ptr %.3287.ph, i64 16
+  %100 = getelementptr inbounds i8, ptr %.2286.ph, i64 16
   %101 = load ptr, ptr %100, align 8
   br label %dthtab.exit
 
 102:                                              ; preds = %.loopexit
   %103 = zext nneg i32 %.fr514 to i64
   %104 = sub nsw i64 0, %103
-  %105 = getelementptr inbounds i8, ptr %.3287.ph, i64 %104
+  %105 = getelementptr inbounds i8, ptr %.2286.ph, i64 %104
   br label %dthtab.exit
 
 106:                                              ; preds = %10
@@ -748,8 +748,8 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not369, label %351, label %.preheader489
 
 .preheader489:                                    ; preds = %348, %.preheader489
-  %.3297 = phi ptr [ %350, %.preheader489 ], [ %349, %348 ]
-  %350 = load ptr, ptr %.3297, align 8
+  %.4298 = phi ptr [ %350, %.preheader489 ], [ %349, %348 ]
+  %350 = load ptr, ptr %.4298, align 8
   %.not373 = icmp eq ptr %350, %.5289410432465
   br i1 %.not373, label %.thread476.loopexit517, label %.preheader489
 
@@ -771,8 +771,8 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not371, label %355, label %.preheader488
 
 .preheader488:                                    ; preds = %356, %.preheader488
-  %.5299 = phi ptr [ %358, %.preheader488 ], [ %357, %356 ]
-  %358 = load ptr, ptr %.5299, align 8
+  %.6300 = phi ptr [ %358, %.preheader488 ], [ %357, %356 ]
+  %358 = load ptr, ptr %.6300, align 8
   %.not372 = icmp eq ptr %358, null
   br i1 %.not372, label %.thread476, label %.preheader488
 
@@ -782,9 +782,9 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 .thread476:                                       ; preds = %341, %.preheader488, %.thread476.loopexit517, %330
   %359 = phi ptr [ %.pre528, %330 ], [ %.pre527, %.thread476.loopexit517 ], [ %352, %.preheader488 ], [ %.pre528, %341 ]
-  %.6300.ph = phi ptr [ %331, %330 ], [ %.3297, %.thread476.loopexit517 ], [ %.5299, %.preheader488 ], [ %342, %341 ]
+  %.3297.ph = phi ptr [ %331, %330 ], [ %.4298, %.thread476.loopexit517 ], [ %.6300, %.preheader488 ], [ %342, %341 ]
   %360 = getelementptr inbounds i8, ptr %359, i64 8
-  store ptr %.6300.ph, ptr %360, align 8
+  store ptr %.3297.ph, ptr %360, align 8
   br label %428
 
 .thread481:                                       ; preds = %339, %355
@@ -794,11 +794,11 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %365
 
 .thread470:                                       ; preds = %.thread451, %345
-  %.6300 = phi ptr [ %.1295407434463, %345 ], [ %.0294.lcssa, %.thread451 ]
+  %.3297 = phi ptr [ %.1295407434463, %345 ], [ %.0294.lcssa, %.thread451 ]
   %363 = load ptr, ptr %4, align 8
   %364 = getelementptr inbounds i8, ptr %363, i64 8
-  store ptr %.6300, ptr %364, align 8
-  %.not378 = icmp eq ptr %.6300, null
+  store ptr %.3297, ptr %364, align 8
+  %.not378 = icmp eq ptr %.3297, null
   br i1 %.not378, label %365, label %428
 
 365:                                              ; preds = %.thread481, %.thread470, %20
@@ -932,7 +932,7 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %427, label %414, label %dthtab.exit
 
 428:                                              ; preds = %.thread476, %.thread470
-  %.6300479 = phi ptr [ %.6300.ph, %.thread476 ], [ %.6300, %.thread470 ]
+  %.3297479 = phi ptr [ %.3297.ph, %.thread476 ], [ %.3297, %.thread470 ]
   %429 = load ptr, ptr %4, align 8
   %430 = load i32, ptr %429, align 8
   %431 = or i32 %430, 8192
@@ -941,14 +941,14 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %432, label %433, label %436
 
 433:                                              ; preds = %428
-  %434 = getelementptr inbounds i8, ptr %.6300479, i64 16
+  %434 = getelementptr inbounds i8, ptr %.3297479, i64 16
   %435 = load ptr, ptr %434, align 8
   br label %dthtab.exit
 
 436:                                              ; preds = %428
   %437 = zext nneg i32 %.fr514 to i64
   %438 = sub nsw i64 0, %437
-  %439 = getelementptr inbounds i8, ptr %.6300479, i64 %438
+  %439 = getelementptr inbounds i8, ptr %.3297479, i64 %438
   br label %dthtab.exit
 
 440:                                              ; preds = %343

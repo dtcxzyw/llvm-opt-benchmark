@@ -943,17 +943,17 @@ define dso_local noundef i32 @dump_all_part_state() local_unnamed_addr #0 {
   br i1 %52, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %49, %28, %45
-  %.0 = phi i32 [ %48, %45 ], [ 0, %28 ], [ 0, %49 ]
+  %.1 = phi i32 [ %48, %45 ], [ 0, %28 ], [ 0, %49 ]
   %53 = call i32 @fsync_and_close(i32 noundef %21, ptr noundef nonnull @.str.9) #17
   %54 = icmp eq i32 %53, 0
-  %55 = icmp ne i32 %.0, 0
+  %55 = icmp ne i32 %.1, 0
   %or.cond = select i1 %54, i1 true, i1 %55
-  %spec.select = select i1 %or.cond, i32 %.0, i32 %53
+  %spec.select = select i1 %or.cond, i32 %.1, i32 %53
   br label %56
 
 56:                                               ; preds = %.loopexit, %23
-  %.1 = phi i32 [ %27, %23 ], [ %spec.select, %.loopexit ]
-  %.not32 = icmp eq i32 %.1, 0
+  %.0 = phi i32 [ %27, %23 ], [ %spec.select, %.loopexit ]
+  %.not32 = icmp eq i32 %.0, 0
   br i1 %.not32, label %57, label %81
 
 57:                                               ; preds = %56
@@ -1435,7 +1435,7 @@ _open_part_state_file.exit.thread:                ; preds = %0, %_open_part_stat
   br label %88
 
 88:                                               ; preds = %.lr.ph, %260
-  %.0184 = phi i32 [ 0, %.lr.ph ], [ %170, %260 ]
+  %.1184 = phi i32 [ 0, %.lr.ph ], [ %170, %260 ]
   %89 = load i16, ptr %29, align 2
   %90 = icmp ugt i16 %89, 9983
   br i1 %90, label %91, label %150
@@ -1628,7 +1628,7 @@ _open_part_state_file.exit.thread:                ; preds = %0, %_open_part_stat
   %167 = load ptr, ptr @part_list, align 8
   %168 = load ptr, ptr %1, align 8
   %169 = call ptr @list_find_first(ptr noundef %167, ptr noundef nonnull @list_find_part, ptr noundef %168) #17
-  %170 = add nuw nsw i32 %.0184, 1
+  %170 = add nuw nsw i32 %.1184, 1
   %171 = icmp eq ptr %169, null
   br i1 %171, label %172, label %180
 
@@ -1824,14 +1824,14 @@ _open_part_state_file.exit.thread:                ; preds = %0, %_open_part_stat
   br i1 %.not117, label %.loopexit, label %88, !llvm.loop !17
 
 .loopexit:                                        ; preds = %260, %.preheader, %.loopexit171
-  %.0176 = phi i32 [ %.0184, %.loopexit171 ], [ 0, %.preheader ], [ %170, %260 ]
+  %.1176 = phi i32 [ %.1184, %.loopexit171 ], [ 0, %.preheader ], [ %170, %260 ]
   %.3 = phi i32 [ 22, %.loopexit171 ], [ 0, %.preheader ], [ 0, %260 ]
   %271 = call i32 @get_log_level() #17
   %272 = icmp sgt i32 %271, 2
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %.loopexit
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.22, i32 noundef %.0176) #17
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.22, i32 noundef %.1176) #17
   br label %274
 
 274:                                              ; preds = %273, %.loopexit
@@ -1839,7 +1839,7 @@ _open_part_state_file.exit.thread:                ; preds = %0, %_open_part_stat
   br label %284
 
 .loopexit170:                                     ; preds = %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %81, %68, %_open_part_state_file.exit.thread, %150
-  %.1 = phi i32 [ 0, %_open_part_state_file.exit.thread ], [ 0, %81 ], [ %.0184, %150 ], [ 0, %68 ], [ %.0184, %91 ], [ %.0184, %93 ], [ %.0184, %95 ], [ %.0184, %97 ], [ %.0184, %99 ], [ %.0184, %101 ], [ %.0184, %103 ], [ %.0184, %105 ], [ %.0184, %107 ], [ %.0184, %109 ], [ %.0184, %111 ], [ %.0184, %113 ], [ %.0184, %115 ], [ %.0184, %117 ], [ %.0184, %119 ], [ %.0184, %126 ], [ %.0184, %128 ], [ %.0184, %130 ], [ %.0184, %132 ], [ %.0184, %134 ], [ %.0184, %136 ], [ %.0184, %138 ], [ %.0184, %140 ], [ %.0184, %142 ], [ %.0184, %144 ], [ %.0184, %146 ]
+  %.0 = phi i32 [ 0, %_open_part_state_file.exit.thread ], [ 0, %81 ], [ %.1184, %150 ], [ 0, %68 ], [ %.1184, %91 ], [ %.1184, %93 ], [ %.1184, %95 ], [ %.1184, %97 ], [ %.1184, %99 ], [ %.1184, %101 ], [ %.1184, %103 ], [ %.1184, %105 ], [ %.1184, %107 ], [ %.1184, %109 ], [ %.1184, %111 ], [ %.1184, %113 ], [ %.1184, %115 ], [ %.1184, %117 ], [ %.1184, %119 ], [ %.1184, %126 ], [ %.1184, %128 ], [ %.1184, %130 ], [ %.1184, %132 ], [ %.1184, %134 ], [ %.1184, %136 ], [ %.1184, %138 ], [ %.1184, %140 ], [ %.1184, %142 ], [ %.1184, %144 ], [ %.1184, %146 ]
   %275 = load i8, ptr @ignore_state_errors, align 1
   %276 = trunc i8 %275 to i1
   br i1 %276, label %278, label %277
@@ -1855,7 +1855,7 @@ _open_part_state_file.exit.thread:                ; preds = %0, %_open_part_stat
   br i1 %281, label %282, label %283
 
 282:                                              ; preds = %278
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.22, i32 noundef %.1) #17
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.22, i32 noundef %.0) #17
   br label %283
 
 283:                                              ; preds = %282, %278
@@ -1972,7 +1972,7 @@ define dso_local noundef ptr @get_part_list(ptr noundef %0, ptr noundef %1) loca
 
 .lr.ph:                                           ; preds = %6, %22
   %.032 = phi ptr [ %23, %22 ], [ %8, %6 ]
-  %.01931 = phi ptr [ %.1, %22 ], [ null, %6 ]
+  %.01931 = phi ptr [ %.2, %22 ], [ null, %6 ]
   %9 = load ptr, ptr @part_list, align 8
   %10 = call ptr @list_find_first(ptr noundef %9, ptr noundef nonnull @list_find_part, ptr noundef nonnull %.032) #17
   %.not24 = icmp eq ptr %10, null
@@ -1987,13 +1987,13 @@ define dso_local noundef ptr @get_part_list(ptr noundef %0, ptr noundef %1) loca
   br label %14
 
 14:                                               ; preds = %12, %11
-  %.1 = phi ptr [ %13, %12 ], [ %.01931, %11 ]
-  %15 = call ptr @list_find_first(ptr noundef %.1, ptr noundef nonnull @_match_part_ptr, ptr noundef nonnull %10) #17
+  %.2 = phi ptr [ %13, %12 ], [ %.01931, %11 ]
+  %15 = call ptr @list_find_first(ptr noundef %.2, ptr noundef nonnull @_match_part_ptr, ptr noundef nonnull %10) #17
   %.not27 = icmp eq ptr %15, null
   br i1 %.not27, label %16, label %22
 
 16:                                               ; preds = %14
-  call void @list_append(ptr noundef %.1, ptr noundef nonnull %10) #17
+  call void @list_append(ptr noundef %.2, ptr noundef nonnull %10) #17
   br label %22
 
 17:                                               ; preds = %.lr.ph
@@ -2019,12 +2019,12 @@ define dso_local noundef ptr @get_part_list(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %22, %6, %19, %20
-  %.2 = phi ptr [ null, %20 ], [ null, %19 ], [ null, %6 ], [ %.1, %22 ]
+  %.1 = phi ptr [ null, %20 ], [ null, %19 ], [ null, %6 ], [ %.2, %22 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #17
   br label %24
 
 24:                                               ; preds = %2, %.loopexit
-  %.020 = phi ptr [ %.2, %.loopexit ], [ null, %2 ]
+  %.020 = phi ptr [ %.1, %.loopexit ], [ null, %2 ]
   ret ptr %.020
 }
 
@@ -4511,7 +4511,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %817
 
 817:                                              ; preds = %800, %810, %814, %803, %790
-  %.2 = phi i32 [ %.1, %800 ], [ 2117, %803 ], [ %.1, %814 ], [ %.1, %810 ], [ %.1, %790 ]
+  %.3 = phi i32 [ %.1, %800 ], [ 2117, %803 ], [ %.1, %814 ], [ %.1, %810 ], [ %.1, %790 ]
   %818 = getelementptr inbounds i8, ptr %0, i64 168
   %819 = load ptr, ptr %818, align 8
   %.not489 = icmp eq ptr %819, null
@@ -4668,7 +4668,7 @@ set_partition_billing_weights.exit.thread506.thread: ; preds = %859
   br label %set_partition_billing_weights.exit
 
 set_partition_billing_weights.exit:               ; preds = %875, %881, %877
-  %885 = icmp eq i32 %.2, 0
+  %885 = icmp eq i32 %.3, 0
   br i1 %885, label %886, label %set_partition_billing_weights.exit.thread506
 
 886:                                              ; preds = %set_partition_billing_weights.exit
@@ -4677,18 +4677,18 @@ set_partition_billing_weights.exit:               ; preds = %875, %881, %877
   br label %892
 
 set_partition_billing_weights.exit.thread506:     ; preds = %53, %850, %set_partition_billing_weights.exit
-  %.3508 = phi i32 [ %.2, %set_partition_billing_weights.exit ], [ 2116, %53 ], [ 2018, %850 ]
+  %.0378508 = phi i32 [ %.3, %set_partition_billing_weights.exit ], [ 2116, %53 ], [ 2018, %850 ]
   br i1 %1, label %888, label %892
 
 888:                                              ; preds = %set_partition_billing_weights.exit.thread506.thread, %set_partition_billing_weights.exit.thread506
-  %.3508510 = phi i32 [ %858, %set_partition_billing_weights.exit.thread506.thread ], [ %.3508, %set_partition_billing_weights.exit.thread506 ]
+  %.0378508510 = phi i32 [ %858, %set_partition_billing_weights.exit.thread506.thread ], [ %.0378508, %set_partition_billing_weights.exit.thread506 ]
   %889 = load ptr, ptr @part_list, align 8
   %890 = load ptr, ptr %14, align 8
   %891 = call i32 @list_delete_all(ptr noundef %889, ptr noundef nonnull @list_find_part, ptr noundef %890) #17
   br label %892
 
 892:                                              ; preds = %set_partition_billing_weights.exit.thread506.thread511, %886, %888, %set_partition_billing_weights.exit.thread506, %38, %41, %26, %28, %17, %20
-  %.0377 = phi i32 [ 2000, %20 ], [ 2000, %17 ], [ 2000, %28 ], [ 2000, %26 ], [ 2000, %41 ], [ 2000, %38 ], [ %.3508, %set_partition_billing_weights.exit.thread506 ], [ %.3508510, %888 ], [ 0, %886 ], [ %858, %set_partition_billing_weights.exit.thread506.thread511 ]
+  %.0377 = phi i32 [ 2000, %20 ], [ 2000, %17 ], [ 2000, %28 ], [ 2000, %26 ], [ 2000, %41 ], [ 2000, %38 ], [ %.0378508, %set_partition_billing_weights.exit.thread506 ], [ %.0378508510, %888 ], [ 0, %886 ], [ %858, %set_partition_billing_weights.exit.thread506.thread511 ]
   ret i32 %.0377
 }
 

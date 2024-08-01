@@ -2102,13 +2102,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i34.i
   br label %603
 
 603:                                              ; preds = %605, %599
-  %.sroa.068.1.pn.i = phi ptr [ %.sroa.068.1106.i, %599 ], [ %.sroa.068.2.i, %605 ]
-  %.sroa.068.2.i = getelementptr inbounds i8, ptr %.sroa.068.1.pn.i, i64 1
-  %604 = icmp eq ptr %.sroa.068.2.i, %602
+  %.sroa.068.1.pn.i = phi ptr [ %.sroa.068.1106.i, %599 ], [ %.sroa.068.4.i, %605 ]
+  %.sroa.068.4.i = getelementptr inbounds i8, ptr %.sroa.068.1.pn.i, i64 1
+  %604 = icmp eq ptr %.sroa.068.4.i, %602
   br i1 %604, label %.critedge2.i, label %605
 
 605:                                              ; preds = %603
-  %606 = load i8, ptr %.sroa.068.2.i, align 1
+  %606 = load i8, ptr %.sroa.068.4.i, align 1
   %.not27.i = icmp eq i8 %606, 58
   br i1 %.not27.i, label %.critedge2.i, label %603, !llvm.loop !10
 
@@ -2118,7 +2118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i34.i
   br label %656
 
 .critedge2.i:                                     ; preds = %605, %603, %598
-  %.sroa.068.3.i = phi ptr [ %.sroa.068.1106.i, %598 ], [ %.sroa.068.2.i, %603 ], [ %.sroa.068.2.i, %605 ]
+  %.sroa.068.3.i = phi ptr [ %.sroa.068.1106.i, %598 ], [ %.sroa.068.4.i, %603 ], [ %.sroa.068.4.i, %605 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   store ptr %518, ptr %6, align 8, !noalias !6

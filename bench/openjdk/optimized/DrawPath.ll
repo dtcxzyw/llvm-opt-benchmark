@@ -198,7 +198,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   br label %121
 
 121:                                              ; preds = %.critedge, %102, %113, %96, %91
-  %.1 = phi i8 [ %spec.select, %113 ], [ 0, %102 ], [ 0, %96 ], [ 0, %91 ], [ 0, %.critedge ]
+  %.2 = phi i8 [ %spec.select, %113 ], [ 0, %102 ], [ 0, %96 ], [ 0, %91 ], [ 0, %.critedge ]
   %122 = getelementptr inbounds i8, ptr %27, i64 16
   %123 = load ptr, ptr %122, align 8
   %.not106 = icmp eq ptr %123, null
@@ -209,12 +209,12 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   br label %125
 
 125:                                              ; preds = %124, %121, %77
-  %.2 = phi i8 [ %.1, %124 ], [ %.1, %121 ], [ 0, %77 ]
+  %.088 = phi i8 [ %.2, %124 ], [ %.2, %121 ], [ 0, %77 ]
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 1784
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %69, i32 noundef 2) #4
-  %.not107 = icmp eq i8 %.2, 0
+  %.not107 = icmp eq i8 %.088, 0
   br i1 %.not107, label %130, label %129
 
 129:                                              ; preds = %125

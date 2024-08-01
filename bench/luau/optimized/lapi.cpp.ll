@@ -8397,8 +8397,8 @@ define dso_local noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef %0, i32 noundef
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %3, %._crit_edge63, %54, %64, %61, %58, %23, %18, %13, %12, %8, %6
-  %.1 = phi i32 [ %67, %64 ], [ %63, %61 ], [ %60, %58 ], [ 0, %54 ], [ 0, %._crit_edge63 ], [ %27, %23 ], [ %22, %18 ], [ %17, %13 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ -1, %3 ], [ 1, %.lr.ph ]
-  ret i32 %.1
+  %.0 = phi i32 [ %67, %64 ], [ %63, %61 ], [ %60, %58 ], [ 0, %54 ], [ 0, %._crit_edge63 ], [ %27, %23 ], [ %22, %18 ], [ %17, %13 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ -1, %3 ], [ 1, %.lr.ph ]
+  ret i32 %.0
 }
 
 declare hidden void @_Z11luaC_fullgcP9lua_State(ptr noundef) local_unnamed_addr #3
@@ -9550,8 +9550,8 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %48, %41, %_ZL10getc
   br label %75
 
 75:                                               ; preds = %67, %72
-  %.037 = phi i32 [ %74, %72 ], [ %71, %67 ]
-  %76 = tail call noundef ptr @_Z11luaH_setnumP9lua_StateP5Tablei(ptr noundef nonnull %0, ptr noundef %69, i32 noundef %.037)
+  %.1 = phi i32 [ %74, %72 ], [ %71, %67 ]
+  %76 = tail call noundef ptr @_Z11luaH_setnumP9lua_StateP5Tablei(ptr noundef nonnull %0, ptr noundef %69, i32 noundef %.1)
   %77 = load i32, ptr %70, align 8
   %.not43 = icmp eq i32 %77, 0
   br i1 %.not43, label %81, label %78
@@ -9588,8 +9588,8 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %48, %41, %_ZL10getc
   br label %94
 
 94:                                               ; preds = %81, %84, %88, %93, %_ZL11pseudo2addrP9lua_Statei.exit
-  %.1 = phi i32 [ 0, %_ZL11pseudo2addrP9lua_Statei.exit ], [ %.037, %93 ], [ %.037, %88 ], [ %.037, %84 ], [ %.037, %81 ]
-  ret i32 %.1
+  %.037 = phi i32 [ 0, %_ZL11pseudo2addrP9lua_Statei.exit ], [ %.1, %93 ], [ %.1, %88 ], [ %.1, %84 ], [ %.1, %81 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: mustprogress uwtable

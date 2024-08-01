@@ -9869,8 +9869,8 @@ if.then.i2:                                       ; preds = %_ZNK16indexed_uint_
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then.i2, %_ZNK16indexed_uint_set8containsEj.exit.i, %_ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE4findERKjRj.exit, %_ZNK16indexed_uint_set8containsEj.exit, %land.lhs.true
-  %r.1 = phi i32 [ %8, %_ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE4findERKjRj.exit ], [ %call4, %_ZNK16indexed_uint_set8containsEj.exit ], [ %call4, %land.lhs.true ], [ %call4, %_ZNK16indexed_uint_set8containsEj.exit.i ], [ %call4, %if.then.i2 ]
-  ret i32 %r.1
+  %r.0 = phi i32 [ %8, %_ZNK9table2mapI17default_map_entryIjjE6u_hash4u_eqE4findERKjRj.exit ], [ %call4, %_ZNK16indexed_uint_set8containsEj.exit ], [ %call4, %land.lhs.true ], [ %call4, %_ZNK16indexed_uint_set8containsEj.exit.i ], [ %call4, %if.then.i2 ]
+  ret i32 %r.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13141,8 +13141,8 @@ lpad15:                                           ; preds = %if.then.i.i93, %inv
   br label %ehcleanup44
 
 if.end29:                                         ; preds = %invoke.cont18, %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit
-  %w.1 = phi i32 [ %32, %invoke.cont18 ], [ %call26, %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit ]
-  %call31 = invoke noundef ptr @_ZN10polynomial7manager13mk_polynomialEjj(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %w.1, i32 noundef 1)
+  %w.0 = phi i32 [ %32, %invoke.cont18 ], [ %call26, %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE6insertERKjS6_.exit ]
+  %call31 = invoke noundef ptr @_ZN10polynomial7manager13mk_polynomialEjj(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %w.0, i32 noundef 1)
           to label %invoke.cont30 unwind label %lpad15
 
 invoke.cont30:                                    ; preds = %if.end29

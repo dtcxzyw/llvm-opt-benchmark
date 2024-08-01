@@ -55,7 +55,7 @@ define dso_local noundef ptr @pg_strtok(ptr nocapture noundef writeonly %0) loca
 
 .preheader:                                       ; preds = %3, %13
   %8 = phi i8 [ %.pr, %13 ], [ %4, %3 ]
-  %.1 = phi ptr [ %14, %13 ], [ %.037, %3 ]
+  %.2 = phi ptr [ %14, %13 ], [ %.037, %3 ]
   switch i8 %8, label %12 [
     i8 0, label %.critedge2
     i8 32, label %.critedge2
@@ -69,7 +69,7 @@ define dso_local noundef ptr @pg_strtok(ptr nocapture noundef writeonly %0) loca
   ]
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr i8, ptr %.1, i64 1
+  %10 = getelementptr i8, ptr %.2, i64 1
   %11 = load i8, ptr %10, align 1
   %.not47 = icmp eq i8 %11, 0
   br i1 %.not47, label %12, label %13
@@ -79,13 +79,13 @@ define dso_local noundef ptr @pg_strtok(ptr nocapture noundef writeonly %0) loca
 
 13:                                               ; preds = %9, %12
   %.sink = phi i64 [ 1, %12 ], [ 2, %9 ]
-  %14 = getelementptr i8, ptr %.1, i64 %.sink
+  %14 = getelementptr i8, ptr %.2, i64 %.sink
   %.pr = load i8, ptr %14, align 1
   br label %.preheader, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %6
-  %.3 = phi ptr [ %7, %6 ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ]
-  %15 = ptrtoint ptr %.3 to i64
+  %.1 = phi ptr [ %7, %6 ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ], [ %.2, %.preheader ]
+  %15 = ptrtoint ptr %.1 to i64
   %16 = ptrtoint ptr %.037 to i64
   %17 = sub i64 %15, %16
   %18 = trunc i64 %17 to i32
@@ -105,13 +105,13 @@ define dso_local noundef ptr @pg_strtok(ptr nocapture noundef writeonly %0) loca
   br i1 %26, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %3, %23
-  %storemerge.ph = phi ptr [ %.3, %23 ], [ %.037, %3 ]
+  %storemerge.ph = phi ptr [ %.1, %23 ], [ %.037, %3 ]
   %.0.ph = phi ptr [ %.037, %23 ], [ null, %3 ]
   store i32 0, ptr %0, align 4
   br label %27
 
 27:                                               ; preds = %.sink.split, %.critedge2, %20, %23
-  %storemerge = phi ptr [ %.3, %23 ], [ %.3, %20 ], [ %.3, %.critedge2 ], [ %storemerge.ph, %.sink.split ]
+  %storemerge = phi ptr [ %.1, %23 ], [ %.1, %20 ], [ %.1, %.critedge2 ], [ %storemerge.ph, %.sink.split ]
   %.0 = phi ptr [ %.037, %23 ], [ %.037, %20 ], [ %.037, %.critedge2 ], [ %.0.ph, %.sink.split ]
   store ptr %storemerge, ptr @pg_strtok_ptr, align 8
   ret ptr %.0

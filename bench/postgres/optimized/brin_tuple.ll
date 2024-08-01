@@ -47,9 +47,9 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
 
 29:                                               ; preds = %.lr.ph199, %.loopexit182
   %indvars.iv225 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next226, %.loopexit182 ]
-  %.0129198 = phi i1 [ false, %.lr.ph199 ], [ %.2131, %.loopexit182 ]
-  %.0138196 = phi i32 [ 0, %.lr.ph199 ], [ %.4, %.loopexit182 ]
-  %.0146195 = phi i32 [ 0, %.lr.ph199 ], [ %.4150, %.loopexit182 ]
+  %.0129198 = phi i1 [ false, %.lr.ph199 ], [ %.1130, %.loopexit182 ]
+  %.0138196 = phi i32 [ 0, %.lr.ph199 ], [ %.2140, %.loopexit182 ]
+  %.0146195 = phi i32 [ 0, %.lr.ph199 ], [ %.1147, %.loopexit182 ]
   %30 = getelementptr [0 x %struct.BrinValues], ptr %27, i64 0, i64 %indvars.iv225
   %31 = getelementptr inbounds i8, ptr %30, i64 3
   %32 = load i8, ptr %31, align 1
@@ -109,8 +109,8 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
 61:                                               ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %62 = phi ptr [ %58, %.lr.ph ], [ %110, %107 ]
-  %.2140189 = phi i32 [ %.0138196, %.lr.ph ], [ %.3141, %107 ]
-  %.1147187 = phi i32 [ %.0146195, %.lr.ph ], [ %.3149, %107 ]
+  %.3141189 = phi i32 [ %.0138196, %.lr.ph ], [ %.4, %107 ]
+  %.2148187 = phi i32 [ %.0146195, %.lr.ph ], [ %.3149, %107 ]
   %63 = load ptr, ptr %60, align 8
   %64 = getelementptr i64, ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8
@@ -188,19 +188,19 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
 
 .thread:                                          ; preds = %101, %102, %103
   %.1143179 = phi i64 [ %.0142, %103 ], [ %100, %102 ], [ %100, %101 ]
-  %104 = add i32 %.1147187, 1
-  %105 = sext i32 %.1147187 to i64
+  %104 = add i32 %.2148187, 1
+  %105 = sext i32 %.2148187 to i64
   %106 = getelementptr i64, ptr %22, i64 %105
   store i64 %.1143179, ptr %106, align 8
   br label %107
 
 107:                                              ; preds = %103, %.thread, %61
   %.1143180.sink = phi i64 [ %65, %61 ], [ %.1143179, %.thread ], [ %.0142, %103 ]
-  %.3149 = phi i32 [ %.1147187, %61 ], [ %104, %.thread ], [ %.1147187, %103 ]
-  %108 = sext i32 %.2140189 to i64
+  %.3149 = phi i32 [ %.2148187, %61 ], [ %104, %.thread ], [ %.2148187, %103 ]
+  %108 = sext i32 %.3141189 to i64
   %109 = getelementptr i64, ptr %10, i64 %108
   store i64 %.1143180.sink, ptr %109, align 8
-  %.3141 = add i32 %.2140189, 1
+  %.4 = add i32 %.3141189, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load ptr, ptr %57, align 8
   %111 = load i16, ptr %110, align 8
@@ -209,9 +209,9 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br i1 %113, label %61, label %.loopexit182, !llvm.loop !7
 
 .loopexit182:                                     ; preds = %107, %.lr.ph193, %56, %.preheader181
-  %.4150 = phi i32 [ %.0146195, %.preheader181 ], [ %.0146195, %56 ], [ %.0146195, %.lr.ph193 ], [ %.3149, %107 ]
-  %.4 = phi i32 [ %.0138196, %.preheader181 ], [ %.0138196, %56 ], [ %37, %.lr.ph193 ], [ %.3141, %107 ]
-  %.2131 = phi i1 [ true, %.preheader181 ], [ %spec.select, %56 ], [ true, %.lr.ph193 ], [ %spec.select, %107 ]
+  %.1147 = phi i32 [ %.0146195, %.preheader181 ], [ %.0146195, %56 ], [ %.0146195, %.lr.ph193 ], [ %.3149, %107 ]
+  %.2140 = phi i32 [ %.0138196, %.preheader181 ], [ %.0138196, %56 ], [ %37, %.lr.ph193 ], [ %.4, %107 ]
+  %.1130 = phi i1 [ true, %.preheader181 ], [ %spec.select, %56 ], [ true, %.lr.ph193 ], [ %spec.select, %107 ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %114 = load ptr, ptr %23, align 8
   %115 = load i32, ptr %114, align 8
@@ -220,7 +220,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br i1 %117, label %29, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit182
-  br i1 %.2131, label %118, label %._crit_edge.thread
+  br i1 %.1130, label %118, label %._crit_edge.thread
 
 118:                                              ; preds = %._crit_edge
   %119 = shl i32 %115, 1
@@ -233,7 +233,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
 
 ._crit_edge.thread:                               ; preds = %4, %118, %._crit_edge
   %.0129.lcssa241 = phi i1 [ true, %118 ], [ false, %._crit_edge ], [ false, %4 ]
-  %.0146.lcssa240 = phi i32 [ %.4150, %118 ], [ %.4150, %._crit_edge ], [ 0, %4 ]
+  %.0146.lcssa240 = phi i32 [ %.1147, %118 ], [ %.1147, %._crit_edge ], [ 0, %4 ]
   %.0151 = phi i64 [ %123, %118 ], [ 8, %._crit_edge ], [ 8, %4 ]
   %124 = getelementptr inbounds i8, ptr %0, i64 24
   %125 = load ptr, ptr %124, align 8
@@ -1071,8 +1071,8 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   %147 = phi ptr [ %140, %.lr.ph103.i ], [ %254, %.loopexit.i ]
   %148 = phi i32 [ %141, %.lr.ph103.i ], [ %255, %.loopexit.i ]
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph103.i ], [ %indvars.iv.next116.i, %.loopexit.i ]
-  %.075101.i = phi i64 [ 0, %.lr.ph103.i ], [ %.3.i, %.loopexit.i ]
-  %.077100.i = phi i32 [ 0, %.lr.ph103.i ], [ %.279.i, %.loopexit.i ]
+  %.075101.i = phi i64 [ 0, %.lr.ph103.i ], [ %.176.i, %.loopexit.i ]
+  %.077100.i = phi i32 [ 0, %.lr.ph103.i ], [ %.178.i, %.loopexit.i ]
   %149 = getelementptr i8, ptr %58, i64 %indvars.iv115.i
   %150 = load i8, ptr %149, align 1
   %151 = trunc i8 %150 to i1
@@ -1092,9 +1092,9 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
 
 .lr.ph97.i:                                       ; preds = %.preheader.i, %247
   %.07496.i = phi i32 [ %249, %247 ], [ 0, %.preheader.i ]
-  %.17695.i = phi i64 [ %248, %247 ], [ %.075101.i, %.preheader.i ]
-  %.17894.i = phi i32 [ %213, %247 ], [ %.077100.i, %.preheader.i ]
-  %158 = sext i32 %.17894.i to i64
+  %.295.i = phi i64 [ %248, %247 ], [ %.075101.i, %.preheader.i ]
+  %.27994.i = phi i32 [ %213, %247 ], [ %.077100.i, %.preheader.i ]
+  %158 = sext i32 %.27994.i to i64
   %159 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %145, i64 0, i64 %158
   %160 = getelementptr inbounds i8, ptr %159, i64 72
   %161 = load i16, ptr %160, align 4
@@ -1102,7 +1102,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   br i1 %162, label %163, label %178
 
 163:                                              ; preds = %.lr.ph97.i
-  %164 = getelementptr i8, ptr %64, i64 %.17695.i
+  %164 = getelementptr i8, ptr %64, i64 %.295.i
   %165 = load i8, ptr %164, align 1
   %.not.i = icmp eq i8 %165, 0
   br i1 %.not.i, label %166, label %190
@@ -1117,17 +1117,17 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   ]
 
 169:                                              ; preds = %166
-  %170 = add i64 %.17695.i, 3
+  %170 = add i64 %.295.i, 3
   %171 = and i64 %170, -4
   br label %190
 
 172:                                              ; preds = %166
-  %173 = add i64 %.17695.i, 7
+  %173 = add i64 %.295.i, 7
   %174 = and i64 %173, -8
   br label %190
 
 175:                                              ; preds = %166
-  %176 = add i64 %.17695.i, 1
+  %176 = add i64 %.295.i, 1
   %177 = and i64 %176, -2
   br label %190
 
@@ -1141,23 +1141,23 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   ]
 
 181:                                              ; preds = %178
-  %182 = add i64 %.17695.i, 3
+  %182 = add i64 %.295.i, 3
   %183 = and i64 %182, -4
   br label %190
 
 184:                                              ; preds = %178
-  %185 = add i64 %.17695.i, 7
+  %185 = add i64 %.295.i, 7
   %186 = and i64 %185, -8
   br label %190
 
 187:                                              ; preds = %178
-  %188 = add i64 %.17695.i, 1
+  %188 = add i64 %.295.i, 1
   %189 = and i64 %188, -2
   br label %190
 
 190:                                              ; preds = %187, %184, %181, %178, %175, %172, %169, %166, %163
-  %.2.i = phi i64 [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %.17695.i, %163 ], [ %.17695.i, %166 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %.17695.i, %178 ]
-  %191 = getelementptr i8, ptr %64, i64 %.2.i
+  %.3.i = phi i64 [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %.295.i, %163 ], [ %.295.i, %166 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %.295.i, %178 ]
+  %191 = getelementptr i8, ptr %64, i64 %.3.i
   %192 = getelementptr inbounds i8, ptr %159, i64 86
   %193 = load i8, ptr %192, align 2
   %194 = trunc i8 %193 to i1
@@ -1204,7 +1204,7 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
 
 fetch_att.exit.i:                                 ; preds = %211, %205, %202, %199, %196
   %.0.i.i = phi i64 [ %206, %205 ], [ %204, %202 ], [ %201, %199 ], [ %198, %196 ], [ %212, %211 ]
-  %213 = add i32 %.17894.i, 1
+  %213 = add i32 %.27994.i, 1
   %214 = getelementptr i64, ptr %56, i64 %158
   store i64 %.0.i.i, ptr %214, align 8
   %215 = load i16, ptr %160, align 4
@@ -1263,7 +1263,7 @@ fetch_att.exit.i:                                 ; preds = %211, %205, %202, %1
 
 247:                                              ; preds = %244, %241, %225, %217
   %.pn.i = phi i64 [ %218, %217 ], [ %246, %244 ], [ %233, %225 ], [ %243, %241 ]
-  %248 = add i64 %.pn.i, %.2.i
+  %248 = add i64 %.pn.i, %.3.i
   %249 = add nuw nsw i32 %.07496.i, 1
   %250 = load ptr, ptr %152, align 8
   %251 = load i16, ptr %250, align 8
@@ -1279,8 +1279,8 @@ fetch_att.exit.i:                                 ; preds = %211, %205, %202, %1
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %155, %.preheader.i
   %254 = phi ptr [ %147, %155 ], [ %147, %.preheader.i ], [ %.pre118.i, %.loopexit.loopexit.i ]
   %255 = phi i32 [ %148, %155 ], [ %148, %.preheader.i ], [ %.pre119.i, %.loopexit.loopexit.i ]
-  %.279.i = phi i32 [ %157, %155 ], [ %.077100.i, %.preheader.i ], [ %213, %.loopexit.loopexit.i ]
-  %.3.i = phi i64 [ %.075101.i, %155 ], [ %.075101.i, %.preheader.i ], [ %248, %.loopexit.loopexit.i ]
+  %.178.i = phi i32 [ %157, %155 ], [ %.077100.i, %.preheader.i ], [ %213, %.loopexit.loopexit.i ]
+  %.176.i = phi i64 [ %.075101.i, %155 ], [ %.075101.i, %.preheader.i ], [ %248, %.loopexit.loopexit.i ]
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %256 = sext i32 %255 to i64
   %257 = icmp slt i64 %indvars.iv.next116.i, %256
@@ -1304,7 +1304,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
 266:                                              ; preds = %.lr.ph84, %310
   %267 = phi i32 [ %262, %.lr.ph84 ], [ %311, %310 ]
   %indvars.iv97 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next98, %310 ]
-  %.06383 = phi i32 [ 0, %.lr.ph84 ], [ %.2, %310 ]
+  %.06383 = phi i32 [ 0, %.lr.ph84 ], [ %.1, %310 ]
   %268 = getelementptr i8, ptr %58, i64 %indvars.iv97
   %269 = load i8, ptr %268, align 1
   %270 = trunc i8 %269 to i1
@@ -1329,9 +1329,9 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
 278:                                              ; preds = %.lr.ph, %278
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %278 ]
   %279 = phi ptr [ %272, %.lr.ph ], [ %296, %278 ]
-  %.180 = phi i32 [ %.06383, %.lr.ph ], [ %280, %278 ]
-  %280 = add i32 %.180, 1
-  %281 = sext i32 %.180 to i64
+  %.280 = phi i32 [ %.06383, %.lr.ph ], [ %280, %278 ]
+  %280 = add i32 %.280, 1
+  %281 = sext i32 %.280 to i64
   %282 = getelementptr i64, ptr %56, i64 %281
   %283 = load i64, ptr %282, align 8
   %284 = getelementptr inbounds i8, ptr %279, i64 16
@@ -1355,7 +1355,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   br i1 %299, label %278, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %278, %.preheader
-  %.1.lcssa = phi i32 [ %.06383, %.preheader ], [ %280, %278 ]
+  %.2.lcssa = phi i32 [ %.06383, %.preheader ], [ %280, %278 ]
   %300 = getelementptr i8, ptr %60, i64 %indvars.iv97
   %301 = load i8, ptr %300, align 1
   %302 = getelementptr [0 x %struct.BrinValues], ptr %265, i64 0, i64 %indvars.iv97
@@ -1377,7 +1377,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
 
 310:                                              ; preds = %._crit_edge, %275
   %311 = phi i32 [ %267, %275 ], [ %.pre101, %._crit_edge ]
-  %.2 = phi i32 [ %277, %275 ], [ %.1.lcssa, %._crit_edge ]
+  %.1 = phi i32 [ %277, %275 ], [ %.2.lcssa, %._crit_edge ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %312 = sext i32 %311 to i64
   %313 = icmp slt i64 %indvars.iv.next98, %312

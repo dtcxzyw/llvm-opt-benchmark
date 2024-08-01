@@ -316,15 +316,15 @@ define hidden noundef i64 @_ZN2cv6base6413base64_encodeEPKhPhmm(ptr noundef %0, 
   br label %90
 
 90:                                               ; preds = %.thread61, %.thread
-  %.2 = getelementptr inbounds i8, ptr %.053.lcssa, i64 3
+  %.3 = getelementptr inbounds i8, ptr %.053.lcssa, i64 3
   %91 = getelementptr inbounds i8, ptr %.053.lcssa, i64 4
-  store i8 61, ptr %.2, align 1
+  store i8 61, ptr %.3, align 1
   br label %92
 
 92:                                               ; preds = %._crit_edge, %90
-  %.3 = phi ptr [ %91, %90 ], [ %.053.lcssa, %._crit_edge ]
-  store i8 0, ptr %.3, align 1
-  %93 = ptrtoint ptr %.3 to i64
+  %.2 = phi ptr [ %91, %90 ], [ %.053.lcssa, %._crit_edge ]
+  store i8 0, ptr %.2, align 1
+  %93 = ptrtoint ptr %.2 to i64
   %94 = ptrtoint ptr %1 to i64
   %95 = sub i64 %93, %94
   br label %96
@@ -997,15 +997,15 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
   br label %146
 
 146:                                              ; preds = %.thread61.i, %.thread.i
-  %.2.i = getelementptr inbounds i8, ptr %.053.lcssa.i, i64 3
+  %.3.i = getelementptr inbounds i8, ptr %.053.lcssa.i, i64 3
   %147 = getelementptr inbounds i8, ptr %.053.lcssa.i, i64 4
-  store i8 61, ptr %.2.i, align 1
+  store i8 61, ptr %.3.i, align 1
   br label %_ZN2cv6base6413base64_encodeEPKhPhmm.exit
 
 _ZN2cv6base6413base64_encodeEPKhPhmm.exit:        ; preds = %._crit_edge.i, %146
-  %.3.i = phi ptr [ %147, %146 ], [ %.053.lcssa.i, %._crit_edge.i ]
-  store i8 0, ptr %.3.i, align 1
-  %.not = icmp eq ptr %.3.i, %61
+  %.2.i = phi ptr [ %147, %146 ], [ %.053.lcssa.i, %._crit_edge.i ]
+  store i8 0, ptr %.2.i, align 1
+  %.not = icmp eq ptr %.2.i, %61
   br i1 %.not, label %.noexc10, label %148
 
 148:                                              ; preds = %_ZN2cv6base6413base64_encodeEPKhPhmm.exit

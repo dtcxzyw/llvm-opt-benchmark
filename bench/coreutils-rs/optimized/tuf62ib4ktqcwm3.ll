@@ -960,7 +960,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   br i1 %15, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %1, %32
-  %.03.us.i.i = phi i8 [ %.2.us.i.i, %32 ], [ 0, %1 ]
+  %.03.us.i.i = phi i8 [ %.1.us.i.i, %32 ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %.sroa.8.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !197
@@ -1034,7 +1034,7 @@ _ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.
   br label %32
 
 32:                                               ; preds = %_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.i, %_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.us.i.i
-  %.2.us.i.i = phi i8 [ 0, %_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.us.i.i ], [ 1, %_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.i ]
+  %.1.us.i.i = phi i8 [ 0, %_ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.us.i.i ], [ 1, %_ZN5uu_dd8progress10ProgUpdate17reprint_prog_line17h933899837543cb1cE.exit.us.i.i ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7), !noalias !195
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %.sroa.8.i.i)
   br label %.split.us.i.i

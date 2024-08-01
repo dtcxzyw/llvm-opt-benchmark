@@ -69,14 +69,14 @@ define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 nound
 
 19:                                               ; preds = %16, %9
   %20 = phi i64 [ %18, %16 ], [ %13, %9 ]
-  %.0 = phi i64 [ %1, %16 ], [ %14, %9 ]
+  %.1 = phi i64 [ %1, %16 ], [ %14, %9 ]
   %.not.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i, label %circbuf_read.exit, label %21
 
 21:                                               ; preds = %19
   %22 = sub i64 %11, %20
   %23 = urem i64 %20, %4
-  %.029.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.0)
+  %.029.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.1)
   %24 = sub i64 %4, %23
   %.028.i.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i.i, i64 %24)
   %25 = load ptr, ptr %0, align 8
@@ -95,13 +95,13 @@ circbuf_read.exit:                                ; preds = %19, %21
 
 30:                                               ; preds = %circbuf_read.exit, %6
   %.023 = phi ptr [ %8, %circbuf_read.exit ], [ null, %6 ]
-  %.1 = phi i64 [ %.0, %circbuf_read.exit ], [ 0, %6 ]
+  %.0 = phi i64 [ %.1, %circbuf_read.exit ], [ 0, %6 ]
   %31 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %31)
   store ptr %.023, ptr %0, align 8
   store i64 %1, ptr %3, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.1, ptr %32, align 8
+  store i64 %.0, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %33, align 8
   br label %34

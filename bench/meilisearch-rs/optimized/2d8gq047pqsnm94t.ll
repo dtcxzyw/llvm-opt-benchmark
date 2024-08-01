@@ -2509,8 +2509,8 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit: ; preds 
   br label %146
 
 146:                                              ; preds = %328, %301, %238, %175, %145
-  %.sroa.07.0 = phi i1 [ true, %328 ], [ true, %301 ], [ true, %238 ], [ true, %175 ], [ false, %145 ]
-  %.sroa.08.0 = phi i1 [ false, %328 ], [ true, %301 ], [ true, %238 ], [ true, %175 ], [ true, %145 ]
+  %.sroa.07.2 = phi i1 [ true, %328 ], [ true, %301 ], [ true, %238 ], [ true, %175 ], [ false, %145 ]
+  %.sroa.08.2 = phi i1 [ false, %328 ], [ true, %301 ], [ true, %238 ], [ true, %175 ], [ true, %145 ]
   %147 = getelementptr inbounds i8, ptr %56, i64 8
   %148 = load ptr, ptr %147, align 8, !nonnull !40, !noundef !40
   %149 = getelementptr inbounds i8, ptr %56, i64 16
@@ -2536,8 +2536,8 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit: ; preds 
   unreachable
 
 .thread:                                          ; preds = %100, %97, %329, %302, %242, %179, %164, %160, %158
-  %.sroa.07.1 = phi i1 [ %.sroa.07.2, %160 ], [ %.sroa.07.0, %329 ], [ true, %302 ], [ true, %242 ], [ true, %179 ], [ true, %164 ], [ false, %158 ], [ false, %97 ], [ false, %100 ]
-  %.sroa.08.1 = phi i1 [ %.sroa.08.2, %160 ], [ %.sroa.08.0, %329 ], [ false, %302 ], [ true, %242 ], [ true, %179 ], [ true, %164 ], [ true, %158 ], [ true, %97 ], [ true, %100 ]
+  %.sroa.07.1 = phi i1 [ %.sroa.07.0, %160 ], [ %.sroa.07.2, %329 ], [ true, %302 ], [ true, %242 ], [ true, %179 ], [ true, %164 ], [ false, %158 ], [ false, %97 ], [ false, %100 ]
+  %.sroa.08.1 = phi i1 [ %.sroa.08.0, %160 ], [ %.sroa.08.2, %329 ], [ false, %302 ], [ true, %242 ], [ true, %179 ], [ true, %164 ], [ true, %158 ], [ true, %97 ], [ true, %100 ]
   %.pn97 = phi { ptr, i32 } [ %161, %160 ], [ %330, %329 ], [ %.pn, %302 ], [ %.pn80.pn, %242 ], [ %.pn88.pn, %179 ], [ %165, %164 ], [ %159, %158 ], [ %98, %97 ], [ %.pn93, %100 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #29
           to label %360 unwind label %156
@@ -2549,8 +2549,8 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit: ; preds 
           to label %.thread unwind label %156
 
 160:                                              ; preds = %331, %318, %291, %228, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit116, %85, %75, %69
-  %.sroa.07.2 = phi i1 [ true, %85 ], [ true, %75 ], [ true, %69 ], [ true, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit116 ], [ true, %228 ], [ true, %291 ], [ true, %318 ], [ %.sroa.07.0, %331 ]
-  %.sroa.08.2 = phi i1 [ true, %85 ], [ true, %75 ], [ true, %69 ], [ true, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit116 ], [ true, %228 ], [ true, %291 ], [ false, %318 ], [ %.sroa.08.0, %331 ]
+  %.sroa.07.0 = phi i1 [ true, %85 ], [ true, %75 ], [ true, %69 ], [ true, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit116 ], [ true, %228 ], [ true, %291 ], [ true, %318 ], [ %.sroa.07.2, %331 ]
+  %.sroa.08.0 = phi i1 [ true, %85 ], [ true, %75 ], [ true, %69 ], [ true, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.9153134991762065841.exit116 ], [ true, %228 ], [ true, %291 ], [ false, %318 ], [ %.sroa.08.2, %331 ]
   %161 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

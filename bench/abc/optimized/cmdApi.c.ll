@@ -397,11 +397,11 @@ define i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %24
 
 24:                                               ; preds = %22, %18
-  %.1 = phi i32 [ %23, %22 ], [ %20, %18 ]
+  %.2 = phi i32 [ %23, %22 ], [ %20, %18 ]
   %25 = load i32, ptr %3, align 4
   %26 = load ptr, ptr %5, align 8
   call void @CmdFreeArgv(i32 noundef %25, ptr noundef %26) #7
-  %27 = icmp eq i32 %.1, 0
+  %27 = icmp eq i32 %.2, 0
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %24
@@ -410,8 +410,8 @@ define i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not19, label %.critedge, label %13, !llvm.loop !4
 
 .critedge:                                        ; preds = %24, %16, %28
-  %.2 = phi i32 [ 0, %16 ], [ 0, %28 ], [ %.1, %24 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %16 ], [ 0, %28 ], [ %.2, %24 ]
+  ret i32 %.1
 }
 
 declare void @Cmd_HistoryAddCommand(ptr noundef, ptr noundef) local_unnamed_addr #1

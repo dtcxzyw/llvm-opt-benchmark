@@ -138,7 +138,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 21:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.02934 = phi ptr [ %17, %.lr.ph ], [ %.2, %38 ]
+  %.02934 = phi ptr [ %17, %.lr.ph ], [ %.1, %38 ]
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %18, i64 0, i64 %indvars.iv, i32 17
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
@@ -152,9 +152,9 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %27
 
 27:                                               ; preds = %.preheader, %27
-  %.1 = phi ptr [ %..i, %27 ], [ %.02934, %.preheader ]
-  %28 = load ptr, ptr %.1, align 8
-  %29 = getelementptr i8, ptr %.1, i64 8
+  %.2 = phi ptr [ %..i, %27 ], [ %.02934, %.preheader ]
+  %28 = load ptr, ptr %.2, align 8
+  %29 = getelementptr i8, ptr %.2, i64 8
   %30 = icmp ult ptr %29, %26
   %..i = select i1 %30, ptr %29, ptr null
   %31 = getelementptr inbounds i8, ptr %28, i64 42
@@ -170,7 +170,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %38
 
 38:                                               ; preds = %21, %34
-  %.2 = phi ptr [ %.02934, %21 ], [ %..i, %34 ]
+  %.1 = phi ptr [ %.02934, %21 ], [ %..i, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !5

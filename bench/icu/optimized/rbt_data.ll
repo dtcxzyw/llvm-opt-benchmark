@@ -289,19 +289,19 @@ if.end44.loopexit:                                ; preds = %for.inc
 
 if.end44:                                         ; preds = %if.end44.loopexit, %for.cond.preheader, %while.end
   %.ph = phi ptr [ %18, %if.end44.loopexit ], [ %call24, %for.cond.preheader ], [ null, %while.end ]
-  %i.1.ph = phi i32 [ %23, %if.end44.loopexit ], [ 0, %for.cond.preheader ], [ 0, %while.end ]
+  %i.0.ph = phi i32 [ %23, %if.end44.loopexit ], [ 0, %for.cond.preheader ], [ 0, %while.end ]
   %.pr = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %.pr, 1
   br i1 %cmp.i, label %if.end61, label %for.cond48.preheader
 
 for.cond48.preheader:                             ; preds = %if.end44.thread, %if.end44
-  %i.146 = phi i32 [ %20, %if.end44.thread ], [ %i.1.ph, %if.end44 ]
+  %i.046 = phi i32 [ %20, %if.end44.thread ], [ %i.0.ph, %if.end44 ]
   %24 = phi ptr [ %18, %if.end44.thread ], [ %.ph, %if.end44 ]
-  %cmp4934 = icmp sgt i32 %i.146, 0
+  %cmp4934 = icmp sgt i32 %i.046, 0
   br i1 %cmp4934, label %for.body50.preheader, label %for.end57
 
 for.body50.preheader:                             ; preds = %for.cond48.preheader
-  %25 = zext nneg i32 %i.146 to i64
+  %25 = zext nneg i32 %i.046 to i64
   br label %for.body50
 
 for.body50:                                       ; preds = %for.body50.preheader, %for.inc56

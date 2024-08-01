@@ -80,8 +80,8 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %or.cond5576, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %.preheader56, %.critedge
-  %.277 = phi ptr [ %12, %.critedge ], [ %spec.select, %.preheader56 ]
-  %12 = getelementptr inbounds i8, ptr %.277, i64 1
+  %.377 = phi ptr [ %12, %.critedge ], [ %spec.select, %.preheader56 ]
+  %12 = getelementptr inbounds i8, ptr %.377, i64 1
   %.pr = load i8, ptr %12, align 1
   %13 = add i8 %.pr, -48
   %or.cond52 = icmp ult i8 %13, 10
@@ -92,13 +92,13 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .critedge2:                                       ; preds = %.critedge, %.preheader56
   %.lcssa = phi i8 [ %8, %.preheader56 ], [ %.pr, %.critedge ]
-  %.2.lcssa = phi ptr [ %spec.select, %.preheader56 ], [ %12, %.critedge ]
+  %.3.lcssa = phi ptr [ %spec.select, %.preheader56 ], [ %12, %.critedge ]
   %.not = icmp eq i8 %.lcssa, 40
   br i1 %.not, label %.preheader, label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %.critedge2, %22
   %15 = phi i8 [ %.pre, %22 ], [ 40, %.critedge2 ]
-  %.09.i = phi ptr [ %23, %22 ], [ %.2.lcssa, %.critedge2 ]
+  %.09.i = phi ptr [ %23, %22 ], [ %.3.lcssa, %.critedge2 ]
   %.0.i = phi i32 [ %.1.i, %22 ], [ 0, %.critedge2 ]
   switch i8 %15, label %20 [
     i8 0, label %.loopexit.sink.split
@@ -126,8 +126,8 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %
 
 Io_ReadDsdFindEnd.exit:                           ; preds = %20, %4
   %.1.pn = phi ptr [ %spec.select, %4 ], [ %.09.i, %20 ]
-  %.3 = getelementptr inbounds i8, ptr %.1.pn, i64 1
-  %24 = load i8, ptr %.3, align 1
+  %.2 = getelementptr inbounds i8, ptr %.1.pn, i64 1
+  %24 = load i8, ptr %.2, align 1
   switch i8 %24, label %.loopexit.sink.split [
     i8 0, label %.loopexit
     i8 42, label %25
@@ -146,7 +146,7 @@ Io_ReadDsdFindEnd.exit:                           ; preds = %20, %4
   %33 = zext i1 %32 to i32
   %34 = or i32 %.036, %33
   %35 = getelementptr inbounds i8, ptr %.1.pn, i64 2
-  store i8 0, ptr %.3, align 1
+  store i8 0, ptr %.2, align 1
   br label %4
 
 .loopexit.sink.split:                             ; preds = %Io_ReadDsdFindEnd.exit, %.critedge2, %.preheader

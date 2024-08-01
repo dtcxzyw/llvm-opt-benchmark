@@ -1012,12 +1012,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit130.i:     ; preds = %254, %251
   %.sroa.7.0.i = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.7.1.i, %529 ]
   %.sroa.064.0.i = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.064.1.i, %529 ]
   %.sroa.1863.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.1863.2.i, %529 ]
-  %.sroa.1562.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.1562.2.i, %529 ]
-  %.sroa.1261.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.1261.2.i, %529 ]
-  %.sroa.960.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.960.2.i, %529 ]
-  %.sroa.659.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.659.2.i, %529 ]
-  %.sroa.358.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.358.2.i, %529 ]
-  %.sroa.057.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.057.2.i, %529 ]
+  %.sroa.1562.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.1562.1.i, %529 ]
+  %.sroa.1261.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.1261.1.i, %529 ]
+  %.sroa.960.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.960.1.i, %529 ]
+  %.sroa.659.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.659.1.i, %529 ]
+  %.sroa.358.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.358.1.i, %529 ]
+  %.sroa.057.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.057.1.i, %529 ]
   %.sroa.18.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.18.1.i, %529 ]
   %.sroa.15.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.15.1.i, %529 ]
   %.sroa.12.0.i = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i ], [ %.sroa.12.1.i, %529 ]
@@ -1497,7 +1497,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %.sroa.15.1.i = select i1 %534, float %519, float %.sroa.15.0.i
   %535 = icmp eq i32 %.sroa.35.0.i, 0
   %536 = select i1 %534, i1 %535, i1 false
-  %.sroa.1562.2.i = select i1 %536, float %519, float %.sroa.1562.0.i
+  %.sroa.1562.1.i = select i1 %536, float %519, float %.sroa.1562.0.i
   %.mask164.i = and i8 %518, 1
   %537 = zext nneg i8 %.mask164.i to i32
   %.sroa.35.1.i = add nuw nsw i32 %.sroa.35.0.i, %537
@@ -1505,7 +1505,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %.sroa.12.1.i = select i1 %538, float %519, float %.sroa.12.0.i
   %539 = icmp eq i32 %.sroa.28.0.i, 0
   %540 = select i1 %538, i1 %539, i1 false
-  %.sroa.1261.2.i = select i1 %540, float %519, float %.sroa.1261.0.i
+  %.sroa.1261.1.i = select i1 %540, float %519, float %.sroa.1261.0.i
   %.mask163.i = and i8 %525, 1
   %541 = zext nneg i8 %.mask163.i to i32
   %.sroa.28.1.i = add nuw nsw i32 %.sroa.28.0.i, %541
@@ -1513,7 +1513,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %.sroa.9.1.i = select i1 %542, float %519, float %.sroa.9.0.i
   %543 = icmp eq i32 %.sroa.21.0.i, 0
   %544 = select i1 %542, i1 %543, i1 false
-  %.sroa.960.2.i = select i1 %544, float %519, float %.sroa.960.0.i
+  %.sroa.960.1.i = select i1 %544, float %519, float %.sroa.960.0.i
   %.mask162.i = and i8 %524, 1
   %545 = zext nneg i8 %.mask162.i to i32
   %.sroa.21.1.i = add nuw nsw i32 %.sroa.21.0.i, %545
@@ -1521,7 +1521,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %.sroa.6.1.i = select i1 %546, float %519, float %.sroa.6.0.i
   %547 = icmp eq i32 %.sroa.14.0.i, 0
   %548 = select i1 %546, i1 %547, i1 false
-  %.sroa.659.2.i = select i1 %548, float %519, float %.sroa.659.0.i
+  %.sroa.659.1.i = select i1 %548, float %519, float %.sroa.659.0.i
   %.mask161.i = and i8 %523, 1
   %549 = zext nneg i8 %.mask161.i to i32
   %.sroa.14.1.i = add nuw nsw i32 %.sroa.14.0.i, %549
@@ -1529,7 +1529,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %.sroa.3.1.i = select i1 %550, float %519, float %.sroa.3.0.i
   %551 = icmp eq i32 %.sroa.7.0.i, 0
   %552 = select i1 %550, i1 %551, i1 false
-  %.sroa.358.2.i = select i1 %552, float %519, float %.sroa.358.0.i
+  %.sroa.358.1.i = select i1 %552, float %519, float %.sroa.358.0.i
   %.mask160.i = and i8 %522, 1
   %553 = zext nneg i8 %.mask160.i to i32
   %.sroa.7.1.i = add nuw nsw i32 %.sroa.7.0.i, %553
@@ -1537,7 +1537,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   %.sroa.0.1.i = select i1 %554, float %519, float %.sroa.0.0.i
   %555 = icmp eq i32 %.sroa.064.0.i, 0
   %556 = select i1 %554, i1 %555, i1 false
-  %.sroa.057.2.i = select i1 %556, float %519, float %.sroa.057.0.i
+  %.sroa.057.1.i = select i1 %556, float %519, float %.sroa.057.0.i
   %.mask.i = and i8 %521, 1
   %557 = zext nneg i8 %.mask.i to i32
   %.sroa.064.1.i = add nuw nsw i32 %.sroa.064.0.i, %557
@@ -1572,7 +1572,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   br i1 %or.cond.i, label %574, label %581
 
 574:                                              ; preds = %568
-  %575 = fsub float %.sroa.0.1.i, %.sroa.057.2.i
+  %575 = fsub float %.sroa.0.1.i, %.sroa.057.1.i
   %576 = add nsw i32 %.sroa.064.1.i, -1
   %577 = uitofp nneg i32 %576 to float
   %578 = fdiv float %575, %577
@@ -1593,7 +1593,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   br i1 %or.cond5.i, label %587, label %594
 
 587:                                              ; preds = %582
-  %588 = fsub float %.sroa.3.1.i, %.sroa.358.2.i
+  %588 = fsub float %.sroa.3.1.i, %.sroa.358.1.i
   %589 = add nsw i32 %.sroa.7.1.i, -1
   %590 = uitofp nneg i32 %589 to float
   %591 = fdiv float %588, %590
@@ -1614,7 +1614,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   br i1 %or.cond8.i, label %600, label %607
 
 600:                                              ; preds = %595
-  %601 = fsub float %.sroa.6.1.i, %.sroa.659.2.i
+  %601 = fsub float %.sroa.6.1.i, %.sroa.659.1.i
   %602 = add nsw i32 %.sroa.14.1.i, -1
   %603 = uitofp nneg i32 %602 to float
   %604 = fdiv float %601, %603
@@ -1635,7 +1635,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   br i1 %or.cond11.i, label %613, label %620
 
 613:                                              ; preds = %608
-  %614 = fsub float %.sroa.9.1.i, %.sroa.960.2.i
+  %614 = fsub float %.sroa.9.1.i, %.sroa.960.1.i
   %615 = add nsw i32 %.sroa.21.1.i, -1
   %616 = uitofp nneg i32 %615 to float
   %617 = fdiv float %614, %616
@@ -1656,7 +1656,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   br i1 %or.cond14.i, label %626, label %633
 
 626:                                              ; preds = %621
-  %627 = fsub float %.sroa.12.1.i, %.sroa.1261.2.i
+  %627 = fsub float %.sroa.12.1.i, %.sroa.1261.1.i
   %628 = add nsw i32 %.sroa.28.1.i, -1
   %629 = uitofp nneg i32 %628 to float
   %630 = fdiv float %627, %629
@@ -1677,7 +1677,7 @@ _ZL10chk_forcesiiPA3_f.exit.i:                    ; preds = %_ZL10chk_forcesiiPA
   br i1 %or.cond17.i, label %639, label %646
 
 639:                                              ; preds = %634
-  %640 = fsub float %.sroa.15.1.i, %.sroa.1562.2.i
+  %640 = fsub float %.sroa.15.1.i, %.sroa.1562.1.i
   %641 = add nsw i32 %.sroa.35.1.i, -1
   %642 = uitofp nneg i32 %641 to float
   %643 = fdiv float %640, %642

@@ -7783,12 +7783,12 @@ if.end8.sink.split.i.i.i.i.i206:                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup106
 
 cleanup106:                                       ; preds = %invoke.cont101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i193, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i203, %if.end8.sink.split.i.i.i.i.i206, %if.then94
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then94 ], [ 0, %if.end8.sink.split.i.i.i.i.i206 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i203 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i193 ], [ 0, %invoke.cont101 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then94 ], [ 0, %if.end8.sink.split.i.i.i.i.i206 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i203 ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i193 ], [ 0, %invoke.cont101 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_12ChunkedArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp74) #15
   br label %cleanup108
 
 cleanup108:                                       ; preds = %cleanup, %cleanup106
-  %cleanup.dest.slot.2 = phi i32 [ 1, %cleanup ], [ %cleanup.dest.slot.1, %cleanup106 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %cleanup ], [ %cleanup.dest.slot.2, %cleanup106 ]
   %121 = load ptr, ptr %chunks_, align 8
   %122 = load ptr, ptr %_M_finish.i.i.i46, align 8
   %cmp.not3.i.i.i.i247 = icmp eq ptr %121, %122
@@ -7888,7 +7888,7 @@ if.then.i.i.i269:                                 ; preds = %invoke.cont.i267
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit289
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit289: ; preds = %invoke.cont.i267, %if.then.i.i.i269
-  %cond = icmp eq i32 %cleanup.dest.slot.2, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %cond, label %for.inc113, label %cleanup129
 
 ehcleanup111:                                     ; preds = %lpad84, %lpad58

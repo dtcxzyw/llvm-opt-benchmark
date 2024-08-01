@@ -1548,7 +1548,7 @@ define internal noundef i32 @archive_read_format_lha_read_data(ptr noundef %0, p
   br label %34
 
 34:                                               ; preds = %33, %28, %24
-  %.0.i = phi i32 [ -20, %33 ], [ 1, %28 ], [ 1, %24 ]
+  %.1.i = phi i32 [ -20, %33 ], [ 1, %28 ], [ 1, %24 ]
   store i8 1, ptr %22, align 1
   br label %lha_end_of_entry.exit
 
@@ -2600,8 +2600,8 @@ lzh_make_fake_table.exit.thread.i.i.i:            ; preds = %539, %._crit_edge29
 
 .loopexit.i.i.i.outer:                            ; preds = %833, %544
   %.0176.i.i.i.ph = phi i32 [ %560, %544 ], [ %795, %833 ]
-  %.0170.i.i.i.ph = phi i32 [ %558, %544 ], [ %.4174.i.i.i, %833 ]
-  %.0164.i.i.i.ph = phi i32 [ %556, %544 ], [ %.4168.i.i.i, %833 ]
+  %.0170.i.i.i.ph = phi i32 [ %558, %544 ], [ %.5175.i.i.i, %833 ]
+  %.0164.i.i.i.ph = phi i32 [ %556, %544 ], [ %.5169.i.i.i, %833 ]
   %.0161.i.i.i.ph = phi i32 [ %569, %544 ], [ 9, %833 ]
   %.0158.i.i.i.ph = phi i32 [ %554, %544 ], [ %.4.i.i.i, %833 ]
   br label %.loopexit.i.i.i
@@ -2624,8 +2624,8 @@ lzh_make_fake_table.exit.thread.i.i.i:            ; preds = %539, %._crit_edge29
 
 .preheader.i23.i.i:                               ; preds = %672, %.preheader.preheader.i.i.i
   %indvars.iv.i24.i.i = phi i64 [ %585, %.preheader.preheader.i.i.i ], [ %indvars.iv.next.i26.i.i, %672 ]
-  %.1.i.i.i = phi i32 [ %.0158.i.i.i.ph, %.preheader.preheader.i.i.i ], [ %670, %672 ]
-  %586 = icmp eq i32 %.1.i.i.i, 0
+  %.5.i.i.i = phi i32 [ %.0158.i.i.i.ph, %.preheader.preheader.i.i.i ], [ %670, %672 ]
+  %586 = icmp eq i32 %.5.i.i.i, 0
   br i1 %586, label %587, label %589
 
 587:                                              ; preds = %.preheader.i23.i.i
@@ -2782,7 +2782,7 @@ lzh_decode_huffman.exit223.i.i.i:                 ; preds = %657, %655, %.lr.ph.
 668:                                              ; preds = %lzh_decode_huffman.exit223.i.i.i, %lzh_decode_huffman.exit.i34.i.i
   %669 = phi i32 [ %667, %lzh_decode_huffman.exit223.i.i.i ], [ %629, %lzh_decode_huffman.exit.i34.i.i ]
   %.0160.i.i.i = phi i32 [ %.0.i217.i.i.i, %lzh_decode_huffman.exit223.i.i.i ], [ %.0.i.i.i.i, %lzh_decode_huffman.exit.i34.i.i ]
-  %670 = add nsw i32 %.1.i.i.i, -1
+  %670 = add nsw i32 %.5.i.i.i, -1
   %671 = icmp ugt i32 %.0160.i.i.i, 255
   br i1 %671, label %681, label %672
 
@@ -2813,7 +2813,7 @@ lzh_decode_huffman.exit223.i.i.i:                 ; preds = %657, %655, %.lr.ph.
 684:                                              ; preds = %681, %._crit_edge314.i.i.i
   %685 = phi i32 [ %.pre315.i20.i.i, %._crit_edge314.i.i.i ], [ %669, %681 ]
   %.2178.i.i.i = phi i32 [ %.0176.i.i.i.ph, %._crit_edge314.i.i.i ], [ %682, %681 ]
-  %.1165.i.i.i = phi i32 [ %.0164.i.i.i.ph, %._crit_edge314.i.i.i ], [ %683, %681 ]
+  %.2166.i.i.i = phi i32 [ %.0164.i.i.i.ph, %._crit_edge314.i.i.i ], [ %683, %681 ]
   %.2.i21.i.i = phi i32 [ %.0158.i.i.i.ph, %._crit_edge314.i.i.i ], [ %670, %681 ]
   %.not198.i.i.i = icmp slt i32 %685, %568
   br i1 %.not198.i.i.i, label %686, label %727
@@ -2830,7 +2830,7 @@ lzh_decode_huffman.exit223.i.i.i:                 ; preds = %657, %655, %.lr.ph.
   br i1 %185, label %690, label %689
 
 689:                                              ; preds = %688
-  store i32 %.1165.i.i.i, ptr %555, align 8
+  store i32 %.2166.i.i.i, ptr %555, align 8
   br label %.loopexit250.i.i.i
 
 690:                                              ; preds = %688
@@ -2961,14 +2961,14 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
 
 .loopexit307:                                     ; preds = %.loopexit.i.i.i, %lzh_decode_huffman.exit249.i.i.i, %lzh_decode_huffman.exit236.i.i.i
   %.3179.i.i.i = phi i32 [ %.2178.i.i.i, %lzh_decode_huffman.exit249.i.i.i ], [ %.2178.i.i.i, %lzh_decode_huffman.exit236.i.i.i ], [ %.0176.i.i.i.ph, %.loopexit.i.i.i ]
-  %.1171.i.i.i = phi i32 [ %.0.i243.i.i.i, %lzh_decode_huffman.exit249.i.i.i ], [ %.0.i230.i.i.i, %lzh_decode_huffman.exit236.i.i.i ], [ %.0170.i.i.i.ph, %.loopexit.i.i.i ]
-  %.2166.i.i.i = phi i32 [ %.1165.i.i.i, %lzh_decode_huffman.exit249.i.i.i ], [ %.1165.i.i.i, %lzh_decode_huffman.exit236.i.i.i ], [ %.0164.i.i.i.ph, %.loopexit.i.i.i ]
+  %.2172.i.i.i = phi i32 [ %.0.i243.i.i.i, %lzh_decode_huffman.exit249.i.i.i ], [ %.0.i230.i.i.i, %lzh_decode_huffman.exit236.i.i.i ], [ %.0170.i.i.i.ph, %.loopexit.i.i.i ]
+  %.3167.i.i.i = phi i32 [ %.2166.i.i.i, %lzh_decode_huffman.exit249.i.i.i ], [ %.2166.i.i.i, %lzh_decode_huffman.exit236.i.i.i ], [ %.0164.i.i.i.ph, %.loopexit.i.i.i ]
   %.3.i.i.i = phi i32 [ %.2.i21.i.i, %lzh_decode_huffman.exit249.i.i.i ], [ %.2.i21.i.i, %lzh_decode_huffman.exit236.i.i.i ], [ %.0158.i.i.i.ph, %.loopexit.i.i.i ]
-  %764 = icmp sgt i32 %.1171.i.i.i, 1
+  %764 = icmp sgt i32 %.2172.i.i.i, 1
   br i1 %764, label %765, label %787
 
 765:                                              ; preds = %.loopexit307
-  %766 = add nsw i32 %.1171.i.i.i, -1
+  %766 = add nsw i32 %.2172.i.i.i, -1
   %767 = load i32, ptr %191, align 8
   %.not202.i.i.i = icmp slt i32 %767, %766
   br i1 %.not202.i.i.i, label %768, label %773
@@ -2985,8 +2985,8 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   br i1 %185, label %.loopexit251.i.i.i, label %772
 
 772:                                              ; preds = %771
-  store i32 %.2166.i.i.i, ptr %555, align 8
-  store i32 %.1171.i.i.i, ptr %557, align 4
+  store i32 %.3167.i.i.i, ptr %555, align 8
+  store i32 %.2172.i.i.i, ptr %557, align 4
   br label %.loopexit250.i.i.i
 
 773:                                              ; preds = %768, %765
@@ -3007,8 +3007,8 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   br label %787
 
 787:                                              ; preds = %773, %.loopexit307
-  %.2172.i.i.i = phi i32 [ %786, %773 ], [ %.1171.i.i.i, %.loopexit307 ]
-  %788 = xor i32 %.2172.i.i.i, -1
+  %.4174.i.i.i = phi i32 [ %786, %773 ], [ %.2172.i.i.i, %.loopexit307 ]
+  %788 = xor i32 %.4174.i.i.i, -1
   %789 = add i32 %.3179.i.i.i, %788
   %790 = and i32 %789, %562
   br label %.loopexit308
@@ -3016,25 +3016,25 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
 .loopexit308:                                     ; preds = %.loopexit.i.i.i, %787
   %.4180.i.i.i = phi i32 [ %.3179.i.i.i, %787 ], [ %.0176.i.i.i.ph, %.loopexit.i.i.i ]
   %.3173.i.i.i = phi i32 [ %790, %787 ], [ %.0170.i.i.i.ph, %.loopexit.i.i.i ]
-  %.3167.i.i.i = phi i32 [ %.2166.i.i.i, %787 ], [ %.0164.i.i.i.ph, %.loopexit.i.i.i ]
+  %.4168.i.i.i = phi i32 [ %.3167.i.i.i, %787 ], [ %.0164.i.i.i.ph, %.loopexit.i.i.i ]
   %.4.i.i.i = phi i32 [ %.3.i.i.i, %787 ], [ %.0158.i.i.i.ph, %.loopexit.i.i.i ]
   br label %791
 
 791:                                              ; preds = %834, %.loopexit308
-  %.5181.i.i.i = phi i32 [ %.4180.i.i.i, %.loopexit308 ], [ %795, %834 ]
-  %.4174.i.i.i = phi i32 [ %.3173.i.i.i, %.loopexit308 ], [ %836, %834 ]
-  %.4168.i.i.i = phi i32 [ %.3167.i.i.i, %.loopexit308 ], [ %835, %834 ]
-  %.4174..5181.i.i.i = call i32 @llvm.smax.i32(i32 %.4174.i.i.i, i32 %.5181.i.i.i)
-  %792 = sub nsw i32 %564, %.4174..5181.i.i.i
-  %spec.select208.i.i.i = call i32 @llvm.smin.i32(i32 %.4168.i.i.i, i32 %792)
-  %793 = add nsw i32 %spec.select208.i.i.i, %.4174.i.i.i
-  %794 = icmp slt i32 %793, %.5181.i.i.i
-  %795 = add nsw i32 %spec.select208.i.i.i, %.5181.i.i.i
-  %796 = icmp slt i32 %795, %.4174.i.i.i
+  %.7.i.i.i = phi i32 [ %.4180.i.i.i, %.loopexit308 ], [ %795, %834 ]
+  %.5175.i.i.i = phi i32 [ %.3173.i.i.i, %.loopexit308 ], [ %836, %834 ]
+  %.5169.i.i.i = phi i32 [ %.4168.i.i.i, %.loopexit308 ], [ %835, %834 ]
+  %.5175..7.i.i.i = call i32 @llvm.smax.i32(i32 %.5175.i.i.i, i32 %.7.i.i.i)
+  %792 = sub nsw i32 %564, %.5175..7.i.i.i
+  %spec.select208.i.i.i = call i32 @llvm.smin.i32(i32 %.5169.i.i.i, i32 %792)
+  %793 = add nsw i32 %spec.select208.i.i.i, %.5175.i.i.i
+  %794 = icmp slt i32 %793, %.7.i.i.i
+  %795 = add nsw i32 %spec.select208.i.i.i, %.7.i.i.i
+  %796 = icmp slt i32 %795, %.5175.i.i.i
   %or.cond210.i.i.i = select i1 %794, i1 true, i1 %796
-  %797 = sext i32 %.5181.i.i.i to i64
+  %797 = sext i32 %.7.i.i.i to i64
   %798 = getelementptr inbounds i8, ptr %548, i64 %797
-  %799 = sext i32 %.4174.i.i.i to i64
+  %799 = sext i32 %.5175.i.i.i to i64
   %800 = getelementptr inbounds i8, ptr %548, i64 %799
   br i1 %or.cond210.i.i.i, label %801, label %803
 
@@ -3097,22 +3097,22 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   %828 = load i64, ptr %193, align 8
   %829 = add i64 %828, %584
   store i64 %829, ptr %193, align 8
-  %.not207.i.i.i = icmp slt i32 %792, %.4168.i.i.i
+  %.not207.i.i.i = icmp slt i32 %792, %.5169.i.i.i
   br i1 %.not207.i.i.i, label %830, label %.loopexit250.i.i.i
 
 830:                                              ; preds = %824
-  %831 = sub nsw i32 %.4168.i.i.i, %spec.select208.i.i.i
+  %831 = sub nsw i32 %.5169.i.i.i, %spec.select208.i.i.i
   store i32 %831, ptr %555, align 8
   %832 = and i32 %793, %562
   store i32 %832, ptr %557, align 4
   br label %.loopexit250.i.i.i
 
 833:                                              ; preds = %822
-  %.not206.i.i.i = icmp slt i32 %792, %.4168.i.i.i
+  %.not206.i.i.i = icmp slt i32 %792, %.5169.i.i.i
   br i1 %.not206.i.i.i, label %834, label %.loopexit.i.i.i.outer
 
 834:                                              ; preds = %833
-  %835 = sub nsw i32 %.4168.i.i.i, %spec.select208.i.i.i
+  %835 = sub nsw i32 %.5169.i.i.i, %spec.select208.i.i.i
   %836 = and i32 %793, %562
   br label %791
 
@@ -3126,13 +3126,13 @@ lzh_decode_huffman.exit249.i.i.i:                 ; preds = %753, %751, %.lr.ph.
   br label %.loopexit250.i.i.i
 
 .loopexit250.i.i.i:                               ; preds = %.loopexit250.loopexit.i.i.i, %830, %824, %772, %689, %675
-  %.7.i.i.i = phi i32 [ 0, %830 ], [ %.3179.i.i.i, %772 ], [ %.2178.i.i.i, %689 ], [ 0, %675 ], [ 0, %824 ], [ %838, %.loopexit250.loopexit.i.i.i ]
+  %.6182.i.i.i = phi i32 [ 0, %830 ], [ %.3179.i.i.i, %772 ], [ %.2178.i.i.i, %689 ], [ 0, %675 ], [ 0, %824 ], [ %838, %.loopexit250.loopexit.i.i.i ]
   %.2163.i.i.i = phi i32 [ 12, %830 ], [ 11, %772 ], [ 10, %689 ], [ 9, %675 ], [ 9, %824 ], [ 9, %.loopexit250.loopexit.i.i.i ]
-  %.6.i.i.i = phi i32 [ %.4.i.i.i, %830 ], [ %.3.i.i.i, %772 ], [ %.2.i21.i.i, %689 ], [ %670, %675 ], [ %.4.i.i.i, %824 ], [ %.1.i.i.i, %.loopexit250.loopexit.i.i.i ]
+  %.6.i.i.i = phi i32 [ %.4.i.i.i, %830 ], [ %.3.i.i.i, %772 ], [ %.2.i21.i.i, %689 ], [ %670, %675 ], [ %.4.i.i.i, %824 ], [ %.5.i.i.i, %.loopexit250.loopexit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %546, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   store i32 %.6.i.i.i, ptr %553, align 8
   store i32 %.2163.i.i.i, ptr %545, align 8
-  store i32 %.7.i.i.i, ptr %559, align 8
+  store i32 %.6182.i.i.i, ptr %559, align 8
   br label %lzh_decode_blocks.exit.i.i
 
 lzh_decode_blocks.exit.i.i:                       ; preds = %.loopexit250.i.i.i, %.loopexit251.i.i.i, %587
@@ -3238,12 +3238,12 @@ lzh_decode.exit.i:                                ; preds = %lzh_read_blocks.exi
   br label %885
 
 885:                                              ; preds = %884, %879, %875
-  %.0.i62.i = phi i32 [ -20, %884 ], [ 1, %879 ], [ 1, %875 ]
+  %.1.i.i = phi i32 [ -20, %884 ], [ 1, %879 ], [ 1, %875 ]
   store i8 1, ptr %873, align 1
   br label %lha_read_data_lzh.exit
 
 lha_read_data_lzh.exit:                           ; preds = %153, %156, %161, %163, %173, %848, %855, %867, %870, %885
-  %.0.i26 = phi i32 [ -30, %173 ], [ -25, %848 ], [ -30, %163 ], [ 0, %867 ], [ 0, %855 ], [ -20, %153 ], [ -20, %156 ], [ -20, %161 ], [ 1, %870 ], [ %.0.i62.i, %885 ]
+  %.0.i26 = phi i32 [ -30, %173 ], [ -25, %848 ], [ -30, %163 ], [ 0, %867 ], [ 0, %855 ], [ -20, %153 ], [ -20, %156 ], [ -20, %161 ], [ 1, %870 ], [ %.1.i.i, %885 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %lha_end_of_entry.exit
 
@@ -3318,7 +3318,7 @@ lha_read_data_none.exit:                          ; preds = %892, %899, %916
   br label %lha_end_of_entry.exit
 
 lha_end_of_entry.exit:                            ; preds = %34, %18, %lha_read_data_lzh.exit, %lha_read_data_none.exit
-  %.021 = phi i32 [ %.0.i26, %lha_read_data_lzh.exit ], [ %.0.i27, %lha_read_data_none.exit ], [ 1, %18 ], [ %.0.i, %34 ]
+  %.021 = phi i32 [ %.0.i26, %lha_read_data_lzh.exit ], [ %.0.i27, %lha_read_data_none.exit ], [ 1, %18 ], [ %.1.i, %34 ]
   ret i32 %.021
 }
 
@@ -4938,13 +4938,13 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr nocapture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %99, %91
-  %.1181 = phi i32 [ %92, %91 ], [ %100, %99 ], [ %106, %.loopexit.loopexit ]
+  %.0180 = phi i32 [ %92, %91 ], [ %100, %99 ], [ %106, %.loopexit.loopexit ]
   %.0 = phi ptr [ %94, %91 ], [ %102, %99 ], [ %102, %.loopexit.loopexit ]
-  %.not215 = icmp eq i32 %.1181, 0
+  %.not215 = icmp eq i32 %.0180, 0
   br i1 %.not215, label %210, label %107
 
 107:                                              ; preds = %.loopexit
-  %108 = zext nneg i32 %.1181 to i64
+  %108 = zext nneg i32 %.0180 to i64
   %109 = shl nuw nsw i64 %108, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %86, ptr nonnull align 2 %.0, i64 %109, i1 false)
   br label %210

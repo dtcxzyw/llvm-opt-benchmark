@@ -149,13 +149,13 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %83
 
 28:                                               ; preds = %.preheader
-  call void @g_free(ptr noundef %.0.ph) #12
+  call void @g_free(ptr noundef %.1.ph) #12
   %29 = load ptr, ptr @ws_optarg, align 8
   %30 = call noalias ptr @g_strdup(ptr noundef %29) #12
   br label %.preheader.outer, !llvm.loop !5
 
 .preheader.outer:                                 ; preds = %10, %28
-  %.0.ph = phi ptr [ %30, %28 ], [ null, %10 ]
+  %.1.ph = phi ptr [ %30, %28 ], [ null, %10 ]
   br label %.preheader
 
 31:                                               ; preds = %.preheader
@@ -222,7 +222,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %83
 
 65:                                               ; preds = %58
-  %.not42 = icmp eq ptr %.0.ph, null
+  %.not42 = icmp eq ptr %.1.ph, null
   br i1 %.not42, label %66, label %68
 
 66:                                               ; preds = %65
@@ -230,7 +230,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %68
 
 68:                                               ; preds = %66, %65
-  %.2 = phi ptr [ %.0.ph, %65 ], [ %67, %66 ]
+  %.3 = phi ptr [ %.1.ph, %65 ], [ %67, %66 ]
   %69 = call ptr @ws_init_sockets() #12
   %.not43 = icmp eq ptr %69, null
   br i1 %.not43, label %72, label %70
@@ -261,14 +261,14 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %54, i64 8
   %82 = load ptr, ptr %81, align 8
-  call fastcc void @run_listener(ptr noundef %82, i16 noundef zeroext %77, ptr noundef %.2)
+  call fastcc void @run_listener(ptr noundef %82, i16 noundef zeroext %77, ptr noundef %.3)
   br label %83
 
 83:                                               ; preds = %56, %53, %76, %80, %70, %61, %49, %41, %26, %21, %19, %17
   %.033 = phi i32 [ 1, %17 ], [ 1, %41 ], [ 1, %26 ], [ 1, %21 ], [ 0, %19 ], [ 1, %49 ], [ %64, %61 ], [ 1, %70 ], [ 1, %80 ], [ 1, %76 ], [ 0, %53 ], [ 0, %56 ]
-  %.3 = phi ptr [ null, %17 ], [ %.0.ph, %41 ], [ %.0.ph, %26 ], [ %.0.ph, %21 ], [ %.0.ph, %19 ], [ %.0.ph, %49 ], [ %.0.ph, %61 ], [ %.2, %70 ], [ %.2, %80 ], [ %.2, %76 ], [ %.0.ph, %53 ], [ %.0.ph, %56 ]
+  %.0 = phi ptr [ null, %17 ], [ %.1.ph, %41 ], [ %.1.ph, %26 ], [ %.1.ph, %21 ], [ %.1.ph, %19 ], [ %.1.ph, %49 ], [ %.1.ph, %61 ], [ %.3, %70 ], [ %.3, %80 ], [ %.3, %76 ], [ %.1.ph, %53 ], [ %.1.ph, %56 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5) #12
-  call void @g_free(ptr noundef %.3) #12
+  call void @g_free(ptr noundef %.0) #12
   ret i32 %.033
 }
 

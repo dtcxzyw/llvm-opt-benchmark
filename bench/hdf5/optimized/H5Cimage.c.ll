@@ -293,7 +293,7 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
 
 82:                                               ; preds = %H5C__encode_cache_image_header.exit.i, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %H5C__encode_cache_image_header.exit.i ], [ 0, %.lr.ph.i ]
-  %.143.i = phi ptr [ %254, %H5C__encode_cache_image_header.exit.i ], [ %66, %.lr.ph.i ]
+  %.03343.i = phi ptr [ %254, %H5C__encode_cache_image_header.exit.i ], [ %66, %.lr.ph.i ]
   %.val.i = load ptr, ptr %74, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %83 = getelementptr inbounds %struct.H5C_image_entry_t, ptr %.val.i, i64 %indvars.iv
@@ -310,8 +310,8 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
 
 90:                                               ; preds = %82
   %91 = trunc nuw i32 %85 to i8
-  %92 = getelementptr inbounds i8, ptr %.143.i, i64 1
-  store i8 %91, ptr %.143.i, align 1
+  %92 = getelementptr inbounds i8, ptr %.03343.i, i64 1
+  store i8 %91, ptr %.03343.i, align 1
   %93 = getelementptr inbounds i8, ptr %83, i64 32
   %94 = load i8, ptr %93, align 8
   %spec.select.i22.i = and i8 %94, 1
@@ -330,12 +330,12 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
   %.not77.i.i = icmp eq i64 %103, 0
   %104 = or disjoint i8 %.2.i.i, 8
   %.3.i.i = select i1 %.not77.i.i, i8 %.2.i.i, i8 %104
-  %105 = getelementptr inbounds i8, ptr %.143.i, i64 2
+  %105 = getelementptr inbounds i8, ptr %.03343.i, i64 2
   store i8 %.3.i.i, ptr %92, align 1
   %106 = getelementptr inbounds i8, ptr %83, i64 16
   %107 = load i32, ptr %106, align 8
   %108 = trunc i32 %107 to i8
-  %109 = getelementptr inbounds i8, ptr %.143.i, i64 3
+  %109 = getelementptr inbounds i8, ptr %.03343.i, i64 3
   store i8 %108, ptr %105, align 1
   %110 = getelementptr inbounds i8, ptr %83, i64 20
   %111 = load i32, ptr %110, align 4
@@ -352,10 +352,10 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
   br label %243
 
 119:                                              ; preds = %90
-  %120 = getelementptr inbounds i8, ptr %.143.i, i64 4
+  %120 = getelementptr inbounds i8, ptr %.03343.i, i64 4
   %121 = trunc i64 %113 to i8
   store i8 %121, ptr %120, align 1
-  %122 = getelementptr inbounds i8, ptr %.143.i, i64 5
+  %122 = getelementptr inbounds i8, ptr %.03343.i, i64 5
   %123 = load i64, ptr %99, align 8
   %124 = lshr i64 %123, 8
   %125 = trunc i64 %124 to i8
@@ -372,10 +372,10 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
   br label %243
 
 133:                                              ; preds = %119
-  %134 = getelementptr inbounds i8, ptr %.143.i, i64 6
+  %134 = getelementptr inbounds i8, ptr %.03343.i, i64 6
   %135 = trunc i64 %127 to i8
   store i8 %135, ptr %134, align 1
-  %136 = getelementptr inbounds i8, ptr %.143.i, i64 7
+  %136 = getelementptr inbounds i8, ptr %.03343.i, i64 7
   %137 = load i64, ptr %126, align 8
   %138 = lshr i64 %137, 8
   %139 = trunc i64 %138 to i8
@@ -391,34 +391,34 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
   br label %243
 
 146:                                              ; preds = %133
-  %147 = getelementptr inbounds i8, ptr %.143.i, i64 8
+  %147 = getelementptr inbounds i8, ptr %.03343.i, i64 8
   %148 = trunc i64 %140 to i8
   store i8 %148, ptr %147, align 1
-  %149 = getelementptr inbounds i8, ptr %.143.i, i64 9
+  %149 = getelementptr inbounds i8, ptr %.03343.i, i64 9
   %150 = load i64, ptr %102, align 8
   %151 = lshr i64 %150, 8
   %152 = trunc i64 %151 to i8
   store i8 %152, ptr %149, align 1
-  %153 = getelementptr inbounds i8, ptr %.143.i, i64 10
+  %153 = getelementptr inbounds i8, ptr %.03343.i, i64 10
   %154 = load i32, ptr %95, align 4
   %155 = trunc i32 %154 to i8
   store i8 %155, ptr %153, align 1
-  %156 = getelementptr inbounds i8, ptr %.143.i, i64 11
+  %156 = getelementptr inbounds i8, ptr %.03343.i, i64 11
   %157 = load i32, ptr %95, align 4
   %158 = lshr i32 %157, 8
   %159 = trunc i32 %158 to i8
   store i8 %159, ptr %156, align 1
-  %160 = getelementptr inbounds i8, ptr %.143.i, i64 12
+  %160 = getelementptr inbounds i8, ptr %.03343.i, i64 12
   %161 = load i32, ptr %95, align 4
   %162 = lshr i32 %161, 16
   %163 = trunc i32 %162 to i8
   store i8 %163, ptr %160, align 1
-  %164 = getelementptr inbounds i8, ptr %.143.i, i64 13
+  %164 = getelementptr inbounds i8, ptr %.03343.i, i64 13
   %165 = load i32, ptr %95, align 4
   %166 = lshr i32 %165, 24
   %167 = trunc nuw i32 %166 to i8
   store i8 %167, ptr %164, align 1
-  %168 = getelementptr inbounds i8, ptr %.143.i, i64 14
+  %168 = getelementptr inbounds i8, ptr %.03343.i, i64 14
   store ptr %168, ptr %3, align 8
   %169 = load i64, ptr %83, align 8
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %169) #14
@@ -510,7 +510,7 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %53
 217:                                              ; preds = %205, %202, %171, %._crit_edge6.i.i
   %218 = phi ptr [ %.pre.i.i, %._crit_edge6.i.i ], [ %192, %171 ], [ %204, %202 ], [ %216, %205 ]
   %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %.143.i to i64
+  %220 = ptrtoint ptr %.03343.i to i64
   %221 = sub i64 %219, %220
   %222 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #14
   %223 = zext i8 %222 to i64
@@ -580,23 +580,23 @@ H5C__encode_cache_image_header.exit.i:            ; preds = %234, %.preheader.i.
   br label %314
 
 .loopexit:                                        ; preds = %H5C__encode_cache_image_header.exit.i, %H5C__encode_cache_image_header.exit.preheader.i
-  %.1.lcssa.i = phi ptr [ %66, %H5C__encode_cache_image_header.exit.preheader.i ], [ %254, %H5C__encode_cache_image_header.exit.i ]
+  %.033.lcssa.i = phi ptr [ %66, %H5C__encode_cache_image_header.exit.preheader.i ], [ %254, %H5C__encode_cache_image_header.exit.i ]
   %262 = load ptr, ptr %8, align 8
   %263 = getelementptr inbounds i8, ptr %1, i64 527656
   %264 = load i64, ptr %263, align 8
   %265 = add i64 %264, -4
   %266 = call i32 @H5_checksum_metadata(ptr noundef %262, i64 noundef %265, i32 noundef 0) #14
   %267 = trunc i32 %266 to i8
-  store i8 %267, ptr %.1.lcssa.i, align 1
-  %268 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 1
+  store i8 %267, ptr %.033.lcssa.i, align 1
+  %268 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 1
   %269 = lshr i32 %266, 8
   %270 = trunc i32 %269 to i8
   store i8 %270, ptr %268, align 1
-  %271 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 2
+  %271 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 2
   %272 = lshr i32 %266, 16
   %273 = trunc i32 %272 to i8
   store i8 %273, ptr %271, align 1
-  %274 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 3
+  %274 = getelementptr inbounds i8, ptr %.033.lcssa.i, i64 3
   %275 = lshr i32 %266, 24
   %276 = trunc nuw i32 %275 to i8
   store i8 %276, ptr %274, align 1
@@ -986,7 +986,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
 
 175:                                              ; preds = %H5C__decode_cache_image_header.exit.i, %.lr.ph327.i
   %.0258326.i = phi i32 [ 0, %.lr.ph327.i ], [ %631, %H5C__decode_cache_image_header.exit.i ]
-  %.1325.i = phi ptr [ %129, %.lr.ph327.i ], [ %357, %H5C__decode_cache_image_header.exit.i ]
+  %.0325.i = phi ptr [ %129, %.lr.ph327.i ], [ %357, %H5C__decode_cache_image_header.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %176 = load i8, ptr %137, align 1
   %177 = call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5C_cache_entry_t_reg_free_list) #14
@@ -1001,12 +1001,12 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
 
 183:                                              ; preds = %175
   %184 = trunc i8 %176 to i1
-  %185 = getelementptr inbounds i8, ptr %.1325.i, i64 1
-  %186 = load i8, ptr %.1325.i, align 1
+  %185 = getelementptr inbounds i8, ptr %.0325.i, i64 1
+  %186 = load i8, ptr %.0325.i, align 1
   %187 = zext i8 %186 to i32
   %188 = getelementptr inbounds i8, ptr %177, i64 208
   store i32 %187, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %.1325.i, i64 2
+  %189 = getelementptr inbounds i8, ptr %.0325.i, i64 2
   %190 = load i8, ptr %185, align 1
   %191 = and i8 %190, 1
   %.not.not.i.i = icmp eq i8 %191, 0
@@ -1014,12 +1014,12 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   %spec.select.i.i = select i1 %.not.not.i.i, i8 0, i8 %192
   %193 = getelementptr inbounds i8, ptr %177, i64 48
   store i8 %spec.select.i.i, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %.1325.i, i64 3
+  %194 = getelementptr inbounds i8, ptr %.0325.i, i64 3
   %195 = load i8, ptr %189, align 1
   %196 = zext i8 %195 to i32
   %197 = getelementptr inbounds i8, ptr %177, i64 64
   store i32 %196, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %.1325.i, i64 4
+  %198 = getelementptr inbounds i8, ptr %.0325.i, i64 4
   %199 = load i8, ptr %194, align 1
   %200 = zext i8 %199 to i32
   %201 = getelementptr inbounds i8, ptr %177, i64 212
@@ -1027,23 +1027,23 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   %202 = load i8, ptr %198, align 1
   %203 = zext i8 %202 to i64
   %204 = getelementptr inbounds i8, ptr %177, i64 184
-  %205 = getelementptr inbounds i8, ptr %.1325.i, i64 5
+  %205 = getelementptr inbounds i8, ptr %.0325.i, i64 5
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i64
   %208 = shl nuw nsw i64 %207, 8
   %209 = or disjoint i64 %208, %203
   store i64 %209, ptr %204, align 8
-  %210 = getelementptr inbounds i8, ptr %.1325.i, i64 6
+  %210 = getelementptr inbounds i8, ptr %.0325.i, i64 6
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i64
   %213 = getelementptr inbounds i8, ptr %177, i64 192
-  %214 = getelementptr inbounds i8, ptr %.1325.i, i64 7
+  %214 = getelementptr inbounds i8, ptr %.0325.i, i64 7
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i64
   %217 = shl nuw nsw i64 %216, 8
   %218 = or disjoint i64 %217, %212
   store i64 %218, ptr %213, align 8
-  %219 = getelementptr inbounds i8, ptr %.1325.i, i64 8
+  %219 = getelementptr inbounds i8, ptr %.0325.i, i64 8
   store ptr %219, ptr %2, align 8
   br i1 %184, label %220, label %.thread98.i.i
 
@@ -1066,11 +1066,11 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   %228 = zext i16 %227 to i64
   %229 = getelementptr inbounds i8, ptr %177, i64 168
   store i64 %228, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %.1325.i, i64 10
+  %230 = getelementptr inbounds i8, ptr %.0325.i, i64 10
   %231 = load i32, ptr %230, align 1
   %232 = getelementptr inbounds i8, ptr %177, i64 156
   store i32 %231, ptr %232, align 4
-  %233 = getelementptr inbounds i8, ptr %.1325.i, i64 14
+  %233 = getelementptr inbounds i8, ptr %.0325.i, i64 14
   store ptr %233, ptr %2, align 8
   %234 = getelementptr inbounds i8, ptr %177, i64 8
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %234) #14
@@ -1187,7 +1187,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
 297:                                              ; preds = %289
   %298 = load ptr, ptr %2, align 8
   %299 = ptrtoint ptr %298 to i64
-  %300 = ptrtoint ptr %.1325.i to i64
+  %300 = ptrtoint ptr %.0325.i to i64
   %301 = sub i64 %299, %300
   %302 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #14
   %303 = zext i8 %302 to i64

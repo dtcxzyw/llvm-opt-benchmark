@@ -1293,9 +1293,9 @@ define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefere
 12:                                               ; preds = %.lr.ph, %48
   %13 = phi i32 [ %8, %.lr.ph ], [ %49, %48 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %.sroa.026.058 = phi ptr [ null, %.lr.ph ], [ %.sroa.026.4, %48 ]
-  %.sroa.9.057 = phi i32 [ 0, %.lr.ph ], [ %.sroa.9.1, %48 ]
-  %.sroa.15.056 = phi i32 [ 0, %.lr.ph ], [ %.sroa.15.2, %48 ]
+  %.sroa.026.258 = phi ptr [ null, %.lr.ph ], [ %.sroa.026.3, %48 ]
+  %.sroa.9.157 = phi i32 [ 0, %.lr.ph ], [ %.sroa.9.2, %48 ]
+  %.sroa.15.056 = phi i32 [ 0, %.lr.ph ], [ %.sroa.15.1, %48 ]
   %14 = load ptr, ptr %10, align 8
   %15 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %14, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %15, align 4
@@ -1309,23 +1309,23 @@ define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefere
 
 21:                                               ; preds = %12
   store i8 1, ptr %19, align 1
-  %22 = icmp eq i32 %.sroa.9.057, %.sroa.15.056
+  %22 = icmp eq i32 %.sroa.9.157, %.sroa.15.056
   br i1 %22, label %23, label %_ZN6Gluco23vecIiE4pushERKi.exit
 
 23:                                               ; preds = %21
-  %24 = ashr i32 %.sroa.9.057, 1
+  %24 = ashr i32 %.sroa.9.157, 1
   %25 = and i32 %24, -2
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
   %27 = add nuw nsw i32 %26, 2
-  %28 = sub nsw i32 2147483647, %.sroa.9.057
+  %28 = sub nsw i32 2147483647, %.sroa.9.157
   %29 = icmp ugt i32 %27, %28
   br i1 %29, label %.loopexit49, label %30
 
 30:                                               ; preds = %23
-  %31 = add nsw i32 %27, %.sroa.9.057
+  %31 = add nsw i32 %27, %.sroa.9.157
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = tail call ptr @realloc(ptr noundef %.sroa.026.058, i64 noundef %33) #26
+  %34 = tail call ptr @realloc(ptr noundef %.sroa.026.258, i64 noundef %33) #26
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN6Gluco23vecIiE4pushERKi.exit
 
@@ -1337,7 +1337,7 @@ define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefere
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %23, %36
-  %.sroa.026.1 = phi ptr [ null, %36 ], [ %.sroa.026.058, %23 ]
+  %.sroa.026.4 = phi ptr [ null, %36 ], [ %.sroa.026.258, %23 ]
   %40 = tail call ptr @__cxa_allocate_exception(i64 1) #23
   invoke void @__cxa_throw(ptr %40, ptr nonnull @_ZTIN6Gluco220OutOfMemoryExceptionE, ptr null) #24
           to label %.noexc unwind label %44
@@ -1346,26 +1346,26 @@ define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefere
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %21, %30
-  %.sroa.15.1 = phi i32 [ %31, %30 ], [ %.sroa.15.056, %21 ]
-  %.sroa.026.2 = phi ptr [ %34, %30 ], [ %.sroa.026.058, %21 ]
-  %41 = add nsw i32 %.sroa.9.057, 1
-  %42 = sext i32 %.sroa.9.057 to i64
-  %43 = getelementptr inbounds i32, ptr %.sroa.026.2, i64 %42
+  %.sroa.15.2 = phi i32 [ %31, %30 ], [ %.sroa.15.056, %21 ]
+  %.sroa.026.5 = phi ptr [ %34, %30 ], [ %.sroa.026.258, %21 ]
+  %41 = add nsw i32 %.sroa.9.157, 1
+  %42 = sext i32 %.sroa.9.157 to i64
+  %43 = getelementptr inbounds i32, ptr %.sroa.026.5, i64 %42
   store i32 %16, ptr %43, align 4
   %.pre = load i32, ptr %7, align 8
   br label %48
 
 44:                                               ; preds = %.loopexit49, %.thread40, %._crit_edge
-  %.sroa.026.3 = phi ptr [ %.sroa.026.1, %.loopexit49 ], [ %.sroa.026.547, %.thread40 ], [ %.sroa.026.0.lcssa, %._crit_edge ]
+  %.sroa.026.0 = phi ptr [ %.sroa.026.4, %.loopexit49 ], [ %.sroa.026.147, %.thread40 ], [ %.sroa.026.2.lcssa, %._crit_edge ]
   %45 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i = icmp eq ptr %.sroa.026.3, null
+  %.not.i.i = icmp eq ptr %.sroa.026.0, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.thread, %44
   %46 = phi { ptr, i32 } [ %136, %.thread ], [ %45, %44 ]
-  %.sroa.026.339 = phi ptr [ %.sroa.026.54675, %.thread ], [ %.sroa.026.3, %44 ]
-  tail call void @free(ptr noundef nonnull %.sroa.026.339) #23
+  %.sroa.026.039 = phi ptr [ %.sroa.026.14675, %.thread ], [ %.sroa.026.0, %44 ]
+  tail call void @free(ptr noundef nonnull %.sroa.026.039) #23
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %44, %.preheader.i.i
@@ -1374,17 +1374,17 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %44, %.preheader.i.i
 
 48:                                               ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit, %12
   %49 = phi i32 [ %.pre, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %13, %12 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.15.1, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.sroa.15.056, %12 ]
-  %.sroa.9.1 = phi i32 [ %41, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.sroa.9.057, %12 ]
-  %.sroa.026.4 = phi ptr [ %.sroa.026.2, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.sroa.026.058, %12 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.2, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.sroa.15.056, %12 ]
+  %.sroa.9.2 = phi i32 [ %41, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.sroa.9.157, %12 ]
+  %.sroa.026.3 = phi ptr [ %.sroa.026.5, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.sroa.026.258, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
   br i1 %51, label %12, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %48, %.preheader48
-  %.sroa.9.0.lcssa = phi i32 [ 0, %.preheader48 ], [ %.sroa.9.1, %48 ]
-  %.sroa.026.0.lcssa = phi ptr [ null, %.preheader48 ], [ %.sroa.026.4, %48 ]
+  %.sroa.9.1.lcssa = phi i32 [ 0, %.preheader48 ], [ %.sroa.9.2, %48 ]
+  %.sroa.026.2.lcssa = phi ptr [ null, %.preheader48 ], [ %.sroa.026.3, %48 ]
   %52 = invoke noundef zeroext i1 @_ZN6Gluco210SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext %2)
           to label %53 unwind label %44
 
@@ -1392,8 +1392,8 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %44, %.preheader.i.i
   br i1 %52, label %.thread40, label %55
 
 .thread40:                                        ; preds = %3, %53
-  %.sroa.026.547 = phi ptr [ %.sroa.026.0.lcssa, %53 ], [ null, %3 ]
-  %.sroa.9.245 = phi i32 [ %.sroa.9.0.lcssa, %53 ], [ 0, %3 ]
+  %.sroa.026.147 = phi ptr [ %.sroa.026.2.lcssa, %53 ], [ null, %3 ]
+  %.sroa.9.045 = phi i32 [ %.sroa.9.1.lcssa, %53 ], [ 0, %3 ]
   %54 = invoke i8 @_ZN6Gluco26Solver6solve_Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0)
           to label %60 unwind label %44
 
@@ -1490,9 +1490,9 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %44, %.preheader.i.i
 
 _ZN6Gluco210SimpSolver11extendModelEv.exit:       ; preds = %.loopexit.i, %55, %59, %62, %60
   %.sroa.034.177 = phi i8 [ 0, %62 ], [ %54, %60 ], [ 1, %59 ], [ 1, %55 ], [ %54, %.loopexit.i ]
-  %.sroa.9.24476 = phi i32 [ %.sroa.9.245, %62 ], [ %.sroa.9.245, %60 ], [ %.sroa.9.0.lcssa, %59 ], [ %.sroa.9.0.lcssa, %55 ], [ %.sroa.9.245, %.loopexit.i ]
-  %.sroa.026.54675 = phi ptr [ %.sroa.026.547, %62 ], [ %.sroa.026.547, %60 ], [ %.sroa.026.0.lcssa, %59 ], [ %.sroa.026.0.lcssa, %55 ], [ %.sroa.026.547, %.loopexit.i ]
-  %101 = icmp sgt i32 %.sroa.9.24476, 0
+  %.sroa.9.04476 = phi i32 [ %.sroa.9.045, %62 ], [ %.sroa.9.045, %60 ], [ %.sroa.9.1.lcssa, %59 ], [ %.sroa.9.1.lcssa, %55 ], [ %.sroa.9.045, %.loopexit.i ]
+  %.sroa.026.14675 = phi ptr [ %.sroa.026.147, %62 ], [ %.sroa.026.147, %60 ], [ %.sroa.026.2.lcssa, %59 ], [ %.sroa.026.2.lcssa, %55 ], [ %.sroa.026.147, %.loopexit.i ]
+  %101 = icmp sgt i32 %.sroa.9.04476, 0
   %or.cond = select i1 %.not.not, i1 %101, i1 false
   br i1 %or.cond, label %.lr.ph62, label %.loopexit
 
@@ -1504,12 +1504,12 @@ _ZN6Gluco210SimpSolver11extendModelEv.exit:       ; preds = %.loopexit.i, %55, %
   %106 = getelementptr inbounds i8, ptr %0, i64 1664
   %107 = getelementptr inbounds i8, ptr %0, i64 1656
   %108 = getelementptr inbounds i8, ptr %0, i64 632
-  %wide.trip.count = zext nneg i32 %.sroa.9.24476 to i64
+  %wide.trip.count = zext nneg i32 %.sroa.9.04476 to i64
   br label %109
 
 109:                                              ; preds = %.lr.ph62, %_ZN6Gluco210SimpSolver9setFrozenEib.exit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next69, %_ZN6Gluco210SimpSolver9setFrozenEib.exit ]
-  %110 = getelementptr inbounds i32, ptr %.sroa.026.54675, i64 %indvars.iv68
+  %110 = getelementptr inbounds i32, ptr %.sroa.026.14675, i64 %indvars.iv68
   %111 = load i32, ptr %110, align 4
   %112 = load ptr, ptr %102, align 8
   %113 = sext i32 %111 to i64
@@ -1573,11 +1573,11 @@ _ZN6Gluco210SimpSolver9setFrozenEib.exit:         ; preds = %_ZNK6Gluco210SimpSo
   br i1 %exitcond.not, label %.preheader.i.i21, label %109, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZN6Gluco210SimpSolver11extendModelEv.exit
-  %.not.i.i20 = icmp eq ptr %.sroa.026.54675, null
+  %.not.i.i20 = icmp eq ptr %.sroa.026.14675, null
   br i1 %.not.i.i20, label %_ZN6Gluco23vecIiED2Ev.exit22, label %.preheader.i.i21
 
 .preheader.i.i21:                                 ; preds = %_ZN6Gluco210SimpSolver9setFrozenEib.exit, %.loopexit
-  tail call void @free(ptr noundef nonnull %.sroa.026.54675) #23
+  tail call void @free(ptr noundef nonnull %.sroa.026.14675) #23
   br label %_ZN6Gluco23vecIiED2Ev.exit22
 
 _ZN6Gluco23vecIiED2Ev.exit22:                     ; preds = %.loopexit, %.preheader.i.i21
@@ -3817,9 +3817,9 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   br label %_ZN6Gluco23vecIjE6growToEi.exit
 
 _ZN6Gluco23vecIjE6growToEi.exit:                  ; preds = %.lr.ph.preheader.i16, %132
-  %.sroa.0.3 = phi ptr [ null, %132 ], [ %malloc, %.lr.ph.preheader.i16 ]
-  %.sroa.9.2 = phi i32 [ 0, %132 ], [ %135, %.lr.ph.preheader.i16 ]
-  %.sroa.13.3 = phi i32 [ 0, %132 ], [ %139, %.lr.ph.preheader.i16 ]
+  %.sroa.0.6 = phi ptr [ null, %132 ], [ %malloc, %.lr.ph.preheader.i16 ]
+  %.sroa.9.5 = phi i32 [ 0, %132 ], [ %135, %.lr.ph.preheader.i16 ]
+  %.sroa.13.6 = phi i32 [ 0, %132 ], [ %139, %.lr.ph.preheader.i16 ]
   %150 = icmp slt i32 %129, %125
   %.pre80.pre = load ptr, ptr %5, align 8
   br i1 %150, label %.lr.ph.preheader.i, label %.preheader.i
@@ -3848,7 +3848,7 @@ _ZN6Gluco23vecIjE6growToEi.exit:                  ; preds = %.lr.ph.preheader.i1
   %156 = getelementptr inbounds i32, ptr %.pre80.pre, i64 %indvars.iv.i
   %157 = load i32, ptr %156, align 4
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %158 = getelementptr inbounds i32, ptr %.sroa.0.3, i64 %indvars.iv23.i
+  %158 = getelementptr inbounds i32, ptr %.sroa.0.6, i64 %indvars.iv23.i
   store i32 %157, ptr %158, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %159 = icmp slt i64 %indvars.iv.next.i, %152
@@ -3860,7 +3860,7 @@ _ZN6Gluco23vecIjE6growToEi.exit:                  ; preds = %.lr.ph.preheader.i1
   %160 = getelementptr inbounds i32, ptr %.pre80.pre, i64 %indvars.iv28.i
   %161 = load i32, ptr %160, align 4
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %162 = getelementptr inbounds i32, ptr %.sroa.0.3, i64 %indvars.iv30.i
+  %162 = getelementptr inbounds i32, ptr %.sroa.0.6, i64 %indvars.iv30.i
   store i32 %161, ptr %162, align 4
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next29.i, %155
@@ -3883,9 +3883,9 @@ _ZN6Gluco23vecIjE6growToEi.exit:                  ; preds = %.lr.ph.preheader.i1
   br label %_ZN6Gluco23vecIjED2Ev.exit.i
 
 _ZN6Gluco23vecIjED2Ev.exit.i:                     ; preds = %.preheader.i.i.i, %._crit_edge.i
-  store ptr %.sroa.0.3, ptr %5, align 8
-  store i32 %.sroa.9.2, ptr %8, align 8
-  store i32 %.sroa.13.3, ptr %28, align 4
+  store ptr %.sroa.0.6, ptr %5, align 8
+  store i32 %.sroa.9.5, ptr %8, align 8
+  store i32 %.sroa.13.6, ptr %28, align 4
   br label %_ZN6Gluco25QueueIjE6insertEj.exit
 
 _ZN6Gluco25QueueIjE6insertEj.exit:                ; preds = %128, %_ZN6Gluco23vecIjED2Ev.exit.i
@@ -4894,10 +4894,10 @@ _ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %95, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %.sroa.0114.0227 = phi ptr [ null, %.lr.ph229 ], [ %.sroa.0114.3, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %.sroa.11.0226 = phi i32 [ 0, %.lr.ph229 ], [ %spec.select183, %_ZN6Gluco23vecIjE4pushERKj.exit ]
-  %.sroa.21.0225 = phi i32 [ 0, %.lr.ph229 ], [ %.sroa.21.2, %_ZN6Gluco23vecIjE4pushERKj.exit ]
+  %.sroa.21.0225 = phi i32 [ 0, %.lr.ph229 ], [ %.sroa.21.1, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %.sroa.092.0224 = phi ptr [ null, %.lr.ph229 ], [ %.sroa.092.3, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %.sroa.9.0223 = phi i32 [ 0, %.lr.ph229 ], [ %spec.select182, %_ZN6Gluco23vecIjE4pushERKj.exit ]
-  %.sroa.17.0222 = phi i32 [ 0, %.lr.ph229 ], [ %.sroa.17.2, %_ZN6Gluco23vecIjE4pushERKj.exit ]
+  %.sroa.17.0222 = phi i32 [ 0, %.lr.ph229 ], [ %.sroa.17.1, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %110 = load ptr, ptr %42, align 8
   %111 = getelementptr inbounds i32, ptr %110, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4
@@ -4977,10 +4977,10 @@ _ZN6Gluco2L4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %_ZN6Gluco2L4fin
 
 .cont.cont:                                       ; preds = %.cont.else, %.cont.then
   %143 = phi ptr [ %141, %.cont.then ], [ %142, %.cont.else ]
-  %.sroa.21.1162 = phi i32 [ %138, %.cont.then ], [ %.sroa.21.0225, %.cont.else ]
-  %.sroa.17.1160 = phi i32 [ %.sroa.17.0222, %.cont.then ], [ %138, %.cont.else ]
-  %.sroa.092.1 = phi ptr [ %.sroa.092.0224, %.cont.then ], [ %142, %.cont.else ]
-  %.sroa.0114.1 = phi ptr [ %141, %.cont.then ], [ %.sroa.0114.0227, %.cont.else ]
+  %.sroa.21.2162 = phi i32 [ %138, %.cont.then ], [ %.sroa.21.0225, %.cont.else ]
+  %.sroa.17.2160 = phi i32 [ %.sroa.17.0222, %.cont.then ], [ %138, %.cont.else ]
+  %.sroa.092.4 = phi ptr [ %.sroa.092.0224, %.cont.then ], [ %142, %.cont.else ]
+  %.sroa.0114.4 = phi ptr [ %141, %.cont.then ], [ %.sroa.0114.0227, %.cont.else ]
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
 
@@ -4996,8 +4996,8 @@ _ZN6Gluco2L4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %_ZN6Gluco2L4fin
   br label %.loopexit198
 
 .loopexit198:                                     ; preds = %130, %145
-  %.sroa.092.2 = phi ptr [ %.sroa.092.1, %145 ], [ %.sroa.092.0224, %130 ]
-  %.sroa.0114.2 = phi ptr [ %.sroa.0114.1, %145 ], [ %.sroa.0114.0227, %130 ]
+  %.sroa.092.2 = phi ptr [ %.sroa.092.4, %145 ], [ %.sroa.092.0224, %130 ]
+  %.sroa.0114.2 = phi ptr [ %.sroa.0114.4, %145 ], [ %.sroa.0114.0227, %130 ]
   %149 = tail call ptr @__cxa_allocate_exception(i64 1) #23
   invoke void @__cxa_throw(ptr %149, ptr nonnull @_ZTIN6Gluco220OutOfMemoryExceptionE, ptr null) #24
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -5007,10 +5007,10 @@ _ZN6Gluco2L4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit: ; preds = %_ZN6Gluco2L4fin
 
 _ZN6Gluco23vecIjE4pushERKj.exit:                  ; preds = %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
   %150 = phi i32 [ %.pre, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %112, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
-  %.sroa.17.2 = phi i32 [ %.sroa.17.1160, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.17.0222, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
-  %.sroa.092.3 = phi ptr [ %.sroa.092.1, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.092.0224, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
-  %.sroa.21.2 = phi i32 [ %.sroa.21.1162, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.21.0225, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
-  %.sroa.0114.3 = phi ptr [ %.sroa.0114.1, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.0114.0227, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.2160, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.17.0222, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
+  %.sroa.092.3 = phi ptr [ %.sroa.092.4, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.092.0224, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
+  %.sroa.21.1 = phi i32 [ %.sroa.21.2162, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.21.0225, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
+  %.sroa.0114.3 = phi ptr [ %.sroa.0114.4, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.sroa.0114.0227, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
   %151 = phi ptr [ %143, %.cont.cont._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ], [ %.pre.i52.sroa.speculated, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ]
   %152 = add nsw i32 %127, 1
   %spec.select182 = select i1 %.lcssa.i151155, i32 %.sroa.9.0223, i32 %152
@@ -5040,34 +5040,34 @@ _ZN6Gluco23vecIjE4pushERKj.exit:                  ; preds = %.cont.cont._ZN6Gluc
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %185, %.loopexit198, %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77, %._crit_edge, %._crit_edge245
-  %.sroa.092.4.ph.ph.ph = phi ptr [ %.sroa.092.0.lcssa302, %185 ], [ %.sroa.092.0.lcssa302, %._crit_edge ], [ %.sroa.092.0.lcssa302, %._crit_edge245 ], [ %.sroa.092.0.lcssa302, %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77 ], [ %.sroa.092.2, %.loopexit198 ]
-  %.sroa.0114.4.ph.ph.ph = phi ptr [ %.sroa.0114.0.lcssa306, %185 ], [ %.sroa.0114.0.lcssa306, %._crit_edge ], [ %.sroa.0114.0.lcssa306, %._crit_edge245 ], [ %.sroa.0114.0.lcssa306, %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77 ], [ %.sroa.0114.2, %.loopexit198 ]
+  %.sroa.092.1.ph.ph.ph = phi ptr [ %.sroa.092.0.lcssa302, %185 ], [ %.sroa.092.0.lcssa302, %._crit_edge ], [ %.sroa.092.0.lcssa302, %._crit_edge245 ], [ %.sroa.092.0.lcssa302, %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77 ], [ %.sroa.092.2, %.loopexit198 ]
+  %.sroa.0114.1.ph.ph.ph = phi ptr [ %.sroa.0114.0.lcssa306, %185 ], [ %.sroa.0114.0.lcssa306, %._crit_edge ], [ %.sroa.0114.0.lcssa306, %._crit_edge245 ], [ %.sroa.0114.0.lcssa306, %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77 ], [ %.sroa.0114.2, %.loopexit198 ]
   %lpad.loopexit.split-lp192 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.sroa.092.4.ph = phi ptr [ %.sroa.092.0.lcssa302, %.loopexit ], [ %.sroa.092.0.lcssa302, %.loopexit.split-lp.loopexit ], [ %.sroa.092.4.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0114.4.ph = phi ptr [ %.sroa.0114.0.lcssa306, %.loopexit ], [ %.sroa.0114.0.lcssa306, %.loopexit.split-lp.loopexit ], [ %.sroa.0114.4.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.092.1.ph = phi ptr [ %.sroa.092.0.lcssa302, %.loopexit ], [ %.sroa.092.0.lcssa302, %.loopexit.split-lp.loopexit ], [ %.sroa.092.1.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0114.1.ph = phi ptr [ %.sroa.0114.0.lcssa306, %.loopexit ], [ %.sroa.0114.0.lcssa306, %.loopexit.split-lp.loopexit ], [ %.sroa.0114.1.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit191, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp192, %.loopexit.split-lp.loopexit.split-lp ]
-  %.not.i.i = icmp eq ptr %.sroa.092.4.ph, null
+  %.not.i.i = icmp eq ptr %.sroa.092.1.ph, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecIjED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.thread164.loopexit.split.us, %.thread164.loopexit.split-lp, %.loopexit.split-lp
   %lpad.phi172 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit186.us, %.thread164.loopexit.split.us ], [ %lpad.loopexit.split-lp187, %.thread164.loopexit.split-lp ]
-  %.sroa.0114.4170 = phi ptr [ %.sroa.0114.4.ph, %.loopexit.split-lp ], [ %.sroa.0114.0.lcssa306, %.thread164.loopexit.split.us ], [ %.sroa.0114.0.lcssa306, %.thread164.loopexit.split-lp ]
-  %.sroa.092.4169 = phi ptr [ %.sroa.092.4.ph, %.loopexit.split-lp ], [ %.sroa.092.0.lcssa302, %.thread164.loopexit.split.us ], [ %.sroa.092.0.lcssa302, %.thread164.loopexit.split-lp ]
-  tail call void @free(ptr noundef nonnull %.sroa.092.4169) #23
+  %.sroa.0114.1170 = phi ptr [ %.sroa.0114.1.ph, %.loopexit.split-lp ], [ %.sroa.0114.0.lcssa306, %.thread164.loopexit.split.us ], [ %.sroa.0114.0.lcssa306, %.thread164.loopexit.split-lp ]
+  %.sroa.092.1169 = phi ptr [ %.sroa.092.1.ph, %.loopexit.split-lp ], [ %.sroa.092.0.lcssa302, %.thread164.loopexit.split.us ], [ %.sroa.092.0.lcssa302, %.thread164.loopexit.split-lp ]
+  tail call void @free(ptr noundef nonnull %.sroa.092.1169) #23
   br label %_ZN6Gluco23vecIjED2Ev.exit
 
 _ZN6Gluco23vecIjED2Ev.exit:                       ; preds = %.loopexit.split-lp, %.preheader.i.i
   %lpad.phi173 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi172, %.preheader.i.i ]
-  %.sroa.0114.4171 = phi ptr [ %.sroa.0114.4.ph, %.loopexit.split-lp ], [ %.sroa.0114.4170, %.preheader.i.i ]
-  %.not.i.i53 = icmp eq ptr %.sroa.0114.4171, null
+  %.sroa.0114.1171 = phi ptr [ %.sroa.0114.1.ph, %.loopexit.split-lp ], [ %.sroa.0114.1170, %.preheader.i.i ]
+  %.not.i.i53 = icmp eq ptr %.sroa.0114.1171, null
   br i1 %.not.i.i53, label %_ZN6Gluco23vecIjED2Ev.exit55, label %.preheader.i.i54
 
 .preheader.i.i54:                                 ; preds = %_ZN6Gluco23vecIjED2Ev.exit
-  tail call void @free(ptr noundef nonnull %.sroa.0114.4171) #23
+  tail call void @free(ptr noundef nonnull %.sroa.0114.1171) #23
   br label %_ZN6Gluco23vecIjED2Ev.exit55
 
 _ZN6Gluco23vecIjED2Ev.exit55:                     ; preds = %_ZN6Gluco23vecIjED2Ev.exit, %.preheader.i.i54

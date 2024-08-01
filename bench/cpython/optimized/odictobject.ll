@@ -2865,7 +2865,7 @@ if.end:                                           ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %Py_XDECREF.exit37, %if.end
-  %res.0 = phi i32 [ 0, %if.end ], [ %res.1, %Py_XDECREF.exit37 ]
+  %res.0 = phi i32 [ 0, %if.end ], [ %res.2, %Py_XDECREF.exit37 ]
   %call1 = tail call ptr @PyIter_Next(ptr noundef nonnull %call) #7
   %cmp2.not = icmp eq ptr %call1, null
   br i1 %cmp2.not, label %while.end, label %while.body
@@ -2941,7 +2941,7 @@ if.end29:                                         ; preds = %if.else
   br label %Done
 
 Done:                                             ; preds = %if.else, %if.then16, %if.then19, %if.then9, %if.then11, %while.body, %if.end29, %Py_DECREF.exit57
-  %res.1 = phi i32 [ %res.0, %while.body ], [ %res.0, %if.then9 ], [ %res.0, %if.then11 ], [ %res.0, %if.then16 ], [ %res.0, %if.then19 ], [ %res.0, %Py_DECREF.exit57 ], [ %res.0, %if.else ], [ %call30, %if.end29 ]
+  %res.2 = phi i32 [ %res.0, %while.body ], [ %res.0, %if.then9 ], [ %res.0, %if.then11 ], [ %res.0, %if.then16 ], [ %res.0, %if.then19 ], [ %res.0, %Py_DECREF.exit57 ], [ %res.0, %if.else ], [ %call30, %if.end29 ]
   %key.0 = phi ptr [ null, %while.body ], [ null, %if.then9 ], [ null, %if.then11 ], [ %call7, %if.then16 ], [ %call7, %if.then19 ], [ %call7, %Py_DECREF.exit57 ], [ %call7, %if.else ], [ %call7, %if.end29 ]
   %value.0 = phi ptr [ null, %while.body ], [ null, %if.then9 ], [ null, %if.then11 ], [ null, %if.then16 ], [ null, %if.then19 ], [ %call14, %Py_DECREF.exit57 ], [ %call14, %if.else ], [ %call14, %if.end29 ]
   %5 = load i64, ptr %call1, align 8
@@ -3024,7 +3024,7 @@ Py_XDECREF.exit37:                                ; preds = %Py_XDECREF.exit28, 
   br i1 %tobool32.not, label %while.cond, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %Py_XDECREF.exit37, %while.cond
-  %res.2 = phi i32 [ %res.1, %Py_XDECREF.exit37 ], [ %res.0, %while.cond ]
+  %res.1 = phi i32 [ %res.2, %Py_XDECREF.exit37 ], [ %res.0, %while.cond ]
   %13 = load i64, ptr %call, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i66.not = icmp eq i64 %14, 0
@@ -3041,7 +3041,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %while.end, %if.then1.i, %if.end.i
-  %cmp35 = icmp slt i32 %res.2, 0
+  %cmp35 = icmp slt i32 %res.1, 0
   br i1 %cmp35, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %Py_DECREF.exit

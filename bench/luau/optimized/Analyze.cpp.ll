@@ -2515,14 +2515,14 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit112:          ; preds = %_ZNSt8functionIFvmm
 
 264:                                              ; preds = %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit112, %247
   %.pn = phi { ptr, i32 } [ %250, %_ZNSt8functionIFvS_IFvvEEEED2Ev.exit112 ], [ %248, %247 ]
-  %.078 = extractvalue { ptr, i32 } %.pn, 0
-  %.081 = extractvalue { ptr, i32 } %.pn, 1
+  %.7 = extractvalue { ptr, i32 } %.pn, 0
+  %.788 = extractvalue { ptr, i32 } %.pn, 1
   %265 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4Luau21InternalCompilerErrorE) #25
-  %266 = icmp eq i32 %.081, %265
+  %266 = icmp eq i32 %.788, %265
   br i1 %266, label %267, label %673
 
 267:                                              ; preds = %264
-  %268 = call ptr @__cxa_begin_catch(ptr %.078) #25
+  %268 = call ptr @__cxa_begin_catch(ptr %.7) #25
   %269 = getelementptr inbounds i8, ptr %268, i64 96
   %270 = load i8, ptr %269, align 4
   %271 = trunc i8 %270 to i1
@@ -2670,8 +2670,8 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
 
 325:                                              ; preds = %306, %324, %304
   %.pn95.pn.pn = phi { ptr, i32 } [ %.pn95.pn, %324 ], [ %305, %304 ], [ %307, %306 ]
-  %.3 = extractvalue { ptr, i32 } %.pn95.pn.pn, 0
-  %.384 = extractvalue { ptr, i32 } %.pn95.pn.pn, 1
+  %.8 = extractvalue { ptr, i32 } %.pn95.pn.pn, 0
+  %.889 = extractvalue { ptr, i32 } %.pn95.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %673 unwind label %683
 
@@ -3229,7 +3229,7 @@ _ZNSt10shared_ptrIN4Luau6ModuleEED2Ev.exit.i:     ; preds = %_ZNSt16_Sp_counted_
   br label %616
 
 616:                                              ; preds = %.loopexit, %302, %614
-  %.0 = phi i32 [ %615, %614 ], [ 1, %302 ], [ 0, %.loopexit ]
+  %.2 = phi i32 [ %615, %614 ], [ 1, %302 ], [ 0, %.loopexit ]
   %617 = load ptr, ptr %19, align 16
   %618 = getelementptr inbounds i8, ptr %19, i64 8
   %619 = load ptr, ptr %618, align 8
@@ -3364,55 +3364,55 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4Luau15FrontendOptionsD2Ev.exit
 
 673:                                              ; preds = %325, %264, %.body119
-  %.485 = phi i32 [ %173, %.body119 ], [ %.384, %325 ], [ %.081, %264 ]
-  %.4 = phi ptr [ %172, %.body119 ], [ %.3, %325 ], [ %.078, %264 ]
+  %.687 = phi i32 [ %173, %.body119 ], [ %.889, %325 ], [ %.788, %264 ]
+  %.6 = phi ptr [ %172, %.body119 ], [ %.8, %325 ], [ %.7, %264 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #25
   br label %674
 
 674:                                              ; preds = %673, %165
-  %.586 = phi i32 [ %168, %165 ], [ %.485, %673 ]
-  %.5 = phi ptr [ %167, %165 ], [ %.4, %673 ]
+  %.586 = phi i32 [ %168, %165 ], [ %.687, %673 ]
+  %.5 = phi ptr [ %167, %165 ], [ %.6, %673 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #25
   br label %675
 
 675:                                              ; preds = %674, %150
-  %.687 = phi i32 [ %.586, %674 ], [ %153, %150 ]
-  %.6 = phi ptr [ %.5, %674 ], [ %152, %150 ]
+  %.485 = phi i32 [ %.586, %674 ], [ %153, %150 ]
+  %.4 = phi ptr [ %.5, %674 ], [ %152, %150 ]
   call void @_ZN4Luau8FrontendD2Ev(ptr noundef nonnull align 8 dereferenceable(1744) %17) #25
   br label %676
 
 676:                                              ; preds = %675, %146
-  %.788 = phi i32 [ %.687, %675 ], [ %149, %146 ]
-  %.7 = phi ptr [ %.6, %675 ], [ %148, %146 ]
+  %.384 = phi i32 [ %.485, %675 ], [ %149, %146 ]
+  %.3 = phi ptr [ %.4, %675 ], [ %148, %146 ]
   call void @_ZN17CliConfigResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %16) #25
   br label %677
 
 677:                                              ; preds = %676, %142
-  %.889 = phi i32 [ %.788, %676 ], [ %145, %142 ]
-  %.8 = phi ptr [ %.7, %676 ], [ %144, %142 ]
+  %.283 = phi i32 [ %.384, %676 ], [ %145, %142 ]
+  %.280 = phi ptr [ %.3, %676 ], [ %144, %142 ]
   call void @_ZN4Luau15FrontendOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %14) #25
   br label %678
 
 _ZN4Luau15FrontendOptionsD2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i144, %668, %655, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit138, %103
-  %.1 = phi i32 [ 1, %103 ], [ %.0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit138 ], [ %.0, %655 ], [ %.0, %668 ], [ %.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i144 ]
+  %.1 = phi i32 [ 1, %103 ], [ %.2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit138 ], [ %.2, %655 ], [ %.2, %668 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i144 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   br label %679
 
 678:                                              ; preds = %677, %.body103, %74
-  %.990 = phi i32 [ %77, %74 ], [ %99, %.body103 ], [ %.889, %677 ]
-  %.9 = phi ptr [ %76, %74 ], [ %98, %.body103 ], [ %.8, %677 ]
+  %.182 = phi i32 [ %77, %74 ], [ %99, %.body103 ], [ %.283, %677 ]
+  %.179 = phi ptr [ %76, %74 ], [ %98, %.body103 ], [ %.280, %677 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   br label %680
 
 679:                                              ; preds = %_ZN4Luau15FrontendOptionsD2Ev.exit, %39
-  %.2 = phi i32 [ 0, %39 ], [ %.1, %_ZN4Luau15FrontendOptionsD2Ev.exit ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %39 ], [ %.1, %_ZN4Luau15FrontendOptionsD2Ev.exit ]
+  ret i32 %.0
 
 680:                                              ; preds = %678, %.body
-  %.1091 = phi i32 [ %.990, %678 ], [ %52, %.body ]
-  %.10 = phi ptr [ %.9, %678 ], [ %51, %.body ]
-  %681 = insertvalue { ptr, i32 } poison, ptr %.10, 0
-  %682 = insertvalue { ptr, i32 } %681, i32 %.1091, 1
+  %.081 = phi i32 [ %.182, %678 ], [ %52, %.body ]
+  %.078 = phi ptr [ %.179, %678 ], [ %51, %.body ]
+  %681 = insertvalue { ptr, i32 } poison, ptr %.078, 0
+  %682 = insertvalue { ptr, i32 } %681, i32 %.081, 1
   resume { ptr, i32 } %682
 
 683:                                              ; preds = %325

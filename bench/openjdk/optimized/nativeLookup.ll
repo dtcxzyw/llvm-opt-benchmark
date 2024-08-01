@@ -530,8 +530,8 @@ _ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i: ; preds = %78, %
   br label %.thread
 
 .thread:                                          ; preds = %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i, %69, %_ZL21lookup_special_nativePKc.exit, %57, %53, %48, %_ZL21lookup_special_nativePKc.exit.thread
-  %.1 = phi ptr [ %47, %_ZL21lookup_special_nativePKc.exit.thread ], [ null, %48 ], [ null, %53 ], [ %60, %57 ], [ %44, %_ZL21lookup_special_nativePKc.exit ], [ %spec.select, %69 ], [ %spec.select, %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i ]
-  ret ptr %.1
+  %.025 = phi ptr [ %47, %_ZL21lookup_special_nativePKc.exit.thread ], [ null, %48 ], [ null, %53 ], [ %60, %57 ], [ %44, %_ZL21lookup_special_nativePKc.exit ], [ %spec.select, %69 ], [ %spec.select, %_ZN18GrowableArrayCHeapIP10JvmtiAgentL8MEMFLAGS23EED2Ev.exit.i ]
+  ret ptr %.025
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

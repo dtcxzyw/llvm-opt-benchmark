@@ -546,13 +546,13 @@ fail:                                             ; preds = %if.end93, %if.end, 
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %fail, %if.end237
-  %retval.0 = phi i32 [ %ret.0, %fail ], [ 0, %if.end237 ]
+  %retval.1 = phi i32 [ %ret.0, %fail ], [ 0, %if.end237 ]
   call void @bdrv_graph_rdunlock_main_loop() #15
   br label %return
 
 return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -667,10 +667,10 @@ if.else.i.i:                                      ; preds = %for.body.i
   %conv21.i.i = trunc nsw i64 %div20.i.i to i32
   %heads.1.i = select i1 %or.cond.i.i, i8 16, i8 %spec.select.i.i
   %secs_per_cyl.1.i = select i1 %or.cond.i.i, i8 31, i8 17
-  %cyls_times_heads.0.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
+  %cyls_times_heads.1.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
   %conv23.i.i = zext nneg i8 %heads.1.i to i32
   %mul24.i.i = shl nuw nsw i32 %conv23.i.i, 10
-  %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.0.i.i, %mul24.i.i
+  %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.1.i.i, %mul24.i.i
   br i1 %cmp25.not.i.i, label %calculate_geometry.exit.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.else.i.i
@@ -681,9 +681,9 @@ if.then27.i.i:                                    ; preds = %if.else.i.i
 calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.else.i.i, %if.then.i.i
   %heads.2.i = phi i8 [ 16, %if.then.i.i ], [ %heads.1.i, %if.else.i.i ], [ 16, %if.then27.i.i ]
   %secs_per_cyl.2.i = phi i8 [ -1, %if.then.i.i ], [ %secs_per_cyl.1.i, %if.else.i.i ], [ 63, %if.then27.i.i ]
-  %cyls_times_heads.1.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.0.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
+  %cyls_times_heads.0.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.1.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
   %conv33.i.i = zext nneg i8 %heads.2.i to i32
-  %div34.i.i = udiv i32 %cyls_times_heads.1.i.i, %conv33.i.i
+  %div34.i.i = udiv i32 %cyls_times_heads.0.i.i, %conv33.i.i
   %inc.i = add i32 %i.011.i, 1
   %conv35.i.mask.i = and i32 %div34.i.i, 65535
   %conv.i = zext nneg i32 %conv35.i.mask.i to i64
@@ -924,10 +924,10 @@ if.else.i.i:                                      ; preds = %for.body.i
   %conv21.i.i = trunc nsw i64 %div20.i.i to i32
   %heads.1.i = select i1 %or.cond.i.i, i8 16, i8 %spec.select.i.i
   %secs_per_cyl.1.i = select i1 %or.cond.i.i, i64 31, i64 17
-  %cyls_times_heads.0.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
+  %cyls_times_heads.1.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
   %conv23.i.i = zext nneg i8 %heads.1.i to i32
   %mul24.i.i = shl nuw nsw i32 %conv23.i.i, 10
-  %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.0.i.i, %mul24.i.i
+  %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.1.i.i, %mul24.i.i
   br i1 %cmp25.not.i.i, label %calculate_geometry.exit.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.else.i.i
@@ -938,9 +938,9 @@ if.then27.i.i:                                    ; preds = %if.else.i.i
 calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.else.i.i, %if.then.i.i
   %heads.2.i = phi i8 [ 16, %if.then.i.i ], [ %heads.1.i, %if.else.i.i ], [ 16, %if.then27.i.i ]
   %secs_per_cyl.2.i = phi i64 [ 255, %if.then.i.i ], [ %secs_per_cyl.1.i, %if.else.i.i ], [ 63, %if.then27.i.i ]
-  %cyls_times_heads.1.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.0.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
+  %cyls_times_heads.0.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.1.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
   %conv33.i.i = zext nneg i8 %heads.2.i to i32
-  %div34.i.i = udiv i32 %cyls_times_heads.1.i.i, %conv33.i.i
+  %div34.i.i = udiv i32 %cyls_times_heads.0.i.i, %conv33.i.i
   %inc.i = add i32 %i.011.i, 1
   %conv35.i.mask.i = and i32 %div34.i.i, 65535
   %conv.i = zext nneg i32 %conv35.i.mask.i to i64
@@ -1281,13 +1281,13 @@ if.end28:                                         ; preds = %if.end20
   br i1 %cmp2, label %while.body, label %fail, !llvm.loop !10
 
 fail:                                             ; preds = %if.end20, %if.end28, %if.then23.i, %if.end, %if.then17
-  %ret.3 = phi i32 [ %conv18, %if.then17 ], [ 0, %if.end ], [ %call23, %if.end20 ], [ 0, %if.end28 ], [ %call31.i, %if.then23.i ]
+  %ret.1 = phi i32 [ %conv18, %if.then17 ], [ 0, %if.end ], [ %call23, %if.end20 ], [ 0, %if.end28 ], [ %call31.i, %if.then23.i ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %local_qiov) #15
   call void @qemu_co_mutex_unlock(ptr noundef %0) #15
   br label %return
 
 return:                                           ; preds = %fail, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ %ret.3, %fail ]
+  %retval.0 = phi i32 [ %call1, %if.then ], [ %ret.1, %fail ]
   ret i32 %retval.0
 }
 
@@ -1344,8 +1344,8 @@ if.end10.i:                                       ; preds = %lor.lhs.false.i
   br label %get_image_offset.exit
 
 get_image_offset.exit:                            ; preds = %if.end, %lor.lhs.false.i, %if.end10.i
-  %retval.1.i = phi i64 [ -1, %lor.lhs.false.i ], [ -1, %if.end ], [ %add17.i, %if.end10.i ]
-  %cmp4.not = icmp eq i64 %retval.1.i, -1
+  %retval.0.i = phi i64 [ -1, %lor.lhs.false.i ], [ -1, %if.end ], [ %add17.i, %if.end10.i ]
+  %cmp4.not = icmp eq i64 %retval.0.i, -1
   store i64 0, ptr %pnum, align 8
   %block_size = getelementptr inbounds i8, ptr %0, i64 600
   %10 = load i32, ptr %block_size, align 8
@@ -1411,7 +1411,7 @@ if.then16:                                        ; preds = %get_image_offset.ex
   %18 = load ptr, ptr %file17, align 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %file, align 8
-  store i64 %retval.1.i, ptr %map, align 8
+  store i64 %retval.0.i, ptr %map, align 8
   br label %do.end
 
 do.end:                                           ; preds = %get_image_offset.exit49.us, %lor.lhs.false.i37.us, %if.end19.lr.ph.split.us, %if.then16
@@ -1729,13 +1729,13 @@ cleanup:                                          ; preds = %if.then23
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then23, %cleanup
-  %retval.1.ph = phi i64 [ -2, %cleanup ], [ %add17, %if.then23 ]
+  %retval.0.ph = phi i64 [ -2, %cleanup ], [ %add17, %if.then23 ]
   tail call void @g_free(ptr noundef %call) #15
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end10, %land.lhs.true20, %if.end, %lor.lhs.false
-  %retval.1 = phi i64 [ -1, %lor.lhs.false ], [ -1, %if.end ], [ %add17, %land.lhs.true20 ], [ %add17, %if.end10 ], [ %retval.1.ph, %return.sink.split ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ -1, %lor.lhs.false ], [ -1, %if.end ], [ %add17, %land.lhs.true20 ], [ %add17, %if.end10 ], [ %retval.0.ph, %return.sink.split ]
+  ret i64 %retval.0
 }
 
 declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1

@@ -6840,7 +6840,7 @@ terminate.lpad.i34:                               ; preds = %if.end.i.i.i32
   unreachable
 
 _ZN7datalog10scoped_relINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEED2Ev.exit: ; preds = %cleanup63, %invoke.cont13, %cleanup64, %if.end.i.i.i32
-  %retval.247 = phi ptr [ %retval.154, %cleanup64 ], [ %retval.154, %if.end.i.i.i32 ], [ null, %invoke.cont13 ], [ %call33, %cleanup63 ]
+  %retval.047 = phi ptr [ %retval.154, %cleanup64 ], [ %retval.154, %if.end.i.i.i32 ], [ null, %invoke.cont13 ], [ %call33, %cleanup63 ]
   %25 = load ptr, ptr %join_removed_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -6858,7 +6858,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN7datalog10scoped_relINS_17tr_infrastructureINS_15relation_traitsEE7join_fnEED2Ev.exit, %if.then.i.i.i
-  ret ptr %retval.247
+  ret ptr %retval.047
 
 ehcleanup65:                                      ; preds = %ehcleanup, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad16 ]
@@ -8034,7 +8034,7 @@ invoke.cont20:                                    ; preds = %if.end19
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont20, %invoke.cont
-  %retval.0 = phi ptr [ null, %invoke.cont ], [ %call21, %invoke.cont20 ]
+  %retval.1 = phi ptr [ null, %invoke.cont ], [ %call21, %invoke.cont20 ]
   %m_bv.i = getelementptr inbounds i8, ptr %decl_util, i64 16
   %18 = load ptr, ptr %m_bv.i, align 8
   %cmp.i.i.i = icmp eq ptr %18, null
@@ -8069,8 +8069,8 @@ terminate.lpad.i3.i:                              ; preds = %if.end.i.i2.i
   unreachable
 
 return:                                           ; preds = %land.rhs.i.i12, %if.end, %land.rhs.i.i, %entry, %if.end.i.i2.i, %_ZN10scoped_ptrI7bv_utilED2Ev.exit.i, %if.end6, %_ZNK11ast_manager5is_eqEPK4expr.exit, %_ZNK11ast_manager6is_notEPK4expr.exit
-  %retval.1 = phi ptr [ null, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ null, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ null, %if.end6 ], [ %retval.0, %_ZN10scoped_ptrI7bv_utilED2Ev.exit.i ], [ %retval.0, %if.end.i.i2.i ], [ null, %entry ], [ null, %land.rhs.i.i ], [ null, %if.end ], [ null, %land.rhs.i.i12 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ null, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ null, %if.end6 ], [ %retval.1, %_ZN10scoped_ptrI7bv_utilED2Ev.exit.i ], [ %retval.1, %if.end.i.i2.i ], [ null, %entry ], [ null, %land.rhs.i.i ], [ null, %if.end ], [ null, %land.rhs.i.i12 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -19028,8 +19028,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !76
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.141 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
-  %6 = load ptr, ptr %curr.141, align 8
+  %curr.241 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
+  %6 = load ptr, ptr %curr.241, align 8
   %magicptr32 = ptrtoint ptr %6 to i64
   switch i64 %magicptr32, label %if.then21 [
     i64 0, label %if.end55
@@ -19045,13 +19045,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond31, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.141, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.241, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !77
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.141, %if.then21 ], [ %curr.039, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.241, %if.then21 ], [ %curr.039, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
   %8 = load ptr, ptr %spec.select, align 8
@@ -19059,7 +19059,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i28, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %m_size, align 4
   %dec = add i32 %9, -1
@@ -19067,7 +19067,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1
@@ -19244,8 +19244,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !78
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.141 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
-  %6 = load ptr, ptr %curr.141, align 8
+  %curr.241 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
+  %6 = load ptr, ptr %curr.241, align 8
   %magicptr32 = ptrtoint ptr %6 to i64
   switch i64 %magicptr32, label %if.then21 [
     i64 0, label %if.end55
@@ -19261,13 +19261,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond31, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.141, i64 8
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.241, i64 8
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !79
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.141, %if.then21 ], [ %curr.039, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 8
+  %curr.1 = phi ptr [ %curr.241, %if.then21 ], [ %curr.039, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 8
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
   %8 = load ptr, ptr %spec.select, align 8
@@ -19275,7 +19275,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i28, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %m_size, align 4
   %dec = add i32 %9, -1
@@ -19283,7 +19283,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1
@@ -20374,7 +20374,7 @@ if.else:                                          ; preds = %entry
 
 while.cond:                                       ; preds = %invoke.cont26, %if.else
   %7 = phi ptr [ null, %if.else ], [ %call25, %invoke.cont26 ]
-  %res.1 = phi ptr [ %o, %if.else ], [ %call25, %invoke.cont26 ]
+  %res.2 = phi ptr [ %o, %if.else ], [ %call25, %invoke.cont26 ]
   %call13 = invoke noundef zeroext i1 @_ZN7datalog33try_remove_cycle_from_permutationER7svectorIjjES2_(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation, ptr noundef nonnull align 8 dereferenceable(8) %cycle)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -20393,12 +20393,12 @@ if.end.i.i9:                                      ; preds = %invoke.cont14
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i9, %invoke.cont14
   %retval.0.i.i11 = phi i32 [ %9, %if.end.i.i9 ], [ 0, %invoke.cont14 ]
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %res.1, i64 8
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %res.2, i64 8
   %10 = load ptr, ptr %m_plugin.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 104
   %11 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(28) %res.1, i32 noundef %retval.0.i.i11, ptr noundef %8)
+  %call2.i.i12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(28) %res.2, i32 noundef %retval.0.i.i11, ptr noundef %8)
           to label %invoke.cont16 unwind label %lpad11
 
 invoke.cont16:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -20448,7 +20448,7 @@ _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %invoke.cont19, %if.
   %vtable22 = load ptr, ptr %call2.i.i12, align 8
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 16
   %20 = load ptr, ptr %vfn23, align 8
-  %call25 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i12, ptr noundef nonnull align 8 dereferenceable(28) %res.1)
+  %call25 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i12, ptr noundef nonnull align 8 dereferenceable(28) %res.2)
           to label %invoke.cont24 unwind label %lpad11
 
 invoke.cont24:                                    ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit
@@ -20491,16 +20491,16 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 if.end:                                           ; preds = %invoke.cont6, %if.then.i.i.i, %while.end
   %25 = phi ptr [ %7, %while.end ], [ %7, %if.then.i.i.i ], [ %call5, %invoke.cont6 ]
-  %res.2 = phi ptr [ %res.1, %while.end ], [ %res.1, %if.then.i.i.i ], [ %call5, %invoke.cont6 ]
+  %res.1 = phi ptr [ %res.2, %while.end ], [ %res.2, %if.then.i.i.i ], [ %call5, %invoke.cont6 ]
   %cmp.i25.not = icmp eq ptr %25, null
   br i1 %cmp.i25.not, label %if.else36, label %_ZN7datalog10scoped_relINS_13relation_baseEED2Ev.exit
 
 if.else36:                                        ; preds = %if.then, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnELb0EjE3endEv.exit, %if.end
-  %res.245 = phi ptr [ %res.2, %if.end ], [ %o, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnELb0EjE3endEv.exit ], [ %o, %if.then ]
-  %vtable37 = load ptr, ptr %res.245, align 8
+  %res.145 = phi ptr [ %res.1, %if.end ], [ %o, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE14transformer_fnELb0EjE3endEv.exit ], [ %o, %if.then ]
+  %vtable37 = load ptr, ptr %res.145, align 8
   %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 72
   %26 = load ptr, ptr %vfn38, align 8
-  %call40 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(28) %res.245)
+  %call40 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(28) %res.145)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.else36
@@ -20772,7 +20772,7 @@ if.else:                                          ; preds = %entry
 
 while.cond:                                       ; preds = %invoke.cont25, %if.else
   %7 = phi ptr [ null, %if.else ], [ %call24, %invoke.cont25 ]
-  %res.1 = phi ptr [ %o, %if.else ], [ %call24, %invoke.cont25 ]
+  %res.2 = phi ptr [ %o, %if.else ], [ %call24, %invoke.cont25 ]
   %call13 = invoke noundef zeroext i1 @_ZN7datalog33try_remove_cycle_from_permutationER7svectorIjjES2_(ptr noundef nonnull align 8 dereferenceable(8) %m_permutation, ptr noundef nonnull align 8 dereferenceable(8) %cycle)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -20791,12 +20791,12 @@ if.end.i.i9:                                      ; preds = %invoke.cont14
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i9, %invoke.cont14
   %retval.0.i.i11 = phi i32 [ %9, %if.end.i.i9 ], [ 0, %invoke.cont14 ]
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %res.1, i64 8
+  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %res.2, i64 8
   %10 = load ptr, ptr %m_plugin.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 104
   %11 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(36) %res.1, i32 noundef %retval.0.i.i11, ptr noundef %8)
+  %call2.i.i12 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(36) %res.2, i32 noundef %retval.0.i.i11, ptr noundef %8)
           to label %call2.i.i.noexc unwind label %lpad11
 
 call2.i.i.noexc:                                  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -20808,7 +20808,7 @@ if.then.i.i:                                      ; preds = %call2.i.i.noexc
           to label %call3.i.i.noexc unwind label %lpad11
 
 call3.i.i.noexc:                                  ; preds = %if.then.i.i
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %res.1, i64 16
+  %m_signature.i.i.i = getelementptr inbounds i8, ptr %res.2, i64 16
   invoke void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnC2ERKNS_15table_signatureEjPKj(ptr noundef nonnull align 8 dereferenceable(32) %call3.i.i13, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i.i.i, i32 noundef %retval.0.i.i11, ptr noundef %8)
           to label %.noexc14 unwind label %lpad11
 
@@ -20868,7 +20868,7 @@ _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %invoke.cont19, %if.
   %vtable21 = load ptr, ptr %res.0.i.i, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
   %21 = load ptr, ptr %vfn22, align 8
-  %call24 = invoke noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %res.0.i.i, ptr noundef nonnull align 8 dereferenceable(36) %res.1)
+  %call24 = invoke noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %res.0.i.i, ptr noundef nonnull align 8 dereferenceable(36) %res.2)
           to label %invoke.cont23 unwind label %lpad11
 
 invoke.cont23:                                    ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit
@@ -20912,16 +20912,16 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 if.end:                                           ; preds = %invoke.cont6, %if.then.i.i.i, %while.end
   %27 = phi ptr [ %7, %while.end ], [ %7, %if.then.i.i.i ], [ %call5, %invoke.cont6 ]
-  %res.2 = phi ptr [ %res.1, %while.end ], [ %res.1, %if.then.i.i.i ], [ %call5, %invoke.cont6 ]
+  %res.1 = phi ptr [ %res.2, %while.end ], [ %res.2, %if.then.i.i.i ], [ %call5, %invoke.cont6 ]
   %cmp.i27.not = icmp eq ptr %27, null
   br i1 %cmp.i27.not, label %if.else35, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit
 
 if.else35:                                        ; preds = %if.then, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnELb0EjE3endEv.exit, %if.end
-  %res.247 = phi ptr [ %res.2, %if.end ], [ %o, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnELb0EjE3endEv.exit ], [ %o, %if.then ]
-  %vtable36 = load ptr, ptr %res.247, align 8
+  %res.147 = phi ptr [ %res.1, %if.end ], [ %o, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnELb0EjE3endEv.exit ], [ %o, %if.then ]
+  %vtable36 = load ptr, ptr %res.147, align 8
   %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 72
   %28 = load ptr, ptr %vfn37, align 8
-  %call39 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(36) %res.247)
+  %call39 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(36) %res.147)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.else35

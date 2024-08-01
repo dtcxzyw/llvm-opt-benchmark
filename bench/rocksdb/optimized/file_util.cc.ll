@@ -359,7 +359,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %if.end, label %cleanup
 
 lpad2:                                            ; preds = %if.end19, %invoke.cont
-  %io_s.sroa.73.0 = phi ptr [ %io_s.sroa.73.1, %if.end19 ], [ null, %invoke.cont ]
+  %io_s.sroa.73.0 = phi ptr [ %io_s.sroa.73.3, %if.end19 ], [ null, %invoke.cont ]
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -466,7 +466,7 @@ lpad12:                                           ; preds = %invoke.cont9
   br label %ehcleanup
 
 if.end19:                                         ; preds = %invoke.cont15, %if.end
-  %io_s.sroa.73.1 = phi ptr [ %14, %invoke.cont15 ], [ %6, %if.end ]
+  %io_s.sroa.73.3 = phi ptr [ %14, %invoke.cont15 ], [ %6, %if.end ]
   %call21 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #17
           to label %invoke.cont20 unwind label %lpad2
 
@@ -659,7 +659,7 @@ _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit5
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end61
   %40 = phi i64 [ %.pr188, %while.body.lr.ph ], [ %sub, %if.end61 ]
-  %41 = phi ptr [ %io_s.sroa.73.1, %while.body.lr.ph ], [ %60, %if.end61 ]
+  %41 = phi ptr [ %io_s.sroa.73.3, %while.body.lr.ph ], [ %60, %if.end61 ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %40, i64 4096)
   %42 = load ptr, ptr %src_reader, align 8
   invoke void @_ZN7rocksdb20SequentialFileReader4ReadEmPNS_5SliceEPcNS_3Env10IOPriorityE(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(168) %42, i64 noundef %.sroa.speculated, ptr noundef nonnull %slice, ptr noundef nonnull %buffer, i32 noundef 4)
@@ -720,7 +720,7 @@ lpad23:                                           ; preds = %invoke.cont20
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad12, %lpad2
-  %io_s.sroa.73.3 = phi ptr [ %io_s.sroa.73.1, %lpad23 ], [ %io_s.sroa.73.0, %lpad2 ], [ %6, %lpad12 ]
+  %io_s.sroa.73.2 = phi ptr [ %io_s.sroa.73.3, %lpad23 ], [ %io_s.sroa.73.0, %lpad2 ], [ %6, %lpad12 ]
   %.pn = phi { ptr, i32 } [ %49, %lpad23 ], [ %7, %lpad2 ], [ %20, %lpad12 ]
   %50 = load ptr, ptr %srcfile, align 8
   %cmp.not.i112 = icmp eq ptr %50, null
@@ -843,7 +843,7 @@ if.end61:                                         ; preds = %invoke.cont58
   br i1 %cmp27.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end61, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit
-  %.lcssa212 = phi ptr [ %io_s.sroa.73.1, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ], [ %60, %if.end61 ]
+  %.lcssa212 = phi ptr [ %io_s.sroa.73.3, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ], [ %60, %if.end61 ]
   %63 = load ptr, ptr %dest_writer, align 8
   invoke void @_ZN7rocksdb18WritableFileWriter4SyncEb(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %63, i1 noundef zeroext %use_fsync)
           to label %cleanup66 unwind label %lpad25.loopexit.split-lp
@@ -902,7 +902,7 @@ _ZN7rocksdb11FileOptionsD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
   ret void
 
 ehcleanup67:                                      ; preds = %lpad25.loopexit.split.loop.exit, %lpad25.loopexit.split.loop.exit.split-lp, %lpad25.loopexit.split-lp, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit116
-  %io_s.sroa.73.5 = phi ptr [ %.lcssa212, %lpad25.loopexit.split-lp ], [ %48, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %io_s.sroa.73.3, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit116 ], [ %41, %lpad25.loopexit.split.loop.exit ], [ %48, %lpad25.loopexit.split.loop.exit.split-lp ]
+  %io_s.sroa.73.5 = phi ptr [ %.lcssa212, %lpad25.loopexit.split-lp ], [ %48, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %io_s.sroa.73.2, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit116 ], [ %41, %lpad25.loopexit.split.loop.exit ], [ %48, %lpad25.loopexit.split.loop.exit.split-lp ]
   %.pn6 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad25.loopexit.split-lp ], [ %53, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %.pn, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit116 ], [ %lpad.split.loop.exit, %lpad25.loopexit.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %lpad25.loopexit.split.loop.exit.split-lp ]
   call void @_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %src_reader) #16
   %cmp.not.i.i.i179 = icmp eq ptr %io_s.sroa.73.5, null

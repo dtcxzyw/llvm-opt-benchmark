@@ -2476,13 +2476,13 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %38, %35, %43, %50
-  %.0 = phi ptr [ %49, %50 ], [ null, %43 ], [ null, %35 ], [ null, %38 ]
+  %.1 = phi ptr [ %49, %50 ], [ null, %43 ], [ null, %35 ], [ null, %38 ]
   call void @free(ptr noundef %12) #11
   br label %56
 
 56:                                               ; preds = %throwUnixException.exit, %14
-  %.1 = phi ptr [ null, %14 ], [ %.0, %throwUnixException.exit ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %14 ], [ %.1, %throwUnixException.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind
@@ -2703,13 +2703,13 @@ switch.hole_check:                                ; preds = %.critedge.thread
   br i1 %switch.lobit, label %throwUnixException.exit, label %35
 
 throwUnixException.exit:                          ; preds = %switch.hole_check, %37, %35, %42
-  %.0 = phi i32 [ %44, %42 ], [ -1, %35 ], [ -1, %37 ], [ -1, %switch.hole_check ]
+  %.1 = phi i32 [ %44, %42 ], [ -1, %35 ], [ -1, %37 ], [ -1, %switch.hole_check ]
   call void @free(ptr noundef %12) #11
   br label %45
 
 45:                                               ; preds = %throwUnixException.exit, %14
-  %.1 = phi i32 [ -1, %14 ], [ %.0, %throwUnixException.exit ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %14 ], [ %.1, %throwUnixException.exit ]
+  ret i32 %.0
 }
 
 declare i32 @getpwnam_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4

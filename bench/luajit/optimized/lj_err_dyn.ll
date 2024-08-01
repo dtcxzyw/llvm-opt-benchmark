@@ -936,7 +936,7 @@ cond.false:                                       ; preds = %entry
   br i1 %7, label %while.cond2.preheader.i, label %if.end21
 
 while.cond2.preheader.i:                          ; preds = %cond.false, %sw.epilog.i
-  %cf.053.i = phi ptr [ %cf.4.i, %sw.epilog.i ], [ %6, %cond.false ]
+  %cf.053.i = phi ptr [ %cf.3.i, %sw.epilog.i ], [ %6, %cond.false ]
   %frame.052.i = phi ptr [ %frame.1.i, %sw.epilog.i ], [ %add.ptr.i, %cond.false ]
   br label %while.cond2.i
 
@@ -1025,7 +1025,7 @@ if.then35.i:                                      ; preds = %sw.bb31.i
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then35.i, %sw.bb31.i
-  %cf.3.i = phi ptr [ %19, %if.then35.i ], [ %cf.1.i, %sw.bb31.i ]
+  %cf.4.i = phi ptr [ %19, %if.then35.i ], [ %cf.1.i, %sw.bb31.i ]
   %and38.i = and i64 %14, -8
   %idx.neg39.i = sub i64 0, %and38.i
   %add.ptr40.i = getelementptr inbounds i8, ptr %frame.052.i, i64 %idx.neg39.i
@@ -1078,9 +1078,9 @@ default.unreachable:                              ; preds = %while.end.i
 
 sw.epilog.i:                                      ; preds = %if.end52.i, %if.end37.i, %sw.bb27.i, %sw.bb.i
   %frame.1.i = phi ptr [ %add.ptr56.i, %if.end52.i ], [ %add.ptr40.i, %if.end37.i ], [ %add.ptr30.i, %sw.bb27.i ], [ %add.ptr24.i, %sw.bb.i ]
-  %cf.4.i = phi ptr [ %21, %if.end52.i ], [ %cf.3.i, %if.end37.i ], [ %cf.2.i, %sw.bb27.i ], [ %cf.1.i, %sw.bb.i ]
+  %cf.3.i = phi ptr [ %21, %if.end52.i ], [ %cf.4.i, %if.end37.i ], [ %cf.2.i, %sw.bb27.i ], [ %cf.1.i, %sw.bb.i ]
   %cmp.i = icmp ugt ptr %frame.1.i, %add.ptr1.i
-  %tobool.i = icmp ne ptr %cf.4.i, null
+  %tobool.i = icmp ne ptr %cf.3.i, null
   %25 = select i1 %cmp.i, i1 %tobool.i, i1 false
   br i1 %25, label %while.cond2.preheader.i, label %if.end21, !llvm.loop !6
 

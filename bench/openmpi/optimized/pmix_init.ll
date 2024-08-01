@@ -277,7 +277,7 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   br i1 %or.cond, label %.lr.ph376, label %.loopexit
 
 .lr.ph376:                                        ; preds = %12, %.thread
-  %.0375 = phi i1 [ %.1, %.thread ], [ false, %12 ]
+  %.1375 = phi i1 [ %.2, %.thread ], [ false, %12 ]
   %.0223374 = phi i64 [ %198, %.thread ], [ 0, %12 ]
   %14 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.0223374
   %15 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %14, ptr noundef nonnull @.str.13) #16
@@ -668,13 +668,13 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %.thread359, %87, %82, %79, %76, %72, %68, %64, %61, %57, %53, %50, %46, %43, %39, %35, %32, %28, %19, %174, %187, %197, %193, %179, %168
-  %.1 = phi i1 [ %.0375, %19 ], [ %.0375, %168 ], [ %.0375, %174 ], [ %181, %179 ], [ %.0375, %187 ], [ %.0375, %193 ], [ %.0375, %197 ], [ %.0375, %28 ], [ %.0375, %32 ], [ %.0375, %35 ], [ %.0375, %39 ], [ %.0375, %43 ], [ %.0375, %46 ], [ %.0375, %50 ], [ %.0375, %53 ], [ %.0375, %57 ], [ %.0375, %61 ], [ %.0375, %64 ], [ %.0375, %68 ], [ %.0375, %72 ], [ %.0375, %76 ], [ %.0375, %79 ], [ %.0375, %82 ], [ %.0375, %87 ], [ %.0375, %.thread359 ]
+  %.2 = phi i1 [ %.1375, %19 ], [ %.1375, %168 ], [ %.1375, %174 ], [ %181, %179 ], [ %.1375, %187 ], [ %.1375, %193 ], [ %.1375, %197 ], [ %.1375, %28 ], [ %.1375, %32 ], [ %.1375, %35 ], [ %.1375, %39 ], [ %.1375, %43 ], [ %.1375, %46 ], [ %.1375, %50 ], [ %.1375, %53 ], [ %.1375, %57 ], [ %.1375, %61 ], [ %.1375, %64 ], [ %.1375, %68 ], [ %.1375, %72 ], [ %.1375, %76 ], [ %.1375, %79 ], [ %.1375, %82 ], [ %.1375, %87 ], [ %.1375, %.thread359 ]
   %198 = add nuw i64 %.0223374, 1
   %exitcond379.not = icmp eq i64 %198, %2
   br i1 %exitcond379.not, label %.loopexit, label %.lr.ph376, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.thread, %12
-  %.2 = phi i1 [ false, %12 ], [ %.1, %.thread ]
+  %.0 = phi i1 [ false, %12 ], [ %.2, %.thread ]
   %199 = tail call i32 @evthread_use_pthreads() #16
   %200 = tail call ptr @pmix_progress_thread_init(ptr noundef null) #16
   store ptr %200, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
@@ -1211,7 +1211,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i352, %396
 
 419:                                              ; preds = %415
   %420 = call i32 @gethostname(ptr noundef nonnull %5, i64 noundef 64) #16
-  br i1 %.2, label %426, label %421
+  br i1 %.0, label %426, label %421
 
 421:                                              ; preds = %419
   %422 = call zeroext i1 @pmix_net_isaddr(ptr noundef nonnull %5) #16
@@ -1363,8 +1363,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i352, %396
 
 479:                                              ; preds = %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %447, %445, %443, %441, %439, %437, %435, %432, %430, %428, %pmix_obj_run_constructors.exit332
   %.0224 = phi ptr [ @.str.22, %pmix_obj_run_constructors.exit332 ], [ @.str.25, %428 ], [ @.str.26, %430 ], [ @.str.27, %432 ], [ @.str.28, %435 ], [ @.str.29, %437 ], [ @.str.30, %439 ], [ @.str.31, %441 ], [ @.str.32, %443 ], [ @.str.33, %445 ], [ @.str.34, %447 ], [ @.str.37, %453 ], [ @.str.38, %455 ], [ @.str.39, %457 ], [ @.str.40, %459 ], [ @.str.41, %461 ], [ @.str.42, %463 ], [ @.str.43, %465 ], [ @.str.44, %467 ], [ @.str.45, %469 ], [ @.str.46, %471 ], [ @.str.47, %473 ], [ @.str.48, %475 ], [ @.str.49, %477 ]
-  %.2221 = phi i32 [ %241, %pmix_obj_run_constructors.exit332 ], [ %429, %428 ], [ %431, %430 ], [ %434, %432 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ], [ %476, %475 ], [ %478, %477 ]
-  %.not306 = icmp eq i32 %.2221, -2
+  %.1220 = phi i32 [ %241, %pmix_obj_run_constructors.exit332 ], [ %429, %428 ], [ %431, %430 ], [ %434, %432 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ %468, %467 ], [ %470, %469 ], [ %472, %471 ], [ %474, %473 ], [ %476, %475 ], [ %478, %477 ]
+  %.not306 = icmp eq i32 %.1220, -2
   br i1 %.not306, label %481, label %.thread364
 
 .thread364.sink.split:                            ; preds = %407, %410, %344
@@ -1372,13 +1372,13 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i352, %396
   br label %.thread364
 
 .thread364:                                       ; preds = %25, %105, %.thread364.sink.split, %390, %.loopexit, %479
-  %.2221369 = phi i32 [ %.2221, %479 ], [ -32, %390 ], [ -1, %.loopexit ], [ -32, %.thread364.sink.split ], [ -27, %105 ], [ -27, %25 ]
+  %.1220369 = phi i32 [ %.1220, %479 ], [ -32, %390 ], [ -1, %.loopexit ], [ -32, %.thread364.sink.split ], [ -27, %105 ], [ -27, %25 ]
   %.0224368 = phi ptr [ %.0224, %479 ], [ null, %390 ], [ @.str.21, %.loopexit ], [ null, %.thread364.sink.split ], [ null, %105 ], [ null, %25 ]
-  %480 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef 1, ptr noundef %.0224368, i32 noundef %.2221369) #16
+  %480 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef 1, ptr noundef %.0224368, i32 noundef %.1220369) #16
   br label %481
 
 481:                                              ; preds = %479, %.thread364, %477, %4, %9
-  %.0218 = phi i32 [ %8, %9 ], [ -1, %4 ], [ 0, %477 ], [ %.2221369, %.thread364 ], [ -2, %479 ]
+  %.0218 = phi i32 [ %8, %9 ], [ -1, %4 ], [ 0, %477 ], [ %.1220369, %.thread364 ], [ -2, %479 ]
   ret i32 %.0218
 }
 

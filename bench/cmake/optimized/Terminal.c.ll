@@ -154,14 +154,14 @@ sub_043.i:                                        ; preds = %12
   br i1 %.not32.i, label %.critedge, label %.preheader.i
 
 29:                                               ; preds = %.preheader.i
-  %30 = getelementptr inbounds i8, ptr %.01846.i, i64 8
+  %30 = getelementptr inbounds i8, ptr %.146.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not33.i = icmp eq ptr %31, null
   br i1 %.not33.i, label %.critedge, label %.preheader.i, !llvm.loop !5
 
 .preheader.i:                                     ; preds = %27, %29
   %32 = phi ptr [ %31, %29 ], [ @.str.6, %27 ]
-  %.01846.i = phi ptr [ %30, %29 ], [ @kwsysTerminalVT100Names, %27 ]
+  %.146.i = phi ptr [ %30, %29 ], [ @kwsysTerminalVT100Names, %27 ]
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %32) #9
   %.not34.i = icmp eq i32 %33, 0
   br i1 %.not34.i, label %kwsysTerminalStreamIsVT100.exit, label %29

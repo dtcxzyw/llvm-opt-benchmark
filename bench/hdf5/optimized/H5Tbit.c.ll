@@ -639,7 +639,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
 
 12:                                               ; preds = %.lr.ph137, %19
   %.091136 = phi i64 [ %8, %.lr.ph137 ], [ %20, %19 ]
-  %.098135 = phi i64 [ %2, %.lr.ph137 ], [ %21, %19 ]
+  %.199135 = phi i64 [ %2, %.lr.ph137 ], [ %21, %19 ]
   %13 = trunc nuw nsw i64 %.091136 to i32
   %14 = lshr i32 %11, %13
   %15 = trunc i32 %14 to i1
@@ -652,33 +652,33 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
 
 19:                                               ; preds = %12
   %20 = add nuw nsw i64 %.091136, 1
-  %21 = add i64 %.098135, -1
+  %21 = add i64 %.199135, -1
   %22 = icmp ult i64 %.091136, 7
   %23 = icmp ne i64 %21, 0
   %24 = select i1 %22, i1 %23, i1 false
   br i1 %24, label %12, label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %19, %.preheader113
-  %.098.lcssa = phi i64 [ 0, %.preheader113 ], [ %21, %19 ]
+  %.199.lcssa = phi i64 [ 0, %.preheader113 ], [ %21, %19 ]
   %25 = add nuw nsw i64 %7, 1
   br label %26
 
 26:                                               ; preds = %._crit_edge138, %6
-  %.199 = phi i64 [ %.098.lcssa, %._crit_edge138 ], [ %2, %6 ]
+  %.098 = phi i64 [ %.199.lcssa, %._crit_edge138 ], [ %2, %6 ]
   %.095 = phi i64 [ %25, %._crit_edge138 ], [ %7, %6 ]
-  %27 = icmp ugt i64 %.199, 7
+  %27 = icmp ugt i64 %.098, 7
   br i1 %27, label %.lr.ph144, label %.preheader
 
 .lr.ph144:                                        ; preds = %26
   %28 = select i1 %4, i32 0, i32 255
-  %29 = add i64 %.199, -8
+  %29 = add i64 %.098, -8
   %30 = lshr i64 %29, 3
   %31 = add nuw nsw i64 %.095, %30
   %32 = add nuw nsw i64 %31, 1
   br label %36
 
 .preheader:                                       ; preds = %.loopexit112, %26
-  %.2100.lcssa = phi i64 [ %.199, %26 ], [ %50, %.loopexit112 ]
+  %.2100.lcssa = phi i64 [ %.098, %26 ], [ %50, %.loopexit112 ]
   %.196.lcssa = phi i64 [ %.095, %26 ], [ %32, %.loopexit112 ]
   %.not150 = icmp eq i64 %.2100.lcssa, 0
   br i1 %.not150, label %.loopexit, label %.lr.ph148
@@ -691,7 +691,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
 
 36:                                               ; preds = %.lr.ph144, %.loopexit112
   %.196142 = phi i64 [ %.095, %.lr.ph144 ], [ %51, %.loopexit112 ]
-  %.2100141 = phi i64 [ %.199, %.lr.ph144 ], [ %50, %.loopexit112 ]
+  %.2100141 = phi i64 [ %.098, %.lr.ph144 ], [ %50, %.loopexit112 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 %.196142
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -785,9 +785,9 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   br label %89
 
 89:                                               ; preds = %87, %64
-  %.4 = phi i64 [ %75, %87 ], [ %2, %64 ]
+  %.3101 = phi i64 [ %75, %87 ], [ %2, %64 ]
   %.297 = phi i64 [ %88, %87 ], [ %67, %64 ]
-  %90 = icmp ugt i64 %.4, 7
+  %90 = icmp ugt i64 %.3101, 7
   br i1 %90, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %89
@@ -796,7 +796,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
 
 92:                                               ; preds = %.lr.ph, %.loopexit116
   %.3133 = phi i64 [ %.297, %.lr.ph ], [ %107, %.loopexit116 ]
-  %.5132 = phi i64 [ %.4, %.lr.ph ], [ %106, %.loopexit116 ]
+  %.5132 = phi i64 [ %.3101, %.lr.ph ], [ %106, %.loopexit116 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 %.3133
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
@@ -829,7 +829,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   br i1 %108, label %92, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit116, %89
-  %.5.lcssa = phi i64 [ %.4, %89 ], [ %106, %.loopexit116 ]
+  %.5.lcssa = phi i64 [ %.3101, %89 ], [ %106, %.loopexit116 ]
   %.3.lcssa = phi i64 [ %.297, %89 ], [ %107, %.loopexit116 ]
   %.not107 = icmp eq i64 %.5.lcssa, 0
   br i1 %.not107, label %.loopexit, label %109

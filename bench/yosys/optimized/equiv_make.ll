@@ -3033,28 +3033,28 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %_ZNK5Yosys7hashlib4
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit18.i
 
 .loopexit159.i:                                   ; preds = %680, %612, %517, %419
-  %.sroa.0131.4.ph.i = phi i32 [ %354, %419 ], [ %354, %680 ], [ %354, %517 ], [ 0, %612 ]
+  %.sroa.0131.0.ph.i = phi i32 [ %354, %419 ], [ %354, %680 ], [ %354, %517 ], [ 0, %612 ]
   %lpad.loopexit162.i = landingpad { ptr, i32 }
           cleanup
   br label %.body82.i
 
 .loopexit.split-lp160.i:                          ; preds = %.invoke273, %607, %584, %392
-  %.sroa.0131.4.ph161.i = phi i32 [ %354, %392 ], [ 0, %607 ], [ 0, %584 ], [ %354, %.invoke273 ]
+  %.sroa.0131.0.ph161.i = phi i32 [ %354, %392 ], [ 0, %607 ], [ 0, %584 ], [ %354, %.invoke273 ]
   %lpad.loopexit.split-lp163.i = landingpad { ptr, i32 }
           cleanup
   br label %.body82.i
 
 .body82.i:                                        ; preds = %.loopexit.split-lp160.i, %.loopexit159.i, %393, %389
-  %.sroa.0131.6.i = phi i32 [ %354, %393 ], [ %354, %389 ], [ %.sroa.0131.4.ph.i, %.loopexit159.i ], [ %.sroa.0131.4.ph161.i, %.loopexit.split-lp160.i ]
+  %.sroa.0131.5.i = phi i32 [ %354, %393 ], [ %354, %389 ], [ %.sroa.0131.0.ph.i, %.loopexit159.i ], [ %.sroa.0131.0.ph161.i, %.loopexit.split-lp160.i ]
   %eh.lpad-body83.i = phi { ptr, i32 } [ %394, %393 ], [ %390, %389 ], [ %lpad.loopexit162.i, %.loopexit159.i ], [ %lpad.loopexit.split-lp163.i, %.loopexit.split-lp160.i ]
   %747 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %748 = trunc i8 %747 to i1
-  %749 = icmp ne i32 %.sroa.0131.6.i, 0
+  %749 = icmp ne i32 %.sroa.0131.5.i, 0
   %or.cond.i.i17.i = and i1 %749, %748
   br i1 %or.cond.i.i17.i, label %750, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit18.i
 
 750:                                              ; preds = %.body82.i
-  %751 = sext i32 %.sroa.0131.6.i to i64
+  %751 = sext i32 %.sroa.0131.5.i to i64
   %752 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %753 = getelementptr inbounds i32, ptr %752, i64 %751
   %754 = load i32, ptr %753, align 4
@@ -3064,7 +3064,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %_ZNK5Yosys7hashlib4
   br i1 %756, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit18.i, label %757
 
 757:                                              ; preds = %750
-  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %.sroa.0131.6.i)
+  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %.sroa.0131.5.i)
           to label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit18.i unwind label %758
 
 758:                                              ; preds = %757

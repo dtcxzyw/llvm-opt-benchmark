@@ -2272,12 +2272,12 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i13, label %if.end13, label %if.end11
 
 if.end11:                                         ; preds = %if.then, %entry
-  %num_writes.1 = phi i64 [ %num_blocked.1.i, %entry ], [ %spec.select, %if.then ]
-  %cmp = icmp eq i64 %num_writes.1, 0
+  %num_writes.0 = phi i64 [ %num_blocked.1.i, %entry ], [ %spec.select, %if.then ]
+  %cmp = icmp eq i64 %num_writes.0, 0
   br i1 %cmp, label %cleanup.cont, label %if.end13
 
 if.end13:                                         ; preds = %if.then, %if.end11
-  %num_writes.134 = phi i64 [ %num_writes.1, %if.end11 ], [ %add9, %if.then ]
+  %num_writes.034 = phi i64 [ %num_writes.0, %if.end11 ], [ %add9, %if.then ]
   %connection_ = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load ptr, ptr %connection_, align 8
   call void @_ZN3net14QuicConnection19ScopedPacketBundlerC1EPS0_NS0_11AckBundlingE(ptr noundef nonnull align 8 dereferenceable(9) %ack_bundler, ptr noundef %8, i32 noundef 0)
@@ -2592,7 +2592,7 @@ if.then59:                                        ; preds = %invoke.cont57
 if.end63:                                         ; preds = %if.then59, %invoke.cont57, %invoke.cont52
   store i32 0, ptr %currently_writing_stream_id_, align 8
   %inc = add nuw i64 %i.044, 1
-  %exitcond.not = icmp eq i64 %inc, %num_writes.134
+  %exitcond.not = icmp eq i64 %inc, %num_writes.034
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !21
 
 cleanup:                                          ; preds = %if.end63, %invoke.cont44, %invoke.cont41

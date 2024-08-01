@@ -482,19 +482,19 @@ sw.bb25:                                          ; preds = %if.end24
   br i1 %cmp.i28, label %sw.epilog, label %if.end32
 
 if.end32:                                         ; preds = %sw.bb25, %if.end32
-  %backtrace4.1.ptr31 = phi ptr [ %backtrace4.1.ptr, %if.end32 ], [ %backtrace4.0.ptr, %sw.bb25 ]
-  %backtrace4.1.idx30 = phi i64 [ %backtrace4.1.add, %if.end32 ], [ %backtrace4.0.idx, %sw.bb25 ]
+  %backtrace4.2.ptr31 = phi ptr [ %backtrace4.2.ptr, %if.end32 ], [ %backtrace4.0.ptr, %sw.bb25 ]
+  %backtrace4.2.idx30 = phi i64 [ %backtrace4.2.add, %if.end32 ], [ %backtrace4.0.idx, %sw.bb25 ]
   %__begin3.sroa.0.029 = phi ptr [ %incdec.ptr.i, %if.end32 ], [ %5, %sw.bb25 ]
   %trace_event_name = getelementptr inbounds i8, ptr %__begin3.sroa.0.029, i64 8
   %7 = load ptr, ptr %trace_event_name, align 8
-  %backtrace4.1.add = add nuw nsw i64 %backtrace4.1.idx30, 16
-  store i32 0, ptr %backtrace4.1.ptr31, align 8
-  %ref.tmp33.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %backtrace4.1.ptr31, i64 8
+  %backtrace4.2.add = add nuw nsw i64 %backtrace4.2.idx30, 16
+  store i32 0, ptr %backtrace4.2.ptr31, align 8
+  %ref.tmp33.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %backtrace4.2.ptr31, i64 8
   store ptr %7, ptr %ref.tmp33.sroa.26.0..sroa_idx, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029, i64 16
-  %backtrace4.1.ptr = getelementptr inbounds i8, ptr %agg.result, i64 %backtrace4.1.add
+  %backtrace4.2.ptr = getelementptr inbounds i8, ptr %agg.result, i64 %backtrace4.2.add
   %cmp.i = icmp eq ptr %incdec.ptr.i, %6
-  %cmp = icmp eq i64 %backtrace4.1.add, 768
+  %cmp = icmp eq i64 %backtrace4.2.add, 768
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp
   br i1 %or.cond, label %sw.epilog, label %if.end32
 
@@ -507,21 +507,21 @@ sw.bb37:                                          ; preds = %if.end24
   br i1 %cmp4332, label %for.body44, label %sw.epilog
 
 for.body44:                                       ; preds = %sw.bb37, %for.body44
-  %backtrace4.234 = phi ptr [ %incdec.ptr49, %for.body44 ], [ %backtrace4.0.ptr, %sw.bb37 ]
+  %backtrace4.334 = phi ptr [ %incdec.ptr49, %for.body44 ], [ %backtrace4.0.ptr, %sw.bb37 ]
   %i.033 = phi i64 [ %dec45, %for.body44 ], [ %call40, %sw.bb37 ]
   %dec45 = add i64 %i.033, -1
   %arrayidx46 = getelementptr inbounds [128 x ptr], ptr %frames38, i64 0, i64 %dec45
   %8 = load ptr, ptr %arrayidx46, align 8
-  %incdec.ptr49 = getelementptr inbounds i8, ptr %backtrace4.234, i64 16
-  store i32 2, ptr %backtrace4.234, align 8
-  %ref.tmp47.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %backtrace4.234, i64 8
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %backtrace4.334, i64 16
+  store i32 2, ptr %backtrace4.334, align 8
+  %ref.tmp47.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %backtrace4.334, i64 8
   store ptr %8, ptr %ref.tmp47.sroa.21.0..sroa_idx, align 8
   %cmp43 = icmp ugt i64 %dec45, %cond
   br i1 %cmp43, label %for.body44, label %sw.epilog, !llvm.loop !5
 
 sw.epilog:                                        ; preds = %if.end32, %for.body44, %sw.bb25, %sw.bb37, %if.end24
-  %backtrace4.3 = phi ptr [ %backtrace4.0.ptr, %if.end24 ], [ %backtrace4.0.ptr, %sw.bb37 ], [ %backtrace4.0.ptr, %sw.bb25 ], [ %incdec.ptr49, %for.body44 ], [ %backtrace4.1.ptr, %if.end32 ]
-  %sub.ptr.lhs.cast54 = ptrtoint ptr %backtrace4.3 to i64
+  %backtrace4.1 = phi ptr [ %backtrace4.0.ptr, %if.end24 ], [ %backtrace4.0.ptr, %sw.bb37 ], [ %backtrace4.0.ptr, %sw.bb25 ], [ %incdec.ptr49, %for.body44 ], [ %backtrace4.2.ptr, %if.end32 ]
+  %sub.ptr.lhs.cast54 = ptrtoint ptr %backtrace4.1 to i64
   %sub.ptr.rhs.cast55 = ptrtoint ptr %agg.result to i64
   %sub.ptr.sub56 = sub i64 %sub.ptr.lhs.cast54, %sub.ptr.rhs.cast55
   %sub.ptr.div57 = ashr exact i64 %sub.ptr.sub56, 4

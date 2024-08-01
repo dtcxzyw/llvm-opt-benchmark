@@ -2677,12 +2677,12 @@ _ZN10serde_json3ser9Formatter10end_object17h73f9fb7c19a8fcceE.exit.i.i.i.i.i.i: 
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h41f8f6cfd6a64b4cE.exit
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h90fa81c12cd41ddfE.exit.i.i": ; preds = %83, %73
-  %.1.i.i.i.i.i = phi ptr [ %81, %73 ], [ %85, %83 ]
+  %.0.i.i.i.i.i = phi ptr [ %81, %73 ], [ %85, %83 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1338
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h41f8f6cfd6a64b4cE.exit
 
 _ZN5serde3ser12SerializeMap15serialize_entry17h41f8f6cfd6a64b4cE.exit: ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17h7e9c574010216172E.llvm.1686074433831124249.exit.i.i.i", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hbd17ac146b645a0cE.exit.i.i.i.i.i", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h90fa81c12cd41ddfE.exit.i.i"
-  %.0.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h90fa81c12cd41ddfE.exit.i.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17h7e9c574010216172E.llvm.1686074433831124249.exit.i.i.i" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hbd17ac146b645a0cE.exit.i.i.i.i.i" ]
+  %.0.i.i = phi ptr [ %.0.i.i.i.i.i, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h90fa81c12cd41ddfE.exit.i.i" ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17h7e9c574010216172E.llvm.1686074433831124249.exit.i.i.i" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hbd17ac146b645a0cE.exit.i.i.i.i.i" ]
   ret ptr %.0.i.i
 }
 
@@ -18317,8 +18317,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h61df
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h261095205c947ec0E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h261095205c947ec0E.exit": ; preds = %47, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h7ef56fb67d61bf00E.exit.thread", %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h7ef56fb67d61bf00E.exit.thread" ], [ %54, %47 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h7ef56fb67d61bf00E.exit.thread" ], [ %54, %47 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19250,8 +19250,8 @@ _ZN10serde_json5value8to_value17h134d5e21df607fbbE.exit.i.i.i.i.i.i.i: ; preds =
   br label %77
 
 77:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h98dc9ab5445b0c64E.exit, %.loopexit
-  %.0 = phi ptr [ %.0.i.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h98dc9ab5445b0c64E.exit ], [ null, %.loopexit ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0.i.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h98dc9ab5445b0c64E.exit ], [ null, %.loopexit ]
+  ret ptr %.1
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h98dc9ab5445b0c64E.exit: ; preds = %33, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfd03875fb1945710E.exit.thread14.i.i"
   %.0.i.i = phi ptr [ %64, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfd03875fb1945710E.exit.thread14.i.i" ], [ %38, %33 ]
@@ -19648,8 +19648,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h03af
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit": ; preds = %.lr.ph.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread", %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %31, %.lr.ph.i.i ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %31, %.lr.ph.i.i ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21467,8 +21467,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h4e68
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit": ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h3b6af7350004e0f8E.exit.i.i.i.i.i", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread", %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %.0.i.i.i.i.i.i.i, %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h3b6af7350004e0f8E.exit.i.i.i.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %.0.i.i.i.i.i.i.i, %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h3b6af7350004e0f8E.exit.i.i.i.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -23049,8 +23049,8 @@ _ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i: ; preds = %6
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit": ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h3674876b20f6233eE.exit.i.i.i.i.i", %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split"
-  %.0 = phi ptr [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split" ], [ %56, %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h3674876b20f6233eE.exit.i.i.i.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split" ], [ %56, %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h3674876b20f6233eE.exit.i.i.i.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24546,8 +24546,8 @@ _ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i: ; preds = %5
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h256094e1363810dfE.exit.i.i", %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split"
-  %.0 = phi ptr [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split" ], [ %49, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h256094e1363810dfE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split" ], [ %49, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h256094e1363810dfE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26901,8 +26901,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hbb82
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit": ; preds = %.lr.ph.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread", %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %28, %.lr.ph.i.i ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %28, %.lr.ph.i.i ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28111,11 +28111,11 @@ _ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i: ; preds = %1
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit": ; preds = %._crit_edge.thread, %_ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i, %143
-  %.0 = phi ptr [ %.1.i.i.i, %143 ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i ], [ null, %._crit_edge.thread ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0.i.i.i, %143 ], [ null, %_ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i ], [ null, %._crit_edge.thread ]
+  ret ptr %.1
 
 143:                                              ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h5901bec023c85177E.llvm.1686074433831124249.exit.i.i, %64
-  %.1.i.i.i = phi ptr [ %72, %64 ], [ %110, %_ZN10serde_json3ser9Formatter18begin_object_value17h5901bec023c85177E.llvm.1686074433831124249.exit.i.i ]
+  %.0.i.i.i = phi ptr [ %72, %64 ], [ %110, %_ZN10serde_json3ser9Formatter18begin_object_value17h5901bec023c85177E.llvm.1686074433831124249.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !9636
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit"
 }
@@ -28727,8 +28727,8 @@ _ZN10serde_json3ser9Formatter9end_array17h70c9a1c92a615fccE.exit.i: ; preds = %5
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5f744d6a83cdfd3aE.exit.i.i", %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split"
-  %.0 = phi ptr [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split" ], [ %49, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5f744d6a83cdfd3aE.exit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hdf289448e17e1963E.exit.sink.split" ], [ %49, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5f744d6a83cdfd3aE.exit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -29157,8 +29157,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdfde
   br label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hfa263c96fd08315aE.exit": ; preds = %.lr.ph.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread", %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %28, %.lr.ph.i.i ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %.thread ], [ null, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h11fe739297e5f929E.exit.thread" ], [ %28, %.lr.ph.i.i ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -81490,10 +81490,10 @@ define hidden { i64, ptr } @"_ZN91_$LT$serde..__private..ser..TaggedSerializer$L
   br label %17
 
 17:                                               ; preds = %6, %4
-  %.sroa.4.0 = phi ptr [ %5, %4 ], [ %spec.select, %6 ]
-  %.sroa.0.0 = phi i64 [ 1, %4 ], [ %spec.select7, %6 ]
-  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ %5, %4 ], [ %spec.select, %6 ]
+  %.sroa.0.1 = phi i64 [ 1, %4 ], [ %spec.select7, %6 ]
+  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %19 = insertvalue { i64, ptr } %18, ptr %.sroa.4.1, 1
   ret { i64, ptr } %19
 }
 
@@ -82955,7 +82955,7 @@ default.unreachable.i.i.i.i:                      ; preds = %69
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.i.i"
 
 121:                                              ; preds = %114, %109, %106, %101, %95, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i.i.i.i.i.i"
-  %.1.i.i.i.i.i.i = phi ptr [ %99, %95 ], [ %103, %101 ], [ %107, %106 ], [ %111, %109 ], [ %115, %114 ], [ %93, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i.i.i.i.i.i" ]
+  %.0.i.i.i.i.i.i = phi ptr [ %99, %95 ], [ %103, %101 ], [ %107, %106 ], [ %111, %109 ], [ %115, %114 ], [ %93, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !28357
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h2362ac5c36924e6dE.exit
 
@@ -83050,7 +83050,7 @@ default.unreachable.i.i.i.i:                      ; preds = %69
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.i.i"
 
 169:                                              ; preds = %162, %157, %153, %149, %143, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i3.i.i.i.i.i"
-  %.1.i4.i.i.i.i.i = phi ptr [ %147, %143 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %163, %162 ], [ %141, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i3.i.i.i.i.i" ]
+  %.0.i4.i.i.i.i.i = phi ptr [ %147, %143 ], [ %151, %149 ], [ %155, %153 ], [ %159, %157 ], [ %163, %162 ], [ %141, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i3.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !28397
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h2362ac5c36924e6dE.exit
 
@@ -83145,7 +83145,7 @@ _ZN10serde_json3ser9Formatter10end_object17h73f9fb7c19a8fcceE.exit.i.i.i.i.i.i.i
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.thread3.i.i"
 
 215:                                              ; preds = %189, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i9.i.i.i.i.i"
-  %.1.i10.i.i.i.i.i = phi ptr [ %193, %189 ], [ %187, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i9.i.i.i.i.i" ]
+  %.0.i10.i.i.i.i.i = phi ptr [ %193, %189 ], [ %187, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i9.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !28434
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h2362ac5c36924e6dE.exit
 
@@ -83240,7 +83240,7 @@ _ZN10serde_json3ser9Formatter10end_object17h73f9fb7c19a8fcceE.exit.i.i19.i.i.i.i
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.thread3.i.i"
 
 261:                                              ; preds = %235, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i15.i.i.i.i.i"
-  %.1.i16.i.i.i.i.i = phi ptr [ %239, %235 ], [ %233, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i15.i.i.i.i.i" ]
+  %.0.i16.i.i.i.i.i = phi ptr [ %239, %235 ], [ %233, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h276582c721502451E.exit.thread.i15.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !28489
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h2362ac5c36924e6dE.exit
 
@@ -83253,7 +83253,7 @@ _ZN10serde_json3ser9Formatter10end_object17h73f9fb7c19a8fcceE.exit.i.i19.i.i.i.i
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h2362ac5c36924e6dE.exit
 
 _ZN5serde3ser12SerializeMap15serialize_entry17h2362ac5c36924e6dE.exit: ; preds = %121, %169, %215, %261, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.i.i", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.thread3.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.thread3.i.i" ], [ %.0.i.i.i, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.i.i" ], [ %.1.i16.i.i.i.i.i, %261 ], [ %.1.i10.i.i.i.i.i, %215 ], [ %.1.i4.i.i.i.i.i, %169 ], [ %.1.i.i.i.i.i.i, %121 ]
+  %.0.i.i = phi ptr [ null, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.thread3.i.i" ], [ %.0.i.i.i, %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb82c228ece87e4a3E.exit.i.i" ], [ %.0.i16.i.i.i.i.i, %261 ], [ %.0.i10.i.i.i.i.i, %215 ], [ %.0.i4.i.i.i.i.i, %169 ], [ %.0.i.i.i.i.i.i, %121 ]
   ret ptr %.0.i.i
 }
 
@@ -84649,11 +84649,11 @@ _ZN10serde_json3ser9Formatter10end_object17h73f9fb7c19a8fcceE.exit.i: ; preds = 
   br label %644
 
 644:                                              ; preds = %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit.thread", %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hc436340a2cb24320E.exit"
-  %.0 = phi ptr [ %.1, %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit.thread" ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hc436340a2cb24320E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit.thread" ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17hc436340a2cb24320E.exit" ]
+  ret ptr %.1
 
 "_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit.thread": ; preds = %615, %619, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i220.i.i", %608, %612, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i205.i.i", %601, %605, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i190.i.i", %594, %598, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i175.i.i", %587, %591, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i160.i.i", %580, %584, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i145.i.i", %573, %577, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i130.i.i", %566, %570, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i115.i.i", %559, %563, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i100.i.i", %552, %556, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i85.i.i", %"_ZN96_$LT$serde..__private..ser..FlatMapSerializeMap$LT$M$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_entry17ha62e8d7c74419b14E.exit.i.i.i", %489, %492, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h8aeed007eac9676bE.exit.i.i.i", %482, %486, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i57.i.i", %475, %479, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i42.i.i", %468, %472, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i27.i.i", %461, %465, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i13.i.i", %453, %456, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i.i38.i", %277, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i332.i.i", %202, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hffa43c40c7ed70a5E.exit.i318.i.i", %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he0c296aa6fefaa85E.exit.i317.i.i", %216, %213, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i315.i.i", %.split.i.i.i, %.split25.i.i.i, %.thread43.i.i.i, %148, %152, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i288.i.i", %88, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hffa43c40c7ed70a5E.exit.i.i.i", %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he0c296aa6fefaa85E.exit.i.i.i", %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i273.i.i", %33, %42, %39, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i.i.i", %439, %387, %432, %385, %426, %383, %420, %381, %413, %379, %377, %375, %373, %371, %369, %402, %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit", %14
-  %.1 = phi ptr [ %22, %14 ], [ %.0.i, %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit" ], [ %617, %615 ], [ %620, %619 ], [ %618, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i220.i.i" ], [ %610, %608 ], [ %613, %612 ], [ %611, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i205.i.i" ], [ %603, %601 ], [ %606, %605 ], [ %604, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i190.i.i" ], [ %596, %594 ], [ %599, %598 ], [ %597, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i175.i.i" ], [ %589, %587 ], [ %592, %591 ], [ %590, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i160.i.i" ], [ %582, %580 ], [ %585, %584 ], [ %583, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i145.i.i" ], [ %575, %573 ], [ %578, %577 ], [ %576, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i130.i.i" ], [ %568, %566 ], [ %571, %570 ], [ %569, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i115.i.i" ], [ %561, %559 ], [ %564, %563 ], [ %562, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i100.i.i" ], [ %554, %552 ], [ %557, %556 ], [ %555, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i85.i.i" ], [ %550, %"_ZN96_$LT$serde..__private..ser..FlatMapSerializeMap$LT$M$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_entry17ha62e8d7c74419b14E.exit.i.i.i" ], [ %490, %489 ], [ %494, %492 ], [ %491, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h8aeed007eac9676bE.exit.i.i.i" ], [ %484, %482 ], [ %487, %486 ], [ %485, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i57.i.i" ], [ %477, %475 ], [ %480, %479 ], [ %478, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i42.i.i" ], [ %470, %468 ], [ %473, %472 ], [ %471, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i27.i.i" ], [ %463, %461 ], [ %466, %465 ], [ %464, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i13.i.i" ], [ %454, %453 ], [ %459, %456 ], [ %455, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i.i38.i" ], [ %279, %277 ], [ %280, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i332.i.i" ], [ %211, %202 ], [ %268, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hffa43c40c7ed70a5E.exit.i318.i.i" ], [ %243, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he0c296aa6fefaa85E.exit.i317.i.i" ], [ %218, %216 ], [ %214, %213 ], [ %212, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i315.i.i" ], [ %164, %.split.i.i.i ], [ %164, %.split25.i.i.i ], [ %167, %.thread43.i.i.i ], [ %150, %148 ], [ %153, %152 ], [ %151, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i288.i.i" ], [ %94, %88 ], [ %144, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hffa43c40c7ed70a5E.exit.i.i.i" ], [ %119, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he0c296aa6fefaa85E.exit.i.i.i" ], [ %95, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i273.i.i" ], [ %37, %33 ], [ %44, %42 ], [ %40, %39 ], [ %38, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i.i.i" ], [ %440, %439 ], [ %388, %387 ], [ %433, %432 ], [ %386, %385 ], [ %427, %426 ], [ %384, %383 ], [ %421, %420 ], [ %382, %381 ], [ %414, %413 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %.1.i.i, %402 ]
+  %.0 = phi ptr [ %22, %14 ], [ %.0.i, %"_ZN9lsp_types4lsif1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..Element$GT$9serialize17h7fa1ca0d63e564cbE.exit" ], [ %617, %615 ], [ %620, %619 ], [ %618, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i220.i.i" ], [ %610, %608 ], [ %613, %612 ], [ %611, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i205.i.i" ], [ %603, %601 ], [ %606, %605 ], [ %604, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i190.i.i" ], [ %596, %594 ], [ %599, %598 ], [ %597, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i175.i.i" ], [ %589, %587 ], [ %592, %591 ], [ %590, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i160.i.i" ], [ %582, %580 ], [ %585, %584 ], [ %583, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i145.i.i" ], [ %575, %573 ], [ %578, %577 ], [ %576, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i130.i.i" ], [ %568, %566 ], [ %571, %570 ], [ %569, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i115.i.i" ], [ %561, %559 ], [ %564, %563 ], [ %562, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i100.i.i" ], [ %554, %552 ], [ %557, %556 ], [ %555, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i85.i.i" ], [ %550, %"_ZN96_$LT$serde..__private..ser..FlatMapSerializeMap$LT$M$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_entry17ha62e8d7c74419b14E.exit.i.i.i" ], [ %490, %489 ], [ %494, %492 ], [ %491, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h8aeed007eac9676bE.exit.i.i.i" ], [ %484, %482 ], [ %487, %486 ], [ %485, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i57.i.i" ], [ %477, %475 ], [ %480, %479 ], [ %478, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i42.i.i" ], [ %470, %468 ], [ %473, %472 ], [ %471, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i27.i.i" ], [ %463, %461 ], [ %466, %465 ], [ %464, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i13.i.i" ], [ %454, %453 ], [ %459, %456 ], [ %455, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i.i38.i" ], [ %279, %277 ], [ %280, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i332.i.i" ], [ %211, %202 ], [ %268, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hffa43c40c7ed70a5E.exit.i318.i.i" ], [ %243, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he0c296aa6fefaa85E.exit.i317.i.i" ], [ %218, %216 ], [ %214, %213 ], [ %212, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i315.i.i" ], [ %164, %.split.i.i.i ], [ %164, %.split25.i.i.i ], [ %167, %.thread43.i.i.i ], [ %150, %148 ], [ %153, %152 ], [ %151, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i288.i.i" ], [ %94, %88 ], [ %144, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hffa43c40c7ed70a5E.exit.i.i.i" ], [ %119, %"_ZN102_$LT$serde..__private..ser..FlatMapSerializeStruct$LT$M$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he0c296aa6fefaa85E.exit.i.i.i" ], [ %95, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i273.i.i" ], [ %37, %33 ], [ %44, %42 ], [ %40, %39 ], [ %38, %"_ZN91_$LT$serde..__private..ser..TaggedSerializer$LT$S$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h17cfd867941a8ab7E.exit.i.i.i" ], [ %440, %439 ], [ %388, %387 ], [ %433, %432 ], [ %386, %385 ], [ %427, %426 ], [ %384, %383 ], [ %421, %420 ], [ %382, %381 ], [ %414, %413 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %.1.i.i, %402 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %644
 }

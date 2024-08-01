@@ -1219,9 +1219,9 @@ if.then10:                                        ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then10
-  %len.0 = phi i64 [ %sub16, %if.then10 ], [ %conv, %if.else ]
+  %len.1 = phi i64 [ %sub16, %if.then10 ], [ %conv, %if.else ]
   %shr = ashr exact i64 %shl, 9
-  %shr22 = lshr i64 %len.0, 9
+  %shr22 = lshr i64 %len.1, 9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i28 = icmp ne i32 %11, 0
@@ -1261,7 +1261,7 @@ trace_virtio_blk_handle_zone_mgmt.exit:           ; preds = %if.end, %land.lhs.t
   br label %if.end23
 
 if.end23:                                         ; preds = %trace_virtio_blk_handle_zone_mgmt.exit, %trace_virtio_blk_handle_zone_reset_all.exit
-  %len.1 = phi i64 [ %shl3, %trace_virtio_blk_handle_zone_reset_all.exit ], [ %len.0, %trace_virtio_blk_handle_zone_mgmt.exit ]
+  %len.0 = phi i64 [ %shl3, %trace_virtio_blk_handle_zone_reset_all.exit ], [ %len.1, %trace_virtio_blk_handle_zone_mgmt.exit ]
   %offset.0 = phi i64 [ 0, %trace_virtio_blk_handle_zone_reset_all.exit ], [ %shl, %trace_virtio_blk_handle_zone_mgmt.exit ]
   %17 = load ptr, ptr %blk, align 8
   %call.i41 = tail call ptr @blk_bs(ptr noundef %17) #14
@@ -1272,7 +1272,7 @@ if.end23:                                         ; preds = %trace_virtio_blk_ha
   br i1 %tobool.i.not.i, label %out29, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end23
-  %19 = or i64 %offset.0, %len.1
+  %19 = or i64 %offset.0, %len.0
   %or.cond.not.i = icmp sgt i64 %19, -1
   br i1 %or.cond.not.i, label %lor.lhs.false3.i, label %out29
 
@@ -1280,15 +1280,15 @@ lor.lhs.false3.i:                                 ; preds = %if.end.i
   %total_sectors.i = getelementptr inbounds i8, ptr %call.i41, i64 16888
   %20 = load i64, ptr %total_sectors.i, align 8
   %shl.i = shl i64 %20, 9
-  %cmp4.i = icmp slt i64 %shl.i, %len.1
-  %sub.i = sub nsw i64 %shl.i, %len.1
+  %cmp4.i = icmp slt i64 %shl.i, %len.0
+  %sub.i = sub nsw i64 %shl.i, %len.0
   %cmp8.i = icmp slt i64 %sub.i, %offset.0
   %or.cond.i = select i1 %cmp4.i, i1 true, i1 %cmp8.i
   br i1 %or.cond.i, label %out29, label %if.end26
 
 if.end26:                                         ; preds = %lor.lhs.false3.i
   %21 = load ptr, ptr %blk, align 8
-  %call28 = tail call ptr @blk_aio_zone_mgmt(ptr noundef %21, i32 noundef %op, i64 noundef %offset.0, i64 noundef %len.1, ptr noundef nonnull @virtio_blk_zone_mgmt_complete, ptr noundef nonnull %req) #14
+  %call28 = tail call ptr @blk_aio_zone_mgmt(ptr noundef %21, i32 noundef %op, i64 noundef %offset.0, i64 noundef %len.0, ptr noundef nonnull @virtio_blk_zone_mgmt_complete, ptr noundef nonnull %req) #14
   br label %return
 
 out29:                                            ; preds = %lor.lhs.false3.i, %if.end.i, %if.end23
@@ -1943,7 +1943,7 @@ if.then10:                                        ; preds = %if.else.i
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.048 = phi i64 [ 64, %for.body.lr.ph ], [ %add57, %for.inc ]
-  %err_status.047 = phi i8 [ 0, %for.body.lr.ph ], [ %err_status.1, %for.inc ]
+  %err_status.147 = phi i8 [ 0, %for.body.lr.ph ], [ %err_status.2, %for.inc ]
   %j.046 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %18 = load ptr, ptr %zones, align 8
   %cap = getelementptr %struct.BlockZoneDescriptor, ptr %18, i64 %j.046, i32 2
@@ -2019,19 +2019,19 @@ if.then55:                                        ; preds = %iov_from_buf.exit40
   br label %for.inc
 
 for.inc:                                          ; preds = %iov_from_buf.exit40.thread, %iov_from_buf.exit40, %if.then55
-  %err_status.1 = phi i8 [ 3, %if.then55 ], [ %err_status.047, %iov_from_buf.exit40 ], [ %err_status.047, %iov_from_buf.exit40.thread ]
+  %err_status.2 = phi i8 [ 3, %if.then55 ], [ %err_status.147, %iov_from_buf.exit40 ], [ %err_status.147, %iov_from_buf.exit40.thread ]
   %add57 = add nuw nsw i64 %i.048, 64
   %inc = add nuw nsw i64 %j.046, 1
   %exitcond.not = icmp eq i64 %j.046, %16
   br i1 %exitcond.not, label %out, label %for.body, !llvm.loop !11
 
 out:                                              ; preds = %for.inc, %for.cond.preheader, %trace_virtio_blk_zone_report_complete.exit, %if.then10
-  %err_status.2 = phi i8 [ 3, %if.then10 ], [ 3, %trace_virtio_blk_zone_report_complete.exit ], [ 0, %for.cond.preheader ], [ %err_status.1, %for.inc ]
+  %err_status.0 = phi i8 [ 3, %if.then10 ], [ 3, %trace_virtio_blk_zone_report_complete.exit ], [ 0, %for.cond.preheader ], [ %err_status.2, %for.inc ]
   %conf = getelementptr inbounds i8, ptr %1, i64 536
   %29 = load ptr, ptr %conf, align 8
   %call59 = call ptr @blk_get_aio_context(ptr noundef %29) #14
   call void @aio_context_acquire(ptr noundef %call59) #14
-  call fastcc void @virtio_blk_req_complete(ptr noundef %0, i8 noundef zeroext %err_status.2)
+  call fastcc void @virtio_blk_req_complete(ptr noundef %0, i8 noundef zeroext %err_status.0)
   call void @g_free(ptr noundef %0) #14
   %30 = load ptr, ptr %conf, align 8
   %call63 = call ptr @blk_get_aio_context(ptr noundef %30) #14

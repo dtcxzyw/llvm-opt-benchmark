@@ -656,8 +656,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.thread124.i, %._crit_edge42.thread.i, %._crit_edge42.i
-  %.2.i = phi i32 [ %209, %._crit_edge42.i ], [ %258, %.loopexit.loopexit.i ], [ 1, %._crit_edge42.thread.i ], [ 2, %.thread124.i ]
-  %259 = tail call i32 @N_VLinearCombination(i32 noundef %.2.i, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef %2) #12
+  %.1.i = phi i32 [ %209, %._crit_edge42.i ], [ %258, %.loopexit.loopexit.i ], [ 1, %._crit_edge42.thread.i ], [ 2, %.thread124.i ]
+  %259 = tail call i32 @N_VLinearCombination(i32 noundef %.1.i, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef %2) #12
   br label %AndersonAccelerate.exit
 
 AndersonAccelerate.exit:                          ; preds = %.loopexit.i, %77, %34

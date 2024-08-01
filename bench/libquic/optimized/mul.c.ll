@@ -1159,18 +1159,18 @@ if.else:                                          ; preds = %if.end
 
 while.body:                                       ; preds = %if.else, %if.end95
   %save_dl.0121 = phi i32 [ %dec92, %if.end95 ], [ %dl, %if.else ]
-  %c.5120 = phi i64 [ %spec.select98, %if.end95 ], [ %call, %if.else ]
+  %c.6120 = phi i64 [ %spec.select98, %if.end95 ], [ %call, %if.else ]
   %a.addr.0119 = phi ptr [ %add.ptr96, %if.end95 ], [ %add.ptr2, %if.else ]
   %r.addr.1118 = phi ptr [ %add.ptr97, %if.end95 ], [ %add.ptr, %if.else ]
   %10 = load i64, ptr %a.addr.0119, align 8
-  %sub54 = sub i64 %10, %c.5120
+  %sub54 = sub i64 %10, %c.6120
   store i64 %sub54, ptr %r.addr.1118, align 8
   %cmp60 = icmp slt i32 %save_dl.0121, 2
   br i1 %cmp60, label %return, label %if.end62
 
 if.end62:                                         ; preds = %while.body
   %cmp57.not = icmp eq i64 %10, 0
-  %spec.select96 = select i1 %cmp57.not, i64 %c.5120, i64 0
+  %spec.select96 = select i1 %cmp57.not, i64 %c.6120, i64 0
   %arrayidx63 = getelementptr inbounds i8, ptr %a.addr.0119, i64 8
   %11 = load i64, ptr %arrayidx63, align 8
   %sub64 = sub i64 %11, %spec.select96

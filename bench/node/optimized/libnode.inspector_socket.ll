@@ -2349,12 +2349,12 @@ if.then46.i.i:                                    ; preds = %if.end41.i.i
   br i1 %cmp59.i.i, label %_ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then46.i.i, %for.body.i.i
-  %payload_length64.057.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
+  %payload_length64.157.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
   %i.056.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
-  %it.sroa.0.055.i.i = phi ptr [ %incdec.ptr.i32.i.i, %for.body.i.i ], [ %incdec.ptr.i27.i.i, %if.then46.i.i ]
-  %shl.i.i = shl i64 %payload_length64.057.i.i, 8
-  %incdec.ptr.i32.i.i = getelementptr inbounds i8, ptr %it.sroa.0.055.i.i, i64 1
-  %7 = load i8, ptr %it.sroa.0.055.i.i, align 1
+  %it.sroa.0.155.i.i = phi ptr [ %incdec.ptr.i32.i.i, %for.body.i.i ], [ %incdec.ptr.i27.i.i, %if.then46.i.i ]
+  %shl.i.i = shl i64 %payload_length64.157.i.i, 8
+  %incdec.ptr.i32.i.i = getelementptr inbounds i8, ptr %it.sroa.0.155.i.i, i64 1
+  %7 = load i8, ptr %it.sroa.0.155.i.i, align 1
   %conv67.i.i = zext i8 %7 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv67.i.i
   %inc.i.i = add nuw nsw i32 %i.056.i.i, 1
@@ -2368,16 +2368,16 @@ if.end68.i.i:                                     ; preds = %for.body.i.i
   br i1 %cmp69.i.i, label %if.then.i, label %if.end73.i.i
 
 if.end73.i.i:                                     ; preds = %if.end68.i.i, %if.end41.if.end73_crit_edge.i.i
-  %payload_length64.153.i.i = phi i64 [ %conv44.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %or.i.i, %if.end68.i.i ]
-  %it.sroa.0.152.i.i = phi ptr [ %incdec.ptr.i27.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %scevgep.i, %if.end68.i.i ]
+  %payload_length64.053.i.i = phi i64 [ %conv44.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %or.i.i, %if.end68.i.i ]
+  %it.sroa.0.052.i.i = phi ptr [ %incdec.ptr.i27.i.i, %if.end41.if.end73_crit_edge.i.i ], [ %scevgep.i, %if.end68.i.i ]
   %sub.ptr.sub.i36.i.i = add i64 %sub.ptr.lhs.cast.i.i.i, -4
   %sub.i.i = sub i64 %sub.ptr.sub.i36.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp75.i.i = icmp ult i64 %sub.i.i, %payload_length64.153.i.i
+  %cmp75.i.i = icmp ult i64 %sub.i.i, %payload_length64.053.i.i
   br i1 %cmp75.i.i, label %_ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i, label %if.end77.i.i
 
 if.end77.i.i:                                     ; preds = %if.end73.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.152.i.i, i64 4
-  %cmp8258.not.i.i = icmp eq i64 %payload_length64.153.i.i, 0
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.052.i.i, i64 4
+  %cmp8258.not.i.i = icmp eq i64 %payload_length64.053.i.i, 0
   br i1 %cmp8258.not.i.i, label %for.end98.i.i, label %for.body83.i.i
 
 for.body83.i.i:                                   ; preds = %if.end77.i.i, %_ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc.exit.i
@@ -2386,7 +2386,7 @@ for.body83.i.i:                                   ; preds = %if.end77.i.i, %_ZNS
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i80.059.i.i
   %10 = load i8, ptr %arrayidx.i.i.i, align 1
   %rem.i.i = and i64 %i80.059.i.i, 3
-  %arrayidx.i38.i.i = getelementptr inbounds i8, ptr %it.sroa.0.152.i.i, i64 %rem.i.i
+  %arrayidx.i38.i.i = getelementptr inbounds i8, ptr %it.sroa.0.052.i.i, i64 %rem.i.i
   %11 = load i8, ptr %arrayidx.i38.i.i, align 1
   %xor26.i.i = xor i8 %11, %10
   %12 = load ptr, ptr %output.i, align 8
@@ -2455,7 +2455,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 _ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %if.then9.i.i
   %16 = phi ptr [ %incdec.ptr.i.i, %if.then9.i.i ], [ %incdec.ptr.i9.i.i, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i ]
   %inc97.i.i = add nuw i64 %i80.059.i.i, 1
-  %exitcond60.not.i.i = icmp eq i64 %inc97.i.i, %payload_length64.153.i.i
+  %exitcond60.not.i.i = icmp eq i64 %inc97.i.i, %payload_length64.053.i.i
   br i1 %exitcond60.not.i.i, label %for.end98.loopexit.i.i, label %for.body83.i.i, !llvm.loop !22
 
 for.end98.loopexit.i.i:                           ; preds = %_ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc.exit.i
@@ -2465,14 +2465,14 @@ for.end98.loopexit.i.i:                           ; preds = %_ZNSt6vectorIcSaIcE
 
 for.end98.i.i:                                    ; preds = %for.end98.loopexit.i.i, %if.end77.i.i
   %sub.ptr.rhs.cast.i42.pre-phi.i.i = phi i64 [ %.pre62.i.i, %for.end98.loopexit.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.end77.i.i ]
-  %add.ptr.i40.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %payload_length64.153.i.i
+  %add.ptr.i40.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %payload_length64.053.i.i
   %sub.ptr.lhs.cast.i41.i.i = ptrtoint ptr %add.ptr.i40.i.i to i64
   %sub.ptr.sub.i43.i.i = sub i64 %sub.ptr.lhs.cast.i41.i.i, %sub.ptr.rhs.cast.i42.pre-phi.i.i
   %conv109.i.i = trunc i64 %sub.ptr.sub.i43.i.i to i32
   br label %_ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i
 
 _ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i: ; preds = %for.end98.i.i, %if.end73.i.i, %if.then46.i.i
-  %bytes_consumed.0.i = phi i32 [ 0, %if.then46.i.i ], [ 0, %if.end73.i.i ], [ %conv109.i.i, %for.end98.i.i ]
+  %bytes_consumed.1.i = phi i32 [ 0, %if.then46.i.i ], [ 0, %if.end73.i.i ], [ %conv109.i.i, %for.end98.i.i ]
   %retval.0.i.i = phi i32 [ 1, %if.then46.i.i ], [ 1, %if.end73.i.i ], [ %closed.0.i.i, %for.end98.i.i ]
   %17 = and i8 %2, 64
   %tobool.not.i = icmp eq i8 %17, 0
@@ -2526,7 +2526,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then7.i, %memptr.end.i, %if.else.i, %if.then.i, %do.body
-  %bytes_consumed.1.i = phi i32 [ 0, %if.then.i ], [ %bytes_consumed.0.i, %if.else.i ], [ %bytes_consumed.0.i, %if.then7.i ], [ 0, %memptr.end.i ], [ 0, %do.body ]
+  %bytes_consumed.0.i = phi i32 [ 0, %if.then.i ], [ %bytes_consumed.1.i, %if.else.i ], [ %bytes_consumed.1.i, %if.then7.i ], [ 0, %memptr.end.i ], [ 0, %do.body ]
   %27 = load ptr, ptr %output.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.exit, label %if.then.i.i.i.i
@@ -2538,11 +2538,11 @@ if.then.i.i.i.i:                                  ; preds = %if.end12.i
 _ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.exit: ; preds = %if.end12.i, %if.then.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %output.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %output.i)
-  %cmp = icmp sgt i32 %bytes_consumed.1.i, 0
+  %cmp = icmp sgt i32 %bytes_consumed.0.i, 0
   br i1 %cmp, label %if.then.i.i.i, label %do.end
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.exit
-  %conv = zext nneg i32 %bytes_consumed.1.i to i64
+  %conv = zext nneg i32 %bytes_consumed.0.i to i64
   %28 = load ptr, ptr %data, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 %conv
   %sub.ptr.lhs.cast.i1.i.i = ptrtoint ptr %add.ptr.i.i to i64

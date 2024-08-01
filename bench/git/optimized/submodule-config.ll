@@ -786,8 +786,8 @@ cache_lookup_path.exit:                           ; preds = %sw.bb13, %if.then.i
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %cache_lookup_path.exit, %cache_lookup_name.exit
-  %submodule.0 = phi ptr [ %retval.0.i36, %cache_lookup_path.exit ], [ %retval.0.i, %cache_lookup_name.exit ]
-  %tobool15.not = icmp eq ptr %submodule.0, null
+  %submodule.1 = phi ptr [ %retval.0.i36, %cache_lookup_path.exit ], [ %retval.0.i, %cache_lookup_name.exit ]
+  %tobool15.not = icmp eq ptr %submodule.1, null
   br i1 %tobool15.not, label %if.end17, label %out
 
 if.end17:                                         ; preds = %sw.epilog
@@ -894,13 +894,13 @@ cache_lookup_path.exit74:                         ; preds = %sw.bb28, %if.then.i
 
 out:                                              ; preds = %if.end17, %sw.epilog, %if.end7
   %config.0 = phi ptr [ null, %sw.epilog ], [ %call18, %if.end17 ], [ null, %if.end7 ]
-  %submodule.1 = phi ptr [ %submodule.0, %sw.epilog ], [ null, %if.end17 ], [ null, %if.end7 ]
+  %submodule.0 = phi ptr [ %submodule.1, %sw.epilog ], [ null, %if.end17 ], [ null, %if.end7 ]
   call void @strbuf_release(ptr noundef nonnull %rev) #14
   call void @free(ptr noundef %config.0) #14
   br label %return
 
 return:                                           ; preds = %if.then, %out, %cache_lookup_path.exit74, %cache_lookup_name.exit56, %if.end
-  %retval.0 = phi ptr [ %submodule.1, %out ], [ %retval.0.i73, %cache_lookup_path.exit74 ], [ %retval.0.i55, %cache_lookup_name.exit56 ], [ %0, %if.end ], [ null, %if.then ]
+  %retval.0 = phi ptr [ %submodule.0, %out ], [ %retval.0.i73, %cache_lookup_path.exit74 ], [ %retval.0.i55, %cache_lookup_name.exit56 ], [ %0, %if.end ], [ null, %if.then ]
   ret ptr %retval.0
 }
 

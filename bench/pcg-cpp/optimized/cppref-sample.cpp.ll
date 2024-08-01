@@ -177,8 +177,8 @@ while.cond.if.end.loopexit_crit_edge.i.i.i:       ; preds = %while.body.i.i.i
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i, %if.then.i.i
-  %__product.1.i.i.i = phi i64 [ %mul.i.i.i, %if.then.i.i ], [ %mul7.i.i.i, %while.cond.if.end.loopexit_crit_edge.i.i.i ]
-  %shr.i.i.i = lshr i64 %__product.1.i.i.i, 32
+  %__product.0.i.i.i = phi i64 [ %mul.i.i.i, %if.then.i.i ], [ %mul7.i.i.i, %while.cond.if.end.loopexit_crit_edge.i.i.i ]
+  %shr.i.i.i = lshr i64 %__product.0.i.i.i, 32
   %conv9.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %add17.i.i = add nuw nsw i32 %conv9.i.i.i, 1
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)

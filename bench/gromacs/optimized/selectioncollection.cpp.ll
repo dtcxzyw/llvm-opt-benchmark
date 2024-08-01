@@ -5743,14 +5743,14 @@ _ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit.i: ; preds
 
 176:                                              ; preds = %174, %172
   %.pn.i = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %.010.i = extractvalue { ptr, i32 } %.pn.i, 1
+  %.1.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %.111.i = extractvalue { ptr, i32 } %.pn.i, 1
   %177 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx17InvalidInputErrorE) #22
-  %178 = icmp eq i32 %.010.i, %177
+  %178 = icmp eq i32 %.111.i, %177
   br i1 %178, label %179, label %.loopexit172
 
 179:                                              ; preds = %176
-  %180 = call ptr @__cxa_begin_catch(ptr %.0.i) #22
+  %180 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8
@@ -5807,17 +5807,17 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.loopexit172
 
 .loopexit172:                                     ; preds = %176, %195, %191
-  %.111.i = phi i32 [ %198, %195 ], [ %194, %191 ], [ %.010.i, %176 ]
-  %.1.i = phi ptr [ %197, %195 ], [ %193, %191 ], [ %.0.i, %176 ]
+  %.212.i = phi i32 [ %198, %195 ], [ %194, %191 ], [ %.111.i, %176 ]
+  %.2.i = phi ptr [ %197, %195 ], [ %193, %191 ], [ %.1.i, %176 ]
   call void @_ZN3gmx11HelpManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #22
   br label %199
 
 199:                                              ; preds = %.loopexit172, %168
-  %.212.i = phi i32 [ %.111.i, %.loopexit172 ], [ %171, %168 ]
-  %.2.i = phi ptr [ %.1.i, %.loopexit172 ], [ %170, %168 ]
+  %.010.i = phi i32 [ %.212.i, %.loopexit172 ], [ %171, %168 ]
+  %.0.i = phi ptr [ %.2.i, %.loopexit172 ], [ %170, %168 ]
   call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
-  %200 = insertvalue { ptr, i32 } poison, ptr %.2.i, 0
-  %201 = insertvalue { ptr, i32 } %200, i32 %.212.i, 1
+  %200 = insertvalue { ptr, i32 } poison, ptr %.0.i, 0
+  %201 = insertvalue { ptr, i32 } %200, i32 %.010.i, 1
   br label %.body81
 
 202:                                              ; preds = %191
@@ -7259,14 +7259,14 @@ define void @_ZN3gmx19SelectionCollection13parseFromFileERKNSt10filesystem7__cxx
 
 29:                                               ; preds = %28, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %28 ], [ %23, %22 ]
-  %.18 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.07 = extractvalue { ptr, i32 } %.pn.pn, 1
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx16GromacsExceptionE) #22
-  %31 = icmp eq i32 %.18, %30
+  %31 = icmp eq i32 %.07, %30
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %29
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %33 = call ptr @__cxa_begin_catch(ptr %.1) #22
+  %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %33 = call ptr @__cxa_begin_catch(ptr %.0) #22
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.52, ptr noundef %34)
           to label %35 unwind label %37

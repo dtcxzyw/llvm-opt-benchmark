@@ -1018,7 +1018,7 @@ read_tablespace_map.exit.thread:                  ; preds = %296
   unreachable
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
-  %.0 = phi ptr [ %.1177, %.backedge.i ], [ %.4, %.lr.ph.i ]
+  %.1177 = phi ptr [ %.2, %.backedge.i ], [ %.0, %.lr.ph.i ]
   %303 = phi i32 [ %340, %.backedge.i ], [ %349, %.lr.ph.i ]
   %.03371.i = phi i32 [ 0, %.backedge.i ], [ %.033.ph77.i, %.lr.ph.i ]
   switch i32 %303, label %.thread.i175 [
@@ -1101,17 +1101,17 @@ read_tablespace_map.exit.thread:                  ; preds = %296
   %337 = call ptr @pstrdup(ptr noundef %gep.i) #23
   %338 = getelementptr inbounds i8, ptr %323, i64 8
   store ptr %337, ptr %338, align 8
-  %339 = call ptr @lappend(ptr noundef %.0, ptr noundef nonnull %323) #23
+  %339 = call ptr @lappend(ptr noundef %.1177, ptr noundef nonnull %323) #23
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %335, %304
-  %.1177 = phi ptr [ %.0, %304 ], [ %339, %335 ]
+  %.2 = phi ptr [ %.1177, %304 ], [ %339, %335 ]
   %340 = call i32 @fgetc(ptr noundef nonnull %294)
   %.not43.i = icmp eq i32 %340, -1
   br i1 %.not43.i, label %.outer._crit_edge.thread.thread.i, label %.lr.ph.split.i, !llvm.loop !8
 
 .thread.i175:                                     ; preds = %.lr.ph.split.i, %.lr.ph.i
-  %.2 = phi ptr [ %.4, %.lr.ph.i ], [ %.0, %.lr.ph.split.i ]
+  %.5 = phi ptr [ %.0, %.lr.ph.i ], [ %.1177, %.lr.ph.split.i ]
   %.03362.i = phi i32 [ %.033.ph77.i, %.lr.ph.i ], [ %.03371.i, %.lr.ph.split.i ]
   %341 = phi i32 [ %349, %.lr.ph.i ], [ %303, %.lr.ph.split.i ]
   %342 = icmp ult i32 %.03362.i, 1023
@@ -1126,7 +1126,7 @@ read_tablespace_map.exit.thread:                  ; preds = %296
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.lr.ph.split.i, %343, %.thread.i175
-  %.3 = phi ptr [ %.2, %343 ], [ %.2, %.thread.i175 ], [ %.0, %.lr.ph.split.i ]
+  %.6 = phi ptr [ %.5, %343 ], [ %.5, %.thread.i175 ], [ %.1177, %.lr.ph.split.i ]
   %.2.i = phi i32 [ %346, %343 ], [ %.03362.i, %.thread.i175 ], [ %.03371.i, %.lr.ph.split.i ]
   %.1.i = phi i8 [ 0, %343 ], [ 0, %.thread.i175 ], [ 1, %.lr.ph.split.i ]
   %348 = call i32 @fgetc(ptr noundef nonnull %294)
@@ -1134,7 +1134,7 @@ read_tablespace_map.exit.thread:                  ; preds = %296
   br i1 %.not4370.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.outer.i
-  %.4 = phi ptr [ %.3, %.outer.i ], [ null, %.preheader.i ]
+  %.0 = phi ptr [ %.6, %.outer.i ], [ null, %.preheader.i ]
   %349 = phi i32 [ %348, %.outer.i ], [ %295, %.preheader.i ]
   %.0.ph78.i = phi i8 [ %.1.i, %.outer.i ], [ 0, %.preheader.i ]
   %.033.ph77.i = phi i32 [ %.2.i, %.outer.i ], [ 0, %.preheader.i ]
@@ -1158,7 +1158,7 @@ read_tablespace_map.exit.thread:                  ; preds = %296
   unreachable
 
 .outer._crit_edge.thread.thread.i:                ; preds = %.backedge.i, %.outer._crit_edge.thread.i, %.preheader.i
-  %.6 = phi ptr [ null, %.preheader.i ], [ %.3, %.outer._crit_edge.thread.i ], [ %.1177, %.backedge.i ]
+  %.4 = phi ptr [ null, %.preheader.i ], [ %.6, %.outer._crit_edge.thread.i ], [ %.2, %.backedge.i ]
   %356 = call i32 @ferror(ptr noundef nonnull %294) #23
   %.not45.i = icmp eq i32 %356, 0
   br i1 %.not45.i, label %357, label %359
@@ -1179,12 +1179,12 @@ read_tablespace_map.exit.thread:                  ; preds = %296
 read_tablespace_map.exit:                         ; preds = %357
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not164 = icmp eq ptr %.6, null
+  %.not164 = icmp eq ptr %.4, null
   br i1 %.not164, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %read_tablespace_map.exit
-  %363 = getelementptr inbounds i8, ptr %.6, i64 4
-  %364 = getelementptr inbounds i8, ptr %.6, i64 16
+  %363 = getelementptr inbounds i8, ptr %.4, i64 4
+  %364 = getelementptr inbounds i8, ptr %.4, i64 16
   %365 = load i32, ptr %363, align 4
   %366 = icmp sgt i32 %365, 0
   br i1 %366, label %.lr.ph207, label %.thread
@@ -1939,7 +1939,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 90:                                               ; preds = %.preheader, %361
   %91 = phi i32 [ %.pre.i, %361 ], [ %.ph, %.preheader ]
-  %.040.i = phi i1 [ %.2.i, %361 ], [ false, %.preheader ]
+  %.040.i = phi i1 [ %.1.i, %361 ], [ false, %.preheader ]
   %.b5254.i = load i1, ptr @lastSourceFailed, align 1
   br i1 %.b5254.i, label %92, label %134
 
@@ -2537,7 +2537,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %320, %315
   unreachable
 
 356:                                              ; preds = %345, %342, %335, %302, %265
-  %.2.i = phi i1 [ %.040.i, %335 ], [ %.040.i, %342 ], [ true, %345 ], [ %.040.i, %302 ], [ %.040.i, %265 ]
+  %.1.i = phi i1 [ %.040.i, %335 ], [ %.040.i, %342 ], [ true, %345 ], [ %.040.i, %302 ], [ %.040.i, %265 ]
   %357 = load ptr, ptr @XLogRecoveryCtl, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 80
   %359 = load volatile i32, ptr %358, align 8

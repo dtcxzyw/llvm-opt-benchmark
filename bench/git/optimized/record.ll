@@ -3594,7 +3594,7 @@ get_var_int.exit:                                 ; preds = %if.end12.i
 
 if.end:                                           ; preds = %get_var_int.exit, %if.end.i
   %retval.0.i98 = phi i64 [ %7, %get_var_int.exit ], [ 1, %if.end.i ]
-  %count.097 = phi i64 [ %or.i, %get_var_int.exit ], [ %conv1.i, %if.end.i ]
+  %count.197 = phi i64 [ %or.i, %get_var_int.exit ], [ %conv1.i, %if.end.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %in.coerce0, i64 %retval.0.i98
   %sub.i = sub i64 %in.coerce1, %retval.0.i98
   br label %if.end11
@@ -3602,12 +3602,12 @@ if.end:                                           ; preds = %get_var_int.exit, %
 if.end11:                                         ; preds = %if.end, %entry
   %in.sroa.10.0 = phi i64 [ %sub.i, %if.end ], [ %in.coerce1, %entry ]
   %in.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end ], [ %in.coerce0, %entry ]
-  %count.1 = phi i64 [ %count.097, %if.end ], [ %conv, %entry ]
+  %count.0 = phi i64 [ %count.197, %if.end ], [ %conv, %entry ]
   %offsets = getelementptr inbounds i8, ptr %rec, i64 16
   store ptr null, ptr %offsets, align 8
   %offset_len = getelementptr inbounds i8, ptr %rec, i64 24
   store i32 0, ptr %offset_len, align 8
-  %cmp12 = icmp eq i64 %count.1, 0
+  %cmp12 = icmp eq i64 %count.0, 0
   br i1 %cmp12, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end11
@@ -3616,10 +3616,10 @@ if.then14:                                        ; preds = %if.end11
   br label %return
 
 if.end18:                                         ; preds = %if.end11
-  %mul = shl i64 %count.1, 3
+  %mul = shl i64 %count.0, 3
   %call19 = tail call ptr @reftable_malloc(i64 noundef %mul) #22
   store ptr %call19, ptr %offsets, align 8
-  %conv21 = trunc i64 %count.1 to i32
+  %conv21 = trunc i64 %count.0 to i32
   store i32 %conv21, ptr %offset_len, align 8
   %cmp.i23 = icmp eq i64 %in.sroa.10.0, 0
   br i1 %cmp.i23, label %return, label %if.end.i24
@@ -3659,14 +3659,14 @@ if.end28:                                         ; preds = %if.end.i24, %get_va
   %ptr.0.lcssa.i41105 = phi i64 [ %13, %get_var_int.exit44 ], [ 1, %if.end.i24 ]
   store i64 %storemerge, ptr %call19, align 8
   %sub.i48 = sub i64 %in.sroa.10.0, %ptr.0.lcssa.i41105
-  %cmp32123.not = icmp eq i64 %count.1, 1
+  %cmp32123.not = icmp eq i64 %count.0, 1
   br i1 %cmp32123.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end28
   %14 = load ptr, ptr %offsets, align 8
   %15 = load i64, ptr %14, align 8
   %add.ptr.i46 = getelementptr inbounds i8, ptr %in.sroa.0.0, i64 %ptr.0.lcssa.i41105
-  %umax = tail call i64 @llvm.umax.i64(i64 %count.1, i64 2)
+  %umax = tail call i64 @llvm.umax.i64(i64 %count.0, i64 2)
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end39

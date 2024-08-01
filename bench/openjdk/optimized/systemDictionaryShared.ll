@@ -2352,8 +2352,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
 _ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit: ; preds = %64, %60, %56, %_ZNK6HandleclEv.exit29.thread, %14, %12, %_ZN11MutexLockerD2Ev.exit, %3, %54, %_ZNK6HandleclEv.exit29
-  %.2 = phi ptr [ %53, %_ZN11MutexLockerD2Ev.exit ], [ null, %54 ], [ null, %_ZNK6HandleclEv.exit29 ], [ null, %3 ], [ null, %12 ], [ null, %14 ], [ null, %_ZNK6HandleclEv.exit29.thread ], [ %57, %56 ], [ null, %60 ], [ null, %64 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %53, %_ZN11MutexLockerD2Ev.exit ], [ null, %54 ], [ null, %_ZNK6HandleclEv.exit29 ], [ null, %3 ], [ null, %12 ], [ null, %14 ], [ null, %_ZNK6HandleclEv.exit29.thread ], [ %57, %56 ], [ null, %60 ], [ null, %64 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef) local_unnamed_addr #1
@@ -5154,8 +5154,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %105, %103, %_ZN6Han
   br label %_ZN12ResourceMarkD2Ev.exit38
 
 _ZN12ResourceMarkD2Ev.exit38:                     ; preds = %134, %132, %116, %2, %.loopexit
-  %.1 = phi i1 [ %115, %.loopexit ], [ true, %2 ], [ false, %116 ], [ false, %132 ], [ false, %134 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %115, %.loopexit ], [ true, %2 ], [ false, %116 ], [ false, %132 ], [ false, %134 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

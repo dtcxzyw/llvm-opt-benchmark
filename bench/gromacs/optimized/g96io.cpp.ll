@@ -291,9 +291,9 @@ define noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPP
   br i1 %.not97.i161, label %.critedge.i, label %sub_0.i
 
 sub_0.i:                                          ; preds = %.thread, %221
-  %.085119.i164 = phi i32 [ %.186.i, %221 ], [ 0, %.thread ]
-  %.082120.i163 = phi i32 [ %.284.i, %221 ], [ -666, %.thread ]
-  %.079121.i162 = phi i32 [ %.281.i, %221 ], [ -1, %.thread ]
+  %.186119.i164 = phi i32 [ %.287.i, %221 ], [ 0, %.thread ]
+  %.082120.i163 = phi i32 [ %.183.i, %221 ], [ -666, %.thread ]
+  %.079121.i162 = phi i32 [ %.180.i, %221 ], [ -1, %.thread ]
   %127 = load i8, ptr %5, align 1
   %128 = zext i8 %127 to i32
   %129 = add nsw i32 %128, -69
@@ -333,7 +333,7 @@ sub_2.i:                                          ; preds = %sub_1.i
           to label %142 unwind label %146
 
 142:                                              ; preds = %141
-  %143 = add nsw i32 %.085119.i164, 1
+  %143 = add nsw i32 %.186119.i164, 1
   %144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #13
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %26, i32 noundef 102, ptr noundef nonnull @.str.12, i32 noundef %143, ptr noundef %144) #14
           to label %145 unwind label %148
@@ -358,7 +358,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %common.resume
 
 151:                                              ; preds = %139
-  %.not101.i = icmp slt i32 %.085119.i164, %112
+  %.not101.i = icmp slt i32 %.186119.i164, %112
   %or.cond114.i = select i1 %.not100.i, i1 true, i1 %.not101.i
   br i1 %or.cond114.i, label %161, label %152
 
@@ -369,7 +369,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 153:                                              ; preds = %152
   %154 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #13
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef 109, ptr noundef nonnull @.str.13, i32 noundef %.085119.i164, ptr noundef %154, i32 noundef %112) #14
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef 109, ptr noundef nonnull @.str.13, i32 noundef %.186119.i164, ptr noundef %154, i32 noundef %112) #14
           to label %155 unwind label %158
 
 155:                                              ; preds = %153
@@ -421,7 +421,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 173:                                              ; preds = %171, %165, %162
   %174 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %4, ptr noundef nonnull %19)
   %175 = load ptr, ptr %123, align 8
-  %176 = sext i32 %.085119.i164 to i64
+  %176 = sext i32 %.186119.i164 to i64
   %177 = getelementptr inbounds ptr, ptr %175, i64 %176
   store ptr %174, ptr %177, align 8
   %178 = load i32, ptr %18, align 4
@@ -479,7 +479,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 199:                                              ; preds = %198, %192
   %200 = load i32, ptr %18, align 4
-  call void @_Z19t_atoms_set_resinfoP7t_atomsiP8t_symtabPKcihic(ptr noundef nonnull %113, i32 noundef %.085119.i164, ptr noundef %4, ptr noundef nonnull %20, i32 noundef %200, i8 noundef zeroext 32, i32 noundef 0, i8 noundef signext 32)
+  call void @_Z19t_atoms_set_resinfoP7t_atomsiP8t_symtabPKcihic(ptr noundef nonnull %113, i32 noundef %.186119.i164, ptr noundef %4, ptr noundef nonnull %20, i32 noundef %200, i8 noundef zeroext 32, i32 noundef 0, i8 noundef signext 32)
   br label %204
 
 201:                                              ; preds = %173
@@ -489,8 +489,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %204
 
 204:                                              ; preds = %201, %199, %161
-  %.183.i = phi i32 [ %178, %199 ], [ %.082120.i163, %201 ], [ %.082120.i163, %161 ]
-  %.180.i = phi i32 [ %180, %199 ], [ %.079121.i162, %201 ], [ %.079121.i162, %161 ]
+  %.284.i = phi i32 [ %178, %199 ], [ %.082120.i163, %201 ], [ %.082120.i163, %161 ]
+  %.281.i = phi i32 [ %180, %199 ], [ %.079121.i162, %201 ], [ %.079121.i162, %161 ]
   %205 = load ptr, ptr %70, align 8
   %.not105.i = icmp eq ptr %205, null
   br i1 %.not105.i, label %219, label %206
@@ -498,7 +498,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 206:                                              ; preds = %204
   %207 = load double, ptr %23, align 8
   %208 = fptrunc double %207 to float
-  %209 = sext i32 %.085119.i164 to i64
+  %209 = sext i32 %.186119.i164 to i64
   %210 = getelementptr inbounds [3 x float], ptr %205, i64 %209
   store float %208, ptr %210, align 4
   %211 = load double, ptr %24, align 8
@@ -514,20 +514,20 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %219
 
 219:                                              ; preds = %206, %204
-  %220 = add nsw i32 %.085119.i164, 1
+  %220 = add nsw i32 %.186119.i164, 1
   br label %221
 
 221:                                              ; preds = %219, %138
-  %.186.i = phi i32 [ %220, %219 ], [ %.085119.i164, %138 ]
-  %.284.i = phi i32 [ %.183.i, %219 ], [ %.082120.i163, %138 ]
-  %.281.i = phi i32 [ %.180.i, %219 ], [ %.079121.i162, %138 ]
+  %.287.i = phi i32 [ %220, %219 ], [ %.186119.i164, %138 ]
+  %.183.i = phi i32 [ %.284.i, %219 ], [ %.082120.i163, %138 ]
+  %.180.i = phi i32 [ %.281.i, %219 ], [ %.079121.i162, %138 ]
   %222 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
   %.not97.i = icmp eq ptr %222, null
   br i1 %.not97.i, label %.critedge.i, label %sub_0.i
 
 .critedge.i:                                      ; preds = %221, %.tail.i, %.thread
-  %.085119.i.lcssa = phi i32 [ 0, %.thread ], [ %.085119.i164, %.tail.i ], [ %.186.i, %221 ]
-  %.not113.i = icmp eq i32 %.085119.i.lcssa, %112
+  %.186119.i.lcssa = phi i32 [ 0, %.thread ], [ %.186119.i164, %.tail.i ], [ %.287.i, %221 ]
+  %.not113.i = icmp eq i32 %.186119.i.lcssa, %112
   %or.cond115.i = select i1 %.not100.i, i1 true, i1 %.not113.i
   br i1 %or.cond115.i, label %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit, label %223
 
@@ -554,13 +554,13 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %223
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   %229 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
-  %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.17, i32 noundef %.085119.i.lcssa, ptr noundef %229, i32 noundef %112) #15
+  %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.17, i32 noundef %.186119.i.lcssa, ptr noundef %229, i32 noundef %112) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   br label %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit
 
 _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: ; preds = %117, %.critedge.i, %_ZNKSt10filesystem7__cxx114path6stringEv.exit.i
-  %.287.i = phi i32 [ %.085119.i.lcssa, %_ZNKSt10filesystem7__cxx114path6stringEv.exit.i ], [ %.085119.i.lcssa, %.critedge.i ], [ 0, %117 ]
-  store i32 %.287.i, ptr %65, align 8
+  %.085.i = phi i32 [ %.186119.i.lcssa, %_ZNKSt10filesystem7__cxx114path6stringEv.exit.i ], [ %.186119.i.lcssa, %.critedge.i ], [ 0, %117 ]
+  store i32 %.085.i, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %19)
@@ -581,7 +581,7 @@ _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxfr
 
 231:                                              ; preds = %108, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit, %107
   %.2102 = phi i1 [ %.1101, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.1101, %107 ], [ true, %108 ]
-  %.199 = phi i32 [ %.287.i, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.098, %107 ], [ %.098, %108 ]
+  %.199 = phi i32 [ %.085.i, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.098, %107 ], [ %.098, %108 ]
   %232 = load ptr, ptr %71, align 8
   %.not107 = icmp ne ptr %232, null
   %brmerge.not = select i1 %.not107, i1 %87, i1 false
@@ -608,7 +608,7 @@ _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxfr
   br i1 %.not47.i166, label %.critedge.i126, label %sub_0.i122
 
 sub_0.i122:                                       ; preds = %233, %288
-  %.04062.i167 = phi i32 [ %.141.i, %288 ], [ 0, %233 ]
+  %.14162.i167 = phi i32 [ %.242.i, %288 ], [ 0, %233 ]
   %239 = load i8, ptr %5, align 1
   %240 = zext i8 %239 to i32
   %241 = add nsw i32 %240, -69
@@ -648,7 +648,7 @@ sub_2.i128:                                       ; preds = %sub_1.i127
           to label %254 unwind label %258
 
 254:                                              ; preds = %253
-  %255 = add nsw i32 %.04062.i167, 1
+  %255 = add nsw i32 %.14162.i167, 1
   %256 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 206, ptr noundef nonnull @.str.21, i32 noundef %255, ptr noundef %256) #14
           to label %257 unwind label %260
@@ -668,7 +668,7 @@ sub_2.i128:                                       ; preds = %sub_1.i127
   br label %298
 
 262:                                              ; preds = %251
-  %.not51.i = icmp slt i32 %.04062.i167, %234
+  %.not51.i = icmp slt i32 %.14162.i167, %234
   %or.cond.i125 = select i1 %.not50.i, i1 true, i1 %.not51.i
   br i1 %or.cond.i125, label %271, label %263
 
@@ -679,7 +679,7 @@ sub_2.i128:                                       ; preds = %sub_1.i127
 
 264:                                              ; preds = %263
   %265 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 213, ptr noundef nonnull @.str.22, i32 noundef %.04062.i167, ptr noundef %265, i32 noundef %234) #14
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 213, ptr noundef nonnull @.str.22, i32 noundef %.14162.i167, ptr noundef %265, i32 noundef %234) #14
           to label %266 unwind label %269
 
 266:                                              ; preds = %264
@@ -704,7 +704,7 @@ sub_2.i128:                                       ; preds = %sub_1.i127
 273:                                              ; preds = %271
   %274 = load double, ptr %8, align 8
   %275 = fptrunc double %274 to float
-  %276 = sext i32 %.04062.i167 to i64
+  %276 = sext i32 %.14162.i167 to i64
   %277 = getelementptr inbounds [3 x float], ptr %272, i64 %276
   store float %275, ptr %277, align 4
   %278 = load double, ptr %9, align 8
@@ -720,18 +720,18 @@ sub_2.i128:                                       ; preds = %sub_1.i127
   br label %286
 
 286:                                              ; preds = %273, %271
-  %287 = add nsw i32 %.04062.i167, 1
+  %287 = add nsw i32 %.14162.i167, 1
   br label %288
 
 288:                                              ; preds = %286, %250
-  %.141.i = phi i32 [ %287, %286 ], [ %.04062.i167, %250 ]
+  %.242.i = phi i32 [ %287, %286 ], [ %.14162.i167, %250 ]
   %289 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
   %.not47.i = icmp eq ptr %289, null
   br i1 %.not47.i, label %.critedge.i126, label %sub_0.i122
 
 .critedge.i126:                                   ; preds = %288, %.tail.i123, %233
-  %.04062.i.lcssa = phi i32 [ 0, %233 ], [ %.04062.i167, %.tail.i123 ], [ %.141.i, %288 ]
-  %.not58.i = icmp eq i32 %.04062.i.lcssa, %234
+  %.14162.i.lcssa = phi i32 [ 0, %233 ], [ %.14162.i167, %.tail.i123 ], [ %.242.i, %288 ]
+  %.not58.i = icmp eq i32 %.14162.i.lcssa, %234
   %or.cond59.i = select i1 %.not50.i, i1 true, i1 %.not58.i
   br i1 %or.cond59.i, label %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit, label %290
 
@@ -754,7 +754,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %290
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %296 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %291, ptr noundef nonnull @.str.23, i32 noundef %.04062.i.lcssa, ptr noundef %296, i32 noundef %234) #15
+  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %291, ptr noundef nonnull @.str.23, i32 noundef %.14162.i.lcssa, ptr noundef %296, i32 noundef %234) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
   br label %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit
 
@@ -776,7 +776,7 @@ _ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: 
   br label %299
 
 299:                                              ; preds = %231, %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit
-  %.2 = phi i32 [ %.04062.i.lcssa, %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.199, %231 ]
+  %.2 = phi i32 [ %.14162.i.lcssa, %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.199, %231 ]
   br i1 %90, label %.critedge118, label %.critedge6
 
 .critedge118:                                     ; preds = %299

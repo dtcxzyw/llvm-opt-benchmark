@@ -1790,10 +1790,10 @@ if.then263:                                       ; preds = %if.end235, %if.end1
 if.end264:                                        ; preds = %if.end, %if.end123, %if.end43, %switch.lookup, %if.end23, %PACKET_buf_init.exit, %if.end37, %if.then47, %if.end55, %if.else, %if.then63, %if.then78, %if.end85, %if.end93, %if.end101, %if.end110, %if.end117, %if.then127, %if.then263
   %testresult.089 = phi i32 [ %testresult.0, %if.then263 ], [ 1, %if.end43 ], [ 1, %if.end123 ], [ 0, %switch.lookup ], [ 0, %if.end23 ], [ 0, %PACKET_buf_init.exit ], [ 0, %if.end37 ], [ 0, %if.then47 ], [ 0, %if.end55 ], [ 0, %if.else ], [ 0, %if.then63 ], [ 0, %if.then78 ], [ 0, %if.end85 ], [ 0, %if.end93 ], [ 0, %if.end101 ], [ 0, %if.end110 ], [ 0, %if.end117 ], [ 0, %if.then127 ], [ 0, %if.end ]
   %buf.088 = phi ptr [ %call, %if.then263 ], [ %call, %if.end43 ], [ %call, %if.end123 ], [ %call, %switch.lookup ], [ %call, %if.end23 ], [ %call, %PACKET_buf_init.exit ], [ %call, %if.end37 ], [ %call, %if.then47 ], [ %call, %if.end55 ], [ %call, %if.else ], [ %call, %if.then63 ], [ %call, %if.then78 ], [ %call, %if.end85 ], [ %call, %if.end93 ], [ %call, %if.end101 ], [ %call, %if.end110 ], [ %call, %if.end117 ], [ %call, %if.then127 ], [ null, %if.end ]
-  %hbuf.187 = phi ptr [ %call137, %if.then263 ], [ null, %if.end43 ], [ null, %if.end123 ], [ null, %switch.lookup ], [ null, %if.end23 ], [ null, %PACKET_buf_init.exit ], [ null, %if.end37 ], [ null, %if.then47 ], [ null, %if.end55 ], [ null, %if.else ], [ null, %if.then63 ], [ null, %if.then78 ], [ null, %if.end85 ], [ null, %if.end93 ], [ null, %if.end101 ], [ null, %if.end110 ], [ null, %if.end117 ], [ null, %if.then127 ], [ null, %if.end ]
+  %hbuf.087 = phi ptr [ %call137, %if.then263 ], [ null, %if.end43 ], [ null, %if.end123 ], [ null, %switch.lookup ], [ null, %if.end23 ], [ null, %PACKET_buf_init.exit ], [ null, %if.end37 ], [ null, %if.then47 ], [ null, %if.end55 ], [ null, %if.else ], [ null, %if.then63 ], [ null, %if.then78 ], [ null, %if.end85 ], [ null, %if.end93 ], [ null, %if.end101 ], [ null, %if.end110 ], [ null, %if.end117 ], [ null, %if.then127 ], [ null, %if.end ]
   %call265 = call i32 @WPACKET_finish(ptr noundef nonnull %wpkt) #10
   call void @CRYPTO_free(ptr noundef %buf.088, ptr noundef nonnull @.str.3, i32 noundef 2911) #10
-  call void @CRYPTO_free(ptr noundef %hbuf.187, ptr noundef nonnull @.str.3, i32 noundef 2912) #10
+  call void @CRYPTO_free(ptr noundef %hbuf.087, ptr noundef nonnull @.str.3, i32 noundef 2912) #10
   ret i32 %testresult.089
 }
 

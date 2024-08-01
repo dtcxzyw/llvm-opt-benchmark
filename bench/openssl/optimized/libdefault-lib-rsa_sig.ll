@@ -1234,8 +1234,8 @@ if.then9.i.i:                                     ; preds = %if.end6.i.i, %if.en
   br label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.then9.i.i, %if.end6.i.i
-  %saltlen.2.i.i = phi i32 [ %saltlen.0.i.i, %if.end6.i.i ], [ %spec.select, %if.then9.i.i ]
-  %cmp24.i.i = icmp slt i32 %saltlen.2.i.i, 0
+  %saltlen.1.i.i = phi i32 [ %saltlen.0.i.i, %if.end6.i.i ], [ %spec.select, %if.then9.i.i ]
+  %cmp24.i.i = icmp slt i32 %saltlen.1.i.i, 0
   br i1 %cmp24.i.i, label %if.then25.i.i, label %if.else26.i.i
 
 if.then25.i.i:                                    ; preds = %if.end23.i.i
@@ -1247,14 +1247,14 @@ if.then25.i.i:                                    ; preds = %if.end23.i.i
 if.else26.i.i:                                    ; preds = %if.end23.i.i
   %min_saltlen.i.i = getelementptr inbounds i8, ptr %vprsactx, i64 180
   %12 = load i32, ptr %min_saltlen.i.i, align 4
-  %cmp27.i.i = icmp slt i32 %saltlen.2.i.i, %12
+  %cmp27.i.i = icmp slt i32 %saltlen.1.i.i, %12
   br i1 %cmp27.i.i, label %if.then28.i.i, label %if.end12.i
 
 if.then28.i.i:                                    ; preds = %if.else26.i.i
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.rsa_pss_compute_saltlen) #11
   %13 = load i32, ptr %min_saltlen.i.i, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.30, i32 noundef %13, i32 noundef %saltlen.2.i.i) #11
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 172, ptr noundef nonnull @.str.30, i32 noundef %13, i32 noundef %saltlen.1.i.i) #11
   br label %rsa_generate_signature_aid.exit.thread40
 
 if.end12.i:                                       ; preds = %if.else26.i.i
@@ -1277,7 +1277,7 @@ lor.lhs.false18.i:                                ; preds = %lor.lhs.false.i
   br i1 %tobool20.not.i, label %if.then27.i, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %lor.lhs.false18.i
-  %call22.i = call i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef nonnull %pss_params.i, i32 noundef %saltlen.2.i.i) #11
+  %call22.i = call i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef nonnull %pss_params.i, i32 noundef %saltlen.1.i.i) #11
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %if.then27.i, label %lor.lhs.false24.i
 
@@ -1603,7 +1603,7 @@ sw.bb50:                                          ; preds = %sw.epilog
   br label %cont
 
 cont:                                             ; preds = %sw.epilog, %sw.bb50, %sw.bb49
-  %err_extra_text.0 = phi ptr [ @.str.40, %sw.bb50 ], [ @.str.39, %sw.bb49 ], [ @.str.38, %sw.epilog ]
+  %err_extra_text.1 = phi ptr [ @.str.40, %sw.bb50 ], [ @.str.39, %sw.bb49 ], [ @.str.38, %sw.epilog ]
   %rsa = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %8 = load ptr, ptr %rsa, align 8
   %call51 = call i32 @RSA_test_flags(ptr noundef %8, i32 noundef 61440) #11
@@ -1617,10 +1617,10 @@ if.then57:                                        ; preds = %sw.epilog
   br label %return
 
 if.else:                                          ; preds = %sw.epilog, %cont, %sw.bb44
-  %err_extra_text.1.ph = phi ptr [ @.str.37, %sw.bb44 ], [ %err_extra_text.0, %cont ], [ @.str.36, %sw.epilog ]
+  %err_extra_text.0.ph = phi ptr [ @.str.37, %sw.bb44 ], [ %err_extra_text.1, %cont ], [ @.str.36, %sw.epilog ]
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1261, ptr noundef nonnull @__func__.rsa_set_ctx_params) #11
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 165, ptr noundef nonnull %err_extra_text.1.ph) #11
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 165, ptr noundef nonnull %err_extra_text.0.ph) #11
   br label %return
 
 if.end60:                                         ; preds = %sw.bb44, %cont, %if.end20

@@ -2788,8 +2788,8 @@ define internal fastcc range(i32 0, 2) i32 @st_general_foreach(ptr nocapture nou
   br label %26
 
 26:                                               ; preds = %.lr.ph, %update_range_for_deleted.exit
-  %.071183 = phi i32 [ %18, %.lr.ph ], [ %.2, %update_range_for_deleted.exit ]
-  %.074182 = phi ptr [ %15, %.lr.ph ], [ %.276, %update_range_for_deleted.exit ]
+  %.071183 = phi i32 [ %18, %.lr.ph ], [ %.1, %update_range_for_deleted.exit ]
+  %.074182 = phi ptr [ %15, %.lr.ph ], [ %.175, %update_range_for_deleted.exit ]
   %.077181 = phi i64 [ %11, %.lr.ph ], [ %244, %update_range_for_deleted.exit ]
   %27 = getelementptr %struct.parser_st_table_entry, ptr %.074182, i64 %.077181
   %28 = load i64, ptr %27, align 8
@@ -3009,7 +3009,7 @@ find_table_entry_ind.exit.thread:                 ; preds = %find_table_entry_in
 
 find_entry.exit.thread:                           ; preds = %51, %find_entry.exit, %72, %find_table_entry_ind.exit.thread
   %.pre.i97226 = phi i32 [ %.pre.i97227, %find_table_entry_ind.exit.thread ], [ %.pre.i218, %72 ], [ %.pre.i217, %find_entry.exit ], [ %.pre.i, %51 ]
-  %.178 = phi i64 [ %124, %find_table_entry_ind.exit.thread ], [ -1, %72 ], [ %.02233.i, %find_entry.exit ], [ -1, %51 ]
+  %.3 = phi i64 [ %124, %find_table_entry_ind.exit.thread ], [ -1, %72 ], [ %.02233.i, %find_entry.exit ], [ -1, %51 ]
   %.072.in.in = phi i64 [ %.0.i93129, %find_table_entry_ind.exit.thread ], [ -1, %72 ], [ %.02233.i, %find_entry.exit ], [ -1, %51 ]
   %.072.in = icmp eq i64 %.072.in.in, -1
   %or.cond3 = and i1 %24, %.072.in
@@ -3021,15 +3021,15 @@ find_entry.exit.thread:                           ; preds = %51, %find_entry.exi
 
 127:                                              ; preds = %find_entry.exit.thread
   %128 = zext i1 %49 to i32
-  %129 = getelementptr %struct.parser_st_table_entry, ptr %47, i64 %.178
+  %129 = getelementptr %struct.parser_st_table_entry, ptr %47, i64 %.3
   br label %130
 
 130:                                              ; preds = %127, %44
   %.pre.i97233 = phi i32 [ %.pre.i97226, %127 ], [ %33, %44 ]
   %.081 = phi ptr [ %129, %127 ], [ %27, %44 ]
-  %.279 = phi i64 [ %.178, %127 ], [ %.077181, %44 ]
-  %.175 = phi ptr [ %47, %127 ], [ %.074182, %44 ]
-  %.1 = phi i32 [ %128, %127 ], [ %.071183, %44 ]
+  %.279 = phi i64 [ %.3, %127 ], [ %.077181, %44 ]
+  %.276 = phi ptr [ %47, %127 ], [ %.074182, %44 ]
+  %.2 = phi i32 [ %128, %127 ], [ %.071183, %44 ]
   switch i32 %.080, label %update_range_for_deleted.exit [
     i32 2, label %132
     i32 1, label %.loopexit
@@ -3042,7 +3042,7 @@ find_entry.exit.thread:                           ; preds = %51, %find_entry.exi
 132:                                              ; preds = %130
   %133 = getelementptr inbounds i8, ptr %.081, i64 8
   %134 = load i64, ptr %133, align 8
-  %.not88 = icmp eq i32 %.1, 0
+  %.not88 = icmp eq i32 %.2, 0
   br i1 %.not88, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %132, %find_table_bin_ind.exit.us
@@ -3264,7 +3264,7 @@ get_bin.exit:                                     ; preds = %.split178.us
 
 set_bin.exit:                                     ; preds = %find_entry.exit108, %get_bin.exit, %get_bin.exit.thread136, %get_bin.exit.thread135, %get_bin.exit.thread
   %.073 = phi i64 [ %217, %get_bin.exit.thread ], [ %221, %get_bin.exit.thread135 ], [ %225, %get_bin.exit.thread136 ], [ %228, %get_bin.exit ], [ %.02233.i98, %find_entry.exit108 ]
-  %229 = getelementptr %struct.parser_st_table_entry, ptr %.175, i64 %.073
+  %229 = getelementptr %struct.parser_st_table_entry, ptr %.276, i64 %.073
   store i64 -1, ptr %229, align 8
   %230 = load i64, ptr %25, align 8
   %231 = add i64 %230, -1
@@ -3298,10 +3298,10 @@ set_bin.exit:                                     ; preds = %find_entry.exit108,
   br label %update_range_for_deleted.exit
 
 update_range_for_deleted.exit:                    ; preds = %.backedge, %find_entry.exit108, %find_table_bin_ind.exit.us, %209, %177, %.split, %.critedge.i, %set_bin.exit, %130, %131, %26
-  %.3 = phi i64 [ %.077181, %26 ], [ %.279, %130 ], [ %.279, %131 ], [ %.279, %set_bin.exit ], [ %.279, %.critedge.i ], [ %.279, %.split ], [ %.279, %177 ], [ %.279, %209 ], [ %.279, %find_table_bin_ind.exit.us ], [ %.279, %find_entry.exit108 ], [ %.279, %.backedge ]
-  %.276 = phi ptr [ %.074182, %26 ], [ %.175, %130 ], [ %.175, %131 ], [ %.175, %set_bin.exit ], [ %.175, %.critedge.i ], [ %.175, %.split ], [ %.175, %177 ], [ %.175, %209 ], [ %.175, %find_table_bin_ind.exit.us ], [ %.175, %find_entry.exit108 ], [ %.175, %.backedge ]
-  %.2 = phi i32 [ %.071183, %26 ], [ %.1, %130 ], [ %.1, %131 ], [ %.1, %set_bin.exit ], [ %.1, %.critedge.i ], [ 1, %.split ], [ 0, %177 ], [ 1, %209 ], [ 0, %find_table_bin_ind.exit.us ], [ 1, %find_entry.exit108 ], [ 1, %.backedge ]
-  %244 = add i64 %.3, 1
+  %.178 = phi i64 [ %.077181, %26 ], [ %.279, %130 ], [ %.279, %131 ], [ %.279, %set_bin.exit ], [ %.279, %.critedge.i ], [ %.279, %.split ], [ %.279, %177 ], [ %.279, %209 ], [ %.279, %find_table_bin_ind.exit.us ], [ %.279, %find_entry.exit108 ], [ %.279, %.backedge ]
+  %.175 = phi ptr [ %.074182, %26 ], [ %.276, %130 ], [ %.276, %131 ], [ %.276, %set_bin.exit ], [ %.276, %.critedge.i ], [ %.276, %.split ], [ %.276, %177 ], [ %.276, %209 ], [ %.276, %find_table_bin_ind.exit.us ], [ %.276, %find_entry.exit108 ], [ %.276, %.backedge ]
+  %.1 = phi i32 [ %.071183, %26 ], [ %.2, %130 ], [ %.2, %131 ], [ %.2, %set_bin.exit ], [ %.2, %.critedge.i ], [ 1, %.split ], [ 0, %177 ], [ 1, %209 ], [ 0, %find_table_bin_ind.exit.us ], [ 1, %find_entry.exit108 ], [ 1, %.backedge ]
+  %244 = add i64 %.178, 1
   %245 = load i64, ptr %12, align 8
   %246 = icmp ult i64 %244, %245
   br i1 %246, label %26, label %.loopexit, !llvm.loop !11
@@ -3532,30 +3532,30 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
   br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.preheader
-  %.035 = phi i64 [ %14, %.preheader ], [ %2, %3 ]
-  %.033 = phi ptr [ %15, %.preheader ], [ %0, %3 ]
-  %.0 = phi i64 [ %16, %.preheader ], [ %1, %3 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.033, i64 8) ]
-  %5 = load i64, ptr %.033, align 8
+  %.136 = phi i64 [ %14, %.preheader ], [ %2, %3 ]
+  %.134 = phi ptr [ %15, %.preheader ], [ %0, %3 ]
+  %.1 = phi i64 [ %16, %.preheader ], [ %1, %3 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.134, i64 8) ]
+  %5 = load i64, ptr %.134, align 8
   %6 = mul i64 %5, -8663945395140668459
   %7 = mul i64 %5, 2487297242801635328
   %8 = lshr i64 %6, 31
   %9 = or disjoint i64 %8, %7
-  %10 = xor i64 %9, %.035
+  %10 = xor i64 %9, %.136
   %11 = mul i64 %10, 5545529020109919103
   %12 = mul i64 %10, 4838912824426102784
   %13 = lshr i64 %11, 40
   %14 = or disjoint i64 %13, %12
-  %15 = getelementptr i8, ptr %.033, i64 8
-  %16 = add i64 %.0, -8
+  %15 = getelementptr i8, ptr %.134, i64 8
+  %16 = add i64 %.1, -8
   %17 = icmp ugt i64 %16, 7
   br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %3
-  %.136 = phi i64 [ %2, %3 ], [ %14, %.preheader ]
-  %.134 = phi ptr [ %0, %3 ], [ %15, %.preheader ]
-  %.1 = phi i64 [ %1, %3 ], [ %16, %.preheader ]
-  switch i64 %.1, label %.unreachabledefault [
+  %.035 = phi i64 [ %2, %3 ], [ %14, %.preheader ]
+  %.033 = phi ptr [ %0, %3 ], [ %15, %.preheader ]
+  %.0 = phi i64 [ %1, %3 ], [ %16, %.preheader ]
+  switch i64 %.0, label %.unreachabledefault [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -3567,7 +3567,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
   ]
 
 18:                                               ; preds = %.loopexit
-  %19 = getelementptr i8, ptr %.134, i64 6
+  %19 = getelementptr i8, ptr %.033, i64 6
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 48
@@ -3575,7 +3575,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
 
 23:                                               ; preds = %.loopexit, %18
   %.031 = phi i64 [ 0, %.loopexit ], [ %22, %18 ]
-  %24 = getelementptr i8, ptr %.134, i64 5
+  %24 = getelementptr i8, ptr %.033, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 40
@@ -3584,7 +3584,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
 
 29:                                               ; preds = %.loopexit, %23
   %.132 = phi i64 [ 0, %.loopexit ], [ %28, %23 ]
-  %30 = getelementptr i8, ptr %.134, i64 4
+  %30 = getelementptr i8, ptr %.033, i64 4
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 32
@@ -3593,14 +3593,14 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
 
 35:                                               ; preds = %.loopexit, %29
   %.2 = phi i64 [ 0, %.loopexit ], [ %34, %29 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.134, i64 8) ]
-  %36 = load i32, ptr %.134, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.033, i64 8) ]
+  %36 = load i32, ptr %.033, align 8
   %37 = zext i32 %36 to i64
   %38 = or i64 %.2, %37
   br label %54
 
 39:                                               ; preds = %.loopexit
-  %40 = getelementptr i8, ptr %.134, i64 2
+  %40 = getelementptr i8, ptr %.033, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 16
@@ -3608,7 +3608,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
 
 44:                                               ; preds = %.loopexit, %39
   %.3 = phi i64 [ 0, %.loopexit ], [ %43, %39 ]
-  %45 = getelementptr i8, ptr %.134, i64 1
+  %45 = getelementptr i8, ptr %.033, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
   %48 = shl nuw nsw i64 %47, 8
@@ -3617,14 +3617,14 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
 
 50:                                               ; preds = %.loopexit, %44
   %.4 = phi i64 [ 0, %.loopexit ], [ %49, %44 ]
-  %51 = load i8, ptr %.134, align 1
+  %51 = load i8, ptr %.033, align 1
   %52 = zext i8 %51 to i64
   %53 = or i64 %.4, %52
   br label %54
 
 54:                                               ; preds = %50, %35
   %.5 = phi i64 [ %53, %50 ], [ %38, %35 ]
-  %55 = xor i64 %.5, %.136
+  %55 = xor i64 %.5, %.035
   %56 = shl nuw nsw i64 %.5, 7
   %57 = sub i64 %55, %56
   %58 = mul i64 %57, 5545529020109919103
@@ -3634,7 +3634,7 @@ define dso_local i64 @rb_parser_st_hash(ptr noundef %0, i64 noundef %1, i64 noun
   unreachable
 
 59:                                               ; preds = %.loopexit, %54
-  %.237 = phi i64 [ %.136, %.loopexit ], [ %58, %54 ]
+  %.237 = phi i64 [ %.035, %.loopexit ], [ %58, %54 ]
   %60 = xor i64 %.237, %1
   %61 = lshr i64 %60, 30
   %62 = xor i64 %61, %60
@@ -3832,30 +3832,30 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   br i1 %4, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  %.035.i = phi i64 [ %14, %.preheader.i ], [ 2166136261, %1 ]
-  %.033.i = phi ptr [ %15, %.preheader.i ], [ %2, %1 ]
-  %.0.i = phi i64 [ %16, %.preheader.i ], [ %3, %1 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.033.i, i64 8) ]
-  %5 = load i64, ptr %.033.i, align 8
+  %.136.i = phi i64 [ %14, %.preheader.i ], [ 2166136261, %1 ]
+  %.134.i = phi ptr [ %15, %.preheader.i ], [ %2, %1 ]
+  %.1.i = phi i64 [ %16, %.preheader.i ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.134.i, i64 8) ]
+  %5 = load i64, ptr %.134.i, align 8
   %6 = mul i64 %5, -8663945395140668459
   %7 = mul i64 %5, 2487297242801635328
   %8 = lshr i64 %6, 31
   %9 = or disjoint i64 %8, %7
-  %10 = xor i64 %9, %.035.i
+  %10 = xor i64 %9, %.136.i
   %11 = mul i64 %10, 5545529020109919103
   %12 = mul i64 %10, 4838912824426102784
   %13 = lshr i64 %11, 40
   %14 = or disjoint i64 %13, %12
-  %15 = getelementptr i8, ptr %.033.i, i64 8
-  %16 = add i64 %.0.i, -8
+  %15 = getelementptr i8, ptr %.134.i, i64 8
+  %16 = add i64 %.1.i, -8
   %17 = icmp ugt i64 %16, 7
   br i1 %17, label %.preheader.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.preheader.i, %1
-  %.136.i = phi i64 [ 2166136261, %1 ], [ %14, %.preheader.i ]
-  %.134.i = phi ptr [ %2, %1 ], [ %15, %.preheader.i ]
-  %.1.i = phi i64 [ %3, %1 ], [ %16, %.preheader.i ]
-  switch i64 %.1.i, label %.unreachabledefault.i [
+  %.035.i = phi i64 [ 2166136261, %1 ], [ %14, %.preheader.i ]
+  %.033.i = phi ptr [ %2, %1 ], [ %15, %.preheader.i ]
+  %.0.i = phi i64 [ %3, %1 ], [ %16, %.preheader.i ]
+  switch i64 %.0.i, label %.unreachabledefault.i [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -3867,7 +3867,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   ]
 
 18:                                               ; preds = %.loopexit.i
-  %19 = getelementptr i8, ptr %.134.i, i64 6
+  %19 = getelementptr i8, ptr %.033.i, i64 6
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 48
@@ -3875,7 +3875,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
 
 23:                                               ; preds = %18, %.loopexit.i
   %.031.i = phi i64 [ 0, %.loopexit.i ], [ %22, %18 ]
-  %24 = getelementptr i8, ptr %.134.i, i64 5
+  %24 = getelementptr i8, ptr %.033.i, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 40
@@ -3884,7 +3884,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
 
 29:                                               ; preds = %23, %.loopexit.i
   %.132.i = phi i64 [ 0, %.loopexit.i ], [ %28, %23 ]
-  %30 = getelementptr i8, ptr %.134.i, i64 4
+  %30 = getelementptr i8, ptr %.033.i, i64 4
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 32
@@ -3893,14 +3893,14 @@ define internal i64 @strhash(i64 noundef %0) #15 {
 
 35:                                               ; preds = %29, %.loopexit.i
   %.2.i = phi i64 [ 0, %.loopexit.i ], [ %34, %29 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.134.i, i64 8) ]
-  %36 = load i32, ptr %.134.i, align 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %.033.i, i64 8) ]
+  %36 = load i32, ptr %.033.i, align 8
   %37 = zext i32 %36 to i64
   %38 = or i64 %.2.i, %37
   br label %54
 
 39:                                               ; preds = %.loopexit.i
-  %40 = getelementptr i8, ptr %.134.i, i64 2
+  %40 = getelementptr i8, ptr %.033.i, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 16
@@ -3908,7 +3908,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
 
 44:                                               ; preds = %39, %.loopexit.i
   %.3.i = phi i64 [ 0, %.loopexit.i ], [ %43, %39 ]
-  %45 = getelementptr i8, ptr %.134.i, i64 1
+  %45 = getelementptr i8, ptr %.033.i, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
   %48 = shl nuw nsw i64 %47, 8
@@ -3917,14 +3917,14 @@ define internal i64 @strhash(i64 noundef %0) #15 {
 
 50:                                               ; preds = %44, %.loopexit.i
   %.4.i = phi i64 [ 0, %.loopexit.i ], [ %49, %44 ]
-  %51 = load i8, ptr %.134.i, align 1
+  %51 = load i8, ptr %.033.i, align 1
   %52 = zext i8 %51 to i64
   %53 = or i64 %.4.i, %52
   br label %54
 
 54:                                               ; preds = %50, %35
   %.5.i = phi i64 [ %53, %50 ], [ %38, %35 ]
-  %55 = xor i64 %.5.i, %.136.i
+  %55 = xor i64 %.5.i, %.035.i
   %56 = shl nuw nsw i64 %.5.i, 7
   %57 = sub i64 %55, %56
   %58 = mul i64 %57, 5545529020109919103
@@ -3934,7 +3934,7 @@ define internal i64 @strhash(i64 noundef %0) #15 {
   unreachable
 
 rb_parser_st_hash.exit:                           ; preds = %.loopexit.i, %54
-  %.237.i = phi i64 [ %.136.i, %.loopexit.i ], [ %58, %54 ]
+  %.237.i = phi i64 [ %.035.i, %.loopexit.i ], [ %58, %54 ]
   %59 = xor i64 %.237.i, %3
   %60 = lshr i64 %59, 30
   %61 = xor i64 %60, %59

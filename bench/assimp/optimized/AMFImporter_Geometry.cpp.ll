@@ -279,7 +279,7 @@ if.then8:                                         ; preds = %land.lhs.true.i
 
 if.end9:                                          ; preds = %for.inc.i, %if.end.i6, %if.then5, %if.then8
   %10 = phi ptr [ %.pre, %if.then8 ], [ %8, %if.then5 ], [ %8, %if.end.i6 ], [ %8, %for.inc.i ]
-  %found_verts.0 = phi i1 [ true, %if.then8 ], [ false, %if.then5 ], [ false, %if.end.i6 ], [ false, %for.inc.i ]
+  %found_verts.1 = phi i1 [ true, %if.then8 ], [ false, %if.then5 ], [ false, %if.end.i6 ], [ false, %for.inc.i ]
   %tobool.not.i9 = icmp eq ptr %10, null
   br i1 %tobool.not.i9, label %if.end14, label %if.end.i10
 
@@ -315,7 +315,7 @@ if.end14.thread:                                  ; preds = %land.lhs.true.i18
 
 if.end14:                                         ; preds = %for.inc.i21, %if.end.i10, %if.end9
   tail call void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
-  br i1 %found_verts.0, label %if.end19, label %if.then17
+  br i1 %found_verts.1, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %invoke.cont, %if.end14
   %12 = load ptr, ptr %mNodeElement_Cur, align 8

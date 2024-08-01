@@ -3355,11 +3355,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EE5resetEPS2_.exit unwind label %.body39
 
 _ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %27, %.noexc38
-  %.sroa.048.1 = phi ptr [ %18, %.noexc38 ], [ %30, %27 ]
-  %31 = load ptr, ptr %.sroa.048.1, align 8
+  %.sroa.048.0 = phi ptr [ %18, %.noexc38 ], [ %30, %27 ]
+  %31 = load ptr, ptr %.sroa.048.0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.1)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.0)
           to label %34 unwind label %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit.split-lp
 
 34:                                               ; preds = %_ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -3376,7 +3376,7 @@ _ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EE5resetEPS2_.ex
   %41 = add i64 %39, -1
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = getelementptr inbounds i8, ptr %0, i64 24
-  %44 = getelementptr inbounds i8, ptr %.sroa.048.1, i64 32
+  %44 = getelementptr inbounds i8, ptr %.sroa.048.0, i64 32
   br label %45
 
 45:                                               ; preds = %.lr.ph, %76
@@ -3418,10 +3418,10 @@ _ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EE5resetEPS2_.ex
   %71 = and i1 %70, %69
   %72 = zext i1 %71 to i8
   store i8 %72, ptr %44, align 8
-  %73 = load ptr, ptr %.sroa.048.1, align 8
+  %73 = load ptr, ptr %.sroa.048.0, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
-  invoke void %75(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.1, ptr noundef %67, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(5000) %5, i64 noundef %.sroa.speculated, i64 noundef %4)
+  invoke void %75(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.0, ptr noundef %67, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(5000) %5, i64 noundef %.sroa.speculated, i64 noundef %4)
           to label %76 unwind label %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit
 
 76:                                               ; preds = %59
@@ -3430,10 +3430,10 @@ _ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EE5resetEPS2_.ex
   br i1 %78, label %45, label %_ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EED2Ev.exit, !llvm.loop !39
 
 _ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EED2Ev.exit: ; preds = %76, %34
-  %79 = load ptr, ptr %.sroa.048.1, align 8
+  %79 = load ptr, ptr %.sroa.048.0, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.1) #12
+  call void %81(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.0) #12
   call void @_ZN5faiss3lsq13LSQTimerScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #12
   ret void
 
@@ -3454,10 +3454,10 @@ _ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit.split-
 
 _ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45: ; preds = %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit.split-lp, %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit ], [ %lpad.loopexit.split-lp, %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45.loopexit.split-lp ]
-  %82 = load ptr, ptr %.sroa.048.1, align 8
+  %82 = load ptr, ptr %.sroa.048.0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.1) #12
+  call void %84(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.048.0) #12
   br label %_ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EED2Ev.exit46
 
 _ZNSt10unique_ptrIN5faiss3lsq10IcmEncoderESt14default_deleteIS2_EED2Ev.exit46: ; preds = %25, %19, %.body39, %_ZNKSt14default_deleteIN5faiss3lsq10IcmEncoderEEclEPS2_.exit.i45
@@ -3743,8 +3743,8 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt23mersen
   br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionIiE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !40
 
 _ZNSt24uniform_int_distributionIiE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %.lr.ph.i, %12, %19
-  %.1.i = phi i64 [ %17, %12 ], [ %17, %19 ], [ %24, %.lr.ph.i ]
-  %27 = lshr i64 %.1.i, 32
+  %.0.i = phi i64 [ %17, %12 ], [ %17, %19 ], [ %24, %.lr.ph.i ]
+  %27 = lshr i64 %.0.i, 32
   br label %.loopexit
 
 28:                                               ; preds = %3
@@ -5519,8 +5519,8 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersen
   br i1 %24, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !70
 
 _ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %.lr.ph.i, %10, %17
-  %.1.i = phi i64 [ %15, %10 ], [ %15, %17 ], [ %22, %.lr.ph.i ]
-  %25 = lshr i64 %.1.i, 32
+  %.0.i = phi i64 [ %15, %10 ], [ %15, %17 ], [ %22, %.lr.ph.i ]
+  %25 = lshr i64 %.0.i, 32
   br label %.loopexit
 
 26:                                               ; preds = %3

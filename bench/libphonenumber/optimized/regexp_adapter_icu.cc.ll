@@ -714,7 +714,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   br label %.loopexit34
 
 .loopexit34:                                      ; preds = %45, %27, %57
-  %.0 = phi i1 [ %60, %57 ], [ false, %27 ], [ false, %45 ]
+  %.1 = phi i1 [ %60, %57 ], [ false, %27 ], [ false, %45 ]
   %61 = load ptr, ptr %11, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %63
@@ -730,8 +730,8 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   resume { ptr, i32 } %.pn
 
 _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %63, %.loopexit34, %9
-  %.1 = phi i1 [ false, %9 ], [ %.0, %.loopexit34 ], [ %.0, %63 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %9 ], [ %.1, %.loopexit34 ], [ %.1, %63 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -830,7 +830,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   br label %48
 
 48:                                               ; preds = %27, %45
-  %.0 = phi i1 [ %47, %45 ], [ false, %27 ]
+  %.1 = phi i1 [ %47, %45 ], [ false, %27 ]
   %49 = icmp eq ptr %19, null
   br i1 %49, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %50
 
@@ -856,8 +856,8 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %48, %50
   resume { ptr, i32 } %.pn.pn
 
 53:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
-  %.1 = phi i1 [ %.0, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1005,7 +1005,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   br label %.body
 
 61:                                               ; preds = %50, %30, %58
-  %.011 = phi i1 [ true, %58 ], [ false, %30 ], [ false, %50 ]
+  %.213 = phi i1 [ true, %58 ], [ false, %30 ], [ false, %50 ]
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #11
   br label %62
 
@@ -1016,7 +1016,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   br label %65
 
 62:                                               ; preds = %22, %61
-  %.112 = phi i1 [ false, %22 ], [ %.011, %61 ]
+  %.112 = phi i1 [ false, %22 ], [ %.213, %61 ]
   %63 = icmp eq ptr %21, null
   br i1 %63, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %64
 
@@ -1037,8 +1037,8 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %62, %64
   resume { ptr, i32 } %.pn.pn.pn
 
 66:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
-  %.213 = phi i1 [ %.112, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
-  ret i1 %.213
+  %.011 = phi i1 [ %.112, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
+  ret i1 %.011
 }
 
 ; Function Attrs: mustprogress uwtable

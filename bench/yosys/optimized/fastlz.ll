@@ -215,21 +215,21 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   br label %.preheader188
 
 .preheader188:                                    ; preds = %.preheader188.preheader, %104
-  %.3158 = phi ptr [ %107, %104 ], [ %100, %.preheader188.preheader ]
+  %.4159 = phi ptr [ %107, %104 ], [ %100, %.preheader188.preheader ]
   %.1147 = phi ptr [ %105, %104 ], [ %102, %.preheader188.preheader ]
-  %103 = icmp ult ptr %.3158, %6
+  %103 = icmp ult ptr %.4159, %6
   br i1 %103, label %104, label %.loopexit187
 
 104:                                              ; preds = %.preheader188
   %105 = getelementptr inbounds i8, ptr %.1147, i64 1
   %106 = load i8, ptr %.1147, align 1
-  %107 = getelementptr inbounds i8, ptr %.3158, i64 1
-  %108 = load i8, ptr %.3158, align 1
+  %107 = getelementptr inbounds i8, ptr %.4159, i64 1
+  %108 = load i8, ptr %.4159, align 1
   %.not182 = icmp eq i8 %106, %108
   br i1 %.not182, label %.preheader188, label %.loopexit187, !llvm.loop !10
 
 .loopexit187:                                     ; preds = %104, %.preheader188, %.lr.ph, %59, %.preheader186, %63, %67, %72, %77, %82, %87, %92, %97
-  %.4159 = phi ptr [ %65, %63 ], [ %70, %67 ], [ %75, %72 ], [ %80, %77 ], [ %85, %82 ], [ %90, %87 ], [ %95, %92 ], [ %100, %97 ], [ %55, %.preheader186 ], [ %.2157193, %.lr.ph ], [ %61, %59 ], [ %.3158, %.preheader188 ], [ %107, %104 ]
+  %.3158 = phi ptr [ %65, %63 ], [ %70, %67 ], [ %75, %72 ], [ %80, %77 ], [ %85, %82 ], [ %90, %87 ], [ %95, %92 ], [ %100, %97 ], [ %55, %.preheader186 ], [ %.2157193, %.lr.ph ], [ %61, %59 ], [ %.4159, %.preheader188 ], [ %107, %104 ]
   %.not183 = icmp eq i32 %.0148199, 0
   br i1 %.not183, label %116, label %109
 
@@ -249,7 +249,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
 
 118:                                              ; preds = %116, %109
   %.2153 = phi ptr [ %.1152198, %109 ], [ %117, %116 ]
-  %119 = getelementptr inbounds i8, ptr %.4159, i64 -3
+  %119 = getelementptr inbounds i8, ptr %.3158, i64 -3
   %120 = ptrtoint ptr %119 to i64
   %121 = sub i64 %120, %36
   %122 = trunc i64 %121 to i32
@@ -264,27 +264,27 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   br label %128
 
 128:                                              ; preds = %.preheader, %128
-  %.3154 = phi ptr [ %131, %128 ], [ %.2153, %.preheader ]
-  %.0145 = phi i32 [ %132, %128 ], [ %122, %.preheader ]
-  %129 = getelementptr inbounds i8, ptr %.3154, i64 1
-  store i8 %126, ptr %.3154, align 1
-  %130 = getelementptr inbounds i8, ptr %.3154, i64 2
+  %.4 = phi ptr [ %131, %128 ], [ %.2153, %.preheader ]
+  %.1 = phi i32 [ %132, %128 ], [ %122, %.preheader ]
+  %129 = getelementptr inbounds i8, ptr %.4, i64 1
+  store i8 %126, ptr %.4, align 1
+  %130 = getelementptr inbounds i8, ptr %.4, i64 2
   store i8 -3, ptr %129, align 1
-  %131 = getelementptr inbounds i8, ptr %.3154, i64 3
+  %131 = getelementptr inbounds i8, ptr %.4, i64 3
   store i8 %127, ptr %130, align 1
-  %132 = add i32 %.0145, -262
+  %132 = add i32 %.1, -262
   %.old2 = icmp ugt i32 %132, 262
   br i1 %.old2, label %128, label %.loopexit
 
 .loopexit:                                        ; preds = %128, %118
-  %.4 = phi ptr [ %.2153, %118 ], [ %131, %128 ]
-  %.1 = phi i32 [ %122, %118 ], [ %132, %128 ]
-  %133 = icmp ult i32 %.1, 7
-  %134 = getelementptr inbounds i8, ptr %.4, i64 2
+  %.3154 = phi ptr [ %.2153, %118 ], [ %131, %128 ]
+  %.0145 = phi i32 [ %122, %118 ], [ %132, %128 ]
+  %133 = icmp ult i32 %.0145, 7
+  %134 = getelementptr inbounds i8, ptr %.3154, i64 2
   br i1 %133, label %135, label %141
 
 135:                                              ; preds = %.loopexit
-  %136 = shl nuw nsw i32 %.1, 5
+  %136 = shl nuw nsw i32 %.0145, 5
   %137 = lshr i32 %56, 8
   %138 = add nuw nsw i32 %136, %137
   %139 = trunc nuw i32 %138 to i8
@@ -295,10 +295,10 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %142 = lshr i32 %56, 8
   %143 = trunc i32 %142 to i8
   %144 = add i8 %143, -32
-  %145 = trunc i32 %.1 to i8
+  %145 = trunc i32 %.0145 to i8
   %146 = add i8 %145, -7
   %147 = trunc i32 %56 to i8
-  %148 = getelementptr inbounds i8, ptr %.4, i64 3
+  %148 = getelementptr inbounds i8, ptr %.3154, i64 3
   store i8 %147, ptr %134, align 1
   br label %149
 
@@ -306,11 +306,11 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %.sink223 = phi i8 [ %139, %135 ], [ %144, %141 ]
   %.sink = phi i8 [ %140, %135 ], [ %146, %141 ]
   %.5 = phi ptr [ %134, %135 ], [ %148, %141 ]
-  store i8 %.sink223, ptr %.4, align 1
-  %150 = getelementptr inbounds i8, ptr %.4, i64 1
+  store i8 %.sink223, ptr %.3154, align 1
+  %150 = getelementptr inbounds i8, ptr %.3154, i64 1
   store i8 %.sink, ptr %150, align 1
   %151 = load i16, ptr %119, align 2
-  %152 = getelementptr inbounds i8, ptr %.4159, i64 -2
+  %152 = getelementptr inbounds i8, ptr %.3158, i64 -2
   %153 = load i16, ptr %152, align 2
   %154 = lshr i16 %151, 3
   %155 = xor i16 %153, %154
@@ -320,7 +320,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %159 = getelementptr inbounds [8192 x ptr], ptr %4, i64 0, i64 %158
   store ptr %119, ptr %159, align 8
   %160 = load i16, ptr %152, align 2
-  %161 = getelementptr inbounds i8, ptr %.4159, i64 -1
+  %161 = getelementptr inbounds i8, ptr %.3158, i64 -1
   %162 = load i16, ptr %161, align 2
   %163 = lshr i16 %160, 3
   %164 = xor i16 %162, %163
@@ -672,25 +672,25 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %136
-  %.3189 = phi ptr [ %139, %136 ], [ %132, %.preheader.preheader ]
+  %.4190 = phi ptr [ %139, %136 ], [ %132, %.preheader.preheader ]
   %.2177 = phi ptr [ %137, %136 ], [ %134, %.preheader.preheader ]
-  %135 = icmp ult ptr %.3189, %6
+  %135 = icmp ult ptr %.4190, %6
   br i1 %135, label %136, label %.loopexit
 
 136:                                              ; preds = %.preheader
   %137 = getelementptr inbounds i8, ptr %.2177, i64 1
   %138 = load i8, ptr %.2177, align 1
-  %139 = getelementptr inbounds i8, ptr %.3189, i64 1
-  %140 = load i8, ptr %.3189, align 1
+  %139 = getelementptr inbounds i8, ptr %.4190, i64 1
+  %140 = load i8, ptr %.4190, align 1
   %.not218 = icmp eq i8 %138, %140
   br i1 %.not218, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %136, %.preheader, %.lr.ph, %89, %83, %93, %99, %104, %109, %114, %119, %124, %129
   %141 = phi i32 [ %94, %93 ], [ %94, %99 ], [ %94, %104 ], [ %94, %109 ], [ %94, %114 ], [ %94, %119 ], [ %94, %124 ], [ %94, %129 ], [ 0, %83 ], [ 0, %89 ], [ 0, %.lr.ph ], [ %94, %.preheader ], [ %94, %136 ]
   %.0174228 = phi i32 [ %51, %93 ], [ %51, %99 ], [ %51, %104 ], [ %51, %109 ], [ %51, %114 ], [ %51, %119 ], [ %51, %124 ], [ %51, %129 ], [ 1, %83 ], [ 1, %89 ], [ 1, %.lr.ph ], [ %51, %.preheader ], [ %51, %136 ]
-  %.4190 = phi ptr [ %97, %93 ], [ %102, %99 ], [ %107, %104 ], [ %112, %109 ], [ %117, %114 ], [ %122, %119 ], [ %127, %124 ], [ %132, %129 ], [ %84, %83 ], [ %.2188233, %.lr.ph ], [ %91, %89 ], [ %139, %136 ], [ %.3189, %.preheader ]
-  %.4190.fr = freeze ptr %.4190
-  %.4190286 = ptrtoint ptr %.4190.fr to i64
+  %.3189 = phi ptr [ %97, %93 ], [ %102, %99 ], [ %107, %104 ], [ %112, %109 ], [ %117, %114 ], [ %122, %119 ], [ %127, %124 ], [ %132, %129 ], [ %84, %83 ], [ %.2188233, %.lr.ph ], [ %91, %89 ], [ %139, %136 ], [ %.4190, %.preheader ]
+  %.3189.fr = freeze ptr %.3189
+  %.3189286 = ptrtoint ptr %.3189.fr to i64
   %.not219 = icmp eq i32 %.0178258, 0
   br i1 %.not219, label %149, label %142
 
@@ -710,7 +710,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
 
 151:                                              ; preds = %149, %142
   %.2184 = phi ptr [ %.1183255, %142 ], [ %150, %149 ]
-  %152 = getelementptr inbounds i8, ptr %.4190.fr, i64 -3
+  %152 = getelementptr inbounds i8, ptr %.3189.fr, i64 -3
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %.1187253 to i64
   %155 = sub i64 %153, %154
@@ -745,7 +745,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   br i1 %173, label %.lr.ph248.preheader, label %._crit_edge249
 
 .lr.ph248.preheader:                              ; preds = %168
-  %174 = trunc i64 %.4190286 to i32
+  %174 = trunc i64 %.3189286 to i32
   %175 = add i32 %174, -265
   %176 = trunc i64 %154 to i32
   %177 = sub i32 %175, %176
@@ -795,32 +795,32 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
 198:                                              ; preds = %186
   store i8 -1, ptr %.2184, align 1
   %199 = add i32 %156, -7
-  %.4237 = getelementptr i8, ptr %.2184, i64 1
+  %.5237 = getelementptr i8, ptr %.2184, i64 1
   %200 = icmp ugt i32 %199, 254
   br i1 %200, label %.lr.ph240.preheader, label %._crit_edge
 
 .lr.ph240.preheader:                              ; preds = %198
-  %201 = trunc i64 %.4190286 to i32
+  %201 = trunc i64 %.3189286 to i32
   %202 = add i32 %201, -265
   %203 = trunc i64 %154 to i32
   %204 = sub i32 %202, %203
   %205 = udiv i32 %204, 255
   %206 = zext nneg i32 %205 to i64
   %207 = add nuw nsw i64 %206, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.4237, i8 -1, i64 %207, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.5237, i8 -1, i64 %207, i1 false)
   %208 = urem i32 %204, 255
   %scevgep288 = getelementptr i8, ptr %.2184, i64 2
-  %scevgep287 = getelementptr i8, ptr %.4237, i64 %206
+  %scevgep287 = getelementptr i8, ptr %.5237, i64 %206
   %scevgep289 = getelementptr i8, ptr %scevgep288, i64 %206
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph240.preheader, %198
   %.2184.pn.lcssa = phi ptr [ %.2184, %198 ], [ %scevgep287, %.lr.ph240.preheader ]
   %.2.lcssa = phi i32 [ %199, %198 ], [ %208, %.lr.ph240.preheader ]
-  %.4.lcssa = phi ptr [ %.4237, %198 ], [ %scevgep289, %.lr.ph240.preheader ]
+  %.5.lcssa = phi ptr [ %.5237, %198 ], [ %scevgep289, %.lr.ph240.preheader ]
   %209 = trunc nuw i32 %.2.lcssa to i8
   %210 = getelementptr inbounds i8, ptr %.2184.pn.lcssa, i64 2
-  store i8 %209, ptr %.4.lcssa, align 1
+  store i8 %209, ptr %.5.lcssa, align 1
   %211 = getelementptr inbounds i8, ptr %.2184.pn.lcssa, i64 3
   store i8 -1, ptr %210, align 1
   %212 = lshr i32 %187, 8
@@ -833,9 +833,9 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   br label %217
 
 217:                                              ; preds = %188, %._crit_edge, %160, %._crit_edge249
-  %.5 = phi ptr [ %167, %160 ], [ %185, %._crit_edge249 ], [ %197, %188 ], [ %216, %._crit_edge ]
+  %.4 = phi ptr [ %167, %160 ], [ %185, %._crit_edge249 ], [ %197, %188 ], [ %216, %._crit_edge ]
   %218 = load i16, ptr %152, align 2
-  %219 = getelementptr inbounds i8, ptr %.4190.fr, i64 -2
+  %219 = getelementptr inbounds i8, ptr %.3189.fr, i64 -2
   %220 = load i16, ptr %219, align 2
   %221 = lshr i16 %218, 3
   %222 = xor i16 %220, %221
@@ -845,7 +845,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %226 = getelementptr inbounds [8192 x ptr], ptr %4, i64 0, i64 %225
   store ptr %152, ptr %226, align 8
   %227 = load i16, ptr %219, align 2
-  %228 = getelementptr inbounds i8, ptr %.4190.fr, i64 -1
+  %228 = getelementptr inbounds i8, ptr %.3189.fr, i64 -1
   %229 = load i16, ptr %228, align 2
   %230 = lshr i16 %227, 3
   %231 = xor i16 %229, %230
@@ -854,11 +854,11 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %234 = zext nneg i16 %233 to i64
   %235 = getelementptr inbounds [8192 x ptr], ptr %4, i64 0, i64 %234
   store ptr %219, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %.5, i64 1
+  %236 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %217, %243
-  %.sink = phi ptr [ %240, %243 ], [ %.5, %217 ]
+  %.sink = phi ptr [ %240, %243 ], [ %.4, %217 ]
   %.1187.be.ph = phi ptr [ %40, %243 ], [ %228, %217 ]
   %.1183.be.ph = phi ptr [ %244, %243 ], [ %236, %217 ]
   store i8 31, ptr %.sink, align 1
@@ -1214,20 +1214,20 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   br i1 %132, label %.preheader147.i, label %.loopexit148.i
 
 .preheader147.i:                                  ; preds = %126, %.preheader147.i
-  %.1117.i = phi ptr [ %133, %.preheader147.i ], [ %.0116.i, %126 ]
-  %.0105.i28 = phi i32 [ %136, %.preheader147.i ], [ 6, %126 ]
-  %133 = getelementptr inbounds i8, ptr %.1117.i, i64 1
-  %134 = load i8, ptr %.1117.i, align 1
+  %.2118.i = phi ptr [ %133, %.preheader147.i ], [ %.0116.i, %126 ]
+  %.1106.i28 = phi i32 [ %136, %.preheader147.i ], [ 6, %126 ]
+  %133 = getelementptr inbounds i8, ptr %.2118.i, i64 1
+  %134 = load i8, ptr %.2118.i, align 1
   %135 = zext i8 %134 to i32
-  %136 = add i32 %.0105.i28, %135
+  %136 = add i32 %.1106.i28, %135
   %137 = icmp eq i8 %134, -1
   br i1 %137, label %.preheader147.i, label %.loopexit148.i, !llvm.loop !23
 
 .loopexit148.i:                                   ; preds = %.preheader147.i, %126
-  %.2118.i = phi ptr [ %.0116.i, %126 ], [ %133, %.preheader147.i ]
-  %.1106.i20 = phi i32 [ %128, %126 ], [ %136, %.preheader147.i ]
-  %138 = getelementptr inbounds i8, ptr %.2118.i, i64 1
-  %139 = load i8, ptr %.2118.i, align 1
+  %.1117.i = phi ptr [ %.0116.i, %126 ], [ %133, %.preheader147.i ]
+  %.0105.i20 = phi i32 [ %128, %126 ], [ %136, %.preheader147.i ]
+  %138 = getelementptr inbounds i8, ptr %.1117.i, i64 1
+  %139 = load i8, ptr %.1117.i, align 1
   %140 = zext i8 %139 to i64
   %141 = sub nsw i64 0, %140
   %142 = getelementptr inbounds i8, ptr %131, i64 %141
@@ -1237,11 +1237,11 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   br i1 %or.cond.i21, label %145, label %154
 
 145:                                              ; preds = %.loopexit148.i
-  %146 = getelementptr inbounds i8, ptr %.2118.i, i64 2
+  %146 = getelementptr inbounds i8, ptr %.1117.i, i64 2
   %147 = load i8, ptr %138, align 1
   %148 = zext i8 %147 to i64
   %.neg.i = mul nsw i64 %148, -256
-  %149 = getelementptr inbounds i8, ptr %.2118.i, i64 3
+  %149 = getelementptr inbounds i8, ptr %.1117.i, i64 3
   %150 = load i8, ptr %146, align 1
   %151 = zext i8 %150 to i64
   %.neg133.i = sub nsw i64 %.neg.i, %151
@@ -1252,7 +1252,7 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
 154:                                              ; preds = %145, %.loopexit148.i
   %.3119.i = phi ptr [ %149, %145 ], [ %138, %.loopexit148.i ]
   %.0107.i = phi ptr [ %153, %145 ], [ %142, %.loopexit148.i ]
-  %155 = zext i32 %.1106.i20 to i64
+  %155 = zext i32 %.0105.i20 to i64
   %156 = getelementptr inbounds i8, ptr %.0122.i, i64 %155
   %157 = getelementptr inbounds i8, ptr %156, i64 3
   %158 = icmp ugt ptr %157, %118
@@ -1288,12 +1288,12 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   store i8 %170, ptr %171, align 1
   %174 = getelementptr i8, ptr %.0122.i, i64 3
   store i8 %170, ptr %173, align 1
-  %.not136172.i = icmp eq i32 %.1106.i20, 0
+  %.not136172.i = icmp eq i32 %.0105.i20, 0
   br i1 %.not136172.i, label %.loopexit.i17, label %.lr.ph176.preheader.i
 
 .lr.ph176.preheader.i:                            ; preds = %172
   tail call void @llvm.memset.p0.i64(ptr align 1 %174, i8 %170, i64 %155, i1 false)
-  %175 = add i32 %.1106.i20, -1
+  %175 = add i32 %.0105.i20, -1
   %176 = zext i32 %175 to i64
   %scevgep.i27 = getelementptr i8, ptr %.0122.i, i64 4
   %scevgep186.i = getelementptr i8, ptr %scevgep.i27, i64 %176
@@ -1308,7 +1308,7 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   %182 = load i8, ptr %178, align 1
   %183 = getelementptr inbounds i8, ptr %.0122.i, i64 3
   store i8 %182, ptr %180, align 1
-  %184 = and i32 %.1106.i20, 1
+  %184 = and i32 %.0105.i20, 1
   %.not134.i = icmp eq i32 %184, 0
   br i1 %.not134.i, label %190, label %185
 
@@ -1317,7 +1317,7 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   %187 = load i8, ptr %181, align 1
   %188 = getelementptr inbounds i8, ptr %.0122.i, i64 4
   store i8 %187, ptr %183, align 1
-  %189 = add nsw i32 %.1106.i20, -1
+  %189 = add nsw i32 %.0105.i20, -1
   %.pre.i22 = zext i32 %189 to i64
   br label %190
 
@@ -1325,7 +1325,7 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   %.pre-phi.i23 = phi i64 [ %.pre.i22, %185 ], [ %155, %177 ]
   %.2124.i = phi ptr [ %188, %185 ], [ %183, %177 ]
   %.1108.i = phi ptr [ %186, %185 ], [ %181, %177 ]
-  %.3.i24 = phi i32 [ %189, %185 ], [ %.1106.i20, %177 ]
+  %.3.i24 = phi i32 [ %189, %185 ], [ %.0105.i20, %177 ]
   %191 = getelementptr inbounds i8, ptr %.2124.i, i64 %.pre-phi.i23
   %192 = lshr i32 %.3.i24, 1
   %193 = icmp ugt i32 %.3.i24, 9

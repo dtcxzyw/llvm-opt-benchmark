@@ -1874,8 +1874,8 @@ _ZN4Luau19MutatingGeneralizerD2Ev.exit:           ; preds = %_ZN4Luau12DenseHash
   resume { ptr, i32 } %.pn24.pn
 
 129:                                              ; preds = %18, %24, %6, %13, %_ZN4Luau19MutatingGeneralizerD2Ev.exit
-  %.sroa.064.1 = phi ptr [ %73, %_ZN4Luau19MutatingGeneralizerD2Ev.exit ], [ %10, %13 ], [ %10, %6 ], [ %10, %24 ], [ %10, %18 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.064.1, 0
+  %.sroa.064.0 = phi ptr [ %73, %_ZN4Luau19MutatingGeneralizerD2Ev.exit ], [ %10, %13 ], [ %10, %6 ], [ %10, %24 ], [ %10, %18 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.064.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
@@ -10882,8 +10882,8 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64: ; preds = %227, %225, %
 
 _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70: ; preds = %255, %253, %236, %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64, %._crit_edge
   %258 = phi i64 [ %198, %._crit_edge ], [ 0, %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64 ], [ %234, %236 ], [ %234, %253 ], [ %234, %255 ]
-  %.5 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %230, %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64 ], [ %230, %236 ], [ %230, %253 ], [ %230, %255 ]
-  br i1 %.5, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70._ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70.thread114_crit_edge, label %307
+  %.4 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %230, %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit64 ], [ %230, %236 ], [ %230, %253 ], [ %230, %255 ]
+  br i1 %.4, label %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70._ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70.thread114_crit_edge, label %307
 
 _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70._ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70.thread114_crit_edge: ; preds = %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit70
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80

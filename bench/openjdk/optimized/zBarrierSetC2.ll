@@ -1017,7 +1017,7 @@ thread-pre-split.i:                               ; preds = %181, %.thread-pre-s
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %228
-  %.0.i.i = phi ptr [ %.1.i.i, %228 ], [ %.0.i.i.ph, %.preheader.i.preheader ]
+  %.0.i.i = phi ptr [ %.014.i.i, %228 ], [ %.0.i.i.ph, %.preheader.i.preheader ]
   %.not.i.i74 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i74, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, label %203
 
@@ -1044,7 +1044,7 @@ thread-pre-split.i:                               ; preds = %181, %.thread-pre-s
   br label %219
 
 219:                                              ; preds = %214, %208
-  %.014.i.i = phi ptr [ %218, %214 ], [ %.0.i.i, %208 ]
+  %.1.i.i = phi ptr [ %218, %214 ], [ %.0.i.i, %208 ]
   %220 = load i32, ptr %204, align 4
   %221 = and i32 %220, 31
   %222 = icmp eq i32 %221, 18
@@ -1058,9 +1058,9 @@ thread-pre-split.i:                               ; preds = %181, %.thread-pre-s
   br label %228
 
 228:                                              ; preds = %223, %219
-  %.1.i.i = phi ptr [ %227, %223 ], [ %.014.i.i, %219 ]
-  %229 = icmp eq ptr %.1.i.i, %.0.i.i
-  %230 = icmp eq ptr %.1.i.i, null
+  %.014.i.i = phi ptr [ %227, %223 ], [ %.1.i.i, %219 ]
+  %229 = icmp eq ptr %.014.i.i, %.0.i.i
+  %230 = icmp eq ptr %.014.i.i, null
   %or.cond.i20.i = or i1 %229, %230
   br i1 %or.cond.i20.i, label %231, label %.preheader.i, !llvm.loop !6
 
@@ -2356,7 +2356,7 @@ thread-pre-split.i:                               ; preds = %121, %.thread-pre-s
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %168
-  %.0.i.i = phi ptr [ %.1.i.i, %168 ], [ %.0.i.i.ph, %.preheader.i.preheader ]
+  %.0.i.i = phi ptr [ %.014.i.i, %168 ], [ %.0.i.i.ph, %.preheader.i.preheader ]
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread, label %143
 
@@ -2383,7 +2383,7 @@ thread-pre-split.i:                               ; preds = %121, %.thread-pre-s
   br label %159
 
 159:                                              ; preds = %154, %148
-  %.014.i.i = phi ptr [ %158, %154 ], [ %.0.i.i, %148 ]
+  %.1.i.i = phi ptr [ %158, %154 ], [ %.0.i.i, %148 ]
   %160 = load i32, ptr %144, align 4
   %161 = and i32 %160, 31
   %162 = icmp eq i32 %161, 18
@@ -2397,9 +2397,9 @@ thread-pre-split.i:                               ; preds = %121, %.thread-pre-s
   br label %168
 
 168:                                              ; preds = %163, %159
-  %.1.i.i = phi ptr [ %167, %163 ], [ %.014.i.i, %159 ]
-  %169 = icmp eq ptr %.1.i.i, %.0.i.i
-  %170 = icmp eq ptr %.1.i.i, null
+  %.014.i.i = phi ptr [ %167, %163 ], [ %.1.i.i, %159 ]
+  %169 = icmp eq ptr %.014.i.i, %.0.i.i
+  %170 = icmp eq ptr %.014.i.i, null
   %or.cond.i20.i = or i1 %169, %170
   br i1 %or.cond.i20.i, label %171, label %.preheader.i, !llvm.loop !6
 
@@ -2910,7 +2910,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %66
-  %.0.i = phi ptr [ %.1.i, %66 ], [ %.0.i.ph, %.preheader.preheader ]
+  %.0.i = phi ptr [ %.014.i, %66 ], [ %.0.i.ph, %.preheader.preheader ]
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %_ZL17look_through_nodePK4Node.exit, label %41
 
@@ -2937,7 +2937,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br label %57
 
 57:                                               ; preds = %52, %46
-  %.014.i = phi ptr [ %56, %52 ], [ %.0.i, %46 ]
+  %.1.i = phi ptr [ %56, %52 ], [ %.0.i, %46 ]
   %58 = load i32, ptr %42, align 4
   %59 = and i32 %58, 31
   %60 = icmp eq i32 %59, 18
@@ -2951,9 +2951,9 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br label %66
 
 66:                                               ; preds = %61, %57
-  %.1.i = phi ptr [ %65, %61 ], [ %.014.i, %57 ]
-  %67 = icmp eq ptr %.1.i, %.0.i
-  %68 = icmp eq ptr %.1.i, null
+  %.014.i = phi ptr [ %65, %61 ], [ %.1.i, %57 ]
+  %67 = icmp eq ptr %.014.i, %.0.i
+  %68 = icmp eq ptr %.014.i, null
   %or.cond.i20 = or i1 %67, %68
   br i1 %or.cond.i20, label %_ZL17look_through_nodePK4Node.exit, label %.preheader, !llvm.loop !6
 

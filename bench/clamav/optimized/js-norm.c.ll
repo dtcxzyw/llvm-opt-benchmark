@@ -599,7 +599,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
 
 .lr.ph.i.i35:                                     ; preds = %match_parameters.exit.i, %213
   %.0168.i.i = phi i64 [ %214, %213 ], [ %.1.i, %match_parameters.exit.i ]
-  %.0120167.i.i = phi i64 [ %.2122.i.i, %213 ], [ 1, %match_parameters.exit.i ]
+  %.0120167.i.i = phi i64 [ %.3123.i.i, %213 ], [ 1, %match_parameters.exit.i ]
   %201 = getelementptr inbounds %struct.token, ptr %116, i64 %.0168.i.i
   %202 = getelementptr inbounds i8, ptr %201, i64 8
   %203 = load i32, ptr %202, align 8
@@ -627,13 +627,13 @@ match_parameters.exit.i:                          ; preds = %173, %197
   br i1 %.not134.i.i, label %.thread.i.i, label %213
 
 213:                                              ; preds = %211, %.lr.ph.i.i35
-  %.2122.i.i = phi i64 [ %212, %211 ], [ %.0120167.i.i, %.lr.ph.i.i35 ]
+  %.3123.i.i = phi i64 [ %212, %211 ], [ %.0120167.i.i, %.lr.ph.i.i35 ]
   %214 = add i64 %.0168.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %214, %117
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i35
 
 ._crit_edge.i.i:                                  ; preds = %213
-  %215 = icmp eq i64 %.2122.i.i, 0
+  %215 = icmp eq i64 %.3123.i.i, 0
   br i1 %215, label %.thread.i.i, label %handle_de.exit.i
 
 .thread.i.i:                                      ; preds = %211, %._crit_edge.i.i
@@ -721,20 +721,20 @@ match_parameters.exit.i:                          ; preds = %173, %197
   br i1 %exitcond217.not.i.i, label %.critedge.i.i, label %.lr.ph171.i.i
 
 .lr.ph176.i.i:                                    ; preds = %.preheader159.i.i, %248
-  %.4175.i.i = phi i64 [ %249, %248 ], [ %237, %.preheader159.i.i ]
-  %246 = getelementptr inbounds %struct.token, ptr %116, i64 %.4175.i.i, i32 1
+  %.5175.i.i = phi i64 [ %249, %248 ], [ %237, %.preheader159.i.i ]
+  %246 = getelementptr inbounds %struct.token, ptr %116, i64 %.5175.i.i, i32 1
   %247 = load i32, ptr %246, align 8
   %.not145.i.i = icmp eq i32 %247, 13
   br i1 %.not145.i.i, label %.critedge.i.i, label %248
 
 248:                                              ; preds = %.lr.ph176.i.i
-  %249 = add i64 %.4175.i.i, 1
+  %249 = add i64 %.5175.i.i, 1
   %exitcond218.not.i.i = icmp eq i64 %249, %117
   br i1 %exitcond218.not.i.i, label %.critedge.i.i, label %.lr.ph176.i.i
 
 .critedge.i.i:                                    ; preds = %244, %.lr.ph171.i.i, %248, %.lr.ph176.i.i, %.preheader160.i.i
-  %.5.i.i = phi i64 [ %237, %.preheader160.i.i ], [ %117, %248 ], [ %.4175.i.i, %.lr.ph176.i.i ], [ %117, %244 ], [ %.3170.i.i, %.lr.ph171.i.i ]
-  %250 = add i64 %.5.i.i, 1
+  %.4.i.i = phi i64 [ %237, %.preheader160.i.i ], [ %117, %248 ], [ %.5175.i.i, %.lr.ph176.i.i ], [ %117, %244 ], [ %.3170.i.i, %.lr.ph171.i.i ]
+  %250 = add i64 %.4.i.i, 1
   %251 = add nuw nsw i64 %.0124180.i.i, 1
   %252 = icmp ult i64 %.0124180.i.i, 5
   %253 = icmp ult i64 %250, %117
@@ -811,20 +811,20 @@ match_parameters.exit.i:                          ; preds = %173, %197
   br i1 %exitcond220.not.i.i, label %.critedge7.i.i, label %.lr.ph198.i.i
 
 .lr.ph203.i.i:                                    ; preds = %.preheader.i105.i, %277
-  %.10202.i.i = phi i64 [ %278, %277 ], [ %267, %.preheader.i105.i ]
-  %275 = getelementptr inbounds %struct.token, ptr %116, i64 %.10202.i.i, i32 1
+  %.11202.i.i = phi i64 [ %278, %277 ], [ %267, %.preheader.i105.i ]
+  %275 = getelementptr inbounds %struct.token, ptr %116, i64 %.11202.i.i, i32 1
   %276 = load i32, ptr %275, align 8
   %.not140.i.i = icmp eq i32 %276, 13
   br i1 %.not140.i.i, label %.critedge7.i.i, label %277
 
 277:                                              ; preds = %.lr.ph203.i.i
-  %278 = add i64 %.10202.i.i, 1
+  %278 = add i64 %.11202.i.i, 1
   %exitcond221.not.i.i = icmp eq i64 %278, %117
   br i1 %exitcond221.not.i.i, label %.critedge7.i.i, label %.lr.ph203.i.i
 
 .critedge7.i.i:                                   ; preds = %273, %.lr.ph198.i.i, %277, %.lr.ph203.i.i, %.preheader155.i.i
-  %.11.i.i = phi i64 [ %267, %.preheader155.i.i ], [ %117, %277 ], [ %.10202.i.i, %.lr.ph203.i.i ], [ %117, %273 ], [ %.9197.i.i, %.lr.ph198.i.i ]
-  %279 = add i64 %.11.i.i, 1
+  %.10.i.i = phi i64 [ %267, %.preheader155.i.i ], [ %117, %277 ], [ %.11202.i.i, %.lr.ph203.i.i ], [ %117, %273 ], [ %.9197.i.i, %.lr.ph198.i.i ]
+  %279 = add i64 %.10.i.i, 1
   %280 = add nuw nsw i64 %.1125207.i.i, 1
   %281 = icmp ult i64 %.1125207.i.i, 5
   %282 = icmp ult i64 %279, %117
@@ -842,9 +842,9 @@ match_parameters.exit.i:                          ; preds = %173, %197
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.thread149.i.i, %.thread232.i.i
-  %.4119.i.i = phi ptr [ %286, %.thread232.i.i ], [ %.2117.i.i, %.thread149.i.i ]
+  %.3118.i.i = phi ptr [ %286, %.thread232.i.i ], [ %.2117.i.i, %.thread149.i.i ]
   %.2114.i.i = phi ptr [ %287, %.thread232.i.i ], [ %.1113.i.i, %.thread149.i.i ]
-  %288 = icmp ne ptr %.4119.i.i, null
+  %288 = icmp ne ptr %.3118.i.i, null
   %289 = icmp ne ptr %.2114.i.i, null
   %or.cond11.i.i = select i1 %288, i1 %289, i1 false
   br i1 %or.cond11.i.i, label %290, label %.loopexit.i.handle_de.exit_crit_edge.i
@@ -855,7 +855,7 @@ match_parameters.exit.i:                          ; preds = %173, %197
   br label %handle_de.exit.i
 
 290:                                              ; preds = %.loopexit.i.i
-  %291 = ptrtoint ptr %.4119.i.i to i64
+  %291 = ptrtoint ptr %.3118.i.i to i64
   %292 = ptrtoint ptr %116 to i64
   %293 = sub i64 %291, %292
   %294 = ashr exact i64 %293, 4

@@ -312,8 +312,8 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
   br label %return
 
 return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %entry, %qemu_lockable_auto_unlock.exit.us
-  %retval.1 = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit ], [ %cmp, %qemu_lockable_auto_unlock.exit.us ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit ], [ %cmp, %qemu_lockable_auto_unlock.exit.us ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -465,8 +465,8 @@ glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %for.body.us.i
   br label %timerlist_expired.exit
 
 timerlist_expired.exit:                           ; preds = %entry, %qemu_lockable_auto_unlock.exit.us.i, %glib_autoptr_cleanup_QemuLockable.exit.i
-  %retval.1.i = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit.i ], [ %cmp.i, %qemu_lockable_auto_unlock.exit.us.i ], [ false, %entry ]
-  ret i1 %retval.1.i
+  %retval.0.i = phi i1 [ false, %glib_autoptr_cleanup_QemuLockable.exit.i ], [ %cmp.i, %qemu_lockable_auto_unlock.exit.us.i ], [ false, %entry ]
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -509,8 +509,8 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
   br label %return
 
 return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us, %if.end, %entry
-  %retval.1 = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -1, %entry ], [ -1, %if.end ], [ %.sub, %qemu_lockable_auto_unlock.exit.us ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -1, %entry ], [ -1, %if.end ], [ %.sub, %qemu_lockable_auto_unlock.exit.us ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1112,7 +1112,7 @@ timer_expired_ns.exit:                            ; preds = %if.end39
   br i1 %cmp.i.not, label %out.sink.split, label %if.end29, !llvm.loop !10
 
 if.end29:                                         ; preds = %timer_expired_ns.exit.preheader, %timer_expired_ns.exit
-  %progress.02227 = phi i1 [ true, %timer_expired_ns.exit ], [ false, %timer_expired_ns.exit.preheader ]
+  %progress.12227 = phi i1 [ true, %timer_expired_ns.exit ], [ false, %timer_expired_ns.exit.preheader ]
   %11 = phi ptr [ %21, %timer_expired_ns.exit ], [ %8, %timer_expired_ns.exit.preheader ]
   %12 = load i32, ptr @replay_mode, align 4
   %cmp.not = icmp eq i32 %12, 0
@@ -1157,17 +1157,17 @@ if.end39:                                         ; preds = %land.lhs.true35, %l
 
 out.sink.split:                                   ; preds = %land.lhs.true35, %if.end39, %timer_expired_ns.exit, %timer_expired_ns.exit.preheader, %sw.epilog
   %.sink = phi i32 [ 581, %sw.epilog ], [ 581, %timer_expired_ns.exit.preheader ], [ 581, %timer_expired_ns.exit ], [ 581, %if.end39 ], [ 563, %land.lhs.true35 ]
-  %progress.1.ph = phi i1 [ false, %sw.epilog ], [ false, %timer_expired_ns.exit.preheader ], [ true, %timer_expired_ns.exit ], [ true, %if.end39 ], [ %progress.02227, %land.lhs.true35 ]
+  %progress.0.ph = phi i1 [ false, %sw.epilog ], [ false, %timer_expired_ns.exit.preheader ], [ true, %timer_expired_ns.exit ], [ true, %if.end39 ], [ %progress.12227, %land.lhs.true35 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %active_timers_lock, ptr noundef nonnull @.str.1, i32 noundef %.sink) #17
   br label %out
 
 out:                                              ; preds = %out.sink.split, %sw.bb9, %sw.bb6, %if.end
-  %progress.1 = phi i1 [ false, %sw.bb6 ], [ false, %sw.bb9 ], [ false, %if.end ], [ %progress.1.ph, %out.sink.split ]
+  %progress.0 = phi i1 [ false, %sw.bb6 ], [ false, %sw.bb9 ], [ false, %if.end ], [ %progress.0.ph, %out.sink.split ]
   tail call void @qemu_event_set(ptr noundef nonnull %timers_done_ev) #17
   br label %return
 
 return:                                           ; preds = %entry, %out
-  %retval.0 = phi i1 [ %progress.1, %out ], [ false, %entry ]
+  %retval.0 = phi i1 [ %progress.0, %out ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -1359,8 +1359,8 @@ glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %for.body.us.i
   br label %timerlist_deadline_ns.exit
 
 timerlist_deadline_ns.exit:                       ; preds = %if.then, %if.end.i, %qemu_lockable_auto_unlock.exit.us.i, %glib_autoptr_cleanup_QemuLockable.exit.i
-  %retval.1.i = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.exit.i ], [ -1, %if.then ], [ -1, %if.end.i ], [ %.sub.i, %qemu_lockable_auto_unlock.exit.us.i ]
-  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %deadline.05, i64 %retval.1.i)
+  %retval.0.i = phi i64 [ -1, %glib_autoptr_cleanup_QemuLockable.exit.i ], [ -1, %if.then ], [ -1, %if.end.i ], [ %.sub.i, %qemu_lockable_auto_unlock.exit.us.i ]
+  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %deadline.05, i64 %retval.0.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %timerlist_deadline_ns.exit

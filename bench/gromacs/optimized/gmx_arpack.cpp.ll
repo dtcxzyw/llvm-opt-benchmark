@@ -662,7 +662,7 @@ sub_1199:                                         ; preds = %sub_0198
 
 .outer493.i.i.i:                                  ; preds = %629, %._crit_edge.i.i.i
   %.0443.ph.i.i.i = phi i32 [ %366, %629 ], [ 1, %._crit_edge.i.i.i ]
-  %.0426.ph.i.i.i = phi i32 [ %.3.i.i.i, %629 ], [ 0, %._crit_edge.i.i.i ]
+  %.0426.ph.i.i.i = phi i32 [ %.2428.i.i.i, %629 ], [ 0, %._crit_edge.i.i.i ]
   %338 = load i32, ptr %315, align 4
   %339 = icmp sgt i32 %.0443.ph.i.i.i, %338
   br i1 %339, label %.outer493._crit_edge.i.i.i, label %.lr.ph537.i.i.i
@@ -1001,7 +1001,7 @@ sub_1199:                                         ; preds = %sub_0198
   br label %.outer.i.i.i
 
 515:                                              ; preds = %._crit_edge545.i.i.i, %.outer489.i.i.i
-  %.2428.i.i.i = phi i32 [ %563, %._crit_edge545.i.i.i ], [ %.2428.ph.i.i.i, %.outer489.i.i.i ]
+  %.3.i.i.i = phi i32 [ %563, %._crit_edge545.i.i.i ], [ %.3.ph.i.i.i, %.outer489.i.i.i ]
   br i1 %.not461.i.i.i, label %.thread480.i.i.i, label %516
 
 516:                                              ; preds = %515
@@ -1073,7 +1073,7 @@ sub_1199:                                         ; preds = %sub_0198
 
 .outer489.i.i.i:                                  ; preds = %.outer489.i.i.i.backedge, %.preheader487.i.i.i
   %.2434.ph.i.i.i = phi i32 [ %.0432.i.i.i, %.preheader487.i.i.i ], [ %.2434.ph.i.i.i.be, %.outer489.i.i.i.backedge ]
-  %.2428.ph.i.i.i = phi i32 [ %.0426.ph.i.i.i, %.preheader487.i.i.i ], [ %.2428.i.i.i, %.outer489.i.i.i.backedge ]
+  %.3.ph.i.i.i = phi i32 [ %.0426.ph.i.i.i, %.preheader487.i.i.i ], [ %.3.i.i.i, %.outer489.i.i.i.backedge ]
   %.not461.i.i.i = icmp eq i32 %.2434.ph.i.i.i, %.0429.i.i.i
   %553 = sext i32 %.2434.ph.i.i.i to i64
   %554 = getelementptr inbounds double, ptr %224, i64 %553
@@ -1085,11 +1085,11 @@ sub_1199:                                         ; preds = %sub_0198
   br label %515
 
 560:                                              ; preds = %536
-  %561 = icmp eq i32 %.2428.i.i.i, %337
+  %561 = icmp eq i32 %.3.i.i.i, %337
   br i1 %561, label %.loopexit485.i.i.i, label %562
 
 562:                                              ; preds = %560
-  %563 = add nsw i32 %.2428.i.i.i, 1
+  %563 = add nsw i32 %.3.i.i.i, 1
   %564 = load double, ptr %557, align 8
   %565 = fsub double %564, %534
   %566 = load double, ptr %558, align 8
@@ -1199,7 +1199,7 @@ sub_1199:                                         ; preds = %sub_0198
   br label %.outer489.i.i.i
 
 .loopexit485.i.i.i:                               ; preds = %628, %538, %514, %429, %560, %447
-  %.3.i.i.i = phi i32 [ %337, %447 ], [ %337, %560 ], [ %.1427.i.i.i, %429 ], [ %.1427.i.i.i, %514 ], [ %.2428.i.i.i, %538 ], [ %.2428.i.i.i, %628 ]
+  %.2428.i.i.i = phi i32 [ %337, %447 ], [ %337, %560 ], [ %.1427.i.i.i, %429 ], [ %.1427.i.i.i, %514 ], [ %.3.i.i.i, %538 ], [ %.3.i.i.i, %628 ]
   %.not4.i = xor i1 %379, true
   %brmerge.i = or i1 %384, %.not4.i
   br i1 %brmerge.i, label %.sink.split675.i.i.i, label %629
@@ -1213,7 +1213,7 @@ sub_1199:                                         ; preds = %sub_0198
   br label %629
 
 629:                                              ; preds = %.sink.split675.i.i.i, %.loopexit485.i.i.i
-  %630 = icmp slt i32 %.3.i.i.i, %337
+  %630 = icmp slt i32 %.2428.i.i.i, %337
   br i1 %630, label %.outer493.i.i.i, label %631
 
 631:                                              ; preds = %629
@@ -4690,7 +4690,7 @@ sub_1199:                                         ; preds = %sub_0198
 
 .outer492.i.i.i:                                  ; preds = %643, %._crit_edge.i.i.i
   %.0443.ph.i.i.i = phi i32 [ %366, %643 ], [ 1, %._crit_edge.i.i.i ]
-  %.0426.ph.i.i.i = phi i32 [ %.3.i.i.i, %643 ], [ 0, %._crit_edge.i.i.i ]
+  %.0426.ph.i.i.i = phi i32 [ %.2428.i.i.i, %643 ], [ 0, %._crit_edge.i.i.i ]
   %338 = load i32, ptr %315, align 4
   %339 = icmp sgt i32 %.0443.ph.i.i.i, %338
   br i1 %339, label %.outer492._crit_edge.i.i.i, label %.lr.ph536.i.i.i
@@ -5036,7 +5036,7 @@ sub_1199:                                         ; preds = %sub_0198
   br label %.outer.i.i.i
 
 522:                                              ; preds = %._crit_edge544.i.i.i, %.outer488.i.i.i
-  %.2428.i.i.i = phi i32 [ %570, %._crit_edge544.i.i.i ], [ %.2428.ph.i.i.i, %.outer488.i.i.i ]
+  %.3.i.i.i = phi i32 [ %570, %._crit_edge544.i.i.i ], [ %.3.ph.i.i.i, %.outer488.i.i.i ]
   br i1 %.not460.i.i.i, label %.thread479.i.i.i, label %523
 
 523:                                              ; preds = %522
@@ -5108,7 +5108,7 @@ sub_1199:                                         ; preds = %sub_0198
 
 .outer488.i.i.i:                                  ; preds = %.outer488.i.i.i.backedge, %.preheader486.i.i.i
   %.2434.ph.i.i.i = phi i32 [ %.0432.i.i.i, %.preheader486.i.i.i ], [ %.2434.ph.i.i.i.be, %.outer488.i.i.i.backedge ]
-  %.2428.ph.i.i.i = phi i32 [ %.0426.ph.i.i.i, %.preheader486.i.i.i ], [ %.2428.i.i.i, %.outer488.i.i.i.backedge ]
+  %.3.ph.i.i.i = phi i32 [ %.0426.ph.i.i.i, %.preheader486.i.i.i ], [ %.3.i.i.i, %.outer488.i.i.i.backedge ]
   %.not460.i.i.i = icmp eq i32 %.2434.ph.i.i.i, %.0429.i.i.i
   %560 = sext i32 %.2434.ph.i.i.i to i64
   %561 = getelementptr inbounds float, ptr %224, i64 %560
@@ -5120,11 +5120,11 @@ sub_1199:                                         ; preds = %sub_0198
   br label %522
 
 567:                                              ; preds = %543
-  %568 = icmp eq i32 %.2428.i.i.i, %337
+  %568 = icmp eq i32 %.3.i.i.i, %337
   br i1 %568, label %.loopexit484.i.i.i, label %569
 
 569:                                              ; preds = %567
-  %570 = add nsw i32 %.2428.i.i.i, 1
+  %570 = add nsw i32 %.3.i.i.i, 1
   %571 = load float, ptr %564, align 4
   %572 = fsub float %571, %541
   %573 = fpext float %572 to double
@@ -5241,7 +5241,7 @@ sub_1199:                                         ; preds = %sub_0198
   br label %.outer488.i.i.i
 
 .loopexit484.i.i.i:                               ; preds = %642, %545, %521, %429, %567, %447
-  %.3.i.i.i = phi i32 [ %337, %447 ], [ %337, %567 ], [ %.1427.i.i.i, %429 ], [ %.1427.i.i.i, %521 ], [ %.2428.i.i.i, %545 ], [ %.2428.i.i.i, %642 ]
+  %.2428.i.i.i = phi i32 [ %337, %447 ], [ %337, %567 ], [ %.1427.i.i.i, %429 ], [ %.1427.i.i.i, %521 ], [ %.3.i.i.i, %545 ], [ %.3.i.i.i, %642 ]
   %.not4.i = xor i1 %379, true
   %brmerge.i = or i1 %384, %.not4.i
   br i1 %brmerge.i, label %.sink.split674.i.i.i, label %643
@@ -5255,7 +5255,7 @@ sub_1199:                                         ; preds = %sub_0198
   br label %643
 
 643:                                              ; preds = %.sink.split674.i.i.i, %.loopexit484.i.i.i
-  %644 = icmp slt i32 %.3.i.i.i, %337
+  %644 = icmp slt i32 %.2428.i.i.i, %337
   br i1 %644, label %.outer492.i.i.i, label %645
 
 645:                                              ; preds = %643

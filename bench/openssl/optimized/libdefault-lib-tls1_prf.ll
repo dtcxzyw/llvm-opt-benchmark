@@ -559,10 +559,10 @@ if.end12.thread:                                  ; preds = %land.lhs.true
   br i1 %tobool14.not3372, label %err, label %if.end16
 
 if.end16.us:                                      ; preds = %if.end12, %if.end51.us
-  %ctx_Ai.036.us = phi ptr [ %call28.us, %if.end51.us ], [ %call4, %if.end12 ]
+  %ctx_Ai.136.us = phi ptr [ %call28.us, %if.end51.us ], [ %call4, %if.end12 ]
   %out.addr.035.us = phi ptr [ %add.ptr.us, %if.end51.us ], [ %out, %if.end12 ]
   %olen.addr.034.us = phi i64 [ %sub.us, %if.end51.us ], [ %olen, %if.end12 ]
-  call void @EVP_MAC_CTX_free(ptr noundef nonnull %ctx_Ai.036.us) #7
+  call void @EVP_MAC_CTX_free(ptr noundef nonnull %ctx_Ai.136.us) #7
   %call17.us = call ptr @EVP_MAC_CTX_dup(ptr noundef %ctx_init) #7
   %cmp18.us = icmp eq ptr %call17.us, null
   br i1 %cmp18.us, label %err, label %if.end20.us
@@ -596,10 +596,10 @@ if.end51.us:                                      ; preds = %if.end47.us
   br i1 %tobool14.not.us, label %err, label %if.end16.us
 
 if.end16:                                         ; preds = %if.end12.thread, %if.end51
-  %ctx_Ai.036 = phi ptr [ %call28, %if.end51 ], [ %call4, %if.end12.thread ]
+  %ctx_Ai.136 = phi ptr [ %call28, %if.end51 ], [ %call4, %if.end12.thread ]
   %out.addr.035 = phi ptr [ %add.ptr, %if.end51 ], [ %out, %if.end12.thread ]
   %olen.addr.034 = phi i64 [ %sub, %if.end51 ], [ %olen, %if.end12.thread ]
-  call void @EVP_MAC_CTX_free(ptr noundef nonnull %ctx_Ai.036) #7
+  call void @EVP_MAC_CTX_free(ptr noundef nonnull %ctx_Ai.136) #7
   %call17 = call ptr @EVP_MAC_CTX_dup(ptr noundef %ctx_init) #7
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %err, label %if.end20
@@ -655,11 +655,11 @@ if.end51:                                         ; preds = %if.end47
   br i1 %tobool14.not, label %err, label %if.end16
 
 err:                                              ; preds = %if.end51, %if.end16, %if.end20, %if.then27, %if.end32, %if.end47, %if.end51.us, %if.end16.us, %if.end20.us, %if.then27.us, %if.end47.us, %if.end32.thread, %if.end12.thread, %if.end12, %if.then40, %land.lhs.true, %if.end3, %if.end, %entry, %if.end45
-  %ctx.1 = phi ptr [ null, %if.end ], [ null, %if.end3 ], [ %.us-phi56, %if.end45 ], [ %.us-phi56, %if.then40 ], [ null, %land.lhs.true ], [ null, %entry ], [ null, %if.end12 ], [ null, %if.end12.thread ], [ %call17, %if.end32.thread ], [ null, %if.end51.us ], [ null, %if.end16.us ], [ %call17.us, %if.end20.us ], [ %call17.us, %if.then27.us ], [ %call17.us, %if.end47.us ], [ null, %if.end51 ], [ null, %if.end16 ], [ %call17, %if.end20 ], [ %call17, %if.then27 ], [ %call17, %if.end32 ], [ %call17, %if.end47 ]
-  %ctx_Ai.2 = phi ptr [ null, %if.end ], [ null, %if.end3 ], [ null, %if.end45 ], [ null, %if.then40 ], [ %call4, %land.lhs.true ], [ null, %entry ], [ %call4, %if.end12 ], [ %call4, %if.end12.thread ], [ null, %if.end32.thread ], [ %call28.us, %if.end51.us ], [ null, %if.end16.us ], [ null, %if.end20.us ], [ null, %if.then27.us ], [ %call28.us, %if.end47.us ], [ %call28, %if.end51 ], [ null, %if.end16 ], [ null, %if.end20 ], [ null, %if.then27 ], [ %call28, %if.end32 ], [ %call28, %if.end47 ]
+  %ctx.0 = phi ptr [ null, %if.end ], [ null, %if.end3 ], [ %.us-phi56, %if.end45 ], [ %.us-phi56, %if.then40 ], [ null, %land.lhs.true ], [ null, %entry ], [ null, %if.end12 ], [ null, %if.end12.thread ], [ %call17, %if.end32.thread ], [ null, %if.end51.us ], [ null, %if.end16.us ], [ %call17.us, %if.end20.us ], [ %call17.us, %if.then27.us ], [ %call17.us, %if.end47.us ], [ null, %if.end51 ], [ null, %if.end16 ], [ %call17, %if.end20 ], [ %call17, %if.then27 ], [ %call17, %if.end32 ], [ %call17, %if.end47 ]
+  %ctx_Ai.0 = phi ptr [ null, %if.end ], [ null, %if.end3 ], [ null, %if.end45 ], [ null, %if.then40 ], [ %call4, %land.lhs.true ], [ null, %entry ], [ %call4, %if.end12 ], [ %call4, %if.end12.thread ], [ null, %if.end32.thread ], [ %call28.us, %if.end51.us ], [ null, %if.end16.us ], [ null, %if.end20.us ], [ null, %if.then27.us ], [ %call28.us, %if.end47.us ], [ %call28, %if.end51 ], [ null, %if.end16 ], [ null, %if.end20 ], [ null, %if.then27 ], [ %call28, %if.end32 ], [ %call28, %if.end47 ]
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end3 ], [ 1, %if.end45 ], [ 0, %if.then40 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %if.end12 ], [ 0, %if.end12.thread ], [ 0, %if.end32.thread ], [ 0, %if.end47.us ], [ 0, %if.then27.us ], [ 0, %if.end20.us ], [ 0, %if.end16.us ], [ 0, %if.end51.us ], [ 0, %if.end47 ], [ 0, %if.end32 ], [ 0, %if.then27 ], [ 0, %if.end20 ], [ 0, %if.end16 ], [ 0, %if.end51 ]
-  call void @EVP_MAC_CTX_free(ptr noundef %ctx.1) #7
-  call void @EVP_MAC_CTX_free(ptr noundef %ctx_Ai.2) #7
+  call void @EVP_MAC_CTX_free(ptr noundef %ctx.0) #7
+  call void @EVP_MAC_CTX_free(ptr noundef %ctx_Ai.0) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %Ai, i64 noundef 64) #7
   ret i32 %ret.0
 }

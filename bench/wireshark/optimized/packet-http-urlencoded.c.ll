@@ -316,12 +316,12 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
 
 67:                                               ; preds = %51, %57
   %.sink = phi i8 [ %66, %57 ], [ 32, %51 ]
-  %.3 = phi i32 [ %60, %57 ], [ %42, %51 ]
+  %.4 = phi i32 [ %60, %57 ], [ %42, %51 ]
   %68 = sext i32 %55 to i64
   %69 = getelementptr i8, ptr %38, i64 %68
   store i8 %.sink, ptr %69, align 1
   %70 = add i32 %55, 1
-  %71 = add i32 %.3, 1
+  %71 = add i32 %.4, 1
   %72 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %71) #3
   %.not76 = icmp eq i32 %72, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph92, !llvm.loop !7

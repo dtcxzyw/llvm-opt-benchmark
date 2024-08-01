@@ -858,13 +858,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %54 = and i32 %.val10, 134217728
   %55 = icmp ne i32 %54, 0
   %.04.i = select i1 %53, i1 true, i1 %55
-  %.0.i14 = zext i1 %.04.i to i8
+  %.1.i = zext i1 %.04.i to i8
   br label %_ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit
 
 _ZN12clap_builder7builder7command7Command9get_color17hfa3bca41229a8773E.exit: ; preds = %51, %29
-  %.1.i = phi i8 [ %.0.i14, %51 ], [ 2, %29 ]
+  %.0.i14 = phi i8 [ %.1.i, %51 ], [ 2, %29 ]
   %56 = getelementptr inbounds i8, ptr %30, i64 211
-  store i8 %.1.i, ptr %56, align 1
+  store i8 %.0.i14, ptr %56, align 1
   store ptr %30, ptr %7, align 8
   %57 = invoke noundef i8 @_ZN12clap_builder7builder7command7Command10color_help17h172a463d3b4aae3bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1)
           to label %60 unwind label %58, !range !173

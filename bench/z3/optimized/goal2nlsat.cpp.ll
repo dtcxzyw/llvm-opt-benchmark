@@ -1301,7 +1301,7 @@ invoke.cont141:                                   ; preds = %sw.default
 
 sw.epilog:                                        ; preds = %if.then.i.i.i205, %if.then2.i.i.i210, %if.then.i.i.i189, %if.then2.i.i.i194, %if.then.i.i.i171, %if.then2.i.i.i176, %if.then.i.i.i155, %if.then2.i.i.i160, %if.then.i.i.i139, %if.then2.i.i.i144
   %call.i198.sink = phi ptr [ %call2.i132, %if.then2.i.i.i144 ], [ %call2.i132, %if.then.i.i.i139 ], [ %call.i148, %if.then2.i.i.i160 ], [ %call.i148, %if.then.i.i.i155 ], [ %call.i164, %if.then2.i.i.i176 ], [ %call.i164, %if.then.i.i.i171 ], [ %call.i182, %if.then2.i.i.i194 ], [ %call.i182, %if.then.i.i.i189 ], [ %call.i198, %if.then2.i.i.i210 ], [ %call.i198, %if.then.i.i.i205 ]
-  %l.sroa.0.0 = phi i32 [ %l.coerce, %if.then2.i.i.i144 ], [ %l.coerce, %if.then.i.i.i139 ], [ 0, %if.then2.i.i.i160 ], [ 0, %if.then.i.i.i155 ], [ %l.coerce, %if.then2.i.i.i176 ], [ %l.coerce, %if.then.i.i.i171 ], [ 0, %if.then2.i.i.i194 ], [ 0, %if.then.i.i.i189 ], [ %l.coerce, %if.then2.i.i.i210 ], [ %l.coerce, %if.then.i.i.i205 ]
+  %l.sroa.0.1 = phi i32 [ %l.coerce, %if.then2.i.i.i144 ], [ %l.coerce, %if.then.i.i.i139 ], [ 0, %if.then2.i.i.i160 ], [ 0, %if.then.i.i.i155 ], [ %l.coerce, %if.then2.i.i.i176 ], [ %l.coerce, %if.then.i.i.i171 ], [ 0, %if.then2.i.i.i194 ], [ 0, %if.then.i.i.i189 ], [ %l.coerce, %if.then2.i.i.i210 ], [ %l.coerce, %if.then.i.i.i205 ]
   store ptr %call.i198.sink, ptr %agg.result, align 8
   br i1 %tobool.not.i113, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit221, label %if.then.i.i.i214
 
@@ -1460,8 +1460,8 @@ ehcleanup170:                                     ; preds = %lpad160, %lpad146
   br label %ehcleanup184
 
 if.end172:                                        ; preds = %if.then.i.i.i.i.i, %invoke.cont8.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit221, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont167
-  %l.sroa.0.1 = phi i32 [ %l.coerce, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %l.coerce, %invoke.cont167 ], [ %l.sroa.0.0, %_ZN7obj_refI4expr11ast_managerED2Ev.exit221 ], [ %l.sroa.0.0, %invoke.cont8.i.i ], [ %l.sroa.0.0, %if.then.i.i.i.i.i ]
-  %111 = and i32 %l.sroa.0.1, 1
+  %l.sroa.0.0 = phi i32 [ %l.coerce, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %l.coerce, %invoke.cont167 ], [ %l.sroa.0.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit221 ], [ %l.sroa.0.1, %invoke.cont8.i.i ], [ %l.sroa.0.1, %if.then.i.i.i.i.i ]
+  %111 = and i32 %l.sroa.0.0, 1
   %tobool.i248.not = icmp eq i32 %111, 0
   br i1 %tobool.i248.not, label %nrvo.skipdtor, label %if.then175
 
@@ -3388,10 +3388,10 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -3417,7 +3417,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -3432,7 +3432,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823
@@ -4299,10 +4299,10 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
-  %vs.0 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i ]
+  %vs.1 = phi ptr [ %31, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i ], [ %incdec.ptr.i.i, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i.i ]
   %m_elem26 = getelementptr inbounds i8, ptr %27, i64 8
   %42 = load ptr, ptr %m_elem26, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.0, i64 %conv
+  %arrayidx28 = getelementptr inbounds ptr, ptr %vs.1, i64 %conv
   store ptr %42, ptr %arrayidx28, align 8
   %inc29 = add i32 %29, 1
   store i32 %inc29, ptr %28, align 4
@@ -4328,7 +4328,7 @@ sw.bb38:                                          ; preds = %for.body
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
-  %vs.1 = phi ptr [ %31, %sw.bb30 ], [ %vs.0, %if.end25 ], [ %31, %sw.bb ]
+  %vs.0 = phi ptr [ %31, %sw.bb30 ], [ %vs.1, %if.end25 ], [ %31, %sw.bb ]
   %sz.0 = phi i32 [ %dec34, %sw.bb30 ], [ %inc29, %if.end25 ], [ %29, %sw.bb ]
   %bf.load.i49 = load i32, ptr %27, align 8
   %inc.i50 = add i32 %bf.load.i49, 1
@@ -4343,7 +4343,7 @@ if.end.i52:                                       ; preds = %sw.bb, %if.end25, %
   %44 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %sz.0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %vs.1, ptr %45, align 8
+  store ptr %vs.0, ptr %45, align 8
   %bf.load.i53 = load i32, ptr %c.195, align 8
   %dec.i = add i32 %bf.load.i53, 1073741823
   %bf.value.i54 = and i32 %dec.i, 1073741823

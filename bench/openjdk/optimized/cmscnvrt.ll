@@ -272,13 +272,13 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   br i1 %.not111, label %100, label %86
 
 86:                                               ; preds = %71, %84, %68
-  %.1 = phi ptr [ %57, %68 ], [ %72, %71 ], [ %75, %84 ]
-  %87 = call i32 @cmsPipelineCat(ptr noundef nonnull %12, ptr noundef nonnull %.1) #7
+  %.2 = phi ptr [ %57, %68 ], [ %72, %71 ], [ %75, %84 ]
+  %87 = call i32 @cmsPipelineCat(ptr noundef nonnull %12, ptr noundef nonnull %.2) #7
   %.not114 = icmp eq i32 %87, 0
   br i1 %.not114, label %100, label %88
 
 88:                                               ; preds = %86
-  call void @cmsPipelineFree(ptr noundef nonnull %.1) #7
+  call void @cmsPipelineFree(ptr noundef nonnull %.2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %89, label %18, !llvm.loop !8
@@ -309,8 +309,8 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   br i1 %.not108, label %.thread122, label %101
 
 100:                                              ; preds = %60, %68, %77, %84, %86
-  %.2 = phi ptr [ %.1, %86 ], [ %57, %68 ], [ %57, %60 ], [ %75, %84 ], [ %75, %77 ]
-  call void @cmsPipelineFree(ptr noundef nonnull %.2) #7
+  %.1 = phi ptr [ %.2, %86 ], [ %57, %68 ], [ %57, %60 ], [ %75, %84 ], [ %75, %77 ]
+  call void @cmsPipelineFree(ptr noundef nonnull %.1) #7
   br label %.thread122
 
 .thread122:                                       ; preds = %74, %71, %56, %98, %92, %53, %100

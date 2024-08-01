@@ -2044,11 +2044,11 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   br label %124
 
 124:                                              ; preds = %113, %117, %122, %94
-  %.sroa.3.0 = phi i32 [ %102, %117 ], [ %102, %122 ], [ %102, %113 ], [ 0, %94 ]
-  %.sroa.0461.0 = phi ptr [ %100, %117 ], [ %100, %122 ], [ %100, %113 ], [ null, %94 ]
-  %.0457 = phi i32 [ 1, %117 ], [ 1, %122 ], [ 1, %113 ], [ 0, %94 ]
-  %.0454 = phi ptr [ %99, %117 ], [ %99, %122 ], [ %99, %113 ], [ null, %94 ]
-  %.0451 = phi i32 [ %104, %117 ], [ %104, %122 ], [ %104, %113 ], [ 0, %94 ]
+  %.sroa.3.1 = phi i32 [ %102, %117 ], [ %102, %122 ], [ %102, %113 ], [ 0, %94 ]
+  %.sroa.0461.1 = phi ptr [ %100, %117 ], [ %100, %122 ], [ %100, %113 ], [ null, %94 ]
+  %.1458 = phi i32 [ 1, %117 ], [ 1, %122 ], [ 1, %113 ], [ 0, %94 ]
+  %.1455 = phi ptr [ %99, %117 ], [ %99, %122 ], [ %99, %113 ], [ null, %94 ]
+  %.1452 = phi i32 [ %104, %117 ], [ %104, %122 ], [ %104, %113 ], [ 0, %94 ]
   %125 = getelementptr inbounds i8, ptr %0, i64 280
   %126 = load ptr, ptr %125, align 8
   %.not495 = icmp eq ptr %126, null
@@ -2186,12 +2186,12 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   unreachable
 
 195:                                              ; preds = %176, %189, %192, %130, %159, %155, %141, %90, %73, %65, %91
-  %.sroa.3.1 = phi i32 [ 0, %189 ], [ 0, %192 ], [ %.sroa.3.0, %155 ], [ %.sroa.3.0, %159 ], [ %.sroa.3.0, %141 ], [ %.sroa.3.0, %130 ], [ 0, %91 ], [ 0, %90 ], [ 0, %73 ], [ 0, %65 ], [ 0, %176 ]
-  %.sroa.0461.1 = phi ptr [ null, %189 ], [ null, %192 ], [ %.sroa.0461.0, %155 ], [ %.sroa.0461.0, %159 ], [ %.sroa.0461.0, %141 ], [ %.sroa.0461.0, %130 ], [ null, %91 ], [ null, %90 ], [ null, %73 ], [ null, %65 ], [ null, %176 ]
-  %.1458 = phi i32 [ 0, %189 ], [ 0, %192 ], [ %.0457, %155 ], [ %.0457, %159 ], [ %.0457, %141 ], [ %.0457, %130 ], [ 0, %91 ], [ 0, %90 ], [ 0, %73 ], [ 0, %65 ], [ 0, %176 ]
-  %.1455 = phi ptr [ null, %189 ], [ null, %192 ], [ %.0454, %155 ], [ %.0454, %159 ], [ %.0454, %141 ], [ %.0454, %130 ], [ null, %91 ], [ null, %90 ], [ null, %73 ], [ null, %65 ], [ null, %176 ]
+  %.sroa.3.0 = phi i32 [ 0, %189 ], [ 0, %192 ], [ %.sroa.3.1, %155 ], [ %.sroa.3.1, %159 ], [ %.sroa.3.1, %141 ], [ %.sroa.3.1, %130 ], [ 0, %91 ], [ 0, %90 ], [ 0, %73 ], [ 0, %65 ], [ 0, %176 ]
+  %.sroa.0461.0 = phi ptr [ null, %189 ], [ null, %192 ], [ %.sroa.0461.1, %155 ], [ %.sroa.0461.1, %159 ], [ %.sroa.0461.1, %141 ], [ %.sroa.0461.1, %130 ], [ null, %91 ], [ null, %90 ], [ null, %73 ], [ null, %65 ], [ null, %176 ]
+  %.0457 = phi i32 [ 0, %189 ], [ 0, %192 ], [ %.1458, %155 ], [ %.1458, %159 ], [ %.1458, %141 ], [ %.1458, %130 ], [ 0, %91 ], [ 0, %90 ], [ 0, %73 ], [ 0, %65 ], [ 0, %176 ]
+  %.0454 = phi ptr [ null, %189 ], [ null, %192 ], [ %.1455, %155 ], [ %.1455, %159 ], [ %.1455, %141 ], [ %.1455, %130 ], [ null, %91 ], [ null, %90 ], [ null, %73 ], [ null, %65 ], [ null, %176 ]
   %.0453 = phi ptr [ null, %189 ], [ null, %192 ], [ %126, %155 ], [ %126, %159 ], [ %126, %141 ], [ %126, %130 ], [ null, %91 ], [ null, %90 ], [ null, %73 ], [ null, %65 ], [ null, %176 ]
-  %.1452 = phi i32 [ 0, %189 ], [ 0, %192 ], [ %.0451, %155 ], [ %.0451, %159 ], [ %.0451, %141 ], [ %.0451, %130 ], [ 0, %91 ], [ 0, %90 ], [ 0, %73 ], [ 0, %65 ], [ 0, %176 ]
+  %.0451 = phi i32 [ 0, %189 ], [ 0, %192 ], [ %.1452, %155 ], [ %.1452, %159 ], [ %.1452, %141 ], [ %.1452, %130 ], [ 0, %91 ], [ 0, %90 ], [ 0, %73 ], [ 0, %65 ], [ 0, %176 ]
   %.1 = phi i32 [ %26, %189 ], [ %26, %192 ], [ %26, %155 ], [ %26, %159 ], [ %26, %141 ], [ %26, %130 ], [ %26, %91 ], [ %26, %90 ], [ %26, %73 ], [ %26, %65 ], [ %spec.select, %176 ]
   %196 = icmp ne ptr %5, null
   %197 = icmp ne i32 %.1, 12
@@ -2214,8 +2214,8 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   br label %206
 
 206:                                              ; preds = %201, %205
-  %.1458.sink = phi i32 [ %.1458, %205 ], [ %.0456, %201 ]
-  call fastcc void @fetch_value(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.1458.sink, ptr noundef null)
+  %.0457.sink = phi i32 [ %.0457, %205 ], [ %.0456, %201 ]
+  call fastcc void @fetch_value(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %.0457.sink, ptr noundef null)
   %207 = getelementptr inbounds i8, ptr %13, i64 8
   %208 = load i8, ptr %207, align 8
   %.not505 = icmp eq i8 %208, 6
@@ -2234,18 +2234,18 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   br label %.thread547
 
 214:                                              ; preds = %210
-  %215 = add nuw nsw i32 %.1458, 1
+  %215 = add nuw nsw i32 %.0457, 1
   br label %.thread547
 
 .thread547:                                       ; preds = %61, %74, %211, %214, %195
   %216 = phi i1 [ true, %211 ], [ true, %214 ], [ %196, %195 ], [ false, %74 ], [ false, %61 ]
   %.1561 = phi i32 [ 7, %211 ], [ %.1, %214 ], [ %.1, %195 ], [ %26, %74 ], [ %26, %61 ]
-  %.1452560 = phi i32 [ %.1452, %211 ], [ %.1452, %214 ], [ %.1452, %195 ], [ 0, %74 ], [ 0, %61 ]
+  %.0451560 = phi i32 [ %.0451, %211 ], [ %.0451, %214 ], [ %.0451, %195 ], [ 0, %74 ], [ 0, %61 ]
   %.0453559 = phi ptr [ %.0453, %211 ], [ %.0453, %214 ], [ %.0453, %195 ], [ null, %74 ], [ null, %61 ]
-  %.1455558 = phi ptr [ %.1455, %211 ], [ %.1455, %214 ], [ %.1455, %195 ], [ null, %74 ], [ null, %61 ]
-  %.sroa.0461.1557 = phi ptr [ %.sroa.0461.1, %211 ], [ %.sroa.0461.1, %214 ], [ %.sroa.0461.1, %195 ], [ null, %74 ], [ null, %61 ]
-  %.sroa.3.1556 = phi i32 [ %.sroa.3.1, %211 ], [ %.sroa.3.1, %214 ], [ %.sroa.3.1, %195 ], [ 0, %74 ], [ 0, %61 ]
-  %.2 = phi i32 [ %213, %211 ], [ %215, %214 ], [ %.1458, %195 ], [ 0, %74 ], [ 0, %61 ]
+  %.0454558 = phi ptr [ %.0454, %211 ], [ %.0454, %214 ], [ %.0454, %195 ], [ null, %74 ], [ null, %61 ]
+  %.sroa.0461.0557 = phi ptr [ %.sroa.0461.0, %211 ], [ %.sroa.0461.0, %214 ], [ %.sroa.0461.0, %195 ], [ null, %74 ], [ null, %61 ]
+  %.sroa.3.0556 = phi i32 [ %.sroa.3.0, %211 ], [ %.sroa.3.0, %214 ], [ %.sroa.3.0, %195 ], [ 0, %74 ], [ 0, %61 ]
+  %.2 = phi i32 [ %213, %211 ], [ %215, %214 ], [ %.0457, %195 ], [ 0, %74 ], [ 0, %61 ]
   %217 = getelementptr inbounds i8, ptr %0, i64 20
   %218 = load i32, ptr %217, align 4
   %219 = icmp slt i32 %.2, %218
@@ -2644,12 +2644,12 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   call fastcc void @do_fetch_opt_finish(ptr noundef nonnull %0, i32 noundef 0)
   %422 = getelementptr inbounds i8, ptr %0, i64 144
   %423 = getelementptr inbounds i8, ptr %0, i64 280
-  store ptr %.1455558, ptr %423, align 8
-  store ptr %.sroa.0461.1557, ptr %422, align 8
+  store ptr %.0454558, ptr %423, align 8
+  store ptr %.sroa.0461.0557, ptr %422, align 8
   %424 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 %.sroa.3.1556, ptr %424, align 8
+  store i32 %.sroa.3.0556, ptr %424, align 8
   %425 = getelementptr inbounds i8, ptr %0, i64 208
-  store i32 %.1452560, ptr %425, align 8
+  store i32 %.0451560, ptr %425, align 8
   br label %.loopexit
 
 426:                                              ; preds = %._crit_edge
@@ -2916,7 +2916,7 @@ define hidden void @zim_PDOStatement_fetchObject(ptr noundef %0, ptr noundef %1)
   br label %91
 
 20:                                               ; preds = %15, %9, %14
-  %.2.ph = phi ptr [ null, %14 ], [ null, %9 ], [ %16, %15 ]
+  %.0101.ph = phi ptr [ null, %14 ], [ null, %9 ], [ %16, %15 ]
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 -312
   %23 = getelementptr inbounds i8, ptr %21, i64 -264
@@ -2988,11 +2988,11 @@ define hidden void @zim_PDOStatement_fetchObject(ptr noundef %0, ptr noundef %1)
   br label %do_fetch_opt_finish.exit
 
 do_fetch_opt_finish.exit:                         ; preds = %54, %57
-  %.not108 = icmp eq ptr %.2.ph, null
+  %.not108 = icmp eq ptr %.0101.ph, null
   br i1 %.not108, label %64, label %58
 
 58:                                               ; preds = %do_fetch_opt_finish.exit
-  %59 = load ptr, ptr %.2.ph, align 8
+  %59 = load ptr, ptr %.0101.ph, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
   %.not109 = icmp eq i32 %61, 0
@@ -3824,7 +3824,7 @@ define hidden void @zim_PDOStatement_fetchAll(ptr noundef %0, ptr noundef %1) #0
 
 .thread303:                                       ; preds = %28, %.thread303.fold.split, %22, %20, %10
   %.0246312 = phi ptr [ %27, %22 ], [ null, %20 ], [ null, %10 ], [ %27, %28 ], [ %27, %.thread303.fold.split ]
-  %.2311 = phi ptr [ null, %22 ], [ null, %20 ], [ null, %10 ], [ %29, %28 ], [ null, %.thread303.fold.split ]
+  %.0247311 = phi ptr [ null, %22 ], [ null, %20 ], [ null, %10 ], [ %29, %28 ], [ null, %.thread303.fold.split ]
   %32 = load ptr, ptr %5, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 -312
   %34 = getelementptr inbounds i8, ptr %32, i64 -264
@@ -3952,18 +3952,18 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
 
 91:                                               ; preds = %83, %89
   %92 = phi ptr [ %85, %83 ], [ %90, %89 ]
-  %.not267 = icmp eq ptr %.2311, null
+  %.not267 = icmp eq ptr %.0247311, null
   br i1 %.not267, label %100, label %93
 
 93:                                               ; preds = %91
-  %94 = load ptr, ptr %.2311, align 8
+  %94 = load ptr, ptr %.0247311, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 28
   %96 = load i32, ptr %95, align 4
   %.not268 = icmp eq i32 %96, 0
   br i1 %.not268, label %100, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %.2311, i64 8
+  %98 = getelementptr inbounds i8, ptr %.0247311, i64 8
   %99 = load i32, ptr %98, align 8
   store ptr %94, ptr %51, align 8
   br label %100

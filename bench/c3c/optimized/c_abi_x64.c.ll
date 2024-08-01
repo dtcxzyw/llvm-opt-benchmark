@@ -2344,10 +2344,10 @@ tailrecurse.i98.backedge:                         ; preds = %159, %x64_get_membe
 
 x64_get_fp_type_at_offset.exit97:                 ; preds = %67, %125
   %165 = phi i32 [ %.pre.i102, %125 ], [ %.pre.i81, %67 ]
-  %.2 = phi ptr [ %.tr.i99, %125 ], [ %.tr.i78, %67 ]
+  %.1 = phi ptr [ %.tr.i99, %125 ], [ %.tr.i78, %67 ]
   %166 = load ptr, ptr @type_float, align 8
   %167 = icmp eq ptr %.tr.i, %166
-  %168 = icmp eq ptr %.tr.i, %.2
+  %168 = icmp eq ptr %.tr.i, %.1
   %or.cond76 = and i1 %168, %167
   br i1 %or.cond76, label %169, label %171
 
@@ -2377,7 +2377,7 @@ x64_get_fp_type_at_offset.exit97:                 ; preds = %67, %125
   br i1 %182, label %183, label %187
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds i8, ptr %.2, i64 8
+  %184 = getelementptr inbounds i8, ptr %.1, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = load i32, ptr %185, align 8
   br label %187
@@ -2527,7 +2527,7 @@ x64_get_fp_type_at_offset.exit139:                ; preds = %203, %200, %190
   br i1 %251, label %252, label %256
 
 252:                                              ; preds = %250
-  %253 = getelementptr inbounds i8, ptr %.2, i64 8
+  %253 = getelementptr inbounds i8, ptr %.1, i64 8
   %254 = load ptr, ptr %253, align 8
   %255 = load i32, ptr %254, align 8
   br label %256
@@ -2659,8 +2659,8 @@ try_use_registers.exit.i:                         ; preds = %26
   br label %x64_classify_parameter.exit
 
 x64_classify_parameter.exit:                      ; preds = %try_use_registers.exit.i, %32
-  %.sroa.7.1 = phi i32 [ %spec.select, %32 ], [ %30, %try_use_registers.exit.i ]
-  %.sroa.0.0 = phi i32 [ 8, %32 ], [ %31, %try_use_registers.exit.i ]
+  %.sroa.7.5 = phi i32 [ %spec.select, %32 ], [ %30, %try_use_registers.exit.i ]
+  %.sroa.0.4 = phi i32 [ 8, %32 ], [ %31, %try_use_registers.exit.i ]
   %.0.i = phi ptr [ %33, %32 ], [ %23, %try_use_registers.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %34 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2668,8 +2668,8 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   br label %35
 
 35:                                               ; preds = %x64_classify_parameter.exit, %8
-  %.sroa.7.2 = phi i32 [ %spec.select, %8 ], [ %.sroa.7.1, %x64_classify_parameter.exit ]
-  %.sroa.0.1 = phi i32 [ 8, %8 ], [ %.sroa.0.0, %x64_classify_parameter.exit ]
+  %.sroa.7.1 = phi i32 [ %spec.select, %8 ], [ %.sroa.7.5, %x64_classify_parameter.exit ]
+  %.sroa.0.0 = phi i32 [ 8, %8 ], [ %.sroa.0.4, %x64_classify_parameter.exit ]
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not46 = icmp eq ptr %37, null
@@ -2690,8 +2690,8 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
 
 46:                                               ; preds = %41, %x64_classify_parameter.exit53
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %x64_classify_parameter.exit53 ]
-  %.sroa.0.269 = phi i32 [ %.sroa.0.1, %41 ], [ %.sroa.0.3, %x64_classify_parameter.exit53 ]
-  %.sroa.7.368 = phi i32 [ %.sroa.7.2, %41 ], [ %.sroa.7.4, %x64_classify_parameter.exit53 ]
+  %.sroa.0.269 = phi i32 [ %.sroa.0.0, %41 ], [ %.sroa.0.5, %x64_classify_parameter.exit53 ]
+  %.sroa.7.368 = phi i32 [ %.sroa.7.1, %41 ], [ %.sroa.7.6, %x64_classify_parameter.exit53 ]
   %47 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -2717,8 +2717,8 @@ try_use_registers.exit.i51:                       ; preds = %53
   br label %x64_classify_parameter.exit53
 
 x64_classify_parameter.exit53:                    ; preds = %try_use_registers.exit.i51, %58
-  %.sroa.7.4 = phi i32 [ %.sroa.7.368, %58 ], [ %56, %try_use_registers.exit.i51 ]
-  %.sroa.0.3 = phi i32 [ %.sroa.0.269, %58 ], [ %57, %try_use_registers.exit.i51 ]
+  %.sroa.7.6 = phi i32 [ %.sroa.7.368, %58 ], [ %56, %try_use_registers.exit.i51 ]
+  %.sroa.0.5 = phi i32 [ %.sroa.0.269, %58 ], [ %57, %try_use_registers.exit.i51 ]
   %.0.i52 = phi ptr [ %59, %58 ], [ %50, %try_use_registers.exit.i51 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %60 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
@@ -2733,8 +2733,8 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   br label %.thread
 
 .thread:                                          ; preds = %35, %61, %38
-  %.sroa.7.5 = phi i32 [ %.sroa.7.2, %38 ], [ %.sroa.7.4, %61 ], [ %.sroa.7.2, %35 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.1, %38 ], [ %.sroa.0.3, %61 ], [ %.sroa.0.1, %35 ]
+  %.sroa.7.2 = phi i32 [ %.sroa.7.1, %38 ], [ %.sroa.7.6, %61 ], [ %.sroa.7.1, %35 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %38 ], [ %.sroa.0.5, %61 ], [ %.sroa.0.0, %35 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 32
   %64 = load ptr, ptr %63, align 8
   %.not48 = icmp eq ptr %64, null
@@ -2755,36 +2755,36 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
 
 73:                                               ; preds = %68, %x64_classify_parameter.exit57
   %indvars.iv75 = phi i64 [ 0, %68 ], [ %indvars.iv.next76, %x64_classify_parameter.exit57 ]
-  %.sroa.0.572 = phi i32 [ %.sroa.0.4, %68 ], [ %.sroa.0.6, %x64_classify_parameter.exit57 ]
-  %.sroa.7.671 = phi i32 [ %.sroa.7.5, %68 ], [ %.sroa.7.7, %x64_classify_parameter.exit57 ]
+  %.sroa.0.372 = phi i32 [ %.sroa.0.1, %68 ], [ %.sroa.0.6, %x64_classify_parameter.exit57 ]
+  %.sroa.7.471 = phi i32 [ %.sroa.7.2, %68 ], [ %.sroa.7.7, %x64_classify_parameter.exit57 ]
   %74 = load ptr, ptr %63, align 8
   %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv75
   %76 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %77 = tail call fastcc ptr @type_lowering(ptr noundef readonly %76)
-  %78 = call fastcc ptr @x64_classify_argument_type(ptr noundef %77, i32 noundef %.sroa.7.671, ptr noundef nonnull %2, i32 noundef 0)
+  %78 = call fastcc ptr @x64_classify_argument_type(ptr noundef %77, i32 noundef %.sroa.7.471, ptr noundef nonnull %2, i32 noundef 0)
   %79 = load i32, ptr %2, align 8
-  %80 = icmp ult i32 %.sroa.0.572, %79
+  %80 = icmp ult i32 %.sroa.0.372, %79
   br i1 %80, label %86, label %81
 
 81:                                               ; preds = %73
   %82 = load i32, ptr %72, align 4
-  %83 = icmp ult i32 %.sroa.7.671, %82
+  %83 = icmp ult i32 %.sroa.7.471, %82
   br i1 %83, label %86, label %try_use_registers.exit.i55
 
 try_use_registers.exit.i55:                       ; preds = %81
-  %84 = sub nuw i32 %.sroa.7.671, %82
-  %85 = sub i32 %.sroa.0.572, %79
+  %84 = sub nuw i32 %.sroa.7.471, %82
+  %85 = sub i32 %.sroa.0.372, %79
   br label %x64_classify_parameter.exit57
 
 86:                                               ; preds = %81, %73
-  %87 = tail call ptr @x64_indirect_result(ptr noundef %77, i32 noundef %.sroa.7.671)
+  %87 = tail call ptr @x64_indirect_result(ptr noundef %77, i32 noundef %.sroa.7.471)
   br label %x64_classify_parameter.exit57
 
 x64_classify_parameter.exit57:                    ; preds = %try_use_registers.exit.i55, %86
-  %.sroa.7.7 = phi i32 [ %.sroa.7.671, %86 ], [ %84, %try_use_registers.exit.i55 ]
-  %.sroa.0.6 = phi i32 [ %.sroa.0.572, %86 ], [ %85, %try_use_registers.exit.i55 ]
+  %.sroa.7.7 = phi i32 [ %.sroa.7.471, %86 ], [ %84, %try_use_registers.exit.i55 ]
+  %.sroa.0.6 = phi i32 [ %.sroa.0.372, %86 ], [ %85, %try_use_registers.exit.i55 ]
   %.0.i56 = phi ptr [ %87, %86 ], [ %78, %try_use_registers.exit.i55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %88 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv75

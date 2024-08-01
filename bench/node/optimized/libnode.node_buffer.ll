@@ -940,7 +940,7 @@ if.end92:                                         ; preds = %do.end47, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, %if.end92, %if.end78, %if.then22
-  %retval.sroa.0.0 = phi ptr [ null, %if.then22 ], [ %call4.i, %if.end78 ], [ %call4.i.i, %if.end92 ], [ null, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ]
+  %retval.sroa.0.1 = phi ptr [ null, %if.then22 ], [ %call4.i, %if.end78 ], [ %call4.i.i, %if.end92 ], [ null, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ]
   %16 = load ptr, ptr %store, align 8
   %cmp.not.i28 = icmp eq ptr %16, null
   br i1 %cmp.not.i28, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit30, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i29
@@ -955,9 +955,9 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit30: ; pred
   br label %cleanup108
 
 cleanup108:                                       ; preds = %entry, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit30
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit30 ], [ null, %entry ]
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit30 ], [ null, %entry ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #22
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
@@ -2075,7 +2075,7 @@ if.then43:                                        ; preds = %_ZN4node6Buffer3New
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node6Buffer3NewEPNS_11EnvironmentEN2v85LocalINS3_11ArrayBufferEEEmm.exit, %if.then43
-  %retval.sroa.0.0 = phi ptr [ %call4.i, %if.then43 ], [ null, %_ZN4node6Buffer3NewEPNS_11EnvironmentEN2v85LocalINS3_11ArrayBufferEEEmm.exit ]
+  %retval.sroa.0.1 = phi ptr [ %call4.i, %if.then43 ], [ null, %_ZN4node6Buffer3NewEPNS_11EnvironmentEN2v85LocalINS3_11ArrayBufferEEEmm.exit ]
   %20 = load ptr, ptr %bs, align 8
   %cmp.not.i = icmp eq ptr %20, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
@@ -2091,8 +2091,8 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, %if.then8
-  %retval.sroa.0.1 = phi ptr [ null, %if.then8 ], [ %retval.sroa.0.0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ null, %if.then8 ], [ %retval.sroa.0.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit ]
+  ret ptr %retval.sroa.0.0
 }
 
 declare void @_ZN2v811ArrayBuffer15NewBackingStoreEPvmPFvS1_mS1_ES1_(ptr sret(%"class.std::unique_ptr.265") align 8, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -7858,9 +7858,9 @@ if.end268:                                        ; preds = %if.then261
   br label %if.then.i1102
 
 if.then.i1102:                                    ; preds = %cleanup256.thread, %cleanup231, %if.end268, %if.else234
-  %result.4 = phi i64 [ %mul, %cleanup231 ], [ %call273, %if.end268 ], [ %73, %if.else234 ], [ %call255, %cleanup256.thread ]
-  %cmp280 = icmp eq i64 %result.4, %cond
-  %sext = shl i64 %result.4, 32
+  %result.3 = phi i64 [ %mul, %cleanup231 ], [ %call273, %if.end268 ], [ %73, %if.else234 ], [ %call255, %cleanup256.thread ]
+  %cmp280 = icmp eq i64 %result.3, %cond
+  %sext = shl i64 %result.3, 32
   %92 = load ptr, ptr %args, align 8
   %arrayidx.i988 = getelementptr inbounds i8, ptr %92, i64 24
   %shl.i = select i1 %cmp280, i64 -4294967296, i64 %sext
@@ -9014,8 +9014,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -9276,8 +9276,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -9538,8 +9538,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -9800,8 +9800,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -10062,8 +10062,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -10324,8 +10324,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -10586,8 +10586,8 @@ if.then55:                                        ; preds = %if.end18.i49
 
 do.end57:                                         ; preds = %if.end18.i49.do.end57_crit_edge, %if.end5.i.i57
   %58 = phi i64 [ %46, %if.end5.i.i57 ], [ %.pre85, %if.end18.i49.do.end57_crit_edge ]
-  %end.0.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
-  %spec.select = call i64 @llvm.umax.i64(i64 %end.0.ph.ph, i64 %start.0.ph.ph)
+  %end.1.ph.ph = phi i64 [ %46, %if.end5.i.i57 ], [ %57, %if.end18.i49.do.end57_crit_edge ]
+  %spec.select = call i64 @llvm.umax.i64(i64 %end.1.ph.ph, i64 %start.0.ph.ph)
   %cmp65.not = icmp ugt i64 %spec.select, %58
   br i1 %cmp65.not, label %if.then71, label %do.end73
 
@@ -16322,7 +16322,7 @@ if.end:                                           ; preds = %for.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end74
-  %i15.095 = phi i64 [ %0, %if.end ], [ %i15.2, %if.end74 ]
+  %i15.095 = phi i64 [ %0, %if.end ], [ %i15.1, %if.end74 ]
   %suffix.094 = phi i64 [ %add, %if.end ], [ %suffix.2, %if.end74 ]
   %sub18 = add i64 %i15.095, -1
   %7 = load ptr, ptr %pattern_, align 8
@@ -16382,13 +16382,13 @@ while.end:                                        ; preds = %land.rhs, %if.end36
   br i1 %or.cond, label %land.rhs46, label %if.end74
 
 land.rhs46:                                       ; preds = %while.end, %if.end62
-  %i15.192 = phi i64 [ %sub48, %if.end62 ], [ %sub18, %while.end ]
-  %sub48 = add i64 %i15.192, -1
+  %i15.292 = phi i64 [ %sub48, %if.end62 ], [ %sub18, %while.end ]
+  %sub48 = add i64 %i15.292, -1
   %17 = load ptr, ptr %pattern_, align 8
   %18 = load i8, ptr %is_forward_.i, align 8
   %tobool.i80 = trunc i8 %18 to i1
   %19 = load i64, ptr %length_.i, align 8
-  %sub2.i82 = sub i64 %19, %i15.192
+  %sub2.i82 = sub i64 %19, %i15.292
   %cond.i83 = select i1 %tobool.i80, i64 %sub48, i64 %sub2.i82
   %arrayidx.i84 = getelementptr inbounds i16, ptr %17, i64 %cond.i83
   %20 = load i16, ptr %arrayidx.i84, align 2
@@ -16402,7 +16402,7 @@ while.body54:                                     ; preds = %land.rhs46
   br i1 %cmp57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %while.body54
-  %sub59 = sub i64 %0, %i15.192
+  %sub59 = sub i64 %0, %i15.292
   %conv60 = trunc i64 %sub59 to i32
   store i32 %conv60, ptr %arrayidx7, align 4
   br label %if.end62
@@ -16422,8 +16422,8 @@ if.then68:                                        ; preds = %land.rhs46
 
 if.end74:                                         ; preds = %if.then68, %while.end
   %suffix.2 = phi i64 [ %dec69, %if.then68 ], [ %dec, %while.end ]
-  %i15.2 = phi i64 [ %sub48, %if.then68 ], [ %sub18, %while.end ]
-  %cmp16 = icmp ugt i64 %i15.2, %1
+  %i15.1 = phi i64 [ %sub48, %if.then68 ], [ %sub18, %while.end ]
+  %cmp16 = icmp ugt i64 %i15.1, %1
   br i1 %cmp16, label %while.body, label %while.end75, !llvm.loop !38
 
 while.end75:                                      ; preds = %if.end74
@@ -17598,7 +17598,7 @@ if.end:                                           ; preds = %for.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %if.end74
-  %i15.095 = phi i64 [ %0, %if.end ], [ %i15.2, %if.end74 ]
+  %i15.095 = phi i64 [ %0, %if.end ], [ %i15.1, %if.end74 ]
   %suffix.094 = phi i64 [ %add, %if.end ], [ %suffix.2, %if.end74 ]
   %sub18 = add i64 %i15.095, -1
   %7 = load ptr, ptr %pattern_, align 8
@@ -17658,13 +17658,13 @@ while.end:                                        ; preds = %land.rhs, %if.end36
   br i1 %or.cond, label %land.rhs46, label %if.end74
 
 land.rhs46:                                       ; preds = %while.end, %if.end62
-  %i15.192 = phi i64 [ %sub48, %if.end62 ], [ %sub18, %while.end ]
-  %sub48 = add i64 %i15.192, -1
+  %i15.292 = phi i64 [ %sub48, %if.end62 ], [ %sub18, %while.end ]
+  %sub48 = add i64 %i15.292, -1
   %17 = load ptr, ptr %pattern_, align 8
   %18 = load i8, ptr %is_forward_.i, align 8
   %tobool.i80 = trunc i8 %18 to i1
   %19 = load i64, ptr %length_.i, align 8
-  %sub2.i82 = sub i64 %19, %i15.192
+  %sub2.i82 = sub i64 %19, %i15.292
   %cond.i83 = select i1 %tobool.i80, i64 %sub48, i64 %sub2.i82
   %arrayidx.i84 = getelementptr inbounds i8, ptr %17, i64 %cond.i83
   %20 = load i8, ptr %arrayidx.i84, align 1
@@ -17678,7 +17678,7 @@ while.body54:                                     ; preds = %land.rhs46
   br i1 %cmp57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %while.body54
-  %sub59 = sub i64 %0, %i15.192
+  %sub59 = sub i64 %0, %i15.292
   %conv60 = trunc i64 %sub59 to i32
   store i32 %conv60, ptr %arrayidx7, align 4
   br label %if.end62
@@ -17698,8 +17698,8 @@ if.then68:                                        ; preds = %land.rhs46
 
 if.end74:                                         ; preds = %if.then68, %while.end
   %suffix.2 = phi i64 [ %dec69, %if.then68 ], [ %dec, %while.end ]
-  %i15.2 = phi i64 [ %sub48, %if.then68 ], [ %sub18, %while.end ]
-  %cmp16 = icmp ugt i64 %i15.2, %1
+  %i15.1 = phi i64 [ %sub48, %if.then68 ], [ %sub18, %while.end ]
+  %cmp16 = icmp ugt i64 %i15.1, %1
   br i1 %cmp16, label %while.body, label %while.end75, !llvm.loop !56
 
 while.end75:                                      ; preds = %if.end74

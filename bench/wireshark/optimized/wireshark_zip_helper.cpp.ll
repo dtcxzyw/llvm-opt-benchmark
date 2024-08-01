@@ -273,7 +273,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i100:    ; preds = %61
 
 107:                                              ; preds = %73, %503
   %.039318 = phi i32 [ 0, %73 ], [ %.pre-phi, %503 ]
-  %.043317 = phi i32 [ 0, %73 ], [ %.750, %503 ]
+  %.043317 = phi i32 [ 0, %73 ], [ %.851, %503 ]
   %108 = invoke i32 @unzGetCurrentFileInfo64(ptr noundef nonnull %54, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef 256, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
           to label %109 unwind label %.loopexit312
 
@@ -1405,7 +1405,7 @@ _ZN10QByteArrayD2Ev.exit258:                      ; preds = %456, %_ZN17QArrayDa
   br label %461
 
 461:                                              ; preds = %417, %459, %414
-  %.144 = phi i32 [ %.043317, %414 ], [ %460, %459 ], [ %.043317, %417 ]
+  %.750 = phi i32 [ %.043317, %414 ], [ %460, %459 ], [ %.043317, %417 ]
   call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #18
   %462 = load ptr, ptr %37, align 8
   %.not.i.i.i259 = icmp eq ptr %462, null
@@ -1443,12 +1443,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i264:   ; preds = %466
   br label %_ZN7QStringD2Ev.exit235
 
 _ZN7QStringD2Ev.exit262:                          ; preds = %464, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i260, %461, %_ZN7QStringD2Ev.exit242
-  %.245 = phi i32 [ %.043317, %_ZN7QStringD2Ev.exit242 ], [ %.144, %461 ], [ %.144, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i260 ], [ %.144, %464 ]
+  %.649 = phi i32 [ %.043317, %_ZN7QStringD2Ev.exit242 ], [ %.750, %461 ], [ %.750, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i260 ], [ %.750, %464 ]
   call void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #18
   br label %471
 
 471:                                              ; preds = %_ZN7QStringD2Ev.exit207, %313, %_ZN7QStringD2Ev.exit262
-  %.346 = phi i32 [ %.245, %_ZN7QStringD2Ev.exit262 ], [ %.043317, %313 ], [ %.043317, %_ZN7QStringD2Ev.exit207 ]
+  %.548 = phi i32 [ %.649, %_ZN7QStringD2Ev.exit262 ], [ %.043317, %313 ], [ %.043317, %_ZN7QStringD2Ev.exit207 ]
   %cond = phi i32 [ 0, %_ZN7QStringD2Ev.exit262 ], [ 4, %313 ], [ 4, %_ZN7QStringD2Ev.exit207 ]
   %472 = load ptr, ptr %20, align 8
   %.not.i.i.i267 = icmp eq ptr %472, null
@@ -1523,8 +1523,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i280:   ; preds = %484
   br label %_ZN7QStringD2Ev.exit110
 
 _ZN7QStringD2Ev.exit274:                          ; preds = %478, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i272, %_ZN7QStringD2Ev.exit270, %145, %134, %143
-  %.548 = phi i32 [ %.043317, %143 ], [ %.043317, %134 ], [ %.043317, %145 ], [ %.346, %_ZN7QStringD2Ev.exit270 ], [ %.346, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i272 ], [ %.346, %478 ]
-  %.142 = phi i32 [ 4, %143 ], [ 2, %134 ], [ 0, %145 ], [ %cond, %_ZN7QStringD2Ev.exit270 ], [ %cond, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i272 ], [ %cond, %478 ]
+  %.346 = phi i32 [ %.043317, %143 ], [ %.043317, %134 ], [ %.043317, %145 ], [ %.548, %_ZN7QStringD2Ev.exit270 ], [ %.548, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i272 ], [ %.548, %478 ]
+  %.041 = phi i32 [ 4, %143 ], [ 2, %134 ], [ 0, %145 ], [ %cond, %_ZN7QStringD2Ev.exit270 ], [ %cond, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i272 ], [ %cond, %478 ]
   %489 = load ptr, ptr %14, align 8
   %.not.i.i.i283 = icmp eq ptr %489, null
   br i1 %.not.i.i.i283, label %_ZN7QStringD2Ev.exit286, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i284
@@ -1540,7 +1540,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i284:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit286
 
 _ZN7QStringD2Ev.exit286:                          ; preds = %_ZN7QStringD2Ev.exit274, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i284, %491
-  switch i32 %.142, label %522 [
+  switch i32 %.041, label %522 [
     i32 0, label %497
     i32 2, label %504
     i32 4, label %_ZN7QStringD2Ev.exit286._crit_edge
@@ -1567,7 +1567,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i288:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit290
 
 497:                                              ; preds = %_ZN7QStringD2Ev.exit286, %109
-  %.649 = phi i32 [ %.548, %_ZN7QStringD2Ev.exit286 ], [ %.043317, %109 ]
+  %.245 = phi i32 [ %.346, %_ZN7QStringD2Ev.exit286 ], [ %.043317, %109 ]
   %498 = add nuw i32 %.039318, 1
   %499 = icmp ult i32 %498, %71
   br i1 %499, label %500, label %503
@@ -1582,17 +1582,17 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i288:   ; preds = %_ZN7QStringD2Ev.exi
 
 503:                                              ; preds = %_ZN7QStringD2Ev.exit286._crit_edge, %497, %502
   %.pre-phi = phi i32 [ %.pre, %_ZN7QStringD2Ev.exit286._crit_edge ], [ %498, %497 ], [ %498, %502 ]
-  %.750 = phi i32 [ %.548, %_ZN7QStringD2Ev.exit286._crit_edge ], [ %.649, %497 ], [ %.649, %502 ]
+  %.851 = phi i32 [ %.346, %_ZN7QStringD2Ev.exit286._crit_edge ], [ %.245, %497 ], [ %.245, %502 ]
   %exitcond.not = icmp eq i32 %.pre-phi, %71
   br i1 %exitcond.not, label %504, label %107, !llvm.loop !24
 
 504:                                              ; preds = %502, %_ZN7QStringD2Ev.exit286, %503
-  %.851 = phi i32 [ %.548, %_ZN7QStringD2Ev.exit286 ], [ %.649, %502 ], [ %.750, %503 ]
+  %.144 = phi i32 [ %.346, %_ZN7QStringD2Ev.exit286 ], [ %.245, %502 ], [ %.851, %503 ]
   %505 = invoke i32 @unzClose(ptr noundef nonnull %54)
           to label %506 unwind label %.loopexit.split-lp313
 
 506:                                              ; preds = %504
-  %507 = icmp sgt i32 %.851, 0
+  %507 = icmp sgt i32 %.144, 0
   %508 = load ptr, ptr %11, align 8
   %.not.i.i291 = icmp eq ptr %508, null
   br i1 %.not.i.i291, label %_ZN4QMapI7QStringS0_ED2Ev.exit, label %509

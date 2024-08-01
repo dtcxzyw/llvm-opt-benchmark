@@ -4816,68 +4816,68 @@ ehcleanup.i:                                      ; preds = %arraydestroy.body54
 
 ehcleanup60.i:                                    ; preds = %ehcleanup.i, %lpad40.i, %lpad.i68.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %22, %lpad40.i ], [ %12, %lpad.i68.i ]
-  %cleanup.isactive.1.i = phi i1 [ %25, %ehcleanup.i ], [ false, %lpad40.i ], [ false, %lpad.i68.i ]
+  %cleanup.isactive.8.i = phi i1 [ %25, %ehcleanup.i ], [ false, %lpad40.i ], [ false, %lpad.i68.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39.i) #21
   br label %ehcleanup61.i
 
 ehcleanup61.i:                                    ; preds = %ehcleanup60.i, %lpad35.i, %lpad.i62.i
-  %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.element37.i, %ehcleanup60.i ], [ %arrayinit.element27.i, %lpad.i62.i ], [ %arrayinit.element27.i, %lpad35.i ]
+  %arrayinit.endOfInit.7.i = phi ptr [ %arrayinit.element37.i, %ehcleanup60.i ], [ %arrayinit.element27.i, %lpad.i62.i ], [ %arrayinit.element27.i, %lpad35.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup60.i ], [ %11, %lpad.i62.i ], [ %21, %lpad35.i ]
-  %cleanup.isactive.2.i = phi i1 [ %cleanup.isactive.1.i, %ehcleanup60.i ], [ false, %lpad.i62.i ], [ false, %lpad35.i ]
+  %cleanup.isactive.7.i = phi i1 [ %cleanup.isactive.8.i, %ehcleanup60.i ], [ false, %lpad.i62.i ], [ false, %lpad35.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp32.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i) #21
   br label %ehcleanup63.i
 
 ehcleanup63.i:                                    ; preds = %ehcleanup61.i, %lpad30.i, %lpad.i51.i
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup61.i ], [ %arrayinit.element27.i, %lpad.i51.i ], [ %arrayinit.element27.i, %lpad30.i ]
+  %arrayinit.endOfInit.6.i = phi ptr [ %arrayinit.endOfInit.7.i, %ehcleanup61.i ], [ %arrayinit.element27.i, %lpad.i51.i ], [ %arrayinit.element27.i, %lpad30.i ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup61.i ], [ %10, %lpad.i51.i ], [ %20, %lpad30.i ]
-  %cleanup.isactive.3.i = phi i1 [ %cleanup.isactive.2.i, %ehcleanup61.i ], [ false, %lpad.i51.i ], [ false, %lpad30.i ]
+  %cleanup.isactive.6.i = phi i1 [ %cleanup.isactive.7.i, %ehcleanup61.i ], [ false, %lpad.i51.i ], [ false, %lpad30.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i) #21
   br label %ehcleanup64.i
 
 ehcleanup64.i:                                    ; preds = %ehcleanup63.i, %lpad25.i, %lpad.i45.i
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup63.i ], [ %arrayinit.element17.i, %lpad.i45.i ], [ %arrayinit.element17.i, %lpad25.i ]
+  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.endOfInit.6.i, %ehcleanup63.i ], [ %arrayinit.element17.i, %lpad.i45.i ], [ %arrayinit.element17.i, %lpad25.i ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %ehcleanup63.i ], [ %9, %lpad.i45.i ], [ %19, %lpad25.i ]
-  %cleanup.isactive.4.i = phi i1 [ %cleanup.isactive.3.i, %ehcleanup63.i ], [ false, %lpad.i45.i ], [ false, %lpad25.i ]
+  %cleanup.isactive.5.i = phi i1 [ %cleanup.isactive.6.i, %ehcleanup63.i ], [ false, %lpad.i45.i ], [ false, %lpad25.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp22.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i) #21
   br label %ehcleanup66.i
 
 ehcleanup66.i:                                    ; preds = %ehcleanup64.i, %lpad20.i, %lpad.i34.i
-  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup64.i ], [ %arrayinit.element17.i, %lpad.i34.i ], [ %arrayinit.element17.i, %lpad20.i ]
+  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup64.i ], [ %arrayinit.element17.i, %lpad.i34.i ], [ %arrayinit.element17.i, %lpad20.i ]
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %ehcleanup64.i ], [ %8, %lpad.i34.i ], [ %18, %lpad20.i ]
-  %cleanup.isactive.5.i = phi i1 [ %cleanup.isactive.4.i, %ehcleanup64.i ], [ false, %lpad.i34.i ], [ false, %lpad20.i ]
+  %cleanup.isactive.4.i = phi i1 [ %cleanup.isactive.5.i, %ehcleanup64.i ], [ false, %lpad.i34.i ], [ false, %lpad20.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i) #21
   br label %ehcleanup67.i
 
 ehcleanup67.i:                                    ; preds = %ehcleanup66.i, %lpad15.i, %lpad.i28.i
-  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup66.i ], [ %arrayinit.element.i, %lpad.i28.i ], [ %arrayinit.element.i, %lpad15.i ]
+  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup66.i ], [ %arrayinit.element.i, %lpad.i28.i ], [ %arrayinit.element.i, %lpad15.i ]
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup66.i ], [ %7, %lpad.i28.i ], [ %17, %lpad15.i ]
-  %cleanup.isactive.6.i = phi i1 [ %cleanup.isactive.5.i, %ehcleanup66.i ], [ false, %lpad.i28.i ], [ false, %lpad15.i ]
+  %cleanup.isactive.3.i = phi i1 [ %cleanup.isactive.4.i, %ehcleanup66.i ], [ false, %lpad.i28.i ], [ false, %lpad15.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp12.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i) #21
   br label %ehcleanup69.i
 
 ehcleanup69.i:                                    ; preds = %ehcleanup67.i, %lpad10.i, %lpad.i151
-  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup67.i ], [ %arrayinit.element.i, %lpad.i151 ], [ %arrayinit.element.i, %lpad10.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup67.i ], [ %arrayinit.element.i, %lpad.i151 ], [ %arrayinit.element.i, %lpad10.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup67.i ], [ %6, %lpad.i151 ], [ %16, %lpad10.i ]
-  %cleanup.isactive.7.i = phi i1 [ %cleanup.isactive.6.i, %ehcleanup67.i ], [ false, %lpad.i151 ], [ false, %lpad10.i ]
+  %cleanup.isactive.2.i = phi i1 [ %cleanup.isactive.3.i, %ehcleanup67.i ], [ false, %lpad.i151 ], [ false, %lpad10.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #21
   br label %ehcleanup72.i
 
 ehcleanup72.i:                                    ; preds = %ehcleanup69.i, %lpad6.i, %lpad.i12.i
-  %arrayinit.endOfInit.6.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup69.i ], [ %ref.tmp.i, %lpad.i12.i ], [ %ref.tmp.i, %lpad6.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup69.i ], [ %ref.tmp.i, %lpad.i12.i ], [ %ref.tmp.i, %lpad6.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup69.i ], [ %3, %lpad.i12.i ], [ %15, %lpad6.i ]
-  %cleanup.isactive.8.i = phi i1 [ %cleanup.isactive.7.i, %ehcleanup69.i ], [ false, %lpad.i12.i ], [ false, %lpad6.i ]
+  %cleanup.isactive.1.i = phi i1 [ %cleanup.isactive.2.i, %ehcleanup69.i ], [ false, %lpad.i12.i ], [ false, %lpad6.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp3.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #21
-  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp.i, %arrayinit.endOfInit.6.i
-  %or.cond.i = select i1 %cleanup.isactive.8.i, i1 true, i1 %arraydestroy.isempty.i
+  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp.i, %arrayinit.endOfInit.1.i
+  %or.cond.i = select i1 %cleanup.isactive.1.i, i1 true, i1 %arraydestroy.isempty.i
   br i1 %or.cond.i, label %common.resume, label %arraydestroy.body74.i
 
 arraydestroy.body74.i:                            ; preds = %ehcleanup72.i, %arraydestroy.body74.i
-  %arraydestroy.elementPast75.i = phi ptr [ %arraydestroy.element76.i, %arraydestroy.body74.i ], [ %arrayinit.endOfInit.6.i, %ehcleanup72.i ]
+  %arraydestroy.elementPast75.i = phi ptr [ %arraydestroy.element76.i, %arraydestroy.body74.i ], [ %arrayinit.endOfInit.1.i, %ehcleanup72.i ]
   %arraydestroy.element76.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast75.i, i64 -216
   %second.i86.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast75.i, i64 -184
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %second.i86.i) #21
@@ -5293,68 +5293,68 @@ ehcleanup.i133:                                   ; preds = %arraydestroy.body54
 
 ehcleanup60.i123:                                 ; preds = %ehcleanup.i133, %lpad40.i122, %lpad.i68.i128
   %.pn.pn.i124 = phi { ptr, i32 } [ %.pn.i134, %ehcleanup.i133 ], [ %49, %lpad40.i122 ], [ %39, %lpad.i68.i128 ]
-  %cleanup.isactive.1.i125 = phi i1 [ %52, %ehcleanup.i133 ], [ false, %lpad40.i122 ], [ false, %lpad.i68.i128 ]
+  %cleanup.isactive.8.i125 = phi i1 [ %52, %ehcleanup.i133 ], [ false, %lpad40.i122 ], [ false, %lpad.i68.i128 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39.i15) #21
   br label %ehcleanup61.i112
 
 ehcleanup61.i112:                                 ; preds = %ehcleanup60.i123, %lpad35.i111, %lpad.i62.i118
-  %arrayinit.endOfInit.0.i113 = phi ptr [ %arrayinit.element37.i120, %ehcleanup60.i123 ], [ %arrayinit.element27.i96, %lpad.i62.i118 ], [ %arrayinit.element27.i96, %lpad35.i111 ]
+  %arrayinit.endOfInit.7.i113 = phi ptr [ %arrayinit.element37.i120, %ehcleanup60.i123 ], [ %arrayinit.element27.i96, %lpad.i62.i118 ], [ %arrayinit.element27.i96, %lpad35.i111 ]
   %.pn.pn.pn.i114 = phi { ptr, i32 } [ %.pn.pn.i124, %ehcleanup60.i123 ], [ %38, %lpad.i62.i118 ], [ %48, %lpad35.i111 ]
-  %cleanup.isactive.2.i115 = phi i1 [ %cleanup.isactive.1.i125, %ehcleanup60.i123 ], [ false, %lpad.i62.i118 ], [ false, %lpad35.i111 ]
+  %cleanup.isactive.7.i115 = phi i1 [ %cleanup.isactive.8.i125, %ehcleanup60.i123 ], [ false, %lpad.i62.i118 ], [ false, %lpad35.i111 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp32.i13) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i11) #21
   br label %ehcleanup63.i99
 
 ehcleanup63.i99:                                  ; preds = %ehcleanup61.i112, %lpad30.i98, %lpad.i51.i105
-  %arrayinit.endOfInit.1.i100 = phi ptr [ %arrayinit.endOfInit.0.i113, %ehcleanup61.i112 ], [ %arrayinit.element27.i96, %lpad.i51.i105 ], [ %arrayinit.element27.i96, %lpad30.i98 ]
+  %arrayinit.endOfInit.6.i100 = phi ptr [ %arrayinit.endOfInit.7.i113, %ehcleanup61.i112 ], [ %arrayinit.element27.i96, %lpad.i51.i105 ], [ %arrayinit.element27.i96, %lpad30.i98 ]
   %.pn.pn.pn.pn.i101 = phi { ptr, i32 } [ %.pn.pn.pn.i114, %ehcleanup61.i112 ], [ %37, %lpad.i51.i105 ], [ %47, %lpad30.i98 ]
-  %cleanup.isactive.3.i102 = phi i1 [ %cleanup.isactive.2.i115, %ehcleanup61.i112 ], [ false, %lpad.i51.i105 ], [ false, %lpad30.i98 ]
+  %cleanup.isactive.6.i102 = phi i1 [ %cleanup.isactive.7.i115, %ehcleanup61.i112 ], [ false, %lpad.i51.i105 ], [ false, %lpad30.i98 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i12) #21
   br label %ehcleanup64.i88
 
 ehcleanup64.i88:                                  ; preds = %ehcleanup63.i99, %lpad25.i87, %lpad.i45.i94
-  %arrayinit.endOfInit.2.i89 = phi ptr [ %arrayinit.endOfInit.1.i100, %ehcleanup63.i99 ], [ %arrayinit.element17.i74, %lpad.i45.i94 ], [ %arrayinit.element17.i74, %lpad25.i87 ]
+  %arrayinit.endOfInit.5.i89 = phi ptr [ %arrayinit.endOfInit.6.i100, %ehcleanup63.i99 ], [ %arrayinit.element17.i74, %lpad.i45.i94 ], [ %arrayinit.element17.i74, %lpad25.i87 ]
   %.pn.pn.pn.pn.pn.i90 = phi { ptr, i32 } [ %.pn.pn.pn.pn.i101, %ehcleanup63.i99 ], [ %36, %lpad.i45.i94 ], [ %46, %lpad25.i87 ]
-  %cleanup.isactive.4.i91 = phi i1 [ %cleanup.isactive.3.i102, %ehcleanup63.i99 ], [ false, %lpad.i45.i94 ], [ false, %lpad25.i87 ]
+  %cleanup.isactive.5.i91 = phi i1 [ %cleanup.isactive.6.i102, %ehcleanup63.i99 ], [ false, %lpad.i45.i94 ], [ false, %lpad25.i87 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp22.i10) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i8) #21
   br label %ehcleanup66.i77
 
 ehcleanup66.i77:                                  ; preds = %ehcleanup64.i88, %lpad20.i76, %lpad.i34.i83
-  %arrayinit.endOfInit.3.i78 = phi ptr [ %arrayinit.endOfInit.2.i89, %ehcleanup64.i88 ], [ %arrayinit.element17.i74, %lpad.i34.i83 ], [ %arrayinit.element17.i74, %lpad20.i76 ]
+  %arrayinit.endOfInit.4.i78 = phi ptr [ %arrayinit.endOfInit.5.i89, %ehcleanup64.i88 ], [ %arrayinit.element17.i74, %lpad.i34.i83 ], [ %arrayinit.element17.i74, %lpad20.i76 ]
   %.pn.pn.pn.pn.pn.pn.i79 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i90, %ehcleanup64.i88 ], [ %35, %lpad.i34.i83 ], [ %45, %lpad20.i76 ]
-  %cleanup.isactive.5.i80 = phi i1 [ %cleanup.isactive.4.i91, %ehcleanup64.i88 ], [ false, %lpad.i34.i83 ], [ false, %lpad20.i76 ]
+  %cleanup.isactive.4.i80 = phi i1 [ %cleanup.isactive.5.i91, %ehcleanup64.i88 ], [ false, %lpad.i34.i83 ], [ false, %lpad20.i76 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19.i9) #21
   br label %ehcleanup67.i66
 
 ehcleanup67.i66:                                  ; preds = %ehcleanup66.i77, %lpad15.i65, %lpad.i28.i72
-  %arrayinit.endOfInit.4.i67 = phi ptr [ %arrayinit.endOfInit.3.i78, %ehcleanup66.i77 ], [ %arrayinit.element.i50, %lpad.i28.i72 ], [ %arrayinit.element.i50, %lpad15.i65 ]
+  %arrayinit.endOfInit.3.i67 = phi ptr [ %arrayinit.endOfInit.4.i78, %ehcleanup66.i77 ], [ %arrayinit.element.i50, %lpad.i28.i72 ], [ %arrayinit.element.i50, %lpad15.i65 ]
   %.pn.pn.pn.pn.pn.pn.pn.i68 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i79, %ehcleanup66.i77 ], [ %34, %lpad.i28.i72 ], [ %44, %lpad15.i65 ]
-  %cleanup.isactive.6.i69 = phi i1 [ %cleanup.isactive.5.i80, %ehcleanup66.i77 ], [ false, %lpad.i28.i72 ], [ false, %lpad15.i65 ]
+  %cleanup.isactive.3.i69 = phi i1 [ %cleanup.isactive.4.i80, %ehcleanup66.i77 ], [ false, %lpad.i28.i72 ], [ false, %lpad15.i65 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp12.i7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i5) #21
   br label %ehcleanup69.i53
 
 ehcleanup69.i53:                                  ; preds = %ehcleanup67.i66, %lpad10.i52, %lpad.i169
-  %arrayinit.endOfInit.5.i54 = phi ptr [ %arrayinit.endOfInit.4.i67, %ehcleanup67.i66 ], [ %arrayinit.element.i50, %lpad.i169 ], [ %arrayinit.element.i50, %lpad10.i52 ]
+  %arrayinit.endOfInit.2.i54 = phi ptr [ %arrayinit.endOfInit.3.i67, %ehcleanup67.i66 ], [ %arrayinit.element.i50, %lpad.i169 ], [ %arrayinit.element.i50, %lpad10.i52 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i55 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i68, %ehcleanup67.i66 ], [ %33, %lpad.i169 ], [ %43, %lpad10.i52 ]
-  %cleanup.isactive.7.i56 = phi i1 [ %cleanup.isactive.6.i69, %ehcleanup67.i66 ], [ false, %lpad.i169 ], [ false, %lpad10.i52 ]
+  %cleanup.isactive.2.i56 = phi i1 [ %cleanup.isactive.3.i69, %ehcleanup67.i66 ], [ false, %lpad.i169 ], [ false, %lpad10.i52 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i6) #21
   br label %ehcleanup72.i35
 
 ehcleanup72.i35:                                  ; preds = %ehcleanup69.i53, %lpad6.i34, %lpad.i12.i48
-  %arrayinit.endOfInit.6.i36 = phi ptr [ %arrayinit.endOfInit.5.i54, %ehcleanup69.i53 ], [ %ref.tmp.i1, %lpad.i12.i48 ], [ %ref.tmp.i1, %lpad6.i34 ]
+  %arrayinit.endOfInit.1.i36 = phi ptr [ %arrayinit.endOfInit.2.i54, %ehcleanup69.i53 ], [ %ref.tmp.i1, %lpad.i12.i48 ], [ %ref.tmp.i1, %lpad6.i34 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i37 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i55, %ehcleanup69.i53 ], [ %30, %lpad.i12.i48 ], [ %42, %lpad6.i34 ]
-  %cleanup.isactive.8.i38 = phi i1 [ %cleanup.isactive.7.i56, %ehcleanup69.i53 ], [ false, %lpad.i12.i48 ], [ false, %lpad6.i34 ]
+  %cleanup.isactive.1.i38 = phi i1 [ %cleanup.isactive.2.i56, %ehcleanup69.i53 ], [ false, %lpad.i12.i48 ], [ false, %lpad6.i34 ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp3.i4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i2) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i3) #21
-  %arraydestroy.isempty.i39 = icmp eq ptr %ref.tmp.i1, %arrayinit.endOfInit.6.i36
-  %or.cond.i40 = select i1 %cleanup.isactive.8.i38, i1 true, i1 %arraydestroy.isempty.i39
+  %arraydestroy.isempty.i39 = icmp eq ptr %ref.tmp.i1, %arrayinit.endOfInit.1.i36
+  %or.cond.i40 = select i1 %cleanup.isactive.1.i38, i1 true, i1 %arraydestroy.isempty.i39
   br i1 %or.cond.i40, label %common.resume, label %arraydestroy.body74.i41
 
 arraydestroy.body74.i41:                          ; preds = %ehcleanup72.i35, %arraydestroy.body74.i41
-  %arraydestroy.elementPast75.i42 = phi ptr [ %arraydestroy.element76.i43, %arraydestroy.body74.i41 ], [ %arrayinit.endOfInit.6.i36, %ehcleanup72.i35 ]
+  %arraydestroy.elementPast75.i42 = phi ptr [ %arraydestroy.element76.i43, %arraydestroy.body74.i41 ], [ %arrayinit.endOfInit.1.i36, %ehcleanup72.i35 ]
   %arraydestroy.element76.i43 = getelementptr inbounds i8, ptr %arraydestroy.elementPast75.i42, i64 -216
   %second.i86.i44 = getelementptr inbounds i8, ptr %arraydestroy.elementPast75.i42, i64 -184
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %second.i86.i44) #21

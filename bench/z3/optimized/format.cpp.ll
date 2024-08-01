@@ -2151,7 +2151,7 @@ for.body.lr.ph:                                   ; preds = %sw.bb
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ]
-  %visited.063 = phi i1 [ true, %for.body.lr.ph ], [ %visited.1, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ]
+  %visited.063 = phi i1 [ true, %for.body.lr.ph ], [ %visited.2, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx.i, align 8
   %m_hash.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
@@ -2249,7 +2249,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i:   ; preds = %if.then.i.i, %lor.l
   br label %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit
 
 _ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit: ; preds = %if.then.i.i.i.i.i, %if.then22.i.i.i.i.i, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i
-  %visited.1 = phi i1 [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ], [ %visited.063, %if.then22.i.i.i.i.i ], [ %visited.063, %if.then.i.i.i.i.i ]
+  %visited.2 = phi i1 [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i ], [ %visited.063, %if.then22.i.i.i.i.i ], [ %visited.063, %if.then.i.i.i.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !11
@@ -2355,8 +2355,8 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i37: ; preds = %if.then.i.i42, %lor
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then.i.i.i.i.i51, %if.then22.i.i.i.i.i46, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit, %sw.bb, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i37, %entry
-  %visited.3 = phi i1 [ true, %entry ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i37 ], [ true, %sw.bb ], [ %visited.1, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ], [ true, %if.then22.i.i.i.i.i46 ], [ true, %if.then.i.i.i.i.i51 ]
-  ret i1 %visited.3
+  %visited.1 = phi i1 [ true, %entry ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i37 ], [ true, %sw.bb ], [ %visited.2, %_ZN12recurse_exprIP3appN9format_ns12flat_visitorELb1ELb1EE5visitEP4exprRb.exit ], [ true, %if.then22.i.i.i.i.i46 ], [ true, %if.then.i.i.i.i.i51 ]
+  ret i1 %visited.1
 }
 
 ; Function Attrs: mustprogress uwtable

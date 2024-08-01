@@ -1488,20 +1488,20 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %82
 
 .thread:                                          ; preds = %121, %126, %129, %135, %138
   %.pre-phi = phi i1 [ false, %126 ], [ false, %129 ], [ false, %135 ], [ false, %138 ], [ %.pre121, %121 ]
-  %.0.shrunk = phi i1 [ false, %126 ], [ false, %129 ], [ false, %135 ], [ true, %138 ], [ true, %121 ]
+  %.1.shrunk = phi i1 [ false, %126 ], [ false, %129 ], [ false, %135 ], [ true, %138 ], [ true, %121 ]
   %139 = icmp ne ptr %.pre120, null
   %or.cond.not = select i1 %.pre-phi, i1 true, i1 %139
   br i1 %or.cond.not, label %141, label %.thread94
 
 .thread94:                                        ; preds = %118, %.thread
-  %.1.shrunk98 = phi i1 [ %.0.shrunk, %.thread ], [ false, %118 ]
+  %.0.shrunk98 = phi i1 [ %.1.shrunk, %.thread ], [ false, %118 ]
   call void @_ZN13CompileBroker16compilation_initEP10JavaThread(ptr noundef nonnull %92) #15
   %140 = load ptr, ptr %97, align 8
   %.not107 = icmp eq ptr %140, null
   br i1 %.not107, label %141, label %191
 
 141:                                              ; preds = %.thread94, %.thread
-  %.1.shrunk97 = phi i1 [ %.1.shrunk98, %.thread94 ], [ %.0.shrunk, %.thread ]
+  %.0.shrunk97 = phi i1 [ %.0.shrunk98, %.thread94 ], [ %.1.shrunk, %.thread ]
   %142 = load i8, ptr @_ZN11StringDedup8_enabledE, align 1
   %143 = trunc i8 %142 to i1
   br i1 %143, label %144, label %145
@@ -1561,7 +1561,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %82
   br label %162
 
 162:                                              ; preds = %160, %158
-  br i1 %.1.shrunk97, label %163, label %165
+  br i1 %.0.shrunk97, label %163, label %165
 
 163:                                              ; preds = %162
   call void @_ZN5JVMCI19initialize_compilerEP10JavaThread(ptr noundef nonnull %92) #15
@@ -1648,18 +1648,18 @@ _ZN10PerfMemory14set_accessibleEb.exit:           ; preds = %168, %171
   br label %191
 
 191:                                              ; preds = %188, %190, %186, %163, %155, %151, %149, %147, %145, %.thread94, %103, %96
-  %.074 = phi i32 [ -1, %96 ], [ -1, %103 ], [ -1, %.thread94 ], [ -1, %145 ], [ -1, %147 ], [ -1, %149 ], [ -1, %151 ], [ -1, %155 ], [ -1, %163 ], [ -1, %186 ], [ 0, %190 ], [ 0, %188 ]
+  %.3 = phi i32 [ -1, %96 ], [ -1, %103 ], [ -1, %.thread94 ], [ -1, %145 ], [ -1, %147 ], [ -1, %149 ], [ -1, %151 ], [ -1, %155 ], [ -1, %163 ], [ -1, %186 ], [ 0, %190 ], [ 0, %188 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #15
   br label %192
 
 192:                                              ; preds = %33, %25, %191, %64, %55, %51
-  %.175 = phi i32 [ %54, %55 ], [ %59, %64 ], [ %.074, %191 ], [ -4, %51 ], [ %28, %25 ], [ %34, %33 ]
+  %.2 = phi i32 [ %54, %55 ], [ %59, %64 ], [ %.3, %191 ], [ -4, %51 ], [ %28, %25 ], [ %34, %33 ]
   call void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   br label %_ZN7Threads24is_supported_jni_versionEi.exit.thread
 
 _ZN7Threads24is_supported_jni_versionEi.exit.thread: ; preds = %2, %192, %_ZN7Threads24is_supported_jni_versionEi.exit, %15, %17, %19
-  %.3 = phi i32 [ %.175, %192 ], [ %14, %_ZN7Threads24is_supported_jni_versionEi.exit ], [ %16, %15 ], [ -6, %17 ], [ -6, %19 ], [ -3, %2 ]
-  ret i32 %.3
+  %.074 = phi i32 [ %.2, %192 ], [ %14, %_ZN7Threads24is_supported_jni_versionEi.exit ], [ %16, %15 ], [ -6, %17 ], [ -6, %19 ], [ -3, %2 ]
+  ret i32 %.074
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -6131,8 +6131,8 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit
 
@@ -6413,8 +6413,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 

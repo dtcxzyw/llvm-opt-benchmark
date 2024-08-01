@@ -1091,10 +1091,10 @@ common.resume:                                    ; preds = %57, %71, %68, %35
   unreachable
 
 74:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit", %4, %25, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit46"
-  %.sroa.6.2 = phi ptr [ %.sroa.6.1, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit46" ], [ %28, %25 ], [ undef, %4 ], [ undef, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit" ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit46" ], [ %27, %25 ], [ null, %4 ], [ null, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit" ]
-  %75 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.2, 0
-  %76 = insertvalue { ptr, ptr } %75, ptr %.sroa.6.2, 1
+  %.sroa.6.0 = phi ptr [ %.sroa.6.1, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit46" ], [ %28, %25 ], [ undef, %4 ], [ undef, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit46" ], [ %27, %25 ], [ null, %4 ], [ null, %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$uu_join..Line$GT$$GT$17h16c49ef816980dbcE.exit" ]
+  %75 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %76 = insertvalue { ptr, ptr } %75, ptr %.sroa.6.0, 1
   ret { ptr, ptr } %76
 }
 

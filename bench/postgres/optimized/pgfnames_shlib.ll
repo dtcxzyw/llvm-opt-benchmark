@@ -23,9 +23,9 @@ define ptr @pgfnames(ptr noundef %0) local_unnamed_addr #0 {
 
 sub_0:                                            ; preds = %4, %34
   %8 = phi ptr [ %35, %34 ], [ %7, %4 ]
-  %.041 = phi i32 [ %.2, %34 ], [ 200, %4 ]
+  %.041 = phi i32 [ %.1, %34 ], [ 200, %4 ]
   %.02140 = phi i32 [ %.122, %34 ], [ 0, %4 ]
-  %.02339 = phi ptr [ %.225, %34 ], [ %5, %4 ]
+  %.02339 = phi ptr [ %.124, %34 ], [ %5, %4 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 19
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
@@ -71,18 +71,18 @@ sub_2:                                            ; preds = %sub_136
   br label %30
 
 30:                                               ; preds = %25, %23
-  %.124 = phi ptr [ %29, %25 ], [ %.02339, %23 ]
-  %.1 = phi i32 [ %26, %25 ], [ %.041, %23 ]
+  %.225 = phi ptr [ %29, %25 ], [ %.02339, %23 ]
+  %.2 = phi i32 [ %26, %25 ], [ %.041, %23 ]
   %31 = tail call ptr @pstrdup(ptr noundef nonnull %9) #4
   %32 = sext i32 %.02140 to i64
-  %33 = getelementptr ptr, ptr %.124, i64 %32
+  %33 = getelementptr ptr, ptr %.225, i64 %32
   store ptr %31, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %30, %.tail34, %.tail
-  %.225 = phi ptr [ %.124, %30 ], [ %.02339, %.tail34 ], [ %.02339, %.tail ]
+  %.124 = phi ptr [ %.225, %30 ], [ %.02339, %.tail34 ], [ %.02339, %.tail ]
   %.122 = phi i32 [ %24, %30 ], [ %.02140, %.tail34 ], [ %.02140, %.tail ]
-  %.2 = phi i32 [ %.1, %30 ], [ %.041, %.tail34 ], [ %.041, %.tail ]
+  %.1 = phi i32 [ %.2, %30 ], [ %.041, %.tail34 ], [ %.041, %.tail ]
   store i32 0, ptr %6, align 4
   %35 = tail call ptr @readdir(ptr noundef nonnull %2) #4
   %.not = icmp eq ptr %35, null
@@ -93,7 +93,7 @@ sub_2:                                            ; preds = %sub_136
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.023.lcssa = phi ptr [ %5, %4 ], [ %.225, %._crit_edge.loopexit ]
+  %.023.lcssa = phi ptr [ %5, %4 ], [ %.124, %._crit_edge.loopexit ]
   %.021.lcssa = phi i64 [ 0, %4 ], [ %36, %._crit_edge.loopexit ]
   %37 = load i32, ptr %6, align 4
   %.not29 = icmp eq i32 %37, 0

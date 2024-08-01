@@ -1375,7 +1375,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34:    ; preds = %115
   br label %_ZN7QStringD2Ev.exit14
 
 _ZN7QStringD2Ev.exit32:                           ; preds = %113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30, %110, %_ZN7QStringD2Ev.exit21, %_ZN7QStringD2Ev.exit, %34
-  %.08 = phi i1 [ false, %34 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit21 ], [ %109, %110 ], [ %109, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30 ], [ %109, %113 ]
+  %.1 = phi i1 [ false, %34 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit21 ], [ %109, %110 ], [ %109, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30 ], [ %109, %113 ]
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   br label %121
 
@@ -1385,8 +1385,8 @@ _ZN7QStringD2Ev.exit14:                           ; preds = %119, %_ZN17QArrayDa
   resume { ptr, i32 } %.pn
 
 121:                                              ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, %_ZN7QStringD2Ev.exit32
-  %.1 = phi i1 [ %.08, %_ZN7QStringD2Ev.exit32 ], [ false, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ true, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread ]
-  ret i1 %.1
+  %.08 = phi i1 [ %.1, %_ZN7QStringD2Ev.exit32 ], [ false, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit ], [ true, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread ]
+  ret i1 %.08
 }
 
 declare void @_ZN8QVariantC1Ej(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #1

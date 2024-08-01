@@ -763,7 +763,7 @@ if.end45.thread:                                  ; preds = %land.lhs.true28, %l
   br label %sw.epilog
 
 if.end45:                                         ; preds = %_read_from_wbuf.exit, %if.else36
-  %ret.0 = phi i32 [ %34, %_read_from_wbuf.exit ], [ 0, %if.else36 ]
+  %ret.1 = phi i32 [ %34, %_read_from_wbuf.exit ], [ 0, %if.else36 ]
   %tobool48.not = phi i1 [ true, %_read_from_wbuf.exit ], [ false, %if.else36 ]
   %call39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats_mutex) #12
   %len = getelementptr inbounds i8, ptr %cur_io.077, i64 40
@@ -834,17 +834,17 @@ sw.bb72:                                          ; preds = %while.body21
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end45.thread, %if.end45, %sw.bb72
-  %ret.2 = phi i32 [ %conv82, %sw.bb72 ], [ %ret.0, %if.end45 ], [ -2, %if.end45.thread ]
+  %ret.0 = phi i32 [ %conv82, %sw.bb72 ], [ %ret.1, %if.end45 ], [ -2, %if.end45.thread ]
   %cb = getelementptr inbounds i8, ptr %cur_io.077, i64 56
   %53 = load ptr, ptr %cb, align 8
-  tail call void %53(ptr noundef nonnull %0, ptr noundef nonnull %cur_io.077, i32 noundef %ret.2) #12
+  tail call void %53(ptr noundef nonnull %0, ptr noundef nonnull %cur_io.077, i32 noundef %ret.0) #12
   br label %if.end94
 
 if.then88.critedge:                               ; preds = %if.else61, %if.then52, %while.body21
-  %ret.2.ph = phi i32 [ %conv69, %if.else61 ], [ %conv60, %if.then52 ], [ 0, %while.body21 ]
+  %ret.0.ph = phi i32 [ %conv69, %if.else61 ], [ %conv60, %if.then52 ], [ 0, %while.body21 ]
   %cb.c = getelementptr inbounds i8, ptr %cur_io.077, i64 56
   %54 = load ptr, ptr %cb.c, align 8
-  tail call void %54(ptr noundef nonnull %0, ptr noundef nonnull %cur_io.077, i32 noundef %ret.2.ph) #12
+  tail call void %54(ptr noundef nonnull %0, ptr noundef nonnull %cur_io.077, i32 noundef %ret.0.ph) #12
   %call90 = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx) #12
   %refcount91 = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %55 = load i32, ptr %refcount91, align 4
@@ -911,9 +911,9 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
-  %do_evict.1134 = phi i1 [ %do_evict.3, %for.inc ], [ %do_evict.0, %if.end ]
-  %low_version.0133 = phi i64 [ %low_version.2, %for.inc ], [ -1, %if.end ]
-  %low_page.0132 = phi i32 [ %low_page.2, %for.inc ], [ 0, %if.end ]
+  %do_evict.1134 = phi i1 [ %do_evict.2, %for.inc ], [ %do_evict.0, %if.end ]
+  %low_version.0133 = phi i64 [ %low_version.1, %for.inc ], [ -1, %if.end ]
+  %low_page.0132 = phi i32 [ %low_page.1, %for.inc ], [ 0, %if.end ]
   %5 = load ptr, ptr %pages, align 8
   %arrayidx = getelementptr inbounds %struct._store_page, ptr %5, i64 %indvars.iv
   %call18 = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx) #12
@@ -1073,9 +1073,9 @@ _free_page.exit:                                  ; preds = %if.then23.i, %if.el
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true67, %_free_page.exit, %land.lhs.true50, %if.then33, %for.body, %lor.lhs.false23
-  %low_page.2 = phi i32 [ %low_page.0132, %lor.lhs.false23 ], [ %low_page.0132, %for.body ], [ %low_page.0132, %_free_page.exit ], [ %low_page.0132, %land.lhs.true67 ], [ %low_page.0132, %if.then33 ], [ %spec.select, %land.lhs.true50 ]
-  %low_version.2 = phi i64 [ %low_version.0133, %lor.lhs.false23 ], [ %low_version.0133, %for.body ], [ %low_version.0133, %_free_page.exit ], [ %low_version.0133, %land.lhs.true67 ], [ %low_version.0133, %if.then33 ], [ %spec.select60, %land.lhs.true50 ]
-  %do_evict.3 = phi i1 [ %do_evict.1134, %lor.lhs.false23 ], [ %do_evict.1134, %for.body ], [ false, %_free_page.exit ], [ %do_evict.1134, %land.lhs.true67 ], [ %do_evict.1134, %if.then33 ], [ %do_evict.1134, %land.lhs.true50 ]
+  %low_page.1 = phi i32 [ %low_page.0132, %lor.lhs.false23 ], [ %low_page.0132, %for.body ], [ %low_page.0132, %_free_page.exit ], [ %low_page.0132, %land.lhs.true67 ], [ %low_page.0132, %if.then33 ], [ %spec.select, %land.lhs.true50 ]
+  %low_version.1 = phi i64 [ %low_version.0133, %lor.lhs.false23 ], [ %low_version.0133, %for.body ], [ %low_version.0133, %_free_page.exit ], [ %low_version.0133, %land.lhs.true67 ], [ %low_version.0133, %if.then33 ], [ %spec.select60, %land.lhs.true50 ]
+  %do_evict.2 = phi i1 [ %do_evict.1134, %lor.lhs.false23 ], [ %do_evict.1134, %for.body ], [ false, %_free_page.exit ], [ %do_evict.1134, %land.lhs.true67 ], [ %do_evict.1134, %if.then33 ], [ %do_evict.1134, %land.lhs.true50 ]
   %call73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %page_count, align 4
@@ -1084,13 +1084,13 @@ for.inc:                                          ; preds = %land.lhs.true67, %_
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
-  %cmp77 = icmp ne i64 %low_version.2, -1
-  %or.cond = select i1 %do_evict.3, i1 %cmp77, i1 false
+  %cmp77 = icmp ne i64 %low_version.1, -1
+  %or.cond = select i1 %do_evict.2, i1 %cmp77, i1 false
   br i1 %or.cond, label %if.then79, label %if.end107
 
 if.then79:                                        ; preds = %for.end
   %33 = load ptr, ptr %pages, align 8
-  %idxprom82 = zext i32 %low_page.2 to i64
+  %idxprom82 = zext i32 %low_page.1 to i64
   %arrayidx83 = getelementptr inbounds %struct._store_page, ptr %33, i64 %idxprom82
   %call85 = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx83) #12
   %closed86 = getelementptr inbounds i8, ptr %arrayidx83, i64 95
@@ -1734,16 +1734,16 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
 
 for.end.loopexit.i:                               ; preds = %if.else.i, %for.body.i
-  %tid.2.ph.i = phi i32 [ %spec.select.i, %if.else.i ], [ %4, %for.body.i ]
-  %5 = sext i32 %tid.2.ph.i to i64
+  %tid.1.ph.i = phi i32 [ %spec.select.i, %if.else.i ], [ %4, %for.body.i ]
+  %5 = sext i32 %tid.1.ph.i to i64
   br label %_get_io_thread.exit
 
 _get_io_thread.exit:                              ; preds = %while.end, %for.end.loopexit.i
-  %tid.2.i = phi i64 [ -1, %while.end ], [ %5, %for.end.loopexit.i ]
+  %tid.1.i = phi i64 [ -1, %while.end ], [ %5, %for.end.loopexit.i ]
   %call16.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ptr) #12
   %io_threads17.i = getelementptr inbounds i8, ptr %ptr, i64 64
   %6 = load ptr, ptr %io_threads17.i, align 8
-  %arrayidx19.i = getelementptr inbounds %struct.store_io_thread, ptr %6, i64 %tid.2.i
+  %arrayidx19.i = getelementptr inbounds %struct.store_io_thread, ptr %6, i64 %tid.1.i
   %call1 = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx19.i) #12
   %depth2 = getelementptr inbounds i8, ptr %arrayidx19.i, i64 112
   %7 = load i32, ptr %depth2, align 8

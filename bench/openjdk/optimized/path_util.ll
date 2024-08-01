@@ -198,7 +198,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50.preheader, %.loopexit.i57
   %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i59, %.loopexit.i57 ], [ 0, %.lr.ph.i50.preheader ]
-  %.01723.i = phi ptr [ %.2.i58, %.loopexit.i57 ], [ %4, %.lr.ph.i50.preheader ]
+  %.01723.i = phi ptr [ %.1.i58, %.loopexit.i57 ], [ %4, %.lr.ph.i50.preheader ]
   %69 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i51
   %70 = load ptr, ptr %69, align 8
   %.not.i52 = icmp eq ptr %70, null
@@ -226,23 +226,23 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   br label %.loopexit.i57
 
 .preheader.i:                                     ; preds = %74, %.preheader.i
-  %.1.i54 = phi ptr [ %83, %.preheader.i ], [ %.01723.i, %74 ]
+  %.2.i54 = phi ptr [ %83, %.preheader.i ], [ %.01723.i, %74 ]
   %.0.i55 = phi ptr [ %81, %.preheader.i ], [ %75, %74 ]
   %81 = getelementptr inbounds i8, ptr %.0.i55, i64 1
   %82 = load i8, ptr %.0.i55, align 1
-  %83 = getelementptr inbounds i8, ptr %.1.i54, i64 1
-  store i8 %82, ptr %.1.i54, align 1
+  %83 = getelementptr inbounds i8, ptr %.2.i54, i64 1
+  store i8 %82, ptr %.2.i54, align 1
   %.not21.i56 = icmp eq i8 %82, 0
   br i1 %.not21.i56, label %.loopexit.i57, label %.preheader.i, !llvm.loop !14
 
 .loopexit.i57:                                    ; preds = %.preheader.i, %77, %.lr.ph.i50
-  %.2.i58 = phi ptr [ %80, %77 ], [ %.01723.i, %.lr.ph.i50 ], [ %83, %.preheader.i ]
+  %.1.i58 = phi ptr [ %80, %77 ], [ %.01723.i, %.lr.ph.i50 ], [ %83, %.preheader.i ]
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i59, %24
   br i1 %exitcond.not.i, label %joinNames.exit, label %.lr.ph.i50, !llvm.loop !15
 
 joinNames.exit:                                   ; preds = %.loopexit.i57
-  store i8 0, ptr %.2.i58, align 1
+  store i8 0, ptr %.1.i58, align 1
   br label %84
 
 84:                                               ; preds = %collapsible.exit, %joinNames.exit

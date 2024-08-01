@@ -4403,14 +4403,14 @@ ehcleanup282:                                     ; preds = %if.then.i.i.i, %lpa
 
 catch.dispatch:                                   ; preds = %ehcleanup282, %lpad3
   %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %ehcleanup282 ], [ %10, %lpad3 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn14.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn14.pn.pn, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn14.pn.pn, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn14.pn.pn, 1
   %75 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #24
-  %matches = icmp eq i32 %ehselector.slot.4, %75
+  %matches = icmp eq i32 %ehselector.slot.1, %75
   br i1 %matches, label %catch295, label %catch.fallthrough
 
 catch295:                                         ; preds = %catch.dispatch
-  %76 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #24
+  %76 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #24
   %call300 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.128)
           to label %invoke.cont299 unwind label %lpad298
 
@@ -4428,11 +4428,11 @@ invoke.cont304:                                   ; preds = %invoke.cont299
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12system_error) #24
-  %matches283 = icmp eq i32 %ehselector.slot.4, %78
+  %matches283 = icmp eq i32 %ehselector.slot.1, %78
   br i1 %matches283, label %catch, label %ehcleanup311
 
 catch:                                            ; preds = %catch.fallthrough
-  %79 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #24
+  %79 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #24
   %call286 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.127)
           to label %invoke.cont285 unwind label %lpad284
 

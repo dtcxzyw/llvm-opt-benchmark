@@ -2502,7 +2502,7 @@ invoke.cont38:                                    ; preds = %_ZN7rocksdb6StatusD
   %data_loss_.i47.sink138 = phi ptr [ %data_loss_.i47, %_ZN7rocksdb6StatusD2Ev.exit60 ], [ %data_loss_.i70, %_ZN7rocksdb6StatusD2Ev.exit83 ]
   %scope_.i50.sink137 = phi ptr [ %scope_.i50, %_ZN7rocksdb6StatusD2Ev.exit60 ], [ %scope_.i73, %_ZN7rocksdb6StatusD2Ev.exit83 ]
   %state_.i52.sink136 = phi ptr [ %state_.i52, %_ZN7rocksdb6StatusD2Ev.exit60 ], [ %state_.i75, %_ZN7rocksdb6StatusD2Ev.exit83 ]
-  %file_delete.sroa.0.1 = phi i8 [ %26, %_ZN7rocksdb6StatusD2Ev.exit60 ], [ %30, %_ZN7rocksdb6StatusD2Ev.exit83 ]
+  %file_delete.sroa.0.2 = phi i8 [ %26, %_ZN7rocksdb6StatusD2Ev.exit60 ], [ %30, %_ZN7rocksdb6StatusD2Ev.exit83 ]
   %31 = load i8, ptr %subcode_.i40.sink141, align 1
   store i8 0, ptr %subcode_.i40.sink141, align 1
   %32 = load i8, ptr %sev_.i42.sink140, align 1
@@ -2517,13 +2517,13 @@ invoke.cont38:                                    ; preds = %_ZN7rocksdb6StatusD
   store ptr null, ptr %state_.i52.sink136, align 8
   %37 = load i8, ptr %agg.result, align 8
   %cmp.i84 = icmp ne i8 %37, 0
-  %cmp.i85 = icmp eq i8 %file_delete.sroa.0.1, 0
+  %cmp.i85 = icmp eq i8 %file_delete.sroa.0.2, 0
   %or.cond = select i1 %cmp.i84, i1 true, i1 %cmp.i85
   br i1 %or.cond, label %if.end45, label %if.then42
 
 if.then42:                                        ; preds = %invoke.cont38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store i8 %file_delete.sroa.0.1, ptr %agg.result, align 8
+  store i8 %file_delete.sroa.0.2, ptr %agg.result, align 8
   store i8 %31, ptr %subcode_4.i21, align 1
   store i8 %32, ptr %sev_6.i23, align 2
   %frombool.i91 = and i8 %33, 1
@@ -3915,7 +3915,7 @@ lpad68:                                           ; preds = %invoke.cont66
   br label %ehcleanup
 
 if.end70:                                         ; preds = %invoke.cont69, %if.then60
-  %need_full_delete.0 = phi i1 [ true, %invoke.cont69 ], [ false, %if.then60 ]
+  %need_full_delete.1 = phi i1 [ true, %invoke.cont69 ], [ false, %if.then60 ]
   %81 = load ptr, ptr %wf, align 8
   %cmp.not.i = icmp eq ptr %81, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
@@ -3939,7 +3939,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %state_.i.i38, align 8
-  br i1 %need_full_delete.0, label %invoke.cont99, label %invoke.cont152
+  br i1 %need_full_delete.1, label %invoke.cont99, label %invoke.cont152
 
 ehcleanup:                                        ; preds = %lpad68, %lpad54, %lpad42, %lpad29, %lpad25
   %.pn = phi { ptr, i32 } [ %80, %lpad68 ], [ %74, %lpad25 ], [ %77, %lpad54 ], [ %76, %lpad42 ], [ %75, %lpad29 ]

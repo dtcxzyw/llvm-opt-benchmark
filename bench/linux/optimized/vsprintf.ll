@@ -1582,15 +1582,15 @@ skip_atoi.exit:                                   ; preds = %.preheader8
 
 77:                                               ; preds = %16, %skip_atoi.exit, %72
   %78 = phi i64 [ %51, %72 ], [ %71, %skip_atoi.exit ], [ %18, %16 ]
-  %.1 = phi ptr [ %44, %72 ], [ %60, %skip_atoi.exit ], [ %0, %16 ]
+  %.2 = phi ptr [ %44, %72 ], [ %60, %skip_atoi.exit ], [ %0, %16 ]
   %79 = or i64 %78, -281474976710656
   store i64 %79, ptr %1, align 1
-  %80 = load i8, ptr %.1, align 1
+  %80 = load i8, ptr %.2, align 1
   %81 = icmp eq i8 %80, 46
   br i1 %81, label %82, label %thread-pre-split
 
 82:                                               ; preds = %77
-  %83 = getelementptr i8, ptr %.1, i64 1
+  %83 = getelementptr i8, ptr %.2, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = add nsw i32 %85, -58
@@ -1632,20 +1632,20 @@ skip_atoi.exit1:                                  ; preds = %.preheader
   %112 = and i64 %79, -256
   %113 = or disjoint i64 %112, 2
   store i64 %113, ptr %1, align 1
-  %114 = getelementptr i8, ptr %.1, i64 2
+  %114 = getelementptr i8, ptr %.2, i64 2
   br label %201
 
 115:                                              ; preds = %skip_atoi.exit1, %19
-  %.2 = phi ptr [ %92, %skip_atoi.exit1 ], [ %0, %19 ]
+  %.1 = phi ptr [ %92, %skip_atoi.exit1 ], [ %0, %19 ]
   %116 = phi i64 [ %108, %skip_atoi.exit1 ], [ %24, %19 ]
   store i64 %116, ptr %1, align 1
-  %.pr.pre = load i8, ptr %.2, align 1
+  %.pr.pre = load i8, ptr %.1, align 1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %115, %109, %77
   %117 = phi i64 [ %79, %77 ], [ %116, %115 ], [ %79, %109 ]
   %118 = phi i8 [ %80, %77 ], [ %.pr.pre, %115 ], [ %84, %109 ]
-  %.3 = phi ptr [ %.1, %77 ], [ %.2, %115 ], [ %83, %109 ]
+  %.3 = phi ptr [ %.2, %77 ], [ %.1, %115 ], [ %83, %109 ]
   switch i8 %118, label %128 [
     i8 108, label %119
     i8 104, label %119
@@ -9987,7 +9987,7 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br label %14
 
 14:                                               ; preds = %.loopexit, %10
-  %.0 = phi ptr [ %1, %10 ], [ %.4, %.loopexit ]
+  %.0 = phi ptr [ %1, %10 ], [ %.1, %.loopexit ]
   %15 = phi i8 [ %8, %10 ], [ %119, %.loopexit ]
   %16 = phi i32 [ 0, %10 ], [ %118, %.loopexit ]
   %17 = phi ptr [ %0, %10 ], [ %117, %.loopexit ]
@@ -10007,7 +10007,7 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 
 27:                                               ; preds = %23, %14
   %28 = phi i8 [ %15, %14 ], [ %.pre, %23 ]
-  %.1 = phi ptr [ %.0, %14 ], [ %25, %23 ]
+  %.2 = phi ptr [ %.0, %14 ], [ %25, %23 ]
   %29 = phi ptr [ %17, %14 ], [ %26, %23 ]
   switch i8 %28, label %30 [
     i8 0, label %.loopexit38
@@ -10015,14 +10015,14 @@ define dso_local i32 @vsscanf(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   ]
 
 30:                                               ; preds = %27
-  %31 = getelementptr i8, ptr %.1, i64 1
+  %31 = getelementptr i8, ptr %.2, i64 1
   %32 = getelementptr i8, ptr %29, i64 1
   %33 = load i8, ptr %29, align 1
   %34 = icmp eq i8 %28, %33
   br i1 %34, label %.loopexit, label %.loopexit38
 
 35:                                               ; preds = %27
-  %36 = getelementptr i8, ptr %.1, i64 1
+  %36 = getelementptr i8, ptr %.2, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 42
   br i1 %38, label %39, label %70
@@ -10103,7 +10103,7 @@ skip_atoi.exit:                                   ; preds = %.preheader43
 
 87:                                               ; preds = %skip_atoi.exit, %70
   %88 = phi i8 [ %37, %70 ], [ %82, %skip_atoi.exit ]
-  %.2 = phi ptr [ %36, %70 ], [ %78, %skip_atoi.exit ]
+  %.3 = phi ptr [ %36, %70 ], [ %78, %skip_atoi.exit ]
   %89 = phi i16 [ -1, %70 ], [ %81, %skip_atoi.exit ]
   switch i8 %88, label %96 [
     i8 122, label %90
@@ -10113,7 +10113,7 @@ skip_atoi.exit:                                   ; preds = %.preheader43
   ]
 
 90:                                               ; preds = %87, %87, %87, %87
-  %91 = getelementptr i8, ptr %.2, i64 1
+  %91 = getelementptr i8, ptr %.3, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %88, %92
   br i1 %93, label %94, label %96, !prof !13
@@ -10129,13 +10129,13 @@ skip_atoi.exit:                                   ; preds = %.preheader43
 
 thread-pre-split:                                 ; preds = %94, %95
   %.ph = phi i8 [ 76, %95 ], [ 72, %94 ]
-  %.3.ph = getelementptr i8, ptr %.2, i64 2
-  %.pr = load i8, ptr %.3.ph, align 1
+  %.4.ph = getelementptr i8, ptr %.3, i64 2
+  %.pr = load i8, ptr %.4.ph, align 1
   br label %96
 
 96:                                               ; preds = %thread-pre-split, %94, %90, %87
   %97 = phi i8 [ %.pr, %thread-pre-split ], [ %88, %94 ], [ %92, %90 ], [ %88, %87 ]
-  %.3 = phi ptr [ %.3.ph, %thread-pre-split ], [ %91, %94 ], [ %91, %90 ], [ %.2, %87 ]
+  %.4 = phi ptr [ %.4.ph, %thread-pre-split ], [ %91, %94 ], [ %91, %90 ], [ %.3, %87 ]
   %98 = phi i8 [ %.ph, %thread-pre-split ], [ %88, %94 ], [ %88, %90 ], [ -1, %87 ]
   switch i8 %97, label %121 [
     i8 0, label %.loopexit38
@@ -10168,14 +10168,14 @@ thread-pre-split:                                 ; preds = %94, %95
   %114 = phi ptr [ %108, %105 ], [ %111, %110 ]
   %115 = load ptr, ptr %114, align 8
   store i32 %102, ptr %115, align 4
-  %116 = getelementptr i8, ptr %.3, i64 1
+  %116 = getelementptr i8, ptr %.4, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %._crit_edge, %475, %257, %.loopexit39, %151, %113, %30
-  %.4 = phi ptr [ %31, %30 ], [ %125, %257 ], [ %125, %475 ], [ %226, %._crit_edge ], [ %125, %.loopexit39 ], [ %125, %151 ], [ %116, %113 ], [ %49, %59 ]
+  %.1 = phi ptr [ %31, %30 ], [ %125, %257 ], [ %125, %475 ], [ %226, %._crit_edge ], [ %125, %.loopexit39 ], [ %125, %151 ], [ %116, %113 ], [ %49, %59 ]
   %117 = phi ptr [ %32, %30 ], [ %258, %257 ], [ %477, %475 ], [ %.lcssa51, %._crit_edge ], [ %191, %.loopexit39 ], [ %144, %151 ], [ %29, %113 ], [ %60, %59 ]
   %118 = phi i32 [ %16, %30 ], [ %16, %257 ], [ %476, %475 ], [ %252, %._crit_edge ], [ %193, %.loopexit39 ], [ %152, %151 ], [ %16, %113 ], [ %16, %59 ]
-  %119 = load i8, ptr %.4, align 1
+  %119 = load i8, ptr %.1, align 1
   %120 = icmp eq i8 %119, 0
   br i1 %120, label %.loopexit38, label %14, !llvm.loop !72
 
@@ -10185,7 +10185,7 @@ thread-pre-split:                                 ; preds = %94, %95
   br i1 %123, label %.loopexit38, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr i8, ptr %.3, i64 1
+  %125 = getelementptr i8, ptr %.4, i64 1
   switch i8 %97, label %.loopexit38 [
     i8 99, label %126
     i8 115, label %153
@@ -10339,7 +10339,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br i1 %210, label %.thread, label %211
 
 211:                                              ; preds = %205
-  %212 = getelementptr i8, ptr %.3, i64 2
+  %212 = getelementptr i8, ptr %.4, i64 2
   %spec.select35 = select i1 %209, ptr %212, ptr %125
   br label %213
 

@@ -284,7 +284,7 @@ opal_obj_new.exit.thread176:                      ; preds = %.lr.ph.i.i, %86
 
 119:                                              ; preds = %177, %.lr.ph.i
   %.0117152.i = phi i32 [ 1, %.lr.ph.i ], [ %178, %177 ]
-  %.0149151.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %177 ]
+  %.0149151.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %177 ]
   %120 = add nsw i32 %.0117152.i, %.val173
   %121 = srem i32 %120, %.val132.val175
   %122 = sub i32 %118, %.0117152.i
@@ -319,15 +319,15 @@ opal_obj_new.exit.thread176:                      ; preds = %.lr.ph.i.i, %86
   br label %opal_datatype_span.exit.i
 
 opal_datatype_span.exit.i:                        ; preds = %143, %136
-  %.1.i = phi i64 [ %145, %143 ], [ 0, %136 ]
-  %146 = sub nsw i64 0, %.1.i
+  %.2.i = phi i64 [ %145, %143 ], [ 0, %136 ]
+  %146 = sub nsw i64 0, %.2.i
   %147 = inttoptr i64 %146 to ptr
   %148 = tail call i32 @NBC_Sched_copy(ptr noundef %133, i8 noundef signext 0, i64 noundef %139, ptr noundef nonnull %138, ptr noundef %147, i8 noundef signext 1, i64 noundef %139, ptr noundef nonnull %138, ptr noundef %81, i1 noundef zeroext true) #5
   %.not134.i = icmp eq i32 %148, 0
   br i1 %.not134.i, label %149, label %.loopexit
 
 149:                                              ; preds = %opal_datatype_span.exit.i, %119
-  %.2.i = phi i64 [ %.0149151.i, %119 ], [ %.1.i, %opal_datatype_span.exit.i ]
+  %.1.i = phi i64 [ %.0149151.i, %119 ], [ %.2.i, %opal_datatype_span.exit.i ]
   %150 = getelementptr inbounds i32, ptr %5, i64 %124
   %151 = load i32, ptr %150, align 4
   %.not135.i = icmp eq i32 %151, 0
@@ -360,7 +360,7 @@ opal_datatype_span.exit.i:                        ; preds = %143, %136
   br i1 %.not139.i, label %.thread.i, label %165
 
 165:                                              ; preds = %164
-  %166 = sub nsw i64 0, %.2.i
+  %166 = sub nsw i64 0, %.1.i
   %167 = inttoptr i64 %166 to ptr
   %168 = sext i32 %.pr.i to i64
   %169 = load ptr, ptr %161, align 8

@@ -1002,7 +1002,7 @@ ehcleanup80:                                      ; preds = %lpad77, %lpad73
   br label %ehcleanup81
 
 cleanup:                                          ; preds = %invoke.cont78, %invoke.cont68, %invoke.cont43
-  %retval.0 = phi ptr [ %19, %invoke.cont43 ], [ null, %invoke.cont78 ], [ null, %invoke.cont68 ]
+  %retval.1 = phi ptr [ %19, %invoke.cont43 ], [ null, %invoke.cont78 ], [ null, %invoke.cont68 ]
   %34 = load i64, ptr %tmp_uri2, align 8
   %cmp.i.i.i.i87 = icmp eq i64 %34, 0
   br i1 %cmp.i.i.i.i87, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -1034,7 +1034,7 @@ ehcleanup81:                                      ; preds = %ehcleanup80, %ehcle
   br label %ehcleanup83
 
 cleanup82:                                        ; preds = %if.then.i.i3.i.i, %if.else.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %invoke.cont12
-  %retval.1 = phi ptr [ %6, %invoke.cont12 ], [ %retval.0, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.0, %if.else.i.i ], [ %retval.0, %if.then.i.i3.i.i ]
+  %retval.0 = phi ptr [ %6, %invoke.cont12 ], [ %retval.1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.1, %if.else.i.i ], [ %retval.1, %if.then.i.i3.i.i ]
   %38 = load i64, ptr %tmp_uri, align 8
   %cmp.i.i.i.i88 = icmp eq i64 %38, 0
   br i1 %cmp.i.i.i.i88, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i94, label %if.else.i.i89
@@ -1061,7 +1061,7 @@ terminate.lpad.i4.i.i93:                          ; preds = %if.then.i.i3.i.i92
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit95: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i94, %if.else.i.i89, %if.then.i.i3.i.i92
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup83:                                      ; preds = %ehcleanup81, %lpad
   %.pn15 = phi { ptr, i32 } [ %8, %lpad ], [ %.pn13, %ehcleanup81 ]

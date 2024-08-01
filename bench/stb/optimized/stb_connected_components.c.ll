@@ -377,7 +377,7 @@ entry:
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %for.inc99, %entry
-  %total.087 = phi i32 [ 0, %entry ], [ %total.3, %for.inc99 ]
+  %total.087 = phi i32 [ 0, %entry ], [ %total.1, %for.inc99 ]
   %m.086 = phi i32 [ 0, %entry ], [ %inc100, %for.inc99 ]
   %2 = zext nneg i32 %m.086 to i64
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.stbcc__build_all_connections_for_cluster, i64 0, i64 %2
@@ -425,7 +425,7 @@ if.end:                                           ; preds = %lor.lhs.false19
 for.body24:                                       ; preds = %if.end, %if.end95
   %indvars.iv93 = phi i64 [ %switch.load, %if.end ], [ %indvars.iv.next94, %if.end95 ]
   %indvars.iv = phi i64 [ %switch.load108, %if.end ], [ %indvars.iv.next, %if.end95 ]
-  %total.184 = phi i32 [ %total.087, %if.end ], [ %total.2, %if.end95 ]
+  %total.284 = phi i32 [ %total.087, %if.end ], [ %total.3, %if.end95 ]
   %k.083 = phi i32 [ 0, %if.end ], [ %inc98, %if.end95 ]
   %10 = add nsw i64 %indvars.iv93, %1
   %11 = add nsw i64 %indvars.iv, %0
@@ -485,11 +485,11 @@ if.then79:                                        ; preds = %if.then50
   %21 = load i8, ptr %arrayidx92, align 1
   %inc = add i8 %21, 1
   store i8 %inc, ptr %arrayidx92, align 1
-  %inc93 = add nsw i32 %total.184, 1
+  %inc93 = add nsw i32 %total.284, 1
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then50, %if.then79, %land.lhs.true, %for.body24
-  %total.2 = phi i32 [ %inc93, %if.then79 ], [ %total.184, %if.then50 ], [ %total.184, %land.lhs.true ], [ %total.184, %for.body24 ]
+  %total.3 = phi i32 [ %inc93, %if.then79 ], [ %total.284, %if.then50 ], [ %total.284, %land.lhs.true ], [ %total.284, %for.body24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %switch.load112
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, %switch.load110
   %inc98 = add nuw nsw i32 %k.083, 1
@@ -497,7 +497,7 @@ if.end95:                                         ; preds = %if.then50, %if.then
   br i1 %exitcond.not, label %for.inc99, label %for.body24, !llvm.loop !15
 
 for.inc99:                                        ; preds = %if.end95, %switch.lookup, %lor.lhs.false, %lor.lhs.false16, %lor.lhs.false19
-  %total.3 = phi i32 [ %total.087, %switch.lookup ], [ %total.087, %lor.lhs.false ], [ %total.087, %lor.lhs.false16 ], [ %total.087, %lor.lhs.false19 ], [ %total.2, %if.end95 ]
+  %total.1 = phi i32 [ %total.087, %switch.lookup ], [ %total.087, %lor.lhs.false ], [ %total.087, %lor.lhs.false16 ], [ %total.087, %lor.lhs.false19 ], [ %total.3, %if.end95 ]
   %inc100 = add nuw nsw i32 %m.086, 1
   %exitcond99.not = icmp eq i32 %inc100, 4
   br i1 %exitcond99.not, label %for.end101, label %switch.lookup, !llvm.loop !16
@@ -507,18 +507,18 @@ for.end101:                                       ; preds = %for.inc99
   %22 = load i8, ptr %num_edge_clumps, align 2
   %conv102 = zext i8 %22 to i32
   %shl103 = shl nuw nsw i32 %conv102, 2
-  %add104 = add nsw i32 %shl103, %total.3
+  %add104 = add nsw i32 %shl103, %total.1
   %cmp105 = icmp slt i32 %add104, 129
   br i1 %cmp105, label %if.end126, label %if.else
 
 if.else:                                          ; preds = %for.end101
   %shl110 = shl nuw nsw i32 %conv102, 1
-  %add111 = add nsw i32 %shl110, %total.3
+  %add111 = add nsw i32 %shl110, %total.1
   %cmp112 = icmp slt i32 %add111, 129
   br i1 %cmp112, label %if.end126, label %if.else115
 
 if.else115:                                       ; preds = %if.else
-  %add119 = add nsw i32 %total.3, %conv102
+  %add119 = add nsw i32 %total.1, %conv102
   %cmp120 = icmp slt i32 %add119, 129
   %. = zext i1 %cmp120 to i32
   br label %if.end126

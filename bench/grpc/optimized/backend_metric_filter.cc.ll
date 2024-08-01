@@ -423,8 +423,8 @@ call.i.i.noexc:                                   ; preds = %sw.bb2.i.i.i.i
   br label %_upb_Message_GetOrCreateMutableMap.exit.i
 
 _upb_Message_GetOrCreateMutableMap.exit.i:        ; preds = %call.i.i.noexc, %for.body
-  %map.3.i.i = phi ptr [ %15, %for.body ], [ %call.i.i35, %call.i.i.noexc ]
-  %table.i.i = getelementptr inbounds i8, ptr %map.3.i.i, i64 8
+  %map.1.i.i = phi ptr [ %15, %for.body ], [ %call.i.i35, %call.i.i.noexc ]
+  %table.i.i = getelementptr inbounds i8, ptr %map.1.i.i, i64 8
   %call2.i.i36 = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i, ptr noundef %11, i64 noundef %12, ptr noundef null)
           to label %call2.i.i.noexc unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -473,8 +473,8 @@ call.i.i.noexc52:                                 ; preds = %sw.bb2.i.i.i.i51
   br label %_upb_Message_GetOrCreateMutableMap.exit.i48
 
 _upb_Message_GetOrCreateMutableMap.exit.i48:      ; preds = %call.i.i.noexc52, %for.body56
-  %map.3.i.i49 = phi ptr [ %22, %for.body56 ], [ %call.i.i53, %call.i.i.noexc52 ]
-  %table.i.i50 = getelementptr inbounds i8, ptr %map.3.i.i49, i64 8
+  %map.1.i.i49 = phi ptr [ %22, %for.body56 ], [ %call.i.i53, %call.i.i.noexc52 ]
+  %table.i.i50 = getelementptr inbounds i8, ptr %map.1.i.i49, i64 8
   %call2.i.i55 = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i50, ptr noundef %18, i64 noundef %19, ptr noundef null)
           to label %call2.i.i.noexc54 unwind label %lpad2.loopexit.split-lp.loopexit
 
@@ -533,8 +533,8 @@ call.i.i.noexc72:                                 ; preds = %sw.bb2.i.i.i.i71
   br label %_upb_Message_GetOrCreateMutableMap.exit.i68
 
 _upb_Message_GetOrCreateMutableMap.exit.i68:      ; preds = %call.i.i.noexc72, %for.body83
-  %map.3.i.i69 = phi ptr [ %31, %for.body83 ], [ %call.i.i73, %call.i.i.noexc72 ]
-  %table.i.i70 = getelementptr inbounds i8, ptr %map.3.i.i69, i64 8
+  %map.1.i.i69 = phi ptr [ %31, %for.body83 ], [ %call.i.i73, %call.i.i.noexc72 ]
+  %table.i.i70 = getelementptr inbounds i8, ptr %map.1.i.i69, i64 8
   %call2.i.i75 = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i70, ptr noundef %27, i64 noundef %28, ptr noundef null)
           to label %call2.i.i.noexc74 unwind label %lpad2.loopexit
 

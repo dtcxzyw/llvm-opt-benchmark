@@ -10572,12 +10572,12 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 20:                                               ; preds = %19, %13
   %.pn.pn = phi { ptr, i32 } [ %.pn, %19 ], [ %14, %13 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.122 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.021 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
-  %22 = icmp eq i32 %.122, %21
-  %23 = call ptr @__cxa_begin_catch(ptr %.1) #17
+  %22 = icmp eq i32 %.021, %21
+  %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
 
 24:                                               ; preds = %20

@@ -474,10 +474,10 @@ if.end.i.i:                                       ; preds = %if.end
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end.i.i, %if.end
-  %depths.sroa.21.1 = phi i32 [ %depths.sroa.21.0.ph, %if.end ], [ %add.i.i, %if.end.i.i ]
-  %depths.sroa.38.1 = phi ptr [ %depths.sroa.38.0.ph, %if.end ], [ %call4.i.i, %if.end.i.i ]
+  %depths.sroa.21.4 = phi i32 [ %depths.sroa.21.0.ph, %if.end ], [ %add.i.i, %if.end.i.i ]
+  %depths.sroa.38.4 = phi ptr [ %depths.sroa.38.0.ph, %if.end ], [ %call4.i.i, %if.end.i.i ]
   %idxprom14.i.i = zext nneg i32 %div.i.i to i64
-  %arrayidx15.i.i = getelementptr inbounds ptr, ptr %depths.sroa.38.1, i64 %idxprom14.i.i
+  %arrayidx15.i.i = getelementptr inbounds ptr, ptr %depths.sroa.38.4, i64 %idxprom14.i.i
   %18 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %18, null
   br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_depth_at.exit
@@ -531,10 +531,10 @@ if.end.i.i45:                                     ; preds = %if.else
   br label %if.end12.i.i59
 
 if.end12.i.i59:                                   ; preds = %if.end.i.i45, %if.else
-  %depths.sroa.21.2 = phi i32 [ %depths.sroa.21.0.ph, %if.else ], [ %add.i.i47, %if.end.i.i45 ]
-  %depths.sroa.38.2 = phi ptr [ %depths.sroa.38.0.ph, %if.else ], [ %call4.i.i50, %if.end.i.i45 ]
+  %depths.sroa.21.5 = phi i32 [ %depths.sroa.21.0.ph, %if.else ], [ %add.i.i47, %if.end.i.i45 ]
+  %depths.sroa.38.5 = phi ptr [ %depths.sroa.38.0.ph, %if.else ], [ %call4.i.i50, %if.end.i.i45 ]
   %idxprom14.i.i61 = zext nneg i32 %div.i.i42 to i64
-  %arrayidx15.i.i62 = getelementptr inbounds ptr, ptr %depths.sroa.38.2, i64 %idxprom14.i.i61
+  %arrayidx15.i.i62 = getelementptr inbounds ptr, ptr %depths.sroa.38.5, i64 %idxprom14.i.i61
   %30 = load ptr, ptr %arrayidx15.i.i62, align 8
   %tobool16.not.i.i63 = icmp eq ptr %30, null
   br i1 %tobool16.not.i.i63, label %if.end20.i.i69, label %commit_depth_at.exit79
@@ -553,8 +553,8 @@ commit_depth_at.exit79:                           ; preds = %if.end12.i.i59, %if
   br label %if.end19
 
 if.end19:                                         ; preds = %while.cond.outer, %if.end15, %commit_depth_at.exit79
-  %depths.sroa.21.3 = phi i32 [ %depths.sroa.21.1, %if.end15 ], [ %depths.sroa.21.2, %commit_depth_at.exit79 ], [ %depths.sroa.21.0.ph, %while.cond.outer ]
-  %depths.sroa.38.3 = phi ptr [ %depths.sroa.38.1, %if.end15 ], [ %depths.sroa.38.2, %commit_depth_at.exit79 ], [ %depths.sroa.38.0.ph, %while.cond.outer ]
+  %depths.sroa.21.1 = phi i32 [ %depths.sroa.21.4, %if.end15 ], [ %depths.sroa.21.5, %commit_depth_at.exit79 ], [ %depths.sroa.21.0.ph, %while.cond.outer ]
+  %depths.sroa.38.1 = phi ptr [ %depths.sroa.38.4, %if.end15 ], [ %depths.sroa.38.5, %commit_depth_at.exit79 ], [ %depths.sroa.38.0.ph, %while.cond.outer ]
   %commit.1 = phi ptr [ %call.us, %if.end15 ], [ %call16, %commit_depth_at.exit79 ], [ %commit.0.ph, %while.cond.outer ]
   %cur_depth.1 = phi i32 [ 0, %if.end15 ], [ %33, %commit_depth_at.exit79 ], [ %cur_depth.0.ph, %while.cond.outer ]
   %i.1 = phi i32 [ %10, %if.end15 ], [ %22, %commit_depth_at.exit79 ], [ %i.0.ph, %while.cond.outer ]
@@ -597,8 +597,8 @@ if.then34:                                        ; preds = %if.end19, %land.lhs
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %for.inc, %if.end41, %if.then34
-  %depths.sroa.21.0.ph.be = phi i32 [ %depths.sroa.21.3, %if.then34 ], [ %depths.sroa.21.3, %if.end41 ], [ %depths.sroa.21.7, %for.inc ]
-  %depths.sroa.38.0.ph.be = phi ptr [ %depths.sroa.38.3, %if.then34 ], [ %depths.sroa.38.3, %if.end41 ], [ %depths.sroa.38.7, %for.inc ]
+  %depths.sroa.21.0.ph.be = phi i32 [ %depths.sroa.21.1, %if.then34 ], [ %depths.sroa.21.1, %if.end41 ], [ %depths.sroa.21.3, %for.inc ]
+  %depths.sroa.38.0.ph.be = phi ptr [ %depths.sroa.38.1, %if.then34 ], [ %depths.sroa.38.1, %if.end41 ], [ %depths.sroa.38.3, %for.inc ]
   %commit.0.ph.be = phi ptr [ null, %if.then34 ], [ null, %if.end41 ], [ %commit.3, %for.inc ]
   %cur_depth.0.ph.be = phi i32 [ %inc20, %if.then34 ], [ %inc20, %if.end41 ], [ %cur_depth.3, %for.inc ]
   br label %while.cond.outer, !llvm.loop !7
@@ -616,25 +616,25 @@ for.body:                                         ; preds = %if.end41, %for.inc
   %p.0233 = phi ptr [ %p.0, %for.inc ], [ %p.0227, %if.end41 ]
   %cur_depth.2232 = phi i32 [ %cur_depth.3, %for.inc ], [ %inc20, %if.end41 ]
   %commit.2231 = phi ptr [ %commit.3, %for.inc ], [ null, %if.end41 ]
-  %depths.sroa.38.4230 = phi ptr [ %depths.sroa.38.7, %for.inc ], [ %depths.sroa.38.3, %if.end41 ]
-  %depths.sroa.21.4229 = phi i32 [ %depths.sroa.21.7, %for.inc ], [ %depths.sroa.21.3, %if.end41 ]
+  %depths.sroa.38.2230 = phi ptr [ %depths.sroa.38.3, %for.inc ], [ %depths.sroa.38.1, %if.end41 ]
+  %depths.sroa.21.2229 = phi i32 [ %depths.sroa.21.3, %for.inc ], [ %depths.sroa.21.1, %if.end41 ]
   %38 = load ptr, ptr %p.0233, align 8
   %39 = getelementptr i8, ptr %38, i64 64
   %.val = load i32, ptr %39, align 8
   %div.i.i80 = udiv i32 %.val, 65532
   %rem.i.i102 = urem i32 %.val, 65532
-  %cmp.not.i.i82 = icmp ugt i32 %depths.sroa.21.4229, %div.i.i80
+  %cmp.not.i.i82 = icmp ugt i32 %depths.sroa.21.2229, %div.i.i80
   br i1 %cmp.not.i.i82, label %if.end12.i.i97, label %if.end.i.i83
 
 if.end.i.i83:                                     ; preds = %for.body
   %add.i.i85 = add nuw nsw i32 %div.i.i80, 1
   %40 = shl nuw nsw i32 %add.i.i85, 3
   %mul.i.i.i87 = zext nneg i32 %40 to i64
-  %call4.i.i88 = call ptr @xrealloc(ptr noundef %depths.sroa.38.4230, i64 noundef %mul.i.i.i87) #12
-  %41 = zext nneg i32 %depths.sroa.21.4229 to i64
+  %call4.i.i88 = call ptr @xrealloc(ptr noundef %depths.sroa.38.2230, i64 noundef %mul.i.i.i87) #12
+  %41 = zext nneg i32 %depths.sroa.21.2229 to i64
   %42 = shl nuw nsw i64 %41, 3
   %scevgep254 = getelementptr i8, ptr %call4.i.i88, i64 %42
-  %43 = sub nuw nsw i32 %div.i.i80, %depths.sroa.21.4229
+  %43 = sub nuw nsw i32 %div.i.i80, %depths.sroa.21.2229
   %44 = shl nuw nsw i32 %43, 3
   %narrow268 = add nuw nsw i32 %44, 8
   %45 = zext nneg i32 %narrow268 to i64
@@ -642,10 +642,10 @@ if.end.i.i83:                                     ; preds = %for.body
   br label %if.end12.i.i97
 
 if.end12.i.i97:                                   ; preds = %if.end.i.i83, %for.body
-  %depths.sroa.21.5 = phi i32 [ %depths.sroa.21.4229, %for.body ], [ %add.i.i85, %if.end.i.i83 ]
-  %depths.sroa.38.5 = phi ptr [ %depths.sroa.38.4230, %for.body ], [ %call4.i.i88, %if.end.i.i83 ]
+  %depths.sroa.21.6 = phi i32 [ %depths.sroa.21.2229, %for.body ], [ %add.i.i85, %if.end.i.i83 ]
+  %depths.sroa.38.6 = phi ptr [ %depths.sroa.38.2230, %for.body ], [ %call4.i.i88, %if.end.i.i83 ]
   %idxprom14.i.i99 = zext nneg i32 %div.i.i80 to i64
-  %arrayidx15.i.i100 = getelementptr inbounds ptr, ptr %depths.sroa.38.5, i64 %idxprom14.i.i99
+  %arrayidx15.i.i100 = getelementptr inbounds ptr, ptr %depths.sroa.38.6, i64 %idxprom14.i.i99
   %46 = load ptr, ptr %arrayidx15.i.i100, align 8
   %tobool16.not.i.i101 = icmp eq ptr %46, null
   br i1 %tobool16.not.i.i101, label %if.end20.i.i107, label %commit_depth_at.exit117
@@ -691,18 +691,18 @@ if.else68:                                        ; preds = %if.end63
   %.val39 = load i32, ptr %52, align 8
   %div.i.i118 = udiv i32 %.val39, 65532
   %rem.i.i140 = urem i32 %.val39, 65532
-  %cmp.not.i.i120 = icmp ugt i32 %depths.sroa.21.5, %div.i.i118
+  %cmp.not.i.i120 = icmp ugt i32 %depths.sroa.21.6, %div.i.i118
   br i1 %cmp.not.i.i120, label %if.end12.i.i135, label %if.end.i.i121
 
 if.end.i.i121:                                    ; preds = %if.else68
   %add.i.i123 = add nuw nsw i32 %div.i.i118, 1
   %53 = shl nuw nsw i32 %add.i.i123, 3
   %mul.i.i.i125 = zext nneg i32 %53 to i64
-  %call4.i.i126 = call ptr @xrealloc(ptr noundef nonnull %depths.sroa.38.5, i64 noundef %mul.i.i.i125) #12
-  %54 = zext nneg i32 %depths.sroa.21.5 to i64
+  %call4.i.i126 = call ptr @xrealloc(ptr noundef nonnull %depths.sroa.38.6, i64 noundef %mul.i.i.i125) #12
+  %54 = zext nneg i32 %depths.sroa.21.6 to i64
   %55 = shl nuw nsw i64 %54, 3
   %scevgep258 = getelementptr i8, ptr %call4.i.i126, i64 %55
-  %56 = sub nuw nsw i32 %div.i.i118, %depths.sroa.21.5
+  %56 = sub nuw nsw i32 %div.i.i118, %depths.sroa.21.6
   %57 = shl nuw nsw i32 %56, 3
   %narrow269 = add nuw nsw i32 %57, 8
   %58 = zext nneg i32 %narrow269 to i64
@@ -710,10 +710,10 @@ if.end.i.i121:                                    ; preds = %if.else68
   br label %if.end12.i.i135
 
 if.end12.i.i135:                                  ; preds = %if.end.i.i121, %if.else68
-  %depths.sroa.21.6 = phi i32 [ %depths.sroa.21.5, %if.else68 ], [ %add.i.i123, %if.end.i.i121 ]
-  %depths.sroa.38.6 = phi ptr [ %depths.sroa.38.5, %if.else68 ], [ %call4.i.i126, %if.end.i.i121 ]
+  %depths.sroa.21.7 = phi i32 [ %depths.sroa.21.6, %if.else68 ], [ %add.i.i123, %if.end.i.i121 ]
+  %depths.sroa.38.7 = phi ptr [ %depths.sroa.38.6, %if.else68 ], [ %call4.i.i126, %if.end.i.i121 ]
   %idxprom14.i.i137 = zext nneg i32 %div.i.i118 to i64
-  %arrayidx15.i.i138 = getelementptr inbounds ptr, ptr %depths.sroa.38.6, i64 %idxprom14.i.i137
+  %arrayidx15.i.i138 = getelementptr inbounds ptr, ptr %depths.sroa.38.7, i64 %idxprom14.i.i137
   %59 = load ptr, ptr %arrayidx15.i.i138, align 8
   %tobool16.not.i.i139 = icmp eq ptr %59, null
   br i1 %tobool16.not.i.i139, label %if.end20.i.i145, label %commit_depth_at.exit155
@@ -732,8 +732,8 @@ commit_depth_at.exit155:                          ; preds = %if.end12.i.i135, %i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then65, %commit_depth_at.exit155, %if.else59
-  %depths.sroa.21.7 = phi i32 [ %depths.sroa.21.6, %commit_depth_at.exit155 ], [ %depths.sroa.21.5, %if.then65 ], [ %depths.sroa.21.5, %if.else59 ]
-  %depths.sroa.38.7 = phi ptr [ %depths.sroa.38.6, %commit_depth_at.exit155 ], [ %depths.sroa.38.5, %if.then65 ], [ %depths.sroa.38.5, %if.else59 ]
+  %depths.sroa.21.3 = phi i32 [ %depths.sroa.21.7, %commit_depth_at.exit155 ], [ %depths.sroa.21.6, %if.then65 ], [ %depths.sroa.21.6, %if.else59 ]
+  %depths.sroa.38.3 = phi ptr [ %depths.sroa.38.7, %commit_depth_at.exit155 ], [ %depths.sroa.38.6, %if.then65 ], [ %depths.sroa.38.6, %if.else59 ]
   %commit.3 = phi ptr [ %51, %commit_depth_at.exit155 ], [ %commit.2231, %if.then65 ], [ %commit.2231, %if.else59 ]
   %cur_depth.3 = phi i32 [ %62, %commit_depth_at.exit155 ], [ %cur_depth.2232, %if.then65 ], [ %cur_depth.2232, %if.else59 ]
   %next72 = getelementptr inbounds i8, ptr %p.0233, i64 8
@@ -1713,8 +1713,8 @@ for.body70:                                       ; preds = %for.body70.lr.ph, %
   %pi.sroa.84.0243 = phi ptr [ null, %for.body70.lr.ph ], [ %pi.sroa.84.7, %paint_down.exit ]
   %pi.sroa.76.0242 = phi ptr [ null, %for.body70.lr.ph ], [ %pi.sroa.76.5, %paint_down.exit ]
   %pi.sroa.68161.0241 = phi ptr [ null, %for.body70.lr.ph ], [ %pi.sroa.68161.7, %paint_down.exit ]
-  %pi.sroa.35146.0240 = phi ptr [ null, %for.body70.lr.ph ], [ %pi.sroa.35146.4, %paint_down.exit ]
-  %pi.sroa.19.0239 = phi i32 [ 0, %for.body70.lr.ph ], [ %pi.sroa.19.4, %paint_down.exit ]
+  %pi.sroa.35146.0240 = phi ptr [ null, %for.body70.lr.ph ], [ %pi.sroa.35146.6, %paint_down.exit ]
+  %pi.sroa.19.0239 = phi i32 [ 0, %for.body70.lr.ph ], [ %pi.sroa.19.6, %paint_down.exit ]
   %27 = load ptr, ptr %2, align 8
   %add.ptr = getelementptr inbounds %struct.object_id, ptr %27, i64 %conv66246
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %head.i)
@@ -1774,8 +1774,8 @@ paint_alloc.exit.i:                               ; preds = %if.end.i, %if.end.i
   br i1 %tobool6.not84.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %paint_alloc.exit.i, %while.cond.backedge.i
-  %pi.sroa.19.1 = phi i32 [ %pi.sroa.19.2, %while.cond.backedge.i ], [ %pi.sroa.19.0239, %paint_alloc.exit.i ]
-  %pi.sroa.35146.1 = phi ptr [ %pi.sroa.35146.2, %while.cond.backedge.i ], [ %pi.sroa.35146.0240, %paint_alloc.exit.i ]
+  %pi.sroa.19.3 = phi i32 [ %pi.sroa.19.4, %while.cond.backedge.i ], [ %pi.sroa.19.0239, %paint_alloc.exit.i ]
+  %pi.sroa.35146.3 = phi ptr [ %pi.sroa.35146.4, %while.cond.backedge.i ], [ %pi.sroa.35146.0240, %paint_alloc.exit.i ]
   %pi.sroa.68161.2 = phi ptr [ %pi.sroa.68161.3, %while.cond.backedge.i ], [ %pi.sroa.68161.1, %paint_alloc.exit.i ]
   %pi.sroa.76.1 = phi ptr [ %pi.sroa.76.2, %while.cond.backedge.i ], [ %add.ptr23.i.i, %paint_alloc.exit.i ]
   %pi.sroa.84.2 = phi ptr [ %pi.sroa.84.3, %while.cond.backedge.i ], [ %pi.sroa.84.1, %paint_alloc.exit.i ]
@@ -1785,18 +1785,18 @@ while.body.i:                                     ; preds = %paint_alloc.exit.i,
   %call8.val.i = load i32, ptr %32, align 8
   %div.i.i.i = udiv i32 %call8.val.i, 65532
   %rem.i.i.i = urem i32 %call8.val.i, 65532
-  %cmp.not.i.i.i = icmp ugt i32 %pi.sroa.19.1, %div.i.i.i
+  %cmp.not.i.i.i = icmp ugt i32 %pi.sroa.19.3, %div.i.i.i
   br i1 %cmp.not.i.i.i, label %if.end12.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i
   %add.i.i.i = add nuw nsw i32 %div.i.i.i, 1
   %33 = shl nuw nsw i32 %add.i.i.i, 3
   %mul.i.i.i.i = zext nneg i32 %33 to i64
-  %call4.i.i.i = call ptr @xrealloc(ptr noundef %pi.sroa.35146.1, i64 noundef %mul.i.i.i.i) #12
-  %34 = zext nneg i32 %pi.sroa.19.1 to i64
+  %call4.i.i.i = call ptr @xrealloc(ptr noundef %pi.sroa.35146.3, i64 noundef %mul.i.i.i.i) #12
+  %34 = zext nneg i32 %pi.sroa.19.3 to i64
   %35 = shl nuw nsw i64 %34, 3
   %scevgep = getelementptr i8, ptr %call4.i.i.i, i64 %35
-  %36 = sub nuw nsw i32 %div.i.i.i, %pi.sroa.19.1
+  %36 = sub nuw nsw i32 %div.i.i.i, %pi.sroa.19.3
   %37 = shl nuw nsw i32 %36, 3
   %narrow = add nuw nsw i32 %37, 8
   %38 = zext nneg i32 %narrow to i64
@@ -1804,10 +1804,10 @@ if.end.i.i.i:                                     ; preds = %while.body.i
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i, %while.body.i
-  %pi.sroa.19.2 = phi i32 [ %pi.sroa.19.1, %while.body.i ], [ %add.i.i.i, %if.end.i.i.i ]
-  %pi.sroa.35146.2 = phi ptr [ %pi.sroa.35146.1, %while.body.i ], [ %call4.i.i.i, %if.end.i.i.i ]
+  %pi.sroa.19.4 = phi i32 [ %pi.sroa.19.3, %while.body.i ], [ %add.i.i.i, %if.end.i.i.i ]
+  %pi.sroa.35146.4 = phi ptr [ %pi.sroa.35146.3, %while.body.i ], [ %call4.i.i.i, %if.end.i.i.i ]
   %idxprom14.i.i.i = zext nneg i32 %div.i.i.i to i64
-  %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.2, i64 %idxprom14.i.i.i
+  %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.4, i64 %idxprom14.i.i.i
   %39 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %39, null
   br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %ref_bitmap_at.exit.i
@@ -1827,10 +1827,10 @@ ref_bitmap_at.exit.i:                             ; preds = %if.end20.i.i.i, %if
   br i1 %tobool10.not.i, label %if.else.i, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %for.inc59.i, %if.end46.i, %if.end32.i, %ref_bitmap_at.exit.i
-  %pi.sroa.68161.3 = phi ptr [ %pi.sroa.68161.5, %if.end46.i ], [ %pi.sroa.68161.5, %if.end32.i ], [ %pi.sroa.68161.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.68161.5, %for.inc59.i ]
-  %pi.sroa.76.2 = phi ptr [ %pi.sroa.76.3, %if.end46.i ], [ %pi.sroa.76.3, %if.end32.i ], [ %pi.sroa.76.1, %ref_bitmap_at.exit.i ], [ %pi.sroa.76.3, %for.inc59.i ]
-  %pi.sroa.84.3 = phi ptr [ %pi.sroa.84.5, %if.end46.i ], [ %pi.sroa.84.5, %if.end32.i ], [ %pi.sroa.84.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.84.5, %for.inc59.i ]
-  %pi.sroa.88.3 = phi i32 [ %pi.sroa.88.5, %if.end46.i ], [ %pi.sroa.88.5, %if.end32.i ], [ %pi.sroa.88.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.88.5, %for.inc59.i ]
+  %pi.sroa.68161.3 = phi ptr [ %pi.sroa.68161.6, %if.end46.i ], [ %pi.sroa.68161.6, %if.end32.i ], [ %pi.sroa.68161.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.68161.6, %for.inc59.i ]
+  %pi.sroa.76.2 = phi ptr [ %pi.sroa.76.4, %if.end46.i ], [ %pi.sroa.76.4, %if.end32.i ], [ %pi.sroa.76.1, %ref_bitmap_at.exit.i ], [ %pi.sroa.76.4, %for.inc59.i ]
+  %pi.sroa.84.3 = phi ptr [ %pi.sroa.84.6, %if.end46.i ], [ %pi.sroa.84.6, %if.end32.i ], [ %pi.sroa.84.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.84.6, %for.inc59.i ]
+  %pi.sroa.88.3 = phi i32 [ %pi.sroa.88.6, %if.end46.i ], [ %pi.sroa.88.6, %if.end32.i ], [ %pi.sroa.88.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.88.6, %for.inc59.i ]
   %42 = load ptr, ptr %head.i, align 8
   %tobool6.not.i = icmp eq ptr %42, null
   br i1 %tobool6.not.i, label %while.end.i, label %while.body.i, !llvm.loop !23
@@ -1897,9 +1897,9 @@ if.end.i61.i:                                     ; preds = %if.then.i59.i
   br label %paint_alloc.exit76.i
 
 paint_alloc.exit76.i:                             ; preds = %if.then29.i, %if.end.i61.i
-  %pi.sroa.68161.4 = phi ptr [ %call10.i66.i, %if.end.i61.i ], [ %pi.sroa.68161.2, %if.then29.i ]
-  %pi.sroa.84.4 = phi ptr [ %add.ptr.i72.i, %if.end.i61.i ], [ %pi.sroa.84.2, %if.then29.i ]
-  %pi.sroa.88.4 = phi i32 [ %inc.i62.i, %if.end.i61.i ], [ %pi.sroa.88.2, %if.then29.i ]
+  %pi.sroa.68161.5 = phi ptr [ %call10.i66.i, %if.end.i61.i ], [ %pi.sroa.68161.2, %if.then29.i ]
+  %pi.sroa.84.5 = phi ptr [ %add.ptr.i72.i, %if.end.i61.i ], [ %pi.sroa.84.2, %if.then29.i ]
+  %pi.sroa.88.5 = phi i32 [ %inc.i62.i, %if.end.i61.i ], [ %pi.sroa.88.2, %if.then29.i ]
   %47 = phi ptr [ %call12.i67.i, %if.end.i61.i ], [ %pi.sroa.76.1, %if.then29.i ]
   %add.ptr23.i58.i = getelementptr inbounds i8, ptr %47, i64 %conv2.i.i
   store ptr %47, ptr %arrayidx35.i.i.i, align 8
@@ -1907,10 +1907,10 @@ paint_alloc.exit76.i:                             ; preds = %if.then29.i, %if.en
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %paint_alloc.exit76.i, %for.end.i, %if.then19.i
-  %pi.sroa.68161.5 = phi ptr [ %pi.sroa.68161.2, %if.then19.i ], [ %pi.sroa.68161.2, %for.end.i ], [ %pi.sroa.68161.4, %paint_alloc.exit76.i ]
-  %pi.sroa.76.3 = phi ptr [ %pi.sroa.76.1, %if.then19.i ], [ %pi.sroa.76.1, %for.end.i ], [ %add.ptr23.i58.i, %paint_alloc.exit76.i ]
-  %pi.sroa.84.5 = phi ptr [ %pi.sroa.84.2, %if.then19.i ], [ %pi.sroa.84.2, %for.end.i ], [ %pi.sroa.84.4, %paint_alloc.exit76.i ]
-  %pi.sroa.88.5 = phi i32 [ %pi.sroa.88.2, %if.then19.i ], [ %pi.sroa.88.2, %for.end.i ], [ %pi.sroa.88.4, %paint_alloc.exit76.i ]
+  %pi.sroa.68161.6 = phi ptr [ %pi.sroa.68161.2, %if.then19.i ], [ %pi.sroa.68161.2, %for.end.i ], [ %pi.sroa.68161.5, %paint_alloc.exit76.i ]
+  %pi.sroa.76.4 = phi ptr [ %pi.sroa.76.1, %if.then19.i ], [ %pi.sroa.76.1, %for.end.i ], [ %add.ptr23.i58.i, %paint_alloc.exit76.i ]
+  %pi.sroa.84.6 = phi ptr [ %pi.sroa.84.2, %if.then19.i ], [ %pi.sroa.84.2, %for.end.i ], [ %pi.sroa.84.5, %paint_alloc.exit76.i ]
+  %pi.sroa.88.6 = phi i32 [ %pi.sroa.88.2, %if.then19.i ], [ %pi.sroa.88.2, %for.end.i ], [ %pi.sroa.88.5, %paint_alloc.exit76.i ]
   %bf.load34.i = load i32, ptr %call8.i, align 8
   %48 = and i32 %bf.load34.i, 16384
   %tobool37.not.i = icmp eq i32 %48, 0
@@ -1953,12 +1953,12 @@ for.inc59.i:                                      ; preds = %if.end56.i, %for.bo
   br i1 %tobool48.not.i, label %while.cond.backedge.i, label %for.body49.i, !llvm.loop !25
 
 while.end.i:                                      ; preds = %while.cond.backedge.i, %paint_alloc.exit.i
-  %pi.sroa.19.3 = phi i32 [ %pi.sroa.19.0239, %paint_alloc.exit.i ], [ %pi.sroa.19.2, %while.cond.backedge.i ]
-  %pi.sroa.35146.3 = phi ptr [ %pi.sroa.35146.0240, %paint_alloc.exit.i ], [ %pi.sroa.35146.2, %while.cond.backedge.i ]
-  %pi.sroa.68161.6 = phi ptr [ %pi.sroa.68161.1, %paint_alloc.exit.i ], [ %pi.sroa.68161.3, %while.cond.backedge.i ]
-  %pi.sroa.76.4 = phi ptr [ %add.ptr23.i.i, %paint_alloc.exit.i ], [ %pi.sroa.76.2, %while.cond.backedge.i ]
-  %pi.sroa.84.6 = phi ptr [ %pi.sroa.84.1, %paint_alloc.exit.i ], [ %pi.sroa.84.3, %while.cond.backedge.i ]
-  %pi.sroa.88.6 = phi i32 [ %pi.sroa.88.1, %paint_alloc.exit.i ], [ %pi.sroa.88.3, %while.cond.backedge.i ]
+  %pi.sroa.19.5 = phi i32 [ %pi.sroa.19.0239, %paint_alloc.exit.i ], [ %pi.sroa.19.4, %while.cond.backedge.i ]
+  %pi.sroa.35146.5 = phi ptr [ %pi.sroa.35146.0240, %paint_alloc.exit.i ], [ %pi.sroa.35146.4, %while.cond.backedge.i ]
+  %pi.sroa.68161.4 = phi ptr [ %pi.sroa.68161.1, %paint_alloc.exit.i ], [ %pi.sroa.68161.3, %while.cond.backedge.i ]
+  %pi.sroa.76.3 = phi ptr [ %add.ptr23.i.i, %paint_alloc.exit.i ], [ %pi.sroa.76.2, %while.cond.backedge.i ]
+  %pi.sroa.84.4 = phi ptr [ %pi.sroa.84.1, %paint_alloc.exit.i ], [ %pi.sroa.84.3, %while.cond.backedge.i ]
+  %pi.sroa.88.4 = phi i32 [ %pi.sroa.88.1, %paint_alloc.exit.i ], [ %pi.sroa.88.3, %while.cond.backedge.i ]
   %call61.i = call i32 @get_max_object_index() #12
   %cmp6385.not.i = icmp eq i32 %call61.i, 0
   br i1 %cmp6385.not.i, label %for.end85.i, label %for.body65.i
@@ -1990,12 +1990,12 @@ for.end85.i:                                      ; preds = %for.inc83.i, %while
   br label %paint_down.exit
 
 paint_down.exit:                                  ; preds = %for.body70, %for.end85.i
-  %pi.sroa.19.4 = phi i32 [ %pi.sroa.19.0239, %for.body70 ], [ %pi.sroa.19.3, %for.end85.i ]
-  %pi.sroa.35146.4 = phi ptr [ %pi.sroa.35146.0240, %for.body70 ], [ %pi.sroa.35146.3, %for.end85.i ]
-  %pi.sroa.68161.7 = phi ptr [ %pi.sroa.68161.0241, %for.body70 ], [ %pi.sroa.68161.6, %for.end85.i ]
-  %pi.sroa.76.5 = phi ptr [ %pi.sroa.76.0242, %for.body70 ], [ %pi.sroa.76.4, %for.end85.i ]
-  %pi.sroa.84.7 = phi ptr [ %pi.sroa.84.0243, %for.body70 ], [ %pi.sroa.84.6, %for.end85.i ]
-  %pi.sroa.88.7 = phi i32 [ %pi.sroa.88.0244, %for.body70 ], [ %pi.sroa.88.6, %for.end85.i ]
+  %pi.sroa.19.6 = phi i32 [ %pi.sroa.19.0239, %for.body70 ], [ %pi.sroa.19.5, %for.end85.i ]
+  %pi.sroa.35146.6 = phi ptr [ %pi.sroa.35146.0240, %for.body70 ], [ %pi.sroa.35146.5, %for.end85.i ]
+  %pi.sroa.68161.7 = phi ptr [ %pi.sroa.68161.0241, %for.body70 ], [ %pi.sroa.68161.4, %for.end85.i ]
+  %pi.sroa.76.5 = phi ptr [ %pi.sroa.76.0242, %for.body70 ], [ %pi.sroa.76.3, %for.end85.i ]
+  %pi.sroa.84.7 = phi ptr [ %pi.sroa.84.0243, %for.body70 ], [ %pi.sroa.84.4, %for.end85.i ]
+  %pi.sroa.88.7 = phi i32 [ %pi.sroa.88.0244, %for.body70 ], [ %pi.sroa.88.4, %for.end85.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %head.i)
   %inc73 = add i32 %i.4245, 1
   %conv66 = zext i32 %inc73 to i64
@@ -2004,8 +2004,8 @@ paint_down.exit:                                  ; preds = %for.body70, %for.en
   br i1 %cmp68, label %for.body70, label %for.end74, !llvm.loop !27
 
 for.end74:                                        ; preds = %paint_down.exit, %for.cond65.preheader
-  %pi.sroa.19.0.lcssa = phi i32 [ 0, %for.cond65.preheader ], [ %pi.sroa.19.4, %paint_down.exit ]
-  %pi.sroa.35146.0.lcssa = phi ptr [ null, %for.cond65.preheader ], [ %pi.sroa.35146.4, %paint_down.exit ]
+  %pi.sroa.19.0.lcssa = phi i32 [ 0, %for.cond65.preheader ], [ %pi.sroa.19.6, %paint_down.exit ]
+  %pi.sroa.35146.0.lcssa = phi ptr [ null, %for.cond65.preheader ], [ %pi.sroa.35146.6, %paint_down.exit ]
   %pi.sroa.68161.0.lcssa = phi ptr [ null, %for.cond65.preheader ], [ %pi.sroa.68161.7, %paint_down.exit ]
   %pi.sroa.88.0.lcssa = phi i32 [ 0, %for.cond65.preheader ], [ %pi.sroa.88.7, %paint_down.exit ]
   %tobool75.not = icmp eq ptr %used, null
@@ -2028,8 +2028,8 @@ for.body87.preheader:                             ; preds = %if.then76
 
 for.body87:                                       ; preds = %for.body87.preheader, %for.inc105
   %indvars.iv286 = phi i64 [ 0, %for.body87.preheader ], [ %indvars.iv.next287, %for.inc105 ]
-  %pi.sroa.35146.5253 = phi ptr [ %pi.sroa.35146.0.lcssa, %for.body87.preheader ], [ %pi.sroa.35146.6, %for.inc105 ]
-  %pi.sroa.19.5252 = phi i32 [ %pi.sroa.19.0.lcssa, %for.body87.preheader ], [ %pi.sroa.19.6, %for.inc105 ]
+  %pi.sroa.35146.1253 = phi ptr [ %pi.sroa.35146.0.lcssa, %for.body87.preheader ], [ %pi.sroa.35146.7, %for.inc105 ]
+  %pi.sroa.19.1252 = phi i32 [ %pi.sroa.19.0.lcssa, %for.body87.preheader ], [ %pi.sroa.19.7, %for.inc105 ]
   %57 = load ptr, ptr @the_repository, align 8
   %arrayidx90 = getelementptr inbounds i32, ptr %call5, i64 %indvars.iv286
   %58 = load i32, ptr %arrayidx90, align 4
@@ -2040,18 +2040,18 @@ for.body87:                                       ; preds = %for.body87.preheade
   %call93.val = load i32, ptr %59, align 8
   %div.i.i = udiv i32 %call93.val, 65532
   %rem.i.i = urem i32 %call93.val, 65532
-  %cmp.not.i.i = icmp ugt i32 %pi.sroa.19.5252, %div.i.i
+  %cmp.not.i.i = icmp ugt i32 %pi.sroa.19.1252, %div.i.i
   br i1 %cmp.not.i.i, label %if.end12.i.i, label %if.end.i.i52
 
 if.end.i.i52:                                     ; preds = %for.body87
   %add.i.i = add nuw nsw i32 %div.i.i, 1
   %60 = shl nuw nsw i32 %add.i.i, 3
   %mul.i.i.i54 = zext nneg i32 %60 to i64
-  %call4.i.i = call ptr @xrealloc(ptr noundef %pi.sroa.35146.5253, i64 noundef %mul.i.i.i54) #12
-  %61 = zext nneg i32 %pi.sroa.19.5252 to i64
+  %call4.i.i = call ptr @xrealloc(ptr noundef %pi.sroa.35146.1253, i64 noundef %mul.i.i.i54) #12
+  %61 = zext nneg i32 %pi.sroa.19.1252 to i64
   %62 = shl nuw nsw i64 %61, 3
   %scevgep282 = getelementptr i8, ptr %call4.i.i, i64 %62
-  %63 = sub nuw nsw i32 %div.i.i, %pi.sroa.19.5252
+  %63 = sub nuw nsw i32 %div.i.i, %pi.sroa.19.1252
   %64 = shl nuw nsw i32 %63, 3
   %narrow305 = add nuw nsw i32 %64, 8
   %65 = zext nneg i32 %narrow305 to i64
@@ -2059,10 +2059,10 @@ if.end.i.i52:                                     ; preds = %for.body87
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end.i.i52, %for.body87
-  %pi.sroa.19.6 = phi i32 [ %pi.sroa.19.5252, %for.body87 ], [ %add.i.i, %if.end.i.i52 ]
-  %pi.sroa.35146.6 = phi ptr [ %pi.sroa.35146.5253, %for.body87 ], [ %call4.i.i, %if.end.i.i52 ]
+  %pi.sroa.19.7 = phi i32 [ %pi.sroa.19.1252, %for.body87 ], [ %add.i.i, %if.end.i.i52 ]
+  %pi.sroa.35146.7 = phi ptr [ %pi.sroa.35146.1253, %for.body87 ], [ %call4.i.i, %if.end.i.i52 ]
   %idxprom14.i.i = zext nneg i32 %div.i.i to i64
-  %arrayidx15.i.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.6, i64 %idxprom14.i.i
+  %arrayidx15.i.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.7, i64 %idxprom14.i.i
   %66 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %66, null
   br i1 %tobool16.not.i.i, label %if.end20.i.i, label %ref_bitmap_at.exit
@@ -2140,8 +2140,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end6.i
   br label %for.body.i70
 
 for.body.i70:                                     ; preds = %for.inc39.i, %for.body.lr.ph.i
-  %pi.sroa.19.7 = phi i32 [ %pi.sroa.19.0.lcssa, %for.body.lr.ph.i ], [ %pi.sroa.19.8, %for.inc39.i ]
-  %pi.sroa.35146.7 = phi ptr [ %pi.sroa.35146.0.lcssa, %for.body.lr.ph.i ], [ %pi.sroa.35146.8, %for.inc39.i ]
+  %pi.sroa.19.11 = phi i32 [ %pi.sroa.19.0.lcssa, %for.body.lr.ph.i ], [ %pi.sroa.19.12, %for.inc39.i ]
+  %pi.sroa.35146.11 = phi ptr [ %pi.sroa.35146.0.lcssa, %for.body.lr.ph.i ], [ %pi.sroa.35146.12, %for.inc39.i ]
   %indvars.iv124.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next125.i, %for.inc39.i ]
   %dst.0114.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %dst.1.i, %for.inc39.i ]
   %78 = zext i32 %dst.0114.i to i64
@@ -2169,18 +2169,18 @@ if.end14.i:                                       ; preds = %if.then10.i, %for.b
   %call20.val.i = load i32, ptr %84, align 8
   %div.i.i.i72 = udiv i32 %call20.val.i, 65532
   %rem.i.i.i95 = urem i32 %call20.val.i, 65532
-  %cmp.not.i.i.i73 = icmp ugt i32 %pi.sroa.19.7, %div.i.i.i72
+  %cmp.not.i.i.i73 = icmp ugt i32 %pi.sroa.19.11, %div.i.i.i72
   br i1 %cmp.not.i.i.i73, label %if.end12.i.i.i90, label %if.end.i.i.i74
 
 if.end.i.i.i74:                                   ; preds = %if.end14.i
   %add.i.i.i75 = add nuw nsw i32 %div.i.i.i72, 1
   %85 = shl nuw nsw i32 %add.i.i.i75, 3
   %mul.i.i.i.i77 = zext nneg i32 %85 to i64
-  %call4.i.i.i78 = call ptr @xrealloc(ptr noundef %pi.sroa.35146.7, i64 noundef %mul.i.i.i.i77) #12
-  %86 = zext nneg i32 %pi.sroa.19.7 to i64
+  %call4.i.i.i78 = call ptr @xrealloc(ptr noundef %pi.sroa.35146.11, i64 noundef %mul.i.i.i.i77) #12
+  %86 = zext nneg i32 %pi.sroa.19.11 to i64
   %87 = shl nuw nsw i64 %86, 3
   %scevgep291 = getelementptr i8, ptr %call4.i.i.i78, i64 %87
-  %88 = sub nuw nsw i32 %div.i.i.i72, %pi.sroa.19.7
+  %88 = sub nuw nsw i32 %div.i.i.i72, %pi.sroa.19.11
   %89 = shl nuw nsw i32 %88, 3
   %narrow306 = add nuw nsw i32 %89, 8
   %90 = zext nneg i32 %narrow306 to i64
@@ -2188,10 +2188,10 @@ if.end.i.i.i74:                                   ; preds = %if.end14.i
   br label %if.end12.i.i.i90
 
 if.end12.i.i.i90:                                 ; preds = %if.end.i.i.i74, %if.end14.i
-  %pi.sroa.19.8 = phi i32 [ %pi.sroa.19.7, %if.end14.i ], [ %add.i.i.i75, %if.end.i.i.i74 ]
-  %pi.sroa.35146.8 = phi ptr [ %pi.sroa.35146.7, %if.end14.i ], [ %call4.i.i.i78, %if.end.i.i.i74 ]
+  %pi.sroa.19.12 = phi i32 [ %pi.sroa.19.11, %if.end14.i ], [ %add.i.i.i75, %if.end.i.i.i74 ]
+  %pi.sroa.35146.12 = phi ptr [ %pi.sroa.35146.11, %if.end14.i ], [ %call4.i.i.i78, %if.end.i.i.i74 ]
   %idxprom14.i.i.i91 = zext nneg i32 %div.i.i.i72 to i64
-  %arrayidx15.i.i.i92 = getelementptr inbounds ptr, ptr %pi.sroa.35146.8, i64 %idxprom14.i.i.i91
+  %arrayidx15.i.i.i92 = getelementptr inbounds ptr, ptr %pi.sroa.35146.12, i64 %idxprom14.i.i.i91
   %91 = load ptr, ptr %arrayidx15.i.i.i92, align 8
   %tobool16.not.i.i.i93 = icmp eq ptr %91, null
   br i1 %tobool16.not.i.i.i93, label %if.end20.i.i.i107, label %ref_bitmap_at.exit.i94
@@ -2269,8 +2269,8 @@ for.inc39.i:                                      ; preds = %for.cond25.i, %upda
   br i1 %cmp.i, label %for.body.i70, label %for.end41.i, !llvm.loop !31
 
 for.end41.i:                                      ; preds = %for.inc39.i, %if.end6.i
-  %pi.sroa.19.9 = phi i32 [ %pi.sroa.19.0.lcssa, %if.end6.i ], [ %pi.sroa.19.8, %for.inc39.i ]
-  %pi.sroa.35146.9 = phi ptr [ %pi.sroa.35146.0.lcssa, %if.end6.i ], [ %pi.sroa.35146.8, %for.inc39.i ]
+  %pi.sroa.19.8 = phi i32 [ %pi.sroa.19.0.lcssa, %if.end6.i ], [ %pi.sroa.19.12, %for.inc39.i ]
+  %pi.sroa.35146.8 = phi ptr [ %pi.sroa.35146.0.lcssa, %if.end6.i ], [ %pi.sroa.35146.12, %for.inc39.i ]
   %dst.0.lcssa.i = phi i32 [ 0, %if.end6.i ], [ %dst.1.i, %for.inc39.i ]
   store i32 %dst.0.lcssa.i, ptr %nr_theirs, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ca.i, i8 0, i64 16, i1 false)
@@ -2289,8 +2289,8 @@ for.body48.lr.ph.i:                               ; preds = %for.end41.i
   br label %for.body48.i
 
 for.body48.i:                                     ; preds = %for.inc88.i, %for.body48.lr.ph.i
-  %pi.sroa.19.10 = phi i32 [ %pi.sroa.19.9, %for.body48.lr.ph.i ], [ %pi.sroa.19.11, %for.inc88.i ]
-  %pi.sroa.35146.10 = phi ptr [ %pi.sroa.35146.9, %for.body48.lr.ph.i ], [ %pi.sroa.35146.11, %for.inc88.i ]
+  %pi.sroa.19.9 = phi i32 [ %pi.sroa.19.8, %for.body48.lr.ph.i ], [ %pi.sroa.19.10, %for.inc88.i ]
+  %pi.sroa.35146.9 = phi ptr [ %pi.sroa.35146.8, %for.body48.lr.ph.i ], [ %pi.sroa.35146.10, %for.inc88.i ]
   %indvars.iv132.i = phi i64 [ 0, %for.body48.lr.ph.i ], [ %indvars.iv.next133.i, %for.inc88.i ]
   %dst.2119.i = phi i32 [ 0, %for.body48.lr.ph.i ], [ %dst.3.i, %for.inc88.i ]
   %104 = zext i32 %dst.2119.i to i64
@@ -2318,18 +2318,18 @@ if.end57.i:                                       ; preds = %if.then51.i, %for.b
   %call63.val.i = load i32, ptr %110, align 8
   %div.i.i51.i = udiv i32 %call63.val.i, 65532
   %rem.i.i73.i = urem i32 %call63.val.i, 65532
-  %cmp.not.i.i53.i = icmp ugt i32 %pi.sroa.19.10, %div.i.i51.i
+  %cmp.not.i.i53.i = icmp ugt i32 %pi.sroa.19.9, %div.i.i51.i
   br i1 %cmp.not.i.i53.i, label %if.end12.i.i68.i, label %if.end.i.i54.i
 
 if.end.i.i54.i:                                   ; preds = %if.end57.i
   %add.i.i56.i = add nuw nsw i32 %div.i.i51.i, 1
   %111 = shl nuw nsw i32 %add.i.i56.i, 3
   %mul.i.i.i58.i = zext nneg i32 %111 to i64
-  %call4.i.i59.i = call ptr @xrealloc(ptr noundef %pi.sroa.35146.10, i64 noundef %mul.i.i.i58.i) #12
-  %112 = zext nneg i32 %pi.sroa.19.10 to i64
+  %call4.i.i59.i = call ptr @xrealloc(ptr noundef %pi.sroa.35146.9, i64 noundef %mul.i.i.i58.i) #12
+  %112 = zext nneg i32 %pi.sroa.19.9 to i64
   %113 = shl nuw nsw i64 %112, 3
   %scevgep295 = getelementptr i8, ptr %call4.i.i59.i, i64 %113
-  %114 = sub nuw nsw i32 %div.i.i51.i, %pi.sroa.19.10
+  %114 = sub nuw nsw i32 %div.i.i51.i, %pi.sroa.19.9
   %115 = shl nuw nsw i32 %114, 3
   %narrow307 = add nuw nsw i32 %115, 8
   %116 = zext nneg i32 %narrow307 to i64
@@ -2337,10 +2337,10 @@ if.end.i.i54.i:                                   ; preds = %if.end57.i
   br label %if.end12.i.i68.i
 
 if.end12.i.i68.i:                                 ; preds = %if.end.i.i54.i, %if.end57.i
-  %pi.sroa.19.11 = phi i32 [ %pi.sroa.19.10, %if.end57.i ], [ %add.i.i56.i, %if.end.i.i54.i ]
-  %pi.sroa.35146.11 = phi ptr [ %pi.sroa.35146.10, %if.end57.i ], [ %call4.i.i59.i, %if.end.i.i54.i ]
+  %pi.sroa.19.10 = phi i32 [ %pi.sroa.19.9, %if.end57.i ], [ %add.i.i56.i, %if.end.i.i54.i ]
+  %pi.sroa.35146.10 = phi ptr [ %pi.sroa.35146.9, %if.end57.i ], [ %call4.i.i59.i, %if.end.i.i54.i ]
   %idxprom14.i.i70.i = zext nneg i32 %div.i.i51.i to i64
-  %arrayidx15.i.i71.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.11, i64 %idxprom14.i.i70.i
+  %arrayidx15.i.i71.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.10, i64 %idxprom14.i.i70.i
   %117 = load ptr, ptr %arrayidx15.i.i71.i, align 8
   %tobool16.not.i.i72.i = icmp eq ptr %117, null
   br i1 %tobool16.not.i.i72.i, label %if.end20.i.i78.i, label %ref_bitmap_at.exit88.i
@@ -2428,8 +2428,8 @@ for.inc88.i:                                      ; preds = %for.inc85.i, %updat
   br i1 %cmp46.i, label %for.body48.i, label %post_assign_shallow.exit, !llvm.loop !33
 
 post_assign_shallow.exit:                         ; preds = %for.inc88.i, %for.end41.i
-  %pi.sroa.19.12 = phi i32 [ %pi.sroa.19.9, %for.end41.i ], [ %pi.sroa.19.11, %for.inc88.i ]
-  %pi.sroa.35146.12 = phi ptr [ %pi.sroa.35146.9, %for.end41.i ], [ %pi.sroa.35146.11, %for.inc88.i ]
+  %pi.sroa.19.13 = phi i32 [ %pi.sroa.19.8, %for.end41.i ], [ %pi.sroa.19.10, %for.inc88.i ]
+  %pi.sroa.35146.13 = phi ptr [ %pi.sroa.35146.8, %for.end41.i ], [ %pi.sroa.35146.10, %for.inc88.i ]
   %dst.2.lcssa.i = phi i32 [ 0, %for.end41.i ], [ %dst.3.i, %for.inc88.i ]
   store i32 %dst.2.lcssa.i, ptr %nr_ours, align 8
   %134 = load ptr, ptr %ca.i, align 8
@@ -2438,20 +2438,20 @@ post_assign_shallow.exit:                         ; preds = %for.inc88.i, %for.e
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then76, %post_assign_shallow.exit
-  %pi.sroa.19.13 = phi i32 [ %pi.sroa.19.12, %post_assign_shallow.exit ], [ %pi.sroa.19.0.lcssa, %if.then76 ]
-  %pi.sroa.35146.13 = phi ptr [ %pi.sroa.35146.12, %post_assign_shallow.exit ], [ %pi.sroa.35146.0.lcssa, %if.then76 ]
-  %cmp7.not.i = icmp eq i32 %pi.sroa.19.13, 0
+  %pi.sroa.19.2 = phi i32 [ %pi.sroa.19.13, %post_assign_shallow.exit ], [ %pi.sroa.19.0.lcssa, %if.then76 ]
+  %pi.sroa.35146.2 = phi ptr [ %pi.sroa.35146.13, %post_assign_shallow.exit ], [ %pi.sroa.35146.0.lcssa, %if.then76 ]
+  %cmp7.not.i = icmp eq i32 %pi.sroa.19.2, 0
   br i1 %cmp7.not.i, label %clear_ref_bitmap.exit, label %for.body.i117.preheader
 
 for.body.i117.preheader:                          ; preds = %for.inc105, %if.end109
-  %pi.sroa.35146.13312 = phi ptr [ %pi.sroa.35146.13, %if.end109 ], [ %pi.sroa.35146.6, %for.inc105 ]
-  %pi.sroa.19.13311 = phi i32 [ %pi.sroa.19.13, %if.end109 ], [ %pi.sroa.19.6, %for.inc105 ]
-  %135 = zext nneg i32 %pi.sroa.19.13311 to i64
+  %pi.sroa.35146.2312 = phi ptr [ %pi.sroa.35146.2, %if.end109 ], [ %pi.sroa.35146.7, %for.inc105 ]
+  %pi.sroa.19.2311 = phi i32 [ %pi.sroa.19.2, %if.end109 ], [ %pi.sroa.19.7, %for.inc105 ]
+  %135 = zext nneg i32 %pi.sroa.19.2311 to i64
   br label %for.body.i117
 
 for.body.i117:                                    ; preds = %for.body.i117.preheader, %for.body.i117
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i120, %for.body.i117 ], [ 0, %for.body.i117.preheader ]
-  %arrayidx.i119 = getelementptr inbounds ptr, ptr %pi.sroa.35146.13312, i64 %indvars.iv.i118
+  %arrayidx.i119 = getelementptr inbounds ptr, ptr %pi.sroa.35146.2312, i64 %indvars.iv.i118
   %136 = load ptr, ptr %arrayidx.i119, align 8
   call void @free(ptr noundef %136) #12
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1
@@ -2459,8 +2459,8 @@ for.body.i117:                                    ; preds = %for.body.i117.prehe
   br i1 %exitcond299.not, label %clear_ref_bitmap.exit, label %for.body.i117, !llvm.loop !34
 
 clear_ref_bitmap.exit:                            ; preds = %for.body.i117, %if.end109
-  %pi.sroa.35146.13313 = phi ptr [ %pi.sroa.35146.13, %if.end109 ], [ %pi.sroa.35146.13312, %for.body.i117 ]
-  call void @free(ptr noundef %pi.sroa.35146.13313) #12
+  %pi.sroa.35146.2313 = phi ptr [ %pi.sroa.35146.2, %if.end109 ], [ %pi.sroa.35146.2312, %for.body.i117 ]
+  call void @free(ptr noundef %pi.sroa.35146.2313) #12
   %cmp112257.not = icmp eq i32 %pi.sroa.88.0.lcssa, 0
   br i1 %cmp112257.not, label %for.end119, label %for.body114.preheader
 

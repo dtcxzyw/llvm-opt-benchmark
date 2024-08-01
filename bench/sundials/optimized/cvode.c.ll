@@ -2658,12 +2658,12 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
 
 712:                                              ; preds = %726, %.lr.ph95.i.i.i
   %indvars.iv108.i.i.i = phi i64 [ 2, %.lr.ph95.i.i.i ], [ %indvars.iv.next109.i.i.i, %726 ]
-  %.07193.i.i.i = phi double [ %704, %.lr.ph95.i.i.i ], [ %716, %726 ]
-  %.07692.i.i.i = phi double [ -1.000000e+00, %.lr.ph95.i.i.i ], [ %730, %726 ]
+  %.17293.i.i.i = phi double [ %704, %.lr.ph95.i.i.i ], [ %716, %726 ]
+  %.17792.i.i.i = phi double [ -1.000000e+00, %.lr.ph95.i.i.i ], [ %730, %726 ]
   %713 = add nsw i64 %indvars.iv108.i.i.i, -1
   %714 = getelementptr inbounds [14 x double], ptr %375, i64 0, i64 %713
   %715 = load double, ptr %714, align 8
-  %716 = fadd double %.07193.i.i.i, %715
+  %716 = fadd double %.17293.i.i.i, %715
   %717 = fdiv double %704, %716
   br label %718
 
@@ -2684,7 +2684,7 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
   %727 = trunc nuw nsw i64 %indvars.iv108.i.i.i to i32
   %728 = uitofp nneg i32 %727 to double
   %729 = fdiv double 1.000000e+00, %728
-  %730 = fsub double %.07692.i.i.i, %729
+  %730 = fsub double %.17792.i.i.i, %729
   %indvars.iv.next109.i.i.i = add nuw nsw i64 %indvars.iv108.i.i.i, 1
   %exitcond116.not.i.i.i = icmp eq i64 %indvars.iv.next109.i.i.i, %wide.trip.count115.i.i.i
   br i1 %exitcond116.not.i.i.i, label %._crit_edge96.loopexit.i.i.i, label %712
@@ -2698,18 +2698,18 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
   %.pre.i.i.pre-phi = phi i64 [ %wide.trip.count115.i.i.i, %._crit_edge96.loopexit.i.i.i ], [ 2, %.preheader83.i.i.i ]
   %731 = phi i32 [ %.pre125.i.i.i, %._crit_edge96.loopexit.i.i.i ], [ %705, %.preheader83.i.i.i ]
   %732 = phi double [ %.pre.i.i.i, %._crit_edge96.loopexit.i.i.i ], [ 1.000000e+00, %.preheader83.i.i.i ]
-  %.076.lcssa.i.i.i = phi double [ %730, %._crit_edge96.loopexit.i.i.i ], [ -1.000000e+00, %.preheader83.i.i.i ]
-  %.071.lcssa.i.i.i = phi double [ %716, %._crit_edge96.loopexit.i.i.i ], [ %704, %.preheader83.i.i.i ]
+  %.177.lcssa.i.i.i = phi double [ %730, %._crit_edge96.loopexit.i.i.i ], [ -1.000000e+00, %.preheader83.i.i.i ]
+  %.172.lcssa.i.i.i = phi double [ %716, %._crit_edge96.loopexit.i.i.i ], [ %704, %.preheader83.i.i.i ]
   %733 = sitofp i32 %594 to double
   %734 = fdiv double 1.000000e+00, %733
-  %735 = fsub double %.076.lcssa.i.i.i, %734
+  %735 = fsub double %.177.lcssa.i.i.i, %734
   %736 = fneg double %732
   %737 = fsub double %736, %735
   %738 = add nsw i32 %594, -1
   %739 = sext i32 %738 to i64
   %740 = getelementptr inbounds [14 x double], ptr %375, i64 0, i64 %739
   %741 = load double, ptr %740, align 8
-  %742 = fadd double %.071.lcssa.i.i.i, %741
+  %742 = fadd double %.172.lcssa.i.i.i, %741
   %743 = fdiv double %704, %742
   %744 = fsub double %736, %743
   %.not81.not.i.i.i = icmp eq i32 %731, 0
@@ -2748,15 +2748,15 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph103.i.i.i, %.loopexit85..loopexit_crit_edge.i.i.i
   %.pre-phi.i.i.i = phi double [ %.pre126.i.i.i, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %733, %.lr.ph103.i.i.i ]
-  %.177.i.i.i = phi double [ -1.000000e+00, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %735, %.lr.ph103.i.i.i ]
+  %.076.i.i.i = phi double [ -1.000000e+00, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %735, %.lr.ph103.i.i.i ]
   %.075.i.i.i = phi double [ -1.000000e+00, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %744, %.lr.ph103.i.i.i ]
   %.074.i.i.i = phi double [ 1.000000e+00, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %743, %.lr.ph103.i.i.i ]
   %.073.i.i.i = phi double [ 1.000000e+00, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %737, %.lr.ph103.i.i.i ]
-  %.172.i.i.i = phi double [ %704, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %742, %.lr.ph103.i.i.i ]
+  %.071.i.i.i = phi double [ %704, %.loopexit85..loopexit_crit_edge.i.i.i ], [ %742, %.lr.ph103.i.i.i ]
   %761 = fsub double 1.000000e+00, %.075.i.i.i
-  %762 = fadd double %.177.i.i.i, %761
+  %762 = fadd double %.076.i.i.i, %761
   %763 = call double @llvm.fmuladd.f64(double %.pre-phi.i.i.i, double %762, double 1.000000e+00)
-  %764 = fmul double %.177.i.i.i, %763
+  %764 = fmul double %.076.i.i.i, %763
   %765 = fdiv double %762, %764
   %766 = call double @llvm.fabs.f64(double %765)
   store double %766, ptr %376, align 8
@@ -2778,7 +2778,7 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
 777:                                              ; preds = %776
   %778 = uitofp nneg i32 %594 to double
   %779 = fdiv double 1.000000e+00, %778
-  %780 = fadd double %779, %.177.i.i.i
+  %780 = fadd double %779, %.076.i.i.i
   %781 = fadd double %.075.i.i.i, %.074.i.i.i
   %782 = fsub double 1.000000e+00, %781
   %783 = fadd double %780, %782
@@ -2798,12 +2798,12 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
   store double %.sink.i.i.i.i, ptr %378, align 8
   %793 = getelementptr inbounds [14 x double], ptr %375, i64 0, i64 %768
   %794 = load double, ptr %793, align 8
-  %795 = fadd double %.172.i.i.i, %794
+  %795 = fadd double %.071.i.i.i, %794
   %796 = fdiv double %704, %795
   %797 = add nsw i32 %594, 1
   %798 = sitofp i32 %797 to double
   %799 = fdiv double 1.000000e+00, %798
-  %800 = fsub double %.177.i.i.i, %799
+  %800 = fsub double %.076.i.i.i, %799
   %801 = fsub double %796, %.075.i.i.i
   %802 = fadd double %801, 1.000000e+00
   %803 = fadd double %800, %802
@@ -4110,9 +4110,9 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 .preheader335.i.i.i:                              ; preds = %1497, %1564
   %.0299364.i.i.i = phi i32 [ %1565, %1564 ], [ 1, %1497 ]
   %.0300363.i.i.i = phi i32 [ %.2302.i.i.i, %1564 ], [ 0, %1497 ]
-  %.0306362.i.i.i = phi double [ %1559, %1564 ], [ %1473, %1497 ]
-  %1499 = fmul double %.0306362.i.i.i, %.0306362.i.i.i
-  %1500 = fmul double %.0306362.i.i.i, 4.000000e+00
+  %.1307362.i.i.i = phi double [ %1559, %1564 ], [ %1473, %1497 ]
+  %1499 = fmul double %.1307362.i.i.i, %.1307362.i.i.i
+  %1500 = fmul double %.1307362.i.i.i, 4.000000e+00
   br label %1501
 
 1501:                                             ; preds = %1521, %.preheader335.i.i.i
@@ -4142,7 +4142,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 
 1521:                                             ; preds = %1516, %1501
   %1522 = phi double [ %1520, %1516 ], [ 0.000000e+00, %1501 ]
-  %1523 = fadd double %.0306362.i.i.i, %1522
+  %1523 = fadd double %.1307362.i.i.i, %1522
   %1524 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %indvars.iv406.i.i.i
   store double %1523, ptr %1524, align 8
   %indvars.iv.next407.i.i.i = add nuw nsw i64 %indvars.iv406.i.i.i, 1
@@ -4197,11 +4197,11 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 1551:                                             ; preds = %1551, %1548
   %indvars.iv418.i.i.i = phi i64 [ 1, %1548 ], [ %indvars.iv.next419.i.i.i, %1551 ]
   %.1301359.i.i.i = phi i32 [ %.0300363.i.i.i, %1548 ], [ %.2302.i.i.i, %1551 ]
-  %.1319358.i.i.i = phi double [ %1550, %1548 ], [ %.2320.i.i.i, %1551 ]
+  %.2320358.i.i.i = phi double [ %1550, %1548 ], [ %.3321.i.i.i, %1551 ]
   %1552 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %indvars.iv418.i.i.i
   %1553 = load double, ptr %1552, align 8
-  %1554 = fcmp olt double %1553, %.1319358.i.i.i
-  %.2320.i.i.i = select i1 %1554, double %1553, double %.1319358.i.i.i
+  %1554 = fcmp olt double %1553, %.2320358.i.i.i
+  %.3321.i.i.i = select i1 %1554, double %1553, double %.2320358.i.i.i
   %1555 = trunc nuw nsw i64 %indvars.iv418.i.i.i to i32
   %.2302.i.i.i = select i1 %1554, i32 %1555, i32 %.1301359.i.i.i
   %indvars.iv.next419.i.i.i = add nuw nsw i64 %indvars.iv418.i.i.i, 1
@@ -4212,7 +4212,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
   %1557 = sext i32 %.2302.i.i.i to i64
   %1558 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %1557
   %1559 = load double, ptr %1558, align 8
-  %1560 = fcmp olt double %.2320.i.i.i, 1.000000e-03
+  %1560 = fcmp olt double %.3321.i.i.i, 1.000000e-03
   br i1 %1560, label %1566, label %.preheader.i.i108.i
 
 .preheader.i.i108.i:                              ; preds = %1556, %.preheader.i.i108.i
@@ -4231,30 +4231,30 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
   br i1 %exitcond426.not.i.i.i, label %1566, label %.preheader335.i.i.i
 
 1566:                                             ; preds = %1564, %1556
-  %.0303.i.i.i = phi i32 [ 0, %1564 ], [ 3, %1556 ]
-  %1567 = fcmp ogt double %.2320.i.i.i, 1.000000e-03
+  %.1304.i.i.i = phi i32 [ 0, %1564 ], [ 3, %1556 ]
+  %1567 = fcmp ogt double %.3321.i.i.i, 1.000000e-03
   br i1 %1567, label %cvSLdet.exit.thread.i.i, label %1568
 
 1568:                                             ; preds = %1566, %1497, %1417
-  %.2308.i.i.i = phi double [ %1559, %1566 ], [ %1409, %1417 ], [ %1473, %1497 ]
-  %.1304.i.i.i = phi i32 [ %.0303.i.i.i, %1566 ], [ 1, %1417 ], [ 2, %1497 ]
-  %1569 = fmul double %.2308.i.i.i, %.2308.i.i.i
+  %.0306.i.i.i = phi double [ %1559, %1566 ], [ %1409, %1417 ], [ %1473, %1497 ]
+  %.0303.i.i.i = phi i32 [ %.1304.i.i.i, %1566 ], [ 1, %1417 ], [ 2, %1497 ]
+  %1569 = fmul double %.0306.i.i.i, %.0306.i.i.i
   br label %1570
 
 1570:                                             ; preds = %1601, %1568
   %indvars.iv431.i.i.i = phi i64 [ 1, %1568 ], [ %indvars.iv.next432.i.i.i, %1601 ]
   %1571 = getelementptr inbounds [4 x double], ptr %437, i64 0, i64 %indvars.iv431.i.i.i
   %1572 = load double, ptr %1571, align 8
-  %1573 = fmul double %.2308.i.i.i, %1572
+  %1573 = fmul double %.0306.i.i.i, %1572
   %1574 = getelementptr inbounds [4 x double], ptr %436, i64 0, i64 %indvars.iv431.i.i.i
   %1575 = load double, ptr %1574, align 8
-  %1576 = fmul double %.2308.i.i.i, %1575
-  %1577 = fmul double %.2308.i.i.i, %1576
+  %1576 = fmul double %.0306.i.i.i, %1575
+  %1577 = fmul double %.0306.i.i.i, %1576
   %1578 = getelementptr inbounds [4 x double], ptr %439, i64 0, i64 %indvars.iv431.i.i.i
   %1579 = load double, ptr %1578, align 8
-  %1580 = fmul double %.2308.i.i.i, %1579
-  %1581 = fmul double %.2308.i.i.i, %1580
-  %1582 = fmul double %.2308.i.i.i, %1581
+  %1580 = fmul double %.0306.i.i.i, %1579
+  %1581 = fmul double %.0306.i.i.i, %1580
+  %1582 = fmul double %.0306.i.i.i, %1581
   %1583 = fsub double %1573, %1577
   %1584 = fsub double %1577, %1582
   %1585 = fsub double %1583, %1584
@@ -4314,16 +4314,16 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 
 1626:                                             ; preds = %1609
   %1627 = fdiv double 1.000000e+00, %1623
-  %1628 = fsub double %1627, %.2308.i.i.i
+  %1628 = fsub double %1627, %.0306.i.i.i
   %1629 = call double @llvm.fabs.f64(double %1628)
   %1630 = fcmp ule double %1629, 1.000000e-02
-  %1631 = fcmp ogt double %.2308.i.i.i, 0x3FEF5C28F5C28F5C
+  %1631 = fcmp ogt double %.0306.i.i.i, 0x3FEF5C28F5C28F5C
   %or.cond.i.i = select i1 %1630, i1 %1631, i1 false
   br i1 %or.cond.i.i, label %1632, label %cvSLdet.exit.thread.i.i
 
 1632:                                             ; preds = %1626
-  %1633 = icmp eq i32 %.1304.i.i.i, 1
-  %spec.store.select.i.i.i = select i1 %1633, i32 4, i32 %.1304.i.i.i
+  %1633 = icmp eq i32 %.0303.i.i.i, 1
+  %spec.store.select.i.i.i = select i1 %1633, i32 4, i32 %.0303.i.i.i
   %1634 = icmp eq i32 %spec.store.select.i.i.i, 3
   br i1 %1634, label %cvSLdet.exit.thread78.i.i, label %cvSLdet.exit.i.i
 
@@ -6739,9 +6739,9 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
 .loopexit.i.i:                                    ; preds = %.lr.ph62.i.i
   %82 = fdiv double %89, %80
   %83 = fdiv double 1.000000e+00, %82
-  %84 = fmul double %.05463.i.i, %82
-  %85 = fsub double %.04867.i.i, %92
-  %86 = fadd double %.05264.i.i, %83
+  %84 = fmul double %.15563.i.i, %82
+  %85 = fsub double %.14967.i.i, %92
+  %86 = fadd double %.15364.i.i, %83
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit57.i.i, label %.lr.ph62.preheader.i.i
@@ -6749,11 +6749,11 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
 .lr.ph62.preheader.i.i:                           ; preds = %.loopexit.i.i, %78
   %indvars.iv77.i.i = phi i64 [ 1, %78 ], [ %indvars.iv.next78.i.i, %.loopexit.i.i ]
   %indvars.iv72.i.i = phi i64 [ 3, %78 ], [ %indvars.iv.next73.i.i, %.loopexit.i.i ]
-  %.04867.i.i = phi double [ -1.000000e+00, %78 ], [ %85, %.loopexit.i.i ]
+  %.14967.i.i = phi double [ -1.000000e+00, %78 ], [ %85, %.loopexit.i.i ]
   %.05066.i.i = phi double [ %80, %78 ], [ %89, %.loopexit.i.i ]
   %.05165.i.i = phi double [ 1.000000e+00, %78 ], [ %82, %.loopexit.i.i ]
-  %.05264.i.i = phi double [ 1.000000e+00, %78 ], [ %86, %.loopexit.i.i ]
-  %.05463.i.i = phi double [ 1.000000e+00, %78 ], [ %84, %.loopexit.i.i ]
+  %.15364.i.i = phi double [ 1.000000e+00, %78 ], [ %86, %.loopexit.i.i ]
+  %.15563.i.i = phi double [ 1.000000e+00, %78 ], [ %84, %.loopexit.i.i ]
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %87 = getelementptr inbounds [14 x double], ptr %81, i64 0, i64 %indvars.iv.next78.i.i
   %88 = load double, ptr %87, align 8
@@ -6778,12 +6778,12 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   br i1 %100, label %.lr.ph62.i.i, label %.loopexit.i.i
 
 .loopexit57.i.i:                                  ; preds = %.loopexit.i.i, %._crit_edge.i.i
-  %.155.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %84, %.loopexit.i.i ]
-  %.153.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %86, %.loopexit.i.i ]
-  %.149.i.i = phi double [ -1.000000e+00, %._crit_edge.i.i ], [ %85, %.loopexit.i.i ]
-  %101 = fneg double %.149.i.i
-  %102 = fsub double %101, %.153.i.i
-  %103 = fdiv double %102, %.155.i.i
+  %.054.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %84, %.loopexit.i.i ]
+  %.052.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %86, %.loopexit.i.i ]
+  %.048.i.i = phi double [ -1.000000e+00, %._crit_edge.i.i ], [ %85, %.loopexit.i.i ]
+  %101 = fneg double %.048.i.i
+  %102 = fsub double %101, %.052.i.i
+  %103 = fdiv double %102, %.054.i.i
   %104 = getelementptr inbounds i8, ptr %0, i64 96
   %105 = getelementptr inbounds i8, ptr %0, i64 1124
   %106 = load i32, ptr %105, align 4

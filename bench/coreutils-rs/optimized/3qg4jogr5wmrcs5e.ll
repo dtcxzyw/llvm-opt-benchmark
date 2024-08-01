@@ -875,7 +875,7 @@ define hidden void @_ZN9uu_csplit10split_name9SplitName3new17h1ea9e83da374a5ceE(
   br label %28
 
 .thread140:                                       ; preds = %80, %97
-  %.1113.ph = phi i8 [ %.5, %97 ], [ %.4, %80 ]
+  %.0112.ph = phi i8 [ %.4, %97 ], [ %.5, %80 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -960,13 +960,13 @@ define hidden void @_ZN9uu_csplit10split_name9SplitName3new17h1ea9e83da374a5ceE(
   unreachable
 
 .body:                                            ; preds = %51, %47, %78
-  %.2 = phi i8 [ %.4, %78 ], [ %.3, %51 ], [ 1, %47 ]
+  %.3 = phi i8 [ %.5, %78 ], [ %.2, %51 ], [ 1, %47 ]
   %.pn = phi { ptr, i32 } [ %79, %78 ], [ %52, %51 ], [ %48, %47 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9239ef85e225ffc1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #17
           to label %.thread unwind label %94
 
 51:                                               ; preds = %61, %.noexc.i, %68, %63
-  %.3 = phi i8 [ %.4, %68 ], [ %.4, %63 ], [ 1, %.noexc.i ], [ 1, %61 ]
+  %.2 = phi i8 [ %.5, %68 ], [ %.5, %63 ], [ 1, %.noexc.i ], [ 1, %61 ]
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1028,7 +1028,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
   br label %63
 
 63:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %60
-  %.4 = phi i8 [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 0, %60 ]
+  %.5 = phi i8 [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 0, %60 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
   invoke void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5c36e5ff7cE"(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
@@ -1131,7 +1131,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
   br label %97
 
 97:                                               ; preds = %96, %58
-  %.5 = phi i8 [ %.4, %96 ], [ 1, %58 ]
+  %.4 = phi i8 [ %.5, %96 ], [ 1, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !214
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbb322ff6fcd8b365E.llvm.7377480865939079465"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
@@ -1162,7 +1162,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
   br i1 %.not120, label %93, label %108
 
 108:                                              ; preds = %106
-  %109 = trunc nuw i8 %.5 to i1
+  %109 = trunc nuw i8 %.4 to i1
   br i1 %109, label %110, label %93
 
 110:                                              ; preds = %108
@@ -1190,7 +1190,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
 
 .thread:                                          ; preds = %.body, %.thread140, %120
   %.pn117139 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %120 ], [ %lpad.thr_comm, %.thread140 ], [ %.pn, %.body ]
-  %.0112138 = phi i8 [ 1, %120 ], [ %.1113.ph, %.thread140 ], [ %.2, %.body ]
+  %.1113138 = phi i8 [ 1, %120 ], [ %.0112.ph, %.thread140 ], [ %.3, %.body ]
   %119 = load i64, ptr %2, align 8, !range !12, !noundef !13
   %.not119 = icmp eq i64 %119, -9223372036854775808
   br i1 %.not119, label %123, label %121
@@ -1202,7 +1202,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %61
           to label %.thread unwind label %94
 
 121:                                              ; preds = %.thread
-  %122 = trunc nuw i8 %.0112138 to i1
+  %122 = trunc nuw i8 %.1113138 to i1
   br i1 %122, label %124, label %123
 
 123:                                              ; preds = %124, %121, %.thread

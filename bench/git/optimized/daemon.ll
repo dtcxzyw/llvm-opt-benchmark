@@ -1115,12 +1115,12 @@ if.end14.i.i.i:                                   ; preds = %if.end.i.i.i, %if.t
   br label %if.end17.i.i.i
 
 if.end17.i.i.i:                                   ; preds = %if.end14.i.i.i, %if.then.i.i.i
-  %extra_args.addr.0.i.i.i = phi ptr [ %add.ptr16.i.i.i, %if.end14.i.i.i ], [ %add.ptr18.i, %if.then.i.i.i ]
-  %cmp18.i.i.i = icmp ult ptr %extra_args.addr.0.i.i.i, %add.ptr.i.i
+  %extra_args.addr.1.i.i.i = phi ptr [ %add.ptr16.i.i.i, %if.end14.i.i.i ], [ %add.ptr18.i, %if.then.i.i.i ]
+  %cmp18.i.i.i = icmp ult ptr %extra_args.addr.1.i.i.i, %add.ptr.i.i
   br i1 %cmp18.i.i.i, label %land.lhs.true20.i.i.i, label %parse_host_arg.exit.i.i
 
 land.lhs.true20.i.i.i:                            ; preds = %if.end17.i.i.i
-  %67 = load i8, ptr %extra_args.addr.0.i.i.i, align 1
+  %67 = load i8, ptr %extra_args.addr.1.i.i.i, align 1
   %tobool22.not.i.i.i = icmp eq i8 %67, 0
   br i1 %tobool22.not.i.i.i, label %parse_host_arg.exit.i.i, label %if.then23.i.i.i
 
@@ -1129,8 +1129,8 @@ if.then23.i.i.i:                                  ; preds = %land.lhs.true20.i.i
   unreachable
 
 parse_host_arg.exit.i.i:                          ; preds = %land.lhs.true20.i.i.i, %if.end17.i.i.i, %land.lhs.true.i.i.i, %if.then17.i
-  %extra_args.addr.1.i.i.i = phi ptr [ %extra_args.addr.0.i.i.i, %land.lhs.true20.i.i.i ], [ %extra_args.addr.0.i.i.i, %if.end17.i.i.i ], [ %add.ptr18.i, %land.lhs.true.i.i.i ], [ %add.ptr18.i, %if.then17.i ]
-  %cmp13.i.i = icmp ult ptr %extra_args.addr.1.i.i.i, %add.ptr.i.i
+  %extra_args.addr.0.i.i.i = phi ptr [ %extra_args.addr.1.i.i.i, %land.lhs.true20.i.i.i ], [ %extra_args.addr.1.i.i.i, %if.end17.i.i.i ], [ %add.ptr18.i, %land.lhs.true.i.i.i ], [ %add.ptr18.i, %if.then17.i ]
+  %cmp13.i.i = icmp ult ptr %extra_args.addr.0.i.i.i, %add.ptr.i.i
   br i1 %cmp13.i.i, label %for.body.lr.ph.i.i, label %parse_extra_args.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %parse_host_arg.exit.i.i
@@ -1139,7 +1139,7 @@ for.body.lr.ph.i.i:                               ; preds = %parse_host_arg.exit
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %extra_args.addr.014.i.i = phi ptr [ %extra_args.addr.1.i.i.i, %for.body.lr.ph.i.i ], [ %add.ptr5.i.i, %for.inc.i.i ]
+  %extra_args.addr.014.i.i = phi ptr [ %extra_args.addr.0.i.i.i, %for.body.lr.ph.i.i ], [ %add.ptr5.i.i, %for.inc.i.i ]
   %68 = load i8, ptr %extra_args.addr.014.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %68, 0
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i17.i

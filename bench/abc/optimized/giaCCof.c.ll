@@ -864,7 +864,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
 
 48:                                               ; preds = %.lr.ph89, %47
   %.088 = phi i32 [ 0, %.lr.ph89 ], [ %53, %47 ]
-  %.05487 = phi i32 [ 0, %.lr.ph89 ], [ %.1, %47 ]
+  %.05487 = phi i32 [ 0, %.lr.ph89 ], [ %.2, %47 ]
   br i1 %.not62, label %51, label %49
 
 49:                                               ; preds = %48
@@ -941,21 +941,21 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
 .critedge:                                        ; preds = %78, %58, %.lr.ph, %75
   %.pre-phi = phi i32 [ %64, %58 ], [ %64, %.lr.ph ], [ %.pre107, %75 ], [ %64, %78 ]
   %.05783 = phi i32 [ 0, %58 ], [ 0, %.lr.ph ], [ %76, %75 ], [ %68, %78 ]
-  %.1 = phi i32 [ %.05487, %58 ], [ %.05487, %.lr.ph ], [ 1, %75 ], [ %.05487, %78 ]
+  %.2 = phi i32 [ %.05487, %58 ], [ %.05487, %.lr.ph ], [ 1, %75 ], [ %.05487, %78 ]
   %79 = icmp slt i32 %.05783, %.pre-phi
   br i1 %79, label %.critedge._crit_edge.loopexit, label %47, !llvm.loop !8
 
 .critedge._crit_edge.loopexit:                    ; preds = %.critedge, %51, %47
   %.0.lcssa.ph = phi i32 [ %1, %47 ], [ %.088, %51 ], [ %.088, %.critedge ]
   %.156.ph = phi i32 [ 0, %47 ], [ %57, %51 ], [ 0, %.critedge ]
-  %.2.ph = phi i32 [ %.1, %47 ], [ %.05487, %51 ], [ %.1, %.critedge ]
-  %80 = icmp eq i32 %.2.ph, 0
+  %.1.ph = phi i32 [ %.2, %47 ], [ %.05487, %51 ], [ %.2, %.critedge ]
+  %80 = icmp eq i32 %.1.ph, 0
   br label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %44
   %.0.lcssa = phi i32 [ 0, %44 ], [ %.0.lcssa.ph, %.critedge._crit_edge.loopexit ]
   %.156 = phi i32 [ -1, %44 ], [ %.156.ph, %.critedge._crit_edge.loopexit ]
-  %.2 = phi i1 [ true, %44 ], [ %80, %.critedge._crit_edge.loopexit ]
+  %.1 = phi i1 [ true, %44 ], [ %80, %.critedge._crit_edge.loopexit ]
   %.not66 = icmp eq i64 %21, 0
   br i1 %.not66, label %94, label %81
 
@@ -1031,7 +1031,7 @@ Abc_Clock.exit79:                                 ; preds = %105, %108
   %116 = sitofp i64 %115 to double
   %117 = fdiv double %116, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %117)
-  br i1 %.2, label %.sink.split, label %119
+  br i1 %.1, label %.sink.split, label %119
 
 .sink.split:                                      ; preds = %Abc_Clock.exit79
   %118 = icmp eq i32 %.156, 1

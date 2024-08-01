@@ -299,7 +299,7 @@ define internal fastcc void @_ZN2cvL9binary_opERKNS_11_InputArrayES2_RKNS_12_Out
   br label %77
 
 77:                                               ; preds = %68, %74
-  %.0276 = phi i32 [ %73, %68 ], [ %42, %74 ]
+  %.1277 = phi i32 [ %73, %68 ], [ %42, %74 ]
   %.0106.in = phi ptr [ %4, %68 ], [ %76, %74 ]
   %.0106 = load ptr, ptr %.0106.in, align 8
   %.not = icmp eq ptr %.0106, null
@@ -391,7 +391,7 @@ _ZNK2cv11_InputArray6getMatEi.exit171:            ; preds = %101, %104
 106:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit171
   %sext = shl i64 %105, 32
   %107 = ashr exact i64 %sext, 32
-  %108 = zext nneg i32 %.0276 to i64
+  %108 = zext nneg i32 %.1277 to i64
   %109 = mul nsw i64 %107, %108
   %110 = icmp ugt i64 %109, 2147483646
   br i1 %110, label %.critedge, label %111
@@ -454,7 +454,7 @@ _ZNK2cv11_InputArray6getMatEi.exit171:            ; preds = %101, %104
   br label %134
 
 134:                                              ; preds = %.critedge, %61, %57
-  %.1277 = phi i32 [ %42, %61 ], [ %42, %57 ], [ %.0276, %.critedge ]
+  %.0276 = phi i32 [ %42, %61 ], [ %42, %57 ], [ %.1277, %.critedge ]
   %135 = icmp eq i32 %6, 12
   br i1 %135, label %164, label %136
 
@@ -540,7 +540,7 @@ _ZNK2cv11_InputArray6getMatEi.exit171:            ; preds = %101, %104
 
 164:                                              ; preds = %142, %154, %144, %134
   %.pre-phi337 = phi i32 [ %47, %142 ], [ %42, %154 ], [ %42, %144 ], [ %42, %134 ]
-  %.2 = phi i32 [ %47, %142 ], [ %.1277, %154 ], [ %.1277, %144 ], [ %.1277, %134 ]
+  %.2 = phi i32 [ %47, %142 ], [ %.0276, %154 ], [ %.0276, %144 ], [ %.0276, %134 ]
   %.0275 = phi i32 [ %44, %142 ], [ %39, %154 ], [ %39, %144 ], [ %39, %134 ]
   %.0274 = phi i32 [ %43, %142 ], [ %38, %154 ], [ %38, %144 ], [ %38, %134 ]
   %.0273 = phi ptr [ %0, %142 ], [ %1, %154 ], [ %1, %144 ], [ %1, %134 ]
@@ -2157,12 +2157,12 @@ _ZNK2cv11_InputArray6getMatEi.exit399:            ; preds = %105, %108
   br i1 %197, label %.thread, label %198
 
 .thread:                                          ; preds = %184, %196
-  %.0277685 = phi i1 [ false, %196 ], [ true, %184 ]
-  %.0648684 = phi ptr [ %0, %196 ], [ %1, %184 ]
-  %.0653683 = phi ptr [ %1, %196 ], [ %0, %184 ]
-  %.0655682 = phi i32 [ %45, %196 ], [ %50, %184 ]
-  %.0657681 = phi i32 [ %46, %196 ], [ %51, %184 ]
-  %.0659680 = phi i32 [ %49, %196 ], [ %54, %184 ]
+  %.1278685 = phi i1 [ false, %196 ], [ true, %184 ]
+  %.1684 = phi ptr [ %0, %196 ], [ %1, %184 ]
+  %.1654683 = phi ptr [ %1, %196 ], [ %0, %184 ]
+  %.1656682 = phi i32 [ %45, %196 ], [ %50, %184 ]
+  %.1658681 = phi i32 [ %46, %196 ], [ %51, %184 ]
+  %.1660680 = phi i32 [ %49, %196 ], [ %54, %184 ]
   %.0663678 = phi i32 [ %54, %196 ], [ %49, %184 ]
   %.sroa.9.1677 = phi i32 [ %.sroa.9.0, %196 ], [ %.sroa.8.0, %184 ]
   %.sroa.0507.1676 = phi i32 [ %.sroa.0507.0, %196 ], [ %.sroa.0511.0, %184 ]
@@ -2203,18 +2203,18 @@ _ZNK2cv11_InputArray6getMatEi.exit399:            ; preds = %105, %108
   br i1 %6, label %.critedge7, label %207
 
 207:                                              ; preds = %206
-  %208 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %.0653683), !noalias !40
+  %208 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %.1654683), !noalias !40
   %209 = icmp eq i32 %208, 65536
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %207
-  %211 = getelementptr inbounds i8, ptr %.0653683, i64 8
+  %211 = getelementptr inbounds i8, ptr %.1654683, i64 8
   %212 = load ptr, ptr %211, align 8, !noalias !40
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %212)
   br label %.lr.ph.preheader.i
 
 213:                                              ; preds = %207
-  call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %.0653683, i32 noundef -1)
+  call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %.1654683, i32 noundef -1)
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %213, %210
@@ -2223,7 +2223,7 @@ _ZNK2cv11_InputArray6getMatEi.exit399:            ; preds = %105, %108
   %216 = icmp eq i32 %.sroa.0507.1676, 1
   %217 = icmp eq i32 %.sroa.9.1677, 1
   %218 = and i1 %217, %216
-  %219 = select i1 %218, i32 %.0663678, i32 %.0659680
+  %219 = select i1 %218, i32 %.0663678, i32 %.1660680
   %wide.trip.count.i = zext nneg i32 %219 to i64
   br label %.lr.ph.i
 
@@ -2271,8 +2271,8 @@ _ZNK2cv11_InputArray6getMatEi.exit399:            ; preds = %105, %108
   br label %_ZN2cvL17actualScalarDepthEPKdi.exit.thread
 
 241:                                              ; preds = %.lr.ph.i
-  %242 = icmp ult i32 %.0657681, 4
-  %243 = icmp eq i32 %.0657681, 5
+  %242 = icmp ult i32 %.1658681, 4
+  %243 = icmp eq i32 %.1658681, 5
   %or.cond15 = or i1 %242, %243
   %spec.store.select = select i1 %or.cond15, i32 5, i32 6
   br label %_ZN2cvL17actualScalarDepthEPKdi.exit.thread
@@ -2284,13 +2284,13 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
 
 .critedge7:                                       ; preds = %206, %177, %175, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread
   %.0737 = phi i32 [ %storemerge, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %51, %177 ], [ %51, %175 ], [ 6, %206 ]
-  %.1662 = phi i32 [ 6, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %50, %177 ], [ %50, %175 ], [ 6, %206 ]
-  %.1660 = phi i32 [ %.0659680, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %49, %177 ], [ %49, %175 ], [ %.0659680, %206 ]
-  %.1658 = phi i32 [ %.0657681, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %46, %177 ], [ %46, %175 ], [ %.0657681, %206 ]
-  %.1656 = phi i32 [ %.0655682, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %45, %177 ], [ %45, %175 ], [ %.0655682, %206 ]
-  %.1654 = phi ptr [ %.0653683, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %1, %177 ], [ %1, %175 ], [ %.0653683, %206 ]
-  %.1 = phi ptr [ %.0648684, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %0, %177 ], [ %0, %175 ], [ %.0648684, %206 ]
-  %.1278 = phi i1 [ %.0277685, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ false, %177 ], [ false, %175 ], [ %.0277685, %206 ]
+  %.0661 = phi i32 [ 6, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %50, %177 ], [ %50, %175 ], [ 6, %206 ]
+  %.0659 = phi i32 [ %.1660680, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %49, %177 ], [ %49, %175 ], [ %.1660680, %206 ]
+  %.0657 = phi i32 [ %.1658681, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %46, %177 ], [ %46, %175 ], [ %.1658681, %206 ]
+  %.0655 = phi i32 [ %.1656682, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %45, %177 ], [ %45, %175 ], [ %.1656682, %206 ]
+  %.0653 = phi ptr [ %.1654683, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %1, %177 ], [ %1, %175 ], [ %.1654683, %206 ]
+  %.0648 = phi ptr [ %.1684, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ %0, %177 ], [ %0, %175 ], [ %.1684, %206 ]
+  %.0277 = phi i1 [ %.1278685, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ false, %177 ], [ false, %175 ], [ %.1278685, %206 ]
   %.0276 = phi i1 [ true, %_ZN2cvL17actualScalarDepthEPKdi.exit.thread ], [ false, %177 ], [ false, %175 ], [ true, %206 ]
   %244 = icmp slt i32 %4, 0
   br i1 %244, label %245, label %258
@@ -2304,7 +2304,7 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br label %258
 
 249:                                              ; preds = %245
-  %.not330 = icmp eq i32 %.1656, %.1662
+  %.not330 = icmp eq i32 %.0655, %.0661
   %or.cond696 = or i1 %.not330, %.0276
   br i1 %or.cond696, label %258, label %250
 
@@ -2337,10 +2337,10 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br label %606
 
 258:                                              ; preds = %249, %247, %.critedge7
-  %.0 = phi i32 [ %248, %247 ], [ %4, %.critedge7 ], [ %.1656, %249 ]
+  %.0 = phi i32 [ %248, %247 ], [ %4, %.critedge7 ], [ %.0655, %249 ]
   %259 = and i32 %.0, 7
-  %260 = icmp eq i32 %.1658, %.0737
-  %261 = icmp eq i32 %259, %.1658
+  %260 = icmp eq i32 %.0657, %.0737
+  %261 = icmp eq i32 %259, %.0657
   %or.cond357 = and i1 %260, %261
   br i1 %or.cond357, label %281, label %262
 
@@ -2348,19 +2348,19 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br i1 %6, label %277, label %263
 
 263:                                              ; preds = %262
-  %264 = icmp slt i32 %.1658, 2
+  %264 = icmp slt i32 %.0657, 2
   %265 = icmp ult i32 %.0737, 2
   %or.cond17 = and i1 %264, %265
   br i1 %or.cond17, label %270, label %266
 
 266:                                              ; preds = %263
-  %267 = icmp slt i32 %.1658, 5
+  %267 = icmp slt i32 %.0657, 5
   %268 = icmp ult i32 %.0737, 5
   %or.cond19 = and i1 %267, %268
   br i1 %or.cond19, label %270, label %269
 
 269:                                              ; preds = %266
-  %.sroa.speculated585 = call i32 @llvm.smax.i32(i32 %.1658, i32 %.0737)
+  %.sroa.speculated585 = call i32 @llvm.smax.i32(i32 %.0657, i32 %.0737)
   br label %270
 
 270:                                              ; preds = %269, %266, %263
@@ -2370,21 +2370,21 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br i1 %273, label %274, label %281
 
 274:                                              ; preds = %270
-  %275 = icmp slt i32 %.1658, 5
+  %275 = icmp slt i32 %.0657, 5
   %276 = icmp ult i32 %.0737, 5
   %or.cond21 = or i1 %275, %276
   %spec.select697 = select i1 %or.cond21, i32 4, i32 %272
   br label %281
 
 277:                                              ; preds = %262
-  %278 = call i32 @llvm.smax.i32(i32 %.0737, i32 %.1658)
+  %278 = call i32 @llvm.smax.i32(i32 %.0737, i32 %.0657)
   %279 = call i32 @llvm.umax.i32(i32 %278, i32 %259)
   %280 = call i32 @llvm.umax.i32(i32 %279, i32 5)
   br label %281
 
 281:                                              ; preds = %274, %258, %277, %270
   %.0664 = phi i32 [ %280, %277 ], [ %272, %270 ], [ %.0737, %258 ], [ %spec.select697, %274 ]
-  %282 = shl nuw nsw i32 %.1660, 3
+  %282 = shl nuw nsw i32 %.0659, 3
   %283 = add nsw i32 %282, -8
   %284 = or disjoint i32 %259, %283
   %285 = and i32 %.0664, 7
@@ -2397,7 +2397,7 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br i1 %or.cond23, label %289, label %291
 
 289:                                              ; preds = %287
-  %290 = call noundef zeroext i1 @_ZNK2cv11_InputArray8sameSizeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.1)
+  %290 = call noundef zeroext i1 @_ZNK2cv11_InputArray8sameSizeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.0648)
   br i1 %290, label %299, label %291
 
 291:                                              ; preds = %287, %289
@@ -2429,17 +2429,17 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br label %606
 
 299:                                              ; preds = %289
-  %300 = call noundef zeroext i1 @_ZNK2cv11_InputArray8sameSizeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.1)
+  %300 = call noundef zeroext i1 @_ZNK2cv11_InputArray8sameSizeERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0648)
   br i1 %300, label %301, label %.critedge361
 
 301:                                              ; preds = %299
   %302 = call noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
   %.not705 = icmp eq i32 %302, %284
-  call void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.1, i32 noundef %284)
+  call void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0648, i32 noundef %284)
   br i1 %.not705, label %307, label %303
 
 .critedge361:                                     ; preds = %299
-  call void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.1, i32 noundef %284)
+  call void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0648, i32 noundef %284)
   br label %303
 
 303:                                              ; preds = %301, %.critedge361
@@ -2456,28 +2456,28 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   br label %307
 
 .critedge359:                                     ; preds = %281
-  call void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.1, i32 noundef %284)
+  call void @_ZNK2cv12_OutputArray14createSameSizeERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0648, i32 noundef %284)
   br label %307
 
 307:                                              ; preds = %303, %.critedge359, %301
-  %308 = icmp eq i32 %.1656, %286
+  %308 = icmp eq i32 %.0655, %286
   br i1 %308, label %311, label %309
 
 309:                                              ; preds = %307
-  %310 = call noundef ptr @_ZN2cv14getConvertFuncEii(i32 noundef %.1656, i32 noundef %286)
+  %310 = call noundef ptr @_ZN2cv14getConvertFuncEii(i32 noundef %.0655, i32 noundef %286)
   br label %311
 
 311:                                              ; preds = %307, %309
   %312 = phi ptr [ %310, %309 ], [ null, %307 ]
-  %313 = icmp eq i32 %.1662, %.1656
+  %313 = icmp eq i32 %.0661, %.0655
   br i1 %313, label %318, label %314
 
 314:                                              ; preds = %311
-  %315 = icmp eq i32 %.1662, %286
+  %315 = icmp eq i32 %.0661, %286
   br i1 %315, label %318, label %316
 
 316:                                              ; preds = %314
-  %317 = call noundef ptr @_ZN2cv14getConvertFuncEii(i32 noundef %.1662, i32 noundef %286)
+  %317 = call noundef ptr @_ZN2cv14getConvertFuncEii(i32 noundef %.0661, i32 noundef %286)
   br label %318
 
 318:                                              ; preds = %311, %316, %314
@@ -2491,19 +2491,19 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
 
 323:                                              ; preds = %318, %321
   %324 = phi ptr [ %322, %321 ], [ null, %318 ]
-  %325 = lshr i32 %.1656, 3
+  %325 = lshr i32 %.0655, 3
   %326 = and i32 %325, 511
   %327 = add nuw nsw i32 %326, 1
-  %328 = shl i32 %.1656, 2
+  %328 = shl i32 %.0655, 2
   %329 = and i32 %328, 28
   %330 = lshr i32 675553809, %329
   %331 = and i32 %330, 15
   %332 = mul nuw nsw i32 %331, %327
   %333 = zext nneg i32 %332 to i64
-  %334 = lshr i32 %.1662, 3
+  %334 = lshr i32 %.0661, 3
   %335 = and i32 %334, 511
   %336 = add nuw nsw i32 %335, 1
-  %337 = shl i32 %.1662, 2
+  %337 = shl i32 %.0661, 2
   %338 = and i32 %337, 28
   %339 = lshr i32 675553809, %338
   %340 = and i32 %339, 15
@@ -2528,22 +2528,22 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
   %357 = udiv i16 %.lhs.trunc, %356
   %.zext = zext nneg i16 %357 to i64
   %358 = call noundef ptr @_ZN2cv15getCopyMaskFuncEm(i64 noundef %350)
-  %359 = call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %.1), !noalias !44
+  %359 = call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %.0648), !noalias !44
   %360 = icmp eq i32 %359, 65536
   br i1 %360, label %361, label %364
 
 361:                                              ; preds = %323
-  %362 = getelementptr inbounds i8, ptr %.1, i64 8
+  %362 = getelementptr inbounds i8, ptr %.0648, i64 8
   %363 = load ptr, ptr %362, align 8, !noalias !44
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %363)
   br label %_ZNK2cv11_InputArray6getMatEi.exit406
 
 364:                                              ; preds = %323
-  call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %28, ptr noundef nonnull align 8 dereferenceable(24) %.1, i32 noundef -1)
+  call void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %28, ptr noundef nonnull align 8 dereferenceable(24) %.0648, i32 noundef -1)
   br label %_ZNK2cv11_InputArray6getMatEi.exit406
 
 _ZNK2cv11_InputArray6getMatEi.exit406:            ; preds = %361, %364
-  %365 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %.1654)
+  %365 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %.0653)
           to label %.noexc408 unwind label %399
 
 .noexc408:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit406
@@ -2551,13 +2551,13 @@ _ZNK2cv11_InputArray6getMatEi.exit406:            ; preds = %361, %364
   br i1 %366, label %367, label %370
 
 367:                                              ; preds = %.noexc408
-  %368 = getelementptr inbounds i8, ptr %.1654, i64 8
+  %368 = getelementptr inbounds i8, ptr %.0653, i64 8
   %369 = load ptr, ptr %368, align 8, !noalias !47
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %369)
           to label %_ZNK2cv11_InputArray6getMatEi.exit411 unwind label %399
 
 370:                                              ; preds = %.noexc408
-  invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %.1654, i32 noundef -1)
+  invoke void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %.0653, i32 noundef -1)
           to label %_ZNK2cv11_InputArray6getMatEi.exit411 unwind label %399
 
 _ZNK2cv11_InputArray6getMatEi.exit411:            ; preds = %367, %370
@@ -2801,7 +2801,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.split.us: ; preds = %_ZN2cv10AutoBu
   %466 = sub nuw i64 %.fr729, %.0292722.us
   %467 = call i64 @llvm.umin.i64(i64 %466, i64 %.0665)
   %468 = trunc i64 %467 to i32
-  %469 = mul nsw i32 %.1660, %468
+  %469 = mul nsw i32 %.0659, %468
   %470 = select i1 %43, ptr %463, ptr %.2281
   br i1 %.not340, label %474, label %471
 
@@ -3031,7 +3031,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit429:  ; preds = %.noexc428, %_ZN2cv1
   %556 = sub nuw i64 %.fr, %.0284724.us
   %557 = call i64 @llvm.umin.i64(i64 %556, i64 %.sroa.speculated)
   %558 = trunc nuw nsw i64 %557 to i32
-  %559 = mul nuw nsw i32 %.1660, %558
+  %559 = mul nuw nsw i32 %.0659, %558
   %560 = select i1 %43, ptr %554, ptr %.4283
   br i1 %.not343, label %564, label %561
 
@@ -3054,8 +3054,8 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit429:  ; preds = %.noexc428, %_ZN2cv1
 
 566:                                              ; preds = %565, %564
   %.0651.us = phi ptr [ %555, %564 ], [ %532, %565 ]
-  %spec.select698.us = select i1 %.1278, ptr %.3282, ptr %.0651.us
-  %spec.select699.us = select i1 %.1278, ptr %.0651.us, ptr %.3282
+  %spec.select698.us = select i1 %.0277, ptr %.3282, ptr %.0651.us
+  %spec.select699.us = select i1 %.0277, ptr %.0651.us, ptr %.3282
   %567 = select i1 %or.cond33, ptr %543, ptr %554
   invoke void %398(ptr noundef %spec.select698.us, i64 noundef 1, ptr noundef %spec.select699.us, i64 noundef 1, ptr noundef %567, i64 noundef 1, i32 noundef %559, i32 noundef 1, ptr noundef %7)
           to label %568 unwind label %.loopexit.split.us

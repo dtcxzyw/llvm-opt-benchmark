@@ -12449,7 +12449,7 @@ if.then1:                                         ; preds = %if.else
 
 if.end10:                                         ; preds = %if.then1, %if.else
   %firstkey.0 = phi i64 [ %4, %if.then1 ], [ 0, %if.else ]
-  %lastkey.1 = phi i64 [ %5, %if.then1 ], [ 0, %if.else ]
+  %lastkey.0 = phi i64 [ %5, %if.then1 ], [ 0, %if.else ]
   %keystep.0 = phi i64 [ %6, %if.then1 ], [ 0, %if.else ]
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 10) #40
   %fullname = getelementptr inbounds i8, ptr %cmd, i64 216
@@ -12545,7 +12545,7 @@ if.end20.i.i:                                     ; preds = %if.then16.i.i, %whi
 
 addReplyFlagsForCommand.exit:                     ; preds = %if.end20.i.i
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %firstkey.0) #40
-  tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %lastkey.1) #40
+  tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %lastkey.0) #40
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %keystep.0) #40
   tail call void @addReplyCommandCategories(ptr noundef %c, ptr noundef nonnull %cmd) #40
   %num_tips.i = getelementptr inbounds i8, ptr %cmd, i64 88
@@ -14490,12 +14490,12 @@ if.then54:                                        ; preds = %if.end30
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end30, %if.then54
-  %info.1 = phi ptr [ %call57, %if.then54 ], [ %call51, %if.end30 ]
-  %call59 = tail call ptr @getListensInfoString(ptr noundef %info.1) #40
+  %info.2 = phi ptr [ %call57, %if.then54 ], [ %call51, %if.end30 ]
+  %call59 = tail call ptr @getListensInfoString(ptr noundef %info.2) #40
   br i1 %tobool1.not, label %lor.lhs.false62, label %if.then66
 
 lor.lhs.false62:                                  ; preds = %lor.lhs.false, %if.end60
-  %info.2258 = phi ptr [ %call59, %if.end60 ], [ %call, %lor.lhs.false ]
+  %info.0258 = phi ptr [ %call59, %if.end60 ], [ %call, %lor.lhs.false ]
   %sections.0256 = phi i32 [ 1, %if.end60 ], [ 0, %lor.lhs.false ]
   %tobool68.not254 = phi i1 [ false, %if.end60 ], [ true, %lor.lhs.false ]
   %call63 = tail call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.337) #40
@@ -14503,7 +14503,7 @@ lor.lhs.false62:                                  ; preds = %lor.lhs.false, %if.
   br i1 %cmp64.not, label %lor.lhs.false79, label %if.then66
 
 if.then66:                                        ; preds = %lor.lhs.false62, %if.end60
-  %info.2257 = phi ptr [ %info.2258, %lor.lhs.false62 ], [ %call59, %if.end60 ]
+  %info.0257 = phi ptr [ %info.0258, %lor.lhs.false62 ], [ %call59, %if.end60 ]
   %sections.0255 = phi i32 [ %sections.0256, %lor.lhs.false62 ], [ 1, %if.end60 ]
   %tobool68.not253 = phi i1 [ %tobool68.not254, %lor.lhs.false62 ], [ false, %if.end60 ]
   br label %for.body.i
@@ -14528,11 +14528,11 @@ getExpansiveClientsInfo.exit:                     ; preds = %for.body.i
   br i1 %tobool68.not253, label %if.end77, label %if.then69
 
 if.then69:                                        ; preds = %getExpansiveClientsInfo.exit
-  %call70 = call ptr @sdscat(ptr noundef %info.2257, ptr noundef nonnull @.str.170) #40
+  %call70 = call ptr @sdscat(ptr noundef %info.0257, ptr noundef nonnull @.str.170) #40
   br label %if.end77
 
 if.end77:                                         ; preds = %getExpansiveClientsInfo.exit, %if.then69
-  %info.3 = phi ptr [ %call70, %if.then69 ], [ %info.2257, %getExpansiveClientsInfo.exit ]
+  %info.4 = phi ptr [ %call70, %if.then69 ], [ %info.0257, %getExpansiveClientsInfo.exit ]
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1432), align 8
   %len = getelementptr inbounds i8, ptr %20, i64 40
   %21 = load i64, ptr %len, align 8
@@ -14549,18 +14549,18 @@ if.end77:                                         ; preds = %getExpansiveClients
   %call75 = call i64 @raxSize(ptr noundef %28) #40
   %29 = load i64, ptr %blocking_keys, align 8
   %30 = load i64, ptr %blocking_keys_on_nokey, align 8
-  %call76 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.3, ptr noundef nonnull @.str.359, i64 noundef %sub73, i64 noundef %call74, i32 noundef %24, i64 noundef %spec.select.i, i64 noundef %o.1.i, i32 noundef %25, i32 noundef %26, i32 noundef %27, i64 noundef %call75, i64 noundef %29, i64 noundef %30) #40
+  %call76 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.4, ptr noundef nonnull @.str.359, i64 noundef %sub73, i64 noundef %call74, i32 noundef %24, i64 noundef %spec.select.i, i64 noundef %o.1.i, i32 noundef %25, i32 noundef %26, i32 noundef %27, i64 noundef %call75, i64 noundef %29, i64 noundef %30) #40
   br i1 %tobool1.not, label %lor.lhs.false79, label %if.then83
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false62, %if.end77
-  %info.4264 = phi ptr [ %call76, %if.end77 ], [ %info.2258, %lor.lhs.false62 ]
+  %info.3264 = phi ptr [ %call76, %if.end77 ], [ %info.0258, %lor.lhs.false62 ]
   %sections.1262 = phi i32 [ %inc67, %if.end77 ], [ %sections.0256, %lor.lhs.false62 ]
   %call80 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.338) #40
   %cmp81.not = icmp eq ptr %call80, null
   br i1 %cmp81.not, label %lor.lhs.false139, label %if.then83
 
 if.then83:                                        ; preds = %lor.lhs.false79, %if.end77
-  %info.4263 = phi ptr [ %info.4264, %lor.lhs.false79 ], [ %call76, %if.end77 ]
+  %info.3263 = phi ptr [ %info.3264, %lor.lhs.false79 ], [ %call76, %if.end77 ]
   %sections.1261 = phi i32 [ %sections.1262, %lor.lhs.false79 ], [ %inc67, %if.end77 ]
   %call84 = call i64 @zmalloc_used_memory() #40
   %31 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5440), align 8
@@ -14599,11 +14599,11 @@ if.end92:                                         ; preds = %if.then91, %if.then
   br i1 %tobool102.not, label %if.end137, label %if.then103
 
 if.then103:                                       ; preds = %if.end92
-  %call104 = call ptr @sdscat(ptr noundef %info.4263, ptr noundef nonnull @.str.170) #40
+  %call104 = call ptr @sdscat(ptr noundef %info.3263, ptr noundef nonnull @.str.170) #40
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end92, %if.then103
-  %info.5 = phi ptr [ %call104, %if.then103 ], [ %info.4263, %if.end92 ]
+  %info.6 = phi ptr [ %call104, %if.then103 ], [ %info.3263, %if.end92 ]
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2240), align 8
   %39 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2112), align 8
   %peak_perc = getelementptr inbounds i8, ptr %call88, i64 116
@@ -14670,7 +14670,7 @@ if.end137:                                        ; preds = %if.end92, %if.then1
   %68 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 140), align 4
   %call134 = call i64 @lazyfreeGetPendingObjectsCount() #40
   %call135 = call i64 @lazyfreeGetFreedObjectsCount() #40
-  %call136 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.5, ptr noundef nonnull @.str.360, i64 noundef %call84, ptr noundef nonnull %hmem, i64 noundef %38, ptr noundef nonnull %used_memory_rss_hmem, i64 noundef %39, ptr noundef nonnull %peak_hmem, double noundef %conv109, i64 noundef %41, i64 noundef %42, i64 noundef %43, double noundef %conv110, i64 noundef %45, i64 noundef %46, i64 noundef %47, i64 noundef %31, ptr noundef nonnull %total_system_hmem, i64 noundef %call86, i64 noundef %call86, ptr noundef nonnull %used_memory_lua_hmem, i64 noundef %48, i64 noundef %add118, i64 noundef %call119, i64 noundef %call120, i64 noundef %call87, i64 noundef %add, ptr noundef nonnull %used_memory_vm_total_hmem, i64 noundef %51, i64 noundef %add126, ptr noundef nonnull %used_memory_scripts_hmem, i64 noundef %53, ptr noundef nonnull %maxmemory_hmem, ptr noundef %call85, double noundef %conv129, i64 noundef %55, double noundef %conv130, i64 noundef %57, double noundef %conv131, i64 noundef %59, double noundef %conv132, i64 noundef %61, i64 noundef %call133, i64 noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.361, i32 noundef %68, i64 noundef %call134, i64 noundef %call135) #40
+  %call136 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.6, ptr noundef nonnull @.str.360, i64 noundef %call84, ptr noundef nonnull %hmem, i64 noundef %38, ptr noundef nonnull %used_memory_rss_hmem, i64 noundef %39, ptr noundef nonnull %peak_hmem, double noundef %conv109, i64 noundef %41, i64 noundef %42, i64 noundef %43, double noundef %conv110, i64 noundef %45, i64 noundef %46, i64 noundef %47, i64 noundef %31, ptr noundef nonnull %total_system_hmem, i64 noundef %call86, i64 noundef %call86, ptr noundef nonnull %used_memory_lua_hmem, i64 noundef %48, i64 noundef %add118, i64 noundef %call119, i64 noundef %call120, i64 noundef %call87, i64 noundef %add, ptr noundef nonnull %used_memory_vm_total_hmem, i64 noundef %51, i64 noundef %add126, ptr noundef nonnull %used_memory_scripts_hmem, i64 noundef %53, ptr noundef nonnull %maxmemory_hmem, ptr noundef %call85, double noundef %conv129, i64 noundef %55, double noundef %conv130, i64 noundef %57, double noundef %conv131, i64 noundef %59, double noundef %conv132, i64 noundef %61, i64 noundef %call133, i64 noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.361, i32 noundef %68, i64 noundef %call134, i64 noundef %call135) #40
   call void @freeMemoryOverheadData(ptr noundef nonnull %call88) #40
   br i1 %tobool1.not, label %lor.lhs.false139, label %if.then143.thread
 
@@ -14679,7 +14679,7 @@ if.then143.thread:                                ; preds = %if.end137
   br label %if.then146
 
 lor.lhs.false139:                                 ; preds = %lor.lhs.false79, %if.end137
-  %info.6270 = phi ptr [ %call136, %if.end137 ], [ %info.4264, %lor.lhs.false79 ]
+  %info.5270 = phi ptr [ %call136, %if.end137 ], [ %info.3264, %lor.lhs.false79 ]
   %sections.2268 = phi i32 [ %inc101, %if.end137 ], [ %sections.1262, %lor.lhs.false79 ]
   %call140 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.339) #40
   %cmp141.not = icmp eq ptr %call140, null
@@ -14692,13 +14692,13 @@ if.then143:                                       ; preds = %lor.lhs.false139
 
 if.then146:                                       ; preds = %if.then143.thread, %if.then143
   %inc144276 = phi i32 [ %inc144273, %if.then143.thread ], [ %inc144, %if.then143 ]
-  %info.6269275 = phi ptr [ %call136, %if.then143.thread ], [ %info.6270, %if.then143 ]
-  %call147 = call ptr @sdscat(ptr noundef %info.6269275, ptr noundef nonnull @.str.170) #40
+  %info.5269275 = phi ptr [ %call136, %if.then143.thread ], [ %info.5270, %if.then143 ]
+  %call147 = call ptr @sdscat(ptr noundef %info.5269275, ptr noundef nonnull @.str.170) #40
   br label %if.end148
 
 if.end148:                                        ; preds = %if.then146, %if.then143
   %inc144277 = phi i32 [ %inc144276, %if.then146 ], [ 1, %if.then143 ]
-  %info.7 = phi ptr [ %call147, %if.then146 ], [ %info.6270, %if.then143 ]
+  %info.8 = phi ptr [ %call147, %if.then146 ], [ %info.5270, %if.then143 ]
   %69 = load double, ptr getelementptr inbounds (i8, ptr @server, i64 2368), align 8
   %tobool149 = fcmp une double %69, 0.000000e+00
   br i1 %tobool149, label %if.then150, label %if.else151
@@ -14811,7 +14811,7 @@ cond.end192:                                      ; preds = %cond.end180, %cond.
   %cmp205 = icmp eq i32 %98, 4
   %conv206 = zext i1 %cmp205 to i32
   %105 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2360), align 8
-  %call207 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.7, ptr noundef nonnull @.str.362, i32 noundef %land.ext, i32 noundef %76, i64 noundef %77, i64 noundef %78, i64 noundef %cond168, double noundef %fork_perc.0, i64 noundef %81, i64 noundef %82, i64 noundef %83, i32 noundef %conv170, i64 noundef %85, ptr noundef nonnull %cond173, i64 noundef %87, i64 noundef %cond181, i64 noundef %90, i64 noundef %91, i64 noundef %92, i64 noundef %93, i32 noundef %conv183, i32 noundef %conv185, i32 noundef %95, i64 noundef %96, i64 noundef %cond193, ptr noundef nonnull %cond196, i64 noundef %100, i64 noundef %101, ptr noundef nonnull %cond204, i64 noundef %104, i32 noundef %conv206, i64 noundef %105) #40
+  %call207 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.8, ptr noundef nonnull @.str.362, i32 noundef %land.ext, i32 noundef %76, i64 noundef %77, i64 noundef %78, i64 noundef %cond168, double noundef %fork_perc.0, i64 noundef %81, i64 noundef %82, i64 noundef %83, i32 noundef %conv170, i64 noundef %85, ptr noundef nonnull %cond173, i64 noundef %87, i64 noundef %cond181, i64 noundef %90, i64 noundef %91, i64 noundef %92, i64 noundef %93, i32 noundef %conv183, i32 noundef %conv185, i32 noundef %95, i64 noundef %96, i64 noundef %cond193, ptr noundef nonnull %cond196, i64 noundef %100, i64 noundef %101, ptr noundef nonnull %cond204, i64 noundef %104, i32 noundef %conv206, i64 noundef %105) #40
   %106 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3900), align 4
   %tobool208.not = icmp eq i32 %106, 0
   br i1 %tobool208.not, label %if.end213, label %if.then209
@@ -14869,7 +14869,7 @@ sdslen.exit:                                      ; preds = %if.then209, %sw.bb.
   br label %if.end213
 
 if.end213:                                        ; preds = %sdslen.exit, %cond.end192
-  %info.8 = phi ptr [ %call212, %sdslen.exit ], [ %call207, %cond.end192 ]
+  %info.9 = phi ptr [ %call212, %sdslen.exit ], [ %call207, %cond.end192 ]
   %117 = load volatile i32, ptr getelementptr inbounds (i8, ptr @server, i64 1900), align 4
   %tobool214.not = icmp eq i32 %117, 0
   br i1 %tobool214.not, label %if.end253, label %if.then215
@@ -14901,13 +14901,13 @@ if.then225:                                       ; preds = %if.else223
   %mul229 = fmul double %div228, 1.000000e+02
   %sub230 = sub nsw i64 %120, %121
   %cmp231 = fcmp ogt double %mul229, 0x4058FF5C28F5C28F
-  %perc.0 = select i1 %cmp231, double 0x4058FF5C28F5C28F, double %mul229
+  %perc.1 = select i1 %cmp231, double 0x4058FF5C28F5C28F, double %mul229
   %spec.store.select = call i64 @llvm.smax.i64(i64 %sub230, i64 1)
   br label %if.end240
 
 if.end240:                                        ; preds = %if.else223, %if.then225, %if.then217
   %remaining_bytes.0 = phi i64 [ %sub222, %if.then217 ], [ %spec.store.select, %if.then225 ], [ 1, %if.else223 ]
-  %perc.1 = phi double [ %mul221, %if.then217 ], [ %perc.0, %if.then225 ], [ 0.000000e+00, %if.else223 ]
+  %perc.0 = phi double [ %mul221, %if.then217 ], [ %perc.1, %if.then225 ], [ 0.000000e+00, %if.else223 ]
   %call241 = call i64 @time(ptr noundef null) #40
   %122 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 1936), align 8
   %cmp243 = icmp eq i64 %call241, %122
@@ -14925,22 +14925,22 @@ if.end250:                                        ; preds = %if.end240, %if.else
   %eta.0 = phi i64 [ %div249, %if.else246 ], [ 1, %if.end240 ]
   %123 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 1912), align 8
   %124 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 1920), align 8
-  %call251 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.8, ptr noundef nonnull @.str.366, i64 noundef %122, i64 noundef %123, i64 noundef %124, i64 noundef %.pre403, double noundef %perc.1, i64 noundef %eta.0) #40
+  %call251 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.9, ptr noundef nonnull @.str.366, i64 noundef %122, i64 noundef %123, i64 noundef %124, i64 noundef %.pre403, double noundef %perc.0, i64 noundef %eta.0) #40
   br label %if.end253
 
 if.end253:                                        ; preds = %if.end213, %if.end250
-  %info.9 = phi ptr [ %call251, %if.end250 ], [ %info.8, %if.end213 ]
+  %info.7 = phi ptr [ %call251, %if.end250 ], [ %info.9, %if.end213 ]
   br i1 %tobool1.not, label %lor.lhs.false255, label %if.then259
 
 lor.lhs.false255:                                 ; preds = %lor.lhs.false139, %if.end253
-  %info.9283 = phi ptr [ %info.9, %if.end253 ], [ %info.6270, %lor.lhs.false139 ]
+  %info.7283 = phi ptr [ %info.7, %if.end253 ], [ %info.5270, %lor.lhs.false139 ]
   %sections.3281 = phi i32 [ %inc144277, %if.end253 ], [ %sections.2268, %lor.lhs.false139 ]
   %call256 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.340) #40
   %cmp257.not = icmp eq ptr %call256, null
   br i1 %cmp257.not, label %lor.lhs.false355, label %if.then259
 
 if.then259:                                       ; preds = %lor.lhs.false255, %if.end253
-  %info.9282 = phi ptr [ %info.9283, %lor.lhs.false255 ], [ %info.9, %if.end253 ]
+  %info.7282 = phi ptr [ %info.7283, %lor.lhs.false255 ], [ %info.7, %if.end253 ]
   %sections.3280 = phi i32 [ %sections.3281, %lor.lhs.false255 ], [ %inc144277, %if.end253 ]
   %125 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2032), align 8
   %tobool260.not = icmp eq i64 %125, 0
@@ -14978,11 +14978,11 @@ cond.end270:                                      ; preds = %cond.end264, %cond.
   br i1 %tobool294.not, label %if.end297, label %if.then295
 
 if.then295:                                       ; preds = %cond.end270
-  %call296 = call ptr @sdscat(ptr noundef %info.9282, ptr noundef nonnull @.str.170) #40
+  %call296 = call ptr @sdscat(ptr noundef %info.7282, ptr noundef nonnull @.str.170) #40
   br label %if.end297
 
 if.end297:                                        ; preds = %if.then295, %cond.end270
-  %info.10 = phi ptr [ %call296, %if.then295 ], [ %info.9282, %cond.end270 ]
+  %info.11 = phi ptr [ %call296, %if.then295 ], [ %info.7282, %cond.end270 ]
   %136 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 1968), align 8
   %137 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 1960), align 8
   br label %for.body.i183
@@ -15164,7 +15164,7 @@ if.end353:                                        ; preds = %for.body.i233
   %add341 = add i64 %169, %168
   %div.i231 = sdiv i64 %add.i228, 16
   %div.i240 = sdiv i64 %add.i237, 16
-  %call351 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.10, ptr noundef nonnull @.str.367, i64 noundef %136, i64 noundef %137, i64 noundef %div.i187, i64 noundef %add299, i64 noundef %add300, i64 noundef %133, i64 noundef %134, double noundef %conv304, double noundef %conv308, double noundef %conv312, double noundef %conv316, i64 noundef %143, i64 noundef %144, i64 noundef %145, i64 noundef %146, i64 noundef %147, double noundef %mul317, i64 noundef %149, i64 noundef %div318, i64 noundef %151, i64 noundef %152, i64 noundef %div320, i64 noundef %div321, i64 noundef %154, i64 noundef %155, i64 noundef %add326, i64 noundef %add331, i64 noundef %add336, i64 noundef %165, i64 noundef %166, i64 noundef %add341, i64 noundef %call342, i64 noundef %170, i64 noundef %171, i64 noundef %172, i64 noundef %173, i64 noundef %div344, i64 noundef %div345, i64 noundef %call346, i64 noundef %call347, i64 noundef %call348, i64 noundef %175, i64 noundef %176, i64 noundef %177, i64 noundef %129, i64 noundef %130, i64 noundef %178, i64 noundef %179, i64 noundef %135, i64 noundef %180, i64 noundef %181, i64 noundef %182, i64 noundef %183, i64 noundef %184, i64 noundef %185, i64 noundef %div.i231, i64 noundef %div.i240) #40
+  %call351 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.11, ptr noundef nonnull @.str.367, i64 noundef %136, i64 noundef %137, i64 noundef %div.i187, i64 noundef %add299, i64 noundef %add300, i64 noundef %133, i64 noundef %134, double noundef %conv304, double noundef %conv308, double noundef %conv312, double noundef %conv316, i64 noundef %143, i64 noundef %144, i64 noundef %145, i64 noundef %146, i64 noundef %147, double noundef %mul317, i64 noundef %149, i64 noundef %div318, i64 noundef %151, i64 noundef %152, i64 noundef %div320, i64 noundef %div321, i64 noundef %154, i64 noundef %155, i64 noundef %add326, i64 noundef %add331, i64 noundef %add336, i64 noundef %165, i64 noundef %166, i64 noundef %add341, i64 noundef %call342, i64 noundef %170, i64 noundef %171, i64 noundef %172, i64 noundef %173, i64 noundef %div344, i64 noundef %div345, i64 noundef %call346, i64 noundef %call347, i64 noundef %call348, i64 noundef %175, i64 noundef %176, i64 noundef %177, i64 noundef %129, i64 noundef %130, i64 noundef %178, i64 noundef %179, i64 noundef %135, i64 noundef %180, i64 noundef %181, i64 noundef %182, i64 noundef %183, i64 noundef %184, i64 noundef %185, i64 noundef %div.i231, i64 noundef %div.i240) #40
   %188 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5400), align 8
   %189 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5408), align 8
   %190 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5416), align 8
@@ -15173,29 +15173,29 @@ if.end353:                                        ; preds = %for.body.i233
   br i1 %tobool1.not, label %lor.lhs.false355, label %if.then359
 
 lor.lhs.false355:                                 ; preds = %lor.lhs.false255, %if.end353
-  %info.11289 = phi ptr [ %call.i242, %if.end353 ], [ %info.9283, %lor.lhs.false255 ]
+  %info.10289 = phi ptr [ %call.i242, %if.end353 ], [ %info.7283, %lor.lhs.false255 ]
   %sections.4287 = phi i32 [ %inc293, %if.end353 ], [ %sections.3281, %lor.lhs.false255 ]
   %call356 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.341) #40
   %cmp357.not = icmp eq ptr %call356, null
   br i1 %cmp357.not, label %lor.lhs.false480, label %if.then359
 
 if.then359:                                       ; preds = %lor.lhs.false355, %if.end353
-  %info.11288 = phi ptr [ %info.11289, %lor.lhs.false355 ], [ %call.i242, %if.end353 ]
+  %info.10288 = phi ptr [ %info.10289, %lor.lhs.false355 ], [ %call.i242, %if.end353 ]
   %sections.4286 = phi i32 [ %sections.4287, %lor.lhs.false355 ], [ %inc293, %if.end353 ]
   %inc360 = add nsw i32 %sections.4286, 1
   %tobool361.not = icmp eq i32 %sections.4286, 0
   br i1 %tobool361.not, label %if.end364, label %if.then362
 
 if.then362:                                       ; preds = %if.then359
-  %call363 = call ptr @sdscat(ptr noundef %info.11288, ptr noundef nonnull @.str.170) #40
+  %call363 = call ptr @sdscat(ptr noundef %info.10288, ptr noundef nonnull @.str.170) #40
   br label %if.end364
 
 if.end364:                                        ; preds = %if.then362, %if.then359
-  %info.12 = phi ptr [ %call363, %if.then362 ], [ %info.11288, %if.then359 ]
+  %info.13 = phi ptr [ %call363, %if.then362 ], [ %info.10288, %if.then359 ]
   %192 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %cmp365 = icmp eq ptr %192, null
   %cond367 = select i1 %cmp365, ptr @.str.369, ptr @.str.370
-  %call368 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.12, ptr noundef nonnull @.str.368, ptr noundef nonnull %cond367) #40
+  %call368 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.13, ptr noundef nonnull @.str.368, ptr noundef nonnull %cond367) #40
   %193 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %tobool369.not = icmp eq ptr %193, null
   br i1 %tobool369.not, label %if.end424, label %if.then370
@@ -15278,7 +15278,7 @@ if.then396:                                       ; preds = %cond.end389
 
 if.end410:                                        ; preds = %if.then396, %cond.end389
   %211 = phi i32 [ %.pr, %if.then396 ], [ %208, %cond.end389 ]
-  %info.13 = phi ptr [ %call409, %if.then396 ], [ %call393, %cond.end389 ]
+  %info.15 = phi ptr [ %call409, %if.then396 ], [ %call393, %cond.end389 ]
   %cmp411.not = icmp eq i32 %211, 12
   br i1 %cmp411.not, label %if.end422, label %if.then413
 
@@ -15295,23 +15295,23 @@ cond.true415:                                     ; preds = %if.then413
 
 cond.end419:                                      ; preds = %if.then413, %cond.true415
   %cond420 = phi i64 [ %sub417, %cond.true415 ], [ -1, %if.then413 ]
-  %call421 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.13, ptr noundef nonnull @.str.375, i64 noundef %cond420) #40
+  %call421 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.15, ptr noundef nonnull @.str.375, i64 noundef %cond420) #40
   br label %if.end422
 
 if.end422:                                        ; preds = %cond.end419, %if.end410
-  %info.14 = phi ptr [ %call421, %cond.end419 ], [ %info.13, %if.end410 ]
+  %info.16 = phi ptr [ %call421, %cond.end419 ], [ %info.15, %if.end410 ]
   %214 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4700), align 4
   %215 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
   %216 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4704), align 8
-  %call423 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.14, ptr noundef nonnull @.str.376, i32 noundef %214, i32 noundef %215, i32 noundef %216) #40
+  %call423 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.16, ptr noundef nonnull @.str.376, i32 noundef %214, i32 noundef %215, i32 noundef %216) #40
   br label %if.end424
 
 if.end424:                                        ; preds = %if.end422, %if.end364
-  %info.15 = phi ptr [ %call423, %if.end422 ], [ %call368, %if.end364 ]
+  %info.14 = phi ptr [ %call423, %if.end422 ], [ %call368, %if.end364 ]
   %217 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
   %len425 = getelementptr inbounds i8, ptr %217, i64 40
   %218 = load i64, ptr %len425, align 8
-  %call426 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.15, ptr noundef nonnull @.str.377, i64 noundef %218) #40
+  %call426 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.14, ptr noundef nonnull @.str.377, i64 noundef %218) #40
   %219 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4512), align 8
   %tobool427 = icmp ne i32 %219, 0
   %220 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4516), align 4
@@ -15325,7 +15325,7 @@ if.then429:                                       ; preds = %if.end424
   br label %if.end431
 
 if.end431:                                        ; preds = %if.then429, %if.end424
-  %info.16 = phi ptr [ %call430, %if.then429 ], [ %call426, %if.end424 ]
+  %info.17 = phi ptr [ %call430, %if.then429 ], [ %call426, %if.end424 ]
   %222 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
   %len432 = getelementptr inbounds i8, ptr %222, i64 40
   %223 = load i64, ptr %len432, align 8
@@ -15340,7 +15340,7 @@ if.then434:                                       ; preds = %if.end431
 
 while.body.lr.ph:                                 ; preds = %if.then434, %if.end460
   %call435370379 = phi ptr [ %call435370, %if.end460 ], [ %call435370374, %if.then434 ]
-  %info.17.ph377 = phi ptr [ %call461, %if.end460 ], [ %info.16, %if.then434 ]
+  %info.19.ph377 = phi ptr [ %call461, %if.end460 ], [ %info.17, %if.then434 ]
   %slaveid.0.ph376 = phi i32 [ %inc462, %if.end460 ], [ 0, %if.then434 ]
   br label %while.body
 
@@ -15410,14 +15410,14 @@ if.end460:                                        ; preds = %if.end446, %replsta
   %232 = load i32, ptr %slave_listening_port, align 4
   %repl_ack_off = getelementptr inbounds i8, ptr %224, i64 320
   %233 = load i64, ptr %repl_ack_off, align 8
-  %call461 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.17.ph377, ptr noundef nonnull @.str.379, i32 noundef %slaveid.0.ph376, ptr noundef nonnull %slaveip.0, i32 noundef %232, ptr noundef nonnull %retval.0.i244299302, i64 noundef %233, i64 noundef %lag.0) #40
+  %call461 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.19.ph377, ptr noundef nonnull @.str.379, i32 noundef %slaveid.0.ph376, ptr noundef nonnull %slaveip.0, i32 noundef %232, ptr noundef nonnull %retval.0.i244299302, i64 noundef %233, i64 noundef %lag.0) #40
   %inc462 = add nuw nsw i32 %slaveid.0.ph376, 1
   %call435370 = call ptr @listNext(ptr noundef nonnull %li) #40
   %tobool436.not371 = icmp eq ptr %call435370, null
   br i1 %tobool436.not371, label %if.end463, label %while.body.lr.ph, !llvm.loop !67
 
 if.end463:                                        ; preds = %if.end460, %while.cond.backedge, %if.then434, %if.end431
-  %info.18 = phi ptr [ %info.16, %if.end431 ], [ %info.16, %if.then434 ], [ %info.17.ph377, %while.cond.backedge ], [ %call461, %if.end460 ]
+  %info.18 = phi ptr [ %info.17, %if.end431 ], [ %info.17, %if.then434 ], [ %info.19.ph377, %while.cond.backedge ], [ %call461, %if.end460 ]
   %call464 = call ptr @getFailoverStateString() #40
   %234 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
   %235 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4448), align 8
@@ -15441,25 +15441,25 @@ if.end478:                                        ; preds = %if.end463, %cond.tr
   br i1 %tobool1.not, label %lor.lhs.false480, label %if.then484
 
 lor.lhs.false480:                                 ; preds = %lor.lhs.false355, %if.end478
-  %info.19318 = phi ptr [ %call477, %if.end478 ], [ %info.11289, %lor.lhs.false355 ]
+  %info.12318 = phi ptr [ %call477, %if.end478 ], [ %info.10289, %lor.lhs.false355 ]
   %sections.5316 = phi i32 [ %inc360, %if.end478 ], [ %sections.4287, %lor.lhs.false355 ]
   %call481 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.342) #40
   %cmp482.not = icmp eq ptr %call481, null
   br i1 %cmp482.not, label %lor.lhs.false517, label %if.then484
 
 if.then484:                                       ; preds = %lor.lhs.false480, %if.end478
-  %info.19317 = phi ptr [ %info.19318, %lor.lhs.false480 ], [ %call477, %if.end478 ]
+  %info.12317 = phi ptr [ %info.12318, %lor.lhs.false480 ], [ %call477, %if.end478 ]
   %sections.5315 = phi i32 [ %sections.5316, %lor.lhs.false480 ], [ %inc360, %if.end478 ]
   %inc485 = add nsw i32 %sections.5315, 1
   %tobool486.not = icmp eq i32 %sections.5315, 0
   br i1 %tobool486.not, label %if.end515, label %if.then487
 
 if.then487:                                       ; preds = %if.then484
-  %call488 = call ptr @sdscat(ptr noundef %info.19317, ptr noundef nonnull @.str.170) #40
+  %call488 = call ptr @sdscat(ptr noundef %info.12317, ptr noundef nonnull @.str.170) #40
   br label %if.end515
 
 if.end515:                                        ; preds = %if.then484, %if.then487
-  %info.20 = phi ptr [ %call488, %if.then487 ], [ %info.19317, %if.then484 ]
+  %info.21 = phi ptr [ %call488, %if.then487 ], [ %info.12317, %if.then484 ]
   %call490 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %self_ru) #40
   %call491 = call i32 @getrusage(i32 noundef -1, ptr noundef nonnull %c_ru) #40
   %ru_stime = getelementptr inbounds i8, ptr %self_ru, i64 16
@@ -15476,7 +15476,7 @@ if.end515:                                        ; preds = %if.then484, %if.the
   %246 = load i64, ptr %c_ru, align 8
   %tv_usec503 = getelementptr inbounds i8, ptr %c_ru, i64 8
   %247 = load i64, ptr %tv_usec503, align 8
-  %call504 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.20, ptr noundef nonnull @.str.381, i64 noundef %240, i64 noundef %241, i64 noundef %242, i64 noundef %243, i64 noundef %244, i64 noundef %245, i64 noundef %246, i64 noundef %247) #40
+  %call504 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.21, ptr noundef nonnull @.str.381, i64 noundef %240, i64 noundef %241, i64 noundef %242, i64 noundef %243, i64 noundef %244, i64 noundef %245, i64 noundef %246, i64 noundef %247) #40
   %call505 = call i32 @getrusage(i32 noundef 1, ptr noundef nonnull %m_ru) #40
   %ru_stime506 = getelementptr inbounds i8, ptr %m_ru, i64 16
   %248 = load i64, ptr %ru_stime506, align 8
@@ -15489,7 +15489,7 @@ if.end515:                                        ; preds = %if.then484, %if.the
   br i1 %tobool1.not, label %lor.lhs.false517, label %if.then525
 
 lor.lhs.false517:                                 ; preds = %lor.lhs.false480, %if.end515
-  %info.21324 = phi ptr [ %call514, %if.end515 ], [ %info.19318, %lor.lhs.false480 ]
+  %info.20324 = phi ptr [ %call514, %if.end515 ], [ %info.12318, %lor.lhs.false480 ]
   %sections.6322 = phi i32 [ %inc485, %if.end515 ], [ %sections.5316, %lor.lhs.false480 ]
   %call518 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.343) #40
   %cmp519.not = icmp eq ptr %call518, null
@@ -15501,68 +15501,68 @@ lor.lhs.false521:                                 ; preds = %lor.lhs.false517
   br i1 %cmp523.not, label %lor.lhs.false535, label %if.then525
 
 if.then525:                                       ; preds = %lor.lhs.false521, %lor.lhs.false517, %if.end515
-  %info.21323 = phi ptr [ %info.21324, %lor.lhs.false521 ], [ %info.21324, %lor.lhs.false517 ], [ %call514, %if.end515 ]
+  %info.20323 = phi ptr [ %info.20324, %lor.lhs.false521 ], [ %info.20324, %lor.lhs.false517 ], [ %call514, %if.end515 ]
   %sections.6321 = phi i32 [ %sections.6322, %lor.lhs.false521 ], [ %sections.6322, %lor.lhs.false517 ], [ %inc485, %if.end515 ]
   %inc526 = add nsw i32 %sections.6321, 1
   %tobool527.not = icmp eq i32 %sections.6321, 0
   br i1 %tobool527.not, label %if.end533, label %if.then528
 
 if.then528:                                       ; preds = %if.then525
-  %call529 = call ptr @sdscat(ptr noundef %info.21323, ptr noundef nonnull @.str.170) #40
+  %call529 = call ptr @sdscat(ptr noundef %info.20323, ptr noundef nonnull @.str.170) #40
   br label %if.end533
 
 if.end533:                                        ; preds = %if.then525, %if.then528
-  %info.22 = phi ptr [ %call529, %if.then528 ], [ %info.21323, %if.then525 ]
-  %call531 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.22, ptr noundef nonnull @.str.384) #40
+  %info.23 = phi ptr [ %call529, %if.then528 ], [ %info.20323, %if.then525 ]
+  %call531 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.23, ptr noundef nonnull @.str.384) #40
   %call532 = call ptr @genModulesInfoString(ptr noundef %call531) #40
   br i1 %tobool1.not, label %lor.lhs.false535, label %if.then539
 
 lor.lhs.false535:                                 ; preds = %lor.lhs.false521, %if.end533
-  %info.23330 = phi ptr [ %call532, %if.end533 ], [ %info.21324, %lor.lhs.false521 ]
+  %info.22330 = phi ptr [ %call532, %if.end533 ], [ %info.20324, %lor.lhs.false521 ]
   %sections.7328 = phi i32 [ %inc526, %if.end533 ], [ %sections.6322, %lor.lhs.false521 ]
   %call536 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.385) #40
   %cmp537.not = icmp eq ptr %call536, null
   br i1 %cmp537.not, label %lor.lhs.false549, label %if.then539
 
 if.then539:                                       ; preds = %lor.lhs.false535, %if.end533
-  %info.23329 = phi ptr [ %info.23330, %lor.lhs.false535 ], [ %call532, %if.end533 ]
+  %info.22329 = phi ptr [ %info.22330, %lor.lhs.false535 ], [ %call532, %if.end533 ]
   %sections.7327 = phi i32 [ %sections.7328, %lor.lhs.false535 ], [ %inc526, %if.end533 ]
   %inc540 = add nsw i32 %sections.7327, 1
   %tobool541.not = icmp eq i32 %sections.7327, 0
   br i1 %tobool541.not, label %if.end547, label %if.then542
 
 if.then542:                                       ; preds = %if.then539
-  %call543 = call ptr @sdscat(ptr noundef %info.23329, ptr noundef nonnull @.str.170) #40
+  %call543 = call ptr @sdscat(ptr noundef %info.22329, ptr noundef nonnull @.str.170) #40
   br label %if.end547
 
 if.end547:                                        ; preds = %if.then539, %if.then542
-  %info.24 = phi ptr [ %call543, %if.then542 ], [ %info.23329, %if.then539 ]
-  %call545 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.24, ptr noundef nonnull @.str.386) #40
+  %info.25 = phi ptr [ %call543, %if.then542 ], [ %info.22329, %if.then539 ]
+  %call545 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.25, ptr noundef nonnull @.str.386) #40
   %252 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
   %call546 = call ptr @genRedisInfoStringCommandStats(ptr noundef %call545, ptr noundef %252)
   br i1 %tobool1.not, label %lor.lhs.false549, label %if.then553
 
 lor.lhs.false549:                                 ; preds = %lor.lhs.false535, %if.end547
-  %info.25336 = phi ptr [ %call546, %if.end547 ], [ %info.23330, %lor.lhs.false535 ]
+  %info.24336 = phi ptr [ %call546, %if.end547 ], [ %info.22330, %lor.lhs.false535 ]
   %sections.8334 = phi i32 [ %inc540, %if.end547 ], [ %sections.7328, %lor.lhs.false535 ]
   %call550 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.344) #40
   %cmp551.not = icmp eq ptr %call550, null
   br i1 %cmp551.not, label %lor.lhs.false576, label %if.then553
 
 if.then553:                                       ; preds = %lor.lhs.false549, %if.end547
-  %info.25335 = phi ptr [ %info.25336, %lor.lhs.false549 ], [ %call546, %if.end547 ]
+  %info.24335 = phi ptr [ %info.24336, %lor.lhs.false549 ], [ %call546, %if.end547 ]
   %sections.8333 = phi i32 [ %sections.8334, %lor.lhs.false549 ], [ %inc540, %if.end547 ]
   %inc554 = add nsw i32 %sections.8333, 1
   %tobool555.not = icmp eq i32 %sections.8333, 0
   br i1 %tobool555.not, label %if.end558, label %if.then556
 
 if.then556:                                       ; preds = %if.then553
-  %call557 = call ptr @sdscat(ptr noundef %info.25335, ptr noundef nonnull @.str.170) #40
+  %call557 = call ptr @sdscat(ptr noundef %info.24335, ptr noundef nonnull @.str.170) #40
   br label %if.end558
 
 if.end558:                                        ; preds = %if.then556, %if.then553
-  %info.26 = phi ptr [ %call557, %if.then556 ], [ %info.25335, %if.then553 ]
-  %call559 = call ptr @sdscat(ptr noundef %info.26, ptr noundef nonnull @.str.387) #40
+  %info.27 = phi ptr [ %call557, %if.then556 ], [ %info.24335, %if.then553 ]
+  %call559 = call ptr @sdscat(ptr noundef %info.27, ptr noundef nonnull @.str.387) #40
   %253 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 104), align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %253) #40
   %call560 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.388, ptr noundef null, i64 noundef 0) #40
@@ -15577,7 +15577,7 @@ while.body564.lr.ph:                              ; preds = %if.end558
   br label %while.body564
 
 while.body564:                                    ; preds = %while.body564.lr.ph, %if.end572
-  %info.27383 = phi ptr [ %call559, %while.body564.lr.ph ], [ %call568341, %if.end572 ]
+  %info.28383 = phi ptr [ %call559, %while.body564.lr.ph ], [ %call568341, %if.end572 ]
   %254 = load ptr, ptr %data, align 8
   %255 = load i64, ptr %key_len, align 8
   %conv565 = trunc i64 %255 to i32
@@ -15588,7 +15588,7 @@ while.body564:                                    ; preds = %while.body564.lr.ph
 
 getSafeInfoString.exit.thread:                    ; preds = %while.body564
   %257 = load i64, ptr %254, align 8
-  %call568339 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.27383, ptr noundef nonnull @.str.389, i32 noundef %conv565, ptr noundef %256, i64 noundef %257) #40
+  %call568339 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.28383, ptr noundef nonnull @.str.389, i32 noundef %conv565, ptr noundef %256, i64 noundef %257) #40
   br label %if.end572
 
 if.then571:                                       ; preds = %while.body564
@@ -15599,7 +15599,7 @@ if.then571:                                       ; preds = %while.body564
   store i8 0, ptr %arrayidx.i248, align 1
   %call2.i = call ptr @memmapchars(ptr noundef %call1.i, i64 noundef %255, ptr noundef nonnull @unsafe_info_chars, ptr noundef nonnull @unsafe_info_chars_substs, i64 noundef 4) #40
   %258 = load i64, ptr %254, align 8
-  %call568 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.27383, ptr noundef nonnull @.str.389, i32 noundef %conv565, ptr noundef %call2.i, i64 noundef %258) #40
+  %call568 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.28383, ptr noundef nonnull @.str.389, i32 noundef %conv565, ptr noundef %call2.i, i64 noundef %258) #40
   call void @zfree(ptr noundef nonnull %call1.i) #40
   br label %if.end572
 
@@ -15610,31 +15610,31 @@ if.end572:                                        ; preds = %getSafeInfoString.e
   br i1 %tobool563.not, label %if.end574, label %while.body564, !llvm.loop !68
 
 if.end574:                                        ; preds = %if.end572, %if.end558
-  %info.27.lcssa = phi ptr [ %call559, %if.end558 ], [ %call568341, %if.end572 ]
+  %info.28.lcssa = phi ptr [ %call559, %if.end558 ], [ %call568341, %if.end572 ]
   call void @raxStop(ptr noundef nonnull %ri) #40
   br i1 %tobool1.not, label %lor.lhs.false576, label %if.then580
 
 lor.lhs.false576:                                 ; preds = %lor.lhs.false549, %if.end574
-  %info.28347 = phi ptr [ %info.27.lcssa, %if.end574 ], [ %info.25336, %lor.lhs.false549 ]
+  %info.26347 = phi ptr [ %info.28.lcssa, %if.end574 ], [ %info.24336, %lor.lhs.false549 ]
   %sections.9345 = phi i32 [ %inc554, %if.end574 ], [ %sections.8334, %lor.lhs.false549 ]
   %call577 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.390) #40
   %cmp578.not = icmp eq ptr %call577, null
   br i1 %cmp578.not, label %lor.lhs.false593, label %if.then580
 
 if.then580:                                       ; preds = %lor.lhs.false576, %if.end574
-  %info.28346 = phi ptr [ %info.28347, %lor.lhs.false576 ], [ %info.27.lcssa, %if.end574 ]
+  %info.26346 = phi ptr [ %info.26347, %lor.lhs.false576 ], [ %info.28.lcssa, %if.end574 ]
   %sections.9344 = phi i32 [ %sections.9345, %lor.lhs.false576 ], [ %inc554, %if.end574 ]
   %inc581 = add nsw i32 %sections.9344, 1
   %tobool582.not = icmp eq i32 %sections.9344, 0
   br i1 %tobool582.not, label %if.end585, label %if.then583
 
 if.then583:                                       ; preds = %if.then580
-  %call584 = call ptr @sdscat(ptr noundef %info.28346, ptr noundef nonnull @.str.170) #40
+  %call584 = call ptr @sdscat(ptr noundef %info.26346, ptr noundef nonnull @.str.170) #40
   br label %if.end585
 
 if.end585:                                        ; preds = %if.then583, %if.then580
-  %info.29 = phi ptr [ %call584, %if.then583 ], [ %info.28346, %if.then580 ]
-  %call586 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.29, ptr noundef nonnull @.str.391) #40
+  %info.30 = phi ptr [ %call584, %if.then583 ], [ %info.26346, %if.then580 ]
+  %call586 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.30, ptr noundef nonnull @.str.391) #40
   %259 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3884), align 4
   %tobool587.not = icmp eq i32 %259, 0
   br i1 %tobool587.not, label %if.end591, label %if.then588
@@ -15645,61 +15645,61 @@ if.then588:                                       ; preds = %if.end585
   br label %if.end591
 
 if.end591:                                        ; preds = %if.end585, %if.then588
-  %info.30 = phi ptr [ %call589, %if.then588 ], [ %call586, %if.end585 ]
+  %info.29 = phi ptr [ %call589, %if.then588 ], [ %call586, %if.end585 ]
   br i1 %tobool1.not, label %lor.lhs.false593, label %if.then597
 
 lor.lhs.false593:                                 ; preds = %lor.lhs.false576, %if.end591
-  %info.30353 = phi ptr [ %info.30, %if.end591 ], [ %info.28347, %lor.lhs.false576 ]
+  %info.29353 = phi ptr [ %info.29, %if.end591 ], [ %info.26347, %lor.lhs.false576 ]
   %sections.10351 = phi i32 [ %inc581, %if.end591 ], [ %sections.9345, %lor.lhs.false576 ]
   %call594 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.345) #40
   %cmp595.not = icmp eq ptr %call594, null
   br i1 %cmp595.not, label %lor.lhs.false606, label %if.then597
 
 if.then597:                                       ; preds = %lor.lhs.false593, %if.end591
-  %info.30352 = phi ptr [ %info.30353, %lor.lhs.false593 ], [ %info.30, %if.end591 ]
+  %info.29352 = phi ptr [ %info.29353, %lor.lhs.false593 ], [ %info.29, %if.end591 ]
   %sections.10350 = phi i32 [ %sections.10351, %lor.lhs.false593 ], [ %inc581, %if.end591 ]
   %inc598 = add nsw i32 %sections.10350, 1
   %tobool599.not = icmp eq i32 %sections.10350, 0
   br i1 %tobool599.not, label %if.end604, label %if.then600
 
 if.then600:                                       ; preds = %if.then597
-  %call601 = call ptr @sdscat(ptr noundef %info.30352, ptr noundef nonnull @.str.170) #40
+  %call601 = call ptr @sdscat(ptr noundef %info.29352, ptr noundef nonnull @.str.170) #40
   br label %if.end604
 
 if.end604:                                        ; preds = %if.then597, %if.then600
-  %info.31 = phi ptr [ %call601, %if.then600 ], [ %info.30352, %if.then597 ]
+  %info.32 = phi ptr [ %call601, %if.then600 ], [ %info.29352, %if.then597 ]
   %261 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
-  %call603 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.31, ptr noundef nonnull @.str.392, i32 noundef %261) #40
+  %call603 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.32, ptr noundef nonnull @.str.392, i32 noundef %261) #40
   br i1 %tobool1.not, label %lor.lhs.false606, label %if.then610
 
 lor.lhs.false606:                                 ; preds = %lor.lhs.false593, %if.end604
-  %info.32359 = phi ptr [ %call603, %if.end604 ], [ %info.30353, %lor.lhs.false593 ]
+  %info.31359 = phi ptr [ %call603, %if.end604 ], [ %info.29353, %lor.lhs.false593 ]
   %sections.11357 = phi i32 [ %inc598, %if.end604 ], [ %sections.10351, %lor.lhs.false593 ]
   %call607 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.346) #40
   %cmp608.not = icmp eq ptr %call607, null
   br i1 %cmp608.not, label %if.end633, label %if.then610
 
 if.then610:                                       ; preds = %lor.lhs.false606, %if.end604
-  %info.32358 = phi ptr [ %info.32359, %lor.lhs.false606 ], [ %call603, %if.end604 ]
+  %info.31358 = phi ptr [ %info.31359, %lor.lhs.false606 ], [ %call603, %if.end604 ]
   %sections.11356 = phi i32 [ %sections.11357, %lor.lhs.false606 ], [ %inc598, %if.end604 ]
   %inc611 = add nsw i32 %sections.11356, 1
   %tobool612.not = icmp eq i32 %sections.11356, 0
   br i1 %tobool612.not, label %if.end615, label %if.then613
 
 if.then613:                                       ; preds = %if.then610
-  %call614 = call ptr @sdscat(ptr noundef %info.32358, ptr noundef nonnull @.str.170) #40
+  %call614 = call ptr @sdscat(ptr noundef %info.31358, ptr noundef nonnull @.str.170) #40
   br label %if.end615
 
 if.end615:                                        ; preds = %if.then613, %if.then610
-  %info.33 = phi ptr [ %call614, %if.then613 ], [ %info.32358, %if.then610 ]
-  %call616 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.33, ptr noundef nonnull @.str.393) #40
+  %info.34 = phi ptr [ %call614, %if.then613 ], [ %info.31358, %if.then610 ]
+  %call616 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.34, ptr noundef nonnull @.str.393) #40
   %262 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %cmp617385 = icmp sgt i32 %262, 0
   br i1 %cmp617385, label %for.body, label %if.end633
 
 for.body:                                         ; preds = %if.end615, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end615 ]
-  %info.34387 = phi ptr [ %info.35, %for.inc ], [ %call616, %if.end615 ]
+  %info.35387 = phi ptr [ %info.36, %for.inc ], [ %call616, %if.end615 ]
   %263 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 64), align 8
   %arrayidx619 = getelementptr inbounds %struct.redisDb, ptr %263, i64 %indvars.iv
   %call620 = call i64 @dbSize(ptr noundef %arrayidx619, i32 noundef 0) #40
@@ -15716,11 +15716,11 @@ if.then627:                                       ; preds = %for.body
   %avg_ttl = getelementptr inbounds %struct.redisDb, ptr %265, i64 %indvars.iv, i32 7
   %266 = load i64, ptr %avg_ttl, align 8
   %267 = trunc nuw nsw i64 %indvars.iv to i32
-  %call630 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.34387, ptr noundef nonnull @.str.394, i32 noundef %267, i64 noundef %call620, i64 noundef %call623, i64 noundef %266) #40
+  %call630 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.35387, ptr noundef nonnull @.str.394, i32 noundef %267, i64 noundef %call620, i64 noundef %call623, i64 noundef %266) #40
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then627, %for.body
-  %info.35 = phi ptr [ %call630, %if.then627 ], [ %info.34387, %for.body ]
+  %info.36 = phi ptr [ %call630, %if.then627 ], [ %info.35387, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %268 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %269 = sext i32 %268 to i64
@@ -15729,7 +15729,7 @@ for.inc:                                          ; preds = %if.then627, %for.bo
 
 if.end633:                                        ; preds = %for.inc, %if.end615, %lor.lhs.false606
   %sections.12 = phi i32 [ %sections.11357, %lor.lhs.false606 ], [ %inc611, %if.end615 ], [ %inc611, %for.inc ]
-  %info.36 = phi ptr [ %info.32359, %lor.lhs.false606 ], [ %call616, %if.end615 ], [ %info.35, %for.inc ]
+  %info.33 = phi ptr [ %info.31359, %lor.lhs.false606 ], [ %call616, %if.end615 ], [ %info.36, %for.inc ]
   br i1 %tobool.not, label %lor.lhs.false635, label %cond.end665
 
 lor.lhs.false635:                                 ; preds = %if.end633
@@ -15758,11 +15758,11 @@ lor.lhs.false659:                                 ; preds = %lor.lhs.false635, %
 
 cond.end665:                                      ; preds = %if.end633, %lor.lhs.false659
   %cond666 = phi ptr [ %spec.select, %lor.lhs.false659 ], [ null, %if.end633 ]
-  %call667 = call ptr @modulesCollectInfo(ptr noundef %info.36, ptr noundef %cond666, i32 noundef 0, i32 noundef %sections.12) #40
+  %call667 = call ptr @modulesCollectInfo(ptr noundef %info.33, ptr noundef %cond666, i32 noundef 0, i32 noundef %sections.12) #40
   br label %if.end668
 
 if.end668:                                        ; preds = %lor.lhs.false639, %cond.end665
-  %info.37 = phi ptr [ %call667, %cond.end665 ], [ %info.36, %lor.lhs.false639 ]
+  %info.37 = phi ptr [ %call667, %cond.end665 ], [ %info.33, %lor.lhs.false639 ]
   %call669 = call ptr @dictFind(ptr noundef %section_dict, ptr noundef nonnull @.str.395) #40
   %cmp670.not = icmp eq ptr %call669, null
   br i1 %cmp670.not, label %if.end679, label %if.then672
@@ -15776,17 +15776,17 @@ if.then675:                                       ; preds = %if.then672
   br label %if.end677
 
 if.end677:                                        ; preds = %if.then675, %if.then672
-  %info.38 = phi ptr [ %call676, %if.then675 ], [ %info.37, %if.then672 ]
+  %info.39 = phi ptr [ %call676, %if.then675 ], [ %info.37, %if.then672 ]
   %272 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3656), align 8
   %273 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3680), align 8
   %274 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3616), align 8
   %275 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3584), align 8
-  %call678 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.38, ptr noundef nonnull @.str.396, i64 noundef %272, i64 noundef %273, i64 noundef %274, i64 noundef %275) #40
+  %call678 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.39, ptr noundef nonnull @.str.396, i64 noundef %272, i64 noundef %273, i64 noundef %274, i64 noundef %275) #40
   br label %if.end679
 
 if.end679:                                        ; preds = %if.end677, %if.end668
-  %info.39 = phi ptr [ %call678, %if.end677 ], [ %info.37, %if.end668 ]
-  ret ptr %info.39
+  %info.38 = phi ptr [ %call678, %if.end677 ], [ %info.37, %if.end668 ]
+  ret ptr %info.38
 }
 
 declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -17839,8 +17839,8 @@ while.body.lr.ph:                                 ; preds = %if.end111
 while.body:                                       ; preds = %while.body.lr.ph, %if.end255
   %indvars.iv187 = phi i64 [ %38, %while.body.lr.ph ], [ %indvars.iv.next188, %if.end255 ]
   %config_from_stdin.0177 = phi i8 [ 0, %while.body.lr.ph ], [ %config_from_stdin.1, %if.end255 ]
-  %handled_last_config_arg.0176 = phi i32 [ 1, %while.body.lr.ph ], [ %handled_last_config_arg.2, %if.end255 ]
-  %options.0175 = phi ptr [ %call55, %while.body.lr.ph ], [ %options.3, %if.end255 ]
+  %handled_last_config_arg.0176 = phi i32 [ 1, %while.body.lr.ph ], [ %handled_last_config_arg.1, %if.end255 ]
+  %options.0175 = phi ptr [ %call55, %while.body.lr.ph ], [ %options.1, %if.end255 ]
   %arrayidx115 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv187
   %40 = load ptr, ptr %arrayidx115, align 8
   %41 = load i8, ptr %40, align 1
@@ -17918,9 +17918,9 @@ if.then152:                                       ; preds = %sdslen.exit
 
 if.end154:                                        ; preds = %if.then149, %if.then152, %sdslen.exit
   %48 = phi ptr [ %.pre, %if.then152 ], [ %40, %sdslen.exit ], [ %40, %if.then149 ]
-  %options.1 = phi ptr [ %call153, %if.then152 ], [ %options.0175, %sdslen.exit ], [ %options.0175, %if.then149 ]
+  %options.2 = phi ptr [ %call153, %if.then152 ], [ %options.0175, %sdslen.exit ], [ %options.0175, %if.then149 ]
   %add.ptr = getelementptr inbounds i8, ptr %48, i64 2
-  %call157 = call ptr @sdscat(ptr noundef %options.1, ptr noundef nonnull %add.ptr) #40
+  %call157 = call ptr @sdscat(ptr noundef %options.2, ptr noundef nonnull %add.ptr) #40
   %call158 = call ptr @sdscat(ptr noundef %call157, ptr noundef nonnull @.str.40) #40
   %49 = load ptr, ptr %arrayidx115, align 8
   %call161 = call ptr @sdssplitargs(ptr noundef %49, ptr noundef nonnull %argc_tmp) #40
@@ -17976,13 +17976,13 @@ land.lhs.true233:                                 ; preds = %land.lhs.true195
 
 if.end245.sink.split:                             ; preds = %land.lhs.true233, %land.lhs.true222, %land.lhs.true195, %land.lhs.true184
   %.str.451.sink = phi ptr [ @.str.451, %land.lhs.true184 ], [ @.str.451, %land.lhs.true195 ], [ @.str.219, %land.lhs.true222 ], [ @.str.219, %land.lhs.true233 ]
-  %handled_last_config_arg.1.ph = phi i32 [ 1, %land.lhs.true184 ], [ 0, %land.lhs.true195 ], [ 1, %land.lhs.true222 ], [ 0, %land.lhs.true233 ]
+  %handled_last_config_arg.2.ph = phi i32 [ 1, %land.lhs.true184 ], [ 0, %land.lhs.true195 ], [ 1, %land.lhs.true222 ], [ 0, %land.lhs.true233 ]
   %call190 = call ptr @sdscat(ptr noundef %call158, ptr noundef nonnull %.str.451.sink) #40
   br label %if.end245
 
 if.end245:                                        ; preds = %if.end245.sink.split, %land.lhs.true168, %land.lhs.true214, %land.lhs.true222, %if.end154, %land.lhs.true233
-  %options.2 = phi ptr [ %call158, %land.lhs.true233 ], [ %call158, %if.end154 ], [ %call158, %land.lhs.true222 ], [ %call158, %land.lhs.true214 ], [ %call158, %land.lhs.true168 ], [ %call190, %if.end245.sink.split ]
-  %handled_last_config_arg.1 = phi i32 [ 0, %land.lhs.true233 ], [ 1, %if.end154 ], [ 0, %land.lhs.true222 ], [ 0, %land.lhs.true214 ], [ 0, %land.lhs.true168 ], [ %handled_last_config_arg.1.ph, %if.end245.sink.split ]
+  %options.3 = phi ptr [ %call158, %land.lhs.true233 ], [ %call158, %if.end154 ], [ %call158, %land.lhs.true222 ], [ %call158, %land.lhs.true214 ], [ %call158, %land.lhs.true168 ], [ %call190, %if.end245.sink.split ]
+  %handled_last_config_arg.2 = phi i32 [ 0, %land.lhs.true233 ], [ 1, %if.end154 ], [ 0, %land.lhs.true222 ], [ 0, %land.lhs.true214 ], [ 0, %land.lhs.true168 ], [ %handled_last_config_arg.2.ph, %if.end245.sink.split ]
   %58 = load i32, ptr %argc_tmp, align 4
   call void @sdsfreesplitres(ptr noundef %call161, i32 noundef %58) #40
   br label %if.end255
@@ -17994,15 +17994,15 @@ if.else246:                                       ; preds = %land.lhs.true126, %
   br label %if.end255
 
 if.end255:                                        ; preds = %land.lhs.true126, %if.end245, %if.else246
-  %options.3 = phi ptr [ %options.2, %if.end245 ], [ %call253, %if.else246 ], [ %options.0175, %land.lhs.true126 ]
-  %handled_last_config_arg.2 = phi i32 [ %handled_last_config_arg.1, %if.end245 ], [ 1, %if.else246 ], [ %handled_last_config_arg.0176, %land.lhs.true126 ]
+  %options.1 = phi ptr [ %options.3, %if.end245 ], [ %call253, %if.else246 ], [ %options.0175, %land.lhs.true126 ]
+  %handled_last_config_arg.1 = phi i32 [ %handled_last_config_arg.2, %if.end245 ], [ 1, %if.else246 ], [ %handled_last_config_arg.0176, %land.lhs.true126 ]
   %config_from_stdin.1 = phi i8 [ %config_from_stdin.0177, %if.end245 ], [ %config_from_stdin.0177, %if.else246 ], [ 1, %land.lhs.true126 ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count189
   br i1 %exitcond190.not, label %while.end, label %while.body, !llvm.loop !77
 
 while.end:                                        ; preds = %if.end255, %if.end111
-  %options.0.lcssa = phi ptr [ %call55, %if.end111 ], [ %options.3, %if.end255 ]
+  %options.0.lcssa = phi ptr [ %call55, %if.end111 ], [ %options.1, %if.end255 ]
   %config_from_stdin.0.lcssa = phi i8 [ 0, %if.end111 ], [ %config_from_stdin.1, %if.end255 ]
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 16), align 8
   call void @loadServerConfig(ptr noundef %59, i8 noundef signext %config_from_stdin.0.lcssa, ptr noundef %options.0.lcssa) #40

@@ -538,9 +538,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3258,7 +3258,7 @@ sw.bb35.i:                                        ; preds = %if.end22.i
 
 sw.epilog.i:                                      ; preds = %sw.bb35.i, %sw.bb29.i, %if.end26.i, %if.end22.i
   %sawAnd.0 = phi i1 [ false, %if.end22.i ], [ false, %sw.bb29.i ], [ false, %if.end26.i ], [ true, %sw.bb35.i ]
-  %retval.sroa.5.0.i = phi i32 [ 1, %if.end22.i ], [ %spec.select.i, %sw.bb29.i ], [ -1, %if.end26.i ], [ 1, %sw.bb35.i ]
+  %retval.sroa.5.2.i = phi i32 [ 1, %if.end22.i ], [ %spec.select.i, %sw.bb29.i ], [ -1, %if.end26.i ], [ 1, %sw.bb35.i ]
   %26 = load ptr, ptr %bytes_.i.i.i, align 8
   store ptr %26, ptr %pos_.i.i.i, align 8
   store i32 -1, ptr %remainingMatchLength_.i.i.i, align 8
@@ -3321,14 +3321,14 @@ _ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i: ; preds = %whi
 if.end47.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit58.i, %if.then8.i
   %this.val.i182 = phi i32 [ %previ.1.i42.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit58.i ], [ %previ.1.i.i, %if.then8.i ], [ %previ.1.i83.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i ]
   %sawAnd.1 = phi i1 [ false, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit58.i ], [ false, %if.then8.i ], [ %sawAnd.0, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i ]
-  %retval.sroa.5.1.i = phi i32 [ -1, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit58.i ], [ 1, %if.then8.i ], [ %retval.sroa.5.0.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i ]
+  %retval.sroa.5.1.i = phi i32 [ -1, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit58.i ], [ 1, %if.then8.i ], [ %retval.sroa.5.2.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i ]
   %token.sroa.0.0.i = phi i32 [ %match.1.i43.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit58.i ], [ %match.1.i.i, %if.then8.i ], [ %match.1.i84.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit99.i ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i, %if.end47.i
   %this.val.i = phi i32 [ %this.val.i182, %if.end47.i ], [ %previ.1.i127.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
-  %retval.sroa.5.2.i = phi i32 [ %retval.sroa.5.1.i, %if.end47.i ], [ %retval.sroa.5.3.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
-  %retval.sroa.3.0.i = phi i32 [ 30, %if.end47.i ], [ %retval.sroa.3.1.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
+  %retval.sroa.5.3.i = phi i32 [ %retval.sroa.5.1.i, %if.end47.i ], [ %retval.sroa.5.4.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
+  %retval.sroa.3.1.i = phi i32 [ 30, %if.end47.i ], [ %retval.sroa.3.2.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
   %token.sroa.0.1.i = phi i32 [ %token.sroa.0.0.i, %if.end47.i ], [ %match.1.i128.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
   %state.0.i = phi i32 [ 0, %if.end47.i ], [ %state.1.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
   %cmp.i102.i = icmp ult i32 %token.sroa.0.1.i, 128
@@ -3349,7 +3349,7 @@ sw.bb49.i:                                        ; preds = %if.end9.i107.i
 if.end52.i:                                       ; preds = %sw.bb49.i
   %sext.i = shl i32 %token.sroa.0.1.i, 24
   %conv.i13 = ashr exact i32 %sext.i, 24
-  %mul.i = mul nsw i32 %conv.i13, %retval.sroa.5.2.i
+  %mul.i = mul nsw i32 %conv.i13, %retval.sroa.5.3.i
   br label %sw.epilog62.i
 
 sw.bb55.i:                                        ; preds = %while.body.i
@@ -3361,8 +3361,8 @@ if.end58.i:                                       ; preds = %sw.bb55.i
   br label %sw.epilog62.i
 
 sw.epilog62.i:                                    ; preds = %if.end58.i, %if.end52.i
-  %retval.sroa.5.3.i = phi i32 [ %retval.sroa.5.2.i, %if.end58.i ], [ %mul.i, %if.end52.i ]
-  %retval.sroa.3.1.i = phi i32 [ %sub.i.i, %if.end58.i ], [ %retval.sroa.3.0.i, %if.end52.i ]
+  %retval.sroa.5.4.i = phi i32 [ %retval.sroa.5.3.i, %if.end58.i ], [ %mul.i, %if.end52.i ]
+  %retval.sroa.3.2.i = phi i32 [ %sub.i.i, %if.end58.i ], [ %retval.sroa.3.1.i, %if.end52.i ]
   %state.1.i = phi i32 [ 2, %if.end58.i ], [ 1, %if.end52.i ]
   %this.val18.i = load i32, ptr %length_.i, align 8
   %cmp.i114.i = icmp slt i32 %this.val.i, %this.val18.i
@@ -3431,11 +3431,11 @@ _ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i: ; preds = %wh
 if.end13:                                         ; preds = %if.end9.i107.i
   %sub.i113.i = add nsw i32 %token.sroa.0.1.i, -512
   %45 = zext nneg i32 %sub.i113.i to i64
-  %retval.sroa.3.0.insert.ext.i = zext i32 %retval.sroa.3.0.i to i64
+  %retval.sroa.3.0.insert.ext.i = zext i32 %retval.sroa.3.1.i to i64
   %retval.sroa.3.0.insert.shift.i = shl nuw i64 %retval.sroa.3.0.insert.ext.i, 32
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i, %45
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %singleUnit, align 8
-  store i32 %retval.sroa.5.2.i, ptr %tmp.coerce.sroa.2.0.singleUnit.sroa_idx, align 8
+  store i32 %retval.sroa.5.3.i, ptr %tmp.coerce.sroa.2.0.singleUnit.sroa_idx, align 8
   %call15 = invoke noundef zeroext i1 @_ZN6icu_7515MeasureUnitImpl16appendSingleUnitERKNS_14SingleUnitImplER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %singleUnit, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

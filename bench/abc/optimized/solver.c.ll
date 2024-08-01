@@ -820,7 +820,7 @@ solver_enqueue.exit:                              ; preds = %46, %70, %vec_uint_
 .lr.ph183:                                        ; preds = %.lr.ph183.lr.ph, %.outer
   %.1.ph203 = phi i32 [ %.0106208, %.lr.ph183.lr.ph ], [ %.2, %.outer ]
   %.1109.ph202 = phi ptr [ %.lcssa, %.lr.ph183.lr.ph ], [ %264, %.outer ]
-  %.0111.ph201 = phi ptr [ %.lcssa, %.lr.ph183.lr.ph ], [ %.2113, %.outer ]
+  %.0111.ph201 = phi ptr [ %.lcssa, %.lr.ph183.lr.ph ], [ %.1112, %.outer ]
   br label %109
 
 109:                                              ; preds = %.lr.ph183, %.backedge
@@ -1042,18 +1042,18 @@ watch_list_push.exit:                             ; preds = %169, %193, %202
   %223 = getelementptr i8, ptr %222, i64 4
   %.val = load i32, ptr %223, align 4
   store i32 %.val, ptr %2, align 8
-  %.2110194 = getelementptr inbounds i8, ptr %.1109182, i64 8
-  %224 = icmp ult ptr %.2110194, %106
+  %.3194 = getelementptr inbounds i8, ptr %.1109182, i64 8
+  %224 = icmp ult ptr %.3194, %106
   br i1 %224, label %.lr.ph198, label %.outer
 
 .lr.ph198:                                        ; preds = %221, %.lr.ph198
-  %.2110196 = phi ptr [ %.2110, %.lr.ph198 ], [ %.2110194, %221 ]
-  %.1112195 = phi ptr [ %225, %.lr.ph198 ], [ %209, %221 ]
-  %225 = getelementptr inbounds i8, ptr %.1112195, i64 8
-  %226 = load i64, ptr %.2110196, align 4
-  store i64 %226, ptr %.1112195, align 4
-  %.2110 = getelementptr inbounds i8, ptr %.2110196, i64 8
-  %227 = icmp ult ptr %.2110, %106
+  %.3196 = phi ptr [ %.3, %.lr.ph198 ], [ %.3194, %221 ]
+  %.2113195 = phi ptr [ %225, %.lr.ph198 ], [ %209, %221 ]
+  %225 = getelementptr inbounds i8, ptr %.2113195, i64 8
+  %226 = load i64, ptr %.3196, align 4
+  store i64 %226, ptr %.2113195, align 4
+  %.3 = getelementptr inbounds i8, ptr %.3196, i64 8
+  %227 = icmp ult ptr %.3, %106
   br i1 %227, label %.lr.ph198, label %.outer, !llvm.loop !14
 
 228:                                              ; preds = %._crit_edge193
@@ -1127,16 +1127,16 @@ solver_enqueue.exit157:                           ; preds = %228, %249, %vec_uin
   br label %.outer
 
 .outer:                                           ; preds = %.lr.ph198, %221, %151, %solver_enqueue.exit157, %watch_list_push.exit
-  %.2113 = phi ptr [ %152, %151 ], [ %.0111181, %watch_list_push.exit ], [ %209, %solver_enqueue.exit157 ], [ %209, %221 ], [ %225, %.lr.ph198 ]
-  %.3 = phi ptr [ %.1109182, %151 ], [ %.1109182, %watch_list_push.exit ], [ %.1109182, %solver_enqueue.exit157 ], [ %.2110194, %221 ], [ %.2110, %.lr.ph198 ]
+  %.1112 = phi ptr [ %152, %151 ], [ %.0111181, %watch_list_push.exit ], [ %209, %solver_enqueue.exit157 ], [ %209, %221 ], [ %225, %.lr.ph198 ]
+  %.2110 = phi ptr [ %.1109182, %151 ], [ %.1109182, %watch_list_push.exit ], [ %.1109182, %solver_enqueue.exit157 ], [ %.3194, %221 ], [ %.3, %.lr.ph198 ]
   %.2 = phi i32 [ %.1.ph203, %151 ], [ %.1.ph203, %watch_list_push.exit ], [ %.1.ph203, %solver_enqueue.exit157 ], [ %220, %221 ], [ %220, %.lr.ph198 ]
-  %264 = getelementptr inbounds i8, ptr %.3, i64 8
+  %264 = getelementptr inbounds i8, ptr %.2110, i64 8
   %265 = icmp ult ptr %264, %106
   br i1 %265, label %.lr.ph183, label %.outer._crit_edge, !llvm.loop !12
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %._crit_edge
   %.1.ph.lcssa = phi i32 [ %.0106208, %._crit_edge ], [ %.1.ph203, %.backedge ], [ %.2, %.outer ]
-  %.0111.lcssa = phi ptr [ %.lcssa, %._crit_edge ], [ %.0111.be, %.backedge ], [ %.2113, %.outer ]
+  %.0111.lcssa = phi ptr [ %.lcssa, %._crit_edge ], [ %.0111.be, %.backedge ], [ %.1112, %.outer ]
   %.val133 = load ptr, ptr %103, align 8
   %266 = ptrtoint ptr %.0111.lcssa to i64
   %267 = ptrtoint ptr %.val133 to i64

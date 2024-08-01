@@ -6062,9 +6062,9 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %11
-  %.sroa.18.1.lcssa = phi ptr [ null, %11 ], [ %.sroa.18.2, %.preheader.loopexit ]
-  %.sroa.10.1.lcssa = phi i64 [ 0, %11 ], [ %17, %.preheader.loopexit ]
-  %.sroa.084.1.lcssa = phi ptr [ null, %11 ], [ %.sroa.084.2, %.preheader.loopexit ]
+  %.sroa.18.1.lcssa = phi ptr [ null, %11 ], [ %.sroa.18.3, %.preheader.loopexit ]
+  %.sroa.10.0.lcssa = phi i64 [ 0, %11 ], [ %17, %.preheader.loopexit ]
+  %.sroa.084.1.lcssa = phi ptr [ null, %11 ], [ %.sroa.084.3, %.preheader.loopexit ]
   %18 = getelementptr inbounds i8, ptr %2, i64 40
   %19 = load i64, ptr %18, align 8
   %.not137 = icmp eq i64 %19, 0
@@ -6073,7 +6073,7 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 .lr.ph136:                                        ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %2, i64 32
   %21 = ptrtoint ptr %.sroa.084.1.lcssa to i64
-  %22 = sub i64 %.sroa.10.1.lcssa, %21
+  %22 = sub i64 %.sroa.10.0.lcssa, %21
   %23 = ashr exact i64 %22, 3
   %24 = getelementptr inbounds i8, ptr %0, i64 280
   %25 = getelementptr inbounds i8, ptr %0, i64 120
@@ -6089,25 +6089,25 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit
   %.0132 = phi ptr [ %62, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %15, %.lr.ph.preheader ]
-  %.sroa.084.1131 = phi ptr [ %.sroa.084.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %13, %.lr.ph.preheader ]
-  %.sroa.10.1130 = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %13, %.lr.ph.preheader ]
-  %.sroa.18.1129 = phi ptr [ %.sroa.18.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %14, %.lr.ph.preheader ]
+  %.sroa.084.1131 = phi ptr [ %.sroa.084.3, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %13, %.lr.ph.preheader ]
+  %.sroa.10.0130 = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %13, %.lr.ph.preheader ]
+  %.sroa.18.1129 = phi ptr [ %.sroa.18.3, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %14, %.lr.ph.preheader ]
   %34 = load ptr, ptr %.0132, align 8
   %35 = invoke { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %34)
           to label %36 unwind label %.loopexit.split-lp.loopexit
 
 36:                                               ; preds = %.lr.ph
   %37 = extractvalue { ptr, ptr } %35, 0
-  %.not.i.i = icmp eq ptr %.sroa.10.1130, %.sroa.18.1129
+  %.not.i.i = icmp eq ptr %.sroa.10.0130, %.sroa.18.1129
   br i1 %.not.i.i, label %40, label %38
 
 38:                                               ; preds = %36
   %39 = ptrtoint ptr %37 to i64
-  store i64 %39, ptr %.sroa.10.1130, align 8
+  store i64 %39, ptr %.sroa.10.0130, align 8
   br label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit
 
 40:                                               ; preds = %36
-  %41 = ptrtoint ptr %.sroa.10.1130 to i64
+  %41 = ptrtoint ptr %.sroa.10.0130 to i64
   %42 = ptrtoint ptr %.sroa.084.1131 to i64
   %43 = sub i64 %41, %42
   %44 = icmp eq i64 %43, 9223372036854775800
@@ -6140,7 +6140,7 @@ _ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i48:
   %55 = getelementptr inbounds %"struct.Luau::NotNull", ptr %54, i64 %46
   %56 = ptrtoint ptr %37 to i64
   store i64 %56, ptr %55, align 8
-  %.not10.i.i.i.i49 = icmp eq ptr %.sroa.084.1131, %.sroa.10.1130
+  %.not10.i.i.i.i49 = icmp eq ptr %.sroa.084.1131, %.sroa.10.0130
   br i1 %.not10.i.i.i.i49, label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, label %.lr.ph.i.i.i.i50
 
 .lr.ph.i.i.i.i50:                                 ; preds = %_ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i48, %.lr.ph.i.i.i.i50
@@ -6152,7 +6152,7 @@ _ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i48:
   store i64 %57, ptr %.012.i.i.i.i51, align 8, !alias.scope !44, !noalias !47
   %58 = getelementptr inbounds i8, ptr %.0911.i.i.i.i52, i64 8
   %59 = getelementptr inbounds i8, ptr %.012.i.i.i.i51, i64 8
-  %.not.i.i.i.i53 = icmp eq ptr %58, %.sroa.10.1130
+  %.not.i.i.i.i53 = icmp eq ptr %58, %.sroa.10.0130
   br i1 %.not.i.i.i.i53, label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, label %.lr.ph.i.i.i.i50, !llvm.loop !31
 
 _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i50, %_ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i48
@@ -6169,9 +6169,9 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exi
   br label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.noexc34, %38
-  %.sroa.18.2 = phi ptr [ %61, %.noexc34 ], [ %.sroa.18.1129, %38 ]
-  %.0.lcssa.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc34 ], [ %.sroa.10.1130, %38 ]
-  %.sroa.084.2 = phi ptr [ %54, %.noexc34 ], [ %.sroa.084.1131, %38 ]
+  %.sroa.18.3 = phi ptr [ %61, %.noexc34 ], [ %.sroa.18.1129, %38 ]
+  %.0.lcssa.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc34 ], [ %.sroa.10.0130, %38 ]
+  %.sroa.084.3 = phi ptr [ %54, %.noexc34 ], [ %.sroa.084.1131, %38 ]
   %.sroa.10.2 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.pn, i64 8
   %62 = getelementptr inbounds i8, ptr %.0132, i64 8
   %.not = icmp eq ptr %62, %16
@@ -6183,13 +6183,13 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit: ; preds = 
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %51, %.lr.ph
-  %.sroa.18.1129.lcssa = phi ptr [ %.sroa.10.1130, %51 ], [ %.sroa.18.1129, %.lr.ph ]
+  %.sroa.18.1129.lcssa = phi ptr [ %.sroa.10.0130, %51 ], [ %.sroa.18.1129, %.lr.ph ]
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %136, %45
-  %.sroa.18.1127 = phi ptr [ %.sroa.18.1.lcssa, %136 ], [ %.sroa.10.1130, %45 ]
+  %.sroa.18.1127 = phi ptr [ %.sroa.18.1.lcssa, %136 ], [ %.sroa.10.0130, %45 ]
   %.sroa.084.1118 = phi ptr [ %.sroa.084.1.lcssa, %136 ], [ %.sroa.084.1131, %45 ]
   %lpad.loopexit.split-lp111 = landingpad { ptr, i32 }
           cleanup
@@ -7036,9 +7036,9 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %12
-  %.sroa.17.1.lcssa = phi ptr [ null, %12 ], [ %.sroa.17.2, %.preheader.loopexit ]
-  %.sroa.9.1.lcssa = phi i64 [ 0, %12 ], [ %19, %.preheader.loopexit ]
-  %.sroa.040.1.lcssa = phi ptr [ null, %12 ], [ %.sroa.040.2, %.preheader.loopexit ]
+  %.sroa.17.1.lcssa = phi ptr [ null, %12 ], [ %.sroa.17.3, %.preheader.loopexit ]
+  %.sroa.9.0.lcssa = phi i64 [ 0, %12 ], [ %19, %.preheader.loopexit ]
+  %.sroa.040.1.lcssa = phi ptr [ null, %12 ], [ %.sroa.040.3, %.preheader.loopexit ]
   %20 = getelementptr inbounds i8, ptr %2, i64 40
   %21 = load i64, ptr %20, align 8
   %.not83 = icmp eq i64 %21, 0
@@ -7047,7 +7047,7 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 .lr.ph82:                                         ; preds = %.preheader
   %22 = getelementptr inbounds i8, ptr %2, i64 32
   %23 = ptrtoint ptr %.sroa.040.1.lcssa to i64
-  %24 = sub i64 %.sroa.9.1.lcssa, %23
+  %24 = sub i64 %.sroa.9.0.lcssa, %23
   %25 = ashr exact i64 %24, 3
   %26 = getelementptr inbounds i8, ptr %0, i64 280
   %27 = getelementptr inbounds i8, ptr %8, i64 8
@@ -7059,25 +7059,25 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit
   %.078 = phi ptr [ %60, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %17, %.lr.ph.preheader ]
-  %.sroa.040.177 = phi ptr [ %.sroa.040.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %14, %.lr.ph.preheader ]
-  %.sroa.9.176 = phi ptr [ %.sroa.9.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %14, %.lr.ph.preheader ]
-  %.sroa.17.175 = phi ptr [ %.sroa.17.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %15, %.lr.ph.preheader ]
+  %.sroa.040.177 = phi ptr [ %.sroa.040.3, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %14, %.lr.ph.preheader ]
+  %.sroa.9.076 = phi ptr [ %.sroa.9.2, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %14, %.lr.ph.preheader ]
+  %.sroa.17.175 = phi ptr [ %.sroa.17.3, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit ], [ %15, %.lr.ph.preheader ]
   %32 = load ptr, ptr %.078, align 8
   %33 = invoke { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %32)
           to label %34 unwind label %.loopexit.split-lp.loopexit
 
 34:                                               ; preds = %.lr.ph
   %35 = extractvalue { ptr, ptr } %33, 0
-  %.not.i.i = icmp eq ptr %.sroa.9.176, %.sroa.17.175
+  %.not.i.i = icmp eq ptr %.sroa.9.076, %.sroa.17.175
   br i1 %.not.i.i, label %38, label %36
 
 36:                                               ; preds = %34
   %37 = ptrtoint ptr %35 to i64
-  store i64 %37, ptr %.sroa.9.176, align 8
+  store i64 %37, ptr %.sroa.9.076, align 8
   br label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit
 
 38:                                               ; preds = %34
-  %39 = ptrtoint ptr %.sroa.9.176 to i64
+  %39 = ptrtoint ptr %.sroa.9.076 to i64
   %40 = ptrtoint ptr %.sroa.040.177 to i64
   %41 = sub i64 %39, %40
   %42 = icmp eq i64 %41, 9223372036854775800
@@ -7110,7 +7110,7 @@ _ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i29:
   %53 = getelementptr inbounds %"struct.Luau::NotNull", ptr %52, i64 %44
   %54 = ptrtoint ptr %35 to i64
   store i64 %54, ptr %53, align 8
-  %.not10.i.i.i.i30 = icmp eq ptr %.sroa.040.177, %.sroa.9.176
+  %.not10.i.i.i.i30 = icmp eq ptr %.sroa.040.177, %.sroa.9.076
   br i1 %.not10.i.i.i.i30, label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, label %.lr.ph.i.i.i.i31
 
 .lr.ph.i.i.i.i31:                                 ; preds = %_ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i29, %.lr.ph.i.i.i.i31
@@ -7122,7 +7122,7 @@ _ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i29:
   store i64 %55, ptr %.012.i.i.i.i32, align 8, !alias.scope !65, !noalias !68
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i.i33, i64 8
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i.i32, i64 8
-  %.not.i.i.i.i34 = icmp eq ptr %56, %.sroa.9.176
+  %.not.i.i.i.i34 = icmp eq ptr %56, %.sroa.9.076
   br i1 %.not.i.i.i.i34, label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, label %.lr.ph.i.i.i.i31, !llvm.loop !31
 
 _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i31, %_ZNSt12_Vector_baseIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_M_allocateEm.exit.i29
@@ -7139,9 +7139,9 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exi
   br label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit: ; preds = %.noexc23, %36
-  %.sroa.17.2 = phi ptr [ %59, %.noexc23 ], [ %.sroa.17.175, %36 ]
-  %.0.lcssa.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc23 ], [ %.sroa.9.176, %36 ]
-  %.sroa.040.2 = phi ptr [ %52, %.noexc23 ], [ %.sroa.040.177, %36 ]
+  %.sroa.17.3 = phi ptr [ %59, %.noexc23 ], [ %.sroa.17.175, %36 ]
+  %.0.lcssa.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i, %.noexc23 ], [ %.sroa.9.076, %36 ]
+  %.sroa.040.3 = phi ptr [ %52, %.noexc23 ], [ %.sroa.040.177, %36 ]
   %.sroa.9.2 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.pn, i64 8
   %60 = getelementptr inbounds i8, ptr %.078, i64 8
   %.not = icmp eq ptr %60, %18
@@ -7153,7 +7153,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit: ; preds = 
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %49, %.lr.ph
-  %.sroa.17.175.lcssa = phi ptr [ %.sroa.9.176, %49 ], [ %.sroa.17.175, %.lr.ph ]
+  %.sroa.17.175.lcssa = phi ptr [ %.sroa.9.076, %49 ], [ %.sroa.17.175, %.lr.ph ]
   %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -7164,7 +7164,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backEOS4_.exit: ; preds = 
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.sroa.17.172 = phi ptr [ %.sroa.17.1.lcssa, %.loopexit ], [ %.sroa.17.175.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.9.176, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.17.172 = phi ptr [ %.sroa.17.1.lcssa, %.loopexit ], [ %.sroa.17.175.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.9.076, %.loopexit.split-lp.loopexit.split-lp ]
   %.sroa.040.166 = phi ptr [ %.sroa.040.1.lcssa, %.loopexit ], [ %.sroa.040.177, %.loopexit.split-lp.loopexit ], [ %.sroa.040.177, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i = icmp eq ptr %.sroa.040.166, null

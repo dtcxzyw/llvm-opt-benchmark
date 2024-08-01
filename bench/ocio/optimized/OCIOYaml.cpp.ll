@@ -2997,9 +2997,9 @@ for.cond.preheader:                               ; preds = %invoke.cont152
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
-  %defaultFileRuleFound.0 = phi i8 [ 0, %for.cond.preheader ], [ %defaultFileRuleFound.5, %for.cond.backedge ]
-  %mode.0 = phi i32 [ 2, %for.cond.preheader ], [ %mode.2, %for.cond.backedge ]
-  %fileRulesFound.0 = phi i1 [ false, %for.cond.preheader ], [ %fileRulesFound.2, %for.cond.backedge ]
+  %defaultFileRuleFound.0 = phi i8 [ 0, %for.cond.preheader ], [ %defaultFileRuleFound.1, %for.cond.backedge ]
+  %mode.0 = phi i32 [ 2, %for.cond.preheader ], [ %mode.1, %for.cond.backedge ]
+  %fileRulesFound.0 = phi i1 [ false, %for.cond.preheader ], [ %fileRulesFound.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp155, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont157 unwind label %lpad156
 
@@ -4332,9 +4332,9 @@ if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge: ; preds = %if.then.i.i.
 
 if.then.i.i.i.i.i.i.i712:                         ; preds = %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge, %if.then.i.i.i.i.thread.i
   %322 = phi i32 [ %.pre4757, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %add.i.i.i.i.i.i711, %if.then.i.i.i.i.thread.i ]
-  %ref.tmp248.sroa.64738.2 = phi ptr [ %ref.tmp248.sroa.64738.0.copyload4740, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %ref.tmp248.sroa.64738.0.copyload, %if.then.i.i.i.i.thread.i ]
-  %ref.tmp248.sroa.9.2 = phi ptr [ %ref.tmp248.sroa.9.0.copyload4744, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %ref.tmp248.sroa.9.0.copyload, %if.then.i.i.i.i.thread.i ]
-  %ref.tmp248.sroa.0.0 = phi i32 [ %ref.tmp248.sroa.0.0.copyload4732, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %ref.tmp248.sroa.0.0.copyload, %if.then.i.i.i.i.thread.i ]
+  %ref.tmp248.sroa.64738.4 = phi ptr [ %ref.tmp248.sroa.64738.0.copyload4740, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %ref.tmp248.sroa.64738.0.copyload, %if.then.i.i.i.i.thread.i ]
+  %ref.tmp248.sroa.9.4 = phi ptr [ %ref.tmp248.sroa.9.0.copyload4744, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %ref.tmp248.sroa.9.0.copyload, %if.then.i.i.i.i.thread.i ]
+  %ref.tmp248.sroa.0.1 = phi i32 [ %ref.tmp248.sroa.0.0.copyload4732, %if.then.i.i.i.i.i737.if.then.i.i.i.i.i.i.i712_crit_edge ], [ %ref.tmp248.sroa.0.0.copyload, %if.then.i.i.i.i.thread.i ]
   %add.i.i.i.i.i.i.i713 = add nsw i32 %322, 1
   store i32 %add.i.i.i.i.i.i.i713, ptr %_M_use_count.i.i.i.i.i710, align 4, !noalias !12
   br label %if.then.i.i.i5.i
@@ -4350,9 +4350,9 @@ cleanup.action.i:                                 ; preds = %.noexc739
   br label %invoke.cont257
 
 if.then.i.i.i5.i:                                 ; preds = %if.else.i.i.i.i.i.i.i738, %if.then.i.i.i.i.i.i.i712
-  %ref.tmp248.sroa.64738.3 = phi ptr [ %ref.tmp248.sroa.64738.0.copyload4740, %if.else.i.i.i.i.i.i.i738 ], [ %ref.tmp248.sroa.64738.2, %if.then.i.i.i.i.i.i.i712 ]
-  %ref.tmp248.sroa.9.3 = phi ptr [ %ref.tmp248.sroa.9.0.copyload4744, %if.else.i.i.i.i.i.i.i738 ], [ %ref.tmp248.sroa.9.2, %if.then.i.i.i.i.i.i.i712 ]
-  %ref.tmp248.sroa.0.1 = phi i32 [ %ref.tmp248.sroa.0.0.copyload4732, %if.else.i.i.i.i.i.i.i738 ], [ %ref.tmp248.sroa.0.0, %if.then.i.i.i.i.i.i.i712 ]
+  %ref.tmp248.sroa.64738.5 = phi ptr [ %ref.tmp248.sroa.64738.0.copyload4740, %if.else.i.i.i.i.i.i.i738 ], [ %ref.tmp248.sroa.64738.4, %if.then.i.i.i.i.i.i.i712 ]
+  %ref.tmp248.sroa.9.5 = phi ptr [ %ref.tmp248.sroa.9.0.copyload4744, %if.else.i.i.i.i.i.i.i738 ], [ %ref.tmp248.sroa.9.4, %if.then.i.i.i.i.i.i.i712 ]
+  %ref.tmp248.sroa.0.2 = phi i32 [ %ref.tmp248.sroa.0.0.copyload4732, %if.else.i.i.i.i.i.i.i738 ], [ %ref.tmp248.sroa.0.1, %if.then.i.i.i.i.i.i.i712 ]
   %324 = load atomic i64, ptr %_M_use_count.i.i.i.i.i710 acquire, align 8, !noalias !12
   %cmp.i.i.i.i.i714 = icmp eq i64 %324, 4294967297
   %325 = trunc i64 %324 to i32
@@ -4420,38 +4420,38 @@ if.end8.sink.split.i.i.i.i.i730:                  ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont257
 
 invoke.cont257:                                   ; preds = %if.end.i705, %invoke.cont251, %if.end8.sink.split.i.i.i.i.i730, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717, %cleanup.action.i
-  %ref.tmp248.sroa.64738.4 = phi ptr [ %ref.tmp248.sroa.64738.0.copyload4742, %cleanup.action.i ], [ %ref.tmp248.sroa.64738.3, %if.end8.sink.split.i.i.i.i.i730 ], [ %ref.tmp248.sroa.64738.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %ref.tmp248.sroa.64738.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ null, %invoke.cont251 ], [ null, %if.end.i705 ]
-  %ref.tmp248.sroa.9.4 = phi ptr [ %ref.tmp248.sroa.9.0.copyload4746, %cleanup.action.i ], [ %ref.tmp248.sroa.9.3, %if.end8.sink.split.i.i.i.i.i730 ], [ %ref.tmp248.sroa.9.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %ref.tmp248.sroa.9.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ null, %invoke.cont251 ], [ null, %if.end.i705 ]
-  %ref.tmp248.sroa.13.4 = phi ptr [ null, %cleanup.action.i ], [ %317, %if.end8.sink.split.i.i.i.i.i730 ], [ %317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ null, %invoke.cont251 ], [ null, %if.end.i705 ]
-  %ref.tmp248.sroa.0.2 = phi i32 [ %ref.tmp248.sroa.0.0.copyload4733, %cleanup.action.i ], [ %ref.tmp248.sroa.0.1, %if.end8.sink.split.i.i.i.i.i730 ], [ %ref.tmp248.sroa.0.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %ref.tmp248.sroa.0.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ 0, %invoke.cont251 ], [ 0, %if.end.i705 ]
+  %ref.tmp248.sroa.64738.3 = phi ptr [ %ref.tmp248.sroa.64738.0.copyload4742, %cleanup.action.i ], [ %ref.tmp248.sroa.64738.5, %if.end8.sink.split.i.i.i.i.i730 ], [ %ref.tmp248.sroa.64738.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %ref.tmp248.sroa.64738.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ null, %invoke.cont251 ], [ null, %if.end.i705 ]
+  %ref.tmp248.sroa.9.3 = phi ptr [ %ref.tmp248.sroa.9.0.copyload4746, %cleanup.action.i ], [ %ref.tmp248.sroa.9.5, %if.end8.sink.split.i.i.i.i.i730 ], [ %ref.tmp248.sroa.9.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %ref.tmp248.sroa.9.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ null, %invoke.cont251 ], [ null, %if.end.i705 ]
+  %ref.tmp248.sroa.13.3 = phi ptr [ null, %cleanup.action.i ], [ %317, %if.end8.sink.split.i.i.i.i.i730 ], [ %317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ null, %invoke.cont251 ], [ null, %if.end.i705 ]
+  %ref.tmp248.sroa.0.0 = phi i32 [ %ref.tmp248.sroa.0.0.copyload4733, %cleanup.action.i ], [ %ref.tmp248.sroa.0.2, %if.end8.sink.split.i.i.i.i.i730 ], [ %ref.tmp248.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i727 ], [ %ref.tmp248.sroa.0.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i717 ], [ 0, %invoke.cont251 ], [ 0, %if.end.i705 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %334 = load i32, ptr %it, align 8
-  %cmp.not.i.i.i740 = icmp eq i32 %334, %ref.tmp248.sroa.0.2
+  %cmp.not.i.i.i740 = icmp eq i32 %334, %ref.tmp248.sroa.0.0
   br i1 %cmp.not.i.i.i740, label %if.end.i.i.i743, label %invoke.cont259
 
 if.end.i.i.i743:                                  ; preds = %invoke.cont257
-  switch i32 %ref.tmp248.sroa.0.2, label %invoke.cont259 [
+  switch i32 %ref.tmp248.sroa.0.0, label %invoke.cont259 [
     i32 2, label %sw.bb6.i.i.i748
     i32 1, label %sw.bb4.i.i.i744
   ]
 
 sw.bb4.i.i.i744:                                  ; preds = %if.end.i.i.i743
   %335 = load ptr, ptr %m_seqIt.i.i.i745, align 8
-  %cmp.i.i.i.i747 = icmp eq ptr %335, %ref.tmp248.sroa.64738.4
+  %cmp.i.i.i.i747 = icmp eq ptr %335, %ref.tmp248.sroa.64738.3
   br label %invoke.cont259
 
 sw.bb6.i.i.i748:                                  ; preds = %if.end.i.i.i743
   %336 = load ptr, ptr %m_mapIt.i.i.i749, align 8
-  %cmp.i3.i.i.i751 = icmp eq ptr %336, %ref.tmp248.sroa.9.4
+  %cmp.i3.i.i.i751 = icmp eq ptr %336, %ref.tmp248.sroa.9.3
   br label %invoke.cont259
 
 invoke.cont259:                                   ; preds = %sw.bb6.i.i.i748, %sw.bb4.i.i.i744, %if.end.i.i.i743, %invoke.cont257
   %retval.0.i.i.i741 = phi i1 [ %cmp.i3.i.i.i751, %sw.bb6.i.i.i748 ], [ %cmp.i.i.i.i747, %sw.bb4.i.i.i744 ], [ false, %invoke.cont257 ], [ true, %if.end.i.i.i743 ]
-  %cmp.not.i.i.i.i754 = icmp eq ptr %ref.tmp248.sroa.13.4, null
+  %cmp.not.i.i.i.i754 = icmp eq ptr %ref.tmp248.sroa.13.3, null
   br i1 %cmp.not.i.i.i.i754, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit784, label %if.then.i.i.i.i755
 
 if.then.i.i.i.i755:                               ; preds = %invoke.cont259
-  %_M_use_count.i.i.i.i.i756 = getelementptr inbounds i8, ptr %ref.tmp248.sroa.13.4, i64 8
+  %_M_use_count.i.i.i.i.i756 = getelementptr inbounds i8, ptr %ref.tmp248.sroa.13.3, i64 8
   %337 = load atomic i64, ptr %_M_use_count.i.i.i.i.i756 acquire, align 8
   %cmp.i.i.i.i.i757 = icmp eq i64 %337, 4294967297
   %338 = trunc i64 %337 to i32
@@ -4459,12 +4459,12 @@ if.then.i.i.i.i755:                               ; preds = %invoke.cont259
 
 if.then.i.i.i.i.i780:                             ; preds = %if.then.i.i.i.i755
   store i32 0, ptr %_M_use_count.i.i.i.i.i756, align 8
-  %_M_weak_count.i.i.i.i.i781 = getelementptr inbounds i8, ptr %ref.tmp248.sroa.13.4, i64 12
+  %_M_weak_count.i.i.i.i.i781 = getelementptr inbounds i8, ptr %ref.tmp248.sroa.13.3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i781, align 4
-  %vtable.i.i.i.i.i782 = load ptr, ptr %ref.tmp248.sroa.13.4, align 8
+  %vtable.i.i.i.i.i782 = load ptr, ptr %ref.tmp248.sroa.13.3, align 8
   %vfn.i.i.i.i.i783 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i782, i64 16
   %339 = load ptr, ptr %vfn.i.i.i.i.i783, align 8
-  call void %339(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp248.sroa.13.4) #24
+  call void %339(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp248.sroa.13.3) #24
   br label %if.end8.sink.split.i.i.i.i.i775
 
 if.end.i.i.i.i.i758:                              ; preds = %if.then.i.i.i.i755
@@ -4487,11 +4487,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i762: ; preds = %if.
   br i1 %cmp6.i.i.i.i.i764, label %if.then7.i.i.i.i.i765, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit784
 
 if.then7.i.i.i.i.i765:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i762
-  %vtable.i.i.i.i.i.i.i766 = load ptr, ptr %ref.tmp248.sroa.13.4, align 8
+  %vtable.i.i.i.i.i.i.i766 = load ptr, ptr %ref.tmp248.sroa.13.3, align 8
   %vfn.i.i.i.i.i.i.i767 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i766, i64 16
   %342 = load ptr, ptr %vfn.i.i.i.i.i.i.i767, align 8
-  call void %342(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp248.sroa.13.4) #24
-  %_M_weak_count.i.i.i.i.i.i.i768 = getelementptr inbounds i8, ptr %ref.tmp248.sroa.13.4, i64 12
+  call void %342(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp248.sroa.13.3) #24
+  %_M_weak_count.i.i.i.i.i.i.i768 = getelementptr inbounds i8, ptr %ref.tmp248.sroa.13.3, i64 12
   %343 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i769 = icmp eq i8 %343, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i769, label %if.else.i.i.i.i.i.i.i.i778, label %if.then.i.i.i.i.i.i.i.i770
@@ -4512,10 +4512,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i772: ; preds = 
   br i1 %cmp.i.i.i.i.i.i.i774, label %if.end8.sink.split.i.i.i.i.i775, label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit784
 
 if.end8.sink.split.i.i.i.i.i775:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i772, %if.then.i.i.i.i.i780
-  %vtable2.i.i.i.i.i.i.i776 = load ptr, ptr %ref.tmp248.sroa.13.4, align 8
+  %vtable2.i.i.i.i.i.i.i776 = load ptr, ptr %ref.tmp248.sroa.13.3, align 8
   %vfn3.i.i.i.i.i.i.i777 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i776, i64 24
   %346 = load ptr, ptr %vfn3.i.i.i.i.i.i.i777, align 8
-  call void %346(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp248.sroa.13.4) #24
+  call void %346(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp248.sroa.13.3) #24
   br label %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit784
 
 _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEED2Ev.exit784: ; preds = %invoke.cont259, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i762, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i772, %if.end8.sink.split.i.i.i.i.i775
@@ -8066,7 +8066,7 @@ ehcleanup669:                                     ; preds = %lpad666, %lpad664
   br label %ehcleanup2016
 
 for.cond672:                                      ; preds = %invoke.cont650, %_ZN4YAML4NodeD2Ev.exit1929
-  %defaultFileRuleFound.1 = phi i8 [ %defaultFileRuleFound.4, %_ZN4YAML4NodeD2Ev.exit1929 ], [ %defaultFileRuleFound.0, %invoke.cont650 ]
+  %defaultFileRuleFound.2 = phi i8 [ %defaultFileRuleFound.3, %_ZN4YAML4NodeD2Ev.exit1929 ], [ %defaultFileRuleFound.0, %invoke.cont650 ]
   %storemerge246 = phi i64 [ %inc, %_ZN4YAML4NodeD2Ev.exit1929 ], [ 0, %invoke.cont650 ]
   store i64 %storemerge246, ptr %i, align 8
   invoke void @_ZNK4YAML6detail13iterator_baseIKNS0_14iterator_valueEEptEv(ptr nonnull sret(%"struct.YAML::detail::iterator_base<const YAML::detail::iterator_value>::proxy") align 8 %ref.tmp673, ptr noundef nonnull align 8 dereferenceable(48) %iter)
@@ -8316,7 +8316,7 @@ invoke.cont697:                                   ; preds = %cond.true.i1769, %c
   br i1 %cmp.i1779, label %if.then701, label %if.else722
 
 if.then701:                                       ; preds = %invoke.cont697
-  %tobool702 = trunc nuw i8 %defaultFileRuleFound.1 to i1
+  %tobool702 = trunc nuw i8 %defaultFileRuleFound.2 to i1
   br i1 %tobool702, label %if.then703, label %if.end720
 
 if.then703:                                       ; preds = %if.then701
@@ -10199,14 +10199,14 @@ ehcleanup306.i:                                   ; preds = %cleanup.action304.i
 
 catch.dispatch.i:                                 ; preds = %lpad135.loopexit.split-lp.i.loopexit, %lpad135.loopexit.split-lp.i.loopexit.split-lp, %ehcleanup306.i, %ehcleanup280.i, %ehcleanup234.i, %ehcleanup193.i, %ehcleanup165.i, %lpad135.loopexit.i
   %.pn36.pn.pn.i = phi { ptr, i32 } [ %.pn36.pn.i, %ehcleanup193.i ], [ %.pn32.pn.i, %ehcleanup165.i ], [ %.pn29.pn.i, %ehcleanup234.i ], [ %.pn26.pn.i, %ehcleanup306.i ], [ %.pn.pn.i, %ehcleanup280.i ], [ %lpad.loopexit.i, %lpad135.loopexit.i ], [ %lpad.loopexit3625, %lpad135.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp3626, %lpad135.loopexit.split-lp.i.loopexit.split-lp ]
-  %ehselector.slot.14.i = extractvalue { ptr, i32 } %.pn36.pn.pn.i, 1
+  %ehselector.slot.5.i = extractvalue { ptr, i32 } %.pn36.pn.pn.i, 1
   %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #24
-  %matches.i = icmp eq i32 %ehselector.slot.14.i, %1047
+  %matches.i = icmp eq i32 %ehselector.slot.5.i, %1047
   br i1 %matches.i, label %catch.i, label %ehcleanup362.i
 
 catch.i:                                          ; preds = %catch.dispatch.i
-  %exn.slot.14.i = extractvalue { ptr, i32 } %.pn36.pn.pn.i, 0
-  %1048 = call ptr @__cxa_begin_catch(ptr %exn.slot.14.i) #24
+  %exn.slot.5.i = extractvalue { ptr, i32 } %.pn36.pn.pn.i, 0
+  %1048 = call ptr @__cxa_begin_catch(ptr %exn.slot.5.i) #24
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os.i)
           to label %invoke.cont339.i unwind label %lpad338.i
 
@@ -10298,7 +10298,7 @@ if.else316.i:                                     ; preds = %if.end307.i
           to label %if.end324.i unwind label %lpad135.loopexit.split-lp.i.loopexit
 
 if.end324.i:                                      ; preds = %if.else316.i, %if.then309.i, %if.end235.i, %if.end194.i
-  %defaultFileRuleFound.2 = phi i8 [ 1, %if.end194.i ], [ %defaultFileRuleFound.1, %if.end235.i ], [ %defaultFileRuleFound.1, %if.then309.i ], [ %defaultFileRuleFound.1, %if.else316.i ]
+  %defaultFileRuleFound.4 = phi i8 [ 1, %if.end194.i ], [ %defaultFileRuleFound.2, %if.end235.i ], [ %defaultFileRuleFound.2, %if.then309.i ], [ %defaultFileRuleFound.2, %if.else316.i ]
   %1054 = load ptr, ptr %_M_finish.i422.i, align 8
   %1055 = load ptr, ptr %keyVals.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1054 to i64
@@ -10387,7 +10387,7 @@ unreachable.i:                                    ; preds = %invoke.cont299.i, %
   unreachable
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_9FileRulesEERb.exit: ; preds = %_ZNK4YAML4Node3TagB5cxx11Ev.exit.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  %defaultFileRuleFound.3 = phi i8 [ %defaultFileRuleFound.2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i ], [ %defaultFileRuleFound.1, %_ZNK4YAML4Node3TagB5cxx11Ev.exit.i ]
+  %defaultFileRuleFound.5 = phi i8 [ %defaultFileRuleFound.4, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i ], [ %defaultFileRuleFound.2, %_ZNK4YAML4Node3TagB5cxx11Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %stringval.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %colorspace.i)
@@ -10515,7 +10515,7 @@ ehcleanup739:                                     ; preds = %lpad725.loopexit, %
   br label %ehcleanup741
 
 if.end740:                                        ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_9FileRulesEERb.exit, %invoke.cont737
-  %defaultFileRuleFound.4 = phi i8 [ %defaultFileRuleFound.3, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_9FileRulesEERb.exit ], [ %defaultFileRuleFound.1, %invoke.cont737 ]
+  %defaultFileRuleFound.3 = phi i8 [ %defaultFileRuleFound.5, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_9FileRulesEERb.exit ], [ %defaultFileRuleFound.2, %invoke.cont737 ]
   %1071 = load ptr, ptr %_M_refcount.i.i.i1897, align 8
   %cmp.not.i.i.i.i1898 = icmp eq ptr %1071, null
   br i1 %cmp.not.i.i.i.i1898, label %_ZN4YAML4NodeD2Ev.exit1929, label %if.then.i.i.i.i1899
@@ -10600,7 +10600,7 @@ ehcleanup741:                                     ; preds = %lpad696.loopexit, %
   br label %ehcleanup2016
 
 for.end743:                                       ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1726
-  %tobool744 = trunc nuw i8 %defaultFileRuleFound.1 to i1
+  %tobool744 = trunc nuw i8 %defaultFileRuleFound.2 to i1
   br i1 %tobool744, label %cleanup, label %if.then745
 
 if.then745:                                       ; preds = %for.end743
@@ -16693,9 +16693,9 @@ ehcleanup1992:                                    ; preds = %ehcleanup1991, %lpa
   br label %ehcleanup2016
 
 cleanup:                                          ; preds = %invoke.cont1871, %invoke.cont1756, %invoke.cont1658, %invoke.cont1512, %invoke.cont1368, %invoke.cont1168, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366, %if.then.i.i.i1481, %invoke.cont517, %if.then.i.i.i1187, %invoke.cont.i1185, %if.end8.sink.split.i.i.i.i.i840, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827, %for.cond.cleanup263, %if.end199, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432, %for.cond.cleanup580, %invoke.cont855, %for.cond.cleanup994, %invoke.cont1279, %invoke.cont1323, %invoke.cont1989, %invoke.cont1825, %invoke.cont1302, %invoke.cont450, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223, %for.end743, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538
-  %defaultFileRuleFound.5 = phi i8 [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538 ], [ %defaultFileRuleFound.0, %if.end199 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263 ], [ %defaultFileRuleFound.0, %invoke.cont450 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432 ], [ %defaultFileRuleFound.0, %for.cond.cleanup580 ], [ %defaultFileRuleFound.1, %for.end743 ], [ %defaultFileRuleFound.0, %invoke.cont855 ], [ %defaultFileRuleFound.0, %for.cond.cleanup994 ], [ %defaultFileRuleFound.0, %invoke.cont1279 ], [ %defaultFileRuleFound.0, %invoke.cont1302 ], [ %defaultFileRuleFound.0, %invoke.cont1323 ], [ %defaultFileRuleFound.0, %invoke.cont1825 ], [ %defaultFileRuleFound.0, %invoke.cont1989 ], [ %defaultFileRuleFound.0, %for.cond.cleanup263 ], [ %defaultFileRuleFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827 ], [ %defaultFileRuleFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837 ], [ %defaultFileRuleFound.0, %if.end8.sink.split.i.i.i.i.i840 ], [ %defaultFileRuleFound.0, %invoke.cont.i1185 ], [ %defaultFileRuleFound.0, %if.then.i.i.i1187 ], [ %defaultFileRuleFound.0, %invoke.cont517 ], [ %defaultFileRuleFound.0, %if.then.i.i.i1481 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366 ], [ %defaultFileRuleFound.0, %invoke.cont1168 ], [ %defaultFileRuleFound.0, %invoke.cont1368 ], [ %defaultFileRuleFound.0, %invoke.cont1512 ], [ %defaultFileRuleFound.0, %invoke.cont1658 ], [ %defaultFileRuleFound.0, %invoke.cont1756 ], [ %defaultFileRuleFound.0, %invoke.cont1871 ]
-  %mode.2 = phi i32 [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538 ], [ %mode.0, %if.end199 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263 ], [ %mode.0, %invoke.cont450 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432 ], [ %mode.0, %for.cond.cleanup580 ], [ %mode.0, %for.end743 ], [ %mode.0, %invoke.cont855 ], [ %mode.0, %for.cond.cleanup994 ], [ %mode.0, %invoke.cont1279 ], [ %mode.0, %invoke.cont1302 ], [ %mode.0, %invoke.cont1323 ], [ %mode.0, %invoke.cont1825 ], [ %mode.0, %invoke.cont1989 ], [ 1, %for.cond.cleanup263 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837 ], [ 1, %if.end8.sink.split.i.i.i.i.i840 ], [ %mode.0, %invoke.cont.i1185 ], [ %mode.0, %if.then.i.i.i1187 ], [ %mode.0, %invoke.cont517 ], [ %mode.0, %if.then.i.i.i1481 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366 ], [ %mode.0, %invoke.cont1168 ], [ %mode.0, %invoke.cont1368 ], [ %mode.0, %invoke.cont1512 ], [ %mode.0, %invoke.cont1658 ], [ %mode.0, %invoke.cont1756 ], [ %mode.0, %invoke.cont1871 ]
-  %fileRulesFound.2 = phi i1 [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538 ], [ %fileRulesFound.0, %if.end199 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263 ], [ %fileRulesFound.0, %invoke.cont450 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432 ], [ %fileRulesFound.0, %for.cond.cleanup580 ], [ true, %for.end743 ], [ %fileRulesFound.0, %invoke.cont855 ], [ %fileRulesFound.0, %for.cond.cleanup994 ], [ %fileRulesFound.0, %invoke.cont1279 ], [ %fileRulesFound.0, %invoke.cont1302 ], [ %fileRulesFound.0, %invoke.cont1323 ], [ %fileRulesFound.0, %invoke.cont1825 ], [ %fileRulesFound.0, %invoke.cont1989 ], [ %fileRulesFound.0, %for.cond.cleanup263 ], [ %fileRulesFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827 ], [ %fileRulesFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837 ], [ %fileRulesFound.0, %if.end8.sink.split.i.i.i.i.i840 ], [ %fileRulesFound.0, %invoke.cont.i1185 ], [ %fileRulesFound.0, %if.then.i.i.i1187 ], [ %fileRulesFound.0, %invoke.cont517 ], [ %fileRulesFound.0, %if.then.i.i.i1481 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366 ], [ %fileRulesFound.0, %invoke.cont1168 ], [ %fileRulesFound.0, %invoke.cont1368 ], [ %fileRulesFound.0, %invoke.cont1512 ], [ %fileRulesFound.0, %invoke.cont1658 ], [ %fileRulesFound.0, %invoke.cont1756 ], [ %fileRulesFound.0, %invoke.cont1871 ]
+  %defaultFileRuleFound.1 = phi i8 [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538 ], [ %defaultFileRuleFound.0, %if.end199 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263 ], [ %defaultFileRuleFound.0, %invoke.cont450 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432 ], [ %defaultFileRuleFound.0, %for.cond.cleanup580 ], [ %defaultFileRuleFound.2, %for.end743 ], [ %defaultFileRuleFound.0, %invoke.cont855 ], [ %defaultFileRuleFound.0, %for.cond.cleanup994 ], [ %defaultFileRuleFound.0, %invoke.cont1279 ], [ %defaultFileRuleFound.0, %invoke.cont1302 ], [ %defaultFileRuleFound.0, %invoke.cont1323 ], [ %defaultFileRuleFound.0, %invoke.cont1825 ], [ %defaultFileRuleFound.0, %invoke.cont1989 ], [ %defaultFileRuleFound.0, %for.cond.cleanup263 ], [ %defaultFileRuleFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827 ], [ %defaultFileRuleFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837 ], [ %defaultFileRuleFound.0, %if.end8.sink.split.i.i.i.i.i840 ], [ %defaultFileRuleFound.0, %invoke.cont.i1185 ], [ %defaultFileRuleFound.0, %if.then.i.i.i1187 ], [ %defaultFileRuleFound.0, %invoke.cont517 ], [ %defaultFileRuleFound.0, %if.then.i.i.i1481 ], [ %defaultFileRuleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366 ], [ %defaultFileRuleFound.0, %invoke.cont1168 ], [ %defaultFileRuleFound.0, %invoke.cont1368 ], [ %defaultFileRuleFound.0, %invoke.cont1512 ], [ %defaultFileRuleFound.0, %invoke.cont1658 ], [ %defaultFileRuleFound.0, %invoke.cont1756 ], [ %defaultFileRuleFound.0, %invoke.cont1871 ]
+  %mode.1 = phi i32 [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538 ], [ %mode.0, %if.end199 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263 ], [ %mode.0, %invoke.cont450 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432 ], [ %mode.0, %for.cond.cleanup580 ], [ %mode.0, %for.end743 ], [ %mode.0, %invoke.cont855 ], [ %mode.0, %for.cond.cleanup994 ], [ %mode.0, %invoke.cont1279 ], [ %mode.0, %invoke.cont1302 ], [ %mode.0, %invoke.cont1323 ], [ %mode.0, %invoke.cont1825 ], [ %mode.0, %invoke.cont1989 ], [ 1, %for.cond.cleanup263 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837 ], [ 1, %if.end8.sink.split.i.i.i.i.i840 ], [ %mode.0, %invoke.cont.i1185 ], [ %mode.0, %if.then.i.i.i1187 ], [ %mode.0, %invoke.cont517 ], [ %mode.0, %if.then.i.i.i1481 ], [ %mode.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366 ], [ %mode.0, %invoke.cont1168 ], [ %mode.0, %invoke.cont1368 ], [ %mode.0, %invoke.cont1512 ], [ %mode.0, %invoke.cont1658 ], [ %mode.0, %invoke.cont1756 ], [ %mode.0, %invoke.cont1871 ]
+  %fileRulesFound.1 = phi i1 [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit538 ], [ %fileRulesFound.0, %if.end199 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1141 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1223 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1263 ], [ %fileRulesFound.0, %invoke.cont450 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit1432 ], [ %fileRulesFound.0, %for.cond.cleanup580 ], [ true, %for.end743 ], [ %fileRulesFound.0, %invoke.cont855 ], [ %fileRulesFound.0, %for.cond.cleanup994 ], [ %fileRulesFound.0, %invoke.cont1279 ], [ %fileRulesFound.0, %invoke.cont1302 ], [ %fileRulesFound.0, %invoke.cont1323 ], [ %fileRulesFound.0, %invoke.cont1825 ], [ %fileRulesFound.0, %invoke.cont1989 ], [ %fileRulesFound.0, %for.cond.cleanup263 ], [ %fileRulesFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i827 ], [ %fileRulesFound.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i837 ], [ %fileRulesFound.0, %if.end8.sink.split.i.i.i.i.i840 ], [ %fileRulesFound.0, %invoke.cont.i1185 ], [ %fileRulesFound.0, %if.then.i.i.i1187 ], [ %fileRulesFound.0, %invoke.cont517 ], [ %fileRulesFound.0, %if.then.i.i.i1481 ], [ %fileRulesFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit2366 ], [ %fileRulesFound.0, %invoke.cont1168 ], [ %fileRulesFound.0, %invoke.cont1368 ], [ %fileRulesFound.0, %invoke.cont1512 ], [ %fileRulesFound.0, %invoke.cont1658 ], [ %fileRulesFound.0, %invoke.cont1756 ], [ %fileRulesFound.0, %invoke.cont1871 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162) #24
   %1735 = load i32, ptr %iter, align 8
   switch i32 %1735, label %for.cond.backedge [
@@ -30331,8 +30331,8 @@ if.end:                                           ; preds = %_ZNK4YAML4Node3TagB
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end
-  %expectingDisplayCS.0 = phi i8 [ 0, %if.end ], [ %expectingDisplayCS.2, %for.cond.backedge ]
-  %expectingSceneCS.0 = phi i8 [ 0, %if.end ], [ %expectingSceneCS.2, %for.cond.backedge ]
+  %expectingDisplayCS.0 = phi i8 [ 0, %if.end ], [ %expectingDisplayCS.1, %for.cond.backedge ]
+  %expectingSceneCS.0 = phi i8 [ 0, %if.end ], [ %expectingSceneCS.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -31501,8 +31501,8 @@ cleanup.sink.split.sink.split.sink.split:         ; preds = %if.then.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i411.sink = phi ptr [ %_M_use_count.i.i.i.i.i.i.i166, %if.then.i.i.i.i.i.i165 ], [ %_M_use_count.i.i.i.i.i.i.i201, %if.then.i.i.i.i.i.i200 ], [ %_M_use_count.i.i.i.i.i.i.i236, %if.then.i.i.i.i.i.i235 ], [ %_M_use_count.i.i.i.i.i.i.i271, %if.then.i.i.i.i.i.i270 ], [ %_M_use_count.i.i.i.i.i.i.i308, %if.then.i.i.i.i.i.i307 ], [ %_M_use_count.i.i.i.i.i.i.i343, %if.then.i.i.i.i.i.i342 ], [ %_M_use_count.i.i.i.i.i.i.i378, %if.then.i.i.i.i.i.i377 ], [ %_M_use_count.i.i.i.i.i.i.i411, %if.then.i.i.i.i.i.i410 ]
   %.sink535 = phi ptr [ %94, %if.then.i.i.i.i.i.i165 ], [ %104, %if.then.i.i.i.i.i.i200 ], [ %114, %if.then.i.i.i.i.i.i235 ], [ %124, %if.then.i.i.i.i.i.i270 ], [ %134, %if.then.i.i.i.i.i.i307 ], [ %144, %if.then.i.i.i.i.i.i342 ], [ %154, %if.then.i.i.i.i.i.i377 ], [ %164, %if.then.i.i.i.i.i.i410 ]
   %m_invalidKey.i.i.i175.sink.ph.ph = phi ptr [ %m_invalidKey.i.i.i175, %if.then.i.i.i.i.i.i165 ], [ %m_invalidKey.i.i.i210, %if.then.i.i.i.i.i.i200 ], [ %m_invalidKey.i.i.i245, %if.then.i.i.i.i.i.i235 ], [ %m_invalidKey.i.i.i280, %if.then.i.i.i.i.i.i270 ], [ %m_invalidKey.i.i.i317, %if.then.i.i.i.i.i.i307 ], [ %m_invalidKey.i.i.i352, %if.then.i.i.i.i.i.i342 ], [ %m_invalidKey.i.i.i387, %if.then.i.i.i.i.i.i377 ], [ %m_invalidKey.i.i.i420, %if.then.i.i.i.i.i.i410 ]
-  %expectingDisplayCS.2.ph.ph.ph = phi i8 [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i165 ], [ 1, %if.then.i.i.i.i.i.i200 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i235 ], [ 1, %if.then.i.i.i.i.i.i270 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i307 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i342 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i377 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i410 ]
-  %expectingSceneCS.2.ph.ph.ph = phi i8 [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i165 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i200 ], [ 1, %if.then.i.i.i.i.i.i235 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i270 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i307 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i342 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i377 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i410 ]
+  %expectingDisplayCS.1.ph.ph.ph = phi i8 [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i165 ], [ 1, %if.then.i.i.i.i.i.i200 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i235 ], [ 1, %if.then.i.i.i.i.i.i270 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i307 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i342 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i377 ], [ %expectingDisplayCS.0, %if.then.i.i.i.i.i.i410 ]
+  %expectingSceneCS.1.ph.ph.ph = phi i8 [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i165 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i200 ], [ 1, %if.then.i.i.i.i.i.i235 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i270 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i307 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i342 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i377 ], [ %expectingSceneCS.0, %if.then.i.i.i.i.i.i410 ]
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i411.sink, align 8
   %_M_weak_count.i.i.i.i.i.i.i437 = getelementptr inbounds i8, ptr %.sink535, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i437, align 4
@@ -31515,8 +31515,8 @@ cleanup.sink.split.sink.split.sink.split:         ; preds = %if.then.i.i.i.i.i.i
 cleanup.sink.split.sink.split:                    ; preds = %cleanup.sink.split.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183
   %.sink532 = phi ptr [ %94, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %104, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %124, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %134, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %144, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %154, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %164, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %.sink535, %cleanup.sink.split.sink.split.sink.split ]
   %m_invalidKey.i.i.i175.sink.ph = phi ptr [ %m_invalidKey.i.i.i175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %m_invalidKey.i.i.i210, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %m_invalidKey.i.i.i245, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %m_invalidKey.i.i.i280, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %m_invalidKey.i.i.i317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %m_invalidKey.i.i.i352, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %m_invalidKey.i.i.i387, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %m_invalidKey.i.i.i420, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %m_invalidKey.i.i.i175.sink.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
-  %expectingDisplayCS.2.ph.ph = phi i8 [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingDisplayCS.2.ph.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
-  %expectingSceneCS.2.ph.ph = phi i8 [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingSceneCS.2.ph.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
+  %expectingDisplayCS.1.ph.ph = phi i8 [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingDisplayCS.1.ph.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
+  %expectingSceneCS.1.ph.ph = phi i8 [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingSceneCS.1.ph.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i.i.i.i432 = load ptr, ptr %.sink532, align 8
   %vfn3.i.i.i.i.i.i.i.i.i433 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i432, i64 24
   %175 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i433, align 8
@@ -31525,14 +31525,14 @@ cleanup.sink.split.sink.split:                    ; preds = %cleanup.sink.split.
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i417, %invoke.cont116, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i384, %invoke.cont107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i349, %invoke.cont96, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i314, %invoke.cont85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i277, %invoke.cont73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i242, %invoke.cont61, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i207, %invoke.cont50, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i172, %invoke.cont40
   %m_invalidKey.i.i.i175.sink = phi ptr [ %m_invalidKey.i.i.i175, %invoke.cont40 ], [ %m_invalidKey.i.i.i175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i172 ], [ %m_invalidKey.i.i.i175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %m_invalidKey.i.i.i210, %invoke.cont50 ], [ %m_invalidKey.i.i.i210, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i207 ], [ %m_invalidKey.i.i.i210, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %m_invalidKey.i.i.i245, %invoke.cont61 ], [ %m_invalidKey.i.i.i245, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i242 ], [ %m_invalidKey.i.i.i245, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %m_invalidKey.i.i.i280, %invoke.cont73 ], [ %m_invalidKey.i.i.i280, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i277 ], [ %m_invalidKey.i.i.i280, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %m_invalidKey.i.i.i317, %invoke.cont85 ], [ %m_invalidKey.i.i.i317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i314 ], [ %m_invalidKey.i.i.i317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %m_invalidKey.i.i.i352, %invoke.cont96 ], [ %m_invalidKey.i.i.i352, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i349 ], [ %m_invalidKey.i.i.i352, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %m_invalidKey.i.i.i387, %invoke.cont107 ], [ %m_invalidKey.i.i.i387, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i384 ], [ %m_invalidKey.i.i.i387, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %m_invalidKey.i.i.i420, %invoke.cont116 ], [ %m_invalidKey.i.i.i420, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i417 ], [ %m_invalidKey.i.i.i420, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %m_invalidKey.i.i.i175.sink.ph, %cleanup.sink.split.sink.split ]
-  %expectingDisplayCS.2.ph = phi i8 [ %expectingDisplayCS.0, %invoke.cont40 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i172 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ 1, %invoke.cont50 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i207 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %expectingDisplayCS.0, %invoke.cont61 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i242 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ 1, %invoke.cont73 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i277 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingDisplayCS.0, %invoke.cont85 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i314 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingDisplayCS.0, %invoke.cont96 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i349 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingDisplayCS.0, %invoke.cont107 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i384 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingDisplayCS.0, %invoke.cont116 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i417 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingDisplayCS.2.ph.ph, %cleanup.sink.split.sink.split ]
-  %expectingSceneCS.2.ph = phi i8 [ %expectingSceneCS.0, %invoke.cont40 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i172 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %expectingSceneCS.0, %invoke.cont50 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i207 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ 1, %invoke.cont61 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i242 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %expectingSceneCS.0, %invoke.cont73 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i277 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingSceneCS.0, %invoke.cont85 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i314 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingSceneCS.0, %invoke.cont96 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i349 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingSceneCS.0, %invoke.cont107 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i384 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingSceneCS.0, %invoke.cont116 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i417 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingSceneCS.2.ph.ph, %cleanup.sink.split.sink.split ]
+  %expectingDisplayCS.1.ph = phi i8 [ %expectingDisplayCS.0, %invoke.cont40 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i172 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ 1, %invoke.cont50 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i207 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ %expectingDisplayCS.0, %invoke.cont61 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i242 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ 1, %invoke.cont73 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i277 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingDisplayCS.0, %invoke.cont85 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i314 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingDisplayCS.0, %invoke.cont96 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i349 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingDisplayCS.0, %invoke.cont107 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i384 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingDisplayCS.0, %invoke.cont116 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i417 ], [ %expectingDisplayCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingDisplayCS.1.ph.ph, %cleanup.sink.split.sink.split ]
+  %expectingSceneCS.1.ph = phi i8 [ %expectingSceneCS.0, %invoke.cont40 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i172 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i183 ], [ %expectingSceneCS.0, %invoke.cont50 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i207 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i218 ], [ 1, %invoke.cont61 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i242 ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i253 ], [ %expectingSceneCS.0, %invoke.cont73 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i277 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i288 ], [ %expectingSceneCS.0, %invoke.cont85 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i314 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i325 ], [ %expectingSceneCS.0, %invoke.cont96 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i349 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i360 ], [ %expectingSceneCS.0, %invoke.cont107 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i384 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i395 ], [ %expectingSceneCS.0, %invoke.cont116 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i417 ], [ %expectingSceneCS.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i428 ], [ %expectingSceneCS.1.ph.ph, %cleanup.sink.split.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_invalidKey.i.i.i175.sink) #24
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit162
-  %expectingDisplayCS.2 = phi i8 [ %expectingDisplayCS.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit162 ], [ %expectingDisplayCS.2.ph, %cleanup.sink.split ]
-  %expectingSceneCS.2 = phi i8 [ %expectingSceneCS.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit162 ], [ %expectingSceneCS.2.ph, %cleanup.sink.split ]
+  %expectingDisplayCS.1 = phi i8 [ %expectingDisplayCS.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit162 ], [ %expectingDisplayCS.1.ph, %cleanup.sink.split ]
+  %expectingSceneCS.1 = phi i8 [ %expectingSceneCS.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit162 ], [ %expectingSceneCS.1.ph, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %176 = load i32, ptr %iter, align 8
   switch i32 %176, label %for.cond.backedge [
@@ -36380,8 +36380,8 @@ if.end:                                           ; preds = %cond.true.i
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end
-  %isScene.0 = phi i1 [ false, %if.end ], [ %isScene.2, %for.cond.backedge ]
-  %isDisplay.0 = phi i8 [ 0, %if.end ], [ %isDisplay.2, %for.cond.backedge ]
+  %isScene.0 = phi i1 [ false, %if.end ], [ %isScene.1, %for.cond.backedge ]
+  %isDisplay.0 = phi i8 [ 0, %if.end ], [ %isDisplay.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -36960,8 +36960,8 @@ if.else48:                                        ; preds = %if.else45
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else48, %if.end40, %if.else, %if.else45, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit147
-  %isScene.2 = phi i1 [ %isScene.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit147 ], [ true, %if.end40 ], [ %isScene.0, %if.else ], [ true, %if.else45 ], [ %isScene.0, %if.else48 ]
-  %isDisplay.2 = phi i8 [ %isDisplay.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit147 ], [ %isDisplay.0, %if.end40 ], [ 1, %if.else ], [ %isDisplay.0, %if.else45 ], [ %spec.select, %if.else48 ]
+  %isScene.1 = phi i1 [ %isScene.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit147 ], [ true, %if.end40 ], [ %isScene.0, %if.else ], [ true, %if.else45 ], [ %isScene.0, %if.else48 ]
+  %isDisplay.1 = phi i8 [ %isDisplay.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit147 ], [ %isDisplay.0, %if.end40 ], [ 1, %if.else ], [ %isDisplay.0, %if.else45 ], [ %spec.select, %if.else48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24
   %91 = load i32, ptr %iter, align 8
   switch i32 %91, label %for.cond.backedge [
@@ -48452,13 +48452,13 @@ cleanup.sink.split:                               ; preds = %_ZN4YAML10conversio
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %call8.i.noexc, %_ZN4YAML10conversion5IsNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %retval.0 = phi i1 [ false, %_ZN4YAML10conversion5IsNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %call8.i.noexc ], [ true, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %_ZN4YAML10conversion5IsNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %call8.i.noexc ], [ true, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream) #24
   br label %return
 
 return:                                           ; preds = %if.end.i, %cond.true.i, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %cond.true.i ], [ false, %if.end.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %cond.true.i ], [ false, %if.end.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -49585,13 +49585,13 @@ if.end.i12:                                       ; preds = %call8.i.noexc, %cal
   br label %cleanup
 
 cleanup:                                          ; preds = %call8.i.noexc, %if.end.i12, %invoke.cont3
-  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ false, %if.end.i12 ], [ true, %call8.i.noexc ]
+  %retval.1 = phi i1 [ false, %invoke.cont3 ], [ false, %if.end.i12 ], [ true, %call8.i.noexc ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream) #24
   br label %return
 
 return:                                           ; preds = %if.end.i, %cond.true.i, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %cond.true.i ], [ false, %if.end.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %cond.true.i ], [ false, %if.end.i ]
+  ret i1 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
@@ -60854,13 +60854,13 @@ cleanup.sink.split:                               ; preds = %_ZN4YAML10conversio
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %call8.i.noexc, %_ZN4YAML10conversion5IsNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %retval.0 = phi i1 [ false, %_ZN4YAML10conversion5IsNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %call8.i.noexc ], [ true, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %_ZN4YAML10conversion5IsNaNERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ true, %call8.i.noexc ], [ true, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %stream) #24
   br label %return
 
 return:                                           ; preds = %if.end.i, %cond.true.i, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %cond.true.i ], [ false, %if.end.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %cond.true.i ], [ false, %if.end.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -63562,7 +63562,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %init.end
-  %fields.0 = phi i32 [ 0, %init.end ], [ %fields.2, %for.cond.backedge ]
+  %fields.0 = phi i32 [ 0, %init.end ], [ %fields.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -65577,7 +65577,7 @@ lpad244:                                          ; preds = %invoke.cont240
   br label %ehcleanup252
 
 cleanup:                                          ; preds = %if.then.i.i.i468, %if.end166, %if.then.i.i.i312, %if.end91, %invoke.cont199, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit582, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit628, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184
-  %fields.2 = phi i32 [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184 ], [ %fields.0, %invoke.cont199 ], [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit582 ], [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit628 ], [ %or, %if.end91 ], [ %or, %if.then.i.i.i312 ], [ %or179, %if.end166 ], [ %or179, %if.then.i.i.i468 ]
+  %fields.1 = phi i32 [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit184 ], [ %fields.0, %invoke.cont199 ], [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit582 ], [ %fields.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit628 ], [ %or, %if.end91 ], [ %or, %if.then.i.i.i312 ], [ %or179, %if.end166 ], [ %or179, %if.then.i.i.i468 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #24
   %299 = load i32, ptr %iter, align 8
   switch i32 %299, label %for.cond.backedge [
@@ -66129,9 +66129,9 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit: 
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit
-  %dynContrast.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit ], [ %dynContrast.2, %for.cond.backedge ]
-  %dynGamma.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit ], [ %dynGamma.2, %for.cond.backedge ]
-  %dynExposure.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit ], [ %dynExposure.2, %for.cond.backedge ]
+  %dynContrast.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit ], [ %dynContrast.1, %for.cond.backedge ]
+  %dynGamma.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit ], [ %dynGamma.1, %for.cond.backedge ]
+  %dynExposure.0 = phi i1 [ true, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit ], [ %dynExposure.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -67709,9 +67709,9 @@ lpad181:                                          ; preds = %invoke.cont177
   br label %ehcleanup193
 
 cleanup:                                          ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke, %invoke.cont139, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181
-  %dynContrast.2 = phi i1 [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181 ], [ %dynContrast.0, %invoke.cont139 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214 ], [ false, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke ]
-  %dynGamma.2 = phi i1 [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181 ], [ %dynGamma.0, %invoke.cont139 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249 ], [ false, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke ]
-  %dynExposure.2 = phi i1 [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181 ], [ %dynExposure.0, %invoke.cont139 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531 ], [ false, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke ]
+  %dynContrast.1 = phi i1 [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181 ], [ %dynContrast.0, %invoke.cont139 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214 ], [ false, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284 ], [ %dynContrast.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke ]
+  %dynGamma.1 = phi i1 [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181 ], [ %dynGamma.0, %invoke.cont139 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249 ], [ false, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284 ], [ %dynGamma.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke ]
+  %dynExposure.1 = phi i1 [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit181 ], [ %dynExposure.0, %invoke.cont139 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit463 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit498 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit531 ], [ false, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit214 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit249 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit284 ], [ %dynExposure.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit389.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %250 = load i32, ptr %iter, align 8
   switch i32 %250, label %for.cond.backedge [
@@ -69891,7 +69891,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev22FixedFunctionTransformEED2Ev.exit: ; p
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev22FixedFunctionTransformEED2Ev.exit
-  %styleFound.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev22FixedFunctionTransformEED2Ev.exit ], [ %styleFound.2, %for.cond.backedge ]
+  %styleFound.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev22FixedFunctionTransformEED2Ev.exit ], [ %styleFound.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -71072,7 +71072,7 @@ lpad107:                                          ; preds = %invoke.cont103
   br label %ehcleanup114
 
 cleanup:                                          ; preds = %if.then.i.i.i208, %invoke.cont44, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit286, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit367, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit321, %invoke.cont63, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit173
-  %styleFound.2 = phi i1 [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit173 ], [ true, %invoke.cont63 ], [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit286 ], [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit321 ], [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit367 ], [ %styleFound.0, %invoke.cont44 ], [ %styleFound.0, %if.then.i.i.i208 ]
+  %styleFound.1 = phi i1 [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit173 ], [ true, %invoke.cont63 ], [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit286 ], [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit321 ], [ %styleFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit367 ], [ %styleFound.0, %invoke.cont44 ], [ %styleFound.0, %if.then.i.i.i208 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %189 = load i32, ptr %iter, align 8
   switch i32 %189, label %for.cond.backedge [
@@ -71686,14 +71686,14 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit: ; 
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit
-  %contrastLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %contrastLoaded.2, %for.cond.backedge ]
-  %gammaLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %gammaLoaded.2, %for.cond.backedge ]
-  %offsetLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %offsetLoaded.2, %for.cond.backedge ]
-  %exposureLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %exposureLoaded.2, %for.cond.backedge ]
-  %liftLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %liftLoaded.2, %for.cond.backedge ]
-  %gainLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %gainLoaded.2, %for.cond.backedge ]
-  %saturationLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %saturationLoaded.2, %for.cond.backedge ]
-  %brightnessLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %brightnessLoaded.2, %for.cond.backedge ]
+  %contrastLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %contrastLoaded.1, %for.cond.backedge ]
+  %gammaLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %gammaLoaded.1, %for.cond.backedge ]
+  %offsetLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %offsetLoaded.1, %for.cond.backedge ]
+  %exposureLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %exposureLoaded.1, %for.cond.backedge ]
+  %liftLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %liftLoaded.1, %for.cond.backedge ]
+  %gainLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %gainLoaded.1, %for.cond.backedge ]
+  %saturationLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %saturationLoaded.1, %for.cond.backedge ]
+  %brightnessLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformEED2Ev.exit ], [ %brightnessLoaded.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -73984,14 +73984,14 @@ lpad260:                                          ; preds = %invoke.cont256
   br label %ehcleanup276
 
 cleanup:                                          ; preds = %invoke.cont43, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767, %invoke.cont212, %invoke.cont242, %invoke.cont261, %invoke.cont229, %invoke.cont200, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216
-  %contrastLoaded.2 = phi i1 [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %contrastLoaded.0, %invoke.cont43 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %contrastLoaded.0, %invoke.cont200 ], [ %contrastLoaded.0, %invoke.cont212 ], [ %contrastLoaded.0, %invoke.cont229 ], [ %contrastLoaded.0, %invoke.cont242 ], [ %contrastLoaded.0, %invoke.cont261 ]
-  %gammaLoaded.2 = phi i1 [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %gammaLoaded.0, %invoke.cont43 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %gammaLoaded.0, %invoke.cont200 ], [ %gammaLoaded.0, %invoke.cont212 ], [ %gammaLoaded.0, %invoke.cont229 ], [ %gammaLoaded.0, %invoke.cont242 ], [ %gammaLoaded.0, %invoke.cont261 ]
-  %offsetLoaded.2 = phi i1 [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %offsetLoaded.0, %invoke.cont43 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %offsetLoaded.0, %invoke.cont200 ], [ %offsetLoaded.0, %invoke.cont212 ], [ %offsetLoaded.0, %invoke.cont229 ], [ %offsetLoaded.0, %invoke.cont242 ], [ %offsetLoaded.0, %invoke.cont261 ]
-  %exposureLoaded.2 = phi i1 [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %exposureLoaded.0, %invoke.cont43 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %exposureLoaded.0, %invoke.cont200 ], [ %exposureLoaded.0, %invoke.cont212 ], [ %exposureLoaded.0, %invoke.cont229 ], [ %exposureLoaded.0, %invoke.cont242 ], [ %exposureLoaded.0, %invoke.cont261 ]
-  %liftLoaded.2 = phi i1 [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %liftLoaded.0, %invoke.cont43 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %liftLoaded.0, %invoke.cont200 ], [ %liftLoaded.0, %invoke.cont212 ], [ %liftLoaded.0, %invoke.cont229 ], [ %liftLoaded.0, %invoke.cont242 ], [ %liftLoaded.0, %invoke.cont261 ]
-  %gainLoaded.2 = phi i1 [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %gainLoaded.0, %invoke.cont43 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %gainLoaded.0, %invoke.cont200 ], [ %gainLoaded.0, %invoke.cont212 ], [ %gainLoaded.0, %invoke.cont229 ], [ %gainLoaded.0, %invoke.cont242 ], [ %gainLoaded.0, %invoke.cont261 ]
-  %saturationLoaded.2 = phi i1 [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %saturationLoaded.0, %invoke.cont43 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %saturationLoaded.0, %invoke.cont200 ], [ true, %invoke.cont212 ], [ %saturationLoaded.0, %invoke.cont229 ], [ %saturationLoaded.0, %invoke.cont242 ], [ %saturationLoaded.0, %invoke.cont261 ]
-  %brightnessLoaded.2 = phi i1 [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %brightnessLoaded.0, %invoke.cont43 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %brightnessLoaded.0, %invoke.cont200 ], [ %brightnessLoaded.0, %invoke.cont212 ], [ %brightnessLoaded.0, %invoke.cont229 ], [ %brightnessLoaded.0, %invoke.cont242 ], [ %brightnessLoaded.0, %invoke.cont261 ]
+  %contrastLoaded.1 = phi i1 [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %contrastLoaded.0, %invoke.cont43 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %contrastLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %contrastLoaded.0, %invoke.cont200 ], [ %contrastLoaded.0, %invoke.cont212 ], [ %contrastLoaded.0, %invoke.cont229 ], [ %contrastLoaded.0, %invoke.cont242 ], [ %contrastLoaded.0, %invoke.cont261 ]
+  %gammaLoaded.1 = phi i1 [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %gammaLoaded.0, %invoke.cont43 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %gammaLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %gammaLoaded.0, %invoke.cont200 ], [ %gammaLoaded.0, %invoke.cont212 ], [ %gammaLoaded.0, %invoke.cont229 ], [ %gammaLoaded.0, %invoke.cont242 ], [ %gammaLoaded.0, %invoke.cont261 ]
+  %offsetLoaded.1 = phi i1 [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %offsetLoaded.0, %invoke.cont43 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %offsetLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %offsetLoaded.0, %invoke.cont200 ], [ %offsetLoaded.0, %invoke.cont212 ], [ %offsetLoaded.0, %invoke.cont229 ], [ %offsetLoaded.0, %invoke.cont242 ], [ %offsetLoaded.0, %invoke.cont261 ]
+  %exposureLoaded.1 = phi i1 [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %exposureLoaded.0, %invoke.cont43 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %exposureLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %exposureLoaded.0, %invoke.cont200 ], [ %exposureLoaded.0, %invoke.cont212 ], [ %exposureLoaded.0, %invoke.cont229 ], [ %exposureLoaded.0, %invoke.cont242 ], [ %exposureLoaded.0, %invoke.cont261 ]
+  %liftLoaded.1 = phi i1 [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %liftLoaded.0, %invoke.cont43 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %liftLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %liftLoaded.0, %invoke.cont200 ], [ %liftLoaded.0, %invoke.cont212 ], [ %liftLoaded.0, %invoke.cont229 ], [ %liftLoaded.0, %invoke.cont242 ], [ %liftLoaded.0, %invoke.cont261 ]
+  %gainLoaded.1 = phi i1 [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %gainLoaded.0, %invoke.cont43 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %gainLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %gainLoaded.0, %invoke.cont200 ], [ %gainLoaded.0, %invoke.cont212 ], [ %gainLoaded.0, %invoke.cont229 ], [ %gainLoaded.0, %invoke.cont242 ], [ %gainLoaded.0, %invoke.cont261 ]
+  %saturationLoaded.1 = phi i1 [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %saturationLoaded.0, %invoke.cont43 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %saturationLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %saturationLoaded.0, %invoke.cont200 ], [ true, %invoke.cont212 ], [ %saturationLoaded.0, %invoke.cont229 ], [ %saturationLoaded.0, %invoke.cont242 ], [ %saturationLoaded.0, %invoke.cont261 ]
+  %brightnessLoaded.1 = phi i1 [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit216 ], [ %brightnessLoaded.0, %invoke.cont43 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit291 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit359 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit427 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit495 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit563 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit631 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit699 ], [ %brightnessLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit767 ], [ %brightnessLoaded.0, %invoke.cont200 ], [ %brightnessLoaded.0, %invoke.cont212 ], [ %brightnessLoaded.0, %invoke.cont229 ], [ %brightnessLoaded.0, %invoke.cont242 ], [ %brightnessLoaded.0, %invoke.cont261 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %324 = load i32, ptr %iter, align 8
   switch i32 %324, label %for.cond.backedge [
@@ -79256,11 +79256,11 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit: ; pre
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit
-  %shadowsLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %shadowsLoaded.2, %for.cond.backedge ]
-  %midtonesLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %midtonesLoaded.2, %for.cond.backedge ]
-  %highlightsLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %highlightsLoaded.2, %for.cond.backedge ]
-  %whitesLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %whitesLoaded.2, %for.cond.backedge ]
-  %blacksLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %blacksLoaded.2, %for.cond.backedge ]
+  %shadowsLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %shadowsLoaded.1, %for.cond.backedge ]
+  %midtonesLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %midtonesLoaded.1, %for.cond.backedge ]
+  %highlightsLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %highlightsLoaded.1, %for.cond.backedge ]
+  %whitesLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %whitesLoaded.1, %for.cond.backedge ]
+  %blacksLoaded.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformEED2Ev.exit ], [ %blacksLoaded.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -81388,11 +81388,11 @@ lpad188:                                          ; preds = %invoke.cont184
   br label %ehcleanup200
 
 cleanup:                                          ; preds = %invoke.cont43, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203
-  %shadowsLoaded.2 = phi i1 [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %shadowsLoaded.0, %invoke.cont43 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
-  %midtonesLoaded.2 = phi i1 [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %midtonesLoaded.0, %invoke.cont43 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
-  %highlightsLoaded.2 = phi i1 [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %highlightsLoaded.0, %invoke.cont43 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
-  %whitesLoaded.2 = phi i1 [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %whitesLoaded.0, %invoke.cont43 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
-  %blacksLoaded.2 = phi i1 [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %blacksLoaded.0, %invoke.cont43 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
+  %shadowsLoaded.1 = phi i1 [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %shadowsLoaded.0, %invoke.cont43 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %shadowsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
+  %midtonesLoaded.1 = phi i1 [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %midtonesLoaded.0, %invoke.cont43 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %midtonesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
+  %highlightsLoaded.1 = phi i1 [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %highlightsLoaded.0, %invoke.cont43 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %highlightsLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
+  %whitesLoaded.1 = phi i1 [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %whitesLoaded.0, %invoke.cont43 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %whitesLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
+  %blacksLoaded.1 = phi i1 [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit203 ], [ %blacksLoaded.0, %invoke.cont43 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit275 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit343 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit411 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit479 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit547 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit615 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit650 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit685 ], [ %blacksLoaded.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit731 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %315 = load i32, ptr %iter, align 8
   switch i32 %315, label %for.cond.backedge [
@@ -87447,8 +87447,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformEED2Ev.exit: ; preds
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformEED2Ev.exit
-  %linearSlopeFound.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformEED2Ev.exit ], [ %linearSlopeFound.2, %for.cond.backedge ]
-  %linBreakFound.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformEED2Ev.exit ], [ %linBreakFound.2, %for.cond.backedge ]
+  %linearSlopeFound.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformEED2Ev.exit ], [ %linearSlopeFound.1, %for.cond.backedge ]
+  %linBreakFound.0 = phi i1 [ false, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformEED2Ev.exit ], [ %linBreakFound.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -89212,8 +89212,8 @@ lpad177:                                          ; preds = %invoke.cont173
   br label %ehcleanup189
 
 cleanup:                                          ; preds = %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit266, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit336, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit406, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit476, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit550, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit583, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit515, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit441, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit371, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit301, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit187
-  %linearSlopeFound.2 = phi i1 [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit187 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit266 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit301 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit336 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit371 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit406 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit441 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit476 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit515 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit550 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit583 ]
-  %linBreakFound.2 = phi i1 [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit187 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit266 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit301 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit336 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit371 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit406 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit441 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit476 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit515 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit550 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit583 ]
+  %linearSlopeFound.1 = phi i1 [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit187 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit266 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit301 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit336 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit371 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit406 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit441 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit476 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit515 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit550 ], [ %linearSlopeFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit583 ]
+  %linBreakFound.1 = phi i1 [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit187 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit266 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit301 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit336 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit371 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit406 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit441 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit476 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit515 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit550 ], [ %linBreakFound.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit583 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %260 = load i32, ptr %iter, align 8
   switch i32 %260, label %for.cond.backedge [
@@ -97115,8 +97115,8 @@ if.then:                                          ; preds = %cond.true.i
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
-  %masterOK.0 = phi i1 [ false, %if.then ], [ %masterOK.2, %for.cond.backedge ]
-  %rgbOK.0 = phi i1 [ false, %if.then ], [ %rgbOK.2, %for.cond.backedge ]
+  %masterOK.0 = phi i1 [ false, %if.then ], [ %masterOK.1, %for.cond.backedge ]
+  %rgbOK.0 = phi i1 [ false, %if.then ], [ %rgbOK.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -98034,8 +98034,8 @@ lpad79:                                           ; preds = %invoke.cont75
   br label %ehcleanup84
 
 cleanup:                                          ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit285, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit252, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit145
-  %masterOK.2 = phi i1 [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit145 ], [ %masterOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit252 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit285 ]
-  %rgbOK.2 = phi i1 [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit145 ], [ true, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit252 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit285 ]
+  %masterOK.1 = phi i1 [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit145 ], [ %masterOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit252 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit285 ]
+  %rgbOK.1 = phi i1 [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit145 ], [ true, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit252 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit285 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #24
   %136 = load i32, ptr %iter, align 8
   switch i32 %136, label %for.cond.backedge [
@@ -100728,7 +100728,7 @@ if.then:                                          ; preds = %cond.true.i
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
-  %cpOK.0 = phi i1 [ false, %if.then ], [ %cpOK.2, %for.cond.backedge ]
+  %cpOK.0 = phi i1 [ false, %if.then ], [ %cpOK.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -101876,7 +101876,7 @@ lpad131:                                          ; preds = %invoke.cont127
   br label %ehcleanup136
 
 cleanup:                                          ; preds = %if.then.i.i.i344, %for.end123, %if.then.i.i.i, %for.end, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit382, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit164
-  %cpOK.2 = phi i1 [ %cpOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit164 ], [ %cpOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit382 ], [ true, %for.end ], [ true, %if.then.i.i.i ], [ %cpOK.0, %for.end123 ], [ %cpOK.0, %if.then.i.i.i344 ]
+  %cpOK.1 = phi i1 [ %cpOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit164 ], [ %cpOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit382 ], [ true, %for.end ], [ true, %if.then.i.i.i ], [ %cpOK.0, %for.end123 ], [ %cpOK.0, %if.then.i.i.i344 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #24
   %161 = load i32, ptr %iter, align 8
   switch i32 %161, label %for.cond.backedge [
@@ -102358,10 +102358,10 @@ if.then:                                          ; preds = %cond.true.i
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
-  %masterOK.0 = phi i1 [ false, %if.then ], [ %masterOK.2, %for.cond.backedge ]
-  %startOK.0 = phi i1 [ false, %if.then ], [ %startOK.2, %for.cond.backedge ]
-  %widthOK.0 = phi i1 [ false, %if.then ], [ %widthOK.2, %for.cond.backedge ]
-  %rgbOK.0 = phi i1 [ false, %if.then ], [ %rgbOK.2, %for.cond.backedge ]
+  %masterOK.0 = phi i1 [ false, %if.then ], [ %masterOK.1, %for.cond.backedge ]
+  %startOK.0 = phi i1 [ false, %if.then ], [ %startOK.1, %for.cond.backedge ]
+  %widthOK.0 = phi i1 [ false, %if.then ], [ %widthOK.1, %for.cond.backedge ]
+  %rgbOK.0 = phi i1 [ false, %if.then ], [ %rgbOK.1, %for.cond.backedge ]
   invoke void @_ZNK4YAML4Node3endEv(ptr nonnull sret(%"class.YAML::detail::iterator_base") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %node)
           to label %invoke.cont unwind label %lpad
 
@@ -103475,10 +103475,10 @@ lpad103:                                          ; preds = %invoke.cont99
   br label %ehcleanup110
 
 cleanup:                                          ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152
-  %masterOK.2 = phi i1 [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ %masterOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
-  %startOK.2 = phi i1 [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ %startOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
-  %widthOK.2 = phi i1 [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ %widthOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
-  %rgbOK.2 = phi i1 [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ true, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
+  %masterOK.1 = phi i1 [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ %masterOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %masterOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
+  %startOK.1 = phi i1 [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ %startOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %startOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
+  %widthOK.1 = phi i1 [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ %widthOK.0, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ true, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %widthOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
+  %rgbOK.1 = phi i1 [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit152 ], [ true, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit259 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit294 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit329 ], [ %rgbOK.0, %_ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit362 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #24
   %164 = load i32, ptr %iter, align 8
   switch i32 %164, label %for.cond.backedge [
@@ -111632,7 +111632,7 @@ lpad22.loopexit.split-lp.loopexit:                ; preds = %for.body.i.i
   br label %if.then.i.i.i154
 
 lpad22.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i198, %if.then.i, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit, %invoke.cont94, %invoke.cont92, %if.then89, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102, %invoke.cont78, %invoke.cont76, %invoke.cont74, %invoke.cont71, %invoke.cont62, %invoke.cont60, %if.then57, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i, %invoke.cont40, %invoke.cont38, %invoke.cont36, %invoke.cont33, %invoke.cont27, %invoke.cont25, %if.then, %invoke.cont96, %if.end82
-  %v.sroa.0.0.ph.ph = phi ptr [ %v.sroa.0.10, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit ], [ %v.sroa.0.10, %invoke.cont96 ], [ %v.sroa.0.10, %invoke.cont94 ], [ %v.sroa.0.10, %invoke.cont92 ], [ %v.sroa.0.10, %if.then89 ], [ %v.sroa.0.10, %if.end82 ], [ %v.sroa.0.8, %invoke.cont62 ], [ %v.sroa.0.8, %invoke.cont60 ], [ %v.sroa.0.8, %if.then57 ], [ %v.sroa.0.8.sink, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102 ], [ %v.sroa.0.8.sink, %invoke.cont78 ], [ %v.sroa.0.8.sink, %invoke.cont76 ], [ %v.sroa.0.8.sink, %invoke.cont74 ], [ %v.sroa.0.8.sink, %invoke.cont71 ], [ %v.sroa.0.8, %if.then.i198 ], [ null, %invoke.cont27 ], [ null, %invoke.cont25 ], [ null, %if.then ], [ %call5.i.i.i.i.i157, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i ], [ %call5.i.i.i.i.i157, %invoke.cont40 ], [ %call5.i.i.i.i.i157, %invoke.cont38 ], [ %call5.i.i.i.i.i157, %invoke.cont36 ], [ %call5.i.i.i.i.i157, %invoke.cont33 ], [ null, %if.then.i ]
+  %v.sroa.0.0.ph.ph = phi ptr [ %v.sroa.0.3, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit ], [ %v.sroa.0.3, %invoke.cont96 ], [ %v.sroa.0.3, %invoke.cont94 ], [ %v.sroa.0.3, %invoke.cont92 ], [ %v.sroa.0.3, %if.then89 ], [ %v.sroa.0.3, %if.end82 ], [ %v.sroa.0.1, %invoke.cont62 ], [ %v.sroa.0.1, %invoke.cont60 ], [ %v.sroa.0.1, %if.then57 ], [ %v.sroa.0.1.sink, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102 ], [ %v.sroa.0.1.sink, %invoke.cont78 ], [ %v.sroa.0.1.sink, %invoke.cont76 ], [ %v.sroa.0.1.sink, %invoke.cont74 ], [ %v.sroa.0.1.sink, %invoke.cont71 ], [ %v.sroa.0.1, %if.then.i198 ], [ null, %invoke.cont27 ], [ null, %invoke.cont25 ], [ null, %if.then ], [ %call5.i.i.i.i.i157, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i ], [ %call5.i.i.i.i.i157, %invoke.cont40 ], [ %call5.i.i.i.i.i157, %invoke.cont38 ], [ %call5.i.i.i.i.i157, %invoke.cont36 ], [ %call5.i.i.i.i.i157, %invoke.cont33 ], [ null, %if.then.i ]
   %lpad.loopexit.split-lp227 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup109
@@ -111707,8 +111707,8 @@ _ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i: ; preds = %call
           to label %if.end unwind label %lpad22.loopexit.split-lp.loopexit.split-lp
 
 if.end:                                           ; preds = %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i, %invoke.cont27
-  %v.sroa.0.8 = phi ptr [ null, %invoke.cont27 ], [ %call5.i.i.i.i.i157, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i ]
-  %v.sroa.9.1 = phi ptr [ null, %invoke.cont27 ], [ %add.ptr.i, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i ]
+  %v.sroa.0.1 = phi ptr [ null, %invoke.cont27 ], [ %call5.i.i.i.i.i157, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i ]
+  %v.sroa.9.0 = phi ptr [ null, %invoke.cont27 ], [ %add.ptr.i, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i ]
   %17 = load ptr, ptr %t, align 8
   %vtable45 = load ptr, ptr %17, align 8
   %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 96
@@ -111775,8 +111775,8 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %if.end82 unwind label %lpad22.loopexit.split-lp.loopexit.split-lp
 
 if.else67:                                        ; preds = %land.lhs.true50, %if.end
-  %sub.ptr.lhs.cast.i.i161 = ptrtoint ptr %v.sroa.9.1 to i64
-  %sub.ptr.rhs.cast.i.i162 = ptrtoint ptr %v.sroa.0.8 to i64
+  %sub.ptr.lhs.cast.i.i161 = ptrtoint ptr %v.sroa.9.0 to i64
+  %sub.ptr.rhs.cast.i.i162 = ptrtoint ptr %v.sroa.0.1 to i64
   %sub.ptr.sub.i.i163 = sub i64 %sub.ptr.lhs.cast.i.i161, %sub.ptr.rhs.cast.i.i162
   %cmp.i164 = icmp ult i64 %sub.ptr.sub.i.i163, 32
   br i1 %cmp.i164, label %if.then.i198, label %if.then25.i171
@@ -111787,19 +111787,19 @@ if.then.i198:                                     ; preds = %if.else67
 
 call5.i.i.i.i.i.noexc204:                         ; preds = %if.then.i198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i205, ptr noundef nonnull align 16 dereferenceable(32) %offset, i64 32, i1 false)
-  %tobool.not.i.i200 = icmp eq ptr %v.sroa.0.8, null
+  %tobool.not.i.i200 = icmp eq ptr %v.sroa.0.1, null
   br i1 %tobool.not.i.i200, label %invoke.cont71, label %if.then.i13.i201
 
 if.then.i13.i201:                                 ; preds = %call5.i.i.i.i.i.noexc204
-  call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.8) #27
+  call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.1) #27
   br label %invoke.cont71
 
 if.then25.i171:                                   ; preds = %if.else67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %v.sroa.0.8, ptr noundef nonnull align 16 dereferenceable(32) %offset, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %v.sroa.0.1, ptr noundef nonnull align 16 dereferenceable(32) %offset, i64 32, i1 false)
   br label %invoke.cont71
 
 invoke.cont71:                                    ; preds = %call5.i.i.i.i.i.noexc204, %if.then.i13.i201, %if.then25.i171
-  %v.sroa.0.8.sink = phi ptr [ %v.sroa.0.8, %if.then25.i171 ], [ %call5.i.i.i.i.i205, %if.then.i13.i201 ], [ %call5.i.i.i.i.i205, %call5.i.i.i.i.i.noexc204 ]
+  %v.sroa.0.1.sink = phi ptr [ %v.sroa.0.1, %if.then25.i171 ], [ %call5.i.i.i.i.i205, %if.then.i13.i201 ], [ %call5.i.i.i.i.i205, %call5.i.i.i.i.i.noexc204 ]
   %call.i7677 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %out, i32 noundef 32)
           to label %invoke.cont72 unwind label %lpad22.loopexit.split-lp.loopexit.split-lp
 
@@ -111848,7 +111848,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
 
 for.body.i.i98:                                   ; preds = %invoke.cont78, %call.i5.i.i.noexc105
   %__begin0.sroa.0.010.i.i99.idx = phi i64 [ %__begin0.sroa.0.010.i.i99.add, %call.i5.i.i.noexc105 ], [ 0, %invoke.cont78 ]
-  %__begin0.sroa.0.010.i.i99.ptr = getelementptr inbounds i8, ptr %v.sroa.0.8.sink, i64 %__begin0.sroa.0.010.i.i99.idx
+  %__begin0.sroa.0.010.i.i99.ptr = getelementptr inbounds i8, ptr %v.sroa.0.1.sink, i64 %__begin0.sroa.0.010.i.i99.idx
   %28 = load double, ptr %__begin0.sroa.0.010.i.i99.ptr, align 8
   %call.i5.i.i106 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter15WriteStreamableIdEERS0_T_(ptr noundef nonnull align 8 dereferenceable(72) %call.i9394, double noundef %28)
           to label %call.i5.i.i.noexc105 unwind label %lpad22.loopexit
@@ -111863,7 +111863,7 @@ _ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102: ; preds = %c
           to label %if.end82 unwind label %lpad22.loopexit.split-lp.loopexit.split-lp
 
 if.end82:                                         ; preds = %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102, %invoke.cont62
-  %v.sroa.0.10 = phi ptr [ %v.sroa.0.8, %invoke.cont62 ], [ %v.sroa.0.8.sink, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102 ]
+  %v.sroa.0.3 = phi ptr [ %v.sroa.0.1, %invoke.cont62 ], [ %v.sroa.0.1.sink, %_ZN4YAML7EmitSeqISt6vectorIdSaIdEEEERNS_7EmitterES5_RKT_.exit.i102 ]
   %29 = load ptr, ptr %t, align 8
   %vtable84 = load ptr, ptr %29, align 8
   %vfn85 = getelementptr inbounds i8, ptr %vtable84, i64 112
@@ -112064,11 +112064,11 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit: ; preds = %invok
           to label %invoke.cont107 unwind label %lpad22.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit
-  %tobool.not.i.i.i = icmp eq ptr %v.sroa.0.10, null
+  %tobool.not.i.i.i = icmp eq ptr %v.sroa.0.3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i151
 
 if.then.i.i.i151:                                 ; preds = %invoke.cont107
-  call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.10) #27
+  call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.3) #27
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont107, %if.then.i.i.i151
@@ -112081,15 +112081,15 @@ lpad104:                                          ; preds = %_ZNSt10shared_ptrIK
   br label %ehcleanup109
 
 ehcleanup109:                                     ; preds = %lpad22.loopexit, %lpad22.loopexit.split-lp.loopexit.split-lp, %ehcleanup.i61, %ehcleanup.i115, %ehcleanup.i132, %lpad104
-  %v.sroa.0.11 = phi ptr [ %v.sroa.0.10, %lpad104 ], [ %v.sroa.0.8, %ehcleanup.i61 ], [ %v.sroa.0.10, %ehcleanup.i115 ], [ %v.sroa.0.10, %ehcleanup.i132 ], [ %v.sroa.0.8.sink, %lpad22.loopexit ], [ %v.sroa.0.0.ph.ph, %lpad22.loopexit.split-lp.loopexit.split-lp ]
+  %v.sroa.0.2 = phi ptr [ %v.sroa.0.3, %lpad104 ], [ %v.sroa.0.1, %ehcleanup.i61 ], [ %v.sroa.0.3, %ehcleanup.i115 ], [ %v.sroa.0.3, %ehcleanup.i132 ], [ %v.sroa.0.1.sink, %lpad22.loopexit ], [ %v.sroa.0.0.ph.ph, %lpad22.loopexit.split-lp.loopexit.split-lp ]
   %.pn18 = phi { ptr, i32 } [ %51, %lpad104 ], [ %.pn.i62, %ehcleanup.i61 ], [ %.pn.i116, %ehcleanup.i115 ], [ %.pn.i133, %ehcleanup.i132 ], [ %lpad.loopexit, %lpad22.loopexit ], [ %lpad.loopexit.split-lp227, %lpad22.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i153 = icmp eq ptr %v.sroa.0.11, null
+  %tobool.not.i.i.i153 = icmp eq ptr %v.sroa.0.2, null
   br i1 %tobool.not.i.i.i153, label %eh.resume, label %if.then.i.i.i154
 
 if.then.i.i.i154:                                 ; preds = %lpad22.loopexit.split-lp.loopexit, %ehcleanup.i82, %ehcleanup109.thread220, %ehcleanup109
   %.pn18225 = phi { ptr, i32 } [ %.pn.i39, %ehcleanup109.thread220 ], [ %.pn18, %ehcleanup109 ], [ %lpad.loopexit226, %lpad22.loopexit.split-lp.loopexit ], [ %.pn.i83, %ehcleanup.i82 ]
-  %v.sroa.0.11224 = phi ptr [ %call5.i.i.i.i.i157, %ehcleanup109.thread220 ], [ %v.sroa.0.11, %ehcleanup109 ], [ %call5.i.i.i.i.i157, %lpad22.loopexit.split-lp.loopexit ], [ %v.sroa.0.8.sink, %ehcleanup.i82 ]
-  call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.11224) #27
+  %v.sroa.0.2224 = phi ptr [ %call5.i.i.i.i.i157, %ehcleanup109.thread220 ], [ %v.sroa.0.2, %ehcleanup109 ], [ %call5.i.i.i.i.i157, %lpad22.loopexit.split-lp.loopexit ], [ %v.sroa.0.1.sink, %ehcleanup.i82 ]
+  call void @_ZdlPv(ptr noundef nonnull %v.sroa.0.2224) #27
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i154, %ehcleanup109, %ehcleanup109.thread, %ehcleanup7
@@ -114999,7 +114999,7 @@ if.then95:                                        ; preds = %invoke.cont93, %inv
 
 for.body.i:                                       ; preds = %if.then95, %for.inc.i
   %c.0209.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then95 ]
-  %ctPts.sroa.0.0208.i = phi ptr [ %ctPts.sroa.0.2.i, %for.inc.i ], [ null, %if.then95 ]
+  %ctPts.sroa.0.0208.i = phi ptr [ %ctPts.sroa.0.4.i, %for.inc.i ], [ null, %if.then95 ]
   %ctPts.sroa.17.0207.i = phi ptr [ %ctPts.sroa.17.2.i, %for.inc.i ], [ null, %if.then95 ]
   %ctPts.sroa.8.0206.i = phi ptr [ %ctPts.sroa.8.2.i, %for.inc.i ], [ null, %if.then95 ]
   %47 = load ptr, ptr %ref.tmp81, align 8
@@ -115075,7 +115075,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 invoke.cont6.i:                                   ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i, %if.then.i.i
   %add.ptr.i.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %ctPts.sroa.8.0206.i, %if.then.i.i ]
   %ctPts.sroa.17.1.i = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %ctPts.sroa.17.0207.i, %if.then.i.i ]
-  %ctPts.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %ctPts.sroa.0.0208.i, %if.then.i.i ]
+  %ctPts.sroa.0.3.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %ctPts.sroa.0.0208.i, %if.then.i.i ]
   %ctPts.sroa.8.1.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn.i, i64 4
   %m_y.i = getelementptr inbounds i8, ptr %call5.i, i64 4
   %cmp.not.i18.i = icmp eq ptr %ctPts.sroa.8.1.i, %ctPts.sroa.17.1.i
@@ -115089,7 +115089,7 @@ if.then.i19.i:                                    ; preds = %invoke.cont6.i
 
 if.else.i21.i:                                    ; preds = %invoke.cont6.i
   %sub.ptr.lhs.cast.i.i.i.i22.i = ptrtoint ptr %ctPts.sroa.17.1.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i23.i = ptrtoint ptr %ctPts.sroa.0.1.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i23.i = ptrtoint ptr %ctPts.sroa.0.3.i to i64
   %sub.ptr.sub.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i23.i
   %cmp.i.i.i25.i = icmp eq i64 %sub.ptr.sub.i.i.i.i24.i, 9223372036854775804
   br i1 %cmp.i.i.i25.i, label %if.then.i.i.i47.i, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i26.i
@@ -115125,17 +115125,17 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i35.i: ; preds = %cond.true.i.
   br i1 %cmp.i.i.i.i.i.i38.i, label %if.then.i.i.i.i.i.i46.i, label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i39.i
 
 if.then.i.i.i.i.i.i46.i:                          ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i35.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i36.i, ptr align 4 %ctPts.sroa.0.1.i, i64 %sub.ptr.sub.i.i.i.i24.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i36.i, ptr align 4 %ctPts.sroa.0.3.i, i64 %sub.ptr.sub.i.i.i.i24.i, i1 false)
   br label %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i39.i
 
 _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i39.i: ; preds = %if.then.i.i.i.i.i.i46.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i35.i
   %add.ptr.i.i.i.i.i.i40.i = getelementptr inbounds i8, ptr %cond.i10.i.i36.i, i64 %sub.ptr.sub.i.i.i.i24.i
   %incdec.ptr.i.i41.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i40.i, i64 4
-  %tobool.not.i.i.i42.i = icmp eq ptr %ctPts.sroa.0.1.i, null
+  %tobool.not.i.i.i42.i = icmp eq ptr %ctPts.sroa.0.3.i, null
   br i1 %tobool.not.i.i.i42.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i, label %if.then.i18.i.i43.i
 
 if.then.i18.i.i43.i:                              ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i39.i
-  call void @_ZdlPv(ptr noundef nonnull %ctPts.sroa.0.1.i) #27
+  call void @_ZdlPv(ptr noundef nonnull %ctPts.sroa.0.3.i) #27
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i: ; preds = %if.then.i18.i.i43.i, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit17.i.i39.i
@@ -115145,7 +115145,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 for.inc.i:                                        ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i, %if.then.i19.i
   %ctPts.sroa.8.2.i = phi ptr [ %incdec.ptr.i.i41.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i ], [ %incdec.ptr.i20.i, %if.then.i19.i ]
   %ctPts.sroa.17.2.i = phi ptr [ %add.ptr19.i.i45.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i ], [ %ctPts.sroa.17.1.i, %if.then.i19.i ]
-  %ctPts.sroa.0.2.i = phi ptr [ %cond.i10.i.i36.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i ], [ %ctPts.sroa.0.1.i, %if.then.i19.i ]
+  %ctPts.sroa.0.4.i = phi ptr [ %cond.i10.i.i36.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i44.i ], [ %ctPts.sroa.0.3.i, %if.then.i19.i ]
   %inc.i = add nuw i64 %c.0209.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call1.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !326
@@ -115156,7 +115156,7 @@ lpad.loopexit180.i:                               ; preds = %.noexc223, %if.end.
   br label %ehcleanup.i70
 
 lpad.loopexit.split-lp.loopexit.i:                ; preds = %cond.true.i.i.i33.i, %cond.true.i.i.i.i, %for.body.i
-  %ctPts.sroa.0.3.ph.ph.i = phi ptr [ %ctPts.sroa.0.1.i, %cond.true.i.i.i33.i ], [ %ctPts.sroa.0.0208.i, %cond.true.i.i.i.i ], [ %ctPts.sroa.0.0208.i, %for.body.i ]
+  %ctPts.sroa.0.1.ph.ph.i = phi ptr [ %ctPts.sroa.0.3.i, %cond.true.i.i.i33.i ], [ %ctPts.sroa.0.0208.i, %cond.true.i.i.i.i ], [ %ctPts.sroa.0.0208.i, %for.body.i ]
   %lpad.loopexit185.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i70
@@ -115167,14 +115167,14 @@ lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit: ; preds = %for.end.i, %invo
   br label %ehcleanup.i70
 
 lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %if.then.i.i.i.i75, %if.then.i.i.i47.i
-  %ctPts.sroa.0.3.ph.ph184.i.ph = phi ptr [ %ctPts.sroa.0.1.i, %if.then.i.i.i47.i ], [ %ctPts.sroa.0.0208.i, %if.then.i.i.i.i75 ]
+  %ctPts.sroa.0.1.ph.ph184.i.ph = phi ptr [ %ctPts.sroa.0.3.i, %if.then.i.i.i47.i ], [ %ctPts.sroa.0.0208.i, %if.then.i.i.i.i75 ]
   %lpad.loopexit.split-lp230 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i70
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then95
   %ctPts.sroa.8.0.lcssa.i = phi ptr [ null, %if.then95 ], [ %ctPts.sroa.8.2.i, %for.inc.i ]
-  %ctPts.sroa.0.0.lcssa.i = phi ptr [ null, %if.then95 ], [ %ctPts.sroa.0.2.i, %for.inc.i ]
+  %ctPts.sroa.0.0.lcssa.i = phi ptr [ null, %if.then95 ], [ %ctPts.sroa.0.4.i, %for.inc.i ]
   %call.i52.i = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %out, i32 noundef 32)
           to label %invoke.cont8.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
@@ -115666,13 +115666,13 @@ if.then.i.i.i156.i:                               ; preds = %invoke.cont54.i
   br label %if.end98
 
 ehcleanup.i70:                                    ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %lpad.loopexit180.i, %ehcleanup.i201, %if.then.i.i.i117.i, %lpad39.body.i, %ehcleanup.i65.i, %ehcleanup.i.i, %lpad.loopexit.split-lp.loopexit.i
-  %ctPts.sroa.0.6.i = phi ptr [ %ctPts.sroa.0.0.lcssa.i, %ehcleanup.i.i ], [ %ctPts.sroa.0.0.lcssa.i, %ehcleanup.i65.i ], [ %ctPts.sroa.0.0.lcssa.i, %lpad39.body.i ], [ %ctPts.sroa.0.0.lcssa.i, %if.then.i.i.i117.i ], [ %ctPts.sroa.0.3.ph.ph.i, %lpad.loopexit.split-lp.loopexit.i ], [ %ctPts.sroa.0.0.lcssa.i, %ehcleanup.i201 ], [ %ctPts.sroa.0.0.lcssa.i, %lpad.loopexit180.i ], [ %ctPts.sroa.0.0.lcssa.i, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %ctPts.sroa.0.3.ph.ph184.i.ph, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
+  %ctPts.sroa.0.2.i = phi ptr [ %ctPts.sroa.0.0.lcssa.i, %ehcleanup.i.i ], [ %ctPts.sroa.0.0.lcssa.i, %ehcleanup.i65.i ], [ %ctPts.sroa.0.0.lcssa.i, %lpad39.body.i ], [ %ctPts.sroa.0.0.lcssa.i, %if.then.i.i.i117.i ], [ %ctPts.sroa.0.1.ph.ph.i, %lpad.loopexit.split-lp.loopexit.i ], [ %ctPts.sroa.0.0.lcssa.i, %ehcleanup.i201 ], [ %ctPts.sroa.0.0.lcssa.i, %lpad.loopexit180.i ], [ %ctPts.sroa.0.0.lcssa.i, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %ctPts.sroa.0.1.ph.ph184.i.ph, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   %.pn.i71 = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup.i.i ], [ %.pn.i66.i, %ehcleanup.i65.i ], [ %eh.lpad-body129.i, %lpad39.body.i ], [ %eh.lpad-body129.i, %if.then.i.i.i117.i ], [ %lpad.loopexit185.i, %lpad.loopexit.split-lp.loopexit.i ], [ %.pn.i202, %ehcleanup.i201 ], [ %lpad.loopexit181.i, %lpad.loopexit180.i ], [ %lpad.loopexit229, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp230, %lpad.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
-  %tobool.not.i.i.i159.i = icmp eq ptr %ctPts.sroa.0.6.i, null
+  %tobool.not.i.i.i159.i = icmp eq ptr %ctPts.sroa.0.2.i, null
   br i1 %tobool.not.i.i.i159.i, label %lpad87.body, label %if.then.i.i.i160.i
 
 if.then.i.i.i160.i:                               ; preds = %ehcleanup.i70
-  call void @_ZdlPv(ptr noundef nonnull %ctPts.sroa.0.6.i) #27
+  call void @_ZdlPv(ptr noundef nonnull %ctPts.sroa.0.2.i) #27
   br label %lpad87.body
 
 lpad72:                                           ; preds = %init

@@ -4360,9 +4360,9 @@ lpad40:                                           ; preds = %if.then.i64
   br label %ehcleanup
 
 invoke.cont53:                                    ; preds = %_ZN9table2mapI17default_map_entryIPKN3sat3cutEjENS2_13dom_hash_procENS2_11dom_eq_procEE6insertERKS4_RKj.exit, %invoke.cont34.thread
-  %j.3 = phi i32 [ %retval.0.i174, %_ZN9table2mapI17default_map_entryIPKN3sat3cutEjENS2_13dom_hash_procENS2_11dom_eq_procEE6insertERKS4_RKj.exit ], [ %26, %invoke.cont34.thread ]
+  %j.4 = phi i32 [ %retval.0.i174, %_ZN9table2mapI17default_map_entryIPKN3sat3cutEjENS2_13dom_hash_procENS2_11dom_eq_procEE6insertERKS4_RKj.exit ], [ %26, %invoke.cont34.thread ]
   %35 = load ptr, ptr %var_tables, align 8
-  %idxprom.i = zext i32 %j.3 to i64
+  %idxprom.i = zext i32 %j.4 to i64
   %arrayidx.i66 = getelementptr inbounds %class.vector.89, ptr %35, i64 %idxprom.i
   %36 = load i32, ptr %__begin1.0201, align 8
   %37 = load ptr, ptr %arrayidx.i66, align 8
@@ -5473,7 +5473,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then62, %if.then
 
 for.cond6:                                        ; preds = %for.cond6.preheader, %for.inc
   %idx.0 = phi i32 [ %inc36, %for.inc ], [ 0, %for.cond6.preheader ]
-  %new_eq.0 = phi i1 [ %new_eq.3, %for.inc ], [ false, %for.cond6.preheader ]
+  %new_eq.0 = phi i1 [ %new_eq.1, %for.inc ], [ false, %for.cond6.preheader ]
   %4 = load ptr, ptr %m_find.i14, align 8
   %cmp.i.i15 = icmp eq ptr %4, null
   br i1 %cmp.i.i15, label %_ZNK10union_findI22union_find_default_ctxS0_E12get_num_varsEv.exit, label %if.end.i.i16
@@ -5517,10 +5517,10 @@ if.end:                                           ; preds = %invoke.cont13
 
 invoke.cont20:                                    ; preds = %if.end32, %if.end
   %root.sroa.0.0 = phi i32 [ %10, %if.end ], [ %root.sroa.0.1, %if.end32 ]
-  %idx.1 = phi i32 [ %idx.0, %if.end ], [ %37, %if.end32 ]
-  %new_eq.1 = phi i1 [ %new_eq.0, %if.end ], [ %new_eq.2, %if.end32 ]
+  %idx.2 = phi i32 [ %idx.0, %if.end ], [ %37, %if.end32 ]
+  %new_eq.2 = phi i1 [ %new_eq.0, %if.end ], [ %new_eq.3, %if.end32 ]
   %11 = load ptr, ptr %this, align 8
-  %shr.i.i = lshr i32 %idx.1, 1
+  %shr.i.i = lshr i32 %idx.2, 1
   %m_eliminated.i.i = getelementptr inbounds i8, ptr %11, i64 3480
   %12 = load ptr, ptr %m_eliminated.i.i, align 8
   %idxprom.i.i.i23 = zext nneg i32 %shr.i.i to i64
@@ -5540,7 +5540,7 @@ if.else:                                          ; preds = %if.then22
   br label %while.body.i.i27
 
 while.body.i.i27:                                 ; preds = %while.body.i.i27, %if.else
-  %v.addr.0.i.i28 = phi i32 [ %idx.1, %if.else ], [ %16, %while.body.i.i27 ]
+  %v.addr.0.i.i28 = phi i32 [ %idx.2, %if.else ], [ %16, %while.body.i.i27 ]
   %idxprom.i.i.i29 = zext i32 %v.addr.0.i.i28 to i64
   %arrayidx.i.i.i30 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i.i.i29
   %16 = load i32, ptr %arrayidx.i.i.i30, align 4
@@ -5639,17 +5639,17 @@ invoke.cont30:                                    ; preds = %invoke.cont.i, %_ZN
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then22, %invoke.cont30, %invoke.cont20
-  %root.sroa.0.1 = phi i32 [ %root.sroa.0.0, %invoke.cont20 ], [ %root.sroa.0.0, %invoke.cont30 ], [ %idx.1, %if.then22 ]
-  %new_eq.2 = phi i1 [ %new_eq.1, %invoke.cont20 ], [ true, %invoke.cont30 ], [ %new_eq.1, %if.then22 ]
+  %root.sroa.0.1 = phi i32 [ %root.sroa.0.0, %invoke.cont20 ], [ %root.sroa.0.0, %invoke.cont30 ], [ %idx.2, %if.then22 ]
+  %new_eq.3 = phi i1 [ %new_eq.2, %invoke.cont20 ], [ true, %invoke.cont30 ], [ %new_eq.2, %if.then22 ]
   %36 = load ptr, ptr %m_next.i38, align 8
-  %idxprom.i.i39 = zext i32 %idx.1 to i64
+  %idxprom.i.i39 = zext i32 %idx.2 to i64
   %arrayidx.i.i40 = getelementptr inbounds i32, ptr %36, i64 %idxprom.i.i39
   %37 = load i32, ptr %arrayidx.i.i40, align 4
   %cmp35.not = icmp eq i32 %idx.0, %37
   br i1 %cmp35.not, label %for.inc, label %invoke.cont20, !llvm.loop !29
 
 for.inc:                                          ; preds = %if.end32, %invoke.cont11, %invoke.cont13
-  %new_eq.3 = phi i1 [ %new_eq.0, %invoke.cont13 ], [ %new_eq.0, %invoke.cont11 ], [ %new_eq.2, %if.end32 ]
+  %new_eq.1 = phi i1 [ %new_eq.0, %invoke.cont13 ], [ %new_eq.0, %invoke.cont11 ], [ %new_eq.3, %if.end32 ]
   %inc36 = add i32 %idx.0, 1
   br label %for.cond6, !llvm.loop !30
 

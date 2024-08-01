@@ -1265,13 +1265,13 @@ define ptr @Java_sun_awt_X11_XToolkit_getEnv(ptr noundef %0, ptr nocapture nound
   br label %9
 
 9:                                                ; preds = %7, %5
-  %.0 = phi ptr [ %8, %7 ], [ null, %5 ]
+  %.1 = phi ptr [ %8, %7 ], [ null, %5 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4) #13
   br label %10
 
 10:                                               ; preds = %9, %3
-  %.1 = phi ptr [ %.0, %9 ], [ null, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %9 ], [ null, %3 ]
+  ret ptr %.0
 }
 
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

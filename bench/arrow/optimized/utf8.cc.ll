@@ -1809,34 +1809,34 @@ if.end23.i:                                       ; preds = %if.end.i28.i
 if.then10:                                        ; preds = %if.end, %if.end4.i, %if.end13.i, %if.end23.i
   %cmp11.i = phi i1 [ true, %if.end ], [ true, %if.end4.i ], [ false, %if.end13.i ], [ true, %if.end23.i ]
   %cmp5.not.i = phi i1 [ false, %if.end ], [ true, %if.end4.i ], [ false, %if.end13.i ], [ false, %if.end23.i ]
-  %cp.4 = phi i32 [ %conv.i, %if.end ], [ %add.i, %if.end4.i ], [ %add16.i, %if.end13.i ], [ %add26.i, %if.end23.i ]
-  %cmp.i52 = icmp ult i32 %cp.4, 1114112
-  %11 = and i32 %cp.4, -2048
+  %cp.0 = phi i32 [ %conv.i, %if.end ], [ %add.i, %if.end4.i ], [ %add16.i, %if.end13.i ], [ %add26.i, %if.end23.i ]
+  %cmp.i52 = icmp ult i32 %cp.0, 1114112
+  %11 = and i32 %cp.0, -2048
   %12 = icmp ne i32 %11, 55296
   %13 = and i1 %cmp.i52, %12
   br i1 %13, label %if.then12, label %return.sink.split
 
 if.then12:                                        ; preds = %if.then10
-  %cmp.i53 = icmp ult i32 %cp.4, 128
+  %cmp.i53 = icmp ult i32 %cp.0, 128
   br i1 %cmp.i53, label %if.then.i, label %if.else.i54
 
 if.then.i:                                        ; preds = %if.then12
   br i1 %cmp.i, label %if.then14, label %return.sink.split
 
 if.else.i54:                                      ; preds = %if.then12
-  %cmp3.i = icmp ult i32 %cp.4, 2048
+  %cmp3.i = icmp ult i32 %cp.0, 2048
   br i1 %cmp3.i, label %if.then4.i, label %if.else8.i
 
 if.then4.i:                                       ; preds = %if.else.i54
   br i1 %cmp5.not.i, label %if.then14, label %return.sink.split
 
 if.else8.i:                                       ; preds = %if.else.i54
-  %cmp9.i = icmp ult i32 %cp.4, 65536
+  %cmp9.i = icmp ult i32 %cp.0, 65536
   %or.cond.i = and i1 %cmp11.i, %cmp9.i
   br i1 %or.cond.i, label %return.sink.split, label %if.then14
 
 if.then14:                                        ; preds = %if.else8.i, %if.then4.i, %if.then.i
-  store i32 %cp.4, ptr %code_point, align 4
+  store i32 %cp.0, ptr %code_point, align 4
   %14 = load ptr, ptr %it, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %14, i64 1
   br label %return.sink.split

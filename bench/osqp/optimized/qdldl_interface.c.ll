@@ -1770,35 +1770,35 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   br label %586
 
 586:                                              ; preds = %._crit_edge240, %583
-  %.0199 = phi i64 [ 0, %583 ], [ 5, %._crit_edge240 ]
+  %.6 = phi i64 [ 0, %583 ], [ 5, %._crit_edge240 ]
   tail call void @OSQPVectorf_free(ptr noundef %561) #10
   tail call void @OSQPVectorf_free(ptr noundef %562) #10
   br label %587
 
 587:                                              ; preds = %536, %586
-  %.1 = phi i64 [ %.0199, %586 ], [ 5, %536 ]
+  %.5 = phi i64 [ %.6, %586 ], [ 5, %536 ]
   tail call void @free(ptr noundef %542) #10
   tail call void @free(ptr noundef %543) #10
   br label %588
 
 588:                                              ; preds = %525, %587
-  %.2 = phi i64 [ %.1, %587 ], [ 5, %525 ]
+  %.4 = phi i64 [ %.5, %587 ], [ 5, %525 ]
   tail call void @free(ptr noundef %532) #10
   tail call void @free(ptr noundef %533) #10
   br label %589
 
 589:                                              ; preds = %523, %588
-  %.3 = phi i64 [ %.2, %588 ], [ 5, %523 ]
+  %.3 = phi i64 [ %.4, %588 ], [ 5, %523 ]
   tail call void @csc_spfree(ptr noundef %524) #10
   br label %590
 
 590:                                              ; preds = %521, %589
-  %.4 = phi i64 [ %.3, %589 ], [ 5, %521 ]
+  %.2 = phi i64 [ %.3, %589 ], [ 5, %521 ]
   tail call void @free(ptr noundef %522) #10
   br label %591
 
 591:                                              ; preds = %515, %_adj_perturb.exit, %590
-  %.5 = phi i64 [ %.4, %590 ], [ 5, %_adj_perturb.exit ], [ %519, %515 ]
+  %.1 = phi i64 [ %.2, %590 ], [ 5, %_adj_perturb.exit ], [ %519, %515 ]
   tail call void @free(ptr noundef %493) #10
   tail call void @free(ptr noundef %494) #10
   tail call void @free(ptr noundef %495) #10
@@ -1811,13 +1811,13 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   br label %592
 
 592:                                              ; preds = %_adj_assemble_csc.exit, %591
-  %.6 = phi i64 [ %.5, %591 ], [ 5, %_adj_assemble_csc.exit ]
+  %.0199 = phi i64 [ %.1, %591 ], [ 5, %_adj_assemble_csc.exit ]
   tail call void @OSQPMatrix_free(ptr noundef %457) #10
   tail call void @csc_spfree(ptr noundef nonnull %21) #10
   br label %593
 
 593:                                              ; preds = %592, %22
-  %.0198 = phi i64 [ %.6, %592 ], [ %23, %22 ]
+  %.0198 = phi i64 [ %.0199, %592 ], [ %23, %22 ]
   ret i64 %.0198
 }
 

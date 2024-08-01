@@ -1236,20 +1236,20 @@ sub_0.i.i:                                        ; preds = %21
 
 .preheader8.i:                                    ; preds = %.preheader8.i.preheader, %29
   %28 = phi i8 [ %.pre.i, %29 ], [ %9, %.preheader8.i.preheader ]
-  %.0.i = phi ptr [ %30, %29 ], [ %8, %.preheader8.i.preheader ]
+  %.1.i = phi ptr [ %30, %29 ], [ %8, %.preheader8.i.preheader ]
   switch i8 %28, label %29 [
     i8 0, label %.critedge.i
     i8 62, label %.critedge.i
   ]
 
 29:                                               ; preds = %.preheader8.i
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %30 = getelementptr inbounds i8, ptr %.1.i, i64 1
   %.pre.i = load i8, ptr %30, align 1
   br label %.preheader8.i
 
 .critedge.i:                                      ; preds = %.preheader8.i, %.preheader8.i, %.tail.thread.i.i, %.tail.i.i
   %31 = phi i8 [ %15, %.tail.i.i ], [ %.pr.pre.i, %.tail.thread.i.i ], [ %28, %.preheader8.i ], [ %28, %.preheader8.i ]
-  %.1.i = phi ptr [ %.01319.i.ptr.i.le, %.tail.i.i ], [ %.01319.i.ptr.i.le, %.tail.thread.i.i ], [ %.0.i, %.preheader8.i ], [ %.0.i, %.preheader8.i ]
+  %.0.i = phi ptr [ %.01319.i.ptr.i.le, %.tail.i.i ], [ %.01319.i.ptr.i.le, %.tail.thread.i.i ], [ %.1.i, %.preheader8.i ], [ %.1.i, %.preheader8.i ]
   %.not23.i = icmp eq i8 %31, 62
   br i1 %.not23.i, label %33, label %.critedge.thread.i
 
@@ -1258,18 +1258,18 @@ sub_0.i.i:                                        ; preds = %21
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.i.loopexit, %.critedge.i, %.critedge.i.i
-  %.13.i = phi ptr [ %.1.i, %.critedge.i ], [ %.01319.i.ptr.i.le, %.critedge.i.i ], [ %.01319.i.ptr.i.le64, %.critedge.thread.i.loopexit ]
+  %.03.i = phi ptr [ %.0.i, %.critedge.i ], [ %.01319.i.ptr.i.le, %.critedge.i.i ], [ %.01319.i.ptr.i.le64, %.critedge.thread.i.loopexit ]
   %32 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.101) #19
   store i32 1, ptr getelementptr inbounds (i8, ptr @state, i64 64), align 8
   br label %findNext.exit
 
 33:                                               ; preds = %.critedge.i
-  %34 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %34 = getelementptr inbounds i8, ptr %.0.i, i64 1
   br label %findNext.exit
 
 .preheader9.i:                                    ; preds = %4, %58
   %35 = phi i8 [ %.pr4.i, %58 ], [ %6, %4 ]
-  %.2.i = phi ptr [ %.3.i, %58 ], [ %5, %4 ]
+  %.3.i = phi ptr [ %.4.i, %58 ], [ %5, %4 ]
   switch i8 %35, label %agxbsizeof.exit.i.i [
     i8 60, label %findNext.exit
     i8 0, label %findNext.exit
@@ -1277,7 +1277,7 @@ sub_0.i.i:                                        ; preds = %21
   ]
 
 36:                                               ; preds = %.preheader9.i
-  %37 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %37 = getelementptr inbounds i8, ptr %.3.i, i64 1
   %38 = load i8, ptr %37, align 1
   %.not.i = icmp eq i8 %38, 35
   br i1 %.not.i, label %agxbsizeof.exit.i.i, label %39
@@ -1327,24 +1327,24 @@ agxbsizeof.exit.i.i:                              ; preds = %36, %.preheader9.i
   br label %agxbputc.exit.i
 
 agxbputc.exit.i:                                  ; preds = %51, %46
-  %57 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %57 = getelementptr inbounds i8, ptr %.3.i, i64 1
   br label %58
 
 58:                                               ; preds = %agxbputc.exit.i, %39
-  %.3.i = phi ptr [ %40, %39 ], [ %57, %agxbputc.exit.i ]
-  %.pr4.i = load i8, ptr %.3.i, align 1
+  %.4.i = phi ptr [ %40, %39 ], [ %57, %agxbputc.exit.i ]
+  %.pr4.i = load i8, ptr %.4.i, align 1
   br label %.preheader9.i
 
 findNext.exit:                                    ; preds = %.preheader9.i, %.preheader9.i, %.critedge.thread.i, %33
-  %.4.i = phi ptr [ %.13.i, %.critedge.thread.i ], [ %34, %33 ], [ %.2.i, %.preheader9.i ], [ %.2.i, %.preheader9.i ]
-  %59 = ptrtoint ptr %.4.i to i64
+  %.2.i = phi ptr [ %.03.i, %.critedge.thread.i ], [ %34, %33 ], [ %.3.i, %.preheader9.i ], [ %.3.i, %.preheader9.i ]
+  %59 = ptrtoint ptr %.2.i to i64
   %60 = ptrtoint ptr %5 to i64
   %61 = sub i64 %59, %60
   br label %62
 
 62:                                               ; preds = %7, %findNext.exit, %3
   %.020 = phi ptr [ @.str.1, %3 ], [ @.str.2, %7 ], [ %5, %findNext.exit ]
-  %.1 = phi ptr [ null, %3 ], [ %.019, %7 ], [ %.4.i, %findNext.exit ]
+  %.1 = phi ptr [ null, %3 ], [ %.019, %7 ], [ %.2.i, %findNext.exit ]
   %.018 = phi i64 [ 6, %3 ], [ 7, %7 ], [ %61, %findNext.exit ]
   %.val.i.i = load i8, ptr getelementptr inbounds (i8, ptr @state, i64 63), align 1
   switch i8 %.val.i.i, label %agxblen.exit.i.i.i [

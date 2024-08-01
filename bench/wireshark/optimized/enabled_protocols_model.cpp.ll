@@ -2396,7 +2396,7 @@ _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %161
 
 161:                                              ; preds = %157, %141, %46, %_ZN7QStringD2Ev.exit47, %_ZN7QStringD2Ev.exit, %29, %_ZN7QStringD2Ev.exit55
-  %.023 = phi i1 [ false, %_ZN7QStringD2Ev.exit55 ], [ false, %29 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit47 ], [ true, %46 ], [ true, %141 ], [ true, %157 ]
+  %.124 = phi i1 [ false, %_ZN7QStringD2Ev.exit55 ], [ false, %29 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit47 ], [ true, %46 ], [ true, %141 ], [ true, %157 ]
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
@@ -2406,8 +2406,8 @@ _ZN7QStringD2Ev.exit38:                           ; preds = %155, %_ZN17QArrayDa
   resume { ptr, i32 } %.pn32
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3, %22, %161
-  %.124 = phi i1 [ %.023, %161 ], [ false, %22 ], [ false, %3 ]
-  ret i1 %.124
+  %.023 = phi i1 [ %.124, %161 ], [ false, %22 ], [ false, %3 ]
+  ret i1 %.023
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

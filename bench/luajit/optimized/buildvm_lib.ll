@@ -852,30 +852,30 @@ if.then5:                                         ; preds = %for.body.if.then5_c
   br i1 %cmp.i.i, label %do.body.i.i, label %libdef_uleb128.exit.i
 
 do.body.i.i:                                      ; preds = %if.then5, %do.body.i.i
-  %p.addr.0.i.i = phi ptr [ %incdec.ptr4.i.i, %do.body.i.i ], [ %incdec.ptr.i.i, %if.then5 ]
-  %10 = load i8, ptr %p.addr.0.i.i, align 1
-  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %p.addr.0.i.i, i64 1
+  %p.addr.1.i.i = phi ptr [ %incdec.ptr4.i.i, %do.body.i.i ], [ %incdec.ptr.i.i, %if.then5 ]
+  %10 = load i8, ptr %p.addr.1.i.i, align 1
+  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 1
   %cmp6.i.i = icmp slt i8 %10, 0
   br i1 %cmp6.i.i, label %do.body.i.i, label %libdef_uleb128.exit.i, !llvm.loop !16
 
 libdef_uleb128.exit.i:                            ; preds = %do.body.i.i, %if.then5
-  %p.addr.1.i.i = phi ptr [ %incdec.ptr.i.i, %if.then5 ], [ %incdec.ptr4.i.i, %do.body.i.i ]
-  %incdec.ptr.i18.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 1
-  %11 = load i8, ptr %p.addr.1.i.i, align 1
+  %p.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.then5 ], [ %incdec.ptr4.i.i, %do.body.i.i ]
+  %incdec.ptr.i18.i = getelementptr inbounds i8, ptr %p.addr.0.i.i, i64 1
+  %11 = load i8, ptr %p.addr.0.i.i, align 1
   %cmp.i20.i = icmp slt i8 %11, 0
   br i1 %cmp.i20.i, label %do.body.i25.i, label %libdef_uleb128.exit35.i
 
 do.body.i25.i:                                    ; preds = %libdef_uleb128.exit.i, %do.body.i25.i
-  %p.addr.0.i26.i = phi ptr [ %incdec.ptr4.i33.i, %do.body.i25.i ], [ %incdec.ptr.i18.i, %libdef_uleb128.exit.i ]
-  %12 = load i8, ptr %p.addr.0.i26.i, align 1
-  %incdec.ptr4.i33.i = getelementptr inbounds i8, ptr %p.addr.0.i26.i, i64 1
+  %p.addr.1.i26.i = phi ptr [ %incdec.ptr4.i33.i, %do.body.i25.i ], [ %incdec.ptr.i18.i, %libdef_uleb128.exit.i ]
+  %12 = load i8, ptr %p.addr.1.i26.i, align 1
+  %incdec.ptr4.i33.i = getelementptr inbounds i8, ptr %p.addr.1.i26.i, i64 1
   %cmp6.i34.i = icmp slt i8 %12, 0
   br i1 %cmp6.i34.i, label %do.body.i25.i, label %libdef_uleb128.exit35.i, !llvm.loop !16
 
 libdef_uleb128.exit35.i:                          ; preds = %do.body.i25.i, %libdef_uleb128.exit.i
-  %p.addr.1.i21.i = phi ptr [ %incdec.ptr.i18.i, %libdef_uleb128.exit.i ], [ %incdec.ptr4.i33.i, %do.body.i25.i ]
-  %incdec.ptr.i36.i = getelementptr inbounds i8, ptr %p.addr.1.i21.i, i64 1
-  %13 = load i8, ptr %p.addr.1.i21.i, align 1
+  %p.addr.0.i21.i = phi ptr [ %incdec.ptr.i18.i, %libdef_uleb128.exit.i ], [ %incdec.ptr4.i33.i, %do.body.i25.i ]
+  %incdec.ptr.i36.i = getelementptr inbounds i8, ptr %p.addr.0.i21.i, i64 1
+  %13 = load i8, ptr %p.addr.0.i21.i, align 1
   %conv.i37.i = zext i8 %13 to i32
   %cmp.i38.i = icmp slt i8 %13, 0
   br i1 %cmp.i38.i, label %if.then.i41.i, label %libdef_uleb128.exit53.i
@@ -885,27 +885,27 @@ if.then.i41.i:                                    ; preds = %libdef_uleb128.exit
   br label %do.body.i43.i
 
 do.body.i43.i:                                    ; preds = %do.body.i43.i, %if.then.i41.i
-  %p.addr.0.i44.i = phi ptr [ %incdec.ptr.i36.i, %if.then.i41.i ], [ %incdec.ptr4.i51.i, %do.body.i43.i ]
-  %v.0.i45.i = phi i32 [ %and.i42.i, %if.then.i41.i ], [ %or.i50.i, %do.body.i43.i ]
+  %p.addr.1.i44.i = phi ptr [ %incdec.ptr.i36.i, %if.then.i41.i ], [ %incdec.ptr4.i51.i, %do.body.i43.i ]
+  %v.1.i45.i = phi i32 [ %and.i42.i, %if.then.i41.i ], [ %or.i50.i, %do.body.i43.i ]
   %sh.0.i46.i = phi i32 [ 0, %if.then.i41.i ], [ %add.i48.i, %do.body.i43.i ]
-  %14 = load i8, ptr %p.addr.0.i44.i, align 1
+  %14 = load i8, ptr %p.addr.1.i44.i, align 1
   %15 = and i8 %14, 127
   %and3.i47.i = zext nneg i8 %15 to i32
   %add.i48.i = add nuw nsw i32 %sh.0.i46.i, 7
   %shl.i49.i = shl i32 %and3.i47.i, %add.i48.i
-  %or.i50.i = or i32 %shl.i49.i, %v.0.i45.i
-  %incdec.ptr4.i51.i = getelementptr inbounds i8, ptr %p.addr.0.i44.i, i64 1
+  %or.i50.i = or i32 %shl.i49.i, %v.1.i45.i
+  %incdec.ptr4.i51.i = getelementptr inbounds i8, ptr %p.addr.1.i44.i, i64 1
   %cmp6.i52.i = icmp slt i8 %14, 0
   br i1 %cmp6.i52.i, label %do.body.i43.i, label %libdef_uleb128.exit53.i, !llvm.loop !16
 
 libdef_uleb128.exit53.i:                          ; preds = %do.body.i43.i, %libdef_uleb128.exit35.i
-  %p.addr.1.i39.i = phi ptr [ %incdec.ptr.i36.i, %libdef_uleb128.exit35.i ], [ %incdec.ptr4.i51.i, %do.body.i43.i ]
-  %v.1.i40.i = phi i32 [ %conv.i37.i, %libdef_uleb128.exit35.i ], [ %or.i50.i, %do.body.i43.i ]
-  %cmp54.not.i = icmp eq i32 %v.1.i40.i, 0
+  %p.addr.0.i39.i = phi ptr [ %incdec.ptr.i36.i, %libdef_uleb128.exit35.i ], [ %incdec.ptr4.i51.i, %do.body.i43.i ]
+  %v.0.i40.i = phi i32 [ %conv.i37.i, %libdef_uleb128.exit35.i ], [ %or.i50.i, %do.body.i43.i ]
+  %cmp54.not.i = icmp eq i32 %v.0.i40.i, 0
   br i1 %cmp54.not.i, label %libdef_fixupbc.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %libdef_uleb128.exit53.i, %for.body.i
-  %p.addr.056.i = phi ptr [ %add.ptr16.i, %for.body.i ], [ %p.addr.1.i39.i, %libdef_uleb128.exit53.i ]
+  %p.addr.056.i = phi ptr [ %add.ptr16.i, %for.body.i ], [ %p.addr.0.i39.i, %libdef_uleb128.exit53.i ]
   %i.055.i = phi i32 [ %inc15.i, %for.body.i ], [ 0, %libdef_uleb128.exit53.i ]
   %16 = load i8, ptr %p.addr.056.i, align 1
   %arrayidx4.i = getelementptr inbounds i8, ptr %p.addr.056.i, i64 2
@@ -919,7 +919,7 @@ for.body.i:                                       ; preds = %libdef_uleb128.exit
   store i8 %spec.select17.i, ptr %arrayidx4.i, align 1
   %inc15.i = add nuw i32 %i.055.i, 1
   %add.ptr16.i = getelementptr inbounds i8, ptr %p.addr.056.i, i64 4
-  %exitcond.not.i = icmp eq i32 %inc15.i, %v.1.i40.i
+  %exitcond.not.i = icmp eq i32 %inc15.i, %v.0.i40.i
   br i1 %exitcond.not.i, label %libdef_fixupbc.exit.loopexit, label %for.body.i, !llvm.loop !17
 
 libdef_fixupbc.exit.loopexit:                     ; preds = %for.body.i

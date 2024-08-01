@@ -3102,8 +3102,8 @@ if.end48.i:                                       ; preds = %if.end.i3388, %if.t
   br i1 %tobool49.i3298.not, label %if.end.i2978, label %miracle_found.i
 
 miracle_found.i:                                  ; preds = %if.end48.i, %roseMiracleScan.exit
-  %s.i.2 = phi i64 [ %shl.i3376, %roseMiracleScan.exit ], [ %spec.select2367, %if.end48.i ]
-  %444 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %s.i.2, i1 true)
+  %s.i.1 = phi i64 [ %shl.i3376, %roseMiracleScan.exit ], [ %spec.select2367, %if.end48.i ]
+  %444 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %s.i.1, i1 true)
   %445 = add nuw nsw i64 %444, %conv.i3288
   %446 = xor i64 %445, -1
   %sub59.i = add i64 %435, %446
@@ -3210,7 +3210,7 @@ if.then33.i:                                      ; preds = %if.then33.loopexit.
   br label %roseCountingMiracleOccurs.exit
 
 if.end35.i:                                       ; preds = %roseCountingMiracleScan.exit174.i, %for.end.i145.i, %if.then16.i
-  %count.1.i = phi i32 [ %add20.i158.i, %roseCountingMiracleScan.exit174.i ], [ 0, %if.then16.i ], [ %count.i134.0.i, %for.end.i145.i ]
+  %count.0.i = phi i32 [ %add20.i158.i, %roseCountingMiracleScan.exit174.i ], [ 0, %if.then16.i ], [ %count.i134.0.i, %for.end.i145.i ]
   br i1 %cmp18.i2386, label %if.then38.i, label %roseCountingMiracleOccurs.exit.thread
 
 if.then38.i:                                      ; preds = %if.end35.i
@@ -3229,7 +3229,7 @@ if.then38.i:                                      ; preds = %if.end35.i
   br label %for.cond.i.i2390
 
 for.cond.i.i2390:                                 ; preds = %for.body.i.i2391, %if.then38.i
-  %count.i.0.i = phi i32 [ %count.1.i, %if.then38.i ], [ %add.i.i2392, %for.body.i.i2391 ]
+  %count.i.0.i = phi i32 [ %count.0.i, %if.then38.i ], [ %add.i.i2392, %for.body.i.i2391 ]
   %d_end.addr.i.0.i = phi ptr [ %add.ptr47.i, %if.then38.i ], [ %add.ptr1.i.i, %for.body.i.i2391 ]
   %cmp.i.not.i = icmp ugt ptr %add.ptr.i.i2389, %d_end.addr.i.0.i
   br i1 %cmp.i.not.i, label %for.end.i.i2393, label %for.body.i.i2391
@@ -3376,7 +3376,7 @@ if.then86.i:                                      ; preds = %if.then86.loopexit.
   br label %roseCountingMiracleOccurs.exit
 
 if.end92.i:                                       ; preds = %roseCountingMiracleScanShufti.exit271.i, %for.end.i229.i, %if.else.i2384
-  %count.3.i = phi i32 [ %add36.i248.i, %roseCountingMiracleScanShufti.exit271.i ], [ 0, %if.else.i2384 ], [ %count.i210.0.i, %for.end.i229.i ]
+  %count.2.i = phi i32 [ %add36.i248.i, %roseCountingMiracleScanShufti.exit271.i ], [ 0, %if.else.i2384 ], [ %count.i210.0.i, %for.end.i229.i ]
   br i1 %cmp66.i, label %if.then95.i, label %roseCountingMiracleOccurs.exit.thread
 
 if.then95.i:                                      ; preds = %if.end92.i
@@ -3395,7 +3395,7 @@ if.then95.i:                                      ; preds = %if.end92.i
   br label %for.cond.i186.i
 
 for.cond.i186.i:                                  ; preds = %for.body.i194.i, %if.then95.i
-  %count.i181.0.i = phi i32 [ %count.3.i, %if.then95.i ], [ %add.i198.i, %for.body.i194.i ]
+  %count.i181.0.i = phi i32 [ %count.2.i, %if.then95.i ], [ %add.i198.i, %for.body.i194.i ]
   %d_end.addr.i177.0.i = phi ptr [ %add.ptr107.i, %if.then95.i ], [ %add.ptr2.i.i, %for.body.i194.i ]
   %cmp.i188.not.i = icmp ugt ptr %add.ptr.i187.i2385, %d_end.addr.i177.0.i
   br i1 %cmp.i188.not.i, label %for.end.i189.i, label %for.body.i194.i
@@ -3472,7 +3472,7 @@ roseCountingMiracleOccurs.exit.thread:            ; preds = %if.end.i2978.thread
   br label %if.end13.i2699
 
 roseCountingMiracleOccurs.exit:                   ; preds = %if.then33.i, %if.then55.i, %if.then86.i, %if.then115.i
-  %miracle_loc.i.1 = phi i64 [ %add90.i, %if.then86.i ], [ %add119.i, %if.then115.i ], [ %add.i2395, %if.then33.i ], [ %add59.i, %if.then55.i ]
+  %miracle_loc.i.6 = phi i64 [ %add90.i, %if.then86.i ], [ %add119.i, %if.then115.i ], [ %add.i2395, %if.then33.i ], [ %add59.i, %if.then55.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i218.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i184.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i138.sroa.0.i)
@@ -3480,7 +3480,7 @@ roseCountingMiracleOccurs.exit:                   ; preds = %if.then33.i, %if.th
   br label %found_miracle.i
 
 found_miracle.i:                                  ; preds = %roseCountingMiracleOccurs.exit, %miracle_found.i
-  %miracle_loc.i.2 = phi i64 [ %miracle_loc.i.1, %roseCountingMiracleOccurs.exit ], [ %sub59.i, %miracle_found.i ]
+  %miracle_loc.i.2 = phi i64 [ %miracle_loc.i.6, %roseCountingMiracleOccurs.exit ], [ %sub59.i, %miracle_found.i ]
   %infix.i2982 = getelementptr inbounds i8, ptr %add.ptr.i1741, i64 17
   %523 = load i8, ptr %infix.i2982, align 1
   %tobool12.i2983.not = icmp eq i8 %523, 0
@@ -4206,29 +4206,29 @@ for.body.i3236.lr.ph:                             ; preds = %lor.end.i
   br label %for.body.i3236
 
 for.body.i3236:                                   ; preds = %for.body.i3236.lr.ph, %if.end39.i
-  %src.i.02705 = phi ptr [ %arrayidx18.i, %for.body.i3236.lr.ph ], [ %incdec.ptr.i, %if.end39.i ]
-  %i.i.02704 = phi i32 [ 0, %for.body.i3236.lr.ph ], [ %inc.i3238, %if.end39.i ]
-  %location33.i = getelementptr inbounds i8, ptr %src.i.02705, i64 8
+  %src.i.12705 = phi ptr [ %arrayidx18.i, %for.body.i3236.lr.ph ], [ %incdec.ptr.i, %if.end39.i ]
+  %i.i.12704 = phi i32 [ 0, %for.body.i3236.lr.ph ], [ %inc.i3238, %if.end39.i ]
+  %location33.i = getelementptr inbounds i8, ptr %src.i.12705, i64 8
   %649 = load i64, ptr %location33.i, align 8
   %cmp36.i.not = icmp slt i64 %649, %sub35.i
   br i1 %cmp36.i.not, label %if.end39.i, label %if.end40.i
 
 if.end39.i:                                       ; preds = %for.body.i3236
-  %inc.i3238 = add nuw i32 %i.i.02704, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.i.02705, i64 24
+  %inc.i3238 = add nuw i32 %i.i.12704, 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.i.12705, i64 24
   %exitcond2952.not = icmp eq i32 %inc.i3238, %cond.i3229
   br i1 %exitcond2952.not, label %for.end51.i, label %for.body.i3236, !llvm.loop !18
 
 if.end40.i:                                       ; preds = %for.body.i3236, %lor.end.i
-  %i.i.1 = phi i32 [ 0, %lor.end.i ], [ %i.i.02704, %for.body.i3236 ]
-  %src.i.1 = phi ptr [ %arrayidx18.i, %lor.end.i ], [ %src.i.02705, %for.body.i3236 ]
-  %cmp42.i2710 = icmp ult i32 %i.i.1, %cond.i3229
+  %i.i.0 = phi i32 [ 0, %lor.end.i ], [ %i.i.12704, %for.body.i3236 ]
+  %src.i.0 = phi ptr [ %arrayidx18.i, %lor.end.i ], [ %src.i.12705, %for.body.i3236 ]
+  %cmp42.i2710 = icmp ult i32 %i.i.0, %cond.i3229
   br i1 %cmp42.i2710, label %for.body44.i, label %for.end51.i
 
 for.body44.i:                                     ; preds = %if.end40.i, %for.body44.i
-  %src.i.22713 = phi ptr [ %incdec.ptr45.i, %for.body44.i ], [ %src.i.1, %if.end40.i ]
+  %src.i.22713 = phi ptr [ %incdec.ptr45.i, %for.body44.i ], [ %src.i.0, %if.end40.i ]
   %dst.i.02712 = phi ptr [ %incdec.ptr46.i, %for.body44.i ], [ %arrayidx28.i, %if.end40.i ]
-  %i.i.22711 = phi i32 [ %inc50.i, %for.body44.i ], [ %i.i.1, %if.end40.i ]
+  %i.i.22711 = phi i32 [ %inc50.i, %for.body44.i ], [ %i.i.0, %if.end40.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dst.i.02712, ptr noundef nonnull align 8 dereferenceable(24) %src.i.22713, i64 24, i1 false)
   %incdec.ptr45.i = getelementptr inbounds i8, ptr %src.i.22713, i64 24
   %incdec.ptr46.i = getelementptr inbounds i8, ptr %dst.i.02712, i64 24

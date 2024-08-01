@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr nocapture noundef rea
 
 .preheader:                                       ; preds = %.preheader.preheader, %swapAndFlip.exit
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %swapAndFlip.exit ]
-  %.029 = phi i32 [ %4, %.preheader.preheader ], [ %.2, %swapAndFlip.exit ]
+  %.029 = phi i32 [ %4, %.preheader.preheader ], [ %.1, %swapAndFlip.exit ]
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = shl i32 %7, 24
   %sext = add i32 %8, 1627389952
@@ -110,9 +110,9 @@ define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr nocapture noundef rea
   br label %30
 
 30:                                               ; preds = %25, %._crit_edge.i
-  %.1 = phi i32 [ %.029, %._crit_edge.i ], [ %29, %25 ]
+  %.2 = phi i32 [ %.029, %._crit_edge.i ], [ %29, %25 ]
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
-  %31 = and i32 %.pre-phi.i, %.1
+  %31 = and i32 %.pre-phi.i, %.2
   %.not25.i = icmp eq i32 %31, 0
   br i1 %.not25.i, label %swapAndFlip.exit, label %32
 
@@ -126,13 +126,13 @@ define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr nocapture noundef rea
   br i1 %exitcond.not, label %swapAndFlip.exit, label %10, !llvm.loop !4
 
 swapAndFlip.exit:                                 ; preds = %33, %32, %30
-  %.2 = phi i32 [ %.1, %30 ], [ %.1, %32 ], [ %.029, %33 ]
+  %.1 = phi i32 [ %.2, %30 ], [ %.2, %32 ], [ %.029, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count37
   br i1 %exitcond38.not, label %._crit_edge, label %.preheader, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %swapAndFlip.exit, %5
-  %.0.lcssa = phi i32 [ %4, %5 ], [ %.2, %swapAndFlip.exit ]
+  %.0.lcssa = phi i32 [ %4, %5 ], [ %.1, %swapAndFlip.exit ]
   %34 = shl nuw i32 1, %2
   %35 = and i32 %.0.lcssa, %34
   %.not = icmp eq i32 %35, 0

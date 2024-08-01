@@ -1287,8 +1287,8 @@ while.body:                                       ; preds = %if.end65, %if.end
 
 for.body:                                         ; preds = %while.body, %for.inc
   %indvars.iv = phi i64 [ 0, %while.body ], [ %indvars.iv.next, %for.inc ]
-  %do_sleep.050 = phi i1 [ true, %while.body ], [ %do_sleep.2, %for.inc ]
-  %to_sleep.249 = phi i32 [ %to_sleep.1, %while.body ], [ %to_sleep.5, %for.inc ]
+  %do_sleep.050 = phi i1 [ true, %while.body ], [ %do_sleep.1, %for.inc ]
+  %to_sleep.249 = phi i32 [ %to_sleep.1, %while.body ], [ %to_sleep.3, %for.inc ]
   store i8 0, ptr %mem_limit_reached, align 1
   %cmp15 = icmp slt i64 %indvars.iv, %5
   br i1 %cmp15, label %for.inc, label %lor.lhs.false
@@ -1334,8 +1334,8 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   %item_age.046 = phi i32 [ %item_age.0, %if.then32.critedge ], [ %item_age.039, %if.end.i.preheader ]
   %chunks_free.045 = phi i32 [ %inc33, %if.then32.critedge ], [ %call23, %if.end.i.preheader ]
   %did_move.044 = phi i1 [ true, %if.then32.critedge ], [ false, %if.end.i.preheader ]
-  %do_sleep.143 = phi i1 [ false, %if.then32.critedge ], [ %do_sleep.050, %if.end.i.preheader ]
-  %to_sleep.342 = phi i32 [ %spec.select21, %if.then32.critedge ], [ %to_sleep.249, %if.end.i.preheader ]
+  %do_sleep.243 = phi i1 [ false, %if.then32.critedge ], [ %do_sleep.050, %if.end.i.preheader ]
+  %to_sleep.442 = phi i32 [ %spec.select21, %if.then32.critedge ], [ %to_sleep.249, %if.end.i.preheader ]
   %nkey.i = getelementptr inbounds i8, ptr %11, i64 41
   %12 = load i8, ptr %nkey.i, align 1
   %conv.i = zext i8 %12 to i64
@@ -1607,9 +1607,9 @@ if.then32.critedge:                               ; preds = %if.end192.i, %if.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it_info.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %io.i)
   %inc33 = add i32 %chunks_free.045, 1
-  %cmp34 = icmp ugt i32 %to_sleep.342, 200
+  %cmp34 = icmp ugt i32 %to_sleep.442, 200
   %div20 = zext i1 %cmp34 to i32
-  %spec.select21 = lshr i32 %to_sleep.342, %div20
+  %spec.select21 = lshr i32 %to_sleep.442, %div20
   %cmp26 = icmp ult i32 %inc33, %mul
   %73 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 268), align 4
   %item_age.0 = select i1 %cmp26, i32 0, i32 %73
@@ -1627,29 +1627,29 @@ while.end:                                        ; preds = %if.then32.critedge
   br i1 %cmp.i41.not, label %if.then41, label %for.inc.sink.split
 
 if.then41:                                        ; preds = %while.end.thread, %storage_write.exit, %while.end
-  %do_sleep.13275 = phi i1 [ %do_sleep.143, %storage_write.exit ], [ false, %while.end ], [ %do_sleep.050, %while.end.thread ]
-  %to_sleep.33673 = phi i32 [ %to_sleep.342, %storage_write.exit ], [ %spec.select21, %while.end ], [ %to_sleep.249, %while.end.thread ]
+  %do_sleep.23275 = phi i1 [ %do_sleep.243, %storage_write.exit ], [ false, %while.end ], [ %do_sleep.050, %while.end.thread ]
+  %to_sleep.43673 = phi i32 [ %to_sleep.442, %storage_write.exit ], [ %spec.select21, %while.end ], [ %to_sleep.249, %while.end.thread ]
   %75 = load i32, ptr %arrayidx, align 4
   %inc44 = add i32 %75, 1
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %while.end, %storage_write.exit, %if.then41
   %inc44.sink = phi i32 [ %inc44, %if.then41 ], [ 1, %storage_write.exit ], [ 1, %while.end ]
-  %to_sleep.5.ph = phi i32 [ %to_sleep.33673, %if.then41 ], [ %to_sleep.342, %storage_write.exit ], [ %spec.select21, %while.end ]
-  %do_sleep.2.ph = phi i1 [ %do_sleep.13275, %if.then41 ], [ %do_sleep.143, %storage_write.exit ], [ false, %while.end ]
+  %to_sleep.3.ph = phi i32 [ %to_sleep.43673, %if.then41 ], [ %to_sleep.442, %storage_write.exit ], [ %spec.select21, %while.end ]
+  %do_sleep.1.ph = phi i1 [ %do_sleep.23275, %if.then41 ], [ %do_sleep.243, %storage_write.exit ], [ false, %while.end ]
   store i32 %inc44.sink, ptr %arrayidx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body, %land.lhs.true
-  %to_sleep.5 = phi i32 [ %to_sleep.249, %for.body ], [ %to_sleep.249, %land.lhs.true ], [ %to_sleep.5.ph, %for.inc.sink.split ]
-  %do_sleep.2 = phi i1 [ %do_sleep.050, %for.body ], [ %do_sleep.050, %land.lhs.true ], [ %do_sleep.2.ph, %for.inc.sink.split ]
+  %to_sleep.3 = phi i32 [ %to_sleep.249, %for.body ], [ %to_sleep.249, %land.lhs.true ], [ %to_sleep.3.ph, %for.inc.sink.split ]
+  %do_sleep.1 = phi i1 [ %do_sleep.050, %for.body ], [ %do_sleep.050, %land.lhs.true ], [ %do_sleep.1.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
   %call50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @storage_write_plock) #22
-  br i1 %do_sleep.2, label %for.body57, label %if.end65
+  br i1 %do_sleep.1, label %for.body57, label %if.end65
 
 for.body57:                                       ; preds = %for.end, %for.body57
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %for.body57 ], [ 0, %for.end ]
@@ -1660,12 +1660,12 @@ for.body57:                                       ; preds = %for.end, %for.body5
   br i1 %exitcond72.not, label %for.end62, label %for.body57, !llvm.loop !12
 
 for.end62:                                        ; preds = %for.body57
-  %call63 = call i32 @usleep(i32 noundef %to_sleep.5) #22
-  %inc64 = add i32 %to_sleep.5, 1
+  %call63 = call i32 @usleep(i32 noundef %to_sleep.3) #22
+  %inc64 = add i32 %to_sleep.3, 1
   br label %if.end65
 
 if.end65:                                         ; preds = %for.end62, %for.end
-  %to_sleep.6 = phi i32 [ %inc64, %for.end62 ], [ %to_sleep.5, %for.end ]
+  %to_sleep.6 = phi i32 [ %inc64, %for.end62 ], [ %to_sleep.3, %for.end ]
   %call66 = call i32 @pthread_mutex_lock(ptr noundef nonnull @storage_write_plock) #22
   br label %while.body
 }
@@ -1786,10 +1786,10 @@ if.end7:                                          ; preds = %if.end
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %if.end133, %if.end7
-  %page_version.0.ph = phi i64 [ %page_version.275, %if.end133 ], [ 0, %if.end7 ]
-  %page_size.0.ph = phi i64 [ %page_size.276, %if.end133 ], [ 0, %if.end7 ]
-  %page_id.0.ph = phi i32 [ %page_id.279, %if.end133 ], [ 0, %if.end7 ]
-  %drop_unread.0.ph = phi i1 [ %drop_unread.281, %if.end133 ], [ false, %if.end7 ]
+  %page_version.0.ph = phi i64 [ %page_version.175, %if.end133 ], [ 0, %if.end7 ]
+  %page_size.0.ph = phi i64 [ %page_size.176, %if.end133 ], [ 0, %if.end7 ]
+  %page_id.0.ph = phi i32 [ %page_id.179, %if.end133 ], [ 0, %if.end7 ]
+  %drop_unread.0.ph = phi i1 [ %drop_unread.181, %if.end133 ], [ false, %if.end7 ]
   %compacting.0.ph = phi i8 [ %compacting.2, %if.end133 ], [ 0, %if.end7 ]
   %page_offset.0.ph = phi i32 [ %page_offset.2, %if.end133 ], [ 0, %if.end7 ]
   %to_sleep.0.ph = phi i32 [ 10000, %if.end133 ], [ %0, %if.end7 ]
@@ -1797,8 +1797,8 @@ while.body.outer:                                 ; preds = %if.end133, %if.end7
   br label %while.body
 
 while.body:                                       ; preds = %while.body.outer, %if.else136
-  %page_size.0 = phi i64 [ %page_size.1.ph89, %if.else136 ], [ %page_size.0.ph, %while.body.outer ]
-  %drop_unread.0 = phi i1 [ %drop_unread.1.ph90, %if.else136 ], [ %drop_unread.0.ph, %while.body.outer ]
+  %page_size.0 = phi i64 [ %page_size.2.ph89, %if.else136 ], [ %page_size.0.ph, %while.body.outer ]
+  %drop_unread.0 = phi i1 [ %drop_unread.2.ph90, %if.else136 ], [ %drop_unread.0.ph, %while.body.outer ]
   %to_sleep.0 = phi i32 [ %spec.select, %if.else136 ], [ %to_sleep.0.ph, %while.body.outer ]
   %call15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @storage_compact_plock) #22
   %tobool.not = icmp eq i32 %to_sleep.0, 0
@@ -1866,9 +1866,9 @@ if.else.i.thread:                                 ; preds = %do.end.i
 
 for.body.i:                                       ; preds = %do.end.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %do.end.i ]
-  %lowest_page.033.i = phi i32 [ %lowest_page.2.i, %for.inc.i ], [ 0, %do.end.i ]
+  %lowest_page.033.i = phi i32 [ %lowest_page.1.i, %for.inc.i ], [ 0, %do.end.i ]
   %low_page.032.i = phi i32 [ %low_page.1.i, %for.inc.i ], [ 0, %do.end.i ]
-  %lowest_version.031.i = phi i64 [ %lowest_version.2.i, %for.inc.i ], [ -1, %do.end.i ]
+  %lowest_version.031.i = phi i64 [ %lowest_version.1.i, %for.inc.i ], [ -1, %do.end.i ]
   %low_version.030.i = phi i64 [ %low_version.1.i, %for.inc.i ], [ -1, %do.end.i ]
   %arrayidx.i = getelementptr inbounds %struct.extstore_page_data, ptr %.pre39.i, i64 %indvars.iv.i
   %18 = load i64, ptr %arrayidx.i, align 8
@@ -1899,9 +1899,9 @@ if.then53.i:                                      ; preds = %if.end35.i
 
 for.inc.i:                                        ; preds = %if.then53.i, %if.end35.i, %lor.lhs.false.i, %for.body.i
   %low_version.1.i = phi i64 [ %low_version.030.i, %for.body.i ], [ %low_version.030.i, %lor.lhs.false.i ], [ %low_version.030.i, %if.end35.i ], [ %spec.select26.i, %if.then53.i ]
-  %lowest_version.2.i = phi i64 [ %lowest_version.031.i, %for.body.i ], [ %lowest_version.031.i, %lor.lhs.false.i ], [ %spec.select.i, %if.end35.i ], [ %spec.select.i, %if.then53.i ]
+  %lowest_version.1.i = phi i64 [ %lowest_version.031.i, %for.body.i ], [ %lowest_version.031.i, %lor.lhs.false.i ], [ %spec.select.i, %if.end35.i ], [ %spec.select.i, %if.then53.i ]
   %low_page.1.i = phi i32 [ %low_page.032.i, %for.body.i ], [ %low_page.032.i, %lor.lhs.false.i ], [ %low_page.032.i, %if.end35.i ], [ %spec.select27.i, %if.then53.i ]
-  %lowest_page.2.i = phi i32 [ %lowest_page.033.i, %for.body.i ], [ %lowest_page.033.i, %lor.lhs.false.i ], [ %spec.select25.i, %if.end35.i ], [ %spec.select25.i, %if.then53.i ]
+  %lowest_page.1.i = phi i32 [ %lowest_page.033.i, %for.body.i ], [ %lowest_page.033.i, %lor.lhs.false.i ], [ %spec.select25.i, %if.end35.i ], [ %spec.select25.i, %if.then53.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
@@ -1913,7 +1913,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %cmp69.not.i, label %if.else.i, label %if.end28
 
 if.else.i:                                        ; preds = %for.end.i
-  %cmp72.not.i = icmp eq i64 %lowest_version.2.i, -1
+  %cmp72.not.i = icmp eq i64 %lowest_version.1.i, -1
   br i1 %cmp72.not.i, label %if.end34, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
@@ -1929,8 +1929,8 @@ land.lhs.true76.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp79.not.i, label %if.end34, label %if.end28
 
 if.end28:                                         ; preds = %land.lhs.true76.i, %for.end.i
-  %page_version.1 = phi i64 [ %low_version.1.i, %for.end.i ], [ %lowest_version.2.i, %land.lhs.true76.i ]
-  %page_id.1 = phi i32 [ %low_page.1.i, %for.end.i ], [ %lowest_page.2.i, %land.lhs.true76.i ]
+  %page_version.2 = phi i64 [ %low_version.1.i, %for.end.i ], [ %lowest_version.1.i, %land.lhs.true76.i ]
+  %page_id.2 = phi i32 [ %low_page.1.i, %for.end.i ], [ %lowest_page.1.i, %land.lhs.true76.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %26 = load i16, ptr %eflags.i, align 4
   %27 = and i16 %26, 2
@@ -1938,12 +1938,12 @@ if.end28:                                         ; preds = %land.lhs.true76.i, 
   br i1 %tobool30.not, label %if.then36, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
-  %call32 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 10, ptr noundef null, i32 noundef %page_id.1, i64 noundef %page_version.1) #22
+  %call32 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 10, ptr noundef null, i32 noundef %page_id.2, i64 noundef %page_version.2) #22
   br label %if.then36
 
 if.end34.thread86:                                ; preds = %if.else.i.thread, %if.end.i, %land.lhs.true
-  %page_size.1.ph.ph = phi i64 [ %page_size.0, %land.lhs.true ], [ %page_size.0, %if.end.i ], [ %17, %if.else.i.thread ]
-  %drop_unread.1.ph.ph = phi i1 [ %drop_unread.0, %land.lhs.true ], [ %drop_unread.0, %if.end.i ], [ false, %if.else.i.thread ]
+  %page_size.2.ph.ph = phi i64 [ %page_size.0, %land.lhs.true ], [ %page_size.0, %if.end.i ], [ %17, %if.else.i.thread ]
+  %drop_unread.2.ph.ph = phi i1 [ %drop_unread.0, %land.lhs.true ], [ %drop_unread.0, %if.end.i ], [ false, %if.else.i.thread ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   br label %if.else136
 
@@ -1954,13 +1954,13 @@ if.end34:                                         ; preds = %land.lhs.true76.i, 
 if.then36:                                        ; preds = %if.end18, %if.end34, %if.end28, %if.then31
   %page_offset.183 = phi i32 [ 0, %if.then31 ], [ 0, %if.end28 ], [ %page_offset.0.ph, %if.end34 ], [ %page_offset.0.ph, %if.end18 ]
   %compacting.182 = phi i8 [ 1, %if.then31 ], [ 1, %if.end28 ], [ %compacting.0.ph, %if.end34 ], [ %compacting.0.ph, %if.end18 ]
-  %drop_unread.281 = phi i1 [ %cmp69.not.i, %if.then31 ], [ %cmp69.not.i, %if.end28 ], [ %drop_unread.0, %if.end18 ], [ false, %if.end34 ]
-  %page_id.279 = phi i32 [ %page_id.1, %if.then31 ], [ %page_id.1, %if.end28 ], [ %page_id.0.ph, %if.end34 ], [ %page_id.0.ph, %if.end18 ]
-  %page_size.276 = phi i64 [ %22, %if.then31 ], [ %22, %if.end28 ], [ %page_size.0, %if.end18 ], [ %22, %if.end34 ]
-  %page_version.275 = phi i64 [ %page_version.1, %if.then31 ], [ %page_version.1, %if.end28 ], [ %page_version.0.ph, %if.end34 ], [ %page_version.0.ph, %if.end18 ]
+  %drop_unread.181 = phi i1 [ %cmp69.not.i, %if.then31 ], [ %cmp69.not.i, %if.end28 ], [ %drop_unread.0, %if.end18 ], [ false, %if.end34 ]
+  %page_id.179 = phi i32 [ %page_id.2, %if.then31 ], [ %page_id.2, %if.end28 ], [ %page_id.0.ph, %if.end34 ], [ %page_id.0.ph, %if.end18 ]
+  %page_size.176 = phi i64 [ %22, %if.then31 ], [ %22, %if.end28 ], [ %page_size.0, %if.end18 ], [ %22, %if.end34 ]
+  %page_version.175 = phi i64 [ %page_version.2, %if.then31 ], [ %page_version.2, %if.end28 ], [ %page_version.0.ph, %if.end34 ], [ %page_version.0.ph, %if.end18 ]
   %call38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock) #22
   %conv39 = zext i32 %page_offset.183 to i64
-  %cmp40 = icmp ugt i64 %page_size.276, %conv39
+  %cmp40 = icmp ugt i64 %page_size.176, %conv39
   br i1 %cmp40, label %land.lhs.true42, label %if.else
 
 land.lhs.true42:                                  ; preds = %if.then36
@@ -1974,9 +1974,9 @@ land.lhs.true45:                                  ; preds = %land.lhs.true42
   br i1 %tobool47, label %if.else, label %if.then48
 
 if.then48:                                        ; preds = %land.lhs.true45
-  %conv49 = trunc i64 %page_version.275 to i32
+  %conv49 = trunc i64 %page_version.175 to i32
   store i32 %conv49, ptr %page_version51, align 4
-  %conv52 = trunc i32 %page_id.279 to i16
+  %conv52 = trunc i32 %page_id.179 to i16
   store i16 %conv52, ptr %page_id54, align 8
   store i32 %page_offset.183, ptr %offset, align 4
   store ptr null, ptr %next, align 8
@@ -1997,7 +1997,7 @@ if.end69:                                         ; preds = %if.else
   br i1 %tobool73.not, label %do.end77, label %if.then74
 
 if.then74:                                        ; preds = %if.end69
-  %call75 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 11, ptr noundef null, i32 noundef %page_id.279) #22
+  %call75 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 11, ptr noundef null, i32 noundef %page_id.179) #22
   br label %do.end77
 
 do.end77:                                         ; preds = %if.end69, %if.then74
@@ -2022,7 +2022,7 @@ if.end95:                                         ; preds = %land.lhs.true84
   br i1 %tobool99.not, label %do.end103, label %if.then100
 
 if.then100:                                       ; preds = %if.end95
-  %call101 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 12, ptr noundef null, i32 noundef %page_id.279, i32 noundef %page_offset.183) #22
+  %call101 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 12, ptr noundef null, i32 noundef %page_id.179, i32 noundef %page_offset.183) #22
   br label %do.end103
 
 do.end103:                                        ; preds = %if.end95, %if.then100
@@ -2123,13 +2123,13 @@ if.then40.i:                                      ; preds = %lor.lhs.false.i37, 
   %page_id58.i = getelementptr inbounds i8, ptr %add.ptr57.i, i64 8
   %57 = load i16, ptr %page_id58.i, align 4
   %conv59.i = zext i16 %57 to i32
-  %cmp60.i = icmp eq i32 %page_id.279, %conv59.i
+  %cmp60.i = icmp eq i32 %page_id.179, %conv59.i
   br i1 %cmp60.i, label %land.lhs.true62.i, label %if.end209.i
 
 land.lhs.true62.i:                                ; preds = %if.then40.i
   %58 = load i32, ptr %add.ptr57.i, align 4
   %conv64.i = zext i32 %58 to i64
-  %cmp65.i = icmp eq i64 %page_version.275, %conv64.i
+  %cmp65.i = icmp eq i64 %page_version.175, %conv64.i
   br i1 %cmp65.i, label %land.lhs.true67.i, label %if.end209.i
 
 land.lhs.true67.i:                                ; preds = %land.lhs.true62.i
@@ -2141,8 +2141,8 @@ land.lhs.true67.i:                                ; preds = %land.lhs.true62.i
   br i1 %cmp71.i, label %if.then73.i, label %if.end209.i
 
 if.then73.i:                                      ; preds = %land.lhs.true67.i
-  %call74.i = call i32 @extstore_delete(ptr noundef %arg, i32 noundef %page_id.279, i64 noundef %page_version.275, i32 noundef 1, i32 noundef %add15.i) #22
-  br i1 %drop_unread.281, label %if.end86.i, label %if.then88.i
+  %call74.i = call i32 @extstore_delete(ptr noundef %arg, i32 noundef %page_id.179, i64 noundef %page_version.175, i32 noundef 1, i32 noundef %add15.i) #22
+  br i1 %drop_unread.181, label %if.end86.i, label %if.then88.i
 
 if.end86.i:                                       ; preds = %if.then73.i
   %slabs_clsid.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -2154,7 +2154,7 @@ if.end86.i:                                       ; preds = %if.then73.i
   br i1 %cmp80.i, label %if.end209.i, label %if.then88.i
 
 if.then88.i:                                      ; preds = %if.end86.i, %if.then73.i
-  %skipped.191.i = phi i32 [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %if.then73.i ]
+  %skipped.391.i = phi i32 [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %if.then73.i ]
   store i32 %add15.i, ptr %len.i, align 8
   store i32 1, ptr %mode.i, align 4
   br label %for.body.i38
@@ -2298,16 +2298,16 @@ if.else206.i:                                     ; preds = %if.else97.i
   br label %if.end209.i
 
 if.end209.i:                                      ; preds = %if.else206.i, %if.else202.i, %if.end200.i, %if.then106.i, %if.end86.i, %land.lhs.true67.i, %land.lhs.true62.i, %if.then40.i, %lor.lhs.false.i37, %land.lhs.true.i35, %if.then27.i
-  %skipped.185.i = phi i32 [ %skipped.191.i, %if.then106.i ], [ %skipped.191.i, %if.end200.i ], [ %skipped.191.i, %if.else202.i ], [ %skipped.191.i, %if.else206.i ], [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %land.lhs.true.i35 ], [ %skipped.0.i, %land.lhs.true67.i ], [ %skipped.0.i, %land.lhs.true62.i ], [ %skipped.0.i, %if.then40.i ], [ %skipped.0.i, %lor.lhs.false.i37 ], [ %skipped.0.i, %if.then27.i ]
-  %lost.1.i = phi i32 [ %lost.0.i, %if.then106.i ], [ %lost.0.i, %if.end200.i ], [ %inc203.i, %if.else202.i ], [ %inc207.i, %if.else206.i ], [ %lost.0.i, %if.end86.i ], [ %lost.0.i, %land.lhs.true.i35 ], [ %lost.0.i, %land.lhs.true67.i ], [ %lost.0.i, %land.lhs.true62.i ], [ %lost.0.i, %if.then40.i ], [ %lost.0.i, %lor.lhs.false.i37 ], [ %lost.0.i, %if.then27.i ]
-  %rescues.1.i = phi i32 [ %inc113.i, %if.then106.i ], [ %inc201.i, %if.end200.i ], [ %rescues.0.i, %if.else202.i ], [ %rescues.0.i, %if.else206.i ], [ %rescues.0.i, %if.end86.i ], [ %rescues.0.i, %land.lhs.true.i35 ], [ %rescues.0.i, %land.lhs.true67.i ], [ %rescues.0.i, %land.lhs.true62.i ], [ %rescues.0.i, %if.then40.i ], [ %rescues.0.i, %lor.lhs.false.i37 ], [ %rescues.0.i, %if.then27.i ]
+  %skipped.385.i = phi i32 [ %skipped.391.i, %if.then106.i ], [ %skipped.391.i, %if.end200.i ], [ %skipped.391.i, %if.else202.i ], [ %skipped.391.i, %if.else206.i ], [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %land.lhs.true.i35 ], [ %skipped.0.i, %land.lhs.true67.i ], [ %skipped.0.i, %land.lhs.true62.i ], [ %skipped.0.i, %if.then40.i ], [ %skipped.0.i, %lor.lhs.false.i37 ], [ %skipped.0.i, %if.then27.i ]
+  %lost.3.i = phi i32 [ %lost.0.i, %if.then106.i ], [ %lost.0.i, %if.end200.i ], [ %inc203.i, %if.else202.i ], [ %inc207.i, %if.else206.i ], [ %lost.0.i, %if.end86.i ], [ %lost.0.i, %land.lhs.true.i35 ], [ %lost.0.i, %land.lhs.true67.i ], [ %lost.0.i, %land.lhs.true62.i ], [ %lost.0.i, %if.then40.i ], [ %lost.0.i, %lor.lhs.false.i37 ], [ %lost.0.i, %if.then27.i ]
+  %rescues.3.i = phi i32 [ %inc113.i, %if.then106.i ], [ %inc201.i, %if.end200.i ], [ %rescues.0.i, %if.else202.i ], [ %rescues.0.i, %if.else206.i ], [ %rescues.0.i, %if.end86.i ], [ %rescues.0.i, %land.lhs.true.i35 ], [ %rescues.0.i, %land.lhs.true67.i ], [ %rescues.0.i, %land.lhs.true62.i ], [ %rescues.0.i, %if.then40.i ], [ %rescues.0.i, %lor.lhs.false.i37 ], [ %rescues.0.i, %if.then27.i ]
   call void @do_item_remove(ptr noundef nonnull %call.i) #22
   br label %if.end210.i
 
 if.end210.i:                                      ; preds = %if.end209.i, %if.end.i34
-  %skipped.2.i = phi i32 [ %skipped.185.i, %if.end209.i ], [ %skipped.0.i, %if.end.i34 ]
-  %lost.2.i = phi i32 [ %lost.1.i, %if.end209.i ], [ %lost.0.i, %if.end.i34 ]
-  %rescues.2.i = phi i32 [ %rescues.1.i, %if.end209.i ], [ %rescues.0.i, %if.end.i34 ]
+  %skipped.2.i = phi i32 [ %skipped.385.i, %if.end209.i ], [ %skipped.0.i, %if.end.i34 ]
+  %lost.2.i = phi i32 [ %lost.3.i, %if.end209.i ], [ %lost.0.i, %if.end.i34 ]
+  %rescues.2.i = phi i32 [ %rescues.3.i, %if.end209.i ], [ %rescues.0.i, %if.end.i34 ]
   call void @item_unlock(i32 noundef %43) #22
   %conv211.i = zext i32 %add15.i to i64
   %add212.i = add nuw nsw i64 %offset.0.i, %conv211.i
@@ -2316,20 +2316,20 @@ if.end210.i:                                      ; preds = %if.end209.i, %if.en
   br i1 %cmp213.i, label %while.end.i, label %while.cond.i, !llvm.loop !15
 
 while.end.i:                                      ; preds = %if.end210.i, %while.body.i, %while.cond.i
-  %skipped.3.i = phi i32 [ %skipped.0.i, %while.body.i ], [ %skipped.2.i, %if.end210.i ], [ %skipped.0.i, %while.cond.i ]
-  %lost.3.i = phi i32 [ %lost.0.i, %while.body.i ], [ %lost.2.i, %if.end210.i ], [ %lost.0.i, %while.cond.i ]
-  %rescues.3.i = phi i32 [ %rescues.0.i, %while.body.i ], [ %rescues.2.i, %if.end210.i ], [ %rescues.0.i, %while.cond.i ]
+  %skipped.1.i = phi i32 [ %skipped.0.i, %while.body.i ], [ %skipped.2.i, %if.end210.i ], [ %skipped.0.i, %while.cond.i ]
+  %lost.1.i = phi i32 [ %lost.0.i, %while.body.i ], [ %lost.2.i, %if.end210.i ], [ %lost.0.i, %while.cond.i ]
+  %rescues.1.i = phi i32 [ %rescues.0.i, %while.body.i ], [ %rescues.2.i, %if.end210.i ], [ %rescues.0.i, %while.cond.i ]
   %offset.1.i = phi i64 [ %offset.0.i, %while.body.i ], [ %add212.i, %if.end210.i ], [ %offset.0.i, %while.cond.i ]
   call void @STATS_LOCK() #22
-  %conv217.i = zext i32 %lost.3.i to i64
+  %conv217.i = zext i32 %lost.1.i to i64
   %90 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 152), align 8
   %add218.i = add i64 %90, %conv217.i
   store i64 %add218.i, ptr getelementptr inbounds (i8, ptr @stats, i64 152), align 8
-  %conv219.i = zext i32 %rescues.3.i to i64
+  %conv219.i = zext i32 %rescues.1.i to i64
   %91 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 160), align 8
   %add220.i = add i64 %91, %conv219.i
   store i64 %add220.i, ptr getelementptr inbounds (i8, ptr @stats, i64 160), align 8
-  %conv221.i = zext i32 %skipped.3.i to i64
+  %conv221.i = zext i32 %skipped.1.i to i64
   %92 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 168), align 8
   %add222.i = add i64 %92, %conv221.i
   store i64 %add222.i, ptr getelementptr inbounds (i8, ptr @stats, i64 168), align 8
@@ -2340,7 +2340,7 @@ while.end.i:                                      ; preds = %if.end210.i, %while
   br i1 %tobool230.not.i, label %storage_compact_readback.exit, label %if.then231.i
 
 if.then231.i:                                     ; preds = %while.end.i
-  %call232.i = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 13, ptr noundef null, i32 noundef %page_id.279, i64 noundef %offset.1.i, i32 noundef %rescues.3.i, i32 noundef %lost.3.i, i32 noundef %skipped.3.i) #22
+  %call232.i = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 13, ptr noundef null, i32 noundef %page_id.179, i64 noundef %offset.1.i, i32 noundef %rescues.1.i, i32 noundef %lost.1.i, i32 noundef %skipped.1.i) #22
   br label %storage_compact_readback.exit
 
 storage_compact_readback.exit:                    ; preds = %while.end.i, %if.then231.i
@@ -2357,14 +2357,14 @@ if.else108:                                       ; preds = %land.lhs.true84, %i
 if.then112:                                       ; preds = %if.else108
   store i8 0, ptr %done, align 8
   store i8 0, ptr %submitted, align 1
-  call void @extstore_close_page(ptr noundef %arg, i32 noundef %page_id.279, i64 noundef %page_version.275) #22
+  call void @extstore_close_page(ptr noundef %arg, i32 noundef %page_id.179, i64 noundef %page_version.175) #22
   %96 = load i16, ptr %eflags.i, align 4
   %97 = and i16 %96, 2
   %tobool125.not = icmp eq i16 %97, 0
   br i1 %tobool125.not, label %if.end133, label %if.then126
 
 if.then126:                                       ; preds = %if.then112
-  %call127 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 14, ptr noundef null, i32 noundef %page_id.279) #22
+  %call127 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %call, i32 noundef 14, ptr noundef null, i32 noundef %page_id.179) #22
   br label %if.end133
 
 if.end133:                                        ; preds = %do.end77, %if.else108, %if.then112, %if.then126, %storage_compact_readback.exit, %if.then48
@@ -2374,8 +2374,8 @@ if.end133:                                        ; preds = %do.end77, %if.else1
   br label %while.body.outer
 
 if.else136:                                       ; preds = %if.end34.thread86, %if.end34
-  %drop_unread.1.ph90 = phi i1 [ %drop_unread.1.ph.ph, %if.end34.thread86 ], [ false, %if.end34 ]
-  %page_size.1.ph89 = phi i64 [ %page_size.1.ph.ph, %if.end34.thread86 ], [ %22, %if.end34 ]
+  %drop_unread.2.ph90 = phi i1 [ %drop_unread.2.ph.ph, %if.end34.thread86 ], [ false, %if.end34 ]
+  %page_size.2.ph89 = phi i64 [ %page_size.2.ph.ph, %if.end34.thread86 ], [ %22, %if.end34 ]
   %98 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 292), align 4
   %cmp137 = icmp ult i32 %to_sleep.0, %98
   %add140 = select i1 %cmp137, i32 %98, i32 0

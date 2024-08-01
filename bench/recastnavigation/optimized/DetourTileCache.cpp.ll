@@ -2407,7 +2407,7 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %71, %.critedge, %66
           to label %244 unwind label %.loopexit.split-lp
 
 244:                                              ; preds = %235, %240, %242, %223, %158, %142, %136, %131, %123, %118, %57
-  %.0 = phi i32 [ %56, %57 ], [ %117, %118 ], [ -2147483644, %123 ], [ %130, %131 ], [ -2147483644, %136 ], [ %141, %142 ], [ 1073741824, %158 ], [ -2147483648, %223 ], [ %239, %242 ], [ 1073741824, %240 ], [ 1073741824, %235 ]
+  %.1 = phi i32 [ %56, %57 ], [ %117, %118 ], [ -2147483644, %123 ], [ %130, %131 ], [ -2147483644, %136 ], [ %141, %142 ], [ 1073741824, %158 ], [ -2147483648, %223 ], [ %239, %242 ], [ 1073741824, %240 ], [ 1073741824, %235 ]
   %245 = load ptr, ptr %44, align 8
   %246 = load ptr, ptr %4, align 8
   invoke void @_Z20dtFreeTileCacheLayerP16dtTileCacheAllocP16dtTileCacheLayer(ptr noundef %245, ptr noundef %246)
@@ -2437,8 +2437,8 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %71, %.critedge, %66
   unreachable
 
 _ZN23NavMeshTileBuildContextD2Ev.exit:            ; preds = %.noexc1.i, %27, %19
-  %.1 = phi i32 [ -2147483640, %19 ], [ -2147483640, %27 ], [ %.0, %.noexc1.i ]
-  ret i32 %.1
+  %.0 = phi i32 [ -2147483640, %19 ], [ -2147483640, %27 ], [ %.1, %.noexc1.i ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

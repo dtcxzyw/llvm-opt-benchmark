@@ -294,11 +294,11 @@ stopping_criterion.exit:                          ; preds = %37
   br label %140
 
 140:                                              ; preds = %136, %129
-  %.2.i = phi ptr [ %134, %136 ], [ %.sink210.i, %129 ]
+  %.3.i = phi ptr [ %134, %136 ], [ %.sink210.i, %129 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %140
-  %.02639.i.i = phi ptr [ %144, %.lr.ph.i.i ], [ %.2.i, %140 ]
+  %.02639.i.i = phi ptr [ %144, %.lr.ph.i.i ], [ %.3.i, %140 ]
   %.02738.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i ], [ %63, %140 ]
   %141 = getelementptr inbounds i8, ptr %.02639.i.i, i64 12
   %142 = load i32, ptr %141, align 4
@@ -335,7 +335,7 @@ stopping_criterion.exit:                          ; preds = %37
   br i1 %162, label %siftBackwardProb.exit.i.preheader, label %.lr.ph44.i.i
 
 .lr.ph44.i.i:                                     ; preds = %158, %167
-  %.142.i.i = phi ptr [ %169, %167 ], [ %.2.i, %158 ]
+  %.142.i.i = phi ptr [ %169, %167 ], [ %.3.i, %158 ]
   %163 = load i32, ptr %.142.i.i, align 8
   %164 = getelementptr inbounds i8, ptr %.142.i.i, i64 4
   %165 = load i32, ptr %164, align 4
@@ -355,15 +355,15 @@ siftBackwardProb.exit.i.preheader:                ; preds = %167, %158, %._crit_
   br label %siftBackwardProb.exit.i
 
 siftBackwardProb.exit.i:                          ; preds = %siftBackwardProb.exit.i.preheader, %siftBackwardProb.exit.i
-  %.3194.i = phi ptr [ %172, %siftBackwardProb.exit.i ], [ %.2.i, %siftBackwardProb.exit.i.preheader ]
-  %171 = getelementptr inbounds i8, ptr %.3194.i, i64 16
+  %.4194.i = phi ptr [ %172, %siftBackwardProb.exit.i ], [ %.3.i, %siftBackwardProb.exit.i.preheader ]
+  %171 = getelementptr inbounds i8, ptr %.4194.i, i64 16
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %.3194.i, i64 4
+  %173 = getelementptr inbounds i8, ptr %.4194.i, i64 4
   store i32 0, ptr %173, align 4
   %174 = load ptr, ptr %31, align 8
-  %175 = getelementptr inbounds i8, ptr %.3194.i, i64 8
+  %175 = getelementptr inbounds i8, ptr %.4194.i, i64 8
   store ptr %174, ptr %175, align 8
-  store ptr %.3194.i, ptr %31, align 8
+  store ptr %.4194.i, ptr %31, align 8
   %.not186.i = icmp eq ptr %172, null
   br i1 %.not186.i, label %ddExchange.exit.thread184, label %siftBackwardProb.exit.i, !llvm.loop !8
 
@@ -372,7 +372,7 @@ siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93
   br i1 %.not187195.i, label %ddExchange.exit.thread, label %.lr.ph.i130.preheader
 
 .lr.ph.i130.preheader:                            ; preds = %133, %130, %112, %106, %87, %81, %78, %72, %.lr.ph44.i.i, %siftBackwardProb.exit.thread.i
-  %.5196.i.ph = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %.2.i, %.lr.ph44.i.i ], [ %70, %72 ], [ %70, %78 ], [ %79, %81 ], [ %79, %87 ], [ %104, %106 ], [ %104, %112 ], [ %.sink210.i, %130 ], [ %.sink210.i, %133 ]
+  %.5196.i.ph = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %.3.i, %.lr.ph44.i.i ], [ %70, %72 ], [ %70, %78 ], [ %79, %81 ], [ %79, %87 ], [ %104, %106 ], [ %104, %112 ], [ %.sink210.i, %130 ], [ %.sink210.i, %133 ]
   br label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %.lr.ph.i130.preheader, %.lr.ph.i130
@@ -765,30 +765,30 @@ define internal fastcc range(i32 0, 2) i32 @ddJumpingAux(ptr noundef %0, i32 nou
   br label %.loopexit
 
 siftBackwardProb.exit.thread:                     ; preds = %129, %70, %120, %._crit_edge.thread.i89, %61, %._crit_edge.thread.i
-  %.048 = phi ptr [ %23, %._crit_edge.thread.i ], [ %23, %61 ], [ %82, %._crit_edge.thread.i89 ], [ %82, %120 ], [ %23, %70 ], [ %82, %129 ]
+  %.1 = phi ptr [ %23, %._crit_edge.thread.i ], [ %23, %61 ], [ %82, %._crit_edge.thread.i89 ], [ %82, %120 ], [ %23, %70 ], [ %82, %129 ]
   %137 = getelementptr inbounds i8, ptr %0, i64 400
   br label %138
 
 138:                                              ; preds = %siftBackwardProb.exit.thread, %138
-  %.1110 = phi ptr [ %.048, %siftBackwardProb.exit.thread ], [ %140, %138 ]
-  %139 = getelementptr inbounds i8, ptr %.1110, i64 16
+  %.2110 = phi ptr [ %.1, %siftBackwardProb.exit.thread ], [ %140, %138 ]
+  %139 = getelementptr inbounds i8, ptr %.2110, i64 16
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %.1110, i64 4
+  %141 = getelementptr inbounds i8, ptr %.2110, i64 4
   store i32 0, ptr %141, align 4
   %142 = load ptr, ptr %137, align 8
-  %143 = getelementptr inbounds i8, ptr %.1110, i64 8
+  %143 = getelementptr inbounds i8, ptr %.2110, i64 8
   store ptr %142, ptr %143, align 8
-  store ptr %.1110, ptr %137, align 8
+  store ptr %.2110, ptr %137, align 8
   %.not56 = icmp eq ptr %140, null
   br i1 %.not56, label %.loopexit, label %138, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph44.i83, %.lr.ph44.i
-  %.2 = phi ptr [ %23, %.lr.ph44.i ], [ %82, %.lr.ph44.i83 ]
+  %.048 = phi ptr [ %23, %.lr.ph44.i ], [ %82, %.lr.ph44.i83 ]
   %144 = getelementptr inbounds i8, ptr %0, i64 400
   br label %145
 
 145:                                              ; preds = %.lr.ph, %145
-  %.3112 = phi ptr [ %.2, %.lr.ph ], [ %147, %145 ]
+  %.3112 = phi ptr [ %.048, %.lr.ph ], [ %147, %145 ]
   %146 = getelementptr inbounds i8, ptr %.3112, i64 16
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %.3112, i64 4

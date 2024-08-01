@@ -497,7 +497,7 @@ if.then48.i:                                      ; preds = %if.end42.i
   br label %end.i
 
 if.end50.i:                                       ; preds = %if.end42.i, %if.end34.i
-  %vpass.0.i = phi ptr [ %call38.i, %if.end42.i ], [ null, %if.end34.i ]
+  %vpass.1.i = phi ptr [ %call38.i, %if.end42.i ], [ null, %if.end34.i ]
   %call51.i = tail call i32 @UI_process(ptr noundef nonnull %call.i) #7
   switch i32 %call51.i, label %sw.default.i [
     i32 -2, label %sw.bb.i
@@ -536,9 +536,9 @@ if.end57.i:                                       ; preds = %sw.default.i
 end.i:                                            ; preds = %if.end57.i, %if.then56.i, %sw.bb52.i, %sw.bb.i, %if.then48.i, %if.then36.i, %if.then33.i, %if.end23.i, %if.then22.i
   %add59.pre-phi.i = phi i64 [ %add.i, %sw.bb.i ], [ %add.i, %sw.bb52.i ], [ %add.i, %if.then56.i ], [ %add.i, %if.end57.i ], [ %add.i, %if.then36.i ], [ %add.i, %if.end23.i ], [ %add.i, %if.then48.i ], [ %add.i, %if.then33.i ], [ %.pre.i, %if.then22.i ]
   %ipass.0.i = phi ptr [ %call24.i, %sw.bb.i ], [ %call24.i, %sw.bb52.i ], [ %call24.i, %if.then56.i ], [ %call24.i, %if.end57.i ], [ %call24.i, %if.then36.i ], [ null, %if.end23.i ], [ %call24.i, %if.then48.i ], [ %call24.i, %if.then33.i ], [ null, %if.then22.i ]
-  %vpass.1.i = phi ptr [ %vpass.0.i, %sw.bb.i ], [ %vpass.0.i, %sw.bb52.i ], [ %vpass.0.i, %if.then56.i ], [ %vpass.0.i, %if.end57.i ], [ null, %if.then36.i ], [ null, %if.end23.i ], [ %call38.i, %if.then48.i ], [ null, %if.then33.i ], [ null, %if.then22.i ]
+  %vpass.0.i = phi ptr [ %vpass.1.i, %sw.bb.i ], [ %vpass.1.i, %sw.bb52.i ], [ %vpass.1.i, %if.then56.i ], [ %vpass.1.i, %if.end57.i ], [ null, %if.then36.i ], [ null, %if.end23.i ], [ %call38.i, %if.then48.i ], [ null, %if.then33.i ], [ null, %if.then22.i ]
   %ret.0.i = phi i32 [ 0, %sw.bb.i ], [ 0, %sw.bb52.i ], [ 0, %if.then56.i ], [ 1, %if.end57.i ], [ 0, %if.then36.i ], [ 0, %if.end23.i ], [ 0, %if.then48.i ], [ 0, %if.then33.i ], [ 0, %if.then22.i ]
-  tail call void @CRYPTO_clear_free(ptr noundef %vpass.1.i, i64 noundef %add59.pre-phi.i, ptr noundef nonnull @.str, i32 noundef 196) #7
+  tail call void @CRYPTO_clear_free(ptr noundef %vpass.0.i, i64 noundef %add59.pre-phi.i, ptr noundef nonnull @.str, i32 noundef 196) #7
   tail call void @CRYPTO_clear_free(ptr noundef %ipass.0.i, i64 noundef %add59.pre-phi.i, ptr noundef nonnull @.str, i32 noundef 197) #7
   tail call void @CRYPTO_free(ptr noundef %call19.i, ptr noundef nonnull @.str, i32 noundef 198) #7
   tail call void @UI_free(ptr noundef nonnull %call.i) #7

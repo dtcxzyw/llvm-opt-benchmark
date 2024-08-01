@@ -844,9 +844,9 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr nocapture noundef %0, 
 
 .lr.ph:                                           ; preds = %5, %27
   %.in = phi i8 [ %.119, %27 ], [ %16, %5 ]
-  %.029 = phi i64 [ %18, %27 ], [ %3, %5 ]
+  %.129 = phi i64 [ %18, %27 ], [ %3, %5 ]
   %.02028 = phi ptr [ %.121, %27 ], [ %11, %5 ]
-  %18 = add i64 %.029, -1
+  %18 = add i64 %.129, -1
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %.loopexit, label %20
 
@@ -869,11 +869,11 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr nocapture noundef %0, 
   br i1 %.not26, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %5, %4
-  %.1 = phi i64 [ 0, %4 ], [ %3, %5 ], [ 0, %.lr.ph ], [ %18, %27 ]
-  %29 = add i64 %.1, 7
+  %.0 = phi i64 [ 0, %4 ], [ %3, %5 ], [ 0, %.lr.ph ], [ %18, %27 ]
+  %29 = add i64 %.0, 7
   %30 = lshr i64 %29, 3
   %31 = and i64 %29, -8
-  %32 = sub i64 %31, %.1
+  %32 = sub i64 %31, %.0
   %33 = load ptr, ptr %0, align 8
   %34 = icmp ult ptr %33, %1
   br i1 %34, label %mbedtls_asn1_write_bitstring.exit, label %35

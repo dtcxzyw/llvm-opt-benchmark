@@ -5034,7 +5034,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   br label %66
 
 66:                                               ; preds = %55, %56
-  %.2 = phi i32 [ %65, %56 ], [ %.1, %55 ]
+  %.3 = phi i32 [ %65, %56 ], [ %.1, %55 ]
   %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.196) #9
   %68 = and i8 %67, 127
   %69 = load i32, ptr @hf_sccp_called_gt_nai, align 4
@@ -5049,7 +5049,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
 76:                                               ; preds = %55, %66, %53
   %.297 = phi i32 [ %74, %66 ], [ %.196, %55 ], [ %.196, %53 ]
   %.094 = phi i1 [ %75, %66 ], [ false, %55 ], [ false, %53 ]
-  %.3 = phi i32 [ %.2, %66 ], [ %.1, %55 ], [ %.1, %53 ]
+  %.2 = phi i32 [ %.3, %66 ], [ %.1, %55 ], [ %.1, %53 ]
   %77 = icmp eq i32 %3, 0
   br i1 %77, label %78, label %81
 
@@ -5073,7 +5073,7 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
 
 .lr.ph.i:                                         ; preds = %83
   %89 = add i32 %84, -1
-  %90 = icmp eq i32 %.3, 1
+  %90 = icmp eq i32 %.2, 1
   br i1 %90, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i

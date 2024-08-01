@@ -2803,39 +2803,39 @@ __cxx_global_var_init.1.exit:                     ; preds = %14
   br label %43
 
 43:                                               ; preds = %41, %39
-  %.010.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 192), %41 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 160), %39 ]
+  %.515.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 192), %41 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 160), %39 ]
   %.pn.i2 = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   br label %44
 
 44:                                               ; preds = %43, %37
-  %.111.i = phi ptr [ %.010.i, %43 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 128), %37 ]
+  %.414.i = phi ptr [ %.515.i, %43 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 128), %37 ]
   %.pn.pn.i1 = phi { ptr, i32 } [ %.pn.i2, %43 ], [ %38, %37 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   br label %45
 
 45:                                               ; preds = %44, %35
-  %.212.i = phi ptr [ %.111.i, %44 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 96), %35 ]
+  %.313.i = phi ptr [ %.414.i, %44 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 96), %35 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i1, %44 ], [ %36, %35 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
   br label %46
 
 46:                                               ; preds = %45, %33
-  %.313.i = phi ptr [ %.212.i, %45 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 64), %33 ]
+  %.212.i = phi ptr [ %.313.i, %45 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 64), %33 ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %45 ], [ %34, %33 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   br label %47
 
 47:                                               ; preds = %46, %31
-  %.414.i = phi ptr [ %.313.i, %46 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 32), %31 ]
+  %.111.i = phi ptr [ %.212.i, %46 ], [ getelementptr inbounds (i8, ptr @_ZL5algosB5cxx11, i64 32), %31 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %46 ], [ %32, %31 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #10
-  %48 = icmp eq ptr %.414.i, @_ZL5algosB5cxx11
+  %48 = icmp eq ptr %.111.i, @_ZL5algosB5cxx11
   br i1 %48, label %common.resume, label %.preheader.i
 
 .preheader.i:                                     ; preds = %47, %.preheader.i
-  %49 = phi ptr [ %50, %.preheader.i ], [ %.414.i, %47 ]
+  %49 = phi ptr [ %50, %.preheader.i ], [ %.111.i, %47 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #10
   %51 = icmp eq ptr %50, @_ZL5algosB5cxx11

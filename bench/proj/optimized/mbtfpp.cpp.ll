@@ -83,8 +83,8 @@ define internal { double, double } @_ZL16mbtfpp_s_inverse5PJ_XYP8PJconsts(double
   br label %17
 
 17:                                               ; preds = %15, %12
-  %.sroa.3.0 = phi double [ %14, %12 ], [ %16, %15 ]
-  %18 = fmul double %.sroa.3.0, 3.000000e+00
+  %.sroa.3.1 = phi double [ %14, %12 ], [ %16, %15 ]
+  %18 = fmul double %.sroa.3.1, 3.000000e+00
   %19 = fmul double %18, 0x3FE5555555555555
   %20 = tail call double @cos(double noundef %19) #6
   %21 = tail call double @llvm.fmuladd.f64(double %20, double 2.000000e+00, double -1.000000e+00)

@@ -2583,7 +2583,7 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   br i1 %51, label %.lr.ph11.i.i, label %._crit_edge12.i.i
 
 .lr.ph11.i.i:                                     ; preds = %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i, %70
-  %.110.i.i = phi i64 [ %.3.i.i, %70 ], [ %.02315.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ]
+  %.110.i.i = phi i64 [ %.2.i.i, %70 ], [ %.02315.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ]
   %.0259.i.i = phi i64 [ %71, %70 ], [ %.02614.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ]
   %52 = load ptr, ptr %32, align 8, !noalias !35
   %53 = getelementptr inbounds %"class.ConcurrentHashTable<Dictionary::Config, MEMFLAGS::mtClass>::Bucket", ptr %52, i64 %.0259.i.i
@@ -2616,10 +2616,10 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.07.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %65, %.lr.ph.preheader.i.i ]
-  %.26.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %.110.i.i, %.lr.ph.preheader.i.i ]
+  %.36.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %.110.i.i, %.lr.ph.preheader.i.i ]
   %.0245.i.i = phi i64 [ %66, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %66 = add i64 %.0245.i.i, 1
-  %67 = add i64 %.26.i.i, 16
+  %67 = add i64 %.36.i.i, 16
   %68 = load volatile ptr, ptr %.07.i.i, align 8, !noalias !35
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !noalias !35, !srcloc !9
   %.not.i6.i = icmp eq ptr %68, null
@@ -2627,19 +2627,19 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %61
   %.024.lcssa.i.i = phi i64 [ 0, %61 ], [ %66, %.lr.ph.i.i ]
-  %.2.lcssa.i.i = phi i64 [ %.110.i.i, %61 ], [ %67, %.lr.ph.i.i ]
+  %.3.lcssa.i.i = phi i64 [ %.110.i.i, %61 ], [ %67, %.lr.ph.i.i ]
   %69 = uitofp i64 %.024.lcssa.i.i to double
   call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef %69) #15, !noalias !35
   br label %70
 
 70:                                               ; preds = %._crit_edge.i.i, %57, %.lr.ph11.i.i
-  %.3.i.i = phi i64 [ %.110.i.i, %.lr.ph11.i.i ], [ %.110.i.i, %57 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ]
+  %.2.i.i = phi i64 [ %.110.i.i, %.lr.ph11.i.i ], [ %.110.i.i, %57 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ]
   %71 = add nuw i64 %.0259.i.i, 1
   %72 = icmp ult i64 %71, %40
   br i1 %72, label %.lr.ph11.i.i, label %._crit_edge12.i.i, !llvm.loop !39
 
 ._crit_edge12.i.i:                                ; preds = %70, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i
-  %.1.lcssa.i.i = phi i64 [ %.02315.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ], [ %.3.i.i, %70 ]
+  %.1.lcssa.i.i = phi i64 [ %.02315.i.i, %_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS3_.exit.i.i ], [ %.2.i.i, %70 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !noalias !35, !srcloc !9
   store volatile i64 %41, ptr %36, align 8, !noalias !35
   %73 = load ptr, ptr %31, align 8, !noalias !35

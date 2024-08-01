@@ -2190,10 +2190,10 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX17WaitForConne
 
 26:                                               ; preds = %22, %24
   %.pn17 = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
-  %.15 = phi i1 [ %.04, %24 ], [ true, %22 ]
+  %.26 = phi i1 [ %.04, %24 ], [ true, %22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #25
-  br i1 %.15, label %.sink.split, label %55
+  br i1 %.26, label %.sink.split, label %55
 
 27:                                               ; preds = %1
   store i16 1, ptr %5, align 2
@@ -2253,10 +2253,10 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX17WaitForConne
 
 53:                                               ; preds = %49, %51
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
-  %.1 = phi i1 [ %.0, %51 ], [ true, %49 ]
+  %.2 = phi i1 [ %.0, %51 ], [ true, %49 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
-  br i1 %.1, label %.sink.split, label %55
+  br i1 %.2, label %.sink.split, label %55
 
 54:                                               ; preds = %27
   ret void

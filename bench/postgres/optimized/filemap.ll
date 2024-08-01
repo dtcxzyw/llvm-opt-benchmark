@@ -189,8 +189,8 @@ datasegpath.exit:                                 ; preds = %.thread, %18
   br label %21
 
 21:                                               ; preds = %datasegpath.exit, %13
-  %.2 = phi i1 [ %.not, %datasegpath.exit ], [ false, %13 ]
-  ret i1 %.2
+  %.1 = phi i1 [ %.not, %datasegpath.exit ], [ false, %13 ]
+  ret i1 %.1
 }
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -868,22 +868,22 @@ filehash_start_iterate.exit:                      ; preds = %6, %10, %0
   br label %18
 
 18:                                               ; preds = %20, %14
-  %.sroa.10.1 = phi i1 [ %.sroa.10.0, %14 ], [ %spec.select, %20 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %14 ], [ %26, %20 ]
+  %.sroa.10.2 = phi i1 [ %.sroa.10.0, %14 ], [ %spec.select, %20 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %14 ], [ %26, %20 ]
   %19 = phi i1 [ %.sroa.10.0, %14 ], [ %29, %20 ]
   br i1 %19, label %filehash_iterate.exit.thread, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %16, align 8
-  %22 = zext i32 %.sroa.0.1 to i64
+  %22 = zext i32 %.sroa.0.2 to i64
   %23 = getelementptr %struct.file_entry_t, ptr %21, i64 %22
-  %24 = add i32 %.sroa.0.1, -1
+  %24 = add i32 %.sroa.0.2, -1
   %25 = load i32, ptr %17, align 4
   %26 = and i32 %25, %24
   %27 = xor i32 %24, %.0.i
   %28 = and i32 %25, %27
   %29 = icmp eq i32 %28, 0
-  %spec.select = select i1 %29, i1 true, i1 %.sroa.10.1
+  %spec.select = select i1 %29, i1 true, i1 %.sroa.10.2
   %30 = load i32, ptr %23, align 8
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %filehash_iterate.exit, label %18, !llvm.loop !13
@@ -1122,15 +1122,15 @@ filehash_start_iterate.exit19:                    ; preds = %126, %130, %filehas
   br label %137
 
 137:                                              ; preds = %filehash_iterate.exit22, %filehash_start_iterate.exit19
-  %.sroa.10.4 = phi i1 [ false, %filehash_start_iterate.exit19 ], [ %spec.select35, %filehash_iterate.exit22 ]
-  %.sroa.0.3 = phi i32 [ %.0.i18, %filehash_start_iterate.exit19 ], [ %146, %filehash_iterate.exit22 ]
+  %.sroa.10.1 = phi i1 [ false, %filehash_start_iterate.exit19 ], [ %spec.select35, %filehash_iterate.exit22 ]
+  %.sroa.0.1 = phi i32 [ %.0.i18, %filehash_start_iterate.exit19 ], [ %146, %filehash_iterate.exit22 ]
   %.0 = phi i32 [ 0, %filehash_start_iterate.exit19 ], [ %152, %filehash_iterate.exit22 ]
   br label %138
 
 138:                                              ; preds = %140, %137
-  %.sroa.10.5 = phi i1 [ %.sroa.10.4, %137 ], [ %spec.select35, %140 ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %137 ], [ %146, %140 ]
-  %139 = phi i1 [ %.sroa.10.4, %137 ], [ %149, %140 ]
+  %.sroa.10.5 = phi i1 [ %.sroa.10.1, %137 ], [ %spec.select35, %140 ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.1, %137 ], [ %146, %140 ]
+  %139 = phi i1 [ %.sroa.10.1, %137 ], [ %149, %140 ]
   br i1 %139, label %filehash_iterate.exit22.thread, label %140
 
 140:                                              ; preds = %138

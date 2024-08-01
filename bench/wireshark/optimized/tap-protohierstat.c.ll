@@ -124,7 +124,7 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
 
 12:                                               ; preds = %.preheader59, %85
   %.04465 = phi ptr [ %10, %.preheader59 ], [ %87, %85 ]
-  %.04664 = phi ptr [ %0, %.preheader59 ], [ %.2, %85 ]
+  %.04664 = phi ptr [ %0, %.preheader59 ], [ %.147, %85 ]
   %13 = getelementptr inbounds i8, ptr %.04465, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -220,8 +220,8 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %49
-  %.147 = phi ptr [ %52, %49 ], [ %.04563, %.lr.ph ]
-  %65 = getelementptr inbounds i8, ptr %.147, i64 48
+  %.2 = phi ptr [ %52, %49 ], [ %.04563, %.lr.ph ]
+  %65 = getelementptr inbounds i8, ptr %.2, i64 48
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 8
@@ -229,11 +229,11 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   %69 = getelementptr inbounds i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %.147, i64 56
+  %72 = getelementptr inbounds i8, ptr %.2, i64 56
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, %71
   store i64 %74, ptr %72, align 8
-  %75 = getelementptr inbounds i8, ptr %.147, i64 8
+  %75 = getelementptr inbounds i8, ptr %.2, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not58 = icmp eq ptr %76, null
   br i1 %.not58, label %77, label %85
@@ -242,7 +242,7 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   %78 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #9
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  store ptr %.147, ptr %79, align 8
+  store ptr %.2, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 24
   store ptr null, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %78, i64 32
@@ -257,7 +257,7 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   br label %85
 
 85:                                               ; preds = %.loopexit, %77, %12, %24
-  %.2 = phi ptr [ %.04664, %12 ], [ %35, %24 ], [ %78, %77 ], [ %76, %.loopexit ]
+  %.147 = phi ptr [ %.04664, %12 ], [ %35, %24 ], [ %78, %77 ], [ %76, %.loopexit ]
   %86 = getelementptr inbounds i8, ptr %.04465, i64 16
   %87 = load ptr, ptr %86, align 8
   %.not55 = icmp eq ptr %87, null

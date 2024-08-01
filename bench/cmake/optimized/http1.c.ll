@@ -313,16 +313,16 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   br label %start_req.exit
 
 start_req.exit.thread:                            ; preds = %103, %110, %112, %84, %68, %108, %72, %81
-  %.2.i.ph = phi ptr [ null, %81 ], [ null, %103 ], [ %109, %110 ], [ null, %112 ], [ null, %84 ], [ null, %68 ], [ null, %108 ], [ null, %72 ]
+  %.072.i.ph = phi ptr [ null, %81 ], [ null, %103 ], [ %109, %110 ], [ null, %112 ], [ null, %84 ], [ null, %68 ], [ null, %108 ], [ null, %72 ]
   %.071.i.ph = phi i32 [ 3, %81 ], [ 3, %103 ], [ 3, %110 ], [ 3, %112 ], [ 3, %84 ], [ 3, %68 ], [ 27, %108 ], [ 3, %72 ]
-  call void @curl_url_cleanup(ptr noundef %.2.i.ph) #6
+  call void @curl_url_cleanup(ptr noundef %.072.i.ph) #6
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
   br label %.loopexit.sink.split
 
 start_req.exit:                                   ; preds = %113, %118
-  %.2.i = phi ptr [ %109, %113 ], [ null, %118 ]
+  %.072.i = phi ptr [ %109, %113 ], [ null, %118 ]
   %.071.i = phi i32 [ %114, %113 ], [ %119, %118 ]
-  call void @curl_url_cleanup(ptr noundef %.2.i) #6
+  call void @curl_url_cleanup(ptr noundef %.072.i) #6
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
   store i32 %.071.i, ptr %5, align 4
   %.not42 = icmp eq i32 %.071.i, 0

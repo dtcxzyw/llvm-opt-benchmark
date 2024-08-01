@@ -239,8 +239,8 @@ define void @_ZN14RtpAudioStreamC2EP7QObjectP13_rtpstream_idb(ptr noundef nonnul
 
 49:                                               ; preds = %47, %45
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
-  %.06 = extractvalue { ptr, i32 } %.pn, 0
-  %50 = tail call ptr @__cxa_begin_catch(ptr %.06) #25
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %50 = tail call ptr @__cxa_begin_catch(ptr %.2) #25
   %51 = load ptr, ptr %32, align 8
   invoke void @speex_resampler_destroy(ptr noundef %51)
           to label %52 unwind label %56
@@ -1353,19 +1353,19 @@ define void @_ZN14RtpAudioStream11decodeAudioE12QAudioDevice(ptr noundef nonnull
 
 55:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit
   %56 = phi i64 [ 0, %.lr.ph ], [ %318, %_ZN7QStringD2Ev.exit ]
-  %.081223 = phi ptr [ %20, %.lr.ph ], [ %.2, %_ZN7QStringD2Ev.exit ]
+  %.081223 = phi ptr [ %20, %.lr.ph ], [ %.1, %_ZN7QStringD2Ev.exit ]
   %.087222 = phi i32 [ 0, %.lr.ph ], [ %.289, %_ZN7QStringD2Ev.exit ]
   %.090221 = phi i32 [ 0, %.lr.ph ], [ %317, %_ZN7QStringD2Ev.exit ]
-  %.091220 = phi ptr [ null, %.lr.ph ], [ %.4, %_ZN7QStringD2Ev.exit ]
-  %.094219 = phi i32 [ 0, %.lr.ph ], [ %.498, %_ZN7QStringD2Ev.exit ]
-  %.099218 = phi i64 [ 0, %.lr.ph ], [ %.2101, %_ZN7QStringD2Ev.exit ]
-  %.0102217 = phi i64 [ 0, %.lr.ph ], [ %.3105, %_ZN7QStringD2Ev.exit ]
-  %.0110216 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2112, %_ZN7QStringD2Ev.exit ]
-  %.0113215 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2115, %_ZN7QStringD2Ev.exit ]
-  %.0116214 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2118, %_ZN7QStringD2Ev.exit ]
-  %.0119213 = phi double [ 0.000000e+00, %.lr.ph ], [ %.3122, %_ZN7QStringD2Ev.exit ]
-  %.0123212 = phi i32 [ 0, %.lr.ph ], [ %.2125, %_ZN7QStringD2Ev.exit ]
-  %.0189211 = phi i32 [ 4096, %.lr.ph ], [ %.3192, %_ZN7QStringD2Ev.exit ]
+  %.091220 = phi ptr [ null, %.lr.ph ], [ %.192, %_ZN7QStringD2Ev.exit ]
+  %.094219 = phi i32 [ 0, %.lr.ph ], [ %.195, %_ZN7QStringD2Ev.exit ]
+  %.099218 = phi i64 [ 0, %.lr.ph ], [ %.1100, %_ZN7QStringD2Ev.exit ]
+  %.0102217 = phi i64 [ 0, %.lr.ph ], [ %.2104, %_ZN7QStringD2Ev.exit ]
+  %.0110216 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1111, %_ZN7QStringD2Ev.exit ]
+  %.0113215 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1114, %_ZN7QStringD2Ev.exit ]
+  %.0116214 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1117, %_ZN7QStringD2Ev.exit ]
+  %.0119213 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2121, %_ZN7QStringD2Ev.exit ]
+  %.0123212 = phi i32 [ 0, %.lr.ph ], [ %.1124, %_ZN7QStringD2Ev.exit ]
+  %.0189211 = phi i32 [ 4096, %.lr.ph ], [ %.1190, %_ZN7QStringD2Ev.exit ]
   store ptr null, ptr %16, align 8
   %57 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %57, null
@@ -1831,12 +1831,12 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
 
 270:                                              ; preds = %206, %231, %.thread196
   %271 = phi i32 [ %.pre229, %231 ], [ %.pre230, %206 ], [ %267, %.thread196 ]
-  %.2121 = phi double [ 0.000000e+00, %231 ], [ %.1120, %206 ], [ %188, %.thread196 ]
-  %.1117 = phi double [ %.0116214, %231 ], [ %.0116214, %206 ], [ %.082, %.thread196 ]
-  %.1114 = phi double [ %.0113215, %231 ], [ %.0113215, %206 ], [ %269, %.thread196 ]
-  %.1111 = phi double [ %235, %231 ], [ %.0110216, %206 ], [ %.0110216, %.thread196 ]
-  %.2104 = phi i64 [ %234, %231 ], [ %.1103, %206 ], [ %.1103, %.thread196 ]
-  %.1100 = phi i64 [ 0, %231 ], [ %.099218, %206 ], [ %118, %.thread196 ]
+  %.3122 = phi double [ 0.000000e+00, %231 ], [ %.1120, %206 ], [ %188, %.thread196 ]
+  %.2118 = phi double [ %.0116214, %231 ], [ %.0116214, %206 ], [ %.082, %.thread196 ]
+  %.2115 = phi double [ %.0113215, %231 ], [ %.0113215, %206 ], [ %269, %.thread196 ]
+  %.2112 = phi double [ %235, %231 ], [ %.0110216, %206 ], [ %.0110216, %.thread196 ]
+  %.3105 = phi i64 [ %234, %231 ], [ %.1103, %206 ], [ %.1103, %.thread196 ]
+  %.2101 = phi i64 [ 0, %231 ], [ %.099218, %206 ], [ %118, %.thread196 ]
   %272 = load ptr, ptr %16, align 8
   %273 = load i32, ptr %33, align 8
   %.not140 = icmp eq i32 %273, %271
@@ -1876,7 +1876,7 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
 
 _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge, %274
   %.pre233 = phi i32 [ %271, %274 ], [ %.pre233.pre, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
-  %.1190 = phi i32 [ %.0189211, %274 ], [ %288, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
+  %.3192 = phi i32 [ %.0189211, %274 ], [ %288, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
   %.0.i170 = phi ptr [ %.081223, %274 ], [ %292, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
   %.not141 = icmp eq ptr %.091220, null
   br i1 %.not141, label %295, label %293
@@ -1900,10 +1900,10 @@ _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioS
           to label %299 unwind label %77
 
 299:                                              ; preds = %293, %295
-  %.296 = phi i32 [ %296, %295 ], [ %.094219, %293 ]
-  %.293 = phi ptr [ %298, %295 ], [ %.091220, %293 ]
+  %.498 = phi i32 [ %296, %295 ], [ %.094219, %293 ]
+  %.4 = phi ptr [ %298, %295 ], [ %.091220, %293 ]
   %300 = load ptr, ptr %16, align 8
-  %301 = invoke i32 @speex_resampler_process_int(ptr noundef %.293, i32 noundef 0, ptr noundef %300, ptr noundef nonnull %18, ptr noundef %.0.i170, ptr noundef nonnull %19)
+  %301 = invoke i32 @speex_resampler_process_int(ptr noundef %.4, i32 noundef 0, ptr noundef %300, ptr noundef nonnull %18, ptr noundef %.0.i170, ptr noundef nonnull %19)
           to label %302 unwind label %77
 
 302:                                              ; preds = %299
@@ -1913,12 +1913,12 @@ _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioS
   br label %306
 
 306:                                              ; preds = %302, %270
-  %.2191 = phi i32 [ %.0189211, %270 ], [ %.1190, %302 ]
-  %.397 = phi i32 [ %.094219, %270 ], [ %.296, %302 ]
-  %.3 = phi ptr [ %.091220, %270 ], [ %.293, %302 ]
+  %.2191 = phi i32 [ %.0189211, %270 ], [ %.3192, %302 ]
+  %.296 = phi i32 [ %.094219, %270 ], [ %.498, %302 ]
+  %.293 = phi ptr [ %.091220, %270 ], [ %.4, %302 ]
   %.084 = phi i64 [ %118, %270 ], [ %305, %302 ]
   %.083 = phi ptr [ %272, %270 ], [ %.0.i170, %302 ]
-  %.1 = phi ptr [ %.081223, %270 ], [ %.0.i170, %302 ]
+  %.2 = phi ptr [ %.081223, %270 ], [ %.0.i170, %302 ]
   %307 = icmp ult i32 %.0123212, %181
   br i1 %307, label %308, label %312
 
@@ -1929,24 +1929,24 @@ _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioS
           to label %312 unwind label %77
 
 312:                                              ; preds = %308, %306
-  %.1124 = phi i32 [ %.0123212, %306 ], [ %181, %308 ]
+  %.2125 = phi i32 [ %.0123212, %306 ], [ %181, %308 ]
   %313 = load ptr, ptr %16, align 8
   invoke void @g_free(ptr noundef %313)
           to label %314 unwind label %77
 
 314:                                              ; preds = %312, %133
-  %.3192 = phi i32 [ %.0189211, %133 ], [ %.2191, %312 ]
-  %.2125 = phi i32 [ %.0123212, %133 ], [ %.1124, %312 ]
-  %.3122 = phi double [ %.1120, %133 ], [ %.2121, %312 ]
-  %.2118 = phi double [ %.0116214, %133 ], [ %.1117, %312 ]
-  %.2115 = phi double [ %.0113215, %133 ], [ %.1114, %312 ]
-  %.2112 = phi double [ %.0110216, %133 ], [ %.1111, %312 ]
-  %.3105 = phi i64 [ %.1103, %133 ], [ %.2104, %312 ]
-  %.2101 = phi i64 [ %.099218, %133 ], [ %.1100, %312 ]
-  %.498 = phi i32 [ %.094219, %133 ], [ %.397, %312 ]
-  %.4 = phi ptr [ %.091220, %133 ], [ %.3, %312 ]
+  %.1190 = phi i32 [ %.0189211, %133 ], [ %.2191, %312 ]
+  %.1124 = phi i32 [ %.0123212, %133 ], [ %.2125, %312 ]
+  %.2121 = phi double [ %.1120, %133 ], [ %.3122, %312 ]
+  %.1117 = phi double [ %.0116214, %133 ], [ %.2118, %312 ]
+  %.1114 = phi double [ %.0113215, %133 ], [ %.2115, %312 ]
+  %.1111 = phi double [ %.0110216, %133 ], [ %.2112, %312 ]
+  %.2104 = phi i64 [ %.1103, %133 ], [ %.3105, %312 ]
+  %.1100 = phi i64 [ %.099218, %133 ], [ %.2101, %312 ]
+  %.195 = phi i32 [ %.094219, %133 ], [ %.296, %312 ]
+  %.192 = phi ptr [ %.091220, %133 ], [ %.293, %312 ]
   %.289 = phi i32 [ %135, %133 ], [ %181, %312 ]
-  %.2 = phi ptr [ %.081223, %133 ], [ %.1, %312 ]
+  %.1 = phi ptr [ %.081223, %133 ], [ %.2, %312 ]
   %.not.i.i.i172 = icmp eq ptr %117, null
   br i1 %.not.i.i.i172, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
 
@@ -1967,30 +1967,30 @@ _ZN7QStringD2Ev.exit:                             ; preds = %314, %_ZN17QArrayDa
   br i1 %320, label %55, label %._crit_edge, !llvm.loop !11
 
 .body:                                            ; preds = %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i, %104, %77, %170
-  %.sroa.0.4 = phi ptr [ %117, %170 ], [ %.sroa.0.1, %77 ], [ %91, %104 ], [ %91, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %91, %100 ]
+  %.sroa.0.3 = phi ptr [ %117, %170 ], [ %.sroa.0.1, %77 ], [ %91, %104 ], [ %91, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %91, %100 ]
   %.pn = phi { ptr, i32 } [ %171, %170 ], [ %78, %77 ], [ %101, %104 ], [ %101, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %101, %100 ]
-  %.not.i.i.i174 = icmp eq ptr %.sroa.0.4, null
+  %.not.i.i.i174 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i174, label %_ZN7QStringD2Ev.exit177, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175:   ; preds = %.body
-  %321 = atomicrmw sub ptr %.sroa.0.4, i32 1 seq_cst, align 4
+  %321 = atomicrmw sub ptr %.sroa.0.3, i32 1 seq_cst, align 4
   %.not.i.i176 = icmp eq i32 %321, 1
   br i1 %.not.i.i176, label %322, label %_ZN7QStringD2Ev.exit177
 
 322:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0.4, i64 noundef 2, i64 noundef 8) #25
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0.3, i64 noundef 2, i64 noundef 8) #25
   br label %_ZN7QStringD2Ev.exit177
 
 _ZN7QStringD2Ev.exit177:                          ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175, %322
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit
-  call void @g_free(ptr noundef %.2)
-  %.not = icmp eq ptr %.4, null
+  call void @g_free(ptr noundef %.1)
+  %.not = icmp eq ptr %.192, null
   br i1 %.not, label %324, label %323
 
 323:                                              ; preds = %._crit_edge
-  call void @speex_resampler_destroy(ptr noundef nonnull %.4)
+  call void @speex_resampler_destroy(ptr noundef nonnull %.192)
   br label %324
 
 324:                                              ; preds = %._crit_edge.thread, %323, %._crit_edge
@@ -2044,7 +2044,7 @@ define void @_ZN14RtpAudioStream12decodeVisualEv(ptr noundef nonnull align 8 der
 27:                                               ; preds = %.lr.ph48, %.loopexit
   %.01547 = phi i32 [ 0, %.lr.ph48 ], [ %.2, %.loopexit ]
   %.01646 = phi ptr [ %12, %.lr.ph48 ], [ %.117, %.loopexit ]
-  %.03045 = phi i32 [ 640, %.lr.ph48 ], [ %.232, %.loopexit ]
+  %.03045 = phi i32 [ 640, %.lr.ph48 ], [ %.131, %.loopexit ]
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = mul nuw nsw i64 %29, 1000
@@ -2076,7 +2076,7 @@ define void @_ZN14RtpAudioStream12decodeVisualEv(ptr noundef nonnull align 8 der
   br label %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
 
 _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %37, %46
-  %.131 = phi i32 [ %43, %46 ], [ %.03045, %37 ]
+  %.232 = phi i32 [ %43, %46 ], [ %.03045, %37 ]
   %.0.i = phi ptr [ %47, %46 ], [ %.01646, %37 ]
   %48 = load ptr, ptr %13, align 8
   %49 = load ptr, ptr %6, align 8
@@ -2472,7 +2472,7 @@ _ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit: ; preds = %158, %164,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit, %211
-  %.232 = phi i32 [ %.03045, %211 ], [ %.131, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit ], [ %.131, %_ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit ]
+  %.131 = phi i32 [ %.03045, %211 ], [ %.232, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit ], [ %.232, %_ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit ]
   %.117 = phi ptr [ %.01646, %211 ], [ %.0.i, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit ], [ %.0.i, %_ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit ]
   %.2 = phi i32 [ %220, %211 ], [ %.01547, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit ], [ %207, %_ZN9QtPrivate12QPodArrayOpsIsE7emplaceIJRsEEEvxDpOT_.exit ]
   %221 = load ptr, ptr %18, align 8

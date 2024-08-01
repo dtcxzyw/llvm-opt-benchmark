@@ -3592,12 +3592,12 @@ do.body194:                                       ; preds = %cond.end189
   br label %_endJob
 
 if.end202:                                        ; preds = %cond.end189, %for.end
-  %lastCBlockSize.0 = phi i64 [ 0, %for.end ], [ %cond190, %cond.end189 ]
+  %lastCBlockSize.1 = phi i64 [ 0, %for.end ], [ %cond190, %cond.end189 ]
   call void @ZSTD_CCtx_trace(ptr noundef nonnull %retval.0.i, i64 noundef 0) #14
   br label %_endJob
 
 _endJob:                                          ; preds = %if.end202, %do.body194, %do.body138, %do.body112, %do.body91, %do.body74, %do.body59, %do.body43, %do.body24, %do.body11, %do.body
-  %lastCBlockSize.1 = phi i64 [ 0, %do.body ], [ 0, %do.body11 ], [ 0, %do.body24 ], [ 0, %do.body43 ], [ 0, %do.body138 ], [ 0, %do.body194 ], [ %lastCBlockSize.0, %if.end202 ], [ 0, %do.body112 ], [ 0, %do.body59 ], [ 0, %do.body91 ], [ 0, %do.body74 ]
+  %lastCBlockSize.0 = phi i64 [ 0, %do.body ], [ 0, %do.body11 ], [ 0, %do.body24 ], [ 0, %do.body43 ], [ 0, %do.body138 ], [ 0, %do.body194 ], [ %lastCBlockSize.1, %if.end202 ], [ 0, %do.body112 ], [ 0, %do.body59 ], [ 0, %do.body91 ], [ 0, %do.body74 ]
   %serial207 = getelementptr inbounds i8, ptr %jobDescription, i64 128
   %44 = load ptr, ptr %serial207, align 8
   %jobID208 = getelementptr inbounds i8, ptr %jobDescription, i64 184
@@ -3714,7 +3714,7 @@ ZSTDMT_releaseCCtx.exit:                          ; preds = %ZSTDMT_releaseSeq.e
   %job_mutex222 = getelementptr inbounds i8, ptr %jobDescription, i64 16
   %call223 = call i32 @pthread_mutex_lock(ptr noundef nonnull %job_mutex222) #14
   %59 = load i64, ptr %cSize209, align 8
-  %add230 = add i64 %59, %lastCBlockSize.1
+  %add230 = add i64 %59, %lastCBlockSize.0
   store i64 %add230, ptr %cSize209, align 8
   %size232 = getelementptr inbounds i8, ptr %jobDescription, i64 176
   %60 = load i64, ptr %size232, align 8

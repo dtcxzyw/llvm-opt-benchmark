@@ -93,7 +93,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
 
 26:                                               ; preds = %.thread, %22
   %spec.select59 = phi i32 [ %spec.select, %22 ], [ %spec.select56, %.thread ]
-  %.04158 = phi ptr [ %21, %22 ], [ null, %.thread ]
+  %.158 = phi ptr [ %21, %22 ], [ null, %.thread ]
   %.0 = phi ptr [ %spec.select54, %22 ], [ @.str.2, %.thread ]
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.5, ptr noundef nonnull dereferenceable(1) %13) #4
   %28 = icmp eq i32 %27, 0
@@ -101,7 +101,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
 
 29:                                               ; preds = %26
   %30 = or disjoint i32 %spec.select59, 1
-  %31 = tail call i32 %7(ptr noundef %.04158, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0, i32 noundef %30) #3
+  %31 = tail call i32 %7(ptr noundef %.158, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0, i32 noundef %30) #3
   br label %43
 
 32:                                               ; preds = %26
@@ -110,7 +110,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = tail call i32 %7(ptr noundef %.04158, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0, i32 noundef %spec.select59) #3
+  %36 = tail call i32 %7(ptr noundef %.158, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.6, ptr noundef nonnull %.0, i32 noundef %spec.select59) #3
   br label %43
 
 37:                                               ; preds = %32
@@ -125,19 +125,19 @@ define zeroext range(i8 0, 2) i8 @Java_sun_security_pkcs11_Secmod_nssInitialize(
 
 43:                                               ; preds = %37, %17, %40, %35, %29
   %.043.ph = phi i32 [ 1, %37 ], [ 1, %17 ], [ %42, %40 ], [ %36, %35 ], [ %31, %29 ]
-  %.1.ph = phi ptr [ %.04158, %37 ], [ null, %17 ], [ %.04158, %40 ], [ %.04158, %35 ], [ %.04158, %29 ]
+  %.041.ph = phi ptr [ %.158, %37 ], [ null, %17 ], [ %.158, %40 ], [ %.158, %35 ], [ %.158, %29 ]
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 1360
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %13) #3
-  %.not53 = icmp eq ptr %.1.ph, null
+  %.not53 = icmp eq ptr %.041.ph, null
   br i1 %.not53, label %.thread71, label %47
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 1360
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.1.ph) #3
+  tail call void %50(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.041.ph) #3
   br label %.thread71
 
 .thread71:                                        ; preds = %9, %6, %47, %43

@@ -109,9 +109,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 
 19:                                               ; preds = %.lr.ph115, %107
   %.059114 = phi ptr [ %.059109, %.lr.ph115 ], [ %.059, %107 ]
-  %.055113 = phi ptr [ null, %.lr.ph115 ], [ %.2, %107 ]
-  %.056112 = phi ptr [ null, %.lr.ph115 ], [ %.258, %107 ]
-  %.061111 = phi i32 [ -1, %.lr.ph115 ], [ %.263, %107 ]
+  %.055113 = phi ptr [ null, %.lr.ph115 ], [ %.1, %107 ]
+  %.056112 = phi ptr [ null, %.lr.ph115 ], [ %.157, %107 ]
+  %.061111 = phi i32 [ -1, %.lr.ph115 ], [ %.162, %107 ]
   %20 = getelementptr inbounds i8, ptr %.059114, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_pml, i64 88), align 8
@@ -238,9 +238,9 @@ opal_pointer_array_get_item.exit:                 ; preds = %30, %36
 83:                                               ; preds = %79, %80
   %84 = load i32, ptr %4, align 4
   %85 = icmp sgt i32 %84, %.061111
-  %.162 = call i32 @llvm.smax.i32(i32 %84, i32 %.061111)
-  %.157 = select i1 %85, ptr %21, ptr %.056112
-  %.1 = select i1 %85, ptr %71, ptr %.055113
+  %.263 = call i32 @llvm.smax.i32(i32 %84, i32 %.061111)
+  %.258 = select i1 %85, ptr %21, ptr %.056112
+  %.2 = select i1 %85, ptr %71, ptr %.055113
   %86 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #12
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.loopexit103, label %88
@@ -291,21 +291,21 @@ opal_obj_run_constructors.exit86:                 ; preds = %.lr.ph.i83, %92
   br label %107
 
 107:                                              ; preds = %76, %75, %61, %60, %52, %49, %opal_obj_run_constructors.exit86
-  %.263 = phi i32 [ %.061111, %61 ], [ %.061111, %60 ], [ %.061111, %76 ], [ %.061111, %75 ], [ %.162, %opal_obj_run_constructors.exit86 ], [ %.061111, %52 ], [ %.061111, %49 ]
-  %.258 = phi ptr [ %.056112, %61 ], [ %.056112, %60 ], [ %.056112, %76 ], [ %.056112, %75 ], [ %.157, %opal_obj_run_constructors.exit86 ], [ %.056112, %52 ], [ %.056112, %49 ]
-  %.2 = phi ptr [ %.055113, %61 ], [ %.055113, %60 ], [ %.055113, %76 ], [ %.055113, %75 ], [ %.1, %opal_obj_run_constructors.exit86 ], [ %.055113, %52 ], [ %.055113, %49 ]
+  %.162 = phi i32 [ %.061111, %61 ], [ %.061111, %60 ], [ %.061111, %76 ], [ %.061111, %75 ], [ %.263, %opal_obj_run_constructors.exit86 ], [ %.061111, %52 ], [ %.061111, %49 ]
+  %.157 = phi ptr [ %.056112, %61 ], [ %.056112, %60 ], [ %.056112, %76 ], [ %.056112, %75 ], [ %.258, %opal_obj_run_constructors.exit86 ], [ %.056112, %52 ], [ %.056112, %49 ]
+  %.1 = phi ptr [ %.055113, %61 ], [ %.055113, %60 ], [ %.055113, %76 ], [ %.055113, %75 ], [ %.2, %opal_obj_run_constructors.exit86 ], [ %.055113, %52 ], [ %.055113, %49 ]
   %108 = getelementptr inbounds i8, ptr %.059114, i64 16
   %.059 = load volatile ptr, ptr %108, align 8
   %.not75 = icmp eq ptr %.059, getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 96)
   br i1 %.not75, label %._crit_edge, label %19, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %107
-  %109 = icmp eq ptr %.258, null
+  %109 = icmp eq ptr %.157, null
   br i1 %109, label %._crit_edge.thread, label %134
 
 ._crit_edge.thread:                               ; preds = %opal_obj_run_constructors.exit, %._crit_edge
-  %.055.lcssa143 = phi ptr [ %.2, %._crit_edge ], [ null, %opal_obj_run_constructors.exit ]
-  %.061.lcssa139 = phi i32 [ %.263, %._crit_edge ], [ -1, %opal_obj_run_constructors.exit ]
+  %.055.lcssa143 = phi ptr [ %.1, %._crit_edge ], [ null, %opal_obj_run_constructors.exit ]
+  %.061.lcssa139 = phi i32 [ %.162, %._crit_edge ], [ -1, %opal_obj_run_constructors.exit ]
   %110 = load ptr, ptr @opal_show_help, align 8
   %111 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %112 = call i32 (ptr, ptr, i32, ...) %110(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %111, ptr noundef nonnull @.str.7) #10
@@ -365,9 +365,9 @@ opal_pointer_array_get_item.exit89:               ; preds = %119, %125
   unreachable
 
 134:                                              ; preds = %._crit_edge, %._crit_edge121
-  %.055.lcssa142 = phi ptr [ %.2, %._crit_edge ], [ %.055.lcssa143, %._crit_edge121 ]
-  %.056.lcssa140 = phi ptr [ %.258, %._crit_edge ], [ null, %._crit_edge121 ]
-  %.061.lcssa138 = phi i32 [ %.263, %._crit_edge ], [ %.061.lcssa139, %._crit_edge121 ]
+  %.055.lcssa142 = phi ptr [ %.1, %._crit_edge ], [ %.055.lcssa143, %._crit_edge121 ]
+  %.056.lcssa140 = phi ptr [ %.157, %._crit_edge ], [ null, %._crit_edge121 ]
+  %.061.lcssa138 = phi i32 [ %.162, %._crit_edge ], [ %.061.lcssa139, %._crit_edge121 ]
   %135 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 76), align 4
   %136 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %135) #10
   br i1 %136, label %137, label %140

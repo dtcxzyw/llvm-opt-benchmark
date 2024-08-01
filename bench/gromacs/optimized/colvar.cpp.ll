@@ -4283,8 +4283,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit268: ;
   br label %652
 
 652:                                              ; preds = %644, %.thread, %622, %580, %117, %92
-  %.183 = phi i32 [ 4, %92 ], [ %118, %117 ], [ 4, %580 ], [ 1, %622 ], [ %651, %644 ], [ 4, %.thread ]
-  ret i32 %.183
+  %.082 = phi i32 [ 4, %92 ], [ %118, %117 ], [ 4, %580 ], [ 1, %622 ], [ %651, %644 ], [ 4, %.thread ]
+  ret i32 %.082
 
 653:                                              ; preds = %.body266, %.body261, %.body256, %416, %.loopexit.split-lp, %.body206, %161, %.body199, %111, %.body191, %.body
   %.pn181.pn = phi { ptr, i32 } [ %.pn181, %111 ], [ %.pn179, %416 ], [ %.pn174, %.body256 ], [ %.pn172, %.body261 ], [ %.pn169, %.body266 ], [ %.pn156.pn, %.loopexit.split-lp ], [ %.pn141, %.body206 ], [ %.pn139, %161 ], [ %.pn137, %.body199 ], [ %.pn131.pn.pn, %.body191 ], [ %.pn, %.body ]
@@ -5800,7 +5800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166: ;
   br label %469
 
 235:                                              ; preds = %224, %218
-  %.065 = phi i32 [ %223, %224 ], [ 0, %218 ]
+  %.267 = phi i32 [ %223, %224 ], [ 0, %218 ]
   %236 = load double, ptr %14, align 8
   %237 = load double, ptr %78, align 8
   %238 = fmul double %236, %237
@@ -5908,7 +5908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166: ;
   br label %469
 
 275:                                              ; preds = %259, %211
-  %.166 = phi i32 [ %.065, %259 ], [ 0, %211 ]
+  %.166 = phi i32 [ %.267, %259 ], [ 0, %211 ]
   store double 0.000000e+00, ptr %33, align 8
   %276 = invoke noundef zeroext i1 @_ZN11colvarparse10get_keyvalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcRdRKdNS_10Parse_ModeE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.57, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %33, i32 noundef 0)
           to label %277 unwind label %225
@@ -6011,7 +6011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit182: ;
   br label %469
 
 300:                                              ; preds = %290, %284
-  %.267 = phi i32 [ %291, %290 ], [ %.166, %284 ]
+  %.469 = phi i32 [ %291, %290 ], [ %.166, %284 ]
   %301 = load double, ptr %15, align 8
   %302 = load double, ptr %78, align 8
   %303 = fmul double %301, %302
@@ -6119,7 +6119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit182: ;
   br label %469
 
 340:                                              ; preds = %324, %277
-  %.368 = phi i32 [ %.267, %324 ], [ %.166, %277 ]
+  %.368 = phi i32 [ %.469, %324 ], [ %.166, %277 ]
   %341 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
   %.not = icmp eq i64 %341, 0
   br i1 %.not, label %389, label %342
@@ -6252,7 +6252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit182: ;
   br label %469
 
 389:                                              ; preds = %344, %370, %342, %340
-  %.469 = phi i32 [ %371, %370 ], [ %.368, %344 ], [ %.368, %342 ], [ %.368, %340 ]
+  %.570 = phi i32 [ %371, %370 ], [ %.368, %344 ], [ %.368, %342 ], [ %.368, %340 ]
   %390 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
   %.not107 = icmp eq i64 %390, 0
   br i1 %.not107, label %391, label %393
@@ -6375,7 +6375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
           to label %431 unwind label %466
 
 431:                                              ; preds = %429
-  %432 = or i32 %430, %.469
+  %432 = or i32 %430, %.570
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #23
   br label %468
 
@@ -6498,7 +6498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
   br label %469
 
 468:                                              ; preds = %431, %391
-  %.570 = phi i32 [ %432, %431 ], [ %.469, %391 ]
+  %.671 = phi i32 [ %432, %431 ], [ %.570, %391 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
   %.pre254 = load ptr, ptr %138, align 8
@@ -6512,7 +6512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
 
 470:                                              ; preds = %468, %130
   %471 = phi ptr [ %.pre254, %468 ], [ %139, %130 ]
-  %.671 = phi i32 [ %.570, %468 ], [ 0, %130 ]
+  %.065 = phi i32 [ %.671, %468 ], [ 0, %130 ]
   %472 = getelementptr inbounds i8, ptr %471, i64 673
   %473 = load i8, ptr %472, align 1
   %474 = and i8 %473, 1
@@ -6590,7 +6590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
           to label %514 unwind label %526
 
 514:                                              ; preds = %512
-  %515 = or i32 %513, %.671
+  %515 = or i32 %513, %.065
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #23
@@ -6656,7 +6656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit209: ;
   br label %637
 
 533:                                              ; preds = %489, %514, %485, %470
-  %.772 = phi i32 [ %515, %514 ], [ %.671, %489 ], [ %.671, %485 ], [ %.671, %470 ]
+  %.772 = phi i32 [ %515, %514 ], [ %.065, %489 ], [ %.065, %485 ], [ %.065, %470 ]
   %534 = getelementptr inbounds i8, ptr %0, i64 3240
   %535 = call noundef zeroext i1 @_ZN11colvarparse10get_keyvalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcRbRKbNS_10Parse_ModeE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.74, ptr noundef nonnull align 1 dereferenceable(1) %534, ptr noundef nonnull align 1 dereferenceable(1) %534, i32 noundef 131078)
   %536 = load i8, ptr %534, align 8
@@ -40869,7 +40869,7 @@ _ZN11colvarvalueD2Ev.exit65:                      ; preds = %_ZNSt6vectorIdSaIdE
   br label %184
 
 .sink.split:                                      ; preds = %167, %_ZN11colvarvalueD2Ev.exit65
-  %.325 = phi i32 [ %168, %167 ], [ %.224, %_ZN11colvarvalueD2Ev.exit65 ]
+  %.426 = phi i32 [ %168, %167 ], [ %.224, %_ZN11colvarvalueD2Ev.exit65 ]
   %176 = load ptr, ptr %70, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 353
   %178 = load i8, ptr %177, align 1
@@ -40881,8 +40881,8 @@ _ZN11colvarvalueD2Ev.exit65:                      ; preds = %_ZNSt6vectorIdSaIdE
   br label %183
 
 183:                                              ; preds = %.sink.split, %135
-  %.426 = phi i32 [ %.224, %135 ], [ %.325, %.sink.split ]
-  ret i32 %.426
+  %.325 = phi i32 [ %.224, %135 ], [ %.426, %.sink.split ]
+  ret i32 %.325
 
 184:                                              ; preds = %175, %169, %134, %129, %68, %32
   %.pn37.pn = phi { ptr, i32 } [ %.pn37, %175 ], [ %170, %169 ], [ %.pn35, %134 ], [ %.pn33, %129 ], [ %.pn28.pn.pn.pn, %68 ], [ %.pn, %32 ]
@@ -42147,7 +42147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %72
 
 72:                                               ; preds = %55, %70
-  %.0 = phi i32 [ %71, %70 ], [ 16, %55 ]
+  %.1 = phi i32 [ %71, %70 ], [ 16, %55 ]
   %73 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 840
   %75 = load ptr, ptr %74, align 8
@@ -42157,8 +42157,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %79
 
 79:                                               ; preds = %14, %72, %1
-  %.1 = phi i32 [ %.0, %72 ], [ 0, %14 ], [ 0, %1 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %72 ], [ 0, %14 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

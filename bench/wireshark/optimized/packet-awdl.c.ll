@@ -1509,7 +1509,7 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
   br i1 %.not, label %40, label %.preheader
 
 .preheader:                                       ; preds = %4, %37
-  %.04962 = phi i32 [ %.1, %37 ], [ 9, %4 ]
+  %.162 = phi i32 [ %.2, %37 ], [ 9, %4 ]
   %.05061 = phi i32 [ %.3, %37 ], [ 0, %4 ]
   %.05360 = phi i32 [ %38, %37 ], [ 0, %4 ]
   %17 = shl nuw i32 1, %.05360
@@ -1521,8 +1521,8 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
   %20 = shl nuw nsw i32 %.05360, 3
   %21 = load i32, ptr @hf_awdl_serviceparams_values, align 4
   %22 = load i32, ptr @ett_awdl_serviceparams_value, align 4
-  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %0, i32 noundef %.04962, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @awdl_tag_service_params.value_fields, i32 noundef -2147483648) #5
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04962) #5
+  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %0, i32 noundef %.162, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @awdl_tag_service_params.value_fields, i32 noundef -2147483648) #5
+  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.162) #5
   %25 = zext i8 %24 to i32
   br label %26
 
@@ -1551,23 +1551,23 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
 35:                                               ; preds = %33
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.556, i32 noundef %20) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.557, i32 noundef %20) #5
-  %36 = add i32 %.04962, 1
+  %36 = add i32 %.162, 1
   br label %37
 
 37:                                               ; preds = %.preheader, %35
   %.3 = phi i32 [ %.252, %35 ], [ %.05061, %.preheader ]
-  %.1 = phi i32 [ %36, %35 ], [ %.04962, %.preheader ]
+  %.2 = phi i32 [ %36, %35 ], [ %.162, %.preheader ]
   %38 = add nuw nsw i32 %.05360, 1
   %exitcond63.not = icmp eq i32 %38, 32
   br i1 %exitcond63.not, label %39, label %.preheader, !llvm.loop !9
 
 39:                                               ; preds = %37
-  tail call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.1) #5
+  tail call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.2) #5
   br label %40
 
 40:                                               ; preds = %39, %4
-  %.2 = phi i32 [ %.1, %39 ], [ 9, %4 ]
-  ret i32 %.2
+  %.049 = phi i32 [ %.2, %39 ], [ 9, %4 ]
+  ret i32 %.049
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1799,38 +1799,38 @@ define internal i32 @awdl_tag_datapath_state(ptr noundef %0, ptr nocapture readn
   br label %79
 
 79:                                               ; preds = %75, %67
-  %.7 = phi i32 [ %78, %75 ], [ %72, %67 ]
+  %.8 = phi i32 [ %78, %75 ], [ %72, %67 ]
   %80 = and i32 %73, 4
   %.not97 = icmp eq i32 %80, 0
   br i1 %.not97, label %85, label %81
 
 81:                                               ; preds = %79
   %82 = load i32, ptr @hf_awdl_datastate_rlfc, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %.7, i32 noundef 4, i32 noundef -2147483648) #5
-  %84 = add nuw nsw i32 %.7, 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %.8, i32 noundef 4, i32 noundef -2147483648) #5
+  %84 = add nuw nsw i32 %.8, 4
   br label %85
 
 85:                                               ; preds = %81, %79
-  %.8 = phi i32 [ %84, %81 ], [ %.7, %79 ]
+  %.9 = phi i32 [ %84, %81 ], [ %.8, %79 ]
   %86 = and i32 %73, 64
   %.not98 = icmp eq i32 %86, 0
   br i1 %.not98, label %97, label %87
 
 87:                                               ; preds = %85
   %88 = load i32, ptr @hf_awdl_datastate_active_time, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %.8, i32 noundef 4, i32 noundef -2147483648) #5
-  %90 = add nuw nsw i32 %.8, 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef %.9, i32 noundef 4, i32 noundef -2147483648) #5
+  %90 = add nuw nsw i32 %.9, 4
   %91 = load i32, ptr @hf_awdl_datastate_aw_sequence_counter, align 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef -2147483648) #5
-  %93 = add nuw nsw i32 %.8, 8
+  %93 = add nuw nsw i32 %.9, 8
   %94 = load i32, ptr @hf_awdl_datastate_update_counter, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 4, i32 noundef -2147483648) #5
-  %96 = add nuw nsw i32 %.8, 12
+  %96 = add nuw nsw i32 %.9, 12
   br label %97
 
 97:                                               ; preds = %85, %87, %66
-  %.9 = phi i32 [ %96, %87 ], [ %.8, %85 ], [ %.6, %66 ]
-  ret i32 %.9
+  %.7 = phi i32 [ %96, %87 ], [ %.9, %85 ], [ %.6, %66 ]
+  ret i32 %.7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1924,18 +1924,18 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
 
 .lr.ph99:                                         ; preds = %40, %.lr.ph99
   %.08298 = phi i32 [ %60, %.lr.ph99 ], [ 0, %40 ]
-  %.197 = phi i32 [ %58, %.lr.ph99 ], [ 6, %40 ]
+  %.297 = phi i32 [ %58, %.lr.ph99 ], [ 6, %40 ]
   %48 = load i32, ptr @hf_awdl_channelseq_channel, align 4
-  %49 = or disjoint i32 %.197, 1
+  %49 = or disjoint i32 %.297, 1
   %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %46, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #5
   %51 = load i32, ptr @ett_awdl_channelseq_channel, align 4
   %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #5
   %53 = load i32, ptr @hf_awdl_channelseq_channel_flags, align 4
   %54 = load i32, ptr @ett_awdl_channelseq_flags, align 4
-  %55 = call ptr @proto_tree_add_bitmask(ptr noundef %52, ptr noundef %0, i32 noundef %.197, i32 noundef %53, i32 noundef %54, ptr noundef nonnull @awdl_tag_channel_sequence.flags_fields, i32 noundef -2147483648) #5
+  %55 = call ptr @proto_tree_add_bitmask(ptr noundef %52, ptr noundef %0, i32 noundef %.297, i32 noundef %53, i32 noundef %54, ptr noundef nonnull @awdl_tag_channel_sequence.flags_fields, i32 noundef -2147483648) #5
   %56 = load i32, ptr @hf_awdl_channelseq_channel_number, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %56, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef -2147483648) #5
-  %58 = add i32 %.197, 2
+  %58 = add i32 %.297, 2
   %.not86 = icmp eq i32 %.08298, 0
   %59 = load i32, ptr %6, align 4
   %.str.565..str.556118 = select i1 %.not86, ptr @.str.565, ptr @.str.556
@@ -1958,17 +1958,17 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %63, %.lr.ph
   %.096 = phi i32 [ %82, %.lr.ph ], [ 0, %63 ]
-  %.295 = phi i32 [ %80, %.lr.ph ], [ 6, %63 ]
+  %.395 = phi i32 [ %80, %.lr.ph ], [ 6, %63 ]
   %71 = load i32, ptr @hf_awdl_channelseq_channel, align 4
-  %72 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %69, i32 noundef %71, ptr noundef %0, i32 noundef %.295, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #5
+  %72 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %69, i32 noundef %71, ptr noundef %0, i32 noundef %.395, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #5
   %73 = load i32, ptr @ett_awdl_channelseq_channel, align 4
   %74 = call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73) #5
   %75 = load i32, ptr @hf_awdl_channelseq_channel_number, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef %.295, i32 noundef 1, i32 noundef -2147483648) #5
-  %77 = or disjoint i32 %.295, 1
+  %76 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef %.395, i32 noundef 1, i32 noundef -2147483648) #5
+  %77 = or disjoint i32 %.395, 1
   %78 = load i32, ptr @hf_awdl_channelseq_channel_operating_class, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef -2147483648) #5
-  %80 = add i32 %.295, 2
+  %80 = add i32 %.395, 2
   %.not = icmp eq i32 %.096, 0
   %81 = load i32, ptr %6, align 4
   %.str.565..str.556119 = select i1 %.not, ptr @.str.565, ptr @.str.556
@@ -1979,7 +1979,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
   br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99, %.lr.ph103, %63, %40, %26
-  %.3 = phi i32 [ 6, %26 ], [ 6, %40 ], [ 6, %63 ], [ %35, %.lr.ph103 ], [ %58, %.lr.ph99 ], [ %80, %.lr.ph ]
+  %.1 = phi i32 [ 6, %26 ], [ 6, %40 ], [ 6, %63 ], [ %35, %.lr.ph103 ], [ %58, %.lr.ph99 ], [ %80, %.lr.ph ]
   %.084 = phi ptr [ %29, %26 ], [ %44, %40 ], [ %67, %63 ], [ %29, %.lr.ph103 ], [ %44, %.lr.ph99 ], [ %67, %.lr.ph ]
   %.not88 = icmp eq ptr %.084, null
   br i1 %.not88, label %.thread, label %85
@@ -1990,8 +1990,8 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr nocapture nou
   br label %.thread
 
 .thread:                                          ; preds = %4, %85, %.loopexit
-  %.392 = phi i32 [ %.3, %85 ], [ %.3, %.loopexit ], [ 6, %4 ]
-  ret i32 %.392
+  %.192 = phi i32 [ %.1, %85 ], [ %.1, %.loopexit ], [ 6, %4 ]
+  ret i32 %.192
 }
 
 ; Function Attrs: nounwind uwtable

@@ -632,13 +632,13 @@ define ptr @_ZNK6opencc10MarisaDict5MatchEPKcm(ptr nocapture noundef nonnull rea
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %14, %29
-  %.sroa.0.0 = phi ptr [ %31, %29 ], [ null, %14 ]
+  %.sroa.0.1 = phi ptr [ %31, %29 ], [ null, %14 ]
   call void @_ZN6marisa5AgentD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #25
   br label %35
 
 35:                                               ; preds = %3, %34
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %34 ], [ null, %3 ]
-  ret ptr %.sroa.0.1
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %34 ], [ null, %3 ]
+  ret ptr %.sroa.0.0
 }
 
 declare void @_ZN6marisa5AgentC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1

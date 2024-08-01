@@ -718,7 +718,7 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %58
 
 58:                                               ; preds = %.lr.ph38, %78
-  %.137 = phi i8 [ 1, %.lr.ph38 ], [ %.2, %78 ]
+  %.237 = phi i8 [ 1, %.lr.ph38 ], [ %.3, %78 ]
   %.sroa.024.036 = phi ptr [ %54, %.lr.ph38 ], [ %59, %78 ]
   %59 = getelementptr inbounds i8, ptr %.sroa.024.036, i64 -8
   %60 = load ptr, ptr %59, align 8
@@ -726,7 +726,7 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %1) #7
-  %64 = trunc nuw i8 %.137 to i1
+  %64 = trunc nuw i8 %.237 to i1
   br i1 %64, label %65, label %78
 
 65:                                               ; preds = %58
@@ -750,7 +750,7 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %78
 
 78:                                               ; preds = %58, %65, %72, %68
-  %.2 = phi i8 [ %77, %72 ], [ %.137, %68 ], [ %.137, %65 ], [ %.137, %58 ]
+  %.3 = phi i8 [ %77, %72 ], [ %.237, %68 ], [ %.237, %65 ], [ %.237, %58 ]
   %79 = load ptr, ptr %55, align 8, !noalias !9
   %.not30 = icmp eq ptr %59, %79
   br i1 %.not30, label %.loopexit, label %58, !llvm.loop !12
@@ -768,14 +768,14 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %86
 
 86:                                               ; preds = %.lr.ph, %106
-  %.334 = phi i8 [ 1, %.lr.ph ], [ %.4, %106 ]
+  %.534 = phi i8 [ 1, %.lr.ph ], [ %.6, %106 ]
   %.sroa.018.033 = phi ptr [ %82, %.lr.ph ], [ %107, %106 ]
   %87 = load ptr, ptr %.sroa.018.033, align 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull %1) #7
-  %91 = trunc nuw i8 %.334 to i1
+  %91 = trunc nuw i8 %.534 to i1
   br i1 %91, label %92, label %106
 
 92:                                               ; preds = %86
@@ -800,21 +800,21 @@ _ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit: ; preds = %22
   br label %106
 
 106:                                              ; preds = %86, %92, %100, %95
-  %.4 = phi i8 [ %105, %100 ], [ %.334, %95 ], [ %.334, %92 ], [ %.334, %86 ]
+  %.6 = phi i8 [ %105, %100 ], [ %.534, %95 ], [ %.534, %92 ], [ %.534, %86 ]
   %107 = getelementptr inbounds i8, ptr %.sroa.018.033, i64 8
   %108 = load ptr, ptr %83, align 8
   %.not29 = icmp eq ptr %107, %108
   br i1 %.not29, label %.loopexit, label %86, !llvm.loop !13
 
 .loopexit:                                        ; preds = %106, %78, %52, %80
-  %.5 = phi i8 [ 1, %52 ], [ 1, %80 ], [ %.2, %78 ], [ %.4, %106 ]
+  %.4 = phi i8 [ 1, %52 ], [ 1, %80 ], [ %.3, %78 ], [ %.6, %106 ]
   %109 = load i32, ptr %11, align 4
   %110 = add nsw i32 %109, -1
   store i32 %110, ptr %11, align 4
   %111 = load ptr, ptr %18, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 -8
   store ptr %112, ptr %18, align 8
-  %113 = trunc nuw i8 %.5 to i1
+  %113 = trunc nuw i8 %.4 to i1
   br i1 %113, label %114, label %.thread41
 
 114:                                              ; preds = %.loopexit

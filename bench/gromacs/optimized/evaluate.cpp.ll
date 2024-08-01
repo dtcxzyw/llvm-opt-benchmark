@@ -1029,9 +1029,9 @@ _ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev.exit: ; preds = %_ZN12_GLOBAL__N_129
   ret void
 
 .body:                                            ; preds = %20, %90, %77, %304, %79
-  %.sroa.4132.4 = phi ptr [ %4, %304 ], [ null, %79 ], [ null, %20 ], [ %4, %90 ], [ %.sroa.4132.0, %77 ]
+  %.sroa.4132.2 = phi ptr [ %4, %304 ], [ null, %79 ], [ null, %20 ], [ %4, %90 ], [ %.sroa.4132.0, %77 ]
   %.pn108.pn = phi { ptr, i32 } [ %.pn108, %304 ], [ %80, %79 ], [ %21, %20 ], [ %91, %90 ], [ %78, %77 ]
-  call fastcc void @_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev(ptr %13, ptr %.sroa.4132.4) #18
+  call fastcc void @_ZN12_GLOBAL__N_120MempoolGroupReserverD2Ev(ptr %13, ptr %.sroa.4132.2) #18
   resume { ptr, i32 } %.pn108.pn
 
 309:                                              ; preds = %253, %242

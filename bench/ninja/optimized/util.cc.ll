@@ -264,40 +264,40 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %13 = phi ptr [ %26, %24 ], [ %10, %.lr.ph.preheader ]
-  %.0111 = phi ptr [ %25, %24 ], [ %0, %.lr.ph.preheader ]
-  %14 = load i8, ptr %.0111, align 1
+  %.1111 = phi ptr [ %25, %24 ], [ %0, %.lr.ph.preheader ]
+  %14 = load i8, ptr %.1111, align 1
   %15 = icmp eq i8 %14, 46
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.0111, i64 1
+  %17 = getelementptr inbounds i8, ptr %.1111, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 46
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.0111, i64 2
+  %21 = getelementptr inbounds i8, ptr %.1111, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.0111, i64 3
+  %25 = getelementptr inbounds i8, ptr %.1111, i64 3
   %26 = getelementptr inbounds i8, ptr %13, i64 3
   %.not = icmp ugt ptr %26, %7
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !5
 
 .critedge:                                        ; preds = %16, %.lr.ph, %24, %20, %.preheader107, %11
-  %.190 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.0111, %16 ], [ %.0111, %.lr.ph ], [ %13, %24 ], [ %.0111, %20 ]
+  %.089 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.1111, %16 ], [ %.1111, %.lr.ph ], [ %13, %24 ], [ %.1111, %20 ]
   %.088 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %0, %20 ], [ %0, %24 ], [ %0, %.lr.ph ], [ %0, %16 ]
-  %.1 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.0111, %16 ], [ %.0111, %.lr.ph ], [ %25, %24 ], [ %.0111, %20 ]
+  %.0 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.1111, %16 ], [ %.1111, %.lr.ph ], [ %25, %24 ], [ %.1111, %20 ]
   %27 = ptrtoint ptr %7 to i64
-  %28 = icmp ult ptr %.190, %7
+  %28 = icmp ult ptr %.089, %7
   br i1 %28, label %.lr.ph125, label %._crit_edge
 
 .lr.ph125:                                        ; preds = %.critedge, %.critedge2
-  %.2124 = phi ptr [ %.4, %.critedge2 ], [ %.1, %.critedge ]
-  %.291123 = phi ptr [ %33, %.critedge2 ], [ %.190, %.critedge ]
+  %.2124 = phi ptr [ %.3, %.critedge2 ], [ %.0, %.critedge ]
+  %.291123 = phi ptr [ %33, %.critedge2 ], [ %.089, %.critedge ]
   %.092122 = phi i32 [ %.193, %.critedge2 ], [ 0, %.critedge ]
   %29 = ptrtoint ptr %.291123 to i64
   %30 = sub i64 %27, %29
@@ -340,13 +340,13 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br label %52
 
 52:                                               ; preds = %55, %50
-  %.3 = phi ptr [ %.2124, %50 ], [ %53, %55 ]
-  %53 = getelementptr inbounds i8, ptr %.3, i64 -1
-  %54 = icmp ugt ptr %53, %.1
+  %.4 = phi ptr [ %.2124, %50 ], [ %53, %55 ]
+  %53 = getelementptr inbounds i8, ptr %.4, i64 -1
+  %54 = icmp ugt ptr %53, %.0
   br i1 %54, label %55, label %.critedge2
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %.3, i64 -2
+  %56 = getelementptr inbounds i8, ptr %.4, i64 -2
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 47
   br i1 %58, label %.critedge2, label %52, !llvm.loop !7
@@ -379,21 +379,21 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
 
 .critedge2:                                       ; preds = %52, %55, %59, %42, %37, %._crit_edge134
   %.193 = phi i32 [ %.092122, %37 ], [ %.092122, %42 ], [ %.092122, %59 ], [ %66, %._crit_edge134 ], [ %51, %55 ], [ %51, %52 ]
-  %.4 = phi ptr [ %.2124, %37 ], [ %.2124, %42 ], [ %64, %59 ], [ %68, %._crit_edge134 ], [ %53, %55 ], [ %53, %52 ]
+  %.3 = phi ptr [ %.2124, %37 ], [ %.2124, %42 ], [ %64, %59 ], [ %68, %._crit_edge134 ], [ %53, %55 ], [ %53, %52 ]
   %69 = icmp ult ptr %33, %7
   br i1 %69, label %.lr.ph125, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph125, %.critedge2
   %.092.lcssa.ph = phi i32 [ %.193, %.critedge2 ], [ %.092122, %.lr.ph125 ]
   %.291.lcssa.ph = phi ptr [ %33, %.critedge2 ], [ %.291123, %.lr.ph125 ]
-  %.2.lcssa.ph = phi ptr [ %.4, %.critedge2 ], [ %.2124, %.lr.ph125 ]
+  %.2.lcssa.ph = phi ptr [ %.3, %.critedge2 ], [ %.2124, %.lr.ph125 ]
   %70 = icmp sgt i32 %.092.lcssa.ph, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge
   %.092.lcssa = phi i1 [ false, %.critedge ], [ %70, %._crit_edge.loopexit ]
-  %.291.lcssa = phi ptr [ %.190, %.critedge ], [ %.291.lcssa.ph, %._crit_edge.loopexit ]
-  %.2.lcssa = phi ptr [ %.1, %.critedge ], [ %.2.lcssa.ph, %._crit_edge.loopexit ]
+  %.291.lcssa = phi ptr [ %.089, %.critedge ], [ %.291.lcssa.ph, %._crit_edge.loopexit ]
+  %.2.lcssa = phi ptr [ %.0, %.critedge ], [ %.2.lcssa.ph, %._crit_edge.loopexit ]
   %71 = ptrtoint ptr %.291.lcssa to i64
   %72 = sub i64 %27, %71
   %73 = icmp eq ptr %7, %.291.lcssa
@@ -418,13 +418,13 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br i1 %.092.lcssa, label %.preheader, label %90
 
 .preheader:                                       ; preds = %83, %86
-  %.5 = phi ptr [ %84, %86 ], [ %.2.lcssa, %83 ]
-  %84 = getelementptr inbounds i8, ptr %.5, i64 -1
-  %85 = icmp ugt ptr %84, %.1
+  %.6 = phi ptr [ %84, %86 ], [ %.2.lcssa, %83 ]
+  %84 = getelementptr inbounds i8, ptr %.6, i64 -1
+  %85 = icmp ugt ptr %84, %.0
   br i1 %85, label %86, label %.critedge4
 
 86:                                               ; preds = %.preheader
-  %87 = getelementptr inbounds i8, ptr %.5, i64 -2
+  %87 = getelementptr inbounds i8, ptr %.6, i64 -2
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 47
   br i1 %89, label %.critedge4, label %.preheader, !llvm.loop !9
@@ -449,19 +449,19 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.preheader, %86, %90, %77, %._crit_edge, %95
-  %.6 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %77 ], [ %92, %90 ], [ %96, %95 ], [ %84, %86 ], [ %84, %.preheader ]
-  %97 = icmp ugt ptr %.6, %.088
+  %.5 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %77 ], [ %92, %90 ], [ %96, %95 ], [ %84, %86 ], [ %84, %.preheader ]
+  %97 = icmp ugt ptr %.5, %.088
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %.critedge4
-  %99 = getelementptr inbounds i8, ptr %.6, i64 -1
+  %99 = getelementptr inbounds i8, ptr %.5, i64 -1
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 47
-  %spec.select = select i1 %101, ptr %99, ptr %.6
+  %spec.select = select i1 %101, ptr %99, ptr %.5
   br label %102
 
 102:                                              ; preds = %98, %.critedge4
-  %.7 = phi ptr [ %.6, %.critedge4 ], [ %spec.select, %98 ]
+  %.7 = phi ptr [ %.5, %.critedge4 ], [ %spec.select, %98 ]
   %103 = icmp eq ptr %.7, %0
   br i1 %103, label %104, label %106
 
@@ -1173,8 +1173,8 @@ define dso_local void @_Z20StripAnsiEscapeCodesRKNSt7__cxx1112basic_stringIcSt11
   br i1 %20, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %17, %27
-  %.123 = phi i64 [ %28, %27 ], [ %18, %17 ]
-  %21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.123) #29
+  %.223 = phi i64 [ %28, %27 ], [ %18, %17 ]
+  %21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.223) #29
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, -33
   %24 = sext i8 %23 to i32
@@ -1183,14 +1183,14 @@ define dso_local void @_Z20StripAnsiEscapeCodesRKNSt7__cxx1112basic_stringIcSt11
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = add nuw i64 %.123, 1
+  %28 = add nuw i64 %.223, 1
   %29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #29
   %30 = icmp ult i64 %28, %29
   br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %27, %.lr.ph, %17, %14, %7
-  %.2 = phi i64 [ %.026, %7 ], [ %.026, %14 ], [ %18, %17 ], [ %28, %27 ], [ %.123, %.lr.ph ]
-  %31 = add i64 %.2, 1
+  %.1 = phi i64 [ %.026, %7 ], [ %.026, %14 ], [ %18, %17 ], [ %28, %27 ], [ %.223, %.lr.ph ]
+  %31 = add i64 %.1, 1
   %32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #29
   %33 = icmp ult i64 %31, %32
   br i1 %33, label %.lr.ph27, label %._crit_edge, !llvm.loop !17

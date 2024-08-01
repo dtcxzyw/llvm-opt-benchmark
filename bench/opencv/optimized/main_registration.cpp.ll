@@ -2274,7 +2274,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit349: ; preds = %_ZNSt6vectorIN2cv8
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit351
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit351: ; preds = %731, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit349, %407
-  %.0 = phi i32 [ -1, %407 ], [ 0, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit349 ], [ 0, %731 ]
+  %.1 = phi i32 [ -1, %407 ], [ 0, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit349 ], [ 0, %731 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #16
   %732 = load ptr, ptr %351, align 8
@@ -2427,14 +2427,14 @@ _ZN2cv3PtrINS_9Feature2DEED2Ev.exit359:           ; preds = %_ZN2cv3PtrINS_9Feat
   br label %802
 
 802:                                              ; preds = %138, %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit359
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit359 ], [ 0, %138 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit359 ], [ 0, %138 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  ret i32 %.1
+  ret i32 %.0
 
 803:                                              ; preds = %642
   %804 = landingpad { ptr, i32 }

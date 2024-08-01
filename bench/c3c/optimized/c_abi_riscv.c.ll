@@ -143,37 +143,37 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %.sink.split.i.cont
 
 .sink.split.i.cont:                               ; preds = %.sink.split.i, %37
-  %.199 = phi i32 [ 0, %37 ], [ %spec.select109, %.sink.split.i ]
-  %.1 = phi i32 [ 0, %37 ], [ %spec.select110, %.sink.split.i ]
+  %.098 = phi i32 [ 0, %37 ], [ %spec.select109, %.sink.split.i ]
+  %.097 = phi i32 [ 0, %37 ], [ %spec.select110, %.sink.split.i ]
   %40 = load ptr, ptr %6, align 8
   %.not25.i = icmp eq ptr %40, null
   br i1 %.not25.i, label %.sink.split28.i.else, label %.sink.split28.i
 
 .sink.split28.i:                                  ; preds = %.sink.split.i.cont
   %41 = call zeroext i1 @abi_type_is_float(ptr nonnull %40) #5
-  %.sroa.speculated = select i1 %41, i32 %.1, i32 %.199
+  %.sroa.speculated = select i1 %41, i32 %.097, i32 %.098
   %42 = add nuw nsw i32 %.sroa.speculated, 1
-  %spec.select111 = select i1 %41, i32 %.199, i32 %42
-  %spec.select112 = select i1 %41, i32 %42, i32 %.1
+  %spec.select111 = select i1 %41, i32 %.098, i32 %42
+  %spec.select112 = select i1 %41, i32 %42, i32 %.097
   br label %.sink.split28.i.else
 
 .sink.split28.i.else:                             ; preds = %.sink.split28.i, %.sink.split.i.cont
-  %.3101.ph = phi i32 [ %.199, %.sink.split.i.cont ], [ %spec.select111, %.sink.split28.i ]
-  %.3.ph = phi i32 [ %.1, %.sink.split.i.cont ], [ %spec.select112, %.sink.split28.i ]
+  %.199.ph = phi i32 [ %.098, %.sink.split.i.cont ], [ %spec.select111, %.sink.split28.i ]
+  %.1.ph = phi i32 [ %.097, %.sink.split.i.cont ], [ %spec.select112, %.sink.split28.i ]
   %43 = load i32, ptr %2, align 4
-  %.not71 = icmp ugt i32 %.3101.ph, %43
+  %.not71 = icmp ugt i32 %.199.ph, %43
   br i1 %.not71, label %.critedge, label %44
 
 44:                                               ; preds = %.sink.split28.i.else
   %45 = load i32, ptr %3, align 4
-  %.not72 = icmp ugt i32 %.3.ph, %45
+  %.not72 = icmp ugt i32 %.1.ph, %45
   br i1 %.not72, label %.critedge, label %46
 
 46:                                               ; preds = %44
-  %47 = sub i32 %43, %.3101.ph
+  %47 = sub i32 %43, %.199.ph
   store i32 %47, ptr %2, align 4
   %48 = load i32, ptr %3, align 4
-  %49 = sub i32 %48, %.3.ph
+  %49 = sub i32 %48, %.1.ph
   store i32 %49, ptr %3, align 4
   %50 = load i32, ptr %8, align 4
   %51 = load ptr, ptr %5, align 8

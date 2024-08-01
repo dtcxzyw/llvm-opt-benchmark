@@ -2943,34 +2943,34 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %63 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef %61) #7
   %64 = load i32, ptr @ett_sflow_245_gw_community, align 4
   %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #7
-  %.3101 = add i32 %.088.lcssa, 4
+  %.4101 = add i32 %.088.lcssa, 4
   %66 = icmp sgt i32 %61, 0
   br i1 %66, label %.lr.ph106, label %._crit_edge107
 
 .lr.ph106:                                        ; preds = %59, %.lr.ph106
-  %.3104 = phi i32 [ %.3, %.lr.ph106 ], [ %.3101, %59 ]
-  %.3.in103 = phi i32 [ %.3104, %.lr.ph106 ], [ %.088.lcssa, %59 ]
+  %.4104 = phi i32 [ %.4, %.lr.ph106 ], [ %.4101, %59 ]
+  %.4.in103 = phi i32 [ %.4104, %.lr.ph106 ], [ %.088.lcssa, %59 ]
   %.190102 = phi i32 [ %69, %.lr.ph106 ], [ 0, %59 ]
   %67 = load i32, ptr @hf_sflow_245_dst_as, align 4
-  %.reass = add i32 %.3.in103, %23
+  %.reass = add i32 %.4.in103, %23
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %.reass, i32 noundef 4, i32 noundef 0) #7
   %69 = add nuw nsw i32 %.190102, 1
-  %.3 = add i32 %.3104, 4
+  %.4 = add i32 %.4104, 4
   %exitcond115.not = icmp eq i32 %69, %61
   br i1 %exitcond115.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !16
 
 ._crit_edge107:                                   ; preds = %.lr.ph106, %59
-  %.3.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.3104, %.lr.ph106 ]
-  %.3.lcssa = phi i32 [ %.3101, %59 ], [ %.3, %.lr.ph106 ]
+  %.4.in.lcssa = phi i32 [ %.088.lcssa, %59 ], [ %.4104, %.lr.ph106 ]
+  %.4.lcssa = phi i32 [ %.4101, %59 ], [ %.4, %.lr.ph106 ]
   %70 = load i32, ptr @hf_sflow_245_localpref, align 4
-  %71 = add i32 %.3.lcssa, %.087
+  %71 = add i32 %.4.lcssa, %.087
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef 0) #7
-  %73 = add i32 %.3.in.lcssa, 8
+  %73 = add i32 %.4.in.lcssa, 8
   br label %74
 
 74:                                               ; preds = %._crit_edge107, %._crit_edge99
-  %.4 = phi i32 [ %73, %._crit_edge107 ], [ %.088.lcssa, %._crit_edge99 ]
-  %75 = add i32 %.4, %.087
+  %.3 = phi i32 [ %73, %._crit_edge107 ], [ %.088.lcssa, %._crit_edge99 ]
+  %75 = add i32 %.3, %.087
   ret i32 %75
 }
 

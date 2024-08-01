@@ -185,22 +185,22 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   br label %47
 
 .preheader256.loopexit:                           ; preds = %146
-  %45 = sitofp i32 %.2 to double
+  %45 = sitofp i32 %.1219 to double
   br label %.preheader256
 
 .preheader256:                                    ; preds = %.preheader256.loopexit, %4
-  %.0229.lcssa = phi i64 [ 0, %4 ], [ %.3232, %.preheader256.loopexit ]
+  %.0229.lcssa = phi i64 [ 0, %4 ], [ %.1230, %.preheader256.loopexit ]
   %.0223.lcssa = phi i32 [ 0, %4 ], [ %.1224, %.preheader256.loopexit ]
   %.0218.lcssa = phi double [ 0.000000e+00, %4 ], [ %45, %.preheader256.loopexit ]
   %46 = getelementptr inbounds i8, ptr %0, i64 80
   br label %148
 
 47:                                               ; preds = %.lr.ph277, %146
-  %.0218275 = phi i32 [ 0, %.lr.ph277 ], [ %.2, %146 ]
+  %.0218275 = phi i32 [ 0, %.lr.ph277 ], [ %.1219, %146 ]
   %.0223274 = phi i32 [ 0, %.lr.ph277 ], [ %.1224, %146 ]
-  %.0225273 = phi i32 [ 1, %.lr.ph277 ], [ %.3, %146 ]
+  %.0225273 = phi i32 [ 1, %.lr.ph277 ], [ %.1226, %146 ]
   %.0228271 = phi i32 [ 0, %.lr.ph277 ], [ %147, %146 ]
-  %.0229270 = phi i64 [ 0, %.lr.ph277 ], [ %.3232, %146 ]
+  %.0229270 = phi i64 [ 0, %.lr.ph277 ], [ %.1230, %146 ]
   call void @vacuum_delay_point() #7
   %48 = call i64 %1(ptr noundef nonnull %0, i32 noundef %.0228271, ptr noundef nonnull %9) #7
   %49 = load i8, ptr %9, align 1
@@ -229,8 +229,8 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 .lr.ph:                                           ; preds = %54, %125
   %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ 0, %54 ]
-  %.1226267 = phi i32 [ %.2227, %125 ], [ %.0225273, %54 ]
-  %.1230266 = phi i64 [ %.2231, %125 ], [ %.0229270, %54 ]
+  %.2227267 = phi i32 [ %.3, %125 ], [ %.0225273, %54 ]
+  %.2231266 = phi i64 [ %.3232, %125 ], [ %.0229270, %54 ]
   %.0244265 = phi i8 [ %.1245, %125 ], [ 0, %54 ]
   %66 = load ptr, ptr %12, align 8
   %67 = getelementptr i8, ptr %66, i64 %indvars.iv
@@ -271,7 +271,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   store i64 %91, ptr %74, align 8
   %92 = getelementptr inbounds i8, ptr %74, i64 8
   store i32 1, ptr %92, align 8
-  %93 = add i32 %.1226267, -1
+  %93 = add i32 %.2227267, -1
   %94 = getelementptr inbounds i8, ptr %74, i64 12
   store i32 %93, ptr %94, align 4
   %95 = getelementptr inbounds i8, ptr %74, i64 16
@@ -280,7 +280,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 96:                                               ; preds = %85, %81
   %.sink = phi ptr [ %95, %85 ], [ %78, %81 ]
   store i32 %.0228271, ptr %.sink, align 8
-  %97 = add i64 %.1230266, 1
+  %97 = add i64 %.2231266, 1
   %98 = srem i64 %97, %44
   %99 = icmp eq i64 %98, 0
   br i1 %99, label %100, label %125
@@ -299,7 +299,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %105 = getelementptr inbounds i8, ptr %102, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, %104
-  %.not7.i = icmp sgt i32 %107, %.1226267
+  %.not7.i = icmp sgt i32 %107, %.2227267
   br i1 %.not7.i, label %122, label %108
 
 108:                                              ; preds = %.lr.ph.i
@@ -334,13 +334,13 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 prune_element_hashtable.exit:                     ; preds = %122, %100
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %124 = add i32 %.1226267, 1
+  %124 = add i32 %.2227267, 1
   br label %125
 
 125:                                              ; preds = %.lr.ph, %96, %prune_element_hashtable.exit, %77
   %.1245 = phi i8 [ %.0244265, %77 ], [ %.0244265, %prune_element_hashtable.exit ], [ %.0244265, %96 ], [ 1, %.lr.ph ]
-  %.2231 = phi i64 [ %.1230266, %77 ], [ %97, %prune_element_hashtable.exit ], [ %97, %96 ], [ %.1230266, %.lr.ph ]
-  %.2227 = phi i32 [ %.1226267, %77 ], [ %124, %prune_element_hashtable.exit ], [ %.1226267, %96 ], [ %.1226267, %.lr.ph ]
+  %.3232 = phi i64 [ %.2231266, %77 ], [ %97, %prune_element_hashtable.exit ], [ %97, %96 ], [ %.2231266, %.lr.ph ]
+  %.3 = phi i32 [ %.2227267, %77 ], [ %124, %prune_element_hashtable.exit ], [ %.2227267, %96 ], [ %.2227267, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %10, align 4
   %127 = sext i32 %126 to i64
@@ -349,12 +349,12 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 ._crit_edge:                                      ; preds = %125, %54
   %.0244.lcssa = phi i8 [ 0, %54 ], [ %.1245, %125 ]
-  %.1230.lcssa = phi i64 [ %.0229270, %54 ], [ %.2231, %125 ]
-  %.1226.lcssa = phi i32 [ %.0225273, %54 ], [ %.2227, %125 ]
+  %.2231.lcssa = phi i64 [ %.0229270, %54 ], [ %.3232, %125 ]
+  %.2227.lcssa = phi i32 [ %.0225273, %54 ], [ %.3, %125 ]
   %129 = and i8 %.0244.lcssa, 1
   %130 = zext nneg i8 %129 to i32
   %spec.select = add i32 %.0218275, %130
-  %131 = sub i64 %.1230.lcssa, %.0229270
+  %131 = sub i64 %.2231.lcssa, %.0229270
   %132 = trunc i64 %131 to i32
   store i32 %132, ptr %13, align 4
   %133 = call ptr @hash_search(ptr noundef %39, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %14) #7
@@ -387,10 +387,10 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br label %146
 
 146:                                              ; preds = %51, %47, %143
-  %.3232 = phi i64 [ %.0229270, %47 ], [ %.0229270, %51 ], [ %.1230.lcssa, %143 ]
-  %.3 = phi i32 [ %.0225273, %47 ], [ %.0225273, %51 ], [ %.1226.lcssa, %143 ]
+  %.1230 = phi i64 [ %.0229270, %47 ], [ %.0229270, %51 ], [ %.2231.lcssa, %143 ]
+  %.1226 = phi i32 [ %.0225273, %47 ], [ %.0225273, %51 ], [ %.2227.lcssa, %143 ]
   %.1224 = phi i32 [ %.0223274, %47 ], [ %.0223274, %51 ], [ %55, %143 ]
-  %.2 = phi i32 [ %.0218275, %47 ], [ %.0218275, %51 ], [ %spec.select, %143 ]
+  %.1219 = phi i32 [ %.0218275, %47 ], [ %.0218275, %51 ], [ %spec.select, %143 ]
   %147 = add nuw nsw i32 %.0228271, 1
   %exitcond.not = icmp eq i32 %147, %2
   br i1 %exitcond.not, label %.preheader256.loopexit, label %47, !llvm.loop !8

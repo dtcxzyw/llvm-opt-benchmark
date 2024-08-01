@@ -359,7 +359,7 @@ initDisc.exit.thread:                             ; preds = %12
   %.080 = phi i64 [ 0, %.lr.ph ], [ %179, %172 ]
   %.04879 = phi ptr [ %49, %.lr.ph ], [ %176, %172 ]
   %.04978 = phi ptr [ %53, %.lr.ph ], [ %178, %172 ]
-  %.05177 = phi i32 [ 0, %.lr.ph ], [ %174, %172 ]
+  %.177 = phi i32 [ 0, %.lr.ph ], [ %174, %172 ]
   %68 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -657,7 +657,7 @@ mkBlock.exit:                                     ; preds = %162, %164
   br i1 %.not67, label %172, label %.loopexit75
 
 172:                                              ; preds = %mkBlock.exit
-  %173 = or i32 %.1.i, %.05177
+  %173 = or i32 %.1.i, %.177
   %174 = or i32 %173, %170
   %175 = getelementptr inbounds i8, ptr %.04879, i64 48
   %176 = load ptr, ptr %175, align 8
@@ -672,8 +672,8 @@ mkBlock.exit:                                     ; preds = %162, %164
 .loopexit:                                        ; preds = %172, %50, %47
   %182 = phi ptr [ null, %47 ], [ %53, %50 ], [ %53, %172 ]
   %183 = phi i64 [ 0, %47 ], [ 0, %50 ], [ %177, %172 ]
-  %.1 = phi i32 [ 0, %47 ], [ 0, %50 ], [ %174, %172 ]
-  store i32 %.1, ptr %7, align 8
+  %.051 = phi i32 [ 0, %47 ], [ 0, %50 ], [ %174, %172 ]
+  store i32 %.051, ptr %7, align 8
   store i32 4, ptr @codePhase, align 4
   %184 = getelementptr inbounds i8, ptr %0, i64 48
   %185 = load ptr, ptr %184, align 8
@@ -724,7 +724,7 @@ mkBlock.exit:                                     ; preds = %162, %164
   br i1 %.not66, label %.loopexit75, label %206
 
 206:                                              ; preds = %205
-  %207 = or i32 %.1, 4
+  %207 = or i32 %.051, 4
   store i32 %207, ptr %7, align 8
   br label %.loopexit75
 

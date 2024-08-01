@@ -220,7 +220,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
 48:                                               ; preds = %.lr.ph68, %.loopexit
   %49 = phi i32 [ %40, %.lr.ph68 ], [ %84, %.loopexit ]
   %indvars.iv92 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next93, %.loopexit ]
-  %.04665 = phi double [ 0.000000e+00, %.lr.ph68 ], [ %.3, %.loopexit ]
+  %.04665 = phi double [ 0.000000e+00, %.lr.ph68 ], [ %.147, %.loopexit ]
   %50 = load ptr, ptr %16, align 8
   %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv92
   %52 = load i32, ptr %51, align 4
@@ -238,7 +238,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %57 = phi i32 [ %49, %.lr.ph63.preheader ], [ %80, %79 ]
   %58 = phi i32 [ %49, %.lr.ph63.preheader ], [ %81, %79 ]
   %indvars.iv89 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next90, %79 ]
-  %.14761 = phi double [ %.04665, %.lr.ph63.preheader ], [ %.2, %79 ]
+  %.261 = phi double [ %.04665, %.lr.ph63.preheader ], [ %.3, %79 ]
   %59 = load ptr, ptr %47, align 8
   %60 = mul i32 %58, %56
   %61 = trunc nuw i64 %indvars.iv89 to i32
@@ -260,14 +260,14 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
   %75 = fdiv double %73, %74
   %76 = tail call double @log(double noundef %75) #15
   %77 = fmul double %76, %68
-  %78 = tail call double @llvm.fmuladd.f64(double %77, double 0x3FF71547652B82FE, double %.14761)
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double 0x3FF71547652B82FE, double %.261)
   %.pre95 = load i32, ptr %12, align 8
   br label %79
 
 79:                                               ; preds = %.lr.ph63, %67
   %80 = phi i32 [ %57, %.lr.ph63 ], [ %.pre95, %67 ]
   %81 = phi i32 [ %58, %.lr.ph63 ], [ %.pre95, %67 ]
-  %.2 = phi double [ %.14761, %.lr.ph63 ], [ %78, %67 ]
+  %.3 = phi double [ %.261, %.lr.ph63 ], [ %78, %67 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %82 = zext i32 %81 to i64
   %83 = icmp ult i64 %indvars.iv.next90, %82
@@ -275,7 +275,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
 
 .loopexit:                                        ; preds = %79, %48
   %84 = phi i32 [ %49, %48 ], [ %80, %79 ]
-  %.3 = phi double [ %.04665, %48 ], [ %.2, %79 ]
+  %.147 = phi double [ %.04665, %48 ], [ %.3, %79 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %85 = zext i32 %84 to i64
   %86 = icmp ult i64 %indvars.iv.next93, %85
@@ -283,7 +283,7 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr nocapture noundef no
 
 ._crit_edge69:                                    ; preds = %.loopexit, %9, %._crit_edge59
   %.199 = phi double [ %.1, %._crit_edge59 ], [ 1.000000e+00, %9 ], [ %.1, %.loopexit ]
-  %.046.lcssa = phi double [ 0.000000e+00, %._crit_edge59 ], [ 0.000000e+00, %9 ], [ %.3, %.loopexit ]
+  %.046.lcssa = phi double [ 0.000000e+00, %._crit_edge59 ], [ 0.000000e+00, %9 ], [ %.147, %.loopexit ]
   %87 = fdiv double %.046.lcssa, %.199
   ret double %87
 }

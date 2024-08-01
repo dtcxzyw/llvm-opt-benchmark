@@ -1846,8 +1846,8 @@ tailrecurse:                                      ; preds = %91
   br i1 %.not190, label %.critedge, label %.lr.ph269
 
 .critedge:                                        ; preds = %.thread206, %29, %.lr.ph269, %.lr.ph, %.thread208
-  %.3 = phi i64 [ %35, %.thread208 ], [ 0, %.lr.ph ], [ %.0179222267, %.lr.ph269 ], [ %.0179222267, %29 ], [ %.2, %.thread206 ]
-  switch i64 %.3, label %.lr.ph232 [
+  %.1180 = phi i64 [ %35, %.thread208 ], [ 0, %.lr.ph ], [ %.0179222267, %.lr.ph269 ], [ %.0179222267, %29 ], [ %.2, %.thread206 ]
+  switch i64 %.1180, label %.lr.ph232 [
     i64 0, label %.critedge.thread
     i64 1, label %51
   ]
@@ -1896,7 +1896,7 @@ tailrecurse:                                      ; preds = %91
   %61 = load i64, ptr %60, align 8
   %62 = add i32 %.0176230, 1
   %63 = zext i32 %62 to i64
-  %64 = icmp ugt i64 %.3, %63
+  %64 = icmp ugt i64 %.1180, %63
   br i1 %.not199, label %65, label %69
 
 65:                                               ; preds = %.lr.ph232
@@ -1922,7 +1922,7 @@ tailrecurse:                                      ; preds = %91
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %77, i64 %79, i1 false)
   %80 = load i64, ptr %78, align 8
   %81 = add i64 %80, %.0231
-  %82 = icmp ugt i64 %.3, %63
+  %82 = icmp ugt i64 %.1180, %63
   %83 = getelementptr inbounds i8, ptr %.1178, i64 %81
   br i1 %82, label %84, label %._crit_edge
 
@@ -1938,7 +1938,7 @@ tailrecurse:                                      ; preds = %91
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %88 = getelementptr inbounds i8, ptr %5, i64 56
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %87, ptr noundef nonnull @.str.41, ptr noundef %89, i64 noundef %.3, ptr noundef %.1178) #22
+  %90 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %87, ptr noundef nonnull @.str.41, ptr noundef %89, i64 noundef %.1180, ptr noundef %.1178) #22
   tail call void @_efree(ptr noundef %.1178) #22
   br label %.loopexit
 

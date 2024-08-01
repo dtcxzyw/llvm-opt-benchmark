@@ -1984,11 +1984,11 @@ _ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit.if.end78_crit_e
 
 if.end78:                                         ; preds = %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit.if.end78_crit_edge, %if.then20, %invoke.cont16
   %55 = phi i64 [ %add73, %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit.if.end78_crit_edge ], [ %add, %if.then20 ], [ %add, %invoke.cont16 ]
-  %result.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload.i.i102, %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit.if.end78_crit_edge ], [ 0, %if.then20 ], [ %retval.sroa.0.0.copyload.i.i, %invoke.cont16 ]
-  %add.ptr80 = getelementptr inbounds i8, ptr %input.0, i64 %result.sroa.0.1
-  %sub82 = sub nsw i64 %nbytes.addr.0, %result.sroa.0.1
+  %result.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload.i.i102, %_ZN5arrow6ResultINS_4util10Compressor14CompressResultEED2Ev.exit.if.end78_crit_edge ], [ 0, %if.then20 ], [ %retval.sroa.0.0.copyload.i.i, %invoke.cont16 ]
+  %add.ptr80 = getelementptr inbounds i8, ptr %input.0, i64 %result.sroa.0.0
+  %sub82 = sub nsw i64 %nbytes.addr.0, %result.sroa.0.0
   %56 = load i64, ptr %total_pos_, align 8
-  %add84 = add nsw i64 %56, %result.sroa.0.1
+  %add84 = add nsw i64 %56, %result.sroa.0.0
   store i64 %add84, ptr %total_pos_, align 8
   %57 = load ptr, ptr %compressed_, align 8
   %size_.i110 = getelementptr inbounds i8, ptr %57, i64 24
@@ -2035,7 +2035,7 @@ _ZN5arrow6StatusD2Ev.exit200:                     ; preds = %do.body91, %do.end1
   br label %if.end112
 
 if.end112:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit200, %if.end78
-  %cmp114 = icmp eq i64 %result.sroa.0.1, 0
+  %cmp114 = icmp eq i64 %result.sroa.0.0, 0
   br i1 %cmp114, label %do.body116, label %cleanup143
 
 do.body116:                                       ; preds = %if.end112
@@ -2361,7 +2361,7 @@ _ZN5arrow6StatusD2Ev.exit88:                      ; preds = %do.body34
   br label %cleanup61
 
 cleanup61:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit88, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusC2ERKS0_.exit, %_ZN5arrow6StatusD2Ev.exit48
-  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 3, %_ZN5arrow6StatusD2Ev.exit48 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ %., %_ZN5arrow6StatusD2Ev.exit88 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 3, %_ZN5arrow6StatusD2Ev.exit48 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ %., %_ZN5arrow6StatusD2Ev.exit88 ]
   %30 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultINS_4util10Compressor11FlushResultEED2Ev.exit, label %delete.notnull.i.i.i
@@ -2448,7 +2448,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultINS_4util10Compressor11FlushResultEED2Ev.exit
 
 _ZN5arrow6ResultINS_4util10Compressor11FlushResultEED2Ev.exit: ; preds = %cleanup61, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
-  switch i32 %cleanup.dest.slot.2, label %cleanup64 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup64 [
     i32 0, label %while.cond
     i32 3, label %while.end
   ], !llvm.loop !107
@@ -5702,7 +5702,7 @@ _ZN5arrow6StatusD2Ev.exit87:                      ; preds = %do.body32
   br label %cleanup60
 
 cleanup60:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit87, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusC2ERKS0_.exit, %_ZN5arrow6StatusD2Ev.exit47
-  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 3, %_ZN5arrow6StatusD2Ev.exit47 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ %., %_ZN5arrow6StatusD2Ev.exit87 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 3, %_ZN5arrow6StatusD2Ev.exit47 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ %., %_ZN5arrow6StatusD2Ev.exit87 ]
   %29 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultINS_4util10Compressor9EndResultEED2Ev.exit, label %delete.notnull.i.i.i
@@ -5789,7 +5789,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultINS_4util10Compressor9EndResultEED2Ev.exit
 
 _ZN5arrow6ResultINS_4util10Compressor9EndResultEED2Ev.exit: ; preds = %cleanup60, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
-  switch i32 %cleanup.dest.slot.2, label %unreachable [
+  switch i32 %cleanup.dest.slot.0, label %unreachable [
     i32 0, label %while.body
     i32 1, label %return
     i32 3, label %while.end
@@ -6669,7 +6669,7 @@ entry:
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %cleanup90
-  %decompress_size.0 = phi i64 [ 1048576, %entry ], [ %decompress_size.1, %cleanup90 ]
+  %decompress_size.0 = phi i64 [ 1048576, %entry ], [ %decompress_size.2, %cleanup90 ]
   %0 = load ptr, ptr %this, align 8
   call void @_ZN5arrow23AllocateResizableBufferElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result.68") align 8 %ref.tmp, i64 noundef %decompress_size.0, ptr noundef %0)
   %1 = load ptr, ptr %ref.tmp, align 8
@@ -7000,7 +7000,7 @@ while.end88:                                      ; preds = %if.end55
 
 cleanup89:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusC2ERKS0_.exit39, %while.end88
   %cleanup.dest.slot.1 = phi i32 [ 0, %while.end88 ], [ 1, %_ZN5arrow6StatusC2ERKS0_.exit39 ], [ %spec.select, %_ZN5arrow6StatusD2Ev.exit ]
-  %decompress_size.1 = phi i64 [ %mul, %while.end88 ], [ %decompress_size.0, %_ZN5arrow6StatusC2ERKS0_.exit39 ], [ %decompress_size.0, %_ZN5arrow6StatusD2Ev.exit ]
+  %decompress_size.2 = phi i64 [ %mul, %while.end88 ], [ %decompress_size.0, %_ZN5arrow6StatusC2ERKS0_.exit39 ], [ %decompress_size.0, %_ZN5arrow6StatusD2Ev.exit ]
   %54 = load ptr, ptr %ref.tmp34, align 8
   %cmp.not.i.i = icmp eq ptr %54, null
   br i1 %cmp.not.i.i, label %cleanup90, label %delete.notnull.i.i.i

@@ -1777,7 +1777,7 @@ define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr nocapture noundef %0
 
 .preheader77:                                     ; preds = %6, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %6 ]
-  %.06379 = phi i64 [ %.164, %46 ], [ %33, %6 ]
+  %.16479 = phi i64 [ %.265, %46 ], [ %33, %6 ]
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = shl nuw nsw i32 1, %34
   %36 = and i32 %35, %10
@@ -1786,23 +1786,23 @@ define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr nocapture noundef %0
 
 37:                                               ; preds = %.preheader77
   %38 = zext nneg i32 %35 to i64
-  %39 = shl i64 %.06379, %38
+  %39 = shl i64 %.16479, %38
   %40 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %39
-  %43 = and i64 %41, %.06379
+  %43 = and i64 %41, %.16479
   %44 = lshr i64 %43, %38
   %45 = or i64 %44, %42
   br label %46
 
 46:                                               ; preds = %.preheader77, %37
-  %.164 = phi i64 [ %45, %37 ], [ %.06379, %.preheader77 ]
+  %.265 = phi i64 [ %45, %37 ], [ %.16479, %.preheader77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.loopexit78, label %.preheader77, !llvm.loop !23
 
 .loopexit78:                                      ; preds = %46, %6
-  %.265 = phi i64 [ %33, %6 ], [ %.164, %46 ]
+  %.063 = phi i64 [ %33, %6 ], [ %.265, %46 ]
   %47 = and i32 %1, 1
   %sext = sub nsw i32 0, %47
   %48 = sext i32 %sext to i64
@@ -1810,7 +1810,7 @@ define range(i32 -32768, 32768) i32 @Sdm_ManComputeFunc(ptr nocapture noundef %0
   %50 = and i32 %2, 1
   %sext71 = sub nsw i32 0, %50
   %51 = sext i32 %sext71 to i64
-  %52 = xor i64 %.265, %51
+  %52 = xor i64 %.063, %51
   %.not72 = icmp eq i32 %5, 0
   %53 = xor i64 %52, %49
   %54 = and i64 %52, %49

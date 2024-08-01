@@ -452,7 +452,7 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
   br label %Curl_shuffle_addr.exit.thread49
 
 Curl_shuffle_addr.exit.thread49:                  ; preds = %30, %._crit_edge72.i
-  %.041 = phi ptr [ %54, %._crit_edge72.i ], [ %1, %30 ]
+  %.1 = phi ptr [ %54, %._crit_edge72.i ], [ %1, %30 ]
   %55 = load ptr, ptr @Curl_cfree, align 8
   tail call void %55(ptr noundef nonnull %29) #12
   %56 = load ptr, ptr @Curl_cfree, align 8
@@ -465,7 +465,7 @@ Curl_shuffle_addr.exit:                           ; preds = %._crit_edge.i
   br label %Curl_shuffle_addr.exit.thread45
 
 Curl_shuffle_addr.exit.thread:                    ; preds = %10, %num_addresses.exit.i, %Curl_shuffle_addr.exit.thread49, %5
-  %.3 = phi ptr [ %1, %5 ], [ %.041, %Curl_shuffle_addr.exit.thread49 ], [ %1, %num_addresses.exit.i ], [ null, %10 ]
+  %.041 = phi ptr [ %1, %5 ], [ %.1, %Curl_shuffle_addr.exit.thread49 ], [ %1, %num_addresses.exit.i ], [ null, %10 ]
   %.not34 = icmp eq i64 %3, 0
   br i1 %.not34, label %58, label %60
 
@@ -523,7 +523,7 @@ create_hostcache_id.exit:                         ; preds = %create_hostcache_id
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %63, i64 16
   store i64 1, ptr %75, align 8
-  store ptr %.3, ptr %63, align 8
+  store ptr %.041, ptr %63, align 8
   %76 = getelementptr inbounds i8, ptr %63, i64 8
   %77 = call i64 @time(ptr noundef nonnull %76) #12
   %78 = load i64, ptr %76, align 8
@@ -1591,10 +1591,10 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br label %.thread200
 
 .thread200:                                       ; preds = %51, %63, %60, %53, %102, %87, %.thread200.loopexit.loopexit, %95, %98
-  %.2206 = phi ptr [ %.0130.ph.ph, %95 ], [ %.0130.ph.ph, %98 ], [ %.0130.ph.ph, %.thread200.loopexit.loopexit ], [ %.0130.ph.ph, %87 ], [ null, %102 ], [ null, %53 ], [ null, %60 ], [ null, %63 ], [ null, %51 ]
+  %.0132206 = phi ptr [ %.0130.ph.ph, %95 ], [ %.0130.ph.ph, %98 ], [ %.0130.ph.ph, %.thread200.loopexit.loopexit ], [ %.0130.ph.ph, %87 ], [ null, %102 ], [ null, %53 ], [ null, %60 ], [ null, %63 ], [ null, %51 ]
   %103 = load ptr, ptr %.0118233, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %103) #12
-  call void @Curl_freeaddrinfo(ptr noundef %.2206) #12
+  call void @Curl_freeaddrinfo(ptr noundef %.0132206) #12
   br label %165
 
 104:                                              ; preds = %102

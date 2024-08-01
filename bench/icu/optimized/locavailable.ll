@@ -475,8 +475,8 @@ delete.notnull.i17:                               ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %new.cont, %if.then.i, %if.end14, %delete.notnull.i17, %if.end3, %entry, %if.then2
-  %retval.1 = phi ptr [ null, %if.then2 ], [ null, %entry ], [ null, %if.end3 ], [ null, %delete.notnull.i17 ], [ %call18, %if.end14 ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %entry ], [ null, %if.end3 ], [ null, %delete.notnull.i17 ], [ %call18, %if.end14 ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind

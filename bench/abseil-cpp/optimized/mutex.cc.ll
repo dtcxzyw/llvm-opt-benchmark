@@ -212,8 +212,8 @@ if.else5:                                         ; preds = %if.else
           to label %if.end7 unwind label %lpad
 
 if.end7:                                          ; preds = %invoke.cont, %if.else5, %if.then
-  %c.addr.1 = phi i32 [ %inc, %if.then ], [ %inc4, %invoke.cont ], [ 0, %if.else5 ]
-  ret i32 %c.addr.1
+  %c.addr.0 = phi i32 [ %inc, %if.then ], [ %inc4, %invoke.cont ], [ 0, %if.else5 ]
+  ret i32 %c.addr.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -522,22 +522,22 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then11:                                        ; preds = %for.cond.backedge.i, %if.end9
   %arrayidx = getelementptr inbounds [1031 x ptr], ptr @_ZN4abslL11synch_eventE, i64 0, i64 %rem
-  %e10.038 = load ptr, ptr %arrayidx, align 8
-  %cmp13.not39 = icmp eq ptr %e10.038, null
+  %e10.138 = load ptr, ptr %arrayidx, align 8
+  %cmp13.not39 = icmp eq ptr %e10.138, null
   br i1 %cmp13.not39, label %if.then22, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then11, %for.inc17
-  %e10.040 = phi ptr [ %e10.0, %for.inc17 ], [ %e10.038, %if.then11 ]
-  %masked_addr = getelementptr inbounds i8, ptr %e10.040, i64 16
+  %e10.140 = phi ptr [ %e10.1, %for.inc17 ], [ %e10.138, %if.then11 ]
+  %masked_addr = getelementptr inbounds i8, ptr %e10.140, i64 16
   %14 = load i64, ptr %masked_addr, align 8
   %15 = xor i64 %14, %0
   %cmp15.not = icmp eq i64 %15, -1136490970041655429
   br i1 %cmp15.not, label %if.else, label %for.inc17
 
 for.inc17:                                        ; preds = %land.rhs
-  %next18 = getelementptr inbounds i8, ptr %e10.040, i64 8
-  %e10.0 = load ptr, ptr %next18, align 8
-  %cmp13.not = icmp eq ptr %e10.0, null
+  %next18 = getelementptr inbounds i8, ptr %e10.140, i64 8
+  %e10.1 = load ptr, ptr %next18, align 8
+  %cmp13.not = icmp eq ptr %e10.1, null
   br i1 %cmp13.not, label %if.then22, label %land.rhs, !llvm.loop !8
 
 if.then22:                                        ; preds = %if.end4.i, %for.inc17, %if.then11
@@ -562,13 +562,13 @@ if.then22:                                        ; preds = %if.end4.i, %for.inc
   br label %if.end40
 
 if.else:                                          ; preds = %land.rhs
-  %17 = load i32, ptr %e10.040, align 8
+  %17 = load i32, ptr %e10.140, align 8
   %inc39 = add nsw i32 %17, 1
-  store i32 %inc39, ptr %e10.040, align 8
+  store i32 %inc39, ptr %e10.140, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.then22
-  %e10.2 = phi ptr [ %call27, %if.then22 ], [ %e10.040, %if.else ]
+  %e10.2 = phi ptr [ %call27, %if.then22 ], [ %e10.140, %if.else ]
   %18 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
   %and.i28 = and i32 %18, 2
   %19 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %and.i28 release, align 4
@@ -693,10 +693,10 @@ do.body.preheader:                                ; preds = %if.then7
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
-  %w.0 = phi ptr [ %24, %do.cond ], [ %4, %do.body.preheader ]
+  %w.1 = phi ptr [ %24, %do.cond ], [ %4, %do.body.preheader ]
   %5 = load ptr, ptr %waitp.i, align 8
   %6 = load ptr, ptr %5, align 8
-  %waitp1.i = getelementptr inbounds i8, ptr %w.0, i64 32
+  %waitp1.i = getelementptr inbounds i8, ptr %w.1, i64 32
   %7 = load ptr, ptr %waitp1.i, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.i = icmp eq ptr %6, %8
@@ -704,7 +704,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 land.lhs.true.i:                                  ; preds = %do.body
   %9 = load i32, ptr %priority.i, align 8
-  %priority3.i = getelementptr inbounds i8, ptr %w.0, i64 24
+  %priority3.i = getelementptr inbounds i8, ptr %w.1, i64 24
   %10 = load i32, ptr %priority3.i, align 8
   %cmp4.i = icmp eq i32 %9, %10
   br i1 %cmp4.i, label %land.rhs.i, label %if.then12
@@ -745,7 +745,7 @@ _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit: ; pr
   br i1 %tobool.not.i.i, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %if.end.i.i, %land.lhs.true.i.i, %do.body, %land.lhs.true.i, %if.then.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
-  %skip.i = getelementptr inbounds i8, ptr %w.0, i64 8
+  %skip.i = getelementptr inbounds i8, ptr %w.1, i64 8
   %17 = load ptr, ptr %skip.i, align 8
   %cmp.not.i = icmp eq ptr %17, null
   br i1 %cmp.not.i, label %do.cond, label %while.cond.preheader.i
@@ -759,8 +759,8 @@ while.cond.preheader.i:                           ; preds = %if.then12
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %19 = phi ptr [ %20, %while.body.i ], [ %18, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %19, %while.body.i ], [ %17, %while.cond.preheader.i ]
-  %x1.011.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w.0, %while.cond.preheader.i ]
-  %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
+  %x1.111.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w.1, %while.cond.preheader.i ]
+  %skip3.i = getelementptr inbounds i8, ptr %x1.111.i, i64 8
   store ptr %19, ptr %skip3.i, align 8
   %skip1.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %skip1.i, align 8
@@ -773,7 +773,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br label %do.cond
 
 if.else:                                          ; preds = %if.then.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit
-  %skip.i86 = getelementptr inbounds i8, ptr %w.0, i64 8
+  %skip.i86 = getelementptr inbounds i8, ptr %w.1, i64 8
   %21 = load ptr, ptr %skip.i86, align 8
   %cmp.i87 = icmp eq ptr %21, %s
   br i1 %cmp.i87, label %if.then.i, label %do.cond
@@ -784,7 +784,7 @@ if.then.i:                                        ; preds = %if.else
   br i1 %cmp2.not.i89, label %if.else.i, label %if.end13.sink.split.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %23 = load ptr, ptr %w.0, align 8
+  %23 = load ptr, ptr %w.1, align 8
   %cmp6.not.i = icmp eq ptr %23, %s
   %..i = select i1 %cmp6.not.i, ptr null, ptr %23
   br label %if.end13.sink.split.i
@@ -795,10 +795,10 @@ if.end13.sink.split.i:                            ; preds = %if.else.i, %if.then
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end13.sink.split.i, %if.else, %while.end.i, %if.then12
-  %pw.0 = phi ptr [ %x2.0.lcssa.i, %while.end.i ], [ %w.0, %if.then12 ], [ %w.0, %if.else ], [ %w.0, %if.end13.sink.split.i ]
-  %24 = load ptr, ptr %pw.0, align 8
+  %pw.1 = phi ptr [ %x2.0.lcssa.i, %while.end.i ], [ %w.1, %if.then12 ], [ %w.1, %if.else ], [ %w.1, %if.end13.sink.split.i ]
+  %24 = load ptr, ptr %pw.1, align 8
   %cmp17 = icmp ne ptr %24, %s
-  %cmp18 = icmp ne ptr %pw.0, %3
+  %cmp18 = icmp ne ptr %pw.1, %3
   %25 = and i1 %cmp18, %cmp17
   br i1 %25, label %do.body, label %if.end19, !llvm.loop !10
 
@@ -807,23 +807,23 @@ if.end19:                                         ; preds = %do.cond
   br i1 %cmp20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.then7, %if.end19
-  %pw.1106 = phi ptr [ %pw.0, %if.end19 ], [ %3, %if.then7 ]
+  %pw.0106 = phi ptr [ %pw.1, %if.end19 ], [ %3, %if.then7 ]
   %26 = phi ptr [ %24, %if.end19 ], [ %4, %if.then7 ]
   %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %pw.1106, align 8
+  store ptr %27, ptr %pw.0106, align 8
   %cmp.i90 = icmp eq ptr %26, %3
-  %cmp3.i = icmp eq ptr %pw.1106, %3
+  %cmp3.i = icmp eq ptr %pw.0106, %3
   br i1 %cmp.i90, label %if.then.i98, label %if.else.i91
 
 if.then.i98:                                      ; preds = %if.then21
-  %cond.i99 = select i1 %cmp3.i, ptr null, ptr %pw.1106
+  %cond.i99 = select i1 %cmp3.i, ptr null, ptr %pw.0106
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 if.else.i91:                                      ; preds = %if.then21
   br i1 %cmp3.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit, label %land.lhs.true.i92
 
 land.lhs.true.i92:                                ; preds = %if.else.i91
-  %waitp.i.i = getelementptr inbounds i8, ptr %pw.1106, i64 32
+  %waitp.i.i = getelementptr inbounds i8, ptr %pw.0106, i64 32
   %28 = load ptr, ptr %waitp.i.i, align 8
   %29 = load ptr, ptr %28, align 8
   %waitp1.i.i = getelementptr inbounds i8, ptr %27, i64 32
@@ -833,7 +833,7 @@ land.lhs.true.i92:                                ; preds = %if.else.i91
   br i1 %cmp.i.i93, label %land.lhs.true.i.i94, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit
 
 land.lhs.true.i.i94:                              ; preds = %land.lhs.true.i92
-  %priority.i.i = getelementptr inbounds i8, ptr %pw.1106, i64 24
+  %priority.i.i = getelementptr inbounds i8, ptr %pw.0106, i64 24
   %32 = load i32, ptr %priority.i.i, align 8
   %priority3.i.i = getelementptr inbounds i8, ptr %27, i64 24
   %33 = load i32, ptr %priority3.i.i, align 8
@@ -879,7 +879,7 @@ if.then6.i:                                       ; preds = %_ZN4abslL18MuEquiva
   %skip.i97 = getelementptr inbounds i8, ptr %27, i64 8
   %40 = load ptr, ptr %skip.i97, align 8
   %cmp8.not.i = icmp eq ptr %40, null
-  %skip15.i = getelementptr inbounds i8, ptr %pw.1106, i64 8
+  %skip15.i = getelementptr inbounds i8, ptr %pw.0106, i64 8
   br i1 %cmp8.not.i, label %if.else13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -1033,7 +1033,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp4.not59, label %while.end, label %while.body5
 
 while.body5:                                      ; preds = %if.then, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
-  %c.060 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %if.then ]
+  %c.060 = phi i32 [ %c.addr.0.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %if.then ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   %3 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
   %cmp.not.i.i15 = icmp eq i32 %3, 221
@@ -1245,7 +1245,7 @@ if.else5.i:                                       ; preds = %if.else.i
           to label %_ZN4absl24synchronization_internal10MutexDelayEii.exit unwind label %lpad.i
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i, %invoke.cont.i, %if.else5.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   call void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %s)
   %13 = load ptr, ptr %s, align 8
@@ -1716,9 +1716,9 @@ do.body11:                                        ; preds = %lor.rhs
   unreachable
 
 for.cond.outer.loopexit:                          ; preds = %if.end294, %if.then271
-  %wr_wait.0.ph.ph = phi i64 [ %wr_wait.2, %if.end294 ], [ 32, %if.then271 ]
-  %pw.0.ph.ph = phi ptr [ %pw.2, %if.end294 ], [ %pw_walk.1357, %if.then271 ]
-  %w.0.ph.ph = phi ptr [ %w.2, %if.end294 ], [ %w_walk.1355, %if.then271 ]
+  %wr_wait.0.ph.ph = phi i64 [ %wr_wait.3, %if.end294 ], [ 32, %if.then271 ]
+  %pw.0.ph.ph = phi ptr [ %pw.3, %if.end294 ], [ %pw_walk.1357, %if.then271 ]
+  %w.0.ph.ph = phi ptr [ %w.3, %if.end294 ], [ %w_walk.1355, %if.then271 ]
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.preheader, %for.cond.outer.loopexit
@@ -1730,7 +1730,7 @@ for.cond.outer:                                   ; preds = %for.cond.outer.preh
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
-  %c.0 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %c.0.ph, %for.cond.outer ]
+  %c.0 = phi i32 [ %c.addr.0.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %c.0.ph, %for.cond.outer ]
   %7 = load atomic i64, ptr %this monotonic, align 8
   %and21 = and i64 %7, 8
   %cmp22.not = icmp eq i64 %and21, 0
@@ -2032,9 +2032,9 @@ while.body.preheader:                             ; preds = %if.end233
 while.body:                                       ; preds = %if.end298, %while.body.preheader
   %pw_walk.1357 = phi ptr [ %pw_walk.2, %if.end298 ], [ %old_h.0.ph, %while.body.preheader ]
   %w_walk.1355 = phi ptr [ %60, %if.end298 ], [ %w_walk.0, %while.body.preheader ]
-  %w.1354 = phi ptr [ %w.2, %if.end298 ], [ %w.0.ph, %while.body.preheader ]
-  %pw.1353 = phi ptr [ %pw.2, %if.end298 ], [ %pw.0.ph, %while.body.preheader ]
-  %wr_wait.1352 = phi i64 [ %wr_wait.2, %if.end298 ], [ %wr_wait.0.ph, %while.body.preheader ]
+  %w.1354 = phi ptr [ %w.3, %if.end298 ], [ %w.0.ph, %while.body.preheader ]
+  %pw.1353 = phi ptr [ %pw.3, %if.end298 ], [ %pw.0.ph, %while.body.preheader ]
+  %wr_wait.1352 = phi i64 [ %wr_wait.3, %if.end298 ], [ %wr_wait.0.ph, %while.body.preheader ]
   %wake260 = getelementptr inbounds i8, ptr %w_walk.1355, i64 17
   store i8 0, ptr %wake260, align 1
   %waitp261 = getelementptr inbounds i8, ptr %w_walk.1355, i64 32
@@ -2072,9 +2072,9 @@ if.then282:                                       ; preds = %if.else278
   br label %if.end287
 
 if.end287:                                        ; preds = %if.else278, %if.then271, %if.then282, %lor.lhs.false264
-  %wr_wait.2 = phi i64 [ %wr_wait.1352, %if.then271 ], [ %wr_wait.1352, %if.then282 ], [ %wr_wait.1352, %lor.lhs.false264 ], [ 32, %if.else278 ]
-  %pw.2 = phi ptr [ %pw_walk.1357, %if.then271 ], [ %pw.1353, %if.then282 ], [ %pw.1353, %lor.lhs.false264 ], [ %pw.1353, %if.else278 ]
-  %w.2 = phi ptr [ %w_walk.1355, %if.then271 ], [ %w.1354, %if.then282 ], [ %w.1354, %lor.lhs.false264 ], [ %w.1354, %if.else278 ]
+  %wr_wait.3 = phi i64 [ %wr_wait.1352, %if.then271 ], [ %wr_wait.1352, %if.then282 ], [ %wr_wait.1352, %lor.lhs.false264 ], [ 32, %if.else278 ]
+  %pw.3 = phi ptr [ %pw_walk.1357, %if.then271 ], [ %pw.1353, %if.then282 ], [ %pw.1353, %lor.lhs.false264 ], [ %pw.1353, %if.else278 ]
+  %w.3 = phi ptr [ %w_walk.1355, %if.then271 ], [ %w.1354, %if.then282 ], [ %w.1354, %lor.lhs.false264 ], [ %w.1354, %if.else278 ]
   %55 = load i8, ptr %wake260, align 1
   %tobool289 = trunc i8 %55 to i1
   br i1 %tobool289, label %if.end294, label %if.else291
@@ -2094,8 +2094,8 @@ while.cond.preheader.i:                           ; preds = %if.else291
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %58 = phi ptr [ %59, %while.body.i ], [ %57, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %58, %while.body.i ], [ %56, %while.cond.preheader.i ]
-  %x1.011.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w_walk.1355, %while.cond.preheader.i ]
-  %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
+  %x1.111.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w_walk.1355, %while.cond.preheader.i ]
+  %skip3.i = getelementptr inbounds i8, ptr %x1.111.i, i64 8
   store ptr %58, ptr %skip3.i, align 8
   %skip1.i = getelementptr inbounds i8, ptr %58, i64 8
   %59 = load ptr, ptr %skip1.i, align 8
@@ -2133,7 +2133,7 @@ do.body.i259:                                     ; preds = %do.body301, %land.r
   %wake_tail.addr.0.i = phi ptr [ %wake_tail.addr.121.i, %land.rhs.i260 ], [ %wake_list, %do.body301 ]
   %pw.addr.0.i = phi ptr [ %pw.addr.122.i, %land.rhs.i260 ], [ %pw.4, %do.body301 ]
   %skipped.0.i = phi i1 [ %skipped.123.i, %land.rhs.i260 ], [ false, %do.body301 ]
-  %head.addr.0.i = phi ptr [ %head.addr.124.i, %land.rhs.i260 ], [ %21, %do.body301 ]
+  %head.addr.0.i = phi ptr [ %head.addr.224.i, %land.rhs.i260 ], [ %21, %do.body301 ]
   %w.0.i = load ptr, ptr %pw.addr.0.i, align 8
   %wake.i = getelementptr inbounds i8, ptr %w.0.i, i64 17
   %62 = load i8, ptr %wake.i, align 1
@@ -2260,8 +2260,8 @@ while.cond.preheader.i.i:                         ; preds = %if.else.i
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %83 = phi ptr [ %84, %while.body.i.i ], [ %82, %while.cond.preheader.i.i ]
   %x2.012.i.i = phi ptr [ %83, %while.body.i.i ], [ %81, %while.cond.preheader.i.i ]
-  %x1.011.i.i = phi ptr [ %x2.012.i.i, %while.body.i.i ], [ %w.0.i, %while.cond.preheader.i.i ]
-  %skip3.i.i = getelementptr inbounds i8, ptr %x1.011.i.i, i64 8
+  %x1.111.i.i = phi ptr [ %x2.012.i.i, %while.body.i.i ], [ %w.0.i, %while.cond.preheader.i.i ]
+  %skip3.i.i = getelementptr inbounds i8, ptr %x1.111.i.i, i64 8
   store ptr %83, ptr %skip3.i.i, align 8
   %skip1.i.i = getelementptr inbounds i8, ptr %83, i64 8
   %84 = load ptr, ptr %skip1.i.i, align 8
@@ -2274,26 +2274,26 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   br label %land.rhs.i260
 
 land.rhs.i260:                                    ; preds = %while.end.i.i, %if.else.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
-  %head.addr.124.i = phi ptr [ %head.addr.0.i, %if.else.i ], [ %head.addr.0.i, %while.end.i.i ], [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
+  %head.addr.224.i = phi ptr [ %head.addr.0.i, %if.else.i ], [ %head.addr.0.i, %while.end.i.i ], [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %skipped.123.i = phi i1 [ true, %if.else.i ], [ true, %while.end.i.i ], [ %skipped.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %pw.addr.122.i = phi ptr [ %w.0.i, %if.else.i ], [ %x2.0.lcssa.i.i, %while.end.i.i ], [ %pw.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %wake_tail.addr.121.i = phi ptr [ %wake_tail.addr.0.i, %if.else.i ], [ %wake_tail.addr.0.i, %while.end.i.i ], [ %w.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
-  %cmp16.i = icmp eq ptr %pw.addr.122.i, %head.addr.124.i
+  %cmp16.i = icmp eq ptr %pw.addr.122.i, %head.addr.224.i
   %.not.i = select i1 %cmp16.i, i1 %skipped.123.i, i1 false
   br i1 %.not.i, label %invoke.cont317, label %do.body.i259, !llvm.loop !19
 
 invoke.cont317:                                   ; preds = %land.rhs.i260, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
-  %head.addr.2.i = phi ptr [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %head.addr.124.i, %land.rhs.i260 ]
+  %head.addr.1.i = phi ptr [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %head.addr.224.i, %land.rhs.i260 ]
   %and320 = and i64 %.lcssa289297, 16
   %or321 = or disjoint i64 %and320, 2
   br i1 %cmp6, label %do.body327, label %if.then323
 
 if.then323:                                       ; preds = %invoke.cont317
-  %call325 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %head.addr.2.i, ptr noundef nonnull %waitp, i64 noundef %.lcssa289297, i32 noundef 2)
+  %call325 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %head.addr.1.i, ptr noundef nonnull %waitp, i64 noundef %.lcssa289297, i32 noundef 2)
   br label %do.body327
 
 do.body327:                                       ; preds = %if.then323, %invoke.cont317
-  %h.0 = phi ptr [ %head.addr.2.i, %invoke.cont317 ], [ %call325, %if.then323 ]
+  %h.0 = phi ptr [ %head.addr.1.i, %invoke.cont317 ], [ %call325, %if.then323 ]
   %wake_list.0.wake_list.0.wake_list.0. = load ptr, ptr %wake_list, align 8
   %cmp328.not = icmp eq ptr %wake_list.0.wake_list.0.wake_list.0., inttoptr (i64 1 to ptr)
   br i1 %cmp328.not, label %do.body331, label %do.end341
@@ -2355,7 +2355,7 @@ if.else5.i:                                       ; preds = %if.else.i269
           to label %_ZN4absl24synchronization_internal10MutexDelayEii.exit unwind label %lpad.i
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i270, %invoke.cont.i, %if.else5.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i270 ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i270 ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   br label %for.cond
 
@@ -2489,7 +2489,7 @@ do.body7:                                         ; preds = %lor.rhs
   unreachable
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
-  %c.0 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %for.cond.preheader ]
+  %c.0 = phi i32 [ %c.addr.0.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %for.cond.preheader ]
   %flags.addr.0 = phi i32 [ %flags.addr.2, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %flags, %for.cond.preheader ]
   %5 = load atomic i64, ptr %this monotonic, align 8
   %xor.i = shl i64 %5, 3
@@ -2846,7 +2846,7 @@ if.else5.i:                                       ; preds = %if.else.i
           to label %_ZN4absl24synchronization_internal10MutexDelayEii.exit unwind label %lpad.i
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i, %invoke.cont.i, %if.else5.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   br label %for.cond
 
@@ -3329,7 +3329,7 @@ if.then:                                          ; preds = %entry
 
 while.cond.i:                                     ; preds = %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i, %if.then
   %v.0.i = phi i64 [ %1, %if.then ], [ %14, %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i ]
-  %c.0.i = phi i32 [ 0, %if.then ], [ %c.addr.1.i.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i ]
+  %c.0.i = phi i32 [ 0, %if.then ], [ %c.addr.0.i.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i ]
   %and.i = and i64 %v.0.i, 1
   %cmp.not.i = icmp eq i64 %and.i, 0
   br i1 %cmp.not.i, label %lor.rhs.i, label %while.body.i
@@ -3552,7 +3552,7 @@ if.else5.i.i:                                     ; preds = %if.else.i.i
           to label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i unwind label %lpad.i.i
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit.i: ; preds = %if.else5.i.i, %invoke.cont.i.i, %if.then.i.i
-  %c.addr.1.i.i = phi i32 [ %inc.i.i, %if.then.i.i ], [ %inc4.i.i, %invoke.cont.i.i ], [ 0, %if.else5.i.i ]
+  %c.addr.0.i.i = phi i32 [ %inc.i.i, %if.then.i.i ], [ %inc4.i.i, %invoke.cont.i.i ], [ 0, %if.else5.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i.i)
   %14 = load atomic i64, ptr %0 monotonic, align 8
   br label %while.cond.i, !llvm.loop !29
@@ -3712,7 +3712,7 @@ if.then36:                                        ; preds = %if.else32
 
 do.body40:                                        ; preds = %if.then36, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit
   %37 = phi i32 [ %43, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ], [ %34, %if.then36 ]
-  %advance_to.0 = phi ptr [ %x1.1.i, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ], [ %head, %if.then36 ]
+  %advance_to.0 = phi ptr [ %x1.0.i, %_ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit ], [ %head, %if.then36 ]
   %38 = load ptr, ptr %advance_to.0, align 8
   %skip.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %skip.i, align 8
@@ -3728,8 +3728,8 @@ while.cond.preheader.i:                           ; preds = %do.body40
 while.body.i83:                                   ; preds = %while.cond.preheader.i, %while.body.i83
   %41 = phi ptr [ %42, %while.body.i83 ], [ %40, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %41, %while.body.i83 ], [ %39, %while.cond.preheader.i ]
-  %x1.011.i = phi ptr [ %x2.012.i, %while.body.i83 ], [ %38, %while.cond.preheader.i ]
-  %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
+  %x1.111.i = phi ptr [ %x2.012.i, %while.body.i83 ], [ %38, %while.cond.preheader.i ]
+  %skip3.i = getelementptr inbounds i8, ptr %x1.111.i, i64 8
   store ptr %41, ptr %skip3.i, align 8
   %skip1.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %skip1.i, align 8
@@ -3744,8 +3744,8 @@ while.end.i:                                      ; preds = %while.body.i83, %wh
 
 _ZN4abslL4SkipEPNS_13base_internal14PerThreadSynchE.exit: ; preds = %do.body40, %while.end.i
   %43 = phi i32 [ %.pre, %while.end.i ], [ %37, %do.body40 ]
-  %x1.1.i = phi ptr [ %x2.0.lcssa.i, %while.end.i ], [ %38, %do.body40 ]
-  %priority44 = getelementptr inbounds i8, ptr %x1.1.i, i64 24
+  %x1.0.i = phi ptr [ %x2.0.lcssa.i, %while.end.i ], [ %38, %do.body40 ]
+  %priority44 = getelementptr inbounds i8, ptr %x1.0.i, i64 24
   %44 = load i32, ptr %priority44, align 8
   %cmp45.not = icmp sgt i32 %43, %44
   br i1 %cmp45.not, label %if.then55, label %do.body40, !llvm.loop !30
@@ -4145,7 +4145,7 @@ if.then30:                                        ; preds = %_ZN4absl24synchroni
 if.else:                                          ; preds = %do.end23, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
   %6 = phi ptr [ %22, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %4, %do.end23 ]
   %7 = phi i64 [ %21, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %3, %do.end23 ]
-  %c.0123 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %do.end23 ]
+  %c.0123 = phi i32 [ %c.addr.0.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %do.end23 ]
   %and32 = and i64 %7, 68
   %cmp33 = icmp eq i64 %and32, 0
   br i1 %cmp33, label %if.then34, label %if.else60
@@ -4242,7 +4242,7 @@ if.else5.i:                                       ; preds = %if.else.i
           to label %_ZN4absl24synchronization_internal10MutexDelayEii.exit unwind label %lpad.i
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i, %invoke.cont.i, %if.else5.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   %21 = load atomic i64, ptr %this monotonic, align 8
   %22 = load ptr, ptr %waitp, align 8
@@ -4408,7 +4408,7 @@ entry:
 
 for.cond:                                         ; preds = %invoke.cont, %entry
   %v.0 = phi i64 [ %0, %entry ], [ %14, %invoke.cont ]
-  %c.0 = phi i32 [ 0, %entry ], [ %c.addr.1.i, %invoke.cont ]
+  %c.0 = phi i32 [ 0, %entry ], [ %c.addr.0.i, %invoke.cont ]
   %and = and i64 %v.0, 1
   %cmp = icmp eq i64 %and, 0
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -4443,17 +4443,17 @@ if.then13:                                        ; preds = %while.end
   %cmp18 = icmp eq ptr %w.0, %s
   %cond = select i1 %cmp18, ptr null, ptr %w.0
   %6 = ptrtoint ptr %cond to i64
-  %h.0 = select i1 %cmp16, i64 %6, i64 %and4
+  %h.1 = select i1 %cmp16, i64 %6, i64 %and4
   store ptr null, ptr %s, align 8
   %state = getelementptr inbounds i8, ptr %s, i64 28
   store atomic i32 0, ptr %state release, align 4
   br label %if.end21
 
 if.end21:                                         ; preds = %while.end, %if.then13, %if.then
-  %h.1 = phi i64 [ %h.0, %if.then13 ], [ %and4, %while.end ], [ 0, %if.then ]
+  %h.0 = phi i64 [ %h.1, %if.then13 ], [ %and4, %while.end ], [ 0, %if.then ]
   %7 = extractvalue { i64, i1 } %1, 0
   %and23 = and i64 %7, 2
-  %or24 = or i64 %h.1, %and23
+  %or24 = or i64 %h.0, %and23
   store atomic i64 %or24, ptr %this release, align 8
   ret void
 
@@ -4582,7 +4582,7 @@ if.else5.i:                                       ; preds = %if.else.i
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %if.else5.i, %invoke.cont.i, %if.then.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   %14 = load atomic i64, ptr %this monotonic, align 8
   br label %for.cond, !llvm.loop !33
@@ -4718,7 +4718,7 @@ entry:
   br i1 %cmp.not69, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %entry, %invoke.cont26
-  %c.071 = phi i32 [ %c.addr.1.i, %invoke.cont26 ], [ 0, %entry ]
+  %c.071 = phi i32 [ %c.addr.0.i, %invoke.cont26 ], [ 0, %entry ]
   %v.070 = phi i64 [ %12, %invoke.cont26 ], [ %0, %entry ]
   %and = and i64 %v.070, 1
   %cmp2 = icmp eq i64 %and, 0
@@ -4812,7 +4812,7 @@ if.else5.i:                                       ; preds = %if.else.i
           to label %invoke.cont26 unwind label %lpad.i
 
 invoke.cont26:                                    ; preds = %if.else5.i, %invoke.cont.i, %if.then.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   %12 = load atomic i64, ptr %this monotonic, align 8
   %cmp.not = icmp eq i64 %12, 0
@@ -4831,7 +4831,7 @@ entry:
   br i1 %cmp.not45, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
-  %c.047 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %entry ]
+  %c.047 = phi i32 [ %c.addr.0.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %entry ]
   %v.046 = phi i64 [ %12, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %0, %entry ]
   %and = and i64 %v.046, 1
   %cmp2 = icmp eq i64 %and, 0
@@ -4918,7 +4918,7 @@ if.else5.i:                                       ; preds = %if.else.i
           to label %_ZN4absl24synchronization_internal10MutexDelayEii.exit unwind label %lpad.i
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i, %invoke.cont.i, %if.else5.i
-  %c.addr.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
+  %c.addr.0.i = phi i32 [ %inc.i, %if.then.i ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   %12 = load atomic i64, ptr %this monotonic, align 8
   %cmp.not = icmp eq i64 %12, 0

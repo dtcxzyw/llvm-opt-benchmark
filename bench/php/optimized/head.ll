@@ -261,13 +261,13 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
   br label %32
 
 .thread:                                          ; preds = %8, %25
-  %.282 = phi ptr [ %.1, %25 ], [ null, %8 ]
-  %.26881 = phi i64 [ %.167, %25 ], [ 0, %8 ]
-  store ptr %.282, ptr %4, align 8
-  %27 = and i64 %.26881, 4294967295
+  %.06582 = phi ptr [ %.1, %25 ], [ null, %8 ]
+  %.06681 = phi i64 [ %.167, %25 ], [ 0, %8 ]
+  store ptr %.06582, ptr %4, align 8
+  %27 = and i64 %.06681, 4294967295
   %28 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %27, ptr %28, align 8
-  %29 = icmp eq ptr %.282, null
+  %29 = icmp eq ptr %.06582, null
   %30 = select i1 %29, i32 3, i32 2
   %31 = call i32 @sapi_header_op(i32 noundef %30, ptr noundef nonnull %4) #9
   br label %32
@@ -1205,7 +1205,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 14:                                               ; preds = %3
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 7) #9
-  br label %.thread364
+  br label %.thread363
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1221,7 +1221,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 21:                                               ; preds = %15
   %22 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 1) #9
-  br i1 %22, label %23, label %.thread364
+  br i1 %22, label %23, label %.thread363
 
 23:                                               ; preds = %21, %.critedge
   %24 = icmp eq i32 %12, 1
@@ -1241,7 +1241,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 31:                                               ; preds = %25
   %32 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %26, ptr noundef nonnull %6, i32 noundef 2) #9
-  br i1 %32, label %33, label %.thread364
+  br i1 %32, label %33, label %.thread363
 
 33:                                               ; preds = %31, %.critedge335
   %34 = icmp ult i32 %12, 3
@@ -1267,12 +1267,12 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 43:                                               ; preds = %35
   %44 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %36, ptr noundef nonnull %4, i32 noundef 3) #9
-  br i1 %44, label %.thread, label %.thread364
+  br i1 %44, label %.thread, label %.thread363
 
 .thread:                                          ; preds = %39, %41, %43
-  %.1350 = phi ptr [ null, %43 ], [ null, %41 ], [ %40, %39 ]
+  %.2349 = phi ptr [ null, %43 ], [ null, %41 ], [ %40, %39 ]
   %45 = icmp eq i32 %12, 3
-  br i1 %45, label %.thread378, label %46
+  br i1 %45, label %.thread377, label %46
 
 46:                                               ; preds = %.thread
   %47 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1288,11 +1288,11 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 52:                                               ; preds = %46
   %53 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %47, ptr noundef nonnull %7, i32 noundef 4) #9
-  br i1 %53, label %54, label %.thread364
+  br i1 %53, label %54, label %.thread363
 
 54:                                               ; preds = %52, %.critedge337
   %55 = icmp ult i32 %12, 5
-  br i1 %55, label %.thread378, label %56
+  br i1 %55, label %.thread377, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1308,11 +1308,11 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 62:                                               ; preds = %56
   %63 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %57, ptr noundef nonnull %8, i32 noundef 5) #9
-  br i1 %63, label %64, label %.thread364
+  br i1 %63, label %64, label %.thread363
 
 64:                                               ; preds = %62, %.critedge339
   %65 = icmp eq i32 %12, 5
-  br i1 %65, label %.thread378, label %66
+  br i1 %65, label %.thread377, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds i8, ptr %0, i64 168
@@ -1328,7 +1328,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds i8, ptr %0, i64 160
   %72 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %71, ptr noundef nonnull %9, i32 noundef 6) #9
-  br i1 %72, label %73, label %.thread364
+  br i1 %72, label %73, label %.thread363
 
 .critedge341:                                     ; preds = %66, %69
   %storemerge = phi i8 [ 0, %69 ], [ 1, %66 ]
@@ -1337,43 +1337,43 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 73:                                               ; preds = %70, %.critedge341
   %.not = icmp eq i32 %12, 7
-  br i1 %.not, label %74, label %.thread378
+  br i1 %.not, label %74, label %.thread377
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %0, i64 184
   %76 = load i8, ptr %75, align 8
   switch i8 %76, label %78 [
-    i8 3, label %.thread388
+    i8 3, label %.thread387
     i8 2, label %77
   ]
 
 77:                                               ; preds = %74
-  br label %.thread388
+  br label %.thread387
 
-.thread388:                                       ; preds = %77, %74
+.thread387:                                       ; preds = %77, %74
   %storemerge322 = phi i8 [ 0, %77 ], [ 1, %74 ]
   store i8 %storemerge322, ptr %10, align 1
-  br label %.thread378
+  br label %.thread377
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %0, i64 176
   %80 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %79, ptr noundef nonnull %10, i32 noundef 7) #9
-  %cond.fr351 = freeze i1 %80
-  br i1 %cond.fr351, label %.thread378, label %.thread364
+  %cond.fr350 = freeze i1 %80
+  br i1 %cond.fr350, label %.thread377, label %.thread363
 
-.thread364:                                       ; preds = %78, %70, %62, %52, %43, %31, %21, %14
-  %.0374 = phi i32 [ 9, %70 ], [ 9, %62 ], [ 9, %52 ], [ 9, %43 ], [ 9, %31 ], [ 9, %21 ], [ 1, %14 ], [ 9, %78 ]
-  %.0299373 = phi i32 [ 2, %70 ], [ 4, %62 ], [ 4, %52 ], [ 8, %43 ], [ 4, %31 ], [ 4, %21 ], [ 0, %14 ], [ 2, %78 ]
-  %.0300372 = phi ptr [ %71, %70 ], [ %57, %62 ], [ %47, %52 ], [ %36, %43 ], [ %26, %31 ], [ %16, %21 ], [ null, %14 ], [ %79, %78 ]
-  %.0301371 = phi i32 [ 6, %70 ], [ 5, %62 ], [ 4, %52 ], [ 3, %43 ], [ 2, %31 ], [ 1, %21 ], [ 0, %14 ], [ 7, %78 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0374, i32 noundef %.0301371, ptr noundef null, i32 noundef %.0299373, ptr noundef %.0300372) #9
+.thread363:                                       ; preds = %78, %70, %62, %52, %43, %31, %21, %14
+  %.0373 = phi i32 [ 9, %70 ], [ 9, %62 ], [ 9, %52 ], [ 9, %43 ], [ 9, %31 ], [ 9, %21 ], [ 1, %14 ], [ 9, %78 ]
+  %.0299372 = phi i32 [ 2, %70 ], [ 4, %62 ], [ 4, %52 ], [ 8, %43 ], [ 4, %31 ], [ 4, %21 ], [ 0, %14 ], [ 2, %78 ]
+  %.0300371 = phi ptr [ %71, %70 ], [ %57, %62 ], [ %47, %52 ], [ %36, %43 ], [ %26, %31 ], [ %16, %21 ], [ null, %14 ], [ %79, %78 ]
+  %.0301370 = phi i32 [ 6, %70 ], [ 5, %62 ], [ 4, %52 ], [ 3, %43 ], [ 2, %31 ], [ 1, %21 ], [ 0, %14 ], [ 7, %78 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0373, i32 noundef %.0301370, ptr noundef null, i32 noundef %.0299372, ptr noundef %.0300371) #9
   br label %261
 
-.thread378:                                       ; preds = %78, %73, %64, %54, %.thread, %.thread388
-  %.not324 = icmp eq ptr %.1350, null
+.thread377:                                       ; preds = %78, %73, %64, %54, %.thread, %.thread387
+  %.not324 = icmp eq ptr %.2349, null
   br i1 %.not324, label %php_head_parse_cookie_options_array.exit, label %81
 
-81:                                               ; preds = %.thread378
+81:                                               ; preds = %.thread377
   %82 = load i32, ptr %11, align 4
   %83 = icmp ugt i32 %82, 3
   br i1 %83, label %84, label %88
@@ -1387,19 +1387,19 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %261
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %.1350, i64 8
-  %90 = getelementptr inbounds i8, ptr %.1350, i64 24
+  %89 = getelementptr inbounds i8, ptr %.2349, i64 8
+  %90 = getelementptr inbounds i8, ptr %.2349, i64 24
   %91 = load i32, ptr %90, align 8
   %.not113.i = icmp eq i32 %91, 0
   br i1 %.not113.i, label %php_head_parse_cookie_options_array.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %.1350, i64 16
+  %92 = getelementptr inbounds i8, ptr %.2349, i64 16
   %93 = load ptr, ptr %92, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %203, %.lr.ph.preheader.i
-  %.0345 = phi ptr [ null, %.lr.ph.preheader.i ], [ %.1346, %203 ]
+  %.2346 = phi ptr [ null, %.lr.ph.preheader.i ], [ %.3, %203 ]
   %.085117.i = phi i32 [ %91, %.lr.ph.preheader.i ], [ %204, %203 ]
   %.086116.i = phi ptr [ %93, %.lr.ph.preheader.i ], [ %.1.i, %203 ]
   %.087115.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.188.i, %203 ]
@@ -1630,14 +1630,14 @@ thread-pre-split110.i:                            ; preds = %169
   br label %php_head_parse_cookie_options_array.exit.thread
 
 203:                                              ; preds = %191, %196, %199, %180, %171, %165, %144, %123, %102
-  %.1346 = phi ptr [ %.0345, %102 ], [ %.0345, %123 ], [ %.0345, %144 ], [ %.0345, %165 ], [ %.0345, %171 ], [ %.0345, %180 ], [ %200, %199 ], [ %192, %196 ], [ %192, %191 ]
+  %.3 = phi ptr [ %.2346, %102 ], [ %.2346, %123 ], [ %.2346, %144 ], [ %.2346, %165 ], [ %.2346, %171 ], [ %.2346, %180 ], [ %200, %199 ], [ %192, %196 ], [ %192, %191 ]
   %204 = add i32 %.085117.i, -1
   %.not.i = icmp eq i32 %204, 0
   br i1 %.not.i, label %php_head_parse_cookie_options_array.exit, label %.lr.ph.i
 
-php_head_parse_cookie_options_array.exit:         ; preds = %203, %23, %33, %88, %.thread378
-  %.not324392 = phi i1 [ true, %.thread378 ], [ false, %88 ], [ true, %33 ], [ true, %23 ], [ false, %203 ]
-  %.3 = phi ptr [ null, %.thread378 ], [ null, %88 ], [ null, %33 ], [ null, %23 ], [ %.1346, %203 ]
+php_head_parse_cookie_options_array.exit:         ; preds = %203, %23, %33, %88, %.thread377
+  %.not324391 = phi i1 [ true, %.thread377 ], [ false, %88 ], [ true, %33 ], [ true, %23 ], [ false, %203 ]
+  %.0345 = phi ptr [ null, %.thread377 ], [ null, %88 ], [ null, %33 ], [ null, %23 ], [ %.3, %203 ]
   %205 = load ptr, ptr %5, align 8
   %206 = load ptr, ptr %6, align 8
   %207 = load i64, ptr %4, align 8
@@ -1648,15 +1648,15 @@ php_head_parse_cookie_options_array.exit:         ; preds = %203, %23, %33, %88,
   %212 = load i8, ptr %10, align 1
   %213 = trunc i8 %212 to i1
   %214 = xor i1 %2, true
-  %215 = call i32 @php_setcookie(ptr noundef %205, ptr noundef %206, i64 noundef %207, ptr noundef %208, ptr noundef %209, i1 noundef zeroext %211, i1 noundef zeroext %213, ptr noundef %.3, i1 noundef zeroext %214)
+  %215 = call i32 @php_setcookie(ptr noundef %205, ptr noundef %206, i64 noundef %207, ptr noundef %208, ptr noundef %209, i1 noundef zeroext %211, i1 noundef zeroext %213, ptr noundef %.0345, i1 noundef zeroext %214)
   %216 = icmp eq i32 %215, 0
   %spec.select = select i1 %216, i32 3, i32 2
   %217 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %spec.select, ptr %217, align 8
-  br i1 %.not324392, label %261, label %php_head_parse_cookie_options_array.exit.thread
+  br i1 %.not324391, label %261, label %php_head_parse_cookie_options_array.exit.thread
 
 php_head_parse_cookie_options_array.exit.thread:  ; preds = %107, %.thread122.i, %php_head_parse_cookie_options_array.exit
-  %.4 = phi ptr [ %.3, %php_head_parse_cookie_options_array.exit ], [ %.0345, %.thread122.i ], [ %.0345, %107 ]
+  %.1 = phi ptr [ %.0345, %php_head_parse_cookie_options_array.exit ], [ %.2346, %.thread122.i ], [ %.2346, %107 ]
   %218 = load ptr, ptr %7, align 8
   %.not325 = icmp eq ptr %218, null
   br i1 %.not325, label %232, label %219
@@ -1725,22 +1725,22 @@ php_head_parse_cookie_options_array.exit.thread:  ; preds = %107, %.thread122.i,
   br label %247
 
 247:                                              ; preds = %234, %245, %246, %238, %232
-  %.not331 = icmp eq ptr %.4, null
+  %.not331 = icmp eq ptr %.1, null
   br i1 %.not331, label %261, label %248
 
 248:                                              ; preds = %247
-  %249 = getelementptr inbounds i8, ptr %.4, i64 4
+  %249 = getelementptr inbounds i8, ptr %.1, i64 4
   %250 = load i32, ptr %249, align 4
   %251 = and i32 %250, 64
   %.not332 = icmp eq i32 %251, 0
   br i1 %.not332, label %252, label %261
 
 252:                                              ; preds = %248
-  %253 = load i32, ptr %.4, align 4
+  %253 = load i32, ptr %.1, align 4
   %254 = icmp ne i32 %253, 0
   call void @llvm.assume(i1 %254)
   %255 = add i32 %253, -1
-  store i32 %255, ptr %.4, align 4
+  store i32 %255, ptr %.1, align 4
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %257, label %261
 
@@ -1750,14 +1750,14 @@ php_head_parse_cookie_options_array.exit.thread:  ; preds = %107, %.thread122.i,
   br i1 %.not333, label %260, label %259
 
 259:                                              ; preds = %257
-  call void @free(ptr noundef nonnull %.4) #9
+  call void @free(ptr noundef nonnull %.1) #9
   br label %261
 
 260:                                              ; preds = %257
-  call void @_efree(ptr noundef nonnull %.4) #9
+  call void @_efree(ptr noundef nonnull %.1) #9
   br label %261
 
-261:                                              ; preds = %247, %252, %260, %259, %248, %php_head_parse_cookie_options_array.exit, %84, %.thread364
+261:                                              ; preds = %247, %252, %260, %259, %248, %php_head_parse_cookie_options_array.exit, %84, %.thread363
   ret void
 }
 

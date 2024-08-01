@@ -3420,7 +3420,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %6 = phi ptr [ %1, %if.end.lr.ph ], [ %24, %if.end30 ]
   %add.i86 = phi i64 [ %add.i77, %if.end.lr.ph ], [ %add.i, %if.end30 ]
   %mul.i85 = phi i64 [ %mul.i76, %if.end.lr.ph ], [ %mul.i, %if.end30 ]
-  %index.addr.084 = phi i64 [ %index, %if.end.lr.ph ], [ %picked_child.1, %if.end30 ]
+  %index.addr.084 = phi i64 [ %index, %if.end.lr.ph ], [ %picked_child.2, %if.end30 ]
   %add = add nuw i64 %mul.i85, 2
   %cmp7 = icmp eq i64 %index.addr.084, 0
   %7 = load i64, ptr %root_cmp_cache_, align 8
@@ -3453,11 +3453,11 @@ land.lhs.true16:                                  ; preds = %if.else
 
 if.end24:                                         ; preds = %if.end, %land.lhs.true16, %if.else
   %13 = phi ptr [ %6, %if.else ], [ %.pre, %land.lhs.true16 ], [ %6, %if.end ]
-  %picked_child.1 = phi i64 [ %add.i86, %if.else ], [ %spec.select, %land.lhs.true16 ], [ %7, %if.end ]
-  %cmp.i47 = icmp ult i64 %picked_child.1, 8
+  %picked_child.2 = phi i64 [ %add.i86, %if.else ], [ %spec.select, %land.lhs.true16 ], [ %7, %if.end ]
+  %cmp.i47 = icmp ult i64 %picked_child.2, 8
   %14 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i49 = getelementptr inbounds ptr, ptr %14, i64 %picked_child.1
-  %15 = getelementptr ptr, ptr %13, i64 %picked_child.1
+  %arrayidx.i49 = getelementptr inbounds ptr, ptr %14, i64 %picked_child.2
+  %15 = getelementptr ptr, ptr %13, i64 %picked_child.2
   %add.ptr.i.i51 = getelementptr i8, ptr %15, i64 -64
   %retval.0.i52 = select i1 %cmp.i47, ptr %arrayidx.i49, ptr %add.ptr.i.i51
   %16 = load ptr, ptr %retval.0.i52, align 8
@@ -3466,9 +3466,9 @@ if.end24:                                         ; preds = %if.end, %land.lhs.t
 
 if.end30:                                         ; preds = %if.end24
   %17 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %picked_child.1
+  %arrayidx.i55 = getelementptr inbounds ptr, ptr %17, i64 %picked_child.2
   %18 = load ptr, ptr %vect_.i, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %picked_child.1
+  %19 = getelementptr ptr, ptr %18, i64 %picked_child.2
   %add.ptr.i.i57 = getelementptr i8, ptr %19, i64 -64
   %retval.0.i58 = select i1 %cmp.i47, ptr %arrayidx.i55, ptr %add.ptr.i.i57
   %20 = load ptr, ptr %retval.0.i58, align 8
@@ -3478,7 +3478,7 @@ if.end30:                                         ; preds = %if.end24
   %add.ptr.i.i63 = getelementptr i8, ptr %21, i64 -64
   %retval.0.i64 = select i1 %cmp.i59, ptr %arrayidx.i61, ptr %add.ptr.i.i63
   store ptr %20, ptr %retval.0.i64, align 8
-  %mul.i = shl i64 %picked_child.1, 1
+  %mul.i = shl i64 %picked_child.2, 1
   %add.i = or disjoint i64 %mul.i, 1
   %22 = load i64, ptr %data_, align 8
   %23 = load ptr, ptr %_M_finish.i.i, align 8
@@ -3492,8 +3492,8 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp.not, label %if.end, label %while.end, !llvm.loop !70
 
 while.end:                                        ; preds = %if.end30, %if.end24, %entry
-  %index.addr.0.lcssa = phi i64 [ %index, %entry ], [ %index.addr.084, %if.end24 ], [ %picked_child.1, %if.end30 ]
-  %picked_child.2 = phi i64 [ -1, %entry ], [ %picked_child.1, %if.end24 ], [ %picked_child.1, %if.end30 ]
+  %index.addr.0.lcssa = phi i64 [ %index, %entry ], [ %index.addr.084, %if.end24 ], [ %picked_child.2, %if.end30 ]
+  %picked_child.1 = phi i64 [ -1, %entry ], [ %picked_child.2, %if.end24 ], [ %picked_child.2, %if.end30 ]
   %cmp35 = icmp eq i64 %index.addr.0.lcssa, 0
   br i1 %cmp35, label %if.then36, label %if.else38
 
@@ -3512,7 +3512,7 @@ if.else38:                                        ; preds = %while.end
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else38, %if.then36
-  %.sink = phi i64 [ %picked_child.2, %if.then36 ], [ -1, %if.else38 ]
+  %.sink = phi i64 [ %picked_child.1, %if.then36 ], [ -1, %if.else38 ]
   %phi.call = phi ptr [ %25, %if.then36 ], [ %retval.0.i75, %if.else38 ]
   %29 = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %.sink, ptr %29, align 8

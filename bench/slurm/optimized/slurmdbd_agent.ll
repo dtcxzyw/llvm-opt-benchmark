@@ -2064,7 +2064,7 @@ _save_dbd_rec.exit:                               ; preds = %47, %.sink.split.i
 
 .lr.ph:                                           ; preds = %.preheader, %.outer
   %54 = phi ptr [ %91, %.outer ], [ %53, %.preheader ]
-  %.0.ph68 = phi i32 [ %89, %.outer ], [ 0, %.preheader ]
+  %.1.ph68 = phi i32 [ %89, %.outer ], [ 0, %.preheader ]
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.backedge
@@ -2149,20 +2149,20 @@ _save_dbd_rec.exit48:                             ; preds = %66, %86, %80, %82
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @slurm_free_buf(ptr noundef nonnull %56) #13
-  %89 = add nuw nsw i32 %.0.ph68, 1
+  %89 = add nuw nsw i32 %.1.ph68, 1
   %90 = load ptr, ptr @agent_list, align 8
   %91 = call ptr @slurm_list_dequeue(ptr noundef %90) #13
   %.not3465 = icmp eq ptr %91, null
   br i1 %.not3465, label %.thread, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %.outer, %.backedge, %.preheader, %51, %_save_dbd_rec.exit48, %16
-  %.152 = phi i32 [ 0, %16 ], [ 0, %51 ], [ %.0.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.0.ph68, %.backedge ], [ %89, %.outer ]
+  %.052 = phi i32 [ 0, %16 ], [ 0, %51 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %89, %.outer ]
   %92 = call i32 @slurm_get_log_level() #13
   %93 = icmp sgt i32 %92, 3
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %.thread
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.53, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._save_dbd_state, i32 noundef %.152) #13
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.53, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._save_dbd_state, i32 noundef %.052) #13
   br label %95
 
 95:                                               ; preds = %94, %.thread

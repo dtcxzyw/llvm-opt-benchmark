@@ -354,13 +354,13 @@ return.sink.split.sink.split:                     ; preds = %invoke.cont20, %inv
 
 return.sink.split:                                ; preds = %invoke.cont, %return.sink.split.sink.split, %invoke.cont52
   %name.sink = phi ptr [ %tempEscape, %invoke.cont52 ], [ %name.sink.ph, %return.sink.split.sink.split ], [ %name, %invoke.cont ]
-  %retval.3.ph = phi i32 [ %call51, %invoke.cont52 ], [ -1, %return.sink.split.sink.split ], [ 36, %invoke.cont ]
+  %retval.0.ph = phi i32 [ %call51, %invoke.cont52 ], [ -1, %return.sink.split.sink.split ], [ 36, %invoke.cont ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %name.sink) #9
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.lhs.true43, %if.end41, %entry
-  %retval.3 = phi i32 [ -1, %entry ], [ 92, %land.lhs.true43 ], [ %retval.0.i4258, %if.end41 ], [ %retval.3.ph, %return.sink.split ]
-  ret i32 %retval.3
+  %retval.0 = phi i32 [ -1, %entry ], [ 92, %land.lhs.true43 ], [ %retval.0.i4258, %if.end41 ], [ %retval.0.ph, %return.sink.split ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad47, %lpad
   %tempEscape.sink = phi ptr [ %tempEscape, %lpad47 ], [ %name, %lpad ]

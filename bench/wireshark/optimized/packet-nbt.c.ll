@@ -962,7 +962,7 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
 
 73:                                               ; preds = %.thread172, %57
   %.0133178 = phi i32 [ %56, %.thread172 ], [ %spec.select, %57 ]
-  %.1170177 = phi i32 [ 1, %.thread172 ], [ 0, %57 ]
+  %.2170177 = phi i32 [ 1, %.thread172 ], [ 0, %57 ]
   switch i8 %11, label %94 [
     i8 0, label %74
     i8 -127, label %78
@@ -1033,7 +1033,7 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
   br label %170
 
 96:                                               ; preds = %74, %78, %82, %85, %88, %91, %6
-  %.2 = phi i32 [ %., %6 ], [ %.1170177, %91 ], [ %.1170177, %88 ], [ %.1170177, %85 ], [ %.1170177, %82 ], [ %.1170177, %78 ], [ %.1170177, %74 ]
+  %.1 = phi i32 [ %., %6 ], [ %.2170177, %91 ], [ %.2170177, %88 ], [ %.2170177, %85 ], [ %.2170177, %82 ], [ %.2170177, %78 ], [ %.2170177, %74 ]
   %97 = load ptr, ptr %7, align 8
   %98 = zext i8 %11 to i32
   %99 = tail call ptr @val_to_str(i32 noundef %98, ptr noundef nonnull @message_types, ptr noundef nonnull @.str.269) #8
@@ -1044,7 +1044,7 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
 
 .lr.ph:                                           ; preds = %96
   %101 = getelementptr inbounds i8, ptr %1, i64 328
-  %.not151 = icmp eq i32 %.2, 0
+  %.not151 = icmp eq i32 %.1, 0
   %102 = getelementptr inbounds i8, ptr %1, i64 80
   %103 = getelementptr inbounds i8, ptr %1, i64 340
   %104 = getelementptr inbounds i8, ptr %1, i64 344
@@ -1159,7 +1159,7 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
 
 165:                                              ; preds = %157, %155
   %166 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0136185, i32 noundef %129) #8
-  tail call fastcc void @dissect_nbss_packet(ptr noundef %166, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.2)
+  tail call fastcc void @dissect_nbss_packet(ptr noundef %166, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.1)
   %167 = add i32 %129, %.0136185
   %168 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %167) #8
   %.not149 = icmp eq i32 %168, 0
@@ -1241,7 +1241,7 @@ define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr n
   br label %18
 
 18:                                               ; preds = %.lr.ph, %dissect_nbns_answer.exit
-  %.050 = phi i32 [ %2, %.lr.ph ], [ %.3.i, %dissect_nbns_answer.exit ]
+  %.050 = phi i32 [ %2, %.lr.ph ], [ %.2.i, %dissect_nbns_answer.exit ]
   %.01849 = phi i32 [ %3, %.lr.ph ], [ %19, %dissect_nbns_answer.exit ]
   %19 = add nsw i32 %.01849, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -1467,7 +1467,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %151, %.lr.ph.split.us.preheader.i
-  %.2456.us.i = phi i32 [ %152, %151 ], [ %139, %.lr.ph.split.us.preheader.i ]
+  %.3456.us.i = phi i32 [ %152, %151 ], [ %139, %.lr.ph.split.us.preheader.i ]
   %.0363455.us.i = phi i32 [ %154, %151 ], [ %140, %.lr.ph.split.us.preheader.i ]
   %.2366454.us.i = phi i16 [ %153, %151 ], [ %38, %.lr.ph.split.us.preheader.i ]
   %147 = icmp ult i16 %.2366454.us.i, 16
@@ -1479,14 +1479,14 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
   br i1 %150, label %.split.loop.exit449.i, label %151
 
 151:                                              ; preds = %148
-  %152 = add i32 %.2456.us.i, 18
+  %152 = add i32 %.3456.us.i, 18
   %153 = add i16 %.2366454.us.i, -18
   %154 = add nsw i32 %.0363455.us.i, -1
   %.not419.us.i = icmp eq i32 %154, 0
   br i1 %.not419.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %171, %.lr.ph.split.preheader.i
-  %.2456.i = phi i32 [ %175, %171 ], [ %139, %.lr.ph.split.preheader.i ]
+  %.3456.i = phi i32 [ %175, %171 ], [ %139, %.lr.ph.split.preheader.i ]
   %.0363455.i = phi i32 [ %177, %171 ], [ %140, %.lr.ph.split.preheader.i ]
   %.2366454.i = phi i16 [ %176, %171 ], [ %38, %.lr.ph.split.preheader.i ]
   %155 = icmp ult i16 %.2366454.i, 16
@@ -1494,25 +1494,25 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 
 .split.us.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %.us-phi.i = phi i16 [ %.2366454.us.i, %.lr.ph.split.us.i ], [ %.2366454.i, %.lr.ph.split.i ]
-  %.us-phi458.i = phi i32 [ %.2456.us.i, %.lr.ph.split.us.i ], [ %.2456.i, %.lr.ph.split.i ]
+  %.us-phi458.i = phi i32 [ %.3456.us.i, %.lr.ph.split.us.i ], [ %.3456.i, %.lr.ph.split.i ]
   %156 = zext nneg i16 %.us-phi.i to i32
   %157 = call ptr @proto_tree_add_expert(ptr noundef %.1368.i, ptr noundef %1, ptr noundef nonnull @ei_nbns_incomplete_entry, ptr noundef %0, i32 noundef %.us-phi458.i, i32 noundef %156) #8
   br label %dissect_nbns_answer.exit
 
 .thread.i:                                        ; preds = %.lr.ph.split.i
-  %158 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %25, i32 noundef %.2456.i, i64 noundef 16) #8
+  %158 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %25, i32 noundef %.3456.i, i64 noundef 16) #8
   %159 = call i32 @process_netbios_name(ptr noundef %25, ptr noundef %23, i32 noundef %26) #8
   store i32 %159, ptr %9, align 4
   %160 = load i32, ptr @hf_nbns_netbios_name, align 4
   %161 = call ptr @netbios_name_type_descr(i32 noundef %159) #8
-  %162 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %.1368.i, i32 noundef %160, ptr noundef %0, i32 noundef %.2456.i, i32 noundef 16, ptr noundef %23, ptr noundef nonnull @.str.264, ptr noundef %23, i32 noundef %159, ptr noundef %161) #8
-  %163 = add i32 %.2456.i, 16
+  %162 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %.1368.i, i32 noundef %160, ptr noundef %0, i32 noundef %.3456.i, i32 noundef 16, ptr noundef %23, ptr noundef nonnull @.str.264, ptr noundef %23, i32 noundef %159, ptr noundef %161) #8
+  %163 = add i32 %.3456.i, 16
   %164 = add i16 %.2366454.i, -16
   %165 = icmp ult i16 %164, 2
   br i1 %165, label %.split.loop.exit.i, label %171
 
 .split.loop.exit449.i:                            ; preds = %148
-  %166 = add i32 %.2456.us.i, 16
+  %166 = add i32 %.3456.us.i, 16
   br label %.split.loop.exit.i
 
 .split.loop.exit.i:                               ; preds = %.thread.i, %.split.loop.exit449.i
@@ -1526,7 +1526,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
   %172 = load i32, ptr @hf_nbns_name_flags, align 4
   %173 = load i32, ptr @ett_nbns_name_flags, align 4
   %174 = call ptr @proto_tree_add_bitmask(ptr noundef nonnull %.1368.i, ptr noundef %0, i32 noundef %163, i32 noundef %172, i32 noundef %173, ptr noundef nonnull @nbns_add_name_flags.flags, i32 noundef 0) #8
-  %175 = add i32 %.2456.i, 18
+  %175 = add i32 %.3456.i, 18
   %176 = add i16 %.2366454.i, -18
   %177 = add nsw i32 %.0363455.i, -1
   %.not419.i = icmp eq i32 %177, 0
@@ -1534,19 +1534,19 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 
 ._crit_edge.i:                                    ; preds = %171, %151, %135
   %.2366.lcssa.i = phi i16 [ %38, %135 ], [ %146, %151 ], [ %142, %171 ]
-  %.2.lcssa.i = phi i32 [ %139, %135 ], [ %144, %151 ], [ %175, %171 ]
+  %.3.lcssa.i = phi i32 [ %139, %135 ], [ %144, %151 ], [ %175, %171 ]
   %178 = icmp ult i16 %.2366.lcssa.i, 6
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %._crit_edge.i
   %180 = zext nneg i16 %.2366.lcssa.i to i32
-  %181 = call ptr @proto_tree_add_expert(ptr noundef %.1368.i, ptr noundef %1, ptr noundef nonnull @ei_nbns_incomplete_entry, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef %180) #8
+  %181 = call ptr @proto_tree_add_expert(ptr noundef %.1368.i, ptr noundef %1, ptr noundef nonnull @ei_nbns_incomplete_entry, ptr noundef %0, i32 noundef %.3.lcssa.i, i32 noundef %180) #8
   br label %dissect_nbns_answer.exit
 
 182:                                              ; preds = %._crit_edge.i
   %183 = load i32, ptr @hf_nbns_unit_id, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %183, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef 6, i32 noundef 0) #8
-  %185 = add i32 %.2.lcssa.i, 6
+  %184 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %183, ptr noundef %0, i32 noundef %.3.lcssa.i, i32 noundef 6, i32 noundef 0) #8
+  %185 = add i32 %.3.lcssa.i, 6
   %186 = icmp eq i16 %.2366.lcssa.i, 6
   br i1 %186, label %187, label %189
 
@@ -1557,7 +1557,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 189:                                              ; preds = %182
   %190 = load i32, ptr @hf_nbns_jumpers, align 4
   %191 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %190, ptr noundef %0, i32 noundef %185, i32 noundef 1, i32 noundef 0) #8
-  %192 = add i32 %.2.lcssa.i, 7
+  %192 = add i32 %.3.lcssa.i, 7
   %193 = icmp eq i16 %.2366.lcssa.i, 7
   br i1 %193, label %194, label %196
 
@@ -1568,7 +1568,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 196:                                              ; preds = %189
   %197 = load i32, ptr @hf_nbns_test_result, align 4
   %198 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %197, ptr noundef %0, i32 noundef %192, i32 noundef 1, i32 noundef 0) #8
-  %199 = add i32 %.2.lcssa.i, 8
+  %199 = add i32 %.3.lcssa.i, 8
   %200 = add i16 %.2366.lcssa.i, -8
   %201 = icmp ult i16 %200, 2
   br i1 %201, label %202, label %205
@@ -1581,7 +1581,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 205:                                              ; preds = %196
   %206 = load i32, ptr @hf_nbns_version_number, align 4
   %207 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %206, ptr noundef %0, i32 noundef %199, i32 noundef 2, i32 noundef 0) #8
-  %208 = add i32 %.2.lcssa.i, 10
+  %208 = add i32 %.3.lcssa.i, 10
   %209 = add i16 %.2366.lcssa.i, -10
   %210 = icmp ult i16 %209, 2
   br i1 %210, label %211, label %214
@@ -1594,7 +1594,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 214:                                              ; preds = %205
   %215 = load i32, ptr @hf_nbns_period_of_statistics, align 4
   %216 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %215, ptr noundef %0, i32 noundef %208, i32 noundef 2, i32 noundef 0) #8
-  %217 = add i32 %.2.lcssa.i, 12
+  %217 = add i32 %.3.lcssa.i, 12
   %218 = add i16 %.2366.lcssa.i, -12
   %219 = icmp ult i16 %218, 2
   br i1 %219, label %220, label %223
@@ -1607,7 +1607,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 223:                                              ; preds = %214
   %224 = load i32, ptr @hf_nbns_num_crcs, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %224, ptr noundef %0, i32 noundef %217, i32 noundef 2, i32 noundef 0) #8
-  %226 = add i32 %.2.lcssa.i, 14
+  %226 = add i32 %.3.lcssa.i, 14
   %227 = add i16 %.2366.lcssa.i, -14
   %228 = icmp ult i16 %227, 2
   br i1 %228, label %229, label %232
@@ -1620,7 +1620,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 232:                                              ; preds = %223
   %233 = load i32, ptr @hf_nbns_num_alignment_errors, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %233, ptr noundef %0, i32 noundef %226, i32 noundef 2, i32 noundef 0) #8
-  %235 = add i32 %.2.lcssa.i, 16
+  %235 = add i32 %.3.lcssa.i, 16
   %236 = add i16 %.2366.lcssa.i, -16
   %237 = icmp ult i16 %236, 2
   br i1 %237, label %238, label %241
@@ -1633,7 +1633,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 241:                                              ; preds = %232
   %242 = load i32, ptr @hf_nbns_num_collisions, align 4
   %243 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %242, ptr noundef %0, i32 noundef %235, i32 noundef 2, i32 noundef 0) #8
-  %244 = add i32 %.2.lcssa.i, 18
+  %244 = add i32 %.3.lcssa.i, 18
   %245 = add i16 %.2366.lcssa.i, -18
   %246 = icmp ult i16 %245, 2
   br i1 %246, label %247, label %250
@@ -1646,7 +1646,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 250:                                              ; preds = %241
   %251 = load i32, ptr @hf_nbns_num_send_aborts, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %251, ptr noundef %0, i32 noundef %244, i32 noundef 2, i32 noundef 0) #8
-  %253 = add i32 %.2.lcssa.i, 20
+  %253 = add i32 %.3.lcssa.i, 20
   %254 = add i16 %.2366.lcssa.i, -20
   %255 = icmp ult i16 %254, 4
   br i1 %255, label %256, label %259
@@ -1659,7 +1659,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 259:                                              ; preds = %250
   %260 = load i32, ptr @hf_nbns_num_good_sends, align 4
   %261 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %260, ptr noundef %0, i32 noundef %253, i32 noundef 4, i32 noundef 0) #8
-  %262 = add i32 %.2.lcssa.i, 24
+  %262 = add i32 %.3.lcssa.i, 24
   %263 = add i16 %.2366.lcssa.i, -24
   %264 = icmp ult i16 %263, 4
   br i1 %264, label %265, label %268
@@ -1672,7 +1672,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 268:                                              ; preds = %259
   %269 = load i32, ptr @hf_nbns_num_good_receives, align 4
   %270 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %269, ptr noundef %0, i32 noundef %262, i32 noundef 4, i32 noundef 0) #8
-  %271 = add i32 %.2.lcssa.i, 28
+  %271 = add i32 %.3.lcssa.i, 28
   %272 = add i16 %.2366.lcssa.i, -28
   %273 = icmp ult i16 %272, 2
   br i1 %273, label %274, label %277
@@ -1685,7 +1685,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 277:                                              ; preds = %268
   %278 = load i32, ptr @hf_nbns_num_retransmits, align 4
   %279 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %278, ptr noundef %0, i32 noundef %271, i32 noundef 2, i32 noundef 0) #8
-  %280 = add i32 %.2.lcssa.i, 30
+  %280 = add i32 %.3.lcssa.i, 30
   %281 = add i16 %.2366.lcssa.i, -30
   %282 = icmp ult i16 %281, 2
   br i1 %282, label %283, label %286
@@ -1698,7 +1698,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 286:                                              ; preds = %277
   %287 = load i32, ptr @hf_nbns_num_no_resource_conditions, align 4
   %288 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %287, ptr noundef %0, i32 noundef %280, i32 noundef 2, i32 noundef 0) #8
-  %289 = add i32 %.2.lcssa.i, 32
+  %289 = add i32 %.3.lcssa.i, 32
   %290 = add i16 %.2366.lcssa.i, -32
   %291 = icmp ult i16 %290, 2
   br i1 %291, label %292, label %295
@@ -1711,7 +1711,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 295:                                              ; preds = %286
   %296 = load i32, ptr @hf_nbns_num_command_blocks, align 4
   %297 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %296, ptr noundef %0, i32 noundef %289, i32 noundef 2, i32 noundef 0) #8
-  %298 = add i32 %.2.lcssa.i, 34
+  %298 = add i32 %.3.lcssa.i, 34
   %299 = add i16 %.2366.lcssa.i, -34
   %300 = icmp ult i16 %299, 2
   br i1 %300, label %301, label %304
@@ -1724,7 +1724,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 304:                                              ; preds = %295
   %305 = load i32, ptr @hf_nbns_num_pending_sessions, align 4
   %306 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %305, ptr noundef %0, i32 noundef %298, i32 noundef 2, i32 noundef 0) #8
-  %307 = add i32 %.2.lcssa.i, 36
+  %307 = add i32 %.3.lcssa.i, 36
   %308 = add i16 %.2366.lcssa.i, -36
   %309 = icmp ult i16 %308, 2
   br i1 %309, label %310, label %313
@@ -1737,7 +1737,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 313:                                              ; preds = %304
   %314 = load i32, ptr @hf_nbns_max_num_pending_sessions, align 4
   %315 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %314, ptr noundef %0, i32 noundef %307, i32 noundef 2, i32 noundef 0) #8
-  %316 = add i32 %.2.lcssa.i, 38
+  %316 = add i32 %.3.lcssa.i, 38
   %317 = add i16 %.2366.lcssa.i, -38
   %318 = icmp ult i16 %317, 2
   br i1 %318, label %319, label %322
@@ -1750,7 +1750,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 322:                                              ; preds = %313
   %323 = load i32, ptr @hf_nbns_max_total_sessions_possible, align 4
   %324 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %323, ptr noundef %0, i32 noundef %316, i32 noundef 2, i32 noundef 0) #8
-  %325 = add i32 %.2.lcssa.i, 40
+  %325 = add i32 %.3.lcssa.i, 40
   %326 = add i16 %.2366.lcssa.i, -40
   %327 = icmp ult i16 %326, 2
   br i1 %327, label %328, label %331
@@ -1763,7 +1763,7 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
 331:                                              ; preds = %322
   %332 = load i32, ptr @hf_nbns_session_data_packet_size, align 4
   %333 = call ptr @proto_tree_add_item(ptr noundef %.1368.i, i32 noundef %332, ptr noundef %0, i32 noundef %325, i32 noundef 2, i32 noundef 0) #8
-  %334 = add i32 %.2.lcssa.i, 42
+  %334 = add i32 %.3.lcssa.i, 42
   br label %dissect_nbns_answer.exit
 
 335:                                              ; preds = %18
@@ -1810,13 +1810,13 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph467.split.us.
   br label %dissect_nbns_answer.exit
 
 dissect_nbns_answer.exit:                         ; preds = %103, %nbns_add_nbns_flags.exit.us.i, %nbns_add_nbns_flags.exit.us.us.i, %72, %.split470.us.i, %86, %100, %133, %.split.us.i, %.split.loop.exit.i, %179, %187, %194, %202, %211, %220, %229, %238, %247, %256, %265, %274, %283, %292, %301, %310, %319, %328, %331, %360
-  %.3.i = phi i32 [ %361, %360 ], [ %39, %133 ], [ %.us-phi458.i, %.split.us.i ], [ %168, %.split.loop.exit.i ], [ %.2.lcssa.i, %179 ], [ %185, %187 ], [ %192, %194 ], [ %199, %202 ], [ %208, %211 ], [ %217, %220 ], [ %226, %229 ], [ %235, %238 ], [ %244, %247 ], [ %253, %256 ], [ %262, %265 ], [ %271, %274 ], [ %280, %283 ], [ %289, %292 ], [ %298, %301 ], [ %307, %310 ], [ %316, %319 ], [ %325, %328 ], [ %334, %331 ], [ %.us-phi473.i, %.split470.us.i ], [ %.0465.i, %86 ], [ %97, %100 ], [ %39, %72 ], [ %75, %nbns_add_nbns_flags.exit.us.us.i ], [ %82, %nbns_add_nbns_flags.exit.us.i ], [ %106, %103 ]
+  %.2.i = phi i32 [ %361, %360 ], [ %39, %133 ], [ %.us-phi458.i, %.split.us.i ], [ %168, %.split.loop.exit.i ], [ %.3.lcssa.i, %179 ], [ %185, %187 ], [ %192, %194 ], [ %199, %202 ], [ %208, %211 ], [ %217, %220 ], [ %226, %229 ], [ %235, %238 ], [ %244, %247 ], [ %253, %256 ], [ %262, %265 ], [ %271, %274 ], [ %280, %283 ], [ %289, %292 ], [ %298, %301 ], [ %307, %310 ], [ %316, %319 ], [ %325, %328 ], [ %334, %331 ], [ %.us-phi473.i, %.split470.us.i ], [ %.0465.i, %86 ], [ %97, %100 ], [ %39, %72 ], [ %75, %nbns_add_nbns_flags.exit.us.us.i ], [ %82, %nbns_add_nbns_flags.exit.us.i ], [ %106, %103 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %362 = icmp sgt i32 %.01849, 1
   br i1 %362, label %18, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %dissect_nbns_answer.exit, %8
-  %.0.lcssa = phi i32 [ %2, %8 ], [ %.3.i, %dissect_nbns_answer.exit ]
+  %.0.lcssa = phi i32 [ %2, %8 ], [ %.2.i, %dissect_nbns_answer.exit ]
   %363 = load ptr, ptr %10, align 8
   %364 = sub i32 %.0.lcssa, %2
   call void @proto_item_set_len(ptr noundef %363, i32 noundef %364) #8

@@ -291,8 +291,8 @@ define internal { double, double } @_ZL15vandg_s_forward5PJ_LPP8PJconsts(double 
   %68 = fdiv double %67, %58
   %69 = fcmp olt double %0, 0.000000e+00
   %70 = fneg double %68
-  %.sroa.041.0 = select i1 %69, double %70, double %68
-  %71 = fdiv double %.sroa.041.0, 0x400921FB54442D18
+  %.sroa.041.1 = select i1 %69, double %70, double %68
+  %71 = fdiv double %.sroa.041.1, 0x400921FB54442D18
   %72 = tail call double @llvm.fabs.f64(double %71)
   %73 = tail call double @llvm.fmuladd.f64(double %40, double 2.000000e+00, double %72)
   %74 = fneg double %72
@@ -317,8 +317,8 @@ define internal { double, double } @_ZL15vandg_s_forward5PJ_LPP8PJconsts(double 
 
 86:                                               ; preds = %79, %11, %81, %25, %31, %77, %9
   %.sroa.12.0 = phi double [ 0.000000e+00, %9 ], [ %32, %31 ], [ %29, %25 ], [ %75, %77 ], [ %85, %81 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %79 ]
-  %.sroa.041.1 = phi double [ 0.000000e+00, %9 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %25 ], [ %.sroa.041.0, %77 ], [ %.sroa.041.0, %81 ], [ %0, %11 ], [ %.sroa.041.0, %79 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.1, 0
+  %.sroa.041.0 = phi double [ 0.000000e+00, %9 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %25 ], [ %.sroa.041.1, %77 ], [ %.sroa.041.1, %81 ], [ %0, %11 ], [ %.sroa.041.1, %79 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.12.0, 1
   ret { double, double } %.fca.1.insert
 }

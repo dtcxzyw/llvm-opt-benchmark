@@ -528,8 +528,8 @@ if.then28:                                        ; preds = %if.end25
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %while.cond.us, %if.then28
-  %found_count.3 = phi ptr [ %count31, %if.then28 ], [ %found_count.0.ph.us, %while.cond.us ], [ null, %while.cond ]
-  ret ptr %found_count.3
+  %found_count.1 = phi ptr [ %count31, %if.then28 ], [ %found_count.0.ph.us, %while.cond.us ], [ null, %while.cond ]
+  ret ptr %found_count.1
 }
 
 ; Function Attrs: mustprogress uwtable

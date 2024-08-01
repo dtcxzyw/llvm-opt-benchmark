@@ -1402,7 +1402,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   br label %.thread96
 
 45:                                               ; preds = %38, %36
-  %.035 = phi ptr [ %39, %38 ], [ null, %36 ]
+  %.136 = phi ptr [ %39, %38 ], [ null, %36 ]
   %46 = tail call ptr @H5T_copy(ptr noundef nonnull %30, i32 noundef 0) #2
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
@@ -1426,7 +1426,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   br label %74
 
 60:                                               ; preds = %52
-  %61 = tail call i32 @H5T_set_loc(ptr noundef nonnull %46, ptr noundef %.035, i32 noundef 2) #2
+  %61 = tail call i32 @H5T_set_loc(ptr noundef nonnull %46, ptr noundef %.136, i32 noundef 2) #2
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %67
 
@@ -1437,11 +1437,11 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   br label %74
 
 67:                                               ; preds = %60
-  %.not46 = icmp eq ptr %.035, null
+  %.not46 = icmp eq ptr %.136, null
   br i1 %.not46, label %93, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call i32 @H5VL_free_object(ptr noundef nonnull %.035) #2
+  %69 = tail call i32 @H5VL_free_object(ptr noundef nonnull %.136) #2
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %.thread66, label %93
 
@@ -1453,12 +1453,12 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
 
 74:                                               ; preds = %48, %55, %63
   %.038.ph = phi i64 [ %53, %63 ], [ %53, %55 ], [ -1, %48 ]
-  %.not47 = icmp eq ptr %.035, null
+  %.not47 = icmp eq ptr %.136, null
   br i1 %.not47, label %82, label %75
 
 75:                                               ; preds = %.thread66, %74
   %.038.ph71 = phi i64 [ %53, %.thread66 ], [ %.038.ph, %74 ]
-  %76 = tail call i32 @H5VL_free_object(ptr noundef nonnull %.035) #2
+  %76 = tail call i32 @H5VL_free_object(ptr noundef nonnull %.136) #2
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %78, label %82
 
@@ -1501,8 +1501,8 @@ define range(i64 -1, -9223372036854775808) i64 @H5VLget_file_type(ptr noundef %0
   br label %96
 
 96:                                               ; preds = %93, %.thread91
-  %.2348394 = phi i64 [ -1, %.thread91 ], [ %53, %93 ]
-  ret i64 %.2348394
+  %.1338394 = phi i64 [ -1, %.thread91 ], [ %53, %93 ]
+  ret i64 %.1338394
 }
 
 declare zeroext i1 @H5T_get_force_conv(ptr noundef) local_unnamed_addr #1

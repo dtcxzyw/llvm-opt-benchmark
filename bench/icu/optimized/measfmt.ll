@@ -559,9 +559,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1945,7 +1945,7 @@ lpad47:                                           ; preds = %invoke.cont46
   br label %ehcleanup51
 
 cleanup:                                          ; preds = %invoke.cont38, %invoke.cont48
-  %retval.0 = phi ptr [ %call49, %invoke.cont48 ], [ %appendTo, %invoke.cont38 ]
+  %retval.1 = phi ptr [ %call49, %invoke.cont48 ], [ %appendTo, %invoke.cont38 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %formattedNumber) #16
   br label %return
@@ -2106,8 +2106,8 @@ ehcleanup87:                                      ; preds = %lpad82, %ehcleanup7
   br label %common.resume
 
 return:                                           ; preds = %entry, %invoke.cont16, %cleanup.action, %invoke.cont83, %cleanup
-  %retval.1 = phi ptr [ %call17, %cleanup.action ], [ %call17, %invoke.cont16 ], [ %retval.0, %cleanup ], [ %appendTo, %invoke.cont83 ], [ %appendTo, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call17, %cleanup.action ], [ %call17, %invoke.cont16 ], [ %retval.1, %cleanup ], [ %appendTo, %invoke.cont83 ], [ %appendTo, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2666,8 +2666,8 @@ arraydestroy.done80:                              ; preds = %arraydestroy.body76
   br label %return
 
 return:                                           ; preds = %arraydestroy.done26, %if.end, %entry, %arraydestroy.done80, %if.then61, %if.then36, %if.then5
-  %retval.1 = phi ptr [ %call7, %if.then5 ], [ %appendTo, %arraydestroy.done26 ], [ %appendTo, %if.then36 ], [ %appendTo, %if.then61 ], [ %appendTo, %arraydestroy.done80 ], [ %appendTo, %entry ], [ %appendTo, %if.end ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call7, %if.then5 ], [ %appendTo, %arraydestroy.done26 ], [ %appendTo, %if.then36 ], [ %appendTo, %if.then61 ], [ %appendTo, %arraydestroy.done80 ], [ %appendTo, %entry ], [ %appendTo, %if.end ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body, %arraydestroy.body28, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %lpad.phi, %arraydestroy.body28 ], [ %10, %arraydestroy.body ]

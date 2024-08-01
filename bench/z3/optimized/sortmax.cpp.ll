@@ -998,7 +998,7 @@ while.cond67.preheader:                           ; preds = %for.inc64, %invoke.
   br label %while.cond67.outer
 
 while.cond67.outer:                               ; preds = %_ZN8rationalD2Ev.exit97, %while.cond67.preheader
-  %first.3.ph = phi i32 [ %first.4, %_ZN8rationalD2Ev.exit97 ], [ %first.0.lcssa, %while.cond67.preheader ]
+  %first.3.ph = phi i32 [ %first.5, %_ZN8rationalD2Ev.exit97 ], [ %first.0.lcssa, %while.cond67.preheader ]
   %is_sat.0.ph = phi i32 [ %spec.select, %_ZN8rationalD2Ev.exit97 ], [ 1, %while.cond67.preheader ]
   %idxprom.i61 = zext i32 %first.3.ph to i64
   br label %while.cond67
@@ -1217,8 +1217,8 @@ for.cond96.preheader:                             ; preds = %call2.i.i.noexc, %i
   br label %for.cond96
 
 for.cond96:                                       ; preds = %for.cond96.preheader, %invoke.cont106
-  %first.4.in = phi i32 [ %first.4, %invoke.cont106 ], [ %first.3.ph, %for.cond96.preheader ]
-  %first.4 = add i32 %first.4.in, 1
+  %first.5.in = phi i32 [ %first.5, %invoke.cont106 ], [ %first.3.ph, %for.cond96.preheader ]
+  %first.5 = add i32 %first.5.in, 1
   %61 = load ptr, ptr %out, align 8
   %cmp.i72 = icmp eq ptr %61, null
   br i1 %cmp.i72, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit86, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit76
@@ -1226,11 +1226,11 @@ for.cond96:                                       ; preds = %for.cond96.preheade
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit76:           ; preds = %for.cond96
   %arrayidx.i74 = getelementptr inbounds i8, ptr %61, i64 -4
   %62 = load i32, ptr %arrayidx.i74, align 4
-  %cmp98 = icmp ult i32 %first.4, %62
+  %cmp98 = icmp ult i32 %first.5, %62
   br i1 %cmp98, label %land.rhs99, label %if.end.i83
 
 land.rhs99:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit76
-  %idxprom.i77 = zext i32 %first.4 to i64
+  %idxprom.i77 = zext i32 %first.5 to i64
   %arrayidx.i78 = getelementptr inbounds ptr, ptr %61, i64 %idxprom.i77
   %63 = load ptr, ptr %arrayidx.i78, align 8
   %64 = load ptr, ptr %m_model, align 8
@@ -1264,7 +1264,7 @@ if.end.i83:                                       ; preds = %_ZNK6vectorIP4exprL
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit86:           ; preds = %for.cond96, %for.end113, %if.end.i83
   %retval.0.i85 = phi i32 [ %67, %if.end.i83 ], [ 0, %for.end113 ], [ 0, %for.cond96 ]
-  %sub = sub i32 %retval.0.i85, %first.4
+  %sub = sub i32 %retval.0.i85, %first.5
   store i32 0, ptr %ref.tmp116, align 8
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4

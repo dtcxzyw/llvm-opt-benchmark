@@ -52978,13 +52978,13 @@ _ZN3std9panicking3try17h2c952e8379878044E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -53160,13 +53160,13 @@ _ZN3std9panicking3try17hc6b935b33f368dd8E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -53342,13 +53342,13 @@ _ZN3std9panicking3try17ha02708916802f6b8E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -53524,13 +53524,13 @@ _ZN3std9panicking3try17hb18e4d0922b56f5aE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -53706,13 +53706,13 @@ _ZN3std9panicking3try17h382d9799ea0444acE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -53888,13 +53888,13 @@ _ZN3std9panicking3try17h1fe41359de085197E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54070,13 +54070,13 @@ _ZN3std9panicking3try17h97498de86d424b4bE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54248,13 +54248,13 @@ _ZN3std9panicking3try17ha04f1b7fc5df069bE.exit.i: ; preds = %7
   br label %52
 
 52:                                               ; preds = %46, %51, %50, %49
-  %.sroa.0.0 = phi i8 [ 3, %51 ], [ 1, %50 ], [ 0, %49 ], [ 2, %46 ]
+  %.sroa.0.2 = phi i8 [ 3, %51 ], [ 1, %50 ], [ 0, %49 ], [ 2, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %1, %44, %52, %1, %48
-  %.sroa.0.2 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.sroa.0.0, %52 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.sroa.0.2, %52 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54430,13 +54430,13 @@ _ZN3std9panicking3try17h1866a8076fa126a5E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54612,13 +54612,13 @@ _ZN3std9panicking3try17h6c1cc17821aca577E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54794,13 +54794,13 @@ _ZN3std9panicking3try17h8083b49c61ee8281E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -54976,13 +54976,13 @@ _ZN3std9panicking3try17hc041d4860d099586E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -55158,13 +55158,13 @@ _ZN3std9panicking3try17h0d66e4b78baafc85E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -55340,13 +55340,13 @@ _ZN3std9panicking3try17h4c2446ad7ada5843E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -55522,13 +55522,13 @@ _ZN3std9panicking3try17h4dc141300db0a02dE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -55704,13 +55704,13 @@ _ZN3std9panicking3try17h7dea2c31544e2a64E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -55886,13 +55886,13 @@ _ZN3std9panicking3try17h470568e479f3b7a6E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56068,13 +56068,13 @@ _ZN3std9panicking3try17hdbee371ed83cfc77E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56282,13 +56282,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.53361880845
   br label %71
 
 71:                                               ; preds = %57, %70, %69, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit12
-  %.sroa.0.0 = phi i8 [ 3, %70 ], [ 1, %69 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit12 ], [ 2, %57 ]
+  %.sroa.0.2 = phi i8 [ 3, %70 ], [ 1, %69 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit12 ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %72
 
 72:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit, %71, %1, %59
-  %.sroa.0.2 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit ], [ %.sroa.0.0, %71 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17hb46d9f004da116d6E.llvm.5336188084572713014.exit ], [ %.sroa.0.2, %71 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56464,13 +56464,13 @@ _ZN3std9panicking3try17h9d71a4c2ab93b536E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56646,13 +56646,13 @@ _ZN3std9panicking3try17h99c14a81db317553E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56828,13 +56828,13 @@ _ZN3std9panicking3try17h5069f077429734fbE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57010,13 +57010,13 @@ _ZN3std9panicking3try17hc842071ba3c35bc1E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57192,13 +57192,13 @@ _ZN3std9panicking3try17h3b9cbec141dfc3b1E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57374,13 +57374,13 @@ _ZN3std9panicking3try17h9eadc09df73fca32E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57556,13 +57556,13 @@ _ZN3std9panicking3try17h2f48d7d23348a695E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57738,13 +57738,13 @@ _ZN3std9panicking3try17h2f90b70e81e065d1E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -57920,13 +57920,13 @@ _ZN3std9panicking3try17h0a4b332068533f9eE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -58102,13 +58102,13 @@ _ZN3std9panicking3try17h6327547b65202834E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -58284,13 +58284,13 @@ _ZN3std9panicking3try17h575f0750b4a99b86E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -58466,13 +58466,13 @@ _ZN3std9panicking3try17h89229bd15630e010E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -58648,13 +58648,13 @@ _ZN3std9panicking3try17hc2c85c541c1548b1E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -58830,13 +58830,13 @@ _ZN3std9panicking3try17hc92d64ff599c4029E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59012,13 +59012,13 @@ _ZN3std9panicking3try17h9065555a62f7a6aaE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59194,13 +59194,13 @@ _ZN3std9panicking3try17h4be273acc0840216E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59389,13 +59389,13 @@ _ZN3std9panicking3try17h4e59730a34316385E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59571,13 +59571,13 @@ _ZN3std9panicking3try17h39ec7f5147c24e63E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59753,13 +59753,13 @@ _ZN3std9panicking3try17h9242a93fef3d4b3aE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59935,13 +59935,13 @@ _ZN3std9panicking3try17h5a18e90976750432E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -60117,13 +60117,13 @@ _ZN3std9panicking3try17hbc3c7d81f9491b37E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -60299,13 +60299,13 @@ _ZN3std9panicking3try17h03aab7c78461fc1aE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -60481,13 +60481,13 @@ _ZN3std9panicking3try17hc45f4d5b3e8473bdE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -60663,13 +60663,13 @@ _ZN3std9panicking3try17h6308a367eebe36d4E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -60845,13 +60845,13 @@ _ZN3std9panicking3try17he81e62fd16a534dfE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61040,13 +61040,13 @@ _ZN3std9panicking3try17hf91784016dcd7b58E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61222,13 +61222,13 @@ _ZN3std9panicking3try17h9862b904b9eaaef4E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61404,13 +61404,13 @@ _ZN3std9panicking3try17h4957f6649e054187E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61586,13 +61586,13 @@ _ZN3std9panicking3try17h7e3b0add9673d7dfE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61768,13 +61768,13 @@ _ZN3std9panicking3try17hcfea2626d52c7fb6E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -61950,13 +61950,13 @@ _ZN3std9panicking3try17h46106c1a28000e17E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62132,13 +62132,13 @@ _ZN3std9panicking3try17h0aeade4215a883c4E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62314,13 +62314,13 @@ _ZN3std9panicking3try17ha0c477b04f85bbc3E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62496,13 +62496,13 @@ _ZN3std9panicking3try17h0219ac73e3bca571E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62678,13 +62678,13 @@ _ZN3std9panicking3try17hf77d4490c1d064b1E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62860,13 +62860,13 @@ _ZN3std9panicking3try17h210fccc5846e04faE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63055,13 +63055,13 @@ _ZN3std9panicking3try17h0afead1cda3c0bd3E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63237,13 +63237,13 @@ _ZN3std9panicking3try17hff594784987cd476E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63419,13 +63419,13 @@ _ZN3std9panicking3try17hd4ac189ee422a626E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63601,13 +63601,13 @@ _ZN3std9panicking3try17hdbb76dc38eddcb9aE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63783,13 +63783,13 @@ _ZN3std9panicking3try17h93dfe72c07496a7cE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63965,13 +63965,13 @@ _ZN3std9panicking3try17h1227f2eabae084baE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -64160,13 +64160,13 @@ _ZN3std9panicking3try17h01d1d2f686f912cdE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -64342,13 +64342,13 @@ _ZN3std9panicking3try17h5671425cb9cfd08fE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -64537,13 +64537,13 @@ _ZN3std9panicking3try17hf7266875872d9e83E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -64719,13 +64719,13 @@ _ZN3std9panicking3try17h303d968be3846d77E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -64901,13 +64901,13 @@ _ZN3std9panicking3try17h0c1c511af0fb9aceE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -65083,13 +65083,13 @@ _ZN3std9panicking3try17h8a32a3d7c717d0c0E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -65265,13 +65265,13 @@ _ZN3std9panicking3try17h27572361395faa7cE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -65447,13 +65447,13 @@ _ZN3std9panicking3try17hcee7ac9386fc9edcE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -65629,13 +65629,13 @@ _ZN3std9panicking3try17h3d2024e4c21dfbd5E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -65811,13 +65811,13 @@ _ZN3std9panicking3try17he40ac86a09a41167E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -65993,13 +65993,13 @@ _ZN3std9panicking3try17hbf8a47f89f048f04E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -66175,13 +66175,13 @@ _ZN3std9panicking3try17h156b848d98eb6ad1E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -66357,13 +66357,13 @@ _ZN3std9panicking3try17hf6122247617f2d90E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -66539,13 +66539,13 @@ _ZN3std9panicking3try17h75d205f242924638E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -66721,13 +66721,13 @@ _ZN3std9panicking3try17hbc1a64c7bb15a6d7E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -66903,13 +66903,13 @@ _ZN3std9panicking3try17h520e934a87791c82E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -67069,13 +67069,13 @@ _ZN3std9panicking3try17he3feba9baf051087E.exit.i: ; preds = %7
   br label %52
 
 52:                                               ; preds = %46, %51, %50, %49
-  %.sroa.0.0 = phi i8 [ 3, %51 ], [ 1, %50 ], [ 0, %49 ], [ 2, %46 ]
+  %.sroa.0.2 = phi i8 [ 3, %51 ], [ 1, %50 ], [ 0, %49 ], [ 2, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %1, %44, %52, %1, %48
-  %.sroa.0.2 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.sroa.0.0, %52 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %48 ], [ 0, %44 ], [ %.sroa.0.2, %52 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -67251,13 +67251,13 @@ _ZN3std9panicking3try17he4bf322d08db78abE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -67465,13 +67465,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.53361880845
   br label %71
 
 71:                                               ; preds = %57, %70, %69, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit12
-  %.sroa.0.0 = phi i8 [ 3, %70 ], [ 1, %69 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit12 ], [ 2, %57 ]
+  %.sroa.0.2 = phi i8 [ 3, %70 ], [ 1, %69 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit12 ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %72
 
 72:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit, %71, %1, %59
-  %.sroa.0.2 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit ], [ %.sroa.0.0, %71 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %59 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17h256b7d1d95f5fa40E.llvm.5336188084572713014.exit ], [ %.sroa.0.2, %71 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -67647,13 +67647,13 @@ _ZN3std9panicking3try17h3d514a4431dccd02E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -67829,13 +67829,13 @@ _ZN3std9panicking3try17h17156f9d6bb6446eE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68011,13 +68011,13 @@ _ZN3std9panicking3try17h9d5d3053aff347ddE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68193,13 +68193,13 @@ _ZN3std9panicking3try17h514d46e1968bb6ddE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68375,13 +68375,13 @@ _ZN3std9panicking3try17h6e15a034affe8f73E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68557,13 +68557,13 @@ _ZN3std9panicking3try17h5ceacd4696c55d41E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68739,13 +68739,13 @@ _ZN3std9panicking3try17hfe729e3606927ecbE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68921,13 +68921,13 @@ _ZN3std9panicking3try17hf86eb0105f8117fbE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -69103,13 +69103,13 @@ _ZN3std9panicking3try17h69e1a3dbbbb3384dE.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -69285,13 +69285,13 @@ _ZN3std9panicking3try17hda6e2454f2ebc592E.exit.i: ; preds = %7
   br label %53
 
 53:                                               ; preds = %47, %52, %51, %50
-  %.sroa.0.0 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
+  %.sroa.0.2 = phi i8 [ 3, %52 ], [ 1, %51 ], [ 0, %50 ], [ 2, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %1, %45, %53, %1, %49
-  %.sroa.0.2 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.0, %53 ], [ %6, %1 ], [ %6, %1 ]
-  ret i8 %.sroa.0.2
+  %.sroa.0.1 = phi i8 [ 0, %49 ], [ 0, %45 ], [ %.sroa.0.2, %53 ], [ %6, %1 ], [ %6, %1 ]
+  ret i8 %.sroa.0.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -143548,8 +143548,8 @@ define hidden { i64, ptr } @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u
   br label %69
 
 69:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit.i.thread", %66
-  %.sroa.11.1.i = phi ptr [ %68, %66 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit.i.thread" ]
-  %.sroa.0.1.i = phi i64 [ 0, %66 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit.i.thread" ]
+  %.sroa.11.0.i = phi ptr [ %68, %66 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit.i.thread" ]
+  %.sroa.0.0.i = phi i64 [ 0, %66 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit.i.thread" ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !39056
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17he62b23c0de3d8bb6E.exit"
 
@@ -143575,8 +143575,8 @@ define hidden { i64, ptr } @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u
   br label %79
 
 79:                                               ; preds = %76, %74, %46, %45, %40
-  %.sroa.11.3.i = phi ptr [ %42, %40 ], [ null, %45 ], [ %78, %76 ], [ undef, %46 ], [ undef, %74 ]
-  %.sroa.0.3.i = phi i64 [ 0, %40 ], [ 0, %45 ], [ 0, %76 ], [ 1, %46 ], [ 1, %74 ]
+  %.sroa.11.4.i = phi ptr [ %42, %40 ], [ null, %45 ], [ %78, %76 ], [ undef, %46 ], [ undef, %74 ]
+  %.sroa.0.4.i = phi i64 [ 0, %40 ], [ 0, %45 ], [ 0, %76 ], [ 1, %46 ], [ 1, %74 ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96948cf3dca85ca0E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !39056
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17he62b23c0de3d8bb6E.exit"
@@ -143592,15 +143592,15 @@ common.resume:                                    ; preds = %87, %34
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17he62b23c0de3d8bb6E.exit": ; preds = %69, %79
-  %.sroa.11.5.i = phi ptr [ %.sroa.11.1.i, %69 ], [ %.sroa.11.3.i, %79 ]
-  %.sroa.0.5.i = phi i64 [ %.sroa.0.1.i, %69 ], [ %.sroa.0.3.i, %79 ]
-  %switch = icmp ne i64 %.sroa.0.5.i, 0
-  %82 = icmp eq ptr %.sroa.11.5.i, null
+  %.sroa.11.2.i = phi ptr [ %.sroa.11.0.i, %69 ], [ %.sroa.11.4.i, %79 ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.0.i, %69 ], [ %.sroa.0.4.i, %79 ]
+  %switch = icmp ne i64 %.sroa.0.2.i, 0
+  %82 = icmp eq ptr %.sroa.11.2.i, null
   %or.cond = or i1 %82, %switch
   br i1 %or.cond, label %95, label %83
 
 83:                                               ; preds = %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17he62b23c0de3d8bb6E.exit"
-  store ptr %.sroa.11.5.i, ptr %6, align 8
+  store ptr %.sroa.11.2.i, ptr %6, align 8
   %84 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !39059
   %85 = icmp eq i64 %84, 1
   br i1 %85, label %86, label %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$meilisearch..search_queue..Permit$GT$$GT$$GT$$GT$17hd3824fc0a78e01b5E.exit"
@@ -143624,9 +143624,9 @@ common.resume:                                    ; preds = %87, %34
   br label %90
 
 90:                                               ; preds = %95, %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$meilisearch..search_queue..Permit$GT$$GT$$GT$$GT$17hd3824fc0a78e01b5E.exit"
-  %.sroa.4.0 = phi ptr [ null, %95 ], [ %89, %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$meilisearch..search_queue..Permit$GT$$GT$$GT$$GT$17hd3824fc0a78e01b5E.exit" ]
-  %91 = insertvalue { i64, ptr } poison, i64 %.sroa.0.5.i, 0
-  %92 = insertvalue { i64, ptr } %91, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ null, %95 ], [ %89, %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$meilisearch..search_queue..Permit$GT$$GT$$GT$$GT$17hd3824fc0a78e01b5E.exit" ]
+  %91 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2.i, 0
+  %92 = insertvalue { i64, ptr } %91, ptr %.sroa.4.1, 1
   ret { i64, ptr } %92
 
 93:                                               ; preds = %87

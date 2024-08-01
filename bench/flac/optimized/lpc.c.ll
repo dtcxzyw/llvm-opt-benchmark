@@ -1314,169 +1314,169 @@ sw.bb:                                            ; preds = %for.body646
   br label %sw.bb653
 
 sw.bb653:                                         ; preds = %sw.bb, %for.body646
-  %sum.0 = phi i32 [ 0, %for.body646 ], [ %mul651, %sw.bb ]
+  %sum.1 = phi i32 [ 0, %for.body646 ], [ %mul651, %sw.bb ]
   %111 = load i32, ptr %arrayidx654, align 4
   %gep574 = getelementptr i32, ptr %invariant.gep573, i64 %indvars.iv
   %112 = load i32, ptr %gep574, align 4
   %mul658 = mul nsw i32 %112, %111
-  %add659 = add nsw i32 %mul658, %sum.0
+  %add659 = add nsw i32 %mul658, %sum.1
   br label %sw.bb660
 
 sw.bb660:                                         ; preds = %sw.bb653, %for.body646
-  %sum.1 = phi i32 [ 0, %for.body646 ], [ %add659, %sw.bb653 ]
+  %sum.2 = phi i32 [ 0, %for.body646 ], [ %add659, %sw.bb653 ]
   %113 = load i32, ptr %arrayidx661, align 4
   %gep576 = getelementptr i32, ptr %invariant.gep575, i64 %indvars.iv
   %114 = load i32, ptr %gep576, align 4
   %mul665 = mul nsw i32 %114, %113
-  %add666 = add nsw i32 %mul665, %sum.1
+  %add666 = add nsw i32 %mul665, %sum.2
   br label %sw.bb667
 
 sw.bb667:                                         ; preds = %sw.bb660, %for.body646
-  %sum.2 = phi i32 [ 0, %for.body646 ], [ %add666, %sw.bb660 ]
+  %sum.3 = phi i32 [ 0, %for.body646 ], [ %add666, %sw.bb660 ]
   %115 = load i32, ptr %arrayidx668, align 4
   %gep578 = getelementptr i32, ptr %invariant.gep577, i64 %indvars.iv
   %116 = load i32, ptr %gep578, align 4
   %mul672 = mul nsw i32 %116, %115
-  %add673 = add nsw i32 %mul672, %sum.2
+  %add673 = add nsw i32 %mul672, %sum.3
   br label %sw.bb674
 
 sw.bb674:                                         ; preds = %sw.bb667, %for.body646
-  %sum.3 = phi i32 [ 0, %for.body646 ], [ %add673, %sw.bb667 ]
+  %sum.4 = phi i32 [ 0, %for.body646 ], [ %add673, %sw.bb667 ]
   %117 = load i32, ptr %arrayidx675, align 4
   %gep580 = getelementptr i32, ptr %invariant.gep579, i64 %indvars.iv
   %118 = load i32, ptr %gep580, align 4
   %mul679 = mul nsw i32 %118, %117
-  %add680 = add nsw i32 %mul679, %sum.3
+  %add680 = add nsw i32 %mul679, %sum.4
   br label %sw.bb681
 
 sw.bb681:                                         ; preds = %sw.bb674, %for.body646
-  %sum.4 = phi i32 [ 0, %for.body646 ], [ %add680, %sw.bb674 ]
+  %sum.5 = phi i32 [ 0, %for.body646 ], [ %add680, %sw.bb674 ]
   %119 = load i32, ptr %arrayidx682, align 4
   %gep582 = getelementptr i32, ptr %invariant.gep581, i64 %indvars.iv
   %120 = load i32, ptr %gep582, align 4
   %mul686 = mul nsw i32 %120, %119
-  %add687 = add nsw i32 %mul686, %sum.4
+  %add687 = add nsw i32 %mul686, %sum.5
   br label %sw.bb688
 
 sw.bb688:                                         ; preds = %sw.bb681, %for.body646
-  %sum.5 = phi i32 [ 0, %for.body646 ], [ %add687, %sw.bb681 ]
+  %sum.6 = phi i32 [ 0, %for.body646 ], [ %add687, %sw.bb681 ]
   %121 = load i32, ptr %arrayidx689, align 4
   %gep584 = getelementptr i32, ptr %invariant.gep583, i64 %indvars.iv
   %122 = load i32, ptr %gep584, align 4
   %mul693 = mul nsw i32 %122, %121
-  %add694 = add nsw i32 %mul693, %sum.5
+  %add694 = add nsw i32 %mul693, %sum.6
   br label %sw.bb695
 
 sw.bb695:                                         ; preds = %sw.bb688, %for.body646
-  %sum.6 = phi i32 [ 0, %for.body646 ], [ %add694, %sw.bb688 ]
+  %sum.7 = phi i32 [ 0, %for.body646 ], [ %add694, %sw.bb688 ]
   %123 = load i32, ptr %arrayidx696, align 4
   %gep586 = getelementptr i32, ptr %invariant.gep585, i64 %indvars.iv
   %124 = load i32, ptr %gep586, align 4
   %mul700 = mul nsw i32 %124, %123
-  %add701 = add nsw i32 %mul700, %sum.6
+  %add701 = add nsw i32 %mul700, %sum.7
   br label %sw.bb702
 
 sw.bb702:                                         ; preds = %sw.bb695, %for.body646
-  %sum.7 = phi i32 [ 0, %for.body646 ], [ %add701, %sw.bb695 ]
+  %sum.8 = phi i32 [ 0, %for.body646 ], [ %add701, %sw.bb695 ]
   %125 = load i32, ptr %arrayidx703, align 4
   %gep588 = getelementptr i32, ptr %invariant.gep587, i64 %indvars.iv
   %126 = load i32, ptr %gep588, align 4
   %mul707 = mul nsw i32 %126, %125
-  %add708 = add nsw i32 %mul707, %sum.7
+  %add708 = add nsw i32 %mul707, %sum.8
   br label %sw.bb709
 
 sw.bb709:                                         ; preds = %sw.bb702, %for.body646
-  %sum.8 = phi i32 [ 0, %for.body646 ], [ %add708, %sw.bb702 ]
+  %sum.9 = phi i32 [ 0, %for.body646 ], [ %add708, %sw.bb702 ]
   %127 = load i32, ptr %arrayidx710, align 4
   %gep590 = getelementptr i32, ptr %invariant.gep589, i64 %indvars.iv
   %128 = load i32, ptr %gep590, align 4
   %mul714 = mul nsw i32 %128, %127
-  %add715 = add nsw i32 %mul714, %sum.8
+  %add715 = add nsw i32 %mul714, %sum.9
   br label %sw.bb716
 
 sw.bb716:                                         ; preds = %sw.bb709, %for.body646
-  %sum.9 = phi i32 [ 0, %for.body646 ], [ %add715, %sw.bb709 ]
+  %sum.10 = phi i32 [ 0, %for.body646 ], [ %add715, %sw.bb709 ]
   %129 = load i32, ptr %arrayidx717, align 4
   %gep592 = getelementptr i32, ptr %invariant.gep591, i64 %indvars.iv
   %130 = load i32, ptr %gep592, align 4
   %mul721 = mul nsw i32 %130, %129
-  %add722 = add nsw i32 %mul721, %sum.9
+  %add722 = add nsw i32 %mul721, %sum.10
   br label %sw.bb723
 
 sw.bb723:                                         ; preds = %sw.bb716, %for.body646
-  %sum.10 = phi i32 [ 0, %for.body646 ], [ %add722, %sw.bb716 ]
+  %sum.11 = phi i32 [ 0, %for.body646 ], [ %add722, %sw.bb716 ]
   %131 = load i32, ptr %arrayidx724, align 4
   %gep594 = getelementptr i32, ptr %invariant.gep593, i64 %indvars.iv
   %132 = load i32, ptr %gep594, align 4
   %mul728 = mul nsw i32 %132, %131
-  %add729 = add nsw i32 %mul728, %sum.10
+  %add729 = add nsw i32 %mul728, %sum.11
   br label %sw.bb730
 
 sw.bb730:                                         ; preds = %sw.bb723, %for.body646
-  %sum.11 = phi i32 [ 0, %for.body646 ], [ %add729, %sw.bb723 ]
+  %sum.12 = phi i32 [ 0, %for.body646 ], [ %add729, %sw.bb723 ]
   %133 = load i32, ptr %arrayidx731, align 4
   %gep596 = getelementptr i32, ptr %invariant.gep595, i64 %indvars.iv
   %134 = load i32, ptr %gep596, align 4
   %mul735 = mul nsw i32 %134, %133
-  %add736 = add nsw i32 %mul735, %sum.11
+  %add736 = add nsw i32 %mul735, %sum.12
   br label %sw.bb737
 
 sw.bb737:                                         ; preds = %sw.bb730, %for.body646
-  %sum.12 = phi i32 [ 0, %for.body646 ], [ %add736, %sw.bb730 ]
+  %sum.13 = phi i32 [ 0, %for.body646 ], [ %add736, %sw.bb730 ]
   %135 = load i32, ptr %arrayidx738, align 4
   %gep598 = getelementptr i32, ptr %invariant.gep597, i64 %indvars.iv
   %136 = load i32, ptr %gep598, align 4
   %mul742 = mul nsw i32 %136, %135
-  %add743 = add nsw i32 %mul742, %sum.12
+  %add743 = add nsw i32 %mul742, %sum.13
   br label %sw.bb744
 
 sw.bb744:                                         ; preds = %sw.bb737, %for.body646
-  %sum.13 = phi i32 [ 0, %for.body646 ], [ %add743, %sw.bb737 ]
+  %sum.14 = phi i32 [ 0, %for.body646 ], [ %add743, %sw.bb737 ]
   %137 = load i32, ptr %arrayidx745, align 4
   %gep600 = getelementptr i32, ptr %invariant.gep599, i64 %indvars.iv
   %138 = load i32, ptr %gep600, align 4
   %mul749 = mul nsw i32 %138, %137
-  %add750 = add nsw i32 %mul749, %sum.13
+  %add750 = add nsw i32 %mul749, %sum.14
   br label %sw.bb751
 
 sw.bb751:                                         ; preds = %sw.bb744, %for.body646
-  %sum.14 = phi i32 [ 0, %for.body646 ], [ %add750, %sw.bb744 ]
+  %sum.15 = phi i32 [ 0, %for.body646 ], [ %add750, %sw.bb744 ]
   %139 = load i32, ptr %arrayidx752, align 4
   %gep602 = getelementptr i32, ptr %invariant.gep601, i64 %indvars.iv
   %140 = load i32, ptr %gep602, align 4
   %mul756 = mul nsw i32 %140, %139
-  %add757 = add nsw i32 %mul756, %sum.14
+  %add757 = add nsw i32 %mul756, %sum.15
   br label %sw.bb758
 
 sw.bb758:                                         ; preds = %sw.bb751, %for.body646
-  %sum.15 = phi i32 [ 0, %for.body646 ], [ %add757, %sw.bb751 ]
+  %sum.16 = phi i32 [ 0, %for.body646 ], [ %add757, %sw.bb751 ]
   %141 = load i32, ptr %arrayidx759, align 4
   %gep604 = getelementptr i32, ptr %invariant.gep603, i64 %indvars.iv
   %142 = load i32, ptr %gep604, align 4
   %mul763 = mul nsw i32 %142, %141
-  %add764 = add nsw i32 %mul763, %sum.15
+  %add764 = add nsw i32 %mul763, %sum.16
   br label %sw.bb765
 
 sw.bb765:                                         ; preds = %sw.bb758, %for.body646
-  %sum.16 = phi i32 [ 0, %for.body646 ], [ %add764, %sw.bb758 ]
+  %sum.17 = phi i32 [ 0, %for.body646 ], [ %add764, %sw.bb758 ]
   %143 = load i32, ptr %arrayidx766, align 4
   %gep606 = getelementptr i32, ptr %invariant.gep605, i64 %indvars.iv
   %144 = load i32, ptr %gep606, align 4
   %mul770 = mul nsw i32 %144, %143
-  %add771 = add nsw i32 %mul770, %sum.16
+  %add771 = add nsw i32 %mul770, %sum.17
   br label %sw.bb772
 
 sw.bb772:                                         ; preds = %sw.bb765, %for.body646
-  %sum.17 = phi i32 [ 0, %for.body646 ], [ %add771, %sw.bb765 ]
+  %sum.18 = phi i32 [ 0, %for.body646 ], [ %add771, %sw.bb765 ]
   %145 = load i32, ptr %arrayidx773, align 4
   %gep608 = getelementptr i32, ptr %invariant.gep607, i64 %indvars.iv
   %146 = load i32, ptr %gep608, align 4
   %mul777 = mul nsw i32 %146, %145
-  %add778 = add nsw i32 %mul777, %sum.17
+  %add778 = add nsw i32 %mul777, %sum.18
   br label %sw.bb779
 
 sw.bb779:                                         ; preds = %sw.bb772, %for.body646
-  %sum.18 = phi i32 [ 0, %for.body646 ], [ %add778, %sw.bb772 ]
+  %sum.19 = phi i32 [ 0, %for.body646 ], [ %add778, %sw.bb772 ]
   %147 = getelementptr i32, ptr %data, i64 %indvars.iv
   %arrayidx783 = getelementptr i8, ptr %147, i64 -52
   %148 = load <8 x i32>, ptr %arrayidx822, align 4
@@ -1496,14 +1496,14 @@ sw.bb779:                                         ; preds = %sw.bb772, %for.body
   %159 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %155)
   %op.rdx744 = add i32 %158, %159
   %op.rdx745 = add i32 %op.rdx744, %mul856
-  %op.rdx746 = add i32 %op.rdx745, %sum.18
+  %op.rdx746 = add i32 %op.rdx745, %sum.19
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb779, %for.body646
-  %sum.19 = phi i32 [ 0, %for.body646 ], [ %op.rdx746, %sw.bb779 ]
+  %sum.0 = phi i32 [ 0, %for.body646 ], [ %op.rdx746, %sw.bb779 ]
   %arrayidx859 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   %160 = load i32, ptr %arrayidx859, align 4
-  %shr860 = ashr i32 %sum.19, %lp_quantization
+  %shr860 = ashr i32 %sum.0, %lp_quantization
   %sub861 = sub nsw i32 %160, %shr860
   %arrayidx863 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   store i32 %sub861, ptr %arrayidx863, align 4
@@ -2512,205 +2512,205 @@ sw.bb:                                            ; preds = %for.body856
   br label %sw.bb865
 
 sw.bb865:                                         ; preds = %sw.bb, %for.body856
-  %sum.0 = phi i64 [ 0, %for.body856 ], [ %mul863, %sw.bb ]
+  %sum.1 = phi i64 [ 0, %for.body856 ], [ %mul863, %sw.bb ]
   %193 = load i32, ptr %arrayidx866, align 4
   %conv867 = sext i32 %193 to i64
   %gep574 = getelementptr i32, ptr %invariant.gep573, i64 %indvars.iv
   %194 = load i32, ptr %gep574, align 4
   %conv871 = sext i32 %194 to i64
   %mul872 = mul nsw i64 %conv871, %conv867
-  %add873 = add nsw i64 %mul872, %sum.0
+  %add873 = add nsw i64 %mul872, %sum.1
   br label %sw.bb874
 
 sw.bb874:                                         ; preds = %sw.bb865, %for.body856
-  %sum.1 = phi i64 [ 0, %for.body856 ], [ %add873, %sw.bb865 ]
+  %sum.2 = phi i64 [ 0, %for.body856 ], [ %add873, %sw.bb865 ]
   %195 = load i32, ptr %arrayidx875, align 4
   %conv876 = sext i32 %195 to i64
   %gep576 = getelementptr i32, ptr %invariant.gep575, i64 %indvars.iv
   %196 = load i32, ptr %gep576, align 4
   %conv880 = sext i32 %196 to i64
   %mul881 = mul nsw i64 %conv880, %conv876
-  %add882 = add nsw i64 %mul881, %sum.1
+  %add882 = add nsw i64 %mul881, %sum.2
   br label %sw.bb883
 
 sw.bb883:                                         ; preds = %sw.bb874, %for.body856
-  %sum.2 = phi i64 [ 0, %for.body856 ], [ %add882, %sw.bb874 ]
+  %sum.3 = phi i64 [ 0, %for.body856 ], [ %add882, %sw.bb874 ]
   %197 = load i32, ptr %arrayidx884, align 4
   %conv885 = sext i32 %197 to i64
   %gep578 = getelementptr i32, ptr %invariant.gep577, i64 %indvars.iv
   %198 = load i32, ptr %gep578, align 4
   %conv889 = sext i32 %198 to i64
   %mul890 = mul nsw i64 %conv889, %conv885
-  %add891 = add nsw i64 %mul890, %sum.2
+  %add891 = add nsw i64 %mul890, %sum.3
   br label %sw.bb892
 
 sw.bb892:                                         ; preds = %sw.bb883, %for.body856
-  %sum.3 = phi i64 [ 0, %for.body856 ], [ %add891, %sw.bb883 ]
+  %sum.4 = phi i64 [ 0, %for.body856 ], [ %add891, %sw.bb883 ]
   %199 = load i32, ptr %arrayidx893, align 4
   %conv894 = sext i32 %199 to i64
   %gep580 = getelementptr i32, ptr %invariant.gep579, i64 %indvars.iv
   %200 = load i32, ptr %gep580, align 4
   %conv898 = sext i32 %200 to i64
   %mul899 = mul nsw i64 %conv898, %conv894
-  %add900 = add nsw i64 %mul899, %sum.3
+  %add900 = add nsw i64 %mul899, %sum.4
   br label %sw.bb901
 
 sw.bb901:                                         ; preds = %sw.bb892, %for.body856
-  %sum.4 = phi i64 [ 0, %for.body856 ], [ %add900, %sw.bb892 ]
+  %sum.5 = phi i64 [ 0, %for.body856 ], [ %add900, %sw.bb892 ]
   %201 = load i32, ptr %arrayidx902, align 4
   %conv903 = sext i32 %201 to i64
   %gep582 = getelementptr i32, ptr %invariant.gep581, i64 %indvars.iv
   %202 = load i32, ptr %gep582, align 4
   %conv907 = sext i32 %202 to i64
   %mul908 = mul nsw i64 %conv907, %conv903
-  %add909 = add nsw i64 %mul908, %sum.4
+  %add909 = add nsw i64 %mul908, %sum.5
   br label %sw.bb910
 
 sw.bb910:                                         ; preds = %sw.bb901, %for.body856
-  %sum.5 = phi i64 [ 0, %for.body856 ], [ %add909, %sw.bb901 ]
+  %sum.6 = phi i64 [ 0, %for.body856 ], [ %add909, %sw.bb901 ]
   %203 = load i32, ptr %arrayidx911, align 4
   %conv912 = sext i32 %203 to i64
   %gep584 = getelementptr i32, ptr %invariant.gep583, i64 %indvars.iv
   %204 = load i32, ptr %gep584, align 4
   %conv916 = sext i32 %204 to i64
   %mul917 = mul nsw i64 %conv916, %conv912
-  %add918 = add nsw i64 %mul917, %sum.5
+  %add918 = add nsw i64 %mul917, %sum.6
   br label %sw.bb919
 
 sw.bb919:                                         ; preds = %sw.bb910, %for.body856
-  %sum.6 = phi i64 [ 0, %for.body856 ], [ %add918, %sw.bb910 ]
+  %sum.7 = phi i64 [ 0, %for.body856 ], [ %add918, %sw.bb910 ]
   %205 = load i32, ptr %arrayidx920, align 4
   %conv921 = sext i32 %205 to i64
   %gep586 = getelementptr i32, ptr %invariant.gep585, i64 %indvars.iv
   %206 = load i32, ptr %gep586, align 4
   %conv925 = sext i32 %206 to i64
   %mul926 = mul nsw i64 %conv925, %conv921
-  %add927 = add nsw i64 %mul926, %sum.6
+  %add927 = add nsw i64 %mul926, %sum.7
   br label %sw.bb928
 
 sw.bb928:                                         ; preds = %sw.bb919, %for.body856
-  %sum.7 = phi i64 [ 0, %for.body856 ], [ %add927, %sw.bb919 ]
+  %sum.8 = phi i64 [ 0, %for.body856 ], [ %add927, %sw.bb919 ]
   %207 = load i32, ptr %arrayidx929, align 4
   %conv930 = sext i32 %207 to i64
   %gep588 = getelementptr i32, ptr %invariant.gep587, i64 %indvars.iv
   %208 = load i32, ptr %gep588, align 4
   %conv934 = sext i32 %208 to i64
   %mul935 = mul nsw i64 %conv934, %conv930
-  %add936 = add nsw i64 %mul935, %sum.7
+  %add936 = add nsw i64 %mul935, %sum.8
   br label %sw.bb937
 
 sw.bb937:                                         ; preds = %sw.bb928, %for.body856
-  %sum.8 = phi i64 [ 0, %for.body856 ], [ %add936, %sw.bb928 ]
+  %sum.9 = phi i64 [ 0, %for.body856 ], [ %add936, %sw.bb928 ]
   %209 = load i32, ptr %arrayidx938, align 4
   %conv939 = sext i32 %209 to i64
   %gep590 = getelementptr i32, ptr %invariant.gep589, i64 %indvars.iv
   %210 = load i32, ptr %gep590, align 4
   %conv943 = sext i32 %210 to i64
   %mul944 = mul nsw i64 %conv943, %conv939
-  %add945 = add nsw i64 %mul944, %sum.8
+  %add945 = add nsw i64 %mul944, %sum.9
   br label %sw.bb946
 
 sw.bb946:                                         ; preds = %sw.bb937, %for.body856
-  %sum.9 = phi i64 [ 0, %for.body856 ], [ %add945, %sw.bb937 ]
+  %sum.10 = phi i64 [ 0, %for.body856 ], [ %add945, %sw.bb937 ]
   %211 = load i32, ptr %arrayidx947, align 4
   %conv948 = sext i32 %211 to i64
   %gep592 = getelementptr i32, ptr %invariant.gep591, i64 %indvars.iv
   %212 = load i32, ptr %gep592, align 4
   %conv952 = sext i32 %212 to i64
   %mul953 = mul nsw i64 %conv952, %conv948
-  %add954 = add nsw i64 %mul953, %sum.9
+  %add954 = add nsw i64 %mul953, %sum.10
   br label %sw.bb955
 
 sw.bb955:                                         ; preds = %sw.bb946, %for.body856
-  %sum.10 = phi i64 [ 0, %for.body856 ], [ %add954, %sw.bb946 ]
+  %sum.11 = phi i64 [ 0, %for.body856 ], [ %add954, %sw.bb946 ]
   %213 = load i32, ptr %arrayidx956, align 4
   %conv957 = sext i32 %213 to i64
   %gep594 = getelementptr i32, ptr %invariant.gep593, i64 %indvars.iv
   %214 = load i32, ptr %gep594, align 4
   %conv961 = sext i32 %214 to i64
   %mul962 = mul nsw i64 %conv961, %conv957
-  %add963 = add nsw i64 %mul962, %sum.10
+  %add963 = add nsw i64 %mul962, %sum.11
   br label %sw.bb964
 
 sw.bb964:                                         ; preds = %sw.bb955, %for.body856
-  %sum.11 = phi i64 [ 0, %for.body856 ], [ %add963, %sw.bb955 ]
+  %sum.12 = phi i64 [ 0, %for.body856 ], [ %add963, %sw.bb955 ]
   %215 = load i32, ptr %arrayidx965, align 4
   %conv966 = sext i32 %215 to i64
   %gep596 = getelementptr i32, ptr %invariant.gep595, i64 %indvars.iv
   %216 = load i32, ptr %gep596, align 4
   %conv970 = sext i32 %216 to i64
   %mul971 = mul nsw i64 %conv970, %conv966
-  %add972 = add nsw i64 %mul971, %sum.11
+  %add972 = add nsw i64 %mul971, %sum.12
   br label %sw.bb973
 
 sw.bb973:                                         ; preds = %sw.bb964, %for.body856
-  %sum.12 = phi i64 [ 0, %for.body856 ], [ %add972, %sw.bb964 ]
+  %sum.13 = phi i64 [ 0, %for.body856 ], [ %add972, %sw.bb964 ]
   %217 = load i32, ptr %arrayidx974, align 4
   %conv975 = sext i32 %217 to i64
   %gep598 = getelementptr i32, ptr %invariant.gep597, i64 %indvars.iv
   %218 = load i32, ptr %gep598, align 4
   %conv979 = sext i32 %218 to i64
   %mul980 = mul nsw i64 %conv979, %conv975
-  %add981 = add nsw i64 %mul980, %sum.12
+  %add981 = add nsw i64 %mul980, %sum.13
   br label %sw.bb982
 
 sw.bb982:                                         ; preds = %sw.bb973, %for.body856
-  %sum.13 = phi i64 [ 0, %for.body856 ], [ %add981, %sw.bb973 ]
+  %sum.14 = phi i64 [ 0, %for.body856 ], [ %add981, %sw.bb973 ]
   %219 = load i32, ptr %arrayidx983, align 4
   %conv984 = sext i32 %219 to i64
   %gep600 = getelementptr i32, ptr %invariant.gep599, i64 %indvars.iv
   %220 = load i32, ptr %gep600, align 4
   %conv988 = sext i32 %220 to i64
   %mul989 = mul nsw i64 %conv988, %conv984
-  %add990 = add nsw i64 %mul989, %sum.13
+  %add990 = add nsw i64 %mul989, %sum.14
   br label %sw.bb991
 
 sw.bb991:                                         ; preds = %sw.bb982, %for.body856
-  %sum.14 = phi i64 [ 0, %for.body856 ], [ %add990, %sw.bb982 ]
+  %sum.15 = phi i64 [ 0, %for.body856 ], [ %add990, %sw.bb982 ]
   %221 = load i32, ptr %arrayidx992, align 4
   %conv993 = sext i32 %221 to i64
   %gep602 = getelementptr i32, ptr %invariant.gep601, i64 %indvars.iv
   %222 = load i32, ptr %gep602, align 4
   %conv997 = sext i32 %222 to i64
   %mul998 = mul nsw i64 %conv997, %conv993
-  %add999 = add nsw i64 %mul998, %sum.14
+  %add999 = add nsw i64 %mul998, %sum.15
   br label %sw.bb1000
 
 sw.bb1000:                                        ; preds = %sw.bb991, %for.body856
-  %sum.15 = phi i64 [ 0, %for.body856 ], [ %add999, %sw.bb991 ]
+  %sum.16 = phi i64 [ 0, %for.body856 ], [ %add999, %sw.bb991 ]
   %223 = load i32, ptr %arrayidx1001, align 4
   %conv1002 = sext i32 %223 to i64
   %gep604 = getelementptr i32, ptr %invariant.gep603, i64 %indvars.iv
   %224 = load i32, ptr %gep604, align 4
   %conv1006 = sext i32 %224 to i64
   %mul1007 = mul nsw i64 %conv1006, %conv1002
-  %add1008 = add nsw i64 %mul1007, %sum.15
+  %add1008 = add nsw i64 %mul1007, %sum.16
   br label %sw.bb1009
 
 sw.bb1009:                                        ; preds = %sw.bb1000, %for.body856
-  %sum.16 = phi i64 [ 0, %for.body856 ], [ %add1008, %sw.bb1000 ]
+  %sum.17 = phi i64 [ 0, %for.body856 ], [ %add1008, %sw.bb1000 ]
   %225 = load i32, ptr %arrayidx1010, align 4
   %conv1011 = sext i32 %225 to i64
   %gep606 = getelementptr i32, ptr %invariant.gep605, i64 %indvars.iv
   %226 = load i32, ptr %gep606, align 4
   %conv1015 = sext i32 %226 to i64
   %mul1016 = mul nsw i64 %conv1015, %conv1011
-  %add1017 = add nsw i64 %mul1016, %sum.16
+  %add1017 = add nsw i64 %mul1016, %sum.17
   br label %sw.bb1018
 
 sw.bb1018:                                        ; preds = %sw.bb1009, %for.body856
-  %sum.17 = phi i64 [ 0, %for.body856 ], [ %add1017, %sw.bb1009 ]
+  %sum.18 = phi i64 [ 0, %for.body856 ], [ %add1017, %sw.bb1009 ]
   %227 = load i32, ptr %arrayidx1019, align 4
   %conv1020 = sext i32 %227 to i64
   %gep608 = getelementptr i32, ptr %invariant.gep607, i64 %indvars.iv
   %228 = load i32, ptr %gep608, align 4
   %conv1024 = sext i32 %228 to i64
   %mul1025 = mul nsw i64 %conv1024, %conv1020
-  %add1026 = add nsw i64 %mul1025, %sum.17
+  %add1026 = add nsw i64 %mul1025, %sum.18
   br label %sw.bb1027
 
 sw.bb1027:                                        ; preds = %sw.bb1018, %for.body856
-  %sum.18 = phi i64 [ 0, %for.body856 ], [ %add1026, %sw.bb1018 ]
+  %sum.19 = phi i64 [ 0, %for.body856 ], [ %add1026, %sw.bb1018 ]
   %229 = load i32, ptr %arrayidx1028, align 4
   %conv1029 = sext i32 %229 to i64
   %230 = getelementptr i32, ptr %data, i64 %indvars.iv
@@ -2718,7 +2718,7 @@ sw.bb1027:                                        ; preds = %sw.bb1018, %for.bod
   %231 = load i32, ptr %arrayidx1032, align 4
   %conv1033 = sext i32 %231 to i64
   %mul1034 = mul nsw i64 %conv1033, %conv1029
-  %add1035 = add nsw i64 %mul1034, %sum.18
+  %add1035 = add nsw i64 %mul1034, %sum.19
   %232 = load i32, ptr %arrayidx1036, align 4
   %conv1037 = sext i32 %232 to i64
   %arrayidx1040 = getelementptr i8, ptr %230, i64 -48
@@ -2806,10 +2806,10 @@ sw.bb1027:                                        ; preds = %sw.bb1018, %for.bod
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1027, %for.body856
-  %sum.19 = phi i64 [ 0, %for.body856 ], [ %add1131, %sw.bb1027 ]
+  %sum.0 = phi i64 [ 0, %for.body856 ], [ %add1131, %sw.bb1027 ]
   %arrayidx1133 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   %256 = load i32, ptr %arrayidx1133, align 4
-  %shr1136 = ashr i64 %sum.19, %sh_prom1135
+  %shr1136 = ashr i64 %sum.0, %sh_prom1135
   %257 = trunc i64 %shr1136 to i32
   %conv1138 = sub i32 %256, %257
   %arrayidx1140 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
@@ -2943,352 +2943,352 @@ sw.bb:                                            ; preds = %for.body
   br label %sw.bb3
 
 sw.bb3:                                           ; preds = %sw.bb, %for.body
-  %sum.0 = phi i64 [ 0, %for.body ], [ %mul, %sw.bb ]
+  %sum.1 = phi i64 [ 0, %for.body ], [ %mul, %sw.bb ]
   %2 = load i32, ptr %arrayidx4, align 4
   %conv5 = sext i32 %2 to i64
   %gep134 = getelementptr i32, ptr %invariant.gep133, i64 %indvars.iv
   %3 = load i32, ptr %gep134, align 4
   %conv9 = sext i32 %3 to i64
   %mul10 = mul nsw i64 %conv9, %conv5
-  %add11 = add nsw i64 %mul10, %sum.0
+  %add11 = add nsw i64 %mul10, %sum.1
   br label %sw.bb12
 
 sw.bb12:                                          ; preds = %sw.bb3, %for.body
-  %sum.1 = phi i64 [ 0, %for.body ], [ %add11, %sw.bb3 ]
+  %sum.2 = phi i64 [ 0, %for.body ], [ %add11, %sw.bb3 ]
   %4 = load i32, ptr %arrayidx13, align 4
   %conv14 = sext i32 %4 to i64
   %gep136 = getelementptr i32, ptr %invariant.gep135, i64 %indvars.iv
   %5 = load i32, ptr %gep136, align 4
   %conv18 = sext i32 %5 to i64
   %mul19 = mul nsw i64 %conv18, %conv14
-  %add20 = add nsw i64 %mul19, %sum.1
+  %add20 = add nsw i64 %mul19, %sum.2
   br label %sw.bb21
 
 sw.bb21:                                          ; preds = %sw.bb12, %for.body
-  %sum.2 = phi i64 [ 0, %for.body ], [ %add20, %sw.bb12 ]
+  %sum.3 = phi i64 [ 0, %for.body ], [ %add20, %sw.bb12 ]
   %6 = load i32, ptr %arrayidx22, align 4
   %conv23 = sext i32 %6 to i64
   %gep138 = getelementptr i32, ptr %invariant.gep137, i64 %indvars.iv
   %7 = load i32, ptr %gep138, align 4
   %conv27 = sext i32 %7 to i64
   %mul28 = mul nsw i64 %conv27, %conv23
-  %add29 = add nsw i64 %mul28, %sum.2
+  %add29 = add nsw i64 %mul28, %sum.3
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %sw.bb21, %for.body
-  %sum.3 = phi i64 [ 0, %for.body ], [ %add29, %sw.bb21 ]
+  %sum.4 = phi i64 [ 0, %for.body ], [ %add29, %sw.bb21 ]
   %8 = load i32, ptr %arrayidx31, align 4
   %conv32 = sext i32 %8 to i64
   %gep140 = getelementptr i32, ptr %invariant.gep139, i64 %indvars.iv
   %9 = load i32, ptr %gep140, align 4
   %conv36 = sext i32 %9 to i64
   %mul37 = mul nsw i64 %conv36, %conv32
-  %add38 = add nsw i64 %mul37, %sum.3
+  %add38 = add nsw i64 %mul37, %sum.4
   br label %sw.bb39
 
 sw.bb39:                                          ; preds = %sw.bb30, %for.body
-  %sum.4 = phi i64 [ 0, %for.body ], [ %add38, %sw.bb30 ]
+  %sum.5 = phi i64 [ 0, %for.body ], [ %add38, %sw.bb30 ]
   %10 = load i32, ptr %arrayidx40, align 4
   %conv41 = sext i32 %10 to i64
   %gep142 = getelementptr i32, ptr %invariant.gep141, i64 %indvars.iv
   %11 = load i32, ptr %gep142, align 4
   %conv45 = sext i32 %11 to i64
   %mul46 = mul nsw i64 %conv45, %conv41
-  %add47 = add nsw i64 %mul46, %sum.4
+  %add47 = add nsw i64 %mul46, %sum.5
   br label %sw.bb48
 
 sw.bb48:                                          ; preds = %sw.bb39, %for.body
-  %sum.5 = phi i64 [ 0, %for.body ], [ %add47, %sw.bb39 ]
+  %sum.6 = phi i64 [ 0, %for.body ], [ %add47, %sw.bb39 ]
   %12 = load i32, ptr %arrayidx49, align 4
   %conv50 = sext i32 %12 to i64
   %gep144 = getelementptr i32, ptr %invariant.gep143, i64 %indvars.iv
   %13 = load i32, ptr %gep144, align 4
   %conv54 = sext i32 %13 to i64
   %mul55 = mul nsw i64 %conv54, %conv50
-  %add56 = add nsw i64 %mul55, %sum.5
+  %add56 = add nsw i64 %mul55, %sum.6
   br label %sw.bb57
 
 sw.bb57:                                          ; preds = %sw.bb48, %for.body
-  %sum.6 = phi i64 [ 0, %for.body ], [ %add56, %sw.bb48 ]
+  %sum.7 = phi i64 [ 0, %for.body ], [ %add56, %sw.bb48 ]
   %14 = load i32, ptr %arrayidx58, align 4
   %conv59 = sext i32 %14 to i64
   %gep146 = getelementptr i32, ptr %invariant.gep145, i64 %indvars.iv
   %15 = load i32, ptr %gep146, align 4
   %conv63 = sext i32 %15 to i64
   %mul64 = mul nsw i64 %conv63, %conv59
-  %add65 = add nsw i64 %mul64, %sum.6
+  %add65 = add nsw i64 %mul64, %sum.7
   br label %sw.bb66
 
 sw.bb66:                                          ; preds = %sw.bb57, %for.body
-  %sum.7 = phi i64 [ 0, %for.body ], [ %add65, %sw.bb57 ]
+  %sum.8 = phi i64 [ 0, %for.body ], [ %add65, %sw.bb57 ]
   %16 = load i32, ptr %arrayidx67, align 4
   %conv68 = sext i32 %16 to i64
   %gep148 = getelementptr i32, ptr %invariant.gep147, i64 %indvars.iv
   %17 = load i32, ptr %gep148, align 4
   %conv72 = sext i32 %17 to i64
   %mul73 = mul nsw i64 %conv72, %conv68
-  %add74 = add nsw i64 %mul73, %sum.7
+  %add74 = add nsw i64 %mul73, %sum.8
   br label %sw.bb75
 
 sw.bb75:                                          ; preds = %sw.bb66, %for.body
-  %sum.8 = phi i64 [ 0, %for.body ], [ %add74, %sw.bb66 ]
+  %sum.9 = phi i64 [ 0, %for.body ], [ %add74, %sw.bb66 ]
   %18 = load i32, ptr %arrayidx76, align 4
   %conv77 = sext i32 %18 to i64
   %gep150 = getelementptr i32, ptr %invariant.gep149, i64 %indvars.iv
   %19 = load i32, ptr %gep150, align 4
   %conv81 = sext i32 %19 to i64
   %mul82 = mul nsw i64 %conv81, %conv77
-  %add83 = add nsw i64 %mul82, %sum.8
+  %add83 = add nsw i64 %mul82, %sum.9
   br label %sw.bb84
 
 sw.bb84:                                          ; preds = %sw.bb75, %for.body
-  %sum.9 = phi i64 [ 0, %for.body ], [ %add83, %sw.bb75 ]
+  %sum.10 = phi i64 [ 0, %for.body ], [ %add83, %sw.bb75 ]
   %20 = load i32, ptr %arrayidx85, align 4
   %conv86 = sext i32 %20 to i64
   %gep152 = getelementptr i32, ptr %invariant.gep151, i64 %indvars.iv
   %21 = load i32, ptr %gep152, align 4
   %conv90 = sext i32 %21 to i64
   %mul91 = mul nsw i64 %conv90, %conv86
-  %add92 = add nsw i64 %mul91, %sum.9
+  %add92 = add nsw i64 %mul91, %sum.10
   br label %sw.bb93
 
 sw.bb93:                                          ; preds = %sw.bb84, %for.body
-  %sum.10 = phi i64 [ 0, %for.body ], [ %add92, %sw.bb84 ]
+  %sum.11 = phi i64 [ 0, %for.body ], [ %add92, %sw.bb84 ]
   %22 = load i32, ptr %arrayidx94, align 4
   %conv95 = sext i32 %22 to i64
   %gep154 = getelementptr i32, ptr %invariant.gep153, i64 %indvars.iv
   %23 = load i32, ptr %gep154, align 4
   %conv99 = sext i32 %23 to i64
   %mul100 = mul nsw i64 %conv99, %conv95
-  %add101 = add nsw i64 %mul100, %sum.10
+  %add101 = add nsw i64 %mul100, %sum.11
   br label %sw.bb102
 
 sw.bb102:                                         ; preds = %sw.bb93, %for.body
-  %sum.11 = phi i64 [ 0, %for.body ], [ %add101, %sw.bb93 ]
+  %sum.12 = phi i64 [ 0, %for.body ], [ %add101, %sw.bb93 ]
   %24 = load i32, ptr %arrayidx103, align 4
   %conv104 = sext i32 %24 to i64
   %gep156 = getelementptr i32, ptr %invariant.gep155, i64 %indvars.iv
   %25 = load i32, ptr %gep156, align 4
   %conv108 = sext i32 %25 to i64
   %mul109 = mul nsw i64 %conv108, %conv104
-  %add110 = add nsw i64 %mul109, %sum.11
+  %add110 = add nsw i64 %mul109, %sum.12
   br label %sw.bb111
 
 sw.bb111:                                         ; preds = %sw.bb102, %for.body
-  %sum.12 = phi i64 [ 0, %for.body ], [ %add110, %sw.bb102 ]
+  %sum.13 = phi i64 [ 0, %for.body ], [ %add110, %sw.bb102 ]
   %26 = load i32, ptr %arrayidx112, align 4
   %conv113 = sext i32 %26 to i64
   %gep158 = getelementptr i32, ptr %invariant.gep157, i64 %indvars.iv
   %27 = load i32, ptr %gep158, align 4
   %conv117 = sext i32 %27 to i64
   %mul118 = mul nsw i64 %conv117, %conv113
-  %add119 = add nsw i64 %mul118, %sum.12
+  %add119 = add nsw i64 %mul118, %sum.13
   br label %sw.bb120
 
 sw.bb120:                                         ; preds = %sw.bb111, %for.body
-  %sum.13 = phi i64 [ 0, %for.body ], [ %add119, %sw.bb111 ]
+  %sum.14 = phi i64 [ 0, %for.body ], [ %add119, %sw.bb111 ]
   %28 = load i32, ptr %arrayidx121, align 4
   %conv122 = sext i32 %28 to i64
   %gep160 = getelementptr i32, ptr %invariant.gep159, i64 %indvars.iv
   %29 = load i32, ptr %gep160, align 4
   %conv126 = sext i32 %29 to i64
   %mul127 = mul nsw i64 %conv126, %conv122
-  %add128 = add nsw i64 %mul127, %sum.13
+  %add128 = add nsw i64 %mul127, %sum.14
   br label %sw.bb129
 
 sw.bb129:                                         ; preds = %sw.bb120, %for.body
-  %sum.14 = phi i64 [ 0, %for.body ], [ %add128, %sw.bb120 ]
+  %sum.15 = phi i64 [ 0, %for.body ], [ %add128, %sw.bb120 ]
   %30 = load i32, ptr %arrayidx130, align 4
   %conv131 = sext i32 %30 to i64
   %gep162 = getelementptr i32, ptr %invariant.gep161, i64 %indvars.iv
   %31 = load i32, ptr %gep162, align 4
   %conv135 = sext i32 %31 to i64
   %mul136 = mul nsw i64 %conv135, %conv131
-  %add137 = add nsw i64 %mul136, %sum.14
+  %add137 = add nsw i64 %mul136, %sum.15
   br label %sw.bb138
 
 sw.bb138:                                         ; preds = %sw.bb129, %for.body
-  %sum.15 = phi i64 [ 0, %for.body ], [ %add137, %sw.bb129 ]
+  %sum.16 = phi i64 [ 0, %for.body ], [ %add137, %sw.bb129 ]
   %32 = load i32, ptr %arrayidx139, align 4
   %conv140 = sext i32 %32 to i64
   %gep164 = getelementptr i32, ptr %invariant.gep163, i64 %indvars.iv
   %33 = load i32, ptr %gep164, align 4
   %conv144 = sext i32 %33 to i64
   %mul145 = mul nsw i64 %conv144, %conv140
-  %add146 = add nsw i64 %mul145, %sum.15
+  %add146 = add nsw i64 %mul145, %sum.16
   br label %sw.bb147
 
 sw.bb147:                                         ; preds = %sw.bb138, %for.body
-  %sum.16 = phi i64 [ 0, %for.body ], [ %add146, %sw.bb138 ]
+  %sum.17 = phi i64 [ 0, %for.body ], [ %add146, %sw.bb138 ]
   %34 = load i32, ptr %arrayidx148, align 4
   %conv149 = sext i32 %34 to i64
   %gep166 = getelementptr i32, ptr %invariant.gep165, i64 %indvars.iv
   %35 = load i32, ptr %gep166, align 4
   %conv153 = sext i32 %35 to i64
   %mul154 = mul nsw i64 %conv153, %conv149
-  %add155 = add nsw i64 %mul154, %sum.16
+  %add155 = add nsw i64 %mul154, %sum.17
   br label %sw.bb156
 
 sw.bb156:                                         ; preds = %sw.bb147, %for.body
-  %sum.17 = phi i64 [ 0, %for.body ], [ %add155, %sw.bb147 ]
+  %sum.18 = phi i64 [ 0, %for.body ], [ %add155, %sw.bb147 ]
   %36 = load i32, ptr %arrayidx157, align 4
   %conv158 = sext i32 %36 to i64
   %gep168 = getelementptr i32, ptr %invariant.gep167, i64 %indvars.iv
   %37 = load i32, ptr %gep168, align 4
   %conv162 = sext i32 %37 to i64
   %mul163 = mul nsw i64 %conv162, %conv158
-  %add164 = add nsw i64 %mul163, %sum.17
+  %add164 = add nsw i64 %mul163, %sum.18
   br label %sw.bb165
 
 sw.bb165:                                         ; preds = %sw.bb156, %for.body
-  %sum.18 = phi i64 [ 0, %for.body ], [ %add164, %sw.bb156 ]
+  %sum.19 = phi i64 [ 0, %for.body ], [ %add164, %sw.bb156 ]
   %38 = load i32, ptr %arrayidx166, align 4
   %conv167 = sext i32 %38 to i64
   %gep170 = getelementptr i32, ptr %invariant.gep169, i64 %indvars.iv
   %39 = load i32, ptr %gep170, align 4
   %conv171 = sext i32 %39 to i64
   %mul172 = mul nsw i64 %conv171, %conv167
-  %add173 = add nsw i64 %mul172, %sum.18
+  %add173 = add nsw i64 %mul172, %sum.19
   br label %sw.bb174
 
 sw.bb174:                                         ; preds = %sw.bb165, %for.body
-  %sum.19 = phi i64 [ 0, %for.body ], [ %add173, %sw.bb165 ]
+  %sum.20 = phi i64 [ 0, %for.body ], [ %add173, %sw.bb165 ]
   %40 = load i32, ptr %arrayidx175, align 4
   %conv176 = sext i32 %40 to i64
   %gep172 = getelementptr i32, ptr %invariant.gep171, i64 %indvars.iv
   %41 = load i32, ptr %gep172, align 4
   %conv180 = sext i32 %41 to i64
   %mul181 = mul nsw i64 %conv180, %conv176
-  %add182 = add nsw i64 %mul181, %sum.19
+  %add182 = add nsw i64 %mul181, %sum.20
   br label %sw.bb183
 
 sw.bb183:                                         ; preds = %sw.bb174, %for.body
-  %sum.20 = phi i64 [ 0, %for.body ], [ %add182, %sw.bb174 ]
+  %sum.21 = phi i64 [ 0, %for.body ], [ %add182, %sw.bb174 ]
   %42 = load i32, ptr %arrayidx184, align 4
   %conv185 = sext i32 %42 to i64
   %gep174 = getelementptr i32, ptr %invariant.gep173, i64 %indvars.iv
   %43 = load i32, ptr %gep174, align 4
   %conv189 = sext i32 %43 to i64
   %mul190 = mul nsw i64 %conv189, %conv185
-  %add191 = add nsw i64 %mul190, %sum.20
+  %add191 = add nsw i64 %mul190, %sum.21
   br label %sw.bb192
 
 sw.bb192:                                         ; preds = %sw.bb183, %for.body
-  %sum.21 = phi i64 [ 0, %for.body ], [ %add191, %sw.bb183 ]
+  %sum.22 = phi i64 [ 0, %for.body ], [ %add191, %sw.bb183 ]
   %44 = load i32, ptr %arrayidx193, align 4
   %conv194 = sext i32 %44 to i64
   %gep176 = getelementptr i32, ptr %invariant.gep175, i64 %indvars.iv
   %45 = load i32, ptr %gep176, align 4
   %conv198 = sext i32 %45 to i64
   %mul199 = mul nsw i64 %conv198, %conv194
-  %add200 = add nsw i64 %mul199, %sum.21
+  %add200 = add nsw i64 %mul199, %sum.22
   br label %sw.bb201
 
 sw.bb201:                                         ; preds = %sw.bb192, %for.body
-  %sum.22 = phi i64 [ 0, %for.body ], [ %add200, %sw.bb192 ]
+  %sum.23 = phi i64 [ 0, %for.body ], [ %add200, %sw.bb192 ]
   %46 = load i32, ptr %arrayidx202, align 4
   %conv203 = sext i32 %46 to i64
   %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %indvars.iv
   %47 = load i32, ptr %gep178, align 4
   %conv207 = sext i32 %47 to i64
   %mul208 = mul nsw i64 %conv207, %conv203
-  %add209 = add nsw i64 %mul208, %sum.22
+  %add209 = add nsw i64 %mul208, %sum.23
   br label %sw.bb210
 
 sw.bb210:                                         ; preds = %sw.bb201, %for.body
-  %sum.23 = phi i64 [ 0, %for.body ], [ %add209, %sw.bb201 ]
+  %sum.24 = phi i64 [ 0, %for.body ], [ %add209, %sw.bb201 ]
   %48 = load i32, ptr %arrayidx211, align 4
   %conv212 = sext i32 %48 to i64
   %gep180 = getelementptr i32, ptr %invariant.gep179, i64 %indvars.iv
   %49 = load i32, ptr %gep180, align 4
   %conv216 = sext i32 %49 to i64
   %mul217 = mul nsw i64 %conv216, %conv212
-  %add218 = add nsw i64 %mul217, %sum.23
+  %add218 = add nsw i64 %mul217, %sum.24
   br label %sw.bb219
 
 sw.bb219:                                         ; preds = %sw.bb210, %for.body
-  %sum.24 = phi i64 [ 0, %for.body ], [ %add218, %sw.bb210 ]
+  %sum.25 = phi i64 [ 0, %for.body ], [ %add218, %sw.bb210 ]
   %50 = load i32, ptr %arrayidx220, align 4
   %conv221 = sext i32 %50 to i64
   %gep182 = getelementptr i32, ptr %invariant.gep181, i64 %indvars.iv
   %51 = load i32, ptr %gep182, align 4
   %conv225 = sext i32 %51 to i64
   %mul226 = mul nsw i64 %conv225, %conv221
-  %add227 = add nsw i64 %mul226, %sum.24
+  %add227 = add nsw i64 %mul226, %sum.25
   br label %sw.bb228
 
 sw.bb228:                                         ; preds = %sw.bb219, %for.body
-  %sum.25 = phi i64 [ 0, %for.body ], [ %add227, %sw.bb219 ]
+  %sum.26 = phi i64 [ 0, %for.body ], [ %add227, %sw.bb219 ]
   %52 = load i32, ptr %arrayidx229, align 4
   %conv230 = sext i32 %52 to i64
   %gep184 = getelementptr i32, ptr %invariant.gep183, i64 %indvars.iv
   %53 = load i32, ptr %gep184, align 4
   %conv234 = sext i32 %53 to i64
   %mul235 = mul nsw i64 %conv234, %conv230
-  %add236 = add nsw i64 %mul235, %sum.25
+  %add236 = add nsw i64 %mul235, %sum.26
   br label %sw.bb237
 
 sw.bb237:                                         ; preds = %sw.bb228, %for.body
-  %sum.26 = phi i64 [ 0, %for.body ], [ %add236, %sw.bb228 ]
+  %sum.27 = phi i64 [ 0, %for.body ], [ %add236, %sw.bb228 ]
   %54 = load i32, ptr %arrayidx238, align 4
   %conv239 = sext i32 %54 to i64
   %gep186 = getelementptr i32, ptr %invariant.gep185, i64 %indvars.iv
   %55 = load i32, ptr %gep186, align 4
   %conv243 = sext i32 %55 to i64
   %mul244 = mul nsw i64 %conv243, %conv239
-  %add245 = add nsw i64 %mul244, %sum.26
+  %add245 = add nsw i64 %mul244, %sum.27
   br label %sw.bb246
 
 sw.bb246:                                         ; preds = %sw.bb237, %for.body
-  %sum.27 = phi i64 [ 0, %for.body ], [ %add245, %sw.bb237 ]
+  %sum.28 = phi i64 [ 0, %for.body ], [ %add245, %sw.bb237 ]
   %56 = load i32, ptr %arrayidx247, align 4
   %conv248 = sext i32 %56 to i64
   %gep188 = getelementptr i32, ptr %invariant.gep187, i64 %indvars.iv
   %57 = load i32, ptr %gep188, align 4
   %conv252 = sext i32 %57 to i64
   %mul253 = mul nsw i64 %conv252, %conv248
-  %add254 = add nsw i64 %mul253, %sum.27
+  %add254 = add nsw i64 %mul253, %sum.28
   br label %sw.bb255
 
 sw.bb255:                                         ; preds = %sw.bb246, %for.body
-  %sum.28 = phi i64 [ 0, %for.body ], [ %add254, %sw.bb246 ]
+  %sum.29 = phi i64 [ 0, %for.body ], [ %add254, %sw.bb246 ]
   %58 = load i32, ptr %arrayidx256, align 4
   %conv257 = sext i32 %58 to i64
   %gep190 = getelementptr i32, ptr %invariant.gep189, i64 %indvars.iv
   %59 = load i32, ptr %gep190, align 4
   %conv261 = sext i32 %59 to i64
   %mul262 = mul nsw i64 %conv261, %conv257
-  %add263 = add nsw i64 %mul262, %sum.28
+  %add263 = add nsw i64 %mul262, %sum.29
   br label %sw.bb264
 
 sw.bb264:                                         ; preds = %sw.bb255, %for.body
-  %sum.29 = phi i64 [ 0, %for.body ], [ %add263, %sw.bb255 ]
+  %sum.30 = phi i64 [ 0, %for.body ], [ %add263, %sw.bb255 ]
   %60 = load i32, ptr %arrayidx265, align 4
   %conv266 = sext i32 %60 to i64
   %gep192 = getelementptr i32, ptr %invariant.gep191, i64 %indvars.iv
   %61 = load i32, ptr %gep192, align 4
   %conv270 = sext i32 %61 to i64
   %mul271 = mul nsw i64 %conv270, %conv266
-  %add272 = add nsw i64 %mul271, %sum.29
+  %add272 = add nsw i64 %mul271, %sum.30
   br label %sw.bb273
 
 sw.bb273:                                         ; preds = %sw.bb264, %for.body
-  %sum.30 = phi i64 [ 0, %for.body ], [ %add272, %sw.bb264 ]
+  %sum.31 = phi i64 [ 0, %for.body ], [ %add272, %sw.bb264 ]
   %62 = load i32, ptr %qlp_coeff, align 4
   %conv275 = sext i32 %62 to i64
   %gep194 = getelementptr i32, ptr %invariant.gep193, i64 %indvars.iv
   %63 = load i32, ptr %gep194, align 4
   %conv279 = sext i32 %63 to i64
   %mul280 = mul nsw i64 %conv279, %conv275
-  %add281 = add nsw i64 %mul280, %sum.30
+  %add281 = add nsw i64 %mul280, %sum.31
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb273, %for.body
-  %sum.31 = phi i64 [ 0, %for.body ], [ %add281, %sw.bb273 ]
+  %sum.0 = phi i64 [ 0, %for.body ], [ %add281, %sw.bb273 ]
   %arrayidx283 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   %64 = load i32, ptr %arrayidx283, align 4
   %conv284 = sext i32 %64 to i64
-  %shr = ashr i64 %sum.31, %sh_prom
+  %shr = ashr i64 %sum.0, %sh_prom
   %sub285 = sub nsw i64 %conv284, %shr
   %65 = add i64 %sub285, -2147483648
   %or.cond = icmp ult i64 %65, -4294967295
@@ -3427,320 +3427,320 @@ sw.bb:                                            ; preds = %for.body
   br label %sw.bb2
 
 sw.bb2:                                           ; preds = %sw.bb, %for.body
-  %sum.0 = phi i64 [ 0, %for.body ], [ %mul, %sw.bb ]
+  %sum.1 = phi i64 [ 0, %for.body ], [ %mul, %sw.bb ]
   %2 = load i32, ptr %arrayidx3, align 4
   %conv4 = sext i32 %2 to i64
   %gep134 = getelementptr i64, ptr %invariant.gep133, i64 %indvars.iv
   %3 = load i64, ptr %gep134, align 8
   %mul8 = mul nsw i64 %3, %conv4
-  %add9 = add nsw i64 %mul8, %sum.0
+  %add9 = add nsw i64 %mul8, %sum.1
   br label %sw.bb10
 
 sw.bb10:                                          ; preds = %sw.bb2, %for.body
-  %sum.1 = phi i64 [ 0, %for.body ], [ %add9, %sw.bb2 ]
+  %sum.2 = phi i64 [ 0, %for.body ], [ %add9, %sw.bb2 ]
   %4 = load i32, ptr %arrayidx11, align 4
   %conv12 = sext i32 %4 to i64
   %gep136 = getelementptr i64, ptr %invariant.gep135, i64 %indvars.iv
   %5 = load i64, ptr %gep136, align 8
   %mul16 = mul nsw i64 %5, %conv12
-  %add17 = add nsw i64 %mul16, %sum.1
+  %add17 = add nsw i64 %mul16, %sum.2
   br label %sw.bb18
 
 sw.bb18:                                          ; preds = %sw.bb10, %for.body
-  %sum.2 = phi i64 [ 0, %for.body ], [ %add17, %sw.bb10 ]
+  %sum.3 = phi i64 [ 0, %for.body ], [ %add17, %sw.bb10 ]
   %6 = load i32, ptr %arrayidx19, align 4
   %conv20 = sext i32 %6 to i64
   %gep138 = getelementptr i64, ptr %invariant.gep137, i64 %indvars.iv
   %7 = load i64, ptr %gep138, align 8
   %mul24 = mul nsw i64 %7, %conv20
-  %add25 = add nsw i64 %mul24, %sum.2
+  %add25 = add nsw i64 %mul24, %sum.3
   br label %sw.bb26
 
 sw.bb26:                                          ; preds = %sw.bb18, %for.body
-  %sum.3 = phi i64 [ 0, %for.body ], [ %add25, %sw.bb18 ]
+  %sum.4 = phi i64 [ 0, %for.body ], [ %add25, %sw.bb18 ]
   %8 = load i32, ptr %arrayidx27, align 4
   %conv28 = sext i32 %8 to i64
   %gep140 = getelementptr i64, ptr %invariant.gep139, i64 %indvars.iv
   %9 = load i64, ptr %gep140, align 8
   %mul32 = mul nsw i64 %9, %conv28
-  %add33 = add nsw i64 %mul32, %sum.3
+  %add33 = add nsw i64 %mul32, %sum.4
   br label %sw.bb34
 
 sw.bb34:                                          ; preds = %sw.bb26, %for.body
-  %sum.4 = phi i64 [ 0, %for.body ], [ %add33, %sw.bb26 ]
+  %sum.5 = phi i64 [ 0, %for.body ], [ %add33, %sw.bb26 ]
   %10 = load i32, ptr %arrayidx35, align 4
   %conv36 = sext i32 %10 to i64
   %gep142 = getelementptr i64, ptr %invariant.gep141, i64 %indvars.iv
   %11 = load i64, ptr %gep142, align 8
   %mul40 = mul nsw i64 %11, %conv36
-  %add41 = add nsw i64 %mul40, %sum.4
+  %add41 = add nsw i64 %mul40, %sum.5
   br label %sw.bb42
 
 sw.bb42:                                          ; preds = %sw.bb34, %for.body
-  %sum.5 = phi i64 [ 0, %for.body ], [ %add41, %sw.bb34 ]
+  %sum.6 = phi i64 [ 0, %for.body ], [ %add41, %sw.bb34 ]
   %12 = load i32, ptr %arrayidx43, align 4
   %conv44 = sext i32 %12 to i64
   %gep144 = getelementptr i64, ptr %invariant.gep143, i64 %indvars.iv
   %13 = load i64, ptr %gep144, align 8
   %mul48 = mul nsw i64 %13, %conv44
-  %add49 = add nsw i64 %mul48, %sum.5
+  %add49 = add nsw i64 %mul48, %sum.6
   br label %sw.bb50
 
 sw.bb50:                                          ; preds = %sw.bb42, %for.body
-  %sum.6 = phi i64 [ 0, %for.body ], [ %add49, %sw.bb42 ]
+  %sum.7 = phi i64 [ 0, %for.body ], [ %add49, %sw.bb42 ]
   %14 = load i32, ptr %arrayidx51, align 4
   %conv52 = sext i32 %14 to i64
   %gep146 = getelementptr i64, ptr %invariant.gep145, i64 %indvars.iv
   %15 = load i64, ptr %gep146, align 8
   %mul56 = mul nsw i64 %15, %conv52
-  %add57 = add nsw i64 %mul56, %sum.6
+  %add57 = add nsw i64 %mul56, %sum.7
   br label %sw.bb58
 
 sw.bb58:                                          ; preds = %sw.bb50, %for.body
-  %sum.7 = phi i64 [ 0, %for.body ], [ %add57, %sw.bb50 ]
+  %sum.8 = phi i64 [ 0, %for.body ], [ %add57, %sw.bb50 ]
   %16 = load i32, ptr %arrayidx59, align 4
   %conv60 = sext i32 %16 to i64
   %gep148 = getelementptr i64, ptr %invariant.gep147, i64 %indvars.iv
   %17 = load i64, ptr %gep148, align 8
   %mul64 = mul nsw i64 %17, %conv60
-  %add65 = add nsw i64 %mul64, %sum.7
+  %add65 = add nsw i64 %mul64, %sum.8
   br label %sw.bb66
 
 sw.bb66:                                          ; preds = %sw.bb58, %for.body
-  %sum.8 = phi i64 [ 0, %for.body ], [ %add65, %sw.bb58 ]
+  %sum.9 = phi i64 [ 0, %for.body ], [ %add65, %sw.bb58 ]
   %18 = load i32, ptr %arrayidx67, align 4
   %conv68 = sext i32 %18 to i64
   %gep150 = getelementptr i64, ptr %invariant.gep149, i64 %indvars.iv
   %19 = load i64, ptr %gep150, align 8
   %mul72 = mul nsw i64 %19, %conv68
-  %add73 = add nsw i64 %mul72, %sum.8
+  %add73 = add nsw i64 %mul72, %sum.9
   br label %sw.bb74
 
 sw.bb74:                                          ; preds = %sw.bb66, %for.body
-  %sum.9 = phi i64 [ 0, %for.body ], [ %add73, %sw.bb66 ]
+  %sum.10 = phi i64 [ 0, %for.body ], [ %add73, %sw.bb66 ]
   %20 = load i32, ptr %arrayidx75, align 4
   %conv76 = sext i32 %20 to i64
   %gep152 = getelementptr i64, ptr %invariant.gep151, i64 %indvars.iv
   %21 = load i64, ptr %gep152, align 8
   %mul80 = mul nsw i64 %21, %conv76
-  %add81 = add nsw i64 %mul80, %sum.9
+  %add81 = add nsw i64 %mul80, %sum.10
   br label %sw.bb82
 
 sw.bb82:                                          ; preds = %sw.bb74, %for.body
-  %sum.10 = phi i64 [ 0, %for.body ], [ %add81, %sw.bb74 ]
+  %sum.11 = phi i64 [ 0, %for.body ], [ %add81, %sw.bb74 ]
   %22 = load i32, ptr %arrayidx83, align 4
   %conv84 = sext i32 %22 to i64
   %gep154 = getelementptr i64, ptr %invariant.gep153, i64 %indvars.iv
   %23 = load i64, ptr %gep154, align 8
   %mul88 = mul nsw i64 %23, %conv84
-  %add89 = add nsw i64 %mul88, %sum.10
+  %add89 = add nsw i64 %mul88, %sum.11
   br label %sw.bb90
 
 sw.bb90:                                          ; preds = %sw.bb82, %for.body
-  %sum.11 = phi i64 [ 0, %for.body ], [ %add89, %sw.bb82 ]
+  %sum.12 = phi i64 [ 0, %for.body ], [ %add89, %sw.bb82 ]
   %24 = load i32, ptr %arrayidx91, align 4
   %conv92 = sext i32 %24 to i64
   %gep156 = getelementptr i64, ptr %invariant.gep155, i64 %indvars.iv
   %25 = load i64, ptr %gep156, align 8
   %mul96 = mul nsw i64 %25, %conv92
-  %add97 = add nsw i64 %mul96, %sum.11
+  %add97 = add nsw i64 %mul96, %sum.12
   br label %sw.bb98
 
 sw.bb98:                                          ; preds = %sw.bb90, %for.body
-  %sum.12 = phi i64 [ 0, %for.body ], [ %add97, %sw.bb90 ]
+  %sum.13 = phi i64 [ 0, %for.body ], [ %add97, %sw.bb90 ]
   %26 = load i32, ptr %arrayidx99, align 4
   %conv100 = sext i32 %26 to i64
   %gep158 = getelementptr i64, ptr %invariant.gep157, i64 %indvars.iv
   %27 = load i64, ptr %gep158, align 8
   %mul104 = mul nsw i64 %27, %conv100
-  %add105 = add nsw i64 %mul104, %sum.12
+  %add105 = add nsw i64 %mul104, %sum.13
   br label %sw.bb106
 
 sw.bb106:                                         ; preds = %sw.bb98, %for.body
-  %sum.13 = phi i64 [ 0, %for.body ], [ %add105, %sw.bb98 ]
+  %sum.14 = phi i64 [ 0, %for.body ], [ %add105, %sw.bb98 ]
   %28 = load i32, ptr %arrayidx107, align 4
   %conv108 = sext i32 %28 to i64
   %gep160 = getelementptr i64, ptr %invariant.gep159, i64 %indvars.iv
   %29 = load i64, ptr %gep160, align 8
   %mul112 = mul nsw i64 %29, %conv108
-  %add113 = add nsw i64 %mul112, %sum.13
+  %add113 = add nsw i64 %mul112, %sum.14
   br label %sw.bb114
 
 sw.bb114:                                         ; preds = %sw.bb106, %for.body
-  %sum.14 = phi i64 [ 0, %for.body ], [ %add113, %sw.bb106 ]
+  %sum.15 = phi i64 [ 0, %for.body ], [ %add113, %sw.bb106 ]
   %30 = load i32, ptr %arrayidx115, align 4
   %conv116 = sext i32 %30 to i64
   %gep162 = getelementptr i64, ptr %invariant.gep161, i64 %indvars.iv
   %31 = load i64, ptr %gep162, align 8
   %mul120 = mul nsw i64 %31, %conv116
-  %add121 = add nsw i64 %mul120, %sum.14
+  %add121 = add nsw i64 %mul120, %sum.15
   br label %sw.bb122
 
 sw.bb122:                                         ; preds = %sw.bb114, %for.body
-  %sum.15 = phi i64 [ 0, %for.body ], [ %add121, %sw.bb114 ]
+  %sum.16 = phi i64 [ 0, %for.body ], [ %add121, %sw.bb114 ]
   %32 = load i32, ptr %arrayidx123, align 4
   %conv124 = sext i32 %32 to i64
   %gep164 = getelementptr i64, ptr %invariant.gep163, i64 %indvars.iv
   %33 = load i64, ptr %gep164, align 8
   %mul128 = mul nsw i64 %33, %conv124
-  %add129 = add nsw i64 %mul128, %sum.15
+  %add129 = add nsw i64 %mul128, %sum.16
   br label %sw.bb130
 
 sw.bb130:                                         ; preds = %sw.bb122, %for.body
-  %sum.16 = phi i64 [ 0, %for.body ], [ %add129, %sw.bb122 ]
+  %sum.17 = phi i64 [ 0, %for.body ], [ %add129, %sw.bb122 ]
   %34 = load i32, ptr %arrayidx131, align 4
   %conv132 = sext i32 %34 to i64
   %gep166 = getelementptr i64, ptr %invariant.gep165, i64 %indvars.iv
   %35 = load i64, ptr %gep166, align 8
   %mul136 = mul nsw i64 %35, %conv132
-  %add137 = add nsw i64 %mul136, %sum.16
+  %add137 = add nsw i64 %mul136, %sum.17
   br label %sw.bb138
 
 sw.bb138:                                         ; preds = %sw.bb130, %for.body
-  %sum.17 = phi i64 [ 0, %for.body ], [ %add137, %sw.bb130 ]
+  %sum.18 = phi i64 [ 0, %for.body ], [ %add137, %sw.bb130 ]
   %36 = load i32, ptr %arrayidx139, align 4
   %conv140 = sext i32 %36 to i64
   %gep168 = getelementptr i64, ptr %invariant.gep167, i64 %indvars.iv
   %37 = load i64, ptr %gep168, align 8
   %mul144 = mul nsw i64 %37, %conv140
-  %add145 = add nsw i64 %mul144, %sum.17
+  %add145 = add nsw i64 %mul144, %sum.18
   br label %sw.bb146
 
 sw.bb146:                                         ; preds = %sw.bb138, %for.body
-  %sum.18 = phi i64 [ 0, %for.body ], [ %add145, %sw.bb138 ]
+  %sum.19 = phi i64 [ 0, %for.body ], [ %add145, %sw.bb138 ]
   %38 = load i32, ptr %arrayidx147, align 4
   %conv148 = sext i32 %38 to i64
   %gep170 = getelementptr i64, ptr %invariant.gep169, i64 %indvars.iv
   %39 = load i64, ptr %gep170, align 8
   %mul152 = mul nsw i64 %39, %conv148
-  %add153 = add nsw i64 %mul152, %sum.18
+  %add153 = add nsw i64 %mul152, %sum.19
   br label %sw.bb154
 
 sw.bb154:                                         ; preds = %sw.bb146, %for.body
-  %sum.19 = phi i64 [ 0, %for.body ], [ %add153, %sw.bb146 ]
+  %sum.20 = phi i64 [ 0, %for.body ], [ %add153, %sw.bb146 ]
   %40 = load i32, ptr %arrayidx155, align 4
   %conv156 = sext i32 %40 to i64
   %gep172 = getelementptr i64, ptr %invariant.gep171, i64 %indvars.iv
   %41 = load i64, ptr %gep172, align 8
   %mul160 = mul nsw i64 %41, %conv156
-  %add161 = add nsw i64 %mul160, %sum.19
+  %add161 = add nsw i64 %mul160, %sum.20
   br label %sw.bb162
 
 sw.bb162:                                         ; preds = %sw.bb154, %for.body
-  %sum.20 = phi i64 [ 0, %for.body ], [ %add161, %sw.bb154 ]
+  %sum.21 = phi i64 [ 0, %for.body ], [ %add161, %sw.bb154 ]
   %42 = load i32, ptr %arrayidx163, align 4
   %conv164 = sext i32 %42 to i64
   %gep174 = getelementptr i64, ptr %invariant.gep173, i64 %indvars.iv
   %43 = load i64, ptr %gep174, align 8
   %mul168 = mul nsw i64 %43, %conv164
-  %add169 = add nsw i64 %mul168, %sum.20
+  %add169 = add nsw i64 %mul168, %sum.21
   br label %sw.bb170
 
 sw.bb170:                                         ; preds = %sw.bb162, %for.body
-  %sum.21 = phi i64 [ 0, %for.body ], [ %add169, %sw.bb162 ]
+  %sum.22 = phi i64 [ 0, %for.body ], [ %add169, %sw.bb162 ]
   %44 = load i32, ptr %arrayidx171, align 4
   %conv172 = sext i32 %44 to i64
   %gep176 = getelementptr i64, ptr %invariant.gep175, i64 %indvars.iv
   %45 = load i64, ptr %gep176, align 8
   %mul176 = mul nsw i64 %45, %conv172
-  %add177 = add nsw i64 %mul176, %sum.21
+  %add177 = add nsw i64 %mul176, %sum.22
   br label %sw.bb178
 
 sw.bb178:                                         ; preds = %sw.bb170, %for.body
-  %sum.22 = phi i64 [ 0, %for.body ], [ %add177, %sw.bb170 ]
+  %sum.23 = phi i64 [ 0, %for.body ], [ %add177, %sw.bb170 ]
   %46 = load i32, ptr %arrayidx179, align 4
   %conv180 = sext i32 %46 to i64
   %gep178 = getelementptr i64, ptr %invariant.gep177, i64 %indvars.iv
   %47 = load i64, ptr %gep178, align 8
   %mul184 = mul nsw i64 %47, %conv180
-  %add185 = add nsw i64 %mul184, %sum.22
+  %add185 = add nsw i64 %mul184, %sum.23
   br label %sw.bb186
 
 sw.bb186:                                         ; preds = %sw.bb178, %for.body
-  %sum.23 = phi i64 [ 0, %for.body ], [ %add185, %sw.bb178 ]
+  %sum.24 = phi i64 [ 0, %for.body ], [ %add185, %sw.bb178 ]
   %48 = load i32, ptr %arrayidx187, align 4
   %conv188 = sext i32 %48 to i64
   %gep180 = getelementptr i64, ptr %invariant.gep179, i64 %indvars.iv
   %49 = load i64, ptr %gep180, align 8
   %mul192 = mul nsw i64 %49, %conv188
-  %add193 = add nsw i64 %mul192, %sum.23
+  %add193 = add nsw i64 %mul192, %sum.24
   br label %sw.bb194
 
 sw.bb194:                                         ; preds = %sw.bb186, %for.body
-  %sum.24 = phi i64 [ 0, %for.body ], [ %add193, %sw.bb186 ]
+  %sum.25 = phi i64 [ 0, %for.body ], [ %add193, %sw.bb186 ]
   %50 = load i32, ptr %arrayidx195, align 4
   %conv196 = sext i32 %50 to i64
   %gep182 = getelementptr i64, ptr %invariant.gep181, i64 %indvars.iv
   %51 = load i64, ptr %gep182, align 8
   %mul200 = mul nsw i64 %51, %conv196
-  %add201 = add nsw i64 %mul200, %sum.24
+  %add201 = add nsw i64 %mul200, %sum.25
   br label %sw.bb202
 
 sw.bb202:                                         ; preds = %sw.bb194, %for.body
-  %sum.25 = phi i64 [ 0, %for.body ], [ %add201, %sw.bb194 ]
+  %sum.26 = phi i64 [ 0, %for.body ], [ %add201, %sw.bb194 ]
   %52 = load i32, ptr %arrayidx203, align 4
   %conv204 = sext i32 %52 to i64
   %gep184 = getelementptr i64, ptr %invariant.gep183, i64 %indvars.iv
   %53 = load i64, ptr %gep184, align 8
   %mul208 = mul nsw i64 %53, %conv204
-  %add209 = add nsw i64 %mul208, %sum.25
+  %add209 = add nsw i64 %mul208, %sum.26
   br label %sw.bb210
 
 sw.bb210:                                         ; preds = %sw.bb202, %for.body
-  %sum.26 = phi i64 [ 0, %for.body ], [ %add209, %sw.bb202 ]
+  %sum.27 = phi i64 [ 0, %for.body ], [ %add209, %sw.bb202 ]
   %54 = load i32, ptr %arrayidx211, align 4
   %conv212 = sext i32 %54 to i64
   %gep186 = getelementptr i64, ptr %invariant.gep185, i64 %indvars.iv
   %55 = load i64, ptr %gep186, align 8
   %mul216 = mul nsw i64 %55, %conv212
-  %add217 = add nsw i64 %mul216, %sum.26
+  %add217 = add nsw i64 %mul216, %sum.27
   br label %sw.bb218
 
 sw.bb218:                                         ; preds = %sw.bb210, %for.body
-  %sum.27 = phi i64 [ 0, %for.body ], [ %add217, %sw.bb210 ]
+  %sum.28 = phi i64 [ 0, %for.body ], [ %add217, %sw.bb210 ]
   %56 = load i32, ptr %arrayidx219, align 4
   %conv220 = sext i32 %56 to i64
   %gep188 = getelementptr i64, ptr %invariant.gep187, i64 %indvars.iv
   %57 = load i64, ptr %gep188, align 8
   %mul224 = mul nsw i64 %57, %conv220
-  %add225 = add nsw i64 %mul224, %sum.27
+  %add225 = add nsw i64 %mul224, %sum.28
   br label %sw.bb226
 
 sw.bb226:                                         ; preds = %sw.bb218, %for.body
-  %sum.28 = phi i64 [ 0, %for.body ], [ %add225, %sw.bb218 ]
+  %sum.29 = phi i64 [ 0, %for.body ], [ %add225, %sw.bb218 ]
   %58 = load i32, ptr %arrayidx227, align 4
   %conv228 = sext i32 %58 to i64
   %gep190 = getelementptr i64, ptr %invariant.gep189, i64 %indvars.iv
   %59 = load i64, ptr %gep190, align 8
   %mul232 = mul nsw i64 %59, %conv228
-  %add233 = add nsw i64 %mul232, %sum.28
+  %add233 = add nsw i64 %mul232, %sum.29
   br label %sw.bb234
 
 sw.bb234:                                         ; preds = %sw.bb226, %for.body
-  %sum.29 = phi i64 [ 0, %for.body ], [ %add233, %sw.bb226 ]
+  %sum.30 = phi i64 [ 0, %for.body ], [ %add233, %sw.bb226 ]
   %60 = load i32, ptr %arrayidx235, align 4
   %conv236 = sext i32 %60 to i64
   %gep192 = getelementptr i64, ptr %invariant.gep191, i64 %indvars.iv
   %61 = load i64, ptr %gep192, align 8
   %mul240 = mul nsw i64 %61, %conv236
-  %add241 = add nsw i64 %mul240, %sum.29
+  %add241 = add nsw i64 %mul240, %sum.30
   br label %sw.bb242
 
 sw.bb242:                                         ; preds = %sw.bb234, %for.body
-  %sum.30 = phi i64 [ 0, %for.body ], [ %add241, %sw.bb234 ]
+  %sum.31 = phi i64 [ 0, %for.body ], [ %add241, %sw.bb234 ]
   %62 = load i32, ptr %qlp_coeff, align 4
   %conv244 = sext i32 %62 to i64
   %gep194 = getelementptr i64, ptr %invariant.gep193, i64 %indvars.iv
   %63 = load i64, ptr %gep194, align 8
   %mul248 = mul nsw i64 %63, %conv244
-  %add249 = add nsw i64 %mul248, %sum.30
+  %add249 = add nsw i64 %mul248, %sum.31
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb242, %for.body
-  %sum.31 = phi i64 [ 0, %for.body ], [ %add249, %sw.bb242 ]
+  %sum.0 = phi i64 [ 0, %for.body ], [ %add249, %sw.bb242 ]
   %arrayidx251 = getelementptr inbounds i64, ptr %data, i64 %indvars.iv
   %64 = load i64, ptr %arrayidx251, align 8
-  %shr = ashr i64 %sum.31, %sh_prom
+  %shr = ashr i64 %sum.0, %sh_prom
   %sub252 = sub nsw i64 %64, %shr
   %65 = add i64 %sub252, -2147483648
   %or.cond = icmp ult i64 %65, -4294967295
@@ -4420,169 +4420,169 @@ sw.bb:                                            ; preds = %for.body646
   br label %sw.bb653
 
 sw.bb653:                                         ; preds = %sw.bb, %for.body646
-  %sum.0 = phi i32 [ 0, %for.body646 ], [ %mul651, %sw.bb ]
+  %sum.1 = phi i32 [ 0, %for.body646 ], [ %mul651, %sw.bb ]
   %114 = load i32, ptr %arrayidx654, align 4
   %gep574 = getelementptr i32, ptr %invariant.gep573, i64 %indvars.iv
   %115 = load i32, ptr %gep574, align 4
   %mul658 = mul nsw i32 %115, %114
-  %add659 = add nsw i32 %mul658, %sum.0
+  %add659 = add nsw i32 %mul658, %sum.1
   br label %sw.bb660
 
 sw.bb660:                                         ; preds = %sw.bb653, %for.body646
-  %sum.1 = phi i32 [ 0, %for.body646 ], [ %add659, %sw.bb653 ]
+  %sum.2 = phi i32 [ 0, %for.body646 ], [ %add659, %sw.bb653 ]
   %116 = load i32, ptr %arrayidx661, align 4
   %gep576 = getelementptr i32, ptr %invariant.gep575, i64 %indvars.iv
   %117 = load i32, ptr %gep576, align 4
   %mul665 = mul nsw i32 %117, %116
-  %add666 = add nsw i32 %mul665, %sum.1
+  %add666 = add nsw i32 %mul665, %sum.2
   br label %sw.bb667
 
 sw.bb667:                                         ; preds = %sw.bb660, %for.body646
-  %sum.2 = phi i32 [ 0, %for.body646 ], [ %add666, %sw.bb660 ]
+  %sum.3 = phi i32 [ 0, %for.body646 ], [ %add666, %sw.bb660 ]
   %118 = load i32, ptr %arrayidx668, align 4
   %gep578 = getelementptr i32, ptr %invariant.gep577, i64 %indvars.iv
   %119 = load i32, ptr %gep578, align 4
   %mul672 = mul nsw i32 %119, %118
-  %add673 = add nsw i32 %mul672, %sum.2
+  %add673 = add nsw i32 %mul672, %sum.3
   br label %sw.bb674
 
 sw.bb674:                                         ; preds = %sw.bb667, %for.body646
-  %sum.3 = phi i32 [ 0, %for.body646 ], [ %add673, %sw.bb667 ]
+  %sum.4 = phi i32 [ 0, %for.body646 ], [ %add673, %sw.bb667 ]
   %120 = load i32, ptr %arrayidx675, align 4
   %gep580 = getelementptr i32, ptr %invariant.gep579, i64 %indvars.iv
   %121 = load i32, ptr %gep580, align 4
   %mul679 = mul nsw i32 %121, %120
-  %add680 = add nsw i32 %mul679, %sum.3
+  %add680 = add nsw i32 %mul679, %sum.4
   br label %sw.bb681
 
 sw.bb681:                                         ; preds = %sw.bb674, %for.body646
-  %sum.4 = phi i32 [ 0, %for.body646 ], [ %add680, %sw.bb674 ]
+  %sum.5 = phi i32 [ 0, %for.body646 ], [ %add680, %sw.bb674 ]
   %122 = load i32, ptr %arrayidx682, align 4
   %gep582 = getelementptr i32, ptr %invariant.gep581, i64 %indvars.iv
   %123 = load i32, ptr %gep582, align 4
   %mul686 = mul nsw i32 %123, %122
-  %add687 = add nsw i32 %mul686, %sum.4
+  %add687 = add nsw i32 %mul686, %sum.5
   br label %sw.bb688
 
 sw.bb688:                                         ; preds = %sw.bb681, %for.body646
-  %sum.5 = phi i32 [ 0, %for.body646 ], [ %add687, %sw.bb681 ]
+  %sum.6 = phi i32 [ 0, %for.body646 ], [ %add687, %sw.bb681 ]
   %124 = load i32, ptr %arrayidx689, align 4
   %gep584 = getelementptr i32, ptr %invariant.gep583, i64 %indvars.iv
   %125 = load i32, ptr %gep584, align 4
   %mul693 = mul nsw i32 %125, %124
-  %add694 = add nsw i32 %mul693, %sum.5
+  %add694 = add nsw i32 %mul693, %sum.6
   br label %sw.bb695
 
 sw.bb695:                                         ; preds = %sw.bb688, %for.body646
-  %sum.6 = phi i32 [ 0, %for.body646 ], [ %add694, %sw.bb688 ]
+  %sum.7 = phi i32 [ 0, %for.body646 ], [ %add694, %sw.bb688 ]
   %126 = load i32, ptr %arrayidx696, align 4
   %gep586 = getelementptr i32, ptr %invariant.gep585, i64 %indvars.iv
   %127 = load i32, ptr %gep586, align 4
   %mul700 = mul nsw i32 %127, %126
-  %add701 = add nsw i32 %mul700, %sum.6
+  %add701 = add nsw i32 %mul700, %sum.7
   br label %sw.bb702
 
 sw.bb702:                                         ; preds = %sw.bb695, %for.body646
-  %sum.7 = phi i32 [ 0, %for.body646 ], [ %add701, %sw.bb695 ]
+  %sum.8 = phi i32 [ 0, %for.body646 ], [ %add701, %sw.bb695 ]
   %128 = load i32, ptr %arrayidx703, align 4
   %gep588 = getelementptr i32, ptr %invariant.gep587, i64 %indvars.iv
   %129 = load i32, ptr %gep588, align 4
   %mul707 = mul nsw i32 %129, %128
-  %add708 = add nsw i32 %mul707, %sum.7
+  %add708 = add nsw i32 %mul707, %sum.8
   br label %sw.bb709
 
 sw.bb709:                                         ; preds = %sw.bb702, %for.body646
-  %sum.8 = phi i32 [ 0, %for.body646 ], [ %add708, %sw.bb702 ]
+  %sum.9 = phi i32 [ 0, %for.body646 ], [ %add708, %sw.bb702 ]
   %130 = load i32, ptr %arrayidx710, align 4
   %gep590 = getelementptr i32, ptr %invariant.gep589, i64 %indvars.iv
   %131 = load i32, ptr %gep590, align 4
   %mul714 = mul nsw i32 %131, %130
-  %add715 = add nsw i32 %mul714, %sum.8
+  %add715 = add nsw i32 %mul714, %sum.9
   br label %sw.bb716
 
 sw.bb716:                                         ; preds = %sw.bb709, %for.body646
-  %sum.9 = phi i32 [ 0, %for.body646 ], [ %add715, %sw.bb709 ]
+  %sum.10 = phi i32 [ 0, %for.body646 ], [ %add715, %sw.bb709 ]
   %132 = load i32, ptr %arrayidx717, align 4
   %gep592 = getelementptr i32, ptr %invariant.gep591, i64 %indvars.iv
   %133 = load i32, ptr %gep592, align 4
   %mul721 = mul nsw i32 %133, %132
-  %add722 = add nsw i32 %mul721, %sum.9
+  %add722 = add nsw i32 %mul721, %sum.10
   br label %sw.bb723
 
 sw.bb723:                                         ; preds = %sw.bb716, %for.body646
-  %sum.10 = phi i32 [ 0, %for.body646 ], [ %add722, %sw.bb716 ]
+  %sum.11 = phi i32 [ 0, %for.body646 ], [ %add722, %sw.bb716 ]
   %134 = load i32, ptr %arrayidx724, align 4
   %gep594 = getelementptr i32, ptr %invariant.gep593, i64 %indvars.iv
   %135 = load i32, ptr %gep594, align 4
   %mul728 = mul nsw i32 %135, %134
-  %add729 = add nsw i32 %mul728, %sum.10
+  %add729 = add nsw i32 %mul728, %sum.11
   br label %sw.bb730
 
 sw.bb730:                                         ; preds = %sw.bb723, %for.body646
-  %sum.11 = phi i32 [ 0, %for.body646 ], [ %add729, %sw.bb723 ]
+  %sum.12 = phi i32 [ 0, %for.body646 ], [ %add729, %sw.bb723 ]
   %136 = load i32, ptr %arrayidx731, align 4
   %gep596 = getelementptr i32, ptr %invariant.gep595, i64 %indvars.iv
   %137 = load i32, ptr %gep596, align 4
   %mul735 = mul nsw i32 %137, %136
-  %add736 = add nsw i32 %mul735, %sum.11
+  %add736 = add nsw i32 %mul735, %sum.12
   br label %sw.bb737
 
 sw.bb737:                                         ; preds = %sw.bb730, %for.body646
-  %sum.12 = phi i32 [ 0, %for.body646 ], [ %add736, %sw.bb730 ]
+  %sum.13 = phi i32 [ 0, %for.body646 ], [ %add736, %sw.bb730 ]
   %138 = load i32, ptr %arrayidx738, align 4
   %gep598 = getelementptr i32, ptr %invariant.gep597, i64 %indvars.iv
   %139 = load i32, ptr %gep598, align 4
   %mul742 = mul nsw i32 %139, %138
-  %add743 = add nsw i32 %mul742, %sum.12
+  %add743 = add nsw i32 %mul742, %sum.13
   br label %sw.bb744
 
 sw.bb744:                                         ; preds = %sw.bb737, %for.body646
-  %sum.13 = phi i32 [ 0, %for.body646 ], [ %add743, %sw.bb737 ]
+  %sum.14 = phi i32 [ 0, %for.body646 ], [ %add743, %sw.bb737 ]
   %140 = load i32, ptr %arrayidx745, align 4
   %gep600 = getelementptr i32, ptr %invariant.gep599, i64 %indvars.iv
   %141 = load i32, ptr %gep600, align 4
   %mul749 = mul nsw i32 %141, %140
-  %add750 = add nsw i32 %mul749, %sum.13
+  %add750 = add nsw i32 %mul749, %sum.14
   br label %sw.bb751
 
 sw.bb751:                                         ; preds = %sw.bb744, %for.body646
-  %sum.14 = phi i32 [ 0, %for.body646 ], [ %add750, %sw.bb744 ]
+  %sum.15 = phi i32 [ 0, %for.body646 ], [ %add750, %sw.bb744 ]
   %142 = load i32, ptr %arrayidx752, align 4
   %gep602 = getelementptr i32, ptr %invariant.gep601, i64 %indvars.iv
   %143 = load i32, ptr %gep602, align 4
   %mul756 = mul nsw i32 %143, %142
-  %add757 = add nsw i32 %mul756, %sum.14
+  %add757 = add nsw i32 %mul756, %sum.15
   br label %sw.bb758
 
 sw.bb758:                                         ; preds = %sw.bb751, %for.body646
-  %sum.15 = phi i32 [ 0, %for.body646 ], [ %add757, %sw.bb751 ]
+  %sum.16 = phi i32 [ 0, %for.body646 ], [ %add757, %sw.bb751 ]
   %144 = load i32, ptr %arrayidx759, align 4
   %gep604 = getelementptr i32, ptr %invariant.gep603, i64 %indvars.iv
   %145 = load i32, ptr %gep604, align 4
   %mul763 = mul nsw i32 %145, %144
-  %add764 = add nsw i32 %mul763, %sum.15
+  %add764 = add nsw i32 %mul763, %sum.16
   br label %sw.bb765
 
 sw.bb765:                                         ; preds = %sw.bb758, %for.body646
-  %sum.16 = phi i32 [ 0, %for.body646 ], [ %add764, %sw.bb758 ]
+  %sum.17 = phi i32 [ 0, %for.body646 ], [ %add764, %sw.bb758 ]
   %146 = load i32, ptr %arrayidx766, align 4
   %gep606 = getelementptr i32, ptr %invariant.gep605, i64 %indvars.iv
   %147 = load i32, ptr %gep606, align 4
   %mul770 = mul nsw i32 %147, %146
-  %add771 = add nsw i32 %mul770, %sum.16
+  %add771 = add nsw i32 %mul770, %sum.17
   br label %sw.bb772
 
 sw.bb772:                                         ; preds = %sw.bb765, %for.body646
-  %sum.17 = phi i32 [ 0, %for.body646 ], [ %add771, %sw.bb765 ]
+  %sum.18 = phi i32 [ 0, %for.body646 ], [ %add771, %sw.bb765 ]
   %148 = load i32, ptr %arrayidx773, align 4
   %gep608 = getelementptr i32, ptr %invariant.gep607, i64 %indvars.iv
   %149 = load i32, ptr %gep608, align 4
   %mul777 = mul nsw i32 %149, %148
-  %add778 = add nsw i32 %mul777, %sum.17
+  %add778 = add nsw i32 %mul777, %sum.18
   br label %sw.bb779
 
 sw.bb779:                                         ; preds = %sw.bb772, %for.body646
-  %sum.18 = phi i32 [ 0, %for.body646 ], [ %add778, %sw.bb772 ]
+  %sum.19 = phi i32 [ 0, %for.body646 ], [ %add778, %sw.bb772 ]
   %150 = getelementptr i32, ptr %data, i64 %indvars.iv
   %arrayidx783 = getelementptr i8, ptr %150, i64 -52
   %151 = load <8 x i32>, ptr %arrayidx822, align 4
@@ -4602,14 +4602,14 @@ sw.bb779:                                         ; preds = %sw.bb772, %for.body
   %162 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %158)
   %op.rdx784 = add i32 %161, %162
   %op.rdx785 = add i32 %op.rdx784, %mul856
-  %op.rdx786 = add i32 %op.rdx785, %sum.18
+  %op.rdx786 = add i32 %op.rdx785, %sum.19
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb779, %for.body646
-  %sum.19 = phi i32 [ 0, %for.body646 ], [ %op.rdx786, %sw.bb779 ]
+  %sum.0 = phi i32 [ 0, %for.body646 ], [ %op.rdx786, %sw.bb779 ]
   %arrayidx859 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   %163 = load i32, ptr %arrayidx859, align 4
-  %shr860 = ashr i32 %sum.19, %lp_quantization
+  %shr860 = ashr i32 %sum.0, %lp_quantization
   %add861 = add nsw i32 %163, %shr860
   %arrayidx863 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   store i32 %add861, ptr %arrayidx863, align 4
@@ -5630,205 +5630,205 @@ sw.bb:                                            ; preds = %for.body856
   br label %sw.bb865
 
 sw.bb865:                                         ; preds = %sw.bb, %for.body856
-  %sum.0 = phi i64 [ 0, %for.body856 ], [ %mul863, %sw.bb ]
+  %sum.1 = phi i64 [ 0, %for.body856 ], [ %mul863, %sw.bb ]
   %182 = load i32, ptr %arrayidx866, align 4
   %conv867 = sext i32 %182 to i64
   %gep574 = getelementptr i32, ptr %invariant.gep573, i64 %indvars.iv
   %183 = load i32, ptr %gep574, align 4
   %conv871 = sext i32 %183 to i64
   %mul872 = mul nsw i64 %conv871, %conv867
-  %add873 = add nsw i64 %mul872, %sum.0
+  %add873 = add nsw i64 %mul872, %sum.1
   br label %sw.bb874
 
 sw.bb874:                                         ; preds = %sw.bb865, %for.body856
-  %sum.1 = phi i64 [ 0, %for.body856 ], [ %add873, %sw.bb865 ]
+  %sum.2 = phi i64 [ 0, %for.body856 ], [ %add873, %sw.bb865 ]
   %184 = load i32, ptr %arrayidx875, align 4
   %conv876 = sext i32 %184 to i64
   %gep576 = getelementptr i32, ptr %invariant.gep575, i64 %indvars.iv
   %185 = load i32, ptr %gep576, align 4
   %conv880 = sext i32 %185 to i64
   %mul881 = mul nsw i64 %conv880, %conv876
-  %add882 = add nsw i64 %mul881, %sum.1
+  %add882 = add nsw i64 %mul881, %sum.2
   br label %sw.bb883
 
 sw.bb883:                                         ; preds = %sw.bb874, %for.body856
-  %sum.2 = phi i64 [ 0, %for.body856 ], [ %add882, %sw.bb874 ]
+  %sum.3 = phi i64 [ 0, %for.body856 ], [ %add882, %sw.bb874 ]
   %186 = load i32, ptr %arrayidx884, align 4
   %conv885 = sext i32 %186 to i64
   %gep578 = getelementptr i32, ptr %invariant.gep577, i64 %indvars.iv
   %187 = load i32, ptr %gep578, align 4
   %conv889 = sext i32 %187 to i64
   %mul890 = mul nsw i64 %conv889, %conv885
-  %add891 = add nsw i64 %mul890, %sum.2
+  %add891 = add nsw i64 %mul890, %sum.3
   br label %sw.bb892
 
 sw.bb892:                                         ; preds = %sw.bb883, %for.body856
-  %sum.3 = phi i64 [ 0, %for.body856 ], [ %add891, %sw.bb883 ]
+  %sum.4 = phi i64 [ 0, %for.body856 ], [ %add891, %sw.bb883 ]
   %188 = load i32, ptr %arrayidx893, align 4
   %conv894 = sext i32 %188 to i64
   %gep580 = getelementptr i32, ptr %invariant.gep579, i64 %indvars.iv
   %189 = load i32, ptr %gep580, align 4
   %conv898 = sext i32 %189 to i64
   %mul899 = mul nsw i64 %conv898, %conv894
-  %add900 = add nsw i64 %mul899, %sum.3
+  %add900 = add nsw i64 %mul899, %sum.4
   br label %sw.bb901
 
 sw.bb901:                                         ; preds = %sw.bb892, %for.body856
-  %sum.4 = phi i64 [ 0, %for.body856 ], [ %add900, %sw.bb892 ]
+  %sum.5 = phi i64 [ 0, %for.body856 ], [ %add900, %sw.bb892 ]
   %190 = load i32, ptr %arrayidx902, align 4
   %conv903 = sext i32 %190 to i64
   %gep582 = getelementptr i32, ptr %invariant.gep581, i64 %indvars.iv
   %191 = load i32, ptr %gep582, align 4
   %conv907 = sext i32 %191 to i64
   %mul908 = mul nsw i64 %conv907, %conv903
-  %add909 = add nsw i64 %mul908, %sum.4
+  %add909 = add nsw i64 %mul908, %sum.5
   br label %sw.bb910
 
 sw.bb910:                                         ; preds = %sw.bb901, %for.body856
-  %sum.5 = phi i64 [ 0, %for.body856 ], [ %add909, %sw.bb901 ]
+  %sum.6 = phi i64 [ 0, %for.body856 ], [ %add909, %sw.bb901 ]
   %192 = load i32, ptr %arrayidx911, align 4
   %conv912 = sext i32 %192 to i64
   %gep584 = getelementptr i32, ptr %invariant.gep583, i64 %indvars.iv
   %193 = load i32, ptr %gep584, align 4
   %conv916 = sext i32 %193 to i64
   %mul917 = mul nsw i64 %conv916, %conv912
-  %add918 = add nsw i64 %mul917, %sum.5
+  %add918 = add nsw i64 %mul917, %sum.6
   br label %sw.bb919
 
 sw.bb919:                                         ; preds = %sw.bb910, %for.body856
-  %sum.6 = phi i64 [ 0, %for.body856 ], [ %add918, %sw.bb910 ]
+  %sum.7 = phi i64 [ 0, %for.body856 ], [ %add918, %sw.bb910 ]
   %194 = load i32, ptr %arrayidx920, align 4
   %conv921 = sext i32 %194 to i64
   %gep586 = getelementptr i32, ptr %invariant.gep585, i64 %indvars.iv
   %195 = load i32, ptr %gep586, align 4
   %conv925 = sext i32 %195 to i64
   %mul926 = mul nsw i64 %conv925, %conv921
-  %add927 = add nsw i64 %mul926, %sum.6
+  %add927 = add nsw i64 %mul926, %sum.7
   br label %sw.bb928
 
 sw.bb928:                                         ; preds = %sw.bb919, %for.body856
-  %sum.7 = phi i64 [ 0, %for.body856 ], [ %add927, %sw.bb919 ]
+  %sum.8 = phi i64 [ 0, %for.body856 ], [ %add927, %sw.bb919 ]
   %196 = load i32, ptr %arrayidx929, align 4
   %conv930 = sext i32 %196 to i64
   %gep588 = getelementptr i32, ptr %invariant.gep587, i64 %indvars.iv
   %197 = load i32, ptr %gep588, align 4
   %conv934 = sext i32 %197 to i64
   %mul935 = mul nsw i64 %conv934, %conv930
-  %add936 = add nsw i64 %mul935, %sum.7
+  %add936 = add nsw i64 %mul935, %sum.8
   br label %sw.bb937
 
 sw.bb937:                                         ; preds = %sw.bb928, %for.body856
-  %sum.8 = phi i64 [ 0, %for.body856 ], [ %add936, %sw.bb928 ]
+  %sum.9 = phi i64 [ 0, %for.body856 ], [ %add936, %sw.bb928 ]
   %198 = load i32, ptr %arrayidx938, align 4
   %conv939 = sext i32 %198 to i64
   %gep590 = getelementptr i32, ptr %invariant.gep589, i64 %indvars.iv
   %199 = load i32, ptr %gep590, align 4
   %conv943 = sext i32 %199 to i64
   %mul944 = mul nsw i64 %conv943, %conv939
-  %add945 = add nsw i64 %mul944, %sum.8
+  %add945 = add nsw i64 %mul944, %sum.9
   br label %sw.bb946
 
 sw.bb946:                                         ; preds = %sw.bb937, %for.body856
-  %sum.9 = phi i64 [ 0, %for.body856 ], [ %add945, %sw.bb937 ]
+  %sum.10 = phi i64 [ 0, %for.body856 ], [ %add945, %sw.bb937 ]
   %200 = load i32, ptr %arrayidx947, align 4
   %conv948 = sext i32 %200 to i64
   %gep592 = getelementptr i32, ptr %invariant.gep591, i64 %indvars.iv
   %201 = load i32, ptr %gep592, align 4
   %conv952 = sext i32 %201 to i64
   %mul953 = mul nsw i64 %conv952, %conv948
-  %add954 = add nsw i64 %mul953, %sum.9
+  %add954 = add nsw i64 %mul953, %sum.10
   br label %sw.bb955
 
 sw.bb955:                                         ; preds = %sw.bb946, %for.body856
-  %sum.10 = phi i64 [ 0, %for.body856 ], [ %add954, %sw.bb946 ]
+  %sum.11 = phi i64 [ 0, %for.body856 ], [ %add954, %sw.bb946 ]
   %202 = load i32, ptr %arrayidx956, align 4
   %conv957 = sext i32 %202 to i64
   %gep594 = getelementptr i32, ptr %invariant.gep593, i64 %indvars.iv
   %203 = load i32, ptr %gep594, align 4
   %conv961 = sext i32 %203 to i64
   %mul962 = mul nsw i64 %conv961, %conv957
-  %add963 = add nsw i64 %mul962, %sum.10
+  %add963 = add nsw i64 %mul962, %sum.11
   br label %sw.bb964
 
 sw.bb964:                                         ; preds = %sw.bb955, %for.body856
-  %sum.11 = phi i64 [ 0, %for.body856 ], [ %add963, %sw.bb955 ]
+  %sum.12 = phi i64 [ 0, %for.body856 ], [ %add963, %sw.bb955 ]
   %204 = load i32, ptr %arrayidx965, align 4
   %conv966 = sext i32 %204 to i64
   %gep596 = getelementptr i32, ptr %invariant.gep595, i64 %indvars.iv
   %205 = load i32, ptr %gep596, align 4
   %conv970 = sext i32 %205 to i64
   %mul971 = mul nsw i64 %conv970, %conv966
-  %add972 = add nsw i64 %mul971, %sum.11
+  %add972 = add nsw i64 %mul971, %sum.12
   br label %sw.bb973
 
 sw.bb973:                                         ; preds = %sw.bb964, %for.body856
-  %sum.12 = phi i64 [ 0, %for.body856 ], [ %add972, %sw.bb964 ]
+  %sum.13 = phi i64 [ 0, %for.body856 ], [ %add972, %sw.bb964 ]
   %206 = load i32, ptr %arrayidx974, align 4
   %conv975 = sext i32 %206 to i64
   %gep598 = getelementptr i32, ptr %invariant.gep597, i64 %indvars.iv
   %207 = load i32, ptr %gep598, align 4
   %conv979 = sext i32 %207 to i64
   %mul980 = mul nsw i64 %conv979, %conv975
-  %add981 = add nsw i64 %mul980, %sum.12
+  %add981 = add nsw i64 %mul980, %sum.13
   br label %sw.bb982
 
 sw.bb982:                                         ; preds = %sw.bb973, %for.body856
-  %sum.13 = phi i64 [ 0, %for.body856 ], [ %add981, %sw.bb973 ]
+  %sum.14 = phi i64 [ 0, %for.body856 ], [ %add981, %sw.bb973 ]
   %208 = load i32, ptr %arrayidx983, align 4
   %conv984 = sext i32 %208 to i64
   %gep600 = getelementptr i32, ptr %invariant.gep599, i64 %indvars.iv
   %209 = load i32, ptr %gep600, align 4
   %conv988 = sext i32 %209 to i64
   %mul989 = mul nsw i64 %conv988, %conv984
-  %add990 = add nsw i64 %mul989, %sum.13
+  %add990 = add nsw i64 %mul989, %sum.14
   br label %sw.bb991
 
 sw.bb991:                                         ; preds = %sw.bb982, %for.body856
-  %sum.14 = phi i64 [ 0, %for.body856 ], [ %add990, %sw.bb982 ]
+  %sum.15 = phi i64 [ 0, %for.body856 ], [ %add990, %sw.bb982 ]
   %210 = load i32, ptr %arrayidx992, align 4
   %conv993 = sext i32 %210 to i64
   %gep602 = getelementptr i32, ptr %invariant.gep601, i64 %indvars.iv
   %211 = load i32, ptr %gep602, align 4
   %conv997 = sext i32 %211 to i64
   %mul998 = mul nsw i64 %conv997, %conv993
-  %add999 = add nsw i64 %mul998, %sum.14
+  %add999 = add nsw i64 %mul998, %sum.15
   br label %sw.bb1000
 
 sw.bb1000:                                        ; preds = %sw.bb991, %for.body856
-  %sum.15 = phi i64 [ 0, %for.body856 ], [ %add999, %sw.bb991 ]
+  %sum.16 = phi i64 [ 0, %for.body856 ], [ %add999, %sw.bb991 ]
   %212 = load i32, ptr %arrayidx1001, align 4
   %conv1002 = sext i32 %212 to i64
   %gep604 = getelementptr i32, ptr %invariant.gep603, i64 %indvars.iv
   %213 = load i32, ptr %gep604, align 4
   %conv1006 = sext i32 %213 to i64
   %mul1007 = mul nsw i64 %conv1006, %conv1002
-  %add1008 = add nsw i64 %mul1007, %sum.15
+  %add1008 = add nsw i64 %mul1007, %sum.16
   br label %sw.bb1009
 
 sw.bb1009:                                        ; preds = %sw.bb1000, %for.body856
-  %sum.16 = phi i64 [ 0, %for.body856 ], [ %add1008, %sw.bb1000 ]
+  %sum.17 = phi i64 [ 0, %for.body856 ], [ %add1008, %sw.bb1000 ]
   %214 = load i32, ptr %arrayidx1010, align 4
   %conv1011 = sext i32 %214 to i64
   %gep606 = getelementptr i32, ptr %invariant.gep605, i64 %indvars.iv
   %215 = load i32, ptr %gep606, align 4
   %conv1015 = sext i32 %215 to i64
   %mul1016 = mul nsw i64 %conv1015, %conv1011
-  %add1017 = add nsw i64 %mul1016, %sum.16
+  %add1017 = add nsw i64 %mul1016, %sum.17
   br label %sw.bb1018
 
 sw.bb1018:                                        ; preds = %sw.bb1009, %for.body856
-  %sum.17 = phi i64 [ 0, %for.body856 ], [ %add1017, %sw.bb1009 ]
+  %sum.18 = phi i64 [ 0, %for.body856 ], [ %add1017, %sw.bb1009 ]
   %216 = load i32, ptr %arrayidx1019, align 4
   %conv1020 = sext i32 %216 to i64
   %gep608 = getelementptr i32, ptr %invariant.gep607, i64 %indvars.iv
   %217 = load i32, ptr %gep608, align 4
   %conv1024 = sext i32 %217 to i64
   %mul1025 = mul nsw i64 %conv1024, %conv1020
-  %add1026 = add nsw i64 %mul1025, %sum.17
+  %add1026 = add nsw i64 %mul1025, %sum.18
   br label %sw.bb1027
 
 sw.bb1027:                                        ; preds = %sw.bb1018, %for.body856
-  %sum.18 = phi i64 [ 0, %for.body856 ], [ %add1026, %sw.bb1018 ]
+  %sum.19 = phi i64 [ 0, %for.body856 ], [ %add1026, %sw.bb1018 ]
   %218 = load i32, ptr %arrayidx1028, align 4
   %conv1029 = sext i32 %218 to i64
   %219 = getelementptr i32, ptr %data, i64 %indvars.iv
@@ -5836,7 +5836,7 @@ sw.bb1027:                                        ; preds = %sw.bb1018, %for.bod
   %220 = load i32, ptr %arrayidx1032, align 4
   %conv1033 = sext i32 %220 to i64
   %mul1034 = mul nsw i64 %conv1033, %conv1029
-  %add1035 = add nsw i64 %mul1034, %sum.18
+  %add1035 = add nsw i64 %mul1034, %sum.19
   %221 = load i32, ptr %arrayidx1036, align 4
   %conv1037 = sext i32 %221 to i64
   %arrayidx1040 = getelementptr i8, ptr %219, i64 -48
@@ -5924,10 +5924,10 @@ sw.bb1027:                                        ; preds = %sw.bb1018, %for.bod
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1027, %for.body856
-  %sum.19 = phi i64 [ 0, %for.body856 ], [ %add1131, %sw.bb1027 ]
+  %sum.0 = phi i64 [ 0, %for.body856 ], [ %add1131, %sw.bb1027 ]
   %arrayidx1133 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   %245 = load i32, ptr %arrayidx1133, align 4
-  %shr1136 = ashr i64 %sum.19, %sh_prom1135
+  %shr1136 = ashr i64 %sum.0, %sh_prom1135
   %246 = trunc i64 %shr1136 to i32
   %conv1138 = add i32 %245, %246
   %arrayidx1140 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
@@ -6060,321 +6060,321 @@ sw.bb:                                            ; preds = %for.body
   br label %sw.bb2
 
 sw.bb2:                                           ; preds = %sw.bb, %for.body
-  %sum.0 = phi i64 [ 0, %for.body ], [ %mul, %sw.bb ]
+  %sum.1 = phi i64 [ 0, %for.body ], [ %mul, %sw.bb ]
   %2 = load i32, ptr %arrayidx3, align 4
   %conv4 = sext i32 %2 to i64
   %gep132 = getelementptr i64, ptr %invariant.gep131, i64 %indvars.iv
   %3 = load i64, ptr %gep132, align 8
   %mul8 = mul nsw i64 %3, %conv4
-  %add9 = add nsw i64 %mul8, %sum.0
+  %add9 = add nsw i64 %mul8, %sum.1
   br label %sw.bb10
 
 sw.bb10:                                          ; preds = %sw.bb2, %for.body
-  %sum.1 = phi i64 [ 0, %for.body ], [ %add9, %sw.bb2 ]
+  %sum.2 = phi i64 [ 0, %for.body ], [ %add9, %sw.bb2 ]
   %4 = load i32, ptr %arrayidx11, align 4
   %conv12 = sext i32 %4 to i64
   %gep134 = getelementptr i64, ptr %invariant.gep133, i64 %indvars.iv
   %5 = load i64, ptr %gep134, align 8
   %mul16 = mul nsw i64 %5, %conv12
-  %add17 = add nsw i64 %mul16, %sum.1
+  %add17 = add nsw i64 %mul16, %sum.2
   br label %sw.bb18
 
 sw.bb18:                                          ; preds = %sw.bb10, %for.body
-  %sum.2 = phi i64 [ 0, %for.body ], [ %add17, %sw.bb10 ]
+  %sum.3 = phi i64 [ 0, %for.body ], [ %add17, %sw.bb10 ]
   %6 = load i32, ptr %arrayidx19, align 4
   %conv20 = sext i32 %6 to i64
   %gep136 = getelementptr i64, ptr %invariant.gep135, i64 %indvars.iv
   %7 = load i64, ptr %gep136, align 8
   %mul24 = mul nsw i64 %7, %conv20
-  %add25 = add nsw i64 %mul24, %sum.2
+  %add25 = add nsw i64 %mul24, %sum.3
   br label %sw.bb26
 
 sw.bb26:                                          ; preds = %sw.bb18, %for.body
-  %sum.3 = phi i64 [ 0, %for.body ], [ %add25, %sw.bb18 ]
+  %sum.4 = phi i64 [ 0, %for.body ], [ %add25, %sw.bb18 ]
   %8 = load i32, ptr %arrayidx27, align 4
   %conv28 = sext i32 %8 to i64
   %gep138 = getelementptr i64, ptr %invariant.gep137, i64 %indvars.iv
   %9 = load i64, ptr %gep138, align 8
   %mul32 = mul nsw i64 %9, %conv28
-  %add33 = add nsw i64 %mul32, %sum.3
+  %add33 = add nsw i64 %mul32, %sum.4
   br label %sw.bb34
 
 sw.bb34:                                          ; preds = %sw.bb26, %for.body
-  %sum.4 = phi i64 [ 0, %for.body ], [ %add33, %sw.bb26 ]
+  %sum.5 = phi i64 [ 0, %for.body ], [ %add33, %sw.bb26 ]
   %10 = load i32, ptr %arrayidx35, align 4
   %conv36 = sext i32 %10 to i64
   %gep140 = getelementptr i64, ptr %invariant.gep139, i64 %indvars.iv
   %11 = load i64, ptr %gep140, align 8
   %mul40 = mul nsw i64 %11, %conv36
-  %add41 = add nsw i64 %mul40, %sum.4
+  %add41 = add nsw i64 %mul40, %sum.5
   br label %sw.bb42
 
 sw.bb42:                                          ; preds = %sw.bb34, %for.body
-  %sum.5 = phi i64 [ 0, %for.body ], [ %add41, %sw.bb34 ]
+  %sum.6 = phi i64 [ 0, %for.body ], [ %add41, %sw.bb34 ]
   %12 = load i32, ptr %arrayidx43, align 4
   %conv44 = sext i32 %12 to i64
   %gep142 = getelementptr i64, ptr %invariant.gep141, i64 %indvars.iv
   %13 = load i64, ptr %gep142, align 8
   %mul48 = mul nsw i64 %13, %conv44
-  %add49 = add nsw i64 %mul48, %sum.5
+  %add49 = add nsw i64 %mul48, %sum.6
   br label %sw.bb50
 
 sw.bb50:                                          ; preds = %sw.bb42, %for.body
-  %sum.6 = phi i64 [ 0, %for.body ], [ %add49, %sw.bb42 ]
+  %sum.7 = phi i64 [ 0, %for.body ], [ %add49, %sw.bb42 ]
   %14 = load i32, ptr %arrayidx51, align 4
   %conv52 = sext i32 %14 to i64
   %gep144 = getelementptr i64, ptr %invariant.gep143, i64 %indvars.iv
   %15 = load i64, ptr %gep144, align 8
   %mul56 = mul nsw i64 %15, %conv52
-  %add57 = add nsw i64 %mul56, %sum.6
+  %add57 = add nsw i64 %mul56, %sum.7
   br label %sw.bb58
 
 sw.bb58:                                          ; preds = %sw.bb50, %for.body
-  %sum.7 = phi i64 [ 0, %for.body ], [ %add57, %sw.bb50 ]
+  %sum.8 = phi i64 [ 0, %for.body ], [ %add57, %sw.bb50 ]
   %16 = load i32, ptr %arrayidx59, align 4
   %conv60 = sext i32 %16 to i64
   %gep146 = getelementptr i64, ptr %invariant.gep145, i64 %indvars.iv
   %17 = load i64, ptr %gep146, align 8
   %mul64 = mul nsw i64 %17, %conv60
-  %add65 = add nsw i64 %mul64, %sum.7
+  %add65 = add nsw i64 %mul64, %sum.8
   br label %sw.bb66
 
 sw.bb66:                                          ; preds = %sw.bb58, %for.body
-  %sum.8 = phi i64 [ 0, %for.body ], [ %add65, %sw.bb58 ]
+  %sum.9 = phi i64 [ 0, %for.body ], [ %add65, %sw.bb58 ]
   %18 = load i32, ptr %arrayidx67, align 4
   %conv68 = sext i32 %18 to i64
   %gep148 = getelementptr i64, ptr %invariant.gep147, i64 %indvars.iv
   %19 = load i64, ptr %gep148, align 8
   %mul72 = mul nsw i64 %19, %conv68
-  %add73 = add nsw i64 %mul72, %sum.8
+  %add73 = add nsw i64 %mul72, %sum.9
   br label %sw.bb74
 
 sw.bb74:                                          ; preds = %sw.bb66, %for.body
-  %sum.9 = phi i64 [ 0, %for.body ], [ %add73, %sw.bb66 ]
+  %sum.10 = phi i64 [ 0, %for.body ], [ %add73, %sw.bb66 ]
   %20 = load i32, ptr %arrayidx75, align 4
   %conv76 = sext i32 %20 to i64
   %gep150 = getelementptr i64, ptr %invariant.gep149, i64 %indvars.iv
   %21 = load i64, ptr %gep150, align 8
   %mul80 = mul nsw i64 %21, %conv76
-  %add81 = add nsw i64 %mul80, %sum.9
+  %add81 = add nsw i64 %mul80, %sum.10
   br label %sw.bb82
 
 sw.bb82:                                          ; preds = %sw.bb74, %for.body
-  %sum.10 = phi i64 [ 0, %for.body ], [ %add81, %sw.bb74 ]
+  %sum.11 = phi i64 [ 0, %for.body ], [ %add81, %sw.bb74 ]
   %22 = load i32, ptr %arrayidx83, align 4
   %conv84 = sext i32 %22 to i64
   %gep152 = getelementptr i64, ptr %invariant.gep151, i64 %indvars.iv
   %23 = load i64, ptr %gep152, align 8
   %mul88 = mul nsw i64 %23, %conv84
-  %add89 = add nsw i64 %mul88, %sum.10
+  %add89 = add nsw i64 %mul88, %sum.11
   br label %sw.bb90
 
 sw.bb90:                                          ; preds = %sw.bb82, %for.body
-  %sum.11 = phi i64 [ 0, %for.body ], [ %add89, %sw.bb82 ]
+  %sum.12 = phi i64 [ 0, %for.body ], [ %add89, %sw.bb82 ]
   %24 = load i32, ptr %arrayidx91, align 4
   %conv92 = sext i32 %24 to i64
   %gep154 = getelementptr i64, ptr %invariant.gep153, i64 %indvars.iv
   %25 = load i64, ptr %gep154, align 8
   %mul96 = mul nsw i64 %25, %conv92
-  %add97 = add nsw i64 %mul96, %sum.11
+  %add97 = add nsw i64 %mul96, %sum.12
   br label %sw.bb98
 
 sw.bb98:                                          ; preds = %sw.bb90, %for.body
-  %sum.12 = phi i64 [ 0, %for.body ], [ %add97, %sw.bb90 ]
+  %sum.13 = phi i64 [ 0, %for.body ], [ %add97, %sw.bb90 ]
   %26 = load i32, ptr %arrayidx99, align 4
   %conv100 = sext i32 %26 to i64
   %gep156 = getelementptr i64, ptr %invariant.gep155, i64 %indvars.iv
   %27 = load i64, ptr %gep156, align 8
   %mul104 = mul nsw i64 %27, %conv100
-  %add105 = add nsw i64 %mul104, %sum.12
+  %add105 = add nsw i64 %mul104, %sum.13
   br label %sw.bb106
 
 sw.bb106:                                         ; preds = %sw.bb98, %for.body
-  %sum.13 = phi i64 [ 0, %for.body ], [ %add105, %sw.bb98 ]
+  %sum.14 = phi i64 [ 0, %for.body ], [ %add105, %sw.bb98 ]
   %28 = load i32, ptr %arrayidx107, align 4
   %conv108 = sext i32 %28 to i64
   %gep158 = getelementptr i64, ptr %invariant.gep157, i64 %indvars.iv
   %29 = load i64, ptr %gep158, align 8
   %mul112 = mul nsw i64 %29, %conv108
-  %add113 = add nsw i64 %mul112, %sum.13
+  %add113 = add nsw i64 %mul112, %sum.14
   br label %sw.bb114
 
 sw.bb114:                                         ; preds = %sw.bb106, %for.body
-  %sum.14 = phi i64 [ 0, %for.body ], [ %add113, %sw.bb106 ]
+  %sum.15 = phi i64 [ 0, %for.body ], [ %add113, %sw.bb106 ]
   %30 = load i32, ptr %arrayidx115, align 4
   %conv116 = sext i32 %30 to i64
   %gep160 = getelementptr i64, ptr %invariant.gep159, i64 %indvars.iv
   %31 = load i64, ptr %gep160, align 8
   %mul120 = mul nsw i64 %31, %conv116
-  %add121 = add nsw i64 %mul120, %sum.14
+  %add121 = add nsw i64 %mul120, %sum.15
   br label %sw.bb122
 
 sw.bb122:                                         ; preds = %sw.bb114, %for.body
-  %sum.15 = phi i64 [ 0, %for.body ], [ %add121, %sw.bb114 ]
+  %sum.16 = phi i64 [ 0, %for.body ], [ %add121, %sw.bb114 ]
   %32 = load i32, ptr %arrayidx123, align 4
   %conv124 = sext i32 %32 to i64
   %gep162 = getelementptr i64, ptr %invariant.gep161, i64 %indvars.iv
   %33 = load i64, ptr %gep162, align 8
   %mul128 = mul nsw i64 %33, %conv124
-  %add129 = add nsw i64 %mul128, %sum.15
+  %add129 = add nsw i64 %mul128, %sum.16
   br label %sw.bb130
 
 sw.bb130:                                         ; preds = %sw.bb122, %for.body
-  %sum.16 = phi i64 [ 0, %for.body ], [ %add129, %sw.bb122 ]
+  %sum.17 = phi i64 [ 0, %for.body ], [ %add129, %sw.bb122 ]
   %34 = load i32, ptr %arrayidx131, align 4
   %conv132 = sext i32 %34 to i64
   %gep164 = getelementptr i64, ptr %invariant.gep163, i64 %indvars.iv
   %35 = load i64, ptr %gep164, align 8
   %mul136 = mul nsw i64 %35, %conv132
-  %add137 = add nsw i64 %mul136, %sum.16
+  %add137 = add nsw i64 %mul136, %sum.17
   br label %sw.bb138
 
 sw.bb138:                                         ; preds = %sw.bb130, %for.body
-  %sum.17 = phi i64 [ 0, %for.body ], [ %add137, %sw.bb130 ]
+  %sum.18 = phi i64 [ 0, %for.body ], [ %add137, %sw.bb130 ]
   %36 = load i32, ptr %arrayidx139, align 4
   %conv140 = sext i32 %36 to i64
   %gep166 = getelementptr i64, ptr %invariant.gep165, i64 %indvars.iv
   %37 = load i64, ptr %gep166, align 8
   %mul144 = mul nsw i64 %37, %conv140
-  %add145 = add nsw i64 %mul144, %sum.17
+  %add145 = add nsw i64 %mul144, %sum.18
   br label %sw.bb146
 
 sw.bb146:                                         ; preds = %sw.bb138, %for.body
-  %sum.18 = phi i64 [ 0, %for.body ], [ %add145, %sw.bb138 ]
+  %sum.19 = phi i64 [ 0, %for.body ], [ %add145, %sw.bb138 ]
   %38 = load i32, ptr %arrayidx147, align 4
   %conv148 = sext i32 %38 to i64
   %gep168 = getelementptr i64, ptr %invariant.gep167, i64 %indvars.iv
   %39 = load i64, ptr %gep168, align 8
   %mul152 = mul nsw i64 %39, %conv148
-  %add153 = add nsw i64 %mul152, %sum.18
+  %add153 = add nsw i64 %mul152, %sum.19
   br label %sw.bb154
 
 sw.bb154:                                         ; preds = %sw.bb146, %for.body
-  %sum.19 = phi i64 [ 0, %for.body ], [ %add153, %sw.bb146 ]
+  %sum.20 = phi i64 [ 0, %for.body ], [ %add153, %sw.bb146 ]
   %40 = load i32, ptr %arrayidx155, align 4
   %conv156 = sext i32 %40 to i64
   %gep170 = getelementptr i64, ptr %invariant.gep169, i64 %indvars.iv
   %41 = load i64, ptr %gep170, align 8
   %mul160 = mul nsw i64 %41, %conv156
-  %add161 = add nsw i64 %mul160, %sum.19
+  %add161 = add nsw i64 %mul160, %sum.20
   br label %sw.bb162
 
 sw.bb162:                                         ; preds = %sw.bb154, %for.body
-  %sum.20 = phi i64 [ 0, %for.body ], [ %add161, %sw.bb154 ]
+  %sum.21 = phi i64 [ 0, %for.body ], [ %add161, %sw.bb154 ]
   %42 = load i32, ptr %arrayidx163, align 4
   %conv164 = sext i32 %42 to i64
   %gep172 = getelementptr i64, ptr %invariant.gep171, i64 %indvars.iv
   %43 = load i64, ptr %gep172, align 8
   %mul168 = mul nsw i64 %43, %conv164
-  %add169 = add nsw i64 %mul168, %sum.20
+  %add169 = add nsw i64 %mul168, %sum.21
   br label %sw.bb170
 
 sw.bb170:                                         ; preds = %sw.bb162, %for.body
-  %sum.21 = phi i64 [ 0, %for.body ], [ %add169, %sw.bb162 ]
+  %sum.22 = phi i64 [ 0, %for.body ], [ %add169, %sw.bb162 ]
   %44 = load i32, ptr %arrayidx171, align 4
   %conv172 = sext i32 %44 to i64
   %gep174 = getelementptr i64, ptr %invariant.gep173, i64 %indvars.iv
   %45 = load i64, ptr %gep174, align 8
   %mul176 = mul nsw i64 %45, %conv172
-  %add177 = add nsw i64 %mul176, %sum.21
+  %add177 = add nsw i64 %mul176, %sum.22
   br label %sw.bb178
 
 sw.bb178:                                         ; preds = %sw.bb170, %for.body
-  %sum.22 = phi i64 [ 0, %for.body ], [ %add177, %sw.bb170 ]
+  %sum.23 = phi i64 [ 0, %for.body ], [ %add177, %sw.bb170 ]
   %46 = load i32, ptr %arrayidx179, align 4
   %conv180 = sext i32 %46 to i64
   %gep176 = getelementptr i64, ptr %invariant.gep175, i64 %indvars.iv
   %47 = load i64, ptr %gep176, align 8
   %mul184 = mul nsw i64 %47, %conv180
-  %add185 = add nsw i64 %mul184, %sum.22
+  %add185 = add nsw i64 %mul184, %sum.23
   br label %sw.bb186
 
 sw.bb186:                                         ; preds = %sw.bb178, %for.body
-  %sum.23 = phi i64 [ 0, %for.body ], [ %add185, %sw.bb178 ]
+  %sum.24 = phi i64 [ 0, %for.body ], [ %add185, %sw.bb178 ]
   %48 = load i32, ptr %arrayidx187, align 4
   %conv188 = sext i32 %48 to i64
   %gep178 = getelementptr i64, ptr %invariant.gep177, i64 %indvars.iv
   %49 = load i64, ptr %gep178, align 8
   %mul192 = mul nsw i64 %49, %conv188
-  %add193 = add nsw i64 %mul192, %sum.23
+  %add193 = add nsw i64 %mul192, %sum.24
   br label %sw.bb194
 
 sw.bb194:                                         ; preds = %sw.bb186, %for.body
-  %sum.24 = phi i64 [ 0, %for.body ], [ %add193, %sw.bb186 ]
+  %sum.25 = phi i64 [ 0, %for.body ], [ %add193, %sw.bb186 ]
   %50 = load i32, ptr %arrayidx195, align 4
   %conv196 = sext i32 %50 to i64
   %gep180 = getelementptr i64, ptr %invariant.gep179, i64 %indvars.iv
   %51 = load i64, ptr %gep180, align 8
   %mul200 = mul nsw i64 %51, %conv196
-  %add201 = add nsw i64 %mul200, %sum.24
+  %add201 = add nsw i64 %mul200, %sum.25
   br label %sw.bb202
 
 sw.bb202:                                         ; preds = %sw.bb194, %for.body
-  %sum.25 = phi i64 [ 0, %for.body ], [ %add201, %sw.bb194 ]
+  %sum.26 = phi i64 [ 0, %for.body ], [ %add201, %sw.bb194 ]
   %52 = load i32, ptr %arrayidx203, align 4
   %conv204 = sext i32 %52 to i64
   %gep182 = getelementptr i64, ptr %invariant.gep181, i64 %indvars.iv
   %53 = load i64, ptr %gep182, align 8
   %mul208 = mul nsw i64 %53, %conv204
-  %add209 = add nsw i64 %mul208, %sum.25
+  %add209 = add nsw i64 %mul208, %sum.26
   br label %sw.bb210
 
 sw.bb210:                                         ; preds = %sw.bb202, %for.body
-  %sum.26 = phi i64 [ 0, %for.body ], [ %add209, %sw.bb202 ]
+  %sum.27 = phi i64 [ 0, %for.body ], [ %add209, %sw.bb202 ]
   %54 = load i32, ptr %arrayidx211, align 4
   %conv212 = sext i32 %54 to i64
   %gep184 = getelementptr i64, ptr %invariant.gep183, i64 %indvars.iv
   %55 = load i64, ptr %gep184, align 8
   %mul216 = mul nsw i64 %55, %conv212
-  %add217 = add nsw i64 %mul216, %sum.26
+  %add217 = add nsw i64 %mul216, %sum.27
   br label %sw.bb218
 
 sw.bb218:                                         ; preds = %sw.bb210, %for.body
-  %sum.27 = phi i64 [ 0, %for.body ], [ %add217, %sw.bb210 ]
+  %sum.28 = phi i64 [ 0, %for.body ], [ %add217, %sw.bb210 ]
   %56 = load i32, ptr %arrayidx219, align 4
   %conv220 = sext i32 %56 to i64
   %gep186 = getelementptr i64, ptr %invariant.gep185, i64 %indvars.iv
   %57 = load i64, ptr %gep186, align 8
   %mul224 = mul nsw i64 %57, %conv220
-  %add225 = add nsw i64 %mul224, %sum.27
+  %add225 = add nsw i64 %mul224, %sum.28
   br label %sw.bb226
 
 sw.bb226:                                         ; preds = %sw.bb218, %for.body
-  %sum.28 = phi i64 [ 0, %for.body ], [ %add225, %sw.bb218 ]
+  %sum.29 = phi i64 [ 0, %for.body ], [ %add225, %sw.bb218 ]
   %58 = load i32, ptr %arrayidx227, align 4
   %conv228 = sext i32 %58 to i64
   %gep188 = getelementptr i64, ptr %invariant.gep187, i64 %indvars.iv
   %59 = load i64, ptr %gep188, align 8
   %mul232 = mul nsw i64 %59, %conv228
-  %add233 = add nsw i64 %mul232, %sum.28
+  %add233 = add nsw i64 %mul232, %sum.29
   br label %sw.bb234
 
 sw.bb234:                                         ; preds = %sw.bb226, %for.body
-  %sum.29 = phi i64 [ 0, %for.body ], [ %add233, %sw.bb226 ]
+  %sum.30 = phi i64 [ 0, %for.body ], [ %add233, %sw.bb226 ]
   %60 = load i32, ptr %arrayidx235, align 4
   %conv236 = sext i32 %60 to i64
   %gep190 = getelementptr i64, ptr %invariant.gep189, i64 %indvars.iv
   %61 = load i64, ptr %gep190, align 8
   %mul240 = mul nsw i64 %61, %conv236
-  %add241 = add nsw i64 %mul240, %sum.29
+  %add241 = add nsw i64 %mul240, %sum.30
   br label %sw.bb242
 
 sw.bb242:                                         ; preds = %sw.bb234, %for.body
-  %sum.30 = phi i64 [ 0, %for.body ], [ %add241, %sw.bb234 ]
+  %sum.31 = phi i64 [ 0, %for.body ], [ %add241, %sw.bb234 ]
   %62 = load i32, ptr %qlp_coeff, align 4
   %conv244 = sext i32 %62 to i64
   %gep192 = getelementptr i64, ptr %invariant.gep191, i64 %indvars.iv
   %63 = load i64, ptr %gep192, align 8
   %mul248 = mul nsw i64 %63, %conv244
-  %add249 = add nsw i64 %mul248, %sum.30
+  %add249 = add nsw i64 %mul248, %sum.31
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb242, %for.body
-  %sum.31 = phi i64 [ 0, %for.body ], [ %add249, %sw.bb242 ]
+  %sum.0 = phi i64 [ 0, %for.body ], [ %add249, %sw.bb242 ]
   %arrayidx251 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   %64 = load i32, ptr %arrayidx251, align 4
   %conv252 = sext i32 %64 to i64
-  %shr = ashr i64 %sum.31, %sh_prom
+  %shr = ashr i64 %sum.0, %sh_prom
   %add253 = add nsw i64 %shr, %conv252
   %arrayidx255 = getelementptr inbounds i64, ptr %data, i64 %indvars.iv
   store i64 %add253, ptr %arrayidx255, align 8

@@ -544,10 +544,10 @@ _ZN4core3str11validations15next_code_point17h9c3c98fe0ee36bacE.exit.thread.i.i.i
   br label %"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b08569ab01d5365E.exit.thread"
 
 117:                                              ; preds = %111, %106
-  %.sroa.4.0.i.i = phi i64 [ %116, %111 ], [ %110, %106 ]
-  %.sroa.0.0.i.i = phi ptr [ %115, %111 ], [ %109, %106 ]
+  %.sroa.4.1.i.i = phi i64 [ %116, %111 ], [ %110, %106 ]
+  %.sroa.0.1.i.i = phi ptr [ %115, %111 ], [ %109, %106 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !29
-  %118 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h632d17241ffd0c0aE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i)
+  %118 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h632d17241ffd0c0aE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i, i64 noundef %.sroa.4.1.i.i)
   %119 = extractvalue { ptr, i64 } %118, 0
   %120 = extractvalue { ptr, i64 } %118, 1
   %121 = icmp ne ptr %119, null

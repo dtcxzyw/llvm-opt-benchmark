@@ -1150,8 +1150,8 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nocap
   br i1 %.not94, label %._crit_edge117, label %.lr.ph116.split.split
 
 .lr.ph116.split.us.split:                         ; preds = %57, %47
-  %.177.ph = phi i32 [ %48, %47 ], [ %44, %57 ]
-  %.1.ph = phi i32 [ %44, %47 ], [ %58, %57 ]
+  %.076.ph = phi i32 [ %48, %47 ], [ %44, %57 ]
+  %.075.ph = phi i32 [ %44, %47 ], [ %58, %57 ]
   %71 = getelementptr inbounds i8, ptr %.079.lcssa, i64 4
   %72 = getelementptr inbounds i8, ptr %.079.lcssa, i64 16
   %73 = load i32, ptr %71, align 4
@@ -1212,13 +1212,13 @@ define internal fastcc noundef ptr @transformArrayExpr(ptr noundef %0, ptr nocap
   br i1 %105, label %.lr.ph132, label %._crit_edge117
 
 ._crit_edge117:                                   ; preds = %101, %.lr.ph138, %.lr.ph116.split.us.split, %.lr.ph116.split.split, %67
-  %.1160 = phi i32 [ %2, %67 ], [ %.1.ph, %.lr.ph116.split.us.split ], [ %2, %.lr.ph116.split.split ], [ %.1.ph, %.lr.ph138 ], [ %2, %101 ]
-  %.177158 = phi i32 [ %3, %67 ], [ %.177.ph, %.lr.ph116.split.us.split ], [ %3, %.lr.ph116.split.split ], [ %.177.ph, %.lr.ph138 ], [ %3, %101 ]
+  %.075160 = phi i32 [ %2, %67 ], [ %.075.ph, %.lr.ph116.split.us.split ], [ %2, %.lr.ph116.split.split ], [ %.075.ph, %.lr.ph138 ], [ %2, %101 ]
+  %.076158 = phi i32 [ %3, %67 ], [ %.076.ph, %.lr.ph116.split.us.split ], [ %3, %.lr.ph116.split.split ], [ %.076.ph, %.lr.ph138 ], [ %3, %101 ]
   %.080.lcssa = phi ptr [ null, %67 ], [ null, %.lr.ph116.split.us.split ], [ null, %.lr.ph116.split.split ], [ %79, %.lr.ph138 ], [ %102, %101 ]
   %106 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %.1160, ptr %106, align 4
+  store i32 %.075160, ptr %106, align 4
   %107 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 %.177158, ptr %107, align 4
+  store i32 %.076158, ptr %107, align 4
   %108 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %.080.lcssa, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2294,7 +2294,7 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef %1) un
 
 .lr.ph60:                                         ; preds = %.lr.ph52, %.lr.ph60
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.lr.ph60 ], [ 0, %.lr.ph52 ]
-  %.15058 = phi ptr [ %37, %.lr.ph60 ], [ %.0.lcssa, %.lr.ph52 ]
+  %.25058 = phi ptr [ %37, %.lr.ph60 ], [ %.0.lcssa, %.lr.ph52 ]
   %30 = load ptr, ptr %26, align 8
   %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv64
   %32 = load ptr, ptr %31, align 8
@@ -2304,7 +2304,7 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef %1) un
   store i32 20, ptr %27, align 8
   %36 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %34)
   store i32 %35, ptr %27, align 8
-  %37 = tail call ptr @lappend(ptr noundef %.15058, ptr noundef %36) #9
+  %37 = tail call ptr @lappend(ptr noundef %.25058, ptr noundef %36) #9
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %38 = load i32, ptr %25, align 4
   %39 = sext i32 %38 to i64
@@ -2312,12 +2312,12 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef %1) un
   br i1 %40, label %.lr.ph60, label %.thread37
 
 .thread37:                                        ; preds = %.lr.ph60, %22, %.lr.ph52, %._crit_edge
-  %.2 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %22 ], [ %.0.lcssa, %.lr.ph52 ], [ %37, %.lr.ph60 ]
+  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %22 ], [ %.0.lcssa, %.lr.ph52 ], [ %37, %.lr.ph60 ]
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %1, i64 56
   %44 = load i32, ptr %43, align 8
-  %45 = tail call ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %42, ptr noundef %.2, ptr noundef %4, ptr noundef %1, i1 noundef zeroext false, i32 noundef %44) #9
+  %45 = tail call ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %42, ptr noundef %.1, ptr noundef %4, ptr noundef %1, i1 noundef zeroext false, i32 noundef %44) #9
   ret ptr %45
 }
 
@@ -3805,7 +3805,7 @@ define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.032 = phi ptr [ null, %.lr.ph ], [ %19, %8 ]
+  %.132 = phi ptr [ null, %.lr.ph ], [ %19, %8 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -3815,7 +3815,7 @@ define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef nonnull @.str.134, ptr noundef %16, i32 noundef 0, i32 noundef 0)
-  %18 = tail call ptr @lappend(ptr noundef %.032, ptr noundef %14) #9
+  %18 = tail call ptr @lappend(ptr noundef %.132, ptr noundef %14) #9
   %19 = tail call ptr @lappend(ptr noundef %18, ptr noundef %17) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %5, align 4
@@ -3824,7 +3824,7 @@ define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %
   br i1 %.not27, label %8, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %8, %.preheader, %2
-  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %19, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %19, %8 ]
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef %23, i1 noundef zeroext true)
@@ -3834,12 +3834,12 @@ define internal fastcc noundef ptr @transformJsonObjectConstructor(ptr noundef %
   br i1 %.not.i, label %.preheader.i, label %transformJsonConstructorOutput.exit
 
 .preheader.i:                                     ; preds = %.loopexit
-  %.not21.i = icmp eq ptr %.1, null
+  %.not21.i = icmp eq ptr %.0, null
   br i1 %.not21.i, label %.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %27 = getelementptr inbounds i8, ptr %.1, i64 4
-  %28 = getelementptr inbounds i8, ptr %.1, i64 16
+  %27 = getelementptr inbounds i8, ptr %.0, i64 4
+  %28 = getelementptr inbounds i8, ptr %.0, i64 16
   %29 = load i32, ptr %27, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph32.i, label %.split.i
@@ -3881,7 +3881,7 @@ transformJsonConstructorOutput.exit:              ; preds = %.loopexit, %.split.
   %48 = trunc i8 %47 to i1
   %49 = getelementptr inbounds i8, ptr %1, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = tail call fastcc ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef 1, ptr noundef %.1, ptr noundef null, ptr noundef nonnull %24, i1 noundef zeroext %45, i1 noundef zeroext %48, i32 noundef %50)
+  %51 = tail call fastcc ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef 1, ptr noundef %.0, ptr noundef null, ptr noundef nonnull %24, i1 noundef zeroext %45, i1 noundef zeroext %48, i32 noundef %50)
   ret ptr %51
 }
 
@@ -3904,12 +3904,12 @@ define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.027 = phi ptr [ null, %.lr.ph ], [ %13, %8 ]
+  %.127 = phi ptr [ null, %.lr.ph ], [ %13, %8 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef nonnull @.str.148, ptr noundef %11, i32 noundef 0, i32 noundef 0)
-  %13 = tail call ptr @lappend(ptr noundef %.027, ptr noundef %12) #9
+  %13 = tail call ptr @lappend(ptr noundef %.127, ptr noundef %12) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %5, align 4
   %15 = sext i32 %14 to i64
@@ -3917,7 +3917,7 @@ define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0
   br i1 %.not22, label %8, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %8, %.preheader, %2
-  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %13, %8 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %13, %8 ]
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef %17, i1 noundef zeroext true)
@@ -3927,12 +3927,12 @@ define internal fastcc noundef ptr @transformJsonArrayConstructor(ptr noundef %0
   br i1 %.not.i, label %.preheader.i, label %transformJsonConstructorOutput.exit
 
 .preheader.i:                                     ; preds = %.loopexit
-  %.not21.i = icmp eq ptr %.1, null
+  %.not21.i = icmp eq ptr %.0, null
   br i1 %.not21.i, label %.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %21 = getelementptr inbounds i8, ptr %.1, i64 4
-  %22 = getelementptr inbounds i8, ptr %.1, i64 16
+  %21 = getelementptr inbounds i8, ptr %.0, i64 4
+  %22 = getelementptr inbounds i8, ptr %.0, i64 16
   %23 = load i32, ptr %21, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph32.i, label %.split.i
@@ -3971,7 +3971,7 @@ transformJsonConstructorOutput.exit:              ; preds = %.loopexit, %.split.
   %39 = trunc i8 %38 to i1
   %40 = getelementptr inbounds i8, ptr %1, i64 28
   %41 = load i32, ptr %40, align 4
-  %42 = tail call fastcc ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef 2, ptr noundef %.1, ptr noundef null, ptr noundef nonnull %18, i1 noundef zeroext false, i1 noundef zeroext %39, i32 noundef %41)
+  %42 = tail call fastcc ptr @makeJsonConstructorExpr(ptr noundef %0, i32 noundef 2, ptr noundef %.0, ptr noundef null, ptr noundef nonnull %18, i1 noundef zeroext false, i1 noundef zeroext %39, i32 noundef %41)
   ret ptr %42
 }
 
@@ -4193,9 +4193,9 @@ transformJsonConstructorOutput.exit:              ; preds = %2, %.split.i
 53:                                               ; preds = %51, %52, %48, %49
   %.pre-phi28 = phi i1 [ true, %51 ], [ false, %52 ], [ true, %48 ], [ false, %49 ]
   %.024 = phi i32 [ 114, %51 ], [ 114, %52 ], [ 3802, %48 ], [ 3802, %49 ]
-  %.2 = phi i32 [ %.26, %51 ], [ %.27, %52 ], [ %., %48 ], [ %.25, %49 ]
+  %.1 = phi i32 [ %.26, %51 ], [ %.27, %52 ], [ %., %48 ], [ %.25, %49 ]
   %54 = load ptr, ptr %13, align 8
-  %55 = tail call fastcc ptr @transformJsonAggConstructor(ptr noundef %0, ptr noundef %54, ptr noundef nonnull %17, ptr noundef %12, i32 noundef %.2, i32 noundef %.024, i32 noundef 3, i1 noundef zeroext %46, i1 noundef zeroext %.pre-phi28)
+  %55 = tail call fastcc ptr @transformJsonAggConstructor(ptr noundef %0, ptr noundef %54, ptr noundef nonnull %17, ptr noundef %12, i32 noundef %.1, i32 noundef %.024, i32 noundef 3, i1 noundef zeroext %46, i1 noundef zeroext %.pre-phi28)
   ret ptr %55
 }
 
@@ -5187,17 +5187,17 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br i1 %.not92, label %.thread139, label %65
 
 65:                                               ; preds = %57, %62
-  %.1121 = phi ptr [ %.079, %62 ], [ %60, %57 ]
+  %.2121 = phi ptr [ %.079, %62 ], [ %60, %57 ]
   %.082120 = phi i32 [ %16, %62 ], [ 25, %57 ]
-  %66 = call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %.1121, i32 noundef %.082120, i32 noundef %4, i32 noundef -1, i32 noundef 3, i32 noundef 1, i32 noundef %17) #9
+  %66 = call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %.2121, i32 noundef %.082120, i32 noundef %4, i32 noundef -1, i32 noundef 3, i32 noundef 1, i32 noundef %17) #9
   %.not = icmp eq ptr %66, null
   br i1 %.not, label %.thread134, label %82
 
 .thread139:                                       ; preds = %62, %57
   %67 = phi i32 [ 114, %57 ], [ %64, %62 ]
-  %.1124 = phi ptr [ %60, %57 ], [ %.079, %62 ]
+  %.2124 = phi ptr [ %60, %57 ], [ %.079, %62 ]
   %.082123 = phi i32 [ 25, %57 ], [ %16, %62 ]
-  %68 = call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %.1124, i32 noundef %.082123, i32 noundef %67, i32 noundef -1, i32 noundef 3, i32 noundef 1, i32 noundef %17) #9
+  %68 = call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %.2124, i32 noundef %.082123, i32 noundef %67, i32 noundef -1, i32 noundef 3, i32 noundef 1, i32 noundef %17) #9
   %.not143 = icmp eq ptr %68, null
   br i1 %.not143, label %76, label %82
 
@@ -5221,16 +5221,16 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
 76:                                               ; preds = %.thread139
   %77 = icmp eq i32 %67, 114
   %78 = select i1 %77, i32 3176, i32 3787
-  %79 = call ptr @list_make1_impl(i32 noundef 1, ptr %.1124) #9
+  %79 = call ptr @list_make1_impl(i32 noundef 1, ptr %.2124) #9
   %80 = call ptr @makeFuncExpr(i32 noundef %78, i32 noundef %67, ptr noundef %79, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %81 = getelementptr inbounds i8, ptr %80, i64 40
   store i32 %17, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %.thread139, %.thread125, %76, %65
-  %.1121130 = phi ptr [ %.1121, %65 ], [ %.1124, %76 ], [ %.079, %.thread125 ], [ %.1124, %.thread139 ]
+  %.2121130 = phi ptr [ %.2121, %65 ], [ %.2124, %76 ], [ %.079, %.thread125 ], [ %.2124, %.thread139 ]
   %.081 = phi ptr [ %66, %65 ], [ %80, %76 ], [ %69, %.thread125 ], [ %68, %.thread139 ]
-  %83 = icmp eq ptr %.081, %.1121130
+  %83 = icmp eq ptr %.081, %.2121130
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %82
@@ -5242,8 +5242,8 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br label %88
 
 88:                                               ; preds = %82, %84, %.thread
-  %.2 = phi ptr [ %85, %84 ], [ %.079, %.thread ], [ %.079, %82 ]
-  ret ptr %.2
+  %.1 = phi ptr [ %85, %84 ], [ %.079, %.thread ], [ %.079, %82 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5703,7 +5703,7 @@ define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1
   br label %24
 
 24:                                               ; preds = %17, %22
-  %.0 = phi ptr [ %23, %22 ], [ %7, %17 ]
+  %.1 = phi ptr [ %23, %22 ], [ %7, %17 ]
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, 0
@@ -5721,8 +5721,8 @@ define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1
   unreachable
 
 34:                                               ; preds = %24, %10
-  %.1 = phi ptr [ %16, %10 ], [ %.0, %24 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %16, %10 ], [ %.1, %24 ]
+  ret ptr %.0
 }
 
 declare ptr @makeJsonIsPredicate(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2

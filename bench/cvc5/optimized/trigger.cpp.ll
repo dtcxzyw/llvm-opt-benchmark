@@ -3712,7 +3712,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %gtAddedLemmas.0231 = phi i64 [ 0, %for.body.lr.ph ], [ %gtAddedLemmas.1, %for.inc ]
+  %gtAddedLemmas.1231 = phi i64 [ 0, %for.body.lr.ph ], [ %gtAddedLemmas.2, %for.inc ]
   %__begin4.sroa.0.0230 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %5 = load ptr, ptr %__begin4.sroa.0.0230, align 8
   store ptr %5, ptr %agg.tmp, align 8
@@ -3845,7 +3845,7 @@ terminate.lpad.i84:                               ; preds = %if.then13.i.i83
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit85: ; preds = %invoke.cont33, %if.then.i.i77, %if.then13.i.i83
-  %inc = add i64 %gtAddedLemmas.0231, 1
+  %inc = add i64 %gtAddedLemmas.1231, 1
   %20 = load ptr, ptr %eq, align 8
   %bf.load.i.i86 = load i64, ptr %20, align 8
   %21 = and i64 %bf.load.i.i86, 1152920405095219200
@@ -3926,13 +3926,13 @@ ehcleanup:                                        ; preds = %lpad32, %lpad18
   br label %eh.resume
 
 for.inc:                                          ; preds = %if.then13.i.i105, %if.then.i.i99, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96, %for.body
-  %gtAddedLemmas.1 = phi i64 [ %gtAddedLemmas.0231, %for.body ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96 ], [ %inc, %if.then.i.i99 ], [ %inc, %if.then13.i.i105 ]
+  %gtAddedLemmas.2 = phi i64 [ %gtAddedLemmas.1231, %for.body ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96 ], [ %inc, %if.then.i.i99 ], [ %inc, %if.then13.i.i105 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0230, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %if.end79, label %for.body
 
 if.end79:                                         ; preds = %for.inc, %if.then, %entry
-  %gtAddedLemmas.2 = phi i64 [ 0, %entry ], [ 0, %if.then ], [ %gtAddedLemmas.1, %for.inc ]
+  %gtAddedLemmas.0 = phi i64 [ 0, %entry ], [ 0, %if.then ], [ %gtAddedLemmas.2, %for.inc ]
   %d_mg = getelementptr inbounds i8, ptr %this, i64 112
   %32 = load ptr, ptr %d_mg, align 8
   %d_instMatch = getelementptr inbounds i8, ptr %this, i64 120
@@ -3940,7 +3940,7 @@ if.end79:                                         ; preds = %for.inc, %if.then, 
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %33 = load ptr, ptr %vfn, align 8
   %call38 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(72) %d_instMatch)
-  %add = add i64 %call38, %gtAddedLemmas.2
+  %add = add i64 %call38, %gtAddedLemmas.0
   ret i64 %add
 
 eh.resume:                                        ; preds = %lpad16, %ehcleanup, %lpad14

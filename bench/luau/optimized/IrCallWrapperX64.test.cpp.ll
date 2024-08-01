@@ -5282,8 +5282,8 @@ define linkonce_odr dso_local void @_ZN23IrCallWrapperX64Fixture10checkMatchENSt
 
 30:                                               ; preds = %29, %22
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %29 ], [ %23, %22 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %31 = call ptr @__cxa_begin_catch(ptr %.2) #16
+  %.14 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %31 = call ptr @__cxa_begin_catch(ptr %.14) #16
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %3)
           to label %32 unwind label %37
 

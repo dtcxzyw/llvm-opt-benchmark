@@ -1328,8 +1328,8 @@ define { i64, ptr } @"_ZN73_$LT$tokio_test..io..Mock$u20$as$u20$tokio..io..async
           to label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17hdc88ea52445461c3E.exit" unwind label %39
 
 .loopexit:                                        ; preds = %28, %.thread70
-  %.sroa.7.0 = phi ptr [ %.sroa.7.277, %.thread70 ], [ undef, %28 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.278, %.thread70 ], [ 1, %28 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.7.177, %.thread70 ], [ undef, %28 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.178, %.thread70 ], [ 1, %28 ]
   %37 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %38 = insertvalue { i64, ptr } %37, ptr %.sroa.7.0, 1
   ret { i64, ptr } %38
@@ -1584,7 +1584,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %111
   br label %.fold.split
 
 .fold.split:                                      ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit, %.loopexit299
-  %.sroa.0.1 = phi i64 [ 1, %.loopexit299 ], [ 0, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ]
+  %.sroa.0.2 = phi i64 [ 1, %.loopexit299 ], [ 0, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %.thread70
 
@@ -1758,8 +1758,8 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %111
   br label %.body.thread
 
 .thread70:                                        ; preds = %108, %100, %.fold.split, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit"
-  %.sroa.0.278 = phi i64 [ 1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ %.sroa.0.1, %.fold.split ], [ 0, %100 ], [ 0, %108 ]
-  %.sroa.7.277 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ null, %.fold.split ], [ null, %108 ], [ %.val49, %100 ]
+  %.sroa.0.178 = phi i64 [ 1, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ %.sroa.0.2, %.fold.split ], [ 0, %100 ], [ 0, %108 ]
+  %.sroa.7.177 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E.exit" ], [ null, %.fold.split ], [ null, %108 ], [ %.val49, %100 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %.loopexit
 

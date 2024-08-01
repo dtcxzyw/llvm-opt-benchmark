@@ -541,7 +541,7 @@ if.end116:                                        ; preds = %if.end101
   br label %while.cond.outer, !llvm.loop !7
 
 while.cond.outer:                                 ; preds = %cond.true81, %if.end116
-  %tmp_data.0.ph = phi i1 [ false, %if.end116 ], [ true, %cond.true81 ]
+  %tmp_data.1.ph = phi i1 [ false, %if.end116 ], [ true, %cond.true81 ]
   br label %while.cond
 
 if.then132:                                       ; preds = %lor.rhs
@@ -627,7 +627,7 @@ if.else177:                                       ; preds = %if.else137
 
 if.end183:                                        ; preds = %land.rhs
   call void @BIO_free_all(ptr noundef nonnull %call85) #4
-  br i1 %tmp_data.0.ph, label %if.then185, label %return
+  br i1 %tmp_data.1.ph, label %if.then185, label %return
 
 if.then185:                                       ; preds = %if.end183
   %94 = load ptr, ptr %val, align 8

@@ -1310,8 +1310,8 @@ php_token_get_text.exit:                          ; preds = %27, %31
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %.0160 = phi ptr [ %115, %.critedge2 ], [ %64, %.lr.ph.preheader ]
   %.095159 = phi i32 [ %116, %.critedge2 ], [ %56, %.lr.ph.preheader ]
-  %.096158 = phi ptr [ %.2, %.critedge2 ], [ null, %.lr.ph.preheader ]
-  %.098157 = phi ptr [ %.2100, %.critedge2 ], [ null, %.lr.ph.preheader ]
+  %.096158 = phi ptr [ %.1, %.critedge2 ], [ null, %.lr.ph.preheader ]
+  %.098157 = phi ptr [ %.199, %.critedge2 ], [ null, %.lr.ph.preheader ]
   %65 = getelementptr inbounds i8, ptr %.0160, i64 8
   %66 = load i8, ptr %65, align 8
   switch i8 %66, label %70 [
@@ -1361,8 +1361,8 @@ php_token_get_text.exit:                          ; preds = %27, %31
   br label %122
 
 php_token_get_id.exit133.thread:                  ; preds = %73, %77, %72
-  %.199 = phi ptr [ %.098157, %72 ], [ %74, %73 ], [ %79, %77 ]
-  %83 = load i64, ptr %.199, align 8
+  %.2100 = phi ptr [ %.098157, %72 ], [ %74, %73 ], [ %79, %77 ]
+  %83 = load i64, ptr %.2100, align 8
   %84 = load i64, ptr %.097, align 8
   %85 = icmp eq i64 %83, %84
   br i1 %85, label %86, label %.critedge2
@@ -1408,13 +1408,13 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   br label %122
 
 99:                                               ; preds = %php_token_get_text.exit136, %88
-  %.1 = phi ptr [ %.096158, %88 ], [ %96, %php_token_get_text.exit136 ]
+  %.2 = phi ptr [ %.096158, %88 ], [ %96, %php_token_get_text.exit136 ]
   %100 = load ptr, ptr %.097, align 8
-  %101 = icmp eq ptr %.1, %100
+  %101 = icmp eq ptr %.2, %100
   br i1 %101, label %.critedge, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %.1, i64 16
+  %103 = getelementptr inbounds i8, ptr %.2, i64 16
   %104 = load i64, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %100, i64 16
   %106 = load i64, ptr %105, align 8
@@ -1422,7 +1422,7 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   br i1 %107, label %108, label %.critedge2
 
 108:                                              ; preds = %102
-  %109 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %.1, ptr noundef nonnull %100) #10
+  %109 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %.2, ptr noundef nonnull %100) #10
   br i1 %109, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %99, %108
@@ -1439,8 +1439,8 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   br label %122
 
 .critedge2:                                       ; preds = %.lr.ph, %php_token_get_id.exit133.thread, %108, %102
-  %.2100 = phi ptr [ %.098157, %.lr.ph ], [ %.199, %php_token_get_id.exit133.thread ], [ %.098157, %108 ], [ %.098157, %102 ]
-  %.2 = phi ptr [ %.096158, %.lr.ph ], [ %.096158, %php_token_get_id.exit133.thread ], [ %.1, %108 ], [ %.1, %102 ]
+  %.199 = phi ptr [ %.098157, %.lr.ph ], [ %.2100, %php_token_get_id.exit133.thread ], [ %.098157, %108 ], [ %.098157, %102 ]
+  %.1 = phi ptr [ %.096158, %.lr.ph ], [ %.096158, %php_token_get_id.exit133.thread ], [ %.2, %108 ], [ %.2, %102 ]
   %115 = getelementptr inbounds i8, ptr %.0160, i64 %62
   %116 = add i32 %.095159, -1
   %.not121 = icmp eq i32 %116, 0

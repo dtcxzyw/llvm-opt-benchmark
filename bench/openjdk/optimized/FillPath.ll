@@ -204,7 +204,7 @@ define void @Java_sun_java2d_loops_FillPath_FillPath(ptr noundef %0, ptr noundef
   br label %126
 
 126:                                              ; preds = %.critedge, %107, %118, %101, %96
-  %.1 = phi i8 [ %spec.select, %118 ], [ 0, %107 ], [ 0, %101 ], [ 0, %96 ], [ 0, %.critedge ]
+  %.2 = phi i8 [ %spec.select, %118 ], [ 0, %107 ], [ 0, %101 ], [ 0, %96 ], [ 0, %.critedge ]
   %127 = getelementptr inbounds i8, ptr %27, i64 16
   %128 = load ptr, ptr %127, align 8
   %.not110 = icmp eq ptr %128, null
@@ -215,12 +215,12 @@ define void @Java_sun_java2d_loops_FillPath_FillPath(ptr noundef %0, ptr noundef
   br label %130
 
 130:                                              ; preds = %129, %126, %82
-  %.2 = phi i8 [ %.1, %129 ], [ %.1, %126 ], [ 0, %82 ]
+  %.092 = phi i8 [ %.2, %129 ], [ %.2, %126 ], [ 0, %82 ]
   %131 = load ptr, ptr %0, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 1784
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %74, i32 noundef 2) #3
-  %.not111 = icmp eq i8 %.2, 0
+  %.not111 = icmp eq i8 %.092, 0
   br i1 %.not111, label %135, label %134
 
 134:                                              ; preds = %130

@@ -95,7 +95,7 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc.us.us
   %i.0197.us.us = phi i32 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %someRelevant.0196.us.us = phi i8 [ %someRelevant.2.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %someRelevant.0196.us.us = phi i8 [ %someRelevant.1.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
   %2 = load ptr, ptr %strings, align 8
   %call11.us.us = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %i.0197.us.us)
           to label %invoke.cont10.us.us unwind label %lpad.loopexit.split-lp.loopexit.split.us.split.us
@@ -143,7 +143,7 @@ invoke.cont20.us.us:                              ; preds = %if.end18.us.us
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %invoke.cont20.us.us, %invoke.cont14.us.us
-  %someRelevant.2.us.us = phi i8 [ %someRelevant.0196.us.us, %invoke.cont14.us.us ], [ %.someRelevant.0.us.us, %invoke.cont20.us.us ]
+  %someRelevant.1.us.us = phi i8 [ %someRelevant.0196.us.us, %invoke.cont14.us.us ], [ %.someRelevant.0.us.us, %invoke.cont20.us.us ]
   %inc.us.us = add nuw nsw i32 %i.0197.us.us, 1
   %exitcond207.not = icmp eq i32 %inc.us.us, %1
   br i1 %exitcond207.not, label %for.end, label %for.body.us.us, !llvm.loop !4
@@ -155,7 +155,7 @@ lpad.loopexit.split-lp.loopexit.split.us.split.us: ; preds = %if.end18.us.us, %f
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
   %i.0197.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
-  %someRelevant.0196.us = phi i8 [ %someRelevant.2.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %someRelevant.0196.us = phi i8 [ %someRelevant.1.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
   %7 = load ptr, ptr %strings, align 8
   %call11.us = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %i.0197.us)
           to label %invoke.cont10.us unwind label %lpad.loopexit.split-lp.loopexit.split.us.split
@@ -209,7 +209,7 @@ if.then29.us:                                     ; preds = %invoke.cont20.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %invoke.cont20.us, %if.then29.us, %invoke.cont14.us
-  %someRelevant.2.us = phi i8 [ %someRelevant.0196.us, %invoke.cont14.us ], [ %.someRelevant.0.us, %if.then29.us ], [ %.someRelevant.0.us, %invoke.cont20.us ]
+  %someRelevant.1.us = phi i8 [ %someRelevant.0196.us, %invoke.cont14.us ], [ %.someRelevant.0.us, %if.then29.us ], [ %.someRelevant.0.us, %invoke.cont20.us ]
   %inc.us = add nuw nsw i32 %i.0197.us, 1
   %exitcond208.not = icmp eq i32 %inc.us, %1
   br i1 %exitcond208.not, label %for.end, label %for.body.us, !llvm.loop !4
@@ -221,7 +221,7 @@ lpad.loopexit.split-lp.loopexit.split.us.split:   ; preds = %if.end18.us, %for.b
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0197 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %someRelevant.0196 = phi i8 [ %someRelevant.2, %for.inc ], [ 0, %for.body.lr.ph ]
+  %someRelevant.0196 = phi i8 [ %someRelevant.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %13 = load ptr, ptr %strings, align 8
   %call11 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %i.0197)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp.loopexit.split
@@ -308,13 +308,13 @@ if.then44:                                        ; preds = %invoke.cont39
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end31, %if.then44, %invoke.cont39, %invoke.cont14
-  %someRelevant.2 = phi i8 [ %someRelevant.0196, %invoke.cont14 ], [ %.someRelevant.0, %if.then44 ], [ %.someRelevant.0, %invoke.cont39 ], [ %.someRelevant.0, %if.end31 ]
+  %someRelevant.1 = phi i8 [ %someRelevant.0196, %invoke.cont14 ], [ %.someRelevant.0, %if.then44 ], [ %.someRelevant.0, %invoke.cont39 ], [ %.someRelevant.0, %if.end31 ]
   %inc = add nuw nsw i32 %i.0197, 1
   %exitcond.not = icmp eq i32 %inc, %1
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us.us, %for.inc.us
-  %someRelevant.0.lcssa = phi i8 [ %someRelevant.2.us, %for.inc.us ], [ %someRelevant.2.us.us, %for.inc.us.us ], [ %someRelevant.2, %for.inc ]
+  %someRelevant.0.lcssa = phi i8 [ %someRelevant.1.us, %for.inc.us ], [ %someRelevant.1.us.us, %for.inc.us.us ], [ %someRelevant.1, %for.inc ]
   %tobool48.not = icmp eq i8 %someRelevant.0.lcssa, 0
   br i1 %tobool48.not, label %if.end346.sink.split, label %if.end52
 
@@ -1676,7 +1676,7 @@ _ZN6icu_7510OffsetList10popMinimumEv.exit:        ; preds = %if.then.i210, %whil
   br label %for.cond.backedge
 
 cleanup:                                          ; preds = %if.then163, %if.then134, %if.then124, %if.then58, %if.then151
-  %retval.0 = phi i32 [ %add152, %if.then151 ], [ %length, %if.then58 ], [ %length, %if.then163 ], [ %pos.0, %if.then134 ], [ %length, %if.then124 ]
+  %retval.1 = phi i32 [ %add152, %if.then151 ], [ %length, %if.then58 ], [ %length, %if.then163 ], [ %pos.0, %if.then134 ], [ %length, %if.then124 ]
   %88 = load ptr, ptr %offsets, align 8
   %cmp.not.i215 = icmp eq ptr %88, %staticList.i
   br i1 %cmp.not.i215, label %return, label %if.then.i216
@@ -1693,8 +1693,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i216
   unreachable
 
 return:                                           ; preds = %if.then.i216, %cleanup, %if.end, %if.then
-  %retval.1 = phi i32 [ %call, %if.then ], [ %length, %if.end ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i216 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call, %if.then ], [ %length, %if.end ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i216 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2672,13 +2672,13 @@ _ZN6icu_7510OffsetList10popMinimumEv.exit:        ; preds = %if.then.i197, %whil
   br label %for.cond.backedge
 
 cleanup.loopexit258:                              ; preds = %if.then126, %if.then136, %invoke.cont148, %if.then161
-  %retval.0.ph = phi i32 [ 0, %if.then126 ], [ %pos.0, %if.then136 ], [ %call149, %invoke.cont148 ], [ 0, %if.then161 ]
+  %retval.1.ph = phi i32 [ 0, %if.then126 ], [ %pos.0, %if.then136 ], [ %call149, %invoke.cont148 ], [ 0, %if.then161 ]
   %.pre275 = load ptr, ptr %offsets, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then61, %cleanup.loopexit258
   %93 = phi ptr [ %.pre275, %cleanup.loopexit258 ], [ %30, %if.then61 ]
-  %retval.0 = phi i32 [ %retval.0.ph, %cleanup.loopexit258 ], [ 0, %if.then61 ]
+  %retval.1 = phi i32 [ %retval.1.ph, %cleanup.loopexit258 ], [ 0, %if.then61 ]
   %cmp.not.i202 = icmp eq ptr %93, %staticList.i
   br i1 %cmp.not.i202, label %return, label %if.then.i203
 
@@ -2694,8 +2694,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i203
   unreachable
 
 return:                                           ; preds = %if.then.i203, %cleanup, %if.end, %if.then
-  %retval.1 = phi i32 [ %call, %if.then ], [ 0, %if.end ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i203 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.end ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i203 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3184,8 +3184,8 @@ for.inc:                                          ; preds = %for.body, %for.end,
 
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc128
   %indvars.iv224 = phi i64 [ 0, %for.body79.lr.ph ], [ %indvars.iv.next225, %for.inc128 ]
-  %maxOverlap.0205 = phi i32 [ 0, %for.body79.lr.ph ], [ %maxOverlap.2, %for.inc128 ]
-  %maxInc.0204 = phi i32 [ 0, %for.body79.lr.ph ], [ %maxInc.2, %for.inc128 ]
+  %maxOverlap.0205 = phi i32 [ 0, %for.body79.lr.ph ], [ %maxOverlap.1, %for.inc128 ]
+  %maxInc.0204 = phi i32 [ 0, %for.body79.lr.ph ], [ %maxInc.1, %for.inc128 ]
   %s8.2202 = phi ptr [ %7, %for.body79.lr.ph ], [ %s8.3, %for.inc128 ]
   %arrayidx82 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv224
   %23 = load i32, ptr %arrayidx82, align 4
@@ -3260,23 +3260,23 @@ for.end125.loopexit:                              ; preds = %do.cond.i140
   br label %for.end125
 
 for.end125:                                       ; preds = %if.end122, %for.end125.loopexit, %if.end85
-  %maxInc.1 = phi i32 [ %maxInc.0204, %if.end85 ], [ %inc96.0199, %for.end125.loopexit ], [ %maxInc.0204, %if.end122 ]
-  %maxOverlap.1 = phi i32 [ %maxOverlap.0205, %if.end85 ], [ %31, %for.end125.loopexit ], [ %maxOverlap.0205, %if.end122 ]
+  %maxInc.2 = phi i32 [ %maxInc.0204, %if.end85 ], [ %inc96.0199, %for.end125.loopexit ], [ %maxInc.0204, %if.end122 ]
+  %maxOverlap.2 = phi i32 [ %maxOverlap.0205, %if.end85 ], [ %31, %for.end125.loopexit ], [ %maxOverlap.0205, %if.end122 ]
   %idx.ext126 = sext i32 %23 to i64
   %add.ptr127 = getelementptr inbounds i8, ptr %s8.2202, i64 %idx.ext126
   br label %for.inc128
 
 for.inc128:                                       ; preds = %for.body79, %for.end125
   %s8.3 = phi ptr [ %s8.2202, %for.body79 ], [ %add.ptr127, %for.end125 ]
-  %maxInc.2 = phi i32 [ %maxInc.0204, %for.body79 ], [ %maxInc.1, %for.end125 ]
-  %maxOverlap.2 = phi i32 [ %maxOverlap.0205, %for.body79 ], [ %maxOverlap.1, %for.end125 ]
+  %maxInc.1 = phi i32 [ %maxInc.0204, %for.body79 ], [ %maxInc.2, %for.end125 ]
+  %maxOverlap.1 = phi i32 [ %maxOverlap.0205, %for.body79 ], [ %maxOverlap.2, %for.end125 ]
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count
   br i1 %exitcond.not, label %for.end130, label %for.body79, !llvm.loop !28
 
 for.end130:                                       ; preds = %for.inc128, %for.cond77.preheader
-  %maxInc.0.lcssa = phi i32 [ 0, %for.cond77.preheader ], [ %maxInc.2, %for.inc128 ]
-  %maxOverlap.0.lcssa = phi i32 [ 0, %for.cond77.preheader ], [ %maxOverlap.2, %for.inc128 ]
+  %maxInc.0.lcssa = phi i32 [ 0, %for.cond77.preheader ], [ %maxInc.1, %for.inc128 ]
+  %maxOverlap.0.lcssa = phi i32 [ 0, %for.cond77.preheader ], [ %maxOverlap.1, %for.inc128 ]
   %cmp131 = icmp ne i32 %maxInc.0.lcssa, 0
   %cmp133 = icmp ne i32 %maxOverlap.0.lcssa, 0
   %or.cond = select i1 %cmp131, i1 true, i1 %cmp133
@@ -3424,7 +3424,7 @@ _ZN6icu_7510OffsetList10popMinimumEv.exit:        ; preds = %if.then.i170, %whil
   br label %for.cond.backedge
 
 cleanup:                                          ; preds = %if.then175, %if.then144, %if.then134, %if.then62, %if.then163
-  %retval.0 = phi i32 [ %add164, %if.then163 ], [ %length, %if.then62 ], [ %length, %if.then175 ], [ %pos.0, %if.then144 ], [ %length, %if.then134 ]
+  %retval.1 = phi i32 [ %add164, %if.then163 ], [ %length, %if.then62 ], [ %length, %if.then175 ], [ %pos.0, %if.then144 ], [ %length, %if.then134 ]
   %50 = load ptr, ptr %offsets, align 8
   %cmp.not.i175 = icmp eq ptr %50, %staticList.i
   br i1 %cmp.not.i175, label %return, label %if.then.i176
@@ -3441,8 +3441,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i176
   unreachable
 
 return:                                           ; preds = %if.then.i176, %cleanup, %if.end, %if.then
-  %retval.1 = phi i32 [ %call, %if.then ], [ %length, %if.end ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i176 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call, %if.then ], [ %length, %if.end ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i176 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3654,12 +3654,12 @@ land.lhs.true40:                                  ; preds = %land.lhs.true34
 
 land.lhs.true48:                                  ; preds = %land.lhs.true18, %land.lhs.true40
   %c.0 = phi i32 [ %and9, %land.lhs.true18 ], [ %or, %land.lhs.true40 ]
-  %i.0 = phi i32 [ 2, %land.lhs.true18 ], [ 3, %land.lhs.true40 ]
+  %i.1 = phi i32 [ 2, %land.lhs.true18 ], [ 3, %land.lhs.true40 ]
   %__t.0 = phi i8 [ %and20, %land.lhs.true18 ], [ %sub44, %land.lhs.true40 ]
   %shl49 = shl nuw nsw i32 %c.0, 6
   %conv50 = zext nneg i8 %__t.0 to i32
   %or51 = or disjoint i32 %shl49, %conv50
-  %cmp53.not = icmp eq i32 %i.0, %length
+  %cmp53.not = icmp eq i32 %i.1, %length
   br i1 %cmp53.not, label %do.end, label %land.lhs.true58
 
 cond.false54:                                     ; preds = %land.lhs.true
@@ -3672,8 +3672,8 @@ land.lhs.true56:                                  ; preds = %cond.false54
 
 land.lhs.true58:                                  ; preds = %land.lhs.true56, %land.lhs.true48
   %c.1 = phi i32 [ %or51, %land.lhs.true48 ], [ %and57, %land.lhs.true56 ]
-  %i.1 = phi i32 [ %i.0, %land.lhs.true48 ], [ 1, %land.lhs.true56 ]
-  %idxprom59 = zext nneg i32 %i.1 to i64
+  %i.2 = phi i32 [ %i.1, %land.lhs.true48 ], [ 1, %land.lhs.true56 ]
+  %idxprom59 = zext nneg i32 %i.2 to i64
   %arrayidx60 = getelementptr inbounds i8, ptr %s, i64 %idxprom59
   %7 = load i8, ptr %arrayidx60, align 1
   %sub62 = xor i8 %7, -128
@@ -3684,12 +3684,12 @@ land.lhs.true66:                                  ; preds = %land.lhs.true58
   %conv64 = zext nneg i8 %sub62 to i32
   %shl67 = shl nuw nsw i32 %c.1, 6
   %or69 = or disjoint i32 %shl67, %conv64
-  %inc70 = add nuw nsw i32 %i.1, 1
+  %inc70 = add nuw nsw i32 %i.2, 1
   br label %do.end
 
 do.end:                                           ; preds = %if.then4, %cond.true8, %cond.false, %land.lhs.true23, %land.lhs.true34, %land.lhs.true40, %land.lhs.true48, %cond.false54, %land.lhs.true58, %land.lhs.true66
   %c.2 = phi i32 [ %or69, %land.lhs.true66 ], [ 65533, %land.lhs.true58 ], [ 65533, %cond.false54 ], [ 65533, %land.lhs.true48 ], [ 65533, %land.lhs.true40 ], [ 65533, %land.lhs.true34 ], [ 65533, %land.lhs.true23 ], [ 65533, %cond.false ], [ 65533, %cond.true8 ], [ 65533, %if.then4 ]
-  %i.3 = phi i32 [ %inc70, %land.lhs.true66 ], [ %i.1, %land.lhs.true58 ], [ 1, %cond.false54 ], [ %length, %land.lhs.true48 ], [ 2, %land.lhs.true40 ], [ 2, %land.lhs.true34 ], [ 1, %land.lhs.true23 ], [ 1, %cond.false ], [ 1, %cond.true8 ], [ 1, %if.then4 ]
+  %i.3 = phi i32 [ %inc70, %land.lhs.true66 ], [ %i.2, %land.lhs.true58 ], [ 1, %cond.false54 ], [ %length, %land.lhs.true48 ], [ 2, %land.lhs.true40 ], [ 2, %land.lhs.true34 ], [ 1, %land.lhs.true23 ], [ 1, %cond.false ], [ 1, %cond.true8 ], [ 1, %if.then4 ]
   %call74 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %set, i32 noundef %c.2)
   %tobool75.not = icmp eq i8 %call74, 0
   %sub78 = sub nsw i32 0, %i.3
@@ -4034,8 +4034,8 @@ for.inc:                                          ; preds = %for.body, %for.end,
 
 for.body150:                                      ; preds = %for.body150.lr.ph, %for.inc199
   %indvars.iv246 = phi i64 [ 0, %for.body150.lr.ph ], [ %indvars.iv.next247, %for.inc199 ]
-  %maxOverlap.0231 = phi i32 [ 0, %for.body150.lr.ph ], [ %maxOverlap.2, %for.inc199 ]
-  %maxDec.0230 = phi i32 [ 0, %for.body150.lr.ph ], [ %maxDec.2, %for.inc199 ]
+  %maxOverlap.0231 = phi i32 [ 0, %for.body150.lr.ph ], [ %maxOverlap.1, %for.inc199 ]
+  %maxDec.0230 = phi i32 [ 0, %for.body150.lr.ph ], [ %maxDec.1, %for.inc199 ]
   %s8.2228 = phi ptr [ %7, %for.body150.lr.ph ], [ %s8.3, %for.inc199 ]
   %arrayidx153 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv246
   %38 = load i32, ptr %arrayidx153, align 4
@@ -4109,23 +4109,23 @@ for.end196.loopexit:                              ; preds = %do.cond.i154
   br label %for.end196
 
 for.end196:                                       ; preds = %if.end193, %for.end196.loopexit, %if.end156
-  %maxDec.1 = phi i32 [ %maxDec.0230, %if.end156 ], [ %46, %for.end196.loopexit ], [ %maxDec.0230, %if.end193 ]
-  %maxOverlap.1 = phi i32 [ %maxOverlap.0231, %if.end156 ], [ %overlap157.2224, %for.end196.loopexit ], [ %maxOverlap.0231, %if.end193 ]
+  %maxDec.2 = phi i32 [ %maxDec.0230, %if.end156 ], [ %46, %for.end196.loopexit ], [ %maxDec.0230, %if.end193 ]
+  %maxOverlap.2 = phi i32 [ %maxOverlap.0231, %if.end156 ], [ %overlap157.2224, %for.end196.loopexit ], [ %maxOverlap.0231, %if.end193 ]
   %idx.ext197 = sext i32 %38 to i64
   %add.ptr198 = getelementptr inbounds i8, ptr %s8.2228, i64 %idx.ext197
   br label %for.inc199
 
 for.inc199:                                       ; preds = %for.body150, %for.end196
   %s8.3 = phi ptr [ %s8.2228, %for.body150 ], [ %add.ptr198, %for.end196 ]
-  %maxDec.2 = phi i32 [ %maxDec.0230, %for.body150 ], [ %maxDec.1, %for.end196 ]
-  %maxOverlap.2 = phi i32 [ %maxOverlap.0231, %for.body150 ], [ %maxOverlap.1, %for.end196 ]
+  %maxDec.1 = phi i32 [ %maxDec.0230, %for.body150 ], [ %maxDec.2, %for.end196 ]
+  %maxOverlap.1 = phi i32 [ %maxOverlap.0231, %for.body150 ], [ %maxOverlap.2, %for.end196 ]
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count
   br i1 %exitcond.not, label %for.end201, label %for.body150, !llvm.loop !35
 
 for.end201:                                       ; preds = %for.inc199, %for.cond148.preheader
-  %maxDec.0.lcssa = phi i32 [ 0, %for.cond148.preheader ], [ %maxDec.2, %for.inc199 ]
-  %maxOverlap.0.lcssa = phi i32 [ 0, %for.cond148.preheader ], [ %maxOverlap.2, %for.inc199 ]
+  %maxDec.0.lcssa = phi i32 [ 0, %for.cond148.preheader ], [ %maxDec.1, %for.inc199 ]
+  %maxOverlap.0.lcssa = phi i32 [ 0, %for.cond148.preheader ], [ %maxOverlap.1, %for.inc199 ]
   %cmp202 = icmp ne i32 %maxDec.0.lcssa, 0
   %cmp204 = icmp ne i32 %maxOverlap.0.lcssa, 0
   %or.cond1 = select i1 %cmp202, i1 true, i1 %cmp204
@@ -4293,13 +4293,13 @@ _ZN6icu_7510OffsetList10popMinimumEv.exit:        ; preds = %if.then.i196, %whil
   br label %for.cond.backedge
 
 cleanup.loopexit241:                              ; preds = %if.then205, %if.then215, %invoke.cont227, %if.then240
-  %retval.0.ph = phi i32 [ 0, %if.then205 ], [ %pos.0, %if.then215 ], [ %call228, %invoke.cont227 ], [ 0, %if.then240 ]
+  %retval.1.ph = phi i32 [ 0, %if.then205 ], [ %pos.0, %if.then215 ], [ %call228, %invoke.cont227 ], [ 0, %if.then240 ]
   %.pre258 = load ptr, ptr %offsets, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then132, %cleanup.loopexit241
   %67 = phi ptr [ %.pre258, %cleanup.loopexit241 ], [ %33, %if.then132 ]
-  %retval.0 = phi i32 [ %retval.0.ph, %cleanup.loopexit241 ], [ 0, %if.then132 ]
+  %retval.1 = phi i32 [ %retval.1.ph, %cleanup.loopexit241 ], [ 0, %if.then132 ]
   %cmp.not.i201 = icmp eq ptr %67, %staticList.i
   br i1 %cmp.not.i201, label %return, label %if.then.i202
 
@@ -4315,8 +4315,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i202
   unreachable
 
 return:                                           ; preds = %if.then.i202, %cleanup, %if.end, %if.then
-  %retval.1 = phi i32 [ %call, %if.then ], [ 0, %if.end ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i202 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.end ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i202 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

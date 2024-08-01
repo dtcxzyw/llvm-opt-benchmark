@@ -12056,7 +12056,7 @@ _ZN5tokio6signal8registry7globals17ha8d0471c501c522bE.exit: ; preds = %26, %29
   br label %_ZN3std4sync4once4Once9call_once17hd31d2da543651dc4E.exit
 
 42:                                               ; preds = %45, %35
-  %.0 = phi ptr [ %36, %35 ], [ %43, %45 ]
+  %.1 = phi ptr [ %36, %35 ], [ %43, %45 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %54
 
@@ -12080,18 +12080,18 @@ _ZN3std4sync4once4Once9call_once17hd31d2da543651dc4E.exit: ; preds = %.noexc, %3
   br label %52
 
 52:                                               ; preds = %50, %46
-  %.1 = phi ptr [ null, %46 ], [ %51, %50 ]
+  %.2 = phi ptr [ null, %46 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %53
 
 53:                                               ; preds = %54, %52
-  %.2 = phi ptr [ %.3, %54 ], [ %.1, %52 ]
-  ret ptr %.2
+  %.3 = phi ptr [ %.0, %54 ], [ %.2, %52 ]
+  ret ptr %.3
 
 54:                                               ; preds = %_ZN5tokio7runtime6signal6Handle11check_inner17h3a018d0702f825deE.exit, %42, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit
-  %.3 = phi ptr [ %25, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ], [ %.0, %42 ], [ %23, %_ZN5tokio7runtime6signal6Handle11check_inner17h3a018d0702f825deE.exit ]
+  %.0 = phi ptr [ %25, %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit ], [ %.1, %42 ], [ %23, %_ZN5tokio7runtime6signal6Handle11check_inner17h3a018d0702f825deE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %53
 

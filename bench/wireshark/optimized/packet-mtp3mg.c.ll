@@ -439,14 +439,14 @@ switch.lookup:                                    ; preds = %4
   br label %92
 
 92:                                               ; preds = %88, %87
-  %.0 = phi ptr [ %91, %88 ], [ %0, %87 ]
+  %.1 = phi ptr [ %91, %88 ], [ %0, %87 ]
   %93 = load i32, ptr @hf_mtp3mg_h0, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %93, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
-  %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0, i32 noundef 0) #2
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %93, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.1, i32 noundef 0) #2
   %96 = and i8 %95, 15
-  %97 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0, i32 noundef 0) #2
+  %97 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.1, i32 noundef 0) #2
   %98 = lshr i8 %97, 4
-  %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0, i32 noundef 1) #2
+  %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.1, i32 noundef 1) #2
   switch i8 %96, label %499 [
     i8 1, label %100
     i8 2, label %148
@@ -461,7 +461,7 @@ switch.lookup:                                    ; preds = %4
 
 100:                                              ; preds = %92
   %101 = load i32, ptr @hf_mtp3mg_chm_h1, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %101, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %101, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %103 = getelementptr inbounds i8, ptr %1, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = zext nneg i8 %98 to i32
@@ -544,7 +544,7 @@ switch.lookup:                                    ; preds = %4
 
 148:                                              ; preds = %92
   %149 = load i32, ptr @hf_mtp3mg_ecm_h1, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %149, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %149, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %151 = getelementptr inbounds i8, ptr %1, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = zext nneg i8 %98 to i32
@@ -574,7 +574,7 @@ switch.lookup:                                    ; preds = %4
 
 167:                                              ; preds = %92
   %168 = load i32, ptr @hf_mtp3mg_fcm_h1, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %168, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %168, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %170 = getelementptr inbounds i8, ptr %1, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = zext nneg i8 %98 to i32
@@ -661,7 +661,7 @@ switch.lookup:                                    ; preds = %4
 
 217:                                              ; preds = %92
   %218 = load i32, ptr @hf_mtp3mg_tfm_h1, align 4
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %218, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %219 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %218, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %220 = getelementptr inbounds i8, ptr %1, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = zext nneg i8 %98 to i32
@@ -790,7 +790,7 @@ switch.lookup:                                    ; preds = %4
 
 285:                                              ; preds = %92
   %286 = load i32, ptr @hf_mtp3mg_rsm_h1, align 4
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %286, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %287 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %286, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %288 = getelementptr inbounds i8, ptr %1, i64 8
   %289 = load ptr, ptr %288, align 8
   %290 = zext nneg i8 %98 to i32
@@ -915,7 +915,7 @@ switch.lookup:                                    ; preds = %4
 
 357:                                              ; preds = %355
   %358 = load i32, ptr @hf_mtp3mg_mim_h1, align 4
-  %359 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %358, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %358, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %360 = getelementptr inbounds i8, ptr %1, i64 8
   %361 = load ptr, ptr %360, align 8
   %362 = zext nneg i8 %98 to i32
@@ -944,11 +944,11 @@ switch.lookup:                                    ; preds = %4
   br label %dissect_mtp3mg_test.exit
 
 376:                                              ; preds = %355
-  %377 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %377 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
   %378 = and i32 %377, 255
   %379 = icmp eq i32 %378, 1
   %380 = select i1 %379, ptr @.str.140, ptr @.str.141
-  %381 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %378, ptr noundef nonnull @.str.139, i32 noundef %378, ptr noundef nonnull %380) #2
+  %381 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.1, i32 noundef 0, i32 noundef %378, ptr noundef nonnull @.str.139, i32 noundef %378, ptr noundef nonnull %380) #2
   br label %dissect_mtp3mg_test.exit
 
 382:                                              ; preds = %92
@@ -958,7 +958,7 @@ switch.lookup:                                    ; preds = %4
 
 384:                                              ; preds = %382
   %385 = load i32, ptr @hf_mtp3mg_trm_h1, align 4
-  %386 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %385, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %385, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %387 = getelementptr inbounds i8, ptr %1, i64 8
   %388 = load ptr, ptr %387, align 8
   %389 = zext nneg i8 %98 to i32
@@ -983,11 +983,11 @@ switch.lookup:                                    ; preds = %4
   br label %dissect_mtp3mg_test.exit
 
 398:                                              ; preds = %382
-  %399 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %399 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
   %400 = and i32 %399, 255
   %401 = icmp eq i32 %400, 1
   %402 = select i1 %401, ptr @.str.140, ptr @.str.141
-  %403 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %400, ptr noundef nonnull @.str.139, i32 noundef %400, ptr noundef nonnull %402) #2
+  %403 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.1, i32 noundef 0, i32 noundef %400, ptr noundef nonnull @.str.139, i32 noundef %400, ptr noundef nonnull %402) #2
   br label %dissect_mtp3mg_test.exit
 
 404:                                              ; preds = %92
@@ -997,7 +997,7 @@ switch.lookup:                                    ; preds = %4
 
 406:                                              ; preds = %404
   %407 = load i32, ptr @hf_mtp3mg_dlm_h1, align 4
-  %408 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %407, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %407, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %409 = getelementptr inbounds i8, ptr %1, i64 8
   %410 = load ptr, ptr %409, align 8
   %411 = zext nneg i8 %98 to i32
@@ -1036,11 +1036,11 @@ switch.lookup:                                    ; preds = %4
   br label %dissect_mtp3mg_test.exit
 
 430:                                              ; preds = %404
-  %431 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %431 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
   %432 = and i32 %431, 255
   %433 = icmp eq i32 %432, 1
   %434 = select i1 %433, ptr @.str.140, ptr @.str.141
-  %435 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %432, ptr noundef nonnull @.str.139, i32 noundef %432, ptr noundef nonnull %434) #2
+  %435 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.1, i32 noundef 0, i32 noundef %432, ptr noundef nonnull @.str.139, i32 noundef %432, ptr noundef nonnull %434) #2
   br label %dissect_mtp3mg_test.exit
 
 436:                                              ; preds = %92
@@ -1050,7 +1050,7 @@ switch.lookup:                                    ; preds = %4
 
 438:                                              ; preds = %436
   %439 = load i32, ptr @hf_mtp3mg_ufc_h1, align 4
-  %440 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %439, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %440 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %439, ptr noundef %.1, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %441 = getelementptr inbounds i8, ptr %1, i64 8
   %442 = load ptr, ptr %441, align 8
   %443 = zext nneg i8 %98 to i32
@@ -1137,27 +1137,27 @@ switch.lookup:                                    ; preds = %4
   br label %dissect_mtp3mg_test.exit
 
 493:                                              ; preds = %436
-  %494 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %494 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
   %495 = and i32 %494, 255
   %496 = icmp eq i32 %495, 1
   %497 = select i1 %496, ptr @.str.140, ptr @.str.141
-  %498 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %495, ptr noundef nonnull @.str.139, i32 noundef %495, ptr noundef nonnull %497) #2
+  %498 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.1, i32 noundef 0, i32 noundef %495, ptr noundef nonnull @.str.139, i32 noundef %495, ptr noundef nonnull %497) #2
   br label %dissect_mtp3mg_test.exit
 
 499:                                              ; preds = %92
   %500 = getelementptr inbounds i8, ptr %1, i64 8
   %501 = load ptr, ptr %500, align 8
   tail call void @col_set_str(ptr noundef %501, i32 noundef 25, ptr noundef nonnull @.str.136) #2
-  %502 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %502 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
   %503 = and i32 %502, 255
   %504 = icmp eq i32 %503, 1
   %505 = select i1 %504, ptr @.str.140, ptr @.str.141
-  %506 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %503, ptr noundef nonnull @.str.139, i32 noundef %503, ptr noundef nonnull %505) #2
+  %506 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.1, i32 noundef 0, i32 noundef %503, ptr noundef nonnull @.str.139, i32 noundef %503, ptr noundef nonnull %505) #2
   br label %dissect_mtp3mg_test.exit
 
 dissect_mtp3mg_test.exit:                         ; preds = %313, %250, %487, %482, %469, %448, %424, %421, %416, %406, %406, %406, %.sink.split.i, %391, %384, %370, %367, %364, %349, %343, %337, %332, %328, %319, %302, %294, %279, %273, %268, %264, %263, %257, %239, %226, %211, %204, %198, %185, %167, %161, %158, %155, %142, %139, %136, %131, %126, %121, %115, %110, %73, %65, %499, %376, %398, %430, %493, %38, %30, %79
-  %.1 = phi ptr [ %0, %38 ], [ %0, %30 ], [ %0, %79 ], [ %.0, %499 ], [ %.0, %493 ], [ %.0, %430 ], [ %.0, %398 ], [ %.0, %376 ], [ %0, %65 ], [ %0, %73 ], [ %.0, %110 ], [ %.0, %115 ], [ %.0, %121 ], [ %.0, %126 ], [ %.0, %131 ], [ %.0, %136 ], [ %.0, %139 ], [ %.0, %142 ], [ %.0, %155 ], [ %.0, %158 ], [ %.0, %161 ], [ %.0, %167 ], [ %.0, %185 ], [ %.0, %198 ], [ %.0, %204 ], [ %.0, %211 ], [ %.0, %226 ], [ %.0, %239 ], [ %.0, %257 ], [ %.0, %263 ], [ %.0, %264 ], [ %.0, %268 ], [ %.0, %273 ], [ %.0, %279 ], [ %.0, %294 ], [ %.0, %302 ], [ %.0, %319 ], [ %.0, %328 ], [ %.0, %332 ], [ %.0, %337 ], [ %.0, %343 ], [ %.0, %349 ], [ %.0, %364 ], [ %.0, %367 ], [ %.0, %370 ], [ %.0, %384 ], [ %.0, %391 ], [ %.0, %.sink.split.i ], [ %.0, %406 ], [ %.0, %406 ], [ %.0, %406 ], [ %.0, %416 ], [ %.0, %421 ], [ %.0, %424 ], [ %.0, %448 ], [ %.0, %469 ], [ %.0, %482 ], [ %.0, %487 ], [ %.0, %250 ], [ %.0, %313 ]
-  %507 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
+  %.0 = phi ptr [ %0, %38 ], [ %0, %30 ], [ %0, %79 ], [ %.1, %499 ], [ %.1, %493 ], [ %.1, %430 ], [ %.1, %398 ], [ %.1, %376 ], [ %0, %65 ], [ %0, %73 ], [ %.1, %110 ], [ %.1, %115 ], [ %.1, %121 ], [ %.1, %126 ], [ %.1, %131 ], [ %.1, %136 ], [ %.1, %139 ], [ %.1, %142 ], [ %.1, %155 ], [ %.1, %158 ], [ %.1, %161 ], [ %.1, %167 ], [ %.1, %185 ], [ %.1, %198 ], [ %.1, %204 ], [ %.1, %211 ], [ %.1, %226 ], [ %.1, %239 ], [ %.1, %257 ], [ %.1, %263 ], [ %.1, %264 ], [ %.1, %268 ], [ %.1, %273 ], [ %.1, %279 ], [ %.1, %294 ], [ %.1, %302 ], [ %.1, %319 ], [ %.1, %328 ], [ %.1, %332 ], [ %.1, %337 ], [ %.1, %343 ], [ %.1, %349 ], [ %.1, %364 ], [ %.1, %367 ], [ %.1, %370 ], [ %.1, %384 ], [ %.1, %391 ], [ %.1, %.sink.split.i ], [ %.1, %406 ], [ %.1, %406 ], [ %.1, %406 ], [ %.1, %416 ], [ %.1, %421 ], [ %.1, %424 ], [ %.1, %448 ], [ %.1, %469 ], [ %.1, %482 ], [ %.1, %487 ], [ %.1, %250 ], [ %.1, %313 ]
+  %507 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
   ret i32 %507
 }
 

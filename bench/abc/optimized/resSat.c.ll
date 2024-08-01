@@ -1084,14 +1084,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .loopexitthread-pre-split:                        ; preds = %106, %._crit_edge, %32, %37, %35, %104
   %.160.ph = phi i32 [ %.05983, %104 ], [ 0, %35 ], [ 0, %37 ], [ %.05983, %32 ], [ %1, %106 ], [ %103, %._crit_edge ]
-  %.057.ph = phi i32 [ %., %104 ], [ 0, %35 ], [ 0, %37 ], [ 1, %32 ], [ 1, %._crit_edge ], [ 1, %106 ]
+  %.1.ph = phi i32 [ %., %104 ], [ 0, %35 ], [ 0, %37 ], [ 1, %32 ], [ 1, %._crit_edge ], [ 1, %106 ]
   %.pr = load ptr, ptr %25, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %21
   %107 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %24, %21 ]
   %.160 = phi i32 [ %.160.ph, %.loopexitthread-pre-split ], [ %.056, %21 ]
-  %.057 = phi i32 [ %.057.ph, %.loopexitthread-pre-split ], [ 1, %21 ]
+  %.1 = phi i32 [ %.1.ph, %.loopexitthread-pre-split ], [ 1, %21 ]
   %.not.i = icmp eq ptr %107, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %108
 
@@ -1114,7 +1114,7 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %108
   br label %113
 
 113:                                              ; preds = %19, %109, %111
-  %.1 = phi i32 [ %.057, %109 ], [ %.057, %111 ], [ %spec.select, %19 ]
+  %.057 = phi i32 [ %.1, %109 ], [ %.1, %111 ], [ %spec.select, %19 ]
   call void @sat_solver_delete(ptr noundef %15) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %114 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
@@ -1138,7 +1138,7 @@ Abc_Clock.exit76:                                 ; preds = %113, %116
   %125 = load i64, ptr %124, align 8
   %126 = add nsw i64 %123, %125
   store i64 %126, ptr %124, align 8
-  ret i32 %.1
+  ret i32 %.057
 }
 
 declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #1

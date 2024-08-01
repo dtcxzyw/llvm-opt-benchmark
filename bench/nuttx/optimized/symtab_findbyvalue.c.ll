@@ -11,7 +11,7 @@ define ptr @symtab_findbyvalue(ptr noundef readonly %0, ptr noundef readnone %1,
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %15
-  %.022 = phi ptr [ %.1, %15 ], [ null, %3 ]
+  %.022 = phi ptr [ %.2, %15 ], [ null, %3 ]
   %.01321 = phi i32 [ %17, %15 ], [ %2, %3 ]
   %.01520 = phi ptr [ %16, %15 ], [ %0, %3 ]
   %6 = getelementptr inbounds i8, ptr %.01520, i64 8
@@ -34,14 +34,14 @@ define ptr @symtab_findbyvalue(ptr noundef readonly %0, ptr noundef readnone %1,
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %.lr.ph, %13, %9
-  %.1 = phi ptr [ %.01520, %13 ], [ %.022, %9 ], [ %.022, %.lr.ph ]
+  %.2 = phi ptr [ %.01520, %13 ], [ %.022, %9 ], [ %.022, %.lr.ph ]
   %16 = getelementptr inbounds i8, ptr %.01520, i64 16
   %17 = add nsw i32 %.01321, -1
   %18 = icmp sgt i32 %.01321, 1
   br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %13, %15, %3
-  %.014 = phi ptr [ null, %3 ], [ %.01520, %13 ], [ %.1, %15 ]
+  %.014 = phi ptr [ null, %3 ], [ %.01520, %13 ], [ %.2, %15 ]
   ret ptr %.014
 }
 

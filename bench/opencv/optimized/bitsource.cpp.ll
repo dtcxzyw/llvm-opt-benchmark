@@ -176,8 +176,8 @@ define hidden noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr
 70:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ %69, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %.148 = phi i32 [ %.036, %.lr.ph ], [ %78, %70 ]
-  %.14247 = phi i32 [ %.041, %.lr.ph ], [ %76, %70 ]
-  %71 = shl i32 %.14247, 8
+  %.247 = phi i32 [ %.041, %.lr.ph ], [ %76, %70 ]
+  %71 = shl i32 %.247, 8
   %72 = load ptr, ptr %10, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv
   %74 = load i8, ptr %73, align 1
@@ -196,11 +196,11 @@ define hidden noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.1.lcssa57 = phi i32 [ %78, %._crit_edge ], [ %.036, %.preheader ]
-  %.142.lcssa56 = phi i32 [ %76, %._crit_edge ], [ %.041, %.preheader ]
+  %.2.lcssa56 = phi i32 [ %76, %._crit_edge ], [ %.041, %.preheader ]
   %80 = phi i32 [ %77, %._crit_edge ], [ %.promoted, %.preheader ]
   %81 = sub nuw nsw i32 8, %.1.lcssa57
   %82 = shl nsw i32 -1, %81
-  %83 = shl i32 %.142.lcssa56, %.1.lcssa57
+  %83 = shl i32 %.2.lcssa56, %.1.lcssa57
   %84 = sext i32 %80 to i64
   %85 = load ptr, ptr %10, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 %84

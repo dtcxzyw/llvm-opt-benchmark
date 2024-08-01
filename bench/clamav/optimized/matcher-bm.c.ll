@@ -766,7 +766,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %.lr.ph338
 
 .lr.ph338:                                        ; preds = %.lr.ph338.lr.ph, %.outer
-  %.0.ph368 = phi i32 [ 0, %.lr.ph338.lr.ph ], [ %.4, %.outer ]
+  %.0.ph368 = phi i32 [ 0, %.lr.ph338.lr.ph ], [ %.1, %.outer ]
   %.1202.ph367 = phi i32 [ %.0201, %.lr.ph338.lr.ph ], [ %.3204, %.outer ]
   br label %56
 
@@ -883,7 +883,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %116
 
 116:                                              ; preds = %.lr.ph355, %.backedge
-  %.1353 = phi i32 [ %.0.ph368, %.lr.ph355 ], [ %.1.be, %.backedge ]
+  %.2353 = phi i32 [ %.0.ph368, %.lr.ph355 ], [ %.2.be, %.backedge ]
   %.0200350 = phi ptr [ %82, %.lr.ph355 ], [ %.0200.be, %.backedge ]
   %.not274349 = phi i1 [ true, %.lr.ph355 ], [ %.not253, %.backedge ]
   %117 = getelementptr inbounds i8, ptr %.0200350, i64 62
@@ -895,7 +895,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not274349, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %.lr.ph344, %231, %230, %207, %197, %.critedge282, %152, %159, %140, %136, %120, %126, %119
-  %.1.be = phi i32 [ %.1353, %119 ], [ %.1353, %126 ], [ %.1353, %120 ], [ %.1353, %136 ], [ %.1353, %140 ], [ %.1353, %159 ], [ %.1353, %152 ], [ %.1353, %.critedge282 ], [ %.1353, %197 ], [ %.1353, %207 ], [ %.2, %231 ], [ %.2, %230 ], [ %.1353, %.lr.ph344 ]
+  %.2.be = phi i32 [ %.2353, %119 ], [ %.2353, %126 ], [ %.2353, %120 ], [ %.2353, %136 ], [ %.2353, %140 ], [ %.2353, %159 ], [ %.2353, %152 ], [ %.2353, %.critedge282 ], [ %.2353, %197 ], [ %.2353, %207 ], [ %.4, %231 ], [ %.4, %230 ], [ %.2353, %.lr.ph344 ]
   %.0200.be.in = getelementptr inbounds i8, ptr %.0200350, i64 48
   %.0200.be = load ptr, ptr %.0200.be.in, align 8
   %.not252 = icmp eq ptr %.0200.be, null
@@ -1083,7 +1083,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %or.cond288, label %.backedge, label %215
 
 215:                                              ; preds = %207, %191, %190
-  %216 = add nsw i32 %.1353, 1
+  %216 = add nsw i32 %.2353, 1
   br i1 %.not268, label %228, label %217
 
 217:                                              ; preds = %215
@@ -1102,13 +1102,13 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 224:                                              ; preds = %220
   %225 = call i32 @cli_append_virus(ptr noundef nonnull %8, ptr noundef %219) #8
   %226 = icmp eq i32 %225, 0
-  %227 = icmp sgt i32 %.1353, -1
+  %227 = icmp sgt i32 %.2353, -1
   %or.cond = select i1 %226, i1 %227, i1 false
-  %spec.select = select i1 %or.cond, i32 %.1353, i32 %216
+  %spec.select = select i1 %or.cond, i32 %.2353, i32 %216
   br label %228
 
 228:                                              ; preds = %224, %217, %220, %215
-  %.2 = phi i32 [ %216, %220 ], [ %216, %217 ], [ %216, %215 ], [ %spec.select, %224 ]
+  %.4 = phi i32 [ %216, %220 ], [ %216, %217 ], [ %216, %215 ], [ %spec.select, %224 ]
   br i1 %.not271, label %230, label %229
 
 229:                                              ; preds = %228
@@ -1127,7 +1127,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 
 .loopexit:                                        ; preds = %56, %79, %119, %.backedge
   %.0206 = phi i8 [ 1, %.backedge ], [ 1, %119 ], [ %77, %56 ], [ 1, %79 ]
-  %.4 = phi i32 [ %.1353, %119 ], [ %.1.be, %.backedge ], [ %.0.ph368, %79 ], [ %.0.ph368, %56 ]
+  %.1 = phi i32 [ %.2353, %119 ], [ %.2.be, %.backedge ], [ %.0.ph368, %79 ], [ %.0.ph368, %56 ]
   br i1 %.not246, label %256, label %235
 
 235:                                              ; preds = %.loopexit
@@ -1175,7 +1175,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not276, label %254, label %.critedge5.thread
 
 .critedge5.thread:                                ; preds = %248, %.critedge5, %244
-  %253 = icmp sgt i32 %.4, 0
+  %253 = icmp sgt i32 %.1, 0
   %.289 = zext i1 %253 to i32
   br label %.loopexit294
 
@@ -1194,7 +1194,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %258, label %.lr.ph338, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %111, %48
-  %.0.ph.lcssa326 = phi i32 [ 0, %48 ], [ %.0.ph368, %111 ], [ %.4, %.outer ]
+  %.0.ph.lcssa326 = phi i32 [ 0, %48 ], [ %.0.ph368, %111 ], [ %.1, %.outer ]
   %259 = icmp sgt i32 %.0.ph.lcssa326, 0
   %.290 = zext i1 %259 to i32
   br label %.loopexit294

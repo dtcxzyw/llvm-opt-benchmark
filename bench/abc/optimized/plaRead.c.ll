@@ -344,20 +344,20 @@ define noalias noundef ptr @Pla_ReadPlaBody(ptr noundef readonly %0, ptr noundef
 
 .preheader:                                       ; preds = %9, %12
   %.pr63 = phi i8 [ %.pr, %12 ], [ 46, %9 ]
-  %.1 = phi ptr [ %13, %12 ], [ %.064, %9 ]
+  %.2 = phi ptr [ %13, %12 ], [ %.064, %9 ]
   switch i8 %.pr63, label %12 [
     i8 0, label %.critedge
     i8 10, label %.critedge
   ]
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.1, i64 1
+  %13 = getelementptr inbounds i8, ptr %.2, i64 1
   %.pr = load i8, ptr %13, align 1
   br label %.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %9
   %14 = phi i8 [ %10, %9 ], [ %.pr63, %.preheader ], [ %.pr63, %.preheader ]
-  %.2 = phi ptr [ %.064, %9 ], [ %.1, %.preheader ], [ %.1, %.preheader ]
+  %.1 = phi ptr [ %.064, %9 ], [ %.2, %.preheader ], [ %.2, %.preheader ]
   switch i8 %14, label %158 [
     i8 48, label %15
     i8 49, label %38
@@ -711,7 +711,7 @@ Vec_StrGrow.exit.i61:                             ; preds = %142, %140
   br label %158
 
 158:                                              ; preds = %.sink.split, %108, %.critedge
-  %159 = getelementptr inbounds i8, ptr %.2, i64 1
+  %159 = getelementptr inbounds i8, ptr %.1, i64 1
   %160 = icmp ult ptr %159, %1
   br i1 %160, label %9, label %._crit_edge, !llvm.loop !9
 

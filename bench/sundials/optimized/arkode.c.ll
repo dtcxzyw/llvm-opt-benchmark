@@ -2015,10 +2015,10 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %216, label %.thread344, label %217
 
 217:                                              ; preds = %214, %arkCheckConvergence.exit
-  %.0253 = phi i32 [ %215, %214 ], [ 0, %arkCheckConvergence.exit ]
+  %.1 = phi i32 [ %215, %214 ], [ 0, %arkCheckConvergence.exit ]
   %218 = load i32, ptr %80, align 8
   %219 = icmp ne i32 %218, 0
-  %220 = icmp eq i32 %.0253, 0
+  %220 = icmp eq i32 %.1, 0
   %or.cond5 = and i1 %220, %219
   br i1 %or.cond5, label %221, label %224
 
@@ -2028,7 +2028,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %223, label %.thread344, label %224
 
 224:                                              ; preds = %221, %217
-  %.1 = phi i32 [ %222, %221 ], [ %.0253, %217 ]
+  %.2 = phi i32 [ %222, %221 ], [ %.1, %217 ]
   %225 = load i32, ptr %67, align 8
   %.not287 = icmp eq i32 %225, 0
   br i1 %.not287, label %229, label %254
@@ -2047,7 +2047,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br label %.thread344
 
 229:                                              ; preds = %224
-  %230 = icmp eq i32 %.1, 0
+  %230 = icmp eq i32 %.2, 0
   br i1 %230, label %231, label %235
 
 231:                                              ; preds = %229
@@ -2057,7 +2057,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %234, label %.thread344, label %235
 
 235:                                              ; preds = %231, %229
-  %.2 = phi i32 [ %233, %231 ], [ %.1, %229 ]
+  %.3 = phi i32 [ %233, %231 ], [ %.2, %229 ]
   %236 = load i32, ptr %78, align 4
   %.not288 = icmp eq i32 %236, 0
   br i1 %.not288, label %239, label %238
@@ -2068,12 +2068,12 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %.not288328, label %.thread332, label %238
 
 238:                                              ; preds = %.thread325, %235
-  %.2330 = phi i32 [ 3, %.thread325 ], [ %.2, %235 ]
-  store i32 %.2330, ptr %71, align 8
+  %.3330 = phi i32 [ 3, %.thread325 ], [ %.3, %235 ]
+  store i32 %.3330, ptr %71, align 8
   br label %.thread339
 
 239:                                              ; preds = %235
-  %240 = icmp eq i32 %.2, 0
+  %240 = icmp eq i32 %.3, 0
   br i1 %240, label %.thread339, label %.thread332
 
 .thread332:                                       ; preds = %.thread325, %239
@@ -2101,7 +2101,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
 
 254:                                              ; preds = %224
   store double 1.000000e+00, ptr %66, align 8
-  %255 = icmp eq i32 %.1, 0
+  %255 = icmp eq i32 %.2, 0
   br i1 %255, label %.thread339, label %.thread344
 
 .thread339:                                       ; preds = %239, %238, %254
@@ -2114,7 +2114,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br label %.thread344
 
 .thread344:                                       ; preds = %254, %.thread339, %182, %190, %231, %221, %214, %246, %212, %.thread344.loopexit603, %200, %197, %.thread341
-  %.4347 = phi i32 [ 3, %.thread341 ], [ -21, %197 ], [ %spec.select, %200 ], [ -10, %212 ], [ %252, %246 ], [ %215, %214 ], [ %222, %221 ], [ %233, %231 ], [ -4, %190 ], [ -4, %.thread344.loopexit603 ], [ %186, %182 ], [ %.1, %254 ], [ %257, %.thread339 ]
+  %.4347 = phi i32 [ 3, %.thread341 ], [ -21, %197 ], [ %spec.select, %200 ], [ -10, %212 ], [ %252, %246 ], [ %215, %214 ], [ %222, %221 ], [ %233, %231 ], [ -4, %190 ], [ -4, %.thread344.loopexit603 ], [ %186, %182 ], [ %.2, %254 ], [ %257, %.thread339 ]
   %258 = call i32 @arkHandleFailure(ptr noundef nonnull %0, i32 noundef %.4347)
   %259 = load double, ptr %62, align 8
   store double %259, ptr %3, align 8

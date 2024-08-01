@@ -1214,12 +1214,12 @@ define internal range(i32 0, 2) i32 @dissect_opensafety_siii(ptr noundef %0, ptr
   br label %18
 
 18:                                               ; preds = %14, %12
-  %.010 = phi i32 [ %17, %14 ], [ 0, %12 ]
+  %.1 = phi i32 [ %17, %14 ], [ 0, %12 ]
   store i1 false, ptr @bDissector_Called_Once_Before, align 4
   br label %19
 
 19:                                               ; preds = %6, %18, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.010, %18 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.1, %18 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1416,14 +1416,14 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
 
 61:                                               ; preds = %54, %57
   %.0151 = phi i16 [ %40, %57 ], [ %51, %54 ]
-  %.1146 = phi i16 [ %60, %57 ], [ %55, %54 ]
+  %.3148 = phi i16 [ %60, %57 ], [ %55, %54 ]
   %.0140 = phi i32 [ 0, %57 ], [ 1, %54 ]
-  %.1138 = phi i8 [ 1, %57 ], [ %., %54 ]
-  %62 = icmp eq i16 %.0151, %.1146
+  %.3 = phi i8 [ 1, %57 ], [ %., %54 ]
+  %62 = icmp eq i16 %.0151, %.3148
   br i1 %62, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %50, %61
-  %.1138232 = phi i8 [ %.1138, %61 ], [ 2, %50 ]
+  %.3232 = phi i8 [ %.3, %61 ], [ 2, %50 ]
   %.0140231 = phi i32 [ %.0140, %61 ], [ 1, %50 ]
   %.0151230 = phi i16 [ %.0151, %61 ], [ %51, %50 ]
   %.mask173 = and i32 %20, 248
@@ -1515,7 +1515,7 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
   br label %.outer.backedge
 
 105:                                              ; preds = %76, %90, %75
-  %.1146.lcssa = phi i16 [ %.0151230, %76 ], [ 0, %90 ], [ %.0151230, %75 ]
+  %.3148.lcssa = phi i16 [ %.0151230, %76 ], [ 0, %90 ], [ %.0151230, %75 ]
   %.not215 = icmp eq ptr %6, null
   br i1 %.not215, label %113, label %.sink.split
 
@@ -1529,9 +1529,9 @@ define internal fastcc range(i32 0, 2) i32 @findSafetyFrame(ptr nocapture nounde
   store i32 %108, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %6, i64 56
   %111 = getelementptr inbounds i8, ptr %6, i64 58
-  store i16 %.1146.lcssa, ptr %111, align 2
-  store i8 %.1138232, ptr %110, align 8
-  %.not177 = icmp ne i8 %.1138232, -1
+  store i16 %.3148.lcssa, ptr %111, align 2
+  store i8 %.3232, ptr %110, align 8
+  %.not177 = icmp ne i8 %.3232, -1
   %112 = getelementptr inbounds i8, ptr %6, i64 64
   %.243 = zext i1 %.not177 to i32
   store i32 %.243, ptr %112, align 8
@@ -1718,7 +1718,7 @@ findFrame1Position.exit.thread282:                ; preds = %82
   %98 = phi i32 [ %65, %findFrame1Position.exit.thread282 ], [ %184, %183 ], [ %196, %195 ], [ %205, %204 ], [ %235, %234 ], [ %258, %255 ], [ %173, %172 ], [ %175, %174 ], [ %308, %307 ], [ %65, %303 ]
   %.0241.be = phi i32 [ %.0241299, %findFrame1Position.exit.thread282 ], [ %.0241299, %183 ], [ %.0241299, %195 ], [ %.0241299, %204 ], [ %.0241299, %234 ], [ %.0241299, %255 ], [ %.0241299, %172 ], [ %.0241299, %174 ], [ 1, %307 ], [ 1, %303 ]
   %.0238.be = phi i32 [ %.0238300, %findFrame1Position.exit.thread282 ], [ %.0238300, %183 ], [ %.0238300, %195 ], [ %.0238300, %204 ], [ %.0238300, %234 ], [ %.0238300, %255 ], [ %.0238300, %172 ], [ %.0238300, %174 ], [ %.2240, %307 ], [ %.2240, %303 ]
-  %.0235.be = phi i32 [ %.0235301, %findFrame1Position.exit.thread282 ], [ %.0235301, %183 ], [ %.0235301, %195 ], [ %.0235301, %204 ], [ %spec.select272, %234 ], [ %.2, %255 ], [ %.0235301, %172 ], [ %.0235301, %174 ], [ %.2, %307 ], [ %.2, %303 ]
+  %.0235.be = phi i32 [ %.0235301, %findFrame1Position.exit.thread282 ], [ %.0235301, %183 ], [ %.0235301, %195 ], [ %.0235301, %204 ], [ %spec.select272, %234 ], [ %.1236, %255 ], [ %.0235301, %172 ], [ %.0235301, %174 ], [ %.1236, %307 ], [ %.1236, %303 ]
   %.0232.be = phi i8 [ %.0232302, %findFrame1Position.exit.thread282 ], [ %.0232302, %183 ], [ %.0232302, %195 ], [ %.0232302, %204 ], [ %.0232302, %234 ], [ %.0232302, %255 ], [ %.0232302, %172 ], [ %.0232302, %174 ], [ %.1233289, %307 ], [ %.1233289, %303 ]
   %.0230.be = phi i32 [ %.0230303, %findFrame1Position.exit.thread282 ], [ %.0230303, %183 ], [ %.0230303, %195 ], [ %.0230303, %204 ], [ %.0230303, %234 ], [ %.0230303, %255 ], [ %.0230303, %172 ], [ %.0230303, %174 ], [ %65, %307 ], [ %65, %303 ]
   %.0229.be = phi i8 [ %.0229304, %findFrame1Position.exit.thread282 ], [ %.0229304, %183 ], [ %.0229304, %195 ], [ %.0229304, %204 ], [ %.0229304, %234 ], [ %.0229304, %255 ], [ %.0229304, %172 ], [ %.0229304, %174 ], [ %299, %307 ], [ %299, %303 ]
@@ -1972,7 +1972,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 236:                                              ; preds = %._crit_edge322, %.thread331
   %.pre-phi327 = phi i32 [ %.pre326, %._crit_edge322 ], [ %223, %.thread331 ]
   %.pre-phi325 = phi i32 [ %.pre324, %._crit_edge322 ], [ %220, %.thread331 ]
-  %.2 = phi i32 [ %.0235301, %._crit_edge322 ], [ %spec.select272, %.thread331 ]
+  %.1236 = phi i32 [ %.0235301, %._crit_edge322 ], [ %spec.select272, %.thread331 ]
   %237 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0225, i32 noundef %.pre-phi325) #10
   %238 = zext i8 %237 to i32
   %239 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0225, i32 noundef %.pre-phi327) #10
@@ -2095,7 +2095,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 298:                                              ; preds = %295, %283
   call fastcc void @dissect_opensafety_message(ptr noundef nonnull %56, ptr noundef %268, ptr noundef nonnull %6, ptr noundef %.0223, ptr noundef %.0222, i8 noundef zeroext %.1233289, i8 noundef zeroext %.0229304)
   %299 = load i8, ptr %59, align 4
-  %.not267 = icmp eq i32 %.2, 0
+  %.not267 = icmp eq i32 %.1236, 0
   br i1 %.not267, label %303, label %300
 
 300:                                              ; preds = %298
@@ -4844,7 +4844,7 @@ proto_item_set_generated.exit.i127:               ; preds = %1711, %1708, %1701
   br label %1799
 
 1799:                                             ; preds = %1793, %.thread185.i
-  %.1.i130 = phi i16 [ %1798, %1793 ], [ %.0161.i, %.thread185.i ]
+  %.3.i = phi i16 [ %1798, %1793 ], [ %.0161.i, %.thread185.i ]
   %or.cond4.i131 = and i1 %1680, %1677
   br i1 %or.cond4.i131, label %1800, label %.critedge.i
 
@@ -4854,7 +4854,7 @@ proto_item_set_generated.exit.i127:               ; preds = %1711, %1708, %1701
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1800, %1799, %1747
-  %.2.i = phi i16 [ %1802, %1800 ], [ %.1.i130, %1799 ], [ %.0161.i, %1747 ]
+  %.2.i = phi i16 [ %1802, %1800 ], [ %.3.i, %1799 ], [ %.0161.i, %1747 ]
   %1803 = load i32, ptr @hf_oss_crc, align 4
   %1804 = zext i16 %.2.i to i32
   %1805 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %4, i32 noundef %1803, ptr noundef %1, i32 noundef %1724, i32 noundef %1681, i32 noundef %1804, ptr noundef nonnull @.str.507, i32 noundef %1804) #10
@@ -4882,11 +4882,11 @@ proto_item_set_generated.exit.i127:               ; preds = %1711, %1708, %1701
   br label %1820
 
 1820:                                             ; preds = %1817, %1815, %1813
-  %.0162.i = phi i16 [ %1816, %1815 ], [ %.2.i, %1813 ], [ %1819, %1817 ]
+  %.1163.i = phi i16 [ %1816, %1815 ], [ %.2.i, %1813 ], [ %1819, %1817 ]
   %1821 = load i32, ptr @hf_oss_crc2_valid, align 4
   %1822 = load i16, ptr %1721, align 2
   %1823 = zext i16 %1822 to i32
-  %1824 = icmp eq i16 %.2.i, %.0162.i
+  %1824 = icmp eq i16 %.2.i, %.1163.i
   %1825 = zext i1 %1824 to i64
   %1826 = call ptr @proto_tree_add_boolean(ptr noundef %1807, i32 noundef %1821, ptr noundef %1, i32 noundef %1823, i32 noundef %1679, i64 noundef %1825) #10
   %.not.i178.i = icmp eq ptr %1826, null
@@ -4909,7 +4909,7 @@ proto_item_set_generated.exit180.i:               ; preds = %1830, %1827, %1820
   br i1 %1824, label %1848, label %1834
 
 1834:                                             ; preds = %proto_item_set_generated.exit180.i
-  %1835 = zext i16 %.0162.i to i32
+  %1835 = zext i16 %.1163.i to i32
   %1836 = load i32, ptr @hf_oss_crc, align 4
   %1837 = load i16, ptr %1721, align 2
   %1838 = zext i16 %1837 to i32
@@ -4964,15 +4964,15 @@ proto_item_set_generated.exit183.i:               ; preds = %1843, %1840, %1834
   br label %1861
 
 1861:                                             ; preds = %1859, %1858, %proto_item_set_generated.exit183.i
-  %.1163.i = phi i16 [ %.0162.i, %proto_item_set_generated.exit183.i ], [ %.2.i, %1858 ], [ -1, %1859 ]
-  %.3.i = phi i16 [ %.2.i, %proto_item_set_generated.exit183.i ], [ %.2.i, %1858 ], [ %.0161.i, %1859 ]
+  %.2164.i = phi i16 [ %.1163.i, %proto_item_set_generated.exit183.i ], [ %.2.i, %1858 ], [ -1, %1859 ]
+  %.4.i = phi i16 [ %.2.i, %proto_item_set_generated.exit183.i ], [ %.2.i, %1858 ], [ %.0161.i, %1859 ]
   %1862 = call ptr @g_byte_array_free(ptr noundef %1754, i32 noundef 1) #10
-  %1863 = zext i16 %.1163.i to i32
+  %1863 = zext i16 %.2164.i to i32
   br label %1864
 
 1864:                                             ; preds = %1861, %.thread.i129
-  %.2164.i = phi i32 [ %1863, %1861 ], [ 65535, %.thread.i129 ]
-  %.4.i = phi i16 [ %.3.i, %1861 ], [ %.0161.i, %.thread.i129 ]
+  %.0162.i = phi i32 [ %1863, %1861 ], [ 65535, %.thread.i129 ]
+  %.1.i130 = phi i16 [ %.4.i, %1861 ], [ %.0161.i, %.thread.i129 ]
   br i1 %1705, label %1865, label %dissect_opensafety_checksum.exit.thread
 
 1865:                                             ; preds = %1864
@@ -4986,8 +4986,8 @@ proto_item_set_generated.exit183.i:               ; preds = %1843, %1840, %1834
 
 dissect_opensafety_checksum.exit:                 ; preds = %1865, %1866
   %not..i = phi i1 [ true, %1865 ], [ %1869, %1866 ]
-  %1870 = zext i16 %.4.i to i32
-  %1871 = icmp ne i32 %.2164.i, %1870
+  %1870 = zext i16 %.1.i130 to i32
+  %1871 = icmp ne i32 %.0162.i, %1870
   %narrow.i = select i1 %not..i, i1 %1871, i1 false
   br i1 %narrow.i, label %dissect_opensafety_checksum.exit.thread, label %1872
 

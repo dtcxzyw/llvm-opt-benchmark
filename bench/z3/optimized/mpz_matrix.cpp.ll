@@ -806,7 +806,7 @@ invoke.cont3:                                     ; preds = %invoke.cont3.lr.ph,
   %1 = phi i32 [ 0, %invoke.cont3.lr.ph ], [ %8, %for.inc ]
   %bf.load.i = phi i8 [ 0, %invoke.cont3.lr.ph ], [ %bf.load.i74, %for.inc ]
   %indvars.iv = phi i64 [ 0, %invoke.cont3.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %first.058 = phi i8 [ 1, %invoke.cont3.lr.ph ], [ %first.2, %for.inc ]
+  %first.058 = phi i8 [ 1, %invoke.cont3.lr.ph ], [ %first.1, %for.inc ]
   %arrayidx = getelementptr inbounds %class.mpz, ptr %A_i, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 8
   %cmp.i = icmp eq i32 %2, 0
@@ -870,7 +870,7 @@ if.else:                                          ; preds = %if.end
           to label %if.end27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end27:                                         ; preds = %invoke.cont12, %if.else
-  %first.1 = phi i8 [ %first.058, %if.else ], [ 0, %invoke.cont12 ]
+  %first.2 = phi i8 [ %first.058, %if.else ], [ 0, %invoke.cont12 ]
   %bf.load.i.i31 = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i32 = and i8 %bf.load.i.i31, 1
   %cmp.i.i33 = icmp eq i8 %bf.clear.i.i32, 0
@@ -882,13 +882,13 @@ if.end27:                                         ; preds = %invoke.cont12, %if.
 for.inc:                                          ; preds = %if.end27, %invoke.cont3
   %8 = phi i32 [ %1, %invoke.cont3 ], [ %6, %if.end27 ]
   %bf.load.i74 = phi i8 [ %bf.load.i, %invoke.cont3 ], [ %bf.load.i.i31, %if.end27 ]
-  %first.2 = phi i8 [ %first.058, %invoke.cont3 ], [ %first.1, %if.end27 ]
+  %first.1 = phi i8 [ %first.058, %invoke.cont3 ], [ %first.2, %if.end27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %invoke.cont3, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
-  %9 = trunc nuw i8 %first.2 to i1
+  %9 = trunc nuw i8 %first.1 to i1
   br i1 %9, label %cleanup, label %if.end38
 
 if.end38:                                         ; preds = %for.end
@@ -2525,7 +2525,7 @@ lpad28:                                           ; preds = %lpad28.loopexit.spl
 for.cond42.preheader:                             ; preds = %for.cond42.preheader.lr.ph, %for.inc89
   %15 = phi i32 [ %12, %for.cond42.preheader.lr.ph ], [ %40, %for.inc89 ]
   %indvars.iv174 = phi i64 [ 0, %for.cond42.preheader.lr.ph ], [ %indvars.iv.next175, %for.inc89 ]
-  %r_sz.0164 = phi i32 [ 0, %for.cond42.preheader.lr.ph ], [ %r_sz.1, %for.inc89 ]
+  %r_sz.0164 = phi i32 [ 0, %for.cond42.preheader.lr.ph ], [ %r_sz.2, %for.inc89 ]
   %k2.0163 = phi i32 [ 0, %for.cond42.preheader.lr.ph ], [ %k2.1, %for.inc89 ]
   %16 = load ptr, ptr %a_ij.i.i, align 8
   %17 = load i32, ptr %n.i.i, align 4
@@ -2668,14 +2668,14 @@ for.inc89:                                        ; preds = %for.end65, %invoke.
   %.pre-phi = phi i64 [ %19, %for.end65 ], [ %.pre185, %invoke.cont86 ]
   %40 = phi i32 [ %15, %for.end65 ], [ %.pre184, %invoke.cont86 ]
   %k2.1 = phi i32 [ %k2.0163, %for.end65 ], [ %inc88, %invoke.cont86 ]
-  %r_sz.1 = phi i32 [ %r_sz.0164, %for.end65 ], [ %inc78, %invoke.cont86 ]
+  %r_sz.2 = phi i32 [ %r_sz.0164, %for.end65 ], [ %inc78, %invoke.cont86 ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %cmp39 = icmp ult i64 %indvars.iv.next175, %.pre-phi
   br i1 %cmp39, label %for.cond42.preheader, label %for.end91, !llvm.loop !32
 
 for.end91:                                        ; preds = %for.inc89, %invoke.cont71, %invoke.cont26, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit, %for.cond36.preheader
-  %r_sz.2 = phi i32 [ 0, %for.cond36.preheader ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %invoke.cont26 ], [ %inc78, %invoke.cont71 ], [ %r_sz.1, %for.inc89 ]
-  %idx.ext = zext i32 %r_sz.2 to i64
+  %r_sz.1 = phi i32 [ 0, %for.cond36.preheader ], [ 0, %_ZN6bufferIjLb0ELj128EE6resizeEjRKj.exit ], [ 0, %invoke.cont26 ], [ %inc78, %invoke.cont71 ], [ %r_sz.2, %for.inc89 ]
+  %idx.ext = zext i32 %r_sz.1 to i64
   %add.ptr = getelementptr inbounds i32, ptr %r, i64 %idx.ext
   invoke void @_ZSt6__sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_(ptr noundef %r, ptr noundef %add.ptr)
           to label %invoke.cont92 unwind label %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2683,11 +2683,11 @@ for.end91:                                        ; preds = %for.inc89, %invoke.
 invoke.cont92:                                    ; preds = %for.end91
   %n = getelementptr inbounds i8, ptr %_A, i64 4
   %41 = load i32, ptr %n, align 4
-  invoke void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %r_sz.2, i32 noundef %41, ptr noundef nonnull align 8 dereferenceable(16) %A.i)
+  invoke void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %r_sz.1, i32 noundef %41, ptr noundef nonnull align 8 dereferenceable(16) %A.i)
           to label %for.cond97.preheader unwind label %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond97.preheader:                             ; preds = %invoke.cont92
-  %cmp98168.not = icmp eq i32 %r_sz.2, 0
+  %cmp98168.not = icmp eq i32 %r_sz.1, 0
   br i1 %cmp98168.not, label %for.end118, label %for.cond100.preheader.lr.ph
 
 for.cond100.preheader.lr.ph:                      ; preds = %for.cond97.preheader
@@ -2944,7 +2944,7 @@ terminate.lpad.i146:                              ; preds = %terminate.lpad.loop
   unreachable
 
 _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %for.end9.i.i, %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit140
-  ret i32 %r_sz.2
+  ret i32 %r_sz.1
 
 ehcleanup:                                        ; preds = %lpad28, %lpad23
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad28 ], [ %14, %lpad23 ]

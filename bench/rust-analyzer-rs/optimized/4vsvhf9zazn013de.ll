@@ -2254,8 +2254,8 @@ define void @_ZN10lsp_server10Connection16initialize_start17h893ff2f71b83194dE(p
   br i1 %.not.i.i.i37.i, label %_ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.i, label %_ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.thread.i
 
 .thread89.loopexit.i:                             ; preds = %113, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i"
-  %.128.ph.ph.i = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i" ], [ false, %113 ]
-  %.1.ph.ph.i = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i" ], [ true, %113 ]
+  %.027.ph.ph.i = phi i1 [ true, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i" ], [ false, %113 ]
+  %.0.ph.ph.i = phi i1 [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i" ], [ true, %113 ]
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
@@ -2540,8 +2540,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit52.i: ; preds = %120
 
 .thread.i:                                        ; preds = %111, %.body.i, %.thread89.loopexit.split-lp.i, %.thread89.loopexit.i
   %.pn3378.i = phi { ptr, i32 } [ %.pn.i, %.body.i ], [ %112, %111 ], [ %lpad.loopexit.i, %.thread89.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.thread89.loopexit.split-lp.i ]
-  %.076.i = phi i1 [ false, %.body.i ], [ true, %111 ], [ %.1.ph.ph.i, %.thread89.loopexit.i ], [ false, %.thread89.loopexit.split-lp.i ]
-  %.02775.i = phi i1 [ true, %.body.i ], [ false, %111 ], [ %.128.ph.ph.i, %.thread89.loopexit.i ], [ true, %.thread89.loopexit.split-lp.i ]
+  %.176.i = phi i1 [ false, %.body.i ], [ true, %111 ], [ %.0.ph.ph.i, %.thread89.loopexit.i ], [ false, %.thread89.loopexit.split-lp.i ]
+  %.12875.i = phi i1 [ true, %.body.i ], [ false, %111 ], [ %.027.ph.ph.i, %.thread89.loopexit.i ], [ true, %.thread89.loopexit.split-lp.i ]
   %124 = load i64, ptr %24, align 8, !range !73, !noalias !359, !noundef !12
   switch i64 %124, label %125 [
     i64 -9223372036854775807, label %126
@@ -2553,10 +2553,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit52.i: ; preds = %120
           to label %.thread79.i unwind label %99, !noalias !356
 
 126:                                              ; preds = %.thread.i
-  br i1 %.076.i, label %128, label %.thread79.i
+  br i1 %.176.i, label %128, label %.thread79.i
 
 127:                                              ; preds = %.thread.i
-  br i1 %.02775.i, label %129, label %.thread79.i
+  br i1 %.12875.i, label %129, label %.thread79.i
 
 128:                                              ; preds = %126
   invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Request$GT$17h85be52b12c4d6db9E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %28) #27
@@ -2905,12 +2905,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
 
 "_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit": ; preds = %39, %31
   %.pn30 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %39 ]
-  %.026 = phi i1 [ %.1, %31 ], [ true, %39 ]
+  %.1 = phi i1 [ %.026, %31 ], [ true, %39 ]
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb0fd36f838382ec3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16) #27
           to label %71 unwind label %74
 
 31:                                               ; preds = %33, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit"
-  %.1 = phi i1 [ false, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit" ], [ true, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ true, %33 ]
+  %.026 = phi i1 [ false, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit" ], [ true, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ true, %33 ]
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit"
@@ -3070,7 +3070,7 @@ _ZN10serde_json5value8to_value17h21d798ddfc1a42a3E.exit: ; preds = %42
   ret void
 
 71:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit"
-  br i1 %.026, label %76, label %18
+  br i1 %.1, label %76, label %18
 
 .thread57:                                        ; preds = %68
   %72 = landingpad { ptr, i32 }
@@ -4437,11 +4437,11 @@ _ZN10serde_json3ser9Formatter10end_object17h7a49eebf8b176b43E.exit.i: ; preds = 
   br label %52
 
 52:                                               ; preds = %53, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17haa5525da9532a237E.exit"
-  %.0 = phi ptr [ %.1, %53 ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17haa5525da9532a237E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %53 ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17haa5525da9532a237E.exit" ]
+  ret ptr %.1
 
 53:                                               ; preds = %29, %25, %14
-  %.1 = phi ptr [ %23, %14 ], [ %26, %25 ], [ %30, %29 ]
+  %.0 = phi ptr [ %23, %14 ], [ %26, %25 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %52
 }
@@ -4908,11 +4908,11 @@ _ZN10serde_json3ser9Formatter10end_object17h7a49eebf8b176b43E.exit.i: ; preds = 
   br label %85
 
 85:                                               ; preds = %"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit.thread", %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h1855d348bb127827E.exit"
-  %.0 = phi ptr [ %.1, %"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit.thread" ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h1855d348bb127827E.exit" ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit.thread" ], [ null, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h1855d348bb127827E.exit" ]
+  ret ptr %.1
 
 "_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit.thread": ; preds = %42, %29, %"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit", %12
-  %.1 = phi ptr [ %21, %12 ], [ %.0.i, %"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit" ], [ %47, %42 ], [ %33, %29 ]
+  %.0 = phi ptr [ %21, %12 ], [ %.0.i, %"_ZN10lsp_server3msg1_76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_server..msg..Message$GT$9serialize17h72709fa4a29ef5ddE.exit" ], [ %47, %42 ], [ %33, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %85
 }

@@ -1801,7 +1801,7 @@ Abc_Clock.exit67:                                 ; preds = %.critedge, %93
 114:                                              ; preds = %.lr.ph86, %114
   %indvars.iv96 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next97, %114 ]
   %indvars.iv94 = phi i64 [ 2, %.lr.ph86 ], [ %indvars.iv.next95, %114 ]
-  %.04684 = phi i32 [ 0, %.lr.ph86 ], [ %spec.select, %114 ]
+  %.14784 = phi i32 [ 0, %.lr.ph86 ], [ %spec.select, %114 ]
   %115 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv96
   %116 = load i32, ptr %115, align 4
   %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv96
@@ -1827,7 +1827,7 @@ Abc_Clock.exit67:                                 ; preds = %.critedge, %93
   %136 = xor i32 %135, %119
   %137 = and i32 %136, 1
   %138 = xor i32 %137, 1
-  %spec.select = add i32 %138, %.04684
+  %spec.select = add i32 %138, %.14784
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 3
   %139 = trunc i64 %indvars.iv96 to i32
   %140 = add i32 %139, 5
@@ -1836,7 +1836,7 @@ Abc_Clock.exit67:                                 ; preds = %.critedge, %93
   br i1 %141, label %114, label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %114, %.preheader, %107
-  %.248 = phi i32 [ 0, %107 ], [ 0, %.preheader ], [ %spec.select, %114 ]
+  %.046 = phi i32 [ 0, %107 ], [ 0, %.preheader ], [ %spec.select, %114 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %142 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #21
   %143 = icmp slt i32 %142, 0
@@ -1918,7 +1918,7 @@ Abc_Clock.exit71:                                 ; preds = %._crit_edge, %164
   br label %175
 
 175:                                              ; preds = %Abc_Clock.exit67, %Abc_Clock.exit71
-  %.0 = phi i32 [ %.248, %Abc_Clock.exit71 ], [ 0, %Abc_Clock.exit67 ]
+  %.0 = phi i32 [ %.046, %Abc_Clock.exit71 ], [ 0, %Abc_Clock.exit67 ]
   ret i32 %.0
 }
 
@@ -2285,21 +2285,21 @@ define i32 @Cec3_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
   %indvars.iv31 = phi i64 [ 0, %.lr.ph26.preheader ], [ %indvars.iv.next32, %.lr.ph26 ]
-  %.125 = phi i32 [ 0, %.lr.ph26.preheader ], [ %22, %.lr.ph26 ]
+  %.225 = phi i32 [ 0, %.lr.ph26.preheader ], [ %22, %.lr.ph26 ]
   %16 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv31
   %17 = load i32, ptr %16, align 4
   %18 = and i64 %indvars.iv31, 15
   %19 = getelementptr inbounds [16 x i32], ptr @Cec3_ManSimHashKey.s_Primes, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %20, %17
-  %22 = xor i32 %21, %.125
+  %22 = xor i32 %21, %.225
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count35
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph26, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader20, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
-  %23 = urem i32 %.2, %2
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
+  %23 = urem i32 %.1, %2
   ret i32 %23
 }
 
@@ -2446,21 +2446,21 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %23
 
 .lr.ph26.i:                                       ; preds = %.preheader.i88, %.lr.ph26.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.lr.ph26.i ], [ 0, %.preheader.i88 ]
-  %.125.i = phi i32 [ %67, %.lr.ph26.i ], [ 0, %.preheader.i88 ]
+  %.225.i = phi i32 [ %67, %.lr.ph26.i ], [ 0, %.preheader.i88 ]
   %61 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv31.i
   %62 = load i32, ptr %61, align 4
   %63 = and i64 %indvars.iv31.i, 15
   %64 = getelementptr inbounds [16 x i32], ptr @Cec3_ManSimHashKey.s_Primes, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %62
-  %67 = xor i32 %66, %.125.i
+  %67 = xor i32 %66, %.225.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
   br i1 %exitcond36.not.i, label %Cec3_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !33
 
 Cec3_ManSimHashKey.exit:                          ; preds = %.lr.ph.i87, %.lr.ph26.i, %.preheader20.i, %.preheader.i88
-  %.2.i = phi i32 [ 0, %.preheader.i88 ], [ 0, %.preheader20.i ], [ %67, %.lr.ph26.i ], [ %60, %.lr.ph.i87 ]
-  %68 = urem i32 %.2.i, %21
+  %.1.i = phi i32 [ 0, %.preheader.i88 ], [ 0, %.preheader20.i ], [ %67, %.lr.ph26.i ], [ %60, %.lr.ph.i87 ]
+  %68 = urem i32 %.1.i, %21
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i32, ptr %30, i64 %69
   %71 = load i32, ptr %70, align 4

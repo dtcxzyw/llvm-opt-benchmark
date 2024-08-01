@@ -451,22 +451,22 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not177, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %105, %127
-  %.4 = phi i32 [ %130, %127 ], [ %.3, %105 ]
+  %.5 = phi i32 [ %130, %127 ], [ %.3, %105 ]
   %108 = load i32, ptr @hf_gre_routing, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %108, ptr noundef %0, i32 noundef %.4, i32 noundef -1, i32 noundef 0) #5
+  %109 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %108, ptr noundef %0, i32 noundef %.5, i32 noundef -1, i32 noundef 0) #5
   %110 = load i32, ptr @ett_gre_routing, align 4
   %111 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %110) #5
-  %112 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.4) #5
+  %112 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5) #5
   %113 = load i32, ptr @hf_gre_routing_address_family, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %113, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0) #5
-  %115 = add i32 %.4, 2
+  %114 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %113, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef 0) #5
+  %115 = add i32 %.5, 2
   %116 = load i32, ptr @hf_gre_routing_sre_offset, align 4
   %117 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 1, i32 noundef 0) #5
-  %118 = add i32 %.4, 3
+  %118 = add i32 %.5, 3
   %119 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %118) #5
   %120 = load i32, ptr @hf_gre_routing_sre_length, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0) #5
-  %122 = add i32 %.4, 4
+  %122 = add i32 %.5, 4
   %123 = zext i8 %119 to i32
   %124 = add nuw nsw i32 %123, 4
   call void @proto_item_set_len(ptr noundef %109, i32 noundef %124) #5
@@ -482,32 +482,32 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %105
-  %.5 = phi i32 [ %.3, %105 ], [ %122, %.preheader ]
+  %.4 = phi i32 [ %.3, %105 ], [ %122, %.preheader ]
   %131 = icmp eq i16 %9, -30658
   %or.cond7 = and i1 %131, %22
   br i1 %or.cond7, label %.thread, label %152
 
 .thread:                                          ; preds = %.loopexit
   %132 = load i32, ptr @hf_gre_wccp_redirect_header, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %132, ptr noundef %0, i32 noundef %.5, i32 noundef 4, i32 noundef 0) #5
+  %133 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %132, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #5
   %134 = load i32, ptr @ett_gre_wccp2_redirect_header, align 4
   %135 = call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #5
   %136 = load i32, ptr @hf_gre_wccp_dynamic_service, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #5
+  %137 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #5
   %138 = load i32, ptr @hf_gre_wccp_alternative_bucket_used, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %138, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #5
+  %139 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %138, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #5
   %140 = load i32, ptr @hf_gre_wccp_redirect_header_valid, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %140, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #5
+  %141 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %140, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #5
   %142 = load i32, ptr @hf_gre_wccp_service_id, align 4
-  %143 = add i32 %.5, 1
+  %143 = add i32 %.4, 1
   %144 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %142, ptr noundef %0, i32 noundef %143, i32 noundef 1, i32 noundef 0) #5
   %145 = load i32, ptr @hf_gre_wccp_alternative_bucket, align 4
-  %146 = add i32 %.5, 2
+  %146 = add i32 %.4, 2
   %147 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0) #5
   %148 = load i32, ptr @hf_gre_wccp_primary_bucket, align 4
-  %149 = add i32 %.5, 3
+  %149 = add i32 %.4, 3
   %150 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %148, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef 0) #5
-  %151 = add i32 %.5, 4
+  %151 = add i32 %.4, 4
   br label %209
 
 152:                                              ; preds = %.loopexit
@@ -517,13 +517,13 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 154:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %155 = load i32, ptr @hf_gre_3gpp2_attrib, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %155, ptr noundef %0, i32 noundef %.5, i32 noundef 0, i32 noundef 0) #5
+  %156 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %155, ptr noundef %0, i32 noundef %.4, i32 noundef 0, i32 noundef 0) #5
   %157 = load i32, ptr @ett_3gpp2_attribs, align 4
   %158 = call ptr @proto_item_add_subtree(ptr noundef %156, i32 noundef %157) #5
   br label %159
 
 159:                                              ; preds = %206, %154
-  %.066.i = phi i32 [ %.5, %154 ], [ %207, %206 ]
+  %.066.i = phi i32 [ %.4, %154 ], [ %207, %206 ]
   %160 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.066.i) #5
   %161 = add i32 %.066.i, 1
   %162 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %161) #5
@@ -599,13 +599,13 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.not.i, label %159, label %dissect_gre_3gpp2_attribs.exit, !llvm.loop !4
 
 dissect_gre_3gpp2_attribs.exit:                   ; preds = %206
-  %208 = sub i32 %207, %.5
+  %208 = sub i32 %207, %.4
   call void @proto_item_set_len(ptr noundef %156, i32 noundef %208) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %209
 
 209:                                              ; preds = %.thread, %dissect_gre_3gpp2_attribs.exit, %152
-  %.7 = phi i32 [ %207, %dissect_gre_3gpp2_attribs.exit ], [ %.5, %152 ], [ %151, %.thread ]
+  %.7 = phi i32 [ %207, %dissect_gre_3gpp2_attribs.exit ], [ %.4, %152 ], [ %151, %.thread ]
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %.7) #5
   %210 = load i16, ptr %6, align 4
   %211 = and i16 %210, 4096

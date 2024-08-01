@@ -749,7 +749,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %if.end34, 
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit, %if.then31
-  %retval.sroa.0.0 = phi i32 [ %call33, %if.then31 ], [ %spec.select, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit ]
+  %retval.sroa.0.2 = phi i32 [ %call33, %if.then31 ], [ %spec.select, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit ]
   %second.i = getelementptr inbounds i8, ptr %ret, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #16
   %31 = load ptr, ptr %ret, align 8
@@ -766,7 +766,7 @@ _ZNSt4pairISt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteI
   br label %cleanup50
 
 cleanup50:                                        ; preds = %_ZNSt4pairISt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %_ZNSt4pairISt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %call25, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ]
+  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.2, %_ZNSt4pairISt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %call25, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ]
   %bf.load.i78 = load i8, ptr %HasError.i, align 8
   %bf.cast.i79 = trunc i8 %bf.load.i78 to i1
   br i1 %bf.cast.i79, label %return, label %if.then.i
@@ -784,8 +784,8 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %if.the
   br label %return
 
 return:                                           ; preds = %if.then.i, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i, %cleanup50, %if.end, %if.then
-  %retval.sroa.0.2 = phi i32 [ %call3, %if.then ], [ 0, %if.end ], [ %retval.sroa.0.1, %cleanup50 ], [ %retval.sroa.0.1, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i ], [ %retval.sroa.0.1, %if.then.i ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.2, 0
+  %retval.sroa.0.0 = phi i32 [ %call3, %if.then ], [ 0, %if.end ], [ %retval.sroa.0.1, %cleanup50 ], [ %retval.sroa.0.1, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i ], [ %retval.sroa.0.1, %if.then.i ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 -1688849860263936, 1
   ret { i32, i64 } %.fca.1.insert
 }
@@ -1599,7 +1599,7 @@ _ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i: ; 
   br i1 %cmp.i.i70.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.end.i.i.i:                                  ; preds = %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit91.i.i.i, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i
-  %threwException.1178.ph.i.i.i = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit91.i.i.i ], [ %cmp.i49.i.i.i, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i ], [ %cmp.i49.i.i.i, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i ]
+  %threwException.2178.ph.i.i.i = phi i1 [ true, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit91.i.i.i ], [ %cmp.i49.i.i.i, %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i.i.i ], [ %cmp.i49.i.i.i, %_ZN4llvh8OptionalIN6hermes2vm12PseudoHandleINS2_8CallableEEEED2Ev.exit.i.i.i ]
   %conv.i.i.i.i.i.i = zext i32 %77 to i64
   %98 = load ptr, ptr %chunks_.i.i.i.i, align 8
   %arrayidx.i17.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %98, i64 %conv.i.i.i.i.i.i
@@ -1611,7 +1611,7 @@ while.end.i.i.i:                                  ; preds = %_ZN4llvh8OptionalIN
   br label %if.end140.i.i.i
 
 if.end140.i.i.i:                                  ; preds = %while.end.i.i.i, %if.end101.i.i.i
-  %threwException.2.i.i.i = phi i1 [ %cmp.i49.i.i.i, %if.end101.i.i.i ], [ %threwException.1178.ph.i.i.i, %while.end.i.i.i ]
+  %threwException.0.i.i.i = phi i1 [ %cmp.i49.i.i.i, %if.end101.i.i.i ], [ %threwException.2178.ph.i.i.i, %while.end.i.i.i ]
   br i1 %tobool.i191.i.i.i, label %if.then142.i.i.i, label %if.end157.i.i.i
 
 if.then142.i.i.i:                                 ; preds = %if.end140.i.i.i
@@ -1702,7 +1702,7 @@ if.end154.i.i.i:                                  ; preds = %if.then150.i.i.i, %
   br label %if.end157.i.i.i
 
 if.end157.i.i.i:                                  ; preds = %if.end154.i.i.i, %if.end140.i.i.i
-  %lnot.i.i.i = xor i1 %threwException.2.i.i.i, true
+  %lnot.i.i.i = xor i1 %threwException.0.i.i.i, true
   br label %cleanup159.i.i.i
 
 cleanup159.i.i.i:                                 ; preds = %if.end157.i.i.i, %if.then4.i.i43.i.i.i, %if.then.i.i46.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_6DomainEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i.i.i

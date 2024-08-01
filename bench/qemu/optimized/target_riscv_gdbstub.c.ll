@@ -147,7 +147,7 @@ do.body:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %sw.bb3, %if.then, %sw.bb
   %length.0 = phi i32 [ 4, %sw.bb ], [ 8, %if.then ], [ 8, %sw.bb3 ]
-  %tmp.1 = phi i64 [ %conv, %sw.bb ], [ %conv7, %if.then ], [ %mem_buf.val10, %sw.bb3 ]
+  %tmp.0 = phi i64 [ %conv, %sw.bb ], [ %conv7, %if.then ], [ %mem_buf.val10, %sw.bb3 ]
   %2 = add i32 %n, -1
   %or.cond = icmp ult i32 %2, 31
   br i1 %or.cond, label %if.then13, label %if.else14
@@ -155,7 +155,7 @@ sw.epilog:                                        ; preds = %sw.bb3, %if.then, %
 if.then13:                                        ; preds = %sw.epilog
   %idxprom = zext nneg i32 %n to i64
   %arrayidx = getelementptr [32 x i64], ptr %env1, i64 0, i64 %idxprom
-  store i64 %tmp.1, ptr %arrayidx, align 8
+  store i64 %tmp.0, ptr %arrayidx, align 8
   br label %if.end19
 
 if.else14:                                        ; preds = %sw.epilog
@@ -164,7 +164,7 @@ if.else14:                                        ; preds = %sw.epilog
 
 if.then17:                                        ; preds = %if.else14
   %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
-  store i64 %tmp.1, ptr %pc, align 16
+  store i64 %tmp.0, ptr %pc, align 16
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else14, %if.then17, %if.then13

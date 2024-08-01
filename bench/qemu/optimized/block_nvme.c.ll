@@ -833,12 +833,12 @@ if.end15:                                         ; preds = %if.else
   br label %fail
 
 fail:                                             ; preds = %if.end15, %if.end15.thread, %nvme_init.exit.thread, %nvme_init.exit
-  %ret.1 = phi i32 [ %ret.0.ph.i, %nvme_init.exit ], [ %call4.i, %if.end15 ], [ %retval.0.i.ph, %nvme_init.exit.thread ], [ -22, %if.end15.thread ]
+  %ret.0 = phi i32 [ %ret.0.ph.i, %nvme_init.exit ], [ %call4.i, %if.end15 ], [ %retval.0.i.ph, %nvme_init.exit.thread ], [ -22, %if.end15.thread ]
   tail call void @nvme_close(ptr noundef %bs)
   br label %return
 
 return:                                           ; preds = %if.end15.thread24, %if.end7, %fail, %if.then
-  %retval.0 = phi i32 [ %ret.1, %fail ], [ -22, %if.then ], [ 0, %if.end7 ], [ 0, %if.end15.thread24 ]
+  %retval.0 = phi i32 [ %ret.0, %fail ], [ -22, %if.then ], [ 0, %if.end7 ], [ 0, %if.end15.thread24 ]
   ret i32 %retval.0
 }
 

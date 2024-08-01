@@ -449,9 +449,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -976,7 +976,7 @@ cleanup53.critedge:                               ; preds = %invoke.cont3
   br label %cleanup53
 
 cleanup53:                                        ; preds = %_ZN6icu_7514StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit, %cleanup53.critedge, %if.else42
-  %retval.1 = phi i32 [ 5, %if.else42 ], [ 5, %cleanup53.critedge ], [ %cond.i.i, %_ZN6icu_7514StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit ]
+  %retval.2 = phi i32 [ 5, %if.else42 ], [ 5, %cleanup53.critedge ], [ %cond.i.i, %_ZN6icu_7514StandardPlural17orOtherFromStringERKNS_13UnicodeStringE.exit ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pluralKeyword) #13
   br label %return
 
@@ -986,8 +986,8 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup53
-  %retval.2 = phi i32 [ %retval.1, %cleanup53 ], [ 5, %entry ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %retval.2, %cleanup53 ], [ 5, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

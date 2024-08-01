@@ -455,7 +455,7 @@ define dso_local noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialV
           to label %37 unwind label %31
 
 37:                                               ; preds = %19, %35, %30
-  %.0 = phi ptr [ %29, %30 ], [ %36, %35 ], [ @.str, %19 ]
+  %.1 = phi ptr [ %29, %30 ], [ %36, %35 ], [ @.str, %19 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %90
 
@@ -599,8 +599,8 @@ _ZN29cmCommandArgumentParserHelper8SetErrorERKNSt7__cxx1112basic_stringIcSt11cha
   br label %91
 
 90:                                               ; preds = %52, %13, %_ZN29cmCommandArgumentParserHelper8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %69, %62, %37, %11
-  %.1 = phi ptr [ %.0, %37 ], [ %61, %62 ], [ %70, %69 ], [ null, %_ZN29cmCommandArgumentParserHelper8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %12, %11 ], [ @.str, %13 ], [ @.str, %52 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %37 ], [ %61, %62 ], [ %70, %69 ], [ null, %_ZN29cmCommandArgumentParserHelper8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %12, %11 ], [ @.str, %13 ], [ @.str, %52 ]
+  ret ptr %.0
 
 91:                                               ; preds = %89, %67, %.body, %38
   %.pn25.pn = phi { ptr, i32 } [ %.pn25, %38 ], [ %68, %67 ], [ %.pn23, %.body ], [ %.pn, %89 ]

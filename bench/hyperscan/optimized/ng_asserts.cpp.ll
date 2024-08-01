@@ -1444,17 +1444,17 @@ if.then30.i.i.i:                                  ; preds = %for.body21.i.i.i
   br label %if.then202.i
 
 if.then202.i:                                     ; preds = %if.then30.i.i.i, %if.then12.i.i.i
-  %ref.tmp197.sroa.0.1.ph.i = phi ptr [ %__begin017.sroa.0.0.i.i.i, %if.then30.i.i.i ], [ %sub.ptr.i.i.i.i.i.i.i.i.i.i, %if.then12.i.i.i ]
-  %ref.tmp197.sroa.4.1.ph.in.i = phi ptr [ %serial2.i.i.i.i10.i.i.i, %if.then30.i.i.i ], [ %serial2.i.i.i.i.i.i.i, %if.then12.i.i.i ]
-  %ref.tmp197.sroa.4.1.ph.i = load i64, ptr %ref.tmp197.sroa.4.1.ph.in.i, align 8, !noalias !117
-  store ptr %ref.tmp197.sroa.0.1.ph.i, ptr %start_eod.i, align 8
-  store i64 %ref.tmp197.sroa.4.1.ph.i, ptr %serial.i581.i, align 8
+  %ref.tmp197.sroa.0.2.ph.i = phi ptr [ %__begin017.sroa.0.0.i.i.i, %if.then30.i.i.i ], [ %sub.ptr.i.i.i.i.i.i.i.i.i.i, %if.then12.i.i.i ]
+  %ref.tmp197.sroa.4.2.ph.in.i = phi ptr [ %serial2.i.i.i.i10.i.i.i, %if.then30.i.i.i ], [ %serial2.i.i.i.i.i.i.i, %if.then12.i.i.i ]
+  %ref.tmp197.sroa.4.2.ph.i = load i64, ptr %ref.tmp197.sroa.4.2.ph.in.i, align 8, !noalias !117
+  store ptr %ref.tmp197.sroa.0.2.ph.i, ptr %start_eod.i, align 8
+  store i64 %ref.tmp197.sroa.4.2.ph.i, ptr %serial.i581.i, align 8
   br label %if.then202.i.invoke
 
 if.then202.i.invoke:                              ; preds = %if.then343.i, %if.then202.i
-  %ref.tmp338.sroa.0.1.ph.i.sink = phi ptr [ %ref.tmp338.sroa.0.1.ph.i, %if.then343.i ], [ %ref.tmp197.sroa.0.1.ph.i, %if.then202.i ]
+  %ref.tmp338.sroa.0.2.ph.i.sink = phi ptr [ %ref.tmp338.sroa.0.2.ph.i, %if.then343.i ], [ %ref.tmp197.sroa.0.2.ph.i, %if.then202.i ]
   %130 = phi ptr [ %start_eod337.i, %if.then343.i ], [ %start_eod.i, %if.then202.i ]
-  %assert_flags347.i = getelementptr inbounds i8, ptr %ref.tmp338.sroa.0.1.ph.i.sink, i64 96
+  %assert_flags347.i = getelementptr inbounds i8, ptr %ref.tmp338.sroa.0.2.ph.i.sink, i64 96
   store i32 0, ptr %assert_flags347.i, align 8
   %131 = invoke noundef i64 @_ZNSt8_Rb_treeIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE5eraseERKS8_(ptr noundef nonnull align 8 dereferenceable(48) %dead, ptr noundef nonnull align 8 dereferenceable(16) %130)
           to label %if.then101.i.invoke unwind label %lpad36.loopexit
@@ -1779,11 +1779,11 @@ if.then30.i.i505.i:                               ; preds = %for.body21.i.i502.i
   br label %if.then343.i
 
 if.then343.i:                                     ; preds = %if.then30.i.i505.i, %if.then12.i.i519.i
-  %ref.tmp338.sroa.0.1.ph.i = phi ptr [ %__begin017.sroa.0.0.i.i500.i, %if.then30.i.i505.i ], [ %sub.ptr.i.i.i.i.i.i.i.i.i520.i, %if.then12.i.i519.i ]
-  %ref.tmp338.sroa.4.1.ph.in.i = phi ptr [ %serial2.i.i.i.i10.i.i506.i, %if.then30.i.i505.i ], [ %serial2.i.i.i.i.i.i521.i, %if.then12.i.i519.i ]
-  %ref.tmp338.sroa.4.1.ph.i = load i64, ptr %ref.tmp338.sroa.4.1.ph.in.i, align 8, !noalias !149
-  store ptr %ref.tmp338.sroa.0.1.ph.i, ptr %start_eod337.i, align 8
-  store i64 %ref.tmp338.sroa.4.1.ph.i, ptr %serial.i525592.i, align 8
+  %ref.tmp338.sroa.0.2.ph.i = phi ptr [ %__begin017.sroa.0.0.i.i500.i, %if.then30.i.i505.i ], [ %sub.ptr.i.i.i.i.i.i.i.i.i520.i, %if.then12.i.i519.i ]
+  %ref.tmp338.sroa.4.2.ph.in.i = phi ptr [ %serial2.i.i.i.i10.i.i506.i, %if.then30.i.i505.i ], [ %serial2.i.i.i.i.i.i521.i, %if.then12.i.i519.i ]
+  %ref.tmp338.sroa.4.2.ph.i = load i64, ptr %ref.tmp338.sroa.4.2.ph.in.i, align 8, !noalias !149
+  store ptr %ref.tmp338.sroa.0.2.ph.i, ptr %start_eod337.i, align 8
+  store i64 %ref.tmp338.sroa.4.2.ph.i, ptr %serial.i525592.i, align 8
   br label %if.then202.i.invoke
 
 if.else349.i:                                     ; preds = %for.cond19.i.i498.i, %for.cond.i.i512.i

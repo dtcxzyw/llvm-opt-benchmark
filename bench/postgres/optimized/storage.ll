@@ -858,24 +858,24 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   br label %28
 
 28:                                               ; preds = %22, %23, %20
-  %.141 = phi i32 [ 8, %20 ], [ %24, %23 ], [ %.04047, %22 ]
-  %.138 = phi ptr [ %21, %20 ], [ %27, %23 ], [ %.03748, %22 ]
+  %.242 = phi i32 [ 8, %20 ], [ %24, %23 ], [ %.04047, %22 ]
+  %.239 = phi ptr [ %21, %20 ], [ %27, %23 ], [ %.03748, %22 ]
   %29 = add i32 %.03549, 1
   %30 = sext i32 %.03549 to i64
-  %31 = getelementptr ptr, ptr %.138, i64 %30
+  %31 = getelementptr ptr, ptr %.239, i64 %30
   store ptr %18, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %28, %9
-  %.242 = phi i32 [ %.141, %28 ], [ %.04047, %9 ]
-  %.239 = phi ptr [ %.138, %28 ], [ %.03748, %9 ]
+  %.141 = phi i32 [ %.242, %28 ], [ %.04047, %9 ]
+  %.138 = phi ptr [ %.239, %28 ], [ %.03748, %9 ]
   %.136 = phi i32 [ %29, %28 ], [ %.03549, %9 ]
   tail call void @pfree(ptr noundef nonnull %.03351) #8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %32
-  %.343 = phi i32 [ %.242, %32 ], [ %.04047, %.lr.ph ]
-  %.3 = phi ptr [ %.239, %32 ], [ %.03748, %.lr.ph ]
+  %.343 = phi i32 [ %.141, %32 ], [ %.04047, %.lr.ph ]
+  %.3 = phi ptr [ %.138, %32 ], [ %.03748, %.lr.ph ]
   %.2 = phi i32 [ %.136, %32 ], [ %.03549, %.lr.ph ]
   %.1 = phi ptr [ %.03450, %32 ], [ %.03351, %.lr.ph ]
   %.not = icmp eq ptr %5, null
@@ -991,19 +991,19 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 .preheader62:                                     ; preds = %.lr.ph76, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph76 ]
-  %.05368 = phi i32 [ %.154, %30 ], [ 0, %.lr.ph76 ]
+  %.15468 = phi i32 [ %.255, %30 ], [ 0, %.lr.ph76 ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = call zeroext i1 @smgrexists(ptr noundef %21, i32 noundef %25) #8
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.preheader62
   %28 = call i32 @smgrnblocks(ptr noundef %21, i32 noundef %25) #8
-  %29 = add i32 %28, %.05368
+  %29 = add i32 %28, %.15468
   br label %30
 
 30:                                               ; preds = %.preheader62, %27
   %.sink = phi i32 [ %28, %27 ], [ -1, %.preheader62 ]
-  %.154 = phi i32 [ %29, %27 ], [ %.05368, %.preheader62 ]
+  %.255 = phi i32 [ %29, %27 ], [ %.15468, %.preheader62 ]
   %31 = getelementptr [4 x i32], ptr %4, i64 0, i64 %indvars.iv
   store i32 %.sink, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1016,12 +1016,12 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 .loopexit63:                                      ; preds = %.loopexit63.loopexit, %.lr.ph76
   %32 = phi i8 [ %23, %.lr.ph76 ], [ %.pre84, %.loopexit63.loopexit ]
-  %.255 = phi i32 [ 0, %.lr.ph76 ], [ %.154, %.loopexit63.loopexit ]
+  %.053 = phi i32 [ 0, %.lr.ph76 ], [ %.255, %.loopexit63.loopexit ]
   %33 = trunc i8 %32 to i1
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %.loopexit63
-  %35 = shl i32 %.255, 3
+  %35 = shl i32 %.053, 3
   %36 = and i32 %35, 4194296
   %37 = load i32, ptr @wal_skip_threshold, align 4
   %.not59 = icmp ult i32 %36, %37

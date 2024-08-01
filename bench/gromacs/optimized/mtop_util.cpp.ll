@@ -853,7 +853,7 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
 
 .preheader.i:                                     ; preds = %._crit_edge149.i, %._crit_edge.i
   %191 = phi i32 [ %206, %._crit_edge.i ], [ %189, %._crit_edge149.i ]
-  %.1 = phi i32 [ %.3, %._crit_edge.i ], [ %.015, %._crit_edge149.i ]
+  %.1 = phi i32 [ %.2, %._crit_edge.i ], [ %.015, %._crit_edge149.i ]
   %192 = phi i32 [ %207, %._crit_edge.i ], [ %189, %._crit_edge149.i ]
   %.3152.i = phi i32 [ %208, %._crit_edge.i ], [ 0, %._crit_edge149.i ]
   %193 = icmp sgt i32 %192, 0
@@ -861,9 +861,9 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
 
 .lr.ph151.i:                                      ; preds = %.preheader.i, %.lr.ph151.i
   %194 = phi i32 [ %204, %.lr.ph151.i ], [ %191, %.preheader.i ]
-  %.2 = phi i32 [ %195, %.lr.ph151.i ], [ %.1, %.preheader.i ]
+  %.3 = phi i32 [ %195, %.lr.ph151.i ], [ %.1, %.preheader.i ]
   %.4150.i = phi i32 [ %203, %.lr.ph151.i ], [ 0, %.preheader.i ]
-  %195 = add nsw i32 %.2, 1
+  %195 = add nsw i32 %.3, 1
   %196 = load ptr, ptr %22, align 8
   %197 = load i32, ptr %21, align 8
   %198 = mul nsw i32 %194, %.3152.i
@@ -879,14 +879,14 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph151.i, %.preheader.i
   %206 = phi i32 [ %191, %.preheader.i ], [ %204, %.lr.ph151.i ]
-  %.3 = phi i32 [ %.1, %.preheader.i ], [ %195, %.lr.ph151.i ]
+  %.2 = phi i32 [ %.1, %.preheader.i ], [ %195, %.lr.ph151.i ]
   %207 = phi i32 [ %192, %.preheader.i ], [ %204, %.lr.ph151.i ]
   %208 = add nuw nsw i32 %.3152.i, 1
   %exitcond166.not.i = icmp eq i32 %208, %30
   br i1 %exitcond166.not.i, label %_ZL7atomcatP7t_atomsPKS_iiPi.exit, label %.preheader.i, !llvm.loop !15
 
 _ZL7atomcatP7t_atomsPKS_iiPi.exit:                ; preds = %._crit_edge.i, %._crit_edge149.thread.i, %._crit_edge149.i
-  %.4 = phi i32 [ %.015, %._crit_edge149.i ], [ %.015, %._crit_edge149.thread.i ], [ %.3, %._crit_edge.i ]
+  %.4 = phi i32 [ %.015, %._crit_edge149.i ], [ %.015, %._crit_edge149.thread.i ], [ %.2, %._crit_edge.i ]
   %209 = phi i32 [ %189, %._crit_edge149.i ], [ %188, %._crit_edge149.thread.i ], [ %207, %._crit_edge.i ]
   %210 = mul nsw i32 %209, %30
   %211 = load i32, ptr %21, align 8

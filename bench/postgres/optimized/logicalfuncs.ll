@@ -164,7 +164,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.06277 = phi ptr [ %96, %.lr.ph ], [ null, %.preheader ]
+  %.177 = phi ptr [ %96, %.lr.ph ], [ null, %.preheader ]
   %.06376 = phi i32 [ %97, %.lr.ph ], [ 0, %.preheader ]
   %81 = load ptr, ptr %5, align 8
   %82 = sext i32 %.06376 to i64
@@ -181,14 +181,14 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %93 = call ptr @text_to_cstring(ptr noundef %92) #7
   %94 = call ptr @makeString(ptr noundef %93) #7
   %95 = call ptr @makeDefElem(ptr noundef %86, ptr noundef %94, i32 noundef -1) #7
-  %96 = call ptr @lappend(ptr noundef %.06277, ptr noundef %95) #7
+  %96 = call ptr @lappend(ptr noundef %.177, ptr noundef %95) #7
   %97 = add i32 %.06376, 2
   %98 = load i32, ptr %4, align 4
   %99 = icmp slt i32 %97, %98
   br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %71
-  %.1 = phi ptr [ null, %71 ], [ null, %.preheader ], [ %96, %.lr.ph ]
+  %.062 = phi ptr [ null, %71 ], [ null, %.preheader ], [ %96, %.lr.ph ]
   call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #7
   %100 = getelementptr inbounds i8, ptr %11, i64 40
   %101 = load ptr, ptr %100, align 8
@@ -224,7 +224,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   store ptr @wal_segment_open, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr @wal_segment_close, ptr %117, align 8
-  %118 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.1, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #7
+  %118 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.062, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #7
   store ptr %57, ptr @CurrentMemoryContext, align 8
   br i1 %2, label %132, label %119
 

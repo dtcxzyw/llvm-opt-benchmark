@@ -223,11 +223,11 @@ qsort_interruptible_med3.exit224:                 ; preds = %80, %82, %86, %88
 
 qsort_interruptible_med3.exit225:                 ; preds = %107, %105, %101, %99, %47
   %.1190 = phi ptr [ %.0186.ph, %47 ], [ %73, %99 ], [ %73, %101 ], [ %73, %105 ], [ %73, %107 ]
-  %.2 = phi ptr [ %46, %47 ], [ %92, %99 ], [ %92, %101 ], [ %92, %105 ], [ %92, %107 ]
+  %.3 = phi ptr [ %46, %47 ], [ %92, %99 ], [ %92, %101 ], [ %92, %105 ], [ %92, %107 ]
   %.0187 = phi ptr [ %50, %47 ], [ %95, %99 ], [ %104, %101 ], [ %95, %105 ], [ %110, %107 ]
-  %111 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.2, ptr noundef %4) #3
+  %111 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.3, ptr noundef %4) #3
   %112 = icmp slt i32 %111, 0
-  %113 = tail call i32 %3(ptr noundef %.2, ptr noundef %.0187, ptr noundef %4) #3
+  %113 = tail call i32 %3(ptr noundef %.3, ptr noundef %.0187, ptr noundef %4) #3
   br i1 %112, label %114, label %120
 
 114:                                              ; preds = %qsort_interruptible_med3.exit225
@@ -251,13 +251,13 @@ qsort_interruptible_med3.exit225:                 ; preds = %107, %105, %101, %9
   br label %qsort_interruptible_med3.exit226
 
 qsort_interruptible_med3.exit226:                 ; preds = %122, %120, %116, %114, %43
-  %.3 = phi ptr [ %46, %43 ], [ %119, %116 ], [ %125, %122 ], [ %.2, %114 ], [ %.2, %120 ]
+  %.2 = phi ptr [ %46, %43 ], [ %119, %116 ], [ %125, %122 ], [ %.3, %114 ], [ %.3, %120 ]
   br i1 %.not.i227, label %qsort_interruptible_swapn.exit231, label %.lr.ph.i228
 
 .lr.ph.i228:                                      ; preds = %qsort_interruptible_med3.exit226, %.lr.ph.i228
   %.06.i229 = phi i64 [ %130, %.lr.ph.i228 ], [ 0, %qsort_interruptible_med3.exit226 ]
   %126 = getelementptr i8, ptr %.0186.ph, i64 %.06.i229
-  %127 = getelementptr i8, ptr %.3, i64 %.06.i229
+  %127 = getelementptr i8, ptr %.2, i64 %.06.i229
   %128 = load i8, ptr %126, align 1
   %129 = load i8, ptr %127, align 1
   store i8 %129, ptr %126, align 1

@@ -4990,7 +4990,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511: ; preds = %if.end.i503, %
   br i1 %tobool135.not, label %cleanup, label %lor.lhs.false.i482
 
 lor.lhs.false.i482:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit529, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511
-  %key_length.0 = phi i32 [ %call79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit529 ], [ %call132, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ]
+  %key_length.2 = phi i32 [ %call79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit529 ], [ %call132, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ]
   %83 = load i32, ptr %length_.i681, align 8
   %cmp2.i484 = icmp slt i32 %83, 4
   br i1 %cmp2.i484, label %if.then.i490, label %if.end.i485
@@ -5059,13 +5059,13 @@ sw.default:                                       ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp171.not, label %if.end175, label %cleanup
 
 if.end175:                                        ; preds = %sw.bb160, %sw.bb165, %sw.default, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit493
-  %iv_length.0 = phi i32 [ %call78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit493 ], [ %call78, %sw.default ], [ %call159, %sw.bb165 ], [ %call159, %sw.bb160 ]
+  %iv_length.2 = phi i32 [ %call78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit493 ], [ %call78, %sw.default ], [ %call159, %sw.bb165 ], [ %call159, %sw.bb160 ]
   br label %cleanup
 
 cleanup:                                          ; preds = %sw.default, %sw.bb165, %sw.bb160, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511, %if.then107, %if.end175
   %switch = phi i1 [ true, %if.end175 ], [ false, %if.then107 ], [ false, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ], [ false, %sw.bb160 ], [ false, %sw.bb165 ], [ false, %sw.default ]
-  %key_length.1 = phi i32 [ %key_length.0, %if.end175 ], [ %call79, %if.then107 ], [ %call79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ], [ %key_length.0, %sw.bb160 ], [ %key_length.0, %sw.bb165 ], [ %key_length.0, %sw.default ]
-  %iv_length.1 = phi i32 [ %iv_length.0, %if.end175 ], [ %call78, %if.then107 ], [ %call78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ], [ %call78, %sw.bb160 ], [ %call78, %sw.bb165 ], [ %call78, %sw.default ]
+  %key_length.1 = phi i32 [ %key_length.2, %if.end175 ], [ %call79, %if.then107 ], [ %call79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ], [ %key_length.2, %sw.bb160 ], [ %key_length.2, %sw.bb165 ], [ %key_length.2, %sw.default ]
+  %iv_length.1 = phi i32 [ %iv_length.2, %if.end175 ], [ %call78, %if.then107 ], [ %call78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit511 ], [ %call78, %sw.bb160 ], [ %call78, %sw.bb165 ], [ %call78, %sw.default ]
   %cmp.not.i = icmp eq ptr %call108, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit, label %if.then.i101
 
@@ -5077,8 +5077,8 @@ _ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPH
   br i1 %switch, label %if.end176, label %return
 
 if.end176:                                        ; preds = %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit547
-  %key_length.2 = phi i32 [ %key_length.1, %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit ], [ %call79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit547 ]
-  %iv_length.2 = phi i32 [ %iv_length.1, %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit ], [ %call78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit547 ]
+  %key_length.0 = phi i32 [ %key_length.1, %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit ], [ %call79, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit547 ]
+  %iv_length.0 = phi i32 [ %iv_length.1, %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit ], [ %call78, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit547 ]
   br i1 %cmp177.not, label %if.end217, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end176
@@ -5191,7 +5191,7 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERA
   br i1 %tobool.i798, label %if.end342, label %return
 
 if.end342:                                        ; preds = %if.end299, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %cmp343.not = icmp eq i32 %iv_length.2, 0
+  %cmp343.not = icmp eq i32 %iv_length.0, 0
   br i1 %cmp343.not, label %if.end385, label %land.rhs344
 
 land.rhs344:                                      ; preds = %if.end342
@@ -5211,7 +5211,7 @@ if.then.i.i.i142:                                 ; preds = %land.rhs344
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi9EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %land.rhs344, %if.then.i.i.i142
   %116 = load ptr, ptr %isolate_.i112, align 8
-  %call365 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %116, i32 noundef %iv_length.2) #19
+  %call365 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %116, i32 noundef %iv_length.0) #19
   %call381 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %retval.i656.sroa.0.0159, ptr %call2.i138, ptr %call.i.i140, ptr %call365) #19
   %tobool.i794 = trunc i16 %call381 to i1
   br i1 %tobool.i794, label %if.end385, label %return
@@ -5233,7 +5233,7 @@ if.then.i.i.i151:                                 ; preds = %if.end385
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit152: ; preds = %if.end385, %if.then.i.i.i151
   %120 = load ptr, ptr %isolate_.i112, align 8
-  %call406 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %120, i32 noundef %key_length.2) #19
+  %call406 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %120, i32 noundef %key_length.0) #19
   %call422 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %retval.i656.sroa.0.0159, ptr %call2.i147, ptr %call.i.i149, ptr %call406) #19
   %tobool.i = trunc i16 %call422 to i1
   br i1 %tobool.i, label %if.else.i, label %return
@@ -7336,13 +7336,13 @@ if.end26:                                         ; preds = %if.end20, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end20, %if.then16, %if.end11, %if.end26, %if.then9
-  %retval.0 = phi i1 [ false, %if.then9 ], [ %cmp32, %if.end26 ], [ false, %if.end11 ], [ false, %if.then16 ], [ false, %if.end20 ]
+  %retval.1 = phi i1 [ false, %if.then9 ], [ %cmp32, %if.end26 ], [ false, %if.end11 ], [ false, %if.then16 ], [ false, %if.end20 ]
   %call.i6 = call i32 @ERR_pop_to_mark() #19
   br label %return
 
 return:                                           ; preds = %do.end5.i, %entry, %_ZNK4node6crypto10CipherBase19IsAuthenticatedModeEv.exit, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %_ZNK4node6crypto10CipherBase19IsAuthenticatedModeEv.exit ], [ false, %entry ], [ false, %do.end5.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %_ZNK4node6crypto10CipherBase19IsAuthenticatedModeEv.exit ], [ false, %entry ], [ false, %do.end5.i ]
+  ret i1 %retval.0
 }
 
 declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -7632,13 +7632,13 @@ if.end105:                                        ; preds = %land.lhs.true99, %i
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true51, %do.end39, %land.lhs.true, %if.end105, %if.then104
-  %retval.0 = phi i32 [ %cond, %if.end105 ], [ 0, %if.then104 ], [ 1, %land.lhs.true ], [ 2, %do.end39 ], [ 2, %land.lhs.true51 ]
+  %retval.1 = phi i32 [ %cond, %if.end105 ], [ 0, %if.then104 ], [ 1, %land.lhs.true ], [ 2, %do.end39 ], [ 2, %land.lhs.true51 ]
   %call.i55 = call i32 @ERR_pop_to_mark() #19
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 2, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 2, %entry ]
+  ret i32 %retval.0
 }
 
 declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #0

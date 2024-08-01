@@ -798,7 +798,7 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
   %indvars.iv142 = phi i64 [ 0, %.lr.ph129.split.us.preheader ], [ %45, %.loopexit105.us ]
   %indvars.iv = phi i64 [ 1, %.lr.ph129.split.us.preheader ], [ %indvars.iv.next, %.loopexit105.us ]
   %.058126.us = phi i32 [ 0, %.lr.ph129.split.us.preheader ], [ %.1.us, %.loopexit105.us ]
-  %.095125.us = phi i32 [ -1, %.lr.ph129.split.us.preheader ], [ %.6.us, %.loopexit105.us ]
+  %.095125.us = phi i32 [ -1, %.lr.ph129.split.us.preheader ], [ %.3.us, %.loopexit105.us ]
   %.val64.us = load ptr, ptr %34, align 8
   %37 = trunc nuw nsw i64 %indvars.iv142 to i32
   %38 = lshr i64 %indvars.iv142, 5
@@ -857,7 +857,7 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   br i1 %exitcond.not.i78.us, label %.loopexit104.us, label %.lr.ph.i74.us, !llvm.loop !10
 
 .loopexit105.us:                                  ; preds = %Io_ReadPlaConsensus.exit.thread.us.us, %.lr.ph129.split.us, %.loopexit104.us, %.loopexit.us, %Abc_TtImply.exit87.us
-  %.6.us = phi i32 [ %.3.us.us152157, %.loopexit104.us ], [ %.3.us.us152157, %.loopexit.us ], [ %.3.us.us152157, %Abc_TtImply.exit87.us ], [ %.095125.us, %.lr.ph129.split.us ], [ %.5.us.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
+  %.3.us = phi i32 [ %.5.us.us152157, %.loopexit104.us ], [ %.5.us.us152157, %.loopexit.us ], [ %.5.us.us152157, %Abc_TtImply.exit87.us ], [ %.095125.us, %.lr.ph129.split.us ], [ %.2.us.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
   %.1.us = phi i32 [ %79, %.loopexit104.us ], [ %72, %.loopexit.us ], [ %.058126.us, %Abc_TtImply.exit87.us ], [ %.058126.us, %.lr.ph129.split.us ], [ %.058126.us, %Io_ReadPlaConsensus.exit.thread.us.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond147.not = icmp eq i64 %45, %wide.trip.count146
@@ -895,7 +895,7 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
 
 81:                                               ; preds = %Io_ReadPlaConsensus.exit.thread.us.us, %.lr.ph.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %Io_ReadPlaConsensus.exit.thread.us.us ], [ %indvars.iv, %.lr.ph.us ]
-  %.196116.us.us = phi i32 [ %.5.us.us, %Io_ReadPlaConsensus.exit.thread.us.us ], [ %.095125.us, %.lr.ph.us ]
+  %.196116.us.us = phi i32 [ %.2.us.us, %Io_ReadPlaConsensus.exit.thread.us.us ], [ %.095125.us, %.lr.ph.us ]
   %82 = trunc nuw nsw i64 %indvars.iv139 to i32
   %83 = lshr i64 %indvars.iv139, 5
   %84 = and i64 %83, 134217727
@@ -914,7 +914,7 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   br label %.lr.ph.i68.us.us.outer
 
 .lr.ph.i68.us.us.outer:                           ; preds = %.thread, %.lr.ph.preheader.i.us.us
-  %.2.us.us.ph = phi i32 [ %130, %.thread ], [ %.196116.us.us, %.lr.ph.preheader.i.us.us ]
+  %.4.us.us.ph = phi i32 [ %130, %.thread ], [ %.196116.us.us, %.lr.ph.preheader.i.us.us ]
   %indvars.iv.i69.us.us.ph = phi i64 [ %indvars.iv.next.i70.us.us150, %.thread ], [ 0, %.lr.ph.preheader.i.us.us ]
   %.not.i.us.us = phi i1 [ false, %.thread ], [ true, %.lr.ph.preheader.i.us.us ]
   br label %.lr.ph.i68.us.us
@@ -991,19 +991,19 @@ Io_ReadPlaConsensus.exit.us.us:                   ; preds = %105
   br i1 %.not.i.us.us, label %Io_ReadPlaConsensus.exit.thread.us.us, label %.split.us.us
 
 Io_ReadPlaConsensus.exit.thread.us.us:            ; preds = %98, %99, %Io_ReadPlaConsensus.exit.us.us, %81
-  %.5.us.us = phi i32 [ %.2.us.us.ph, %Io_ReadPlaConsensus.exit.us.us ], [ %.196116.us.us, %81 ], [ %.2.us.us.ph, %99 ], [ %.2.us.us.ph, %98 ]
+  %.2.us.us = phi i32 [ %.4.us.us.ph, %Io_ReadPlaConsensus.exit.us.us ], [ %.196116.us.us, %81 ], [ %.4.us.us.ph, %99 ], [ %.4.us.us.ph, %98 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count146
   br i1 %exitcond.not, label %.loopexit105.us, label %81, !llvm.loop !20
 
 .split.us.us:                                     ; preds = %Io_ReadPlaConsensus.exit.us.us, %.thread
-  %.3.us.us152157 = phi i32 [ %130, %.thread ], [ %.2.us.us.ph, %Io_ReadPlaConsensus.exit.us.us ]
+  %.5.us.us152157 = phi i32 [ %130, %.thread ], [ %.4.us.us.ph, %Io_ReadPlaConsensus.exit.us.us ]
   %131 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv139
-  %132 = ashr i32 %.3.us.us152157, 5
+  %132 = ashr i32 %.5.us.us152157, 5
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i64, ptr %90, i64 %133
   %135 = load i64, ptr %134, align 8
-  %136 = shl i32 %.3.us.us152157, 1
+  %136 = shl i32 %.5.us.us152157, 1
   %137 = and i32 %136, 62
   %138 = zext nneg i32 %137 to i64
   %139 = lshr i64 %135, %138
@@ -1641,7 +1641,7 @@ define ptr @Io_ReadPla(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
   %.0215.ph398.i = phi i32 [ -1, %.lr.ph.lr.ph.i ], [ %.1216.i, %.outer.i ]
   %.0217.ph396.i = phi i32 [ -1, %.lr.ph.lr.ph.i ], [ %.1218.i, %.outer.i ]
   %.0219.ph395.i = phi i32 [ -1, %.lr.ph.lr.ph.i ], [ %.1220.i, %.outer.i ]
-  %.0221.ph394.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %.2223.i, %.outer.i ]
+  %.0221.ph394.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %.1222.i, %.outer.i ]
   br label %22
 
 22:                                               ; preds = %.backedge.i, %.lr.ph.i
@@ -2074,7 +2074,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   br i1 %212, label %.lr.ph378.i, label %.critedge.i, !llvm.loop !35
 
 .critedge.i:                                      ; preds = %.critedge2.i, %169, %.loopexit306.i
-  %.1222.i = phi ptr [ %.0221.ph394.i, %.loopexit306.i ], [ %172, %169 ], [ %172, %.critedge2.i ]
+  %.2223.i = phi ptr [ %.0221.ph394.i, %.loopexit306.i ], [ %172, %169 ], [ %172, %.critedge2.i ]
   %213 = load i32, ptr %58, align 4
   %.not231.i = icmp eq i32 %213, 2
   br i1 %.not231.i, label %217, label %214
@@ -2084,7 +2084,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   %216 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef %215, i32 noundef %29)
   call void @Abc_NtkDelete(ptr noundef nonnull %12) #16
   call void @Extra_ProgressBarStop(ptr noundef %15) #16
-  %.not239.i = icmp eq ptr %.1222.i, null
+  %.not239.i = icmp eq ptr %.2223.i, null
   br i1 %.not239.i, label %Io_ReadPlaNetwork.exit.thread, label %Io_ReadPlaNetwork.exit.thread.sink.split
 
 217:                                              ; preds = %.critedge.i
@@ -2103,7 +2103,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   %227 = trunc i64 %226 to i32
   %228 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %225, i32 noundef %29, i32 noundef %227, i32 noundef %.0219.ph395.i)
   call void @Abc_NtkDelete(ptr noundef nonnull %12) #16
-  %.not238.i = icmp eq ptr %.1222.i, null
+  %.not238.i = icmp eq ptr %.2223.i, null
   br i1 %.not238.i, label %Io_ReadPlaNetwork.exit.thread, label %Io_ReadPlaNetwork.exit.thread.sink.split
 
 229:                                              ; preds = %217
@@ -2119,7 +2119,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   %236 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef %233, i32 noundef %29, i32 noundef %235, i32 noundef %.0217.ph396.i)
   call void @Abc_NtkDelete(ptr noundef nonnull %12) #16
   call void @Extra_ProgressBarStop(ptr noundef %15) #16
-  %.not237.i = icmp eq ptr %.1222.i, null
+  %.not237.i = icmp eq ptr %.2223.i, null
   br i1 %.not237.i, label %Io_ReadPlaNetwork.exit.thread, label %Io_ReadPlaNetwork.exit.thread.sink.split
 
 237:                                              ; preds = %229
@@ -2141,7 +2141,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   br i1 %241, label %242, label %246
 
 242:                                              ; preds = %.lr.ph380.i
-  %243 = getelementptr inbounds ptr, ptr %.1222.i, i64 %indvars.iv483.i
+  %243 = getelementptr inbounds ptr, ptr %.2223.i, i64 %indvars.iv483.i
   %244 = load ptr, ptr %243, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %244, ptr noundef %219)
   %245 = load ptr, ptr %243, align 8
@@ -2172,7 +2172,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   br i1 %switch.i, label %251, label %255
 
 251:                                              ; preds = %.lr.ph382.i
-  %252 = getelementptr inbounds ptr, ptr %.1222.i, i64 %indvars.iv487.i
+  %252 = getelementptr inbounds ptr, ptr %.2223.i, i64 %indvars.iv487.i
   %253 = load ptr, ptr %252, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %253, ptr noundef %219)
   %254 = load ptr, ptr %252, align 8
@@ -2211,7 +2211,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   ]
 
 259:                                              ; preds = %.lr.ph384.i, %.lr.ph384.i
-  %260 = getelementptr inbounds ptr, ptr %.1222.i, i64 %indvars.iv492.i
+  %260 = getelementptr inbounds ptr, ptr %.2223.i, i64 %indvars.iv492.i
   %261 = load ptr, ptr %260, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %261, ptr noundef %219)
   %262 = load ptr, ptr %260, align 8
@@ -2231,7 +2231,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   br i1 %266, label %267, label %271
 
 267:                                              ; preds = %.lr.ph386.i
-  %268 = getelementptr inbounds ptr, ptr %.1222.i, i64 %indvars.iv497.i
+  %268 = getelementptr inbounds ptr, ptr %.2223.i, i64 %indvars.iv497.i
   %269 = load ptr, ptr %268, align 8
   call fastcc void @Vec_StrPrintStr(ptr noundef %269, ptr noundef %219)
   %270 = load ptr, ptr %268, align 8
@@ -2248,7 +2248,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.lr.ph389.i, %.lr.ph392.i, %.loopexit299.i, %121, %104, %93, %83, %73
-  %.2223.i = phi ptr [ %.0221.ph394.i, %73 ], [ %.0221.ph394.i, %83 ], [ %.0221.ph394.i, %93 ], [ %.1222.i, %.loopexit299.i ], [ %.0221.ph394.i, %104 ], [ %.0221.ph394.i, %121 ], [ %.0221.ph394.i, %.lr.ph392.i ], [ %.0221.ph394.i, %.lr.ph389.i ]
+  %.1222.i = phi ptr [ %.0221.ph394.i, %73 ], [ %.0221.ph394.i, %83 ], [ %.0221.ph394.i, %93 ], [ %.2223.i, %.loopexit299.i ], [ %.0221.ph394.i, %104 ], [ %.0221.ph394.i, %121 ], [ %.0221.ph394.i, %.lr.ph392.i ], [ %.0221.ph394.i, %.lr.ph389.i ]
   %.1220.i = phi i32 [ %76, %73 ], [ %.0219.ph395.i, %83 ], [ %.0219.ph395.i, %93 ], [ %.0219.ph395.i, %.loopexit299.i ], [ %.0219.ph395.i, %104 ], [ %.0219.ph395.i, %121 ], [ %.0219.ph395.i, %.lr.ph392.i ], [ %.0219.ph395.i, %.lr.ph389.i ]
   %.1218.i = phi i32 [ %.0217.ph396.i, %73 ], [ %86, %83 ], [ %.0217.ph396.i, %93 ], [ %.0217.ph396.i, %.loopexit299.i ], [ %.0217.ph396.i, %104 ], [ %.0217.ph396.i, %121 ], [ %.0217.ph396.i, %.lr.ph392.i ], [ %.0217.ph396.i, %.lr.ph389.i ]
   %.1216.i = phi i32 [ %.0215.ph398.i, %73 ], [ %.0215.ph398.i, %83 ], [ %96, %93 ], [ %.0215.ph398.i, %.loopexit299.i ], [ %.0215.ph398.i, %104 ], [ %.0215.ph398.i, %121 ], [ %.0215.ph398.i, %.lr.ph392.i ], [ %.0215.ph398.i, %.lr.ph389.i ]
@@ -2258,7 +2258,7 @@ Abc_ObjFanout0Ntk.exit.i:                         ; preds = %199, %.lr.ph372.i
   br i1 %.not355.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %Extra_ProgressBarUpdate.exit.tail.i, %10
-  %.0221.ph.lcssa.i = phi ptr [ null, %10 ], [ %.0221.ph394.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0221.ph394.i, %.backedge.i ], [ %.2223.i, %.outer.i ]
+  %.0221.ph.lcssa.i = phi ptr [ null, %10 ], [ %.0221.ph394.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0221.ph394.i, %.backedge.i ], [ %.1222.i, %.outer.i ]
   %.0215.ph.lcssa.i = phi i32 [ -1, %10 ], [ %.0215.ph398.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0215.ph398.i, %.backedge.i ], [ %.1216.i, %.outer.i ]
   %.0.ph.lcssa.i = phi i32 [ 0, %10 ], [ %.0.ph399.i, %Extra_ProgressBarUpdate.exit.tail.i ], [ %.0.ph399.i, %.backedge.i ], [ %.1.i, %.outer.i ]
   call void @Extra_ProgressBarStop(ptr noundef %15) #16
@@ -2453,7 +2453,7 @@ Vec_StrFree.exit.i:                               ; preds = %Vec_StrFree.exit.si
   br label %357
 
 Io_ReadPlaNetwork.exit.thread.sink.split:         ; preds = %232, %224, %214, %154, %136, %61
-  %.0221.ph394.i.lcssa177.sink = phi ptr [ %.0221.ph394.i, %61 ], [ %.0221.ph394.i, %136 ], [ %.0221.ph394.i, %154 ], [ %.1222.i, %214 ], [ %.1222.i, %224 ], [ %.1222.i, %232 ]
+  %.0221.ph394.i.lcssa177.sink = phi ptr [ %.0221.ph394.i, %61 ], [ %.0221.ph394.i, %136 ], [ %.0221.ph394.i, %154 ], [ %.2223.i, %214 ], [ %.2223.i, %224 ], [ %.2223.i, %232 ]
   call void @free(ptr noundef nonnull %.0221.ph394.i.lcssa177.sink) #16
   br label %Io_ReadPlaNetwork.exit.thread
 

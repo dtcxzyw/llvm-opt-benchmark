@@ -332,10 +332,10 @@ define internal fastcc noundef double @_ZN3gmx12_GLOBAL__N_136getTransformationP
 
 65:                                               ; preds = %61, %63
   %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
-  %.116 = phi i1 [ %.015, %63 ], [ true, %61 ]
+  %.318 = phi i1 [ %.015, %63 ], [ true, %61 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
-  br i1 %.116, label %66, label %67
+  br i1 %.318, label %66, label %67
 
 66:                                               ; preds = %.thread50, %.thread, %65
   %.pn.pn.pn49 = phi { ptr, i32 } [ %59, %.thread ], [ %.pn, %65 ], [ %60, %.thread50 ]
@@ -373,10 +373,10 @@ define internal fastcc noundef double @_ZN3gmx12_GLOBAL__N_136getTransformationP
 
 74:                                               ; preds = %70, %72
   %.pn34 = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
-  %.1 = phi i1 [ %.0, %72 ], [ true, %70 ]
+  %.3 = phi i1 [ %.0, %72 ], [ true, %70 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
-  br i1 %.1, label %75, label %76
+  br i1 %.3, label %75, label %76
 
 75:                                               ; preds = %.thread58, %.thread53, %74
   %.pn34.pn.pn57 = phi { ptr, i32 } [ %68, %.thread53 ], [ %.pn34, %74 ], [ %69, %.thread58 ]

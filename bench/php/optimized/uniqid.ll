@@ -77,7 +77,7 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %.fr, label %30, label %.thread150
 
 30:                                               ; preds = %27, %.thread145, %22, %11
-  %.2 = phi ptr [ @.str, %11 ], [ %.ph, %22 ], [ %.ph, %.thread145 ], [ %.ph, %27 ]
+  %.0120 = phi ptr [ @.str, %11 ], [ %.ph, %22 ], [ %.ph, %.thread145 ], [ %.ph, %27 ]
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   br label %32
 
@@ -128,11 +128,11 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
 56:                                               ; preds = %52, %50
   %.0112.in = phi double [ %51, %50 ], [ %55, %52 ]
   %.0112 = fmul double %.0112.in, 1.000000e+01
-  %57 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.2, i32 noundef %42, i32 noundef %44, double noundef %.0112) #3
+  %57 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0120, i32 noundef %42, i32 noundef %44, double noundef %.0112) #3
   br label %60
 
 58:                                               ; preds = %41
-  %59 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %.2, i32 noundef %42, i32 noundef %44) #3
+  %59 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0120, i32 noundef %42, i32 noundef %44) #3
   br label %60
 
 60:                                               ; preds = %58, %56

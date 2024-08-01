@@ -2614,8 +2614,8 @@ while.body43.preheader:                           ; preds = %_ZNKSt8functionIFN4
 
 while.body43:                                     ; preds = %while.body43.preheader, %if.end55
   %step.1 = phi i32 [ %inc44, %if.end55 ], [ %indvars92, %while.body43.preheader ]
-  %hash.1 = phi i32 [ %hash.2, %if.end55 ], [ %hash.080, %while.body43.preheader ]
-  %add = add i32 %hash.1, %step.1
+  %hash.2 = phi i32 [ %hash.3, %if.end55 ], [ %hash.080, %while.body43.preheader ]
+  %add = add i32 %hash.2, %step.1
   %inc44 = add nuw nsw i32 %step.1, 1
   %conv45 = zext i32 %add to i64
   %cmp48.not = icmp ugt i64 %sub.ptr.div.i42, %conv45
@@ -2628,14 +2628,14 @@ if.then49:                                        ; preds = %while.body43
 
 if.end55:                                         ; preds = %if.then49, %while.body43
   %conv57.pre-phi = phi i64 [ %.pre, %if.then49 ], [ %conv45, %while.body43 ]
-  %hash.2 = phi i32 [ %rem5371, %if.then49 ], [ %add, %while.body43 ]
+  %hash.3 = phi i32 [ %rem5371, %if.then49 ], [ %add, %while.body43 ]
   %set.i49 = getelementptr inbounds %"class.pstd::optional.278", ptr %9, i64 %conv57.pre-phi, i32 1
   %12 = load i8, ptr %set.i49, align 8
   %tobool.i50 = trunc i8 %12 to i1
   br i1 %tobool.i50, label %while.body43, label %if.end62.loopexit, !llvm.loop !22
 
 if.end62.loopexit:                                ; preds = %if.end55
-  %.pre93 = zext i32 %hash.2 to i64
+  %.pre93 = zext i32 %hash.3 to i64
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end62.loopexit, %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit
@@ -3665,14 +3665,14 @@ if.then39:                                        ; preds = %if.then25
 _ZNSt6vectorIiSaIiEED2Ev.exit63:                  ; preds = %if.then25, %if.then39
   %.pn39 = phi i32 [ %23, %if.then39 ], [ 1, %if.then25 ]
   %24 = load i32, ptr %20, align 4
-  %lastSampleIndex.0 = add nsw i32 %24, %.pn39
+  %lastSampleIndex.1 = add nsw i32 %24, %.pn39
   call void @_ZdlPv(ptr noundef nonnull %20) #28
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit63, %if.end23
-  %lastSampleIndex.1 = phi i32 [ %14, %if.end23 ], [ %lastSampleIndex.0, %_ZNSt6vectorIiSaIiEED2Ev.exit63 ]
+  %lastSampleIndex.0 = phi i32 [ %14, %if.end23 ], [ %lastSampleIndex.1, %_ZNSt6vectorIiSaIiEED2Ev.exit63 ]
   %firstSampleIndex.0 = phi i32 [ 0, %if.end23 ], [ %24, %_ZNSt6vectorIiSaIiEED2Ev.exit63 ]
-  %sub = sub nsw i32 %lastSampleIndex.1, %firstSampleIndex.0
+  %sub = sub nsw i32 %lastSampleIndex.0, %firstSampleIndex.0
   %conv = sext i32 %sub to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %call.i6466 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45)
@@ -3718,7 +3718,7 @@ invoke.cont53:                                    ; preds = %lor.end
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %tobool58 = icmp ne ptr %gui.0, null
   store i32 %firstSampleIndex.0, ptr %sampleIndex, align 4
-  %cmp56307 = icmp slt i32 %firstSampleIndex.0, %lastSampleIndex.1
+  %cmp56307 = icmp slt i32 %firstSampleIndex.0, %lastSampleIndex.0
   %31 = or i1 %tobool58, %cmp56307
   br i1 %31, label %for.body.lr.ph, label %if.end195
 
@@ -3806,7 +3806,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit: ; preds = %invoke.cont63, %if.then.i.i
   %45 = load i32, ptr %sampleIndex, align 4
-  %cmp65 = icmp slt i32 %45, %lastSampleIndex.1
+  %cmp65 = icmp slt i32 %45, %lastSampleIndex.0
   br i1 %cmp65, label %if.then66, label %if.end138
 
 if.then66:                                        ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
@@ -4653,7 +4653,7 @@ for.inc190:                                       ; preds = %if.end138, %invoke.
   %181 = load i32, ptr %sampleIndex, align 4
   %inc191 = add nsw i32 %181, 1
   store i32 %inc191, ptr %sampleIndex, align 4
-  %cmp56 = icmp slt i32 %inc191, %lastSampleIndex.1
+  %cmp56 = icmp slt i32 %inc191, %lastSampleIndex.0
   %182 = or i1 %tobool58, %cmp56
   br i1 %182, label %for.body, label %if.end195, !llvm.loop !48
 
@@ -5001,14 +5001,14 @@ ehcleanup43.thread:                               ; preds = %lpad.i, %lpad13
 
 ehcleanup43:                                      ; preds = %ehcleanup41, %lpad.i22, %lpad16
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup41 ], [ %19, %lpad16 ], [ %3, %lpad.i22 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element18, %ehcleanup41 ], [ %arrayinit.element, %lpad16 ], [ %arrayinit.element, %lpad.i22 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element18, %ehcleanup41 ], [ %arrayinit.element, %lpad16 ], [ %arrayinit.element, %lpad.i22 ]
   %cleanup.isactive.1 = phi i1 [ %26, %ehcleanup41 ], [ false, %lpad16 ], [ false, %lpad.i22 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #26
   br i1 %cleanup.isactive.1, label %ehcleanup50, label %arraydestroy.body45
 
 arraydestroy.body45:                              ; preds = %ehcleanup43, %arraydestroy.body45
-  %arraydestroy.elementPast46 = phi ptr [ %arraydestroy.element47, %arraydestroy.body45 ], [ %arrayinit.endOfInit.0, %ehcleanup43 ]
+  %arraydestroy.elementPast46 = phi ptr [ %arraydestroy.element47, %arraydestroy.body45 ], [ %arrayinit.endOfInit.1, %ehcleanup43 ]
   %arraydestroy.element47 = getelementptr inbounds i8, ptr %arraydestroy.elementPast46, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element47) #26
   %arraydestroy.done48 = icmp eq ptr %arraydestroy.element47, %ref.tmp
@@ -23400,7 +23400,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc8
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %entry ], [ %retval.sroa.0.3, %for.inc8 ]
+  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %entry ], [ %retval.sroa.0.2, %for.inc8 ]
   %retval.sroa.7.0 = phi float [ 0.000000e+00, %entry ], [ %retval.sroa.7.1, %for.inc8 ]
   %i.043 = phi i32 [ 0, %entry ], [ %inc9, %for.inc8 ]
   switch i32 %i.043, label %for.body3 [
@@ -23447,7 +23447,7 @@ _ZNK4pbrt3RGBixEi.exit.us:                        ; preds = %if.end4.i13.us, %if
   br i1 %exitcond51.not, label %for.inc8, label %for.body3.us, !llvm.loop !108
 
 for.body3.us26:                                   ; preds = %_ZNK4pbrt3RGBixEi.exit.us33, %_ZN4pbrt3RGBixEi.exit.thread61
-  %retval.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert73, %_ZN4pbrt3RGBixEi.exit.thread61 ], [ %retval.sroa.0.4.vec.insert, %_ZNK4pbrt3RGBixEi.exit.us33 ]
+  %retval.sroa.0.3 = phi <2 x float> [ %retval.sroa.0.4.vec.insert73, %_ZN4pbrt3RGBixEi.exit.thread61 ], [ %retval.sroa.0.4.vec.insert, %_ZNK4pbrt3RGBixEi.exit.us33 ]
   %indvars.iv = phi i64 [ 0, %_ZN4pbrt3RGBixEi.exit.thread61 ], [ %indvars.iv.next, %_ZNK4pbrt3RGBixEi.exit.us33 ]
   %4 = phi float [ 0.000000e+00, %_ZN4pbrt3RGBixEi.exit.thread61 ], [ %add.us39, %_ZNK4pbrt3RGBixEi.exit.us33 ]
   %call4.us28 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %m, i32 noundef 1)
@@ -23471,7 +23471,7 @@ _ZNK4pbrt3RGBixEi.exit.us33:                      ; preds = %if.end4.i13.us32, %
   %retval.0.i12.us35 = load float, ptr %retval.0.in.i.us34, align 4
   %mul.us36 = fmul float %6, %retval.0.i12.us35
   %add.us39 = fadd float %mul.us36, %4
-  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.2, float %add.us39, i64 1
+  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.3, float %add.us39, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.inc8, label %for.body3.us26, !llvm.loop !108
@@ -23505,14 +23505,14 @@ _ZNK4pbrt3RGBixEi.exit:                           ; preds = %for.body3, %if.then
   br i1 %exitcond55.not, label %for.inc8, label %for.body3, !llvm.loop !108
 
 for.inc8:                                         ; preds = %_ZNK4pbrt3RGBixEi.exit.us33, %_ZNK4pbrt3RGBixEi.exit.us, %_ZNK4pbrt3RGBixEi.exit
-  %retval.sroa.0.3 = phi <2 x float> [ %retval.sroa.0.0, %_ZNK4pbrt3RGBixEi.exit ], [ %retval.sroa.0.0.vec.insert, %_ZNK4pbrt3RGBixEi.exit.us ], [ %retval.sroa.0.4.vec.insert, %_ZNK4pbrt3RGBixEi.exit.us33 ]
+  %retval.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.0, %_ZNK4pbrt3RGBixEi.exit ], [ %retval.sroa.0.0.vec.insert, %_ZNK4pbrt3RGBixEi.exit.us ], [ %retval.sroa.0.4.vec.insert, %_ZNK4pbrt3RGBixEi.exit.us33 ]
   %retval.sroa.7.1 = phi float [ %add, %_ZNK4pbrt3RGBixEi.exit ], [ %retval.sroa.7.0, %_ZNK4pbrt3RGBixEi.exit.us ], [ %retval.sroa.7.0, %_ZNK4pbrt3RGBixEi.exit.us33 ]
   %inc9 = add nuw nsw i32 %i.043, 1
   %exitcond56.not = icmp eq i32 %inc9, 3
   br i1 %exitcond56.not, label %for.end10, label %for.body, !llvm.loop !109
 
 for.end10:                                        ; preds = %for.inc8
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.3, 0
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.7.1, 1
   ret { <2 x float>, float } %.fca.1.insert
 }

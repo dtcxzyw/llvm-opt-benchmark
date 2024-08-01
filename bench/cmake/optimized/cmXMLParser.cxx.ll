@@ -290,7 +290,7 @@ define dso_local noundef i32 @_ZN11cmXMLParser9ParseFileEPKc(ptr noundef nonnull
   br label %34
 
 33:                                               ; preds = %12, %27
-  %.07 = phi i32 [ %26, %27 ], [ 0, %12 ]
+  %.18 = phi i32 [ %26, %27 ], [ 0, %12 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #15
   br label %35
 
@@ -300,8 +300,8 @@ define dso_local noundef i32 @_ZN11cmXMLParser9ParseFileEPKc(ptr noundef nonnull
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %2, %33
-  %.18 = phi i32 [ %.07, %33 ], [ 0, %2 ]
-  ret i32 %.18
+  %.07 = phi i32 [ %.18, %33 ], [ 0, %2 ]
+  ret i32 %.07
 }
 
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef, i32 noundef) unnamed_addr #0

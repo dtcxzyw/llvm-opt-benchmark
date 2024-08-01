@@ -545,13 +545,13 @@ land.lhs.true38:                                  ; preds = %land.lhs.true32
   br i1 %cmp45, label %land.lhs.true46, label %if.then86
 
 land.lhs.true46:                                  ; preds = %land.lhs.true16, %land.lhs.true38
-  %i.1 = phi i32 [ %inc, %land.lhs.true16 ], [ %inc36, %land.lhs.true38 ]
+  %i.2 = phi i32 [ %inc, %land.lhs.true16 ], [ %inc36, %land.lhs.true38 ]
   %c.0 = phi i32 [ %and8, %land.lhs.true16 ], [ %or, %land.lhs.true38 ]
   %__t.0 = phi i8 [ %and18, %land.lhs.true16 ], [ %sub42, %land.lhs.true38 ]
   %shl47 = shl nuw nsw i32 %c.0, 6
   %conv48 = zext nneg i8 %__t.0 to i32
   %or49 = or disjoint i32 %shl47, %conv48
-  %inc50 = add nsw i32 %i.1, 1
+  %inc50 = add nsw i32 %i.2, 1
   %cmp51.not = icmp eq i32 %inc50, %conv
   br i1 %cmp51.not, label %if.then86, label %land.lhs.true56
 
@@ -564,9 +564,9 @@ land.lhs.true54:                                  ; preds = %cond.false52
   br label %land.lhs.true56
 
 land.lhs.true56:                                  ; preds = %land.lhs.true54, %land.lhs.true46
-  %i.2 = phi i32 [ %inc50, %land.lhs.true46 ], [ %inc, %land.lhs.true54 ]
+  %i.3 = phi i32 [ %inc50, %land.lhs.true46 ], [ %inc, %land.lhs.true54 ]
   %c.1 = phi i32 [ %or49, %land.lhs.true46 ], [ %and55, %land.lhs.true54 ]
-  %idxprom57 = sext i32 %i.2 to i64
+  %idxprom57 = sext i32 %i.3 to i64
   %arrayidx58 = getelementptr inbounds i8, ptr %value, i64 %idxprom57
   %7 = load i8, ptr %arrayidx58, align 1
   %sub60 = xor i8 %7, -128
@@ -577,7 +577,7 @@ land.lhs.true64:                                  ; preds = %land.lhs.true56
   %conv62 = zext nneg i8 %sub60 to i32
   %shl65 = shl nuw nsw i32 %c.1, 6
   %or67 = or disjoint i32 %shl65, %conv62
-  %inc68 = add nsw i32 %i.2, 1
+  %inc68 = add nsw i32 %i.3, 1
   br label %do.end
 
 do.end:                                           ; preds = %land.lhs.true64, %do.body
@@ -627,7 +627,7 @@ sw.default:                                       ; preds = %do.end
   br i1 %or.cond, label %if.then86, label %if.else93
 
 if.then86:                                        ; preds = %land.lhs.true56, %cond.false52, %land.lhs.true46, %land.lhs.true38, %land.lhs.true32, %land.lhs.true21, %cond.false, %cond.true7, %if.then, %sw.default
-  %i.44248 = phi i32 [ %i.4, %sw.default ], [ %conv, %if.then ], [ %inc, %cond.false52 ], [ %inc, %cond.false ], [ %inc, %land.lhs.true21 ], [ %conv, %land.lhs.true32 ], [ %inc36, %land.lhs.true38 ], [ %inc, %cond.true7 ], [ %conv, %land.lhs.true46 ], [ %i.2, %land.lhs.true56 ]
+  %i.44248 = phi i32 [ %i.4, %sw.default ], [ %conv, %if.then ], [ %inc, %cond.false52 ], [ %inc, %cond.false ], [ %inc, %land.lhs.true21 ], [ %conv, %land.lhs.true32 ], [ %inc36, %land.lhs.true38 ], [ %inc, %cond.true7 ], [ %conv, %land.lhs.true46 ], [ %i.3, %land.lhs.true56 ]
   %c.24347 = phi i32 [ %c.2, %sw.default ], [ 65533, %if.then ], [ 65533, %cond.false52 ], [ 65533, %cond.false ], [ 65533, %land.lhs.true21 ], [ 65533, %land.lhs.true32 ], [ 65533, %land.lhs.true38 ], [ 65533, %cond.true7 ], [ 65533, %land.lhs.true46 ], [ 65533, %land.lhs.true56 ]
   %conv89 = and i32 %c.24347, 65535
   %call90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %number_buffer, i64 noundef 10, ptr noundef nonnull @.str.18, i32 noundef %conv89) #10

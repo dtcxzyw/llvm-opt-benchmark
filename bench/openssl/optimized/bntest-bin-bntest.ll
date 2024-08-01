@@ -1858,12 +1858,12 @@ if.end72:                                         ; preds = %if.end67
   br i1 %tobool74.not, label %err, label %if.end77
 
 if.end77:                                         ; preds = %if.end72, %if.then57
-  %str.0 = phi ptr [ null, %if.then57 ], [ %call68, %if.end72 ]
+  %str.1 = phi ptr [ null, %if.then57 ], [ %call68, %if.end72 ]
   br label %err
 
 err:                                              ; preds = %if.end72, %if.end67, %if.else, %if.then57, %if.end50, %if.end45, %if.end36, %if.end32, %if.end27, %if.end20, %if.end15, %if.end8, %if.end, %entry, %if.end77
   %res.0 = phi i32 [ 1, %if.end77 ], [ 0, %if.then57 ], [ 0, %if.end72 ], [ 0, %if.end67 ], [ 0, %if.else ], [ 0, %if.end50 ], [ 0, %if.end45 ], [ 0, %if.end36 ], [ 0, %if.end32 ], [ 0, %if.end27 ], [ 0, %if.end20 ], [ 0, %if.end15 ], [ 0, %if.end8 ], [ 0, %if.end ], [ 0, %entry ]
-  %str.1 = phi ptr [ %str.0, %if.end77 ], [ null, %if.then57 ], [ %call68, %if.end72 ], [ %call68, %if.end67 ], [ null, %if.else ], [ %call46, %if.end50 ], [ %call46, %if.end45 ], [ null, %if.end36 ], [ %call28, %if.end32 ], [ %call28, %if.end27 ], [ null, %if.end20 ], [ null, %if.end15 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ]
+  %str.0 = phi ptr [ %str.1, %if.end77 ], [ null, %if.then57 ], [ %call68, %if.end72 ], [ %call68, %if.end67 ], [ null, %if.else ], [ %call46, %if.end50 ], [ %call46, %if.end45 ], [ null, %if.end36 ], [ %call28, %if.end32 ], [ %call28, %if.end27 ], [ null, %if.end20 ], [ null, %if.end15 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ]
   %r.0 = phi ptr [ %call16, %if.end77 ], [ %call16, %if.then57 ], [ %call16, %if.end72 ], [ %call16, %if.end67 ], [ %call16, %if.else ], [ %call16, %if.end50 ], [ %call16, %if.end45 ], [ %call16, %if.end36 ], [ %call16, %if.end32 ], [ %call16, %if.end27 ], [ %call16, %if.end20 ], [ %call16, %if.end15 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ]
   %13 = load ptr, ptr %a, align 8
   call void @BN_free(ptr noundef %13) #7
@@ -1872,7 +1872,7 @@ err:                                              ; preds = %if.end72, %if.end67
   %15 = load ptr, ptr %c, align 8
   call void @BN_free(ptr noundef %15) #7
   call void @BN_free(ptr noundef %r.0) #7
-  call void @CRYPTO_free(ptr noundef %str.1, ptr noundef nonnull @.str.17, i32 noundef 3274) #7
+  call void @CRYPTO_free(ptr noundef %str.0, ptr noundef nonnull @.str.17, i32 noundef 3274) #7
   ret i32 %res.0
 }
 
@@ -4301,15 +4301,15 @@ err:                                              ; preds = %if.end71, %lor.lhs.
   %b.0 = phi ptr [ %call2, %lor.lhs.false27 ], [ %call2, %if.end24 ], [ %call2, %if.end17 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %for.end ], [ %call2, %lor.lhs.false37 ], [ %call2, %for.body ], [ %call2, %lor.lhs.false51 ], [ %call2, %if.end45 ], [ %call2, %lor.lhs.false67 ], [ %call2, %lor.lhs.false64 ], [ %call2, %if.end58 ], [ %call2, %lor.lhs.false86 ], [ %call2, %lor.lhs.false83 ], [ %call2, %lor.lhs.false77 ], [ %call2, %if.end71 ]
   %c.0 = phi ptr [ %call6, %lor.lhs.false27 ], [ %call6, %if.end24 ], [ %call6, %if.end17 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false9 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %for.end ], [ %call6, %lor.lhs.false37 ], [ %call6, %for.body ], [ %call6, %lor.lhs.false51 ], [ %call6, %if.end45 ], [ %call6, %lor.lhs.false67 ], [ %call6, %lor.lhs.false64 ], [ %call6, %if.end58 ], [ %call6, %lor.lhs.false86 ], [ %call6, %lor.lhs.false83 ], [ %call6, %lor.lhs.false77 ], [ %call6, %if.end71 ]
   %d.0 = phi ptr [ %call10, %lor.lhs.false27 ], [ %call10, %if.end24 ], [ %call10, %if.end17 ], [ %call10, %if.end ], [ %call10, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call10, %for.end ], [ %call10, %lor.lhs.false37 ], [ %call10, %for.body ], [ %call10, %lor.lhs.false51 ], [ %call10, %if.end45 ], [ %call10, %lor.lhs.false67 ], [ %call10, %lor.lhs.false64 ], [ %call10, %if.end58 ], [ %call10, %lor.lhs.false86 ], [ %call10, %lor.lhs.false83 ], [ %call10, %lor.lhs.false77 ], [ %call10, %if.end71 ]
-  %numerator.1 = phi ptr [ null, %lor.lhs.false27 ], [ null, %if.end24 ], [ null, %if.end17 ], [ null, %if.end ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %for.end ], [ %call34, %lor.lhs.false37 ], [ %call34, %for.body ], [ %call34, %lor.lhs.false51 ], [ %call34, %if.end45 ], [ %call34, %lor.lhs.false67 ], [ %call34, %lor.lhs.false64 ], [ %call34, %if.end58 ], [ %call34, %lor.lhs.false86 ], [ %call34, %lor.lhs.false83 ], [ %call34, %lor.lhs.false77 ], [ %call34, %if.end71 ]
-  %denominator.1 = phi ptr [ null, %lor.lhs.false27 ], [ null, %if.end24 ], [ null, %if.end17 ], [ null, %if.end ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %for.end ], [ %call38, %if.end71 ], [ %call38, %lor.lhs.false77 ], [ %call38, %lor.lhs.false83 ], [ %call38, %lor.lhs.false86 ], [ %call38, %if.end58 ], [ %call38, %lor.lhs.false64 ], [ %call38, %lor.lhs.false67 ], [ %call38, %if.end45 ], [ %call38, %lor.lhs.false51 ], [ null, %for.body ], [ %call38, %lor.lhs.false37 ]
+  %numerator.0 = phi ptr [ null, %lor.lhs.false27 ], [ null, %if.end24 ], [ null, %if.end17 ], [ null, %if.end ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %for.end ], [ %call34, %lor.lhs.false37 ], [ %call34, %for.body ], [ %call34, %lor.lhs.false51 ], [ %call34, %if.end45 ], [ %call34, %lor.lhs.false67 ], [ %call34, %lor.lhs.false64 ], [ %call34, %if.end58 ], [ %call34, %lor.lhs.false86 ], [ %call34, %lor.lhs.false83 ], [ %call34, %lor.lhs.false77 ], [ %call34, %if.end71 ]
+  %denominator.0 = phi ptr [ null, %lor.lhs.false27 ], [ null, %if.end24 ], [ null, %if.end17 ], [ null, %if.end ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %for.end ], [ %call38, %if.end71 ], [ %call38, %lor.lhs.false77 ], [ %call38, %lor.lhs.false83 ], [ %call38, %lor.lhs.false86 ], [ %call38, %if.end58 ], [ %call38, %lor.lhs.false64 ], [ %call38, %lor.lhs.false67 ], [ %call38, %if.end45 ], [ %call38, %lor.lhs.false51 ], [ null, %for.body ], [ %call38, %lor.lhs.false37 ]
   %st.0 = phi i32 [ 0, %lor.lhs.false27 ], [ 0, %if.end24 ], [ 0, %if.end17 ], [ 0, %if.end ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %for.end ], [ 0, %lor.lhs.false37 ], [ 0, %for.body ], [ 0, %lor.lhs.false51 ], [ 0, %if.end45 ], [ 0, %lor.lhs.false67 ], [ 0, %lor.lhs.false64 ], [ 0, %if.end58 ], [ 0, %lor.lhs.false86 ], [ 0, %lor.lhs.false83 ], [ 0, %lor.lhs.false77 ], [ 0, %if.end71 ]
   tail call void @BN_free(ptr noundef %call) #7
   tail call void @BN_free(ptr noundef %b.0) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
-  tail call void @BN_free(ptr noundef %numerator.1) #7
-  tail call void @BN_free(ptr noundef %denominator.1) #7
+  tail call void @BN_free(ptr noundef %numerator.0) #7
+  tail call void @BN_free(ptr noundef %denominator.0) #7
   ret i32 %st.0
 }
 
@@ -8778,7 +8778,7 @@ if.end85:                                         ; preds = %if.then27, %lor.lhs
 err:                                              ; preds = %equalBN.exit.thread, %if.end24, %if.else, %if.end85, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9, %lor.lhs.false13
   %mod_mul.0 = phi ptr [ %call10, %if.end85 ], [ %call10, %if.end ], [ %call10, %lor.lhs.false13 ], [ %call10, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call10, %if.else ], [ %call10, %if.end24 ], [ %call10, %equalBN.exit.thread ]
   %ret.0 = phi ptr [ %call14, %if.end85 ], [ %call14, %if.end ], [ %call14, %lor.lhs.false13 ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call14, %if.else ], [ %call14, %if.end24 ], [ %call14, %equalBN.exit.thread ]
-  %st.1 = phi i32 [ 0, %if.end85 ], [ 0, %if.end ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.else ], [ 1, %if.end24 ], [ 0, %equalBN.exit.thread ]
+  %st.0 = phi i32 [ 0, %if.end85 ], [ 0, %if.end ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.else ], [ 1, %if.end24 ], [ 0, %equalBN.exit.thread ]
   %m.0 = phi ptr [ %call6, %if.end85 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false13 ], [ %call6, %lor.lhs.false9 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %if.else ], [ %call6, %if.end24 ], [ %call6, %equalBN.exit.thread ]
   %b.0 = phi ptr [ %call2, %if.end85 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false13 ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %if.else ], [ %call2, %if.end24 ], [ %call2, %equalBN.exit.thread ]
   tail call void @BN_free(ptr noundef %call) #7
@@ -8786,7 +8786,7 @@ err:                                              ; preds = %equalBN.exit.thread
   tail call void @BN_free(ptr noundef %m.0) #7
   tail call void @BN_free(ptr noundef %mod_mul.0) #7
   tail call void @BN_free(ptr noundef %ret.0) #7
-  ret i32 %st.1
+  ret i32 %st.0
 }
 
 ; Function Attrs: nounwind uwtable

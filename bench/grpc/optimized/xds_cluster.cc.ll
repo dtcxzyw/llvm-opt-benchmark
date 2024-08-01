@@ -1301,24 +1301,24 @@ for.body.preheader:                               ; preds = %invoke.cont65
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %statuses.sroa.0.1114 = phi ptr [ %statuses.sroa.0.2, %for.inc ], [ %call5.i.i.i.i57, %for.body.preheader ]
-  %statuses.sroa.8.1113 = phi ptr [ %statuses.sroa.8.2, %for.inc ], [ %call5.i.i.i.i57, %for.body.preheader ]
-  %statuses.sroa.15.1112 = phi ptr [ %statuses.sroa.15.2, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
+  %statuses.sroa.0.1114 = phi ptr [ %statuses.sroa.0.4, %for.inc ], [ %call5.i.i.i.i57, %for.body.preheader ]
+  %statuses.sroa.8.0113 = phi ptr [ %statuses.sroa.8.2, %for.inc ], [ %call5.i.i.i.i57, %for.body.preheader ]
+  %statuses.sroa.15.0112 = phi ptr [ %statuses.sroa.15.2, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
   %__begin2.sroa.0.0111 = phi ptr [ %call.i67, %for.inc ], [ %94, %for.body.preheader ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0111, i64 32
   %call75 = invoke noundef ptr @_ZNK9grpc_core15XdsHealthStatus8ToStringEv(ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i)
           to label %invoke.cont74 unwind label %lpad64.loopexit
 
 invoke.cont74:                                    ; preds = %for.body
-  %cmp.not.i.i61 = icmp eq ptr %statuses.sroa.8.1113, %statuses.sroa.15.1112
+  %cmp.not.i.i61 = icmp eq ptr %statuses.sroa.8.0113, %statuses.sroa.15.0112
   br i1 %cmp.not.i.i61, label %if.else.i.i64, label %if.then.i.i62
 
 if.then.i.i62:                                    ; preds = %invoke.cont74
-  store ptr %call75, ptr %statuses.sroa.8.1113, align 8
+  store ptr %call75, ptr %statuses.sroa.8.0113, align 8
   br label %for.inc
 
 if.else.i.i64:                                    ; preds = %invoke.cont74
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %statuses.sroa.8.1113 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %statuses.sroa.8.0113 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %statuses.sroa.0.1114 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
@@ -1371,9 +1371,9 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i62
-  %statuses.sroa.15.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.15.1112, %if.then.i.i62 ]
-  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.8.1113, %if.then.i.i62 ]
-  %statuses.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.0.1114, %if.then.i.i62 ]
+  %statuses.sroa.15.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.15.0112, %if.then.i.i62 ]
+  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.8.0113, %if.then.i.i62 ]
+  %statuses.sroa.0.4 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %statuses.sroa.0.1114, %if.then.i.i62 ]
   %statuses.sroa.8.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   %call.i67 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0111) #24
   %cmp.i58.not = icmp eq ptr %call.i67, %add.ptr.i.i
@@ -1391,19 +1391,19 @@ lpad64.loopexit:                                  ; preds = %for.body, %cond.tru
   br label %ehcleanup94
 
 lpad64.loopexit.split-lp:                         ; preds = %if.then.i, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i, %if.then.i.i.i.i
-  %statuses.sroa.0.3.ph = phi ptr [ null, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i ], [ %statuses.sroa.0.1114, %if.then.i.i.i.i ], [ null, %if.then.i ]
+  %statuses.sroa.0.0.ph = phi ptr [ null, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i ], [ %statuses.sroa.0.1114, %if.then.i.i.i.i ], [ null, %if.then.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup94
 
 invoke.cont80:                                    ; preds = %for.inc, %invoke.cont65
-  %statuses.sroa.8.1.lcssa = phi ptr [ %call5.i.i.i.i57, %invoke.cont65 ], [ %statuses.sroa.8.2, %for.inc ]
-  %statuses.sroa.0.1.lcssa = phi ptr [ %call5.i.i.i.i57, %invoke.cont65 ], [ %statuses.sroa.0.2, %for.inc ]
+  %statuses.sroa.8.0.lcssa = phi ptr [ %call5.i.i.i.i57, %invoke.cont65 ], [ %statuses.sroa.8.2, %for.inc ]
+  %statuses.sroa.0.1.lcssa = phi ptr [ %call5.i.i.i.i57, %invoke.cont65 ], [ %statuses.sroa.0.4, %for.inc ]
   store i64 24, ptr %ref.tmp79, align 8
   %97 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
   store ptr @.str.4, ptr %97, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #19
-  %cmp.i.not4.i.i.i.i = icmp eq ptr %statuses.sroa.0.1.lcssa, %statuses.sroa.8.1.lcssa
+  %cmp.i.not4.i.i.i.i = icmp eq ptr %statuses.sroa.0.1.lcssa, %statuses.sroa.8.0.lcssa
   br i1 %cmp.i.not4.i.i.i.i, label %invoke.cont88, label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %invoke.cont80
@@ -1437,7 +1437,7 @@ _ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i
 invoke.cont6.i.i.i.i:                             ; preds = %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i69), !noalias !12
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.07.i.i.i.i, i64 8
-  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %statuses.sroa.8.1.lcssa
+  %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %statuses.sroa.8.0.lcssa
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont88, label %for.body.i.i.i.i, !llvm.loop !22
 
 lpad.i.i.i.i:                                     ; preds = %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i.i.i.i.i, %for.body.i.i.i.i
@@ -1503,13 +1503,13 @@ ehcleanup93:                                      ; preds = %lpad90, %lpad85
   br label %ehcleanup94
 
 ehcleanup94:                                      ; preds = %lpad64.loopexit, %lpad64.loopexit.split-lp, %lpad.i.i.i.i, %ehcleanup93
-  %statuses.sroa.0.5 = phi ptr [ %statuses.sroa.0.1.lcssa, %ehcleanup93 ], [ %statuses.sroa.0.1.lcssa, %lpad.i.i.i.i ], [ %statuses.sroa.0.1114, %lpad64.loopexit ], [ %statuses.sroa.0.3.ph, %lpad64.loopexit.split-lp ]
+  %statuses.sroa.0.2 = phi ptr [ %statuses.sroa.0.1.lcssa, %ehcleanup93 ], [ %statuses.sroa.0.1.lcssa, %lpad.i.i.i.i ], [ %statuses.sroa.0.1114, %lpad64.loopexit ], [ %statuses.sroa.0.0.ph, %lpad64.loopexit.split-lp ]
   %.pn8 = phi { ptr, i32 } [ %.pn6, %ehcleanup93 ], [ %100, %lpad.i.i.i.i ], [ %lpad.loopexit, %lpad64.loopexit ], [ %lpad.loopexit.split-lp, %lpad64.loopexit.split-lp ]
-  %tobool.not.i.i.i81 = icmp eq ptr %statuses.sroa.0.5, null
+  %tobool.not.i.i.i81 = icmp eq ptr %statuses.sroa.0.2, null
   br i1 %tobool.not.i.i.i81, label %ehcleanup108, label %if.then.i.i.i82
 
 if.then.i.i.i82:                                  ; preds = %ehcleanup94
-  call void @_ZdlPv(ptr noundef nonnull %statuses.sroa.0.5) #23
+  call void @_ZdlPv(ptr noundef nonnull %statuses.sroa.0.2) #23
   br label %ehcleanup108
 
 invoke.cont97:                                    ; preds = %invoke.cont58, %invoke.cont91, %if.then.i.i.i
@@ -4377,7 +4377,7 @@ terminate.lpad.i224.i:                            ; preds = %if.then.i223.i
   unreachable
 
 invoke.cont256.i:                                 ; preds = %if.then.i223.i, %.noexc250
-  %max_ring_size.0.i = phi i64 [ 8388608, %.noexc250 ], [ %258, %if.then.i223.i ]
+  %max_ring_size.1.i = phi i64 [ 8388608, %.noexc250 ], [ %258, %if.then.i223.i ]
   %add.ptr.i.i227.i = getelementptr inbounds i8, ptr %255, i64 8
   %264 = load i64, ptr %add.ptr.i.i227.i, align 1
   %265 = inttoptr i64 %264 to ptr
@@ -4406,7 +4406,7 @@ lpad263.i:                                        ; preds = %if.then274.i, %if.t
   br label %ehcleanup292.i
 
 if.end272.i:                                      ; preds = %if.then269.i, %invoke.cont264.i
-  %cmp273.i = icmp ugt i64 %266, %max_ring_size.0.i
+  %cmp273.i = icmp ugt i64 %266, %max_ring_size.1.i
   br i1 %cmp273.i, label %if.then274.i, label %if.then.i236.i
 
 if.then274.i:                                     ; preds = %if.end272.i
@@ -4425,7 +4425,7 @@ terminate.lpad.i237.i:                            ; preds = %if.then.i236.i
   unreachable
 
 invoke.cont280.i:                                 ; preds = %if.then.i236.i, %invoke.cont256.i
-  %min_ring_size.0.i = phi i64 [ 1024, %invoke.cont256.i ], [ %266, %if.then.i236.i ]
+  %min_ring_size.1.i = phi i64 [ 1024, %invoke.cont256.i ], [ %266, %if.then.i236.i ]
   %add.ptr.i.i240.i = getelementptr inbounds i8, ptr %255, i64 4
   %271 = load i32, ptr %add.ptr.i.i240.i, align 1
   %cmp282.not.i = icmp eq i32 %271, 0
@@ -4474,9 +4474,9 @@ ehcleanup292.i:                                   ; preds = %lpad288.i, %lpad263
   br label %ehcleanup388
 
 if.end293.i:                                      ; preds = %if.then.i252.i, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i, %if.then231.i
-  %max_ring_size.1.i = phi i64 [ 8388608, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %max_ring_size.0.i, %if.then.i252.i ], [ 8388608, %if.then231.i ]
-  %min_ring_size.1.i = phi i64 [ 1024, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %min_ring_size.0.i, %if.then.i252.i ], [ 1024, %if.then231.i ]
-  invoke void @_ZN9grpc_core12experimental4Json10FromNumberEm(ptr nonnull sret(%"class.grpc_core::experimental::Json") align 8 %ref.tmp309.i, i64 noundef %min_ring_size.1.i)
+  %max_ring_size.0.i = phi i64 [ 8388608, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %max_ring_size.1.i, %if.then.i252.i ], [ 8388608, %if.then231.i ]
+  %min_ring_size.0.i = phi i64 [ 1024, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %min_ring_size.1.i, %if.then.i252.i ], [ 1024, %if.then231.i ]
+  invoke void @_ZN9grpc_core12experimental4Json10FromNumberEm(ptr nonnull sret(%"class.grpc_core::experimental::Json") align 8 %ref.tmp309.i, i64 noundef %min_ring_size.0.i)
           to label %.noexc251 unwind label %lpad
 
 .noexc251:                                        ; preds = %if.end293.i
@@ -4485,7 +4485,7 @@ if.end293.i:                                      ; preds = %if.then.i252.i, %en
 
 invoke.cont313.i:                                 ; preds = %.noexc251
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp306.i, i64 88
-  invoke void @_ZN9grpc_core12experimental4Json10FromNumberEm(ptr nonnull sret(%"class.grpc_core::experimental::Json") align 8 %ref.tmp314.i, i64 noundef %max_ring_size.1.i)
+  invoke void @_ZN9grpc_core12experimental4Json10FromNumberEm(ptr nonnull sret(%"class.grpc_core::experimental::Json") align 8 %ref.tmp314.i, i64 noundef %max_ring_size.0.i)
           to label %invoke.cont315.i unwind label %lpad312.i
 
 invoke.cont315.i:                                 ; preds = %invoke.cont313.i
@@ -4787,15 +4787,15 @@ ehcleanup392.i:                                   ; preds = %arraydestroy.body38
 
 ehcleanup394.i:                                   ; preds = %ehcleanup392.i, %lpad312.i
   %.pn45.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn45.pn.pn.pn.i, %ehcleanup392.i ], [ %305, %lpad312.i ]
-  %arrayinit.endOfInit308.1.i = phi ptr [ %arrayinit.element.i, %ehcleanup392.i ], [ %arrayinit.endOfInit308.0.i, %lpad312.i ]
+  %arrayinit.endOfInit308.2.i = phi ptr [ %arrayinit.element.i, %ehcleanup392.i ], [ %arrayinit.endOfInit308.0.i, %lpad312.i ]
   %cleanup.isactive318.1.i = phi i1 [ %309, %ehcleanup392.i ], [ false, %lpad312.i ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp309.i) #19
-  %arraydestroy.isempty397.i = icmp eq ptr %ref.tmp306.i, %arrayinit.endOfInit308.1.i
+  %arraydestroy.isempty397.i = icmp eq ptr %ref.tmp306.i, %arrayinit.endOfInit308.2.i
   %or.cond7.i = select i1 %cleanup.isactive318.1.i, i1 true, i1 %arraydestroy.isempty397.i
   br i1 %or.cond7.i, label %ehcleanup388, label %arraydestroy.body398.i
 
 arraydestroy.body398.i:                           ; preds = %ehcleanup394.i, %arraydestroy.body398.i
-  %arraydestroy.elementPast399.i = phi ptr [ %arraydestroy.element400.i, %arraydestroy.body398.i ], [ %arrayinit.endOfInit308.1.i, %ehcleanup394.i ]
+  %arraydestroy.elementPast399.i = phi ptr [ %arraydestroy.element400.i, %arraydestroy.body398.i ], [ %arrayinit.endOfInit308.2.i, %ehcleanup394.i ]
   %arraydestroy.element400.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast399.i, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element400.i) #19
   %arraydestroy.done401.i = icmp eq ptr %arraydestroy.element400.i, %ref.tmp306.i
@@ -4892,8 +4892,8 @@ _upb_MiniTable_CopyFieldData.exit24.i.i:          ; preds = %.noexc294
   br label %invoke.cont.i264
 
 invoke.cont.i264:                                 ; preds = %_upb_MiniTable_CopyFieldData.exit24.i.i, %.noexc294
-  %ret.2.in.i.i = phi ptr [ %317, %_upb_MiniTable_CopyFieldData.exit24.i.i ], [ null, %.noexc294 ]
-  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.378") align 8 %extension.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.2.in.i.i, ptr noundef nonnull %errors)
+  %ret.0.in.i.i = phi ptr [ %317, %_upb_MiniTable_CopyFieldData.exit24.i.i ], [ null, %.noexc294 ]
+  invoke void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr nonnull sret(%"class.std::optional.378") align 8 %extension.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %ret.0.in.i.i, ptr noundef nonnull %errors)
           to label %invoke.cont1.i unwind label %lpad.i265, !noalias !78
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i264
@@ -5561,7 +5561,7 @@ invoke.cont269:                                   ; preds = %invoke.cont221, %if
   %outlier_detection_update.sroa.11.0 = phi i32 [ undef, %invoke.cont221 ], [ undef, %if.end236 ], [ %402, %invoke.cont257 ], [ %402, %invoke.cont261 ]
   %outlier_detection_update.sroa.12.0 = phi i32 [ undef, %invoke.cont221 ], [ undef, %if.end236 ], [ %success_rate_ejection.sroa.5.0, %invoke.cont257 ], [ %success_rate_ejection.sroa.5.0, %invoke.cont261 ]
   %outlier_detection_update.sroa.13.0 = phi i32 [ undef, %invoke.cont221 ], [ undef, %if.end236 ], [ %success_rate_ejection.sroa.7.0, %invoke.cont257 ], [ %success_rate_ejection.sroa.7.0, %invoke.cont261 ]
-  %outlier_detection_update.sroa.14.1 = phi i8 [ 0, %invoke.cont221 ], [ 0, %if.end236 ], [ 1, %invoke.cont257 ], [ 1, %invoke.cont261 ]
+  %outlier_detection_update.sroa.14.0 = phi i8 [ 0, %invoke.cont221 ], [ 0, %if.end236 ], [ 1, %invoke.cont257 ], [ 1, %invoke.cont261 ]
   %add.ptr.i.i397 = getelementptr inbounds i8, ptr %377, i64 128
   %415 = load i64, ptr %add.ptr.i.i397, align 1
   %cmp271.not = icmp eq i64 %415, 0
@@ -5669,7 +5669,7 @@ if.end330:                                        ; preds = %invoke.cont309, %in
   %outlier_detection_update.sroa.18.0 = phi i32 [ undef, %invoke.cont269 ], [ undef, %if.end285 ], [ %417, %invoke.cont309 ], [ %417, %invoke.cont313 ], [ %417, %if.then.i422 ]
   %outlier_detection_update.sroa.19.0 = phi i32 [ undef, %invoke.cont269 ], [ undef, %if.end285 ], [ %failure_percentage_ejection.sroa.5.0, %invoke.cont309 ], [ %failure_percentage_ejection.sroa.5.0, %invoke.cont313 ], [ %failure_percentage_ejection.sroa.5.0, %if.then.i422 ]
   %outlier_detection_update.sroa.20.0 = phi i32 [ undef, %invoke.cont269 ], [ undef, %if.end285 ], [ %failure_percentage_ejection.sroa.7.0, %invoke.cont309 ], [ %failure_percentage_ejection.sroa.7.0, %invoke.cont313 ], [ %failure_percentage_ejection.sroa.7.0, %if.then.i422 ]
-  %outlier_detection_update.sroa.21.1 = phi i8 [ 0, %invoke.cont269 ], [ 0, %if.end285 ], [ 1, %invoke.cont309 ], [ 1, %invoke.cont313 ], [ 1, %if.then.i422 ]
+  %outlier_detection_update.sroa.21.0 = phi i8 [ 0, %invoke.cont269 ], [ 0, %if.end285 ], [ 1, %invoke.cont309 ], [ 1, %invoke.cont313 ], [ 1, %if.then.i422 ]
   %433 = load ptr, ptr %cds_update, align 16
   %outlier_detection332 = getelementptr inbounds i8, ptr %433, i64 336
   %_M_engaged.i.i430 = getelementptr inbounds i8, ptr %433, i64 408
@@ -5704,7 +5704,7 @@ if.then.i436:                                     ; preds = %if.else.i432, %if.t
   %435 = getelementptr inbounds i8, ptr %433, i64 376
   store i32 %outlier_detection_update.sroa.13.0, ptr %435, align 8
   %436 = getelementptr inbounds i8, ptr %433, i64 380
-  store i8 %outlier_detection_update.sroa.14.1, ptr %436, align 4
+  store i8 %outlier_detection_update.sroa.14.0, ptr %436, align 4
   %437 = getelementptr inbounds i8, ptr %433, i64 384
   store i32 %outlier_detection_update.sroa.17523.0, ptr %437, align 8
   %438 = getelementptr inbounds i8, ptr %433, i64 388
@@ -5714,7 +5714,7 @@ if.then.i436:                                     ; preds = %if.else.i432, %if.t
   %440 = getelementptr inbounds i8, ptr %433, i64 396
   store i32 %outlier_detection_update.sroa.20.0, ptr %440, align 4
   %441 = getelementptr inbounds i8, ptr %433, i64 400
-  store i8 %outlier_detection_update.sroa.21.1, ptr %441, align 8
+  store i8 %outlier_detection_update.sroa.21.0, ptr %441, align 8
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %invoke.cont336 unwind label %terminate.lpad.i437
 

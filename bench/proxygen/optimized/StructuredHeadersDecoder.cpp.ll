@@ -1216,7 +1216,7 @@ if.end:                                           ; preds = %invoke.cont6, %invo
   br label %while.cond
 
 while.cond:                                       ; preds = %cleanup89, %if.end
-  %retval.0 = phi i8 [ undef, %if.end ], [ %retval.2, %cleanup89 ]
+  %retval.1 = phi i8 [ undef, %if.end ], [ %retval.3, %cleanup89 ]
   %call11 = invoke noundef zeroext i1 @_ZN8proxygen23StructuredHeadersBuffer7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont10 unwind label %lpad2.loopexit
 
@@ -1377,7 +1377,7 @@ invoke.cont65:                                    ; preds = %if.end64
           to label %cleanup unwind label %lpad59
 
 cleanup:                                          ; preds = %invoke.cont65, %invoke.cont60
-  %retval.1 = phi i8 [ %call61, %invoke.cont60 ], [ %retval.0, %invoke.cont65 ]
+  %retval.4 = phi i8 [ %call61, %invoke.cont60 ], [ %retval.1, %invoke.cont65 ]
   %12 = load i32, ptr %value.i48, align 8
   %.lobit.i.i.i.i65 = ashr i32 %12, 31
   %retval.0.i.i.i.i66 = xor i32 %.lobit.i.i.i.i65, %12
@@ -1392,7 +1392,7 @@ _ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70: ; preds = %cle
   br i1 %cmp62.not, label %if.end70, label %cleanup89.thread
 
 if.end70:                                         ; preds = %sw.bb7.i.i.i.i, %invoke.cont54, %_ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70
-  %retval.2 = phi i8 [ %retval.1, %_ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70 ], [ %retval.0, %invoke.cont54 ], [ %retval.0, %sw.bb7.i.i.i.i ]
+  %retval.3 = phi i8 [ %retval.4, %_ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70 ], [ %retval.1, %invoke.cont54 ], [ %retval.1, %sw.bb7.i.i.i.i ]
   %call73 = invoke noundef zeroext i1 @_ZN8proxygen23StructuredHeadersBuffer7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont72 unwind label %lpad16.loopexit
 
@@ -1408,7 +1408,7 @@ invoke.cont77:                                    ; preds = %if.end75
           to label %cleanup89 unwind label %lpad16.loopexit
 
 cleanup89.thread:                                 ; preds = %_ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70, %invoke.cont17, %invoke.cont72, %if.then31
-  %retval.3.ph = phi i8 [ %call35, %if.then31 ], [ %retval.1, %_ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70 ], [ %call18, %invoke.cont17 ], [ 0, %invoke.cont72 ]
+  %retval.2.ph = phi i8 [ %call35, %if.then31 ], [ %retval.4, %_ZN8proxygen17StructuredHeaders20StructuredHeaderItemD2Ev.exit70 ], [ %call18, %invoke.cont17 ], [ 0, %invoke.cont72 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %thisKey) #18
   br label %cleanup97
 
@@ -1432,9 +1432,9 @@ cleanup97.loopexit:                               ; preds = %cleanup89
   br label %cleanup97
 
 cleanup97:                                        ; preds = %cleanup97.loopexit, %cleanup89.thread, %while.end, %invoke.cont6
-  %retval.4 = phi i8 [ 0, %invoke.cont6 ], [ %call96, %while.end ], [ %retval.3.ph, %cleanup89.thread ], [ %.call82.le, %cleanup97.loopexit ]
+  %retval.0 = phi i8 [ 0, %invoke.cont6 ], [ %call96, %while.end ], [ %retval.2.ph, %cleanup89.thread ], [ %.call82.le, %cleanup97.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delimiter) #18
-  ret i8 %retval.4
+  ret i8 %retval.0
 
 ehcleanup98:                                      ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %ehcleanup92
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %ehcleanup92 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]

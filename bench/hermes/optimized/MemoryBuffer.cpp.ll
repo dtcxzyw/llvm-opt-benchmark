@@ -1345,7 +1345,7 @@ if.end11:                                         ; preds = %if.end, %if.end
 
 if.end14:                                         ; preds = %if.then, %if.end11, %init.end
   %MapSize.addr.0 = phi i64 [ %MapSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
-  %FileSize.addr.1 = phi i64 [ %FileSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
+  %FileSize.addr.0 = phi i64 [ %FileSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
   %8 = load i32, ptr @_ZZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbE8PageSize, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %Status.i)
   br i1 %IsVolatile, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %if.end.i
@@ -1359,7 +1359,7 @@ if.end.i:                                         ; preds = %if.end14
   br i1 %brmerge.not.i, label %if.end7.i, label %_ZL13shouldUseMmapimmlbib.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp8.i = icmp eq i64 %FileSize.addr.1, -1
+  %cmp8.i = icmp eq i64 %FileSize.addr.0, -1
   br i1 %cmp8.i, label %if.then9.i, label %if.end14.i
 
 if.then9.i:                                       ; preds = %if.end7.i
@@ -1379,7 +1379,7 @@ if.end12.i:                                       ; preds = %if.then9.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end12.i, %if.end7.i
-  %FileSize.addr.0.i = phi i64 [ %10, %if.end12.i ], [ %FileSize.addr.1, %if.end7.i ]
+  %FileSize.addr.0.i = phi i64 [ %10, %if.end12.i ], [ %FileSize.addr.0, %if.end7.i ]
   %add.i = add i64 %MapSize.addr.0, %Offset
   %cmp15.not.i = icmp eq i64 %add.i, %FileSize.addr.0.i
   br i1 %cmp15.not.i, label %if.end17.i, label %_ZL13shouldUseMmapimmlbib.exit.thread

@@ -1244,7 +1244,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %692, %690, %688, %6
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.loopexit30.i
-  %.014138.i = phi double [ %.1142.i, %.loopexit30.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %.114238.i = phi double [ %.2143.i, %.loopexit30.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %.014836.i = phi i64 [ %767, %.loopexit30.i ], [ 0, %.lr.ph.i.preheader ]
   %696 = phi <2 x double> [ %766, %.loopexit30.i ], [ zeroinitializer, %.lr.ph.i.preheader ]
   %697 = getelementptr inbounds i32, ptr %654, i64 %.014836.i
@@ -1340,7 +1340,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %692, %690, %688, %6
   br label %.loopexit30.i
 
 .loopexit30.loopexit.i:                           ; preds = %748
-  %760 = call double @llvm.fmuladd.f64(double %727, double %729, double %.014138.i)
+  %760 = call double @llvm.fmuladd.f64(double %727, double %729, double %.114238.i)
   %761 = insertelement <2 x double> poison, double %735, i64 0
   %762 = shufflevector <2 x double> %761, <2 x double> poison, <2 x i32> zeroinitializer
   %763 = insertelement <2 x double> poison, double %729, i64 0
@@ -1349,7 +1349,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %692, %690, %688, %6
   br label %.loopexit30.i
 
 .loopexit30.i:                                    ; preds = %.loopexit30.loopexit.i, %757
-  %.1142.i = phi double [ %.014138.i, %757 ], [ %760, %.loopexit30.loopexit.i ]
+  %.2143.i = phi double [ %.114238.i, %757 ], [ %760, %.loopexit30.loopexit.i ]
   %766 = phi <2 x double> [ %696, %757 ], [ %765, %.loopexit30.loopexit.i ]
   %767 = add nuw nsw i64 %.014836.i, 1
   %exitcond64.not.i = icmp eq i64 %767, %660
@@ -1368,13 +1368,13 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %692, %690, %688, %6
   br label %.loopexit31.i
 
 .loopexit31.i:                                    ; preds = %.loopexit31.loopexit.i, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, %611
-  %.2143.i = phi double [ 0.000000e+00, %611 ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i ], [ %.1142.i, %.loopexit31.loopexit.i ]
+  %.0141.i = phi double [ 0.000000e+00, %611 ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i ], [ %.2143.i, %.loopexit31.loopexit.i ]
   %775 = phi <4 x double> [ zeroinitializer, %611 ], [ zeroinitializer, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i ], [ %770, %.loopexit31.loopexit.i ]
   %776 = phi <4 x double> [ zeroinitializer, %611 ], [ zeroinitializer, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i ], [ %774, %.loopexit31.loopexit.i ]
   %777 = load ptr, ptr %608, align 8
   %778 = getelementptr inbounds double, ptr %777, i64 %indvars.iv65.i
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 9
-  store double %.2143.i, ptr %778, align 8
+  store double %.0141.i, ptr %778, align 8
   %779 = getelementptr inbounds i8, ptr %778, i64 8
   store <4 x double> %775, ptr %779, align 8
   %780 = getelementptr inbounds i8, ptr %778, i64 40
@@ -2802,7 +2802,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %_ZNSt
   br i1 %80, label %58, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %72, %.preheader, %70
-  %.0 = phi i32 [ %71, %70 ], [ -1, %.preheader ], [ -1, %72 ]
+  %.1 = phi i32 [ %71, %70 ], [ -1, %.preheader ], [ -1, %72 ]
   %.not.i.i.i43 = icmp eq ptr %.sroa.051.0, null
   br i1 %.not.i.i.i43, label %_ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EED2Ev.exit44, label %81
 
@@ -2811,8 +2811,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %_ZNSt
   br label %_ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EED2Ev.exit44
 
 _ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EED2Ev.exit44: ; preds = %81, %.loopexit, %5
-  %.1 = phi i32 [ -1, %5 ], [ %.0, %.loopexit ], [ %.0, %81 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %5 ], [ %.1, %.loopexit ], [ %.1, %81 ]
+  ret i32 %.0
 
 _ZNSt6vectorIN3gmx11BasicVectorIbEESaIS2_EED2Ev.exit: ; preds = %54, %52
   resume { ptr, i32 } %53
@@ -2924,7 +2924,7 @@ define internal fastcc noundef zeroext i1 @_ZL29pullGroupObeysPbcRestrictionsRK1
 
 40:                                               ; preds = %.lr.ph91, %58
   %indvars.iv122 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next123, %58 ]
-  %.06189 = phi float [ 0.000000e+00, %.lr.ph91 ], [ %.162, %58 ]
+  %.16289 = phi float [ 0.000000e+00, %.lr.ph91 ], [ %.263, %58 ]
   %41 = getelementptr inbounds [3 x i8], ptr %7, i64 0, i64 %indvars.iv122
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
@@ -2941,20 +2941,20 @@ define internal fastcc noundef zeroext i1 @_ZL29pullGroupObeysPbcRestrictionsRK1
   %52 = load float, ptr %51, align 4
   %53 = tail call noundef float @llvm.fmuladd.f32(float %52, float %52, float %50)
   %54 = fpext float %53 to double
-  %55 = fpext float %.06189 to double
+  %55 = fpext float %.16289 to double
   %56 = tail call double @llvm.fmuladd.f64(double %32, double %54, double %55)
   %57 = fptrunc double %56 to float
   br label %58
 
 58:                                               ; preds = %40, %44
-  %.162 = phi float [ %57, %44 ], [ %.06189, %40 ]
+  %.263 = phi float [ %57, %44 ], [ %.16289, %40 ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
   br i1 %exitcond126.not, label %.loopexit74, label %40, !llvm.loop !40
 
 .loopexit74:                                      ; preds = %58, %35, %.preheader73.thread, %.preheader75, %.preheader73
   %.066.lcssa144 = phi i1 [ true, %.preheader73 ], [ false, %.preheader75 ], [ true, %.preheader73.thread ], [ true, %35 ], [ %.3, %58 ]
-  %.263 = phi float [ 0.000000e+00, %.preheader73 ], [ 0.000000e+00, %.preheader75 ], [ 0.000000e+00, %.preheader73.thread ], [ 0.000000e+00, %35 ], [ %.162, %58 ]
+  %.061 = phi float [ 0.000000e+00, %.preheader73 ], [ 0.000000e+00, %.preheader75 ], [ 0.000000e+00, %.preheader73.thread ], [ 0.000000e+00, %35 ], [ %.263, %58 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 96
   %60 = tail call { ptr, ptr } @_ZNK3gmx12LocalAtomSet10localIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
   %61 = extractvalue { ptr, ptr } %60, 0
@@ -3065,7 +3065,7 @@ define internal fastcc noundef zeroext i1 @_ZL29pullGroupObeysPbcRestrictionsRK1
 
 ._crit_edge98:                                    ; preds = %107, %.preheader72
   %.054.lcssa = phi float [ 0.000000e+00, %.preheader72 ], [ %.1, %107 ]
-  %108 = fcmp ogt float %.054.lcssa, %.263
+  %108 = fcmp ogt float %.054.lcssa, %.061
   br i1 %108, label %._crit_edge107, label %89
 
 ._crit_edge107:                                   ; preds = %._crit_edge98, %89, %.loopexit.us, %.loopexit.us.thread, %.loopexit74

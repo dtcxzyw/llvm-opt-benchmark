@@ -5611,7 +5611,7 @@ if.then206:                                       ; preds = %if.else203
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else203, %if.then13.i.i370, %if.then.i.i364, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit361, %cond.true180, %if.then202, %if.then206, %invoke.cont174, %invoke.cont163
-  %cleanup.dest.slot.0 = phi i32 [ 7, %invoke.cont163 ], [ 0, %cond.true180 ], [ 0, %invoke.cont174 ], [ 0, %if.else203 ], [ 0, %if.then206 ], [ 0, %if.then202 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit361 ], [ 0, %if.then.i.i364 ], [ 0, %if.then13.i.i370 ]
+  %cleanup.dest.slot.1 = phi i32 [ 7, %invoke.cont163 ], [ 0, %cond.true180 ], [ 0, %invoke.cont174 ], [ 0, %if.else203 ], [ 0, %if.then206 ], [ 0, %if.then202 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit361 ], [ 0, %if.then.i.i364 ], [ 0, %if.then13.i.i370 ]
   %104 = load ptr, ptr %tnn, align 8
   %bf.load.i.i533 = load i64, ptr %104, align 8
   %105 = and i64 %bf.load.i.i533, 1152920405095219200
@@ -5639,7 +5639,7 @@ terminate.lpad.i542:                              ; preds = %if.then13.i.i541
   unreachable
 
 cleanup212:                                       ; preds = %invoke.cont119, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %if.then13.i.i541, %if.then.i.i535, %cleanup, %invoke.cont122
-  %cleanup.dest.slot.1 = phi i32 [ 6, %invoke.cont122 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i535 ], [ %cleanup.dest.slot.0, %if.then13.i.i541 ], [ 6, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ 6, %invoke.cont119 ]
+  %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont122 ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i535 ], [ %cleanup.dest.slot.1, %if.then13.i.i541 ], [ 6, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ 6, %invoke.cont119 ]
   %108 = load ptr, ptr %n, align 8
   %bf.load.i.i544 = load i64, ptr %108, align 8
   %109 = and i64 %bf.load.i.i544, 1152920405095219200
@@ -5667,7 +5667,7 @@ terminate.lpad.i553:                              ; preds = %if.then13.i.i552
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit554: ; preds = %cleanup212, %if.then.i.i546, %if.then13.i.i552
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 7
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 7
   br i1 %switch, label %while.end, label %while.cond112
 
 ehcleanup211:                                     ; preds = %lpad160, %lpad152, %ehcleanup145, %lpad133
@@ -16704,7 +16704,7 @@ lpad82:                                           ; preds = %invoke.cont81
   br label %ehcleanup92
 
 cleanup101:                                       ; preds = %for.cond.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i, %if.then.i.i.i319, %invoke.cont.i, %if.end.i.i.i.i.i.i.i.i
-  %cleanup.dest.slot.1 = phi i32 [ 5, %if.end.i.i.i.i.i.i.i.i ], [ %., %invoke.cont.i ], [ %., %if.then.i.i.i319 ], [ 5, %for.body.i.i.i.i.i.i ], [ 5, %for.cond.i.i.i.i.i.i.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 5, %if.end.i.i.i.i.i.i.i.i ], [ %., %invoke.cont.i ], [ %., %if.then.i.i.i319 ], [ 5, %for.body.i.i.i.i.i.i ], [ 5, %for.cond.i.i.i.i.i.i.i.i ]
   %122 = load ptr, ptr %x, align 8
   %bf.load.i.i320 = load i64, ptr %122, align 8
   %123 = and i64 %bf.load.i.i320, 1152920405095219200
@@ -16732,7 +16732,7 @@ terminate.lpad.i330:                              ; preds = %if.then13.i.i329
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331: ; preds = %cleanup101, %if.then.i.i322, %if.then13.i.i329
-  switch i32 %cleanup.dest.slot.1, label %cleanup104 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup104 [
     i32 0, label %for.inc
     i32 5, label %for.inc
   ]
@@ -16773,7 +16773,7 @@ ehcleanup102:                                     ; preds = %ehcleanup100, %lpad
   br label %ehcleanup105
 
 cleanup104:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331, %for.inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit103
-  %cleanup.dest.slot.2 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit103 ], [ 0, %for.inc ], [ %cleanup.dest.slot.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit103 ], [ 0, %for.inc ], [ %cleanup.dest.slot.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331 ]
   %126 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %126, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc57context9CDHashSetINS0_8internal12NodeTemplateILb1EEESt4hashIS5_EEEED2Ev.exit, label %if.then.i.i.i333
@@ -20881,7 +20881,7 @@ ehcleanup241:                                     ; preds = %lpad238, %lpad236
   br label %ehcleanup249
 
 cleanup258:                                       ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.then13.i.i965, %if.then.i.i958, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit955, %invoke.cont72
-  %cleanup.dest.slot.1 = phi i1 [ false, %invoke.cont72 ], [ %call246, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit955 ], [ %call246, %if.then.i.i958 ], [ %call246, %if.then13.i.i965 ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont72 ], [ %call246, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit955 ], [ %call246, %if.then.i.i958 ], [ %call246, %if.then13.i.i965 ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
   %bf.load.i.i968 = load i64, ptr %18, align 8
   %220 = and i64 %bf.load.i.i968, 1152920405095219200
   %cmp.not.i.i969 = icmp eq i64 %220, 1152920405095219200
@@ -20962,7 +20962,7 @@ terminate.lpad.i1002:                             ; preds = %if.then13.i.i1001
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1003: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit991, %if.then.i.i994, %if.then13.i.i1001
-  br i1 %cleanup.dest.slot.1, label %for.end, label %for.inc
+  br i1 %cleanup.dest.slot.0, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1003, %for.body
   %d_next.i.i = getelementptr inbounds i8, ptr %it.sroa.0.01111, i64 72
@@ -26545,7 +26545,7 @@ terminate.lpad.i1202:                             ; preds = %if.then13.i.i1201
   unreachable
 
 cleanup434:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1191, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit673, %if.then13.i.i1201, %if.then.i.i1195, %cleanup434.critedge
-  %cleanup.dest.slot.5 = phi i32 [ 1, %cleanup434.critedge ], [ 1, %if.then.i.i1195 ], [ 1, %if.then13.i.i1201 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit673 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1191 ]
+  %cleanup.dest.slot.6 = phi i32 [ 1, %cleanup434.critedge ], [ 1, %if.then.i.i1195 ], [ 1, %if.then13.i.i1201 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit673 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1191 ]
   %bf.load.i.i1204 = load i64, ptr %201, align 8
   %375 = and i64 %bf.load.i.i1204, 1152920405095219200
   %cmp.not.i.i1205 = icmp eq i64 %375, 1152920405095219200
@@ -26572,7 +26572,7 @@ terminate.lpad.i1213:                             ; preds = %if.then13.i.i1212
   unreachable
 
 cleanup436:                                       ; preds = %if.then13.i.i1212, %if.then.i.i1206, %cleanup434, %invoke.cont234
-  %cleanup.dest.slot.6 = phi i32 [ 1, %invoke.cont234 ], [ %cleanup.dest.slot.5, %cleanup434 ], [ %cleanup.dest.slot.5, %if.then.i.i1206 ], [ %cleanup.dest.slot.5, %if.then13.i.i1212 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %invoke.cont234 ], [ %cleanup.dest.slot.6, %cleanup434 ], [ %cleanup.dest.slot.6, %if.then.i.i1206 ], [ %cleanup.dest.slot.6, %if.then13.i.i1212 ]
   %378 = load ptr, ptr %partEqc, align 8
   %379 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %378, %379
@@ -26652,7 +26652,7 @@ terminate.lpad.i1227:                             ; preds = %if.then13.i.i1226
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1228: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %if.then.i.i1219, %if.then13.i.i1226
-  %cond = icmp eq i32 %cleanup.dest.slot.6, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.2, 0
   br i1 %cond, label %for.inc442, label %cleanup445.loopexit
 
 for.inc442:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1228

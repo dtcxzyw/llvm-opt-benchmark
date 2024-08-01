@@ -1612,7 +1612,7 @@ for.body58.lr.ph:                                 ; preds = %for.end
   br label %for.body58
 
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc168
-  %allFappsConsistent.01008 = phi i1 [ true, %for.body58.lr.ph ], [ %allFappsConsistent.3, %for.inc168 ]
+  %allFappsConsistent.01008 = phi i1 [ true, %for.body58.lr.ph ], [ %allFappsConsistent.1, %for.inc168 ]
   %__begin3.sroa.0.01007 = phi ptr [ %21, %for.body58.lr.ph ], [ %incdec.ptr.i567, %for.inc168 ]
   %23 = load ptr, ptr %__begin3.sroa.0.01007, align 8
   store ptr %23, ptr %agg.tmp60, align 8
@@ -1791,7 +1791,7 @@ cond.true82:                                      ; preds = %if.then13.i.i167, %
   br i1 %cmp.i352.not1003, label %invoke.cont.i561, label %if.else.i373
 
 if.else.i373:                                     ; preds = %cond.true82, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
-  %allFappsConsistent.11005 = phi i1 [ %spec.select, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %allFappsConsistent.01008, %cond.true82 ]
+  %allFappsConsistent.21005 = phi i1 [ %spec.select, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %allFappsConsistent.01008, %cond.true82 ]
   %__begin4.sroa.0.01004 = phi ptr [ %incdec.ptr.i520, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ], [ %44, %cond.true82 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arguments, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %arguments, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.01007)
@@ -2171,7 +2171,7 @@ terminate.lpad.i473:                              ; preds = %if.then13.i.i472
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit474: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit462, %if.then.i.i465, %if.then13.i.i472
-  %spec.select = select i1 %call156, i1 %allFappsConsistent.11005, i1 false
+  %spec.select = select i1 %call156, i1 %allFappsConsistent.21005, i1 false
   %84 = load ptr, ptr %predictedResponse, align 8
   %bf.load.i.i475 = load i64, ptr %84, align 8
   %85 = and i64 %bf.load.i.i475, 1152920405095219200
@@ -2415,7 +2415,7 @@ invoke.contthread-pre-split.i559:                 ; preds = %_ZSt8_DestroyIN4cvc
   br label %invoke.cont.i561
 
 invoke.cont.i561:                                 ; preds = %cond.true82, %invoke.contthread-pre-split.i559, %for.end166
-  %allFappsConsistent.1.lcssa1024 = phi i1 [ %spec.select, %invoke.contthread-pre-split.i559 ], [ %spec.select, %for.end166 ], [ %allFappsConsistent.01008, %cond.true82 ]
+  %allFappsConsistent.2.lcssa1024 = phi i1 [ %spec.select, %invoke.contthread-pre-split.i559 ], [ %spec.select, %for.end166 ], [ %allFappsConsistent.01008, %cond.true82 ]
   %114 = phi ptr [ %.pr.i560, %invoke.contthread-pre-split.i559 ], [ %.pre1020, %for.end166 ], [ %44, %cond.true82 ]
   %tobool.not.i.i.i562 = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i562, label %for.inc168, label %if.then.i.i.i563
@@ -2425,7 +2425,7 @@ if.then.i.i.i563:                                 ; preds = %invoke.cont.i561
   br label %for.inc168
 
 for.inc168:                                       ; preds = %if.then.i.i.i563, %invoke.cont.i561, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155
-  %allFappsConsistent.3 = phi i1 [ %allFappsConsistent.01008, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155 ], [ %allFappsConsistent.1.lcssa1024, %invoke.cont.i561 ], [ %allFappsConsistent.1.lcssa1024, %if.then.i.i.i563 ]
+  %allFappsConsistent.1 = phi i1 [ %allFappsConsistent.01008, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit155 ], [ %allFappsConsistent.2.lcssa1024, %invoke.cont.i561 ], [ %allFappsConsistent.2.lcssa1024, %if.then.i.i.i563 ]
   %incdec.ptr.i567 = getelementptr inbounds i8, ptr %__begin3.sroa.0.01007, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i567, %22
   br i1 %cmp.i.not, label %for.end170, label %for.body58
@@ -2483,7 +2483,7 @@ if.then.i.i.i587:                                 ; preds = %invoke.cont.i585
   br label %ehcleanup279
 
 for.end170:                                       ; preds = %for.inc168
-  br i1 %allFappsConsistent.3, label %cond.true176, label %if.else
+  br i1 %allFappsConsistent.1, label %cond.true176, label %if.else
 
 cond.true176:                                     ; preds = %for.end, %for.end170
   %d_consistencyCheckPassed = getelementptr inbounds i8, ptr %this, i64 136

@@ -1560,15 +1560,15 @@ if.then:                                          ; preds = %land.lhs.true.i.i
   %5 = load ptr, ptr %ref.tmp, align 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %result.sroa.0.2250.ph = select i1 %tobool3.i.i.i.i.i, ptr %5, ptr undef
-  %result.sroa.30.2246.ph = select i1 %tobool3.i.i.i.i.i, i8 1, i8 0
+  %result.sroa.0.0250.ph = select i1 %tobool3.i.i.i.i.i, ptr %5, ptr undef
+  %result.sroa.30.0246.ph = select i1 %tobool3.i.i.i.i.i, i8 1, i8 0
   %7 = select i1 %tobool3.i.i.i.i.i, <2 x ptr> %6, <2 x ptr> undef
   %.pr = load i8, ptr %_M_index.i.i.i, align 8
   br label %land.lhs.true.i.i19
 
 lpad:                                             ; preds = %do.body.i108, %do.body.i, %if.then21, %if.then10
-  %result.sroa.30.1 = phi i8 [ %result.sroa.30.6, %do.body.i108 ], [ %result.sroa.30.6291, %do.body.i ], [ %result.sroa.30.4266, %if.then21 ], [ %result.sroa.30.2246, %if.then10 ]
-  %result.sroa.0.1 = phi ptr [ %result.sroa.0.6, %do.body.i108 ], [ %result.sroa.0.6292, %do.body.i ], [ %result.sroa.0.4270, %if.then21 ], [ %result.sroa.0.2250, %if.then10 ]
+  %result.sroa.30.1 = phi i8 [ %result.sroa.30.3, %do.body.i108 ], [ %result.sroa.30.3291, %do.body.i ], [ %result.sroa.30.2266, %if.then21 ], [ %result.sroa.30.0246, %if.then10 ]
+  %result.sroa.0.1 = phi ptr [ %result.sroa.0.3, %do.body.i108 ], [ %result.sroa.0.3292, %do.body.i ], [ %result.sroa.0.2270, %if.then21 ], [ %result.sroa.0.0250, %if.then10 ]
   %8 = landingpad { ptr, i32 }
           cleanup
   %tobool.i.i.i.i13 = trunc i8 %result.sroa.30.1 to i1
@@ -1585,8 +1585,8 @@ _ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit17:     ; preds = %lpad, %if.then.i.i.
 
 land.lhs.true.i.i19:                              ; preds = %if.then, %land.lhs.true.i.i
   %9 = phi i8 [ %.pr, %if.then ], [ %0, %land.lhs.true.i.i ]
-  %result.sroa.0.2250 = phi ptr [ %result.sroa.0.2250.ph, %if.then ], [ undef, %land.lhs.true.i.i ]
-  %result.sroa.30.2246 = phi i8 [ %result.sroa.30.2246.ph, %if.then ], [ 0, %land.lhs.true.i.i ]
+  %result.sroa.0.0250 = phi ptr [ %result.sroa.0.0250.ph, %if.then ], [ undef, %land.lhs.true.i.i ]
+  %result.sroa.30.0246 = phi i8 [ %result.sroa.30.0246.ph, %if.then ], [ 0, %land.lhs.true.i.i ]
   %10 = phi <2 x ptr> [ %7, %if.then ], [ undef, %land.lhs.true.i.i ]
   %cmp.i.i21 = icmp eq i8 %9, 1
   br i1 %cmp.i.i21, label %if.then10, label %land.lhs.true.i.i54
@@ -1600,7 +1600,7 @@ if.then10:                                        ; preds = %land.lhs.true.i.i19
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.then10
-  %tobool.i.i.i.i.i26 = trunc nuw i8 %result.sroa.30.2246 to i1
+  %tobool.i.i.i.i.i26 = trunc nuw i8 %result.sroa.30.0246 to i1
   %_M_engaged2.i.i.i.i.i27 = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
   %13 = load i8, ptr %_M_engaged2.i.i.i.i.i27, align 8
   %tobool3.i.i.i.i.i28 = trunc i8 %13 to i1
@@ -1613,11 +1613,11 @@ if.then.i.i.i.i.i39:                              ; preds = %land.lhs.true.i.i.i
   %14 = load ptr, ptr %ref.tmp11, align 8
   %_M_finish.i2.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %15 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i.i.i.i.i.i42, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %result.sroa.0.2250, null
+  %tobool.not.i.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %result.sroa.0.0250, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i44, label %land.lhs.true.i.i54, label %if.then.i.i.i.i.i.i.i.i.i.i45
 
 if.then.i.i.i.i.i.i.i.i.i.i45:                    ; preds = %if.then.i.i.i.i.i39
-  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.2250) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.0250) #26
   br label %land.lhs.true.i.i54
 
 if.else.thread.i.i.i.i.i29:                       ; preds = %invoke.cont14
@@ -1630,16 +1630,16 @@ if.then8.i.i.i.i.i30:                             ; preds = %if.else.thread.i.i.
   br label %land.lhs.true.i.i54
 
 if.then.i.i.i.i.i.i36:                            ; preds = %land.lhs.true.i.i.i.i.i35
-  %tobool.not.i.i.i.i.i5.i.i.i.i.i37 = icmp eq ptr %result.sroa.0.2250, null
+  %tobool.not.i.i.i.i.i5.i.i.i.i.i37 = icmp eq ptr %result.sroa.0.0250, null
   br i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i37, label %land.lhs.true.i.i54, label %land.lhs.true.i.i54.sink.split
 
 land.lhs.true.i.i54.sink.split:                   ; preds = %if.then.i.i.i.i.i.i36
-  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.2250) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.0250) #26
   br label %land.lhs.true.i.i54
 
 land.lhs.true.i.i54:                              ; preds = %if.then8.i.i.i.i.i30, %if.then.i.i.i.i.i.i.i.i.i.i45, %if.then.i.i.i.i.i39, %land.lhs.true.i.i54.sink.split, %if.then.i.i.i.i.i.i36, %if.else.thread.i.i.i.i.i29, %land.lhs.true.i.i19
-  %result.sroa.0.4270 = phi ptr [ %result.sroa.0.2250, %land.lhs.true.i.i19 ], [ null, %if.then.i.i.i.i.i.i36 ], [ %result.sroa.0.2250, %if.else.thread.i.i.i.i.i29 ], [ %result.sroa.0.2250, %land.lhs.true.i.i54.sink.split ], [ %16, %if.then8.i.i.i.i.i30 ], [ %14, %if.then.i.i.i.i.i.i.i.i.i.i45 ], [ %14, %if.then.i.i.i.i.i39 ]
-  %result.sroa.30.4266 = phi i8 [ %result.sroa.30.2246, %land.lhs.true.i.i19 ], [ 0, %if.then.i.i.i.i.i.i36 ], [ %result.sroa.30.2246, %if.else.thread.i.i.i.i.i29 ], [ 0, %land.lhs.true.i.i54.sink.split ], [ 1, %if.then8.i.i.i.i.i30 ], [ %result.sroa.30.2246, %if.then.i.i.i.i.i.i.i.i.i.i45 ], [ %result.sroa.30.2246, %if.then.i.i.i.i.i39 ]
+  %result.sroa.0.2270 = phi ptr [ %result.sroa.0.0250, %land.lhs.true.i.i19 ], [ null, %if.then.i.i.i.i.i.i36 ], [ %result.sroa.0.0250, %if.else.thread.i.i.i.i.i29 ], [ %result.sroa.0.0250, %land.lhs.true.i.i54.sink.split ], [ %16, %if.then8.i.i.i.i.i30 ], [ %14, %if.then.i.i.i.i.i.i.i.i.i.i45 ], [ %14, %if.then.i.i.i.i.i39 ]
+  %result.sroa.30.2266 = phi i8 [ %result.sroa.30.0246, %land.lhs.true.i.i19 ], [ 0, %if.then.i.i.i.i.i.i36 ], [ %result.sroa.30.0246, %if.else.thread.i.i.i.i.i29 ], [ 0, %land.lhs.true.i.i54.sink.split ], [ 1, %if.then8.i.i.i.i.i30 ], [ %result.sroa.30.0246, %if.then.i.i.i.i.i.i.i.i.i.i45 ], [ %result.sroa.30.0246, %if.then.i.i.i.i.i39 ]
   %18 = phi <2 x ptr> [ %10, %land.lhs.true.i.i19 ], [ %10, %if.then.i.i.i.i.i.i36 ], [ %10, %if.else.thread.i.i.i.i.i29 ], [ %10, %land.lhs.true.i.i54.sink.split ], [ %17, %if.then8.i.i.i.i.i30 ], [ %15, %if.then.i.i.i.i.i.i.i.i.i.i45 ], [ %15, %if.then.i.i.i.i.i39 ]
   %19 = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i.i56 = icmp eq i8 %19, 2
@@ -1657,7 +1657,7 @@ if.then21:                                        ; preds = %land.lhs.true.i.i54
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %if.then21
-  %tobool.i.i.i.i.i60 = trunc i8 %result.sroa.30.4266 to i1
+  %tobool.i.i.i.i.i60 = trunc i8 %result.sroa.30.2266 to i1
   %_M_engaged2.i.i.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp22, i64 24
   %22 = load i8, ptr %_M_engaged2.i.i.i.i.i61, align 8
   %tobool3.i.i.i.i.i62 = trunc i8 %22 to i1
@@ -1670,11 +1670,11 @@ if.then.i.i.i.i.i73:                              ; preds = %land.lhs.true.i.i.i
   %23 = load ptr, ptr %ref.tmp22, align 8
   %_M_finish.i2.i.i.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   %24 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i.i.i.i.i.i76, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i78 = icmp eq ptr %result.sroa.0.4270, null
+  %tobool.not.i.i.i.i.i.i.i.i.i.i78 = icmp eq ptr %result.sroa.0.2270, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i78, label %if.end28, label %if.then.i.i.i.i.i.i.i.i.i.i79
 
 if.then.i.i.i.i.i.i.i.i.i.i79:                    ; preds = %if.then.i.i.i.i.i73
-  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.4270) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.2270) #26
   br label %if.end28
 
 if.else.thread.i.i.i.i.i63:                       ; preds = %invoke.cont26
@@ -1687,23 +1687,23 @@ if.then8.i.i.i.i.i64:                             ; preds = %if.else.thread.i.i.
   br label %if.end28
 
 if.then.i.i.i.i.i.i70:                            ; preds = %land.lhs.true.i.i.i.i.i69
-  %tobool.not.i.i.i.i.i5.i.i.i.i.i71 = icmp eq ptr %result.sroa.0.4270, null
+  %tobool.not.i.i.i.i.i5.i.i.i.i.i71 = icmp eq ptr %result.sroa.0.2270, null
   br i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i71, label %if.then30, label %if.then.i.i.i.i.i6.i.i.i.i.i72
 
 if.then.i.i.i.i.i6.i.i.i.i.i72:                   ; preds = %if.then.i.i.i.i.i.i70
-  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.4270) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %result.sroa.0.2270) #26
   br label %if.then30
 
 if.end28:                                         ; preds = %if.then8.i.i.i.i.i64, %if.then.i.i.i.i.i.i.i.i.i.i79, %if.then.i.i.i.i.i73, %if.else.thread.i.i.i.i.i63, %land.lhs.true.i.i54
-  %result.sroa.30.6 = phi i8 [ %result.sroa.30.4266, %land.lhs.true.i.i54 ], [ %result.sroa.30.4266, %if.else.thread.i.i.i.i.i63 ], [ 1, %if.then8.i.i.i.i.i64 ], [ %result.sroa.30.4266, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %result.sroa.30.4266, %if.then.i.i.i.i.i73 ]
-  %result.sroa.0.6 = phi ptr [ %result.sroa.0.4270, %land.lhs.true.i.i54 ], [ %result.sroa.0.4270, %if.else.thread.i.i.i.i.i63 ], [ %25, %if.then8.i.i.i.i.i64 ], [ %23, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %23, %if.then.i.i.i.i.i73 ]
+  %result.sroa.30.3 = phi i8 [ %result.sroa.30.2266, %land.lhs.true.i.i54 ], [ %result.sroa.30.2266, %if.else.thread.i.i.i.i.i63 ], [ 1, %if.then8.i.i.i.i.i64 ], [ %result.sroa.30.2266, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %result.sroa.30.2266, %if.then.i.i.i.i.i73 ]
+  %result.sroa.0.3 = phi ptr [ %result.sroa.0.2270, %land.lhs.true.i.i54 ], [ %result.sroa.0.2270, %if.else.thread.i.i.i.i.i63 ], [ %25, %if.then8.i.i.i.i.i64 ], [ %23, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %23, %if.then.i.i.i.i.i73 ]
   %27 = phi <2 x ptr> [ %18, %land.lhs.true.i.i54 ], [ %18, %if.else.thread.i.i.i.i.i63 ], [ %26, %if.then8.i.i.i.i.i64 ], [ %24, %if.then.i.i.i.i.i.i.i.i.i.i79 ], [ %24, %if.then.i.i.i.i.i73 ]
-  %tobool.i.i = trunc i8 %result.sroa.30.6 to i1
+  %tobool.i.i = trunc i8 %result.sroa.30.3 to i1
   br i1 %tobool.i.i, label %if.end38, label %if.then30
 
 if.then30:                                        ; preds = %if.then.i.i.i.i.i6.i.i.i.i.i72, %if.then.i.i.i.i.i.i70, %entry, %if.end28
-  %result.sroa.0.6292 = phi ptr [ %result.sroa.0.6, %if.end28 ], [ undef, %entry ], [ %result.sroa.0.4270, %if.then.i.i.i.i.i6.i.i.i.i.i72 ], [ null, %if.then.i.i.i.i.i.i70 ]
-  %result.sroa.30.6291 = phi i8 [ %result.sroa.30.6, %if.end28 ], [ 0, %entry ], [ 0, %if.then.i.i.i.i.i6.i.i.i.i.i72 ], [ 0, %if.then.i.i.i.i.i.i70 ]
+  %result.sroa.0.3292 = phi ptr [ %result.sroa.0.3, %if.end28 ], [ undef, %entry ], [ %result.sroa.0.2270, %if.then.i.i.i.i.i6.i.i.i.i.i72 ], [ null, %if.then.i.i.i.i.i.i70 ]
+  %result.sroa.30.3291 = phi i8 [ %result.sroa.30.3, %if.end28 ], [ 0, %entry ], [ 0, %if.then.i.i.i.i.i6.i.i.i.i.i72 ], [ 0, %if.then.i.i.i.i.i.i70 ]
   %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 32
   %28 = load i8, ptr %_M_index.i.i.i.i, align 8
   switch i8 %28, label %do.body.i [
@@ -1798,7 +1798,7 @@ if.then.i.i.i.i131:                               ; preds = %if.then.i100, %if.t
   store i64 %retval.sroa.0.0.i95, ptr %wire_size3.i112, align 8
   %value4.i113 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_index.i.i.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %agg.result, i64 48
-  store ptr %result.sroa.0.6, ptr %value4.i113, align 8
+  store ptr %result.sroa.0.3, ptr %value4.i113, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i143 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store <2 x ptr> %27, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i143, align 8
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i138, align 8
@@ -8613,7 +8613,7 @@ lpad101:                                          ; preds = %if.end.i245, %if.th
   br label %ehcleanup104
 
 cleanup103:                                       ; preds = %if.end.i245, %_ZNSt10unique_ptrIN9grpc_core16HpackParseResultESt14default_deleteIS1_EED2Ev.exit.i
-  %retval.1 = phi i1 [ %call98, %_ZNSt10unique_ptrIN9grpc_core16HpackParseResultESt14default_deleteIS1_EED2Ev.exit.i ], [ true, %if.end.i245 ]
+  %retval.2 = phi i1 [ %call98, %_ZNSt10unique_ptrIN9grpc_core16HpackParseResultESt14default_deleteIS1_EED2Ev.exit.i ], [ true, %if.end.i245 ]
   %133 = load ptr, ptr %parse_status85, align 8
   %cmp.not.i.i250 = icmp eq ptr %133, null
   br i1 %cmp.not.i.i250, label %_ZNSt10unique_ptrIN9grpc_core16HpackParseResultESt14default_deleteIS1_EED2Ev.exit.i257, label %delete.notnull.i.i.i251
@@ -8718,7 +8718,7 @@ ehcleanup108:                                     ; preds = %ehcleanup106, %lpad
   br label %ehcleanup110
 
 cleanup109:                                       ; preds = %if.then.i.i.i272, %if.then.i.i270, %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchED2Ev.exit268, %if.end48, %_ZN9grpc_core16HpackParseResultD2Ev.exit215
-  %retval.2 = phi i1 [ false, %_ZN9grpc_core16HpackParseResultD2Ev.exit215 ], [ false, %if.end48 ], [ %retval.1, %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchED2Ev.exit268 ], [ %retval.1, %if.then.i.i270 ], [ %retval.1, %if.then.i.i.i272 ]
+  %retval.0 = phi i1 [ false, %_ZN9grpc_core16HpackParseResultD2Ev.exit215 ], [ false, %if.end48 ], [ %retval.2, %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchED2Ev.exit268 ], [ %retval.2, %if.then.i.i270 ], [ %retval.2, %if.then.i.i.i272 ]
   %value.i = getelementptr inbounds i8, ptr %value, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 48
   %154 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -8765,7 +8765,7 @@ sw.default.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %cleanup109
   unreachable
 
 _ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit: ; preds = %cleanup109, %sw.bb.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i.i.i, %cleanup109
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup110:                                     ; preds = %ehcleanup108, %lpad
   %.pn9.pn.pn.pn = phi { ptr, i32 } [ %.pn9.pn.pn, %ehcleanup108 ], [ %29, %lpad ]
@@ -17455,7 +17455,7 @@ if.end15.i:                                       ; preds = %if.end9.i
   br label %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit
 
 _ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit:    ; preds = %if.then.i, %.noexc, %if.then13.i, %.noexc5
-  %ref.tmp2.sroa.0.0 = phi ptr [ %3, %if.then13.i ], [ %ref.tmp2.sroa.0.0.copyload17, %.noexc5 ], [ %ref.tmp2.sroa.0.0.copyload, %.noexc ], [ %3, %if.then.i ]
+  %ref.tmp2.sroa.0.1 = phi ptr [ %3, %if.then13.i ], [ %ref.tmp2.sroa.0.0.copyload17, %.noexc5 ], [ %ref.tmp2.sroa.0.0.copyload, %.noexc ], [ %3, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16.i)
   br label %_ZN9grpc_core5SliceD2Ev.exit15
@@ -17468,12 +17468,12 @@ cond.false:                                       ; preds = %invoke.cont
   br label %_ZN9grpc_core5SliceD2Ev.exit15
 
 _ZN9grpc_core5SliceD2Ev.exit15:                   ; preds = %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit, %cond.false
-  %ref.tmp2.sroa.0.1 = phi ptr [ %ref.tmp2.sroa.0.0, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ], [ %ref.tmp.i6.sroa.0.0.copyload, %cond.false ]
+  %ref.tmp2.sroa.0.0 = phi ptr [ %ref.tmp2.sroa.0.1, %_ZN9grpc_core5Slice17TakeUniquelyOwnedEv.exit ], [ %ref.tmp.i6.sroa.0.0.copyload, %cond.false ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %second.i = getelementptr inbounds i8, ptr %call, i64 32
   %ref.tmp.i1.i.sroa.4.0.second.i.sroa_idx = getelementptr inbounds i8, ptr %call, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1.i.sroa.4.0.second.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.sroa.8, i64 24, i1 false)
-  store ptr %ref.tmp2.sroa.0.1, ptr %second.i, align 8
+  store ptr %ref.tmp2.sroa.0.0, ptr %second.i, align 8
   store ptr %call, ptr %value_, align 8
   ret void
 

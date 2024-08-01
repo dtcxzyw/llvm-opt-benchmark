@@ -1658,8 +1658,8 @@ _ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %74
   br label %119
 
 119:                                              ; preds = %_ZNK9MemRegion6equalsES_.exit.thread154, %114
-  %.sroa.7.0 = phi i64 [ %118, %114 ], [ 0, %_ZNK9MemRegion6equalsES_.exit.thread154 ]
-  %.sroa.0139.0 = phi ptr [ %88, %114 ], [ null, %_ZNK9MemRegion6equalsES_.exit.thread154 ]
+  %.sroa.7.2 = phi i64 [ %118, %114 ], [ 0, %_ZNK9MemRegion6equalsES_.exit.thread154 ]
+  %.sroa.0139.2 = phi ptr [ %88, %114 ], [ null, %_ZNK9MemRegion6equalsES_.exit.thread154 ]
   %.sroa.033.1.i = phi ptr [ %.sroa.033.0.i, %114 ], [ %spec.select, %_ZNK9MemRegion6equalsES_.exit.thread154 ]
   %.sroa.15.1.i = phi i64 [ %.sroa.15.0.i, %114 ], [ %spec.select176, %_ZNK9MemRegion6equalsES_.exit.thread154 ]
   %120 = getelementptr inbounds ptr, ptr %.sroa.033.1.i, i64 %.sroa.15.1.i
@@ -1714,15 +1714,15 @@ _ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %74
   br label %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit
 
 _ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit: ; preds = %119, %143
-  %.sroa.7146.0 = phi i64 [ %148, %143 ], [ 0, %119 ]
-  %.sroa.0145.0 = phi ptr [ %144, %143 ], [ null, %119 ]
-  %149 = ptrtoint ptr %.sroa.0139.0 to i64
+  %.sroa.7146.2 = phi i64 [ %148, %143 ], [ 0, %119 ]
+  %.sroa.0145.2 = phi ptr [ %144, %143 ], [ null, %119 ]
+  %149 = ptrtoint ptr %.sroa.0139.2 to i64
   %150 = add i64 %149, -1
   %151 = add i64 %150, %86
   %152 = sub i64 0, %86
   %153 = and i64 %151, %152
   %154 = inttoptr i64 %153 to ptr
-  %155 = getelementptr inbounds ptr, ptr %.sroa.0139.0, i64 %.sroa.7.0
+  %155 = getelementptr inbounds ptr, ptr %.sroa.0139.2, i64 %.sroa.7.2
   %156 = ptrtoint ptr %155 to i64
   %157 = and i64 %152, %156
   %158 = inttoptr i64 %157 to ptr
@@ -1751,12 +1751,12 @@ _ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit: ; preds = %119, %
 _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit: ; preds = %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit, %160
   %.pre-phi202 = phi i64 [ %152, %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit ], [ %.pre201, %160 ]
   %171 = phi i64 [ %86, %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit ], [ %.pre184, %160 ]
-  %172 = ptrtoint ptr %.sroa.0145.0 to i64
+  %172 = ptrtoint ptr %.sroa.0145.2 to i64
   %173 = add i64 %172, -1
   %174 = add i64 %173, %171
   %175 = and i64 %174, %.pre-phi202
   %176 = inttoptr i64 %175 to ptr
-  %177 = getelementptr inbounds ptr, ptr %.sroa.0145.0, i64 %.sroa.7146.0
+  %177 = getelementptr inbounds ptr, ptr %.sroa.0145.2, i64 %.sroa.7146.2
   %178 = ptrtoint ptr %177 to i64
   %179 = and i64 %.pre-phi202, %178
   %180 = inttoptr i64 %179 to ptr

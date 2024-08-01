@@ -201,14 +201,14 @@ is_localhost.exit.us:                             ; preds = %sub_0.i.us, %sub_11
   br i1 %.0.shrunk.i.not.us, label %is_localhost.exit.thread36.us, label %is_localhost.exit.thread
 
 is_localhost.exit.thread36.us:                    ; preds = %.split.us.us, %is_localhost.exit.us, %17, %6
-  %.1.us = phi i32 [ %11, %is_localhost.exit.us ], [ %.0.ph.us48, %6 ], [ %.0.ph.us48, %.split.us.us ], [ %11, %17 ]
+  %.2.us = phi i32 [ %11, %is_localhost.exit.us ], [ %.0.ph.us48, %6 ], [ %.0.ph.us48, %.split.us.us ], [ %11, %17 ]
   %.019.us.us = load ptr, ptr %.019.us.us49, align 8
   %.not26.us.us = icmp eq ptr %.019.us.us, null
   br i1 %.not26.us.us, label %is_localhost.exit.thread, label %.split.us.us, !llvm.loop !4
 
 .split.us.us:                                     ; preds = %.preheader.split.us, %is_localhost.exit.thread36.us
   %.019.us.us49 = phi ptr [ %.019.us.us, %is_localhost.exit.thread36.us ], [ %.019.us.us46, %.preheader.split.us ]
-  %.0.ph.us48 = phi i32 [ %.1.us, %is_localhost.exit.thread36.us ], [ 0, %.preheader.split.us ]
+  %.0.ph.us48 = phi i32 [ %.2.us, %is_localhost.exit.thread36.us ], [ 0, %.preheader.split.us ]
   %24 = getelementptr inbounds i8, ptr %.019.us.us49, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not30.us = icmp eq ptr %25, null
@@ -310,10 +310,10 @@ is_localhost.exit:                                ; preds = %sub_110.i, %sub_0.i
   br i1 %.0.shrunk.i.not, label %.outer.outer.backedge, label %is_localhost.exit.thread
 
 is_localhost.exit.thread:                         ; preds = %is_localhost.exit, %43, %sub_0.i, %sub_110.i, %48, %26, %is_localhost.exit.us, %sub_0.i.us, %sub_110.i.us, %17, %14, %is_localhost.exit.thread36.us, %.preheader.split.us
-  %.2 = phi i32 [ 0, %.preheader.split.us ], [ %.1.us, %is_localhost.exit.thread36.us ], [ %11, %is_localhost.exit.us ], [ %11, %14 ], [ %11, %sub_0.i.us ], [ %11, %sub_110.i.us ], [ %11, %17 ], [ %.0.ph.ph, %26 ], [ 1, %48 ], [ 1, %sub_110.i ], [ 1, %sub_0.i ], [ 1, %43 ], [ 1, %is_localhost.exit ]
+  %.1 = phi i32 [ 0, %.preheader.split.us ], [ %.2.us, %is_localhost.exit.thread36.us ], [ %11, %is_localhost.exit.us ], [ %11, %14 ], [ %11, %sub_0.i.us ], [ %11, %sub_110.i.us ], [ %11, %17 ], [ %.0.ph.ph, %26 ], [ 1, %48 ], [ 1, %sub_110.i ], [ 1, %sub_0.i ], [ 1, %43 ], [ 1, %is_localhost.exit ]
   %53 = load ptr, ptr %3, align 8
   call void @freeifaddrs(ptr noundef %53) #12
-  %.not32 = icmp eq i32 %.2, 0
+  %.not32 = icmp eq i32 %.1, 0
   %. = sext i1 %.not32 to i32
   br label %54
 

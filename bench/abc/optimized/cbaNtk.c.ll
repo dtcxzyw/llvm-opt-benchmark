@@ -7013,7 +7013,7 @@ Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i
 
 92:                                               ; preds = %.lr.ph159, %Cba_FonObj.exit.thread
   %indvars.iv185 = phi i64 [ %91, %.lr.ph159 ], [ %indvars.iv.next186, %Cba_FonObj.exit.thread ]
-  %.192158 = phi i32 [ 1, %.lr.ph159 ], [ %.293, %Cba_FonObj.exit.thread ]
+  %.293158 = phi i32 [ 1, %.lr.ph159 ], [ %.394, %Cba_FonObj.exit.thread ]
   %93 = getelementptr inbounds i32, ptr %.val127, i64 %indvars.iv185
   %94 = load i32, ptr %93, align 4
   %95 = icmp slt i32 %94, 1
@@ -7036,17 +7036,17 @@ Cba_FonObj.exit:                                  ; preds = %92
   %105 = shl nuw i32 1, %104
   %106 = and i32 %103, %105
   %.not116 = icmp eq i32 %106, 0
-  %spec.select = select i1 %.not116, i32 0, i32 %.192158
+  %spec.select = select i1 %.not116, i32 0, i32 %.293158
   br label %Cba_FonObj.exit.thread
 
 Cba_FonObj.exit.thread:                           ; preds = %92, %99, %Cba_FonObj.exit
-  %.293 = phi i32 [ %.192158, %Cba_FonObj.exit ], [ %spec.select, %99 ], [ %.192158, %92 ]
+  %.394 = phi i32 [ %.293158, %Cba_FonObj.exit ], [ %spec.select, %99 ], [ %.293158, %92 ]
   %indvars.iv.next186 = add nsw i64 %indvars.iv185, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4, label %92, !llvm.loop !35
 
 .critedge4:                                       ; preds = %Cba_FonObj.exit.thread
-  %.not106 = icmp eq i32 %.293, 0
+  %.not106 = icmp eq i32 %.394, 0
   br i1 %.not106, label %.critedge10, label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %85, %.critedge4
@@ -7109,7 +7109,7 @@ Cba_FonObj.exit.thread:                           ; preds = %92, %99, %Cba_FonOb
 
 131:                                              ; preds = %.lr.ph165, %Cba_FonObj.exit144.thread
   %indvars.iv191 = phi i64 [ %130, %.lr.ph165 ], [ %indvars.iv.next192, %Cba_FonObj.exit144.thread ]
-  %.6164 = phi i32 [ 1, %.lr.ph165 ], [ %.7, %Cba_FonObj.exit144.thread ]
+  %.7164 = phi i32 [ 1, %.lr.ph165 ], [ %.8, %Cba_FonObj.exit144.thread ]
   %132 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv191
   %133 = load i32, ptr %132, align 4
   %134 = icmp slt i32 %133, 1
@@ -7132,17 +7132,17 @@ Cba_FonObj.exit144:                               ; preds = %131
   %144 = shl nuw i32 1, %143
   %145 = and i32 %142, %144
   %.not114 = icmp eq i32 %145, 0
-  %spec.select119 = select i1 %.not114, i32 0, i32 %.6164
+  %spec.select119 = select i1 %.not114, i32 0, i32 %.7164
   br label %Cba_FonObj.exit144.thread
 
 Cba_FonObj.exit144.thread:                        ; preds = %131, %138, %Cba_FonObj.exit144
-  %.7 = phi i32 [ %.6164, %Cba_FonObj.exit144 ], [ %spec.select119, %138 ], [ %.6164, %131 ]
+  %.8 = phi i32 [ %.7164, %Cba_FonObj.exit144 ], [ %spec.select119, %138 ], [ %.7164, %131 ]
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
   br i1 %exitcond195.not, label %.critedge8, label %131, !llvm.loop !38
 
 .critedge8:                                       ; preds = %Cba_FonObj.exit144.thread
-  %.not108 = icmp eq i32 %.7, 0
+  %.not108 = icmp eq i32 %.8, 0
   br i1 %.not108, label %.critedge10, label %.critedge118
 
 .critedge6:                                       ; preds = %146, %.critedge12
@@ -7170,7 +7170,7 @@ Cba_FonObj.exit144.thread:                        ; preds = %131, %138, %Cba_Fon
 
 155:                                              ; preds = %.lr.ph171, %Cba_FonObj.exit146.thread
   %indvars.iv201 = phi i64 [ %154, %.lr.ph171 ], [ %indvars.iv.next202, %Cba_FonObj.exit146.thread ]
-  %.10170 = phi i32 [ 1, %.lr.ph171 ], [ %.11, %Cba_FonObj.exit146.thread ]
+  %.11170 = phi i32 [ 1, %.lr.ph171 ], [ %.12, %Cba_FonObj.exit146.thread ]
   %156 = getelementptr inbounds i32, ptr %.val129, i64 %indvars.iv201
   %157 = load i32, ptr %156, align 4
   %158 = icmp slt i32 %157, 1
@@ -7193,21 +7193,21 @@ Cba_FonObj.exit146:                               ; preds = %155
   %168 = shl nuw i32 1, %167
   %169 = and i32 %166, %168
   %.not112 = icmp eq i32 %169, 0
-  %spec.select120 = select i1 %.not112, i32 0, i32 %.10170
+  %spec.select120 = select i1 %.not112, i32 0, i32 %.11170
   br label %Cba_FonObj.exit146.thread
 
 Cba_FonObj.exit146.thread:                        ; preds = %155, %162, %Cba_FonObj.exit146
-  %.11 = phi i32 [ %.10170, %Cba_FonObj.exit146 ], [ %spec.select120, %162 ], [ %.10170, %155 ]
+  %.12 = phi i32 [ %.11170, %Cba_FonObj.exit146 ], [ %spec.select120, %162 ], [ %.11170, %155 ]
   %indvars.iv.next202 = add nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
   br i1 %exitcond205.not, label %.critedge12, label %155, !llvm.loop !40
 
 .critedge12:                                      ; preds = %Cba_FonObj.exit146.thread
-  %.not110 = icmp eq i32 %.11, 0
+  %.not110 = icmp eq i32 %.12, 0
   br i1 %.not110, label %.critedge10, label %.critedge6
 
 .critedge10:                                      ; preds = %.critedge4, %.critedge8, %.critedge6, %.critedge12, %.critedge6.preheader
-  %.12 = phi i32 [ 1, %.critedge6.preheader ], [ 1, %.critedge6 ], [ 0, %.critedge12 ], [ 0, %.critedge8 ], [ 0, %.critedge4 ]
+  %.9 = phi i32 [ 1, %.critedge6.preheader ], [ 1, %.critedge6 ], [ 0, %.critedge12 ], [ 0, %.critedge8 ], [ 0, %.critedge4 ]
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %Vec_BitFree.exit, label %170
 
@@ -7216,7 +7216,7 @@ Cba_FonObj.exit146.thread:                        ; preds = %155, %162, %Cba_Fon
   br label %Vec_BitFree.exit
 
 Vec_BitFree.exit:                                 ; preds = %.critedge10, %170
-  ret i32 %.12
+  ret i32 %.9
 }
 
 ; Function Attrs: nounwind uwtable

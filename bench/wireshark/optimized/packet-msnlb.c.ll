@@ -410,7 +410,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 129:                                              ; preds = %.lr.ph, %209
   %130 = phi i32 [ 20, %.lr.ph ], [ %210, %209 ]
-  %.7254 = phi i32 [ 20, %.lr.ph ], [ %.9, %209 ]
+  %.7254 = phi i32 [ 20, %.lr.ph ], [ %.8, %209 ]
   %131 = load i32, ptr @hf_msnlb_extended_hb, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef -1, i32 noundef 0) #4
   %133 = load i32, ptr @ett_msnlb_extended_hb, align 4
@@ -501,9 +501,9 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %197
 
 197:                                              ; preds = %191, %185, %179
-  %.8 = phi i16 [ %196, %191 ], [ %190, %185 ], [ %184, %179 ]
+  %.9 = phi i16 [ %196, %191 ], [ %190, %185 ], [ %184, %179 ]
   %198 = load i32, ptr @hf_msnlb_padding, align 4
-  %199 = zext i16 %.8 to i32
+  %199 = zext i16 %.9 to i32
   %200 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %198, ptr noundef %0, i32 noundef %199, i32 noundef -1, i32 noundef 0) #4
   %201 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %199) #4
   %202 = add i32 %201, %199
@@ -518,8 +518,8 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %209
 
 209:                                              ; preds = %203, %197, %142
-  %.9 = phi i32 [ %208, %203 ], [ %202, %197 ], [ %158, %142 ]
-  %210 = and i32 %.9, 65535
+  %.8 = phi i32 [ %208, %203 ], [ %202, %197 ], [ %158, %142 ]
+  %210 = and i32 %.8, 65535
   %211 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %210) #4
   %212 = icmp sgt i32 %211, 0
   br i1 %212, label %129, label %.loopexit, !llvm.loop !12

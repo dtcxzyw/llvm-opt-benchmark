@@ -2244,11 +2244,11 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iterato
 .lr.ph524:                                        ; preds = %.preheader339, %620
   %363 = phi i32 [ %621, %620 ], [ %361, %.preheader339 ]
   %indvars.iv = phi i64 [ %indvars.iv.next.pre-phi, %620 ], [ 0, %.preheader339 ]
-  %.0130523 = phi double [ %.3133, %620 ], [ 0x7FEFFFFFFFFFFFFF, %.preheader339 ]
-  %.0134522 = phi i32 [ %.3137, %620 ], [ 0, %.preheader339 ]
-  %.0327519 = phi i32 [ %.2, %620 ], [ -1, %.preheader339 ]
-  %.0329518 = phi i32 [ %.3, %620 ], [ 0, %.preheader339 ]
-  %.0332517 = phi float [ %.2334, %620 ], [ 0.000000e+00, %.preheader339 ]
+  %.0130523 = phi double [ %.1131, %620 ], [ 0x7FEFFFFFFFFFFFFF, %.preheader339 ]
+  %.0134522 = phi i32 [ %.1135, %620 ], [ 0, %.preheader339 ]
+  %.0327519 = phi i32 [ %.1328, %620 ], [ -1, %.preheader339 ]
+  %.0329518 = phi i32 [ %.1330, %620 ], [ 0, %.preheader339 ]
+  %.0332517 = phi float [ %.1333, %620 ], [ 0.000000e+00, %.preheader339 ]
   %364 = load ptr, ptr %55, align 8
   %365 = trunc nuw nsw i64 %indvars.iv to i32
   %366 = lshr i64 %indvars.iv, 6
@@ -2853,9 +2853,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i212:            ; preds = %536
   %582 = fcmp olt double %577, %576
   %583 = load i32, ptr %314, align 4
   %584 = load i32, ptr %315, align 4
-  %.1330 = select i1 %582, i32 1, i32 -1
-  %.1135 = select i1 %582, i32 %583, i32 %584
-  %.1131 = select i1 %582, double %577, double %576
+  %.3 = select i1 %582, i32 1, i32 -1
+  %.3137 = select i1 %582, i32 %583, i32 %584
+  %.3133 = select i1 %582, double %577, double %576
   br i1 %.not.not, label %616, label %600
 
 585:                                              ; preds = %_ZN2cv4Mat_IfEC2Eii.exit
@@ -2911,22 +2911,22 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i212:            ; preds = %536
   %610 = mul i64 %609, %indvars.iv
   %611 = getelementptr inbounds i8, ptr %607, i64 %610
   %612 = load float, ptr %611, align 4
-  %613 = sitofp i32 %.1135 to float
+  %613 = sitofp i32 %.3137 to float
   %614 = fadd float %613, 5.000000e-01
   %615 = call float @llvm.fmuladd.f32(float %612, float %614, float %606)
   br label %619
 
 616:                                              ; preds = %581
-  %617 = sitofp i32 %.1135 to float
+  %617 = sitofp i32 %.3137 to float
   %618 = fadd float %617, 5.000000e-01
   br label %619
 
 619:                                              ; preds = %600, %616, %575
-  %.1333 = phi float [ %618, %616 ], [ %615, %600 ], [ %.0332517, %575 ]
-  %.2331 = phi i32 [ %.1330, %616 ], [ %.1330, %600 ], [ %.0329518, %575 ]
-  %.1328 = phi i32 [ %365, %616 ], [ %365, %600 ], [ %.0327519, %575 ]
-  %.2136 = phi i32 [ %.1135, %616 ], [ %.1135, %600 ], [ %.0134522, %575 ]
-  %.2132 = phi double [ %.1131, %616 ], [ %.1131, %600 ], [ %.0130523, %575 ]
+  %.2334 = phi float [ %618, %616 ], [ %615, %600 ], [ %.0332517, %575 ]
+  %.2331 = phi i32 [ %.3, %616 ], [ %.3, %600 ], [ %.0329518, %575 ]
+  %.2 = phi i32 [ %365, %616 ], [ %365, %600 ], [ %.0327519, %575 ]
+  %.2136 = phi i32 [ %.3137, %616 ], [ %.3137, %600 ], [ %.0134522, %575 ]
+  %.2132 = phi double [ %.3133, %616 ], [ %.3133, %600 ], [ %.0130523, %575 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %74) #20
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %70) #20
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %63) #20
@@ -2937,11 +2937,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i212:            ; preds = %536
 620:                                              ; preds = %.lr.ph524._crit_edge, %619
   %indvars.iv.next.pre-phi = phi i64 [ %.pre631, %.lr.ph524._crit_edge ], [ %373, %619 ]
   %621 = phi i32 [ %363, %.lr.ph524._crit_edge ], [ %.pre, %619 ]
-  %.2334 = phi float [ %.0332517, %.lr.ph524._crit_edge ], [ %.1333, %619 ]
-  %.3 = phi i32 [ %.0329518, %.lr.ph524._crit_edge ], [ %.2331, %619 ]
-  %.2 = phi i32 [ %.0327519, %.lr.ph524._crit_edge ], [ %.1328, %619 ]
-  %.3137 = phi i32 [ %.0134522, %.lr.ph524._crit_edge ], [ %.2136, %619 ]
-  %.3133 = phi double [ %.0130523, %.lr.ph524._crit_edge ], [ %.2132, %619 ]
+  %.1333 = phi float [ %.0332517, %.lr.ph524._crit_edge ], [ %.2334, %619 ]
+  %.1330 = phi i32 [ %.0329518, %.lr.ph524._crit_edge ], [ %.2331, %619 ]
+  %.1328 = phi i32 [ %.0327519, %.lr.ph524._crit_edge ], [ %.2, %619 ]
+  %.1135 = phi i32 [ %.0134522, %.lr.ph524._crit_edge ], [ %.2136, %619 ]
+  %.1131 = phi double [ %.0130523, %.lr.ph524._crit_edge ], [ %.2132, %619 ]
   %622 = sext i32 %621 to i64
   %623 = icmp slt i64 %indvars.iv.next.pre-phi, %622
   br i1 %623, label %.lr.ph524, label %._crit_edge525, !llvm.loop !38
@@ -2967,11 +2967,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i212:            ; preds = %536
   br label %.body181
 
 ._crit_edge525:                                   ; preds = %620, %.preheader339
-  %.0332.lcssa = phi float [ 0.000000e+00, %.preheader339 ], [ %.2334, %620 ]
-  %.0329.lcssa = phi i32 [ 0, %.preheader339 ], [ %.3, %620 ]
-  %.0327.lcssa = phi i32 [ -1, %.preheader339 ], [ %.2, %620 ]
-  %.0134.lcssa = phi i32 [ 0, %.preheader339 ], [ %.3137, %620 ]
-  %.0130.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %.preheader339 ], [ %.3133, %620 ]
+  %.0332.lcssa = phi float [ 0.000000e+00, %.preheader339 ], [ %.1333, %620 ]
+  %.0329.lcssa = phi i32 [ 0, %.preheader339 ], [ %.1330, %620 ]
+  %.0327.lcssa = phi i32 [ -1, %.preheader339 ], [ %.1328, %620 ]
+  %.0134.lcssa = phi i32 [ 0, %.preheader339 ], [ %.1135, %620 ]
+  %.0130.lcssa = phi double [ 0x7FEFFFFFFFFFFFFF, %.preheader339 ], [ %.1131, %620 ]
   %628 = fsub double 1.000000e+00, %.0130.lcssa
   %629 = fdiv double %628, %.0130.lcssa
   %630 = call double @log(double noundef %629) #20

@@ -424,14 +424,14 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 122) #9
-  %mon_fdset.064 = load ptr, ptr @mon_fdsets, align 8
-  %tobool2.not65 = icmp ne ptr %mon_fdset.064, null
+  %mon_fdset.164 = load ptr, ptr @mon_fdsets, align 8
+  %tobool2.not65 = icmp ne ptr %mon_fdset.164, null
   %or.cond.not = select i1 %has_fdset_id, i1 %tobool2.not65, i1 false
   br i1 %or.cond.not, label %for.body, label %if.then10
 
 for.body:                                         ; preds = %entry, %for.inc
-  %mon_fdset.066 = phi ptr [ %mon_fdset.0, %for.inc ], [ %mon_fdset.064, %entry ]
-  %2 = load i64, ptr %mon_fdset.066, align 8
+  %mon_fdset.166 = phi ptr [ %mon_fdset.1, %for.inc ], [ %mon_fdset.164, %entry ]
+  %2 = load i64, ptr %mon_fdset.166, align 8
   %cmp.not = icmp slt i64 %2, %fdset_id
   br i1 %cmp.not, label %for.inc, label %if.then3
 
@@ -440,16 +440,16 @@ if.then3:                                         ; preds = %for.body
   br i1 %cmp5, label %if.then10, label %if.end104
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %mon_fdset.066, i64 24
-  %mon_fdset.0 = load ptr, ptr %next, align 8
-  %tobool2.not = icmp eq ptr %mon_fdset.0, null
+  %next = getelementptr inbounds i8, ptr %mon_fdset.166, i64 24
+  %mon_fdset.1 = load ptr, ptr %next, align 8
+  %tobool2.not = icmp eq ptr %mon_fdset.1, null
   br i1 %tobool2.not, label %if.then10, label %for.body, !llvm.loop !11
 
 if.then10:                                        ; preds = %for.inc, %if.then3, %entry
   br i1 %has_fdset_id, label %if.then12, label %for.cond27.preheader
 
 for.cond27.preheader:                             ; preds = %if.then10
-  %tobool28.not67 = icmp eq ptr %mon_fdset.064, null
+  %tobool28.not67 = icmp eq ptr %mon_fdset.164, null
   br i1 %tobool28.not67, label %do.body, label %for.body29
 
 if.then12:                                        ; preds = %if.then10
@@ -457,7 +457,7 @@ if.then12:                                        ; preds = %if.then10
   br i1 %cmp13, label %if.then14, label %for.cond16.preheader
 
 for.cond16.preheader:                             ; preds = %if.then12
-  %tobool17.not73 = icmp eq ptr %mon_fdset.064, null
+  %tobool17.not73 = icmp eq ptr %mon_fdset.164, null
   br i1 %tobool17.not73, label %do.body, label %for.body18
 
 if.then14:                                        ; preds = %if.then12
@@ -465,34 +465,34 @@ if.then14:                                        ; preds = %if.then12
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.inc23
-  %mon_fdset.274 = phi ptr [ %4, %for.inc23 ], [ %mon_fdset.064, %for.cond16.preheader ]
-  %3 = load i64, ptr %mon_fdset.274, align 8
+  %mon_fdset.374 = phi ptr [ %4, %for.inc23 ], [ %mon_fdset.164, %for.cond16.preheader ]
+  %3 = load i64, ptr %mon_fdset.374, align 8
   %cmp20 = icmp sgt i64 %3, %fdset_id
   br i1 %cmp20, label %if.else59, label %for.inc23
 
 for.inc23:                                        ; preds = %for.body18
-  %next24 = getelementptr inbounds i8, ptr %mon_fdset.274, i64 24
+  %next24 = getelementptr inbounds i8, ptr %mon_fdset.374, i64 24
   %4 = load ptr, ptr %next24, align 8
   %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.else59, label %for.body18, !llvm.loop !12
 
 for.body29:                                       ; preds = %for.cond27.preheader, %if.then32
-  %fdset_id_prev.069 = phi i64 [ %5, %if.then32 ], [ -1, %for.cond27.preheader ]
-  %mon_fdset.368 = phi ptr [ %6, %if.then32 ], [ %mon_fdset.064, %for.cond27.preheader ]
-  %5 = load i64, ptr %mon_fdset.368, align 8
+  %fdset_id_prev.169 = phi i64 [ %5, %if.then32 ], [ -1, %for.cond27.preheader ]
+  %mon_fdset.468 = phi ptr [ %6, %if.then32 ], [ %mon_fdset.164, %for.cond27.preheader ]
+  %5 = load i64, ptr %mon_fdset.468, align 8
   %sub = add i64 %5, -1
-  %cmp31 = icmp eq i64 %fdset_id_prev.069, %sub
+  %cmp31 = icmp eq i64 %fdset_id_prev.169, %sub
   br i1 %cmp31, label %if.then32, label %if.end39.loopexit77
 
 if.then32:                                        ; preds = %for.body29
-  %next36 = getelementptr inbounds i8, ptr %mon_fdset.368, i64 24
+  %next36 = getelementptr inbounds i8, ptr %mon_fdset.468, i64 24
   %6 = load ptr, ptr %next36, align 8
   %tobool28.not = icmp eq ptr %6, null
   br i1 %tobool28.not, label %if.end39.loopexit77, label %for.body29, !llvm.loop !13
 
 if.end39.loopexit77:                              ; preds = %if.then32, %for.body29
-  %fdset_id_prev.1.ph = phi i64 [ %5, %if.then32 ], [ %fdset_id_prev.069, %for.body29 ]
-  %7 = add i64 %fdset_id_prev.1.ph, 1
+  %fdset_id_prev.0.ph = phi i64 [ %5, %if.then32 ], [ %fdset_id_prev.169, %for.body29 ]
+  %7 = add i64 %fdset_id_prev.0.ph, 1
   br label %if.else59
 
 do.body:                                          ; preds = %for.cond16.preheader, %for.cond27.preheader
@@ -518,27 +518,27 @@ if.end56:                                         ; preds = %if.then52, %do.body
 
 if.else59:                                        ; preds = %for.inc23, %for.body18, %if.end39.loopexit77
   %storemerge.ph = phi i64 [ %7, %if.end39.loopexit77 ], [ %fdset_id, %for.body18 ], [ %fdset_id, %for.inc23 ]
-  %mon_fdset_cur.2.ph = phi ptr [ %mon_fdset.368, %if.end39.loopexit77 ], [ %mon_fdset.274, %for.body18 ], [ %mon_fdset.274, %for.inc23 ]
+  %mon_fdset_cur.1.ph = phi ptr [ %mon_fdset.468, %if.end39.loopexit77 ], [ %mon_fdset.374, %for.body18 ], [ %mon_fdset.374, %for.inc23 ]
   %call4082 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #14
   store i64 %storemerge.ph, ptr %call4082, align 8
-  %9 = load i64, ptr %mon_fdset_cur.2.ph, align 8
+  %9 = load i64, ptr %mon_fdset_cur.1.ph, align 8
   %cmp62 = icmp slt i64 %storemerge.ph, %9
   %next67 = getelementptr inbounds i8, ptr %call4082, i64 24
   br i1 %cmp62, label %do.body64, label %do.body80
 
 do.body64:                                        ; preds = %if.else59
-  %le_prev66 = getelementptr inbounds i8, ptr %mon_fdset_cur.2.ph, i64 32
+  %le_prev66 = getelementptr inbounds i8, ptr %mon_fdset_cur.1.ph, i64 32
   %10 = load ptr, ptr %le_prev66, align 8
   %le_prev68 = getelementptr inbounds i8, ptr %call4082, i64 32
   store ptr %10, ptr %le_prev68, align 8
-  store ptr %mon_fdset_cur.2.ph, ptr %next67, align 8
+  store ptr %mon_fdset_cur.1.ph, ptr %next67, align 8
   %11 = load ptr, ptr %le_prev66, align 8
   store ptr %call4082, ptr %11, align 8
   store ptr %next67, ptr %le_prev66, align 8
   br label %if.end104
 
 do.body80:                                        ; preds = %if.else59
-  %next81 = getelementptr inbounds i8, ptr %mon_fdset_cur.2.ph, i64 24
+  %next81 = getelementptr inbounds i8, ptr %mon_fdset_cur.1.ph, i64 24
   %12 = load ptr, ptr %next81, align 8
   store ptr %12, ptr %next67, align 8
   %cmp85.not = icmp eq ptr %12, null
@@ -556,7 +556,7 @@ if.end93:                                         ; preds = %if.then86, %do.body
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then3, %if.end56, %if.end93, %do.body64
-  %mon_fdset.4 = phi ptr [ %call4082, %do.body64 ], [ %call4082, %if.end93 ], [ %call40, %if.end56 ], [ %mon_fdset.066, %if.then3 ]
+  %mon_fdset.2 = phi ptr [ %call4082, %do.body64 ], [ %call4082, %if.end93 ], [ %call40, %if.end56 ], [ %mon_fdset.166, %if.then3 ]
   %call105 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   store i32 %fd, ptr %call105, align 8
   %removed = getelementptr inbounds i8, ptr %call105, i64 4
@@ -564,7 +564,7 @@ if.end104:                                        ; preds = %if.then3, %if.end56
   %call107 = tail call noalias ptr @g_strdup(ptr noundef %opaque) #9
   %opaque108 = getelementptr inbounds i8, ptr %call105, i64 8
   store ptr %call107, ptr %opaque108, align 8
-  %fds = getelementptr inbounds i8, ptr %mon_fdset.4, i64 8
+  %fds = getelementptr inbounds i8, ptr %mon_fdset.2, i64 8
   %13 = load ptr, ptr %fds, align 8
   %next110 = getelementptr inbounds i8, ptr %call105, i64 16
   store ptr %13, ptr %next110, align 8
@@ -581,7 +581,7 @@ if.end120:                                        ; preds = %if.then113, %if.end
   %le_prev126 = getelementptr inbounds i8, ptr %call105, i64 24
   store ptr %fds, ptr %le_prev126, align 8
   %call129 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #14
-  %14 = load i64, ptr %mon_fdset.4, align 8
+  %14 = load i64, ptr %mon_fdset.2, align 8
   store i64 %14, ptr %call129, align 8
   %15 = load i32, ptr %call105, align 8
   %conv = sext i32 %15 to i64

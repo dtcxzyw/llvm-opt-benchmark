@@ -2198,7 +2198,7 @@ _ZNK14cmArchiveWrite8GetErrorB5cxx11Ev.exit:      ; preds = %232
   br label %.loopexit
 
 .loopexit:                                        ; preds = %248, %154, %.critedge
-  %.2 = phi i32 [ 0, %.critedge ], [ 1, %154 ], [ 1, %248 ]
+  %.3 = phi i32 [ 0, %.critedge ], [ 1, %154 ], [ 1, %248 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #20
   br label %251
 
@@ -2208,10 +2208,10 @@ _ZNK14cmArchiveWrite8GetErrorB5cxx11Ev.exit:      ; preds = %232
   br label %252
 
 251:                                              ; preds = %.loopexit, %_ZN10cmCPackLog3LogEiPKciS1_.exit67
-  %.3 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit67 ], [ %.2, %.loopexit ]
+  %.019 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit67 ], [ %.3, %.loopexit ]
   call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  ret i32 %.3
+  ret i32 %.019
 
 252:                                              ; preds = %.body87, %97, %91
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %97 ], [ %92, %91 ], [ %.pn56.pn.pn, %.body87 ]
@@ -3708,8 +3708,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.loopexit
 
 .loopexit:                                        ; preds = %389, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit184, %.loopexit.sink.split, %._crit_edge288, %391
-  %.10 = phi i32 [ 1, %391 ], [ 1, %._crit_edge288 ], [ 0, %.loopexit.sink.split ], [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit184 ], [ 1, %389 ]
-  ret i32 %.10
+  %.3 = phi i32 [ 1, %391 ], [ 1, %._crit_edge288 ], [ 0, %.loopexit.sink.split ], [ 1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit184 ], [ 1, %389 ]
+  ret i32 %.3
 
 533:                                              ; preds = %532, %.body166, %388, %.body, %300, %229, %149, %141
   %.pn126.pn.pn = phi { ptr, i32 } [ %.pn126.pn, %532 ], [ %.pn113, %.body166 ], [ %.pn111, %229 ], [ %.pn99.pn, %149 ], [ %.pn97, %141 ], [ %.pn94.pn, %388 ], [ %.pn82, %.body ], [ %.pn, %300 ]
@@ -4681,7 +4681,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit55:              ; preds = %175
   br label %212
 
 212:                                              ; preds = %._crit_edge, %_ZN10cmCPackLog3LogEiPKciS1_.exit55, %_ZN10cmCPackLog3LogEiPKciS1_.exit51
-  %.0 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit55 ], [ 1, %._crit_edge ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit51 ]
+  %.1 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit55 ], [ 1, %._crit_edge ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit51 ]
   call void @_ZN14cmArchiveWriteD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %13) #20
   br label %214
 
@@ -4691,9 +4691,9 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit55:              ; preds = %175
   br label %215
 
 214:                                              ; preds = %212, %_ZN10cmCPackLog3LogEiPKciS1_.exit48
-  %.1 = phi i32 [ %.0, %212 ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit48 ]
+  %.0 = phi i32 [ %.1, %212 ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit48 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %10) #20
-  ret i32 %.1
+  ret i32 %.0
 
 215:                                              ; preds = %213, %121, %115
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %213 ], [ %116, %115 ], [ %.pn25, %121 ]
@@ -5242,7 +5242,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit49:              ; preds = %202
   br label %217
 
 .loopexit:                                        ; preds = %214, %174, %_ZN10cmCPackLog3LogEiPKciS1_.exit49, %_ZN10cmCPackLog3LogEiPKciS1_.exit47
-  %.2 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit47 ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit49 ], [ 1, %174 ], [ 1, %214 ]
+  %.3 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit47 ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit49 ], [ 1, %174 ], [ 1, %214 ]
   call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %14) #20
   br label %218
 
@@ -5252,7 +5252,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit49:              ; preds = %202
   br label %219
 
 218:                                              ; preds = %.loopexit, %_ZN10cmCPackLog3LogEiPKciS1_.exit46, %_ZN10cmCPackLog3LogEiPKciS1_.exit44
-  %.3 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit46 ], [ %.2, %.loopexit ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit44 ]
+  %.2 = phi i32 [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit46 ], [ %.3, %.loopexit ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit44 ]
   call void @_ZN14cmArchiveWriteD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %7) #20
   br label %220
 
@@ -5262,7 +5262,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit49:              ; preds = %202
   br label %221
 
 220:                                              ; preds = %218, %_ZN10cmCPackLog3LogEiPKciS1_.exit43
-  %.4 = phi i32 [ %.3, %218 ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit43 ]
+  %.1 = phi i32 [ %.2, %218 ], [ 0, %_ZN10cmCPackLog3LogEiPKciS1_.exit43 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %4) #20
   br label %222
 
@@ -5272,8 +5272,8 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit49:              ; preds = %202
   br label %223
 
 222:                                              ; preds = %220, %49, %42
-  %.5 = phi i32 [ %43, %42 ], [ %51, %49 ], [ %.4, %220 ]
-  ret i32 %.5
+  %.0 = phi i32 [ %43, %42 ], [ %51, %49 ], [ %.1, %220 ]
+  ret i32 %.0
 
 223:                                              ; preds = %221, %48
   %.pn38.pn.pn.pn = phi { ptr, i32 } [ %.pn38.pn.pn, %221 ], [ %.pn, %48 ]

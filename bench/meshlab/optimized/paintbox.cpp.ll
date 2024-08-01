@@ -13747,8 +13747,8 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   br label %52
 
 52:                                               ; preds = %48, %46, %40
-  %.1.i.us = phi float [ %51, %48 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %46 ]
-  %53 = fsub float 1.000000e+00, %.1.i.us
+  %.2.i.us = phi float [ %51, %48 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %46 ]
+  %53 = fsub float 1.000000e+00, %.2.i.us
   br label %_Z5brush5Brushffff.exit.us
 
 54:                                               ; preds = %33
@@ -13776,8 +13776,8 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   br label %_Z5brush5Brushffff.exit.us
 
 _Z5brush5Brushffff.exit.us:                       ; preds = %66, %52, %33
-  %.2.i.us = phi float [ 0.000000e+00, %33 ], [ %53, %52 ], [ %67, %66 ]
-  %68 = fsub float 1.000000e+00, %.2.i.us
+  %.1.i.us = phi float [ 0.000000e+00, %33 ], [ %53, %52 ], [ %67, %66 ]
+  %68 = fsub float 1.000000e+00, %.1.i.us
   %69 = fmul float %68, 2.550000e+02
   %70 = fptosi float %69 to i32
   %71 = fptosi float %.03132.us to i32

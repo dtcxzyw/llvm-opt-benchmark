@@ -5349,7 +5349,7 @@ Gia_ManBoxNum.exit122.thread:                     ; preds = %49, %Gia_ManBoxNum.
 
 90:                                               ; preds = %Gia_ManBoxNum.exit122.thread, %85
   %.0128137139 = phi ptr [ %.0128.ph, %85 ], [ %.0128137140, %Gia_ManBoxNum.exit122.thread ]
-  %.087 = phi ptr [ %88, %85 ], [ %89, %Gia_ManBoxNum.exit122.thread ]
+  %.1 = phi ptr [ %88, %85 ], [ %89, %Gia_ManBoxNum.exit122.thread ]
   %91 = load ptr, ptr %19, align 8
   %.not.i123 = icmp eq ptr %91, null
   br i1 %.not.i123, label %Gia_ManBoxNum.exit124.thread, label %Gia_ManBoxNum.exit124
@@ -5370,7 +5370,7 @@ Gia_ManBoxNum.exit124.thread:                     ; preds = %90, %Gia_ManBoxNum.
   br label %99
 
 99:                                               ; preds = %Gia_ManBoxNum.exit124.thread, %94
-  %.088 = phi ptr [ %97, %94 ], [ %98, %Gia_ManBoxNum.exit124.thread ]
+  %.189 = phi ptr [ %97, %94 ], [ %98, %Gia_ManBoxNum.exit124.thread ]
   %100 = icmp eq ptr %.0128137139, null
   br i1 %100, label %Vec_IntFreeP.exit, label %101
 
@@ -5389,8 +5389,8 @@ Gia_ManBoxNum.exit124.thread:                     ; preds = %90, %Gia_ManBoxNum.
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %.thread.i, %99, %46
-  %.189 = phi ptr [ %48, %46 ], [ %.088, %99 ], [ %.088, %.thread.i ]
-  %.1 = phi ptr [ %47, %46 ], [ %.087, %99 ], [ %.087, %.thread.i ]
+  %.088 = phi ptr [ %48, %46 ], [ %.189, %99 ], [ %.189, %.thread.i ]
+  %.087 = phi ptr [ %47, %46 ], [ %.1, %99 ], [ %.1, %.thread.i ]
   %.not101 = icmp eq i32 %4, 0
   br i1 %.not101, label %117, label %105
 
@@ -5407,8 +5407,8 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %99, %46
   %111 = tail call ptr @Extra_FileNameGeneric(ptr noundef %110) #18
   %112 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %111) #18
   %113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %111) #18
-  call void @Gia_AigerWrite(ptr noundef %.1, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
-  call void @Gia_AigerWrite(ptr noundef %.189, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  call void @Gia_AigerWrite(ptr noundef %.087, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  call void @Gia_AigerWrite(ptr noundef %.088, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
   %.not102 = icmp eq ptr %111, null
   br i1 %.not102, label %115, label %114
 
@@ -5425,7 +5425,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %99, %46
   br i1 %.not103, label %127, label %118
 
 118:                                              ; preds = %117
-  %119 = call ptr @Gia_ManMiter(ptr noundef %.1, ptr noundef %.189, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef %5) #18
+  %119 = call ptr @Gia_ManMiter(ptr noundef %.087, ptr noundef %.088, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef %5) #18
   %.not105 = icmp eq ptr %119, null
   br i1 %.not105, label %138, label %120
 
@@ -5446,7 +5446,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %99, %46
   br label %138
 
 127:                                              ; preds = %117
-  %128 = call ptr @Gia_ManMiter(ptr noundef %.1, ptr noundef %.189, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef %5) #18
+  %128 = call ptr @Gia_ManMiter(ptr noundef %.087, ptr noundef %.088, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef %5) #18
   %.not104 = icmp eq ptr %128, null
   br i1 %.not104, label %138, label %129
 
@@ -5473,8 +5473,8 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %99, %46
 
 138:                                              ; preds = %127, %137, %118, %120
   %.086 = phi i32 [ %126, %120 ], [ -1, %118 ], [ %132, %137 ], [ -1, %127 ]
-  call void @Gia_ManStop(ptr noundef %.1) #18
-  call void @Gia_ManStop(ptr noundef %.189) #18
+  call void @Gia_ManStop(ptr noundef %.087) #18
+  call void @Gia_ManStop(ptr noundef %.088) #18
   call void @Gia_ManStop(ptr noundef nonnull %32) #18
   br label %139
 

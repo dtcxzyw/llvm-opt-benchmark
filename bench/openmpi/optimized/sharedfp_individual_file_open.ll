@@ -249,7 +249,7 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
   br label %14
 
 14:                                               ; preds = %12, %9
-  %.0 = phi i32 [ %13, %12 ], [ %6, %9 ]
+  %.1 = phi i32 [ %13, %12 ], [ %6, %9 ]
   %15 = getelementptr inbounds i8, ptr %8, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not25 = icmp eq ptr %16, null
@@ -270,7 +270,7 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
   br label %23
 
 23:                                               ; preds = %21, %18
-  %.1 = phi i32 [ %22, %21 ], [ %.0, %18 ]
+  %.2 = phi i32 [ %22, %21 ], [ %.1, %18 ]
   %24 = getelementptr inbounds i8, ptr %8, i64 48
   %25 = load ptr, ptr %24, align 8
   %.not27 = icmp eq ptr %25, null
@@ -281,13 +281,13 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
   br label %27
 
 27:                                               ; preds = %23, %26, %5
-  %.2 = phi i32 [ %.1, %26 ], [ %.1, %23 ], [ %6, %5 ]
+  %.0 = phi i32 [ %.2, %26 ], [ %.2, %23 ], [ %6, %5 ]
   tail call void @free(ptr noundef nonnull %3) #9
   store ptr null, ptr %2, align 8
   br label %28
 
 28:                                               ; preds = %1, %27
-  %.017 = phi i32 [ %.2, %27 ], [ 0, %1 ]
+  %.017 = phi i32 [ %.0, %27 ], [ 0, %1 ]
   ret i32 %.017
 }
 

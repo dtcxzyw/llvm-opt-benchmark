@@ -2121,8 +2121,8 @@ define i32 @Fx_ManDivFindCubeFree(ptr nocapture noundef readonly %0, ptr nocaptu
 .preheader135:                                    ; preds = %94, %4
   %.073.lcssa = phi ptr [ %8, %4 ], [ %.174, %94 ]
   %.071.lcssa = phi i32 [ 0, %4 ], [ %.172, %94 ]
-  %.068.lcssa = phi i32 [ 0, %4 ], [ %.270, %94 ]
-  %.065.lcssa = phi i32 [ 1, %4 ], [ %.267, %94 ]
+  %.068.lcssa = phi i32 [ 0, %4 ], [ %.169, %94 ]
+  %.065.lcssa = phi i32 [ 1, %4 ], [ %.166, %94 ]
   %.064.lcssa = phi ptr [ %6, %4 ], [ %.1, %94 ]
   %19 = icmp ult ptr %.064.lcssa, %11
   br i1 %19, label %.lr.ph148, label %.preheader
@@ -2133,8 +2133,8 @@ define i32 @Fx_ManDivFindCubeFree(ptr nocapture noundef readonly %0, ptr nocaptu
 
 20:                                               ; preds = %.lr.ph, %94
   %.064142 = phi ptr [ %6, %.lr.ph ], [ %.1, %94 ]
-  %.065141 = phi i32 [ 1, %.lr.ph ], [ %.267, %94 ]
-  %.068140 = phi i32 [ 0, %.lr.ph ], [ %.270, %94 ]
+  %.065141 = phi i32 [ 1, %.lr.ph ], [ %.166, %94 ]
+  %.068140 = phi i32 [ 0, %.lr.ph ], [ %.169, %94 ]
   %.071139 = phi i32 [ 0, %.lr.ph ], [ %.172, %94 ]
   %.073138 = phi ptr [ %8, %.lr.ph ], [ %.174, %94 ]
   %21 = load i32, ptr %.064142, align 4
@@ -2294,8 +2294,8 @@ Vec_IntPush.exit104:                              ; preds = %.Vec_IntGrow.exit10
 94:                                               ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit104, %24
   %.174 = phi ptr [ %26, %24 ], [ %.073138, %Vec_IntPush.exit ], [ %64, %Vec_IntPush.exit104 ]
   %.172 = phi i32 [ %27, %24 ], [ %.071139, %Vec_IntPush.exit ], [ %.071139, %Vec_IntPush.exit104 ]
-  %.270 = phi i32 [ %.068140, %24 ], [ %.068140, %Vec_IntPush.exit ], [ %spec.select, %Vec_IntPush.exit104 ]
-  %.267 = phi i32 [ %.065141, %24 ], [ %.065141, %Vec_IntPush.exit ], [ %spec.select82, %Vec_IntPush.exit104 ]
+  %.169 = phi i32 [ %.068140, %24 ], [ %.068140, %Vec_IntPush.exit ], [ %spec.select, %Vec_IntPush.exit104 ]
+  %.166 = phi i32 [ %.065141, %24 ], [ %.065141, %Vec_IntPush.exit ], [ %spec.select82, %Vec_IntPush.exit104 ]
   %.1 = phi ptr [ %25, %24 ], [ %31, %Vec_IntPush.exit ], [ %.064142, %Vec_IntPush.exit104 ]
   %95 = icmp ult ptr %.1, %11
   %96 = icmp ult ptr %.174, %14

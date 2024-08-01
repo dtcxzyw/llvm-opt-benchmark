@@ -719,9 +719,9 @@ if.then64:                                        ; preds = %if.end61
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end13.thread, %if.end13, %if.then64, %if.end61
-  %path0.339 = phi ptr [ %spec.select, %if.end61 ], [ %spec.select, %if.then64 ], [ %2, %if.end13 ], [ %fullpath, %if.end13.thread ]
+  %path0.239 = phi ptr [ %spec.select, %if.end61 ], [ %spec.select, %if.then64 ], [ %2, %if.end13 ], [ %fullpath, %if.end13.thread ]
   %n.1 = phi i64 [ 0, %if.end61 ], [ %spec.select20, %if.then64 ], [ 0, %if.end13 ], [ %call12, %if.end13.thread ]
-  %call71 = call ptr @PyUnicode_FromWideChar(ptr noundef %path0.339, i64 noundef %n.1) #11
+  %call71 = call ptr @PyUnicode_FromWideChar(ptr noundef %path0.239, i64 noundef %n.1) #11
   %cmp72 = icmp eq ptr %call71, null
   br i1 %cmp72, label %return, label %if.end75
 

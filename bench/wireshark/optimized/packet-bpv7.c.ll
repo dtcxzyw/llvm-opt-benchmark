@@ -2191,19 +2191,19 @@ label_type_field.exit.i:                          ; preds = %399, %389
   br i1 %.not181197.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %417, %.lr.ph.i
-  %.0165199.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 1, %417 ]
+  %.1199.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 1, %417 ]
   %.0166198.i = phi ptr [ %422, %.lr.ph.i ], [ %418, %417 ]
   %419 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0166198.i) #16
   %420 = icmp ne ptr %419, %367
   %421 = zext i1 %420 to i64
-  %spec.select.i = add i64 %.0165199.i, %421
+  %spec.select.i = add i64 %.1199.i, %421
   %422 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0166198.i) #16
   %.not181.i = icmp eq ptr %422, null
   br i1 %.not181.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %417, %.loopexit194.i
-  %.2.i = phi i64 [ 1, %.loopexit194.i ], [ 1, %417 ], [ %spec.select.i, %.lr.ph.i ]
-  %423 = icmp ugt i64 %.2.i, %.0163.i
+  %.0165.i = phi i64 [ 1, %.loopexit194.i ], [ 1, %417 ], [ %spec.select.i, %.lr.ph.i ]
+  %423 = icmp ugt i64 %.0165.i, %.0163.i
   br i1 %423, label %424, label %426
 
 424:                                              ; preds = %.loopexit.i
@@ -4553,16 +4553,16 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
   br label %35
 
 35:                                               ; preds = %18, %30, %25
-  %.027 = phi i32 [ 0, %18 ], [ %34, %30 ], [ %29, %25 ]
+  %.1 = phi i32 [ 0, %18 ], [ %34, %30 ], [ %29, %25 ]
   %36 = load ptr, ptr %20, align 8
   tail call void @wmem_free(ptr noundef %36, ptr noundef %23) #16
   br label %37
 
 37:                                               ; preds = %16, %35, %14
   %.028 = phi i32 [ 1, %35 ], [ 0, %14 ], [ 16, %16 ]
-  %.1 = phi i32 [ %.027, %35 ], [ 0, %14 ], [ 0, %16 ]
+  %.027 = phi i32 [ %.1, %35 ], [ 0, %14 ], [ 0, %16 ]
   %38 = load i32, ptr @hf_crc_status, align 4
-  %39 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull @ei_block_failed_crc, ptr noundef %1, i32 noundef %.1, i32 noundef 0, i32 noundef %.028) #16
+  %39 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull @ei_block_failed_crc, ptr noundef %1, i32 noundef %.027, i32 noundef 0, i32 noundef %.028) #16
   br label %40
 
 40:                                               ; preds = %5, %37
@@ -4971,7 +4971,7 @@ define internal fastcc i32 @dissect_status_assertion(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %25, %16
-  %.0 = phi i32 [ %26, %25 ], [ 0, %16 ]
+  %.1 = phi i32 [ %26, %25 ], [ 0, %16 ]
   %28 = getelementptr inbounds i8, ptr %11, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = icmp ugt i64 %29, 1
@@ -4983,13 +4983,13 @@ define internal fastcc i32 @dissect_status_assertion(ptr noundef %0, i32 noundef
   br label %33
 
 33:                                               ; preds = %27, %31, %5
-  %.1 = phi i32 [ 0, %5 ], [ %.0, %31 ], [ %.0, %27 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.1, %31 ], [ %.1, %27 ]
   %34 = load i32, ptr %4, align 4
   %35 = getelementptr inbounds i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = sub i32 %34, %36
   call void @proto_item_set_len(ptr noundef %8, i32 noundef %37) #16
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare zeroext i1 @wmem_map_contains(ptr noundef, ptr noundef) local_unnamed_addr #2

@@ -457,36 +457,36 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not75, label %.loopexit68, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
-  %.070 = phi i32 [ %28, %.lr.ph ], [ %17, %20 ]
+  %.170 = phi i32 [ %28, %.lr.ph ], [ %17, %20 ]
   %.06569 = phi i32 [ %29, %.lr.ph ], [ 0, %20 ]
   %26 = load i32, ptr @hf_state_node, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %.070, i32 noundef 1, i32 noundef 0) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %.170, i32 noundef 1, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.207, i32 noundef %.06569) #2
-  %28 = add i32 %.070, 1
+  %28 = add i32 %.170, 1
   %29 = add nuw nsw i32 %.06569, 1
   %exitcond.not = icmp eq i32 %29, %22
   br i1 %exitcond.not, label %.loopexit68, label %.lr.ph, !llvm.loop !4
 
 .loopexit68:                                      ; preds = %.lr.ph, %20, %3
-  %.1 = phi i32 [ %17, %3 ], [ %17, %20 ], [ %28, %.lr.ph ]
+  %.0 = phi i32 [ %17, %3 ], [ %17, %20 ], [ %28, %.lr.ph ]
   %30 = and i32 %18, 2
   %.not67 = icmp eq i32 %30, 0
   br i1 %.not67, label %.loopexit, label %31
 
 31:                                               ; preds = %.loopexit68
   %32 = load i32, ptr @hf_interface_states, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef 0) #2
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #2
   %34 = load i32, ptr @ett_cphap, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #2
   %36 = load i32, ptr @hf_in_up_num, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %38 = add i32 %.1, 1
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #2
+  %38 = add i32 %.0, 1
   %39 = load i32, ptr @hf_in_assumed_up_num, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
-  %41 = add i32 %.1, 2
+  %41 = add i32 %.0, 2
   %42 = load i32, ptr @hf_out_up_num, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef 0) #2
-  %44 = add i32 %.1, 3
+  %44 = add i32 %.0, 3
   %45 = load i32, ptr @hf_out_assumed_up_num, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0) #2
   %47 = zext i16 %6 to i32
@@ -494,16 +494,16 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not76, label %.loopexit, label %.lr.ph73.preheader
 
 .lr.ph73.preheader:                               ; preds = %31
-  %48 = add i32 %.1, 4
+  %48 = add i32 %.0, 4
   br label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
-  %.272 = phi i32 [ %51, %.lr.ph73 ], [ %48, %.lr.ph73.preheader ]
+  %.372 = phi i32 [ %51, %.lr.ph73 ], [ %48, %.lr.ph73.preheader ]
   %.16671 = phi i32 [ %52, %.lr.ph73 ], [ 0, %.lr.ph73.preheader ]
   %49 = load i32, ptr @hf_cluster_last_packet, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.272, i32 noundef 1, i32 noundef 0) #2
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.372, i32 noundef 1, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.208, i32 noundef %.16671) #2
-  %51 = add i32 %.272, 1
+  %51 = add i32 %.372, 1
   %52 = add nuw nsw i32 %.16671, 1
   %exitcond78.not = icmp eq i32 %52, %47
   br i1 %exitcond78.not, label %.loopexit, label %.lr.ph73, !llvm.loop !6

@@ -1304,7 +1304,7 @@ invoke.cont324:                                   ; preds = %cleanup.done318
   br label %cleanup
 
 cleanup:                                          ; preds = %while.cond, %cleanup.done169, %cleanup.done42, %invoke.cont23, %invoke.cont324, %cleanup.done249
-  %retval.0 = phi i1 [ false, %cleanup.done249 ], [ true, %invoke.cont324 ], [ false, %invoke.cont23 ], [ false, %cleanup.done42 ], [ false, %cleanup.done169 ], [ false, %while.cond ]
+  %retval.1 = phi i1 [ false, %cleanup.done249 ], [ true, %invoke.cont324 ], [ false, %invoke.cont23 ], [ false, %cleanup.done42 ], [ false, %cleanup.done169 ], [ false, %while.cond ]
   %switch = phi i1 [ false, %cleanup.done249 ], [ %cmp.i861, %invoke.cont324 ], [ false, %invoke.cont23 ], [ false, %cleanup.done42 ], [ false, %cleanup.done169 ], [ false, %while.cond ]
   %34 = load ptr, ptr %orig, align 8
   %bf.load.i.i890 = load i64, ptr %34, align 8
@@ -1344,8 +1344,8 @@ if.end368:                                        ; preds = %cond.end, %_ZN4cvc5
   br label %return
 
 return:                                           ; preds = %if.then9, %cond.end, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.end368
-  %retval.1 = phi i1 [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %if.end368 ], [ true, %cond.end ], [ %call11, %if.then9 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %if.end368 ], [ true, %cond.end ], [ %call11, %if.then9 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

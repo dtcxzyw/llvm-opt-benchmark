@@ -3505,8 +3505,8 @@ _ZN7oopDesc11oop_iterateI24WalkOopAndArchiveClosureEEvPT_.exit: ; preds = %227, 
   br label %_ZN10HeapShared39has_been_seen_during_subgraph_recordingEP7oopDesc.exit
 
 _ZN10HeapShared39has_been_seen_during_subgraph_recordingEP7oopDesc.exit: ; preds = %81, %_ZN12ResourceMarkD2Ev.exit41, %247
-  %.1 = phi i1 [ true, %247 ], [ false, %_ZN12ResourceMarkD2Ev.exit41 ], [ true, %81 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %247 ], [ false, %_ZN12ResourceMarkD2Ev.exit41 ], [ true, %81 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7548,39 +7548,39 @@ define hidden noundef zeroext i1 @_ZN10HeapShared32is_archived_boot_layer_availa
 _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %1, %4, %8
   %9 = tail call noundef ptr @_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef %0, ptr noundef %3, ptr null, ptr null) #20
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit13, label %11
+  br i1 %10, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit14, label %11
 
 11:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
   %12 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull @.str.28, i32 noundef 17) #20
-  %.not.i8 = icmp eq ptr %12, null
-  br i1 %.not.i8, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit9, label %13
+  %.not.i9 = icmp eq ptr %12, null
+  br i1 %.not.i9, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit10, label %13
 
 13:                                               ; preds = %11
   %14 = load volatile i32, ptr %12, align 4
   %15 = and i32 %14, 65535
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit9
+  br i1 %16, label %17, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit10
 
 17:                                               ; preds = %13
   tail call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %12) #20
-  br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit9
+  br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit10
 
-_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit9:     ; preds = %11, %13, %17
+_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit10:    ; preds = %11, %13, %17
   %18 = tail call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull @.str.89, i32 noundef 39) #20
-  %.not.i10 = icmp eq ptr %18, null
-  br i1 %.not.i10, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11, label %19
+  %.not.i11 = icmp eq ptr %18, null
+  br i1 %.not.i11, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12, label %19
 
-19:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit9
+19:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit10
   %20 = load volatile i32, ptr %18, align 4
   %21 = and i32 %20, 65535
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11
+  br i1 %22, label %23, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12
 
 23:                                               ; preds = %19
   tail call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %18) #20
-  br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11
+  br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12
 
-_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11:    ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit9, %19, %23
+_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12:    ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit10, %19, %23
   %24 = getelementptr inbounds i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %24, i8 0, i64 22, i1 false)
   %25 = getelementptr inbounds i8, ptr %2, i64 32
@@ -7589,7 +7589,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11:    ; preds = %_ZN16SymbolHandleBa
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %35, label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12
   %27 = getelementptr inbounds i8, ptr %9, i64 112
   %28 = load ptr, ptr %27, align 8, !nonnull !12, !noundef !12
   %29 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
@@ -7602,32 +7602,32 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZN16SymbolHandleBa
   %34 = icmp ne ptr %33, null
   br label %35
 
-35:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11, %_ZNK5Klass11java_mirrorEv.exit
-  %cond = phi i1 [ %34, %_ZNK5Klass11java_mirrorEv.exit ], [ false, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit11 ]
+35:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12, %_ZNK5Klass11java_mirrorEv.exit
+  %cond = phi i1 [ %34, %_ZNK5Klass11java_mirrorEv.exit ], [ false, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit12 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #20
-  br i1 %.not.i10, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %36
+  br i1 %.not.i11, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %36
 
 36:                                               ; preds = %35
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %18) #20
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %35, %36
-  br i1 %.not.i8, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit13, label %37
+  br i1 %.not.i9, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit14, label %37
 
 37:                                               ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %12) #20
-  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit13
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit14
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit13:           ; preds = %37, %_ZN16SymbolHandleBaseILb1EED2Ev.exit, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  %.1 = phi i1 [ false, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %cond, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ %cond, %37 ]
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit15, label %38
+_ZN16SymbolHandleBaseILb1EED2Ev.exit14:           ; preds = %37, %_ZN16SymbolHandleBaseILb1EED2Ev.exit, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
+  %.0 = phi i1 [ false, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %cond, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ %cond, %37 ]
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit16, label %38
 
-38:                                               ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit13
+38:                                               ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit14
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #20
-  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit15
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit16
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit15:           ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit13, %38
-  ret i1 %.1
+_ZN16SymbolHandleBaseILb1EED2Ev.exit16:           ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit14, %38
+  ret i1 %.0
 }
 
 declare noundef ptr @_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_(ptr noundef, ptr noundef, ptr, ptr) local_unnamed_addr #3
@@ -14408,9 +14408,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %59
 
 59:                                               ; preds = %57, %50
-  %.1.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %50 ], [ %58, %57 ]
-  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %61 = add i64 %.026.ph.i.i.i.i.i, %60
   %62 = icmp ult i64 %61, %38
   br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop19PointsToOopsCheckerEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -14617,9 +14617,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %59
 
 59:                                               ; preds = %57, %50
-  %.1.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %50 ], [ %58, %57 ]
-  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %61 = add i64 %.026.ph.i.i.i.i.i, %60
   %62 = icmp ult i64 %61, %38
   br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc19PointsToOopsCheckerEEvP17stackChunkOopDescPT0_PlS8_.exit
@@ -15661,9 +15661,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop24WalkOopAndArchiveClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -15854,9 +15854,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %58
 
 58:                                               ; preds = %56, %49
-  %.1.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %47, %49 ], [ %55, %56 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %49 ], [ %57, %56 ]
-  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %60 = add i64 %.026.ph.i.i.i.i.i, %59
   %61 = icmp ult i64 %60, %38
   br i1 %61, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc24WalkOopAndArchiveClosureEEvP17stackChunkOopDescPT0_PlS8_.exit

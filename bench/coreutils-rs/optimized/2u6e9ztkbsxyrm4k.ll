@@ -809,9 +809,9 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   %.promoted.i.i.i.i = load i64, ptr %134, align 8, !alias.scope !167, !noalias !174
   %136 = add i64 %.promoted.i.i.i.i, %135
   %.not3754.i.i.i.i = icmp ult i64 %136, %128
-  br i1 %.not3754.i.i.i.i, label %.lr.ph.i40.i.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i"
+  br i1 %.not3754.i.i.i.i, label %.lr.ph.i39.i.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i"
 
-.lr.ph.i40.i.i.i:                                 ; preds = %133
+.lr.ph.i39.i.i.i:                                 ; preds = %133
   %137 = getelementptr inbounds i8, ptr %6, i64 32
   %138 = load i64, ptr %137, align 8, !alias.scope !167, !noalias !174, !noundef !10
   %139 = load i64, ptr %121, align 8, !alias.scope !167, !noalias !174
@@ -820,10 +820,10 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   %142 = sub i64 %132, %141
   br label %143
 
-143:                                              ; preds = %.sink.split.i.i.i.i, %.lr.ph.i40.i.i.i
-  %144 = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.i40.i.i.i ], [ %.ph81.i.i.i.i, %.sink.split.i.i.i.i ]
-  %145 = phi i64 [ %123, %.lr.ph.i40.i.i.i ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %146 = phi i64 [ %136, %.lr.ph.i40.i.i.i ], [ %157, %.sink.split.i.i.i.i ]
+143:                                              ; preds = %.sink.split.i.i.i.i, %.lr.ph.i39.i.i.i
+  %144 = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.i39.i.i.i ], [ %.ph81.i.i.i.i, %.sink.split.i.i.i.i ]
+  %145 = phi i64 [ %123, %.lr.ph.i39.i.i.i ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
+  %146 = phi i64 [ %136, %.lr.ph.i39.i.i.i ], [ %157, %.sink.split.i.i.i.i ]
   %147 = getelementptr inbounds i8, ptr %126, i64 %146
   %148 = load i8, ptr %147, align 1, !alias.scope !170, !noalias !176, !noundef !10
   %149 = and i8 %148, 63
@@ -903,8 +903,8 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   %183 = load i8, ptr %182, align 1, !alias.scope !172, !noalias !178, !noundef !10
   %184 = getelementptr inbounds [0 x i8], ptr %126, i64 0, i64 %178
   %185 = load i8, ptr %184, align 1, !alias.scope !170, !noalias !176, !noundef !10
-  %.not.i41.i.i.i = icmp eq i8 %183, %185
-  br i1 %.not.i41.i.i.i, label %158, label %188
+  %.not.i40.i.i.i = icmp eq i8 %183, %185
+  br i1 %.not.i40.i.i.i, label %158, label %188
 
 186:                                              ; preds = %177
   %187 = add i64 %.0.sroa.speculated.i.i.i.i.i, %144

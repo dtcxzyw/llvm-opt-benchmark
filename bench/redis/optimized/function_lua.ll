@@ -158,14 +158,14 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %tobool.not99109.i.i, label %if.then3, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i, %if.end48.i.i
-  %lua_f_ctx.0.ph113.i.i = phi ptr [ %lua_f_ctx.0100.i.i, %if.end48.i.i ], [ null, %if.end.i.i ]
-  %desc.0.ph112.i.i = phi ptr [ %desc.1.i.i, %if.end48.i.i ], [ null, %if.end.i.i ]
-  %name.0.ph111.i.i = phi ptr [ %name.1.i.i, %if.end48.i.i ], [ null, %if.end.i.i ]
-  %flags.0.ph110.i.i = phi i64 [ %flags.2.i.i, %if.end48.i.i ], [ 0, %if.end.i.i ]
+  %lua_f_ctx.1.ph113.i.i = phi ptr [ %lua_f_ctx.1100.i.i, %if.end48.i.i ], [ null, %if.end.i.i ]
+  %desc.1.ph112.i.i = phi ptr [ %desc.2.i.i, %if.end48.i.i ], [ null, %if.end.i.i ]
+  %name.1.ph111.i.i = phi ptr [ %name.2.i.i, %if.end48.i.i ], [ null, %if.end.i.i ]
+  %flags.0.ph110.i.i = phi i64 [ %flags.1.i.i, %if.end48.i.i ], [ 0, %if.end.i.i ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end28.i.i, %while.body.lr.ph.i.i
-  %lua_f_ctx.0100.i.i = phi ptr [ %lua_f_ctx.0.ph113.i.i, %while.body.lr.ph.i.i ], [ %call30.i.i, %if.end28.i.i ]
+  %lua_f_ctx.1100.i.i = phi ptr [ %lua_f_ctx.1.ph113.i.i, %while.body.lr.ph.i.i ], [ %call30.i.i, %if.end28.i.i ]
   %call2.i.i = tail call i32 @lua_isstring(ptr noundef %lua, i32 noundef -2) #8
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %error.i.i, label %if.end5.i.i
@@ -276,24 +276,24 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %if.then.loopexit.i.
   br label %if.end48.i.i
 
 if.end48.i.i:                                     ; preds = %luaRegisterFunctionReadFlags.exit.i.i, %if.then16.i.i, %if.then9.i.i
-  %flags.2.i.i = phi i64 [ %flags.0.ph110.i.i, %if.then9.i.i ], [ %flags.0.ph110.i.i, %if.then16.i.i ], [ %f_flags.0.lcssa.i.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
-  %name.1.i.i = phi ptr [ %call10.i.i, %if.then9.i.i ], [ %name.0.ph111.i.i, %if.then16.i.i ], [ %name.0.ph111.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
-  %desc.1.i.i = phi ptr [ %desc.0.ph112.i.i, %if.then9.i.i ], [ %call17.i.i, %if.then16.i.i ], [ %desc.0.ph112.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
+  %flags.1.i.i = phi i64 [ %flags.0.ph110.i.i, %if.then9.i.i ], [ %flags.0.ph110.i.i, %if.then16.i.i ], [ %f_flags.0.lcssa.i.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
+  %name.2.i.i = phi ptr [ %call10.i.i, %if.then9.i.i ], [ %name.1.ph111.i.i, %if.then16.i.i ], [ %name.1.ph111.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
+  %desc.2.i.i = phi ptr [ %desc.1.ph112.i.i, %if.then9.i.i ], [ %call17.i.i, %if.then16.i.i ], [ %desc.1.ph112.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
   tail call void @lua_settop(ptr noundef %lua, i32 noundef -2) #8
   %call198.i.i = tail call i32 @lua_next(ptr noundef %lua, i32 noundef -2) #8
   %tobool.not99.i.i = icmp eq i32 %call198.i.i, 0
   br i1 %tobool.not99.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %if.end48.i.i, %if.end28.i.i
-  %flags.0.ph.lcssa97.i.i = phi i64 [ %flags.0.ph110.i.i, %if.end28.i.i ], [ %flags.2.i.i, %if.end48.i.i ]
-  %name.0.ph.lcssa87.i.i = phi ptr [ %name.0.ph111.i.i, %if.end28.i.i ], [ %name.1.i.i, %if.end48.i.i ]
-  %desc.0.ph.lcssa80.i.i = phi ptr [ %desc.0.ph112.i.i, %if.end28.i.i ], [ %desc.1.i.i, %if.end48.i.i ]
-  %lua_f_ctx.0.lcssa.i.i = phi ptr [ %call30.i.i, %if.end28.i.i ], [ %lua_f_ctx.0100.i.i, %if.end48.i.i ]
-  %tobool49.not.i.i = icmp eq ptr %name.0.ph.lcssa87.i.i, null
+  %flags.0.ph.lcssa97.i.i = phi i64 [ %flags.0.ph110.i.i, %if.end28.i.i ], [ %flags.1.i.i, %if.end48.i.i ]
+  %name.1.ph.lcssa87.i.i = phi ptr [ %name.1.ph111.i.i, %if.end28.i.i ], [ %name.2.i.i, %if.end48.i.i ]
+  %desc.1.ph.lcssa80.i.i = phi ptr [ %desc.1.ph112.i.i, %if.end28.i.i ], [ %desc.2.i.i, %if.end48.i.i ]
+  %lua_f_ctx.1.lcssa.i.i = phi ptr [ %call30.i.i, %if.end28.i.i ], [ %lua_f_ctx.1100.i.i, %if.end48.i.i ]
+  %tobool49.not.i.i = icmp eq ptr %name.1.ph.lcssa87.i.i, null
   br i1 %tobool49.not.i.i, label %if.end57.i.i, label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %while.end.i.i
-  %tobool52.not.i.i = icmp eq ptr %lua_f_ctx.0.lcssa.i.i, null
+  %tobool52.not.i.i = icmp eq ptr %lua_f_ctx.1.lcssa.i.i, null
   br i1 %tobool52.not.i.i, label %if.then56.i.i, label %if.end5
 
 error.sink.split.i.i:                             ; preds = %if.end4.i.i.i, %if.end.i.i.i, %for.inc.i.i.i
@@ -301,38 +301,38 @@ error.sink.split.i.i:                             ; preds = %if.end4.i.i.i, %if.
   br label %error.i.i
 
 error.i.i:                                        ; preds = %if.then35.i.i, %if.else32.i.i, %if.then16.i.i, %if.then24.i.i, %while.body.i.i, %error.sink.split.i.i
-  %desc.2.i.i = phi ptr [ %desc.0.ph112.i.i, %error.sink.split.i.i ], [ %desc.0.ph112.i.i, %while.body.i.i ], [ %desc.0.ph112.i.i, %if.then24.i.i ], [ null, %if.then16.i.i ], [ %desc.0.ph112.i.i, %if.then35.i.i ], [ %desc.0.ph112.i.i, %if.else32.i.i ]
+  %desc.0.i.i = phi ptr [ %desc.1.ph112.i.i, %error.sink.split.i.i ], [ %desc.1.ph112.i.i, %while.body.i.i ], [ %desc.1.ph112.i.i, %if.then24.i.i ], [ null, %if.then16.i.i ], [ %desc.1.ph112.i.i, %if.then35.i.i ], [ %desc.1.ph112.i.i, %if.else32.i.i ]
   %err.0.i.i = phi ptr [ @.str.23, %error.sink.split.i.i ], [ @.str.20, %if.then24.i.i ], [ @.str.14, %while.body.i.i ], [ @.str.18, %if.then16.i.i ], [ @.str.22, %if.then35.i.i ], [ @.str.24, %if.else32.i.i ]
-  %tobool55.not.i.i = icmp eq ptr %name.0.ph111.i.i, null
+  %tobool55.not.i.i = icmp eq ptr %name.1.ph111.i.i, null
   br i1 %tobool55.not.i.i, label %if.end57.i.i, label %if.then56.i.i
 
 if.then56.i.i:                                    ; preds = %error.i.i, %if.end51.i.i
-  %name.0.ph91.i.i = phi ptr [ %name.0.ph111.i.i, %error.i.i ], [ %name.0.ph.lcssa87.i.i, %if.end51.i.i ]
+  %name.1.ph91.i.i = phi ptr [ %name.1.ph111.i.i, %error.i.i ], [ %name.1.ph.lcssa87.i.i, %if.end51.i.i ]
   %err.047.i.i = phi ptr [ %err.0.i.i, %error.i.i ], [ @.str.26, %if.end51.i.i ]
-  %lua_f_ctx.146.i.i = phi ptr [ %lua_f_ctx.0100.i.i, %error.i.i ], [ null, %if.end51.i.i ]
-  %desc.245.i.i = phi ptr [ %desc.2.i.i, %error.i.i ], [ %desc.0.ph.lcssa80.i.i, %if.end51.i.i ]
-  tail call void @sdsfree(ptr noundef nonnull %name.0.ph91.i.i) #8
+  %lua_f_ctx.046.i.i = phi ptr [ %lua_f_ctx.1100.i.i, %error.i.i ], [ null, %if.end51.i.i ]
+  %desc.045.i.i = phi ptr [ %desc.0.i.i, %error.i.i ], [ %desc.1.ph.lcssa80.i.i, %if.end51.i.i ]
+  tail call void @sdsfree(ptr noundef nonnull %name.1.ph91.i.i) #8
   br label %if.end57.i.i
 
 if.end57.i.i:                                     ; preds = %if.then9.i.i, %if.then56.i.i, %error.i.i, %while.end.i.i
   %err.037.i.i = phi ptr [ %err.047.i.i, %if.then56.i.i ], [ %err.0.i.i, %error.i.i ], [ @.str.25, %while.end.i.i ], [ @.str.16, %if.then9.i.i ]
-  %lua_f_ctx.136.i.i = phi ptr [ %lua_f_ctx.146.i.i, %if.then56.i.i ], [ %lua_f_ctx.0100.i.i, %error.i.i ], [ %lua_f_ctx.0.lcssa.i.i, %while.end.i.i ], [ %lua_f_ctx.0100.i.i, %if.then9.i.i ]
-  %desc.235.i.i = phi ptr [ %desc.245.i.i, %if.then56.i.i ], [ %desc.2.i.i, %error.i.i ], [ %desc.0.ph.lcssa80.i.i, %while.end.i.i ], [ %desc.0.ph112.i.i, %if.then9.i.i ]
-  %tobool58.not.i.i = icmp eq ptr %desc.235.i.i, null
+  %lua_f_ctx.036.i.i = phi ptr [ %lua_f_ctx.046.i.i, %if.then56.i.i ], [ %lua_f_ctx.1100.i.i, %error.i.i ], [ %lua_f_ctx.1.lcssa.i.i, %while.end.i.i ], [ %lua_f_ctx.1100.i.i, %if.then9.i.i ]
+  %desc.035.i.i = phi ptr [ %desc.045.i.i, %if.then56.i.i ], [ %desc.0.i.i, %error.i.i ], [ %desc.1.ph.lcssa80.i.i, %while.end.i.i ], [ %desc.1.ph112.i.i, %if.then9.i.i ]
+  %tobool58.not.i.i = icmp eq ptr %desc.035.i.i, null
   br i1 %tobool58.not.i.i, label %if.end60.i.i, label %if.then59.i.i
 
 if.then59.i.i:                                    ; preds = %if.end57.i.i
-  tail call void @sdsfree(ptr noundef nonnull %desc.235.i.i) #8
+  tail call void @sdsfree(ptr noundef nonnull %desc.035.i.i) #8
   br label %if.end60.i.i
 
 if.end60.i.i:                                     ; preds = %if.then59.i.i, %if.end57.i.i
-  %tobool61.not.i.i = icmp eq ptr %lua_f_ctx.136.i.i, null
+  %tobool61.not.i.i = icmp eq ptr %lua_f_ctx.036.i.i, null
   br i1 %tobool61.not.i.i, label %if.then3, label %if.then62.i.i
 
 if.then62.i.i:                                    ; preds = %if.end60.i.i
-  %7 = load i32, ptr %lua_f_ctx.136.i.i, align 4
+  %7 = load i32, ptr %lua_f_ctx.036.i.i, align 4
   tail call void @luaL_unref(ptr noundef %lua, i32 noundef -10000, i32 noundef %7) #8
-  tail call void @zfree(ptr noundef nonnull %lua_f_ctx.136.i.i) #8
+  tail call void @zfree(ptr noundef nonnull %lua_f_ctx.036.i.i) #8
   br label %if.then3
 
 if.else.i:                                        ; preds = %if.end.i
@@ -362,9 +362,9 @@ if.then3:                                         ; preds = %if.else.i, %if.then
   br label %return
 
 if.end5:                                          ; preds = %if.end3.i.i, %if.end51.i.i
-  %register_f_args.sroa.0.0 = phi ptr [ %call.i7.i, %if.end3.i.i ], [ %name.0.ph.lcssa87.i.i, %if.end51.i.i ]
-  %register_f_args.sroa.5.0 = phi ptr [ null, %if.end3.i.i ], [ %desc.0.ph.lcssa80.i.i, %if.end51.i.i ]
-  %register_f_args.sroa.9.0 = phi ptr [ %call5.i.i, %if.end3.i.i ], [ %lua_f_ctx.0.lcssa.i.i, %if.end51.i.i ]
+  %register_f_args.sroa.0.0 = phi ptr [ %call.i7.i, %if.end3.i.i ], [ %name.1.ph.lcssa87.i.i, %if.end51.i.i ]
+  %register_f_args.sroa.5.0 = phi ptr [ null, %if.end3.i.i ], [ %desc.1.ph.lcssa80.i.i, %if.end51.i.i ]
+  %register_f_args.sroa.9.0 = phi ptr [ %call5.i.i, %if.end3.i.i ], [ %lua_f_ctx.1.lcssa.i.i, %if.end51.i.i ]
   %register_f_args.sroa.14.0 = phi i64 [ 0, %if.end3.i.i ], [ %flags.0.ph.lcssa97.i.i, %if.end51.i.i ]
   store ptr null, ptr %err, align 8
   %8 = load ptr, ptr %call, align 8

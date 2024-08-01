@@ -1917,7 +1917,7 @@ for.body250:                                      ; preds = %for.body250.prehead
   %80 = phi i32 [ %79, %for.body250.preheader ], [ %91, %for.inc267 ]
   %81 = phi ptr [ %.pre196, %for.body250.preheader ], [ %92, %for.inc267 ]
   %indvars.iv187 = phi i64 [ 0, %for.body250.preheader ], [ %indvars.iv.next188, %for.inc267 ]
-  %retval1.2176 = phi i32 [ 0, %for.body250.preheader ], [ %retval1.3, %for.inc267 ]
+  %retval1.3176 = phi i32 [ 0, %for.body250.preheader ], [ %retval1.4, %for.inc267 ]
   %first236.0174 = phi i32 [ 1, %for.body250.preheader ], [ %first236.1, %for.inc267 ]
   %arrayidx252 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv187
   %82 = load ptr, ptr %arrayidx252, align 8
@@ -1948,7 +1948,7 @@ if.end258:                                        ; preds = %for.body250.tail
   %call262 = tail call fastcc i32 @encode_file(ptr noundef nonnull %82, i32 noundef %first236.0174, i32 noundef %conv)
   %tobool263.not = icmp eq i32 %call262, 0
   %.first236.0 = select i1 %tobool263.not, i32 0, i32 %first236.0174
-  %retval1.2. = select i1 %tobool263.not, i32 %retval1.2176, i32 1
+  %retval1.3. = select i1 %tobool263.not, i32 %retval1.3176, i32 1
   %.pre195 = load ptr, ptr getelementptr inbounds (i8, ptr @option_values, i64 6320), align 8
   %.pre197 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 6312), align 8
   br label %for.inc267
@@ -1957,7 +1957,7 @@ for.inc267:                                       ; preds = %if.end258, %for.bod
   %91 = phi i32 [ %80, %for.body250.tail ], [ %.pre197, %if.end258 ]
   %92 = phi ptr [ %81, %for.body250.tail ], [ %.pre195, %if.end258 ]
   %first236.1 = phi i32 [ 0, %for.body250.tail ], [ %.first236.0, %if.end258 ]
-  %retval1.3 = phi i32 [ %retval1.2176, %for.body250.tail ], [ %retval1.2., %if.end258 ]
+  %retval1.4 = phi i32 [ %retval1.3176, %for.body250.tail ], [ %retval1.3., %if.end258 ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %93 = zext i32 %91 to i64
   %cmp249 = icmp ult i64 %indvars.iv.next188, %93
@@ -1966,7 +1966,7 @@ for.inc267:                                       ; preds = %if.end258, %for.bod
 for.end269:                                       ; preds = %for.inc267
   %94 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 140), align 4
   %tobool270 = icmp ne i32 %94, 0
-  %cmp272 = icmp eq i32 %retval1.3, 0
+  %cmp272 = icmp eq i32 %retval1.4, 0
   %or.cond22 = select i1 %tobool270, i1 %cmp272, i1 false
   br i1 %or.cond22, label %if.then274, label %return
 
@@ -1978,7 +1978,7 @@ if.then274:                                       ; preds = %for.end269
 
 for.body278:                                      ; preds = %if.then274, %for.inc293
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %for.inc293 ], [ 0, %if.then274 ]
-  %retval1.4180 = phi i32 [ %retval1.5, %for.inc293 ], [ 0, %if.then274 ]
+  %retval1.5180 = phi i32 [ %retval1.6, %for.inc293 ], [ 0, %if.then274 ]
   %96 = load ptr, ptr getelementptr inbounds (i8, ptr @option_values, i64 6320), align 8
   %arrayidx280 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv190
   %97 = load ptr, ptr %arrayidx280, align 8
@@ -2008,7 +2008,7 @@ if.then291:                                       ; preds = %if.end287
   br label %for.inc293
 
 for.inc293:                                       ; preds = %if.end287, %if.then291
-  %retval1.5 = phi i32 [ 1, %if.then291 ], [ %retval1.4180, %if.end287 ]
+  %retval1.6 = phi i32 [ 1, %if.then291 ], [ %retval1.5180, %if.end287 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %105 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 6312), align 8
   %106 = zext i32 %105 to i64
@@ -2016,7 +2016,7 @@ for.inc293:                                       ; preds = %if.end287, %if.then
   br i1 %cmp276, label %for.body278, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.inc, %for.inc293, %if.then274, %if.then218, %for.end269, %if.then241, %if.then8, %if.then10, %if.then284, %if.then208, %if.then204, %if.then200, %if.then192, %if.then184, %if.then178, %if.then162, %if.then155, %if.then151, %if.then147, %if.then140, %if.then136, %if.then132, %if.then128, %if.then121, %if.then117, %if.then113, %if.then108, %if.then104, %if.then96, %if.then70, %if.then62, %if.then49, %if.then41, %if.then33, %if.then29, %if.then25, %if.then21, %if.then15, %if.then6, %if.then3, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then6 ], [ 1, %if.then21 ], [ 1, %if.then25 ], [ 1, %if.then29 ], [ 1, %if.then33 ], [ 1, %if.then41 ], [ 1, %if.then49 ], [ 1, %if.then62 ], [ 1, %if.then96 ], [ 1, %if.then113 ], [ 1, %if.then117 ], [ 1, %if.then121 ], [ 1, %if.then128 ], [ 1, %if.then132 ], [ 1, %if.then136 ], [ 1, %if.then140 ], [ 1, %if.then147 ], [ 1, %if.then151 ], [ 1, %if.then155 ], [ 1, %if.then178 ], [ 1, %if.then184 ], [ 1, %if.then192 ], [ 1, %if.then200 ], [ 1, %if.then204 ], [ 1, %if.then208 ], [ 1, %if.then284 ], [ 1, %if.then162 ], [ 1, %if.then104 ], [ 1, %if.then108 ], [ 1, %if.then70 ], [ 1, %if.then15 ], [ 0, %if.then10 ], [ 0, %if.then8 ], [ %call219, %if.then218 ], [ %call242, %if.then241 ], [ %retval1.3, %for.end269 ], [ 0, %if.then274 ], [ %retval1.5, %for.inc293 ], [ %retval1.1, %for.inc ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then6 ], [ 1, %if.then21 ], [ 1, %if.then25 ], [ 1, %if.then29 ], [ 1, %if.then33 ], [ 1, %if.then41 ], [ 1, %if.then49 ], [ 1, %if.then62 ], [ 1, %if.then96 ], [ 1, %if.then113 ], [ 1, %if.then117 ], [ 1, %if.then121 ], [ 1, %if.then128 ], [ 1, %if.then132 ], [ 1, %if.then136 ], [ 1, %if.then140 ], [ 1, %if.then147 ], [ 1, %if.then151 ], [ 1, %if.then155 ], [ 1, %if.then178 ], [ 1, %if.then184 ], [ 1, %if.then192 ], [ 1, %if.then200 ], [ 1, %if.then204 ], [ 1, %if.then208 ], [ 1, %if.then284 ], [ 1, %if.then162 ], [ 1, %if.then104 ], [ 1, %if.then108 ], [ 1, %if.then70 ], [ 1, %if.then15 ], [ 0, %if.then10 ], [ 0, %if.then8 ], [ %call219, %if.then218 ], [ %call242, %if.then241 ], [ %retval1.4, %for.end269 ], [ 0, %if.then274 ], [ %retval1.6, %for.inc293 ], [ %retval1.1, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -2805,7 +2805,7 @@ land.lhs.true70:                                  ; preds = %land.lhs.true62
 
 if.end83:                                         ; preds = %land.lhs.true70, %land.lhs.true54, %land.lhs.true62, %land.lhs.true46, %land.lhs.true38, %land.lhs.true30, %land.lhs.true22, %land.lhs.true
   %cmp158.not = phi i1 [ false, %land.lhs.true ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true30 ], [ false, %land.lhs.true38 ], [ false, %land.lhs.true46 ], [ false, %land.lhs.true54 ], [ false, %land.lhs.true62 ], [ %cmp74, %land.lhs.true70 ]
-  %input_format.0 = phi i32 [ 1, %land.lhs.true ], [ 3, %land.lhs.true22 ], [ 2, %land.lhs.true30 ], [ 4, %land.lhs.true38 ], [ 4, %land.lhs.true46 ], [ 6, %land.lhs.true54 ], [ 7, %land.lhs.true62 ], [ %spec.select210, %land.lhs.true70 ]
+  %input_format.1 = phi i32 [ 1, %land.lhs.true ], [ 3, %land.lhs.true22 ], [ 2, %land.lhs.true30 ], [ 4, %land.lhs.true38 ], [ 4, %land.lhs.true46 ], [ 6, %land.lhs.true54 ], [ 7, %land.lhs.true62 ], [ %spec.select210, %land.lhs.true70 ]
   %call84 = call i64 @fread(ptr noundef nonnull %lookahead, i64 noundef 1, i64 noundef 12, ptr noundef %encode_infile.0)
   %conv = trunc i64 %call84 to i32
   %cmp85 = icmp ult i32 %conv, 12
@@ -2822,7 +2822,7 @@ if.then87:                                        ; preds = %if.end83
 
 if.then90:                                        ; preds = %if.then87
   %14 = load ptr, ptr @stderr, align 8
-  %idxprom.i = zext nneg i32 %input_format.0 to i64
+  %idxprom.i = zext nneg i32 %input_format.1 to i64
   %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @FileFormatString, i64 0, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx.i, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %14, i32 noundef 1, ptr noundef nonnull @.str.527, ptr noundef nonnull %infilename, ptr noundef %15, ptr noundef nonnull @.str.486) #21
@@ -2846,7 +2846,7 @@ if.else.i:                                        ; preds = %if.then92
 
 if.else96:                                        ; preds = %if.end83.thread, %if.end83
   %conv372 = phi i32 [ %conv365, %if.end83.thread ], [ %conv, %if.end83 ]
-  %input_format.0370 = phi i32 [ 0, %if.end83.thread ], [ %input_format.0, %if.end83 ]
+  %input_format.1370 = phi i32 [ 0, %if.end83.thread ], [ %input_format.1, %if.end83 ]
   %cmp158.not367 = phi i1 [ true, %if.end83.thread ], [ %cmp158.not, %if.end83 ]
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %lookahead, ptr noundef nonnull dereferenceable(3) @.str.501, i64 3)
   %tobool99.not = icmp eq i32 %bcmp, 0
@@ -2926,7 +2926,7 @@ if.else157:                                       ; preds = %if.else152
 
 if.then160:                                       ; preds = %if.else157
   %22 = load ptr, ptr @stderr, align 8
-  %idxprom.i227 = zext nneg i32 %input_format.0370 to i64
+  %idxprom.i227 = zext nneg i32 %input_format.1370 to i64
   %arrayidx.i228 = getelementptr inbounds [8 x ptr], ptr @FileFormatString, i64 0, i64 %idxprom.i227
   %23 = load ptr, ptr %arrayidx.i228, align 8
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %22, i32 noundef 1, ptr noundef nonnull @.str.527, ptr noundef nonnull %infilename, ptr noundef %23, ptr noundef nonnull @.str.486) #21
@@ -2959,7 +2959,7 @@ if.end175:                                        ; preds = %if.end83.thread, %i
   %cmp294 = phi i1 [ true, %if.end13 ], [ true, %if.then90 ], [ true, %if.then87 ], [ false, %land.lhs.true106 ], [ false, %land.lhs.true116 ], [ false, %if.else122 ], [ false, %land.lhs.true131 ], [ false, %land.lhs.true141 ], [ false, %if.else147 ], [ false, %if.else152 ], [ true, %if.then160 ], [ true, %if.else157 ], [ true, %if.end83.thread ]
   %cmp429 = phi i1 [ false, %if.end13 ], [ false, %if.then90 ], [ false, %if.then87 ], [ false, %land.lhs.true106 ], [ false, %land.lhs.true116 ], [ true, %if.else122 ], [ false, %land.lhs.true131 ], [ false, %land.lhs.true141 ], [ false, %if.else147 ], [ false, %if.else152 ], [ false, %if.then160 ], [ false, %if.else157 ], [ false, %if.end83.thread ]
   %cmp432 = phi i1 [ false, %if.end13 ], [ false, %if.then90 ], [ false, %if.then87 ], [ false, %land.lhs.true106 ], [ true, %land.lhs.true116 ], [ false, %if.else122 ], [ false, %land.lhs.true131 ], [ false, %land.lhs.true141 ], [ false, %if.else147 ], [ false, %if.else152 ], [ false, %if.then160 ], [ false, %if.else157 ], [ false, %if.end83.thread ]
-  %input_format.1 = phi i32 [ 0, %if.end13 ], [ 0, %if.then90 ], [ 0, %if.then87 ], [ 1, %land.lhs.true106 ], [ 3, %land.lhs.true116 ], [ 2, %if.else122 ], [ 4, %land.lhs.true131 ], [ 5, %land.lhs.true141 ], [ 6, %if.else147 ], [ 7, %if.else152 ], [ 0, %if.then160 ], [ 0, %if.else157 ], [ 0, %if.end83.thread ]
+  %input_format.0 = phi i32 [ 0, %if.end13 ], [ 0, %if.then90 ], [ 0, %if.then87 ], [ 1, %land.lhs.true106 ], [ 3, %land.lhs.true116 ], [ 2, %if.else122 ], [ 4, %land.lhs.true131 ], [ 5, %land.lhs.true141 ], [ 6, %if.else147 ], [ 7, %if.else152 ], [ 0, %if.then160 ], [ 0, %if.else157 ], [ 0, %if.end83.thread ]
   %lookahead_length.0 = phi i32 [ 0, %if.end13 ], [ %conv, %if.then90 ], [ %conv, %if.then87 ], [ %conv372, %land.lhs.true106 ], [ %conv372, %land.lhs.true116 ], [ %conv372, %if.else122 ], [ %conv372, %land.lhs.true131 ], [ %conv372, %land.lhs.true141 ], [ %conv372, %if.else147 ], [ %conv372, %if.else152 ], [ %conv372, %if.then160 ], [ %conv372, %if.else157 ], [ %conv365, %if.end83.thread ]
   %27 = phi i1 [ true, %if.end13 ], [ true, %if.then90 ], [ true, %if.then87 ], [ false, %land.lhs.true106 ], [ false, %land.lhs.true116 ], [ false, %if.else122 ], [ false, %land.lhs.true131 ], [ true, %land.lhs.true141 ], [ true, %if.else147 ], [ true, %if.else152 ], [ true, %if.then160 ], [ true, %if.else157 ], [ true, %if.end83.thread ]
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 144), align 8
@@ -3396,7 +3396,7 @@ if.end375:                                        ; preds = %if.end370.if.end375
   %num_pictures = getelementptr inbounds i8, ptr %encode_options, i64 1696
   store i32 %95, ptr %num_pictures, align 8
   %format = getelementptr inbounds i8, ptr %encode_options, i64 1700
-  store i32 %input_format.1, ptr %format, align 4
+  store i32 %input_format.0, ptr %format, align 4
   %debug = getelementptr inbounds i8, ptr %encode_options, i64 1728
   %96 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @option_values, i64 6852), align 4
   store <4 x i32> %96, ptr %debug, align 8
@@ -3576,7 +3576,7 @@ if.then516:                                       ; preds = %lor.lhs.false507, %
   br label %if.end518
 
 if.end518:                                        ; preds = %lor.lhs.false507, %if.then516, %if.then496
-  %retval1.1 = phi i32 [ 1, %if.then516 ], [ 0, %lor.lhs.false507 ], [ 0, %if.then496 ]
+  %retval1.2 = phi i32 [ 1, %if.then516 ], [ 0, %lor.lhs.false507 ], [ 0, %if.then496 ]
   %122 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 128), align 8
   %tobool519.not = icmp eq i32 %122, 0
   br i1 %tobool519.not, label %if.end531, label %sub_0397
@@ -3599,13 +3599,13 @@ if.then523:                                       ; preds = %sub_0397, %land.lhs
   br label %if.end531
 
 if.end531.thread:                                 ; preds = %if.end490, %if.else425
-  %retval1.2.ph = phi i32 [ %retval1.0, %if.end490 ], [ 1, %if.else425 ]
+  %retval1.1.ph = phi i32 [ %retval1.0, %if.end490 ], [ 1, %if.else425 ]
   %cmp535380.not = icmp eq ptr %internal_outfilename.0, null
   br i1 %cmp535380.not, label %return, label %if.then559
 
 if.end531:                                        ; preds = %if.then493.tail, %if.then523, %land.lhs.true520.tail, %if.end518
-  %retval1.2 = phi i32 [ %retval1.1, %if.then523 ], [ %retval1.1, %land.lhs.true520.tail ], [ %retval1.1, %if.end518 ], [ 0, %if.then493.tail ]
-  %cmp532 = icmp eq i32 %retval1.2, 0
+  %retval1.1 = phi i32 [ %retval1.2, %if.then523 ], [ %retval1.2, %land.lhs.true520.tail ], [ %retval1.2, %if.end518 ], [ 0, %if.then493.tail ]
+  %cmp532 = icmp eq i32 %retval1.1, 0
   %cmp535 = icmp ne ptr %internal_outfilename.0, null
   %or.cond44 = and i1 %cmp535, %cmp532
   br i1 %or.cond44, label %if.then537, label %if.end543
@@ -3651,12 +3651,12 @@ if.end556:                                        ; preds = %land.lhs.true548.ta
   br i1 %cmp535, label %if.then559, label %return
 
 if.then559:                                       ; preds = %if.end543.thread, %if.end531.thread, %if.end556
-  %retval1.3389390 = phi i32 [ 1, %if.end543.thread ], [ %retval1.2, %if.end556 ], [ %retval1.2.ph, %if.end531.thread ]
+  %retval1.3389390 = phi i32 [ 1, %if.end543.thread ], [ %retval1.1, %if.end556 ], [ %retval1.1.ph, %if.end531.thread ]
   call void @free(ptr noundef nonnull %internal_outfilename.0) #21
   br label %return
 
 return:                                           ; preds = %if.then554, %if.end531.thread, %if.else.i343, %if.then395, %if.else.i279, %if.then289, %if.else.i270, %if.then268, %if.else.i234, %if.then162, %if.else.i223, %if.then100, %if.else.i, %if.then92, %if.end556, %if.then559, %conditional_fclose.exit355, %if.then469, %if.then219, %conditional_fclose.exit336, %conditional_fclose.exit327, %conditional_fclose.exit318, %conditional_fclose.exit309, %conditional_fclose.exit300, %conditional_fclose.exit291, %conditional_fclose.exit264, %conditional_fclose.exit255, %conditional_fclose.exit246, %if.then9, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %conditional_fclose.exit255 ], [ 1, %conditional_fclose.exit264 ], [ 1, %conditional_fclose.exit291 ], [ 1, %conditional_fclose.exit309 ], [ 1, %conditional_fclose.exit318 ], [ 1, %conditional_fclose.exit327 ], [ 1, %conditional_fclose.exit336 ], [ 1, %conditional_fclose.exit300 ], [ 1, %conditional_fclose.exit246 ], [ 1, %if.then9 ], [ 1, %if.then219 ], [ 1, %if.then469 ], [ 1, %conditional_fclose.exit355 ], [ %retval1.3389390, %if.then559 ], [ %retval1.2, %if.end556 ], [ 1, %if.then92 ], [ 1, %if.else.i ], [ 1, %if.then100 ], [ 1, %if.else.i223 ], [ 1, %if.then162 ], [ 1, %if.else.i234 ], [ 1, %if.then268 ], [ 1, %if.else.i270 ], [ 1, %if.then289 ], [ 1, %if.else.i279 ], [ 1, %if.then395 ], [ 1, %if.else.i343 ], [ 0, %if.then554 ], [ %retval1.2.ph, %if.end531.thread ]
+  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %conditional_fclose.exit255 ], [ 1, %conditional_fclose.exit264 ], [ 1, %conditional_fclose.exit291 ], [ 1, %conditional_fclose.exit309 ], [ 1, %conditional_fclose.exit318 ], [ 1, %conditional_fclose.exit327 ], [ 1, %conditional_fclose.exit336 ], [ 1, %conditional_fclose.exit300 ], [ 1, %conditional_fclose.exit246 ], [ 1, %if.then9 ], [ 1, %if.then219 ], [ 1, %if.then469 ], [ 1, %conditional_fclose.exit355 ], [ %retval1.3389390, %if.then559 ], [ %retval1.1, %if.end556 ], [ 1, %if.then92 ], [ 1, %if.else.i ], [ 1, %if.then100 ], [ 1, %if.else.i223 ], [ 1, %if.then162 ], [ 1, %if.else.i234 ], [ 1, %if.then268 ], [ 1, %if.else.i270 ], [ 1, %if.then289 ], [ 1, %if.else.i279 ], [ 1, %if.then395 ], [ 1, %if.else.i343 ], [ 0, %if.then554 ], [ %retval1.1.ph, %if.end531.thread ]
   ret i32 %retval.0
 }
 

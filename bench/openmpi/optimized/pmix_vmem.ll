@@ -21,7 +21,7 @@ define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr nocapture n
   %.037 = phi i64 [ %.138, %92 ], [ 0, %3 ]
   %.036 = phi i64 [ %.08694, %92 ], [ 0, %3 ]
   %.035 = phi i32 [ %.08596, %92 ], [ 4, %3 ]
-  %.034 = phi i32 [ %.4, %92 ], [ 0, %3 ]
+  %.034 = phi i32 [ %.1, %92 ], [ 0, %3 ]
   %7 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 96, ptr noundef nonnull %6)
   %.not45 = icmp eq ptr %7, null
   br i1 %.not45, label %.loopexit, label %8
@@ -184,7 +184,7 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   br i1 %.not47, label %87, label %84
 
 84:                                               ; preds = %82, %33
-  %.3 = phi i32 [ %.034, %33 ], [ 1, %82 ]
+  %.2 = phi i32 [ %.034, %33 ], [ 1, %82 ]
   %85 = sub i64 %9, %.036
   %86 = icmp ugt i64 %85, %.037
   %spec.select50 = select i1 %86, i64 %.036, i64 %.040
@@ -196,7 +196,7 @@ parse_map_line.exit:                              ; preds = %8, %12, %14, %19
   %.08694 = phi i64 [ %.086, %parse_map_line.exit ], [ %16, %33 ], [ %16, %82 ], [ %16, %66 ], [ %16, %49 ], [ %16, %84 ]
   %.141 = phi i64 [ %.040, %parse_map_line.exit ], [ %.040, %33 ], [ %.040, %82 ], [ %.040, %66 ], [ %.040, %49 ], [ %spec.select50, %84 ]
   %.138 = phi i64 [ %.037, %parse_map_line.exit ], [ %.037, %33 ], [ %.037, %82 ], [ %.037, %66 ], [ %.037, %49 ], [ %spec.select51, %84 ]
-  %.4 = phi i32 [ %.034, %parse_map_line.exit ], [ %.034, %33 ], [ 0, %82 ], [ %.034, %66 ], [ %.034, %49 ], [ %.3, %84 ]
+  %.1 = phi i32 [ %.034, %parse_map_line.exit ], [ %.034, %33 ], [ 0, %82 ], [ %.034, %66 ], [ %.034, %49 ], [ %.2, %84 ]
   br label %88
 
 88:                                               ; preds = %90, %87

@@ -1148,13 +1148,13 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %197
 
 197:                                              ; preds = %188, %194
-  %.3 = phi i64 [ %195, %194 ], [ %191, %188 ]
-  %198 = icmp eq i64 %.3, -1
+  %.4 = phi i64 [ %195, %194 ], [ %191, %188 ]
+  %198 = icmp eq i64 %.4, -1
   br i1 %198, label %201, label %.thread287
 
 .thread287:                                       ; preds = %.critedge286, %197
-  %.3289 = phi i64 [ %.3, %197 ], [ %1, %.critedge286 ]
-  %199 = add i64 %.3289, %.0246297
+  %.4289 = phi i64 [ %.4, %197 ], [ %1, %.critedge286 ]
+  %199 = add i64 %.4289, %.0246297
   %200 = add i64 %.0250.lcssa, 4095
   %.not273 = icmp ult i64 %199, %200
   br i1 %.not273, label %203, label %201
@@ -1167,16 +1167,16 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %263
 
 203:                                              ; preds = %.thread287
-  %204 = getelementptr inbounds i8, ptr %0, i64 %.3289
+  %204 = getelementptr inbounds i8, ptr %0, i64 %.4289
   %205 = getelementptr inbounds i8, ptr %138, i64 %.0250.lcssa
   %206 = sub i64 %.0246297, %.0250.lcssa
   %207 = add i64 %206, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %205, i64 %207, i1 false)
-  %208 = add i64 %.3289, %206
+  %208 = add i64 %.4289, %206
   br label %209
 
 209:                                              ; preds = %176, %177, %203
-  %.4 = phi i64 [ %.2, %177 ], [ %.2, %176 ], [ %208, %203 ]
+  %.3 = phi i64 [ %.2, %177 ], [ %.2, %176 ], [ %208, %203 ]
   %or.cond16 = and i1 %95, %.0248.shrunk
   %210 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 24), align 8
   %211 = icmp ne i64 %210, 0
@@ -1186,7 +1186,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 212:                                              ; preds = %209
   %213 = load i32, ptr %9, align 4
   %214 = load i64, ptr %4, align 8
-  %.not.i = icmp eq i64 %.4, %.0246297
+  %.not.i = icmp eq i64 %.3, %.0246297
   br i1 %.not.i, label %215, label %217
 
 215:                                              ; preds = %212
@@ -1197,7 +1197,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 217:                                              ; preds = %215, %212
   %218 = add i64 %.0246297, 50
-  %219 = add i64 %218, %.4
+  %219 = add i64 %218, %.3
   br label %220
 
 220:                                              ; preds = %217, %215
@@ -1250,7 +1250,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   %242 = getelementptr inbounds i8, ptr %235, i64 %131
   %243 = getelementptr inbounds i8, ptr %224, i64 16
   store ptr %242, ptr %243, align 8
-  %244 = add i64 %.4, 1
+  %244 = add i64 %.3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %242, ptr readonly align 1 %0, i64 %244, i1 false)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %224, i64 44
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
@@ -1261,7 +1261,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
 246:                                              ; preds = %241, %239
   %247 = phi i64 [ %.pre47.i, %241 ], [ %.07.lcssa.i.i, %239 ]
   %248 = phi i8 [ %245, %241 ], [ 0, %239 ]
-  %249 = trunc i64 %.4 to i16
+  %249 = trunc i64 %.3 to i16
   %250 = getelementptr inbounds i8, ptr %224, i64 42
   store i16 %249, ptr %250, align 2
   %251 = icmp sgt i32 %213, 0
@@ -1290,7 +1290,7 @@ realpath_cache_add.exit:                          ; preds = %246, %223, %220, %2
   br label %263
 
 263:                                              ; preds = %55, %58, %62, %262, %realpath_cache_add.exit, %202, %201, %186, %185, %175, %174, %166, %165, %161, %160, %152, %151, %128, %106, %66, %82, %78, %74, %70, %.critedge3, %89, %87, %._crit_edge, %12, %116, %43
-  %.0 = phi i64 [ %44, %43 ], [ %124, %116 ], [ %1, %12 ], [ %1, %._crit_edge ], [ %.0249.lcssa, %.critedge3 ], [ 5, %66 ], [ %84, %82 ], [ %.0249.lcssa, %78 ], [ %.0249.lcssa, %74 ], [ %.0249.lcssa, %70 ], [ %47, %87 ], [ 2, %89 ], [ -1, %106 ], [ -1, %128 ], [ -1, %151 ], [ -1, %152 ], [ -1, %160 ], [ -1, %161 ], [ -1, %165 ], [ -1, %166 ], [ -1, %174 ], [ -1, %175 ], [ -1, %185 ], [ -1, %186 ], [ -1, %201 ], [ -1, %202 ], [ %.4, %realpath_cache_add.exit ], [ %.4, %262 ], [ 0, %62 ], [ 0, %58 ], [ 0, %55 ]
+  %.0 = phi i64 [ %44, %43 ], [ %124, %116 ], [ %1, %12 ], [ %1, %._crit_edge ], [ %.0249.lcssa, %.critedge3 ], [ 5, %66 ], [ %84, %82 ], [ %.0249.lcssa, %78 ], [ %.0249.lcssa, %74 ], [ %.0249.lcssa, %70 ], [ %47, %87 ], [ 2, %89 ], [ -1, %106 ], [ -1, %128 ], [ -1, %151 ], [ -1, %152 ], [ -1, %160 ], [ -1, %161 ], [ -1, %165 ], [ -1, %166 ], [ -1, %174 ], [ -1, %175 ], [ -1, %185 ], [ -1, %186 ], [ -1, %201 ], [ -1, %202 ], [ %.3, %realpath_cache_add.exit ], [ %.3, %262 ], [ 0, %62 ], [ 0, %58 ], [ 0, %55 ]
   ret i64 %.0
 }
 
@@ -2119,44 +2119,44 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
 .lr.ph150:                                        ; preds = %25, %31
   %.1148 = phi i32 [ %35, %31 ], [ %5, %25 ]
   %.1137147 = phi ptr [ %34, %31 ], [ %6, %25 ]
-  %.0138146 = phi ptr [ %33, %31 ], [ %23, %25 ]
+  %.1139146 = phi ptr [ %33, %31 ], [ %23, %25 ]
   %26 = load i8, ptr %.1137147, align 1
   %cond = icmp eq i8 %26, 39
   br i1 %cond, label %27, label %31
 
 27:                                               ; preds = %.lr.ph150
-  %28 = getelementptr inbounds i8, ptr %.0138146, i64 1
-  store i8 39, ptr %.0138146, align 1
-  %29 = getelementptr inbounds i8, ptr %.0138146, i64 2
+  %28 = getelementptr inbounds i8, ptr %.1139146, i64 1
+  store i8 39, ptr %.1139146, align 1
+  %29 = getelementptr inbounds i8, ptr %.1139146, i64 2
   store i8 92, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.0138146, i64 3
+  %30 = getelementptr inbounds i8, ptr %.1139146, i64 3
   store i8 39, ptr %29, align 1
   %.pre = load i8, ptr %.1137147, align 1
   br label %31
 
 31:                                               ; preds = %.lr.ph150, %27
   %32 = phi i8 [ %.pre, %27 ], [ %26, %.lr.ph150 ]
-  %.1139 = phi ptr [ %30, %27 ], [ %.0138146, %.lr.ph150 ]
-  %33 = getelementptr inbounds i8, ptr %.1139, i64 1
-  store i8 %32, ptr %.1139, align 1
+  %.2 = phi ptr [ %30, %27 ], [ %.1139146, %.lr.ph150 ]
+  %33 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 %32, ptr %.2, align 1
   %34 = getelementptr inbounds i8, ptr %.1137147, i64 1
   %35 = add nsw i32 %.1148, -1
   %36 = icmp sgt i32 %.1148, 1
   br i1 %36, label %.lr.ph150, label %._crit_edge151
 
 ._crit_edge151:                                   ; preds = %31, %25
-  %.0138.lcssa = phi ptr [ %23, %25 ], [ %33, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.0138.lcssa, i64 1
-  store i8 39, ptr %.0138.lcssa, align 1
+  %.1139.lcssa = phi ptr [ %23, %25 ], [ %33, %31 ]
+  %37 = getelementptr inbounds i8, ptr %.1139.lcssa, i64 1
+  store i8 39, ptr %.1139.lcssa, align 1
   br label %38
 
 38:                                               ; preds = %._crit_edge151, %24
-  %.2 = phi ptr [ %23, %24 ], [ %37, %._crit_edge151 ]
-  %39 = getelementptr inbounds i8, ptr %.2, i64 1
-  store i8 32, ptr %.2, align 1
-  %40 = getelementptr inbounds i8, ptr %.2, i64 2
+  %.0138 = phi ptr [ %23, %24 ], [ %37, %._crit_edge151 ]
+  %39 = getelementptr inbounds i8, ptr %.0138, i64 1
+  store i8 32, ptr %.0138, align 1
+  %40 = getelementptr inbounds i8, ptr %.0138, i64 2
   store i8 59, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.2, i64 3
+  %41 = getelementptr inbounds i8, ptr %.0138, i64 3
   store i8 32, ptr %40, align 1
   %42 = add i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %0, i64 %42, i1 false)

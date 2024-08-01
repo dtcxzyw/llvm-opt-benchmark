@@ -1796,7 +1796,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit178:           ; preds = %invoke.cont44, %if.
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc676, %_ZN4cvc58internal8TypeNodeD2Ev.exit178
-  %foundConst.0 = phi i1 [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit178 ], [ %foundConst.3, %for.inc676 ]
+  %foundConst.0 = phi i1 [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit178 ], [ %foundConst.2, %for.inc676 ]
   %call48 = invoke noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIterator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(16) %eqc_i)
           to label %invoke.cont47 unwind label %lpad41.loopexit
 
@@ -2553,7 +2553,7 @@ lpad121:                                          ; preds = %if.then13.i4.i556, 
 
 if.end131:                                        ; preds = %invoke.cont102.if.end131_crit_edge, %invoke.cont.i.i593, %if.then129, %invoke.cont127
   %136 = phi ptr [ %.pre3243, %invoke.cont127 ], [ %.pre3242, %invoke.cont102.if.end131_crit_edge ], [ %.pre3243, %if.then129 ], [ %130, %invoke.cont.i.i593 ]
-  %foundConst.1 = phi i1 [ %foundConst.0, %invoke.cont127 ], [ %foundConst.0, %invoke.cont102.if.end131_crit_edge ], [ true, %if.then129 ], [ true, %invoke.cont.i.i593 ]
+  %foundConst.3 = phi i1 [ %foundConst.0, %invoke.cont127 ], [ %foundConst.0, %invoke.cont102.if.end131_crit_edge ], [ true, %if.then129 ], [ true, %invoke.cont.i.i593 ]
   %137 = load ptr, ptr %prevConstLike, align 8
   %cmp.i.i598 = icmp ne ptr %137, %136
   %138 = select i1 %not.call45, i1 true, i1 %foundConst.0
@@ -2604,7 +2604,7 @@ if.else.i619:                                     ; preds = %if.then135
           to label %if.end138 unwind label %lpad51.loopexit.split-lp
 
 if.end138:                                        ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i609, %if.else.i619, %if.end131, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit282
-  %foundConst.2 = phi i1 [ %foundConst.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit282 ], [ %foundConst.1, %if.end131 ], [ %foundConst.1, %if.else.i619 ], [ %foundConst.1, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i609 ]
+  %foundConst.1 = phi i1 [ %foundConst.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit282 ], [ %foundConst.3, %if.end131 ], [ %foundConst.3, %if.else.i619 ], [ %foundConst.3, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i609 ]
   %call140 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode9isIntegerEv(ptr noundef nonnull align 8 dereferenceable(8) %tn)
           to label %invoke.cont139 unwind label %lpad51.loopexit.split-lp
 
@@ -5299,7 +5299,7 @@ _ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insert
 
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit336, %if.then13.i4.i2168.invoke, %if.else.i.i2280, %if.then.i5.i2285, %invoke.cont646, %if.else.i.i2165, %if.then.i5.i2170, %if.then621, %if.then.i.i.i2100, %invoke.cont.i2098, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit2377, %invoke.cont616, %if.then159, %invoke.cont139, %invoke.cont150
   %cleanup.dest.slot.0 = phi i32 [ 6, %invoke.cont139 ], [ 6, %invoke.cont150 ], [ 0, %invoke.cont616 ], [ 0, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit2377 ], [ 6, %if.then159 ], [ 0, %invoke.cont.i2098 ], [ 0, %if.then.i.i.i2100 ], [ 0, %if.then621 ], [ 0, %if.then.i5.i2170 ], [ 0, %if.else.i.i2165 ], [ 0, %invoke.cont646 ], [ 0, %if.then.i5.i2285 ], [ 0, %if.else.i.i2280 ], [ 0, %if.then13.i4.i2168.invoke ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit336 ]
-  %foundConst.3 = phi i1 [ %foundConst.2, %invoke.cont139 ], [ %foundConst.2, %invoke.cont150 ], [ %foundConst.2, %invoke.cont616 ], [ %foundConst.2, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit2377 ], [ %foundConst.2, %if.then159 ], [ %foundConst.2, %invoke.cont.i2098 ], [ %foundConst.2, %if.then.i.i.i2100 ], [ %foundConst.2, %if.then621 ], [ %foundConst.2, %if.then.i5.i2170 ], [ %foundConst.2, %if.else.i.i2165 ], [ %foundConst.2, %invoke.cont646 ], [ %foundConst.2, %if.then.i5.i2285 ], [ %foundConst.2, %if.else.i.i2280 ], [ %foundConst.2, %if.then13.i4.i2168.invoke ], [ %foundConst.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit336 ]
+  %foundConst.2 = phi i1 [ %foundConst.1, %invoke.cont139 ], [ %foundConst.1, %invoke.cont150 ], [ %foundConst.1, %invoke.cont616 ], [ %foundConst.1, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit2377 ], [ %foundConst.1, %if.then159 ], [ %foundConst.1, %invoke.cont.i2098 ], [ %foundConst.1, %if.then.i.i.i2100 ], [ %foundConst.1, %if.then621 ], [ %foundConst.1, %if.then.i5.i2170 ], [ %foundConst.1, %if.else.i.i2165 ], [ %foundConst.1, %invoke.cont646 ], [ %foundConst.1, %if.then.i5.i2285 ], [ %foundConst.1, %if.else.i.i2280 ], [ %foundConst.1, %if.then13.i4.i2168.invoke ], [ %foundConst.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit336 ]
   %437 = load ptr, ptr %n, align 8
   %bf.load.i.i2378 = load i64, ptr %437, align 8
   %438 = and i64 %bf.load.i.i2378, 1152920405095219200
@@ -10192,7 +10192,7 @@ for.body132.lr.ph:                                ; preds = %_ZNK4cvc58internal1
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1056
   %count.01558 = phi i64 [ 0, %for.body132.lr.ph ], [ %inc288, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1056 ]
-  %contentSize.01557 = phi i64 [ 0, %for.body132.lr.ph ], [ %contentSize.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1056 ]
+  %contentSize.01557 = phi i64 [ 0, %for.body132.lr.ph ], [ %contentSize.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1056 ]
   %countc.01556 = phi i64 [ 0, %for.body132.lr.ph ], [ %countc.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1056 ]
   %34 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i384 = icmp eq i8 %34, 0
@@ -10702,7 +10702,7 @@ lpad172:                                          ; preds = %invoke.cont168
   br label %ehcleanup286
 
 cond.true180:                                     ; preds = %if.end164, %invoke.cont173
-  %contentSize.1 = phi i64 [ %contentSize.01557, %if.end164 ], [ %add, %invoke.cont173 ]
+  %contentSize.2 = phi i64 [ %contentSize.01557, %if.end164 ], [ %add, %invoke.cont173 ]
   %93 = load ptr, ptr %d_state134, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %94 = load ptr, ptr %n, align 8, !noalias !124
@@ -11432,7 +11432,7 @@ if.end285:                                        ; preds = %if.then13.i.i1043, 
 
 cleanup:                                          ; preds = %if.then13.i.i539, %if.then.i.i533, %invoke.cont161, %if.then13.i.i481, %if.then.i.i475, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit472, %if.end285
   %countc.1 = phi i64 [ %inc, %if.end285 ], [ %countc.01556, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit472 ], [ %countc.01556, %if.then.i.i475 ], [ %countc.01556, %if.then13.i.i481 ], [ %countc.01556, %invoke.cont161 ], [ %countc.01556, %if.then.i.i533 ], [ %countc.01556, %if.then13.i.i539 ]
-  %contentSize.2 = phi i64 [ %contentSize.1, %if.end285 ], [ %contentSize.01557, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit472 ], [ %contentSize.01557, %if.then.i.i475 ], [ %contentSize.01557, %if.then13.i.i481 ], [ %contentSize.01557, %invoke.cont161 ], [ %contentSize.01557, %if.then.i.i533 ], [ %contentSize.01557, %if.then13.i.i539 ]
+  %contentSize.1 = phi i64 [ %contentSize.2, %if.end285 ], [ %contentSize.01557, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit472 ], [ %contentSize.01557, %if.then.i.i475 ], [ %contentSize.01557, %if.then13.i.i481 ], [ %contentSize.01557, %invoke.cont161 ], [ %contentSize.01557, %if.then.i.i533 ], [ %contentSize.01557, %if.then13.i.i539 ]
   %169 = load ptr, ptr %emps, align 8
   %bf.load.i.i1046 = load i64, ptr %169, align 8
   %170 = and i64 %bf.load.i.i1046, 1152920405095219200
@@ -11476,7 +11476,7 @@ for.end289.thread:                                ; preds = %_ZNK4cvc58internal1
   br i1 %isConst, label %if.else371, label %cleanup544
 
 if.then291:                                       ; preds = %for.end289
-  %cmp292.not = icmp eq i64 %contentSize.2, 0
+  %cmp292.not = icmp eq i64 %contentSize.1, 0
   br i1 %cmp292.not, label %cleanup544, label %if.then293
 
 if.then293:                                       ; preds = %if.then291
@@ -11614,7 +11614,7 @@ invoke.cont313:                                   ; preds = %invoke.cont.i.i1114
   %cmp.i1108 = icmp eq ptr %182, %186
   %d_bestScore = getelementptr inbounds i8, ptr %__i.sroa.0.0.i1100, i64 48
   %187 = load i64, ptr %d_bestScore, align 8
-  %cmp315 = icmp ugt i64 %contentSize.2, %187
+  %cmp315 = icmp ugt i64 %contentSize.1, %187
   %or.cond = select i1 %cmp.i1108, i1 true, i1 %cmp315
   br i1 %or.cond, label %if.then316, label %if.end368
 
@@ -11634,7 +11634,7 @@ invoke.cont321:                                   ; preds = %invoke.cont319
           to label %invoke.cont325 unwind label %lpad324
 
 invoke.cont325:                                   ; preds = %invoke.cont321
-  store i64 %contentSize.2, ptr %d_bestScore, align 8
+  store i64 %contentSize.1, ptr %d_bestScore, align 8
   %d_base328 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i1100, i64 56
   %call330 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_base328, ptr noundef nonnull align 8 dereferenceable(8) %n)
           to label %invoke.cont329 unwind label %lpad324
@@ -14659,7 +14659,7 @@ terminate.lpad.i.i14:                             ; preds = %if.end25
   unreachable
 
 if.end26:                                         ; preds = %if.end25, %invoke.cont14
-  %smallCardinality.1 = phi i1 [ false, %invoke.cont14 ], [ %call20, %if.end25 ]
+  %smallCardinality.0 = phi i1 [ false, %invoke.cont14 ], [ %call20, %if.end25 ]
   invoke void @__gmpz_clear(ptr noundef nonnull %c)
           to label %_ZN4cvc58internal11CardinalityD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -14671,7 +14671,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end26
   unreachable
 
 _ZN4cvc58internal11CardinalityD2Ev.exit:          ; preds = %if.end26
-  %spec.select = zext i1 %smallCardinality.1 to i32
+  %spec.select = zext i1 %smallCardinality.0 to i32
   br label %cleanup31
 
 ehcleanup:                                        ; preds = %lpad18, %lpad13
@@ -14726,8 +14726,8 @@ ehcleanup32:                                      ; preds = %ehcleanup, %lpad2, 
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then13.i.i26, %if.then.i.i20, %cleanup31, %if.then
-  %retval.2 = phi i32 [ 1, %if.then ], [ %retval.1, %cleanup31 ], [ %retval.1, %if.then.i.i20 ], [ %retval.1, %if.then13.i.i26 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 1, %if.then ], [ %retval.1, %cleanup31 ], [ %retval.1, %if.then.i.i20 ], [ %retval.1, %if.then13.i.i26 ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNK4cvc58internal8TypeNode22getSequenceElementTypeEv(ptr sret(%"class.cvc5::internal::TypeNode") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

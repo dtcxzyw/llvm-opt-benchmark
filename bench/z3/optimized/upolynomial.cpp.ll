@@ -7767,8 +7767,8 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %cleanup, %if.end4, %_ZN13mpzzp_manager7dividesERK3mpzS2_.exit, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %_ZN13mpzzp_manager7dividesERK3mpzS2_.exit ], [ false, %if.end4 ], [ %cmp13.le, %cleanup ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %_ZN13mpzzp_manager7dividesERK3mpzS2_.exit ], [ false, %if.end4 ], [ %cmp13.le, %cleanup ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15240,7 +15240,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %r.010 = phi i32 [ 0, %for.body.preheader ], [ %r.2, %for.inc ]
+  %r.010 = phi i32 [ 0, %for.body.preheader ], [ %r.1, %for.inc ]
   %prev_sign.08 = phi i32 [ 0, %for.body.preheader ], [ %prev_sign.1, %for.inc ]
   %arrayidx = getelementptr inbounds %class.mpz, ptr %p, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 8
@@ -15259,13 +15259,13 @@ if.end:                                           ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.end
   %prev_sign.1 = phi i32 [ %prev_sign.08, %for.body ], [ %..i, %if.end ]
-  %r.2 = phi i32 [ %r.010, %for.body ], [ %spec.select, %if.end ]
+  %r.1 = phi i32 [ %r.010, %for.body ], [ %spec.select, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !73
 
 for.end:                                          ; preds = %for.inc, %entry
-  %r.0.lcssa = phi i32 [ 0, %entry ], [ %r.2, %for.inc ]
+  %r.0.lcssa = phi i32 [ 0, %entry ], [ %r.1, %for.inc ]
   ret i32 %r.0.lcssa
 }
 
@@ -15281,7 +15281,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %r.010.i = phi i32 [ 0, %for.body.preheader.i ], [ %r.2.i, %for.inc.i ]
+  %r.010.i = phi i32 [ 0, %for.body.preheader.i ], [ %r.1.i, %for.inc.i ]
   %prev_sign.08.i = phi i32 [ 0, %for.body.preheader.i ], [ %prev_sign.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds %class.mpz, ptr %p, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 8
@@ -15300,13 +15300,13 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
   %prev_sign.1.i = phi i32 [ %prev_sign.08.i, %for.body.i ], [ %..i.i, %if.end.i ]
-  %r.2.i = phi i32 [ %r.010.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
+  %r.1.i = phi i32 [ %r.010.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN11upolynomial7manager12sign_changesEjPK3mpz.exit, label %for.body.i, !llvm.loop !73
 
 _ZN11upolynomial7manager12sign_changesEjPK3mpz.exit: ; preds = %for.inc.i, %entry
-  %r.0.lcssa.i = phi i32 [ 0, %entry ], [ %r.2.i, %for.inc.i ]
+  %r.0.lcssa.i = phi i32 [ 0, %entry ], [ %r.1.i, %for.inc.i ]
   ret i32 %r.0.lcssa.i
 }
 
@@ -15331,7 +15331,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.inc24
   %indvars.iv37 = phi i32 [ %sz, %if.end ], [ %indvars.iv.next38, %for.inc24 ]
   %i.034 = phi i32 [ 0, %if.end ], [ %inc25, %for.inc24 ]
-  %num_vars.033 = phi i32 [ 0, %if.end ], [ %num_vars.2, %for.inc24 ]
+  %num_vars.033 = phi i32 [ 0, %if.end ], [ %num_vars.1, %for.inc24 ]
   %prev_sign.032 = phi i32 [ 0, %if.end ], [ %prev_sign.1, %for.inc24 ]
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -15473,14 +15473,14 @@ if.then18:                                        ; preds = %if.end15
 
 for.inc24:                                        ; preds = %if.end15, %if.then18, %for.end
   %prev_sign.1 = phi i32 [ %prev_sign.032, %for.end ], [ %..i, %if.then18 ], [ %..i, %if.end15 ]
-  %num_vars.2 = phi i32 [ %num_vars.033, %for.end ], [ 1, %if.then18 ], [ %num_vars.033, %if.end15 ]
+  %num_vars.1 = phi i32 [ %num_vars.033, %for.end ], [ 1, %if.then18 ], [ %num_vars.033, %if.end15 ]
   %inc25 = add nuw i32 %i.034, 1
   %indvars.iv.next38 = add i32 %indvars.iv37, -1
   %exitcond39.not = icmp eq i32 %inc25, %sz
   br i1 %exitcond39.not, label %return, label %for.body, !llvm.loop !75
 
 return:                                           ; preds = %for.inc24, %if.then18, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %num_vars.2, %for.inc24 ], [ 2, %if.then18 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %num_vars.1, %for.inc24 ], [ 2, %if.then18 ]
   ret i32 %retval.0
 }
 
@@ -18301,7 +18301,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK11upolynomial20
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %r.028.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.2.i, %for.inc.i ]
+  %r.028.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.1.i, %for.inc.i ]
   %prev_sign.026.i = phi i32 [ 0, %for.cond.preheader.i ], [ %prev_sign.1.i, %for.inc.i ]
   %arrayidx.i.i12.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i.i12.i, align 4
@@ -18346,13 +18346,13 @@ if.end8.i:                                        ; preds = %_ZN11upolynomial7ma
 
 for.inc.i:                                        ; preds = %if.end8.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i, %if.then3.i.i, %for.body.i
   %prev_sign.1.i = phi i32 [ %prev_sign.026.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i ], [ %retval.0.i25.i, %if.end8.i ], [ %prev_sign.026.i, %for.body.i ], [ %prev_sign.026.i, %if.then3.i.i ]
-  %r.2.i = phi i32 [ %r.028.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i ], [ %spec.select.i, %if.end8.i ], [ %r.028.i, %for.body.i ], [ %r.028.i, %if.then3.i.i ]
+  %r.1.i = phi i32 [ %r.028.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i ], [ %spec.select.i, %if.end8.i ], [ %r.028.i, %for.body.i ], [ %r.028.i, %if.then3.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE1EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit, label %for.body.i, !llvm.loop !95
 
 _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE1EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit: ; preds = %for.inc.i, %entry, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i
-  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.2.i, %for.inc.i ]
+  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.1.i, %for.inc.i ]
   ret i32 %retval.0.i
 }
 
@@ -18379,7 +18379,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK11upolynomial20
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %r.022.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.2.i, %for.inc.i ]
+  %r.022.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.1.i, %for.inc.i ]
   %prev_sign.020.i = phi i32 [ 0, %for.cond.preheader.i ], [ %prev_sign.1.i, %for.inc.i ]
   %arrayidx.i.i12.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i.i12.i, align 4
@@ -18410,13 +18410,13 @@ if.end8.i:                                        ; preds = %if.end.i.i
 
 for.inc.i:                                        ; preds = %if.end8.i, %if.end.i.i, %for.body.i
   %prev_sign.1.i = phi i32 [ %..i.i.i, %if.end8.i ], [ %prev_sign.020.i, %for.body.i ], [ %prev_sign.020.i, %if.end.i.i ]
-  %r.2.i = phi i32 [ %spec.select.i, %if.end8.i ], [ %r.022.i, %for.body.i ], [ %r.022.i, %if.end.i.i ]
+  %r.1.i = phi i32 [ %spec.select.i, %if.end8.i ], [ %r.022.i, %for.body.i ], [ %r.022.i, %if.end.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE0EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit, label %for.body.i, !llvm.loop !96
 
 _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE0EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit: ; preds = %for.inc.i, %entry, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i
-  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.2.i, %for.inc.i ]
+  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.1.i, %for.inc.i ]
   ret i32 %retval.0.i
 }
 
@@ -18443,7 +18443,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK11upolynomial20
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %r.022.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.2.i, %for.inc.i ]
+  %r.022.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.1.i, %for.inc.i ]
   %prev_sign.020.i = phi i32 [ 0, %for.cond.preheader.i ], [ %prev_sign.1.i, %for.inc.i ]
   %arrayidx.i.i12.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i.i12.i, align 4
@@ -18471,13 +18471,13 @@ if.end8.i:                                        ; preds = %if.end.i.i
 
 for.inc.i:                                        ; preds = %if.end8.i, %if.end.i.i, %for.body.i
   %prev_sign.1.i = phi i32 [ %..i.i.i, %if.end8.i ], [ %prev_sign.020.i, %for.body.i ], [ %prev_sign.020.i, %if.end.i.i ]
-  %r.2.i = phi i32 [ %spec.select.i, %if.end8.i ], [ %r.022.i, %for.body.i ], [ %r.022.i, %if.end.i.i ]
+  %r.1.i = phi i32 [ %spec.select.i, %if.end8.i ], [ %r.022.i, %for.body.i ], [ %r.022.i, %if.end.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE2EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit, label %for.body.i, !llvm.loop !97
 
 _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE2EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit: ; preds = %for.inc.i, %entry, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i
-  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.2.i, %for.inc.i ]
+  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.1.i, %for.inc.i ]
   ret i32 %retval.0.i
 }
 
@@ -18502,7 +18502,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK11upolynomial20
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %r.019.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.2.i, %for.inc.i ]
+  %r.019.i = phi i32 [ 0, %for.cond.preheader.i ], [ %r.1.i, %for.inc.i ]
   %prev_sign.017.i = phi i32 [ 0, %for.cond.preheader.i ], [ %prev_sign.1.i, %for.inc.i ]
   %2 = load ptr, ptr %m_szs.i.i, align 8
   %arrayidx.i.i12.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
@@ -18527,13 +18527,13 @@ if.end8.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.end8.i, %for.body.i
   %prev_sign.1.i = phi i32 [ %prev_sign.017.i, %for.body.i ], [ %call5.i, %if.end8.i ]
-  %r.2.i = phi i32 [ %r.019.i, %for.body.i ], [ %spec.select.i, %if.end8.i ]
+  %r.1.i = phi i32 [ %r.019.i, %for.body.i ], [ %spec.select.i, %if.end8.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE3EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit, label %for.body.i, !llvm.loop !98
 
 _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE3EEEjRKNS_20upolynomial_sequenceERK4mpbq.exit: ; preds = %for.inc.i, %entry, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i
-  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.2.i, %for.inc.i ]
+  %retval.0.i = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i ], [ 0, %entry ], [ %r.1.i, %for.inc.i ]
   ret i32 %retval.0.i
 }
 
@@ -21869,7 +21869,7 @@ for.cond.preheader.i.i:                           ; preds = %_ZNK11upolynomial20
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %r.028.i.i = phi i32 [ 0, %for.cond.preheader.i.i ], [ %r.2.i.i, %for.inc.i.i ]
+  %r.028.i.i = phi i32 [ 0, %for.cond.preheader.i.i ], [ %r.1.i.i, %for.inc.i.i ]
   %prev_sign.026.i.i = phi i32 [ 0, %for.cond.preheader.i.i ], [ %prev_sign.1.i.i, %for.inc.i.i ]
   %arrayidx.i.i12.i.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx.i.i12.i.i, align 4
@@ -21914,7 +21914,7 @@ if.end8.i.i:                                      ; preds = %_ZN11upolynomial7ma
 
 for.inc.i.i:                                      ; preds = %if.end8.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i, %if.then3.i.i.i, %for.body.i.i
   %prev_sign.1.i.i = phi i32 [ %prev_sign.026.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i ], [ %retval.0.i25.i.i, %if.end8.i.i ], [ %prev_sign.026.i.i, %for.body.i.i ], [ %prev_sign.026.i.i, %if.then3.i.i.i ]
-  %r.2.i.i = phi i32 [ %r.028.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %r.028.i.i, %for.body.i.i ], [ %r.028.i.i, %if.then3.i.i.i ]
+  %r.1.i.i = phi i32 [ %r.028.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %r.028.i.i, %for.body.i.i ], [ %r.028.i.i, %if.then3.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i103, label %for.body.i.i, !llvm.loop !95
@@ -21931,7 +21931,7 @@ for.cond.preheader.i.i106:                        ; preds = %_ZNK11upolynomial20
 
 for.body.i.i109:                                  ; preds = %for.inc.i.i126, %for.cond.preheader.i.i106
   %indvars.iv.i.i110 = phi i64 [ 0, %for.cond.preheader.i.i106 ], [ %indvars.iv.next.i.i129, %for.inc.i.i126 ]
-  %r.022.i.i = phi i32 [ 0, %for.cond.preheader.i.i106 ], [ %r.2.i.i128, %for.inc.i.i126 ]
+  %r.022.i.i = phi i32 [ 0, %for.cond.preheader.i.i106 ], [ %r.1.i.i128, %for.inc.i.i126 ]
   %prev_sign.020.i.i = phi i32 [ 0, %for.cond.preheader.i.i106 ], [ %prev_sign.1.i.i127, %for.inc.i.i126 ]
   %arrayidx.i.i12.i.i111 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i110
   %9 = load i32, ptr %arrayidx.i.i12.i.i111, align 4
@@ -21959,7 +21959,7 @@ if.end8.i.i118:                                   ; preds = %if.end.i.i.i113
 
 for.inc.i.i126:                                   ; preds = %if.end8.i.i118, %if.end.i.i.i113, %for.body.i.i109
   %prev_sign.1.i.i127 = phi i32 [ %..i.i.i.i120, %if.end8.i.i118 ], [ %prev_sign.020.i.i, %for.body.i.i109 ], [ %prev_sign.020.i.i, %if.end.i.i.i113 ]
-  %r.2.i.i128 = phi i32 [ %spec.select.i.i125, %if.end8.i.i118 ], [ %r.022.i.i, %for.body.i.i109 ], [ %r.022.i.i, %if.end.i.i.i113 ]
+  %r.1.i.i128 = phi i32 [ %spec.select.i.i125, %if.end8.i.i118 ], [ %r.022.i.i, %for.body.i.i109 ], [ %r.022.i.i, %if.end.i.i.i113 ]
   %indvars.iv.next.i.i129 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i130 = icmp eq i64 %indvars.iv.next.i.i129, %wide.trip.count.i.i108
   br i1 %exitcond.not.i.i130, label %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i134, label %for.body.i.i109, !llvm.loop !97
@@ -21976,7 +21976,7 @@ for.cond.preheader.i.i137:                        ; preds = %_ZNK11upolynomial20
 
 for.body.i.i140:                                  ; preds = %for.inc.i.i162, %for.cond.preheader.i.i137
   %indvars.iv.i.i141 = phi i64 [ 0, %for.cond.preheader.i.i137 ], [ %indvars.iv.next.i.i165, %for.inc.i.i162 ]
-  %r.022.i.i142 = phi i32 [ 0, %for.cond.preheader.i.i137 ], [ %r.2.i.i164, %for.inc.i.i162 ]
+  %r.022.i.i142 = phi i32 [ 0, %for.cond.preheader.i.i137 ], [ %r.1.i.i164, %for.inc.i.i162 ]
   %prev_sign.020.i.i143 = phi i32 [ 0, %for.cond.preheader.i.i137 ], [ %prev_sign.1.i.i163, %for.inc.i.i162 ]
   %arrayidx.i.i12.i.i144 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i141
   %14 = load i32, ptr %arrayidx.i.i12.i.i144, align 4
@@ -22007,15 +22007,15 @@ if.end8.i.i154:                                   ; preds = %if.end.i.i.i146
 
 for.inc.i.i162:                                   ; preds = %if.end8.i.i154, %if.end.i.i.i146, %for.body.i.i140
   %prev_sign.1.i.i163 = phi i32 [ %..i.i.i.i156, %if.end8.i.i154 ], [ %prev_sign.020.i.i143, %for.body.i.i140 ], [ %prev_sign.020.i.i143, %if.end.i.i.i146 ]
-  %r.2.i.i164 = phi i32 [ %spec.select.i.i161, %if.end8.i.i154 ], [ %r.022.i.i142, %for.body.i.i140 ], [ %r.022.i.i142, %if.end.i.i.i146 ]
+  %r.1.i.i164 = phi i32 [ %spec.select.i.i161, %if.end8.i.i154 ], [ %r.022.i.i142, %for.body.i.i140 ], [ %r.022.i.i142, %if.end.i.i.i146 ]
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i141, 1
   %exitcond.not.i.i166 = icmp eq i64 %indvars.iv.next.i.i165, %wide.trip.count.i.i139
   br i1 %exitcond.not.i.i166, label %invoke.cont13, label %for.body.i.i140, !llvm.loop !96
 
 invoke.cont13:                                    ; preds = %for.inc.i.i162, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i103, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i134
-  %retval.0.i.i131.ph918 = phi i32 [ %r.2.i.i128, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i134 ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i103 ], [ %r.2.i.i128, %for.inc.i.i162 ]
-  %retval.0.i.i167 = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i134 ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i103 ], [ %r.2.i.i164, %for.inc.i.i162 ]
-  %cmp.not = icmp ult i32 %retval.0.i.i167, %r.2.i.i
+  %retval.0.i.i131.ph918 = phi i32 [ %r.1.i.i128, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i134 ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i103 ], [ %r.1.i.i128, %for.inc.i.i162 ]
+  %retval.0.i.i167 = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i134 ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i103 ], [ %r.1.i.i164, %for.inc.i.i162 ]
+  %cmp.not = icmp ult i32 %retval.0.i.i167, %r.1.i.i
   br i1 %cmp.not, label %_ZN12mpbq_manager3setER4mpbqRKS0_.exit.i, label %_ZN11upolynomial14ss_frame_stackD2Ev.exit
 
 lpad6:                                            ; preds = %invoke.cont5
@@ -22076,12 +22076,12 @@ invoke.cont27:                                    ; preds = %_ZN12mpbq_manager3s
   store ptr null, ptr %m_ptr.i.i201, align 8
   %m_k.i202 = getelementptr inbounds i8, ptr %zero, i64 16
   store i32 0, ptr %m_k.i202, align 8
-  %cmp28 = icmp eq i32 %r.2.i.i, %retval.0.i.i131.ph918
+  %cmp28 = icmp eq i32 %r.1.i.i, %retval.0.i.i131.ph918
   br i1 %cmp28, label %if.end60, label %if.else
 
 if.else:                                          ; preds = %invoke.cont27
   %add = add i32 %retval.0.i.i131.ph918, 1
-  %cmp30 = icmp eq i32 %r.2.i.i, %add
+  %cmp30 = icmp eq i32 %r.1.i.i, %add
   br i1 %cmp30, label %if.then31, label %invoke.cont50
 
 if.then31:                                        ; preds = %if.else
@@ -22293,7 +22293,7 @@ invoke.cont58:                                    ; preds = %if.then.i.i274, %if
   %m_k3.i273 = getelementptr inbounds i8, ptr %arrayidx.i1.i252, i64 40
   store i32 %49, ptr %m_k3.i273, align 8
   %m_lower_sv = getelementptr inbounds i8, ptr %arrayidx.i1.i252, i64 48
-  store i32 %r.2.i.i, ptr %m_lower_sv, align 8
+  store i32 %r.1.i.i, ptr %m_lower_sv, align 8
   %m_upper_sv = getelementptr inbounds i8, ptr %arrayidx.i1.i252, i64 52
   store i32 %retval.0.i.i131.ph918, ptr %m_upper_sv, align 4
   br label %if.end60
@@ -22730,7 +22730,7 @@ for.cond.preheader.i.i494:                        ; preds = %_ZNK11upolynomial20
 
 for.body.i.i497:                                  ; preds = %for.inc.i.i509, %for.cond.preheader.i.i494
   %indvars.iv.i.i498 = phi i64 [ 0, %for.cond.preheader.i.i494 ], [ %indvars.iv.next.i.i512, %for.inc.i.i509 ]
-  %r.019.i.i = phi i32 [ 0, %for.cond.preheader.i.i494 ], [ %r.2.i.i511, %for.inc.i.i509 ]
+  %r.019.i.i = phi i32 [ 0, %for.cond.preheader.i.i494 ], [ %r.1.i.i511, %for.inc.i.i509 ]
   %prev_sign.017.i.i = phi i32 [ 0, %for.cond.preheader.i.i494 ], [ %prev_sign.1.i.i510, %for.inc.i.i509 ]
   %120 = load ptr, ptr %m_szs.i.i.i, align 8
   %arrayidx.i.i12.i.i499 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv.i.i498
@@ -22758,13 +22758,13 @@ if.end8.i.i503:                                   ; preds = %call5.i.i.noexc
 
 for.inc.i.i509:                                   ; preds = %if.end8.i.i503, %call5.i.i.noexc
   %prev_sign.1.i.i510 = phi i32 [ %prev_sign.017.i.i, %call5.i.i.noexc ], [ %call5.i.i515, %if.end8.i.i503 ]
-  %r.2.i.i511 = phi i32 [ %r.019.i.i, %call5.i.i.noexc ], [ %spec.select.i.i508, %if.end8.i.i503 ]
+  %r.1.i.i511 = phi i32 [ %r.019.i.i, %call5.i.i.noexc ], [ %spec.select.i.i508, %if.end8.i.i503 ]
   %indvars.iv.next.i.i512 = add nuw nsw i64 %indvars.iv.i.i498, 1
   %exitcond.not.i.i513 = icmp eq i64 %indvars.iv.next.i.i512, %wide.trip.count.i.i496
   br i1 %exitcond.not.i.i513, label %invoke.cont132, label %for.body.i.i497, !llvm.loop !98
 
 invoke.cont132:                                   ; preds = %for.inc.i.i509, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i491, %invoke.cont129
-  %retval.0.i.i514 = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i491 ], [ 0, %invoke.cont129 ], [ %r.2.i.i511, %for.inc.i.i509 ]
+  %retval.0.i.i514 = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i491 ], [ 0, %invoke.cont129 ], [ %r.1.i.i511, %for.inc.i.i509 ]
   %cmp134 = icmp eq i32 %91, %retval.0.i.i514
   br i1 %cmp134, label %if.end181, label %if.else136
 
@@ -25583,7 +25583,7 @@ while.body:                                       ; preds = %invoke.cont29
           to label %while.cond unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !117
 
 while.cond36:                                     ; preds = %while.cond36.preheader, %if.end64
-  %found_d.0 = phi i8 [ %found_d.1, %if.end64 ], [ 0, %while.cond36.preheader ]
+  %found_d.1 = phi i8 [ %found_d.2, %if.end64 ], [ 0, %while.cond36.preheader ]
   %call41 = invoke noundef i32 @_ZN11upolynomial7manager12eval_sign_atEjPK3mpzRK4mpbq(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(20) %m_num.i44)
           to label %invoke.cont40 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -25621,11 +25621,11 @@ if.then54:                                        ; preds = %if.else53
   %27 = load i32, ptr %m_k.i.i49, align 8
   store i32 %27, ptr %m_k.i.i142, align 8
   store i32 %26, ptr %m_k.i.i49, align 8
-  %28 = trunc nuw i8 %found_d.0 to i1
+  %28 = trunc nuw i8 %found_d.1 to i1
   br i1 %28, label %cleanup, label %if.then73
 
 if.else57:                                        ; preds = %if.else53
-  %tobool = trunc nuw i8 %found_d.0 to i1
+  %tobool = trunc nuw i8 %found_d.1 to i1
   br i1 %tobool, label %if.end64, label %if.then58
 
 if.then58:                                        ; preds = %if.else57
@@ -25653,7 +25653,7 @@ _ZN12mpbq_manager3setER4mpbqRKS0_.exit157:        ; preds = %if.else.i.i149, %if
   br label %if.end64
 
 if.end64:                                         ; preds = %_ZN12mpbq_manager3setER4mpbqRKS0_.exit157, %if.else57
-  %found_d.1 = phi i8 [ %found_d.0, %if.else57 ], [ 1, %_ZN12mpbq_manager3setER4mpbqRKS0_.exit157 ]
+  %found_d.2 = phi i8 [ %found_d.1, %if.else57 ], [ 1, %_ZN12mpbq_manager3setER4mpbqRKS0_.exit157 ]
   invoke void @_ZN12mpbq_manager12refine_upperERK3mpqR4mpbqS4_(ptr noundef nonnull align 8 dereferenceable(208) %bqm, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(20) %m_num.i, ptr noundef nonnull align 8 dereferenceable(20) %m_num.i44)
           to label %while.cond36 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !118
 
@@ -25962,7 +25962,7 @@ for.cond.preheader.i.i:                           ; preds = %_ZNK11upolynomial20
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %r.028.i.i = phi i32 [ 0, %for.cond.preheader.i.i ], [ %r.2.i.i, %for.inc.i.i ]
+  %r.028.i.i = phi i32 [ 0, %for.cond.preheader.i.i ], [ %r.1.i.i, %for.inc.i.i ]
   %prev_sign.026.i.i = phi i32 [ 0, %for.cond.preheader.i.i ], [ %prev_sign.1.i.i, %for.inc.i.i ]
   %arrayidx.i.i12.i.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx.i.i12.i.i, align 4
@@ -26007,7 +26007,7 @@ if.end8.i.i:                                      ; preds = %_ZN11upolynomial7ma
 
 for.inc.i.i:                                      ; preds = %if.end8.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i, %if.then3.i.i.i, %for.body.i.i
   %prev_sign.1.i.i = phi i32 [ %prev_sign.026.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i ], [ %retval.0.i25.i.i, %if.end8.i.i ], [ %prev_sign.026.i.i, %for.body.i.i ], [ %prev_sign.026.i.i, %if.then3.i.i.i ]
-  %r.2.i.i = phi i32 [ %r.028.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %r.028.i.i, %for.body.i.i ], [ %r.028.i.i, %if.then3.i.i.i ]
+  %r.1.i.i = phi i32 [ %r.028.i.i, %_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz.exit.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %r.028.i.i, %for.body.i.i ], [ %r.028.i.i, %if.then3.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i3, label %for.body.i.i, !llvm.loop !95
@@ -26022,7 +26022,7 @@ for.cond.preheader.i.i6:                          ; preds = %_ZNK11upolynomial20
 
 for.body.i.i9:                                    ; preds = %for.inc.i.i21, %for.cond.preheader.i.i6
   %indvars.iv.i.i10 = phi i64 [ 0, %for.cond.preheader.i.i6 ], [ %indvars.iv.next.i.i24, %for.inc.i.i21 ]
-  %r.019.i.i = phi i32 [ 0, %for.cond.preheader.i.i6 ], [ %r.2.i.i23, %for.inc.i.i21 ]
+  %r.019.i.i = phi i32 [ 0, %for.cond.preheader.i.i6 ], [ %r.1.i.i23, %for.inc.i.i21 ]
   %prev_sign.017.i.i = phi i32 [ 0, %for.cond.preheader.i.i6 ], [ %prev_sign.1.i.i22, %for.inc.i.i21 ]
   %7 = load ptr, ptr %m_szs.i.i.i, align 8
   %arrayidx.i.i12.i.i11 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i.i10
@@ -26050,14 +26050,14 @@ if.end8.i.i15:                                    ; preds = %call5.i.i.noexc
 
 for.inc.i.i21:                                    ; preds = %if.end8.i.i15, %call5.i.i.noexc
   %prev_sign.1.i.i22 = phi i32 [ %prev_sign.017.i.i, %call5.i.i.noexc ], [ %call5.i.i27, %if.end8.i.i15 ]
-  %r.2.i.i23 = phi i32 [ %r.019.i.i, %call5.i.i.noexc ], [ %spec.select.i.i20, %if.end8.i.i15 ]
+  %r.1.i.i23 = phi i32 [ %r.019.i.i, %call5.i.i.noexc ], [ %spec.select.i.i20, %if.end8.i.i15 ]
   %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i10, 1
   %exitcond.not.i.i25 = icmp eq i64 %indvars.iv.next.i.i24, %wide.trip.count.i.i8
   br i1 %exitcond.not.i.i25, label %invoke.cont3, label %for.body.i.i9, !llvm.loop !98
 
 invoke.cont3:                                     ; preds = %for.inc.i.i21, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i3, %invoke.cont
-  %retval.0.i.i30 = phi i32 [ %r.2.i.i, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i3 ], [ 0, %invoke.cont ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i ], [ %r.2.i.i, %for.inc.i.i21 ]
-  %retval.0.i.i26 = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i3 ], [ 0, %invoke.cont ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i ], [ %r.2.i.i23, %for.inc.i.i21 ]
+  %retval.0.i.i30 = phi i32 [ %r.1.i.i, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i3 ], [ 0, %invoke.cont ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i ], [ %r.1.i.i, %for.inc.i.i21 ]
+  %retval.0.i.i26 = phi i32 [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i3 ], [ 0, %invoke.cont ], [ 0, %_ZNK11upolynomial20upolynomial_sequence4sizeEv.exit.i.i ], [ %r.1.i.i23, %for.inc.i.i21 ]
   %sub = sub i32 %retval.0.i.i30, %retval.0.i.i26
   call void @_ZN11upolynomial27scoped_upolynomial_sequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %seq) #20
   ret i32 %sub
@@ -27426,7 +27426,7 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph:  ; preds = %while.condthread-pr
 
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121:        ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph, %if.end78
   %j.0419 = phi i32 [ 1, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %inc, %if.end78 ]
-  %result.0418 = phi i1 [ true, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %result.1, %if.end78 ]
+  %result.1418 = phi i1 [ true, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %result.2, %if.end78 ]
   %38 = phi ptr [ %.pr377, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i121.lr.ph ], [ %76, %if.end78 ]
   %arrayidx.i.i.i122 = getelementptr inbounds i8, ptr %38, i64 -4
   %39 = load i32, ptr %arrayidx.i.i.i122, align 4
@@ -27676,7 +27676,7 @@ if.then70:                                        ; preds = %invoke.cont67
           to label %if.end73 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end73:                                         ; preds = %invoke.cont58.thread, %invoke.cont58, %invoke.cont67, %if.then70
-  %result.1 = phi i1 [ %result.0418, %if.then70 ], [ %result.0418, %invoke.cont67 ], [ %result.0418, %invoke.cont58.thread ], [ false, %invoke.cont58 ]
+  %result.2 = phi i1 [ %result.1418, %if.then70 ], [ %result.1418, %invoke.cont67 ], [ %result.1418, %invoke.cont58.thread ], [ false, %invoke.cont58 ]
   %72 = load ptr, ptr %B, align 8
   %cmp.i.i250 = icmp eq ptr %72, null
   br i1 %cmp.i.i250, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i253, label %if.end.i.i251
@@ -27723,14 +27723,14 @@ if.end78:                                         ; preds = %invoke.cont74
 
 if.end79thread-pre-split:                         ; preds = %invoke.cont45, %invoke.cont36, %invoke.cont36.thread, %while.condthread-pre-split, %invoke.cont45.thread
   %.pre.i.i311.ph = phi ptr [ %38, %invoke.cont45.thread ], [ null, %while.condthread-pre-split ], [ null, %invoke.cont36 ], [ null, %invoke.cont36.thread ], [ %38, %invoke.cont45 ]
-  %result.2.ph = phi i1 [ %result.0418, %invoke.cont45.thread ], [ true, %while.condthread-pre-split ], [ false, %invoke.cont36 ], [ true, %invoke.cont36.thread ], [ %result.0418, %invoke.cont45 ]
+  %result.0.ph = phi i1 [ %result.1418, %invoke.cont45.thread ], [ true, %while.condthread-pre-split ], [ false, %invoke.cont36 ], [ true, %invoke.cont36.thread ], [ %result.1418, %invoke.cont45 ]
   %.pr = load ptr, ptr %D, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end78, %if.end79thread-pre-split
   %77 = phi ptr [ %.pr, %if.end79thread-pre-split ], [ %38, %if.end78 ]
   %.pre.i.i311 = phi ptr [ %.pre.i.i311.ph, %if.end79thread-pre-split ], [ null, %if.end78 ]
-  %result.2 = phi i1 [ %result.2.ph, %if.end79thread-pre-split ], [ %result.1, %if.end78 ]
+  %result.0 = phi i1 [ %result.0.ph, %if.end79thread-pre-split ], [ %result.2, %if.end78 ]
   %cmp.i.i.i263 = icmp eq ptr %77, null
   br i1 %cmp.i.i.i263, label %_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i264
 
@@ -28050,7 +28050,7 @@ ehcleanup82:                                      ; preds = %ehcleanup81, %lpad7
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit370, %if.then.i2.i.i41, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i.i38, %if.then.i2.i.i, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i.i
-  %retval.0 = phi i1 [ true, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i.i ], [ true, %if.then.i2.i.i ], [ true, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i.i38 ], [ true, %if.then.i2.i.i41 ], [ %result.2, %_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit370 ]
+  %retval.0 = phi i1 [ true, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i.i ], [ true, %if.then.i2.i.i ], [ true, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i.i38 ], [ true, %if.then.i2.i.i41 ], [ %result.0, %_ZN22_scoped_numeral_vectorI13mpzzp_managerED2Ev.exit370 ]
   ret i1 %retval.0
 }
 

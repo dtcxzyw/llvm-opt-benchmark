@@ -50,8 +50,8 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %29
 
 29:                                               ; preds = %25, %23
-  %.063 = phi i64 [ %24, %23 ], [ %28, %25 ]
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %.063, i64 -1)
+  %.1 = phi i64 [ %24, %23 ], [ %28, %25 ]
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %.1, i64 -1)
   br label %77
 
 30:                                               ; preds = %14
@@ -115,12 +115,12 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %63
 
 63:                                               ; preds = %59, %57
-  %.1 = phi i64 [ %58, %57 ], [ %62, %59 ]
-  %64 = icmp slt i64 %.1, 0
+  %.2 = phi i64 [ %58, %57 ], [ %62, %59 ]
+  %64 = icmp slt i64 %.2, 0
   br i1 %64, label %.thread83, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %.06482, i64 %.1
+  %66 = getelementptr inbounds i8, ptr %.06482, i64 %.2
   br label %73
 
 67:                                               ; preds = %51
@@ -144,12 +144,12 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %77
 
 77:                                               ; preds = %73, %29
-  %.2 = phi i64 [ %spec.store.select, %29 ], [ %76, %73 ]
-  %78 = icmp slt i64 %.2, 0
+  %.063 = phi i64 [ %spec.store.select, %29 ], [ %76, %73 ]
+  %78 = icmp slt i64 %.063, 0
   br i1 %78, label %.thread83, label %82
 
 .thread83:                                        ; preds = %63, %48, %30, %12, %77
-  %.285 = phi i64 [ %.2, %77 ], [ -1, %12 ], [ -1, %30 ], [ -1, %48 ], [ -1, %63 ]
+  %.06385 = phi i64 [ %.063, %77 ], [ -1, %12 ], [ -1, %30 ], [ -1, %48 ], [ -1, %63 ]
   %79 = getelementptr inbounds i8, ptr %2, i64 194
   %80 = load i8, ptr %79, align 2
   %81 = or i8 %80, 2
@@ -157,7 +157,7 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %82
 
 82:                                               ; preds = %77, %.thread83, %5
-  %.0 = phi i64 [ -1, %5 ], [ %.285, %.thread83 ], [ %.2, %77 ]
+  %.0 = phi i64 [ -1, %5 ], [ %.06385, %.thread83 ], [ %.063, %77 ]
   ret i64 %.0
 }
 

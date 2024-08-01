@@ -2180,13 +2180,13 @@ if.then3:                                         ; preds = %_Py_str_to_int.exit
   br label %if.end4
 
 if.end4:                                          ; preds = %_Py_str_to_int.exit, %if.then3
-  %value.1 = phi i32 [ 1, %if.then3 ], [ %conv13.i, %_Py_str_to_int.exit ]
+  %value.0 = phi i32 [ 1, %if.then3 ], [ %conv13.i, %_Py_str_to_int.exit ]
   %5 = load i32, ptr %flag, align 4
-  %cmp5 = icmp slt i32 %5, %value.1
+  %cmp5 = icmp slt i32 %5, %value.0
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  store i32 %value.1, ptr %flag, align 4
+  store i32 %value.0, ptr %flag, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end.i, %land.lhs.true.i, %entry, %if.then6, %if.end4
@@ -2839,15 +2839,15 @@ if.then14:                                        ; preds = %if.then12
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then14, %if.then12
-  %config.sroa.18.0 = phi i32 [ 0, %if.then12 ], [ %spec.select, %if.then14 ]
+  %config.sroa.18.1 = phi i32 [ 0, %if.then12 ], [ %spec.select, %if.then14 ]
   %call21 = tail call ptr @_Py_SetLocaleFromEnv(i32 noundef 0) #17
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %preconfig_set_global_vars.exit
-  %config.sroa.18.1 = phi i32 [ %2, %preconfig_set_global_vars.exit ], [ %config.sroa.18.0, %if.end20 ]
+  %config.sroa.18.0 = phi i32 [ %2, %preconfig_set_global_vars.exit ], [ %config.sroa.18.1, %if.end20 ]
   store <4 x i32> %0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
   store i32 %1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  store i32 %config.sroa.18.1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
+  store i32 %config.sroa.18.0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
   store <4 x i32> %3, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return

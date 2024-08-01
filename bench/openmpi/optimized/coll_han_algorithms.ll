@@ -245,7 +245,7 @@ mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
   br i1 %.not4.i.i, label %mca_han_algorithm_count.exit.i, label %.preheader.i.i, !llvm.loop !6
 
 mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
-  %indvars22.le = trunc i64 %indvars.iv.i.i to i32
+  %indvars23.le = trunc i64 %indvars.iv.i.i to i32
   %18 = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %18, label %mca_han_algorithm_enumerator_create.exit.thread, label %19
 
@@ -261,7 +261,7 @@ mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
   store i32 0, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr @.str, ptr %24, align 8
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %indvars22.le, i32 1)
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %indvars23.le, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %.lr.ph.i
 
@@ -298,20 +298,20 @@ mca_han_algorithm_enumerator_create.exit.thread:  ; preds = %13, %mca_han_algori
   br label %34
 
 34:                                               ; preds = %38, %33
-  %indvars.iv.i12 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i14, %38 ]
-  %35 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv.i12
+  %indvars.iv.i13 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i15, %38 ]
+  %35 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv.i13
   %36 = load ptr, ptr %35, align 8
-  %.not.i13 = icmp eq ptr %36, null
-  br i1 %.not.i13, label %38, label %37
+  %.not.i14 = icmp eq ptr %36, null
+  br i1 %.not.i14, label %38, label %37
 
 37:                                               ; preds = %34
   tail call void @free(ptr noundef nonnull %36) #8
   br label %38
 
 38:                                               ; preds = %37, %34
-  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
-  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 22
-  br i1 %exitcond.not.i15, label %mca_coll_han_free_algorithms.exit, label %34, !llvm.loop !9
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 22
+  br i1 %exitcond.not.i16, label %mca_coll_han_free_algorithms.exit, label %34, !llvm.loop !9
 
 mca_coll_han_free_algorithms.exit:                ; preds = %mca_han_algorithm_enumerator_create.exit.thread, %38
   %.09 = phi i32 [ -1, %38 ], [ 0, %mca_han_algorithm_enumerator_create.exit.thread ]

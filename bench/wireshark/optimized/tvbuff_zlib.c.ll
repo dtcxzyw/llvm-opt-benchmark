@@ -58,7 +58,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
 31:                                               ; preds = %.outer310, %127
   %.0201 = phi ptr [ null, %127 ], [ %.0201.ph311, %.outer310 ]
   %.0195 = phi i32 [ 2, %127 ], [ %.0195.ph312, %.outer310 ]
-  %.0191 = phi ptr [ %.6, %127 ], [ %.0191.ph314, %.outer310 ]
+  %.0191 = phi ptr [ %.5, %127 ], [ %.0191.ph314, %.outer310 ]
   %.0187 = phi i32 [ %129, %127 ], [ %.0187.ph315, %.outer310 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, i8 0, i64 %18, i1 false)
   store ptr %19, ptr %20, align 8
@@ -191,93 +191,93 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %84
 
 84:                                               ; preds = %81, %79
-  %.0184 = phi ptr [ %28, %81 ], [ %26, %79 ]
+  %.1185 = phi ptr [ %28, %81 ], [ %26, %79 ]
   %.0 = phi i16 [ %83, %81 ], [ 0, %79 ]
-  %85 = ptrtoint ptr %.0184 to i64
+  %85 = ptrtoint ptr %.1185 to i64
   %86 = sub i64 %85, %27
   %87 = icmp slt i64 %86, %80
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %84
-  %89 = load i8, ptr %.0184, align 1
+  %89 = load i8, ptr %.1185, align 1
   %90 = zext i8 %89 to i16
   %91 = shl nuw i16 %90, 8
   %92 = or disjoint i16 %91, %.0
-  %93 = getelementptr i8, ptr %.0184, i64 1
+  %93 = getelementptr i8, ptr %.1185, i64 1
   br label %94
 
 94:                                               ; preds = %88, %84
-  %.1185 = phi ptr [ %93, %88 ], [ %.0184, %84 ]
+  %.2 = phi ptr [ %93, %88 ], [ %.1185, %84 ]
   %.1 = phi i16 [ %92, %88 ], [ %.0, %84 ]
   %95 = zext i16 %.1 to i64
-  %96 = getelementptr i8, ptr %.1185, i64 %95
+  %96 = getelementptr i8, ptr %.2, i64 %95
   br label %97
 
 97:                                               ; preds = %94, %75
-  %.2 = phi ptr [ %96, %94 ], [ %26, %75 ]
+  %.0184 = phi ptr [ %96, %94 ], [ %26, %75 ]
   %98 = and i32 %77, 8
   %.not214 = icmp eq i32 %98, 0
   br i1 %.not214, label %110, label %.preheader228
 
 .preheader228:                                    ; preds = %97
   %99 = zext nneg i32 %.0187 to i64
-  %100 = ptrtoint ptr %.2 to i64
+  %100 = ptrtoint ptr %.0184 to i64
   %101 = sub i64 %100, %27
   %102 = icmp slt i64 %101, %99
   br i1 %102, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader228, %104
-  %.3248 = phi ptr [ %105, %104 ], [ %.2, %.preheader228 ]
-  %103 = load i8, ptr %.3248, align 1
+  %.4248 = phi ptr [ %105, %104 ], [ %.0184, %.preheader228 ]
+  %103 = load i8, ptr %.4248, align 1
   %.not215 = icmp eq i8 %103, 0
   br i1 %.not215, label %.critedge, label %104
 
 104:                                              ; preds = %.lr.ph
-  %105 = getelementptr i8, ptr %.3248, i64 1
+  %105 = getelementptr i8, ptr %.4248, i64 1
   %106 = ptrtoint ptr %105 to i64
   %107 = sub i64 %106, %27
   %108 = icmp slt i64 %107, %99
   br i1 %108, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %104, %.preheader228
-  %.3.lcssa = phi ptr [ %.2, %.preheader228 ], [ %105, %104 ], [ %.3248, %.lr.ph ]
-  %109 = getelementptr i8, ptr %.3.lcssa, i64 1
+  %.4.lcssa = phi ptr [ %.0184, %.preheader228 ], [ %105, %104 ], [ %.4248, %.lr.ph ]
+  %109 = getelementptr i8, ptr %.4.lcssa, i64 1
   br label %110
 
 110:                                              ; preds = %.critedge, %97
-  %.4 = phi ptr [ %109, %.critedge ], [ %.2, %97 ]
+  %.3 = phi ptr [ %109, %.critedge ], [ %.0184, %97 ]
   %111 = and i32 %77, 16
   %.not216 = icmp eq i32 %111, 0
   %.pre274 = zext nneg i32 %.0187 to i64
   br i1 %.not216, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %110
-  %112 = ptrtoint ptr %.4 to i64
+  %112 = ptrtoint ptr %.3 to i64
   %113 = sub i64 %112, %27
   %114 = icmp slt i64 %113, %.pre274
   br i1 %114, label %.lr.ph252, label %.critedge13
 
 .lr.ph252:                                        ; preds = %.preheader, %116
-  %.5251 = phi ptr [ %117, %116 ], [ %.4, %.preheader ]
-  %115 = load i8, ptr %.5251, align 1
+  %.6251 = phi ptr [ %117, %116 ], [ %.3, %.preheader ]
+  %115 = load i8, ptr %.6251, align 1
   %.not217 = icmp eq i8 %115, 0
   br i1 %.not217, label %.critedge13, label %116
 
 116:                                              ; preds = %.lr.ph252
-  %117 = getelementptr i8, ptr %.5251, i64 1
+  %117 = getelementptr i8, ptr %.6251, i64 1
   %118 = ptrtoint ptr %117 to i64
   %119 = sub i64 %118, %27
   %120 = icmp slt i64 %119, %.pre274
   br i1 %120, label %.lr.ph252, label %.critedge13, !llvm.loop !6
 
 .critedge13:                                      ; preds = %.lr.ph252, %116, %.preheader
-  %.5.lcssa = phi ptr [ %.4, %.preheader ], [ %117, %116 ], [ %.5251, %.lr.ph252 ]
-  %121 = getelementptr i8, ptr %.5.lcssa, i64 1
+  %.6.lcssa = phi ptr [ %.3, %.preheader ], [ %117, %116 ], [ %.6251, %.lr.ph252 ]
+  %121 = getelementptr i8, ptr %.6.lcssa, i64 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %110, %.critedge13
-  %.6 = phi ptr [ %121, %.critedge13 ], [ %.4, %110 ]
-  %122 = ptrtoint ptr %.6 to i64
+  %.5 = phi ptr [ %121, %.critedge13 ], [ %.3, %110 ]
+  %122 = ptrtoint ptr %.5 to i64
   %123 = sub i64 %122, %27
   %124 = icmp sgt i64 %123, %.pre274
   br i1 %124, label %125, label %127
@@ -293,7 +293,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   %128 = trunc i64 %123 to i32
   %129 = sub i32 %.0187, %128
   %130 = tail call i32 @inflateReset(ptr noundef nonnull %16) #8
-  store ptr %.6, ptr %16, align 8
+  store ptr %.5, ptr %16, align 8
   store i32 %129, ptr %17, align 8
   %131 = tail call i32 @inflateEnd(ptr noundef nonnull %16) #8
   %132 = tail call i32 @inflateInit2_(ptr noundef nonnull %16, i32 noundef %.0193.ph313, ptr noundef nonnull @.str, i32 noundef 112) #8

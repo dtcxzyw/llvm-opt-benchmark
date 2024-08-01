@@ -1178,7 +1178,7 @@ define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, pt
   br i1 %exitcond45.not, label %OSQPVectorf_dot_prod.exit, label %.lr.ph39, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
-  %.136 = phi double [ %23, %.lr.ph ], [ 0.000000e+00, %.preheader33 ]
+  %.236 = phi double [ %23, %.lr.ph ], [ 0.000000e+00, %.preheader33 ]
   %.12835 = phi i64 [ %24, %.lr.ph ], [ 0, %.preheader33 ]
   %17 = getelementptr inbounds double, ptr %6, i64 %.12835
   %18 = load double, ptr %17, align 8
@@ -1186,7 +1186,7 @@ define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, pt
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %20, 0.000000e+00
   %22 = select i1 %21, double %20, double 0.000000e+00
-  %23 = tail call double @llvm.fmuladd.f64(double %18, double %22, double %.136)
+  %23 = tail call double @llvm.fmuladd.f64(double %18, double %22, double %.236)
   %24 = add nuw nsw i64 %.12835, 1
   %exitcond.not = icmp eq i64 %24, %5
   br i1 %exitcond.not, label %OSQPVectorf_dot_prod.exit, label %.lr.ph, !llvm.loop !33
@@ -1207,8 +1207,8 @@ define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, pt
   br i1 %exitcond.not.i, label %OSQPVectorf_dot_prod.exit, label %.lr.ph.i, !llvm.loop !31
 
 OSQPVectorf_dot_prod.exit:                        ; preds = %.lr.ph, %.lr.ph39, %.lr.ph.i, %.preheader33, %.preheader, %25
-  %.2 = phi double [ 0.000000e+00, %25 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader33 ], [ %30, %.lr.ph.i ], [ %15, %.lr.ph39 ], [ %23, %.lr.ph ]
-  ret double %.2
+  %.1 = phi double [ 0.000000e+00, %25 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader33 ], [ %30, %.lr.ph.i ], [ %15, %.lr.ph39 ], [ %23, %.lr.ph ]
+  ret double %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1436,21 +1436,21 @@ define double @OSQPVectorf_norm_1(ptr nocapture noundef readonly %0) local_unnam
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.018 = phi double [ %11, %.lr.ph ], [ 0.000000e+00, %1 ]
+  %.118 = phi double [ %11, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.01317 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %6 = getelementptr inbounds double, ptr %4, i64 %.01317
   %7 = load double, ptr %6, align 8
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = fneg double %7
   %10 = select i1 %8, double %9, double %7
-  %11 = fadd double %.018, %10
+  %11 = fadd double %.118, %10
   %12 = add nuw nsw i64 %.01317, 1
   %exitcond.not = icmp eq i64 %12, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %1
-  %.1 = phi double [ 0.000000e+00, %1 ], [ %11, %.lr.ph ]
-  ret double %.1
+  %.0 = phi double [ 0.000000e+00, %1 ], [ %11, %.lr.ph ]
+  ret double %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

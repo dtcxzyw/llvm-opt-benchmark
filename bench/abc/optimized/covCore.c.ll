@@ -1633,7 +1633,7 @@ define internal fastcc void @Abc_NtkCovCovers_rec(ptr noundef %0, ptr nocapture 
 
 228:                                              ; preds = %226, %222
   %229 = phi i32 [ %.pre.i, %226 ], [ %184, %222 ]
-  %.0109.i = phi ptr [ %227, %226 ], [ null, %222 ]
+  %.1.i = phi ptr [ %227, %226 ], [ null, %222 ]
   %230 = and i32 %229, 16
   %.not131.i = icmp eq i32 %230, 0
   br i1 %.not131.i, label %238, label %231
@@ -1998,9 +1998,9 @@ Min_CoverCountCubes.exit.i.i:                     ; preds = %.lr.ph.i85.i.i
 
 Abc_NodeCovSum.exit.i:                            ; preds = %440, %428, %352, %Min_CoverCountCubes.exit.i.i, %._crit_edge110.i.i, %424, %348, %271, %180
   %.0110.i = phi ptr [ null, %271 ], [ null, %180 ], [ %434, %Min_CoverCountCubes.exit.i.i ], [ null, %348 ], [ null, %424 ], [ null, %._crit_edge110.i.i ], [ null, %352 ], [ null, %428 ], [ null, %440 ]
-  %.1.i = phi ptr [ %.0109.i, %271 ], [ null, %180 ], [ %.0109.i, %Min_CoverCountCubes.exit.i.i ], [ %.0109.i, %348 ], [ %.0109.i, %424 ], [ %.0109.i, %._crit_edge110.i.i ], [ %.0109.i, %352 ], [ %.0109.i, %428 ], [ %.0109.i, %440 ]
+  %.0109.i = phi ptr [ %.1.i, %271 ], [ null, %180 ], [ %.1.i, %Min_CoverCountCubes.exit.i.i ], [ %.1.i, %348 ], [ %.1.i, %424 ], [ %.1.i, %._crit_edge110.i.i ], [ %.1.i, %352 ], [ %.1.i, %428 ], [ %.1.i, %440 ]
   %442 = icmp ne ptr %.0111.i, null
-  %443 = icmp ne ptr %.1.i, null
+  %443 = icmp ne ptr %.0109.i, null
   %or.cond7.i = select i1 %442, i1 true, i1 %443
   %444 = icmp ne ptr %.0110.i, null
   %or.cond9.i = or i1 %444, %or.cond7.i
@@ -2038,7 +2038,7 @@ Abc_NodeCovPropagate.exit:                        ; preds = %Abc_NodeCovSum.exit
   %459 = sext i32 %.val163.i to i64
   %460 = getelementptr inbounds ptr, ptr %.val162.val.val.val.i, i64 %459
   %461 = load ptr, ptr %460, align 8
-  store ptr %.1.i, ptr %461, align 8
+  store ptr %.0109.i, ptr %461, align 8
   %.val164.i = load ptr, ptr %1, align 8
   %.val165.i = load i32, ptr %448, align 8
   %462 = getelementptr i8, ptr %.val164.i, i64 272

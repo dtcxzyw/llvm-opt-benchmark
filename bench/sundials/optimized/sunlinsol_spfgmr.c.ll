@@ -445,7 +445,7 @@ switch.edge:
 
 .preheader307:                                    ; preds = %._crit_edge350, %.preheader307.lr.ph
   %.0258355 = phi double [ %66, %.preheader307.lr.ph ], [ %183, %._crit_edge350 ]
-  %.0260354 = phi double [ %66, %.preheader307.lr.ph ], [ %.2, %._crit_edge350 ]
+  %.0260354 = phi double [ %66, %.preheader307.lr.ph ], [ %.3, %._crit_edge350 ]
   %.0270353 = phi i32 [ 0, %.preheader307.lr.ph ], [ %186, %._crit_edge350 ]
   %.0271352 = phi i32 [ 0, %.preheader307.lr.ph ], [ %.2273, %._crit_edge350 ]
   br i1 %70, label %._crit_edge316.thread, label %.preheader.us
@@ -601,7 +601,7 @@ switch.edge:
 ._crit_edge:                                      ; preds = %132, %._crit_edge.loopexit.split.loop.exit, %._crit_edge316.thread, %._crit_edge316
   %.not301.lcssa = phi i1 [ false, %._crit_edge316 ], [ false, %._crit_edge316.thread ], [ %.not301320, %._crit_edge.loopexit.split.loop.exit ], [ %.not301, %132 ]
   %.2273 = phi i32 [ %.0271352, %._crit_edge316 ], [ %.0271352, %._crit_edge316.thread ], [ %139, %._crit_edge.loopexit.split.loop.exit ], [ %6, %132 ]
-  %.2 = phi double [ %.0260354, %._crit_edge316 ], [ %.0260354, %._crit_edge316.thread ], [ %130, %._crit_edge.loopexit.split.loop.exit ], [ %130, %132 ]
+  %.3 = phi double [ %.0260354, %._crit_edge316 ], [ %.0260354, %._crit_edge316.thread ], [ %130, %._crit_edge.loopexit.split.loop.exit ], [ %130, %132 ]
   store double %.0258355, ptr %22, align 8
   %.not298327 = icmp slt i32 %.2273, 1
   br i1 %.not298327, label %._crit_edge331, label %.lr.ph330.preheader
@@ -750,7 +750,7 @@ switch.edge:
   br label %.preheader307
 
 ._crit_edge356:                                   ; preds = %159
-  %187 = fcmp olt double %.2, %66
+  %187 = fcmp olt double %.3, %66
   br i1 %187, label %188, label %._crit_edge356.thread
 
 188:                                              ; preds = %._crit_edge356

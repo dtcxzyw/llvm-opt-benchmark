@@ -9207,8 +9207,8 @@ _ZNSt12_Vector_baseI11LeftNfaInfoSaIS0_EE13_M_deallocateEPS0_m.exit82.i: ; preds
   br label %invoke.cont6.i1044
 
 invoke.cont6.i1044:                               ; preds = %_ZNSt12_Vector_baseI11LeftNfaInfoSaIS0_EE13_M_deallocateEPS0_m.exit82.i, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  %leftInfoTable.sroa.0.1 = phi ptr [ null, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ], [ %call5.i.i.i.i746, %_ZNSt12_Vector_baseI11LeftNfaInfoSaIS0_EE13_M_deallocateEPS0_m.exit82.i ]
-  %leftInfoTable.sroa.13.1 = phi ptr [ null, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ], [ %add.ptr37.i, %_ZNSt12_Vector_baseI11LeftNfaInfoSaIS0_EE13_M_deallocateEPS0_m.exit82.i ]
+  %leftInfoTable.sroa.0.0 = phi ptr [ null, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ], [ %call5.i.i.i.i746, %_ZNSt12_Vector_baseI11LeftNfaInfoSaIS0_EE13_M_deallocateEPS0_m.exit82.i ]
+  %leftInfoTable.sroa.13.0 = phi ptr [ null, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ], [ %add.ptr37.i, %_ZNSt12_Vector_baseI11LeftNfaInfoSaIS0_EE13_M_deallocateEPS0_m.exit82.i ]
   %__begin1.sroa.0.0300.i = load ptr, ptr %m_header.i.i.i.i.i.i.i538, align 8
   %cmp.i.i.i.i.not301.i = icmp eq ptr %__begin1.sroa.0.0300.i, %m_header.i.i.i.i.i.i.i538
   br i1 %cmp.i.i.i.i.not301.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %invoke.cont11.lr.ph.i
@@ -9437,7 +9437,7 @@ cond.end75.i:                                     ; preds = %cond.end72.i, %cond
 
 if.end77.i:                                       ; preds = %for.cond.i.i1117.3, %cond.end75.i, %_ZN3ue2L14hasUsefulStopsERKNS_15left_build_infoE.exit.i
   %conv79.i = zext i32 %sub.i to i64
-  %add.ptr.i228.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i
+  %add.ptr.i228.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i
   %863 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
   %cmp.not.not.i.i.i.i = icmp eq i64 %863, 0
   br i1 %cmp.not.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end15.i.i.i.i
@@ -9497,7 +9497,7 @@ if.then84.i:                                      ; preds = %lor.lhs.false.i.i.i
 invoke.cont85.i:                                  ; preds = %if.then84.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i228.i, i8 0, i64 32, i1 false)
-  %squash_mask.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 9
+  %squash_mask.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 9
   store i64 -1, ptr %squash_mask.i, align 8
   %max_queuelen.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i1069, i64 96
   %872 = load i32, ptr %max_queuelen.i, align 8
@@ -9675,7 +9675,7 @@ call.i11.i.i.noexc.i1096:                         ; preds = %_ZNSt6vectorIcN3ue2
 
 invoke.cont90.i:                                  ; preds = %call.i11.i.i.noexc.i1096, %call.i.i.i.noexc.i1090, %if.then89.i
   %retval.0.i.i.i1099 = phi i32 [ 0, %if.then89.i ], [ %conv.i.i.i767, %call.i.i.i.noexc.i1090 ], [ %conv.i.i.i767, %call.i11.i.i.noexc.i1096 ]
-  %stopTable.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 3
+  %stopTable.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 3
   store i32 %retval.0.i.i.i1099, ptr %stopTable.i, align 4
   br label %if.end92.i
 
@@ -9712,7 +9712,7 @@ lpad81.body.i:                                    ; preds = %lpad81.loopexit.spl
 if.end92.i:                                       ; preds = %for.cond.i240.i.3, %invoke.cont90.i, %_ZN3ue2L14hasUsefulStopsERKNS_15left_build_infoE.exit244.i
   %countingMiracleOffset.i1100 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i1069, i64 136
   %890 = load i32, ptr %countingMiracleOffset.i1100, align 8
-  %countingMiracleOffset93.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 8
+  %countingMiracleOffset93.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 8
   store i32 %890, ptr %countingMiracleOffset93.i, align 4
   %transient.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i1069, i64 56
   %891 = load i32, ptr %transient.i, align 8
@@ -9739,14 +9739,14 @@ lpad.i.i.i1104:                                   ; preds = %if.then.i.i.i1102
 
 invoke.cont97.i:                                  ; preds = %if.end92.i
   %conv.i.i.i1105 = trunc nuw i32 %891 to i8
-  %transient99.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 4
+  %transient99.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 4
   store i8 %conv.i.i.i1105, ptr %transient99.i, align 8
   %call101.i = invoke noundef zeroext i1 @_ZNK3ue213RoseBuildImpl18isNonRootSuccessorERKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr noundef nonnull align 8 dereferenceable(16) %v.i1031)
           to label %invoke.cont100.i unwind label %lpad81.loopexit.split-lp.loopexit.i.loopexit
 
 invoke.cont100.i:                                 ; preds = %invoke.cont97.i
   %conv102.i = zext i1 %call101.i to i8
-  %infix.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 5
+  %infix.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 5
   store i8 %conv102.i, ptr %infix.i, align 1
   %893 = load ptr, ptr %_M_parent.i.i.i.i.i718, align 8
   %cmp.not9.i.i.i.i251.i = icmp eq ptr %893, null
@@ -9785,7 +9785,7 @@ invoke.cont104.i:                                 ; preds = %lor.lhs.false.i.i.i
   %retval.sroa.0.0.i.i.i265.i = phi ptr [ %390, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i ], [ %390, %invoke.cont100.i ], [ %spec.select.i.i.i.i, %lor.lhs.false.i.i.i.i ]
   %cmp.i.i266.i = icmp ne ptr %retval.sroa.0.0.i.i.i265.i, %390
   %conv106.i = zext i1 %cmp.i.i266.i to i8
-  %eager.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 6
+  %eager.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 6
   store i8 %conv106.i, ptr %eager.i, align 2
   %897 = load i32, ptr %transient.i, align 8
   %tobool108.not.i = icmp eq i32 %897, 0
@@ -9802,7 +9802,7 @@ land.lhs.true.i1110:                              ; preds = %invoke.cont104.i
 do.end117.sink.split.i:                           ; preds = %land.lhs.true.i1110, %invoke.cont104.i
   %.sink.i = phi i32 [ -1, %invoke.cont104.i ], [ %spec.select.i1111, %land.lhs.true.i1110 ]
   %lagIndex.1.ph.i = phi i32 [ %lagIndex.0302.i, %invoke.cont104.i ], [ %spec.select312.i, %land.lhs.true.i1110 ]
-  %lagIndex112.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 2
+  %lagIndex112.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 2
   store i32 %.sink.i, ptr %lagIndex112.i, align 8
   %agg.tmp129.sroa.0.0.copyload.i.pre = load ptr, ptr %v.i1031, align 8
   br label %do.end117.i
@@ -9812,11 +9812,11 @@ do.end117.i:                                      ; preds = %for.cond.i.i.i.i.i.
   %lagIndex.1.i = phi i32 [ %lagIndex.0302.i, %if.end.i.i.i.i.i.i1085 ], [ %lagIndex.1.ph.i, %do.end117.sink.split.i ], [ %lagIndex.0302.i, %for.body.i.i.i.i1114 ], [ %lagIndex.0302.i, %for.cond.i.i.i.i.i.i ]
   %squash_mask118.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i1069, i64 64
   %899 = load i64, ptr %squash_mask118.i, align 8
-  %squash_mask119.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 9
+  %squash_mask119.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 9
   %900 = load i64, ptr %squash_mask119.i, align 8
   %and.i = and i64 %900, %899
   store i64 %and.i, ptr %squash_mask119.i, align 8
-  %maxLag.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 1
+  %maxLag.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 1
   %901 = load i32, ptr %maxLag.i, align 4
   %lag120.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i1069, i64 52
   %902 = load i32, ptr %lag120.i, align 4
@@ -9861,7 +9861,7 @@ invoke.cont132.i:                                 ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i18.i.i.i, label %if.end135.i, label %if.then134.i
 
 if.then134.i:                                     ; preds = %invoke.cont132.i
-  %eod_check.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %conv79.i, i32 7
+  %eod_check.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %conv79.i, i32 7
   store i8 1, ptr %eod_check.i, align 1
   br label %if.end135.i
 
@@ -9882,7 +9882,7 @@ ehcleanup140.i:                                   ; preds = %lpad81.body.i, %lpa
   br label %ehcleanup155.i
 
 ehcleanup155.i:                                   ; preds = %ehcleanup140.i, %lpad.i1133
-  %leftInfoTable.sroa.0.2 = phi ptr [ %leftInfoTable.sroa.0.1, %ehcleanup140.i ], [ null, %lpad.i1133 ]
+  %leftInfoTable.sroa.0.1 = phi ptr [ %leftInfoTable.sroa.0.0, %ehcleanup140.i ], [ null, %lpad.i1133 ]
   %.pn213.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i1053, %ehcleanup140.i ], [ %844, %lpad.i1133 ]
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %done_core.i) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %done_core.i) #23
@@ -14579,16 +14579,16 @@ _ZNSt6vectorIjSaIjEED2Ev.exit15.i:                ; preds = %if.then.i.i.i14.i, 
 
 invoke.cont138:                                   ; preds = %if.then.i.i.i.i2042, %invoke.cont4.i2040
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %inv_dkeys.i) #23
-  %cmp.i.i.i.i2048 = icmp eq ptr %leftInfoTable.sroa.13.1, %leftInfoTable.sroa.0.1
+  %cmp.i.i.i.i2048 = icmp eq ptr %leftInfoTable.sroa.13.0, %leftInfoTable.sroa.0.0
   br i1 %cmp.i.i.i.i2048, label %_ZN3ue2L19writeActiveLeftIterERNS_14RoseEngineBlobERKSt6vectorI11LeftNfaInfoSaIS3_EE.exit.i.thread, label %if.end.i.i.i2049
 
 if.end.i.i.i2049:                                 ; preds = %invoke.cont138
-  %call.i.i.i.i2134 = invoke noundef i32 @_ZN3ue214RoseEngineBlob3addEPKvmm(ptr noundef nonnull align 8 dereferenceable(256) %engine_blob, ptr noundef nonnull %leftInfoTable.sroa.0.1, i64 noundef 32, i64 noundef 8)
+  %call.i.i.i.i2134 = invoke noundef i32 @_ZN3ue214RoseEngineBlob3addEPKvmm(ptr noundef nonnull align 8 dereferenceable(256) %engine_blob, ptr noundef nonnull %leftInfoTable.sroa.0.0, i64 noundef 32, i64 noundef 8)
           to label %call.i.i.i.i.noexc unwind label %lpad126.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.i.noexc:                               ; preds = %if.end.i.i.i2049
-  %b.sroa.0.018.i.i.i2050 = getelementptr inbounds i8, ptr %leftInfoTable.sroa.0.1, i64 32
-  %cmp.i10.not19.i.i.i2051 = icmp eq ptr %b.sroa.0.018.i.i.i2050, %leftInfoTable.sroa.13.1
+  %b.sroa.0.018.i.i.i2050 = getelementptr inbounds i8, ptr %leftInfoTable.sroa.0.0, i64 32
+  %cmp.i10.not19.i.i.i2051 = icmp eq ptr %b.sroa.0.018.i.i.i2050, %leftInfoTable.sroa.13.0
   br i1 %cmp.i10.not19.i.i.i2051, label %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i.thread1279, label %for.body.i.i.i2052
 
 _ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i.thread1279: ; preds = %call.i.i.i.i.noexc
@@ -14604,7 +14604,7 @@ for.body.i.i.i2052:                               ; preds = %call.i.i.i.i.noexc,
 
 call.i11.i.i.i.noexc:                             ; preds = %for.body.i.i.i2052
   %b.sroa.0.0.i.i.i2054 = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i.i2053, i64 32
-  %cmp.i10.not.i.i.i2055 = icmp eq ptr %b.sroa.0.0.i.i.i2054, %leftInfoTable.sroa.13.1
+  %cmp.i10.not.i.i.i2055 = icmp eq ptr %b.sroa.0.0.i.i.i2054, %leftInfoTable.sroa.13.0
   br i1 %cmp.i10.not.i.i.i2055, label %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i, label %for.body.i.i.i2052, !llvm.loop !238
 
 _ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i: ; preds = %call.i11.i.i.i.noexc
@@ -14617,8 +14617,8 @@ for.body.lr.ph.i.i2057:                           ; preds = %_ZN3ue214RoseEngine
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys.i.i, i8 0, i64 24, i1 false)
   %_M_finish.i58.i.i = getelementptr inbounds i8, ptr %keys.i.i, i64 8
   %_M_end_of_storage.i.i.i2058 = getelementptr inbounds i8, ptr %keys.i.i, i64 16
-  %sub.ptr.lhs.cast.i.i.i2063 = ptrtoint ptr %leftInfoTable.sroa.13.1 to i64
-  %sub.ptr.rhs.cast.i.i.i2064 = ptrtoint ptr %leftInfoTable.sroa.0.1 to i64
+  %sub.ptr.lhs.cast.i.i.i2063 = ptrtoint ptr %leftInfoTable.sroa.13.0 to i64
+  %sub.ptr.rhs.cast.i.i.i2064 = ptrtoint ptr %leftInfoTable.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i2065 = sub i64 %sub.ptr.lhs.cast.i.i.i2063, %sub.ptr.rhs.cast.i.i.i2064
   %sub.ptr.div.i.i.i2066 = ashr exact i64 %sub.ptr.sub.i.i.i2065, 5
   %umax1712 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i2066, i64 1)
@@ -14632,7 +14632,7 @@ for.cond.cleanup.i.i2068:                         ; preds = %for.inc.i.i2061
 for.body.i.i2059:                                 ; preds = %for.inc.i.i2061, %for.body.lr.ph.i.i2057
   %1397 = phi ptr [ null, %for.body.lr.ph.i.i2057 ], [ %1404, %for.inc.i.i2061 ]
   %i.080.i.i = phi i64 [ 0, %for.body.lr.ph.i.i2057 ], [ %inc.i.i2062, %for.inc.i.i2061 ]
-  %transient.i.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.1, i64 %i.080.i.i, i32 4
+  %transient.i.i = getelementptr inbounds %struct.LeftNfaInfo, ptr %leftInfoTable.sroa.0.0, i64 %i.080.i.i, i32 4
   %1398 = load i8, ptr %transient.i.i, align 8
   %tobool.not.i.i2060 = icmp eq i8 %1398, 0
   br i1 %tobool.not.i.i2060, label %do.end.i.i2099, label %for.inc.i.i2061
@@ -14897,8 +14897,8 @@ _ZN3ue2L19writeActiveLeftIterERNS_14RoseEngineBlobERKSt6vectorI11LeftNfaInfoSaIS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %keys.i.i) #23
   %activeLeftIterOffset.i = getelementptr inbounds i8, ptr %proto, i64 416
   store i32 %retval.0.i.i2084, ptr %activeLeftIterOffset.i, align 8
-  %sub.ptr.lhs.cast.i.i2085 = ptrtoint ptr %leftInfoTable.sroa.13.1 to i64
-  %sub.ptr.rhs.cast.i.i2086 = ptrtoint ptr %leftInfoTable.sroa.0.1 to i64
+  %sub.ptr.lhs.cast.i.i2085 = ptrtoint ptr %leftInfoTable.sroa.13.0 to i64
+  %sub.ptr.rhs.cast.i.i2086 = ptrtoint ptr %leftInfoTable.sroa.0.0 to i64
   %sub.ptr.sub.i.i2087 = sub i64 %sub.ptr.lhs.cast.i.i2085, %sub.ptr.rhs.cast.i.i2086
   %sub.ptr.div.i.i2088 = ashr exact i64 %sub.ptr.sub.i.i2087, 5
   %cmp.not.i.i19.i = icmp ult i64 %sub.ptr.div.i.i2088, 4294967296
@@ -14909,8 +14909,8 @@ _ZN3ue2L19writeActiveLeftIterERNS_14RoseEngineBlobERKSt6vectorI11LeftNfaInfoSaIS
   store i32 0, ptr %leftOffset.i1278, align 8
   %activeLeftIterOffset.i1754 = getelementptr inbounds i8, ptr %proto, i64 416
   store i32 0, ptr %activeLeftIterOffset.i1754, align 8
-  %sub.ptr.lhs.cast.i.i20851755 = ptrtoint ptr %leftInfoTable.sroa.13.1 to i64
-  %sub.ptr.rhs.cast.i.i20861756 = ptrtoint ptr %leftInfoTable.sroa.0.1 to i64
+  %sub.ptr.lhs.cast.i.i20851755 = ptrtoint ptr %leftInfoTable.sroa.13.0 to i64
+  %sub.ptr.rhs.cast.i.i20861756 = ptrtoint ptr %leftInfoTable.sroa.0.0 to i64
   %sub.ptr.sub.i.i20871757 = sub i64 %sub.ptr.lhs.cast.i.i20851755, %sub.ptr.rhs.cast.i.i20861756
   %sub.ptr.div.i.i20881758 = ashr exact i64 %sub.ptr.sub.i.i20871757, 5
   %cmp.not.i.i19.i1759 = icmp ult i64 %sub.ptr.div.i.i20881758, 4294967296
@@ -14960,7 +14960,7 @@ for.body.i34.i.preheader:                         ; preds = %_ZN3ue210verify_u32
 vector.ph:                                        ; preds = %for.body.i34.i.preheader
   %n.vec = and i64 %1418, 1152921504606846968
   %1419 = shl i64 %n.vec, 5
-  %invariant.gep = getelementptr i8, ptr %leftInfoTable.sroa.0.1, i64 17
+  %invariant.gep = getelementptr i8, ptr %leftInfoTable.sroa.0.0, i64 17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -15010,7 +15010,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %1450, label %middle.block, label %vector.body, !llvm.loop !240
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = getelementptr i8, ptr %leftInfoTable.sroa.0.1, i64 %1419
+  %ind.end = getelementptr i8, ptr %leftInfoTable.sroa.0.0, i64 %1419
   %bin.rdx = add <4 x i32> %1449, %1448
   %1451 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx)
   %cmp.n = icmp eq i64 %1418, %n.vec
@@ -15018,7 +15018,7 @@ middle.block:                                     ; preds = %vector.body
 
 for.body.i34.i.preheader2198:                     ; preds = %middle.block, %for.body.i34.i.preheader
   %num.012.i.i.ph = phi i32 [ %1451, %middle.block ], [ 0, %for.body.i34.i.preheader ]
-  %__begin1.sroa.0.011.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %leftInfoTable.sroa.0.1, %for.body.i34.i.preheader ]
+  %__begin1.sroa.0.011.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %leftInfoTable.sroa.0.0, %for.body.i34.i.preheader ]
   br label %for.body.i34.i
 
 for.body.i34.i:                                   ; preds = %for.body.i34.i.preheader2198, %for.body.i34.i
@@ -15030,7 +15030,7 @@ for.body.i34.i:                                   ; preds = %for.body.i34.i.preh
   %inc.i36.i = zext i1 %tobool.not.i35.i to i32
   %spec.select.i.i2093 = add i32 %num.012.i.i, %inc.i36.i
   %incdec.ptr.i.i37.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011.i.i, i64 32
-  %cmp.i.not.i.i2094 = icmp eq ptr %incdec.ptr.i.i37.i, %leftInfoTable.sroa.13.1
+  %cmp.i.not.i.i2094 = icmp eq ptr %incdec.ptr.i.i37.i, %leftInfoTable.sroa.13.0
   br i1 %cmp.i.not.i.i2094, label %invoke.cont140, label %for.body.i34.i, !llvm.loop !243
 
 invoke.cont140:                                   ; preds = %for.body.i34.i, %_ZN3ue210verify_u32ImEEjT_.exit32.i.thread, %middle.block, %_ZN3ue210verify_u32ImEEjT_.exit32.i
@@ -18658,11 +18658,11 @@ _ZNSt10unique_ptrIN3ue28LitProtoESt14default_deleteIS1_EED2Ev.exit2901: ; preds 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fgroups) #23
   call void @_ZN3ue212ProgramBuildD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %prog_build) #23
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %prog_build) #23
-  %tobool.not.i.i.i2903 = icmp eq ptr %leftInfoTable.sroa.0.1, null
+  %tobool.not.i.i.i2903 = icmp eq ptr %leftInfoTable.sroa.0.0, null
   br i1 %tobool.not.i.i.i2903, label %cleanup, label %if.then.i.i.i2904
 
 if.then.i.i.i2904:                                ; preds = %_ZNSt10unique_ptrIN3ue28LitProtoESt14default_deleteIS1_EED2Ev.exit2901
-  call void @_ZdlPv(ptr noundef nonnull %leftInfoTable.sroa.0.1) #27
+  call void @_ZdlPv(ptr noundef nonnull %leftInfoTable.sroa.0.0) #27
   br label %cleanup
 
 lpad269.loopexit:                                 ; preds = %land.rhs.i2642
@@ -18852,13 +18852,13 @@ ehcleanup428:                                     ; preds = %ehcleanup426, %lpad
   br label %ehcleanup430
 
 ehcleanup430:                                     ; preds = %ehcleanup428, %ehcleanup155.i
-  %leftInfoTable.sroa.0.3 = phi ptr [ %leftInfoTable.sroa.0.1, %ehcleanup428 ], [ %leftInfoTable.sroa.0.2, %ehcleanup155.i ]
+  %leftInfoTable.sroa.0.2 = phi ptr [ %leftInfoTable.sroa.0.0, %ehcleanup428 ], [ %leftInfoTable.sroa.0.1, %ehcleanup155.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup428 ], [ %.pn213.pn.pn.pn.i, %ehcleanup155.i ]
-  %tobool.not.i.i.i2922 = icmp eq ptr %leftInfoTable.sroa.0.3, null
+  %tobool.not.i.i.i2922 = icmp eq ptr %leftInfoTable.sroa.0.2, null
   br i1 %tobool.not.i.i.i2922, label %ehcleanup435, label %if.then.i.i.i2923
 
 if.then.i.i.i2923:                                ; preds = %ehcleanup430
-  call void @_ZdlPv(ptr noundef nonnull %leftInfoTable.sroa.0.3) #27
+  call void @_ZdlPv(ptr noundef nonnull %leftInfoTable.sroa.0.2) #27
   br label %ehcleanup435
 
 cleanup:                                          ; preds = %_ZNSt10unique_ptrIN3ue28LitProtoESt14default_deleteIS1_EED2Ev.exit2901, %if.then.i.i.i2904, %if.then48

@@ -512,7 +512,7 @@ _ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %47, %22, %3, %_ZNK4
 
 269:                                              ; preds = %237, %264, %255, %225
   %.190 = phi ptr [ %259, %264 ], [ %.089, %255 ], [ %.089, %237 ], [ %.089, %225 ]
-  %.3 = phi ptr [ %0, %264 ], [ %.2, %255 ], [ %.2, %237 ], [ %.2, %225 ]
+  %.4 = phi ptr [ %0, %264 ], [ %.2, %255 ], [ %.2, %237 ], [ %.2, %225 ]
   %270 = load ptr, ptr %4, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 8
   %272 = load ptr, ptr %271, align 8
@@ -784,7 +784,7 @@ _ZN4Node7del_outEPS_.exit.i114:                   ; preds = %409, %397, %_ZN4Nod
   br label %_ZN4Node7set_reqEjPS_.exit118
 
 _ZN4Node7set_reqEjPS_.exit118:                    ; preds = %425, %414, %_ZN4Node7del_outEPS_.exit.i114, %215, %281, %299, %269, %222
-  %.0 = phi ptr [ null, %222 ], [ %.3, %299 ], [ %.3, %281 ], [ %.3, %269 ], [ %.2, %215 ], [ %354, %_ZN4Node7del_outEPS_.exit.i114 ], [ %354, %414 ], [ %354, %425 ]
+  %.0 = phi ptr [ null, %222 ], [ %.4, %299 ], [ %.4, %281 ], [ %.4, %269 ], [ %.2, %215 ], [ %354, %_ZN4Node7del_outEPS_.exit.i114 ], [ %354, %414 ], [ %354, %425 ]
   ret ptr %.0
 }
 

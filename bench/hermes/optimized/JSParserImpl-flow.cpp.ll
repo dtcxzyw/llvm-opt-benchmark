@@ -578,16 +578,16 @@ if.end72:                                         ; preds = %if.end65
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end65, %if.end72
-  %retval.sroa.0.0 = phi i64 [ %27, %if.end72 ], [ undef, %if.end65 ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.end72 ], [ 0, %if.end65 ]
+  %retval.sroa.0.1 = phi i64 [ %27, %if.end72 ], [ undef, %if.end65 ]
+  %retval.sroa.3.1 = phi i8 [ 1, %if.end72 ], [ 0, %if.end65 ]
   call void @_ZN6hermes6parser6detail12JSParserImpl31SaveStrictModeAndSeenDirectivesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %saveStrictModeAndSeenDirectives) #10
   br label %return
 
 return:                                           ; preds = %if.end60, %if.then47, %if.then38, %if.else, %if.then22, %if.end16, %if.then9, %cleanup, %if.end50, %if.then
-  %retval.sroa.0.1 = phi i64 [ %19, %if.end50 ], [ %retval.sroa.0.0, %cleanup ], [ undef, %if.then ], [ undef, %if.then9 ], [ undef, %if.end16 ], [ undef, %if.then22 ], [ undef, %if.else ], [ undef, %if.then38 ], [ undef, %if.then47 ], [ undef, %if.end60 ]
-  %retval.sroa.3.1 = phi i8 [ 1, %if.end50 ], [ %retval.sroa.3.0, %cleanup ], [ 0, %if.then ], [ 0, %if.then9 ], [ 0, %if.end16 ], [ 0, %if.then22 ], [ 0, %if.else ], [ 0, %if.then38 ], [ 0, %if.then47 ], [ 0, %if.end60 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.1, 1
+  %retval.sroa.0.0 = phi i64 [ %19, %if.end50 ], [ %retval.sroa.0.1, %cleanup ], [ undef, %if.then ], [ undef, %if.then9 ], [ undef, %if.end16 ], [ undef, %if.then22 ], [ undef, %if.else ], [ undef, %if.then38 ], [ undef, %if.then47 ], [ undef, %if.end60 ]
+  %retval.sroa.3.0 = phi i8 [ 1, %if.end50 ], [ %retval.sroa.3.1, %cleanup ], [ 0, %if.then ], [ 0, %if.then9 ], [ 0, %if.end16 ], [ 0, %if.then22 ], [ 0, %if.else ], [ 0, %if.then38 ], [ 0, %if.then47 ], [ 0, %if.end60 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
@@ -4084,8 +4084,8 @@ if.end339:                                        ; preds = %if.end336
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end336, %if.then328, %if.end322, %if.end339
-  %retval.sroa.0.0 = phi i64 [ %183, %if.end339 ], [ undef, %if.end322 ], [ undef, %if.then328 ], [ undef, %if.end336 ]
-  %retval.sroa.15.0 = phi i8 [ 1, %if.end339 ], [ 0, %if.end322 ], [ 0, %if.then328 ], [ 0, %if.end336 ]
+  %retval.sroa.0.1 = phi i64 [ %183, %if.end339 ], [ undef, %if.end322 ], [ undef, %if.then328 ], [ undef, %if.end336 ]
+  %retval.sroa.15.1 = phi i8 [ 1, %if.end339 ], [ 0, %if.end322 ], [ 0, %if.then328 ], [ 0, %if.end336 ]
   %184 = load ptr, ptr %invalids, align 8
   %cmp.i.i.i451 = icmp eq ptr %184, %add.ptr.i.i.i.i.i432
   br i1 %cmp.i.i.i451, label %return, label %if.then.i.i
@@ -4095,10 +4095,10 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.end63, %if.then.i.i, %cleanup, %if.end317, %if.end302, %if.end297, %if.then270, %if.then248, %if.end224, %if.end190, %if.then150, %if.then130, %if.then107, %if.then87, %if.end69, %if.then46, %if.then27, %if.then9, %if.end305, %if.then290, %if.end276, %if.end258, %if.end234, %if.then217, %if.end193, %if.then180, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit292, %if.end138, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit222, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit178, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit136, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit88, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit44, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit
-  %retval.sroa.0.1 = phi i64 [ %16, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit ], [ %36, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit44 ], [ %52, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit88 ], [ %68, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit136 ], [ %84, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit178 ], [ %99, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit222 ], [ %109, %if.end138 ], [ %126, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit292 ], [ %139, %if.end193 ], [ undef, %if.then180 ], [ %150, %if.end234 ], [ undef, %if.then217 ], [ %157, %if.end258 ], [ %164, %if.end276 ], [ %174, %if.end305 ], [ undef, %if.then290 ], [ undef, %if.then9 ], [ undef, %if.then27 ], [ undef, %if.then46 ], [ undef, %if.end69 ], [ undef, %if.then87 ], [ undef, %if.then107 ], [ undef, %if.then130 ], [ undef, %if.then150 ], [ undef, %if.end190 ], [ undef, %if.end224 ], [ undef, %if.then248 ], [ undef, %if.then270 ], [ undef, %if.end297 ], [ undef, %if.end302 ], [ undef, %if.end317 ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i ], [ undef, %if.end63 ]
-  %retval.sroa.15.1 = phi i8 [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit44 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit88 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit136 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit178 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit222 ], [ 1, %if.end138 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit292 ], [ 1, %if.end193 ], [ 0, %if.then180 ], [ 1, %if.end234 ], [ 0, %if.then217 ], [ 1, %if.end258 ], [ 1, %if.end276 ], [ 1, %if.end305 ], [ 0, %if.then290 ], [ 0, %if.then9 ], [ 0, %if.then27 ], [ 0, %if.then46 ], [ 0, %if.end69 ], [ 0, %if.then87 ], [ 0, %if.then107 ], [ 0, %if.then130 ], [ 0, %if.then150 ], [ 0, %if.end190 ], [ 0, %if.end224 ], [ 0, %if.then248 ], [ 0, %if.then270 ], [ 0, %if.end297 ], [ 0, %if.end302 ], [ 0, %if.end317 ], [ %retval.sroa.15.0, %cleanup ], [ %retval.sroa.15.0, %if.then.i.i ], [ 0, %if.end63 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.15.1, 1
+  %retval.sroa.0.0 = phi i64 [ %16, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit ], [ %36, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit44 ], [ %52, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit88 ], [ %68, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit136 ], [ %84, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit178 ], [ %99, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit222 ], [ %109, %if.end138 ], [ %126, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit292 ], [ %139, %if.end193 ], [ undef, %if.then180 ], [ %150, %if.end234 ], [ undef, %if.then217 ], [ %157, %if.end258 ], [ %164, %if.end276 ], [ %174, %if.end305 ], [ undef, %if.then290 ], [ undef, %if.then9 ], [ undef, %if.then27 ], [ undef, %if.then46 ], [ undef, %if.end69 ], [ undef, %if.then87 ], [ undef, %if.then107 ], [ undef, %if.then130 ], [ undef, %if.then150 ], [ undef, %if.end190 ], [ undef, %if.end224 ], [ undef, %if.then248 ], [ undef, %if.then270 ], [ undef, %if.end297 ], [ undef, %if.end302 ], [ undef, %if.end317 ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i ], [ undef, %if.end63 ]
+  %retval.sroa.15.0 = phi i8 [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit44 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit88 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit136 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit178 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit222 ], [ 1, %if.end138 ], [ 1, %_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b.exit292 ], [ 1, %if.end193 ], [ 0, %if.then180 ], [ 1, %if.end234 ], [ 0, %if.then217 ], [ 1, %if.end258 ], [ 1, %if.end276 ], [ 1, %if.end305 ], [ 0, %if.then290 ], [ 0, %if.then9 ], [ 0, %if.then27 ], [ 0, %if.then46 ], [ 0, %if.end69 ], [ 0, %if.then87 ], [ 0, %if.then107 ], [ 0, %if.then130 ], [ 0, %if.then150 ], [ 0, %if.end190 ], [ 0, %if.end224 ], [ 0, %if.then248 ], [ 0, %if.then270 ], [ 0, %if.end297 ], [ 0, %if.end302 ], [ 0, %if.end317 ], [ %retval.sroa.15.1, %cleanup ], [ %retval.sroa.15.1, %if.then.i.i ], [ 0, %if.end63 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.15.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
@@ -8339,8 +8339,8 @@ _ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilist
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end38, %if.then26, %if.then21, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit
-  %retval.sroa.0.0 = phi i64 [ %46, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit ], [ undef, %if.then21 ], [ undef, %if.then26 ], [ undef, %if.end38 ]
-  %retval.sroa.4.0 = phi i8 [ 1, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit ], [ 0, %if.then21 ], [ 0, %if.then26 ], [ 0, %if.end38 ]
+  %retval.sroa.0.1 = phi i64 [ %46, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit ], [ undef, %if.then21 ], [ undef, %if.then26 ], [ undef, %if.end38 ]
+  %retval.sroa.4.1 = phi i8 [ 1, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit ], [ 0, %if.then21 ], [ 0, %if.then26 ], [ 0, %if.end38 ]
   %47 = load ptr, ptr %invalids, align 8
   %cmp.i.i.i = icmp eq ptr %47, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %return, label %if.then.i.i
@@ -8432,10 +8432,10 @@ if.end73:                                         ; preds = %if.end19
   br label %return
 
 return:                                           ; preds = %if.then55, %if.then.i.i, %cleanup, %if.end, %if.then, %if.end73, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit80, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.1 = phi i64 [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %63, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit80 ], [ undef, %if.end73 ], [ undef, %if.then ], [ undef, %if.end ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i ], [ undef, %if.then55 ]
-  %retval.sroa.4.1 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 1, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit80 ], [ 0, %if.end73 ], [ 0, %if.then ], [ 0, %if.end ], [ %retval.sroa.4.0, %cleanup ], [ %retval.sroa.4.0, %if.then.i.i ], [ 0, %if.then55 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.4.1, 1
+  %retval.sroa.0.0 = phi i64 [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %63, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit80 ], [ undef, %if.end73 ], [ undef, %if.then ], [ undef, %if.end ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i ], [ undef, %if.then55 ]
+  %retval.sroa.4.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 1, %_ZN6hermes6ESTree26ExportNamedDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_PNS_12UniqueStringE.exit80 ], [ 0, %if.end73 ], [ 0, %if.then ], [ 0, %if.end ], [ %retval.sroa.4.1, %cleanup ], [ %retval.sroa.4.1, %if.then.i.i ], [ 0, %if.then55 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
@@ -11006,7 +11006,7 @@ lor.lhs.false63:                                  ; preds = %lor.lhs.false
   br i1 %tobool65, label %land.lhs.true66, label %if.end88
 
 land.lhs.true66:                                  ; preds = %if.else45, %if.end43, %if.end61.thread90, %lor.lhs.false63
-  %isFunction.189 = phi i8 [ 0, %lor.lhs.false63 ], [ 1, %if.end61.thread90 ], [ 1, %if.end43 ], [ 1, %if.else45 ]
+  %isFunction.089 = phi i8 [ 0, %lor.lhs.false63 ], [ 1, %if.end61.thread90 ], [ 1, %if.end43 ], [ 1, %if.else45 ]
   %rest.088 = phi ptr [ null, %lor.lhs.false63 ], [ null, %if.end61.thread90 ], [ %24, %if.end43 ], [ null, %if.else45 ]
   %type.087 = phi ptr [ %30, %lor.lhs.false63 ], [ %30, %if.end61.thread90 ], [ null, %if.end43 ], [ null, %if.else45 ]
   %call67 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #10
@@ -11077,7 +11077,7 @@ if.else82:                                        ; preds = %while.body
 if.end88:                                         ; preds = %if.else82, %while.cond, %if.else82.us, %while.cond.us, %if.then79, %land.lhs.true66, %lor.lhs.false63
   %type.086 = phi ptr [ %type.087, %if.then79 ], [ %type.087, %land.lhs.true66 ], [ %30, %lor.lhs.false63 ], [ %type.087, %while.cond.us ], [ %type.087, %if.else82.us ], [ %type.087, %while.cond ], [ %type.087, %if.else82 ]
   %rest.1 = phi ptr [ %40, %if.then79 ], [ %rest.088, %land.lhs.true66 ], [ null, %lor.lhs.false63 ], [ null, %while.cond.us ], [ null, %if.else82.us ], [ %rest.088, %while.cond ], [ %rest.088, %if.else82 ]
-  %isFunction.2 = phi i8 [ 1, %if.then79 ], [ %isFunction.189, %land.lhs.true66 ], [ 0, %lor.lhs.false63 ], [ 1, %while.cond.us ], [ 1, %if.else82.us ], [ 1, %while.cond ], [ 1, %if.else82 ]
+  %isFunction.2 = phi i8 [ 1, %if.then79 ], [ %isFunction.089, %land.lhs.true66 ], [ 0, %lor.lhs.false63 ], [ 1, %while.cond.us ], [ 1, %if.else82.us ], [ 1, %while.cond ], [ 1, %if.else82 ]
   %call91 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr %retval.sroa.0.0.copyload.i.i) #10
   br i1 %call91, label %if.end93, label %return
 
@@ -15120,8 +15120,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end52, %entry
-  %optKind.sroa.0.0 = phi i32 [ %optKind.sroa.0.0.extract.trunc, %entry ], [ %optKind.sroa.0.1, %if.end52 ]
-  %optKind.sroa.7.0 = phi i8 [ %optKind.sroa.7.0.extract.trunc, %entry ], [ %optKind.sroa.7.1, %if.end52 ]
+  %optKind.sroa.0.0 = phi i32 [ %optKind.sroa.0.0.extract.trunc, %entry ], [ %optKind.sroa.0.2, %if.end52 ]
+  %optKind.sroa.7.0 = phi i8 [ %optKind.sroa.7.0.extract.trunc, %entry ], [ %optKind.sroa.7.2, %if.end52 ]
   %1 = load ptr, ptr %tok_.i, align 8
   %2 = load i32, ptr %1, align 8
   switch i32 %2, label %if.end10 [
@@ -15240,8 +15240,8 @@ if.then29:                                        ; preds = %if.then24
   br label %return
 
 if.end52:                                         ; preds = %if.end20, %if.then24
-  %optKind.sroa.0.1 = phi i32 [ %optKind.sroa.0.0, %if.then24 ], [ %switch.tableidx., %if.end20 ]
-  %optKind.sroa.7.1 = phi i8 [ %optKind.sroa.7.0, %if.then24 ], [ %., %if.end20 ]
+  %optKind.sroa.0.2 = phi i32 [ %optKind.sroa.0.0, %if.then24 ], [ %switch.tableidx., %if.end20 ]
+  %optKind.sroa.7.2 = phi i8 [ %optKind.sroa.7.0, %if.then24 ], [ %., %if.end20 ]
   %18 = load ptr, ptr %members, align 8
   %Next2.i.i.i.i.i147 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %members, ptr %Next2.i.i.i.i.i147, align 8
@@ -15253,10 +15253,10 @@ if.end52:                                         ; preds = %if.end20, %if.then2
   br i1 %call53, label %while.cond, label %while.end, !llvm.loop !45
 
 while.end:                                        ; preds = %while.cond, %if.end52, %if.then
-  %optKind.sroa.0.2 = phi i32 [ %optKind.sroa.0.0, %if.then ], [ %optKind.sroa.0.1, %if.end52 ], [ %optKind.sroa.0.0, %while.cond ]
-  %optKind.sroa.7.2 = phi i8 [ %optKind.sroa.7.0, %if.then ], [ %optKind.sroa.7.1, %if.end52 ], [ %optKind.sroa.7.0, %while.cond ]
+  %optKind.sroa.0.1 = phi i32 [ %optKind.sroa.0.0, %if.then ], [ %optKind.sroa.0.2, %if.end52 ], [ %optKind.sroa.0.0, %while.cond ]
+  %optKind.sroa.7.1 = phi i8 [ %optKind.sroa.7.0, %if.then ], [ %optKind.sroa.7.2, %if.end52 ], [ %optKind.sroa.7.0, %while.cond ]
   %hasUnknownMembers.0 = phi i8 [ 1, %if.then ], [ 0, %if.end52 ], [ 0, %while.cond ]
-  %optKind.sroa.7.2.fr = freeze i8 %optKind.sroa.7.2
+  %optKind.sroa.7.1.fr = freeze i8 %optKind.sroa.7.1
   %19 = load ptr, ptr %members, align 8
   %cmp.i.i = icmp eq ptr %19, %members
   br i1 %cmp.i.i, label %if.end97, label %if.then57
@@ -15314,11 +15314,11 @@ for.end:                                          ; preds = %for.inc, %if.then57
   br i1 %cmp.i.i.i.i.i, label %if.then84, label %if.end97
 
 if.then84:                                        ; preds = %for.end
-  %tobool.i171 = trunc i8 %optKind.sroa.7.2.fr to i1
+  %tobool.i171 = trunc i8 %optKind.sroa.7.1.fr to i1
   br i1 %tobool.i171, label %switch.early.test, label %if.end97
 
 switch.early.test:                                ; preds = %if.then84
-  switch i32 %optKind.sroa.0.2, label %if.then91 [
+  switch i32 %optKind.sroa.0.1, label %if.then91 [
     i32 3, label %if.end97
     i32 0, label %if.end97
   ]
@@ -15345,7 +15345,7 @@ if.end104:                                        ; preds = %if.end97
   %tobool.i179 = trunc i8 %explicitTypeStart.coerce1 to i1
   %30 = inttoptr i64 %explicitTypeStart.coerce0 to ptr
   %spec.select = select i1 %tobool.i179, ptr %30, ptr %retval.sroa.0.0.copyload.i.i
-  %tobool.i181 = trunc i8 %optKind.sroa.7.2.fr to i1
+  %tobool.i181 = trunc i8 %optKind.sroa.7.1.fr to i1
   %31 = load ptr, ptr %this, align 8
   %state_.i.i.i183 = getelementptr inbounds i8, ptr %31, i64 24
   %32 = load ptr, ptr %state_.i.i.i183, align 8
@@ -15430,7 +15430,7 @@ _ZN6hermes6ESTree18EnumStringBodyNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEbb.e
   br label %return
 
 if.end122:                                        ; preds = %if.end104
-  switch i32 %optKind.sroa.0.2, label %sw.epilog [
+  switch i32 %optKind.sroa.0.1, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb134
     i32 2, label %sw.bb145

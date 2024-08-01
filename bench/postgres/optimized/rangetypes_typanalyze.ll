@@ -86,8 +86,8 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
 32:                                               ; preds = %.lr.ph, %97
   %.0186227 = phi i32 [ 0, %.lr.ph ], [ %.1187, %97 ]
   %.0189226 = phi i32 [ 0, %.lr.ph ], [ %.1190, %97 ]
-  %.0191225 = phi i32 [ 0, %.lr.ph ], [ %.2193, %97 ]
-  %.0194224 = phi i32 [ 0, %.lr.ph ], [ %.2196, %97 ]
+  %.0191225 = phi i32 [ 0, %.lr.ph ], [ %.1192, %97 ]
+  %.0194224 = phi i32 [ 0, %.lr.ph ], [ %.1195, %97 ]
   %.0197223 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1198, %97 ]
   %.0199222 = phi i32 [ 0, %.lr.ph ], [ %98, %97 ]
   call void @vacuum_delay_point() #4
@@ -206,15 +206,15 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br label %95
 
 95:                                               ; preds = %93, %90
-  %.1195 = phi i32 [ %94, %93 ], [ %.0194224, %90 ]
-  %.1192 = phi i32 [ %.0191225, %93 ], [ %92, %90 ]
+  %.2196 = phi i32 [ %94, %93 ], [ %.0194224, %90 ]
+  %.2193 = phi i32 [ %.0191225, %93 ], [ %92, %90 ]
   %96 = add i32 %.0189226, 1
   br label %97
 
 97:                                               ; preds = %95, %36
   %.1198 = phi double [ %.0197223, %36 ], [ %65, %95 ]
-  %.2196 = phi i32 [ %.0194224, %36 ], [ %.1195, %95 ]
-  %.2193 = phi i32 [ %.0191225, %36 ], [ %.1192, %95 ]
+  %.1195 = phi i32 [ %.0194224, %36 ], [ %.2196, %95 ]
+  %.1192 = phi i32 [ %.0191225, %36 ], [ %.2193, %95 ]
   %.1190 = phi i32 [ %.0189226, %36 ], [ %96, %95 ]
   %.1187 = phi i32 [ %37, %36 ], [ %.0186227, %95 ]
   %98 = add nuw nsw i32 %.0199222, 1
@@ -222,7 +222,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %97
-  %99 = sitofp i32 %.2196 to double
+  %99 = sitofp i32 %.1195 to double
   %100 = icmp sgt i32 %.1190, 0
   br i1 %100, label %101, label %191
 
@@ -248,20 +248,20 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %116, ptr @CurrentMemoryContext, align 8
-  %118 = icmp sgt i32 %.2193, 1
+  %118 = icmp sgt i32 %.1192, 1
   br i1 %118, label %119, label %.thread
 
 119:                                              ; preds = %101
-  %120 = zext nneg i32 %.2193 to i64
+  %120 = zext nneg i32 %.1192 to i64
   call void @qsort_interruptible(ptr noundef %24, i64 noundef %120, i64 noundef 16, ptr noundef nonnull @range_bound_qsort_cmp, ptr noundef %.0) #4
   call void @qsort_interruptible(ptr noundef %25, i64 noundef %120, i64 noundef 16, ptr noundef nonnull @range_bound_qsort_cmp, ptr noundef %.0) #4
-  %121 = icmp sgt i32 %.2193, %12
+  %121 = icmp sgt i32 %.1192, %12
   %122 = add nsw i32 %12, 1
-  %spec.select = select i1 %121, i32 %122, i32 %.2193
+  %spec.select = select i1 %121, i32 %122, i32 %.1192
   %123 = sext i32 %spec.select to i64
   %124 = shl nsw i64 %123, 3
   %125 = call ptr @palloc(i64 noundef %124) #4
-  %126 = add nsw i32 %.2193, -1
+  %126 = add nsw i32 %.1192, -1
   %127 = add nsw i32 %spec.select, -1
   %128 = sdiv i32 %126, %127
   %129 = srem i32 %126, %127

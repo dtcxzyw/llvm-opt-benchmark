@@ -1061,12 +1061,12 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit97:       ; preds = %142, %137, %_ZN5Ipo
   br label %161
 
 161:                                              ; preds = %157, %159
-  %.158 = phi i1 [ %.057, %159 ], [ true, %157 ]
+  %.259 = phi i1 [ %.057, %159 ], [ true, %157 ]
   %.pn73 = phi { ptr, i32 } [ %160, %159 ], [ %158, %157 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #10
-  br i1 %.158, label %162, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit99
+  br i1 %.259, label %162, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit99
 
 162:                                              ; preds = %.thread, %161
   %.pn73.pn292 = phi { ptr, i32 } [ %156, %.thread ], [ %.pn73, %161 ]

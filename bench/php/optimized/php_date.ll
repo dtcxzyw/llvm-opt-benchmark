@@ -3191,7 +3191,7 @@ define internal fastcc ptr @date_format(ptr nocapture noundef readonly %0, i64 n
   br label %66
 
 66:                                               ; preds = %52, %421
-  %.0176223 = phi i32 [ 0, %52 ], [ %.3, %421 ]
+  %.0176223 = phi i32 [ 0, %52 ], [ %.1, %421 ]
   %.0179222 = phi i32 [ 0, %52 ], [ %.1180, %421 ]
   %.0181220 = phi i64 [ 0, %52 ], [ %429, %421 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 %.0181220
@@ -3791,7 +3791,7 @@ php_date_short_day_name.exit206:                  ; preds = %368, %374
 412:                                              ; preds = %313, %324, %321, %317, %315, %410, %405, %400, %363, %338, %309, %301, %287, %268, %260, %256, %252, %248, %244, %237, %233, %226, %217, %212, %207, %201, %193, %187, %182, %178, %162, %158, %152, %148, %142, %139, %130, %118, %111, %104, %english_suffix.exit, %php_date_full_day_name.exit, %83, %php_date_short_day_name.exit, %69
   %.2183 = phi i64 [ %.1182, %410 ], [ %.0181220, %405 ], [ %.0181220, %400 ], [ %.0181220, %363 ], [ %.0181220, %338 ], [ %.0181220, %315 ], [ %.0181220, %324 ], [ %.0181220, %321 ], [ %.0181220, %317 ], [ %.0181220, %313 ], [ %.0181220, %309 ], [ %.0181220, %301 ], [ %.0181220, %287 ], [ %.0181220, %268 ], [ %.0181220, %260 ], [ %.0181220, %256 ], [ %.0181220, %252 ], [ %.0181220, %248 ], [ %.0181220, %244 ], [ %.0181220, %237 ], [ %.0181220, %233 ], [ %.0181220, %226 ], [ %.0181220, %217 ], [ %.0181220, %212 ], [ %.0181220, %207 ], [ %.0181220, %201 ], [ %.0181220, %193 ], [ %.0181220, %187 ], [ %.0181220, %182 ], [ %.0181220, %178 ], [ %.0181220, %162 ], [ %.0181220, %158 ], [ %.0181220, %152 ], [ %.0181220, %148 ], [ %.0181220, %142 ], [ %.0181220, %139 ], [ %.0181220, %130 ], [ %.0181220, %118 ], [ %.0181220, %111 ], [ %.0181220, %104 ], [ %.0181220, %english_suffix.exit ], [ %.0181220, %php_date_full_day_name.exit ], [ %.0181220, %83 ], [ %.0181220, %php_date_short_day_name.exit ], [ %.0181220, %69 ]
   %.1180 = phi i32 [ 1, %410 ], [ %407, %405 ], [ %404, %400 ], [ %367, %363 ], [ %340, %338 ], [ %.0179222, %315 ], [ %334, %324 ], [ %323, %321 ], [ %320, %317 ], [ %314, %313 ], [ %311, %309 ], [ %305, %301 ], [ %288, %287 ], [ %270, %268 ], [ %264, %260 ], [ %259, %256 ], [ %255, %252 ], [ %251, %248 ], [ %247, %244 ], [ %243, %237 ], [ %236, %233 ], [ %232, %226 ], [ %225, %217 ], [ %216, %212 ], [ %211, %207 ], [ %206, %201 ], [ %200, %193 ], [ %192, %187 ], [ %186, %182 ], [ %181, %178 ], [ %167, %162 ], [ %161, %158 ], [ %157, %152 ], [ %151, %148 ], [ %147, %142 ], [ %141, %139 ], [ %133, %130 ], [ %124, %118 ], [ %117, %111 ], [ %110, %104 ], [ %103, %english_suffix.exit ], [ %96, %php_date_full_day_name.exit ], [ %86, %83 ], [ %82, %php_date_short_day_name.exit ], [ %72, %69 ]
-  %.3 = phi i32 [ %.0176223, %410 ], [ %.0176223, %405 ], [ %.0176223, %400 ], [ %.0176223, %363 ], [ %.0176223, %338 ], [ %.0176223, %315 ], [ %.0176223, %324 ], [ %.0176223, %321 ], [ %.0176223, %317 ], [ %.0176223, %313 ], [ %.0176223, %309 ], [ %.0176223, %301 ], [ %.0176223, %287 ], [ %.0176223, %268 ], [ %.0176223, %260 ], [ %.0176223, %256 ], [ %.0176223, %252 ], [ %.0176223, %248 ], [ %.0176223, %244 ], [ %.0176223, %237 ], [ %.0176223, %233 ], [ %.0176223, %226 ], [ %.0176223, %217 ], [ %.0176223, %212 ], [ %.0176223, %207 ], [ %.0176223, %201 ], [ %.0176223, %193 ], [ %.0176223, %187 ], [ %.0176223, %182 ], [ %.0176223, %178 ], [ %.0176223, %162 ], [ %.0176223, %158 ], [ %.0176223, %152 ], [ %.0176223, %148 ], [ %.0176223, %142 ], [ 1, %139 ], [ 1, %130 ], [ %.0176223, %118 ], [ %.0176223, %111 ], [ %.0176223, %104 ], [ %.0176223, %english_suffix.exit ], [ %.0176223, %php_date_full_day_name.exit ], [ %.0176223, %83 ], [ %.0176223, %php_date_short_day_name.exit ], [ %.0176223, %69 ]
+  %.1 = phi i32 [ %.0176223, %410 ], [ %.0176223, %405 ], [ %.0176223, %400 ], [ %.0176223, %363 ], [ %.0176223, %338 ], [ %.0176223, %315 ], [ %.0176223, %324 ], [ %.0176223, %321 ], [ %.0176223, %317 ], [ %.0176223, %313 ], [ %.0176223, %309 ], [ %.0176223, %301 ], [ %.0176223, %287 ], [ %.0176223, %268 ], [ %.0176223, %260 ], [ %.0176223, %256 ], [ %.0176223, %252 ], [ %.0176223, %248 ], [ %.0176223, %244 ], [ %.0176223, %237 ], [ %.0176223, %233 ], [ %.0176223, %226 ], [ %.0176223, %217 ], [ %.0176223, %212 ], [ %.0176223, %207 ], [ %.0176223, %201 ], [ %.0176223, %193 ], [ %.0176223, %187 ], [ %.0176223, %182 ], [ %.0176223, %178 ], [ %.0176223, %162 ], [ %.0176223, %158 ], [ %.0176223, %152 ], [ %.0176223, %148 ], [ %.0176223, %142 ], [ 1, %139 ], [ 1, %130 ], [ %.0176223, %118 ], [ %.0176223, %111 ], [ %.0176223, %104 ], [ %.0176223, %english_suffix.exit ], [ %.0176223, %php_date_full_day_name.exit ], [ %.0176223, %83 ], [ %.0176223, %php_date_short_day_name.exit ], [ %.0176223, %69 ]
   %413 = sext i32 %.1180 to i64
   %414 = load ptr, ptr %5, align 8
   %.not201 = icmp eq ptr %414, null
@@ -4131,7 +4131,7 @@ define i32 @php_idate(i8 noundef signext %0, i64 noundef %1, i1 noundef zeroext 
   br label %150
 
 150:                                              ; preds = %93, %100, %98, %146, %138, %134, %130, %123, %114, %111, %108, %104, %88, %85, %82, %76, %70, %64, %61, %55
-  %.1 = phi i32 [ -1, %55 ], [ %149, %146 ], [ %141, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %123 ], [ %.sext, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %104 ], [ %92, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %76 ], [ %75, %70 ], [ %69, %64 ], [ %63, %61 ], [ 0, %93 ], [ 1, %98 ], [ %103, %100 ]
+  %.073 = phi i32 [ -1, %55 ], [ %149, %146 ], [ %141, %138 ], [ %137, %134 ], [ %133, %130 ], [ %129, %123 ], [ %.sext, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %104 ], [ %92, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %76 ], [ %75, %70 ], [ %69, %64 ], [ %63, %61 ], [ 0, %93 ], [ 1, %98 ], [ %103, %100 ]
   br i1 %2, label %.thread78, label %.thread82
 
 .thread82.sink.split:                             ; preds = %145, %143
@@ -4140,14 +4140,14 @@ define i32 @php_idate(i8 noundef signext %0, i64 noundef %1, i1 noundef zeroext 
   br label %.thread82
 
 .thread82:                                        ; preds = %.thread82.sink.split, %150
-  %.184 = phi i32 [ %.1, %150 ], [ %151, %.thread82.sink.split ]
+  %.07384 = phi i32 [ %.073, %150 ], [ %151, %.thread82.sink.split ]
   call void @timelib_time_offset_dtor(ptr noundef %.0) #25
   br label %.thread78
 
 .thread78:                                        ; preds = %142, %145, %.thread82, %150
-  %.180 = phi i32 [ %.184, %.thread82 ], [ %.1, %150 ], [ 0, %145 ], [ 0, %142 ]
+  %.07380 = phi i32 [ %.07384, %.thread82 ], [ %.073, %150 ], [ 0, %145 ], [ 0, %142 ]
   call void @timelib_time_dtor(ptr noundef nonnull %6) #25
-  ret i32 %.180
+  ret i32 %.07380
 }
 
 declare ptr @timelib_time_offset_ctor() local_unnamed_addr #5
@@ -4362,7 +4362,7 @@ define hidden void @zif_idate(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread124:                                       ; preds = %24, %20
   %storemerge = phi i64 [ %25, %24 ], [ 0, %20 ]
-  %.1 = phi i1 [ false, %24 ], [ true, %20 ]
+  %.2 = phi i1 [ false, %24 ], [ true, %20 ]
   store i64 %storemerge, ptr %5, align 8
   br label %.thread131
 
@@ -4380,7 +4380,7 @@ define hidden void @zif_idate(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %56
 
 .thread131:                                       ; preds = %.thread124, %18
-  %.3.ph = phi i1 [ %.1, %.thread124 ], [ true, %18 ]
+  %.0100.ph = phi i1 [ %.2, %.thread124 ], [ true, %18 ]
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
@@ -4401,7 +4401,7 @@ define hidden void @zif_idate(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %56
 
 36:                                               ; preds = %.thread131
-  br i1 %.3.ph, label %38, label %._crit_edge
+  br i1 %.0100.ph, label %38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread131.thread, %36
   %37 = phi ptr [ %28, %36 ], [ %31, %.thread131.thread ]
@@ -4595,7 +4595,7 @@ define hidden void @zif_strtotime(ptr noundef %0, ptr nocapture noundef writeonl
 
 .thread143:                                       ; preds = %26, %22
   %storemerge = phi i64 [ %27, %26 ], [ 0, %22 ]
-  %.1 = phi i1 [ false, %26 ], [ true, %22 ]
+  %.2 = phi i1 [ false, %26 ], [ true, %22 ]
   store i64 %storemerge, ptr %7, align 8
   br label %.thread150
 
@@ -4613,7 +4613,7 @@ define hidden void @zif_strtotime(ptr noundef %0, ptr nocapture noundef writeonl
   br label %73
 
 .thread150:                                       ; preds = %28, %.thread143, %20
-  %.3.ph = phi i1 [ %.1, %.thread143 ], [ true, %20 ], [ false, %28 ]
+  %.0115.ph = phi i1 [ %.2, %.thread143 ], [ true, %20 ], [ false, %28 ]
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
@@ -4636,7 +4636,7 @@ define hidden void @zif_strtotime(ptr noundef %0, ptr nocapture noundef writeonl
   store ptr %37, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 232
   store i32 3, ptr %41, align 8
-  br i1 %.3.ph, label %44, label %42
+  br i1 %.0115.ph, label %44, label %42
 
 42:                                               ; preds = %38
   %43 = load i64, ptr %7, align 8
@@ -4776,7 +4776,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 .thread:                                          ; preds = %31, %27
   %storemerge = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %.1 = phi i1 [ false, %31 ], [ true, %27 ]
+  %.2 = phi i1 [ false, %31 ], [ true, %27 ]
   store i64 %storemerge, ptr %7, align 8
   br label %35
 
@@ -4785,7 +4785,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
   br i1 %34, label %35, label %.thread389
 
 35:                                               ; preds = %.thread, %33
-  %.2330 = phi i1 [ %.1, %.thread ], [ false, %33 ]
+  %.3330 = phi i1 [ %.2, %.thread ], [ false, %33 ]
   %36 = icmp ult i32 %14, 3
   br i1 %36, label %.thread367, label %37
 
@@ -4804,7 +4804,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 .thread331:                                       ; preds = %41, %37
   %storemerge315 = phi i64 [ %42, %41 ], [ 0, %37 ]
-  %.1290 = phi i1 [ false, %41 ], [ true, %37 ]
+  %.2291 = phi i1 [ false, %41 ], [ true, %37 ]
   store i64 %storemerge315, ptr %8, align 8
   br label %45
 
@@ -4813,7 +4813,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
   br i1 %44, label %45, label %.thread389
 
 45:                                               ; preds = %.thread331, %43
-  %.2291334 = phi i1 [ %.1290, %.thread331 ], [ false, %43 ]
+  %.3292334 = phi i1 [ %.2291, %.thread331 ], [ false, %43 ]
   %46 = icmp eq i32 %14, 3
   br i1 %46, label %.thread367, label %47
 
@@ -4832,7 +4832,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 .thread335:                                       ; preds = %51, %47
   %storemerge316 = phi i64 [ %52, %51 ], [ 0, %47 ]
-  %.1294 = phi i1 [ false, %51 ], [ true, %47 ]
+  %.2295 = phi i1 [ false, %51 ], [ true, %47 ]
   store i64 %storemerge316, ptr %9, align 8
   br label %55
 
@@ -4841,7 +4841,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
   br i1 %54, label %55, label %.thread389
 
 55:                                               ; preds = %.thread335, %53
-  %.2295338 = phi i1 [ %.1294, %.thread335 ], [ false, %53 ]
+  %.3296338 = phi i1 [ %.2295, %.thread335 ], [ false, %53 ]
   %56 = icmp ult i32 %14, 5
   br i1 %56, label %.thread367, label %57
 
@@ -4860,7 +4860,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 .thread339:                                       ; preds = %61, %57
   %storemerge317 = phi i64 [ %62, %61 ], [ 0, %57 ]
-  %.1298 = phi i1 [ false, %61 ], [ true, %57 ]
+  %.2299 = phi i1 [ false, %61 ], [ true, %57 ]
   store i64 %storemerge317, ptr %10, align 8
   br label %65
 
@@ -4869,7 +4869,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
   br i1 %64, label %65, label %.thread389
 
 65:                                               ; preds = %.thread339, %63
-  %.2299342 = phi i1 [ %.1298, %.thread339 ], [ false, %63 ]
+  %.3300342 = phi i1 [ %.2299, %.thread339 ], [ false, %63 ]
   %.not = icmp eq i32 %14, 6
   br i1 %.not, label %66, label %.thread367
 
@@ -4888,7 +4888,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 .thread360:                                       ; preds = %70, %66
   %storemerge318 = phi i64 [ %71, %70 ], [ 0, %66 ]
-  %.1302 = phi i1 [ false, %70 ], [ true, %66 ]
+  %.2303 = phi i1 [ false, %70 ], [ true, %66 ]
   store i64 %storemerge318, ptr %11, align 8
   br label %.thread367
 
@@ -4906,11 +4906,11 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
   br label %126
 
 .thread367:                                       ; preds = %72, %.thread360, %65, %55, %45, %35, %25
-  %.3304.ph = phi i1 [ %.1302, %.thread360 ], [ true, %65 ], [ true, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ false, %72 ]
-  %.3300.ph = phi i1 [ %.2299342, %.thread360 ], [ %.2299342, %65 ], [ true, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ %.2299342, %72 ]
-  %.3296.ph = phi i1 [ %.2295338, %.thread360 ], [ %.2295338, %65 ], [ %.2295338, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ %.2295338, %72 ]
-  %.3292.ph = phi i1 [ %.2291334, %.thread360 ], [ %.2291334, %65 ], [ %.2291334, %55 ], [ %.2291334, %45 ], [ true, %35 ], [ true, %25 ], [ %.2291334, %72 ]
-  %.3.ph = phi i1 [ %.2330, %.thread360 ], [ %.2330, %65 ], [ %.2330, %55 ], [ %.2330, %45 ], [ %.2330, %35 ], [ true, %25 ], [ %.2330, %72 ]
+  %.0301.ph = phi i1 [ %.2303, %.thread360 ], [ true, %65 ], [ true, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ false, %72 ]
+  %.0297.ph = phi i1 [ %.3300342, %.thread360 ], [ %.3300342, %65 ], [ true, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ %.3300342, %72 ]
+  %.0293.ph = phi i1 [ %.3296338, %.thread360 ], [ %.3296338, %65 ], [ %.3296338, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ %.3296338, %72 ]
+  %.0289.ph = phi i1 [ %.3292334, %.thread360 ], [ %.3292334, %65 ], [ %.3292334, %55 ], [ %.3292334, %45 ], [ true, %35 ], [ true, %25 ], [ %.3292334, %72 ]
+  %.0288.ph = phi i1 [ %.3330, %.thread360 ], [ %.3330, %65 ], [ %.3330, %55 ], [ %.3330, %45 ], [ %.3330, %35 ], [ true, %25 ], [ %.3330, %72 ]
   %74 = call ptr @timelib_time_ctor() #25
   br i1 %2, label %75, label %81
 
@@ -4968,7 +4968,7 @@ php_time.exit327:                                 ; preds = %87, %89
   %92 = load i64, ptr %6, align 8
   %93 = getelementptr inbounds i8, ptr %74, i64 24
   store i64 %92, ptr %93, align 8
-  br i1 %.3.ph, label %97, label %94
+  br i1 %.0288.ph, label %97, label %94
 
 94:                                               ; preds = %91
   %95 = load i64, ptr %7, align 8
@@ -4977,7 +4977,7 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %97
 
 97:                                               ; preds = %94, %91
-  br i1 %.3292.ph, label %101, label %98
+  br i1 %.0289.ph, label %101, label %98
 
 98:                                               ; preds = %97
   %99 = load i64, ptr %8, align 8
@@ -4986,7 +4986,7 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %101
 
 101:                                              ; preds = %98, %97
-  br i1 %.3296.ph, label %105, label %102
+  br i1 %.0293.ph, label %105, label %102
 
 102:                                              ; preds = %101
   %103 = load i64, ptr %9, align 8
@@ -4995,7 +4995,7 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %105
 
 105:                                              ; preds = %102, %101
-  br i1 %.3300.ph, label %109, label %106
+  br i1 %.0297.ph, label %109, label %106
 
 106:                                              ; preds = %105
   %107 = load i64, ptr %10, align 8
@@ -5004,7 +5004,7 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %109
 
 109:                                              ; preds = %106, %105
-  br i1 %.3304.ph, label %120, label %110
+  br i1 %.0301.ph, label %120, label %110
 
 110:                                              ; preds = %109
   %111 = load i64, ptr %11, align 8
@@ -5220,7 +5220,7 @@ define void @php_strftime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1
 
 .thread404:                                       ; preds = %26, %22
   %storemerge = phi i64 [ %27, %26 ], [ 0, %22 ]
-  %.1348 = phi i1 [ false, %26 ], [ true, %22 ]
+  %.2 = phi i1 [ false, %26 ], [ true, %22 ]
   store i64 %storemerge, ptr %6, align 8
   br label %.thread396
 
@@ -5238,7 +5238,7 @@ define void @php_strftime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1
   br label %187
 
 .thread396:                                       ; preds = %.thread404, %20
-  %.3403 = phi i1 [ true, %20 ], [ %.1348, %.thread404 ]
+  %.0347403 = phi i1 [ true, %20 ], [ %.2, %.thread404 ]
   %30 = load ptr, ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
@@ -5258,7 +5258,7 @@ define void @php_strftime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1
   br label %187
 
 40:                                               ; preds = %.thread396
-  br i1 %.3403, label %41, label %.thread
+  br i1 %.0347403, label %41, label %.thread
 
 41:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -5629,7 +5629,7 @@ define hidden void @zif_localtime(ptr noundef %0, ptr noundef %1) #0 {
 
 .thread:                                          ; preds = %16, %12
   %storemerge = phi i64 [ %17, %16 ], [ 0, %12 ]
-  %.1 = phi i1 [ false, %16 ], [ true, %12 ]
+  %.2 = phi i1 [ false, %16 ], [ true, %12 ]
   store i64 %storemerge, ptr %4, align 8
   br label %20
 
@@ -5638,7 +5638,7 @@ define hidden void @zif_localtime(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %19, label %20, label %.thread228
 
 20:                                               ; preds = %.thread, %18
-  %.2201 = phi i1 [ %.1, %.thread ], [ false, %18 ]
+  %.3201 = phi i1 [ %.2, %.thread ], [ false, %18 ]
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %21, label %.thread218
 
@@ -5672,7 +5672,7 @@ define hidden void @zif_localtime(ptr noundef %0, ptr noundef %1) #0 {
   br label %101
 
 .thread218:                                       ; preds = %25, %.thread214, %20
-  br i1 %.2201, label %.thread218.thread, label %33
+  br i1 %.3201, label %.thread218.thread, label %33
 
 .thread218.thread:                                ; preds = %10, %.thread218
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -6002,8 +6002,8 @@ define noundef zeroext i1 @php_date_initialize(ptr nocapture noundef %0, ptr nou
 
 27:                                               ; preds = %24, %17
   %storemerge = phi ptr [ %26, %24 ], [ %19, %17 ]
-  %.174 = phi i64 [ %spec.select97, %24 ], [ %2, %17 ]
-  %.2 = phi ptr [ %spec.select98, %24 ], [ %spec.select, %17 ]
+  %.073 = phi i64 [ %spec.select97, %24 ], [ %2, %17 ]
+  %.172 = phi ptr [ %spec.select98, %24 ], [ %spec.select, %17 ]
   store ptr %storemerge, ptr %0, align 8
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @date_globals, i64 24), align 8
   %.not.i = icmp eq ptr %28, null
@@ -6060,7 +6060,7 @@ thread-pre-split:                                 ; preds = %41
   %spec.select99 = sext i8 %narrow to i32
   %50 = getelementptr inbounds i8, ptr %45, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %44, i64 noundef 0, ptr noundef nonnull @.str.39, ptr noundef %.2, i32 noundef %47, i32 noundef %spec.select99, ptr noundef %51) #25
+  %52 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %44, i64 noundef 0, ptr noundef nonnull @.str.39, ptr noundef %.172, i32 noundef %47, i32 noundef %spec.select99, ptr noundef %51) #25
   %.pr.pre = load ptr, ptr %8, align 8
   %.not91 = icmp eq ptr %.pr.pre, null
   br i1 %.not91, label %thread-pre-split.thread124, label %thread-pre-split.thread
@@ -6189,12 +6189,12 @@ thread-pre-split.thread124:                       ; preds = %30, %39, %thread-pr
   %107 = ashr exact i64 %sext, 32
   %108 = getelementptr inbounds i8, ptr %102, i64 48
   store i64 %107, ptr %108, align 8
-  %109 = icmp eq i64 %.174, 3
+  %109 = icmp eq i64 %.073, 3
   %or.cond3 = and i1 %.not86, %109
   br i1 %or.cond3, label %110, label %114
 
 110:                                              ; preds = %101
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.2, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.172, ptr noundef nonnull dereferenceable(3) @.str.38, i64 3)
   %111 = icmp eq i32 %bcmp, 0
   br i1 %111, label %112, label %114
 
@@ -6414,14 +6414,14 @@ define hidden void @zif_date_create(ptr noundef %0, ptr noundef %1) #0 {
   br label %52
 
 .critedge.thread:                                 ; preds = %30, %35, %29, %8, %18, %.critedge
-  %.2106.ph = phi i64 [ %21, %.critedge ], [ %21, %18 ], [ 0, %8 ], [ %21, %29 ], [ %21, %35 ], [ %21, %30 ]
-  %.2103.ph = phi ptr [ %22, %.critedge ], [ %22, %18 ], [ null, %8 ], [ %22, %29 ], [ %22, %35 ], [ %22, %30 ]
-  %.2.ph = phi ptr [ null, %.critedge ], [ null, %18 ], [ null, %8 ], [ %24, %29 ], [ %24, %35 ], [ %24, %30 ]
+  %.0104.ph = phi i64 [ %21, %.critedge ], [ %21, %18 ], [ 0, %8 ], [ %21, %29 ], [ %21, %35 ], [ %21, %30 ]
+  %.0101.ph = phi ptr [ %22, %.critedge ], [ %22, %18 ], [ null, %8 ], [ %22, %29 ], [ %22, %35 ], [ %22, %30 ]
+  %.0100.ph = phi ptr [ null, %.critedge ], [ null, %18 ], [ null, %8 ], [ %24, %29 ], [ %24, %35 ], [ %24, %30 ]
   %45 = load ptr, ptr @date_ce_date, align 8
   %46 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %45) #25
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %48, ptr noundef %.2103.ph, i64 noundef %.2106.ph, ptr noundef null, ptr noundef %.2.ph, i32 noundef 0)
+  %49 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %48, ptr noundef %.0101.ph, i64 noundef %.0104.ph, ptr noundef null, ptr noundef %.0100.ph, i32 noundef 0)
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %.critedge.thread
@@ -6533,14 +6533,14 @@ define hidden void @zif_date_create_immutable(ptr noundef %0, ptr noundef %1) #0
   br label %52
 
 .critedge.thread:                                 ; preds = %30, %35, %29, %8, %18, %.critedge
-  %.2106.ph = phi i64 [ %21, %.critedge ], [ %21, %18 ], [ 0, %8 ], [ %21, %29 ], [ %21, %35 ], [ %21, %30 ]
-  %.2103.ph = phi ptr [ %22, %.critedge ], [ %22, %18 ], [ null, %8 ], [ %22, %29 ], [ %22, %35 ], [ %22, %30 ]
-  %.2.ph = phi ptr [ null, %.critedge ], [ null, %18 ], [ null, %8 ], [ %24, %29 ], [ %24, %35 ], [ %24, %30 ]
+  %.0104.ph = phi i64 [ %21, %.critedge ], [ %21, %18 ], [ 0, %8 ], [ %21, %29 ], [ %21, %35 ], [ %21, %30 ]
+  %.0101.ph = phi ptr [ %22, %.critedge ], [ %22, %18 ], [ null, %8 ], [ %22, %29 ], [ %22, %35 ], [ %22, %30 ]
+  %.0100.ph = phi ptr [ null, %.critedge ], [ null, %18 ], [ null, %8 ], [ %24, %29 ], [ %24, %35 ], [ %24, %30 ]
   %45 = load ptr, ptr @date_ce_immutable, align 8
   %46 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %45) #25
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %48, ptr noundef %.2103.ph, i64 noundef %.2106.ph, ptr noundef null, ptr noundef %.2.ph, i32 noundef 0)
+  %49 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %48, ptr noundef %.0101.ph, i64 noundef %.0104.ph, ptr noundef null, ptr noundef %.0100.ph, i32 noundef 0)
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %.critedge.thread
@@ -6683,7 +6683,7 @@ thread-pre-split:                                 ; preds = %25
   br label %69
 
 .critedge.thread:                                 ; preds = %45, %50, %44, %34, %.critedge
-  %.2165 = phi ptr [ null, %34 ], [ null, %.critedge ], [ %39, %44 ], [ %39, %50 ], [ %39, %45 ]
+  %.0163 = phi ptr [ null, %34 ], [ null, %.critedge ], [ %39, %44 ], [ %39, %50 ], [ %39, %45 ]
   %60 = load ptr, ptr %5, align 8
   %.not181 = icmp eq ptr %60, null
   %61 = load ptr, ptr @date_ce_date, align 8
@@ -6691,7 +6691,7 @@ thread-pre-split:                                 ; preds = %25
   %63 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %62) #25
   %64 = load ptr, ptr %1, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
-  %66 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %65, ptr noundef nonnull %36, i64 noundef %35, ptr noundef nonnull %.ph, ptr noundef %.2165, i32 noundef 2)
+  %66 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %65, ptr noundef nonnull %36, i64 noundef %35, ptr noundef nonnull %.ph, ptr noundef %.0163, i32 noundef 2)
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %.critedge.thread
@@ -6834,7 +6834,7 @@ thread-pre-split:                                 ; preds = %25
   br label %69
 
 .critedge.thread:                                 ; preds = %45, %50, %44, %34, %.critedge
-  %.2165 = phi ptr [ null, %34 ], [ null, %.critedge ], [ %39, %44 ], [ %39, %50 ], [ %39, %45 ]
+  %.0163 = phi ptr [ null, %34 ], [ null, %.critedge ], [ %39, %44 ], [ %39, %50 ], [ %39, %45 ]
   %60 = load ptr, ptr %5, align 8
   %.not181 = icmp eq ptr %60, null
   %61 = load ptr, ptr @date_ce_immutable, align 8
@@ -6842,7 +6842,7 @@ thread-pre-split:                                 ; preds = %25
   %63 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %62) #25
   %64 = load ptr, ptr %1, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
-  %66 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %65, ptr noundef nonnull %36, i64 noundef %35, ptr noundef nonnull %.ph, ptr noundef %.2165, i32 noundef 2)
+  %66 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %65, ptr noundef nonnull %36, i64 noundef %35, ptr noundef nonnull %.ph, ptr noundef %.0163, i32 noundef 2)
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %.critedge.thread
@@ -6953,12 +6953,12 @@ define hidden void @zim_DateTime___construct(ptr noundef %0, ptr nocapture readn
   br label %49
 
 .critedge.thread:                                 ; preds = %31, %36, %30, %9, %19, %.critedge
-  %.2103.ph = phi i64 [ %22, %.critedge ], [ %22, %19 ], [ 0, %9 ], [ %22, %30 ], [ %22, %36 ], [ %22, %31 ]
-  %.2100.ph = phi ptr [ %23, %.critedge ], [ %23, %19 ], [ null, %9 ], [ %23, %30 ], [ %23, %36 ], [ %23, %31 ]
-  %.2.ph = phi ptr [ null, %.critedge ], [ null, %19 ], [ null, %9 ], [ %25, %30 ], [ %25, %36 ], [ %25, %31 ]
+  %.0101.ph = phi i64 [ %22, %.critedge ], [ %22, %19 ], [ 0, %9 ], [ %22, %30 ], [ %22, %36 ], [ %22, %31 ]
+  %.098.ph = phi ptr [ %23, %.critedge ], [ %23, %19 ], [ null, %9 ], [ %23, %30 ], [ %23, %36 ], [ %23, %31 ]
+  %.097.ph = phi ptr [ null, %.critedge ], [ null, %19 ], [ null, %9 ], [ %25, %30 ], [ %25, %36 ], [ %25, %31 ]
   %46 = load ptr, ptr %4, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 -8
-  %48 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %47, ptr noundef %.2100.ph, i64 noundef %.2103.ph, ptr noundef null, ptr noundef %.2.ph, i32 noundef 1)
+  %48 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %47, ptr noundef %.098.ph, i64 noundef %.0101.ph, ptr noundef null, ptr noundef %.097.ph, i32 noundef 1)
   br label %49
 
 49:                                               ; preds = %.critedge.thread, %45
@@ -7063,12 +7063,12 @@ define hidden void @zim_DateTimeImmutable___construct(ptr noundef %0, ptr nocapt
   br label %49
 
 .critedge.thread:                                 ; preds = %31, %36, %30, %9, %19, %.critedge
-  %.2103.ph = phi i64 [ %22, %.critedge ], [ %22, %19 ], [ 0, %9 ], [ %22, %30 ], [ %22, %36 ], [ %22, %31 ]
-  %.2100.ph = phi ptr [ %23, %.critedge ], [ %23, %19 ], [ null, %9 ], [ %23, %30 ], [ %23, %36 ], [ %23, %31 ]
-  %.2.ph = phi ptr [ null, %.critedge ], [ null, %19 ], [ null, %9 ], [ %25, %30 ], [ %25, %36 ], [ %25, %31 ]
+  %.0101.ph = phi i64 [ %22, %.critedge ], [ %22, %19 ], [ 0, %9 ], [ %22, %30 ], [ %22, %36 ], [ %22, %31 ]
+  %.098.ph = phi ptr [ %23, %.critedge ], [ %23, %19 ], [ null, %9 ], [ %23, %30 ], [ %23, %36 ], [ %23, %31 ]
+  %.097.ph = phi ptr [ null, %.critedge ], [ null, %19 ], [ null, %9 ], [ %25, %30 ], [ %25, %36 ], [ %25, %31 ]
   %46 = load ptr, ptr %4, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 -8
-  %48 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %47, ptr noundef %.2100.ph, i64 noundef %.2103.ph, ptr noundef null, ptr noundef %.2.ph, i32 noundef 1)
+  %48 = call zeroext i1 @php_date_initialize(ptr noundef nonnull %47, ptr noundef %.098.ph, i64 noundef %.0101.ph, ptr noundef null, ptr noundef %.097.ph, i32 noundef 1)
   br label %49
 
 49:                                               ; preds = %.critedge.thread, %45
@@ -13559,7 +13559,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
 169:                                              ; preds = %105, %146, %69
   %.sink366 = phi ptr [ %145, %105 ], [ %167, %146 ], [ %92, %69 ]
   %.sink364.in = phi ptr [ %137, %105 ], [ %164, %146 ], [ %89, %69 ]
-  %.1 = phi i32 [ %106, %105 ], [ 0, %146 ], [ 0, %69 ]
+  %.0 = phi i32 [ %106, %105 ], [ 0, %146 ], [ 0, %69 ]
   %.sink364 = load ptr, ptr %.sink364.in, align 8
   %170 = load i32, ptr %.sink366, align 4
   %171 = zext i32 %170 to i64
@@ -13568,7 +13568,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   %173 = load ptr, ptr %1, align 8
   %174 = call ptr @zend_hash_next_index_insert(ptr noundef %173, ptr noundef nonnull %4) #25
   %175 = getelementptr inbounds i8, ptr %27, i64 -24
-  %176 = zext nneg i32 %.1 to i64
+  %176 = zext nneg i32 %.0 to i64
   %177 = load ptr, ptr %175, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 56
   %179 = load i64, ptr %178, align 8
@@ -13725,7 +13725,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
 286:                                              ; preds = %.lr.ph, %295
   %287 = phi ptr [ %177, %.lr.ph ], [ %349, %295 ]
   %288 = phi i64 [ %176, %.lr.ph ], [ %348, %295 ]
-  %.0311339 = phi i32 [ %.1, %.lr.ph ], [ %347, %295 ]
+  %.0311339 = phi i32 [ %.0, %.lr.ph ], [ %347, %295 ]
   %289 = getelementptr inbounds i8, ptr %287, i64 80
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds i64, ptr %290, i64 %288
@@ -17007,11 +17007,11 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 .thread:                                          ; preds = %20, %10, %36
-  %.2154 = phi ptr [ %.1, %36 ], [ null, %10 ], [ null, %20 ]
-  %.2133153 = phi i64 [ %.1132, %36 ], [ 0, %10 ], [ 0, %20 ]
+  %.0130154 = phi ptr [ %.1, %36 ], [ null, %10 ], [ null, %20 ]
+  %.0131153 = phi i64 [ %.1132, %36 ], [ 0, %10 ], [ 0, %20 ]
   %37 = load i64, ptr %5, align 8
   %38 = icmp eq i64 %37, 4096
-  %39 = icmp ne i64 %.2133153, 2
+  %39 = icmp ne i64 %.0131153, 2
   %or.cond = select i1 %38, i1 %39, i1 false
   br i1 %or.cond, label %40, label %43
 
@@ -17044,7 +17044,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %47
   %54 = getelementptr inbounds i8, ptr %48, i64 24
-  %55 = getelementptr inbounds i8, ptr %.2154, i64 1
+  %55 = getelementptr inbounds i8, ptr %.0130154, i64 1
   br label %56
 
 56:                                               ; preds = %.lr.ph, %check_id_allowed.exit
@@ -17069,7 +17069,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   %65 = getelementptr inbounds i8, ptr %59, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
-  %68 = load i8, ptr %.2154, align 1
+  %68 = load i8, ptr %.0130154, align 1
   %69 = sext i8 %68 to i32
   %70 = icmp eq i32 %67, %69
   br i1 %70, label %71, label %check_id_allowed.exit
@@ -17604,7 +17604,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 
 .thread:                                          ; preds = %43, %39
   %storemerge = phi double [ %44, %43 ], [ 0.000000e+00, %39 ]
-  %.1 = phi i1 [ false, %43 ], [ true, %39 ]
+  %.2 = phi i1 [ false, %43 ], [ true, %39 ]
   store double %storemerge, ptr %4, align 8
   br label %47
 
@@ -17613,7 +17613,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br i1 %46, label %47, label %.thread345
 
 47:                                               ; preds = %.thread, %45
-  %.2293 = phi i1 [ %.1, %.thread ], [ false, %45 ]
+  %.3293 = phi i1 [ %.2, %.thread ], [ false, %45 ]
   %48 = icmp eq i32 %16, 3
   br i1 %48, label %.thread326, label %49
 
@@ -17632,7 +17632,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 
 .thread294:                                       ; preds = %53, %49
   %storemerge281 = phi double [ %54, %53 ], [ 0.000000e+00, %49 ]
-  %.1261 = phi i1 [ false, %53 ], [ true, %49 ]
+  %.2262 = phi i1 [ false, %53 ], [ true, %49 ]
   store double %storemerge281, ptr %5, align 8
   br label %57
 
@@ -17641,7 +17641,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br i1 %56, label %57, label %.thread345
 
 57:                                               ; preds = %.thread294, %55
-  %.2262297 = phi i1 [ %.1261, %.thread294 ], [ false, %55 ]
+  %.3263297 = phi i1 [ %.2262, %.thread294 ], [ false, %55 ]
   %58 = icmp ult i32 %16, 5
   br i1 %58, label %.thread326, label %59
 
@@ -17660,7 +17660,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 
 .thread298:                                       ; preds = %63, %59
   %storemerge282 = phi double [ %64, %63 ], [ 0.000000e+00, %59 ]
-  %.1265 = phi i1 [ false, %63 ], [ true, %59 ]
+  %.2266 = phi i1 [ false, %63 ], [ true, %59 ]
   store double %storemerge282, ptr %6, align 8
   br label %67
 
@@ -17669,7 +17669,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br i1 %66, label %67, label %.thread345
 
 67:                                               ; preds = %.thread298, %65
-  %.2266301 = phi i1 [ %.1265, %.thread298 ], [ false, %65 ]
+  %.3267301 = phi i1 [ %.2266, %.thread298 ], [ false, %65 ]
   %.not = icmp eq i32 %16, 6
   br i1 %.not, label %68, label %.thread326
 
@@ -17688,7 +17688,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 
 .thread319:                                       ; preds = %72, %68
   %storemerge283 = phi double [ %73, %72 ], [ 0.000000e+00, %68 ]
-  %.1269 = phi i1 [ false, %72 ], [ true, %68 ]
+  %.2270 = phi i1 [ false, %72 ], [ true, %68 ]
   store double %storemerge283, ptr %7, align 8
   br label %.thread326
 
@@ -17706,10 +17706,10 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br label %147
 
 .thread326:                                       ; preds = %74, %.thread319, %67, %57, %47
-  %.3271.ph = phi i1 [ %.1269, %.thread319 ], [ true, %67 ], [ true, %57 ], [ true, %47 ], [ false, %74 ]
-  %.3267.ph = phi i1 [ %.2266301, %.thread319 ], [ %.2266301, %67 ], [ true, %57 ], [ true, %47 ], [ %.2266301, %74 ]
-  %.3263.ph = phi i1 [ %.2262297, %.thread319 ], [ %.2262297, %67 ], [ %.2262297, %57 ], [ true, %47 ], [ %.2262297, %74 ]
-  br i1 %.2293, label %.thread326.thread, label %79
+  %.0268.ph = phi i1 [ %.2270, %.thread319 ], [ true, %67 ], [ true, %57 ], [ true, %47 ], [ false, %74 ]
+  %.0264.ph = phi i1 [ %.3267301, %.thread319 ], [ %.3267301, %67 ], [ true, %57 ], [ true, %47 ], [ %.3267301, %74 ]
+  %.0260.ph = phi i1 [ %.3263297, %.thread319 ], [ %.3263297, %67 ], [ %.3263297, %57 ], [ true, %47 ], [ %.3263297, %74 ]
+  br i1 %.3293, label %.thread326.thread, label %79
 
 .thread380:                                       ; preds = %27, %37
   %76 = call double @zend_ini_double(ptr noundef nonnull @.str.183, i64 noundef 21, i32 noundef 0) #25
@@ -17721,21 +17721,21 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 .thread326.thread:                                ; preds = %.thread326
   %78 = call double @zend_ini_double(ptr noundef nonnull @.str.183, i64 noundef 21, i32 noundef 0) #25
   store double %78, ptr %4, align 8
-  br i1 %.3263.ph, label %80, label %82
+  br i1 %.0260.ph, label %80, label %82
 
 79:                                               ; preds = %.thread326
-  br i1 %.3263.ph, label %80, label %82
+  br i1 %.0260.ph, label %80, label %82
 
 80:                                               ; preds = %.thread326.thread, %79
   %81 = call double @zend_ini_double(ptr noundef nonnull @.str.185, i64 noundef 22, i32 noundef 0) #25
   store double %81, ptr %5, align 8
-  br i1 %.3267.ph, label %83, label %88
+  br i1 %.0264.ph, label %83, label %88
 
 82:                                               ; preds = %.thread326.thread, %79
-  br i1 %.3267.ph, label %83, label %88
+  br i1 %.0264.ph, label %83, label %88
 
 83:                                               ; preds = %.thread380, %80, %82
-  %.3271.ph365373376 = phi i1 [ %.3271.ph, %80 ], [ %.3271.ph, %82 ], [ true, %.thread380 ]
+  %.0268.ph365373376 = phi i1 [ %.0268.ph, %80 ], [ %.0268.ph, %82 ], [ true, %.thread380 ]
   br i1 %2, label %84, label %86
 
 84:                                               ; preds = %83
@@ -17749,7 +17749,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br label %88
 
 88:                                               ; preds = %80, %84, %86, %82
-  %.3271.ph365373375 = phi i1 [ %.3271.ph, %80 ], [ %.3271.ph365373376, %84 ], [ %.3271.ph365373376, %86 ], [ %.3271.ph, %82 ]
+  %.0268.ph365373375 = phi i1 [ %.0268.ph, %80 ], [ %.0268.ph365373376, %84 ], [ %.0268.ph365373376, %86 ], [ %.0268.ph, %82 ]
   %89 = load i64, ptr %14, align 8
   %or.cond3 = icmp ugt i64 %89, 2
   br i1 %or.cond3, label %90, label %93
@@ -17780,7 +17780,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   store ptr %96, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %101, i64 232
   store i32 3, ptr %103, align 8
-  br i1 %.3271.ph365373375, label %104, label %108
+  br i1 %.0268.ph365373375, label %104, label %108
 
 104:                                              ; preds = %100
   %105 = call i64 @timelib_get_current_offset(ptr noundef nonnull %101) #25

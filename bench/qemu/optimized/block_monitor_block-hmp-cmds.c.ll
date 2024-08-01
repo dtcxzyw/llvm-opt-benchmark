@@ -1062,7 +1062,7 @@ if.then19:                                        ; preds = %if.then8
 
 if.end25:                                         ; preds = %cond.end.thread, %if.then19
   %cond27 = phi ptr [ %call17, %if.then19 ], [ %call16, %cond.end.thread ]
-  %local_blk.0 = phi ptr [ %call21, %if.then19 ], [ null, %cond.end.thread ]
+  %local_blk.1 = phi ptr [ %call21, %if.then19 ], [ null, %cond.end.thread ]
   %blk.1 = phi ptr [ %call21, %if.then19 ], [ %blk.0.ph, %cond.end.thread ]
   %call26 = call i32 @qemuio_command(ptr noundef %blk.1, ptr noundef %call2) #9
   br label %fail
@@ -1073,8 +1073,8 @@ fail.thread:                                      ; preds = %if.then, %if.then8
 
 fail:                                             ; preds = %if.then19, %if.end25
   %ctx.0 = phi ptr [ %call17, %if.then19 ], [ %cond27, %if.end25 ]
-  %local_blk.1 = phi ptr [ %call21, %if.then19 ], [ %local_blk.0, %if.end25 ]
-  call void @blk_unref(ptr noundef %local_blk.1) #9
+  %local_blk.0 = phi ptr [ %call21, %if.then19 ], [ %local_blk.1, %if.end25 ]
+  call void @blk_unref(ptr noundef %local_blk.0) #9
   %tobool27.not = icmp eq ptr %ctx.0, null
   br i1 %tobool27.not, label %if.end29, label %if.then28
 
@@ -1689,7 +1689,7 @@ if.end6:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end6, %if.end51
   %bs1.083 = phi ptr [ %call53, %if.end51 ], [ %call7, %if.end6 ]
-  %no_snapshot.082 = phi i1 [ %no_snapshot.2, %if.end51 ], [ true, %if.end6 ]
+  %no_snapshot.082 = phi i1 [ %no_snapshot.1, %if.end51 ], [ true, %if.end6 ]
   %call9 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs1.083) #9
   call void @aio_context_acquire(ptr noundef %call9) #9
   %call10 = call i32 @bdrv_can_snapshot(ptr noundef nonnull %bs1.083) #9
@@ -1738,20 +1738,20 @@ for.body33:                                       ; preds = %if.then15, %for.bod
   br i1 %exitcond.not, label %if.end50, label %for.body33, !llvm.loop !11
 
 if.end50:                                         ; preds = %for.body33, %if.then12
-  %no_snapshot.1 = phi i1 [ %no_snapshot.082, %if.then12 ], [ false, %for.body33 ]
+  %no_snapshot.2 = phi i1 [ %no_snapshot.082, %if.then12 ], [ false, %for.body33 ]
   %4 = load ptr, ptr %sn, align 8
   call void @g_free(ptr noundef %4) #9
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end50, %for.body
-  %no_snapshot.2 = phi i1 [ %no_snapshot.1, %if.end50 ], [ %no_snapshot.082, %for.body ]
+  %no_snapshot.1 = phi i1 [ %no_snapshot.2, %if.end50 ], [ %no_snapshot.082, %for.body ]
   call void @aio_context_release(ptr noundef %call9) #9
   %call53 = call ptr @bdrv_next(ptr noundef nonnull %it1) #9
   %tobool8.not = icmp eq ptr %call53, null
   br i1 %tobool8.not, label %for.end54, label %for.body, !llvm.loop !12
 
 for.end54:                                        ; preds = %if.end51
-  br i1 %no_snapshot.2, label %if.then56, label %if.end58
+  br i1 %no_snapshot.1, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %if.end6, %for.end54
   %call57 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.47) #9

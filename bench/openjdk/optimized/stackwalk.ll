@@ -826,7 +826,7 @@ define hidden noundef i32 @_ZN9StackWalk14fill_in_framesEiR15BaseFrameStreamii14
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZN15BaseFrameStream12continuationEv.exit39.thread
-  %.03255 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN15BaseFrameStream12continuationEv.exit39.thread ]
+  %.03255 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN15BaseFrameStream12continuationEv.exit39.thread ]
   %29 = load ptr, ptr %22, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %_ZN15BaseFrameStream12continuationEv.exit.thread, label %_ZN15BaseFrameStream12continuationEv.exit
@@ -988,7 +988,7 @@ _ZN15BaseFrameStream12continuationEv.exit40.thread: ; preds = %107, %_ZN15BaseFr
   br i1 %.not37.old, label %_ZN15BaseFrameStream12continuationEv.exit39.thread, label %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge
 
 _ZN15BaseFrameStream12continuationEv.exit39.thread: ; preds = %59, %112, %_ZN15BaseFrameStream12continuationEv.exit40.thread, %_ZN15BaseFrameStream12continuationEv.exit39, %63, %_ZN15BaseFrameStream12continuationEv.exit.thread
-  %.1 = phi i32 [ %.03255, %_ZN15BaseFrameStream12continuationEv.exit.thread ], [ %108, %_ZN15BaseFrameStream12continuationEv.exit40.thread ], [ %.03255, %63 ], [ %.03255, %_ZN15BaseFrameStream12continuationEv.exit39 ], [ %108, %112 ], [ %.03255, %59 ]
+  %.2 = phi i32 [ %.03255, %_ZN15BaseFrameStream12continuationEv.exit.thread ], [ %108, %_ZN15BaseFrameStream12continuationEv.exit40.thread ], [ %.03255, %63 ], [ %.03255, %_ZN15BaseFrameStream12continuationEv.exit39 ], [ %108, %112 ], [ %.03255, %59 ]
   %117 = load ptr, ptr %1, align 8
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
@@ -999,7 +999,7 @@ _ZN15BaseFrameStream12continuationEv.exit39.thread: ; preds = %59, %112, %_ZN15B
   br i1 %122, label %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge, label %28, !llvm.loop !15
 
 _ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge: ; preds = %_ZN15BaseFrameStream12continuationEv.exit39.thread, %_ZN15BaseFrameStream12continuationEv.exit38, %63, %112, %_ZN15BaseFrameStream12continuationEv.exit40.thread, %17
-  %.2 = phi i32 [ 0, %17 ], [ %108, %_ZN15BaseFrameStream12continuationEv.exit40.thread ], [ %108, %112 ], [ %.03255, %63 ], [ %.03255, %_ZN15BaseFrameStream12continuationEv.exit38 ], [ %.1, %_ZN15BaseFrameStream12continuationEv.exit39.thread ]
+  %.1 = phi i32 [ 0, %17 ], [ %108, %_ZN15BaseFrameStream12continuationEv.exit40.thread ], [ %108, %112 ], [ %.03255, %63 ], [ %.03255, %_ZN15BaseFrameStream12continuationEv.exit38 ], [ %.2, %_ZN15BaseFrameStream12continuationEv.exit39.thread ]
   %123 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE141ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not54 = icmp eq ptr %123, null
   br i1 %.not54, label %.loopexit, label %124
@@ -1010,11 +1010,11 @@ _ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge: ; preds = %_ZN15B
   %127 = load ptr, ptr %126, align 8
   %128 = call noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %129 = zext i1 %128 to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE141ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %.2, i32 noundef %129)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE141ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %.1, i32 noundef %129)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %124, %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge
-  %.0 = phi i32 [ %.2, %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge ], [ %.2, %124 ], [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
+  %.0 = phi i32 [ %.1, %_ZN15BaseFrameStream12continuationEv.exit40.thread._crit_edge ], [ %.1, %124 ], [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ]
   ret i32 %.0
 }
 
@@ -2474,7 +2474,7 @@ _ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle.exit: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %68, %64, %72
-  %.032.ph = phi i32 [ %65, %68 ], [ 0, %64 ], [ 0, %72 ]
+  %.1.ph = phi i32 [ %65, %68 ], [ 0, %64 ], [ 0, %72 ]
   call void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   br label %75
 
@@ -2483,8 +2483,8 @@ _ZN15BaseFrameStream12from_currentEP10JavaThreadl14objArrayHandle.exit: ; preds 
   br label %75
 
 75:                                               ; preds = %46, %74, %.thread, %45, %41
-  %.1 = phi i32 [ 0, %41 ], [ 0, %45 ], [ %.032.ph, %.thread ], [ 0, %74 ], [ 0, %46 ]
-  ret i32 %.1
+  %.032 = phi i32 [ 0, %41 ], [ 0, %45 ], [ %.1.ph, %.thread ], [ 0, %74 ], [ 0, %46 ]
+  ret i32 %.032
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

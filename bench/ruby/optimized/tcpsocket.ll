@@ -105,13 +105,13 @@ rbimpl_intern_const.exit15:                       ; preds = %.lr.ph.i13, %rbimpl
   br label %23
 
 23:                                               ; preds = %18, %14
-  %.1 = phi i64 [ 4, %14 ], [ %spec.select, %18 ]
+  %.04 = phi i64 [ 4, %14 ], [ %spec.select, %18 ]
   %.0 = phi i64 [ 4, %14 ], [ %spec.select9, %18 ]
   %24 = load i64, ptr %4, align 8
   %25 = load i64, ptr %5, align 8
   %26 = load i64, ptr %6, align 8
   %27 = load i64, ptr %7, align 8
-  %28 = call i64 @rsock_init_inetsock(i64 noundef %2, i64 noundef %24, i64 noundef %25, i64 noundef %26, i64 noundef %27, i32 noundef 0, i64 noundef %.1, i64 noundef %.0) #3
+  %28 = call i64 @rsock_init_inetsock(i64 noundef %2, i64 noundef %24, i64 noundef %25, i64 noundef %26, i64 noundef %27, i32 noundef 0, i64 noundef %.04, i64 noundef %.0) #3
   ret i64 %28
 }
 

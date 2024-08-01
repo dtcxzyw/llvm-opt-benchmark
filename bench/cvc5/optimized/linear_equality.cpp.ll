@@ -7470,7 +7470,7 @@ terminate.lpad.i.i1.i.i:                          ; preds = %_ZN4cvc58internal8R
   unreachable
 
 cleanup:                                          ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i, %invoke.cont16
-  %retval.0 = phi i1 [ true, %invoke.cont16 ], [ false, %_ZN4cvc58internal8RationalD2Ev.exit.i.i ]
+  %retval.1 = phi i1 [ true, %invoke.cont16 ], [ false, %_ZN4cvc58internal8RationalD2Ev.exit.i.i ]
   %k.i = getelementptr inbounds i8, ptr %nbDiff, i64 32
   invoke void @__gmpq_clear(ptr noundef nonnull %k.i)
           to label %_ZN4cvc58internal8RationalD2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -7527,8 +7527,8 @@ ehcleanup82:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i227, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %_ZN4cvc58internal8RationalD2Ev.exit.i227 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZN4cvc58internal8RationalD2Ev.exit.i227 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9347,7 +9347,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6line
 
 for.body.i:                                       ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i, %for.inc.i
   %__first.sroa.0.019.i = phi ptr [ %__first.sroa.0.0.i, %for.inc.i ], [ %__first.sroa.0.015.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
-  %retval.sroa.0.018.i = phi ptr [ %retval.sroa.0.1.i, %for.inc.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
+  %retval.sroa.0.118.i = phi ptr [ %retval.sroa.0.2.i, %for.inc.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
   %retval.sroa.0.0.in.sroa.speculated.i.i.pn17.i = phi ptr [ %__first.sroa.0.019.i, %for.inc.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
   %_mp_size.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.019.i, i64 12
   %17 = load i32, ptr %_mp_size.i.i.i.i, align 4
@@ -9360,28 +9360,28 @@ for.body.i:                                       ; preds = %_ZSt9__find_ifIN9__
 
 if.then15.i:                                      ; preds = %for.body.i
   %19 = load ptr, ptr %__first.sroa.0.019.i, align 8
-  store ptr %19, ptr %retval.sroa.0.018.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %retval.sroa.0.018.i, %__first.sroa.0.019.i
+  store ptr %19, ptr %retval.sroa.0.118.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %retval.sroa.0.118.i, %__first.sroa.0.019.i
   br i1 %cmp.i.i.i.i, label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.i, label %if.end.i3.i.i.i
 
 if.end.i3.i.i.i:                                  ; preds = %if.then15.i
   %d_diff3.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.pn17.i, i64 104
-  %d_diff.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.018.i, i64 8
+  %d_diff.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.118.i, i64 8
   tail call void @__gmpq_set(ptr noundef nonnull %d_diff.i.i, ptr noundef nonnull %d_diff3.i.i)
   %k.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.pn17.i, i64 136
-  %k3.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.018.i, i64 40
+  %k3.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.118.i, i64 40
   tail call void @__gmpq_set(ptr noundef nonnull %k3.i.i.i, ptr noundef nonnull %k.i.i.i)
   br label %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.i
 
 _ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.i: ; preds = %if.end.i3.i.i.i, %if.then15.i
-  %d_areFixing.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.018.i, i64 72
+  %d_areFixing.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.118.i, i64 72
   %d_areFixing4.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.pn17.i, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %d_areFixing.i.i, ptr noundef nonnull align 8 dereferenceable(17) %d_areFixing4.i.i, i64 17, i1 false)
-  %incdec.ptr.i2.i = getelementptr inbounds i8, ptr %retval.sroa.0.018.i, i64 96
+  %incdec.ptr.i2.i = getelementptr inbounds i8, ptr %retval.sroa.0.118.i, i64 96
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.i, %for.body.i
-  %retval.sroa.0.1.i = phi ptr [ %retval.sroa.0.018.i, %for.body.i ], [ %incdec.ptr.i2.i, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.i ]
+  %retval.sroa.0.2.i = phi ptr [ %retval.sroa.0.118.i, %for.body.i ], [ %incdec.ptr.i2.i, %_ZN4cvc58internal6theory5arith6linear6BorderaSEOS4_.exit.i ]
   %__first.sroa.0.0.i = getelementptr inbounds i8, ptr %__first.sroa.0.019.i, i64 96
   %cmp.i1.not.i = icmp eq ptr %__first.sroa.0.0.i, %1
   br i1 %cmp.i1.not.i, label %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.loopexit, label %for.body.i, !llvm.loop !41
@@ -9398,8 +9398,8 @@ _ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6l
   %sub.ptr.sub.i3.i.pre-phi = phi i64 [ %.pre52, %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.loopexit ], [ %sub.ptr.sub.i.i.i.i, %for.end.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
   %sub.ptr.rhs.cast.i.i.pre-phi = phi i64 [ %.pre50, %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %for.end.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
   %20 = phi ptr [ %.pre49, %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.loopexit ], [ %0, %for.end.i.i.i ], [ %0, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
-  %retval.sroa.0.2.i = phi ptr [ %retval.sroa.0.1.i, %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.loopexit ], [ %1, %for.end.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.2.i to i64
+  %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.2.i, %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.loopexit ], [ %1, %for.end.i.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear6BorderESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIPFbRKS7_EEEET_SK_SK_T0_.exit.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.pre-phi
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i.i
   %add.ptr.i5.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i3.i.pre-phi

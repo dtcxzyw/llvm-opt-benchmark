@@ -302,8 +302,8 @@ percpu_arena_update.exit.i.i:                     ; preds = %if.then10.i.i.i, %a
   br label %if.end63.i.i
 
 if.end63.i.i:                                     ; preds = %percpu_arena_update.exit.i.i, %percpu_arena_choose.exit.i.i
-  %ret.1.i.i = phi ptr [ %28, %percpu_arena_update.exit.i.i ], [ %ret.0.i.i, %percpu_arena_choose.exit.i.i ]
-  %last_thd65.i.i = getelementptr inbounds i8, ptr %ret.1.i.i, i64 16
+  %ret.2.i.i = phi ptr [ %28, %percpu_arena_update.exit.i.i ], [ %ret.0.i.i, %percpu_arena_choose.exit.i.i ]
+  %last_thd65.i.i = getelementptr inbounds i8, ptr %ret.2.i.i, i64 16
   store ptr %tsdn, ptr %last_thd65.i.i, align 8
   br label %lor.lhs.false
 
@@ -313,7 +313,7 @@ if.end15:                                         ; preds = %if.end43.i.i, %if.t
   br i1 %cmp16, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true47.i.i, %land.lhs.true52.i.i, %if.end63.i.i, %if.end15
-  %arena.addr.076 = phi ptr [ %arena.addr.0, %if.end15 ], [ %ret.0.i.i, %land.lhs.true47.i.i ], [ %ret.0.i.i, %land.lhs.true52.i.i ], [ %ret.1.i.i, %if.end63.i.i ]
+  %arena.addr.076 = phi ptr [ %arena.addr.0, %if.end15 ], [ %ret.0.i.i, %land.lhs.true47.i.i ], [ %ret.0.i.i, %land.lhs.true52.i.i ], [ %ret.2.i.i, %if.end63.i.i ]
   %call25 = tail call ptr @arena_extent_alloc_large(ptr noundef %tsdn, ptr noundef nonnull %arena.addr.076, i64 noundef %usize, i64 noundef %alignment, i1 noundef zeroext %zero) #10
   %cmp26 = icmp eq ptr %call25, null
   br i1 %cmp26, label %return, label %if.end29

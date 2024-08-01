@@ -1862,22 +1862,22 @@ while.cond.i.critedge:                            ; preds = %if.end19.i1432, %fo
   br i1 %tobool.i.not.not, label %anchored_leftovers, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %while.cond.i.critedge
-  %anchored_it.01275 = phi i32 [ %retval.i.0, %while.body.i.lr.ph ], [ %anchored_it.11181, %while.cond.i.critedge ]
+  %anchored_it.11275 = phi i32 [ %retval.i.0, %while.body.i.lr.ph ], [ %anchored_it.21181, %while.cond.i.critedge ]
   %victimDelaySlots.addr.i.01274 = phi i64 [ %victimDelaySlots.0, %while.body.i.lr.ph ], [ %asmresult1.i, %while.cond.i.critedge ]
   %13 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %victimDelaySlots.addr.i.01274) #6, !srcloc !14
   %asmresult.i = extractvalue { i64, i64 } %13, 0
   %asmresult1.i = extractvalue { i64, i64 } %13, 1
   %conv.i86 = and i64 %asmresult.i, 4294967295
   %add.i = add i64 %conv.i86, %and.i
-  %cmp.i951252 = icmp ne i32 %anchored_it.01275, -1
-  %conv.i1031253 = zext i32 %anchored_it.01275 to i64
+  %cmp.i951252 = icmp ne i32 %anchored_it.11275, -1
+  %conv.i1031253 = zext i32 %anchored_it.11275 to i64
   %cmp2.i1254 = icmp ugt i64 %add.i, %conv.i1031253
   %14 = select i1 %cmp.i951252, i1 %cmp2.i1254, i1 false
   br i1 %14, label %for.body.i, label %if.end.i88
 
 for.body.i:                                       ; preds = %while.body.i, %if.then.i862
   %conv.i1031256 = phi i64 [ %conv.i103, %if.then.i862 ], [ %conv.i1031253, %while.body.i ]
-  %anchored_it.i.01255 = phi i32 [ %retval.i853.0, %if.then.i862 ], [ %anchored_it.01275, %while.body.i ]
+  %anchored_it.i.01255 = phi i32 [ %retval.i853.0, %if.then.i862 ], [ %anchored_it.11275, %while.body.i ]
   %add.i96 = add nuw nsw i32 %anchored_it.i.01255, 1
   %conv4.i97 = zext nneg i32 %add.i96 to i64
   %15 = load i32, ptr %lastByteHistoryIterOffset.i.i, align 4
@@ -2898,7 +2898,7 @@ if.then.i862:                                     ; preds = %if.end19.i379.i2090
   br i1 %117, label %for.body.i, label %if.end.i88, !llvm.loop !17
 
 if.end.i88:                                       ; preds = %if.then.i862, %while.body.i
-  %anchored_it.11181 = phi i32 [ %anchored_it.01275, %while.body.i ], [ %retval.i853.0, %if.then.i862 ]
+  %anchored_it.21181 = phi i32 [ %anchored_it.11275, %while.body.i ], [ %retval.i853.0, %if.then.i862 ]
   %rem.i = and i64 %asmresult.i, 31
   %arrayidx.i917 = getelementptr inbounds ptr, ptr %6, i64 %rem.i
   %118 = load ptr, ptr %arrayidx.i917, align 8
@@ -3901,9 +3901,9 @@ mmbit_iterate.exit1012:                           ; preds = %if.then11.i, %if.th
   br i1 %cmp5.i.not, label %while.cond.i.critedge, label %for.body.i928, !llvm.loop !18
 
 anchored_leftovers:                               ; preds = %while.cond.i.critedge, %if.end74, %anchored_it_begin.exit
-  %anchored_it.3 = phi i32 [ %retval.i.0, %anchored_it_begin.exit ], [ %retval.i.0, %if.end74 ], [ %anchored_it.11181, %while.cond.i.critedge ]
-  %cmp.i1231292 = icmp ne i32 %anchored_it.3, -1
-  %conv.i1631293 = zext i32 %anchored_it.3 to i64
+  %anchored_it.0 = phi i32 [ %retval.i.0, %anchored_it_begin.exit ], [ %retval.i.0, %if.end74 ], [ %anchored_it.21181, %while.cond.i.critedge ]
+  %cmp.i1231292 = icmp ne i32 %anchored_it.0, -1
+  %conv.i1631293 = zext i32 %anchored_it.0 to i64
   %cmp2.i1641294 = icmp ult i64 %conv.i1631293, %currEnd
   %216 = and i1 %cmp.i1231292, %cmp2.i1641294
   br i1 %216, label %for.body.i126.lr.ph, label %flushAnchoredLiterals.exit165
@@ -3924,7 +3924,7 @@ for.body.i126.lr.ph:                              ; preds = %anchored_leftovers
 
 for.body.i126:                                    ; preds = %for.body.i126.lr.ph, %if.then.i847
   %conv.i1631296 = phi i64 [ %conv.i1631293, %for.body.i126.lr.ph ], [ %conv.i163, %if.then.i847 ]
-  %anchored_it.i119.01295 = phi i32 [ %anchored_it.3, %for.body.i126.lr.ph ], [ %retval.i843.0, %if.then.i847 ]
+  %anchored_it.i119.01295 = phi i32 [ %anchored_it.0, %for.body.i126.lr.ph ], [ %retval.i843.0, %if.then.i847 ]
   %add.i127 = add nuw nsw i32 %anchored_it.i119.01295, 1
   %conv4.i128 = zext nneg i32 %add.i127 to i64
   %217 = load i32, ptr %lastByteHistoryIterOffset.i.i129, align 4

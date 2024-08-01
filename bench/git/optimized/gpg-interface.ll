@@ -1018,7 +1018,7 @@ while.cond.preheader.lr.ph.i:                     ; preds = %if.end11
 
 while.cond.preheader.i:                           ; preds = %for.inc88.i, %while.cond.preheader.lr.ph.i
   %12 = phi i8 [ %11, %while.cond.preheader.lr.ph.i ], [ %31, %for.inc88.i ]
-  %seen_exclusive_status.0114.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i ], [ %seen_exclusive_status.2.i, %for.inc88.i ]
+  %seen_exclusive_status.0114.i = phi i32 [ 0, %while.cond.preheader.lr.ph.i ], [ %seen_exclusive_status.1.i, %for.inc88.i ]
   %storemerge113.i = phi ptr [ %call24, %while.cond.preheader.lr.ph.i ], [ %call90.i, %for.inc88.i ]
   %scevgep.i = getelementptr i8, ptr %storemerge113.i, i64 9
   br label %while.cond.i
@@ -1086,7 +1086,7 @@ if.then15.i:                                      ; preds = %if.then11.i
   br i1 %tobool16.not.i, label %if.end19.i, label %error.i
 
 if.end19.i:                                       ; preds = %if.then15.i, %if.then11.i
-  %seen_exclusive_status.1.i = phi i32 [ 1, %if.then15.i ], [ %seen_exclusive_status.0114.i, %if.then11.i ]
+  %seen_exclusive_status.2.i = phi i32 [ 1, %if.then15.i ], [ %seen_exclusive_status.0114.i, %if.then11.i ]
   %20 = load i8, ptr %arrayidx.i, align 8
   %tobool22.not.i = icmp eq i8 %20, 0
   br i1 %tobool22.not.i, label %if.end28.i, label %if.then23.i
@@ -1145,14 +1145,14 @@ replace_cstring.exit58.i:                         ; preds = %if.then.i53.i, %if.
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %replace_cstring.exit58.i, %replace_cstring.exit.i, %if.end28.i
-  %line.4.i = phi ptr [ %str.addr.0.i39.i, %if.end28.i ], [ %str.addr.0.i39.i, %replace_cstring.exit.i ], [ %add.ptr.i, %replace_cstring.exit58.i ]
+  %line.3.i = phi ptr [ %str.addr.0.i39.i, %if.end28.i ], [ %str.addr.0.i39.i, %replace_cstring.exit.i ], [ %add.ptr.i, %replace_cstring.exit58.i ]
   %and50.i = and i32 %19, 16
   %tobool51.not.i = icmp eq i32 %and50.i, 0
   br i1 %tobool51.not.i, label %if.end59.i, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end46.i
-  %call53.i = call i64 @strcspn(ptr noundef %line.4.i, ptr noundef nonnull @.str.32) #17
-  %call54.i = call ptr @xmemdupz(ptr noundef %line.4.i, i64 noundef %call53.i) #14
+  %call53.i = call i64 @strcspn(ptr noundef %line.3.i, ptr noundef nonnull @.str.32) #17
+  %call54.i = call ptr @xmemdupz(ptr noundef %line.3.i, i64 noundef %call53.i) #14
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -1185,7 +1185,7 @@ if.end59.i:                                       ; preds = %if.end58.i, %if.end
   br i1 %tobool64.not.i, label %for.inc88.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %if.end59.i
-  %call66.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 32) #17
+  %call66.i = call ptr @strchrnul(ptr noundef %line.3.i, i32 noundef 32) #17
   %26 = load ptr, ptr %fingerprint.i, align 8
   call void @free(ptr noundef %26) #14
   %tobool1.i63.not.i = icmp eq ptr %call66.i, null
@@ -1193,15 +1193,15 @@ if.then65.i:                                      ; preds = %if.end59.i
 
 if.then.i66.i:                                    ; preds = %if.then65.i
   %sub.ptr.lhs.cast.i67.i = ptrtoint ptr %call66.i to i64
-  %sub.ptr.rhs.cast.i68.i = ptrtoint ptr %line.4.i to i64
+  %sub.ptr.rhs.cast.i68.i = ptrtoint ptr %line.3.i to i64
   %sub.ptr.sub.i69.i = sub i64 %sub.ptr.lhs.cast.i67.i, %sub.ptr.rhs.cast.i68.i
-  %call.i70.i = call ptr @xmemdupz(ptr noundef nonnull %line.4.i, i64 noundef %sub.ptr.sub.i69.i) #14
+  %call.i70.i = call ptr @xmemdupz(ptr noundef nonnull %line.3.i, i64 noundef %sub.ptr.sub.i69.i) #14
   br label %replace_cstring.exit71.i
 
 replace_cstring.exit71.i:                         ; preds = %if.then.i66.i, %if.then65.i
   %storemerge.i65.i = phi ptr [ %call.i70.i, %if.then.i66.i ], [ null, %if.then65.i ]
   store ptr %storemerge.i65.i, ptr %fingerprint.i, align 8
-  %call67.i = call ptr @strchrnul(ptr noundef %line.4.i, i32 noundef 10) #17
+  %call67.i = call ptr @strchrnul(ptr noundef %line.3.i, i32 noundef 10) #17
   %27 = load i8, ptr %call66.i, align 1
   %tobool72.not.i21 = icmp ne i8 %27, 0
   %cmp73.not.i22 = icmp ugt ptr %call67.i, %call66.i
@@ -1239,7 +1239,7 @@ if.then.i76.i:                                    ; preds = %if.then80.i
   br label %for.inc88.sink.split.i
 
 if.else.i:                                        ; preds = %for.body71.i, %replace_cstring.exit71.i
-  %line.5109.i.lcssa = phi ptr [ %line.4.i, %replace_cstring.exit71.i ], [ %add.ptr77.i, %for.body71.i ]
+  %line.4109.i.lcssa = phi ptr [ %line.3.i, %replace_cstring.exit71.i ], [ %add.ptr77.i, %for.body71.i ]
   %30 = load ptr, ptr %primary_key_fingerprint95.i, align 8
   call void @free(ptr noundef %30) #14
   br label %for.inc88.sink.split.i
@@ -1251,14 +1251,14 @@ for.inc85.i:                                      ; preds = %do.cond.i42.i
 
 for.inc88.sink.split.i:                           ; preds = %if.else.i, %if.then.i76.i, %if.then80.i
   %storemerge.i75.sink.i = phi ptr [ null, %if.else.i ], [ %call.i80.i, %if.then.i76.i ], [ null, %if.then80.i ]
-  %line.6.ph.i = phi ptr [ %line.5109.i.lcssa, %if.else.i ], [ %add.ptr77.i, %if.then.i76.i ], [ %add.ptr77.i, %if.then80.i ]
+  %line.1.ph.i = phi ptr [ %line.4109.i.lcssa, %if.else.i ], [ %add.ptr77.i, %if.then.i76.i ], [ %add.ptr77.i, %if.then80.i ]
   store ptr %storemerge.i75.sink.i, ptr %primary_key_fingerprint95.i, align 8
   br label %for.inc88.i
 
 for.inc88.i:                                      ; preds = %do.cond.i.i, %for.inc85.i, %for.inc88.sink.split.i, %if.end59.i
-  %line.6.i = phi ptr [ %line.4.i, %if.end59.i ], [ %line.6.ph.i, %for.inc88.sink.split.i ], [ %indvars.iv.i, %for.inc85.i ], [ %line.0.i, %do.cond.i.i ]
-  %seen_exclusive_status.2.i = phi i32 [ %seen_exclusive_status.1.i, %if.end59.i ], [ %seen_exclusive_status.1.i, %for.inc88.sink.split.i ], [ %seen_exclusive_status.0114.i, %for.inc85.i ], [ %seen_exclusive_status.0114.i, %do.cond.i.i ]
-  %add.ptr89.i = getelementptr inbounds i8, ptr %line.6.i, i64 1
+  %line.1.i = phi ptr [ %line.3.i, %if.end59.i ], [ %line.1.ph.i, %for.inc88.sink.split.i ], [ %indvars.iv.i, %for.inc85.i ], [ %line.0.i, %do.cond.i.i ]
+  %seen_exclusive_status.1.i = phi i32 [ %seen_exclusive_status.2.i, %if.end59.i ], [ %seen_exclusive_status.2.i, %for.inc88.sink.split.i ], [ %seen_exclusive_status.0114.i, %for.inc85.i ], [ %seen_exclusive_status.0114.i, %do.cond.i.i ]
+  %add.ptr89.i = getelementptr inbounds i8, ptr %line.1.i, i64 1
   %call90.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr89.i, i32 noundef 10) #17
   %31 = load i8, ptr %call90.i, align 1
   %tobool.not.i = icmp eq i8 %31, 0
@@ -1604,7 +1604,7 @@ for.body.lr.ph:                                   ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %line.061 = phi ptr [ %21, %for.body.lr.ph ], [ %spec.select31, %for.inc ]
-  %ret.060 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.2, %for.inc ]
+  %ret.260 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.3, %for.inc ]
   %call48 = call ptr @strchrnul(ptr noundef nonnull %line.061, i32 noundef 10) #17
   %23 = load i8, ptr %call48, align 1
   %tobool49.not = icmp ne i8 %23, 0
@@ -1688,13 +1688,13 @@ if.end95:                                         ; preds = %if.end84
   br i1 %tobool94.not.not, label %for.inc, label %if.end99
 
 for.inc:                                          ; preds = %if.end84, %if.end95, %if.end58
-  %ret.2 = phi i32 [ %ret.060, %if.end58 ], [ 1, %if.end95 ], [ %call88, %if.end84 ]
+  %ret.3 = phi i32 [ %ret.260, %if.end58 ], [ 1, %if.end95 ], [ %call88, %if.end84 ]
   %37 = load i8, ptr %spec.select31, align 1
   %tobool47.not = icmp eq i8 %37, 0
   br i1 %tobool47.not, label %if.end99, label %for.body, !llvm.loop !17
 
 if.end99:                                         ; preds = %if.end95, %for.inc, %if.else, %if.then39
-  %ret.3 = phi i32 [ -1, %if.then39 ], [ 0, %if.else ], [ 0, %if.end95 ], [ %ret.2, %for.inc ]
+  %ret.1 = phi i32 [ -1, %if.then39 ], [ 0, %if.else ], [ 0, %if.end95 ], [ %ret.3, %for.inc ]
   call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_out, i8 noundef signext 0) #14
   call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_err, i8 noundef signext 0) #14
   %buf100 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 16
@@ -1743,20 +1743,20 @@ do.body.i17.preheader.i:                          ; preds = %do.cond.i.i
   br label %do.body.i17.i
 
 do.body.i:                                        ; preds = %do.body.i.i, %do.body.i
-  %line.1.i = phi ptr [ %add.ptr.i, %do.body.i ], [ %scevgep.i, %do.body.i.i ]
-  %call4.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.1.i, ptr noundef nonnull dereferenceable(1) @.str.69) #17
+  %line.0.i = phi ptr [ %add.ptr.i, %do.body.i ], [ %scevgep.i, %do.body.i.i ]
+  %call4.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.0.i, ptr noundef nonnull dereferenceable(1) @.str.69) #17
   %tobool.not.i = icmp eq ptr %call4.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 1
   br i1 %tobool.not.i, label %do.end.i, label %do.body.i, !llvm.loop !18
 
 do.end.i:                                         ; preds = %do.body.i
-  %cmp6.i = icmp eq ptr %line.1.i, %scevgep.i
+  %cmp6.i = icmp eq ptr %line.0.i, %scevgep.i
   br i1 %cmp6.i, label %parse_ssh_output.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %do.end.i
   store i8 71, ptr %result.i, align 8
   store i32 3, ptr %trust_level.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %line.1.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %line.0.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %scevgep.i to i64
   %45 = xor i64 %sub.ptr.rhs.cast.i, -1
   %sub.i = add i64 %sub.ptr.lhs.cast.i, %45
@@ -1786,8 +1786,8 @@ if.then13.i:                                      ; preds = %do.body.i17.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then13.i, %if.end8.i
-  %line.3.i = phi ptr [ %line.1.i, %if.end8.i ], [ %scevgep40.i, %if.then13.i ]
-  %call19.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.3.i, ptr noundef nonnull dereferenceable(1) @.str.71) #17
+  %line.1.i = phi ptr [ %line.0.i, %if.end8.i ], [ %scevgep40.i, %if.then13.i ]
+  %call19.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.1.i, ptr noundef nonnull dereferenceable(1) @.str.71) #17
   %tobool20.not.i = icmp eq ptr %call19.i, null
   br i1 %tobool20.not.i, label %if.else28.i, label %if.then21.i
 
@@ -1810,7 +1810,7 @@ parse_ssh_output.exit:                            ; preds = %do.cond.i21.i, %do.
   br label %out
 
 out:                                              ; preds = %parse_ssh_output.exit, %_.exit47
-  %ret.4 = phi i32 [ %call26, %_.exit47 ], [ %ret.3, %parse_ssh_output.exit ]
+  %ret.0 = phi i32 [ %call26, %_.exit47 ], [ %ret.1, %parse_ssh_output.exit ]
   %48 = load ptr, ptr %buffer_file, align 8
   %tobool107.not = icmp eq ptr %48, null
   br i1 %tobool107.not, label %if.end109, label %if.then108
@@ -1828,7 +1828,7 @@ if.end109:                                        ; preds = %if.then108, %out
   br label %return
 
 return:                                           ; preds = %if.end109, %_.exit42, %_.exit37, %_.exit
-  %retval.0 = phi i32 [ -1, %_.exit42 ], [ %ret.4, %if.end109 ], [ -1, %_.exit37 ], [ -1, %_.exit ]
+  %retval.0 = phi i32 [ -1, %_.exit42 ], [ %ret.0, %if.end109 ], [ -1, %_.exit37 ], [ -1, %_.exit ]
   ret i32 %retval.0
 }
 
@@ -1952,7 +1952,7 @@ if.else:                                          ; preds = %if.end.i
 
 if.end30:                                         ; preds = %if.else, %if.end26
   %tobool5.not52 = phi i1 [ false, %if.end26 ], [ true, %if.else ]
-  %ssh_signing_key_file.0 = phi ptr [ %call28, %if.end26 ], [ %call29, %if.else ]
+  %ssh_signing_key_file.1 = phi ptr [ %call28, %if.end26 ], [ %call29, %if.else ]
   %call.i23 = tail call ptr @mks_tempfile_tsm(ptr noundef nonnull @.str.75, i32 noundef 0, i32 noundef 384) #14
   store ptr %call.i23, ptr %buffer_file, align 8
   %tobool32.not = icmp eq ptr %call.i23, null
@@ -2008,7 +2008,7 @@ if.end53:                                         ; preds = %lor.lhs.false43
   %14 = load ptr, ptr @use_format, align 8
   %program = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %program, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %signer, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %ssh_signing_key_file.0, ptr noundef null) #14
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %signer, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %ssh_signing_key_file.1, ptr noundef null) #14
   br i1 %tobool5.not52, label %if.end58, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
@@ -2086,7 +2086,7 @@ if.end91:                                         ; preds = %if.end79
 
 out:                                              ; preds = %if.end91, %_.exit47, %if.end75, %_.exit35, %_.exit29, %_.exit22
   %ret.0 = phi i32 [ -1, %_.exit22 ], [ -1, %_.exit35 ], [ %call64, %if.end75 ], [ -1, %_.exit47 ], [ 0, %if.end91 ], [ -1, %_.exit29 ]
-  %ssh_signing_key_file.1 = phi ptr [ null, %_.exit22 ], [ %ssh_signing_key_file.0, %_.exit35 ], [ %ssh_signing_key_file.0, %if.end75 ], [ %ssh_signing_key_file.0, %_.exit47 ], [ %ssh_signing_key_file.0, %if.end91 ], [ %ssh_signing_key_file.0, %_.exit29 ]
+  %ssh_signing_key_file.0 = phi ptr [ null, %_.exit22 ], [ %ssh_signing_key_file.1, %_.exit35 ], [ %ssh_signing_key_file.1, %if.end75 ], [ %ssh_signing_key_file.1, %_.exit47 ], [ %ssh_signing_key_file.1, %if.end91 ], [ %ssh_signing_key_file.1, %_.exit29 ]
   %25 = load ptr, ptr %key_file, align 8
   %tobool92.not = icmp eq ptr %25, null
   br i1 %tobool92.not, label %if.end94, label %if.then93
@@ -2119,7 +2119,7 @@ if.then100:                                       ; preds = %if.end97
 if.end103:                                        ; preds = %if.then100, %if.end97
   call void @strbuf_release(ptr noundef nonnull %signer_stderr) #14
   call void @strbuf_release(ptr noundef nonnull %ssh_signature_filename) #14
-  call void @free(ptr noundef %ssh_signing_key_file.1) #14
+  call void @free(ptr noundef %ssh_signing_key_file.0) #14
   br label %return
 
 return:                                           ; preds = %if.end103, %_.exit16, %_.exit

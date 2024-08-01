@@ -1265,22 +1265,22 @@ Abc_SclLoad.exit:                                 ; preds = %135, %132
   br label %195
 
 .loopexit:                                        ; preds = %7, %34, %23, %12, %121, %120, %43, %33, %22, %11
-  %.2128 = phi float [ %.0126, %43 ], [ %.0126, %33 ], [ %.0126, %22 ], [ %.0126, %11 ], [ %.0126, %121 ], [ %.0126, %120 ], [ %.0126, %7 ], [ %.0126, %12 ], [ %28, %23 ], [ %.0126, %34 ]
-  %.2125 = phi i32 [ %.0123, %43 ], [ %.0123, %33 ], [ %.0123, %22 ], [ %.0123, %11 ], [ %.0123, %121 ], [ %.0123, %120 ], [ %.0123, %7 ], [ %.0123, %12 ], [ %.0123, %23 ], [ %38, %34 ]
-  %.2 = phi float [ %.0113, %43 ], [ %.0113, %33 ], [ %.0113, %22 ], [ %.0113, %11 ], [ %.0113, %121 ], [ %.0113, %120 ], [ %.0113, %7 ], [ %17, %12 ], [ %.0113, %23 ], [ %.0113, %34 ]
+  %.1127 = phi float [ %.0126, %43 ], [ %.0126, %33 ], [ %.0126, %22 ], [ %.0126, %11 ], [ %.0126, %121 ], [ %.0126, %120 ], [ %.0126, %7 ], [ %.0126, %12 ], [ %28, %23 ], [ %.0126, %34 ]
+  %.1124 = phi i32 [ %.0123, %43 ], [ %.0123, %33 ], [ %.0123, %22 ], [ %.0123, %11 ], [ %.0123, %121 ], [ %.0123, %120 ], [ %.0123, %7 ], [ %.0123, %12 ], [ %.0123, %23 ], [ %38, %34 ]
+  %.1114 = phi float [ %.0113, %43 ], [ %.0113, %33 ], [ %.0113, %22 ], [ %.0113, %11 ], [ %.0113, %121 ], [ %.0113, %120 ], [ %.0113, %7 ], [ %17, %12 ], [ %.0113, %23 ], [ %.0113, %34 ]
   %159 = getelementptr inbounds i8, ptr %0, i64 136
   %160 = load ptr, ptr %159, align 8
   %161 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 77, i64 1, ptr %160)
   %162 = load ptr, ptr %159, align 8
   %163 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 44, i64 1, ptr %162)
   %164 = load ptr, ptr %159, align 8
-  %165 = fpext float %.2 to double
+  %165 = fpext float %.1114 to double
   %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef nonnull @.str.34, double noundef %165) #10
   %167 = load ptr, ptr %159, align 8
-  %168 = fpext float %.2128 to double
+  %168 = fpext float %.1127 to double
   %169 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.35, double noundef %168) #10
   %170 = load ptr, ptr %159, align 8
-  %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef nonnull @.str.36, i32 noundef %.2125) #10
+  %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef nonnull @.str.36, i32 noundef %.1124) #10
   %172 = load ptr, ptr %159, align 8
   %173 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 96, i64 1, ptr %172)
   %174 = load ptr, ptr %159, align 8
@@ -1474,18 +1474,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr nocapture noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.236 = phi float [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %18 ], [ %.034.ph, %4 ], [ %13, %8 ]
-  %.2 = phi float [ %.032.ph98, %.loopexit.sink.split ], [ %.032.ph98, %4 ], [ %23, %18 ], [ %.032.ph98, %8 ]
+  %.135 = phi float [ %.034.ph, %.loopexit.sink.split ], [ %.034.ph, %18 ], [ %.034.ph, %4 ], [ %13, %8 ]
+  %.133 = phi float [ %.032.ph98, %.loopexit.sink.split ], [ %.032.ph98, %4 ], [ %23, %18 ], [ %.032.ph98, %8 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 136
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 36, i64 1, ptr %40)
   %42 = load ptr, ptr %39, align 8
   %43 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 49, i64 1, ptr %42)
   %44 = load ptr, ptr %39, align 8
-  %45 = fpext float %.236 to double
+  %45 = fpext float %.135 to double
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.34, double noundef %45) #10
   %47 = load ptr, ptr %39, align 8
-  %48 = fpext float %.2 to double
+  %48 = fpext float %.133 to double
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.35, double noundef %48) #10
   %50 = load ptr, ptr %39, align 8
   %.not43 = icmp eq i32 %.030.ph102, 0
@@ -1588,18 +1588,18 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %4, %8, %.loopexit.sink.split
-  %.229 = phi float [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %18 ], [ %.027.ph, %4 ], [ %13, %8 ]
-  %.2 = phi float [ %.025.ph75, %.loopexit.sink.split ], [ %.025.ph75, %4 ], [ %23, %18 ], [ %.025.ph75, %8 ]
+  %.128 = phi float [ %.027.ph, %.loopexit.sink.split ], [ %.027.ph, %18 ], [ %.027.ph, %4 ], [ %13, %8 ]
+  %.126 = phi float [ %.025.ph75, %.loopexit.sink.split ], [ %.025.ph75, %4 ], [ %23, %18 ], [ %.025.ph75, %8 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 136
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 34, i64 1, ptr %38)
   %40 = load ptr, ptr %37, align 8
   %41 = tail call i64 @fwrite(ptr nonnull @.str.68, i64 70, i64 1, ptr %40)
   %42 = load ptr, ptr %37, align 8
-  %43 = fpext float %.229 to double
+  %43 = fpext float %.128 to double
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.69, double noundef %43) #10
   %45 = load ptr, ptr %37, align 8
-  %46 = fpext float %.2 to double
+  %46 = fpext float %.126 to double
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.70, double noundef %46) #10
   %48 = load ptr, ptr %37, align 8
   %.not36 = icmp eq i32 %.0, 0
@@ -1902,22 +1902,22 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr nocapture noundef re
   br label %77
 
 .loopexit:                                        ; preds = %20, %4, %31, %9, %44, %30, %19, %8
-  %.242 = phi float [ %.040.ph, %30 ], [ %.040.ph, %19 ], [ %.040.ph, %8 ], [ %.040.ph, %44 ], [ %.040.ph, %20 ], [ %.040.ph, %4 ], [ %.040.ph, %31 ], [ %14, %9 ]
-  %.239 = phi float [ %.037.ph123, %30 ], [ %.037.ph123, %19 ], [ %.037.ph123, %8 ], [ %.037.ph123, %44 ], [ %.037.ph123, %31 ], [ %.037.ph123, %4 ], [ %25, %20 ], [ %.037.ph123, %9 ]
-  %.2 = phi i32 [ %.035.ph127, %30 ], [ %.035.ph127, %19 ], [ %.035.ph127, %8 ], [ %.035.ph127, %44 ], [ %.035.ph127, %4 ], [ %35, %31 ], [ %.035.ph127, %20 ], [ %.035.ph127, %9 ]
+  %.141 = phi float [ %.040.ph, %30 ], [ %.040.ph, %19 ], [ %.040.ph, %8 ], [ %.040.ph, %44 ], [ %.040.ph, %20 ], [ %.040.ph, %4 ], [ %.040.ph, %31 ], [ %14, %9 ]
+  %.138 = phi float [ %.037.ph123, %30 ], [ %.037.ph123, %19 ], [ %.037.ph123, %8 ], [ %.037.ph123, %44 ], [ %.037.ph123, %31 ], [ %.037.ph123, %4 ], [ %25, %20 ], [ %.037.ph123, %9 ]
+  %.136 = phi i32 [ %.035.ph127, %30 ], [ %.035.ph127, %19 ], [ %.035.ph127, %8 ], [ %.035.ph127, %44 ], [ %.035.ph127, %4 ], [ %35, %31 ], [ %.035.ph127, %20 ], [ %.035.ph127, %9 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 136
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 53, i64 1, ptr %58)
   %60 = load ptr, ptr %57, align 8
   %61 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 47, i64 1, ptr %60)
   %62 = load ptr, ptr %57, align 8
-  %63 = fpext float %.242 to double
+  %63 = fpext float %.141 to double
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.34, double noundef %63) #10
   %65 = load ptr, ptr %57, align 8
-  %66 = fpext float %.239 to double
+  %66 = fpext float %.138 to double
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.35, double noundef %66) #10
   %68 = load ptr, ptr %57, align 8
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.36, i32 noundef %.2) #10
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.36, i32 noundef %.136) #10
   %70 = load ptr, ptr %57, align 8
   %.not53 = icmp eq i32 %.0, 0
   %71 = select i1 %.not53, ptr @.str.40, ptr @.str.39
@@ -2128,14 +2128,14 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
   br label %76
 
 .loopexit:                                        ; preds = %4, %9, %8
-  %.2 = phi i32 [ %.0, %8 ], [ %.0, %4 ], [ %13, %9 ]
+  %.1 = phi i32 [ %.0, %8 ], [ %.0, %4 ], [ %13, %9 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 136
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 32, i64 1, ptr %56)
   %58 = load ptr, ptr %55, align 8
   %59 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 45, i64 1, ptr %58)
   %60 = load ptr, ptr %55, align 8
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.94, i32 noundef %.2) #10
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.94, i32 noundef %.1) #10
   %62 = load ptr, ptr %55, align 8
   %.not55 = icmp eq i32 %.042.ph116, 0
   %63 = select i1 %.not55, ptr @.str.40, ptr @.str.39

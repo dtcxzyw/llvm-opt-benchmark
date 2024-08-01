@@ -97,11 +97,11 @@ if.end.i:                                         ; preds = %_ZN4absl12lts_20230
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %entry
-  %ext.sroa.0.1 = phi i64 [ %ext.coerce0, %entry ], [ %sub.i.i, %if.end.i ], [ %ext.coerce0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
-  %ext.sroa.4.1 = phi ptr [ %ext.coerce1, %entry ], [ %add.ptr.i.i, %if.end.i ], [ %ext.coerce1, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
+  %ext.sroa.0.0 = phi i64 [ %ext.coerce0, %entry ], [ %sub.i.i, %if.end.i ], [ %ext.coerce0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
+  %ext.sroa.4.0 = phi ptr [ %ext.coerce1, %entry ], [ %add.ptr.i.i, %if.end.i ], [ %ext.coerce1, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %ext.sroa.0.1, ptr %ext.sroa.4.1) #15
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %ext.sroa.0.0, ptr %ext.sroa.4.0) #15
   %2 = extractvalue { i64, ptr } %call.i, 0
   %3 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %2, ptr %3) #15

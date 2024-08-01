@@ -1679,7 +1679,7 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
   br label %45
 
 45:                                               ; preds = %.lr.ph354, %76
-  %.0352 = phi i1 [ true, %.lr.ph354 ], [ %.2, %76 ]
+  %.0352 = phi i1 [ true, %.lr.ph354 ], [ %.1, %76 ]
   %.sroa.0329.0351 = phi ptr [ %39, %.lr.ph354 ], [ %77, %76 ]
   %46 = load i64, ptr %.sroa.0329.0351, align 8
   %47 = load ptr, ptr %42, align 8
@@ -1755,7 +1755,7 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
           to label %76 unwind label %.loopexit
 
 76:                                               ; preds = %74, %75, %45
-  %.2 = phi i1 [ %.0352, %45 ], [ false, %75 ], [ false, %74 ]
+  %.1 = phi i1 [ %.0352, %45 ], [ false, %75 ], [ false, %74 ]
   %77 = getelementptr inbounds i8, ptr %.sroa.0329.0351, i64 8
   %.not344 = icmp eq ptr %77, %41
   br i1 %.not344, label %._crit_edge355, label %45

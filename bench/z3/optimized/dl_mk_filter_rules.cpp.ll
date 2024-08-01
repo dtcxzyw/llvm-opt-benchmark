@@ -794,8 +794,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i16
   unreachable
 
 return:                                           ; preds = %for.body.i.i.i.i, %for.inc36.i.i.i.i, %for.body20.i.i.i.i, %if.end, %for.cond18.preheader.i.i.i.i, %entry, %if.then.i.i.i.i16, %cleanup
-  %retval.1 = phi i1 [ %cmp30, %cleanup ], [ %cmp.lcssa38, %if.then.i.i.i.i16 ], [ false, %entry ], [ false, %for.cond18.preheader.i.i.i.i ], [ false, %if.end ], [ false, %for.body20.i.i.i.i ], [ false, %for.inc36.i.i.i.i ], [ false, %for.body.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp30, %cleanup ], [ %cmp.lcssa38, %if.then.i.i.i.i16 ], [ false, %entry ], [ false, %for.cond18.preheader.i.i.i.i ], [ false, %if.end ], [ false, %for.body20.i.i.i.i ], [ false, %for.inc36.i.i.i.i ], [ false, %for.body.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0

@@ -120,8 +120,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %19, %ompi_comm_inva
   br i1 %or.cond138, label %62, label %55
 
 55:                                               ; preds = %47, %50, %52
-  %.0129.ph = phi i32 [ 3, %52 ], [ 2, %50 ], [ 3, %47 ]
-  %56 = tail call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.0129.ph)
+  %.1.ph = phi i32 [ 3, %52 ], [ 2, %50 ], [ 3, %47 ]
+  %56 = tail call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.1.ph)
   %57 = getelementptr inbounds i8, ptr %7, i64 296
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %7, i64 304

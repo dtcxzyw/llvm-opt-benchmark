@@ -1143,7 +1143,7 @@ for.body195.lr.ph:                                ; preds = %if.end189
 
 for.body195:                                      ; preds = %for.body195.lr.ph, %for.inc515
   %i190.03618 = phi i64 [ 0, %for.body195.lr.ph ], [ %inc516, %for.inc515 ]
-  %j.03617 = phi i64 [ 0, %for.body195.lr.ph ], [ %j.3, %for.inc515 ]
+  %j.03617 = phi i64 [ 0, %for.body195.lr.ph ], [ %j.1, %for.inc515 ]
   %69 = load ptr, ptr %d_learnedLiterals.i626, align 8
   %add.ptr.i700 = getelementptr inbounds %"class.cvc5::internal::TrustNode", ptr %69, i64 %i190.03618
   invoke void @_ZNK4cvc58internal9TrustNode7getNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %learnedLiteral, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i700)
@@ -2726,7 +2726,7 @@ _ZN4cvc58internal9TrustNodeaSERKS1_.exit:         ; preds = %if.then13.i4.i.i, %
   br label %if.end503
 
 if.end503:                                        ; preds = %if.then13.i.i1783, %if.then.i.i1777, %invoke.cont494, %_ZN4cvc58internal9TrustNodeaSERKS1_.exit, %invoke.cont486
-  %j.1 = phi i64 [ %inc499, %_ZN4cvc58internal9TrustNodeaSERKS1_.exit ], [ %j.03617, %invoke.cont486 ], [ %j.03617, %invoke.cont494 ], [ %j.03617, %if.then.i.i1777 ], [ %j.03617, %if.then13.i.i1783 ]
+  %j.3 = phi i64 [ %inc499, %_ZN4cvc58internal9TrustNodeaSERKS1_.exit ], [ %j.03617, %invoke.cont486 ], [ %j.03617, %invoke.cont494 ], [ %j.03617, %if.then.i.i1777 ], [ %j.03617, %if.then13.i.i1783 ]
   %248 = load ptr, ptr %d_preprocContext, align 8
   %249 = load ptr, ptr %learnedLiteral, align 8
   store ptr %249, ptr %agg.tmp505, align 8
@@ -2739,8 +2739,8 @@ lpad507:                                          ; preds = %if.end503
   br label %ehcleanup512
 
 cleanup:                                          ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit1156, %if.end503, %if.then13.i.i1350, %if.then.i.i1344, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1341
-  %j.2 = phi i64 [ %j.03617, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1341 ], [ %j.03617, %if.then.i.i1344 ], [ %j.03617, %if.then13.i.i1350 ], [ %j.1, %if.end503 ], [ %j.03617, %_ZN4cvc58internal9TrustNodeD2Ev.exit1156 ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1341 ], [ 1, %if.then.i.i1344 ], [ 1, %if.then13.i.i1350 ], [ 0, %if.end503 ], [ %call327, %_ZN4cvc58internal9TrustNodeD2Ev.exit1156 ]
+  %j.2 = phi i64 [ %j.03617, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1341 ], [ %j.03617, %if.then.i.i1344 ], [ %j.03617, %if.then13.i.i1350 ], [ %j.3, %if.end503 ], [ %j.03617, %_ZN4cvc58internal9TrustNodeD2Ev.exit1156 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1341 ], [ 1, %if.then.i.i1344 ], [ 1, %if.then13.i.i1350 ], [ 0, %if.end503 ], [ %call327, %_ZN4cvc58internal9TrustNodeD2Ev.exit1156 ]
   %251 = load ptr, ptr %d_proven3.i1127, align 8
   %bf.load.i.i.i1811 = load i64, ptr %251, align 8
   %252 = and i64 %bf.load.i.i.i1811, 1152920405095219200
@@ -2768,8 +2768,8 @@ terminate.lpad.i.i1820:                           ; preds = %if.then13.i.i.i1819
   unreachable
 
 cleanup513:                                       ; preds = %if.then13.i.i.i1819, %if.then.i.i.i1813, %cleanup, %if.then13.i.i1018, %if.then.i.i1012, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1009, %invoke.cont246
-  %j.3 = phi i64 [ %j.03617, %invoke.cont246 ], [ %j.03617, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1009 ], [ %j.03617, %if.then.i.i1012 ], [ %j.03617, %if.then13.i.i1018 ], [ %j.2, %cleanup ], [ %j.2, %if.then.i.i.i1813 ], [ %j.2, %if.then13.i.i.i1819 ]
-  %cleanup.dest.slot.1 = phi i32 [ 12, %invoke.cont246 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1009 ], [ 1, %if.then.i.i1012 ], [ 1, %if.then13.i.i1018 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i.i1813 ], [ %cleanup.dest.slot.0, %if.then13.i.i.i1819 ]
+  %j.1 = phi i64 [ %j.03617, %invoke.cont246 ], [ %j.03617, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1009 ], [ %j.03617, %if.then.i.i1012 ], [ %j.03617, %if.then13.i.i1018 ], [ %j.2, %cleanup ], [ %j.2, %if.then.i.i.i1813 ], [ %j.2, %if.then13.i.i.i1819 ]
+  %cleanup.dest.slot.0 = phi i32 [ 12, %invoke.cont246 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1009 ], [ 1, %if.then.i.i1012 ], [ 1, %if.then13.i.i1018 ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i.i1813 ], [ %cleanup.dest.slot.1, %if.then13.i.i.i1819 ]
   %255 = load ptr, ptr %learnedLiteral, align 8
   %bf.load.i.i1822 = load i64, ptr %255, align 8
   %256 = and i64 %bf.load.i.i1822, 1152920405095219200
@@ -2797,7 +2797,7 @@ terminate.lpad.i1831:                             ; preds = %if.then13.i.i1830
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1832: ; preds = %cleanup513, %if.then.i.i1824, %if.then13.i.i1830
-  switch i32 %cleanup.dest.slot.1, label %cleanup1005 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup1005 [
     i32 0, label %for.inc515
     i32 12, label %for.inc515
   ]
@@ -2824,16 +2824,16 @@ cond.true521:                                     ; preds = %for.inc515
   %.pre3655 = ptrtoint ptr %.pre3651 to i64
   %.pre3656 = sub i64 %.pre3654, %.pre3655
   %.pre3657 = sdiv exact i64 %.pre3656, 24
-  %cmp.i1918 = icmp ult i64 %.pre3657, %j.3
+  %cmp.i1918 = icmp ult i64 %.pre3657, %j.1
   br i1 %cmp.i1918, label %if.then.i1925, label %if.else.i
 
 if.then.i1925:                                    ; preds = %cond.true521
-  %sub.i = sub nuw i64 %j.3, %.pre3657
+  %sub.i = sub nuw i64 %j.1, %.pre3657
   invoke void @_ZNSt6vectorIN4cvc58internal9TrustNodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %d_learnedLiterals.i626, i64 noundef %sub.i)
           to label %invoke.cont535 unwind label %lpad162.loopexit.split-lp.loopexit.split-lp
 
 if.else.i:                                        ; preds = %if.end189, %cond.true521
-  %j.0.lcssa3662 = phi i64 [ %j.3, %cond.true521 ], [ 0, %if.end189 ]
+  %j.0.lcssa3662 = phi i64 [ %j.1, %cond.true521 ], [ 0, %if.end189 ]
   %259 = phi ptr [ %.pre, %cond.true521 ], [ %67, %if.end189 ]
   %260 = phi ptr [ %.pre3651, %cond.true521 ], [ %68, %if.end189 ]
   %sub.ptr.div.i.i1917.pre-phi3661 = phi i64 [ %.pre3657, %cond.true521 ], [ %sub.ptr.div.i699, %if.end189 ]
@@ -5143,7 +5143,7 @@ ehcleanup1002:                                    ; preds = %lpad776.loopexit, %
   br label %ehcleanup1004
 
 cleanup1003:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2540, %if.then.i.i.i3360, %invoke.cont.i3358
-  %retval.5 = phi i32 [ 1, %invoke.cont.i3358 ], [ 1, %if.then.i.i.i3360 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2540 ]
+  %retval.7 = phi i32 [ 1, %invoke.cont.i3358 ], [ 1, %if.then.i.i.i3360 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2540 ]
   %555 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %555, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -5175,7 +5175,7 @@ ehcleanup1004:                                    ; preds = %lpad538.loopexit, %
   br label %ehcleanup1006
 
 cleanup1005:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1832, %if.end.i.i.i.i3368, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i
-  %retval.6 = phi i32 [ %retval.5, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i ], [ %retval.5, %if.end.i.i.i.i3368 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1832 ]
+  %retval.4 = phi i32 [ %retval.7, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i ], [ %retval.7, %if.end.i.i.i.i3368 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1832 ]
   %560 = load ptr, ptr %_M_refcount.i.i.i622, align 8
   %cmp.not.i.i.i3369 = icmp eq ptr %560, null
   br i1 %cmp.not.i.i.i3369, label %_ZNSt10shared_ptrIN4cvc58internal6theory20TrustSubstitutionMapEED2Ev.exit, label %if.then.i.i.i3370
@@ -5332,7 +5332,7 @@ ehcleanup1008:                                    ; preds = %lpad155, %_ZNSt15__
   br label %ehcleanup1010
 
 cleanup1009:                                      ; preds = %if.end8.sink.split.i.i.i.i3400, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i3397, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3387, %_ZNSt10shared_ptrIN4cvc58internal6theory20TrustSubstitutionMapEED2Ev.exit, %if.then13.i.i.i502, %if.then.i.i.i496, %invoke.cont114
-  %retval.7 = phi i32 [ 0, %invoke.cont114 ], [ 0, %if.then.i.i.i496 ], [ 0, %if.then13.i.i.i502 ], [ %retval.6, %_ZNSt10shared_ptrIN4cvc58internal6theory20TrustSubstitutionMapEED2Ev.exit ], [ %retval.6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3387 ], [ %retval.6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i3397 ], [ %retval.6, %if.end8.sink.split.i.i.i.i3400 ]
+  %retval.0 = phi i32 [ 0, %invoke.cont114 ], [ 0, %if.then.i.i.i496 ], [ 0, %if.then13.i.i.i502 ], [ %retval.4, %_ZNSt10shared_ptrIN4cvc58internal6theory20TrustSubstitutionMapEED2Ev.exit ], [ %retval.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3387 ], [ %retval.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i3397 ], [ %retval.4, %if.end8.sink.split.i.i.i.i3400 ]
   %d_proven.i3410 = getelementptr inbounds i8, ptr %conf, i64 8
   %582 = load ptr, ptr %d_proven.i3410, align 8
   %bf.load.i.i.i3411 = load i64, ptr %582, align 8
@@ -5361,7 +5361,7 @@ terminate.lpad.i.i3420:                           ; preds = %if.then13.i.i.i3419
   unreachable
 
 _ZN4cvc58internal9TrustNodeD2Ev.exit3421:         ; preds = %cleanup1009, %if.then.i.i.i3413, %if.then13.i.i.i3419
-  ret i32 %retval.7
+  ret i32 %retval.0
 
 ehcleanup1010:                                    ; preds = %lpad92, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4cvc58internal6theory20TrustSubstitutionMapESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %ehcleanup1008, %lpad113
   %.pn98.pn.pn = phi { ptr, i32 } [ %.pn98.pn, %ehcleanup1008 ], [ %19, %lpad113 ], [ %18, %lpad92 ], [ %23, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4cvc58internal6theory20TrustSubstitutionMapESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]

@@ -2023,8 +2023,8 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb1EEEvRKNS_14BufferSGBM3WayEi
   br label %._crit_edge.i
 
 .lr.ph.i133:                                      ; preds = %.lr.ph201, %.lr.ph.i133
-  %.1168 = phi i16 [ %spec.select, %.lr.ph.i133 ], [ %.0167195, %.lr.ph201 ]
-  %.0165 = phi i16 [ %spec.select171, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
+  %.2169 = phi i16 [ %spec.select, %.lr.ph.i133 ], [ %.0167195, %.lr.ph201 ]
+  %.1166 = phi i16 [ %spec.select171, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
   %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i135, %.lr.ph.i133 ], [ 0, %.lr.ph201 ]
   %.05694.i = phi i16 [ %244, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
   %.08493.i = phi i16 [ %.sroa.speculated79.i, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
@@ -2062,10 +2062,10 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb1EEEvRKNS_14BufferSGBM3WayEi
   %269 = call i32 @llvm.smin.i32(i32 %268, i32 32767)
   %270 = trunc nsw i32 %269 to i16
   store i16 %270, ptr %260, align 2
-  %271 = icmp sgt i16 %.0165, %270
+  %271 = icmp sgt i16 %.1166, %270
   %272 = trunc i64 %indvars.iv.i134 to i16
-  %spec.select = select i1 %271, i16 %272, i16 %.1168
-  %spec.select171 = call i16 @llvm.smin.i16(i16 %.0165, i16 %270)
+  %spec.select = select i1 %271, i16 %272, i16 %.2169
+  %spec.select171 = call i16 @llvm.smin.i16(i16 %.1166, i16 %270)
   %273 = load i32, ptr %72, align 8
   %274 = add nsw i32 %273, -1
   %275 = sext i32 %274 to i64
@@ -2073,8 +2073,8 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb1EEEvRKNS_14BufferSGBM3WayEi
   br i1 %276, label %.lr.ph.i133, label %._crit_edge.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i133, %.._crit_edge_crit_edge.i129
-  %.3170 = phi i16 [ %.0167195, %.._crit_edge_crit_edge.i129 ], [ %spec.select, %.lr.ph.i133 ]
-  %.2 = phi i16 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %spec.select171, %.lr.ph.i133 ]
+  %.1168 = phi i16 [ %.0167195, %.._crit_edge_crit_edge.i129 ], [ %spec.select, %.lr.ph.i133 ]
+  %.0165 = phi i16 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %spec.select171, %.lr.ph.i133 ]
   %.pre-phi.i131 = phi i64 [ %.pre.i130, %.._crit_edge_crit_edge.i129 ], [ %275, %.lr.ph.i133 ]
   %.084.lcssa.i = phi i16 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %.sroa.speculated79.i, %.lr.ph.i133 ]
   %.056.lcssa.i = phi i32 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %251, %.lr.ph.i133 ]
@@ -2125,11 +2125,11 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb1EEEvRKNS_14BufferSGBM3WayEi
   %316 = getelementptr i16, ptr %236, i64 %315
   %317 = getelementptr i8, ptr %316, i64 -2
   %318 = load i16, ptr %317, align 2
-  %319 = icmp slt i16 %318, %.2
+  %319 = icmp slt i16 %318, %.0165
   %320 = trunc i32 %314 to i16
   %321 = add i16 %320, -1
-  %.4 = select i1 %319, i16 %321, i16 %.3170
-  %.3 = call i16 @llvm.smin.i16(i16 %318, i16 %.2)
+  %.4 = select i1 %319, i16 %321, i16 %.1168
+  %.3 = call i16 @llvm.smin.i16(i16 %318, i16 %.0165)
   %322 = load i32, ptr %75, align 4
   %323 = icmp sgt i32 %322, 0
   %324 = icmp sgt i32 %314, 0
@@ -2718,8 +2718,8 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb0EEEvRKNS_14BufferSGBM3WayEi
   br label %._crit_edge.i
 
 .lr.ph.i133:                                      ; preds = %.lr.ph201, %.lr.ph.i133
-  %.1168 = phi i16 [ %spec.select, %.lr.ph.i133 ], [ %.0167195, %.lr.ph201 ]
-  %.0165 = phi i16 [ %spec.select171, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
+  %.2169 = phi i16 [ %spec.select, %.lr.ph.i133 ], [ %.0167195, %.lr.ph201 ]
+  %.1166 = phi i16 [ %spec.select171, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
   %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i135, %.lr.ph.i133 ], [ 0, %.lr.ph201 ]
   %.05694.i = phi i16 [ %244, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
   %.08493.i = phi i16 [ %.sroa.speculated79.i, %.lr.ph.i133 ], [ 32767, %.lr.ph201 ]
@@ -2757,10 +2757,10 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb0EEEvRKNS_14BufferSGBM3WayEi
   %269 = call i32 @llvm.smin.i32(i32 %268, i32 32767)
   %270 = trunc nsw i32 %269 to i16
   store i16 %270, ptr %260, align 2
-  %271 = icmp sgt i16 %.0165, %270
+  %271 = icmp sgt i16 %.1166, %270
   %272 = trunc i64 %indvars.iv.i134 to i16
-  %spec.select = select i1 %271, i16 %272, i16 %.1168
-  %spec.select171 = call i16 @llvm.smin.i16(i16 %.0165, i16 %270)
+  %spec.select = select i1 %271, i16 %272, i16 %.2169
+  %spec.select171 = call i16 @llvm.smin.i16(i16 %.1166, i16 %270)
   %273 = load i32, ptr %72, align 8
   %274 = add nsw i32 %273, -1
   %275 = sext i32 %274 to i64
@@ -2768,8 +2768,8 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb0EEEvRKNS_14BufferSGBM3WayEi
   br i1 %276, label %.lr.ph.i133, label %._crit_edge.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i133, %.._crit_edge_crit_edge.i129
-  %.3170 = phi i16 [ %.0167195, %.._crit_edge_crit_edge.i129 ], [ %spec.select, %.lr.ph.i133 ]
-  %.2 = phi i16 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %spec.select171, %.lr.ph.i133 ]
+  %.1168 = phi i16 [ %.0167195, %.._crit_edge_crit_edge.i129 ], [ %spec.select, %.lr.ph.i133 ]
+  %.0165 = phi i16 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %spec.select171, %.lr.ph.i133 ]
   %.pre-phi.i131 = phi i64 [ %.pre.i130, %.._crit_edge_crit_edge.i129 ], [ %275, %.lr.ph.i133 ]
   %.084.lcssa.i = phi i16 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %.sroa.speculated79.i, %.lr.ph.i133 ]
   %.056.lcssa.i = phi i32 [ 32767, %.._crit_edge_crit_edge.i129 ], [ %251, %.lr.ph.i133 ]
@@ -2820,11 +2820,11 @@ _ZNK2cv16SGBM3WayMainLoop22accumulateCostsLeftTopILb0EEEvRKNS_14BufferSGBM3WayEi
   %316 = getelementptr i16, ptr %236, i64 %315
   %317 = getelementptr i8, ptr %316, i64 -2
   %318 = load i16, ptr %317, align 2
-  %319 = icmp slt i16 %318, %.2
+  %319 = icmp slt i16 %318, %.0165
   %320 = trunc i32 %314 to i16
   %321 = add i16 %320, -1
-  %.4 = select i1 %319, i16 %321, i16 %.3170
-  %.3 = call i16 @llvm.smin.i16(i16 %318, i16 %.2)
+  %.4 = select i1 %319, i16 %321, i16 %.1168
+  %.3 = call i16 @llvm.smin.i16(i16 %318, i16 %.0165)
   %322 = load i32, ptr %75, align 4
   %323 = icmp sgt i32 %322, 0
   %324 = icmp sgt i32 %314, 0
@@ -6547,33 +6547,33 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
 
 .lr.ph996.i:                                      ; preds = %.preheader.i60, %.lr.ph996.i
   %indvars.iv1203.i = phi i64 [ %indvars.iv.next1204.i, %.lr.ph996.i ], [ 0, %.preheader.i60 ]
-  %.2509994.i = phi i16 [ %spec.select550.i, %.lr.ph996.i ], [ 32767, %.preheader.i60 ]
-  %.2514993.i = phi i16 [ %spec.select549.i, %.lr.ph996.i ], [ -1, %.preheader.i60 ]
+  %.3510994.i = phi i16 [ %spec.select550.i, %.lr.ph996.i ], [ 32767, %.preheader.i60 ]
+  %.3515993.i = phi i16 [ %spec.select549.i, %.lr.ph996.i ], [ -1, %.preheader.i60 ]
   %925 = getelementptr inbounds i16, ptr %844, i64 %indvars.iv1203.i
   %926 = load i16, ptr %925, align 2
-  %927 = icmp slt i16 %926, %.2509994.i
+  %927 = icmp slt i16 %926, %.3510994.i
   %928 = trunc i64 %indvars.iv1203.i to i16
-  %spec.select549.i = select i1 %927, i16 %928, i16 %.2514993.i
-  %spec.select550.i = call i16 @llvm.smin.i16(i16 %926, i16 %.2509994.i)
+  %spec.select549.i = select i1 %927, i16 %928, i16 %.3515993.i
+  %spec.select550.i = call i16 @llvm.smin.i16(i16 %926, i16 %.3510994.i)
   %indvars.iv.next1204.i = add nuw nsw i64 %indvars.iv1203.i, 1
   %exitcond1206.not.i = icmp eq i64 %indvars.iv.next1204.i, %wide.trip.count1155.i
   br i1 %exitcond1206.not.i, label %.loopexit863.i, label %.lr.ph996.i, !llvm.loop !96
 
 .loopexit863.i:                                   ; preds = %.lr.ph996.i, %._crit_edge989.i
-  %.4516.i = phi i16 [ %.0512.lcssa.i, %._crit_edge989.i ], [ %spec.select549.i, %.lr.ph996.i ]
-  %.4511.i = phi i16 [ %.0507.lcssa.i, %._crit_edge989.i ], [ %spec.select550.i, %.lr.ph996.i ]
+  %.2514.i = phi i16 [ %.0512.lcssa.i, %._crit_edge989.i ], [ %spec.select549.i, %.lr.ph996.i ]
+  %.2509.i = phi i16 [ %.0507.lcssa.i, %._crit_edge989.i ], [ %spec.select550.i, %.lr.ph996.i ]
   br i1 %408, label %.lr.ph1001.i, label %.loopexit863..critedge_crit_edge.i
 
 .loopexit863..critedge_crit_edge.i:               ; preds = %.loopexit863.i, %.preheader.i60
-  %.45111268.i = phi i16 [ %.4511.i, %.loopexit863.i ], [ 32767, %.preheader.i60 ]
-  %.45161266.i = phi i16 [ %.4516.i, %.loopexit863.i ], [ -1, %.preheader.i60 ]
-  %.pre1257.i = sext i16 %.45161266.i to i32
+  %.25091268.i = phi i16 [ %.2509.i, %.loopexit863.i ], [ 32767, %.preheader.i60 ]
+  %.25141266.i = phi i16 [ %.2514.i, %.loopexit863.i ], [ -1, %.preheader.i60 ]
+  %.pre1257.i = sext i16 %.25141266.i to i32
   br label %.critedge.i
 
 .lr.ph1001.i:                                     ; preds = %.loopexit863.i
-  %929 = sext i16 %.4511.i to i32
+  %929 = sext i16 %.2509.i to i32
   %930 = mul nsw i32 %929, 100
-  %931 = sext i16 %.4516.i to i32
+  %931 = sext i16 %.2514.i to i32
   br label %932
 
 932:                                              ; preds = %943, %.lr.ph1001.i
@@ -6598,8 +6598,8 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
   br i1 %exitcond1211.not.i, label %.critedge.i, label %932, !llvm.loop !97
 
 .critedge.i:                                      ; preds = %943, %.loopexit863..critedge_crit_edge.i
-  %.45111267.i = phi i16 [ %.45111268.i, %.loopexit863..critedge_crit_edge.i ], [ %.4511.i, %943 ]
-  %.45161265.i = phi i16 [ %.45161266.i, %.loopexit863..critedge_crit_edge.i ], [ %.4516.i, %943 ]
+  %.25091267.i = phi i16 [ %.25091268.i, %.loopexit863..critedge_crit_edge.i ], [ %.2509.i, %943 ]
+  %.25141265.i = phi i16 [ %.25141266.i, %.loopexit863..critedge_crit_edge.i ], [ %.2514.i, %943 ]
   %.pre-phi1258.i = phi i32 [ %.pre1257.i, %.loopexit863..critedge_crit_edge.i ], [ %931, %943 ]
   %944 = trunc nsw i64 %indvars.iv1212.i to i32
   %.reass.i = add i32 %invariant.op.i, %944
@@ -6609,25 +6609,25 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
   %948 = sext i32 %946 to i64
   %949 = getelementptr inbounds i16, ptr %947, i64 %948
   %950 = load i16, ptr %949, align 2
-  %951 = icmp sgt i16 %950, %.45111267.i
+  %951 = icmp sgt i16 %950, %.25091267.i
   br i1 %951, label %952, label %956
 
 952:                                              ; preds = %.critedge.i
-  store i16 %.45111267.i, ptr %949, align 2
-  %953 = add i16 %.45161265.i, %422
+  store i16 %.25091267.i, ptr %949, align 2
+  %953 = add i16 %.25141265.i, %422
   %954 = load ptr, ptr %418, align 8
   %955 = getelementptr inbounds i16, ptr %954, i64 %948
   store i16 %953, ptr %955, align 2
   br label %956
 
 956:                                              ; preds = %952, %.critedge.i
-  %957 = icmp sgt i16 %.45161265.i, 0
+  %957 = icmp sgt i16 %.25141265.i, 0
   %958 = icmp sgt i32 %423, %.pre-phi1258.i
   %or.cond552.i = select i1 %957, i1 %958, i1 false
   br i1 %or.cond552.i, label %959, label %982
 
 959:                                              ; preds = %956
-  %960 = zext nneg i16 %.45161265.i to i64
+  %960 = zext nneg i16 %.25141265.i to i64
   %961 = getelementptr i16, ptr %844, i64 %960
   %962 = getelementptr i8, ptr %961, i64 -2
   %963 = load i16, ptr %962, align 2

@@ -1933,12 +1933,12 @@ define internal fastcc void @dissect_ldp_pdu(ptr noundef %0, ptr noundef %1, ptr
   br label %91
 
 91:                                               ; preds = %83, %.thread132.i, %.thread.i
-  %.0130.i = phi ptr [ %85, %83 ], [ %77, %.thread132.i ], [ %71, %.thread.i ]
+  %.1130.i = phi ptr [ %85, %83 ], [ %77, %.thread132.i ], [ %71, %.thread.i ]
   %92 = load i32, ptr @hf_ldp_msg_len, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.0130.i, i32 noundef %92, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #5
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.1130.i, i32 noundef %92, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #5
   %94 = load i32, ptr @hf_ldp_msg_id, align 4
   %95 = add i32 %.03843, 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0130.i, i32 noundef %94, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #5
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.1130.i, i32 noundef %94, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #5
   br i1 %.not128.i, label %._crit_edge.i, label %97
 
 ._crit_edge.i:                                    ; preds = %91
@@ -1951,7 +1951,7 @@ define internal fastcc void @dissect_ldp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %100 = load i32, ptr @hf_ldp_msg_experiment_id, align 4
   %101 = select i1 %98, i32 %99, i32 %100
   %102 = add i32 %.03843, 8
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %.0130.i, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef %.0116.i, i32 noundef 0) #5
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %.1130.i, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef %.0116.i, i32 noundef 0) #5
   br label %104
 
 104:                                              ; preds = %97, %._crit_edge.i
@@ -1968,7 +1968,7 @@ define internal fastcc void @dissect_ldp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %108 = phi i32 [ %112, %.lr.ph.i ], [ %105, %.lr.ph.preheader.i ]
   %.0115138.i = phi i32 [ %111, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %.0119137.i = phi i32 [ %110, %.lr.ph.i ], [ %107, %.lr.ph.preheader.i ]
-  %109 = tail call fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.0119137.i, ptr noundef %.0130.i, i32 noundef %108)
+  %109 = tail call fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.0119137.i, ptr noundef %.1130.i, i32 noundef %108)
   %110 = add i32 %109, %.0119137.i
   %111 = add i32 %109, %.0115138.i
   %112 = sub i32 %105, %111
@@ -2616,8 +2616,8 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %21
 
 21:                                               ; preds = %.lr.ph818, %.loopexit
-  %.0816 = phi i32 [ %2, %.lr.ph818 ], [ %.6, %.loopexit ]
-  %.0619815 = phi i32 [ %4, %.lr.ph818 ], [ %.6625, %.loopexit ]
+  %.0816 = phi i32 [ %2, %.lr.ph818 ], [ %.1, %.loopexit ]
+  %.0619815 = phi i32 [ %4, %.lr.ph818 ], [ %.1620, %.loopexit ]
   %.0631813 = phi i16 [ 1, %.lr.ph818 ], [ %511, %.loopexit ]
   %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0816) #5
   switch i8 %22, label %506 [
@@ -2681,9 +2681,9 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 52:                                               ; preds = %45, %36
-  %.1635.ph = phi i8 [ 4, %36 ], [ 16, %45 ]
-  %.1627.ph = phi i32 [ 2, %36 ], [ 3, %45 ]
-  %53 = zext nneg i8 %.1635.ph to i32
+  %.2636.ph = phi i8 [ 4, %36 ], [ 16, %45 ]
+  %.2628.ph = phi i32 [ 2, %36 ], [ 3, %45 ]
+  %53 = zext nneg i8 %.2636.ph to i32
   %54 = call i32 @llvm.umin.i32(i32 %43, i32 %53)
   %55 = add nuw nsw i32 %54, 4
   %56 = icmp ult i32 %.0619815, %55
@@ -2718,7 +2718,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 
 77:                                               ; preds = %60
   %78 = load ptr, ptr %17, align 8
-  %79 = zext nneg i8 %.1635.ph to i64
+  %79 = zext nneg i8 %.2636.ph to i64
   %80 = call noalias ptr @wmem_alloc0(ptr noundef %78, i64 noundef %79) #5
   %.not680.not806.not = icmp eq i8 %40, 0
   br i1 %.not680.not806.not, label %._crit_edge810.thread, label %.lr.ph809.preheader
@@ -2757,7 +2757,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %._crit_edge810.thread
 
 ._crit_edge810.thread:                            ; preds = %77, %87, %._crit_edge810
-  store i32 %.1627.ph, ptr %9, align 8
+  store i32 %.2628.ph, ptr %9, align 8
   store i32 %53, ptr %18, align 4
   store ptr %80, ptr %19, align 8
   store ptr null, ptr %20, align 8
@@ -2803,9 +2803,9 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit
 
 121:                                              ; preds = %113, %107
-  %.2636.ph = phi i8 [ 4, %107 ], [ 16, %113 ]
-  %.2628.ph = phi i32 [ 2, %107 ], [ 3, %113 ]
-  %122 = zext nneg i8 %.2636.ph to i32
+  %.3637.ph = phi i8 [ 4, %107 ], [ 16, %113 ]
+  %.3629.ph = phi i32 [ 2, %107 ], [ 3, %113 ]
+  %122 = zext nneg i8 %.3637.ph to i32
   %123 = add nuw nsw i32 %122, 4
   %124 = icmp ult i32 %.0619815, %123
   br i1 %124, label %125, label %128
@@ -2828,7 +2828,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   store ptr %137, ptr %6, align 8
   %138 = add i32 %.0816, 4
   %139 = zext i8 %111 to i32
-  %.not677 = icmp eq i8 %.2636.ph, %111
+  %.not677 = icmp eq i8 %.3637.ph, %111
   br i1 %.not677, label %.lr.ph805.preheader, label %140
 
 140:                                              ; preds = %128
@@ -2858,7 +2858,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph805, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph805
-  store i32 %.2628.ph, ptr %9, align 8
+  store i32 %.3629.ph, ptr %9, align 8
   store i32 %122, ptr %18, align 4
   store ptr %147, ptr %19, align 8
   store ptr null, ptr %20, align 8
@@ -2926,9 +2926,9 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph800:                                        ; preds = %186, %215
   %.in = phi i8 [ %217, %215 ], [ %193, %186 ]
-  %.1799 = phi i32 [ %218, %215 ], [ %194, %186 ]
-  %.1620798 = phi i32 [ %216, %215 ], [ %192, %186 ]
-  %200 = add i32 %.1799, 1
+  %.2799 = phi i32 [ %218, %215 ], [ %194, %186 ]
+  %.2621798 = phi i32 [ %216, %215 ], [ %192, %186 ]
+  %200 = add i32 %.2799, 1
   %201 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %200) #5
   %202 = zext i8 %201 to i32
   %203 = icmp ult i8 %201, 2
@@ -2942,21 +2942,21 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %207 = zext i8 %.in to i32
   %208 = sub nsw i32 %207, %202
   %209 = icmp slt i32 %208, 0
-  %210 = icmp ult i32 %.1620798, %202
+  %210 = icmp ult i32 %.2621798, %202
   %or.cond682 = select i1 %209, i1 %210, i1 false
   br i1 %or.cond682, label %211, label %215
 
 211:                                              ; preds = %206
-  %212 = add i32 %.1799, 2
-  %213 = call i32 @llvm.umin.i32(i32 %.1620798, i32 %207)
+  %212 = add i32 %.2799, 2
+  %213 = call i32 @llvm.umin.i32(i32 %.2621798, i32 %207)
   %214 = call ptr @proto_tree_add_expert(ptr noundef %171, ptr noundef %1, ptr noundef nonnull @ei_ldp_malformed_data, ptr noundef %0, i32 noundef %212, i32 noundef %213) #5
   br label %.loopexit702
 
 215:                                              ; preds = %206
-  call fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0, i32 noundef %.1799, ptr noundef %171, i32 noundef %202, ptr noundef nonnull @dissect_tlv_fec.interface_params_header_fields)
-  %216 = sub nsw i32 %.1620798, %202
+  call fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0, i32 noundef %.2799, ptr noundef %171, i32 noundef %202, ptr noundef nonnull @dissect_tlv_fec.interface_params_header_fields)
+  %216 = sub nsw i32 %.2621798, %202
   %217 = trunc i32 %208 to i8
-  %218 = add i32 %.1799, %202
+  %218 = add i32 %.2799, %202
   %219 = icmp ugt i8 %217, 1
   %220 = icmp sgt i32 %216, 1
   %221 = select i1 %219, i1 %220, i1 false
@@ -3222,17 +3222,17 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 
 406:                                              ; preds = %401, %376
   %407 = phi i32 [ %.pre, %401 ], [ %398, %376 ]
-  %.2621 = phi i32 [ %404, %401 ], [ %396, %376 ]
-  %.2 = phi i32 [ %405, %401 ], [ %397, %376 ]
+  %.3622 = phi i32 [ %404, %401 ], [ %396, %376 ]
+  %.3 = phi i32 [ %405, %401 ], [ %397, %376 ]
   %408 = icmp ugt i32 %407, 1
-  %409 = icmp ugt i32 %.2621, 1
+  %409 = icmp ugt i32 %.3622, 1
   %410 = select i1 %408, i1 %409, i1 false
   br i1 %410, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %406, %425
-  %.3796 = phi i32 [ %429, %425 ], [ %.2, %406 ]
-  %.3622795 = phi i32 [ %426, %425 ], [ %.2621, %406 ]
-  %411 = add i32 %.3796, 1
+  %.4796 = phi i32 [ %429, %425 ], [ %.3, %406 ]
+  %.4623795 = phi i32 [ %426, %425 ], [ %.3622, %406 ]
+  %411 = add i32 %.4796, 1
   %412 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %411) #5
   %413 = zext i8 %412 to i32
   %414 = icmp ult i8 %412, 2
@@ -3245,23 +3245,23 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 417:                                              ; preds = %.lr.ph
   %418 = load i32, ptr %7, align 4
   %419 = icmp ult i32 %418, %413
-  %420 = icmp ult i32 %.3622795, %413
+  %420 = icmp ult i32 %.4623795, %413
   %or.cond683 = select i1 %419, i1 %420, i1 false
   br i1 %or.cond683, label %421, label %425
 
 421:                                              ; preds = %417
-  %422 = add i32 %.3796, 2
-  %423 = call i32 @llvm.umin.i32(i32 %418, i32 %.3622795)
+  %422 = add i32 %.4796, 2
+  %423 = call i32 @llvm.umin.i32(i32 %418, i32 %.4623795)
   %424 = call ptr @proto_tree_add_expert(ptr noundef %383, ptr noundef %1, ptr noundef nonnull @ei_ldp_malformed_data, ptr noundef %0, i32 noundef %422, i32 noundef %423) #5
   br label %.loopexit702
 
 425:                                              ; preds = %417
-  call fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0, i32 noundef %.3796, ptr noundef %383, i32 noundef %413, ptr noundef nonnull @dissect_tlv_fec.interface_params_header_fields)
-  %426 = sub nsw i32 %.3622795, %413
+  call fastcc void @dissect_subtlv_interface_parameters(ptr noundef %0, i32 noundef %.4796, ptr noundef %383, i32 noundef %413, ptr noundef nonnull @dissect_tlv_fec.interface_params_header_fields)
+  %426 = sub nsw i32 %.4623795, %413
   %427 = load i32, ptr %7, align 4
   %428 = sub i32 %427, %413
   store i32 %428, ptr %7, align 4
-  %429 = add i32 %.3796, %413
+  %429 = add i32 %.4796, %413
   %430 = icmp ugt i32 %428, 1
   %431 = icmp sgt i32 %426, 1
   %432 = select i1 %430, i1 %431, i1 false
@@ -3323,15 +3323,15 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %476
 
 476:                                              ; preds = %470, %461
-  %.4623 = phi i32 [ %474, %470 ], [ %467, %461 ]
-  %.4 = phi i32 [ %475, %470 ], [ %468, %461 ]
+  %.5624 = phi i32 [ %474, %470 ], [ %467, %461 ]
+  %.5 = phi i32 [ %475, %470 ], [ %468, %461 ]
   %477 = load i32, ptr @hf_ldp_tlv_fec_gen_saii_type, align 4
-  %478 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %477, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #5
-  %479 = add i32 %.4, 1
+  %478 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %477, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #5
+  %479 = add i32 %.5, 1
   %480 = load i32, ptr @hf_ldp_tlv_fec_gen_saii_length, align 4
   %481 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %446, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #5
-  %482 = add i32 %.4623, -2
-  %483 = add i32 %.4, 2
+  %482 = add i32 %.5624, -2
+  %483 = add i32 %.5, 2
   %484 = load i32, ptr %8, align 4
   %.not671 = icmp eq i32 %484, 0
   br i1 %.not671, label %491, label %485
@@ -3345,15 +3345,15 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %491
 
 491:                                              ; preds = %485, %476
-  %.5624 = phi i32 [ %489, %485 ], [ %482, %476 ]
-  %.5 = phi i32 [ %490, %485 ], [ %483, %476 ]
+  %.6625 = phi i32 [ %489, %485 ], [ %482, %476 ]
+  %.6 = phi i32 [ %490, %485 ], [ %483, %476 ]
   %492 = load i32, ptr @hf_ldp_tlv_fec_gen_taii_type, align 4
-  %493 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %492, ptr noundef %0, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #5
-  %494 = add i32 %.5, 1
+  %493 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %492, ptr noundef %0, i32 noundef %.6, i32 noundef 1, i32 noundef 0) #5
+  %494 = add i32 %.6, 1
   %495 = load i32, ptr @hf_ldp_tlv_fec_gen_taii_length, align 4
   %496 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %446, i32 noundef %495, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #5
-  %497 = add i32 %.5624, -2
-  %498 = add i32 %.5, 2
+  %497 = add i32 %.6625, -2
+  %498 = add i32 %.6, 2
   %499 = load i32, ptr %8, align 4
   %.not672 = icmp eq i32 %499, 0
   br i1 %.not672, label %.loopexit, label %500
@@ -3374,10 +3374,10 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   br label %.loopexit702
 
 .loopexit:                                        ; preds = %425, %215, %406, %186, %439, %500, %491, %345, %332, %._crit_edge, %140, %114, %._crit_edge810.thread, %72, %46, %23
-  %.6625 = phi i32 [ %504, %500 ], [ %497, %491 ], [ %456, %439 ], [ %369, %345 ], [ %333, %332 ], [ %142, %140 ], [ %158, %._crit_edge ], [ %120, %114 ], [ %74, %72 ], [ %101, %._crit_edge810.thread ], [ %51, %46 ], [ %29, %23 ], [ %192, %186 ], [ %.2621, %406 ], [ %216, %215 ], [ %426, %425 ]
-  %.6 = phi i32 [ %505, %500 ], [ %498, %491 ], [ %457, %439 ], [ %.reass, %345 ], [ %334, %332 ], [ %141, %140 ], [ %157, %._crit_edge ], [ %119, %114 ], [ %73, %72 ], [ %100, %._crit_edge810.thread ], [ %50, %46 ], [ %30, %23 ], [ %194, %186 ], [ %.2, %406 ], [ %218, %215 ], [ %429, %425 ]
+  %.1620 = phi i32 [ %504, %500 ], [ %497, %491 ], [ %456, %439 ], [ %369, %345 ], [ %333, %332 ], [ %142, %140 ], [ %158, %._crit_edge ], [ %120, %114 ], [ %74, %72 ], [ %101, %._crit_edge810.thread ], [ %51, %46 ], [ %29, %23 ], [ %192, %186 ], [ %.3622, %406 ], [ %216, %215 ], [ %426, %425 ]
+  %.1 = phi i32 [ %505, %500 ], [ %498, %491 ], [ %457, %439 ], [ %.reass, %345 ], [ %334, %332 ], [ %141, %140 ], [ %157, %._crit_edge ], [ %119, %114 ], [ %73, %72 ], [ %100, %._crit_edge810.thread ], [ %50, %46 ], [ %30, %23 ], [ %194, %186 ], [ %.3, %406 ], [ %218, %215 ], [ %429, %425 ]
   %511 = add i16 %.0631813, 1
-  %512 = icmp sgt i32 %.6625, 0
+  %512 = icmp sgt i32 %.1620, 0
   br i1 %512, label %21, label %.loopexit702, !llvm.loop !13
 
 .loopexit702:                                     ; preds = %.loopexit, %5, %506, %435, %421, %415, %372, %341, %335, %304, %270, %224, %211, %204, %198, %161, %125, %104, %57, %33

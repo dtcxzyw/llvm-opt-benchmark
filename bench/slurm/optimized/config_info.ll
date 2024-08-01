@@ -737,24 +737,24 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %174
 
 174:                                              ; preds = %171, %169
-  %.0.i = phi ptr [ %173, %171 ], [ %170, %169 ]
+  %.1.i = phi ptr [ %173, %171 ], [ %170, %169 ]
   %175 = load ptr, ptr %54, align 8
   %176 = call ptr @strtok(ptr noundef %175, ptr noundef nonnull @.str.362) #13
-  %177 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0.i, i32 noundef 32) #16
+  %177 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.i, i32 noundef 32) #16
   %.not333.i = icmp eq ptr %177, null
   %178 = load ptr, ptr %54, align 8
   br i1 %.not333.i, label %181, label %179
 
 179:                                              ; preds = %174
-  %180 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.363, ptr noundef %178, ptr noundef %.0.i) #13
+  %180 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.363, ptr noundef %178, ptr noundef %.1.i) #13
   br label %183
 
 181:                                              ; preds = %174
-  %182 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.364, ptr noundef %178, ptr noundef %.0.i) #13
+  %182 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.364, ptr noundef %178, ptr noundef %.1.i) #13
   br label %183
 
 183:                                              ; preds = %181, %179, %118, %113
-  %.1.i = phi ptr [ %115, %118 ], [ %115, %113 ], [ %180, %179 ], [ %182, %181 ]
+  %.0.i = phi ptr [ %115, %118 ], [ %115, %113 ], [ %180, %179 ], [ %182, %181 ]
   %184 = load ptr, ptr %54, align 8
   %185 = call i32 @xstrcasecmp(ptr noundef %184, ptr noundef nonnull @.str.365) #13
   %.not334.i = icmp eq i32 %185, 0
@@ -815,7 +815,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not343.i, label %213, label %214
 
 213:                                              ; preds = %210, %207, %204, %201, %198, %195, %192, %189, %186, %183
-  call void @list_append(ptr noundef %41, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %41, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 214:                                              ; preds = %210
@@ -867,7 +867,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not351.i, label %238, label %239
 
 238:                                              ; preds = %235, %232, %229, %226, %223, %220, %217, %214
-  call void @list_append(ptr noundef %43, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %43, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 239:                                              ; preds = %235
@@ -967,7 +967,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not367.i, label %287, label %288
 
 287:                                              ; preds = %284, %281, %278, %275, %272, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %239
-  call void @list_append(ptr noundef %42, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %42, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 288:                                              ; preds = %284
@@ -1031,7 +1031,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not377.i, label %318, label %319
 
 318:                                              ; preds = %315, %312, %309, %306, %303, %300, %297, %294, %291, %288
-  call void @list_append(ptr noundef %44, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %44, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 319:                                              ; preds = %315
@@ -1107,7 +1107,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not389.i, label %355, label %356
 
 355:                                              ; preds = %352, %349, %346, %343, %340, %337, %334, %331, %328, %325, %322, %319
-  call void @list_append(ptr noundef %45, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %45, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 356:                                              ; preds = %352
@@ -1117,7 +1117,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not390.i, label %359, label %360
 
 359:                                              ; preds = %356
-  call void @list_append(ptr noundef %46, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %46, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 360:                                              ; preds = %356
@@ -1181,7 +1181,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not400.i, label %390, label %391
 
 390:                                              ; preds = %387, %384, %381, %378, %375, %372, %369, %366, %363, %360
-  call void @list_append(ptr noundef %47, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %47, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 391:                                              ; preds = %387
@@ -1203,7 +1203,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not403.i, label %400, label %401
 
 400:                                              ; preds = %397, %394, %391
-  call void @list_append(ptr noundef %48, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %48, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 401:                                              ; preds = %397
@@ -1219,7 +1219,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not405.i, label %407, label %408
 
 407:                                              ; preds = %404, %401
-  call void @list_append(ptr noundef %50, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %50, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 408:                                              ; preds = %404
@@ -1229,7 +1229,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not406.i, label %411, label %412
 
 411:                                              ; preds = %408
-  call void @list_append(ptr noundef %51, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %51, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 412:                                              ; preds = %408
@@ -1269,11 +1269,11 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not412.i, label %430, label %431
 
 430:                                              ; preds = %427, %424, %421, %418, %415, %412
-  call void @list_append(ptr noundef %49, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %49, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 431:                                              ; preds = %427
-  call void @list_append(ptr noundef %40, ptr noundef %.1.i) #13
+  call void @list_append(ptr noundef %40, ptr noundef %.0.i) #13
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %39

@@ -4031,7 +4031,7 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit:     ; preds = %348, %350
           to label %367 unwind label %.loopexit.split-lp
 
 367:                                              ; preds = %356, %365
-  %.026 = phi i32 [ 1, %365 ], [ 0, %356 ]
+  %.1 = phi i32 [ 1, %365 ], [ 0, %356 ]
   %368 = load ptr, ptr %15, align 8
   %.not.i.i.i96 = icmp eq ptr %368, null
   br i1 %.not.i.i.i96, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit97, label %369
@@ -4157,8 +4157,8 @@ _ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i124: ; preds = %_ZSt8_DestroyI
   resume { ptr, i32 } %.pn47.pn.pn
 
 _ZNSt6vectorIN2cv4UMatESaIS1_EED2Ev.exit126:      ; preds = %391, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i124, %26
-  %.1 = phi i32 [ 1, %26 ], [ %.026, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i124 ], [ %.026, %391 ]
-  ret i32 %.1
+  %.026 = phi i32 [ 1, %26 ], [ %.1, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i124 ], [ %.1, %391 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5967,7 +5967,7 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit313:  ; preds = %_ZNSt6vectorIN2cv4U
 
 642:                                              ; preds = %.lr.ph467, %940
   %.0143465 = phi i1 [ false, %.lr.ph467 ], [ true, %940 ]
-  %.0146464 = phi double [ 1.000000e+00, %.lr.ph467 ], [ %.2148, %940 ]
+  %.0146464 = phi double [ 1.000000e+00, %.lr.ph467 ], [ %.1147, %940 ]
   %.0149463 = phi i64 [ 0, %.lr.ph467 ], [ %941, %940 ]
   %643 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN2cv6detail17stitchingLogLevelEv()
           to label %644 unwind label %650
@@ -6011,9 +6011,9 @@ _ZNSt6vectorIN2cv4UMatESaIS1_EE5clearEv.exit313:  ; preds = %_ZNSt6vectorIN2cv4U
   br label %667
 
 667:                                              ; preds = %656, %653
-  %.1147 = phi double [ %.sroa.speculated, %656 ], [ %.0146464, %653 ]
+  %.2148 = phi double [ %.sroa.speculated, %656 ], [ %.0146464, %653 ]
   %668 = load double, ptr %559, align 8
-  %669 = fdiv double %.1147, %668
+  %669 = fdiv double %.2148, %668
   %670 = load double, ptr %331, align 8
   %671 = fmul double %670, %669
   %672 = fptrunc double %671 to float
@@ -6214,7 +6214,7 @@ _ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6deta
   br i1 %.not475, label %.loopexit, label %.lr.ph461
 
 .lr.ph461:                                        ; preds = %_ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit
-  %762 = fadd double %.1147, -1.000000e+00
+  %762 = fadd double %.2148, -1.000000e+00
   %763 = call noundef double @llvm.fabs.f64(double %762)
   %764 = fcmp ogt double %763, 1.000000e-01
   br label %765
@@ -6245,11 +6245,11 @@ _ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6deta
 
 780:                                              ; preds = %765
   %781 = sitofp i32 %.sroa.010.0.copyload to double
-  %782 = fmul double %.1147, %781
+  %782 = fmul double %.2148, %781
   %783 = insertelement <2 x double> poison, double %782, i64 0
   %784 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %783)
   %785 = sitofp i32 %.sroa.3.0.copyload to double
-  %786 = fmul double %.1147, %785
+  %786 = fmul double %.2148, %785
   %787 = insertelement <2 x double> poison, double %786, i64 0
   %788 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %787)
   br label %789
@@ -6335,8 +6335,8 @@ _ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6deta
   br label %1050
 
 .loopexit:                                        ; preds = %801, %_ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit, %652
-  %.2148 = phi double [ %.0146464, %652 ], [ %.1147, %_ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit ], [ %.1147, %801 ]
-  %823 = fadd double %.2148, -1.000000e+00
+  %.1147 = phi double [ %.0146464, %652 ], [ %.2148, %_ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit ], [ %.2148, %801 ]
+  %823 = fadd double %.1147, -1.000000e+00
   %824 = call noundef double @llvm.fabs.f64(double %823)
   %825 = fcmp ogt double %824, 1.000000e-01
   br i1 %825, label %826, label %831
@@ -6349,7 +6349,7 @@ _ZN2cv3PtrINS_6detail14RotationWarperEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6deta
   store i64 0, ptr %575, align 8
   store i32 34209792, ptr %54, align 8
   store ptr %46, ptr %574, align 8
-  invoke void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 0, double noundef %.2148, double noundef %.2148, i32 noundef 5)
+  invoke void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 0, double noundef %.1147, double noundef %.1147, i32 noundef 5)
           to label %827 unwind label %829
 
 827:                                              ; preds = %826
@@ -8714,7 +8714,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit74:                  ; preds = %284, %280
   br label %294
 
 294:                                              ; preds = %230, %_ZNSt6vectorIdSaIdEED2Ev.exit74
-  %.0 = phi i32 [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit74 ], [ 1, %230 ]
+  %.1 = phi i32 [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit74 ], [ 1, %230 ]
   %295 = load ptr, ptr %9, align 8
   %.not.i.i.i75 = icmp eq ptr %295, null
   br i1 %.not.i.i.i75, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit, label %296
@@ -8793,8 +8793,8 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit87:   ; preds = %_ZNSt6vectorIdSaIdE
   resume { ptr, i32 } %.pn
 
 _ZNSt6vectorIN2cv4UMatESaIS1_EED2Ev.exit85:       ; preds = %308, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i83, %25
-  %.1 = phi i32 [ 1, %25 ], [ %.0, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i83 ], [ %.0, %308 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1, %25 ], [ %.1, %_ZSt8_DestroyIPN2cv4UMatES1_EvT_S3_RSaIT0_E.exit.i83 ], [ %.1, %308 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

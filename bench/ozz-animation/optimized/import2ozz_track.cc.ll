@@ -382,7 +382,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
 
 182:                                              ; preds = %.lr.ph962, %_ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph962 ], [ %indvars.iv.next, %_ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev.exit ]
-  %.0960 = phi i8 [ 1, %.lr.ph962 ], [ %.3, %_ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev.exit ]
+  %.0960 = phi i8 [ 1, %.lr.ph962 ], [ %.1, %_ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev.exit ]
   %.067959 = phi i1 [ false, %.lr.ph962 ], [ %.168, %_ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev.exit ]
   %183 = load ptr, ptr %124, align 8
   %184 = getelementptr inbounds ptr, ptr %183, i64 %indvars.iv
@@ -402,7 +402,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N
 
 .lr.ph:                                           ; preds = %187, %1771
   %193 = phi ptr [ %1774, %1771 ], [ %192, %187 ]
-  %.1956 = phi i8 [ %.2, %1771 ], [ %.0960, %187 ]
+  %.2956 = phi i8 [ %.3, %1771 ], [ %.0960, %187 ]
   %.074955 = phi i1 [ %.175, %1771 ], [ false, %187 ]
   %.076954 = phi i64 [ %1772, %1771 ], [ 0, %187 ]
   %194 = getelementptr inbounds %"struct.ozz::animation::offline::OzzImporter::NodeProperty", ptr %193, i64 %.076954
@@ -1431,7 +1431,7 @@ _ZNSt10unique_ptrIN3ozz9animation10FloatTrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i
   br label %606
 
 583:                                              ; preds = %_ZNSt10unique_ptrIN3ozz9animation10FloatTrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i.i
-  %.427.i.i = phi i1 [ %.32672.i.i, %_ZNSt10unique_ptrIN3ozz9animation10FloatTrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i.i ]
+  %.124.i.i = phi i1 [ %.32672.i.i, %_ZNSt10unique_ptrIN3ozz9animation10FloatTrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline13RawFloatTrackD2Ev.exit.i.i ]
   %584 = load ptr, ptr %171, align 8
   %585 = icmp eq ptr %584, %172
   br i1 %585, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i66.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i63.i.i
@@ -1569,7 +1569,7 @@ _ZStlsIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEERSt13basic_ostreamIT_T0_ES9_RK
   br label %.body.i
 
 627:                                              ; preds = %624, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_13RawFloatTrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i
-  %.022.in.i = phi i1 [ false, %624 ], [ %.427.i.i, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_13RawFloatTrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
+  %.022.in.i = phi i1 [ false, %624 ], [ %.124.i.i, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_13RawFloatTrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
   %628 = load ptr, ptr %168, align 8
   %629 = icmp eq ptr %628, %169
   br i1 %629, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i.i
@@ -1630,7 +1630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %107)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %108)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109)
-  %651 = and i8 %.1956, 1
+  %651 = and i8 %.2956, 1
   %652 = icmp ne i8 %651, 0
   %653 = select i1 %.022.in.i, i1 %652, i1 false
   %654 = zext i1 %653 to i8
@@ -2435,7 +2435,7 @@ _ZNSt10unique_ptrIN3ozz9animation11Float2TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.
   br label %978
 
 955:                                              ; preds = %_ZNSt10unique_ptrIN3ozz9animation11Float2TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i.i
-  %.427.i.i117 = phi i1 [ %.32672.i.i116, %_ZNSt10unique_ptrIN3ozz9animation11Float2TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i.i ]
+  %.124.i.i117 = phi i1 [ %.32672.i.i116, %_ZNSt10unique_ptrIN3ozz9animation11Float2TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i.i ]
   %956 = load ptr, ptr %157, align 8
   %957 = icmp eq ptr %956, %158
   br i1 %957, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i66.i.i121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i63.i.i118
@@ -2573,7 +2573,7 @@ _ZStlsIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEERSt13basic_ostreamIT_T0_ES9_RK
   br label %.body.i84
 
 999:                                              ; preds = %996, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat2TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i
-  %.022.in.i88 = phi i1 [ false, %996 ], [ %.427.i.i117, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat2TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
+  %.022.in.i88 = phi i1 [ false, %996 ], [ %.124.i.i117, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat2TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
   %1000 = load ptr, ptr %154, align 8
   %1001 = icmp eq ptr %1000, %155
   br i1 %1001, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i92, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i.i89
@@ -2634,7 +2634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83)
-  %1023 = and i8 %.1956, 1
+  %1023 = and i8 %.2956, 1
   %1024 = icmp ne i8 %1023, 0
   %1025 = select i1 %.022.in.i88, i1 %1024, i1 false
   %1026 = zext i1 %1025 to i8
@@ -3439,7 +3439,7 @@ _ZNSt10unique_ptrIN3ozz9animation11Float3TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.
   br label %1350
 
 1327:                                             ; preds = %_ZNSt10unique_ptrIN3ozz9animation11Float3TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i.i
-  %.427.i.i190 = phi i1 [ %.32672.i.i189, %_ZNSt10unique_ptrIN3ozz9animation11Float3TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i.i ]
+  %.124.i.i190 = phi i1 [ %.32672.i.i189, %_ZNSt10unique_ptrIN3ozz9animation11Float3TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline14RawFloat3TrackD2Ev.exit.i.i ]
   %1328 = load ptr, ptr %143, align 8
   %1329 = icmp eq ptr %1328, %144
   br i1 %1329, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i66.i.i194, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i63.i.i191
@@ -3577,7 +3577,7 @@ _ZStlsIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEERSt13basic_ostreamIT_T0_ES9_RK
   br label %.body.i157
 
 1371:                                             ; preds = %1368, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat3TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i
-  %.022.in.i161 = phi i1 [ false, %1368 ], [ %.427.i.i190, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat3TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
+  %.022.in.i161 = phi i1 [ false, %1368 ], [ %.124.i.i190, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat3TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
   %1372 = load ptr, ptr %140, align 8
   %1373 = icmp eq ptr %1372, %141
   br i1 %1373, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i165, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i.i162
@@ -3638,7 +3638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
-  %1395 = and i8 %.1956, 1
+  %1395 = and i8 %.2956, 1
   %1396 = icmp ne i8 %1395, 0
   %1397 = select i1 %.022.in.i161, i1 %1396, i1 false
   %1398 = zext i1 %1397 to i8
@@ -4443,7 +4443,7 @@ _ZNSt10unique_ptrIN3ozz9animation11Float4TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.
   br label %1722
 
 1699:                                             ; preds = %_ZNSt10unique_ptrIN3ozz9animation11Float4TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i.i
-  %.427.i.i263 = phi i1 [ %.32672.i.i262, %_ZNSt10unique_ptrIN3ozz9animation11Float4TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i.i ]
+  %.124.i.i263 = phi i1 [ %.32672.i.i262, %_ZNSt10unique_ptrIN3ozz9animation11Float4TrackENS0_7DeleterIS2_EEED2Ev.exit62.i.i ], [ false, %_ZN3ozz9animation7offline14RawFloat4TrackD2Ev.exit.i.i ]
   %1700 = load ptr, ptr %129, align 8
   %1701 = icmp eq ptr %1700, %130
   br i1 %1701, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i66.i.i267, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i63.i.i264
@@ -4581,7 +4581,7 @@ _ZStlsIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEERSt13basic_ostreamIT_T0_ES9_RK
   br label %.body.i230
 
 1743:                                             ; preds = %1740, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat4TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i
-  %.022.in.i234 = phi i1 [ false, %1740 ], [ %.427.i.i263, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat4TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
+  %.022.in.i234 = phi i1 [ false, %1740 ], [ %.124.i.i263, %_ZN3ozz9animation7offline12_GLOBAL__N_16ExportINS1_14RawFloat4TrackEEEbRNS1_11OzzImporterERKT_RKN4Json5ValueENS_10EndiannessE.exit.i ]
   %1744 = load ptr, ptr %126, align 8
   %1745 = icmp eq ptr %1744, %127
   br i1 %1745, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i.i238, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i.i.i235
@@ -4642,7 +4642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  %1767 = and i8 %.1956, 1
+  %1767 = and i8 %.2956, 1
   %1768 = icmp ne i8 %1767, 0
   %1769 = select i1 %.022.in.i234, i1 %1768, i1 false
   %1770 = zext i1 %1769 to i8
@@ -4650,7 +4650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
 
 1771:                                             ; preds = %279, %650, %1022, %1394, %1766, %210, %256
   %.175 = phi i1 [ true, %1766 ], [ true, %1394 ], [ true, %1022 ], [ true, %650 ], [ %.074955, %256 ], [ %.074955, %210 ], [ true, %279 ]
-  %.2 = phi i8 [ %1770, %1766 ], [ %1398, %1394 ], [ %1026, %1022 ], [ %654, %650 ], [ %.1956, %256 ], [ %.1956, %210 ], [ 0, %279 ]
+  %.3 = phi i8 [ %1770, %1766 ], [ %1398, %1394 ], [ %1026, %1022 ], [ %654, %650 ], [ %.2956, %256 ], [ %.2956, %210 ], [ 0, %279 ]
   %1772 = add nuw i64 %.076954, 1
   %1773 = load ptr, ptr %125, align 8
   %1774 = load ptr, ptr %110, align 8
@@ -4665,7 +4665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   br i1 %.175, label %1795, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %187, %._crit_edge
-  %.1.lcssa970 = phi i8 [ %.2, %._crit_edge ], [ %.0960, %187 ]
+  %.2.lcssa970 = phi i8 [ %.3, %._crit_edge ], [ %.0960, %187 ]
   invoke void @_ZN3ozz3log3LogC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %114)
           to label %1780 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -4707,7 +4707,7 @@ _ZN3ozz3log6LoggerlsIA48_cEERSoRKT_.exit:         ; preds = %1780
   br label %.body
 
 1795:                                             ; preds = %1792, %._crit_edge
-  %.1.lcssa971 = phi i8 [ %.1.lcssa970, %1792 ], [ %.2, %._crit_edge ]
+  %.2.lcssa971 = phi i8 [ %.2.lcssa970, %1792 ], [ %.3, %._crit_edge ]
   %1796 = phi ptr [ %.pre967, %1792 ], [ %1773, %._crit_edge ]
   %1797 = phi ptr [ %.pre, %1792 ], [ %1774, %._crit_edge ]
   %.not5.i.i = icmp eq ptr %1797, %1796
@@ -4779,9 +4779,9 @@ _ZSt8_DestroyIPN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAlloc
 
 _ZNSt6vectorIN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEED2Ev.exit: ; preds = %1816, %_ZSt8_DestroyIPN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i, %182
   %.168 = phi i1 [ %.067959, %182 ], [ true, %_ZSt8_DestroyIPN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i ], [ true, %1816 ]
-  %.3 = phi i8 [ %.0960, %182 ], [ %.1.lcssa971, %_ZSt8_DestroyIPN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i ], [ %.1.lcssa971, %1816 ]
+  %.1 = phi i8 [ %.0960, %182 ], [ %.2.lcssa971, %_ZSt8_DestroyIPN3ozz9animation7offline11OzzImporter12NodePropertyENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i ], [ %.2.lcssa971, %1816 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1823 = trunc nuw i8 %.3 to i1
+  %1823 = trunc nuw i8 %.1 to i1
   %1824 = load i64, ptr %120, align 8
   %sext = shl i64 %1824, 32
   %1825 = ashr exact i64 %sext, 32

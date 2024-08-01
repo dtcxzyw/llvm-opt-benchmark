@@ -7838,9 +7838,9 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit190, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit138
-  %new_helper_v.sroa.0.1 = phi ptr [ %new_helper_v.sroa.0.0.copyload197, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit190 ], [ %16, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit138 ]
-  %new_helper_v.sroa.6.1 = phi i64 [ %new_helper_v.sroa.6.0.copyload198, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit190 ], [ %17, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit138 ]
-  %reports41 = getelementptr inbounds i8, ptr %new_helper_v.sroa.0.1, i64 48
+  %new_helper_v.sroa.0.2 = phi ptr [ %new_helper_v.sroa.0.0.copyload197, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit190 ], [ %16, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit138 ]
+  %new_helper_v.sroa.6.2 = phi i64 [ %new_helper_v.sroa.6.0.copyload198, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit190 ], [ %17, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEixERSC_.exit138 ]
+  %reports41 = getelementptr inbounds i8, ptr %new_helper_v.sroa.0.2, i64 48
   %cmp.not.i.i.i.i.i.i.i192 = icmp eq ptr %reports41, %reports
   br i1 %cmp.not.i.i.i.i.i.i.i192, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSERKS4_.exit196, label %if.then.i.i.i.i.i.i.i193
 
@@ -7852,7 +7852,7 @@ if.then.i.i.i.i.i.i.i193:                         ; preds = %if.end36
   br label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSERKS4_.exit196
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEEaSERKS4_.exit196: ; preds = %if.end36, %if.then.i.i.i.i.i.i.i193
-  call void @_ZN3ue211ShadowGraph18connect_to_targetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS8_St4lessIS8_ESaIS8_EEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr %new_helper_v.sroa.0.1, i64 %new_helper_v.sroa.6.1, ptr noundef nonnull align 8 dereferenceable(40) %targets)
+  call void @_ZN3ue211ShadowGraph18connect_to_targetsENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKNS_8flat_setIS8_St4lessIS8_ESaIS8_EEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr %new_helper_v.sroa.0.2, i64 %new_helper_v.sroa.6.2, ptr noundef nonnull align 8 dereferenceable(40) %targets)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSERKS4_.exit, %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSERKS4_.exit196

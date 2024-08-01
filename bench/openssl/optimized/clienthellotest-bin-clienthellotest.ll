@@ -233,8 +233,8 @@ lor.lhs.false73:                                  ; preds = %if.end66
   br i1 %tobool78.not, label %end, label %if.end81
 
 if.end81:                                         ; preds = %lor.lhs.false73, %if.end53
-  %sessbio.0 = phi ptr [ %call57, %lor.lhs.false73 ], [ null, %if.end53 ]
-  %sess.0 = phi ptr [ %call62, %lor.lhs.false73 ], [ null, %if.end53 ]
+  %sessbio.1 = phi ptr [ %call57, %lor.lhs.false73 ], [ null, %if.end53 ]
+  %sess.1 = phi ptr [ %call62, %lor.lhs.false73 ], [ null, %if.end53 ]
   %call82 = tail call ptr @BIO_s_mem() #4
   %call83 = tail call ptr @BIO_new(ptr noundef %call82) #4
   %call84 = tail call ptr @BIO_s_mem() #4
@@ -338,8 +338,8 @@ if.end.i57:                                       ; preds = %lor.lhs.false.i
 PACKET_get_length_prefixed_1.exit:                ; preds = %lor.lhs.false.i, %if.end.i57
   %pkt.sroa.0.4 = phi ptr [ %pkt.sroa.0.3, %lor.lhs.false.i ], [ %add.ptr.i.i5.i, %if.end.i57 ]
   %pkt.sroa.16.4 = phi i64 [ %pkt.sroa.16.3, %lor.lhs.false.i ], [ %sub.i.i6.i, %if.end.i57 ]
-  %pkt2.sroa.0.0 = phi ptr [ null, %lor.lhs.false.i ], [ %add.ptr.i.i.i, %if.end.i57 ]
-  %pkt2.sroa.11.0 = phi i64 [ 0, %lor.lhs.false.i ], [ %conv.i, %if.end.i57 ]
+  %pkt2.sroa.0.1 = phi ptr [ null, %lor.lhs.false.i ], [ %add.ptr.i.i.i, %if.end.i57 ]
+  %pkt2.sroa.11.1 = phi i64 [ 0, %lor.lhs.false.i ], [ %conv.i, %if.end.i57 ]
   %retval.0.i59 = phi i32 [ 0, %lor.lhs.false.i ], [ 1, %if.end.i57 ]
   %call143 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 208, ptr noundef nonnull @.str.46, i32 noundef %retval.0.i59) #4
   %tobool144.not = icmp eq i32 %call143, 0
@@ -375,8 +375,8 @@ if.end.i65:                                       ; preds = %lor.lhs.false.i61
 PACKET_get_length_prefixed_2.exit:                ; preds = %lor.lhs.false145, %lor.lhs.false.i61, %if.end.i65
   %pkt.sroa.0.5 = phi ptr [ %pkt.sroa.0.4, %lor.lhs.false145 ], [ %pkt.sroa.0.4, %lor.lhs.false.i61 ], [ %add.ptr.i.i6.i, %if.end.i65 ]
   %pkt.sroa.16.5 = phi i64 [ %pkt.sroa.16.4, %lor.lhs.false145 ], [ %pkt.sroa.16.4, %lor.lhs.false.i61 ], [ %sub.i.i7.i, %if.end.i65 ]
-  %pkt2.sroa.0.1 = phi ptr [ %pkt2.sroa.0.0, %lor.lhs.false145 ], [ %pkt2.sroa.0.0, %lor.lhs.false.i61 ], [ %add.ptr.i2.i.i, %if.end.i65 ]
-  %pkt2.sroa.11.1 = phi i64 [ %pkt2.sroa.11.0, %lor.lhs.false145 ], [ %pkt2.sroa.11.0, %lor.lhs.false.i61 ], [ %or.i.i.i, %if.end.i65 ]
+  %pkt2.sroa.0.2 = phi ptr [ %pkt2.sroa.0.1, %lor.lhs.false145 ], [ %pkt2.sroa.0.1, %lor.lhs.false.i61 ], [ %add.ptr.i2.i.i, %if.end.i65 ]
+  %pkt2.sroa.11.2 = phi i64 [ %pkt2.sroa.11.1, %lor.lhs.false145 ], [ %pkt2.sroa.11.1, %lor.lhs.false.i61 ], [ %or.i.i.i, %if.end.i65 ]
   %retval.0.i67 = phi i32 [ 0, %lor.lhs.false145 ], [ 0, %lor.lhs.false.i61 ], [ 1, %if.end.i65 ]
   %call149 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 210, ptr noundef nonnull @.str.47, i32 noundef %retval.0.i67) #4
   %tobool150.not = icmp eq i32 %call149, 0
@@ -407,8 +407,8 @@ if.end.i76:                                       ; preds = %lor.lhs.false.i71
 PACKET_get_length_prefixed_1.exit82:              ; preds = %PACKET_get_length_prefixed_2.exit.thread, %lor.lhs.false151, %lor.lhs.false.i71, %if.end.i76
   %pkt.sroa.0.6 = phi ptr [ %pkt.sroa.0.5, %lor.lhs.false151 ], [ %pkt.sroa.0.5, %lor.lhs.false.i71 ], [ %add.ptr.i.i5.i78, %if.end.i76 ], [ %pkt.sroa.0.3, %PACKET_get_length_prefixed_2.exit.thread ]
   %pkt.sroa.16.6 = phi i64 [ 0, %lor.lhs.false151 ], [ %pkt.sroa.16.5, %lor.lhs.false.i71 ], [ %sub.i.i6.i79, %if.end.i76 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
-  %pkt2.sroa.0.2 = phi ptr [ %pkt2.sroa.0.1, %lor.lhs.false151 ], [ %pkt2.sroa.0.1, %lor.lhs.false.i71 ], [ %add.ptr.i.i.i77, %if.end.i76 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
-  %pkt2.sroa.11.2 = phi i64 [ %pkt2.sroa.11.1, %lor.lhs.false151 ], [ %pkt2.sroa.11.1, %lor.lhs.false.i71 ], [ %conv.i74, %if.end.i76 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %pkt2.sroa.0.3 = phi ptr [ %pkt2.sroa.0.2, %lor.lhs.false151 ], [ %pkt2.sroa.0.2, %lor.lhs.false.i71 ], [ %add.ptr.i.i.i77, %if.end.i76 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
+  %pkt2.sroa.11.3 = phi i64 [ %pkt2.sroa.11.2, %lor.lhs.false151 ], [ %pkt2.sroa.11.2, %lor.lhs.false.i71 ], [ %conv.i74, %if.end.i76 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
   %retval.0.i81 = phi i32 [ 0, %lor.lhs.false151 ], [ 0, %lor.lhs.false.i71 ], [ 1, %if.end.i76 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
   %call155 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 212, ptr noundef nonnull @.str.46, i32 noundef %retval.0.i81) #4
   %tobool156.not = icmp eq i32 %call155, 0
@@ -435,8 +435,8 @@ if.end.i95:                                       ; preds = %lor.lhs.false.i86
   br label %PACKET_as_length_prefixed_2.exit
 
 PACKET_as_length_prefixed_2.exit:                 ; preds = %lor.lhs.false157, %lor.lhs.false.i86, %if.end.i95
-  %pkt2.sroa.0.3 = phi ptr [ %pkt2.sroa.0.2, %lor.lhs.false157 ], [ %add.ptr.i2.i.i96, %if.end.i95 ], [ %pkt2.sroa.0.2, %lor.lhs.false.i86 ]
-  %pkt2.sroa.11.3 = phi i64 [ %pkt2.sroa.11.2, %lor.lhs.false157 ], [ %or.i.i.i92, %if.end.i95 ], [ %pkt2.sroa.11.2, %lor.lhs.false.i86 ]
+  %pkt2.sroa.0.4 = phi ptr [ %pkt2.sroa.0.3, %lor.lhs.false157 ], [ %add.ptr.i2.i.i96, %if.end.i95 ], [ %pkt2.sroa.0.3, %lor.lhs.false.i86 ]
+  %pkt2.sroa.11.4 = phi i64 [ %pkt2.sroa.11.3, %lor.lhs.false157 ], [ %or.i.i.i92, %if.end.i95 ], [ %pkt2.sroa.11.3, %lor.lhs.false.i86 ]
   %retval.0.i94 = phi i32 [ 0, %lor.lhs.false157 ], [ 1, %if.end.i95 ], [ 0, %lor.lhs.false.i86 ]
   %call161 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 214, ptr noundef nonnull @.str.48, i32 noundef %retval.0.i94) #4
   %tobool162.not = icmp eq i32 %call161, 0
@@ -453,35 +453,35 @@ while.cond.preheader:                             ; preds = %PACKET_as_length_pr
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.then215, %while.cond.preheader
-  %pkt2.sroa.0.4.ph = phi ptr [ %pkt2.sroa.0.6, %if.then215 ], [ %pkt2.sroa.0.3, %while.cond.preheader ]
-  %pkt2.sroa.11.4.ph = phi i64 [ %pkt2.sroa.11.6, %if.then215 ], [ %pkt2.sroa.11.3, %while.cond.preheader ]
+  %pkt2.sroa.0.0.ph = phi ptr [ %pkt2.sroa.0.6, %if.then215 ], [ %pkt2.sroa.0.4, %while.cond.preheader ]
+  %pkt2.sroa.11.0.ph = phi i64 [ %pkt2.sroa.11.6, %if.then215 ], [ %pkt2.sroa.11.4, %while.cond.preheader ]
   %pkt3.sroa.0.0.ph = phi ptr [ %pkt3.sroa.0.1, %if.then215 ], [ null, %while.cond.preheader ]
   %pkt3.sroa.3.0.ph = phi i64 [ %pkt3.sroa.3.1, %if.then215 ], [ 0, %while.cond.preheader ]
   %type.0.ph = phi i32 [ %type.1199204, %if.then215 ], [ 0, %while.cond.preheader ]
-  %testresult.0.ph = phi i32 [ %call220, %if.then215 ], [ 0, %while.cond.preheader ]
+  %testresult.1.ph = phi i32 [ %call220, %if.then215 ], [ 0, %while.cond.preheader ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer
-  %pkt2.sroa.0.4 = phi ptr [ %pkt2.sroa.0.4.ph, %while.cond.outer ], [ %pkt2.sroa.0.6, %while.cond.backedge ]
-  %pkt2.sroa.11.4 = phi i64 [ %pkt2.sroa.11.4.ph, %while.cond.outer ], [ %pkt2.sroa.11.6, %while.cond.backedge ]
+  %pkt2.sroa.0.0 = phi ptr [ %pkt2.sroa.0.0.ph, %while.cond.outer ], [ %pkt2.sroa.0.6, %while.cond.backedge ]
+  %pkt2.sroa.11.0 = phi i64 [ %pkt2.sroa.11.0.ph, %while.cond.outer ], [ %pkt2.sroa.11.6, %while.cond.backedge ]
   %pkt3.sroa.0.0 = phi ptr [ %pkt3.sroa.0.0.ph, %while.cond.outer ], [ %pkt3.sroa.0.1, %while.cond.backedge ]
   %pkt3.sroa.3.0 = phi i64 [ %pkt3.sroa.3.0.ph, %while.cond.outer ], [ %pkt3.sroa.3.1, %while.cond.backedge ]
   %type.0 = phi i32 [ %type.0.ph, %while.cond.outer ], [ %type.1199204, %while.cond.backedge ]
-  switch i64 %pkt2.sroa.11.4, label %PACKET_get_net_2.exit [
+  switch i64 %pkt2.sroa.11.0, label %PACKET_get_net_2.exit [
     i64 0, label %while.end
     i64 1, label %PACKET_get_net_2.exit.thread
   ]
 
 PACKET_get_net_2.exit:                            ; preds = %while.cond
-  %9 = load i8, ptr %pkt2.sroa.0.4, align 1
+  %9 = load i8, ptr %pkt2.sroa.0.0, align 1
   %conv.i.i = zext i8 %9 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i.i100 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 1
+  %add.ptr.i.i100 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 1
   %10 = load i8, ptr %add.ptr.i.i100, align 1
   %conv2.i.i = zext i8 %10 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 2
-  %sub.i.i101 = add i64 %pkt2.sroa.11.4, -2
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 2
+  %sub.i.i101 = add i64 %pkt2.sroa.11.0, -2
   %call170 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 220, ptr noundef nonnull @.str.49, i32 noundef 1) #4
   %tobool171.not = icmp eq i32 %call170, 0
   br i1 %tobool171.not, label %end, label %lor.lhs.false172
@@ -499,23 +499,23 @@ lor.lhs.false.i106:                               ; preds = %lor.lhs.false172
   %11 = load i8, ptr %add.ptr.i2.i, align 1
   %conv.i.i.i108 = zext i8 %11 to i64
   %shl.i.i.i109 = shl nuw nsw i64 %conv.i.i.i108, 8
-  %add.ptr.i.i.i110 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 3
+  %add.ptr.i.i.i110 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 3
   %12 = load i8, ptr %add.ptr.i.i.i110, align 1
   %conv2.i.i.i111 = zext i8 %12 to i64
   %or.i.i.i112 = or disjoint i64 %shl.i.i.i109, %conv2.i.i.i111
-  %sub.i.i.i113.reass = add i64 %pkt2.sroa.11.4, -4
+  %sub.i.i.i113.reass = add i64 %pkt2.sroa.11.0, -4
   %cmp.i.i4.i114 = icmp ult i64 %sub.i.i.i113.reass, %or.i.i.i112
   br i1 %cmp.i.i4.i114, label %PACKET_get_length_prefixed_2.exit121, label %if.end.i115
 
 if.end.i115:                                      ; preds = %lor.lhs.false.i106
-  %add.ptr.i2.i.i116 = getelementptr inbounds i8, ptr %pkt2.sroa.0.4, i64 4
+  %add.ptr.i2.i.i116 = getelementptr inbounds i8, ptr %pkt2.sroa.0.0, i64 4
   %add.ptr.i.i6.i117 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i116, i64 %or.i.i.i112
   %sub.i.i7.i118 = sub nuw i64 %sub.i.i.i113.reass, %or.i.i.i112
   br label %PACKET_get_length_prefixed_2.exit121
 
 PACKET_get_length_prefixed_2.exit121:             ; preds = %PACKET_get_net_2.exit.thread, %lor.lhs.false172, %lor.lhs.false.i106, %if.end.i115
   %type.1199204 = phi i32 [ %or.i.i, %lor.lhs.false172 ], [ %or.i.i, %lor.lhs.false.i106 ], [ %or.i.i, %if.end.i115 ], [ %type.0, %PACKET_get_net_2.exit.thread ]
-  %pkt2.sroa.0.6 = phi ptr [ %add.ptr.i2.i, %lor.lhs.false172 ], [ %add.ptr.i2.i, %lor.lhs.false.i106 ], [ %add.ptr.i.i6.i117, %if.end.i115 ], [ %pkt2.sroa.0.4, %PACKET_get_net_2.exit.thread ]
+  %pkt2.sroa.0.6 = phi ptr [ %add.ptr.i2.i, %lor.lhs.false172 ], [ %add.ptr.i2.i, %lor.lhs.false.i106 ], [ %add.ptr.i.i6.i117, %if.end.i115 ], [ %pkt2.sroa.0.0, %PACKET_get_net_2.exit.thread ]
   %pkt2.sroa.11.6 = phi i64 [ %sub.i.i101, %lor.lhs.false172 ], [ %sub.i.i101, %lor.lhs.false.i106 ], [ %sub.i.i7.i118, %if.end.i115 ], [ 1, %PACKET_get_net_2.exit.thread ]
   %pkt3.sroa.0.1 = phi ptr [ %pkt3.sroa.0.0, %lor.lhs.false172 ], [ %pkt3.sroa.0.0, %lor.lhs.false.i106 ], [ %add.ptr.i2.i.i116, %if.end.i115 ], [ %pkt3.sroa.0.0, %PACKET_get_net_2.exit.thread ]
   %pkt3.sroa.3.1 = phi i64 [ %pkt3.sroa.3.0, %lor.lhs.false172 ], [ %pkt3.sroa.3.0, %lor.lhs.false.i106 ], [ %or.i.i.i112, %if.end.i115 ], [ %pkt3.sroa.3.0, %PACKET_get_net_2.exit.thread ]
@@ -543,7 +543,7 @@ PACKET_equal.exit:                                ; preds = %if.then185, %if.end
   %retval.0.i123 = phi i32 [ %conv.i125, %if.end.i124 ], [ 0, %if.then185 ]
   %call190 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 227, ptr noundef nonnull @.str.51, i32 noundef %retval.0.i123) #4
   %tobool191.not = icmp eq i32 %call190, 0
-  %spec.select = select i1 %tobool191.not, i32 %testresult.0.ph, i32 1
+  %spec.select = select i1 %tobool191.not, i32 %testresult.1.ph, i32 1
   br label %end
 
 if.end195:                                        ; preds = %if.end179
@@ -568,19 +568,19 @@ if.then215:                                       ; preds = %if.else206
   br label %while.cond.outer, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
-  %spec.select38 = select i1 %cmp199, i32 1, i32 %testresult.0.ph
+  %spec.select38 = select i1 %cmp199, i32 1, i32 %testresult.1.ph
   br label %end
 
 end:                                              ; preds = %if.then198, %PACKET_get_net_2.exit, %PACKET_get_length_prefixed_2.exit121, %PACKET_get_net_2.exit.thread, %PACKET_get_length_prefixed_2.exit.thread, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_buf_init.exit.thread, %while.end, %PACKET_equal.exit, %if.end126, %lor.lhs.false133, %PACKET_get_length_prefixed_1.exit, %PACKET_get_length_prefixed_2.exit, %PACKET_get_length_prefixed_1.exit82, %PACKET_as_length_prefixed_2.exit, %if.end112, %PACKET_buf_init.exit, %if.end107, %if.then97, %if.end66, %lor.lhs.false73, %sw.epilog, %if.end7, %if.else, %lor.lhs.false, %if.then28, %sw.bb15, %sw.bb, %if.end, %entry, %if.then91, %if.then65, %if.then60
-  %testresult.2 = phi i32 [ 0, %if.end7 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit82 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %lor.lhs.false133 ], [ 0, %if.end126 ], [ 0, %PACKET_buf_init.exit ], [ 0, %if.end112 ], [ 0, %if.end107 ], [ 0, %if.then97 ], [ 0, %if.then91 ], [ 0, %lor.lhs.false73 ], [ 0, %if.end66 ], [ 0, %if.then65 ], [ 0, %if.then60 ], [ 0, %sw.epilog ], [ 0, %if.then28 ], [ 0, %lor.lhs.false ], [ 0, %if.else ], [ 0, %sw.bb15 ], [ 0, %sw.bb ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %PACKET_equal.exit ], [ %spec.select38, %while.end ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ %testresult.0.ph, %PACKET_get_net_2.exit.thread ], [ %testresult.0.ph, %PACKET_get_length_prefixed_2.exit121 ], [ %testresult.0.ph, %PACKET_get_net_2.exit ], [ %testresult.0.ph, %if.then198 ]
+  %testresult.0 = phi i32 [ 0, %if.end7 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit82 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %lor.lhs.false133 ], [ 0, %if.end126 ], [ 0, %PACKET_buf_init.exit ], [ 0, %if.end112 ], [ 0, %if.end107 ], [ 0, %if.then97 ], [ 0, %if.then91 ], [ 0, %lor.lhs.false73 ], [ 0, %if.end66 ], [ 0, %if.then65 ], [ 0, %if.then60 ], [ 0, %sw.epilog ], [ 0, %if.then28 ], [ 0, %lor.lhs.false ], [ 0, %if.else ], [ 0, %sw.bb15 ], [ 0, %sw.bb ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %PACKET_equal.exit ], [ %spec.select38, %while.end ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ %testresult.1.ph, %PACKET_get_net_2.exit.thread ], [ %testresult.1.ph, %PACKET_get_length_prefixed_2.exit121 ], [ %testresult.1.ph, %PACKET_get_net_2.exit ], [ %testresult.1.ph, %if.then198 ]
   %con.0 = phi ptr [ null, %if.end7 ], [ %call49, %PACKET_as_length_prefixed_2.exit ], [ %call49, %PACKET_get_length_prefixed_1.exit82 ], [ %call49, %PACKET_get_length_prefixed_2.exit ], [ %call49, %PACKET_get_length_prefixed_1.exit ], [ %call49, %lor.lhs.false133 ], [ %call49, %if.end126 ], [ %call49, %PACKET_buf_init.exit ], [ %call49, %if.end112 ], [ %call49, %if.end107 ], [ %call49, %if.then97 ], [ %call49, %if.then91 ], [ %call49, %lor.lhs.false73 ], [ %call49, %if.end66 ], [ %call49, %if.then65 ], [ %call49, %if.then60 ], [ %call49, %sw.epilog ], [ null, %if.then28 ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %sw.bb15 ], [ null, %sw.bb ], [ null, %if.end ], [ null, %entry ], [ %call49, %PACKET_equal.exit ], [ %call49, %while.end ], [ %call49, %PACKET_buf_init.exit.thread ], [ %call49, %PACKET_get_length_prefixed_1.exit.thread ], [ %call49, %PACKET_get_length_prefixed_2.exit.thread ], [ %call49, %PACKET_get_net_2.exit.thread ], [ %call49, %PACKET_get_length_prefixed_2.exit121 ], [ %call49, %PACKET_get_net_2.exit ], [ %call49, %if.then198 ]
-  %sessbio.1 = phi ptr [ null, %if.end7 ], [ %sessbio.0, %PACKET_as_length_prefixed_2.exit ], [ %sessbio.0, %PACKET_get_length_prefixed_1.exit82 ], [ %sessbio.0, %PACKET_get_length_prefixed_2.exit ], [ %sessbio.0, %PACKET_get_length_prefixed_1.exit ], [ %sessbio.0, %lor.lhs.false133 ], [ %sessbio.0, %if.end126 ], [ %sessbio.0, %PACKET_buf_init.exit ], [ %sessbio.0, %if.end112 ], [ %sessbio.0, %if.end107 ], [ %sessbio.0, %if.then97 ], [ %sessbio.0, %if.then91 ], [ %call57, %lor.lhs.false73 ], [ %call57, %if.end66 ], [ %call57, %if.then65 ], [ %call57, %if.then60 ], [ null, %sw.epilog ], [ null, %if.then28 ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %sw.bb15 ], [ null, %sw.bb ], [ null, %if.end ], [ null, %entry ], [ %sessbio.0, %PACKET_equal.exit ], [ %sessbio.0, %while.end ], [ %sessbio.0, %PACKET_buf_init.exit.thread ], [ %sessbio.0, %PACKET_get_length_prefixed_1.exit.thread ], [ %sessbio.0, %PACKET_get_length_prefixed_2.exit.thread ], [ %sessbio.0, %PACKET_get_net_2.exit.thread ], [ %sessbio.0, %PACKET_get_length_prefixed_2.exit121 ], [ %sessbio.0, %PACKET_get_net_2.exit ], [ %sessbio.0, %if.then198 ]
-  %sess.1 = phi ptr [ null, %if.end7 ], [ %sess.0, %PACKET_as_length_prefixed_2.exit ], [ %sess.0, %PACKET_get_length_prefixed_1.exit82 ], [ %sess.0, %PACKET_get_length_prefixed_2.exit ], [ %sess.0, %PACKET_get_length_prefixed_1.exit ], [ %sess.0, %lor.lhs.false133 ], [ %sess.0, %if.end126 ], [ %sess.0, %PACKET_buf_init.exit ], [ %sess.0, %if.end112 ], [ %sess.0, %if.end107 ], [ %sess.0, %if.then97 ], [ %sess.0, %if.then91 ], [ %call62, %lor.lhs.false73 ], [ %call62, %if.end66 ], [ %call62, %if.then65 ], [ null, %if.then60 ], [ null, %sw.epilog ], [ null, %if.then28 ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %sw.bb15 ], [ null, %sw.bb ], [ null, %if.end ], [ null, %entry ], [ %sess.0, %PACKET_equal.exit ], [ %sess.0, %while.end ], [ %sess.0, %PACKET_buf_init.exit.thread ], [ %sess.0, %PACKET_get_length_prefixed_1.exit.thread ], [ %sess.0, %PACKET_get_length_prefixed_2.exit.thread ], [ %sess.0, %PACKET_get_net_2.exit.thread ], [ %sess.0, %PACKET_get_length_prefixed_2.exit121 ], [ %sess.0, %PACKET_get_net_2.exit ], [ %sess.0, %if.then198 ]
+  %sessbio.0 = phi ptr [ null, %if.end7 ], [ %sessbio.1, %PACKET_as_length_prefixed_2.exit ], [ %sessbio.1, %PACKET_get_length_prefixed_1.exit82 ], [ %sessbio.1, %PACKET_get_length_prefixed_2.exit ], [ %sessbio.1, %PACKET_get_length_prefixed_1.exit ], [ %sessbio.1, %lor.lhs.false133 ], [ %sessbio.1, %if.end126 ], [ %sessbio.1, %PACKET_buf_init.exit ], [ %sessbio.1, %if.end112 ], [ %sessbio.1, %if.end107 ], [ %sessbio.1, %if.then97 ], [ %sessbio.1, %if.then91 ], [ %call57, %lor.lhs.false73 ], [ %call57, %if.end66 ], [ %call57, %if.then65 ], [ %call57, %if.then60 ], [ null, %sw.epilog ], [ null, %if.then28 ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %sw.bb15 ], [ null, %sw.bb ], [ null, %if.end ], [ null, %entry ], [ %sessbio.1, %PACKET_equal.exit ], [ %sessbio.1, %while.end ], [ %sessbio.1, %PACKET_buf_init.exit.thread ], [ %sessbio.1, %PACKET_get_length_prefixed_1.exit.thread ], [ %sessbio.1, %PACKET_get_length_prefixed_2.exit.thread ], [ %sessbio.1, %PACKET_get_net_2.exit.thread ], [ %sessbio.1, %PACKET_get_length_prefixed_2.exit121 ], [ %sessbio.1, %PACKET_get_net_2.exit ], [ %sessbio.1, %if.then198 ]
+  %sess.0 = phi ptr [ null, %if.end7 ], [ %sess.1, %PACKET_as_length_prefixed_2.exit ], [ %sess.1, %PACKET_get_length_prefixed_1.exit82 ], [ %sess.1, %PACKET_get_length_prefixed_2.exit ], [ %sess.1, %PACKET_get_length_prefixed_1.exit ], [ %sess.1, %lor.lhs.false133 ], [ %sess.1, %if.end126 ], [ %sess.1, %PACKET_buf_init.exit ], [ %sess.1, %if.end112 ], [ %sess.1, %if.end107 ], [ %sess.1, %if.then97 ], [ %sess.1, %if.then91 ], [ %call62, %lor.lhs.false73 ], [ %call62, %if.end66 ], [ %call62, %if.then65 ], [ null, %if.then60 ], [ null, %sw.epilog ], [ null, %if.then28 ], [ null, %lor.lhs.false ], [ null, %if.else ], [ null, %sw.bb15 ], [ null, %sw.bb ], [ null, %if.end ], [ null, %entry ], [ %sess.1, %PACKET_equal.exit ], [ %sess.1, %while.end ], [ %sess.1, %PACKET_buf_init.exit.thread ], [ %sess.1, %PACKET_get_length_prefixed_1.exit.thread ], [ %sess.1, %PACKET_get_length_prefixed_2.exit.thread ], [ %sess.1, %PACKET_get_net_2.exit.thread ], [ %sess.1, %PACKET_get_length_prefixed_2.exit121 ], [ %sess.1, %PACKET_get_net_2.exit ], [ %sess.1, %if.then198 ]
   call void @SSL_free(ptr noundef %con.0) #4
   call void @SSL_CTX_free(ptr noundef %call1) #4
-  call void @SSL_SESSION_free(ptr noundef %sess.1) #4
-  %call228 = call i32 @BIO_free(ptr noundef %sessbio.1) #4
-  ret i32 %testresult.2
+  call void @SSL_SESSION_free(ptr noundef %sess.0) #4
+  %call228 = call i32 @BIO_free(ptr noundef %sessbio.0) #4
+  ret i32 %testresult.0
 }
 
 declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #2

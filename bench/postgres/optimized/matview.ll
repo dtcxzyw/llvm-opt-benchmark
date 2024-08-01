@@ -644,7 +644,7 @@ refresh_matview_datafill.exit:                    ; preds = %187, %191
   br label %384
 
 .lr.ph125:                                        ; preds = %.lr.ph124.i, %is_usable_unique_index.exit.thread.i
-  %.0123.i124 = phi i8 [ %.3.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
+  %.0123.i124 = phi i8 [ %.1.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
   %indvars.iv135.i123 = phi i64 [ %indvars.iv.next136.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
   %292 = load ptr, ptr %288, align 8
   %293 = getelementptr %union.ListCell, ptr %292, i64 %indvars.iv135.i123
@@ -724,7 +724,7 @@ is_usable_unique_index.exit.i:                    ; preds = %323
 
 338:                                              ; preds = %379, %.lr.ph.i
   %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i100, %379 ]
-  %.1121.i = phi i8 [ %.0123.i124, %.lr.ph.i ], [ %.2.i, %379 ]
+  %.2121.i = phi i8 [ %.0123.i124, %.lr.ph.i ], [ %.3.i, %379 ]
   %339 = getelementptr [0 x i16], ptr %336, i64 0, i64 %indvars.iv.i99
   %340 = load i16, ptr %339, align 2
   %341 = sext i16 %340 to i64
@@ -777,7 +777,7 @@ is_usable_unique_index.exit.i:                    ; preds = %323
 
 372:                                              ; preds = %368
   store i32 %364, ptr %369, align 4
-  %373 = trunc nuw i8 %.1121.i to i1
+  %373 = trunc nuw i8 %.2121.i to i1
   br i1 %373, label %374, label %375
 
 374:                                              ; preds = %372
@@ -792,13 +792,13 @@ is_usable_unique_index.exit.i:                    ; preds = %323
   br label %379
 
 379:                                              ; preds = %375, %368
-  %.2.i = phi i8 [ %.1121.i, %368 ], [ 1, %375 ]
+  %.3.i = phi i8 [ %.2121.i, %368 ], [ 1, %375 ]
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i98
   br i1 %exitcond.not.i101, label %is_usable_unique_index.exit.thread.i, label %338, !llvm.loop !7
 
 is_usable_unique_index.exit.thread.i:             ; preds = %324, %379, %is_usable_unique_index.exit.i, %318, %315, %311, %305, %301, %.lr.ph125
-  %.3.i = phi i8 [ %.0123.i124, %318 ], [ %.0123.i124, %315 ], [ %.0123.i124, %311 ], [ %.0123.i124, %305 ], [ %.0123.i124, %301 ], [ %.0123.i124, %.lr.ph125 ], [ %.0123.i124, %is_usable_unique_index.exit.i ], [ %.2.i, %379 ], [ %.0123.i124, %324 ]
+  %.1.i = phi i8 [ %.0123.i124, %318 ], [ %.0123.i124, %315 ], [ %.0123.i124, %311 ], [ %.0123.i124, %305 ], [ %.0123.i124, %301 ], [ %.0123.i124, %.lr.ph125 ], [ %.0123.i124, %is_usable_unique_index.exit.i ], [ %.3.i, %379 ], [ %.0123.i124, %324 ]
   call void @index_close(ptr noundef %295, i32 noundef 0) #8
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i123, 1
   %380 = load i32, ptr %287, align 4
@@ -807,7 +807,7 @@ is_usable_unique_index.exit.thread.i:             ; preds = %324, %379, %is_usab
   br i1 %382, label %.lr.ph125, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %is_usable_unique_index.exit.thread.i
-  %383 = trunc nuw i8 %.3.i to i1
+  %383 = trunc nuw i8 %.1.i to i1
   call void @list_free(ptr noundef nonnull %286) #8
   br i1 %383, label %387, label %384
 

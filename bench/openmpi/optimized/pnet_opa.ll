@@ -1193,7 +1193,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %76, %7
   br label %168
 
 168:                                              ; preds = %.thread, %165
-  %.3 = phi i32 [ %167, %165 ], [ %., %.thread ]
+  %.4 = phi i32 [ %167, %165 ], [ %., %.thread ]
   %169 = call i32 @pthread_mutex_lock(ptr noundef nonnull %137) #14
   %170 = icmp eq i32 %169, 35
   br i1 %170, label %171, label %173
@@ -1248,13 +1248,13 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i89, %179
   br label %193
 
 193:                                              ; preds = %190, %192, %173
-  switch i32 %.3, label %194 [
+  switch i32 %.4, label %194 [
     i32 -2, label %196
     i32 0, label %196
   ]
 
 194:                                              ; preds = %193
-  %195 = call ptr @PMIx_Error_string(i32 noundef %.3) #14
+  %195 = call ptr @PMIx_Error_string(i32 noundef %.4) #14
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %195, ptr noundef nonnull @.str.11, i32 noundef 346) #14
   br label %196
 
@@ -1343,7 +1343,7 @@ pmix_obj_new_tma.exit99:                          ; preds = %.lr.ph.i.i96, %202,
   br i1 %243, label %122, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %228, %236, %102, %110
-  %.174.lcssa = phi i32 [ %116, %110 ], [ -20, %102 ], [ -20, %228 ], [ %242, %236 ]
+  %.2.lcssa = phi i32 [ %116, %110 ], [ -20, %102 ], [ -20, %228 ], [ %242, %236 ]
   %.071.lcssa = phi ptr [ %72, %110 ], [ %72, %102 ], [ %198, %236 ], [ %198, %228 ]
   %244 = call i32 @pthread_mutex_lock(ptr noundef %.071.lcssa) #14
   %245 = icmp eq i32 %244, 35
@@ -1407,8 +1407,8 @@ pmix_obj_run_destructors.exit104:                 ; preds = %.lr.ph.i101, %254
   br label %.thread107
 
 .thread107:                                       ; preds = %29, %pmix_obj_run_constructors.exit, %269, %268
-  %.5110 = phi i32 [ %.174.lcssa, %269 ], [ %.174.lcssa, %268 ], [ 0, %pmix_obj_run_constructors.exit ], [ 0, %29 ]
-  ret i32 %.5110
+  %.073110 = phi i32 [ %.2.lcssa, %269 ], [ %.2.lcssa, %268 ], [ 0, %pmix_obj_run_constructors.exit ], [ 0, %29 ]
+  ret i32 %.073110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -359,30 +359,30 @@ hwloc__find_obj_covering_memory_cpuset.exit:      ; preds = %23, %15
   br label %hwloc__find_obj_covering_memory_cpuset.exit.thread
 
 hwloc__find_obj_covering_memory_cpuset.exit.thread: ; preds = %hwloc_get_child_covering_cpuset.exit.us.i, %tailrecurse.us.i, %25, %hwloc__find_obj_covering_memory_cpuset.exit
-  %.038.i = phi ptr [ %.0.i51, %hwloc__find_obj_covering_memory_cpuset.exit ], [ %26, %25 ], [ %.tr.us.i, %tailrecurse.us.i ], [ %.03.i.us.i, %hwloc_get_child_covering_cpuset.exit.us.i ]
-  %27 = load i32, ptr %.038.i, align 8
+  %.1.i = phi ptr [ %.0.i51, %hwloc__find_obj_covering_memory_cpuset.exit ], [ %26, %25 ], [ %.tr.us.i, %tailrecurse.us.i ], [ %.03.i.us.i, %hwloc_get_child_covering_cpuset.exit.us.i ]
+  %27 = load i32, ptr %.1.i, align 8
   %28 = icmp eq i32 %27, 3
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %hwloc__find_obj_covering_memory_cpuset.exit.thread
-  %30 = getelementptr inbounds i8, ptr %.038.i, i64 72
+  %30 = getelementptr inbounds i8, ptr %.1.i, i64 72
   %31 = load ptr, ptr %30, align 8
   br label %32
 
 32:                                               ; preds = %29, %hwloc__find_obj_covering_memory_cpuset.exit.thread
-  %.1.i = phi ptr [ %31, %29 ], [ %.038.i, %hwloc__find_obj_covering_memory_cpuset.exit.thread ]
-  %.not42.i = icmp eq ptr %.1.i, %14
+  %.2.i = phi ptr [ %31, %29 ], [ %.1.i, %hwloc__find_obj_covering_memory_cpuset.exit.thread ]
+  %.not42.i = icmp eq ptr %.2.i, %14
   br i1 %.not42.i, label %37, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %.1.i, i64 184
+  %34 = getelementptr inbounds i8, ptr %.2.i, i64 184
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @hwloc_bitmap_isequal(ptr noundef %35, ptr noundef %9) #34
   %.not43.i = icmp eq i32 %36, 0
   br i1 %.not43.i, label %37, label %hwloc__find_insert_memory_parent.exit.thread
 
 37:                                               ; preds = %7, %33, %32
-  %.2.i = phi ptr [ %.1.i, %33 ], [ %.1.i, %32 ], [ %14, %7 ]
+  %.038.i = phi ptr [ %.2.i, %33 ], [ %.2.i, %32 ], [ %14, %7 ]
   %38 = getelementptr i8, ptr %0, i64 168
   %.val.i = load i32, ptr %38, align 4
   %.not = icmp eq i32 %.val.i, 1
@@ -472,7 +472,7 @@ hwloc_tma_malloc.exit20.i:                        ; preds = %57, %54
   br label %hwloc__find_insert_memory_parent.exit.sink.split
 
 77:                                               ; preds = %73
-  %78 = tail call ptr @hwloc__insert_object_by_cpuset(ptr noundef nonnull %0, ptr noundef %.2.i, ptr noundef nonnull %.0.i.i47, ptr noundef %3)
+  %78 = tail call ptr @hwloc__insert_object_by_cpuset(ptr noundef nonnull %0, ptr noundef %.038.i, ptr noundef nonnull %.0.i.i47, ptr noundef %3)
   %.not52.i = icmp eq ptr %78, null
   br i1 %.not52.i, label %hwloc__find_insert_memory_parent.exit, label %hwloc__find_insert_memory_parent.exit.thread
 
@@ -481,7 +481,7 @@ hwloc__find_insert_memory_parent.exit.sink.split: ; preds = %hwloc_tma_malloc.ex
   br label %hwloc__find_insert_memory_parent.exit
 
 hwloc__find_insert_memory_parent.exit:            ; preds = %hwloc__find_insert_memory_parent.exit.sink.split, %77, %hwloc_tma_malloc.exit.i, %37
-  %.not41 = icmp eq ptr %.2.i, null
+  %.not41 = icmp eq ptr %.038.i, null
   br i1 %.not41, label %79, label %hwloc__find_insert_memory_parent.exit.thread
 
 79:                                               ; preds = %hwloc__find_insert_memory_parent.exit
@@ -490,7 +490,7 @@ hwloc__find_insert_memory_parent.exit:            ; preds = %hwloc__find_insert_
   br label %415
 
 hwloc__find_insert_memory_parent.exit.thread:     ; preds = %77, %33, %hwloc__find_insert_memory_parent.exit, %6
-  %.030 = phi ptr [ %1, %6 ], [ %.2.i, %hwloc__find_insert_memory_parent.exit ], [ %.0.i.i47, %77 ], [ %.1.i, %33 ]
+  %.030 = phi ptr [ %1, %6 ], [ %.038.i, %hwloc__find_insert_memory_parent.exit ], [ %.0.i.i47, %77 ], [ %.2.i, %33 ]
   %80 = tail call ptr @hwloc__attach_memory_object(ptr noundef %0, ptr noundef nonnull %.030, ptr noundef nonnull %2, ptr noundef %3)
   br label %415
 
@@ -3208,7 +3208,7 @@ hwloc_tma_malloc.exit257._crit_edge:              ; preds = %hwloc_tma_malloc.ex
   br i1 %.not241, label %.thread, label %.lr.ph312, !llvm.loop !34
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph283, %.lr.ph289, %.lr.ph312, %264, %.loopexit
-  %.4262 = phi i32 [ 0, %.loopexit ], [ 0, %264 ], [ 0, %.lr.ph312 ], [ -1, %.lr.ph289 ], [ -1, %.lr.ph283 ], [ -1, %.lr.ph ]
+  %.1262 = phi i32 [ 0, %.loopexit ], [ 0, %264 ], [ 0, %.lr.ph312 ], [ -1, %.lr.ph289 ], [ -1, %.lr.ph283 ], [ -1, %.lr.ph ]
   %.not242 = icmp eq ptr %1, null
   br i1 %.not242, label %hwloc_alloc_setup_object.exit.thread, label %268
 
@@ -3230,7 +3230,7 @@ hwloc_tma_malloc.exit257._crit_edge:              ; preds = %hwloc_tma_malloc.ex
   br label %hwloc_alloc_setup_object.exit.thread
 
 hwloc_alloc_setup_object.exit.thread:             ; preds = %.lr.ph277, %hwloc_tma_malloc.exit.i, %29, %.thread, %272, %268, %hwloc_tma_malloc.exit257
-  %.0194 = phi i32 [ -1, %hwloc_tma_malloc.exit257 ], [ %.4262, %268 ], [ %.4262, %272 ], [ %.4262, %.thread ], [ -1, %29 ], [ -1, %hwloc_tma_malloc.exit.i ], [ -1, %.lr.ph277 ]
+  %.0194 = phi i32 [ -1, %hwloc_tma_malloc.exit257 ], [ %.1262, %268 ], [ %.1262, %272 ], [ %.1262, %.thread ], [ -1, %29 ], [ -1, %hwloc_tma_malloc.exit.i ], [ -1, %.lr.ph277 ]
   ret i32 %.0194
 }
 
@@ -3610,8 +3610,8 @@ define void @hwloc_insert_object_by_parent(ptr nocapture noundef %0, ptr noundef
   br label %16
 
 16:                                               ; preds = %16, %14
-  %.1 = phi ptr [ %15, %14 ], [ %18, %16 ]
-  %17 = load ptr, ptr %.1, align 8
+  %.2 = phi ptr [ %15, %14 ], [ %18, %16 ]
+  %17 = load ptr, ptr %.2, align 8
   %.not45 = icmp eq ptr %17, null
   %18 = getelementptr inbounds i8, ptr %17, i64 88
   br i1 %.not45, label %.loopexit, label %16, !llvm.loop !37
@@ -3628,8 +3628,8 @@ define void @hwloc_insert_object_by_parent(ptr nocapture noundef %0, ptr noundef
   br label %22
 
 22:                                               ; preds = %22, %20
-  %.2 = phi ptr [ %21, %20 ], [ %24, %22 ]
-  %23 = load ptr, ptr %.2, align 8
+  %.3 = phi ptr [ %21, %20 ], [ %24, %22 ]
+  %23 = load ptr, ptr %.3, align 8
   %.not43 = icmp eq ptr %23, null
   %24 = getelementptr inbounds i8, ptr %23, i64 88
   br i1 %.not43, label %25, label %22, !llvm.loop !38
@@ -3651,8 +3651,8 @@ define void @hwloc_insert_object_by_parent(ptr nocapture noundef %0, ptr noundef
   br label %34
 
 34:                                               ; preds = %34, %32
-  %.3 = phi ptr [ %33, %32 ], [ %36, %34 ]
-  %35 = load ptr, ptr %.3, align 8
+  %.4 = phi ptr [ %33, %32 ], [ %36, %34 ]
+  %35 = load ptr, ptr %.4, align 8
   %.not41 = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %35, i64 88
   br i1 %.not41, label %37, label %34, !llvm.loop !39
@@ -3675,7 +3675,7 @@ define void @hwloc_insert_object_by_parent(ptr nocapture noundef %0, ptr noundef
   %.sink59 = phi i32 [ %30, %26 ], [ %43, %39 ]
   %.sink = phi ptr [ %29, %26 ], [ %42, %39 ]
   %.sink55.ph = phi i64 [ 208, %26 ], [ 192, %39 ]
-  %.4.ph.ph = phi ptr [ %.2, %26 ], [ %.3, %39 ]
+  %.1.ph.ph = phi ptr [ %.3, %26 ], [ %.4, %39 ]
   %45 = getelementptr inbounds i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
@@ -3689,7 +3689,7 @@ define void @hwloc_insert_object_by_parent(ptr nocapture noundef %0, ptr noundef
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %39, %26
   %.sink55 = phi i64 [ 208, %26 ], [ 192, %39 ], [ %.sink55.ph, %.loopexit.sink.split.sink.split ]
   %.sink53 = phi i32 [ %30, %26 ], [ %43, %39 ], [ %.pre51, %.loopexit.sink.split.sink.split ]
-  %.4.ph = phi ptr [ %.2, %26 ], [ %.3, %39 ], [ %.4.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.1.ph = phi ptr [ %.3, %26 ], [ %.4, %39 ], [ %.1.ph.ph, %.loopexit.sink.split.sink.split ]
   %52 = getelementptr inbounds i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
@@ -3700,8 +3700,8 @@ define void @hwloc_insert_object_by_parent(ptr nocapture noundef %0, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %8, %.loopexit.sink.split, %37, %25
-  %.4 = phi ptr [ %.2, %25 ], [ %.3, %37 ], [ %.4.ph, %.loopexit.sink.split ], [ %.0, %8 ], [ %.1, %16 ]
-  store ptr %2, ptr %.4, align 8
+  %.1 = phi ptr [ %.3, %25 ], [ %.4, %37 ], [ %.1.ph, %.loopexit.sink.split ], [ %.0, %8 ], [ %.2, %16 ]
+  store ptr %2, ptr %.1, align 8
   %59 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %1, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %2, i64 88
@@ -7926,32 +7926,32 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   br label %102
 
 102:                                              ; preds = %.critedge130, %100
-  %.094 = phi ptr [ null, %.critedge130 ], [ %37, %100 ]
+  %.1 = phi ptr [ null, %.critedge130 ], [ %37, %100 ]
   %103 = getelementptr inbounds i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %104, align 8
-  tail call fastcc void @restrict_object_by_cpuset(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %105, ptr noundef nonnull %36, ptr noundef %.094)
+  tail call fastcc void @restrict_object_by_cpuset(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %105, ptr noundef nonnull %36, ptr noundef %.1)
   %106 = getelementptr inbounds i8, ptr %0, i64 448
   %107 = load ptr, ptr %106, align 8
   %108 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %107, ptr noundef %107, ptr noundef nonnull %36) #33
-  %.not115 = icmp eq ptr %.094, null
+  %.not115 = icmp eq ptr %.1, null
   br i1 %.not115, label %112, label %.sink.split
 
 .sink.split:                                      ; preds = %102, %69
   %.sink = phi i64 [ 448, %69 ], [ 456, %102 ]
-  %.094.sink = phi ptr [ %.095, %69 ], [ %.094, %102 ]
+  %.1.sink = phi ptr [ %.095, %69 ], [ %.1, %102 ]
   %.196.ph = phi ptr [ %.095, %69 ], [ %36, %102 ]
-  %.1.ph = phi ptr [ %37, %69 ], [ %.094, %102 ]
+  %.094.ph = phi ptr [ %37, %69 ], [ %.1, %102 ]
   %109 = getelementptr inbounds i8, ptr %0, i64 %.sink
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %110, ptr noundef %110, ptr noundef nonnull %.094.sink) #33
+  %111 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %110, ptr noundef %110, ptr noundef nonnull %.1.sink) #33
   br label %112
 
 112:                                              ; preds = %.sink.split, %102, %69
   %.196 = phi ptr [ null, %69 ], [ %36, %102 ], [ %.196.ph, %.sink.split ]
-  %.1 = phi ptr [ %37, %69 ], [ null, %102 ], [ %.1.ph, %.sink.split ]
+  %.094 = phi ptr [ %37, %69 ], [ null, %102 ], [ %.094.ph, %.sink.split ]
   tail call void @hwloc_bitmap_free(ptr noundef %.196) #33
-  tail call void @hwloc_bitmap_free(ptr noundef %.1) #33
+  tail call void @hwloc_bitmap_free(ptr noundef %.094) #33
   %113 = tail call fastcc i32 @hwloc_filter_levels_keep_structure(ptr noundef nonnull %0)
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %137, label %115

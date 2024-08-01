@@ -444,9 +444,9 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
 
 .lr.ph.i13:                                       ; preds = %.preheader.i, %170
   %154 = phi i8 [ %171, %170 ], [ %150, %.preheader.i ]
-  %.05786.i = phi ptr [ %.158.i, %170 ], [ %145, %.preheader.i ]
-  %.163.idx85.i = phi i64 [ %.3.idx.i, %170 ], [ %.062.idx89.i, %.preheader.i ]
-  %.163.ptr87.i = getelementptr inbounds i8, ptr %6, i64 %.163.idx85.i
+  %.15886.i = phi ptr [ %.259.i, %170 ], [ %145, %.preheader.i ]
+  %.264.idx85.i = phi i64 [ %.4.idx.i, %170 ], [ %.062.idx89.i, %.preheader.i ]
+  %.264.ptr87.i = getelementptr inbounds i8, ptr %6, i64 %.264.idx85.i
   switch i8 %154, label %167 [
     i8 63, label %155
     i8 42, label %157
@@ -465,60 +465,60 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   ]
 
 155:                                              ; preds = %.lr.ph.i13
-  %156 = getelementptr inbounds i8, ptr %.05786.i, i64 1
-  store <4 x i8> <i8 91, i8 94, i8 47, i8 93>, ptr %.163.ptr87.i, align 1
-  %.163.add.i = add nsw i64 %.163.idx85.i, 4
+  %156 = getelementptr inbounds i8, ptr %.15886.i, i64 1
+  store <4 x i8> <i8 91, i8 94, i8 47, i8 93>, ptr %.264.ptr87.i, align 1
+  %.264.add.i = add nsw i64 %.264.idx85.i, 4
   br label %170
 
 157:                                              ; preds = %.lr.ph.i13
-  %158 = getelementptr inbounds i8, ptr %.05786.i, i64 1
+  %158 = getelementptr inbounds i8, ptr %.15886.i, i64 1
   %159 = load i8, ptr %158, align 1
   %160 = icmp eq i8 %159, 42
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds i8, ptr %.05786.i, i64 2
-  store i8 46, ptr %.163.ptr87.i, align 1
-  %163 = getelementptr inbounds i8, ptr %.163.ptr87.i, i64 1
+  %162 = getelementptr inbounds i8, ptr %.15886.i, i64 2
+  store i8 46, ptr %.264.ptr87.i, align 1
+  %163 = getelementptr inbounds i8, ptr %.264.ptr87.i, i64 1
   store i8 42, ptr %163, align 1
-  %.163.add69.i = add nsw i64 %.163.idx85.i, 2
+  %.264.add69.i = add nsw i64 %.264.idx85.i, 2
   br label %170
 
 164:                                              ; preds = %157
-  store <4 x i8> <i8 91, i8 94, i8 47, i8 93>, ptr %.163.ptr87.i, align 1
-  %165 = getelementptr inbounds i8, ptr %.163.ptr87.i, i64 4
+  store <4 x i8> <i8 91, i8 94, i8 47, i8 93>, ptr %.264.ptr87.i, align 1
+  %165 = getelementptr inbounds i8, ptr %.264.ptr87.i, i64 4
   store i8 42, ptr %165, align 1
-  %.163.add68.i = add nsw i64 %.163.idx85.i, 5
+  %.264.add68.i = add nsw i64 %.264.idx85.i, 5
   br label %170
 
 166:                                              ; preds = %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13
-  %.163.add70.i = add nsw i64 %.163.idx85.i, 1
-  store i8 92, ptr %.163.ptr87.i, align 1
-  %.pre.i14 = load i8, ptr %.05786.i, align 1
+  %.264.add70.i = add nsw i64 %.264.idx85.i, 1
+  store i8 92, ptr %.264.ptr87.i, align 1
+  %.pre.i14 = load i8, ptr %.15886.i, align 1
   br label %167
 
 167:                                              ; preds = %166, %.lr.ph.i13
   %168 = phi i8 [ %154, %.lr.ph.i13 ], [ %.pre.i14, %166 ]
-  %.264.idx.i = phi i64 [ %.163.idx85.i, %.lr.ph.i13 ], [ %.163.add70.i, %166 ]
-  %.264.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.264.idx.i
-  %169 = getelementptr inbounds i8, ptr %.05786.i, i64 1
-  %.264.add.i = add nsw i64 %.264.idx.i, 1
-  store i8 %168, ptr %.264.ptr.i, align 1
+  %.3.idx.i = phi i64 [ %.264.idx85.i, %.lr.ph.i13 ], [ %.264.add70.i, %166 ]
+  %.3.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.3.idx.i
+  %169 = getelementptr inbounds i8, ptr %.15886.i, i64 1
+  %.3.add.i = add nsw i64 %.3.idx.i, 1
+  store i8 %168, ptr %.3.ptr.i, align 1
   br label %170
 
 170:                                              ; preds = %167, %164, %161, %155
-  %.3.idx.i = phi i64 [ %.264.add.i, %167 ], [ %.163.add69.i, %161 ], [ %.163.add68.i, %164 ], [ %.163.add.i, %155 ]
-  %.158.i = phi ptr [ %169, %167 ], [ %162, %161 ], [ %158, %164 ], [ %156, %155 ]
-  %171 = load i8, ptr %.158.i, align 1
+  %.4.idx.i = phi i64 [ %.3.add.i, %167 ], [ %.264.add69.i, %161 ], [ %.264.add68.i, %164 ], [ %.264.add.i, %155 ]
+  %.259.i = phi ptr [ %169, %167 ], [ %162, %161 ], [ %158, %164 ], [ %156, %155 ]
+  %171 = load i8, ptr %.259.i, align 1
   %172 = icmp ne i8 %171, 0
-  %173 = icmp slt i64 %.3.idx.i, 12279
+  %173 = icmp slt i64 %.4.idx.i, 12279
   %174 = select i1 %172, i1 %173, i1 false
   br i1 %174, label %.lr.ph.i13, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %170, %.preheader.i, %140
   %175 = phi i8 [ %150, %.preheader.i ], [ %150, %140 ], [ %171, %170 ]
-  %.4.idx.i = phi i64 [ %.062.idx89.i, %.preheader.i ], [ %.062.idx89.i, %140 ], [ %.3.idx.i, %170 ]
-  %.4.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.4.idx.i
+  %.163.idx.i = phi i64 [ %.062.idx89.i, %.preheader.i ], [ %.062.idx89.i, %140 ], [ %.4.idx.i, %170 ]
+  %.163.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.163.idx.i
   %.not.i10 = icmp eq i8 %175, 0
   br i1 %.not.i10, label %176, label %179
 
@@ -540,7 +540,7 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   br label %183
 
 183:                                              ; preds = %181, %179
-  %.5.i = phi ptr [ %.4.ptr.i, %181 ], [ %.05591.i, %179 ]
+  %.5.i = phi ptr [ %.163.ptr.i, %181 ], [ %.05591.i, %179 ]
   %.1.i11 = phi i32 [ %182, %181 ], [ %.092.i, %179 ]
   store i8 41, ptr %.5.i, align 1
   %184 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -593,16 +593,16 @@ zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.
   br label %210
 
 208:                                              ; preds = %176
-  %.4.add.i = add nsw i64 %.4.idx.i, 1
-  store i8 124, ptr %.4.ptr.i, align 1
+  %.163.add.i = add nsw i64 %.163.idx.i, 1
+  store i8 124, ptr %.163.ptr.i, align 1
   %209 = add nsw i32 %.092.i, 1
   br label %210
 
 210:                                              ; preds = %208, %207
   %211 = phi i32 [ %.pre96.i, %207 ], [ %141, %208 ]
-  %.6.idx.i = phi i64 [ 2, %207 ], [ %.4.add.i, %208 ]
+  %.6.idx.i = phi i64 [ 2, %207 ], [ %.163.add.i, %208 ]
   %.161.i = phi ptr [ %188, %207 ], [ %.06090.i, %208 ]
-  %.156.i = phi ptr [ %.05591.i, %207 ], [ %.4.ptr.i, %208 ]
+  %.156.i = phi ptr [ %.05591.i, %207 ], [ %.163.ptr.i, %208 ]
   %.2.i12 = phi i32 [ %.1.i11, %207 ], [ %209, %208 ]
   %212 = icmp slt i32 %.2.i12, %211
   br i1 %212, label %140, label %zend_accel_blacklist_update_regexp.exit

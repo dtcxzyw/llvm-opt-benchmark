@@ -302,23 +302,23 @@ define range(i64 0, 4294967296) i64 @crc32(i64 noundef %0, ptr noundef %1, i32 n
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.i
   %.181.i = phi ptr [ %248, %.preheader.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %.379.i = phi i32 [ %255, %.preheader.i ], [ %.278.lcssa.i, %._crit_edge.i ]
-  %.3.i = phi i32 [ %254, %.preheader.i ], [ %.2.lcssa.i, %._crit_edge.i ]
+  %.4.i = phi i32 [ %254, %.preheader.i ], [ %.2.lcssa.i, %._crit_edge.i ]
   %248 = getelementptr inbounds i8, ptr %.181.i, i64 1
   %249 = load i8, ptr %.181.i, align 1
-  %.3.tr.i = trunc i32 %.3.i to i8
-  %.narrow.i = xor i8 %249, %.3.tr.i
+  %.4.tr.i = trunc i32 %.4.i to i8
+  %.narrow.i = xor i8 %249, %.4.tr.i
   %250 = zext i8 %.narrow.i to i64
   %251 = getelementptr inbounds [256 x i32], ptr @crc_table, i64 0, i64 %250
   %252 = load i32, ptr %251, align 4
-  %253 = lshr i32 %.3.i, 8
+  %253 = lshr i32 %.4.i, 8
   %254 = xor i32 %252, %253
   %255 = add i32 %.379.i, -1
   %.not82.i = icmp eq i32 %255, 0
   br i1 %.not82.i, label %crc32_little.exit, label %.preheader.i, !llvm.loop !8
 
 crc32_little.exit:                                ; preds = %.preheader.i, %._crit_edge.i
-  %.4.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i ], [ %254, %.preheader.i ]
-  %256 = xor i32 %.4.i, -1
+  %.3.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i ], [ %254, %.preheader.i ]
+  %256 = xor i32 %.3.i, -1
   %257 = zext i32 %256 to i64
   br label %258
 
@@ -425,7 +425,7 @@ gf2_matrix_times.exit.i37:                        ; preds = %27, %gf2_matrix_squ
   br i1 %exitcond.not.i40, label %gf2_matrix_square.exit41, label %gf2_matrix_square.exit, !llvm.loop !11
 
 gf2_matrix_square.exit41:                         ; preds = %gf2_matrix_times.exit.i37, %gf2_matrix_times.exit79
-  %.022 = phi i64 [ %.2, %gf2_matrix_times.exit79 ], [ %0, %gf2_matrix_times.exit.i37 ]
+  %.022 = phi i64 [ %.3, %gf2_matrix_times.exit79 ], [ %0, %gf2_matrix_times.exit.i37 ]
   %.020 = phi i64 [ %51, %gf2_matrix_times.exit79 ], [ %2, %gf2_matrix_times.exit.i37 ]
   br label %31
 
@@ -564,13 +564,13 @@ gf2_matrix_square.exit69:                         ; preds = %gf2_matrix_times.ex
   br i1 %.not.i77, label %gf2_matrix_times.exit79, label %.lr.ph.i71, !llvm.loop !10
 
 gf2_matrix_times.exit79:                          ; preds = %69, %64, %gf2_matrix_square.exit69
-  %.2 = phi i64 [ %.1, %gf2_matrix_square.exit69 ], [ 0, %64 ], [ %.1.i76, %69 ]
+  %.3 = phi i64 [ %.1, %gf2_matrix_square.exit69 ], [ 0, %64 ], [ %.1.i76, %69 ]
   %.not27 = icmp ult i64 %.020, 4
   br i1 %.not27, label %72, label %gf2_matrix_square.exit41, !llvm.loop !12
 
 72:                                               ; preds = %gf2_matrix_times.exit, %gf2_matrix_times.exit79
-  %.3 = phi i64 [ %.1, %gf2_matrix_times.exit ], [ %.2, %gf2_matrix_times.exit79 ]
-  %73 = xor i64 %.3, %1
+  %.2 = phi i64 [ %.1, %gf2_matrix_times.exit ], [ %.3, %gf2_matrix_times.exit79 ]
+  %73 = xor i64 %.2, %1
   br label %74
 
 74:                                               ; preds = %3, %72

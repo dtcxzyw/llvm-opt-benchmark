@@ -75,15 +75,15 @@ define range(i32 -12, 1) i32 @env_dup(ptr nocapture noundef writeonly %0, ptr no
 
 .loopexit:                                        ; preds = %32, %9, %._crit_edge, %7
   %.031 = phi ptr [ null, %._crit_edge ], [ null, %7 ], [ null, %9 ], [ %12, %32 ]
-  %.0 = phi i32 [ -12, %._crit_edge ], [ 0, %7 ], [ -12, %9 ], [ 0, %32 ]
+  %.1 = phi i32 [ -12, %._crit_edge ], [ 0, %7 ], [ -12, %9 ], [ 0, %32 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 904
   store ptr %.031, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %.loopexit, %2
-  %.1 = phi i32 [ %.0, %.loopexit ], [ 0, %2 ]
+  %.0 = phi i32 [ %.1, %.loopexit ], [ 0, %2 ]
   %36 = tail call i32 @sched_unlock() #6
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare i32 @sched_lock() local_unnamed_addr #1

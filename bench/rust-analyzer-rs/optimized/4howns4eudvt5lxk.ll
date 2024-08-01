@@ -3012,7 +3012,7 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc
   unreachable
 
 .body138:                                         ; preds = %.body.thread, %496
-  br i1 %.234, label %497, label %.body138.thread
+  br i1 %.335, label %497, label %.body138.thread
 
 .thread:                                          ; preds = %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit, %._crit_edge.i.i.i.i.i, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -3057,12 +3057,12 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc
           to label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit unwind label %.loopexit206
 
 .body.thread:                                     ; preds = %.loopexit206, %.loopexit.split-lp207, %.body107.thread198.loopexit, %.body107.thread198.loopexit.split-lp, %464, %466, %.body.thread.i, %201, %.body, %.body107.thread191, %246, %225, %.body67
-  %.234 = phi i1 [ true, %.body107.thread191 ], [ true, %246 ], [ true, %.body67 ], [ true, %225 ], [ true, %.body ], [ true, %201 ], [ true, %.body.thread.i ], [ true, %466 ], [ true, %464 ], [ true, %.body107.thread198.loopexit.split-lp ], [ true, %.body107.thread198.loopexit ], [ true, %.loopexit206 ], [ %.335.ph, %.loopexit.split-lp207 ]
-  %.1 = phi i1 [ false, %.body107.thread191 ], [ false, %246 ], [ false, %.body67 ], [ false, %225 ], [ false, %.body ], [ false, %201 ], [ false, %.body.thread.i ], [ false, %466 ], [ false, %464 ], [ false, %.body107.thread198.loopexit.split-lp ], [ false, %.body107.thread198.loopexit ], [ false, %.loopexit206 ], [ %66, %.loopexit.split-lp207 ]
+  %.335 = phi i1 [ true, %.body107.thread191 ], [ true, %246 ], [ true, %.body67 ], [ true, %225 ], [ true, %.body ], [ true, %201 ], [ true, %.body.thread.i ], [ true, %466 ], [ true, %464 ], [ true, %.body107.thread198.loopexit.split-lp ], [ true, %.body107.thread198.loopexit ], [ true, %.loopexit206 ], [ %.234.ph, %.loopexit.split-lp207 ]
+  %.2 = phi i1 [ false, %.body107.thread191 ], [ false, %246 ], [ false, %.body67 ], [ false, %225 ], [ false, %.body ], [ false, %201 ], [ false, %.body.thread.i ], [ false, %466 ], [ false, %464 ], [ false, %.body107.thread198.loopexit.split-lp ], [ false, %.body107.thread198.loopexit ], [ false, %.loopexit206 ], [ %66, %.loopexit.split-lp207 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body108194, %.body107.thread191 ], [ %lpad.phi, %246 ], [ %eh.lpad-body68, %.body67 ], [ %lpad.phi225, %225 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm.i, %201 ], [ %eh.lpad-body48.i, %.body.thread.i ], [ %465, %466 ], [ %465, %464 ], [ %lpad.loopexit.split-lp216, %.body107.thread198.loopexit.split-lp ], [ %lpad.loopexit215, %.body107.thread198.loopexit ], [ %lpad.loopexit208, %.loopexit206 ], [ %lpad.loopexit.split-lp209, %.loopexit.split-lp207 ]
   %64 = load i64, ptr %30, align 8, !range !454, !noundef !4
   %.not38 = icmp eq i64 %64, -9223372036854775807
-  %brmerge = select i1 %.not38, i1 true, i1 %.1
+  %brmerge = select i1 %.not38, i1 true, i1 %.2
   br i1 %brmerge, label %.body138, label %496
 
 .loopexit206:                                     ; preds = %.backedge, %228, %._crit_edge.i.i.i76
@@ -3071,11 +3071,11 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc
   br label %.body.thread
 
 .loopexit.split-lp207:                            ; preds = %475, %476, %478, %._crit_edge.i.i.i50
-  %.335.ph = phi i1 [ true, %._crit_edge.i.i.i50 ], [ true, %475 ], [ true, %476 ], [ false, %478 ]
-  %.2.ph = phi i8 [ 1, %._crit_edge.i.i.i50 ], [ 0, %475 ], [ %.4, %476 ], [ %.4, %478 ]
+  %.234.ph = phi i1 [ true, %._crit_edge.i.i.i50 ], [ true, %475 ], [ true, %476 ], [ false, %478 ]
+  %.1.ph = phi i8 [ 1, %._crit_edge.i.i.i50 ], [ 0, %475 ], [ %.4, %476 ], [ %.4, %478 ]
   %lpad.loopexit.split-lp209 = landingpad { ptr, i32 }
           cleanup
-  %65 = trunc nuw i8 %.2.ph to i1
+  %65 = trunc nuw i8 %.1.ph to i1
   %66 = xor i1 %65, true
   br label %.body.thread
 

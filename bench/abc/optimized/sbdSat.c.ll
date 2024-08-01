@@ -2363,13 +2363,13 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
 
 .preheader443:                                    ; preds = %.preheader443.preheader, %381
   %indvars.iv749 = phi i64 [ 1, %.preheader443.preheader ], [ %indvars.iv.next750, %381 ]
-  %.14584 = phi i32 [ 0, %.preheader443.preheader ], [ %.16.lcssa, %381 ]
+  %.15584 = phi i32 [ 0, %.preheader443.preheader ], [ %.17.lcssa, %381 ]
   %288 = add nsw i64 %indvars.iv749, %287
   br label %.preheader442
 
 .preheader442:                                    ; preds = %.preheader443, %._crit_edge579
   %indvars.iv746 = phi i64 [ %287, %.preheader443 ], [ %indvars.iv.next747, %._crit_edge579 ]
-  %.15582 = phi i32 [ %.14584, %.preheader443 ], [ %.16.lcssa, %._crit_edge579 ]
+  %.16582 = phi i32 [ %.15584, %.preheader443 ], [ %.17.lcssa, %._crit_edge579 ]
   %289 = icmp sgt i64 %indvars.iv746, 0
   br i1 %289, label %.preheader441.lr.ph, label %._crit_edge579
 
@@ -2381,7 +2381,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
 
 .preheader441:                                    ; preds = %.preheader441.lr.ph, %378
   %indvars.iv741 = phi i64 [ 0, %.preheader441.lr.ph ], [ %indvars.iv.next742, %378 ]
-  %.16578 = phi i32 [ %.15582, %.preheader441.lr.ph ], [ %379, %378 ]
+  %.17578 = phi i32 [ %.16582, %.preheader441.lr.ph ], [ %379, %378 ]
   %292 = getelementptr inbounds [38 x [6 x i32]], ptr %3, i64 %indvars.iv749, i64 %indvars.iv741, i64 1
   br label %293
 
@@ -2564,13 +2564,13 @@ Vec_IntPush.exit409:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %294, label %293, label %378, !llvm.loop !54
 
 378:                                              ; preds = %Vec_IntPush.exit409
-  %379 = add i32 %.16578, 2
+  %379 = add i32 %.17578, 2
   %indvars.iv.next742 = add nuw nsw i64 %indvars.iv741, 1
   %exitcond745.not = icmp eq i64 %indvars.iv.next742, %wide.trip.count744
   br i1 %exitcond745.not, label %._crit_edge579, label %.preheader441, !llvm.loop !55
 
 ._crit_edge579:                                   ; preds = %378, %.preheader442
-  %.16.lcssa = phi i32 [ %.15582, %.preheader442 ], [ %379, %378 ]
+  %.17.lcssa = phi i32 [ %.16582, %.preheader442 ], [ %379, %378 ]
   %indvars.iv.next747 = add nsw i64 %indvars.iv746, 1
   %380 = icmp slt i64 %indvars.iv.next747, %288
   br i1 %380, label %.preheader442, label %381, !llvm.loop !56
@@ -2581,8 +2581,8 @@ Vec_IntPush.exit409:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond753.not, label %.loopexit, label %.preheader443, !llvm.loop !57
 
 .loopexit:                                        ; preds = %381, %._crit_edge573.thread, %._crit_edge573
-  %.18 = phi i32 [ 0, %._crit_edge573 ], [ 0, %._crit_edge573.thread ], [ %.16.lcssa, %381 ]
-  %382 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.18)
+  %.14 = phi i32 [ 0, %._crit_edge573 ], [ 0, %._crit_edge573.thread ], [ %.17.lcssa, %381 ]
+  %382 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.14)
   %383 = icmp sgt i32 %29, 0
   br i1 %383, label %.preheader440.preheader, label %._crit_edge590
 

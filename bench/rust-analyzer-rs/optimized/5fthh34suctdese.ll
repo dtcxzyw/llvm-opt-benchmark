@@ -546,8 +546,8 @@ default.unreachable78:                            ; preds = %114, %3
   unreachable
 
 165:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit61", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit"
-  %.0 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit61" ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit" ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit61" ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdfaef4dd107093deE.exit" ]
+  ret i1 %.1
 
 _ZN2tt17print_debug_token17h6bb6739252208946E.exit: ; preds = %.noexc63, %156, %160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !62

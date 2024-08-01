@@ -354,7 +354,7 @@ if.else23:                                        ; preds = %if.else19
   br i1 %cmp27, label %cleanup, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.else19, %if.then13, %if.else23
-  %port.1.ph = phi i16 [ 0, %if.else19 ], [ 0, %if.then13 ], [ %conv, %if.else23 ]
+  %port.0.ph = phi i16 [ 0, %if.else19 ], [ 0, %if.then13 ], [ %conv, %if.else23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port_str) #18
   br label %if.end39
 
@@ -382,7 +382,7 @@ lpad36:                                           ; preds = %if.else33
   br label %ehcleanup
 
 if.end39:                                         ; preds = %cleanup.thread, %invoke.cont37
-  %port.2 = phi i16 [ 0, %invoke.cont37 ], [ %port.1.ph, %cleanup.thread ]
+  %port.2 = phi i16 [ 0, %invoke.cont37 ], [ %port.0.ph, %cleanup.thread ]
   %_path_allowed.i = getelementptr inbounds i8, ptr %this, i64 13
   %5 = load i8, ptr %_path_allowed.i, align 1
   %tobool.i27 = trunc i8 %5 to i1
@@ -493,8 +493,8 @@ if.else92:                                        ; preds = %invoke.cont84
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then88, %if.else92
-  %zone_id.0 = phi i32 [ %call94, %if.else92 ], [ %call91, %if.then88 ]
-  %cmp96 = icmp eq i32 %zone_id.0, 0
+  %zone_id.2 = phi i32 [ %call94, %if.else92 ], [ %call91, %if.then88 ]
+  %cmp96 = icmp eq i32 %zone_id.2, 0
   br i1 %cmp96, label %cleanup100.thread, label %cleanup100
 
 cleanup100.thread:                                ; preds = %if.end95, %invoke.cont75
@@ -508,7 +508,7 @@ cleanup100:                                       ; preds = %if.end95
   br label %if.end103
 
 if.end103:                                        ; preds = %cleanup100, %if.end70
-  %zone_id.2 = phi i32 [ %zone_id.0, %cleanup100 ], [ 0, %if.end70 ]
+  %zone_id.0 = phi i32 [ %zone_id.2, %cleanup100 ], [ 0, %if.end70 ]
   %call104 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %addr) #18
   %12 = load i8, ptr %_options, align 8
   %tobool.i28 = trunc i8 %12 to i1
@@ -586,13 +586,13 @@ if.end139:                                        ; preds = %invoke.cont120, %if
 
 if.then142:                                       ; preds = %if.end139
   %sin6_scope_id = getelementptr inbounds i8, ptr %ip_addr_, i64 24
-  store i32 %zone_id.2, ptr %sin6_scope_id, align 4
+  store i32 %zone_id.0, ptr %sin6_scope_id, align 4
   br label %cleanup144
 
 cleanup144:                                       ; preds = %cleanup100.thread, %cleanup, %if.end139, %if.then142, %invoke.cont134, %if.else124, %if.then3
-  %retval.3 = phi i32 [ -1, %if.then3 ], [ -1, %cleanup ], [ -1, %if.else124 ], [ -1, %invoke.cont134 ], [ 0, %if.then142 ], [ 0, %if.end139 ], [ -1, %cleanup100.thread ]
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %cleanup ], [ -1, %if.else124 ], [ -1, %invoke.cont134 ], [ 0, %if.then142 ], [ 0, %if.end139 ], [ -1, %cleanup100.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %addr) #18
-  ret i32 %retval.3
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad81, %lpad47, %lpad36, %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad47 ], [ %11, %lpad81 ], [ %3, %lpad8 ], [ %2, %lpad ], [ %4, %lpad36 ]

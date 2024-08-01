@@ -900,7 +900,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %239 = phi i32 [ %282, %281 ], [ %237, %.lr.ph310 ]
   %indvars.iv372 = phi i64 [ %indvars.iv.next373, %281 ], [ 0, %.lr.ph310 ]
   %.0172307324 = phi i1 [ %.2174, %281 ], [ false, %.lr.ph310 ]
-  %.0166308323 = phi ptr [ %.1, %281 ], [ null, %.lr.ph310 ]
+  %.0166308323 = phi ptr [ %.2, %281 ], [ null, %.lr.ph310 ]
   %240 = load ptr, ptr %236, align 8
   %241 = getelementptr %union.ListCell, ptr %240, i64 %indvars.iv372
   %242 = load ptr, ptr %241, align 8
@@ -972,7 +972,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 281:                                              ; preds = %._crit_edge382, %252
   %282 = phi i32 [ %.pre, %._crit_edge382 ], [ %239, %252 ]
   %.2174 = phi i1 [ true, %._crit_edge382 ], [ false, %252 ]
-  %.1 = phi ptr [ %278, %._crit_edge382 ], [ %.0166308323, %252 ]
+  %.2 = phi ptr [ %278, %._crit_edge382 ], [ %.0166308323, %252 ]
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %283 = sext i32 %282 to i64
   %284 = icmp slt i64 %indvars.iv.next373, %283
@@ -985,16 +985,16 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   br label %._crit_edge334
 
 .thread213:                                       ; preds = %277, %281
-  %.2 = phi ptr [ %278, %277 ], [ %.1, %281 ]
+  %.1 = phi ptr [ %278, %277 ], [ %.2, %281 ]
   %287 = call ptr @CreateEmptyBlockRefTable() #12
   %288 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %287, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %.2, i64 4
-  %.not202 = icmp eq ptr %.2, null
+  %289 = getelementptr inbounds i8, ptr %.1, i64 4
+  %.not202 = icmp eq ptr %.1, null
   br i1 %.not202, label %._crit_edge334, label %.lr.ph333
 
 .lr.ph333:                                        ; preds = %.thread213
-  %290 = getelementptr inbounds i8, ptr %.2, i64 16
+  %290 = getelementptr inbounds i8, ptr %.1, i64 16
   %291 = getelementptr inbounds i8, ptr %5, i64 8
   %292 = load i32, ptr %289, align 4
   %293 = icmp sgt i32 %292, 0

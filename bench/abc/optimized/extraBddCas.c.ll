@@ -1308,7 +1308,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
 
 114:                                              ; preds = %110, %104
   %.pre-phi132 = phi ptr [ %.pre131, %110 ], [ %109, %104 ]
-  %.086 = phi i32 [ %113, %110 ], [ 0, %104 ]
+  %.187 = phi i32 [ %113, %110 ], [ 0, %104 ]
   %.not107 = icmp eq ptr %.088, %.pre-phi132
   br i1 %.not107, label %120, label %115
 
@@ -1316,11 +1316,11 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %116 = getelementptr inbounds i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %2, ptr noundef %117)
-  %119 = add i32 %118, %.086
+  %119 = add i32 %118, %.187
   br label %120
 
 120:                                              ; preds = %114, %115, %95, %94, %100, %99
-  %.187 = phi i32 [ %98, %95 ], [ 0, %94 ], [ %103, %100 ], [ 0, %99 ], [ %119, %115 ], [ %.086, %114 ]
+  %.086 = phi i32 [ %98, %95 ], [ 0, %94 ], [ %103, %100 ], [ 0, %99 ], [ %119, %115 ], [ %.187, %114 ]
   %121 = load i32, ptr @s_Signature, align 4
   %122 = zext nneg i32 %.083.lcssa to i64
   %123 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %122
@@ -1346,7 +1346,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge123, %35
-  %.082 = phi i32 [ %39, %35 ], [ %.187, %._crit_edge123 ], [ 0, %.lr.ph ]
+  %.082 = phi i32 [ %39, %35 ], [ %.086, %._crit_edge123 ], [ 0, %.lr.ph ]
   ret i32 %.082
 }
 

@@ -373,14 +373,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
           to label %.loopexit22 unwind label %.loopexit.split-lp
 
 .loopexit22:                                      ; preds = %67, %._crit_edge, %46, %27
-  %.0 = phi i1 [ false, %27 ], [ false, %46 ], [ true, %._crit_edge ], [ false, %67 ]
+  %.1 = phi i1 [ false, %27 ], [ false, %46 ], [ true, %._crit_edge ], [ false, %67 ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #5
   br label %68
 
 68:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit, %14, %.loopexit22
-  %.1 = phi i1 [ %.0, %.loopexit22 ], [ false, %14 ], [ false, %_ZNK2cv11_InputArray6getMatEi.exit ]
+  %.0 = phi i1 [ %.1, %.loopexit22 ], [ false, %14 ], [ false, %_ZNK2cv11_InputArray6getMatEi.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #5
-  ret i1 %.1
+  ret i1 %.0
 
 69:                                               ; preds = %28, %17
   %.pn = phi { ptr, i32 } [ %lpad.phi, %28 ], [ %18, %17 ]

@@ -7826,7 +7826,7 @@ _ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exi
   br label %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit103.thread
 
 _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit103.thread: ; preds = %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15EqualsConditionESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15InListConditionESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal16MatchesConditionESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i102, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i159, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i168, %58, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i99, %206, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i157, %227, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i165
-  %.6.ph = phi i1 [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i168 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i159 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i102 ], [ %155, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal16MatchesConditionESt14default_deleteIS1_EED2Ev.exit ], [ %115, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15InListConditionESt14default_deleteIS1_EED2Ev.exit ], [ %75, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15EqualsConditionESt14default_deleteIS1_EED2Ev.exit ], [ true, %58 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i99 ], [ true, %206 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i157 ], [ true, %227 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i165 ]
+  %.2.ph = phi i1 [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i168 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i159 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i102 ], [ %155, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal16MatchesConditionESt14default_deleteIS1_EED2Ev.exit ], [ %115, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15InListConditionESt14default_deleteIS1_EED2Ev.exit ], [ %75, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15EqualsConditionESt14default_deleteIS1_EED2Ev.exit ], [ true, %58 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i99 ], [ true, %206 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i157 ], [ true, %227 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i165 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   br label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit
 
@@ -7844,8 +7844,8 @@ _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_del
   br label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit103.thread, %28, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i93, %18, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i, %8, %236, %42, %38
-  %.7 = phi i1 [ false, %236 ], [ false, %42 ], [ false, %38 ], [ true, %8 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i ], [ true, %18 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i93 ], [ true, %28 ], [ %.6.ph, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit103.thread ]
-  ret i1 %.7
+  %.0 = phi i1 [ false, %236 ], [ false, %42 ], [ false, %38 ], [ true, %8 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i ], [ true, %18 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i93 ], [ true, %28 ], [ %.2.ph, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit103.thread ]
+  ret i1 %.0
 
 237:                                              ; preds = %235, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit91
   %.pn87 = phi { ptr, i32 } [ %25, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit91 ], [ %.pn84, %235 ]
@@ -9605,7 +9605,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderESt14default_deleteIS
   br label %.loopexit291
 
 .loopexit291:                                     ; preds = %584, %608, %.thread267, %609
-  %.13 = phi i1 [ true, %609 ], [ false, %608 ], [ false, %.thread267 ], [ false, %584 ]
+  %.16 = phi i1 [ true, %609 ], [ false, %608 ], [ false, %.thread267 ], [ false, %584 ]
   call void @_ZNSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #23
   br label %.loopexit292
 
@@ -9627,7 +9627,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderESt14default_deleteIS
   br label %.loopexit292
 
 .loopexit292:                                     ; preds = %308, %377, %412, %465, %494, %511, %483, %.critedge195, %.critedge193, %.critedge, %.loopexit291
-  %.14 = phi i1 [ false, %483 ], [ false, %511 ], [ %.13, %.loopexit291 ], [ false, %.critedge ], [ false, %.critedge193 ], [ false, %.critedge195 ], [ false, %494 ], [ false, %465 ], [ false, %412 ], [ false, %377 ], [ false, %308 ]
+  %.4 = phi i1 [ false, %483 ], [ false, %511 ], [ %.16, %.loopexit291 ], [ false, %.critedge ], [ false, %.critedge193 ], [ false, %.critedge195 ], [ false, %494 ], [ false, %465 ], [ false, %412 ], [ false, %377 ], [ false, %308 ]
   call void @_ZNSt10unique_ptrIN19cmCMakePresetsGraph4FileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #23
   br label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
 
@@ -9637,7 +9637,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderESt14default_deleteIS
   br label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit197
 
 _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit: ; preds = %265, %262, %231, %228, %196, %193, %173, %.loopexit292
-  %.15 = phi i1 [ %.14, %.loopexit292 ], [ false, %173 ], [ false, %193 ], [ false, %196 ], [ false, %228 ], [ false, %231 ], [ false, %262 ], [ false, %265 ]
+  %.2 = phi i1 [ %.4, %.loopexit292 ], [ false, %173 ], [ false, %193 ], [ false, %196 ], [ false, %228 ], [ false, %231 ], [ false, %262 ], [ false, %265 ]
   call fastcc void @_ZN12_GLOBAL__N_111RootPresetsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #23
   br label %615
 
@@ -9647,7 +9647,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit197: ; preds = %279, %2
   br label %616
 
 615:                                              ; preds = %.invoke, %167, %161, %153, %145, %126, %120, %_ZN11cmJSONStateD2Ev.exit, %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit
-  %.16 = phi i1 [ %.15, %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit ], [ false, %_ZN11cmJSONStateD2Ev.exit ], [ false, %120 ], [ false, %126 ], [ false, %145 ], [ false, %153 ], [ false, %161 ], [ false, %167 ], [ false, %.invoke ]
+  %.1 = phi i1 [ %.2, %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit ], [ false, %_ZN11cmJSONStateD2Ev.exit ], [ false, %120 ], [ false, %126 ], [ false, %145 ], [ false, %153 ], [ false, %161 ], [ false, %167 ], [ false, %.invoke ]
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #23
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN19cmCMakePresetsGraph4FileESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread
 
@@ -9657,8 +9657,8 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit197: ; preds = %279, %2
   resume { ptr, i32 } %.pn190
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN19cmCMakePresetsGraph4FileESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN19cmCMakePresetsGraph4FileESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit, %615, %89
-  %.17 = phi i1 [ false, %89 ], [ %.16, %615 ], [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN19cmCMakePresetsGraph4FileESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ true, %._crit_edge.i.i.i ]
-  ret i1 %.17
+  %.0143 = phi i1 [ false, %89 ], [ %.1, %615 ], [ true, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN19cmCMakePresetsGraph4FileESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit ], [ true, %._crit_edge.i.i.i ]
+  ret i1 %.0143
 }
 
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

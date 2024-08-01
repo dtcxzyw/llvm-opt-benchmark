@@ -138,7 +138,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49: ; preds = %.noexc53
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit58
 
 _ZNSt6vectorIfSaIfEED2Ev.exit58:                  ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc53, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.sroa.082.0 = phi ptr [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %25, %.noexc53 ], [ %25, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.082.1 = phi ptr [ null, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %25, %.noexc53 ], [ %25, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %29 = sitofp i32 %.pre to float
   %30 = tail call float @llvm.fmuladd.f32(float %29, float 4.000000e+00, float 2.000000e+00)
   %31 = fdiv float 1.000000e+00, %30
@@ -162,8 +162,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit58:                  ; preds = %_ZNSt6vectorIfSaIfE
   %45 = fmul float %42, %42
   %46 = fdiv float %35, %45
   %47 = load ptr, ptr %4, align 8
-  %.sroa.082.0.sink = select i1 %44, ptr %.sroa.082.0, ptr %47
-  %48 = getelementptr inbounds float, ptr %.sroa.082.0.sink, i64 %indvars.iv
+  %.sroa.082.1.sink = select i1 %44, ptr %.sroa.082.1, ptr %47
+  %48 = getelementptr inbounds float, ptr %.sroa.082.1.sink, i64 %indvars.iv
   store float %46, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %0, align 4
@@ -258,7 +258,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
 81:                                               ; preds = %77
   %82 = add nsw i32 %80, -1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %.sroa.082.0, i64 %83
+  %84 = getelementptr inbounds float, ptr %.sroa.082.1, i64 %83
   %85 = load float, ptr %84, align 4
   %86 = load ptr, ptr %4, align 8
   %87 = getelementptr inbounds float, ptr %86, i64 %indvars.iv104
@@ -270,12 +270,12 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %90, label %.preheader, label %.loopexit.thread, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader93, %._crit_edge
-  %.not.i.i.i59 = icmp eq ptr %.sroa.082.0, null
+  %.not.i.i.i59 = icmp eq ptr %.sroa.082.1, null
   br i1 %.not.i.i.i59, label %_ZNSt6vectorIfSaIfEED2Ev.exit60, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %81, %.loopexit
   %91 = phi i32 [ %53, %.loopexit ], [ %88, %81 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.082.0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.082.1) #12
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %5, %.loopexit, %.loopexit.thread

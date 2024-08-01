@@ -422,7 +422,7 @@ if.then23.i.i:                                    ; preds = %land.lhs.true.i.i
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then23.i.i, %land.lhs.true.i.i, %if.end16.i.i, %locale_is_ascii.exit66.i.i
-  %loc.1.i.i = phi i1 [ false, %if.then23.i.i ], [ true, %locale_is_ascii.exit66.i.i ], [ true, %if.end16.i.i ], [ true, %land.lhs.true.i.i ]
+  %loc.0.i.i = phi i1 [ false, %if.then23.i.i ], [ true, %locale_is_ascii.exit66.i.i ], [ true, %if.end16.i.i ], [ true, %land.lhs.true.i.i ]
   %oldloc.0.i.i = phi ptr [ %call12.i.i, %if.then23.i.i ], [ null, %locale_is_ascii.exit66.i.i ], [ %call12.i.i, %if.end16.i.i ], [ %call12.i.i, %land.lhs.true.i.i ]
   %9 = load ptr, ptr %int_curr_symbol.i.i, align 8
   %call28.i.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %9, ptr noundef null) #6
@@ -574,7 +574,7 @@ done.sink.split.i.i:                              ; preds = %if.end.i.i.i, %if.e
 
 done.i.i:                                         ; preds = %done.sink.split.i.i, %if.end.i.i.i, %if.end70.i.i, %if.end.i79.i.i, %if.then69.i.i, %do.body60.i.i, %if.end.i97.i.i, %if.then57.i.i, %do.body48.i.i, %if.end.i115.i.i, %if.then45.i.i, %do.body36.i.i, %if.end.i133.i.i, %if.then34.i.i, %if.end26.i.i
   %res.0.i.i = phi i32 [ -1, %if.end26.i.i ], [ -1, %if.then34.i.i ], [ -1, %if.end.i133.i.i ], [ -1, %do.body36.i.i ], [ -1, %if.then45.i.i ], [ -1, %if.end.i115.i.i ], [ -1, %do.body48.i.i ], [ -1, %if.then57.i.i ], [ -1, %if.end.i97.i.i ], [ -1, %do.body60.i.i ], [ -1, %if.then69.i.i ], [ -1, %if.end.i79.i.i ], [ 0, %if.end.i.i.i ], [ 0, %if.end70.i.i ], [ %res.0.ph.i.i, %done.sink.split.i.i ]
-  br i1 %loc.1.i.i, label %locale_decode_monetary.exit.i, label %if.then73.i.i
+  br i1 %loc.0.i.i, label %locale_decode_monetary.exit.i, label %if.then73.i.i
 
 if.then73.i.i:                                    ; preds = %done.i.i
   %call74.i.i = tail call ptr @setlocale(i32 noundef 0, ptr noundef %oldloc.0.i.i) #6
@@ -1370,15 +1370,15 @@ if.then33.i:                                      ; preds = %if.end27.i
   br label %_locale_strxfrm_impl.exit
 
 if.end36.i:                                       ; preds = %if.end27.i, %if.end18.i
-  %buf.0.i = phi ptr [ %call23.i, %if.end27.i ], [ %call6.i, %if.end18.i ]
+  %buf.1.i = phi ptr [ %call23.i, %if.end27.i ], [ %call6.i, %if.end18.i ]
   %n2.0.i = phi i64 [ %call30.i, %if.end27.i ], [ %call11.i, %if.end18.i ]
-  %call37.i = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %buf.0.i, i64 noundef %n2.0.i) #6
+  %call37.i = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %buf.1.i, i64 noundef %n2.0.i) #6
   br label %_locale_strxfrm_impl.exit
 
 _locale_strxfrm_impl.exit:                        ; preds = %if.end, %if.then3.i, %if.then7.i, %if.then16.i, %if.then25.i, %if.then33.i, %if.end36.i
-  %buf.1.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ %call6.i, %if.then16.i ], [ %call23.i, %if.then33.i ], [ %buf.0.i, %if.end36.i ], [ %call6.i, %if.then25.i ], [ null, %if.then7.i ]
+  %buf.0.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ %call6.i, %if.then16.i ], [ %call23.i, %if.then33.i ], [ %buf.1.i, %if.end36.i ], [ %call6.i, %if.then25.i ], [ null, %if.then7.i ]
   %result.0.i = phi ptr [ null, %if.end ], [ null, %if.then3.i ], [ null, %if.then16.i ], [ null, %if.then33.i ], [ %call37.i, %if.end36.i ], [ null, %if.then25.i ], [ null, %if.then7.i ]
-  call void @PyMem_Free(ptr noundef %buf.1.i) #6
+  call void @PyMem_Free(ptr noundef %buf.0.i) #6
   call void @PyMem_Free(ptr noundef %call.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n1.i)
   br label %exit

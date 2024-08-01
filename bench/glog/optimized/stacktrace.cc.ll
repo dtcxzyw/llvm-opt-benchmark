@@ -45,7 +45,7 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
 
 17:                                               ; preds = %31, %15
   %.010 = phi i32 [ %16, %15 ], [ %.111, %31 ]
-  %.0 = phi i32 [ 0, %15 ], [ %.1, %31 ]
+  %.0 = phi i32 [ 0, %15 ], [ %.2, %31 ]
   %18 = icmp slt i32 %.0, %1
   br i1 %18, label %19, label %34
 
@@ -72,18 +72,18 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEP
 
 31:                                               ; preds = %26, %24
   %.111 = phi i32 [ %25, %24 ], [ %.010, %26 ]
-  %.1 = phi i32 [ %.0, %24 ], [ %28, %26 ]
+  %.2 = phi i32 [ %.0, %24 ], [ %28, %26 ]
   %32 = call i32 @_ULx86_64_step(ptr noundef nonnull %5)
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %34, label %17, !llvm.loop !4
 
 34:                                               ; preds = %31, %19, %17
-  %.2 = phi i32 [ %.0, %19 ], [ %.1, %31 ], [ %.0, %17 ]
+  %.1 = phi i32 [ %.0, %19 ], [ %.2, %31 ], [ %.0, %17 ]
   store i8 0, ptr %7, align 1
   br label %35
 
 35:                                               ; preds = %3, %34
-  %.012 = phi i32 [ %.2, %34 ], [ 0, %3 ]
+  %.012 = phi i32 [ %.1, %34 ], [ 0, %3 ]
   ret i32 %.012
 }
 

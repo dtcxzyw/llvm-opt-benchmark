@@ -694,8 +694,8 @@ for.body.lr.ph:                                   ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
   %i.0124 = phi i64 [ %i.0119, %for.body.lr.ph ], [ %i.0, %if.end22 ]
-  %in.addr.0123 = phi ptr [ %in, %for.body.lr.ph ], [ %add.ptr, %if.end22 ]
-  %out.addr.0122 = phi ptr [ %out, %for.body.lr.ph ], [ %add.ptr82, %if.end22 ]
+  %in.addr.1123 = phi ptr [ %in, %for.body.lr.ph ], [ %add.ptr, %if.end22 ]
+  %out.addr.1122 = phi ptr [ %out, %for.body.lr.ph ], [ %add.ptr82, %if.end22 ]
   %i.0.in121 = phi i64 [ %0, %for.body.lr.ph ], [ %i.0124, %if.end22 ]
   %16 = and i64 %i.0.in121, 1
   %tobool.not4.i.not = icmp eq i64 %16, 0
@@ -789,13 +789,13 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %28 = load i64, ptr %add.ptr22.i69, align 8
   %29 = load i64, ptr %arrayidx31, align 8
   %arrayidx32 = getelementptr inbounds i8, ptr %add.ptr22.i69, i64 8
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.0123, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.1123, i64 16
   %xor = xor i64 %28, %27
   store i64 %xor, ptr %offset24, align 8
   %30 = load i64, ptr %arrayidx32, align 8
   %xor33 = xor i64 %30, %29
   store i64 %xor33, ptr %arrayidx31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.0123, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.1123, i64 16, i1 false)
   %31 = load <2 x i64>, ptr %tmp, align 16
   %32 = load <2 x i64>, ptr %checksum40, align 8
   %33 = xor <2 x i64> %32, %31
@@ -811,15 +811,15 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %40 = load <2 x i64>, ptr %tmp, align 16
   %41 = xor <2 x i64> %40, %39
   store <2 x i64> %41, ptr %tmp, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0122, ptr noundef nonnull align 16 dereferenceable(16) %tmp, i64 16, i1 false)
-  %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.0122, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.1122, ptr noundef nonnull align 16 dereferenceable(16) %tmp, i64 16, i1 false)
+  %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.1122, i64 16
   %i.0 = add i64 %i.0124, 1
   %cmp16.not = icmp ugt i64 %i.0, %add
   br i1 %cmp16.not, label %if.end84, label %for.body, !llvm.loop !10
 
 if.end84:                                         ; preds = %if.end22, %if.else, %if.end
-  %out.addr.1 = phi ptr [ %out, %if.end ], [ %out, %if.else ], [ %add.ptr82, %if.end22 ]
-  %in.addr.1 = phi ptr [ %in, %if.end ], [ %in, %if.else ], [ %add.ptr, %if.end22 ]
+  %out.addr.0 = phi ptr [ %out, %if.end ], [ %out, %if.else ], [ %add.ptr82, %if.end22 ]
+  %in.addr.0 = phi ptr [ %in, %if.end ], [ %in, %if.else ], [ %add.ptr, %if.end22 ]
   %rem = and i64 %len, 15
   %cmp85.not = icmp eq i64 %rem, 0
   br i1 %cmp85.not, label %if.end131, label %if.then87
@@ -839,12 +839,12 @@ if.then87:                                        ; preds = %if.end84
 
 for.body.i:                                       ; preds = %if.then87, %for.body.i
   %i.07.i = phi i64 [ %inc.i108, %for.body.i ], [ 0, %if.then87 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.1, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0, i64 %i.07.i
   %47 = load i8, ptr %arrayidx.i, align 1
   %arrayidx1.i = getelementptr inbounds i8, ptr %pad, i64 %i.07.i
   %48 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %48, %47
-  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.1, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.0, i64 %i.07.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i108 = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i109 = icmp eq i64 %inc.i108, %rem
@@ -852,7 +852,7 @@ for.body.i:                                       ; preds = %if.then87, %for.bod
 
 ocb_block_xor.exit:                               ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pad, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad, ptr nonnull align 1 %in.addr.1, i64 %rem, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad, ptr nonnull align 1 %in.addr.0, i64 %rem, i1 false)
   %arrayidx114 = getelementptr inbounds [16 x i8], ptr %pad, i64 0, i64 %rem
   store i8 -128, ptr %arrayidx114, align 1
   %checksum117 = getelementptr inbounds i8, ptr %ctx, i64 160
@@ -1001,8 +1001,8 @@ for.body.lr.ph:                                   ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end22
   %i.0124 = phi i64 [ %i.0119, %for.body.lr.ph ], [ %i.0, %if.end22 ]
-  %in.addr.0123 = phi ptr [ %in, %for.body.lr.ph ], [ %add.ptr, %if.end22 ]
-  %out.addr.0122 = phi ptr [ %out, %for.body.lr.ph ], [ %add.ptr82, %if.end22 ]
+  %in.addr.1123 = phi ptr [ %in, %for.body.lr.ph ], [ %add.ptr, %if.end22 ]
+  %out.addr.1122 = phi ptr [ %out, %for.body.lr.ph ], [ %add.ptr82, %if.end22 ]
   %i.0.in121 = phi i64 [ %0, %for.body.lr.ph ], [ %i.0124, %if.end22 ]
   %16 = and i64 %i.0.in121, 1
   %tobool.not4.i.not = icmp eq i64 %16, 0
@@ -1101,8 +1101,8 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %30 = load i64, ptr %arrayidx32, align 8
   %xor33 = xor i64 %30, %29
   store i64 %xor33, ptr %arrayidx31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.0123, i64 16, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.0123, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.1123, i64 16, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.1123, i64 16
   %31 = load i64, ptr %tmp, align 16
   %xor42 = xor i64 %31, %xor
   store i64 %xor42, ptr %tmp, align 16
@@ -1119,15 +1119,15 @@ if.end22:                                         ; preds = %ocb_lookup_l.exit10
   %38 = load <2 x i64>, ptr %checksum67, align 8
   %39 = xor <2 x i64> %38, %37
   store <2 x i64> %39, ptr %checksum67, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0122, ptr noundef nonnull align 16 dereferenceable(16) %tmp, i64 16, i1 false)
-  %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.0122, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.1122, ptr noundef nonnull align 16 dereferenceable(16) %tmp, i64 16, i1 false)
+  %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.1122, i64 16
   %i.0 = add i64 %i.0124, 1
   %cmp16.not = icmp ugt i64 %i.0, %add
   br i1 %cmp16.not, label %if.end84, label %for.body, !llvm.loop !11
 
 if.end84:                                         ; preds = %if.end22, %if.else, %if.end
-  %out.addr.1 = phi ptr [ %out, %if.end ], [ %out, %if.else ], [ %add.ptr82, %if.end22 ]
-  %in.addr.1 = phi ptr [ %in, %if.end ], [ %in, %if.else ], [ %add.ptr, %if.end22 ]
+  %out.addr.0 = phi ptr [ %out, %if.end ], [ %out, %if.else ], [ %add.ptr82, %if.end22 ]
+  %in.addr.0 = phi ptr [ %in, %if.end ], [ %in, %if.else ], [ %add.ptr, %if.end22 ]
   %rem = and i64 %len, 15
   %cmp85.not = icmp eq i64 %rem, 0
   br i1 %cmp85.not, label %if.end129, label %if.then87
@@ -1147,12 +1147,12 @@ if.then87:                                        ; preds = %if.end84
 
 for.body.i:                                       ; preds = %if.then87, %for.body.i
   %i.07.i = phi i64 [ %inc.i108, %for.body.i ], [ 0, %if.then87 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.1, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0, i64 %i.07.i
   %45 = load i8, ptr %arrayidx.i, align 1
   %arrayidx1.i = getelementptr inbounds i8, ptr %pad, i64 %i.07.i
   %46 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %46, %45
-  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.1, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds i8, ptr %out.addr.0, i64 %i.07.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i108 = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i109 = icmp eq i64 %inc.i108, %rem
@@ -1160,7 +1160,7 @@ for.body.i:                                       ; preds = %if.then87, %for.bod
 
 ocb_block_xor.exit:                               ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %pad, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad, ptr nonnull align 1 %out.addr.1, i64 %rem, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad, ptr nonnull align 1 %out.addr.0, i64 %rem, i1 false)
   %arrayidx112 = getelementptr inbounds [16 x i8], ptr %pad, i64 0, i64 %rem
   store i8 -128, ptr %arrayidx112, align 1
   %checksum115 = getelementptr inbounds i8, ptr %ctx, i64 160

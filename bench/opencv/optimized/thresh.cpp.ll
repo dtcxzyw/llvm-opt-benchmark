@@ -710,7 +710,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br label %287
 
 287:                                              ; preds = %_ZN2cvL20getThreshVal_Otsu_8uERKNS_3MatE.exit, %_ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit, %_ZNK2cv11_InputArray6getMatEi.exit164, %.loopexit
-  %.0 = phi double [ %2, %_ZNK2cv11_InputArray6getMatEi.exit164 ], [ %.2.i, %.loopexit ], [ %.144.i.i, %_ZN2cvL20getThreshVal_Otsu_8uERKNS_3MatE.exit ], [ %.144.i.i180, %_ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit ]
+  %.1 = phi double [ %2, %_ZNK2cv11_InputArray6getMatEi.exit164 ], [ %.2.i, %.loopexit ], [ %.144.i.i, %_ZN2cvL20getThreshVal_Otsu_8uERKNS_3MatE.exit ], [ %.144.i.i180, %_ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit ]
   %288 = load i32, ptr %9, align 8
   %289 = and i32 %288, 7
   switch i32 %289, label %405 [
@@ -722,7 +722,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   ]
 
 290:                                              ; preds = %287
-  %291 = call double @llvm.floor.f64(double %.0)
+  %291 = call double @llvm.floor.f64(double %.1)
   %292 = fptosi double %291 to i32
   %293 = sitofp i32 %292 to double
   %294 = insertelement <2 x double> poison, double %3, i64 0
@@ -804,7 +804,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br label %413
 
 328:                                              ; preds = %287
-  %329 = call double @llvm.floor.f64(double %.0)
+  %329 = call double @llvm.floor.f64(double %.1)
   %330 = fptosi double %329 to i32
   %331 = sitofp i32 %330 to double
   %332 = insertelement <2 x double> poison, double %3, i64 0
@@ -887,7 +887,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br label %413
 
 367:                                              ; preds = %287
-  %368 = call double @llvm.floor.f64(double %.0)
+  %368 = call double @llvm.floor.f64(double %.1)
   %369 = fptosi double %368 to i32
   %370 = sitofp i32 %369 to double
   %371 = insertelement <2 x double> poison, double %3, i64 0
@@ -1005,7 +1005,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br label %447
 
 413:                                              ; preds = %287, %287, %364, %402, %325
-  %.1 = phi double [ %293, %325 ], [ %331, %364 ], [ %370, %402 ], [ %.0, %287 ], [ %.0, %287 ]
+  %.2 = phi double [ %293, %325 ], [ %331, %364 ], [ %370, %402 ], [ %.1, %287 ], [ %.1, %287 ]
   %.0122 = phi double [ %327, %325 ], [ %366, %364 ], [ %404, %402 ], [ %3, %287 ], [ %3, %287 ]
   %414 = getelementptr inbounds i8, ptr %10, i64 8
   %415 = load i32, ptr %414, align 8
@@ -1042,7 +1042,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
 
 426:                                              ; preds = %422
   %427 = getelementptr inbounds i8, ptr %27, i64 200
-  store double %.1, ptr %427, align 8
+  store double %.2, ptr %427, align 8
   %428 = getelementptr inbounds i8, ptr %27, i64 208
   store double %.0122, ptr %428, align 8
   %429 = getelementptr inbounds i8, ptr %27, i64 216
@@ -1087,7 +1087,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   br label %447
 
 440:                                              ; preds = %397, %393, %359, %355, %320, %316, %434
-  %.2 = phi double [ %.1, %434 ], [ %293, %316 ], [ %293, %320 ], [ %331, %355 ], [ %331, %359 ], [ %370, %393 ], [ %370, %397 ]
+  %.0 = phi double [ %.2, %434 ], [ %293, %316 ], [ %293, %320 ], [ %331, %355 ], [ %331, %359 ], [ %370, %393 ], [ %370, %397 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #14
   %441 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1107,7 +1107,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %440, %443
-  ret double %.2
+  ret double %.0
 
 447:                                              ; preds = %439, %412, %400, %395, %362, %357, %323, %318, %212, %69, %64
   %.pn150 = phi { ptr, i32 } [ %70, %69 ], [ %319, %318 ], [ %324, %323 ], [ %.pn147.pn, %439 ], [ %358, %357 ], [ %363, %362 ], [ %396, %395 ], [ %401, %400 ], [ %.pn145, %412 ], [ %.pn142, %212 ], [ %.pn, %64 ]

@@ -495,13 +495,13 @@ define i32 @hwloc_set_membind(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   br label %13
 
 13:                                               ; preds = %8, %11
-  %.0 = phi i32 [ %12, %11 ], [ -1, %8 ]
+  %.1 = phi i32 [ %12, %11 ], [ -1, %8 ]
   tail call void @hwloc_bitmap_free(ptr noundef %9) #14
   br label %14
 
 14:                                               ; preds = %13, %6
-  %.1 = phi i32 [ %7, %6 ], [ %.0, %13 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %7, %6 ], [ %.1, %13 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -875,13 +875,13 @@ define i32 @hwloc_set_proc_membind(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %14
 
 14:                                               ; preds = %9, %12
-  %.0 = phi i32 [ %13, %12 ], [ -1, %9 ]
+  %.1 = phi i32 [ %13, %12 ], [ -1, %9 ]
   tail call void @hwloc_bitmap_free(ptr noundef %10) #14
   br label %15
 
 15:                                               ; preds = %14, %7
-  %.1 = phi i32 [ %8, %7 ], [ %.0, %14 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %8, %7 ], [ %.1, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1075,13 +1075,13 @@ define i32 @hwloc_set_area_membind(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %15
 
 15:                                               ; preds = %10, %13
-  %.0 = phi i32 [ %14, %13 ], [ -1, %10 ]
+  %.1 = phi i32 [ %14, %13 ], [ -1, %10 ]
   tail call void @hwloc_bitmap_free(ptr noundef %11) #14
   br label %16
 
 16:                                               ; preds = %15, %8
-  %.1 = phi i32 [ %9, %8 ], [ %.0, %15 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %9, %8 ], [ %.1, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1523,13 +1523,13 @@ define noalias ptr @hwloc_alloc_membind(ptr noundef %0, i64 noundef %1, ptr noun
   br label %hwloc_alloc.exit
 
 hwloc_alloc.exit:                                 ; preds = %20, %18, %13, %25
-  %.0 = phi ptr [ %26, %25 ], [ null, %13 ], [ %19, %18 ], [ %24, %20 ]
+  %.1 = phi ptr [ %26, %25 ], [ null, %13 ], [ %19, %18 ], [ %24, %20 ]
   call void @hwloc_bitmap_free(ptr noundef %11) #14
   br label %27
 
 27:                                               ; preds = %hwloc_alloc.exit, %8
-  %.1 = phi ptr [ %9, %8 ], [ %.0, %hwloc_alloc.exit ]
-  ret ptr %.1
+  %.0 = phi ptr [ %9, %8 ], [ %.1, %hwloc_alloc.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

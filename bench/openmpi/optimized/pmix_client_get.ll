@@ -6001,7 +6001,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %91
 
 146:                                              ; preds = %.lr.ph, %320
   %.0165 = phi ptr [ %143, %.lr.ph ], [ %.0111168, %320 ]
-  %.0113164 = phi ptr [ null, %.lr.ph ], [ %.2115, %320 ]
+  %.0113164 = phi ptr [ null, %.lr.ph ], [ %.1114, %320 ]
   %.0111.in167 = getelementptr inbounds i8, ptr %.0165, i64 120
   %.0111168 = load ptr, ptr %.0111.in167, align 8
   %147 = getelementptr inbounds i8, ptr %.0165, i64 704
@@ -6280,7 +6280,7 @@ pmix_obj_run_destructors.exit153:                 ; preds = %.lr.ph.i150, %295
   br label %.thread159
 
 .thread159:                                       ; preds = %256, %220, %306, %308, %.thread157, %289
-  %.1114 = phi ptr [ %284, %289 ], [ null, %.thread157 ], [ %284, %308 ], [ %284, %306 ], [ %.0113164, %220 ], [ %.0113164, %256 ]
+  %.2115 = phi ptr [ %284, %289 ], [ null, %.thread157 ], [ %284, %308 ], [ %284, %306 ], [ %.0113164, %220 ], [ %.0113164, %256 ]
   %.2 = phi i32 [ 0, %289 ], [ -36, %.thread157 ], [ 0, %308 ], [ 0, %306 ], [ %219, %220 ], [ %266, %256 ]
   %309 = getelementptr inbounds i8, ptr %.0165, i64 496
   %310 = load i8, ptr %309, align 8
@@ -6291,7 +6291,7 @@ pmix_obj_run_destructors.exit153:                 ; preds = %.lr.ph.i150, %295
   %313 = getelementptr inbounds i8, ptr %.0165, i64 500
   store i32 %.2, ptr %313, align 4
   %314 = getelementptr inbounds i8, ptr %.0165, i64 728
-  store ptr %.1114, ptr %314, align 8
+  store ptr %.2115, ptr %314, align 8
   call void @gcbfn(i32 poison, i16 signext poison, ptr noundef nonnull %.0165)
   br label %320
 
@@ -6300,11 +6300,11 @@ pmix_obj_run_destructors.exit153:                 ; preds = %.lr.ph.i150, %295
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds i8, ptr %.0165, i64 696
   %319 = load ptr, ptr %318, align 8
-  call void %317(i32 noundef %.2, ptr noundef %.1114, ptr noundef %319) #12
+  call void %317(i32 noundef %.2, ptr noundef %.2115, ptr noundef %319) #12
   br label %320
 
 320:                                              ; preds = %146, %150, %315, %312, %169, %171
-  %.2115 = phi ptr [ %.0113164, %169 ], [ %.0113164, %171 ], [ %.1114, %312 ], [ %.1114, %315 ], [ %.0113164, %150 ], [ %.0113164, %146 ]
+  %.1114 = phi ptr [ %.0113164, %169 ], [ %.0113164, %171 ], [ %.2115, %312 ], [ %.2115, %315 ], [ %.0113164, %150 ], [ %.0113164, %146 ]
   %.not137 = icmp eq ptr %.0111168, getelementptr inbounds (i8, ptr @pmix_client_globals, i64 136)
   br i1 %.not137, label %.loopexit, label %146, !llvm.loop !26
 

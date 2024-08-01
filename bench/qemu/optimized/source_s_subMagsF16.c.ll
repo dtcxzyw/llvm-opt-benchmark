@@ -141,13 +141,13 @@ if.end134:                                        ; preds = %if.end124
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end134, %if.end105
-  %signZ.1 = phi i8 [ %frombool70, %if.end105 ], [ %frombool63, %if.end134 ]
-  %expZ.1.in = phi i8 [ %conv2, %if.end105 ], [ %conv8, %if.end134 ]
+  %signZ.2 = phi i8 [ %frombool70, %if.end105 ], [ %frombool63, %if.end134 ]
+  %expZ.2.in = phi i8 [ %conv2, %if.end105 ], [ %conv8, %if.end134 ]
   %sigX.0.in = phi i64 [ %and9, %if.end105 ], [ %and3, %if.end134 ]
   %sigY.0 = phi i64 [ %add112, %if.end105 ], [ %add145, %if.end134 ]
   %expDiff.0 = phi i8 [ %narrow, %if.end105 ], [ %sub, %if.end134 ]
   %sigX.0 = or disjoint i64 %sigX.0.in, 1024
-  %expZ.1 = add nuw nsw i8 %expZ.1.in, 19
+  %expZ.2 = add nuw nsw i8 %expZ.2.in, 19
   %conv147 = zext nneg i8 %expDiff.0 to i64
   %shl149 = shl nuw nsw i64 %sigX.0, %conv147
   %sub150 = sub nsw i64 %shl149, %sigY.0
@@ -170,7 +170,7 @@ if.end146:                                        ; preds = %if.end134, %if.end1
   %conv156 = sext i8 %sub154 to i64
   %sh_prom157 = and i64 %conv156, 4294967295
   %shl158 = shl i64 %sub150, %sh_prom157
-  %sub161 = sub i8 %expZ.1, %sub154
+  %sub161 = sub i8 %expZ.2, %sub154
   %shr163 = lshr i64 %shl158, 16
   %and164 = and i64 %shl158, 65535
   %tobool165.not = icmp eq i64 %and164, 0
@@ -192,10 +192,10 @@ if.then174:                                       ; preds = %if.else168
   br label %pack
 
 if.end177:                                        ; preds = %if.else168, %if.then166
-  %sigZ.0 = phi i64 [ %or167, %if.then166 ], [ %shr163, %if.else168 ]
-  %tobool178 = trunc nuw i8 %signZ.1 to i1
+  %sigZ.1 = phi i64 [ %or167, %if.then166 ], [ %shr163, %if.else168 ]
+  %tobool178 = trunc nuw i8 %signZ.2 to i1
   %conv179 = sext i8 %sub161 to i64
-  %call180 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool178, i64 noundef %conv179, i64 noundef %sigZ.0) #3
+  %call180 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool178, i64 noundef %conv179, i64 noundef %sigZ.1) #3
   br label %return
 
 propagateNaN:                                     ; preds = %if.then120, %if.then74, %if.then15
@@ -203,7 +203,7 @@ propagateNaN:                                     ; preds = %if.then120, %if.the
   br label %uiZ223
 
 subEpsilon:                                       ; preds = %if.then128, %if.then89
-  %uiZ.0 = phi i64 [ %add99, %if.then89 ], [ %uiA, %if.then128 ]
+  %uiZ.1 = phi i64 [ %add99, %if.then89 ], [ %uiA, %if.then128 ]
   %14 = load i8, ptr @softfloat_roundingMode, align 1
   switch i8 %14, label %lor.lhs.false [
     i8 0, label %if.end209
@@ -212,14 +212,14 @@ subEpsilon:                                       ; preds = %if.then128, %if.the
 
 lor.lhs.false:                                    ; preds = %subEpsilon
   %conv182 = sext i8 %14 to i32
-  %15 = and i64 %uiZ.0, 32768
+  %15 = and i64 %uiZ.1, 32768
   %tobool193.not = icmp eq i64 %15, 0
   %cond195 = select i1 %tobool193.not, i32 2, i32 3
   %cmp196 = icmp eq i32 %cond195, %conv182
   br i1 %cmp196, label %if.then198, label %if.else200
 
 if.then198:                                       ; preds = %subEpsilon, %lor.lhs.false
-  %dec199 = add i64 %uiZ.0, -1
+  %dec199 = add i64 %uiZ.1, -1
   br label %if.end209
 
 if.else200:                                       ; preds = %lor.lhs.false
@@ -227,32 +227,32 @@ if.else200:                                       ; preds = %lor.lhs.false
   br i1 %cmp202, label %if.then204, label %if.end209
 
 if.then204:                                       ; preds = %if.else200
-  %sub205 = add i64 %uiZ.0, -1
+  %sub205 = add i64 %uiZ.1, -1
   %or206 = or i64 %sub205, 1
   br label %if.end209
 
 if.end209:                                        ; preds = %subEpsilon, %if.then198, %if.then204, %if.else200
-  %uiZ.1 = phi i64 [ %dec199, %if.then198 ], [ %or206, %if.then204 ], [ %uiZ.0, %if.else200 ], [ %uiZ.0, %subEpsilon ]
+  %uiZ.2 = phi i64 [ %dec199, %if.then198 ], [ %or206, %if.then204 ], [ %uiZ.1, %if.else200 ], [ %uiZ.1, %subEpsilon ]
   %16 = load i8, ptr @softfloat_exceptionFlags, align 1
   %17 = or i8 %16, 1
   store i8 %17, ptr @softfloat_exceptionFlags, align 1
   br label %uiZ223
 
 pack:                                             ; preds = %if.then174, %if.end29
-  %signZ.2 = phi i8 [ %signZ.1, %if.then174 ], [ %signZ.0, %if.end29 ]
-  %expZ.2 = phi i8 [ %sub161, %if.then174 ], [ %expZ.0, %if.end29 ]
-  %sigZ.1 = phi i64 [ %shr175, %if.then174 ], [ %shl58, %if.end29 ]
-  %conv215 = zext nneg i8 %signZ.2 to i64
+  %signZ.1 = phi i8 [ %signZ.2, %if.then174 ], [ %signZ.0, %if.end29 ]
+  %expZ.1 = phi i8 [ %sub161, %if.then174 ], [ %expZ.0, %if.end29 ]
+  %sigZ.0 = phi i64 [ %shr175, %if.then174 ], [ %shl58, %if.end29 ]
+  %conv215 = zext nneg i8 %signZ.1 to i64
   %shl216 = shl nuw nsw i64 %conv215, 15
-  %conv217 = zext nneg i8 %expZ.2 to i64
+  %conv217 = zext nneg i8 %expZ.1 to i64
   %conv218 = shl nuw nsw i64 %conv217, 10
-  %add220 = add i64 %sigZ.1, %shl216
+  %add220 = add i64 %sigZ.0, %shl216
   %add222 = add i64 %add220, %conv218
   br label %uiZ223
 
 uiZ223:                                           ; preds = %if.then128, %if.then120, %if.then89, %pack, %if.end209, %propagateNaN, %if.end77, %if.then21, %if.end
-  %uiZ.2 = phi i64 [ %call181, %propagateNaN ], [ %add82, %if.end77 ], [ %uiZ.1, %if.end209 ], [ %add99, %if.then89 ], [ %add222, %pack ], [ %uiA, %if.then120 ], [ %uiA, %if.then128 ], [ 65024, %if.end ], [ %conv28, %if.then21 ]
-  %conv224 = trunc i64 %uiZ.2 to i16
+  %uiZ.0 = phi i64 [ %call181, %propagateNaN ], [ %add82, %if.end77 ], [ %uiZ.2, %if.end209 ], [ %add99, %if.then89 ], [ %add222, %pack ], [ %uiA, %if.then120 ], [ %uiA, %if.then128 ], [ 65024, %if.end ], [ %conv28, %if.then21 ]
+  %conv224 = trunc i64 %uiZ.0 to i16
   br label %return
 
 return:                                           ; preds = %uiZ223, %if.end177

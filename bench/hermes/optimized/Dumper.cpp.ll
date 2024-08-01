@@ -1616,7 +1616,7 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasGlobals.049 = phi i8 [ 0, %for.body.lr.ph ], [ %hasGlobals.2, %for.inc ]
+  %hasGlobals.149 = phi i8 [ 0, %for.body.lr.ph ], [ %hasGlobals.2, %for.inc ]
   %first2.048 = phi i8 [ 1, %for.body.lr.ph ], [ %first2.1, %for.inc ]
   %__begin2.sroa.0.047 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %4 = load ptr, ptr %__begin2.sroa.0.047, align 8
@@ -1668,7 +1668,7 @@ if.then4.i.i18:                                   ; preds = %if.else
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then4.i.i18, %if.then.i.i21, %if.then4.i.i, %if.then.i.i
-  %hasGlobals.1 = phi i8 [ 1, %if.then.i.i ], [ 1, %if.then4.i.i ], [ %hasGlobals.049, %if.then.i.i21 ], [ %hasGlobals.049, %if.then4.i.i18 ]
+  %hasGlobals.3 = phi i8 [ 1, %if.then.i.i ], [ 1, %if.then4.i.i ], [ %hasGlobals.149, %if.then.i.i21 ], [ %hasGlobals.149, %if.then4.i.i18 ]
   %11 = load ptr, ptr %os14, align 8
   %name_.i = getelementptr inbounds i8, ptr %4, i64 48
   %12 = load ptr, ptr %name_.i, align 8
@@ -1704,7 +1704,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 for.inc:                                          ; preds = %if.then4.i, %if.end.i, %if.then.i, %for.body
   %first2.1 = phi i8 [ %first2.048, %for.body ], [ 0, %if.then.i ], [ 0, %if.end.i ], [ 0, %if.then4.i ]
-  %hasGlobals.2 = phi i8 [ %hasGlobals.049, %for.body ], [ %hasGlobals.1, %if.then.i ], [ %hasGlobals.1, %if.end.i ], [ %hasGlobals.1, %if.then4.i ]
+  %hasGlobals.2 = phi i8 [ %hasGlobals.149, %for.body ], [ %hasGlobals.3, %if.then.i ], [ %hasGlobals.3, %if.end.i ], [ %hasGlobals.3, %if.then4.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.047, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -1735,8 +1735,8 @@ if.then4.i.i38:                                   ; preds = %if.then27
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then, %if.then4.i.i38, %if.then.i.i41, %for.end, %entry
-  %hasGlobals.3 = phi i8 [ %hasGlobals.2, %for.end ], [ 0, %entry ], [ %hasGlobals.2, %if.then.i.i41 ], [ %hasGlobals.2, %if.then4.i.i38 ], [ 0, %if.then ]
-  %frombool = and i8 %hasGlobals.3, 1
+  %hasGlobals.0 = phi i8 [ %hasGlobals.2, %for.end ], [ 0, %entry ], [ %hasGlobals.2, %if.then.i.i41 ], [ %hasGlobals.2, %if.then4.i.i38 ], [ 0, %if.then ]
+  %frombool = and i8 %hasGlobals.0, 1
   store i8 %frombool, ptr %printNewLine, align 1
   %scopeDesc_.i.i = getelementptr inbounds i8, ptr %F, i64 72
   %21 = load ptr, ptr %scopeDesc_.i.i, align 8

@@ -378,17 +378,17 @@ _ZN5zxing8ArrayRefIcED2Ev.exit32:                 ; preds = %107, %109, %114
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %_ZN5zxing8ArrayRefIcED2Ev.exit30
-  %.sroa.4.2 = phi ptr [ %.sroa.4.057, %_ZN5zxing8ArrayRefIcED2Ev.exit30 ], [ %35, %.loopexit ], [ %.sroa.4.1.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.4.0.lcssa, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.4.4 = phi ptr [ %.sroa.4.057, %_ZN5zxing8ArrayRefIcED2Ev.exit30 ], [ %35, %.loopexit ], [ %.sroa.4.1.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.4.0.lcssa, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn21 = phi { ptr, i32 } [ %76, %_ZN5zxing8ArrayRefIcED2Ev.exit30 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit48, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp.loopexit.split-lp ]
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %118 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #10
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #10
-  %.not.i33 = icmp eq ptr %.sroa.4.2, null
+  %.not.i33 = icmp eq ptr %.sroa.4.4, null
   br i1 %.not.i33, label %_ZN5zxing8ArrayRefIcED2Ev.exit34, label %119
 
 119:                                              ; preds = %.loopexit.split-lp
-  %120 = getelementptr inbounds i8, ptr %.sroa.4.2, i64 8
+  %120 = getelementptr inbounds i8, ptr %.sroa.4.4, i64 8
   %121 = load i32, ptr %120, align 8
   %122 = add i32 %121, -1
   store i32 %122, ptr %120, align 8
@@ -397,10 +397,10 @@ _ZN5zxing8ArrayRefIcED2Ev.exit32:                 ; preds = %107, %109, %114
 
 124:                                              ; preds = %119
   store i32 -559026175, ptr %120, align 8
-  %125 = load ptr, ptr %.sroa.4.2, align 8
+  %125 = load ptr, ptr %.sroa.4.4, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.2) #10
+  call void %127(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.4) #10
   br label %_ZN5zxing8ArrayRefIcED2Ev.exit34
 
 _ZN5zxing8ArrayRefIcED2Ev.exit34:                 ; preds = %.thread43, %.loopexit.split-lp, %119, %124

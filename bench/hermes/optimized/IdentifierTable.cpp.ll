@@ -2101,9 +2101,9 @@ if.then.i.i.i.i.i:                                ; preds = %if.end29
   br label %cleanup38
 
 cleanup38:                                        ; preds = %cleanup, %if.end29, %if.then.i.i.i.i.i, %cleanup.thread, %if.then5
-  %retval.sroa.0.1 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ inttoptr (i64 -1 to ptr), %cleanup.thread ], [ %4, %cleanup ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ inttoptr (i64 -1 to ptr), %cleanup.thread ], [ %4, %cleanup ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2271,9 +2271,9 @@ if.then.i.i.i.i.i:                                ; preds = %if.end29
   br label %cleanup38
 
 cleanup38:                                        ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit, %if.end29, %if.then.i.i.i.i.i, %if.then5
-  %retval.sroa.0.1 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3262,9 +3262,9 @@ if.then.i.i.i.i.i:                                ; preds = %if.end29
   br label %cleanup38
 
 cleanup38:                                        ; preds = %cleanup, %if.end29, %if.then.i.i.i.i.i, %cleanup.thread, %if.then5
-  %retval.sroa.0.1 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ inttoptr (i64 -1 to ptr), %cleanup.thread ], [ %4, %cleanup ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ inttoptr (i64 -1 to ptr), %cleanup.thread ], [ %4, %cleanup ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3430,9 +3430,9 @@ if.then.i.i.i.i.i:                                ; preds = %if.end29
   br label %cleanup38
 
 cleanup38:                                        ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit, %if.end29, %if.then.i.i.i.i.i, %if.then5
-  %retval.sroa.0.1 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.then5 ], [ %call.i.i.i.i, %if.end29 ], [ %call.i.i.i.i, %if.then.i.i.i.i.i ], [ %spec.select, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #16
-  ret ptr %retval.sroa.0.1
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -55743,19 +55743,19 @@ invoke.cont33.if.end73_crit_edge:                 ; preds = %invoke.cont33
   br label %if.end73
 
 if.then37:                                        ; preds = %invoke.cont33, %if.end8.i.i140, %if.end.i.i136, %call4.i.i.i.noexc172, %land.lhs.true32, %if.end8.i.i, %if.end.i.i, %call4.i.i.i.noexc, %land.lhs.true18, %invoke.cont19
-  %a.4 = phi ptr [ %24, %invoke.cont19 ], [ %24, %land.lhs.true18 ], [ %24, %call4.i.i.i.noexc ], [ %24, %if.end.i.i ], [ %24, %if.end8.i.i ], [ %63, %land.lhs.true32 ], [ %63, %call4.i.i.i.noexc172 ], [ %63, %if.end.i.i136 ], [ %63, %if.end8.i.i140 ], [ %63, %invoke.cont33 ]
-  %b.7 = phi ptr [ %32, %invoke.cont19 ], [ %32, %land.lhs.true18 ], [ %32, %call4.i.i.i.noexc ], [ %32, %if.end.i.i ], [ %32, %if.end8.i.i ], [ %70, %land.lhs.true32 ], [ %70, %call4.i.i.i.noexc172 ], [ %70, %if.end.i.i136 ], [ %70, %if.end8.i.i140 ], [ %70, %invoke.cont33 ]
-  %m_num_args.i = getelementptr inbounds i8, ptr %b.7, i64 24
+  %a.2 = phi ptr [ %24, %invoke.cont19 ], [ %24, %land.lhs.true18 ], [ %24, %call4.i.i.i.noexc ], [ %24, %if.end.i.i ], [ %24, %if.end8.i.i ], [ %63, %land.lhs.true32 ], [ %63, %call4.i.i.i.noexc172 ], [ %63, %if.end.i.i136 ], [ %63, %if.end8.i.i140 ], [ %63, %invoke.cont33 ]
+  %b.3 = phi ptr [ %32, %invoke.cont19 ], [ %32, %land.lhs.true18 ], [ %32, %call4.i.i.i.noexc ], [ %32, %if.end.i.i ], [ %32, %if.end8.i.i ], [ %70, %land.lhs.true32 ], [ %70, %call4.i.i.i.noexc172 ], [ %70, %if.end.i.i136 ], [ %70, %if.end8.i.i140 ], [ %70, %invoke.cont33 ]
+  %m_num_args.i = getelementptr inbounds i8, ptr %b.3, i64 24
   %94 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %94 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
   %m_args.i.add = add nuw nsw i64 %add.ptr.i.idx, 32
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %b.7, i64 %m_args.i.add
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %b.3, i64 %m_args.i.add
   %cmp44.not1140 = icmp eq i32 %94, 0
   br i1 %cmp44.not1140, label %for.end, label %for.body45.preheader
 
 for.body45.preheader:                             ; preds = %if.then37
-  %m_args.i.ptr = getelementptr inbounds i8, ptr %b.7, i64 32
+  %m_args.i.ptr = getelementptr inbounds i8, ptr %b.3, i64 32
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.preheader, %_ZN14dependent_exprD2Ev.exit
@@ -55767,7 +55767,7 @@ for.body45:                                       ; preds = %for.body45.preheade
           to label %invoke.cont51 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont51:                                    ; preds = %for.body45
-  %call.i176 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %97, i32 noundef 0, i32 noundef 6, ptr noundef %a.4, ptr noundef %call52)
+  %call.i176 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %97, i32 noundef 0, i32 noundef 6, ptr noundef %a.2, ptr noundef %call52)
           to label %invoke.cont53 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont53:                                    ; preds = %invoke.cont51
@@ -56313,19 +56313,19 @@ invoke.cont94.if.end141_crit_edge:                ; preds = %invoke.cont94
   br label %if.end141
 
 if.then100:                                       ; preds = %invoke.cont94, %if.end8.i.i381, %if.end.i.i377, %call4.i.i.i.noexc413, %land.lhs.true93, %if.end8.i.i295, %if.end.i.i291, %call4.i.i.i.noexc327, %land.lhs.true81, %invoke.cont82
-  %a.7.ph = phi ptr [ %133, %invoke.cont82 ], [ %133, %land.lhs.true81 ], [ %133, %call4.i.i.i.noexc327 ], [ %133, %if.end.i.i291 ], [ %133, %if.end8.i.i295 ], [ %165, %land.lhs.true93 ], [ %165, %call4.i.i.i.noexc413 ], [ %165, %if.end.i.i377 ], [ %165, %if.end8.i.i381 ], [ %165, %invoke.cont94 ]
-  %b.10.ph = phi ptr [ %134, %invoke.cont82 ], [ %134, %land.lhs.true81 ], [ %134, %call4.i.i.i.noexc327 ], [ %134, %if.end.i.i291 ], [ %134, %if.end8.i.i295 ], [ %164, %land.lhs.true93 ], [ %164, %call4.i.i.i.noexc413 ], [ %164, %if.end.i.i377 ], [ %164, %if.end8.i.i381 ], [ %164, %invoke.cont94 ]
-  %m_num_args.i418 = getelementptr inbounds i8, ptr %b.10.ph, i64 24
+  %a.4.ph = phi ptr [ %133, %invoke.cont82 ], [ %133, %land.lhs.true81 ], [ %133, %call4.i.i.i.noexc327 ], [ %133, %if.end.i.i291 ], [ %133, %if.end8.i.i295 ], [ %165, %land.lhs.true93 ], [ %165, %call4.i.i.i.noexc413 ], [ %165, %if.end.i.i377 ], [ %165, %if.end8.i.i381 ], [ %165, %invoke.cont94 ]
+  %b.5.ph = phi ptr [ %134, %invoke.cont82 ], [ %134, %land.lhs.true81 ], [ %134, %call4.i.i.i.noexc327 ], [ %134, %if.end.i.i291 ], [ %134, %if.end8.i.i295 ], [ %164, %land.lhs.true93 ], [ %164, %call4.i.i.i.noexc413 ], [ %164, %if.end.i.i377 ], [ %164, %if.end8.i.i381 ], [ %164, %invoke.cont94 ]
+  %m_num_args.i418 = getelementptr inbounds i8, ptr %b.5.ph, i64 24
   %189 = load i32, ptr %m_num_args.i418, align 8
   %idx.ext.i419 = zext i32 %189 to i64
   %add.ptr.i420.idx = shl nuw nsw i64 %idx.ext.i419, 3
   %m_args.i416.add = add nuw nsw i64 %add.ptr.i420.idx, 32
-  %add.ptr.i420.ptr = getelementptr inbounds i8, ptr %b.10.ph, i64 %m_args.i416.add
+  %add.ptr.i420.ptr = getelementptr inbounds i8, ptr %b.5.ph, i64 %m_args.i416.add
   %cmp110.not1142 = icmp eq i32 %189, 0
   br i1 %cmp110.not1142, label %for.end127, label %for.body111.preheader
 
 for.body111.preheader:                            ; preds = %if.then100
-  %m_args.i416.ptr = getelementptr inbounds i8, ptr %b.10.ph, i64 32
+  %m_args.i416.ptr = getelementptr inbounds i8, ptr %b.5.ph, i64 32
   br label %for.body111
 
 for.body111:                                      ; preds = %for.body111.preheader, %_ZN14dependent_exprD2Ev.exit468
@@ -56333,7 +56333,7 @@ for.body111:                                      ; preds = %for.body111.prehead
   %190 = load ptr, ptr %__begin4103.01143, align 8
   %191 = load ptr, ptr %m_fmls.i.i, align 8
   %192 = load ptr, ptr %m, align 8
-  %call.i421 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %192, i32 noundef 0, i32 noundef 6, ptr noundef %a.7.ph, ptr noundef %190)
+  %call.i421 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %192, i32 noundef 0, i32 noundef 6, ptr noundef %a.4.ph, ptr noundef %190)
           to label %invoke.cont117 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont117:                                   ; preds = %for.body111
@@ -56943,24 +56943,24 @@ invoke.cont170.if.end223_crit_edge:               ; preds = %invoke.cont170
   br label %if.end223
 
 if.then176:                                       ; preds = %invoke.cont170, %if.end8.i.i681, %if.end.i.i677, %call4.i.i.i.noexc713, %land.lhs.true169, %if.end8.i.i576, %if.end.i.i572, %call4.i.i.i.noexc608, %land.lhs.true153, %invoke.cont154
-  %a.11 = phi ptr [ %235, %invoke.cont154 ], [ %235, %land.lhs.true153 ], [ %235, %call4.i.i.i.noexc608 ], [ %235, %if.end.i.i572 ], [ %235, %if.end8.i.i576 ], [ %274, %land.lhs.true169 ], [ %274, %call4.i.i.i.noexc713 ], [ %274, %if.end.i.i677 ], [ %274, %if.end8.i.i681 ], [ %274, %invoke.cont170 ]
-  %b.14 = phi ptr [ %236, %invoke.cont154 ], [ %236, %land.lhs.true153 ], [ %236, %call4.i.i.i.noexc608 ], [ %236, %if.end.i.i572 ], [ %236, %if.end8.i.i576 ], [ %273, %land.lhs.true169 ], [ %273, %call4.i.i.i.noexc713 ], [ %273, %if.end.i.i677 ], [ %273, %if.end8.i.i681 ], [ %273, %invoke.cont170 ]
+  %a.6 = phi ptr [ %235, %invoke.cont154 ], [ %235, %land.lhs.true153 ], [ %235, %call4.i.i.i.noexc608 ], [ %235, %if.end.i.i572 ], [ %235, %if.end8.i.i576 ], [ %274, %land.lhs.true169 ], [ %274, %call4.i.i.i.noexc713 ], [ %274, %if.end.i.i677 ], [ %274, %if.end8.i.i681 ], [ %274, %invoke.cont170 ]
+  %b.7 = phi ptr [ %236, %invoke.cont154 ], [ %236, %land.lhs.true153 ], [ %236, %call4.i.i.i.noexc608 ], [ %236, %if.end.i.i572 ], [ %236, %if.end8.i.i576 ], [ %273, %land.lhs.true169 ], [ %273, %call4.i.i.i.noexc713 ], [ %273, %if.end.i.i677 ], [ %273, %if.end8.i.i681 ], [ %273, %invoke.cont170 ]
   %298 = load ptr, ptr %m, align 8
-  %call179 = invoke noundef ptr @_Z6mk_notR11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %298, ptr noundef %a.11)
+  %call179 = invoke noundef ptr @_Z6mk_notR11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %298, ptr noundef %a.6)
           to label %invoke.cont178 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont178:                                   ; preds = %if.then176
-  %m_num_args.i718 = getelementptr inbounds i8, ptr %b.14, i64 24
+  %m_num_args.i718 = getelementptr inbounds i8, ptr %b.7, i64 24
   %299 = load i32, ptr %m_num_args.i718, align 8
   %idx.ext.i719 = zext i32 %299 to i64
   %add.ptr.i720.idx = shl nuw nsw i64 %idx.ext.i719, 3
   %m_args.i716.add = add nuw nsw i64 %add.ptr.i720.idx, 32
-  %add.ptr.i720.ptr = getelementptr inbounds i8, ptr %b.14, i64 %m_args.i716.add
+  %add.ptr.i720.ptr = getelementptr inbounds i8, ptr %b.7, i64 %m_args.i716.add
   %cmp189.not1144 = icmp eq i32 %299, 0
   br i1 %cmp189.not1144, label %for.end209, label %for.body190.preheader
 
 for.body190.preheader:                            ; preds = %invoke.cont178
-  %m_args.i716.ptr = getelementptr inbounds i8, ptr %b.14, i64 32
+  %m_args.i716.ptr = getelementptr inbounds i8, ptr %b.7, i64 32
   br label %for.body190
 
 for.body190:                                      ; preds = %for.body190.preheader, %_ZN14dependent_exprD2Ev.exit768

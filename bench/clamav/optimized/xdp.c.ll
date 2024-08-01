@@ -213,18 +213,18 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   br i1 %93, label %.lr.ph90, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %88, %.critedge
-  %.3.ph = phi i32 [ 0, %.critedge ], [ %89, %88 ]
+  %.1.ph = phi i32 [ 0, %.critedge ], [ %89, %88 ]
   %94 = load ptr, ptr @xmlFree, align 8
   call void %94(ptr noundef nonnull %62) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %.preheader76
-  %.3 = phi i32 [ 0, %.preheader76 ], [ %.3.ph, %.loopexit.sink.split ], [ 0, %.backedge ]
+  %.1 = phi i32 [ 0, %.preheader76 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %.backedge ]
   call void @xmlFreeTextReader(ptr noundef nonnull %52) #8
   br label %95
 
 95:                                               ; preds = %47, %1, %.loopexit
-  %.052 = phi i32 [ %.3, %.loopexit ], [ 12, %1 ], [ 0, %47 ]
+  %.052 = phi i32 [ %.1, %.loopexit ], [ 12, %1 ], [ 0, %47 ]
   ret i32 %.052
 }
 

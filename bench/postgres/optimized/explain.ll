@@ -3402,8 +3402,8 @@ switch.lookup:                                    ; preds = %118
   br label %124
 
 124:                                              ; preds = %118, %switch.lookup
-  %.0650 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.93, %118 ]
-  %.0646 = phi ptr [ %switch.load1207, %switch.lookup ], [ @.str.140, %118 ]
+  %.1651 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.93, %118 ]
+  %.1 = phi ptr [ %switch.load1207, %switch.lookup ], [ @.str.140, %118 ]
   %125 = getelementptr inbounds i8, ptr %38, i64 108
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, 2
@@ -3411,7 +3411,7 @@ switch.lookup:                                    ; preds = %118
   br i1 %.not684, label %130, label %128
 
 128:                                              ; preds = %124
-  %129 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.141, ptr noundef nonnull %.0646) #11
+  %129 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.141, ptr noundef nonnull %.1) #11
   br label %145
 
 130:                                              ; preds = %124
@@ -3420,7 +3420,7 @@ switch.lookup:                                    ; preds = %118
   br i1 %.not685, label %145, label %132
 
 132:                                              ; preds = %130
-  %133 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef nonnull %.0646) #11
+  %133 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef nonnull %.1) #11
   br label %145
 
 134:                                              ; preds = %65
@@ -3461,9 +3461,9 @@ switch.lookup:                                    ; preds = %118
   %.0653 = phi ptr [ null, %144 ], [ null, %143 ], [ null, %142 ], [ null, %141 ], [ null, %140 ], [ null, %139 ], [ null, %135 ], [ null, %134 ], [ null, %128 ], [ null, %132 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %111 ], [ null, %106 ], [ @.str.91, %105 ], [ @.str.90, %104 ], [ @.str.89, %103 ], [ null, %99 ], [ null, %98 ], [ null, %97 ], [ null, %96 ], [ null, %95 ], [ null, %94 ], [ null, %93 ], [ null, %92 ], [ null, %91 ], [ null, %90 ], [ null, %89 ], [ null, %88 ], [ null, %87 ], [ null, %86 ], [ null, %85 ], [ null, %84 ], [ null, %83 ], [ null, %82 ], [ null, %81 ], [ null, %80 ], [ null, %79 ], [ null, %78 ], [ null, %77 ], [ null, %76 ], [ null, %75 ], [ null, %74 ], [ @.str.92, %73 ], [ @.str.91, %72 ], [ @.str.90, %71 ], [ null, %67 ], [ null, %65 ], [ @.str.89, %68 ], [ @.str.121, %100 ], [ null, %107 ], [ null, %130 ], [ null, %136 ]
   %.not689 = phi i1 [ true, %144 ], [ true, %143 ], [ true, %142 ], [ true, %141 ], [ true, %140 ], [ true, %139 ], [ true, %135 ], [ true, %134 ], [ false, %128 ], [ false, %132 ], [ true, %117 ], [ true, %116 ], [ true, %115 ], [ true, %114 ], [ true, %113 ], [ true, %111 ], [ true, %106 ], [ true, %105 ], [ true, %104 ], [ true, %103 ], [ true, %99 ], [ true, %98 ], [ true, %97 ], [ true, %96 ], [ true, %95 ], [ true, %94 ], [ true, %93 ], [ true, %92 ], [ true, %91 ], [ true, %90 ], [ true, %89 ], [ true, %88 ], [ true, %87 ], [ true, %86 ], [ true, %85 ], [ true, %84 ], [ true, %83 ], [ true, %82 ], [ true, %81 ], [ true, %80 ], [ true, %79 ], [ true, %78 ], [ true, %77 ], [ true, %76 ], [ true, %75 ], [ true, %74 ], [ true, %73 ], [ true, %72 ], [ true, %71 ], [ true, %67 ], [ true, %65 ], [ true, %68 ], [ true, %100 ], [ true, %107 ], [ false, %130 ], [ true, %136 ]
   %.0652 = phi ptr [ null, %144 ], [ null, %143 ], [ null, %142 ], [ null, %141 ], [ null, %140 ], [ null, %139 ], [ null, %135 ], [ null, %134 ], [ @.str.141, %128 ], [ @.str.143, %132 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %111 ], [ null, %106 ], [ null, %105 ], [ null, %104 ], [ null, %103 ], [ null, %99 ], [ null, %98 ], [ null, %97 ], [ null, %96 ], [ null, %95 ], [ null, %94 ], [ null, %93 ], [ null, %92 ], [ null, %91 ], [ null, %90 ], [ null, %89 ], [ null, %88 ], [ null, %87 ], [ null, %86 ], [ null, %85 ], [ null, %84 ], [ null, %83 ], [ null, %82 ], [ null, %81 ], [ null, %80 ], [ null, %79 ], [ null, %78 ], [ null, %77 ], [ null, %76 ], [ null, %75 ], [ null, %74 ], [ null, %73 ], [ null, %72 ], [ null, %71 ], [ null, %67 ], [ null, %65 ], [ null, %68 ], [ null, %100 ], [ null, %107 ], [ @.str.144, %130 ], [ null, %136 ]
-  %.1651 = phi ptr [ null, %144 ], [ null, %143 ], [ null, %142 ], [ null, %141 ], [ @.str.93, %140 ], [ @.str.137, %139 ], [ null, %135 ], [ null, %134 ], [ %.0650, %128 ], [ %.0650, %132 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %111 ], [ null, %106 ], [ null, %105 ], [ null, %104 ], [ null, %103 ], [ null, %99 ], [ null, %98 ], [ null, %97 ], [ null, %96 ], [ null, %95 ], [ null, %94 ], [ null, %93 ], [ null, %92 ], [ null, %91 ], [ null, %90 ], [ null, %89 ], [ null, %88 ], [ null, %87 ], [ null, %86 ], [ null, %85 ], [ null, %84 ], [ null, %83 ], [ null, %82 ], [ null, %81 ], [ null, %80 ], [ null, %79 ], [ null, %78 ], [ null, %77 ], [ null, %76 ], [ null, %75 ], [ null, %74 ], [ null, %73 ], [ null, %72 ], [ null, %71 ], [ null, %67 ], [ null, %65 ], [ null, %68 ], [ null, %100 ], [ null, %107 ], [ %.0650, %130 ], [ @.str.135, %136 ]
+  %.0650 = phi ptr [ null, %144 ], [ null, %143 ], [ null, %142 ], [ null, %141 ], [ @.str.93, %140 ], [ @.str.137, %139 ], [ null, %135 ], [ null, %134 ], [ %.1651, %128 ], [ %.1651, %132 ], [ null, %117 ], [ null, %116 ], [ null, %115 ], [ null, %114 ], [ null, %113 ], [ null, %111 ], [ null, %106 ], [ null, %105 ], [ null, %104 ], [ null, %103 ], [ null, %99 ], [ null, %98 ], [ null, %97 ], [ null, %96 ], [ null, %95 ], [ null, %94 ], [ null, %93 ], [ null, %92 ], [ null, %91 ], [ null, %90 ], [ null, %89 ], [ null, %88 ], [ null, %87 ], [ null, %86 ], [ null, %85 ], [ null, %84 ], [ null, %83 ], [ null, %82 ], [ null, %81 ], [ null, %80 ], [ null, %79 ], [ null, %78 ], [ null, %77 ], [ null, %76 ], [ null, %75 ], [ null, %74 ], [ null, %73 ], [ null, %72 ], [ null, %71 ], [ null, %67 ], [ null, %65 ], [ null, %68 ], [ null, %100 ], [ null, %107 ], [ %.1651, %130 ], [ @.str.135, %136 ]
   %.0648 = phi ptr [ @.str.93, %144 ], [ @.str.101, %143 ], [ @.str.151, %142 ], [ @.str.150, %141 ], [ @.str.147, %140 ], [ @.str.147, %139 ], [ @.str.146, %135 ], [ @.str.145, %134 ], [ @.str.132, %128 ], [ @.str.132, %132 ], [ @.str.131, %117 ], [ @.str.130, %116 ], [ @.str.129, %115 ], [ @.str.128, %114 ], [ @.str.127, %113 ], [ @.str.125, %111 ], [ @.str.120, %106 ], [ @.str.120, %105 ], [ @.str.120, %104 ], [ @.str.120, %103 ], [ @.str.119, %99 ], [ @.str.118, %98 ], [ @.str.117, %97 ], [ @.str.116, %96 ], [ @.str.115, %95 ], [ @.str.114, %94 ], [ @.str.113, %93 ], [ @.str.112, %92 ], [ @.str.111, %91 ], [ @.str.110, %90 ], [ @.str.109, %89 ], [ @.str.108, %88 ], [ @.str.107, %87 ], [ @.str.106, %86 ], [ @.str.105, %85 ], [ @.str.104, %84 ], [ @.str.103, %83 ], [ @.str.102, %82 ], [ @.str.100, %81 ], [ @.str.99, %80 ], [ @.str.98, %79 ], [ @.str.97, %78 ], [ @.str.96, %77 ], [ @.str.95, %76 ], [ @.str.94, %75 ], [ @.str.88, %74 ], [ @.str.88, %73 ], [ @.str.88, %72 ], [ @.str.88, %71 ], [ @.str.87, %67 ], [ @.str.86, %65 ], [ @.str.88, %68 ], [ @.str.120, %100 ], [ @.str.125, %107 ], [ @.str.132, %130 ], [ @.str.147, %136 ]
-  %.1 = phi ptr [ @.str.93, %144 ], [ @.str.101, %143 ], [ @.str.151, %142 ], [ @.str.150, %141 ], [ @.str.149, %140 ], [ @.str.148, %139 ], [ @.str.146, %135 ], [ @.str.145, %134 ], [ %129, %128 ], [ %133, %132 ], [ @.str.131, %117 ], [ @.str.130, %116 ], [ @.str.129, %115 ], [ @.str.128, %114 ], [ @.str.127, %113 ], [ %112, %111 ], [ @.str.93, %106 ], [ @.str.124, %105 ], [ @.str.123, %104 ], [ @.str.122, %103 ], [ @.str.119, %99 ], [ @.str.118, %98 ], [ @.str.117, %97 ], [ @.str.116, %96 ], [ @.str.115, %95 ], [ @.str.114, %94 ], [ @.str.113, %93 ], [ @.str.112, %92 ], [ @.str.111, %91 ], [ @.str.110, %90 ], [ @.str.109, %89 ], [ @.str.108, %88 ], [ @.str.107, %87 ], [ @.str.106, %86 ], [ @.str.105, %85 ], [ @.str.104, %84 ], [ @.str.103, %83 ], [ @.str.101, %82 ], [ @.str.92, %81 ], [ @.str.99, %80 ], [ @.str.98, %79 ], [ @.str.97, %78 ], [ @.str.96, %77 ], [ @.str.95, %76 ], [ @.str.94, %75 ], [ @.str.93, %74 ], [ @.str.92, %73 ], [ @.str.91, %72 ], [ @.str.90, %71 ], [ @.str.87, %67 ], [ @.str.86, %65 ], [ @.str.89, %68 ], [ @.str.120, %100 ], [ @.str.125, %107 ], [ %.0646, %130 ], [ @.str.147, %136 ]
+  %.0646 = phi ptr [ @.str.93, %144 ], [ @.str.101, %143 ], [ @.str.151, %142 ], [ @.str.150, %141 ], [ @.str.149, %140 ], [ @.str.148, %139 ], [ @.str.146, %135 ], [ @.str.145, %134 ], [ %129, %128 ], [ %133, %132 ], [ @.str.131, %117 ], [ @.str.130, %116 ], [ @.str.129, %115 ], [ @.str.128, %114 ], [ @.str.127, %113 ], [ %112, %111 ], [ @.str.93, %106 ], [ @.str.124, %105 ], [ @.str.123, %104 ], [ @.str.122, %103 ], [ @.str.119, %99 ], [ @.str.118, %98 ], [ @.str.117, %97 ], [ @.str.116, %96 ], [ @.str.115, %95 ], [ @.str.114, %94 ], [ @.str.113, %93 ], [ @.str.112, %92 ], [ @.str.111, %91 ], [ @.str.110, %90 ], [ @.str.109, %89 ], [ @.str.108, %88 ], [ @.str.107, %87 ], [ @.str.106, %86 ], [ @.str.105, %85 ], [ @.str.104, %84 ], [ @.str.103, %83 ], [ @.str.101, %82 ], [ @.str.92, %81 ], [ @.str.99, %80 ], [ @.str.98, %79 ], [ @.str.97, %78 ], [ @.str.96, %77 ], [ @.str.95, %76 ], [ @.str.94, %75 ], [ @.str.93, %74 ], [ @.str.92, %73 ], [ @.str.91, %72 ], [ @.str.90, %71 ], [ @.str.87, %67 ], [ @.str.86, %65 ], [ @.str.89, %68 ], [ @.str.120, %100 ], [ @.str.125, %107 ], [ %.1, %130 ], [ @.str.147, %136 ]
   %.not687 = icmp eq ptr %2, null
   %146 = select i1 %.not687, ptr @.str.152, ptr null
   tail call void @ExplainOpenGroup(ptr noundef nonnull @.str.152, ptr noundef %146, i1 noundef zeroext true, ptr noundef nonnull %4)
@@ -3570,7 +3570,7 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
 
 200:                                              ; preds = %198, %194
   %201 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %201, ptr noundef %.1) #11
+  tail call void @appendStringInfoString(ptr noundef %201, ptr noundef %.0646) #11
   %202 = load i32, ptr %41, align 8
   %203 = add i32 %202, 1
   store i32 %203, ptr %41, align 8
@@ -3578,11 +3578,11 @@ ExplainIndentText.exit752:                        ; preds = %176, %183
 
 204:                                              ; preds = %145
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.157, ptr noundef null, ptr noundef nonnull %.0648, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
-  %.not688 = icmp eq ptr %.1651, null
+  %.not688 = icmp eq ptr %.0650, null
   br i1 %.not688, label %206, label %205
 
 205:                                              ; preds = %204
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.158, ptr noundef null, ptr noundef nonnull %.1651, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.158, ptr noundef null, ptr noundef nonnull %.0650, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %206
 
 206:                                              ; preds = %205, %204
@@ -7078,27 +7078,27 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %1
 
 1936:                                             ; preds = %1936, %.lr.ph.i914
   %indvars.iv.i915 = phi i64 [ 0, %.lr.ph.i914 ], [ %indvars.iv.next.i916, %1936 ]
-  %.sroa.29.184.i = phi i64 [ %.sroa.29.0.i, %.lr.ph.i914 ], [ %1943, %1936 ]
+  %.sroa.29.284.i = phi i64 [ %.sroa.29.0.i, %.lr.ph.i914 ], [ %1943, %1936 ]
   %1937 = phi <4 x i32> [ %1930, %.lr.ph.i914 ], [ %1940, %1936 ]
   %1938 = getelementptr [0 x %struct.HashInstrumentation], ptr %1935, i64 0, i64 %indvars.iv.i915
   %1939 = load <4 x i32>, ptr %1938, align 8
   %1940 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %1937, <4 x i32> %1939)
   %1941 = getelementptr inbounds i8, ptr %1938, i64 16
   %1942 = load i64, ptr %1941, align 8
-  %1943 = call i64 @llvm.umax.i64(i64 %.sroa.29.184.i, i64 %1942)
+  %1943 = call i64 @llvm.umax.i64(i64 %.sroa.29.284.i, i64 %1942)
   %indvars.iv.next.i916 = add nuw nsw i64 %indvars.iv.i915, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i916, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %1936, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %1936, %.preheader.i911, %1929
-  %.sroa.29.2.i = phi i64 [ %.sroa.29.0.i, %1929 ], [ %.sroa.29.0.i, %.preheader.i911 ], [ %1943, %1936 ]
+  %.sroa.29.1.i = phi i64 [ %.sroa.29.0.i, %1929 ], [ %.sroa.29.0.i, %.preheader.i911 ], [ %1943, %1936 ]
   %1944 = phi <4 x i32> [ %1930, %1929 ], [ %1930, %.preheader.i911 ], [ %1940, %1936 ]
   %1945 = extractelement <4 x i32> %1944, i64 2
   %1946 = icmp sgt i32 %1945, 0
   br i1 %1946, label %1947, label %show_scan_qual.exit766
 
 1947:                                             ; preds = %.loopexit.i
-  %1948 = add i64 %.sroa.29.2.i, 1023
+  %1948 = add i64 %.sroa.29.1.i, 1023
   %1949 = lshr i64 %1948, 10
   %1950 = load i32, ptr %147, align 4
   %.not79.i = icmp eq i32 %1950, 0
@@ -10137,8 +10137,8 @@ list_length.exit:                                 ; preds = %35
 list_length.exit.thread:                          ; preds = %35, %list_length.exit, %48, %55, %41, %24, %31, %22, %65, %62, %59, %58
   %68 = phi i1 [ false, %22 ], [ true, %62 ], [ true, %59 ], [ true, %65 ], [ true, %58 ], [ true, %31 ], [ true, %24 ], [ true, %41 ], [ true, %55 ], [ true, %48 ], [ true, %list_length.exit ], [ true, %35 ]
   %.048 = phi ptr [ null, %22 ], [ @.str.227, %62 ], [ @.str.226, %59 ], [ @.str.226, %65 ], [ @.str.225, %58 ], [ @.str.222, %31 ], [ @.str.222, %24 ], [ @.str.223, %41 ], [ @.str.223, %55 ], [ @.str.223, %48 ], [ @.str.223, %list_length.exit ], [ @.str.223, %35 ]
-  %.2 = phi ptr [ null, %22 ], [ null, %62 ], [ null, %59 ], [ null, %65 ], [ null, %58 ], [ %34, %31 ], [ null, %24 ], [ null, %41 ], [ %57, %55 ], [ null, %48 ], [ null, %list_length.exit ], [ null, %35 ]
-  %.1 = phi ptr [ null, %22 ], [ %64, %62 ], [ %61, %59 ], [ %67, %65 ], [ @.str.224, %58 ], [ %27, %31 ], [ %27, %24 ], [ null, %41 ], [ %51, %55 ], [ %51, %48 ], [ null, %list_length.exit ], [ null, %35 ]
+  %.147 = phi ptr [ null, %22 ], [ null, %62 ], [ null, %59 ], [ null, %65 ], [ null, %58 ], [ %34, %31 ], [ null, %24 ], [ null, %41 ], [ %57, %55 ], [ null, %48 ], [ null, %list_length.exit ], [ null, %35 ]
+  %.0 = phi ptr [ null, %22 ], [ %64, %62 ], [ %61, %59 ], [ %67, %65 ], [ @.str.224, %58 ], [ %27, %31 ], [ %27, %24 ], [ null, %41 ], [ %51, %55 ], [ %51, %48 ], [ null, %list_length.exit ], [ null, %35 ]
   %69 = getelementptr inbounds i8, ptr %2, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, 0
@@ -10147,29 +10147,29 @@ list_length.exit.thread:                          ; preds = %35, %list_length.ex
 72:                                               ; preds = %list_length.exit.thread
   %73 = load ptr, ptr %2, align 8
   tail call void @appendStringInfoString(ptr noundef %73, ptr noundef nonnull @.str.228) #11
-  %.not51 = icmp eq ptr %.2, null
+  %.not51 = icmp eq ptr %.147, null
   br i1 %.not51, label %74, label %77
 
 74:                                               ; preds = %72
-  %cond = icmp eq ptr %.1, null
+  %cond = icmp eq ptr %.0, null
   br i1 %cond, label %84, label %.thread
 
 .thread:                                          ; preds = %74
   %75 = load ptr, ptr %2, align 8
-  %76 = tail call ptr @quote_identifier(ptr noundef nonnull %.1) #11
+  %76 = tail call ptr @quote_identifier(ptr noundef nonnull %.0) #11
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %75, ptr noundef nonnull @.str.181, ptr noundef %76) #11
   br label %82
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %2, align 8
-  %79 = tail call ptr @quote_identifier(ptr noundef nonnull %.2) #11
-  %80 = tail call ptr @quote_identifier(ptr noundef %.1) #11
+  %79 = tail call ptr @quote_identifier(ptr noundef nonnull %.147) #11
+  %80 = tail call ptr @quote_identifier(ptr noundef %.0) #11
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %78, ptr noundef nonnull @.str.229, ptr noundef %79, ptr noundef %80) #11
-  %81 = icmp eq ptr %.1, null
+  %81 = icmp eq ptr %.0, null
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %.thread, %77
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.049, ptr noundef nonnull dereferenceable(1) %.1) #12
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.049, ptr noundef nonnull dereferenceable(1) %.0) #12
   %.not53 = icmp eq i32 %83, 0
   br i1 %.not53, label %93, label %84
 
@@ -10180,20 +10180,20 @@ list_length.exit.thread:                          ; preds = %35, %list_length.ex
   br label %93
 
 87:                                               ; preds = %list_length.exit.thread
-  %88 = icmp ne ptr %.1, null
+  %88 = icmp ne ptr %.0, null
   %or.cond = select i1 %68, i1 %88, i1 false
   br i1 %or.cond, label %89, label %90
 
 89:                                               ; preds = %87
-  tail call fastcc void @ExplainProperty(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %.1, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
+  tail call fastcc void @ExplainProperty(ptr noundef %.048, ptr noundef null, ptr noundef nonnull %.0, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %90
 
 90:                                               ; preds = %89, %87
-  %.not = icmp eq ptr %.2, null
+  %.not = icmp eq ptr %.147, null
   br i1 %.not, label %92, label %91
 
 91:                                               ; preds = %90
-  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef nonnull %.2, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
+  tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef nonnull %.147, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   br label %92
 
 92:                                               ; preds = %91, %90

@@ -2025,7 +2025,7 @@ for.end:                                          ; preds = %land.rhs
   br i1 %cmp41.not, label %if.end46, label %land.rhs.lr.ph, !llvm.loop !24
 
 if.end46:                                         ; preds = %for.end, %for.body, %if.else26
-  %all_x.2 = phi i1 [ true, %if.else26 ], [ false, %for.body ], [ true, %for.end ]
+  %all_x.0 = phi i1 [ true, %if.else26 ], [ false, %for.body ], [ true, %for.end ]
   br label %do.body47
 
 do.body47:                                        ; preds = %if.end67, %if.end46
@@ -2044,7 +2044,7 @@ do.body47:                                        ; preds = %if.end67, %if.end46
   br i1 %cmp.i93.not, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body47
-  %or.cond = select i1 %all_x.2, i1 true, i1 %cmp50.not.old
+  %or.cond = select i1 %all_x.0, i1 true, i1 %cmp50.not.old
   br i1 %or.cond, label %if.end67, label %if.then51
 
 land.lhs.true:                                    ; preds = %do.body47
@@ -5365,8 +5365,8 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad6
   br label %eh.resume
 
 return:                                           ; preds = %entry, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %retval.1 = phi i1 [ %cmp16, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp16, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %entry ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup21, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup21 ], [ %8, %lpad ]

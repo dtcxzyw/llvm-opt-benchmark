@@ -42,17 +42,17 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not52189, label %same_list_clear.exit97, label %.lr.ph
 
 .preheader:                                       ; preds = %sameedge.exit
-  %.not217 = icmp eq i64 %.sroa.11137.3, 0
+  %.not217 = icmp eq i64 %.sroa.11137.2, 0
   br i1 %.not217, label %same_list_clear.exit, label %.lr.ph203
 
 .lr.ph:                                           ; preds = %.lr.ph214, %sameedge.exit
   %.047196 = phi ptr [ %100, %sameedge.exit ], [ %9, %.lr.ph214 ]
-  %.sroa.0133.1195 = phi ptr [ %.sroa.0133.4, %sameedge.exit ], [ %.sroa.0133.0211, %.lr.ph214 ]
-  %.sroa.11137.1194 = phi i64 [ %.sroa.11137.3, %sameedge.exit ], [ 0, %.lr.ph214 ]
-  %.sroa.22142.1193 = phi i64 [ %.sroa.22142.4, %sameedge.exit ], [ %.sroa.22142.0210, %.lr.ph214 ]
-  %.sroa.0114.1192 = phi ptr [ %.sroa.0114.4, %sameedge.exit ], [ %.sroa.0114.0209, %.lr.ph214 ]
-  %.sroa.11.1191 = phi i64 [ %.sroa.11.3, %sameedge.exit ], [ 0, %.lr.ph214 ]
-  %.sroa.22.1190 = phi i64 [ %.sroa.22.4, %sameedge.exit ], [ %.sroa.22.0208, %.lr.ph214 ]
+  %.sroa.0133.1195 = phi ptr [ %.sroa.0133.2, %sameedge.exit ], [ %.sroa.0133.0211, %.lr.ph214 ]
+  %.sroa.11137.1194 = phi i64 [ %.sroa.11137.2, %sameedge.exit ], [ 0, %.lr.ph214 ]
+  %.sroa.22142.1193 = phi i64 [ %.sroa.22142.2, %sameedge.exit ], [ %.sroa.22142.0210, %.lr.ph214 ]
+  %.sroa.0114.1192 = phi ptr [ %.sroa.0114.2, %sameedge.exit ], [ %.sroa.0114.0209, %.lr.ph214 ]
+  %.sroa.11.1191 = phi i64 [ %.sroa.11.2, %sameedge.exit ], [ 0, %.lr.ph214 ]
+  %.sroa.22.1190 = phi i64 [ %.sroa.22.2, %sameedge.exit ], [ %.sroa.22.0208, %.lr.ph214 ]
   %10 = load i32, ptr %.047196, align 8
   %11 = and i32 %10, 3
   %12 = icmp eq i32 %11, 2
@@ -154,9 +154,9 @@ edge_list_append.exit.i:                          ; preds = %._crit_edge.i
   unreachable
 
 same_list_append.exit.i:                          ; preds = %edge_list_append.exit.i, %48
-  %.sroa.22142.2 = phi i64 [ %spec.select.i.i15.i, %48 ], [ %.sroa.22142.1193, %edge_list_append.exit.i ]
-  %.sroa.0133.2 = phi ptr [ %46, %48 ], [ %.sroa.0133.1195, %edge_list_append.exit.i ]
-  %57 = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.2, i64 %.sroa.11137.1194
+  %.sroa.22142.3 = phi i64 [ %spec.select.i.i15.i, %48 ], [ %.sroa.22142.1193, %edge_list_append.exit.i ]
+  %.sroa.0133.3 = phi ptr [ %46, %48 ], [ %.sroa.0133.1195, %edge_list_append.exit.i ]
+  %57 = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.3, i64 %.sroa.11137.1194
   store ptr %27, ptr %57, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %malloc.i, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -253,9 +253,9 @@ edge_list_append.exit.i75:                        ; preds = %._crit_edge.i73
   unreachable
 
 same_list_append.exit.i78:                        ; preds = %edge_list_append.exit.i75, %89
-  %.sroa.22.2 = phi i64 [ %spec.select.i.i15.i82, %89 ], [ %.sroa.22.1190, %edge_list_append.exit.i75 ]
-  %.sroa.0114.2 = phi ptr [ %87, %89 ], [ %.sroa.0114.1192, %edge_list_append.exit.i75 ]
-  %98 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.2, i64 %.sroa.11.1191
+  %.sroa.22.3 = phi i64 [ %spec.select.i.i15.i82, %89 ], [ %.sroa.22.1190, %edge_list_append.exit.i75 ]
+  %.sroa.0114.3 = phi ptr [ %87, %89 ], [ %.sroa.0114.1192, %edge_list_append.exit.i75 ]
+  %98 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.3, i64 %.sroa.11.1191
   store ptr %68, ptr %98, align 8
   %.sroa.4.0..sroa_idx.i79 = getelementptr inbounds i8, ptr %98, i64 8
   store ptr %malloc.i74, ptr %.sroa.4.0..sroa_idx.i79, align 8
@@ -267,19 +267,19 @@ same_list_append.exit.i78:                        ; preds = %edge_list_append.ex
   br label %sameedge.exit
 
 sameedge.exit:                                    ; preds = %same_list_append.exit.i78, %76, %same_list_append.exit.i, %35, %67, %59, %.lr.ph
-  %.sroa.22.4 = phi i64 [ %.sroa.22.1190, %.lr.ph ], [ %.sroa.22.1190, %67 ], [ %.sroa.22.1190, %59 ], [ %.sroa.22.1190, %35 ], [ %.sroa.22.1190, %same_list_append.exit.i ], [ %.sroa.22.2, %same_list_append.exit.i78 ], [ %.sroa.22.1190, %76 ]
-  %.sroa.11.3 = phi i64 [ %.sroa.11.1191, %.lr.ph ], [ %.sroa.11.1191, %67 ], [ %.sroa.11.1191, %59 ], [ %.sroa.11.1191, %35 ], [ %.sroa.11.1191, %same_list_append.exit.i ], [ %99, %same_list_append.exit.i78 ], [ %.sroa.11.1191, %76 ]
-  %.sroa.0114.4 = phi ptr [ %.sroa.0114.1192, %.lr.ph ], [ %.sroa.0114.1192, %67 ], [ %.sroa.0114.1192, %59 ], [ %.sroa.0114.1192, %35 ], [ %.sroa.0114.1192, %same_list_append.exit.i ], [ %.sroa.0114.2, %same_list_append.exit.i78 ], [ %.sroa.0114.1192, %76 ]
-  %.sroa.22142.4 = phi i64 [ %.sroa.22142.1193, %.lr.ph ], [ %.sroa.22142.1193, %67 ], [ %.sroa.22142.1193, %59 ], [ %.sroa.22142.1193, %35 ], [ %.sroa.22142.2, %same_list_append.exit.i ], [ %.sroa.22142.1193, %same_list_append.exit.i78 ], [ %.sroa.22142.1193, %76 ]
-  %.sroa.11137.3 = phi i64 [ %.sroa.11137.1194, %.lr.ph ], [ %.sroa.11137.1194, %67 ], [ %.sroa.11137.1194, %59 ], [ %.sroa.11137.1194, %35 ], [ %58, %same_list_append.exit.i ], [ %.sroa.11137.1194, %same_list_append.exit.i78 ], [ %.sroa.11137.1194, %76 ]
-  %.sroa.0133.4 = phi ptr [ %.sroa.0133.1195, %.lr.ph ], [ %.sroa.0133.1195, %67 ], [ %.sroa.0133.1195, %59 ], [ %.sroa.0133.1195, %35 ], [ %.sroa.0133.2, %same_list_append.exit.i ], [ %.sroa.0133.1195, %same_list_append.exit.i78 ], [ %.sroa.0133.1195, %76 ]
+  %.sroa.22.2 = phi i64 [ %.sroa.22.1190, %.lr.ph ], [ %.sroa.22.1190, %67 ], [ %.sroa.22.1190, %59 ], [ %.sroa.22.1190, %35 ], [ %.sroa.22.1190, %same_list_append.exit.i ], [ %.sroa.22.3, %same_list_append.exit.i78 ], [ %.sroa.22.1190, %76 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1191, %.lr.ph ], [ %.sroa.11.1191, %67 ], [ %.sroa.11.1191, %59 ], [ %.sroa.11.1191, %35 ], [ %.sroa.11.1191, %same_list_append.exit.i ], [ %99, %same_list_append.exit.i78 ], [ %.sroa.11.1191, %76 ]
+  %.sroa.0114.2 = phi ptr [ %.sroa.0114.1192, %.lr.ph ], [ %.sroa.0114.1192, %67 ], [ %.sroa.0114.1192, %59 ], [ %.sroa.0114.1192, %35 ], [ %.sroa.0114.1192, %same_list_append.exit.i ], [ %.sroa.0114.3, %same_list_append.exit.i78 ], [ %.sroa.0114.1192, %76 ]
+  %.sroa.22142.2 = phi i64 [ %.sroa.22142.1193, %.lr.ph ], [ %.sroa.22142.1193, %67 ], [ %.sroa.22142.1193, %59 ], [ %.sroa.22142.1193, %35 ], [ %.sroa.22142.3, %same_list_append.exit.i ], [ %.sroa.22142.1193, %same_list_append.exit.i78 ], [ %.sroa.22142.1193, %76 ]
+  %.sroa.11137.2 = phi i64 [ %.sroa.11137.1194, %.lr.ph ], [ %.sroa.11137.1194, %67 ], [ %.sroa.11137.1194, %59 ], [ %.sroa.11137.1194, %35 ], [ %58, %same_list_append.exit.i ], [ %.sroa.11137.1194, %same_list_append.exit.i78 ], [ %.sroa.11137.1194, %76 ]
+  %.sroa.0133.2 = phi ptr [ %.sroa.0133.1195, %.lr.ph ], [ %.sroa.0133.1195, %67 ], [ %.sroa.0133.1195, %59 ], [ %.sroa.0133.1195, %35 ], [ %.sroa.0133.3, %same_list_append.exit.i ], [ %.sroa.0133.1195, %same_list_append.exit.i78 ], [ %.sroa.0133.1195, %76 ]
   %100 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.047196, ptr noundef nonnull %.048212) #12
   %.not52 = icmp eq ptr %100, null
   br i1 %.not52, label %.preheader, label %.lr.ph
 
 .lr.ph203:                                        ; preds = %.preheader, %106
   %.046202 = phi i64 [ %107, %106 ], [ 0, %.preheader ]
-  %101 = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.4, i64 %.046202
+  %101 = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.2, i64 %.046202
   %102 = getelementptr i8, ptr %101, i64 16
   %.val60 = load i64, ptr %102, align 8
   %103 = icmp ugt i64 %.val60, 1
@@ -293,25 +293,25 @@ sameedge.exit:                                    ; preds = %same_list_append.ex
 
 106:                                              ; preds = %.lr.ph203, %104
   %107 = add nuw i64 %.046202, 1
-  %exitcond.not = icmp eq i64 %107, %.sroa.11137.3
+  %exitcond.not = icmp eq i64 %107, %.sroa.11137.2
   br i1 %exitcond.not, label %.lr.ph.i89, label %.lr.ph203
 
 .lr.ph.i89:                                       ; preds = %106, %.lr.ph.i89
   %.07.i = phi i64 [ %108, %.lr.ph.i89 ], [ 0, %106 ]
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.4, i64 %.07.i, i32 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.2, i64 %.07.i, i32 1
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 1
   tail call void @free(ptr noundef %.sroa.3.0.copyload.i) #12
   %108 = add nuw i64 %.07.i, 1
-  %exitcond222.not = icmp eq i64 %108, %.sroa.11137.3
+  %exitcond222.not = icmp eq i64 %108, %.sroa.11137.2
   br i1 %exitcond222.not, label %same_list_clear.exit, label %.lr.ph.i89
 
 same_list_clear.exit:                             ; preds = %.lr.ph.i89, %.preheader
-  %.not218 = icmp eq i64 %.sroa.11.3, 0
+  %.not218 = icmp eq i64 %.sroa.11.2, 0
   br i1 %.not218, label %same_list_clear.exit97, label %.lr.ph205
 
 .lr.ph205:                                        ; preds = %same_list_clear.exit, %114
   %.0204 = phi i64 [ %115, %114 ], [ 0, %same_list_clear.exit ]
-  %109 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.4, i64 %.0204
+  %109 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.2, i64 %.0204
   %110 = getelementptr i8, ptr %109, i64 16
   %.val61 = load i64, ptr %110, align 8
   %111 = icmp ugt i64 %.val61, 1
@@ -325,23 +325,23 @@ same_list_clear.exit:                             ; preds = %.lr.ph.i89, %.prehe
 
 114:                                              ; preds = %.lr.ph205, %112
   %115 = add nuw i64 %.0204, 1
-  %exitcond223.not = icmp eq i64 %115, %.sroa.11.3
+  %exitcond223.not = icmp eq i64 %115, %.sroa.11.2
   br i1 %exitcond223.not, label %.lr.ph.i92, label %.lr.ph205
 
 .lr.ph.i92:                                       ; preds = %114, %.lr.ph.i92
   %.07.i93 = phi i64 [ %116, %.lr.ph.i92 ], [ 0, %114 ]
-  %.sroa.3.0..sroa_idx.i94 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.4, i64 %.07.i93, i32 1
+  %.sroa.3.0..sroa_idx.i94 = getelementptr inbounds %struct.same_t, ptr %.sroa.0114.2, i64 %.07.i93, i32 1
   %.sroa.3.0.copyload.i95 = load ptr, ptr %.sroa.3.0..sroa_idx.i94, align 1
   tail call void @free(ptr noundef %.sroa.3.0.copyload.i95) #12
   %116 = add nuw i64 %.07.i93, 1
-  %exitcond224.not = icmp eq i64 %116, %.sroa.11.3
+  %exitcond224.not = icmp eq i64 %116, %.sroa.11.2
   br i1 %exitcond224.not, label %same_list_clear.exit97, label %.lr.ph.i92
 
 same_list_clear.exit97:                           ; preds = %.lr.ph.i92, %.lr.ph214, %same_list_clear.exit
-  %.sroa.0133.1.lcssa239248265 = phi ptr [ %.sroa.0133.4, %same_list_clear.exit ], [ %.sroa.0133.0211, %.lr.ph214 ], [ %.sroa.0133.4, %.lr.ph.i92 ]
-  %.sroa.22142.1.lcssa237249263 = phi i64 [ %.sroa.22142.4, %same_list_clear.exit ], [ %.sroa.22142.0210, %.lr.ph214 ], [ %.sroa.22142.4, %.lr.ph.i92 ]
-  %.sroa.0114.1.lcssa236250261 = phi ptr [ %.sroa.0114.4, %same_list_clear.exit ], [ %.sroa.0114.0209, %.lr.ph214 ], [ %.sroa.0114.4, %.lr.ph.i92 ]
-  %.sroa.22.1.lcssa234252259 = phi i64 [ %.sroa.22.4, %same_list_clear.exit ], [ %.sroa.22.0208, %.lr.ph214 ], [ %.sroa.22.4, %.lr.ph.i92 ]
+  %.sroa.0133.1.lcssa239248265 = phi ptr [ %.sroa.0133.2, %same_list_clear.exit ], [ %.sroa.0133.0211, %.lr.ph214 ], [ %.sroa.0133.2, %.lr.ph.i92 ]
+  %.sroa.22142.1.lcssa237249263 = phi i64 [ %.sroa.22142.2, %same_list_clear.exit ], [ %.sroa.22142.0210, %.lr.ph214 ], [ %.sroa.22142.2, %.lr.ph.i92 ]
+  %.sroa.0114.1.lcssa236250261 = phi ptr [ %.sroa.0114.2, %same_list_clear.exit ], [ %.sroa.0114.0209, %.lr.ph214 ], [ %.sroa.0114.2, %.lr.ph.i92 ]
+  %.sroa.22.1.lcssa234252259 = phi i64 [ %.sroa.22.2, %same_list_clear.exit ], [ %.sroa.22.0208, %.lr.ph214 ], [ %.sroa.22.2, %.lr.ph.i92 ]
   %117 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.048212) #12
   %.not = icmp eq ptr %117, null
   br i1 %.not, label %same_list_free.exit103, label %.lr.ph214

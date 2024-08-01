@@ -1805,7 +1805,7 @@ Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
 
 .lr.ph.preheader.i196:                            ; preds = %398, %.lr.ph.preheader.i196.lr.ph
   %indvars.iv390 = phi i64 [ 0, %.lr.ph.preheader.i196.lr.ph ], [ %indvars.iv.next391, %398 ]
-  %.0160353 = phi i32 [ 0, %.lr.ph.preheader.i196.lr.ph ], [ %.3, %398 ]
+  %.0160353 = phi i32 [ 0, %.lr.ph.preheader.i196.lr.ph ], [ %.1161, %398 ]
   br label %.lr.ph.i198
 
 37:                                               ; preds = %.lr.ph.i198
@@ -1946,7 +1946,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 .lr.ph330:                                        ; preds = %104, %.loopexit299
   %indvars.iv380 = phi i64 [ %108, %.loopexit299 ], [ 0, %104 ]
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %.loopexit299 ], [ 1, %104 ]
-  %.0174327 = phi i32 [ %.1175, %.loopexit299 ], [ -1, %104 ]
+  %.1175327 = phi i32 [ %.2176, %.loopexit299 ], [ -1, %104 ]
   %106 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %indvars.iv380
   %107 = load i32, ptr %106, align 4
   %.not189 = icmp eq i32 %107, 0
@@ -1995,16 +1995,16 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br i1 %exitcond379.not, label %.loopexit299, label %112, !llvm.loop !44
 
 .loopexit299:                                     ; preds = %128, %115, %.lr.ph330
-  %.1175 = phi i32 [ %.0174327, %.lr.ph330 ], [ %.0174327, %128 ], [ %127, %115 ]
-  %.1166 = phi i32 [ -1, %.lr.ph330 ], [ -1, %128 ], [ %110, %115 ]
+  %.2176 = phi i32 [ %.1175327, %.lr.ph330 ], [ %.1175327, %128 ], [ %127, %115 ]
+  %.2167 = phi i32 [ -1, %.lr.ph330 ], [ -1, %128 ], [ %110, %115 ]
   %129 = icmp slt i64 %108, %36
-  %130 = icmp eq i32 %.1166, -1
+  %130 = icmp eq i32 %.2167, -1
   %131 = and i1 %129, %130
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   br i1 %131, label %.lr.ph330, label %.loopexit302, !llvm.loop !45
 
 .loopexit302:                                     ; preds = %.loopexit299
-  %132 = icmp eq i32 %.1166, -1
+  %132 = icmp eq i32 %.2167, -1
   br i1 %132, label %.preheader300, label %170
 
 .preheader300:                                    ; preds = %104, %.loopexit302
@@ -2075,7 +2075,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 
 170:                                              ; preds = %.loopexit302
   %171 = icmp eq i32 %.0.lcssa, %32
-  %172 = icmp sgt i32 %.1166, -1
+  %172 = icmp sgt i32 %.2167, -1
   %or.cond = and i1 %171, %172
   br i1 %or.cond, label %173, label %.lr.ph.preheader.i209
 
@@ -2089,7 +2089,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %180 = load i64, ptr %179, align 8
   %181 = or i64 %180, %176
   store i64 %181, ptr %179, align 8
-  %182 = shl nuw i32 1, %.1166
+  %182 = shl nuw i32 1, %.2167
   %183 = xor i32 %182, %.0.i
   %184 = and i32 %183, 63
   %185 = zext nneg i32 %184 to i64
@@ -2100,7 +2100,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %190 = load i64, ptr %189, align 8
   %191 = or i64 %190, %186
   store i64 %191, ptr %189, align 8
-  %192 = shl nuw i32 1, %.1175
+  %192 = shl nuw i32 1, %.2176
   %193 = xor i32 %192, %.0.i
   %194 = and i32 %193, 63
   %195 = zext nneg i32 %194 to i64
@@ -2161,9 +2161,9 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br label %231
 
 231:                                              ; preds = %229, %225
-  %232 = shl nuw nsw i32 %.1166, 1
+  %232 = shl nuw nsw i32 %.2167, 1
   %233 = shl i32 3, %232
-  %234 = shl nsw i32 %.1175, 1
+  %234 = shl nsw i32 %.2176, 1
   %235 = shl i32 3, %234
   %236 = or i32 %233, %235
   %237 = xor i32 %236, -1
@@ -2184,7 +2184,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %247 = load i64, ptr %246, align 8
   %248 = or i64 %247, %243
   store i64 %248, ptr %246, align 8
-  %249 = shl nuw i32 1, %.1166
+  %249 = shl nuw i32 1, %.2167
   %250 = xor i32 %249, %.0.i
   %251 = and i32 %250, 63
   %252 = zext nneg i32 %251 to i64
@@ -2195,7 +2195,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %257 = load i64, ptr %256, align 8
   %258 = or i64 %257, %253
   store i64 %258, ptr %256, align 8
-  %259 = shl nuw i32 1, %.1175
+  %259 = shl nuw i32 1, %.2176
   %260 = xor i32 %259, %.0.i
   %261 = and i32 %260, 63
   %262 = zext nneg i32 %261 to i64
@@ -2216,9 +2216,9 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %276 = load i64, ptr %275, align 8
   %277 = or i64 %276, %272
   store i64 %277, ptr %275, align 8
-  %278 = shl nsw i32 %.1166, 1
+  %278 = shl nsw i32 %.2167, 1
   %279 = shl i32 3, %278
-  %280 = shl nsw i32 %.1175, 1
+  %280 = shl nsw i32 %.2176, 1
   %281 = shl i32 3, %280
   %.demorgan = or i32 %279, %281
   %282 = xor i32 %.demorgan, -1
@@ -2226,11 +2226,11 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br i1 %29, label %.lr.ph342, label %.lr.ph.preheader.i264
 
 .lr.ph342:                                        ; preds = %.lr.ph.preheader.i209, %384
-  %.1161339 = phi i32 [ %.2, %384 ], [ %.0160353, %.lr.ph.preheader.i209 ]
+  %.2339 = phi i32 [ %.3, %384 ], [ %.0160353, %.lr.ph.preheader.i209 ]
   %.1163336 = phi i32 [ %.2164, %384 ], [ %283, %.lr.ph.preheader.i209 ]
   %.4333 = phi i32 [ %385, %384 ], [ 0, %.lr.ph.preheader.i209 ]
-  %.not180 = icmp eq i32 %.4333, %.1166
-  %.not181 = icmp eq i32 %.4333, %.1175
+  %.not180 = icmp eq i32 %.4333, %.2167
+  %.not181 = icmp eq i32 %.4333, %.2176
   %or.cond193 = select i1 %.not180, i1 true, i1 %.not181
   br i1 %or.cond193, label %384, label %284
 
@@ -2489,19 +2489,19 @@ Abc_TtExpandCubeNeg2Pos.exit:                     ; preds = %._crit_edge.us.i258
   br label %384
 
 Abc_TtCheckWithCubeNeg2Pos.exit:                  ; preds = %341, %292, %354, %305, %284
-  %383 = add nsw i32 %.1161339, 1
+  %383 = add nsw i32 %.2339, 1
   br label %384
 
 384:                                              ; preds = %.lr.ph342, %Abc_TtExpandCubeNeg2Pos.exit, %Abc_TtCheckWithCubeNeg2Pos.exit, %Abc_TtExpandCubePos2Neg.exit
   %.2164 = phi i32 [ %335, %Abc_TtExpandCubePos2Neg.exit ], [ %382, %Abc_TtExpandCubeNeg2Pos.exit ], [ %.1163336, %Abc_TtCheckWithCubeNeg2Pos.exit ], [ %.1163336, %.lr.ph342 ]
-  %.2 = phi i32 [ %.1161339, %Abc_TtExpandCubePos2Neg.exit ], [ %.1161339, %Abc_TtExpandCubeNeg2Pos.exit ], [ %383, %Abc_TtCheckWithCubeNeg2Pos.exit ], [ %.1161339, %.lr.ph342 ]
+  %.3 = phi i32 [ %.2339, %Abc_TtExpandCubePos2Neg.exit ], [ %.2339, %Abc_TtExpandCubeNeg2Pos.exit ], [ %383, %Abc_TtCheckWithCubeNeg2Pos.exit ], [ %.2339, %.lr.ph342 ]
   %385 = add nuw nsw i32 %.4333, 1
   %exitcond384.not = icmp eq i32 %385, %3
   br i1 %exitcond384.not, label %.lr.ph.preheader.i264, label %.lr.ph342, !llvm.loop !59
 
 .lr.ph.preheader.i264:                            ; preds = %384, %.lr.ph.preheader.i209
   %.1163.lcssa = phi i32 [ %283, %.lr.ph.preheader.i209 ], [ %.2164, %384 ]
-  %.1161.lcssa = phi i32 [ %.0160353, %.lr.ph.preheader.i209 ], [ %.2, %384 ]
+  %.2.lcssa = phi i32 [ %.0160353, %.lr.ph.preheader.i209 ], [ %.3, %384 ]
   br label %.lr.ph.i266
 
 .lr.ph.i266:                                      ; preds = %.lr.ph.i266, %.lr.ph.preheader.i264
@@ -2535,7 +2535,7 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i272
   br label %398
 
 398:                                              ; preds = %Abc_TtSharp.exit, %231, %163, %90
-  %.3 = phi i32 [ %103, %90 ], [ %169, %163 ], [ %240, %231 ], [ %.1161.lcssa, %Abc_TtSharp.exit ]
+  %.1161 = phi i32 [ %103, %90 ], [ %169, %163 ], [ %240, %231 ], [ %.2.lcssa, %Abc_TtSharp.exit ]
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   br label %.lr.ph.preheader.i196
 

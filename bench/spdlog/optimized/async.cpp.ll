@@ -870,12 +870,12 @@ ehcleanup:                                        ; preds = %lpad8, %lpad6
 
 ehcleanup10:                                      ; preds = %ehcleanup, %lpad3, %lpad
   %.pn7 = phi { ptr, i32 } [ %37, %lpad3 ], [ %36, %lpad ], [ %.pn, %ehcleanup ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn7, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn7, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn7, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn7, 1
   call void @_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pool_ptr) #18
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
-  %matches = icmp eq i32 %ehselector.slot.1, %40
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #18
+  %matches = icmp eq i32 %ehselector.slot.0, %40
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #18
   br i1 %matches, label %catch22, label %catch
 
 catch22:                                          ; preds = %ehcleanup10
@@ -1628,12 +1628,12 @@ ehcleanup:                                        ; preds = %lpad8, %lpad6
 
 ehcleanup10:                                      ; preds = %ehcleanup, %lpad3, %lpad
   %.pn3 = phi { ptr, i32 } [ %37, %lpad3 ], [ %36, %lpad ], [ %.pn, %ehcleanup ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   call void @_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pool_ptr) #18
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
-  %matches = icmp eq i32 %ehselector.slot.1, %40
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #18
+  %matches = icmp eq i32 %ehselector.slot.0, %40
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #18
   br i1 %matches, label %catch22, label %catch
 
 catch22:                                          ; preds = %ehcleanup10
@@ -5745,13 +5745,13 @@ _ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_ha
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then.i, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit, %if.then9
-  %begin.addr.0 = phi ptr [ %incdec.ptr10, %if.then9 ], [ %call.i, %if.then.i ], [ %incdec.ptr10, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit ]
-  %cmp16 = icmp eq ptr %begin.addr.0, %end
+  %begin.addr.1 = phi ptr [ %incdec.ptr10, %if.then9 ], [ %call.i, %if.then.i ], [ %incdec.ptr10, %_ZZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit ]
+  %cmp16 = icmp eq ptr %begin.addr.1, %end
   br i1 %cmp16, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end15
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %begin.addr.0, i64 1
-  %21 = load i8, ptr %begin.addr.0, align 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %begin.addr.1, i64 1
+  %21 = load i8, ptr %begin.addr.1, align 1
   %cmp19.not = icmp eq i8 %21, 125
   br i1 %cmp19.not, label %if.end24, label %if.then20
 
@@ -5764,7 +5764,7 @@ if.else22:                                        ; preds = %entry, %if.else6
   unreachable
 
 if.end24:                                         ; preds = %lor.lhs.false, %if.then5
-  %begin.addr.1 = phi ptr [ %incdec.ptr.lcssa.i, %if.then5 ], [ %incdec.ptr17, %lor.lhs.false ]
+  %begin.addr.0 = phi ptr [ %incdec.ptr.lcssa.i, %if.then5 ], [ %incdec.ptr17, %lor.lhs.false ]
   %arg_type_.i = getelementptr inbounds i8, ptr %handler, i64 24
   %22 = load i32, ptr %arg_type_.i, align 8
   switch i32 %22, label %return [
@@ -5784,7 +5784,7 @@ if.then.i20:                                      ; preds = %if.end24, %if.end24
   unreachable
 
 return:                                           ; preds = %if.end24
-  ret ptr %begin.addr.1
+  ret ptr %begin.addr.0
 }
 
 ; Function Attrs: mustprogress uwtable

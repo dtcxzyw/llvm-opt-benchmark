@@ -631,15 +631,15 @@ hwloc_get_nbobjs_by_type.exit137.thread:          ; preds = %130, %hwloc_get_nbo
   unreachable
 
 .thread:                                          ; preds = %130, %hwloc_get_nbobjs_by_type.exit137.thread, %136, %137
-  %.sroa.0.3146 = phi i32 [ %132, %137 ], [ 1, %hwloc_get_nbobjs_by_type.exit137.thread ], [ 1, %136 ], [ -1, %130 ]
+  %.sroa.0.4146 = phi i32 [ %132, %137 ], [ 1, %hwloc_get_nbobjs_by_type.exit137.thread ], [ 1, %136 ], [ -1, %130 ]
   %140 = load ptr, ptr %12, align 8
-  %141 = add nsw i32 %.sroa.0.3146, -1
+  %141 = add nsw i32 %.sroa.0.4146, -1
   %142 = sext i32 %141 to i64
   call void @bit_nset(ptr noundef %140, i64 noundef 0, i64 noundef %142) #11
   br label %143
 
 143:                                              ; preds = %.thread, %hwloc_get_nbobjs_by_type.exit
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3146, %.thread ], [ %.sroa.0.0.lcssa, %hwloc_get_nbobjs_by_type.exit ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.4146, %.thread ], [ %.sroa.0.0.lcssa, %hwloc_get_nbobjs_by_type.exit ]
   %144 = icmp eq i32 %.0.i135, 0
   br i1 %144, label %145, label %149
 
@@ -654,7 +654,7 @@ hwloc_get_nbobjs_by_type.exit137.thread:          ; preds = %130, %hwloc_get_nbo
 
 149:                                              ; preds = %145, %148, %143
   %.sroa.16.0 = phi i32 [ %.0.i135, %143 ], [ 1, %148 ], [ 1, %145 ]
-  %150 = icmp eq i32 %.sroa.0.4, -1
+  %150 = icmp eq i32 %.sroa.0.3, -1
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %149
@@ -697,13 +697,13 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
 
 165:                                              ; preds = %163, %hwloc_get_nbobjs_by_type.exit139
   %.fr178 = freeze i32 %162
-  %166 = srem i32 %.sroa.16.0, %.sroa.0.4
-  %167 = sdiv i32 %.sroa.16.0, %.sroa.0.4
+  %166 = srem i32 %.sroa.16.0, %.sroa.0.3
+  %167 = sdiv i32 %.sroa.16.0, %.sroa.0.3
   %.not125 = icmp eq i32 %166, 0
   br i1 %.not125, label %170, label %168
 
 168:                                              ; preds = %165
-  %169 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, i32 noundef %.sroa.16.0, i32 noundef %.sroa.0.4) #11
+  %169 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, i32 noundef %.sroa.16.0, i32 noundef %.sroa.0.3) #11
   br label %170
 
 170:                                              ; preds = %168, %165
@@ -712,7 +712,7 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %170
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, i32 noundef %.0.i138, i32 noundef %.0100, i32 noundef %.sroa.0.4, i32 noundef %167, i32 noundef %.fr178) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, i32 noundef %.0.i138, i32 noundef %.0100, i32 noundef %.sroa.0.3, i32 noundef %167, i32 noundef %.fr178) #11
   br label %174
 
 174:                                              ; preds = %173, %170
@@ -746,7 +746,7 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
 
 .preheader:                                       ; preds = %.lr.ph156, %180
   store i32 0, ptr %11, align 4
-  %186 = icmp sgt i32 %.sroa.0.4, 0
+  %186 = icmp sgt i32 %.sroa.0.3, 0
   br i1 %186, label %.lr.ph170, label %.loopexit149
 
 .lr.ph170:                                        ; preds = %.preheader
@@ -762,7 +762,7 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
 .lr.ph170.split.us:                               ; preds = %.lr.ph170.split.us.preheader, %.loopexit.us
   %189 = phi i32 [ %197, %.loopexit.us ], [ 0, %.lr.ph170.split.us.preheader ]
   %.093169.us = phi i32 [ %.1.us, %.loopexit.us ], [ -1, %.lr.ph170.split.us.preheader ]
-  %.094168.us = phi i32 [ %.2.us, %.loopexit.us ], [ -1, %.lr.ph170.split.us.preheader ]
+  %.094168.us = phi i32 [ %.195.us, %.loopexit.us ], [ -1, %.lr.ph170.split.us.preheader ]
   %storemerge167.us = phi i32 [ %196, %.loopexit.us ], [ 0, %.lr.ph170.split.us.preheader ]
   %190 = zext i32 %storemerge167.us to i64
   %191 = call i32 @bit_test(ptr noundef %.pre193, i64 noundef %190) #11
@@ -781,18 +781,18 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %155, %158, %159
   br label %.lr.ph160.us.us
 
 .loopexit.us:                                     ; preds = %._crit_edge161.us.us, %192, %.lr.ph170.split.us
-  %.2.us = phi i32 [ %.094168.us, %.lr.ph170.split.us ], [ %.094168.us, %192 ], [ %199, %._crit_edge161.us.us ]
+  %.195.us = phi i32 [ %.094168.us, %.lr.ph170.split.us ], [ %.094168.us, %192 ], [ %199, %._crit_edge161.us.us ]
   %.1.us = phi i32 [ %.093169.us, %.lr.ph170.split.us ], [ %189, %192 ], [ %189, %._crit_edge161.us.us ]
   %196 = add i32 %storemerge167.us, 1
   store i32 %196, ptr %11, align 4
   %197 = add nsw i32 %.1.us, 1
-  %198 = icmp slt i32 %197, %.sroa.0.4
+  %198 = icmp slt i32 %197, %.sroa.0.3
   br i1 %198, label %.lr.ph170.split.us, label %.loopexit149, !llvm.loop !10
 
 .lr.ph160.us.us:                                  ; preds = %.lr.ph160.us.us.preheader, %._crit_edge161.us.us
-  %.195163.us.us = phi i32 [ %199, %._crit_edge161.us.us ], [ %.094168.us, %.lr.ph160.us.us.preheader ]
+  %.2163.us.us = phi i32 [ %199, %._crit_edge161.us.us ], [ %.094168.us, %.lr.ph160.us.us.preheader ]
   %storemerge129162.us.us = phi i32 [ %245, %._crit_edge161.us.us ], [ 0, %.lr.ph160.us.us.preheader ]
-  %199 = add nsw i32 %.195163.us.us, 1
+  %199 = add nsw i32 %.2163.us.us, 1
   store i32 0, ptr %188, align 4
   %200 = mul nsw i32 %199, %.fr178
   br label %201
@@ -948,7 +948,7 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %204, %235, %227,
   %.1 = phi i32 [ %.093169, %253 ], [ %255, %258 ]
   %262 = add i32 %storemerge167, 1
   %263 = add nsw i32 %.1, 1
-  %264 = icmp slt i32 %263, %.sroa.0.4
+  %264 = icmp slt i32 %263, %.sroa.0.3
   br i1 %264, label %253, label %.loopexit149, !llvm.loop !10
 
 .loopexit149:                                     ; preds = %.loopexit.us, %.loopexit, %.preheader, %177
@@ -969,7 +969,7 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %204, %235, %227,
   store i16 %269, ptr %0, align 2
   %270 = trunc i32 %.0100 to i16
   store i16 %270, ptr %1, align 2
-  %271 = trunc i32 %.sroa.0.4 to i16
+  %271 = trunc i32 %.sroa.0.3 to i16
   store i16 %271, ptr %2, align 2
   %272 = trunc i32 %167 to i16
   store i16 %272, ptr %3, align 2
@@ -1595,11 +1595,11 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   %.14470.i = phi ptr [ %.04376.i.lcssa, %31 ], [ null, %35 ], [ null, %.lr.ph.i ]
   %.15368.i = phi i32 [ %.05272.i.lcssa, %31 ], [ 0, %35 ], [ 0, %.lr.ph.i ]
   %.251.i = phi i32 [ %.04973.ph.i, %31 ], [ 0, %35 ], [ 0, %.lr.ph.i ]
-  %.4.i = phi i16 [ %.03977.ph.i, %31 ], [ %39, %35 ], [ %39, %.lr.ph.i ]
+  %.342.i = phi i16 [ %.03977.ph.i, %31 ], [ %39, %35 ], [ %39, %.lr.ph.i ]
   br i1 %32, label %_range_to_map.exit, label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %25, %.thread.i, %28
-  %.03977.ph.be.i = phi i16 [ %30, %28 ], [ %.4.i, %.thread.i ], [ %.03977.ph.i, %25 ]
+  %.03977.ph.be.i = phi i16 [ %30, %28 ], [ %.342.i, %.thread.i ], [ %.03977.ph.i, %25 ]
   %.04376.ph.be.i = phi ptr [ null, %28 ], [ %.14470.i, %.thread.i ], [ %.04376.i.lcssa, %25 ]
   %.04973.ph.be.i = phi i32 [ 1, %28 ], [ %.251.i, %.thread.i ], [ %.04973.ph.i, %25 ]
   %.05272.ph.be.i = phi i32 [ 0, %28 ], [ %.15368.i, %.thread.i ], [ %.05272.i.lcssa, %25 ]

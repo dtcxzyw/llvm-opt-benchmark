@@ -2146,14 +2146,14 @@ if.then.i.i.i:                                    ; preds = %if.end65
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i, %if.end65, %if.end39, %if.then30, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
-  %retval.0 = phi i32 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call33, %if.then30 ], [ %call48, %if.end39 ], [ %call58, %if.end65 ], [ %call58, %if.then.i.i.i ]
+  %retval.3 = phi i32 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call33, %if.then30 ], [ %call48, %if.end39 ], [ %call58, %if.end65 ], [ %call58, %if.then.i.i.i ]
   %18 = load ptr, ptr %buf, align 8
   %19 = load i64, ptr %size_.i28, align 8
   call void @CRYPTO_clear_free(ptr noundef %18, i64 noundef %19, ptr noundef nonnull @.str.34, i32 noundef 225) #16
   br label %cleanup66
 
 cleanup66:                                        ; preds = %if.end16, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 2, %if.end16 ]
+  %retval.2 = phi i32 [ %retval.3, %cleanup ], [ 2, %if.end16 ]
   %cmp.not.i33 = icmp eq ptr %call17, null
   br i1 %cmp.not.i33, label %cleanup67, label %if.then.i34
 
@@ -2162,7 +2162,7 @@ if.then.i34:                                      ; preds = %cleanup66
   br label %cleanup67
 
 cleanup67:                                        ; preds = %if.then.i34, %cleanup66, %if.end11, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit
-  %retval.2 = phi i32 [ 2, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit ], [ 2, %if.end11 ], [ %retval.1, %cleanup66 ], [ %retval.1, %if.then.i34 ]
+  %retval.1 = phi i32 [ 2, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit ], [ 2, %if.end11 ], [ %retval.2, %cleanup66 ], [ %retval.2, %if.then.i34 ]
   %cmp.not.i36 = icmp eq ptr %call4, null
   br i1 %cmp.not.i36, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39, label %if.then.i37
 
@@ -2179,7 +2179,7 @@ if.then.i41:                                      ; preds = %_ZNSt10unique_ptrI9
   br label %cleanup69
 
 cleanup69:                                        ; preds = %if.then.i41, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39, %entry
-  %retval.3 = phi i32 [ 2, %entry ], [ %retval.2, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39 ], [ %retval.2, %if.then.i41 ]
+  %retval.0 = phi i32 [ 2, %entry ], [ %retval.1, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39 ], [ %retval.1, %if.then.i41 ]
   %cmp.not.i44 = icmp eq ptr %call, null
   br i1 %cmp.not.i44, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit47, label %if.then.i45
 
@@ -2188,7 +2188,7 @@ if.then.i45:                                      ; preds = %cleanup69
   br label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit47
 
 _ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit47: ; preds = %cleanup69, %if.then.i45
-  ret i32 %retval.3
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2424,12 +2424,12 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.
 cleanup:                                          ; preds = %if.then145, %do.end131, %if.else, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
   %buf.sroa.0.2 = phi ptr [ %call1.i.i, %do.end131 ], [ %call1.i.i, %if.then145 ], [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call1.i.i, %if.else ]
   %buf.sroa.9.1 = phi i64 [ %conv103, %do.end131 ], [ %conv103, %if.then145 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %conv103, %if.else ]
-  %retval.0 = phi i32 [ 2, %do.end131 ], [ 2, %if.then145 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ 2, %if.else ]
+  %retval.1 = phi i32 [ 2, %do.end131 ], [ 2, %if.then145 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ 2, %if.else ]
   call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.2, i64 noundef %buf.sroa.9.1, ptr noundef nonnull @.str.34, i32 noundef 225) #16
   br label %cleanup157
 
 cleanup157:                                       ; preds = %land.lhs.true92, %do.end66, %if.end37, %lor.lhs.false, %land.lhs.true, %if.end22, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 2, %if.end22 ], [ 2, %land.lhs.true ], [ 2, %lor.lhs.false ], [ 2, %if.end37 ], [ 2, %do.end66 ], [ 2, %land.lhs.true92 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 2, %if.end22 ], [ 2, %land.lhs.true ], [ 2, %lor.lhs.false ], [ 2, %if.end37 ], [ 2, %do.end66 ], [ 2, %land.lhs.true92 ]
   %cmp.not.i36 = icmp eq ptr %call16, null
   br i1 %cmp.not.i36, label %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit, label %if.then.i
 
@@ -2438,7 +2438,7 @@ if.then.i:                                        ; preds = %cleanup157
   br label %_ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPHER_CTX_freeEEEEED2Ev.exit: ; preds = %cleanup157, %if.then.i
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)

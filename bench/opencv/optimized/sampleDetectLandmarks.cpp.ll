@@ -872,7 +872,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit91:   ; preds = %315, %313, %190, %1
   br label %321
 
 320:                                              ; preds = %97, %_ZN2cv3PtrINS_4face14FacemarkKazemiEED2Ev.exit
-  %.0 = phi i32 [ 0, %_ZN2cv3PtrINS_4face14FacemarkKazemiEED2Ev.exit ], [ -1, %97 ]
+  %.3 = phi i32 [ 0, %_ZN2cv3PtrINS_4face14FacemarkKazemiEED2Ev.exit ], [ -1, %97 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #10
   br label %322
 
@@ -882,7 +882,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit91:   ; preds = %315, %313, %190, %1
   br label %323
 
 322:                                              ; preds = %83, %320
-  %.1 = phi i32 [ %.0, %320 ], [ -1, %83 ]
+  %.2 = phi i32 [ %.3, %320 ], [ -1, %83 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #10
   br label %324
 
@@ -892,7 +892,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit91:   ; preds = %315, %313, %190, %1
   br label %325
 
 324:                                              ; preds = %69, %322
-  %.2 = phi i32 [ %.1, %322 ], [ -1, %69 ]
+  %.1 = phi i32 [ %.2, %322 ], [ -1, %69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #10
   br label %326
 
@@ -902,9 +902,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit91:   ; preds = %315, %313, %190, %1
   br label %327
 
 326:                                              ; preds = %48, %324
-  %.3 = phi i32 [ %.2, %324 ], [ 0, %48 ]
+  %.0 = phi i32 [ %.1, %324 ], [ 0, %48 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  ret i32 %.3
+  ret i32 %.0
 
 327:                                              ; preds = %325, %73, %60, %59
   %.pn79 = phi { ptr, i32 } [ %61, %60 ], [ %.pn77, %325 ], [ %.pn48, %73 ], [ %.pn46, %59 ]

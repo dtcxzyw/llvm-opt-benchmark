@@ -639,14 +639,14 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br label %45
 
 .loopexit.i:                                      ; preds = %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i", %45
-  %.017 = phi i64 [ %.118, %45 ], [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
-  %.0 = phi ptr [ %.1, %45 ], [ %.3, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
+  %.219 = phi i64 [ %.017, %45 ], [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
+  %.3 = phi ptr [ %.0, %45 ], [ %.2, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ]
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %"_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit", label %45, !llvm.loop !10
 
 45:                                               ; preds = %.loopexit.i, %.lr.ph15.i
-  %.118 = phi i64 [ 0, %.lr.ph15.i ], [ %.017, %.loopexit.i ]
-  %.1 = phi ptr [ null, %.lr.ph15.i ], [ %.0, %.loopexit.i ]
+  %.017 = phi i64 [ 0, %.lr.ph15.i ], [ %.219, %.loopexit.i ]
+  %.0 = phi ptr [ null, %.lr.ph15.i ], [ %.3, %.loopexit.i ]
   %.014.i = phi ptr [ %.0.i.i9, %.lr.ph15.i ], [ %47, %.loopexit.i ]
   %46 = getelementptr inbounds i8, ptr %.014.i, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -656,15 +656,15 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br i1 %.not1011.i, label %.loopexit.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %45, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
-  %.219 = phi i64 [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.118, %45 ]
-  %.2 = phi ptr [ %.3, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.1, %45 ]
+  %.118 = phi i64 [ %55, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.017, %45 ]
+  %.1 = phi ptr [ %.2, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %.0, %45 ]
   %.0912.i = phi ptr [ %52, %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i" ], [ %49, %45 ]
   %50 = load i64, ptr %.0912.i, align 8
   %51 = and i64 %50, -4
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds i8, ptr %.0912.i, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, %.219
+  %55 = add i64 %54, %.118
   %56 = and i64 %50, 1
   %.not.i.i11 = icmp eq i64 %56, 0
   br i1 %.not.i.i11, label %57, label %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
@@ -674,13 +674,13 @@ _ZN6google8protobuf8internal9ArenaImpl11CleanupListEv.exit: ; preds = %_ZN6googl
   br label %"_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i"
 
 "_ZZN6google8protobuf8internal9ArenaImpl5ResetEvENK3$_0clEPNS1_11SerialArena5BlockE.exit.i": ; preds = %.lr.ph.i10, %57
-  %.3 = phi ptr [ %.2, %57 ], [ %.0912.i, %.lr.ph.i10 ]
+  %.2 = phi ptr [ %.1, %57 ], [ %.0912.i, %.lr.ph.i10 ]
   %.not10.i = icmp eq i64 %51, 0
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i10, !llvm.loop !11
 
 "_ZN6google8protobuf8internal9ArenaImpl8PerBlockIZNS2_5ResetEvE3$_0EEvT_.exit": ; preds = %.loopexit.i, %42
-  %.320 = phi i64 [ 0, %42 ], [ %.017, %.loopexit.i ]
-  %.4 = phi ptr [ null, %42 ], [ %.0, %.loopexit.i ]
+  %.320 = phi i64 [ 0, %42 ], [ %.219, %.loopexit.i ]
+  %.4 = phi ptr [ null, %42 ], [ %.3, %.loopexit.i ]
   %58 = getelementptr inbounds i8, ptr %0, i64 24
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 1

@@ -1032,8 +1032,8 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit139:
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread: ; preds = %74, %68, %35, %29, %67, %148, %143
   %.0 = phi i8 [ 1, %148 ], [ 2, %143 ], [ %spec.select249, %67 ], [ 1, %29 ], [ 1, %35 ], [ 2, %68 ], [ 2, %74 ]
-  %.0118 = phi i64 [ %150, %148 ], [ %145, %143 ], [ 0, %67 ], [ 0, %29 ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ]
-  %.0115 = phi i8 [ 0, %148 ], [ 0, %143 ], [ 1, %67 ], [ 1, %29 ], [ 1, %35 ], [ 1, %68 ], [ 1, %74 ]
+  %.2120 = phi i64 [ %150, %148 ], [ %145, %143 ], [ 0, %67 ], [ 0, %29 ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ]
+  %.2117 = phi i8 [ 0, %148 ], [ 0, %143 ], [ 1, %67 ], [ 1, %29 ], [ 1, %35 ], [ 1, %68 ], [ 1, %74 ]
   %106 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.51.llvm.4295070668343094693, i64 noundef 13), !noalias !282
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit150.thread, label %108
@@ -1195,7 +1195,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit150.
   %.0114 = phi i64 [ %155, %153 ], [ 2, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread ], [ 2, %111 ]
   %158 = icmp ne i64 %.0114, 0
   %or.cond = and i1 %.not126217, %158
-  %spec.select = select i1 %or.cond, i8 0, i8 %.0115
+  %spec.select = select i1 %or.cond, i8 0, i8 %.2117
   %159 = load i64, ptr %2, align 8, !range !326, !noundef !14
   %160 = icmp ult i64 %159, 6
   br i1 %160, label %switch.lookup, label %172
@@ -1205,7 +1205,7 @@ switch.lookup:                                    ; preds = %_ZN12clap_builder6p
   %switch.load = load i64, ptr %switch.gep, align 8
   %161 = getelementptr inbounds i8, ptr %2, i64 %switch.load
   %.0.i = load i64, ptr %161, align 8, !alias.scope !327, !noundef !14
-  %162 = add i64 %.0.i, %.0118
+  %162 = add i64 %.0.i, %.2120
   %163 = uitofp i64 %162 to double
   %164 = sext i8 %.0 to i64
   %switch.gep251 = getelementptr inbounds [3 x double], ptr @switch.table._ZN8uu_split9filenames6Suffix4from17hdfe9b0fbe74a9db0E.9, i64 0, i64 %164
@@ -1215,7 +1215,7 @@ switch.lookup:                                    ; preds = %_ZN12clap_builder6p
   %167 = fdiv double %165, %166
   %168 = tail call double @llvm.ceil.f64(double %167)
   %169 = tail call i64 @llvm.fptoui.sat.i64.f64(double %168)
-  %170 = icmp uge i64 %.0118, %.0.i
+  %170 = icmp uge i64 %.2120, %.0.i
   %brmerge = or i1 %or.cond, %170
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %.0114, i64 %169)
   %.5 = select i1 %brmerge, i8 %spec.select, i8 0
@@ -1395,7 +1395,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit172:
   %.sroa.247.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %spec.store.select6, ptr %.sroa.247.0..sroa_idx, align 8
   %.sroa.348.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.0118, ptr %.sroa.348.0..sroa_idx, align 8
+  store i64 %.2120, ptr %.sroa.348.0..sroa_idx, align 8
   %.sroa.449.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %255, ptr %.sroa.449.0..sroa_idx, align 8
   %.sroa.550.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 41

@@ -4229,7 +4229,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit218:        ; preds = %271
   br label %525
 
 278:                                              ; preds = %_ZN11AstNodeExpr13cloneTreePureEb.exit218, %_ZN11AstNodeExpr13cloneTreePureEb.exit
-  %.0151 = phi ptr [ %262, %_ZN11AstNodeExpr13cloneTreePureEb.exit ], [ %272, %_ZN11AstNodeExpr13cloneTreePureEb.exit218 ]
+  %.1 = phi ptr [ %262, %_ZN11AstNodeExpr13cloneTreePureEb.exit ], [ %272, %_ZN11AstNodeExpr13cloneTreePureEb.exit218 ]
   %279 = load i8, ptr %198, align 8
   %280 = trunc i8 %279 to i1
   %281 = add nsw i32 %.0148, 1
@@ -4271,7 +4271,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit218:        ; preds = %271
 .loopexit:                                        ; preds = %300, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread, %278, %283, %287, %248, %221
   %.1156324 = phi i32 [ %.0148, %221 ], [ %.1156331, %278 ], [ %.1156331, %287 ], [ %.1156331, %283 ], [ %.1156331, %248 ], [ %.0155, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread ], [ %.2157, %300 ]
   %.1153320 = phi i32 [ %.1153332, %221 ], [ %.1153332, %278 ], [ %.1153332, %287 ], [ %.1153332, %283 ], [ %.1153332, %248 ], [ %.0152, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread ], [ %.2154, %300 ]
-  %.1 = phi ptr [ %222, %221 ], [ %.0151, %278 ], [ %.0151, %287 ], [ %.0151, %283 ], [ null, %248 ], [ null, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread ], [ null, %300 ]
+  %.0151 = phi ptr [ %222, %221 ], [ %.1, %278 ], [ %.1, %287 ], [ %.1, %283 ], [ null, %248 ], [ null, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread ], [ null, %300 ]
   %301 = add nsw i32 %.0148, 1
   %302 = icmp eq i32 %301, %.0147
   br i1 %302, label %303, label %325
@@ -4307,7 +4307,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit218:        ; preds = %271
   br label %325
 
 325:                                              ; preds = %313, %309, %303, %.loopexit
-  %.not177 = icmp eq ptr %.1, null
+  %.not177 = icmp eq ptr %.0151, null
   br i1 %.not177, label %.critedge, label %326
 
 326:                                              ; preds = %325
@@ -4765,7 +4765,7 @@ _ZN11AstNodeExpr13cloneTreePureEb.exit285:        ; preds = %_ZN7AstNode9private
   br label %_ZN8AstConstC2EP8FileLinej.exit
 
 _ZN8AstConstC2EP8FileLinej.exit:                  ; preds = %326, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i228, %354, %.noexc.i, %339, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit231, %522, %_ZN11AstNodeExpr13cloneTreePureEb.exit253, %_ZN11AstNodeExpr13cloneTreePureEb.exit285, %386, %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit
-  %.0 = phi ptr [ %399, %386 ], [ %48, %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit ], [ %524, %522 ], [ %429, %_ZN11AstNodeExpr13cloneTreePureEb.exit253 ], [ %492, %_ZN11AstNodeExpr13cloneTreePureEb.exit285 ], [ %.1, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit231 ], [ %.1, %339 ], [ %345, %.noexc.i ], [ %345, %354 ], [ %.1, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i228 ], [ %.1, %326 ]
+  %.0 = phi ptr [ %399, %386 ], [ %48, %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit ], [ %524, %522 ], [ %429, %_ZN11AstNodeExpr13cloneTreePureEb.exit253 ], [ %492, %_ZN11AstNodeExpr13cloneTreePureEb.exit285 ], [ %.0151, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit231 ], [ %.0151, %339 ], [ %345, %.noexc.i ], [ %345, %354 ], [ %.0151, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i228 ], [ %.0151, %326 ]
   ret ptr %.0
 
 525:                                              ; preds = %520, %506, %464, %440, %422, %384, %.body, %276, %269, %155, %33

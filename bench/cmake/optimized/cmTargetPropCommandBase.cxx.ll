@@ -1100,7 +1100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70: ; 
 
 153:                                              ; preds = %.sink.split, %._crit_edge.thread
   %154 = phi ptr [ %148, %._crit_edge.thread ], [ %86, %.sink.split ]
-  %.035 = phi i1 [ %152, %._crit_edge.thread ], [ false, %.sink.split ]
+  %.136 = phi i1 [ %152, %._crit_edge.thread ], [ false, %.sink.split ]
   %155 = load ptr, ptr %8, align 8
   %156 = load ptr, ptr %154, align 8
   %.not4.i.i.i.i = icmp eq ptr %155, %156
@@ -1132,8 +1132,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %161
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %159, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %_ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.136 = phi i1 [ false, %_ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.035, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.035, %159 ]
-  ret i1 %.136
+  %.035 = phi i1 [ false, %_ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.136, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.136, %159 ]
+  ret i1 %.035
 
 161:                                              ; preds = %160, %.body
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %.body ], [ %.pn43, %160 ]

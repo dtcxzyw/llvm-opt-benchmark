@@ -132,10 +132,10 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
 
 74:                                               ; preds = %.lr.ph, %98
   %75 = phi ptr [ %71, %.lr.ph ], [ %106, %98 ]
-  %.2107 = phi ptr [ %72, %.lr.ph ], [ %.4, %98 ]
+  %.2107 = phi ptr [ %72, %.lr.ph ], [ %.3, %98 ]
   %.277106 = phi i32 [ %13, %.lr.ph ], [ %.378, %98 ]
-  %.079105 = phi i32 [ 7, %.lr.ph ], [ %.281, %98 ]
-  %.sroa.0.2104 = phi <8 x i16> [ %67, %.lr.ph ], [ %.sroa.0.4, %98 ]
+  %.079105 = phi i32 [ 7, %.lr.ph ], [ %.180, %98 ]
+  %.sroa.0.2104 = phi <8 x i16> [ %67, %.lr.ph ], [ %.sroa.0.3, %98 ]
   %76 = load i32, ptr %73, align 8
   %77 = sub nsw i32 %.277106, %76
   %78 = icmp slt i32 %77, 0
@@ -172,23 +172,23 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   br label %96
 
 96:                                               ; preds = %84, %90, %81
-  %.sroa.0.3 = phi <8 x i16> [ %95, %90 ], [ %88, %84 ], [ %82, %81 ]
-  %.180 = phi i32 [ 1, %90 ], [ 7, %84 ], [ %80, %81 ]
-  %.3 = phi ptr [ %92, %90 ], [ %89, %84 ], [ %.2107, %81 ]
+  %.sroa.0.4 = phi <8 x i16> [ %95, %90 ], [ %88, %84 ], [ %82, %81 ]
+  %.281 = phi i32 [ 1, %90 ], [ 7, %84 ], [ %80, %81 ]
+  %.4 = phi ptr [ %92, %90 ], [ %89, %84 ], [ %.2107, %81 ]
   %97 = add nsw i32 %77, %13
   br label %98
 
 98:                                               ; preds = %96, %74
-  %.sroa.0.4 = phi <8 x i16> [ %.sroa.0.3, %96 ], [ %.sroa.0.2104, %74 ]
-  %.281 = phi i32 [ %.180, %96 ], [ %.079105, %74 ]
+  %.sroa.0.3 = phi <8 x i16> [ %.sroa.0.4, %96 ], [ %.sroa.0.2104, %74 ]
+  %.180 = phi i32 [ %.281, %96 ], [ %.079105, %74 ]
   %.378 = phi i32 [ %97, %96 ], [ %77, %74 ]
-  %.4 = phi ptr [ %.3, %96 ], [ %.2107, %74 ]
+  %.3 = phi ptr [ %.4, %96 ], [ %.2107, %74 ]
   %99 = sub nsw i32 %13, %.378
   %100 = shl i32 %99, 16
   %101 = or i32 %100, %.378
   %102 = insertelement <4 x i32> poison, i32 %101, i64 0
   %103 = bitcast <4 x i32> %102 to <8 x i16>
-  %104 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %.sroa.0.4, <8 x i16> %103)
+  %104 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %.sroa.0.3, <8 x i16> %103)
   %105 = extractelement <4 x i32> %104, i64 0
   store i32 %105, ptr %75, align 1
   %106 = getelementptr inbounds i8, ptr %75, i64 4

@@ -970,8 +970,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
 
 198:                                              ; preds = %_ZN7testing7MessageD2Ev.exit67, %77
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %_ZN7testing7MessageD2Ev.exit67 ], [ %78, %77 ]
-  %.2 = extractvalue { ptr, i32 } %.pn34.pn, 0
-  %.219 = extractvalue { ptr, i32 } %.pn34.pn, 1
+  %.4 = extractvalue { ptr, i32 } %.pn34.pn, 0
+  %.421 = extractvalue { ptr, i32 } %.pn34.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
 
@@ -988,8 +988,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
 
 203:                                              ; preds = %201, %199
   %.pn37 = phi { ptr, i32 } [ %202, %201 ], [ %200, %199 ]
-  %.3 = extractvalue { ptr, i32 } %.pn37, 0
-  %.320 = extractvalue { ptr, i32 } %.pn37, 1
+  %.6 = extractvalue { ptr, i32 } %.pn37, 0
+  %.623 = extractvalue { ptr, i32 } %.pn37, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
 
@@ -1360,8 +1360,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
 
 332:                                              ; preds = %_ZN7testing7MessageD2Ev.exit115, %212
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit115 ], [ %213, %212 ]
-  %.5 = extractvalue { ptr, i32 } %.pn39.pn, 0
-  %.522 = extractvalue { ptr, i32 } %.pn39.pn, 1
+  %.7 = extractvalue { ptr, i32 } %.pn39.pn, 0
+  %.724 = extractvalue { ptr, i32 } %.pn39.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #24
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
 
@@ -1378,8 +1378,8 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
 
 337:                                              ; preds = %335, %333
   %.pn42 = phi { ptr, i32 } [ %336, %335 ], [ %334, %333 ]
-  %.6 = extractvalue { ptr, i32 } %.pn42, 0
-  %.623 = extractvalue { ptr, i32 } %.pn42, 1
+  %.9 = extractvalue { ptr, i32 } %.pn42, 0
+  %.926 = extractvalue { ptr, i32 } %.pn42, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #24
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
 
@@ -1596,8 +1596,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %_Z
 
 411:                                              ; preds = %_ZN7testing7MessageD2Ev.exit176, %346
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZN7testing7MessageD2Ev.exit176 ], [ %347, %346 ]
-  %.8 = extractvalue { ptr, i32 } %.pn44.pn, 0
-  %.825 = extractvalue { ptr, i32 } %.pn44.pn, 1
+  %.10 = extractvalue { ptr, i32 } %.pn44.pn, 0
+  %.1027 = extractvalue { ptr, i32 } %.pn44.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #24
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
 
@@ -1616,15 +1616,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %_Z
 
 416:                                              ; preds = %414, %412
   %.pn47 = phi { ptr, i32 } [ %415, %414 ], [ %413, %412 ]
-  %.9 = extractvalue { ptr, i32 } %.pn47, 0
-  %.926 = extractvalue { ptr, i32 } %.pn47, 1
+  %.12 = extractvalue { ptr, i32 } %.pn47, 0
+  %.1229 = extractvalue { ptr, i32 } %.pn47, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #24
   %417 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #24
-  %418 = icmp eq i32 %.926, %417
+  %418 = icmp eq i32 %.1229, %417
   br i1 %418, label %419, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
 
 419:                                              ; preds = %416
-  %420 = call ptr @__cxa_begin_catch(ptr %.9) #24
+  %420 = call ptr @__cxa_begin_catch(ptr %.12) #24
   %421 = load ptr, ptr %420, align 8
   %422 = getelementptr inbounds i8, ptr %421, i64 16
   %423 = load ptr, ptr %422, align 8
@@ -1761,20 +1761,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDe
 
 468:                                              ; preds = %467, %428
   %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %467 ], [ %429, %428 ]
-  %.12 = extractvalue { ptr, i32 } %.pn49.pn.pn, 0
-  %.1229 = extractvalue { ptr, i32 } %.pn49.pn.pn, 1
+  %.13 = extractvalue { ptr, i32 } %.pn49.pn.pn, 0
+  %.1330 = extractvalue { ptr, i32 } %.pn49.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102 unwind label %475
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102: ; preds = %342, %338, %208, %204, %468, %416, %411, %337, %332, %203, %198, %73
-  %.1330 = phi i32 [ %76, %73 ], [ %.1229, %468 ], [ %.926, %416 ], [ %.825, %411 ], [ %.623, %337 ], [ %.522, %332 ], [ %.320, %203 ], [ %.219, %198 ], [ %207, %204 ], [ %207, %208 ], [ %341, %338 ], [ %341, %342 ]
-  %.13 = phi ptr [ %75, %73 ], [ %.12, %468 ], [ %.9, %416 ], [ %.8, %411 ], [ %.6, %337 ], [ %.5, %332 ], [ %.3, %203 ], [ %.2, %198 ], [ %206, %204 ], [ %206, %208 ], [ %340, %338 ], [ %340, %342 ]
+  %.320 = phi i32 [ %76, %73 ], [ %.1330, %468 ], [ %.1229, %416 ], [ %.1027, %411 ], [ %.926, %337 ], [ %.724, %332 ], [ %.623, %203 ], [ %.421, %198 ], [ %207, %204 ], [ %207, %208 ], [ %341, %338 ], [ %341, %342 ]
+  %.3 = phi ptr [ %75, %73 ], [ %.13, %468 ], [ %.12, %416 ], [ %.10, %411 ], [ %.9, %337 ], [ %.7, %332 ], [ %.6, %203 ], [ %.4, %198 ], [ %206, %204 ], [ %206, %208 ], [ %340, %338 ], [ %340, %342 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62: ; preds = %69, %65, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102
-  %.1431 = phi i32 [ %.1330, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102 ], [ %68, %65 ], [ %68, %69 ]
-  %.14 = phi ptr [ %.13, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102 ], [ %67, %65 ], [ %67, %69 ]
+  %.219 = phi i32 [ %.320, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102 ], [ %68, %65 ], [ %68, %69 ]
+  %.2 = phi ptr [ %.3, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit102 ], [ %67, %65 ], [ %67, %69 ]
   %.val.i209 = load ptr, ptr %2, align 8
   %.not.i210 = icmp eq ptr %.val.i209, null
   br i1 %.not.i210, label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit211, label %469
@@ -1787,10 +1787,10 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDe
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit211
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit211: ; preds = %469, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62, %64
-  %.1532 = phi i32 [ %.017, %64 ], [ %.1431, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62 ], [ %.1431, %469 ]
-  %.15 = phi ptr [ %.0, %64 ], [ %.14, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62 ], [ %.14, %469 ]
-  %473 = insertvalue { ptr, i32 } poison, ptr %.15, 0
-  %474 = insertvalue { ptr, i32 } %473, i32 %.1532, 1
+  %.118 = phi i32 [ %.017, %64 ], [ %.219, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62 ], [ %.219, %469 ]
+  %.1 = phi ptr [ %.0, %64 ], [ %.2, %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit62 ], [ %.2, %469 ]
+  %473 = insertvalue { ptr, i32 } poison, ptr %.1, 0
+  %474 = insertvalue { ptr, i32 } %473, i32 %.118, 1
   resume { ptr, i32 } %474
 
 475:                                              ; preds = %468
@@ -2548,14 +2548,14 @@ _ZNK12_GLOBAL__N_14spec3Log8accessorIN3pro5proxyINS0_6LoggerEEEE3LogIJRA6_KcEEED
 
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  %.06 = extractvalue { ptr, i32 } %.pn, 1
+  %.28 = extractvalue { ptr, i32 } %.pn, 1
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
-  %22 = icmp eq i32 %.06, %21
+  %22 = icmp eq i32 %.28, %21
   br i1 %22, label %23, label %89
 
 23:                                               ; preds = %20
-  %.05 = extractvalue { ptr, i32 } %.pn, 0
-  %24 = call ptr @__cxa_begin_catch(ptr %.05) #24
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %24 = call ptr @__cxa_begin_catch(ptr %.2) #24
   %.val.i.i17 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds i8, ptr %.val.i.i17, i64 24
   %26 = load ptr, ptr %25, align 8

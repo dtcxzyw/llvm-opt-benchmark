@@ -14423,9 +14423,9 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h22
   br label %51
 
 51:                                               ; preds = %142, %.split.us.i.i.i.i
-  %.sroa.3151.0.us.i.i.i.i = phi i64 [ %.sroa.07.sroa.10.0.copyload.i.i.i.i, %.split.us.i.i.i.i ], [ %.sroa.3151.3.us.i.i.i.i, %142 ]
-  %.sroa.19.0.us.i.i.i.i = phi i64 [ %.sroa.07.sroa.8.0.copyload.i.i.i.i, %.split.us.i.i.i.i ], [ %.sroa.19.3.us.i.i.i.i, %142 ]
-  %.0.us.i.i.i.i = phi i64 [ 0, %.split.us.i.i.i.i ], [ %.sroa.19.3.us.i.i.i.i, %142 ]
+  %.sroa.3151.0.us.i.i.i.i = phi i64 [ %.sroa.07.sroa.10.0.copyload.i.i.i.i, %.split.us.i.i.i.i ], [ %.sroa.3151.1.us.i.i.i.i, %142 ]
+  %.sroa.19.0.us.i.i.i.i = phi i64 [ %.sroa.07.sroa.8.0.copyload.i.i.i.i, %.split.us.i.i.i.i ], [ %.sroa.19.1.us.i.i.i.i, %142 ]
+  %.0.us.i.i.i.i = phi i64 [ 0, %.split.us.i.i.i.i ], [ %.sroa.19.1.us.i.i.i.i, %142 ]
   %52 = icmp eq i64 %.sroa.3151.0.us.i.i.i.i, -1
   %53 = add i64 %.sroa.19.0.us.i.i.i.i, %48
   %.not2946.i.us.i.i.i.i = icmp ult i64 %53, %.sroa.07.sroa.13.0.copyload.i.i.i.i
@@ -14573,11 +14573,11 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h22
   br i1 %.not99.us.i.i.i.i, label %.loopexit243.i.i.i.i, label %.split171.us.invoke.i.i.i.i
 
 .loopexit243.i.i.i.i:                             ; preds = %69, %.split.us.i.i.i, %.split.i.i.i
-  %.sroa.3151.3.us.i.i.i.i = phi i64 [ -1, %.split.i.i.i ], [ -1, %.split.us.i.i.i ], [ 0, %69 ]
-  %.sroa.6.4.us.i.i.i.i = phi i64 [ %100, %.split.i.i.i ], [ %100, %.split.us.i.i.i ], [ %57, %69 ]
-  %.sroa.19.3.us.i.i.i.i = add i64 %.sroa.6.4.us.i.i.i.i, %.sroa.07.sroa.15.0.copyload.i.i.i.i
+  %.sroa.3151.1.us.i.i.i.i = phi i64 [ -1, %.split.i.i.i ], [ -1, %.split.us.i.i.i ], [ 0, %69 ]
+  %.sroa.6.2.us.i.i.i.i = phi i64 [ %100, %.split.i.i.i ], [ %100, %.split.us.i.i.i ], [ %57, %69 ]
+  %.sroa.19.1.us.i.i.i.i = add i64 %.sroa.6.2.us.i.i.i.i, %.sroa.07.sroa.15.0.copyload.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %30, i64 %.0.us.i.i.i.i
-  %120 = sub i64 %.sroa.6.4.us.i.i.i.i, %.0.us.i.i.i.i
+  %120 = sub i64 %.sroa.6.2.us.i.i.i.i, %.0.us.i.i.i.i
   %121 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4648, !noalias !4655, !noundef !14
   %122 = load i64, ptr %11, align 8, !alias.scope !4657, !noalias !4655, !noundef !14
   %123 = sub i64 %122, %121

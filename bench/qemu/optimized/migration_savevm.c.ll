@@ -3071,7 +3071,7 @@ for.body.lr.ph:                                   ; preds = %trace_savevm_state_
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %se.068 = phi ptr [ %se.065, %for.body.lr.ph ], [ %se.0, %for.inc ]
-  %ret.067 = phi i32 [ 1, %for.body.lr.ph ], [ %ret.1, %for.inc ]
+  %ret.067 = phi i32 [ 1, %for.body.lr.ph ], [ %ret.2, %for.inc ]
   %ops = getelementptr inbounds i8, ptr %se.068, i64 296
   %6 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %6, null
@@ -3239,13 +3239,13 @@ if.end44:                                         ; preds = %save_section_footer
   br i1 %cmp45, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end44, %land.lhs.true20, %land.lhs.true23, %land.lhs.true12, %land.lhs.true, %for.body, %lor.lhs.false
-  %ret.1 = phi i32 [ %call36, %if.end44 ], [ %ret.067, %land.lhs.true23 ], [ %ret.067, %land.lhs.true20 ], [ %ret.067, %land.lhs.true12 ], [ %ret.067, %land.lhs.true ], [ %ret.067, %lor.lhs.false ], [ %ret.067, %for.body ]
+  %ret.2 = phi i32 [ %call36, %if.end44 ], [ %ret.067, %land.lhs.true23 ], [ %ret.067, %land.lhs.true20 ], [ %ret.067, %land.lhs.true12 ], [ %ret.067, %land.lhs.true ], [ %ret.067, %lor.lhs.false ], [ %ret.067, %for.body ]
   %se.0 = load ptr, ptr %se.068, align 8
   %tobool.not = icmp eq ptr %se.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !24
 
 return:                                           ; preds = %if.end29, %if.end44, %for.inc, %trace_savevm_state_iterate.exit, %if.end44.thread
-  %retval.0 = phi i32 [ %call36, %if.end44.thread ], [ 1, %trace_savevm_state_iterate.exit ], [ 0, %if.end29 ], [ 0, %if.end44 ], [ %ret.1, %for.inc ]
+  %retval.0 = phi i32 [ %call36, %if.end44.thread ], [ 1, %trace_savevm_state_iterate.exit ], [ 0, %if.end29 ], [ 0, %if.end44 ], [ %ret.2, %for.inc ]
   ret i32 %retval.0
 }
 

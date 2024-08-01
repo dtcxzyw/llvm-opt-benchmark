@@ -1408,7 +1408,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit179:                 ; preds = %497, %494
           to label %.thread unwind label %473
 
 .thread:                                          ; preds = %515, %419
-  %.124 = phi i32 [ %.023190, %515 ], [ %254, %419 ]
+  %.225 = phi i32 [ %.023190, %515 ], [ %254, %419 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %57) #14
   br label %521
 
@@ -1426,7 +1426,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit179:                 ; preds = %497, %494
           to label %521 unwind label %428
 
 521:                                              ; preds = %362, %.thread, %519
-  %.225189 = phi i32 [ %.124, %.thread ], [ %.023190, %519 ], [ %.023190, %362 ]
+  %.124189 = phi i32 [ %.225, %.thread ], [ %.023190, %519 ], [ %.023190, %362 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #14
   br label %527
 
@@ -1444,7 +1444,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit179:                 ; preds = %497, %494
           to label %527 unwind label %426
 
 527:                                              ; preds = %525, %521
-  %.3 = phi i32 [ %.225189, %521 ], [ %.023190, %525 ]
+  %.3 = phi i32 [ %.124189, %521 ], [ %.023190, %525 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #14
   %528 = load ptr, ptr %104, align 8
@@ -1464,7 +1464,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit179:                 ; preds = %497, %494
   br label %537
 
 _ZL4helpv.exit144:                                ; preds = %527, %.preheader, %.noexc142
-  %.0 = phi i32 [ -1, %.noexc142 ], [ 0, %.preheader ], [ 0, %527 ]
+  %.2 = phi i32 [ -1, %.noexc142 ], [ 0, %.preheader ], [ 0, %527 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %26) #14
   br label %_ZL4helpv.exit141
 
@@ -1474,7 +1474,7 @@ _ZL4helpv.exit144:                                ; preds = %527, %.preheader, %
   br label %579
 
 _ZL4helpv.exit141:                                ; preds = %.noexc139, %_ZL4helpv.exit144
-  %.1 = phi i32 [ %.0, %_ZL4helpv.exit144 ], [ -1, %.noexc139 ]
+  %.1 = phi i32 [ %.2, %_ZL4helpv.exit144 ], [ -1, %.noexc139 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %25) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #14
@@ -1595,10 +1595,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body
 
 _ZL4helpv.exit:                                   ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %574, %561, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %.noexc
-  %.2 = phi i32 [ -1, %.noexc ], [ %.1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %.1, %561 ], [ %.1, %574 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  %.0 = phi i32 [ -1, %.noexc ], [ %.1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %.1, %561 ], [ %.1, %574 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  ret i32 %.2
+  ret i32 %.0
 
 .body:                                            ; preds = %92, %581, %72
   %.pn126.pn = phi { ptr, i32 } [ %73, %72 ], [ %93, %92 ], [ %.pn119.pn.pn.pn.pn.pn, %581 ]

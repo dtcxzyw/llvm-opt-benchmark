@@ -531,8 +531,8 @@ land.rhs37:                                       ; preds = %if.then27
 
 if.end43:                                         ; preds = %if.then27, %if.end22.thread20, %land.rhs37, %land.lhs.true24, %if.end22
   %tobool46 = phi i1 [ true, %if.end22 ], [ %not.or.cond1.not25, %if.then27 ], [ false, %land.lhs.true24 ], [ true, %land.rhs37 ], [ true, %if.end22.thread20 ]
-  %ok.1 = phi i1 [ false, %if.end22 ], [ %cmp.mux, %if.then27 ], [ %cmp, %land.lhs.true24 ], [ %cmp39, %land.rhs37 ], [ %cmp18, %if.end22.thread20 ]
-  %0 = and i1 %tobool46, %ok.1
+  %ok.2 = phi i1 [ false, %if.end22 ], [ %cmp.mux, %if.then27 ], [ %cmp, %land.lhs.true24 ], [ %cmp39, %land.rhs37 ], [ %cmp18, %if.end22.thread20 ]
+  %0 = and i1 %tobool46, %ok.2
   br label %return
 
 return:                                           ; preds = %land.rhs, %if.end43, %entry

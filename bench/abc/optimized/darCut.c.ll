@@ -682,7 +682,7 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 
 .lr.ph13.i:                                       ; preds = %._crit_edge.i, %111
   %.112.i = phi i32 [ %112, %111 ], [ 0, %._crit_edge.i ]
-  %.23711.i = phi ptr [ %.3.i, %111 ], [ null, %._crit_edge.i ]
+  %.311.i = phi ptr [ %.4.i, %111 ], [ null, %._crit_edge.i ]
   %.13910.i = phi ptr [ %113, %111 ], [ %.val43.i, %._crit_edge.i ]
   %97 = getelementptr inbounds i8, ptr %.13910.i, i64 4
   %98 = load i32, ptr %97, align 4
@@ -690,11 +690,11 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   br i1 %99, label %111, label %100
 
 100:                                              ; preds = %.lr.ph13.i
-  %101 = icmp eq ptr %.23711.i, null
+  %101 = icmp eq ptr %.311.i, null
   br i1 %101, label %110, label %102
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %.23711.i, i64 4
+  %103 = getelementptr inbounds i8, ptr %.311.i, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = lshr i32 %104, 16
   %106 = and i32 %105, 2047
@@ -707,14 +707,14 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   br label %111
 
 111:                                              ; preds = %110, %102, %.lr.ph13.i
-  %.3.i = phi ptr [ %.23711.i, %.lr.ph13.i ], [ %.13910.i, %110 ], [ %.23711.i, %102 ]
+  %.4.i = phi ptr [ %.311.i, %.lr.ph13.i ], [ %.13910.i, %110 ], [ %.311.i, %102 ]
   %112 = add nuw nsw i32 %.112.i, 1
   %113 = getelementptr inbounds i8, ptr %.13910.i, i64 24
   %exitcond23.not.i = icmp eq i32 %112, %75
   br i1 %exitcond23.not.i, label %._crit_edge14.i, label %.lr.ph13.i, !llvm.loop !14
 
 ._crit_edge14.i:                                  ; preds = %111
-  %114 = icmp eq ptr %.3.i, null
+  %114 = icmp eq ptr %.4.i, null
   br i1 %114, label %.preheader.i, label %.thread.i
 
 .preheader.i:                                     ; preds = %._crit_edge14.i, %72
@@ -724,13 +724,13 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 
 .lr.ph19.i:                                       ; preds = %128, %.preheader.i
   %.218.i = phi i32 [ %129, %128 ], [ 0, %.preheader.i ]
-  %.517.i = phi ptr [ %.6.i, %128 ], [ null, %.preheader.i ]
+  %.617.i = phi ptr [ %.7.i, %128 ], [ null, %.preheader.i ]
   %.24016.i = phi ptr [ %130, %128 ], [ %.val43.i, %.preheader.i ]
-  %116 = icmp eq ptr %.517.i, null
+  %116 = icmp eq ptr %.617.i, null
   br i1 %116, label %127, label %117
 
 117:                                              ; preds = %.lr.ph19.i
-  %118 = getelementptr inbounds i8, ptr %.517.i, i64 4
+  %118 = getelementptr inbounds i8, ptr %.617.i, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = lshr i32 %119, 16
   %121 = and i32 %120, 2047
@@ -745,22 +745,22 @@ define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   br label %128
 
 128:                                              ; preds = %127, %117
-  %.6.i = phi ptr [ %.24016.i, %127 ], [ %.517.i, %117 ]
+  %.7.i = phi ptr [ %.24016.i, %127 ], [ %.617.i, %117 ]
   %129 = add nuw nsw i32 %.218.i, 1
   %130 = getelementptr inbounds i8, ptr %.24016.i, i64 24
   %exitcond24.not.i = icmp eq i32 %129, %75
   br i1 %exitcond24.not.i, label %.thread.i, label %.lr.ph19.i, !llvm.loop !15
 
 .thread.i:                                        ; preds = %128, %._crit_edge14.i, %._crit_edge.i
-  %.7.i = phi ptr [ %.3.i, %._crit_edge14.i ], [ %.136.i, %._crit_edge.i ], [ %.6.i, %128 ]
-  %131 = getelementptr inbounds i8, ptr %.7.i, i64 4
+  %.5.i = phi ptr [ %.4.i, %._crit_edge14.i ], [ %.136.i, %._crit_edge.i ], [ %.7.i, %128 ]
+  %131 = getelementptr inbounds i8, ptr %.5.i, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, -268435457
   store i32 %133, ptr %131, align 4
   br label %Dar_CutFindFree.exit
 
 Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.i
-  %.041.i = phi ptr [ %.7.i, %.thread.i ], [ %.0386.i, %.lr.ph.i ]
+  %.041.i = phi ptr [ %.5.i, %.thread.i ], [ %.0386.i, %.lr.ph.i ]
   %134 = load i32, ptr %34, align 4
   %135 = lshr i32 %134, 29
   %136 = load i32, ptr %42, align 4

@@ -7827,7 +7827,7 @@ if.end8:                                          ; preds = %if.then.i.i16.i.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i16.i.i.i, %if.then.i.i.i.i.i, %call4.i.i.i.i.i.noexc, %invoke.cont5, %if.end8
-  %retval.0 = phi i1 [ false, %if.end8 ], [ true, %invoke.cont5 ], [ true, %call4.i.i.i.i.i.noexc ], [ true, %if.then.i.i.i.i.i ], [ true, %if.then.i.i16.i.i.i ]
+  %retval.1 = phi i1 [ false, %if.end8 ], [ true, %invoke.cont5 ], [ true, %call4.i.i.i.i.i.noexc ], [ true, %if.then.i.i.i.i.i ], [ true, %if.then.i.i16.i.i.i ]
   %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %b_offset)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -7860,8 +7860,8 @@ terminate.lpad.i16:                               ; preds = %.noexc.i17, %_ZN8ra
   unreachable
 
 return:                                           ; preds = %.noexc.i17, %_ZNK11decl_plugin12are_distinctEP3appS1_.exit
-  %retval.1 = phi i1 [ true, %_ZNK11decl_plugin12are_distinctEP3appS1_.exit ], [ %retval.0, %.noexc.i17 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK11decl_plugin12are_distinctEP3appS1_.exit ], [ %retval.1, %.noexc.i17 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

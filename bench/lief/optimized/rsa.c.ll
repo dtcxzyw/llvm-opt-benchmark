@@ -155,13 +155,13 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_import_raw(ptr
   br label %36
 
 36:                                               ; preds = %33, %27
-  %.3 = phi i32 [ %35, %33 ], [ %29, %27 ]
-  %.not42 = icmp eq i32 %.3, 0
+  %.1 = phi i32 [ %35, %33 ], [ %29, %27 ]
+  %.not42 = icmp eq i32 %.1, 0
   br i1 %.not42, label %.thread46, label %.thread
 
 .thread:                                          ; preds = %23, %19, %12, %36
-  %.345 = phi i32 [ %.3, %36 ], [ %25, %23 ], [ %21, %19 ], [ %14, %12 ]
-  %37 = add nsw i32 %.345, -16512
+  %.145 = phi i32 [ %.1, %36 ], [ %25, %23 ], [ %21, %19 ], [ %14, %12 ]
+  %37 = add nsw i32 %.145, -16512
   br label %.thread46
 
 .thread46:                                        ; preds = %32, %36, %.thread
@@ -1870,7 +1870,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br i1 %.not81, label %47, label %46
 
 46:                                               ; preds = %44, %36
-  %.063 = phi i32 [ %43, %36 ], [ %45, %44 ]
+  %.1 = phi i32 [ %43, %36 ], [ %45, %44 ]
   call void @mbedtls_md_free(ptr noundef nonnull %12) #14
   br label %88
 
@@ -1969,13 +1969,13 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br label %88
 
 88:                                               ; preds = %86, %87, %81, %._crit_edge, %47, %31, %46, %35
-  %.1 = phi i32 [ %32, %31 ], [ %34, %35 ], [ %.063, %46 ], [ %48, %47 ], [ -16640, %._crit_edge ], [ -17408, %81 ], [ 0, %87 ], [ 0, %86 ]
+  %.063 = phi i32 [ %32, %31 ], [ %34, %35 ], [ %.1, %46 ], [ %48, %47 ], [ -16640, %._crit_edge ], [ -17408, %81 ], [ 0, %87 ], [ 0, %86 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 1024) #14
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 64) #14
   br label %89
 
 89:                                               ; preds = %24, %19, %15, %9, %88
-  %.0 = phi i32 [ %.1, %88 ], [ -16512, %9 ], [ -16512, %15 ], [ -16512, %19 ], [ -16512, %24 ]
+  %.0 = phi i32 [ %.063, %88 ], [ -16512, %9 ], [ -16512, %15 ], [ -16512, %19 ], [ -16512, %24 ]
   ret i32 %.0
 }
 

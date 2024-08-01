@@ -472,11 +472,11 @@ while.body54.preheader:                           ; preds = %do.end
 
 while.body54:                                     ; preds = %while.body54.preheader, %if.end85
   %indvars.iv190 = phi i64 [ %42, %while.body54.preheader ], [ %indvars.iv.next191, %if.end85 ]
-  %subtree_end.4164 = phi i64 [ %subtree_end.3, %while.body54.preheader ], [ %subtree_end.6, %if.end85 ]
+  %subtree_end.4164 = phi i64 [ %subtree_end.3, %while.body54.preheader ], [ %subtree_end.5, %if.end85 ]
   %subtree.3163 = phi ptr [ %subtree.1.lcssa, %while.body54.preheader ], [ %subtree.4, %if.end85 ]
-  %edge.1162 = phi ptr [ %36, %while.body54.preheader ], [ %edge.3, %if.end85 ]
-  %index.2161 = phi i64 [ %inc.lcssa, %while.body54.preheader ], [ %index.4, %if.end85 ]
-  %length.1160 = phi i64 [ %sub, %while.body54.preheader ], [ %length.3, %if.end85 ]
+  %edge.1162 = phi ptr [ %36, %while.body54.preheader ], [ %edge.2, %if.end85 ]
+  %index.2161 = phi i64 [ %inc.lcssa, %while.body54.preheader ], [ %index.3, %if.end85 ]
+  %length.1160 = phi i64 [ %sub, %while.body54.preheader ], [ %length.2, %if.end85 ]
   %conv56 = trunc i64 %index.2161 to i8
   %arrayidx59 = getelementptr inbounds [12 x i8], ptr %index_, i64 0, i64 %indvars.iv190
   store i8 %conv56, ptr %arrayidx59, align 1
@@ -522,18 +522,18 @@ while.body75.lr.ph:                               ; preds = %if.then66
   br label %while.body75
 
 while.body75:                                     ; preds = %while.body75.lr.ph, %while.body75
-  %subtree_end.5153 = phi i64 [ 0, %while.body75.lr.ph ], [ %inc78, %while.body75 ]
-  %edge.2152 = phi ptr [ %44, %while.body75.lr.ph ], [ %49, %while.body75 ]
-  %index.3151 = phi i64 [ %conv.i106, %while.body75.lr.ph ], [ %inc82, %while.body75 ]
-  %length.2150 = phi i64 [ %length.1160, %while.body75.lr.ph ], [ %sub81, %while.body75 ]
-  %refcount.i119 = getelementptr inbounds i8, ptr %edge.2152, i64 8
+  %subtree_end.6153 = phi i64 [ 0, %while.body75.lr.ph ], [ %inc78, %while.body75 ]
+  %edge.3152 = phi ptr [ %44, %while.body75.lr.ph ], [ %49, %while.body75 ]
+  %index.4151 = phi i64 [ %conv.i106, %while.body75.lr.ph ], [ %inc82, %while.body75 ]
+  %length.3150 = phi i64 [ %length.1160, %while.body75.lr.ph ], [ %sub81, %while.body75 ]
+  %refcount.i119 = getelementptr inbounds i8, ptr %edge.3152, i64 8
   %47 = atomicrmw add ptr %refcount.i119, i32 2 monotonic, align 4
-  %inc78 = add i64 %subtree_end.5153, 1
-  %arrayidx79 = getelementptr inbounds [6 x ptr], ptr %edges_77, i64 0, i64 %subtree_end.5153
-  store ptr %edge.2152, ptr %arrayidx79, align 8
-  %48 = load i64, ptr %edge.2152, align 8
-  %sub81 = sub i64 %length.2150, %48
-  %inc82 = add i64 %index.3151, 1
+  %inc78 = add i64 %subtree_end.6153, 1
+  %arrayidx79 = getelementptr inbounds [6 x ptr], ptr %edges_77, i64 0, i64 %subtree_end.6153
+  store ptr %edge.3152, ptr %arrayidx79, align 8
+  %48 = load i64, ptr %edge.3152, align 8
+  %sub81 = sub i64 %length.3150, %48
+  %inc82 = add i64 %index.4151, 1
   %arrayidx.i121 = getelementptr inbounds [6 x ptr], ptr %edges_.i107, i64 0, i64 %inc82
   %49 = load ptr, ptr %arrayidx.i121, align 8
   %50 = load i64, ptr %49, align 8
@@ -541,20 +541,20 @@ while.body75:                                     ; preds = %while.body75.lr.ph,
   br i1 %cmp74.not, label %if.end85, label %while.body75, !llvm.loop !12
 
 if.end85:                                         ; preds = %while.body75, %if.then66, %while.body54
-  %length.3 = phi i64 [ 0, %while.body54 ], [ %length.1160, %if.then66 ], [ %sub81, %while.body75 ]
-  %index.4 = phi i64 [ %conv.i106, %while.body54 ], [ %conv.i106, %if.then66 ], [ %inc82, %while.body75 ]
-  %edge.3 = phi ptr [ %44, %while.body54 ], [ %44, %if.then66 ], [ %49, %while.body75 ]
+  %length.2 = phi i64 [ 0, %while.body54 ], [ %length.1160, %if.then66 ], [ %sub81, %while.body75 ]
+  %index.3 = phi i64 [ %conv.i106, %while.body54 ], [ %conv.i106, %if.then66 ], [ %inc82, %while.body75 ]
+  %edge.2 = phi ptr [ %44, %while.body54 ], [ %44, %if.then66 ], [ %49, %while.body75 ]
   %subtree.4 = phi ptr [ %subtree.3163, %while.body54 ], [ %call.i110, %if.then66 ], [ %call.i110, %while.body75 ]
-  %subtree_end.6 = phi i64 [ %subtree_end.4164, %while.body54 ], [ 0, %if.then66 ], [ %inc78, %while.body75 ]
+  %subtree_end.5 = phi i64 [ %subtree_end.4164, %while.body54 ], [ 0, %if.then66 ], [ %inc78, %while.body75 ]
   %cmp53 = icmp sgt i64 %indvars.iv190, 1
   br i1 %cmp53, label %while.body54, label %while.end86, !llvm.loop !13
 
 while.end86:                                      ; preds = %if.end85, %do.end
-  %length.1.lcssa = phi i64 [ %sub, %do.end ], [ %length.3, %if.end85 ]
-  %index.2.lcssa = phi i64 [ %inc.lcssa, %do.end ], [ %index.4, %if.end85 ]
-  %edge.1.lcssa = phi ptr [ %36, %do.end ], [ %edge.3, %if.end85 ]
+  %length.1.lcssa = phi i64 [ %sub, %do.end ], [ %length.2, %if.end85 ]
+  %index.2.lcssa = phi i64 [ %inc.lcssa, %do.end ], [ %index.3, %if.end85 ]
+  %edge.1.lcssa = phi ptr [ %36, %do.end ], [ %edge.2, %if.end85 ]
   %subtree.3.lcssa = phi ptr [ %subtree.1.lcssa, %do.end ], [ %subtree.4, %if.end85 ]
-  %subtree_end.4.lcssa = phi i64 [ %subtree_end.3, %do.end ], [ %subtree_end.6, %if.end85 ]
+  %subtree_end.4.lcssa = phi i64 [ %subtree_end.3, %do.end ], [ %subtree_end.5, %if.end85 ]
   %cmp87.not = icmp eq i64 %length.1.lcssa, 0
   br i1 %cmp87.not, label %if.end93, label %if.then88
 

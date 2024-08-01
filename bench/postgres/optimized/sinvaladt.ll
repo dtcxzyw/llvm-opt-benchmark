@@ -424,7 +424,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 
 23:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.064 = phi i32 [ %13, %.lr.ph ], [ %.2, %47 ]
+  %.064 = phi i32 [ %13, %.lr.ph ], [ %.1, %47 ]
   %.05163 = phi i32 [ %19, %.lr.ph ], [ %.152, %47 ]
   %.05561 = phi ptr [ null, %.lr.ph ], [ %.156, %47 ]
   %24 = load ptr, ptr %21, align 8
@@ -469,14 +469,14 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 47:                                               ; preds = %43, %41, %23, %34, %40
   %.156 = phi ptr [ %.05561, %23 ], [ %.05561, %34 ], [ %.05561, %40 ], [ %.05561, %41 ], [ %spec.select59, %43 ]
   %.152 = phi i32 [ %.05163, %23 ], [ %.05163, %34 ], [ %.05163, %40 ], [ %.05163, %41 ], [ %spec.select60, %43 ]
-  %.2 = phi i32 [ %.064, %23 ], [ %.064, %34 ], [ %.064, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
+  %.1 = phi i32 [ %.064, %23 ], [ %.064, %34 ], [ %.064, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp ult i64 %indvars.iv.next, %22
   br i1 %48, label %23, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %47
-  store i32 %.2, ptr %3, align 8
-  %49 = icmp sgt i32 %.2, 1073741823
+  store i32 %.1, ptr %3, align 8
+  %49 = icmp sgt i32 %.1, 1073741823
   br i1 %49, label %53, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %8
@@ -492,7 +492,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   br label %.loopexit
 
 53:                                               ; preds = %._crit_edge
-  %54 = add nsw i32 %.2, -1073741824
+  %54 = add nsw i32 %.1, -1073741824
   store i32 %54, ptr %3, align 8
   %55 = add i32 %13, -1073741824
   store i32 %55, ptr %12, align 4
@@ -524,7 +524,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 
 .loopexit:                                        ; preds = %.thread, %._crit_edge.thread, %.loopexit.loopexit, %53, %._crit_edge
   %.055.lcssa76 = phi ptr [ %.156, %.loopexit.loopexit ], [ %.156, %53 ], [ %.156, %._crit_edge ], [ null, %._crit_edge.thread ], [ null, %.thread ]
-  %67 = phi i32 [ %54, %.loopexit.loopexit ], [ %54, %53 ], [ %.2, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %51, %.thread ]
+  %67 = phi i32 [ %54, %.loopexit.loopexit ], [ %54, %53 ], [ %.1, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %51, %.thread ]
   %68 = phi i32 [ %.pre73, %.loopexit.loopexit ], [ %55, %53 ], [ %13, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %52, %.thread ]
   %69 = sub i32 %68, %67
   %70 = icmp slt i32 %69, 2048

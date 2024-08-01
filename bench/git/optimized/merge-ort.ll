@@ -733,7 +733,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
 
 for.body26.i:                                     ; preds = %for.end.i, %for.inc76.i
   %e.154.i = phi ptr [ %call77.i, %for.inc76.i ], [ %call.i44.i, %for.end.i ]
-  %errs.053.i = phi i32 [ %errs.2.i, %for.inc76.i ], [ 0, %for.end.i ]
+  %errs.053.i = phi i32 [ %errs.1.i, %for.inc76.i ], [ 0, %for.end.i ]
   %original_cache_nr.052.i = phi i32 [ %_swap_buffer36.sroa.0.0.copyload.i, %for.inc76.i ], [ %18, %for.end.i ]
   %key27.i = getelementptr inbounds i8, ptr %e.154.i, i64 16
   %20 = load ptr, ptr %key27.i, align 8
@@ -783,13 +783,13 @@ if.then49.i:                                      ; preds = %if.else.i
 
 if.end51.i:                                       ; preds = %if.then49.i, %if.else.i
   %26 = phi i32 [ %.pre.i, %if.then49.i ], [ %25, %if.else.i ]
-  %errs.1.i = phi i32 [ %or.i, %if.then49.i ], [ %errs.053.i, %if.else.i ]
+  %errs.2.i = phi i32 [ %or.i, %if.then49.i ], [ %errs.053.i, %if.else.i ]
   %or53.i = or i32 %26, 131072
   store i32 %or53.i, ptr %ce_flags.i, align 8
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.end51.i, %if.end47.i
-  %errs.2.i = phi i32 [ %errs.053.i, %if.end47.i ], [ %errs.1.i, %if.end51.i ]
+  %errs.1.i = phi i32 [ %errs.053.i, %if.end47.i ], [ %errs.2.i, %if.end51.i ]
   %filemask59.i = getelementptr inbounds i8, ptr %21, i64 208
   %stages.i = getelementptr inbounds i8, ptr %21, i64 64
   br label %for.body58.i
@@ -831,7 +831,7 @@ for.inc76.i:                                      ; preds = %for.inc74.i
   br i1 %tobool25.not.i, label %for.end79.i.loopexit, label %for.body26.i, !llvm.loop !14
 
 for.end79.i.loopexit:                             ; preds = %for.inc76.i
-  %30 = icmp eq i32 %errs.2.i, 0
+  %30 = icmp eq i32 %errs.1.i, 0
   br label %for.end79.i
 
 for.end79.i:                                      ; preds = %for.end79.i.loopexit, %for.end.i
@@ -1737,7 +1737,7 @@ for.body62.lr.ph.i.i:                             ; preds = %for.end.i.i
 
 for.body62.i.i:                                   ; preds = %for.inc189.i.i, %for.body62.lr.ph.i.i
   %entry2.1155.i.i = phi ptr [ %call.i90.i.i, %for.body62.lr.ph.i.i ], [ %call190.i.i, %for.inc189.i.i ]
-  %ret.1154.i.i = phi i32 [ %ret.0160.i.i, %for.body62.lr.ph.i.i ], [ %ret.3.i.i, %for.inc189.i.i ]
+  %ret.1154.i.i = phi i32 [ %ret.0160.i.i, %for.body62.lr.ph.i.i ], [ %ret.2.i.i, %for.inc189.i.i ]
   %key63.i.i = getelementptr inbounds i8, ptr %entry2.1155.i.i, i64 16
   %25 = load ptr, ptr %key63.i.i, align 8
   %value64.i.i = getelementptr inbounds i8, ptr %entry2.1155.i.i, i64 24
@@ -1959,7 +1959,7 @@ for.end.i.i.i:                                    ; preds = %for.end.i.i.loopexi
   br label %if.end175.i.i
 
 if.end175.i.i:                                    ; preds = %for.end.i.i.i, %if.else172.i.i, %if.then169.i.i
-  %ret.2.i.i = phi i32 [ %call171.i.i, %if.then169.i.i ], [ 0, %for.end.i.i.i ], [ %call.i92.i.i, %if.else172.i.i ]
+  %ret.3.i.i = phi i32 [ %call171.i.i, %if.then169.i.i ], [ 0, %for.end.i.i.i ], [ %call.i92.i.i, %if.else172.i.i ]
   br label %for.body179.i.i
 
 for.body179.i.i:                                  ; preds = %for.body179.i.i, %if.end175.i.i
@@ -1972,7 +1972,7 @@ for.body179.i.i:                                  ; preds = %for.body179.i.i, %i
   br i1 %exitcond167.not.i.i, label %for.end184.i.i, label %for.body179.i.i, !llvm.loop !26
 
 for.end184.i.i:                                   ; preds = %for.body179.i.i
-  %cmp185.i.i = icmp slt i32 %ret.2.i.i, 0
+  %cmp185.i.i = icmp slt i32 %ret.3.i.i, 0
   br i1 %cmp185.i.i, label %collect_merge_info.exit.thread176, label %for.inc189.i.i
 
 collect_merge_info.exit.thread176:                ; preds = %for.end184.i.i
@@ -1987,13 +1987,13 @@ collect_merge_info.exit.thread176:                ; preds = %for.end184.i.i
   br label %if.then7
 
 for.inc189.i.i:                                   ; preds = %for.end184.i.i, %resolve_trivial_directory_merge.exit.i.i
-  %ret.3.i.i = phi i32 [ %ret.2.i.i, %for.end184.i.i ], [ %ret.1154.i.i, %resolve_trivial_directory_merge.exit.i.i ]
+  %ret.2.i.i = phi i32 [ %ret.3.i.i, %for.end184.i.i ], [ %ret.1154.i.i, %resolve_trivial_directory_merge.exit.i.i ]
   %call190.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i) #18
   %tobool61.not.i.i = icmp eq ptr %call190.i.i, null
   br i1 %tobool61.not.i.i, label %for.end192.i.i, label %for.body62.i.i, !llvm.loop !27
 
 for.end192.i.i:                                   ; preds = %for.inc189.i.i, %for.end.i.i
-  %ret.1.lcssa.i.i = phi i32 [ %ret.0160.i.i, %for.end.i.i ], [ %ret.3.i.i, %for.inc189.i.i ]
+  %ret.1.lcssa.i.i = phi i32 [ %ret.0160.i.i, %for.end.i.i ], [ %ret.2.i.i, %for.inc189.i.i ]
   call void @strmap_clear(ptr noundef nonnull %copy.i.i, i32 noundef 0) #18
   call void @hashmap_iter_init(ptr noundef nonnull %arrayidx47.i.i, ptr noundef nonnull %iter.i.i) #18
   %call.i94.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i) #18
@@ -6879,7 +6879,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %clean.043 = phi i32 [ 1, %for.body.lr.ph ], [ %clean.2, %for.inc ]
+  %clean.043 = phi i32 [ 1, %for.body.lr.ph ], [ %clean.1, %for.inc ]
   %3 = load ptr, ptr %arrayidx, align 8
   %arrayidx3 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx3, align 8
@@ -7105,7 +7105,7 @@ handle_path_level_conflicts.exit.i:               ; preds = %if.then31.critedge.
   br label %check_for_directory_rename.exit
 
 check_for_directory_rename.exit:                  ; preds = %strmap_empty.exit.i, %if.end.i, %check_dir_renamed.exit.thread.i, %_.exit.i, %handle_path_level_conflicts.exit.i
-  %clean.1 = phi i32 [ %clean.043, %strmap_empty.exit.i ], [ %clean.043, %check_dir_renamed.exit.thread.i ], [ %and.i, %handle_path_level_conflicts.exit.i ], [ %clean.043, %_.exit.i ], [ %clean.043, %if.end.i ]
+  %clean.2 = phi i32 [ %clean.043, %strmap_empty.exit.i ], [ %clean.043, %check_dir_renamed.exit.thread.i ], [ %and.i, %handle_path_level_conflicts.exit.i ], [ %clean.043, %_.exit.i ], [ %clean.043, %if.end.i ]
   %retval.0.i = phi ptr [ null, %strmap_empty.exit.i ], [ null, %check_dir_renamed.exit.thread.i ], [ %retval.0.i22.i, %handle_path_level_conflicts.exit.i ], [ null, %_.exit.i ], [ null, %if.end.i ]
   call fastcc void @possibly_cache_new_pair(ptr noundef nonnull %renames1, ptr noundef %4, i32 noundef %side_index, ptr noundef %retval.0.i)
   %24 = load i8, ptr %status, align 2
@@ -7452,7 +7452,7 @@ if.end22:                                         ; preds = %apply_directory_ren
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22, %if.then16, %if.then
-  %clean.2 = phi i32 [ %clean.043, %if.then ], [ %clean.1, %if.end22 ], [ %clean.1, %if.then16 ]
+  %clean.1 = phi i32 [ %clean.043, %if.then ], [ %clean.2, %if.end22 ], [ %clean.2, %if.then16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr %nr, align 4
   %69 = sext i32 %68 to i64
@@ -7460,7 +7460,7 @@ for.inc:                                          ; preds = %if.end22, %if.then1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !65
 
 for.end:                                          ; preds = %for.inc, %entry
-  %clean.0.lcssa = phi i32 [ 1, %entry ], [ %clean.2, %for.inc ]
+  %clean.0.lcssa = phi i32 [ 1, %entry ], [ %clean.1, %for.inc ]
   ret i32 %clean.0.lcssa
 }
 

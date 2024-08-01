@@ -692,8 +692,8 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %return
 
 return:                                           ; preds = %if.end38, %if.end44, %if.else, %if.then97, %while.end, %if.then18, %if.end, %cond.end
-  %retval.3 = phi i1 [ false, %cond.end ], [ true, %while.end ], [ false, %if.then18 ], [ false, %if.end ], [ false, %if.else ], [ false, %if.then97 ], [ false, %if.end44 ], [ false, %if.end38 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %cond.end ], [ true, %while.end ], [ false, %if.then18 ], [ false, %if.end ], [ false, %if.else ], [ false, %if.then97 ], [ false, %if.end44 ], [ false, %if.end38 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

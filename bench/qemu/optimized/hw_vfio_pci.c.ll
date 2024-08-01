@@ -4842,7 +4842,7 @@ trace_vfio_pci_hot_reset_result.exit:             ; preds = %cond.end, %land.lhs
   br label %out
 
 out:                                              ; preds = %if.then71, %if.then74, %trace_vfio_pci_hot_reset_result.exit
-  %ret.0 = phi i32 [ %call173, %trace_vfio_pci_hot_reset_result.exit ], [ -1, %if.then74 ], [ -1, %if.then71 ]
+  %ret.1 = phi i32 [ %call173, %trace_vfio_pci_hot_reset_result.exit ], [ -1, %if.then74 ], [ -1, %if.then71 ]
   %64 = load i32, ptr %count33, align 4
   %cmp182232.not = icmp eq i32 %64, 0
   br i1 %cmp182232.not, label %out_single, label %for.body184
@@ -4941,21 +4941,21 @@ for.inc259:                                       ; preds = %for.inc255, %if.end
   br i1 %cmp182, label %for.body184, label %out_single, !llvm.loop !34
 
 out_single:                                       ; preds = %for.inc259, %for.cond216.preheader, %for.inc226, %out, %if.then7, %if.then10, %if.then27
-  %ret.1 = phi i32 [ %sub, %if.then7 ], [ %sub, %if.then10 ], [ %sub29, %if.then27 ], [ %ret.0, %out ], [ %ret.0, %for.inc226 ], [ %ret.0, %for.cond216.preheader ], [ %ret.0, %for.inc259 ]
+  %ret.0 = phi i32 [ %sub, %if.then7 ], [ %sub, %if.then10 ], [ %sub29, %if.then27 ], [ %ret.1, %out ], [ %ret.1, %for.inc226 ], [ %ret.1, %for.cond216.preheader ], [ %ret.1, %for.inc259 ]
   %info.0 = phi ptr [ %call, %if.then7 ], [ %call, %if.then10 ], [ %call16, %if.then27 ], [ %call16, %out ], [ %call16, %for.inc226 ], [ %call16, %for.cond216.preheader ], [ %call16, %for.inc259 ]
   br i1 %single, label %if.end264, label %if.then263
 
 if.then263:                                       ; preds = %for.end105, %out_single
   %info.0184 = phi ptr [ %info.0, %out_single ], [ %call16, %for.end105 ]
-  %ret.1183 = phi i32 [ %ret.1, %out_single ], [ -22, %for.end105 ]
+  %ret.0183 = phi i32 [ %ret.0, %out_single ], [ -22, %for.end105 ]
   tail call fastcc void @vfio_pci_post_reset(ptr noundef %vdev)
   br label %if.end264
 
 if.end264:                                        ; preds = %if.then93, %if.then263, %out_single
   %info.0179 = phi ptr [ %info.0184, %if.then263 ], [ %info.0, %out_single ], [ %call16, %if.then93 ]
-  %ret.1178 = phi i32 [ %ret.1183, %if.then263 ], [ %ret.1, %out_single ], [ -22, %if.then93 ]
+  %ret.0178 = phi i32 [ %ret.0183, %if.then263 ], [ %ret.0, %out_single ], [ -22, %if.then93 ]
   tail call void @g_free(ptr noundef nonnull %info.0179) #23
-  ret i32 %ret.1178
+  ret i32 %ret.0178
 }
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2

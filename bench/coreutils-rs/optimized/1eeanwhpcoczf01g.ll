@@ -87,10 +87,10 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   br label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread"
 
 "_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i", %15, %30, %2
-  %.sroa.4.1 = phi i8 [ undef, %2 ], [ %34, %30 ], [ undef, %15 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ]
-  %.sroa.0.1 = phi i8 [ 3, %2 ], [ %32, %30 ], [ 3, %15 ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ]
-  %36 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1, 0
-  %37 = insertvalue { i8, i8 } %36, i8 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i8 [ undef, %2 ], [ %34, %30 ], [ undef, %15 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ]
+  %.sroa.0.0 = phi i8 [ 3, %2 ], [ %32, %30 ], [ 3, %15 ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ]
+  %36 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
+  %37 = insertvalue { i8, i8 } %36, i8 %.sroa.4.0, 1
   ret { i8, i8 } %37
 }
 

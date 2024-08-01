@@ -1566,10 +1566,10 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %420, label %.lr.ph144, label %._crit_edge.i36
 
 .lr.ph144:                                        ; preds = %.lr.ph144.i, %.thread114.i
-  %.089139.i143 = phi ptr [ %.4.i, %.thread114.i ], [ null, %.lr.ph144.i ]
-  %.085140.i142 = phi ptr [ %.388.i, %.thread114.i ], [ null, %.lr.ph144.i ]
-  %.081141.i141 = phi ptr [ %.384.i, %.thread114.i ], [ null, %.lr.ph144.i ]
-  %.079142.i140 = phi ptr [ %.3.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.089139.i143 = phi ptr [ %.190.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.085140.i142 = phi ptr [ %.186.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.081141.i141 = phi ptr [ %.182.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.079142.i140 = phi ptr [ %.180.i, %.thread114.i ], [ null, %.lr.ph144.i ]
   %.0143.i139 = phi ptr [ %.1.i, %.thread114.i ], [ null, %.lr.ph144.i ]
   %indvars.iv171.i138 = phi i64 [ %indvars.iv.next172.i, %.thread114.i ], [ 0, %.lr.ph144.i ]
   %421 = load ptr, ptr %418, align 8
@@ -1622,7 +1622,7 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br label %453
 
 453:                                              ; preds = %450, %448, %445, %438, %427
-  %.190.i = phi ptr [ %.089139.i143, %448 ], [ %452, %450 ], [ %.089139.i143, %445 ], [ %.089139.i143, %438 ], [ %.089139.i143, %427 ]
+  %.291.i = phi ptr [ %.089139.i143, %448 ], [ %452, %450 ], [ %.089139.i143, %445 ], [ %.089139.i143, %438 ], [ %.089139.i143, %427 ]
   %454 = load ptr, ptr %429, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 56
   %456 = load ptr, ptr %455, align 8
@@ -1645,15 +1645,15 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %466, label %.lr.ph, label %.thread114.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i37, %501
-  %.291126.i134 = phi ptr [ %.392.i, %501 ], [ %.190.i, %.lr.ph.i37 ]
-  %.186127.i133 = phi ptr [ %.287.i, %501 ], [ %435, %.lr.ph.i37 ]
-  %.182128.i132 = phi ptr [ %.283.i, %501 ], [ %.081141.i141, %.lr.ph.i37 ]
-  %.180129.i131 = phi ptr [ %.2.i, %501 ], [ %432, %.lr.ph.i37 ]
+  %.392126.i134 = phi ptr [ %.4.i, %501 ], [ %.291.i, %.lr.ph.i37 ]
+  %.287127.i133 = phi ptr [ %.388.i, %501 ], [ %435, %.lr.ph.i37 ]
+  %.283128.i132 = phi ptr [ %.384.i, %501 ], [ %.081141.i141, %.lr.ph.i37 ]
+  %.2129.i131 = phi ptr [ %.3.i, %501 ], [ %432, %.lr.ph.i37 ]
   %indvars.iv.i38130 = phi i64 [ %indvars.iv.next.i39, %501 ], [ 0, %.lr.ph.i37 ]
   %467 = load ptr, ptr %464, align 8
   %468 = getelementptr %union.ListCell, ptr %467, i64 %indvars.iv.i38130
   %469 = load i32, ptr %468, align 8
-  %470 = call zeroext i1 @list_member_oid(ptr noundef %.186127.i133, i32 noundef %469) #17
+  %470 = call zeroext i1 @list_member_oid(ptr noundef %.287127.i133, i32 noundef %469) #17
   br i1 %470, label %501, label %471
 
 471:                                              ; preds = %.lr.ph
@@ -1677,9 +1677,9 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
 
 483:                                              ; preds = %478, %471
   call fastcc void @TargetPrivilegesCheck(ptr noundef nonnull %472, i64 noundef 16)
-  %484 = call ptr @lappend(ptr noundef %.180129.i131, ptr noundef nonnull %472) #17
-  %485 = call ptr @lappend(ptr noundef %.182128.i132, ptr noundef nonnull %472) #17
-  %486 = call ptr @lappend_oid(ptr noundef %.186127.i133, i32 noundef %469) #17
+  %484 = call ptr @lappend(ptr noundef %.2129.i131, ptr noundef nonnull %472) #17
+  %485 = call ptr @lappend(ptr noundef %.283128.i132, ptr noundef nonnull %472) #17
+  %486 = call ptr @lappend_oid(ptr noundef %.287127.i133, i32 noundef %469) #17
   %487 = load i32, ptr @wal_level, align 4
   %488 = icmp sgt i32 %487, 1
   br i1 %488, label %489, label %501
@@ -1702,14 +1702,14 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %498, label %501, label %499
 
 499:                                              ; preds = %497
-  %500 = call ptr @lappend_oid(ptr noundef %.291126.i134, i32 noundef %469) #17
+  %500 = call ptr @lappend_oid(ptr noundef %.392126.i134, i32 noundef %469) #17
   br label %501
 
 501:                                              ; preds = %499, %497, %494, %489, %483, %482, %.lr.ph
-  %.392.i = phi ptr [ %.291126.i134, %.lr.ph ], [ %.291126.i134, %497 ], [ %500, %499 ], [ %.291126.i134, %494 ], [ %.291126.i134, %489 ], [ %.291126.i134, %483 ], [ %.291126.i134, %482 ]
-  %.287.i = phi ptr [ %.186127.i133, %.lr.ph ], [ %486, %497 ], [ %486, %499 ], [ %486, %494 ], [ %486, %489 ], [ %486, %483 ], [ %.186127.i133, %482 ]
-  %.283.i = phi ptr [ %.182128.i132, %.lr.ph ], [ %485, %497 ], [ %485, %499 ], [ %485, %494 ], [ %485, %489 ], [ %485, %483 ], [ %.182128.i132, %482 ]
-  %.2.i = phi ptr [ %.180129.i131, %.lr.ph ], [ %484, %497 ], [ %484, %499 ], [ %484, %494 ], [ %484, %489 ], [ %484, %483 ], [ %.180129.i131, %482 ]
+  %.4.i = phi ptr [ %.392126.i134, %.lr.ph ], [ %.392126.i134, %497 ], [ %500, %499 ], [ %.392126.i134, %494 ], [ %.392126.i134, %489 ], [ %.392126.i134, %483 ], [ %.392126.i134, %482 ]
+  %.388.i = phi ptr [ %.287127.i133, %.lr.ph ], [ %486, %497 ], [ %486, %499 ], [ %486, %494 ], [ %486, %489 ], [ %486, %483 ], [ %.287127.i133, %482 ]
+  %.384.i = phi ptr [ %.283128.i132, %.lr.ph ], [ %485, %497 ], [ %485, %499 ], [ %485, %494 ], [ %485, %489 ], [ %485, %483 ], [ %.283128.i132, %482 ]
+  %.3.i = phi ptr [ %.2129.i131, %.lr.ph ], [ %484, %497 ], [ %484, %499 ], [ %484, %494 ], [ %484, %489 ], [ %484, %483 ], [ %.2129.i131, %482 ]
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38130, 1
   %502 = load i32, ptr %463, align 4
   %503 = sext i32 %502 to i64
@@ -1717,10 +1717,10 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %504, label %.lr.ph, label %.thread114.i
 
 .thread114.i:                                     ; preds = %501, %.lr.ph.i37, %460, %453, %426
-  %.4.i = phi ptr [ %.190.i, %453 ], [ %.089139.i143, %426 ], [ %.190.i, %460 ], [ %.190.i, %.lr.ph.i37 ], [ %.392.i, %501 ]
-  %.388.i = phi ptr [ %435, %453 ], [ %.085140.i142, %426 ], [ %435, %460 ], [ %435, %.lr.ph.i37 ], [ %.287.i, %501 ]
-  %.384.i = phi ptr [ %.081141.i141, %453 ], [ %.081141.i141, %426 ], [ %.081141.i141, %460 ], [ %.081141.i141, %.lr.ph.i37 ], [ %.283.i, %501 ]
-  %.3.i = phi ptr [ %432, %453 ], [ %.079142.i140, %426 ], [ %432, %460 ], [ %432, %.lr.ph.i37 ], [ %.2.i, %501 ]
+  %.190.i = phi ptr [ %.291.i, %453 ], [ %.089139.i143, %426 ], [ %.291.i, %460 ], [ %.291.i, %.lr.ph.i37 ], [ %.4.i, %501 ]
+  %.186.i = phi ptr [ %435, %453 ], [ %.085140.i142, %426 ], [ %435, %460 ], [ %435, %.lr.ph.i37 ], [ %.388.i, %501 ]
+  %.182.i = phi ptr [ %.081141.i141, %453 ], [ %.081141.i141, %426 ], [ %.081141.i141, %460 ], [ %.081141.i141, %.lr.ph.i37 ], [ %.384.i, %501 ]
+  %.180.i = phi ptr [ %432, %453 ], [ %.079142.i140, %426 ], [ %432, %460 ], [ %432, %.lr.ph.i37 ], [ %.3.i, %501 ]
   %.1.i = phi ptr [ %428, %453 ], [ %.0143.i139, %426 ], [ %428, %460 ], [ %428, %.lr.ph.i37 ], [ %428, %501 ]
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i138, 1
   %505 = load i32, ptr %417, align 4
@@ -1729,10 +1729,10 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %507, label %.lr.ph144, label %._crit_edge.i36
 
 ._crit_edge.i36:                                  ; preds = %.thread114.i, %.lr.ph144.i, %begin_replication_step.exit.i35
-  %.089.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.4.i, %.thread114.i ]
-  %.085.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.388.i, %.thread114.i ]
-  %.081.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.384.i, %.thread114.i ]
-  %.079.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.3.i, %.thread114.i ]
+  %.089.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.190.i, %.thread114.i ]
+  %.085.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.186.i, %.thread114.i ]
+  %.081.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.182.i, %.thread114.i ]
+  %.079.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.180.i, %.thread114.i ]
   %.0.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.1.i, %.thread114.i ]
   %508 = load i8, ptr %23, align 1
   %509 = trunc i8 %508 to i1
@@ -3763,8 +3763,8 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %.backedge, %12
   %.041.i = phi i1 [ false, %12 ], [ %.041.i.be, %.backedge ]
-  %.038.i = phi i64 [ %13, %12 ], [ %.240.i, %.backedge ]
-  %.0.i = phi i64 [ %0, %12 ], [ %.6.i, %.backedge ]
+  %.038.i = phi i64 [ %13, %12 ], [ %.139.i, %.backedge ]
+  %.0.i = phi i64 [ %0, %12 ], [ %.1.i, %.backedge ]
   store i32 -1, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %24 = load volatile i32, ptr @InterruptPending, align 4
@@ -3788,9 +3788,9 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 
 .preheader.i:                                     ; preds = %26, %74
   %.046.i = phi i32 [ %80, %74 ], [ %32, %26 ]
-  %.142.i = phi i1 [ false, %74 ], [ %.041.i, %26 ]
-  %.139.i = phi i64 [ %47, %74 ], [ %.038.i, %26 ]
-  %.1.i = phi i64 [ %.5.i, %74 ], [ %.0.i, %26 ]
+  %.243.i = phi i1 [ false, %74 ], [ %.041.i, %26 ]
+  %.240.i = phi i64 [ %47, %74 ], [ %.038.i, %26 ]
+  %.2.i = phi i64 [ %.5.i, %74 ], [ %.0.i, %26 ]
   %33 = load volatile i32, ptr @InterruptPending, align 4
   %.not56.i = icmp eq i32 %33, 0
   br i1 %.not56.i, label %35, label %34
@@ -3845,11 +3845,11 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %52 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
   %53 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
   %54 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %.1.i, i64 %52)
-  %.3.i = call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %53)
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %.2.i, i64 %52)
+  %.4.i = call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %53)
   %55 = load ptr, ptr @MyLogicalRepWorker, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 88
-  store i64 %.3.i, ptr %56, align 8
+  store i64 %.4.i, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %55, i64 96
   store i64 %54, ptr %57, align 8
   %58 = call i64 @GetCurrentTimestamp() #17
@@ -3864,7 +3864,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %63 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
   %64 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #17
   %65 = icmp ne i32 %64, 0
-  %spec.select65.i = call i64 @llvm.umax.i64(i64 %.1.i, i64 %62)
+  %spec.select65.i = call i64 @llvm.umax.i64(i64 %.2.i, i64 %62)
   call fastcc void @send_feedback(i64 noundef %spec.select65.i, i1 noundef zeroext %65, i1 noundef zeroext false)
   %66 = load ptr, ptr @MyLogicalRepWorker, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 88
@@ -3882,7 +3882,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %74
 
 74:                                               ; preds = %61, %51, %46
-  %.5.i = phi i64 [ %.3.i, %51 ], [ %spec.select65.i, %61 ], [ %.1.i, %46 ]
+  %.5.i = phi i64 [ %.4.i, %51 ], [ %spec.select65.i, %61 ], [ %.2.i, %46 ]
   %75 = load ptr, ptr @ApplyMessageContext, align 8
   call void @MemoryContextReset(ptr noundef %75) #17
   %76 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -3894,10 +3894,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
   %.047.i = phi i1 [ false, %26 ], [ true, %39 ], [ true, %41 ], [ false, %35 ]
-  %.243.i = phi i1 [ %.041.i, %26 ], [ %.142.i, %39 ], [ %.142.i, %41 ], [ %.142.i, %35 ]
-  %.240.i = phi i64 [ %.038.i, %26 ], [ %.139.i, %39 ], [ %.139.i, %41 ], [ %.139.i, %35 ]
-  %.6.i = phi i64 [ %.0.i, %26 ], [ %.1.i, %39 ], [ %.1.i, %41 ], [ %.1.i, %35 ]
-  call fastcc void @send_feedback(i64 noundef %.6.i, i1 noundef zeroext false, i1 noundef zeroext false)
+  %.142.i = phi i1 [ %.041.i, %26 ], [ %.243.i, %39 ], [ %.243.i, %41 ], [ %.243.i, %35 ]
+  %.139.i = phi i64 [ %.038.i, %26 ], [ %.240.i, %39 ], [ %.240.i, %41 ], [ %.240.i, %35 ]
+  %.1.i = phi i64 [ %.0.i, %26 ], [ %.2.i, %39 ], [ %.2.i, %41 ], [ %.2.i, %35 ]
+  call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %81 = load i8, ptr @in_remote_transaction, align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %85, label %83
@@ -3909,7 +3909,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 84:                                               ; preds = %83
   call void @AcceptInvalidationMessages() #17
   call void @maybe_reread_subscription()
-  call void @process_syncing_tables(i64 noundef %.6.i) #17
+  call void @process_syncing_tables(i64 noundef %.1.i) #17
   br label %85
 
 85:                                               ; preds = %84, %83, %.loopexit.i
@@ -3970,7 +3970,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %112 = load i32, ptr @wal_receiver_timeout, align 4
   %113 = sext i32 %112 to i64
   %114 = mul nsw i64 %113, 1000
-  %115 = add i64 %114, %.240.i
+  %115 = add i64 %114, %.139.i
   %.not63.i = icmp slt i64 %111, %115
   br i1 %.not63.i, label %120, label %116
 
@@ -3983,20 +3983,20 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 120:                                              ; preds = %110
-  br i1 %.243.i, label %126, label %121
+  br i1 %.142.i, label %126, label %121
 
 121:                                              ; preds = %120
   %122 = sdiv i32 %112, 2
   %123 = sext i32 %122 to i64
   %124 = mul nsw i64 %123, 1000
-  %125 = add i64 %124, %.240.i
+  %125 = add i64 %124, %.139.i
   %.not64.i = icmp sge i64 %111, %125
   br label %126
 
 126:                                              ; preds = %121, %120, %107
-  %.344.i = phi i1 [ true, %120 ], [ %.243.i, %107 ], [ %.not64.i, %121 ]
+  %.445.i = phi i1 [ true, %120 ], [ %.142.i, %107 ], [ %.not64.i, %121 ]
   %.037.i = phi i1 [ false, %120 ], [ false, %107 ], [ %.not64.i, %121 ]
-  call fastcc void @send_feedback(i64 noundef %.6.i, i1 noundef zeroext %.037.i, i1 noundef zeroext %.037.i)
+  call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext %.037.i, i1 noundef zeroext %.037.i)
   %127 = call zeroext i1 @IsTransactionState() #17
   br i1 %127, label %.backedge, label %128
 
@@ -4005,7 +4005,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %128, %126, %105
-  %.041.i.be = phi i1 [ %.344.i, %126 ], [ %.344.i, %128 ], [ %.243.i, %105 ]
+  %.041.i.be = phi i1 [ %.445.i, %126 ], [ %.445.i, %128 ], [ %.142.i, %105 ]
   br label %23
 
 LogicalRepApplyLoop.exit:                         ; preds = %85
@@ -6317,7 +6317,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i.preheader,
   br i1 %.not19.i, label %select.unfold._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !14
 
 get_flush_position.exit.thread:                   ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.033.lcssa = phi i64 [ 0, %.lr.ph.i.preheader ], [ %15, %.lr.ph.i ]
+  %.235.lcssa = phi i64 [ 0, %.lr.ph.i.preheader ], [ %15, %.lr.ph.i ]
   %19 = load ptr, ptr @lsn_mapping, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
@@ -6328,28 +6328,28 @@ select.unfold._crit_edge.loopexit.i:              ; preds = %select.unfold.i
   br label %get_flush_position.exit
 
 get_flush_position.exit:                          ; preds = %7, %select.unfold._crit_edge.loopexit.i
-  %.134 = phi i64 [ 0, %7 ], [ %15, %select.unfold._crit_edge.loopexit.i ]
+  %.336 = phi i64 [ 0, %7 ], [ %15, %select.unfold._crit_edge.loopexit.i ]
   %22 = phi ptr [ %10, %7 ], [ %.pre.i, %select.unfold._crit_edge.loopexit.i ]
   %23 = icmp ne ptr %22, null
   %24 = icmp ne ptr %22, @lsn_mapping
   %spec.select.i.not.i = and i1 %23, %24
-  %spec.select40 = select i1 %spec.select.i.not.i, i64 %.134, i64 %spec.select
+  %spec.select40 = select i1 %spec.select.i.not.i, i64 %.336, i64 %spec.select
   br label %25
 
 25:                                               ; preds = %get_flush_position.exit, %get_flush_position.exit.thread
-  %.336 = phi i64 [ %.033.lcssa, %get_flush_position.exit.thread ], [ %spec.select40, %get_flush_position.exit ]
-  %.2 = phi i64 [ %21, %get_flush_position.exit.thread ], [ %spec.select40, %get_flush_position.exit ]
+  %.033 = phi i64 [ %.235.lcssa, %get_flush_position.exit.thread ], [ %spec.select40, %get_flush_position.exit ]
+  %.0 = phi i64 [ %21, %get_flush_position.exit.thread ], [ %spec.select40, %get_flush_position.exit ]
   %26 = load i64, ptr @send_feedback.last_writepos, align 8
-  %spec.select42 = tail call i64 @llvm.umax.i64(i64 %.2, i64 %26)
+  %spec.select42 = tail call i64 @llvm.umax.i64(i64 %.0, i64 %26)
   %27 = load i64, ptr @send_feedback.last_flushpos, align 8
-  %.4 = tail call i64 @llvm.umax.i64(i64 %.336, i64 %27)
+  %.134 = tail call i64 @llvm.umax.i64(i64 %.033, i64 %27)
   %28 = tail call i64 @GetCurrentTimestamp() #17
   %.not43 = xor i1 %1, true
   %29 = load i64, ptr @send_feedback.last_writepos, align 8
   %30 = icmp eq i64 %spec.select42, %29
   %or.cond = select i1 %.not43, i1 %30, i1 false
   %31 = load i64, ptr @send_feedback.last_flushpos, align 8
-  %32 = icmp eq i64 %.4, %31
+  %32 = icmp eq i64 %.134, %31
   %or.cond46 = select i1 %or.cond, i1 %32, i1 false
   br i1 %or.cond46, label %33, label %38
 
@@ -6407,7 +6407,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %61 = load ptr, ptr @send_feedback.reply_message, align 8
   tail call void @enlargeStringInfo(ptr noundef %61, i32 noundef 8) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %62 = tail call i64 @llvm.bswap.i64(i64 %.4)
+  %62 = tail call i64 @llvm.bswap.i64(i64 %.134)
   %63 = load ptr, ptr %61, align 8, !alias.scope !21
   %64 = getelementptr inbounds i8, ptr %61, i64 8
   %65 = load i32, ptr %64, align 8, !alias.scope !21
@@ -6462,9 +6462,9 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %98 = lshr i64 %spec.select42, 32
   %99 = trunc nuw i64 %98 to i32
   %100 = trunc i64 %spec.select42 to i32
-  %101 = lshr i64 %.4, 32
+  %101 = lshr i64 %.134, 32
   %102 = trunc nuw i64 %101 to i32
-  %103 = trunc i64 %.4 to i32
+  %103 = trunc i64 %.134 to i32
   %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, i32 noundef %94, i32 noundef %96, i32 noundef %97, i32 noundef %99, i32 noundef %100, i32 noundef %102, i32 noundef %103) #17
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3839, ptr noundef nonnull @__func__.send_feedback) #17
   br label %105
@@ -6498,11 +6498,11 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
 
 121:                                              ; preds = %120, %117
   %122 = load i64, ptr @send_feedback.last_flushpos, align 8
-  %123 = icmp ugt i64 %.4, %122
+  %123 = icmp ugt i64 %.134, %122
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %121
-  store i64 %.4, ptr @send_feedback.last_flushpos, align 8
+  store i64 %.134, ptr @send_feedback.last_flushpos, align 8
   br label %125
 
 125:                                              ; preds = %33, %3, %124, %121

@@ -512,7 +512,7 @@ entry:
 
 for.cond:                                         ; preds = %if.end28, %entry
   %idxprom.i34.pn.in = phi i32 [ %id, %entry ], [ %and29, %if.end28 ]
-  %qual.0 = phi i32 [ 0, %entry ], [ %qual.2, %if.end28 ]
+  %qual.0 = phi i32 [ 0, %entry ], [ %qual.1, %if.end28 ]
   %idxprom.i34.pn = zext i32 %idxprom.i34.pn.in to i64
   %ct.0 = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i34.pn
   %1 = load i32, ptr %ct.0, align 8
@@ -567,7 +567,7 @@ cond.end:                                         ; preds = %for.cond, %cond.fal
   ret i32 %or23
 
 if.end28:                                         ; preds = %for.cond, %if.then4, %land.lhs.true, %if.then11, %if.then6
-  %qual.2 = phi i32 [ %qual.0, %for.cond ], [ %or, %if.then6 ], [ %qual.0, %land.lhs.true ], [ %or13, %if.then11 ], [ %qual.0, %if.then4 ]
+  %qual.1 = phi i32 [ %qual.0, %for.cond ], [ %or, %if.then6 ], [ %qual.0, %land.lhs.true ], [ %or13, %if.then11 ], [ %qual.0, %if.then4 ]
   %and29 = and i32 %1, 65535
   br label %for.cond
 }
@@ -587,7 +587,7 @@ entry:
 
 for.cond.i:                                       ; preds = %if.end28.i, %entry
   %idxprom.i34.pn.in.i = phi i32 [ %spec.select, %entry ], [ %and29.i, %if.end28.i ]
-  %qual.0.i = phi i32 [ 0, %entry ], [ %qual.2.i, %if.end28.i ]
+  %qual.0.i = phi i32 [ 0, %entry ], [ %qual.1.i, %if.end28.i ]
   %idxprom.i34.pn.i = zext i32 %idxprom.i34.pn.in.i to i64
   %ct.0.i = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i34.pn.i
   %2 = load i32, ptr %ct.0.i, align 8
@@ -630,7 +630,7 @@ cond.false.i:                                     ; preds = %for.cond.i
   br label %lj_ctype_info.exit
 
 if.end28.i:                                       ; preds = %if.then11.i, %land.lhs.true.i, %if.then6.i, %if.then4.i, %for.cond.i
-  %qual.2.i = phi i32 [ %qual.0.i, %for.cond.i ], [ %or.i, %if.then6.i ], [ %qual.0.i, %land.lhs.true.i ], [ %or13.i, %if.then11.i ], [ %qual.0.i, %if.then4.i ]
+  %qual.1.i = phi i32 [ %qual.0.i, %for.cond.i ], [ %or.i, %if.then6.i ], [ %qual.0.i, %land.lhs.true.i ], [ %or13.i, %if.then11.i ], [ %qual.0.i, %if.then4.i ]
   %and29.i = and i32 %2, 65535
   br label %for.cond.i
 
@@ -808,7 +808,7 @@ if.end:                                           ; preds = %while.end.i, %if.th
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %sw.epilog.i, %if.end
-  %ptrto.0.i = phi i32 [ 0, %if.end ], [ %ptrto.3.i, %sw.epilog.i ]
+  %ptrto.0.i = phi i32 [ 0, %if.end ], [ %ptrto.1.i, %sw.epilog.i ]
   %qual.0.i = phi i32 [ 0, %if.end ], [ %qual.1.i, %sw.epilog.i ]
   %ct.0.i = phi ptr [ %arrayidx.i122.i, %if.end ], [ %arrayidx.i.i, %sw.epilog.i ]
   %7 = load i32, ptr %ct.0.i, align 8
@@ -2186,7 +2186,7 @@ if.end.i656.i:                                    ; preds = %ctype_appc.exit650.
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end.i656.i, %if.then.i654.i, %while.end.i624.i, %if.then.i625.i, %if.end.i526.i, %if.then.i524.i, %if.end74.i, %sw.bb56.i, %for.cond.i
-  %ptrto.3.i = phi i32 [ %ptrto.0.i, %for.cond.i ], [ 1, %if.end74.i ], [ %ptrto.0.i, %sw.bb56.i ], [ 0, %if.then.i524.i ], [ 0, %if.end.i526.i ], [ %ptrto.0.i, %if.then.i625.i ], [ %ptrto.0.i, %while.end.i624.i ], [ 0, %if.then.i654.i ], [ 0, %if.end.i656.i ]
+  %ptrto.1.i = phi i32 [ %ptrto.0.i, %for.cond.i ], [ 1, %if.end74.i ], [ %ptrto.0.i, %sw.bb56.i ], [ 0, %if.then.i524.i ], [ 0, %if.end.i526.i ], [ %ptrto.0.i, %if.then.i625.i ], [ %ptrto.0.i, %while.end.i624.i ], [ 0, %if.then.i654.i ], [ 0, %if.end.i656.i ]
   %qual.1.i = phi i32 [ %qual.0.i, %for.cond.i ], [ 0, %if.end74.i ], [ %spec.select.i, %sw.bb56.i ], [ %qual.0.i, %if.then.i524.i ], [ %qual.0.i, %if.end.i526.i ], [ %qual.0.i, %if.then.i625.i ], [ %qual.0.i, %while.end.i624.i ], [ %qual.0.i, %if.then.i654.i ], [ %qual.0.i, %if.end.i656.i ]
   %120 = load ptr, ptr %cts, align 8
   %and116.i = and i32 %7, 65535

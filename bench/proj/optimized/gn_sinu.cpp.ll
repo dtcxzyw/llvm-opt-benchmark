@@ -638,16 +638,16 @@ define internal { double, double } @_ZL17gn_sinu_s_forward5PJ_LPP8PJconsts(doubl
 
 23:                                               ; preds = %18, %21
   %.029 = phi i32 [ 8, %18 ], [ %22, %21 ]
-  %.sroa.2.028 = phi double [ %1, %18 ], [ %32, %21 ]
+  %.sroa.2.128 = phi double [ %1, %18 ], [ %32, %21 ]
   %24 = load double, ptr %6, align 8
-  %25 = tail call double @sin(double noundef %.sroa.2.028) #7
-  %26 = tail call double @llvm.fmuladd.f64(double %24, double %.sroa.2.028, double %25)
+  %25 = tail call double @sin(double noundef %.sroa.2.128) #7
+  %26 = tail call double @llvm.fmuladd.f64(double %24, double %.sroa.2.128, double %25)
   %27 = fsub double %26, %20
   %28 = load double, ptr %6, align 8
-  %29 = tail call double @cos(double noundef %.sroa.2.028) #7
+  %29 = tail call double @cos(double noundef %.sroa.2.128) #7
   %30 = fadd double %28, %29
   %31 = fdiv double %27, %30
-  %32 = fsub double %.sroa.2.028, %31
+  %32 = fsub double %.sroa.2.128, %31
   %33 = tail call double @llvm.fabs.f64(double %31)
   %34 = fcmp olt double %33, 0x3E7AD7F29ABCAF48
   br i1 %34, label %.loopexit, label %21
@@ -657,17 +657,17 @@ define internal { double, double } @_ZL17gn_sinu_s_forward5PJ_LPP8PJconsts(doubl
   br label %47
 
 .loopexit:                                        ; preds = %23, %13, %11
-  %.sroa.2.2 = phi double [ %17, %13 ], [ %1, %11 ], [ %32, %23 ]
+  %.sroa.2.0 = phi double [ %17, %13 ], [ %1, %11 ], [ %32, %23 ]
   %37 = getelementptr inbounds i8, ptr %5, i64 24
   %38 = load double, ptr %37, align 8
   %39 = fmul double %38, %0
   %40 = load double, ptr %6, align 8
-  %41 = tail call double @cos(double noundef %.sroa.2.2) #7
+  %41 = tail call double @cos(double noundef %.sroa.2.0) #7
   %42 = fadd double %40, %41
   %43 = fmul double %39, %42
   %44 = getelementptr inbounds i8, ptr %5, i64 32
   %45 = load double, ptr %44, align 8
-  %46 = fmul double %.sroa.2.2, %45
+  %46 = fmul double %.sroa.2.0, %45
   br label %47
 
 47:                                               ; preds = %.loopexit, %35

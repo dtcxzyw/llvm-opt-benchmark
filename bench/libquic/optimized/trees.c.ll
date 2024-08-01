@@ -2498,7 +2498,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %prevlen.0211 = phi i32 [ -1, %for.body.lr.ph ], [ %prevlen.1, %for.inc ]
   %nextlen.0210 = phi i32 [ %conv, %for.body.lr.ph ], [ %conv6, %for.inc ]
-  %count.0209 = phi i32 [ 0, %for.body.lr.ph ], [ %count.3, %for.inc ]
+  %count.0209 = phi i32 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
   %max_count.1208 = phi i32 [ %spec.select204, %for.body.lr.ph ], [ %max_count.2, %for.inc ]
   %min_count.1207 = phi i32 [ %spec.select, %for.body.lr.ph ], [ %min_count.2, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2524,7 +2524,7 @@ do.body.preheader:                                ; preds = %if.else
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
   %3 = phi i32 [ %storemerge203, %do.cond ], [ %.pre214, %do.body.preheader ]
-  %count.1 = phi i32 [ %dec, %do.cond ], [ %inc, %do.body.preheader ]
+  %count.2 = phi i32 [ %dec, %do.cond ], [ %inc, %do.body.preheader ]
   %4 = load i16, ptr %dl17, align 2
   %conv18 = zext i16 %4 to i32
   %sub = sub nsw i32 16, %conv18
@@ -2573,7 +2573,7 @@ if.else55:                                        ; preds = %do.body
 do.cond:                                          ; preds = %if.then21, %if.else55
   %storemerge203 = phi i32 [ %add68, %if.else55 ], [ %add54, %if.then21 ]
   store i32 %storemerge203, ptr %bi_valid85, align 4
-  %dec = add nsw i32 %count.1, -1
+  %dec = add nsw i32 %count.2, -1
   %cmp70.not = icmp eq i32 %dec, 0
   br i1 %cmp70.not, label %if.end523, label %do.body, !llvm.loop !29
 
@@ -2642,7 +2642,7 @@ if.end146:                                        ; preds = %if.else132, %if.the
 
 if.end148:                                        ; preds = %if.end146, %if.then75
   %27 = phi i32 [ %storemerge201, %if.end146 ], [ %15, %if.then75 ]
-  %count.2 = phi i32 [ %count.0209, %if.end146 ], [ %inc, %if.then75 ]
+  %count.3 = phi i32 [ %count.0209, %if.end146 ], [ %inc, %if.then75 ]
   %28 = load i16, ptr %dl152, align 2
   %conv153 = zext i16 %28 to i32
   %sub155 = sub nsw i32 16, %conv153
@@ -2692,7 +2692,7 @@ if.end213:                                        ; preds = %if.else200, %if.the
   %storemerge202 = phi i32 [ %add212, %if.else200 ], [ %add199, %if.then158 ]
   store i32 %storemerge202, ptr %bi_valid85, align 4
   %cmp217 = icmp sgt i32 %storemerge202, 14
-  %conv222 = add i32 %count.2, 65533
+  %conv222 = add i32 %count.3, 65533
   br i1 %cmp217, label %if.then219, label %if.else258
 
 if.then219:                                       ; preds = %if.end213
@@ -2941,7 +2941,7 @@ if.else527:                                       ; preds = %if.end523
 for.inc:                                          ; preds = %if.else527, %if.end523, %for.body
   %min_count.2 = phi i32 [ %min_count.1207, %for.body ], [ 3, %if.end523 ], [ %., %if.else527 ]
   %max_count.2 = phi i32 [ %max_count.1208, %for.body ], [ 138, %if.end523 ], [ %.205, %if.else527 ]
-  %count.3 = phi i32 [ %inc, %for.body ], [ 0, %if.end523 ], [ 0, %if.else527 ]
+  %count.1 = phi i32 [ %inc, %for.body ], [ 0, %if.end523 ], [ 0, %if.else527 ]
   %prevlen.1 = phi i32 [ %prevlen.0211, %for.body ], [ %nextlen.0210, %if.end523 ], [ %nextlen.0210, %if.else527 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30

@@ -697,7 +697,7 @@ if.then30.invoke:                                 ; preds = %invoke.cont28, %inv
           to label %cleanup unwind label %lpad20
 
 cleanup:                                          ; preds = %if.then30.invoke, %if.end25, %invoke.cont28
-  %retval.0 = phi i32 [ 0, %invoke.cont28 ], [ 0, %if.end25 ], [ 1, %if.then30.invoke ]
+  %retval.3 = phi i32 [ 0, %invoke.cont28 ], [ 0, %if.end25 ], [ 1, %if.then30.invoke ]
   %37 = load ptr, ptr %session, align 8
   %cmp.not.i = icmp eq ptr %37, null
   br i1 %cmp.not.i, label %cleanup33, label %if.then.i
@@ -736,7 +736,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad16
   br label %ehcleanup35
 
 cleanup34:                                        ; preds = %if.then.i12, %cleanup33, %if.then15, %if.then9
-  %retval.2 = phi i32 [ 1, %if.then9 ], [ %retval.0, %cleanup33 ], [ %retval.0, %if.then.i12 ], [ 1, %if.then15 ]
+  %retval.1 = phi i32 [ 1, %if.then9 ], [ %retval.3, %cleanup33 ], [ %retval.3, %if.then.i12 ], [ 1, %if.then15 ]
   call void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %config) #27
   br label %cleanup36
 
@@ -746,10 +746,10 @@ ehcleanup35:                                      ; preds = %lpad6, %ehcleanup15
   br label %ehcleanup37
 
 cleanup36:                                        ; preds = %invoke.cont3, %cleanup34
-  %retval.3 = phi i32 [ %retval.2, %cleanup34 ], [ 1, %invoke.cont3 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup34 ], [ 1, %invoke.cont3 ]
   %42 = load ptr, ptr @stderr, align 8
   %43 = call i64 @fwrite(ptr nonnull @.str.62, i64 13, i64 1, ptr %42) #28
-  ret i32 %retval.3
+  ret i32 %retval.0
 
 ehcleanup37:                                      ; preds = %ehcleanup35, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup35 ], [ %1, %lpad ]
@@ -2086,7 +2086,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178: ; preds = %invoke.con
   br label %cleanup624
 
 cleanup624:                                       ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit171.thread, %if.then.i.i.i, %if.then410, %invoke.cont613, %invoke.cont483, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178, %invoke.cont445, %do.end, %invoke.cont381, %invoke.cont324, %cleanup624.critedge114, %cleanup624.critedge, %invoke.cont265, %_ZNSt6vectorIhSaIhEED2Ev.exit154, %invoke.cont619, %if.then608, %if.then599, %if.then579, %if.then455, %if.then438, %if.then433, %if.then345
-  %retval.11 = phi i1 [ false, %if.then345 ], [ false, %if.then438 ], [ false, %if.then455 ], [ false, %if.then599 ], [ false, %if.then608 ], [ false, %invoke.cont619 ], [ false, %if.then579 ], [ false, %if.then433 ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit154 ], [ false, %invoke.cont265 ], [ false, %cleanup624.critedge ], [ false, %cleanup624.critedge114 ], [ false, %invoke.cont324 ], [ false, %invoke.cont381 ], [ false, %do.end ], [ false, %invoke.cont445 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178 ], [ false, %invoke.cont483 ], [ true, %invoke.cont613 ], [ false, %if.then410 ], [ false, %if.then.i.i.i ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit171.thread ]
+  %retval.3 = phi i1 [ false, %if.then345 ], [ false, %if.then438 ], [ false, %if.then455 ], [ false, %if.then599 ], [ false, %if.then608 ], [ false, %invoke.cont619 ], [ false, %if.then579 ], [ false, %if.then433 ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit154 ], [ false, %invoke.cont265 ], [ false, %cleanup624.critedge ], [ false, %cleanup624.critedge114 ], [ false, %invoke.cont324 ], [ false, %invoke.cont381 ], [ false, %do.end ], [ false, %invoke.cont445 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178 ], [ false, %invoke.cont483 ], [ true, %invoke.cont613 ], [ false, %if.then410 ], [ false, %if.then.i.i.i ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit171.thread ]
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bio) #27
   call void @_ZN12SocketCloserD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %closer) #27
   br label %cleanup627
@@ -2102,7 +2102,7 @@ ehcleanup626:                                     ; preds = %ehcleanup, %lpad264
   br label %ehcleanup628
 
 cleanup627:                                       ; preds = %invoke.cont, %invoke.cont258.thread, %cleanup.done15.thread194, %invoke.cont251, %invoke.cont242, %invoke.cont180, %invoke.cont172, %invoke.cont164, %invoke.cont154, %invoke.cont138, %invoke.cont126, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %invoke.cont36, %invoke.cont22, %cleanup624
-  %retval.12.ph = phi i1 [ false, %invoke.cont258.thread ], [ false, %cleanup.done15.thread194 ], [ false, %invoke.cont251 ], [ false, %invoke.cont242 ], [ false, %invoke.cont180 ], [ false, %invoke.cont172 ], [ false, %invoke.cont164 ], [ false, %invoke.cont154 ], [ false, %invoke.cont138 ], [ false, %invoke.cont126 ], [ false, %invoke.cont36 ], [ false, %invoke.cont22 ], [ false, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ %retval.11, %cleanup624 ], [ false, %invoke.cont ]
+  %retval.0.ph = phi i1 [ false, %invoke.cont258.thread ], [ false, %cleanup.done15.thread194 ], [ false, %invoke.cont251 ], [ false, %invoke.cont242 ], [ false, %invoke.cont180 ], [ false, %invoke.cont172 ], [ false, %invoke.cont164 ], [ false, %invoke.cont154 ], [ false, %invoke.cont138 ], [ false, %invoke.cont126 ], [ false, %invoke.cont36 ], [ false, %invoke.cont22 ], [ false, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ %retval.3, %cleanup624 ], [ false, %invoke.cont ]
   %.pr205 = load ptr, ptr %ssl, align 8
   %cmp.not.i179 = icmp eq ptr %.pr205, null
   br i1 %cmp.not.i179, label %_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit, label %if.then.i180
@@ -2119,8 +2119,8 @@ terminate.lpad.i181:                              ; preds = %if.then.i180
   unreachable
 
 _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit: ; preds = %entry, %cleanup627, %if.then.i180
-  %retval.12208 = phi i1 [ %retval.12.ph, %cleanup627 ], [ %retval.12.ph, %if.then.i180 ], [ false, %entry ]
-  ret i1 %retval.12208
+  %retval.0208 = phi i1 [ %retval.0.ph, %cleanup627 ], [ %retval.0.ph, %if.then.i180 ], [ false, %entry ]
+  ret i1 %retval.0208
 
 ehcleanup628:                                     ; preds = %lpad10, %ehcleanup626, %lpad113, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup626 ], [ %2, %lpad ], [ %19, %lpad113 ], [ %3, %lpad10 ]
@@ -2606,7 +2606,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   br label %return
 
 cleanup:                                          ; preds = %if.end5, %invoke.cont
-  %retval.0.ph = phi i32 [ 0, %if.end5 ], [ -1, %invoke.cont ]
+  %retval.1.ph = phi i32 [ 0, %if.end5 ], [ -1, %invoke.cont ]
   %.pr = load ptr, ptr %pkey, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, label %if.then.i
@@ -2639,8 +2639,8 @@ terminate.lpad.i6:                                ; preds = %if.then.i5
   unreachable
 
 return:                                           ; preds = %if.then.i5, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.thread, %land.lhs.true
-  %retval.1 = phi i32 [ -1, %land.lhs.true ], [ 1, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.thread ], [ %retval.0.ph, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ %retval.0.ph, %if.then.i5 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %land.lhs.true ], [ 1, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit.thread ], [ %retval.1.ph, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ %retval.1.ph, %if.then.i5 ]
+  ret i32 %retval.0
 }
 
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -4562,8 +4562,8 @@ sw.bb50:                                          ; preds = %if.end34
   br label %return
 
 return:                                           ; preds = %if.end34, %if.end29, %entry, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb45, %cleanup, %sw.bb37, %sw.bb, %if.then31
-  %retval.1 = phi i1 [ false, %if.then31 ], [ true, %sw.bb50 ], [ %call49, %sw.bb48 ], [ true, %sw.bb46 ], [ true, %sw.bb45 ], [ %cmp.i, %cleanup ], [ true, %sw.bb37 ], [ true, %sw.bb ], [ false, %entry ], [ true, %if.end29 ], [ false, %if.end34 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then31 ], [ true, %sw.bb50 ], [ %call49, %sw.bb48 ], [ true, %sw.bb46 ], [ true, %sw.bb45 ], [ %cmp.i, %cleanup ], [ true, %sw.bb37 ], [ true, %sw.bb ], [ false, %entry ], [ true, %if.end29 ], [ false, %if.end34 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress norecurse uwtable

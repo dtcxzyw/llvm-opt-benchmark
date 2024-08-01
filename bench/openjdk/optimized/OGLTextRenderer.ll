@@ -265,24 +265,24 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   %69 = tail call float @llvm.floor.f32(float %68)
   %70 = fcmp olt <2 x float> %67, zeroinitializer
   %71 = extractelement <2 x i1> %70, i64 0
-  %.1105.in = select i1 %71, float %69, float %68
+  %.2.in = select i1 %71, float %69, float %68
   %72 = extractelement <2 x float> %67, i64 1
   %73 = tail call float @llvm.floor.f32(float %72)
   %74 = extractelement <2 x i1> %70, i64 1
-  %.0102.in = select i1 %74, float %73, float %72
+  %.1103.in = select i1 %74, float %73, float %72
   %75 = load <2 x float>, ptr %45, align 8
   %76 = fadd <2 x float> %42, %75
   br label %77
 
 77:                                               ; preds = %49, %62, %64
-  %.2.in = phi float [ %.0104.in, %62 ], [ %.1105.in, %64 ], [ %.0104.in, %49 ]
-  %.1103.in = phi float [ %63, %62 ], [ %.0102.in, %64 ], [ %61, %49 ]
+  %.1105.in = phi float [ %.0104.in, %62 ], [ %.2.in, %64 ], [ %.0104.in, %49 ]
+  %.0102.in = phi float [ %63, %62 ], [ %.1103.in, %64 ], [ %61, %49 ]
   %.0101 = phi float [ %56, %62 ], [ %68, %64 ], [ %56, %49 ]
   %.199 = phi ptr [ %50, %62 ], [ %.098155, %64 ], [ %50, %49 ]
   %78 = phi <2 x float> [ %42, %62 ], [ %76, %64 ], [ %42, %49 ]
-  %.1103 = fptosi float %.1103.in to i32
-  %79 = sub i32 0, %.1103
-  %.2 = fptosi float %.2.in to i32
+  %.0102 = fptosi float %.0102.in to i32
+  %79 = sub i32 0, %.0102
+  %.1105 = fptosi float %.1105.in to i32
   %80 = getelementptr inbounds i8, ptr %45, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -391,8 +391,8 @@ OGLTR_AddToGlyphCache.exit.i:                     ; preds = %116
   %133 = load i32, ptr %132, align 8
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %132, align 8
-  %135 = sitofp i32 %.2 to float
-  %136 = sitofp i32 %.1103 to float
+  %135 = sitofp i32 %.1105 to float
+  %136 = sitofp i32 %.0102 to float
   %137 = load i16, ptr %86, align 8
   %138 = uitofp i16 %137 to float
   %139 = fadd float %135, %138
@@ -456,7 +456,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %158, %151
   br i1 %or.cond148, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %166, %._crit_edge.us.i
-  %.03644.us.i = phi i32 [ %179, %._crit_edge.us.i ], [ %.1103, %166 ]
+  %.03644.us.i = phi i32 [ %179, %._crit_edge.us.i ], [ %.0102, %166 ]
   %.03843.us.i = phi i32 [ %167, %._crit_edge.us.i ], [ 0, %166 ]
   %167 = add nuw nsw i32 %.03843.us.i, 32
   %168 = icmp ugt i32 %167, %154
@@ -465,7 +465,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %158, %151
   br label %171
 
 171:                                              ; preds = %171, %.lr.ph.us.i
-  %.042.us.i = phi i32 [ %.2, %.lr.ph.us.i ], [ %177, %171 ]
+  %.042.us.i = phi i32 [ %.1105, %.lr.ph.us.i ], [ %177, %171 ]
   %.03741.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %172, %171 ]
   %172 = add nuw nsw i32 %.03741.us.i, 32
   %173 = icmp ugt i32 %172, %153
@@ -530,7 +530,7 @@ OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %186, %OGLTR_Disable
   %199 = load ptr, ptr @j2d_glRasterPos2i, align 8
   tail call void %199(i32 noundef 0, i32 noundef 0) #5
   %200 = load ptr, ptr @j2d_glBitmap, align 8
-  %201 = sitofp i32 %.2 to float
+  %201 = sitofp i32 %.1105 to float
   %202 = sitofp i32 %79 to float
   tail call void %200(i32 noundef 0, i32 noundef 0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %201, float noundef %202, ptr noundef null) #5
   %203 = load ptr, ptr @j2d_glPixelZoom, align 8
@@ -551,7 +551,7 @@ OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %186, %OGLTR_Disable
   br i1 %.not125, label %.thread, label %213
 
 213:                                              ; preds = %212
-  %214 = sitofp i32 %.2 to float
+  %214 = sitofp i32 %.1105 to float
   %215 = fsub float %.0101, %214
   %216 = fmul float %215, 3.000000e+00
   %217 = fptosi float %216 to i32
@@ -560,12 +560,12 @@ OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %186, %OGLTR_Disable
 
 218:                                              ; preds = %213
   %219 = sub nsw i32 3, %217
-  %220 = add nsw i32 %.2, 1
+  %220 = add nsw i32 %.1105, 1
   %221 = icmp eq i32 %217, 3
   br i1 %221, label %.thread, label %413
 
 .thread:                                          ; preds = %212, %213, %218
-  %.3142 = phi i32 [ %220, %218 ], [ %.2, %213 ], [ %.2, %212 ]
+  %.3142 = phi i32 [ %220, %218 ], [ %.1105, %213 ], [ %.1105, %212 ]
   %222 = icmp ult i16 %87, 33
   br i1 %222, label %223, label %413
 
@@ -704,7 +704,7 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %270, %264, %257
   %290 = add nsw i32 %.3142, %289
   %291 = extractelement <2 x i16> %287, i64 1
   %292 = zext i16 %291 to i32
-  %293 = add nsw i32 %292, %.1103
+  %293 = add nsw i32 %292, %.0102
   br i1 %37, label %294, label %360
 
 294:                                              ; preds = %282
@@ -714,7 +714,7 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %270, %264, %257
   %.not.i80.i = icmp sgt i32 %295, %.3142
   %or.cond.i.i = select i1 %.b.not.i.i, i1 true, i1 %.not.i80.i
   %296 = load i32, ptr @cachedDestBounds.1, align 4
-  %.not64.i.i = icmp sgt i32 %296, %.1103
+  %.not64.i.i = icmp sgt i32 %296, %.0102
   %or.cond67.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not64.i.i
   %297 = load i32, ptr @cachedDestBounds.2, align 4
   %.not65.i.i = icmp slt i32 %297, %290
@@ -731,7 +731,7 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %270, %264, %257
 
 302:                                              ; preds = %299
   %303 = load i32, ptr @previousGlyphBounds.3, align 4
-  %304 = icmp sgt i32 %303, %.1103
+  %304 = icmp sgt i32 %303, %.0102
   br i1 %304, label %305, label %OGLTR_UpdateCachedDestination.exit.i
 
 305:                                              ; preds = %302
@@ -785,12 +785,12 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %270, %264, %257
 336:                                              ; preds = %335, %329, %326
   %.0.i.i = phi i32 [ 512, %329 ], [ %spec.select.i.i, %335 ], [ %289, %326 ]
   %337 = add nsw i32 %.0.i.i, %.3142
-  %338 = add nsw i32 %.1103, 34
+  %338 = add nsw i32 %.0102, 34
   %339 = load i32, ptr %34, align 4
   %340 = add nsw i32 %339, %.3142
   %341 = load i32, ptr %35, align 8
   %342 = load i32, ptr %36, align 8
-  %reass.sub = sub i32 %341, %.1103
+  %reass.sub = sub i32 %341, %.0102
   %343 = add i32 %reass.sub, -34
   %344 = add i32 %343, %342
   %345 = load ptr, ptr @j2d_glActiveTextureARB, align 8
@@ -798,7 +798,7 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %270, %264, %257
   %346 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
   tail call void %346(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %340, i32 noundef %344, i32 noundef %.0.i.i, i32 noundef 34) #5
   store i32 %.3142, ptr @cachedDestBounds.0, align 4
-  store i32 %.1103, ptr @cachedDestBounds.1, align 4
+  store i32 %.0102, ptr @cachedDestBounds.1, align 4
   store i32 %337, ptr @cachedDestBounds.2, align 4
   store i32 %338, ptr @cachedDestBounds.3, align 4
   store i1 true, ptr @isCachedDestValid, align 1
@@ -808,7 +808,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %336, %311, %308, %3
   %347 = phi i32 [ %298, %299 ], [ %298, %302 ], [ %298, %305 ], [ %298, %308 ], [ %.pre5.i, %311 ], [ %338, %336 ]
   %348 = phi i32 [ %295, %299 ], [ %295, %302 ], [ %295, %305 ], [ %295, %308 ], [ %.pre4.i, %311 ], [ %.3142, %336 ]
   store i32 %.3142, ptr @previousGlyphBounds.0, align 4
-  store i32 %.1103, ptr @previousGlyphBounds.1, align 4
+  store i32 %.0102, ptr @previousGlyphBounds.1, align 4
   store i32 %290, ptr @previousGlyphBounds.2, align 4
   store i32 %293, ptr @previousGlyphBounds.3, align 4
   %349 = insertelement <4 x i32> poison, i32 %347, i64 0
@@ -817,7 +817,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %336, %311, %308, %3
   %352 = shufflevector <4 x i32> %351, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
   %353 = insertelement <4 x i32> poison, i32 %293, i64 0
   %354 = insertelement <4 x i32> %353, i32 %348, i64 1
-  %355 = insertelement <4 x i32> %354, i32 %.1103, i64 2
+  %355 = insertelement <4 x i32> %354, i32 %.0102, i64 2
   %356 = shufflevector <4 x i32> %355, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
   %357 = sub nsw <4 x i32> %352, %356
   %358 = sitofp <4 x i32> %357 to <4 x float>
@@ -863,7 +863,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %336, %311, %308, %3
   %391 = extractelement <4 x float> %382, i64 3
   tail call void %389(i32 noundef 33985, float noundef %391, float noundef %390) #5
   %392 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %392(i32 noundef %.3142, i32 noundef %.1103) #5
+  tail call void %392(i32 noundef %.3142, i32 noundef %.0102) #5
   %393 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
   %394 = getelementptr inbounds i8, ptr %283, i64 60
   %395 = load float, ptr %394, align 4
@@ -873,7 +873,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %336, %311, %308, %3
   %398 = extractelement <4 x float> %382, i64 1
   tail call void %397(i32 noundef 33985, float noundef %398, float noundef %390) #5
   %399 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %399(i32 noundef %290, i32 noundef %.1103) #5
+  tail call void %399(i32 noundef %290, i32 noundef %.0102) #5
   %400 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
   %401 = load float, ptr %394, align 4
   %402 = getelementptr inbounds i8, ptr %283, i64 64
@@ -968,7 +968,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %418, %413
   br i1 %.not122.i, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %.lr.ph.us.i135
 
 .lr.ph.us.i135:                                   ; preds = %.lr.ph120.i, %._crit_edge.us.i136
-  %.096118.us.i = phi i32 [ %518, %._crit_edge.us.i136 ], [ %.1103, %.lr.ph120.i ]
+  %.096118.us.i = phi i32 [ %518, %._crit_edge.us.i136 ], [ %.0102, %.lr.ph120.i ]
   %.0104115.us.i = phi i32 [ %442, %._crit_edge.us.i136 ], [ 0, %.lr.ph120.i ]
   %441 = phi <2 x float> [ %517, %._crit_edge.us.i136 ], [ zeroinitializer, %.lr.ph120.i ]
   %442 = add nuw nsw i32 %.0104115.us.i, 32

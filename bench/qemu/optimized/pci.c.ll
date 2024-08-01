@@ -613,23 +613,23 @@ if.then74:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then74, %lor.lhs.false
-  %res_bus.0 = phi i8 [ 0, %if.then74 ], [ %58, %lor.lhs.false ]
-  %conv77 = zext i8 %res_bus.0 to i32
+  %res_bus.1 = phi i8 [ 0, %if.then74 ], [ %58, %lor.lhs.false ]
+  %conv77 = zext i8 %res_bus.1 to i32
   %add78 = add nuw nsw i32 %conv41.pre-phi, %conv77
   %59 = load i32, ptr %pci_bus, align 4
   %cmp79 = icmp sgt i32 %add78, %59
   %conv85 = trunc i32 %add78 to i8
-  %spec.select = select i1 %cmp79, i8 %conv85, i8 %res_bus.0
+  %spec.select = select i1 %cmp79, i8 %conv85, i8 %res_bus.1
   br label %if.end88
 
 if.end88:                                         ; preds = %qpci_find_capability.exit.i, %do.cond.i.i, %if.then20.i, %if.end.i, %if.then46, %if.end75, %if.then49
-  %res_bus.1 = phi i8 [ %conv47, %if.then49 ], [ %spec.select, %if.end75 ], [ %conv47, %if.then46 ], [ %conv47, %if.end.i ], [ %conv47, %if.then20.i ], [ %conv47, %do.cond.i.i ], [ %conv47, %qpci_find_capability.exit.i ]
-  %conv89 = zext i8 %res_bus.1 to i32
+  %res_bus.0 = phi i8 [ %conv47, %if.then49 ], [ %spec.select, %if.end75 ], [ %conv47, %if.then46 ], [ %conv47, %if.end.i ], [ %conv47, %if.then20.i ], [ %conv47, %do.cond.i.i ], [ %conv47, %qpci_find_capability.exit.i ]
+  %conv89 = zext i8 %res_bus.0 to i32
   store i32 %conv89, ptr %pci_bus, align 4
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end88, %if.end39
-  %subbus.0 = phi i8 [ %res_bus.1, %if.end88 ], [ %call.i81, %if.end39 ]
+  %subbus.0 = phi i8 [ %res_bus.0, %if.end88 ], [ %call.i81, %if.end39 ]
   %60 = load ptr, ptr %call.i56, align 8
   %config_writeb.i90 = getelementptr inbounds i8, ptr %60, i64 104
   %61 = load ptr, ptr %config_writeb.i90, align 8

@@ -230,21 +230,21 @@ for.inc:                                          ; preds = %if.end40, %if.end12
 
 merr.sink.split:                                  ; preds = %if.end32, %if.end12
   %call.i.lcssa.sink = phi ptr [ %call.i.i, %if.end12 ], [ %call.i, %if.end32 ]
-  %gens.2.ph = phi ptr [ null, %if.end12 ], [ %call21, %if.end32 ]
+  %gens.0.ph = phi ptr [ null, %if.end12 ], [ %call21, %if.end32 ]
   tail call void @ASN1_item_free(ptr noundef nonnull %call.i.lcssa.sink, ptr noundef nonnull @DIST_POINT_it) #3
   br label %merr
 
 merr:                                             ; preds = %if.end36, %if.end28, %if.end24, %if.end20, %merr.sink.split, %entry
-  %gens.2 = phi ptr [ null, %entry ], [ %gens.2.ph, %merr.sink.split ], [ null, %if.end20 ], [ %call21, %if.end24 ], [ %call21, %if.end28 ], [ %call21, %if.end36 ]
-  %gen.2 = phi ptr [ null, %entry ], [ null, %merr.sink.split ], [ %call17, %if.end20 ], [ %call17, %if.end24 ], [ null, %if.end28 ], [ null, %if.end36 ]
+  %gens.0 = phi ptr [ null, %entry ], [ %gens.0.ph, %merr.sink.split ], [ null, %if.end20 ], [ %call21, %if.end24 ], [ %call21, %if.end28 ], [ %call21, %if.end36 ]
+  %gen.0 = phi ptr [ null, %entry ], [ null, %merr.sink.split ], [ %call17, %if.end20 ], [ %call17, %if.end24 ], [ null, %if.end28 ], [ null, %if.end36 ]
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.4, i32 noundef 336) #3
   br label %err
 
 err:                                              ; preds = %if.else, %if.then4, %crldp_from_section.exit.thread, %merr
-  %gens.3 = phi ptr [ %gens.2, %merr ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then4 ], [ null, %if.else ]
-  %gen.3 = phi ptr [ %gen.2, %merr ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then4 ], [ null, %if.else ]
-  tail call void @GENERAL_NAME_free(ptr noundef %gen.3) #3
-  tail call void @GENERAL_NAMES_free(ptr noundef %gens.3) #3
+  %gens.2 = phi ptr [ %gens.0, %merr ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then4 ], [ null, %if.else ]
+  %gen.2 = phi ptr [ %gen.0, %merr ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then4 ], [ null, %if.else ]
+  tail call void @GENERAL_NAME_free(ptr noundef %gen.2) #3
+  tail call void @GENERAL_NAMES_free(ptr noundef %gens.2) #3
   tail call void @sk_pop_free(ptr noundef %call, ptr noundef nonnull @DIST_POINT_free) #3
   br label %return
 
@@ -911,8 +911,8 @@ if.then26:                                        ; preds = %if.end22
   br label %if.end47
 
 if.end30:                                         ; preds = %if.end22, %if.then
-  %rnm.0 = phi ptr [ %3, %if.end22 ], [ null, %if.then ]
-  %fnm.0 = phi ptr [ null, %if.end22 ], [ %call1, %if.then ]
+  %rnm.1 = phi ptr [ %3, %if.end22 ], [ null, %if.then ]
+  %fnm.1 = phi ptr [ null, %if.end22 ], [ %call1, %if.then ]
   %5 = load ptr, ptr %pdp, align 8
   %tobool31.not = icmp eq ptr %5, null
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -928,38 +928,38 @@ if.end33:                                         ; preds = %if.end30
   br i1 %tobool35.not, label %err, label %if.end37
 
 if.end37:                                         ; preds = %if.end33
-  %tobool38.not = icmp eq ptr %fnm.0, null
+  %tobool38.not = icmp eq ptr %fnm.1, null
   br i1 %tobool38.not, label %if.else41, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
   store i32 0, ptr %call.i, align 8
   %6 = load ptr, ptr %pdp, align 8
   %name40 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %fnm.0, ptr %name40, align 8
+  store ptr %fnm.1, ptr %name40, align 8
   br label %return
 
 if.else41:                                        ; preds = %if.end37
   store i32 1, ptr %call.i, align 8
   %7 = load ptr, ptr %pdp, align 8
   %name43 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %rnm.0, ptr %name43, align 8
+  store ptr %rnm.1, ptr %name43, align 8
   br label %return
 
 err:                                              ; preds = %if.end33, %if.then32
-  %tobool45.not = icmp eq ptr %fnm.0, null
+  %tobool45.not = icmp eq ptr %fnm.1, null
   br i1 %tobool45.not, label %if.end47, label %if.then46
 
 if.then46:                                        ; preds = %err
-  tail call void @sk_pop_free(ptr noundef nonnull %fnm.0, ptr noundef nonnull @GENERAL_NAME_free) #3
+  tail call void @sk_pop_free(ptr noundef nonnull %fnm.1, ptr noundef nonnull @GENERAL_NAME_free) #3
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end16, %if.then26, %lor.lhs.false, %if.then46, %err
-  %rnm.130 = phi ptr [ %rnm.0, %if.then46 ], [ %rnm.0, %err ], [ %3, %if.end16 ], [ %3, %if.then26 ], [ %3, %lor.lhs.false ]
-  %tobool48.not = icmp eq ptr %rnm.130, null
+  %rnm.030 = phi ptr [ %rnm.1, %if.then46 ], [ %rnm.1, %err ], [ %3, %if.end16 ], [ %3, %if.then26 ], [ %3, %lor.lhs.false ]
+  %tobool48.not = icmp eq ptr %rnm.030, null
   br i1 %tobool48.not, label %return, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  tail call void @sk_pop_free(ptr noundef nonnull %rnm.130, ptr noundef nonnull @X509_NAME_ENTRY_free) #3
+  tail call void @sk_pop_free(ptr noundef nonnull %rnm.030, ptr noundef nonnull @X509_NAME_ENTRY_free) #3
   br label %return
 
 return:                                           ; preds = %if.then, %if.end47, %if.then49, %if.then39, %if.else41, %if.else, %if.then7, %if.then15

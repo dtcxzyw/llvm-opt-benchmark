@@ -552,8 +552,8 @@ terminate.lpad.i244:                              ; preds = %if.then13.i.i243
   unreachable
 
 return:                                           ; preds = %if.then13.i.i243, %if.then.i.i237, %cleanup, %if.then
-  %retval.1 = phi i1 [ %cmp.i3, %if.then ], [ %cmp.i47, %cleanup ], [ %cmp.i47, %if.then.i.i237 ], [ %cmp.i47, %if.then13.i.i243 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp.i3, %if.then ], [ %cmp.i47, %cleanup ], [ %cmp.i47, %if.then.i.i237 ], [ %cmp.i47, %if.then13.i.i243 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad12, %lpad70, %lpad
   %qqe.sink = phi ptr [ %agg.tmp, %lpad ], [ %qqe, %lpad70 ], [ %qqe, %lpad12 ]

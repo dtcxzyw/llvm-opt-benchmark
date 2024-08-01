@@ -1127,8 +1127,8 @@ findEND64.exit:                                   ; preds = %.outer.i.i12.i
   br i1 %346, label %.outer.split.i.i, label %readFullyAt.exit.thread, !llvm.loop !8
 
 readFullyAt.exit:                                 ; preds = %.outer.i.i, %.outer.i.preheader.i, %319
-  %.0151 = phi ptr [ %322, %319 ], [ %324, %.outer.i.preheader.i ], [ %324, %.outer.i.i ]
-  %347 = getelementptr inbounds i8, ptr %.0151, i64 %.0144
+  %.1 = phi ptr [ %322, %319 ], [ %324, %.outer.i.preheader.i ], [ %324, %.outer.i.i ]
+  %347 = getelementptr inbounds i8, ptr %.1, i64 %.0144
   %.not165 = icmp eq i32 %1, -1
   %348 = select i1 %.not165, i32 %.0146, i32 %1
   %349 = sext i32 %348 to i64
@@ -1162,13 +1162,13 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %.outer
 
 .preheader:                                       ; preds = %.lr.ph.preheader, %.preheader221
   %363 = getelementptr inbounds i8, ptr %347, i64 -46
-  %.not166266 = icmp ugt ptr %.0151, %363
+  %.not166266 = icmp ugt ptr %.1, %363
   br i1 %.not166266, label %._crit_edge, label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %.preheader
   %364 = getelementptr inbounds i8, ptr %0, i64 172
   %365 = getelementptr inbounds i8, ptr %0, i64 168
-  %366 = ptrtoint ptr %.0151 to i64
+  %366 = ptrtoint ptr %.1 to i64
   %367 = sub i64 %284, %366
   %smax303 = tail call i32 @llvm.smax.i32(i32 %348, i32 0)
   %wide.trip.count = zext nneg i32 %smax303 to i64
@@ -1176,7 +1176,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %.outer
 
 368:                                              ; preds = %.lr.ph269, %hashN.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next, %hashN.exit ]
-  %.0149268 = phi ptr [ %.0151, %.lr.ph269 ], [ %495, %hashN.exit ]
+  %.0149268 = phi ptr [ %.1, %.lr.ph269 ], [ %495, %hashN.exit ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %369, label %387
 
@@ -1188,7 +1188,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %.outer
   %.020.i = phi i64 [ %384, %.lr.ph.i181 ], [ 0, %369 ]
   %.01719.i = phi i32 [ %370, %.lr.ph.i181 ], [ 0, %369 ]
   %370 = add nuw nsw i32 %.01719.i, 1
-  %371 = getelementptr inbounds i8, ptr %.0151, i64 %.020.i
+  %371 = getelementptr inbounds i8, ptr %.1, i64 %.020.i
   %372 = getelementptr inbounds i8, ptr %371, i64 28
   %373 = load i16, ptr %372, align 1
   %374 = zext i16 %373 to i64
@@ -1441,7 +1441,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i191, %isMet
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.0150.lcssa = phi i32 [ 0, %.preheader ], [ %496, %._crit_edge.loopexit ]
-  %.0149.lcssa = phi ptr [ %.0151, %.preheader ], [ %495, %._crit_edge.loopexit ]
+  %.0149.lcssa = phi ptr [ %.1, %.preheader ], [ %495, %._crit_edge.loopexit ]
   %.not167 = icmp eq ptr %.0149.lcssa, %347
   br i1 %.not167, label %498, label %497
 
@@ -1455,7 +1455,7 @@ hashN.exit:                                       ; preds = %.lr.ph.i191, %isMet
   br label %freeCEN.exit200
 
 readFullyAt.exit.thread:                          ; preds = %343, %341, %tailrecurse.i._crit_edge, %.loopexit.i190, %446, %326, %readFullyAt.exit, %323, %295, %497, %420, %414, %411, %406, %316, %288, %282
-  %.1 = phi ptr [ null, %282 ], [ null, %288 ], [ null, %295 ], [ null, %316 ], [ %.0151, %readFullyAt.exit ], [ %.0151, %411 ], [ %.0151, %414 ], [ %.0151, %420 ], [ %.0151, %406 ], [ %.0151, %497 ], [ null, %323 ], [ %324, %326 ], [ %.0151, %446 ], [ %.0151, %.loopexit.i190 ], [ %.0151, %tailrecurse.i._crit_edge ], [ %324, %341 ], [ %324, %343 ]
+  %.0151 = phi ptr [ null, %282 ], [ null, %288 ], [ null, %295 ], [ null, %316 ], [ %.1, %readFullyAt.exit ], [ %.1, %411 ], [ %.1, %414 ], [ %.1, %420 ], [ %.1, %406 ], [ %.1, %497 ], [ null, %323 ], [ %324, %326 ], [ %.1, %446 ], [ %.1, %.loopexit.i190 ], [ %.1, %tailrecurse.i._crit_edge ], [ %324, %341 ], [ %324, %343 ]
   %500 = load ptr, ptr %164, align 8
   tail call void @free(ptr noundef %500) #21
   store ptr null, ptr %164, align 8
@@ -1495,7 +1495,7 @@ readFullyAt.exit.thread:                          ; preds = %343, %341, %tailrec
   br label %freeCEN.exit200
 
 freeCEN.exit200:                                  ; preds = %._crit_edge.i.i194, %readFullyAt.exit.thread, %498, %countCENHeaders.exit
-  %.2 = phi ptr [ %.0151, %countCENHeaders.exit ], [ %.0151, %498 ], [ %.1, %readFullyAt.exit.thread ], [ %.1, %._crit_edge.i.i194 ]
+  %.2 = phi ptr [ %.1, %countCENHeaders.exit ], [ %.1, %498 ], [ %.0151, %readFullyAt.exit.thread ], [ %.0151, %._crit_edge.i.i194 ]
   %.0143 = phi i64 [ %386, %countCENHeaders.exit ], [ %284, %498 ], [ -1, %readFullyAt.exit.thread ], [ -1, %._crit_edge.i.i194 ]
   %513 = getelementptr inbounds i8, ptr %0, i64 48
   %514 = load i8, ptr %513, align 8
@@ -1991,61 +1991,61 @@ sequentialAccessReadCENHeader.exit:               ; preds = %21
   br i1 %61, label %sequentialAccessReadCENHeader.exit.thread220, label %sequentialAccessReadCENHeader.exit.thread
 
 sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentialAccessReadCENHeader.exit, %11
-  %.1186 = phi ptr [ %20, %11 ], [ %60, %sequentialAccessReadCENHeader.exit ], [ %36, %32 ], [ %53, %55 ]
-  %62 = getelementptr inbounds i8, ptr %.1186, i64 28
+  %.0185 = phi ptr [ %20, %11 ], [ %60, %sequentialAccessReadCENHeader.exit ], [ %36, %32 ], [ %53, %55 ]
+  %62 = getelementptr inbounds i8, ptr %.0185, i64 28
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %.1186, i64 29
+  %65 = getelementptr inbounds i8, ptr %.0185, i64 29
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = shl nuw nsw i32 %67, 8
   %69 = or disjoint i32 %68, %64
-  %70 = getelementptr inbounds i8, ptr %.1186, i64 30
+  %70 = getelementptr inbounds i8, ptr %.0185, i64 30
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %.1186, i64 31
+  %73 = getelementptr inbounds i8, ptr %.0185, i64 31
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 8
   %77 = or disjoint i32 %76, %72
-  %78 = getelementptr inbounds i8, ptr %.1186, i64 32
+  %78 = getelementptr inbounds i8, ptr %.0185, i64 32
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %.1186, i64 33
+  %81 = getelementptr inbounds i8, ptr %.0185, i64 33
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = shl nuw nsw i32 %83, 8
   %85 = or disjoint i32 %84, %80
-  %86 = getelementptr inbounds i8, ptr %.1186, i64 12
+  %86 = getelementptr inbounds i8, ptr %.0185, i64 12
   %87 = load i16, ptr %86, align 1
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %.1186, i64 14
+  %89 = getelementptr inbounds i8, ptr %.0185, i64 14
   %90 = load i16, ptr %89, align 1
   %91 = zext i16 %90 to i64
   %92 = shl nuw nsw i64 %91, 16
   %93 = or disjoint i64 %92, %88
   %94 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.1186, i64 24
+  %95 = getelementptr inbounds i8, ptr %.0185, i64 24
   %96 = load i16, ptr %95, align 1
   %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %.1186, i64 26
+  %98 = getelementptr inbounds i8, ptr %.0185, i64 26
   %99 = load i16, ptr %98, align 1
   %100 = zext i16 %99 to i64
   %101 = shl nuw nsw i64 %100, 16
   %102 = or disjoint i64 %101, %97
   %103 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %.1186, i64 10
+  %104 = getelementptr inbounds i8, ptr %.0185, i64 10
   %105 = load i16, ptr %104, align 1
   %106 = icmp eq i16 %105, 0
   br i1 %106, label %116, label %107
 
 107:                                              ; preds = %sequentialAccessReadCENHeader.exit.thread
-  %108 = getelementptr inbounds i8, ptr %.1186, i64 20
+  %108 = getelementptr inbounds i8, ptr %.0185, i64 20
   %109 = load i16, ptr %108, align 1
   %110 = zext i16 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %.1186, i64 22
+  %111 = getelementptr inbounds i8, ptr %.0185, i64 22
   %112 = load i16, ptr %111, align 1
   %113 = zext i16 %112 to i64
   %114 = shl nuw nsw i64 %113, 16
@@ -2056,20 +2056,20 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   %117 = phi i64 [ %115, %107 ], [ 0, %sequentialAccessReadCENHeader.exit.thread ]
   %118 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.1186, i64 16
+  %119 = getelementptr inbounds i8, ptr %.0185, i64 16
   %120 = load i16, ptr %119, align 1
   %121 = zext i16 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %.1186, i64 18
+  %122 = getelementptr inbounds i8, ptr %.0185, i64 18
   %123 = load i16, ptr %122, align 1
   %124 = zext i16 %123 to i32
   %125 = shl nuw i32 %124, 16
   %126 = or disjoint i32 %125, %121
   %127 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %.1186, i64 42
+  %128 = getelementptr inbounds i8, ptr %.0185, i64 42
   %129 = load i16, ptr %128, align 1
   %130 = zext i16 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %.1186, i64 44
+  %131 = getelementptr inbounds i8, ptr %.0185, i64 44
   %132 = load i16, ptr %131, align 1
   %133 = zext i16 %132 to i64
   %134 = shl nuw nsw i64 %133, 16
@@ -2080,7 +2080,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   %139 = sub nsw i64 0, %138
   %140 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %139, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %.1186, i64 8
+  %141 = getelementptr inbounds i8, ptr %.0185, i64 8
   %142 = load i16, ptr %141, align 1
   %143 = zext i16 %142 to i32
   %144 = getelementptr inbounds i8, ptr %4, i64 64
@@ -2093,7 +2093,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   br i1 %148, label %sequentialAccessReadCENHeader.exit.thread220, label %149
 
 149:                                              ; preds = %116
-  %150 = getelementptr inbounds i8, ptr %.1186, i64 46
+  %150 = getelementptr inbounds i8, ptr %.0185, i64 46
   %151 = zext nneg i32 %69 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %147, ptr nonnull align 1 %150, i64 %151, i1 false)
   %152 = getelementptr inbounds i8, ptr %147, i64 %151
@@ -2365,7 +2365,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
 sequentialAccessReadCENHeader.exit.thread220:     ; preds = %50, %324, %154, %116, %sequentialAccessReadCENHeader.exit
   %335 = phi ptr [ null, %116 ], [ null, %154 ], [ %323, %324 ], [ null, %sequentialAccessReadCENHeader.exit ], [ null, %50 ]
   %336 = phi ptr [ null, %116 ], [ %147, %154 ], [ %147, %324 ], [ null, %sequentialAccessReadCENHeader.exit ], [ null, %50 ]
-  %.2187 = phi ptr [ %.1186, %116 ], [ %.1186, %154 ], [ %.1186, %324 ], [ null, %sequentialAccessReadCENHeader.exit ], [ null, %50 ]
+  %.2187 = phi ptr [ %.0185, %116 ], [ %.0185, %154 ], [ %.0185, %324 ], [ null, %sequentialAccessReadCENHeader.exit ], [ null, %50 ]
   tail call void @free(ptr noundef %336) #21
   tail call void @free(ptr noundef %335) #21
   %337 = load ptr, ptr %8, align 8
@@ -2375,7 +2375,7 @@ sequentialAccessReadCENHeader.exit.thread220:     ; preds = %50, %324, %154, %11
 
 338:                                              ; preds = %.loopexit, %329, %sequentialAccessReadCENHeader.exit.thread220
   %.0188 = phi ptr [ null, %sequentialAccessReadCENHeader.exit.thread220 ], [ %4, %329 ], [ %4, %.loopexit ]
-  %.3 = phi ptr [ %.2187, %sequentialAccessReadCENHeader.exit.thread220 ], [ %.1186, %329 ], [ %.1186, %.loopexit ]
+  %.3 = phi ptr [ %.2187, %sequentialAccessReadCENHeader.exit.thread220 ], [ %.0185, %329 ], [ %.0185, %.loopexit ]
   %339 = load i8, ptr %9, align 8
   %.not215 = icmp eq i8 %339, 0
   br i1 %.not215, label %340, label %344
@@ -3099,13 +3099,13 @@ define i64 @ZIP_GZip_Fully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   br label %36
 
 36:                                               ; preds = %32, %33, %31
-  %.0 = phi i64 [ 0, %31 ], [ 0, %32 ], [ %35, %33 ]
+  %.1 = phi i64 [ 0, %31 ], [ 0, %32 ], [ %35, %33 ]
   %37 = call i32 @deflateEnd(ptr noundef nonnull %10) #21
   br label %38
 
 38:                                               ; preds = %36, %9
-  %.1 = phi i64 [ %.0, %36 ], [ 0, %9 ]
-  ret i64 %.1
+  %.0 = phi i64 [ %.1, %36 ], [ 0, %9 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

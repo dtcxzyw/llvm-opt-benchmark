@@ -29,10 +29,10 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %12, label %.loopexit299, label %.preheader298
 
 .preheader298:                                    ; preds = %8, %29
-  %.0272 = phi i64 [ %.1273, %29 ], [ 0, %8 ]
+  %.1273 = phi i64 [ %.2274, %29 ], [ 0, %8 ]
   %.0266 = phi i64 [ %.1267, %29 ], [ 5, %8 ]
-  %.1 = phi double [ %.2, %29 ], [ %.0251, %8 ]
-  %13 = fpext double %.1 to x86_fp80
+  %.2 = phi double [ %.3, %29 ], [ %.0251, %8 ]
+  %13 = fpext double %.2 to x86_fp80
   %14 = getelementptr inbounds [6 x x86_fp80], ptr @_Sftable, i64 0, i64 %.0266
   %15 = load x86_fp80, ptr %14, align 16
   %16 = fcmp ogt x86_fp80 %15, %13
@@ -50,30 +50,30 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %24 = trunc i64 %.0266 to i32
   %25 = shl nuw i32 1, %24
   %26 = sext i32 %25 to i64
-  %27 = add nsw i64 %.0272, %26
+  %27 = add nsw i64 %.1273, %26
   %28 = icmp sgt i64 %27, 1023
   br i1 %28, label %.loopexit362, label %29
 
 29:                                               ; preds = %17, %19
-  %.1273 = phi i64 [ %.0272, %17 ], [ %27, %19 ]
+  %.2274 = phi i64 [ %.1273, %17 ], [ %27, %19 ]
   %.1267 = phi i64 [ %18, %17 ], [ %.0266, %19 ]
-  %.2 = phi double [ %.1, %17 ], [ %23, %19 ]
-  %30 = fcmp ult double %.2, 0x43E0000000000000
+  %.3 = phi double [ %.2, %17 ], [ %23, %19 ]
+  %30 = fcmp ult double %.3, 0x43E0000000000000
   br i1 %30, label %.loopexit299, label %.preheader298
 
 .loopexit299:                                     ; preds = %29, %8
-  %.2274 = phi i64 [ 0, %8 ], [ %.1273, %29 ]
-  %.3 = phi double [ %.0251, %8 ], [ %.2, %29 ]
-  %31 = trunc i64 %.2274 to i32
+  %.0272 = phi i64 [ 0, %8 ], [ %.2274, %29 ]
+  %.1 = phi double [ %.0251, %8 ], [ %.3, %29 ]
+  %31 = trunc i64 %.0272 to i32
   store i32 %31, ptr %2, align 4
-  %32 = fptosi double %.3 to i32
+  %32 = fptosi double %.1 to i32
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %248, label %33
 
 33:                                               ; preds = %.loopexit299
   %34 = sext i32 %32 to i64
   %35 = sitofp i32 %32 to double
-  %36 = fsub double %.3, %35
+  %36 = fsub double %.1, %35
   %37 = icmp ugt i32 %32, 9999
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -524,7 +524,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %.promoted = phi i32 [ %246, %241 ], [ %31, %.loopexit299 ]
   %.5277 = phi i64 [ %243, %241 ], [ 0, %.loopexit299 ]
   %.0261 = phi ptr [ %.1253, %241 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit299 ]
-  %.4 = phi double [ %36, %241 ], [ %.3, %.loopexit299 ]
+  %.4 = phi double [ %36, %241 ], [ %.1, %.loopexit299 ]
   %249 = and i32 %4, 134217728
   %.not290 = icmp eq i32 %249, 0
   br i1 %.not290, label %250, label %.thread
@@ -590,7 +590,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %280 = phi i64 [ %267, %.thread335 ], [ %253, %266 ], [ %267, %..loopexit297_crit_edge ], [ %267, %.preheader296 ]
   %281 = phi i64 [ %268, %.thread335 ], [ %255, %266 ], [ %268, %..loopexit297_crit_edge ], [ %268, %.preheader296 ]
   %.0262333338 = phi ptr [ %.0262333337, %.thread335 ], [ %.0262, %266 ], [ %.0262333337, %..loopexit297_crit_edge ], [ %.0262333337, %.preheader296 ]
-  %.6 = phi double [ %.4, %.thread335 ], [ %.4, %266 ], [ %275, %..loopexit297_crit_edge ], [ %.4, %.preheader296 ]
+  %.5 = phi double [ %.4, %.thread335 ], [ %.4, %266 ], [ %275, %..loopexit297_crit_edge ], [ %.4, %.preheader296 ]
   %282 = icmp ugt ptr %.0262333338, getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512)
   br i1 %282, label %.lr.ph310.preheader, label %.loopexit295
 
@@ -603,17 +603,17 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %.lr.ph310
 
 .lr.ph310:                                        ; preds = %.lr.ph310.preheader, %.loopexit294
-  %.7308 = phi double [ %.8, %.loopexit294 ], [ %.6, %.lr.ph310.preheader ]
-  %.3255307 = phi ptr [ %.6258, %.loopexit294 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.lr.ph310.preheader ]
-  %.3255307324 = ptrtoint ptr %.3255307 to i64
+  %.7308 = phi double [ %.8, %.loopexit294 ], [ %.5, %.lr.ph310.preheader ]
+  %.4256307 = phi ptr [ %.7259, %.loopexit294 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.lr.ph310.preheader ]
+  %.4256307324 = ptrtoint ptr %.4256307 to i64
   %287 = fcmp ugt double %.7308, 0.000000e+00
   br i1 %287, label %290, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph310
-  %288 = add i64 %.3255307324, 1
+  %288 = add i64 %.4256307324, 1
   %umax328 = tail call i64 @llvm.umax.i64(i64 %umin, i64 %288)
-  %289 = sub i64 %umax328, %.3255307324
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.3255307, i8 48, i64 %289, i1 false)
+  %289 = sub i64 %umax328, %.4256307324
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.4256307, i8 48, i64 %289, i1 false)
   br label %.loopexit
 
 290:                                              ; preds = %.lr.ph310
@@ -623,31 +623,31 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %293, label %296, label %.preheader293.preheader
 
 .preheader293.preheader:                          ; preds = %290
-  %294 = add i64 %.3255307324, 1
+  %294 = add i64 %.4256307324, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 %294)
-  %295 = sub i64 %umax, %.3255307324
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.3255307, i8 57, i64 %295, i1 false)
-  %scevgep = getelementptr i8, ptr %.3255307, i64 %295
+  %295 = sub i64 %umax, %.4256307324
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.4256307, i8 57, i64 %295, i1 false)
+  %scevgep = getelementptr i8, ptr %.4256307, i64 %295
   br label %.loopexit294
 
 296:                                              ; preds = %290
   %297 = trunc i32 %292 to i8
   %298 = add i8 %297, 48
-  %299 = getelementptr inbounds i8, ptr %.3255307, i64 1
-  store i8 %298, ptr %.3255307, align 1
+  %299 = getelementptr inbounds i8, ptr %.4256307, i64 1
+  store i8 %298, ptr %.4256307, align 1
   %300 = sitofp i32 %292 to double
   %301 = fsub double %291, %300
   br label %.loopexit294
 
 .loopexit294:                                     ; preds = %.preheader293.preheader, %296
-  %.6258 = phi ptr [ %299, %296 ], [ %scevgep, %.preheader293.preheader ]
+  %.7259 = phi ptr [ %299, %296 ], [ %scevgep, %.preheader293.preheader ]
   %.8 = phi double [ %301, %296 ], [ %291, %.preheader293.preheader ]
-  %302 = icmp ult ptr %.6258, %.0262333338
+  %302 = icmp ult ptr %.7259, %.0262333338
   br i1 %302, label %.lr.ph310, label %.loopexit295
 
 .loopexit295:                                     ; preds = %.loopexit294, %.thread, %.loopexit297, %250
   %.0262334 = phi ptr [ %.0262, %250 ], [ %.0262333338, %.loopexit297 ], [ %.0262332, %.thread ], [ %.0262333338, %.loopexit294 ]
-  %.7259 = phi ptr [ %.0262, %250 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit297 ], [ %.0262332, %.thread ], [ %.6258, %.loopexit294 ]
+  %.3255 = phi ptr [ %.0262, %250 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit297 ], [ %.0262332, %.thread ], [ %.7259, %.loopexit294 ]
   %.not291 = icmp ugt ptr %.0262334, %.0261
   br i1 %.not291, label %305, label %303
 
@@ -660,7 +660,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %306, label %307, label %.loopexit
 
 307:                                              ; preds = %305
-  %308 = getelementptr inbounds i8, ptr %.7259, i64 -1
+  %308 = getelementptr inbounds i8, ptr %.3255, i64 -1
   %309 = load i8, ptr %308, align 1
   %310 = add i8 %309, 5
   store i8 %310, ptr %308, align 1
@@ -672,7 +672,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 
 .lr.ph315.split.us:                               ; preds = %.lr.ph315, %322
   %.8260313.us = phi ptr [ %.9.us, %322 ], [ %308, %.lr.ph315 ]
-  %.1263312.us = phi ptr [ %.2264.us, %322 ], [ %.0262334, %.lr.ph315 ]
+  %.2264312.us = phi ptr [ %.3265.us, %322 ], [ %.0262334, %.lr.ph315 ]
   store i8 48, ptr %.8260313.us, align 1
   %312 = icmp ugt ptr %.8260313.us, %.0261
   br i1 %312, label %318, label %313
@@ -682,9 +682,9 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %314 = load i32, ptr %2, align 4
   %315 = add nsw i32 %314, 1
   store i32 %315, ptr %2, align 4
-  %316 = getelementptr inbounds i8, ptr %.1263312.us, i64 -1
+  %316 = getelementptr inbounds i8, ptr %.2264312.us, i64 -1
   store i8 48, ptr %316, align 1
-  %317 = getelementptr inbounds i8, ptr %.1263312.us, i64 1
+  %317 = getelementptr inbounds i8, ptr %.2264312.us, i64 1
   %.pr.us.pre = load i8, ptr %.8260313.us, align 1
   br label %322
 
@@ -697,7 +697,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 
 322:                                              ; preds = %318, %313
   %.pr.us = phi i8 [ %321, %318 ], [ %.pr.us.pre, %313 ]
-  %.2264.us = phi ptr [ %.1263312.us, %318 ], [ %317, %313 ]
+  %.3265.us = phi ptr [ %.2264312.us, %318 ], [ %317, %313 ]
   %.9.us = phi ptr [ %319, %318 ], [ %.8260313.us, %313 ]
   %323 = icmp sgt i8 %.pr.us, 57
   br i1 %323, label %.lr.ph315.split.us, label %.loopexit
@@ -730,8 +730,8 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %333, label %.lr.ph315.split, label %.loopexit
 
 .loopexit:                                        ; preds = %332, %322, %.preheader.preheader, %307, %303, %305
-  %.3265 = phi ptr [ %304, %303 ], [ %.0262334, %305 ], [ %.0262334, %307 ], [ %.0262333338, %.preheader.preheader ], [ %.2264.us, %322 ], [ %.0262334, %332 ]
-  %334 = getelementptr inbounds i8, ptr %.3265, i64 -1
+  %.1263 = phi ptr [ %304, %303 ], [ %.0262334, %305 ], [ %.0262334, %307 ], [ %.0262333338, %.preheader.preheader ], [ %.3265.us, %322 ], [ %.0262334, %332 ]
+  %334 = getelementptr inbounds i8, ptr %.1263, i64 -1
   store i8 0, ptr %334, align 1
   %335 = ptrtoint ptr %334 to i64
   %336 = ptrtoint ptr %.0261 to i64

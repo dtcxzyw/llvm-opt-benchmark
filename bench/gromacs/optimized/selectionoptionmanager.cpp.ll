@@ -240,11 +240,11 @@ define void @_ZN3gmx22SelectionOptionManager4Impl25placeSelectionsInRequestsERKS
   br label %68
 
 68:                                               ; preds = %64, %66
-  %.149 = phi i1 [ %.048, %66 ], [ true, %64 ]
+  %.351 = phi i1 [ %.048, %66 ], [ true, %64 ]
   %.pn64 = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  br i1 %.149, label %69, label %.body
+  br i1 %.351, label %69, label %.body
 
 69:                                               ; preds = %.thread117, %.thread, %68
   %.pn64.pn.pn116 = phi { ptr, i32 } [ %62, %.thread ], [ %.pn64, %68 ], [ %63, %.thread117 ]
@@ -322,11 +322,11 @@ define void @_ZN3gmx22SelectionOptionManager4Impl25placeSelectionsInRequestsERKS
   br label %94
 
 94:                                               ; preds = %90, %92
-  %.153 = phi i1 [ %.052, %92 ], [ true, %90 ]
+  %.355 = phi i1 [ %.052, %92 ], [ true, %90 ]
   %.pn60 = phi { ptr, i32 } [ %93, %92 ], [ %91, %90 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  br i1 %.153, label %95, label %.body
+  br i1 %.355, label %95, label %.body
 
 95:                                               ; preds = %.thread124, %.thread120, %94
   %.pn60.pn.pn123 = phi { ptr, i32 } [ %88, %.thread120 ], [ %.pn60, %94 ], [ %89, %.thread124 ]
@@ -503,10 +503,10 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %111, %113
 
 149:                                              ; preds = %145, %147
   %.pn = phi { ptr, i32 } [ %148, %147 ], [ %146, %145 ]
-  %.1 = phi i1 [ %.0, %147 ], [ true, %145 ]
+  %.3 = phi i1 [ %.0, %147 ], [ true, %145 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
-  br i1 %.1, label %150, label %.body
+  br i1 %.3, label %150, label %.body
 
 150:                                              ; preds = %.thread131, %.thread127, %149
   %.pn.pn.pn130 = phi { ptr, i32 } [ %143, %.thread127 ], [ %.pn, %149 ], [ %144, %.thread131 ]
@@ -1495,8 +1495,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %9, %12
 
 33:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ]
-  %.0 = extractvalue { ptr, i32 } %.pn, 0
-  %.07 = extractvalue { ptr, i32 } %.pn, 1
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %.29 = extractvalue { ptr, i32 } %.pn, 1
   invoke void @__cxa_end_catch()
           to label %37 unwind label %42
 
@@ -1513,8 +1513,8 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %34, %36
   ret void
 
 37:                                               ; preds = %33, %18
-  %.18 = phi i32 [ %.07, %33 ], [ %21, %18 ]
-  %.1 = phi ptr [ %.0, %33 ], [ %20, %18 ]
+  %.18 = phi i32 [ %.29, %33 ], [ %21, %18 ]
+  %.1 = phi ptr [ %.2, %33 ], [ %20, %18 ]
   %38 = load ptr, ptr %3, align 8
   %.not.i.i.i13 = icmp eq ptr %38, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14, label %39
@@ -1524,10 +1524,10 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %34, %36
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14
 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit14: ; preds = %39, %37, %14
-  %.29 = phi i32 [ %17, %14 ], [ %.18, %37 ], [ %.18, %39 ]
-  %.2 = phi ptr [ %16, %14 ], [ %.1, %37 ], [ %.1, %39 ]
-  %40 = insertvalue { ptr, i32 } poison, ptr %.2, 0
-  %41 = insertvalue { ptr, i32 } %40, i32 %.29, 1
+  %.07 = phi i32 [ %17, %14 ], [ %.18, %37 ], [ %.18, %39 ]
+  %.0 = phi ptr [ %16, %14 ], [ %.1, %37 ], [ %.1, %39 ]
+  %40 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %.07, 1
   resume { ptr, i32 } %41
 
 42:                                               ; preds = %33

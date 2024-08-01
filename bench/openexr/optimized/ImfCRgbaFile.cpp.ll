@@ -1280,14 +1280,14 @@ ehcleanup28:                                      ; preds = %lpad22, %lpad.i, %e
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i16, %ehcleanup28
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup28 ], [ %1, %lpad ], [ %9, %lpad.i16 ]
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
-  %matches = icmp eq i32 %ehselector.slot.2, %5
+  %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %6 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #22
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %6 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8

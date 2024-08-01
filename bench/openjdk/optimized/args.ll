@@ -272,15 +272,15 @@ sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
   br label %84
 
 84:                                               ; preds = %83, %79
-  %.1.i.i.i = phi i64 [ %spec.select9.i.i.i, %83 ], [ %spec.select.i.i.i, %79 ]
+  %.0.i.i.i = phi i64 [ %spec.select9.i.i.i, %83 ], [ %spec.select.i.i.i, %79 ]
   %85 = load i32, ptr @firstAppArgIndex, align 4
   %86 = icmp eq i32 %85, -1
-  %87 = icmp ne i64 %.1.i.i.i, 0
+  %87 = icmp ne i64 %.0.i.i.i, 0
   %or.cond.i.i.i = select i1 %86, i1 %87, i1 false
   br i1 %or.cond.i.i.i, label %88, label %checkArg.exit.i.i
 
 88:                                               ; preds = %84
-  %89 = trunc i64 %.1.i.i.i to i32
+  %89 = trunc i64 %.0.i.i.i to i32
   store i32 %89, ptr @firstAppArgIndex, align 4
   br label %checkArg.exit.i.i
 
@@ -407,15 +407,15 @@ sub_1:                                            ; preds = %sub_0
   br label %30
 
 30:                                               ; preds = %25, %29
-  %.1 = phi i64 [ %spec.select9, %29 ], [ %spec.select, %25 ]
+  %.0 = phi i64 [ %spec.select9, %29 ], [ %spec.select, %25 ]
   %31 = load i32, ptr @firstAppArgIndex, align 4
   %32 = icmp eq i32 %31, -1
-  %33 = icmp ne i64 %.1, 0
+  %33 = icmp ne i64 %.0, 0
   %or.cond = select i1 %32, i1 %33, i1 false
   br i1 %or.cond, label %34, label %.thread
 
 34:                                               ; preds = %30
-  %35 = trunc i64 %.1 to i32
+  %35 = trunc i64 %.0 to i32
   store i32 %35, ptr @firstAppArgIndex, align 4
   br label %.thread
 
@@ -942,15 +942,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %100
 
 .preheader:                                       ; preds = %9, %40
-  %.2117 = phi ptr [ %39, %40 ], [ %.0115138, %9 ]
-  %.1 = phi i8 [ %41, %40 ], [ %17, %9 ]
-  switch i8 %.1, label %38 [
+  %.4 = phi ptr [ %39, %40 ], [ %.0115138, %9 ]
+  %.2 = phi i8 [ %41, %40 ], [ %17, %9 ]
+  switch i8 %.2, label %38 [
     i8 13, label %42
     i8 10, label %42
   ]
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %.2117, i64 1
+  %39 = getelementptr inbounds i8, ptr %.4, i64 1
   %.not = icmp ult ptr %39, %5
   br i1 %.not, label %40, label %.loopexit
 
@@ -959,7 +959,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.preheader, !llvm.loop !15
 
 42:                                               ; preds = %.preheader, %.preheader
-  %43 = getelementptr inbounds i8, ptr %.2117, i64 1
+  %43 = getelementptr inbounds i8, ptr %.4, i64 1
   store i32 0, ptr %0, align 8
   br label %100
 
@@ -971,10 +971,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %49 = phi i32 [ %24, %22 ], [ %14, %9 ]
   %50 = phi i32 [ %24, %22 ], [ %15, %9 ]
   %51 = phi i32 [ %24, %22 ], [ %16, %9 ]
-  %.3 = phi ptr [ %.1116, %22 ], [ %.0115138, %9 ]
+  %.2117 = phi ptr [ %.1116, %22 ], [ %.0115138, %9 ]
   %.1113 = phi ptr [ %.1116, %22 ], [ %.0112139, %9 ]
-  %.2 = phi i8 [ %.0110, %22 ], [ %17, %9 ]
-  switch i8 %.2, label %100 [
+  %.1 = phi i8 [ %.0110, %22 ], [ %17, %9 ]
+  switch i8 %.1, label %100 [
     i8 32, label %52
     i8 9, label %52
     i8 12, label %52
@@ -995,7 +995,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 0
-  %59 = ptrtoint ptr %.3 to i64
+  %59 = ptrtoint ptr %.2117 to i64
   %60 = ptrtoint ptr %.1113 to i64
   %61 = sub i64 %59, %60
   br i1 %58, label %62, label %66
@@ -1020,7 +1020,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 71:                                               ; preds = %66, %62
   %.0111 = phi ptr [ %64, %62 ], [ %68, %66 ]
-  %72 = getelementptr inbounds i8, ptr %.3, i64 1
+  %72 = getelementptr inbounds i8, ptr %.2117, i64 1
   store ptr %72, ptr %2, align 8
   store i32 0, ptr %0, align 8
   br label %.loopexit
@@ -1031,7 +1031,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 75:                                               ; preds = %73
   store i32 1, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %.3, i64 1
+  %76 = getelementptr inbounds i8, ptr %.2117, i64 1
   br label %100
 
 77:                                               ; preds = %44
@@ -1040,12 +1040,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr %7, align 8
-  %80 = ptrtoint ptr %.3 to i64
+  %80 = ptrtoint ptr %.2117 to i64
   %81 = ptrtoint ptr %.1113 to i64
   %82 = sub i64 %80, %81
   tail call void @JLI_List_addSubstring(ptr noundef %79, ptr noundef %.1113, i64 noundef %82) #12
   store i32 3, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %.3, i64 1
+  %83 = getelementptr inbounds i8, ptr %.2117, i64 1
   br label %100
 
 84:                                               ; preds = %44, %44
@@ -1054,16 +1054,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 86:                                               ; preds = %84
   %87 = load i8, ptr %8, align 8
-  %.not124 = icmp eq i8 %87, %.2
+  %.not124 = icmp eq i8 %87, %.1
   br i1 %.not124, label %88, label %100
 
 88:                                               ; preds = %86, %84
-  %.not125 = icmp eq ptr %.1113, %.3
+  %.not125 = icmp eq ptr %.1113, %.2117
   br i1 %.not125, label %94, label %89
 
 89:                                               ; preds = %88
   %90 = load ptr, ptr %7, align 8
-  %91 = ptrtoint ptr %.3 to i64
+  %91 = ptrtoint ptr %.2117 to i64
   %92 = ptrtoint ptr %.1113 to i64
   %93 = sub i64 %91, %92
   tail call void @JLI_List_addSubstring(ptr noundef %90, ptr noundef %.1113, i64 noundef %93) #12
@@ -1072,12 +1072,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 94:                                               ; preds = %89, %88
   %95 = phi i32 [ %.pre145, %89 ], [ %49, %88 ]
-  %96 = getelementptr inbounds i8, ptr %.3, i64 1
+  %96 = getelementptr inbounds i8, ptr %.2117, i64 1
   %97 = icmp eq i32 %95, 5
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %94
-  store i8 %.2, ptr %8, align 8
+  store i8 %.1, ptr %8, align 8
   store i32 2, ptr %0, align 8
   br label %100
 
@@ -1093,9 +1093,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %105 = phi i32 [ %49, %44 ], [ %49, %86 ], [ 2, %98 ], [ 5, %99 ], [ %48, %77 ], [ 3, %78 ], [ 2, %73 ], [ 1, %75 ], [ 2, %52 ], [ %storemerge, %36 ], [ 0, %42 ]
   %106 = phi i32 [ %50, %44 ], [ 2, %86 ], [ 2, %98 ], [ 5, %99 ], [ %48, %77 ], [ 3, %78 ], [ 2, %73 ], [ 1, %75 ], [ 2, %52 ], [ %storemerge, %36 ], [ 0, %42 ]
   %107 = phi i32 [ %51, %44 ], [ 2, %86 ], [ 2, %98 ], [ 5, %99 ], [ %48, %77 ], [ 3, %78 ], [ 2, %73 ], [ 1, %75 ], [ 2, %52 ], [ %storemerge, %36 ], [ 0, %42 ]
-  %.4 = phi ptr [ %.3, %44 ], [ %.3, %86 ], [ %.3, %98 ], [ %.3, %99 ], [ %.3, %77 ], [ %.3, %78 ], [ %.3, %73 ], [ %.3, %75 ], [ %.3, %52 ], [ %.0115138, %36 ], [ %.2117, %42 ]
+  %.3 = phi ptr [ %.2117, %44 ], [ %.2117, %86 ], [ %.2117, %98 ], [ %.2117, %99 ], [ %.2117, %77 ], [ %.2117, %78 ], [ %.2117, %73 ], [ %.2117, %75 ], [ %.2117, %52 ], [ %.0115138, %36 ], [ %.4, %42 ]
   %.2114 = phi ptr [ %.1113, %44 ], [ %.1113, %86 ], [ %96, %98 ], [ %96, %99 ], [ %.1113, %77 ], [ %83, %78 ], [ %.1113, %73 ], [ %76, %75 ], [ %.1113, %52 ], [ %37, %36 ], [ %43, %42 ]
-  %108 = getelementptr inbounds i8, ptr %.4, i64 1
+  %108 = getelementptr inbounds i8, ptr %.3, i64 1
   %109 = icmp ult ptr %108, %5
   br i1 %109, label %9, label %._crit_edge, !llvm.loop !16
 

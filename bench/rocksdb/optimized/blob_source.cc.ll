@@ -2461,8 +2461,8 @@ invoke.cont5.lr.ph:                               ; preds = %for.cond.preheader
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit
-  %cache_hit_mask.0377 = phi i64 [ 0, %invoke.cont5.lr.ph ], [ %cache_hit_mask.1, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
-  %total_bytes.0376 = phi i64 [ 0, %invoke.cont5.lr.ph ], [ %total_bytes.1, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
+  %cache_hit_mask.1377 = phi i64 [ 0, %invoke.cont5.lr.ph ], [ %cache_hit_mask.2, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
+  %total_bytes.1376 = phi i64 [ 0, %invoke.cont5.lr.ph ], [ %total_bytes.2, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
   %cached_blob_count.0375 = phi i64 [ 0, %invoke.cont5.lr.ph ], [ %cached_blob_count.1, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
   %i.0374 = phi i64 [ 0, %invoke.cont5.lr.ph ], [ %inc20, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
   %cmp.i = icmp ult i64 %i.0374, 8
@@ -2628,10 +2628,10 @@ cond.end:                                         ; preds = %invoke.cont14, %con
   %cond = phi i64 [ %add.i66, %cond.true ], [ 0, %invoke.cont14 ]
   %len = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %42 = load i64, ptr %len, align 8
-  %add = add i64 %cond, %total_bytes.0376
+  %add = add i64 %cond, %total_bytes.1376
   %add19 = add i64 %add, %42
   %shl = shl nuw i64 1, %i.0374
-  %or = or i64 %cache_hit_mask.0377, %shl
+  %or = or i64 %cache_hit_mask.1377, %shl
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont5
@@ -2665,8 +2665,8 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad8, %_ZNKSt14def
 
 if.end:                                           ; preds = %cond.end, %invoke.cont9
   %cached_blob_count.1 = phi i64 [ %inc, %cond.end ], [ %cached_blob_count.0375, %invoke.cont9 ]
-  %total_bytes.1 = phi i64 [ %add19, %cond.end ], [ %total_bytes.0376, %invoke.cont9 ]
-  %cache_hit_mask.1 = phi i64 [ %or, %cond.end ], [ %cache_hit_mask.0377, %invoke.cont9 ]
+  %total_bytes.2 = phi i64 [ %add19, %cond.end ], [ %total_bytes.1376, %invoke.cont9 ]
+  %cache_hit_mask.2 = phi i64 [ %or, %cond.end ], [ %cache_hit_mask.1377, %invoke.cont9 ]
   %45 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i71 = icmp eq ptr %45, null
   br i1 %cmp.not.i.i71, label %_ZN7rocksdb6StatusD2Ev.exit73, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i72
@@ -2708,8 +2708,8 @@ ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD
 
 for.end:                                          ; preds = %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit, %for.cond.preheader
   %cached_blob_count.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %cached_blob_count.1, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
-  %total_bytes.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %total_bytes.1, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
-  %cache_hit_mask.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %cache_hit_mask.1, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
+  %total_bytes.1.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %total_bytes.2, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
+  %cache_hit_mask.1.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %cache_hit_mask.2, %_ZN7rocksdb16CacheHandleGuardINS_12BlobContentsEED2Ev.exit ]
   %cmp21 = icmp eq i64 %cached_blob_count.0.lcssa, %add.i
   br i1 %cmp21, label %if.then22, label %if.end27
 
@@ -2718,12 +2718,12 @@ if.then22:                                        ; preds = %for.end
   br i1 %tobool23.not, label %cleanup.cont, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
-  store i64 %total_bytes.0.lcssa, ptr %bytes_read, align 8
+  store i64 %total_bytes.1.lcssa, ptr %bytes_read, align 8
   br label %cleanup.cont
 
 if.end27:                                         ; preds = %for.end, %entry
-  %total_bytes.2 = phi i64 [ %total_bytes.0.lcssa, %for.end ], [ 0, %entry ]
-  %cache_hit_mask.2 = phi i64 [ %cache_hit_mask.0.lcssa, %for.end ], [ 0, %entry ]
+  %total_bytes.0 = phi i64 [ %total_bytes.1.lcssa, %for.end ], [ 0, %entry ]
+  %cache_hit_mask.0 = phi i64 [ %cache_hit_mask.1.lcssa, %for.end ], [ 0, %entry ]
   %read_tier = getelementptr inbounds i8, ptr %read_options, i64 40
   %51 = load i32, ptr %read_tier, align 8
   %cmp28 = icmp eq i32 %51, 1
@@ -2748,7 +2748,7 @@ for.body34.lr.ph:                                 ; preds = %for.cond32.preheade
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.inc45
   %i31.0394 = phi i64 [ 0, %for.body34.lr.ph ], [ %inc46, %for.inc45 ]
   %shl35 = shl nuw i64 1, %i31.0394
-  %and = and i64 %shl35, %cache_hit_mask.2
+  %and = and i64 %shl35, %cache_hit_mask.0
   %tobool36.not = icmp eq i64 %and, 0
   br i1 %tobool36.not, label %if.then37, label %for.inc45
 
@@ -2843,7 +2843,7 @@ for.body52.lr.ph:                                 ; preds = %if.end48
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.inc66
   %i49.0381 = phi i64 [ 0, %for.body52.lr.ph ], [ %inc67, %for.inc66 ]
   %shl53 = shl nuw i64 1, %i49.0381
-  %and54 = and i64 %shl53, %cache_hit_mask.2
+  %and54 = and i64 %shl53, %cache_hit_mask.0
   %tobool55.not = icmp eq i64 %and54, 0
   br i1 %tobool55.not, label %if.then56, label %for.inc66
 
@@ -3525,7 +3525,7 @@ if.end191:                                        ; preds = %for.inc153, %for.in
 
 if.then194:                                       ; preds = %if.end191
   %178 = load i64, ptr %_bytes_read, align 8
-  %add192 = add i64 %178, %total_bytes.2
+  %add192 = add i64 %178, %total_bytes.0
   store i64 %add192, ptr %bytes_read, align 8
   br label %cleanup
 

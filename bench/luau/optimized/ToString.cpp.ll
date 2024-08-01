@@ -5196,7 +5196,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit30:       ; preds = %46, %38, %.lr.ph
   br i1 %57, label %.lr.ph55.split.us, label %.lr.ph55.split
 
 .lr.ph55.split.us:                                ; preds = %.lr.ph55, %_ZN4Luau16StringifierState4emitEPKc.exit36.us
-  %.153.us = phi i8 [ %.3.us, %_ZN4Luau16StringifierState4emitEPKc.exit36.us ], [ %.0.lcssa, %.lr.ph55 ]
+  %.153.us = phi i8 [ %.2.us, %_ZN4Luau16StringifierState4emitEPKc.exit36.us ], [ %.0.lcssa, %.lr.ph55 ]
   %.sroa.039.052.us = phi ptr [ %79, %_ZN4Luau16StringifierState4emitEPKc.exit36.us ], [ %53, %.lr.ph55 ]
   %58 = load ptr, ptr %.sroa.039.052.us, align 8
   %59 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %58)
@@ -5231,18 +5231,18 @@ _ZN4Luau16StringifierState4emitEPKc.exit30:       ; preds = %46, %38, %.lr.ph
   br label %_ZN4Luau16StringifierState4emitEPKc.exit32.us
 
 _ZN4Luau16StringifierState4emitEPKc.exit32.us:    ; preds = %75, %67, %60
-  %.2.us = phi i8 [ 0, %60 ], [ %.153.us, %67 ], [ %.153.us, %75 ]
+  %.3.us = phi i8 [ 0, %60 ], [ %.153.us, %67 ], [ %.153.us, %75 ]
   tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %58)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit36.us
 
 _ZN4Luau16StringifierState4emitEPKc.exit36.us:    ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit32.us, %.lr.ph55.split.us
-  %.3.us = phi i8 [ %.153.us, %.lr.ph55.split.us ], [ %.2.us, %_ZN4Luau16StringifierState4emitEPKc.exit32.us ]
+  %.2.us = phi i8 [ %.153.us, %.lr.ph55.split.us ], [ %.3.us, %_ZN4Luau16StringifierState4emitEPKc.exit32.us ]
   %79 = getelementptr inbounds i8, ptr %.sroa.039.052.us, i64 8
   %.not46.us = icmp eq ptr %79, %52
   br i1 %.not46.us, label %._crit_edge56, label %.lr.ph55.split.us
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %_ZN4Luau16StringifierState4emitEPKc.exit36
-  %.153 = phi i8 [ %.2, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %.0.lcssa, %.lr.ph55 ]
+  %.153 = phi i8 [ %.3, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %.0.lcssa, %.lr.ph55 ]
   %.sroa.039.052 = phi ptr [ %136, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %53, %.lr.ph55 ]
   %80 = load ptr, ptr %.sroa.039.052, align 8
   %81 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %80)
@@ -5274,7 +5274,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit36.us:    ; preds = %_ZN4Luau16Stringifi
   br label %_ZN4Luau16StringifierState4emitEPKc.exit32
 
 _ZN4Luau16StringifierState4emitEPKc.exit32:       ; preds = %96, %88, %.lr.ph55.split
-  %.2 = phi i8 [ 0, %.lr.ph55.split ], [ %.153, %88 ], [ %.153, %96 ]
+  %.3 = phi i8 [ 0, %.lr.ph55.split ], [ %.153, %88 ], [ %.153, %96 ]
   %100 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %80)
   %.not.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i, label %.critedge, label %101

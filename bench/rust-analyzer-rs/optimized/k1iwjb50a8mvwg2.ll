@@ -156,7 +156,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$10into_inner17h8ca3f83cf
           to label %20 unwind label %.thread
 
 18:                                               ; preds = %59
-  br i1 %.2, label %257, label %255
+  br i1 %.4, label %257, label %255
 
 .thread:                                          ; preds = %23, %2, %178
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -255,7 +255,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$10into_inner17h8ca3f83cf
   br label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
 
 59:                                               ; preds = %103, %60
-  %.2 = phi i1 [ true, %60 ], [ false, %103 ]
+  %.4 = phi i1 [ true, %60 ], [ false, %103 ]
   %.pn81 = phi { ptr, i32 } [ %61, %60 ], [ %104, %103 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16) #21
           to label %18 unwind label %175

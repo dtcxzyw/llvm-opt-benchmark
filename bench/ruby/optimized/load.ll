@@ -1888,13 +1888,13 @@ rb_long2num_inline.exit:                          ; preds = %171, %174
   br label %177
 
 177:                                              ; preds = %rb_long2num_inline.exit, %163, %162
-  %.sroa.0145.0 = phi i8 [ undef, %162 ], [ %166, %rb_long2num_inline.exit ], [ undef, %163 ]
+  %.sroa.0145.1 = phi i8 [ undef, %162 ], [ %166, %rb_long2num_inline.exit ], [ undef, %163 ]
   store volatile i32 1, ptr %9, align 4
   br label %178
 
 178:                                              ; preds = %82, %107, %136, %161, %177, %148, %133
   %179 = phi i32 [ 0, %107 ], [ 0, %133 ], [ 0, %136 ], [ 0, %148 ], [ 0, %161 ], [ 0, %177 ], [ %67, %82 ]
-  %.sroa.0145.1 = phi i8 [ undef, %107 ], [ undef, %133 ], [ undef, %136 ], [ undef, %148 ], [ undef, %161 ], [ %.sroa.0145.0, %177 ], [ undef, %82 ]
+  %.sroa.0145.0 = phi i8 [ undef, %107 ], [ undef, %133 ], [ undef, %136 ], [ undef, %148 ], [ undef, %161 ], [ %.sroa.0145.1, %177 ], [ undef, %82 ]
   %180 = load ptr, ptr %46, align 8
   %.0..0..0..0.28 = load ptr, ptr %15, align 8
   %181 = getelementptr inbounds i8, ptr %.0..0..0..0.28, i64 24
@@ -1914,7 +1914,7 @@ rb_long2num_inline.exit:                          ; preds = %171, %174
 
 186:                                              ; preds = %178
   %187 = getelementptr inbounds i8, ptr %.sroa.6.0..sroa.6.24..val, i64 448
-  store i8 %.sroa.0145.1, ptr %187, align 8
+  store i8 %.sroa.0145.0, ptr %187, align 8
   br label %188
 
 188:                                              ; preds = %186, %178
@@ -2380,9 +2380,9 @@ define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef 
   br label %38
 
 38:                                               ; preds = %.preheader152, %94
-  %.0106 = phi i64 [ %.3109, %94 ], [ 0, %.preheader152 ]
+  %.1107 = phi i64 [ %.2108, %94 ], [ 0, %.preheader152 ]
   %.0104 = phi i64 [ %95, %94 ], [ 0, %.preheader152 ]
-  %.0102 = phi i32 [ %.2, %94 ], [ %4, %.preheader152 ]
+  %.1 = phi i32 [ %.2, %94 ], [ %4, %.preheader152 ]
   br i1 %.not151, label %40, label %39
 
 39:                                               ; preds = %38
@@ -2436,11 +2436,11 @@ RARRAY_AREF.exit:                                 ; preds = %47, %50
   br i1 %.not131, label %74, label %62
 
 62:                                               ; preds = %60
-  %.not132 = icmp eq i32 %.0102, 0
+  %.not132 = icmp eq i32 %.1, 0
   br i1 %.not132, label %63, label %94
 
 63:                                               ; preds = %62
-  %.not133 = icmp eq i64 %.0106, 0
+  %.not133 = icmp eq i64 %.1107, 0
   br i1 %.not133, label %64, label %66
 
 64:                                               ; preds = %63
@@ -2448,8 +2448,8 @@ RARRAY_AREF.exit:                                 ; preds = %47, %50
   br label %66
 
 66:                                               ; preds = %64, %63
-  %.1107 = phi i64 [ %.0106, %63 ], [ %65, %64 ]
-  %67 = call fastcc i64 @loaded_feature_path(ptr noundef %54, i64 noundef %58, ptr noundef %1, i64 noundef %.0113, i32 noundef %.0105, i64 noundef %.1107)
+  %.4 = phi i64 [ %.1107, %63 ], [ %65, %64 ]
+  %67 = call fastcc i64 @loaded_feature_path(ptr noundef %54, i64 noundef %58, ptr noundef %1, i64 noundef %.0113, i32 noundef %.0105, i64 noundef %.4)
   %.not134 = icmp eq i64 %67, 0
   br i1 %.not134, label %94, label %68
 
@@ -2463,8 +2463,8 @@ RARRAY_AREF.exit:                                 ; preds = %47, %50
 
 74:                                               ; preds = %68, %60
   %.0110 = phi ptr [ %73, %68 ], [ %54, %60 ]
-  %.2108 = phi i64 [ %.1107, %68 ], [ %.0106, %60 ]
-  %.1 = phi i32 [ 1, %68 ], [ %.0102, %60 ]
+  %.3109 = phi i64 [ %.4, %68 ], [ %.1107, %60 ]
+  %.3 = phi i32 [ 1, %68 ], [ %.1, %60 ]
   %75 = getelementptr i8, ptr %.0110, i64 %.0113
   %76 = load i8, ptr %75, align 1
   switch i8 %76, label %94 [
@@ -2511,17 +2511,17 @@ sub_2:                                            ; preds = %sub_1
   br i1 %93, label %.loopexit153, label %94
 
 94:                                               ; preds = %74, %.thread, %91, %77, %66, %62, %RARRAY_AREF.exit
-  %.3109 = phi i64 [ %.0106, %RARRAY_AREF.exit ], [ %.0106, %62 ], [ %.2108, %91 ], [ %.2108, %.thread ], [ %.2108, %77 ], [ %.1107, %66 ], [ %.2108, %74 ]
-  %.2 = phi i32 [ %.0102, %RARRAY_AREF.exit ], [ %.0102, %62 ], [ %.1, %91 ], [ %.1, %.thread ], [ %.1, %77 ], [ 0, %66 ], [ %.1, %74 ]
+  %.2108 = phi i64 [ %.1107, %RARRAY_AREF.exit ], [ %.1107, %62 ], [ %.3109, %91 ], [ %.3109, %.thread ], [ %.3109, %77 ], [ %.4, %66 ], [ %.3109, %74 ]
+  %.2 = phi i32 [ %.1, %RARRAY_AREF.exit ], [ %.1, %62 ], [ %.3, %91 ], [ %.3, %.thread ], [ %.3, %77 ], [ 0, %66 ], [ %.3, %74 ]
   %95 = add nuw i64 %.0104, 1
   br label %38
 
 .loopexit:                                        ; preds = %39, %rb_darray_size.exit, %26, %20
-  %.4 = phi i64 [ 0, %26 ], [ 0, %20 ], [ %.0106, %rb_darray_size.exit ], [ %.0106, %39 ]
-  %.3 = phi i32 [ %4, %26 ], [ %4, %20 ], [ %.0102, %rb_darray_size.exit ], [ %.0102, %39 ]
+  %.0106 = phi i64 [ 0, %26 ], [ 0, %20 ], [ %.1107, %rb_darray_size.exit ], [ %.1107, %39 ]
+  %.0102 = phi i32 [ %4, %26 ], [ %4, %20 ], [ %.1, %rb_darray_size.exit ], [ %.1, %39 ]
   %96 = getelementptr i8, ptr %0, i64 640
   %.val147 = load ptr, ptr %96, align 8
-  %.not137 = icmp eq i32 %.3, 0
+  %.not137 = icmp eq i32 %.0102, 0
   br i1 %.not137, label %97, label %110
 
 97:                                               ; preds = %.loopexit
@@ -2530,7 +2530,7 @@ sub_2:                                            ; preds = %sub_1
   store i64 %.0113, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %.0105, ptr %99, align 8
-  %.not138 = icmp eq i64 %.4, 0
+  %.not138 = icmp eq i64 %.0106, 0
   br i1 %.not138, label %100, label %102
 
 100:                                              ; preds = %97
@@ -2538,7 +2538,7 @@ sub_2:                                            ; preds = %sub_1
   br label %102
 
 102:                                              ; preds = %97, %100
-  %103 = phi i64 [ %101, %100 ], [ %.4, %97 ]
+  %103 = phi i64 [ %101, %100 ], [ %.0106, %97 ]
   %104 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %9, i64 32
@@ -3364,9 +3364,9 @@ rb_array_len.exit48:                              ; preds = %50, %53
   br label %65
 
 65:                                               ; preds = %61, %.lr.ph
-  %.1 = phi i64 [ %64, %61 ], [ %59, %.lr.ph ]
-  %66 = call i64 @rb_hash_aset(i64 noundef %13, i64 noundef %.1, i64 noundef 20) #6
-  %67 = call i64 @rb_hash_aset(i64 noundef %15, i64 noundef %58, i64 noundef %.1) #6
+  %.0 = phi i64 [ %64, %61 ], [ %59, %.lr.ph ]
+  %66 = call i64 @rb_hash_aset(i64 noundef %13, i64 noundef %.0, i64 noundef 20) #6
+  %67 = call i64 @rb_hash_aset(i64 noundef %15, i64 noundef %58, i64 noundef %.0) #6
   %68 = add i32 %.14049, 1
   %69 = sext i32 %68 to i64
   %70 = icmp sgt i64 %.0.i47, %69
@@ -4009,7 +4009,7 @@ realpath_internal_cached.exit31:                  ; preds = %38, %46
   br label %52
 
 52:                                               ; preds = %realpath_internal_cached.exit31, %realpath_internal_cached.exit
-  %.0 = phi ptr [ %34, %realpath_internal_cached.exit ], [ %51, %realpath_internal_cached.exit31 ]
+  %.1 = phi ptr [ %34, %realpath_internal_cached.exit ], [ %51, %realpath_internal_cached.exit31 ]
   call void @rb_vm_pop_frame(ptr noundef nonnull %11) #6
   store ptr %4, ptr %7, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #6, !srcloc !109
@@ -4018,7 +4018,7 @@ realpath_internal_cached.exit31:                  ; preds = %38, %46
   br label %55
 
 55:                                               ; preds = %52, %2
-  %.1 = phi ptr [ %8, %2 ], [ %.0, %52 ]
+  %.0 = phi ptr [ %8, %2 ], [ %.1, %52 ]
   %56 = getelementptr i8, ptr %0, i64 48
   %.val.i = load ptr, ptr %56, align 8, !nonnull !13, !noundef !13
   %57 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -4035,7 +4035,7 @@ realpath_internal_cached.exit31:                  ; preds = %38, %46
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8
-  %68 = ptrtoint ptr %.1 to i64
+  %68 = ptrtoint ptr %.0 to i64
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
   store i32 8192, ptr %3, align 8
   %69 = getelementptr inbounds i8, ptr %3, i64 8
@@ -4057,7 +4057,7 @@ realpath_internal_cached.exit31:                  ; preds = %38, %46
   br label %rb_exec_event_hook_script_compiled.exit
 
 rb_exec_event_hook_script_compiled.exit:          ; preds = %55, %62
-  %76 = call i64 @rb_iseq_eval(ptr noundef %.1) #6
+  %76 = call i64 @rb_iseq_eval(ptr noundef %.0) #6
   ret void
 }
 

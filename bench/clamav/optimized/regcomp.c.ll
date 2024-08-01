@@ -434,10 +434,10 @@ stripsnug.exit:                                   ; preds = %doemit.exit98, %set
   br label %139
 
 126:                                              ; preds = %.preheader, %switch.early.test.i
-  %.149.i = phi ptr [ %128, %switch.early.test.i ], [ %.048.i, %.preheader ]
-  %.039.i = phi i64 [ %.fr2.i, %switch.early.test.i ], [ %119, %.preheader ]
-  %127 = and i64 %.039.i, 134217727
-  %128 = getelementptr inbounds i64, ptr %.149.i, i64 %127
+  %.250.i = phi ptr [ %128, %switch.early.test.i ], [ %.048.i, %.preheader ]
+  %.1.i = phi i64 [ %.fr2.i, %switch.early.test.i ], [ %119, %.preheader ]
+  %127 = and i64 %.1.i, 134217727
+  %128 = getelementptr inbounds i64, ptr %.250.i, i64 %127
   %129 = load i64, ptr %128, align 8
   %.fr2.i = freeze i64 %129
   %130 = and i64 %.fr2.i, 4160749568
@@ -458,8 +458,8 @@ switch.early.test.i:                              ; preds = %126
   br label %findmust.exit
 
 .loopexit.i:                                      ; preds = %switch.early.test.i, %126, %117
-  %.250.i = phi ptr [ %118, %117 ], [ %128, %126 ], [ %128, %switch.early.test.i ]
-  %.1.i = phi i64 [ %119, %117 ], [ %.fr2.i, %126 ], [ %.fr2.i, %switch.early.test.i ]
+  %.149.i = phi ptr [ %118, %117 ], [ %128, %126 ], [ %128, %switch.early.test.i ]
+  %.039.i = phi i64 [ %119, %117 ], [ %.fr2.i, %126 ], [ %.fr2.i, %switch.early.test.i ]
   %134 = load i32, ptr %55, align 8
   %135 = sext i32 %134 to i64
   %136 = icmp sgt i64 %.040.i, %135
@@ -471,11 +471,11 @@ switch.early.test.i:                              ; preds = %126
   br label %139
 
 139:                                              ; preds = %137, %.loopexit.i, %123, %117, %117, %117
-  %.3.i = phi ptr [ %118, %117 ], [ %118, %117 ], [ %118, %117 ], [ %118, %123 ], [ %.250.i, %137 ], [ %.250.i, %.loopexit.i ]
+  %.3.i = phi ptr [ %118, %117 ], [ %118, %117 ], [ %118, %117 ], [ %118, %123 ], [ %.149.i, %137 ], [ %.149.i, %.loopexit.i ]
   %.247.i = phi ptr [ %.045.i, %117 ], [ %.045.i, %117 ], [ %.045.i, %117 ], [ %.045.i, %123 ], [ %.042.i, %137 ], [ %.045.i, %.loopexit.i ]
   %.244.i = phi ptr [ %.042.i, %117 ], [ %.042.i, %117 ], [ %.042.i, %117 ], [ %spec.select.i, %123 ], [ %.042.i, %137 ], [ %.042.i, %.loopexit.i ]
   %.141.i = phi i64 [ %.040.i, %117 ], [ %.040.i, %117 ], [ %.040.i, %117 ], [ %125, %123 ], [ 0, %137 ], [ 0, %.loopexit.i ]
-  %.2.i = phi i64 [ %119, %117 ], [ %119, %117 ], [ %119, %117 ], [ %119, %123 ], [ %.1.i, %137 ], [ %.1.i, %.loopexit.i ]
+  %.2.i = phi i64 [ %119, %117 ], [ %119, %117 ], [ %119, %117 ], [ %119, %123 ], [ %.039.i, %137 ], [ %.039.i, %.loopexit.i ]
   %140 = and i64 %.2.i, 4160749568
   %.not56.i = icmp eq i64 %140, 134217728
   br i1 %.not56.i, label %141, label %117

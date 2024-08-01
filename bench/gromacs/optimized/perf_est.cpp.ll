@@ -350,8 +350,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   br label %23
 
 23:                                               ; preds = %._crit_edge.i, %.lr.ph112.i
-  %.067 = phi i1 [ false, %.lr.ph112.i ], [ %.370, %._crit_edge.i ]
-  %.065 = phi i1 [ false, %.lr.ph112.i ], [ %.3, %._crit_edge.i ]
+  %.067 = phi i1 [ false, %.lr.ph112.i ], [ %.168, %._crit_edge.i ]
+  %.065 = phi i1 [ false, %.lr.ph112.i ], [ %.166, %._crit_edge.i ]
   %.081111.i = phi i32 [ 0, %.lr.ph112.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %.082110.i = phi i32 [ 0, %.lr.ph112.i ], [ %.183.lcssa.i, %._crit_edge.i ]
   %.sroa.096.0109.i = phi ptr [ %15, %.lr.ph112.i ], [ %68, %._crit_edge.i ]
@@ -371,8 +371,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   br label %34
 
 34:                                               ; preds = %61, %.lr.ph.i
-  %.168 = phi i1 [ %.067, %.lr.ph.i ], [ %.269, %61 ]
-  %.166 = phi i1 [ %.065, %.lr.ph.i ], [ %.2, %61 ]
+  %.370 = phi i1 [ %.067, %.lr.ph.i ], [ %.471, %61 ]
+  %.3 = phi i1 [ %.065, %.lr.ph.i ], [ %.4, %61 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
   %.1105.i = phi i32 [ %.081111.i, %.lr.ph.i ], [ %.2.i, %61 ]
   %.183104.i = phi i32 [ %.082110.i, %.lr.ph.i ], [ %.284.i, %61 ]
@@ -431,18 +431,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   %63 = getelementptr inbounds i8, ptr %35, i64 12
   %64 = load float, ptr %63, align 4
   %65 = fcmp une float %37, %64
-  %.2 = select i1 %65, i1 true, i1 %.166
+  %.4 = select i1 %65, i1 true, i1 %.3
   %66 = getelementptr inbounds i8, ptr %35, i64 18
   %67 = load i16, ptr %66, align 2
   %.not91.i = icmp ne i16 %62, %67
-  %.269 = select i1 %.not91.i, i1 true, i1 %.168
+  %.471 = select i1 %.not91.i, i1 true, i1 %.370
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %33
   br i1 %exitcond.not, label %._crit_edge.i, label %34, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %61, %23
-  %.370 = phi i1 [ %.067, %23 ], [ %.269, %61 ]
-  %.3 = phi i1 [ %.065, %23 ], [ %.2, %61 ]
+  %.168 = phi i1 [ %.067, %23 ], [ %.471, %61 ]
+  %.166 = phi i1 [ %.065, %23 ], [ %.4, %61 ]
   %.183.lcssa.i = phi i32 [ %.082110.i, %23 ], [ %.284.i, %61 ]
   %.1.lcssa.i = phi i32 [ %.081111.i, %23 ], [ %.2.i, %61 ]
   %68 = getelementptr inbounds i8, ptr %.sroa.096.0109.i, i64 56
@@ -450,8 +450,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.i:
   br i1 %.not103.i, label %._crit_edge113.i, label %23
 
 ._crit_edge113.i:                                 ; preds = %._crit_edge.i, %_ZL7usingRFRK22CoulombInteractionType.exit.i
-  %.471 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.370, %._crit_edge.i ]
-  %.4 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.3, %._crit_edge.i ]
+  %.269 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.168, %._crit_edge.i ]
+  %.2 = phi i1 [ false, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.166, %._crit_edge.i ]
   %.082.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.183.lcssa.i, %._crit_edge.i ]
   %.081.lcssa.i = phi i32 [ 0, %_ZL7usingRFRK22CoulombInteractionType.exit.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %69 = getelementptr inbounds i8, ptr %0, i64 176
@@ -590,7 +590,7 @@ _ZL14pp_verlet_loadRK10gmx_mtop_tRK10t_inputrecPA3_KfPiS8_PdPbSA_.exit: ; preds 
   %179 = getelementptr inbounds i8, ptr %1, i64 396
   %180 = load i32, ptr %179, align 4
   %181 = icmp ne i32 %180, 0
-  %182 = select i1 %181, i1 %.4, i1 false
+  %182 = select i1 %181, i1 %.2, i1 false
   %183 = sitofp i32 %71 to double
   %184 = call double @llvm.fmuladd.f64(double %183, double 1.000000e+02, double 0.000000e+00)
   %185 = select i1 %182, double 2.000000e+00, double 1.000000e+00
@@ -634,7 +634,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %_ZL14pp_verlet_load
   %212 = getelementptr inbounds i8, ptr %1, i64 396
   %213 = load i32, ptr %212, align 4
   %214 = icmp ne i32 %213, 0
-  %215 = select i1 %214, i1 %.471, i1 false
+  %215 = select i1 %214, i1 %.269, i1 false
   %216 = select i1 %215, i32 2, i32 1
   %217 = load i32, ptr %154, align 4
   %218 = icmp eq i32 %217, 1

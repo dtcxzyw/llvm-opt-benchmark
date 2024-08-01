@@ -645,13 +645,13 @@ if.else100:                                       ; preds = %if.end88
 
 if.end105:                                        ; preds = %if.end11, %if.else100
   %call.i59.pn = phi ptr [ %call.i59, %if.else100 ], [ %call.i, %if.end11 ]
-  %ctx.0.in = getelementptr inbounds i8, ptr %call.i59.pn, i64 40
-  %ctx.0 = load ptr, ptr %ctx.0.in, align 8
-  %cmp.i62 = icmp eq ptr %ctx.0, null
+  %ctx.1.in = getelementptr inbounds i8, ptr %call.i59.pn, i64 40
+  %ctx.1 = load ptr, ptr %ctx.1.in, align 8
+  %cmp.i62 = icmp eq ptr %ctx.1, null
   br i1 %cmp.i62, label %ossl_decoder_ctx_for_pkey_dup.exit, label %if.end.i63
 
 if.end.i63:                                       ; preds = %if.then92, %if.end105
-  %ctx.078 = phi ptr [ %ctx.0, %if.end105 ], [ %call17, %if.then92 ]
+  %ctx.178 = phi ptr [ %ctx.1, %if.end105 ], [ %call17, %if.then92 ]
   %call.i64 = call ptr @OSSL_DECODER_CTX_new() #6
   %cmp1.i = icmp eq ptr %call.i64, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
@@ -679,11 +679,11 @@ if.then7.i:                                       ; preds = %lor.lhs.false.i66, 
   br label %if.end69.i
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i66
-  %selection.i67 = getelementptr inbounds i8, ptr %ctx.078, i64 16
+  %selection.i67 = getelementptr inbounds i8, ptr %ctx.178, i64 16
   %13 = load i32, ptr %selection.i67, align 8
   %selection9.i = getelementptr inbounds i8, ptr %call.i64, i64 16
   store i32 %13, ptr %selection9.i, align 8
-  %decoder_insts.i = getelementptr inbounds i8, ptr %ctx.078, i64 24
+  %decoder_insts.i = getelementptr inbounds i8, ptr %ctx.178, i64 24
   %14 = load ptr, ptr %decoder_insts.i, align 8
   %cmp10.not.i = icmp eq ptr %14, null
   br i1 %cmp10.not.i, label %if.end19.i, label %if.then11.i
@@ -702,7 +702,7 @@ if.then17.i:                                      ; preds = %if.then11.i
   br label %if.end69.i
 
 if.end19.i:                                       ; preds = %if.then11.i, %if.end8.i
-  %call20.i = call ptr @OSSL_DECODER_CTX_get_construct(ptr noundef nonnull %ctx.078) #6
+  %call20.i = call ptr @OSSL_DECODER_CTX_get_construct(ptr noundef nonnull %ctx.178) #6
   %call21.i = call i32 @OSSL_DECODER_CTX_set_construct(ptr noundef nonnull %call.i64, ptr noundef %call20.i) #6
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.then23.i, label %if.end24.i
@@ -714,7 +714,7 @@ if.then23.i:                                      ; preds = %if.end19.i
   br label %if.end69.i
 
 if.end24.i:                                       ; preds = %if.end19.i
-  %call25.i = call ptr @OSSL_DECODER_CTX_get_construct_data(ptr noundef nonnull %ctx.078) #6
+  %call25.i = call ptr @OSSL_DECODER_CTX_get_construct_data(ptr noundef nonnull %ctx.178) #6
   %cmp26.not.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.not.i, label %if.end59.i, label %if.then27.i
 
@@ -769,7 +769,7 @@ if.end51.i:                                       ; preds = %if.then43.i, %if.en
   br i1 %tobool56.not.i, label %if.then66.i, label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end51.i, %if.end24.i
-  %call60.i = call ptr @OSSL_DECODER_CTX_get_cleanup(ptr noundef nonnull %ctx.078) #6
+  %call60.i = call ptr @OSSL_DECODER_CTX_get_cleanup(ptr noundef nonnull %ctx.178) #6
   %call61.i = call i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef nonnull %call.i64, ptr noundef %call60.i) #6
   %tobool62.not.i = icmp eq i32 %call61.i, 0
   br i1 %tobool62.not.i, label %if.then63.i, label %ossl_decoder_ctx_for_pkey_dup.exit
@@ -813,9 +813,9 @@ err.sink.split:                                   ; preds = %if.then92, %if.end8
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.then75, %if.then66, %if.then57, %if.then48
-  %ctx.1 = phi ptr [ %call17, %if.then48 ], [ %call17, %if.then57 ], [ %call17, %if.then66 ], [ %call17, %if.then75 ], [ null, %err.sink.split ]
+  %ctx.0 = phi ptr [ %call17, %if.then48 ], [ %call17, %if.then57 ], [ %call17, %if.then66 ], [ %call17, %if.then75 ], [ null, %err.sink.split ]
   call void @decoder_cache_entry_free(ptr noundef nonnull %call43)
-  call void @OSSL_DECODER_CTX_free(ptr noundef %ctx.1) #6
+  call void @OSSL_DECODER_CTX_free(ptr noundef %ctx.0) #6
   br label %return
 
 return:                                           ; preds = %err, %ossl_decoder_ctx_for_pkey_dup.exit, %if.then45, %if.else, %if.then19, %if.then10, %if.then

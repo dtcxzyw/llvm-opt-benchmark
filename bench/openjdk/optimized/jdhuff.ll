@@ -338,8 +338,8 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr nocapture noundef %0, i32 noun
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.loopexit63
-  %.04587 = phi i64 [ %7, %.lr.ph ], [ %.4, %.loopexit63 ]
-  %.04686 = phi ptr [ %5, %.lr.ph ], [ %.450, %.loopexit63 ]
+  %.04587 = phi i64 [ %7, %.lr.ph ], [ %.2, %.loopexit63 ]
+  %.04686 = phi ptr [ %5, %.lr.ph ], [ %.248, %.loopexit63 ]
   %.05385 = phi i32 [ %1, %.lr.ph ], [ %51, %.loopexit63 ]
   %.05684 = phi i32 [ %2, %.lr.ph ], [ %52, %.loopexit63 ]
   %16 = icmp eq i64 %.04587, 0
@@ -371,9 +371,9 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr nocapture noundef %0, i32 noun
   br i1 %32, label %.preheader, label %.loopexit63
 
 .preheader:                                       ; preds = %27, %44
-  %.248 = phi ptr [ %46, %44 ], [ %29, %27 ]
-  %.2 = phi i64 [ %45, %44 ], [ %28, %27 ]
-  %33 = icmp eq i64 %.2, 0
+  %.349 = phi ptr [ %46, %44 ], [ %29, %27 ]
+  %.3 = phi i64 [ %45, %44 ], [ %28, %27 ]
+  %33 = icmp eq i64 %.3, 0
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %.preheader
@@ -392,11 +392,11 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr nocapture noundef %0, i32 noun
   br label %44
 
 44:                                               ; preds = %39, %.preheader
-  %.349 = phi ptr [ %41, %39 ], [ %.248, %.preheader ]
-  %.3 = phi i64 [ %43, %39 ], [ %.2, %.preheader ]
-  %45 = add i64 %.3, -1
-  %46 = getelementptr inbounds i8, ptr %.349, i64 1
-  %47 = load i8, ptr %.349, align 1
+  %.450 = phi ptr [ %41, %39 ], [ %.349, %.preheader ]
+  %.4 = phi i64 [ %43, %39 ], [ %.3, %.preheader ]
+  %45 = add i64 %.4, -1
+  %46 = getelementptr inbounds i8, ptr %.450, i64 1
+  %47 = load i8, ptr %.450, align 1
   switch i8 %47, label %48 [
     i8 -1, label %.preheader
     i8 0, label %.loopexit63
@@ -408,8 +408,8 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr nocapture noundef %0, i32 noun
   br label %54
 
 .loopexit63:                                      ; preds = %44, %27
-  %.450 = phi ptr [ %29, %27 ], [ %46, %44 ]
-  %.4 = phi i64 [ %28, %27 ], [ %45, %44 ]
+  %.248 = phi ptr [ %29, %27 ], [ %46, %44 ]
+  %.2 = phi i64 [ %28, %27 ], [ %45, %44 ]
   %.0 = phi i32 [ %31, %27 ], [ 255, %44 ]
   %50 = shl i32 %.05385, 8
   %51 = or disjoint i32 %.0, %50
@@ -454,8 +454,8 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr nocapture noundef %0, i32 noun
 .loopexit65:                                      ; preds = %.loopexit63, %.preheader64, %54, %69
   %.258 = phi i32 [ 25, %69 ], [ %.157, %54 ], [ %2, %.preheader64 ], [ %52, %.loopexit63 ]
   %.255 = phi i32 [ %71, %69 ], [ %.154, %54 ], [ %1, %.preheader64 ], [ %51, %.loopexit63 ]
-  %.652 = phi ptr [ %.551, %69 ], [ %.551, %54 ], [ %5, %.preheader64 ], [ %.450, %.loopexit63 ]
-  %.6 = phi i64 [ %.5, %69 ], [ %.5, %54 ], [ %7, %.preheader64 ], [ %.4, %.loopexit63 ]
+  %.652 = phi ptr [ %.551, %69 ], [ %.551, %54 ], [ %5, %.preheader64 ], [ %.248, %.loopexit63 ]
+  %.6 = phi i64 [ %.5, %69 ], [ %.5, %54 ], [ %7, %.preheader64 ], [ %.2, %.loopexit63 ]
   store ptr %.652, ptr %0, align 8
   store i64 %.6, ptr %6, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
@@ -960,10 +960,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br label %109
 
 109:                                              ; preds = %106, %102
-  %.4153 = phi i32 [ %108, %106 ], [ %.3152, %102 ]
-  %.4 = phi i32 [ %107, %106 ], [ %.3, %102 ]
-  %110 = sub nsw i32 %.4153, %.0173
-  %111 = ashr i32 %.4, %110
+  %.5154 = phi i32 [ %108, %106 ], [ %.3152, %102 ]
+  %.5 = phi i32 [ %107, %106 ], [ %.3, %102 ]
+  %110 = sub nsw i32 %.5154, %.0173
+  %111 = ashr i32 %.5, %110
   %notmask = shl nsw i32 -1, %.0173
   %112 = xor i32 %notmask, -1
   %113 = and i32 %111, %112
@@ -981,8 +981,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
 
 122:                                              ; preds = %118, %109, %101
   %.1174 = phi i32 [ 0, %101 ], [ %121, %118 ], [ %113, %109 ]
-  %.5154 = phi i32 [ %.3152, %101 ], [ %110, %118 ], [ %110, %109 ]
-  %.5 = phi i32 [ %.3, %101 ], [ %.4, %118 ], [ %.4, %109 ]
+  %.4153 = phi i32 [ %.3152, %101 ], [ %110, %118 ], [ %110, %109 ]
+  %.4 = phi i32 [ %.3, %101 ], [ %.5, %118 ], [ %.5, %109 ]
   %123 = getelementptr inbounds [10 x i32], ptr %63, i64 0, i64 %indvars.iv
   %124 = load i32, ptr %123, align 4
   %.not210 = icmp eq i32 %124, 0
@@ -1009,8 +1009,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br i1 %.not211, label %.preheader, label %.preheader225
 
 .preheader225:                                    ; preds = %133, %199
-  %.6239 = phi i32 [ %.11, %199 ], [ %.5, %133 ]
-  %.6155238 = phi i32 [ %.11160, %199 ], [ %.5154, %133 ]
+  %.6239 = phi i32 [ %.11, %199 ], [ %.4, %133 ]
+  %.6155238 = phi i32 [ %.11160, %199 ], [ %.4153, %133 ]
   %.0169237 = phi i32 [ %200, %199 ], [ 1, %133 ]
   %138 = icmp slt i32 %.6155238, 8
   br i1 %138, label %139, label %146
@@ -1135,8 +1135,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br i1 %201, label %.preheader225, label %.loopexit, !llvm.loop !21
 
 .preheader:                                       ; preds = %133, %241
-  %.12242 = phi i32 [ %.17, %241 ], [ %.5, %133 ]
-  %.12161241 = phi i32 [ %.17166, %241 ], [ %.5154, %133 ]
+  %.12242 = phi i32 [ %.17, %241 ], [ %.4, %133 ]
+  %.12161241 = phi i32 [ %.17166, %241 ], [ %.4153, %133 ]
   %.2171240 = phi i32 [ %242, %241 ], [ 1, %133 ]
   %202 = icmp slt i32 %.12161241, 8
   br i1 %202, label %203, label %210

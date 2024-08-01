@@ -256,7 +256,7 @@ if.then12.i.i:                                    ; preds = %if.end10.i.i
   br i1 %cmp15.i.i, label %err.i24.i, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then12.i.i, %if.end10.i.i
-  %init_called.0.i.i = phi i32 [ 1, %if.then12.i.i ], [ 0, %if.end10.i.i ]
+  %init_called.1.i.i = phi i32 [ 1, %if.then12.i.i ], [ 0, %if.end10.i.i ]
   %call19.i.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @init_module_list_lock, ptr noundef nonnull @do_init_module_list_lock_ossl_) #6
   %tobool20.i.i = icmp ne i32 %call19.i.i, 0
   %11 = load i32, ptr @do_init_module_list_lock_ossl_ret_, align 4
@@ -306,11 +306,11 @@ err.sink.split.i.i:                               ; preds = %if.end35.i.i, %if.t
   br label %err.i24.i
 
 err.i24.i:                                        ; preds = %err.sink.split.i.i, %if.end23.i.i, %if.end18.i.i, %if.then12.i.i
-  %init_called.1.i.i = phi i32 [ 1, %if.then12.i.i ], [ %init_called.0.i.i, %if.end23.i.i ], [ %init_called.0.i.i, %if.end18.i.i ], [ %init_called.0.i.i, %err.sink.split.i.i ]
+  %init_called.0.i.i = phi i32 [ 1, %if.then12.i.i ], [ %init_called.1.i.i, %if.end23.i.i ], [ %init_called.1.i.i, %if.end18.i.i ], [ %init_called.1.i.i, %err.sink.split.i.i ]
   %finish.i.i = getelementptr inbounds i8, ptr %md.0.i, i64 24
   %18 = load ptr, ptr %finish.i.i, align 8
   %tobool42.i.i = icmp ne ptr %18, null
-  %tobool43.i.i = icmp ne i32 %init_called.1.i.i, 0
+  %tobool43.i.i = icmp ne i32 %init_called.0.i.i, 0
   %or.cond.i25.i = and i1 %tobool43.i.i, %tobool42.i.i
   br i1 %or.cond.i25.i, label %if.then44.i.i, label %if.then48.i.i
 
@@ -410,13 +410,13 @@ if.end:                                           ; preds = %CONF_get1_default_c
   br i1 %cmp4, label %if.then29, label %if.end8
 
 if.end8:                                          ; preds = %entry, %if.end
-  %file.0 = phi ptr [ %retval.0.i22, %if.end ], [ %filename, %entry ]
+  %file.1 = phi ptr [ %retval.0.i22, %if.end ], [ %filename, %entry ]
   %call9 = tail call ptr @NCONF_new_ex(ptr noundef %libctx, ptr noundef null) #6
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %err, label %if.end13
 
 if.end13:                                         ; preds = %if.end8
-  %call14 = tail call i32 @NCONF_load(ptr noundef nonnull %call9, ptr noundef nonnull %file.0, ptr noundef null) #6
+  %call14 = tail call i32 @NCONF_load(ptr noundef nonnull %call9, ptr noundef nonnull %file.1, ptr noundef null) #6
   %cmp15 = icmp slt i32 %call14, 1
   br i1 %cmp15, label %if.then17, label %if.end24
 
@@ -451,8 +451,8 @@ if.then29:                                        ; preds = %if.end.i, %CONF_get
   %diagnostics.033 = phi i1 [ %diagnostics.0, %err ], [ false, %if.end ], [ false, %CONF_get1_default_config_file.exit ], [ false, %if.end.i ]
   %ret.031 = phi i32 [ %ret.0, %err ], [ 1, %if.end ], [ 0, %CONF_get1_default_config_file.exit ], [ 0, %if.end.i ]
   %conf.029 = phi ptr [ %call9, %err ], [ null, %if.end ], [ null, %CONF_get1_default_config_file.exit ], [ null, %if.end.i ]
-  %file.127 = phi ptr [ %file.0, %err ], [ %retval.0.i22, %if.end ], [ null, %CONF_get1_default_config_file.exit ], [ null, %if.end.i ]
-  tail call void @CRYPTO_free(ptr noundef %file.127, ptr noundef nonnull @.str.1, i32 noundef 219) #6
+  %file.027 = phi ptr [ %file.1, %err ], [ %retval.0.i22, %if.end ], [ null, %CONF_get1_default_config_file.exit ], [ null, %if.end.i ]
+  tail call void @CRYPTO_free(ptr noundef %file.027, ptr noundef nonnull @.str.1, i32 noundef 219) #6
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %err
@@ -960,7 +960,7 @@ land.rhs.lr.ph:                                   ; preds = %for.cond
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %4 = phi i8 [ %2, %land.rhs.lr.ph ], [ %7, %while.body ]
-  %lstart.122 = phi ptr [ %lstart.0, %land.rhs.lr.ph ], [ %incdec.ptr, %while.body ]
+  %lstart.222 = phi ptr [ %lstart.0, %land.rhs.lr.ph ], [ %incdec.ptr, %while.body ]
   %idxprom = zext i8 %4 to i64
   %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
   %5 = load i16, ptr %arrayidx, align 2
@@ -969,16 +969,16 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   br i1 %tobool5.not, label %while.body, label %if.end6.loopexit
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %lstart.122, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %lstart.222, i64 1
   %7 = load i8, ptr %incdec.ptr, align 1
   %tobool2.not = icmp eq i8 %7, 0
   br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !9
 
 if.end6.loopexit:                                 ; preds = %land.rhs, %while.body, %for.cond
   %cmp11 = phi i1 [ true, %for.cond ], [ %tobool5.not, %while.body ], [ %tobool5.not, %land.rhs ]
-  %lstart.1.lcssa = phi ptr [ %lstart.0, %for.cond ], [ %lstart.122, %land.rhs ], [ %incdec.ptr, %while.body ]
-  %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.1.lcssa, i32 noundef %sep) #7
-  %cmp8 = icmp eq ptr %call7, %lstart.1.lcssa
+  %lstart.2.lcssa = phi ptr [ %lstart.0, %for.cond ], [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
+  %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.2.lcssa, i32 noundef %sep) #7
+  %cmp8 = icmp eq ptr %call7, %lstart.2.lcssa
   %or.cond = or i1 %cmp8, %cmp11
   br i1 %or.cond, label %if.then13, label %if.else
 
@@ -991,8 +991,8 @@ if.else:                                          ; preds = %if.end6.loopexit
   br i1 %tobool15.not, label %if.else17, label %if.end21
 
 if.else17:                                        ; preds = %if.else
-  %call18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lstart.1.lcssa) #7
-  %add.ptr19 = getelementptr inbounds i8, ptr %lstart.1.lcssa, i64 %call18
+  %call18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lstart.2.lcssa) #7
+  %add.ptr19 = getelementptr inbounds i8, ptr %lstart.2.lcssa, i64 %call18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.else17
@@ -1002,9 +1002,9 @@ if.end21:                                         ; preds = %if.else, %if.else17
   br label %while.cond24
 
 while.cond24:                                     ; preds = %while.cond24, %if.end21
-  %tmpend.1.pn = phi ptr [ %tmpend.1, %while.cond24 ], [ %call7.pn, %if.end21 ]
-  %tmpend.1 = getelementptr inbounds i8, ptr %tmpend.1.pn, i64 -1
-  %9 = load i8, ptr %tmpend.1, align 1
+  %tmpend.2.pn = phi ptr [ %tmpend.2, %while.cond24 ], [ %call7.pn, %if.end21 ]
+  %tmpend.2 = getelementptr inbounds i8, ptr %tmpend.2.pn, i64 -1
+  %9 = load i8, ptr %tmpend.2, align 1
   %idxprom27 = zext i8 %9 to i64
   %arrayidx28 = getelementptr inbounds i16, ptr %8, i64 %idxprom27
   %10 = load i16, ptr %arrayidx28, align 2
@@ -1013,12 +1013,12 @@ while.cond24:                                     ; preds = %while.cond24, %if.e
   br i1 %tobool31.not, label %if.end35.loopexit, label %while.cond24, !llvm.loop !10
 
 if.end35.loopexit:                                ; preds = %while.cond24
-  %sub.ptr.lhs.cast = ptrtoint ptr %tmpend.1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %lstart.1.lcssa to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %tmpend.2 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %lstart.2.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %12 = trunc i64 %sub.ptr.sub to i32
   %conv36 = add i32 %12, 1
-  %call37 = tail call i32 %list_cb(ptr noundef nonnull %lstart.1.lcssa, i32 noundef %conv36, ptr noundef %arg) #6
+  %call37 = tail call i32 %list_cb(ptr noundef nonnull %lstart.2.lcssa, i32 noundef %conv36, ptr noundef %arg) #6
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end35.loopexit, %if.then13

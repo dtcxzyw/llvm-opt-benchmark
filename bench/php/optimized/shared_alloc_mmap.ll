@@ -45,7 +45,7 @@ find_prefered_mmap_base.exit.thread81:            ; preds = %.preheader.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.outer.i
   %.034.ph66.i = phi i64 [ %spec.select49.i, %.outer.i ], [ 0, %.preheader.i ]
-  %.035.ph65.i = phi i64 [ %.3.i, %.outer.i ], [ -1, %.preheader.i ]
+  %.035.ph65.i = phi i64 [ %.4.i, %.outer.i ], [ -1, %.preheader.i ]
   %.037.ph64.i = phi i64 [ %.138.i, %.outer.i ], [ 0, %.preheader.i ]
   br label %11
 
@@ -99,14 +99,14 @@ thread-pre-split.i:                               ; preds = %14
   br label %31
 
 31:                                               ; preds = %25, %24
-  %.136.i = phi i64 [ %.035.ph65.i, %24 ], [ %spec.select.i, %25 ]
+  %.2.i = phi i64 [ %.035.ph65.i, %24 ], [ %spec.select.i, %25 ]
   %32 = load i64, ptr %6, align 8
   %33 = icmp ugt i64 %32, ptrtoint (ptr @execute_ex to i64)
   br i1 %33, label %34, label %.outer.i
 
 34:                                               ; preds = %31
-  %.not48.i = icmp ne i64 %.136.i, -1
-  %35 = sub i64 %32, %.136.i
+  %.not48.i = icmp ne i64 %.2.i, -1
+  %35 = sub i64 %32, %.2.i
   %36 = icmp ult i64 %35, 4294967295
   %or.cond.i = and i1 %.not48.i, %36
   br i1 %or.cond.i, label %find_prefered_mmap_base.exit, label %.outer.i
@@ -127,7 +127,7 @@ thread-pre-split.i:                               ; preds = %14
 .outer.i:                                         ; preds = %..outer_crit_edge.i, %34, %31
   %41 = phi i64 [ %32, %31 ], [ %.pre.i, %..outer_crit_edge.i ], [ %32, %34 ]
   %.138.i = phi i64 [ %.037.ph64.i, %31 ], [ %.037.ph64.i, %..outer_crit_edge.i ], [ %.pr.i, %34 ]
-  %.3.i = phi i64 [ %.136.i, %31 ], [ %.035.ph65.i, %..outer_crit_edge.i ], [ -1, %34 ]
+  %.4.i = phi i64 [ %.2.i, %31 ], [ %.035.ph65.i, %..outer_crit_edge.i ], [ -1, %34 ]
   %42 = add i64 %41, 2097151
   %43 = and i64 %42, -2097152
   %44 = add i64 %43, 2097152
@@ -137,9 +137,9 @@ thread-pre-split.i:                               ; preds = %14
   br i1 %.not4258.i, label %find_prefered_mmap_base.exit, label %.lr.ph.i
 
 find_prefered_mmap_base.exit:                     ; preds = %34, %37, %40, %.outer.i, %11, %19
-  %.4.i = phi i64 [ %.035.ph65.i, %19 ], [ %.035.ph65.i, %11 ], [ %.035.ph65.i, %37 ], [ %.03459.i, %40 ], [ %.136.i, %34 ], [ %.3.i, %.outer.i ]
+  %.136.i = phi i64 [ %.035.ph65.i, %19 ], [ %.035.ph65.i, %11 ], [ %.035.ph65.i, %37 ], [ %.03459.i, %40 ], [ %.2.i, %34 ], [ %.4.i, %.outer.i ]
   %46 = call i32 @fclose(ptr noundef nonnull %8)
-  %47 = inttoptr i64 %.4.i to ptr
+  %47 = inttoptr i64 %.136.i to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)

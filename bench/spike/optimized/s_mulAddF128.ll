@@ -226,9 +226,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br label %106
 
 106:                                              ; preds = %100, %103, %83, %82, %89, %88
-  %.sroa.073.0 = phi i64 [ %86, %83 ], [ %66, %82 ], [ %66, %88 ], [ %96, %89 ], [ %66, %103 ], [ %102, %100 ]
-  %.sroa.35.0 = phi i64 [ %87, %83 ], [ %64, %82 ], [ %64, %88 ], [ %95, %89 ], [ %64, %103 ], [ %101, %100 ]
-  %.1247 = phi i64 [ %.0243, %83 ], [ %.0243, %82 ], [ %.0243, %88 ], [ %.0243, %89 ], [ %spec.select302, %103 ], [ %spec.select302, %100 ]
+  %.sroa.073.1 = phi i64 [ %86, %83 ], [ %66, %82 ], [ %66, %88 ], [ %96, %89 ], [ %66, %103 ], [ %102, %100 ]
+  %.sroa.35.1 = phi i64 [ %87, %83 ], [ %64, %82 ], [ %64, %88 ], [ %95, %89 ], [ %64, %103 ], [ %101, %100 ]
+  %.2248 = phi i64 [ %.0243, %83 ], [ %.0243, %82 ], [ %.0243, %88 ], [ %.0243, %89 ], [ %spec.select302, %103 ], [ %spec.select302, %100 ]
   %107 = xor i1 %27, %21
   br i1 %107, label %122, label %108
 
@@ -237,8 +237,8 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %109, label %110, label %116
 
 110:                                              ; preds = %108
-  %111 = add i64 %.sroa.073.0, %76
-  %112 = add i64 %.sroa.35.0, %75
+  %111 = add i64 %.sroa.073.1, %76
+  %112 = add i64 %.sroa.35.1, %75
   %113 = icmp ult i64 %111, %76
   %114 = zext i1 %113 to i64
   %115 = add i64 %112, %114
@@ -251,13 +251,13 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br label %119
 
 119:                                              ; preds = %116, %110
-  %.sroa.073.1 = phi i64 [ %111, %110 ], [ %118, %116 ]
-  %.sroa.35.1 = phi i64 [ %115, %110 ], [ %117, %116 ]
-  %120 = and i64 %.sroa.35.1, 144115188075855872
+  %.sroa.073.2 = phi i64 [ %111, %110 ], [ %118, %116 ]
+  %.sroa.35.2 = phi i64 [ %115, %110 ], [ %117, %116 ]
+  %120 = and i64 %.sroa.35.2, 144115188075855872
   %.not294 = icmp eq i64 %120, 0
   %spec.select303 = select i1 %.not294, i64 8, i64 9
   %121 = lshr exact i64 %120, 57
-  %spec.select304 = add i64 %121, %.1247
+  %spec.select304 = add i64 %121, %.2248
   br label %196
 
 122:                                              ; preds = %106
@@ -268,9 +268,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not286, label %138, label %124
 
 124:                                              ; preds = %123
-  %125 = sub i64 %76, %.sroa.073.0
-  %126 = sub i64 %75, %.sroa.35.0
-  %127 = icmp ult i64 %76, %.sroa.073.0
+  %125 = sub i64 %76, %.sroa.073.1
+  %126 = sub i64 %75, %.sroa.35.1
+  %127 = icmp ult i64 %76, %.sroa.073.1
   %.neg.i = sext i1 %127 to i64
   %128 = add i64 %126, %.neg.i
   %129 = getelementptr inbounds i8, ptr %8, i64 8
@@ -278,17 +278,17 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %131 = load i64, ptr %8, align 16
   %132 = or i64 %131, %130
   %.not292 = icmp ne i64 %132, 0
-  %133 = icmp eq i64 %76, %.sroa.073.0
+  %133 = icmp eq i64 %76, %.sroa.073.1
   %134 = sext i1 %.not292 to i64
-  %.sroa.073.2 = add i64 %125, %134
+  %.sroa.073.3 = add i64 %125, %134
   %narrow = select i1 %.not292, i1 %133, i1 false
   %135 = sext i1 %narrow to i64
-  %.sroa.35.2 = add i64 %128, %135
-  %136 = and i64 %.sroa.35.2, 72057594037927936
+  %.sroa.35.3 = add i64 %128, %135
+  %136 = and i64 %.sroa.35.3, 72057594037927936
   %.not293 = icmp eq i64 %136, 0
   %spec.select305 = select i1 %.not293, i64 7, i64 8
   %137 = sext i1 %.not293 to i64
-  %spec.select306 = add nsw i64 %.1247, %137
+  %spec.select306 = add nsw i64 %.2248, %137
   br label %201
 
 138:                                              ; preds = %123
@@ -304,9 +304,9 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   br i1 %.not283, label %142, label %157
 
 142:                                              ; preds = %141
-  %143 = sub i64 %.sroa.073.0, %76
-  %144 = sub i64 %.sroa.35.0, %75
-  %145 = icmp ult i64 %.sroa.073.0, %76
+  %143 = sub i64 %.sroa.073.1, %76
+  %144 = sub i64 %.sroa.35.1, %75
+  %145 = icmp ult i64 %.sroa.073.1, %76
   %.neg.i326 = sext i1 %145 to i64
   %146 = add i64 %144, %.neg.i326
   %147 = or i64 %146, %143
@@ -342,17 +342,17 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %.not285 = icmp eq i64 %162, 0
   %spec.select307 = select i1 %.not285, i64 7, i64 8
   %163 = sext i1 %.not285 to i64
-  %spec.select308 = add nsw i64 %.1247, %163
+  %spec.select308 = add nsw i64 %.2248, %163
   br label %196
 
 thread-pre-split.sink.split:                      ; preds = %155, %138
   %.sink = phi ptr [ %9, %138 ], [ @softfloat_mulAddF128.zero256, %155 ]
-  %.0244.ph.ph = phi i1 [ %21, %138 ], [ %156, %155 ]
+  %.1.ph.ph = phi i1 [ %21, %138 ], [ %156, %155 ]
   call void @softfloat_sub256M(ptr noundef nonnull %.sink, ptr noundef nonnull %8, ptr noundef nonnull %8) #4
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %157
-  %.0244.ph = phi i1 [ %27, %157 ], [ %.0244.ph.ph, %thread-pre-split.sink.split ]
+  %.1.ph = phi i1 [ %27, %157 ], [ %.1.ph.ph, %thread-pre-split.sink.split ]
   %.pr = load i64, ptr %63, align 8
   %.pr335 = load i64, ptr %65, align 16
   %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 8
@@ -365,7 +365,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %166 = phi i64 [ %.pre, %thread-pre-split ], [ %150, %154 ]
   %167 = phi i64 [ %.pr335, %thread-pre-split ], [ %143, %154 ]
   %168 = phi i64 [ %.pr, %thread-pre-split ], [ %146, %154 ]
-  %.0244 = phi i1 [ %.0244.ph, %thread-pre-split ], [ %27, %154 ]
+  %.1 = phi i1 [ %.1.ph, %thread-pre-split ], [ %27, %154 ]
   %.not287 = icmp eq i64 %168, 0
   br i1 %.not287, label %171, label %169
 
@@ -376,27 +376,27 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %177
 
 171:                                              ; preds = %164
-  %172 = add nsw i64 %.1247, -64
+  %172 = add nsw i64 %.2248, -64
   %.not288 = icmp eq i64 %167, 0
   br i1 %.not288, label %173, label %177
 
 173:                                              ; preds = %171
-  %174 = add nsw i64 %.1247, -128
+  %174 = add nsw i64 %.2248, -128
   %.not289 = icmp eq i64 %166, 0
   br i1 %.not289, label %175, label %177
 
 175:                                              ; preds = %173
-  %176 = add nsw i64 %.1247, -192
+  %176 = add nsw i64 %.2248, -192
   br label %177
 
 177:                                              ; preds = %169, %171, %175, %173
-  %.0252 = phi i64 [ %165, %171 ], [ 0, %173 ], [ 0, %175 ], [ %spec.select309, %169 ]
-  %.sroa.073.3 = phi i64 [ %166, %171 ], [ %165, %173 ], [ 0, %175 ], [ %167, %169 ]
-  %.sroa.35.3 = phi i64 [ %167, %171 ], [ %166, %173 ], [ %165, %175 ], [ %168, %169 ]
-  %.2248 = phi i64 [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %.1247, %169 ]
-  %178 = call zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %.sroa.35.3) #4
+  %.1253 = phi i64 [ %165, %171 ], [ 0, %173 ], [ 0, %175 ], [ %spec.select309, %169 ]
+  %.sroa.073.5 = phi i64 [ %166, %171 ], [ %165, %173 ], [ 0, %175 ], [ %167, %169 ]
+  %.sroa.35.5 = phi i64 [ %167, %171 ], [ %166, %173 ], [ %165, %175 ], [ %168, %169 ]
+  %.4 = phi i64 [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %.2248, %169 ]
+  %178 = call zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %.sroa.35.5) #4
   %179 = zext i8 %178 to i64
-  %reass.sub = sub i64 %.2248, %179
+  %reass.sub = sub i64 %.4, %179
   %180 = add i64 %reass.sub, 7
   %.neg = add i8 %178, -15
   %181 = sub nsw i64 15, %179
@@ -409,23 +409,23 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 184:                                              ; preds = %183
   %185 = zext i8 %.neg to i64
-  %186 = shl i64 %.sroa.35.3, %185
+  %186 = shl i64 %.sroa.35.5, %185
   %187 = sub i8 15, %178
   %188 = and i8 %187, 63
   %189 = zext nneg i8 %188 to i64
-  %190 = lshr i64 %.sroa.073.3, %189
+  %190 = lshr i64 %.sroa.073.5, %189
   %191 = or i64 %190, %186
-  %192 = shl i64 %.sroa.073.3, %185
-  %193 = lshr i64 %.0252, %189
-  %194 = shl i64 %.0252, %185
+  %192 = shl i64 %.sroa.073.5, %185
+  %193 = lshr i64 %.1253, %189
+  %194 = shl i64 %.1253, %185
   %195 = or i64 %193, %192
   br label %214
 
 196:                                              ; preds = %159, %119, %70
   %.1250 = phi i64 [ %71, %70 ], [ %spec.select303, %119 ], [ %spec.select307, %159 ]
-  %.sroa.073.4 = phi i64 [ %66, %70 ], [ %.sroa.073.1, %119 ], [ %161, %159 ]
-  %.sroa.35.4 = phi i64 [ %64, %70 ], [ %.sroa.35.1, %119 ], [ %160, %159 ]
-  %.3 = phi i64 [ %spec.select302, %70 ], [ %spec.select304, %119 ], [ %spec.select308, %159 ]
+  %.sroa.073.0 = phi i64 [ %66, %70 ], [ %.sroa.073.2, %119 ], [ %161, %159 ]
+  %.sroa.35.0 = phi i64 [ %64, %70 ], [ %.sroa.35.2, %119 ], [ %160, %159 ]
+  %.1247 = phi i64 [ %spec.select302, %70 ], [ %spec.select304, %119 ], [ %spec.select308, %159 ]
   %197 = getelementptr inbounds i8, ptr %8, i64 8
   %198 = load i64, ptr %197, align 8
   %199 = load i64, ptr %8, align 16
@@ -433,32 +433,32 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %201
 
 201:                                              ; preds = %124, %177, %196
-  %.1253 = phi i64 [ %200, %196 ], [ %.0252, %177 ], [ %132, %124 ]
+  %.0252 = phi i64 [ %200, %196 ], [ %.1253, %177 ], [ %132, %124 ]
   %.2251 = phi i64 [ %.1250, %196 ], [ %181, %177 ], [ %spec.select305, %124 ]
-  %.sroa.073.5 = phi i64 [ %.sroa.073.4, %196 ], [ %.sroa.073.3, %177 ], [ %.sroa.073.2, %124 ]
-  %.sroa.35.5 = phi i64 [ %.sroa.35.4, %196 ], [ %.sroa.35.3, %177 ], [ %.sroa.35.2, %124 ]
-  %.4 = phi i64 [ %.3, %196 ], [ %180, %177 ], [ %spec.select306, %124 ]
-  %.1 = phi i1 [ %27, %196 ], [ %.0244, %177 ], [ %21, %124 ]
+  %.sroa.073.4 = phi i64 [ %.sroa.073.0, %196 ], [ %.sroa.073.5, %177 ], [ %.sroa.073.3, %124 ]
+  %.sroa.35.4 = phi i64 [ %.sroa.35.0, %196 ], [ %.sroa.35.5, %177 ], [ %.sroa.35.3, %124 ]
+  %.3 = phi i64 [ %.1247, %196 ], [ %180, %177 ], [ %spec.select306, %124 ]
+  %.0244 = phi i1 [ %27, %196 ], [ %.1, %177 ], [ %21, %124 ]
   %202 = sub nuw nsw i64 64, %.2251
-  %203 = shl i64 %.sroa.073.5, %202
-  %204 = icmp ne i64 %.1253, 0
+  %203 = shl i64 %.sroa.073.4, %202
+  %204 = icmp ne i64 %.0252, 0
   %205 = zext i1 %204 to i64
   %206 = or i64 %203, %205
   %207 = and i64 %.2251, 255
-  %208 = lshr i64 %.sroa.35.5, %207
+  %208 = lshr i64 %.sroa.35.4, %207
   %209 = sub nsw i64 0, %.2251
   %210 = and i64 %209, 63
-  %211 = shl i64 %.sroa.35.5, %210
-  %212 = lshr i64 %.sroa.073.5, %207
+  %211 = shl i64 %.sroa.35.4, %210
+  %212 = lshr i64 %.sroa.073.4, %207
   %213 = or i64 %211, %212
   br label %214
 
 214:                                              ; preds = %183, %184, %201
-  %.2254 = phi i64 [ %206, %201 ], [ %194, %184 ], [ %.0252, %183 ]
-  %.sroa.073.6 = phi i64 [ %213, %201 ], [ %195, %184 ], [ %.sroa.073.3, %183 ]
-  %.sroa.35.6 = phi i64 [ %208, %201 ], [ %191, %184 ], [ %.sroa.35.3, %183 ]
-  %.5 = phi i64 [ %.4, %201 ], [ %180, %184 ], [ %180, %183 ]
-  %.2 = phi i1 [ %.1, %201 ], [ %.0244, %184 ], [ %.0244, %183 ]
+  %.2254 = phi i64 [ %206, %201 ], [ %194, %184 ], [ %.1253, %183 ]
+  %.sroa.073.6 = phi i64 [ %213, %201 ], [ %195, %184 ], [ %.sroa.073.5, %183 ]
+  %.sroa.35.6 = phi i64 [ %208, %201 ], [ %191, %184 ], [ %.sroa.35.5, %183 ]
+  %.5 = phi i64 [ %.3, %201 ], [ %180, %184 ], [ %180, %183 ]
+  %.2 = phi i1 [ %.0244, %201 ], [ %.1, %184 ], [ %.1, %183 ]
   %215 = add nsw i64 %.5, -1
   %216 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %.2, i64 noundef %215, i64 noundef %.sroa.35.6, i64 noundef %.sroa.073.6, i64 noundef %.2254) #4
   %217 = extractvalue { i64, i64 } %216, 0

@@ -1158,13 +1158,13 @@ fail:                                             ; preds = %vhdx_parse_metadata
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end74, %fail
-  %retval.0 = phi i32 [ %ret.0, %fail ], [ 0, %if.end74 ]
+  %retval.1 = phi i32 [ %ret.0, %fail ], [ 0, %if.end74 ]
   call void @bdrv_graph_rdunlock_main_loop() #17
   br label %return
 
 return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1831,7 +1831,7 @@ if.else:                                          ; preds = %while.body
   %conv20.i = zext i32 %shl19.i to i64
   %cmp23.i = icmp eq i64 %and.i, 0
   %add29.i = add i64 %and.i, %conv20.i
-  %sinfo.sroa.21.0 = select i1 %cmp23.i, i64 0, i64 %add29.i
+  %sinfo.sroa.21.1 = select i1 %cmp23.i, i64 0, i64 %add29.i
   call void @qemu_iovec_reset(ptr noundef nonnull %hd_qiov) #17
   %11 = load ptr, ptr %bat.i, align 8
   %arrayidx = getelementptr i64, ptr %11, i64 %idxprom.i
@@ -1890,8 +1890,8 @@ if.end15.i:                                       ; preds = %if.then6.i, %if.end
   br label %vhdx_allocate_block.exit
 
 vhdx_allocate_block.exit:                         ; preds = %if.then6.i, %if.then.i44, %if.end15.i
-  %sinfo.sroa.21.1 = phi i64 [ %sinfo.sroa.21.0, %if.then.i44 ], [ %and.i42, %if.end15.i ], [ %and.i42, %if.then6.i ]
-  %use_zero_buffers.1 = phi i8 [ %use_zero_buffers.0, %if.then.i44 ], [ %use_zero_buffers.0, %if.end15.i ], [ 0, %if.then6.i ]
+  %sinfo.sroa.21.2 = phi i64 [ %sinfo.sroa.21.1, %if.then.i44 ], [ %and.i42, %if.end15.i ], [ %and.i42, %if.then6.i ]
+  %use_zero_buffers.2 = phi i8 [ %use_zero_buffers.0, %if.then.i44 ], [ %use_zero_buffers.0, %if.end15.i ], [ 0, %if.then6.i ]
   %retval.0.i = phi i32 [ %conv.i45, %if.then.i44 ], [ %call20.i, %if.end15.i ], [ %call10.i, %if.then6.i ]
   %cmp7 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp7, label %exit, label %if.end10
@@ -1899,7 +1899,7 @@ vhdx_allocate_block.exit:                         ; preds = %if.then6.i, %if.the
 if.end10:                                         ; preds = %vhdx_allocate_block.exit
   %20 = load ptr, ptr %bat.i, align 8
   %arrayidx9.i = getelementptr i64, ptr %20, i64 %idxprom.i
-  store i64 %sinfo.sroa.21.1, ptr %arrayidx9.i, align 8
+  store i64 %sinfo.sroa.21.2, ptr %arrayidx9.i, align 8
   %21 = load ptr, ptr %bat.i, align 8
   %arrayidx13.i = getelementptr i64, ptr %21, i64 %idxprom.i
   %22 = load i64, ptr %arrayidx13.i, align 8
@@ -1912,11 +1912,11 @@ if.end10:                                         ; preds = %vhdx_allocate_block
   %25 = load i64, ptr %bat_offset18.i, align 8
   %mul.i = shl nuw nsw i64 %idxprom.i, 3
   %add.i49 = add i64 %25, %mul.i
-  %tobool11 = trunc i8 %use_zero_buffers.1 to i1
+  %tobool11 = trunc i8 %use_zero_buffers.2 to i1
   br i1 %tobool11, label %if.else14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %add = add i64 %sinfo.sroa.21.1, %conv20.i
+  %add = add i64 %sinfo.sroa.21.2, %conv20.i
   br label %sw.bb60
 
 if.else14:                                        ; preds = %if.end10
@@ -1938,7 +1938,7 @@ if.then17:                                        ; preds = %if.else14
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then17, %if.else14
-  %sectors_to_write.0 = phi i32 [ %conv28, %if.then17 ], [ %spec.select, %if.else14 ]
+  %sectors_to_write.1 = phi i32 [ %conv28, %if.then17 ], [ %spec.select, %if.else14 ]
   %conv30 = zext i32 %shl16.i to i64
   call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.0, i64 noundef %conv30) #17
   %sub = sub nsw i64 %conv30, %conv20.i
@@ -1960,21 +1960,21 @@ if.then37:                                        ; preds = %if.end29
   %34 = load i64, ptr %iov_len45, align 8
   %shr54 = lshr i64 %34, 9
   %35 = trunc i64 %shr54 to i32
-  %conv57 = add i32 %sectors_to_write.0, %35
+  %conv57 = add i32 %sectors_to_write.1, %35
   br label %sw.bb60
 
 sw.bb60:                                          ; preds = %if.then12, %if.then37, %if.end29, %if.else
-  %sinfo.sroa.21.2 = phi i64 [ %sinfo.sroa.21.0, %if.else ], [ %sinfo.sroa.21.1, %if.then37 ], [ %sinfo.sroa.21.1, %if.end29 ], [ %add, %if.then12 ]
+  %sinfo.sroa.21.0 = phi i64 [ %sinfo.sroa.21.1, %if.else ], [ %sinfo.sroa.21.2, %if.then37 ], [ %sinfo.sroa.21.2, %if.end29 ], [ %add, %if.then12 ]
   %bat_entry_offset.1 = phi i64 [ %bat_entry_offset.0, %if.else ], [ %add.i49, %if.then37 ], [ %add.i49, %if.end29 ], [ %add.i49, %if.then12 ]
-  %use_zero_buffers.2 = phi i8 [ 0, %if.else ], [ %use_zero_buffers.1, %if.then37 ], [ %use_zero_buffers.1, %if.end29 ], [ %use_zero_buffers.1, %if.then12 ]
-  %sectors_to_write.1 = phi i32 [ %spec.select, %if.else ], [ %conv57, %if.then37 ], [ %sectors_to_write.0, %if.end29 ], [ %spec.select, %if.then12 ]
-  %bat_prior_offset.1 = phi i64 [ %bat_prior_offset.0, %if.else ], [ %sinfo.sroa.21.0, %if.then37 ], [ %sinfo.sroa.21.0, %if.end29 ], [ %sinfo.sroa.21.0, %if.then12 ]
+  %use_zero_buffers.1 = phi i8 [ 0, %if.else ], [ %use_zero_buffers.2, %if.then37 ], [ %use_zero_buffers.2, %if.end29 ], [ %use_zero_buffers.2, %if.then12 ]
+  %sectors_to_write.0 = phi i32 [ %spec.select, %if.else ], [ %conv57, %if.then37 ], [ %sectors_to_write.1, %if.end29 ], [ %spec.select, %if.then12 ]
+  %bat_prior_offset.1 = phi i64 [ %bat_prior_offset.0, %if.else ], [ %sinfo.sroa.21.1, %if.then37 ], [ %sinfo.sroa.21.1, %if.end29 ], [ %sinfo.sroa.21.1, %if.then12 ]
   %bat_update.0 = phi i1 [ false, %if.else ], [ true, %if.then37 ], [ true, %if.end29 ], [ true, %if.then12 ]
-  %cmp62 = icmp ult i64 %sinfo.sroa.21.2, 1048576
+  %cmp62 = icmp ult i64 %sinfo.sroa.21.0, 1048576
   br i1 %cmp62, label %error_bat_restore, label %if.end65
 
 if.end65:                                         ; preds = %sw.bb60
-  %tobool66 = trunc i8 %use_zero_buffers.2 to i1
+  %tobool66 = trunc i8 %use_zero_buffers.1 to i1
   br i1 %tobool66, label %if.end70, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
@@ -1985,9 +1985,9 @@ if.then67:                                        ; preds = %if.end65
 if.end70:                                         ; preds = %if.then67, %if.end65
   call void @qemu_co_mutex_unlock(ptr noundef %0) #17
   %36 = load ptr, ptr %file.i, align 8
-  %conv73 = sext i32 %sectors_to_write.1 to i64
+  %conv73 = sext i32 %sectors_to_write.0 to i64
   %mul = shl nsw i64 %conv73, 9
-  %call74 = call i32 @bdrv_co_pwritev(ptr noundef %36, i64 noundef %sinfo.sroa.21.2, i64 noundef %mul, ptr noundef nonnull %hd_qiov, i32 noundef 0) #17
+  %call74 = call i32 @bdrv_co_pwritev(ptr noundef %36, i64 noundef %sinfo.sroa.21.0, i64 noundef %mul, ptr noundef nonnull %hd_qiov, i32 noundef 0) #17
   call void @qemu_co_mutex_lock(ptr noundef %0) #17
   %cmp76 = icmp slt i32 %call74, 0
   br i1 %cmp76, label %error_bat_restore, label %sw.epilog
@@ -2001,7 +2001,7 @@ if.then82:                                        ; preds = %sw.epilog
   br i1 %cmp84, label %exit, label %if.end88
 
 if.end88:                                         ; preds = %if.then82, %sw.epilog
-  %ret.0 = phi i32 [ %call83, %if.then82 ], [ %call74, %sw.epilog ]
+  %ret.2 = phi i32 [ %call83, %if.then82 ], [ %call74, %sw.epilog ]
   %sub90 = sub nsw i32 %nb_sectors.addr.0, %spec.select
   %conv92 = zext nneg i32 %spec.select to i64
   %add93 = add i64 %sector_num.addr.0, %conv92
@@ -2033,14 +2033,14 @@ if.then99:                                        ; preds = %error_bat_restore
   br label %exit
 
 exit:                                             ; preds = %if.end.i41, %if.else, %while.body, %if.end88, %if.then82, %vhdx_allocate_block.exit, %error_bat_restore, %if.then99, %vhdx_user_visible_write.exit
-  %ret.2 = phi i32 [ %ret.1, %if.then99 ], [ %ret.1, %error_bat_restore ], [ %ret.0.i, %vhdx_user_visible_write.exit ], [ -22, %if.end.i41 ], [ -5, %if.else ], [ -95, %while.body ], [ %retval.0.i, %vhdx_allocate_block.exit ], [ %ret.0, %if.end88 ], [ %call83, %if.then82 ]
+  %ret.0 = phi i32 [ %ret.1, %if.then99 ], [ %ret.1, %error_bat_restore ], [ %ret.0.i, %vhdx_user_visible_write.exit ], [ -22, %if.end.i41 ], [ -5, %if.else ], [ -95, %while.body ], [ %retval.0.i, %vhdx_allocate_block.exit ], [ %ret.2, %if.end88 ], [ %call83, %if.then82 ]
   %42 = load ptr, ptr %iov1, align 8
   call void @qemu_vfree(ptr noundef %42) #17
   %43 = load ptr, ptr %iov2, align 8
   call void @qemu_vfree(ptr noundef %43) #17
   call void @qemu_co_mutex_unlock(ptr noundef %0) #17
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #17
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2168,7 +2168,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %payblocks.048 = phi i64 [ %4, %for.body.lr.ph ], [ %payblocks.1, %for.inc ]
   %i.046 = phi i64 [ 0, %for.body.lr.ph ], [ %inc64, %for.inc ]
-  %ret.045 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.3, %for.inc ]
+  %ret.045 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.4, %for.inc ]
   %5 = load ptr, ptr %bat, align 8
   %arrayidx = getelementptr i64, ptr %5, i64 %i.046
   %6 = load i64, ptr %arrayidx, align 8
@@ -2213,7 +2213,7 @@ if.then29:                                        ; preds = %if.end26
   br i1 %tobool.not, label %return, label %if.end46.sink.split
 
 if.else:                                          ; preds = %if.end26.thread, %if.end26
-  %ret.157 = phi i32 [ -22, %if.end26.thread ], [ %ret.045, %if.end26 ]
+  %ret.257 = phi i32 [ -22, %if.end26.thread ], [ %ret.045, %if.end26 ]
   %add = add nuw i64 %cond, %and10
   %cmp35 = icmp ugt i64 %add, %call
   br i1 %cmp35, label %if.then37, label %if.end46
@@ -2230,7 +2230,7 @@ if.end46.sink.split:                              ; preds = %if.then37, %if.then
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end46.sink.split, %if.else
-  %ret.2 = phi i32 [ %ret.157, %if.else ], [ -22, %if.end46.sink.split ]
+  %ret.3 = phi i32 [ %ret.257, %if.else ], [ -22, %if.end46.sink.split ]
   %dec = add i64 %payblocks.048, -1
   %tobool47.not = icmp eq i64 %payblocks.048, 0
   br i1 %tobool47.not, label %if.else60, label %if.then48
@@ -2276,7 +2276,7 @@ if.else60:                                        ; preds = %if.end46
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.i, %if.then48, %for.body, %if.end57, %if.else60
-  %ret.3 = phi i32 [ -22, %if.end57 ], [ %ret.2, %if.else60 ], [ %ret.045, %for.body ], [ %ret.2, %if.then48 ], [ %ret.2, %for.inc.i ]
+  %ret.4 = phi i32 [ -22, %if.end57 ], [ %ret.3, %if.else60 ], [ %ret.045, %for.body ], [ %ret.3, %if.then48 ], [ %ret.3, %for.inc.i ]
   %payblocks.1 = phi i64 [ %dec, %if.end57 ], [ %15, %if.else60 ], [ %payblocks.048, %for.body ], [ %dec, %if.then48 ], [ %dec, %for.inc.i ]
   %inc64 = add nuw nsw i64 %i.046, 1
   %16 = load i32, ptr %bat_entries, align 8
@@ -2285,7 +2285,7 @@ for.inc:                                          ; preds = %for.inc.i, %if.then
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %if.then54, %if.then37, %if.then29, %if.then23, %for.inc, %if.end, %if.then
-  %retval.0 = phi i32 [ %conv, %if.then ], [ 0, %if.end ], [ -22, %if.then54 ], [ -22, %if.then37 ], [ -22, %if.then29 ], [ -22, %if.then23 ], [ %ret.3, %for.inc ]
+  %retval.0 = phi i32 [ %conv, %if.then ], [ 0, %if.end ], [ -22, %if.then54 ], [ -22, %if.then37 ], [ -22, %if.then29 ], [ -22, %if.then23 ], [ %ret.4, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -2723,7 +2723,7 @@ if.else19:                                        ; preds = %if.end
   br label %exit
 
 if.end21:                                         ; preds = %if.then12, %if.then4
-  %ret.0 = phi i32 [ %call, %if.then4 ], [ %call14, %if.then12 ]
+  %ret.1 = phi i32 [ %call, %if.then4 ], [ %call14, %if.then12 ]
   tail call void @bdrv_graph_co_rdlock() #17
   %call22 = tail call ptr @blk_bs(ptr noundef %blk) #17
   %call23 = tail call i32 @bdrv_has_zero_init(ptr noundef %call22) #17
@@ -2828,10 +2828,10 @@ if.then73:                                        ; preds = %while.end
   br label %exit
 
 exit:                                             ; preds = %if.end21, %while.end, %if.then12, %if.then4, %if.then73, %if.then42, %if.else19
-  %ret.1 = phi i32 [ %call, %if.then4 ], [ -12, %if.then42 ], [ %call70, %if.then73 ], [ %call70, %while.end ], [ %call14, %if.then12 ], [ -95, %if.else19 ], [ %ret.0, %if.end21 ]
+  %ret.0 = phi i32 [ %call, %if.then4 ], [ -12, %if.then42 ], [ %call70, %if.then73 ], [ %call70, %while.end ], [ %call14, %if.then12 ], [ -95, %if.else19 ], [ %ret.1, %if.end21 ]
   %16 = load ptr, ptr %bat, align 8
   tail call void @g_free(ptr noundef %16) #17
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 declare i32 @blk_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #3

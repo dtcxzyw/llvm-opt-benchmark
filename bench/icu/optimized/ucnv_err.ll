@@ -392,18 +392,18 @@ while.body225.preheader:                          ; preds = %while.cond223.prehe
 
 while.body74:                                     ; preds = %while.body74.preheader, %while.body74
   %indvars.iv = phi i64 [ 0, %while.body74.preheader ], [ %indvars.iv.next, %while.body74 ]
-  %valueStringLength.1143 = phi i32 [ 0, %while.body74.preheader ], [ %add90, %while.body74 ]
-  %inc75 = add nsw i32 %valueStringLength.1143, 1
-  %idxprom76 = sext i32 %valueStringLength.1143 to i64
+  %valueStringLength.2143 = phi i32 [ 0, %while.body74.preheader ], [ %add90, %while.body74 ]
+  %inc75 = add nsw i32 %valueStringLength.2143, 1
+  %idxprom76 = sext i32 %valueStringLength.2143 to i64
   %arrayidx77 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom76
   store i16 92, ptr %arrayidx77, align 2
-  %inc78 = add nsw i32 %valueStringLength.1143, 2
+  %inc78 = add nsw i32 %valueStringLength.2143, 2
   %idxprom79 = sext i32 %inc75 to i64
   %arrayidx80 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom79
   store i16 117, ptr %arrayidx80, align 2
   %idx.ext82 = sext i32 %inc78 to i64
   %add.ptr83 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext82
-  %sub84 = sub nsw i32 46, %valueStringLength.1143
+  %sub84 = sub nsw i32 46, %valueStringLength.2143
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx87 = getelementptr inbounds i16, ptr %codeUnits, i64 %indvars.iv
   %9 = load i16, ptr %arrayidx87, align 2
@@ -450,9 +450,9 @@ if.else135:                                       ; preds = %sw.bb120
 if.end144:                                        ; preds = %sw.bb120, %if.else135
   %conv141.sink = phi i32 [ %conv141, %if.else135 ], [ %codePoint, %sw.bb120 ]
   %call142 = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr131, i32 noundef 46, i32 noundef %conv141.sink, i32 noundef 10, i32 noundef 0)
-  %valueStringLength.2 = add nsw i32 %call142, 2
+  %valueStringLength.3 = add nsw i32 %call142, 2
   %inc145 = add nsw i32 %call142, 3
-  %idxprom146 = sext i32 %valueStringLength.2 to i64
+  %idxprom146 = sext i32 %valueStringLength.3 to i64
   %arrayidx147 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom146
   store i16 59, ptr %arrayidx147, align 2
   br label %if.end243
@@ -475,9 +475,9 @@ if.else166:                                       ; preds = %sw.bb148
 if.end175:                                        ; preds = %sw.bb148, %if.else166
   %conv172.sink = phi i32 [ %conv172, %if.else166 ], [ %codePoint, %sw.bb148 ]
   %call173 = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr162, i32 noundef 45, i32 noundef %conv172.sink, i32 noundef 16, i32 noundef 0)
-  %valueStringLength.3 = add nsw i32 %call173, 3
+  %valueStringLength.4 = add nsw i32 %call173, 3
   %inc176 = add nsw i32 %call173, 4
-  %idxprom177 = sext i32 %valueStringLength.3 to i64
+  %idxprom177 = sext i32 %valueStringLength.4 to i64
   %arrayidx178 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom177
   store i16 59, ptr %arrayidx178, align 2
   br label %if.end243
@@ -500,9 +500,9 @@ if.else197:                                       ; preds = %sw.bb179
 if.end206:                                        ; preds = %sw.bb179, %if.else197
   %conv203.sink = phi i32 [ %conv203, %if.else197 ], [ %codePoint, %sw.bb179 ]
   %call204 = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr193, i32 noundef 45, i32 noundef %conv203.sink, i32 noundef 16, i32 noundef 4)
-  %valueStringLength.4 = add nsw i32 %call204, 3
+  %valueStringLength.5 = add nsw i32 %call204, 3
   %inc207 = add nsw i32 %call204, 4
-  %idxprom208 = sext i32 %valueStringLength.4 to i64
+  %idxprom208 = sext i32 %valueStringLength.5 to i64
   %arrayidx209 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom208
   store i16 125, ptr %arrayidx209, align 2
   br label %if.end243
@@ -520,18 +520,18 @@ sw.bb210:                                         ; preds = %if.else70
 
 while.body225:                                    ; preds = %while.body225.preheader, %while.body225
   %indvars.iv156 = phi i64 [ 0, %while.body225.preheader ], [ %indvars.iv.next157, %while.body225 ]
-  %valueStringLength.5146 = phi i32 [ 0, %while.body225.preheader ], [ %add241, %while.body225 ]
-  %inc226 = add nsw i32 %valueStringLength.5146, 1
-  %idxprom227 = sext i32 %valueStringLength.5146 to i64
+  %valueStringLength.6146 = phi i32 [ 0, %while.body225.preheader ], [ %add241, %while.body225 ]
+  %inc226 = add nsw i32 %valueStringLength.6146, 1
+  %idxprom227 = sext i32 %valueStringLength.6146 to i64
   %arrayidx228 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom227
   store i16 37, ptr %arrayidx228, align 2
-  %inc229 = add nsw i32 %valueStringLength.5146, 2
+  %inc229 = add nsw i32 %valueStringLength.6146, 2
   %idxprom230 = sext i32 %inc226 to i64
   %arrayidx231 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 %idxprom230
   store i16 85, ptr %arrayidx231, align 2
   %idx.ext233 = sext i32 %inc229 to i64
   %add.ptr234 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext233
-  %sub235 = sub nsw i32 46, %valueStringLength.5146
+  %sub235 = sub nsw i32 46, %valueStringLength.6146
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %arrayidx238 = getelementptr inbounds i16, ptr %codeUnits, i64 %indvars.iv156
   %14 = load i16, ptr %arrayidx238, align 2
@@ -542,10 +542,10 @@ while.body225:                                    ; preds = %while.body225.prehe
   br i1 %exitcond160.not, label %if.end243, label %while.body225, !llvm.loop !7
 
 if.end243:                                        ; preds = %while.body74, %while.body225, %while.body, %while.cond72.preheader, %while.cond223.preheader, %while.cond.preheader, %if.end144, %if.end175, %if.end206, %sw.bb210, %if.else107, %if.then97
-  %valueStringLength.6 = phi i32 [ %inc220, %sw.bb210 ], [ %inc207, %if.end206 ], [ %inc176, %if.end175 ], [ %inc145, %if.end144 ], [ %add106, %if.then97 ], [ %add118, %if.else107 ], [ 0, %while.cond.preheader ], [ 0, %while.cond223.preheader ], [ 0, %while.cond72.preheader ], [ %add, %while.body ], [ %add241, %while.body225 ], [ %add90, %while.body74 ]
+  %valueStringLength.1 = phi i32 [ %inc220, %sw.bb210 ], [ %inc207, %if.end206 ], [ %inc176, %if.end175 ], [ %inc145, %if.end144 ], [ %add106, %if.then97 ], [ %add118, %if.else107 ], [ 0, %while.cond.preheader ], [ 0, %while.cond223.preheader ], [ 0, %while.cond72.preheader ], [ %add, %while.body ], [ %add241, %while.body225 ], [ %add90, %while.body74 ]
   store ptr %valueString, ptr %myValueSource, align 8
   store i32 0, ptr %err, align 4
-  %idx.ext245 = sext i32 %valueStringLength.6 to i64
+  %idx.ext245 = sext i32 %valueStringLength.1 to i64
   %add.ptr246 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext245
   call void @ucnv_cbFromUWriteUChars_75(ptr noundef %fromArgs, ptr noundef nonnull %myValueSource, ptr noundef nonnull %add.ptr246, i32 noundef 0, ptr noundef nonnull %err)
   %15 = load ptr, ptr %converter, align 8
@@ -705,18 +705,18 @@ while.body84.preheader:                           ; preds = %while.cond82.prehea
 
 while.body13:                                     ; preds = %while.body13.preheader, %while.body13
   %indvars.iv81 = phi i64 [ 0, %while.body13.preheader ], [ %indvars.iv.next82, %while.body13 ]
-  %valueStringLength.160 = phi i32 [ 0, %while.body13.preheader ], [ %inc30, %while.body13 ]
-  %inc14 = add nsw i32 %valueStringLength.160, 1
-  %idxprom15 = sext i32 %valueStringLength.160 to i64
+  %valueStringLength.260 = phi i32 [ 0, %while.body13.preheader ], [ %inc30, %while.body13 ]
+  %inc14 = add nsw i32 %valueStringLength.260, 1
+  %idxprom15 = sext i32 %valueStringLength.260 to i64
   %arrayidx16 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom15
   store i16 38, ptr %arrayidx16, align 2
-  %inc17 = add nsw i32 %valueStringLength.160, 2
+  %inc17 = add nsw i32 %valueStringLength.260, 2
   %idxprom18 = sext i32 %inc14 to i64
   %arrayidx19 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom18
   store i16 35, ptr %arrayidx19, align 2
   %idx.ext21 = sext i32 %inc17 to i64
   %add.ptr22 = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext21
-  %sub23 = sub nsw i32 46, %valueStringLength.160
+  %sub23 = sub nsw i32 46, %valueStringLength.260
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %arrayidx26 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv81
   %2 = load i8, ptr %arrayidx26, align 1
@@ -732,22 +732,22 @@ while.body13:                                     ; preds = %while.body13.prehea
 
 while.body37:                                     ; preds = %while.body37.preheader, %while.body37
   %indvars.iv76 = phi i64 [ 0, %while.body37.preheader ], [ %indvars.iv.next77, %while.body37 ]
-  %valueStringLength.256 = phi i32 [ 0, %while.body37.preheader ], [ %inc57, %while.body37 ]
-  %inc38 = add nsw i32 %valueStringLength.256, 1
-  %idxprom39 = sext i32 %valueStringLength.256 to i64
+  %valueStringLength.356 = phi i32 [ 0, %while.body37.preheader ], [ %inc57, %while.body37 ]
+  %inc38 = add nsw i32 %valueStringLength.356, 1
+  %idxprom39 = sext i32 %valueStringLength.356 to i64
   %arrayidx40 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom39
   store i16 38, ptr %arrayidx40, align 2
-  %inc41 = add nsw i32 %valueStringLength.256, 2
+  %inc41 = add nsw i32 %valueStringLength.356, 2
   %idxprom42 = sext i32 %inc38 to i64
   %arrayidx43 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom42
   store i16 35, ptr %arrayidx43, align 2
-  %inc44 = add nsw i32 %valueStringLength.256, 3
+  %inc44 = add nsw i32 %valueStringLength.356, 3
   %idxprom45 = sext i32 %inc41 to i64
   %arrayidx46 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom45
   store i16 120, ptr %arrayidx46, align 2
   %idx.ext48 = sext i32 %inc44 to i64
   %add.ptr49 = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext48
-  %sub50 = sub nsw i32 45, %valueStringLength.256
+  %sub50 = sub nsw i32 45, %valueStringLength.356
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %arrayidx53 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv76
   %3 = load i8, ptr %arrayidx53, align 1
@@ -763,18 +763,18 @@ while.body37:                                     ; preds = %while.body37.prehea
 
 while.body64:                                     ; preds = %while.body64.preheader, %while.body64
   %indvars.iv = phi i64 [ 0, %while.body64.preheader ], [ %indvars.iv.next, %while.body64 ]
-  %valueStringLength.353 = phi i32 [ 0, %while.body64.preheader ], [ %add80, %while.body64 ]
-  %inc65 = add nsw i32 %valueStringLength.353, 1
-  %idxprom66 = sext i32 %valueStringLength.353 to i64
+  %valueStringLength.453 = phi i32 [ 0, %while.body64.preheader ], [ %add80, %while.body64 ]
+  %inc65 = add nsw i32 %valueStringLength.453, 1
+  %idxprom66 = sext i32 %valueStringLength.453 to i64
   %arrayidx67 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom66
   store i16 92, ptr %arrayidx67, align 2
-  %inc68 = add nsw i32 %valueStringLength.353, 2
+  %inc68 = add nsw i32 %valueStringLength.453, 2
   %idxprom69 = sext i32 %inc65 to i64
   %arrayidx70 = getelementptr inbounds [48 x i16], ptr %uniValueString, i64 0, i64 %idxprom69
   store i16 120, ptr %arrayidx70, align 2
   %idx.ext72 = sext i32 %inc68 to i64
   %add.ptr73 = getelementptr inbounds i16, ptr %uniValueString, i64 %idx.ext72
-  %sub74 = sub nsw i32 46, %valueStringLength.353
+  %sub74 = sub nsw i32 46, %valueStringLength.453
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx77 = getelementptr inbounds i8, ptr %codeUnits, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx77, align 1
@@ -810,9 +810,9 @@ if.end102.loopexit71:                             ; preds = %while.body84
   br label %if.end102
 
 if.end102:                                        ; preds = %while.body64, %while.body37, %while.body13, %while.body, %if.end102.loopexit71, %while.cond62.preheader, %while.cond35.preheader, %while.cond11.preheader, %while.cond82.preheader, %while.cond.preheader
-  %valueStringLength.5 = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.cond82.preheader ], [ 0, %while.cond11.preheader ], [ 0, %while.cond35.preheader ], [ 0, %while.cond62.preheader ], [ %10, %if.end102.loopexit71 ], [ %add, %while.body ], [ %inc30, %while.body13 ], [ %inc57, %while.body37 ], [ %add80, %while.body64 ]
+  %valueStringLength.1 = phi i32 [ 0, %while.cond.preheader ], [ 0, %while.cond82.preheader ], [ 0, %while.cond11.preheader ], [ 0, %while.cond35.preheader ], [ 0, %while.cond62.preheader ], [ %10, %if.end102.loopexit71 ], [ %add, %while.body ], [ %inc30, %while.body13 ], [ %inc57, %while.body37 ], [ %add80, %while.body64 ]
   store i32 0, ptr %err, align 4
-  call void @ucnv_cbToUWriteUChars_75(ptr noundef %toArgs, ptr noundef nonnull %uniValueString, i32 noundef %valueStringLength.5, i32 noundef 0, ptr noundef nonnull %err)
+  call void @ucnv_cbToUWriteUChars_75(ptr noundef %toArgs, ptr noundef nonnull %uniValueString, i32 noundef %valueStringLength.1, i32 noundef 0, ptr noundef nonnull %err)
   br label %return
 
 return:                                           ; preds = %entry, %if.end102

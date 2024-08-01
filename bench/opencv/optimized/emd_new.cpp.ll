@@ -2117,10 +2117,10 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   br label %918
 
 918:                                              ; preds = %.loopexit.i.i112, %._crit_edge115.i.i
-  %.sroa.085.0.i.i = phi ptr [ %916, %._crit_edge115.i.i ], [ %.sroa.085.6.i.i, %.loopexit.i.i112 ]
-  %.sroa.0.0.i.i = phi ptr [ null, %._crit_edge115.i.i ], [ %.sroa.0.6.i.i, %.loopexit.i.i112 ]
-  %.081.i.i = phi i32 [ 0, %._crit_edge115.i.i ], [ %.283.i.i, %.loopexit.i.i112 ]
-  %.078.i.i = phi i32 [ 0, %._crit_edge115.i.i ], [ %.280.i.i, %.loopexit.i.i112 ]
+  %.sroa.085.0.i.i = phi ptr [ %916, %._crit_edge115.i.i ], [ %.sroa.085.3.i.i, %.loopexit.i.i112 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %._crit_edge115.i.i ], [ %.sroa.0.5.i.i, %.loopexit.i.i112 ]
+  %.081.i.i = phi i32 [ 0, %._crit_edge115.i.i ], [ %.182.i.i, %.loopexit.i.i112 ]
+  %.078.i.i = phi i32 [ 0, %._crit_edge115.i.i ], [ %.179.i.i, %.loopexit.i.i112 ]
   %919 = load i32, ptr %44, align 8
   %920 = icmp slt i32 %.081.i.i, %919
   %921 = load i32, ptr %302, align 4
@@ -2143,10 +2143,10 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
 
 .lr.ph130.split.us.i.i:                           ; preds = %.lr.ph130.i.i, %.lr.ph130.split.us.i.i
   %.071128.us.i.i = phi ptr [ %928, %.lr.ph130.split.us.i.i ], [ %.sroa.085.0.i.i, %.lr.ph130.i.i ]
-  %.179127.us.i.i = phi i32 [ %929, %.lr.ph130.split.us.i.i ], [ %.078.i.i, %.lr.ph130.i.i ]
+  %.280127.us.i.i = phi i32 [ %929, %.lr.ph130.split.us.i.i ], [ %.078.i.i, %.lr.ph130.i.i ]
   %927 = getelementptr inbounds i8, ptr %.071128.us.i.i, i64 8
   %928 = load ptr, ptr %927, align 8
-  %929 = add nsw i32 %.179127.us.i.i, 1
+  %929 = add nsw i32 %.280127.us.i.i, 1
   %.not93.us.i.i = icmp eq ptr %928, null
   br i1 %.not93.us.i.i, label %.loopexit108.i.i, label %.lr.ph130.split.us.i.i, !llvm.loop !45
 
@@ -2157,8 +2157,8 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
 .lr.ph130.split.i.i:                              ; preds = %.lr.ph130.i.i, %.lr.ph130.splitthread-pre-split.i.i
   %930 = phi ptr [ %.pr.i.i, %.lr.ph130.splitthread-pre-split.i.i ], [ %925, %.lr.ph130.i.i ]
   %.071128.i.i = phi ptr [ %961, %.lr.ph130.splitthread-pre-split.i.i ], [ %.sroa.085.0.i.i, %.lr.ph130.i.i ]
-  %.179127.i.i = phi i32 [ %962, %.lr.ph130.splitthread-pre-split.i.i ], [ %.078.i.i, %.lr.ph130.i.i ]
-  %.sroa.0.1126.i.i = phi ptr [ %.sroa.0.2.lcssa.i.i, %.lr.ph130.splitthread-pre-split.i.i ], [ %.sroa.0.0.i.i, %.lr.ph130.i.i ]
+  %.280127.i.i = phi i32 [ %962, %.lr.ph130.splitthread-pre-split.i.i ], [ %.078.i.i, %.lr.ph130.i.i ]
+  %.sroa.0.2126.i.i = phi ptr [ %.sroa.0.3.lcssa.i.i, %.lr.ph130.splitthread-pre-split.i.i ], [ %.sroa.0.0.i.i, %.lr.ph130.i.i ]
   %931 = load float, ptr %.071128.i.i, align 8
   %.not97117.i.i = icmp eq ptr %930, null
   br i1 %.not97117.i.i, label %._crit_edge123.i.i, label %.lr.ph122.i.i
@@ -2175,7 +2175,7 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
 937:                                              ; preds = %959, %.lr.ph122.i.i
   %.073120.i.i = phi ptr [ %14, %.lr.ph122.i.i ], [ %.174.i.i, %959 ]
   %.075119.i.i = phi ptr [ %930, %.lr.ph122.i.i ], [ %.176.i.i, %959 ]
-  %.sroa.0.2118.i.i = phi ptr [ %.sroa.0.1126.i.i, %.lr.ph122.i.i ], [ %.sroa.0.3.i.i, %959 ]
+  %.sroa.0.3118.i.i = phi ptr [ %.sroa.0.2126.i.i, %.lr.ph122.i.i ], [ %.sroa.0.4.i.i, %959 ]
   %938 = load ptr, ptr %372, align 8
   %939 = ptrtoint ptr %.075119.i.i to i64
   %940 = ptrtoint ptr %938 to i64
@@ -2203,7 +2203,7 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   %955 = load ptr, ptr %954, align 8
   %956 = getelementptr inbounds i8, ptr %.073120.i.i, i64 8
   store ptr %955, ptr %956, align 8
-  store ptr %.sroa.0.2118.i.i, ptr %954, align 8
+  store ptr %.sroa.0.3118.i.i, ptr %954, align 8
   br label %959
 
 957:                                              ; preds = %937
@@ -2211,7 +2211,7 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   br label %959
 
 959:                                              ; preds = %957, %949
-  %.sroa.0.3.i.i = phi ptr [ %.075119.i.i, %949 ], [ %.sroa.0.2118.i.i, %957 ]
+  %.sroa.0.4.i.i = phi ptr [ %.075119.i.i, %949 ], [ %.sroa.0.3118.i.i, %957 ]
   %.176.in.i.i = phi ptr [ %956, %949 ], [ %958, %957 ]
   %.174.i.i = phi ptr [ %.073120.i.i, %949 ], [ %.075119.i.i, %957 ]
   %.176.i.i = load ptr, ptr %.176.in.i.i, align 8
@@ -2219,10 +2219,10 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   br i1 %.not97.i.i, label %._crit_edge123.i.i, label %937, !llvm.loop !46
 
 ._crit_edge123.i.i:                               ; preds = %959, %.lr.ph130.split.i.i
-  %.sroa.0.2.lcssa.i.i = phi ptr [ %.sroa.0.1126.i.i, %.lr.ph130.split.i.i ], [ %.sroa.0.3.i.i, %959 ]
+  %.sroa.0.3.lcssa.i.i = phi ptr [ %.sroa.0.2126.i.i, %.lr.ph130.split.i.i ], [ %.sroa.0.4.i.i, %959 ]
   %960 = getelementptr inbounds i8, ptr %.071128.i.i, i64 8
   %961 = load ptr, ptr %960, align 8
-  %962 = add nsw i32 %.179127.i.i, 1
+  %962 = add nsw i32 %.280127.i.i, 1
   %.not93.i.i = icmp eq ptr %961, null
   br i1 %.not93.i.i, label %.loopexit108.loopexit153.i.i, label %.lr.ph130.splitthread-pre-split.i.i, !llvm.loop !47
 
@@ -2232,17 +2232,17 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
 
 .loopexit108.i.i:                                 ; preds = %.lr.ph130.split.us.i.i, %.loopexit108.loopexit153.i.i, %923, %.critedge.i.i
   %963 = phi i32 [ %919, %.critedge.i.i ], [ %919, %923 ], [ %.pre165.i.i, %.loopexit108.loopexit153.i.i ], [ %919, %.lr.ph130.split.us.i.i ]
-  %.sroa.085.2.i.i = phi ptr [ %.sroa.085.0.i.i, %.critedge.i.i ], [ null, %923 ], [ null, %.loopexit108.loopexit153.i.i ], [ null, %.lr.ph130.split.us.i.i ]
-  %.sroa.0.4.i.i = phi ptr [ %.sroa.0.0.i.i, %.critedge.i.i ], [ %.sroa.0.0.i.i, %923 ], [ %.sroa.0.2.lcssa.i.i, %.loopexit108.loopexit153.i.i ], [ %.sroa.0.0.i.i, %.lr.ph130.split.us.i.i ]
-  %.280.i.i = phi i32 [ %.078.i.i, %.critedge.i.i ], [ %.078.i.i, %923 ], [ %962, %.loopexit108.loopexit153.i.i ], [ %929, %.lr.ph130.split.us.i.i ]
+  %.sroa.085.1.i.i = phi ptr [ %.sroa.085.0.i.i, %.critedge.i.i ], [ null, %923 ], [ null, %.loopexit108.loopexit153.i.i ], [ null, %.lr.ph130.split.us.i.i ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.0.0.i.i, %.critedge.i.i ], [ %.sroa.0.0.i.i, %923 ], [ %.sroa.0.3.lcssa.i.i, %.loopexit108.loopexit153.i.i ], [ %.sroa.0.0.i.i, %.lr.ph130.split.us.i.i ]
+  %.179.i.i = phi i32 [ %.078.i.i, %.critedge.i.i ], [ %.078.i.i, %923 ], [ %962, %.loopexit108.loopexit153.i.i ], [ %929, %.lr.ph130.split.us.i.i ]
   %.067.shrunk.i.i = phi i1 [ false, %.critedge.i.i ], [ %924, %923 ], [ true, %.loopexit108.loopexit153.i.i ], [ true, %.lr.ph130.split.us.i.i ]
   %964 = icmp slt i32 %.081.i.i, %963
   br i1 %964, label %965, label %.loopexit.i.i112
 
 965:                                              ; preds = %.loopexit108.i.i
-  %966 = icmp ne ptr %.sroa.0.4.i.i, null
+  %966 = icmp ne ptr %.sroa.0.1.i.i, null
   %967 = select i1 %.067.shrunk.i.i, i1 true, i1 %966
-  %.not94142.i.i = icmp eq ptr %.sroa.0.4.i.i, null
+  %.not94142.i.i = icmp eq ptr %.sroa.0.1.i.i, null
   br i1 %.not94142.i.i, label %.loopexit.i.i112, label %.lr.ph147.i.i
 
 .lr.ph147.i.i:                                    ; preds = %965
@@ -2251,18 +2251,18 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   br i1 %969, label %.lr.ph147.split.us.i.i, label %.lr.ph147.split.i.i
 
 .lr.ph147.split.us.i.i:                           ; preds = %.lr.ph147.i.i, %.lr.ph147.split.us.i.i
-  %.277145.us.i.i = phi ptr [ %971, %.lr.ph147.split.us.i.i ], [ %.sroa.0.4.i.i, %.lr.ph147.i.i ]
-  %.182144.us.i.i = phi i32 [ %972, %.lr.ph147.split.us.i.i ], [ %.081.i.i, %.lr.ph147.i.i ]
+  %.277145.us.i.i = phi ptr [ %971, %.lr.ph147.split.us.i.i ], [ %.sroa.0.1.i.i, %.lr.ph147.i.i ]
+  %.283144.us.i.i = phi i32 [ %972, %.lr.ph147.split.us.i.i ], [ %.081.i.i, %.lr.ph147.i.i ]
   %970 = getelementptr inbounds i8, ptr %.277145.us.i.i, i64 8
   %971 = load ptr, ptr %970, align 8
-  %972 = add nsw i32 %.182144.us.i.i, 1
+  %972 = add nsw i32 %.283144.us.i.i, 1
   %.not94.us.i.i = icmp eq ptr %971, null
   br i1 %.not94.us.i.i, label %.loopexit.i.i112, label %.lr.ph147.split.us.i.i, !llvm.loop !48
 
 .lr.ph147.split.i.i:                              ; preds = %.lr.ph147.i.i, %._crit_edge140.i.i
-  %.277145.i.i = phi ptr [ %1003, %._crit_edge140.i.i ], [ %.sroa.0.4.i.i, %.lr.ph147.i.i ]
-  %.182144.i.i = phi i32 [ %1004, %._crit_edge140.i.i ], [ %.081.i.i, %.lr.ph147.i.i ]
-  %.sroa.085.3143.i.i = phi ptr [ %.sroa.085.4.lcssa.i.i, %._crit_edge140.i.i ], [ %.sroa.085.2.i.i, %.lr.ph147.i.i ]
+  %.277145.i.i = phi ptr [ %1003, %._crit_edge140.i.i ], [ %.sroa.0.1.i.i, %.lr.ph147.i.i ]
+  %.283144.i.i = phi i32 [ %1004, %._crit_edge140.i.i ], [ %.081.i.i, %.lr.ph147.i.i ]
+  %.sroa.085.4143.i.i = phi ptr [ %.sroa.085.5.lcssa.i.i, %._crit_edge140.i.i ], [ %.sroa.085.1.i.i, %.lr.ph147.i.i ]
   %973 = load float, ptr %.277145.i.i, align 8
   %974 = load ptr, ptr %372, align 8
   %975 = ptrtoint ptr %.277145.i.i to i64
@@ -2277,7 +2277,7 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
 .lr.ph139.i.i:                                    ; preds = %.lr.ph147.split.i.i, %1001
   %.069137.i.i = phi ptr [ %.170.i.i, %1001 ], [ %15, %.lr.ph147.split.i.i ]
   %.172136.i.i = phi ptr [ %.2.i.i113, %1001 ], [ %980, %.lr.ph147.split.i.i ]
-  %.sroa.085.4135.i.i = phi ptr [ %.sroa.085.5.i.i, %1001 ], [ %.sroa.085.3143.i.i, %.lr.ph147.split.i.i ]
+  %.sroa.085.5135.i.i = phi ptr [ %.sroa.085.6.i.i, %1001 ], [ %.sroa.085.4143.i.i, %.lr.ph147.split.i.i ]
   %981 = load ptr, ptr %374, align 8
   %982 = ptrtoint ptr %.172136.i.i to i64
   %983 = ptrtoint ptr %981 to i64
@@ -2305,7 +2305,7 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   %997 = load ptr, ptr %996, align 8
   %998 = getelementptr inbounds i8, ptr %.069137.i.i, i64 8
   store ptr %997, ptr %998, align 8
-  store ptr %.sroa.085.4135.i.i, ptr %996, align 8
+  store ptr %.sroa.085.5135.i.i, ptr %996, align 8
   br label %1001
 
 999:                                              ; preds = %.lr.ph139.i.i
@@ -2313,7 +2313,7 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   br label %1001
 
 1001:                                             ; preds = %999, %991
-  %.sroa.085.5.i.i = phi ptr [ %.172136.i.i, %991 ], [ %.sroa.085.4135.i.i, %999 ]
+  %.sroa.085.6.i.i = phi ptr [ %.172136.i.i, %991 ], [ %.sroa.085.5135.i.i, %999 ]
   %.2.in.i.i = phi ptr [ %998, %991 ], [ %1000, %999 ]
   %.170.i.i = phi ptr [ %.069137.i.i, %991 ], [ %.172136.i.i, %999 ]
   %.2.i.i113 = load ptr, ptr %.2.in.i.i, align 8
@@ -2321,17 +2321,17 @@ common.resume.i102:                               ; preds = %1243, %1241, %1236,
   br i1 %.not95.i.i, label %._crit_edge140.i.i, label %.lr.ph139.i.i, !llvm.loop !49
 
 ._crit_edge140.i.i:                               ; preds = %1001, %.lr.ph147.split.i.i
-  %.sroa.085.4.lcssa.i.i = phi ptr [ %.sroa.085.3143.i.i, %.lr.ph147.split.i.i ], [ %.sroa.085.5.i.i, %1001 ]
+  %.sroa.085.5.lcssa.i.i = phi ptr [ %.sroa.085.4143.i.i, %.lr.ph147.split.i.i ], [ %.sroa.085.6.i.i, %1001 ]
   %1002 = getelementptr inbounds i8, ptr %.277145.i.i, i64 8
   %1003 = load ptr, ptr %1002, align 8
-  %1004 = add nsw i32 %.182144.i.i, 1
+  %1004 = add nsw i32 %.283144.i.i, 1
   %.not94.i.i = icmp eq ptr %1003, null
   br i1 %.not94.i.i, label %.loopexit.i.i112, label %.lr.ph147.split.i.i, !llvm.loop !50
 
 .loopexit.i.i112:                                 ; preds = %._crit_edge140.i.i, %.lr.ph147.split.us.i.i, %965, %.loopexit108.i.i
-  %.sroa.085.6.i.i = phi ptr [ %.sroa.085.2.i.i, %.loopexit108.i.i ], [ %.sroa.085.2.i.i, %965 ], [ %.sroa.085.2.i.i, %.lr.ph147.split.us.i.i ], [ %.sroa.085.4.lcssa.i.i, %._crit_edge140.i.i ]
-  %.sroa.0.6.i.i = phi ptr [ %.sroa.0.4.i.i, %.loopexit108.i.i ], [ null, %965 ], [ null, %.lr.ph147.split.us.i.i ], [ null, %._crit_edge140.i.i ]
-  %.283.i.i = phi i32 [ %.081.i.i, %.loopexit108.i.i ], [ %.081.i.i, %965 ], [ %972, %.lr.ph147.split.us.i.i ], [ %1004, %._crit_edge140.i.i ]
+  %.sroa.085.3.i.i = phi ptr [ %.sroa.085.1.i.i, %.loopexit108.i.i ], [ %.sroa.085.1.i.i, %965 ], [ %.sroa.085.1.i.i, %.lr.ph147.split.us.i.i ], [ %.sroa.085.5.lcssa.i.i, %._crit_edge140.i.i ]
+  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.1.i.i, %.loopexit108.i.i ], [ null, %965 ], [ null, %.lr.ph147.split.us.i.i ], [ null, %._crit_edge140.i.i ]
+  %.182.i.i = phi i32 [ %.081.i.i, %.loopexit108.i.i ], [ %.081.i.i, %965 ], [ %972, %.lr.ph147.split.us.i.i ], [ %1004, %._crit_edge140.i.i ]
   %.168.in.i.i = phi i1 [ %.067.shrunk.i.i, %.loopexit108.i.i ], [ %967, %965 ], [ %967, %.lr.ph147.split.us.i.i ], [ %967, %._crit_edge140.i.i ]
   br i1 %.168.in.i.i, label %918, label %_ZNK12_GLOBAL__N_19EMDSolver13findBasicVarsEv.exit.thread.i, !llvm.loop !51
 
@@ -2522,7 +2522,7 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
 
 1087:                                             ; preds = %1162, %1048
   %.035.i.i.i = phi ptr [ %1079, %1048 ], [ %.5.i.i.i, %1162 ]
-  %.0.i.i.i = phi i32 [ 1, %1048 ], [ %.3.i.i.i, %1162 ]
+  %.0.i.i.i = phi i32 [ 1, %1048 ], [ %.4.i.i.i, %1162 ]
   %1088 = and i32 %.0.i.i.i, 1
   %.not.i.i.i109 = icmp eq i32 %1088, 0
   br i1 %.not.i.i.i109, label %1105, label %1089
@@ -2565,8 +2565,8 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
   %1108 = load i32, ptr %1107, align 8
   %1109 = sext i32 %1108 to i64
   %1110 = getelementptr inbounds ptr, ptr %1106, i64 %1109
-  %.23770.i.i.i = load ptr, ptr %1110, align 8
-  %.not4171.i.i.i = icmp eq ptr %.23770.i.i.i, null
+  %.33870.i.i.i = load ptr, ptr %1110, align 8
+  %.not4171.i.i.i = icmp eq ptr %.33870.i.i.i, null
   %.pre.i.i.i = load ptr, ptr %862, align 8
   br i1 %.not4171.i.i.i, label %.critedge2.i.i.i, label %.lr.ph73.i.i.i
 
@@ -2577,34 +2577,34 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
   br label %1113
 
 1113:                                             ; preds = %1119, %.lr.ph73.i.i.i
-  %.23772.i.i.i = phi ptr [ %.23770.i.i.i, %.lr.ph73.i.i.i ], [ %.237.i.i.i, %1119 ]
-  %1114 = ptrtoint ptr %.23772.i.i.i to i64
+  %.33872.i.i.i = phi ptr [ %.33870.i.i.i, %.lr.ph73.i.i.i ], [ %.338.i.i.i, %1119 ]
+  %1114 = ptrtoint ptr %.33872.i.i.i to i64
   %1115 = sub i64 %1114, %1112
   %1116 = ashr exact i64 %1115, 5
   %1117 = getelementptr inbounds i8, ptr %1111, i64 %1116
   %1118 = load i8, ptr %1117, align 1
   %.not42.i.i.i = icmp eq i8 %1118, 0
-  %.not43.i.i.i = icmp eq ptr %.23772.i.i.i, %.pre.i.i.i
+  %.not43.i.i.i = icmp eq ptr %.33872.i.i.i, %.pre.i.i.i
   %or.cond.i.i.i = select i1 %.not42.i.i.i, i1 true, i1 %.not43.i.i.i
   br i1 %or.cond.i.i.i, label %.critedge2.i.i.i, label %1119
 
 1119:                                             ; preds = %1113
-  %1120 = getelementptr inbounds i8, ptr %.23772.i.i.i, i64 24
-  %.237.i.i.i = load ptr, ptr %1120, align 8
-  %.not41.i.i.i = icmp eq ptr %.237.i.i.i, null
+  %1120 = getelementptr inbounds i8, ptr %.33872.i.i.i, i64 24
+  %.338.i.i.i = load ptr, ptr %1120, align 8
+  %.not41.i.i.i = icmp eq ptr %.338.i.i.i, null
   br i1 %.not41.i.i.i, label %.critedge2.i.i.i, label %1113, !llvm.loop !55
 
 .critedge2.i.i.i:                                 ; preds = %1119, %1113, %1105
-  %.237.lcssa.i.i.i = phi ptr [ null, %1105 ], [ null, %1119 ], [ %.23772.i.i.i, %1113 ]
-  %1121 = icmp eq ptr %.237.lcssa.i.i.i, %.pre.i.i.i
+  %.338.lcssa.i.i.i = phi ptr [ null, %1105 ], [ null, %1119 ], [ %.33872.i.i.i, %1113 ]
+  %1121 = icmp eq ptr %.338.lcssa.i.i.i, %.pre.i.i.i
   br i1 %1121, label %.preheader95.i.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.critedge2.i.i.i
-  %.not46.i.i.i = icmp eq ptr %.237.lcssa.i.i.i, null
+  %.not46.i.i.i = icmp eq ptr %.338.lcssa.i.i.i, null
   br i1 %.not46.i.i.i, label %.preheader.preheader.i.i.i, label %.critedge..critedge.thread_crit_edge.i.i.i
 
 .critedge..critedge.thread_crit_edge.i.i.i:       ; preds = %.critedge.i.i.i
-  %.pre86.i.i.i = ptrtoint ptr %.237.lcssa.i.i.i to i64
+  %.pre86.i.i.i = ptrtoint ptr %.338.lcssa.i.i.i to i64
   br label %.critedge.thread.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %1103, %.critedge.i.i.i, %1089
@@ -2613,12 +2613,12 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
 
 .critedge.thread.i.i.i:                           ; preds = %1097, %.critedge..critedge.thread_crit_edge.i.i.i
   %.pre-phi87.i.i.i = phi i64 [ %.pre86.i.i.i, %.critedge..critedge.thread_crit_edge.i.i.i ], [ %1098, %1097 ]
-  %.33858.i.i.i = phi ptr [ %.237.lcssa.i.i.i, %.critedge..critedge.thread_crit_edge.i.i.i ], [ %.13669.i.i.i, %1097 ]
+  %.23758.i.i.i = phi ptr [ %.338.lcssa.i.i.i, %.critedge..critedge.thread_crit_edge.i.i.i ], [ %.13669.i.i.i, %1097 ]
   %1123 = load ptr, ptr %403, align 8
   %1124 = add nuw nsw i32 %.0.i.i.i, 1
   %1125 = zext nneg i32 %.0.i.i.i to i64
   %1126 = getelementptr inbounds ptr, ptr %1123, i64 %1125
-  store ptr %.33858.i.i.i, ptr %1126, align 8
+  store ptr %.23758.i.i.i, ptr %1126, align 8
   br label %1162
 
 .preheader.i.i.i:                                 ; preds = %.critedge4.i.i.i, %.preheader.preheader.i.i.i
@@ -2671,9 +2671,9 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
   %.pre-phi.i.i.i = phi i64 [ %.pre85.i.i.i, %.critedge4.thread59.loopexit76.i.i.i ], [ %1133, %1138 ]
   %1149 = phi ptr [ %.pre83.i.i.i, %.critedge4.thread59.loopexit76.i.i.i ], [ %1128, %1138 ]
   %1150 = phi ptr [ %.pre82.i.i.i, %.critedge4.thread59.loopexit76.i.i.i ], [ %1132, %1138 ]
-  %.261.in.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.critedge4.thread59.loopexit76.i.i.i ], [ %indvars.iv.i.i.i, %1138 ]
-  %.261.i.i.i = trunc i64 %.261.in.i.i.i to i32
-  %1151 = shl i64 %.261.in.i.i.i, 32
+  %.361.in.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.critedge4.thread59.loopexit76.i.i.i ], [ %indvars.iv.i.i.i, %1138 ]
+  %.361.i.i.i = trunc i64 %.361.in.i.i.i to i32
+  %1151 = shl i64 %.361.in.i.i.i, 32
   %sext.i.i.i = add i64 %1151, -4294967296
   %1152 = ashr exact i64 %sext.i.i.i, 32
   %1153 = getelementptr inbounds ptr, ptr %1149, i64 %1152
@@ -2691,8 +2691,8 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
 
 1162:                                             ; preds = %.critedge4.thread59.i.i.i, %.critedge.thread.i.i.i
   %.pre-phi87.sink.i.i.i = phi i64 [ %.pre-phi87.i.i.i, %.critedge.thread.i.i.i ], [ %1161, %.critedge4.thread59.i.i.i ]
-  %.5.i.i.i = phi ptr [ %.33858.i.i.i, %.critedge.thread.i.i.i ], [ %1137, %.critedge4.thread59.i.i.i ]
-  %.3.i.i.i = phi i32 [ %1124, %.critedge.thread.i.i.i ], [ %.261.i.i.i, %.critedge4.thread59.i.i.i ]
+  %.5.i.i.i = phi ptr [ %.23758.i.i.i, %.critedge.thread.i.i.i ], [ %1137, %.critedge4.thread59.i.i.i ]
+  %.4.i.i.i = phi i32 [ %1124, %.critedge.thread.i.i.i ], [ %.361.i.i.i, %.critedge4.thread59.i.i.i ]
   %.sink102.i.i.i = load ptr, ptr %377, align 8
   %.val51.sink.i.i.i = load ptr, ptr %158, align 8
   %1163 = ptrtoint ptr %.val51.sink.i.i.i to i64
@@ -2700,11 +2700,11 @@ _ZNK12_GLOBAL__N_19EMDSolver12checkOptimalEv.exit.i: ; preds = %._crit_edge.us.i
   %1165 = ashr exact i64 %1164, 5
   %1166 = getelementptr inbounds i8, ptr %.sink102.i.i.i, i64 %1165
   store i8 1, ptr %1166, align 1
-  %1167 = icmp sgt i32 %.3.i.i.i, 0
+  %1167 = icmp sgt i32 %.4.i.i.i, 0
   br i1 %1167, label %1087, label %_ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i, !llvm.loop !58
 
 _ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i: ; preds = %1162
-  %.not175.i.i = icmp eq i32 %.3.i.i.i, 0
+  %.not175.i.i = icmp eq i32 %.4.i.i.i, 0
   br i1 %.not175.i.i, label %1238, label %._crit_edge.thread.i.i110
 
 .preheader95.i.i:                                 ; preds = %.critedge2.i.i.i

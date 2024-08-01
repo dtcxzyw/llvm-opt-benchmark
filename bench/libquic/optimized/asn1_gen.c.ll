@@ -175,7 +175,7 @@ if.end15.i:                                       ; preds = %for.body.i
   br i1 %tobool17.not.i, label %bad.i, label %for.cond.i
 
 if.end20.i:                                       ; preds = %for.cond.i, %for.cond.i.preheader, %if.end.i
-  %sect.0.i = phi ptr [ null, %if.end.i ], [ %call6.i, %for.cond.i.preheader ], [ %call6.i, %for.cond.i ]
+  %sect.1.i = phi ptr [ null, %if.end.i ], [ %call6.i, %for.cond.i.preheader ], [ %call6.i, %for.cond.i ]
   %cmp21.i = icmp eq i32 %0, 17
   br i1 %cmp21.i, label %if.then22.i, label %if.else.i
 
@@ -215,7 +215,7 @@ bad.i.thread:                                     ; preds = %if.end32.i
   br label %if.end42.i
 
 bad.i:                                            ; preds = %if.end15.i, %for.body.i, %if.end32.i, %if.end28.i, %if.end25.i, %if.end5.i, %if.end6
-  %sect.1.i.ph = phi ptr [ null, %if.end6 ], [ null, %if.end5.i ], [ %sect.0.i, %if.end28.i ], [ %sect.0.i, %if.end32.i ], [ %sect.0.i, %if.end25.i ], [ %call6.i, %for.body.i ], [ %call6.i, %if.end15.i ]
+  %sect.0.i.ph = phi ptr [ null, %if.end6 ], [ null, %if.end5.i ], [ %sect.1.i, %if.end28.i ], [ %sect.1.i, %if.end32.i ], [ %sect.1.i, %if.end25.i ], [ %call6.i, %for.body.i ], [ %call6.i, %if.end15.i ]
   %ret.0.i.ph = phi ptr [ null, %if.end6 ], [ null, %if.end5.i ], [ null, %if.end28.i ], [ %call29.i, %if.end32.i ], [ null, %if.end25.i ], [ null, %for.body.i ], [ null, %if.end15.i ]
   %.pr = load ptr, ptr %der.i, align 8
   %tobool40.not.i = icmp eq ptr %.pr, null
@@ -227,7 +227,7 @@ if.then41.i:                                      ; preds = %bad.i
 
 if.end42.i:                                       ; preds = %bad.i.thread, %if.then41.i, %bad.i
   %ret.0.i46 = phi ptr [ %call29.i, %bad.i.thread ], [ %ret.0.i.ph, %if.then41.i ], [ %ret.0.i.ph, %bad.i ]
-  %sect.1.i45 = phi ptr [ %sect.0.i, %bad.i.thread ], [ %sect.1.i.ph, %if.then41.i ], [ %sect.1.i.ph, %bad.i ]
+  %sect.0.i45 = phi ptr [ %sect.1.i, %bad.i.thread ], [ %sect.0.i.ph, %if.then41.i ], [ %sect.0.i.ph, %bad.i ]
   br i1 %tobool.not.i, label %if.end45.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end42.i
@@ -235,11 +235,11 @@ if.then44.i:                                      ; preds = %if.end42.i
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then44.i, %if.end42.i
-  %tobool46.not.i = icmp eq ptr %sect.1.i45, null
+  %tobool46.not.i = icmp eq ptr %sect.0.i45, null
   br i1 %tobool46.not.i, label %asn1_multi.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end45.i
-  call void @X509V3_section_free(ptr noundef nonnull %cnf, ptr noundef nonnull %sect.1.i45) #9
+  call void @X509V3_section_free(ptr noundef nonnull %cnf, ptr noundef nonnull %sect.0.i45) #9
   br label %asn1_multi.exit
 
 asn1_multi.exit:                                  ; preds = %if.end45.i, %if.then47.i

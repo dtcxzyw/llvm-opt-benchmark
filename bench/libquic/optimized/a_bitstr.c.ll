@@ -164,7 +164,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false, %if.then3
-  %ret.0 = phi ptr [ %call, %if.then3 ], [ %0, %lor.lhs.false ]
+  %ret.1 = phi ptr [ %call, %if.then3 ], [ %0, %lor.lhs.false ]
   %1 = load ptr, ptr %pp, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
   %2 = load i8, ptr %1, align 1
@@ -177,7 +177,7 @@ if.then10:                                        ; preds = %if.end7
   br label %land.lhs.true
 
 if.end11:                                         ; preds = %if.end7
-  %flags = getelementptr inbounds i8, ptr %ret.0, i64 16
+  %flags = getelementptr inbounds i8, ptr %ret.1, i64 16
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, -16
   %or = or disjoint i32 %conv, 8
@@ -215,8 +215,8 @@ if.end31:                                         ; preds = %if.end11, %if.end24
   %p.0 = phi ptr [ %add.ptr, %if.end24 ], [ %incdec.ptr, %if.end11 ]
   %s.0 = phi ptr [ %call20, %if.end24 ], [ null, %if.end11 ]
   %conv32 = trunc i64 %dec to i32
-  store i32 %conv32, ptr %ret.0, align 8
-  %data = getelementptr inbounds i8, ptr %ret.0, i64 8
+  store i32 %conv32, ptr %ret.1, align 8
+  %data = getelementptr inbounds i8, ptr %ret.1, i64 8
   %7 = load ptr, ptr %data, align 8
   %cmp33.not = icmp eq ptr %7, null
   br i1 %cmp33.not, label %if.end37, label %if.then35
@@ -227,12 +227,12 @@ if.then35:                                        ; preds = %if.end31
 
 if.end37:                                         ; preds = %if.then35, %if.end31
   store ptr %s.0, ptr %data, align 8
-  %type = getelementptr inbounds i8, ptr %ret.0, i64 4
+  %type = getelementptr inbounds i8, ptr %ret.1, i64 4
   store i32 3, ptr %type, align 4
   br i1 %cmp1, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %if.end37
-  store ptr %ret.0, ptr %a, align 8
+  store ptr %ret.1, ptr %a, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end37
@@ -248,15 +248,15 @@ land.lhs.true:                                    ; preds = %if.then10, %if.then
 
 lor.lhs.false47:                                  ; preds = %land.lhs.true
   %8 = load ptr, ptr %a, align 8
-  %cmp48.not = icmp eq ptr %8, %ret.0
+  %cmp48.not = icmp eq ptr %8, %ret.1
   br i1 %cmp48.not, label %return, label %if.then50
 
 if.then50:                                        ; preds = %lor.lhs.false47, %land.lhs.true
-  tail call void @ASN1_STRING_free(ptr noundef nonnull %ret.0) #9
+  tail call void @ASN1_STRING_free(ptr noundef nonnull %ret.1) #9
   br label %return
 
 return:                                           ; preds = %err, %lor.lhs.false47, %if.then50, %if.then3, %if.end42
-  %retval.0 = phi ptr [ %ret.0, %if.end42 ], [ null, %if.then3 ], [ null, %if.then50 ], [ null, %lor.lhs.false47 ], [ null, %err ]
+  %retval.0 = phi ptr [ %ret.1, %if.end42 ], [ null, %if.then3 ], [ null, %if.then50 ], [ null, %lor.lhs.false47 ], [ null, %err ]
   ret ptr %retval.0
 }
 

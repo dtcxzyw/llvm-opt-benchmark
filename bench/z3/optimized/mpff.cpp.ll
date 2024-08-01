@@ -2784,17 +2784,17 @@ if.then.i79:                                      ; preds = %if.then80
   br label %if.end81
 
 if.end81:                                         ; preds = %land.end.thread108, %if.end78.thread, %if.then68, %land.end, %if.then.i79, %if.then80, %if.end78
-  %exp_c15.2 = phi i64 [ %sub17, %if.end78 ], [ %exp_c15.099, %if.then80 ], [ %inc.i, %if.then.i79 ], [ %add50, %land.end ], [ %sub73, %if.then68 ], [ %sub17, %if.end78.thread ], [ %add50111, %land.end.thread108 ]
-  %57 = add i64 %exp_c15.2, -2147483648
+  %exp_c15.1 = phi i64 [ %sub17, %if.end78 ], [ %exp_c15.099, %if.then80 ], [ %inc.i, %if.then.i79 ], [ %add50, %land.end ], [ %sub73, %if.then68 ], [ %sub17, %if.end78.thread ], [ %add50111, %land.end.thread108 ]
+  %57 = add i64 %exp_c15.1, -2147483648
   %or.cond.i84 = icmp ult i64 %57, -4294967296
   br i1 %or.cond.i84, label %if.then.i89, label %if.else.i85
 
 if.then.i89:                                      ; preds = %if.end81
-  tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 4 dereferenceable(8) %c, i64 noundef %exp_c15.2)
+  tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 4 dereferenceable(8) %c, i64 noundef %exp_c15.1)
   br label %if.end83
 
 if.else.i85:                                      ; preds = %if.end81
-  %conv.i86 = trunc nsw i64 %exp_c15.2 to i32
+  %conv.i86 = trunc nsw i64 %exp_c15.1 to i32
   %m_exponent.i87 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i86, ptr %m_exponent.i87, align 4
   br label %if.end83
@@ -6134,17 +6134,17 @@ if.end113.critedge:                               ; preds = %if.then94
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then.i115, %if.then112, %if.end113.critedge, %land.rhs
-  %exp_c.1 = phi i64 [ %inc107.c, %if.end113.critedge ], [ %inc107, %land.rhs ], [ %inc107, %if.then112 ], [ %inc.i, %if.then.i115 ]
-  %34 = add nsw i64 %exp_c.1, -2147483648
+  %exp_c.0 = phi i64 [ %inc107.c, %if.end113.critedge ], [ %inc107, %land.rhs ], [ %inc107, %if.then112 ], [ %inc.i, %if.then.i115 ]
+  %34 = add nsw i64 %exp_c.0, -2147483648
   %or.cond.i = icmp ult i64 %34, -4294967296
   br i1 %or.cond.i, label %if.then.i116, label %if.else.i
 
 if.then.i116:                                     ; preds = %if.end113
-  call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 4 dereferenceable(8) %c, i64 noundef %exp_c.1)
+  call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 4 dereferenceable(8) %c, i64 noundef %exp_c.0)
   br label %if.end172
 
 if.else.i:                                        ; preds = %if.end113
-  %conv.i = trunc nsw i64 %exp_c.1 to i32
+  %conv.i = trunc nsw i64 %exp_c.0 to i32
   %m_exponent.i = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i, ptr %m_exponent.i, align 4
   br label %if.end172
@@ -6544,17 +6544,17 @@ if.then.i40:                                      ; preds = %if.then31
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i40, %if.then31, %land.end
-  %exp_c.1 = phi i64 [ %add25, %land.end ], [ %add25, %if.then31 ], [ %inc.i, %if.then.i40 ]
-  %32 = add nsw i64 %exp_c.1, -2147483648
+  %exp_c.0 = phi i64 [ %add25, %land.end ], [ %add25, %if.then31 ], [ %inc.i, %if.then.i40 ]
+  %32 = add nsw i64 %exp_c.0, -2147483648
   %or.cond.i = icmp ult i64 %32, -4294967296
   br i1 %or.cond.i, label %if.then.i42, label %if.else.i
 
 if.then.i42:                                      ; preds = %if.end
-  tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 4 dereferenceable(8) %c, i64 noundef %exp_c.1)
+  tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 4 dereferenceable(8) %c, i64 noundef %exp_c.0)
   br label %if.end32
 
 if.else.i:                                        ; preds = %if.end
-  %conv.i = trunc nsw i64 %exp_c.1 to i32
+  %conv.i = trunc nsw i64 %exp_c.0 to i32
   %m_exponent.i41 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i, ptr %m_exponent.i41, align 4
   br label %if.end32
@@ -9383,7 +9383,7 @@ while.body175.lr.ph:                              ; preds = %land.rhs
   br label %while.body175
 
 while.body175:                                    ; preds = %while.body175.lr.ph, %if.end237
-  %sz1.1440 = phi i32 [ %89, %while.body175.lr.ph ], [ %sz1.3, %if.end237 ]
+  %sz1.1440 = phi i32 [ %89, %while.body175.lr.ph ], [ %sz1.2, %if.end237 ]
   %i165.0439 = phi i32 [ 0, %while.body175.lr.ph ], [ %add181, %if.end237 ]
   %exitcond454.not = icmp eq i32 %i165.0439, %prec
   br i1 %exitcond454.not, label %if.then177, label %if.end180
@@ -9467,8 +9467,8 @@ if.end237.loopexit:                               ; preds = %land.rhs228
   br label %if.end237
 
 if.end237:                                        ; preds = %if.end237.loopexit, %invoke.cont203
-  %sz1.3 = phi i32 [ %sz2.0.lcssa461, %invoke.cont203 ], [ %108, %if.end237.loopexit ]
-  %cmp174.not = icmp eq i32 %sz1.3, 0
+  %sz1.2 = phi i32 [ %sz2.0.lcssa461, %invoke.cont203 ], [ %108, %if.end237.loopexit ]
+  %cmp174.not = icmp eq i32 %sz1.2, 0
   br i1 %cmp174.not, label %cleanup, label %while.body175, !llvm.loop !40
 
 cleanup:                                          ; preds = %while.cond, %if.end237, %while.cond226, %if.then177

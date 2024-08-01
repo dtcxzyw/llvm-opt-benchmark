@@ -1139,13 +1139,13 @@ sw.bb6:                                           ; preds = %if.end
   br i1 %tobool9.not, label %done.thread, label %done.sink.split
 
 done.sink.split:                                  ; preds = %sw.bb6, %uv__stream_open.exit.if.then2_crit_edge
-  %err.1.ph = phi i32 [ %retval.0.i, %uv__stream_open.exit.if.then2_crit_edge ], [ %call8, %sw.bb6 ]
+  %err.0.ph = phi i32 [ %retval.0.i, %uv__stream_open.exit.if.then2_crit_edge ], [ %call8, %sw.bb6 ]
   %.pre = load i32, ptr %accepted_fd, align 4
   br label %done
 
 done:                                             ; preds = %done.sink.split, %sw.bb
   %.sink = phi i32 [ %0, %sw.bb ], [ %.pre, %done.sink.split ]
-  %err.1 = phi i32 [ -16, %sw.bb ], [ %err.1.ph, %done.sink.split ]
+  %err.0 = phi i32 [ -16, %sw.bb ], [ %err.0.ph, %done.sink.split ]
   %call12 = tail call i32 @uv__close(i32 noundef %.sink) #12
   %queued_fds = getelementptr inbounds i8, ptr %server, i64 240
   %5 = load ptr, ptr %queued_fds, align 8
@@ -1165,7 +1165,7 @@ done.thread:                                      ; preds = %uv__stream_open.exi
 if.then15:                                        ; preds = %done.thread, %done
   %8 = phi ptr [ %7, %done.thread ], [ %5, %done ]
   %queued_fds35 = phi ptr [ %queued_fds31, %done.thread ], [ %queued_fds, %done ]
-  %err.134 = phi i32 [ 0, %done.thread ], [ %err.1, %done ]
+  %err.034 = phi i32 [ 0, %done.thread ], [ %err.0, %done ]
   %fds = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i32, ptr %fds, align 4
   store i32 %9, ptr %accepted_fd, align 4
@@ -1201,7 +1201,7 @@ if.then31:                                        ; preds = %done.thread
   br label %return
 
 return:                                           ; preds = %if.else27, %if.else, %if.then20, %if.then31, %if.end, %entry
-  %retval.0 = phi i32 [ -11, %entry ], [ -22, %if.end ], [ %err.1, %if.else27 ], [ 0, %if.then31 ], [ %err.134, %if.then20 ], [ %err.134, %if.else ]
+  %retval.0 = phi i32 [ -11, %entry ], [ -22, %if.end ], [ %err.0, %if.else27 ], [ 0, %if.then31 ], [ %err.034, %if.then20 ], [ %err.034, %if.else ]
   ret i32 %retval.0
 }
 

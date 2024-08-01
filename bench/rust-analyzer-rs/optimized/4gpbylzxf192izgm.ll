@@ -49,12 +49,12 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
   br i1 %11, label %.thread, label %.thread23
 
 .thread23:                                        ; preds = %3, %8
-  %.125 = phi ptr [ %10, %8 ], [ %6, %3 ]
+  %.01825 = phi ptr [ %10, %8 ], [ %6, %3 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %13 = getelementptr inbounds i8, ptr %.125, i64 24
+  %13 = getelementptr inbounds i8, ptr %.01825, i64 24
   %14 = load i32, ptr %13, align 8, !alias.scope !7, !noalias !10
-  %15 = getelementptr inbounds i8, ptr %.125, i64 28
+  %15 = getelementptr inbounds i8, ptr %.01825, i64 28
   %16 = load i32, ptr %15, align 4, !alias.scope !7, !noalias !10
   %.not.i.i.i = icmp eq i32 %14, %16
   %.not.i.i.fr.i = freeze i1 %.not.i.i.i
@@ -66,7 +66,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
   br i1 %.not.us.i, label %.thread, label %.split15.us.i
 
 .split15.us.i:                                    ; preds = %.split.us.i
-  %18 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.125, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !noalias !14
+  %18 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.01825, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !noalias !14
   br label %.split15.i
 
 .split.i:                                         ; preds = %.thread23
@@ -79,7 +79,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
 
 "_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i": ; preds = %.split.i, %19
   %21 = phi ptr [ %20, %19 ], [ %17, %.split.i ]
-  %22 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.125, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21), !noalias !14
+  %22 = tail call noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.01825, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21), !noalias !14
   br i1 %22, label %19, label %.split15.i
 
 .split15.i:                                       ; preds = %"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h3f3a8a103d806ce0E.exit.i.i.i", %.split15.us.i
@@ -90,7 +90,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN117_$LT$itert
   br label %.thread
 
 .thread:                                          ; preds = %19, %.split15.i, %.split.i, %.split.us.i, %3, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %.125, %.split.us.i ], [ %.125, %.split.i ], [ %.125, %.split15.i ], [ %.125, %19 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %3 ], [ %.01825, %.split.us.i ], [ %.01825, %.split.i ], [ %.01825, %.split15.i ], [ %.01825, %19 ]
   ret ptr %.0
 }
 
@@ -140,8 +140,8 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.thread"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.thread": ; preds = %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit", %11, %10
-  %.sroa.03.1 = phi i64 [ %8, %10 ], [ -9223372036854775808, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit" ], [ %.sroa.0.0.copyload25, %19 ], [ -9223372036854775808, %11 ]
-  %20 = icmp eq i64 %.sroa.03.1, -9223372036854775808
+  %.sroa.03.0 = phi i64 [ %8, %10 ], [ -9223372036854775808, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit" ], [ %.sroa.0.0.copyload25, %19 ], [ -9223372036854775808, %11 ]
+  %20 = icmp eq i64 %.sroa.03.0, -9223372036854775808
   br i1 %20, label %49, label %21
 
 21:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.thread"
@@ -166,7 +166,7 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i": ; preds = %47, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.lr.ph.i"
-  %.sroa.036.0 = phi i64 [ %.sroa.03.1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.lr.ph.i" ], [ %.sroa.56.i.sroa.0.0.copyload46, %47 ]
+  %.sroa.036.0 = phi i64 [ %.sroa.03.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.lr.ph.i" ], [ %.sroa.56.i.sroa.0.0.copyload46, %47 ]
   %28 = phi ptr [ %.promoted.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.lr.ph.i" ], [ %29, %47 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %29 = getelementptr inbounds i8, ptr %28, i64 32
@@ -253,7 +253,7 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
   br label %52
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i", %47, %21
-  %.sroa.036.1 = phi i64 [ %.sroa.03.1, %21 ], [ %.sroa.56.i.sroa.0.0.copyload46, %47 ], [ %.sroa.036.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i" ]
+  %.sroa.036.1 = phi i64 [ %.sroa.03.0, %21 ], [ %.sroa.56.i.sroa.0.0.copyload46, %47 ], [ %.sroa.036.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639, i64 24, i1 false), !noalias !82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.639)

@@ -97,7 +97,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad8
   br label %ehcleanup17
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont13
-  %retval.0 = phi i32 [ %call14, %invoke.cont13 ], [ 0, %invoke.cont ]
+  %retval.1 = phi i32 [ %call14, %invoke.cont13 ], [ 0, %invoke.cont ]
   call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %myMatcher) #5
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #5
   br label %return
@@ -108,8 +108,8 @@ ehcleanup17:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #1
@@ -403,7 +403,7 @@ lpad33:                                           ; preds = %invoke.cont30
   br label %ehcleanup37
 
 cleanup:                                          ; preds = %for.cond, %invoke.cont16, %invoke.cont34
-  %retval.0 = phi i32 [ %call35, %invoke.cont34 ], [ 0, %invoke.cont16 ], [ 0, %for.cond ]
+  %retval.2 = phi i32 [ %call35, %invoke.cont34 ], [ 0, %invoke.cont16 ], [ 0, %for.cond ]
   call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %matcher) #5
   br label %cleanup38
 
@@ -413,7 +413,7 @@ ehcleanup37:                                      ; preds = %lpad17.loopexit, %l
   br label %ehcleanup39
 
 cleanup38:                                        ; preds = %invoke.cont7, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont7 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 0, %invoke.cont7 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #5
   br label %arraydestroy.body42
 
@@ -441,8 +441,8 @@ arraydestroy.body49:                              ; preds = %arraydestroy.body49
   br i1 %arraydestroy.done52, label %eh.resume, label %arraydestroy.body49
 
 return:                                           ; preds = %arraydestroy.body42, %entry, %lor.lhs.false
-  %retval.2 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body42 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body42 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body49
   resume { ptr, i32 } %.pn.pn.pn
@@ -561,7 +561,7 @@ lpad22:                                           ; preds = %if.then19
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont23, %invoke.cont7
-  %retval.0 = phi i32 [ 0, %invoke.cont7 ], [ %call26, %invoke.cont23 ], [ 0, %invoke.cont16 ]
+  %retval.1 = phi i32 [ 0, %invoke.cont7 ], [ %call26, %invoke.cont23 ], [ 0, %invoke.cont16 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #5
   br label %arraydestroy.body30
 
@@ -589,8 +589,8 @@ arraydestroy.body37:                              ; preds = %arraydestroy.body37
   br i1 %arraydestroy.done40, label %eh.resume, label %arraydestroy.body37
 
 return:                                           ; preds = %arraydestroy.body30, %entry, %lor.lhs.false
-  %retval.1 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.0, %arraydestroy.body30 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body30 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body37
   resume { ptr, i32 } %.pn.pn
@@ -726,7 +726,7 @@ if.then38:                                        ; preds = %for.end
   unreachable
 
 cleanup:                                          ; preds = %for.end, %invoke.cont18
-  %retval.0 = phi i32 [ 0, %invoke.cont18 ], [ %spec.select, %for.end ]
+  %retval.2 = phi i32 [ 0, %invoke.cont18 ], [ %spec.select, %for.end ]
   call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %matcher) #5
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patternString) #5
   br label %cleanup43
@@ -737,7 +737,7 @@ ehcleanup:                                        ; preds = %lpad19, %lpad17
   br label %ehcleanup44
 
 cleanup43:                                        ; preds = %invoke.cont7, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont7 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 0, %invoke.cont7 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #5
   br label %arraydestroy.body47
 
@@ -765,8 +765,8 @@ arraydestroy.body54:                              ; preds = %arraydestroy.body54
   br i1 %arraydestroy.done57, label %eh.resume, label %arraydestroy.body54
 
 return:                                           ; preds = %arraydestroy.body47, %entry, %lor.lhs.false
-  %retval.2 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body47 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body47 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body54
   resume { ptr, i32 } %.pn.pn.pn
@@ -933,7 +933,7 @@ for.inc:                                          ; preds = %invoke.cont30, %if.
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !9
 
 cleanup:                                          ; preds = %for.inc, %invoke.cont18, %invoke.cont40
-  %retval.0 = phi i32 [ %call41, %invoke.cont40 ], [ 0, %invoke.cont18 ], [ 0, %for.inc ]
+  %retval.2 = phi i32 [ %call41, %invoke.cont40 ], [ 0, %invoke.cont18 ], [ 0, %for.inc ]
   call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %matcher) #5
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patternString) #5
   br label %cleanup48
@@ -949,7 +949,7 @@ ehcleanup47:                                      ; preds = %ehcleanup45, %lpad1
   br label %ehcleanup49
 
 cleanup48:                                        ; preds = %invoke.cont7, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont7 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 0, %invoke.cont7 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #5
   br label %arraydestroy.body52
 
@@ -977,8 +977,8 @@ arraydestroy.body59:                              ; preds = %arraydestroy.body59
   br i1 %arraydestroy.done62, label %eh.resume, label %arraydestroy.body59
 
 return:                                           ; preds = %arraydestroy.body52, %entry, %lor.lhs.false
-  %retval.2 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body52 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %retval.1, %arraydestroy.body52 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %arraydestroy.body59
   resume { ptr, i32 } %.pn.pn.pn.pn

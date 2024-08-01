@@ -500,8 +500,8 @@ define i32 @PMIx_Spawn_nb(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 no
   br label %58
 
 58:                                               ; preds = %.lr.ph779, %pmix_obj_run_destructors.exit613
-  %.0467777 = phi i1 [ false, %.lr.ph779 ], [ %.1, %pmix_obj_run_destructors.exit613 ]
-  %.0472776 = phi i1 [ false, %.lr.ph779 ], [ %.1473, %pmix_obj_run_destructors.exit613 ]
+  %.1777 = phi i1 [ false, %.lr.ph779 ], [ %.2, %pmix_obj_run_destructors.exit613 ]
+  %.1473776 = phi i1 [ false, %.lr.ph779 ], [ %.2474, %pmix_obj_run_destructors.exit613 ]
   %.0479775 = phi i64 [ 0, %.lr.ph779 ], [ %191, %pmix_obj_run_destructors.exit613 ]
   %59 = getelementptr inbounds %struct.pmix_info, ptr %0, i64 %.0479775
   %60 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %59, ptr noundef nonnull @.str.2) #12
@@ -783,8 +783,8 @@ pmix_obj_run_destructors.exit607:                 ; preds = %.lr.ph.i604, %160
   br label %pmix_obj_run_destructors.exit613
 
 pmix_obj_run_destructors.exit613:                 ; preds = %.lr.ph.i610, %._crit_edge774, %184, %186
-  %.1473 = phi i1 [ %.0472776, %186 ], [ %.0472776, %184 ], [ true, %._crit_edge774 ], [ true, %.lr.ph.i610 ]
-  %.1 = phi i1 [ true, %186 ], [ %.0467777, %184 ], [ %.0467777, %._crit_edge774 ], [ %.0467777, %.lr.ph.i610 ]
+  %.2474 = phi i1 [ %.1473776, %186 ], [ %.1473776, %184 ], [ true, %._crit_edge774 ], [ true, %.lr.ph.i610 ]
+  %.2 = phi i1 [ true, %186 ], [ %.1777, %184 ], [ %.1777, %._crit_edge774 ], [ %.1777, %.lr.ph.i610 ]
   %189 = getelementptr inbounds %struct.pmix_info, ptr %51, i64 %.0479775
   %190 = call i32 @PMIx_Info_xfer(ptr noundef %189, ptr noundef nonnull %59) #12
   %191 = add nuw i64 %.0479775, 1
@@ -793,8 +793,8 @@ pmix_obj_run_destructors.exit613:                 ; preds = %.lr.ph.i610, %._cri
   br i1 %193, label %58, label %.loopexit745, !llvm.loop !16
 
 .loopexit745:                                     ; preds = %pmix_obj_run_destructors.exit613, %49, %46
-  %.2474 = phi i1 [ false, %46 ], [ false, %49 ], [ %.1473, %pmix_obj_run_destructors.exit613 ]
-  %.2 = phi i1 [ false, %46 ], [ false, %49 ], [ %.1, %pmix_obj_run_destructors.exit613 ]
+  %.0472 = phi i1 [ false, %46 ], [ false, %49 ], [ %.2474, %pmix_obj_run_destructors.exit613 ]
+  %.0467 = phi i1 [ false, %46 ], [ false, %49 ], [ %.2, %pmix_obj_run_destructors.exit613 ]
   %.0 = phi ptr [ null, %46 ], [ %51, %49 ], [ %51, %pmix_obj_run_destructors.exit613 ]
   %194 = load i64, ptr %8, align 8
   %195 = call ptr @PMIx_App_create(i64 noundef %194) #12
@@ -813,7 +813,7 @@ pmix_obj_run_destructors.exit613:                 ; preds = %.lr.ph.i610, %._cri
 
 203:                                              ; preds = %.lr.ph797, %pmix_obj_run_destructors.exit644
   %204 = phi i64 [ %196, %.lr.ph797 ], [ %420, %pmix_obj_run_destructors.exit644 ]
-  %.3795 = phi i1 [ %.2474, %.lr.ph797 ], [ %.4, %pmix_obj_run_destructors.exit644 ]
+  %.3795 = phi i1 [ %.0472, %.lr.ph797 ], [ %.4, %pmix_obj_run_destructors.exit644 ]
   %.1480794 = phi i64 [ 0, %.lr.ph797 ], [ %419, %pmix_obj_run_destructors.exit644 ]
   %205 = getelementptr inbounds %struct.pmix_app, ptr %2, i64 %.1480794
   %206 = load ptr, ptr %205, align 8
@@ -1345,7 +1345,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %438
 
 pmix_obj_new_tma.exit.thread715:                  ; preds = %.lr.ph.i.i, %439
   %453 = getelementptr inbounds i8, ptr %434, i64 472
-  br i1 %.2, label %454, label %482
+  br i1 %.0467, label %454, label %482
 
 454:                                              ; preds = %pmix_obj_new_tma.exit.thread715
   %455 = call fastcc ptr @pmix_get_peer_object(ptr noundef nonnull %12)

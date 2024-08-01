@@ -1254,7 +1254,7 @@ invoke.cont150:                                   ; preds = %_ZN6BufferIhEC2Ej.e
   br i1 %exitcond.not, label %for.cond207.preheader, label %invoke.cont150, !llvm.loop !66
 
 for.cond218.preheader:                            ; preds = %for.cond.cleanup224, %for.cond207.preheader
-  %pr.sroa.0.1 = phi i32 [ %add.i.i26, %for.cond207.preheader ], [ %pr.sroa.0.7, %for.cond.cleanup224 ]
+  %pr.sroa.0.1 = phi i32 [ %add.i.i26, %for.cond207.preheader ], [ %pr.sroa.0.3, %for.cond.cleanup224 ]
   %indvars.iv907 = phi i32 [ -2, %for.cond207.preheader ], [ %indvars.iv.next908, %for.cond.cleanup224 ]
   %indvars.iv895 = phi i64 [ 0, %for.cond207.preheader ], [ %indvars.iv.next896, %for.cond.cleanup224 ]
   %94 = trunc i32 %indvars.iv907 to i16
@@ -1273,7 +1273,7 @@ for.cond.cleanup224:                              ; preds = %if.end300.4
   br i1 %exitcond910, label %_ZN6BufferIhED2Ev.exit, label %for.cond218.preheader, !llvm.loop !67
 
 invoke.cont242:                                   ; preds = %if.end300.4, %for.cond218.preheader
-  %pr.sroa.0.2 = phi i32 [ %pr.sroa.0.1, %for.cond218.preheader ], [ %pr.sroa.0.7, %if.end300.4 ]
+  %pr.sroa.0.2 = phi i32 [ %pr.sroa.0.1, %for.cond218.preheader ], [ %pr.sroa.0.3, %if.end300.4 ]
   %indvars.iv897 = phi i64 [ %indvars.iv895, %for.cond218.preheader ], [ %indvars.iv.next898, %if.end300.4 ]
   %y215.0848 = phi i16 [ -1, %for.cond218.preheader ], [ %inc312, %if.end300.4 ]
   %add8.i625 = add i16 %y215.0848, %p1.sroa.8.0835.lcssa
@@ -1358,7 +1358,7 @@ invoke.cont284:                                   ; preds = %if.then277
 if.end300:                                        ; preds = %invoke.cont284, %if.then277, %land.lhs.true, %land.lhs.true22.i693, %land.lhs.true9.i684, %invoke.cont242
   %conv7.i681.1.pre-phi = phi i32 [ %.pre60, %invoke.cont284 ], [ %conv7.i681, %if.then277 ], [ %conv7.i681, %land.lhs.true ], [ %conv7.i681, %land.lhs.true22.i693 ], [ %conv7.i681, %land.lhs.true9.i684 ], [ %conv7.i681, %invoke.cont242 ]
   %conv3.i678.1.pre-phi = phi i32 [ %.pre59, %invoke.cont284 ], [ %conv19.i.i656, %if.then277 ], [ %conv19.i.i656, %land.lhs.true ], [ %conv19.i.i656, %land.lhs.true22.i693 ], [ %conv19.i.i656, %land.lhs.true9.i684 ], [ %conv19.i.i656, %invoke.cont242 ]
-  %pr.sroa.0.3 = phi i32 [ %add.i.i708, %invoke.cont284 ], [ %pr.sroa.0.2, %if.then277 ], [ %pr.sroa.0.2, %land.lhs.true ], [ %pr.sroa.0.2, %land.lhs.true22.i693 ], [ %pr.sroa.0.2, %land.lhs.true9.i684 ], [ %pr.sroa.0.2, %invoke.cont242 ]
+  %pr.sroa.0.4 = phi i32 [ %add.i.i708, %invoke.cont284 ], [ %pr.sroa.0.2, %if.then277 ], [ %pr.sroa.0.2, %land.lhs.true ], [ %pr.sroa.0.2, %land.lhs.true22.i693 ], [ %pr.sroa.0.2, %land.lhs.true9.i684 ], [ %pr.sroa.0.2, %invoke.cont242 ]
   %inc301 = add i32 %add21.i.i658, 1
   %retval.sroa.0.0.insert.insert.i674.1 = or disjoint i48 %retval.sroa.2.0.insert.shift.i632, %retval.sroa.0.0.insert.ext.i673.1
   %p.sroa.0.0.extract.trunc.i675.1 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i674.1 to i32
@@ -1404,7 +1404,7 @@ if.then277.1:                                     ; preds = %land.lhs.true.1
   br i1 %cmp281.1, label %invoke.cont284.1, label %if.end300.1
 
 invoke.cont284.1:                                 ; preds = %if.then277.1
-  %mul.i.i707.1 = mul i32 %pr.sroa.0.3, 1103515245
+  %mul.i.i707.1 = mul i32 %pr.sroa.0.4, 1103515245
   %add.i.i708.1 = add i32 %mul.i.i707.1, 12345
   %div.i.i709.1 = sdiv i32 %add.i.i708.1, 65536
   %116 = trunc nsw i32 %div.i.i709.1 to i16
@@ -1423,7 +1423,7 @@ invoke.cont284.1:                                 ; preds = %if.then277.1
 if.end300.1:                                      ; preds = %invoke.cont284.1, %if.then277.1, %land.lhs.true.1, %land.lhs.true22.i693.1, %land.lhs.true9.i684.1, %if.end300
   %conv7.i681.2.pre-phi = phi i32 [ %.pre62, %invoke.cont284.1 ], [ %conv7.i681.1.pre-phi, %if.then277.1 ], [ %conv7.i681.1.pre-phi, %land.lhs.true.1 ], [ %conv7.i681.1.pre-phi, %land.lhs.true22.i693.1 ], [ %conv7.i681.1.pre-phi, %land.lhs.true9.i684.1 ], [ %conv7.i681.1.pre-phi, %if.end300 ]
   %conv3.i678.2.pre-phi = phi i32 [ %.pre61, %invoke.cont284.1 ], [ %conv3.i678.1.pre-phi, %if.then277.1 ], [ %conv3.i678.1.pre-phi, %land.lhs.true.1 ], [ %conv3.i678.1.pre-phi, %land.lhs.true22.i693.1 ], [ %conv3.i678.1.pre-phi, %land.lhs.true9.i684.1 ], [ %conv3.i678.1.pre-phi, %if.end300 ]
-  %pr.sroa.0.4 = phi i32 [ %add.i.i708.1, %invoke.cont284.1 ], [ %pr.sroa.0.3, %if.then277.1 ], [ %pr.sroa.0.3, %land.lhs.true.1 ], [ %pr.sroa.0.3, %land.lhs.true22.i693.1 ], [ %pr.sroa.0.3, %land.lhs.true9.i684.1 ], [ %pr.sroa.0.3, %if.end300 ]
+  %pr.sroa.0.5 = phi i32 [ %add.i.i708.1, %invoke.cont284.1 ], [ %pr.sroa.0.4, %if.then277.1 ], [ %pr.sroa.0.4, %land.lhs.true.1 ], [ %pr.sroa.0.4, %land.lhs.true22.i693.1 ], [ %pr.sroa.0.4, %land.lhs.true9.i684.1 ], [ %pr.sroa.0.4, %if.end300 ]
   %inc301.1 = add i32 %add21.i.i658, 2
   %retval.sroa.0.0.insert.insert.i674.2 = or disjoint i48 %retval.sroa.2.0.insert.shift.i632, %45
   %p.sroa.0.0.extract.trunc.i675.2 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i674.2 to i32
@@ -1469,7 +1469,7 @@ if.then277.2:                                     ; preds = %land.lhs.true.2
   br i1 %cmp281.2, label %invoke.cont284.2, label %if.end300.2
 
 invoke.cont284.2:                                 ; preds = %if.then277.2
-  %mul.i.i707.2 = mul i32 %pr.sroa.0.4, 1103515245
+  %mul.i.i707.2 = mul i32 %pr.sroa.0.5, 1103515245
   %add.i.i708.2 = add i32 %mul.i.i707.2, 12345
   %div.i.i709.2 = sdiv i32 %add.i.i708.2, 65536
   %125 = trunc nsw i32 %div.i.i709.2 to i16
@@ -1488,7 +1488,7 @@ invoke.cont284.2:                                 ; preds = %if.then277.2
 if.end300.2:                                      ; preds = %invoke.cont284.2, %if.then277.2, %land.lhs.true.2, %land.lhs.true22.i693.2, %land.lhs.true9.i684.2, %if.end300.1
   %conv7.i681.3.pre-phi = phi i32 [ %.pre64, %invoke.cont284.2 ], [ %conv7.i681.2.pre-phi, %if.then277.2 ], [ %conv7.i681.2.pre-phi, %land.lhs.true.2 ], [ %conv7.i681.2.pre-phi, %land.lhs.true22.i693.2 ], [ %conv7.i681.2.pre-phi, %land.lhs.true9.i684.2 ], [ %conv7.i681.2.pre-phi, %if.end300.1 ]
   %conv3.i678.3.pre-phi = phi i32 [ %.pre63, %invoke.cont284.2 ], [ %conv3.i678.2.pre-phi, %if.then277.2 ], [ %conv3.i678.2.pre-phi, %land.lhs.true.2 ], [ %conv3.i678.2.pre-phi, %land.lhs.true22.i693.2 ], [ %conv3.i678.2.pre-phi, %land.lhs.true9.i684.2 ], [ %conv3.i678.2.pre-phi, %if.end300.1 ]
-  %pr.sroa.0.5 = phi i32 [ %add.i.i708.2, %invoke.cont284.2 ], [ %pr.sroa.0.4, %if.then277.2 ], [ %pr.sroa.0.4, %land.lhs.true.2 ], [ %pr.sroa.0.4, %land.lhs.true22.i693.2 ], [ %pr.sroa.0.4, %land.lhs.true9.i684.2 ], [ %pr.sroa.0.4, %if.end300.1 ]
+  %pr.sroa.0.6 = phi i32 [ %add.i.i708.2, %invoke.cont284.2 ], [ %pr.sroa.0.5, %if.then277.2 ], [ %pr.sroa.0.5, %land.lhs.true.2 ], [ %pr.sroa.0.5, %land.lhs.true22.i693.2 ], [ %pr.sroa.0.5, %land.lhs.true9.i684.2 ], [ %pr.sroa.0.5, %if.end300.1 ]
   %inc301.2 = add i32 %add21.i.i658, 3
   %retval.sroa.0.0.insert.insert.i674.3 = or disjoint i48 %retval.sroa.2.0.insert.shift.i632, %retval.sroa.0.0.insert.ext.i673.3
   %p.sroa.0.0.extract.trunc.i675.3 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i674.3 to i32
@@ -1534,7 +1534,7 @@ if.then277.3:                                     ; preds = %land.lhs.true.3
   br i1 %cmp281.3, label %invoke.cont284.3, label %if.end300.3
 
 invoke.cont284.3:                                 ; preds = %if.then277.3
-  %mul.i.i707.3 = mul i32 %pr.sroa.0.5, 1103515245
+  %mul.i.i707.3 = mul i32 %pr.sroa.0.6, 1103515245
   %add.i.i708.3 = add i32 %mul.i.i707.3, 12345
   %div.i.i709.3 = sdiv i32 %add.i.i708.3, 65536
   %134 = trunc nsw i32 %div.i.i709.3 to i16
@@ -1553,7 +1553,7 @@ invoke.cont284.3:                                 ; preds = %if.then277.3
 if.end300.3:                                      ; preds = %invoke.cont284.3, %if.then277.3, %land.lhs.true.3, %land.lhs.true22.i693.3, %land.lhs.true9.i684.3, %if.end300.2
   %conv7.i681.4.pre-phi = phi i32 [ %.pre66, %invoke.cont284.3 ], [ %conv7.i681.3.pre-phi, %if.then277.3 ], [ %conv7.i681.3.pre-phi, %land.lhs.true.3 ], [ %conv7.i681.3.pre-phi, %land.lhs.true22.i693.3 ], [ %conv7.i681.3.pre-phi, %land.lhs.true9.i684.3 ], [ %conv7.i681.3.pre-phi, %if.end300.2 ]
   %conv3.i678.4.pre-phi = phi i32 [ %.pre65, %invoke.cont284.3 ], [ %conv3.i678.3.pre-phi, %if.then277.3 ], [ %conv3.i678.3.pre-phi, %land.lhs.true.3 ], [ %conv3.i678.3.pre-phi, %land.lhs.true22.i693.3 ], [ %conv3.i678.3.pre-phi, %land.lhs.true9.i684.3 ], [ %conv3.i678.3.pre-phi, %if.end300.2 ]
-  %pr.sroa.0.6 = phi i32 [ %add.i.i708.3, %invoke.cont284.3 ], [ %pr.sroa.0.5, %if.then277.3 ], [ %pr.sroa.0.5, %land.lhs.true.3 ], [ %pr.sroa.0.5, %land.lhs.true22.i693.3 ], [ %pr.sroa.0.5, %land.lhs.true9.i684.3 ], [ %pr.sroa.0.5, %if.end300.2 ]
+  %pr.sroa.0.7 = phi i32 [ %add.i.i708.3, %invoke.cont284.3 ], [ %pr.sroa.0.6, %if.then277.3 ], [ %pr.sroa.0.6, %land.lhs.true.3 ], [ %pr.sroa.0.6, %land.lhs.true22.i693.3 ], [ %pr.sroa.0.6, %land.lhs.true9.i684.3 ], [ %pr.sroa.0.6, %if.end300.2 ]
   %inc301.3 = add i32 %add21.i.i658, 4
   %retval.sroa.0.0.insert.insert.i674.4 = or disjoint i48 %retval.sroa.2.0.insert.shift.i632, %retval.sroa.0.0.insert.ext.i673.4
   %p.sroa.0.0.extract.trunc.i675.4 = trunc nuw i48 %retval.sroa.0.0.insert.insert.i674.4 to i32
@@ -1599,7 +1599,7 @@ if.then277.4:                                     ; preds = %land.lhs.true.4
   br i1 %cmp281.4, label %invoke.cont284.4, label %if.end300.4
 
 invoke.cont284.4:                                 ; preds = %if.then277.4
-  %mul.i.i707.4 = mul i32 %pr.sroa.0.6, 1103515245
+  %mul.i.i707.4 = mul i32 %pr.sroa.0.7, 1103515245
   %add.i.i708.4 = add i32 %mul.i.i707.4, 12345
   %div.i.i709.4 = sdiv i32 %add.i.i708.4, 65536
   %143 = trunc nsw i32 %div.i.i709.4 to i16
@@ -1612,7 +1612,7 @@ invoke.cont284.4:                                 ; preds = %if.then277.4
   br label %if.end300.4
 
 if.end300.4:                                      ; preds = %invoke.cont284.4, %if.then277.4, %land.lhs.true.4, %land.lhs.true22.i693.4, %land.lhs.true9.i684.4, %if.end300.3
-  %pr.sroa.0.7 = phi i32 [ %pr.sroa.0.6, %if.end300.3 ], [ %pr.sroa.0.6, %land.lhs.true9.i684.4 ], [ %add.i.i708.4, %invoke.cont284.4 ], [ %pr.sroa.0.6, %if.then277.4 ], [ %pr.sroa.0.6, %land.lhs.true.4 ], [ %pr.sroa.0.6, %land.lhs.true22.i693.4 ]
+  %pr.sroa.0.3 = phi i32 [ %pr.sroa.0.7, %if.end300.3 ], [ %pr.sroa.0.7, %land.lhs.true9.i684.4 ], [ %add.i.i708.4, %invoke.cont284.4 ], [ %pr.sroa.0.7, %if.then277.4 ], [ %pr.sroa.0.7, %land.lhs.true.4 ], [ %pr.sroa.0.7, %land.lhs.true22.i693.4 ]
   %inc312 = add nsw i16 %y215.0848, 1
   %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 5
   %exitcond906 = icmp eq i16 %inc312, 3

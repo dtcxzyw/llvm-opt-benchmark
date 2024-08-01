@@ -2238,7 +2238,7 @@ invoke.cont10:                                    ; preds = %if.end8
 
 cleanup:                                          ; preds = %invoke.cont10, %invoke.cont, %if.end
   %3 = phi ptr [ %1, %if.end ], [ %.pre7, %invoke.cont ], [ %.pre, %invoke.cont10 ]
-  %retval.0 = phi i1 [ false, %if.end ], [ false, %invoke.cont ], [ %cmp12, %invoke.cont10 ]
+  %retval.1 = phi i1 [ false, %if.end ], [ false, %invoke.cont ], [ %cmp12, %invoke.cont10 ]
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -2264,8 +2264,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %invoke.cont.i, %if.then
-  %retval.1 = phi i1 [ true, %if.then ], [ %retval.0, %invoke.cont.i ], [ %retval.0, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.then ], [ %retval.1, %invoke.cont.i ], [ %retval.1, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

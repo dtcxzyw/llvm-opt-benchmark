@@ -377,7 +377,7 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %85
 
 85:                                               ; preds = %83, %81
-  %.0126.i = phi i32 [ 0, %81 ], [ %84, %83 ]
+  %.1127.i = phi i32 [ 0, %81 ], [ %84, %83 ]
   %86 = load i32, ptr @hf_gfp_cid, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %86, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #3
   %88 = load i32, ptr @hf_gfp_ehec, align 4
@@ -388,14 +388,14 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %93
 
 93:                                               ; preds = %85, %73
-  %.062 = phi i32 [ 12, %85 ], [ 8, %73 ]
-  %.1127.i = phi i32 [ %.0126.i, %85 ], [ %53, %73 ]
-  call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %.062) #3
+  %.1 = phi i32 [ 12, %85 ], [ 8, %73 ]
+  %.0126.i = phi i32 [ %.1127.i, %85 ], [ %53, %73 ]
+  call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %.1) #3
   %94 = icmp eq i8 %56, 1
   br i1 %94, label %95, label %proto_item_set_generated.exit135.i
 
 95:                                               ; preds = %93
-  %96 = icmp ult i32 %.1127.i, 4
+  %96 = icmp ult i32 %.0126.i, 4
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
@@ -403,16 +403,16 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %101
 
 99:                                               ; preds = %95
-  %100 = add i32 %.1127.i, -4
+  %100 = add i32 %.0126.i, -4
   br label %101
 
 101:                                              ; preds = %99, %97
-  %.2.i = phi i32 [ 0, %97 ], [ %100, %99 ]
-  %.0.i = phi i32 [ %.1127.i, %97 ], [ 4, %99 ]
-  %102 = add i32 %.2.i, %.062
-  call void @proto_tree_set_appendix(ptr noundef %17, ptr noundef %0, i32 noundef %102, i32 noundef %.0.i) #3
+  %.3.i = phi i32 [ 0, %97 ], [ %100, %99 ]
+  %.1.i = phi i32 [ %.0126.i, %97 ], [ 4, %99 ]
+  %102 = add i32 %.3.i, %.1
+  call void @proto_tree_set_appendix(ptr noundef %17, ptr noundef %0, i32 noundef %102, i32 noundef %.1.i) #3
   %103 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %102) #3
-  %104 = call i32 @crc32_mpeg2_tvb_offset(ptr noundef %0, i32 noundef %.062, i32 noundef %.2.i) #3
+  %104 = call i32 @crc32_mpeg2_tvb_offset(ptr noundef %0, i32 noundef %.1, i32 noundef %.3.i) #3
   %105 = xor i32 %104, %103
   %106 = icmp eq i32 %105, -1
   %107 = load i32, ptr @hf_gfp_fcs, align 4
@@ -505,9 +505,9 @@ proto_item_set_generated.exit141.i:               ; preds = %148, %145, %proto_i
   br label %proto_item_set_generated.exit135.i
 
 proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_generated.exit141.i, %126, %123, %proto_item_set_generated.exit.i, %93
-  %.3.i = phi i32 [ %.2.i, %proto_item_set_generated.exit141.i ], [ %.1127.i, %93 ], [ %.2.i, %proto_item_set_generated.exit.i ], [ %.2.i, %123 ], [ %.2.i, %126 ]
-  %.1.i = phi i32 [ %.0.i, %proto_item_set_generated.exit141.i ], [ 0, %93 ], [ %.0.i, %proto_item_set_generated.exit.i ], [ %.0.i, %123 ], [ %.0.i, %126 ]
-  %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.062, i32 noundef %.3.i) #3
+  %.2.i = phi i32 [ %.3.i, %proto_item_set_generated.exit141.i ], [ %.0126.i, %93 ], [ %.3.i, %proto_item_set_generated.exit.i ], [ %.3.i, %123 ], [ %.3.i, %126 ]
+  %.0.i = phi i32 [ %.1.i, %proto_item_set_generated.exit141.i ], [ 0, %93 ], [ %.1.i, %proto_item_set_generated.exit.i ], [ %.1.i, %123 ], [ %.1.i, %126 ]
+  %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %.2.i) #3
   switch i8 %54, label %dissect_gfp_payload.exit [
     i8 0, label %154
     i8 5, label %154
@@ -530,8 +530,8 @@ proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_gene
   br label %dissect_gfp_payload.exit
 
 dissect_gfp_payload.exit:                         ; preds = %proto_item_set_generated.exit135.i, %154, %.sink.split145.i
-  %161 = add i32 %.3.i, %.062
-  %162 = add i32 %161, %.1.i
+  %161 = add i32 %.2.i, %.1
+  %162 = add i32 %161, %.0.i
   br label %163
 
 163:                                              ; preds = %37, %35, %dissect_gfp_payload.exit, %41, %4

@@ -406,7 +406,7 @@ invoke.cont36:                                    ; preds = %if.end34
 
 cleanup40:                                        ; preds = %invoke.cont36, %lor.end, %invoke.cont24
   %30 = phi ptr [ %26, %invoke.cont24 ], [ %.pre35, %lor.end ], [ %.pre, %invoke.cont36 ]
-  %retval.1 = phi i64 [ 0, %invoke.cont24 ], [ 0, %lor.end ], [ %spec.select, %invoke.cont36 ]
+  %retval.2 = phi i64 [ 0, %invoke.cont24 ], [ 0, %lor.end ], [ %spec.select, %invoke.cont36 ]
   %tobool.not.i.i.i21 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i21, label %cleanup43, label %if.then.i.i.i22
 
@@ -426,7 +426,7 @@ for.inc:                                          ; preds = %for.body, %_ZSteqIc
   br i1 %cmp, label %for.body, label %cleanup43, !llvm.loop !10
 
 cleanup43:                                        ; preds = %for.inc, %_ZN4base12_GLOBAL__N_117TrimKeyValuePairsEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EE.exit, %if.then.i.i.i22, %cleanup40
-  %retval.2 = phi i64 [ %retval.1, %cleanup40 ], [ %retval.1, %if.then.i.i.i22 ], [ 0, %_ZN4base12_GLOBAL__N_117TrimKeyValuePairsEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EE.exit ], [ 0, %for.inc ]
+  %retval.3 = phi i64 [ %retval.2, %cleanup40 ], [ %retval.2, %if.then.i.i.i22 ], [ 0, %_ZN4base12_GLOBAL__N_117TrimKeyValuePairsEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESaIS9_EE.exit ], [ 0, %for.inc ]
   %33 = load ptr, ptr %pairs, align 8
   %34 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %33, %34
@@ -460,9 +460,9 @@ ehcleanup44:                                      ; preds = %lpad10.loopexit, %l
   br label %ehcleanup46
 
 cleanup45:                                        ; preds = %if.then.i.i.i26, %invoke.cont.i, %cleanup
-  %retval.3 = phi i64 [ 0, %cleanup ], [ %retval.2, %invoke.cont.i ], [ %retval.2, %if.then.i.i.i26 ]
+  %retval.1 = phi i64 [ 0, %cleanup ], [ %retval.3, %invoke.cont.i ], [ %retval.3, %if.then.i.i.i26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status) #21
-  ret i64 %retval.3
+  ret i64 %retval.1
 
 ehcleanup46:                                      ; preds = %lpad1, %lpad3, %lpad6, %ehcleanup44
   %.pn5.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup44 ], [ %5, %lpad6 ], [ %4, %lpad3 ], [ %3, %lpad1 ]
@@ -722,7 +722,7 @@ if.then.i.i.i:                                    ; preds = %lpad26
 
 cleanup46:                                        ; preds = %invoke.cont19, %invoke.cont34
   %20 = phi ptr [ %.pre, %invoke.cont34 ], [ %14, %invoke.cont19 ]
-  %retval.1 = phi i1 [ %and3910, %invoke.cont34 ], [ false, %invoke.cont19 ]
+  %retval.3 = phi i1 [ %and3910, %invoke.cont34 ], [ false, %invoke.cont19 ]
   %tobool.not.i.i.i12 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i12, label %cleanup48, label %if.then.i.i.i13
 
@@ -731,7 +731,7 @@ if.then.i.i.i13:                                  ; preds = %cleanup46
   br label %cleanup48
 
 cleanup48:                                        ; preds = %if.then.i.i.i13, %cleanup46, %cleanup
-  %retval.2 = phi i1 [ false, %cleanup ], [ %retval.1, %cleanup46 ], [ %retval.1, %if.then.i.i.i13 ]
+  %retval.2 = phi i1 [ false, %cleanup ], [ %retval.3, %cleanup46 ], [ %retval.3, %if.then.i.i.i13 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statm) #21
   br label %return
 
@@ -741,8 +741,8 @@ ehcleanup49:                                      ; preds = %if.then.i.i.i, %lpa
   resume { ptr, i32 } %.pn8
 
 return:                                           ; preds = %entry, %cleanup48
-  %retval.3 = phi i1 [ %retval.2, %cleanup48 ], [ false, %entry ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ %retval.2, %cleanup48 ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1573,10 +1573,10 @@ cleanup:                                          ; preds = %if.end15, %invoke.c
   br label %cleanup21
 
 cleanup21:                                        ; preds = %invoke.cont4, %invoke.cont3, %cleanup
-  %retval.1 = phi i1 [ %call13, %cleanup ], [ false, %invoke.cont3 ], [ false, %invoke.cont4 ]
+  %retval.0 = phi i1 [ %call13, %cleanup ], [ false, %invoke.cont3 ], [ false, %invoke.cont4 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %meminfo_data) #21
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %meminfo_file) #21
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad11, %lpad2
   %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %3, %lpad2 ]
@@ -3011,10 +3011,10 @@ if.then.i.i.i46:                                  ; preds = %ehcleanup96
   br label %ehcleanup98
 
 cleanup97:                                        ; preds = %if.then.i.i.i43, %cleanup, %invoke.cont3
-  %retval.1 = phi i1 [ false, %invoke.cont3 ], [ %cmp, %cleanup ], [ %cmp, %if.then.i.i.i43 ]
+  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ %cmp, %cleanup ], [ %cmp, %if.then.i.i.i43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %diskinfo_data) #21
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %diskinfo_file) #21
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup98:                                      ; preds = %if.then.i.i.i46, %ehcleanup96, %lpad2
   %.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %.pn.pn, %ehcleanup96 ], [ %.pn.pn, %if.then.i.i.i46 ]
@@ -3248,7 +3248,7 @@ cleanup27.i:                                      ; preds = %for.inc.i, %invoke.
   %24 = phi ptr [ %.pre13, %invoke.cont22.i ], [ %22, %for.inc.i ]
   %25 = phi ptr [ %.pre, %invoke.cont22.i ], [ %23, %for.inc.i ]
   %wake_ups.0 = phi i64 [ %spec.select, %invoke.cont22.i ], [ undef, %for.inc.i ]
-  %retval.1.i = phi i1 [ %call23.i, %invoke.cont22.i ], [ false, %for.inc.i ]
+  %retval.2.i = phi i1 [ %call23.i, %invoke.cont22.i ], [ false, %for.inc.i ]
   %cmp.not3.i.i.i.i.i = icmp eq ptr %25, %24
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
@@ -3289,7 +3289,7 @@ invoke.cont4.thread27:                            ; preds = %invoke.cont.i.i.thr
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.thread, %invoke.cont.i.i
   %27 = phi ptr [ %17, %invoke.cont.i.i.thread ], [ %26, %invoke.cont.i.i ]
   %wake_ups.01725 = phi i64 [ undef, %invoke.cont.i.i.thread ], [ %wake_ups.0, %invoke.cont.i.i ]
-  %retval.1.i1822 = phi i1 [ false, %invoke.cont.i.i.thread ], [ %retval.1.i, %invoke.cont.i.i ]
+  %retval.2.i1822 = phi i1 [ false, %invoke.cont.i.i.thread ], [ %retval.2.i, %invoke.cont.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %27) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sched_data.i) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %sched_data.i)
@@ -3300,7 +3300,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i.thr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  br i1 %retval.1.i1822, label %cond.true, label %cond.end
+  br i1 %retval.2.i1822, label %cond.true, label %cond.end
 
 ehcleanup30.i:                                    ; preds = %lpad10.i, %lpad6.i, %lpad3.i, %lpad1.i
   %.pn5.i = phi { ptr, i32 } [ %lpad.phi.i, %lpad10.i ], [ %7, %lpad6.i ], [ %6, %lpad3.i ], [ %5, %lpad1.i ]
@@ -3317,7 +3317,7 @@ invoke.cont4:                                     ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp20.i)
-  br i1 %retval.1.i, label %cond.true, label %cond.end
+  br i1 %retval.2.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then.i.i.i.i, %invoke.cont4
   %wake_ups.01724 = phi i64 [ %wake_ups.01725, %if.then.i.i.i.i ], [ %wake_ups.0, %invoke.cont4 ]

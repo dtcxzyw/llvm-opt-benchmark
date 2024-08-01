@@ -878,7 +878,7 @@ _ZN14PyAllowThreadsD2Ev.exit39:                   ; preds = %114, %105
           to label %140 unwind label %143
 
 139:                                              ; preds = %.invoke, %_ZN14PyAllowThreadsD2Ev.exit
-  %.0 = phi ptr [ @_Py_NoneStruct, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %.invoke ]
+  %.1 = phi ptr [ @_Py_NoneStruct, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   br label %141
 
@@ -888,8 +888,8 @@ _ZN14PyAllowThreadsD2Ev.exit39:                   ; preds = %114, %105
   br label %142
 
 141:                                              ; preds = %2, %139, %23
-  %.1 = phi ptr [ %.0, %139 ], [ null, %23 ], [ null, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %139 ], [ null, %23 ], [ null, %2 ]
+  ret ptr %.0
 
 142:                                              ; preds = %140, %83
   %.pn28.pn = phi { ptr, i32 } [ %.pn28, %140 ], [ %.pn.pn.pn, %83 ]
@@ -1185,21 +1185,21 @@ _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %75
 
 _ZN14PyAllowThreadsD2Ev.exit26:                   ; preds = %87, %81
   %.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %.pn, %87 ]
-  %.111 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.2 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.214 = extractvalue { ptr, i32 } %.pn.pn, 1
   %91 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #11
-  %92 = icmp eq i32 %.113, %91
+  %92 = icmp eq i32 %.214, %91
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %_ZN14PyAllowThreadsD2Ev.exit26
-  %94 = call ptr @__cxa_begin_catch(ptr %.111) #11
+  %94 = call ptr @__cxa_begin_catch(ptr %.2) #11
   invoke void @_Z18pyRaiseCVExceptionRKN2cv9ExceptionE(ptr noundef nonnull align 8 dereferenceable(148) %94)
           to label %.invoke unwind label %110
 
 95:                                               ; preds = %_ZN14PyAllowThreadsD2Ev.exit26
   %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #11
-  %97 = icmp eq i32 %.113, %96
-  %98 = call ptr @__cxa_begin_catch(ptr %.111) #11
+  %97 = icmp eq i32 %.214, %96
+  %98 = call ptr @__cxa_begin_catch(ptr %.2) #11
   %99 = load ptr, ptr @opencv_error, align 8
   br i1 %97, label %100, label %105
 
@@ -1238,7 +1238,7 @@ _ZN14PyAllowThreadsD2Ev.exit26:                   ; preds = %87, %81
           to label %113 unwind label %116
 
 112:                                              ; preds = %.invoke, %_ZN14PyAllowThreadsD2Ev.exit
-  %.0 = phi ptr [ @_Py_NoneStruct, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %.invoke ]
+  %.1 = phi ptr [ @_Py_NoneStruct, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
   br label %114
 
@@ -1248,8 +1248,8 @@ _ZN14PyAllowThreadsD2Ev.exit26:                   ; preds = %87, %81
   br label %115
 
 114:                                              ; preds = %3, %112, %19
-  %.1 = phi ptr [ %.0, %112 ], [ null, %19 ], [ null, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %112 ], [ null, %19 ], [ null, %3 ]
+  ret ptr %.0
 
 115:                                              ; preds = %113, %58
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %113 ], [ %59, %58 ]

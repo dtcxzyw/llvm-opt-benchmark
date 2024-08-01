@@ -229,7 +229,7 @@ sub_0.lr.ph.lr.ph:                                ; preds = %.preheader
 
 sub_0.lr.ph.us:                                   ; preds = %sub_0.lr.ph.lr.ph, %.outer.backedge.us
   %19 = phi ptr [ %24, %.outer.backedge.us ], [ %17, %sub_0.lr.ph.lr.ph ]
-  %.035.ph68.us = phi i32 [ %.035.ph.be.us, %.outer.backedge.us ], [ 0, %sub_0.lr.ph.lr.ph ]
+  %.1.ph68.us = phi i32 [ %.1.ph.be.us, %.outer.backedge.us ], [ 0, %sub_0.lr.ph.lr.ph ]
   br label %sub_0.us.us
 
 20:                                               ; preds = %.split62.us.us
@@ -241,16 +241,16 @@ sub_0.lr.ph.us:                                   ; preds = %sub_0.lr.ph.lr.ph, 
 22:                                               ; preds = %.split62.us.us
   %23 = tail call i32 @unlink(ptr noundef %43) #11
   %.not44.us = icmp eq i32 %23, 0
-  %spec.select.us = select i1 %.not44.us, i32 %.035.ph68.us, i32 -1
+  %spec.select.us = select i1 %.not44.us, i32 %.1.ph68.us, i32 -1
   br label %.outer.backedge.us.sink.split
 
 .outer.backedge.us.sink.split:                    ; preds = %48, %22
-  %.035.ph.be.us.ph = phi i32 [ %spec.select.us, %22 ], [ -1, %48 ]
+  %.1.ph.be.us.ph = phi i32 [ %spec.select.us, %22 ], [ -1, %48 ]
   tail call void @free(ptr noundef %43) #11
   br label %.outer.backedge.us
 
 .outer.backedge.us:                               ; preds = %.outer.backedge.us.sink.split, %20
-  %.035.ph.be.us = phi i32 [ %.035.ph68.us, %20 ], [ %.035.ph.be.us.ph, %.outer.backedge.us.sink.split ]
+  %.1.ph.be.us = phi i32 [ %.1.ph68.us, %20 ], [ %.1.ph.be.us.ph, %.outer.backedge.us.sink.split ]
   %24 = tail call ptr @readdir(ptr noundef nonnull %15) #11
   %.not4259.us = icmp eq ptr %24, null
   br i1 %.not4259.us, label %.sink.split, label %sub_0.lr.ph.us, !llvm.loop !6
@@ -316,7 +316,7 @@ sub_2.us.us:                                      ; preds = %sub_152.us.us
 
 sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %.outer.backedge
   %52 = phi ptr [ %85, %.outer.backedge ], [ %17, %sub_0.lr.ph.lr.ph ]
-  %.035.ph68 = phi i32 [ %.035.ph.be, %.outer.backedge ], [ 0, %sub_0.lr.ph.lr.ph ]
+  %.1.ph68 = phi i32 [ %.1.ph.be, %.outer.backedge ], [ 0, %sub_0.lr.ph.lr.ph ]
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
@@ -391,27 +391,27 @@ sub_2:                                            ; preds = %sub_152
 83:                                               ; preds = %.split62
   %84 = tail call i32 @unlink(ptr noundef %72) #11
   %.not44 = icmp eq i32 %84, 0
-  %spec.select = select i1 %.not44, i32 %.035.ph68, i32 -1
+  %spec.select = select i1 %.not44, i32 %.1.ph68, i32 -1
   br label %.outer.backedge.sink.split
 
 .outer.backedge.sink.split:                       ; preds = %75, %83
-  %.035.ph.be.ph = phi i32 [ %spec.select, %83 ], [ -1, %75 ]
+  %.1.ph.be.ph = phi i32 [ %spec.select, %83 ], [ -1, %75 ]
   tail call void @free(ptr noundef %72) #11
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %81
-  %.035.ph.be = phi i32 [ %.035.ph68, %81 ], [ %.035.ph.be.ph, %.outer.backedge.sink.split ]
+  %.1.ph.be = phi i32 [ %.1.ph68, %81 ], [ %.1.ph.be.ph, %.outer.backedge.sink.split ]
   %85 = tail call ptr @readdir(ptr noundef nonnull %15) #11
   %.not4259 = icmp eq ptr %85, null
   br i1 %.not4259, label %.sink.split, label %sub_0.lr.ph, !llvm.loop !6
 
 .sink.split:                                      ; preds = %.outer.backedge, %81, %.backedge, %.outer.backedge.us, %20, %.backedge.us.us, %.preheader
-  %.3.ph = phi i32 [ 0, %.preheader ], [ %.035.ph68.us, %.backedge.us.us ], [ %21, %20 ], [ %.035.ph.be.us, %.outer.backedge.us ], [ %.035.ph68, %.backedge ], [ %82, %81 ], [ %.035.ph.be, %.outer.backedge ]
+  %.035.ph = phi i32 [ 0, %.preheader ], [ %.1.ph68.us, %.backedge.us.us ], [ %21, %20 ], [ %.1.ph.be.us, %.outer.backedge.us ], [ %.1.ph68, %.backedge ], [ %82, %81 ], [ %.1.ph.be, %.outer.backedge ]
   %86 = tail call i32 @closedir(ptr noundef nonnull %15)
   br label %87
 
 87:                                               ; preds = %.sink.split, %7
-  %.3 = phi i32 [ %.05.i, %7 ], [ %.3.ph, %.sink.split ]
+  %.035 = phi i32 [ %.05.i, %7 ], [ %.035.ph, %.sink.split ]
   %88 = tail call ptr @opendir(ptr noundef nonnull readonly %0)
   %.not11.i = icmp eq ptr %88, null
   br i1 %.not11.i, label %opal_os_dirpath_is_empty.exit.thread, label %.preheader.i
@@ -468,7 +468,7 @@ opal_os_dirpath_is_empty.exit:                    ; preds = %.tail15.i
   br label %opal_os_dirpath_is_empty.exit.thread
 
 opal_os_dirpath_is_empty.exit.thread:             ; preds = %87, %opal_os_dirpath_is_empty.exit, %.loopexit, %14, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %14 ], [ %.3, %.loopexit ], [ %.3, %opal_os_dirpath_is_empty.exit ], [ %.3, %87 ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %14 ], [ %.035, %.loopexit ], [ %.035, %opal_os_dirpath_is_empty.exit ], [ %.035, %87 ]
   ret i32 %.0
 }
 

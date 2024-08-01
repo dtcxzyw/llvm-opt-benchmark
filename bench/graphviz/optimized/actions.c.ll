@@ -3081,13 +3081,13 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %18, %16
-  %.042 = phi ptr [ %17, %16 ], [ %21, %18 ]
-  %.not48 = icmp eq ptr %.042, null
+  %.1 = phi ptr [ %17, %16 ], [ %21, %18 ]
+  %.not48 = icmp eq ptr %.1, null
   br i1 %.not48, label %47, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call i32 @copyAttr(ptr noundef nonnull %1, ptr noundef nonnull %.042)
-  tail call fastcc void @cloneGraph(ptr noundef nonnull %.042, ptr noundef nonnull %1)
+  %24 = tail call i32 @copyAttr(ptr noundef nonnull %1, ptr noundef nonnull %.1)
+  tail call fastcc void @cloneGraph(ptr noundef nonnull %.1, ptr noundef nonnull %1)
   br label %47
 
 25:                                               ; preds = %8, %8
@@ -3122,7 +3122,7 @@ default.unreachable50:                            ; preds = %8
   unreachable
 
 47:                                               ; preds = %12, %9, %23, %22, %45, %25, %7
-  %.0 = phi ptr [ null, %7 ], [ %44, %45 ], [ null, %25 ], [ %.042, %23 ], [ null, %22 ], [ %11, %12 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %7 ], [ %44, %45 ], [ null, %25 ], [ %.1, %23 ], [ null, %22 ], [ %11, %12 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -4205,8 +4205,8 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
   br label %91
 
 91:                                               ; preds = %88, %86, %83, %79
-  %.044.i.i = phi double [ %80, %79 ], [ %85, %83 ], [ %90, %88 ], [ 0.000000e+00, %86 ]
-  %92 = fmul double %.044.i.i, 6.000000e+01
+  %.1.i.i = phi double [ %80, %79 ], [ %85, %83 ], [ %90, %88 ], [ 0.000000e+00, %86 ]
+  %92 = fmul double %.1.i.i, 6.000000e+01
   %93 = fcmp olt double %92, 0.000000e+00
   br i1 %93, label %94, label %rgb2hsv.exit.i
 
@@ -4215,8 +4215,8 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
   br label %rgb2hsv.exit.i
 
 rgb2hsv.exit.i:                                   ; preds = %94, %91, %51
-  %.1.i.i = phi double [ %95, %94 ], [ %92, %91 ], [ 0.000000e+00, %51 ]
-  %96 = fdiv double %.1.i.i, 3.600000e+02
+  %.044.i.i = phi double [ %95, %94 ], [ %92, %91 ], [ 0.000000e+00, %51 ]
+  %96 = fdiv double %.044.i.i, 3.600000e+02
   %97 = insertelement <2 x double> poison, double %96, i64 0
   %98 = insertelement <2 x double> %97, double %.0.i.i, i64 1
   br label %.thread260

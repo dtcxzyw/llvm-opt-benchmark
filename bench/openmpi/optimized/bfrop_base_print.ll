@@ -3490,8 +3490,8 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr nocapture noundef
   br label %64
 
 64:                                               ; preds = %4, %.loopexit, %52, %44, %26, %16
-  %.2 = phi i32 [ -32, %16 ], [ -32, %26 ], [ %43, %44 ], [ -32, %52 ], [ 0, %.loopexit ], [ -32, %4 ]
-  ret i32 %.2
+  %.017 = phi i32 [ -32, %16 ], [ -32, %26 ], [ %43, %44 ], [ -32, %52 ], [ 0, %.loopexit ], [ -32, %4 ]
+  ret i32 %.017
 }
 
 declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) local_unnamed_addr #3

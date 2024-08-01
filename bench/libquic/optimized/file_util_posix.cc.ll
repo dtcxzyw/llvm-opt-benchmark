@@ -735,7 +735,7 @@ if.end82:                                         ; preds = %invoke.cont79, %lan
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end82, %cleanup
-  %success.061 = phi i8 [ 1, %if.end82 ], [ %success.1, %cleanup ]
+  %success.061 = phi i8 [ 1, %if.end82 ], [ %success.3, %cleanup ]
   %call.i52 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %current) #19
   br i1 %call.i52, label %while.end.loopexit, label %while.body
 
@@ -799,7 +799,7 @@ invoke.cont120:                                   ; preds = %if.then119
   br label %if.end126
 
 if.end126:                                        ; preds = %invoke.cont120, %land.lhs.true110, %if.end95, %if.then99
-  %success.1 = phi i8 [ %success.061, %if.then99 ], [ %spec.select21, %land.lhs.true110 ], [ %success.061, %if.end95 ], [ %spec.select22, %invoke.cont120 ]
+  %success.3 = phi i8 [ %success.061, %if.then99 ], [ %spec.select21, %land.lhs.true110 ], [ %success.061, %if.end95 ], [ %spec.select22, %invoke.cont120 ]
   invoke void @_ZN4base14FileEnumerator4NextEv(ptr nonnull sret(%"class.base::FilePath") align 8 %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(184) %traversal)
           to label %invoke.cont128 unwind label %lpad87
 
@@ -829,7 +829,7 @@ lpad129:                                          ; preds = %invoke.cont128
 
 cleanup:                                          ; preds = %invoke.cont130, %invoke.cont137
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_path) #19
-  %tobool83 = trunc nuw i8 %success.1 to i1
+  %tobool83 = trunc nuw i8 %success.3 to i1
   br i1 %tobool83, label %land.rhs, label %while.end.loopexit
 
 ehcleanup143:                                     ; preds = %lpad129, %lpad87
@@ -838,12 +838,12 @@ ehcleanup143:                                     ; preds = %lpad129, %lpad87
   br label %ehcleanup146
 
 while.end.loopexit:                               ; preds = %land.rhs, %cleanup
-  %success.3.ph = phi i8 [ %success.1, %cleanup ], [ %success.061, %land.rhs ]
-  %23 = trunc nuw i8 %success.3.ph to i1
+  %success.1.ph = phi i8 [ %success.3, %cleanup ], [ %success.061, %land.rhs ]
+  %23 = trunc nuw i8 %success.1.ph to i1
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %cleanup.thread
-  %success.3 = phi i1 [ false, %cleanup.thread ], [ %23, %while.end.loopexit ]
+  %success.1 = phi i1 [ false, %cleanup.thread ], [ %23, %while.end.loopexit ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %from_path_base) #19
   br label %cleanup147
 
@@ -853,7 +853,7 @@ ehcleanup146:                                     ; preds = %lpad67.loopexit, %l
   br label %ehcleanup148
 
 cleanup147:                                       ; preds = %invoke.cont55, %while.end
-  %retval.0 = phi i1 [ %success.3, %while.end ], [ false, %invoke.cont55 ]
+  %retval.3 = phi i1 [ %success.1, %while.end ], [ false, %invoke.cont55 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current) #19
   call void @_ZN4base14FileEnumeratorD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %traversal) #19
   br label %cleanup151
@@ -869,7 +869,7 @@ ehcleanup150:                                     ; preds = %ehcleanup148, %lpad
   br label %ehcleanup152
 
 cleanup151:                                       ; preds = %invoke.cont45, %invoke.cont25, %cleanup147
-  %retval.1 = phi i1 [ %retval.0, %cleanup147 ], [ false, %invoke.cont25 ], [ false, %invoke.cont45 ]
+  %retval.2 = phi i1 [ %retval.3, %cleanup147 ], [ false, %invoke.cont25 ], [ false, %invoke.cont45 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %real_from_path) #19
   br label %cleanup153
 
@@ -879,7 +879,7 @@ ehcleanup152:                                     ; preds = %ehcleanup150, %lpad
   br label %ehcleanup154
 
 cleanup153:                                       ; preds = %invoke.cont18, %invoke.cont6, %cleanup151
-  %retval.2 = phi i1 [ %retval.1, %cleanup151 ], [ false, %invoke.cont6 ], [ false, %invoke.cont18 ]
+  %retval.1 = phi i1 [ %retval.2, %cleanup151 ], [ false, %invoke.cont6 ], [ false, %invoke.cont18 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %real_to_path) #19
   br label %return
 
@@ -889,8 +889,8 @@ ehcleanup154:                                     ; preds = %ehcleanup152, %ehcl
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %entry, %cleanup153
-  %retval.3 = phi i1 [ %retval.2, %cleanup153 ], [ false, %entry ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ %retval.1, %cleanup153 ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -1059,7 +1059,7 @@ while.end.loopexit16:                             ; preds = %invoke.cont17
   br label %while.end
 
 while.end:                                        ; preds = %invoke.cont27, %while.end.loopexit16
-  %result.2 = phi i1 [ %cmp, %while.end.loopexit16 ], [ false, %invoke.cont27 ]
+  %result.1 = phi i1 [ %cmp, %while.end.loopexit16 ], [ false, %invoke.cont27 ]
   %8 = load ptr, ptr %buffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
@@ -1073,7 +1073,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %while.end, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont7, %_ZNSt6vectorIcSaIcEED2Ev.exit
-  %retval.0 = phi i1 [ %result.2, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ false, %invoke.cont7 ]
+  %retval.1 = phi i1 [ %result.1, %_ZNSt6vectorIcSaIcEED2Ev.exit ], [ false, %invoke.cont7 ]
   call void @_ZN4base4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(50) %outfile) #19
   br label %cleanup35
 
@@ -1083,9 +1083,9 @@ ehcleanup:                                        ; preds = %lpad16, %lpad.i.i, 
   br label %ehcleanup36
 
 cleanup35:                                        ; preds = %invoke.cont3, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont3 ]
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %invoke.cont3 ]
   call void @_ZN4base4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(50) %infile) #19
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup36:                                      ; preds = %ehcleanup, %lpad1, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %0, %lpad ], [ %1, %lpad1 ]
@@ -1535,9 +1535,9 @@ if.then.i.i.i9:                                   ; preds = %ehcleanup47
   br label %ehcleanup49
 
 cleanup48:                                        ; preds = %if.then.i.i.i, %cleanup45, %cleanup.action, %invoke.cont2
-  %retval.3 = phi i1 [ false, %invoke.cont2 ], [ false, %cleanup.action ], [ %cmp.i.lcssa, %cleanup45 ], [ %cmp.i.lcssa, %if.then.i.i.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont2 ], [ false, %cleanup.action ], [ %cmp.i.lcssa, %cleanup45 ], [ %cmp.i.lcssa, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  ret i1 %retval.3
+  ret i1 %retval.0
 
 ehcleanup49:                                      ; preds = %if.then.i.i.i9, %ehcleanup47, %lpad7, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad7 ], [ %.pn.pn, %ehcleanup47 ], [ %.pn.pn, %if.then.i.i.i9 ]
@@ -3055,7 +3055,7 @@ lpad31:                                           ; preds = %invoke.cont30
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont34, %for.cond21.preheader, %invoke.cont34.thread, %invoke.cont17.thread, %invoke.cont17
-  %retval.0 = phi i1 [ false, %invoke.cont17 ], [ false, %invoke.cont17.thread ], [ false, %invoke.cont34.thread ], [ true, %for.cond21.preheader ], [ %tobool16.not.i51, %invoke.cont34 ]
+  %retval.1 = phi i1 [ false, %invoke.cont17 ], [ false, %invoke.cont17.thread ], [ false, %invoke.cont34.thread ], [ true, %for.cond21.preheader ], [ %tobool16.not.i51, %invoke.cont34 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_path) #19
   %29 = load ptr, ptr %path_components, align 8
   %_M_finish.i54 = getelementptr inbounds i8, ptr %path_components, i64 8
@@ -3121,8 +3121,8 @@ ehcleanup42:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i65, %invoke.cont.i63, %land.lhs.true
-  %retval.1 = phi i1 [ false, %land.lhs.true ], [ %retval.0, %invoke.cont.i63 ], [ %retval.0, %if.then.i.i.i65 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %land.lhs.true ], [ %retval.1, %invoke.cont.i63 ], [ %retval.1, %if.then.i.i.i65 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4base8FilePath8IsParentERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -3354,7 +3354,7 @@ if.then39:                                        ; preds = %if.end35
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then39, %if.end35
-  %result.1.ph = phi i1 [ false, %if.end35 ], [ %cmp41, %if.then39 ]
+  %result.0.ph = phi i1 [ false, %if.end35 ], [ %cmp41, %if.then39 ]
   invoke void @_ZN4base8internal19ScopedFDCloseTraits4FreeEi(i32 noundef %call)
           to label %_ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -3366,9 +3366,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEED2Ev.exit: ; preds = %if.then.i.i, %invoke.cont7
-  %result.122 = phi i1 [ false, %invoke.cont7 ], [ %result.1.ph, %if.then.i.i ]
+  %result.022 = phi i1 [ false, %invoke.cont7 ], [ %result.0.ph, %if.then.i.i ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #19
-  ret i1 %result.122
+  ret i1 %result.022
 
 ehcleanup:                                        ; preds = %lpad6, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad6 ], [ %5, %lpad3 ], [ %4, %lpad ]

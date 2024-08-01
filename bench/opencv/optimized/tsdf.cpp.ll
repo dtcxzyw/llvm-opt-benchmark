@@ -3441,7 +3441,7 @@ _ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187: ; pred
   br i1 %453, label %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187._crit_edge, label %454
 
 454:                                              ; preds = %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187, %_ZNK2cv3Mat2atINS_5kinfu9TsdfVoxelEEERKT_i.exit
-  %.1128 = phi float [ %388, %_ZNK2cv3Mat2atINS_5kinfu9TsdfVoxelEEERKT_i.exit ], [ %449, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ]
+  %.2 = phi float [ %388, %_ZNK2cv3Mat2atINS_5kinfu9TsdfVoxelEEERKT_i.exit ], [ %449, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ]
   %.1 = phi float [ %.0126404, %_ZNK2cv3Mat2atINS_5kinfu9TsdfVoxelEEERKT_i.exit ], [ %449, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ]
   %455 = add nuw nsw i32 %.0129403, 1
   %exitcond.not = icmp eq i32 %455, %334
@@ -3452,9 +3452,9 @@ _ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187._crit_e
   %.0126.lcssa = phi float [ %330, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %.0126404, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ], [ %.1, %454 ]
   %.sroa.0255.1 = phi <2 x float> [ %258, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %345, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ], [ %345, %454 ]
   %.sroa.15.1 = phi float [ %259, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %346, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ], [ %346, %454 ]
-  %.2 = phi float [ %330, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %449, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ], [ %.1128, %454 ]
+  %.1128 = phi float [ %330, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %449, %_ZNK2cv5kinfu13TSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit187 ], [ %.2, %454 ]
   %456 = fcmp ogt float %.0126.lcssa, 0.000000e+00
-  %457 = fcmp olt float %.2, 0.000000e+00
+  %457 = fcmp olt float %.1128, 0.000000e+00
   %or.cond = and i1 %456, %457
   br i1 %or.cond, label %458, label %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
 

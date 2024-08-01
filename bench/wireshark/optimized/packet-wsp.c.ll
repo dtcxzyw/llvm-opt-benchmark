@@ -1762,7 +1762,7 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %72
 
 72:                                               ; preds = %.thread, %65
-  %.0130155 = phi i32 [ 1, %65 ], [ 0, %.thread ]
+  %.1131155 = phi i32 [ 1, %65 ], [ 0, %.thread ]
   %.0133154 = phi ptr [ %67, %65 ], [ null, %.thread ]
   %.0135 = phi i32 [ %69, %65 ], [ %53, %.thread ]
   %.0129 = phi ptr [ %71, %65 ], [ null, %.thread ]
@@ -1836,15 +1836,15 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 104:                                              ; preds = %97, %99
   %105 = phi i32 [ %100, %99 ], [ %98, %97 ]
-  %.1131162 = phi i32 [ 1, %99 ], [ 0, %97 ]
-  %.1 = phi ptr [ %103, %99 ], [ null, %97 ]
+  %.3162 = phi i32 [ 1, %99 ], [ 0, %97 ]
+  %.2 = phi ptr [ %103, %99 ], [ null, %97 ]
   %106 = add i32 %105, %53
   br label %107
 
 107:                                              ; preds = %104, %72
   %.1136 = phi i32 [ %.0135, %72 ], [ %106, %104 ]
-  %.2132 = phi i32 [ %.0130155, %72 ], [ %.1131162, %104 ]
-  %.2 = phi ptr [ %.0129, %72 ], [ %.1, %104 ]
+  %.2132 = phi i32 [ %.1131155, %72 ], [ %.3162, %104 ]
+  %.1 = phi ptr [ %.0129, %72 ], [ %.2, %104 ]
   %.not146 = icmp eq i32 %.2132, 0
   br i1 %.not146, label %.thread163, label %108
 
@@ -1854,13 +1854,13 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 110:                                              ; preds = %108
   %111 = load i32, ptr @ett_header, align 4
-  %112 = call ptr @proto_item_add_subtree(ptr noundef %.2, i32 noundef %111) #4
+  %112 = call ptr @proto_item_add_subtree(ptr noundef %.1, i32 noundef %111) #4
   br label %113
 
 113:                                              ; preds = %110, %113
   %.2137173 = phi i32 [ %.1136, %110 ], [ %115, %113 ]
   %114 = sub nuw i32 %52, %.2137173
-  %115 = call fastcc i32 @parameter(ptr noundef %112, ptr noundef %1, ptr noundef %.2, ptr noundef %2, i32 noundef %.2137173, i32 noundef %114)
+  %115 = call fastcc i32 @parameter(ptr noundef %112, ptr noundef %1, ptr noundef %.1, ptr noundef %2, i32 noundef %.2137173, i32 noundef %114)
   %116 = icmp ult i32 %115, %52
   br i1 %116, label %113, label %.thread169, !llvm.loop !4
 
@@ -3205,7 +3205,7 @@ define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr nocapture noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph53, %._crit_edge54.thread
-  %.169 = phi i32 [ 0, %._crit_edge54.thread ], [ 1, %.lr.ph53 ]
+  %.269 = phi i32 [ 0, %._crit_edge54.thread ], [ 1, %.lr.ph53 ]
   %44 = phi i32 [ %43, %._crit_edge54.thread ], [ %.23551, %.lr.ph53 ]
   %45 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %12, i32 noundef %44, i32 noundef 1) #4
   %46 = getelementptr inbounds i8, ptr %45, i64 8
@@ -3216,8 +3216,8 @@ define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr nocapture noundef reado
   br label %49
 
 49:                                               ; preds = %.loopexit, %.loopexit73
-  %.2 = phi i32 [ %.169, %.loopexit ], [ %.065, %.loopexit73 ]
-  %.not39 = icmp ne i32 %.2, 0
+  %.1 = phi i32 [ %.269, %.loopexit ], [ %.065, %.loopexit73 ]
+  %.not39 = icmp ne i32 %.1, 0
   %50 = zext i1 %.not39 to i32
   ret i32 %50
 }
@@ -3569,8 +3569,8 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 
 16:                                               ; preds = %11, %proto_item_set_hidden.exit
   %.0122151 = phi i8 [ 1, %11 ], [ %.1123, %proto_item_set_hidden.exit ]
-  %.0124150 = phi ptr [ %12, %11 ], [ %.4128, %proto_item_set_hidden.exit ]
-  %.0129149 = phi i32 [ 0, %11 ], [ %.2131, %proto_item_set_hidden.exit ]
+  %.0124150 = phi ptr [ %12, %11 ], [ %.1125, %proto_item_set_hidden.exit ]
+  %.0129149 = phi i32 [ 0, %11 ], [ %.1130, %proto_item_set_hidden.exit ]
   %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0129149) #4
   %18 = zext i8 %17 to i32
   %.not = icmp sgt i8 %17, -1
@@ -3690,14 +3690,14 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %84
 
 84:                                               ; preds = %67, %70, %74, %78, %81
-  %.1.ph = phi i32 [ %83, %81 ], [ %80, %78 ], [ %77, %74 ], [ %73, %70 ], [ %68, %67 ]
+  %.3.ph = phi i32 [ %83, %81 ], [ %80, %78 ], [ %77, %74 ], [ %73, %70 ], [ %68, %67 ]
   %85 = load i32, ptr %6, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %6, align 4
-  %87 = zext i32 %.1.ph to i64
+  %87 = zext i32 %.3.ph to i64
   store i64 %87, ptr %7, align 8
   store i32 0, ptr %15, align 8
-  %88 = icmp eq i32 %.1.ph, 0
+  %88 = icmp eq i32 %.3.ph, 0
   %89 = load i32, ptr @hf_hdr_x_wap_tod, align 4
   %90 = load i32, ptr %5, align 4
   %91 = add i32 %90, %86
@@ -3712,8 +3712,8 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %96
 
 96:                                               ; preds = %94, %92
-  %.1125 = phi ptr [ %93, %92 ], [ %95, %94 ]
-  %97 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.1125, ptr noundef nonnull @ei_hdr_x_wap_tod) #4
+  %.3127 = phi ptr [ %93, %92 ], [ %95, %94 ]
+  %97 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.3127, ptr noundef nonnull @ei_hdr_x_wap_tod) #4
   br label %119
 
 98:                                               ; preds = %69
@@ -3755,7 +3755,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %119
 
 119:                                              ; preds = %96, %98, %116
-  %.2126 = phi ptr [ %.1125, %96 ], [ %.0124150, %98 ], [ %.0124150, %116 ]
+  %.4128 = phi ptr [ %.3127, %96 ], [ %.0124150, %98 ], [ %.0124150, %116 ]
   %120 = load i32, ptr %6, align 4
   %121 = add i32 %120, %50
   %.pre = sub i32 %121, %.0129149
@@ -3763,8 +3763,8 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 
 122:                                              ; preds = %119, %53
   %.pre-phi = phi i32 [ %.pre, %119 ], [ %59, %53 ]
-  %.1130 = phi i32 [ %121, %119 ], [ %57, %53 ]
-  %.3127 = phi ptr [ %.2126, %119 ], [ %.0124150, %53 ]
+  %.2131 = phi i32 [ %121, %119 ], [ %57, %53 ]
+  %.2126 = phi ptr [ %.4128, %119 ], [ %.0124150, %53 ]
   %123 = load i32, ptr @hf_hdr_name_string, align 4
   %124 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %123, ptr noundef %1, i32 noundef %.0129149, i32 noundef %.pre-phi, ptr noundef %48) #4
   %.not.i = icmp eq ptr %124, null
@@ -3798,10 +3798,10 @@ proto_item_set_hidden.exit.thread:                ; preds = %132
   br label %.loopexit
 
 proto_item_set_hidden.exit:                       ; preds = %128, %125, %122, %37, %133, %23, %29
-  %.2131 = phi i32 [ %26, %23 ], [ %32, %29 ], [ %43, %37 ], [ %136, %133 ], [ %.1130, %122 ], [ %.1130, %125 ], [ %.1130, %128 ]
-  %.4128 = phi ptr [ %.0124150, %23 ], [ %.0124150, %29 ], [ %.0124150, %37 ], [ %.0124150, %133 ], [ %.3127, %122 ], [ %.3127, %125 ], [ %.3127, %128 ]
+  %.1130 = phi i32 [ %26, %23 ], [ %32, %29 ], [ %43, %37 ], [ %136, %133 ], [ %.2131, %122 ], [ %.2131, %125 ], [ %.2131, %128 ]
+  %.1125 = phi ptr [ %.0124150, %23 ], [ %.0124150, %29 ], [ %.0124150, %37 ], [ %.0124150, %133 ], [ %.2126, %122 ], [ %.2126, %125 ], [ %.2126, %128 ]
   %.1123 = phi i8 [ 1, %23 ], [ %.0122151, %29 ], [ %39, %37 ], [ %17, %133 ], [ %.0122151, %122 ], [ %.0122151, %125 ], [ %.0122151, %128 ]
-  %138 = icmp slt i32 %.2131, %9
+  %138 = icmp slt i32 %.1130, %9
   br i1 %138, label %16, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit.thread, %4, %33, %27
@@ -3933,7 +3933,7 @@ switch.lookup:                                    ; preds = %53
   br label %59
 
 59:                                               ; preds = %53, %switch.lookup
-  %.0109 = phi i32 [ 0, %53 ], [ 1, %switch.lookup ]
+  %.1110 = phi i32 [ 0, %53 ], [ 1, %switch.lookup ]
   %.0 = phi ptr [ null, %53 ], [ %58, %switch.lookup ]
   %60 = add i32 %50, 1
   br label %79
@@ -3968,15 +3968,15 @@ switch.lookup:                                    ; preds = %53
 
 76:                                               ; preds = %.thread, %70
   %77 = phi i32 [ %.pre, %70 ], [ 0, %.thread ]
-  %.1110124 = phi i32 [ 1, %70 ], [ 0, %.thread ]
-  %.1 = phi ptr [ %75, %70 ], [ null, %.thread ]
+  %.3124 = phi i32 [ 1, %70 ], [ 0, %.thread ]
+  %.2 = phi ptr [ %75, %70 ], [ null, %.thread ]
   %78 = add i32 %77, %50
   br label %79
 
 79:                                               ; preds = %76, %59
   %.0112 = phi i32 [ %60, %59 ], [ %78, %76 ]
-  %.2111 = phi i32 [ %.0109, %59 ], [ %.1110124, %76 ]
-  %.2 = phi ptr [ %.0, %59 ], [ %.1, %76 ]
+  %.2111 = phi i32 [ %.1110, %59 ], [ %.3124, %76 ]
+  %.1 = phi ptr [ %.0, %59 ], [ %.2, %76 ]
   %.not119 = icmp eq i32 %.2111, 0
   br i1 %.not119, label %86, label %80
 
@@ -3986,8 +3986,8 @@ switch.lookup:                                    ; preds = %53
 
 82:                                               ; preds = %80
   %83 = load i32, ptr @ett_header, align 4
-  %84 = call ptr @proto_item_add_subtree(ptr noundef %.2, i32 noundef %83) #4
-  %85 = call fastcc i32 @parameter_value_q(ptr noundef %84, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.0112)
+  %84 = call ptr @proto_item_add_subtree(ptr noundef %.1, i32 noundef %83) #4
+  %85 = call fastcc i32 @parameter_value_q(ptr noundef %84, ptr noundef %3, ptr noundef %.1, ptr noundef %1, i32 noundef %.0112)
   br label %.thread125
 
 86:                                               ; preds = %15, %79
@@ -5990,7 +5990,7 @@ switch.lookup:                                    ; preds = %38
   br label %44
 
 44:                                               ; preds = %38, %switch.lookup
-  %.081 = phi i32 [ 0, %38 ], [ 1, %switch.lookup ]
+  %.182 = phi i32 [ 0, %38 ], [ 1, %switch.lookup ]
   %.0 = phi ptr [ null, %38 ], [ %43, %switch.lookup ]
   %45 = add i32 %35, 1
   br label %64
@@ -6025,15 +6025,15 @@ switch.lookup:                                    ; preds = %38
 
 61:                                               ; preds = %.thread, %55
   %62 = phi i32 [ %.pre, %55 ], [ 0, %.thread ]
-  %.18297 = phi i32 [ 1, %55 ], [ 0, %.thread ]
-  %.1 = phi ptr [ %60, %55 ], [ null, %.thread ]
+  %.397 = phi i32 [ 1, %55 ], [ 0, %.thread ]
+  %.2 = phi ptr [ %60, %55 ], [ null, %.thread ]
   %63 = add i32 %62, %35
   br label %64
 
 64:                                               ; preds = %61, %44
   %.084 = phi i32 [ %45, %44 ], [ %63, %61 ]
-  %.283 = phi i32 [ %.081, %44 ], [ %.18297, %61 ]
-  %.2 = phi ptr [ %.0, %44 ], [ %.1, %61 ]
+  %.283 = phi i32 [ %.182, %44 ], [ %.397, %61 ]
+  %.1 = phi ptr [ %.0, %44 ], [ %.2, %61 ]
   %.not92 = icmp eq i32 %.283, 0
   br i1 %.not92, label %74, label %65
 
@@ -6043,13 +6043,13 @@ switch.lookup:                                    ; preds = %38
 
 67:                                               ; preds = %65
   %68 = load i32, ptr @ett_header, align 4
-  %69 = call ptr @proto_item_add_subtree(ptr noundef %.2, i32 noundef %68) #4
+  %69 = call ptr @proto_item_add_subtree(ptr noundef %.1, i32 noundef %68) #4
   br label %70
 
 70:                                               ; preds = %67, %70
   %.185103 = phi i32 [ %.084, %67 ], [ %72, %70 ]
   %71 = sub nuw i32 %36, %.185103
-  %72 = call fastcc i32 @parameter(ptr noundef %69, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.185103, i32 noundef %71)
+  %72 = call fastcc i32 @parameter(ptr noundef %69, ptr noundef %3, ptr noundef %.1, ptr noundef %1, i32 noundef %.185103, i32 noundef %71)
   %73 = icmp ult i32 %72, %36
   br i1 %73, label %70, label %.loopexit, !llvm.loop !17
 
@@ -7303,7 +7303,7 @@ define internal fastcc i32 @wkh_accept_x_q_header_func(ptr noundef %0, ptr nound
   br label %91
 
 91:                                               ; preds = %86, %.thread139
-  %.1110144 = phi ptr [ %64, %.thread139 ], [ %90, %86 ]
+  %.0109144 = phi ptr [ %64, %.thread139 ], [ %90, %86 ]
   %.pn = phi i32 [ %62, %.thread139 ], [ %87, %86 ]
   %.0113143 = add i32 %.pn, %47
   %92 = icmp ult i32 %.0113143, %48
@@ -7311,8 +7311,8 @@ define internal fastcc i32 @wkh_accept_x_q_header_func(ptr noundef %0, ptr nound
 
 93:                                               ; preds = %91
   %94 = load i32, ptr @ett_header, align 4
-  %95 = call ptr @proto_item_add_subtree(ptr noundef %.1110144, i32 noundef %94) #4
-  %96 = call fastcc i32 @parameter_value_q(ptr noundef %95, ptr noundef %3, ptr noundef %.1110144, ptr noundef %1, i32 noundef %.0113143)
+  %95 = call ptr @proto_item_add_subtree(ptr noundef %.0109144, i32 noundef %94) #4
+  %96 = call fastcc i32 @parameter_value_q(ptr noundef %95, ptr noundef %3, ptr noundef %.0109144, ptr noundef %1, i32 noundef %.0113143)
   br label %.thread149
 
 .thread135:                                       ; preds = %71, %57, %54, %65

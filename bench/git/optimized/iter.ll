@@ -152,13 +152,13 @@ if.then5:                                         ; preds = %if.then1
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.then1
-  %err.0 = phi i32 [ %call6, %if.then5 ], [ %call3, %if.then1 ]
+  %err.1 = phi i32 [ %call6, %if.then5 ], [ %call3, %if.then1 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %it2) #7
-  %cmp8 = icmp slt i32 %err.0, 0
+  %cmp8 = icmp slt i32 %err.1, 0
   br i1 %cmp8, label %while.end, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %cmp11.not = icmp eq i32 %err.0, 0
+  %cmp11.not = icmp eq i32 %err.1, 0
   br i1 %cmp11.not, label %if.end14, label %while.body.backedge
 
 if.end14:                                         ; preds = %if.end10, %if.end
@@ -193,12 +193,12 @@ while.body.backedge:                              ; preds = %land.lhs.true32, %l
   br i1 %cmp.not, label %if.end, label %while.end
 
 while.end:                                        ; preds = %while.body.backedge, %if.end7, %entry
-  %err.1 = phi i32 [ %call24, %entry ], [ %err.0, %if.end7 ], [ %call, %while.body.backedge ]
+  %err.0 = phi i32 [ %call24, %entry ], [ %err.1, %if.end7 ], [ %call, %while.body.backedge ]
   call void @reftable_ref_record_release(ptr noundef nonnull %u) #7
   br label %return
 
 return:                                           ; preds = %land.lhs.true32, %land.lhs.true, %lor.lhs.false, %while.end
-  %retval.0 = phi i32 [ %err.1, %while.end ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true32 ]
+  %retval.0 = phi i32 [ %err.0, %while.end ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true32 ]
   ret i32 %retval.0
 }
 

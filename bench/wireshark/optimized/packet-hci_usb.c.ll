@@ -392,7 +392,7 @@ proto_item_set_generated.exit148:                 ; preds = %137, %140, %143
   br label %153
 
 153:                                              ; preds = %151, %proto_item_set_generated.exit148
-  %.0135 = phi ptr [ %152, %151 ], [ %58, %proto_item_set_generated.exit148 ]
+  %.1 = phi ptr [ %152, %151 ], [ %58, %proto_item_set_generated.exit148 ]
   %154 = getelementptr inbounds i8, ptr %13, i64 12
   %155 = load i8, ptr %154, align 4
   switch i8 %155, label %proto_item_set_generated.exit151 [
@@ -403,17 +403,17 @@ proto_item_set_generated.exit148:                 ; preds = %137, %140, %143
 
 156:                                              ; preds = %153
   %157 = load ptr, ptr @bthci_cmd_handle, align 8
-  %158 = tail call i32 @call_dissector_with_data(ptr noundef %157, ptr noundef %.0135, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
+  %158 = tail call i32 @call_dissector_with_data(ptr noundef %157, ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %proto_item_set_generated.exit151
 
 159:                                              ; preds = %153
   %160 = load ptr, ptr @bthci_evt_handle, align 8
-  %161 = tail call i32 @call_dissector_with_data(ptr noundef %160, ptr noundef %.0135, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
+  %161 = tail call i32 @call_dissector_with_data(ptr noundef %160, ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %proto_item_set_generated.exit151
 
 162:                                              ; preds = %153
   %163 = load ptr, ptr @bthci_acl_handle, align 8
-  %164 = tail call i32 @call_dissector_with_data(ptr noundef %163, ptr noundef %.0135, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
+  %164 = tail call i32 @call_dissector_with_data(ptr noundef %163, ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %proto_item_set_generated.exit151
 
 .critedge:                                        ; preds = %116, %135
@@ -436,7 +436,7 @@ proto_item_set_generated.exit148:                 ; preds = %137, %140, %143
   br label %proto_item_set_generated.exit151
 
 proto_item_set_generated.exit151:                 ; preds = %170, %167, %.critedge, %162, %159, %156, %153, %proto_item_set_generated.exit
-  %.1 = phi ptr [ %58, %proto_item_set_generated.exit ], [ %.0135, %153 ], [ %.0135, %162 ], [ %.0135, %159 ], [ %.0135, %156 ], [ %58, %.critedge ], [ %58, %167 ], [ %58, %170 ]
+  %.0135 = phi ptr [ %58, %proto_item_set_generated.exit ], [ %.1, %153 ], [ %.1, %162 ], [ %.1, %159 ], [ %.1, %156 ], [ %58, %.critedge ], [ %58, %167 ], [ %58, %170 ]
   %174 = getelementptr inbounds i8, ptr %13, i64 12
   %175 = load i8, ptr %174, align 4
   switch i8 %175, label %182 [
@@ -446,7 +446,7 @@ proto_item_set_generated.exit151:                 ; preds = %170, %167, %.crited
 
 176:                                              ; preds = %proto_item_set_generated.exit151
   %177 = load ptr, ptr @bthci_sco_handle, align 8
-  %178 = tail call i32 @call_dissector_with_data(ptr noundef %177, ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
+  %178 = tail call i32 @call_dissector_with_data(ptr noundef %177, ptr noundef %.0135, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %182
 
 179:                                              ; preds = %proto_item_set_generated.exit151

@@ -77,14 +77,14 @@ define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT
   %..i.i.i = zext i1 %9 to i64
   %10 = insertvalue { i64, ptr } poison, i64 %..i.i.i, 0
   %11 = insertvalue { i64, ptr } %10, ptr %4, 1
-  %.sroa.0.0.i.i = select i1 %switch.i.i, i64 %..i.i.i, i64 1
+  %.sroa.0.1.i.i = select i1 %switch.i.i, i64 %..i.i.i, i64 1
   %.pn.i.i = select i1 %switch.i.i, { i64, ptr } %11, { i64, ptr } %8
-  %.sroa.4.0.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
+  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h23ec39b1b619a903E.exit": ; preds = %6, %3, %2, %2, %2
-  %.sroa.3.0 = phi ptr [ %0, %2 ], [ %.sroa.4.0.i.i, %6 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %.sroa.0.0.i.i, %6 ], [ 1, %3 ], [ 1, %2 ], [ 1, %2 ]
+  %.sroa.3.0 = phi ptr [ %0, %2 ], [ %.sroa.4.1.i.i, %6 ], [ %4, %3 ], [ %0, %2 ], [ %0, %2 ]
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %.sroa.0.1.i.i, %6 ], [ 1, %3 ], [ 1, %2 ], [ 1, %2 ]
   %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
   ret { i64, ptr } %13
@@ -724,8 +724,8 @@ define hidden void @"_ZN18tracing_subscriber3fmt38SubscriberBuilder$LT$N$C$E$C$F
   %switch.i3.i = icmp ne i64 %.fca.0.extract6.i.i, 0
   %18 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %7, 1
   %.pn.i.i = select i1 %switch.i3.i, { i64, ptr } %16, { i64, ptr } %18
-  %.sroa.4.0.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
-  %19 = icmp ne ptr %.sroa.4.0.i.i, null
+  %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
+  %19 = icmp ne ptr %.sroa.4.1.i.i, null
   %20 = select i1 %switch.i3.i, i1 %19, i1 false
   call void @llvm.lifetime.start.p0(i64 1784, ptr nonnull %4), !noalias !95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1784) %4, ptr noundef nonnull align 8 dereferenceable(1784) %8, i64 1784, i1 false), !noalias !97

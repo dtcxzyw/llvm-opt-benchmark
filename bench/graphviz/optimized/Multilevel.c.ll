@@ -136,7 +136,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   %35 = phi i32 [ %37, %68 ], [ %.pre.i, %.lr.ph139.i.preheader.i ]
   %.021.i = phi i32 [ %.4.i, %68 ], [ 0, %.lr.ph139.i.preheader.i ]
   %indvars.iv171.i.i = phi i64 [ %indvars.iv.next172.i.i, %68 ], [ 0, %.lr.ph139.i.preheader.i ]
-  %.0108137.i.i = phi i32 [ %.2.i.i, %68 ], [ 0, %.lr.ph139.i.preheader.i ]
+  %.0108137.i.i = phi i32 [ %.1109.i.i, %68 ], [ 0, %.lr.ph139.i.preheader.i ]
   %indvars.iv.next172.i.i = add nuw nsw i64 %indvars.iv171.i.i, 1
   %36 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.next172.i.i
   %37 = load i32, ptr %36, align 4
@@ -195,27 +195,27 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
 
 ._crit_edge134.i.i:                               ; preds = %62, %40
   %.3.i = phi i32 [ %.021.i, %40 ], [ %.2.i, %62 ]
-  %.1109.lcssa.i.i = phi i32 [ %.0108137.i.i, %40 ], [ %indvars.iv.next165.i.i, %62 ]
+  %.2.lcssa.i.i = phi i32 [ %.0108137.i.i, %40 ], [ %indvars.iv.next165.i.i, %62 ]
   %.0106.lcssa.i.i = phi i32 [ %43, %40 ], [ %.1107.i.i, %62 ]
-  %63 = icmp sgt i32 %.1109.lcssa.i.i, %.0106.lcssa.i.i
+  %63 = icmp sgt i32 %.2.lcssa.i.i, %.0106.lcssa.i.i
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %._crit_edge134.i.i
   %65 = add nsw i32 %.3.i, 1
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i32, ptr %23, i64 %66
-  store i32 %.1109.lcssa.i.i, ptr %67, align 4
+  store i32 %.2.lcssa.i.i, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %64, %._crit_edge134.i.i, %.lr.ph139.i.i
   %.4.i = phi i32 [ %.021.i, %.lr.ph139.i.i ], [ %65, %64 ], [ %.3.i, %._crit_edge134.i.i ]
-  %.2.i.i = phi i32 [ %.0108137.i.i, %.lr.ph139.i.i ], [ %.1109.lcssa.i.i, %64 ], [ %.1109.lcssa.i.i, %._crit_edge134.i.i ]
+  %.1109.i.i = phi i32 [ %.0108137.i.i, %.lr.ph139.i.i ], [ %.2.lcssa.i.i, %64 ], [ %.2.lcssa.i.i, %._crit_edge134.i.i ]
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next172.i.i, %33
   br i1 %exitcond31.not.i, label %._crit_edge140.i.i, label %.lr.ph139.i.i
 
 ._crit_edge140.i.i:                               ; preds = %68, %._crit_edge.i.i
   %.5.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.4.i, %68 ]
-  %.0108.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.2.i.i, %68 ]
+  %.0108.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.1109.i.i, %68 ]
   %69 = call ptr @random_permutation(i32 noundef %14) #14
   br i1 %25, label %.lr.ph157.preheader.i.i, label %maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i
 
@@ -227,8 +227,8 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   %.6.i = phi i32 [ %.5.i, %.lr.ph157.preheader.i.i ], [ %.7.i, %._crit_edge148.thread.i.i ]
   %indvars.iv179.i.i = phi i64 [ 0, %.lr.ph157.preheader.i.i ], [ %indvars.iv.next180.i.i, %._crit_edge148.thread.i.i ]
   %.3155.i.i = phi i32 [ %.0108.lcssa.i.i, %.lr.ph157.preheader.i.i ], [ %.4.i.i, %._crit_edge148.thread.i.i ]
-  %.0113154.i.i = phi i32 [ 0, %.lr.ph157.preheader.i.i ], [ %.3116.i.i, %._crit_edge148.thread.i.i ]
-  %.0117153.i.i = phi double [ 0.000000e+00, %.lr.ph157.preheader.i.i ], [ %.3120.i.i, %._crit_edge148.thread.i.i ]
+  %.0113154.i.i = phi i32 [ 0, %.lr.ph157.preheader.i.i ], [ %.1114.i.i, %._crit_edge148.thread.i.i ]
+  %.0117153.i.i = phi double [ 0.000000e+00, %.lr.ph157.preheader.i.i ], [ %.1118.i.i, %._crit_edge148.thread.i.i ]
   %70 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv179.i.i
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
@@ -253,8 +253,8 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
 .lr.ph147.i.i:                                    ; preds = %97, %.lr.ph147.preheader.i.i
   %indvars.iv175.i.i = phi i64 [ %82, %.lr.ph147.preheader.i.i ], [ %indvars.iv.next176.i.i, %97 ]
   %.0145.i.i = phi i8 [ 1, %.lr.ph147.preheader.i.i ], [ %.1.i.i, %97 ]
-  %.1114144.i.i = phi i32 [ %.0113154.i.i, %.lr.ph147.preheader.i.i ], [ %.2115.i.i, %97 ]
-  %.1118143.i.i = phi double [ %.0117153.i.i, %.lr.ph147.preheader.i.i ], [ %.2119.i.i, %97 ]
+  %.2115144.i.i = phi i32 [ %.0113154.i.i, %.lr.ph147.preheader.i.i ], [ %.3116.i.i, %97 ]
+  %.2119143.i.i = phi double [ %.0117153.i.i, %.lr.ph147.preheader.i.i ], [ %.3120.i.i, %97 ]
   %83 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv175.i.i
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %71, %84
@@ -274,15 +274,15 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   br i1 %91, label %97, label %94
 
 94:                                               ; preds = %90
-  %95 = fcmp ogt double %93, %.1118143.i.i
+  %95 = fcmp ogt double %93, %.2119143.i.i
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %94
   br label %97
 
 97:                                               ; preds = %96, %94, %90, %86, %.lr.ph147.i.i
-  %.2119.i.i = phi double [ %.1118143.i.i, %.lr.ph147.i.i ], [ %93, %96 ], [ %.1118143.i.i, %94 ], [ %.1118143.i.i, %86 ], [ %93, %90 ]
-  %.2115.i.i = phi i32 [ %.1114144.i.i, %.lr.ph147.i.i ], [ %84, %96 ], [ %.1114144.i.i, %94 ], [ %.1114144.i.i, %86 ], [ %84, %90 ]
+  %.3120.i.i = phi double [ %.2119143.i.i, %.lr.ph147.i.i ], [ %93, %96 ], [ %.2119143.i.i, %94 ], [ %.2119143.i.i, %86 ], [ %93, %90 ]
+  %.3116.i.i = phi i32 [ %.2115144.i.i, %.lr.ph147.i.i ], [ %84, %96 ], [ %.2115144.i.i, %94 ], [ %.2115144.i.i, %86 ], [ %84, %90 ]
   %.1.i.i = phi i8 [ %.0145.i.i, %.lr.ph147.i.i ], [ %.0145.i.i, %96 ], [ %.0145.i.i, %94 ], [ %.0145.i.i, %86 ], [ 0, %90 ]
   %indvars.iv.next176.i.i = add nsw i64 %indvars.iv175.i.i, 1
   %exitcond178.not.i.i = icmp eq i64 %indvars.iv.next176.i.i, %wide.trip.count177.i.i
@@ -293,7 +293,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   br i1 %98, label %._crit_edge148.thread.i.i, label %99
 
 99:                                               ; preds = %._crit_edge148.i.i
-  %100 = sext i32 %.2115.i.i to i64
+  %100 = sext i32 %.3116.i.i to i64
   %101 = getelementptr inbounds i32, ptr %24, i64 %100
   store i32 -1, ptr %101, align 4
   store i32 -1, ptr %73, align 4
@@ -302,7 +302,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
   store i32 %71, ptr %103, align 4
   %104 = add nsw i32 %.3155.i.i, 2
   %105 = getelementptr i8, ptr %103, i64 4
-  store i32 %.2115.i.i, ptr %105, align 4
+  store i32 %.3116.i.i, ptr %105, align 4
   %106 = add nsw i32 %.6.i, 1
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr %23, i64 %107
@@ -311,8 +311,8 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr no
 
 ._crit_edge148.thread.i.i:                        ; preds = %99, %._crit_edge148.i.i, %76, %.lr.ph157.i.i
   %.7.i = phi i32 [ %.6.i, %.lr.ph157.i.i ], [ %.6.i, %._crit_edge148.i.i ], [ %106, %99 ], [ %.6.i, %76 ]
-  %.3120.i.i = phi double [ %.0117153.i.i, %.lr.ph157.i.i ], [ %.2119.i.i, %._crit_edge148.i.i ], [ %.2119.i.i, %99 ], [ %.0117153.i.i, %76 ]
-  %.3116.i.i = phi i32 [ %.0113154.i.i, %.lr.ph157.i.i ], [ %.2115.i.i, %._crit_edge148.i.i ], [ %.2115.i.i, %99 ], [ %.0113154.i.i, %76 ]
+  %.1118.i.i = phi double [ %.0117153.i.i, %.lr.ph157.i.i ], [ %.3120.i.i, %._crit_edge148.i.i ], [ %.3120.i.i, %99 ], [ %.0117153.i.i, %76 ]
+  %.1114.i.i = phi i32 [ %.0113154.i.i, %.lr.ph157.i.i ], [ %.3116.i.i, %._crit_edge148.i.i ], [ %.3116.i.i, %99 ], [ %.0113154.i.i, %76 ]
   %.4.i.i = phi i32 [ %.3155.i.i, %.lr.ph157.i.i ], [ %.3155.i.i, %._crit_edge148.i.i ], [ %104, %99 ], [ %.3155.i.i, %76 ]
   %indvars.iv.next180.i.i = add nuw nsw i64 %indvars.iv179.i.i, 1
   %exitcond184.not.i.i = icmp eq i64 %indvars.iv.next180.i.i, %wide.trip.count183.i.i

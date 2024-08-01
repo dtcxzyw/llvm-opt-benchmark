@@ -207,8 +207,8 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %0 ]
-  %.02232 = phi i32 [ %.2, %50 ], [ 0, %0 ]
-  %.02331 = phi ptr [ %.3, %50 ], [ null, %0 ]
+  %.02232 = phi i32 [ %.1, %50 ], [ 0, %0 ]
+  %.02331 = phi ptr [ %.124, %50 ], [ null, %0 ]
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
   %12 = getelementptr %struct.LibraryInfo, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -255,21 +255,21 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   unreachable
 
 36:                                               ; preds = %29, %27
-  %.124 = phi ptr [ %30, %29 ], [ %.02331, %27 ]
+  %.225 = phi ptr [ %30, %29 ], [ %.02331, %27 ]
   %37 = call ptr @PQerrorMessage(ptr noundef %3) #8
-  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.124, ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef %37) #8
+  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.225, ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef %37) #8
   br label %39
 
 39:                                               ; preds = %20, %36
-  %.225 = phi ptr [ %.124, %36 ], [ %.02331, %20 ]
-  %.1 = phi i32 [ 1, %36 ], [ 0, %20 ]
+  %.3 = phi ptr [ %.225, %36 ], [ %.02331, %20 ]
+  %.2 = phi i32 [ 1, %36 ], [ 0, %20 ]
   call void @PQclear(ptr noundef %25) #8
   br label %40
 
 40:                                               ; preds = %39, %16
-  %.3 = phi ptr [ %.225, %39 ], [ %.02331, %16 ]
-  %.2 = phi i32 [ %.1, %39 ], [ %.02232, %16 ]
-  %.not29 = icmp eq i32 %.2, 0
+  %.124 = phi ptr [ %.3, %39 ], [ %.02331, %16 ]
+  %.1 = phi i32 [ %.2, %39 ], [ %.02232, %16 ]
+  %.not29 = icmp eq i32 %.1, 0
   br i1 %.not29, label %50, label %41
 
 41:                                               ; preds = %40
@@ -280,7 +280,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %46 = sext i32 %45 to i64
   %47 = getelementptr %struct.DbInfo, ptr %42, i64 %46, i32 1
   %48 = load ptr, ptr %47, align 8
-  %49 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.3, ptr noundef nonnull @.str.10, ptr noundef %48) #8
+  %49 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.124, ptr noundef nonnull @.str.10, ptr noundef %48) #8
   br label %50
 
 50:                                               ; preds = %40, %41
@@ -292,11 +292,11 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %50
   call void @PQfinish(ptr noundef %3) #8
-  %.not = icmp eq ptr %.3, null
+  %.not = icmp eq ptr %.124, null
   br i1 %.not, label %56, label %54
 
 54:                                               ; preds = %._crit_edge
-  %55 = call i32 @fclose(ptr noundef nonnull %.3)
+  %55 = call i32 @fclose(ptr noundef nonnull %.124)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.11) #8
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %1) #11
   unreachable

@@ -6792,7 +6792,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   br label %788
 
 788:                                              ; preds = %847, %.lr.ph.i.i
-  %.092.i.i = phi i32 [ 60, %.lr.ph.i.i ], [ %.1.i.i, %847 ]
+  %.192.i.i = phi i32 [ 60, %.lr.ph.i.i ], [ %.2.i.i, %847 ]
   %.08791.i.i = phi i32 [ %780, %.lr.ph.i.i ], [ %.188.i.i, %847 ]
   %.08990.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %853, %847 ]
   %789 = load ptr, ptr %787, align 8
@@ -6811,8 +6811,8 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %798 = trunc nuw i32 %797 to i8
   %799 = getelementptr i8, ptr %790, i64 1
   store i8 %798, ptr %799, align 1
-  %800 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.092.i.i) #4
-  %801 = add i32 %.092.i.i, 4
+  %800 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.192.i.i) #4
+  %801 = add i32 %.192.i.i, 4
   %802 = trunc i32 %800 to i8
   store i8 %802, ptr %792, align 1
   %803 = lshr i32 %800, 8
@@ -6827,7 +6827,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %810 = getelementptr i8, ptr %790, i64 5
   store i8 %809, ptr %810, align 1
   %811 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %801) #4
-  %812 = add i32 %.092.i.i, 8
+  %812 = add i32 %.192.i.i, 8
   %813 = trunc i32 %811 to i8
   %814 = getelementptr i8, ptr %790, i64 6
   store i8 %813, ptr %814, align 1
@@ -6840,8 +6840,8 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   br label %847
 
 820:                                              ; preds = %788
-  %821 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.092.i.i) #4
-  %822 = add i32 %.092.i.i, 4
+  %821 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.192.i.i) #4
+  %822 = add i32 %.192.i.i, 4
   %823 = trunc i32 %821 to i8
   store i8 %823, ptr %790, align 1
   %824 = lshr i32 %821, 8
@@ -6855,7 +6855,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %830 = trunc nuw i32 %829 to i8
   store i8 %830, ptr %793, align 1
   %831 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %822) #4
-  %832 = add i32 %.092.i.i, 8
+  %832 = add i32 %.192.i.i, 8
   %833 = trunc i32 %831 to i8
   %834 = getelementptr i8, ptr %790, i64 4
   store i8 %833, ptr %834, align 1
@@ -6872,7 +6872,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %843 = getelementptr i8, ptr %790, i64 7
   store i8 %842, ptr %843, align 1
   %844 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %832) #4
-  %845 = add i32 %.092.i.i, 12
+  %845 = add i32 %.192.i.i, 12
   %846 = lshr i32 %844, 8
   br label %847
 
@@ -6880,7 +6880,7 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   %.sink94.in.i.i = phi i32 [ %818, %794 ], [ %844, %820 ]
   %.sink.in.i.i = phi i32 [ %819, %794 ], [ %846, %820 ]
   %.188.i.i = phi i32 [ %811, %794 ], [ %844, %820 ]
-  %.1.i.i = phi i32 [ %812, %794 ], [ %845, %820 ]
+  %.2.i.i = phi i32 [ %812, %794 ], [ %845, %820 ]
   %.sink.i.i = trunc i32 %.sink.in.i.i to i8
   %.sink94.i.i = trunc i32 %.sink94.in.i.i to i8
   %848 = getelementptr i8, ptr %790, i64 8
@@ -6896,9 +6896,9 @@ parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i: ; preds = %765, %761
   br i1 %exitcond.not.i.i, label %parse_Link16_Message_Data.exit.i, label %788, !llvm.loop !13
 
 parse_Link16_Message_Data.exit.i:                 ; preds = %847, %772, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i
-  %.2.i.i = phi i32 [ 52, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i ], [ 60, %772 ], [ %.1.i.i, %847 ]
+  %.0.i.i149 = phi i32 [ 52, %parse_DIS_FIELDS_SIGNAL_LINK16_NETWORK_HEADER.exit.i ], [ 60, %772 ], [ %.2.i.i, %847 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
-  call void @proto_item_set_end(ptr noundef %716, ptr noundef %0, i32 noundef %.2.i.i) #4
+  call void @proto_item_set_end(ptr noundef %716, ptr noundef %0, i32 noundef %.0.i.i149) #4
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
 854:                                              ; preds = %738
@@ -7122,12 +7122,12 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %847, %772, %parse_D
   %1060 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1059, ptr noundef %0, i32 noundef %1058, i32 noundef 2, i32 noundef 0) #4
   %1061 = add i32 %1040, 16
   %1062 = zext i8 %1055 to i32
-  %.not.i149 = icmp eq i8 %1055, 0
-  br i1 %.not.i149, label %dissect_DIS_PARSER_DETONATION_PDU.exit, label %.lr.ph.i150
+  %.not.i150 = icmp eq i8 %1055, 0
+  br i1 %.not.i150, label %dissect_DIS_PARSER_DETONATION_PDU.exit, label %.lr.ph.i151
 
-.lr.ph.i150:                                      ; preds = %991, %.lr.ph.i150
-  %.02.i = phi i32 [ %1071, %.lr.ph.i150 ], [ 0, %991 ]
-  %.0921.i = phi i32 [ %1069, %.lr.ph.i150 ], [ %1061, %991 ]
+.lr.ph.i151:                                      ; preds = %991, %.lr.ph.i151
+  %.02.i = phi i32 [ %1071, %.lr.ph.i151 ], [ 0, %991 ]
+  %.0921.i = phi i32 [ %1069, %.lr.ph.i151 ], [ %1061, %991 ]
   %1063 = load i32, ptr @ett_variable_parameter, align 4
   %1064 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0921.i, i32 noundef 1, i32 noundef %1063, ptr noundef nonnull %14, ptr noundef nonnull @.str.4056) #4
   %1065 = load i32, ptr @hf_dis_variable_parameter_type, align 4
@@ -7138,11 +7138,11 @@ parse_Link16_Message_Data.exit.i:                 ; preds = %847, %772, %parse_D
   %1070 = load ptr, ptr %14, align 8
   call void @proto_item_set_end(ptr noundef %1070, ptr noundef %0, i32 noundef %1069) #4
   %1071 = add nuw nsw i32 %.02.i, 1
-  %exitcond.not.i151 = icmp eq i32 %1071, %1062
-  br i1 %exitcond.not.i151, label %dissect_DIS_PARSER_DETONATION_PDU.exit, label %.lr.ph.i150, !llvm.loop !14
+  %exitcond.not.i152 = icmp eq i32 %1071, %1062
+  br i1 %exitcond.not.i152, label %dissect_DIS_PARSER_DETONATION_PDU.exit, label %.lr.ph.i151, !llvm.loop !14
 
-dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
-  %.092.lcssa.i = phi i32 [ %1061, %991 ], [ %1069, %.lr.ph.i150 ]
+dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i151, %991
+  %.092.lcssa.i = phi i32 [ %1061, %991 ], [ %1069, %.lr.ph.i151 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
@@ -7185,8 +7185,8 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   store i64 %1104, ptr %13, align 8
   %1105 = load i32, ptr @hf_dis_clocktime, align 4
   %1106 = call ptr @proto_tree_add_time(ptr noundef %1090, i32 noundef %1105, ptr noundef %0, i32 noundef 24, i32 noundef 8, ptr noundef nonnull %13) #4
-  %.not.i.i153 = icmp eq i32 %1093, 0
-  %.str.4014..str.4013.i.i = select i1 %.not.i.i153, ptr @.str.4014, ptr @.str.4013
+  %.not.i.i154 = icmp eq i32 %1093, 0
+  %.str.4014..str.4013.i.i = select i1 %.not.i.i154, ptr @.str.4014, ptr @.str.4013
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1106, ptr noundef nonnull %.str.4014..str.4013.i.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -7247,8 +7247,8 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   %1151 = mul nuw nsw i64 %1150, 3600000
   %1152 = udiv i64 %1151, 2147483647
   %1153 = udiv i64 %1151, 2147483647000
-  %.lhs.trunc.i.i154 = trunc nuw nsw i64 %1152 to i32
-  %1154 = urem i32 %.lhs.trunc.i.i154, 1000
+  %.lhs.trunc.i.i155 = trunc nuw nsw i64 %1152 to i32
+  %1154 = urem i32 %.lhs.trunc.i.i155, 1000
   %1155 = mul nuw nsw i32 %1154, 1000000
   %1156 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %1155, ptr %1156, align 8
@@ -7258,9 +7258,9 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   store i64 %1159, ptr %11, align 8
   %1160 = load i32, ptr @hf_dis_clocktime, align 4
   %1161 = call ptr @proto_tree_add_time(ptr noundef %1145, i32 noundef %1160, ptr noundef %0, i32 noundef 24, i32 noundef 8, ptr noundef nonnull %11) #4
-  %.not.i.i155 = icmp eq i32 %1148, 0
-  %.str.4014..str.4013.i.i156 = select i1 %.not.i.i155, ptr @.str.4014, ptr @.str.4013
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1161, ptr noundef nonnull %.str.4014..str.4013.i.i156) #4
+  %.not.i.i156 = icmp eq i32 %1148, 0
+  %.str.4014..str.4013.i.i157 = select i1 %.not.i.i156, ptr @.str.4014, ptr @.str.4013
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1161, ptr noundef nonnull %.str.4014..str.4013.i.i157) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %1162 = load i32, ptr @hf_dis_reason, align 4
   %1163 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1162, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #4
@@ -7403,21 +7403,21 @@ dissect_DIS_PARSER_DETONATION_PDU.exit:           ; preds = %.lr.ph.i150, %991
   %1288 = shl i32 %1282, 2
   %1289 = load i32, ptr @ett_fixed_datum, align 4
   %1290 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 40, i32 noundef %1288, i32 noundef %1289, ptr noundef null, ptr noundef nonnull @.str.4114) #4
-  %.not.i.i157 = icmp eq i32 %1282, 0
-  br i1 %.not.i.i157, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, label %.lr.ph.i.i158
+  %.not.i.i158 = icmp eq i32 %1282, 0
+  br i1 %.not.i.i158, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, label %.lr.ph.i.i159
 
-.lr.ph.i.i158:                                    ; preds = %1261, %.lr.ph.i.i158
-  %.014.i.i = phi i32 [ %1294, %.lr.ph.i.i158 ], [ 0, %1261 ]
-  %.01213.i.i = phi i32 [ %1293, %.lr.ph.i.i158 ], [ 40, %1261 ]
+.lr.ph.i.i159:                                    ; preds = %1261, %.lr.ph.i.i159
+  %.014.i.i = phi i32 [ %1294, %.lr.ph.i.i159 ], [ 0, %1261 ]
+  %.01213.i.i = phi i32 [ %1293, %.lr.ph.i.i159 ], [ 40, %1261 ]
   %1291 = load i32, ptr @hf_dis_datum_id, align 4
   %1292 = tail call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1291, ptr noundef %0, i32 noundef %.01213.i.i, i32 noundef 4, i32 noundef 0) #4
   %1293 = add i32 %.01213.i.i, 4
   %1294 = add nuw i32 %.014.i.i, 1
-  %exitcond.not.i.i159 = icmp eq i32 %1294, %1282
-  br i1 %exitcond.not.i.i159, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, label %.lr.ph.i.i158, !llvm.loop !15
+  %exitcond.not.i.i160 = icmp eq i32 %1294, %1282
+  br i1 %exitcond.not.i.i160, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, label %.lr.ph.i.i159, !llvm.loop !15
 
-parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %1261
-  %.012.lcssa.i.i = phi i32 [ 40, %1261 ], [ %1293, %.lr.ph.i.i158 ]
+parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i159, %1261
+  %.012.lcssa.i.i = phi i32 [ 40, %1261 ], [ %1293, %.lr.ph.i.i159 ]
   %1295 = shl i32 %1285, 2
   %1296 = load i32, ptr @ett_fixed_datum, align 4
   %1297 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.012.lcssa.i.i, i32 noundef %1295, i32 noundef %1296, ptr noundef null, ptr noundef nonnull @.str.4115) #4
@@ -7487,8 +7487,8 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   %1347 = mul nuw nsw i64 %1346, 3600000
   %1348 = udiv i64 %1347, 2147483647
   %1349 = udiv i64 %1347, 2147483647000
-  %.lhs.trunc.i.i160 = trunc nuw nsw i64 %1348 to i32
-  %1350 = urem i32 %.lhs.trunc.i.i160, 1000
+  %.lhs.trunc.i.i161 = trunc nuw nsw i64 %1348 to i32
+  %1350 = urem i32 %.lhs.trunc.i.i161, 1000
   %1351 = mul nuw nsw i32 %1350, 1000000
   %1352 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %1351, ptr %1352, align 8
@@ -7498,9 +7498,9 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   store i64 %1355, ptr %10, align 8
   %1356 = load i32, ptr @hf_dis_clocktime, align 4
   %1357 = call ptr @proto_tree_add_time(ptr noundef %1341, i32 noundef %1356, ptr noundef %0, i32 noundef 24, i32 noundef 8, ptr noundef nonnull %10) #4
-  %.not.i.i161 = icmp eq i32 %1344, 0
-  %.str.4014..str.4013.i.i162 = select i1 %.not.i.i161, ptr @.str.4014, ptr @.str.4013
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1357, ptr noundef nonnull %.str.4014..str.4013.i.i162) #4
+  %.not.i.i162 = icmp eq i32 %1344, 0
+  %.str.4014..str.4013.i.i163 = select i1 %.not.i.i162, ptr @.str.4014, ptr @.str.4013
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1357, ptr noundef nonnull %.str.4014..str.4013.i.i163) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %1358 = load i32, ptr @ett_clock_time, align 4
@@ -7564,8 +7564,8 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   %1406 = mul nuw nsw i64 %1405, 3600000
   %1407 = udiv i64 %1406, 2147483647
   %1408 = udiv i64 %1406, 2147483647000
-  %.lhs.trunc.i.i163 = trunc nuw nsw i64 %1407 to i32
-  %1409 = urem i32 %.lhs.trunc.i.i163, 1000
+  %.lhs.trunc.i.i164 = trunc nuw nsw i64 %1407 to i32
+  %1409 = urem i32 %.lhs.trunc.i.i164, 1000
   %1410 = mul nuw nsw i32 %1409, 1000000
   %1411 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %1410, ptr %1411, align 8
@@ -7575,9 +7575,9 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   store i64 %1414, ptr %8, align 8
   %1415 = load i32, ptr @hf_dis_clocktime, align 4
   %1416 = call ptr @proto_tree_add_time(ptr noundef %1400, i32 noundef %1415, ptr noundef %0, i32 noundef 24, i32 noundef 8, ptr noundef nonnull %8) #4
-  %.not.i.i164 = icmp eq i32 %1403, 0
-  %.str.4014..str.4013.i.i165 = select i1 %.not.i.i164, ptr @.str.4014, ptr @.str.4013
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1416, ptr noundef nonnull %.str.4014..str.4013.i.i165) #4
+  %.not.i.i165 = icmp eq i32 %1403, 0
+  %.str.4014..str.4013.i.i166 = select i1 %.not.i.i165, ptr @.str.4014, ptr @.str.4013
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1416, ptr noundef nonnull %.str.4014..str.4013.i.i166) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %1417 = load i32, ptr @hf_dis_reason, align 4
   %1418 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1417, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #4
@@ -7701,36 +7701,36 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i:     ; preds = %.lr.ph.i.i158, %126
   %1526 = shl i32 %1520, 2
   %1527 = load i32, ptr @ett_fixed_datum, align 4
   %1528 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 44, i32 noundef %1526, i32 noundef %1527, ptr noundef null, ptr noundef nonnull @.str.4114) #4
-  %.not.i.i166 = icmp eq i32 %1520, 0
-  br i1 %.not.i.i166, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171, label %.lr.ph.i.i167
+  %.not.i.i167 = icmp eq i32 %1520, 0
+  br i1 %.not.i.i167, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, label %.lr.ph.i.i168
 
-.lr.ph.i.i167:                                    ; preds = %1495, %.lr.ph.i.i167
-  %.014.i.i168 = phi i32 [ %1532, %.lr.ph.i.i167 ], [ 0, %1495 ]
-  %.01213.i.i169 = phi i32 [ %1531, %.lr.ph.i.i167 ], [ 44, %1495 ]
+.lr.ph.i.i168:                                    ; preds = %1495, %.lr.ph.i.i168
+  %.014.i.i169 = phi i32 [ %1532, %.lr.ph.i.i168 ], [ 0, %1495 ]
+  %.01213.i.i170 = phi i32 [ %1531, %.lr.ph.i.i168 ], [ 44, %1495 ]
   %1529 = load i32, ptr @hf_dis_datum_id, align 4
-  %1530 = tail call ptr @proto_tree_add_item(ptr noundef %1528, i32 noundef %1529, ptr noundef %0, i32 noundef %.01213.i.i169, i32 noundef 4, i32 noundef 0) #4
-  %1531 = add i32 %.01213.i.i169, 4
-  %1532 = add nuw i32 %.014.i.i168, 1
-  %exitcond.not.i.i170 = icmp eq i32 %1532, %1520
-  br i1 %exitcond.not.i.i170, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171, label %.lr.ph.i.i167, !llvm.loop !15
+  %1530 = tail call ptr @proto_tree_add_item(ptr noundef %1528, i32 noundef %1529, ptr noundef %0, i32 noundef %.01213.i.i170, i32 noundef 4, i32 noundef 0) #4
+  %1531 = add i32 %.01213.i.i170, 4
+  %1532 = add nuw i32 %.014.i.i169, 1
+  %exitcond.not.i.i171 = icmp eq i32 %1532, %1520
+  br i1 %exitcond.not.i.i171, label %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, label %.lr.ph.i.i168, !llvm.loop !15
 
-parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171:  ; preds = %.lr.ph.i.i167, %1495
-  %.012.lcssa.i.i172 = phi i32 [ 44, %1495 ], [ %1531, %.lr.ph.i.i167 ]
+parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172:  ; preds = %.lr.ph.i.i168, %1495
+  %.012.lcssa.i.i173 = phi i32 [ 44, %1495 ], [ %1531, %.lr.ph.i.i168 ]
   %1533 = shl i32 %1523, 2
   %1534 = load i32, ptr @ett_fixed_datum, align 4
-  %1535 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.012.lcssa.i.i172, i32 noundef %1533, i32 noundef %1534, ptr noundef null, ptr noundef nonnull @.str.4115) #4
-  %.not.i.i.i173 = icmp eq i32 %1523, 0
-  br i1 %.not.i.i.i173, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i174
+  %1535 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.012.lcssa.i.i173, i32 noundef %1533, i32 noundef %1534, ptr noundef null, ptr noundef nonnull @.str.4115) #4
+  %.not.i.i.i174 = icmp eq i32 %1523, 0
+  br i1 %.not.i.i.i174, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i175
 
-.lr.ph.i.i.i174:                                  ; preds = %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171, %.lr.ph.i.i.i174
-  %.014.i.i.i175 = phi i32 [ %1539, %.lr.ph.i.i.i174 ], [ 0, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171 ]
-  %.01213.i.i.i176 = phi i32 [ %1538, %.lr.ph.i.i.i174 ], [ %.012.lcssa.i.i172, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171 ]
+.lr.ph.i.i.i175:                                  ; preds = %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, %.lr.ph.i.i.i175
+  %.014.i.i.i176 = phi i32 [ %1539, %.lr.ph.i.i.i175 ], [ 0, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172 ]
+  %.01213.i.i.i177 = phi i32 [ %1538, %.lr.ph.i.i.i175 ], [ %.012.lcssa.i.i173, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172 ]
   %1536 = load i32, ptr @hf_dis_datum_id, align 4
-  %1537 = tail call ptr @proto_tree_add_item(ptr noundef %1535, i32 noundef %1536, ptr noundef %0, i32 noundef %.01213.i.i.i176, i32 noundef 4, i32 noundef 0) #4
-  %1538 = add i32 %.01213.i.i.i176, 4
-  %1539 = add nuw i32 %.014.i.i.i175, 1
-  %exitcond.not.i.i.i177 = icmp eq i32 %1539, %1523
-  br i1 %exitcond.not.i.i.i177, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i174, !llvm.loop !15
+  %1537 = tail call ptr @proto_tree_add_item(ptr noundef %1535, i32 noundef %1536, ptr noundef %0, i32 noundef %.01213.i.i.i177, i32 noundef 4, i32 noundef 0) #4
+  %1538 = add i32 %.01213.i.i.i177, 4
+  %1539 = add nuw i32 %.014.i.i.i176, 1
+  %exitcond.not.i.i.i178 = icmp eq i32 %1539, %1523
+  br i1 %exitcond.not.i.i.i178, label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit, label %.lr.ph.i.i.i175, !llvm.loop !15
 
 1540:                                             ; preds = %4
   %1541 = tail call fastcc i32 @dissect_DIS_PARSER_COMMENT_PDU(ptr noundef %0, ptr noundef %2)
@@ -7819,8 +7819,8 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171:  ; preds = %.lr.ph.i.i167, %149
   %1615 = icmp eq i32 %1614, 1
   %1616 = load i32, ptr @entityDomain, align 4
   %1617 = icmp eq i32 %1616, 1
-  %or.cond.i179 = select i1 %1615, i1 %1617, i1 false
-  br i1 %or.cond.i179, label %1618, label %1622
+  %or.cond.i180 = select i1 %1615, i1 %1617, i1 false
+  br i1 %or.cond.i180, label %1618, label %1622
 
 1618:                                             ; preds = %1565
   %1619 = load i32, ptr @hf_entity_appearance, align 4
@@ -7844,12 +7844,12 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171:  ; preds = %.lr.ph.i.i167, %149
 
 1630:                                             ; preds = %1628, %1625, %1618
   %1631 = zext i8 %1582 to i32
-  %.not.i180 = icmp eq i8 %1582, 0
-  br i1 %.not.i180, label %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, label %.lr.ph.i181
+  %.not.i181 = icmp eq i8 %1582, 0
+  br i1 %.not.i181, label %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, label %.lr.ph.i182
 
-.lr.ph.i181:                                      ; preds = %1630, %.lr.ph.i181
-  %.096.i = phi i32 [ %1640, %.lr.ph.i181 ], [ 0, %1630 ]
-  %.09495.i = phi i32 [ %1638, %.lr.ph.i181 ], [ 72, %1630 ]
+.lr.ph.i182:                                      ; preds = %1630, %.lr.ph.i182
+  %.096.i = phi i32 [ %1640, %.lr.ph.i182 ], [ 0, %1630 ]
+  %.09495.i = phi i32 [ %1638, %.lr.ph.i182 ], [ 72, %1630 ]
   %1632 = load i32, ptr @ett_variable_parameter, align 4
   %1633 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.09495.i, i32 noundef 1, i32 noundef %1632, ptr noundef nonnull %7, ptr noundef nonnull @.str.4056) #4
   %1634 = load i32, ptr @hf_dis_variable_parameter_type, align 4
@@ -7860,11 +7860,11 @@ parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171:  ; preds = %.lr.ph.i.i167, %149
   %1639 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %1639, ptr noundef %0, i32 noundef %1638) #4
   %1640 = add nuw nsw i32 %.096.i, 1
-  %exitcond.not.i182 = icmp eq i32 %1640, %1631
-  br i1 %exitcond.not.i182, label %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, label %.lr.ph.i181, !llvm.loop !16
+  %exitcond.not.i183 = icmp eq i32 %1640, %1631
+  br i1 %exitcond.not.i183, label %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, label %.lr.ph.i182, !llvm.loop !16
 
-dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1630
-  %.094.lcssa.i = phi i32 [ 72, %1630 ], [ %1638, %.lr.ph.i181 ]
+dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i182, %1630
+  %.094.lcssa.i = phi i32 [ 72, %1630 ], [ %1638, %.lr.ph.i182 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
@@ -7908,73 +7908,73 @@ dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1630
   %1677 = load i32, ptr @hf_dis_num_variable_records, align 4
   %1678 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1677, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0) #4
   %1679 = zext i16 %1676 to i32
-  %.not.i184 = icmp eq i16 %1676, 0
-  br i1 %.not.i184, label %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, label %.lr.ph.i185
+  %.not.i185 = icmp eq i16 %1676, 0
+  br i1 %.not.i185, label %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, label %.lr.ph.i186
 
-.lr.ph.i185:                                      ; preds = %1641, %parseField_VariableRecord.exit.i
-  %.02.i186 = phi i32 [ %.1.i.i189, %parseField_VariableRecord.exit.i ], [ 40, %1641 ]
+.lr.ph.i186:                                      ; preds = %1641, %parseField_VariableRecord.exit.i
+  %.02.i187 = phi i32 [ %.1.i.i, %parseField_VariableRecord.exit.i ], [ 40, %1641 ]
   %.0731.i = phi i32 [ %1753, %parseField_VariableRecord.exit.i ], [ 0, %1641 ]
   %1680 = load i32, ptr @ett_record, align 4
-  %1681 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.02.i186, i32 noundef -1, i32 noundef %1680, ptr noundef nonnull %6, ptr noundef nonnull @.str.4117) #4
-  %1682 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.02.i186) #4
+  %1681 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.02.i187, i32 noundef -1, i32 noundef %1680, ptr noundef nonnull %6, ptr noundef nonnull @.str.4117) #4
+  %1682 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.02.i187) #4
   %1683 = load i32, ptr @hf_dis_variable_record_type, align 4
-  %1684 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1683, ptr noundef %0, i32 noundef %.02.i186, i32 noundef 4, i32 noundef 0) #4
-  %1685 = add i32 %.02.i186, 4
+  %1684 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1683, ptr noundef %0, i32 noundef %.02.i187, i32 noundef 4, i32 noundef 0) #4
+  %1685 = add i32 %.02.i187, 4
   %1686 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1685) #4
   %1687 = load i32, ptr @hf_dis_variable_record_len, align 4
   %1688 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1687, ptr noundef %0, i32 noundef %1685, i32 noundef 2, i32 noundef 0) #4
-  %1689 = add i32 %.02.i186, 6
+  %1689 = add i32 %.02.i187, 6
   switch i32 %1682, label %1738 [
     i32 47200, label %1690
     i32 47300, label %1709
     i32 47600, label %1725
   ]
 
-1690:                                             ; preds = %.lr.ph.i185
+1690:                                             ; preds = %.lr.ph.i186
   %1691 = load i32, ptr @hf_dis_padding, align 4
   %1692 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1691, ptr noundef %0, i32 noundef %1689, i32 noundef 1, i32 noundef 0) #4
-  %1693 = add i32 %.02.i186, 7
+  %1693 = add i32 %.02.i187, 7
   %1694 = load i32, ptr @hf_dis_vr_status_type, align 4
   %1695 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1694, ptr noundef %0, i32 noundef %1693, i32 noundef 2, i32 noundef 0) #4
-  %1696 = add i32 %.02.i186, 9
+  %1696 = add i32 %.02.i187, 9
   %1697 = load i32, ptr @hf_dis_vr_general_status, align 4
   %1698 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1697, ptr noundef %0, i32 noundef %1696, i32 noundef 1, i32 noundef 0) #4
-  %1699 = add i32 %.02.i186, 10
+  %1699 = add i32 %.02.i187, 10
   %1700 = load i32, ptr @hf_dis_vr_specific_status, align 4
   %1701 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1700, ptr noundef %0, i32 noundef %1699, i32 noundef 1, i32 noundef 0) #4
-  %1702 = add i32 %.02.i186, 11
+  %1702 = add i32 %.02.i187, 11
   %1703 = load i32, ptr @hf_dis_vr_status_value_int, align 4
   %1704 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1703, ptr noundef %0, i32 noundef %1702, i32 noundef 2, i32 noundef 0) #4
-  %1705 = add i32 %.02.i186, 13
+  %1705 = add i32 %.02.i187, 13
   %1706 = load i32, ptr @hf_dis_vr_status_value_float, align 4
   %1707 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1706, ptr noundef %0, i32 noundef %1705, i32 noundef 8, i32 noundef 0) #4
-  %1708 = add i32 %.02.i186, 21
+  %1708 = add i32 %.02.i187, 21
   br label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
 
-1709:                                             ; preds = %.lr.ph.i185
+1709:                                             ; preds = %.lr.ph.i186
   %1710 = load i32, ptr @hf_dis_vr_exercise_id, align 4
   %1711 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1710, ptr noundef %0, i32 noundef %1689, i32 noundef 1, i32 noundef 0) #4
-  %1712 = add i32 %.02.i186, 7
+  %1712 = add i32 %.02.i187, 7
   %1713 = load i32, ptr @hf_dis_padding, align 4
   %1714 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1713, ptr noundef %0, i32 noundef %1712, i32 noundef 1, i32 noundef 0) #4
-  %1715 = add i32 %.02.i186, 8
+  %1715 = add i32 %.02.i187, 8
   %1716 = load i32, ptr @hf_dis_vr_exercise_file_path, align 4
   %1717 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1716, ptr noundef %0, i32 noundef %1715, i32 noundef 256, i32 noundef 0) #4
-  %1718 = add i32 %.02.i186, 264
+  %1718 = add i32 %.02.i187, 264
   %1719 = load i32, ptr @hf_dis_vr_exercise_file_name, align 4
   %1720 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1719, ptr noundef %0, i32 noundef %1718, i32 noundef 128, i32 noundef 0) #4
-  %1721 = add i32 %.02.i186, 392
+  %1721 = add i32 %.02.i187, 392
   %1722 = load i32, ptr @hf_dis_vr_application_role, align 4
   %1723 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1722, ptr noundef %0, i32 noundef %1721, i32 noundef 64, i32 noundef 0) #4
-  %1724 = add i32 %.02.i186, 456
+  %1724 = add i32 %.02.i187, 456
   br label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
 
-1725:                                             ; preds = %.lr.ph.i185
+1725:                                             ; preds = %.lr.ph.i186
   %1726 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1689) #4
   %1727 = zext i16 %1726 to i32
   %1728 = load i32, ptr @hf_dis_vr_num_records, align 4
   %1729 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1728, ptr noundef %0, i32 noundef %1689, i32 noundef 2, i32 noundef 0) #4
-  %1730 = add i32 %.02.i186, 8
+  %1730 = add i32 %.02.i187, 8
   %1731 = shl nuw nsw i32 %1727, 2
   %1732 = load i32, ptr @ett_fixed_datum, align 4
   %1733 = call ptr @proto_tree_add_subtree(ptr noundef %1681, ptr noundef %0, i32 noundef %1730, i32 noundef %1731, i32 noundef %1732, ptr noundef null, ptr noundef nonnull @.str.4117) #4
@@ -7991,7 +7991,7 @@ dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1630
   %exitcond.not.i.i.i.i = icmp eq i32 %1737, %1727
   br i1 %exitcond.not.i.i.i.i, label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
-1738:                                             ; preds = %.lr.ph.i185
+1738:                                             ; preds = %.lr.ph.i186
   %1739 = icmp ugt i16 %1686, 6
   br i1 %1739, label %1740, label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
 
@@ -8000,33 +8000,33 @@ dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit:  ; preds = %.lr.ph.i181, %1630
   %1742 = add nsw i32 %1741, -6
   %1743 = load i32, ptr @hf_dis_record_data, align 4
   %1744 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1743, ptr noundef %0, i32 noundef %1689, i32 noundef %1742, i32 noundef 0) #4
-  %1745 = add i32 %.02.i186, %1741
+  %1745 = add i32 %.02.i187, %1741
   br label %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
 
 dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i:        ; preds = %.lr.ph.i.i.i.i, %1740, %1738, %1725, %1709, %1690
-  %.0.i.i187 = phi i32 [ %1745, %1740 ], [ %1689, %1738 ], [ %1724, %1709 ], [ %1708, %1690 ], [ %1730, %1725 ], [ %1736, %.lr.ph.i.i.i.i ]
+  %.0.i.i188 = phi i32 [ %1745, %1740 ], [ %1689, %1738 ], [ %1724, %1709 ], [ %1708, %1690 ], [ %1730, %1725 ], [ %1736, %.lr.ph.i.i.i.i ]
   %1746 = and i16 %1686, 7
-  %.not.i.i188 = icmp eq i16 %1746, 0
-  br i1 %.not.i.i188, label %parseField_VariableRecord.exit.i, label %1747
+  %.not.i.i189 = icmp eq i16 %1746, 0
+  br i1 %.not.i.i189, label %parseField_VariableRecord.exit.i, label %1747
 
 1747:                                             ; preds = %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
   %narrow.i.i = sub nuw nsw i16 8, %1746
   %1748 = zext nneg i16 %narrow.i.i to i32
   %1749 = load i32, ptr @hf_dis_alignment_padding, align 4
-  %1750 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1749, ptr noundef %0, i32 noundef %.0.i.i187, i32 noundef %1748, i32 noundef 0) #4
-  %1751 = add i32 %.0.i.i187, %1748
+  %1750 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1749, ptr noundef %0, i32 noundef %.0.i.i188, i32 noundef %1748, i32 noundef 0) #4
+  %1751 = add i32 %.0.i.i188, %1748
   br label %parseField_VariableRecord.exit.i
 
 parseField_VariableRecord.exit.i:                 ; preds = %1747, %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i
-  %.1.i.i189 = phi i32 [ %1751, %1747 ], [ %.0.i.i187, %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i ]
+  %.1.i.i = phi i32 [ %1751, %1747 ], [ %.0.i.i188, %dissect_DIS_FIELDS_VR_DATA_QUERY.exit.i.i ]
   %1752 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %1752, ptr noundef %0, i32 noundef %.1.i.i189) #4
+  call void @proto_item_set_end(ptr noundef %1752, ptr noundef %0, i32 noundef %.1.i.i) #4
   %1753 = add nuw nsw i32 %.0731.i, 1
   %exitcond.not.i190 = icmp eq i32 %1753, %1679
-  br i1 %exitcond.not.i190, label %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, label %.lr.ph.i185, !llvm.loop !17
+  br i1 %exitcond.not.i190, label %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, label %.lr.ph.i186, !llvm.loop !17
 
 dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit:  ; preds = %parseField_VariableRecord.exit.i, %1641
-  %.0.lcssa.i192 = phi i32 [ 40, %1641 ], [ %.1.i.i189, %parseField_VariableRecord.exit.i ]
+  %.0.lcssa.i192 = phi i32 [ 40, %1641 ], [ %.1.i.i, %parseField_VariableRecord.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
@@ -8244,8 +8244,8 @@ dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit:      ; preds = %.lr.ph170.i, %._cri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit
 
-dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit:  ; preds = %.lr.ph.i.i.i174, %.lr.ph.i.i.i, %460, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, %854, %parse_Link16_Message_Data.exit.i, %689, %676, %655, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i, %.preheader.i, %.preheader193.i, %4, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit, %1754, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, %1542, %1540, %1464, %1462, %1429, %1427, %1382, %1323, %1304, %1302, %1232, %1203, %1201, %1172, %1170, %1127, %1072, %dissect_DIS_PARSER_DETONATION_PDU.exit, %933, %894, %859, %493, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit, %178, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit
-  %.0 = phi i32 [ %1935, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit ], [ %1787, %1754 ], [ %.0.lcssa.i192, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit ], [ %.094.lcssa.i, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit ], [ 32, %1542 ], [ %1541, %1540 ], [ %1494, %1464 ], [ %1463, %1462 ], [ %1461, %1429 ], [ %1428, %1427 ], [ 40, %1382 ], [ 48, %1323 ], [ 28, %1304 ], [ %1303, %1302 ], [ %1260, %1232 ], [ %1231, %1203 ], [ %1202, %1201 ], [ %1200, %1172 ], [ %1171, %1170 ], [ 40, %1127 ], [ 44, %1072 ], [ %.092.lcssa.i, %dissect_DIS_PARSER_DETONATION_PDU.exit ], [ %990, %933 ], [ 36, %894 ], [ 36, %859 ], [ 88, %493 ], [ %.0.lcssa.i, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit ], [ 60, %178 ], [ %.0162.lcssa.i, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit ], [ 12, %4 ], [ %459, %.preheader.i ], [ %.1.lcssa.i144, %.preheader193.i ], [ %692, %689 ], [ 112, %676 ], [ 120, %655 ], [ 104, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i ], [ %.2.i.i, %parse_Link16_Message_Data.exit.i ], [ %858, %854 ], [ %.012.lcssa.i.i, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i ], [ %.012.lcssa.i.i172, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i171 ], [ %492, %460 ], [ %1300, %.lr.ph.i.i.i ], [ %1538, %.lr.ph.i.i.i174 ]
+dissect_DIS_PARSER_UNDERWATER_ACOUSTIC_PDU.exit:  ; preds = %.lr.ph.i.i.i175, %.lr.ph.i.i.i, %460, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i, %854, %parse_Link16_Message_Data.exit.i, %689, %676, %655, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i, %.preheader.i, %.preheader193.i, %4, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit, %1754, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit, %1542, %1540, %1464, %1462, %1429, %1427, %1382, %1323, %1304, %1302, %1232, %1203, %1201, %1172, %1170, %1127, %1072, %dissect_DIS_PARSER_DETONATION_PDU.exit, %933, %894, %859, %493, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit, %178, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit
+  %.0 = phi i32 [ %1935, %dissect_DIS_PARSER_AGGREGATE_STATE_PDU.exit ], [ %1787, %1754 ], [ %.0.lcssa.i192, %dissect_DIS_PARSER_APPLICATION_CONTROL_PDU.exit ], [ %.094.lcssa.i, %dissect_DIS_PARSER_ENTITY_STATE_UPDATE_PDU.exit ], [ 32, %1542 ], [ %1541, %1540 ], [ %1494, %1464 ], [ %1463, %1462 ], [ %1461, %1429 ], [ %1428, %1427 ], [ 40, %1382 ], [ 48, %1323 ], [ 28, %1304 ], [ %1303, %1302 ], [ %1260, %1232 ], [ %1231, %1203 ], [ %1202, %1201 ], [ %1200, %1172 ], [ %1171, %1170 ], [ 40, %1127 ], [ 44, %1072 ], [ %.092.lcssa.i, %dissect_DIS_PARSER_DETONATION_PDU.exit ], [ %990, %933 ], [ 36, %894 ], [ 36, %859 ], [ 88, %493 ], [ %.0.lcssa.i, %dissect_DIS_PARSER_ELECTROMAGNETIC_EMISSION_PDU.exit ], [ 60, %178 ], [ %.0162.lcssa.i, %dissect_DIS_PARSER_ENTITY_STATE_PDU.exit ], [ 12, %4 ], [ %459, %.preheader.i ], [ %.1.lcssa.i144, %.preheader193.i ], [ %692, %689 ], [ 112, %676 ], [ 120, %655 ], [ 104, %dissect_DIS_FIELDS_MODULATION_TYPE.exit.i ], [ %.0.i.i149, %parse_Link16_Message_Data.exit.i ], [ %858, %854 ], [ %.012.lcssa.i.i, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i ], [ %.012.lcssa.i.i173, %parseField_DIS_FIELDS_FIXED_DATUM_IDS.exit.i172 ], [ %492, %460 ], [ %1300, %.lr.ph.i.i.i ], [ %1538, %.lr.ph.i.i.i175 ]
   ret i32 %.0
 }
 

@@ -557,8 +557,8 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i: ; preds = %if.then4.i
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i:        ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i, %if.then4.i
-  %it.sroa.0.0.i = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.then4.i ], [ %spec.select.i, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
-  %it.sroa.8.1.i = phi i8 [ -1, %if.then4.i ], [ %5, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
+  %it.sroa.0.1.i = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.then4.i ], [ %spec.select.i, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
+  %it.sroa.8.2.i = phi i8 [ -1, %if.then4.i ], [ %5, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
   %cmp.not14.i = icmp eq ptr %begin.i.0104, %p.i.0103
   br i1 %cmp.not14.i, label %_ZN3fmt3v106detail12scan_handler7on_textEPKcS4_.exit, label %for.body.lr.ph.i
 
@@ -569,15 +569,15 @@ for.body.lr.ph.i:                                 ; preds = %_ZNK3fmt3v1012scan_
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %7 = phi ptr [ %3, %for.body.lr.ph.i ], [ %incdec.ptr.i.i.i, %for.inc.i ]
   %begin.addr.017.i = phi ptr [ %begin.i.0104, %for.body.lr.ph.i ], [ %incdec.ptr.i38, %for.inc.i ]
-  %it.sroa.8.216.i = phi i8 [ %it.sroa.8.1.i, %for.body.lr.ph.i ], [ %10, %for.inc.i ]
-  %it.sroa.0.115.i = phi ptr [ %it.sroa.0.0.i, %for.body.lr.ph.i ], [ %spec.select13.i, %for.inc.i ]
-  %8 = load ptr, ptr %it.sroa.0.115.i, align 8
+  %it.sroa.8.016.i = phi i8 [ %it.sroa.8.2.i, %for.body.lr.ph.i ], [ %10, %for.inc.i ]
+  %it.sroa.0.015.i = phi ptr [ %it.sroa.0.1.i, %for.body.lr.ph.i ], [ %spec.select13.i, %for.inc.i ]
+  %8 = load ptr, ptr %it.sroa.0.015.i, align 8
   %cmp.i.i = icmp eq ptr %8, %6
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i37
 
 lor.lhs.false.i37:                                ; preds = %for.body.i
   %9 = load i8, ptr %begin.addr.017.i, align 1
-  %cmp6.not.i = icmp eq i8 %9, %it.sroa.8.216.i
+  %cmp6.not.i = icmp eq i8 %9, %it.sroa.8.016.i
   br i1 %cmp6.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i37, %for.body.i
@@ -589,7 +589,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i37
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %ptr_2.i.i.i.i, align 8
   %cmp5.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %4
-  %spec.select13.i = select i1 %cmp5.i.not.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.115.i
+  %spec.select13.i = select i1 %cmp5.i.not.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.015.i
   %10 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i38, %p.i.0103
   br i1 %cmp.not.i, label %_ZN3fmt3v106detail12scan_handler7on_textEPKcS4_.exit, label %for.body.i, !llvm.loop !11
@@ -627,8 +627,8 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i43: ; preds = %if.end.i
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i46
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i46:      ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i43, %if.end.i
-  %it.sroa.0.0.i47 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.end.i ], [ %spec.select.i45, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i43 ]
-  %it.sroa.8.1.i48 = phi i8 [ -1, %if.end.i ], [ %15, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i43 ]
+  %it.sroa.0.1.i47 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.end.i ], [ %spec.select.i45, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i43 ]
+  %it.sroa.8.2.i48 = phi i8 [ -1, %if.end.i ], [ %15, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i43 ]
   %cmp.not14.i49 = icmp eq ptr %begin.i.0104, %incdec.ptr.i
   br i1 %cmp.not14.i49, label %_ZN3fmt3v106detail12scan_handler7on_textEPKcS4_.exit65, label %for.body.lr.ph.i50
 
@@ -639,15 +639,15 @@ for.body.lr.ph.i50:                               ; preds = %_ZNK3fmt3v1012scan_
 for.body.i51:                                     ; preds = %for.inc.i59, %for.body.lr.ph.i50
   %17 = phi ptr [ %13, %for.body.lr.ph.i50 ], [ %incdec.ptr.i.i.i61, %for.inc.i59 ]
   %begin.addr.017.i52 = phi ptr [ %begin.i.0104, %for.body.lr.ph.i50 ], [ %incdec.ptr.i60, %for.inc.i59 ]
-  %it.sroa.8.216.i53 = phi i8 [ %it.sroa.8.1.i48, %for.body.lr.ph.i50 ], [ %20, %for.inc.i59 ]
-  %it.sroa.0.115.i54 = phi ptr [ %it.sroa.0.0.i47, %for.body.lr.ph.i50 ], [ %spec.select13.i63, %for.inc.i59 ]
-  %18 = load ptr, ptr %it.sroa.0.115.i54, align 8
+  %it.sroa.8.016.i53 = phi i8 [ %it.sroa.8.2.i48, %for.body.lr.ph.i50 ], [ %20, %for.inc.i59 ]
+  %it.sroa.0.015.i54 = phi ptr [ %it.sroa.0.1.i47, %for.body.lr.ph.i50 ], [ %spec.select13.i63, %for.inc.i59 ]
+  %18 = load ptr, ptr %it.sroa.0.015.i54, align 8
   %cmp.i.i55 = icmp eq ptr %18, %16
   br i1 %cmp.i.i55, label %if.then.i58, label %lor.lhs.false.i56
 
 lor.lhs.false.i56:                                ; preds = %for.body.i51
   %19 = load i8, ptr %begin.addr.017.i52, align 1
-  %cmp6.not.i57 = icmp eq i8 %19, %it.sroa.8.216.i53
+  %cmp6.not.i57 = icmp eq i8 %19, %it.sroa.8.016.i53
   br i1 %cmp6.not.i57, label %for.inc.i59, label %if.then.i58
 
 if.then.i58:                                      ; preds = %lor.lhs.false.i56, %for.body.i51
@@ -659,7 +659,7 @@ for.inc.i59:                                      ; preds = %lor.lhs.false.i56
   %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %incdec.ptr.i.i.i61, ptr %ptr_2.i.i.i.i40, align 8
   %cmp5.i.not.i.i62 = icmp eq ptr %incdec.ptr.i.i.i61, %14
-  %spec.select13.i63 = select i1 %cmp5.i.not.i.i62, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.115.i54
+  %spec.select13.i63 = select i1 %cmp5.i.not.i.i62, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.015.i54
   %20 = load i8, ptr %incdec.ptr.i.i.i61, align 1
   %cmp.not.i64 = icmp eq ptr %begin.addr.017.i52, %p.i.0103
   br i1 %cmp.not.i64, label %_ZN3fmt3v106detail12scan_handler7on_textEPKcS4_.exit65, label %for.body.i51, !llvm.loop !11
@@ -695,8 +695,8 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i70: ; preds = %while.end.i
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i73
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i73:      ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i70, %while.end.i
-  %it.sroa.0.0.i74 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %while.end.i ], [ %spec.select.i72, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i70 ]
-  %it.sroa.8.1.i75 = phi i8 [ -1, %while.end.i ], [ %24, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i70 ]
+  %it.sroa.0.1.i74 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %while.end.i ], [ %spec.select.i72, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i70 ]
+  %it.sroa.8.2.i75 = phi i8 [ -1, %while.end.i ], [ %24, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i70 ]
   %cmp.not14.i76 = icmp eq ptr %begin.i.0.lcssa, %add.ptr.i
   br i1 %cmp.not14.i76, label %_ZN3fmt3v106detail19parse_format_stringILb0EcRNS1_12scan_handlerEEEvNS0_17basic_string_viewIT0_EEOT1_.exit, label %for.body.lr.ph.i77
 
@@ -707,15 +707,15 @@ for.body.lr.ph.i77:                               ; preds = %_ZNK3fmt3v1012scan_
 for.body.i78:                                     ; preds = %for.inc.i86, %for.body.lr.ph.i77
   %26 = phi ptr [ %22, %for.body.lr.ph.i77 ], [ %incdec.ptr.i.i.i88, %for.inc.i86 ]
   %begin.addr.017.i79 = phi ptr [ %begin.i.0.lcssa, %for.body.lr.ph.i77 ], [ %incdec.ptr.i87, %for.inc.i86 ]
-  %it.sroa.8.216.i80 = phi i8 [ %it.sroa.8.1.i75, %for.body.lr.ph.i77 ], [ %29, %for.inc.i86 ]
-  %it.sroa.0.115.i81 = phi ptr [ %it.sroa.0.0.i74, %for.body.lr.ph.i77 ], [ %spec.select13.i90, %for.inc.i86 ]
-  %27 = load ptr, ptr %it.sroa.0.115.i81, align 8
+  %it.sroa.8.016.i80 = phi i8 [ %it.sroa.8.2.i75, %for.body.lr.ph.i77 ], [ %29, %for.inc.i86 ]
+  %it.sroa.0.015.i81 = phi ptr [ %it.sroa.0.1.i74, %for.body.lr.ph.i77 ], [ %spec.select13.i90, %for.inc.i86 ]
+  %27 = load ptr, ptr %it.sroa.0.015.i81, align 8
   %cmp.i.i82 = icmp eq ptr %27, %25
   br i1 %cmp.i.i82, label %if.then.i85, label %lor.lhs.false.i83
 
 lor.lhs.false.i83:                                ; preds = %for.body.i78
   %28 = load i8, ptr %begin.addr.017.i79, align 1
-  %cmp6.not.i84 = icmp eq i8 %28, %it.sroa.8.216.i80
+  %cmp6.not.i84 = icmp eq i8 %28, %it.sroa.8.016.i80
   br i1 %cmp6.not.i84, label %for.inc.i86, label %if.then.i85
 
 if.then.i85:                                      ; preds = %lor.lhs.false.i83, %for.body.i78
@@ -727,7 +727,7 @@ for.inc.i86:                                      ; preds = %lor.lhs.false.i83
   %incdec.ptr.i.i.i88 = getelementptr inbounds i8, ptr %26, i64 1
   store ptr %incdec.ptr.i.i.i88, ptr %ptr_2.i.i.i.i67, align 8
   %cmp5.i.not.i.i89 = icmp eq ptr %incdec.ptr.i.i.i88, %23
-  %spec.select13.i90 = select i1 %cmp5.i.not.i.i89, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.115.i81
+  %spec.select13.i90 = select i1 %cmp5.i.not.i.i89, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.015.i81
   %29 = load i8, ptr %incdec.ptr.i.i.i88, align 1
   %cmp.not.i91 = icmp eq ptr %incdec.ptr.i87, %add.ptr.i
   br i1 %cmp.not.i91, label %_ZN3fmt3v106detail19parse_format_stringILb0EcRNS1_12scan_handlerEEEvNS0_17basic_string_viewIT0_EEOT1_.exit, label %for.body.i78, !llvm.loop !11
@@ -5081,8 +5081,8 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i: ; preds = %if.then2
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i:        ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i, %if.then2
-  %it.sroa.0.0.i = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.then2 ], [ %spec.select.i, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
-  %it.sroa.8.1.i = phi i8 [ -1, %if.then2 ], [ %5, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
+  %it.sroa.0.1.i = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.then2 ], [ %spec.select.i, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
+  %it.sroa.8.2.i = phi i8 [ -1, %if.then2 ], [ %5, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
   %cmp.not14.i = icmp eq ptr %from.addr.0.lcssa, %to
   br i1 %cmp.not14.i, label %return, label %for.body.lr.ph.i
 
@@ -5093,15 +5093,15 @@ for.body.lr.ph.i:                                 ; preds = %_ZNK3fmt3v1012scan_
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %7 = phi ptr [ %3, %for.body.lr.ph.i ], [ %incdec.ptr.i.i.i, %for.inc.i ]
   %begin.addr.017.i = phi ptr [ %from.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %it.sroa.8.216.i = phi i8 [ %it.sroa.8.1.i, %for.body.lr.ph.i ], [ %10, %for.inc.i ]
-  %it.sroa.0.115.i = phi ptr [ %it.sroa.0.0.i, %for.body.lr.ph.i ], [ %spec.select13.i, %for.inc.i ]
-  %8 = load ptr, ptr %it.sroa.0.115.i, align 8
+  %it.sroa.8.016.i = phi i8 [ %it.sroa.8.2.i, %for.body.lr.ph.i ], [ %10, %for.inc.i ]
+  %it.sroa.0.015.i = phi ptr [ %it.sroa.0.1.i, %for.body.lr.ph.i ], [ %spec.select13.i, %for.inc.i ]
+  %8 = load ptr, ptr %it.sroa.0.015.i, align 8
   %cmp.i.i = icmp eq ptr %8, %6
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %9 = load i8, ptr %begin.addr.017.i, align 1
-  %cmp6.not.i = icmp eq i8 %9, %it.sroa.8.216.i
+  %cmp6.not.i = icmp eq i8 %9, %it.sroa.8.016.i
   br i1 %cmp6.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %for.body.i
@@ -5113,7 +5113,7 @@ for.inc.i:                                        ; preds = %lor.lhs.false.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %ptr_2.i.i.i.i, align 8
   %cmp5.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %4
-  %spec.select13.i = select i1 %cmp5.i.not.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.115.i
+  %spec.select13.i = select i1 %cmp5.i.not.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.015.i
   %10 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %to
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
@@ -5152,23 +5152,23 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i11: ; preds = %if.end8
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i14
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i14:      ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i11, %if.end8
-  %it.sroa.0.0.i15 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.end8 ], [ %spec.select.i13, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i11 ]
-  %it.sroa.8.1.i16 = phi i8 [ -1, %if.end8 ], [ %16, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i11 ]
+  %it.sroa.0.1.i15 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %if.end8 ], [ %spec.select.i13, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i11 ]
+  %it.sroa.8.2.i16 = phi i8 [ -1, %if.end8 ], [ %16, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i11 ]
   %cmp.not14.i17 = icmp eq ptr %from.addr.041, %incdec.ptr
   br i1 %cmp.not14.i17, label %_ZN3fmt3v106detail12scan_handler7on_textEPKcS4_.exit33, label %for.body.i19
 
 for.body.i19:                                     ; preds = %_ZNK3fmt3v1012scan_context5beginEv.exit.i14, %for.inc.i27
   %17 = phi ptr [ %incdec.ptr.i.i.i29, %for.inc.i27 ], [ %14, %_ZNK3fmt3v1012scan_context5beginEv.exit.i14 ]
   %begin.addr.017.i20 = phi ptr [ %incdec.ptr.i28, %for.inc.i27 ], [ %from.addr.041, %_ZNK3fmt3v1012scan_context5beginEv.exit.i14 ]
-  %it.sroa.8.216.i21 = phi i8 [ %20, %for.inc.i27 ], [ %it.sroa.8.1.i16, %_ZNK3fmt3v1012scan_context5beginEv.exit.i14 ]
-  %it.sroa.0.115.i22 = phi ptr [ %spec.select13.i31, %for.inc.i27 ], [ %it.sroa.0.0.i15, %_ZNK3fmt3v1012scan_context5beginEv.exit.i14 ]
-  %18 = load ptr, ptr %it.sroa.0.115.i22, align 8
+  %it.sroa.8.016.i21 = phi i8 [ %20, %for.inc.i27 ], [ %it.sroa.8.2.i16, %_ZNK3fmt3v1012scan_context5beginEv.exit.i14 ]
+  %it.sroa.0.015.i22 = phi ptr [ %spec.select13.i31, %for.inc.i27 ], [ %it.sroa.0.1.i15, %_ZNK3fmt3v1012scan_context5beginEv.exit.i14 ]
+  %18 = load ptr, ptr %it.sroa.0.015.i22, align 8
   %cmp.i.i23 = icmp eq ptr %18, %0
   br i1 %cmp.i.i23, label %if.then.i26, label %lor.lhs.false.i24
 
 lor.lhs.false.i24:                                ; preds = %for.body.i19
   %19 = load i8, ptr %begin.addr.017.i20, align 1
-  %cmp6.not.i25 = icmp eq i8 %19, %it.sroa.8.216.i21
+  %cmp6.not.i25 = icmp eq i8 %19, %it.sroa.8.016.i21
   br i1 %cmp6.not.i25, label %for.inc.i27, label %if.then.i26
 
 if.then.i26:                                      ; preds = %lor.lhs.false.i24, %for.body.i19
@@ -5180,7 +5180,7 @@ for.inc.i27:                                      ; preds = %lor.lhs.false.i24
   %incdec.ptr.i.i.i29 = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %incdec.ptr.i.i.i29, ptr %ptr_2.i.i.i.i8, align 8
   %cmp5.i.not.i.i30 = icmp eq ptr %incdec.ptr.i.i.i29, %15
-  %spec.select13.i31 = select i1 %cmp5.i.not.i.i30, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.115.i22
+  %spec.select13.i31 = select i1 %cmp5.i.not.i.i30, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.015.i22
   %20 = load i8, ptr %incdec.ptr.i.i.i29, align 1
   %cmp.not.i32 = icmp eq ptr %begin.addr.017.i20, %call1.i42
   br i1 %cmp.not.i32, label %_ZN3fmt3v106detail12scan_handler7on_textEPKcS4_.exit33, label %for.body.i19, !llvm.loop !11
@@ -5218,8 +5218,8 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i: ; preds = %entry
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit
 
 _ZNK3fmt3v1012scan_context5beginEv.exit:          ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i, %entry
-  %it.sroa.0.0 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %entry ], [ %spec.select, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i ]
-  %it.sroa.14.1 = phi i8 [ -1, %entry ], [ %7, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i ]
+  %it.sroa.0.1 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %entry ], [ %spec.select, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i ]
+  %it.sroa.14.2 = phi i8 [ -1, %entry ], [ %7, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i ]
   %arg_ = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i32, ptr %arg_, align 8
   switch i32 %8, label %sw.epilog [
@@ -5232,10 +5232,10 @@ _ZNK3fmt3v1012scan_context5beginEv.exit:          ; preds = %_ZN3fmt3v106detail1
   ]
 
 while.cond.preheader:                             ; preds = %_ZNK3fmt3v1012scan_context5beginEv.exit
-  %9 = load ptr, ptr %it.sroa.0.0, align 8
+  %9 = load ptr, ptr %it.sroa.0.1, align 8
   %10 = load ptr, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, align 8
   %cmp.i129 = icmp eq ptr %9, %10
-  %cmp.not130 = icmp eq i8 %it.sroa.14.1, 32
+  %cmp.not130 = icmp eq i8 %it.sroa.14.2, 32
   %or.cond131 = select i1 %cmp.i129, i1 true, i1 %cmp.not130
   br i1 %or.cond131, label %sw.epilog, label %while.body.lr.ph
 
@@ -5286,11 +5286,11 @@ _ZNK3fmt3v1012scan_context5beginEv.exit.i.i:      ; preds = %if.end.i
 while.body.i.i:                                   ; preds = %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i, %if.end.i.i
   %20 = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end.i.i ], [ %17, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i ]
   %value.020.i.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i ]
-  %it.sroa.9.219.i.i = phi i8 [ %22, %if.end.i.i ], [ %19, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i ]
-  %it.sroa.0.118.i.i = phi ptr [ %spec.select15.i.i, %if.end.i.i ], [ %spec.select.i.i, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i ]
+  %it.sroa.9.019.i.i = phi i8 [ %22, %if.end.i.i ], [ %19, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i ]
+  %it.sroa.0.018.i.i = phi ptr [ %spec.select15.i.i, %if.end.i.i ], [ %spec.select.i.i, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 1
   store ptr %incdec.ptr.i.i.i.i.i, ptr %ptr_2.i.i.i.i.i, align 8, !noalias !153
-  %21 = add i8 %it.sroa.9.219.i.i, -58
+  %21 = add i8 %it.sroa.9.019.i.i, -58
   %or.cond.i.i = icmp ult i8 %21, -10
   br i1 %or.cond.i.i, label %if.then.i9.i, label %if.end.i.i
 
@@ -5301,8 +5301,8 @@ if.then.i9.i:                                     ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i
   %22 = load i8, ptr %incdec.ptr.i.i.i.i.i, align 1, !noalias !153
   %cmp5.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
-  %spec.select15.i.i = select i1 %cmp5.i.not.i.i.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.118.i.i
-  %conv.i.i = zext nneg i8 %it.sroa.9.219.i.i to i32
+  %spec.select15.i.i = select i1 %cmp5.i.not.i.i.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.018.i.i
+  %conv.i.i = zext nneg i8 %it.sroa.9.019.i.i to i32
   %mul.i.i = mul i32 %value.020.i.i, 10
   %sub.i.i = add i32 %mul.i.i, -48
   %add.i.i = add i32 %sub.i.i, %conv.i.i
@@ -5333,21 +5333,21 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i: ; preds = %sw.bb5
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i13
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i13:      ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i, %sw.bb5
-  %it.sroa.0.0.i = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %sw.bb5 ], [ %spec.select.i12, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
-  %it.sroa.9.1.i = phi i8 [ -1, %sw.bb5 ], [ %27, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
+  %it.sroa.0.1.i = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %sw.bb5 ], [ %spec.select.i12, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
+  %it.sroa.9.2.i = phi i8 [ -1, %sw.bb5 ], [ %27, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i ]
   %28 = load ptr, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, align 8
-  %29 = load ptr, ptr %it.sroa.0.0.i, align 8
+  %29 = load ptr, ptr %it.sroa.0.1.i, align 8
   %cmp.i.not17.i = icmp eq ptr %29, %28
   br i1 %cmp.i.not17.i, label %_ZN3fmt3v106detail12scan_handler9read_uintIjEET_v.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNK3fmt3v1012scan_context5beginEv.exit.i13, %if.end.i15
   %30 = phi ptr [ %incdec.ptr.i.i.i.i, %if.end.i15 ], [ %3, %_ZNK3fmt3v1012scan_context5beginEv.exit.i13 ]
   %value.020.i = phi i32 [ %add.i, %if.end.i15 ], [ 0, %_ZNK3fmt3v1012scan_context5beginEv.exit.i13 ]
-  %it.sroa.9.219.i = phi i8 [ %32, %if.end.i15 ], [ %it.sroa.9.1.i, %_ZNK3fmt3v1012scan_context5beginEv.exit.i13 ]
-  %it.sroa.0.118.i = phi ptr [ %spec.select15.i, %if.end.i15 ], [ %it.sroa.0.0.i, %_ZNK3fmt3v1012scan_context5beginEv.exit.i13 ]
+  %it.sroa.9.019.i = phi i8 [ %32, %if.end.i15 ], [ %it.sroa.9.2.i, %_ZNK3fmt3v1012scan_context5beginEv.exit.i13 ]
+  %it.sroa.0.018.i = phi ptr [ %spec.select15.i, %if.end.i15 ], [ %it.sroa.0.1.i, %_ZNK3fmt3v1012scan_context5beginEv.exit.i13 ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 1
   store ptr %incdec.ptr.i.i.i.i, ptr %ptr_2.i.i.i, align 8, !noalias !162
-  %31 = add i8 %it.sroa.9.219.i, -58
+  %31 = add i8 %it.sroa.9.019.i, -58
   %or.cond.i14 = icmp ult i8 %31, -10
   br i1 %or.cond.i14, label %if.then.i17, label %if.end.i15
 
@@ -5358,8 +5358,8 @@ if.then.i17:                                      ; preds = %while.body.i
 if.end.i15:                                       ; preds = %while.body.i
   %32 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !162
   %cmp5.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
-  %spec.select15.i = select i1 %cmp5.i.not.i.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.118.i
-  %conv.i = zext nneg i8 %it.sroa.9.219.i to i32
+  %spec.select15.i = select i1 %cmp5.i.not.i.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.018.i
+  %conv.i = zext nneg i8 %it.sroa.9.019.i to i32
   %mul.i = mul i32 %value.020.i, 10
   %sub.i16 = add i32 %mul.i, -48
   %add.i = add i32 %sub.i16, %conv.i
@@ -5417,11 +5417,11 @@ _ZNK3fmt3v1012scan_context5beginEv.exit.i.i31:    ; preds = %if.end.i27
 while.body.i.i36:                                 ; preds = %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31, %if.end.i.i42
   %44 = phi ptr [ %incdec.ptr.i.i.i.i.i40, %if.end.i.i42 ], [ %41, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31 ]
   %value.020.i.i37 = phi i64 [ %add.i.i46, %if.end.i.i42 ], [ 0, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31 ]
-  %it.sroa.9.219.i.i38 = phi i8 [ %46, %if.end.i.i42 ], [ %43, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31 ]
-  %it.sroa.0.118.i.i39 = phi ptr [ %spec.select15.i.i44, %if.end.i.i42 ], [ %spec.select.i.i33, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31 ]
+  %it.sroa.9.019.i.i38 = phi i8 [ %46, %if.end.i.i42 ], [ %43, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31 ]
+  %it.sroa.0.018.i.i39 = phi ptr [ %spec.select15.i.i44, %if.end.i.i42 ], [ %spec.select.i.i33, %_ZNK3fmt3v1012scan_context5beginEv.exit.i.i31 ]
   %incdec.ptr.i.i.i.i.i40 = getelementptr inbounds i8, ptr %44, i64 1
   store ptr %incdec.ptr.i.i.i.i.i40, ptr %ptr_2.i.i.i.i.i29, align 8, !noalias !176
-  %45 = add i8 %it.sroa.9.219.i.i38, -58
+  %45 = add i8 %it.sroa.9.019.i.i38, -58
   %or.cond.i.i41 = icmp ult i8 %45, -10
   br i1 %or.cond.i.i41, label %if.then.i9.i51, label %if.end.i.i42
 
@@ -5432,9 +5432,9 @@ if.then.i9.i51:                                   ; preds = %while.body.i.i36
 if.end.i.i42:                                     ; preds = %while.body.i.i36
   %46 = load i8, ptr %incdec.ptr.i.i.i.i.i40, align 1, !noalias !176
   %cmp5.i.not.i.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i.i.i40, %40
-  %spec.select15.i.i44 = select i1 %cmp5.i.not.i.i.i.i43, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.118.i.i39
+  %spec.select15.i.i44 = select i1 %cmp5.i.not.i.i.i.i43, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.018.i.i39
   %mul.i.i45 = mul i64 %value.020.i.i37, 10
-  %47 = and i8 %it.sroa.9.219.i.i38, 15
+  %47 = and i8 %it.sroa.9.019.i.i38, 15
   %conv8.i.i = zext nneg i8 %47 to i64
   %add.i.i46 = add i64 %mul.i.i45, %conv8.i.i
   %48 = load ptr, ptr %spec.select15.i.i44, align 8
@@ -5464,21 +5464,21 @@ _ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i64: ; preds = %sw.bb11
   br label %_ZNK3fmt3v1012scan_context5beginEv.exit.i67
 
 _ZNK3fmt3v1012scan_context5beginEv.exit.i67:      ; preds = %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i64, %sw.bb11
-  %it.sroa.0.0.i68 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %sw.bb11 ], [ %spec.select.i66, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i64 ]
-  %it.sroa.9.1.i69 = phi i8 [ -1, %sw.bb11 ], [ %52, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i64 ]
+  %it.sroa.0.1.i68 = phi ptr [ @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, %sw.bb11 ], [ %spec.select.i66, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i64 ]
+  %it.sroa.9.2.i69 = phi i8 [ -1, %sw.bb11 ], [ %52, %_ZN3fmt3v106detail11scan_buffer4peekEv.exit.i.i.i.i64 ]
   %53 = load ptr, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, align 8
-  %54 = load ptr, ptr %it.sroa.0.0.i68, align 8
+  %54 = load ptr, ptr %it.sroa.0.1.i68, align 8
   %cmp.i.not17.i70 = icmp eq ptr %54, %53
   br i1 %cmp.i.not17.i70, label %_ZN3fmt3v106detail12scan_handler9read_uintIyEET_v.exit, label %while.body.i71
 
 while.body.i71:                                   ; preds = %_ZNK3fmt3v1012scan_context5beginEv.exit.i67, %if.end.i77
   %55 = phi ptr [ %incdec.ptr.i.i.i.i75, %if.end.i77 ], [ %3, %_ZNK3fmt3v1012scan_context5beginEv.exit.i67 ]
   %value.020.i72 = phi i64 [ %add.i81, %if.end.i77 ], [ 0, %_ZNK3fmt3v1012scan_context5beginEv.exit.i67 ]
-  %it.sroa.9.219.i73 = phi i8 [ %57, %if.end.i77 ], [ %it.sroa.9.1.i69, %_ZNK3fmt3v1012scan_context5beginEv.exit.i67 ]
-  %it.sroa.0.118.i74 = phi ptr [ %spec.select15.i79, %if.end.i77 ], [ %it.sroa.0.0.i68, %_ZNK3fmt3v1012scan_context5beginEv.exit.i67 ]
+  %it.sroa.9.019.i73 = phi i8 [ %57, %if.end.i77 ], [ %it.sroa.9.2.i69, %_ZNK3fmt3v1012scan_context5beginEv.exit.i67 ]
+  %it.sroa.0.018.i74 = phi ptr [ %spec.select15.i79, %if.end.i77 ], [ %it.sroa.0.1.i68, %_ZNK3fmt3v1012scan_context5beginEv.exit.i67 ]
   %incdec.ptr.i.i.i.i75 = getelementptr inbounds i8, ptr %55, i64 1
   store ptr %incdec.ptr.i.i.i.i75, ptr %ptr_2.i.i.i, align 8, !noalias !185
-  %56 = add i8 %it.sroa.9.219.i73, -58
+  %56 = add i8 %it.sroa.9.019.i73, -58
   %or.cond.i76 = icmp ult i8 %56, -10
   br i1 %or.cond.i76, label %if.then.i84, label %if.end.i77
 
@@ -5489,9 +5489,9 @@ if.then.i84:                                      ; preds = %while.body.i71
 if.end.i77:                                       ; preds = %while.body.i71
   %57 = load i8, ptr %incdec.ptr.i.i.i.i75, align 1, !noalias !185
   %cmp5.i.not.i.i.i78 = icmp eq ptr %incdec.ptr.i.i.i.i75, %5
-  %spec.select15.i79 = select i1 %cmp5.i.not.i.i.i78, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.118.i74
+  %spec.select15.i79 = select i1 %cmp5.i.not.i.i.i78, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.018.i74
   %mul.i80 = mul i64 %value.020.i72, 10
-  %58 = and i8 %it.sroa.9.219.i73, 15
+  %58 = and i8 %it.sroa.9.019.i73, 15
   %conv8.i = zext nneg i8 %58 to i64
   %add.i81 = add i64 %mul.i80, %conv8.i
   %59 = load ptr, ptr %spec.select15.i79, align 8
@@ -5506,17 +5506,17 @@ _ZN3fmt3v106detail12scan_handler9read_uintIyEET_v.exit: ; preds = %if.end.i77, %
   br label %sw.epilog
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %it.sroa.14.2133 = phi i8 [ %it.sroa.14.1, %while.body.lr.ph ], [ %65, %while.body ]
-  %it.sroa.0.1132 = phi ptr [ %it.sroa.0.0, %while.body.lr.ph ], [ %spec.select124, %while.body ]
+  %it.sroa.14.0133 = phi i8 [ %it.sroa.14.2, %while.body.lr.ph ], [ %65, %while.body ]
+  %it.sroa.0.0132 = phi ptr [ %it.sroa.0.1, %while.body.lr.ph ], [ %spec.select124, %while.body ]
   %62 = load ptr, ptr %11, align 8
   %63 = load ptr, ptr %ptr_2.i.i.i, align 8, !noalias !188
   %64 = load ptr, ptr %end_.i.i.i.i, align 8, !noalias !188
   %incdec.ptr.i.i.i87 = getelementptr inbounds i8, ptr %63, i64 1
   store ptr %incdec.ptr.i.i.i87, ptr %ptr_2.i.i.i, align 8, !noalias !188
   %cmp5.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i87, %64
-  %spec.select124 = select i1 %cmp5.i.not.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.1132
+  %spec.select124 = select i1 %cmp5.i.not.i.i, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, ptr %it.sroa.0.0132
   %65 = load i8, ptr %incdec.ptr.i.i.i87, align 1, !noalias !188
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 noundef signext %it.sroa.14.2133)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 noundef signext %it.sroa.14.0133)
   %66 = load ptr, ptr %spec.select124, align 8
   %67 = load ptr, ptr @_ZZN3fmt3v106detail11scan_buffer8iterator8sentinelEvE3ptr, align 8
   %cmp.i = icmp eq ptr %66, %67

@@ -212,19 +212,19 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   br i1 %66, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %60, %48, %.preheader.i.i
-  %.02947.i.i = phi ptr [ null, %48 ], [ null, %.preheader.i.i ], [ %61, %60 ]
+  %.13047.i.i = phi ptr [ null, %48 ], [ null, %.preheader.i.i ], [ %61, %60 ]
   %67 = phi i1 [ true, %48 ], [ true, %.preheader.i.i ], [ %65, %60 ]
-  %.028.i.i = phi i16 [ %49, %48 ], [ 0, %.preheader.i.i ], [ 0, %60 ]
+  %.1.i.i = phi i16 [ %49, %48 ], [ 0, %.preheader.i.i ], [ 0, %60 ]
   %68 = load ptr, ptr %4, align 8
   call void @jvmtiDeallocate(ptr noundef %68) #4
   br label %69
 
 69:                                               ; preds = %.loopexit.i.i, %42
-  %.028.i = phi ptr [ %.02947.i.i, %.loopexit.i.i ], [ null, %42 ]
-  %.2.i.i = phi i1 [ %67, %.loopexit.i.i ], [ true, %42 ]
-  %.1.i.i = phi i16 [ %.028.i.i, %.loopexit.i.i ], [ %43, %42 ]
-  %70 = icmp eq i16 %.1.i.i, 0
-  %or.cond.i.i = and i1 %.2.i.i, %70
+  %.028.i = phi ptr [ %.13047.i.i, %.loopexit.i.i ], [ null, %42 ]
+  %.029.i.i = phi i1 [ %67, %.loopexit.i.i ], [ true, %42 ]
+  %.028.i.i = phi i16 [ %.1.i.i, %.loopexit.i.i ], [ %43, %42 ]
+  %70 = icmp eq i16 %.028.i.i, 0
+  %or.cond.i.i = and i1 %.029.i.i, %70
   br i1 %or.cond.i.i, label %getComponentClass.exit.thread.i, label %getComponentClass.exit.i
 
 getComponentClass.exit.thread.i:                  ; preds = %69
@@ -242,7 +242,7 @@ getComponentClass.exit.sink.split.i:              ; preds = %54, %36
 
 getComponentClass.exit.i:                         ; preds = %getComponentClass.exit.sink.split.i, %69
   %.1.i = phi ptr [ %.028.i, %69 ], [ null, %getComponentClass.exit.sink.split.i ]
-  %.026.i.i = phi i16 [ %.1.i.i, %69 ], [ %71, %getComponentClass.exit.sink.split.i ]
+  %.026.i.i = phi i16 [ %.028.i.i, %69 ], [ %71, %getComponentClass.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

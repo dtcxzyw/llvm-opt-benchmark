@@ -7417,7 +7417,7 @@ default.unreachable:                              ; preds = %.loopexit.i.i.i.i
 206:                                              ; preds = %200, %194, %188, %182
   %.not114.i.i.i.i = phi i1 [ false, %200 ], [ true, %194 ], [ false, %188 ], [ true, %182 ]
   %.sink.i.i.i.i = phi i8 [ 1, %200 ], [ 1, %194 ], [ %193, %188 ], [ %187, %182 ]
-  %.4.i.i.i.i = phi ptr [ %.str.238..str.237.i.i.i.i, %200 ], [ %.str.235..str.234.i.i.i.i, %194 ], [ %.str.233..str.232.i.i.i.i, %188 ], [ %.str.231..str.230.i.i.i.i, %182 ]
+  %.199.i.i.i.i = phi ptr [ %.str.238..str.237.i.i.i.i, %200 ], [ %.str.235..str.234.i.i.i.i, %194 ], [ %.str.233..str.232.i.i.i.i, %188 ], [ %.str.231..str.230.i.i.i.i, %182 ]
   %.0.i.i.i.i = phi ptr [ %202, %200 ], [ %196, %194 ], [ null, %188 ], [ null, %182 ]
   %207 = getelementptr inbounds i8, ptr %.1.i121.i.i.i.i, i64 33
   store i8 %.sink.i.i.i.i, ptr %207, align 1
@@ -7495,7 +7495,7 @@ dcm_state_pdv_get_obj_start.exit.i.i.i.i:         ; preds = %223
   br label %241
 
 241:                                              ; preds = %239, %237
-  %.1.i.i.i.i = phi ptr [ %238, %237 ], [ %240, %239 ]
+  %.2.i.i.i.i = phi ptr [ %238, %237 ], [ %240, %239 ]
   %242 = getelementptr inbounds i8, ptr %.1.i121.i.i.i.i, i64 72
   store i32 1, ptr %242, align 8
   br label %251
@@ -7514,11 +7514,11 @@ dcm_state_pdv_get_obj_start.exit.thread.i.i.i.i:  ; preds = %220, %dcm_state_pdv
   br label %251
 
 251:                                              ; preds = %dcm_state_pdv_get_obj_start.exit.thread.i.i.i.i, %243, %241, %218
-  %.2.i.i.i.i = phi ptr [ %.1.i.i.i.i, %241 ], [ %248, %243 ], [ %250, %dcm_state_pdv_get_obj_start.exit.thread.i.i.i.i ], [ %.0.i.i.i.i, %218 ]
+  %.1.i.i.i.i = phi ptr [ %.2.i.i.i.i, %241 ], [ %248, %243 ], [ %250, %dcm_state_pdv_get_obj_start.exit.thread.i.i.i.i ], [ %.0.i.i.i.i, %218 ]
   %252 = getelementptr inbounds i8, ptr %.1.i121.i.i.i.i, i64 24
-  store ptr %.2.i.i.i.i, ptr %252, align 8
+  store ptr %.1.i.i.i.i, ptr %252, align 8
   %253 = load i32, ptr @hf_dcm_pdv_flags, align 4
-  %254 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %100, i32 noundef %253, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef %181, ptr noundef nonnull @.str.243, i32 noundef %178, ptr noundef nonnull %.4.i.i.i.i) #10
+  %254 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %100, i32 noundef %253, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef %181, ptr noundef nonnull @.str.243, i32 noundef %178, ptr noundef nonnull %.199.i.i.i.i) #10
   %255 = icmp ugt i8 %177, 3
   br i1 %255, label %256, label %dissect_dcm_pdv_header.exit.i.i.i
 
@@ -7904,25 +7904,25 @@ switch.lookup180:                                 ; preds = %439
   br label %459
 
 459:                                              ; preds = %457, %455
-  %.0129.i.i = phi ptr [ %456, %455 ], [ %458, %457 ]
+  %.1.i51.i = phi ptr [ %456, %455 ], [ %458, %457 ]
   %460 = load ptr, ptr %5, align 8
   %461 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %460, ptr noundef nonnull @ei_dcm_assoc_aborted) #10
   br label %462
 
 462:                                              ; preds = %459, %411, %364, %335
-  %.1.i51.i = phi ptr [ %.0129.i.i, %459 ], [ %425, %411 ], [ %390, %364 ], [ %361, %335 ]
+  %.0129.i.i = phi ptr [ %.1.i51.i, %459 ], [ %425, %411 ], [ %390, %364 ], [ %361, %335 ]
   %.0.i52.i = phi i32 [ %448, %459 ], [ %419, %411 ], [ %392, %364 ], [ %363, %335 ]
-  %.not.i53.i = icmp eq ptr %.1.i51.i, null
+  %.not.i53.i = icmp eq ptr %.0129.i.i, null
   br i1 %.not.i53.i, label %dissect_dcm_assoc_header.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %462, %430, %428
   %.0141.i.i = phi i32 [ %.0.i52.i, %462 ], [ %429, %428 ], [ %431, %430 ]
-  %.1140.i.i = phi ptr [ %.1.i51.i, %462 ], [ @.str.374, %428 ], [ @.str.375, %430 ]
+  %.0129140.i.i = phi ptr [ %.0129.i.i, %462 ], [ @.str.374, %428 ], [ @.str.375, %430 ]
   %463 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %463, ptr noundef nonnull @.str.163, ptr noundef nonnull %.1140.i.i) #10
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %463, ptr noundef nonnull @.str.163, ptr noundef nonnull %.0129140.i.i) #10
   %464 = load ptr, ptr %26, align 8
-  call void @col_set_str(ptr noundef %464, i32 noundef 25, ptr noundef nonnull %.1140.i.i) #10
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.215, ptr noundef nonnull %.1140.i.i) #10
+  call void @col_set_str(ptr noundef %464, i32 noundef 25, ptr noundef nonnull %.0129140.i.i) #10
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.215, ptr noundef nonnull %.0129140.i.i) #10
   br label %dissect_dcm_assoc_header.exit.i
 
 dissect_dcm_assoc_header.exit.i:                  ; preds = %.thread.i.i, %462, %332
@@ -8135,15 +8135,15 @@ dissect_dcm_tag_open.exit.thread:                 ; preds = %37
   br label %dissect_dcm_tag_open.exit
 
 dissect_dcm_tag_open.exit:                        ; preds = %62, %27, %30
-  %.0115 = phi i32 [ 1, %27 ], [ 1, %30 ], [ 0, %62 ]
+  %.1 = phi i32 [ 1, %27 ], [ 1, %30 ], [ 0, %62 ]
   %.047.i = phi i32 [ %5, %27 ], [ %5, %30 ], [ %.pre126.pre-phi, %62 ]
   %78 = icmp ult i32 %.047.i, %12
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %dissect_dcm_tag_open.exit, %.lr.ph
   %.0117 = phi i32 [ %79, %.lr.ph ], [ %.047.i, %dissect_dcm_tag_open.exit ]
-  %.1116 = phi i32 [ 0, %.lr.ph ], [ %.0115, %dissect_dcm_tag_open.exit ]
-  %79 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %.0117, i32 noundef %12, i32 noundef %.1116, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %.0115116 = phi i32 [ 0, %.lr.ph ], [ %.1, %dissect_dcm_tag_open.exit ]
+  %79 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %.0117, i32 noundef %12, i32 noundef %.0115116, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %80 = icmp ult i32 %79, %12
   br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
@@ -8875,17 +8875,17 @@ dcm_tag_is_open.exit355:                          ; preds = %136
   br label %sub_0
 
 sub_0:                                            ; preds = %128, %142
-  %.0322 = phi ptr [ %134, %128 ], [ %145, %142 ]
-  %.3312 = phi i32 [ %135, %128 ], [ %.2311, %142 ]
-  %.2305 = phi i32 [ %.1304, %128 ], [ %137, %142 ]
-  %151 = load i8, ptr %.0322, align 1
+  %.1323 = phi ptr [ %134, %128 ], [ %145, %142 ]
+  %.4313 = phi i32 [ %135, %128 ], [ %.2311, %142 ]
+  %.3306 = phi i32 [ %.1304, %128 ], [ %137, %142 ]
+  %151 = load i8, ptr %.1323, align 1
   %152 = zext i8 %151 to i32
   %153 = add nsw i32 %152, -79
   %.not501 = icmp eq i32 %153, 0
   br i1 %.not501, label %sub_1, label %.tail447
 
 sub_1:                                            ; preds = %sub_0
-  %154 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %154 = getelementptr inbounds i8, ptr %.1323, i64 1
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = add nsw i32 %156, -66
@@ -8893,7 +8893,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not502, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %158 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %158 = getelementptr inbounds i8, ptr %.1323, i64 2
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   br label %.tail
@@ -8907,7 +8907,7 @@ sub_0448:                                         ; preds = %.tail
   br i1 %.not501, label %sub_1449, label %.tail447
 
 sub_1449:                                         ; preds = %sub_0448
-  %163 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %163 = getelementptr inbounds i8, ptr %.1323, i64 1
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %166 = add nsw i32 %165, -87
@@ -8915,7 +8915,7 @@ sub_1449:                                         ; preds = %sub_0448
   br i1 %.not504, label %sub_2450, label %.tail447
 
 sub_2450:                                         ; preds = %sub_1449
-  %167 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %167 = getelementptr inbounds i8, ptr %.1323, i64 2
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i32
   br label %.tail447
@@ -8929,7 +8929,7 @@ sub_0453:                                         ; preds = %.tail447
   br i1 %.not501, label %sub_1454, label %.tail457
 
 sub_1454:                                         ; preds = %sub_0453
-  %172 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %172 = getelementptr inbounds i8, ptr %.1323, i64 1
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = add nsw i32 %174, -70
@@ -8937,7 +8937,7 @@ sub_1454:                                         ; preds = %sub_0453
   br i1 %.not506, label %sub_2455, label %.tail452
 
 sub_2455:                                         ; preds = %sub_1454
-  %176 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %176 = getelementptr inbounds i8, ptr %.1323, i64 2
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i32
   br label %.tail452
@@ -8951,7 +8951,7 @@ sub_0458:                                         ; preds = %.tail452
   br i1 %.not501, label %sub_1459, label %.tail457
 
 sub_1459:                                         ; preds = %sub_0458
-  %181 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %181 = getelementptr inbounds i8, ptr %.1323, i64 1
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
   %184 = add nsw i32 %183, -68
@@ -8959,7 +8959,7 @@ sub_1459:                                         ; preds = %sub_0458
   br i1 %.not508, label %sub_2460, label %.tail457
 
 sub_2460:                                         ; preds = %sub_1459
-  %185 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %185 = getelementptr inbounds i8, ptr %.1323, i64 2
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i32
   br label %.tail457
@@ -8973,7 +8973,7 @@ sub_0463:                                         ; preds = %.tail457
   br i1 %.not501, label %sub_1464, label %.tail462
 
 sub_1464:                                         ; preds = %sub_0463
-  %190 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %190 = getelementptr inbounds i8, ptr %.1323, i64 1
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
   %193 = add nsw i32 %192, -76
@@ -8981,7 +8981,7 @@ sub_1464:                                         ; preds = %sub_0463
   br i1 %.not510, label %sub_2465, label %.tail462
 
 sub_2465:                                         ; preds = %sub_1464
-  %194 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %194 = getelementptr inbounds i8, ptr %.1323, i64 2
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   br label %.tail462
@@ -8997,7 +8997,7 @@ sub_0468:                                         ; preds = %.tail462
   br i1 %.not511, label %sub_1469, label %.tail467
 
 sub_1469:                                         ; preds = %sub_0468
-  %200 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %200 = getelementptr inbounds i8, ptr %.1323, i64 1
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = add nsw i32 %202, -81
@@ -9005,7 +9005,7 @@ sub_1469:                                         ; preds = %sub_0468
   br i1 %.not512, label %sub_2470, label %.tail467
 
 sub_2470:                                         ; preds = %sub_1469
-  %204 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %204 = getelementptr inbounds i8, ptr %.1323, i64 2
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
   br label %.tail467
@@ -9021,7 +9021,7 @@ sub_0473:                                         ; preds = %.tail467
   br i1 %.not513, label %sub_1474, label %.tail477
 
 sub_1474:                                         ; preds = %sub_0473
-  %210 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %210 = getelementptr inbounds i8, ptr %.1323, i64 1
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   %213 = add nsw i32 %212, -67
@@ -9029,7 +9029,7 @@ sub_1474:                                         ; preds = %sub_0473
   br i1 %.not514, label %sub_2475, label %.tail472
 
 sub_2475:                                         ; preds = %sub_1474
-  %214 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %214 = getelementptr inbounds i8, ptr %.1323, i64 2
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
   br label %.tail472
@@ -9043,7 +9043,7 @@ sub_0478:                                         ; preds = %.tail472
   br i1 %.not513, label %sub_1479, label %.tail477
 
 sub_1479:                                         ; preds = %sub_0478
-  %219 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %219 = getelementptr inbounds i8, ptr %.1323, i64 1
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = add nsw i32 %221, -82
@@ -9051,7 +9051,7 @@ sub_1479:                                         ; preds = %sub_0478
   br i1 %.not516, label %sub_2480, label %.tail477
 
 sub_2480:                                         ; preds = %sub_1479
-  %223 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %223 = getelementptr inbounds i8, ptr %.1323, i64 2
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i32
   br label %.tail477
@@ -9065,7 +9065,7 @@ sub_0483:                                         ; preds = %.tail477
   br i1 %.not513, label %sub_1484, label %.tail487
 
 sub_1484:                                         ; preds = %sub_0483
-  %228 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %228 = getelementptr inbounds i8, ptr %.1323, i64 1
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
   %231 = add nsw i32 %230, -84
@@ -9073,7 +9073,7 @@ sub_1484:                                         ; preds = %sub_0483
   br i1 %.not518, label %sub_2485, label %.tail482
 
 sub_2485:                                         ; preds = %sub_1484
-  %232 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %232 = getelementptr inbounds i8, ptr %.1323, i64 2
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i32
   br label %.tail482
@@ -9087,7 +9087,7 @@ sub_0488:                                         ; preds = %.tail482
   br i1 %.not513, label %sub_1489, label %.tail487
 
 sub_1489:                                         ; preds = %sub_0488
-  %237 = getelementptr inbounds i8, ptr %.0322, i64 1
+  %237 = getelementptr inbounds i8, ptr %.1323, i64 1
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i32
   %240 = add nsw i32 %239, -78
@@ -9095,7 +9095,7 @@ sub_1489:                                         ; preds = %sub_0488
   br i1 %.not520, label %sub_2490, label %.tail487
 
 sub_2490:                                         ; preds = %sub_1489
-  %241 = getelementptr inbounds i8, ptr %.0322, i64 2
+  %241 = getelementptr inbounds i8, ptr %.1323, i64 2
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i32
   br label %.tail487
@@ -9106,11 +9106,11 @@ sub_2490:                                         ; preds = %sub_1489
   br i1 %245, label %246, label %.thread433
 
 246:                                              ; preds = %.tail487, %.tail482, %.tail477, %.tail472, %.tail467, %.tail462, %.tail457, %.tail452, %.tail447, %.tail
-  %247 = icmp ugt i32 %.3312, 1
+  %247 = icmp ugt i32 %.4313, 1
   br i1 %247, label %248, label %250
 
 248:                                              ; preds = %246
-  %249 = add i32 %.3312, -2
+  %249 = add i32 %.4313, -2
   br label %257
 
 250:                                              ; preds = %246
@@ -9127,18 +9127,18 @@ dcm_tag_is_open.exit357:                          ; preds = %250
   br label %481
 
 .thread387:                                       ; preds = %250
-  %256 = add i32 %.2305, 2
+  %256 = add i32 %.3306, 2
   br label %263
 
 257:                                              ; preds = %118, %118, %118, %120, %248
-  %.1323 = phi ptr [ %125, %120 ], [ %.0322, %248 ], [ @.str.258, %118 ], [ @.str.258, %118 ], [ @.str.258, %118 ]
-  %.4313 = phi i32 [ %.2311, %120 ], [ %249, %248 ], [ %.2311, %118 ], [ %.2311, %118 ], [ %.2311, %118 ]
-  %.3306 = phi i32 [ %.1304, %120 ], [ %.2305, %248 ], [ %.1304, %118 ], [ %.1304, %118 ], [ %.1304, %118 ]
-  %258 = icmp ugt i32 %.4313, 1
+  %.0322 = phi ptr [ %125, %120 ], [ %.1323, %248 ], [ @.str.258, %118 ], [ @.str.258, %118 ], [ @.str.258, %118 ]
+  %.3312 = phi i32 [ %.2311, %120 ], [ %249, %248 ], [ %.2311, %118 ], [ %.2311, %118 ], [ %.2311, %118 ]
+  %.2305 = phi i32 [ %.1304, %120 ], [ %.3306, %248 ], [ %.1304, %118 ], [ %.1304, %118 ], [ %.1304, %118 ]
+  %258 = icmp ugt i32 %.3312, 1
   br i1 %258, label %272, label %263
 
 .thread433:                                       ; preds = %.tail487
-  %259 = icmp ugt i32 %.3312, 1
+  %259 = icmp ugt i32 %.4313, 1
   br i1 %259, label %.thread442, label %263
 
 .thread442:                                       ; preds = %.thread433
@@ -9149,9 +9149,9 @@ dcm_tag_is_open.exit357:                          ; preds = %250
 
 263:                                              ; preds = %.thread433, %.thread387, %257
   %.not336398 = phi i1 [ false, %.thread387 ], [ false, %257 ], [ true, %.thread433 ]
-  %.3306396 = phi i32 [ %256, %.thread387 ], [ %.3306, %257 ], [ %.2305, %.thread433 ]
-  %.1323393 = phi ptr [ %.0322, %.thread387 ], [ %.1323, %257 ], [ %.0322, %.thread433 ]
-  %264 = add i32 %.3306396, 2
+  %.2305396 = phi i32 [ %256, %.thread387 ], [ %.2305, %257 ], [ %.3306, %.thread433 ]
+  %.0322393 = phi ptr [ %.1323, %.thread387 ], [ %.0322, %257 ], [ %.1323, %.thread433 ]
+  %264 = add i32 %.2305396, 2
   %265 = icmp ugt i32 %264, %5
   br i1 %265, label %dcm_tag_is_open.exit359, label %269
 
@@ -9164,7 +9164,7 @@ dcm_tag_is_open.exit359:                          ; preds = %263
   br label %481
 
 269:                                              ; preds = %263
-  %270 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.3306396, i32 noundef %17) #10
+  %270 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.2305396, i32 noundef %17) #10
   %271 = getelementptr inbounds i8, ptr %3, i64 172
   store i16 %270, ptr %271, align 4
   br i1 %.not336398, label %300, label %.thread415
@@ -9173,7 +9173,7 @@ dcm_tag_is_open.exit359:                          ; preds = %263
   %273 = load ptr, ptr %20, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 172
   %275 = load i16, ptr %274, align 4
-  %276 = and i32 %.4313, -2
+  %276 = and i32 %.3312, -2
   %.not = icmp eq i32 %276, 2
   br i1 %.not, label %.thread415, label %277
 
@@ -9183,11 +9183,11 @@ dcm_tag_is_open.exit359:                          ; preds = %263
   br label %289
 
 .thread415:                                       ; preds = %269, %272
-  %.3306395405428 = phi i32 [ %.3306, %272 ], [ %.3306396, %269 ]
-  %.1323392408426 = phi ptr [ %.1323, %272 ], [ %.1323393, %269 ]
+  %.2305395405428 = phi i32 [ %.2305, %272 ], [ %.2305396, %269 ]
+  %.0322392408426 = phi ptr [ %.0322, %272 ], [ %.0322393, %269 ]
   %.0319410424 = phi i16 [ %275, %272 ], [ %270, %269 ]
-  %.4413422 = phi i32 [ %.3306, %272 ], [ %264, %269 ]
-  %280 = add i32 %.3306395405428, 4
+  %.4413422 = phi i32 [ %.2305, %272 ], [ %264, %269 ]
+  %280 = add i32 %.2305395405428, 4
   %281 = icmp ugt i32 %280, %5
   br i1 %281, label %dcm_tag_is_open.exit361, label %285
 
@@ -9207,11 +9207,11 @@ dcm_tag_is_open.exit361:                          ; preds = %.thread415
   br label %289
 
 289:                                              ; preds = %285, %277
-  %.3306395405427 = phi i32 [ %.3306, %277 ], [ %.3306395405428, %285 ]
-  %.1323392408425 = phi ptr [ %.1323, %277 ], [ %.1323392408426, %285 ]
+  %.2305395405427 = phi i32 [ %.2305, %277 ], [ %.2305395405428, %285 ]
+  %.0322392408425 = phi ptr [ %.0322, %277 ], [ %.0322392408426, %285 ]
   %.0319410423 = phi i16 [ %275, %277 ], [ %.0319410424, %285 ]
   %.0318 = phi i16 [ %279, %277 ], [ %286, %285 ]
-  %.5 = phi i32 [ %.3306, %277 ], [ %287, %285 ]
+  %.5 = phi i32 [ %.2305, %277 ], [ %287, %285 ]
   br i1 %16, label %295, label %290
 
 290:                                              ; preds = %289
@@ -9229,16 +9229,16 @@ dcm_tag_is_open.exit361:                          ; preds = %.thread415
   br label %302
 
 300:                                              ; preds = %.thread442, %269
-  %.4414 = phi i32 [ %264, %269 ], [ %.2305, %.thread442 ]
+  %.4414 = phi i32 [ %264, %269 ], [ %.3306, %.thread442 ]
   %.0319411 = phi i16 [ %270, %269 ], [ %262, %.thread442 ]
-  %.1323392409 = phi ptr [ %.1323393, %269 ], [ %.0322, %.thread442 ]
-  %.3306395406 = phi i32 [ %.3306396, %269 ], [ %.2305, %.thread442 ]
+  %.0322392409 = phi ptr [ %.0322393, %269 ], [ %.1323, %.thread442 ]
+  %.2305395406 = phi i32 [ %.2305396, %269 ], [ %.3306, %.thread442 ]
   %301 = zext i16 %.0319411 to i32
   br label %302
 
 302:                                              ; preds = %290, %295, %300
-  %.1323392407 = phi ptr [ %.1323392408425, %290 ], [ %.1323392408425, %295 ], [ %.1323392409, %300 ]
-  %.3306395404 = phi i32 [ %.3306395405427, %290 ], [ %.3306395405427, %295 ], [ %.3306395406, %300 ]
+  %.0322392407 = phi ptr [ %.0322392408425, %290 ], [ %.0322392408425, %295 ], [ %.0322392409, %300 ]
+  %.2305395404 = phi i32 [ %.2305395405427, %290 ], [ %.2305395405427, %295 ], [ %.2305395406, %300 ]
   %.not336397401 = phi i32 [ 4, %290 ], [ 4, %295 ], [ 2, %300 ]
   %.0320 = phi i32 [ %294, %290 ], [ %299, %295 ], [ %301, %300 ]
   %.6 = phi i32 [ %.5, %290 ], [ %.5, %295 ], [ %.4414, %300 ]
@@ -9273,19 +9273,19 @@ dcm_tag_is_open.exit361:                          ; preds = %.thread415
   br label %sub_0492
 
 320:                                              ; preds = %316
-  %321 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %317, ptr noundef nonnull @.str.286, i32 noundef %55, i32 noundef %57, ptr noundef %.021.i, ptr noundef %309, ptr noundef %.1323392407) #10
+  %321 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %317, ptr noundef nonnull @.str.286, i32 noundef %55, i32 noundef %57, ptr noundef %.021.i, ptr noundef %309, ptr noundef %.0322392407) #10
   br label %sub_0492
 
 sub_0492:                                         ; preds = %320, %318
   %.0.i362 = phi ptr [ %319, %318 ], [ %321, %320 ]
-  %322 = load i8, ptr %.1323392407, align 1
+  %322 = load i8, ptr %.0322392407, align 1
   %323 = zext i8 %322 to i32
   %324 = add nsw i32 %323, -83
   %.not521 = icmp eq i32 %324, 0
   br i1 %.not521, label %sub_1493, label %dcm_tag_summary.exit.tail
 
 sub_1493:                                         ; preds = %sub_0492
-  %325 = getelementptr inbounds i8, ptr %.1323392407, i64 1
+  %325 = getelementptr inbounds i8, ptr %.0322392407, i64 1
   %326 = load i8, ptr %325, align 1
   %327 = zext i8 %326 to i32
   %328 = add nsw i32 %327, -81
@@ -9293,7 +9293,7 @@ sub_1493:                                         ; preds = %sub_0492
   br i1 %.not522, label %sub_2494, label %dcm_tag_summary.exit.tail
 
 sub_2494:                                         ; preds = %sub_1493
-  %329 = getelementptr inbounds i8, ptr %.1323392407, i64 2
+  %329 = getelementptr inbounds i8, ptr %.0322392407, i64 2
   %330 = load i8, ptr %329, align 1
   %331 = zext i8 %330 to i32
   br label %dcm_tag_summary.exit.tail
@@ -9369,16 +9369,16 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0492, %sub_1493
   br i1 %18, label %368, label %370
 
 368:                                              ; preds = %366
-  %369 = call ptr @proto_tree_add_string(ptr noundef %.1308, i32 noundef %367, ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %.1323392407) #10
+  %369 = call ptr @proto_tree_add_string(ptr noundef %.1308, i32 noundef %367, ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %.0322392407) #10
   br label %372
 
 370:                                              ; preds = %366
-  %371 = call ptr @proto_tree_add_string(ptr noundef %.1308, i32 noundef %367, ptr noundef %0, i32 noundef %.1304, i32 noundef 2, ptr noundef nonnull %.1323392407) #10
+  %371 = call ptr @proto_tree_add_string(ptr noundef %.1308, i32 noundef %367, ptr noundef %0, i32 noundef %.1304, i32 noundef 2, ptr noundef nonnull %.0322392407) #10
   br label %372
 
 372:                                              ; preds = %368, %370, %362
   %373 = load i32, ptr @hf_dcm_tag_vl, align 4
-  %374 = call ptr @proto_tree_add_uint(ptr noundef %.1308, i32 noundef %373, ptr noundef %0, i32 noundef %.3306395404, i32 noundef %.not336397401, i32 noundef %.0320) #10
+  %374 = call ptr @proto_tree_add_uint(ptr noundef %.1308, i32 noundef %373, ptr noundef %0, i32 noundef %.2305395404, i32 noundef %.not336397401, i32 noundef %.0320) #10
   %375 = icmp ne i32 %.0320, 0
   %or.cond13 = and i1 %375, %337
   br i1 %or.cond13, label %376, label %404
@@ -9492,7 +9492,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0492, %sub_1493
   %422 = add i32 %.0317, %.6
   %423 = load ptr, ptr %303, align 8
   %424 = load i32, ptr %305, align 8
-  %425 = call fastcc ptr @dcm_tag_summary(ptr noundef nonnull %1, i16 noundef zeroext %.0316377, i16 noundef zeroext %.0315, i32 noundef %.0320, ptr noundef %423, ptr noundef nonnull %.1323392407, i32 noundef %424, i32 noundef %19)
+  %425 = call fastcc ptr @dcm_tag_summary(ptr noundef nonnull %1, i16 noundef zeroext %.0316377, i16 noundef zeroext %.0315, i32 noundef %.0320, ptr noundef %423, ptr noundef nonnull %.0322392407, i32 noundef %424, i32 noundef %19)
   %426 = getelementptr inbounds i8, ptr %3, i64 184
   %427 = load ptr, ptr %426, align 8
   %428 = icmp eq ptr %427, null
@@ -9512,7 +9512,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0492, %sub_1493
   br label %.critedge
 
 436:                                              ; preds = %415
-  %437 = call fastcc i32 @dissect_dcm_tag_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.1308, ptr noundef nonnull %3, i32 noundef %.6, i16 noundef zeroext %.0316377, i16 noundef zeroext %.0315, i32 noundef %.0320, i32 noundef %.0317, ptr noundef nonnull %.1323392407, ptr noundef nonnull %11)
+  %437 = call fastcc i32 @dissect_dcm_tag_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.1308, ptr noundef nonnull %3, i32 noundef %.6, i16 noundef zeroext %.0316377, i16 noundef zeroext %.0315, i32 noundef %.0320, i32 noundef %.0317, ptr noundef nonnull %.0322392407, ptr noundef nonnull %11)
   %438 = icmp eq i16 %.0316377, 8
   %439 = icmp eq i16 %.0315, 22
   %or.cond26 = and i1 %438, %439
@@ -11266,9 +11266,9 @@ switch.lookup:                                    ; preds = %50
   br label %54
 
 54:                                               ; preds = %switch.lookup, %50
-  %.0100 = phi ptr [ @.str.257, %50 ], [ %switch.load, %switch.lookup ]
+  %.1101 = phi ptr [ @.str.257, %50 ], [ %switch.load, %switch.lookup ]
   %55 = load i32, ptr @hf_dcm_pctx_result, align 4
-  %56 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %55, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef %51, ptr noundef nonnull @.str.395, ptr noundef nonnull %.0100, i32 noundef %51) #10
+  %56 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %55, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef %51, ptr noundef nonnull @.str.395, ptr noundef nonnull %.1101, i32 noundef %51) #10
   %57 = add i32 %4, 4
   %58 = icmp ult i32 %57, %13
   br i1 %58, label %.lr.ph, label %.thread17
@@ -11287,7 +11287,7 @@ switch.lookup:                                    ; preds = %50
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread19, %.lr.ph
-  %.11012328 = phi ptr [ %.0100, %.lr.ph ], [ @.str.257, %.thread19 ]
+  %.01002328 = phi ptr [ %.1101, %.lr.ph ], [ @.str.257, %.thread19 ]
   %65 = phi i32 [ %57, %.lr.ph ], [ %59, %.thread19 ]
   br label %.lr.ph.split
 
@@ -11419,7 +11419,7 @@ dcm_set_syntax.exit:                              ; preds = %.lr.ph.split
   br i1 %121, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %120, %109
-  %.11012327 = phi ptr [ %.0100, %109 ], [ %.11012328, %120 ]
+  %.01002327 = phi ptr [ %.1101, %109 ], [ %.01002328, %120 ]
   %.097.lcssa = phi i32 [ %.198.us, %109 ], [ %.198, %120 ]
   %.0.lcssa = phi i32 [ %.1.us, %109 ], [ %.1, %120 ]
   br i1 %.not, label %141, label %122
@@ -11471,7 +11471,7 @@ dcm_set_syntax.exit:                              ; preds = %.lr.ph.split
   br label %200
 
 .thread17:                                        ; preds = %54, %141, %135
-  %.110121 = phi ptr [ %.11012327, %141 ], [ %.11012327, %135 ], [ %.0100, %54 ]
+  %.010021 = phi ptr [ %.01002327, %141 ], [ %.01002327, %135 ], [ %.1101, %54 ]
   %146 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
@@ -11530,7 +11530,7 @@ dcm_set_syntax.exit:                              ; preds = %.lr.ph.split
   %185 = icmp eq ptr %181, null
   %186 = select i1 %185, ptr @.str.244, ptr %181
   %187 = select i1 %184, ptr %186, ptr %183
-  %188 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %171, ptr noundef nonnull @.str.398, i32 noundef %48, ptr noundef nonnull %.110121, ptr noundef nonnull %180, ptr noundef nonnull %187) #10
+  %188 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %171, ptr noundef nonnull @.str.398, i32 noundef %48, ptr noundef nonnull %.010021, ptr noundef nonnull %180, ptr noundef nonnull %187) #10
   br label %198
 
 189:                                              ; preds = %168
@@ -11541,7 +11541,7 @@ dcm_set_syntax.exit:                              ; preds = %.lr.ph.split
   %194 = icmp eq ptr %190, null
   %195 = select i1 %194, ptr @.str.244, ptr %190
   %196 = select i1 %193, ptr %195, ptr %192
-  %197 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %171, ptr noundef nonnull @.str.399, i32 noundef %48, ptr noundef nonnull %.110121, ptr noundef nonnull %196) #10
+  %197 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %171, ptr noundef nonnull @.str.399, i32 noundef %48, ptr noundef nonnull %.010021, ptr noundef nonnull %196) #10
   br label %198
 
 198:                                              ; preds = %172, %189, %161, %163

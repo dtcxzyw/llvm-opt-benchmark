@@ -204,7 +204,7 @@ initargs.exit:                                    ; preds = %54, %56
   br label %.loopexit
 
 .loopexit:                                        ; preds = %graphml_to_gv.exit, %initargs.exit
-  %.020 = phi i32 [ 0, %initargs.exit ], [ %.121, %graphml_to_gv.exit ]
+  %.021 = phi i32 [ 0, %initargs.exit ], [ %.122, %graphml_to_gv.exit ]
   %.011 = phi ptr [ null, %initargs.exit ], [ %.112, %graphml_to_gv.exit ]
   %.0 = phi i32 [ 0, %initargs.exit ], [ %.1, %graphml_to_gv.exit ]
   %63 = load ptr, ptr @Files, align 8
@@ -244,9 +244,9 @@ initargs.exit:                                    ; preds = %54, %56
   store i32 %81, ptr @getFile.cnt, align 4
   %82 = call noalias ptr @fopen(ptr noundef nonnull %79, ptr noundef nonnull @.str.7)
   %.not6.i = icmp eq ptr %82, null
-  br i1 %.not6.i, label %83, label %getFile.exit.thread64
+  br i1 %.not6.i, label %83, label %getFile.exit.thread65
 
-getFile.exit.thread64:                            ; preds = %.lr.ph.i
+getFile.exit.thread65:                            ; preds = %.lr.ph.i
   store ptr %82, ptr @getFile.savef, align 8
   br label %.preheader.preheader
 
@@ -269,16 +269,16 @@ getFile.exit.thread64:                            ; preds = %.lr.ph.i
 
 getFile.exit.thread:                              ; preds = %65, %73, %83
   store ptr null, ptr @getFile.savef, align 8
-  br label %.loopexit35
+  br label %.loopexit36
 
 getFile.exit:                                     ; preds = %65
   %97 = load ptr, ptr @stdin, align 8
   store ptr %97, ptr @getFile.savef, align 8
   %.not = icmp eq ptr %97, null
-  br i1 %.not, label %.loopexit35, label %.preheader.preheader
+  br i1 %.not, label %.loopexit36, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %getFile.exit.thread64, %getFile.exit
-  %.1.i67 = phi ptr [ %82, %getFile.exit.thread64 ], [ %97, %getFile.exit ]
+.preheader.preheader:                             ; preds = %getFile.exit.thread65, %getFile.exit
+  %.0.i68 = phi ptr [ %82, %getFile.exit.thread65 ], [ %97, %getFile.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %171
@@ -302,12 +302,12 @@ agxbsizeof.exit.i.i.i:                            ; preds = %101
   %103 = load i64, ptr %60, align 8
   %.fr.i = freeze i64 %103
   %.not.i.i.i = icmp ult i64 %102, %.fr.i
-  %.pre63 = load ptr, ptr %5, align 8
+  %.pre64 = load ptr, ptr %5, align 8
   br i1 %.not.i.i.i, label %130, label %agxbsizeof.exit.i
 
 agxbsizeof.exit.i.i.i.thread:                     ; preds = %101
-  %.not.i.i.i26 = icmp ult i8 %.val.i.i.i.i, 31
-  br i1 %.not.i.i.i26, label %.thread30, label %.thread
+  %.not.i.i.i27 = icmp ult i8 %.val.i.i.i.i, 31
+  br i1 %.not.i.i.i27, label %.thread31, label %.thread
 
 agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i.i
   %104 = icmp eq i64 %.fr.i, 0
@@ -319,11 +319,11 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %agxbsizeof.exit.i
-  call void @free(ptr noundef %.pre63) #22
-  br label %.thread27
+  call void @free(ptr noundef %.pre64) #22
+  br label %.thread28
 
 109:                                              ; preds = %agxbsizeof.exit.i
-  %110 = call ptr @realloc(ptr noundef %.pre63, i64 noundef %spec.select33.i) #27
+  %110 = call ptr @realloc(ptr noundef %.pre64, i64 noundef %spec.select33.i) #27
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %115
 
@@ -335,13 +335,13 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.i
 
 115:                                              ; preds = %109
   %116 = icmp ugt i64 %spec.select33.i, %.fr.i
-  br i1 %116, label %117, label %.thread27
+  br i1 %116, label %117, label %.thread28
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds i8, ptr %110, i64 %.fr.i
   %119 = sub nuw i64 %spec.select33.i, %.fr.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %118, i8 0, i64 %119, i1 false)
-  br label %.thread27
+  br label %.thread28
 
 .thread:                                          ; preds = %agxbsizeof.exit.i.i.i.thread
   %120 = call noalias dereferenceable_or_null(62) ptr @calloc(i64 noundef 62, i64 noundef 1) #28
@@ -358,18 +358,18 @@ gv_calloc.exit.i:                                 ; preds = %.thread
   %125 = zext i8 %.val.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull align 8 %5, i64 %125, i1 false)
   store i64 %125, ptr %59, align 8
-  br label %.thread27
+  br label %.thread28
 
-.thread27:                                        ; preds = %gv_calloc.exit.i, %117, %115, %108
+.thread28:                                        ; preds = %gv_calloc.exit.i, %117, %115, %108
   %spec.select3641.i = phi i64 [ 62, %gv_calloc.exit.i ], [ 0, %108 ], [ %spec.select33.i, %115 ], [ %spec.select33.i, %117 ]
-  %.0.i19 = phi ptr [ %120, %gv_calloc.exit.i ], [ null, %108 ], [ %110, %115 ], [ %110, %117 ]
-  store ptr %.0.i19, ptr %5, align 8
+  %.0.i20 = phi ptr [ %120, %gv_calloc.exit.i ], [ null, %108 ], [ %110, %115 ], [ %110, %117 ]
+  store ptr %.0.i20, ptr %5, align 8
   store i64 %spec.select3641.i, ptr %60, align 8
   store i8 -1, ptr %58, align 1
   %.pre = load i64, ptr %59, align 8
   br label %130
 
-.thread30:                                        ; preds = %agxbsizeof.exit.i.i.i.thread
+.thread31:                                        ; preds = %agxbsizeof.exit.i.i.i.thread
   %126 = zext nneg i8 %.val.i.i.i.i to i64
   %127 = getelementptr inbounds [31 x i8], ptr %5, i64 0, i64 %126
   store i8 0, ptr %127, align 1
@@ -378,9 +378,9 @@ gv_calloc.exit.i:                                 ; preds = %.thread
   store i8 %129, ptr %58, align 1
   br label %agxbputc.exit.i.i
 
-130:                                              ; preds = %agxbsizeof.exit.i.i.i, %.thread27
-  %131 = phi ptr [ %.pre63, %agxbsizeof.exit.i.i.i ], [ %.0.i19, %.thread27 ]
-  %132 = phi i64 [ %102, %agxbsizeof.exit.i.i.i ], [ %.pre, %.thread27 ]
+130:                                              ; preds = %agxbsizeof.exit.i.i.i, %.thread28
+  %131 = phi ptr [ %.pre64, %agxbsizeof.exit.i.i.i ], [ %.0.i20, %.thread28 ]
+  %132 = phi i64 [ %102, %agxbsizeof.exit.i.i.i ], [ %.pre, %.thread28 ]
   %133 = getelementptr inbounds i8, ptr %131, i64 %132
   store i8 0, ptr %133, align 1
   %134 = load i64, ptr %59, align 8
@@ -389,8 +389,8 @@ gv_calloc.exit.i:                                 ; preds = %.thread
   %.val.i.pr.i.i = load i8, ptr %58, align 1
   br label %agxbputc.exit.i.i
 
-agxbputc.exit.i.i:                                ; preds = %130, %.thread30
-  %.val.i4.pr.i.i = phi i8 [ %129, %.thread30 ], [ %.val.i.pr.i.i, %130 ]
+agxbputc.exit.i.i:                                ; preds = %130, %.thread31
+  %.val.i4.pr.i.i = phi i8 [ %129, %.thread31 ], [ %.val.i.pr.i.i, %130 ]
   %.not.i3.i.i = icmp eq i8 %.val.i4.pr.i.i, -1
   br i1 %.not.i3.i.i, label %136, label %agxbclear.exit.thread.i.i
 
@@ -404,12 +404,12 @@ agxbclear.exit.thread.i.i:                        ; preds = %agxbputc.exit.i.i
   br label %nameOf.exit
 
 nameOf.exit:                                      ; preds = %.preheader, %agxbclear.exit.thread.i.i, %136
-  %.0.i = phi ptr [ %98, %.preheader ], [ %137, %136 ], [ %5, %agxbclear.exit.thread.i.i ]
+  %.0.i18 = phi ptr [ %98, %.preheader ], [ %137, %136 ], [ %5, %agxbclear.exit.thread.i.i ]
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   store i32 -1, ptr %61, align 8, !alias.scope !5
-  store ptr %.0.i, ptr %4, align 8, !alias.scope !5
+  store ptr %.0.i18, ptr %4, align 8, !alias.scope !5
   %138 = call ptr @XML_ParserCreate(ptr noundef null) #22
   call void @XML_SetUserData(ptr noundef %138, ptr noundef nonnull %4) #22
   call void @XML_SetElementHandler(ptr noundef %138, ptr noundef nonnull @startElementHandler, ptr noundef nonnull @endElementHandler) #22
@@ -417,7 +417,7 @@ nameOf.exit:                                      ; preds = %.preheader, %agxbcl
   br label %139
 
 139:                                              ; preds = %154, %nameOf.exit
-  %140 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %.1.i67)
+  %140 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %.0.i68)
   %141 = icmp eq i64 %140, 0
   br i1 %141, label %.loopexit.i, label %142
 
@@ -441,7 +441,7 @@ nameOf.exit:                                      ; preds = %.preheader, %agxbcl
   br i1 %143, label %.loopexit.i, label %139
 
 .loopexit.i:                                      ; preds = %154, %139, %148
-  %.121 = phi i32 [ 1, %148 ], [ 0, %139 ], [ 0, %154 ]
+  %.122 = phi i32 [ 1, %148 ], [ 0, %139 ], [ 0, %154 ]
   call void @XML_ParserFree(ptr noundef %138) #22
   %.sroa.3.0.copyload.i = load ptr, ptr %62, align 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -497,12 +497,12 @@ graphml_to_gv.exit:                               ; preds = %.lr.ph.i.i.i, %.loo
   %175 = call i32 @fflush(ptr noundef %174)
   br label %.preheader
 
-.loopexit35:                                      ; preds = %getFile.exit, %getFile.exit.thread
+.loopexit36:                                      ; preds = %getFile.exit, %getFile.exit.thread
   call fastcc void @stack_reset(ptr noundef nonnull @Gstack)
   %.val = load ptr, ptr %5, align 8
   %.val16 = load i8, ptr %58, align 1
   call fastcc void @agxbfree(ptr %.val, i8 %.val16)
-  call fastcc void @graphviz_exit(i32 noundef %.020) #25
+  call fastcc void @graphviz_exit(i32 noundef %.021) #25
   unreachable
 }
 
@@ -749,9 +749,9 @@ isAnonGraph.exit:                                 ; preds = %.preheader.i
   br label %isAnonGraph.exit.thread
 
 isAnonGraph.exit.thread:                          ; preds = %65, %71, %isAnonGraph.exit
-  %.1 = phi ptr [ %4, %71 ], [ %.060117, %isAnonGraph.exit ], [ %.060117, %65 ]
+  %.2 = phi ptr [ %4, %71 ], [ %.060117, %isAnonGraph.exit ], [ %.060117, %65 ]
   %75 = load ptr, ptr @G, align 8
-  %76 = call ptr @agsubg(ptr noundef %75, ptr noundef nonnull %.1, i32 noundef 1) #22
+  %76 = call ptr @agsubg(ptr noundef %75, ptr noundef nonnull %.2, i32 noundef 1) #22
   %Gstack.val.i75 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %77 = icmp eq i64 %Gstack.val.i75, 0
   br i1 %77, label %78, label %push_subg.exit76
@@ -766,15 +766,15 @@ push_subg.exit76:                                 ; preds = %isAnonGraph.exit.th
 
 79:                                               ; preds = %push_subg.exit76, %push_subg.exit
   %storemerge = phi ptr [ %76, %push_subg.exit76 ], [ %62, %push_subg.exit ]
-  %.2 = phi ptr [ %.1, %push_subg.exit76 ], [ %.060117, %push_subg.exit ]
+  %.1 = phi ptr [ %.2, %push_subg.exit76 ], [ %.060117, %push_subg.exit ]
   store ptr %storemerge, ptr @G, align 8
-  %80 = call noalias ptr @strdup(ptr noundef readonly %.2) #22
+  %80 = call noalias ptr @strdup(ptr noundef readonly %.1) #22
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %pushString.exit
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr @stderr, align 8
-  %84 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.2) #21
+  %84 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1) #21
   %85 = add i64 %84, 1
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.33, i64 noundef %85) #23
   call fastcc void @graphviz_exit(i32 noundef 1) #25

@@ -274,13 +274,13 @@ if.end99:                                         ; preds = %invoke.cont94
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont94, %if.end99, %if.then48, %if.then25, %if.then8
-  %retval.0 = phi ptr [ null, %if.then8 ], [ %25, %if.end99 ], [ null, %if.then48 ], [ null, %if.then25 ], [ null, %invoke.cont94 ]
+  %retval.1 = phi ptr [ null, %if.then8 ], [ %25, %if.end99 ], [ null, %if.then48 ], [ null, %if.then25 ], [ null, %invoke.cont94 ]
   call void @_ZN6icu_7530LocalUConverterSelectorPointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %newSelector) #14
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi ptr [ null, %if.then3 ], [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then3 ], [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: allocsize(0)
@@ -1456,9 +1456,9 @@ if.end66:                                         ; preds = %for.inc63, %if.end2
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end66, %if.then40, %if.then21
-  %result.sroa.0.0 = phi ptr [ %call, %if.then40 ], [ null, %if.end66 ], [ %call, %if.then21 ]
+  %result.sroa.0.1 = phi ptr [ %call, %if.then40 ], [ null, %if.end66 ], [ %call, %if.then21 ]
   %en.sroa.0.0 = phi ptr [ %call15, %if.then40 ], [ null, %if.end66 ], [ null, %if.then21 ]
-  %retval.0 = phi ptr [ null, %if.then40 ], [ %call15, %if.end66 ], [ null, %if.then21 ]
+  %retval.1 = phi ptr [ null, %if.then40 ], [ %call15, %if.end66 ], [ null, %if.then21 ]
   invoke void @uprv_free_75(ptr noundef %en.sroa.0.0)
           to label %cleanup73 unwind label %terminate.lpad.i18
 
@@ -1470,9 +1470,9 @@ terminate.lpad.i18:                               ; preds = %cleanup
   unreachable
 
 cleanup73:                                        ; preds = %cleanup, %if.then
-  %result.sroa.0.1 = phi ptr [ null, %if.then ], [ %result.sroa.0.0, %cleanup ]
-  %retval.1 = phi ptr [ null, %if.then ], [ %retval.0, %cleanup ]
-  invoke void @uprv_free_75(ptr noundef %result.sroa.0.1)
+  %result.sroa.0.0 = phi ptr [ null, %if.then ], [ %result.sroa.0.1, %cleanup ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %retval.1, %cleanup ]
+  invoke void @uprv_free_75(ptr noundef %result.sroa.0.0)
           to label %_ZN6icu_7511LocalMemoryI10EnumeratorED2Ev.exit unwind label %terminate.lpad.i20
 
 terminate.lpad.i20:                               ; preds = %cleanup73
@@ -1494,7 +1494,7 @@ terminate.lpad.i21:                               ; preds = %_ZN6icu_7511LocalMe
   unreachable
 
 _ZN6icu_7511LocalMemoryIjED2Ev.exit:              ; preds = %_ZN6icu_7511LocalMemoryI10EnumeratorED2Ev.exit
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad17, %lpad2
   %.pn = phi { ptr, i32 } [ %1, %lpad2 ], [ %2, %lpad17 ]

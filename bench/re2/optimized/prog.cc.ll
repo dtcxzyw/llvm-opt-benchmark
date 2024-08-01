@@ -2123,7 +2123,7 @@ invoke.cont2.lr.ph:                               ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %for.inc111
   %indvars.iv = phi i64 [ 0, %invoke.cont2.lr.ph ], [ %indvars.iv.next, %for.inc111 ]
-  %marked_line_boundaries.0251 = phi i1 [ false, %invoke.cont2.lr.ph ], [ %marked_line_boundaries.2, %for.inc111 ]
+  %marked_line_boundaries.0251 = phi i1 [ false, %invoke.cont2.lr.ph ], [ %marked_line_boundaries.1, %for.inc111 ]
   %marked_word_boundaries.0250 = phi i1 [ false, %invoke.cont2.lr.ph ], [ %marked_word_boundaries.1, %for.inc111 ]
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %1, i64 %indvars.iv
@@ -2475,7 +2475,7 @@ invoke.cont61.if.end63_crit_edge:                 ; preds = %invoke.cont61
 
 if.end63:                                         ; preds = %invoke.cont61.if.end63_crit_edge, %if.then54
   %34 = phi i32 [ %27, %if.then54 ], [ %.pre, %invoke.cont61.if.end63_crit_edge ]
-  %marked_line_boundaries.1 = phi i1 [ %marked_line_boundaries.0251, %if.then54 ], [ true, %invoke.cont61.if.end63_crit_edge ]
+  %marked_line_boundaries.2 = phi i1 [ %marked_line_boundaries.0251, %if.then54 ], [ true, %invoke.cont61.if.end63_crit_edge ]
   %and66 = and i32 %34, 48
   %tobool67.not = icmp eq i32 %and66, 0
   %brmerge230 = select i1 %tobool67.not, i1 true, i1 %marked_word_boundaries.0250
@@ -2746,7 +2746,7 @@ for.inc106:                                       ; preds = %invoke.cont.i.i38.i
 
 for.inc111:                                       ; preds = %for.inc106, %if.end63, %invoke.cont34, %invoke.cont2, %if.end49
   %marked_word_boundaries.1 = phi i1 [ %marked_word_boundaries.0250, %if.end49 ], [ %marked_word_boundaries.0250, %if.end63 ], [ %marked_word_boundaries.0250, %invoke.cont2 ], [ %marked_word_boundaries.0250, %invoke.cont34 ], [ true, %for.inc106 ]
-  %marked_line_boundaries.2 = phi i1 [ %marked_line_boundaries.0251, %if.end49 ], [ %marked_line_boundaries.1, %if.end63 ], [ %marked_line_boundaries.0251, %invoke.cont2 ], [ %marked_line_boundaries.0251, %invoke.cont34 ], [ %marked_line_boundaries.1, %for.inc106 ]
+  %marked_line_boundaries.1 = phi i1 [ %marked_line_boundaries.0251, %if.end49 ], [ %marked_line_boundaries.2, %if.end63 ], [ %marked_line_boundaries.0251, %invoke.cont2 ], [ %marked_line_boundaries.0251, %invoke.cont34 ], [ %marked_line_boundaries.2, %for.inc106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %size_.i, align 8
   %67 = sext i32 %66 to i64
@@ -6056,7 +6056,7 @@ if.then3:                                         ; preds = %if.end
 
 do.body:                                          ; preds = %if.end114, %if.then3
   %p.0 = phi ptr [ %data, %if.then3 ], [ %add.ptr115, %if.end114 ]
-  %curr.0 = phi i64 [ 0, %if.then3 ], [ %shr40, %if.end114 ]
+  %curr.1 = phi i64 [ 0, %if.then3 ], [ %shr40, %if.end114 ]
   %3 = load i8, ptr %p.0, align 1
   %arrayidx4 = getelementptr inbounds i8, ptr %p.0, i64 1
   %4 = load i8, ptr %arrayidx4, align 1
@@ -6096,7 +6096,7 @@ do.body:                                          ; preds = %if.end114, %if.then
   %idxprom24 = zext i8 %10 to i64
   %arrayidx25 = getelementptr inbounds i64, ptr %2, i64 %idxprom24
   %18 = load i64, ptr %arrayidx25, align 8
-  %and26 = and i64 %curr.0, 63
+  %and26 = and i64 %curr.1, 63
   %shr = lshr i64 %11, %and26
   %and27 = and i64 %shr, 63
   %shr28 = lshr i64 %12, %and27
@@ -6217,14 +6217,14 @@ do.end:                                           ; preds = %if.end114
 
 if.end118:                                        ; preds = %if.end.if.end118_crit_edge, %do.end
   %19 = phi ptr [ %2, %do.end ], [ %.pre, %if.end.if.end118_crit_edge ]
-  %curr.1 = phi i64 [ %shr40, %do.end ], [ 0, %if.end.if.end118_crit_edge ]
+  %curr.0 = phi i64 [ %shr40, %do.end ], [ 0, %if.end.if.end118_crit_edge ]
   %size.addr.0 = phi i64 [ %and117, %do.end ], [ %size, %if.end.if.end118_crit_edge ]
   %data.addr.0 = phi ptr [ %add.ptr, %do.end ], [ %data, %if.end.if.end118_crit_edge ]
   %add.ptr121 = getelementptr inbounds i8, ptr %data.addr.0, i64 %size.addr.0
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end118
-  %curr.2 = phi i64 [ %curr.1, %if.end118 ], [ %shr126, %while.body ]
+  %curr.2 = phi i64 [ %curr.0, %if.end118 ], [ %shr126, %while.body ]
   %p119.0 = phi ptr [ %data.addr.0, %if.end118 ], [ %incdec.ptr, %while.body ]
   %cmp122.not = icmp eq ptr %p119.0, %add.ptr121
   br i1 %cmp122.not, label %return, label %while.body

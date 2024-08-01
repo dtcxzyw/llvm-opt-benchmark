@@ -2565,21 +2565,21 @@ define i32 @Cec4_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
   %indvars.iv31 = phi i64 [ 0, %.lr.ph26.preheader ], [ %indvars.iv.next32, %.lr.ph26 ]
-  %.125 = phi i32 [ 0, %.lr.ph26.preheader ], [ %22, %.lr.ph26 ]
+  %.225 = phi i32 [ 0, %.lr.ph26.preheader ], [ %22, %.lr.ph26 ]
   %16 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv31
   %17 = load i32, ptr %16, align 4
   %18 = and i64 %indvars.iv31, 15
   %19 = getelementptr inbounds [16 x i32], ptr @Cec4_ManSimHashKey.s_Primes, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %20, %17
-  %22 = xor i32 %21, %.125
+  %22 = xor i32 %21, %.225
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count35
   br i1 %exitcond36.not, label %.loopexit, label %.lr.ph26, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph26, %.preheader20, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
-  %23 = urem i32 %.2, %2
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader20 ], [ %22, %.lr.ph26 ], [ %15, %.lr.ph ]
+  %23 = urem i32 %.1, %2
   ret i32 %23
 }
 
@@ -2886,21 +2886,21 @@ define void @Cec4_RefineOneClass(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph26.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph26.i ]
-  %.125.i = phi i32 [ 0, %.lr.ph26.preheader.i ], [ %48, %.lr.ph26.i ]
+  %.225.i = phi i32 [ 0, %.lr.ph26.preheader.i ], [ %48, %.lr.ph26.i ]
   %42 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv31.i
   %43 = load i32, ptr %42, align 4
   %44 = and i64 %indvars.iv31.i, 15
   %45 = getelementptr inbounds [16 x i32], ptr @Cec4_ManSimHashKey.s_Primes, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = mul i32 %46, %43
-  %48 = xor i32 %47, %.125.i
+  %48 = xor i32 %47, %.225.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count35.i
   br i1 %exitcond36.not.i, label %Cec4_ManSimHashKey.exit, label %.lr.ph26.i, !llvm.loop !17
 
 Cec4_ManSimHashKey.exit:                          ; preds = %.lr.ph.i, %.lr.ph26.i, %.preheader20.i, %.preheader.i
-  %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader20.i ], [ %48, %.lr.ph26.i ], [ %41, %.lr.ph.i ]
-  %49 = urem i32 %.2.i, %29
+  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader20.i ], [ %48, %.lr.ph26.i ], [ %41, %.lr.ph.i ]
+  %49 = urem i32 %.1.i, %29
   %50 = load ptr, ptr %13, align 8
   %51 = sext i32 %49 to i64
   %52 = getelementptr inbounds i32, ptr %50, i64 %51
@@ -7259,7 +7259,7 @@ Vec_WrdFill.exit:                                 ; preds = %34, %Vec_WrdGrow.ex
 
 43:                                               ; preds = %.lr.ph, %Cec4_ManCandIterNext.exit.thread
   %.0112 = phi i32 [ 0, %.lr.ph ], [ %239, %Cec4_ManCandIterNext.exit.thread ]
-  %.051111 = phi i32 [ 0, %.lr.ph ], [ %.1, %Cec4_ManCandIterNext.exit.thread ]
+  %.051111 = phi i32 [ 0, %.lr.ph ], [ %.2, %Cec4_ManCandIterNext.exit.thread ]
   br label %44
 
 44:                                               ; preds = %73, %43
@@ -7651,14 +7651,14 @@ Vec_IntPush.exit96:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %238, label %._crit_edge, label %Cec4_ManCandIterNext.exit.thread
 
 Cec4_ManCandIterNext.exit.thread:                 ; preds = %44, %Cec4_ManGeneratePatternOne.exit.thread, %Cec4_ManCandIterNext.exit, %235, %Cec4_ManGeneratePatternOne.exit87
-  %.1 = phi i32 [ %236, %235 ], [ %.051111, %Cec4_ManGeneratePatternOne.exit87 ], [ %.051111, %Cec4_ManCandIterNext.exit ], [ %.051111, %Cec4_ManGeneratePatternOne.exit.thread ], [ %.051111, %44 ]
+  %.2 = phi i32 [ %236, %235 ], [ %.051111, %Cec4_ManGeneratePatternOne.exit87 ], [ %.051111, %Cec4_ManCandIterNext.exit ], [ %.051111, %Cec4_ManGeneratePatternOne.exit.thread ], [ %.051111, %44 ]
   %239 = add nuw nsw i32 %.0112, 1
   %exitcond.not = icmp eq i32 %239, %smax
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %Cec4_ManCandIterNext.exit.thread, %229, %235, %Vec_WrdFill.exit
   %.0.lcssa = phi i32 [ 0, %Vec_WrdFill.exit ], [ %.0112, %235 ], [ %.0112, %229 ], [ %smax, %Cec4_ManCandIterNext.exit.thread ]
-  %.2 = phi i32 [ 0, %Vec_WrdFill.exit ], [ %236, %235 ], [ %.051111, %229 ], [ %.1, %Cec4_ManCandIterNext.exit.thread ]
+  %.1 = phi i32 [ 0, %Vec_WrdFill.exit ], [ %236, %235 ], [ %.051111, %229 ], [ %.2, %Cec4_ManCandIterNext.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %240 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #24
   %241 = icmp slt i32 %240, 0
@@ -7683,13 +7683,13 @@ Abc_Clock.exit98:                                 ; preds = %._crit_edge, %242
   store i64 %252, ptr %250, align 8
   %253 = getelementptr inbounds i8, ptr %0, i64 196
   %254 = load i32, ptr %253, align 4
-  %255 = add nsw i32 %254, %.2
+  %255 = add nsw i32 %254, %.1
   store i32 %255, ptr %253, align 4
   %256 = load ptr, ptr %0, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 12
   %258 = load i32, ptr %257, align 4
   %259 = sdiv i32 %.0.lcssa, %258
-  %260 = icmp sge i32 %.2, %259
+  %260 = icmp sge i32 %.1, %259
   %261 = zext i1 %260 to i32
   ret i32 %261
 }

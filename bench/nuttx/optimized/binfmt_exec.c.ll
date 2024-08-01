@@ -95,12 +95,12 @@ up_irq_restore.exit:                              ; preds = %35, %38
   br label %up_irq_restore.exit45
 
 44:                                               ; preds = %11, %up_irq_restore.exit
-  %.0 = phi i32 [ %12, %11 ], [ %33, %up_irq_restore.exit ]
+  %.1 = phi i32 [ %12, %11 ], [ %33, %up_irq_restore.exit ]
   call void @free(ptr noundef nonnull %10)
   br label %up_irq_restore.exit45
 
 up_irq_restore.exit45:                            ; preds = %43, %40, %44, %8
-  %.032 = phi i32 [ %.0, %44 ], [ -12, %8 ], [ %33, %40 ], [ %33, %43 ]
+  %.032 = phi i32 [ %.1, %44 ], [ -12, %8 ], [ %33, %40 ], [ %33, %43 ]
   ret i32 %.032
 }
 

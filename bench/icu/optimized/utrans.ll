@@ -288,8 +288,8 @@ ehcleanup:                                        ; preds = %lpad25, %lpad22, %l
   br label %eh.resume
 
 return:                                           ; preds = %entry, %lor.lhs.false, %cleanup33, %if.then2
-  %retval.2 = phi ptr [ null, %if.then2 ], [ %retval.1, %cleanup33 ], [ null, %lor.lhs.false ], [ null, %entry ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ null, %if.then2 ], [ %retval.1, %cleanup33 ], [ null, %lor.lhs.false ], [ null, %entry ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ]
@@ -649,8 +649,8 @@ cleanup:                                          ; preds = %invoke.cont
   br label %return
 
 if.end18:                                         ; preds = %cleanup.thread, %land.lhs.true, %if.end
-  %filter.2 = phi ptr [ null, %land.lhs.true ], [ null, %if.end ], [ %filter.1.ph, %cleanup.thread ]
-  call void @_ZN6icu_7514Transliterator11adoptFilterEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %trans, ptr noundef %filter.2)
+  %filter.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.end ], [ %filter.1.ph, %cleanup.thread ]
+  call void @_ZN6icu_7514Transliterator11adoptFilterEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %trans, ptr noundef %filter.0)
   br label %return
 
 return:                                           ; preds = %cleanup, %entry, %lor.lhs.false, %if.end18

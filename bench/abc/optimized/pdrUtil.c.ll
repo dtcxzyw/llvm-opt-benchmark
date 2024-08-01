@@ -856,7 +856,7 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 30:                                               ; preds = %.lr.ph71, %39
   %indvars.iv76 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next77, %39 ]
-  %.070 = phi i32 [ 0, %.lr.ph71 ], [ %.1, %39 ]
+  %.170 = phi i32 [ 0, %.lr.ph71 ], [ %.2, %39 ]
   %31 = getelementptr inbounds i32, ptr %.val47, i64 %indvars.iv76
   %32 = load i32, ptr %31, align 4
   %.not45 = icmp eq i32 %32, 0
@@ -865,30 +865,30 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv76
   %35 = load i8, ptr %34, align 1
-  %36 = add nsw i32 %.070, 1
-  %37 = sext i32 %.070 to i64
+  %36 = add nsw i32 %.170, 1
+  %37 = sext i32 %.170 to i64
   %38 = getelementptr inbounds i8, ptr %7, i64 %37
   store i8 %35, ptr %38, align 1
   br label %39
 
 39:                                               ; preds = %30, %33
-  %.1 = phi i32 [ %36, %33 ], [ %.070, %30 ]
+  %.2 = phi i32 [ %36, %33 ], [ %.170, %30 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %.critedge, label %30, !llvm.loop !17
 
 .critedge:                                        ; preds = %39, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %39 ]
-  %40 = sext i32 %.0.lcssa to i64
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %39 ]
+  %40 = sext i32 %.1.lcssa to i64
   %41 = getelementptr inbounds i8, ptr %7, i64 %40
   store i8 0, ptr %41, align 1
   br label %42
 
 42:                                               ; preds = %.critedge, %._crit_edge68
-  %.2 = phi i32 [ %.0.lcssa, %.critedge ], [ 0, %._crit_edge68 ]
+  %.0 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %._crit_edge68 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, %.2
+  %45 = add nsw i32 %44, %.0
   %46 = load i32, ptr %0, align 8
   %47 = icmp sgt i32 %45, %46
   br i1 %47, label %48, label %Vec_StrPushBuffer.exit
@@ -927,10 +927,10 @@ Vec_StrPushBuffer.exit:                           ; preds = %42, %48, %58
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %60 to i64
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  %65 = sext i32 %.2 to i64
+  %65 = sext i32 %.0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr readonly align 1 %7, i64 %65, i1 false)
   %66 = load i32, ptr %43, align 4
-  %67 = add nsw i32 %66, %.2
+  %67 = add nsw i32 %66, %.0
   store i32 %67, ptr %43, align 4
   %68 = load i32, ptr %0, align 8
   %69 = icmp eq i32 %67, %68

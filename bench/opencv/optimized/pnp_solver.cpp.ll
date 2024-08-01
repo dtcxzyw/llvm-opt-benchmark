@@ -897,7 +897,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.loopexit149
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge169, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %.0 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ 0, %._crit_edge169 ], [ 0, %._crit_edge ]
+  %.1 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ 0, %._crit_edge169 ], [ 0, %._crit_edge ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   br label %166
 
@@ -907,7 +907,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %171
 
 166:                                              ; preds = %111, %.loopexit
-  %.1 = phi i32 [ %.0, %.loopexit ], [ 0, %111 ]
+  %.0 = phi i32 [ %.1, %.loopexit ], [ 0, %111 ]
   %167 = load ptr, ptr %4, align 8
   %.not.i.i.i127 = icmp eq ptr %167, null
   br i1 %.not.i.i.i127, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %168
@@ -926,7 +926,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %166, %168
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit129
 
 _ZNSt6vectorIdSaIdEED2Ev.exit129:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %170
-  ret i32 %.1
+  ret i32 %.0
 
 171:                                              ; preds = %.loopexit149, %71
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit149 ], [ %72, %71 ]

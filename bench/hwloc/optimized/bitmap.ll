@@ -369,16 +369,16 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocaptu
   br i1 %33, label %27, label %._crit_edge, !llvm.loop !4
 
 34:                                               ; preds = %.lr.ph113, %39
-  %.173112.in = phi i32 [ %23, %.lr.ph113 ], [ %.173112, %39 ]
-  %.173112 = add nsw i32 %.173112.in, -1
-  %35 = zext nneg i32 %.173112 to i64
+  %.2112.in = phi i32 [ %23, %.lr.ph113 ], [ %.2112, %39 ]
+  %.2112 = add nsw i32 %.2112.in, -1
+  %35 = zext nneg i32 %.2112 to i64
   %36 = getelementptr inbounds i64, ptr %26, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %.lr.ph125
 
 39:                                               ; preds = %34
-  %40 = icmp sgt i32 %.173112.in, 1
+  %40 = icmp sgt i32 %.2112.in, 1
   br i1 %40, label %34, label %._crit_edge.thread, !llvm.loop !6
 
 .lr.ph125:                                        ; preds = %27, %34
@@ -386,7 +386,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocaptu
   %.077142 = phi i32 [ 0, %34 ], [ %9, %27 ]
   %.083140 = phi ptr [ %0, %34 ], [ %17, %27 ]
   %.085138 = phi i64 [ %1, %34 ], [ %18, %27 ]
-  %.2 = phi i32 [ %.173112, %34 ], [ %.072109, %27 ]
+  %.173 = phi i32 [ %.2112, %34 ], [ %.072109, %27 ]
   %41 = getelementptr inbounds i8, ptr %2, i64 8
   br label %42
 
@@ -394,7 +394,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocaptu
   %43 = phi i1 [ false, %.lr.ph125 ], [ %78, %.thread ]
   %.069124 = phi i32 [ 0, %.lr.ph125 ], [ %68, %.thread ]
   %.070123 = phi i64 [ 0, %.lr.ph125 ], [ %67, %.thread ]
-  %.3122 = phi i32 [ %.2, %.lr.ph125 ], [ %.4, %.thread ]
+  %.3122 = phi i32 [ %.173, %.lr.ph125 ], [ %.4, %.thread ]
   %.175121 = phi i32 [ %.074144, %.lr.ph125 ], [ %.276103, %.thread ]
   %.178120 = phi i32 [ %.077142, %.lr.ph125 ], [ %66, %.thread ]
   %.184118 = phi ptr [ %.083140, %.lr.ph125 ], [ %75, %.thread ]
@@ -1813,16 +1813,16 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
   br i1 %36, label %29, label %._crit_edge, !llvm.loop !18
 
 37:                                               ; preds = %.lr.ph97, %42
-  %.196 = phi i32 [ %25, %.lr.ph97 ], [ %43, %42 ]
-  %38 = zext nneg i32 %.196 to i64
+  %.296 = phi i32 [ %25, %.lr.ph97 ], [ %43, %42 ]
+  %38 = zext nneg i32 %.296 to i64
   %39 = getelementptr inbounds i64, ptr %28, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %.lr.ph107
 
 42:                                               ; preds = %37
-  %43 = add nsw i32 %.196, -1
-  %44 = icmp sgt i32 %.196, 1
+  %43 = add nsw i32 %.296, -1
+  %44 = icmp sgt i32 %.296, 1
   br i1 %44, label %37, label %.lr.ph107, !llvm.loop !19
 
 .critedge:                                        ; preds = %.preheader
@@ -1830,14 +1830,14 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
   br i1 %45, label %.lr.ph107, label %._crit_edge.thread
 
 .lr.ph107:                                        ; preds = %29, %42, %37, %.critedge
-  %.2138 = phi i32 [ 0, %.critedge ], [ %.196, %37 ], [ 0, %42 ], [ %.06193, %29 ]
+  %.1138 = phi i32 [ 0, %.critedge ], [ %.296, %37 ], [ 0, %42 ], [ %.06193, %29 ]
   %.073121137 = phi i64 [ %1, %.critedge ], [ %1, %37 ], [ %1, %42 ], [ %18, %29 ]
   %.071123136 = phi ptr [ %0, %.critedge ], [ %0, %37 ], [ %0, %42 ], [ %17, %29 ]
   %.065125135 = phi i32 [ 0, %.critedge ], [ 0, %37 ], [ 0, %42 ], [ %9, %29 ]
   %.062127134 = phi i32 [ 0, %.critedge ], [ 0, %37 ], [ 0, %42 ], [ 1, %29 ]
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = zext nneg i32 %.2138 to i64
+  %48 = zext nneg i32 %.1138 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph107, %.thread
@@ -2051,9 +2051,9 @@ hwloc_bitmap_zero.exit:                           ; preds = %47, %hwloc_bitmap_r
   br label %hwloc_bitmap_reset_by_ulongs.exit.thread
 
 54:                                               ; preds = %.tail, %6
-  %.1 = phi ptr [ %spec.select, %.tail ], [ %7, %6 ]
+  %.034 = phi ptr [ %spec.select, %.tail ], [ %7, %6 ]
   %.031 = phi i32 [ 0, %.tail ], [ 1, %6 ]
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #18
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.034) #18
   %56 = trunc i64 %55 to i32
   %57 = shl nsw i32 %56, 2
   %58 = add nsw i32 %57, 63
@@ -2128,7 +2128,7 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %62, %54
 90:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %.03361 = phi i32 [ %56, %.lr.ph ], [ %102, %97 ]
-  %.260 = phi ptr [ %.1, %.lr.ph ], [ %101, %97 ]
+  %.260 = phi ptr [ %.034, %.lr.ph ], [ %101, %97 ]
   %91 = srem i32 %.03361, 16
   %.not37 = icmp eq i32 %91, 0
   %spec.store.select = select i1 %.not37, i32 16, i32 %91
@@ -4970,7 +4970,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, pt
 
 11:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %.074104 = phi i32 [ 0, %.lr.ph ], [ %.2, %66 ]
+  %.074104 = phi i32 [ 0, %.lr.ph ], [ %.1, %66 ]
   %.076102 = phi i32 [ 1, %.lr.ph ], [ %.177, %66 ]
   %.078101 = phi i32 [ 1, %.lr.ph ], [ %.179, %66 ]
   %12 = icmp ult i64 %indvars.iv, %9
@@ -5088,7 +5088,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, pt
   br i1 %or.cond10, label %61, label %.loopexit
 
 61:                                               ; preds = %58, %53, %50, %40, %35, %41, %45, %36
-  %.1 = phi i32 [ %.074104, %45 ], [ %spec.store.select1, %41 ], [ %spec.store.select, %36 ], [ 4, %35 ], [ 4, %40 ], [ 1, %50 ], [ 2, %53 ], [ 4, %58 ]
+  %.2 = phi i32 [ %.074104, %45 ], [ %spec.store.select1, %41 ], [ %spec.store.select, %36 ], [ 4, %35 ], [ 4, %40 ], [ 1, %50 ], [ 2, %53 ], [ 4, %58 ]
   %62 = and i32 %.078101, 1
   %63 = select i1 %.not91, i32 %62, i32 0
   %.not97 = icmp eq i64 %31, 0
@@ -5099,7 +5099,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, pt
 66:                                               ; preds = %32, %61
   %.179 = phi i32 [ %63, %61 ], [ %.078101, %32 ]
   %.177 = phi i32 [ %65, %61 ], [ %.076102, %32 ]
-  %.2 = phi i32 [ %.1, %61 ], [ %.074104, %32 ]
+  %.1 = phi i32 [ %.2, %61 ], [ %.074104, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !64
@@ -5112,7 +5112,7 @@ define i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, pt
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.078.lcssa = phi i1 [ false, %2 ], [ %67, %._crit_edge.loopexit ]
   %.076.lcssa = phi i1 [ false, %2 ], [ %68, %._crit_edge.loopexit ]
-  %.074.lcssa = phi i32 [ 0, %2 ], [ %.2, %._crit_edge.loopexit ]
+  %.074.lcssa = phi i32 [ 0, %2 ], [ %.1, %._crit_edge.loopexit ]
   %69 = getelementptr inbounds i8, ptr %0, i64 16
   %70 = load i32, ptr %69, align 8
   %.not = icmp eq i32 %70, 0

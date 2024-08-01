@@ -459,7 +459,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
 
 .backedge1216:                                    ; preds = %45, %871, %874
   %.0645.be = phi i64 [ %875, %874 ], [ %873, %871 ], [ %43, %45 ]
-  %.0644.be = phi i64 [ %.14, %874 ], [ %872, %871 ], [ %.1.lcssa, %45 ]
+  %.0644.be = phi i64 [ %.2, %874 ], [ %872, %871 ], [ %.1.lcssa, %45 ]
   %52 = icmp ult i64 %.0645.be, %3
   br i1 %52, label %26, label %.loopexit1215, !llvm.loop !10
 
@@ -808,7 +808,7 @@ num_pattern_p.exit:                               ; preds = %143, %139, %132
 
 157:                                              ; preds = %num_pattern_p.exit, %148
   %.pn722 = phi i64 [ %151, %148 ], [ %155, %num_pattern_p.exit ]
-  %.2 = add i64 %.pn722, %.06441395
+  %.3 = add i64 %.pn722, %.06441395
   %.pr.i780 = load i64, ptr @date__strptime_internal.rbimpl_id.27, align 8
   %.not4.i781 = icmp eq i64 %.pr.i780, 0
   br i1 %.not4.i781, label %.lr.ph.i783, label %rbimpl_intern_const.exit785
@@ -905,7 +905,7 @@ rbimpl_intern_const.exit797:                      ; preds = %.lr.ph.i795, %172
   br label %200
 
 200:                                              ; preds = %198, %192
-  %.3 = phi i64 [ %193, %192 ], [ %199, %198 ]
+  %.4 = phi i64 [ %193, %192 ], [ %199, %198 ]
   %201 = load i64, ptr %7, align 8
   %202 = and i64 %201, 1
   %.not14.i798 = icmp eq i64 %202, 0
@@ -1033,7 +1033,7 @@ num_pattern_p.exit820:                            ; preds = %244, %240, %233
 
 258:                                              ; preds = %num_pattern_p.exit820, %249
   %.pn719 = phi i64 [ %252, %249 ], [ %256, %num_pattern_p.exit820 ]
-  %.4 = add i64 %.pn719, %.06441395
+  %.5 = add i64 %.pn719, %.06441395
   %.pr.i821 = load i64, ptr @date__strptime_internal.rbimpl_id.41, align 8
   %.not4.i822 = icmp eq i64 %.pr.i821, 0
   br i1 %.not4.i822, label %.lr.ph.i824, label %rbimpl_intern_const.exit826
@@ -1174,7 +1174,7 @@ rbimpl_intern_const.exit856:                      ; preds = %.lr.ph.i854, %rbimp
   br label %312
 
 312:                                              ; preds = %310, %304
-  %.5 = phi i64 [ %305, %304 ], [ %311, %310 ]
+  %.6 = phi i64 [ %305, %304 ], [ %311, %310 ]
   %313 = load i64, ptr %10, align 8
   %314 = and i64 %313, 1
   %.not14.i857 = icmp eq i64 %314, 0
@@ -1242,7 +1242,7 @@ rbimpl_intern_const.exit868:                      ; preds = %.lr.ph.i866, %322
   br label %344
 
 344:                                              ; preds = %342, %336
-  %.6 = phi i64 [ %337, %336 ], [ %343, %342 ]
+  %.7 = phi i64 [ %337, %336 ], [ %343, %342 ]
   %345 = load i64, ptr %11, align 8
   %346 = and i64 %345, 1
   %.not14.i869 = icmp eq i64 %346, 0
@@ -1344,8 +1344,8 @@ rbimpl_intern_const.exit892:                      ; preds = %.lr.ph.i890, %375
   br label %386
 
 386:                                              ; preds = %380, %383
-  %.1656 = phi i1 [ %384, %383 ], [ false, %380 ]
-  %.7 = phi i64 [ %385, %383 ], [ %.06441395, %380 ]
+  %.0655 = phi i1 [ %384, %383 ], [ false, %380 ]
+  %.8 = phi i64 [ %385, %383 ], [ %.06441395, %380 ]
   %387 = getelementptr i8, ptr %2, i64 %.2647
   %388 = getelementptr i8, ptr %387, i64 2
   %389 = load i8, ptr %388, align 1
@@ -1393,8 +1393,8 @@ rbimpl_intern_const.exit892:                      ; preds = %.lr.ph.i890, %375
   br i1 %.not14.i899, label %num_pattern_p.exit900, label %410
 
 410:                                              ; preds = %386, %405, %403
-  %411 = getelementptr inbounds i8, ptr %0, i64 %.7
-  %412 = sub i64 %1, %.7
+  %411 = getelementptr inbounds i8, ptr %0, i64 %.8
+  %412 = sub i64 %1, %.8
   %413 = icmp eq i8 %59, 76
   %414 = select i1 %413, i64 3, i64 9
   %415 = call fastcc i64 @read_digits(ptr noundef %411, i64 noundef %412, ptr noundef nonnull %13, i64 noundef %414)
@@ -1402,16 +1402,16 @@ rbimpl_intern_const.exit892:                      ; preds = %.lr.ph.i890, %375
   br i1 %416, label %.loopexit1215.sink.split.sink.split, label %421
 
 num_pattern_p.exit900:                            ; preds = %405, %401, %394
-  %417 = getelementptr inbounds i8, ptr %0, i64 %.7
-  %418 = sub i64 %1, %.7
+  %417 = getelementptr inbounds i8, ptr %0, i64 %.8
+  %418 = sub i64 %1, %.8
   %419 = call fastcc i64 @read_digits(ptr noundef %417, i64 noundef %418, ptr noundef nonnull %13, i64 noundef 9223372036854775807)
   %420 = icmp eq i64 %419, 0
   br i1 %420, label %.loopexit1215.sink.split.sink.split, label %421
 
 421:                                              ; preds = %num_pattern_p.exit900, %410
   %.pn712 = phi i64 [ %415, %410 ], [ %419, %num_pattern_p.exit900 ]
-  %.8 = add i64 %.pn712, %.7
-  br i1 %.1656, label %422, label %426
+  %.9 = add i64 %.pn712, %.8
+  br i1 %.0655, label %422, label %426
 
 422:                                              ; preds = %421
   %423 = load i64, ptr %13, align 8
@@ -1638,13 +1638,13 @@ rbimpl_intern_const.exit949:                      ; preds = %.lr.ph.i947, %481
 
 512:                                              ; preds = %508, %499
   %.0657 = phi i8 [ %511, %508 ], [ %501, %499 ]
-  %.9 = phi i64 [ %509, %508 ], [ %.06441395, %499 ]
+  %.10 = phi i64 [ %509, %508 ], [ %.06441395, %499 ]
   %513 = and i8 %.0657, -33
   %or.cond12 = icmp eq i8 %513, 77
   br i1 %or.cond12, label %514, label %.loopexit1215.sink.split.sink.split
 
 514:                                              ; preds = %512
-  %515 = add i64 %.9, 2
+  %515 = add i64 %.10, 2
   %.pr.i950 = load i64, ptr @date__strptime_internal.rbimpl_id.82, align 8
   %.not4.i951 = icmp eq i64 %.pr.i950, 0
   br i1 %.not4.i951, label %.lr.ph.i953, label %rbimpl_intern_const.exit955
@@ -2159,8 +2159,8 @@ rbimpl_intern_const.exit1069:                     ; preds = %.lr.ph.i1067, %715
   br label %731
 
 731:                                              ; preds = %725, %728
-  %.1661 = phi i1 [ %729, %728 ], [ false, %725 ]
-  %.12 = phi i64 [ %730, %728 ], [ %.06441395, %725 ]
+  %.0660 = phi i1 [ %729, %728 ], [ false, %725 ]
+  %.13 = phi i64 [ %730, %728 ], [ %.06441395, %725 ]
   %732 = getelementptr i8, ptr %2, i64 %.2647
   %733 = getelementptr i8, ptr %732, i64 2
   %734 = load i8, ptr %733, align 1
@@ -2208,23 +2208,23 @@ rbimpl_intern_const.exit1069:                     ; preds = %.lr.ph.i1067, %715
   br i1 %.not14.i1076, label %num_pattern_p.exit1077, label %755
 
 755:                                              ; preds = %731, %750, %748
-  %756 = getelementptr inbounds i8, ptr %0, i64 %.12
-  %757 = sub i64 %1, %.12
+  %756 = getelementptr inbounds i8, ptr %0, i64 %.13
+  %757 = sub i64 %1, %.13
   %758 = call fastcc i64 @read_digits(ptr noundef %756, i64 noundef %757, ptr noundef nonnull %23, i64 noundef 4)
   %759 = icmp eq i64 %758, 0
   br i1 %759, label %.loopexit1215.sink.split.sink.split, label %764
 
 num_pattern_p.exit1077:                           ; preds = %750, %746, %739
-  %760 = getelementptr inbounds i8, ptr %0, i64 %.12
-  %761 = sub i64 %1, %.12
+  %760 = getelementptr inbounds i8, ptr %0, i64 %.13
+  %761 = sub i64 %1, %.13
   %762 = call fastcc i64 @read_digits(ptr noundef %760, i64 noundef %761, ptr noundef nonnull %23, i64 noundef 9223372036854775807)
   %763 = icmp eq i64 %762, 0
   br i1 %763, label %.loopexit1215.sink.split.sink.split, label %764
 
 764:                                              ; preds = %num_pattern_p.exit1077, %755
   %.pn = phi i64 [ %758, %755 ], [ %762, %num_pattern_p.exit1077 ]
-  %.13 = add i64 %.pn, %.12
-  br i1 %.1661, label %765, label %769
+  %.14 = add i64 %.pn, %.13
+  br i1 %.0660, label %765, label %769
 
 765:                                              ; preds = %764
   %766 = load i64, ptr %23, align 8
@@ -2548,7 +2548,7 @@ rbimpl_intern_const.exit1151:                     ; preds = %.lr.ph.i1149, %844
   br label %.backedge1216
 
 874:                                              ; preds = %857, %864, %rbimpl_intern_const.exit1107, %rbimpl_intern_const.exit1119, %rbimpl_intern_const.exit844, %rbimpl_intern_const.exit856, %852, %842, %rbimpl_intern_const.exit1145, %rbimpl_intern_const.exit1089, %723, %713, %rbimpl_intern_const.exit1057, %683, %rbimpl_intern_const.exit1039, %rbimpl_intern_const.exit1027, %626, %609, %rbimpl_intern_const.exit1003, %rbimpl_intern_const.exit991, %559, %549, %rbimpl_intern_const.exit967, %rbimpl_intern_const.exit955, %489, %rbimpl_intern_const.exit943, %rbimpl_intern_const.exit931, %rb_ulong2num_inline.exit, %rbimpl_intern_const.exit892, %rbimpl_intern_const.exit880, %rbimpl_intern_const.exit868, %rbimpl_intern_const.exit826, %223, %rbimpl_intern_const.exit806, %180, %170, %rbimpl_intern_const.exit785, %rbimpl_intern_const.exit771, %rbimpl_intern_const.exit755
-  %.14 = phi i64 [ %865, %864 ], [ %858, %857 ], [ %853, %852 ], [ %843, %842 ], [ %831, %rbimpl_intern_const.exit1145 ], [ %780, %rbimpl_intern_const.exit1119 ], [ %780, %rbimpl_intern_const.exit1107 ], [ %.13, %rbimpl_intern_const.exit1089 ], [ %724, %723 ], [ %714, %713 ], [ %701, %rbimpl_intern_const.exit1057 ], [ %684, %683 ], [ %671, %rbimpl_intern_const.exit1039 ], [ %650, %rbimpl_intern_const.exit1027 ], [ %627, %626 ], [ %610, %609 ], [ %591, %rbimpl_intern_const.exit1003 ], [ %577, %rbimpl_intern_const.exit991 ], [ %560, %559 ], [ %550, %549 ], [ %530, %rbimpl_intern_const.exit967 ], [ %515, %rbimpl_intern_const.exit955 ], [ %490, %489 ], [ %477, %rbimpl_intern_const.exit943 ], [ %456, %rbimpl_intern_const.exit931 ], [ %.8, %rb_ulong2num_inline.exit ], [ %376, %rbimpl_intern_const.exit892 ], [ %.6, %rbimpl_intern_const.exit880 ], [ %.5, %rbimpl_intern_const.exit868 ], [ %269, %rbimpl_intern_const.exit856 ], [ %269, %rbimpl_intern_const.exit844 ], [ %.4, %rbimpl_intern_const.exit826 ], [ %224, %223 ], [ %.3, %rbimpl_intern_const.exit806 ], [ %181, %180 ], [ %171, %170 ], [ %.2, %rbimpl_intern_const.exit785 ], [ %115, %rbimpl_intern_const.exit771 ], [ %97, %rbimpl_intern_const.exit755 ]
+  %.2 = phi i64 [ %865, %864 ], [ %858, %857 ], [ %853, %852 ], [ %843, %842 ], [ %831, %rbimpl_intern_const.exit1145 ], [ %780, %rbimpl_intern_const.exit1119 ], [ %780, %rbimpl_intern_const.exit1107 ], [ %.14, %rbimpl_intern_const.exit1089 ], [ %724, %723 ], [ %714, %713 ], [ %701, %rbimpl_intern_const.exit1057 ], [ %684, %683 ], [ %671, %rbimpl_intern_const.exit1039 ], [ %650, %rbimpl_intern_const.exit1027 ], [ %627, %626 ], [ %610, %609 ], [ %591, %rbimpl_intern_const.exit1003 ], [ %577, %rbimpl_intern_const.exit991 ], [ %560, %559 ], [ %550, %549 ], [ %530, %rbimpl_intern_const.exit967 ], [ %515, %rbimpl_intern_const.exit955 ], [ %490, %489 ], [ %477, %rbimpl_intern_const.exit943 ], [ %456, %rbimpl_intern_const.exit931 ], [ %.9, %rb_ulong2num_inline.exit ], [ %376, %rbimpl_intern_const.exit892 ], [ %.7, %rbimpl_intern_const.exit880 ], [ %.6, %rbimpl_intern_const.exit868 ], [ %269, %rbimpl_intern_const.exit856 ], [ %269, %rbimpl_intern_const.exit844 ], [ %.5, %rbimpl_intern_const.exit826 ], [ %224, %223 ], [ %.4, %rbimpl_intern_const.exit806 ], [ %181, %180 ], [ %171, %170 ], [ %.3, %rbimpl_intern_const.exit785 ], [ %115, %rbimpl_intern_const.exit771 ], [ %97, %rbimpl_intern_const.exit755 ]
   %875 = add i64 %.2647, 2
   br label %.backedge1216
 

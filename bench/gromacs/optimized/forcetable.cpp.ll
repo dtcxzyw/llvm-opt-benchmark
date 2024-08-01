@@ -344,8 +344,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
 58:                                               ; preds = %.lr.ph, %118
   %indvars.iv = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next, %118 ]
   %.095145 = phi i32 [ %1, %.lr.ph ], [ %.196, %118 ]
-  %.099144 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %118 ]
-  %.0101143 = phi i8 [ 0, %.lr.ph ], [ %.2103, %118 ]
+  %.099144 = phi double [ 0.000000e+00, %.lr.ph ], [ %.3, %118 ]
+  %.0101143 = phi i8 [ 0, %.lr.ph ], [ %.3104, %118 ]
   %.0105142 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1106, %118 ]
   %59 = trunc nuw i64 %indvars.iv to i32
   %60 = uitofp nneg i32 %59 to double
@@ -403,8 +403,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   %or.cond = or i1 %82, %83
   %84 = fcmp ogt double %80, 0x471A36E2E0000000
   %or.cond113 = or i1 %84, %or.cond
-  %.1102 = select i1 %or.cond113, i8 1, i8 %.0101143
-  %85 = trunc nuw i8 %.1102 to i1
+  %.2103 = select i1 %or.cond113, i8 1, i8 %.0101143
+  %85 = trunc nuw i8 %.2103 to i1
   br i1 %85, label %96, label %86
 
 86:                                               ; preds = %81
@@ -422,12 +422,12 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   br label %96
 
 96:                                               ; preds = %89, %81
-  %.1100 = phi double [ %.099144, %81 ], [ %95, %89 ]
+  %.2 = phi double [ %.099144, %81 ], [ %95, %89 ]
   %97 = icmp eq i64 %indvars.iv, %56
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
-  %99 = fptrunc double %.1100 to float
+  %99 = fptrunc double %.2 to float
   %100 = fneg float %99
   store float %100, ptr %57, align 4
   br label %107
@@ -436,7 +436,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   %102 = getelementptr inbounds float, ptr %51, i64 %indvars.iv
   %103 = load float, ptr %102, align 4
   %104 = fpext float %103 to double
-  %105 = tail call double @llvm.fmuladd.f64(double %.1100, double -5.000000e-01, double %104)
+  %105 = tail call double @llvm.fmuladd.f64(double %.2, double -5.000000e-01, double %104)
   %106 = fptrunc double %105 to float
   store float %106, ptr %102, align 4
   br label %107
@@ -445,11 +445,11 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   br i1 %85, label %118, label %108
 
 108:                                              ; preds = %107
-  %109 = tail call double @llvm.fmuladd.f64(double %.1100, double %13, double %80)
+  %109 = tail call double @llvm.fmuladd.f64(double %.2, double %13, double %80)
   %110 = fsub double %109, %62
   %111 = fmul double %110, 2.000000e+00
   %112 = fdiv double %111, %13
-  %113 = fsub double %.1100, %112
+  %113 = fsub double %.2, %112
   %114 = fcmp uno double %113, 0.000000e+00
   %115 = fcmp olt double %113, 0xC71A36E2E0000000
   %or.cond114 = or i1 %114, %115
@@ -461,9 +461,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   br label %118
 
 118:                                              ; preds = %107, %117, %108
-  %.2103 = phi i8 [ %.1102, %107 ], [ %.1102, %117 ], [ 1, %108 ]
-  %.2 = phi double [ %.1100, %107 ], [ %113, %117 ], [ %.1100, %108 ]
-  %119 = fmul double %.2, -5.000000e-01
+  %.3104 = phi i8 [ %.2103, %107 ], [ %.2103, %117 ], [ 1, %108 ]
+  %.3 = phi double [ %.2, %107 ], [ %113, %117 ], [ %.2, %108 ]
+  %119 = fmul double %.3, -5.000000e-01
   %120 = fptrunc double %119 to float
   %121 = zext nneg i32 %77 to i64
   %122 = getelementptr inbounds float, ptr %51, i64 %121
@@ -2199,7 +2199,7 @@ switch.hole_check:                                ; preds = %287
   %382 = insertelement <2 x i1> poison, i1 %354, i64 0
   %383 = shufflevector <2 x i1> %382, <2 x i1> poison, <2 x i32> zeroinitializer
   %384 = select <2 x i1> %383, <2 x double> %380, <2 x double> %371
-  %.0340.i = select i1 %354, double %381, double %379
+  %.1341.i = select i1 %354, double %381, double %379
   %385 = fmul <2 x double> %384, <double 2.500000e-01, double poison>
   %386 = fdiv <2 x double> %384, <double poison, double 3.000000e+00>
   %387 = shufflevector <2 x double> %385, <2 x double> %386, <2 x i32> <i32 0, i32 3>
@@ -2212,7 +2212,7 @@ switch.hole_check:                                ; preds = %287
   %.0332406422452474.i = phi i1 [ %.0332406422452480.i, %341 ], [ %.0332406422452.i, %335 ], [ false, %.thread465.i ], [ %.0332406422462.i, %327 ], [ false, %.thread496.i ]
   %389 = phi double [ %309, %341 ], [ %309, %335 ], [ %311, %.thread465.i ], [ %309, %327 ], [ %311, %.thread496.i ]
   %390 = phi ptr [ %310, %341 ], [ %310, %335 ], [ %312, %.thread465.i ], [ %310, %327 ], [ %312, %.thread496.i ]
-  %.1341.i = phi double [ %.0340.i, %341 ], [ 0.000000e+00, %335 ], [ 0.000000e+00, %.thread465.i ], [ 0.000000e+00, %327 ], [ 0.000000e+00, %.thread496.i ]
+  %.0340.i = phi double [ %.1341.i, %341 ], [ 0.000000e+00, %335 ], [ 0.000000e+00, %.thread465.i ], [ 0.000000e+00, %327 ], [ 0.000000e+00, %.thread496.i ]
   %391 = phi <2 x double> [ %387, %341 ], [ zeroinitializer, %335 ], [ zeroinitializer, %.thread465.i ], [ zeroinitializer, %327 ], [ zeroinitializer, %.thread496.i ]
   %392 = phi <2 x double> [ %384, %341 ], [ zeroinitializer, %335 ], [ zeroinitializer, %.thread465.i ], [ zeroinitializer, %327 ], [ zeroinitializer, %.thread496.i ]
   %393 = phi <2 x double> [ %338, %341 ], [ %336, %335 ], [ %321, %.thread465.i ], [ %328, %327 ], [ %314, %.thread496.i ]
@@ -2643,7 +2643,7 @@ switch.hole_check:                                ; preds = %287
 
 657:                                              ; preds = %655
   %658 = extractelement <2 x double> %654, i64 0
-  %659 = fsub double %658, %.1341.i
+  %659 = fsub double %658, %.0340.i
   %660 = fcmp ogt double %498, %474
   %661 = insertelement <2 x double> %654, double %659, i64 0
   br i1 %660, label %662, label %674
@@ -3376,7 +3376,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
 
 187:                                              ; preds = %176, %172
   %storemerge156416 = phi i32 [ %storemerge156418420, %172 ], [ %spec.select, %176 ]
-  %.3134 = phi i8 [ %.1132423, %172 ], [ %spec.select528, %176 ]
+  %.2133 = phi i8 [ %.1132423, %172 ], [ %spec.select528, %176 ]
   %.1130 = phi i1 [ %.0129424, %172 ], [ false, %176 ]
   %188 = getelementptr inbounds double, ptr %141, i64 %indvars.iv
   %189 = load double, ptr %188, align 8
@@ -3384,10 +3384,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
   br i1 %190, label %191, label %202
 
 191:                                              ; preds = %187
-  %192 = trunc nuw i8 %.3134 to i1
+  %192 = trunc nuw i8 %.2133 to i1
   %193 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select529 = select i1 %192, i32 %193, i32 %storemerge156416
-  %spec.select530 = select i1 %192, i8 0, i8 %.3134
+  %spec.select530 = select i1 %192, i8 0, i8 %.2133
   %194 = call double @llvm.fabs.f64(double %189)
   %or.cond381 = fcmp ogt double %194, 0x47847AE133333333
   br i1 %or.cond381, label %.critedge4, label %202
@@ -3415,7 +3415,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
 
 202:                                              ; preds = %191, %187
   %storemerge156414 = phi i32 [ %storemerge156416, %187 ], [ %spec.select529, %191 ]
-  %.5136 = phi i8 [ %.3134, %187 ], [ %spec.select530, %191 ]
+  %.5136 = phi i8 [ %.2133, %187 ], [ %spec.select530, %191 ]
   %.1128 = phi i1 [ %.0127425, %187 ], [ false, %191 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

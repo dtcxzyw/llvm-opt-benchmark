@@ -3599,12 +3599,12 @@ RHASH_EMPTY_P.exit18.i:                           ; preds = %36, %33
   br label %extract_raise_opts.exit
 
 .critedge.i:                                      ; preds = %RHASH_EMPTY_P.exit.i, %8, %2
-  %.1.i = phi i32 [ %9, %8 ], [ %9, %RHASH_EMPTY_P.exit.i ], [ %0, %2 ]
+  %.013.i = phi i32 [ %9, %8 ], [ %9, %RHASH_EMPTY_P.exit.i ], [ %0, %2 ]
   store i64 36, ptr %6, align 8
   br label %extract_raise_opts.exit
 
 extract_raise_opts.exit:                          ; preds = %RHASH_EMPTY_P.exit18.i, %42, %.critedge.i
-  %.012.i = phi i32 [ %.1.i, %.critedge.i ], [ %9, %RHASH_EMPTY_P.exit18.i ], [ %43, %42 ]
+  %.012.i = phi i32 [ %.013.i, %.critedge.i ], [ %9, %RHASH_EMPTY_P.exit18.i ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %46 = icmp eq i32 %.012.i, 0

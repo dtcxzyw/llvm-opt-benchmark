@@ -64,25 +64,25 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_connect(ptr nocapture noundef %
   br label %32
 
 32:                                               ; preds = %.lr.ph, %29
-  %.1 = phi i32 [ -68, %29 ], [ -66, %.lr.ph ]
+  %.2 = phi i32 [ -68, %29 ], [ -66, %.lr.ph ]
   %33 = getelementptr inbounds i8, ptr %.024, i64 40
   %.0 = load ptr, ptr %33, align 8
   %.not21 = icmp eq ptr %.0, null
   br i1 %.not21, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %22, %32
-  %.2.ph = phi i32 [ %.1, %32 ], [ 0, %22 ]
+  %.1.ph = phi i32 [ %.2, %32 ], [ 0, %22 ]
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %34 = phi ptr [ null, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.2 = phi i32 [ -82, %.preheader ], [ %.2.ph, %._crit_edge.loopexit ]
+  %.1 = phi i32 [ -82, %.preheader ], [ %.1.ph, %._crit_edge.loopexit ]
   call void @freeaddrinfo(ptr noundef %34) #8
   br label %35
 
 35:                                               ; preds = %4, %._crit_edge
-  %.018 = phi i32 [ %.2, %._crit_edge ], [ -82, %4 ]
+  %.018 = phi i32 [ %.1, %._crit_edge ], [ -82, %4 ]
   ret i32 %.018
 }
 
@@ -177,12 +177,12 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
 
 .sink.split:                                      ; preds = %30, %27, %39
   %.sink = phi i32 [ %40, %39 ], [ %29, %27 ], [ %36, %30 ]
-  %.1.us.ph = phi i32 [ -72, %39 ], [ -66, %27 ], [ -70, %30 ]
+  %.2.us.ph = phi i32 [ -72, %39 ], [ -66, %27 ], [ -70, %30 ]
   %41 = call i32 @close(i32 noundef %.sink) #8
   br label %42
 
 42:                                               ; preds = %.sink.split, %.lr.ph.split.us
-  %.1.us = phi i32 [ -66, %.lr.ph.split.us ], [ %.1.us.ph, %.sink.split ]
+  %.2.us = phi i32 [ -66, %.lr.ph.split.us ], [ %.2.us.ph, %.sink.split ]
   %43 = getelementptr inbounds i8, ptr %.032.us, i64 40
   %.0.us = load ptr, ptr %43, align 8
   %.not26.us = icmp eq ptr %.0.us, null
@@ -223,25 +223,25 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, 
 
 .sink.split42:                                    ; preds = %52, %61
   %.sink43 = phi i32 [ %62, %61 ], [ %54, %52 ]
-  %.1.ph = phi i32 [ -70, %61 ], [ -66, %52 ]
+  %.2.ph = phi i32 [ -70, %61 ], [ -66, %52 ]
   %63 = call i32 @close(i32 noundef %.sink43) #8
   br label %64
 
 64:                                               ; preds = %.sink.split42, %.lr.ph.split
-  %.1 = phi i32 [ -66, %.lr.ph.split ], [ %.1.ph, %.sink.split42 ]
+  %.2 = phi i32 [ -66, %.lr.ph.split ], [ %.2.ph, %.sink.split42 ]
   %65 = getelementptr inbounds i8, ptr %.032, i64 40
   %.0 = load ptr, ptr %65, align 8
   %.not26 = icmp eq ptr %.0, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %64, %55, %42, %37, %.preheader
-  %.2 = phi i32 [ -82, %.preheader ], [ 0, %37 ], [ %.1.us, %42 ], [ 0, %55 ], [ %.1, %64 ]
+  %.1 = phi i32 [ -82, %.preheader ], [ 0, %37 ], [ %.2.us, %42 ], [ 0, %55 ], [ %.2, %64 ]
   %66 = load ptr, ptr %7, align 8
   call void @freeaddrinfo(ptr noundef %66) #8
   br label %67
 
 67:                                               ; preds = %16, %._crit_edge
-  %.024 = phi i32 [ %.2, %._crit_edge ], [ -82, %16 ]
+  %.024 = phi i32 [ %.1, %._crit_edge ], [ -82, %16 ]
   ret i32 %.024
 }
 

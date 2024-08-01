@@ -201,7 +201,7 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
 for.end200.us:                                    ; preds = %for.inc198.us.us, %for.cond2.preheader.us
   %6 = phi i16 [ %4, %for.cond2.preheader.us ], [ %44, %for.inc198.us.us ]
   %7 = phi i16 [ %5, %for.cond2.preheader.us ], [ %44, %for.inc198.us.us ]
-  %srcbuffer.1.lcssa.us = phi ptr [ %srcbuffer.0257.us, %for.cond2.preheader.us ], [ %srcbuffer.3.us.us, %for.inc198.us.us ]
+  %srcbuffer.1.lcssa.us = phi ptr [ %srcbuffer.0257.us, %for.cond2.preheader.us ], [ %srcbuffer.2.us.us, %for.inc198.us.us ]
   %add.ptr202.us = getelementptr inbounds i32, ptr %sampbuffer.0254.us, i64 %idx.ext201
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count313
@@ -214,7 +214,7 @@ for.body5.lr.ph.us:                               ; preds = %for.cond2.preheader
 for.body5.us.us:                                  ; preds = %for.inc198.us.us, %for.body5.lr.ph.us
   %8 = phi i16 [ %44, %for.inc198.us.us ], [ %4, %for.body5.lr.ph.us ]
   %indvars.iv307 = phi i64 [ %indvars.iv.next308, %for.inc198.us.us ], [ 0, %for.body5.lr.ph.us ]
-  %srcbuffer.1213.us.us = phi ptr [ %srcbuffer.3.us.us, %for.inc198.us.us ], [ %srcbuffer.0257.us, %for.body5.lr.ph.us ]
+  %srcbuffer.1213.us.us = phi ptr [ %srcbuffer.2.us.us, %for.inc198.us.us ], [ %srcbuffer.0257.us, %for.body5.lr.ph.us ]
   %9 = load ptr, ptr %decode, align 8
   %add.ptr.us.us = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %9, i64 %indvars.iv307
   %bytes_per_element.us.us = getelementptr inbounds i8, ptr %add.ptr.us.us, i64 25
@@ -245,7 +245,7 @@ if.end20.us.us:                                   ; preds = %for.body5.us.us
 
 for.body31.us.us:                                 ; preds = %if.end191.us.us, %if.end20.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end191.us.us ], [ 0, %if.end20.us.us ]
-  %srcbuffer.2204.us.us = phi ptr [ %add.ptr194.us.us, %if.end191.us.us ], [ %srcbuffer.1213.us.us, %if.end20.us.us ]
+  %srcbuffer.3204.us.us = phi ptr [ %add.ptr194.us.us, %if.end191.us.us ], [ %srcbuffer.1213.us.us, %if.end20.us.us ]
   %pdata.0203.us.us = phi ptr [ %add.ptr42.us.us, %if.end191.us.us ], [ %add.ptr24.us.us, %if.end20.us.us ]
   %prevsamps.2202.us.us = phi i32 [ %spec.select104.us.us, %if.end191.us.us ], [ 0, %if.end20.us.us ]
   %16 = load ptr, ptr %pdata.0203.us.us, align 8
@@ -279,7 +279,7 @@ sw.bb138.us.us:                                   ; preds = %if.then44.us.us
 
 for.body179.us.us:                                ; preds = %for.cond176.preheader.us.us, %for.body179.us.us
   %s175.0167.us.us = phi i32 [ %inc185.us.us, %for.body179.us.us ], [ 0, %for.cond176.preheader.us.us ]
-  %src174.0166.us.us = phi ptr [ %incdec.ptr181.us.us, %for.body179.us.us ], [ %srcbuffer.2204.us.us, %for.cond176.preheader.us.us ]
+  %src174.0166.us.us = phi ptr [ %incdec.ptr181.us.us, %for.body179.us.us ], [ %srcbuffer.3204.us.us, %for.cond176.preheader.us.us ]
   %cdata.8165.us.us = phi ptr [ %add.ptr183.us.us, %for.body179.us.us ], [ %16, %for.cond176.preheader.us.us ]
   %src174.0.val.us.us = load i32, ptr %src174.0166.us.us, align 1
   store i32 %src174.0.val.us.us, ptr %cdata.8165.us.us, align 4
@@ -291,7 +291,7 @@ for.body179.us.us:                                ; preds = %for.cond176.prehead
 
 for.body163.us.us:                                ; preds = %for.cond160.preheader.us.us, %for.body163.us.us
   %s159.0171.us.us = phi i32 [ %inc171.us.us, %for.body163.us.us ], [ 0, %for.cond160.preheader.us.us ]
-  %src158.0170.us.us = phi ptr [ %incdec.ptr166.us.us, %for.body163.us.us ], [ %srcbuffer.2204.us.us, %for.cond160.preheader.us.us ]
+  %src158.0170.us.us = phi ptr [ %incdec.ptr166.us.us, %for.body163.us.us ], [ %srcbuffer.3204.us.us, %for.cond160.preheader.us.us ]
   %cdata.7169.us.us = phi ptr [ %add.ptr169.us.us, %for.body163.us.us ], [ %16, %for.cond160.preheader.us.us ]
   %src158.0.val.us.us = load i32, ptr %src158.0170.us.us, align 1
   %incdec.ptr166.us.us = getelementptr inbounds i8, ptr %src158.0170.us.us, i64 4
@@ -304,7 +304,7 @@ for.body163.us.us:                                ; preds = %for.cond160.prehead
 
 for.body147.us.us:                                ; preds = %for.cond144.preheader.us.us, %uint_to_half.exit.us.us
   %s143.0175.us.us = phi i32 [ %inc155.us.us, %uint_to_half.exit.us.us ], [ 0, %for.cond144.preheader.us.us ]
-  %src142.0174.us.us = phi ptr [ %incdec.ptr150.us.us, %uint_to_half.exit.us.us ], [ %srcbuffer.2204.us.us, %for.cond144.preheader.us.us ]
+  %src142.0174.us.us = phi ptr [ %incdec.ptr150.us.us, %uint_to_half.exit.us.us ], [ %srcbuffer.3204.us.us, %for.cond144.preheader.us.us ]
   %cdata.6173.us.us = phi ptr [ %add.ptr153.us.us, %uint_to_half.exit.us.us ], [ %16, %for.cond144.preheader.us.us ]
   %src142.0.val.us.us = load i32, ptr %src142.0174.us.us, align 1
   %incdec.ptr150.us.us = getelementptr inbounds i8, ptr %src142.0174.us.us, i64 4
@@ -393,7 +393,7 @@ sw.bb88.us.us:                                    ; preds = %if.then44.us.us
 
 for.body126.us.us:                                ; preds = %for.cond123.preheader.us.us, %float_to_uint_int.exit.us.us
   %s122.0179.us.us = phi i32 [ %inc134.us.us, %float_to_uint_int.exit.us.us ], [ 0, %for.cond123.preheader.us.us ]
-  %src121.0178.us.us = phi ptr [ %incdec.ptr129.us.us, %float_to_uint_int.exit.us.us ], [ %srcbuffer.2204.us.us, %for.cond123.preheader.us.us ]
+  %src121.0178.us.us = phi ptr [ %incdec.ptr129.us.us, %float_to_uint_int.exit.us.us ], [ %srcbuffer.3204.us.us, %for.cond123.preheader.us.us ]
   %cdata.5177.us.us = phi ptr [ %add.ptr132.us.us, %float_to_uint_int.exit.us.us ], [ %16, %for.cond123.preheader.us.us ]
   %src121.0.val152.us.us = load float, ptr %src121.0178.us.us, align 1
   %incdec.ptr129.us.us = getelementptr inbounds i8, ptr %src121.0178.us.us, i64 4
@@ -419,7 +419,7 @@ float_to_uint_int.exit.us.us:                     ; preds = %if.end.i.i.us.us, %
 
 for.body112.us.us:                                ; preds = %for.cond109.preheader.us.us, %for.body112.us.us
   %s108.0183.us.us = phi i32 [ %inc118.us.us, %for.body112.us.us ], [ 0, %for.cond109.preheader.us.us ]
-  %src107.0182.us.us = phi ptr [ %incdec.ptr114.us.us, %for.body112.us.us ], [ %srcbuffer.2204.us.us, %for.cond109.preheader.us.us ]
+  %src107.0182.us.us = phi ptr [ %incdec.ptr114.us.us, %for.body112.us.us ], [ %srcbuffer.3204.us.us, %for.cond109.preheader.us.us ]
   %cdata.4181.us.us = phi ptr [ %add.ptr116.us.us, %for.body112.us.us ], [ %16, %for.cond109.preheader.us.us ]
   %src107.0.val.us.us = load i32, ptr %src107.0182.us.us, align 1
   store i32 %src107.0.val.us.us, ptr %cdata.4181.us.us, align 4
@@ -431,7 +431,7 @@ for.body112.us.us:                                ; preds = %for.cond109.prehead
 
 for.body97.us.us:                                 ; preds = %for.cond94.preheader.us.us, %float_to_half_int.exit.us.us
   %s93.0187.us.us = phi i32 [ %inc104.us.us, %float_to_half_int.exit.us.us ], [ 0, %for.cond94.preheader.us.us ]
-  %src92.0186.us.us = phi ptr [ %incdec.ptr99.us.us, %float_to_half_int.exit.us.us ], [ %srcbuffer.2204.us.us, %for.cond94.preheader.us.us ]
+  %src92.0186.us.us = phi ptr [ %incdec.ptr99.us.us, %float_to_half_int.exit.us.us ], [ %srcbuffer.3204.us.us, %for.cond94.preheader.us.us ]
   %cdata.3185.us.us = phi ptr [ %add.ptr102.us.us, %float_to_half_int.exit.us.us ], [ %16, %for.cond94.preheader.us.us ]
   %src92.0.val.us.us = load i32, ptr %src92.0186.us.us, align 1
   %incdec.ptr99.us.us = getelementptr inbounds i8, ptr %src92.0186.us.us, i64 4
@@ -529,7 +529,7 @@ sw.bb.us.us:                                      ; preds = %if.then44.us.us
 
 for.body78.us.us:                                 ; preds = %for.cond75.preheader.us.us, %half_to_uint.exit.us.us
   %s74.0191.us.us = phi i32 [ %inc86.us.us, %half_to_uint.exit.us.us ], [ 0, %for.cond75.preheader.us.us ]
-  %src73.0190.us.us = phi ptr [ %incdec.ptr81.us.us, %half_to_uint.exit.us.us ], [ %srcbuffer.2204.us.us, %for.cond75.preheader.us.us ]
+  %src73.0190.us.us = phi ptr [ %incdec.ptr81.us.us, %half_to_uint.exit.us.us ], [ %srcbuffer.3204.us.us, %for.cond75.preheader.us.us ]
   %cdata.2189.us.us = phi ptr [ %add.ptr84.us.us, %half_to_uint.exit.us.us ], [ %16, %for.cond75.preheader.us.us ]
   %src73.0.val.us.us = load i16, ptr %src73.0190.us.us, align 1
   %incdec.ptr81.us.us = getelementptr inbounds i8, ptr %src73.0190.us.us, i64 2
@@ -594,7 +594,7 @@ half_to_uint.exit.us.us:                          ; preds = %if.then4.i.us.us, %
 
 for.body63.us.us:                                 ; preds = %for.cond60.preheader.us.us, %half_to_float.exit.us.us
   %s59.0195.us.us = phi i32 [ %inc70.us.us, %half_to_float.exit.us.us ], [ 0, %for.cond60.preheader.us.us ]
-  %src58.0194.us.us = phi ptr [ %incdec.ptr65.us.us, %half_to_float.exit.us.us ], [ %srcbuffer.2204.us.us, %for.cond60.preheader.us.us ]
+  %src58.0194.us.us = phi ptr [ %incdec.ptr65.us.us, %half_to_float.exit.us.us ], [ %srcbuffer.3204.us.us, %for.cond60.preheader.us.us ]
   %cdata.1193.us.us = phi ptr [ %add.ptr68.us.us, %half_to_float.exit.us.us ], [ %16, %for.cond60.preheader.us.us ]
   %src58.0.val.us.us = load i16, ptr %src58.0194.us.us, align 1
   %incdec.ptr65.us.us = getelementptr inbounds i8, ptr %src58.0194.us.us, i64 2
@@ -643,7 +643,7 @@ half_to_float.exit.us.us:                         ; preds = %if.then10.i.i.us.us
 
 for.body51.us.us:                                 ; preds = %for.cond48.preheader.us.us, %for.body51.us.us
   %s.0199.us.us = phi i32 [ %inc55.us.us, %for.body51.us.us ], [ 0, %for.cond48.preheader.us.us ]
-  %src.0198.us.us = phi ptr [ %incdec.ptr.us.us, %for.body51.us.us ], [ %srcbuffer.2204.us.us, %for.cond48.preheader.us.us ]
+  %src.0198.us.us = phi ptr [ %incdec.ptr.us.us, %for.body51.us.us ], [ %srcbuffer.3204.us.us, %for.cond48.preheader.us.us ]
   %cdata.0197.us.us = phi ptr [ %add.ptr53.us.us, %for.body51.us.us ], [ %16, %for.cond48.preheader.us.us ]
   %src.0.val.us.us = load i16, ptr %src.0198.us.us, align 1
   store i16 %src.0.val.us.us, ptr %cdata.0197.us.us, align 2
@@ -656,7 +656,7 @@ for.body51.us.us:                                 ; preds = %for.cond48.preheade
 if.end191.us.us:                                  ; preds = %for.body179.us.us, %for.body163.us.us, %uint_to_half.exit.us.us, %float_to_uint_int.exit.us.us, %for.body112.us.us, %float_to_half_int.exit.us.us, %half_to_uint.exit.us.us, %half_to_float.exit.us.us, %for.body51.us.us, %for.cond176.preheader.us.us, %for.cond160.preheader.us.us, %for.cond144.preheader.us.us, %for.cond123.preheader.us.us, %for.cond109.preheader.us.us, %for.cond94.preheader.us.us, %for.cond75.preheader.us.us, %for.cond60.preheader.us.us, %for.cond48.preheader.us.us, %for.body31.us.us
   %mul192.us.us = mul nsw i32 %spec.select.us.us, %conv6.us.us
   %idx.ext193.us.us = sext i32 %mul192.us.us to i64
-  %add.ptr194.us.us = getelementptr inbounds i8, ptr %srcbuffer.2204.us.us, i64 %idx.ext193.us.us
+  %add.ptr194.us.us = getelementptr inbounds i8, ptr %srcbuffer.3204.us.us, i64 %idx.ext193.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond301.not, label %for.inc198.us.us.loopexit, label %for.body31.us.us, !llvm.loop !15
@@ -695,7 +695,7 @@ for.inc198.us.us.loopexit:                        ; preds = %if.end191.us.us
 
 for.inc198.us.us:                                 ; preds = %for.inc198.us.us.loopexit, %if.end.us.us
   %44 = phi i16 [ %8, %if.end.us.us ], [ %.pre315, %for.inc198.us.us.loopexit ]
-  %srcbuffer.3.us.us = phi ptr [ %add.ptr19.us.us, %if.end.us.us ], [ %add.ptr194.us.us, %for.inc198.us.us.loopexit ]
+  %srcbuffer.2.us.us = phi ptr [ %add.ptr19.us.us, %if.end.us.us ], [ %add.ptr194.us.us, %for.inc198.us.us.loopexit ]
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %45 = sext i16 %44 to i64
   %cmp3.us.us = icmp slt i64 %indvars.iv.next308, %45
@@ -785,8 +785,8 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
 for.end208.us:                                    ; preds = %for.inc206.us.us, %for.cond2.preheader.us
   %6 = phi i16 [ %4, %for.cond2.preheader.us ], [ %43, %for.inc206.us.us ]
   %7 = phi i16 [ %5, %for.cond2.preheader.us ], [ %43, %for.inc206.us.us ]
-  %totsamps.1.lcssa.us = phi i64 [ %totsamps.0280.us, %for.cond2.preheader.us ], [ %totsamps.4.us.us, %for.inc206.us.us ]
-  %srcbuffer.1.lcssa.us = phi ptr [ %srcbuffer.0284.us, %for.cond2.preheader.us ], [ %srcbuffer.3.us.us, %for.inc206.us.us ]
+  %totsamps.1.lcssa.us = phi i64 [ %totsamps.0280.us, %for.cond2.preheader.us ], [ %totsamps.2.us.us, %for.inc206.us.us ]
+  %srcbuffer.1.lcssa.us = phi ptr [ %srcbuffer.0284.us, %for.cond2.preheader.us ], [ %srcbuffer.2.us.us, %for.inc206.us.us ]
   %add.ptr210.us = getelementptr inbounds i32, ptr %sampbuffer.0281.us, i64 %idx.ext209
   %inc212.us = add nuw nsw i32 %y.0279.us, 1
   %exitcond339.not = icmp eq i32 %inc212.us, %3
@@ -801,8 +801,8 @@ for.body5.us.us:                                  ; preds = %for.inc206.us.us, %
   %8 = phi i16 [ %43, %for.inc206.us.us ], [ %4, %for.body5.lr.ph.us ]
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %for.inc206.us.us ], [ 0, %for.body5.lr.ph.us ]
   %conv229.us.us = phi i64 [ %conv.us.us, %for.inc206.us.us ], [ %conv224.us, %for.body5.lr.ph.us ]
-  %srcbuffer.1228.us.us = phi ptr [ %srcbuffer.3.us.us, %for.inc206.us.us ], [ %srcbuffer.0284.us, %for.body5.lr.ph.us ]
-  %totsamps.1227.us.us = phi i64 [ %totsamps.4.us.us, %for.inc206.us.us ], [ %totsamps.0280.us, %for.body5.lr.ph.us ]
+  %srcbuffer.1228.us.us = phi ptr [ %srcbuffer.2.us.us, %for.inc206.us.us ], [ %srcbuffer.0284.us, %for.body5.lr.ph.us ]
+  %totsamps.1227.us.us = phi i64 [ %totsamps.2.us.us, %for.inc206.us.us ], [ %totsamps.0280.us, %for.body5.lr.ph.us ]
   %9 = load ptr, ptr %decode, align 8
   %add.ptr.us.us = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %9, i64 %indvars.iv336
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
@@ -828,9 +828,9 @@ if.end30.us.us:                                   ; preds = %for.body5.us.us
 
 for.body38.us.us:                                 ; preds = %sw.epilog194.us.us, %if.end30.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %sw.epilog194.us.us ], [ 0, %if.end30.us.us ]
-  %srcbuffer.2216.us.us = phi ptr [ %add.ptr197.us.us, %sw.epilog194.us.us ], [ %srcbuffer.1228.us.us, %if.end30.us.us ]
-  %cdata.0215.us.us = phi ptr [ %cdata.10.us.us, %sw.epilog194.us.us ], [ %add.ptr33.us.us, %if.end30.us.us ]
-  %totsamps.2214.us.us = phi i64 [ %totsamps.3.us.us, %sw.epilog194.us.us ], [ %totsamps.1227.us.us, %if.end30.us.us ]
+  %srcbuffer.3216.us.us = phi ptr [ %add.ptr197.us.us, %sw.epilog194.us.us ], [ %srcbuffer.1228.us.us, %if.end30.us.us ]
+  %cdata.0215.us.us = phi ptr [ %cdata.4.us.us, %sw.epilog194.us.us ], [ %add.ptr33.us.us, %if.end30.us.us ]
+  %totsamps.3214.us.us = phi i64 [ %totsamps.4.us.us, %sw.epilog194.us.us ], [ %totsamps.1227.us.us, %if.end30.us.us ]
   %prevsamps.2212.us.us = phi i32 [ %spec.select104.us.us, %sw.epilog194.us.us ], [ 0, %if.end30.us.us ]
   %arrayidx40.us.us = getelementptr inbounds i32, ptr %sampbuffer.0281.us, i64 %indvars.iv
   %15 = load i32, ptr %arrayidx40.us.us, align 4
@@ -857,33 +857,33 @@ sw.bb142.us.us:                                   ; preds = %for.body38.us.us
 
 for.body183.us.us:                                ; preds = %for.cond180.preheader.us.us, %for.body183.us.us
   %s179.0170.us.us = phi i32 [ %inc189.us.us, %for.body183.us.us ], [ 0, %for.cond180.preheader.us.us ]
-  %src178.0169.us.us = phi ptr [ %incdec.ptr185.us.us, %for.body183.us.us ], [ %srcbuffer.2216.us.us, %for.cond180.preheader.us.us ]
-  %cdata.9168.us.us = phi ptr [ %add.ptr187.us.us, %for.body183.us.us ], [ %cdata.0215.us.us, %for.cond180.preheader.us.us ]
+  %src178.0169.us.us = phi ptr [ %incdec.ptr185.us.us, %for.body183.us.us ], [ %srcbuffer.3216.us.us, %for.cond180.preheader.us.us ]
+  %cdata.10168.us.us = phi ptr [ %add.ptr187.us.us, %for.body183.us.us ], [ %cdata.0215.us.us, %for.cond180.preheader.us.us ]
   %src178.0.val.us.us = load i32, ptr %src178.0169.us.us, align 1
-  store i32 %src178.0.val.us.us, ptr %cdata.9168.us.us, align 4
+  store i32 %src178.0.val.us.us, ptr %cdata.10168.us.us, align 4
   %incdec.ptr185.us.us = getelementptr inbounds i8, ptr %src178.0169.us.us, i64 4
-  %add.ptr187.us.us = getelementptr inbounds i8, ptr %cdata.9168.us.us, i64 %conv31.us.us
+  %add.ptr187.us.us = getelementptr inbounds i8, ptr %cdata.10168.us.us, i64 %conv31.us.us
   %inc189.us.us = add nuw nsw i32 %s179.0170.us.us, 1
   %exitcond.not = icmp eq i32 %inc189.us.us, %spec.select105.us.us
   br i1 %exitcond.not, label %sw.epilog194.us.us, label %for.body183.us.us, !llvm.loop !19
 
 for.body167.us.us:                                ; preds = %for.cond164.preheader.us.us, %for.body167.us.us
   %s163.0174.us.us = phi i32 [ %inc175.us.us, %for.body167.us.us ], [ 0, %for.cond164.preheader.us.us ]
-  %src162.0173.us.us = phi ptr [ %incdec.ptr170.us.us, %for.body167.us.us ], [ %srcbuffer.2216.us.us, %for.cond164.preheader.us.us ]
-  %cdata.8172.us.us = phi ptr [ %add.ptr173.us.us, %for.body167.us.us ], [ %cdata.0215.us.us, %for.cond164.preheader.us.us ]
+  %src162.0173.us.us = phi ptr [ %incdec.ptr170.us.us, %for.body167.us.us ], [ %srcbuffer.3216.us.us, %for.cond164.preheader.us.us ]
+  %cdata.9172.us.us = phi ptr [ %add.ptr173.us.us, %for.body167.us.us ], [ %cdata.0215.us.us, %for.cond164.preheader.us.us ]
   %src162.0.val.us.us = load i32, ptr %src162.0173.us.us, align 1
   %incdec.ptr170.us.us = getelementptr inbounds i8, ptr %src162.0173.us.us, i64 4
   %conv.i152.us.us = uitofp i32 %src162.0.val.us.us to float
-  store float %conv.i152.us.us, ptr %cdata.8172.us.us, align 4
-  %add.ptr173.us.us = getelementptr inbounds i8, ptr %cdata.8172.us.us, i64 %conv31.us.us
+  store float %conv.i152.us.us, ptr %cdata.9172.us.us, align 4
+  %add.ptr173.us.us = getelementptr inbounds i8, ptr %cdata.9172.us.us, i64 %conv31.us.us
   %inc175.us.us = add nuw nsw i32 %s163.0174.us.us, 1
   %exitcond321.not = icmp eq i32 %inc175.us.us, %spec.select105.us.us
   br i1 %exitcond321.not, label %sw.epilog194.us.us, label %for.body167.us.us, !llvm.loop !20
 
 for.body151.us.us:                                ; preds = %for.cond148.preheader.us.us, %uint_to_half.exit.us.us
   %s147.0179.us.us = phi i32 [ %inc159.us.us, %uint_to_half.exit.us.us ], [ 0, %for.cond148.preheader.us.us ]
-  %src146.0178.us.us = phi ptr [ %incdec.ptr154.us.us, %uint_to_half.exit.us.us ], [ %srcbuffer.2216.us.us, %for.cond148.preheader.us.us ]
-  %cdata.7177.us.us = phi ptr [ %add.ptr157.us.us, %uint_to_half.exit.us.us ], [ %cdata.0215.us.us, %for.cond148.preheader.us.us ]
+  %src146.0178.us.us = phi ptr [ %incdec.ptr154.us.us, %uint_to_half.exit.us.us ], [ %srcbuffer.3216.us.us, %for.cond148.preheader.us.us ]
+  %cdata.8177.us.us = phi ptr [ %add.ptr157.us.us, %uint_to_half.exit.us.us ], [ %cdata.0215.us.us, %for.cond148.preheader.us.us ]
   %src146.0.val.us.us = load i32, ptr %src146.0178.us.us, align 1
   %incdec.ptr154.us.us = getelementptr inbounds i8, ptr %src146.0178.us.us, i64 4
   %cmp.i110.us.us = icmp ugt i32 %src146.0.val.us.us, 65504
@@ -955,8 +955,8 @@ if.end.i.i.i147.us.us:                            ; preds = %if.then6.i.i.i145.u
 
 uint_to_half.exit.us.us:                          ; preds = %if.end.i.i.i147.us.us, %if.then6.i.i.i145.us.us, %if.end33.i.i.i138.us.us, %if.end24.i.i.i136.us.us, %if.then65.i.i.i131.us.us, %lor.lhs.false.i.i.i126.us.us, %if.end43.i.i.i114.us.us, %for.body151.us.us
   %retval.0.i133.us.us = phi i16 [ 31744, %for.body151.us.us ], [ %conv23.i.i.i151.us.us, %if.end.i.i.i147.us.us ], [ %conv42.i.i.i144.us.us, %if.end33.i.i.i138.us.us ], [ 31744, %if.then6.i.i.i145.us.us ], [ 0, %if.end43.i.i.i114.us.us ], [ %inc.i.i.i132.us.us, %if.then65.i.i.i131.us.us ], [ %conv56.i.i.i124.us.us, %lor.lhs.false.i.i.i126.us.us ], [ 31744, %if.end24.i.i.i136.us.us ]
-  store i16 %retval.0.i133.us.us, ptr %cdata.7177.us.us, align 2
-  %add.ptr157.us.us = getelementptr inbounds i8, ptr %cdata.7177.us.us, i64 %conv31.us.us
+  store i16 %retval.0.i133.us.us, ptr %cdata.8177.us.us, align 2
+  %add.ptr157.us.us = getelementptr inbounds i8, ptr %cdata.8177.us.us, i64 %conv31.us.us
   %inc159.us.us = add nuw nsw i32 %s147.0179.us.us, 1
   %exitcond322.not = icmp eq i32 %inc159.us.us, %spec.select105.us.us
   br i1 %exitcond322.not, label %sw.epilog194.us.us, label %for.body151.us.us, !llvm.loop !21
@@ -971,8 +971,8 @@ sw.bb92.us.us:                                    ; preds = %for.body38.us.us
 
 for.body130.us.us:                                ; preds = %for.cond127.preheader.us.us, %float_to_uint_int.exit.us.us
   %s126.0184.us.us = phi i32 [ %inc138.us.us, %float_to_uint_int.exit.us.us ], [ 0, %for.cond127.preheader.us.us ]
-  %src125.0183.us.us = phi ptr [ %incdec.ptr133.us.us, %float_to_uint_int.exit.us.us ], [ %srcbuffer.2216.us.us, %for.cond127.preheader.us.us ]
-  %cdata.6182.us.us = phi ptr [ %add.ptr136.us.us, %float_to_uint_int.exit.us.us ], [ %cdata.0215.us.us, %for.cond127.preheader.us.us ]
+  %src125.0183.us.us = phi ptr [ %incdec.ptr133.us.us, %float_to_uint_int.exit.us.us ], [ %srcbuffer.3216.us.us, %for.cond127.preheader.us.us ]
+  %cdata.7182.us.us = phi ptr [ %add.ptr136.us.us, %float_to_uint_int.exit.us.us ], [ %cdata.0215.us.us, %for.cond127.preheader.us.us ]
   %src125.0.val153.us.us = load float, ptr %src125.0183.us.us, align 1
   %incdec.ptr133.us.us = getelementptr inbounds i8, ptr %src125.0183.us.us, i64 4
   %or.cond5.i.i.us.us = fcmp ult float %src125.0.val153.us.us, 0.000000e+00
@@ -989,28 +989,28 @@ if.end.i.i.us.us:                                 ; preds = %for.body130.us.us
 
 float_to_uint_int.exit.us.us:                     ; preds = %if.end.i.i.us.us, %for.body130.us.us
   %retval.0.i.i.us.us = phi i32 [ 0, %for.body130.us.us ], [ %spec.select.i.i.us.us, %if.end.i.i.us.us ]
-  store i32 %retval.0.i.i.us.us, ptr %cdata.6182.us.us, align 4
-  %add.ptr136.us.us = getelementptr inbounds i8, ptr %cdata.6182.us.us, i64 %conv31.us.us
+  store i32 %retval.0.i.i.us.us, ptr %cdata.7182.us.us, align 4
+  %add.ptr136.us.us = getelementptr inbounds i8, ptr %cdata.7182.us.us, i64 %conv31.us.us
   %inc138.us.us = add nuw nsw i32 %s126.0184.us.us, 1
   %exitcond323.not = icmp eq i32 %inc138.us.us, %spec.select105.us.us
   br i1 %exitcond323.not, label %sw.epilog194.us.us, label %for.body130.us.us, !llvm.loop !22
 
 for.body116.us.us:                                ; preds = %for.cond113.preheader.us.us, %for.body116.us.us
   %s112.0189.us.us = phi i32 [ %inc122.us.us, %for.body116.us.us ], [ 0, %for.cond113.preheader.us.us ]
-  %src111.0188.us.us = phi ptr [ %incdec.ptr118.us.us, %for.body116.us.us ], [ %srcbuffer.2216.us.us, %for.cond113.preheader.us.us ]
-  %cdata.5187.us.us = phi ptr [ %add.ptr120.us.us, %for.body116.us.us ], [ %cdata.0215.us.us, %for.cond113.preheader.us.us ]
+  %src111.0188.us.us = phi ptr [ %incdec.ptr118.us.us, %for.body116.us.us ], [ %srcbuffer.3216.us.us, %for.cond113.preheader.us.us ]
+  %cdata.6187.us.us = phi ptr [ %add.ptr120.us.us, %for.body116.us.us ], [ %cdata.0215.us.us, %for.cond113.preheader.us.us ]
   %src111.0.val.us.us = load i32, ptr %src111.0188.us.us, align 1
-  store i32 %src111.0.val.us.us, ptr %cdata.5187.us.us, align 4
+  store i32 %src111.0.val.us.us, ptr %cdata.6187.us.us, align 4
   %incdec.ptr118.us.us = getelementptr inbounds i8, ptr %src111.0188.us.us, i64 4
-  %add.ptr120.us.us = getelementptr inbounds i8, ptr %cdata.5187.us.us, i64 %conv31.us.us
+  %add.ptr120.us.us = getelementptr inbounds i8, ptr %cdata.6187.us.us, i64 %conv31.us.us
   %inc122.us.us = add nuw nsw i32 %s112.0189.us.us, 1
   %exitcond324.not = icmp eq i32 %inc122.us.us, %spec.select105.us.us
   br i1 %exitcond324.not, label %sw.epilog194.us.us, label %for.body116.us.us, !llvm.loop !23
 
 for.body101.us.us:                                ; preds = %for.cond98.preheader.us.us, %float_to_half_int.exit.us.us
-  %cdata.4194.us.us = phi ptr [ %add.ptr106.us.us, %float_to_half_int.exit.us.us ], [ %cdata.0215.us.us, %for.cond98.preheader.us.us ]
+  %cdata.5194.us.us = phi ptr [ %add.ptr106.us.us, %float_to_half_int.exit.us.us ], [ %cdata.0215.us.us, %for.cond98.preheader.us.us ]
   %s97.0193.us.us = phi i32 [ %inc108.us.us, %float_to_half_int.exit.us.us ], [ 0, %for.cond98.preheader.us.us ]
-  %src96.0192.us.us = phi ptr [ %incdec.ptr103.us.us, %float_to_half_int.exit.us.us ], [ %srcbuffer.2216.us.us, %for.cond98.preheader.us.us ]
+  %src96.0192.us.us = phi ptr [ %incdec.ptr103.us.us, %float_to_half_int.exit.us.us ], [ %srcbuffer.3216.us.us, %for.cond98.preheader.us.us ]
   %src96.0.val.us.us = load i32, ptr %src96.0192.us.us, align 1
   %incdec.ptr103.us.us = getelementptr inbounds i8, ptr %src96.0192.us.us, i64 4
   %26 = bitcast i32 %src96.0.val.us.us to float
@@ -1091,8 +1091,8 @@ if.end.i.i.i.us.us:                               ; preds = %if.then6.i.i.i.us.u
 
 float_to_half_int.exit.us.us:                     ; preds = %if.end.i.i.i.us.us, %if.then6.i.i.i.us.us, %if.then29.i.i.i.us.us, %if.end33.i.i.i.us.us, %if.then65.i.i.i.us.us, %lor.lhs.false.i.i.i.us.us, %if.end43.i.i.i.us.us
   %retval.0.i.i.i.us.us = phi i16 [ %conv23.i.i.i.us.us, %if.end.i.i.i.us.us ], [ %conv32.i.i.i.us.us, %if.then29.i.i.i.us.us ], [ %conv42.i.i.i.us.us, %if.end33.i.i.i.us.us ], [ %conv8.i.i.i.us.us, %if.then6.i.i.i.us.us ], [ %conv.i.i.i.us.us, %if.end43.i.i.i.us.us ], [ %inc.i.i.i.us.us, %if.then65.i.i.i.us.us ], [ %conv56.i.i.i.us.us, %lor.lhs.false.i.i.i.us.us ]
-  store i16 %retval.0.i.i.i.us.us, ptr %cdata.4194.us.us, align 2
-  %add.ptr106.us.us = getelementptr inbounds i8, ptr %cdata.4194.us.us, i64 %conv31.us.us
+  store i16 %retval.0.i.i.i.us.us, ptr %cdata.5194.us.us, align 2
+  %add.ptr106.us.us = getelementptr inbounds i8, ptr %cdata.5194.us.us, i64 %conv31.us.us
   %inc108.us.us = add nuw nsw i32 %s97.0193.us.us, 1
   %exitcond325.not = icmp eq i32 %inc108.us.us, %spec.select105.us.us
   br i1 %exitcond325.not, label %sw.epilog194.us.us, label %for.body101.us.us, !llvm.loop !24
@@ -1108,7 +1108,7 @@ sw.bb.us.us:                                      ; preds = %for.body38.us.us
 for.body82.us.us:                                 ; preds = %for.cond79.preheader.us.us, %half_to_uint.exit.us.us
   %cdata.3199.us.us = phi ptr [ %add.ptr88.us.us, %half_to_uint.exit.us.us ], [ %cdata.0215.us.us, %for.cond79.preheader.us.us ]
   %s78.0198.us.us = phi i32 [ %inc90.us.us, %half_to_uint.exit.us.us ], [ 0, %for.cond79.preheader.us.us ]
-  %src77.0197.us.us = phi ptr [ %incdec.ptr85.us.us, %half_to_uint.exit.us.us ], [ %srcbuffer.2216.us.us, %for.cond79.preheader.us.us ]
+  %src77.0197.us.us = phi ptr [ %incdec.ptr85.us.us, %half_to_uint.exit.us.us ], [ %srcbuffer.3216.us.us, %for.cond79.preheader.us.us ]
   %src77.0.val.us.us = load i16, ptr %src77.0197.us.us, align 1
   %incdec.ptr85.us.us = getelementptr inbounds i8, ptr %src77.0197.us.us, i64 2
   %conv.i.us.us = zext i16 %src77.0.val.us.us to i32
@@ -1173,7 +1173,7 @@ half_to_uint.exit.us.us:                          ; preds = %if.then4.i.us.us, %
 for.body67.us.us:                                 ; preds = %for.cond64.preheader.us.us, %half_to_float.exit.us.us
   %cdata.2204.us.us = phi ptr [ %add.ptr72.us.us, %half_to_float.exit.us.us ], [ %cdata.0215.us.us, %for.cond64.preheader.us.us ]
   %s63.0203.us.us = phi i32 [ %inc74.us.us, %half_to_float.exit.us.us ], [ 0, %for.cond64.preheader.us.us ]
-  %src62.0202.us.us = phi ptr [ %incdec.ptr69.us.us, %half_to_float.exit.us.us ], [ %srcbuffer.2216.us.us, %for.cond64.preheader.us.us ]
+  %src62.0202.us.us = phi ptr [ %incdec.ptr69.us.us, %half_to_float.exit.us.us ], [ %srcbuffer.3216.us.us, %for.cond64.preheader.us.us ]
   %src62.0.val.us.us = load i16, ptr %src62.0202.us.us, align 1
   %incdec.ptr69.us.us = getelementptr inbounds i8, ptr %src62.0202.us.us, i64 2
   %conv.i.i.us.us = zext i16 %src62.0.val.us.us to i32
@@ -1220,13 +1220,13 @@ half_to_float.exit.us.us:                         ; preds = %if.then10.i.i.us.us
   br i1 %exitcond327.not, label %sw.epilog194.us.us, label %for.body67.us.us, !llvm.loop !26
 
 sw.epilog194.us.us:                               ; preds = %for.body183.us.us, %for.body167.us.us, %uint_to_half.exit.us.us, %float_to_uint_int.exit.us.us, %for.body116.us.us, %float_to_half_int.exit.us.us, %half_to_uint.exit.us.us, %half_to_float.exit.us.us, %for.body55.us.us, %for.cond180.preheader.us.us, %for.cond164.preheader.us.us, %for.cond148.preheader.us.us, %for.cond127.preheader.us.us, %for.cond113.preheader.us.us, %for.cond98.preheader.us.us, %for.cond79.preheader.us.us, %for.cond64.preheader.us.us, %for.cond52.preheader.us.us
-  %cdata.10.us.us = phi ptr [ %cdata.0215.us.us, %for.cond52.preheader.us.us ], [ %cdata.0215.us.us, %for.cond64.preheader.us.us ], [ %cdata.0215.us.us, %for.cond79.preheader.us.us ], [ %cdata.0215.us.us, %for.cond98.preheader.us.us ], [ %cdata.0215.us.us, %for.cond113.preheader.us.us ], [ %cdata.0215.us.us, %for.cond127.preheader.us.us ], [ %cdata.0215.us.us, %for.cond148.preheader.us.us ], [ %cdata.0215.us.us, %for.cond164.preheader.us.us ], [ %cdata.0215.us.us, %for.cond180.preheader.us.us ], [ %add.ptr57.us.us, %for.body55.us.us ], [ %add.ptr72.us.us, %half_to_float.exit.us.us ], [ %add.ptr88.us.us, %half_to_uint.exit.us.us ], [ %add.ptr106.us.us, %float_to_half_int.exit.us.us ], [ %add.ptr120.us.us, %for.body116.us.us ], [ %add.ptr136.us.us, %float_to_uint_int.exit.us.us ], [ %add.ptr157.us.us, %uint_to_half.exit.us.us ], [ %add.ptr173.us.us, %for.body167.us.us ], [ %add.ptr187.us.us, %for.body183.us.us ]
+  %cdata.4.us.us = phi ptr [ %cdata.0215.us.us, %for.cond52.preheader.us.us ], [ %cdata.0215.us.us, %for.cond64.preheader.us.us ], [ %cdata.0215.us.us, %for.cond79.preheader.us.us ], [ %cdata.0215.us.us, %for.cond98.preheader.us.us ], [ %cdata.0215.us.us, %for.cond113.preheader.us.us ], [ %cdata.0215.us.us, %for.cond127.preheader.us.us ], [ %cdata.0215.us.us, %for.cond148.preheader.us.us ], [ %cdata.0215.us.us, %for.cond164.preheader.us.us ], [ %cdata.0215.us.us, %for.cond180.preheader.us.us ], [ %add.ptr57.us.us, %for.body55.us.us ], [ %add.ptr72.us.us, %half_to_float.exit.us.us ], [ %add.ptr88.us.us, %half_to_uint.exit.us.us ], [ %add.ptr106.us.us, %float_to_half_int.exit.us.us ], [ %add.ptr120.us.us, %for.body116.us.us ], [ %add.ptr136.us.us, %float_to_uint_int.exit.us.us ], [ %add.ptr157.us.us, %uint_to_half.exit.us.us ], [ %add.ptr173.us.us, %for.body167.us.us ], [ %add.ptr187.us.us, %for.body183.us.us ]
   %mul195.us.us = mul nsw i32 %spec.select105.us.us, %conv10.us.us
   %idx.ext196.us.us = sext i32 %mul195.us.us to i64
-  %add.ptr197.us.us = getelementptr inbounds i8, ptr %srcbuffer.2216.us.us, i64 %idx.ext196.us.us
+  %add.ptr197.us.us = getelementptr inbounds i8, ptr %srcbuffer.3216.us.us, i64 %idx.ext196.us.us
   %38 = sext i32 %spec.select105.us.us to i64
   %add201.us.us = select i1 %cmp8.us.us, i64 %38, i64 0
-  %totsamps.3.us.us = add i64 %totsamps.2214.us.us, %add201.us.us
+  %totsamps.4.us.us = add i64 %totsamps.3214.us.us, %add201.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond330.not, label %for.inc206.us.us.loopexit, label %for.body38.us.us, !llvm.loop !27
@@ -1234,7 +1234,7 @@ sw.epilog194.us.us:                               ; preds = %for.body183.us.us, 
 for.body55.us.us:                                 ; preds = %for.cond52.preheader.us.us, %for.body55.us.us
   %cdata.1209.us.us = phi ptr [ %add.ptr57.us.us, %for.body55.us.us ], [ %cdata.0215.us.us, %for.cond52.preheader.us.us ]
   %s.0208.us.us = phi i32 [ %inc59.us.us, %for.body55.us.us ], [ 0, %for.cond52.preheader.us.us ]
-  %src.0207.us.us = phi ptr [ %incdec.ptr.us.us, %for.body55.us.us ], [ %srcbuffer.2216.us.us, %for.cond52.preheader.us.us ]
+  %src.0207.us.us = phi ptr [ %incdec.ptr.us.us, %for.body55.us.us ], [ %srcbuffer.3216.us.us, %for.cond52.preheader.us.us ]
   %src.0.val.us.us = load i16, ptr %src.0207.us.us, align 1
   store i16 %src.0.val.us.us, ptr %cdata.1209.us.us, align 2
   %incdec.ptr.us.us = getelementptr inbounds i8, ptr %src.0207.us.us, i64 2
@@ -1279,8 +1279,8 @@ for.inc206.us.us.loopexit:                        ; preds = %sw.epilog194.us.us
 
 for.inc206.us.us:                                 ; preds = %for.inc206.us.us.loopexit, %if.end.us.us
   %43 = phi i16 [ %8, %if.end.us.us ], [ %.pre340, %for.inc206.us.us.loopexit ]
-  %totsamps.4.us.us = phi i64 [ %spec.select.us.us, %if.end.us.us ], [ %totsamps.3.us.us, %for.inc206.us.us.loopexit ]
-  %srcbuffer.3.us.us = phi ptr [ %add.ptr24.us.us, %if.end.us.us ], [ %add.ptr197.us.us, %for.inc206.us.us.loopexit ]
+  %totsamps.2.us.us = phi i64 [ %spec.select.us.us, %if.end.us.us ], [ %totsamps.4.us.us, %for.inc206.us.us.loopexit ]
+  %srcbuffer.2.us.us = phi ptr [ %add.ptr24.us.us, %if.end.us.us ], [ %add.ptr197.us.us, %for.inc206.us.us.loopexit ]
   %conv.us.us = sext i16 %43 to i64
   %44 = sext i16 %43 to i64
   %cmp3.us.us = icmp slt i64 %indvars.iv.next337, %44

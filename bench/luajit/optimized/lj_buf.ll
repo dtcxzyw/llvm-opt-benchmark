@@ -706,17 +706,17 @@ if.else:                                          ; preds = %lj_buf_more.exit
   br label %do.body19
 
 do.body19:                                        ; preds = %do.cond28, %if.else
-  %w.1 = phi ptr [ %retval.i.0, %if.else ], [ %incdec.ptr23, %do.cond28 ]
+  %w.2 = phi ptr [ %retval.i.0, %if.else ], [ %incdec.ptr23, %do.cond28 ]
   %rep.addr.1 = phi i32 [ %rep, %if.else ], [ %dec29, %do.cond28 ]
   br label %do.body21
 
 do.body21:                                        ; preds = %do.body21, %do.body19
-  %w.2 = phi ptr [ %w.1, %do.body19 ], [ %incdec.ptr23, %do.body21 ]
+  %w.3 = phi ptr [ %w.2, %do.body19 ], [ %incdec.ptr23, %do.body21 ]
   %q.0 = phi ptr [ %add.ptr, %do.body19 ], [ %incdec.ptr22, %do.body21 ]
   %incdec.ptr22 = getelementptr inbounds i8, ptr %q.0, i64 1
   %7 = load i8, ptr %q.0, align 1
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %w.2, i64 1
-  store i8 %7, ptr %w.2, align 1
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %w.3, i64 1
+  store i8 %7, ptr %w.3, align 1
   %cmp25 = icmp ult ptr %incdec.ptr22, %add.ptr18
   br i1 %cmp25, label %do.body21, label %do.cond28, !llvm.loop !9
 
@@ -726,8 +726,8 @@ do.cond28:                                        ; preds = %do.body21
   br i1 %cmp30, label %do.body19, label %if.end33, !llvm.loop !10
 
 if.end33:                                         ; preds = %do.cond28, %if.then12
-  %w.3 = phi ptr [ %scevgep, %if.then12 ], [ %incdec.ptr23, %do.cond28 ]
-  store ptr %w.3, ptr %sb, align 8
+  %w.1 = phi ptr [ %scevgep, %if.then12 ], [ %incdec.ptr23, %do.cond28 ]
+  store ptr %w.1, ptr %sb, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end33, %entry
@@ -974,24 +974,24 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
-  %w.0 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr6, %do.body ]
-  %v.0 = phi i32 [ %and, %if.then ], [ %or, %do.body ]
+  %w.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr6, %do.body ]
+  %v.1 = phi i32 [ %and, %if.then ], [ %or, %do.body ]
   %sh.0 = phi i32 [ 0, %if.then ], [ %add, %do.body ]
-  %2 = load i8, ptr %w.0, align 1
+  %2 = load i8, ptr %w.1, align 1
   %3 = and i8 %2, 127
   %and5 = zext nneg i8 %3 to i32
   %add = add nuw nsw i32 %sh.0, 7
   %shl = shl i32 %and5, %add
-  %or = or i32 %shl, %v.0
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %w.0, i64 1
+  %or = or i32 %shl, %v.1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %w.1, i64 1
   %cmp8 = icmp slt i8 %2, 0
   br i1 %cmp8, label %do.body, label %if.end, !llvm.loop !11
 
 if.end:                                           ; preds = %do.body, %entry
-  %w.1 = phi ptr [ %incdec.ptr, %entry ], [ %incdec.ptr6, %do.body ]
-  %v.1 = phi i32 [ %conv, %entry ], [ %or, %do.body ]
-  store ptr %w.1, ptr %pp, align 8
-  ret i32 %v.1
+  %w.0 = phi ptr [ %incdec.ptr, %entry ], [ %incdec.ptr6, %do.body ]
+  %v.0 = phi i32 [ %conv, %entry ], [ %or, %do.body ]
+  store ptr %w.0, ptr %pp, align 8
+  ret i32 %v.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

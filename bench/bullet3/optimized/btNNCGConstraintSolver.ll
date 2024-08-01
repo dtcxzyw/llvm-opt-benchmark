@@ -1080,7 +1080,7 @@ for.body195.lr.ph:                                ; preds = %if.then185
 
 for.body195:                                      ; preds = %for.body195.lr.ph, %for.inc281
   %indvars.iv1167 = phi i64 [ 0, %for.body195.lr.ph ], [ %indvars.iv.next1168, %for.inc281 ]
-  %deltaflengthsqr.21096 = phi float [ %deltaflengthsqr.0.lcssa, %for.body195.lr.ph ], [ %deltaflengthsqr.4, %for.inc281 ]
+  %deltaflengthsqr.31096 = phi float [ %deltaflengthsqr.0.lcssa, %for.body195.lr.ph ], [ %deltaflengthsqr.5, %for.inc281 ]
   %131 = load ptr, ptr %m_data.i415, align 8
   %arrayidx.i417 = getelementptr inbounds i32, ptr %131, i64 %indvars.iv1167
   %132 = load i32, ptr %arrayidx.i417, align 4
@@ -1100,7 +1100,7 @@ for.body195:                                      ; preds = %for.body195.lr.ph, 
   %137 = load ptr, ptr %m_data.i427, align 8
   %arrayidx.i429 = getelementptr inbounds float, ptr %137, i64 %indvars.iv1167
   store float %call207, ptr %arrayidx.i429, align 4
-  %138 = tail call float @llvm.fmuladd.f32(float %call207, float %call207, float %deltaflengthsqr.21096)
+  %138 = tail call float @llvm.fmuladd.f32(float %call207, float %call207, float %deltaflengthsqr.31096)
   %m_appliedImpulse210 = getelementptr inbounds i8, ptr %arrayidx.i420, i64 100
   %139 = load float, ptr %m_appliedImpulse210, align 4
   %140 = trunc nuw nsw i64 %indvars.iv1167 to i32
@@ -1196,7 +1196,7 @@ if.else273:                                       ; preds = %if.end239.thread
   br label %for.inc281
 
 for.inc281:                                       ; preds = %if.end239.thread, %if.then252, %if.else273, %if.end239
-  %deltaflengthsqr.4 = phi float [ %171, %if.then252 ], [ %138, %if.else273 ], [ %155, %if.end239 ], [ %138, %if.end239.thread ]
+  %deltaflengthsqr.5 = phi float [ %171, %if.then252 ], [ %138, %if.else273 ], [ %155, %if.end239 ], [ %138, %if.end239.thread ]
   %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
   %exitcond1171.not = icmp eq i64 %indvars.iv.next1168, %wide.trip.count1170
   br i1 %exitcond1171.not, label %if.end352, label %for.body195, !llvm.loop !15
@@ -1214,7 +1214,7 @@ for.body291.lr.ph:                                ; preds = %if.else284
 
 for.body291:                                      ; preds = %for.body291.lr.ph, %for.body291
   %indvars.iv1172 = phi i64 [ 0, %for.body291.lr.ph ], [ %indvars.iv.next1173, %for.body291 ]
-  %deltaflengthsqr.51100 = phi float [ %deltaflengthsqr.0.lcssa, %for.body291.lr.ph ], [ %182, %for.body291 ]
+  %deltaflengthsqr.71100 = phi float [ %deltaflengthsqr.0.lcssa, %for.body291.lr.ph ], [ %182, %for.body291 ]
   %175 = load ptr, ptr %m_data.i467, align 8
   %arrayidx.i469 = getelementptr inbounds i32, ptr %175, i64 %indvars.iv1172
   %176 = load i32, ptr %arrayidx.i469, align 4
@@ -1234,13 +1234,13 @@ for.body291:                                      ; preds = %for.body291.lr.ph, 
   %181 = load ptr, ptr %m_data.i479, align 8
   %arrayidx.i481 = getelementptr inbounds float, ptr %181, i64 %indvars.iv1172
   store float %call304, ptr %arrayidx.i481, align 4
-  %182 = tail call float @llvm.fmuladd.f32(float %call304, float %call304, float %deltaflengthsqr.51100)
+  %182 = tail call float @llvm.fmuladd.f32(float %call304, float %call304, float %deltaflengthsqr.71100)
   %indvars.iv.next1173 = add nuw nsw i64 %indvars.iv1172, 1
   %exitcond1176.not = icmp eq i64 %indvars.iv.next1173, %wide.trip.count1175
   br i1 %exitcond1176.not, label %for.end310, label %for.body291, !llvm.loop !16
 
 for.end310:                                       ; preds = %for.body291, %if.else284
-  %deltaflengthsqr.5.lcssa = phi float [ %deltaflengthsqr.0.lcssa, %if.else284 ], [ %182, %for.body291 ]
+  %deltaflengthsqr.7.lcssa = phi float [ %deltaflengthsqr.0.lcssa, %if.else284 ], [ %182, %for.body291 ]
   %183 = load i32, ptr %m_size.i271, align 4
   %cmp3141102 = icmp sgt i32 %183, 0
   br i1 %cmp3141102, label %for.body315.lr.ph, label %if.end352
@@ -1256,7 +1256,7 @@ for.body315.lr.ph:                                ; preds = %for.end310
 
 for.body315:                                      ; preds = %for.body315.lr.ph, %for.inc349
   %indvars.iv1177 = phi i64 [ 0, %for.body315.lr.ph ], [ %indvars.iv.next1178, %for.inc349 ]
-  %deltaflengthsqr.61104 = phi float [ %deltaflengthsqr.5.lcssa, %for.body315.lr.ph ], [ %deltaflengthsqr.7, %for.inc349 ]
+  %deltaflengthsqr.81104 = phi float [ %deltaflengthsqr.7.lcssa, %for.body315.lr.ph ], [ %deltaflengthsqr.9, %for.inc349 ]
   %184 = load ptr, ptr %m_data.i483, align 8
   %arrayidx.i485 = getelementptr inbounds i32, ptr %184, i64 %indvars.iv1177
   %185 = load i32, ptr %arrayidx.i485, align 4
@@ -1296,7 +1296,7 @@ if.then326:                                       ; preds = %for.body315
   %200 = load ptr, ptr %m_data.i501, align 8
   %arrayidx.i500 = getelementptr inbounds float, ptr %200, i64 %indvars.iv1177
   store float %call341, ptr %arrayidx.i500, align 4
-  %201 = tail call float @llvm.fmuladd.f32(float %call341, float %call341, float %deltaflengthsqr.61104)
+  %201 = tail call float @llvm.fmuladd.f32(float %call341, float %call341, float %deltaflengthsqr.81104)
   br label %for.inc349
 
 if.else345:                                       ; preds = %for.body315
@@ -1306,13 +1306,13 @@ if.else345:                                       ; preds = %for.body315
   br label %for.inc349
 
 for.inc349:                                       ; preds = %if.then326, %if.else345
-  %deltaflengthsqr.7 = phi float [ %201, %if.then326 ], [ %deltaflengthsqr.61104, %if.else345 ]
+  %deltaflengthsqr.9 = phi float [ %201, %if.then326 ], [ %deltaflengthsqr.81104, %if.else345 ]
   %indvars.iv.next1178 = add nuw nsw i64 %indvars.iv1177, 1
   %exitcond1181.not = icmp eq i64 %indvars.iv.next1178, %wide.trip.count1180
   br i1 %exitcond1181.not, label %if.end352, label %for.body315, !llvm.loop !17
 
 if.end352:                                        ; preds = %for.inc281, %for.inc349, %if.then185, %for.end310
-  %deltaflengthsqr.8 = phi float [ %deltaflengthsqr.5.lcssa, %for.end310 ], [ %deltaflengthsqr.0.lcssa, %if.then185 ], [ %deltaflengthsqr.7, %for.inc349 ], [ %deltaflengthsqr.4, %for.inc281 ]
+  %deltaflengthsqr.6 = phi float [ %deltaflengthsqr.7.lcssa, %for.end310 ], [ %deltaflengthsqr.0.lcssa, %if.then185 ], [ %deltaflengthsqr.9, %for.inc349 ], [ %deltaflengthsqr.5, %for.inc281 ]
   %m_size.i504 = getelementptr inbounds i8, ptr %this, i64 140
   %203 = load i32, ptr %m_size.i504, align 4
   %cmp3561106 = icmp sgt i32 %203, 0
@@ -1328,7 +1328,7 @@ for.body357.lr.ph:                                ; preds = %if.end352
 
 for.body357:                                      ; preds = %for.body357.lr.ph, %for.inc391
   %indvars.iv1182 = phi i64 [ 0, %for.body357.lr.ph ], [ %indvars.iv.next1183, %for.inc391 ]
-  %deltaflengthsqr.91108 = phi float [ %deltaflengthsqr.8, %for.body357.lr.ph ], [ %deltaflengthsqr.10, %for.inc391 ]
+  %deltaflengthsqr.101108 = phi float [ %deltaflengthsqr.6, %for.body357.lr.ph ], [ %deltaflengthsqr.11, %for.inc391 ]
   %204 = load ptr, ptr %m_data.i505, align 8
   %arrayidx.i507 = getelementptr inbounds %struct.btSolverConstraint, ptr %204, i64 %indvars.iv1182
   %m_frictionIndex362 = getelementptr inbounds i8, ptr %arrayidx.i507, i64 148
@@ -1364,7 +1364,7 @@ if.then366:                                       ; preds = %for.body357
   %212 = load ptr, ptr %m_data.i520, align 8
   %arrayidx.i519 = getelementptr inbounds float, ptr %212, i64 %indvars.iv1182
   store float %call384, ptr %arrayidx.i519, align 4
-  %213 = tail call float @llvm.fmuladd.f32(float %call384, float %call384, float %deltaflengthsqr.91108)
+  %213 = tail call float @llvm.fmuladd.f32(float %call384, float %call384, float %deltaflengthsqr.101108)
   br label %for.inc391
 
 if.else387:                                       ; preds = %for.body357
@@ -1374,13 +1374,13 @@ if.else387:                                       ; preds = %for.body357
   br label %for.inc391
 
 for.inc391:                                       ; preds = %if.then366, %if.else387
-  %deltaflengthsqr.10 = phi float [ %213, %if.then366 ], [ %deltaflengthsqr.91108, %if.else387 ]
+  %deltaflengthsqr.11 = phi float [ %213, %if.then366 ], [ %deltaflengthsqr.101108, %if.else387 ]
   %indvars.iv.next1183 = add nuw nsw i64 %indvars.iv1182, 1
   %exitcond1186.not = icmp eq i64 %indvars.iv.next1183, %wide.trip.count1185
   br i1 %exitcond1186.not, label %if.end394, label %for.body357, !llvm.loop !18
 
 if.end394:                                        ; preds = %for.inc391, %if.end352, %if.end152
-  %deltaflengthsqr.11 = phi float [ %deltaflengthsqr.0.lcssa, %if.end152 ], [ %deltaflengthsqr.8, %if.end352 ], [ %deltaflengthsqr.10, %for.inc391 ]
+  %deltaflengthsqr.2 = phi float [ %deltaflengthsqr.0.lcssa, %if.end152 ], [ %deltaflengthsqr.6, %if.end352 ], [ %deltaflengthsqr.11, %for.inc391 ]
   %215 = load i8, ptr %m_onlyForNoneContact, align 8
   %tobool396 = trunc i8 %215 to i1
   br i1 %tobool396, label %if.end719, label %if.then397
@@ -1490,7 +1490,7 @@ if.else449:                                       ; preds = %if.then397
   %m_deltafLengthSqrPrev451 = getelementptr inbounds i8, ptr %this, i64 408
   %240 = load float, ptr %m_deltafLengthSqrPrev451, align 8
   %cmp452 = fcmp ogt float %240, 0.000000e+00
-  %div455 = fdiv float %deltaflengthsqr.11, %240
+  %div455 = fdiv float %deltaflengthsqr.2, %240
   %cond458 = select i1 %cmp452, float %div455, float 2.000000e+00
   %cmp459 = fcmp ogt float %cond458, 1.000000e+00
   %241 = load i32, ptr %m_size.i, align 4
@@ -2257,11 +2257,11 @@ for.inc713:                                       ; preds = %if.then.i1036, %_ZN
 
 if.end717:                                        ; preds = %for.inc713, %for.body499, %for.body442, %for.cond666.preheader, %for.cond495.preheader, %for.cond438.preheader
   %m_deltafLengthSqrPrev718 = getelementptr inbounds i8, ptr %this, i64 408
-  store float %deltaflengthsqr.11, ptr %m_deltafLengthSqrPrev718, align 8
+  store float %deltaflengthsqr.2, ptr %m_deltafLengthSqrPrev718, align 8
   br label %if.end719
 
 if.end719:                                        ; preds = %if.end717, %if.end394
-  ret float %deltaflengthsqr.11
+  ret float %deltaflengthsqr.2
 }
 
 declare noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef) local_unnamed_addr #1

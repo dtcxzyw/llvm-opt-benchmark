@@ -620,7 +620,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   br i1 %switch.i.i, label %107, label %110
 
 .loopexit:                                        ; preds = %91, %93, %97, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i.i, %103
-  %.sroa.10.1 = phi i64 [ %104, %103 ], [ %89, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i.i ], [ %89, %97 ], [ %89, %93 ], [ %89, %91 ]
+  %.sroa.10.0 = phi i64 [ %104, %103 ], [ %89, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i.i ], [ %89, %97 ], [ %89, %93 ], [ %89, %91 ]
   %storemerge95.i.i = phi i64 [ 0, %103 ], [ 1, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i.i ], [ 1, %97 ], [ 1, %93 ], [ 1, %91 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !81
   br label %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h0e49199312f85efeE.exit"
@@ -688,7 +688,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i.i: ; preds = %
 
 "_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h0e49199312f85efeE.exit": ; preds = %.noexc25, %.loopexit, %61, %59, %41, %43
   %.sroa.035.0 = phi i64 [ 1, %59 ], [ 0, %61 ], [ %storemerge95.i.i, %.loopexit ], [ 1, %43 ], [ 0, %41 ], [ 1, %.noexc25 ]
-  %.sroa.10.2 = phi i64 [ %60, %59 ], [ %62, %61 ], [ %.sroa.10.1, %.loopexit ], [ %44, %43 ], [ 0, %41 ], [ 163208757251, %.noexc25 ]
+  %.sroa.10.2 = phi i64 [ %60, %59 ], [ %62, %61 ], [ %.sroa.10.0, %.loopexit ], [ %44, %43 ], [ 0, %41 ], [ 163208757251, %.noexc25 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %117 = load i64, ptr %10, align 8, !noundef !4
   %118 = icmp ugt i64 %11, %117
@@ -2958,13 +2958,13 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree3new17h2c295c5dee942540E(ptr n
   %.029 = phi i1 [ %.130, %37 ], [ true, %26 ]
   %.027 = phi i1 [ %.128, %37 ], [ true, %26 ]
   %.026 = phi i1 [ false, %37 ], [ true, %26 ]
-  %.0 = phi i1 [ false, %37 ], [ %.1, %26 ]
+  %.1 = phi i1 [ false, %37 ], [ %.0, %26 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %37 ], [ %27, %26 ]
   invoke void @"_ZN4core3ptr159drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$$LP$usize$C$$RF$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$RP$$GT$$GT$17h31cc4ec67743b821E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #23
           to label %78 unwind label %75
 
 26:                                               ; preds = %32, %31, %4
-  %.1 = phi i1 [ true, %4 ], [ false, %31 ], [ false, %32 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %31 ], [ false, %32 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -3209,7 +3209,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree3new17h2c295c5dee942540E(ptr n
           to label %79 unwind label %75
 
 79:                                               ; preds = %78
-  br i1 %.0, label %81, label %80
+  br i1 %.1, label %81, label %80
 
 80:                                               ; preds = %81, %79
   br i1 %.026, label %83, label %82
@@ -3358,7 +3358,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree7new_raw17hc6ad1cb5cb885d82E(p
   %.029 = phi i1 [ %.130, %56 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
   %.027 = phi i1 [ %.128, %56 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
   %.026 = phi i1 [ false, %56 ], [ true, %.loopexit.split-lp ], [ true, %.loopexit ]
-  %.0 = phi i1 [ false, %56 ], [ %.1.ph, %.loopexit.split-lp ], [ true, %.loopexit ]
+  %.1 = phi i1 [ false, %56 ], [ %.0.ph, %.loopexit.split-lp ], [ true, %.loopexit ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %56 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr141drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$$LP$usize$C$$RF$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$RP$$GT$$GT$17he9e60d61554a1760E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #23
           to label %97 unwind label %94
@@ -3369,7 +3369,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree7new_raw17hc6ad1cb5cb885d82E(p
   br label %47
 
 .loopexit.split-lp:                               ; preds = %3, %.noexc, %50, %51
-  %.1.ph = phi i1 [ false, %51 ], [ false, %50 ], [ true, %.noexc ], [ true, %3 ]
+  %.0.ph = phi i1 [ false, %51 ], [ false, %50 ], [ true, %.noexc ], [ true, %3 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %47
@@ -3614,7 +3614,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree7new_raw17hc6ad1cb5cb885d82E(p
           to label %98 unwind label %94
 
 98:                                               ; preds = %97
-  br i1 %.0, label %100, label %99
+  br i1 %.1, label %100, label %99
 
 99:                                               ; preds = %100, %98
   br i1 %.026, label %102, label %101
@@ -3785,12 +3785,12 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree19to_subtree_resolved17ha9164f
 
 47:                                               ; preds = %.thread.thread, %.thread
   %.pn162340 = phi { ptr, i32 } [ %.pn162341, %.thread.thread ], [ %.pn.pn, %.thread ]
-  %.072538 = phi i1 [ %.072539, %.thread.thread ], [ %.2, %.thread ]
-  br i1 %.072538, label %49, label %51
+  %.182538 = phi i1 [ %.182539, %.thread.thread ], [ %.2, %.thread ]
+  br i1 %.182538, label %49, label %51
 
 .thread.thread:                                   ; preds = %45, %.thread
   %.pn162341 = phi { ptr, i32 } [ %.pn.pn, %.thread ], [ %lpad.thr_comm, %45 ]
-  %.072539 = phi i1 [ %.2, %.thread ], [ true, %45 ]
+  %.182539 = phi i1 [ %.2, %.thread ], [ true, %45 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h35042b5ceaa0e345E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #23
           to label %47 unwind label %43
@@ -3949,12 +3949,12 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree21to_subtree_unresolved17hf4dd
 
 46:                                               ; preds = %.thread.thread, %.thread
   %.pn162340 = phi { ptr, i32 } [ %.pn162341, %.thread.thread ], [ %.pn.pn, %.thread ]
-  %.072538 = phi i1 [ %.072539, %.thread.thread ], [ %.2, %.thread ]
-  br i1 %.072538, label %48, label %50
+  %.182538 = phi i1 [ %.182539, %.thread.thread ], [ %.2, %.thread ]
+  br i1 %.182538, label %48, label %50
 
 .thread.thread:                                   ; preds = %44, %.thread
   %.pn162341 = phi { ptr, i32 } [ %.pn.pn, %.thread ], [ %lpad.thr_comm, %44 ]
-  %.072539 = phi i1 [ %.2, %.thread ], [ true, %44 ]
+  %.182539 = phi i1 [ %.2, %.thread ], [ true, %44 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h35042b5ceaa0e345E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %47) #23
           to label %46 unwind label %42

@@ -819,9 +819,9 @@ define void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr no
 
 .preheader.i:                                     ; preds = %72, %57
   %.lcssa25.i = phi float [ %.lcssa354950.i, %57 ], [ %77, %72 ]
-  %.020.lcssa.i = phi float [ %53, %57 ], [ %75, %72 ]
+  %.1.lcssa.i = phi float [ %53, %57 ], [ %75, %72 ]
   %66 = phi <2 x float> [ %48, %57 ], [ %76, %72 ]
-  %67 = fcmp ult float %.020.lcssa.i, %60
+  %67 = fcmp ult float %.1.lcssa.i, %60
   br i1 %67, label %.loopexit.i, label %.lr.ph37.i
 
 .lr.ph37.i:                                       ; preds = %.preheader.i
@@ -832,20 +832,20 @@ define void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr no
   br label %79
 
 72:                                               ; preds = %72, %.lr.ph.i
-  %.02026.i = phi float [ %53, %.lr.ph.i ], [ %75, %72 ]
+  %.126.i = phi float [ %53, %.lr.ph.i ], [ %75, %72 ]
   %73 = phi float [ %.lcssa354950.i, %.lr.ph.i ], [ %77, %72 ]
   %74 = phi <2 x float> [ %48, %.lr.ph.i ], [ %76, %72 ]
-  %75 = fadd float %.02026.i, %60
+  %75 = fadd float %.126.i, %60
   %76 = fadd <2 x float> %63, %74
   %77 = fadd float %65, %73
   %78 = fcmp olt float %75, 0.000000e+00
   br i1 %78, label %72, label %.preheader.i, !llvm.loop !10
 
 79:                                               ; preds = %79, %.lr.ph37.i
-  %.136.i = phi float [ %.020.lcssa.i, %.lr.ph37.i ], [ %82, %79 ]
+  %.236.i = phi float [ %.1.lcssa.i, %.lr.ph37.i ], [ %82, %79 ]
   %80 = phi float [ %.lcssa25.i, %.lr.ph37.i ], [ %84, %79 ]
   %81 = phi <2 x float> [ %66, %.lr.ph37.i ], [ %83, %79 ]
-  %82 = fsub float %.136.i, %60
+  %82 = fsub float %.236.i, %60
   %83 = fsub <2 x float> %81, %69
   %84 = fsub float %80, %71
   %85 = fcmp ult float %82, %60
@@ -853,7 +853,7 @@ define void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr no
 
 .loopexit.i:                                      ; preds = %79, %.preheader.i
   %.lcssa35.i = phi float [ %.lcssa25.i, %.preheader.i ], [ %84, %79 ]
-  %.1.lcssa.i = phi float [ %.020.lcssa.i, %.preheader.i ], [ %82, %79 ]
+  %.2.lcssa.i = phi float [ %.1.lcssa.i, %.preheader.i ], [ %82, %79 ]
   %86 = phi <2 x float> [ %66, %.preheader.i ], [ %83, %79 ]
   store <2 x float> %86, ptr %4, align 8
   store float %.lcssa35.i, ptr %42, align 8
@@ -861,10 +861,10 @@ define void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr no
 
 87:                                               ; preds = %.loopexit.i, %47
   %88 = phi float [ %.lcssa354950.i, %47 ], [ %.lcssa35.i, %.loopexit.i ]
-  %.2.i = phi float [ %53, %47 ], [ %.1.lcssa.i, %.loopexit.i ]
+  %.020.i = phi float [ %53, %47 ], [ %.2.lcssa.i, %.loopexit.i ]
   %89 = phi <2 x float> [ %48, %47 ], [ %86, %.loopexit.i ]
   %90 = getelementptr inbounds float, ptr %32, i64 %indvars.iv.i
-  store float %.2.i, ptr %90, align 4
+  store float %.020.i, ptr %90, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit, label %47, !llvm.loop !12
@@ -894,7 +894,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.e
 
 108:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit
   %109 = fcmp olt float %103, 0.000000e+00
-  %.0.i = select i1 %109, float 0.000000e+00, float %103
+  %.1.i = select i1 %109, float 0.000000e+00, float %103
   %110 = getelementptr inbounds i8, ptr %93, i64 528
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, -1
@@ -907,8 +907,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.e
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit: ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit, %108, %115
   %.032.i = phi float [ %104, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit ], [ %113, %115 ], [ %104, %108 ]
-  %.1.i = phi float [ %103, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit ], [ %.0.i, %115 ], [ %.0.i, %108 ]
-  %116 = tail call noundef float @llvm.floor.f32(float %.1.i)
+  %.0.i = phi float [ %103, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit ], [ %.1.i, %115 ], [ %.1.i, %108 ]
+  %116 = tail call noundef float @llvm.floor.f32(float %.0.i)
   %117 = fptosi float %116 to i32
   %118 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %117, ptr %118, align 8
@@ -1808,9 +1808,9 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCe
 
 .preheader:                                       ; preds = %45, %30
   %.lcssa25 = phi float [ %.lcssa354950, %30 ], [ %50, %45 ]
-  %.020.lcssa = phi float [ %26, %30 ], [ %48, %45 ]
+  %.1.lcssa = phi float [ %26, %30 ], [ %48, %45 ]
   %39 = phi <2 x float> [ %21, %30 ], [ %49, %45 ]
-  %40 = fcmp ult float %.020.lcssa, %33
+  %40 = fcmp ult float %.1.lcssa, %33
   br i1 %40, label %.loopexit, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.preheader
@@ -1821,20 +1821,20 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCe
   br label %52
 
 45:                                               ; preds = %.lr.ph, %45
-  %.02026 = phi float [ %26, %.lr.ph ], [ %48, %45 ]
+  %.126 = phi float [ %26, %.lr.ph ], [ %48, %45 ]
   %46 = phi float [ %.lcssa354950, %.lr.ph ], [ %50, %45 ]
   %47 = phi <2 x float> [ %21, %.lr.ph ], [ %49, %45 ]
-  %48 = fadd float %.02026, %33
+  %48 = fadd float %.126, %33
   %49 = fadd <2 x float> %47, %36
   %50 = fadd float %46, %38
   %51 = fcmp olt float %48, 0.000000e+00
   br i1 %51, label %45, label %.preheader, !llvm.loop !10
 
 52:                                               ; preds = %.lr.ph37, %52
-  %.136 = phi float [ %.020.lcssa, %.lr.ph37 ], [ %55, %52 ]
+  %.236 = phi float [ %.1.lcssa, %.lr.ph37 ], [ %55, %52 ]
   %53 = phi float [ %.lcssa25, %.lr.ph37 ], [ %57, %52 ]
   %54 = phi <2 x float> [ %39, %.lr.ph37 ], [ %56, %52 ]
-  %55 = fsub float %.136, %33
+  %55 = fsub float %.236, %33
   %56 = fsub <2 x float> %54, %42
   %57 = fsub float %53, %44
   %58 = fcmp ult float %55, %33
@@ -1842,7 +1842,7 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCe
 
 .loopexit:                                        ; preds = %52, %.preheader
   %.lcssa35 = phi float [ %.lcssa25, %.preheader ], [ %57, %52 ]
-  %.1.lcssa = phi float [ %.020.lcssa, %.preheader ], [ %55, %52 ]
+  %.2.lcssa = phi float [ %.1.lcssa, %.preheader ], [ %55, %52 ]
   %59 = phi <2 x float> [ %39, %.preheader ], [ %56, %52 ]
   store <2 x float> %59, ptr %5, align 8
   store float %.lcssa35, ptr %15, align 8
@@ -1850,10 +1850,10 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCe
 
 60:                                               ; preds = %.loopexit, %20
   %61 = phi float [ %.lcssa354950, %20 ], [ %.lcssa35, %.loopexit ]
-  %.2 = phi float [ %26, %20 ], [ %.1.lcssa, %.loopexit ]
+  %.020 = phi float [ %26, %20 ], [ %.2.lcssa, %.loopexit ]
   %62 = phi <2 x float> [ %21, %20 ], [ %59, %.loopexit ]
   %63 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
-  store float %.2, ptr %63, align 4
+  store float %.020, ptr %63, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %64, label %20, !llvm.loop !12
@@ -2283,7 +2283,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
 
 111:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit
   %112 = fcmp olt float %105, 0.000000e+00
-  %.0 = select i1 %112, float 0.000000e+00, float %105
+  %.1 = select i1 %112, float 0.000000e+00, float %105
   %113 = getelementptr inbounds i8, ptr %0, i64 520
   %114 = getelementptr inbounds [3 x i32], ptr %113, i64 0, i64 %99
   %115 = load i32, ptr %114, align 4
@@ -2297,8 +2297,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
 
 120:                                              ; preds = %111, %119, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit
   %.032 = phi float [ %106, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit ], [ %117, %119 ], [ %106, %111 ]
-  %.1 = phi float [ %105, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit ], [ %.0, %119 ], [ %.0, %111 ]
-  %121 = tail call noundef float @llvm.floor.f32(float %.1)
+  %.0 = phi float [ %105, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit ], [ %.1, %119 ], [ %.1, %111 ]
+  %121 = tail call noundef float @llvm.floor.f32(float %.0)
   %122 = fptosi float %121 to i32
   %123 = getelementptr inbounds i32, ptr %2, i64 %99
   store i32 %122, ptr %123, align 4
@@ -2882,9 +2882,9 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
 
 .preheader.i:                                     ; preds = %166, %151
   %.lcssa25.i = phi float [ %.lcssa354950.i, %151 ], [ %171, %166 ]
-  %.020.lcssa.i = phi float [ %147, %151 ], [ %169, %166 ]
+  %.1.lcssa.i = phi float [ %147, %151 ], [ %169, %166 ]
   %160 = phi <2 x float> [ %142, %151 ], [ %170, %166 ]
-  %161 = fcmp ult float %.020.lcssa.i, %154
+  %161 = fcmp ult float %.1.lcssa.i, %154
   br i1 %161, label %.loopexit.i, label %.lr.ph37.i
 
 .lr.ph37.i:                                       ; preds = %.preheader.i
@@ -2895,20 +2895,20 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
   br label %173
 
 166:                                              ; preds = %166, %.lr.ph.i
-  %.02026.i = phi float [ %147, %.lr.ph.i ], [ %169, %166 ]
+  %.126.i = phi float [ %147, %.lr.ph.i ], [ %169, %166 ]
   %167 = phi float [ %.lcssa354950.i, %.lr.ph.i ], [ %171, %166 ]
   %168 = phi <2 x float> [ %142, %.lr.ph.i ], [ %170, %166 ]
-  %169 = fadd float %.02026.i, %154
+  %169 = fadd float %.126.i, %154
   %170 = fadd <2 x float> %157, %168
   %171 = fadd float %159, %167
   %172 = fcmp olt float %169, 0.000000e+00
   br i1 %172, label %166, label %.preheader.i, !llvm.loop !10
 
 173:                                              ; preds = %173, %.lr.ph37.i
-  %.136.i = phi float [ %.020.lcssa.i, %.lr.ph37.i ], [ %176, %173 ]
+  %.236.i = phi float [ %.1.lcssa.i, %.lr.ph37.i ], [ %176, %173 ]
   %174 = phi float [ %.lcssa25.i, %.lr.ph37.i ], [ %178, %173 ]
   %175 = phi <2 x float> [ %160, %.lr.ph37.i ], [ %177, %173 ]
-  %176 = fsub float %.136.i, %154
+  %176 = fsub float %.236.i, %154
   %177 = fsub <2 x float> %175, %163
   %178 = fsub float %174, %165
   %179 = fcmp ult float %176, %154
@@ -2916,7 +2916,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
 
 .loopexit.i:                                      ; preds = %173, %.preheader.i
   %.lcssa35.i = phi float [ %.lcssa25.i, %.preheader.i ], [ %178, %173 ]
-  %.1.lcssa.i = phi float [ %.020.lcssa.i, %.preheader.i ], [ %176, %173 ]
+  %.2.lcssa.i = phi float [ %.1.lcssa.i, %.preheader.i ], [ %176, %173 ]
   %180 = phi <2 x float> [ %160, %.preheader.i ], [ %177, %173 ]
   store <2 x float> %180, ptr %7, align 8
   store float %.lcssa35.i, ptr %117, align 8
@@ -2924,10 +2924,10 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl4initENS_20Analysis
 
 181:                                              ; preds = %.loopexit.i, %141
   %182 = phi float [ %.lcssa354950.i, %141 ], [ %.lcssa35.i, %.loopexit.i ]
-  %.2.i = phi float [ %147, %141 ], [ %.1.lcssa.i, %.loopexit.i ]
+  %.020.i = phi float [ %147, %141 ], [ %.2.lcssa.i, %.loopexit.i ]
   %183 = phi <2 x float> [ %142, %141 ], [ %180, %.loopexit.i ]
   %184 = getelementptr inbounds float, ptr %16, i64 %indvars.iv.i
-  store float %.2.i, ptr %184, align 4
+  store float %.020.i, ptr %184, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl18mapPointToGridCellEPKfPfS4_.exit, label %141, !llvm.loop !12
@@ -4729,7 +4729,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexi
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit, %41
   %44 = phi ptr [ %37, %41 ], [ %.pre127, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit ]
-  %.031 = phi i32 [ %43, %41 ], [ %.2, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit ]
+  %.031 = phi i32 [ %43, %41 ], [ %.1, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   %45 = load <2 x i32>, ptr %22, align 8
   store <2 x i32> %45, ptr %5, align 8
@@ -4741,7 +4741,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; pred
   br label %50
 
 50:                                               ; preds = %.loopexit.i, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit
-  %.sroa.8.0 = phi float [ 0.000000e+00, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %.sroa.8.2, %.loopexit.i ]
+  %.sroa.8.0 = phi float [ 0.000000e+00, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %.sroa.8.1, %.loopexit.i ]
   %51 = phi float [ 0.000000e+00, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %87, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %indvars.iv.next.i, %.loopexit.i ]
   %52 = phi <2 x float> [ zeroinitializer, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %88, %.loopexit.i ]
@@ -4767,7 +4767,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; pred
   br label %72
 
 .preheader.i:                                     ; preds = %72, %.preheader20.i
-  %.sroa.8.1 = phi float [ %.sroa.8.0, %.preheader20.i ], [ %78, %72 ]
+  %.sroa.8.2 = phi float [ %.sroa.8.0, %.preheader20.i ], [ %78, %72 ]
   %65 = phi float [ %51, %.preheader20.i ], [ %78, %72 ]
   %.lcssa21.i = phi i32 [ %.promoted.i, %.preheader20.i ], [ %76, %72 ]
   %66 = phi <2 x float> [ %52, %.preheader20.i ], [ %77, %72 ]
@@ -4808,7 +4808,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; pred
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %50
-  %.sroa.8.2 = phi float [ %.sroa.8.1, %.preheader.i ], [ %86, %.loopexit.loopexit.i ], [ %.sroa.8.0, %50 ]
+  %.sroa.8.1 = phi float [ %.sroa.8.2, %.preheader.i ], [ %86, %.loopexit.loopexit.i ], [ %.sroa.8.0, %50 ]
   %87 = phi float [ %65, %.preheader.i ], [ %86, %.loopexit.loopexit.i ], [ %51, %50 ]
   %88 = phi <2 x float> [ %66, %.preheader.i ], [ %85, %.loopexit.loopexit.i ], [ %52, %50 ]
   %89 = phi <2 x float> [ %67, %.preheader.i ], [ %85, %.loopexit.loopexit.i ], [ %53, %50 ]
@@ -4946,7 +4946,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
   %170 = load float, ptr %169, align 4
   %171 = load float, ptr %18, align 4
   %172 = fsub float %170, %171
-  %173 = fsub float %172, %.sroa.8.2
+  %173 = fsub float %172, %.sroa.8.1
   %174 = load <2 x float>, ptr %168, align 4
   %175 = load <2 x float>, ptr %17, align 4
   %176 = fsub <2 x float> %174, %175
@@ -4999,7 +4999,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
 
 198:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit, %._crit_edge
   %199 = phi ptr [ %.pre128, %._crit_edge ], [ %44, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
-  %.2 = phi i32 [ 0, %._crit_edge ], [ %.031, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.031, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
   %200 = getelementptr inbounds i8, ptr %199, i64 441
   %201 = getelementptr inbounds i8, ptr %199, i64 528
   %202 = getelementptr inbounds i8, ptr %199, i64 508
@@ -5243,7 +5243,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
 
 314:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i
   %315 = fcmp olt float %309, 0.000000e+00
-  %.0.i60 = select i1 %315, float 0.000000e+00, float %309
+  %.1.i = select i1 %315, float 0.000000e+00, float %309
   %316 = getelementptr inbounds [3 x i32], ptr %211, i64 0, i64 %303
   %317 = load i32, ptr %316, align 4
   %318 = add nsw i32 %317, -1
@@ -5256,8 +5256,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit: ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i, %314, %321
   %.032.i = phi float [ %310, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i ], [ %319, %321 ], [ %310, %314 ]
-  %.1.i = phi float [ %309, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i ], [ %.0.i60, %321 ], [ %.0.i60, %314 ]
-  %322 = call noundef float @llvm.floor.f32(float %.1.i)
+  %.0.i60 = phi float [ %309, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i ], [ %.1.i, %321 ], [ %.1.i, %314 ]
+  %322 = call noundef float @llvm.floor.f32(float %.0.i60)
   %323 = fptosi float %322 to i32
   %324 = getelementptr inbounds i32, ptr %22, i64 %303
   store i32 %323, ptr %324, align 4
@@ -5621,7 +5621,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexi
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit, %40
   %47 = phi ptr [ %36, %40 ], [ %.pre112, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit ]
-  %.029 = phi i32 [ %42, %40 ], [ %.2, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit ]
+  %.029 = phi i32 [ %42, %40 ], [ %.1, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit.loopexit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   %48 = load <2 x i32>, ptr %23, align 8
   store <2 x i32> %48, ptr %5, align 8
@@ -5633,7 +5633,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; pred
   br label %53
 
 53:                                               ; preds = %.loopexit.i, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit
-  %.sroa.8.0 = phi float [ 0.000000e+00, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %.sroa.8.2, %.loopexit.i ]
+  %.sroa.8.0 = phi float [ 0.000000e+00, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %.sroa.8.1, %.loopexit.i ]
   %54 = phi float [ 0.000000e+00, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %90, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %indvars.iv.next.i, %.loopexit.i ]
   %55 = phi <2 x float> [ zeroinitializer, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit ], [ %91, %.loopexit.i ]
@@ -5659,7 +5659,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; pred
   br label %75
 
 .preheader.i:                                     ; preds = %75, %.preheader20.i
-  %.sroa.8.1 = phi float [ %.sroa.8.0, %.preheader20.i ], [ %81, %75 ]
+  %.sroa.8.2 = phi float [ %.sroa.8.0, %.preheader20.i ], [ %81, %75 ]
   %68 = phi float [ %54, %.preheader20.i ], [ %81, %75 ]
   %.lcssa21.i = phi i32 [ %.promoted.i, %.preheader20.i ], [ %79, %75 ]
   %69 = phi <2 x float> [ %55, %.preheader20.i ], [ %80, %75 ]
@@ -5700,7 +5700,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_.exit: ; pred
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %53
-  %.sroa.8.2 = phi float [ %.sroa.8.1, %.preheader.i ], [ %89, %.loopexit.loopexit.i ], [ %.sroa.8.0, %53 ]
+  %.sroa.8.1 = phi float [ %.sroa.8.2, %.preheader.i ], [ %89, %.loopexit.loopexit.i ], [ %.sroa.8.0, %53 ]
   %90 = phi float [ %68, %.preheader.i ], [ %89, %.loopexit.loopexit.i ], [ %54, %53 ]
   %91 = phi <2 x float> [ %69, %.preheader.i ], [ %88, %.loopexit.loopexit.i ], [ %55, %53 ]
   %92 = phi <2 x float> [ %70, %.preheader.i ], [ %88, %.loopexit.loopexit.i ], [ %56, %53 ]
@@ -5844,7 +5844,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
   %177 = load <2 x float>, ptr %16, align 4
   %178 = fsub <2 x float> %176, %177
   %179 = fsub <2 x float> %178, %91
-  %180 = fsub float %175, %.sroa.8.2
+  %180 = fsub float %175, %.sroa.8.1
   %181 = getelementptr inbounds i8, ptr %120, i64 12
   %182 = load i8, ptr %181, align 4
   %183 = trunc i8 %182 to i1
@@ -5887,7 +5887,7 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %196, %193, %_ZN3gm
 
 197:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit, %._crit_edge
   %198 = phi ptr [ %.pre113, %._crit_edge ], [ %47, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
-  %.2 = phi i32 [ 0, %._crit_edge ], [ %.029, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.029, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
   %199 = getelementptr inbounds i8, ptr %198, i64 441
   %200 = getelementptr inbounds i8, ptr %198, i64 528
   %201 = getelementptr inbounds i8, ptr %198, i64 508
@@ -6131,7 +6131,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
 
 313:                                              ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i
   %314 = fcmp olt float %308, 0.000000e+00
-  %.0.i59 = select i1 %314, float 0.000000e+00, float %308
+  %.1.i = select i1 %314, float 0.000000e+00, float %308
   %315 = getelementptr inbounds [3 x i32], ptr %210, i64 0, i64 %302
   %316 = load i32, ptr %315, align 4
   %317 = add nsw i32 %316, -1
@@ -6144,8 +6144,8 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11Basi
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit: ; preds = %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i, %313, %320
   %.032.i = phi float [ %309, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i ], [ %318, %320 ], [ %309, %313 ]
-  %.1.i = phi float [ %308, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i ], [ %.0.i59, %320 ], [ %.0.i59, %313 ]
-  %321 = call noundef float @llvm.floor.f32(float %.1.i)
+  %.0.i59 = phi float [ %308, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i ], [ %.1.i, %320 ], [ %.1.i, %313 ]
+  %321 = call noundef float @llvm.floor.f32(float %.0.i59)
   %322 = fptosi float %321 to i32
   %323 = getelementptr inbounds i32, ptr %23, i64 %302
   store i32 %322, ptr %323, align 4

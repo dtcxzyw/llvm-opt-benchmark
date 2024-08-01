@@ -1018,10 +1018,10 @@ proto_item_set_generated.exit424:                 ; preds = %353, %362, %365
   br label %431
 
 431:                                              ; preds = %.lr.ph463, %._crit_edge
-  %.2461 = phi i32 [ %423, %.lr.ph463 ], [ %.3.lcssa, %._crit_edge ]
+  %.3461 = phi i32 [ %423, %.lr.ph463 ], [ %.4.lcssa, %._crit_edge ]
   %.0365460 = phi i16 [ 0, %.lr.ph463 ], [ %470, %._crit_edge ]
-  %432 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.2461, i32 noundef -2147483648) #7
-  %433 = add i32 %.2461, 4
+  %432 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.3461, i32 noundef -2147483648) #7
+  %433 = add i32 %.3461, 4
   %434 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %433, i32 noundef -2147483648) #7
   %435 = zext i16 %434 to i32
   %436 = shl nuw nsw i32 %435, 2
@@ -1029,19 +1029,19 @@ proto_item_set_generated.exit424:                 ; preds = %353, %362, %365
   %438 = icmp eq i32 %432, 1
   %439 = select i1 %438, ptr @.str.89, ptr @.str.90
   %440 = load i32, ptr @ett_rdp_drdynvc_softsync_channel, align 4
-  %441 = call ptr @proto_tree_add_subtree(ptr noundef %428, ptr noundef %0, i32 noundef %.2461, i32 noundef %437, i32 noundef %440, ptr noundef null, ptr noundef nonnull %439) #7
+  %441 = call ptr @proto_tree_add_subtree(ptr noundef %428, ptr noundef %0, i32 noundef %.3461, i32 noundef %437, i32 noundef %440, ptr noundef null, ptr noundef nonnull %439) #7
   %442 = load i32, ptr @hf_rdp_drdynvc_softsync_req_channel_tunnelType, align 4
-  %443 = call ptr @proto_tree_add_item(ptr noundef %441, i32 noundef %442, ptr noundef %0, i32 noundef %.2461, i32 noundef 4, i32 noundef -2147483648) #7
+  %443 = call ptr @proto_tree_add_item(ptr noundef %441, i32 noundef %442, ptr noundef %0, i32 noundef %.3461, i32 noundef 4, i32 noundef -2147483648) #7
   %444 = load i32, ptr @hf_rdp_drdynvc_softsync_req_channel_ndvc, align 4
   %445 = call ptr @proto_tree_add_item(ptr noundef %441, i32 noundef %444, ptr noundef %0, i32 noundef %433, i32 noundef 2, i32 noundef -2147483648) #7
-  %446 = add i32 %.2461, 6
+  %446 = add i32 %.3461, 6
   %.not470 = icmp eq i16 %434, 0
   br i1 %.not470, label %._crit_edge, label %.lr.ph458
 
 .lr.ph458:                                        ; preds = %431, %proto_item_set_generated.exit429
-  %.3457 = phi i32 [ %469, %proto_item_set_generated.exit429 ], [ %446, %431 ]
+  %.4457 = phi i32 [ %469, %proto_item_set_generated.exit429 ], [ %446, %431 ]
   %.0366456 = phi i16 [ %468, %proto_item_set_generated.exit429 ], [ 0, %431 ]
-  %447 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.3457, i32 noundef -2147483648) #7
+  %447 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.4457, i32 noundef -2147483648) #7
   %.val = load i32, ptr %430, align 4
   %.val404 = load ptr, ptr %.1.i, align 8
   %448 = zext i32 %447 to i64
@@ -1060,14 +1060,14 @@ find_channel_name_by_id.exit:                     ; preds = %.lr.ph458, %451
   %.not382 = icmp eq ptr %.0.i426, null
   %spec.store.select = select i1 %.not382, ptr @.str.91, ptr %.0.i426
   %454 = load i32, ptr @ett_rdp_drdynvc_softsync_dvc, align 4
-  %455 = call ptr @proto_tree_add_subtree(ptr noundef %441, ptr noundef %0, i32 noundef %.3457, i32 noundef 4, i32 noundef %454, ptr noundef null, ptr noundef nonnull %spec.store.select) #7
+  %455 = call ptr @proto_tree_add_subtree(ptr noundef %441, ptr noundef %0, i32 noundef %.4457, i32 noundef 4, i32 noundef %454, ptr noundef null, ptr noundef nonnull %spec.store.select) #7
   %456 = load i32, ptr @hf_rdp_drdynvc_softsync_req_channel_dvcid, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %456, ptr noundef %0, i32 noundef %.3457, i32 noundef 4, i32 noundef -2147483648) #7
+  %457 = call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %456, ptr noundef %0, i32 noundef %.4457, i32 noundef 4, i32 noundef -2147483648) #7
   br i1 %.not382, label %proto_item_set_generated.exit429, label %458
 
 458:                                              ; preds = %find_channel_name_by_id.exit
   %459 = load i32, ptr @hf_rdp_drdynvc_channelName, align 4
-  %460 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %455, i32 noundef %459, ptr noundef %0, i32 noundef %.3457, i32 noundef 4, ptr noundef nonnull %.0.i426, ptr noundef nonnull @.str.76, ptr noundef nonnull %.0.i426) #7
+  %460 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %455, i32 noundef %459, ptr noundef %0, i32 noundef %.4457, i32 noundef 4, ptr noundef nonnull %.0.i426, ptr noundef nonnull @.str.76, ptr noundef nonnull %.0.i426) #7
   %.not.i427 = icmp eq ptr %460, null
   br i1 %.not.i427, label %proto_item_set_generated.exit429, label %461
 
@@ -1086,12 +1086,12 @@ find_channel_name_by_id.exit:                     ; preds = %.lr.ph458, %451
 
 proto_item_set_generated.exit429:                 ; preds = %464, %461, %458, %find_channel_name_by_id.exit
   %468 = add nuw i16 %.0366456, 1
-  %469 = add i32 %.3457, 4
+  %469 = add i32 %.4457, 4
   %exitcond.not = icmp eq i16 %468, %434
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph458, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %proto_item_set_generated.exit429, %431
-  %.3.lcssa = phi i32 [ %446, %431 ], [ %469, %proto_item_set_generated.exit429 ]
+  %.4.lcssa = phi i32 [ %446, %431 ], [ %469, %proto_item_set_generated.exit429 ]
   %470 = add i16 %.0365460, 1
   %471 = zext i16 %470 to i32
   %472 = load i32, ptr %8, align 4
@@ -1120,11 +1120,11 @@ proto_item_set_generated.exit429:                 ; preds = %464, %461, %458, %f
 
 .lr.ph:                                           ; preds = %483, %.lr.ph
   %.0357455 = phi i32 [ %489, %.lr.ph ], [ 0, %483 ]
-  %.4454 = phi i32 [ %490, %.lr.ph ], [ %481, %483 ]
+  %.5454 = phi i32 [ %490, %.lr.ph ], [ %481, %483 ]
   %487 = load i32, ptr @hf_rdp_drdynvc_softsync_resp_tunnel, align 4
-  %488 = call ptr @proto_tree_add_item(ptr noundef %485, i32 noundef %487, ptr noundef %0, i32 noundef %.4454, i32 noundef 4, i32 noundef -2147483648) #7
+  %488 = call ptr @proto_tree_add_item(ptr noundef %485, i32 noundef %487, ptr noundef %0, i32 noundef %.5454, i32 noundef 4, i32 noundef -2147483648) #7
   %489 = add nuw i32 %.0357455, 1
-  %490 = add i32 %.4454, 4
+  %490 = add i32 %.5454, 4
   %491 = load i32, ptr %10, align 4
   %492 = icmp ult i32 %489, %491
   br i1 %492, label %.lr.ph, label %proto_item_set_generated.exit432, !llvm.loop !8
@@ -1157,7 +1157,7 @@ proto_item_set_generated.exit429:                 ; preds = %464, %461, %458, %f
   br label %proto_item_set_generated.exit432
 
 proto_item_set_generated.exit432:                 ; preds = %.lr.ph, %._crit_edge, %483, %426, %503, %500, %495, %261, %406, %408, %85, %95, %proto_item_set_generated.exit, %145, %148, %161, %410, %474, %493, %83, %402, %400, %295, %259
-  %.0 = phi i32 [ %401, %400 ], [ %405, %402 ], [ %.1, %295 ], [ %260, %259 ], [ %.1, %83 ], [ %.1, %493 ], [ %481, %474 ], [ %423, %410 ], [ %.1, %408 ], [ %.1, %406 ], [ %.1, %261 ], [ %143, %161 ], [ %160, %148 ], [ %143, %145 ], [ %.1, %proto_item_set_generated.exit ], [ %.1, %85 ], [ %.1, %95 ], [ %.1, %495 ], [ %.1, %500 ], [ %.1, %503 ], [ %423, %426 ], [ %481, %483 ], [ %.3.lcssa, %._crit_edge ], [ %490, %.lr.ph ]
+  %.0 = phi i32 [ %401, %400 ], [ %405, %402 ], [ %.1, %295 ], [ %260, %259 ], [ %.1, %83 ], [ %.1, %493 ], [ %481, %474 ], [ %423, %410 ], [ %.1, %408 ], [ %.1, %406 ], [ %.1, %261 ], [ %143, %161 ], [ %160, %148 ], [ %143, %145 ], [ %.1, %proto_item_set_generated.exit ], [ %.1, %85 ], [ %.1, %95 ], [ %.1, %495 ], [ %.1, %500 ], [ %.1, %503 ], [ %423, %426 ], [ %481, %483 ], [ %.4.lcssa, %._crit_edge ], [ %490, %.lr.ph ]
   ret i32 %.0
 }
 

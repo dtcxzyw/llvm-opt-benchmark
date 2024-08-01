@@ -348,12 +348,12 @@ if.else97:                                        ; preds = %if.then89
   br label %if.end103
 
 if.end103:                                        ; preds = %if.else97, %if.then93
-  %ret.0 = phi i32 [ %call96, %if.then93 ], [ %call102, %if.else97 ]
-  %cmp104 = icmp slt i32 %ret.0, 1
+  %ret.2 = phi i32 [ %call96, %if.then93 ], [ %call102, %if.else97 ]
+  %cmp104 = icmp slt i32 %ret.2, 1
   br i1 %cmp104, label %if.then140, label %if.end109
 
 if.end109:                                        ; preds = %if.end86, %if.end103, %if.end38
-  %ret.1 = phi i1 [ true, %if.end38 ], [ false, %if.end103 ], [ true, %if.end86 ]
+  %ret.0 = phi i1 [ true, %if.end38 ], [ false, %if.end103 ], [ true, %if.end86 ]
   %dh.0 = phi ptr [ %call34, %if.end38 ], [ %call41, %if.end103 ], [ %call41, %if.end86 ]
   %gencb.0 = phi ptr [ null, %if.end38 ], [ %call82, %if.end103 ], [ %call82, %if.end86 ]
   %ffc.0 = phi ptr [ %call39, %if.end38 ], [ %call46, %if.end103 ], [ %call46, %if.end86 ]
@@ -402,7 +402,7 @@ end.thread82:                                     ; preds = %if.end109, %if.end1
   br label %if.end141
 
 end:                                              ; preds = %if.end128, %if.then114, %lor.lhs.false117
-  br i1 %ret.1, label %if.then140, label %if.end141
+  br i1 %ret.0, label %if.then140, label %if.end141
 
 if.then140:                                       ; preds = %land.lhs.true50, %if.end55, %if.end103, %end
   %gencb.181 = phi ptr [ %gencb.0, %end ], [ null, %land.lhs.true50 ], [ null, %if.end55 ], [ %call82, %if.end103 ]
@@ -709,7 +709,7 @@ if.end35:                                         ; preds = %if.end14, %land.rhs
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end35, %if.end
-  %ok.2 = phi i32 [ %land.ext40, %if.end35 ], [ 1, %if.end ]
+  %ok.0 = phi i32 [ %land.ext40, %if.end35 ], [ 1, %if.end ]
   %and42 = and i32 %selection, 4
   %cmp43.not = icmp eq i32 %and42, 0
   br i1 %cmp43.not, label %return, label %if.then44
@@ -717,7 +717,7 @@ if.end41:                                         ; preds = %if.end35, %if.end
 if.then44:                                        ; preds = %if.end41
   %call45 = tail call ptr @ossl_dh_get0_params(ptr noundef %keydata1) #7
   %call46 = tail call ptr @ossl_dh_get0_params(ptr noundef %keydata2) #7
-  %tobool47.not = icmp eq i32 %ok.2, 0
+  %tobool47.not = icmp eq i32 %ok.0, 0
   br i1 %tobool47.not, label %return, label %land.rhs48
 
 land.rhs48:                                       ; preds = %if.then44
@@ -727,7 +727,7 @@ land.rhs48:                                       ; preds = %if.then44
   br label %return
 
 return:                                           ; preds = %if.end41, %land.rhs48, %if.then44, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %ok.2, %if.end41 ], [ 0, %if.then44 ], [ %1, %land.rhs48 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %ok.0, %if.end41 ], [ 0, %if.then44 ], [ %1, %land.rhs48 ]
   ret i32 %retval.0
 }
 

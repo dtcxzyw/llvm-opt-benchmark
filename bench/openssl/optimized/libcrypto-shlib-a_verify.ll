@@ -362,7 +362,7 @@ if.then63:                                        ; preds = %if.end60
   br label %err
 
 if.end66:                                         ; preds = %if.end42, %if.end60, %if.end27
-  %ret.0 = phi i32 [ %call24, %if.end27 ], [ -1, %if.end42 ], [ -1, %if.end60 ]
+  %ret.1 = phi i32 [ %call24, %if.end27 ], [ -1, %if.end42 ], [ -1, %if.end60 ]
   %call67 = call i32 @ASN1_item_i2d(ptr noundef %data, ptr noundef nonnull %buf_in, ptr noundef %it) #2
   %cmp68 = icmp slt i32 %call67, 1
   br i1 %cmp68, label %if.then69, label %if.end70
@@ -401,14 +401,14 @@ if.then80:                                        ; preds = %if.end73
   br label %err
 
 err:                                              ; preds = %if.end27.thread, %if.end73, %if.end27, %if.then80, %if.then72, %if.then69, %if.then63, %if.then58, %if.then51, %if.then45, %if.then41, %if.then20, %if.then8
-  %ret.1 = phi i32 [ -1, %if.then20 ], [ 1, %if.end27 ], [ %ret.0, %if.then69 ], [ %ret.0, %if.then72 ], [ %call77, %if.then80 ], [ -1, %if.then45 ], [ -1, %if.then41 ], [ -1, %if.then58 ], [ 0, %if.then63 ], [ -1, %if.then51 ], [ -1, %if.then8 ], [ 1, %if.end73 ], [ %call24, %if.end27.thread ]
+  %ret.0 = phi i32 [ -1, %if.then20 ], [ 1, %if.end27 ], [ %ret.1, %if.then69 ], [ %ret.1, %if.then72 ], [ %call77, %if.then80 ], [ -1, %if.then45 ], [ -1, %if.then41 ], [ -1, %if.then58 ], [ 0, %if.then63 ], [ -1, %if.then51 ], [ -1, %if.then8 ], [ 1, %if.end73 ], [ %call24, %if.end27.thread ]
   %inll.0 = phi i64 [ 0, %if.then20 ], [ 0, %if.end27 ], [ 0, %if.then69 ], [ 0, %if.then72 ], [ %conv, %if.then80 ], [ 0, %if.then45 ], [ 0, %if.then41 ], [ 0, %if.then58 ], [ 0, %if.then63 ], [ 0, %if.then51 ], [ 0, %if.then8 ], [ %conv, %if.end73 ], [ 0, %if.end27.thread ]
   %16 = load ptr, ptr %buf_in, align 8
   call void @CRYPTO_clear_free(ptr noundef %16, i64 noundef %inll.0, ptr noundef nonnull @.str, i32 noundef 221) #2
   br label %return
 
 return:                                           ; preds = %err, %if.then3, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ %ret.1, %err ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ %ret.0, %err ]
   ret i32 %retval.0
 }
 

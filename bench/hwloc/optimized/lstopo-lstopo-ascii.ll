@@ -344,7 +344,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %167
 
 167:                                              ; preds = %162, %157
-  %.0.i.us.us = phi i32 [ %161, %157 ], [ %166, %162 ]
+  %.1.i.us.us = phi i32 [ %161, %157 ], [ %166, %162 ]
   %168 = add nuw nsw i32 %147, %143
   %169 = add nuw nsw i32 %168, %151
   %170 = icmp ult i32 %169, 2
@@ -377,7 +377,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 
 set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i.i.us.us, %174, %171
   %.024.i.us.us = phi i32 [ %180, %178 ], [ 7, %174 ], [ 0, %171 ], [ %.0.ph.i.i.us.us, %.sink.split.i.i.us.us ]
-  %.1.i.us.us = phi i32 [ %182, %178 ], [ %.0.i.us.us, %174 ], [ %.0.i.us.us, %171 ], [ %.0.i.us.us, %.sink.split.i.i.us.us ]
+  %.0.i.us.us = phi i32 [ %182, %178 ], [ %.1.i.us.us, %174 ], [ %.1.i.us.us, %171 ], [ %.1.i.us.us, %.sink.split.i.i.us.us ]
   %183 = load ptr, ptr @cur_term, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8
@@ -401,7 +401,7 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 2880
   %197 = load ptr, ptr %196, align 8
-  %198 = call ptr (ptr, ...) @tparm(ptr noundef %197, i32 noundef %.1.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %198 = call ptr (ptr, ...) @tparm(ptr noundef %197, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not40.i.us.us = icmp eq ptr %198, null
   br i1 %.not40.i.us.us, label %set_color.exit.us.us, label %.sink.split.i.us.us
 
@@ -426,7 +426,7 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 2424
   %211 = load ptr, ptr %210, align 8
-  %212 = call ptr (ptr, ...) @tparm(ptr noundef %211, i32 noundef %.1.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %212 = call ptr (ptr, ...) @tparm(ptr noundef %211, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not38.i.us.us = icmp eq ptr %212, null
   br i1 %.not38.i.us.us, label %set_color.exit.us.us, label %.sink.split.i.us.us
 
@@ -437,7 +437,7 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   br i1 %.not35.i.us.us, label %set_color.exit.us.us, label %216
 
 216:                                              ; preds = %213
-  %217 = call ptr (ptr, ...) @tparm(ptr noundef nonnull %215, i32 noundef %.1.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %217 = call ptr (ptr, ...) @tparm(ptr noundef nonnull %215, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not36.i.us.us = icmp eq ptr %217, null
   br i1 %.not36.i.us.us, label %set_color.exit.us.us, label %.sink.split.i.us.us
 

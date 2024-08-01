@@ -1104,7 +1104,7 @@ _ZL20icvEndProcessContourP17_CvContourScanner.exit: ; preds = %40, %72
 187:                                              ; preds = %.lr.ph518, %.thread661
   %.1241517 = phi i32 [ %.0240526, %.lr.ph518 ], [ %866, %.thread661 ]
   %.2262515 = phi i32 [ %.1261524, %.lr.ph518 ], [ %.4256, %.thread661 ]
-  %.1266512 = phi i32 [ %.0265523, %.lr.ph518 ], [ %.4269, %.thread661 ]
+  %.1266512 = phi i32 [ %.0265523, %.lr.ph518 ], [ %.2267, %.thread661 ]
   %.sroa.0398.1511 = phi i32 [ %.sroa.0398.0522, %.lr.ph518 ], [ %spec.select416, %.thread661 ]
   %.sroa.0398.2.fr = freeze i32 %.sroa.0398.1511
   %188 = icmp slt i32 %.1241517, %85
@@ -1159,7 +1159,7 @@ _ZL20icvEndProcessContourP17_CvContourScanner.exit: ; preds = %40, %72
 .critedge:                                        ; preds = %194, %.lr.ph485
   %indvars.iv.lcssa.sink = phi i64 [ %indvars.iv582, %.lr.ph485 ], [ %indvars.iv, %194 ]
   %.4264 = phi i32 [ %.2262515, %.lr.ph485 ], [ %.3263476, %194 ]
-  %.3255 = phi i32 [ %200, %.lr.ph485 ], [ %192, %194 ]
+  %.2254 = phi i32 [ %200, %.lr.ph485 ], [ %192, %194 ]
   %203 = trunc nsw i64 %indvars.iv.lcssa.sink to i32
   %.not284 = icmp sgt i32 %85, %203
   br i1 %.not284, label %204, label %.critedge._crit_edge
@@ -1169,7 +1169,7 @@ _ZL20icvEndProcessContourP17_CvContourScanner.exit: ; preds = %40, %72
 
 205:                                              ; preds = %204
   %206 = icmp eq i32 %.4264, 0
-  %207 = icmp eq i32 %.3255, 1
+  %207 = icmp eq i32 %.2254, 1
   %or.cond = and i1 %206, %207
   br i1 %or.cond, label %218, label %213
 
@@ -1178,13 +1178,13 @@ _ZL20icvEndProcessContourP17_CvContourScanner.exit: ; preds = %40, %72
   %209 = icmp ne i32 %208, 0
   %210 = icmp eq i32 %.4264, 0
   %or.cond7 = or i1 %210, %209
-  %211 = and i32 %.3255, %.0259
+  %211 = and i32 %.2254, %.0259
   %212 = icmp eq i32 %211, 0
   %or.cond313 = and i1 %or.cond7, %212
   br i1 %or.cond313, label %218, label %.critedge315
 
 213:                                              ; preds = %205
-  %214 = icmp ne i32 %.3255, 0
+  %214 = icmp ne i32 %.2254, 0
   %215 = icmp slt i32 %.4264, 1
   %or.cond9 = select i1 %214, i1 true, i1 %215
   br i1 %or.cond9, label %.thread661, label %._crit_edge
@@ -1194,17 +1194,17 @@ _ZL20icvEndProcessContourP17_CvContourScanner.exit: ; preds = %40, %72
   br label %.thread638
 
 .critedge315:                                     ; preds = %.critedge311
-  %216 = or i32 %.3255, %.4264
+  %216 = or i32 %.2254, %.4264
   %217 = and i32 %216, %.0259
   %or.cond316 = icmp eq i32 %217, 0
   br i1 %or.cond316, label %.thread638, label %.thread661
 
 218:                                              ; preds = %205, %.critedge311
-  %.3255607 = phi i32 [ %.3255, %.critedge311 ], [ 1, %205 ]
+  %.2254607 = phi i32 [ %.2254, %.critedge311 ], [ 1, %205 ]
   br i1 %106, label %220, label %225
 
 .thread638:                                       ; preds = %.critedge315, %._crit_edge
-  %.3255614624 = phi i32 [ 0, %._crit_edge ], [ %.3255, %.critedge315 ]
+  %.2254614624 = phi i32 [ 0, %._crit_edge ], [ %.2254, %.critedge315 ]
   %.pre-phi = phi i32 [ %.pre602, %._crit_edge ], [ %208, %.critedge315 ]
   %.not287 = icmp eq i32 %.pre-phi, 0
   %219 = add nsw i32 %203, -1
@@ -1243,7 +1243,7 @@ switch.early.test:                                ; preds = %226
   %.sroa.0398.2.fr658673693 = phi i32 [ %.sroa.0398.2.fr, %switch.early.test ], [ %.sroa.0398.2.fr644, %228 ]
   %.0247655674690 = phi i32 [ 0, %switch.early.test ], [ 1, %228 ]
   %.not288652675688 = phi i1 [ true, %switch.early.test ], [ false, %228 ]
-  %.3255607650676686 = phi i32 [ %.3255607, %switch.early.test ], [ %.3255614624, %228 ]
+  %.2254607650676686 = phi i32 [ %.2254607, %switch.early.test ], [ %.2254614624, %228 ]
   %230 = zext nneg i32 %.sroa.0398.2.fr658673693 to i64
   br i1 %.not290, label %234, label %231
 
@@ -1275,7 +1275,7 @@ switch.early.test:                                ; preds = %226
 
 246:                                              ; preds = %.lr.ph499, %360
   %.0245498 = phi ptr [ %.0245495, %.lr.ph499 ], [ %.0245, %360 ]
-  %.0248497 = phi ptr [ null, %.lr.ph499 ], [ %.1249, %360 ]
+  %.1249497 = phi ptr [ null, %.lr.ph499 ], [ %.2250, %360 ]
   %247 = getelementptr inbounds i8, ptr %.0245498, i64 32
   %248 = load i32, ptr %247, align 8
   %249 = sub nsw i32 %.sroa.0398.2.fr658673693, %248
@@ -1294,17 +1294,17 @@ switch.early.test:                                ; preds = %226
   br i1 %259, label %260, label %360
 
 260:                                              ; preds = %253
-  %.not292 = icmp eq ptr %.0248497, null
+  %.not292 = icmp eq ptr %.1249497, null
   br i1 %.not292, label %360, label %261
 
 261:                                              ; preds = %260
-  %262 = getelementptr inbounds i8, ptr %.0248497, i64 48
-  %263 = getelementptr inbounds i8, ptr %.0248497, i64 52
+  %262 = getelementptr inbounds i8, ptr %.1249497, i64 48
+  %263 = getelementptr inbounds i8, ptr %.1249497, i64 52
   %264 = load i32, ptr %263, align 4
   %265 = sext i32 %264 to i64
   %266 = load i32, ptr %262, align 8
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds i8, ptr %.0248497, i64 56
+  %268 = getelementptr inbounds i8, ptr %.1249497, i64 56
   %269 = load i32, ptr %268, align 8
   br i1 %.not290, label %.critedge318, label %270
 
@@ -1350,7 +1350,7 @@ switch.early.test:                                ; preds = %226
 
 .preheader.i:                                     ; preds = %290, %309
   %.1.i = phi i32 [ %311, %309 ], [ %279, %290 ]
-  %.036.i = phi ptr [ %303, %309 ], [ %273, %290 ]
+  %.137.i = phi ptr [ %303, %309 ], [ %273, %290 ]
   %292 = zext nneg i32 %.1.i to i64
   br label %293
 
@@ -1360,7 +1360,7 @@ switch.early.test:                                ; preds = %226
   %294 = getelementptr inbounds [16 x i32], ptr %9, i64 0, i64 %indvars.iv.next.i
   %295 = load i32, ptr %294, align 4
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds i32, ptr %.036.i, i64 %296
+  %297 = getelementptr inbounds i32, ptr %.137.i, i64 %296
   %298 = load i32, ptr %297, align 4
   %299 = and i32 %298, 1073741823
   %300 = icmp ne i32 %299, %275
@@ -1369,9 +1369,9 @@ switch.early.test:                                ; preds = %226
   br i1 %or.cond.i, label %293, label %302, !llvm.loop !11
 
 302:                                              ; preds = %293
-  %303 = getelementptr inbounds i32, ptr %.036.i, i64 %296
+  %303 = getelementptr inbounds i32, ptr %.137.i, i64 %296
   %304 = trunc nsw i64 %indvars.iv.next.i to i32
-  %305 = icmp eq ptr %.036.i, %244
+  %305 = icmp eq ptr %.137.i, %244
   br i1 %305, label %_ZL19icvTraceContour_32sPiiS_i.exit.thread, label %306
 
 _ZL19icvTraceContour_32sPiiS_i.exit.thread:       ; preds = %302
@@ -1380,7 +1380,7 @@ _ZL19icvTraceContour_32sPiiS_i.exit.thread:       ; preds = %302
 
 306:                                              ; preds = %302
   %307 = icmp eq ptr %303, %273
-  %308 = icmp eq ptr %.036.i, %291
+  %308 = icmp eq ptr %.137.i, %291
   %or.cond47.i = and i1 %308, %307
   br i1 %or.cond47.i, label %_ZL19icvTraceContour_32sPiiS_i.exit, label %309
 
@@ -1390,8 +1390,8 @@ _ZL19icvTraceContour_32sPiiS_i.exit.thread:       ; preds = %302
   br label %.preheader.i, !llvm.loop !12
 
 _ZL19icvTraceContour_32sPiiS_i.exit:              ; preds = %306, %290
-  %.137.i = phi ptr [ %273, %290 ], [ %291, %306 ]
-  %.not417 = icmp eq ptr %.137.i, %244
+  %.036.i = phi ptr [ %273, %290 ], [ %291, %306 ]
+  %.not417 = icmp eq ptr %.036.i, %244
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br i1 %.not417, label %.loopexit, label %360
 
@@ -1504,15 +1504,15 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   br i1 %.not418, label %.loopexit, label %360
 
 360:                                              ; preds = %_ZL15icvTraceContourPaiS_i.exit.thread412, %_ZL19icvTraceContour_32sPiiS_i.exit, %260, %_ZL15icvTraceContourPaiS_i.exit, %253, %246
-  %.1249 = phi ptr [ %.0248497, %253 ], [ %.0248497, %246 ], [ %.0245498, %_ZL15icvTraceContourPaiS_i.exit ], [ %.0245498, %260 ], [ %.0245498, %_ZL19icvTraceContour_32sPiiS_i.exit ], [ %.0245498, %_ZL15icvTraceContourPaiS_i.exit.thread412 ]
+  %.2250 = phi ptr [ %.1249497, %253 ], [ %.1249497, %246 ], [ %.0245498, %_ZL15icvTraceContourPaiS_i.exit ], [ %.0245498, %260 ], [ %.0245498, %_ZL19icvTraceContour_32sPiiS_i.exit ], [ %.0245498, %_ZL15icvTraceContourPaiS_i.exit.thread412 ]
   %361 = getelementptr inbounds i8, ptr %.0245498, i64 8
   %.0245 = load ptr, ptr %361, align 8
   %.not291 = icmp eq ptr %.0245, null
   br i1 %.not291, label %.loopexit, label %246, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZL19icvTraceContour_32sPiiS_i.exit, %_ZL15icvTraceContourPaiS_i.exit, %360, %_ZL15icvTraceContourPaiS_i.exit.thread, %_ZL19icvTraceContour_32sPiiS_i.exit.thread
-  %.0248436 = phi ptr [ %.0248497, %_ZL15icvTraceContourPaiS_i.exit.thread ], [ %.0248497, %_ZL19icvTraceContour_32sPiiS_i.exit.thread ], [ %.0248497, %_ZL19icvTraceContour_32sPiiS_i.exit ], [ %.0248497, %_ZL15icvTraceContourPaiS_i.exit ], [ %.1249, %360 ]
-  %.not295 = icmp eq ptr %.0248436, null
+  %.1249436 = phi ptr [ %.1249497, %_ZL15icvTraceContourPaiS_i.exit.thread ], [ %.1249497, %_ZL19icvTraceContour_32sPiiS_i.exit.thread ], [ %.1249497, %_ZL19icvTraceContour_32sPiiS_i.exit ], [ %.1249497, %_ZL15icvTraceContourPaiS_i.exit ], [ %.2250, %360 ]
+  %.not295 = icmp eq ptr %.1249436, null
   br i1 %.not295, label %.loopexit.thread, label %368
 
 .loopexit.thread:                                 ; preds = %238, %.loopexit
@@ -1539,13 +1539,13 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   br label %870
 
 368:                                              ; preds = %.loopexit
-  %369 = getelementptr inbounds i8, ptr %.0248436, i64 56
+  %369 = getelementptr inbounds i8, ptr %.1249436, i64 56
   %370 = load i32, ptr %369, align 8
   %371 = icmp eq i32 %370, %.0247655674690
   br i1 %371, label %372, label %375
 
 372:                                              ; preds = %368
-  %373 = getelementptr inbounds i8, ptr %.0248436, i64 16
+  %373 = getelementptr inbounds i8, ptr %.1249436, i64 16
   %374 = load ptr, ptr %373, align 8
   %.not298 = icmp eq ptr %374, null
   %spec.select319 = select i1 %.not298, ptr %136, ptr %374
@@ -1555,7 +1555,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
 
 375:                                              ; preds = %372, %368
   %376 = phi i32 [ %370, %368 ], [ %.pre587, %372 ]
-  %.2250 = phi ptr [ %.0248436, %368 ], [ %spec.select319, %372 ]
+  %.3251 = phi ptr [ %.1249436, %368 ], [ %spec.select319, %372 ]
   %.not299 = icmp eq i32 %376, %.0247655674690
   br i1 %.not299, label %377, label %384
 
@@ -1583,7 +1583,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   br label %870
 
 384:                                              ; preds = %375
-  %385 = getelementptr inbounds i8, ptr %.2250, i64 24
+  %385 = getelementptr inbounds i8, ptr %.3251, i64 24
   %386 = load ptr, ptr %385, align 8
   %387 = icmp eq ptr %386, null
   br i1 %387, label %.thread661, label %.thread407
@@ -1592,7 +1592,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   %.0247657 = phi i32 [ %.0247655674690, %384 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %226 ], [ 1, %228 ], [ 0, %225 ], [ 0, %220 ], [ 1, %.thread667 ]
   %.not288653 = phi i1 [ %.not288652675688, %384 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %226 ], [ false, %228 ], [ true, %225 ], [ true, %220 ], [ false, %.thread667 ]
   %388 = phi i1 [ false, %384 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %226 ], [ false, %228 ], [ true, %225 ], [ true, %220 ], [ true, %.thread667 ]
-  %.3251 = phi ptr [ %.2250, %384 ], [ %136, %switch.early.test ], [ %136, %switch.early.test ], [ %136, %226 ], [ %136, %228 ], [ %136, %225 ], [ %136, %220 ], [ %136, %.thread667 ]
+  %.0248 = phi ptr [ %.3251, %384 ], [ %136, %switch.early.test ], [ %136, %switch.early.test ], [ %136, %226 ], [ %136, %228 ], [ %136, %225 ], [ %136, %220 ], [ %136, %.thread667 ]
   %389 = sub nsw i32 %203, %.0247657
   %390 = load ptr, ptr %137, align 8
   call void @cvSaveMemStoragePos(ptr noundef %390, ptr noundef nonnull %138)
@@ -1846,7 +1846,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   %.sroa.6.089.i = phi i32 [ %546, %539 ], [ %409, %.preheader.i330.preheader ]
   %.sroa.041.088.i = phi i32 [ %543, %539 ], [ %407, %.preheader.i330.preheader ]
   %.087.i = phi ptr [ %522, %539 ], [ %405, %.preheader.i330.preheader ]
-  %.05486.i = phi i32 [ %.155.i, %539 ], [ %475, %.preheader.i330.preheader ]
+  %.05486.i = phi i32 [ %.256.i, %539 ], [ %475, %.preheader.i330.preheader ]
   %.185.i = phi i32 [ %549, %539 ], [ %421, %.preheader.i330.preheader ]
   %512 = zext nneg i32 %.185.i to i64
   br label %513
@@ -1908,7 +1908,7 @@ _ZL15icvTraceContourPaiS_i.exit:                  ; preds = %328
   br label %539
 
 539:                                              ; preds = %535, %530
-  %.155.i = phi i32 [ %524, %535 ], [ %.05486.i, %530 ]
+  %.256.i = phi i32 [ %524, %535 ], [ %.05486.i, %530 ]
   %540 = and i64 %indvars.iv.next.i332, 7
   %541 = getelementptr inbounds [8 x %struct.CvPoint], ptr @_ZL13icvCodeDeltas, i64 0, i64 %540
   %542 = load i32, ptr %541, align 8
@@ -2076,9 +2076,9 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   br label %617
 
 617:                                              ; preds = %671, %614
-  %.sroa.0.sroa.0.0.i = phi i32 [ %576, %614 ], [ %.sroa.0.sroa.0.2.i, %671 ]
-  %.sroa.0.sroa.7.0.i = phi i32 [ %578, %614 ], [ %.sroa.0.sroa.7.1.i, %671 ]
-  %.sroa.11.0165.i = phi i64 [ %.sroa.0.0.insert.insert.i338, %614 ], [ %.sroa.11.2.i, %671 ]
+  %.sroa.0.sroa.0.1.i = phi i32 [ %576, %614 ], [ %.sroa.0.sroa.0.2.i, %671 ]
+  %.sroa.0.sroa.7.1.i = phi i32 [ %578, %614 ], [ %.sroa.0.sroa.7.2.i, %671 ]
+  %.sroa.11.1.i = phi i64 [ %.sroa.0.0.insert.insert.i338, %614 ], [ %.sroa.11.2.i, %671 ]
   %.198.i = phi i32 [ %595, %614 ], [ %680, %671 ]
   %.096.i = phi i32 [ %615, %614 ], [ %633, %671 ]
   %.095.i = phi ptr [ %574, %614 ], [ %630, %671 ]
@@ -2175,28 +2175,28 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   br i1 %.not112.i, label %668, label %658
 
 658:                                              ; preds = %657
-  %659 = icmp slt i32 %.sroa.074.0.i, %.sroa.0.sroa.0.0.i
+  %659 = icmp slt i32 %.sroa.074.0.i, %.sroa.0.sroa.0.1.i
   br i1 %659, label %663, label %660
 
 660:                                              ; preds = %658
-  %.sroa.11.8.extract.trunc.i = trunc i64 %.sroa.11.0165.i to i32
+  %.sroa.11.8.extract.trunc.i = trunc i64 %.sroa.11.1.i to i32
   %661 = icmp sgt i32 %.sroa.074.0.i, %.sroa.11.8.extract.trunc.i
   br i1 %661, label %662, label %663
 
 662:                                              ; preds = %660
   %.sroa.11.8.insert.ext.i = zext i32 %.sroa.074.0.i to i64
-  %.sroa.11.8.insert.mask.i = and i64 %.sroa.11.0165.i, -4294967296
+  %.sroa.11.8.insert.mask.i = and i64 %.sroa.11.1.i, -4294967296
   %.sroa.11.8.insert.insert.i = or disjoint i64 %.sroa.11.8.insert.mask.i, %.sroa.11.8.insert.ext.i
   br label %663
 
 663:                                              ; preds = %662, %660, %658
-  %.sroa.0.sroa.0.1.i = phi i32 [ %.sroa.0.sroa.0.0.i, %662 ], [ %.sroa.0.sroa.0.0.i, %660 ], [ %.sroa.074.0.i, %658 ]
-  %.sroa.11.1.i = phi i64 [ %.sroa.11.8.insert.insert.i, %662 ], [ %.sroa.11.0165.i, %660 ], [ %.sroa.11.0165.i, %658 ]
-  %664 = icmp slt i32 %.sroa.11.0.i, %.sroa.0.sroa.7.0.i
+  %.sroa.0.sroa.0.3.i = phi i32 [ %.sroa.0.sroa.0.1.i, %662 ], [ %.sroa.0.sroa.0.1.i, %660 ], [ %.sroa.074.0.i, %658 ]
+  %.sroa.11.3.i = phi i64 [ %.sroa.11.8.insert.insert.i, %662 ], [ %.sroa.11.1.i, %660 ], [ %.sroa.11.1.i, %658 ]
+  %664 = icmp slt i32 %.sroa.11.0.i, %.sroa.0.sroa.7.1.i
   br i1 %664, label %668, label %665
 
 665:                                              ; preds = %663
-  %.sroa.11.12.extract.shift.i = lshr i64 %.sroa.11.1.i, 32
+  %.sroa.11.12.extract.shift.i = lshr i64 %.sroa.11.3.i, 32
   %.sroa.11.12.extract.trunc.i = trunc nuw i64 %.sroa.11.12.extract.shift.i to i32
   %666 = icmp sgt i32 %.sroa.11.0.i, %.sroa.11.12.extract.trunc.i
   br i1 %666, label %667, label %668
@@ -2204,14 +2204,14 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
 667:                                              ; preds = %665
   %.sroa.11.12.insert.ext.i = zext i32 %.sroa.11.0.i to i64
   %.sroa.11.12.insert.shift.i = shl nuw i64 %.sroa.11.12.insert.ext.i, 32
-  %.sroa.11.12.insert.mask.i = and i64 %.sroa.11.1.i, 4294967295
+  %.sroa.11.12.insert.mask.i = and i64 %.sroa.11.3.i, 4294967295
   %.sroa.11.12.insert.insert.i = or disjoint i64 %.sroa.11.12.insert.mask.i, %.sroa.11.12.insert.shift.i
   br label %668
 
 668:                                              ; preds = %667, %665, %663, %657
-  %.sroa.0.sroa.0.2.i = phi i32 [ %.sroa.0.sroa.0.0.i, %657 ], [ %.sroa.0.sroa.0.1.i, %667 ], [ %.sroa.0.sroa.0.1.i, %665 ], [ %.sroa.0.sroa.0.1.i, %663 ]
-  %.sroa.0.sroa.7.1.i = phi i32 [ %.sroa.0.sroa.7.0.i, %657 ], [ %.sroa.0.sroa.7.0.i, %667 ], [ %.sroa.0.sroa.7.0.i, %665 ], [ %.sroa.11.0.i, %663 ]
-  %.sroa.11.2.i = phi i64 [ %.sroa.11.0165.i, %657 ], [ %.sroa.11.12.insert.insert.i, %667 ], [ %.sroa.11.1.i, %665 ], [ %.sroa.11.1.i, %663 ]
+  %.sroa.0.sroa.0.2.i = phi i32 [ %.sroa.0.sroa.0.1.i, %657 ], [ %.sroa.0.sroa.0.3.i, %667 ], [ %.sroa.0.sroa.0.3.i, %665 ], [ %.sroa.0.sroa.0.3.i, %663 ]
+  %.sroa.0.sroa.7.2.i = phi i32 [ %.sroa.0.sroa.7.1.i, %657 ], [ %.sroa.0.sroa.7.1.i, %667 ], [ %.sroa.0.sroa.7.1.i, %665 ], [ %.sroa.11.0.i, %663 ]
+  %.sroa.11.2.i = phi i64 [ %.sroa.11.1.i, %657 ], [ %.sroa.11.12.insert.insert.i, %667 ], [ %.sroa.11.3.i, %665 ], [ %.sroa.11.3.i, %663 ]
   %669 = icmp eq ptr %630, %574
   %670 = icmp eq ptr %.095.i, %603
   %or.cond117.i = and i1 %670, %669
@@ -2238,21 +2238,21 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
 .loopexit.i343:                                   ; preds = %.loopexit.loopexit.i, %610, %604
   %.sroa.11.12.extract.trunc141.pre-phi.i = phi i32 [ %.pre181.i, %.loopexit.loopexit.i ], [ %578, %604 ], [ %578, %610 ]
   %.sroa.11.8.extract.trunc130.pre-phi.i = phi i32 [ %.pre179.i, %.loopexit.loopexit.i ], [ %576, %604 ], [ %576, %610 ]
-  %.sroa.0.sroa.0.3.i = phi i32 [ %.sroa.0.sroa.0.2.i, %.loopexit.loopexit.i ], [ %576, %604 ], [ %576, %610 ]
-  %.sroa.0.sroa.7.2.i = phi i32 [ %.sroa.0.sroa.7.1.i, %.loopexit.loopexit.i ], [ %578, %604 ], [ %578, %610 ]
+  %.sroa.0.sroa.0.0.i = phi i32 [ %.sroa.0.sroa.0.2.i, %.loopexit.loopexit.i ], [ %576, %604 ], [ %576, %610 ]
+  %.sroa.0.sroa.7.0.i = phi i32 [ %.sroa.0.sroa.7.2.i, %.loopexit.loopexit.i ], [ %578, %604 ], [ %578, %610 ]
   %reass.sub.i = add i32 %.sroa.11.8.extract.trunc130.pre-phi.i, 1
-  %681 = sub i32 %reass.sub.i, %.sroa.0.sroa.0.3.i
+  %681 = sub i32 %reass.sub.i, %.sroa.0.sroa.0.0.i
   %.sroa.11.8.insert.ext132.i = zext i32 %681 to i64
   %reass.sub172.i = add i32 %.sroa.11.12.extract.trunc141.pre-phi.i, 1
-  %682 = sub i32 %reass.sub172.i, %.sroa.0.sroa.7.2.i
+  %682 = sub i32 %reass.sub172.i, %.sroa.0.sroa.7.0.i
   %.sroa.11.12.insert.ext143.i = zext i32 %682 to i64
   %.sroa.11.12.insert.shift144.i = shl nuw i64 %.sroa.11.12.insert.ext143.i, 32
   %.sroa.11.12.insert.insert146.i = or disjoint i64 %.sroa.11.12.insert.shift144.i, %.sroa.11.8.insert.ext132.i
   %683 = call ptr @cvEndWriteSeq(ptr noundef nonnull %5)
   %.not114.i = icmp eq i32 %579, 0
-  %.pre598 = zext i32 %.sroa.0.sroa.7.2.i to i64
+  %.pre598 = zext i32 %.sroa.0.sroa.7.0.i to i64
   %.pre599 = shl nuw i64 %.pre598, 32
-  %.pre600 = zext i32 %.sroa.0.sroa.0.3.i to i64
+  %.pre600 = zext i32 %.sroa.0.sroa.0.0.i to i64
   %.pre601 = or disjoint i64 %.pre599, %.pre600
   br i1 %.not114.i, label %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit, label %684
 
@@ -2382,10 +2382,10 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   %.sroa.049.0159.i = phi i32 [ %698, %.preheader.lr.ph.i352 ], [ %799, %792 ]
   %.0158.i = phi ptr [ %696, %.preheader.lr.ph.i352 ], [ %752, %792 ]
   %.067157.i = phi i32 [ %738, %.preheader.lr.ph.i352 ], [ %754, %792 ]
-  %.sroa.0.sroa.0.0156.i = phi i32 [ %698, %.preheader.lr.ph.i352 ], [ %.sroa.0.sroa.0.2.i365, %792 ]
+  %.sroa.0.sroa.0.1156.i = phi i32 [ %698, %.preheader.lr.ph.i352 ], [ %.sroa.0.sroa.0.2.i365, %792 ]
   %.1144155.i = phi i32 [ %713, %.preheader.lr.ph.i352 ], [ %800, %792 ]
-  %.sroa.11.0145154.i = phi i64 [ %.sroa.0.0.insert.insert.i351, %.preheader.lr.ph.i352 ], [ %.sroa.11.2.i364, %792 ]
-  %.sroa.0.sroa.7.0153.i = phi i32 [ %700, %.preheader.lr.ph.i352 ], [ %.sroa.0.sroa.7.1.i363, %792 ]
+  %.sroa.11.1154.i = phi i64 [ %.sroa.0.0.insert.insert.i351, %.preheader.lr.ph.i352 ], [ %.sroa.11.2.i364, %792 ]
+  %.sroa.0.sroa.7.1153.i = phi i32 [ %700, %.preheader.lr.ph.i352 ], [ %.sroa.0.sroa.7.2.i363, %792 ]
   %742 = zext nneg i32 %.1144155.i to i64
   br label %743
 
@@ -2475,28 +2475,28 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   br i1 %.not79.i, label %789, label %779
 
 779:                                              ; preds = %778
-  %780 = icmp slt i32 %.sroa.049.0159.i, %.sroa.0.sroa.0.0156.i
+  %780 = icmp slt i32 %.sroa.049.0159.i, %.sroa.0.sroa.0.1156.i
   br i1 %780, label %784, label %781
 
 781:                                              ; preds = %779
-  %.sroa.11.8.extract.trunc.i358 = trunc i64 %.sroa.11.0145154.i to i32
+  %.sroa.11.8.extract.trunc.i358 = trunc i64 %.sroa.11.1154.i to i32
   %782 = icmp sgt i32 %.sroa.049.0159.i, %.sroa.11.8.extract.trunc.i358
   br i1 %782, label %783, label %784
 
 783:                                              ; preds = %781
   %.sroa.11.8.insert.ext.i381 = zext i32 %.sroa.049.0159.i to i64
-  %.sroa.11.8.insert.mask.i382 = and i64 %.sroa.11.0145154.i, -4294967296
+  %.sroa.11.8.insert.mask.i382 = and i64 %.sroa.11.1154.i, -4294967296
   %.sroa.11.8.insert.insert.i383 = or disjoint i64 %.sroa.11.8.insert.mask.i382, %.sroa.11.8.insert.ext.i381
   br label %784
 
 784:                                              ; preds = %783, %781, %779
-  %.sroa.11.1.i359 = phi i64 [ %.sroa.11.8.insert.insert.i383, %783 ], [ %.sroa.11.0145154.i, %781 ], [ %.sroa.11.0145154.i, %779 ]
-  %.sroa.0.sroa.0.1.i360 = phi i32 [ %.sroa.0.sroa.0.0156.i, %783 ], [ %.sroa.0.sroa.0.0156.i, %781 ], [ %.sroa.049.0159.i, %779 ]
-  %785 = icmp slt i32 %.sroa.11.0161.i, %.sroa.0.sroa.7.0153.i
+  %.sroa.11.3.i359 = phi i64 [ %.sroa.11.8.insert.insert.i383, %783 ], [ %.sroa.11.1154.i, %781 ], [ %.sroa.11.1154.i, %779 ]
+  %.sroa.0.sroa.0.3.i360 = phi i32 [ %.sroa.0.sroa.0.1156.i, %783 ], [ %.sroa.0.sroa.0.1156.i, %781 ], [ %.sroa.049.0159.i, %779 ]
+  %785 = icmp slt i32 %.sroa.11.0161.i, %.sroa.0.sroa.7.1153.i
   br i1 %785, label %789, label %786
 
 786:                                              ; preds = %784
-  %.sroa.11.12.extract.shift.i361 = lshr i64 %.sroa.11.1.i359, 32
+  %.sroa.11.12.extract.shift.i361 = lshr i64 %.sroa.11.3.i359, 32
   %.sroa.11.12.extract.trunc.i362 = trunc nuw i64 %.sroa.11.12.extract.shift.i361 to i32
   %787 = icmp sgt i32 %.sroa.11.0161.i, %.sroa.11.12.extract.trunc.i362
   br i1 %787, label %788, label %789
@@ -2504,14 +2504,14 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
 788:                                              ; preds = %786
   %.sroa.11.12.insert.ext.i377 = zext i32 %.sroa.11.0161.i to i64
   %.sroa.11.12.insert.shift.i378 = shl nuw i64 %.sroa.11.12.insert.ext.i377, 32
-  %.sroa.11.12.insert.mask.i379 = and i64 %.sroa.11.1.i359, 4294967295
+  %.sroa.11.12.insert.mask.i379 = and i64 %.sroa.11.3.i359, 4294967295
   %.sroa.11.12.insert.insert.i380 = or disjoint i64 %.sroa.11.12.insert.mask.i379, %.sroa.11.12.insert.shift.i378
   br label %789
 
 789:                                              ; preds = %788, %786, %784, %778
-  %.sroa.0.sroa.7.1.i363 = phi i32 [ %.sroa.0.sroa.7.0153.i, %778 ], [ %.sroa.0.sroa.7.0153.i, %788 ], [ %.sroa.0.sroa.7.0153.i, %786 ], [ %.sroa.11.0161.i, %784 ]
-  %.sroa.11.2.i364 = phi i64 [ %.sroa.11.0145154.i, %778 ], [ %.sroa.11.12.insert.insert.i380, %788 ], [ %.sroa.11.1.i359, %786 ], [ %.sroa.11.1.i359, %784 ]
-  %.sroa.0.sroa.0.2.i365 = phi i32 [ %.sroa.0.sroa.0.0156.i, %778 ], [ %.sroa.0.sroa.0.1.i360, %788 ], [ %.sroa.0.sroa.0.1.i360, %786 ], [ %.sroa.0.sroa.0.1.i360, %784 ]
+  %.sroa.0.sroa.7.2.i363 = phi i32 [ %.sroa.0.sroa.7.1153.i, %778 ], [ %.sroa.0.sroa.7.1153.i, %788 ], [ %.sroa.0.sroa.7.1153.i, %786 ], [ %.sroa.11.0161.i, %784 ]
+  %.sroa.11.2.i364 = phi i64 [ %.sroa.11.1154.i, %778 ], [ %.sroa.11.12.insert.insert.i380, %788 ], [ %.sroa.11.3.i359, %786 ], [ %.sroa.11.3.i359, %784 ]
+  %.sroa.0.sroa.0.2.i365 = phi i32 [ %.sroa.0.sroa.0.1156.i, %778 ], [ %.sroa.0.sroa.0.3.i360, %788 ], [ %.sroa.0.sroa.0.3.i360, %786 ], [ %.sroa.0.sroa.0.3.i360, %784 ]
   %790 = icmp eq ptr %752, %696
   %791 = icmp eq ptr %.0158.i, %724
   %or.cond83.i = and i1 %791, %790
@@ -2537,21 +2537,21 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
 .loopexit.i367:                                   ; preds = %.loopexit.loopexit.i366, %734, %726
   %.sroa.11.12.extract.trunc119.pre-phi.i = phi i32 [ %.pre174.i, %.loopexit.loopexit.i366 ], [ %700, %726 ], [ %700, %734 ]
   %.sroa.11.8.extract.trunc108.pre-phi.i = phi i32 [ %.pre172.i, %.loopexit.loopexit.i366 ], [ %698, %726 ], [ %698, %734 ]
-  %.sroa.0.sroa.7.2.i368 = phi i32 [ %.sroa.0.sroa.7.1.i363, %.loopexit.loopexit.i366 ], [ %700, %726 ], [ %700, %734 ]
-  %.sroa.0.sroa.0.3.i369 = phi i32 [ %.sroa.0.sroa.0.2.i365, %.loopexit.loopexit.i366 ], [ %698, %726 ], [ %698, %734 ]
+  %.sroa.0.sroa.7.0.i368 = phi i32 [ %.sroa.0.sroa.7.2.i363, %.loopexit.loopexit.i366 ], [ %700, %726 ], [ %700, %734 ]
+  %.sroa.0.sroa.0.0.i369 = phi i32 [ %.sroa.0.sroa.0.2.i365, %.loopexit.loopexit.i366 ], [ %698, %726 ], [ %698, %734 ]
   %reass.sub.i370 = add i32 %.sroa.11.8.extract.trunc108.pre-phi.i, 1
-  %801 = sub i32 %reass.sub.i370, %.sroa.0.sroa.0.3.i369
+  %801 = sub i32 %reass.sub.i370, %.sroa.0.sroa.0.0.i369
   %.sroa.11.8.insert.ext110.i = zext i32 %801 to i64
   %reass.sub162.i = add i32 %.sroa.11.12.extract.trunc119.pre-phi.i, 1
-  %802 = sub i32 %reass.sub162.i, %.sroa.0.sroa.7.2.i368
+  %802 = sub i32 %reass.sub162.i, %.sroa.0.sroa.7.0.i368
   %.sroa.11.12.insert.ext121.i = zext i32 %802 to i64
   %.sroa.11.12.insert.shift122.i = shl nuw i64 %.sroa.11.12.insert.ext121.i, 32
   %.sroa.11.12.insert.insert124.i = or disjoint i64 %.sroa.11.12.insert.shift122.i, %.sroa.11.8.insert.ext110.i
   %803 = call ptr @cvEndWriteSeq(ptr noundef nonnull %3)
   %.not81.i = icmp eq i32 %701, 0
-  %.pre594 = zext i32 %.sroa.0.sroa.7.2.i368 to i64
+  %.pre594 = zext i32 %.sroa.0.sroa.7.0.i368 to i64
   %.pre595 = shl nuw i64 %.pre594, 32
-  %.pre596 = zext i32 %.sroa.0.sroa.0.3.i369 to i64
+  %.pre596 = zext i32 %.sroa.0.sroa.0.0.i369 to i64
   %.pre597 = or disjoint i64 %.pre595, %.pre596
   br i1 %.not81.i, label %_ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit, label %804
 
@@ -2571,7 +2571,7 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
   br label %806
 
 806:                                              ; preds = %_ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit, %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit
-  %.2267 = phi i32 [ %.1266512, %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit ], [ %691, %_ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit ]
+  %.4269 = phi i32 [ %.1266512, %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit ], [ %691, %_ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit ]
   %.0239 = phi i32 [ %569, %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit ], [ %.1266512, %_ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit ]
   %807 = load i32, ptr %143, align 4
   %808 = load ptr, ptr %19, align 8
@@ -2594,7 +2594,7 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
 
 820:                                              ; preds = %806, %_ZL15icvFetchContourPai7CvPointP5CvSeqi.exit
   %821 = phi ptr [ %.pre588, %_ZL15icvFetchContourPai7CvPointP5CvSeqi.exit ], [ %808, %806 ]
-  %.3268 = phi i32 [ %.1266512, %_ZL15icvFetchContourPai7CvPointP5CvSeqi.exit ], [ %.2267, %806 ]
+  %.3268 = phi i32 [ %.1266512, %_ZL15icvFetchContourPai7CvPointP5CvSeqi.exit ], [ %.4269, %806 ]
   %822 = getelementptr inbounds i8, ptr %821, i64 56
   store i32 %.0247657, ptr %822, align 8
   %823 = getelementptr inbounds i8, ptr %821, i64 24
@@ -2604,7 +2604,7 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
   %824 = getelementptr inbounds i8, ptr %821, i64 48
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %824, align 8
   %825 = getelementptr inbounds i8, ptr %821, i64 16
-  store ptr %.3251, ptr %825, align 8
+  store ptr %.0248, ptr %825, align 8
   %826 = load i32, ptr %145, align 8
   %827 = load i32, ptr %177, align 4
   %.not307 = icmp eq i32 %826, %827
@@ -2628,13 +2628,13 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
 
 835:                                              ; preds = %828, %820
   %836 = phi ptr [ %.pre593, %828 ], [ %397, %820 ]
-  %837 = phi ptr [ %.pre591, %828 ], [ %.3251, %820 ]
+  %837 = phi ptr [ %.pre591, %828 ], [ %.0248, %820 ]
   %838 = phi ptr [ %.pre589, %828 ], [ %821, %820 ]
   %839 = getelementptr inbounds i8, ptr %837, i64 24
   %840 = load ptr, ptr %839, align 8
   %841 = getelementptr inbounds i8, ptr %836, i64 24
   store ptr %840, ptr %841, align 8
-  %842 = getelementptr inbounds i8, ptr %.3251, i64 24
+  %842 = getelementptr inbounds i8, ptr %.0248, i64 24
   %843 = load ptr, ptr %842, align 8
   %844 = icmp eq ptr %843, null
   br i1 %844, label %845, label %857
@@ -2686,8 +2686,8 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
 
 .thread661:                                       ; preds = %.thread638, %384, %220, %213, %.critedge315, %852
   %.sroa.0398.3 = phi i32 [ %.sroa.0398.2.fr, %220 ], [ %389, %852 ], [ %.sroa.0398.2.fr658673693, %384 ], [ %.sroa.0398.2.fr, %213 ], [ %.sroa.0398.2.fr, %.critedge315 ], [ %.sroa.0398.2.fr644, %.thread638 ]
-  %.4269 = phi i32 [ %.1266512, %220 ], [ %.3268, %852 ], [ %.1266512, %384 ], [ %.1266512, %213 ], [ %.1266512, %.critedge315 ], [ %.1266512, %.thread638 ]
-  %.4256 = phi i32 [ %.3255607, %220 ], [ %856, %852 ], [ %.3255607650676686, %384 ], [ %.3255, %213 ], [ %.3255, %.critedge315 ], [ %.3255614624, %.thread638 ]
+  %.2267 = phi i32 [ %.1266512, %220 ], [ %.3268, %852 ], [ %.1266512, %384 ], [ %.1266512, %213 ], [ %.1266512, %.critedge315 ], [ %.1266512, %.thread638 ]
+  %.4256 = phi i32 [ %.2254607, %220 ], [ %856, %852 ], [ %.2254607650676686, %384 ], [ %.2254, %213 ], [ %.2254, %.critedge315 ], [ %.2254614624, %.thread638 ]
   %.not308 = icmp ult i32 %.4256, 2
   %spec.select416 = select i1 %.not308, i32 %.sroa.0398.3, i32 %203
   %866 = add nsw i32 %203, 1
@@ -2695,7 +2695,7 @@ _ZL17icvFetchContourExPai7CvPointP5CvSeqiiP6CvRect.exit: ; preds = %.loopexit.i3
   br i1 %867, label %187, label %.critedge._crit_edge, !llvm.loop !24
 
 .critedge._crit_edge:                             ; preds = %.preheader422, %.preheader, %.thread661, %.critedge, %.critedge2, %202, %180
-  %.1266.lcssa = phi i32 [ %.0265523, %180 ], [ %.1266512, %202 ], [ %.1266512, %.critedge2 ], [ %.1266512, %.preheader422 ], [ %.1266512, %.preheader ], [ %.1266512, %.critedge ], [ %.4269, %.thread661 ]
+  %.1266.lcssa = phi i32 [ %.0265523, %180 ], [ %.1266512, %202 ], [ %.1266512, %.critedge2 ], [ %.1266512, %.preheader422 ], [ %.1266512, %.preheader ], [ %.1266512, %.critedge ], [ %.2267, %.thread661 ]
   %868 = add i32 %.0246525, 1
   %869 = getelementptr inbounds i8, ptr %.0238527, i64 %78
   %exitcond586.not = icmp eq i32 %868, %87
@@ -3526,8 +3526,8 @@ _Z21findStartContourPointPh6CvSizei.exit346._crit_edge.i: ; preds = %218, %_Z21f
 .critedge.preheader.i:                            ; preds = %350, %230
   %.0233.lcssa.i = phi ptr [ %.0223476.i, %230 ], [ %.1234.i, %350 ]
   %.0229.lcssa.i = phi ptr [ %232, %230 ], [ %.1230.i, %350 ]
-  %.1225.lcssa.i = phi ptr [ %.0224475.i, %230 ], [ %.4228.i, %350 ]
-  %.0211.lcssa.i = phi i32 [ 0, %230 ], [ %.3214.i, %350 ]
+  %.1225.lcssa.i = phi ptr [ %.0224475.i, %230 ], [ %.2226.i, %350 ]
+  %.0211.lcssa.i = phi i32 [ 0, %230 ], [ %.1212.i, %350 ]
   %.0196.lcssa.i = phi i32 [ 0, %230 ], [ %.1197.i, %350 ]
   %.0192.lcssa.i = phi i32 [ 0, %230 ], [ %.1193.i, %350 ]
   %240 = icmp slt i32 %.0196.lcssa.i, %237
@@ -3536,8 +3536,8 @@ _Z21findStartContourPointPh6CvSizei.exit346._crit_edge.i: ; preds = %218, %_Z21f
 .lr.ph.i:                                         ; preds = %230, %350
   %.0192455.i = phi i32 [ %.1193.i, %350 ], [ 0, %230 ]
   %.0196454.i = phi i32 [ %.1197.i, %350 ], [ 0, %230 ]
-  %.0211453.i = phi i32 [ %.3214.i, %350 ], [ 0, %230 ]
-  %.1225452.i = phi ptr [ %.4228.i, %350 ], [ %.0224475.i, %230 ]
+  %.0211453.i = phi i32 [ %.1212.i, %350 ], [ 0, %230 ]
+  %.1225452.i = phi ptr [ %.2226.i, %350 ], [ %.0224475.i, %230 ]
   %.0229451.i = phi ptr [ %.1230.i, %350 ], [ %232, %230 ]
   %.0233450.i = phi ptr [ %.1234.i, %350 ], [ %.0223476.i, %230 ]
   switch i32 %.0211453.i, label %default.unreachable [
@@ -3577,8 +3577,8 @@ _Z21findStartContourPointPh6CvSizei.exit346._crit_edge.i: ; preds = %218, %_Z21f
 
 258:                                              ; preds = %257, %255
   %259 = phi ptr [ %256, %255 ], [ %.pre532.i, %257 ]
-  %.2226.i = phi ptr [ %256, %255 ], [ %.1225452.i, %257 ]
-  %.1212.i = phi i32 [ 1, %255 ], [ 0, %257 ]
+  %.3227.i = phi ptr [ %256, %255 ], [ %.1225452.i, %257 ]
+  %.2213.i = phi i32 [ 1, %255 ], [ 0, %257 ]
   %260 = add nsw i32 %.0192455.i, 1
   %261 = getelementptr inbounds i8, ptr %259, i64 8
   %262 = load ptr, ptr %261, align 8
@@ -3621,8 +3621,8 @@ _Z21findStartContourPointPh6CvSizei.exit346._crit_edge.i: ; preds = %218, %_Z21f
 
 276:                                              ; preds = %272, %267
   %277 = phi ptr [ %247, %267 ], [ %.pre531.i, %272 ]
-  %.3227.i = phi ptr [ %247, %267 ], [ %.1225452.i, %272 ]
-  %.2213.i = phi i32 [ -1, %267 ], [ 0, %272 ]
+  %.4228.i = phi ptr [ %247, %267 ], [ %.1225452.i, %272 ]
+  %.3214.i = phi i32 [ -1, %267 ], [ 0, %272 ]
   %278 = add nsw i32 %.0196454.i, 1
   %279 = getelementptr inbounds i8, ptr %277, i64 8
   %280 = load ptr, ptr %279, align 8
@@ -3739,8 +3739,8 @@ default.unreachable:                              ; preds = %.lr.ph.i
 350:                                              ; preds = %346, %342, %321, %308, %304, %290, %276, %258
   %.1234.i = phi ptr [ %325, %321 ], [ %.0233450.i, %342 ], [ %349, %346 ], [ %.0233450.i, %290 ], [ %307, %304 ], [ %.0233450.i, %308 ], [ %262, %258 ], [ %.0233450.i, %276 ]
   %.1230.i = phi ptr [ %.0229451.i, %321 ], [ %345, %342 ], [ %.0229451.i, %346 ], [ %294, %290 ], [ %.0229451.i, %304 ], [ %311, %308 ], [ %.0229451.i, %258 ], [ %280, %276 ]
-  %.4228.i = phi ptr [ %.1225452.i, %321 ], [ %335, %342 ], [ %338, %346 ], [ %.1225452.i, %290 ], [ %297, %304 ], [ %300, %308 ], [ %.2226.i, %258 ], [ %.3227.i, %276 ]
-  %.3214.i = phi i32 [ 0, %321 ], [ -1, %342 ], [ 1, %346 ], [ 0, %290 ], [ 1, %304 ], [ -1, %308 ], [ %.1212.i, %258 ], [ %.2213.i, %276 ]
+  %.2226.i = phi ptr [ %.1225452.i, %321 ], [ %335, %342 ], [ %338, %346 ], [ %.1225452.i, %290 ], [ %297, %304 ], [ %300, %308 ], [ %.3227.i, %258 ], [ %.4228.i, %276 ]
+  %.1212.i = phi i32 [ 0, %321 ], [ -1, %342 ], [ 1, %346 ], [ 0, %290 ], [ 1, %304 ], [ -1, %308 ], [ %.2213.i, %258 ], [ %.3214.i, %276 ]
   %.1197.i = phi i32 [ %.0196454.i, %321 ], [ %343, %342 ], [ %.0196454.i, %346 ], [ %291, %290 ], [ %.0196454.i, %304 ], [ %309, %308 ], [ %.0196454.i, %258 ], [ %278, %276 ]
   %.1193.i = phi i32 [ %322, %321 ], [ %.0192455.i, %342 ], [ %347, %346 ], [ %.0192455.i, %290 ], [ %305, %304 ], [ %.0192455.i, %308 ], [ %260, %258 ], [ %.0192455.i, %276 ]
   %351 = icmp slt i32 %.1193.i, %236
@@ -4143,13 +4143,13 @@ _ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit: ; preds = %_ZN2c
   br label %497
 
 497:                                              ; preds = %500, %496
-  %.025 = phi i32 [ -1, %496 ], [ %501, %500 ]
+  %.126 = phi i32 [ -1, %496 ], [ %501, %500 ]
   %498 = load ptr, ptr %22, align 8
   %499 = invoke ptr @cvFindNextContour(ptr noundef %498)
           to label %500 unwind label %504
 
 500:                                              ; preds = %497
-  %501 = add nsw i32 %.025, 1
+  %501 = add nsw i32 %.126, 1
   %.not31 = icmp eq ptr %499, null
   br i1 %.not31, label %513, label %497, !llvm.loop !38
 
@@ -4189,8 +4189,8 @@ _ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit: ; preds = %_ZN2c
   br label %515
 
 515:                                              ; preds = %513, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit
-  %.126 = phi i32 [ %spec.select.i, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit ], [ %501, %513 ]
-  ret i32 %.126
+  %.025 = phi i32 [ %spec.select.i, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit ], [ %501, %513 ]
+  ret i32 %.025
 
 516:                                              ; preds = %510
   %517 = landingpad { ptr, i32 }

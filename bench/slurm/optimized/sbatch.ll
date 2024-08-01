@@ -277,7 +277,7 @@ _set_exit_code.exit:                              ; preds = %32, %37, %39
   %88 = phi i32 [ %108, %101 ], [ %86, %82 ]
   %.04163.i = phi i32 [ %89, %101 ], [ 0, %82 ]
   %.04262.i = phi i32 [ %105, %101 ], [ %.043.i, %82 ]
-  %.161.i = phi i32 [ %.3.i, %101 ], [ %.043.i, %82 ]
+  %.161.i = phi i32 [ %.2.i, %101 ], [ %.043.i, %82 ]
   %89 = add nuw nsw i32 %.04163.i, %88
   %90 = icmp eq i32 %.04262.i, %88
   br i1 %90, label %91, label %101
@@ -303,17 +303,17 @@ _set_exit_code.exit:                              ; preds = %32, %37, %39
 96:                                               ; preds = %91
   %97 = icmp slt i32 %.161.i, 536862720
   %98 = add nsw i32 %.161.i, 8192
-  %.2.i = select i1 %97, i32 %98, i32 536870912
-  %99 = sext i32 %.2.i to i64
+  %.3.i = select i1 %97, i32 %98, i32 536870912
+  %99 = sext i32 %.3.i to i64
   %100 = call ptr @slurm_xrecalloc(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %99, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 680, ptr noundef nonnull @__func__._get_script_buffer) #14
   br label %101
 
 101:                                              ; preds = %96, %.lr.ph.i
-  %.3.i = phi i32 [ %.2.i, %96 ], [ %.161.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %.3.i, %96 ], [ %.161.i, %.lr.ph.i ]
   %102 = load ptr, ptr %9, align 8
   %103 = zext nneg i32 %89 to i64
   %104 = getelementptr inbounds i8, ptr %102, i64 %103
-  %105 = sub nsw i32 %.3.i, %89
+  %105 = sub nsw i32 %.2.i, %89
   %106 = sext i32 %105 to i64
   %107 = call i64 @read(i32 noundef %.044.i, ptr noundef nonnull %104, i64 noundef %106) #14
   %108 = trunc i64 %107 to i32

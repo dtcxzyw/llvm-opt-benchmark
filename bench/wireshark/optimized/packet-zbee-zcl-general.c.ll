@@ -8013,32 +8013,32 @@ define internal noundef i32 @dissect_zbee_zcl_touchlink(ptr noundef %0, ptr noun
   br i1 %.not26.i, label %dissect_zcl_touchlink_scan_response.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %176, %.lr.ph.i
-  %.1 = phi i32 [ %194, %.lr.ph.i ], [ 8, %176 ]
+  %.2 = phi i32 [ %194, %.lr.ph.i ], [ 8, %176 ]
   %.027.i = phi i8 [ %188, %.lr.ph.i ], [ %181, %176 ]
   %188 = add i8 %.027.i, -1
   %189 = load i32, ptr @hf_zbee_zcl_touchlink_group_id, align 4
-  %190 = tail call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %189, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #8
-  %191 = add nuw nsw i32 %.1, 2
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %189, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef -2147483648) #8
+  %191 = add nuw nsw i32 %.2, 2
   %192 = load i32, ptr @hf_zbee_zcl_touchlink_group_type, align 4
   %193 = tail call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 1, i32 noundef -2147483648) #8
-  %194 = add nuw nsw i32 %.1, 3
+  %194 = add nuw nsw i32 %.2, 3
   %.not.i = icmp eq i8 %188, 0
   br i1 %.not.i, label %dissect_zcl_touchlink_scan_response.exit, label %.lr.ph.i, !llvm.loop !30
 
 dissect_zcl_touchlink_scan_response.exit:         ; preds = %.lr.ph.i, %176, %138, %108, %149, %160, %163, %107, %27, %34, %37, %66, %93, %104, %26
-  %.3 = phi i32 [ 5, %26 ], [ 19, %93 ], [ 48, %66 ], [ 57, %37 ], [ 6, %104 ], [ 7, %34 ], [ 7, %27 ], [ 5, %107 ], [ 21, %163 ], [ 6, %160 ], [ 18, %149 ], [ 37, %138 ], [ 30, %108 ], [ 8, %176 ], [ %194, %.lr.ph.i ]
-  %195 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3) #8
+  %.0137 = phi i32 [ 5, %26 ], [ 19, %93 ], [ 48, %66 ], [ 57, %37 ], [ 6, %104 ], [ 7, %34 ], [ 7, %27 ], [ 5, %107 ], [ 21, %163 ], [ 6, %160 ], [ 18, %149 ], [ 37, %138 ], [ 30, %108 ], [ 8, %176 ], [ %194, %.lr.ph.i ]
+  %195 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0137) #8
   %196 = icmp sgt i32 %195, 0
   br i1 %196, label %197, label %201
 
 197:                                              ; preds = %dissect_zcl_touchlink_scan_response.exit
-  %198 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #8
+  %198 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0137) #8
   %199 = tail call ptr @proto_tree_get_root(ptr noundef %2) #8
   %200 = tail call i32 @call_data_dissector(ptr noundef %198, ptr noundef %1, ptr noundef %199) #8
   br label %201
 
 201:                                              ; preds = %dissect_zcl_touchlink_scan_response.exit, %197, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.3, %197 ], [ %.3, %dissect_zcl_touchlink_scan_response.exit ]
+  %.0 = phi i32 [ 0, %4 ], [ %.0137, %197 ], [ %.0137, %dissect_zcl_touchlink_scan_response.exit ]
   ret i32 %.0
 }
 
@@ -8311,8 +8311,8 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
 
 .thread137:                                       ; preds = %33, %35, %49, %42
   %55 = phi i32 [ %54, %49 ], [ %47, %42 ], [ %40, %35 ], [ %22, %33 ]
-  %.2 = phi i8 [ %52, %49 ], [ %45, %42 ], [ %38, %35 ], [ %11, %33 ]
-  %.not131 = icmp eq i8 %.2, 0
+  %.3 = phi i8 [ %52, %49 ], [ %45, %42 ], [ %38, %35 ], [ %11, %33 ]
+  %.not131 = icmp eq i8 %.3, 0
   br i1 %.not131, label %.thread147, label %56
 
 56:                                               ; preds = %.thread137
@@ -8321,7 +8321,7 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
   %59 = load i32, ptr %2, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %2, align 4
-  %.not132 = icmp eq i8 %.2, 1
+  %.not132 = icmp eq i8 %.3, 1
   br i1 %.not132, label %.thread147, label %61
 
 61:                                               ; preds = %56
@@ -8330,13 +8330,13 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
   %64 = load i32, ptr %2, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %2, align 4
-  %.not133 = icmp eq i8 %.2, 2
+  %.not133 = icmp eq i8 %.3, 2
   br i1 %.not133, label %.thread147, label %66
 
 66:                                               ; preds = %61
   %67 = load i32, ptr @hf_zbee_zcl_scenes_extension_set_color_loop_direction, align 4
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %67, ptr noundef %0, i32 noundef %65, i32 noundef 1, i32 noundef 0) #8
-  %69 = add i8 %.2, -3
+  %69 = add i8 %.3, -3
   %70 = load i32, ptr %2, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %2, align 4
@@ -8346,7 +8346,7 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
 73:                                               ; preds = %66
   %74 = load i32, ptr @hf_zbee_zcl_scenes_extension_set_color_loop_time, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %74, ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef -2147483648) #8
-  %76 = add i8 %.2, -5
+  %76 = add i8 %.3, -5
   br label %.thread147.sink.split
 
 77:                                               ; preds = %.lr.ph
@@ -8403,27 +8403,27 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
 
 .thread152:                                       ; preds = %92, %101, %94
   %107 = phi i32 [ %106, %101 ], [ %99, %94 ], [ %22, %92 ]
-  %.8 = phi i8 [ %104, %101 ], [ %97, %94 ], [ %11, %92 ]
-  %.not127 = icmp eq i8 %.8, 0
+  %.9 = phi i8 [ %104, %101 ], [ %97, %94 ], [ %11, %92 ]
+  %.not127 = icmp eq i8 %.9, 0
   br i1 %.not127, label %.thread147, label %108
 
 108:                                              ; preds = %.thread152
   %109 = load i32, ptr @hf_zbee_zcl_scenes_extension_set_system_mode, align 4
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %109, ptr noundef %0, i32 noundef %107, i32 noundef 1, i32 noundef 0) #8
-  %111 = add i8 %.8, -1
+  %111 = add i8 %.9, -1
   br label %.thread147.sink.split
 
 .thread147.sink.split:                            ; preds = %24, %29, %73, %78, %88, %108
   %.sink156 = phi i32 [ 1, %108 ], [ 1, %88 ], [ 1, %78 ], [ 2, %73 ], [ 1, %29 ], [ 1, %24 ]
-  %.9.ph = phi i8 [ %111, %108 ], [ %91, %88 ], [ %81, %78 ], [ %76, %73 ], [ %32, %29 ], [ %27, %24 ]
+  %.0.ph = phi i8 [ %111, %108 ], [ %91, %88 ], [ %81, %78 ], [ %76, %73 ], [ %32, %29 ], [ %27, %24 ]
   %112 = load i32, ptr %2, align 4
   %113 = add i32 %112, %.sink156
   br label %.thread147
 
 .thread147:                                       ; preds = %.thread147.sink.split, %82, %.thread137, %56, %61, %.thread152, %83, %77, %66, %28, %23, %.lr.ph
   %114 = phi i32 [ %22, %.lr.ph ], [ %107, %.thread152 ], [ %87, %83 ], [ %22, %77 ], [ %71, %66 ], [ %22, %28 ], [ %22, %23 ], [ %65, %61 ], [ %60, %56 ], [ %55, %.thread137 ], [ %22, %82 ], [ %113, %.thread147.sink.split ]
-  %.9 = phi i8 [ %11, %.lr.ph ], [ 0, %.thread152 ], [ 0, %83 ], [ 0, %77 ], [ %69, %66 ], [ 0, %28 ], [ 0, %23 ], [ 0, %61 ], [ 0, %56 ], [ 0, %.thread137 ], [ 0, %82 ], [ %.9.ph, %.thread147.sink.split ]
-  %115 = zext i8 %.9 to i32
+  %.0 = phi i8 [ %11, %.lr.ph ], [ 0, %.thread152 ], [ 0, %83 ], [ 0, %77 ], [ %69, %66 ], [ 0, %28 ], [ 0, %23 ], [ 0, %61 ], [ 0, %56 ], [ 0, %.thread137 ], [ 0, %82 ], [ %.0.ph, %.thread147.sink.split ]
+  %115 = zext i8 %.0 to i32
   %116 = add i32 %114, %115
   store i32 %116, ptr %2, align 4
   %117 = add i32 %116, 2

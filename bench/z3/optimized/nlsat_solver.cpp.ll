@@ -16581,7 +16581,7 @@ if.end83:                                         ; preds = %land.lhs.true42, %i
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont75, %invoke.cont65, %invoke.cont51, %invoke.cont37, %if.end83
-  %retval.0 = phi i32 [ 0, %if.end83 ], [ 1, %invoke.cont37 ], [ -1, %invoke.cont51 ], [ -1, %invoke.cont65 ], [ 1, %invoke.cont75 ]
+  %retval.1 = phi i32 [ 0, %if.end83 ], [ 1, %invoke.cont37 ], [ -1, %invoke.cont51 ], [ -1, %invoke.cont65 ], [ 1, %invoke.cont75 ]
   %25 = load ptr, ptr %n, align 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %return unwind label %terminate.lpad.i
@@ -16594,8 +16594,8 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %if.then11, %land.lhs.true, %if.end, %land.lhs.true.i16, %entry, %land.lhs.true.i, %cleanup, %_ZNK5nlsat6solver3imp12is_unit_ineqERKNS_6clauseE.exit
-  %retval.1 = phi i32 [ 0, %_ZNK5nlsat6solver3imp12is_unit_ineqERKNS_6clauseE.exit ], [ %retval.0, %cleanup ], [ 0, %land.lhs.true.i ], [ 0, %entry ], [ 0, %land.lhs.true.i16 ], [ 0, %if.end ], [ %switch.select33, %land.lhs.true ], [ 0, %if.then11 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %_ZNK5nlsat6solver3imp12is_unit_ineqERKNS_6clauseE.exit ], [ %retval.1, %cleanup ], [ 0, %land.lhs.true.i ], [ 0, %entry ], [ 0, %land.lhs.true.i16 ], [ 0, %if.end ], [ %switch.select33, %land.lhs.true ], [ 0, %if.then11 ]
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN10polynomial7manager6is_varEPKNS_10polynomialERj(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
@@ -23245,8 +23245,8 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %num_undef.0148 = phi i32 [ 0, %for.body.lr.ph ], [ %num_undef.3, %for.inc ]
-  %first_undef.0147 = phi i32 [ -1, %for.body.lr.ph ], [ %first_undef.4, %for.inc ]
+  %num_undef.0148 = phi i32 [ 0, %for.body.lr.ph ], [ %num_undef.1, %for.inc ]
+  %first_undef.0147 = phi i32 [ -1, %for.body.lr.ph ], [ %first_undef.1, %for.inc ]
   %arrayidx.i22 = getelementptr inbounds [0 x %"class.sat::literal"], ptr %m_lits.i, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx.i22, align 4
   invoke void @_ZN5nlsat6solver3imp10checkpointEv(ptr noundef nonnull align 8 dereferenceable(728) %this)
@@ -23480,9 +23480,9 @@ if.then.i3.i:                                     ; preds = %_ZN7obj_refIN5nlsat
           to label %cleanup unwind label %lpad65
 
 cleanup:                                          ; preds = %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i, %if.then89, %if.then.i3.i, %if.end87, %if.then77
-  %cleanup.dest.slot.0 = phi i32 [ 4, %if.then77 ], [ 0, %if.end87 ], [ 0, %if.then.i3.i ], [ 0, %if.then89 ], [ 0, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i ]
-  %first_undef.2 = phi i32 [ %first_undef.0147, %if.then77 ], [ %first_undef.0147, %if.end87 ], [ %36, %if.then.i3.i ], [ %36, %if.then89 ], [ %36, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i ]
-  %num_undef.1 = phi i32 [ %num_undef.0148, %if.then77 ], [ %inc, %if.end87 ], [ %inc, %if.then.i3.i ], [ %inc, %if.then89 ], [ %inc, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i ]
+  %cleanup.dest.slot.1 = phi i32 [ 4, %if.then77 ], [ 0, %if.end87 ], [ 0, %if.then.i3.i ], [ 0, %if.then89 ], [ 0, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i ]
+  %first_undef.3 = phi i32 [ %first_undef.0147, %if.then77 ], [ %first_undef.0147, %if.end87 ], [ %36, %if.then.i3.i ], [ %36, %if.then89 ], [ %36, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i ]
+  %num_undef.3 = phi i32 [ %num_undef.0148, %if.then77 ], [ %inc, %if.end87 ], [ %inc, %if.then.i3.i ], [ %inc, %if.then89 ], [ %inc, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEE7dec_refEv.exit.i ]
   %39 = load ptr, ptr %tmp, align 8
   %tobool.not.i.i76 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i76, label %cleanup93, label %if.then.i.i77
@@ -23500,9 +23500,9 @@ terminate.lpad.i79:                               ; preds = %if.then.i.i77
   unreachable
 
 cleanup93:                                        ; preds = %if.then57.invoke, %if.then.i.i77, %cleanup, %if.then43
-  %cleanup.dest.slot.1 = phi i32 [ 4, %if.then43 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i77 ], [ 1, %if.then57.invoke ]
-  %first_undef.3 = phi i32 [ %first_undef.0147, %if.then43 ], [ %first_undef.2, %cleanup ], [ %first_undef.2, %if.then.i.i77 ], [ %first_undef.0147, %if.then57.invoke ]
-  %num_undef.2 = phi i32 [ %num_undef.0148, %if.then43 ], [ %num_undef.1, %cleanup ], [ %num_undef.1, %if.then.i.i77 ], [ %num_undef.0148, %if.then57.invoke ]
+  %cleanup.dest.slot.0 = phi i32 [ 4, %if.then43 ], [ %cleanup.dest.slot.1, %cleanup ], [ %cleanup.dest.slot.1, %if.then.i.i77 ], [ 1, %if.then57.invoke ]
+  %first_undef.2 = phi i32 [ %first_undef.0147, %if.then43 ], [ %first_undef.3, %cleanup ], [ %first_undef.3, %if.then.i.i77 ], [ %first_undef.0147, %if.then57.invoke ]
+  %num_undef.2 = phi i32 [ %num_undef.0148, %if.then43 ], [ %num_undef.3, %cleanup ], [ %num_undef.3, %if.then.i.i77 ], [ %num_undef.0148, %if.then57.invoke ]
   %43 = load ptr, ptr %curr_set, align 8
   %tobool.not.i.i81 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i81, label %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85, label %if.then.i.i82
@@ -23520,14 +23520,14 @@ terminate.lpad.i84:                               ; preds = %if.then.i.i82
   unreachable
 
 _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85: ; preds = %cleanup93, %if.then.i.i82
-  switch i32 %cleanup.dest.slot.1, label %cleanup128 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup128 [
     i32 0, label %for.inc
     i32 4, label %for.inc
   ]
 
 for.inc:                                          ; preds = %invoke.cont, %call13.i.noexc, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85
-  %first_undef.4 = phi i32 [ %first_undef.3, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %first_undef.3, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %first_undef.0147, %call13.i.noexc ], [ %first_undef.0147, %invoke.cont ]
-  %num_undef.3 = phi i32 [ %num_undef.2, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %num_undef.2, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %num_undef.0148, %call13.i.noexc ], [ %num_undef.0148, %invoke.cont ]
+  %first_undef.1 = phi i32 [ %first_undef.2, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %first_undef.2, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %first_undef.0147, %call13.i.noexc ], [ %first_undef.0147, %invoke.cont ]
+  %num_undef.1 = phi i32 [ %num_undef.2, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %num_undef.2, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit85 ], [ %num_undef.0148, %call13.i.noexc ], [ %num_undef.0148, %invoke.cont ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %m_size.i, align 4
   %48 = zext i32 %47 to i64
@@ -23540,8 +23540,8 @@ ehcleanup:                                        ; preds = %lpad65, %lpad25
   br label %ehcleanup129
 
 for.end:                                          ; preds = %for.inc
-  %49 = zext i32 %first_undef.4 to i64
-  switch i32 %num_undef.3, label %if.else [
+  %49 = zext i32 %first_undef.1 to i64
+  switch i32 %num_undef.1, label %if.else [
     i32 0, label %cleanup128
     i32 1, label %invoke.cont103
   ]
@@ -23662,8 +23662,8 @@ ehcleanup129:                                     ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %if.then.i.i104, %cleanup128
-  %retval.4 = phi i1 [ %retval.3, %cleanup128 ], [ %retval.3, %if.then.i.i104 ], [ true, %entry ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ %retval.3, %cleanup128 ], [ %retval.3, %if.then.i.i104 ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26530,8 +26530,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i13
   unreachable
 
 return:                                           ; preds = %invoke.cont, %if.then.i.i13, %cleanup, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
-  %retval.1 = phi i1 [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %or.cond, %cleanup ], [ %cmp7.not.lcssa24, %if.then.i.i13 ], [ false, %invoke.cont ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %or.cond, %cleanup ], [ %cmp7.not.lcssa24, %if.then.i.i13 ], [ false, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN5nlsat7explain5resetEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

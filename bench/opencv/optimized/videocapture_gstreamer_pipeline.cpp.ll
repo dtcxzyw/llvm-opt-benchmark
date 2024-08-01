@@ -1482,8 +1482,8 @@ _ZN2cv3PtrINS_11VideoWriterEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_11Vid
 
 462:                                              ; preds = %461, %232
   %.pn56 = phi { ptr, i32 } [ %233, %232 ], [ %.pn55, %461 ]
-  %.10 = extractvalue { ptr, i32 } %.pn56, 0
-  %463 = call ptr @__cxa_begin_catch(ptr %.10) #16
+  %.17 = extractvalue { ptr, i32 } %.pn56, 0
+  %463 = call ptr @__cxa_begin_catch(ptr %.17) #16
   %464 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.24)
           to label %465 unwind label %483
 
@@ -1552,8 +1552,8 @@ _ZN2cv9TickMeter5startEv.exit.preheader:          ; preds = %487
 _ZN2cv9TickMeter5startEv.exit:                    ; preds = %_ZN2cv9TickMeter5startEv.exit.preheader, %567
   %494 = phi ptr [ %564, %567 ], [ %488, %_ZN2cv9TickMeter5startEv.exit.preheader ]
   %495 = phi ptr [ %565, %567 ], [ %488, %_ZN2cv9TickMeter5startEv.exit.preheader ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.3, %567 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
-  %.sroa.10.0 = phi i64 [ %.sroa.10.3, %567 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %567 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.2, %567 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
   %496 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.11) #16
   %497 = icmp eq i32 %496, 0
   br i1 %497, label %498, label %527
@@ -1713,9 +1713,9 @@ _ZN2cv9TickMeter5startEv.exit139:                 ; preds = %548
 _ZN2cv9TickMeter4stopEv.exit:                     ; preds = %558, %.noexc140, %523, %.noexc137, %527
   %564 = phi ptr [ %494, %527 ], [ %506, %.noexc137 ], [ %506, %523 ], [ %494, %.noexc140 ], [ %494, %558 ]
   %565 = phi ptr [ %495, %527 ], [ %506, %.noexc137 ], [ %506, %523 ], [ %494, %.noexc140 ], [ %494, %558 ]
-  %.sroa.0.3 = phi i64 [ %.sroa.0.0, %527 ], [ %.sroa.0.0, %.noexc137 ], [ %524, %523 ], [ %.sroa.0.0, %.noexc140 ], [ %559, %558 ]
-  %.sroa.10.3 = phi i64 [ %.sroa.10.0, %527 ], [ %.sroa.10.0, %.noexc137 ], [ %526, %523 ], [ %.sroa.10.0, %.noexc140 ], [ %561, %558 ]
-  %566 = icmp sgt i64 %.sroa.0.3, 999
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %527 ], [ %.sroa.0.0, %.noexc137 ], [ %524, %523 ], [ %.sroa.0.0, %.noexc140 ], [ %559, %558 ]
+  %.sroa.10.2 = phi i64 [ %.sroa.10.0, %527 ], [ %.sroa.10.0, %.noexc137 ], [ %526, %523 ], [ %.sroa.10.0, %.noexc140 ], [ %561, %558 ]
+  %566 = icmp sgt i64 %.sroa.0.2, 999
   %or.cond199 = select i1 %69, i1 %566, i1 false
   br i1 %or.cond199, label %.invoke308, label %567
 
@@ -1735,8 +1735,8 @@ _ZN2cv9TickMeter4stopEv.exit:                     ; preds = %558, %.noexc140, %5
           to label %573 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 573:                                              ; preds = %.invoke307, %.invoke306
-  %.sroa.0.4 = phi i64 [ %.sroa.0.3, %.invoke306 ], [ %.sroa.0.0, %.invoke307 ]
-  %.sroa.10.4 = phi i64 [ %.sroa.10.3, %.invoke306 ], [ %.sroa.10.0, %.invoke307 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.invoke306 ], [ %.sroa.0.0, %.invoke307 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.2, %.invoke306 ], [ %.sroa.10.0, %.invoke307 ]
   %574 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %.noexc142 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1744,7 +1744,7 @@ _ZN2cv9TickMeter4stopEv.exit:                     ; preds = %558, %.noexc140, %5
   %575 = icmp eq i64 %489, 0
   %576 = sub i64 %574, %489
   %spec.select = select i1 %575, i64 0, i64 %576
-  %577 = icmp eq i64 %.sroa.0.4, 0
+  %577 = icmp eq i64 %.sroa.0.1, 0
   br i1 %577, label %578, label %582
 
 578:                                              ; preds = %.noexc142
@@ -1756,15 +1756,15 @@ _ZN2cv9TickMeter4stopEv.exit:                     ; preds = %558, %.noexc140, %5
           to label %615 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 582:                                              ; preds = %.noexc142
-  %583 = sitofp i64 %.sroa.10.4 to double
+  %583 = sitofp i64 %.sroa.10.1 to double
   %584 = invoke noundef double @_ZN2cv16getTickFrequencyEv()
           to label %585 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 585:                                              ; preds = %582
   %586 = fdiv double %583, %584
-  %587 = sitofp i64 %.sroa.0.4 to double
+  %587 = sitofp i64 %.sroa.0.1 to double
   %588 = fdiv double %587, %586
-  %589 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %.sroa.0.4)
+  %589 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %.sroa.0.1)
           to label %590 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 590:                                              ; preds = %585
@@ -1815,7 +1815,7 @@ _ZN2cv9TickMeter4stopEv.exit:                     ; preds = %558, %.noexc140, %5
           to label %615 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 615:                                              ; preds = %613, %580
-  %.0 = phi i32 [ -10, %580 ], [ 0, %613 ]
+  %.3 = phi i32 [ -10, %580 ], [ 0, %613 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #16
   br label %616
@@ -1827,7 +1827,7 @@ _ZN2cv9TickMeter4stopEv.exit:                     ; preds = %558, %.noexc140, %5
   br label %689
 
 616:                                              ; preds = %.invoke281, %.invoke, %467, %615
-  %.1 = phi i32 [ %.0, %615 ], [ -2, %467 ], [ -4, %.invoke ], [ -3, %.invoke281 ]
+  %.2 = phi i32 [ %.3, %615 ], [ -2, %467 ], [ -4, %.invoke ], [ -3, %.invoke281 ]
   %617 = getelementptr inbounds i8, ptr %32, i64 8
   %618 = load ptr, ptr %617, align 8
   %.not.i.i.i.i149 = icmp eq ptr %618, null
@@ -1982,7 +1982,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %690
 
 _ZN2cv3PtrINS_12VideoCaptureEED2Ev.exit162:       ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i161, %684, %671, %_ZN2cv3PtrINS_11VideoWriterEED2Ev.exit155, %122, %86
-  %.2 = phi i32 [ -1, %86 ], [ -1, %122 ], [ %.1, %_ZN2cv3PtrINS_11VideoWriterEED2Ev.exit155 ], [ %.1, %671 ], [ %.1, %684 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i161 ]
+  %.1 = phi i32 [ -1, %86 ], [ -1, %122 ], [ %.2, %_ZN2cv3PtrINS_11VideoWriterEED2Ev.exit155 ], [ %.2, %671 ], [ %.2, %684 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i161 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
@@ -2016,10 +2016,10 @@ _ZN2cv3PtrINS_12VideoCaptureEED2Ev.exit162:       ; preds = %_ZNSt16_Sp_counted_
   br label %696
 
 695:                                              ; preds = %50, %_ZN2cv3PtrINS_12VideoCaptureEED2Ev.exit162
-  %.3 = phi i32 [ %.2, %_ZN2cv3PtrINS_12VideoCaptureEED2Ev.exit162 ], [ 0, %50 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_12VideoCaptureEED2Ev.exit162 ], [ 0, %50 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  ret i32 %.3
+  ret i32 %.0
 
 696:                                              ; preds = %694, %99, %96, %91, %65, %64, %59
   %.pn66 = phi { ptr, i32 } [ %66, %65 ], [ %.pn60.pn.pn.pn.pn, %694 ], [ %.pn45, %99 ], [ %.pn43, %96 ], [ %.pn41, %91 ], [ %.pn39, %64 ], [ %.pn, %59 ]

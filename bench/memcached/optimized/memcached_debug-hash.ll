@@ -182,7 +182,7 @@ if.then4.i.i.i:                                   ; preds = %if.then2.i.i.i
   br label %if.end.i21.i.i
 
 if.end.i21.i.i:                                   ; preds = %if.then4.i.i.i, %if.then2.i.i.i
-  %acc.0.i.i.i = phi i64 [ %add10.i.i.i, %if.then4.i.i.i ], [ %mul.i.i.i, %if.then2.i.i.i ]
+  %acc.2.i.i.i = phi i64 [ %add10.i.i.i, %if.then4.i.i.i ], [ %mul.i.i.i, %if.then2.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds i8, ptr %key, i64 32
   %add.ptr11.val.i.i.i = load i64, ptr %add.ptr11.i.i.i, align 1, !alias.scope !8
   %9 = getelementptr i8, ptr %key, i64 40
@@ -195,7 +195,7 @@ if.end.i21.i.i:                                   ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i72.i.i.i = lshr i128 %mul.i.i.i71.i.i.i, 64
   %xor1.i.i73.i.i.i = xor i128 %shr.i.i.i72.i.i.i, %mul.i.i.i71.i.i.i
   %xor.i.i74.i.i.i = trunc i128 %xor1.i.i73.i.i.i to i64
-  %add14.i.i.i = add i64 %acc.0.i.i.i, %xor.i.i74.i.i.i
+  %add14.i.i.i = add i64 %acc.2.i.i.i, %xor.i.i74.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %key, i64 %length
   %add.ptr16.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i, i64 -48
   %add.ptr16.val.i.i.i = load i64, ptr %add.ptr16.i.i.i, align 1, !alias.scope !8
@@ -244,7 +244,7 @@ if.end20.i.i.i:                                   ; preds = %if.end.i21.i.i, %if
   br label %XXH3_len_17to128_64b.exit.i.i
 
 XXH3_len_17to128_64b.exit.i.i:                    ; preds = %if.end20.i.i.i, %if.then2.i.i
-  %acc.2.i.i.i = phi i64 [ %add29.i.i.i, %if.end20.i.i.i ], [ %mul.i.i.i, %if.then2.i.i ]
+  %acc.0.i.i.i = phi i64 [ %add29.i.i.i, %if.end20.i.i.i ], [ %mul.i.i.i, %if.then2.i.i ]
   %input.val.i.i.i = load i64, ptr %key, align 1, !alias.scope !8
   %13 = getelementptr i8, ptr %key, i64 8
   %input.val54.i.i.i = load i64, ptr %13, align 1, !alias.scope !8
@@ -256,7 +256,7 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %if.end20.i.i.i, %if
   %shr.i.i.i104.i.i.i = lshr i128 %mul.i.i.i103.i.i.i, 64
   %xor1.i.i105.i.i.i = xor i128 %shr.i.i.i104.i.i.i, %mul.i.i.i103.i.i.i
   %xor.i.i106.i.i.i = trunc i128 %xor1.i.i105.i.i.i to i64
-  %add34.i.i.i = add i64 %acc.2.i.i.i, %xor.i.i106.i.i.i
+  %add34.i.i.i = add i64 %acc.0.i.i.i, %xor.i.i106.i.i.i
   %add.ptr35.i.i.i = getelementptr inbounds i8, ptr %key, i64 %length
   %add.ptr36.i.i.i = getelementptr inbounds i8, ptr %add.ptr35.i.i.i, i64 -16
   %add.ptr36.val.i.i.i = load i64, ptr %add.ptr36.i.i.i, align 1, !alias.scope !8

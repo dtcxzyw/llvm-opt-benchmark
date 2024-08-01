@@ -1176,14 +1176,14 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090 = phi i32 [ %71, %.lr.ph ], [ %67, %.lr.ph.preheader ]
-  %.189 = phi i32 [ %72, %.lr.ph ], [ %.065, %.lr.ph.preheader ]
+  %.289 = phi i32 [ %72, %.lr.ph ], [ %.065, %.lr.ph.preheader ]
   %71 = lshr i32 %.090, 1
-  %72 = add nsw i32 %.189, -1
+  %72 = add nsw i32 %.289, -1
   %.not73 = icmp ult i32 %71, %70
   br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %65, %63
-  %.2 = phi i32 [ %.065, %63 ], [ %.065, %65 ], [ %72, %.lr.ph ]
+  %.1 = phi i32 [ %.065, %63 ], [ %.065, %65 ], [ %72, %.lr.ph ]
   %73 = getelementptr inbounds i8, ptr %0, i64 304
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 2
@@ -1205,7 +1205,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %0, i64 492
   %84 = load i32, ptr %83, align 4
-  %.not77 = icmp eq i32 %84, %.2
+  %.not77 = icmp eq i32 %84, %.1
   br i1 %.not77, label %85, label %91
 
 85:                                               ; preds = %82
@@ -1251,7 +1251,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
   br i1 %.not81, label %105, label %110
 
 105:                                              ; preds = %98
-  %106 = tail call i32 @deflateInit2_(ptr noundef nonnull %100, i32 noundef %.067, i32 noundef %.066, i32 noundef %.2, i32 noundef %.064, i32 noundef %.063, ptr noundef nonnull @.str.45, i32 noundef 112) #12
+  %106 = tail call i32 @deflateInit2_(ptr noundef nonnull %100, i32 noundef %.067, i32 noundef %.066, i32 noundef %.1, i32 noundef %.064, i32 noundef %.063, ptr noundef nonnull @.str.45, i32 noundef 112) #12
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %.thread, label %.thread85
 

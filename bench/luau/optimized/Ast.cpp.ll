@@ -1656,7 +1656,7 @@ _ZN4Luau12AstNameTableD2Ev.exit42:                ; preds = %169, %167, %116
   br label %175
 
 171:                                              ; preds = %_ZN4Luau12AstNameTableD2Ev.exit, %85
-  %.0 = phi i32 [ %131, %_ZN4Luau12AstNameTableD2Ev.exit ], [ 1, %85 ]
+  %.1 = phi i32 [ %131, %_ZN4Luau12AstNameTableD2Ev.exit ], [ 1, %85 ]
   %172 = load i8, ptr %33, align 8
   %173 = trunc i8 %172 to i1
   br i1 %173, label %174, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit43
@@ -1681,8 +1681,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit44:
   resume { ptr, i32 } %.pn31.pn.pn.pn.pn
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit43: ; preds = %174, %171, %30, %27
-  %.1 = phi i32 [ 0, %27 ], [ 1, %30 ], [ %.0, %171 ], [ %.0, %174 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %27 ], [ 1, %30 ], [ %.1, %171 ], [ %.1, %174 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

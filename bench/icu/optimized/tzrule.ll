@@ -1068,29 +1068,29 @@ if.end45:                                         ; preds = %land.rhs.i, %_ZN6ic
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then15, %_ZN6icu_755Grego11monthLengthEii.exit, %if.end45
-  %after.1 = phi i1 [ false, %if.then15 ], [ true, %_ZN6icu_755Grego11monthLengthEii.exit ], [ %cmp37, %if.end45 ]
-  %ruleDay.0 = phi double [ %add, %if.then15 ], [ %add30, %_ZN6icu_755Grego11monthLengthEii.exit ], [ %call46, %if.end45 ]
-  %conv48 = fptosi double %ruleDay.0 to i32
+  %after.0 = phi i1 [ false, %if.then15 ], [ true, %_ZN6icu_755Grego11monthLengthEii.exit ], [ %cmp37, %if.end45 ]
+  %ruleDay.1 = phi double [ %add, %if.then15 ], [ %add30, %_ZN6icu_755Grego11monthLengthEii.exit ], [ %call46, %if.end45 ]
+  %conv48 = fptosi double %ruleDay.1 to i32
   %call49 = tail call noundef i32 @_ZN6icu_755Grego9dayOfWeekEi(i32 noundef %conv48)
   %12 = load ptr, ptr %fDateTimeRule, align 8
   %call51 = tail call noundef i32 @_ZNK6icu_7512DateTimeRule16getRuleDayOfWeekEv(ptr noundef nonnull align 8 dereferenceable(36) %12)
   %sub52 = sub nsw i32 %call51, %call49
   %cmp58 = icmp sgt i32 %sub52, 0
   %cmp55 = icmp slt i32 %sub52, 0
-  %.sink = select i1 %after.1, i32 -7, i32 7
-  %cmp58.sink = select i1 %after.1, i1 %cmp58, i1 %cmp55
+  %.sink = select i1 %after.0, i32 -7, i32 7
+  %cmp58.sink = select i1 %after.0, i1 %cmp58, i1 %cmp55
   %sub60 = select i1 %cmp58.sink, i32 %.sink, i32 0
   %cond63 = add nsw i32 %sub52, %sub60
   %conv65 = sitofp i32 %cond63 to double
-  %add66 = fadd double %ruleDay.0, %conv65
+  %add66 = fadd double %ruleDay.1, %conv65
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end47, %if.then4
-  %ruleDay.1 = phi double [ %call9, %if.then4 ], [ %add66, %if.end47 ]
+  %ruleDay.0 = phi double [ %call9, %if.then4 ], [ %add66, %if.end47 ]
   %13 = load ptr, ptr %fDateTimeRule, align 8
   %call70 = tail call noundef i32 @_ZNK6icu_7512DateTimeRule18getRuleMillisInDayEv(ptr noundef nonnull align 8 dereferenceable(36) %13)
   %conv71 = sitofp i32 %call70 to double
-  %14 = tail call double @llvm.fmuladd.f64(double %ruleDay.1, double 8.640000e+07, double %conv71)
+  %14 = tail call double @llvm.fmuladd.f64(double %ruleDay.0, double 8.640000e+07, double %conv71)
   store double %14, ptr %result, align 8
   %15 = load ptr, ptr %fDateTimeRule, align 8
   %call73 = tail call noundef i32 @_ZNK6icu_7512DateTimeRule15getTimeRuleTypeEv(ptr noundef nonnull align 8 dereferenceable(36) %15)

@@ -1368,8 +1368,8 @@ index_tree_next.exit:                             ; preds = %.preheader17.i, %25
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %index_tree_next.exit
-  %.045 = phi ptr [ %8, %index_tree_next.exit ], [ %.4, %.backedge.backedge ]
-  %.144 = phi ptr [ %.043, %index_tree_next.exit ], [ %.3, %.backedge.backedge ]
+  %.045 = phi ptr [ %8, %index_tree_next.exit ], [ %.348, %.backedge.backedge ]
+  %.144 = phi ptr [ %.043, %index_tree_next.exit ], [ %.2, %.backedge.backedge ]
   %.0 = phi i64 [ %10, %index_tree_next.exit ], [ %.1, %.backedge.backedge ]
   %35 = icmp eq ptr %.045, null
   br i1 %35, label %36, label %54
@@ -1385,8 +1385,8 @@ index_tree_next.exit:                             ; preds = %.preheader17.i, %25
   br i1 %40, label %.lr.ph, label %.critedge55.thread
 
 .lr.ph:                                           ; preds = %.preheader, %index_tree_next.exit64
-  %.14697 = phi ptr [ %.011.i60, %index_tree_next.exit64 ], [ %37, %.preheader ]
-  %41 = getelementptr inbounds i8, ptr %.14697, i64 32
+  %.24797 = phi ptr [ %.011.i60, %index_tree_next.exit64 ], [ %37, %.preheader ]
+  %41 = getelementptr inbounds i8, ptr %.24797, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not.i56 = icmp eq ptr %42, null
   br i1 %.not.i56, label %.preheader.i61, label %.preheader17.i57
@@ -1399,7 +1399,7 @@ index_tree_next.exit:                             ; preds = %.preheader17.i, %25
   br i1 %.not16.i59, label %index_tree_next.exit64, label %.preheader17.i57, !llvm.loop !7
 
 .preheader.i61:                                   ; preds = %.lr.ph, %47
-  %.1.i62 = phi ptr [ %46, %47 ], [ %.14697, %.lr.ph ]
+  %.1.i62 = phi ptr [ %46, %47 ], [ %.24797, %.lr.ph ]
   %45 = getelementptr inbounds i8, ptr %.1.i62, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not15.i63 = icmp eq ptr %46, null
@@ -1462,8 +1462,8 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   br i1 %32, label %.critedge55.split.us, label %.critedge55.split
 
 .critedge55.split.us:                             ; preds = %.critedge55, %.loopexit.us
-  %.348.us = phi ptr [ %.011.i78.ph.us, %.loopexit.us ], [ %.045, %.critedge55 ]
-  %72 = getelementptr inbounds i8, ptr %.348.us, i64 32
+  %.4.us = phi ptr [ %.011.i78.ph.us, %.loopexit.us ], [ %.045, %.critedge55 ]
+  %72 = getelementptr inbounds i8, ptr %.4.us, i64 32
   %73 = load ptr, ptr %72, align 8
   %.not.i74.us = icmp eq ptr %73, null
   br i1 %.not.i74.us, label %.preheader.i79.us, label %.preheader17.i75.us
@@ -1476,7 +1476,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   br i1 %.not16.i77.us, label %.loopexit.us, label %.preheader17.i75.us, !llvm.loop !7
 
 .preheader.i79.us:                                ; preds = %.critedge55.split.us, %78
-  %.1.i80.us = phi ptr [ %77, %78 ], [ %.348.us, %.critedge55.split.us ]
+  %.1.i80.us = phi ptr [ %77, %78 ], [ %.4.us, %.critedge55.split.us ]
   %76 = getelementptr inbounds i8, ptr %.1.i80.us, i64 16
   %77 = load ptr, ptr %76, align 8
   %.not15.i81.us = icmp eq ptr %77, null
@@ -1528,8 +1528,8 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   br label %.critedge55.thread
 
 .critedge55.thread:                               ; preds = %.preheader17.i66, %68, %index_tree_next.exit64, %.preheader, %59, %.critedge
-  %.4 = phi ptr [ %.045, %59 ], [ %.us-phi, %.critedge ], [ %37, %.preheader ], [ %.011.i60, %index_tree_next.exit64 ], [ %.045, %68 ], [ %.045, %.preheader17.i66 ]
-  %.3 = phi ptr [ %.144, %59 ], [ %96, %.critedge ], [ %39, %.preheader ], [ %52, %index_tree_next.exit64 ], [ %67, %68 ], [ %.0.i67, %.preheader17.i66 ]
+  %.348 = phi ptr [ %.045, %59 ], [ %.us-phi, %.critedge ], [ %37, %.preheader ], [ %.011.i60, %index_tree_next.exit64 ], [ %.045, %68 ], [ %.045, %.preheader17.i66 ]
+  %.2 = phi ptr [ %.144, %59 ], [ %96, %.critedge ], [ %39, %.preheader ], [ %52, %index_tree_next.exit64 ], [ %67, %68 ], [ %.0.i67, %.preheader17.i66 ]
   %.1 = phi i64 [ %60, %59 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %index_tree_next.exit64 ], [ 0, %68 ], [ 0, %.preheader17.i66 ]
   br i1 %34, label %97, label %.loopexit
 
@@ -1538,8 +1538,8 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   br i1 %98, label %99, label %104
 
 99:                                               ; preds = %97
-  %100 = load i64, ptr %.3, align 8
-  %101 = getelementptr inbounds i8, ptr %.3, i64 64
+  %100 = load i64, ptr %.2, align 8
+  %101 = getelementptr inbounds i8, ptr %.2, i64 64
   %102 = load i64, ptr %101, align 8
   %103 = icmp eq i64 %100, %102
   br i1 %103, label %.backedge.backedge, label %.loopexit
@@ -1548,7 +1548,7 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   br label %.backedge
 
 104:                                              ; preds = %97
-  %105 = getelementptr inbounds i8, ptr %.3, i64 64
+  %105 = getelementptr inbounds i8, ptr %.2, i64 64
   %106 = add i64 %.1, -1
   %107 = getelementptr inbounds [0 x %struct.index_record], ptr %105, i64 0, i64 %106
   %108 = load i64, ptr %107, align 8
@@ -1558,12 +1558,12 @@ index_tree_next.exit64:                           ; preds = %.preheader17.i57, %
   br i1 %111, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %99, %104, %.critedge55.thread, %36
-  %.3114 = phi ptr [ %39, %36 ], [ %.3, %.critedge55.thread ], [ %.3, %104 ], [ %.3, %99 ]
-  %.4113 = phi ptr [ %37, %36 ], [ %.4, %.critedge55.thread ], [ %.4, %104 ], [ %.4, %99 ]
+  %.2114 = phi ptr [ %39, %36 ], [ %.2, %.critedge55.thread ], [ %.2, %104 ], [ %.2, %99 ]
+  %.348113 = phi ptr [ %37, %36 ], [ %.348, %.critedge55.thread ], [ %.348, %104 ], [ %.348, %99 ]
   %.1.lcssa = phi i64 [ 0, %36 ], [ %.1, %.critedge55.thread ], [ %.1, %104 ], [ 0, %99 ]
-  store ptr %.4113, ptr %7, align 8
+  store ptr %.348113, ptr %7, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr %.3114, ptr %112, align 8
+  store ptr %.2114, ptr %112, align 8
   store i64 %.1.lcssa, ptr %9, align 8
   tail call fastcc void @iter_set_info(ptr noundef %0)
   br label %index_tree_next.exit82

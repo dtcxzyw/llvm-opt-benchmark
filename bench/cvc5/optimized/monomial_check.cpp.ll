@@ -4277,7 +4277,7 @@ ehcleanup364:                                     ; preds = %lpad360, %lpad356
   br label %ehcleanup365
 
 cleanup:                                          ; preds = %if.then13.i.i1240, %if.then.i.i1233, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1230, %if.then13.i.i1147, %if.then.i.i1140, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1137, %if.then13.i.i1061, %if.then.i.i1054, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1051, %invoke.cont136
-  %retval.0 = phi i32 [ 0, %invoke.cont136 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1051 ], [ 0, %if.then.i.i1054 ], [ 0, %if.then13.i.i1061 ], [ %call335, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1137 ], [ %call335, %if.then.i.i1140 ], [ %call335, %if.then13.i.i1147 ], [ %call362, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1230 ], [ %call362, %if.then.i.i1233 ], [ %call362, %if.then13.i.i1240 ]
+  %retval.1 = phi i32 [ 0, %invoke.cont136 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1051 ], [ 0, %if.then.i.i1054 ], [ 0, %if.then13.i.i1061 ], [ %call335, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1137 ], [ %call335, %if.then.i.i1140 ], [ %call335, %if.then13.i.i1147 ], [ %call362, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1230 ], [ %call362, %if.then.i.i1233 ], [ %call362, %if.then13.i.i1240 ]
   %288 = load ptr, ptr %mvaav, align 8
   %bf.load.i.i1243 = load i64, ptr %288, align 8
   %289 = and i64 %bf.load.i.i1243, 1152920405095219200
@@ -4374,7 +4374,7 @@ ehcleanup369:                                     ; preds = %ehcleanup367, %lpad
   br label %ehcleanup371
 
 cleanup370:                                       ; preds = %if.then13.i.i1276, %if.then.i.i1269, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1266, %invoke.cont21, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit375, %if.then.i.i378, %if.then13.i.i385
-  %retval.1 = phi i32 [ %status, %if.then13.i.i385 ], [ %status, %if.then.i.i378 ], [ %status, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit375 ], [ %status, %invoke.cont21 ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1266 ], [ %retval.0, %if.then.i.i1269 ], [ %retval.0, %if.then13.i.i1276 ]
+  %retval.0 = phi i32 [ %status, %if.then13.i.i385 ], [ %status, %if.then.i.i378 ], [ %status, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit375 ], [ %status, %invoke.cont21 ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1266 ], [ %retval.1, %if.then.i.i1269 ], [ %retval.1, %if.then13.i.i1276 ]
   %300 = load ptr, ptr %mvaoa, align 8
   %bf.load.i.i1279 = load i64, ptr %300, align 8
   %301 = and i64 %bf.load.i.i1279, 1152920405095219200
@@ -4402,7 +4402,7 @@ terminate.lpad.i1289:                             ; preds = %if.then13.i.i1288
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1290: ; preds = %cleanup370, %if.then.i.i1281, %if.then13.i.i1288
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup371:                                     ; preds = %ehcleanup369, %ehcleanup69, %lpad27, %lpad15, %lpad13
   %.pn46.pn.pn = phi { ptr, i32 } [ %.pn46.pn, %ehcleanup69 ], [ %70, %lpad27 ], [ %68, %lpad13 ], [ %.pn33.pn.pn.pn.pn.pn, %ehcleanup369 ], [ %69, %lpad15 ]
@@ -8298,8 +8298,8 @@ for.body.lr.ph:                                   ; preds = %_ZN4cvc58internal12
 
 while.cond.preheader:                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit
   %14 = phi ptr [ %11, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %86, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
-  %counter.0.lcssa = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %counter.6, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
-  %order_index.0.lcssa = phi i32 [ %cond, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %order_index.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
+  %counter.0.lcssa = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %counter.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
+  %order_index.0.lcssa = phi i32 [ %cond, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %order_index.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
   %d_order_points190 = getelementptr inbounds i8, ptr %this, i64 120
   %_M_finish.i714 = getelementptr inbounds i8, ptr %this, i64 128
   %conv1891007 = zext i32 %order_index.0.lcssa to i64
@@ -8317,8 +8317,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %18 = phi ptr [ %13, %for.body.lr.ph ], [ %96, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
   %conv1005 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
   %j.01004 = phi i32 [ 0, %for.body.lr.ph ], [ %inc188, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
-  %order_index.01003 = phi i32 [ %cond, %for.body.lr.ph ], [ %order_index.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
-  %counter.01002 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.6, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
+  %order_index.01003 = phi i32 [ %cond, %for.body.lr.ph ], [ %order_index.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
+  %counter.01002 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit713 ]
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %18, i64 %conv1005
   %19 = load ptr, ptr %add.ptr.i, align 8
   store ptr %19, ptr %x, align 8
@@ -8391,9 +8391,9 @@ cond.true45:                                      ; preds = %invoke.cont25
 do.body:                                          ; preds = %cond.true45, %do.cond
   %.pre1020 = phi ptr [ %.pre1021, %do.cond ], [ %17, %cond.true45 ]
   %27 = phi ptr [ %62, %do.cond ], [ %17, %cond.true45 ]
-  %counter.1 = phi i32 [ %counter.2, %do.cond ], [ %counter.01002, %cond.true45 ]
-  %order_index.1 = phi i32 [ %order_index.2, %do.cond ], [ %order_index.01003, %cond.true45 ]
-  %conv66 = zext i32 %order_index.1 to i64
+  %counter.3 = phi i32 [ %counter.4, %do.cond ], [ %counter.01002, %cond.true45 ]
+  %order_index.3 = phi i32 [ %order_index.4, %do.cond ], [ %order_index.01003, %cond.true45 ]
+  %conv66 = zext i32 %order_index.3 to i64
   %28 = load ptr, ptr %_M_finish.i285, align 8
   %29 = load ptr, ptr %d_order_points, align 8
   %sub.ptr.lhs.cast.i286 = ptrtoint ptr %28 to i64
@@ -8429,7 +8429,7 @@ invoke.cont90:                                    ; preds = %invoke.cont79
   br i1 %cmp92, label %cond.true97, label %if.end126
 
 cond.true97:                                      ; preds = %invoke.cont90
-  %inc = add i32 %counter.1, 1
+  %inc = add i32 %counter.3, 1
   %37 = load ptr, ptr %d_order_points, align 8
   %add.ptr.i437 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %37, i64 %conv66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
@@ -8626,7 +8626,7 @@ if.then13.i4.i:                                   ; preds = %if.else.i.i455
 invoke.cont123:                                   ; preds = %if.else.i.i455, %if.then.i5.i, %invoke.cont121, %if.then13.i4.i
   %.pre1022 = phi ptr [ %56, %if.else.i.i455 ], [ %56, %if.then.i5.i ], [ %.pre1023, %invoke.cont121 ], [ %56, %if.then13.i4.i ]
   %58 = phi ptr [ %56, %if.else.i.i455 ], [ %56, %if.then.i5.i ], [ %53, %invoke.cont121 ], [ %56, %if.then13.i4.i ]
-  %inc125 = add i32 %order_index.1, 1
+  %inc125 = add i32 %order_index.3, 1
   br label %if.end126
 
 lpad78:                                           ; preds = %if.then69
@@ -8647,8 +8647,8 @@ lpad89:                                           ; preds = %invoke.cont79
 if.end126:                                        ; preds = %invoke.cont123, %invoke.cont90
   %.pre1021 = phi ptr [ %.pre1022, %invoke.cont123 ], [ %.pre1020, %invoke.cont90 ]
   %62 = phi ptr [ %58, %invoke.cont123 ], [ %27, %invoke.cont90 ]
-  %counter.2 = phi i32 [ %inc, %invoke.cont123 ], [ %counter.1, %invoke.cont90 ]
-  %order_index.2 = phi i32 [ %inc125, %invoke.cont123 ], [ %order_index.1, %invoke.cont90 ]
+  %counter.4 = phi i32 [ %inc, %invoke.cont123 ], [ %counter.3, %invoke.cont90 ]
+  %order_index.4 = phi i32 [ %inc125, %invoke.cont123 ], [ %order_index.3, %invoke.cont90 ]
   %63 = load ptr, ptr %vv, align 8
   %bf.load.i.i461 = load i64, ptr %63, align 8
   %64 = and i64 %bf.load.i.i461, 1152920405095219200
@@ -8685,8 +8685,8 @@ do.cond:                                          ; preds = %if.then13.i.i469, %
 
 if.end130:                                        ; preds = %do.body, %do.cond, %cond.true45
   %67 = phi ptr [ %17, %cond.true45 ], [ %27, %do.body ], [ %62, %do.cond ]
-  %counter.4 = phi i32 [ %counter.01002, %cond.true45 ], [ %counter.1, %do.body ], [ %counter.2, %do.cond ]
-  %order_index.4 = phi i32 [ %order_index.01003, %cond.true45 ], [ %order_index.1, %do.body ], [ %order_index.2, %do.cond ]
+  %counter.2 = phi i32 [ %counter.01002, %cond.true45 ], [ %counter.3, %do.body ], [ %counter.4, %do.cond ]
+  %order_index.2 = phi i32 [ %order_index.01003, %cond.true45 ], [ %order_index.3, %do.body ], [ %order_index.4, %do.cond ]
   %68 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i470 = icmp eq i8 %68, 0
   br i1 %guard.uninitialized.i.i470, label %init.check.i.i472, label %invoke.cont131, !prof !33
@@ -8737,7 +8737,7 @@ cleanup.done152:                                  ; preds = %lor.rhs
   br i1 %cmp145.not, label %cond.true163, label %if.then157
 
 if.then157:                                       ; preds = %invoke.cont131, %cleanup.done152
-  %inc158 = add i32 %counter.4, 1
+  %inc158 = add i32 %counter.2, 1
   br label %cond.true163
 
 lpad142:                                          ; preds = %lor.rhs
@@ -8746,7 +8746,7 @@ lpad142:                                          ; preds = %lor.rhs
   br label %ehcleanup185
 
 cond.true163:                                     ; preds = %cleanup.done152, %if.then157
-  %counter.5 = phi i32 [ %inc158, %if.then157 ], [ %counter.4, %cleanup.done152 ]
+  %counter.6 = phi i32 [ %inc158, %if.then157 ], [ %counter.2, %cleanup.done152 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i628)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i629)
   %77 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -8797,7 +8797,7 @@ invoke.cont181:                                   ; preds = %lor.rhs.i650, %if.t
   %second.i657 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i656, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i628)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i629)
-  store i32 %counter.5, ptr %second.i657, align 4
+  store i32 %counter.6, ptr %second.i657, align 4
   %81 = load ptr, ptr %prev, align 8
   %82 = load ptr, ptr %v, align 8
   %cmp.not.i663 = icmp eq ptr %81, %82
@@ -8852,8 +8852,8 @@ if.then13.i4.i681:                                ; preds = %if.else.i.i678
 
 cleanup:                                          ; preds = %invoke.cont25, %if.else.i.i678, %if.then.i5.i683, %invoke.cont181, %if.then13.i4.i681
   %86 = phi ptr [ %84, %if.then13.i4.i681 ], [ %81, %invoke.cont181 ], [ %84, %if.then.i5.i683 ], [ %84, %if.else.i.i678 ], [ %17, %invoke.cont25 ]
-  %counter.6 = phi i32 [ %counter.5, %if.then13.i4.i681 ], [ %counter.5, %invoke.cont181 ], [ %counter.5, %if.then.i5.i683 ], [ %counter.5, %if.else.i.i678 ], [ %counter.01002, %invoke.cont25 ]
-  %order_index.5 = phi i32 [ %order_index.4, %if.then13.i4.i681 ], [ %order_index.4, %invoke.cont181 ], [ %order_index.4, %if.then.i5.i683 ], [ %order_index.4, %if.else.i.i678 ], [ %order_index.01003, %invoke.cont25 ]
+  %counter.1 = phi i32 [ %counter.6, %if.then13.i4.i681 ], [ %counter.6, %invoke.cont181 ], [ %counter.6, %if.then.i5.i683 ], [ %counter.6, %if.else.i.i678 ], [ %counter.01002, %invoke.cont25 ]
+  %order_index.1 = phi i32 [ %order_index.2, %if.then13.i4.i681 ], [ %order_index.2, %invoke.cont181 ], [ %order_index.2, %if.then.i5.i683 ], [ %order_index.2, %if.else.i.i678 ], [ %order_index.01003, %invoke.cont25 ]
   %87 = load ptr, ptr %v, align 8
   %bf.load.i.i692 = load i64, ptr %87, align 8
   %88 = and i64 %bf.load.i.i692, 1152920405095219200
@@ -17321,7 +17321,7 @@ ehcleanup660:                                     ; preds = %ehcleanup659, %lpad
   br label %ehcleanup677
 
 cleanup:                                          ; preds = %if.end600, %if.then364, %if.then281, %if.then13.i.i3467, %if.then.i.i3461, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3458, %if.then13.i.i2921, %if.then.i.i2915, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2912, %if.then13.i.i2649, %if.then.i.i2643, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2640, %if.then13.i.i2298, %if.then.i.i2292, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2289, %if.then13.i.i1643, %if.then.i.i1637, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1634, %invoke.cont597
-  %retval.0 = phi i1 [ %call589, %invoke.cont597 ], [ %call236, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1634 ], [ %call236, %if.then.i.i1637 ], [ %call236, %if.then13.i.i1643 ], [ %call340, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2289 ], [ %call340, %if.then.i.i2292 ], [ %call340, %if.then13.i.i2298 ], [ %call425, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2640 ], [ %call425, %if.then.i.i2643 ], [ %call425, %if.then13.i.i2649 ], [ %call513, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2912 ], [ %call513, %if.then.i.i2915 ], [ %call513, %if.then13.i.i2921 ], [ %call656, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3458 ], [ %call656, %if.then.i.i3461 ], [ %call656, %if.then13.i.i3467 ], [ false, %if.then281 ], [ false, %if.then364 ], [ false, %if.end600 ]
+  %retval.2 = phi i1 [ %call589, %invoke.cont597 ], [ %call236, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1634 ], [ %call236, %if.then.i.i1637 ], [ %call236, %if.then13.i.i1643 ], [ %call340, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2289 ], [ %call340, %if.then.i.i2292 ], [ %call340, %if.then13.i.i2298 ], [ %call425, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2640 ], [ %call425, %if.then.i.i2643 ], [ %call425, %if.then13.i.i2649 ], [ %call513, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2912 ], [ %call513, %if.then.i.i2915 ], [ %call513, %if.then13.i.i2921 ], [ %call656, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3458 ], [ %call656, %if.then.i.i3461 ], [ %call656, %if.then13.i.i3467 ], [ false, %if.then281 ], [ false, %if.then364 ], [ false, %if.end600 ]
   %552 = load ptr, ptr %bv, align 8
   %bf.load.i.i3483 = load i64, ptr %552, align 8
   %553 = and i64 %bf.load.i.i3483, 1152920405095219200
@@ -17354,7 +17354,7 @@ ehcleanup677:                                     ; preds = %lpad.i.i2004, %lpad
   br label %ehcleanup679
 
 cleanup678:                                       ; preds = %if.then13.i.i3491, %if.then.i.i3485, %cleanup, %if.then13.i.i1371, %if.then.i.i1365, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1362
-  %retval.1 = phi i1 [ %call186, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1362 ], [ %call186, %if.then.i.i1365 ], [ %call186, %if.then13.i.i1371 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i3485 ], [ %retval.0, %if.then13.i.i3491 ]
+  %retval.1 = phi i1 [ %call186, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1362 ], [ %call186, %if.then.i.i1365 ], [ %call186, %if.then13.i.i1371 ], [ %retval.2, %cleanup ], [ %retval.2, %if.then.i.i3485 ], [ %retval.2, %if.then13.i.i3491 ]
   %556 = load ptr, ptr %av, align 8
   %bf.load.i.i3494 = load i64, ptr %556, align 8
   %557 = and i64 %bf.load.i.i3494, 1152920405095219200
@@ -17387,8 +17387,8 @@ ehcleanup679:                                     ; preds = %lpad154, %lpad.i.i1
   br label %common.resume
 
 return:                                           ; preds = %if.then13.i.i3502, %if.then.i.i3496, %cleanup678, %if.then13.i.i1146, %if.then.i.i1140, %invoke.cont143, %if.then
-  %retval.2 = phi i1 [ true, %if.then ], [ true, %invoke.cont143 ], [ true, %if.then.i.i1140 ], [ true, %if.then13.i.i1146 ], [ %retval.1, %cleanup678 ], [ %retval.1, %if.then.i.i3496 ], [ %retval.1, %if.then13.i.i3502 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %invoke.cont143 ], [ true, %if.then.i.i1140 ], [ true, %if.then13.i.i1146 ], [ %retval.1, %cleanup678 ], [ %retval.1, %if.then.i.i3496 ], [ %retval.1, %if.then13.i.i3502 ]
+  ret i1 %retval.0
 }
 
 declare noundef i32 @_ZN4cvc58internal6theory5arith2nl7NlModel7compareENS0_12NodeTemplateILb0EEES6_bb(ptr noundef nonnull align 8 dereferenceable(369), ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0

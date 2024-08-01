@@ -630,7 +630,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3746, label %.loopexit42, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %8, %63
-  %.03048 = phi i32 [ %.2, %63 ], [ 0, %8 ]
+  %.03048 = phi i32 [ %.1, %63 ], [ 0, %8 ]
   %.03247 = phi i32 [ %64, %63 ], [ %6, %8 ]
   %14 = sext i32 %.03247 to i64
   %15 = call i32 @bit_test(ptr noundef nonnull %0, i64 noundef %14) #2
@@ -664,8 +664,8 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not39, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %26, %.preheader, %23
-  %.133 = phi i32 [ %25, %23 ], [ %.03247, %.preheader ], [ %.03247, %26 ]
-  %.1 = phi i32 [ %21, %23 ], [ %.03048, %.preheader ], [ %.03048, %26 ]
+  %.234 = phi i32 [ %25, %23 ], [ %.03247, %.preheader ], [ %.03247, %26 ]
+  %.2 = phi i32 [ %21, %23 ], [ %.03048, %.preheader ], [ %.03048, %26 ]
   %28 = load i32, ptr %2, align 4
   %29 = load i32, ptr @node_record_count, align 4
   %.not40 = icmp slt i32 %28, %29
@@ -678,7 +678,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %.loopexit
   %34 = load ptr, ptr @node_record_table_ptr, align 8
-  %35 = sext i32 %.1 to i64
+  %35 = sext i32 %.2 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 496
@@ -687,7 +687,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %41 = call ptr @bit_alloc(i64 noundef %40) #2
   %42 = getelementptr inbounds ptr, ptr %11, i64 %35
   store ptr %41, ptr %42, align 8
-  %43 = call i32 @cr_get_coremap_offset(i32 noundef %.1) #2
+  %43 = call i32 @cr_get_coremap_offset(i32 noundef %.2) #2
   %44 = load ptr, ptr @node_record_table_ptr, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %35
   %46 = load ptr, ptr %45, align 8
@@ -724,14 +724,14 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %61, label %.lr.ph45, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %54, %33
-  %62 = add nsw i32 %.1, 1
+  %62 = add nsw i32 %.2, 1
   br label %63
 
 63:                                               ; preds = %.lr.ph50, %._crit_edge
-  %.234 = phi i32 [ %.133, %._crit_edge ], [ %.03247, %.lr.ph50 ]
-  %.2 = phi i32 [ %62, %._crit_edge ], [ %.03048, %.lr.ph50 ]
-  %64 = add nsw i32 %.234, 1
-  %.not37.not = icmp slt i32 %.234, %13
+  %.133 = phi i32 [ %.234, %._crit_edge ], [ %.03247, %.lr.ph50 ]
+  %.1 = phi i32 [ %62, %._crit_edge ], [ %.03048, %.lr.ph50 ]
+  %64 = add nsw i32 %.133, 1
+  %.not37.not = icmp slt i32 %.133, %13
   br i1 %.not37.not, label %.lr.ph50, label %.loopexit42, !llvm.loop !20
 
 .loopexit42:                                      ; preds = %63, %8, %30, %4, %1

@@ -799,7 +799,7 @@ do.cond.i10.i:                                    ; preds = %do.body.i6.i
   br i1 %cmp.i13.i, label %do.body.i6.i, label %while.cond.backedge.i, !llvm.loop !7
 
 if.end14.i:                                       ; preds = %do.body.i.i, %do.body.i6.i
-  %v.3.i = phi ptr [ %str.addr.0.i7.i, %do.body.i6.i ], [ %str.addr.0.i.i, %do.body.i.i ]
+  %v.1.i = phi ptr [ %str.addr.0.i7.i, %do.body.i6.i ], [ %str.addr.0.i.i, %do.body.i.i ]
   br label %while.cond15.i
 
 while.cond15.i:                                   ; preds = %while.cond15.i, %if.end14.i
@@ -831,7 +831,7 @@ if.then4.i.i:                                     ; preds = %while.end28.i
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %while.end28.i
-  %call29.i = call fastcc i32 @parse_ident(ptr noundef nonnull %log, ptr noundef nonnull %mapped_ident.i, ptr noundef %v.3.i)
+  %call29.i = call fastcc i32 @parse_ident(ptr noundef nonnull %log, ptr noundef nonnull %mapped_ident.i, ptr noundef %v.1.i)
   %cmp30.i = icmp slt i32 %call29.i, 0
   br i1 %cmp30.i, label %while.cond.backedge.i, label %if.end32.i
 

@@ -55,13 +55,13 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   br label %26
 
 .loopexit274:                                     ; preds = %90, %74, %46, %.loopexit
-  %.0162.ph = phi ptr [ %.6168, %.loopexit ], [ %.2164245, %46 ], [ %.2164245, %74 ], [ %.4166, %90 ]
-  %.0158.ph = phi i32 [ %.3161, %.loopexit ], [ %.1159246, %46 ], [ %.1159246, %74 ], [ %.1159246, %90 ]
-  %.0148.ph = phi i32 [ %.2150, %.loopexit ], [ %.2150252, %46 ], [ %.2150252, %74 ], [ %.4138, %90 ]
-  %.0142.ph = phi i32 [ %.5147, %.loopexit ], [ %.1143247, %46 ], [ %.1143247, %74 ], [ %.1143247, %90 ]
-  %.0134.ph = phi i32 [ %.6140, %.loopexit ], [ 0, %46 ], [ 0, %74 ], [ 0, %90 ]
-  %.0128.ph = phi i32 [ %.5133, %.loopexit ], [ %.1129249, %46 ], [ %.1129249, %74 ], [ %.1129249, %90 ]
-  %.0126.ph = phi i64 [ %.6, %.loopexit ], [ %.2251, %46 ], [ %.2251, %74 ], [ %.4, %90 ]
+  %.0162.ph = phi ptr [ %.5167, %.loopexit ], [ %.2164245, %46 ], [ %.2164245, %74 ], [ %.6168, %90 ]
+  %.0158.ph = phi i32 [ %.2160, %.loopexit ], [ %.1159246, %46 ], [ %.1159246, %74 ], [ %.1159246, %90 ]
+  %.0148.ph = phi i32 [ %.2150, %.loopexit ], [ %.2150252, %46 ], [ %.2150252, %74 ], [ %.6140, %90 ]
+  %.0142.ph = phi i32 [ %.3145, %.loopexit ], [ %.1143247, %46 ], [ %.1143247, %74 ], [ %.1143247, %90 ]
+  %.0134.ph = phi i32 [ %.5139, %.loopexit ], [ 0, %46 ], [ 0, %74 ], [ 0, %90 ]
+  %.0128.ph = phi i32 [ %.3131, %.loopexit ], [ %.1129249, %46 ], [ %.1129249, %74 ], [ %.1129249, %90 ]
+  %.0126.ph = phi i64 [ %.5, %.loopexit ], [ %.2251, %46 ], [ %.2251, %74 ], [ %.6, %90 ]
   br label %26
 
 26:                                               ; preds = %.loopexit274, %24
@@ -109,13 +109,13 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 42:                                               ; preds = %37, %.loopexit
   %.2150252 = phi i32 [ %.2150243, %37 ], [ %.2150, %.loopexit ]
-  %.2251 = phi i64 [ %.1, %37 ], [ %.6, %.loopexit ]
+  %.2251 = phi i64 [ %.1, %37 ], [ %.5, %.loopexit ]
   %.0127250 = phi i8 [ 0, %37 ], [ %132, %.loopexit ]
-  %.1129249 = phi i32 [ %.0128, %37 ], [ %.5133, %.loopexit ]
-  %.2136248 = phi i32 [ %.1135, %37 ], [ %.6140, %.loopexit ]
-  %.1143247 = phi i32 [ %.0142, %37 ], [ %.5147, %.loopexit ]
-  %.1159246 = phi i32 [ %.0158, %37 ], [ %.3161, %.loopexit ]
-  %.2164245 = phi ptr [ %.1163, %37 ], [ %.6168, %.loopexit ]
+  %.1129249 = phi i32 [ %.0128, %37 ], [ %.3131, %.loopexit ]
+  %.2136248 = phi i32 [ %.1135, %37 ], [ %.5139, %.loopexit ]
+  %.1143247 = phi i32 [ %.0142, %37 ], [ %.3145, %.loopexit ]
+  %.1159246 = phi i32 [ %.0158, %37 ], [ %.2160, %.loopexit ]
+  %.2164245 = phi ptr [ %.1163, %37 ], [ %.5167, %.loopexit ]
   %.0170244 = phi i32 [ 1, %37 ], [ %131, %.loopexit ]
   %43 = and i32 %.0170244, %41
   %.not204 = icmp eq i32 %43, 0
@@ -144,10 +144,10 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   br label %55
 
 55:                                               ; preds = %53, %45
-  %.3165 = phi ptr [ %52, %53 ], [ %.2164245, %45 ]
-  %.3151 = phi i32 [ 0, %53 ], [ %.2150252, %45 ]
-  %.3137 = phi i32 [ %49, %53 ], [ %.2136248, %45 ]
-  %.3 = phi i64 [ %54, %53 ], [ %.2251, %45 ]
+  %.4166 = phi ptr [ %52, %53 ], [ %.2164245, %45 ]
+  %.4152 = phi i32 [ 0, %53 ], [ %.2150252, %45 ]
+  %.4138 = phi i32 [ %49, %53 ], [ %.2136248, %45 ]
+  %.4 = phi i64 [ %54, %53 ], [ %.2251, %45 ]
   %56 = icmp eq i32 %.1143247, 2048
   br i1 %56, label %57, label %62
 
@@ -165,8 +165,8 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 62:                                               ; preds = %60, %55
   %.2144 = phi i32 [ %.1143247, %55 ], [ 0, %60 ]
   %.2130 = phi i32 [ %.1129249, %55 ], [ %61, %60 ]
-  %63 = zext i32 %.3151 to i64
-  %64 = getelementptr inbounds i8, ptr %.3165, i64 %63
+  %63 = zext i32 %.4152 to i64
+  %64 = getelementptr inbounds i8, ptr %.4166, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i32 %.1159246 to i64
   %67 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %66
@@ -201,43 +201,43 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   br label %83
 
 83:                                               ; preds = %81, %73
-  %.4166 = phi ptr [ %80, %81 ], [ %.2164245, %73 ]
-  %.4152 = phi i32 [ 0, %81 ], [ %.2150252, %73 ]
-  %.4138 = phi i32 [ %77, %81 ], [ %.2136248, %73 ]
-  %.4 = phi i64 [ %82, %81 ], [ %.2251, %73 ]
-  %84 = zext i32 %.4152 to i64
-  %85 = getelementptr inbounds i8, ptr %.4166, i64 %84
+  %.6168 = phi ptr [ %80, %81 ], [ %.2164245, %73 ]
+  %.6154 = phi i32 [ 0, %81 ], [ %.2150252, %73 ]
+  %.6140 = phi i32 [ %77, %81 ], [ %.2136248, %73 ]
+  %.6 = phi i64 [ %82, %81 ], [ %.2251, %73 ]
+  %84 = zext i32 %.6154 to i64
+  %85 = getelementptr inbounds i8, ptr %.6168, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
-  %88 = add i32 %.4152, 1
-  %89 = icmp eq i32 %88, %.4138
+  %88 = add i32 %.6154, 1
+  %89 = icmp eq i32 %88, %.6140
   br i1 %89, label %90, label %99
 
 90:                                               ; preds = %83
   %91 = load i64, ptr %25, align 8
-  %92 = sub i64 %91, %.4
+  %92 = sub i64 %91, %.6
   %spec.select219 = call i64 @llvm.umin.i64(i64 %92, i64 2048)
   %93 = trunc nuw nsw i64 %spec.select219 to i32
-  %.not207 = icmp eq i64 %91, %.4
+  %.not207 = icmp eq i64 %91, %.6
   br i1 %.not207, label %.loopexit274, label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %7, align 8
-  %96 = call ptr %95(ptr noundef nonnull %6, i64 noundef %.4, i64 noundef %spec.select219, i32 noundef 0) #4
+  %96 = call ptr %95(ptr noundef nonnull %6, i64 noundef %.6, i64 noundef %spec.select219, i32 noundef 0) #4
   %.not208 = icmp eq ptr %96, null
   br i1 %.not208, label %.loopexit223, label %97
 
 97:                                               ; preds = %94
-  %98 = add nsw i64 %spec.select219, %.4
+  %98 = add nsw i64 %spec.select219, %.6
   br label %99
 
 99:                                               ; preds = %97, %83
-  %.5167 = phi ptr [ %96, %97 ], [ %.4166, %83 ]
-  %.5153 = phi i32 [ 0, %97 ], [ %88, %83 ]
-  %.5139 = phi i32 [ %93, %97 ], [ %.4138, %83 ]
-  %.5 = phi i64 [ %98, %97 ], [ %.4, %83 ]
-  %100 = zext i32 %.5153 to i64
-  %101 = getelementptr inbounds i8, ptr %.5167, i64 %100
+  %.7169 = phi ptr [ %96, %97 ], [ %.6168, %83 ]
+  %.7155 = phi i32 [ 0, %97 ], [ %88, %83 ]
+  %.7141 = phi i32 [ %93, %97 ], [ %.6140, %83 ]
+  %.7 = phi i64 [ %98, %97 ], [ %.6, %83 ]
+  %100 = zext i32 %.7155 to i64
+  %101 = getelementptr inbounds i8, ptr %.7169, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = shl nuw nsw i32 %103, 4
@@ -249,11 +249,11 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 108:                                              ; preds = %99, %116
   %109 = phi i32 [ %.reass, %99 ], [ %129, %116 ]
-  %.3131242 = phi i32 [ %.1129249, %99 ], [ %.4132, %116 ]
-  %.3145241 = phi i32 [ %.1143247, %99 ], [ %124, %116 ]
+  %.4132242 = phi i32 [ %.1129249, %99 ], [ %.5133, %116 ]
+  %.4146241 = phi i32 [ %.1143247, %99 ], [ %124, %116 ]
   %.0157240 = phi i32 [ %106, %99 ], [ %126, %116 ]
-  %.2160239 = phi i32 [ %.1159246, %99 ], [ %128, %116 ]
-  %110 = icmp eq i32 %.3145241, 2048
+  %.3161239 = phi i32 [ %.1159246, %99 ], [ %128, %116 ]
+  %110 = icmp eq i32 %.4146241, 2048
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %108
@@ -263,43 +263,43 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not210, label %114, label %.loopexit223
 
 114:                                              ; preds = %111
-  %115 = add i32 %.3131242, 2048
+  %115 = add i32 %.4132242, 2048
   %.not211 = icmp ult i32 %115, %21
   br i1 %.not211, label %116, label %.loopexit223
 
 116:                                              ; preds = %114, %108
-  %.4146 = phi i32 [ %.3145241, %108 ], [ 0, %114 ]
-  %.4132 = phi i32 [ %.3131242, %108 ], [ %115, %114 ]
+  %.5147 = phi i32 [ %.4146241, %108 ], [ 0, %114 ]
+  %.5133 = phi i32 [ %.4132242, %108 ], [ %115, %114 ]
   %117 = zext nneg i32 %.0157240 to i64
   %118 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %117
   %119 = load i8, ptr %118, align 1
-  %120 = zext i32 %.2160239 to i64
+  %120 = zext i32 %.3161239 to i64
   %121 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %120
   store i8 %119, ptr %121, align 1
-  %122 = zext i32 %.4146 to i64
+  %122 = zext i32 %.5147 to i64
   %123 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %122
   store i8 %119, ptr %123, align 1
-  %124 = add i32 %.4146, 1
+  %124 = add i32 %.5147, 1
   %125 = add nuw nsw i32 %.0157240, 1
   %126 = and i32 %125, 4095
-  %127 = add i32 %.2160239, 1
+  %127 = add i32 %.3161239, 1
   %128 = and i32 %127, 4095
   %129 = add nsw i32 %109, -1
   %.not209 = icmp eq i32 %109, 0
   br i1 %.not209, label %.loopexit, label %108
 
 .loopexit:                                        ; preds = %116, %62
-  %.6168 = phi ptr [ %.3165, %62 ], [ %.5167, %116 ]
-  %.3161 = phi i32 [ %72, %62 ], [ %128, %116 ]
-  %.6154.in = phi i32 [ %.3151, %62 ], [ %.5153, %116 ]
-  %.5147 = phi i32 [ %70, %62 ], [ %124, %116 ]
-  %.6140 = phi i32 [ %.3137, %62 ], [ %.5139, %116 ]
-  %.5133 = phi i32 [ %.2130, %62 ], [ %.4132, %116 ]
-  %.6 = phi i64 [ %.3, %62 ], [ %.5, %116 ]
+  %.5167 = phi ptr [ %.4166, %62 ], [ %.7169, %116 ]
+  %.2160 = phi i32 [ %72, %62 ], [ %128, %116 ]
+  %.5153.in = phi i32 [ %.4152, %62 ], [ %.7155, %116 ]
+  %.3145 = phi i32 [ %70, %62 ], [ %124, %116 ]
+  %.5139 = phi i32 [ %.4138, %62 ], [ %.7141, %116 ]
+  %.3131 = phi i32 [ %.2130, %62 ], [ %.5133, %116 ]
+  %.5 = phi i64 [ %.4, %62 ], [ %.7, %116 ]
   %130 = shl nuw nsw i32 %.0170244, 1
   %131 = and i32 %130, 510
   %132 = add nuw nsw i8 %.0127250, 1
-  %.2150 = add i32 %.6154.in, 1
+  %.2150 = add i32 %.5153.in, 1
   %exitcond.not = icmp eq i8 %132, 8
   br i1 %exitcond.not, label %.loopexit274, label %42
 

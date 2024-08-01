@@ -528,8 +528,8 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %.preheade
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %31, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit, %27
-  %.1 = phi i32 [ %spec.select, %27 ], [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit ], [ 0, %31 ]
-  ret i32 %.1
+  %.024 = phi i32 [ %spec.select, %27 ], [ 0, %_ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit ], [ 0, %31 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -648,8 +648,8 @@ _ZL19tMPI_Test_multi_reqP11tmpi_threadiPP9tmpi_req_ii.exit: ; preds = %17, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %22, %33
-  %.1 = phi i32 [ %spec.select, %33 ], [ 0, %22 ], [ 0, %37 ]
-  ret i32 %.1
+  %.030 = phi i32 [ %spec.select, %33 ], [ 0, %22 ], [ 0, %37 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: mustprogress uwtable

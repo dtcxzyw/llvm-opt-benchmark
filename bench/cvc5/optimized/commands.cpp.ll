@@ -7672,14 +7672,14 @@ ehcleanup164:                                     ; preds = %ehcleanup162, %lpad
 
 catch.dispatch:                                   ; preds = %ehcleanup164, %ehcleanup, %lpad
   %.pn17.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn, %ehcleanup164 ], [ %.pn, %ehcleanup ], [ %26, %lpad ]
-  %ehselector.slot.12 = extractvalue { ptr, i32 } %.pn17.pn.pn.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn17.pn.pn.pn.pn.pn, 1
   %130 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches = icmp eq i32 %ehselector.slot.12, %130
+  %matches = icmp eq i32 %ehselector.slot.0, %130
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.12 = extractvalue { ptr, i32 } %.pn17.pn.pn.pn.pn.pn, 0
-  %131 = call ptr @__cxa_begin_catch(ptr %exn.slot.12) #26
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn17.pn.pn.pn.pn.pn, 0
+  %131 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call167 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont166 unwind label %lpad165
 
@@ -16244,14 +16244,14 @@ ehcleanup54:                                      ; preds = %lpad6.loopexit, %lp
 
 catch.dispatch:                                   ; preds = %ehcleanup54, %lpad
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %ehcleanup54 ], [ %13, %lpad ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn16.pn, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn16.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn16.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn16.pn, 1
   %86 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
-  %matches = icmp eq i32 %ehselector.slot.5, %86
+  %matches = icmp eq i32 %ehselector.slot.0, %86
   br i1 %matches, label %catch75, label %catch.fallthrough
 
 catch75:                                          ; preds = %catch.dispatch
-  %87 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #26
+  %87 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call80 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont79 unwind label %lpad78
 
@@ -16286,11 +16286,11 @@ try.cont:                                         ; preds = %try.cont.sink.split
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %89 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches57 = icmp eq i32 %ehselector.slot.5, %89
+  %matches57 = icmp eq i32 %ehselector.slot.0, %89
   br i1 %matches57, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough
-  %90 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #26
+  %90 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call61 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont60 unwind label %lpad59
 
@@ -16648,14 +16648,14 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
-  %matches = icmp eq i32 %ehselector.slot.1, %10
+  %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch25, label %catch.fallthrough
 
 catch25:                                          ; preds = %catch.dispatch
-  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #26
+  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call30 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont29 unwind label %lpad28
 
@@ -16687,11 +16687,11 @@ try.cont:                                         ; preds = %if.then.i.i.i21, %i
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches8 = icmp eq i32 %ehselector.slot.1, %13
+  %matches8 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches8, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough
-  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #26
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call11 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont10 unwind label %lpad9
 
@@ -17758,14 +17758,14 @@ ehcleanup67:                                      ; preds = %ehcleanup66, %lpad2
 
 catch.dispatch:                                   ; preds = %ehcleanup67, %lpad
   %.pn8.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn, %ehcleanup67 ], [ %2, %lpad ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn8.pn.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn8.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn8.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn8.pn.pn.pn, 1
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
-  %matches = icmp eq i32 %ehselector.slot.4, %25
+  %matches = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches, label %catch85, label %catch.fallthrough
 
 catch85:                                          ; preds = %catch.dispatch
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #26
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call90 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont89 unwind label %lpad88
 
@@ -17797,11 +17797,11 @@ try.cont:                                         ; preds = %invoke.cont78, %inv
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches68 = icmp eq i32 %ehselector.slot.4, %28
+  %matches68 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches68, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #26
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call71 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont70 unwind label %lpad69
 
@@ -24552,14 +24552,14 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad ]
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches = icmp eq i32 %ehselector.slot.1, %8
+  %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #26
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont23 unwind label %lpad22
 
@@ -25513,15 +25513,15 @@ ehcleanup30:                                      ; preds = %lpad25, %_ZNSt8opti
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %lpad
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup30 ], [ %24, %lpad ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn9.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn9.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn9.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn9.pn, 1
   call void @_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v) #26
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
-  %matches = icmp eq i32 %ehselector.slot.3, %33
+  %matches = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches, label %catch73, label %catch.fallthrough
 
 catch73:                                          ; preds = %ehcleanup31
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #26
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call77 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %invoke.cont76 unwind label %lpad75
 
@@ -25537,11 +25537,11 @@ try.cont:                                         ; preds = %if.then.i.i.i, %inv
 
 catch.fallthrough:                                ; preds = %ehcleanup31
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
-  %matches32 = icmp eq i32 %ehselector.slot.3, %35
+  %matches32 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches32, label %catch51, label %catch.fallthrough33
 
 catch51:                                          ; preds = %catch.fallthrough
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #26
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call56 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont55 unwind label %lpad54
 
@@ -25565,11 +25565,11 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
-  %matches34 = icmp eq i32 %ehselector.slot.3, %37
+  %matches34 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches34, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough33
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #26
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #26
   %call37 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %invoke.cont36 unwind label %lpad35
 

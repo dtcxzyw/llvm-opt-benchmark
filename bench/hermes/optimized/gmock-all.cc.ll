@@ -6568,7 +6568,7 @@ ehcleanup202:                                     ; preds = %ehcleanup201, %lpad
   br label %ehcleanup205
 
 cleanup:                                          ; preds = %cond.false85, %invoke.cont176, %invoke.cont199, %invoke.cont187, %cleanup.action
-  %retval.0 = phi ptr [ %call84, %cleanup.action ], [ %cond14495, %invoke.cont187 ], [ %cond14495, %invoke.cont199 ], [ %cond14495, %invoke.cont176 ], [ %call89, %cond.false85 ]
+  %retval.1 = phi ptr [ %call84, %cleanup.action ], [ %cond14495, %invoke.cont187 ], [ %cond14495, %invoke.cont199 ], [ %cond14495, %invoke.cont176 ], [ %call89, %cond.false85 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %loc) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %why) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss46) #26
@@ -6590,8 +6590,8 @@ ehcleanup209:                                     ; preds = %ehcleanup207, %lpad
   br label %eh.resume
 
 return:                                           ; preds = %cleanup, %invoke.cont42, %invoke.cont15
-  %retval.1 = phi ptr [ %call27, %invoke.cont42 ], [ %call16, %invoke.cont15 ], [ %retval.0, %cleanup ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call27, %invoke.cont42 ], [ %call16, %invoke.cont15 ], [ %retval.1, %cleanup ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup209, %ehcleanup44, %ehcleanup
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %ehcleanup44 ], [ %.pn34, %ehcleanup ], [ %.pn30.pn.pn, %ehcleanup209 ]
@@ -11542,13 +11542,13 @@ if.end12:                                         ; preds = %if.end9
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end9, %if.end12, %invoke.cont4
-  %retval.0 = phi ptr [ null, %invoke.cont4 ], [ %spec.select, %if.end12 ], [ %add.ptr, %if.end9 ]
+  %retval.1 = phi ptr [ null, %invoke.cont4 ], [ %spec.select, %if.end12 ], [ %add.ptr, %if.end9 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %flag_str) #26
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind

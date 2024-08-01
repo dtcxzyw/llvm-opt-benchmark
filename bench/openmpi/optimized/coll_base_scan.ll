@@ -474,7 +474,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %82, %84
   br i1 %91, label %.lr.ph.split, label %ompi_datatype_copy_content_same_ddt.exit, !llvm.loop !7
 
 ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i104, %ompi_coll_base_sendrecv.exit, %89, %ompi_coll_base_sendrecv.exit.us, %75, %opal_datatype_span.exit
-  %.2 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.0.i115.us, %ompi_coll_base_sendrecv.exit.us ], [ 0, %75 ], [ %.0.i115, %ompi_coll_base_sendrecv.exit ], [ 0, %89 ], [ %54, %.lr.ph.i104 ]
+  %.074 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.0.i115.us, %ompi_coll_base_sendrecv.exit.us ], [ 0, %75 ], [ %.0.i115, %ompi_coll_base_sendrecv.exit ], [ 0, %89 ], [ %54, %.lr.ph.i104 ]
   br i1 %46, label %93, label %92
 
 92:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit
@@ -489,7 +489,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i104, %ompi_
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i, %93, %94, %ompi_datatype_copy_content_same_ddt.exit.thread, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %ompi_datatype_copy_content_same_ddt.exit.thread ], [ %.2, %94 ], [ %.2, %93 ], [ %18, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %ompi_datatype_copy_content_same_ddt.exit.thread ], [ %.074, %94 ], [ %.074, %93 ], [ %18, %.lr.ph.i ]
   ret i32 %.0
 }
 

@@ -124,16 +124,16 @@ land.rhs:                                         ; preds = %land.lhs.true39
 
 end:                                              ; preds = %for.end, %land.lhs.true, %land.lhs.true11, %land.lhs.true15, %land.lhs.true20, %land.lhs.true24, %land.lhs.true30, %land.lhs.true34, %land.lhs.true39, %land.rhs, %entry
   %msg_bio.0 = phi ptr [ null, %entry ], [ %call5, %land.rhs ], [ %call5, %land.lhs.true39 ], [ %call5, %land.lhs.true34 ], [ %call5, %land.lhs.true30 ], [ %call5, %land.lhs.true24 ], [ %call5, %land.lhs.true20 ], [ %call5, %land.lhs.true15 ], [ %call5, %land.lhs.true11 ], [ %call5, %land.lhs.true ], [ %call5, %for.end ]
-  %x509_bio.1 = phi ptr [ null, %entry ], [ %call8, %land.rhs ], [ %call8, %land.lhs.true39 ], [ %call8, %land.lhs.true34 ], [ %call8, %land.lhs.true30 ], [ %call8, %land.lhs.true24 ], [ %call8, %land.lhs.true20 ], [ %call8, %land.lhs.true15 ], [ %call8, %land.lhs.true11 ], [ %call8, %land.lhs.true ], [ null, %for.end ]
-  %cert.1 = phi ptr [ null, %entry ], [ %call12, %land.rhs ], [ %call12, %land.lhs.true39 ], [ %call12, %land.lhs.true34 ], [ %call12, %land.lhs.true30 ], [ %call12, %land.lhs.true24 ], [ %call12, %land.lhs.true20 ], [ %call12, %land.lhs.true15 ], [ %call12, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %for.end ]
-  %store.1 = phi ptr [ null, %entry ], [ %call21, %land.rhs ], [ %call21, %land.lhs.true39 ], [ %call21, %land.lhs.true34 ], [ %call21, %land.lhs.true30 ], [ %call21, %land.lhs.true24 ], [ %call21, %land.lhs.true20 ], [ null, %land.lhs.true15 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %for.end ]
-  %p7.1 = phi ptr [ null, %entry ], [ %call31, %land.rhs ], [ %call31, %land.lhs.true39 ], [ %call31, %land.lhs.true34 ], [ %call31, %land.lhs.true30 ], [ null, %land.lhs.true24 ], [ null, %land.lhs.true20 ], [ null, %land.lhs.true15 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %for.end ]
+  %x509_bio.0 = phi ptr [ null, %entry ], [ %call8, %land.rhs ], [ %call8, %land.lhs.true39 ], [ %call8, %land.lhs.true34 ], [ %call8, %land.lhs.true30 ], [ %call8, %land.lhs.true24 ], [ %call8, %land.lhs.true20 ], [ %call8, %land.lhs.true15 ], [ %call8, %land.lhs.true11 ], [ %call8, %land.lhs.true ], [ null, %for.end ]
+  %cert.0 = phi ptr [ null, %entry ], [ %call12, %land.rhs ], [ %call12, %land.lhs.true39 ], [ %call12, %land.lhs.true34 ], [ %call12, %land.lhs.true30 ], [ %call12, %land.lhs.true24 ], [ %call12, %land.lhs.true20 ], [ %call12, %land.lhs.true15 ], [ %call12, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %for.end ]
+  %store.0 = phi ptr [ null, %entry ], [ %call21, %land.rhs ], [ %call21, %land.lhs.true39 ], [ %call21, %land.lhs.true34 ], [ %call21, %land.lhs.true30 ], [ %call21, %land.lhs.true24 ], [ %call21, %land.lhs.true20 ], [ null, %land.lhs.true15 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %for.end ]
+  %p7.0 = phi ptr [ null, %entry ], [ %call31, %land.rhs ], [ %call31, %land.lhs.true39 ], [ %call31, %land.lhs.true34 ], [ %call31, %land.lhs.true30 ], [ null, %land.lhs.true24 ], [ null, %land.lhs.true20 ], [ null, %land.lhs.true15 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %for.end ]
   %ret.0 = phi i32 [ 0, %entry ], [ %1, %land.rhs ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true34 ], [ 0, %land.lhs.true30 ], [ 0, %land.lhs.true24 ], [ 0, %land.lhs.true20 ], [ 0, %land.lhs.true15 ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true ], [ 0, %for.end ]
-  tail call void @X509_STORE_free(ptr noundef %store.1) #2
-  tail call void @X509_free(ptr noundef %cert.1) #2
-  tail call void @PKCS7_free(ptr noundef %p7.1) #2
+  tail call void @X509_STORE_free(ptr noundef %store.0) #2
+  tail call void @X509_free(ptr noundef %cert.0) #2
+  tail call void @PKCS7_free(ptr noundef %p7.0) #2
   %call49 = tail call i32 @BIO_free(ptr noundef %msg_bio.0) #2
-  %call50 = tail call i32 @BIO_free(ptr noundef %x509_bio.1) #2
+  %call50 = tail call i32 @BIO_free(ptr noundef %x509_bio.0) #2
   %call51 = tail call i32 @BIO_free(ptr noundef %call1) #2
   ret i32 %ret.0
 }

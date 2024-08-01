@@ -452,7 +452,7 @@ default.unreachable647:                           ; preds = %if.end118
   unreachable
 
 if.end148:                                        ; preds = %if.end118, %sw.bb121, %if.end132, %sw.bb137, %sw.bb142
-  %search.0 = phi ptr [ %call143, %sw.bb142 ], [ %call138, %sw.bb137 ], [ %call133, %if.end132 ], [ %call122, %sw.bb121 ], [ null, %if.end118 ]
+  %search.1 = phi ptr [ %call143, %sw.bb142 ], [ %call138, %sw.bb137 ], [ %call133, %if.end132 ], [ %call122, %sw.bb121 ], [ null, %if.end118 ]
   %call149 = call i32 @app_passwd(ptr noundef %passinarg.0, ptr noundef null, ptr noundef nonnull %passin, ptr noundef null) #4
   %tobool150.not = icmp eq i32 %call149, 0
   br i1 %tobool150.not, label %if.then151, label %if.end153
@@ -475,7 +475,7 @@ if.end153:                                        ; preds = %if.end148
 if.end158:                                        ; preds = %if.end153
   %29 = load ptr, ptr %call114, align 8
   %call160 = call ptr @get_ui_method() #4
-  %call161 = call fastcc i32 @process(ptr noundef %29, ptr noundef %call160, ptr noundef nonnull %pw_cb_data, i32 noundef %expected.0, i32 noundef %criterion.0, ptr noundef %search.0, i32 noundef %text.0, i32 noundef %noout.0, i32 noundef %recursive.0, i32 noundef 0, ptr noundef nonnull %call155, ptr noundef %call1, ptr noundef %call)
+  %call161 = call fastcc i32 @process(ptr noundef %29, ptr noundef %call160, ptr noundef nonnull %pw_cb_data, i32 noundef %expected.0, i32 noundef %criterion.0, ptr noundef %search.1, i32 noundef %text.0, i32 noundef %noout.0, i32 noundef %recursive.0, i32 noundef 0, ptr noundef nonnull %call155, ptr noundef %call1, ptr noundef %call)
   br label %end
 
 end:                                              ; preds = %sw.bb106, %if.end44, %if.end29, %if.end153, %if.end158, %if.then151, %if.then145, %if.then140, %if.then135, %if.then130, %if.then124, %if.then97, %if.then91, %if.then87, %if.then82, %if.then76, %if.then72, %if.then64, %if.then58, %if.then54, %if.then42, %if.then38, %if.then27, %if.then23, %if.then, %sw.bb4, %opthelp
@@ -486,7 +486,7 @@ end:                                              ; preds = %sw.bb106, %if.end44
   %serial.2 = phi ptr [ %serial.0, %if.then87 ], [ %serial.0, %if.then91 ], [ %serial.0, %if.then97 ], [ %serial.0, %if.then72 ], [ %serial.0, %if.then76 ], [ %serial.0, %if.then82 ], [ %serial.0, %if.then54 ], [ %serial.0, %if.then58 ], [ null, %if.then64 ], [ %serial.0, %if.then38 ], [ %serial.0, %if.then42 ], [ %serial.0, %if.then23 ], [ %serial.0, %if.then27 ], [ %serial.0, %if.then ], [ %serial.0, %sw.bb4 ], [ %serial.0, %opthelp ], [ %serial.0, %if.end153 ], [ %serial.0, %if.end158 ], [ %serial.0, %if.then151 ], [ %serial.0, %if.then145 ], [ %serial.0, %if.then140 ], [ %serial.0, %if.then130 ], [ %serial.0, %if.then135 ], [ %serial.0, %if.then124 ], [ %serial.0, %if.end29 ], [ %serial.0, %if.end44 ], [ %serial.0, %sw.bb106 ]
   %fingerprint.2 = phi ptr [ %fingerprint.0, %if.then87 ], [ %fingerprint.0, %if.then91 ], [ %fingerprint.0, %if.then97 ], [ %fingerprint.0, %if.then72 ], [ %fingerprint.0, %if.then76 ], [ null, %if.then82 ], [ %fingerprint.0, %if.then54 ], [ %fingerprint.0, %if.then58 ], [ %fingerprint.0, %if.then64 ], [ %fingerprint.0, %if.then38 ], [ %fingerprint.0, %if.then42 ], [ %fingerprint.0, %if.then23 ], [ %fingerprint.0, %if.then27 ], [ %fingerprint.0, %if.then ], [ %fingerprint.0, %sw.bb4 ], [ %fingerprint.0, %opthelp ], [ %fingerprint.0, %if.end153 ], [ %fingerprint.0, %if.end158 ], [ %fingerprint.0, %if.then151 ], [ %fingerprint.0, %if.then145 ], [ %fingerprint.0, %if.then140 ], [ %fingerprint.0, %if.then130 ], [ %fingerprint.0, %if.then135 ], [ %fingerprint.0, %if.then124 ], [ %fingerprint.0, %if.end29 ], [ %fingerprint.0, %if.end44 ], [ %fingerprint.0, %sw.bb106 ]
   %alias.2 = phi ptr [ %alias.0, %if.then87 ], [ %alias.0, %if.then91 ], [ null, %if.then97 ], [ %alias.0, %if.then72 ], [ %alias.0, %if.then76 ], [ %alias.0, %if.then82 ], [ %alias.0, %if.then54 ], [ %alias.0, %if.then58 ], [ %alias.0, %if.then64 ], [ %alias.0, %if.then38 ], [ %alias.0, %if.then42 ], [ %alias.0, %if.then23 ], [ %alias.0, %if.then27 ], [ %alias.0, %if.then ], [ %alias.0, %sw.bb4 ], [ %alias.0, %opthelp ], [ %alias.0, %if.end153 ], [ %alias.0, %if.end158 ], [ %alias.0, %if.then151 ], [ %alias.0, %if.then145 ], [ %alias.0, %if.then140 ], [ %alias.0, %if.then130 ], [ %alias.0, %if.then135 ], [ %alias.0, %if.then124 ], [ %alias.0, %if.end29 ], [ %alias.0, %if.end44 ], [ %alias.0, %sw.bb106 ]
-  %search.1 = phi ptr [ null, %if.then87 ], [ null, %if.then91 ], [ null, %if.then97 ], [ null, %if.then72 ], [ null, %if.then76 ], [ null, %if.then82 ], [ null, %if.then54 ], [ null, %if.then58 ], [ null, %if.then64 ], [ null, %if.then38 ], [ null, %if.then42 ], [ null, %if.then23 ], [ null, %if.then27 ], [ null, %if.then ], [ null, %sw.bb4 ], [ null, %opthelp ], [ %search.0, %if.end153 ], [ %search.0, %if.end158 ], [ %search.0, %if.then151 ], [ null, %if.then145 ], [ null, %if.then140 ], [ null, %if.then130 ], [ null, %if.then135 ], [ null, %if.then124 ], [ null, %if.end29 ], [ null, %if.end44 ], [ null, %sw.bb106 ]
+  %search.0 = phi ptr [ null, %if.then87 ], [ null, %if.then91 ], [ null, %if.then97 ], [ null, %if.then72 ], [ null, %if.then76 ], [ null, %if.then82 ], [ null, %if.then54 ], [ null, %if.then58 ], [ null, %if.then64 ], [ null, %if.then38 ], [ null, %if.then42 ], [ null, %if.then23 ], [ null, %if.then27 ], [ null, %if.then ], [ null, %sw.bb4 ], [ null, %opthelp ], [ %search.1, %if.end153 ], [ %search.1, %if.end158 ], [ %search.1, %if.then151 ], [ null, %if.then145 ], [ null, %if.then140 ], [ null, %if.then130 ], [ null, %if.then135 ], [ null, %if.then124 ], [ null, %if.end29 ], [ null, %if.end44 ], [ null, %sw.bb106 ]
   %30 = load ptr, ptr %digest, align 8
   call void @EVP_MD_free(ptr noundef %30) #4
   call void @CRYPTO_free(ptr noundef %fingerprint.2, ptr noundef nonnull @.str.51, i32 noundef 324) #4
@@ -494,7 +494,7 @@ end:                                              ; preds = %sw.bb106, %if.end44
   call void @ASN1_INTEGER_free(ptr noundef %serial.2) #4
   call void @X509_NAME_free(ptr noundef %subject.2) #4
   call void @X509_NAME_free(ptr noundef %issuer.2) #4
-  call void @OSSL_STORE_SEARCH_free(ptr noundef %search.1) #4
+  call void @OSSL_STORE_SEARCH_free(ptr noundef %search.0) #4
   call void @BIO_free_all(ptr noundef %out.0) #4
   %31 = load ptr, ptr %passin, align 8
   call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str.51, i32 noundef 331) #4
@@ -615,7 +615,7 @@ if.end20:                                         ; preds = %if.end15, %if.end8
 
 for.cond.outer:                                   ; preds = %sw.epilog, %if.end20
   %items.0.ph = phi i32 [ %inc126, %sw.epilog ], [ 0, %if.end20 ]
-  %ret.0.ph = phi i32 [ %ret.1, %sw.epilog ], [ 0, %if.end20 ]
+  %ret.1.ph = phi i32 [ %ret.3, %sw.epilog ], [ 0, %if.end20 ]
   %call2185 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %call1) #4
   %cmp2286 = icmp eq ptr %call2185, null
   br i1 %cmp2286, label %if.then31.lr.ph, label %if.end50
@@ -624,7 +624,7 @@ if.then31.lr.ph:                                  ; preds = %for.cond.outer
   br i1 %tobool35.not, label %if.then31.us, label %if.then31
 
 if.then31.us:                                     ; preds = %if.then31.lr.ph, %if.end41.us
-  %ret.087.us = phi i32 [ %inc.us, %if.end41.us ], [ %ret.0.ph, %if.then31.lr.ph ]
+  %ret.187.us = phi i32 [ %inc.us, %if.end41.us ], [ %ret.1.ph, %if.then31.lr.ph ]
   %call32.us = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %call1) #4
   %tobool33.not.us = icmp eq i32 %call32.us, 0
   br i1 %tobool33.not.us, label %if.end42, label %if.then34.us
@@ -637,13 +637,13 @@ if.then34.us:                                     ; preds = %if.then31.us
   br i1 %tobool39.not.us, label %if.end41.us, label %for.end
 
 if.end41.us:                                      ; preds = %if.then34.us
-  %inc.us = add nsw i32 %ret.087.us, 1
+  %inc.us = add nsw i32 %ret.187.us, 1
   %call21.us = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %call1) #4
   %cmp22.us = icmp eq ptr %call21.us, null
   br i1 %cmp22.us, label %if.then31.us, label %if.end50
 
 if.then31:                                        ; preds = %if.then31.lr.ph, %if.end41
-  %ret.087 = phi i32 [ %inc, %if.end41 ], [ %ret.0.ph, %if.then31.lr.ph ]
+  %ret.187 = phi i32 [ %inc, %if.end41 ], [ %ret.1.ph, %if.then31.lr.ph ]
   %call32 = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %call1) #4
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end42, label %if.then34
@@ -655,13 +655,13 @@ if.then34:                                        ; preds = %if.then31
   br i1 %tobool39.not, label %if.end41, label %for.end
 
 if.end41:                                         ; preds = %if.then34
-  %inc = add nsw i32 %ret.087, 1
+  %inc = add nsw i32 %ret.187, 1
   %call21 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %call1) #4
   %cmp22 = icmp eq ptr %call21, null
   br i1 %cmp22, label %if.then31, label %if.end50
 
 if.end42:                                         ; preds = %if.then31, %if.then31.us
-  %.us-phi89 = phi i32 [ %ret.087.us, %if.then31.us ], [ %ret.087, %if.then31 ]
+  %.us-phi89 = phi i32 [ %ret.187.us, %if.then31.us ], [ %ret.187, %if.then31 ]
   %call43 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %call1) #4
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.end46, label %for.end
@@ -677,7 +677,7 @@ if.end46:                                         ; preds = %if.end42
   br label %for.end
 
 if.end50:                                         ; preds = %if.end41, %if.end41.us, %for.cond.outer
-  %ret.0.lcssa = phi i32 [ %ret.0.ph, %for.cond.outer ], [ %inc.us, %if.end41.us ], [ %inc, %if.end41 ]
+  %ret.1.lcssa = phi i32 [ %ret.1.ph, %for.cond.outer ], [ %inc.us, %if.end41.us ], [ %inc, %if.end41 ]
   %call21.lcssa = phi ptr [ %call2185, %for.cond.outer ], [ %call21.us, %if.end41.us ], [ %call21, %if.end41 ]
   %call23 = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %call21.lcssa) #4
   %call27 = tail call ptr @OSSL_STORE_INFO_type_string(i32 noundef %call23) #4
@@ -714,7 +714,7 @@ sw.bb:                                            ; preds = %if.then57, %if.then
 if.then64:                                        ; preds = %sw.bb
   %call65 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %call21.lcssa) #4
   %call66 = tail call fastcc i32 @process(ptr noundef %call65, ptr noundef %uimeth, ptr noundef %uidata, i32 noundef %expected, i32 noundef %criterion, ptr noundef %search, i32 noundef %text, i32 noundef %noout, i32 noundef 1, i32 noundef %add, ptr noundef %out, ptr noundef %prog, ptr noundef %libctx)
-  %add67 = add nsw i32 %call66, %ret.0.lcssa
+  %add67 = add nsw i32 %call66, %ret.1.lcssa
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %if.end62
@@ -800,22 +800,22 @@ if.then120:                                       ; preds = %if.end118
 sw.default:                                       ; preds = %if.end62
   %12 = load ptr, ptr @bio_err, align 8
   %call124 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %12, ptr noundef nonnull @.str.71) #4
-  %inc125 = add nsw i32 %ret.0.lcssa, 1
+  %inc125 = add nsw i32 %ret.1.lcssa, 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end118, %if.then120, %if.end107, %if.then109, %if.end96, %if.then98, %if.end85, %if.then87, %if.end74, %if.then76, %sw.bb, %if.then64, %sw.default
-  %ret.1 = phi i32 [ %inc125, %sw.default ], [ %ret.0.lcssa, %if.end118 ], [ %ret.0.lcssa, %if.then120 ], [ %ret.0.lcssa, %if.end107 ], [ %ret.0.lcssa, %if.then109 ], [ %ret.0.lcssa, %if.end96 ], [ %ret.0.lcssa, %if.then98 ], [ %ret.0.lcssa, %if.end85 ], [ %ret.0.lcssa, %if.then87 ], [ %ret.0.lcssa, %if.end74 ], [ %ret.0.lcssa, %if.then76 ], [ %add67, %if.then64 ], [ %ret.0.lcssa, %sw.bb ]
+  %ret.3 = phi i32 [ %inc125, %sw.default ], [ %ret.1.lcssa, %if.end118 ], [ %ret.1.lcssa, %if.then120 ], [ %ret.1.lcssa, %if.end107 ], [ %ret.1.lcssa, %if.then109 ], [ %ret.1.lcssa, %if.end96 ], [ %ret.1.lcssa, %if.then98 ], [ %ret.1.lcssa, %if.end85 ], [ %ret.1.lcssa, %if.then87 ], [ %ret.1.lcssa, %if.end74 ], [ %ret.1.lcssa, %if.then76 ], [ %add67, %if.then64 ], [ %ret.1.lcssa, %sw.bb ]
   %inc126 = add nuw nsw i32 %items.0.ph, 1
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %call21.lcssa) #4
   br label %for.cond.outer
 
 for.end:                                          ; preds = %if.then34, %if.then34.us, %if.end42, %if.end46
-  %ret.2 = phi i32 [ %.us-phi89, %if.end42 ], [ %inc49, %if.end46 ], [ %ret.087.us, %if.then34.us ], [ %ret.087, %if.then34 ]
+  %ret.2 = phi i32 [ %.us-phi89, %if.end42 ], [ %inc49, %if.end46 ], [ %ret.187.us, %if.then34.us ], [ %ret.187, %if.then34 ]
   tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %indent, ptr noundef %out, ptr noundef nonnull @.str.72, i32 noundef %items.0.ph)
   br label %end2
 
 end2:                                             ; preds = %for.end, %if.then18, %if.then13, %if.then6
-  %ret.3 = phi i32 [ %ret.2, %for.end ], [ 1, %if.then18 ], [ 1, %if.then13 ], [ 1, %if.then6 ]
+  %ret.0 = phi i32 [ %ret.2, %for.end ], [ 1, %if.then18 ], [ 1, %if.then13 ], [ 1, %if.then6 ]
   %call128 = tail call i32 @OSSL_STORE_close(ptr noundef nonnull %call1) #4
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %if.then130, label %return
@@ -823,11 +823,11 @@ end2:                                             ; preds = %for.end, %if.then18
 if.then130:                                       ; preds = %end2
   %13 = load ptr, ptr @bio_err, align 8
   tail call void @ERR_print_errors(ptr noundef %13) #4
-  %inc131 = add nsw i32 %ret.3, 1
+  %inc131 = add nsw i32 %ret.0, 1
   br label %return
 
 return:                                           ; preds = %end2, %if.then130, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ %ret.3, %end2 ], [ %inc131, %if.then130 ]
+  %retval.0 = phi i32 [ 1, %if.then ], [ %ret.0, %end2 ], [ %inc131, %if.then130 ]
   ret i32 %retval.0
 }
 

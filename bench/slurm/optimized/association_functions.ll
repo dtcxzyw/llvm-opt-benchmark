@@ -2023,7 +2023,7 @@ _set_cond.exit:                                   ; preds = %138, %32
 
 .lr.ph136:                                        ; preds = %197, %._crit_edge131
   %202 = phi ptr [ %221, %._crit_edge131 ], [ %201, %197 ]
-  %.078134 = phi ptr [ %.2, %._crit_edge131 ], [ null, %197 ]
+  %.078134 = phi ptr [ %.1, %._crit_edge131 ], [ null, %197 ]
   %.079133 = phi ptr [ %.180, %._crit_edge131 ], [ null, %197 ]
   %.not107 = icmp eq ptr %.079133, null
   br i1 %.not107, label %207, label %203
@@ -2048,14 +2048,14 @@ _set_cond.exit:                                   ; preds = %138, %32
   br label %212
 
 212:                                              ; preds = %210, %208
-  %.1 = phi ptr [ %.078134, %208 ], [ %211, %210 ]
+  %.2 = phi ptr [ %.078134, %208 ], [ %211, %210 ]
   %213 = getelementptr inbounds i8, ptr %202, i64 40
   %214 = load ptr, ptr %213, align 8
   br label %215
 
 215:                                              ; preds = %212, %203
   %.180 = phi ptr [ %214, %212 ], [ %.079133, %203 ]
-  %.2 = phi ptr [ %.1, %212 ], [ %.078134, %203 ]
+  %.1 = phi ptr [ %.2, %212 ], [ %.078134, %203 ]
   %216 = call ptr @list_next(ptr noundef %199) #9
   %.not110127 = icmp eq ptr %216, null
   br i1 %.not110127, label %._crit_edge131, label %.lr.ph130
@@ -2064,7 +2064,7 @@ _set_cond.exit:                                   ; preds = %138, %32
   %217 = phi ptr [ %220, %.lr.ph130 ], [ %216, %215 ]
   %.0128 = phi i32 [ %219, %.lr.ph130 ], [ 1, %215 ]
   %218 = icmp eq i32 %.0128, %200
-  call void @sacctmgr_print_assoc_rec(ptr noundef nonnull %202, ptr noundef nonnull %217, ptr noundef %.2, i1 noundef zeroext %218)
+  call void @sacctmgr_print_assoc_rec(ptr noundef nonnull %202, ptr noundef nonnull %217, ptr noundef %.1, i1 noundef zeroext %218)
   %219 = add nuw nsw i32 %.0128, 1
   %220 = call ptr @list_next(ptr noundef %199) #9
   %.not110 = icmp eq ptr %220, null
@@ -2078,11 +2078,11 @@ _set_cond.exit:                                   ; preds = %138, %32
   br i1 %.not104, label %._crit_edge137, label %.lr.ph136, !llvm.loop !13
 
 ._crit_edge137:                                   ; preds = %._crit_edge131
-  %.not105 = icmp eq ptr %.2, null
+  %.not105 = icmp eq ptr %.1, null
   br i1 %.not105, label %._crit_edge137.thread, label %222
 
 222:                                              ; preds = %._crit_edge137
-  call void @list_destroy(ptr noundef nonnull %.2) #9
+  call void @list_destroy(ptr noundef nonnull %.1) #9
   br label %._crit_edge137.thread
 
 ._crit_edge137.thread:                            ; preds = %197, %222, %._crit_edge137

@@ -243,16 +243,16 @@ define internal i32 @dissect_nasdaq_soup(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_nasdaq_soup_packet.exit
 
 90:                                               ; preds = %66, %63
-  %.0.i = phi ptr [ %65, %63 ], [ null, %66 ]
+  %.1.i = phi ptr [ %65, %63 ], [ null, %66 ]
   %91 = add i32 %17, %.03340
   %92 = load i32, ptr @hf_nasdaq_soup_packet_eol, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0) #2
-  %.not.i = icmp eq ptr %.0.i, null
+  %.not.i = icmp eq ptr %.1.i, null
   br i1 %.not.i, label %dissect_nasdaq_soup_packet.exit, label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr @nasdaq_itch_handle, align 8
-  %96 = call i32 @call_dissector(ptr noundef %95, ptr noundef nonnull %.0.i, ptr noundef nonnull %1, ptr noundef %2) #2
+  %96 = call i32 @call_dissector(ptr noundef %95, ptr noundef nonnull %.1.i, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_nasdaq_soup_packet.exit
 
 dissect_nasdaq_soup_packet.exit:                  ; preds = %.thread.i, %90, %94

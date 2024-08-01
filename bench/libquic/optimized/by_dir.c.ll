@@ -118,8 +118,8 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
-  %ret.0 = phi i32 [ %call3, %if.then2 ], [ %call5, %if.else ]
-  %tobool6.not = icmp eq i32 %ret.0, 0
+  %ret.1 = phi i32 [ %call3, %if.then2 ], [ %call5, %if.else ]
+  %tobool6.not = icmp eq i32 %ret.1, 0
   br i1 %tobool6.not, label %if.then7, label %sw.epilog
 
 if.then7:                                         ; preds = %if.end
@@ -132,8 +132,8 @@ if.else9:                                         ; preds = %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else9, %if.then7, %if.end, %entry
-  %ret.1 = phi i32 [ 1, %if.end ], [ 0, %if.then7 ], [ %call10, %if.else9 ], [ 0, %entry ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ 1, %if.end ], [ 0, %if.then7 ], [ %call10, %if.else9 ], [ 0, %entry ]
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind uwtable

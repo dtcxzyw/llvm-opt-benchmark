@@ -114,13 +114,13 @@ if.then30:                                        ; preds = %if.end27
   br label %err
 
 if.end33:                                         ; preds = %if.then18, %if.end27
-  %cipher.034 = phi ptr [ %call26, %if.end27 ], [ %call21, %if.then18 ]
+  %cipher.134 = phi ptr [ %call26, %if.end27 ], [ %call21, %if.then18 ]
   %call34 = call i32 @ERR_pop_to_mark() #7
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end33, %if.end15
-  %cipher.1 = phi ptr [ %cipher.034, %if.end33 ], [ null, %if.end15 ]
-  %cipher_fetch.0 = phi ptr [ %call21, %if.end33 ], [ null, %if.end15 ]
+  %cipher.0 = phi ptr [ %cipher.134, %if.end33 ], [ null, %if.end15 ]
+  %cipher_fetch.1 = phi ptr [ %call21, %if.end33 ], [ null, %if.end15 ]
   %cmp36.not = icmp eq i32 %4, -1
   br i1 %cmp36.not, label %if.end54, label %if.then38
 
@@ -145,30 +145,30 @@ if.then50:                                        ; preds = %if.end47
   br label %err
 
 if.end52:                                         ; preds = %if.then38, %if.end47
-  %md.037 = phi ptr [ %call46, %if.end47 ], [ %call41, %if.then38 ]
+  %md.137 = phi ptr [ %call46, %if.end47 ], [ %call41, %if.then38 ]
   %call53 = call i32 @ERR_pop_to_mark() #7
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end52, %if.end35
-  %md.1 = phi ptr [ %md.037, %if.end52 ], [ null, %if.end35 ]
-  %md_fetch.0 = phi ptr [ %call41, %if.end52 ], [ null, %if.end35 ]
+  %md.0 = phi ptr [ %md.137, %if.end52 ], [ null, %if.end35 ]
+  %md_fetch.1 = phi ptr [ %call41, %if.end52 ], [ null, %if.end35 ]
   %cmp55.not = icmp eq ptr %6, null
   br i1 %cmp55.not, label %if.else59, label %if.then57
 
 if.then57:                                        ; preds = %if.end54
-  %call58 = call i32 %6(ptr noundef %ctx, ptr noundef %pass, i32 noundef %passlen.addr.0, ptr noundef %param, ptr noundef %cipher.1, ptr noundef %md.1, i32 noundef %en_de, ptr noundef %libctx, ptr noundef %propq) #7
+  %call58 = call i32 %6(ptr noundef %ctx, ptr noundef %pass, i32 noundef %passlen.addr.0, ptr noundef %param, ptr noundef %cipher.0, ptr noundef %md.0, i32 noundef %en_de, ptr noundef %libctx, ptr noundef %propq) #7
   br label %err
 
 if.else59:                                        ; preds = %if.end54
-  %call60 = call i32 %5(ptr noundef %ctx, ptr noundef %pass, i32 noundef %passlen.addr.0, ptr noundef %param, ptr noundef %cipher.1, ptr noundef %md.1, i32 noundef %en_de) #7
+  %call60 = call i32 %5(ptr noundef %ctx, ptr noundef %pass, i32 noundef %passlen.addr.0, ptr noundef %param, ptr noundef %cipher.0, ptr noundef %md.0, i32 noundef %en_de) #7
   br label %err
 
 err:                                              ; preds = %if.then57, %if.else59, %if.then50, %if.then30, %if.end
-  %cipher_fetch.1 = phi ptr [ null, %if.then30 ], [ %cipher_fetch.0, %if.then50 ], [ %cipher_fetch.0, %if.then57 ], [ %cipher_fetch.0, %if.else59 ], [ null, %if.end ]
-  %md_fetch.1 = phi ptr [ null, %if.then30 ], [ null, %if.then50 ], [ %md_fetch.0, %if.then57 ], [ %md_fetch.0, %if.else59 ], [ null, %if.end ]
+  %cipher_fetch.0 = phi ptr [ null, %if.then30 ], [ %cipher_fetch.1, %if.then50 ], [ %cipher_fetch.1, %if.then57 ], [ %cipher_fetch.1, %if.else59 ], [ null, %if.end ]
+  %md_fetch.0 = phi ptr [ null, %if.then30 ], [ null, %if.then50 ], [ %md_fetch.1, %if.then57 ], [ %md_fetch.1, %if.else59 ], [ null, %if.end ]
   %ret.0 = phi i32 [ 0, %if.then30 ], [ 0, %if.then50 ], [ %call58, %if.then57 ], [ %call60, %if.else59 ], [ 0, %if.end ]
-  call void @EVP_CIPHER_free(ptr noundef %cipher_fetch.1) #7
-  call void @EVP_MD_free(ptr noundef %md_fetch.1) #7
+  call void @EVP_CIPHER_free(ptr noundef %cipher_fetch.0) #7
+  call void @EVP_MD_free(ptr noundef %md_fetch.0) #7
   ret i32 %ret.0
 }
 

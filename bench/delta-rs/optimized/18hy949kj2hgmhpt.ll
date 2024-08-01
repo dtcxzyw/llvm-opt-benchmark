@@ -880,16 +880,16 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   ]
 
 .body:                                            ; preds = %53, %83, %113, %128, %133, %98, %68, %304, %299, %294, %288, %284, %268, %253, %238, %224, %209, %194, %179, %164, %148
-  %.020 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.121, %133 ], [ true, %128 ]
-  %.0 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.1, %133 ], [ true, %128 ]
+  %.121 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.020, %133 ], [ true, %128 ]
+  %.1 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.0, %133 ], [ true, %128 ]
   %.pn = phi { ptr, i32 } [ %305, %304 ], [ %300, %299 ], [ %295, %294 ], [ %289, %288 ], [ %285, %284 ], [ %269, %268 ], [ %254, %253 ], [ %239, %238 ], [ %225, %224 ], [ %210, %209 ], [ %195, %194 ], [ %180, %179 ], [ %165, %164 ], [ %149, %148 ], [ %54, %53 ], [ %69, %68 ], [ %84, %83 ], [ %99, %98 ], [ %114, %113 ], [ %134, %133 ], [ %129, %128 ]
   %132 = getelementptr inbounds i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h162a5c74d82f497aE.llvm.10399565284327844239"(ptr noalias noundef nonnull align 8 dereferenceable(24) %132) #20
           to label %309 unwind label %307
 
 133:                                              ; preds = %.noexc.i, %130
-  %.121 = phi i1 [ false, %130 ], [ true, %.noexc.i ]
-  %.1 = phi i1 [ true, %130 ], [ false, %.noexc.i ]
+  %.020 = phi i1 [ false, %130 ], [ true, %.noexc.i ]
+  %.0 = phi i1 [ true, %130 ], [ false, %.noexc.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1429,7 +1429,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
           to label %311 unwind label %307
 
 311:                                              ; preds = %309
-  br i1 %.0, label %314, label %312
+  br i1 %.1, label %314, label %312
 
 312:                                              ; preds = %314, %311
   %313 = getelementptr inbounds i8, ptr %1, i64 616
@@ -1492,7 +1492,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
           to label %336 unwind label %307
 
 336:                                              ; preds = %334
-  br i1 %.020, label %339, label %337
+  br i1 %.121, label %339, label %337
 
 337:                                              ; preds = %339, %336
   %338 = getelementptr inbounds i8, ptr %1, i64 1208

@@ -310,13 +310,13 @@ cleanup.sink.split:                               ; preds = %invoke.cont58, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then62.invoke
-  %retval.0 = phi i1 [ true, %if.then62.invoke ], [ false, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ true, %if.then62.invoke ], [ false, %cleanup.sink.split ]
   call void @_ZN2dd3bddD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %b1) #16
   br label %return
 
 return:                                           ; preds = %if.end40, %if.end35, %if.end32, %_ZN3sat9elim_vars8mark_varEj.exit, %if.end13, %if.end5, %if.end, %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ], [ false, %if.end ], [ false, %if.end5 ], [ false, %if.end13 ], [ false, %_ZN3sat9elim_vars8mark_varEj.exit ], [ false, %if.end32 ], [ false, %if.end35 ], [ false, %if.end40 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ], [ false, %if.end ], [ false, %if.end5 ], [ false, %if.end13 ], [ false, %_ZN3sat9elim_vars8mark_varEj.exit ], [ false, %if.end32 ], [ false, %if.end35 ], [ false, %if.end40 ]
+  ret i1 %retval.0
 }
 
 declare noundef i32 @_ZNK3sat10simplifier18num_nonlearned_binENS_7literalE(ptr noundef nonnull align 8 dereferenceable(288), i32) local_unnamed_addr #0

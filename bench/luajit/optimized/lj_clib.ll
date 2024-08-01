@@ -182,25 +182,25 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i.i
-  %name.addr.0.i.i = phi ptr [ %add.ptr, %if.then.i.i ], [ %call4.i.i, %if.then3.i.i ]
-  %1 = load i8, ptr %name.addr.0.i.i, align 1
+  %name.addr.1.i.i = phi ptr [ %add.ptr, %if.then.i.i ], [ %call4.i.i, %if.then3.i.i ]
+  %1 = load i8, ptr %name.addr.1.i.i, align 1
   %cmp.i.i = icmp eq i8 %1, 108
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.then18.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %name.addr.0.i.i, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %name.addr.1.i.i, i64 1
   %2 = load i8, ptr %arrayidx7.i.i, align 1
   %cmp10.i.i = icmp eq i8 %2, 105
   br i1 %cmp10.i.i, label %land.lhs.true12.i.i, label %if.then18.i.i
 
 land.lhs.true12.i.i:                              ; preds = %land.lhs.true.i.i
-  %arrayidx13.i.i = getelementptr inbounds i8, ptr %name.addr.0.i.i, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %name.addr.1.i.i, i64 2
   %3 = load i8, ptr %arrayidx13.i.i, align 1
   %cmp16.i.i = icmp eq i8 %3, 98
   br i1 %cmp16.i.i, label %clib_extname.exit.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %land.lhs.true12.i.i, %land.lhs.true.i.i, %if.end.i.i
-  %call19.i.i = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull @.str.4, ptr noundef nonnull %name.addr.0.i.i) #9
+  %call19.i.i = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull @.str.4, ptr noundef nonnull %name.addr.1.i.i) #9
   %top20.i.i = getelementptr inbounds i8, ptr %L, i64 40
   %4 = load ptr, ptr %top20.i.i, align 8
   %incdec.ptr21.i.i = getelementptr inbounds i8, ptr %4, i64 -8
@@ -208,10 +208,10 @@ if.then18.i.i:                                    ; preds = %land.lhs.true12.i.i
   br label %clib_extname.exit.i
 
 clib_extname.exit.i:                              ; preds = %if.then18.i.i, %land.lhs.true12.i.i, %entry
-  %name.addr.1.i.i = phi ptr [ %add.ptr, %entry ], [ %name.addr.0.i.i, %land.lhs.true12.i.i ], [ %call19.i.i, %if.then18.i.i ]
+  %name.addr.0.i.i = phi ptr [ %add.ptr, %entry ], [ %name.addr.1.i.i, %land.lhs.true12.i.i ], [ %call19.i.i, %if.then18.i.i ]
   %tobool.not.i = icmp eq i32 %global, 0
   %or.i = select i1 %tobool.not.i, i32 1, i32 257
-  %call1.i = tail call ptr @dlopen(ptr noundef %name.addr.1.i.i, i32 noundef %or.i) #9
+  %call1.i = tail call ptr @dlopen(ptr noundef %name.addr.0.i.i, i32 noundef %or.i) #9
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %if.then.i, label %clib_loadlib.exit
 

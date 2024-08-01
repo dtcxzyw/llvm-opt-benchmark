@@ -307,7 +307,7 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then14, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end.loopexit
-  %retval.0.ph = phi i1 [ %19, %for.end.loopexit ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ false, %if.then14 ]
+  %retval.1.ph = phi i1 [ %19, %for.end.loopexit ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ false, %if.then14 ]
   %.pr30 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i15 = icmp eq ptr %.pr30, null
   br i1 %cmp.i.i.i15, label %return, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -370,8 +370,8 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 return:                                           ; preds = %invoke.cont7, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %cleanup, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0.ph, %cleanup ], [ %retval.0.ph, %invoke.cont8.i.i ], [ %retval.0.ph, %if.then.i.i.i.i.i ], [ false, %invoke.cont7 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1.ph, %cleanup ], [ %retval.1.ph, %invoke.cont8.i.i ], [ %retval.1.ph, %if.then.i.i.i.i.i ], [ false, %invoke.cont7 ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -374,7 +374,7 @@ define ptr @cuddBddAndAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %218
 
 207:                                              ; preds = %203, %199
-  %.0201 = phi ptr [ %202, %199 ], [ %204, %203 ]
+  %.1 = phi ptr [ %202, %199 ], [ %204, %203 ]
   %208 = load i32, ptr %189, align 4
   %209 = add i32 %208, -1
   store i32 %209, ptr %189, align 4
@@ -382,7 +382,7 @@ define ptr @cuddBddAndAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 210:                                              ; preds = %183, %145, %207, %161
   %.sink = phi ptr [ %177, %207 ], [ %167, %161 ], [ %124, %145 ], [ %177, %183 ]
-  %.1 = phi ptr [ %.0201, %207 ], [ %164, %161 ], [ %108, %145 ], [ %171, %183 ]
+  %.0201 = phi ptr [ %.1, %207 ], [ %164, %161 ], [ %108, %145 ], [ %171, %183 ]
   %211 = load i32, ptr %.sink, align 4
   %212 = add i32 %211, -1
   store i32 %212, ptr %.sink, align 4
@@ -397,11 +397,11 @@ define ptr @cuddBddAndAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not228, label %218, label %217
 
 217:                                              ; preds = %214, %210
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 6, ptr noundef %spec.select237, ptr noundef %spec.select, ptr noundef nonnull %.0198, ptr noundef %.1) #4
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 6, ptr noundef %spec.select237, ptr noundef %spec.select, ptr noundef nonnull %.0198, ptr noundef %.0201) #4
   br label %218
 
 218:                                              ; preds = %214, %217, %170, %116, %119, %105, %68, %63, %16, %4, %206, %198, %182, %160, %144, %55, %28, %25, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %29, %28 ], [ %56, %55 ], [ null, %144 ], [ null, %160 ], [ null, %182 ], [ null, %198 ], [ null, %206 ], [ %9, %4 ], [ %6, %16 ], [ %64, %63 ], [ null, %68 ], [ null, %105 ], [ %108, %119 ], [ %108, %116 ], [ null, %170 ], [ %.1, %217 ], [ %.1, %214 ]
+  %.0 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %29, %28 ], [ %56, %55 ], [ null, %144 ], [ null, %160 ], [ null, %182 ], [ null, %198 ], [ null, %206 ], [ %9, %4 ], [ %6, %16 ], [ %64, %63 ], [ null, %68 ], [ null, %105 ], [ %108, %119 ], [ %108, %116 ], [ null, %170 ], [ %.0201, %217 ], [ %.0201, %214 ]
   ret ptr %.0
 }
 

@@ -2520,8 +2520,8 @@ terminate.lpad.i27:                               ; preds = %.noexc.i28, %cleanu
   unreachable
 
 return:                                           ; preds = %.noexc.i28, %.noexc.i
-  %retval.1 = phi i1 [ %call2, %.noexc.i ], [ %call5, %.noexc.i28 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %call2, %.noexc.i ], [ %call5, %.noexc.i28 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad3, %lpad
   %val.sink = phi ptr [ %val, %lpad3 ], [ %agg.tmp, %lpad ]
@@ -3051,9 +3051,9 @@ if.then8:                                         ; preds = %land.lhs.true.i78, 
   %m_args.i.i82 = getelementptr inbounds i8, ptr %e, i64 32
   %29 = load ptr, ptr %m_args.i.i82, align 8
   store ptr %29, ptr %lhs, align 8
-  %e2.4.in = getelementptr inbounds i8, ptr %e, i64 40
-  %e2.4 = load ptr, ptr %e2.4.in, align 8
-  %call9 = call noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %arith, ptr noundef %e2.4, ptr noundef nonnull align 8 dereferenceable(32) %rhs, ptr noundef nonnull align 1 dereferenceable(1) %is_int)
+  %e2.0.in = getelementptr inbounds i8, ptr %e, i64 40
+  %e2.0 = load ptr, ptr %e2.0.in, align 8
+  %call9 = call noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %arith, ptr noundef %e2.0, ptr noundef nonnull align 8 dereferenceable(32) %rhs, ptr noundef nonnull align 1 dereferenceable(1) %is_int)
   br label %return
 
 return:                                           ; preds = %entry, %land.rhs.i.i.i71, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %land.lhs.true.i78, %if.then8, %if.then

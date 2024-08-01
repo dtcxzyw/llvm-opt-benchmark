@@ -667,13 +667,13 @@ lpad26:                                           ; preds = %invoke.cont24
 
 return.sink.split:                                ; preds = %invoke.cont27, %invoke.cont18, %invoke.cont7
   %text.sink = phi ptr [ %json, %invoke.cont7 ], [ %text, %invoke.cont18 ], [ %text, %invoke.cont27 ]
-  %retval.1.ph = phi ptr [ %cond, %invoke.cont7 ], [ %call.i.i1416, %invoke.cont18 ], [ %cond29, %invoke.cont27 ]
+  %retval.0.ph = phi ptr [ %cond, %invoke.cont7 ], [ %call.i.i1416, %invoke.cont18 ], [ %cond29, %invoke.cont27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text.sink) #17
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
-  %retval.1 = phi ptr [ null, %if.end ], [ %retval.1.ph, %return.sink.split ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.end ], [ %retval.0.ph, %return.sink.split ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad26, %common.resume.i21, %lpad15, %lpad6, %common.resume.i, %lpad
   %text.sink30 = phi ptr [ %json, %lpad ], [ %json, %common.resume.i ], [ %json, %lpad6 ], [ %text, %lpad15 ], [ %text, %common.resume.i21 ], [ %text, %lpad26 ]

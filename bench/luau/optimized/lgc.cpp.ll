@@ -227,9 +227,9 @@ define internal fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 n
   br label %306
 
 .lr.ph64:                                         ; preds = %.preheader, %.lr.ph64
-  %.063 = phi i64 [ %28, %.lr.ph64 ], [ 0, %.preheader ]
+  %.163 = phi i64 [ %28, %.lr.ph64 ], [ 0, %.preheader ]
   %27 = tail call fastcc noundef i64 @_ZL13propagatemarkP12global_State(ptr noundef nonnull %8)
-  %28 = add i64 %27, %.063
+  %28 = add i64 %27, %.163
   %29 = load ptr, ptr %21, align 8
   %30 = icmp ne ptr %29, null
   %31 = icmp ult i64 %28, %1
@@ -237,7 +237,7 @@ define internal fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 n
   br i1 %32, label %.lr.ph64, label %._crit_edge65, !llvm.loop !5
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %.preheader
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %28, %.lr.ph64 ]
+  %.1.lcssa = phi i64 [ 0, %.preheader ], [ %28, %.lr.ph64 ]
   %.lcssa = phi i1 [ %23, %.preheader ], [ %30, %.lr.ph64 ]
   br i1 %.lcssa, label %306, label %33
 
@@ -250,9 +250,9 @@ define internal fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 n
   br label %306
 
 .lr.ph59:                                         ; preds = %.preheader42, %.lr.ph59
-  %.158 = phi i64 [ %37, %.lr.ph59 ], [ 0, %.preheader42 ]
+  %.258 = phi i64 [ %37, %.lr.ph59 ], [ 0, %.preheader42 ]
   %36 = tail call fastcc noundef i64 @_ZL13propagatemarkP12global_State(ptr noundef nonnull %8)
-  %37 = add i64 %36, %.158
+  %37 = add i64 %36, %.258
   %38 = load ptr, ptr %16, align 8
   %39 = icmp ne ptr %38, null
   %40 = icmp ult i64 %37, %1
@@ -260,7 +260,7 @@ define internal fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 n
   br i1 %41, label %.lr.ph59, label %._crit_edge60, !llvm.loop !7
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %.preheader42
-  %.1.lcssa = phi i64 [ 0, %.preheader42 ], [ %37, %.lr.ph59 ]
+  %.2.lcssa = phi i64 [ 0, %.preheader42 ], [ %37, %.lr.ph59 ]
   %.lcssa45 = phi i1 [ %18, %.preheader42 ], [ %39, %.lr.ph59 ]
   br i1 %.lcssa45, label %306, label %42
 
@@ -686,7 +686,7 @@ _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartab
 
 .lr.ph:                                           ; preds = %.preheader43, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit
   %234 = phi ptr [ %235, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit ], [ %12, %.preheader43 ]
-  %.256 = phi i64 [ %281, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit ], [ 0, %.preheader43 ]
+  %.356 = phi i64 [ %281, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit ], [ 0, %.preheader43 ]
   %235 = call noundef ptr @_Z16luaM_getnextpageP8lua_Page(ptr noundef nonnull %234)
   %236 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -779,14 +779,14 @@ _ZL12sweepgcopageP9lua_StateP8lua_Page.exit:      ; preds = %258, %._crit_edge.i
   store ptr %235, ptr %11, align 8
   %279 = shl nsw i32 %.0.i, 4
   %280 = sext i32 %279 to i64
-  %281 = add i64 %.256, %280
+  %281 = add i64 %.356, %280
   %282 = icmp ne ptr %235, null
   %283 = icmp ult i64 %281, %1
   %284 = select i1 %282, i1 %283, i1 false
   br i1 %284, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit, %.preheader43
-  %.2.lcssa = phi i64 [ 0, %.preheader43 ], [ %281, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit ]
+  %.3.lcssa = phi i64 [ 0, %.preheader43 ], [ %281, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit ]
   %.lcssa55 = phi ptr [ %12, %.preheader43 ], [ %235, %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit ]
   %285 = icmp eq ptr %.lcssa55, null
   br i1 %285, label %286, label %306
@@ -823,8 +823,8 @@ _ZL13shrinkbuffersP9lua_State.exit:               ; preds = %286, %304
   br label %306
 
 306:                                              ; preds = %2, %._crit_edge, %_ZL13shrinkbuffersP9lua_State.exit, %._crit_edge60, %42, %._crit_edge65, %33, %_ZL6atomicP9lua_State.exit, %26
-  %.3 = phi i64 [ 0, %2 ], [ %.2.lcssa, %_ZL13shrinkbuffersP9lua_State.exit ], [ %.2.lcssa, %._crit_edge ], [ %226, %_ZL6atomicP9lua_State.exit ], [ %.1.lcssa, %._crit_edge60 ], [ %.1.lcssa, %42 ], [ %.0.lcssa, %._crit_edge65 ], [ %.0.lcssa, %33 ], [ 0, %26 ]
-  ret i64 %.3
+  %.0 = phi i64 [ 0, %2 ], [ %.3.lcssa, %_ZL13shrinkbuffersP9lua_State.exit ], [ %.3.lcssa, %._crit_edge ], [ %226, %_ZL6atomicP9lua_State.exit ], [ %.2.lcssa, %._crit_edge60 ], [ %.2.lcssa, %42 ], [ %.1.lcssa, %._crit_edge65 ], [ %.1.lcssa, %33 ], [ 0, %26 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

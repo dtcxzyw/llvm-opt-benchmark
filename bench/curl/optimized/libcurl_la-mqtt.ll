@@ -474,8 +474,8 @@ do.end32:                                         ; preds = %do.end32split, %do.
   %20 = phi i8 [ %16, %do.end32split ], [ %.pre, %do.body22.do.end32_crit_edge ]
   %tobool37.not = icmp sgt i8 %20, -1
   %or.cond = select i1 %tobool33.not, i1 true, i1 %tobool37.not
-  %result.1 = select i1 %or.cond, i32 %call23, i32 8
-  %tobool40.not = icmp eq i32 %result.1, 0
+  %result.2 = select i1 %or.cond, i32 %call23, i32 8
+  %tobool40.not = icmp eq i32 %result.2, 0
   br i1 %tobool40.not, label %if.end42, label %sw.epilog
 
 if.end42:                                         ; preds = %do.end32
@@ -639,7 +639,7 @@ if.then83:                                        ; preds = %if.then80
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then83, %if.then80
-  %result.2 = phi i32 [ %call81, %if.then80 ], [ %call84, %if.then83 ]
+  %result.3 = phi i32 [ %call81, %if.then80 ], [ %call84, %if.then83 ]
   %nextstate86 = getelementptr inbounds i8, ptr %0, i64 860
   store i32 0, ptr %nextstate86, align 4
   br label %sw.epilog
@@ -903,10 +903,10 @@ sw.default:                                       ; preds = %do.end
   br label %return
 
 sw.epilog:                                        ; preds = %mqtt_recv_atleast.exit.thread.i, %if.end85, %if.else87, %do.end32, %sw.bb, %mqtt_read_publish.exit
-  %result.3 = phi i32 [ %result.0.i79, %mqtt_read_publish.exit ], [ %result.2, %if.end85 ], [ %call88, %if.else87 ], [ %result.1, %do.end32 ], [ %call13, %sw.bb ], [ %retval.0.i.ph.i, %mqtt_recv_atleast.exit.thread.i ]
-  %result.3.fr = freeze i32 %result.3
-  %cmp95 = icmp eq i32 %result.3.fr, 81
-  %spec.select = select i1 %cmp95, i32 0, i32 %result.3.fr
+  %result.1 = phi i32 [ %result.0.i79, %mqtt_read_publish.exit ], [ %result.3, %if.end85 ], [ %call88, %if.else87 ], [ %result.2, %do.end32 ], [ %call13, %sw.bb ], [ %retval.0.i.ph.i, %mqtt_recv_atleast.exit.thread.i ]
+  %result.1.fr = freeze i32 %result.1
+  %cmp95 = icmp eq i32 %result.1.fr, 81
+  %spec.select = select i1 %cmp95, i32 0, i32 %result.1.fr
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then7.i, %if.then.i, %if.then49, %if.then17, %if.end50, %do.end69, %if.then90, %sw.default, %mqtt_send.exit

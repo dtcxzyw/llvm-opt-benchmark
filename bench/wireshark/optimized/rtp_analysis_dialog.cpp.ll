@@ -23715,10 +23715,10 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE12moveFromSpanERS5_mm.exit
   br i1 %.not.i.i45, label %134, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP10tab_info_tEEEppEv.exit, !llvm.loop !87
 
 _ZN12QHashPrivate8iteratorINS_9MultiNodeIjP10tab_info_tEEEppEv.exit: ; preds = %138, %134, %126
-  %.sroa.0.1 = phi ptr [ %1, %126 ], [ null, %134 ], [ %1, %138 ]
-  %.sroa.4.1 = phi i64 [ %2, %126 ], [ 0, %134 ], [ %136, %138 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.1, 1
+  %.sroa.0.0 = phi ptr [ %1, %126 ], [ null, %134 ], [ %1, %138 ]
+  %.sroa.4.0 = phi i64 [ %2, %126 ], [ 0, %134 ], [ %136, %138 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 
 145:                                              ; preds = %79

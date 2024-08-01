@@ -1262,8 +1262,8 @@ define ptr @find_dissector_table(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %4, %7, %10, %1
-  %.1 = phi ptr [ %3, %1 ], [ %9, %10 ], [ null, %7 ], [ null, %4 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %3, %1 ], [ %9, %10 ], [ null, %7 ], [ null, %4 ]
+  ret ptr %.0
 }
 
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1294,7 +1294,7 @@ define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
   %13 = icmp eq ptr %2, null
   br i1 %13, label %14, label %19
 
@@ -1310,7 +1310,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
-  %20 = icmp eq ptr %.1.i, null
+  %20 = icmp eq ptr %.0.i, null
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %19
@@ -1330,7 +1330,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, -4
   %switch = icmp eq i32 %34, 4
@@ -1345,11 +1345,11 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %2, ptr %38, align 8
   store ptr %2, ptr %37, align 8
-  %39 = load ptr, ptr %.1.i, align 8
+  %39 = load ptr, ptr %.0.i, align 8
   %40 = zext i32 %1 to i64
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call i32 @g_hash_table_insert(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %37) #25
-  %43 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %43 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %44 = load i32, ptr %43, align 8
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %46, label %45
@@ -1415,8 +1415,8 @@ define void @dissector_add_for_decode_as(ptr noundef %0, ptr noundef %1) local_u
   unreachable
 
 find_dissector_table.exit:                        ; preds = %11, %2
-  %.1.i = phi ptr [ %4, %2 ], [ %10, %11 ]
-  %22 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ]
+  %22 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %23 = load i32, ptr %22, align 8
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %36
@@ -1430,9 +1430,9 @@ find_dissector_table.exit:                        ; preds = %11, %2
   br label %dissector_handle_get_dissector_name.exit
 
 dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
-  %.0.i = phi ptr [ %27, %26 ], [ null, %24 ]
-  %28 = icmp eq ptr %.0.i, null
-  %spec.store.select = select i1 %28, ptr @.str.29, ptr %.0.i
+  %.0.i49 = phi ptr [ %27, %26 ], [ null, %24 ]
+  %28 = icmp eq ptr %.0.i49, null
+  %spec.store.select = select i1 %28, ptr @.str.29, ptr %.0.i49
   %29 = load ptr, ptr @stderr, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
@@ -1447,7 +1447,7 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   unreachable
 
 36:                                               ; preds = %find_dissector_table.exit
-  %37 = getelementptr inbounds i8, ptr %.1.i, i64 32
+  %37 = getelementptr inbounds i8, ptr %.0.i, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not42 = icmp eq ptr %38, null
   br i1 %.not42, label %45, label %39
@@ -1461,30 +1461,30 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   br label %45
 
 45:                                               ; preds = %39, %36
-  %46 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %46 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @g_slist_find(ptr noundef %47, ptr noundef %1) #25
   %.not43 = icmp eq ptr %48, null
   br i1 %.not43, label %49, label %73
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %50 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %51 = load i32, ptr %50, align 8
   %.not44 = icmp eq i32 %51, 26
-  %.pre57 = load ptr, ptr %46, align 8
+  %.pre58 = load ptr, ptr %46, align 8
   br i1 %.not44, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %49
-  %.not4555 = icmp eq ptr %.pre57, null
-  br i1 %.not4555, label %.loopexit, label %.lr.ph
+  %.not4556 = icmp eq ptr %.pre58, null
+  br i1 %.not4556, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   br label %53
 
 53:                                               ; preds = %.lr.ph, %69
-  %.056 = phi ptr [ %.pre57, %.lr.ph ], [ %.0, %69 ]
-  %54 = load ptr, ptr %.056, align 8
+  %.057 = phi ptr [ %.pre58, %.lr.ph ], [ %.0, %69 ]
+  %54 = load ptr, ptr %.057, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not46 = icmp eq ptr %56, null
@@ -1494,9 +1494,9 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   %58 = load ptr, ptr %52, align 8
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %58) #26
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %dissector_handle_get_dissector_name.exit52, label %69
+  br i1 %60, label %dissector_handle_get_dissector_name.exit53, label %69
 
-dissector_handle_get_dissector_name.exit52:       ; preds = %57
+dissector_handle_get_dissector_name.exit53:       ; preds = %57
   %61 = load ptr, ptr %1, align 8
   %62 = icmp eq ptr %61, null
   %spec.store.select1 = select i1 %62, ptr @.str.29, ptr %61
@@ -1509,12 +1509,12 @@ dissector_handle_get_dissector_name.exit52:       ; preds = %57
   %.not47 = icmp eq i32 %67, 0
   br i1 %.not47, label %69, label %68
 
-68:                                               ; preds = %dissector_handle_get_dissector_name.exit52
+68:                                               ; preds = %dissector_handle_get_dissector_name.exit53
   tail call void @abort() #27
   unreachable
 
-69:                                               ; preds = %53, %57, %dissector_handle_get_dissector_name.exit52
-  %70 = getelementptr inbounds i8, ptr %.056, i64 8
+69:                                               ; preds = %53, %57, %dissector_handle_get_dissector_name.exit53
+  %70 = getelementptr inbounds i8, ptr %.057, i64 8
   %.0 = load ptr, ptr %70, align 8
   %.not45 = icmp eq ptr %.0, null
   br i1 %.not45, label %.loopexit.loopexit, label %53, !llvm.loop !7
@@ -1524,7 +1524,7 @@ dissector_handle_get_dissector_name.exit52:       ; preds = %57
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %49
-  %71 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %.preheader ], [ %.pre57, %49 ]
+  %71 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %.preheader ], [ %.pre58, %49 ]
   %72 = tail call ptr @g_slist_insert_sorted(ptr noundef %71, ptr noundef %1, ptr noundef nonnull @dissector_compare_filter_name) #25
   store ptr %72, ptr %46, align 8
   br label %73
@@ -1566,8 +1566,8 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly %1, p
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %8, %11
-  %.1.i = phi ptr [ %10, %8 ], [ %15, %11 ]
-  %16 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %.0.i = phi ptr [ %10, %8 ], [ %15, %11 ]
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %17 = load i32, ptr %16, align 8
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %.loopexit, label %18
@@ -1639,7 +1639,7 @@ define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr n
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @proto_get_id(ptr noundef %14) #25
@@ -1666,7 +1666,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %29 = tail call ptr @wmem_epan_scope() #25
   %30 = load ptr, ptr %13, align 8
   %31 = tail call ptr @proto_get_protocol_short_name(ptr noundef %30) #25
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %33 = load ptr, ptr %32, align 8
   br i1 %28, label %34, label %36
 
@@ -1681,10 +1681,10 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 38:                                               ; preds = %36, %34
   %.027 = phi ptr [ %35, %34 ], [ %37, %36 ]
   %39 = tail call ptr @wmem_epan_scope() #25
-  %40 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %40 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.47, ptr noundef %41) #25
-  %43 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %43 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %44 = load i32, ptr %43, align 8
   %switch.tableidx = add i32 %44, -4
   %45 = icmp ult i32 %switch.tableidx, 4
@@ -1742,8 +1742,8 @@ define void @dissector_delete_uint(ptr noundef %0, i32 noundef %1, ptr nocapture
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -1758,7 +1758,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %16 = load ptr, ptr %.1.i, align 8
+  %16 = load ptr, ptr %.0.i, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #25
@@ -1766,7 +1766,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %find_uint_dtbl_entry.exit
-  %21 = load ptr, ptr %.1.i, align 8
+  %21 = load ptr, ptr %.0.i, align 8
   %22 = tail call i32 @g_hash_table_remove(ptr noundef %21, ptr noundef %18) #25
   br label %23
 
@@ -1827,8 +1827,8 @@ define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1
   br label %find_dissector_table.exit.i
 
 find_dissector_table.exit.i:                      ; preds = %21, %18, %15, %.lr.ph
-  %.1.i.i = phi ptr [ %14, %.lr.ph ], [ %20, %21 ], [ null, %18 ], [ null, %15 ]
-  %22 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+  %.0.i.i = phi ptr [ %14, %.lr.ph ], [ %20, %21 ], [ null, %18 ], [ null, %15 ]
+  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %24 [
     i32 4, label %find_uint_dtbl_entry.exit.i
@@ -1843,14 +1843,14 @@ find_dissector_table.exit.i:                      ; preds = %21, %18, %15, %.lr.
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i
-  %25 = load ptr, ptr %.1.i.i, align 8
+  %25 = load ptr, ptr %.0.i.i, align 8
   %26 = inttoptr i64 %indvars.iv to ptr
   %27 = tail call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef %26) #25
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %dissector_delete_uint.exit, label %28
 
 28:                                               ; preds = %find_uint_dtbl_entry.exit.i
-  %29 = load ptr, ptr %.1.i.i, align 8
+  %29 = load ptr, ptr %.0.i.i, align 8
   %30 = tail call i32 @g_hash_table_remove(ptr noundef %29, ptr noundef %26) #25
   br label %dissector_delete_uint.exit
 
@@ -1894,8 +1894,8 @@ define void @dissector_delete_guid(ptr noundef %0, ptr noundef %1, ptr noundef r
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6
-  %.1.i = phi ptr [ %5, %3 ], [ %10, %6 ]
-  %11 = load ptr, ptr %.1.i, align 8
+  %.0.i = phi ptr [ %5, %3 ], [ %10, %6 ]
+  %11 = load ptr, ptr %.0.i, align 8
   %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %1) #25
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
@@ -1917,7 +1917,7 @@ find_dissector_table.exit:                        ; preds = %3, %6
   br label %26
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %.1.i, align 8
+  %24 = load ptr, ptr %.0.i, align 8
   %25 = tail call i32 @g_hash_table_remove(ptr noundef %24, ptr noundef %1) #25
   br label %26
 
@@ -1945,8 +1945,8 @@ define void @dissector_delete_all(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %2, %5
-  %.1.i = phi ptr [ %4, %2 ], [ %9, %5 ]
-  %10 = load ptr, ptr %.1.i, align 8
+  %.0.i = phi ptr [ %4, %2 ], [ %9, %5 ]
+  %10 = load ptr, ptr %.0.i, align 8
   %11 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %10, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %1) #25
   ret void
 }
@@ -2000,8 +2000,8 @@ define void @dissector_change_uint(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2016,7 +2016,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %16 = load ptr, ptr %.1.i, align 8
+  %16 = load ptr, ptr %.0.i, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #25
@@ -2033,7 +2033,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %.1.i, align 8
+  %26 = load ptr, ptr %.0.i, align 8
   %27 = tail call i32 @g_hash_table_remove(ptr noundef %26, ptr noundef %18) #25
   br label %36
 
@@ -2050,7 +2050,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
-  %34 = load ptr, ptr %.1.i, align 8
+  %34 = load ptr, ptr %.0.i, align 8
   %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %18, ptr noundef nonnull %32) #25
   br label %36
 
@@ -2082,8 +2082,8 @@ define void @dissector_reset_uint(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
-  %.1.i = phi ptr [ %4, %2 ], [ %10, %11 ], [ null, %8 ], [ null, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ], [ null, %8 ], [ null, %5 ]
+  %12 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %14 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2098,7 +2098,7 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %15 = load ptr, ptr %.1.i, align 8
+  %15 = load ptr, ptr %.0.i, align 8
   %16 = zext i32 %1 to i64
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %17) #25
@@ -2116,7 +2116,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br label %27
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %.1.i, align 8
+  %25 = load ptr, ptr %.0.i, align 8
   %26 = tail call i32 @g_hash_table_remove(ptr noundef %25, ptr noundef %17) #25
   br label %27
 
@@ -2508,8 +2508,8 @@ define ptr @dissector_get_default_uint_handle(ptr noundef %0, i32 noundef %1) lo
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %11, %2
-  %.1.i = phi ptr [ %4, %2 ], [ %10, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ]
+  %12 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %14 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2524,7 +2524,7 @@ find_dissector_table.exit:                        ; preds = %11, %2
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %15 = load ptr, ptr %.1.i, align 8
+  %15 = load ptr, ptr %.0.i, align 8
   %16 = zext i32 %1 to i64
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %17) #25
@@ -2564,7 +2564,7 @@ define void @dissector_add_string(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
   %13 = icmp eq ptr %2, null
   br i1 %13, label %14, label %19
 
@@ -2580,7 +2580,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
-  %20 = icmp eq ptr %.1.i, null
+  %20 = icmp eq ptr %.0.i, null
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %19
@@ -2600,7 +2600,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %34 [
     i32 26, label %35
@@ -2618,7 +2618,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   store ptr %2, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %38 = getelementptr inbounds i8, ptr %.0.i, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %43
@@ -2633,9 +2633,9 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 45:                                               ; preds = %43, %41
   %.0 = phi ptr [ %42, %41 ], [ %44, %43 ]
-  %46 = load ptr, ptr %.1.i, align 8
+  %46 = load ptr, ptr %.0.i, align 8
   %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %.0, ptr noundef nonnull %36) #25
-  %48 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %48 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %49 = load i32, ptr %48, align 8
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %51, label %50
@@ -2676,8 +2676,8 @@ define void @dissector_delete_string(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 26, label %16
@@ -2691,7 +2691,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %17 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %22
@@ -2705,15 +2705,15 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %20, %22
-  %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #25
-  tail call void @g_free(ptr noundef %.0.i) #25
+  %.0.i6 = phi ptr [ %21, %20 ], [ %23, %22 ]
+  %24 = load ptr, ptr %.0.i, align 8
+  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i6) #25
+  tail call void @g_free(ptr noundef %.0.i6) #25
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %find_string_dtbl_entry.exit
-  %27 = load ptr, ptr %.1.i, align 8
+  %27 = load ptr, ptr %.0.i, align 8
   %28 = tail call i32 @g_hash_table_remove(ptr noundef %27, ptr noundef %1) #25
   br label %29
 
@@ -2745,8 +2745,8 @@ define void @dissector_change_string(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 26, label %16
@@ -2760,7 +2760,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %17 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %22
@@ -2774,10 +2774,10 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %20, %22
-  %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #25
-  tail call void @g_free(ptr noundef %.0.i) #25
+  %.0.i18 = phi ptr [ %21, %20 ], [ %23, %22 ]
+  %24 = load ptr, ptr %.0.i, align 8
+  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i18) #25
+  tail call void @g_free(ptr noundef %.0.i18) #25
   %.not = icmp eq ptr %25, null
   %26 = icmp eq ptr %2, null
   br i1 %.not, label %36, label %27
@@ -2791,7 +2791,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %.1.i, align 8
+  %32 = load ptr, ptr %.0.i, align 8
   %33 = tail call i32 @g_hash_table_remove(ptr noundef %32, ptr noundef %1) #25
   br label %43
 
@@ -2808,7 +2808,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %2, ptr %39, align 8
-  %40 = load ptr, ptr %.1.i, align 8
+  %40 = load ptr, ptr %.0.i, align 8
   %41 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
   %42 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef %41, ptr noundef nonnull %38) #25
   br label %43
@@ -2841,8 +2841,8 @@ define void @dissector_reset_string(ptr noundef %0, ptr noundef %1) local_unname
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
-  %.1.i = phi ptr [ %4, %2 ], [ %10, %11 ], [ null, %8 ], [ null, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ], [ null, %8 ], [ null, %5 ]
+  %12 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %14 [
     i32 26, label %15
@@ -2856,7 +2856,7 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   unreachable
 
 15:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %16 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %21
@@ -2870,10 +2870,10 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ]
-  %23 = load ptr, ptr %.1.i, align 8
-  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %23, ptr noundef %.0.i) #25
-  tail call void @g_free(ptr noundef %.0.i) #25
+  %.0.i10 = phi ptr [ %20, %19 ], [ %22, %21 ]
+  %23 = load ptr, ptr %.0.i, align 8
+  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %23, ptr noundef %.0.i10) #25
+  tail call void @g_free(ptr noundef %.0.i10) #25
   %25 = icmp eq ptr %24, null
   br i1 %25, label %33, label %26
 
@@ -2888,7 +2888,7 @@ find_string_dtbl_entry.exit:                      ; preds = %19, %21
   br label %33
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %.1.i, align 8
+  %31 = load ptr, ptr %.0.i, align 8
   %32 = tail call i32 @g_hash_table_remove(ptr noundef %31, ptr noundef %1) #25
   br label %33
 
@@ -3095,8 +3095,8 @@ define ptr @dissector_get_default_string_handle(ptr noundef %0, ptr noundef %1) 
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %12, %3
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ]
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 26, label %16
@@ -3110,7 +3110,7 @@ find_dissector_table.exit:                        ; preds = %12, %3
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %17 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %22
@@ -3124,10 +3124,10 @@ find_dissector_table.exit:                        ; preds = %12, %3
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %20, %22
-  %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #25
-  tail call void @g_free(ptr noundef %.0.i) #25
+  %.0.i13 = phi ptr [ %21, %20 ], [ %23, %22 ]
+  %24 = load ptr, ptr %.0.i, align 8
+  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i13) #25
+  tail call void @g_free(ptr noundef %.0.i13) #25
   %.not12 = icmp eq ptr %25, null
   br i1 %.not12, label %find_dissector_table.exit.thread, label %26
 
@@ -3164,7 +3164,7 @@ define void @dissector_add_custom_table_handle(ptr noundef %0, ptr noundef %1, p
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
   %13 = icmp eq ptr %2, null
   br i1 %13, label %14, label %19
 
@@ -3180,7 +3180,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
-  %20 = icmp eq ptr %.1.i, null
+  %20 = icmp eq ptr %.0.i, null
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %19
@@ -3204,9 +3204,9 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
   store ptr %2, ptr %32, align 8
-  %34 = load ptr, ptr %.1.i, align 8
+  %34 = load ptr, ptr %.0.i, align 8
   %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull %32) #25
-  %36 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %36 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %39, label %38
@@ -3260,7 +3260,7 @@ define void @dissector_add_guid(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
-  %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
+  %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
   %13 = icmp eq ptr %2, null
   br i1 %13, label %14, label %19
 
@@ -3276,7 +3276,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
-  %20 = icmp eq ptr %.1.i, null
+  %20 = icmp eq ptr %.0.i, null
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %19
@@ -3296,7 +3296,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %33, 36
   br i1 %.not, label %35, label %34
@@ -3310,9 +3310,9 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   store ptr %2, ptr %36, align 8
-  %38 = load ptr, ptr %.1.i, align 8
+  %38 = load ptr, ptr %.0.i, align 8
   %39 = tail call i32 @g_hash_table_insert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %36) #25
-  %40 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %40 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %41 = load i32, ptr %40, align 8
   %.not18 = icmp eq i32 %41, 0
   br i1 %.not18, label %43, label %42
@@ -3722,17 +3722,17 @@ define void @dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %7
-  %.1.i = phi ptr [ %6, %3 ], [ %11, %7 ]
+  %.0.i = phi ptr [ %6, %3 ], [ %11, %7 ]
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %16, align 8
   store ptr %2, ptr %4, align 8
-  %17 = load ptr, ptr %.1.i, align 8
+  %17 = load ptr, ptr %.0.i, align 8
   call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @dissector_table_foreach_func, ptr noundef nonnull %4) #25
   ret void
 }
@@ -3787,8 +3787,8 @@ define void @dissector_table_foreach_handle(ptr noundef %0, ptr nocapture nounde
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6
-  %.1.i = phi ptr [ %5, %3 ], [ %10, %6 ]
-  %.0.in9 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %.0.i = phi ptr [ %5, %3 ], [ %10, %6 ]
+  %.0.in9 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %.010 = load ptr, ptr %.0.in9, align 8
   %.not11 = icmp eq ptr %.010, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -3868,8 +3868,8 @@ define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr noca
   br label %find_dissector_table.exit.i
 
 find_dissector_table.exit.i:                      ; preds = %13, %3
-  %.1.i.i = phi ptr [ %6, %3 ], [ %12, %13 ]
-  %14 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+  %.0.i.i = phi ptr [ %6, %3 ], [ %12, %13 ]
+  %14 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %15 = load i32, ptr %14, align 8
   br label %get_dissector_table_selector_type.exit
 
@@ -3905,17 +3905,17 @@ define hidden void @dissector_table_foreach_changed(ptr noundef %0, ptr noundef 
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %7
-  %.1.i = phi ptr [ %6, %3 ], [ %11, %7 ]
+  %.0.i = phi ptr [ %6, %3 ], [ %11, %7 ]
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %16, align 8
   store ptr %2, ptr %4, align 8
-  %17 = load ptr, ptr %.1.i, align 8
+  %17 = load ptr, ptr %.0.i, align 8
   call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @dissector_table_foreach_changed_func, ptr noundef nonnull %4) #25
   ret void
 }
@@ -4244,8 +4244,8 @@ define ptr @get_dissector_table_ui_name(ptr noundef %0) local_unnamed_addr #0 {
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %10, %1
-  %.1.i = phi ptr [ %3, %1 ], [ %9, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %.0.i = phi ptr [ %3, %1 ], [ %9, %10 ]
+  %11 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %find_dissector_table.exit.thread
 
@@ -4278,8 +4278,8 @@ define i32 @get_dissector_table_selector_type(ptr noundef %0) local_unnamed_addr
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %10, %1
-  %.1.i = phi ptr [ %3, %1 ], [ %9, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %3, %1 ], [ %9, %10 ]
+  %11 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %12 = load i32, ptr %11, align 8
   br label %find_dissector_table.exit.thread
 
@@ -4312,8 +4312,8 @@ define i32 @get_dissector_table_param(ptr noundef %0) local_unnamed_addr #0 {
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %10, %1
-  %.1.i = phi ptr [ %3, %1 ], [ %9, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %.0.i = phi ptr [ %3, %1 ], [ %9, %10 ]
+  %11 = getelementptr inbounds i8, ptr %.0.i, i64 28
   %12 = load i32, ptr %11, align 4
   br label %find_dissector_table.exit.thread
 
@@ -5834,8 +5834,8 @@ define internal void @dissector_dump_decodes_display(ptr noundef %0, i32 %1, ptr
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %5, %10
-  %.1.i = phi ptr [ %9, %5 ], [ %14, %10 ]
-  %15 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %.0.i = phi ptr [ %9, %5 ], [ %14, %10 ]
+  %15 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -4
   %switch = icmp eq i32 %17, 4

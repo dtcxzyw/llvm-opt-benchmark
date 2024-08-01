@@ -203,10 +203,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond, label %for.body, label %for.end58
 
 for.body:                                         ; preds = %while.body, %for.inc56
-  %processed_paths.15693 = phi i32 [ %processed_paths.4, %for.inc56 ], [ %processed_paths.067, %while.body ]
-  %filtered_bytes.15792 = phi i64 [ %filtered_bytes.4, %for.inc56 ], [ %filtered_bytes.068, %while.body ]
+  %processed_paths.15693 = phi i32 [ %processed_paths.2, %for.inc56 ], [ %processed_paths.067, %while.body ]
+  %filtered_bytes.15792 = phi i64 [ %filtered_bytes.2, %for.inc56 ], [ %filtered_bytes.068, %while.body ]
   %filter.05890 = phi ptr [ %incdec.ptr57, %for.inc56 ], [ %7, %while.body ]
-  %errs.15989 = phi i32 [ %errs.4, %for.inc56 ], [ %errs.069, %while.body ]
+  %errs.15989 = phi i32 [ %errs.2, %for.inc56 ], [ %errs.069, %while.body ]
   %8 = phi ptr [ %23, %for.inc56 ], [ %5, %while.body ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %available_paths, i8 0, i64 40, i1 false)
   %9 = load ptr, ptr %filter.05890, align 8
@@ -229,10 +229,10 @@ if.end24:                                         ; preds = %if.end19
   br i1 %or.cond101, label %for.body35, label %for.inc56
 
 for.body35:                                       ; preds = %if.end24, %for.inc
-  %processed_paths.24683 = phi i32 [ %processed_paths.3, %for.inc ], [ %processed_paths.15693, %if.end24 ]
-  %filtered_bytes.24782 = phi i64 [ %filtered_bytes.3, %for.inc ], [ %filtered_bytes.15792, %if.end24 ]
+  %processed_paths.34683 = phi i32 [ %processed_paths.4, %for.inc ], [ %processed_paths.15693, %if.end24 ]
+  %filtered_bytes.34782 = phi i64 [ %filtered_bytes.4, %for.inc ], [ %filtered_bytes.15792, %if.end24 ]
   %path.04881 = phi ptr [ %incdec.ptr, %for.inc ], [ %11, %if.end24 ]
-  %errs.24980 = phi i32 [ %errs.3, %for.inc ], [ %errs.15989, %if.end24 ]
+  %errs.34980 = phi i32 [ %errs.4, %for.inc ], [ %errs.15989, %if.end24 ]
   %13 = phi ptr [ %21, %for.inc ], [ %8, %if.end24 ]
   %util = getelementptr inbounds i8, ptr %path.04881, i64 8
   %14 = load ptr, ptr %util, align 8
@@ -243,7 +243,7 @@ for.body35:                                       ; preds = %if.end24, %for.inc
 if.then37:                                        ; preds = %for.body35
   %16 = load ptr, ptr %filter.05890, align 8
   %call40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef %15) #14
-  %or = or i32 %errs.24980, 1
+  %or = or i32 %errs.34980, 1
   store ptr @.str.1, ptr %filter.05890, align 8
   br label %for.inc
 
@@ -256,25 +256,25 @@ if.end43:                                         ; preds = %for.body35
   br i1 %tobool48.not, label %for.inc, label %if.then49
 
 if.then49:                                        ; preds = %if.end43
-  %inc = add i32 %processed_paths.24683, 1
+  %inc = add i32 %processed_paths.34683, 1
   %conv50 = zext i32 %inc to i64
   call void @display_progress(ptr noundef %13, i64 noundef %conv50) #14
   %18 = load ptr, ptr %util, align 8
   %call.i44 = call i32 @checkout_entry_ca(ptr noundef nonnull %call47, ptr noundef null, ptr noundef nonnull %state, ptr noundef null, ptr noundef %18)
-  %or53 = or i32 %call.i44, %errs.24980
+  %or53 = or i32 %call.i44, %errs.34980
   %sd_size = getelementptr inbounds i8, ptr %call47, i64 48
   %19 = load i32, ptr %sd_size, align 8
   %conv54 = zext i32 %19 to i64
-  %add = add nsw i64 %filtered_bytes.24782, %conv54
+  %add = add nsw i64 %filtered_bytes.34782, %conv54
   %20 = load ptr, ptr %progress, align 8
   call void @display_throughput(ptr noundef %20, i64 noundef %add) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end43, %if.then49, %if.then37
   %21 = phi ptr [ %20, %if.then49 ], [ %13, %if.then37 ], [ %13, %if.end43 ]
-  %processed_paths.3 = phi i32 [ %inc, %if.then49 ], [ %processed_paths.24683, %if.then37 ], [ %processed_paths.24683, %if.end43 ]
-  %filtered_bytes.3 = phi i64 [ %add, %if.then49 ], [ %filtered_bytes.24782, %if.then37 ], [ %filtered_bytes.24782, %if.end43 ]
-  %errs.3 = phi i32 [ %or53, %if.then49 ], [ %or, %if.then37 ], [ 1, %if.end43 ]
+  %processed_paths.4 = phi i32 [ %inc, %if.then49 ], [ %processed_paths.34683, %if.then37 ], [ %processed_paths.34683, %if.end43 ]
+  %filtered_bytes.4 = phi i64 [ %add, %if.then49 ], [ %filtered_bytes.34782, %if.then37 ], [ %filtered_bytes.34782, %if.end43 ]
+  %errs.4 = phi i32 [ %or53, %if.then49 ], [ %or, %if.then37 ], [ 1, %if.end43 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %path.04881, i64 16
   %.pre75 = load ptr, ptr %available_paths, align 8
   %22 = load i64, ptr %nr20, align 8
@@ -283,15 +283,15 @@ for.inc:                                          ; preds = %if.end43, %if.then4
   br i1 %cmp33, label %for.body35, label %for.inc56, !llvm.loop !5
 
 for.inc56.sink.split:                             ; preds = %if.end19, %for.body
-  %errs.4.ph = phi i32 [ 1, %for.body ], [ %errs.15989, %if.end19 ]
+  %errs.2.ph = phi i32 [ 1, %for.body ], [ %errs.15989, %if.end19 ]
   store ptr @.str.1, ptr %filter.05890, align 8
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.inc, %for.inc56.sink.split, %if.end24
   %23 = phi ptr [ %8, %if.end24 ], [ %8, %for.inc56.sink.split ], [ %21, %for.inc ]
-  %processed_paths.4 = phi i32 [ %processed_paths.15693, %if.end24 ], [ %processed_paths.15693, %for.inc56.sink.split ], [ %processed_paths.3, %for.inc ]
-  %filtered_bytes.4 = phi i64 [ %filtered_bytes.15792, %if.end24 ], [ %filtered_bytes.15792, %for.inc56.sink.split ], [ %filtered_bytes.3, %for.inc ]
-  %errs.4 = phi i32 [ %errs.15989, %if.end24 ], [ %errs.4.ph, %for.inc56.sink.split ], [ %errs.3, %for.inc ]
+  %processed_paths.2 = phi i32 [ %processed_paths.15693, %if.end24 ], [ %processed_paths.15693, %for.inc56.sink.split ], [ %processed_paths.4, %for.inc ]
+  %filtered_bytes.2 = phi i64 [ %filtered_bytes.15792, %if.end24 ], [ %filtered_bytes.15792, %for.inc56.sink.split ], [ %filtered_bytes.4, %for.inc ]
+  %errs.2 = phi i32 [ %errs.15989, %if.end24 ], [ %errs.2.ph, %for.inc56.sink.split ], [ %errs.4, %for.inc ]
   %incdec.ptr57 = getelementptr inbounds i8, ptr %filter.05890, i64 16
   %.pre = load ptr, ptr %filters, align 8
   %.pre74 = load i64, ptr %nr7, align 8
@@ -301,9 +301,9 @@ for.inc56:                                        ; preds = %for.inc, %for.inc56
 
 for.end58:                                        ; preds = %for.inc56, %while.body
   %24 = phi ptr [ %5, %while.body ], [ %23, %for.inc56 ]
-  %processed_paths.1.lcssa = phi i32 [ %processed_paths.067, %while.body ], [ %processed_paths.4, %for.inc56 ]
-  %filtered_bytes.1.lcssa = phi i64 [ %filtered_bytes.068, %while.body ], [ %filtered_bytes.4, %for.inc56 ]
-  %errs.1.lcssa = phi i32 [ %errs.069, %while.body ], [ %errs.4, %for.inc56 ]
+  %processed_paths.1.lcssa = phi i32 [ %processed_paths.067, %while.body ], [ %processed_paths.2, %for.inc56 ]
+  %filtered_bytes.1.lcssa = phi i64 [ %filtered_bytes.068, %while.body ], [ %filtered_bytes.2, %for.inc56 ]
+  %errs.1.lcssa = phi i32 [ %errs.069, %while.body ], [ %errs.2, %for.inc56 ]
   call void @string_list_remove_empty_items(ptr noundef nonnull %filters, i32 noundef 0) #14
   %25 = load i64, ptr %nr7, align 8
   %cmp.not = icmp eq i64 %25, 0
@@ -1022,7 +1022,7 @@ if.then21:                                        ; preds = %if.end18
   br label %return
 
 sw.bb25:                                          ; preds = %if.then5.i, %open_output_fd.exit.i, %if.then, %if.end6
-  %fstat_done.1101 = phi i32 [ 0, %if.end6 ], [ 0, %if.then ], [ %retval.0.i10.i, %if.then5.i ], [ 0, %open_output_fd.exit.i ]
+  %fstat_done.0101 = phi i32 [ 0, %if.end6 ], [ 0, %if.then ], [ %retval.0.i10.i, %if.then5.i ], [ 0, %open_output_fd.exit.i ]
   %tobool26.not = icmp eq ptr %1, null
   br i1 %tobool26.not, label %if.else, label %land.lhs.true27
 
@@ -1068,10 +1068,10 @@ land.lhs.true43:                                  ; preds = %if.end41
   br i1 %cmp45.not, label %if.else60, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true27, %land.lhs.true43
-  %size.0108117 = phi i64 [ %11, %land.lhs.true43 ], [ 0, %land.lhs.true27 ]
-  %new_blob.0110116 = phi ptr [ %call.i76, %land.lhs.true43 ], [ null, %land.lhs.true27 ]
+  %size.1108117 = phi i64 [ %11, %land.lhs.true43 ], [ 0, %land.lhs.true27 ]
+  %new_blob.1110116 = phi ptr [ %call.i76, %land.lhs.true43 ], [ null, %land.lhs.true27 ]
   %name47 = getelementptr inbounds i8, ptr %ce, i64 108
-  %call49 = call i32 @async_convert_to_working_tree_ca(ptr noundef %ca, ptr noundef nonnull %name47, ptr noundef %new_blob.0110116, i64 noundef %size.0108117, ptr noundef nonnull %buf, ptr noundef nonnull %meta, ptr noundef nonnull %1) #14
+  %call49 = call i32 @async_convert_to_working_tree_ca(ptr noundef %ca, ptr noundef nonnull %name47, ptr noundef %new_blob.1110116, i64 noundef %size.1108117, ptr noundef nonnull %buf, ptr noundef nonnull %meta, ptr noundef nonnull %1) #14
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %write_file_entry, label %if.then51
 
@@ -1086,7 +1086,7 @@ if.then56:                                        ; preds = %if.then51
   %cond = select i1 %tobool57.not, ptr @write_entry.scratch_nr_checkouts, ptr %nr_checkouts
   %util = getelementptr inbounds i8, ptr %call54, i64 8
   store ptr %cond, ptr %util, align 8
-  call void @free(ptr noundef %new_blob.0110116) #14
+  call void @free(ptr noundef %new_blob.1110116) #14
   br label %return
 
 if.else60:                                        ; preds = %land.lhs.true43, %if.end41
@@ -1096,16 +1096,16 @@ if.else60:                                        ; preds = %land.lhs.true43, %i
   br i1 %13, label %write_file_entry, label %if.then66
 
 if.then66:                                        ; preds = %if.then51, %if.else60
-  %new_blob.0111 = phi ptr [ %new_blob.0110116, %if.then51 ], [ %call.i76, %if.else60 ]
-  call void @free(ptr noundef %new_blob.0111) #14
+  %new_blob.1111 = phi ptr [ %new_blob.1110116, %if.then51 ], [ %call.i76, %if.else60 ]
+  call void @free(ptr noundef %new_blob.1111) #14
   %call67 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef nonnull %newsize) #14
   %14 = load i64, ptr %newsize, align 8
   br label %write_file_entry
 
 write_file_entry:                                 ; preds = %if.then46, %if.else60, %if.then66, %if.end14
-  %fstat_done.1100 = phi i32 [ %fstat_done.1101, %if.else60 ], [ %fstat_done.1101, %if.then66 ], [ %fstat_done.1101, %if.then46 ], [ 0, %if.end14 ]
-  %size.1 = phi i64 [ %11, %if.else60 ], [ %14, %if.then66 ], [ %size.0108117, %if.then46 ], [ %6, %if.end14 ]
-  %new_blob.1 = phi ptr [ %call.i76, %if.else60 ], [ %call67, %if.then66 ], [ %new_blob.0110116, %if.then46 ], [ %call.i, %if.end14 ]
+  %fstat_done.0100 = phi i32 [ %fstat_done.0101, %if.else60 ], [ %fstat_done.0101, %if.then66 ], [ %fstat_done.0101, %if.then46 ], [ 0, %if.end14 ]
+  %size.0 = phi i64 [ %11, %if.else60 ], [ %14, %if.then66 ], [ %size.1108117, %if.then46 ], [ %6, %if.end14 ]
+  %new_blob.0 = phi ptr [ %call.i76, %if.else60 ], [ %call67, %if.then66 ], [ %new_blob.1110116, %if.then46 ], [ %call.i, %if.end14 ]
   %ce.val = load i32, ptr %ce_mode, align 4
   %tobool.not.i83 = icmp eq i32 %to_tempfile, 0
   br i1 %tobool.not.i83, label %open_output_fd.exit, label %open_output_fd.exit.thread
@@ -1128,16 +1128,16 @@ open_output_fd.exit.thread:                       ; preds = %write_file_entry
   br i1 %cmp70119, label %if.then71, label %if.end74.thread
 
 if.end74.thread:                                  ; preds = %open_output_fd.exit.thread
-  %call75122 = call i64 @write_in_full(i32 noundef %call2.i, ptr noundef %new_blob.1, i64 noundef %size.1) #14
+  %call75122 = call i64 @write_in_full(i32 noundef %call2.i, ptr noundef %new_blob.0, i64 noundef %size.0) #14
   br label %if.end79
 
 if.then71:                                        ; preds = %open_output_fd.exit.thread, %open_output_fd.exit
-  call void @free(ptr noundef %new_blob.1) #14
+  call void @free(ptr noundef %new_blob.0) #14
   %call72 = call i32 (ptr, ...) @error_errno(ptr noundef nonnull @.str.15, ptr noundef %path) #14
   br label %return
 
 if.then77:                                        ; preds = %open_output_fd.exit
-  %call75 = call i64 @write_in_full(i32 noundef %call.i.i88, ptr noundef %new_blob.1, i64 noundef %size.1) #14
+  %call75 = call i64 @write_in_full(i32 noundef %call.i.i88, ptr noundef %new_blob.0, i64 noundef %size.0) #14
   %refresh_cache.i = getelementptr inbounds i8, ptr %state, i64 120
   %bf.load.i = load i8, ptr %refresh_cache.i, align 8
   %16 = and i8 %bf.load.i, 16
@@ -1159,9 +1159,9 @@ if.then.i91:                                      ; preds = %land.lhs.true.i
 if.end79:                                         ; preds = %if.then.i91, %land.lhs.true.i, %if.then77, %if.end74.thread
   %call75124 = phi i64 [ %call75122, %if.end74.thread ], [ %call75, %if.then77 ], [ %call75, %land.lhs.true.i ], [ %call75, %if.then.i91 ]
   %retval.0.i86120123 = phi i32 [ %call2.i, %if.end74.thread ], [ %call.i.i88, %if.then77 ], [ %call.i.i88, %land.lhs.true.i ], [ %call.i.i88, %if.then.i91 ]
-  %fstat_done.2 = phi i32 [ %fstat_done.1100, %if.end74.thread ], [ 0, %if.then77 ], [ 0, %land.lhs.true.i ], [ %lnot.ext.i, %if.then.i91 ]
+  %fstat_done.2 = phi i32 [ %fstat_done.0100, %if.end74.thread ], [ 0, %if.then77 ], [ 0, %land.lhs.true.i ], [ %lnot.ext.i, %if.then.i91 ]
   %call80 = call i32 @close(i32 noundef %retval.0.i86120123) #14
-  call void @free(ptr noundef %new_blob.1) #14
+  call void @free(ptr noundef %new_blob.0) #14
   %cmp81 = icmp slt i64 %call75124, 0
   br i1 %cmp81, label %if.then82, label %finish
 
@@ -1211,7 +1211,7 @@ sw.default:                                       ; preds = %if.end6
   br label %return
 
 finish:                                           ; preds = %fstat_checkout_output.exit.i, %if.end18, %if.end79, %if.end99
-  %fstat_done.3 = phi i32 [ 0, %if.end99 ], [ %fstat_done.2, %if.end79 ], [ 0, %if.end18 ], [ %retval.0.i10.i, %fstat_checkout_output.exit.i ]
+  %fstat_done.1 = phi i32 [ 0, %if.end99 ], [ %fstat_done.2, %if.end79 ], [ 0, %if.end18 ], [ %retval.0.i10.i, %fstat_checkout_output.exit.i ]
   %refresh_cache = getelementptr inbounds i8, ptr %state, i64 120
   %bf.load115 = load i8, ptr %refresh_cache, align 8
   %20 = and i8 %bf.load115, 16
@@ -1219,7 +1219,7 @@ finish:                                           ; preds = %fstat_checkout_outp
   br i1 %tobool118.not, label %if.end132, label %if.then119
 
 if.then119:                                       ; preds = %finish
-  %tobool120.not = icmp eq i32 %fstat_done.3, 0
+  %tobool120.not = icmp eq i32 %fstat_done.1, 0
   br i1 %tobool120.not, label %land.lhs.true121, label %if.end131
 
 land.lhs.true121:                                 ; preds = %if.then119

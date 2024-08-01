@@ -1079,29 +1079,29 @@ _ZN7testing8internal8EqHelper7CompareISt3setINSt7__cxx1112basic_stringIcSt11char
   br label %89
 
 89:                                               ; preds = %.loopexit65, %77
-  %.130 = phi i1 [ %88, %.loopexit65 ], [ false, %77 ]
+  %.332 = phi i1 [ %88, %.loopexit65 ], [ false, %77 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit65 ], [ %78, %77 ]
-  %.013 = phi ptr [ %33, %.loopexit65 ], [ %31, %77 ]
+  %.3 = phi ptr [ %33, %.loopexit65 ], [ %31, %77 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   br label %90
 
 90:                                               ; preds = %89, %75
-  %.231 = phi i1 [ %.130, %89 ], [ false, %75 ]
+  %.231 = phi i1 [ %.332, %89 ], [ false, %75 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %89 ], [ %76, %75 ]
-  %.1 = phi ptr [ %.013, %89 ], [ %29, %75 ]
+  %.2 = phi ptr [ %.3, %89 ], [ %29, %75 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
   br label %91
 
 91:                                               ; preds = %73, %90
-  %.332 = phi i1 [ %.231, %90 ], [ false, %73 ]
+  %.130 = phi i1 [ %.231, %90 ], [ false, %73 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %90 ], [ %74, %73 ]
-  %.2 = phi ptr [ %.1, %90 ], [ %27, %73 ]
+  %.1 = phi ptr [ %.2, %90 ], [ %27, %73 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
-  br i1 %.332, label %.loopexit64, label %.preheader
+  br i1 %.130, label %.loopexit64, label %.preheader
 
 .preheader:                                       ; preds = %91, %.preheader
-  %92 = phi ptr [ %93, %.preheader ], [ %.2, %91 ]
+  %92 = phi ptr [ %93, %.preheader ], [ %.1, %91 ]
   %93 = getelementptr inbounds i8, ptr %92, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #25
   %94 = icmp eq ptr %93, %4
@@ -1744,14 +1744,14 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IFvRSt7
 
 63:                                               ; preds = %.loopexit, %49
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit ], [ %50, %49 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.213 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.112 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIZN3nix44closure_properlyHandlesDirectExceptions_Test8TestBodyEvE7TestExn) #25
-  %65 = icmp eq i32 %.213, %64
+  %65 = icmp eq i32 %.112, %64
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %63
-  %67 = call ptr @__cxa_begin_catch(ptr %.2) #25
+  %67 = call ptr @__cxa_begin_catch(ptr %.1) #25
   invoke void @__cxa_end_catch()
           to label %118 unwind label %47
 
@@ -1762,8 +1762,8 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IFvRSt7
 
 70:                                               ; preds = %63
   %71 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
-  %72 = icmp eq i32 %.213, %71
-  %73 = call ptr @__cxa_begin_catch(ptr %.2) #25
+  %72 = icmp eq i32 %.112, %71
+  %73 = call ptr @__cxa_begin_catch(ptr %.1) #25
   br i1 %72, label %74, label %92
 
 74:                                               ; preds = %70
@@ -2372,14 +2372,14 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IFvRSt7
 
 63:                                               ; preds = %.loopexit, %49
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit ], [ %50, %49 ]
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.213 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.112 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIZN3nix47closure_properlyHandlesExceptionsInPromise_Test8TestBodyEvE7TestExn) #25
-  %65 = icmp eq i32 %.213, %64
+  %65 = icmp eq i32 %.112, %64
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %63
-  %67 = call ptr @__cxa_begin_catch(ptr %.2) #25
+  %67 = call ptr @__cxa_begin_catch(ptr %.1) #25
   invoke void @__cxa_end_catch()
           to label %118 unwind label %47
 
@@ -2390,8 +2390,8 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IFvRSt7
 
 70:                                               ; preds = %63
   %71 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
-  %72 = icmp eq i32 %.213, %71
-  %73 = call ptr @__cxa_begin_catch(ptr %.2) #25
+  %72 = icmp eq i32 %.112, %71
+  %73 = call ptr @__cxa_begin_catch(ptr %.1) #25
   br i1 %72, label %74, label %92
 
 74:                                               ; preds = %70
@@ -8596,151 +8596,151 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 .loopexit276.loopexit.i:                          ; preds = %.body211.i, %409
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body211.i ], [ %410, %409 ]
-  %.1.i = phi i1 [ %417, %.body211.i ], [ false, %409 ]
+  %.24.i = phi i1 [ %417, %.body211.i ], [ false, %409 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   br label %.loopexit276.i
 
 .loopexit276.i:                                   ; preds = %.loopexit276.loopexit.i, %407
   %.pn.pn.pn.i = phi { ptr, i32 } [ %408, %407 ], [ %.pn.pn.i, %.loopexit276.loopexit.i ]
-  %.2.i = phi i1 [ false, %407 ], [ %.1.i, %.loopexit276.loopexit.i ]
+  %.23.i = phi i1 [ false, %407 ], [ %.24.i, %.loopexit276.loopexit.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #25
   br label %418
 
 418:                                              ; preds = %.loopexit276.i, %405
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %.loopexit276.i ], [ %406, %405 ]
-  %.3.i = phi i1 [ %.2.i, %.loopexit276.i ], [ false, %405 ]
+  %.22.i = phi i1 [ %.23.i, %.loopexit276.i ], [ false, %405 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #25
   br label %.body200.i
 
 .body200.i:                                       ; preds = %418, %403, %210
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %418 ], [ %404, %403 ], [ %211, %210 ]
-  %.040.i = phi ptr [ %212, %418 ], [ %187, %403 ], [ %187, %210 ]
-  %.4.i = phi i1 [ %.3.i, %418 ], [ false, %403 ], [ false, %210 ]
+  %.2161.i = phi ptr [ %212, %418 ], [ %187, %403 ], [ %187, %210 ]
+  %.21.i = phi i1 [ %.22.i, %418 ], [ false, %403 ], [ false, %210 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %54) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   br label %419
 
 419:                                              ; preds = %.body200.i, %401
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.body200.i ], [ %402, %401 ]
-  %.141.i = phi ptr [ %.040.i, %.body200.i ], [ %187, %401 ]
-  %.5.i = phi i1 [ %.4.i, %.body200.i ], [ false, %401 ]
+  %.2060.i = phi ptr [ %.2161.i, %.body200.i ], [ %187, %401 ]
+  %.20.i = phi i1 [ %.21.i, %.body200.i ], [ false, %401 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #25
   br label %.body189.i
 
 .body189.i:                                       ; preds = %419, %399, %185
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %419 ], [ %400, %399 ], [ %186, %185 ]
-  %.242.i = phi ptr [ %.141.i, %419 ], [ %162, %399 ], [ %162, %185 ]
-  %.6.i = phi i1 [ %.5.i, %419 ], [ false, %399 ], [ false, %185 ]
+  %.1959.i = phi ptr [ %.2060.i, %419 ], [ %162, %399 ], [ %162, %185 ]
+  %.19.i = phi i1 [ %.20.i, %419 ], [ false, %399 ], [ false, %185 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %51) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #25
   br label %420
 
 420:                                              ; preds = %.body189.i, %397
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %.body189.i ], [ %398, %397 ]
-  %.343.i = phi ptr [ %.242.i, %.body189.i ], [ %162, %397 ]
-  %.7.i = phi i1 [ %.6.i, %.body189.i ], [ false, %397 ]
+  %.1858.i = phi ptr [ %.1959.i, %.body189.i ], [ %162, %397 ]
+  %.18.i = phi i1 [ %.19.i, %.body189.i ], [ false, %397 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #25
   br label %.body178.i
 
 .body178.i:                                       ; preds = %420, %395, %160
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %420 ], [ %396, %395 ], [ %161, %160 ]
-  %.444.i = phi ptr [ %.343.i, %420 ], [ %138, %395 ], [ %138, %160 ]
-  %.8.i = phi i1 [ %.7.i, %420 ], [ false, %395 ], [ false, %160 ]
+  %.1757.i = phi ptr [ %.1858.i, %420 ], [ %138, %395 ], [ %138, %160 ]
+  %.17.i = phi i1 [ %.18.i, %420 ], [ false, %395 ], [ false, %160 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #25
   br label %.loopexit275.loopexit.i
 
 .loopexit275.loopexit.i:                          ; preds = %.body178.i, %393
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body178.i ], [ %394, %393 ]
-  %.545.i = phi ptr [ %.444.i, %.body178.i ], [ %138, %393 ]
-  %.9.i = phi i1 [ %.8.i, %.body178.i ], [ false, %393 ]
+  %.1656.i = phi ptr [ %.1757.i, %.body178.i ], [ %138, %393 ]
+  %.16.i = phi i1 [ %.17.i, %.body178.i ], [ false, %393 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #25
   br label %.loopexit275.i
 
 .loopexit275.i:                                   ; preds = %.loopexit275.loopexit.i, %391
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %392, %391 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit275.loopexit.i ]
-  %.646.i = phi ptr [ %138, %391 ], [ %.545.i, %.loopexit275.loopexit.i ]
-  %.10.i = phi i1 [ false, %391 ], [ %.9.i, %.loopexit275.loopexit.i ]
+  %.1555.i = phi ptr [ %138, %391 ], [ %.1656.i, %.loopexit275.loopexit.i ]
+  %.15.i = phi i1 [ false, %391 ], [ %.16.i, %.loopexit275.loopexit.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
   br label %421
 
 421:                                              ; preds = %.loopexit275.i, %389
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit275.i ], [ %390, %389 ]
-  %.747.i = phi ptr [ %.646.i, %.loopexit275.i ], [ %138, %389 ]
-  %.11.i = phi i1 [ %.10.i, %.loopexit275.i ], [ false, %389 ]
+  %.1454.i = phi ptr [ %.1555.i, %.loopexit275.i ], [ %138, %389 ]
+  %.14.i = phi i1 [ %.15.i, %.loopexit275.i ], [ false, %389 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #25
   br label %.body167.i
 
 .body167.i:                                       ; preds = %421, %387, %136
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %421 ], [ %388, %387 ], [ %137, %136 ]
-  %.848.i = phi ptr [ %.747.i, %421 ], [ %114, %387 ], [ %114, %136 ]
-  %.12.i = phi i1 [ %.11.i, %421 ], [ false, %387 ], [ false, %136 ]
+  %.1353.i = phi ptr [ %.1454.i, %421 ], [ %114, %387 ], [ %114, %136 ]
+  %.13.i = phi i1 [ %.14.i, %421 ], [ false, %387 ], [ false, %136 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #25
   br label %.loopexit274.loopexit.i
 
 .loopexit274.loopexit.i:                          ; preds = %.body167.i, %385
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body167.i ], [ %386, %385 ]
-  %.949.i = phi ptr [ %.848.i, %.body167.i ], [ %114, %385 ]
-  %.13.i = phi i1 [ %.12.i, %.body167.i ], [ false, %385 ]
+  %.1252.i = phi ptr [ %.1353.i, %.body167.i ], [ %114, %385 ]
+  %.12.i = phi i1 [ %.13.i, %.body167.i ], [ false, %385 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #25
   br label %.loopexit274.i
 
 .loopexit274.i:                                   ; preds = %.loopexit274.loopexit.i, %383
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %384, %383 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit274.loopexit.i ]
-  %.1050.i = phi ptr [ %114, %383 ], [ %.949.i, %.loopexit274.loopexit.i ]
-  %.14.i = phi i1 [ false, %383 ], [ %.13.i, %.loopexit274.loopexit.i ]
+  %.1151.i = phi ptr [ %114, %383 ], [ %.1252.i, %.loopexit274.loopexit.i ]
+  %.11.i = phi i1 [ false, %383 ], [ %.12.i, %.loopexit274.loopexit.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #25
   br label %422
 
 422:                                              ; preds = %.loopexit274.i, %381
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit274.i ], [ %382, %381 ]
-  %.1151.i = phi ptr [ %.1050.i, %.loopexit274.i ], [ %114, %381 ]
-  %.15.i = phi i1 [ %.14.i, %.loopexit274.i ], [ false, %381 ]
+  %.1050.i = phi ptr [ %.1151.i, %.loopexit274.i ], [ %114, %381 ]
+  %.10.i = phi i1 [ %.11.i, %.loopexit274.i ], [ false, %381 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #25
   br label %.body156.i
 
 .body156.i:                                       ; preds = %422, %379, %112
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %422 ], [ %380, %379 ], [ %113, %112 ]
-  %.1252.i = phi ptr [ %.1151.i, %422 ], [ %90, %379 ], [ %90, %112 ]
-  %.16.i = phi i1 [ %.15.i, %422 ], [ false, %379 ], [ false, %112 ]
+  %.949.i = phi ptr [ %.1050.i, %422 ], [ %90, %379 ], [ %90, %112 ]
+  %.9.i = phi i1 [ %.10.i, %422 ], [ false, %379 ], [ false, %112 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #25
   br label %.loopexit273.loopexit.i
 
 .loopexit273.loopexit.i:                          ; preds = %.body156.i, %377
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body156.i ], [ %378, %377 ]
-  %.1353.i = phi ptr [ %.1252.i, %.body156.i ], [ %90, %377 ]
-  %.17.i = phi i1 [ %.16.i, %.body156.i ], [ false, %377 ]
+  %.848.i = phi ptr [ %.949.i, %.body156.i ], [ %90, %377 ]
+  %.8.i = phi i1 [ %.9.i, %.body156.i ], [ false, %377 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #25
   br label %.loopexit273.i
 
 .loopexit273.i:                                   ; preds = %.loopexit273.loopexit.i, %375
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %376, %375 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit273.loopexit.i ]
-  %.1454.i = phi ptr [ %90, %375 ], [ %.1353.i, %.loopexit273.loopexit.i ]
-  %.18.i = phi i1 [ false, %375 ], [ %.17.i, %.loopexit273.loopexit.i ]
+  %.747.i = phi ptr [ %90, %375 ], [ %.848.i, %.loopexit273.loopexit.i ]
+  %.7.i = phi i1 [ false, %375 ], [ %.8.i, %.loopexit273.loopexit.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #25
   br label %423
 
 423:                                              ; preds = %.loopexit273.i, %373
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit273.i ], [ %374, %373 ]
-  %.1555.i = phi ptr [ %.1454.i, %.loopexit273.i ], [ %90, %373 ]
-  %.19.i = phi i1 [ %.18.i, %.loopexit273.i ], [ false, %373 ]
+  %.646.i = phi ptr [ %.747.i, %.loopexit273.i ], [ %90, %373 ]
+  %.6.i = phi i1 [ %.7.i, %.loopexit273.i ], [ false, %373 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #25
   br label %.body.i
 
 .body.i:                                          ; preds = %423, %371, %88
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %423 ], [ %372, %371 ], [ %89, %88 ]
-  %.1656.i = phi ptr [ %.1555.i, %423 ], [ %18, %371 ], [ %18, %88 ]
-  %.20.i = phi i1 [ %.19.i, %423 ], [ false, %371 ], [ false, %88 ]
+  %.545.i = phi ptr [ %.646.i, %423 ], [ %18, %371 ], [ %18, %88 ]
+  %.5.i = phi i1 [ %.6.i, %423 ], [ false, %371 ], [ false, %88 ]
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #25
   br label %424
 
 424:                                              ; preds = %.body.i, %369
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %370, %369 ]
-  %.1757.i = phi ptr [ %.1656.i, %.body.i ], [ %18, %369 ]
-  %.21.i = phi i1 [ %.20.i, %.body.i ], [ false, %369 ]
+  %.444.i = phi ptr [ %.545.i, %.body.i ], [ %18, %369 ]
+  %.4.i = phi i1 [ %.5.i, %.body.i ], [ false, %369 ]
   %425 = getelementptr inbounds i8, ptr %22, i64 96
   br label %426
 
@@ -8754,40 +8754,40 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 .loopexit272.i:                                   ; preds = %426, %367
   %430 = phi i1 [ false, %367 ], [ true, %426 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %368, %367 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %426 ]
-  %.1858.i = phi ptr [ %18, %367 ], [ %.1757.i, %426 ]
-  %.22.i = phi i1 [ false, %367 ], [ %.21.i, %426 ]
+  %.343.i = phi ptr [ %18, %367 ], [ %.444.i, %426 ]
+  %.3.i = phi i1 [ false, %367 ], [ %.4.i, %426 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #25
   br label %431
 
 431:                                              ; preds = %.loopexit272.i, %365
   %.1118.i = phi i1 [ %430, %.loopexit272.i ], [ false, %365 ]
-  %.0115.i = phi ptr [ %67, %.loopexit272.i ], [ %65, %365 ]
+  %.1116.i = phi ptr [ %67, %.loopexit272.i ], [ %65, %365 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.loopexit272.i ], [ %366, %365 ]
-  %.1959.i = phi ptr [ %.1858.i, %.loopexit272.i ], [ %18, %365 ]
-  %.23.i = phi i1 [ %.22.i, %.loopexit272.i ], [ false, %365 ]
+  %.242.i = phi ptr [ %.343.i, %.loopexit272.i ], [ %18, %365 ]
+  %.2.i = phi i1 [ %.3.i, %.loopexit272.i ], [ false, %365 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #25
   br i1 %.1118.i, label %.loopexit271.i, label %.preheader270.i
 
 .preheader270.i:                                  ; preds = %431, %.preheader270.i
-  %432 = phi ptr [ %433, %.preheader270.i ], [ %.0115.i, %431 ]
+  %432 = phi ptr [ %433, %.preheader270.i ], [ %.1116.i, %431 ]
   %433 = getelementptr inbounds i8, ptr %432, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %433) #25
   %434 = icmp eq ptr %433, %22
   br i1 %434, label %.loopexit271.i, label %.preheader270.i
 
 .loopexit271.i:                                   ; preds = %.preheader270.i, %431, %.thread.i
-  %.24263.i = phi i1 [ false, %.thread.i ], [ %.23.i, %431 ], [ %.23.i, %.preheader270.i ]
-  %.2060262.i = phi ptr [ %18, %.thread.i ], [ %.1959.i, %431 ], [ %.1959.i, %.preheader270.i ]
+  %.1263.i = phi i1 [ false, %.thread.i ], [ %.2.i, %431 ], [ %.2.i, %.preheader270.i ]
+  %.141262.i = phi ptr [ %18, %.thread.i ], [ %.242.i, %431 ], [ %.242.i, %.preheader270.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn261.i = phi { ptr, i32 } [ %364, %.thread.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %431 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.preheader270.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #25
-  %435 = icmp eq ptr %18, %.2060262.i
-  %or.cond16.i = select i1 %.24263.i, i1 true, i1 %435
+  %435 = icmp eq ptr %18, %.141262.i
+  %or.cond16.i = select i1 %.1263.i, i1 true, i1 %435
   br i1 %or.cond16.i, label %common.resume, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit271.i, %.preheader.i
-  %436 = phi ptr [ %437, %.preheader.i ], [ %.2060262.i, %.loopexit271.i ]
+  %436 = phi ptr [ %437, %.preheader.i ], [ %.141262.i, %.loopexit271.i ]
   %437 = getelementptr inbounds i8, ptr %436, i64 -80
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessIS5_ESaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %437) #25
   %438 = icmp eq ptr %437, %18

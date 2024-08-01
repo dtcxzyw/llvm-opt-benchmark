@@ -979,7 +979,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %sw.bb10
-  %retval2.0 = phi i32 [ %17, %if.then ], [ 0, %land.lhs.true ], [ 0, %sw.bb10 ]
+  %retval2.1 = phi i32 [ %17, %if.then ], [ 0, %land.lhs.true ], [ 0, %sw.bb10 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i35)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i36 = icmp ne i32 %18, 0
@@ -1005,11 +1005,11 @@ if.then8.i.i45:                                   ; preds = %if.then.i.i42
   %22 = load i64, ptr %_now.i.i35, align 8
   %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
   %23 = load i64, ptr %tv_usec.i.i48, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i47, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.44, i32 noundef %retval2.0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i47, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.44, i32 noundef %retval2.1) #14
   br label %trace_megasas_mmio_readl.exit49
 
 if.else.i.i44:                                    ; preds = %if.then.i.i42
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.44, i32 noundef %retval2.0) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.44, i32 noundef %retval2.1) #14
   br label %trace_megasas_mmio_readl.exit49
 
 trace_megasas_mmio_readl.exit49:                  ; preds = %if.end, %land.lhs.true5.i.i39, %if.then8.i.i45, %if.else.i.i44
@@ -1210,8 +1210,8 @@ trace_megasas_mmio_invalid_readl.exit:            ; preds = %sw.default, %land.l
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %trace_megasas_mmio_invalid_readl.exit, %trace_megasas_mmio_readl.exit109, %trace_megasas_mmio_readl.exit94, %trace_megasas_mmio_readl.exit79, %trace_megasas_mmio_readl.exit64, %trace_megasas_mmio_readl.exit49, %trace_megasas_mmio_readl.exit34, %trace_megasas_mmio_readl.exit
-  %retval2.1 = phi i32 [ 0, %trace_megasas_mmio_invalid_readl.exit ], [ 15, %trace_megasas_mmio_readl.exit109 ], [ %38, %trace_megasas_mmio_readl.exit94 ], [ %cond17, %trace_megasas_mmio_readl.exit79 ], [ %24, %trace_megasas_mmio_readl.exit64 ], [ %retval2.0, %trace_megasas_mmio_readl.exit49 ], [ %or8, %trace_megasas_mmio_readl.exit34 ], [ 0, %trace_megasas_mmio_readl.exit ]
-  %conv = zext i32 %retval2.1 to i64
+  %retval2.0 = phi i32 [ 0, %trace_megasas_mmio_invalid_readl.exit ], [ 15, %trace_megasas_mmio_readl.exit109 ], [ %38, %trace_megasas_mmio_readl.exit94 ], [ %cond17, %trace_megasas_mmio_readl.exit79 ], [ %24, %trace_megasas_mmio_readl.exit64 ], [ %retval2.1, %trace_megasas_mmio_readl.exit49 ], [ %or8, %trace_megasas_mmio_readl.exit34 ], [ 0, %trace_megasas_mmio_readl.exit ]
+  %conv = zext i32 %retval2.0 to i64
   ret i64 %conv
 }
 
@@ -8493,11 +8493,11 @@ if.end27:                                         ; preds = %megasas_copy_sense.
   br label %if.end30
 
 if.end30:                                         ; preds = %megasas_finish_internal_dcmd.exit, %if.end27
-  %cmd_status.1 = phi i8 [ %conv4, %megasas_finish_internal_dcmd.exit ], [ %spec.select, %if.end27 ]
+  %cmd_status.0 = phi i8 [ %conv4, %megasas_finish_internal_dcmd.exit ], [ %spec.select, %if.end27 ]
   %frame31 = getelementptr inbounds i8, ptr %0, i64 40
   %55 = load ptr, ptr %frame31, align 8
   %cmd_status32 = getelementptr inbounds i8, ptr %55, i64 2
-  store i8 %cmd_status.1, ptr %cmd_status32, align 2
+  store i8 %cmd_status.0, ptr %cmd_status32, align 2
   call fastcc void @megasas_complete_command(ptr noundef nonnull %0)
   br label %return
 

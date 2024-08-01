@@ -4584,7 +4584,7 @@ invoke.cont17:                                    ; preds = %lor.rhs.i73, %if.th
   br i1 %cmp.i85.not1607, label %for.inc277, label %for.cond27.preheader
 
 for.cond27.preheader:                             ; preds = %invoke.cont17, %for.inc274
-  %addedUnifEnumSymBreakLemma.11609 = phi i1 [ %addedUnifEnumSymBreakLemma.5, %for.inc274 ], [ %addedUnifEnumSymBreakLemma.01613, %invoke.cont17 ]
+  %addedUnifEnumSymBreakLemma.11609 = phi i1 [ %addedUnifEnumSymBreakLemma.3, %for.inc274 ], [ %addedUnifEnumSymBreakLemma.01613, %invoke.cont17 ]
   %__begin4.sroa.0.01608 = phi ptr [ %incdec.ptr.i1164, %for.inc274 ], [ %23, %invoke.cont17 ]
   br label %cond.true
 
@@ -4592,7 +4592,7 @@ cond.true:                                        ; preds = %for.cond27.preheade
   %cmp.i241 = phi i1 [ false, %for.cond27.preheader ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit1117 ]
   %cmp28 = phi i1 [ true, %for.cond27.preheader ], [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit1117 ]
   %indvars.iv1682 = phi i64 [ 0, %for.cond27.preheader ], [ 1, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit1117 ]
-  %addedUnifEnumSymBreakLemma.21606 = phi i1 [ %addedUnifEnumSymBreakLemma.11609, %for.cond27.preheader ], [ %addedUnifEnumSymBreakLemma.5, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit1117 ]
+  %addedUnifEnumSymBreakLemma.21606 = phi i1 [ %addedUnifEnumSymBreakLemma.11609, %for.cond27.preheader ], [ %addedUnifEnumSymBreakLemma.3, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit1117 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %es, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vs, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %__begin4.sroa.0.01608, align 8
@@ -5614,7 +5614,7 @@ for.body178.preheader:                            ; preds = %if.else
 
 for.body178:                                      ; preds = %for.body178.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066
   %indvars.iv1679 = phi i64 [ 1, %for.body178.preheader ], [ %indvars.iv.next1680, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066 ]
-  %addedUnifEnumSymBreakLemma.31602 = phi i1 [ %addedUnifEnumSymBreakLemma.21606, %for.body178.preheader ], [ %addedUnifEnumSymBreakLemma.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066 ]
+  %addedUnifEnumSymBreakLemma.41602 = phi i1 [ %addedUnifEnumSymBreakLemma.21606, %for.body178.preheader ], [ %addedUnifEnumSymBreakLemma.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066 ]
   %143 = add nsw i64 %indvars.iv1679, -1
   %144 = load ptr, ptr %vs, align 8
   %add.ptr.i741 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %144, i64 %143
@@ -6245,7 +6245,7 @@ terminate.lpad.i1041:                             ; preds = %if.then13.i.i1040
   unreachable
 
 cleanup:                                          ; preds = %if.then13.i.i1028, %if.then.i.i1021, %invoke.cont256, %invoke.cont185, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit827
-  %addedUnifEnumSymBreakLemma.4 = phi i1 [ %addedUnifEnumSymBreakLemma.31602, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit827 ], [ %addedUnifEnumSymBreakLemma.31602, %invoke.cont185 ], [ true, %invoke.cont256 ], [ true, %if.then.i.i1021 ], [ true, %if.then13.i.i1028 ]
+  %addedUnifEnumSymBreakLemma.5 = phi i1 [ %addedUnifEnumSymBreakLemma.41602, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit827 ], [ %addedUnifEnumSymBreakLemma.41602, %invoke.cont185 ], [ true, %invoke.cont256 ], [ true, %if.then.i.i1021 ], [ true, %if.then13.i.i1028 ]
   %switch = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit827 ], [ true, %invoke.cont185 ], [ false, %invoke.cont256 ], [ false, %if.then.i.i1021 ], [ false, %if.then13.i.i1028 ]
   %bf.load.i.i1043 = load i64, ptr %148, align 8
   %215 = and i64 %bf.load.i.i1043, 1152920405095219200
@@ -6359,7 +6359,7 @@ terminate.lpad.i1089:                             ; preds = %if.then13.i.i1088
   unreachable
 
 if.end268:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066, %if.else, %invoke.cont170
-  %addedUnifEnumSymBreakLemma.5 = phi i1 [ %addedUnifEnumSymBreakLemma.21606, %invoke.cont170 ], [ %addedUnifEnumSymBreakLemma.21606, %if.else ], [ %addedUnifEnumSymBreakLemma.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066 ]
+  %addedUnifEnumSymBreakLemma.3 = phi i1 [ %addedUnifEnumSymBreakLemma.21606, %invoke.cont170 ], [ %addedUnifEnumSymBreakLemma.21606, %if.else ], [ %addedUnifEnumSymBreakLemma.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1066 ]
   %227 = load ptr, ptr %vs, align 8
   %228 = load ptr, ptr %_M_finish.i668, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %227, %228
@@ -6577,7 +6577,7 @@ for.inc274:                                       ; preds = %_ZNSt6vectorIN4cvc5
   br i1 %cmp.i85.not, label %for.inc277, label %for.cond27.preheader
 
 for.inc277:                                       ; preds = %for.inc274, %invoke.cont17
-  %addedUnifEnumSymBreakLemma.1.lcssa = phi i1 [ %addedUnifEnumSymBreakLemma.01613, %invoke.cont17 ], [ %addedUnifEnumSymBreakLemma.5, %for.inc274 ]
+  %addedUnifEnumSymBreakLemma.1.lcssa = phi i1 [ %addedUnifEnumSymBreakLemma.01613, %invoke.cont17 ], [ %addedUnifEnumSymBreakLemma.3, %for.inc274 ]
   %incdec.ptr.i1165 = getelementptr inbounds i8, ptr %__begin3.sroa.0.01612, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i1165, %18
   br i1 %cmp.i.not, label %for.end279.loopexit, label %for.body15
@@ -8672,8 +8672,8 @@ ehcleanup359:                                     ; preds = %ehcleanup355, %lpad
   resume { ptr, i32 } %.pn27.pn
 
 return:                                           ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit, %if.then
-  %retval.2 = phi i1 [ %call2, %if.then ], [ %retval.1, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %call2, %if.then ], [ %retval.1, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers5Cegis26processConstructCandidatesERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EESA_SA_RS8_b(ptr noundef nonnull align 8 dereferenceable(1193), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) unnamed_addr #0
@@ -12030,7 +12030,7 @@ arraydestroy.body230:                             ; preds = %arraydestroy.body23
 
 ehcleanup237:                                     ; preds = %arraydestroy.body230, %ehcleanup10.i, %lpad210, %lpad203
   %.pn34.pn.pn = phi { ptr, i32 } [ %195, %lpad203 ], [ %196, %lpad210 ], [ %.pn2.i, %ehcleanup10.i ], [ %.pn34, %arraydestroy.body230 ]
-  %arrayinit.endOfInit199.0 = phi ptr [ %ref.tmp197, %lpad203 ], [ %arrayinit.element, %lpad210 ], [ %arrayinit.element, %ehcleanup10.i ], [ %arrayinit.element, %arraydestroy.body230 ]
+  %arrayinit.endOfInit199.1 = phi ptr [ %ref.tmp197, %lpad203 ], [ %arrayinit.element, %lpad210 ], [ %arrayinit.element, %ehcleanup10.i ], [ %arrayinit.element, %arraydestroy.body230 ]
   %cleanup.isactive.1 = phi i1 [ false, %lpad203 ], [ false, %lpad210 ], [ false, %ehcleanup10.i ], [ true, %arraydestroy.body230 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp200)
           to label %ehcleanup238 unwind label %terminate.lpad.i.i780
@@ -12043,12 +12043,12 @@ terminate.lpad.i.i780:                            ; preds = %ehcleanup237
   unreachable
 
 ehcleanup238:                                     ; preds = %ehcleanup237
-  %arraydestroy.isempty239 = icmp eq ptr %ref.tmp197, %arrayinit.endOfInit199.0
+  %arraydestroy.isempty239 = icmp eq ptr %ref.tmp197, %arrayinit.endOfInit199.1
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty239
   br i1 %or.cond, label %ehcleanup280, label %arraydestroy.body240
 
 arraydestroy.body240:                             ; preds = %ehcleanup238, %arraydestroy.body240
-  %arraydestroy.elementPast241 = phi ptr [ %arraydestroy.element242, %arraydestroy.body240 ], [ %arrayinit.endOfInit199.0, %ehcleanup238 ]
+  %arraydestroy.elementPast241 = phi ptr [ %arraydestroy.element242, %arraydestroy.body240 ], [ %arrayinit.endOfInit199.1, %ehcleanup238 ]
   %arraydestroy.element242 = getelementptr inbounds i8, ptr %arraydestroy.elementPast241, i64 -8
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element242) #18
   %arraydestroy.done243 = icmp eq ptr %arraydestroy.element242, %ref.tmp197

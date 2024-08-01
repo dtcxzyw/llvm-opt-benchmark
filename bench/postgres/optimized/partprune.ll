@@ -337,7 +337,7 @@ gen_partprune_steps.exit134.i:                    ; preds = %156, %153, %149
 
 .lr.ph.i88:                                       ; preds = %.lr.ph43.i.i, %.thread29.i.i
   %167 = phi i32 [ %205, %.thread29.i.i ], [ %165, %.lr.ph43.i.i ]
-  %.042.i141.i = phi ptr [ %.3.i.i, %.thread29.i.i ], [ null, %.lr.ph43.i.i ]
+  %.042.i141.i = phi ptr [ %.1.i.i, %.thread29.i.i ], [ null, %.lr.ph43.i.i ]
   %indvars.iv48.i140.i = phi i64 [ %indvars.iv.next49.i.i, %.thread29.i.i ], [ 0, %.lr.ph43.i.i ]
   %168 = load ptr, ptr %164, align 8
   %169 = getelementptr %union.ListCell, ptr %168, i64 %indvars.iv48.i140.i
@@ -362,7 +362,7 @@ gen_partprune_steps.exit134.i:                    ; preds = %156, %153, %149
 .lr.ph39.i.i:                                     ; preds = %.lr.ph.i.i, %201
   %180 = phi i32 [ %202, %201 ], [ %178, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %201 ], [ 0, %.lr.ph.i.i ]
-  %.13337.i.i = phi ptr [ %.2.i.i, %201 ], [ %.042.i141.i, %.lr.ph.i.i ]
+  %.23337.i.i = phi ptr [ %.3.i.i, %201 ], [ %.042.i141.i, %.lr.ph.i.i ]
   %181 = load ptr, ptr %177, align 8
   %182 = getelementptr %union.ListCell, ptr %181, i64 %indvars.iv.i.i
   %183 = load ptr, ptr %182, align 8
@@ -397,13 +397,13 @@ gen_partprune_steps.exit134.i:                    ; preds = %156, %153, %149
 pull_exec_paramids.exit.i.i:                      ; preds = %197, %193, %189
   %199 = phi ptr [ null, %189 ], [ %196, %193 ], [ %.pre.i.i.i, %197 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %200 = call ptr @bms_join(ptr noundef %.13337.i.i, ptr noundef %199) #6
+  %200 = call ptr @bms_join(ptr noundef %.23337.i.i, ptr noundef %199) #6
   %.pre.i.i = load i32, ptr %176, align 4
   br label %201
 
 201:                                              ; preds = %pull_exec_paramids.exit.i.i, %.lr.ph39.i.i
   %202 = phi i32 [ %180, %.lr.ph39.i.i ], [ %.pre.i.i, %pull_exec_paramids.exit.i.i ]
-  %.2.i.i = phi ptr [ %.13337.i.i, %.lr.ph39.i.i ], [ %200, %pull_exec_paramids.exit.i.i ]
+  %.3.i.i = phi ptr [ %.23337.i.i, %.lr.ph39.i.i ], [ %200, %pull_exec_paramids.exit.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %203 = sext i32 %202 to i64
   %204 = icmp slt i64 %indvars.iv.next.i.i, %203
@@ -415,14 +415,14 @@ pull_exec_paramids.exit.i.i:                      ; preds = %197, %193, %189
 
 .thread29.i.i:                                    ; preds = %.thread29.i.loopexit.i, %.lr.ph.i.i, %173, %.lr.ph.i88
   %205 = phi i32 [ %167, %.lr.ph.i88 ], [ %167, %173 ], [ %167, %.lr.ph.i.i ], [ %.pre.i, %.thread29.i.loopexit.i ]
-  %.3.i.i = phi ptr [ %.042.i141.i, %.lr.ph.i88 ], [ %.042.i141.i, %173 ], [ %.042.i141.i, %.lr.ph.i.i ], [ %.2.i.i, %.thread29.i.loopexit.i ]
+  %.1.i.i = phi ptr [ %.042.i141.i, %.lr.ph.i88 ], [ %.042.i141.i, %173 ], [ %.042.i141.i, %.lr.ph.i.i ], [ %.3.i.i, %.thread29.i.loopexit.i ]
   %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i140.i, 1
   %206 = sext i32 %205 to i64
   %207 = icmp slt i64 %indvars.iv.next49.i.i, %206
   br i1 %207, label %.lr.ph.i88, label %get_partkey_exec_paramids.exit.i
 
 get_partkey_exec_paramids.exit.i:                 ; preds = %.thread29.i.i, %.lr.ph43.i.i, %161
-  %.0.lcssa.i.i = phi ptr [ null, %161 ], [ null, %.lr.ph43.i.i ], [ %.3.i.i, %.thread29.i.i ]
+  %.0.lcssa.i.i = phi ptr [ null, %161 ], [ null, %.lr.ph43.i.i ], [ %.1.i.i, %.thread29.i.i ]
   %208 = icmp eq ptr %.0.lcssa.i.i, null
   %spec.select.i = select i1 %208, ptr null, ptr %162
   br label %209
@@ -2754,12 +2754,12 @@ pull_exec_paramids.exit:                          ; preds = %284, %288
   unreachable
 
 329:                                              ; preds = %319, %314
-  %.0204.i = phi i32 [ %323, %319 ], [ %318, %314 ]
-  %.not235.i = icmp eq i32 %.0204.i, 0
+  %.1.i = phi i32 [ %323, %319 ], [ %318, %314 ]
+  %.not235.i = icmp eq i32 %.1.i, 0
   br i1 %.not235.i, label %match_clause_to_partition_key.exit.thread224, label %.loopexit277
 
 .loopexit277:                                     ; preds = %329, %307
-  %.1.i = phi i32 [ %311, %307 ], [ %.0204.i, %329 ]
+  %.0204.i = phi i32 [ %311, %307 ], [ %.1.i, %329 ]
   %.0129471716 = trunc i64 %indvars.iv724 to i32
   %330 = call ptr @palloc(i64 noundef 32) #6
   store i32 %.0129471716, ptr %330, align 8
@@ -2776,7 +2776,7 @@ pull_exec_paramids.exit:                          ; preds = %284, %288
   %335 = getelementptr inbounds i8, ptr %330, i64 16
   store ptr %storemerge.i, ptr %335, align 8
   %336 = getelementptr inbounds i8, ptr %330, i64 24
-  store i32 %.1.i, ptr %336, align 8
+  store i32 %.0204.i, ptr %336, align 8
   br label %match_clause_to_partition_key.exit.thread236
 
 337:                                              ; preds = %220
@@ -3627,9 +3627,9 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 
 .lr.ph536:                                        ; preds = %.lr.ph342.preheader.i, %.lr.ph342.i
   %687 = phi ptr [ %684, %.lr.ph342.i ], [ %679, %.lr.ph342.preheader.i ]
-  %.1179322341.i535 = phi ptr [ %688, %.lr.ph342.i ], [ %.0178415.i, %.lr.ph342.preheader.i ]
+  %.2180322341.i535 = phi ptr [ %688, %.lr.ph342.i ], [ %.0178415.i, %.lr.ph342.preheader.i ]
   %indvars.iv484.i534 = phi i64 [ %indvars.iv.next485.i, %.lr.ph342.i ], [ %677, %.lr.ph342.preheader.i ]
-  %688 = call ptr @lappend(ptr noundef %.1179322341.i535, ptr noundef nonnull %687) #6
+  %688 = call ptr @lappend(ptr noundef %.2180322341.i535, ptr noundef nonnull %687) #6
   %indvars.iv.next485.i = add nsw i64 %indvars.iv484.i534, 1
   %689 = load i32, ptr %611, align 4
   %690 = sext i32 %689 to i64
@@ -3639,12 +3639,12 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 .thread248.i.loopexit.split.loop.exit529:         ; preds = %.lr.ph342.i, %.lr.ph342.preheader.i
   %indvars.iv484.i.lcssa = phi i64 [ %677, %.lr.ph342.preheader.i ], [ %indvars.iv.next485.i, %.lr.ph342.i ]
   %.lcssa533 = phi ptr [ %.val.i.i, %.lr.ph342.preheader.i ], [ %682, %.lr.ph342.i ]
-  %.1179.lcssa.i.ph.ph530 = phi ptr [ %.0178415.i, %.lr.ph342.preheader.i ], [ %688, %.lr.ph342.i ]
+  %.2180.lcssa.i.ph.ph530 = phi ptr [ %.0178415.i, %.lr.ph342.preheader.i ], [ %688, %.lr.ph342.i ]
   %692 = getelementptr %union.ListCell, ptr %.lcssa533, i64 %indvars.iv484.i.lcssa
   br label %.thread248.i
 
 .thread248.i:                                     ; preds = %.lr.ph536, %.lr.ph423.i, %.thread248.i.loopexit.split.loop.exit529, %.lr.ph325.split.i
-  %.1179.lcssa.i = phi ptr [ %.0178415.i, %.lr.ph325.split.i ], [ %.1179.lcssa.i.ph.ph530, %.thread248.i.loopexit.split.loop.exit529 ], [ %.0178415.i, %.lr.ph423.i ], [ %688, %.lr.ph536 ]
+  %.2180.lcssa.i = phi ptr [ %.0178415.i, %.lr.ph325.split.i ], [ %.2180.lcssa.i.ph.ph530, %.thread248.i.loopexit.split.loop.exit529 ], [ %.0178415.i, %.lr.ph423.i ], [ %688, %.lr.ph536 ]
   %.0172.lcssa.i = phi i1 [ false, %.lr.ph325.split.i ], [ %681, %.thread248.i.loopexit.split.loop.exit529 ], [ false, %.lr.ph423.i ], [ true, %.lr.ph536 ]
   %.0183251.i = phi ptr [ null, %.lr.ph325.split.i ], [ %692, %.thread248.i.loopexit.split.loop.exit529 ], [ null, %.lr.ph423.i ], [ null, %.lr.ph536 ]
   br i1 %or.cond5.i, label %693, label %.thread253.i
@@ -3683,9 +3683,9 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 
 .lr.ph548:                                        ; preds = %.lr.ph376.preheader.i, %.lr.ph376.i
   %710 = phi ptr [ %707, %.lr.ph376.i ], [ %702, %.lr.ph376.preheader.i ]
-  %.2180356375.i547 = phi ptr [ %711, %.lr.ph376.i ], [ %.1179.lcssa.i, %.lr.ph376.preheader.i ]
+  %.4182356375.i547 = phi ptr [ %711, %.lr.ph376.i ], [ %.2180.lcssa.i, %.lr.ph376.preheader.i ]
   %indvars.iv486.i546 = phi i64 [ %indvars.iv.next487.i, %.lr.ph376.i ], [ %700, %.lr.ph376.preheader.i ]
-  %711 = call ptr @lappend(ptr noundef %.2180356375.i547, ptr noundef nonnull %710) #6
+  %711 = call ptr @lappend(ptr noundef %.4182356375.i547, ptr noundef nonnull %710) #6
   %indvars.iv.next487.i = add nsw i64 %indvars.iv486.i546, 1
   %712 = load i32, ptr %612, align 4
   %713 = sext i32 %712 to i64
@@ -3695,14 +3695,14 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 .thread253.i.loopexit.split.loop.exit541:         ; preds = %.lr.ph376.i, %.lr.ph376.preheader.i
   %indvars.iv486.i.lcssa = phi i64 [ %700, %.lr.ph376.preheader.i ], [ %indvars.iv.next487.i, %.lr.ph376.i ]
   %.lcssa545 = phi ptr [ %.val.i218.i, %.lr.ph376.preheader.i ], [ %705, %.lr.ph376.i ]
-  %.3181.i.ph.ph542 = phi ptr [ %.1179.lcssa.i, %.lr.ph376.preheader.i ], [ %711, %.lr.ph376.i ]
-  %.2174.i.ph.ph543 = phi i1 [ %.0172.lcssa.i, %.lr.ph376.preheader.i ], [ true, %.lr.ph376.i ]
+  %.3181.i.ph.ph542 = phi ptr [ %.2180.lcssa.i, %.lr.ph376.preheader.i ], [ %711, %.lr.ph376.i ]
+  %.1173.i.ph.ph543 = phi i1 [ %.0172.lcssa.i, %.lr.ph376.preheader.i ], [ true, %.lr.ph376.i ]
   %715 = getelementptr %union.ListCell, ptr %.lcssa545, i64 %indvars.iv486.i.lcssa
   br label %.thread253.i
 
 .thread253.i:                                     ; preds = %.lr.ph548, %693, %.thread253.i.loopexit.split.loop.exit541, %.lr.ph359.split.i, %.thread248.i
-  %.3181.i = phi ptr [ %.1179.lcssa.i, %.thread248.i ], [ %.1179.lcssa.i, %.lr.ph359.split.i ], [ %.3181.i.ph.ph542, %.thread253.i.loopexit.split.loop.exit541 ], [ %.1179.lcssa.i, %693 ], [ %711, %.lr.ph548 ]
-  %.2174.i = phi i1 [ %.0172.lcssa.i, %.thread248.i ], [ %.0172.lcssa.i, %.lr.ph359.split.i ], [ %.2174.i.ph.ph543, %.thread253.i.loopexit.split.loop.exit541 ], [ %.0172.lcssa.i, %693 ], [ true, %.lr.ph548 ]
+  %.3181.i = phi ptr [ %.2180.lcssa.i, %.thread248.i ], [ %.2180.lcssa.i, %.lr.ph359.split.i ], [ %.3181.i.ph.ph542, %.thread253.i.loopexit.split.loop.exit541 ], [ %.2180.lcssa.i, %693 ], [ %711, %.lr.ph548 ]
+  %.1173.i = phi i1 [ %.0172.lcssa.i, %.thread248.i ], [ %.0172.lcssa.i, %.lr.ph359.split.i ], [ %.1173.i.ph.ph543, %.thread253.i.loopexit.split.loop.exit541 ], [ %.0172.lcssa.i, %693 ], [ true, %.lr.ph548 ]
   %.1168.i = phi ptr [ %.0167421.i, %.thread248.i ], [ null, %.lr.ph359.split.i ], [ %715, %.thread253.i.loopexit.split.loop.exit541 ], [ null, %693 ], [ null, %.lr.ph548 ]
   br i1 %or.cond7.i, label %716, label %.thread257.i
 
@@ -3714,7 +3714,7 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
   br i1 %.not.i214.i, label %.thread257.i, label %.lr.ph393.split.i.thread
 
 .lr.ph393.split.i.thread:                         ; preds = %717
-  br i1 %.2174.i, label %.thread257.thread.i, label %.thread244.i
+  br i1 %.1173.i, label %.thread257.thread.i, label %.thread244.i
 
 .lr.ph393.split.i:                                ; preds = %716
   %.val.i224.i = load ptr, ptr %610, align 8
@@ -3746,9 +3746,9 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
 
 .lr.ph556:                                        ; preds = %.lr.ph410.preheader.i, %.lr.ph410.i
   %734 = phi ptr [ %731, %.lr.ph410.i ], [ %726, %.lr.ph410.preheader.i ]
-  %.4182390409.i555 = phi ptr [ %735, %.lr.ph410.i ], [ %.3181.i, %.lr.ph410.preheader.i ]
+  %.6390409.i555 = phi ptr [ %735, %.lr.ph410.i ], [ %.3181.i, %.lr.ph410.preheader.i ]
   %indvars.iv488.i554 = phi i64 [ %indvars.iv.next489.i, %.lr.ph410.i ], [ %724, %.lr.ph410.preheader.i ]
-  %735 = call ptr @lappend(ptr noundef %.4182390409.i555, ptr noundef nonnull %734) #6
+  %735 = call ptr @lappend(ptr noundef %.6390409.i555, ptr noundef nonnull %734) #6
   %indvars.iv.next489.i = add nsw i64 %indvars.iv488.i554, 1
   %736 = load i32, ptr %613, align 4
   %737 = sext i32 %736 to i64
@@ -3756,11 +3756,11 @@ list_head.exit215.i:                              ; preds = %658, %list_head.exi
   br i1 %738, label %.lr.ph410.i, label %.thread257.thread.i
 
 .thread257.i.loopexit:                            ; preds = %.lr.ph410.preheader.i
-  br i1 %.2174.i, label %.thread257.thread.i, label %.thread244.i
+  br i1 %.1173.i, label %.thread257.thread.i, label %.thread244.i
 
 .thread257.i:                                     ; preds = %.lr.ph393.split.i, %717, %.thread253.i
   %.1170.i = phi ptr [ %.0169420.i, %.thread253.i ], [ null, %.lr.ph393.split.i ], [ null, %717 ]
-  br i1 %.2174.i, label %.thread257.thread.i, label %.thread244.i
+  br i1 %.1173.i, label %.thread257.thread.i, label %.thread244.i
 
 .thread260.i:                                     ; preds = %.thread257.thread.i
   %739 = getelementptr inbounds i8, ptr %625, i64 8
@@ -3886,7 +3886,7 @@ get_steps_using_prefix.exit239.us.i.preheader:    ; preds = %.lr.ph304.i.prehead
 
 get_steps_using_prefix.exit239.us.i:              ; preds = %get_steps_using_prefix.exit239.us.i.preheader, %get_steps_using_prefix.exit239.us.i
   %indvars.iv481.i = phi i64 [ %indvars.iv.next482.i, %get_steps_using_prefix.exit239.us.i ], [ %indvars.iv481.i.ph, %get_steps_using_prefix.exit239.us.i.preheader ]
-  %.3307.us.i = phi ptr [ %822, %get_steps_using_prefix.exit239.us.i ], [ null, %get_steps_using_prefix.exit239.us.i.preheader ]
+  %.4307.us.i = phi ptr [ %822, %get_steps_using_prefix.exit239.us.i ], [ null, %get_steps_using_prefix.exit239.us.i.preheader ]
   %801 = load ptr, ptr %778, align 8
   %802 = getelementptr %union.ListCell, ptr %801, i64 %indvars.iv481.i
   %803 = load ptr, ptr %802, align 8
@@ -3917,7 +3917,7 @@ get_steps_using_prefix.exit239.us.i:              ; preds = %get_steps_using_pre
   %820 = call ptr @lappend(ptr noundef %819, ptr noundef nonnull %811) #6
   store ptr %820, ptr %39, align 8
   %821 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %811) #6
-  %822 = call ptr @list_concat(ptr noundef %.3307.us.i, ptr noundef %821) #6
+  %822 = call ptr @list_concat(ptr noundef %.4307.us.i, ptr noundef %821) #6
   %indvars.iv.next482.i = add nuw nsw i64 %indvars.iv481.i, 1
   %823 = load i32, ptr %777, align 4
   %824 = sext i32 %823 to i64
@@ -3926,7 +3926,7 @@ get_steps_using_prefix.exit239.us.i:              ; preds = %get_steps_using_pre
 
 list_head.exit.i236.i:                            ; preds = %.lr.ph309.i, %list_head.exit.i236.i
   %indvars.iv478.i = phi i64 [ %indvars.iv.next479.i, %list_head.exit.i236.i ], [ %800, %.lr.ph309.i ]
-  %.3307.i = phi ptr [ %835, %list_head.exit.i236.i ], [ null, %.lr.ph309.i ]
+  %.4307.i = phi ptr [ %835, %list_head.exit.i236.i ], [ null, %.lr.ph309.i ]
   %826 = load ptr, ptr %778, align 8
   %827 = getelementptr %union.ListCell, ptr %826, i64 %indvars.iv478.i
   %828 = load ptr, ptr %827, align 8
@@ -3936,7 +3936,7 @@ list_head.exit.i236.i:                            ; preds = %.lr.ph309.i, %list_
   %832 = load i32, ptr %831, align 8
   %833 = load ptr, ptr %799, align 8
   %834 = call fastcc ptr @get_steps_using_prefix_recurse(ptr noundef nonnull %0, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef %830, i32 noundef %832, ptr noundef %.0118506.lcssa1251, ptr noundef nonnull readonly %793, ptr noundef %833, ptr noundef null, ptr noundef null)
-  %835 = call ptr @list_concat(ptr noundef %.3307.i, ptr noundef %834) #6
+  %835 = call ptr @list_concat(ptr noundef %.4307.i, ptr noundef %834) #6
   %indvars.iv.next479.i = add nuw nsw i64 %indvars.iv478.i, 1
   %836 = load i32, ptr %777, align 4
   %837 = sext i32 %836 to i64
@@ -4196,7 +4196,7 @@ for_each_cell_setup.exit96:                       ; preds = %10
 
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %.1110 = phi ptr [ null, %.lr.ph ], [ %82, %58 ]
+  %.2110 = phi ptr [ null, %.lr.ph ], [ %82, %58 ]
   %59 = load ptr, ptr %14, align 8
   %60 = getelementptr %union.ListCell, ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
@@ -4228,7 +4228,7 @@ for_each_cell_setup.exit96:                       ; preds = %10
   %80 = load ptr, ptr %56, align 8
   %81 = tail call ptr @lappend(ptr noundef %80, ptr noundef nonnull %72) #6
   store ptr %81, ptr %56, align 8
-  %82 = tail call ptr @lappend(ptr noundef %.1110, ptr noundef nonnull %72) #6
+  %82 = tail call ptr @lappend(ptr noundef %.2110, ptr noundef nonnull %72) #6
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %83 = load i32, ptr %13, align 4
   %84 = sext i32 %83 to i64
@@ -4236,8 +4236,8 @@ for_each_cell_setup.exit96:                       ; preds = %10
   br i1 %85, label %58, label %.thread101, !llvm.loop !29
 
 .thread101:                                       ; preds = %58, %.lr.ph118, %40, %for_each_cell_setup.exit, %for_each_cell_setup.exit96, %for_each_cell_setup.exit90
-  %.2 = phi ptr [ null, %for_each_cell_setup.exit90 ], [ null, %for_each_cell_setup.exit96 ], [ null, %for_each_cell_setup.exit ], [ %.0117, %.lr.ph118 ], [ %50, %40 ], [ %82, %58 ]
-  ret ptr %.2
+  %.1 = phi ptr [ null, %for_each_cell_setup.exit90 ], [ null, %for_each_cell_setup.exit96 ], [ null, %for_each_cell_setup.exit ], [ %.0117, %.lr.ph118 ], [ %50, %40 ], [ %82, %58 ]
+  ret ptr %.1
 }
 
 declare void @check_stack_depth() local_unnamed_addr #1

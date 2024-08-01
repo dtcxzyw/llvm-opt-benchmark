@@ -1743,7 +1743,7 @@ terminate.lpad.i288:                              ; preds = %if.then2.i.i.i287
   unreachable
 
 cleanup340:                                       ; preds = %if.then2.i.i.i287, %if.then.i.i.i282, %cleanup, %invoke.cont4, %if.then86, %if.then12, %if.then8
-  %cleanup.dest.slot.1 = phi i1 [ true, %if.then8 ], [ false, %if.then12 ], [ false, %if.then86 ], [ false, %invoke.cont4 ], [ false, %cleanup ], [ false, %if.then.i.i.i282 ], [ false, %if.then2.i.i.i287 ]
+  %cleanup.dest.slot.0 = phi i1 [ true, %if.then8 ], [ false, %if.then12 ], [ false, %if.then86 ], [ false, %invoke.cont4 ], [ false, %cleanup ], [ false, %if.then.i.i.i282 ], [ false, %if.then2.i.i.i287 ]
   %185 = load ptr, ptr %r, align 8
   %tobool.not.i.i289 = icmp eq ptr %185, null
   br i1 %tobool.not.i.i289, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit297, label %if.then.i.i.i290
@@ -1769,7 +1769,7 @@ terminate.lpad.i296:                              ; preds = %if.then2.i.i.i295
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit297:      ; preds = %cleanup340, %if.then.i.i.i290, %if.then2.i.i.i295
-  br i1 %cleanup.dest.slot.1, label %while.end, label %while.cond
+  br i1 %cleanup.dest.slot.0, label %while.end, label %while.cond
 
 ehcleanup:                                        ; preds = %lpad.loopexit301, %lpad.loopexit.split-lp302.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp302.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp302.loopexit, %lpad128, %lpad107
   %.pn = phi { ptr, i32 } [ %53, %lpad107 ], [ %lpad.phi, %lpad128 ], [ %lpad.loopexit303, %lpad.loopexit301 ], [ %lpad.loopexit306, %lpad.loopexit.split-lp302.loopexit ], [ %lpad.loopexit309, %lpad.loopexit.split-lp302.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp310, %lpad.loopexit.split-lp302.loopexit.split-lp.loopexit.split-lp ]

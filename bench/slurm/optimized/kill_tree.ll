@@ -434,7 +434,7 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 .lr.ph33:                                         ; preds = %9, %.lr.ph33
   %.032 = phi ptr [ %.0, %.lr.ph33 ], [ %.029, %9 ]
-  %.02031 = phi ptr [ %14, %.lr.ph33 ], [ %1, %9 ]
+  %.12131 = phi ptr [ %14, %.lr.ph33 ], [ %1, %9 ]
   %11 = getelementptr inbounds i8, ptr %.032, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load <2 x i32>, ptr %.032, align 8
@@ -444,7 +444,7 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapt
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %.02031, ptr %17, align 8
+  store ptr %.12131, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %.032, i64 16
   %.0 = load ptr, ptr %18, align 8
   %.not22 = icmp eq ptr %.0, null
@@ -452,9 +452,9 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 .lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
   %.137 = phi ptr [ %.1, %.lr.ph38 ], [ %.134.pre, %.preheader ]
-  %.12136 = phi ptr [ %20, %.lr.ph38 ], [ %14, %.preheader ]
+  %.236 = phi ptr [ %20, %.lr.ph38 ], [ %14, %.preheader ]
   %19 = load i32, ptr %.137, align 8
-  %20 = tail call fastcc ptr @_get_list(i32 noundef %19, ptr noundef %.12136, ptr noundef %2)
+  %20 = tail call fastcc ptr @_get_list(i32 noundef %19, ptr noundef %.236, ptr noundef %2)
   %21 = getelementptr inbounds i8, ptr %.137, i64 16
   %.1 = load ptr, ptr %21, align 8
   %.not23 = icmp eq ptr %.1, null
@@ -467,8 +467,8 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapt
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %22, %.lr.ph38, %9, %3, %.preheader
-  %.2 = phi ptr [ %14, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %20, %.lr.ph38 ], [ %1, %22 ]
-  ret ptr %.2
+  %.020 = phi ptr [ %14, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %20, %.lr.ph38 ], [ %1, %22 ]
+  ret ptr %.020
 }
 
 ; Function Attrs: nounwind uwtable
@@ -695,7 +695,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   br label %32
 
 32:                                               ; preds = %30, %48
-  %.02758 = phi i32 [ 32, %30 ], [ %.2, %48 ]
+  %.02758 = phi i32 [ 32, %30 ], [ %.1, %48 ]
   %.02857 = phi i32 [ 0, %30 ], [ %.129, %48 ]
   %.03056 = phi ptr [ %15, %30 ], [ %50, %48 ]
   %33 = getelementptr inbounds i8, ptr %.03056, i64 4
@@ -716,7 +716,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   br label %42
 
 42:                                               ; preds = %37, %35
-  %.1 = phi i32 [ %38, %37 ], [ %.02758, %35 ]
+  %.2 = phi i32 [ %38, %37 ], [ %.02758, %35 ]
   %43 = load i32, ptr %.03056, align 8
   %44 = load ptr, ptr %11, align 8
   %45 = sext i32 %.02857 to i64
@@ -727,7 +727,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
 
 48:                                               ; preds = %42, %32
   %.129 = phi i32 [ %47, %42 ], [ %.02857, %32 ]
-  %.2 = phi i32 [ %.1, %42 ], [ %.02758, %32 ]
+  %.1 = phi i32 [ %.2, %42 ], [ %.02758, %32 ]
   %49 = getelementptr inbounds i8, ptr %.03056, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null

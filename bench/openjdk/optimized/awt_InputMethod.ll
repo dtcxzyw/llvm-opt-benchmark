@@ -3876,7 +3876,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   br i1 %92, label %getX11InputMethodData.exit.thread, label %93
 
 93:                                               ; preds = %73, %wcstombsdmp.exit, %66
-  %.0 = phi ptr [ %74, %73 ], [ %91, %wcstombsdmp.exit ], [ null, %66 ]
+  %.1 = phi ptr [ %74, %73 ], [ %91, %wcstombsdmp.exit ], [ null, %66 ]
   %94 = getelementptr inbounds i8, ptr %65, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not87 = icmp eq ptr %95, null
@@ -3947,7 +3947,7 @@ wcstombsdmp.exit:                                 ; preds = %87
 
 129:                                              ; preds = %93, %._crit_edge, %63
   %.070 = phi ptr [ %102, %._crit_edge ], [ null, %93 ], [ null, %63 ]
-  %.1 = phi ptr [ %.0, %._crit_edge ], [ %.0, %93 ], [ null, %63 ]
+  %.0 = phi ptr [ %.1, %._crit_edge ], [ %.1, %93 ], [ null, %63 ]
   %130 = getelementptr inbounds i8, ptr %45, i64 32
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %2, i64 4
@@ -3964,7 +3964,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   %142 = sdiv i64 %141, 1000
   %143 = add nsw i64 %142, %139
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %144 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %131, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %.1, ptr noundef %.070, i32 noundef %133, i32 noundef %135, i32 noundef %136, i64 noundef %143) #14
+  %144 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %131, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %.0, ptr noundef %.070, i32 noundef %133, i32 noundef %135, i32 noundef %136, i64 noundef %143) #14
   br label %getX11InputMethodData.exit.thread
 
 getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, %104, %118, %129, %39, %.loopexit, %getX11InputMethodData.exit, %73, %wcstombsdmp.exit

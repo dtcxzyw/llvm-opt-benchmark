@@ -4845,13 +4845,13 @@ prepare_recv_req_converter.exit.thread:           ; preds = %246, %219, %208, %p
 prepare_recv_req_converter.exit.thread140.sink.split.sink.split: ; preds = %204, %142
   %.sink = phi ptr [ %125, %142 ], [ %187, %204 ]
   %.0145.ph.ph = phi ptr [ %.018.i.ph.i, %142 ], [ %.018.i49.i, %204 ]
-  %.1144.ph.ph = phi ptr [ %85, %142 ], [ %147, %204 ]
+  %.0133144.ph.ph = phi ptr [ %85, %142 ], [ %147, %204 ]
   %357 = tail call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %.sink) #10
   br label %prepare_recv_req_converter.exit.thread140.sink.split
 
 prepare_recv_req_converter.exit.thread140.sink.split: ; preds = %prepare_recv_req_converter.exit.thread140.sink.split.sink.split, %204, %142
   %.0145.ph = phi ptr [ %.018.i.ph.i, %142 ], [ %.018.i49.i, %204 ], [ %.0145.ph.ph, %prepare_recv_req_converter.exit.thread140.sink.split.sink.split ]
-  %.1144.ph = phi ptr [ %85, %142 ], [ %147, %204 ], [ %.1144.ph.ph, %prepare_recv_req_converter.exit.thread140.sink.split.sink.split ]
+  %.0133144.ph = phi ptr [ %85, %142 ], [ %147, %204 ], [ %.0133144.ph.ph, %prepare_recv_req_converter.exit.thread140.sink.split.sink.split ]
   %358 = getelementptr inbounds i8, ptr %0, i64 224
   %359 = load i64, ptr %358, align 8
   store i64 %359, ptr %9, align 8
@@ -4859,7 +4859,7 @@ prepare_recv_req_converter.exit.thread140.sink.split: ; preds = %prepare_recv_re
 
 prepare_recv_req_converter.exit.thread140:        ; preds = %prepare_recv_req_converter.exit.thread140.sink.split, %.loopexit69.i, %120, %recv_req_match_specific_proc.exit54.i, %182, %prepare_recv_req_converter.exit
   %.0145 = phi ptr [ %.018.i, %prepare_recv_req_converter.exit ], [ %.018.i49.i, %182 ], [ %.018.i49.i, %recv_req_match_specific_proc.exit54.i ], [ %.018.i.ph.i, %120 ], [ %.018.i.ph.i, %.loopexit69.i ], [ %.0145.ph, %prepare_recv_req_converter.exit.thread140.sink.split ]
-  %.1144 = phi ptr [ %267, %prepare_recv_req_converter.exit ], [ %147, %182 ], [ %147, %recv_req_match_specific_proc.exit54.i ], [ %85, %120 ], [ %85, %.loopexit69.i ], [ %.1144.ph, %prepare_recv_req_converter.exit.thread140.sink.split ]
+  %.0133144 = phi ptr [ %267, %prepare_recv_req_converter.exit ], [ %147, %182 ], [ %147, %recv_req_match_specific_proc.exit54.i ], [ %85, %120 ], [ %85, %.loopexit69.i ], [ %.0133144.ph, %prepare_recv_req_converter.exit.thread140.sink.split ]
   %360 = getelementptr inbounds i8, ptr %0, i64 168
   %361 = load i32, ptr %360, align 8
   %.off = add i32 %361, -3
@@ -4879,7 +4879,7 @@ prepare_recv_req_converter.exit.thread140:        ; preds = %prepare_recv_req_co
   %371 = load volatile ptr, ptr %365, align 8
   %372 = getelementptr inbounds i8, ptr %371, i64 24
   store volatile ptr %370, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %.1144, i64 160
+  %373 = getelementptr inbounds i8, ptr %.0133144, i64 160
   %374 = load volatile i64, ptr %373, align 8
   %375 = add i64 %374, -1
   store volatile i64 %375, ptr %373, align 8
@@ -5022,7 +5022,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %432, %424
   %443 = load volatile ptr, ptr %437, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 24
   store volatile ptr %442, ptr %444, align 8
-  %445 = getelementptr inbounds i8, ptr %.1144, i64 160
+  %445 = getelementptr inbounds i8, ptr %.0133144, i64 160
   %446 = load volatile i64, ptr %445, align 8
   %447 = add i64 %446, -1
   store volatile i64 %447, ptr %445, align 8

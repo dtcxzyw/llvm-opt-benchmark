@@ -1498,7 +1498,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.outer, !llvm.loop !14
 
 _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit:   ; preds = %512, %473, %433, %431, %270, %437, %311, %320, %118
-  %.0 = phi i32 [ 0, %118 ], [ -1, %320 ], [ 0, %311 ], [ 0, %437 ], [ 0, %270 ], [ 0, %431 ], [ 0, %433 ], [ 0, %473 ], [ 0, %512 ]
+  %.2 = phi i32 [ 0, %118 ], [ -1, %320 ], [ 0, %311 ], [ 0, %437 ], [ 0, %270 ], [ 0, %431 ], [ 0, %433 ], [ 0, %473 ], [ 0, %512 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #15
   %515 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1587,7 +1587,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit143: ; preds = %.loopexit165, %.lo
   br label %552
 
 551:                                              ; preds = %111, %_ZN2cv3PtrINS_8saliency8SaliencyEED2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_8saliency8SaliencyEED2Ev.exit ], [ -1, %111 ]
+  %.1 = phi i32 [ %.2, %_ZN2cv3PtrINS_8saliency8SaliencyEED2Ev.exit ], [ -1, %111 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %10) #15
   br label %_ZL4helpv.exit
 
@@ -1597,12 +1597,12 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit143: ; preds = %.loopexit165, %.lo
   br label %553
 
 _ZL4helpv.exit:                                   ; preds = %.noexc, %551
-  %.2 = phi i32 [ %.1, %551 ], [ -1, %.noexc ]
+  %.0 = phi i32 [ %.1, %551 ], [ -1, %.noexc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
-  ret i32 %.2
+  ret i32 %.0
 
 553:                                              ; preds = %552, %94
   %.pn117 = phi { ptr, i32 } [ %95, %94 ], [ %.pn112.pn.pn.pn, %552 ]

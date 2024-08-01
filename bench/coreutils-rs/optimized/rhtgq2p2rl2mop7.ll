@@ -446,7 +446,7 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   tail call void @_ZN6uucore6parser10parse_size14parse_size_u6417hcd767cdba9530910E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br label %13
 
-13:                                               ; preds = %161, %166, %.thread114, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hebfb6a9eb27c0393E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83.thread"
+13:                                               ; preds = %161, %166, %.thread113, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hebfb6a9eb27c0393E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83.thread"
   ret void
 
 14:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83"
@@ -517,8 +517,8 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
 
 54:                                               ; preds = %35, %27
   %.sroa.6.2.ph = phi ptr [ %.sroa.6.0, %35 ], [ %18, %27 ]
-  %.sroa.4.0.i.ph = phi i32 [ %39, %35 ], [ %28, %27 ]
-  switch i32 %.sroa.4.0.i.ph, label %.thread107 [
+  %.sroa.4.1.i.ph = phi i32 [ %39, %35 ], [ %28, %27 ]
+  switch i32 %.sroa.4.1.i.ph, label %.thread106 [
     i32 66, label %83
     i32 98, label %69
     i32 107, label %71
@@ -531,14 +531,14 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
     i32 69, label %81
   ]
 
-.thread107:                                       ; preds = %81, %69, %129, %130, %131, %132, %133, %124, %124, %54, %83, %79, %77, %75, %73, %71
+.thread106:                                       ; preds = %81, %69, %129, %130, %131, %132, %133, %124, %124, %54, %83, %79, %77, %75, %73, %71
   %.058 = phi i64 [ 1, %83 ], [ 1125899906842624, %79 ], [ 1099511627776, %77 ], [ 1073741824, %75 ], [ 1048576, %73 ], [ 1024, %71 ], [ 1, %54 ], [ %spec.select, %69 ], [ %spec.select65, %81 ], [ 1000000000000000000, %133 ], [ 1000000000000000, %132 ], [ 1000000000000, %131 ], [ 1000000000, %130 ], [ 1000000, %129 ], [ 1000, %124 ], [ 1000, %124 ]
   %.0 = phi i64 [ %2, %83 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %2, %54 ], [ %spec.select64, %69 ], [ %spec.select66, %81 ], [ %85, %133 ], [ %85, %132 ], [ %85, %131 ], [ %85, %130 ], [ %85, %129 ], [ %85, %124 ], [ %85, %124 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %.not.i84 = icmp ugt i64 %.057, %.0
   br i1 %.not.i84, label %134, label %55
 
-55:                                               ; preds = %.thread107
+55:                                               ; preds = %.thread106
   br i1 %16, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %56
 
 56:                                               ; preds = %55
@@ -575,53 +575,53 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
 
 69:                                               ; preds = %54
   %spec.select = select i1 %15, i64 1, i64 512
-  %not.115 = xor i1 %15, true
-  %70 = sext i1 %not.115 to i64
+  %not.114 = xor i1 %15, true
+  %70 = sext i1 %not.114 to i64
   %spec.select64 = add i64 %70, %2
-  br label %.thread107
+  br label %.thread106
 
 71:                                               ; preds = %54, %54
   %72 = add i64 %2, -1
-  br label %.thread107
+  br label %.thread106
 
 73:                                               ; preds = %54, %54
   %74 = add i64 %2, -1
-  br label %.thread107
+  br label %.thread106
 
 75:                                               ; preds = %54
   %76 = add i64 %2, -1
-  br label %.thread107
+  br label %.thread106
 
 77:                                               ; preds = %54
   %78 = add i64 %2, -1
-  br label %.thread107
+  br label %.thread106
 
 79:                                               ; preds = %54
   %80 = add i64 %2, -1
-  br label %.thread107
+  br label %.thread106
 
 81:                                               ; preds = %54
   %spec.select65 = select i1 %15, i64 1, i64 1152921504606846976
   %not. = xor i1 %15, true
   %82 = sext i1 %not. to i64
   %spec.select66 = add i64 %82, %2
-  br label %.thread107
+  br label %.thread106
 
 83:                                               ; preds = %54
-  br i1 %15, label %.thread107, label %84
+  br i1 %15, label %.thread106, label %84
 
 84:                                               ; preds = %83
   %85 = add i64 %2, -2
   %86 = icmp eq ptr %.sroa.6.2.ph, %1
-  br i1 %86, label %.thread114, label %87
+  br i1 %86, label %.thread113, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %.sroa.6.2.ph, i64 -1
   %89 = load i8, ptr %88, align 1, !noalias !88, !noundef !4
   %90 = icmp sgt i8 %89, -1
-  br i1 %90, label %97, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i86"
+  br i1 %90, label %97, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i85"
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i86": ; preds = %87
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i85": ; preds = %87
   %91 = icmp ne ptr %88, %1
   tail call void @llvm.assume(i1 %91)
   %92 = getelementptr inbounds i8, ptr %.sroa.6.2.ph, i64 -2
@@ -629,13 +629,13 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   %94 = and i8 %93, 31
   %95 = zext nneg i8 %94 to i32
   %96 = icmp slt i8 %93, -64
-  br i1 %96, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i90", label %105
+  br i1 %96, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i89", label %105
 
 97:                                               ; preds = %87
   %98 = zext nneg i8 %89 to i32
   br label %124
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i90": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i86"
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i89": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i85"
   %99 = icmp ne ptr %92, %1
   tail call void @llvm.assume(i1 %99)
   %100 = getelementptr inbounds i8, ptr %.sroa.6.2.ph, i64 -3
@@ -643,17 +643,17 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   %102 = and i8 %101, 15
   %103 = zext nneg i8 %102 to i32
   %104 = icmp slt i8 %101, -64
-  br i1 %104, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i92", label %119
+  br i1 %104, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i91", label %119
 
-105:                                              ; preds = %119, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i86"
-  %.013.i87 = phi i32 [ %123, %119 ], [ %95, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i86" ]
-  %106 = shl nuw nsw i32 %.013.i87, 6
+105:                                              ; preds = %119, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i85"
+  %.013.i86 = phi i32 [ %123, %119 ], [ %95, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit19.i85" ]
+  %106 = shl nuw nsw i32 %.013.i86, 6
   %107 = and i8 %89, 63
   %108 = zext nneg i8 %107 to i32
   %109 = or disjoint i32 %106, %108
   br label %124
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i92": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i90"
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i91": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i89"
   %110 = icmp ne ptr %100, %1
   tail call void @llvm.assume(i1 %110)
   %111 = getelementptr inbounds i8, ptr %.sroa.6.2.ph, i64 -4
@@ -666,20 +666,20 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   %118 = or disjoint i32 %115, %117
   br label %119
 
-119:                                              ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i92", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i90"
-  %.1.i91 = phi i32 [ %118, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i92" ], [ %103, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i90" ]
-  %120 = shl nuw nsw i32 %.1.i91, 6
+119:                                              ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i91", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i89"
+  %.1.i90 = phi i32 [ %118, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit23.i91" ], [ %103, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4994cd40d2f09c90E.exit21.i89" ]
+  %120 = shl nuw nsw i32 %.1.i90, 6
   %121 = and i8 %93, 63
   %122 = zext nneg i8 %121 to i32
   %123 = or disjoint i32 %120, %122
   br label %105
 
 124:                                              ; preds = %105, %97
-  %.sroa.4.0.i88.ph = phi i32 [ %98, %97 ], [ %109, %105 ]
-  switch i32 %.sroa.4.0.i88.ph, label %.thread114 [
+  %.sroa.4.1.i87.ph = phi i32 [ %98, %97 ], [ %109, %105 ]
+  switch i32 %.sroa.4.1.i87.ph, label %.thread113 [
     i32 69, label %133
-    i32 107, label %.thread107
-    i32 75, label %.thread107
+    i32 107, label %.thread106
+    i32 75, label %.thread106
     i32 109, label %129
     i32 77, label %129
     i32 71, label %130
@@ -687,7 +687,7 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
     i32 80, label %132
   ]
 
-.thread114:                                       ; preds = %84, %124
+.thread113:                                       ; preds = %84, %124
   %125 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbb901f86ca1b4c0cE"(i64 noundef %2, i1 noundef zeroext false)
   %126 = extractvalue { i64, ptr } %125, 0
   %127 = extractvalue { i64, ptr } %125, 1
@@ -704,21 +704,21 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   br label %13
 
 129:                                              ; preds = %124, %124
-  br label %.thread107
+  br label %.thread106
 
 130:                                              ; preds = %124
-  br label %.thread107
+  br label %.thread106
 
 131:                                              ; preds = %124
-  br label %.thread107
+  br label %.thread106
 
 132:                                              ; preds = %124
-  br label %.thread107
+  br label %.thread106
 
 133:                                              ; preds = %124
-  br label %.thread107
+  br label %.thread106
 
-134:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %.thread107, %57, %64
+134:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %.thread106, %57, %64
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.057, i64 noundef %.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f13c4c14c678e35a14317366f76eb135.32) #11
   unreachable
 

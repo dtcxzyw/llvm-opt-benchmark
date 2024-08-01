@@ -1719,43 +1719,43 @@ define internal fastcc void @dissect_attr_sda(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not77, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %.lr.ph
-  %.176 = phi i32 [ %57, %.lr.ph ], [ %50, %45 ]
+  %.276 = phi i32 [ %57, %.lr.ph ], [ %50, %45 ]
   %.06975 = phi i32 [ %58, %.lr.ph ], [ 0, %45 ]
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.176) #4
+  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.276) #4
   %52 = zext i8 %51 to i32
   %53 = load i32, ptr @hf_nan_attr_sda_matching_filter_val, align 4
-  %54 = add i32 %.176, 1
+  %54 = add i32 %.276, 1
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %53, ptr noundef %1, i32 noundef %54, i32 noundef %52, i32 noundef 0) #4
   %56 = add nuw nsw i32 %52, 1
-  %57 = add i32 %56, %.176
+  %57 = add i32 %56, %.276
   %58 = add nuw nsw i32 %56, %.06975
   %59 = icmp ult i32 %58, %49
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %43
-  %.2 = phi i32 [ %.0, %43 ], [ %50, %45 ], [ %57, %.lr.ph ]
+  %.1 = phi i32 [ %.0, %43 ], [ %50, %45 ], [ %57, %.lr.ph ]
   %60 = and i32 %26, 8
   %.not73 = icmp eq i32 %60, 0
   br i1 %.not73, label %75, label %61
 
 61:                                               ; preds = %.loopexit
   %62 = load i32, ptr @hf_nan_attr_sda_service_response_filter_len, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %.2, i32 noundef 1, i32 noundef -2147483648) #4
-  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2) #4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %.1, i32 noundef 1, i32 noundef -2147483648) #4
+  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1) #4
   %65 = zext i8 %64 to i32
-  %66 = add i32 %.2, 1
+  %66 = add i32 %.1, 1
   %67 = load i32, ptr @hf_nan_attr_sda_srf_ctr, align 4
   %68 = load i32, ptr @ett_sda_service_ctr, align 4
   %69 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %66, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @dissect_attr_sda.srf_ctr_fields, i32 noundef -2147483648) #4
   %70 = load i32, ptr @hf_nan_attr_sda_srf_address_set, align 4
-  %71 = add i32 %.2, 2
+  %71 = add i32 %.1, 2
   %72 = add nsw i32 %65, -1
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %70, ptr noundef %1, i32 noundef %71, i32 noundef %72, i32 noundef 0) #4
   %74 = add i32 %66, %65
   br label %75
 
 75:                                               ; preds = %61, %.loopexit
-  %.3 = phi i32 [ %74, %61 ], [ %.2, %.loopexit ]
+  %.3 = phi i32 [ %74, %61 ], [ %.1, %.loopexit ]
   %76 = and i32 %26, 16
   %.not74 = icmp eq i32 %76, 0
   br i1 %.not74, label %84, label %77

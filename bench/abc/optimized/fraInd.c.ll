@@ -1964,7 +1964,7 @@ Abc_Clock.exit307:                                ; preds = %153, %156
 
 199:                                              ; preds = %.lr.ph344, %440
   %200 = phi ptr [ %179, %.lr.ph344 ], [ %441, %440 ]
-  %.0223343 = phi i32 [ 0, %.lr.ph344 ], [ %442, %440 ]
+  %.1224343 = phi i32 [ 0, %.lr.ph344 ], [ %442, %440 ]
   %201 = call i32 @Fra_ClassesCountLits(ptr noundef nonnull %200) #15
   %202 = load ptr, ptr %123, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 80
@@ -2281,7 +2281,7 @@ Abc_Clock.exit315:                                ; preds = %Abc_Clock.exit313, 
   %361 = load ptr, ptr %186, align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 116
   %363 = load i32, ptr %362, align 4
-  %364 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.0223343, i32 noundef %.val277, i32 noundef %.val276, i32 noundef %360, i32 noundef %363)
+  %364 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.1224343, i32 noundef %.val277, i32 noundef %.val276, i32 noundef %360, i32 noundef %363)
   %365 = load ptr, ptr %123, align 8
   %366 = getelementptr inbounds i8, ptr %365, i64 80
   %367 = load ptr, ptr %366, align 8
@@ -2440,14 +2440,14 @@ Abc_Clock.exit319:                                ; preds = %393, %396
 
 440:                                              ; preds = %._crit_edge, %417, %421, %429
   %441 = phi ptr [ %.pre354, %._crit_edge ], [ %418, %417 ], [ %.pre355, %421 ], [ %.pre355, %429 ]
-  %442 = add nuw nsw i32 %.0223343, 1
+  %442 = add nuw nsw i32 %.1224343, 1
   %443 = getelementptr inbounds i8, ptr %441, i64 76
   %444 = load i32, ptr %443, align 4
   %.not244 = icmp eq i32 %444, 0
   br i1 %.not244, label %.loopexit, label %199, !llvm.loop !28
 
 .loopexit:                                        ; preds = %440, %168, %439
-  %.0223336 = phi i32 [ %.0223343, %439 ], [ 0, %168 ], [ %442, %440 ]
+  %.1224336 = phi i32 [ %.1224343, %439 ], [ 0, %168 ], [ %442, %440 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %445 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #15
   %446 = icmp slt i32 %445, 0
@@ -2506,8 +2506,8 @@ Abc_Clock.exit321:                                ; preds = %.loopexit, %447
   br label %474
 
 474:                                              ; preds = %468, %459
-  %.0222 = phi ptr [ %465, %459 ], [ %473, %468 ]
-  %475 = call i32 @Aig_ManSeqCleanup(ptr noundef %.0222) #15
+  %.1 = phi ptr [ %465, %459 ], [ %473, %468 ]
+  %475 = call i32 @Aig_ManSeqCleanup(ptr noundef %.1) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %476 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #15
   %477 = icmp slt i32 %476, 0
@@ -2554,29 +2554,29 @@ Abc_Clock.exit325:                                ; preds = %Abc_Clock.exit323, 
   %501 = call i32 @Fra_ClassesCountLits(ptr noundef %500) #15
   %502 = getelementptr inbounds i8, ptr %95, i64 188
   store i32 %501, ptr %502, align 4
-  %503 = getelementptr i8, ptr %.0222, i64 148
-  %.0222.val285 = load i32, ptr %503, align 4
-  %504 = getelementptr i8, ptr %.0222, i64 152
-  %.0222.val286 = load i32, ptr %504, align 8
-  %505 = add nsw i32 %.0222.val286, %.0222.val285
+  %503 = getelementptr i8, ptr %.1, i64 148
+  %.1.val285 = load i32, ptr %503, align 4
+  %504 = getelementptr i8, ptr %.1, i64 152
+  %.1.val286 = load i32, ptr %504, align 8
+  %505 = add nsw i32 %.1.val286, %.1.val285
   %506 = getelementptr inbounds i8, ptr %95, i64 196
   store i32 %505, ptr %506, align 4
-  %507 = getelementptr i8, ptr %.0222, i64 104
-  %.0222.val = load i32, ptr %507, align 8
+  %507 = getelementptr i8, ptr %.1, i64 104
+  %.1.val = load i32, ptr %507, align 8
   %508 = getelementptr inbounds i8, ptr %95, i64 204
-  store i32 %.0222.val, ptr %508, align 4
+  store i32 %.1.val, ptr %508, align 4
   br label %509
 
 509:                                              ; preds = %231, %234, %164, %167, %Abc_Clock.exit325
-  %.1224 = phi i32 [ -1, %164 ], [ -1, %167 ], [ %.0223343, %231 ], [ %.0223343, %234 ], [ %.0223336, %Abc_Clock.exit325 ]
-  %.1 = phi ptr [ null, %164 ], [ null, %167 ], [ null, %231 ], [ null, %234 ], [ %.0222, %Abc_Clock.exit325 ]
+  %.0223 = phi i32 [ -1, %164 ], [ -1, %167 ], [ %.1224343, %231 ], [ %.1224343, %234 ], [ %.1224336, %Abc_Clock.exit325 ]
+  %.0222 = phi ptr [ null, %164 ], [ null, %167 ], [ null, %231 ], [ null, %234 ], [ %.1, %Abc_Clock.exit325 ]
   call void @Fra_ManStop(ptr noundef nonnull %95) #15
   %510 = getelementptr inbounds i8, ptr %1, i64 60
-  store i32 %.1224, ptr %510, align 4
+  store i32 %.0223, ptr %510, align 4
   br label %511
 
 511:                                              ; preds = %509, %70, %48
-  %.0 = phi ptr [ %52, %48 ], [ %71, %70 ], [ %.1, %509 ]
+  %.0 = phi ptr [ %52, %48 ], [ %71, %70 ], [ %.0222, %509 ]
   ret ptr %.0
 }
 

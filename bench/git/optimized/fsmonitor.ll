@@ -586,16 +586,16 @@ if.then76:                                        ; preds = %if.then73
   br label %if.then83
 
 if.end80:                                         ; preds = %if.then39, %if.else61, %if.then60, %if.else70
-  %is_trivial.0 = phi i32 [ %conv68, %if.else61 ], [ 0, %if.then60 ], [ 0, %if.else70 ], [ 0, %if.then39 ]
-  %bol.0 = phi i64 [ %add63, %if.else61 ], [ 0, %if.then60 ], [ 0, %if.else70 ], [ 0, %if.then39 ]
+  %is_trivial.1 = phi i32 [ %conv68, %if.else61 ], [ 0, %if.then60 ], [ 0, %if.else70 ], [ 0, %if.then39 ]
+  %bol.1 = phi i64 [ %add63, %if.else61 ], [ 0, %if.then60 ], [ 0, %if.else70 ], [ 0, %if.then39 ]
   %hook_version.0 = phi i32 [ %spec.store.select, %if.else61 ], [ %spec.store.select, %if.then60 ], [ %retval.0.i90, %if.else70 ], [ %retval.0.i90, %if.then39 ]
-  %query_success.0.shrunk = phi i1 [ true, %if.else61 ], [ false, %if.then60 ], [ false, %if.else70 ], [ false, %if.then39 ]
+  %query_success.1.shrunk = phi i1 [ true, %if.else61 ], [ false, %if.then60 ], [ false, %if.else70 ], [ false, %if.then39 ]
   %cmp81 = icmp eq i32 %hook_version.0, 1
   br i1 %cmp81, label %if.then83, label %if.end97
 
 if.then83:                                        ; preds = %if.then76, %if.then73, %if.end80
-  %bol.099 = phi i64 [ %bol.0, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
-  %is_trivial.097 = phi i32 [ %is_trivial.0, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
+  %bol.199 = phi i64 [ %bol.1, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
+  %is_trivial.197 = phi i32 [ %is_trivial.1, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
   %15 = load ptr, ptr %fsmonitor_last_update37, align 8
   %call85 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 1, ptr noundef %15, ptr noundef nonnull %query_result)
   %tobool86.not = icmp eq i32 %call85, 0
@@ -610,10 +610,10 @@ if.then90:                                        ; preds = %if.then83
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then83, %if.then90, %if.end80
-  %bol.098 = phi i64 [ %bol.099, %if.then90 ], [ %bol.099, %if.then83 ], [ %bol.0, %if.end80 ]
-  %is_trivial.1 = phi i32 [ %conv95, %if.then90 ], [ %is_trivial.097, %if.then83 ], [ %is_trivial.0, %if.end80 ]
-  %query_success.1.in = phi i1 [ true, %if.then90 ], [ false, %if.then83 ], [ %query_success.0.shrunk, %if.end80 ]
-  %tobool98.not = icmp eq i32 %is_trivial.1, 0
+  %bol.198 = phi i64 [ %bol.199, %if.then90 ], [ %bol.199, %if.then83 ], [ %bol.1, %if.end80 ]
+  %is_trivial.2 = phi i32 [ %conv95, %if.then90 ], [ %is_trivial.197, %if.then83 ], [ %is_trivial.1, %if.end80 ]
+  %query_success.2.in = phi i1 [ true, %if.then90 ], [ false, %if.then83 ], [ %query_success.1.shrunk, %if.end80 ]
+  %tobool98.not = icmp eq i32 %is_trivial.2, 0
   br i1 %tobool98.not, label %do.body101, label %if.then99
 
 if.then99:                                        ; preds = %if.end97
@@ -647,18 +647,18 @@ do.body109:                                       ; preds = %if.then104, %do.bod
 
 if.then112:                                       ; preds = %do.body109
   %call113 = call ptr @fsm_settings__get_hook_path(ptr noundef %0) #7
-  %cond115 = select i1 %query_success.1.in, ptr @.str.20, ptr @.str.21
+  %cond115 = select i1 %query_success.2.in, ptr @.str.20, ptr @.str.21
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 433, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.19, ptr noundef %call113, ptr noundef nonnull %cond115) #7
   br label %apply_results
 
 apply_results:                                    ; preds = %if.end36, %do.body109, %if.then112, %if.else, %if.then27, %if.then21
-  %is_trivial.2 = phi i32 [ 1, %if.then27 ], [ 0, %if.then21 ], [ 0, %if.else ], [ %is_trivial.1, %if.then112 ], [ %is_trivial.1, %do.body109 ], [ 0, %if.end36 ]
-  %bol.1 = phi i64 [ %add, %if.then27 ], [ %add, %if.then21 ], [ 0, %if.else ], [ %bol.098, %if.then112 ], [ %bol.098, %do.body109 ], [ 0, %if.end36 ]
-  %query_success.2.shrunk = phi i1 [ true, %if.then27 ], [ true, %if.then21 ], [ false, %if.else ], [ %query_success.1.in, %if.then112 ], [ %query_success.1.in, %do.body109 ], [ false, %if.end36 ]
+  %is_trivial.0 = phi i32 [ 1, %if.then27 ], [ 0, %if.then21 ], [ 0, %if.else ], [ %is_trivial.2, %if.then112 ], [ %is_trivial.2, %do.body109 ], [ 0, %if.end36 ]
+  %bol.0 = phi i64 [ %add, %if.then27 ], [ %add, %if.then21 ], [ 0, %if.else ], [ %bol.198, %if.then112 ], [ %bol.198, %do.body109 ], [ 0, %if.end36 ]
+  %query_success.0.shrunk = phi i1 [ true, %if.then27 ], [ true, %if.then21 ], [ false, %if.else ], [ %query_success.2.in, %if.then112 ], [ %query_success.2.in, %do.body109 ], [ false, %if.end36 ]
   %18 = load ptr, ptr %repo, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 450, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %18) #7
-  %tobool122 = icmp eq i32 %is_trivial.2, 0
-  %or.cond2.not = and i1 %tobool122, %query_success.2.shrunk
+  %tobool122 = icmp eq i32 %is_trivial.0, 0
+  %or.cond2.not = and i1 %tobool122, %query_success.0.shrunk
   br i1 %or.cond2.not, label %if.then123, label %for.cond160.preheader
 
 for.cond160.preheader:                            ; preds = %apply_results
@@ -679,20 +679,20 @@ if.then123:                                       ; preds = %apply_results
   %buf124 = getelementptr inbounds i8, ptr %query_result, i64 16
   %23 = load ptr, ptr %buf124, align 8
   %len127 = getelementptr inbounds i8, ptr %query_result, i64 8
-  %conv126106 = and i64 %bol.1, 4294967295
+  %conv126106 = and i64 %bol.0, 4294967295
   %24 = load i64, ptr %len127, align 8
   %cmp128107 = icmp ugt i64 %24, %conv126106
   br i1 %cmp128107, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then123
-  %conv125 = trunc i64 %bol.1 to i32
+  %conv125 = trunc i64 %bol.0 to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %25 = phi i64 [ %27, %for.inc ], [ %24, %for.body.preheader ]
   %conv126111 = phi i64 [ %conv126.pre-phi, %for.inc ], [ %conv126106, %for.body.preheader ]
   %count.0110 = phi i32 [ %count.1, %for.inc ], [ 0, %for.body.preheader ]
-  %bol.2109 = phi i64 [ %bol.3, %for.inc ], [ %bol.1, %for.body.preheader ]
+  %bol.2109 = phi i64 [ %bol.3, %for.inc ], [ %bol.0, %for.body.preheader ]
   %i.0108 = phi i32 [ %inc138.pre-phi, %for.inc ], [ %conv125, %for.body.preheader ]
   %arrayidx130 = getelementptr inbounds i8, ptr %23, i64 %conv126111
   %26 = load i8, ptr %arrayidx130, align 1
@@ -723,7 +723,7 @@ for.inc:                                          ; preds = %for.body.for.inc_cr
   br i1 %cmp128, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.then123
-  %bol.2.lcssa = phi i64 [ %bol.1, %if.then123 ], [ %bol.3, %for.inc ]
+  %bol.2.lcssa = phi i64 [ %bol.0, %if.then123 ], [ %bol.3, %for.inc ]
   %count.0.lcssa = phi i32 [ 0, %if.then123 ], [ %count.1, %for.inc ]
   %.lcssa = phi i64 [ %24, %if.then123 ], [ %27, %for.inc ]
   %cmp140 = icmp ult i64 %bol.2.lcssa, %.lcssa

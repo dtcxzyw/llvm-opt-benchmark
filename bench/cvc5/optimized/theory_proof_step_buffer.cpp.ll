@@ -1001,8 +1001,8 @@ ehcleanup66:                                      ; preds = %ehcleanup64, %lpad1
   resume { ptr, i32 } %.pn3.pn
 
 return:                                           ; preds = %if.then.i.i.i87, %invoke.cont.i85, %land.rhs
-  %retval.1 = phi i1 [ true, %land.rhs ], [ %cmp.i, %invoke.cont.i85 ], [ %cmp.i, %if.then.i.i.i87 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %land.rhs ], [ %cmp.i, %invoke.cont.i85 ], [ %cmp.i, %if.then.i.i.i87 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTemplateILb0EEES3_(ptr noundef, ptr noundef) local_unnamed_addr #0

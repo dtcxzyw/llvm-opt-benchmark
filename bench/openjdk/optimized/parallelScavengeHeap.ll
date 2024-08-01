@@ -863,7 +863,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %41
 _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %36, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %48, %32, %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %_ZN13MutexUnlockerD2Ev.exit
   %.138 = phi i32 [ %47, %_ZN13MutexUnlockerD2Ev.exit ], [ %.03774, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.03774, %30 ], [ %.03774, %32 ], [ %.03774, %48 ], [ %.03774, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.03774, %36 ]
   %.035 = phi i32 [ 2, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 1, %30 ], [ 1, %32 ], [ 1, %48 ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ 0, %36 ]
-  %.233 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
+  %.132 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
   %.1 = phi ptr [ %.075, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ %.075, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.075, %36 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %53
 
@@ -879,11 +879,11 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   ]
 
 .backedge:                                        ; preds = %_ZN11MutexLockerD2Ev.exit, %81
-  %54 = icmp eq ptr %.233, null
+  %54 = icmp eq ptr %.132, null
   br i1 %54, label %18, label %.loopexit
 
 55:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  %56 = icmp eq ptr %.233, null
+  %56 = icmp eq ptr %.132, null
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %55
@@ -937,7 +937,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %.thread
 
 .thread:                                          ; preds = %78, %77, %74
-  %.2.ph = phi ptr [ null, %74 ], [ null, %77 ], [ %80, %78 ]
+  %.4.ph = phi ptr [ null, %74 ], [ null, %77 ], [ %80, %78 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #15
   br label %.loopexit
 
@@ -980,8 +980,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %55, %_ZN11MutexLockerD2Ev.exit, %.backedge, %4, %.thread
-  %.4 = phi ptr [ %.2.ph, %.thread ], [ %12, %4 ], [ %.233, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.233, %.backedge ]
-  ret ptr %.4
+  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.132, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.132, %.backedge ]
+  ret ptr %.2
 
 default.unreachable98:                            ; preds = %_ZN11MutexLockerD2Ev.exit
   unreachable

@@ -724,14 +724,14 @@ cleanup88:                                        ; preds = %if.then70, %if.then
   br label %cleanup107
 
 if.end92:                                         ; preds = %cleanup88.thread, %if.else52, %if.end49
-  %outstream.1 = phi ptr [ @_ZSt4cout, %if.end49 ], [ @_ZSt4cerr, %if.else52 ], [ %outfile, %cleanup88.thread ]
+  %outstream.0 = phi ptr [ @_ZSt4cout, %if.end49 ], [ @_ZSt4cerr, %if.else52 ], [ %outfile, %cleanup88.thread ]
   call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node11per_process17cli_options_mutexE) #23
   %18 = load ptr, ptr @_ZN4node11per_process11cli_optionsE, align 8
   %report_compact = getelementptr inbounds i8, ptr %18, i64 392
   %19 = load i8, ptr %report_compact, align 8
   %tobool = trunc i8 %19 to i1
   call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node11per_process17cli_options_mutexE) #23
-  call fastcc void @_ZN4node6reportL15WriteNodeReportEPN2v87IsolateEPNS_11EnvironmentEPKcS7_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS1_5LocalINS1_5ValueEEEb(ptr noundef %isolate, ptr noundef %env, ptr noundef %message, ptr noundef %trigger, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(8) %outstream.1, i64 %error.coerce, i1 noundef zeroext %tobool)
+  call fastcc void @_ZN4node6reportL15WriteNodeReportEPN2v87IsolateEPNS_11EnvironmentEPKcS7_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS1_5LocalINS1_5ValueEEEb(ptr noundef %isolate, ptr noundef %env, ptr noundef %message, ptr noundef %trigger, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(8) %outstream.0, i64 %error.coerce, i1 noundef zeroext %tobool)
   %call99 = call noundef zeroext i1 @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(248) %outfile) #23
   br i1 %call99, label %if.then100, label %if.end101
 

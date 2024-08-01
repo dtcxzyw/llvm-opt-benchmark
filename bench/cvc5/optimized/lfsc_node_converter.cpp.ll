@@ -15860,14 +15860,14 @@ arraydestroy.body217:                             ; preds = %arraydestroy.body21
 
 ehcleanup222:                                     ; preds = %arraydestroy.body217, %lpad195
   %.pn11.pn = phi { ptr, i32 } [ %204, %lpad195 ], [ %.pn11, %arraydestroy.body217 ]
-  %arrayinit.endOfInit186.2 = phi ptr [ %arrayinit.endOfInit186.1, %lpad195 ], [ %arrayinit.element197, %arraydestroy.body217 ]
+  %arrayinit.endOfInit186.4 = phi ptr [ %arrayinit.endOfInit186.1, %lpad195 ], [ %arrayinit.element197, %arraydestroy.body217 ]
   %206 = phi i1 [ false, %lpad195 ], [ true, %arraydestroy.body217 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp193) #21
   br label %ehcleanup224
 
 ehcleanup224:                                     ; preds = %lpad190, %ehcleanup222
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %ehcleanup222 ], [ %203, %lpad190 ]
-  %arrayinit.endOfInit186.3 = phi ptr [ %arrayinit.endOfInit186.2, %ehcleanup222 ], [ %arrayinit.endOfInit186.0, %lpad190 ]
+  %arrayinit.endOfInit186.3 = phi ptr [ %arrayinit.endOfInit186.4, %ehcleanup222 ], [ %arrayinit.endOfInit186.0, %lpad190 ]
   %cleanup.isactive.1 = phi i1 [ %206, %ehcleanup222 ], [ false, %lpad190 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp187) #21
   %arraydestroy.isempty225 = icmp eq ptr %ref.tmp184, %arrayinit.endOfInit186.3

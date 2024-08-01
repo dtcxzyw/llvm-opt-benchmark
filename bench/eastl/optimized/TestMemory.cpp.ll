@@ -1542,13 +1542,13 @@ for.cond599.preheader:                            ; preds = %if.then.i432, %for.
 
 for.body601:                                      ; preds = %for.cond599.preheader, %_ZN5eastl5alignEmmRPvRm.exit445
   %i590.0569 = phi i64 [ 0, %for.cond599.preheader ], [ %add617, %_ZN5eastl5alignEmmRPvRm.exit445 ]
-  %ptr.1568 = phi ptr [ %spec.select514, %for.cond599.preheader ], [ %add.ptr614, %_ZN5eastl5alignEmmRPvRm.exit445 ]
+  %ptr.0568 = phi ptr [ %spec.select514, %for.cond599.preheader ], [ %add.ptr614, %_ZN5eastl5alignEmmRPvRm.exit445 ]
   %space.0567 = phi i64 [ 256, %for.cond599.preheader ], [ %sub615, %_ZN5eastl5alignEmmRPvRm.exit445 ]
   %cmp.not.i435 = icmp ult i64 %space.0567, %a.0570
   br i1 %cmp.not.i435, label %_ZN5eastl5alignEmmRPvRm.exit445, label %if.then.i436
 
 if.then.i436:                                     ; preds = %for.body601
-  %233 = ptrtoint ptr %ptr.1568 to i64
+  %233 = ptrtoint ptr %ptr.0568 to i64
   %add.i437 = add i64 %sub.i, %233
   %and.i438 = and i64 %add.i437, %sub1.i
   %sub.ptr.sub.i439 = sub i64 %and.i438, %233
@@ -1562,17 +1562,17 @@ if.then4.i442:                                    ; preds = %if.then.i436
   br label %_ZN5eastl5alignEmmRPvRm.exit445
 
 _ZN5eastl5alignEmmRPvRm.exit445:                  ; preds = %for.body601, %if.then.i436, %if.then4.i442
-  %space.1 = phi i64 [ %space.0567, %for.body601 ], [ %space.0567, %if.then.i436 ], [ %sub5.i443, %if.then4.i442 ]
-  %ptr.2 = phi ptr [ %ptr.1568, %for.body601 ], [ %ptr.1568, %if.then.i436 ], [ %234, %if.then4.i442 ]
+  %space.2 = phi i64 [ %space.0567, %for.body601 ], [ %space.0567, %if.then.i436 ], [ %sub5.i443, %if.then4.i442 ]
+  %ptr.3 = phi ptr [ %ptr.0568, %for.body601 ], [ %ptr.0568, %if.then.i436 ], [ %234, %if.then4.i442 ]
   %retval.0.i444 = phi ptr [ null, %for.body601 ], [ null, %if.then.i436 ], [ %234, %if.then4.i442 ]
   %235 = ptrtoint ptr %retval.0.i444 to i64
   %add = or disjoint i64 %i590.0569, %232
   %cmp603 = icmp eq i64 %add, %235
   %call604 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp603, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 727, ptr noundef nonnull @.str.69)
-  %cmp605 = icmp eq ptr %ptr.2, %retval.0.i444
+  %cmp605 = icmp eq ptr %ptr.3, %retval.0.i444
   %call606 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp605, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 728, ptr noundef nonnull @.str.70)
   %sub = sub nuw nsw i64 256, %i590.0569
-  %cmp607 = icmp eq i64 %space.1, %sub
+  %cmp607 = icmp eq i64 %space.2, %sub
   %call608 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp607, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 729, ptr noundef nonnull @.str.71)
   %and.i447 = and i64 %sub.i, %235
   %cmp.i448 = icmp eq i64 %and.i447, 0
@@ -1580,8 +1580,8 @@ _ZN5eastl5alignEmmRPvRm.exit445:                  ; preds = %for.body601, %if.th
   %call611 = call noundef ptr @_ZN2EA4StdC9Memcheck8EPKvhm(ptr noundef %retval.0.i444, i8 noundef zeroext 0, i64 noundef %a.0570)
   %cmp612 = icmp eq ptr %call611, null
   %call613 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp612, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 731, ptr noundef nonnull @.str.73)
-  %add.ptr614 = getelementptr inbounds i8, ptr %ptr.2, i64 %a.0570
-  %sub615 = sub i64 %space.1, %a.0570
+  %add.ptr614 = getelementptr inbounds i8, ptr %ptr.3, i64 %a.0570
+  %sub615 = sub i64 %space.2, %a.0570
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i444, i8 -1, i64 %a.0570, i1 false)
   %add617 = add nuw nsw i64 %i590.0569, %a.0570
   %cmp600 = icmp ult i64 %add617, 256
@@ -1601,30 +1601,30 @@ for.cond627.preheader:                            ; preds = %for.end618, %for.en
 
 for.body629:                                      ; preds = %for.cond627.preheader, %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit
   %i590.1573 = phi i64 [ 0, %for.cond627.preheader ], [ %240, %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit ]
-  %ptr.3572 = phi ptr [ %spec.select514, %for.cond627.preheader ], [ %ptr.4, %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit ]
-  %space.2571 = phi i64 [ 256, %for.cond627.preheader ], [ %space.3, %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit ]
-  %cmp.not.i452 = icmp ult i64 %space.2571, %a623.0574
+  %ptr.1572 = phi ptr [ %spec.select514, %for.cond627.preheader ], [ %ptr.4, %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit ]
+  %space.1571 = phi i64 [ 256, %for.cond627.preheader ], [ %space.3, %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit ]
+  %cmp.not.i452 = icmp ult i64 %space.1571, %a623.0574
   br i1 %cmp.not.i452, label %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit, label %if.then.i453
 
 if.then.i453:                                     ; preds = %for.body629
-  %236 = ptrtoint ptr %ptr.3572 to i64
+  %236 = ptrtoint ptr %ptr.1572 to i64
   %add.i455 = add i64 %sub.i454, %236
   %and.i457 = and i64 %add.i455, %sub1.i456575
   %sub.ptr.sub.i458 = sub i64 %and.i457, %236
-  %sub2.i459 = sub nuw i64 %space.2571, %a623.0574
+  %sub2.i459 = sub nuw i64 %space.1571, %a623.0574
   %cmp3.not.i460 = icmp ult i64 %sub2.i459, %sub.ptr.sub.i458
   br i1 %cmp3.not.i460, label %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit, label %if.then4.i461
 
 if.then4.i461:                                    ; preds = %if.then.i453
   %237 = inttoptr i64 %and.i457 to ptr
   %add.ptr.i = getelementptr inbounds i8, ptr %237, i64 %a623.0574
-  %.neg = add i64 %space.2571, %sub1.i456575
+  %.neg = add i64 %space.1571, %sub1.i456575
   %sub9.i = sub i64 %.neg, %sub.ptr.sub.i458
   br label %_ZN5eastl13align_advanceEmmPvmPS0_Pm.exit
 
 _ZN5eastl13align_advanceEmmPvmPS0_Pm.exit:        ; preds = %for.body629, %if.then.i453, %if.then4.i461
-  %space.3 = phi i64 [ %space.2571, %for.body629 ], [ %space.2571, %if.then.i453 ], [ %sub9.i, %if.then4.i461 ]
-  %ptr.4 = phi ptr [ %ptr.3572, %for.body629 ], [ %ptr.3572, %if.then.i453 ], [ %add.ptr.i, %if.then4.i461 ]
+  %space.3 = phi i64 [ %space.1571, %for.body629 ], [ %space.1571, %if.then.i453 ], [ %sub9.i, %if.then4.i461 ]
+  %ptr.4 = phi ptr [ %ptr.1572, %for.body629 ], [ %ptr.1572, %if.then.i453 ], [ %add.ptr.i, %if.then4.i461 ]
   %retval.0.i463 = phi ptr [ null, %for.body629 ], [ null, %if.then.i453 ], [ %237, %if.then4.i461 ]
   %238 = ptrtoint ptr %retval.0.i463 to i64
   %add631 = or disjoint i64 %i590.1573, %232

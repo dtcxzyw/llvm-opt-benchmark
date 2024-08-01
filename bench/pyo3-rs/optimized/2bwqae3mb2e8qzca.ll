@@ -5247,13 +5247,13 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
   br label %.invoke114
 
 164:                                              ; preds = %193, %166
-  %.sroa.037.0 = phi i8 [ %.sroa.037.1, %166 ], [ %.sroa.037.2, %193 ]
+  %.sroa.037.1 = phi i8 [ %.sroa.037.0, %166 ], [ %.sroa.037.3, %193 ]
   %.pn75 = phi { ptr, i32 } [ %167, %166 ], [ %.pn73, %193 ]
-  %165 = trunc nuw i8 %.sroa.037.0 to i1
+  %165 = trunc nuw i8 %.sroa.037.1 to i1
   br i1 %165, label %559, label %137
 
 166:                                              ; preds = %543, %198, %161
-  %.sroa.037.1 = phi i8 [ %.sroa.037.4, %198 ], [ %.sroa.037.5, %543 ], [ 1, %161 ]
+  %.sroa.037.0 = phi i8 [ %.sroa.037.4, %198 ], [ %.sroa.037.5, %543 ], [ 1, %161 ]
   %167 = landingpad { ptr, i32 }
           cleanup
   br label %164
@@ -5313,13 +5313,13 @@ define void @_ZN19pyo3_macros_backend12frompyobject26build_derive_from_pyobject1
           to label %196 unwind label %194
 
 193:                                              ; preds = %539, %.body92, %211, %201, %194
-  %.sroa.037.2 = phi i8 [ %.sroa.037.3, %194 ], [ %.sroa.037.5, %539 ], [ 1, %.body92 ], [ 0, %211 ], [ 1, %201 ]
+  %.sroa.037.3 = phi i8 [ %.sroa.037.2, %194 ], [ %.sroa.037.5, %539 ], [ 1, %.body92 ], [ 0, %211 ], [ 1, %201 ]
   %.pn73 = phi { ptr, i32 } [ %195, %194 ], [ %.pn71, %539 ], [ %eh.lpad-body93, %.body92 ], [ %212, %211 ], [ %202, %201 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %72) #10
           to label %164 unwind label %217
 
 194:                                              ; preds = %245, %.noexc87, %233, %554, %552, %549, %547, %542, %476, %219, %213, %204, %203, %192, %188, %184
-  %.sroa.037.3 = phi i8 [ 1, %554 ], [ 1, %552 ], [ 1, %184 ], [ 1, %549 ], [ 1, %547 ], [ 1, %219 ], [ %.sroa.037.5, %542 ], [ 1, %476 ], [ 1, %192 ], [ 0, %213 ], [ 0, %204 ], [ 1, %203 ], [ 1, %188 ], [ 1, %233 ], [ 1, %.noexc87 ], [ 1, %245 ]
+  %.sroa.037.2 = phi i8 [ 1, %554 ], [ 1, %552 ], [ 1, %184 ], [ 1, %549 ], [ 1, %547 ], [ 1, %219 ], [ %.sroa.037.5, %542 ], [ 1, %476 ], [ 1, %192 ], [ 0, %213 ], [ 0, %204 ], [ 1, %203 ], [ 1, %188 ], [ 1, %233 ], [ 1, %.noexc87 ], [ 1, %245 ]
   %195 = landingpad { ptr, i32 }
           cleanup
   br label %193

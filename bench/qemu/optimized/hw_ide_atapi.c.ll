@@ -513,13 +513,13 @@ trace_ide_atapi_cmd_reply_end_bcl.exit:           ; preds = %if.else25, %land.lh
   %59 = load i32, ptr %packet_transfer_size, align 8
   %cmp29 = icmp sgt i32 %59, %conv
   %spec.select68 = and i32 %conv, 65534
-  %size.0 = select i1 %cmp29, i32 %spec.select68, i32 %59
-  %conv37 = trunc i32 %size.0 to i8
+  %size.1 = select i1 %cmp29, i32 %spec.select68, i32 %59
+  %conv37 = trunc i32 %size.1 to i8
   store i8 %conv37, ptr %0, align 1
-  %shr = lshr i32 %size.0, 8
+  %shr = lshr i32 %size.1, 8
   %conv38 = trunc i32 %shr to i8
   store i8 %conv38, ptr %1, align 2
-  store i32 %size.0, ptr %elementary_transfer_size, align 4
+  store i32 %size.1, ptr %elementary_transfer_size, align 4
   %60 = load i32, ptr %lba, align 4
   %cmp41.not = icmp eq i32 %60, -1
   br i1 %cmp41.not, label %if.end54, label %if.then43
@@ -528,11 +528,11 @@ if.then43:                                        ; preds = %trace_ide_atapi_cmd
   %61 = load i32, ptr %cd_sector_size, align 8
   %62 = load i32, ptr %io_buffer_index, align 8
   %sub46 = sub i32 %61, %62
-  %spec.select69 = tail call i32 @llvm.smin.i32(i32 %size.0, i32 %sub46)
+  %spec.select69 = tail call i32 @llvm.smin.i32(i32 %size.1, i32 %sub46)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then43, %trace_ide_atapi_cmd_reply_end_bcl.exit
-  %size.1 = phi i32 [ %size.0, %trace_ide_atapi_cmd_reply_end_bcl.exit ], [ %spec.select69, %if.then43 ]
+  %size.2 = phi i32 [ %size.1, %trace_ide_atapi_cmd_reply_end_bcl.exit ], [ %spec.select69, %if.then43 ]
   %63 = load i8, ptr %status, align 1
   %conv55 = zext i8 %63 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i116)
@@ -575,16 +575,16 @@ trace_ide_atapi_cmd_reply_end_new.exit:           ; preds = %if.end54, %land.lhs
 if.end56:                                         ; preds = %if.then17, %trace_ide_atapi_cmd_reply_end_new.exit
   %70 = phi i32 [ %.pre179, %trace_ide_atapi_cmd_reply_end_new.exit ], [ %50, %if.then17 ]
   %71 = phi i32 [ %.pre, %trace_ide_atapi_cmd_reply_end_new.exit ], [ %48, %if.then17 ]
-  %size.2 = phi i32 [ %size.1, %trace_ide_atapi_cmd_reply_end_new.exit ], [ %spec.select, %if.then17 ]
+  %size.0 = phi i32 [ %size.2, %trace_ide_atapi_cmd_reply_end_new.exit ], [ %spec.select, %if.then17 ]
   %72 = load i32, ptr %packet_transfer_size, align 8
-  %sub58 = sub i32 %72, %size.2
+  %sub58 = sub i32 %72, %size.0
   store i32 %sub58, ptr %packet_transfer_size, align 8
-  %sub60 = sub i32 %71, %size.2
+  %sub60 = sub i32 %71, %size.0
   store i32 %sub60, ptr %elementary_transfer_size, align 4
-  %add = add i32 %70, %size.2
+  %add = add i32 %70, %size.0
   store i32 %add, ptr %io_buffer_index, align 8
   %73 = load i32, ptr %io_buffer_total_len, align 8
-  %cmp62.not = icmp sgt i32 %size.2, %73
+  %cmp62.not = icmp sgt i32 %size.0, %73
   br i1 %cmp62.not, label %if.else65, label %if.end66
 
 if.else65:                                        ; preds = %if.end56
@@ -603,10 +603,10 @@ if.end73:                                         ; preds = %if.end66
   %74 = load ptr, ptr %io_buffer9.i, align 8
   %idx.ext = sext i32 %add to i64
   %add.ptr = getelementptr i8, ptr %74, i64 %idx.ext
-  %idx.ext75 = sext i32 %size.2 to i64
+  %idx.ext75 = sext i32 %size.0 to i64
   %idx.neg = sub nsw i64 0, %idx.ext75
   %add.ptr76 = getelementptr i8, ptr %add.ptr, i64 %idx.neg
-  %call77 = tail call zeroext i1 @ide_transfer_start_norecurse(ptr noundef nonnull %s, ptr noundef %add.ptr76, i32 noundef %size.2, ptr noundef nonnull @ide_atapi_cmd_reply_end) #9
+  %call77 = tail call zeroext i1 @ide_transfer_start_norecurse(ptr noundef nonnull %s, ptr noundef %add.ptr76, i32 noundef %size.0, ptr noundef nonnull @ide_atapi_cmd_reply_end) #9
   br i1 %call77, label %while.cond, label %return, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond

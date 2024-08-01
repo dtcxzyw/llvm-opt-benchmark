@@ -2709,7 +2709,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %_ZL17should_remove_argPK8grpc_argPPKcm.exit
   %i.074 = phi i64 [ 0, %for.body.lr.ph.split ], [ %inc3, %_ZL17should_remove_argPK8grpc_argPPKcm.exit ]
-  %num_args_to_copy.073 = phi i64 [ 0, %for.body.lr.ph.split ], [ %spec.select, %_ZL17should_remove_argPK8grpc_argPPKcm.exit ]
+  %num_args_to_copy.173 = phi i64 [ 0, %for.body.lr.ph.split ], [ %spec.select, %_ZL17should_remove_argPK8grpc_argPPKcm.exit ]
   %key.i = getelementptr inbounds %struct.grpc_arg, ptr %1, i64 %i.074, i32 1
   %3 = load ptr, ptr %key.i, align 8
   %call.i68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %2) #33
@@ -2738,15 +2738,15 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit:      ; preds = %_ZL17should_remove_
   %cond.fr = freeze i1 %cmp.lcssa.i
   %not.cond.fr = xor i1 %cond.fr, true
   %inc = zext i1 %not.cond.fr to i64
-  %spec.select = add i64 %num_args_to_copy.073, %inc
+  %spec.select = add i64 %num_args_to_copy.173, %inc
   %inc3 = add nuw i64 %i.074, 1
   %exitcond.not = icmp eq i64 %inc3, %0
   br i1 %exitcond.not, label %if.end4, label %for.body, !llvm.loop !67
 
 if.end4:                                          ; preds = %_ZL17should_remove_argPK8grpc_argPPKcm.exit, %for.body.lr.ph, %for.cond.preheader, %entry
-  %num_args_to_copy.2 = phi i64 [ 0, %entry ], [ 0, %for.cond.preheader ], [ %0, %for.body.lr.ph ], [ %spec.select, %_ZL17should_remove_argPK8grpc_argPPKcm.exit ]
+  %num_args_to_copy.0 = phi i64 [ 0, %entry ], [ 0, %for.cond.preheader ], [ %0, %for.body.lr.ph ], [ %spec.select, %_ZL17should_remove_argPK8grpc_argPPKcm.exit ]
   %call5 = tail call ptr @gpr_malloc(i64 noundef 16)
-  %add = add i64 %num_args_to_copy.2, %num_to_add
+  %add = add i64 %num_args_to_copy.0, %num_to_add
   store i64 %add, ptr %call5, align 8
   %cmp8 = icmp eq i64 %add, 0
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -2776,9 +2776,9 @@ for.body21.lr.ph:                                 ; preds = %for.cond18.preheade
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc32
   %6 = phi i64 [ %5, %for.body21.lr.ph ], [ %18, %for.inc32 ]
   %i17.085 = phi i64 [ 0, %for.body21.lr.ph ], [ %inc33, %for.inc32 ]
-  %dst_idx.084 = phi i64 [ 0, %for.body21.lr.ph ], [ %dst_idx.1, %for.inc32 ]
-  %ref.tmp.sroa.3.083 = phi ptr [ undef, %for.body21.lr.ph ], [ %ref.tmp.sroa.3.2, %for.inc32 ]
-  %ref.tmp.sroa.7.082 = phi ptr [ undef, %for.body21.lr.ph ], [ %ref.tmp.sroa.7.2, %for.inc32 ]
+  %dst_idx.184 = phi i64 [ 0, %for.body21.lr.ph ], [ %dst_idx.2, %for.inc32 ]
+  %ref.tmp.sroa.3.083 = phi ptr [ undef, %for.body21.lr.ph ], [ %ref.tmp.sroa.3.1, %for.inc32 ]
+  %ref.tmp.sroa.7.082 = phi ptr [ undef, %for.body21.lr.ph ], [ %ref.tmp.sroa.7.1, %for.inc32 ]
   %7 = load ptr, ptr %args22, align 8
   %arrayidx23 = getelementptr inbounds %struct.grpc_arg, ptr %7, i64 %i17.085
   %key.i44.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx23, i64 8
@@ -2843,38 +2843,38 @@ sw.bb9.i:                                         ; preds = %if.then25
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %if.then25, %sw.bb.i, %sw.bb6.i, %sw.bb9.i
-  %ref.tmp.sroa.7.1 = phi ptr [ %ref.tmp.sroa.7.082, %if.then25 ], [ %ref.tmp.sroa.7.16.copyload, %sw.bb9.i ], [ %ref.tmp.sroa.7.082, %sw.bb6.i ], [ %ref.tmp.sroa.7.082, %sw.bb.i ]
-  %ref.tmp.sroa.3.1 = phi ptr [ %ref.tmp.sroa.3.083, %if.then25 ], [ %call14.i, %sw.bb9.i ], [ %14, %sw.bb6.i ], [ %call4.i, %sw.bb.i ]
+  %ref.tmp.sroa.7.2 = phi ptr [ %ref.tmp.sroa.7.082, %if.then25 ], [ %ref.tmp.sroa.7.16.copyload, %sw.bb9.i ], [ %ref.tmp.sroa.7.082, %sw.bb6.i ], [ %ref.tmp.sroa.7.082, %sw.bb.i ]
+  %ref.tmp.sroa.3.2 = phi ptr [ %ref.tmp.sroa.3.083, %if.then25 ], [ %call14.i, %sw.bb9.i ], [ %14, %sw.bb6.i ], [ %call4.i, %sw.bb.i ]
   %17 = load ptr, ptr %args14, align 8
-  %inc29 = add i64 %dst_idx.084, 1
-  %arrayidx30 = getelementptr inbounds %struct.grpc_arg, ptr %17, i64 %dst_idx.084
+  %inc29 = add i64 %dst_idx.184, 1
+  %arrayidx30 = getelementptr inbounds %struct.grpc_arg, ptr %17, i64 %dst_idx.184
   store i32 %10, ptr %arrayidx30, align 8
   %ref.tmp.sroa.263.0.arrayidx30.sroa_idx = getelementptr inbounds i8, ptr %arrayidx30, i64 8
   store ptr %call.i45, ptr %ref.tmp.sroa.263.0.arrayidx30.sroa_idx, align 8
   %ref.tmp.sroa.3.0.arrayidx30.sroa_idx = getelementptr inbounds i8, ptr %arrayidx30, i64 16
-  store ptr %ref.tmp.sroa.3.1, ptr %ref.tmp.sroa.3.0.arrayidx30.sroa_idx, align 8
+  store ptr %ref.tmp.sroa.3.2, ptr %ref.tmp.sroa.3.0.arrayidx30.sroa_idx, align 8
   %ref.tmp.sroa.7.0.arrayidx30.sroa_idx = getelementptr inbounds i8, ptr %arrayidx30, i64 24
-  store ptr %ref.tmp.sroa.7.1, ptr %ref.tmp.sroa.7.0.arrayidx30.sroa_idx, align 8
+  store ptr %ref.tmp.sroa.7.2, ptr %ref.tmp.sroa.7.0.arrayidx30.sroa_idx, align 8
   %.pre95 = load i64, ptr %src, align 8
   br label %for.inc32
 
 for.inc32:                                        ; preds = %for.body.lr.ph.i30, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43, %_ZL8copy_argPK8grpc_arg.exit
   %18 = phi i64 [ %6, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %.pre95, %_ZL8copy_argPK8grpc_arg.exit ], [ %6, %for.body.lr.ph.i30 ]
-  %ref.tmp.sroa.7.2 = phi ptr [ %ref.tmp.sroa.7.082, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %ref.tmp.sroa.7.1, %_ZL8copy_argPK8grpc_arg.exit ], [ %ref.tmp.sroa.7.082, %for.body.lr.ph.i30 ]
-  %ref.tmp.sroa.3.2 = phi ptr [ %ref.tmp.sroa.3.083, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %ref.tmp.sroa.3.1, %_ZL8copy_argPK8grpc_arg.exit ], [ %ref.tmp.sroa.3.083, %for.body.lr.ph.i30 ]
-  %dst_idx.1 = phi i64 [ %dst_idx.084, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %inc29, %_ZL8copy_argPK8grpc_arg.exit ], [ %dst_idx.084, %for.body.lr.ph.i30 ]
+  %ref.tmp.sroa.7.1 = phi ptr [ %ref.tmp.sroa.7.082, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %ref.tmp.sroa.7.2, %_ZL8copy_argPK8grpc_arg.exit ], [ %ref.tmp.sroa.7.082, %for.body.lr.ph.i30 ]
+  %ref.tmp.sroa.3.1 = phi ptr [ %ref.tmp.sroa.3.083, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %ref.tmp.sroa.3.2, %_ZL8copy_argPK8grpc_arg.exit ], [ %ref.tmp.sroa.3.083, %for.body.lr.ph.i30 ]
+  %dst_idx.2 = phi i64 [ %dst_idx.184, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %inc29, %_ZL8copy_argPK8grpc_arg.exit ], [ %dst_idx.184, %for.body.lr.ph.i30 ]
   %inc33 = add nuw i64 %i17.085, 1
   %cmp20 = icmp ult i64 %inc33, %18
   br i1 %cmp20, label %for.body21, label %if.end35, !llvm.loop !71
 
 if.end35:                                         ; preds = %for.inc32, %for.cond18.preheader, %if.end11
-  %dst_idx.2 = phi i64 [ 0, %if.end11 ], [ 0, %for.cond18.preheader ], [ %dst_idx.1, %for.inc32 ]
+  %dst_idx.0 = phi i64 [ 0, %if.end11 ], [ 0, %for.cond18.preheader ], [ %dst_idx.2, %for.inc32 ]
   %cmp3887.not = icmp eq i64 %num_to_add, 0
   br i1 %cmp3887.not, label %do.body, label %for.body39
 
 for.body39:                                       ; preds = %if.end35, %_ZL8copy_argPK8grpc_arg.exit61
   %i36.091 = phi i64 [ %inc46, %_ZL8copy_argPK8grpc_arg.exit61 ], [ 0, %if.end35 ]
-  %dst_idx.390 = phi i64 [ %inc43, %_ZL8copy_argPK8grpc_arg.exit61 ], [ %dst_idx.2, %if.end35 ]
+  %dst_idx.390 = phi i64 [ %inc43, %_ZL8copy_argPK8grpc_arg.exit61 ], [ %dst_idx.0, %if.end35 ]
   %ref.tmp40.sroa.3.089 = phi ptr [ %ref.tmp40.sroa.3.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
   %ref.tmp40.sroa.7.088 = phi ptr [ %ref.tmp40.sroa.7.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
   %arrayidx41 = getelementptr inbounds %struct.grpc_arg, ptr %to_add, i64 %i36.091
@@ -2931,7 +2931,7 @@ _ZL8copy_argPK8grpc_arg.exit61:                   ; preds = %for.body39, %sw.bb.
   br i1 %exitcond94.not, label %do.body, label %for.body39, !llvm.loop !75
 
 do.body:                                          ; preds = %_ZL8copy_argPK8grpc_arg.exit61, %if.end35
-  %dst_idx.3.lcssa = phi i64 [ %dst_idx.2, %if.end35 ], [ %inc43, %_ZL8copy_argPK8grpc_arg.exit61 ]
+  %dst_idx.3.lcssa = phi i64 [ %dst_idx.0, %if.end35 ], [ %inc43, %_ZL8copy_argPK8grpc_arg.exit61 ]
   %28 = load i64, ptr %call5, align 8
   %cmp49.not = icmp eq i64 %dst_idx.3.lcssa, %28
   br i1 %cmp49.not, label %return, label %if.then50

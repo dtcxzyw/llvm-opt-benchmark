@@ -61,7 +61,7 @@ mkQueue.exit:                                     ; preds = %17
   br i1 %28, label %.preheader, label %.preheader78
 
 .loopexit:                                        ; preds = %enQueue.exit, %.preheader
-  %.sroa.10.1.lcssa = phi i32 [ %.sroa.10.092, %.preheader ], [ %.sroa.10.3, %enQueue.exit ]
+  %.sroa.10.1.lcssa = phi i32 [ %.sroa.10.092, %.preheader ], [ %.sroa.10.2, %enQueue.exit ]
   %29 = sext i32 %.sroa.10.1.lcssa to i64
   %.not.i = icmp slt i64 %indvars.iv.next102, %29
   br i1 %.not.i, label %.preheader, label %deQueue.exit
@@ -87,7 +87,7 @@ mkQueue.exit:                                     ; preds = %17
 
 40:                                               ; preds = %.lr.ph90, %enQueue.exit
   %.04488 = phi i64 [ 1, %.lr.ph90 ], [ %53, %enQueue.exit ]
-  %.sroa.10.187 = phi i32 [ %.sroa.10.092, %.lr.ph90 ], [ %.sroa.10.3, %enQueue.exit ]
+  %.sroa.10.187 = phi i32 [ %.sroa.10.092, %.lr.ph90 ], [ %.sroa.10.2, %enQueue.exit ]
   %41 = load ptr, ptr %38, align 8
   %42 = getelementptr inbounds i32, ptr %41, i64 %.04488
   %43 = load i32, ptr %42, align 4
@@ -110,21 +110,21 @@ mkQueue.exit:                                     ; preds = %17
   br label %enQueue.exit
 
 enQueue.exit:                                     ; preds = %49, %48, %40
-  %.sroa.10.3 = phi i32 [ %.sroa.10.187, %40 ], [ %50, %49 ], [ %.sroa.10.187, %48 ]
+  %.sroa.10.2 = phi i32 [ %.sroa.10.187, %40 ], [ %50, %49 ], [ %.sroa.10.187, %48 ]
   %53 = add nuw i64 %.04488, 1
   %54 = load i64, ptr %35, align 8
   %55 = icmp ult i64 %53, %54
   br i1 %55, label %40, label %.loopexit
 
 .loopexit77:                                      ; preds = %enQueue.exit52, %.preheader78
-  %.sroa.10.5.lcssa = phi i32 [ %.sroa.10.485, %.preheader78 ], [ %.sroa.10.7, %enQueue.exit52 ]
-  %56 = sext i32 %.sroa.10.5.lcssa to i64
+  %.sroa.10.4.lcssa = phi i32 [ %.sroa.10.385, %.preheader78 ], [ %.sroa.10.5, %enQueue.exit52 ]
+  %56 = sext i32 %.sroa.10.4.lcssa to i64
   %.not.i49 = icmp slt i64 %indvars.iv.next, %56
   br i1 %.not.i49, label %.preheader78, label %deQueue.exit
 
 .preheader78:                                     ; preds = %mkQueue.exit, %.loopexit77
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit77 ], [ 0, %mkQueue.exit ]
-  %.sroa.10.485 = phi i32 [ %.sroa.10.5.lcssa, %.loopexit77 ], [ 1, %mkQueue.exit ]
+  %.sroa.10.385 = phi i32 [ %.sroa.10.4.lcssa, %.loopexit77 ], [ 1, %mkQueue.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
@@ -143,7 +143,7 @@ enQueue.exit:                                     ; preds = %49, %48, %40
 
 67:                                               ; preds = %.lr.ph84, %enQueue.exit52
   %.04382 = phi i64 [ 1, %.lr.ph84 ], [ %85, %enQueue.exit52 ]
-  %.sroa.10.581 = phi i32 [ %.sroa.10.485, %.lr.ph84 ], [ %.sroa.10.7, %enQueue.exit52 ]
+  %.sroa.10.481 = phi i32 [ %.sroa.10.385, %.lr.ph84 ], [ %.sroa.10.5, %enQueue.exit52 ]
   %68 = load ptr, ptr %65, align 8
   %69 = getelementptr inbounds i32, ptr %68, i64 %.04382
   %70 = load i32, ptr %69, align 4
@@ -160,30 +160,30 @@ enQueue.exit:                                     ; preds = %49, %48, %40
   %79 = fptosi float %78 to i32
   %80 = add nsw i32 %61, %79
   store i32 %80, ptr %72, align 4
-  %.not.i51 = icmp slt i32 %.sroa.10.581, %2
+  %.not.i51 = icmp slt i32 %.sroa.10.481, %2
   br i1 %.not.i51, label %81, label %enQueue.exit52
 
 81:                                               ; preds = %75
-  %82 = add nsw i32 %.sroa.10.581, 1
-  %83 = sext i32 %.sroa.10.581 to i64
+  %82 = add nsw i32 %.sroa.10.481, 1
+  %83 = sext i32 %.sroa.10.481 to i64
   %84 = getelementptr inbounds i32, ptr %20, i64 %83
   store i32 %70, ptr %84, align 4
   br label %enQueue.exit52
 
 enQueue.exit52:                                   ; preds = %81, %75, %67
-  %.sroa.10.7 = phi i32 [ %.sroa.10.581, %67 ], [ %82, %81 ], [ %.sroa.10.581, %75 ]
+  %.sroa.10.5 = phi i32 [ %.sroa.10.481, %67 ], [ %82, %81 ], [ %.sroa.10.481, %75 ]
   %85 = add nuw i64 %.04382, 1
   %86 = load i64, ptr %62, align 8
   %87 = icmp ult i64 %85, %86
   br i1 %87, label %67, label %.loopexit77
 
 deQueue.exit:                                     ; preds = %.loopexit77, %.loopexit
-  %.2 = phi i32 [ %34, %.loopexit ], [ %61, %.loopexit77 ]
+  %.1 = phi i32 [ %34, %.loopexit ], [ %61, %.loopexit77 ]
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge96, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %deQueue.exit
-  %88 = add nsw i32 %.2, 10
+  %88 = add nsw i32 %.1, 10
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %89

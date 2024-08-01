@@ -545,8 +545,8 @@ define hidden noundef ptr @_ZN10ArrayKlass11array_klassEiP10JavaThread(ptr nound
   br label %30
 
 30:                                               ; preds = %23, %3, %24
-  %.1 = phi ptr [ null, %23 ], [ %29, %24 ], [ %0, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %23 ], [ %29, %24 ], [ %0, %3 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN13ObjArrayKlass23allocate_objArray_klassEP15ClassLoaderDataiP5KlassP10JavaThread(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

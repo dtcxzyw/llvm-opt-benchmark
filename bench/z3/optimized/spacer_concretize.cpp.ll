@@ -410,16 +410,16 @@ land.lhs.true.i41:                                ; preds = %_ZNK17arith_recogni
   br i1 %cmp.i43, label %land.lhs.true, label %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i41, %land.lhs.true.i24
-  %e1.2.in = getelementptr inbounds i8, ptr %lit.0, i64 32
-  %e1.2 = load ptr, ptr %e1.2.in, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %e1.2, i64 4
+  %e1.0.in = getelementptr inbounds i8, ptr %lit.0, i64 32
+  %e1.0 = load ptr, ptr %e1.0.in, align 8
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %e1.0, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true
-  %m_decl.i.i.i = getelementptr inbounds i8, ptr %e1.2, i64 16
+  %m_decl.i.i.i = getelementptr inbounds i8, ptr %e1.0, i64 16
   %17 = load ptr, ptr %m_decl.i.i.i, align 8
   %m_info.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %m_info.i.i.i.i, align 8
@@ -477,16 +477,16 @@ land.lhs.true.i77:                                ; preds = %_ZNK17arith_recogni
   br i1 %cmp.i79, label %land.lhs.true14, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
 land.lhs.true14:                                  ; preds = %land.lhs.true.i77, %land.lhs.true.i59
-  %e1.6.in = getelementptr inbounds i8, ptr %lit.0, i64 32
-  %e1.6 = load ptr, ptr %e1.6.in, align 8
-  %m_kind.i.i.i83 = getelementptr inbounds i8, ptr %e1.6, i64 4
+  %e1.2.in = getelementptr inbounds i8, ptr %lit.0, i64 32
+  %e1.2 = load ptr, ptr %e1.2.in, align 8
+  %m_kind.i.i.i83 = getelementptr inbounds i8, ptr %e1.2, i64 4
   %bf.load.i.i.i84 = load i32, ptr %m_kind.i.i.i83, align 4
   %bf.clear.i.i.i85 = and i32 %bf.load.i.i.i84, 65535
   %cmp.i.i86 = icmp eq i32 %bf.clear.i.i.i85, 0
   br i1 %cmp.i.i86, label %land.rhs.i.i87, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
 land.rhs.i.i87:                                   ; preds = %land.lhs.true14
-  %m_decl.i.i.i88 = getelementptr inbounds i8, ptr %e1.6, i64 16
+  %m_decl.i.i.i88 = getelementptr inbounds i8, ptr %e1.2, i64 16
   %30 = load ptr, ptr %m_decl.i.i.i88, align 8
   %m_info.i.i.i.i89 = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %m_info.i.i.i.i89, align 8
@@ -824,8 +824,8 @@ if.then:                                          ; preds = %land.rhs.i.i.i17, %
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true.i77, %land.lhs.true.i59, %land.lhs.true.i41, %land.lhs.true.i24
-  %e1.4.in = getelementptr inbounds i8, ptr %lit.0, i64 32
-  %e1.4 = load ptr, ptr %e1.4.in, align 8
+  %e1.0.in = getelementptr inbounds i8, ptr %lit.0, i64 32
+  %e1.0 = load ptr, ptr %e1.0.in, align 8
   %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %kids, i64 16
   store ptr %m_initial_buffer.i.i, ptr %kids, align 8
   %m_pos.i.i = getelementptr inbounds i8, ptr %kids, i64 8
@@ -836,17 +836,17 @@ if.end:                                           ; preds = %land.lhs.true.i77, 
   store ptr null, ptr %val, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %val, i64 8
   store ptr %25, ptr %m_manager.i, align 8
-  %m_num_args.i = getelementptr inbounds i8, ptr %e1.4, i64 24
+  %m_num_args.i = getelementptr inbounds i8, ptr %e1.0, i64 24
   %26 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %26 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %27 = getelementptr inbounds i8, ptr %e1.4, i64 %add.ptr.i.idx
+  %27 = getelementptr inbounds i8, ptr %e1.0, i64 %add.ptr.i.idx
   %add.ptr.i.ptr = getelementptr inbounds i8, ptr %27, i64 32
   %cmp.not211 = icmp eq i32 %26, 0
   br i1 %cmp.not211, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit195, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %m_args.i.ptr = getelementptr inbounds i8, ptr %e1.4, i64 32
+  %m_args.i.ptr = getelementptr inbounds i8, ptr %e1.0, i64 32
   %m_model = getelementptr inbounds i8, ptr %this, i64 24
   %m_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body
@@ -1481,8 +1481,8 @@ if.then:                                          ; preds = %land.rhs.i.i.i17, %
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true.i77, %land.lhs.true.i59, %land.lhs.true.i41, %land.lhs.true.i24
-  %e1.4.in = getelementptr inbounds i8, ptr %lit.0, i64 32
-  %e1.4 = load ptr, ptr %e1.4.in, align 8
+  %e1.0.in = getelementptr inbounds i8, ptr %lit.0, i64 32
+  %e1.0 = load ptr, ptr %e1.0.in, align 8
   %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %kids, i64 16
   store ptr %m_initial_buffer.i.i, ptr %kids, align 8
   %m_pos.i.i = getelementptr inbounds i8, ptr %kids, i64 8
@@ -1493,17 +1493,17 @@ if.end:                                           ; preds = %land.lhs.true.i77, 
   store ptr null, ptr %val, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %val, i64 8
   store ptr %25, ptr %m_manager.i, align 8
-  %m_num_args.i = getelementptr inbounds i8, ptr %e1.4, i64 24
+  %m_num_args.i = getelementptr inbounds i8, ptr %e1.0, i64 24
   %26 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %26 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %27 = getelementptr inbounds i8, ptr %e1.4, i64 %add.ptr.i.idx
+  %27 = getelementptr inbounds i8, ptr %e1.0, i64 %add.ptr.i.idx
   %add.ptr.i.ptr = getelementptr inbounds i8, ptr %27, i64 32
   %cmp.not211 = icmp eq i32 %26, 0
   br i1 %cmp.not211, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit195, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %m_args.i.ptr = getelementptr inbounds i8, ptr %e1.4, i64 32
+  %m_args.i.ptr = getelementptr inbounds i8, ptr %e1.0, i64 32
   %m_model = getelementptr inbounds i8, ptr %this, i64 24
   %m_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body

@@ -111,7 +111,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %59
 
 59:                                               ; preds = %76, %.lr.ph.i
-  %.0343.i = phi ptr [ %48, %.lr.ph.i ], [ %.1.i, %76 ]
+  %.13.i = phi ptr [ %48, %.lr.ph.i ], [ %.2.i, %76 ]
   %60 = load i32, ptr %58, align 8
   %61 = and i32 %60, 61440
   %62 = icmp eq i32 %61, 16384
@@ -119,13 +119,13 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 63:                                               ; preds = %59
   %64 = call ptr @basename(ptr noundef nonnull %31) #6
-  %65 = load i8, ptr %.0343.i, align 1
+  %65 = load i8, ptr %.13.i, align 1
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %7, align 8
-  %69 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str, ptr noundef nonnull %.0343.i, ptr noundef %64) #6
+  %69 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str, ptr noundef nonnull %.13.i, ptr noundef %64) #6
   %.not46.i = icmp eq ptr %68, null
   br i1 %.not46.i, label %71, label %70
 
@@ -146,11 +146,11 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %76
 
 76:                                               ; preds = %74, %63
-  %.1.i = phi ptr [ %75, %74 ], [ %64, %63 ]
+  %.2.i = phi ptr [ %75, %74 ], [ %64, %63 ]
   %77 = load ptr, ptr %34, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 192
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %79(ptr noundef nonnull %25, ptr noundef %.1.i, ptr noundef nonnull %8) #6
+  %80 = call i32 %79(ptr noundef nonnull %25, ptr noundef %.2.i, ptr noundef nonnull %8) #6
   %81 = icmp sgt i32 %80, -1
   br i1 %81, label %59, label %.loopexit.i
 
@@ -170,15 +170,15 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not45.i, label %.loopexit.i, label %92
 
 92:                                               ; preds = %88
-  %93 = call i32 %91(ptr noundef nonnull %25, ptr noundef %.0343.i) #6
+  %93 = call i32 %91(ptr noundef nonnull %25, ptr noundef %.13.i) #6
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %76, %92, %88, %.preheader.i, %52
-  %.2.i = phi ptr [ %.0343.i, %92 ], [ %.0343.i, %88 ], [ %48, %52 ], [ %48, %.preheader.i ], [ %.1.i, %76 ]
+  %.034.i = phi ptr [ %.13.i, %92 ], [ %.13.i, %88 ], [ %48, %52 ], [ %48, %.preheader.i ], [ %.2.i, %76 ]
   %94 = load ptr, ptr %34, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 184
   %96 = load ptr, ptr %95, align 8
-  %97 = call i32 %96(ptr noundef nonnull %25, ptr noundef nonnull %31, ptr noundef %.2.i) #6
+  %97 = call i32 %96(ptr noundef nonnull %25, ptr noundef nonnull %31, ptr noundef %.034.i) #6
   br label %98
 
 98:                                               ; preds = %.loopexit.i, %82, %73, %49, %45
@@ -226,20 +226,20 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   store i8 1, ptr %108, align 8
   %109 = call i32 @inode_find(ptr noundef nonnull %3) #6
   %110 = icmp sgt i32 %109, -1
-  br i1 %110, label %.lr.ph.i26, label %.loopexit.i24
+  br i1 %110, label %.lr.ph.i25, label %.loopexit.i24
 
-.lr.ph.i26:                                       ; preds = %105, %139
+.lr.ph.i25:                                       ; preds = %105, %139
   %.048.i = phi ptr [ %136, %139 ], [ %1, %105 ]
   %111 = load ptr, ptr %106, align 8
   store ptr %111, ptr %4, align 8
   %112 = icmp eq ptr %111, %25
   br i1 %112, label %113, label %114
 
-113:                                              ; preds = %.lr.ph.i26
+113:                                              ; preds = %.lr.ph.i25
   call void @inode_release(ptr noundef %111) #6
   br label %169
 
-114:                                              ; preds = %.lr.ph.i26
+114:                                              ; preds = %.lr.ph.i25
   %115 = getelementptr inbounds i8, ptr %111, i64 26
   %116 = load i16, ptr %115, align 2
   %117 = and i16 %116, 15
@@ -259,8 +259,8 @@ mountptrename.exit:                               ; preds = %33, %102, %104
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %111, i64 16
   %126 = load ptr, ptr %125, align 8
-  %.not.i27 = icmp eq ptr %126, null
-  br i1 %.not.i27, label %142, label %127
+  %.not.i26 = icmp eq ptr %126, null
+  br i1 %.not.i26, label %142, label %127
 
 127:                                              ; preds = %124, %120
   call void @inode_release(ptr noundef nonnull %111) #6
@@ -299,7 +299,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   store i8 1, ptr %108, align 8
   %140 = call i32 @inode_find(ptr noundef nonnull %3) #6
   %141 = icmp sgt i32 %140, -1
-  br i1 %141, label %.lr.ph.i26, label %.loopexit.i24
+  br i1 %141, label %.lr.ph.i25, label %.loopexit.i24
 
 142:                                              ; preds = %124
   %143 = call i32 @inode_remove(ptr noundef %.048.i) #6
@@ -355,7 +355,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br label %169
 
 169:                                              ; preds = %168, %.loopexit.i24, %134, %119, %113
-  %.1.i25 = phi i32 [ 0, %113 ], [ -18, %119 ], [ -12, %134 ], [ %144, %.loopexit.i24 ], [ %.022.i, %168 ]
+  %.1.i = phi i32 [ 0, %113 ], [ -18, %119 ], [ -12, %134 ], [ %144, %.loopexit.i24 ], [ %.022.i, %168 ]
   %170 = load ptr, ptr %107, align 8
   %.not33.i = icmp eq ptr %170, null
   br i1 %.not33.i, label %172, label %171
@@ -381,12 +381,12 @@ pseudorename.exit:                                ; preds = %172, %174
   br label %175
 
 175:                                              ; preds = %pseudorename.exit, %mountptrename.exit
-  %.0 = phi i32 [ %.0.i, %mountptrename.exit ], [ %.1.i25, %pseudorename.exit ]
+  %.1 = phi i32 [ %.0.i, %mountptrename.exit ], [ %.1.i, %pseudorename.exit ]
   call void @inode_release(ptr noundef %25) #6
   br label %176
 
 176:                                              ; preds = %175, %17
-  %.1 = phi i32 [ %22, %17 ], [ %.0, %175 ]
+  %.2 = phi i32 [ %22, %17 ], [ %.1, %175 ]
   %177 = load ptr, ptr %20, align 8
   %.not23 = icmp eq ptr %177, null
   br i1 %.not23, label %179, label %178
@@ -397,12 +397,12 @@ pseudorename.exit:                                ; preds = %172, %174
   br label %179
 
 179:                                              ; preds = %178, %176
-  %180 = icmp slt i32 %.1, 0
+  %180 = icmp slt i32 %.2, 0
   br i1 %180, label %.thread, label %183
 
 .thread:                                          ; preds = %2, %10, %14, %179
-  %.229 = phi i32 [ %.1, %179 ], [ -22, %14 ], [ -22, %10 ], [ -22, %2 ]
-  %181 = sub nsw i32 0, %.229
+  %.028 = phi i32 [ %.2, %179 ], [ -22, %14 ], [ -22, %10 ], [ -22, %2 ]
+  %181 = sub nsw i32 0, %.028
   %182 = call ptr @__errno() #6
   store i32 %181, ptr %182, align 4
   br label %183

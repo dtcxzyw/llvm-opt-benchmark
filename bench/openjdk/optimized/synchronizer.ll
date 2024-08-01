@@ -393,7 +393,7 @@ define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP
   br label %8
 
 8:                                                ; preds = %.lr.ph, %62
-  %.03467 = phi i64 [ 0, %.lr.ph ], [ %.1, %62 ]
+  %.03467 = phi i64 [ 0, %.lr.ph ], [ %.2, %62 ]
   %.03566 = phi ptr [ null, %.lr.ph ], [ %.3, %62 ]
   %.03865 = phi ptr [ %5, %.lr.ph ], [ %.139, %62 ]
   %9 = getelementptr inbounds i8, ptr %.03865, i64 180
@@ -508,17 +508,17 @@ _ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS
 62:                                               ; preds = %55, %59
   %.139 = phi ptr [ %61, %59 ], [ %56, %55 ]
   %.3 = phi ptr [ %.03865, %59 ], [ %.237, %55 ]
-  %.1 = phi i64 [ %.03467, %59 ], [ %58, %55 ]
-  tail call void @_ZN33ObjectMonitorDeflationSafepointer19block_for_safepointEPKcS1_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i64 noundef %.1)
+  %.2 = phi i64 [ %.03467, %59 ], [ %58, %55 ]
+  tail call void @_ZN33ObjectMonitorDeflationSafepointer19block_for_safepointEPKcS1_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i64 noundef %.2)
   %.not = icmp eq ptr %.139, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %62, %55, %4
-  %.2 = phi i64 [ 0, %4 ], [ %58, %55 ], [ %.1, %62 ]
+  %.1 = phi i64 [ 0, %4 ], [ %58, %55 ], [ %.2, %62 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = sub i64 0, %.2
+  %64 = sub i64 0, %.1
   %65 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %64, ptr nonnull %63) #18, !srcloc !9
-  ret i64 %.2
+  ret i64 %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2619,11 +2619,11 @@ _ZL13get_next_hashP6ThreadP7oopDesc.exit48:       ; preds = %111, %113, %116, %1
   %.not56.le = icmp eq i64 %143, %144
   %148 = lshr i64 %143, 8
   %149 = and i64 %148, 2147483647
-  %.038.le = select i1 %.not56.le, i64 %spec.store.select.i47, i64 %149
+  %.1.le = select i1 %.not56.le, i64 %spec.store.select.i47, i64 %149
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %19, %_ZL13get_next_hashP6ThreadP7oopDesc.exit, %68, %84, %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit, %.split.loop.exit57
-  %.0 = phi i64 [ %.038.le, %.split.loop.exit57 ], [ %109, %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit ], [ %87, %84 ], [ %67, %68 ], [ %spec.store.select.i, %_ZL13get_next_hashP6ThreadP7oopDesc.exit ], [ %21, %19 ]
+  %.0 = phi i64 [ %.1.le, %.split.loop.exit57 ], [ %109, %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit ], [ %87, %84 ], [ %67, %68 ], [ %spec.store.select.i, %_ZL13get_next_hashP6ThreadP7oopDesc.exit ], [ %21, %19 ]
   ret i64 %.0
 }
 
@@ -4111,12 +4111,12 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150: ; preds = %383
   br i1 %395, label %.thread188.sink.split, label %.thread188
 
 .thread188.sink.split:                            ; preds = %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150, %377, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136, %293, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit, %193
-  %.1.ph.ph = phi ptr [ %87, %193 ], [ %87, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit ], [ %217, %293 ], [ %217, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136 ], [ %313, %377 ], [ %313, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150 ]
+  %.2.ph.ph = phi ptr [ %87, %193 ], [ %87, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit ], [ %217, %293 ], [ %217, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136 ], [ %313, %377 ], [ %313, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150 ]
   call fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef nonnull %4, ptr noundef nonnull %1, i32 noundef %2)
   br label %.thread188
 
 .thread188:                                       ; preds = %.thread188.sink.split, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150, %_ZN12ResourceMarkD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit129, %_ZN12ResourceMarkD2Ev.exit143
-  %.1.ph = phi ptr [ %313, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150 ], [ %217, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136 ], [ %87, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit ], [ %87, %_ZN12ResourceMarkD2Ev.exit ], [ %217, %_ZN12ResourceMarkD2Ev.exit129 ], [ %313, %_ZN12ResourceMarkD2Ev.exit143 ], [ %.1.ph.ph, %.thread188.sink.split ]
+  %.2.ph = phi ptr [ %313, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150 ], [ %217, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit136 ], [ %87, %_ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit ], [ %87, %_ZN12ResourceMarkD2Ev.exit ], [ %217, %_ZN12ResourceMarkD2Ev.exit129 ], [ %313, %_ZN12ResourceMarkD2Ev.exit143 ], [ %.2.ph.ph, %.thread188.sink.split ]
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
   br label %_ZNK9LockStack8containsEP7oopDesc.exit
 
@@ -4128,8 +4128,8 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150: ; preds = %383
   br label %.backedge
 
 _ZNK9LockStack8containsEP7oopDesc.exit:           ; preds = %41, %.thread188, %._crit_edge, %28, %_ZN9LockStack6removeEP7oopDesc.exit
-  %.2 = phi ptr [ %24, %_ZN9LockStack6removeEP7oopDesc.exit ], [ %24, %28 ], [ %24, %._crit_edge ], [ %.1.ph, %.thread188 ], [ %24, %41 ]
-  ret ptr %.2
+  %.1 = phi ptr [ %24, %_ZN9LockStack6removeEP7oopDesc.exit ], [ %24, %28 ], [ %24, %._crit_edge ], [ %.2.ph, %.thread188 ], [ %24, %41 ]
+  ret ptr %.1
 }
 
 declare void @_ZN13ObjectMonitorC1EP7oopDesc(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) unnamed_addr #3
@@ -6659,8 +6659,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 

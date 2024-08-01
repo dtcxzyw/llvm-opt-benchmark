@@ -1572,9 +1572,9 @@ define range(i32 -1, 1) i32 @H5C__flush_invalidate_cache(ptr noundef %0, i32 nou
   br label %200
 
 57:                                               ; preds = %50, %45
-  %.2114.i = phi ptr [ %48, %50 ], [ %.1113179.i, %45 ]
+  %.3115.i = phi ptr [ %48, %50 ], [ %.1113179.i, %45 ]
   %.2.i = phi ptr [ %51, %50 ], [ %.1180.i, %45 ]
-  %58 = tail call ptr @H5SL_next(ptr noundef %.2114.i) #4
+  %58 = tail call ptr @H5SL_next(ptr noundef %.3115.i) #4
   %.not139.i = icmp eq ptr %58, null
   br i1 %.not139.i, label %66, label %59
 
@@ -1930,9 +1930,9 @@ define range(i32 -1, 1) i32 @H5C__flush_ring(ptr noundef %0, i32 noundef %1, i32
   br label %87
 
 29:                                               ; preds = %22, %.preheader
-  %.249 = phi ptr [ %20, %22 ], [ %.14894, %.preheader ]
+  %.350 = phi ptr [ %20, %22 ], [ %.14894, %.preheader ]
   %.2 = phi ptr [ %23, %22 ], [ %.195, %.preheader ]
-  %30 = tail call ptr @H5SL_next(ptr noundef %.249) #4
+  %30 = tail call ptr @H5SL_next(ptr noundef %.350) #4
   %.not71 = icmp eq ptr %30, null
   br i1 %.not71, label %38, label %31
 
@@ -2011,17 +2011,17 @@ define range(i32 -1, 1) i32 @H5C__flush_ring(ptr noundef %0, i32 noundef %1, i32
 74:                                               ; preds = %70, %73, %61, %53, %49, %42
   %.263 = phi i1 [ %.16290, %61 ], [ %.16290, %53 ], [ %.16290, %49 ], [ %.16290, %42 ], [ true, %73 ], [ true, %70 ]
   %.260 = phi i1 [ true, %61 ], [ %.15991, %53 ], [ %.15991, %49 ], [ %.15991, %42 ], [ %.15991, %73 ], [ %.15991, %70 ]
-  %.357 = phi i1 [ false, %61 ], [ false, %53 ], [ false, %49 ], [ false, %42 ], [ true, %73 ], [ false, %70 ]
+  %.256 = phi i1 [ false, %61 ], [ false, %53 ], [ false, %49 ], [ false, %42 ], [ true, %73 ], [ false, %70 ]
   %.253 = phi i32 [ %62, %61 ], [ %.15293, %53 ], [ %.15293, %49 ], [ %.15293, %42 ], [ %.15293, %73 ], [ %.15293, %70 ]
   %75 = icmp ne ptr %30, null
-  %76 = or i1 %.357, %75
+  %76 = or i1 %.256, %75
   br i1 %76, label %.preheader.backedge, label %77
 
 .preheader.backedge:                              ; preds = %74, %77
   %.195.be = phi ptr [ %.3, %74 ], [ %.1.lcssa, %77 ]
   %.14894.be = phi ptr [ %30, %74 ], [ null, %77 ]
   %.15293.be = phi i32 [ %.253, %74 ], [ 0, %77 ]
-  %.05492.be = phi i1 [ %.357, %74 ], [ true, %77 ]
+  %.05492.be = phi i1 [ %.256, %74 ], [ true, %77 ]
   %.15991.be = phi i1 [ %.260, %74 ], [ %.159.lcssa, %77 ]
   %.16290.be = phi i1 [ %.263, %74 ], [ false, %77 ]
   br label %.preheader
@@ -2337,7 +2337,7 @@ default.unreachable:                              ; preds = %9
 
 ._crit_edge.i:                                    ; preds = %70
   %.253.pre.pre.i = load ptr, ptr %37, align 8
-  br i1 %.362.i, label %.split.i, label %.critedge.split.i, !llvm.loop !4
+  br i1 %.24662.i, label %.split.i, label %.critedge.split.i, !llvm.loop !4
 
 .critedge.split.i:                                ; preds = %30, %._crit_edge.i
   %.04349.i = phi ptr [ %.253.pre.pre.i, %._crit_edge.i ], [ %38, %30 ]
@@ -2347,7 +2347,7 @@ default.unreachable:                              ; preds = %9
 
 .lr.ph.i:                                         ; preds = %.critedge.split.i, %70
   %.04352.i = phi ptr [ %.043.i, %70 ], [ %.04349.i, %.critedge.split.i ]
-  %.14551.i = phi i1 [ %.362.i, %70 ], [ true, %.critedge.split.i ]
+  %.14551.i = phi i1 [ %.24662.i, %70 ], [ true, %.critedge.split.i ]
   %40 = getelementptr inbounds i8, ptr %.04352.i, i64 58
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
@@ -2393,13 +2393,13 @@ default.unreachable:                              ; preds = %9
   br i1 %64, label %67, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %.lr.ph.i, %47, %51, %43, %.thread.i
-  %.364.i23 = phi i1 [ false, %.thread.i ], [ %.14551.i, %.lr.ph.i ], [ %.14551.i, %47 ], [ false, %51 ], [ %.14551.i, %43 ]
+  %.24664.i23 = phi i1 [ false, %.thread.i ], [ %.14551.i, %.lr.ph.i ], [ %.14551.i, %47 ], [ false, %51 ], [ %.14551.i, %43 ]
   %65 = load i64, ptr %36, align 8
   %66 = icmp sgt i64 %65, 0
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %.thread.i.thread, %.thread.i, %62
-  %.363.i = phi i1 [ %.364.i23, %.thread.i.thread ], [ false, %.thread.i ], [ false, %62 ]
+  %.24663.i = phi i1 [ %.24664.i23, %.thread.i.thread ], [ false, %.thread.i ], [ false, %62 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   br label %70
 
@@ -2408,7 +2408,7 @@ default.unreachable:                              ; preds = %9
   br label %70
 
 70:                                               ; preds = %68, %67
-  %.362.i = phi i1 [ %.363.i, %67 ], [ %.364.i23, %68 ]
+  %.24662.i = phi i1 [ %.24663.i, %67 ], [ %.24664.i23, %68 ]
   %.1.in.i = phi ptr [ %37, %67 ], [ %69, %68 ]
   %.043.i = load ptr, ptr %.1.in.i, align 8
   %.not47.i = icmp eq ptr %.043.i, null

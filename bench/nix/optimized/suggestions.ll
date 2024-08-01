@@ -3035,19 +3035,19 @@ _ZN7testing8internal8EqHelper7CompareImiTnPNSt9enable_ifIXoontsr3std11is_integra
   br label %91
 
 91:                                               ; preds = %.loopexit115, %73
-  %.033 = phi ptr [ %34, %.loopexit115 ], [ %32, %73 ]
+  %.235 = phi ptr [ %34, %.loopexit115 ], [ %32, %73 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.loopexit115 ], [ %74, %73 ]
-  %.110 = phi i1 [ %90, %.loopexit115 ], [ false, %73 ]
+  %.211 = phi i1 [ %90, %.loopexit115 ], [ false, %73 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
   br label %92
 
 92:                                               ; preds = %71, %91
-  %.134 = phi ptr [ %.033, %91 ], [ %30, %71 ]
+  %.134 = phi ptr [ %.235, %91 ], [ %30, %71 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %91 ], [ %72, %71 ]
-  %.211 = phi i1 [ %.110, %91 ], [ false, %71 ]
+  %.110 = phi i1 [ %.211, %91 ], [ false, %71 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
-  br i1 %.211, label %.loopexit, label %.preheader
+  br i1 %.110, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %92, %.preheader
   %93 = phi ptr [ %94, %.preheader ], [ %.134, %92 ]

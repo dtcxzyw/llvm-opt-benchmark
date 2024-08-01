@@ -727,7 +727,7 @@ for.cond.preheader:                               ; preds = %cond.end
 do.end5:                                          ; preds = %for.cond.preheader, %cond.end56
   %elm.072 = phi ptr [ %arrayidx49, %cond.end56 ], [ %name, %for.cond.preheader ]
   %dot.071 = phi ptr [ %cond57, %cond.end56 ], [ %cond, %for.cond.preheader ]
-  %node.070 = phi ptr [ %node.2, %cond.end56 ], [ %starting_node, %for.cond.preheader ]
+  %node.070 = phi ptr [ %node.3, %cond.end56 ], [ %starting_node, %for.cond.preheader ]
   %i.069 = phi i64 [ %inc60, %cond.end56 ], [ 0, %for.cond.preheader ]
   %elen.068 = phi i64 [ %sub58, %cond.end56 ], [ %sub, %for.cond.preheader ]
   %children = getelementptr inbounds i8, ptr %node.070, i64 24
@@ -790,8 +790,8 @@ if.end35:                                         ; preds = %if.end28
   br label %if.end37
 
 if.end37:                                         ; preds = %for.end, %if.end35
-  %node.2 = phi ptr [ %arrayidx.i, %for.end ], [ %call32, %if.end35 ]
-  %ctl = getelementptr inbounds i8, ptr %node.2, i64 32
+  %node.3 = phi ptr [ %arrayidx.i, %for.end ], [ %call32, %if.end35 ]
+  %ctl = getelementptr inbounds i8, ptr %node.3, i64 32
   %11 = load ptr, ptr %ctl, align 8
   %cmp38.not = icmp eq ptr %11, null
   %12 = load i8, ptr %dot.071, align 1
@@ -831,12 +831,12 @@ cond.end56:                                       ; preds = %if.end48, %cond.fal
   br i1 %cmp3, label %do.end5, label %for.end61, !llvm.loop !7
 
 for.end61:                                        ; preds = %cond.end56, %for.cond.preheader, %if.end47
-  %node.3 = phi ptr [ %node.2, %if.end47 ], [ %starting_node, %for.cond.preheader ], [ %node.2, %cond.end56 ]
+  %node.1 = phi ptr [ %node.3, %if.end47 ], [ %starting_node, %for.cond.preheader ], [ %node.3, %cond.end56 ]
   %cmp62.not = icmp eq ptr %ending_nodep, null
   br i1 %cmp62.not, label %label_return, label %if.then64
 
 if.then64:                                        ; preds = %for.end61
-  store ptr %node.3, ptr %ending_nodep, align 8
+  store ptr %node.1, ptr %ending_nodep, align 8
   br label %label_return
 
 label_return:                                     ; preds = %if.end28, %if.else, %for.end, %for.cond9.preheader, %for.inc, %for.end61, %if.then64, %if.then42, %cond.end
@@ -3549,13 +3549,13 @@ percpu_arena_update.exit.i:                       ; preds = %if.then10.i.i, %are
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %percpu_arena_update.exit.i, %percpu_arena_choose.exit.i
-  %ret.1.i = phi ptr [ %17, %percpu_arena_update.exit.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
-  %last_thd65.i = getelementptr inbounds i8, ptr %ret.1.i, i64 16
+  %ret.2.i = phi ptr [ %17, %percpu_arena_update.exit.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
+  %last_thd65.i = getelementptr inbounds i8, ptr %ret.2.i, i64 16
   store ptr %tsd, ptr %last_thd65.i, align 16
   br label %arena_choose_impl.exit
 
 arena_choose_impl.exit:                           ; preds = %if.then5.i, %if.then3.i.i, %if.end43.i, %land.lhs.true47.i, %land.lhs.true52.i, %if.end63.i
-  %retval.0.i = phi ptr [ %ret.1.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %call4.i.i, %if.then3.i.i ], [ %2, %if.then5.i ]
+  %retval.0.i = phi ptr [ %ret.2.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %call4.i.i, %if.then3.i.i ], [ %2, %if.then5.i ]
   ret ptr %retval.0.i
 }
 
@@ -7099,7 +7099,7 @@ if.end23.loopexit:                                ; preds = %for.body
 
 if.end23:                                         ; preds = %do.body4.thread, %if.end23.loopexit, %if.end7
   %8 = phi i64 [ %4, %if.end7 ], [ %4, %if.end23.loopexit ], [ %5, %do.body4.thread ]
-  %dss_prec.1 = phi i32 [ 3, %if.end7 ], [ %7, %if.end23.loopexit ], [ 3, %do.body4.thread ]
+  %dss_prec.0 = phi i32 [ 3, %if.end7 ], [ %7, %if.end23.loopexit ], [ 3, %do.body4.thread ]
   %cmp24 = icmp eq i64 %8, 4096
   br i1 %cmp24, label %if.then28, label %lor.lhs.false
 
@@ -7112,11 +7112,11 @@ lor.lhs.false:                                    ; preds = %if.end23
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %lor.lhs.false, %if.end23
-  %cmp29.not = icmp eq i32 %dss_prec.1, 3
+  %cmp29.not = icmp eq i32 %dss_prec.0, 3
   br i1 %cmp29.not, label %if.end34, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then28
-  %call31 = tail call zeroext i1 @extent_dss_prec_set(i32 noundef %dss_prec.1) #14
+  %call31 = tail call zeroext i1 @extent_dss_prec_set(i32 noundef %dss_prec.0) #14
   br i1 %call31, label %label_return, label %if.end34
 
 if.end34:                                         ; preds = %land.lhs.true, %if.then28
@@ -7131,11 +7131,11 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp38, label %label_return, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %if.else
-  %cmp41.not = icmp eq i32 %dss_prec.1, 3
+  %cmp41.not = icmp eq i32 %dss_prec.0, 3
   br i1 %cmp41.not, label %if.end47, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %lor.lhs.false40
-  %call44 = tail call zeroext i1 @arena_dss_prec_set(ptr noundef nonnull %12, i32 noundef %dss_prec.1) #14
+  %call44 = tail call zeroext i1 @arena_dss_prec_set(ptr noundef nonnull %12, i32 noundef %dss_prec.0) #14
   br i1 %call44, label %label_return, label %if.end47
 
 if.end47:                                         ; preds = %land.lhs.true43, %lor.lhs.false40

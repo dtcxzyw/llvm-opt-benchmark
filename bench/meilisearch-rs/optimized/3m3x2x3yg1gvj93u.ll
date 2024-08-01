@@ -634,9 +634,9 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cb7f431f528b14E.llvm.15137815808512737898.exit": ; preds = %12, %17
   %.sroa.8.0..sroa_idx10.sink = phi ptr [ %.sroa.8.0..sroa_idx10, %17 ], [ %.sroa.5.0..sroa_idx, %12 ]
   %19 = phi ptr [ %18, %17 ], [ %13, %12 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload9, %17 ], [ %.sroa.0.0.copyload4.i21, %12 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload9, %17 ], [ %.sroa.0.0.copyload4.i21, %12 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx10.sink, i64 24, i1 false)
-  %20 = icmp eq i64 %.sroa.0.1, -9223372036854775808
+  %20 = icmp eq i64 %.sroa.0.0, -9223372036854775808
   br i1 %20, label %.loopexit, label %21
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cb7f431f528b14E.llvm.15137815808512737898.exit", %15
@@ -646,7 +646,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 21:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68cb7f431f528b14E.llvm.15137815808512737898.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.412.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, i64 24, i1 false)
-  store i64 %.sroa.0.1, ptr %4, align 8
+  store i64 %.sroa.0.0, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8)
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
@@ -766,9 +766,9 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbfe7418c459f7b9E.llvm.15137815808512737898.exit": ; preds = %13, %18
   %.sroa.8.0..sroa_idx10.sink = phi ptr [ %.sroa.8.0..sroa_idx10, %18 ], [ %.sroa.5.0..sroa_idx, %13 ]
   %20 = phi ptr [ %19, %18 ], [ %14, %13 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload9, %18 ], [ %.sroa.0.0.copyload4.i22, %13 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload9, %18 ], [ %.sroa.0.0.copyload4.i22, %13 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx10.sink, i64 40, i1 false)
-  %21 = icmp eq i64 %.sroa.0.1, -9223372036854775808
+  %21 = icmp eq i64 %.sroa.0.0, -9223372036854775808
   br i1 %21, label %.loopexit, label %22
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbfe7418c459f7b9E.llvm.15137815808512737898.exit", %16
@@ -778,7 +778,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 22:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbfe7418c459f7b9E.llvm.15137815808512737898.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.412.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, i64 40, i1 false)
-  store i64 %.sroa.0.1, ptr %4, align 8
+  store i64 %.sroa.0.0, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8)
   call void @llvm.experimental.noalias.scope.decl(metadata !254)
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
@@ -1064,9 +1064,9 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c881621c81ea3e2E.exit": ; preds = %19, %21
   %.sroa.9.0..sroa_idx14.sink = phi ptr [ %.sroa.9.0..sroa_idx14, %19 ], [ %.sroa.5.0..sroa_idx, %21 ]
   %22 = phi ptr [ %20, %19 ], [ %15, %21 ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0.copyload13, %19 ], [ %.sroa.4.0.i23, %21 ]
+  %.sroa.6.0 = phi i64 [ %.sroa.6.0.copyload13, %19 ], [ %.sroa.4.0.i23, %21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.9.0..sroa_idx14.sink, i64 288, i1 false)
-  %23 = icmp eq i64 %.sroa.6.1, 5
+  %23 = icmp eq i64 %.sroa.6.0, 5
   br i1 %23, label %.loopexit, label %25
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c881621c81ea3e2E.exit", %17
@@ -1079,7 +1079,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 25:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c881621c81ea3e2E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.518.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.9, i64 288, i1 false)
-  store i64 %.sroa.6.1, ptr %.sroa.4.0..sroa_idx16, align 8
+  store i64 %.sroa.6.0, ptr %.sroa.4.0..sroa_idx16, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %.sroa.9)
   call void @llvm.experimental.noalias.scope.decl(metadata !374)

@@ -205,23 +205,23 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then6
-  %keytype.addr.0 = phi ptr [ %call, %if.then6 ], [ %keytype, %if.then ]
-  %cmp8.not = icmp eq ptr %keytype.addr.0, null
+  %keytype.addr.1 = phi ptr [ %call, %if.then6 ], [ %keytype, %if.then ]
+  %cmp8.not = icmp eq ptr %keytype.addr.1, null
   br i1 %cmp8.not, label %if.then18, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %call10 = tail call i32 @evp_pkey_name2type(ptr noundef nonnull %keytype.addr.0) #10
+  %call10 = tail call i32 @evp_pkey_name2type(ptr noundef nonnull %keytype.addr.1) #10
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.then18, label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.then4
-  %keytype.addr.1 = phi ptr [ %keytype.addr.0, %if.then9 ], [ %keytype, %if.then4 ]
+  %keytype.addr.0 = phi ptr [ %keytype.addr.1, %if.then9 ], [ %keytype, %if.then4 ]
   %id.addr.0 = phi i32 [ %call10, %if.then9 ], [ %1, %if.then4 ]
   %cmp17 = icmp eq i32 %id.addr.0, -1
   br i1 %cmp17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.then9, %if.end, %if.end16
-  %keytype.addr.192 = phi ptr [ %keytype.addr.1, %if.end16 ], [ null, %if.end ], [ %keytype.addr.0, %if.then9 ]
+  %keytype.addr.092 = phi ptr [ %keytype.addr.0, %if.end16 ], [ null, %if.end ], [ %keytype.addr.1, %if.then9 ]
   %cmp19.not = icmp eq ptr %e, null
   br i1 %cmp19.not, label %common, label %if.then20
 
@@ -233,7 +233,7 @@ if.then20:                                        ; preds = %if.then18
 
 if.end22:                                         ; preds = %entry, %if.end16
   %id.addr.0102 = phi i32 [ %id.addr.0, %if.end16 ], [ %id, %entry ]
-  %keytype.addr.1101 = phi ptr [ %keytype.addr.1, %if.end16 ], [ %keytype, %entry ]
+  %keytype.addr.0101 = phi ptr [ %keytype.addr.0, %if.end16 ], [ %keytype, %entry ]
   %cmp23.not = icmp eq ptr %e, null
   br i1 %cmp23.not, label %land.lhs.true27, label %if.then41
 
@@ -253,7 +253,7 @@ if.end32:                                         ; preds = %lor.lhs.false
   br label %if.then36
 
 if.then36:                                        ; preds = %lor.lhs.false, %if.end32
-  %keytype.addr.3168 = phi ptr [ %call31, %if.end32 ], [ %keytype.addr.1101, %lor.lhs.false ]
+  %keytype.addr.4168 = phi ptr [ %call31, %if.end32 ], [ %keytype.addr.0101, %lor.lhs.false ]
   %pmeth_engine = getelementptr inbounds i8, ptr %pkey, i64 24
   %2 = load ptr, ptr %pmeth_engine, align 8
   %cmp37.not = icmp eq ptr %2, null
@@ -266,9 +266,9 @@ if.end39:                                         ; preds = %if.then36
   br i1 %cmp40.not, label %if.end47.thread, label %if.then41
 
 if.then41:                                        ; preds = %if.end22, %if.then36, %if.end39
-  %e.addr.0117 = phi ptr [ %3, %if.end39 ], [ %2, %if.then36 ], [ %e, %if.end22 ]
-  %keytype.addr.3107116 = phi ptr [ %keytype.addr.3168, %if.end39 ], [ %keytype.addr.3168, %if.then36 ], [ null, %if.end22 ]
-  %call42 = tail call i32 @ENGINE_init(ptr noundef nonnull %e.addr.0117) #10
+  %e.addr.1117 = phi ptr [ %3, %if.end39 ], [ %2, %if.then36 ], [ %e, %if.end22 ]
+  %keytype.addr.4107116 = phi ptr [ %keytype.addr.4168, %if.end39 ], [ %keytype.addr.4168, %if.then36 ], [ null, %if.end22 ]
+  %call42 = tail call i32 @ENGINE_init(ptr noundef nonnull %e.addr.1117) #10
   %tobool.not = icmp eq i32 %call42, 0
   br i1 %tobool.not, label %if.then43, label %common.thread
 
@@ -290,9 +290,9 @@ if.end47.thread:                                  ; preds = %if.end39
   br i1 %cmp48.not174, label %land.lhs.true53, label %common.thread
 
 common.thread:                                    ; preds = %if.end47.thread, %if.end47, %if.then41
-  %e.addr.1130 = phi ptr [ %call46, %if.end47 ], [ %e.addr.0117, %if.then41 ], [ %call46173, %if.end47.thread ]
-  %keytype.addr.3107115129 = phi ptr [ %call31171, %if.end47 ], [ %keytype.addr.3107116, %if.then41 ], [ %keytype.addr.3168, %if.end47.thread ]
-  %call50 = tail call ptr @ENGINE_get_pkey_meth(ptr noundef nonnull %e.addr.1130, i32 noundef %id.addr.0102) #10
+  %e.addr.2130 = phi ptr [ %call46, %if.end47 ], [ %e.addr.1117, %if.then41 ], [ %call46173, %if.end47.thread ]
+  %keytype.addr.4107115129 = phi ptr [ %call31171, %if.end47 ], [ %keytype.addr.4107116, %if.then41 ], [ %keytype.addr.4168, %if.end47.thread ]
+  %call50 = tail call ptr @ENGINE_get_pkey_meth(ptr noundef nonnull %e.addr.2130, i32 noundef %id.addr.0102) #10
   br label %if.end108
 
 land.lhs.true53:                                  ; preds = %if.end47.thread
@@ -350,7 +350,7 @@ EVP_PKEY_meth_find.exit:                          ; preds = %evp_pkey_meth_find_
   br label %common
 
 if.else61:                                        ; preds = %if.end47, %land.lhs.true53
-  %keytype.addr.3169175178 = phi ptr [ %keytype.addr.3168, %land.lhs.true53 ], [ %call31171, %if.end47 ]
+  %keytype.addr.4169175178 = phi ptr [ %keytype.addr.4168, %land.lhs.true53 ], [ %call31171, %if.end47 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %tmp.i85)
   %7 = load ptr, ptr @app_pkey_methods, align 8
   %cmp.not.i86 = icmp eq ptr %7, null
@@ -376,10 +376,10 @@ evp_pkey_meth_find_added_by_application.exit:     ; preds = %if.else61, %if.then
 common:                                           ; preds = %evp_pkey_meth_find_added_by_application.exit, %EVP_PKEY_meth_find.exit, %if.then18
   %cmp1795 = phi i1 [ true, %if.then18 ], [ false, %EVP_PKEY_meth_find.exit ], [ false, %evp_pkey_meth_find_added_by_application.exit ]
   %id.addr.093 = phi i32 [ -1, %if.then18 ], [ %id.addr.0102, %EVP_PKEY_meth_find.exit ], [ %id.addr.0102, %evp_pkey_meth_find_added_by_application.exit ]
-  %keytype.addr.4 = phi ptr [ %keytype.addr.192, %if.then18 ], [ %keytype.addr.3168, %EVP_PKEY_meth_find.exit ], [ %keytype.addr.3169175178, %evp_pkey_meth_find_added_by_application.exit ]
+  %keytype.addr.2 = phi ptr [ %keytype.addr.092, %if.then18 ], [ %keytype.addr.4168, %EVP_PKEY_meth_find.exit ], [ %keytype.addr.4169175178, %evp_pkey_meth_find_added_by_application.exit ]
   %pmeth.0 = phi ptr [ null, %if.then18 ], [ %retval.0.i, %EVP_PKEY_meth_find.exit ], [ %retval.0.i88, %evp_pkey_meth_find_added_by_application.exit ]
   %app_pmeth.0 = phi i1 [ true, %if.then18 ], [ true, %EVP_PKEY_meth_find.exit ], [ %9, %evp_pkey_meth_find_added_by_application.exit ]
-  %cmp69 = icmp ne ptr %keytype.addr.4, null
+  %cmp69 = icmp ne ptr %keytype.addr.2, null
   %or.cond2 = select i1 %app_pmeth.0, i1 %cmp69, i1 false
   br i1 %or.cond2, label %if.then70, label %if.end108
 
@@ -409,18 +409,18 @@ if.else80:                                        ; preds = %if.then75
   br label %if.end85
 
 if.else83:                                        ; preds = %land.lhs.true72, %if.then70
-  %call84 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %libctx, ptr noundef nonnull %keytype.addr.4, ptr noundef %propquery) #10
+  %call84 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %libctx, ptr noundef nonnull %keytype.addr.2, ptr noundef %propquery) #10
   br label %if.end85
 
 if.end85:                                         ; preds = %if.else80, %if.else83
-  %keymgmt.0 = phi ptr [ %11, %if.else80 ], [ %call84, %if.else83 ]
-  %cmp86 = icmp eq ptr %keymgmt.0, null
+  %keymgmt.1 = phi ptr [ %11, %if.else80 ], [ %call84, %if.else83 ]
+  %cmp86 = icmp eq ptr %keymgmt.1, null
   br i1 %cmp86, label %return, label %if.then90
 
 if.then90:                                        ; preds = %if.end85
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i)
   store i32 0, ptr %type.i, align 4
-  %call.i = call i32 @EVP_KEYMGMT_names_do_all(ptr noundef nonnull %keymgmt.0, ptr noundef nonnull @help_get_legacy_alg_type_from_keymgmt, ptr noundef nonnull %type.i) #10
+  %call.i = call i32 @EVP_KEYMGMT_names_do_all(ptr noundef nonnull %keymgmt.1, ptr noundef nonnull @help_get_legacy_alg_type_from_keymgmt, ptr noundef nonnull %type.i) #10
   %12 = load i32, ptr %type.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
   %cmp92.not = icmp eq i32 %12, 0
@@ -436,7 +436,7 @@ if.then103:                                       ; preds = %if.else96
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.int_ctx_new) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786691, ptr noundef null) #10
-  call void @EVP_KEYMGMT_free(ptr noundef nonnull %keymgmt.0) #10
+  call void @EVP_KEYMGMT_free(ptr noundef nonnull %keymgmt.1) #10
   br label %return
 
 if.end108.thread:                                 ; preds = %if.else96, %if.then90
@@ -446,8 +446,8 @@ if.end108.thread:                                 ; preds = %if.else96, %if.then
 
 if.end108:                                        ; preds = %common.thread, %common
   %pmeth.0144 = phi ptr [ %pmeth.0, %common ], [ %call50, %common.thread ]
-  %e.addr.2143 = phi ptr [ null, %common ], [ %e.addr.1130, %common.thread ]
-  %keytype.addr.4142 = phi ptr [ %keytype.addr.4, %common ], [ %keytype.addr.3107115129, %common.thread ]
+  %e.addr.0143 = phi ptr [ null, %common ], [ %e.addr.2130, %common.thread ]
+  %keytype.addr.2142 = phi ptr [ %keytype.addr.2, %common ], [ %keytype.addr.4107115129, %common.thread ]
   %id.addr.1 = phi i32 [ %id.addr.093, %common ], [ %id.addr.0102, %common.thread ]
   %cmp109 = icmp eq ptr %pmeth.0144, null
   br i1 %cmp109, label %if.then114, label %if.else115
@@ -460,37 +460,37 @@ if.then114:                                       ; preds = %if.end108
 
 if.else115:                                       ; preds = %if.end108.thread, %if.end108
   %cmp109166 = phi i1 [ %cmp109152, %if.end108.thread ], [ false, %if.end108 ]
-  %keymgmt.1164 = phi ptr [ %keymgmt.0, %if.end108.thread ], [ null, %if.end108 ]
+  %keymgmt.0164 = phi ptr [ %keymgmt.1, %if.end108.thread ], [ null, %if.end108 ]
   %id.addr.1162 = phi i32 [ %id.addr.1.ph, %if.end108.thread ], [ %id.addr.1, %if.end108 ]
-  %keytype.addr.4142160 = phi ptr [ %keytype.addr.4, %if.end108.thread ], [ %keytype.addr.4142, %if.end108 ]
-  %e.addr.2143158 = phi ptr [ null, %if.end108.thread ], [ %e.addr.2143, %if.end108 ]
+  %keytype.addr.2142160 = phi ptr [ %keytype.addr.2, %if.end108.thread ], [ %keytype.addr.2142, %if.end108 ]
+  %e.addr.0143158 = phi ptr [ null, %if.end108.thread ], [ %e.addr.0143, %if.end108 ]
   %pmeth.0144156 = phi ptr [ %pmeth.0, %if.end108.thread ], [ %pmeth.0144, %if.end108 ]
   %call116 = call noalias ptr @CRYPTO_zalloc(i64 noundef 176, ptr noundef nonnull @.str, i32 noundef 315) #10
   br label %if.end117
 
 if.end117:                                        ; preds = %if.else115, %if.then114
   %cmp109165 = phi i1 [ true, %if.then114 ], [ %cmp109166, %if.else115 ]
-  %keymgmt.1163 = phi ptr [ null, %if.then114 ], [ %keymgmt.1164, %if.else115 ]
+  %keymgmt.0163 = phi ptr [ null, %if.then114 ], [ %keymgmt.0164, %if.else115 ]
   %id.addr.1161 = phi i32 [ %id.addr.1, %if.then114 ], [ %id.addr.1162, %if.else115 ]
-  %keytype.addr.4142159 = phi ptr [ %keytype.addr.4142, %if.then114 ], [ %keytype.addr.4142160, %if.else115 ]
-  %e.addr.2143157 = phi ptr [ %e.addr.2143, %if.then114 ], [ %e.addr.2143158, %if.else115 ]
+  %keytype.addr.2142159 = phi ptr [ %keytype.addr.2142, %if.then114 ], [ %keytype.addr.2142160, %if.else115 ]
+  %e.addr.0143157 = phi ptr [ %e.addr.0143, %if.then114 ], [ %e.addr.0143158, %if.else115 ]
   %pmeth.0144155 = phi ptr [ null, %if.then114 ], [ %pmeth.0144156, %if.else115 ]
   %ret.0 = phi ptr [ null, %if.then114 ], [ %call116, %if.else115 ]
   %cmp118 = icmp eq ptr %ret.0, null
   %or.cond4 = or i1 %cmp109165, %cmp118
-  %cmp124 = icmp ne ptr %e.addr.2143157, null
+  %cmp124 = icmp ne ptr %e.addr.0143157, null
   %or.cond5 = and i1 %cmp124, %or.cond4
   br i1 %or.cond5, label %if.then126, label %if.end128
 
 if.then126:                                       ; preds = %if.end117
-  %call127 = call i32 @ENGINE_finish(ptr noundef nonnull %e.addr.2143157) #10
+  %call127 = call i32 @ENGINE_finish(ptr noundef nonnull %e.addr.0143157) #10
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end117, %if.then126
   br i1 %cmp118, label %if.then131, label %if.end132
 
 if.then131:                                       ; preds = %if.end128
-  call void @EVP_KEYMGMT_free(ptr noundef %keymgmt.1163) #10
+  call void @EVP_KEYMGMT_free(ptr noundef %keymgmt.0163) #10
   br label %return
 
 if.end132:                                        ; preds = %if.end128
@@ -506,20 +506,20 @@ if.then135:                                       ; preds = %if.end132
 
 if.then141:                                       ; preds = %if.then135
   call void @CRYPTO_free(ptr noundef nonnull %ret.0, ptr noundef nonnull @.str, i32 noundef 330) #10
-  call void @EVP_KEYMGMT_free(ptr noundef %keymgmt.1163) #10
+  call void @EVP_KEYMGMT_free(ptr noundef %keymgmt.0163) #10
   br label %return
 
 if.end143:                                        ; preds = %if.then135, %if.end132
   %libctx144 = getelementptr inbounds i8, ptr %ret.0, i64 8
   store ptr %libctx, ptr %libctx144, align 8
   %keytype145 = getelementptr inbounds i8, ptr %ret.0, i64 24
-  store ptr %keytype.addr.4142159, ptr %keytype145, align 8
+  store ptr %keytype.addr.2142159, ptr %keytype145, align 8
   %keymgmt146 = getelementptr inbounds i8, ptr %ret.0, i64 32
-  store ptr %keymgmt.1163, ptr %keymgmt146, align 8
+  store ptr %keymgmt.0163, ptr %keymgmt146, align 8
   %legacy_keytype = getelementptr inbounds i8, ptr %ret.0, i64 116
   store i32 %id.addr.1161, ptr %legacy_keytype, align 4
   %engine147 = getelementptr inbounds i8, ptr %ret.0, i64 128
-  store ptr %e.addr.2143157, ptr %engine147, align 8
+  store ptr %e.addr.0143157, ptr %engine147, align 8
   %pmeth148 = getelementptr inbounds i8, ptr %ret.0, i64 120
   store ptr %pmeth.0144155, ptr %pmeth148, align 8
   store i32 0, ptr %ret.0, align 8

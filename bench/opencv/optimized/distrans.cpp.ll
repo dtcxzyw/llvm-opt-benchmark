@@ -397,7 +397,7 @@ switch.early.test:                                ; preds = %77
   br label %.backedge
 
 .loopexit74:                                      ; preds = %62, %43
-  %.0 = phi i32 [ -1, %43 ], [ 0, %62 ]
+  %.1 = phi i32 [ -1, %43 ], [ 0, %62 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   br label %103
 
@@ -407,9 +407,9 @@ switch.early.test:                                ; preds = %77
   br label %.body
 
 103:                                              ; preds = %23, %.loopexit74
-  %.1 = phi i32 [ %.0, %.loopexit74 ], [ 0, %23 ]
+  %.0 = phi i32 [ %.1, %.loopexit74 ], [ 0, %23 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  ret i32 %.1
+  ret i32 %.0
 
 .body:                                            ; preds = %35, %102, %33
   %.pn69.pn = phi { ptr, i32 } [ %.pn69, %102 ], [ %.pn60, %33 ], [ %36, %35 ]

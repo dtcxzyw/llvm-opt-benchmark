@@ -160,19 +160,19 @@ if.then18:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %lor.lhs.false
-  %changed.2 = phi i32 [ %or19, %if.then18 ], [ %changed.121, %lor.lhs.false ]
+  %changed.3 = phi i32 [ %or19, %if.then18 ], [ %changed.121, %lor.lhs.false ]
   %sd_ino = getelementptr inbounds i8, ptr %sd, i64 20
   %10 = load i32, ptr %sd_ino, align 4
   %st_ino = getelementptr inbounds i8, ptr %st, i64 8
   %11 = load i64, ptr %st_ino, align 8
   %conv21 = trunc i64 %11 to i32
   %cmp22.not = icmp eq i32 %10, %conv21
-  %or25 = or i32 %changed.2, 16
-  %spec.select17 = select i1 %cmp22.not, i32 %changed.2, i32 %or25
+  %or25 = or i32 %changed.3, 16
+  %spec.select17 = select i1 %cmp22.not, i32 %changed.3, i32 %or25
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end20, %if.end11
-  %changed.3 = phi i32 [ %spec.select, %if.end11 ], [ %spec.select17, %if.end20 ]
+  %changed.2 = phi i32 [ %spec.select, %if.end11 ], [ %spec.select17, %if.end20 ]
   %sd_size = getelementptr inbounds i8, ptr %sd, i64 32
   %12 = load i32, ptr %sd_size, align 4
   %st_size = getelementptr inbounds i8, ptr %st, i64 48
@@ -183,8 +183,8 @@ if.end27:                                         ; preds = %if.end20, %if.end11
   %or.cond.i = and i1 %tobool1.i, %tobool.i
   %.conv.i = select i1 %or.cond.i, i32 -2147483648, i32 %conv.i
   %cmp28.not = icmp eq i32 %12, %.conv.i
-  %or31 = or i32 %changed.3, 32
-  %spec.select18 = select i1 %cmp28.not, i32 %changed.3, i32 %or31
+  %or31 = or i32 %changed.2, 32
+  %spec.select18 = select i1 %cmp28.not, i32 %changed.2, i32 %or31
   ret i32 %spec.select18
 }
 
@@ -270,19 +270,19 @@ if.then18.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then18.i, %lor.lhs.false.i
-  %changed.2.i = phi i32 [ %or19.i, %if.then18.i ], [ %changed.121.i, %lor.lhs.false.i ]
+  %changed.3.i = phi i32 [ %or19.i, %if.then18.i ], [ %changed.121.i, %lor.lhs.false.i ]
   %sd_ino.i = getelementptr inbounds i8, ptr %0, i64 20
   %12 = load i32, ptr %sd_ino.i, align 4
   %st_ino.i = getelementptr inbounds i8, ptr %st, i64 8
   %13 = load i64, ptr %st_ino.i, align 8
   %conv21.i = trunc i64 %13 to i32
   %cmp22.not.i = icmp eq i32 %12, %conv21.i
-  %or25.i = or i32 %changed.2.i, 16
-  %spec.select17.i = select i1 %cmp22.not.i, i32 %changed.2.i, i32 %or25.i
+  %or25.i = or i32 %changed.3.i, 16
+  %spec.select17.i = select i1 %cmp22.not.i, i32 %changed.3.i, i32 %or25.i
   br label %match_stat_data.exit
 
 match_stat_data.exit:                             ; preds = %if.end11.i, %if.end20.i
-  %changed.3.i = phi i32 [ %spec.select.i, %if.end11.i ], [ %spec.select17.i, %if.end20.i ]
+  %changed.2.i = phi i32 [ %spec.select.i, %if.end11.i ], [ %spec.select17.i, %if.end20.i ]
   %sd_size.i = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %sd_size.i, align 4
   %st_size.i = getelementptr inbounds i8, ptr %st, i64 48
@@ -293,7 +293,7 @@ match_stat_data.exit:                             ; preds = %if.end11.i, %if.end
   %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
   %.conv.i.i = select i1 %or.cond.i.i, i32 -2147483648, i32 %conv.i.i
   %cmp28.not.i = icmp eq i32 %14, %.conv.i.i
-  %tobool9.not3 = icmp eq i32 %changed.3.i, 0
+  %tobool9.not3 = icmp eq i32 %changed.2.i, 0
   %tobool9.not = select i1 %cmp28.not.i, i1 %tobool9.not3, i1 false
   br label %return
 

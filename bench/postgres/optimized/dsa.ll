@@ -1101,7 +1101,7 @@ ensure_active_superblock.exit:                    ; preds = %88, %99
   br label %187
 
 187:                                              ; preds = %180, %174
-  %.0 = phi i64 [ %177, %174 ], [ %185, %180 ]
+  %.1 = phi i64 [ %177, %174 ], [ %185, %180 ]
   %188 = getelementptr inbounds i8, ptr %166, i64 44
   %189 = load i16, ptr %188, align 4
   %190 = add i16 %189, -1
@@ -1149,12 +1149,12 @@ ensure_active_superblock.exit:                    ; preds = %88, %99
   br label %transfer_first_span.exit
 
 transfer_first_span.exit:                         ; preds = %208, %192, %ensure_active_superblock.exit, %187
-  %.1 = phi i64 [ %.0, %187 ], [ 0, %ensure_active_superblock.exit ], [ %.0, %192 ], [ %.0, %208 ]
+  %.0 = phi i64 [ %.1, %187 ], [ 0, %ensure_active_superblock.exit ], [ %.1, %192 ], [ %.1, %208 ]
   %210 = load ptr, ptr %0, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 4288
   %212 = getelementptr [38 x %struct.dsa_area_pool], ptr %211, i64 0, i64 %6
   call void @LWLockRelease(ptr noundef %212) #10
-  ret i64 %.1
+  ret i64 %.0
 }
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
@@ -1322,9 +1322,9 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
   %.not114 = icmp eq i64 %33, 0
   %34 = add nuw i64 %31, 5248
   %35 = sub nuw i64 %34, %33
-  %.1 = select i1 %.not114, i64 %32, i64 %35
+  %.2 = select i1 %.not114, i64 %32, i64 %35
   %36 = shl nuw i64 %1, 12
-  %37 = add i64 %.1, %36
+  %37 = add i64 %.2, %36
   %38 = icmp ugt i64 %37, 1099511627776
   %39 = icmp ugt i64 %37, %18
   %or.cond = or i1 %38, %39
@@ -1333,7 +1333,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
 40:                                               ; preds = %30, %26
   %.099 = phi i64 [ %28, %26 ], [ %1, %30 ]
   %.098 = phi i64 [ %., %26 ], [ %37, %30 ]
-  %.2 = phi i64 [ %.097, %26 ], [ %.1, %30 ]
+  %.1 = phi i64 [ %.097, %26 ], [ %.2, %30 ]
   %41 = load ptr, ptr @CurrentResourceOwner, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -1392,7 +1392,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
   store ptr %73, ptr %74, align 8
   tail call void @FreePageManagerInitialize(ptr noundef %71, ptr noundef %68) #10
   %75 = load ptr, ptr %72, align 8
-  %76 = lshr i64 %.2, 12
+  %76 = lshr i64 %.1, 12
   tail call void @FreePageManagerPut(ptr noundef %75, i64 noundef %76, i64 noundef %.099) #10
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 56

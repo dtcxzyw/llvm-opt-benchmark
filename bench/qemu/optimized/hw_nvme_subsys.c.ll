@@ -194,7 +194,7 @@ nvme_subsys_unreserve_cntlids.exit:               ; preds = %for.inc.i43, %if.th
 
 if.end19:                                         ; preds = %nvme_subsys_reserve_cntlids.exit, %if.then
   %params64 = phi ptr [ %params, %if.then ], [ %params65, %nvme_subsys_reserve_cntlids.exit ]
-  %cntlid.1 = phi i32 [ %conv4, %if.then ], [ %5, %nvme_subsys_reserve_cntlids.exit ]
+  %cntlid.0 = phi i32 [ %conv4, %if.then ], [ %5, %nvme_subsys_reserve_cntlids.exit ]
   %serial = getelementptr inbounds i8, ptr %0, i64 536
   %17 = load ptr, ptr %serial, align 8
   %tobool20.not = icmp eq ptr %17, null
@@ -217,7 +217,7 @@ if.then32:                                        ; preds = %if.else26
 
 if.end34:                                         ; preds = %if.else26, %if.then21
   %ctrls35 = getelementptr inbounds i8, ptr %0, i64 544
-  %idxprom36 = zext nneg i32 %cntlid.1 to i64
+  %idxprom36 = zext nneg i32 %cntlid.0 to i64
   %arrayidx37 = getelementptr [256 x ptr], ptr %ctrls35, i64 0, i64 %idxprom36
   store ptr %n, ptr %arrayidx37, align 8
   %namespaces = getelementptr inbounds i8, ptr %0, i64 2592
@@ -252,7 +252,7 @@ for.inc54:                                        ; preds = %for.body42, %land.l
   br i1 %exitcond56.not, label %return, label %for.body42, !llvm.loop !9
 
 return:                                           ; preds = %for.inc54, %if.then32, %nvme_subsys_unreserve_cntlids.exit, %if.then12
-  %retval.0 = phi i32 [ -1, %if.then32 ], [ -1, %if.then12 ], [ -1, %nvme_subsys_unreserve_cntlids.exit ], [ %cntlid.1, %for.inc54 ]
+  %retval.0 = phi i32 [ -1, %if.then32 ], [ -1, %if.then12 ], [ -1, %nvme_subsys_unreserve_cntlids.exit ], [ %cntlid.0, %for.inc54 ]
   ret i32 %retval.0
 }
 

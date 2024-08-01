@@ -173,18 +173,18 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 .lr.ph:                                           ; preds = %.preheader206, %.lr.ph
   %.1211 = phi i32 [ %136, %.lr.ph ], [ %1, %.preheader206 ]
-  %.4210 = phi i32 [ %133, %.lr.ph ], [ %3, %.preheader206 ]
-  %.4187209 = phi i32 [ %134, %.lr.ph ], [ %3, %.preheader206 ]
-  %.3199208 = phi i32 [ %130, %.lr.ph ], [ %3, %.preheader206 ]
+  %.5210 = phi i32 [ %133, %.lr.ph ], [ %3, %.preheader206 ]
+  %.5188209 = phi i32 [ %134, %.lr.ph ], [ %3, %.preheader206 ]
+  %.4200208 = phi i32 [ %130, %.lr.ph ], [ %3, %.preheader206 ]
   %.0204207 = phi ptr [ %135, %.lr.ph ], [ %0, %.preheader206 ]
   %103 = load i32, ptr %.0204207, align 1
-  %104 = add i32 %103, %.3199208
+  %104 = add i32 %103, %.4200208
   %105 = getelementptr i8, ptr %.0204207, i64 4
   %106 = load i32, ptr %105, align 1
-  %107 = add i32 %106, %.4187209
+  %107 = add i32 %106, %.5188209
   %108 = getelementptr i8, ptr %.0204207, i64 8
   %109 = load i32, ptr %108, align 1
-  %110 = add i32 %109, %.4210
+  %110 = add i32 %109, %.5210
   %111 = sub i32 %104, %110
   %112 = tail call i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 4)
   %113 = xor i32 %111, %112
@@ -216,9 +216,9 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader206
   %.0204.lcssa = phi ptr [ %0, %.preheader206 ], [ %135, %.lr.ph ]
-  %.3199.lcssa = phi i32 [ %3, %.preheader206 ], [ %130, %.lr.ph ]
-  %.4187.lcssa = phi i32 [ %3, %.preheader206 ], [ %134, %.lr.ph ]
-  %.4.lcssa = phi i32 [ %3, %.preheader206 ], [ %133, %.lr.ph ]
+  %.4200.lcssa = phi i32 [ %3, %.preheader206 ], [ %130, %.lr.ph ]
+  %.5188.lcssa = phi i32 [ %3, %.preheader206 ], [ %134, %.lr.ph ]
+  %.5.lcssa = phi i32 [ %3, %.preheader206 ], [ %133, %.lr.ph ]
   %.1.lcssa = phi i32 [ %1, %.preheader206 ], [ %136, %.lr.ph ]
   switch i32 %.1.lcssa, label %201 [
     i32 11, label %138
@@ -239,117 +239,117 @@ define dso_local i32 @hash_bytes(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
   %142 = shl nuw i32 %141, 24
-  %143 = add i32 %142, %.4.lcssa
+  %143 = add i32 %142, %.5.lcssa
   br label %144
 
 144:                                              ; preds = %138, %._crit_edge
-  %.5 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %143, %138 ]
+  %.6 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %143, %138 ]
   %145 = getelementptr i8, ptr %.0204.lcssa, i64 9
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw nsw i32 %147, 16
-  %149 = add i32 %148, %.5
+  %149 = add i32 %148, %.6
   br label %150
 
 150:                                              ; preds = %144, %._crit_edge
-  %.6 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %149, %144 ]
+  %.7 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %149, %144 ]
   %151 = getelementptr i8, ptr %.0204.lcssa, i64 8
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   %154 = shl nuw nsw i32 %153, 8
-  %155 = add i32 %154, %.6
+  %155 = add i32 %154, %.7
   br label %156
 
 156:                                              ; preds = %150, %._crit_edge
-  %.7 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %155, %150 ]
+  %.8 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %155, %150 ]
   %157 = getelementptr i8, ptr %.0204.lcssa, i64 7
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
   %160 = shl nuw i32 %159, 24
-  %161 = add i32 %160, %.4187.lcssa
+  %161 = add i32 %160, %.5188.lcssa
   br label %162
 
 162:                                              ; preds = %156, %._crit_edge
-  %.5188 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %161, %156 ]
-  %.8 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.7, %156 ]
+  %.6189 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %161, %156 ]
+  %.9 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.8, %156 ]
   %163 = getelementptr i8, ptr %.0204.lcssa, i64 6
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %166 = shl nuw nsw i32 %165, 16
-  %167 = add i32 %166, %.5188
+  %167 = add i32 %166, %.6189
   br label %168
 
 168:                                              ; preds = %162, %._crit_edge
-  %.6189 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %167, %162 ]
-  %.9 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.8, %162 ]
+  %.7190 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %167, %162 ]
+  %.10 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.9, %162 ]
   %169 = getelementptr i8, ptr %.0204.lcssa, i64 5
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = shl nuw nsw i32 %171, 8
-  %173 = add i32 %172, %.6189
+  %173 = add i32 %172, %.7190
   br label %174
 
 174:                                              ; preds = %168, %._crit_edge
-  %.7190 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %173, %168 ]
-  %.10 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.9, %168 ]
+  %.8191 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %173, %168 ]
+  %.11 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.10, %168 ]
   %175 = getelementptr i8, ptr %.0204.lcssa, i64 4
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
-  %178 = add i32 %.7190, %177
+  %178 = add i32 %.8191, %177
   br label %179
 
 179:                                              ; preds = %174, %._crit_edge
-  %.8191 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %178, %174 ]
-  %.11 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.10, %174 ]
+  %.9192 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %178, %174 ]
+  %.12 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.11, %174 ]
   %180 = getelementptr i8, ptr %.0204.lcssa, i64 3
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
   %183 = shl nuw i32 %182, 24
-  %184 = add i32 %183, %.3199.lcssa
+  %184 = add i32 %183, %.4200.lcssa
   br label %185
 
 185:                                              ; preds = %179, %._crit_edge
-  %.4200 = phi i32 [ %.3199.lcssa, %._crit_edge ], [ %184, %179 ]
-  %.9192 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %.8191, %179 ]
-  %.12 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.11, %179 ]
+  %.5201 = phi i32 [ %.4200.lcssa, %._crit_edge ], [ %184, %179 ]
+  %.10193 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %.9192, %179 ]
+  %.13 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.12, %179 ]
   %186 = getelementptr i8, ptr %.0204.lcssa, i64 2
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 16
-  %190 = add i32 %189, %.4200
+  %190 = add i32 %189, %.5201
   br label %191
 
 191:                                              ; preds = %185, %._crit_edge
-  %.5201 = phi i32 [ %.3199.lcssa, %._crit_edge ], [ %190, %185 ]
-  %.10193 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %.9192, %185 ]
-  %.13 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.12, %185 ]
+  %.6202 = phi i32 [ %.4200.lcssa, %._crit_edge ], [ %190, %185 ]
+  %.11194 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %.10193, %185 ]
+  %.14 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.13, %185 ]
   %192 = getelementptr i8, ptr %.0204.lcssa, i64 1
   %193 = load i8, ptr %192, align 1
   %194 = zext i8 %193 to i32
   %195 = shl nuw nsw i32 %194, 8
-  %196 = add i32 %195, %.5201
+  %196 = add i32 %195, %.6202
   br label %197
 
 197:                                              ; preds = %191, %._crit_edge
-  %.6202 = phi i32 [ %.3199.lcssa, %._crit_edge ], [ %196, %191 ]
-  %.11194 = phi i32 [ %.4187.lcssa, %._crit_edge ], [ %.10193, %191 ]
-  %.14 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.13, %191 ]
+  %.7203 = phi i32 [ %.4200.lcssa, %._crit_edge ], [ %196, %191 ]
+  %.12195 = phi i32 [ %.5188.lcssa, %._crit_edge ], [ %.11194, %191 ]
+  %.15 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.14, %191 ]
   %198 = load i8, ptr %.0204.lcssa, align 1
   %199 = zext i8 %198 to i32
-  %200 = add i32 %.6202, %199
+  %200 = add i32 %.7203, %199
   br label %201
 
 201:                                              ; preds = %._crit_edge, %197, %._crit_edge222, %61, %84, %99
-  %.7203 = phi i32 [ %.0196.lcssa, %._crit_edge222 ], [ %102, %99 ], [ %86, %84 ], [ %66, %61 ], [ %.3199.lcssa, %._crit_edge ], [ %200, %197 ]
-  %.12195 = phi i32 [ %.0183.lcssa, %._crit_edge222 ], [ %.0183.lcssa, %99 ], [ %.3186, %84 ], [ %64, %61 ], [ %.4187.lcssa, %._crit_edge ], [ %.11194, %197 ]
-  %.15 = phi i32 [ %.0181.lcssa, %._crit_edge222 ], [ %.0181.lcssa, %99 ], [ %.0181.lcssa, %84 ], [ %.3, %61 ], [ %.4.lcssa, %._crit_edge ], [ %.14, %197 ]
-  %202 = xor i32 %.15, %.12195
-  %203 = tail call i32 @llvm.fshl.i32(i32 %.12195, i32 %.12195, i32 14)
+  %.3199 = phi i32 [ %.0196.lcssa, %._crit_edge222 ], [ %102, %99 ], [ %86, %84 ], [ %66, %61 ], [ %.4200.lcssa, %._crit_edge ], [ %200, %197 ]
+  %.4187 = phi i32 [ %.0183.lcssa, %._crit_edge222 ], [ %.0183.lcssa, %99 ], [ %.3186, %84 ], [ %64, %61 ], [ %.5188.lcssa, %._crit_edge ], [ %.12195, %197 ]
+  %.4 = phi i32 [ %.0181.lcssa, %._crit_edge222 ], [ %.0181.lcssa, %99 ], [ %.0181.lcssa, %84 ], [ %.3, %61 ], [ %.5.lcssa, %._crit_edge ], [ %.15, %197 ]
+  %202 = xor i32 %.4, %.4187
+  %203 = tail call i32 @llvm.fshl.i32(i32 %.4187, i32 %.4187, i32 14)
   %204 = sub i32 %202, %203
-  %205 = xor i32 %204, %.7203
+  %205 = xor i32 %204, %.3199
   %206 = tail call i32 @llvm.fshl.i32(i32 %204, i32 %204, i32 11)
   %207 = sub i32 %205, %206
-  %208 = xor i32 %207, %.12195
+  %208 = xor i32 %207, %.4187
   %209 = tail call i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 25)
   %210 = sub i32 %208, %209
   %211 = xor i32 %210, %204
@@ -574,18 +574,18 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 .lr.ph:                                           ; preds = %.preheader251, %.lr.ph
   %.1256 = phi i32 [ %166, %.lr.ph ], [ %1, %.preheader251 ]
-  %.5255 = phi i32 [ %163, %.lr.ph ], [ %.0223, %.preheader251 ]
-  %.5230254 = phi i32 [ %164, %.lr.ph ], [ %.0225, %.preheader251 ]
-  %.4243253 = phi i32 [ %160, %.lr.ph ], [ %.0239, %.preheader251 ]
+  %.6255 = phi i32 [ %163, %.lr.ph ], [ %.0223, %.preheader251 ]
+  %.6231254 = phi i32 [ %164, %.lr.ph ], [ %.0225, %.preheader251 ]
+  %.5244253 = phi i32 [ %160, %.lr.ph ], [ %.0239, %.preheader251 ]
   %.0248252 = phi ptr [ %165, %.lr.ph ], [ %0, %.preheader251 ]
   %133 = load i32, ptr %.0248252, align 1
-  %134 = add i32 %133, %.4243253
+  %134 = add i32 %133, %.5244253
   %135 = getelementptr i8, ptr %.0248252, i64 4
   %136 = load i32, ptr %135, align 1
-  %137 = add i32 %136, %.5230254
+  %137 = add i32 %136, %.6231254
   %138 = getelementptr i8, ptr %.0248252, i64 8
   %139 = load i32, ptr %138, align 1
-  %140 = add i32 %139, %.5255
+  %140 = add i32 %139, %.6255
   %141 = sub i32 %134, %140
   %142 = tail call i32 @llvm.fshl.i32(i32 %140, i32 %140, i32 4)
   %143 = xor i32 %141, %142
@@ -617,9 +617,9 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader251
   %.0248.lcssa = phi ptr [ %0, %.preheader251 ], [ %165, %.lr.ph ]
-  %.4243.lcssa = phi i32 [ %.0239, %.preheader251 ], [ %160, %.lr.ph ]
-  %.5230.lcssa = phi i32 [ %.0225, %.preheader251 ], [ %164, %.lr.ph ]
-  %.5.lcssa = phi i32 [ %.0223, %.preheader251 ], [ %163, %.lr.ph ]
+  %.5244.lcssa = phi i32 [ %.0239, %.preheader251 ], [ %160, %.lr.ph ]
+  %.6231.lcssa = phi i32 [ %.0225, %.preheader251 ], [ %164, %.lr.ph ]
+  %.6.lcssa = phi i32 [ %.0223, %.preheader251 ], [ %163, %.lr.ph ]
   %.1.lcssa = phi i32 [ %1, %.preheader251 ], [ %166, %.lr.ph ]
   switch i32 %.1.lcssa, label %231 [
     i32 11, label %168
@@ -640,117 +640,117 @@ define dso_local i64 @hash_bytes_extended(ptr noundef %0, i32 noundef %1, i64 no
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = shl nuw i32 %171, 24
-  %173 = add i32 %172, %.5.lcssa
+  %173 = add i32 %172, %.6.lcssa
   br label %174
 
 174:                                              ; preds = %168, %._crit_edge
-  %.6 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %173, %168 ]
+  %.7 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %173, %168 ]
   %175 = getelementptr i8, ptr %.0248.lcssa, i64 9
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 16
-  %179 = add i32 %178, %.6
+  %179 = add i32 %178, %.7
   br label %180
 
 180:                                              ; preds = %174, %._crit_edge
-  %.7 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %179, %174 ]
+  %.8 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %179, %174 ]
   %181 = getelementptr i8, ptr %.0248.lcssa, i64 8
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
   %184 = shl nuw nsw i32 %183, 8
-  %185 = add i32 %184, %.7
+  %185 = add i32 %184, %.8
   br label %186
 
 186:                                              ; preds = %180, %._crit_edge
-  %.8 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %185, %180 ]
+  %.9 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %185, %180 ]
   %187 = getelementptr i8, ptr %.0248.lcssa, i64 7
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
   %190 = shl nuw i32 %189, 24
-  %191 = add i32 %190, %.5230.lcssa
+  %191 = add i32 %190, %.6231.lcssa
   br label %192
 
 192:                                              ; preds = %186, %._crit_edge
-  %.6231 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %191, %186 ]
-  %.9 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.8, %186 ]
+  %.7232 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %191, %186 ]
+  %.10 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.9, %186 ]
   %193 = getelementptr i8, ptr %.0248.lcssa, i64 6
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = shl nuw nsw i32 %195, 16
-  %197 = add i32 %196, %.6231
+  %197 = add i32 %196, %.7232
   br label %198
 
 198:                                              ; preds = %192, %._crit_edge
-  %.7232 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %197, %192 ]
-  %.10 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.9, %192 ]
+  %.8233 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %197, %192 ]
+  %.11 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.10, %192 ]
   %199 = getelementptr i8, ptr %.0248.lcssa, i64 5
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i32
   %202 = shl nuw nsw i32 %201, 8
-  %203 = add i32 %202, %.7232
+  %203 = add i32 %202, %.8233
   br label %204
 
 204:                                              ; preds = %198, %._crit_edge
-  %.8233 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %203, %198 ]
-  %.11 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.10, %198 ]
+  %.9234 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %203, %198 ]
+  %.12 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.11, %198 ]
   %205 = getelementptr i8, ptr %.0248.lcssa, i64 4
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
-  %208 = add i32 %.8233, %207
+  %208 = add i32 %.9234, %207
   br label %209
 
 209:                                              ; preds = %204, %._crit_edge
-  %.9234 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %208, %204 ]
-  %.12 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.11, %204 ]
+  %.10235 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %208, %204 ]
+  %.13 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.12, %204 ]
   %210 = getelementptr i8, ptr %.0248.lcssa, i64 3
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   %213 = shl nuw i32 %212, 24
-  %214 = add i32 %213, %.4243.lcssa
+  %214 = add i32 %213, %.5244.lcssa
   br label %215
 
 215:                                              ; preds = %209, %._crit_edge
-  %.5244 = phi i32 [ %.4243.lcssa, %._crit_edge ], [ %214, %209 ]
-  %.10235 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %.9234, %209 ]
-  %.13 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.12, %209 ]
+  %.6245 = phi i32 [ %.5244.lcssa, %._crit_edge ], [ %214, %209 ]
+  %.11236 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %.10235, %209 ]
+  %.14 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.13, %209 ]
   %216 = getelementptr i8, ptr %.0248.lcssa, i64 2
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
   %219 = shl nuw nsw i32 %218, 16
-  %220 = add i32 %219, %.5244
+  %220 = add i32 %219, %.6245
   br label %221
 
 221:                                              ; preds = %215, %._crit_edge
-  %.6245 = phi i32 [ %.4243.lcssa, %._crit_edge ], [ %220, %215 ]
-  %.11236 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %.10235, %215 ]
-  %.14 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.13, %215 ]
+  %.7246 = phi i32 [ %.5244.lcssa, %._crit_edge ], [ %220, %215 ]
+  %.12237 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %.11236, %215 ]
+  %.15 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.14, %215 ]
   %222 = getelementptr i8, ptr %.0248.lcssa, i64 1
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
   %225 = shl nuw nsw i32 %224, 8
-  %226 = add i32 %225, %.6245
+  %226 = add i32 %225, %.7246
   br label %227
 
 227:                                              ; preds = %221, %._crit_edge
-  %.7246 = phi i32 [ %.4243.lcssa, %._crit_edge ], [ %226, %221 ]
-  %.12237 = phi i32 [ %.5230.lcssa, %._crit_edge ], [ %.11236, %221 ]
-  %.15 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.14, %221 ]
+  %.8247 = phi i32 [ %.5244.lcssa, %._crit_edge ], [ %226, %221 ]
+  %.13238 = phi i32 [ %.6231.lcssa, %._crit_edge ], [ %.12237, %221 ]
+  %.16 = phi i32 [ %.6.lcssa, %._crit_edge ], [ %.15, %221 ]
   %228 = load i8, ptr %.0248.lcssa, align 1
   %229 = zext i8 %228 to i32
-  %230 = add i32 %.7246, %229
+  %230 = add i32 %.8247, %229
   br label %231
 
 231:                                              ; preds = %._crit_edge, %227, %._crit_edge267, %91, %114, %129
-  %.8247 = phi i32 [ %.1240.lcssa, %._crit_edge267 ], [ %132, %129 ], [ %116, %114 ], [ %96, %91 ], [ %.4243.lcssa, %._crit_edge ], [ %230, %227 ]
-  %.13238 = phi i32 [ %.1226.lcssa, %._crit_edge267 ], [ %.1226.lcssa, %129 ], [ %.4229, %114 ], [ %94, %91 ], [ %.5230.lcssa, %._crit_edge ], [ %.12237, %227 ]
-  %.16 = phi i32 [ %.1224.lcssa, %._crit_edge267 ], [ %.1224.lcssa, %129 ], [ %.1224.lcssa, %114 ], [ %.4, %91 ], [ %.5.lcssa, %._crit_edge ], [ %.15, %227 ]
-  %232 = xor i32 %.16, %.13238
-  %233 = tail call i32 @llvm.fshl.i32(i32 %.13238, i32 %.13238, i32 14)
+  %.4243 = phi i32 [ %.1240.lcssa, %._crit_edge267 ], [ %132, %129 ], [ %116, %114 ], [ %96, %91 ], [ %.5244.lcssa, %._crit_edge ], [ %230, %227 ]
+  %.5230 = phi i32 [ %.1226.lcssa, %._crit_edge267 ], [ %.1226.lcssa, %129 ], [ %.4229, %114 ], [ %94, %91 ], [ %.6231.lcssa, %._crit_edge ], [ %.13238, %227 ]
+  %.5 = phi i32 [ %.1224.lcssa, %._crit_edge267 ], [ %.1224.lcssa, %129 ], [ %.1224.lcssa, %114 ], [ %.4, %91 ], [ %.6.lcssa, %._crit_edge ], [ %.16, %227 ]
+  %232 = xor i32 %.5, %.5230
+  %233 = tail call i32 @llvm.fshl.i32(i32 %.5230, i32 %.5230, i32 14)
   %234 = sub i32 %232, %233
-  %235 = xor i32 %234, %.8247
+  %235 = xor i32 %234, %.4243
   %236 = tail call i32 @llvm.fshl.i32(i32 %234, i32 %234, i32 11)
   %237 = sub i32 %235, %236
-  %238 = xor i32 %237, %.13238
+  %238 = xor i32 %237, %.5230
   %239 = tail call i32 @llvm.fshl.i32(i32 %237, i32 %237, i32 25)
   %240 = sub i32 %238, %239
   %241 = xor i32 %240, %234

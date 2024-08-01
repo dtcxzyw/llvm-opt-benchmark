@@ -229,10 +229,10 @@ define noundef zeroext i1 @_ZN3gmx47decideWhetherToUseGpusForNonbondedWithThread
 
 36:                                               ; preds = %32, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
-  %.1 = phi i1 [ %.0, %34 ], [ true, %32 ]
+  %.3 = phi i1 [ %.0, %34 ], [ true, %32 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  br i1 %.1, label %37, label %41
+  br i1 %.3, label %37, label %41
 
 37:                                               ; preds = %.thread35, %.thread, %36
   %.pn.pn.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %.pn, %36 ], [ %31, %.thread35 ]
@@ -611,10 +611,10 @@ define noundef zeroext i1 @_ZN3gmx41decideWhetherToUseGpusForPmeWithThreadMpiEbN
 
 65:                                               ; preds = %61, %63
   %.pn70 = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
-  %.146 = phi i1 [ %.045, %63 ], [ true, %61 ]
+  %.3 = phi i1 [ %.045, %63 ], [ true, %61 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
-  br i1 %.146, label %.sink.split, label %106
+  br i1 %.3, label %.sink.split, label %106
 
 66:                                               ; preds = %47
   %67 = icmp ne i32 %6, 1
@@ -866,8 +866,8 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL16canUseGpusForPmeEbNS_10Task
   resume { ptr, i32 } %.pn
 
 43:                                               ; preds = %5, %41
-  %.1 = phi i1 [ %33, %41 ], [ false, %5 ]
-  ret i1 %.1
+  %.012 = phi i1 [ %33, %41 ], [ false, %5 ]
+  ret i1 %.012
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1463,10 +1463,10 @@ define noundef zeroext i1 @_ZN3gmx34decideWhetherToUseGpusForNonbondedENS_10Task
 
 130:                                              ; preds = %126, %128
   %.pn69 = phi { ptr, i32 } [ %129, %128 ], [ %127, %126 ]
-  %.1 = phi i1 [ %.0, %128 ], [ true, %126 ]
+  %.3 = phi i1 [ %.0, %128 ], [ true, %126 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #14
-  br i1 %.1, label %.sink.split, label %134
+  br i1 %.3, label %.sink.split, label %134
 
 131:                                              ; preds = %109
   %132 = and i1 %3, %6
@@ -1763,10 +1763,10 @@ define noundef zeroext i1 @_ZN3gmx28decideWhetherToUseGpusForPmeEbNS_10TaskTarge
 
 93:                                               ; preds = %89, %91
   %.pn50 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  %.1 = phi i1 [ %.0, %91 ], [ true, %89 ]
+  %.3 = phi i1 [ %.0, %91 ], [ true, %89 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
-  br i1 %.1, label %94, label %99
+  br i1 %.3, label %94, label %99
 
 94:                                               ; preds = %.thread102, %.thread98, %93
   %.pn50.pn.pn101 = phi { ptr, i32 } [ %87, %.thread98 ], [ %.pn50, %93 ], [ %88, %.thread102 ]
@@ -2132,7 +2132,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %72, %72, 
   br label %78
 
 78:                                               ; preds = %68, %56, %42, %22, %75
-  %.0 = phi i1 [ %77, %75 ], [ false, %22 ], [ false, %42 ], [ false, %56 ], [ true, %68 ]
+  %.1 = phi i1 [ %77, %75 ], [ false, %22 ], [ false, %42 ], [ false, %56 ], [ true, %68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   br label %80
 
@@ -2142,8 +2142,8 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %72, %72, 
   resume { ptr, i32 } %.pn43.pn.pn
 
 80:                                               ; preds = %7, %78
-  %.1 = phi i1 [ %.0, %78 ], [ false, %7 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %78 ], [ false, %7 ]
+  ret i1 %.0
 
 81:                                               ; preds = %62, %49, %30
   unreachable
@@ -2537,10 +2537,10 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %93
 
 176:                                              ; preds = %172, %174
   %.pn = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ]
-  %.1 = phi i1 [ %.0, %174 ], [ true, %172 ]
+  %.3 = phi i1 [ %.0, %174 ], [ true, %172 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
-  br i1 %.1, label %177, label %181
+  br i1 %.3, label %177, label %181
 
 177:                                              ; preds = %.thread89, %.thread, %176
   %.pn.pn.pn88 = phi { ptr, i32 } [ %170, %.thread ], [ %.pn, %176 ], [ %171, %.thread89 ]
@@ -2553,7 +2553,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %93
   br label %180
 
 180:                                              ; preds = %161, %178
-  %.059 = phi i1 [ %spec.select, %178 ], [ false, %161 ]
+  %.160 = phi i1 [ %spec.select, %178 ], [ false, %161 ]
   call void @_ZN3gmx22MessageStringCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #14
   br label %182
 
@@ -2563,8 +2563,8 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit: ; preds = %93
   br label %183
 
 182:                                              ; preds = %36, %38, %180
-  %.160 = phi i1 [ %.059, %180 ], [ false, %38 ], [ false, %36 ]
-  ret i1 %.160
+  %.059 = phi i1 [ %.160, %180 ], [ false, %38 ], [ false, %36 ]
+  ret i1 %.059
 
 183:                                              ; preds = %181, %34
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %181 ], [ %35, %34 ]

@@ -1309,7 +1309,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
 .lr.ph72:                                         ; preds = %.lr.ph.split.us.split, %66
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %66 ], [ 0, %.lr.ph.split.us.split ]
   %.04561.us71 = phi ptr [ %.146.us, %66 ], [ %25, %.lr.ph.split.us.split ]
-  %.04363.us69 = phi ptr [ %.1.us, %66 ], [ %21, %.lr.ph.split.us.split ]
+  %.163.us69 = phi ptr [ %.2.us, %66 ], [ %21, %.lr.ph.split.us.split ]
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv76
   %34 = load ptr, ptr %33, align 8
@@ -1334,30 +1334,30 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %37, align 4
-  %47 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %.04363.us69) #8
+  %47 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %.163.us69) #8
   br i1 %47, label %66, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %34, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %.04363.us69) #8
+  %51 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %.163.us69) #8
   br i1 %51, label %52, label %66
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %34, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call zeroext i1 @bms_is_subset(ptr noundef %54, ptr noundef %.04363.us69) #8
+  %55 = tail call zeroext i1 @bms_is_subset(ptr noundef %54, ptr noundef %.163.us69) #8
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %34, i64 64
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call zeroext i1 @bms_is_subset(ptr noundef %58, ptr noundef %.04363.us69) #8
+  %59 = tail call zeroext i1 @bms_is_subset(ptr noundef %58, ptr noundef %.163.us69) #8
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %37, align 4
-  %62 = tail call ptr @bms_add_member(ptr noundef %.04363.us69, i32 noundef %61) #8
+  %62 = tail call ptr @bms_add_member(ptr noundef %.163.us69, i32 noundef %61) #8
   %63 = getelementptr inbounds i8, ptr %34, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @bms_add_members(ptr noundef %.04561.us71, ptr noundef %64) #8
@@ -1365,7 +1365,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
 
 66:                                               ; preds = %60, %56, %52, %48, %45, %43, %40, %36, %.lr.ph72
   %.146.us = phi ptr [ %.04561.us71, %.lr.ph72 ], [ %.04561.us71, %36 ], [ %.04561.us71, %40 ], [ %.04561.us71, %45 ], [ %65, %60 ], [ %.04561.us71, %56 ], [ %.04561.us71, %52 ], [ %.04561.us71, %48 ], [ %.04561.us71, %43 ]
-  %.1.us = phi ptr [ %.04363.us69, %.lr.ph72 ], [ %.04363.us69, %36 ], [ %.04363.us69, %40 ], [ %.04363.us69, %45 ], [ %62, %60 ], [ %.04363.us69, %56 ], [ %.04363.us69, %52 ], [ %.04363.us69, %48 ], [ %.04363.us69, %43 ]
+  %.2.us = phi ptr [ %.163.us69, %.lr.ph72 ], [ %.163.us69, %36 ], [ %.163.us69, %40 ], [ %.163.us69, %45 ], [ %62, %60 ], [ %.163.us69, %56 ], [ %.163.us69, %52 ], [ %.163.us69, %48 ], [ %.163.us69, %43 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %67 = load i32, ptr %28, align 4
   %68 = sext i32 %67 to i64
@@ -1374,7 +1374,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
 
 .lr.ph84:                                         ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %.0456183 = phi ptr [ %.146, %.lr.ph.split ], [ %25, %.lr.ph.split.preheader ]
-  %.0436382 = phi ptr [ %.1, %.lr.ph.split ], [ %21, %.lr.ph.split.preheader ]
+  %.16382 = phi ptr [ %.2, %.lr.ph.split ], [ %21, %.lr.ph.split.preheader ]
   %indvars.iv81 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %70 = load ptr, ptr %29, align 8
   %71 = getelementptr %union.ListCell, ptr %70, i64 %indvars.iv81
@@ -1400,30 +1400,30 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
 
 83:                                               ; preds = %81
   %84 = load i32, ptr %75, align 4
-  %85 = tail call zeroext i1 @bms_is_member(i32 noundef %84, ptr noundef %.0436382) #8
+  %85 = tail call zeroext i1 @bms_is_member(i32 noundef %84, ptr noundef %.16382) #8
   br i1 %85, label %.lr.ph.split, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %72, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call zeroext i1 @bms_is_subset(ptr noundef %88, ptr noundef %.0436382) #8
+  %89 = tail call zeroext i1 @bms_is_subset(ptr noundef %88, ptr noundef %.16382) #8
   br i1 %89, label %90, label %.lr.ph.split
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %72, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call zeroext i1 @bms_is_subset(ptr noundef %92, ptr noundef %.0436382) #8
+  %93 = tail call zeroext i1 @bms_is_subset(ptr noundef %92, ptr noundef %.16382) #8
   br i1 %93, label %94, label %.lr.ph.split
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds i8, ptr %72, i64 64
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call zeroext i1 @bms_is_subset(ptr noundef %96, ptr noundef %.0436382) #8
+  %97 = tail call zeroext i1 @bms_is_subset(ptr noundef %96, ptr noundef %.16382) #8
   br i1 %97, label %98, label %.lr.ph.split
 
 98:                                               ; preds = %94
   %99 = load i32, ptr %75, align 4
-  %100 = tail call ptr @bms_add_member(ptr noundef %.0436382, i32 noundef %99) #8
+  %100 = tail call ptr @bms_add_member(ptr noundef %.16382, i32 noundef %99) #8
   %101 = load ptr, ptr %3, align 8
   %102 = tail call ptr @lappend(ptr noundef %101, ptr noundef nonnull %72) #8
   store ptr %102, ptr %3, align 8
@@ -1434,7 +1434,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
 
 .lr.ph.split:                                     ; preds = %83, %86, %90, %94, %98, %81, %.lr.ph84, %74, %78
   %.146 = phi ptr [ %.0456183, %.lr.ph84 ], [ %.0456183, %74 ], [ %.0456183, %78 ], [ %.0456183, %83 ], [ %105, %98 ], [ %.0456183, %94 ], [ %.0456183, %90 ], [ %.0456183, %86 ], [ %.0456183, %81 ]
-  %.1 = phi ptr [ %.0436382, %.lr.ph84 ], [ %.0436382, %74 ], [ %.0436382, %78 ], [ %.0436382, %83 ], [ %100, %98 ], [ %.0436382, %94 ], [ %.0436382, %90 ], [ %.0436382, %86 ], [ %.0436382, %81 ]
+  %.2 = phi ptr [ %.16382, %.lr.ph84 ], [ %.16382, %74 ], [ %.16382, %78 ], [ %.16382, %83 ], [ %100, %98 ], [ %.16382, %94 ], [ %.16382, %90 ], [ %.16382, %86 ], [ %.16382, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
   %106 = load i32, ptr %28, align 4
   %107 = sext i32 %106 to i64
@@ -1442,7 +1442,7 @@ define dso_local ptr @add_outer_joins_to_relids(ptr nocapture noundef readonly %
   br i1 %108, label %.lr.ph84, label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %66, %.lr.ph.split.preheader, %24, %.lr.ph.split.us.split, %19, %15, %4, %6, %13
-  %.0 = phi ptr [ %14, %13 ], [ %1, %6 ], [ %1, %4 ], [ %1, %15 ], [ %21, %19 ], [ %21, %24 ], [ %21, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.preheader ], [ %.1.us, %66 ], [ %.1, %.lr.ph.split ]
+  %.0 = phi ptr [ %14, %13 ], [ %1, %6 ], [ %1, %4 ], [ %1, %15 ], [ %21, %19 ], [ %21, %24 ], [ %21, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.preheader ], [ %.2.us, %66 ], [ %.2, %.lr.ph.split ]
   ret ptr %.0
 }
 

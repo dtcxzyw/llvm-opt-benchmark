@@ -2962,7 +2962,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_generate_locality_string(ptr nocaptur
 
 .lr.ph:                                           ; preds = %13, %get_locality_string_by_depth.exit.thread
   %18 = phi ptr [ %96, %get_locality_string_by_depth.exit.thread ], [ %15, %13 ]
-  %.076101 = phi ptr [ %.3, %get_locality_string_by_depth.exit.thread ], [ null, %13 ]
+  %.076101 = phi ptr [ %.1, %get_locality_string_by_depth.exit.thread ], [ null, %13 ]
   %.077100 = phi i32 [ %97, %get_locality_string_by_depth.exit.thread ], [ 1, %13 ]
   %19 = call i32 @hwloc_get_depth_type(ptr noundef %18, i32 noundef %.077100) #15
   switch i32 %19, label %get_locality_string_by_depth.exit.thread [
@@ -3125,27 +3125,27 @@ get_locality_string_by_depth.exit:                ; preds = %31
   br label %93
 
 93:                                               ; preds = %35, %91, %83, %75, %67, %59, %51, %43
-  %.1 = phi ptr [ %.076101, %35 ], [ %92, %91 ], [ %84, %83 ], [ %76, %75 ], [ %68, %67 ], [ %60, %59 ], [ %52, %51 ], [ %44, %43 ]
+  %.3 = phi ptr [ %.076101, %35 ], [ %92, %91 ], [ %84, %83 ], [ %76, %75 ], [ %68, %67 ], [ %60, %59 ], [ %52, %51 ], [ %44, %43 ]
   %94 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %94) #14
   br label %95
 
 95:                                               ; preds = %93, %get_locality_string_by_depth.exit
-  %.2 = phi ptr [ %.076101, %get_locality_string_by_depth.exit ], [ %.1, %93 ]
+  %.2 = phi ptr [ %.076101, %get_locality_string_by_depth.exit ], [ %.3, %93 ]
   call void @hwloc_bitmap_zero(ptr noundef %14) #14
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2864), align 8
   br label %get_locality_string_by_depth.exit.thread
 
 get_locality_string_by_depth.exit.thread:         ; preds = %20, %.lr.ph, %95
   %96 = phi ptr [ %18, %.lr.ph ], [ %.pre, %95 ], [ %18, %20 ]
-  %.3 = phi ptr [ %.076101, %.lr.ph ], [ %.2, %95 ], [ %.076101, %20 ]
+  %.1 = phi ptr [ %.076101, %.lr.ph ], [ %.2, %95 ], [ %.076101, %20 ]
   %97 = add nuw i32 %.077100, 1
   %exitcond.not = icmp eq i32 %97, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %get_locality_string_by_depth.exit.thread, %13
   %98 = phi ptr [ %15, %13 ], [ %96, %get_locality_string_by_depth.exit.thread ]
-  %.076.lcssa = phi ptr [ null, %13 ], [ %.3, %get_locality_string_by_depth.exit.thread ]
+  %.076.lcssa = phi ptr [ null, %13 ], [ %.1, %get_locality_string_by_depth.exit.thread ]
   %99 = load ptr, ptr %8, align 8
   %100 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %98, i32 noundef -3) #15
   %101 = icmp eq i32 %100, 0
@@ -3196,26 +3196,26 @@ get_locality_string_by_depth.exit.thread:         ; preds = %20, %.lr.ph, %95
   br label %124
 
 124:                                              ; preds = %121, %112
-  %.4 = phi ptr [ %.076.lcssa, %112 ], [ %122, %121 ]
+  %.5 = phi ptr [ %.076.lcssa, %112 ], [ %122, %121 ]
   call void @hwloc_bitmap_zero(ptr noundef %14) #14
   br label %get_locality_string_by_depth.exit97
 
 get_locality_string_by_depth.exit97:              ; preds = %._crit_edge, %124
-  %.5 = phi ptr [ %.4, %124 ], [ %.076.lcssa, %._crit_edge ]
+  %.4 = phi ptr [ %.5, %124 ], [ %.076.lcssa, %._crit_edge ]
   call void @hwloc_bitmap_free(ptr noundef %14) #14
-  %.not82 = icmp eq ptr %.5, null
+  %.not82 = icmp eq ptr %.4, null
   br i1 %.not82, label %.sink.split, label %125
 
 125:                                              ; preds = %get_locality_string_by_depth.exit97
-  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #15
+  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #15
   %127 = add i64 %126, -1
-  %128 = getelementptr inbounds i8, ptr %.5, i64 %127
+  %128 = getelementptr inbounds i8, ptr %.4, i64 %127
   store i8 0, ptr %128, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %get_locality_string_by_depth.exit97, %125, %7, %11
-  %.5.sink = phi ptr [ null, %11 ], [ null, %7 ], [ %.5, %125 ], [ %.5, %get_locality_string_by_depth.exit97 ]
-  store ptr %.5.sink, ptr %1, align 8
+  %.4.sink = phi ptr [ null, %11 ], [ null, %7 ], [ %.4, %125 ], [ %.4, %get_locality_string_by_depth.exit97 ]
+  store ptr %.4.sink, ptr %1, align 8
   br label %129
 
 129:                                              ; preds = %.sink.split, %2
@@ -3567,7 +3567,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr nocapture nound
   br i1 %.not601, label %.loopexit524, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader525, %32
-  %.1300548 = phi i64 [ %.2, %32 ], [ 0, %.preheader525 ]
+  %.2548 = phi i64 [ %.3, %32 ], [ 0, %.preheader525 ]
   %.1309547 = phi i64 [ %33, %32 ], [ 0, %.preheader525 ]
   %20 = getelementptr inbounds %struct.pmix_info, ptr %2, i64 %.1309547
   %21 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %20, ptr noundef nonnull @.str.83) #14
@@ -3576,7 +3576,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr nocapture nound
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds i8, ptr %20, i64 528
   %24 = load i64, ptr %23, align 8
-  %25 = or i64 %24, %.1300548
+  %25 = or i64 %24, %.2548
   br label %32
 
 26:                                               ; preds = %.lr.ph
@@ -3590,13 +3590,13 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr nocapture nound
   br label %32
 
 32:                                               ; preds = %22, %28, %26
-  %.2 = phi i64 [ %25, %22 ], [ %.1300548, %28 ], [ %.1300548, %26 ]
+  %.3 = phi i64 [ %25, %22 ], [ %.2548, %28 ], [ %.2548, %26 ]
   %33 = add nuw i64 %.1309547, 1
   %exitcond.not = icmp eq i64 %33, %3
   br i1 %exitcond.not, label %.loopexit524, label %.lr.ph, !llvm.loop !16
 
 .loopexit524:                                     ; preds = %32, %18, %.preheader525
-  %.3 = phi i64 [ 0, %.preheader525 ], [ 63, %18 ], [ %.2, %32 ]
+  %.1300 = phi i64 [ 0, %.preheader525 ], [ 63, %18 ], [ %.3, %32 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @hwloc_topology_get_depth(ptr noundef %35) #15
@@ -3691,7 +3691,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %59
   %74 = getelementptr inbounds [6 x %struct.pmix_type_conversion_t], ptr @table, i64 0, i64 %.2310582
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8
-  %77 = and i64 %76, %.3
+  %77 = and i64 %76, %.1300
   %.not353 = icmp eq i64 %77, 0
   br i1 %.not353, label %.loopexit521, label %78
 
@@ -4617,7 +4617,7 @@ pmix_obj_run_destructors.exit450:                 ; preds = %.lr.ph.i447, %472
 
 498:                                              ; preds = %.lr.ph574, %584
   %.0303573 = phi i32 [ 0, %.lr.ph574 ], [ %585, %584 ]
-  %.0317572 = phi i32 [ -1, %.lr.ph574 ], [ %.2319, %584 ]
+  %.0317572 = phi i32 [ -1, %.lr.ph574 ], [ %.1318, %584 ]
   %.0320571 = phi i32 [ 0, %.lr.ph574 ], [ %.1321, %584 ]
   %499 = call ptr @hwloc_get_obj_by_depth(ptr noundef %496, i32 noundef %53, i32 noundef %.0303573) #15
   %500 = getelementptr inbounds i8, ptr %499, i64 184
@@ -4809,14 +4809,14 @@ pmix_obj_run_destructors.exit467:                 ; preds = %.lr.ph.i463, %559
 
 584:                                              ; preds = %583, %498
   %.1321 = phi i32 [ %.0320571, %498 ], [ %spec.select373, %583 ]
-  %.2319 = phi i32 [ %.0317572, %498 ], [ %spec.select, %583 ]
+  %.1318 = phi i32 [ %.0317572, %498 ], [ %spec.select, %583 ]
   %585 = add nuw i32 %.0303573, 1
   %exitcond630.not = icmp eq i32 %585, %55
   br i1 %exitcond630.not, label %._crit_edge575, label %498, !llvm.loop !33
 
 ._crit_edge575:                                   ; preds = %584, %.critedge
   %.0320.lcssa = phi i32 [ 0, %.critedge ], [ %.1321, %584 ]
-  %.0317.lcssa = phi i32 [ -1, %.critedge ], [ %.2319, %584 ]
+  %.0317.lcssa = phi i32 [ -1, %.critedge ], [ %.1318, %584 ]
   %586 = trunc i32 %.0317.lcssa to i16
   %587 = getelementptr inbounds i8, ptr %90, i64 168
   store i16 %586, ptr %587, align 8

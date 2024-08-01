@@ -3189,7 +3189,7 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv12 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next13, %.lr.ph7 ]
-  %.16 = phi i32 [ 0, %.lr.ph7.preheader ], [ %78, %.lr.ph7 ]
+  %.26 = phi i32 [ 0, %.lr.ph7.preheader ], [ %78, %.lr.ph7 ]
   %57 = getelementptr inbounds i32, ptr %.8.val, i64 %indvars.iv12
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 1431655765
@@ -3210,15 +3210,15 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %74 = add nuw nsw i32 %73, %71
   %75 = and i32 %74, 31
   %76 = lshr i32 %74, 16
-  %77 = add nuw nsw i32 %76, %.16
+  %77 = add nuw nsw i32 %76, %.26
   %78 = add nuw nsw i32 %77, %75
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
   br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph7, %.preheader, %._crit_edge
-  %.2 = phi i32 [ %56, %._crit_edge ], [ 0, %.preheader ], [ %78, %.lr.ph7 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %56, %._crit_edge ], [ 0, %.preheader ], [ %78, %.lr.ph7 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6313,7 +6313,7 @@ Vec_IntFree.exit110.i:                            ; preds = %623, %620
   br label %Wlc_NtkProofRefine.exit
 
 Wlc_NtkProofRefine.exit:                          ; preds = %Abc_Clock.exit65, %Vec_IntFree.exit110.i
-  %.1 = phi ptr [ null, %Abc_Clock.exit65 ], [ %570, %Vec_IntFree.exit110.i ]
+  %.2 = phi ptr [ null, %Abc_Clock.exit65 ], [ %570, %Vec_IntFree.exit110.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %624 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #23
   %625 = icmp slt i32 %624, 0
@@ -6339,7 +6339,7 @@ Abc_Clock.exit67:                                 ; preds = %Wlc_NtkProofRefine.
   br label %637
 
 637:                                              ; preds = %Abc_Clock.exit67, %68
-  %.2 = phi ptr [ %.084, %68 ], [ %.1, %Abc_Clock.exit67 ]
+  %.1 = phi ptr [ %.084, %68 ], [ %.2, %Abc_Clock.exit67 ]
   %638 = getelementptr inbounds i8, ptr %0, i64 16
   %639 = load ptr, ptr %638, align 8
   %.not52 = icmp eq ptr %639, null
@@ -6408,7 +6408,7 @@ Abc_Clock.exit69:                                 ; preds = %.critedge, %658
   %666 = load ptr, ptr %0, align 8
   %667 = getelementptr inbounds i8, ptr %0, i64 56
   %668 = load ptr, ptr %667, align 8
-  %669 = call fastcc i32 @Wlc_NtkRemoveFromAbstraction(ptr noundef %666, ptr noundef %.2, ptr noundef %668)
+  %669 = call fastcc i32 @Wlc_NtkRemoveFromAbstraction(ptr noundef %666, ptr noundef %.1, ptr noundef %668)
   %670 = load ptr, ptr %18, align 8
   %671 = getelementptr inbounds i8, ptr %670, i64 80
   %672 = load i32, ptr %671, align 8
@@ -6420,13 +6420,13 @@ Abc_Clock.exit69:                                 ; preds = %.critedge, %658
   %675 = load ptr, ptr %674, align 8
   %676 = getelementptr inbounds i8, ptr %675, i64 4
   %677 = load i32, ptr %676, align 4
-  %678 = getelementptr i8, ptr %.2, i64 4
+  %678 = getelementptr i8, ptr %.1, i64 4
   %.val58 = load i32, ptr %678, align 4
   %679 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %677, i32 noundef %.val58, i32 noundef %669)
   br label %709
 
 680:                                              ; preds = %Abc_Clock.exit69
-  %681 = getelementptr i8, ptr %.2, i64 4
+  %681 = getelementptr i8, ptr %.1, i64 4
   %.val14.i = load i32, ptr %681, align 4
   %682 = icmp sgt i32 %.val14.i, 0
   br i1 %682, label %.lr.ph.i71, label %Wlc_NtkUnmarkRefinement.exit
@@ -6434,7 +6434,7 @@ Abc_Clock.exit69:                                 ; preds = %.critedge, %658
 .lr.ph.i71:                                       ; preds = %680
   %683 = getelementptr inbounds i8, ptr %0, i64 56
   %684 = load ptr, ptr %683, align 8
-  %685 = getelementptr i8, ptr %.2, i64 8
+  %685 = getelementptr i8, ptr %.1, i64 8
   %686 = getelementptr inbounds i8, ptr %684, i64 8
   br label %687
 
@@ -6507,7 +6507,7 @@ Abc_Clock.exit75:                                 ; preds = %709, %712
   %726 = load i32, ptr %725, align 4
   %727 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %726, ptr %727, align 8
-  %728 = getelementptr inbounds i8, ptr %.2, i64 8
+  %728 = getelementptr inbounds i8, ptr %.1, i64 8
   %729 = load ptr, ptr %728, align 8
   %.not.i76 = icmp eq ptr %729, null
   br i1 %.not.i76, label %Vec_IntFree.exit, label %730
@@ -6517,7 +6517,7 @@ Abc_Clock.exit75:                                 ; preds = %709, %712
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Abc_Clock.exit75, %730
-  call void @free(ptr noundef nonnull %.2) #23
+  call void @free(ptr noundef nonnull %.1) #23
   %731 = getelementptr inbounds i8, ptr %0, i64 48
   %732 = load ptr, ptr %731, align 8
   call void @Gia_ManStop(ptr noundef %732) #23
@@ -6841,8 +6841,8 @@ Vec_IntFreeP.exit:                                ; preds = %135, %136
   br label %137
 
 137:                                              ; preds = %Vec_IntFreeP.exit, %Vec_IntFree.exit
-  %.156 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %5, %Vec_IntFree.exit ]
-  ret ptr %.156
+  %.055 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %5, %Vec_IntFree.exit ]
+  ret ptr %.055
 }
 
 ; Function Attrs: nounwind uwtable

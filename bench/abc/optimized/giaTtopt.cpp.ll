@@ -8334,7 +8334,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
 
 79:                                               ; preds = %.lr.ph136, %149
   %80 = phi i64 [ 0, %.lr.ph136 ], [ %151, %149 ]
-  %.0135 = phi i32 [ %5, %.lr.ph136 ], [ %.5, %149 ]
+  %.0135 = phi i32 [ %5, %.lr.ph136 ], [ %.3, %149 ]
   %.063134 = phi i32 [ 0, %.lr.ph136 ], [ %150, %149 ]
   %.064133 = phi i1 [ true, %.lr.ph136 ], [ %139, %149 ]
   %81 = getelementptr inbounds i32, ptr %16, i64 %80
@@ -8444,8 +8444,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
 
 123:                                              ; preds = %.lr.ph130, %137
   %.049129.in = phi i32 [ %86, %.lr.ph130 ], [ %.049129, %137 ]
-  %.3128 = phi i32 [ %.1.lcssa, %.lr.ph130 ], [ %.4, %137 ]
-  %.257127 = phi i1 [ %.055.lcssa, %.lr.ph130 ], [ %.358, %137 ]
+  %.4128 = phi i32 [ %.1.lcssa, %.lr.ph130 ], [ %.5, %137 ]
+  %.358127 = phi i1 [ %.055.lcssa, %.lr.ph130 ], [ %.459, %137 ]
   %.049129 = add nsw i32 %.049129.in, -1
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 80
@@ -8454,7 +8454,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
           to label %128 unwind label %.loopexit102
 
 128:                                              ; preds = %123
-  %129 = icmp sgt i32 %.3128, %127
+  %129 = icmp sgt i32 %.4128, %127
   br i1 %129, label %130, label %137
 
 130:                                              ; preds = %128
@@ -8471,15 +8471,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
           to label %137 unwind label %.loopexit102
 
 137:                                              ; preds = %128, %133
-  %.358 = phi i1 [ true, %133 ], [ %.257127, %128 ]
-  %.4 = phi i32 [ %127, %133 ], [ %.3128, %128 ]
+  %.459 = phi i1 [ true, %133 ], [ %.358127, %128 ]
+  %.5 = phi i32 [ %127, %133 ], [ %.4128, %128 ]
   %138 = icmp ugt i32 %.049129.in, 1
   br i1 %138, label %123, label %.loopexit, !llvm.loop !83
 
 .loopexit:                                        ; preds = %137, %.preheader, %._crit_edge
-  %.459 = phi i1 [ %.055.lcssa, %._crit_edge ], [ %.055.lcssa, %.preheader ], [ %.358, %137 ]
-  %.5 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %.preheader ], [ %.4, %137 ]
-  %139 = xor i1 %.064133, %.459
+  %.257 = phi i1 [ %.055.lcssa, %._crit_edge ], [ %.055.lcssa, %.preheader ], [ %.459, %137 ]
+  %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %.preheader ], [ %.5, %137 ]
+  %139 = xor i1 %.064133, %.257
   %140 = xor i1 %139, true
   %141 = zext i1 %140 to i32
   %142 = load ptr, ptr %0, align 8
@@ -8502,7 +8502,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br i1 %152, label %79, label %._crit_edge137, !llvm.loop !84
 
 ._crit_edge137:                                   ; preds = %149, %.preheader106
-  %.0.lcssa = phi i32 [ %5, %.preheader106 ], [ %.5, %149 ]
+  %.0.lcssa = phi i32 [ %5, %.preheader106 ], [ %.3, %149 ]
   %.not.i.i.i78 = icmp eq ptr %.sroa.0.0170174, null
   br i1 %.not.i.i.i78, label %_ZNSt6vectorIjSaIjEED2Ev.exit79, label %153
 

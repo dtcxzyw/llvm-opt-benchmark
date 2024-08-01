@@ -10177,10 +10177,10 @@ _ZNSt10shared_ptrIN7xgboost4data5CacheEED2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 
 435:                                              ; preds = %431, %433
   %.pn60 = phi { ptr, i32 } [ %434, %433 ], [ %432, %431 ]
-  %.1 = phi i1 [ %.0, %433 ], [ true, %431 ]
+  %.2 = phi i1 [ %.0, %433 ], [ true, %431 ]
   call void @_ZN7xgboost6common13HistogramCutsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #13
   call void @_ZNSt10shared_ptrIN7xgboost4data5CacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #13
-  br i1 %.1, label %436, label %437
+  br i1 %.2, label %436, label %437
 
 436:                                              ; preds = %.thread178, %435
   %.pn60.pn181 = phi { ptr, i32 } [ %430, %.thread178 ], [ %.pn60, %435 ]

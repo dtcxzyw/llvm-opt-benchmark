@@ -859,8 +859,8 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %3
   br label %54
 
 54:                                               ; preds = %47, %49, %53, %Kit_TruthNot.exit
-  %.042 = phi ptr [ %6, %53 ], [ %5, %49 ], [ %5, %47 ], [ %5, %Kit_TruthNot.exit ]
-  %.0 = phi i32 [ 1, %53 ], [ 0, %49 ], [ 0, %47 ], [ 0, %Kit_TruthNot.exit ]
+  %.143 = phi ptr [ %6, %53 ], [ %5, %49 ], [ %5, %47 ], [ %5, %Kit_TruthNot.exit ]
+  %.1 = phi i32 [ 1, %53 ], [ 0, %49 ], [ 0, %47 ], [ 0, %Kit_TruthNot.exit ]
   br i1 %35, label %select.unfold.preheader.i48, label %Kit_TruthNot.exit52
 
 select.unfold.preheader.i48:                      ; preds = %54
@@ -878,13 +878,13 @@ select.unfold.i49:                                ; preds = %select.unfold.i49, 
   br i1 %59, label %select.unfold.i49, label %Kit_TruthNot.exit52, !llvm.loop !4
 
 Kit_TruthNot.exit52:                              ; preds = %select.unfold.i49, %54, %30
-  %.143 = phi ptr [ %5, %30 ], [ %.042, %54 ], [ %.042, %select.unfold.i49 ]
-  %.1 = phi i32 [ 0, %30 ], [ %.0, %54 ], [ %.0, %select.unfold.i49 ]
+  %.042 = phi ptr [ %5, %30 ], [ %.143, %54 ], [ %.143, %select.unfold.i49 ]
+  %.0 = phi i32 [ 0, %30 ], [ %.1, %54 ], [ %.1, %select.unfold.i49 ]
   %60 = getelementptr inbounds i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.143, i64 8
+  %62 = getelementptr inbounds i8, ptr %.042, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.143, i64 4
+  %64 = getelementptr inbounds i8, ptr %.042, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = shl nsw i64 %66, 2
@@ -894,7 +894,7 @@ Kit_TruthNot.exit52:                              ; preds = %select.unfold.i49, 
 
 69:                                               ; preds = %Vec_IntGrow.exit, %Kit_TruthNot.exit52, %27
   %.sink = phi i32 [ %68, %Kit_TruthNot.exit52 ], [ %21, %27 ], [ %21, %Vec_IntGrow.exit ]
-  %.041 = phi i32 [ %.1, %Kit_TruthNot.exit52 ], [ 0, %27 ], [ %21, %Vec_IntGrow.exit ]
+  %.041 = phi i32 [ %.0, %Kit_TruthNot.exit52 ], [ 0, %27 ], [ %21, %Vec_IntGrow.exit ]
   store i32 %.sink, ptr %7, align 4
   ret i32 %.041
 }

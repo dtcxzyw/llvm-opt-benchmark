@@ -189,7 +189,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %64
 
 63:                                               ; preds = %30, %52
-  %.012 = phi i32 [ 0, %52 ], [ -1, %30 ]
+  %.113 = phi i32 [ 0, %52 ], [ -1, %30 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #5
   br label %65
 
@@ -199,8 +199,8 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %66
 
 65:                                               ; preds = %63, %13
-  %.113 = phi i32 [ -1, %13 ], [ %.012, %63 ]
-  ret i32 %.113
+  %.012 = phi i32 [ -1, %13 ], [ %.113, %63 ]
+  ret i32 %.012
 
 66:                                               ; preds = %64, %36
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %64 ], [ %.pn, %36 ]

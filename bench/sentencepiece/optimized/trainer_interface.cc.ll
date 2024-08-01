@@ -4417,7 +4417,7 @@ _ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EEaSI
   br label %1737
 
 .loopexit.split-lp796:                            ; preds = %304, %.critedge, %327, %596, %604, %625, %657, %706, %736, %.critedge248, %965, %998, %1025, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486, %1111, %1048
-  %.sroa.0718.0.ph = phi ptr [ null, %304 ], [ null, %.critedge ], [ null, %327 ], [ %.sroa.0718.1, %596 ], [ %.sroa.0718.1, %604 ], [ %.sroa.0718.1, %657 ], [ %.sroa.0718.1, %625 ], [ %.sroa.0718.1, %706 ], [ %.sroa.0718.1, %736 ], [ %.sroa.0718.1, %.critedge248 ], [ %.sroa.0718.1, %965 ], [ %.sroa.0718.1, %998 ], [ %.sroa.0718.1, %1025 ], [ %.sroa.0718.1, %1048 ], [ %.sroa.0718.1, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486 ], [ %.sroa.0718.1, %1111 ]
+  %.sroa.0718.1.ph = phi ptr [ null, %304 ], [ null, %.critedge ], [ null, %327 ], [ %.sroa.0718.0, %596 ], [ %.sroa.0718.0, %604 ], [ %.sroa.0718.0, %657 ], [ %.sroa.0718.0, %625 ], [ %.sroa.0718.0, %706 ], [ %.sroa.0718.0, %736 ], [ %.sroa.0718.0, %.critedge248 ], [ %.sroa.0718.0, %965 ], [ %.sroa.0718.0, %998 ], [ %.sroa.0718.0, %1025 ], [ %.sroa.0718.0, %1048 ], [ %.sroa.0718.0, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit486 ], [ %.sroa.0718.0, %1111 ]
   %lpad.loopexit.split-lp798 = landingpad { ptr, i32 }
           cleanup
   br label %1737
@@ -4440,7 +4440,7 @@ _ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EEaSI
   br label %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EED2Ev.exit645
 
 340:                                              ; preds = %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EEaSINS0_25MultiFileSentenceIteratorES2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISB_EEEESt13is_assignableIRS3_OSC_EEE5valueERS4_E4typeEOSD_.exit, %300
-  %.sroa.0718.1 = phi ptr [ %331, %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EEaSINS0_25MultiFileSentenceIteratorES2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISB_EEEESt13is_assignableIRS3_OSC_EEE5valueERS4_E4typeEOSD_.exit ], [ null, %300 ]
+  %.sroa.0718.0 = phi ptr [ %331, %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EEaSINS0_25MultiFileSentenceIteratorES2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISB_EEEESt13is_assignableIRS3_OSC_EEE5valueERS4_E4typeEOSD_.exit ], [ null, %300 ]
   %341 = getelementptr inbounds i8, ptr %5, i64 1
   %342 = getelementptr inbounds i8, ptr %25, i64 16
   %343 = getelementptr inbounds i8, ptr %24, i64 8
@@ -7830,14 +7830,14 @@ _ZN13sentencepiece10normalizer13PrefixMatcherD2Ev.exit639: ; preds = %.critedge2
   br label %.critedge240
 
 .critedge240:                                     ; preds = %.critedge238.thread735, %601, %_ZN13sentencepiece10normalizer13PrefixMatcherD2Ev.exit639, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %.not.i640 = icmp eq ptr %.sroa.0718.1, null
+  %.not.i640 = icmp eq ptr %.sroa.0718.0, null
   br i1 %.not.i640, label %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN13sentencepiece16SentenceIteratorEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN13sentencepiece16SentenceIteratorEEclEPS1_.exit.i: ; preds = %.critedge240
-  %1730 = load ptr, ptr %.sroa.0718.1, align 8
+  %1730 = load ptr, ptr %.sroa.0718.0, align 8
   %1731 = getelementptr inbounds i8, ptr %1730, i64 8
   %1732 = load ptr, ptr %1731, align 8
-  call void %1732(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0718.1) #23
+  call void %1732(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0718.0) #23
   br label %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EED2Ev.exit: ; preds = %.critedge240, %_ZNKSt14default_deleteIN13sentencepiece16SentenceIteratorEEclEPS1_.exit.i
@@ -7853,7 +7853,7 @@ _ZNKSt14default_deleteIN13sentencepiece6random16ReservoirSamplerISt4pairINSt7__c
   br label %_ZN13sentencepiece12_GLOBAL__N_116SentenceSelectorD2Ev.exit
 
 1737:                                             ; preds = %.loopexit795, %.loopexit.split-lp796, %1142, %1046, %1019, %992, %767, %731, %703, %655, %_ZNSt6vectorIjSaIjEED2Ev.exit512, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit490, %991, %_ZN4absl8internal8SplitterD2Ev.exit347
-  %.sroa.0718.2 = phi ptr [ %.sroa.0718.1, %991 ], [ %.sroa.0718.1, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit490 ], [ %.sroa.0718.1, %_ZNSt6vectorIjSaIjEED2Ev.exit512 ], [ %.sroa.0718.1, %1142 ], [ %.sroa.0718.1, %1046 ], [ %.sroa.0718.1, %1019 ], [ %.sroa.0718.1, %992 ], [ %.sroa.0718.1, %767 ], [ %.sroa.0718.1, %731 ], [ %.sroa.0718.1, %655 ], [ %.sroa.0718.1, %703 ], [ %.sroa.0718.1, %_ZN4absl8internal8SplitterD2Ev.exit347 ], [ %.sroa.0718.1, %.loopexit795 ], [ %.sroa.0718.0.ph, %.loopexit.split-lp796 ]
+  %.sroa.0718.2 = phi ptr [ %.sroa.0718.0, %991 ], [ %.sroa.0718.0, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit490 ], [ %.sroa.0718.0, %_ZNSt6vectorIjSaIjEED2Ev.exit512 ], [ %.sroa.0718.0, %1142 ], [ %.sroa.0718.0, %1046 ], [ %.sroa.0718.0, %1019 ], [ %.sroa.0718.0, %992 ], [ %.sroa.0718.0, %767 ], [ %.sroa.0718.0, %731 ], [ %.sroa.0718.0, %655 ], [ %.sroa.0718.0, %703 ], [ %.sroa.0718.0, %_ZN4absl8internal8SplitterD2Ev.exit347 ], [ %.sroa.0718.0, %.loopexit795 ], [ %.sroa.0718.1.ph, %.loopexit.split-lp796 ]
   %.pn224.pn = phi { ptr, i32 } [ %.pn224, %991 ], [ %.pn222, %_ZNSt10unique_ptrIN13sentencepiece10ThreadPoolESt14default_deleteIS1_EED2Ev.exit490 ], [ %.pn219.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit512 ], [ %1143, %1142 ], [ %1047, %1046 ], [ %1020, %1019 ], [ %993, %992 ], [ %768, %767 ], [ %732, %731 ], [ %656, %655 ], [ %704, %703 ], [ %.pn202, %_ZN4absl8internal8SplitterD2Ev.exit347 ], [ %lpad.loopexit797, %.loopexit795 ], [ %lpad.loopexit.split-lp798, %.loopexit.split-lp796 ]
   %.not.i643 = icmp eq ptr %.sroa.0718.2, null
   br i1 %.not.i643, label %_ZNSt10unique_ptrIN13sentencepiece16SentenceIteratorESt14default_deleteIS1_EED2Ev.exit645, label %_ZNKSt14default_deleteIN13sentencepiece16SentenceIteratorEEclEPS1_.exit.i644
@@ -8691,7 +8691,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 
 .lr.ph.i:                                         ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i", %50
   %.sroa.06.025.i = phi ptr [ %.sroa.06.0.i, %50 ], [ %.sroa.06.021.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ]
-  %.sroa.012.024.i = phi ptr [ %.sroa.012.1.i, %50 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ]
+  %.sroa.012.124.i = phi ptr [ %.sroa.012.2.i, %50 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ]
   %.sroa.08.0.in.sroa.speculated.i.i.pn23.i = phi ptr [ %.sroa.06.025.i, %50 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ]
   %43 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn23.i, i64 72
   %.val.i.i = load i64, ptr %43, align 8
@@ -8699,22 +8699,22 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.024.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.025.i) #23
+  %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.124.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.025.i) #23
   %47 = load i64, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.012.024.i, i64 32
+  %48 = getelementptr inbounds i8, ptr %.sroa.012.124.i, i64 32
   store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.sroa.012.024.i, i64 40
+  %49 = getelementptr inbounds i8, ptr %.sroa.012.124.i, i64 40
   br label %50
 
 50:                                               ; preds = %45, %.lr.ph.i
-  %.sroa.012.1.i = phi ptr [ %.sroa.012.024.i, %.lr.ph.i ], [ %49, %45 ]
+  %.sroa.012.2.i = phi ptr [ %.sroa.012.124.i, %.lr.ph.i ], [ %49, %45 ]
   %.sroa.06.0.i = getelementptr inbounds i8, ptr %.sroa.06.025.i, i64 40
   %.not.i = icmp eq ptr %.sroa.06.0.i, %1
   br i1 %.not.i, label %"_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit", label %.lr.ph.i, !llvm.loop !96
 
 "_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit": ; preds = %50, %._crit_edge.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i"
-  %.sroa.012.2.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ], [ %1, %._crit_edge.i.i.i ], [ %.sroa.012.1.i, %50 ]
-  ret ptr %.sroa.012.2.i
+  %.sroa.012.0.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZN13sentencepiece16TrainerInterface13LoadSentencesEvE3$_2EEET_SL_SL_T0_.exit.i" ], [ %1, %._crit_edge.i.i.i ], [ %.sroa.012.2.i, %50 ]
+  ret ptr %.sroa.012.0.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -13880,8 +13880,8 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersen
   br i1 %24, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !194
 
 _ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %.lr.ph.i, %10, %17
-  %.1.i = phi i64 [ %15, %10 ], [ %15, %17 ], [ %22, %.lr.ph.i ]
-  %25 = lshr i64 %.1.i, 32
+  %.0.i = phi i64 [ %15, %10 ], [ %15, %17 ], [ %22, %.lr.ph.i ]
+  %25 = lshr i64 %.0.i, 32
   br label %.loopexit
 
 26:                                               ; preds = %3

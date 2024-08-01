@@ -353,8 +353,8 @@ define i64 @H5EA__dblock_create(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br label %.thread
 
 .thread:                                          ; preds = %8, %78, %114, %111
-  %.3 = phi i64 [ -1, %114 ], [ -1, %111 ], [ %37, %78 ], [ -1, %8 ]
-  ret i64 %.3
+  %.1 = phi i64 [ -1, %114 ], [ -1, %111 ], [ %37, %78 ], [ -1, %8 ]
+  ret i64 %.1
 }
 
 declare i64 @H5MF_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1

@@ -549,13 +549,13 @@ err:                                              ; preds = %if.then43, %if.end6
   %kekctx.0 = phi ptr [ null, %if.then18 ], [ null, %if.then22 ], [ %call20, %if.then32 ], [ %call20, %if.then40 ], [ %call20, %if.end49 ], [ %call20, %if.end54 ], [ %call20, %if.else ], [ %call20, %if.then78 ], [ %call20, %if.end23 ], [ %call20, %if.end79 ], [ %call20, %if.end60 ], [ %call20, %if.then43 ]
   %tobool85.not = phi i1 [ true, %if.then18 ], [ true, %if.then22 ], [ true, %if.then32 ], [ true, %if.then40 ], [ true, %if.end49 ], [ true, %if.end54 ], [ true, %if.else ], [ true, %if.then78 ], [ true, %if.end23 ], [ false, %if.end79 ], [ false, %if.end60 ], [ true, %if.then43 ]
   %r.0 = phi i32 [ 0, %if.then18 ], [ 0, %if.then22 ], [ 0, %if.then32 ], [ 0, %if.then40 ], [ 0, %if.end49 ], [ 0, %if.end54 ], [ 0, %if.else ], [ 0, %if.then78 ], [ 0, %if.end23 ], [ 1, %if.end79 ], [ 1, %if.end60 ], [ 0, %if.then43 ]
-  %key.1 = phi ptr [ null, %if.then18 ], [ null, %if.then22 ], [ null, %if.then32 ], [ null, %if.then40 ], [ null, %if.end49 ], [ %call50, %if.end54 ], [ null, %if.else ], [ %call66, %if.then78 ], [ null, %if.end23 ], [ %call66, %if.end79 ], [ %call50, %if.end60 ], [ null, %if.then43 ]
+  %key.0 = phi ptr [ null, %if.then18 ], [ null, %if.then22 ], [ null, %if.then32 ], [ null, %if.then40 ], [ null, %if.end49 ], [ %call50, %if.end54 ], [ null, %if.else ], [ %call66, %if.then78 ], [ null, %if.end23 ], [ %call66, %if.end79 ], [ %call50, %if.end60 ], [ null, %if.then43 ]
   call void @EVP_CIPHER_free(ptr noundef %call16) #4
   call void @EVP_CIPHER_CTX_free(ptr noundef %kekctx.0) #4
   br i1 %tobool85.not, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %err
-  call void @CRYPTO_free(ptr noundef %key.1, ptr noundef nonnull @.str, i32 noundef 410) #4
+  call void @CRYPTO_free(ptr noundef %key.0, ptr noundef nonnull @.str, i32 noundef 410) #4
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then86, %err

@@ -1507,7 +1507,7 @@ lpad9:                                            ; preds = %if.then7
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont10
-  %retval.0 = phi i32 [ %call11, %invoke.cont10 ], [ -1, %invoke.cont ]
+  %retval.1 = phi i32 [ %call11, %invoke.cont10 ], [ -1, %invoke.cont ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %destString) #13
   br label %return
 
@@ -1517,8 +1517,8 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi i32 [ 0, %if.then3 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1581,7 +1581,7 @@ lpad9:                                            ; preds = %if.then7
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont10
-  %retval.0 = phi i32 [ %call11, %invoke.cont10 ], [ -1, %invoke.cont ]
+  %retval.1 = phi i32 [ %call11, %invoke.cont10 ], [ -1, %invoke.cont ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %destString) #13
   br label %return
 
@@ -1591,8 +1591,8 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi i32 [ 0, %if.then3 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1907,11 +1907,11 @@ _ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode.exit.thread13: ; preds = %
 
 _ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode.exit: ; preds = %delete.notnull4.i.i, %new.cont.i.i, %if.end.i
   %tobool.not = phi i1 [ true, %delete.notnull4.i.i ], [ false, %new.cont.i.i ], [ true, %if.end.i ]
-  %errorCode.0 = phi i32 [ 7, %delete.notnull4.i.i ], [ 0, %new.cont.i.i ], [ 7, %if.end.i ]
+  %errorCode.2 = phi i32 [ 7, %delete.notnull4.i.i ], [ 0, %new.cont.i.i ], [ 7, %if.end.i ]
   %retval.0.i = phi ptr [ null, %delete.notnull4.i.i ], [ %call1.i.i, %new.cont.i.i ], [ null, %if.end.i ]
   store ptr %retval.0.i, ptr @_ZN6icu_75L12nfcSingletonE, align 8
   tail call void @ucln_common_registerCleanup_75(i32 noundef 15, ptr noundef nonnull @_ZN6icu_75L24uprv_normalizer2_cleanupEv)
-  store i32 %errorCode.0, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L11nfcInitOnceE, i64 4), align 4
+  store i32 %errorCode.2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L11nfcInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L11nfcInitOnceE)
   %4 = load ptr, ptr @_ZN6icu_75L12nfcSingletonE, align 8
   %cmp.not.i = icmp eq ptr %4, null
@@ -1992,11 +1992,11 @@ delete.notnull4.i.i:                              ; preds = %if.end.i.i
   br label %_ZN6icu_7513Norm2AllModes17createNFCInstanceER10UErrorCode.exit
 
 _ZN6icu_7513Norm2AllModes17createNFCInstanceER10UErrorCode.exit: ; preds = %if.end.i, %new.cont.i.i, %delete.notnull4.i.i
-  %errorCode.0 = phi i32 [ 7, %delete.notnull4.i.i ], [ 0, %new.cont.i.i ], [ 7, %if.end.i ]
+  %errorCode.2 = phi i32 [ 7, %delete.notnull4.i.i ], [ 0, %new.cont.i.i ], [ 7, %if.end.i ]
   %retval.0.i4 = phi ptr [ null, %delete.notnull4.i.i ], [ %call1.i.i, %new.cont.i.i ], [ null, %if.end.i ]
   store ptr %retval.0.i4, ptr @_ZN6icu_75L12nfcSingletonE, align 8
   tail call void @ucln_common_registerCleanup_75(i32 noundef 15, ptr noundef nonnull @_ZN6icu_75L24uprv_normalizer2_cleanupEv)
-  store i32 %errorCode.0, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L11nfcInitOnceE, i64 4), align 4
+  store i32 %errorCode.2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L11nfcInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L11nfcInitOnceE)
   br label %_ZN6icu_7513Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i
 
@@ -2006,7 +2006,7 @@ if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %_ZN6icu_7513Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i
 
 _ZN6icu_7513Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i: ; preds = %if.else.i.i.i, %_ZN6icu_7513Norm2AllModes17createNFCInstanceER10UErrorCode.exit
-  %errorCode.1 = phi i32 [ %errorCode.0, %_ZN6icu_7513Norm2AllModes17createNFCInstanceER10UErrorCode.exit ], [ %spec.select, %if.else.i.i.i ]
+  %errorCode.0 = phi i32 [ %errorCode.2, %_ZN6icu_7513Norm2AllModes17createNFCInstanceER10UErrorCode.exit ], [ %spec.select, %if.else.i.i.i ]
   %3 = load ptr, ptr @_ZN6icu_75L12nfcSingletonE, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %_ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode.exit, label %cond.true.i
@@ -2017,7 +2017,7 @@ cond.true.i:                                      ; preds = %_ZN6icu_7513Norm2Al
 
 _ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode.exit: ; preds = %_ZN6icu_7513Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i, %cond.true.i
   %cond.i = phi ptr [ %4, %cond.true.i ], [ null, %_ZN6icu_7513Norm2AllModes14getNFCInstanceER10UErrorCode.exit.i ]
-  %cmp.i.not = icmp eq i32 %errorCode.1, 0
+  %cmp.i.not = icmp eq i32 %errorCode.0, 0
   br i1 %cmp.i.not, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode.exit
@@ -2958,7 +2958,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6
           to label %cleanup unwind label %lpad5
 
 cleanup:                                          ; preds = %invoke.cont12, %invoke.cont6
-  %retval.0 = phi i8 [ 0, %invoke.cont6 ], [ %call15, %invoke.cont12 ]
+  %retval.1 = phi i8 [ 0, %invoke.cont6 ], [ %call15, %invoke.cont12 ]
   %10 = load ptr, ptr %start.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZN6icu_7516ReorderingBufferD2Ev.exit, label %if.then.i
@@ -2987,8 +2987,8 @@ _ZN6icu_7516ReorderingBufferD2Ev.exit:            ; preds = %cleanup, %if.then.i
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6icu_7516ReorderingBufferD2Ev.exit, %if.then3
-  %retval.1 = phi i8 [ 0, %if.then3 ], [ %retval.0, %_ZN6icu_7516ReorderingBufferD2Ev.exit ], [ 0, %entry ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 0, %if.then3 ], [ %retval.1, %_ZN6icu_7516ReorderingBufferD2Ev.exit ], [ 0, %entry ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

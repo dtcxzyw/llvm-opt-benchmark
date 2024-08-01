@@ -1943,20 +1943,20 @@ for.body28.preheader.i:                           ; preds = %_ZN5arrow8bit_util7
 
 for.body28.i:                                     ; preds = %for.body28.i, %for.body28.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body28.preheader.i ], [ %indvars.iv.next.i, %for.body28.i ]
-  %result_or.041.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
+  %result_or.141.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
   %add.ptr30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr30.i, align 8
   %arrayidx33.i = getelementptr inbounds i64, ptr %add.ptr18.i, i64 %indvars.iv.i
   %14 = load i64, ptr %arrayidx33.i, align 8
   %xor.i = xor i64 %14, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.041.i
+  %or.i = or i64 %xor.i, %result_or.141.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i515253.i, %for.body28.i ]
-  %result_or.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul35.i = shl nsw i32 %sub34.i, 3
@@ -1973,12 +1973,12 @@ for.end.i:                                        ; preds = %for.body28.i, %_ZN5
   %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i = load i64, ptr %key_left37.i, align 8
   %xor44.i = xor i64 %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i, %15
   %and.i10 = and i64 %xor44.i, %shr.i
-  %or45.i = or i64 %and.i10, %result_or.0.lcssa.i
+  %or45.i = or i64 %and.i10, %result_or.1.lcssa.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.1.i = phi i64 [ %or45.i, %for.end.i ], [ 0, %for.body.i ]
-  %cmp46.i = icmp eq i64 %result_or.1.i, 0
+  %result_or.0.i = phi i64 [ %or45.i, %for.end.i ], [ 0, %for.body.i ]
+  %cmp46.i = icmp eq i64 %result_or.0.i, 0
   %cmp47.i = icmp eq i32 %sub.i, %sub.i.i
   %16 = select i1 %cmp47.i, i1 %cmp46.i, i1 false
   %conv50.i = sext i1 %16 to i8
@@ -2079,20 +2079,20 @@ for.body28.preheader.i:                           ; preds = %_ZN5arrow8bit_util7
 
 for.body28.i:                                     ; preds = %for.body28.i, %for.body28.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body28.preheader.i ], [ %indvars.iv.next.i, %for.body28.i ]
-  %result_or.042.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
+  %result_or.142.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
   %add.ptr30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr30.i, align 8
   %arrayidx33.i = getelementptr inbounds i64, ptr %add.ptr18.i, i64 %indvars.iv.i
   %17 = load i64, ptr %arrayidx33.i, align 8
   %xor.i = xor i64 %17, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.042.i
+  %or.i = or i64 %xor.i, %result_or.142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !36
 
 for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i525354.i, %for.body28.i ]
-  %result_or.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body28.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub34.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul35.i = shl nsw i32 %sub34.i, 3
@@ -2109,12 +2109,12 @@ for.end.i:                                        ; preds = %for.body28.i, %_ZN5
   %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i = load i64, ptr %key_left37.i, align 8
   %xor44.i = xor i64 %key_left37.i.0.key_left37.i.0.key_left37.i.0.key_left37.0.key_left37.0.key_left37.0..i, %18
   %and.i10 = and i64 %xor44.i, %shr.i
-  %or45.i = or i64 %and.i10, %result_or.0.lcssa.i
+  %or45.i = or i64 %and.i10, %result_or.1.lcssa.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.1.i = phi i64 [ %or45.i, %for.end.i ], [ 0, %for.body.i ]
-  %cmp46.i = icmp eq i64 %result_or.1.i, 0
+  %result_or.0.i = phi i64 [ %or45.i, %for.end.i ], [ 0, %for.body.i ]
+  %cmp46.i = icmp eq i64 %result_or.0.i, 0
   %cmp47.i = icmp eq i32 %sub.i, %sub15.i.i
   %19 = select i1 %cmp47.i, i1 %cmp46.i, i1 false
   %conv50.i = sext i1 %19 to i8
@@ -2205,20 +2205,20 @@ for.body25.preheader.i:                           ; preds = %_ZN5arrow8bit_util7
 
 for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
-  %result_or.041.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
+  %result_or.141.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds i64, ptr %add.ptr14.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr27.i, align 8
   %arrayidx30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %13 = load i64, ptr %arrayidx30.i, align 8
   %xor.i = xor i64 %13, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.041.i
+  %or.i = or i64 %xor.i, %result_or.141.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !38
 
 for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i535455.i, %for.body25.i ]
-  %result_or.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub31.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul32.i = shl nsw i32 %sub31.i, 3
@@ -2235,12 +2235,12 @@ for.end.i:                                        ; preds = %for.body25.i, %_ZN5
   %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i = load i64, ptr %key_left34.i, align 8
   %xor41.i = xor i64 %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i, %14
   %and.i10 = and i64 %xor41.i, %shr.i
-  %or42.i = or i64 %and.i10, %result_or.0.lcssa.i
+  %or42.i = or i64 %and.i10, %result_or.1.lcssa.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.1.i = phi i64 [ %or42.i, %for.end.i ], [ 0, %for.body.i ]
-  %cmp43.i = icmp eq i64 %result_or.1.i, 0
+  %result_or.0.i = phi i64 [ %or42.i, %for.end.i ], [ 0, %for.body.i ]
+  %cmp43.i = icmp eq i64 %result_or.0.i, 0
   %cmp44.i = icmp eq i32 %sub.i, %sub.i.i
   %15 = select i1 %cmp44.i, i1 %cmp43.i, i1 false
   %conv47.i = sext i1 %15 to i8
@@ -2338,20 +2338,20 @@ for.body25.preheader.i:                           ; preds = %_ZN5arrow8bit_util7
 
 for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
-  %result_or.042.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
+  %result_or.142.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds i64, ptr %add.ptr14.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr27.i, align 8
   %arrayidx30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %16 = load i64, ptr %arrayidx30.i, align 8
   %xor.i = xor i64 %16, %ret.0.copyload.i.i
-  %or.i = or i64 %xor.i, %result_or.042.i
+  %or.i = or i64 %xor.i, %result_or.142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !40
 
 for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %j.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %div.i535455.i, %for.body25.i ]
-  %result_or.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
+  %result_or.1.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ], [ %or.i, %for.body25.i ]
   %mul.i = shl nuw nsw i32 %j.0.lcssa.i, 3
   %sub31.i = sub i32 %.sroa.speculated.i, %mul.i
   %mul32.i = shl nsw i32 %sub31.i, 3
@@ -2368,12 +2368,12 @@ for.end.i:                                        ; preds = %for.body25.i, %_ZN5
   %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i = load i64, ptr %key_left34.i, align 8
   %xor41.i = xor i64 %key_left34.i.0.key_left34.i.0.key_left34.i.0.key_left34.0.key_left34.0.key_left34.0..i, %17
   %and.i10 = and i64 %xor41.i, %shr.i
-  %or42.i = or i64 %and.i10, %result_or.0.lcssa.i
+  %or42.i = or i64 %and.i10, %result_or.1.lcssa.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %for.body.i
-  %result_or.1.i = phi i64 [ %or42.i, %for.end.i ], [ 0, %for.body.i ]
-  %cmp43.i = icmp eq i64 %result_or.1.i, 0
+  %result_or.0.i = phi i64 [ %or42.i, %for.end.i ], [ 0, %for.body.i ]
+  %cmp43.i = icmp eq i64 %result_or.0.i, 0
   %cmp44.i = icmp eq i32 %sub.i, %sub15.i.i
   %18 = select i1 %cmp44.i, i1 %cmp43.i, i1 false
   %conv47.i = sext i1 %18 to i8

@@ -3825,7 +3825,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit: ; preds = %._crit_e
 
 107:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit, %_ZN5QListI7QStringED2Ev.exit
   %108 = phi ptr [ %.pre56, %_ZN5QListI7QStringED2Ev.exit ], [ %.pre, %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit ]
-  %.3 = phi i32 [ 1, %_ZN5QListI7QStringED2Ev.exit ], [ %.not.lcssa, %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit ]
+  %.0 = phi i32 [ 1, %_ZN5QListI7QStringED2Ev.exit ], [ %.not.lcssa, %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit ]
   %.not.i.i.i37 = icmp eq ptr %108, null
   br i1 %.not.i.i.i37, label %_ZN5QListI7QStringED2Ev.exit50, label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i38
 
@@ -3869,7 +3869,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i49: ; preds = %_
   br label %_ZN5QListI7QStringED2Ev.exit50
 
 _ZN5QListI7QStringED2Ev.exit50:                   ; preds = %107, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i38, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i49
-  ret i32 %.3
+  ret i32 %.0
 
 _ZN7QStringD2Ev.exit25:                           ; preds = %44, %46, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23, %50, %_ZN7QStringD2Ev.exit34
   %.sink = phi ptr [ %5, %_ZN7QStringD2Ev.exit34 ], [ %6, %50 ], [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23 ], [ %6, %46 ], [ %6, %44 ]

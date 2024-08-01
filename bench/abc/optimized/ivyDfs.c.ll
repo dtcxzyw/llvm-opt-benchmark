@@ -1437,8 +1437,8 @@ define noundef i32 @Ivy_ManIsAcyclic(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %26, %1, %20
-  %.2 = phi i32 [ 0, %20 ], [ 1, %1 ], [ 1, %26 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %20 ], [ 1, %1 ], [ 1, %26 ]
+  ret i32 %.1
 }
 
 declare void @Ivy_ManIncrementTravId(ptr noundef) local_unnamed_addr #1

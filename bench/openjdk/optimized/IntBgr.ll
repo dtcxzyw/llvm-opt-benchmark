@@ -1671,8 +1671,8 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %71
 
 71:                                               ; preds = %168, %._crit_edge
-  %.0144 = phi i32 [ %60, %._crit_edge ], [ %.4148, %168 ]
-  %.0139 = phi i32 [ 0, %._crit_edge ], [ %.4143, %168 ]
+  %.0144 = phi i32 [ %60, %._crit_edge ], [ %.3147, %168 ]
+  %.0139 = phi i32 [ 0, %._crit_edge ], [ %.2141, %168 ]
   %.0136 = phi ptr [ %0, %._crit_edge ], [ %170, %168 ]
   %.0129 = phi i32 [ 255, %._crit_edge ], [ %.3132, %168 ]
   %.0128 = phi i32 [ %5, %._crit_edge ], [ %174, %168 ]
@@ -1680,8 +1680,8 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %72
 
 72:                                               ; preds = %165, %71
-  %.1145 = phi i32 [ %.0144, %71 ], [ %.4148, %165 ]
-  %.1140 = phi i32 [ %.0139, %71 ], [ %.4143, %165 ]
+  %.1145 = phi i32 [ %.0144, %71 ], [ %.3147, %165 ]
+  %.1140 = phi i32 [ %.0139, %71 ], [ %.2141, %165 ]
   %.1137 = phi ptr [ %.0136, %71 ], [ %.2138, %165 ]
   %.1130 = phi i32 [ %.0129, %71 ], [ %.3132, %165 ]
   %.0127 = phi i32 [ %4, %71 ], [ %166, %165 ]
@@ -1725,7 +1725,7 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %93
 
 93:                                               ; preds = %82, %78
-  %.3147 = phi i32 [ %92, %82 ], [ %.2146, %78 ]
+  %.4148 = phi i32 [ %92, %82 ], [ %.2146, %78 ]
   %.0115 = phi i32 [ %87, %82 ], [ %81, %78 ]
   switch i32 %.0115, label %94 [
     i32 0, label %108
@@ -1749,7 +1749,7 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %110
 
 108:                                              ; preds = %93
-  %109 = icmp eq i32 %.3147, 255
+  %109 = icmp eq i32 %.4148, 255
   br i1 %109, label %165, label %110
 
 110:                                              ; preds = %108, %93, %94
@@ -1757,11 +1757,11 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   %.0122 = phi i32 [ %101, %94 ], [ %.0133, %93 ], [ 0, %108 ]
   %.0119 = phi i32 [ %104, %94 ], [ %.0134, %93 ], [ 0, %108 ]
   %.0116 = phi i32 [ %107, %94 ], [ %.0135, %93 ], [ 0, %108 ]
-  %.not163 = icmp eq i32 %.3147, 0
+  %.not163 = icmp eq i32 %.4148, 0
   br i1 %.not163, label %143, label %111
 
 111:                                              ; preds = %110
-  %112 = sext i32 %.3147 to i64
+  %112 = sext i32 %.4148 to i64
   %113 = zext nneg i32 %spec.select to i64
   %114 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %112, i64 %113
   %115 = load i8, ptr %114, align 1
@@ -1806,7 +1806,7 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %143
 
 143:                                              ; preds = %111, %139, %110
-  %.3142 = phi i32 [ %116, %139 ], [ 0, %111 ], [ %spec.select, %110 ]
+  %.4143 = phi i32 [ %116, %139 ], [ 0, %111 ], [ %spec.select, %110 ]
   %.1126 = phi i32 [ %117, %139 ], [ %117, %111 ], [ %.0125, %110 ]
   %.1123 = phi i32 [ %140, %139 ], [ %.0122, %111 ], [ %.0122, %110 ]
   %.1120 = phi i32 [ %141, %139 ], [ %.0119, %111 ], [ %.0119, %110 ]
@@ -1844,8 +1844,8 @@ define hidden void @IntBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   br label %165
 
 165:                                              ; preds = %108, %73, %160
-  %.4148 = phi i32 [ %.3147, %160 ], [ %.1145, %73 ], [ 255, %108 ]
-  %.4143 = phi i32 [ %.3142, %160 ], [ %.1140, %73 ], [ %spec.select, %108 ]
+  %.3147 = phi i32 [ %.4148, %160 ], [ %.1145, %73 ], [ 255, %108 ]
+  %.2141 = phi i32 [ %.4143, %160 ], [ %.1140, %73 ], [ %spec.select, %108 ]
   %.3132 = phi i32 [ %.2131, %160 ], [ 0, %73 ], [ %.2131, %108 ]
   %.4 = phi ptr [ %.3, %160 ], [ %74, %73 ], [ %.3, %108 ]
   %.2138.in.in = ptrtoint ptr %.1137 to i64
@@ -2182,9 +2182,9 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
 60:                                               ; preds = %180, %11
   %.0161 = phi ptr [ %1, %11 ], [ %182, %180 ]
   %.0158 = phi ptr [ %0, %11 ], [ %184, %180 ]
-  %.0154 = phi i32 [ 0, %11 ], [ %.3157, %180 ]
-  %.0149 = phi i32 [ 0, %11 ], [ %.4153, %180 ]
-  %.0145 = phi i32 [ 0, %11 ], [ %.3148, %180 ]
+  %.0154 = phi i32 [ 0, %11 ], [ %.2156, %180 ]
+  %.0149 = phi i32 [ 0, %11 ], [ %.2151, %180 ]
+  %.0145 = phi i32 [ 0, %11 ], [ %.2147, %180 ]
   %.0141 = phi i32 [ 255, %11 ], [ %.3144, %180 ]
   %.0140 = phi i32 [ %6, %11 ], [ %188, %180 ]
   %.1 = phi ptr [ %.0, %11 ], [ %.5, %180 ]
@@ -2193,9 +2193,9 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
 61:                                               ; preds = %177, %60
   %.1162 = phi ptr [ %.0161, %60 ], [ %.2163, %177 ]
   %.1159 = phi ptr [ %.0158, %60 ], [ %.2160, %177 ]
-  %.1155 = phi i32 [ %.0154, %60 ], [ %.3157, %177 ]
-  %.1150 = phi i32 [ %.0149, %60 ], [ %.4153, %177 ]
-  %.1146 = phi i32 [ %.0145, %60 ], [ %.3148, %177 ]
+  %.1155 = phi i32 [ %.0154, %60 ], [ %.2156, %177 ]
+  %.1150 = phi i32 [ %.0149, %60 ], [ %.2151, %177 ]
+  %.1146 = phi i32 [ %.0145, %60 ], [ %.2147, %177 ]
   %.1142 = phi i32 [ %.0141, %60 ], [ %.3144, %177 ]
   %.0139 = phi i32 [ %5, %60 ], [ %178, %177 ]
   %.2 = phi ptr [ %.1, %60 ], [ %.4, %177 ]
@@ -2224,13 +2224,13 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
   br label %74
 
 74:                                               ; preds = %67, %66
-  %.2156 = phi i32 [ %68, %67 ], [ %.1155, %66 ]
-  %.2147 = phi i32 [ %73, %67 ], [ %.1146, %66 ]
+  %.3157 = phi i32 [ %68, %67 ], [ %.1155, %66 ]
+  %.3148 = phi i32 [ %73, %67 ], [ %.1146, %66 ]
   %spec.select = select i1 %spec.select186, i32 255, i32 %.1150
   %75 = and i32 %spec.select, %26
   %76 = xor i32 %75, %29
   %77 = add nsw i32 %76, %32
-  %78 = and i32 %.2147, %36
+  %78 = and i32 %.3148, %36
   %79 = xor i32 %78, %39
   %80 = add nsw i32 %79, %42
   %.not176 = icmp eq i32 %.2143, 255
@@ -2258,7 +2258,7 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
 
 93:                                               ; preds = %92
   %94 = sext i32 %.0127 to i64
-  %95 = zext nneg i32 %.2147 to i64
+  %95 = zext nneg i32 %.3148 to i64
   %96 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
@@ -2266,11 +2266,11 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
   br i1 %.not178, label %119, label %99
 
 99:                                               ; preds = %93
-  %100 = lshr i32 %.2156, 16
+  %100 = lshr i32 %.3157, 16
   %101 = and i32 %100, 255
-  %102 = lshr i32 %.2156, 8
+  %102 = lshr i32 %.3157, 8
   %103 = and i32 %102, 255
-  %104 = and i32 %.2156, 255
+  %104 = and i32 %.3157, 255
   %.not179 = icmp eq i8 %97, -1
   br i1 %.not179, label %123, label %105
 
@@ -2352,7 +2352,7 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
   br label %156
 
 156:                                              ; preds = %124, %152, %123
-  %.3152 = phi i32 [ %129, %152 ], [ 0, %124 ], [ %spec.select, %123 ]
+  %.4153 = phi i32 [ %129, %152 ], [ 0, %124 ], [ %spec.select, %123 ]
   %.1138 = phi i32 [ %130, %152 ], [ %130, %124 ], [ %.0137, %123 ]
   %.1135 = phi i32 [ %153, %152 ], [ %.0134, %124 ], [ %.0134, %123 ]
   %.1132 = phi i32 [ %154, %152 ], [ %.0131, %124 ], [ %.0131, %123 ]
@@ -2389,9 +2389,9 @@ define hidden void @IntArgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
   br label %177
 
 177:                                              ; preds = %121, %119, %62, %172
-  %.3157 = phi i32 [ %.2156, %172 ], [ %.1155, %62 ], [ %.2156, %119 ], [ %.2156, %121 ]
-  %.4153 = phi i32 [ %.3152, %172 ], [ %.1150, %62 ], [ %spec.select, %119 ], [ %spec.select, %121 ]
-  %.3148 = phi i32 [ %.2147, %172 ], [ %.1146, %62 ], [ %.2147, %119 ], [ %.2147, %121 ]
+  %.2156 = phi i32 [ %.3157, %172 ], [ %.1155, %62 ], [ %.3157, %119 ], [ %.3157, %121 ]
+  %.2151 = phi i32 [ %.4153, %172 ], [ %.1150, %62 ], [ %spec.select, %119 ], [ %spec.select, %121 ]
+  %.2147 = phi i32 [ %.3148, %172 ], [ %.1146, %62 ], [ %.3148, %119 ], [ %.3148, %121 ]
   %.3144 = phi i32 [ %.2143, %172 ], [ 0, %62 ], [ %.2143, %119 ], [ %.2143, %121 ]
   %.4 = phi ptr [ %.3, %172 ], [ %63, %62 ], [ %.3, %119 ], [ %.3, %121 ]
   %.2160.in.in = ptrtoint ptr %.1159 to i64
@@ -2769,9 +2769,9 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
 60:                                               ; preds = %181, %11
   %.0162 = phi ptr [ %1, %11 ], [ %183, %181 ]
   %.0159 = phi ptr [ %0, %11 ], [ %185, %181 ]
-  %.0155 = phi i32 [ 0, %11 ], [ %.3158, %181 ]
-  %.0150 = phi i32 [ 0, %11 ], [ %.4154, %181 ]
-  %.0146 = phi i32 [ 0, %11 ], [ %.3149, %181 ]
+  %.0155 = phi i32 [ 0, %11 ], [ %.2157, %181 ]
+  %.0150 = phi i32 [ 0, %11 ], [ %.2152, %181 ]
+  %.0146 = phi i32 [ 0, %11 ], [ %.2148, %181 ]
   %.0142 = phi i32 [ 255, %11 ], [ %.3145, %181 ]
   %.0141 = phi i32 [ %6, %11 ], [ %189, %181 ]
   %.1 = phi ptr [ %.0, %11 ], [ %.5, %181 ]
@@ -2780,9 +2780,9 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
 61:                                               ; preds = %178, %60
   %.1163 = phi ptr [ %.0162, %60 ], [ %.2164, %178 ]
   %.1160 = phi ptr [ %.0159, %60 ], [ %.2161, %178 ]
-  %.1156 = phi i32 [ %.0155, %60 ], [ %.3158, %178 ]
-  %.1151 = phi i32 [ %.0150, %60 ], [ %.4154, %178 ]
-  %.1147 = phi i32 [ %.0146, %60 ], [ %.3149, %178 ]
+  %.1156 = phi i32 [ %.0155, %60 ], [ %.2157, %178 ]
+  %.1151 = phi i32 [ %.0150, %60 ], [ %.2152, %178 ]
+  %.1147 = phi i32 [ %.0146, %60 ], [ %.2148, %178 ]
   %.1143 = phi i32 [ %.0142, %60 ], [ %.3145, %178 ]
   %.0140 = phi i32 [ %5, %60 ], [ %179, %178 ]
   %.2 = phi ptr [ %.1, %60 ], [ %.4, %178 ]
@@ -2811,13 +2811,13 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
   br label %74
 
 74:                                               ; preds = %67, %66
-  %.2157 = phi i32 [ %68, %67 ], [ %.1156, %66 ]
-  %.2148 = phi i32 [ %73, %67 ], [ %.1147, %66 ]
+  %.3158 = phi i32 [ %68, %67 ], [ %.1156, %66 ]
+  %.3149 = phi i32 [ %73, %67 ], [ %.1147, %66 ]
   %spec.select = select i1 %spec.select186, i32 255, i32 %.1151
   %75 = and i32 %spec.select, %26
   %76 = xor i32 %75, %29
   %77 = add nsw i32 %76, %32
-  %78 = and i32 %.2148, %36
+  %78 = and i32 %.3149, %36
   %79 = xor i32 %78, %39
   %80 = add nsw i32 %79, %42
   %.not176 = icmp eq i32 %.2144, 255
@@ -2845,7 +2845,7 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
 
 93:                                               ; preds = %92
   %94 = sext i32 %.0128 to i64
-  %95 = zext nneg i32 %.2148 to i64
+  %95 = zext nneg i32 %.3149 to i64
   %96 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %94, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %94, i64 %57
@@ -2854,10 +2854,10 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
   br i1 %.not178, label %120, label %100
 
 100:                                              ; preds = %93
-  %101 = and i32 %.2157, 255
-  %102 = lshr i32 %.2157, 8
+  %101 = and i32 %.3158, 255
+  %102 = lshr i32 %.3158, 8
   %103 = and i32 %102, 255
-  %104 = lshr i32 %.2157, 16
+  %104 = lshr i32 %.3158, 16
   %105 = and i32 %104, 255
   %.not179 = icmp eq i8 %99, -1
   br i1 %.not179, label %124, label %106
@@ -2941,7 +2941,7 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
   br label %157
 
 157:                                              ; preds = %125, %153, %124
-  %.3153 = phi i32 [ %130, %153 ], [ 0, %125 ], [ %spec.select, %124 ]
+  %.4154 = phi i32 [ %130, %153 ], [ 0, %125 ], [ %spec.select, %124 ]
   %.1139 = phi i32 [ %131, %153 ], [ %131, %125 ], [ %.0138, %124 ]
   %.1136 = phi i32 [ %154, %153 ], [ %.0135, %125 ], [ %.0135, %124 ]
   %.1133 = phi i32 [ %155, %153 ], [ %.0132, %125 ], [ %.0132, %124 ]
@@ -2978,9 +2978,9 @@ define hidden void @IntArgbPreToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef 
   br label %178
 
 178:                                              ; preds = %122, %120, %62, %173
-  %.3158 = phi i32 [ %.2157, %173 ], [ %.1156, %62 ], [ %.2157, %120 ], [ %.2157, %122 ]
-  %.4154 = phi i32 [ %.3153, %173 ], [ %.1151, %62 ], [ %spec.select, %120 ], [ %spec.select, %122 ]
-  %.3149 = phi i32 [ %.2148, %173 ], [ %.1147, %62 ], [ %.2148, %120 ], [ %.2148, %122 ]
+  %.2157 = phi i32 [ %.3158, %173 ], [ %.1156, %62 ], [ %.3158, %120 ], [ %.3158, %122 ]
+  %.2152 = phi i32 [ %.4154, %173 ], [ %.1151, %62 ], [ %spec.select, %120 ], [ %spec.select, %122 ]
+  %.2148 = phi i32 [ %.3149, %173 ], [ %.1147, %62 ], [ %.3149, %120 ], [ %.3149, %122 ]
   %.3145 = phi i32 [ %.2144, %173 ], [ 0, %62 ], [ %.2144, %120 ], [ %.2144, %122 ]
   %.4 = phi ptr [ %.3, %173 ], [ %63, %62 ], [ %.3, %120 ], [ %.3, %122 ]
   %.2161.in.in = ptrtoint ptr %.1160 to i64
@@ -3071,8 +3071,8 @@ define hidden void @IntRgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
 61:                                               ; preds = %178, %11
   %.0156 = phi ptr [ %1, %11 ], [ %180, %178 ]
   %.0153 = phi ptr [ %0, %11 ], [ %182, %178 ]
-  %.0148 = phi i32 [ 0, %11 ], [ %.4152, %178 ]
-  %.0144 = phi i32 [ 0, %11 ], [ %.3147, %178 ]
+  %.0148 = phi i32 [ 0, %11 ], [ %.2150, %178 ]
+  %.0144 = phi i32 [ 0, %11 ], [ %.2146, %178 ]
   %.0140 = phi i32 [ 255, %11 ], [ %.3143, %178 ]
   %.0139 = phi i32 [ %6, %11 ], [ %186, %178 ]
   %.1 = phi ptr [ %.0, %11 ], [ %.5, %178 ]
@@ -3081,8 +3081,8 @@ define hidden void @IntRgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
 62:                                               ; preds = %175, %61
   %.1157 = phi ptr [ %.0156, %61 ], [ %.2158, %175 ]
   %.1154 = phi ptr [ %.0153, %61 ], [ %.2155, %175 ]
-  %.1149 = phi i32 [ %.0148, %61 ], [ %.4152, %175 ]
-  %.1145 = phi i32 [ %.0144, %61 ], [ %.3147, %175 ]
+  %.1149 = phi i32 [ %.0148, %61 ], [ %.2150, %175 ]
+  %.1145 = phi i32 [ %.0144, %61 ], [ %.2146, %175 ]
   %.1141 = phi i32 [ %.0140, %61 ], [ %.3143, %175 ]
   %.0138 = phi i32 [ %5, %61 ], [ %176, %175 ]
   %.2 = phi ptr [ %.1, %61 ], [ %.4, %175 ]
@@ -3107,12 +3107,12 @@ define hidden void @IntRgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   br label %71
 
 71:                                               ; preds = %68, %67
-  %.2146 = phi i32 [ %70, %68 ], [ %.1145, %67 ]
+  %.3147 = phi i32 [ %70, %68 ], [ %.1145, %67 ]
   %spec.select = select i1 %spec.select181, i32 255, i32 %.1149
   %72 = and i32 %spec.select, %26
   %73 = xor i32 %72, %29
   %74 = add nsw i32 %73, %32
-  %75 = and i32 %.2146, %36
+  %75 = and i32 %.3147, %36
   %76 = xor i32 %75, %39
   %77 = add nsw i32 %76, %42
   %.not171 = icmp eq i32 %.2142, 255
@@ -3140,7 +3140,7 @@ define hidden void @IntRgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
 
 90:                                               ; preds = %89
   %91 = sext i32 %.0126 to i64
-  %92 = zext nneg i32 %.2146 to i64
+  %92 = zext nneg i32 %.3147 to i64
   %93 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %91, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
@@ -3235,7 +3235,7 @@ define hidden void @IntRgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   br label %154
 
 154:                                              ; preds = %122, %150, %121
-  %.3151 = phi i32 [ %127, %150 ], [ 0, %122 ], [ %spec.select, %121 ]
+  %.4152 = phi i32 [ %127, %150 ], [ 0, %122 ], [ %spec.select, %121 ]
   %.1137 = phi i32 [ %128, %150 ], [ %128, %122 ], [ %.0136, %121 ]
   %.1134 = phi i32 [ %151, %150 ], [ %.0133, %122 ], [ %.0133, %121 ]
   %.1131 = phi i32 [ %152, %150 ], [ %.0130, %122 ], [ %.0130, %121 ]
@@ -3272,8 +3272,8 @@ define hidden void @IntRgbToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   br label %175
 
 175:                                              ; preds = %119, %117, %63, %170
-  %.4152 = phi i32 [ %.3151, %170 ], [ %.1149, %63 ], [ %spec.select, %117 ], [ %spec.select, %119 ]
-  %.3147 = phi i32 [ %.2146, %170 ], [ %.1145, %63 ], [ %.2146, %117 ], [ %.2146, %119 ]
+  %.2150 = phi i32 [ %.4152, %170 ], [ %.1149, %63 ], [ %spec.select, %117 ], [ %spec.select, %119 ]
+  %.2146 = phi i32 [ %.3147, %170 ], [ %.1145, %63 ], [ %.3147, %117 ], [ %.3147, %119 ]
   %.3143 = phi i32 [ %.2142, %170 ], [ 0, %63 ], [ %.2142, %117 ], [ %.2142, %119 ]
   %.4 = phi ptr [ %.3, %170 ], [ %64, %63 ], [ %.3, %117 ], [ %.3, %119 ]
   %.2155.in.in = ptrtoint ptr %.1154 to i64
@@ -3364,8 +3364,8 @@ define hidden void @IntBgrToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
 61:                                               ; preds = %178, %11
   %.0156 = phi ptr [ %1, %11 ], [ %180, %178 ]
   %.0153 = phi ptr [ %0, %11 ], [ %182, %178 ]
-  %.0148 = phi i32 [ 0, %11 ], [ %.4152, %178 ]
-  %.0144 = phi i32 [ 0, %11 ], [ %.3147, %178 ]
+  %.0148 = phi i32 [ 0, %11 ], [ %.2150, %178 ]
+  %.0144 = phi i32 [ 0, %11 ], [ %.2146, %178 ]
   %.0140 = phi i32 [ 255, %11 ], [ %.3143, %178 ]
   %.0139 = phi i32 [ %6, %11 ], [ %186, %178 ]
   %.1 = phi ptr [ %.0, %11 ], [ %.5, %178 ]
@@ -3374,8 +3374,8 @@ define hidden void @IntBgrToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
 62:                                               ; preds = %175, %61
   %.1157 = phi ptr [ %.0156, %61 ], [ %.2158, %175 ]
   %.1154 = phi ptr [ %.0153, %61 ], [ %.2155, %175 ]
-  %.1149 = phi i32 [ %.0148, %61 ], [ %.4152, %175 ]
-  %.1145 = phi i32 [ %.0144, %61 ], [ %.3147, %175 ]
+  %.1149 = phi i32 [ %.0148, %61 ], [ %.2150, %175 ]
+  %.1145 = phi i32 [ %.0144, %61 ], [ %.2146, %175 ]
   %.1141 = phi i32 [ %.0140, %61 ], [ %.3143, %175 ]
   %.0138 = phi i32 [ %5, %61 ], [ %176, %175 ]
   %.2 = phi ptr [ %.1, %61 ], [ %.4, %175 ]
@@ -3400,12 +3400,12 @@ define hidden void @IntBgrToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   br label %71
 
 71:                                               ; preds = %68, %67
-  %.2146 = phi i32 [ %70, %68 ], [ %.1145, %67 ]
+  %.3147 = phi i32 [ %70, %68 ], [ %.1145, %67 ]
   %spec.select = select i1 %spec.select181, i32 255, i32 %.1149
   %72 = and i32 %spec.select, %26
   %73 = xor i32 %72, %29
   %74 = add nsw i32 %73, %32
-  %75 = and i32 %.2146, %36
+  %75 = and i32 %.3147, %36
   %76 = xor i32 %75, %39
   %77 = add nsw i32 %76, %42
   %.not171 = icmp eq i32 %.2142, 255
@@ -3433,7 +3433,7 @@ define hidden void @IntBgrToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
 
 90:                                               ; preds = %89
   %91 = sext i32 %.0126 to i64
-  %92 = zext nneg i32 %.2146 to i64
+  %92 = zext nneg i32 %.3147 to i64
   %93 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %91, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
@@ -3528,7 +3528,7 @@ define hidden void @IntBgrToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   br label %154
 
 154:                                              ; preds = %122, %150, %121
-  %.3151 = phi i32 [ %127, %150 ], [ 0, %122 ], [ %spec.select, %121 ]
+  %.4152 = phi i32 [ %127, %150 ], [ 0, %122 ], [ %spec.select, %121 ]
   %.1137 = phi i32 [ %128, %150 ], [ %128, %122 ], [ %.0136, %121 ]
   %.1134 = phi i32 [ %151, %150 ], [ %.0133, %122 ], [ %.0133, %121 ]
   %.1131 = phi i32 [ %152, %150 ], [ %.0130, %122 ], [ %.0130, %121 ]
@@ -3565,8 +3565,8 @@ define hidden void @IntBgrToIntBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   br label %175
 
 175:                                              ; preds = %119, %117, %63, %170
-  %.4152 = phi i32 [ %.3151, %170 ], [ %.1149, %63 ], [ %spec.select, %117 ], [ %spec.select, %119 ]
-  %.3147 = phi i32 [ %.2146, %170 ], [ %.1145, %63 ], [ %.2146, %117 ], [ %.2146, %119 ]
+  %.2150 = phi i32 [ %.4152, %170 ], [ %.1149, %63 ], [ %spec.select, %117 ], [ %spec.select, %119 ]
+  %.2146 = phi i32 [ %.3147, %170 ], [ %.1145, %63 ], [ %.3147, %117 ], [ %.3147, %119 ]
   %.3143 = phi i32 [ %.2142, %170 ], [ 0, %63 ], [ %.2142, %117 ], [ %.2142, %119 ]
   %.4 = phi ptr [ %.3, %170 ], [ %64, %63 ], [ %.3, %117 ], [ %.3, %119 ]
   %.2155.in.in = ptrtoint ptr %.1154 to i64

@@ -382,28 +382,28 @@ if.then76:                                        ; preds = %if.else68
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then76, %if.else68
-  %len.addr.1 = phi i64 [ %sub79, %if.then76 ], [ %len, %if.else68 ]
-  %p.addr.2 = phi ptr [ %add.ptr.i543, %if.then76 ], [ %add.ptr74, %if.else68 ]
-  %v0.2 = phi <2 x i64> [ %xor.i.i.i547, %if.then76 ], [ %xor.i191, %if.else68 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.2, i64 16
-  %56 = load <2 x i64>, ptr %p.addr.2, align 16
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %p.addr.2, i64 32
+  %len.addr.2 = phi i64 [ %sub79, %if.then76 ], [ %len, %if.else68 ]
+  %p.addr.3 = phi ptr [ %add.ptr.i543, %if.then76 ], [ %add.ptr74, %if.else68 ]
+  %v0.3 = phi <2 x i64> [ %xor.i.i.i547, %if.then76 ], [ %xor.i191, %if.else68 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.3, i64 16
+  %56 = load <2 x i64>, ptr %p.addr.3, align 16
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %p.addr.3, i64 32
   %57 = load <2 x i64>, ptr %incdec.ptr, align 16
-  %incdec.ptr82 = getelementptr inbounds i8, ptr %p.addr.2, i64 48
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %p.addr.3, i64 48
   %58 = load <2 x i64>, ptr %incdec.ptr81, align 16
-  %incdec.ptr83 = getelementptr inbounds i8, ptr %p.addr.2, i64 64
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %p.addr.3, i64 64
   %59 = load <2 x i64>, ptr %incdec.ptr82, align 16
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %p.addr.2, i64 80
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %p.addr.3, i64 80
   %60 = load <2 x i64>, ptr %incdec.ptr83, align 16
-  %incdec.ptr85 = getelementptr inbounds i8, ptr %p.addr.2, i64 96
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %p.addr.3, i64 96
   %61 = load <2 x i64>, ptr %incdec.ptr84, align 16
-  %incdec.ptr86 = getelementptr inbounds i8, ptr %p.addr.2, i64 112
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %p.addr.3, i64 112
   %62 = load <2 x i64>, ptr %incdec.ptr85, align 16
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end80
-  %len.addr.2 = phi i64 [ %len.addr.1, %if.end80 ], [ %sub103, %do.body ]
-  %v0.3 = phi <2 x i64> [ %v0.2, %if.end80 ], [ %xor.i.i408, %do.body ]
+  %len.addr.3 = phi i64 [ %len.addr.2, %if.end80 ], [ %sub103, %do.body ]
+  %v0.4 = phi <2 x i64> [ %v0.3, %if.end80 ], [ %xor.i.i408, %do.body ]
   %v1.2 = phi <2 x i64> [ %56, %if.end80 ], [ %xor.i.i399, %do.body ]
   %v2.1 = phi <2 x i64> [ %57, %if.end80 ], [ %xor.i.i390, %do.body ]
   %v3.1 = phi <2 x i64> [ %58, %if.end80 ], [ %xor.i.i381, %do.body ]
@@ -414,9 +414,9 @@ do.body:                                          ; preds = %do.body, %if.end80
   %vp.0 = phi ptr [ %incdec.ptr86, %if.end80 ], [ %incdec.ptr101, %do.body ]
   %incdec.ptr87 = getelementptr inbounds i8, ptr %vp.0, i64 16
   %63 = load <2 x i64>, ptr %vp.0, align 16
-  %64 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.3, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %64 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 872412467, i64 poison>, i8 0)
   %xor.i4.i407 = xor <2 x i64> %64, %63
-  %65 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.3, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %65 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
   %xor.i.i408 = xor <2 x i64> %xor.i4.i407, %65
   %incdec.ptr89 = getelementptr inbounds i8, ptr %vp.0, i64 32
   %66 = load <2 x i64>, ptr %incdec.ptr87, align 16
@@ -460,7 +460,7 @@ do.body:                                          ; preds = %do.body, %if.end80
   %xor.i4.i344 = xor <2 x i64> %85, %84
   %86 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v7.0, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
   %xor.i.i345 = xor <2 x i64> %xor.i4.i344, %86
-  %sub103 = add i64 %len.addr.2, -128
+  %sub103 = add i64 %len.addr.3, -128
   %cmp104 = icmp ugt i64 %sub103, 255
   br i1 %cmp104, label %do.body, label %do.end
 
@@ -481,7 +481,7 @@ do.end:                                           ; preds = %do.body
   %97 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %xor.i.i381, <2 x i64> <i64 poison, i64 496309207>, i8 17)
   %98 = xor <2 x i64> %96, %97
   %xor.i.i309 = xor <2 x i64> %98, %xor.i.i345
-  %and109 = and i64 %len.addr.2, 64
+  %and109 = and i64 %len.addr.3, 64
   %tobool110.not = icmp eq i64 %and109, 0
   br i1 %tobool110.not, label %if.end120, label %if.then111
 
@@ -513,20 +513,20 @@ if.then111:                                       ; preds = %do.end
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then111, %do.end
-  %v0.4 = phi <2 x i64> [ %xor.i.i300, %if.then111 ], [ %xor.i.i336, %do.end ]
+  %v0.5 = phi <2 x i64> [ %xor.i.i300, %if.then111 ], [ %xor.i.i336, %do.end ]
   %v1.3 = phi <2 x i64> [ %xor.i.i291, %if.then111 ], [ %xor.i.i327, %do.end ]
   %v2.2 = phi <2 x i64> [ %xor.i.i282, %if.then111 ], [ %xor.i.i318, %do.end ]
   %v3.2 = phi <2 x i64> [ %xor.i.i273, %if.then111 ], [ %xor.i.i309, %do.end ]
   %vp.1 = phi ptr [ %incdec.ptr118, %if.then111 ], [ %incdec.ptr101, %do.end ]
-  %111 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %111 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.5, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
   %xor.i4.i263 = xor <2 x i64> %111, %v2.2
-  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.5, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
   %xor.i.i264 = xor <2 x i64> %xor.i4.i263, %112
   %113 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v1.3, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
   %xor.i4.i254 = xor <2 x i64> %113, %v3.2
   %114 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v1.3, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
   %xor.i.i255 = xor <2 x i64> %xor.i4.i254, %114
-  %and123 = and i64 %len.addr.2, 32
+  %and123 = and i64 %len.addr.3, 32
   %tobool124.not = icmp eq i64 %and123, 0
   br i1 %tobool124.not, label %if.end130, label %if.then125
 
@@ -546,14 +546,14 @@ if.then125:                                       ; preds = %if.end120
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then125, %if.end120
-  %v0.5 = phi <2 x i64> [ %xor.i.i246, %if.then125 ], [ %xor.i.i264, %if.end120 ]
+  %v0.6 = phi <2 x i64> [ %xor.i.i246, %if.then125 ], [ %xor.i.i264, %if.end120 ]
   %v1.4 = phi <2 x i64> [ %xor.i.i237, %if.then125 ], [ %xor.i.i255, %if.end120 ]
   %vp.2 = phi ptr [ %incdec.ptr128, %if.then125 ], [ %vp.1, %if.end120 ]
-  %121 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.5, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %121 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.6, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
   %xor.i4.i227 = xor <2 x i64> %121, %v1.4
-  %122 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.5, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %122 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.6, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
   %xor.i.i228 = xor <2 x i64> %xor.i4.i227, %122
-  %and132 = and i64 %len.addr.2, 16
+  %and132 = and i64 %len.addr.3, 16
   %tobool133.not = icmp eq i64 %and132, 0
   br i1 %tobool133.not, label %if.end138, label %if.then134
 
@@ -567,10 +567,10 @@ if.then134:                                       ; preds = %if.end130
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end130, %if.then134, %if.then50, %if.end46, %if.then56, %if.then61, %if.else
-  %len.addr.3 = phi i64 [ %len.addr.0.lcssa, %if.then50 ], [ %len.addr.0.lcssa, %if.end46 ], [ %len, %if.then61 ], [ %len, %if.then56 ], [ %len, %if.else ], [ %sub103, %if.then134 ], [ %sub103, %if.end130 ]
-  %p.addr.3 = phi ptr [ %add.ptr53, %if.then50 ], [ %p.addr.1, %if.end46 ], [ %add.ptr64, %if.then61 ], [ %add.ptr59, %if.then56 ], [ %add.ptr, %if.else ], [ %incdec.ptr135, %if.then134 ], [ %vp.2, %if.end130 ]
-  %v0.7 = phi <2 x i64> [ %xor.i.i435, %if.then50 ], [ %xor.i.i444, %if.end46 ], [ %xor.i.i417, %if.then61 ], [ %xor.i.i426, %if.then56 ], [ %xor.i194, %if.else ], [ %xor.i.i, %if.then134 ], [ %xor.i.i228, %if.end130 ]
-  %and139 = and i64 %len.addr.3, 15
+  %len.addr.1 = phi i64 [ %len.addr.0.lcssa, %if.then50 ], [ %len.addr.0.lcssa, %if.end46 ], [ %len, %if.then61 ], [ %len, %if.then56 ], [ %len, %if.else ], [ %sub103, %if.then134 ], [ %sub103, %if.end130 ]
+  %p.addr.2 = phi ptr [ %add.ptr53, %if.then50 ], [ %p.addr.1, %if.end46 ], [ %add.ptr64, %if.then61 ], [ %add.ptr59, %if.then56 ], [ %add.ptr, %if.else ], [ %incdec.ptr135, %if.then134 ], [ %vp.2, %if.end130 ]
+  %v0.2 = phi <2 x i64> [ %xor.i.i435, %if.then50 ], [ %xor.i.i444, %if.end46 ], [ %xor.i.i417, %if.then61 ], [ %xor.i.i426, %if.then56 ], [ %xor.i194, %if.else ], [ %xor.i.i, %if.then134 ], [ %xor.i.i228, %if.end130 ]
+  %and139 = and i64 %len.addr.1, 15
   %tobool140.not = icmp eq i64 %and139, 0
   br i1 %tobool140.not, label %if.end143, label %if.then141
 
@@ -580,11 +580,11 @@ if.then141:                                       ; preds = %if.end138
   %add.i = or disjoint i64 %and139, 16
   %arrayidx1.i = getelementptr inbounds [48 x i8], ptr @fold_partial_vec_pclmul_avx.shift_tab, i64 0, i64 %add.i
   %127 = load <16 x i8>, ptr %arrayidx1.i, align 1
-  %128 = bitcast <2 x i64> %v0.7 to <16 x i8>
+  %128 = bitcast <2 x i64> %v0.2 to <16 x i8>
   %129 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %128, <16 x i8> %126)
   %130 = bitcast <16 x i8> %129 to <2 x i64>
   %131 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %128, <16 x i8> %127)
-  %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.3, i64 %and139
+  %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.2, i64 %and139
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16
   %132 = load <16 x i8>, ptr %add.ptr5.i, align 1
   %133 = tail call <16 x i8> @llvm.x86.sse41.pblendvb(<16 x i8> %131, <16 x i8> %132, <16 x i8> %127)
@@ -596,7 +596,7 @@ if.then141:                                       ; preds = %if.end138
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then141, %if.end138
-  %v0.8 = phi <2 x i64> [ %xor.i.i.i, %if.then141 ], [ %v0.7, %if.end138 ]
+  %v0.8 = phi <2 x i64> [ %xor.i.i.i, %if.then141 ], [ %v0.2, %if.end138 ]
   %cast144 = shufflevector <2 x i64> %v0.8, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
   %137 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.8, <2 x i64> <i64 poison, i64 3433693342>, i8 16)
   %xor.i188 = xor <2 x i64> %137, %cast144
@@ -815,33 +815,33 @@ crc32_slice1.exit196:                             ; preds = %for.body.i185
   br label %if.end76
 
 if.end76:                                         ; preds = %crc32_slice1.exit196, %if.else68
-  %p.addr.2 = phi ptr [ %add.ptr74, %crc32_slice1.exit196 ], [ %p, %if.else68 ]
-  %len.addr.1 = phi i64 [ %sub75, %crc32_slice1.exit196 ], [ %len, %if.else68 ]
+  %p.addr.3 = phi ptr [ %add.ptr74, %crc32_slice1.exit196 ], [ %p, %if.else68 ]
+  %len.addr.2 = phi i64 [ %sub75, %crc32_slice1.exit196 ], [ %len, %if.else68 ]
   %crc.addr.0 = phi i32 [ %xor4.i194, %crc32_slice1.exit196 ], [ %crc, %if.else68 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.2, i64 16
-  %45 = load <2 x i64>, ptr %p.addr.2, align 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.3, i64 16
+  %45 = load <2 x i64>, ptr %p.addr.3, align 16
   %vecinit3.i245 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %crc.addr.0, i64 0
   %46 = bitcast <4 x i32> %vecinit3.i245 to <2 x i64>
   %xor.i224 = xor <2 x i64> %45, %46
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %p.addr.2, i64 32
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %p.addr.3, i64 32
   %47 = load <2 x i64>, ptr %incdec.ptr, align 16
-  %incdec.ptr80 = getelementptr inbounds i8, ptr %p.addr.2, i64 48
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %p.addr.3, i64 48
   %48 = load <2 x i64>, ptr %incdec.ptr79, align 16
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %p.addr.2, i64 64
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %p.addr.3, i64 64
   %49 = load <2 x i64>, ptr %incdec.ptr80, align 16
-  %incdec.ptr82 = getelementptr inbounds i8, ptr %p.addr.2, i64 80
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %p.addr.3, i64 80
   %50 = load <2 x i64>, ptr %incdec.ptr81, align 16
-  %incdec.ptr83 = getelementptr inbounds i8, ptr %p.addr.2, i64 96
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %p.addr.3, i64 96
   %51 = load <2 x i64>, ptr %incdec.ptr82, align 16
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %p.addr.2, i64 112
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %p.addr.3, i64 112
   %52 = load <2 x i64>, ptr %incdec.ptr83, align 16
-  %incdec.ptr85 = getelementptr inbounds i8, ptr %p.addr.2, i64 128
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %p.addr.3, i64 128
   %53 = load <2 x i64>, ptr %incdec.ptr84, align 16
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end76
-  %len.addr.2 = phi i64 [ %len.addr.1, %if.end76 ], [ %sub102, %do.body ]
-  %v0.2 = phi <2 x i64> [ %xor.i224, %if.end76 ], [ %xor.i.i448, %do.body ]
+  %len.addr.3 = phi i64 [ %len.addr.2, %if.end76 ], [ %sub102, %do.body ]
+  %v0.3 = phi <2 x i64> [ %xor.i224, %if.end76 ], [ %xor.i.i448, %do.body ]
   %v1.2 = phi <2 x i64> [ %47, %if.end76 ], [ %xor.i.i439, %do.body ]
   %v2.1 = phi <2 x i64> [ %48, %if.end76 ], [ %xor.i.i430, %do.body ]
   %v3.1 = phi <2 x i64> [ %49, %if.end76 ], [ %xor.i.i421, %do.body ]
@@ -852,9 +852,9 @@ do.body:                                          ; preds = %do.body, %if.end76
   %vp.0 = phi ptr [ %incdec.ptr85, %if.end76 ], [ %incdec.ptr100, %do.body ]
   %incdec.ptr86 = getelementptr inbounds i8, ptr %vp.0, i64 16
   %54 = load <2 x i64>, ptr %vp.0, align 16
-  %55 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.2, <2 x i64> <i64 872412467, i64 poison>, i8 0)
+  %55 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.3, <2 x i64> <i64 872412467, i64 poison>, i8 0)
   %xor.i4.i447 = xor <2 x i64> %55, %54
-  %56 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.2, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
+  %56 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.3, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
   %xor.i.i448 = xor <2 x i64> %xor.i4.i447, %56
   %incdec.ptr88 = getelementptr inbounds i8, ptr %vp.0, i64 32
   %57 = load <2 x i64>, ptr %incdec.ptr86, align 16
@@ -898,7 +898,7 @@ do.body:                                          ; preds = %do.body, %if.end76
   %xor.i4.i384 = xor <2 x i64> %76, %75
   %77 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v7.0, <2 x i64> <i64 poison, i64 2433674945>, i8 17)
   %xor.i.i385 = xor <2 x i64> %xor.i4.i384, %77
-  %sub102 = add i64 %len.addr.2, -128
+  %sub102 = add i64 %len.addr.3, -128
   %cmp103 = icmp ugt i64 %sub102, 255
   br i1 %cmp103, label %do.body, label %do.end
 
@@ -919,7 +919,7 @@ do.end:                                           ; preds = %do.body
   %88 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %xor.i.i421, <2 x i64> <i64 poison, i64 496309207>, i8 17)
   %89 = xor <2 x i64> %87, %88
   %xor.i.i349 = xor <2 x i64> %89, %xor.i.i385
-  %and108 = and i64 %len.addr.2, 64
+  %and108 = and i64 %len.addr.3, 64
   %tobool109.not = icmp eq i64 %and108, 0
   br i1 %tobool109.not, label %if.end119, label %if.then110
 
@@ -951,20 +951,20 @@ if.then110:                                       ; preds = %do.end
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then110, %do.end
-  %v0.3 = phi <2 x i64> [ %xor.i.i340, %if.then110 ], [ %xor.i.i376, %do.end ]
+  %v0.4 = phi <2 x i64> [ %xor.i.i340, %if.then110 ], [ %xor.i.i376, %do.end ]
   %v1.3 = phi <2 x i64> [ %xor.i.i331, %if.then110 ], [ %xor.i.i367, %do.end ]
   %v2.2 = phi <2 x i64> [ %xor.i.i322, %if.then110 ], [ %xor.i.i358, %do.end ]
   %v3.2 = phi <2 x i64> [ %xor.i.i313, %if.then110 ], [ %xor.i.i349, %do.end ]
   %vp.1 = phi ptr [ %incdec.ptr117, %if.then110 ], [ %incdec.ptr100, %do.end ]
-  %102 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.3, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
+  %102 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
   %xor.i4.i303 = xor <2 x i64> %102, %v2.2
-  %103 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.3, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
+  %103 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
   %xor.i.i304 = xor <2 x i64> %xor.i4.i303, %103
   %104 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v1.3, <2 x i64> <i64 4057597354, i64 poison>, i8 0)
   %xor.i4.i294 = xor <2 x i64> %104, %v3.2
   %105 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v1.3, <2 x i64> <i64 poison, i64 2166711591>, i8 17)
   %xor.i.i295 = xor <2 x i64> %xor.i4.i294, %105
-  %and122 = and i64 %len.addr.2, 32
+  %and122 = and i64 %len.addr.3, 32
   %tobool123.not = icmp eq i64 %and122, 0
   br i1 %tobool123.not, label %if.end129, label %if.then124
 
@@ -984,14 +984,14 @@ if.then124:                                       ; preds = %if.end119
   br label %if.end129
 
 if.end129:                                        ; preds = %if.then124, %if.end119
-  %v0.4 = phi <2 x i64> [ %xor.i.i286, %if.then124 ], [ %xor.i.i304, %if.end119 ]
+  %v0.5 = phi <2 x i64> [ %xor.i.i286, %if.then124 ], [ %xor.i.i304, %if.end119 ]
   %v1.4 = phi <2 x i64> [ %xor.i.i277, %if.then124 ], [ %xor.i.i295, %if.end119 ]
   %vp.2 = phi ptr [ %incdec.ptr127, %if.then124 ], [ %vp.1, %if.end119 ]
-  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
+  %112 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.5, <2 x i64> <i64 2926088593, i64 poison>, i8 0)
   %xor.i4.i267 = xor <2 x i64> %112, %v1.4
-  %113 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.4, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
+  %113 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.5, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
   %xor.i.i268 = xor <2 x i64> %xor.i4.i267, %113
-  %and131 = and i64 %len.addr.2, 16
+  %and131 = and i64 %len.addr.3, 16
   %tobool132.not = icmp eq i64 %and131, 0
   br i1 %tobool132.not, label %if.end137, label %if.then133
 
@@ -1005,12 +1005,12 @@ if.then133:                                       ; preds = %if.end129
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end129, %if.then133, %if.then50, %if.end46, %if.then56, %if.then61, %if.else
-  %p.addr.3 = phi ptr [ %add.ptr53, %if.then50 ], [ %p.addr.1, %if.end46 ], [ %add.ptr64, %if.then61 ], [ %add.ptr59, %if.then56 ], [ %add.ptr, %if.else ], [ %incdec.ptr134, %if.then133 ], [ %vp.2, %if.end129 ]
-  %len.addr.3 = phi i64 [ %len.addr.0.lcssa, %if.then50 ], [ %len.addr.0.lcssa, %if.end46 ], [ %len, %if.then61 ], [ %len, %if.then56 ], [ %len, %if.else ], [ %sub102, %if.then133 ], [ %sub102, %if.end129 ]
-  %v0.6 = phi <2 x i64> [ %xor.i.i475, %if.then50 ], [ %xor.i.i484, %if.end46 ], [ %xor.i.i457, %if.then61 ], [ %xor.i.i466, %if.then56 ], [ %xor.i227, %if.else ], [ %xor.i.i, %if.then133 ], [ %xor.i.i268, %if.end129 ]
-  %and138 = and i64 %len.addr.3, 15
-  %cast139 = shufflevector <2 x i64> %v0.6, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
-  %117 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.6, <2 x i64> <i64 poison, i64 3433693342>, i8 16)
+  %p.addr.2 = phi ptr [ %add.ptr53, %if.then50 ], [ %p.addr.1, %if.end46 ], [ %add.ptr64, %if.then61 ], [ %add.ptr59, %if.then56 ], [ %add.ptr, %if.else ], [ %incdec.ptr134, %if.then133 ], [ %vp.2, %if.end129 ]
+  %len.addr.1 = phi i64 [ %len.addr.0.lcssa, %if.then50 ], [ %len.addr.0.lcssa, %if.end46 ], [ %len, %if.then61 ], [ %len, %if.then56 ], [ %len, %if.else ], [ %sub102, %if.then133 ], [ %sub102, %if.end129 ]
+  %v0.2 = phi <2 x i64> [ %xor.i.i475, %if.then50 ], [ %xor.i.i484, %if.end46 ], [ %xor.i.i457, %if.then61 ], [ %xor.i.i466, %if.then56 ], [ %xor.i227, %if.else ], [ %xor.i.i, %if.then133 ], [ %xor.i.i268, %if.end129 ]
+  %and138 = and i64 %len.addr.1, 15
+  %cast139 = shufflevector <2 x i64> %v0.2, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
+  %117 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.2, <2 x i64> <i64 poison, i64 3433693342>, i8 16)
   %xor.i221 = xor <2 x i64> %117, %cast139
   %cast141 = bitcast <2 x i64> %xor.i221 to <16 x i8>
   %psrldq142 = shufflevector <16 x i8> %cast141, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
@@ -1033,7 +1033,7 @@ for.body.i:                                       ; preds = %if.end137, %for.bod
   %i.i.0320 = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end137 ]
   %shr.i = lshr i32 %crc.addr.i.0321, 8
   %conv1.i = and i32 %crc.addr.i.0321, 255
-  %arrayidx.i = getelementptr inbounds i8, ptr %p.addr.3, i64 %i.i.0320
+  %arrayidx.i = getelementptr inbounds i8, ptr %p.addr.2, i64 %i.i.0320
   %122 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %122 to i32
   %xor.i = xor i32 %conv1.i, %conv2.i

@@ -348,7 +348,7 @@ MergeJobs.exit:                                   ; preds = %.critedge54
 
 .lr.ph141.i:                                      ; preds = %.preheader117.i, %184
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %184 ], [ 0, %.preheader117.i ]
-  %.1140.i = phi i32 [ %.2.i, %184 ], [ 0, %.preheader117.i ]
+  %.2140.i = phi i32 [ %.3.i, %184 ], [ 0, %.preheader117.i ]
   %.0101138.i = phi i32 [ %.1102.i, %184 ], [ 0, %.preheader117.i ]
   %.0103137.i = phi i32 [ %.1104.i, %184 ], [ 0, %.preheader117.i ]
   %168 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %indvars.iv178.i
@@ -369,14 +369,14 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   %180 = add nuw nsw i32 %179, %.0101138.i
   store i32 %175, ptr %176, align 4
   %181 = mul nsw i32 %175, %169
-  %182 = add nsw i32 %181, %.1140.i
+  %182 = add nsw i32 %181, %.2140.i
   %183 = add nsw i32 %169, %.0103137.i
   br label %184
 
 184:                                              ; preds = %170, %.lr.ph141.i
   %.1104.i = phi i32 [ %183, %170 ], [ %.0103137.i, %.lr.ph141.i ]
   %.1102.i = phi i32 [ %180, %170 ], [ %.0101138.i, %.lr.ph141.i ]
-  %.2.i = phi i32 [ %182, %170 ], [ %.1140.i, %.lr.ph141.i ]
+  %.3.i = phi i32 [ %182, %170 ], [ %.2140.i, %.lr.ph141.i ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next179.i, %wide.trip.count181.i.pre-phi
   br i1 %exitcond182.not.i, label %._crit_edge.i, label %.lr.ph141.i, !llvm.loop !11
@@ -390,7 +390,7 @@ MergeJobs.exit:                                   ; preds = %.critedge54
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i
   %187 = sdiv i32 %.1104.i, 2
-  %188 = add nsw i32 %.2.i, %187
+  %188 = add nsw i32 %.3.i, %187
   %189 = sdiv i32 %188, %.1104.i
   br label %._crit_edge.thread.i
 
@@ -646,27 +646,27 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge69.i.i, 
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %indvars.iv.i114.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next.i115.i, %.preheader.i.i ]
-  %.049.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %spec.select.i.i, %.preheader.i.i ]
-  %.03848.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %.139.i.i, %.preheader.i.i ]
+  %.149.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %spec.select.i.i, %.preheader.i.i ]
+  %.13948.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %.240.i.i, %.preheader.i.i ]
   %338 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i114.i
   %339 = load i32, ptr %338, align 4
-  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.049.i.i, i32 %339)
-  %.139.i.i = call i32 @llvm.smax.i32(i32 %.03848.i.i, i32 %339)
+  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.149.i.i, i32 %339)
+  %.240.i.i = call i32 @llvm.smax.i32(i32 %.13948.i.i, i32 %339)
   %indvars.iv.next.i115.i = add nuw nsw i64 %indvars.iv.i114.i, 1
   %exitcond.not.i116.i = icmp eq i64 %indvars.iv.next.i115.i, %wide.trip.count.i113.i
   br i1 %exitcond.not.i116.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %334
-  %.240.i.i = phi i32 [ %336, %334 ], [ %.139.i.i, %.preheader.i.i ]
-  %.2.i.i = phi i32 [ %336, %334 ], [ %spec.select.i.i, %.preheader.i.i ]
+  %.038.i.i = phi i32 [ %336, %334 ], [ %.240.i.i, %.preheader.i.i ]
+  %.0.i.i = phi i32 [ %336, %334 ], [ %spec.select.i.i, %.preheader.i.i ]
   %340 = icmp sgt i32 %335, 0
   br i1 %340, label %.lr.ph.i.i, label %AssignSegments.exit
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i
-  %341 = icmp eq i32 %.240.i.i, %.2.i.i
-  %342 = add nsw i32 %.2.i.i, 1
-  %spec.select46.i.i = select i1 %341, i32 %342, i32 %.240.i.i
-  %343 = sub nsw i32 %spec.select46.i.i, %.2.i.i
+  %341 = icmp eq i32 %.038.i.i, %.0.i.i
+  %342 = add nsw i32 %.0.i.i, 1
+  %spec.select46.i.i = select i1 %341, i32 %342, i32 %.038.i.i
+  %343 = sub nsw i32 %spec.select46.i.i, %.0.i.i
   %344 = getelementptr inbounds i8, ptr %0, i64 608
   %wide.trip.count55.i.i = zext nneg i32 %335 to i64
   br label %345
@@ -678,7 +678,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge69.i.i, 
   %348 = sub nsw i32 %347, %190
   %349 = mul nsw i32 %348, 255
   %350 = sdiv i32 %349, %343
-  %351 = sub nsw i32 %347, %.2.i.i
+  %351 = sub nsw i32 %347, %.0.i.i
   %352 = mul nsw i32 %351, 255
   %353 = sdiv i32 %352, %343
   %354 = call i32 @llvm.smin.i32(i32 %350, i32 127)

@@ -116,13 +116,13 @@ gv_isxdigit.exit.thread.i.i:                      ; preds = %switch.early.test.i
   br i1 %35, label %.preheader20.i.i, label %xml_isentity.exit.i
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
-  %.2.i.i = phi ptr [ %42, %.preheader.i.i ], [ %17, %19 ]
-  %37 = load i8, ptr %.2.i.i, align 1
+  %.3.i.i = phi ptr [ %42, %.preheader.i.i ], [ %17, %19 ]
+  %37 = load i8, ptr %.3.i.i, align 1
   %38 = and i8 %37, -33
   %39 = sext i8 %38 to i32
   %40 = add nsw i32 %39, -65
   %41 = icmp ult i32 %40, 26
-  %42 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %42 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
   br i1 %41, label %.preheader.i.i, label %xml_isentity.exit.i
 
 xml_isentity.exit.i:                              ; preds = %switch.early.test.i.i, %.preheader20.i.i, %.preheader.i.i

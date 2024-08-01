@@ -1598,7 +1598,7 @@ if.then113:                                       ; preds = %if.end81, %for.end1
 try_again:                                        ; preds = %try_again.preheader, %if.end549
   %tobool505 = phi i1 [ false, %if.end549 ], [ true, %try_again.preheader ]
   %may_retry.0 = phi i32 [ 0, %if.end549 ], [ 1, %try_again.preheader ]
-  %argv_rewritten.0 = phi i32 [ %argv_rewritten.3, %if.end549 ], [ 0, %try_again.preheader ]
+  %argv_rewritten.0 = phi i32 [ %argv_rewritten.1, %if.end549 ], [ 0, %try_again.preheader ]
   %num_keys.1 = phi i32 [ %non_expired.0.lcssa, %if.end549 ], [ %oi.1, %try_again.preheader ]
   %34 = load ptr, ptr %argv69, align 8
   %arrayidx117 = getelementptr inbounds i8, ptr %34, i64 8
@@ -2118,7 +2118,7 @@ if.then410:                                       ; preds = %if.end408
   br label %if.end415
 
 if.end415:                                        ; preds = %if.then410, %if.end408
-  %newargv.1 = phi ptr [ null, %if.end408 ], [ %call414, %if.then410 ]
+  %newargv.2 = phi ptr [ null, %if.end408 ], [ %call414, %if.then410 ]
   %cmp417373 = icmp sgt i32 %non_expired.0.lcssa, 0
   br i1 %cmp417373, label %for.body419.preheader, label %if.end511
 
@@ -2191,7 +2191,7 @@ if.then474:                                       ; preds = %if.else472
   %108 = load ptr, ptr %arrayidx477, align 8
   %inc488 = add nsw i32 %del_idx.0377, 1
   %idxprom489 = sext i32 %del_idx.0377 to i64
-  %arrayidx490 = getelementptr inbounds ptr, ptr %newargv.1, i64 %idxprom489
+  %arrayidx490 = getelementptr inbounds ptr, ptr %newargv.2, i64 %idxprom489
   store ptr %108, ptr %arrayidx490, align 8
   call void @incrRefCount(ptr noundef %108) #16
   br label %for.inc495
@@ -2243,16 +2243,16 @@ if.then520:                                       ; preds = %if.end518
 
 if.then523:                                       ; preds = %if.then520
   %call524 = call ptr @createStringObject(ptr noundef nonnull @.str.43, i64 noundef 3) #16
-  store ptr %call524, ptr %newargv.1, align 8
-  call void @replaceClientCommandVector(ptr noundef %c, i32 noundef %del_idx.0314, ptr noundef nonnull %newargv.1) #16
+  store ptr %call524, ptr %newargv.2, align 8
+  call void @replaceClientCommandVector(ptr noundef %c, i32 noundef %del_idx.0314, ptr noundef nonnull %newargv.2) #16
   br label %if.end528
 
 if.else526:                                       ; preds = %if.then520
-  call void @zfree(ptr noundef %newargv.1) #16
+  call void @zfree(ptr noundef %newargv.2) #16
   br label %if.end528
 
 if.end528:                                        ; preds = %if.then523, %if.else526, %if.end518
-  %newargv.2 = phi ptr [ %newargv.1, %if.end518 ], [ null, %if.else526 ], [ null, %if.then523 ]
+  %newargv.3 = phi ptr [ %newargv.2, %if.end518 ], [ null, %if.else526 ], [ null, %if.then523 ]
   %argv_rewritten.2 = phi i32 [ %argv_rewritten.0, %if.end518 ], [ %argv_rewritten.0, %if.else526 ], [ 1, %if.then523 ]
   br i1 %or.cond5296299, label %socket_err, label %if.end533
 
@@ -2271,16 +2271,16 @@ if.end538:                                        ; preds = %if.end533, %if.then
   call void @sdsfree(ptr noundef %118) #16
   call void @zfree(ptr noundef %call82) #16
   call void @zfree(ptr noundef %call85) #16
-  call void @zfree(ptr noundef %newargv.2) #16
+  call void @zfree(ptr noundef %newargv.3) #16
   br label %return
 
 socket_err:                                       ; preds = %while.body, %if.end528, %land.lhs.true506, %land.lhs.true401, %land.lhs.true
-  %newargv.3 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true401 ], [ %newargv.1, %land.lhs.true506 ], [ %newargv.2, %if.end528 ], [ null, %while.body ]
+  %newargv.1 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true401 ], [ %newargv.2, %land.lhs.true506 ], [ %newargv.3, %if.end528 ], [ null, %while.body ]
   %may_retry.1 = phi i32 [ %may_retry.0, %land.lhs.true ], [ %may_retry.0, %land.lhs.true401 ], [ 1, %land.lhs.true506 ], [ 0, %if.end528 ], [ %may_retry.0, %while.body ]
-  %argv_rewritten.3 = phi i32 [ %argv_rewritten.0, %land.lhs.true ], [ %argv_rewritten.0, %land.lhs.true401 ], [ %argv_rewritten.0, %land.lhs.true506 ], [ %argv_rewritten.2, %if.end528 ], [ %argv_rewritten.0, %while.body ]
+  %argv_rewritten.1 = phi i32 [ %argv_rewritten.0, %land.lhs.true ], [ %argv_rewritten.0, %land.lhs.true401 ], [ %argv_rewritten.0, %land.lhs.true506 ], [ %argv_rewritten.2, %if.end528 ], [ %argv_rewritten.0, %while.body ]
   %119 = load ptr, ptr %io372, align 8
   call void @sdsfree(ptr noundef %119) #16
-  %tobool543.not = icmp eq i32 %argv_rewritten.3, 0
+  %tobool543.not = icmp eq i32 %argv_rewritten.1, 0
   br i1 %tobool543.not, label %if.then544, label %if.end549
 
 if.then544:                                       ; preds = %socket_err
@@ -2293,7 +2293,7 @@ if.then544:                                       ; preds = %socket_err
   br label %if.end549
 
 if.end549:                                        ; preds = %if.then544, %socket_err
-  call void @zfree(ptr noundef %newargv.3) #16
+  call void @zfree(ptr noundef %newargv.1) #16
   %123 = load i32, ptr %call371, align 4
   %cmp551 = icmp ne i32 %123, 110
   %tobool554 = icmp ne i32 %may_retry.1, 0
@@ -3218,7 +3218,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %num_masters.0 = phi i32 [ 0, %entry ], [ %num_masters.1, %for.inc ]
+  %num_masters.0 = phi i32 [ 0, %entry ], [ %num_masters.2, %for.inc ]
   %start.0 = phi i32 [ -1, %entry ], [ %start.1, %for.inc ]
   %n.0 = phi ptr [ null, %entry ], [ %n.1, %for.inc ]
   %i.0 = phi i32 [ 0, %entry ], [ %inc15, %for.inc ]
@@ -3249,20 +3249,20 @@ if.end12:                                         ; preds = %lor.lhs.false
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then, %if.end12
-  %num_masters.1.ph = phi i32 [ %inc, %if.end12 ], [ %num_masters.0, %if.then ]
+  %num_masters.2.ph = phi i32 [ %inc, %if.end12 ], [ %num_masters.0, %if.then ]
   %call13 = tail call ptr @getNodeBySlot(i32 noundef %i.0) #16
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false
-  %num_masters.1 = phi i32 [ %num_masters.0, %lor.lhs.false ], [ %num_masters.1.ph, %for.inc.sink.split ]
+  %num_masters.2 = phi i32 [ %num_masters.0, %lor.lhs.false ], [ %num_masters.2.ph, %for.inc.sink.split ]
   %start.1 = phi i32 [ %start.0, %lor.lhs.false ], [ %i.0, %for.inc.sink.split ]
   %n.1 = phi ptr [ %n.0, %lor.lhs.false ], [ %call13, %for.inc.sink.split ]
   %inc15 = add nuw nsw i32 %i.0, 1
   br label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %if.then, %if.then9.thread
-  %num_masters.2 = phi i32 [ %inc17, %if.then9.thread ], [ %num_masters.0, %if.then ]
-  %conv = sext i32 %num_masters.2 to i64
+  %num_masters.1 = phi i32 [ %inc17, %if.then9.thread ], [ %num_masters.0, %if.then ]
+  %conv = sext i32 %num_masters.1 to i64
   tail call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call, i64 noundef %conv) #16
   ret void
 }

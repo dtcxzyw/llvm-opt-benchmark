@@ -153,7 +153,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end41
   %i.0221 = phi i16 [ %inc50, %if.end41 ], [ 0, %for.body.preheader ]
-  %retval1.0220 = phi i16 [ %retval1.2, %if.end41 ], [ 0, %for.body.preheader ]
+  %retval1.0220 = phi i16 [ %retval1.1, %if.end41 ], [ 0, %for.body.preheader ]
   %found.0219 = phi i16 [ %found.1, %if.end41 ], [ 0, %for.body.preheader ]
   %list.0218 = phi ptr [ %next.0.lcssa.i, %if.end41 ], [ %0, %for.body.preheader ]
   %missed.0217 = phi i16 [ %missed.1, %if.end41 ], [ 0, %for.body.preheader ]
@@ -245,7 +245,7 @@ if.end41:                                         ; preds = %if.else, %if.then33
   %missed.1 = phi i16 [ %inc, %if.then ], [ %missed.0217, %if.then33 ], [ %missed.0217, %if.else ]
   %found.1 = phi i16 [ %found.0219, %if.then ], [ %inc16, %if.then33 ], [ %inc16, %if.else ]
   %.pn = phi i16 [ %16, %if.then ], [ %conv29, %if.then33 ], [ %conv29, %if.else ]
-  %retval1.2 = add i16 %.pn, %retval1.0220
+  %retval1.1 = add i16 %.pn, %retval1.0220
   %inc48 = zext i1 %cmp.i to i16
   %spec.select = add nuw i16 %info.sroa.4.0216, %inc48
   %inc50 = add nuw nsw i16 %i.0221, 1
@@ -256,7 +256,7 @@ for.end.loopexit:                                 ; preds = %if.end41
   %25 = and i16 %2, 255
   %26 = shl i16 %found.1, 2
   %27 = sub i16 %26, %missed.1
-  %28 = add i16 %27, %retval1.2
+  %28 = add i16 %27, %retval1.1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -1011,8 +1011,8 @@ if.end4.i:                                        ; preds = %entry
   br label %core_list_insert_new.exit
 
 core_list_insert_new.exit:                        ; preds = %entry, %if.end4.i
-  %datablock.0 = phi ptr [ %add.ptr1.i, %if.end4.i ], [ %incdec.ptr6, %entry ]
-  %memblock.addr.0 = phi ptr [ %add.ptr.i, %if.end4.i ], [ %incdec.ptr, %entry ]
+  %datablock.1 = phi ptr [ %add.ptr1.i, %if.end4.i ], [ %incdec.ptr6, %entry ]
+  %memblock.addr.1 = phi ptr [ %add.ptr.i, %if.end4.i ], [ %incdec.ptr, %entry ]
   %cmp51.not = icmp eq i32 %sub, 0
   br i1 %cmp51.not, label %while.cond.preheader, label %for.body
 
@@ -1028,8 +1028,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 for.body:                                         ; preds = %core_list_insert_new.exit, %core_list_insert_new.exit38
   %i.054 = phi i32 [ %inc, %core_list_insert_new.exit38 ], [ 0, %core_list_insert_new.exit ]
-  %memblock.addr.153 = phi ptr [ %memblock.addr.2, %core_list_insert_new.exit38 ], [ %memblock.addr.0, %core_list_insert_new.exit ]
-  %datablock.152 = phi ptr [ %datablock.2, %core_list_insert_new.exit38 ], [ %datablock.0, %core_list_insert_new.exit ]
+  %memblock.addr.053 = phi ptr [ %memblock.addr.2, %core_list_insert_new.exit38 ], [ %memblock.addr.1, %core_list_insert_new.exit ]
+  %datablock.052 = phi ptr [ %datablock.2, %core_list_insert_new.exit38 ], [ %datablock.1, %core_list_insert_new.exit ]
   %2 = trunc i32 %i.054 to i16
   %conv9 = xor i16 %2, %seed
   %3 = shl i16 %conv9, 3
@@ -1037,29 +1037,29 @@ for.body:                                         ; preds = %core_list_insert_ne
   %5 = and i16 %2, 7
   %conv14 = or disjoint i16 %4, %5
   %or18 = mul nuw nsw i16 %conv14, 257
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %memblock.addr.153, i64 16
+  %add.ptr.i27 = getelementptr inbounds i8, ptr %memblock.addr.053, i64 16
   %cmp.not.i28 = icmp ult ptr %add.ptr.i27, %add.ptr
   br i1 %cmp.not.i28, label %if.end.i30, label %core_list_insert_new.exit38
 
 if.end.i30:                                       ; preds = %for.body
-  %add.ptr1.i31 = getelementptr inbounds i8, ptr %datablock.152, i64 4
+  %add.ptr1.i31 = getelementptr inbounds i8, ptr %datablock.052, i64 4
   %cmp2.not.i32 = icmp ult ptr %add.ptr1.i31, %add.ptr2
   br i1 %cmp2.not.i32, label %if.end4.i33, label %core_list_insert_new.exit38
 
 if.end4.i33:                                      ; preds = %if.end.i30
   %6 = load ptr, ptr %memblock, align 8
-  store ptr %6, ptr %memblock.addr.153, align 8
-  store ptr %memblock.addr.153, ptr %memblock, align 8
-  %info7.i34 = getelementptr inbounds i8, ptr %memblock.addr.153, i64 8
-  store ptr %datablock.152, ptr %info7.i34, align 8
-  store i16 %or18, ptr %datablock.152, align 2
-  %idx2.i.i37 = getelementptr inbounds i8, ptr %datablock.152, i64 2
+  store ptr %6, ptr %memblock.addr.053, align 8
+  store ptr %memblock.addr.053, ptr %memblock, align 8
+  %info7.i34 = getelementptr inbounds i8, ptr %memblock.addr.053, i64 8
+  store ptr %datablock.052, ptr %info7.i34, align 8
+  store i16 %or18, ptr %datablock.052, align 2
+  %idx2.i.i37 = getelementptr inbounds i8, ptr %datablock.052, i64 2
   store i16 32767, ptr %idx2.i.i37, align 2
   br label %core_list_insert_new.exit38
 
 core_list_insert_new.exit38:                      ; preds = %for.body, %if.end.i30, %if.end4.i33
-  %datablock.2 = phi ptr [ %add.ptr1.i31, %if.end4.i33 ], [ %datablock.152, %if.end.i30 ], [ %datablock.152, %for.body ]
-  %memblock.addr.2 = phi ptr [ %add.ptr.i27, %if.end4.i33 ], [ %memblock.addr.153, %if.end.i30 ], [ %memblock.addr.153, %for.body ]
+  %datablock.2 = phi ptr [ %add.ptr1.i31, %if.end4.i33 ], [ %datablock.052, %if.end.i30 ], [ %datablock.052, %for.body ]
+  %memblock.addr.2 = phi ptr [ %add.ptr.i27, %if.end4.i33 ], [ %memblock.addr.053, %if.end.i30 ], [ %memblock.addr.053, %for.body ]
   %inc = add nuw i32 %i.054, 1
   %exitcond.not = icmp eq i32 %inc, %sub
   br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !15

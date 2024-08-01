@@ -2027,7 +2027,7 @@ _ZN7QStringD2Ev.exit242:                          ; preds = %409, %_ZN9QtPrivate
           to label %_ZN7QStringD2Ev.exit242.thread unwind label %.loopexit.split-lp364
 
 _ZN7QStringD2Ev.exit242.thread:                   ; preds = %403, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i240, %400, %_ZN7QStringD2Ev.exit242
-  %.0 = phi ptr [ %411, %_ZN7QStringD2Ev.exit242 ], [ %282, %400 ], [ %282, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i240 ], [ %282, %403 ]
+  %.1 = phi ptr [ %411, %_ZN7QStringD2Ev.exit242 ], [ %282, %400 ], [ %282, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i240 ], [ %282, %403 ]
   %412 = load ptr, ptr %25, align 8
   %.not.i.i.i247 = icmp eq ptr %412, null
   br i1 %.not.i.i.i247, label %_ZN5QListIhED2Ev.exit, label %_ZN17QArrayDataPointerIhE5derefEv.exit.i.i
@@ -2704,17 +2704,17 @@ _ZN17QArrayDataPointerIP17_dissector_info_tE5derefEv.exit.i.i315: ; preds = %_ZN
   br label %common.resume
 
 _ZN5QListIhED2Ev.exit:                            ; preds = %414, %_ZN17QArrayDataPointerIhE5derefEv.exit.i.i, %_ZN7QStringD2Ev.exit242.thread
-  %.not142 = icmp eq ptr %.0, null
+  %.not142 = icmp eq ptr %.1, null
   br i1 %.not142, label %_ZN5QListIhED2Ev.exit.thread351, label %_ZN5QListIhED2Ev.exit.thread
 
 _ZN5QListIhED2Ev.exit.thread:                     ; preds = %625, %_ZN17QArrayDataPointerIP17_dissector_info_tE5derefEv.exit.i.i, %622, %_ZN5QListI7QStringED2Ev.exit196, %_ZN5QListIhED2Ev.exit
-  %.1349 = phi ptr [ %.0, %_ZN5QListIhED2Ev.exit ], [ %421, %625 ], [ %421, %_ZN17QArrayDataPointerIP17_dissector_info_tE5derefEv.exit.i.i ], [ %421, %622 ], [ %47, %_ZN5QListI7QStringED2Ev.exit196 ]
-  call void @_ZN7QWidget21setAutoFillBackgroundEb(ptr noundef nonnull align 8 dereferenceable(40) %.1349, i1 noundef zeroext true)
+  %.0349 = phi ptr [ %.1, %_ZN5QListIhED2Ev.exit ], [ %421, %625 ], [ %421, %_ZN17QArrayDataPointerIP17_dissector_info_tE5derefEv.exit.i.i ], [ %421, %622 ], [ %47, %_ZN5QListI7QStringED2Ev.exit196 ]
+  call void @_ZN7QWidget21setAutoFillBackgroundEb(ptr noundef nonnull align 8 dereferenceable(40) %.0349, i1 noundef zeroext true)
   br label %_ZN5QListIhED2Ev.exit.thread351
 
 _ZN5QListIhED2Ev.exit.thread351:                  ; preds = %_ZNK16DecodeAsDelegate12indexToFieldERK11QModelIndex.exit, %_ZN5QListIhED2Ev.exit.thread, %_ZN5QListIhED2Ev.exit
-  %.1350 = phi ptr [ %.1349, %_ZN5QListIhED2Ev.exit.thread ], [ null, %_ZN5QListIhED2Ev.exit ], [ null, %_ZNK16DecodeAsDelegate12indexToFieldERK11QModelIndex.exit ]
-  ret ptr %.1350
+  %.0350 = phi ptr [ %.0349, %_ZN5QListIhED2Ev.exit.thread ], [ null, %_ZN5QListIhED2Ev.exit ], [ null, %_ZNK16DecodeAsDelegate12indexToFieldERK11QModelIndex.exit ]
+  ret ptr %.0350
 }
 
 declare void @_ZN9QComboBoxC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -6604,10 +6604,10 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE12moveFromSpanERS5_m
   br i1 %.not.i.i43, label %132, label %_ZN12QHashPrivate8iteratorINS_4NodeI7QString15QHashDummyValueEEEppEv.exit, !llvm.loop !54
 
 _ZN12QHashPrivate8iteratorINS_4NodeI7QString15QHashDummyValueEEEppEv.exit: ; preds = %136, %132, %124
-  %.sroa.0.1 = phi ptr [ %1, %124 ], [ null, %132 ], [ %1, %136 ]
-  %.sroa.4.1 = phi i64 [ %2, %124 ], [ 0, %132 ], [ %134, %136 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.1, 1
+  %.sroa.0.0 = phi ptr [ %1, %124 ], [ null, %132 ], [ %1, %136 ]
+  %.sroa.4.0 = phi i64 [ %2, %124 ], [ 0, %132 ], [ %134, %136 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

@@ -517,13 +517,13 @@ _ZNSt6bitsetILm8EE3setEmb.exit.i.i:               ; preds = %135
   br i1 %.not.i.i, label %.loopexit, label %135
 
 .loopexit:                                        ; preds = %_ZNSt6bitsetILm8EE3setEmb.exit.i.i, %_ZN2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EE6insertES2_.exit
-  %.sroa.0.4 = phi i64 [ %131, %_ZN2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EE6insertES2_.exit ], [ %142, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i ]
-  %143 = and i64 %.sroa.0.4, 1
+  %.sroa.0.2 = phi i64 [ %131, %_ZN2cm8enum_setIN12_GLOBAL__N_19ScopeTypeELi0EE6insertES2_.exit ], [ %142, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i ]
+  %143 = and i64 %.sroa.0.2, 1
   %.not92 = icmp eq i64 %143, 0
   br i1 %.not92, label %.loopexit.thread, label %158
 
 .loopexit.thread:                                 ; preds = %98, %.loopexit
-  %.sroa.0.4108 = phi i64 [ %.sroa.0.4, %.loopexit ], [ 0, %98 ]
+  %.sroa.0.2108 = phi i64 [ %.sroa.0.2, %.loopexit ], [ 0, %98 ]
   %144 = load ptr, ptr %36, align 8
   %145 = getelementptr inbounds i8, ptr %11, i64 88
   %146 = load ptr, ptr %145, align 8
@@ -578,7 +578,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 158:                                              ; preds = %.loopexit.thread, %.loopexit
   %.not92109 = phi i1 [ true, %.loopexit.thread ], [ false, %.loopexit ]
-  %.sroa.0.4107 = phi i64 [ %.sroa.0.4108, %.loopexit.thread ], [ %.sroa.0.4, %.loopexit ]
+  %.sroa.0.2107 = phi i64 [ %.sroa.0.2108, %.loopexit.thread ], [ %.sroa.0.2, %.loopexit ]
   %159 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %160 = invoke noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
@@ -606,11 +606,11 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %168 = getelementptr inbounds i8, ptr %160, i64 152
   store ptr %159, ptr %168, align 8, !noalias !33
   %169 = getelementptr inbounds i8, ptr %160, i64 160
-  store i64 %.sroa.0.4107, ptr %169, align 8, !noalias !33
+  store i64 %.sroa.0.2107, ptr %169, align 8, !noalias !33
   %170 = getelementptr inbounds i8, ptr %160, i64 168
   %171 = getelementptr inbounds i8, ptr %160, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, i8 0, i64 16, i1 false), !noalias !33
-  %172 = and i64 %.sroa.0.4107, 2
+  %172 = and i64 %.sroa.0.2107, 2
   %.not.i.i.i62 = icmp eq i64 %172, 0
   br i1 %.not.i.i.i62, label %180, label %173
 

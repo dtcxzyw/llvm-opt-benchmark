@@ -204,13 +204,13 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
 
 80:                                               ; preds = %.lr.ph306, %80
   %indvars.iv350 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next351, %80 ]
-  %.1213303 = phi i32 [ %spec.select252, %.lr.ph306 ], [ %spec.select253, %80 ]
+  %.2214303 = phi i32 [ %spec.select252, %.lr.ph306 ], [ %spec.select253, %80 ]
   %81 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv350
   %82 = load i32, ptr %81, align 4
   %83 = tail call i32 @llvm.abs.i32(i32 %82, i1 true)
   %.highbits = lshr i32 %83, %79
   %.not250 = icmp eq i32 %.highbits, 0
-  %spec.select253 = select i1 %.not250, i32 %.1213303, i32 1
+  %spec.select253 = select i1 %.not250, i32 %.2214303, i32 1
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
   br i1 %exitcond354.not, label %select.unfold.loopexit, label %80, !llvm.loop !12

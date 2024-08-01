@@ -234,7 +234,7 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr nocaptur
 
 15:                                               ; preds = %.lr.ph, %pcapng_count_string_option.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pcapng_count_string_option.exit ]
-  %.04980 = phi i32 [ 0, %.lr.ph ], [ %26, %pcapng_count_string_option.exit ]
+  %.180 = phi i32 [ 0, %.lr.ph ], [ %26, %pcapng_count_string_option.exit ]
   %16 = getelementptr ptr, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
@@ -255,13 +255,13 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr nocaptur
 
 pcapng_count_string_option.exit:                  ; preds = %15, %18, %21
   %.0.i = phi i32 [ %25, %21 ], [ 0, %18 ], [ 0, %15 ]
-  %26 = add i32 %.0.i, %.04980
+  %26 = add i32 %.0.i, %.180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit79, label %15, !llvm.loop !4
 
 .loopexit79:                                      ; preds = %pcapng_count_string_option.exit, %.preheader78, %8
-  %.1 = phi i32 [ 0, %8 ], [ 0, %.preheader78 ], [ %26, %pcapng_count_string_option.exit ]
+  %.049 = phi i32 [ 0, %8 ], [ 0, %.preheader78 ], [ %26, %pcapng_count_string_option.exit ]
   %.not.i57 = icmp eq ptr %2, null
   br i1 %.not.i57, label %pcapng_count_string_option.exit60, label %27
 
@@ -280,7 +280,7 @@ pcapng_count_string_option.exit:                  ; preds = %15, %18, %21
 
 pcapng_count_string_option.exit60:                ; preds = %.loopexit79, %27, %30
   %.0.i59 = phi i32 [ %34, %30 ], [ 0, %27 ], [ 0, %.loopexit79 ]
-  %35 = add i32 %.0.i59, %.1
+  %35 = add i32 %.0.i59, %.049
   %.not.i61 = icmp eq ptr %3, null
   br i1 %.not.i61, label %pcapng_count_string_option.exit64, label %36
 

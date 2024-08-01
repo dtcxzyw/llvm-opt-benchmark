@@ -2294,8 +2294,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph603.i:                                      ; preds = %._crit_edge.i, %.lr.ph603.preheader.i
   %indvars.iv640.i = phi i32 [ 0, %.lr.ph603.preheader.i ], [ %indvars.iv.next641.i, %._crit_edge.i ]
-  %.3601.i = phi i32 [ %389, %.lr.ph603.preheader.i ], [ %.4.lcssa.i, %._crit_edge.i ]
-  %669 = add i32 %.3601.i, 1
+  %.4601.i = phi i32 [ %389, %.lr.ph603.preheader.i ], [ %.5.lcssa.i, %._crit_edge.i ]
+  %669 = add i32 %.4601.i, 1
   %670 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %669) #6
   %671 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
   %672 = call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %671, ptr noundef %0, i32 noundef %669, i32 noundef 1, i32 noundef 0) #6
@@ -2311,8 +2311,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph598.i:                                      ; preds = %.lr.ph598.i, %.lr.ph598.preheader.i
   %indvars.iv.i = phi i32 [ 0, %.lr.ph598.preheader.i ], [ %indvars.iv.next.i, %.lr.ph598.i ]
-  %.4597.i = phi i32 [ %669, %.lr.ph598.preheader.i ], [ %675, %.lr.ph598.i ]
-  %675 = add i32 %.4597.i, 1
+  %.5597.i = phi i32 [ %669, %.lr.ph598.preheader.i ], [ %675, %.lr.ph598.i ]
+  %675 = add i32 %.5597.i, 1
   %676 = load i32, ptr @hf_oam_dpoe_qc_queue_size, align 4
   %677 = call ptr @proto_tree_add_item(ptr noundef %674, i32 noundef %676, ptr noundef %0, i32 noundef %675, i32 noundef 1, i32 noundef 0) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %677, ptr noundef nonnull @.str.941, i32 noundef %indvars.iv640.i, i32 noundef %indvars.iv.i) #6
@@ -2321,14 +2321,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %exitcond639.not.i, label %._crit_edge.i, label %.lr.ph598.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph598.i, %.lr.ph603.i
-  %.4.lcssa.i = phi i32 [ %669, %.lr.ph603.i ], [ %675, %.lr.ph598.i ]
+  %.5.lcssa.i = phi i32 [ %669, %.lr.ph603.i ], [ %675, %.lr.ph598.i ]
   %indvars.iv.next641.i = add nuw nsw i32 %indvars.iv640.i, 1
   %exitcond644.not.i = icmp eq i32 %indvars.iv.next641.i, %wide.trip.count643.i
   br i1 %exitcond644.not.i, label %._crit_edge604.i, label %.lr.ph603.i, !llvm.loop !9
 
 ._crit_edge604.i:                                 ; preds = %._crit_edge.i, %663
-  %.3.lcssa.i = phi i32 [ %389, %663 ], [ %.4.lcssa.i, %._crit_edge.i ]
-  %678 = add i32 %.3.lcssa.i, 1
+  %.4.lcssa.i = phi i32 [ %389, %663 ], [ %.5.lcssa.i, %._crit_edge.i ]
+  %678 = add i32 %.4.lcssa.i, 1
   %679 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %678) #6
   %680 = load i32, ptr @hf_oam_dpoe_qc_ports_d, align 4
   %681 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %680, ptr noundef %0, i32 noundef %678, i32 noundef 1, i32 noundef 0) #6
@@ -2343,8 +2343,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph615.i:                                      ; preds = %._crit_edge610.i, %.lr.ph615.preheader.i
   %indvars.iv650.i = phi i32 [ 0, %.lr.ph615.preheader.i ], [ %indvars.iv.next651.i, %._crit_edge610.i ]
-  %.5613.i = phi i32 [ %678, %.lr.ph615.preheader.i ], [ %.6.lcssa.i, %._crit_edge610.i ]
-  %684 = add i32 %.5613.i, 1
+  %.6613.i = phi i32 [ %678, %.lr.ph615.preheader.i ], [ %.7.lcssa.i, %._crit_edge610.i ]
+  %684 = add i32 %.6613.i, 1
   %685 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %684) #6
   %686 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
   %687 = call ptr @proto_tree_add_item(ptr noundef %683, i32 noundef %686, ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef 0) #6
@@ -2360,8 +2360,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph609.i:                                      ; preds = %.lr.ph609.i, %.lr.ph609.preheader.i
   %indvars.iv645.i = phi i32 [ 0, %.lr.ph609.preheader.i ], [ %indvars.iv.next646.i, %.lr.ph609.i ]
-  %.6607.i = phi i32 [ %684, %.lr.ph609.preheader.i ], [ %690, %.lr.ph609.i ]
-  %690 = add i32 %.6607.i, 1
+  %.7607.i = phi i32 [ %684, %.lr.ph609.preheader.i ], [ %690, %.lr.ph609.i ]
+  %690 = add i32 %.7607.i, 1
   %691 = load i32, ptr @hf_oam_dpoe_qc_queue_size, align 4
   %692 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %691, ptr noundef %0, i32 noundef %690, i32 noundef 1, i32 noundef 0) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %692, ptr noundef nonnull @.str.943, i32 noundef %indvars.iv650.i, i32 noundef %indvars.iv645.i) #6
@@ -2370,7 +2370,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %exitcond649.not.i, label %._crit_edge610.i, label %.lr.ph609.i, !llvm.loop !10
 
 ._crit_edge610.i:                                 ; preds = %.lr.ph609.i, %.lr.ph615.i
-  %.6.lcssa.i = phi i32 [ %684, %.lr.ph615.i ], [ %690, %.lr.ph609.i ]
+  %.7.lcssa.i = phi i32 [ %684, %.lr.ph615.i ], [ %690, %.lr.ph609.i ]
   %indvars.iv.next651.i = add nuw nsw i32 %indvars.iv650.i, 1
   %exitcond654.not.i = icmp eq i32 %indvars.iv.next651.i, %wide.trip.count653.i
   br i1 %exitcond654.not.i, label %.loopexit.i38, label %.lr.ph615.i, !llvm.loop !11
@@ -2400,11 +2400,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not625.i, label %.loopexit.i38, label %.lr.ph595.i
 
 .lr.ph595.i:                                      ; preds = %703, %.lr.ph595.i
-  %.7594.i = phi i32 [ %712, %.lr.ph595.i ], [ %707, %703 ]
+  %.8594.i = phi i32 [ %712, %.lr.ph595.i ], [ %707, %703 ]
   %.0563593.i = phi i8 [ %713, %.lr.ph595.i ], [ 0, %703 ]
   %710 = load i32, ptr @hf_oam_dpoe_1904_1_qc_queue_size, align 4
-  %711 = call ptr @proto_tree_add_item(ptr noundef %709, i32 noundef %710, ptr noundef %0, i32 noundef %.7594.i, i32 noundef 4, i32 noundef 0) #6
-  %712 = add i32 %.7594.i, 4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %709, i32 noundef %710, ptr noundef %0, i32 noundef %.8594.i, i32 noundef 4, i32 noundef 0) #6
+  %712 = add i32 %.8594.i, 4
   %713 = add nuw i8 %.0563593.i, 1
   %exitcond.not.i = icmp eq i8 %713, %704
   br i1 %exitcond.not.i, label %.loopexit.i38, label %.lr.ph595.i, !llvm.loop !12
@@ -2464,9 +2464,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .loopexit.i38:                                    ; preds = %.lr.ph595.i, %._crit_edge610.i, %._crit_edge619.us.i, %743, %740, %736, %732, %729, %726, %723, %720, %717, %714, %703, %698, %693, %._crit_edge604.i, %659, %655, %651, %647, %643, %639, %632, %630, %629, %628, %627, %622, %620, %615, %591, %587, %578, %575, %571, %568, %.preheader.lr.ph.i, %553, %548, %543, %538, %533, %523, %518, %512, %485, %482, %479, %473, %465, %462, %409, %397, %394, %390, %383
   %.1562.i = phi i8 [ 0, %383 ], [ -128, %390 ], [ %378, %394 ], [ %378, %397 ], [ %378, %409 ], [ %378, %462 ], [ %378, %465 ], [ %378, %473 ], [ %378, %479 ], [ %378, %482 ], [ %378, %485 ], [ %378, %512 ], [ %378, %518 ], [ %378, %523 ], [ %378, %533 ], [ %378, %538 ], [ %378, %543 ], [ %378, %548 ], [ %378, %568 ], [ %378, %571 ], [ %378, %575 ], [ %378, %578 ], [ %378, %587 ], [ %378, %615 ], [ %378, %620 ], [ %378, %591 ], [ %378, %622 ], [ %378, %659 ], [ %378, %655 ], [ %378, %651 ], [ %378, %647 ], [ %378, %643 ], [ %378, %639 ], [ %378, %632 ], [ %378, %630 ], [ %378, %629 ], [ %378, %628 ], [ %378, %627 ], [ %378, %693 ], [ %378, %698 ], [ %378, %714 ], [ %378, %717 ], [ %378, %720 ], [ %378, %723 ], [ %378, %726 ], [ %378, %729 ], [ %378, %732 ], [ %378, %736 ], [ %378, %740 ], [ %378, %743 ], [ %378, %553 ], [ 1, %._crit_edge604.i ], [ %378, %703 ], [ %378, %.preheader.lr.ph.i ], [ %378, %._crit_edge619.us.i ], [ 1, %._crit_edge610.i ], [ %378, %.lr.ph595.i ]
-  %.8.i = phi i32 [ %386, %383 ], [ %389, %390 ], [ %389, %394 ], [ %389, %397 ], [ %389, %409 ], [ %389, %462 ], [ %389, %465 ], [ %389, %473 ], [ %389, %479 ], [ %389, %482 ], [ %389, %485 ], [ %389, %512 ], [ %389, %518 ], [ %389, %523 ], [ %389, %533 ], [ %389, %538 ], [ %389, %543 ], [ %389, %548 ], [ %389, %568 ], [ %389, %571 ], [ %389, %575 ], [ %389, %578 ], [ %389, %587 ], [ %389, %615 ], [ %389, %620 ], [ %389, %591 ], [ %389, %622 ], [ %389, %659 ], [ %389, %655 ], [ %389, %651 ], [ %389, %647 ], [ %389, %643 ], [ %389, %639 ], [ %389, %632 ], [ %389, %630 ], [ %389, %629 ], [ %389, %628 ], [ %389, %627 ], [ %389, %693 ], [ %389, %698 ], [ %389, %714 ], [ %389, %717 ], [ %389, %720 ], [ %389, %723 ], [ %389, %726 ], [ %389, %729 ], [ %389, %732 ], [ %389, %736 ], [ %389, %740 ], [ %389, %743 ], [ %389, %553 ], [ %678, %._crit_edge604.i ], [ %707, %703 ], [ %389, %.preheader.lr.ph.i ], [ %389, %._crit_edge619.us.i ], [ %.6.lcssa.i, %._crit_edge610.i ], [ %712, %.lr.ph595.i ]
+  %.3.i = phi i32 [ %386, %383 ], [ %389, %390 ], [ %389, %394 ], [ %389, %397 ], [ %389, %409 ], [ %389, %462 ], [ %389, %465 ], [ %389, %473 ], [ %389, %479 ], [ %389, %482 ], [ %389, %485 ], [ %389, %512 ], [ %389, %518 ], [ %389, %523 ], [ %389, %533 ], [ %389, %538 ], [ %389, %543 ], [ %389, %548 ], [ %389, %568 ], [ %389, %571 ], [ %389, %575 ], [ %389, %578 ], [ %389, %587 ], [ %389, %615 ], [ %389, %620 ], [ %389, %591 ], [ %389, %622 ], [ %389, %659 ], [ %389, %655 ], [ %389, %651 ], [ %389, %647 ], [ %389, %643 ], [ %389, %639 ], [ %389, %632 ], [ %389, %630 ], [ %389, %629 ], [ %389, %628 ], [ %389, %627 ], [ %389, %693 ], [ %389, %698 ], [ %389, %714 ], [ %389, %717 ], [ %389, %720 ], [ %389, %723 ], [ %389, %726 ], [ %389, %729 ], [ %389, %732 ], [ %389, %736 ], [ %389, %740 ], [ %389, %743 ], [ %389, %553 ], [ %678, %._crit_edge604.i ], [ %707, %703 ], [ %389, %.preheader.lr.ph.i ], [ %389, %._crit_edge619.us.i ], [ %.7.lcssa.i, %._crit_edge610.i ], [ %712, %.lr.ph595.i ]
   %746 = zext i8 %.1562.i to i32
-  %747 = add i32 %.8.i, %746
+  %747 = add i32 %.3.i, %746
   %748 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %747) #6
   %.not585.i = icmp eq i8 %748, 0
   br i1 %.not585.i, label %dissect_oampdu_vendor_specific.exit, label %373, !llvm.loop !13

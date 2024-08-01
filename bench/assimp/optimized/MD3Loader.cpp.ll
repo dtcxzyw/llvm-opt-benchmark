@@ -969,12 +969,12 @@ if.then121:                                       ; preds = %if.else118
 
 for.inc.sink.split:                               ; preds = %if.else109, %if.end116.sink.split, %if.then66, %if.then77, %invoke.cont87, %if.then71, %invoke.cont57
   %ref.tmp56.sink = phi ptr [ %ref.tmp56, %invoke.cont57 ], [ %blend_src, %if.then71 ], [ %blend_src, %invoke.cont87 ], [ %blend_src, %if.then77 ], [ %blend_src, %if.then66 ], [ %at, %if.end116.sink.split ], [ %at, %if.else109 ]
-  %buff.9.ph = phi ptr [ %storemerge.i, %invoke.cont57 ], [ %storemerge.i75, %if.then71 ], [ %storemerge.i99, %invoke.cont87 ], [ %storemerge.i75, %if.then77 ], [ %storemerge.i75, %if.then66 ], [ %storemerge.i124, %if.end116.sink.split ], [ %storemerge.i124, %if.else109 ]
+  %buff.5.ph = phi ptr [ %storemerge.i, %invoke.cont57 ], [ %storemerge.i75, %if.then71 ], [ %storemerge.i99, %invoke.cont87 ], [ %storemerge.i75, %if.then77 ], [ %storemerge.i75, %if.then66 ], [ %storemerge.i124, %if.end116.sink.split ], [ %storemerge.i124, %if.else109 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56.sink) #17
   br label %while.cond.i.i141.preheader
 
 while.cond.i.i141.preheader:                      ; preds = %for.inc.sink.split, %if.else118
-  %in.addr.0.i.i142.ph = phi ptr [ %buff.9.ph, %for.inc.sink.split ], [ %in.addr.0.i.i43, %if.else118 ]
+  %in.addr.0.i.i142.ph = phi ptr [ %buff.5.ph, %for.inc.sink.split ], [ %in.addr.0.i.i43, %if.else118 ]
   br label %while.cond.i.i141
 
 while.cond.i.i141:                                ; preds = %while.cond.i.i141.preheader, %while.body.i.i143
@@ -1201,12 +1201,12 @@ invoke.cont184:                                   ; preds = %while.end.i196
   br label %for.inc188
 
 for.inc188:                                       ; preds = %while.cond.i.i35, %invoke.cont184, %if.then132
-  %buff.12 = phi ptr [ %incdec.ptr133, %if.then132 ], [ %storemerge.i195, %invoke.cont184 ], [ %in.addr.0.i.i36, %while.cond.i.i35 ]
+  %buff.7 = phi ptr [ %incdec.ptr133, %if.then132 ], [ %storemerge.i195, %invoke.cont184 ], [ %in.addr.0.i.i36, %while.cond.i.i35 ]
   %curData.1 = phi ptr [ null, %if.then132 ], [ %_M_storage.i.i.i187, %invoke.cont184 ], [ %curData.0, %while.cond.i.i35 ]
   br label %while.cond.i.i206
 
 while.cond.i.i206:                                ; preds = %while.body.i.i215, %for.inc188
-  %in.addr.0.i.i207 = phi ptr [ %buff.12, %for.inc188 ], [ %incdec.ptr.i.i216, %while.body.i.i215 ]
+  %in.addr.0.i.i207 = phi ptr [ %buff.7, %for.inc188 ], [ %incdec.ptr.i.i216, %while.body.i.i215 ]
   %46 = load i8, ptr %in.addr.0.i.i207, align 1
   switch i8 %46, label %while.body.i.i215 [
     i8 13, label %while.cond5.i.i209.preheader
@@ -4964,12 +4964,12 @@ invoke.cont280:                                   ; preds = %if.else279
           to label %if.end283 unwind label %lpad264
 
 if.end283:                                        ; preds = %invoke.cont280, %invoke.cont276
-  %shader.0 = phi ptr [ %_M_storage.i.i196, %invoke.cont276 ], [ null, %invoke.cont280 ]
+  %shader.1 = phi ptr [ %_M_storage.i.i196, %invoke.cont276 ], [ null, %invoke.cont280 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %without_ext) #17
   br label %if.end285
 
 if.end285:                                        ; preds = %if.end283, %if.end242
-  %shader.1 = phi ptr [ null, %if.end242 ], [ %shader.0, %if.end283 ]
+  %shader.0 = phi ptr [ null, %if.end242 ], [ %shader.1, %if.end283 ]
   %call287 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
           to label %invoke.cont286 unwind label %lpad236.loopexit.split-lp.loopexit
 
@@ -5045,7 +5045,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
           to label %invoke.cont322 unwind label %lpad236.loopexit.split-lp.loopexit
 
 invoke.cont322:                                   ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %tobool324.not = icmp eq ptr %shader.1, null
+  %tobool324.not = icmp eq ptr %shader.0, null
   br i1 %tobool324.not, label %if.then325, label %if.else340
 
 if.then325:                                       ; preds = %invoke.cont322
@@ -5131,7 +5131,7 @@ invoke.cont336:                                   ; preds = %if.end335
           to label %if.end342 unwind label %lpad236.loopexit.split-lp.loopexit
 
 if.else340:                                       ; preds = %invoke.cont322
-  invoke void @_ZN6Assimp8Q3Shader23ConvertShaderToMaterialEP10aiMaterialRKNS0_15ShaderDataBlockE(ptr noundef nonnull %call287, ptr noundef nonnull align 8 dereferenceable(64) %shader.1)
+  invoke void @_ZN6Assimp8Q3Shader23ConvertShaderToMaterialEP10aiMaterialRKNS0_15ShaderDataBlockE(ptr noundef nonnull %call287, ptr noundef nonnull align 8 dereferenceable(64) %shader.0)
           to label %if.end342 unwind label %lpad236.loopexit.split-lp.loopexit
 
 if.end342:                                        ; preds = %invoke.cont336, %if.else340
@@ -5248,7 +5248,7 @@ arrayctor.cont389:                                ; preds = %new.ctorloop383, %i
   br i1 %cmp394391.not, label %for.end482, label %for.body395.lr.ph
 
 for.body395.lr.ph:                                ; preds = %arrayctor.cont389
-  %cull = getelementptr inbounds i8, ptr %shader.1, i64 32
+  %cull = getelementptr inbounds i8, ptr %shader.0, i64 32
   br label %for.body395
 
 for.body395:                                      ; preds = %for.body395.lr.ph, %if.end479

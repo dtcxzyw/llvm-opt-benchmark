@@ -6260,8 +6260,8 @@ _ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_e
   br i1 %cmp10.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i, !llvm.loop !67
 
 if.end13.i.i.i.i.i.i.i:                           ; preds = %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit25, %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit ], [ %mul.i20.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit25 ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit ], [ %mul.i20.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit25 ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
@@ -6587,8 +6587,8 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %w
   br i1 %cmp10.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i, !llvm.loop !67
 
 if.end13.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.i, %if.then.i.i.i.i
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
@@ -6781,8 +6781,8 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %w
   br i1 %cmp10.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i, !llvm.loop !67
 
 if.end13.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.i, %if.then.i.i.i.i
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
@@ -7073,8 +7073,8 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %w
   br i1 %cmp10.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i, !llvm.loop !67
 
 if.end13.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.i, %if.then.i.i.i.i
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %mul.i20.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
@@ -7405,8 +7405,8 @@ _ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm21474836
   br i1 %cmp10.i.i.i.i.i.i.i, label %do.body.preheader.i.i.i11.backedge, label %if.end13.i.i.i.i.i.i.i
 
 if.end13.i.i.i.i.i.i.i:                           ; preds = %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit35, %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit
-  %product.1.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit ], [ %mul.i20.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit35 ]
-  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
+  %product.0.i.i.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit ], [ %mul.i20.i.i.i.i.i.i.i, %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit35 ]
+  %shr.i.i.i.i.i.i.i.i = lshr i64 %product.0.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
   %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double

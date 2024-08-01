@@ -1343,8 +1343,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.i:  ; preds = %439, %419, %411
 
 456:                                              ; preds = %454, %452
   %.pn.pn.i = phi { ptr, i32 } [ %455, %454 ], [ %453, %452 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn.pn.i, 0
-  %.118.i = extractvalue { ptr, i32 } %.pn.pn.i, 1
+  %.4.i = extractvalue { ptr, i32 } %.pn.pn.i, 0
+  %.421.i = extractvalue { ptr, i32 } %.pn.pn.i, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #19
   br label %.loopexit75.i
 
@@ -1559,8 +1559,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit64.i:                ; preds = %526, %523, %521
 
 .body50.i:                                        ; preds = %.body55.i, %511, %509, %472
   %.pn32.pn.pn.i = phi { ptr, i32 } [ %.pn32.pn.i, %.body55.i ], [ %512, %511 ], [ %510, %509 ], [ %473, %472 ]
-  %.4.i = extractvalue { ptr, i32 } %.pn32.pn.pn.i, 0
-  %.421.i = extractvalue { ptr, i32 } %.pn32.pn.pn.i, 1
+  %.6.i = extractvalue { ptr, i32 } %.pn32.pn.pn.i, 0
+  %.623.i = extractvalue { ptr, i32 } %.pn32.pn.pn.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
   br label %.loopexit75.i
 
@@ -1622,14 +1622,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit64.i:                ; preds = %526, %523, %521
   br label %.thread.i
 
 .loopexit75.i:                                    ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit48.i, %.body50.i, %456, %449, %445
-  %.522.i = phi i32 [ %451, %449 ], [ %.421.i, %.body50.i ], [ %.118.i, %456 ], [ %448, %445 ], [ %423, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit48.i ]
-  %.5.i = phi ptr [ %450, %449 ], [ %.4.i, %.body50.i ], [ %.1.i, %456 ], [ %447, %445 ], [ %422, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit48.i ]
+  %.320.i = phi i32 [ %451, %449 ], [ %.623.i, %.body50.i ], [ %.421.i, %456 ], [ %448, %445 ], [ %423, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit48.i ]
+  %.3.i = phi ptr [ %450, %449 ], [ %.6.i, %.body50.i ], [ %.4.i, %456 ], [ %447, %445 ], [ %422, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit48.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #19
   br label %554
 
 554:                                              ; preds = %.loopexit75.i, %347
-  %.623.i = phi i32 [ %349, %347 ], [ %.522.i, %.loopexit75.i ]
-  %.6.i = phi ptr [ %348, %347 ], [ %.5.i, %.loopexit75.i ]
+  %.219.i = phi i32 [ %349, %347 ], [ %.320.i, %.loopexit75.i ]
+  %.2.i = phi ptr [ %348, %347 ], [ %.3.i, %.loopexit75.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #19
   br label %594
 
@@ -1716,17 +1716,17 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZL16liveQRCodeDetectv.exit
 
 594:                                              ; preds = %554, %315
-  %.724.i = phi i32 [ %318, %315 ], [ %.623.i, %554 ]
-  %.7.i = phi ptr [ %317, %315 ], [ %.6.i, %554 ]
+  %.118.i = phi i32 [ %318, %315 ], [ %.219.i, %554 ]
+  %.1.i = phi ptr [ %317, %315 ], [ %.2.i, %554 ]
   call void @_ZN2cv21GraphicalCodeDetectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #19
   br label %595
 
 595:                                              ; preds = %594, %204
-  %.825.i = phi i32 [ %.724.i, %594 ], [ %207, %204 ]
-  %.8.i = phi ptr [ %.7.i, %594 ], [ %206, %204 ]
+  %.017.i = phi i32 [ %.118.i, %594 ], [ %207, %204 ]
+  %.016.i = phi ptr [ %.1.i, %594 ], [ %206, %204 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %25) #19
-  %596 = insertvalue { ptr, i32 } poison, ptr %.8.i, 0
-  %597 = insertvalue { ptr, i32 } %596, i32 %.825.i, 1
+  %596 = insertvalue { ptr, i32 } poison, ptr %.016.i, 0
+  %597 = insertvalue { ptr, i32 } %596, i32 %.017.i, 1
   br label %.body126
 
 598:                                              ; preds = %445
@@ -2669,7 +2669,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit55.i: ; preds = %911, %909, %783
   br label %.body126
 
 916:                                              ; preds = %_ZL16liveQRCodeDetectv.exit, %913, %147
-  %.038 = phi i32 [ -1, %147 ], [ 0, %913 ], [ %.0.i, %_ZL16liveQRCodeDetectv.exit ]
+  %.1 = phi i32 [ -1, %147 ], [ 0, %913 ], [ %.0.i, %_ZL16liveQRCodeDetectv.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
   br label %917
 
@@ -2679,10 +2679,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit55.i: ; preds = %911, %909, %783
   br label %918
 
 917:                                              ; preds = %94, %916
-  %.1 = phi i32 [ %.038, %916 ], [ 0, %94 ]
+  %.038 = phi i32 [ %.1, %916 ], [ 0, %94 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #19
-  ret i32 %.1
+  ret i32 %.038
 
 918:                                              ; preds = %.body126, %128, %109, %108, %103
   %.pn97 = phi { ptr, i32 } [ %110, %109 ], [ %.pn95, %.body126 ], [ %.pn69, %128 ], [ %.pn67, %108 ], [ %.pn, %103 ]

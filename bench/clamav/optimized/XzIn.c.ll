@@ -657,11 +657,11 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 nou
 
 .preheader.i:                                     ; preds = %35, %60
   %.05875.i = phi i64 [ %63, %60 ], [ 0, %35 ]
-  %.05974.i = phi i64 [ %62, %60 ], [ %30, %35 ]
+  %.174.i = phi i64 [ %62, %60 ], [ %30, %35 ]
   %43 = load ptr, ptr %41, align 8
   %44 = getelementptr inbounds %struct.CXzBlockSizes, ptr %43, i64 %.05875.i
-  %45 = getelementptr inbounds i8, ptr %9, i64 %.05974.i
-  %46 = sub i64 %19, %.05974.i
+  %45 = getelementptr inbounds i8, ptr %9, i64 %.174.i
+  %46 = sub i64 %19, %.174.i
   %47 = getelementptr inbounds i8, ptr %44, i64 8
   %48 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull %47) #9
   %49 = icmp eq i32 %48, 0
@@ -669,7 +669,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 nou
 
 50:                                               ; preds = %.preheader.i
   %51 = zext i32 %48 to i64
-  %52 = add i64 %.05974.i, %51
+  %52 = add i64 %.174.i, %51
   %53 = getelementptr inbounds i8, ptr %9, i64 %52
   %54 = sub i64 %19, %52
   %55 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %53, i64 noundef %54, ptr noundef %44) #9
